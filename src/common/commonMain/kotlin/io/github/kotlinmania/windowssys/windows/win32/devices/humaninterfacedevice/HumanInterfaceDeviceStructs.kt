@@ -2,7 +2,6 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.devices.humaninterfacedevice
 
-import io.github.kotlinmania.rustlang.core.ffi.CVoid
 import io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
 import io.github.kotlinmania.rustlang.core.mem.TypeLayout
 import io.github.kotlinmania.rustlang.core.ptr.ConstPtr
@@ -99,7 +98,7 @@ public class Diactionformata internal constructor(
     public var dwActionSize: UInt,
     public var dwDataSize: UInt,
     public var dwNumActions: UInt,
-    rgoActionCtorArg: MutPtr<Diactiona>,
+    rgoActionCtorArg: MutPtr,
     public var guidActionMap: Guid,
     public var dwGenre: UInt,
     public var dwBufferSize: UInt,
@@ -110,7 +109,7 @@ public class Diactionformata internal constructor(
     public var dwCRC: UInt,
     public var tszActionMap: ByteArray,
 ) {
-    public var rgoAction: MutPtr<Diactiona> = rgoActionCtorArg
+    public var rgoAction: MutPtr = rgoActionCtorArg
         internal set
 
     public var hInstString: Hinstance = hInstStringCtorArg
@@ -141,7 +140,7 @@ public class Diactionformata internal constructor(
 
     public operator fun component4(): UInt = this.dwNumActions
 
-    public operator fun component5(): MutPtr<Diactiona> = this.rgoAction
+    public operator fun component5(): MutPtr = this.rgoAction
 
     public operator fun component6(): Guid = this.guidActionMap
 
@@ -161,7 +160,7 @@ public class Diactionformata internal constructor(
 
     public operator fun component14(): ByteArray = this.tszActionMap
 
-    public fun copy(dwSize: UInt = this.dwSize, dwActionSize: UInt = this.dwActionSize, dwDataSize: UInt = this.dwDataSize, dwNumActions: UInt = this.dwNumActions, rgoAction: MutPtr<Diactiona> = this.rgoAction, guidActionMap: Guid = this.guidActionMap, dwGenre: UInt = this.dwGenre, dwBufferSize: UInt = this.dwBufferSize, lAxisMin: Int = this.lAxisMin, lAxisMax: Int = this.lAxisMax, hInstString: Hinstance = this.hInstString, ftTimeStamp: Filetime = this.ftTimeStamp, dwCRC: UInt = this.dwCRC, tszActionMap: ByteArray = this.tszActionMap): Diactionformata = Diactionformata(dwSize = dwSize, dwActionSize = dwActionSize, dwDataSize = dwDataSize, dwNumActions = dwNumActions, rgoActionCtorArg = rgoAction, guidActionMap = guidActionMap, dwGenre = dwGenre, dwBufferSize = dwBufferSize, lAxisMin = lAxisMin, lAxisMax = lAxisMax, hInstStringCtorArg = hInstString, ftTimeStamp = ftTimeStamp, dwCRC = dwCRC, tszActionMap = tszActionMap)
+    public fun copy(dwSize: UInt = this.dwSize, dwActionSize: UInt = this.dwActionSize, dwDataSize: UInt = this.dwDataSize, dwNumActions: UInt = this.dwNumActions, rgoAction: MutPtr = this.rgoAction, guidActionMap: Guid = this.guidActionMap, dwGenre: UInt = this.dwGenre, dwBufferSize: UInt = this.dwBufferSize, lAxisMin: Int = this.lAxisMin, lAxisMax: Int = this.lAxisMax, hInstString: Hinstance = this.hInstString, ftTimeStamp: Filetime = this.ftTimeStamp, dwCRC: UInt = this.dwCRC, tszActionMap: ByteArray = this.tszActionMap): Diactionformata = Diactionformata(dwSize = dwSize, dwActionSize = dwActionSize, dwDataSize = dwDataSize, dwNumActions = dwNumActions, rgoActionCtorArg = rgoAction, guidActionMap = guidActionMap, dwGenre = dwGenre, dwBufferSize = dwBufferSize, lAxisMin = lAxisMin, lAxisMax = lAxisMax, hInstStringCtorArg = hInstString, ftTimeStamp = ftTimeStamp, dwCRC = dwCRC, tszActionMap = tszActionMap)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -207,7 +206,7 @@ public class Diactionformata internal constructor(
             dwActionSize: UInt = 0u,
             dwDataSize: UInt = 0u,
             dwNumActions: UInt = 0u,
-            rgoAction: MutPtr<Diactiona> = MutPtr(0L),
+            rgoAction: MutPtr = MutPtr(0L),
             guidActionMap: Guid = Guid(),
             dwGenre: UInt = 0u,
             dwBufferSize: UInt = 0u,
@@ -242,7 +241,7 @@ public class Diactionformatw internal constructor(
     public var dwActionSize: UInt,
     public var dwDataSize: UInt,
     public var dwNumActions: UInt,
-    rgoActionCtorArg: MutPtr<Diactionw>,
+    rgoActionCtorArg: MutPtr,
     public var guidActionMap: Guid,
     public var dwGenre: UInt,
     public var dwBufferSize: UInt,
@@ -253,7 +252,7 @@ public class Diactionformatw internal constructor(
     public var dwCRC: UInt,
     public var tszActionMap: UShortArray,
 ) {
-    public var rgoAction: MutPtr<Diactionw> = rgoActionCtorArg
+    public var rgoAction: MutPtr = rgoActionCtorArg
         internal set
 
     public var hInstString: Hinstance = hInstStringCtorArg
@@ -284,7 +283,7 @@ public class Diactionformatw internal constructor(
 
     public operator fun component4(): UInt = this.dwNumActions
 
-    public operator fun component5(): MutPtr<Diactionw> = this.rgoAction
+    public operator fun component5(): MutPtr = this.rgoAction
 
     public operator fun component6(): Guid = this.guidActionMap
 
@@ -304,7 +303,7 @@ public class Diactionformatw internal constructor(
 
     public operator fun component14(): UShortArray = this.tszActionMap
 
-    public fun copy(dwSize: UInt = this.dwSize, dwActionSize: UInt = this.dwActionSize, dwDataSize: UInt = this.dwDataSize, dwNumActions: UInt = this.dwNumActions, rgoAction: MutPtr<Diactionw> = this.rgoAction, guidActionMap: Guid = this.guidActionMap, dwGenre: UInt = this.dwGenre, dwBufferSize: UInt = this.dwBufferSize, lAxisMin: Int = this.lAxisMin, lAxisMax: Int = this.lAxisMax, hInstString: Hinstance = this.hInstString, ftTimeStamp: Filetime = this.ftTimeStamp, dwCRC: UInt = this.dwCRC, tszActionMap: UShortArray = this.tszActionMap): Diactionformatw = Diactionformatw(dwSize = dwSize, dwActionSize = dwActionSize, dwDataSize = dwDataSize, dwNumActions = dwNumActions, rgoActionCtorArg = rgoAction, guidActionMap = guidActionMap, dwGenre = dwGenre, dwBufferSize = dwBufferSize, lAxisMin = lAxisMin, lAxisMax = lAxisMax, hInstStringCtorArg = hInstString, ftTimeStamp = ftTimeStamp, dwCRC = dwCRC, tszActionMap = tszActionMap)
+    public fun copy(dwSize: UInt = this.dwSize, dwActionSize: UInt = this.dwActionSize, dwDataSize: UInt = this.dwDataSize, dwNumActions: UInt = this.dwNumActions, rgoAction: MutPtr = this.rgoAction, guidActionMap: Guid = this.guidActionMap, dwGenre: UInt = this.dwGenre, dwBufferSize: UInt = this.dwBufferSize, lAxisMin: Int = this.lAxisMin, lAxisMax: Int = this.lAxisMax, hInstString: Hinstance = this.hInstString, ftTimeStamp: Filetime = this.ftTimeStamp, dwCRC: UInt = this.dwCRC, tszActionMap: UShortArray = this.tszActionMap): Diactionformatw = Diactionformatw(dwSize = dwSize, dwActionSize = dwActionSize, dwDataSize = dwDataSize, dwNumActions = dwNumActions, rgoActionCtorArg = rgoAction, guidActionMap = guidActionMap, dwGenre = dwGenre, dwBufferSize = dwBufferSize, lAxisMin = lAxisMin, lAxisMax = lAxisMax, hInstStringCtorArg = hInstString, ftTimeStamp = ftTimeStamp, dwCRC = dwCRC, tszActionMap = tszActionMap)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -350,7 +349,7 @@ public class Diactionformatw internal constructor(
             dwActionSize: UInt = 0u,
             dwDataSize: UInt = 0u,
             dwNumActions: UInt = 0u,
-            rgoAction: MutPtr<Diactionw> = MutPtr(0L),
+            rgoAction: MutPtr = MutPtr(0L),
             guidActionMap: Guid = Guid(),
             dwGenre: UInt = 0u,
             dwBufferSize: UInt = 0u,
@@ -516,21 +515,21 @@ public class Diconfiguredevicesparamsa internal constructor(
     public var dwcUsers: UInt,
     lptszUserNamesCtorArg: Pstr,
     public var dwcFormats: UInt,
-    lprgFormatsCtorArg: MutPtr<Diactionformata>,
+    lprgFormatsCtorArg: MutPtr,
     hwndCtorArg: Hwnd,
     public var dics: Dicolorset,
-    lpUnkDDSTargetCtorArg: MutPtr<CVoid>,
+    lpUnkDDSTargetCtorArg: MutPtr,
 ) {
     public var lptszUserNames: Pstr = lptszUserNamesCtorArg
         internal set
 
-    public var lprgFormats: MutPtr<Diactionformata> = lprgFormatsCtorArg
+    public var lprgFormats: MutPtr = lprgFormatsCtorArg
         internal set
 
     public var hwnd: Hwnd = hwndCtorArg
         internal set
 
-    public var lpUnkDDSTarget: MutPtr<CVoid> = lpUnkDDSTargetCtorArg
+    public var lpUnkDDSTarget: MutPtr = lpUnkDDSTargetCtorArg
         internal set
 
     public constructor() : this(
@@ -552,15 +551,15 @@ public class Diconfiguredevicesparamsa internal constructor(
 
     public operator fun component4(): UInt = this.dwcFormats
 
-    public operator fun component5(): MutPtr<Diactionformata> = this.lprgFormats
+    public operator fun component5(): MutPtr = this.lprgFormats
 
     public operator fun component6(): Hwnd = this.hwnd
 
     public operator fun component7(): Dicolorset = this.dics
 
-    public operator fun component8(): MutPtr<CVoid> = this.lpUnkDDSTarget
+    public operator fun component8(): MutPtr = this.lpUnkDDSTarget
 
-    public fun copy(dwSize: UInt = this.dwSize, dwcUsers: UInt = this.dwcUsers, lptszUserNames: Pstr = this.lptszUserNames, dwcFormats: UInt = this.dwcFormats, lprgFormats: MutPtr<Diactionformata> = this.lprgFormats, hwnd: Hwnd = this.hwnd, dics: Dicolorset = this.dics, lpUnkDDSTarget: MutPtr<CVoid> = this.lpUnkDDSTarget): Diconfiguredevicesparamsa = Diconfiguredevicesparamsa(dwSize = dwSize, dwcUsers = dwcUsers, lptszUserNamesCtorArg = lptszUserNames, dwcFormats = dwcFormats, lprgFormatsCtorArg = lprgFormats, hwndCtorArg = hwnd, dics = dics, lpUnkDDSTargetCtorArg = lpUnkDDSTarget)
+    public fun copy(dwSize: UInt = this.dwSize, dwcUsers: UInt = this.dwcUsers, lptszUserNames: Pstr = this.lptszUserNames, dwcFormats: UInt = this.dwcFormats, lprgFormats: MutPtr = this.lprgFormats, hwnd: Hwnd = this.hwnd, dics: Dicolorset = this.dics, lpUnkDDSTarget: MutPtr = this.lpUnkDDSTarget): Diconfiguredevicesparamsa = Diconfiguredevicesparamsa(dwSize = dwSize, dwcUsers = dwcUsers, lptszUserNamesCtorArg = lptszUserNames, dwcFormats = dwcFormats, lprgFormatsCtorArg = lprgFormats, hwndCtorArg = hwnd, dics = dics, lpUnkDDSTargetCtorArg = lpUnkDDSTarget)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -594,10 +593,10 @@ public class Diconfiguredevicesparamsa internal constructor(
             dwcUsers: UInt = 0u,
             lptszUserNames: Pstr = MutPtr(0L),
             dwcFormats: UInt = 0u,
-            lprgFormats: MutPtr<Diactionformata> = MutPtr(0L),
+            lprgFormats: MutPtr = MutPtr(0L),
             hwnd: Hwnd = MutPtr(0L),
             dics: Dicolorset = Dicolorset(),
-            lpUnkDDSTarget: MutPtr<CVoid> = MutPtr(0L),
+            lpUnkDDSTarget: MutPtr = MutPtr(0L),
         ): Diconfiguredevicesparamsa =
             Diconfiguredevicesparamsa(
                 dwSize = dwSize,
@@ -617,21 +616,21 @@ public class Diconfiguredevicesparamsw internal constructor(
     public var dwcUsers: UInt,
     lptszUserNamesCtorArg: Pwstr,
     public var dwcFormats: UInt,
-    lprgFormatsCtorArg: MutPtr<Diactionformatw>,
+    lprgFormatsCtorArg: MutPtr,
     hwndCtorArg: Hwnd,
     public var dics: Dicolorset,
-    lpUnkDDSTargetCtorArg: MutPtr<CVoid>,
+    lpUnkDDSTargetCtorArg: MutPtr,
 ) {
     public var lptszUserNames: Pwstr = lptszUserNamesCtorArg
         internal set
 
-    public var lprgFormats: MutPtr<Diactionformatw> = lprgFormatsCtorArg
+    public var lprgFormats: MutPtr = lprgFormatsCtorArg
         internal set
 
     public var hwnd: Hwnd = hwndCtorArg
         internal set
 
-    public var lpUnkDDSTarget: MutPtr<CVoid> = lpUnkDDSTargetCtorArg
+    public var lpUnkDDSTarget: MutPtr = lpUnkDDSTargetCtorArg
         internal set
 
     public constructor() : this(
@@ -653,15 +652,15 @@ public class Diconfiguredevicesparamsw internal constructor(
 
     public operator fun component4(): UInt = this.dwcFormats
 
-    public operator fun component5(): MutPtr<Diactionformatw> = this.lprgFormats
+    public operator fun component5(): MutPtr = this.lprgFormats
 
     public operator fun component6(): Hwnd = this.hwnd
 
     public operator fun component7(): Dicolorset = this.dics
 
-    public operator fun component8(): MutPtr<CVoid> = this.lpUnkDDSTarget
+    public operator fun component8(): MutPtr = this.lpUnkDDSTarget
 
-    public fun copy(dwSize: UInt = this.dwSize, dwcUsers: UInt = this.dwcUsers, lptszUserNames: Pwstr = this.lptszUserNames, dwcFormats: UInt = this.dwcFormats, lprgFormats: MutPtr<Diactionformatw> = this.lprgFormats, hwnd: Hwnd = this.hwnd, dics: Dicolorset = this.dics, lpUnkDDSTarget: MutPtr<CVoid> = this.lpUnkDDSTarget): Diconfiguredevicesparamsw = Diconfiguredevicesparamsw(dwSize = dwSize, dwcUsers = dwcUsers, lptszUserNamesCtorArg = lptszUserNames, dwcFormats = dwcFormats, lprgFormatsCtorArg = lprgFormats, hwndCtorArg = hwnd, dics = dics, lpUnkDDSTargetCtorArg = lpUnkDDSTarget)
+    public fun copy(dwSize: UInt = this.dwSize, dwcUsers: UInt = this.dwcUsers, lptszUserNames: Pwstr = this.lptszUserNames, dwcFormats: UInt = this.dwcFormats, lprgFormats: MutPtr = this.lprgFormats, hwnd: Hwnd = this.hwnd, dics: Dicolorset = this.dics, lpUnkDDSTarget: MutPtr = this.lpUnkDDSTarget): Diconfiguredevicesparamsw = Diconfiguredevicesparamsw(dwSize = dwSize, dwcUsers = dwcUsers, lptszUserNamesCtorArg = lptszUserNames, dwcFormats = dwcFormats, lprgFormatsCtorArg = lprgFormats, hwndCtorArg = hwnd, dics = dics, lpUnkDDSTargetCtorArg = lpUnkDDSTarget)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -695,10 +694,10 @@ public class Diconfiguredevicesparamsw internal constructor(
             dwcUsers: UInt = 0u,
             lptszUserNames: Pwstr = MutPtr(0L),
             dwcFormats: UInt = 0u,
-            lprgFormats: MutPtr<Diactionformatw> = MutPtr(0L),
+            lprgFormats: MutPtr = MutPtr(0L),
             hwnd: Hwnd = MutPtr(0L),
             dics: Dicolorset = Dicolorset(),
-            lpUnkDDSTarget: MutPtr<CVoid> = MutPtr(0L),
+            lpUnkDDSTarget: MutPtr = MutPtr(0L),
         ): Diconfiguredevicesparamsw =
             Diconfiguredevicesparamsw(
                 dwSize = dwSize,
@@ -736,9 +735,9 @@ public class Dicustomforce internal constructor(
     public var cChannels: UInt,
     public var dwSamplePeriod: UInt,
     public var cSamples: UInt,
-    rglForceDataCtorArg: MutPtr<Int>,
+    rglForceDataCtorArg: MutPtr,
 ) {
-    public var rglForceData: MutPtr<Int> = rglForceDataCtorArg
+    public var rglForceData: MutPtr = rglForceDataCtorArg
         internal set
 
     public constructor() : this(
@@ -754,9 +753,9 @@ public class Dicustomforce internal constructor(
 
     public operator fun component3(): UInt = this.cSamples
 
-    public operator fun component4(): MutPtr<Int> = this.rglForceData
+    public operator fun component4(): MutPtr = this.rglForceData
 
-    public fun copy(cChannels: UInt = this.cChannels, dwSamplePeriod: UInt = this.dwSamplePeriod, cSamples: UInt = this.cSamples, rglForceData: MutPtr<Int> = this.rglForceData): Dicustomforce = Dicustomforce(cChannels = cChannels, dwSamplePeriod = dwSamplePeriod, cSamples = cSamples, rglForceDataCtorArg = rglForceData)
+    public fun copy(cChannels: UInt = this.cChannels, dwSamplePeriod: UInt = this.dwSamplePeriod, cSamples: UInt = this.cSamples, rglForceData: MutPtr = this.rglForceData): Dicustomforce = Dicustomforce(cChannels = cChannels, dwSamplePeriod = dwSamplePeriod, cSamples = cSamples, rglForceDataCtorArg = rglForceData)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -788,7 +787,7 @@ public class Dicustomforce internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 8L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<Int>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 16L),
                     )
                 override fun writeNative(addr: Long, value: Dicustomforce) {
@@ -797,7 +796,7 @@ public class Dicustomforce internal constructor(
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 8L, value.cSamples)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<Int>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 16L, value.rglForceData)
                 }
             }
@@ -806,7 +805,7 @@ public class Dicustomforce internal constructor(
             cChannels: UInt = 0u,
             dwSamplePeriod: UInt = 0u,
             cSamples: UInt = 0u,
-            rglForceData: MutPtr<Int> = MutPtr(0L),
+            rglForceData: MutPtr = MutPtr(0L),
         ): Dicustomforce =
             Dicustomforce(
                 cChannels = cChannels,
@@ -823,9 +822,9 @@ public class Didataformat internal constructor(
     public var dwFlags: UInt,
     public var dwDataSize: UInt,
     public var dwNumObjs: UInt,
-    rgodfCtorArg: MutPtr<Diobjectdataformat>,
+    rgodfCtorArg: MutPtr,
 ) {
-    public var rgodf: MutPtr<Diobjectdataformat> = rgodfCtorArg
+    public var rgodf: MutPtr = rgodfCtorArg
         internal set
 
     public constructor() : this(
@@ -847,9 +846,9 @@ public class Didataformat internal constructor(
 
     public operator fun component5(): UInt = this.dwNumObjs
 
-    public operator fun component6(): MutPtr<Diobjectdataformat> = this.rgodf
+    public operator fun component6(): MutPtr = this.rgodf
 
-    public fun copy(dwSize: UInt = this.dwSize, dwObjSize: UInt = this.dwObjSize, dwFlags: UInt = this.dwFlags, dwDataSize: UInt = this.dwDataSize, dwNumObjs: UInt = this.dwNumObjs, rgodf: MutPtr<Diobjectdataformat> = this.rgodf): Didataformat = Didataformat(dwSize = dwSize, dwObjSize = dwObjSize, dwFlags = dwFlags, dwDataSize = dwDataSize, dwNumObjs = dwNumObjs, rgodfCtorArg = rgodf)
+    public fun copy(dwSize: UInt = this.dwSize, dwObjSize: UInt = this.dwObjSize, dwFlags: UInt = this.dwFlags, dwDataSize: UInt = this.dwDataSize, dwNumObjs: UInt = this.dwNumObjs, rgodf: MutPtr = this.rgodf): Didataformat = Didataformat(dwSize = dwSize, dwObjSize = dwObjSize, dwFlags = dwFlags, dwDataSize = dwDataSize, dwNumObjs = dwNumObjs, rgodfCtorArg = rgodf)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -887,7 +886,7 @@ public class Didataformat internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 16L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<Diobjectdataformat>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 24L),
                     )
                 override fun writeNative(addr: Long, value: Didataformat) {
@@ -898,7 +897,7 @@ public class Didataformat internal constructor(
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 16L, value.dwNumObjs)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<Diobjectdataformat>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 24L, value.rgodf)
                 }
             }
@@ -909,7 +908,7 @@ public class Didataformat internal constructor(
             dwFlags: UInt = 0u,
             dwDataSize: UInt = 0u,
             dwNumObjs: UInt = 0u,
-            rgodf: MutPtr<Diobjectdataformat> = MutPtr(0L),
+            rgodf: MutPtr = MutPtr(0L),
         ): Didataformat =
             Didataformat(
                 dwSize = dwSize,
@@ -1054,9 +1053,9 @@ public class Dideviceimageinfoheadera internal constructor(
     public var dwcPOVs: UInt,
     public var dwBufferSize: UInt,
     public var dwBufferUsed: UInt,
-    lprgImageInfoArrayCtorArg: MutPtr<Dideviceimageinfoa>,
+    lprgImageInfoArrayCtorArg: MutPtr,
 ) {
-    public var lprgImageInfoArray: MutPtr<Dideviceimageinfoa> = lprgImageInfoArrayCtorArg
+    public var lprgImageInfoArray: MutPtr = lprgImageInfoArrayCtorArg
         internal set
 
     public constructor() : this(
@@ -1087,9 +1086,9 @@ public class Dideviceimageinfoheadera internal constructor(
 
     public operator fun component8(): UInt = this.dwBufferUsed
 
-    public operator fun component9(): MutPtr<Dideviceimageinfoa> = this.lprgImageInfoArray
+    public operator fun component9(): MutPtr = this.lprgImageInfoArray
 
-    public fun copy(dwSize: UInt = this.dwSize, dwSizeImageInfo: UInt = this.dwSizeImageInfo, dwcViews: UInt = this.dwcViews, dwcButtons: UInt = this.dwcButtons, dwcAxes: UInt = this.dwcAxes, dwcPOVs: UInt = this.dwcPOVs, dwBufferSize: UInt = this.dwBufferSize, dwBufferUsed: UInt = this.dwBufferUsed, lprgImageInfoArray: MutPtr<Dideviceimageinfoa> = this.lprgImageInfoArray): Dideviceimageinfoheadera = Dideviceimageinfoheadera(dwSize = dwSize, dwSizeImageInfo = dwSizeImageInfo, dwcViews = dwcViews, dwcButtons = dwcButtons, dwcAxes = dwcAxes, dwcPOVs = dwcPOVs, dwBufferSize = dwBufferSize, dwBufferUsed = dwBufferUsed, lprgImageInfoArrayCtorArg = lprgImageInfoArray)
+    public fun copy(dwSize: UInt = this.dwSize, dwSizeImageInfo: UInt = this.dwSizeImageInfo, dwcViews: UInt = this.dwcViews, dwcButtons: UInt = this.dwcButtons, dwcAxes: UInt = this.dwcAxes, dwcPOVs: UInt = this.dwcPOVs, dwBufferSize: UInt = this.dwBufferSize, dwBufferUsed: UInt = this.dwBufferUsed, lprgImageInfoArray: MutPtr = this.lprgImageInfoArray): Dideviceimageinfoheadera = Dideviceimageinfoheadera(dwSize = dwSize, dwSizeImageInfo = dwSizeImageInfo, dwcViews = dwcViews, dwcButtons = dwcButtons, dwcAxes = dwcAxes, dwcPOVs = dwcPOVs, dwBufferSize = dwBufferSize, dwBufferUsed = dwBufferUsed, lprgImageInfoArrayCtorArg = lprgImageInfoArray)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -1136,7 +1135,7 @@ public class Dideviceimageinfoheadera internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 28L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<Dideviceimageinfoa>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 32L),
                     )
                 override fun writeNative(addr: Long, value: Dideviceimageinfoheadera) {
@@ -1150,7 +1149,7 @@ public class Dideviceimageinfoheadera internal constructor(
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 28L, value.dwBufferUsed)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<Dideviceimageinfoa>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 32L, value.lprgImageInfoArray)
                 }
             }
@@ -1164,7 +1163,7 @@ public class Dideviceimageinfoheadera internal constructor(
             dwcPOVs: UInt = 0u,
             dwBufferSize: UInt = 0u,
             dwBufferUsed: UInt = 0u,
-            lprgImageInfoArray: MutPtr<Dideviceimageinfoa> = MutPtr(0L),
+            lprgImageInfoArray: MutPtr = MutPtr(0L),
         ): Dideviceimageinfoheadera =
             Dideviceimageinfoheadera(
                 dwSize = dwSize,
@@ -1189,9 +1188,9 @@ public class Dideviceimageinfoheaderw internal constructor(
     public var dwcPOVs: UInt,
     public var dwBufferSize: UInt,
     public var dwBufferUsed: UInt,
-    lprgImageInfoArrayCtorArg: MutPtr<Dideviceimageinfow>,
+    lprgImageInfoArrayCtorArg: MutPtr,
 ) {
-    public var lprgImageInfoArray: MutPtr<Dideviceimageinfow> = lprgImageInfoArrayCtorArg
+    public var lprgImageInfoArray: MutPtr = lprgImageInfoArrayCtorArg
         internal set
 
     public constructor() : this(
@@ -1222,9 +1221,9 @@ public class Dideviceimageinfoheaderw internal constructor(
 
     public operator fun component8(): UInt = this.dwBufferUsed
 
-    public operator fun component9(): MutPtr<Dideviceimageinfow> = this.lprgImageInfoArray
+    public operator fun component9(): MutPtr = this.lprgImageInfoArray
 
-    public fun copy(dwSize: UInt = this.dwSize, dwSizeImageInfo: UInt = this.dwSizeImageInfo, dwcViews: UInt = this.dwcViews, dwcButtons: UInt = this.dwcButtons, dwcAxes: UInt = this.dwcAxes, dwcPOVs: UInt = this.dwcPOVs, dwBufferSize: UInt = this.dwBufferSize, dwBufferUsed: UInt = this.dwBufferUsed, lprgImageInfoArray: MutPtr<Dideviceimageinfow> = this.lprgImageInfoArray): Dideviceimageinfoheaderw = Dideviceimageinfoheaderw(dwSize = dwSize, dwSizeImageInfo = dwSizeImageInfo, dwcViews = dwcViews, dwcButtons = dwcButtons, dwcAxes = dwcAxes, dwcPOVs = dwcPOVs, dwBufferSize = dwBufferSize, dwBufferUsed = dwBufferUsed, lprgImageInfoArrayCtorArg = lprgImageInfoArray)
+    public fun copy(dwSize: UInt = this.dwSize, dwSizeImageInfo: UInt = this.dwSizeImageInfo, dwcViews: UInt = this.dwcViews, dwcButtons: UInt = this.dwcButtons, dwcAxes: UInt = this.dwcAxes, dwcPOVs: UInt = this.dwcPOVs, dwBufferSize: UInt = this.dwBufferSize, dwBufferUsed: UInt = this.dwBufferUsed, lprgImageInfoArray: MutPtr = this.lprgImageInfoArray): Dideviceimageinfoheaderw = Dideviceimageinfoheaderw(dwSize = dwSize, dwSizeImageInfo = dwSizeImageInfo, dwcViews = dwcViews, dwcButtons = dwcButtons, dwcAxes = dwcAxes, dwcPOVs = dwcPOVs, dwBufferSize = dwBufferSize, dwBufferUsed = dwBufferUsed, lprgImageInfoArrayCtorArg = lprgImageInfoArray)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -1271,7 +1270,7 @@ public class Dideviceimageinfoheaderw internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 28L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<Dideviceimageinfow>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 32L),
                     )
                 override fun writeNative(addr: Long, value: Dideviceimageinfoheaderw) {
@@ -1285,7 +1284,7 @@ public class Dideviceimageinfoheaderw internal constructor(
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 28L, value.dwBufferUsed)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<Dideviceimageinfow>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 32L, value.lprgImageInfoArray)
                 }
             }
@@ -1299,7 +1298,7 @@ public class Dideviceimageinfoheaderw internal constructor(
             dwcPOVs: UInt = 0u,
             dwBufferSize: UInt = 0u,
             dwBufferUsed: UInt = 0u,
-            lprgImageInfoArray: MutPtr<Dideviceimageinfow> = MutPtr(0L),
+            lprgImageInfoArray: MutPtr = MutPtr(0L),
         ): Dideviceimageinfoheaderw =
             Dideviceimageinfoheaderw(
                 dwSize = dwSize,
@@ -1796,23 +1795,23 @@ public class Dieffect internal constructor(
     public var dwTriggerButton: UInt,
     public var dwTriggerRepeatInterval: UInt,
     public var cAxes: UInt,
-    rgdwAxesCtorArg: MutPtr<UInt>,
-    rglDirectionCtorArg: MutPtr<Int>,
-    lpEnvelopeCtorArg: MutPtr<Dienvelope>,
+    rgdwAxesCtorArg: MutPtr,
+    rglDirectionCtorArg: MutPtr,
+    lpEnvelopeCtorArg: MutPtr,
     public var cbTypeSpecificParams: UInt,
-    lpvTypeSpecificParamsCtorArg: MutPtr<CVoid>,
+    lpvTypeSpecificParamsCtorArg: MutPtr,
     public var dwStartDelay: UInt,
 ) {
-    public var rgdwAxes: MutPtr<UInt> = rgdwAxesCtorArg
+    public var rgdwAxes: MutPtr = rgdwAxesCtorArg
         internal set
 
-    public var rglDirection: MutPtr<Int> = rglDirectionCtorArg
+    public var rglDirection: MutPtr = rglDirectionCtorArg
         internal set
 
-    public var lpEnvelope: MutPtr<Dienvelope> = lpEnvelopeCtorArg
+    public var lpEnvelope: MutPtr = lpEnvelopeCtorArg
         internal set
 
-    public var lpvTypeSpecificParams: MutPtr<CVoid> = lpvTypeSpecificParamsCtorArg
+    public var lpvTypeSpecificParams: MutPtr = lpvTypeSpecificParamsCtorArg
         internal set
 
     public constructor() : this(
@@ -1848,19 +1847,19 @@ public class Dieffect internal constructor(
 
     public operator fun component8(): UInt = this.cAxes
 
-    public operator fun component9(): MutPtr<UInt> = this.rgdwAxes
+    public operator fun component9(): MutPtr = this.rgdwAxes
 
-    public operator fun component10(): MutPtr<Int> = this.rglDirection
+    public operator fun component10(): MutPtr = this.rglDirection
 
-    public operator fun component11(): MutPtr<Dienvelope> = this.lpEnvelope
+    public operator fun component11(): MutPtr = this.lpEnvelope
 
     public operator fun component12(): UInt = this.cbTypeSpecificParams
 
-    public operator fun component13(): MutPtr<CVoid> = this.lpvTypeSpecificParams
+    public operator fun component13(): MutPtr = this.lpvTypeSpecificParams
 
     public operator fun component14(): UInt = this.dwStartDelay
 
-    public fun copy(dwSize: UInt = this.dwSize, dwFlags: UInt = this.dwFlags, dwDuration: UInt = this.dwDuration, dwSamplePeriod: UInt = this.dwSamplePeriod, dwGain: UInt = this.dwGain, dwTriggerButton: UInt = this.dwTriggerButton, dwTriggerRepeatInterval: UInt = this.dwTriggerRepeatInterval, cAxes: UInt = this.cAxes, rgdwAxes: MutPtr<UInt> = this.rgdwAxes, rglDirection: MutPtr<Int> = this.rglDirection, lpEnvelope: MutPtr<Dienvelope> = this.lpEnvelope, cbTypeSpecificParams: UInt = this.cbTypeSpecificParams, lpvTypeSpecificParams: MutPtr<CVoid> = this.lpvTypeSpecificParams, dwStartDelay: UInt = this.dwStartDelay): Dieffect = Dieffect(dwSize = dwSize, dwFlags = dwFlags, dwDuration = dwDuration, dwSamplePeriod = dwSamplePeriod, dwGain = dwGain, dwTriggerButton = dwTriggerButton, dwTriggerRepeatInterval = dwTriggerRepeatInterval, cAxes = cAxes, rgdwAxesCtorArg = rgdwAxes, rglDirectionCtorArg = rglDirection, lpEnvelopeCtorArg = lpEnvelope, cbTypeSpecificParams = cbTypeSpecificParams, lpvTypeSpecificParamsCtorArg = lpvTypeSpecificParams, dwStartDelay = dwStartDelay)
+    public fun copy(dwSize: UInt = this.dwSize, dwFlags: UInt = this.dwFlags, dwDuration: UInt = this.dwDuration, dwSamplePeriod: UInt = this.dwSamplePeriod, dwGain: UInt = this.dwGain, dwTriggerButton: UInt = this.dwTriggerButton, dwTriggerRepeatInterval: UInt = this.dwTriggerRepeatInterval, cAxes: UInt = this.cAxes, rgdwAxes: MutPtr = this.rgdwAxes, rglDirection: MutPtr = this.rglDirection, lpEnvelope: MutPtr = this.lpEnvelope, cbTypeSpecificParams: UInt = this.cbTypeSpecificParams, lpvTypeSpecificParams: MutPtr = this.lpvTypeSpecificParams, dwStartDelay: UInt = this.dwStartDelay): Dieffect = Dieffect(dwSize = dwSize, dwFlags = dwFlags, dwDuration = dwDuration, dwSamplePeriod = dwSamplePeriod, dwGain = dwGain, dwTriggerButton = dwTriggerButton, dwTriggerRepeatInterval = dwTriggerRepeatInterval, cAxes = cAxes, rgdwAxesCtorArg = rgdwAxes, rglDirectionCtorArg = rglDirection, lpEnvelopeCtorArg = lpEnvelope, cbTypeSpecificParams = cbTypeSpecificParams, lpvTypeSpecificParamsCtorArg = lpvTypeSpecificParams, dwStartDelay = dwStartDelay)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -1917,20 +1916,20 @@ public class Dieffect internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 28L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<UInt>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 32L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<Int>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 40L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<Dienvelope>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 48L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 56L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<CVoid>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 64L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 72L),
                     )
@@ -1945,20 +1944,20 @@ public class Dieffect internal constructor(
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 28L, value.cAxes)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<UInt>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 32L, value.rgdwAxes)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<Int>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 40L, value.rglDirection)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<Dienvelope>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 48L, value.lpEnvelope)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 56L, value.cbTypeSpecificParams)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<CVoid>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 64L, value.lpvTypeSpecificParams)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 72L, value.dwStartDelay)
                 }
@@ -1973,11 +1972,11 @@ public class Dieffect internal constructor(
             dwTriggerButton: UInt = 0u,
             dwTriggerRepeatInterval: UInt = 0u,
             cAxes: UInt = 0u,
-            rgdwAxes: MutPtr<UInt> = MutPtr(0L),
-            rglDirection: MutPtr<Int> = MutPtr(0L),
-            lpEnvelope: MutPtr<Dienvelope> = MutPtr(0L),
+            rgdwAxes: MutPtr = MutPtr(0L),
+            rglDirection: MutPtr = MutPtr(0L),
+            lpEnvelope: MutPtr = MutPtr(0L),
             cbTypeSpecificParams: UInt = 0u,
-            lpvTypeSpecificParams: MutPtr<CVoid> = MutPtr(0L),
+            lpvTypeSpecificParams: MutPtr = MutPtr(0L),
             dwStartDelay: UInt = 0u,
         ): Dieffect =
             Dieffect(
@@ -2101,22 +2100,22 @@ public class DieffectDx5 internal constructor(
     public var dwTriggerButton: UInt,
     public var dwTriggerRepeatInterval: UInt,
     public var cAxes: UInt,
-    rgdwAxesCtorArg: MutPtr<UInt>,
-    rglDirectionCtorArg: MutPtr<Int>,
-    lpEnvelopeCtorArg: MutPtr<Dienvelope>,
+    rgdwAxesCtorArg: MutPtr,
+    rglDirectionCtorArg: MutPtr,
+    lpEnvelopeCtorArg: MutPtr,
     public var cbTypeSpecificParams: UInt,
-    lpvTypeSpecificParamsCtorArg: MutPtr<CVoid>,
+    lpvTypeSpecificParamsCtorArg: MutPtr,
 ) {
-    public var rgdwAxes: MutPtr<UInt> = rgdwAxesCtorArg
+    public var rgdwAxes: MutPtr = rgdwAxesCtorArg
         internal set
 
-    public var rglDirection: MutPtr<Int> = rglDirectionCtorArg
+    public var rglDirection: MutPtr = rglDirectionCtorArg
         internal set
 
-    public var lpEnvelope: MutPtr<Dienvelope> = lpEnvelopeCtorArg
+    public var lpEnvelope: MutPtr = lpEnvelopeCtorArg
         internal set
 
-    public var lpvTypeSpecificParams: MutPtr<CVoid> = lpvTypeSpecificParamsCtorArg
+    public var lpvTypeSpecificParams: MutPtr = lpvTypeSpecificParamsCtorArg
         internal set
 
     public constructor() : this(
@@ -2151,17 +2150,17 @@ public class DieffectDx5 internal constructor(
 
     public operator fun component8(): UInt = this.cAxes
 
-    public operator fun component9(): MutPtr<UInt> = this.rgdwAxes
+    public operator fun component9(): MutPtr = this.rgdwAxes
 
-    public operator fun component10(): MutPtr<Int> = this.rglDirection
+    public operator fun component10(): MutPtr = this.rglDirection
 
-    public operator fun component11(): MutPtr<Dienvelope> = this.lpEnvelope
+    public operator fun component11(): MutPtr = this.lpEnvelope
 
     public operator fun component12(): UInt = this.cbTypeSpecificParams
 
-    public operator fun component13(): MutPtr<CVoid> = this.lpvTypeSpecificParams
+    public operator fun component13(): MutPtr = this.lpvTypeSpecificParams
 
-    public fun copy(dwSize: UInt = this.dwSize, dwFlags: UInt = this.dwFlags, dwDuration: UInt = this.dwDuration, dwSamplePeriod: UInt = this.dwSamplePeriod, dwGain: UInt = this.dwGain, dwTriggerButton: UInt = this.dwTriggerButton, dwTriggerRepeatInterval: UInt = this.dwTriggerRepeatInterval, cAxes: UInt = this.cAxes, rgdwAxes: MutPtr<UInt> = this.rgdwAxes, rglDirection: MutPtr<Int> = this.rglDirection, lpEnvelope: MutPtr<Dienvelope> = this.lpEnvelope, cbTypeSpecificParams: UInt = this.cbTypeSpecificParams, lpvTypeSpecificParams: MutPtr<CVoid> = this.lpvTypeSpecificParams): DieffectDx5 = DieffectDx5(dwSize = dwSize, dwFlags = dwFlags, dwDuration = dwDuration, dwSamplePeriod = dwSamplePeriod, dwGain = dwGain, dwTriggerButton = dwTriggerButton, dwTriggerRepeatInterval = dwTriggerRepeatInterval, cAxes = cAxes, rgdwAxesCtorArg = rgdwAxes, rglDirectionCtorArg = rglDirection, lpEnvelopeCtorArg = lpEnvelope, cbTypeSpecificParams = cbTypeSpecificParams, lpvTypeSpecificParamsCtorArg = lpvTypeSpecificParams)
+    public fun copy(dwSize: UInt = this.dwSize, dwFlags: UInt = this.dwFlags, dwDuration: UInt = this.dwDuration, dwSamplePeriod: UInt = this.dwSamplePeriod, dwGain: UInt = this.dwGain, dwTriggerButton: UInt = this.dwTriggerButton, dwTriggerRepeatInterval: UInt = this.dwTriggerRepeatInterval, cAxes: UInt = this.cAxes, rgdwAxes: MutPtr = this.rgdwAxes, rglDirection: MutPtr = this.rglDirection, lpEnvelope: MutPtr = this.lpEnvelope, cbTypeSpecificParams: UInt = this.cbTypeSpecificParams, lpvTypeSpecificParams: MutPtr = this.lpvTypeSpecificParams): DieffectDx5 = DieffectDx5(dwSize = dwSize, dwFlags = dwFlags, dwDuration = dwDuration, dwSamplePeriod = dwSamplePeriod, dwGain = dwGain, dwTriggerButton = dwTriggerButton, dwTriggerRepeatInterval = dwTriggerRepeatInterval, cAxes = cAxes, rgdwAxesCtorArg = rgdwAxes, rglDirectionCtorArg = rglDirection, lpEnvelopeCtorArg = lpEnvelope, cbTypeSpecificParams = cbTypeSpecificParams, lpvTypeSpecificParamsCtorArg = lpvTypeSpecificParams)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -2216,20 +2215,20 @@ public class DieffectDx5 internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 28L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<UInt>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 32L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<Int>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 40L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<Dienvelope>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 48L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 56L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<CVoid>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 64L),
                     )
                 override fun writeNative(addr: Long, value: DieffectDx5) {
@@ -2243,20 +2242,20 @@ public class DieffectDx5 internal constructor(
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 28L, value.cAxes)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<UInt>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 32L, value.rgdwAxes)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<Int>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 40L, value.rglDirection)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<Dienvelope>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 48L, value.lpEnvelope)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 56L, value.cbTypeSpecificParams)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<CVoid>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 64L, value.lpvTypeSpecificParams)
                 }
             }
@@ -2270,11 +2269,11 @@ public class DieffectDx5 internal constructor(
             dwTriggerButton: UInt = 0u,
             dwTriggerRepeatInterval: UInt = 0u,
             cAxes: UInt = 0u,
-            rgdwAxes: MutPtr<UInt> = MutPtr(0L),
-            rglDirection: MutPtr<Int> = MutPtr(0L),
-            lpEnvelope: MutPtr<Dienvelope> = MutPtr(0L),
+            rgdwAxes: MutPtr = MutPtr(0L),
+            rglDirection: MutPtr = MutPtr(0L),
+            lpEnvelope: MutPtr = MutPtr(0L),
             cbTypeSpecificParams: UInt = 0u,
-            lpvTypeSpecificParams: MutPtr<CVoid> = MutPtr(0L),
+            lpvTypeSpecificParams: MutPtr = MutPtr(0L),
         ): DieffectDx5 =
             DieffectDx5(
                 dwSize = dwSize,
@@ -2297,15 +2296,15 @@ public class DieffectDx5 internal constructor(
 public class Dieffescape internal constructor(
     public var dwSize: UInt,
     public var dwCommand: UInt,
-    lpvInBufferCtorArg: MutPtr<CVoid>,
+    lpvInBufferCtorArg: MutPtr,
     public var cbInBuffer: UInt,
-    lpvOutBufferCtorArg: MutPtr<CVoid>,
+    lpvOutBufferCtorArg: MutPtr,
     public var cbOutBuffer: UInt,
 ) {
-    public var lpvInBuffer: MutPtr<CVoid> = lpvInBufferCtorArg
+    public var lpvInBuffer: MutPtr = lpvInBufferCtorArg
         internal set
 
-    public var lpvOutBuffer: MutPtr<CVoid> = lpvOutBufferCtorArg
+    public var lpvOutBuffer: MutPtr = lpvOutBufferCtorArg
         internal set
 
     public constructor() : this(
@@ -2321,15 +2320,15 @@ public class Dieffescape internal constructor(
 
     public operator fun component2(): UInt = this.dwCommand
 
-    public operator fun component3(): MutPtr<CVoid> = this.lpvInBuffer
+    public operator fun component3(): MutPtr = this.lpvInBuffer
 
     public operator fun component4(): UInt = this.cbInBuffer
 
-    public operator fun component5(): MutPtr<CVoid> = this.lpvOutBuffer
+    public operator fun component5(): MutPtr = this.lpvOutBuffer
 
     public operator fun component6(): UInt = this.cbOutBuffer
 
-    public fun copy(dwSize: UInt = this.dwSize, dwCommand: UInt = this.dwCommand, lpvInBuffer: MutPtr<CVoid> = this.lpvInBuffer, cbInBuffer: UInt = this.cbInBuffer, lpvOutBuffer: MutPtr<CVoid> = this.lpvOutBuffer, cbOutBuffer: UInt = this.cbOutBuffer): Dieffescape = Dieffescape(dwSize = dwSize, dwCommand = dwCommand, lpvInBufferCtorArg = lpvInBuffer, cbInBuffer = cbInBuffer, lpvOutBufferCtorArg = lpvOutBuffer, cbOutBuffer = cbOutBuffer)
+    public fun copy(dwSize: UInt = this.dwSize, dwCommand: UInt = this.dwCommand, lpvInBuffer: MutPtr = this.lpvInBuffer, cbInBuffer: UInt = this.cbInBuffer, lpvOutBuffer: MutPtr = this.lpvOutBuffer, cbOutBuffer: UInt = this.cbOutBuffer): Dieffescape = Dieffescape(dwSize = dwSize, dwCommand = dwCommand, lpvInBufferCtorArg = lpvInBuffer, cbInBuffer = cbInBuffer, lpvOutBufferCtorArg = lpvOutBuffer, cbOutBuffer = cbOutBuffer)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -2364,12 +2363,12 @@ public class Dieffescape internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 4L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<CVoid>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 16L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<CVoid>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 24L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 32L),
                     )
@@ -2378,12 +2377,12 @@ public class Dieffescape internal constructor(
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 4L, value.dwCommand)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<CVoid>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.lpvInBuffer)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 16L, value.cbInBuffer)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<CVoid>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 24L, value.lpvOutBuffer)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 32L, value.cbOutBuffer)
                 }
@@ -2392,9 +2391,9 @@ public class Dieffescape internal constructor(
         public operator fun invoke(
             dwSize: UInt = 0u,
             dwCommand: UInt = 0u,
-            lpvInBuffer: MutPtr<CVoid> = MutPtr(0L),
+            lpvInBuffer: MutPtr = MutPtr(0L),
             cbInBuffer: UInt = 0u,
-            lpvOutBuffer: MutPtr<CVoid> = MutPtr(0L),
+            lpvOutBuffer: MutPtr = MutPtr(0L),
             cbOutBuffer: UInt = 0u,
         ): Dieffescape =
             Dieffescape(
@@ -2489,10 +2488,10 @@ public data class Diffobjectattributes(
 public class Difileeffect internal constructor(
     public var dwSize: UInt,
     public var guidEffect: Guid,
-    lpDiEffectCtorArg: MutPtr<Dieffect>,
+    lpDiEffectCtorArg: MutPtr,
     public var szFriendlyName: ByteArray,
 ) {
-    public var lpDiEffect: MutPtr<Dieffect> = lpDiEffectCtorArg
+    public var lpDiEffect: MutPtr = lpDiEffectCtorArg
         internal set
 
     public constructor() : this(
@@ -2506,11 +2505,11 @@ public class Difileeffect internal constructor(
 
     public operator fun component2(): Guid = this.guidEffect
 
-    public operator fun component3(): MutPtr<Dieffect> = this.lpDiEffect
+    public operator fun component3(): MutPtr = this.lpDiEffect
 
     public operator fun component4(): ByteArray = this.szFriendlyName
 
-    public fun copy(dwSize: UInt = this.dwSize, guidEffect: Guid = this.guidEffect, lpDiEffect: MutPtr<Dieffect> = this.lpDiEffect, szFriendlyName: ByteArray = this.szFriendlyName): Difileeffect = Difileeffect(dwSize = dwSize, guidEffect = guidEffect, lpDiEffectCtorArg = lpDiEffect, szFriendlyName = szFriendlyName)
+    public fun copy(dwSize: UInt = this.dwSize, guidEffect: Guid = this.guidEffect, lpDiEffect: MutPtr = this.lpDiEffect, szFriendlyName: ByteArray = this.szFriendlyName): Difileeffect = Difileeffect(dwSize = dwSize, guidEffect = guidEffect, lpDiEffectCtorArg = lpDiEffect, szFriendlyName = szFriendlyName)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -2534,7 +2533,7 @@ public class Difileeffect internal constructor(
         public operator fun invoke(
             dwSize: UInt = 0u,
             guidEffect: Guid = Guid(),
-            lpDiEffect: MutPtr<Dieffect> = MutPtr(0L),
+            lpDiEffect: MutPtr = MutPtr(0L),
             szFriendlyName: ByteArray = ByteArray(260),
         ): Difileeffect =
             Difileeffect(
@@ -3209,12 +3208,12 @@ public data class Diobjectcalibration(
 }
 
 public class Diobjectdataformat internal constructor(
-    pguidCtorArg: ConstPtr<Guid>,
+    pguidCtorArg: ConstPtr,
     public var dwOfs: UInt,
     public var dwType: UInt,
     public var dwFlags: UInt,
 ) {
-    public var pguid: ConstPtr<Guid> = pguidCtorArg
+    public var pguid: ConstPtr = pguidCtorArg
         internal set
 
     public constructor() : this(
@@ -3224,7 +3223,7 @@ public class Diobjectdataformat internal constructor(
         dwFlags = 0u,
     )
 
-    public operator fun component1(): ConstPtr<Guid> = this.pguid
+    public operator fun component1(): ConstPtr = this.pguid
 
     public operator fun component2(): UInt = this.dwOfs
 
@@ -3232,7 +3231,7 @@ public class Diobjectdataformat internal constructor(
 
     public operator fun component4(): UInt = this.dwFlags
 
-    public fun copy(pguid: ConstPtr<Guid> = this.pguid, dwOfs: UInt = this.dwOfs, dwType: UInt = this.dwType, dwFlags: UInt = this.dwFlags): Diobjectdataformat = Diobjectdataformat(pguidCtorArg = pguid, dwOfs = dwOfs, dwType = dwType, dwFlags = dwFlags)
+    public fun copy(pguid: ConstPtr = this.pguid, dwOfs: UInt = this.dwOfs, dwType: UInt = this.dwType, dwFlags: UInt = this.dwFlags): Diobjectdataformat = Diobjectdataformat(pguidCtorArg = pguid, dwOfs = dwOfs, dwType = dwType, dwFlags = dwFlags)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -3261,7 +3260,7 @@ public class Diobjectdataformat internal constructor(
                     Diobjectdataformat(
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .constPtrLayout<Guid>(64)
+                                .constPtrLayout(64)
                         ).readNative(addr),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 8L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 12L),
@@ -3270,7 +3269,7 @@ public class Diobjectdataformat internal constructor(
                 override fun writeNative(addr: Long, value: Diobjectdataformat) {
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .constPtrLayout<Guid>(64)
+                            .constPtrLayout(64)
                     ).writeNative(addr, value.pguid)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 8L, value.dwOfs)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 12L, value.dwType)
@@ -3279,7 +3278,7 @@ public class Diobjectdataformat internal constructor(
             }
 
         public operator fun invoke(
-            pguid: ConstPtr<Guid> = ConstPtr(0L),
+            pguid: ConstPtr = ConstPtr(0L),
             dwOfs: UInt = 0u,
             dwType: UInt = 0u,
             dwFlags: UInt = 0u,
@@ -3693,11 +3692,11 @@ public data class HiddAttributes(
 }
 
 public class HiddConfiguration internal constructor(
-    cookieCtorArg: MutPtr<CVoid>,
+    cookieCtorArg: MutPtr,
     public var size: UInt,
     public var ringBufferSize: UInt,
 ) {
-    public var cookie: MutPtr<CVoid> = cookieCtorArg
+    public var cookie: MutPtr = cookieCtorArg
         internal set
 
     public constructor() : this(
@@ -3706,13 +3705,13 @@ public class HiddConfiguration internal constructor(
         ringBufferSize = 0u,
     )
 
-    public operator fun component1(): MutPtr<CVoid> = this.cookie
+    public operator fun component1(): MutPtr = this.cookie
 
     public operator fun component2(): UInt = this.size
 
     public operator fun component3(): UInt = this.ringBufferSize
 
-    public fun copy(cookie: MutPtr<CVoid> = this.cookie, size: UInt = this.size, ringBufferSize: UInt = this.ringBufferSize): HiddConfiguration = HiddConfiguration(cookieCtorArg = cookie, size = size, ringBufferSize = ringBufferSize)
+    public fun copy(cookie: MutPtr = this.cookie, size: UInt = this.size, ringBufferSize: UInt = this.ringBufferSize): HiddConfiguration = HiddConfiguration(cookieCtorArg = cookie, size = size, ringBufferSize = ringBufferSize)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -3739,7 +3738,7 @@ public class HiddConfiguration internal constructor(
                     HiddConfiguration(
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<CVoid>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 8L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 12L),
@@ -3747,7 +3746,7 @@ public class HiddConfiguration internal constructor(
                 override fun writeNative(addr: Long, value: HiddConfiguration) {
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<CVoid>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr, value.cookie)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 8L, value.size)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 12L, value.ringBufferSize)
@@ -3755,7 +3754,7 @@ public class HiddConfiguration internal constructor(
             }
 
         public operator fun invoke(
-            cookie: MutPtr<CVoid> = MutPtr(0L),
+            cookie: MutPtr = MutPtr(0L),
             size: UInt = 0u,
             ringBufferSize: UInt = 0u,
         ): HiddConfiguration =
@@ -4058,10 +4057,10 @@ public data class HidpData0(
 public class HidpExtendedAttributes internal constructor(
     public var numGlobalUnknowns: UByte,
     public var reserved: UByteArray,
-    globalUnknownsCtorArg: MutPtr<HidpUnknownToken>,
+    globalUnknownsCtorArg: MutPtr,
     public var data: UIntArray,
 ) {
-    public var globalUnknowns: MutPtr<HidpUnknownToken> = globalUnknownsCtorArg
+    public var globalUnknowns: MutPtr = globalUnknownsCtorArg
         internal set
 
     public constructor() : this(
@@ -4075,11 +4074,11 @@ public class HidpExtendedAttributes internal constructor(
 
     public operator fun component2(): UByteArray = this.reserved
 
-    public operator fun component3(): MutPtr<HidpUnknownToken> = this.globalUnknowns
+    public operator fun component3(): MutPtr = this.globalUnknowns
 
     public operator fun component4(): UIntArray = this.data
 
-    public fun copy(numGlobalUnknowns: UByte = this.numGlobalUnknowns, reserved: UByteArray = this.reserved, globalUnknowns: MutPtr<HidpUnknownToken> = this.globalUnknowns, data: UIntArray = this.data): HidpExtendedAttributes = HidpExtendedAttributes(numGlobalUnknowns = numGlobalUnknowns, reserved = reserved, globalUnknownsCtorArg = globalUnknowns, data = data)
+    public fun copy(numGlobalUnknowns: UByte = this.numGlobalUnknowns, reserved: UByteArray = this.reserved, globalUnknowns: MutPtr = this.globalUnknowns, data: UIntArray = this.data): HidpExtendedAttributes = HidpExtendedAttributes(numGlobalUnknowns = numGlobalUnknowns, reserved = reserved, globalUnknownsCtorArg = globalUnknowns, data = data)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -4113,7 +4112,7 @@ public class HidpExtendedAttributes internal constructor(
                         ).readNative(addr + 1L).toUByteArray(),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<HidpUnknownToken>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 4L),
                         (
                             io.github.kotlinmania.rustlang.core.mem
@@ -4128,7 +4127,7 @@ public class HidpExtendedAttributes internal constructor(
                     ).writeNative(addr + 1L, value.reserved.toList())
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<HidpUnknownToken>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 4L, value.globalUnknowns)
                     (
                         io.github.kotlinmania.rustlang.core.mem
@@ -4140,7 +4139,7 @@ public class HidpExtendedAttributes internal constructor(
         public operator fun invoke(
             numGlobalUnknowns: UByte = 0u,
             reserved: UByteArray = UByteArray(3),
-            globalUnknowns: MutPtr<HidpUnknownToken> = MutPtr(0L),
+            globalUnknowns: MutPtr = MutPtr(0L),
             data: UIntArray = UIntArray(1),
         ): HidpExtendedAttributes =
             HidpExtendedAttributes(
@@ -4188,9 +4187,9 @@ public class HidpLinkCollectionNode internal constructor(
     public var nextSibling: UShort,
     public var firstChild: UShort,
     public var bitfield: UInt,
-    userContextCtorArg: MutPtr<CVoid>,
+    userContextCtorArg: MutPtr,
 ) {
-    public var userContext: MutPtr<CVoid> = userContextCtorArg
+    public var userContext: MutPtr = userContextCtorArg
         internal set
 
     public constructor() : this(
@@ -4218,9 +4217,9 @@ public class HidpLinkCollectionNode internal constructor(
 
     public operator fun component7(): UInt = this.bitfield
 
-    public operator fun component8(): MutPtr<CVoid> = this.userContext
+    public operator fun component8(): MutPtr = this.userContext
 
-    public fun copy(linkUsage: UShort = this.linkUsage, linkUsagePage: UShort = this.linkUsagePage, parent: UShort = this.parent, numberOfChildren: UShort = this.numberOfChildren, nextSibling: UShort = this.nextSibling, firstChild: UShort = this.firstChild, bitfield: UInt = this.bitfield, userContext: MutPtr<CVoid> = this.userContext): HidpLinkCollectionNode = HidpLinkCollectionNode(linkUsage = linkUsage, linkUsagePage = linkUsagePage, parent = parent, numberOfChildren = numberOfChildren, nextSibling = nextSibling, firstChild = firstChild, bitfield = bitfield, userContextCtorArg = userContext)
+    public fun copy(linkUsage: UShort = this.linkUsage, linkUsagePage: UShort = this.linkUsagePage, parent: UShort = this.parent, numberOfChildren: UShort = this.numberOfChildren, nextSibling: UShort = this.nextSibling, firstChild: UShort = this.firstChild, bitfield: UInt = this.bitfield, userContext: MutPtr = this.userContext): HidpLinkCollectionNode = HidpLinkCollectionNode(linkUsage = linkUsage, linkUsagePage = linkUsagePage, parent = parent, numberOfChildren = numberOfChildren, nextSibling = nextSibling, firstChild = firstChild, bitfield = bitfield, userContextCtorArg = userContext)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -4264,7 +4263,7 @@ public class HidpLinkCollectionNode internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 12L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<CVoid>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 16L),
                     )
                 override fun writeNative(addr: Long, value: HidpLinkCollectionNode) {
@@ -4277,7 +4276,7 @@ public class HidpLinkCollectionNode internal constructor(
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 12L, value.bitfield)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<CVoid>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 16L, value.userContext)
                 }
             }
@@ -4290,7 +4289,7 @@ public class HidpLinkCollectionNode internal constructor(
             nextSibling: UShort = 0u,
             firstChild: UShort = 0u,
             bitfield: UInt = 0u,
-            userContext: MutPtr<CVoid> = MutPtr(0L),
+            userContext: MutPtr = MutPtr(0L),
         ): HidpLinkCollectionNode =
             HidpLinkCollectionNode(
                 linkUsage = linkUsage,
@@ -4548,11 +4547,11 @@ public data class HidDriverConfig(
 }
 
 public class HidXferPacket internal constructor(
-    reportBufferCtorArg: MutPtr<UByte>,
+    reportBufferCtorArg: MutPtr,
     public var reportBufferLen: UInt,
     public var reportId: UByte,
 ) {
-    public var reportBuffer: MutPtr<UByte> = reportBufferCtorArg
+    public var reportBuffer: MutPtr = reportBufferCtorArg
         internal set
 
     public constructor() : this(
@@ -4561,13 +4560,13 @@ public class HidXferPacket internal constructor(
         reportId = 0u,
     )
 
-    public operator fun component1(): MutPtr<UByte> = this.reportBuffer
+    public operator fun component1(): MutPtr = this.reportBuffer
 
     public operator fun component2(): UInt = this.reportBufferLen
 
     public operator fun component3(): UByte = this.reportId
 
-    public fun copy(reportBuffer: MutPtr<UByte> = this.reportBuffer, reportBufferLen: UInt = this.reportBufferLen, reportId: UByte = this.reportId): HidXferPacket = HidXferPacket(reportBufferCtorArg = reportBuffer, reportBufferLen = reportBufferLen, reportId = reportId)
+    public fun copy(reportBuffer: MutPtr = this.reportBuffer, reportBufferLen: UInt = this.reportBufferLen, reportId: UByte = this.reportId): HidXferPacket = HidXferPacket(reportBufferCtorArg = reportBuffer, reportBufferLen = reportBufferLen, reportId = reportId)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -4594,7 +4593,7 @@ public class HidXferPacket internal constructor(
                     HidXferPacket(
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<UByte>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 8L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8).readNative(addr + 12L),
@@ -4602,7 +4601,7 @@ public class HidXferPacket internal constructor(
                 override fun writeNative(addr: Long, value: HidXferPacket) {
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<UByte>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr, value.reportBuffer)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 8L, value.reportBufferLen)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8).writeNative(addr + 12L, value.reportId)
@@ -4610,7 +4609,7 @@ public class HidXferPacket internal constructor(
             }
 
         public operator fun invoke(
-            reportBuffer: MutPtr<UByte> = MutPtr(0L),
+            reportBuffer: MutPtr = MutPtr(0L),
             reportBufferLen: UInt = 0u,
             reportId: UByte = 0u,
         ): HidXferPacket =

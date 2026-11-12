@@ -8,7 +8,6 @@ import io.github.kotlinmania.rustlang.core.ptr.ConstPtr
 import io.github.kotlinmania.rustlang.core.ptr.MutPtr
 import io.github.kotlinmania.windowssys.core.Bool
 import io.github.kotlinmania.windowssys.core.Pcwstr
-import io.github.kotlinmania.windowssys.windows.win32.system.diagnostics.debug.ExceptionPointers
 
 public class AssemblyBindInfo internal constructor(
     public var dwAppDomainId: UInt,
@@ -390,9 +389,9 @@ public class ModuleBindInfo internal constructor(
 
 public class StackOverflowInfo internal constructor(
     public var soType: StackOverflowType,
-    pExceptionInfoCtorArg: MutPtr<ExceptionPointers>,
+    pExceptionInfoCtorArg: MutPtr,
 ) {
-    public var pExceptionInfo: MutPtr<ExceptionPointers> = pExceptionInfoCtorArg
+    public var pExceptionInfo: MutPtr = pExceptionInfoCtorArg
         internal set
 
     public constructor() : this(
@@ -402,9 +401,9 @@ public class StackOverflowInfo internal constructor(
 
     public operator fun component1(): StackOverflowType = this.soType
 
-    public operator fun component2(): MutPtr<ExceptionPointers> = this.pExceptionInfo
+    public operator fun component2(): MutPtr = this.pExceptionInfo
 
-    public fun copy(soType: StackOverflowType = this.soType, pExceptionInfo: MutPtr<ExceptionPointers> = this.pExceptionInfo): StackOverflowInfo = StackOverflowInfo(soType = soType, pExceptionInfoCtorArg = pExceptionInfo)
+    public fun copy(soType: StackOverflowType = this.soType, pExceptionInfo: MutPtr = this.pExceptionInfo): StackOverflowInfo = StackOverflowInfo(soType = soType, pExceptionInfoCtorArg = pExceptionInfo)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -430,21 +429,21 @@ public class StackOverflowInfo internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<ExceptionPointers>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                     )
                 override fun writeNative(addr: Long, value: StackOverflowInfo) {
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr, value.soType)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<ExceptionPointers>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.pExceptionInfo)
                 }
             }
 
         public operator fun invoke(
             soType: StackOverflowType = 0,
-            pExceptionInfo: MutPtr<ExceptionPointers> = MutPtr(0L),
+            pExceptionInfo: MutPtr = MutPtr(0L),
         ): StackOverflowInfo =
             StackOverflowInfo(
                 soType = soType,

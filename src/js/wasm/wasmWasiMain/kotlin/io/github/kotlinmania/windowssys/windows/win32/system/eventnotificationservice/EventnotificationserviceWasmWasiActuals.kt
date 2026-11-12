@@ -8,11 +8,11 @@ import io.github.kotlinmania.windowssys.core.Pcstr
 import io.github.kotlinmania.windowssys.core.Pcwstr
 
 // The host must provide the C companion wrapper exports in import module windowssys.
-public actual fun isDestinationReachableA(lpszdestination: Pcstr, lpqocinfo: MutPtr<Qocinfo>): Bool =
+public actual fun isDestinationReachableA(lpszdestination: Pcstr, lpqocinfo: MutPtr): Bool =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32SystemEventnotificationserviceIsDestinationReachableA")
 
-public actual fun isDestinationReachableW(lpszdestination: Pcwstr, lpqocinfo: MutPtr<Qocinfo>): Bool =
+public actual fun isDestinationReachableW(lpszdestination: Pcwstr, lpqocinfo: MutPtr): Bool =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32SystemEventnotificationserviceIsDestinationReachableW")
 
-public actual fun isNetworkAlive(lpdwflags: MutPtr<UInt>): Bool =
+public actual fun isNetworkAlive(lpdwflags: MutPtr): Bool =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32SystemEventnotificationserviceIsNetworkAlive")

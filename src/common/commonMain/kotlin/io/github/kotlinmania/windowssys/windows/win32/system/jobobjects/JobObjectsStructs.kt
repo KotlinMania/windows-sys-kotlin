@@ -1,6 +1,5 @@
 package io.github.kotlinmania.windowssys.windows.win32.system.jobobjects
 
-import io.github.kotlinmania.rustlang.core.ffi.CVoid
 import io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
 import io.github.kotlinmania.rustlang.core.mem.TypeLayout
 import io.github.kotlinmania.rustlang.core.ptr.ConstPtr
@@ -8,15 +7,13 @@ import io.github.kotlinmania.rustlang.core.ptr.MutPtr
 import io.github.kotlinmania.windowssys.core.Pcwstr
 import io.github.kotlinmania.windowssys.core.Pwstr
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Handle
-import io.github.kotlinmania.windowssys.windows.win32.security.TokenGroups
-import io.github.kotlinmania.windowssys.windows.win32.security.TokenPrivileges
 import io.github.kotlinmania.windowssys.windows.win32.system.threading.IoCounters
 
 public class JobobjectAssociateCompletionPort internal constructor(
-    completionKeyCtorArg: MutPtr<CVoid>,
+    completionKeyCtorArg: MutPtr,
     completionPortCtorArg: Handle,
 ) {
-    public var completionKey: MutPtr<CVoid> = completionKeyCtorArg
+    public var completionKey: MutPtr = completionKeyCtorArg
         internal set
 
     public var completionPort: Handle = completionPortCtorArg
@@ -27,11 +24,11 @@ public class JobobjectAssociateCompletionPort internal constructor(
         completionPortCtorArg = MutPtr(0L),
     )
 
-    public operator fun component1(): MutPtr<CVoid> = this.completionKey
+    public operator fun component1(): MutPtr = this.completionKey
 
     public operator fun component2(): Handle = this.completionPort
 
-    public fun copy(completionKey: MutPtr<CVoid> = this.completionKey, completionPort: Handle = this.completionPort): JobobjectAssociateCompletionPort = JobobjectAssociateCompletionPort(completionKeyCtorArg = completionKey, completionPortCtorArg = completionPort)
+    public fun copy(completionKey: MutPtr = this.completionKey, completionPort: Handle = this.completionPort): JobobjectAssociateCompletionPort = JobobjectAssociateCompletionPort(completionKeyCtorArg = completionKey, completionPortCtorArg = completionPort)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -49,7 +46,7 @@ public class JobobjectAssociateCompletionPort internal constructor(
 
     public companion object {
         public operator fun invoke(
-            completionKey: MutPtr<CVoid> = MutPtr(0L),
+            completionKey: MutPtr = MutPtr(0L),
             completionPort: Handle = MutPtr(0L),
         ): JobobjectAssociateCompletionPort =
             JobobjectAssociateCompletionPort(
@@ -912,20 +909,20 @@ public data class JobobjectNotificationLimitInformation22(
 public class JobobjectSecurityLimitInformation internal constructor(
     public var securityLimitFlags: JobObjectSecurity,
     jobTokenCtorArg: Handle,
-    sidsToDisableCtorArg: MutPtr<TokenGroups>,
-    privilegesToDeleteCtorArg: MutPtr<TokenPrivileges>,
-    restrictedSidsCtorArg: MutPtr<TokenGroups>,
+    sidsToDisableCtorArg: MutPtr,
+    privilegesToDeleteCtorArg: MutPtr,
+    restrictedSidsCtorArg: MutPtr,
 ) {
     public var jobToken: Handle = jobTokenCtorArg
         internal set
 
-    public var sidsToDisable: MutPtr<TokenGroups> = sidsToDisableCtorArg
+    public var sidsToDisable: MutPtr = sidsToDisableCtorArg
         internal set
 
-    public var privilegesToDelete: MutPtr<TokenPrivileges> = privilegesToDeleteCtorArg
+    public var privilegesToDelete: MutPtr = privilegesToDeleteCtorArg
         internal set
 
-    public var restrictedSids: MutPtr<TokenGroups> = restrictedSidsCtorArg
+    public var restrictedSids: MutPtr = restrictedSidsCtorArg
         internal set
 
     public constructor() : this(
@@ -940,13 +937,13 @@ public class JobobjectSecurityLimitInformation internal constructor(
 
     public operator fun component2(): Handle = this.jobToken
 
-    public operator fun component3(): MutPtr<TokenGroups> = this.sidsToDisable
+    public operator fun component3(): MutPtr = this.sidsToDisable
 
-    public operator fun component4(): MutPtr<TokenPrivileges> = this.privilegesToDelete
+    public operator fun component4(): MutPtr = this.privilegesToDelete
 
-    public operator fun component5(): MutPtr<TokenGroups> = this.restrictedSids
+    public operator fun component5(): MutPtr = this.restrictedSids
 
-    public fun copy(securityLimitFlags: JobObjectSecurity = this.securityLimitFlags, jobToken: Handle = this.jobToken, sidsToDisable: MutPtr<TokenGroups> = this.sidsToDisable, privilegesToDelete: MutPtr<TokenPrivileges> = this.privilegesToDelete, restrictedSids: MutPtr<TokenGroups> = this.restrictedSids): JobobjectSecurityLimitInformation = JobobjectSecurityLimitInformation(securityLimitFlags = securityLimitFlags, jobTokenCtorArg = jobToken, sidsToDisableCtorArg = sidsToDisable, privilegesToDeleteCtorArg = privilegesToDelete, restrictedSidsCtorArg = restrictedSids)
+    public fun copy(securityLimitFlags: JobObjectSecurity = this.securityLimitFlags, jobToken: Handle = this.jobToken, sidsToDisable: MutPtr = this.sidsToDisable, privilegesToDelete: MutPtr = this.privilegesToDelete, restrictedSids: MutPtr = this.restrictedSids): JobobjectSecurityLimitInformation = JobobjectSecurityLimitInformation(securityLimitFlags = securityLimitFlags, jobTokenCtorArg = jobToken, sidsToDisableCtorArg = sidsToDisable, privilegesToDeleteCtorArg = privilegesToDelete, restrictedSidsCtorArg = restrictedSids)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -972,9 +969,9 @@ public class JobobjectSecurityLimitInformation internal constructor(
         public operator fun invoke(
             securityLimitFlags: JobObjectSecurity = 0u,
             jobToken: Handle = MutPtr(0L),
-            sidsToDisable: MutPtr<TokenGroups> = MutPtr(0L),
-            privilegesToDelete: MutPtr<TokenPrivileges> = MutPtr(0L),
-            restrictedSids: MutPtr<TokenGroups> = MutPtr(0L),
+            sidsToDisable: MutPtr = MutPtr(0L),
+            privilegesToDelete: MutPtr = MutPtr(0L),
+            restrictedSids: MutPtr = MutPtr(0L),
         ): JobobjectSecurityLimitInformation =
             JobobjectSecurityLimitInformation(
                 securityLimitFlags = securityLimitFlags,

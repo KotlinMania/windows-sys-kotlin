@@ -2,11 +2,9 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.ui.shell
 
-import io.github.kotlinmania.rustlang.core.ffi.CVoid
 import io.github.kotlinmania.rustlang.core.ptr.ConstPtr
 import io.github.kotlinmania.rustlang.core.ptr.MutPtr
 import io.github.kotlinmania.windowssys.core.Bool
-import io.github.kotlinmania.windowssys.core.Bstr
 import io.github.kotlinmania.windowssys.core.Guid
 import io.github.kotlinmania.windowssys.core.Hresult
 import io.github.kotlinmania.windowssys.core.Pcstr
@@ -14,36 +12,24 @@ import io.github.kotlinmania.windowssys.core.Pcwstr
 import io.github.kotlinmania.windowssys.core.Pstr
 import io.github.kotlinmania.windowssys.core.Pwstr
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Colorref
-import io.github.kotlinmania.windowssys.windows.win32.foundation.Filetime
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Handle
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Hinstance
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Hwnd
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Lparam
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Lresult
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Point
-import io.github.kotlinmania.windowssys.windows.win32.foundation.Propertykey
-import io.github.kotlinmania.windowssys.windows.win32.foundation.Rect
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Win32Error
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Wparam
 import io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.Hdc
 import io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.Hmonitor
 import io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.Hpalette
-import io.github.kotlinmania.windowssys.windows.win32.security.SecurityAttributes
 import io.github.kotlinmania.windowssys.windows.win32.storage.filesystem.FileFlagsAndAttributes
-import io.github.kotlinmania.windowssys.windows.win32.system.Variant
-import io.github.kotlinmania.windowssys.windows.win32.system.com.Formatetc
-import io.github.kotlinmania.windowssys.windows.win32.system.com.structuredstorage.Propvariant
-import io.github.kotlinmania.windowssys.windows.win32.system.com.urlmon.Softdistinfo
 import io.github.kotlinmania.windowssys.windows.win32.system.ole.Dropeffect
 import io.github.kotlinmania.windowssys.windows.win32.system.registry.Hkey
 import io.github.kotlinmania.windowssys.windows.win32.system.threading.LpthreadStartRoutine
 import io.github.kotlinmania.windowssys.windows.win32.ui.controls.Himagelist
 import io.github.kotlinmania.windowssys.windows.win32.ui.controls.Lpfnsvaddpropsheetpage
 import io.github.kotlinmania.windowssys.windows.win32.ui.shell.common.DeviceScaleFactor
-import io.github.kotlinmania.windowssys.windows.win32.ui.shell.common.Itemidlist
-import io.github.kotlinmania.windowssys.windows.win32.ui.shell.common.Perceived
-import io.github.kotlinmania.windowssys.windows.win32.ui.shell.common.Shitemid
-import io.github.kotlinmania.windowssys.windows.win32.ui.shell.common.Strret
 import io.github.kotlinmania.windowssys.windows.win32.ui.windowsandmessaging.Hicon
 import io.github.kotlinmania.windowssys.windows.win32.ui.windowsandmessaging.Hmenu
 import io.github.kotlinmania.windowssys.windows.win32.ui.windowsandmessaging.MessageboxStyle
@@ -2164,43 +2150,43 @@ private object WindowsWin32UiShellJniBridge {
     external fun windowssysWindowsWin32UiShellWvnsprintfW(pszdest: Long, cchdest: Int, pszfmt: Long, arglist: Long): Int
 }
 
-public actual fun assocCreate(clsid: Guid, riid: ConstPtr<Guid>, ppv: MutPtr<MutPtr<CVoid>>): Hresult =
+public actual fun assocCreate(clsid: Guid, riid: ConstPtr, ppv: MutPtr): Hresult =
     0
 
-public actual fun assocCreateForClasses(rgclasses: ConstPtr<Associationelement>, cclasses: UInt, riid: ConstPtr<Guid>, ppv: MutPtr<MutPtr<CVoid>>): Hresult =
+public actual fun assocCreateForClasses(rgclasses: ConstPtr, cclasses: UInt, riid: ConstPtr, ppv: MutPtr): Hresult =
     WindowsWin32UiShellJniBridge.windowssysWindowsWin32UiShellAssocCreateForClasses(rgclasses.rawAddress, cclasses.toInt(), riid.rawAddress, ppv.rawAddress)
 
-public actual fun assocGetDetailsOfPropKey(psf: MutPtr<CVoid>, pidl: ConstPtr<Itemidlist>, pkey: ConstPtr<Propertykey>, pv: MutPtr<Variant.Variant>, pffoundpropkey: MutPtr<Bool>): Hresult =
+public actual fun assocGetDetailsOfPropKey(psf: MutPtr, pidl: ConstPtr, pkey: ConstPtr, pv: MutPtr, pffoundpropkey: MutPtr): Hresult =
     WindowsWin32UiShellJniBridge.windowssysWindowsWin32UiShellAssocGetDetailsOfPropKey(psf.rawAddress, pidl.rawAddress, pkey.rawAddress, pv.rawAddress, pffoundpropkey.rawAddress)
 
-public actual fun assocGetPerceivedType(pszext: Pcwstr, ptype: MutPtr<Perceived>, pflag: MutPtr<UInt>, ppsztype: MutPtr<Pwstr>): Hresult =
+public actual fun assocGetPerceivedType(pszext: Pcwstr, ptype: MutPtr, pflag: MutPtr, ppsztype: MutPtr): Hresult =
     WindowsWin32UiShellJniBridge.windowssysWindowsWin32UiShellAssocGetPerceivedType(pszext.rawAddress, ptype.rawAddress, pflag.rawAddress, ppsztype.rawAddress)
 
 public actual fun assocIsDangerous(pszassoc: Pcwstr): Bool =
     WindowsWin32UiShellJniBridge.windowssysWindowsWin32UiShellAssocIsDangerous(pszassoc.rawAddress)
 
-public actual fun assocQueryKeyA(flags: Assocf, key: Assockey, pszassoc: Pcstr, pszextra: Pcstr, phkeyout: MutPtr<Hkey>): Hresult =
+public actual fun assocQueryKeyA(flags: Assocf, key: Assockey, pszassoc: Pcstr, pszextra: Pcstr, phkeyout: MutPtr): Hresult =
     WindowsWin32UiShellJniBridge.windowssysWindowsWin32UiShellAssocQueryKeyA(flags.toInt(), key, pszassoc.rawAddress, pszextra.rawAddress, phkeyout.rawAddress)
 
-public actual fun assocQueryKeyW(flags: Assocf, key: Assockey, pszassoc: Pcwstr, pszextra: Pcwstr, phkeyout: MutPtr<Hkey>): Hresult =
+public actual fun assocQueryKeyW(flags: Assocf, key: Assockey, pszassoc: Pcwstr, pszextra: Pcwstr, phkeyout: MutPtr): Hresult =
     WindowsWin32UiShellJniBridge.windowssysWindowsWin32UiShellAssocQueryKeyW(flags.toInt(), key, pszassoc.rawAddress, pszextra.rawAddress, phkeyout.rawAddress)
 
-public actual fun assocQueryStringA(flags: Assocf, str: Assocstr, pszassoc: Pcstr, pszextra: Pcstr, pszout: Pstr, pcchout: MutPtr<UInt>): Hresult =
+public actual fun assocQueryStringA(flags: Assocf, str: Assocstr, pszassoc: Pcstr, pszextra: Pcstr, pszout: Pstr, pcchout: MutPtr): Hresult =
     WindowsWin32UiShellJniBridge.windowssysWindowsWin32UiShellAssocQueryStringA(flags.toInt(), str, pszassoc.rawAddress, pszextra.rawAddress, pszout.rawAddress, pcchout.rawAddress)
 
-public actual fun assocQueryStringByKeyA(flags: Assocf, str: Assocstr, hkassoc: Hkey, pszextra: Pcstr, pszout: Pstr, pcchout: MutPtr<UInt>): Hresult =
+public actual fun assocQueryStringByKeyA(flags: Assocf, str: Assocstr, hkassoc: Hkey, pszextra: Pcstr, pszout: Pstr, pcchout: MutPtr): Hresult =
     WindowsWin32UiShellJniBridge.windowssysWindowsWin32UiShellAssocQueryStringByKeyA(flags.toInt(), str, hkassoc.rawAddress, pszextra.rawAddress, pszout.rawAddress, pcchout.rawAddress)
 
-public actual fun assocQueryStringByKeyW(flags: Assocf, str: Assocstr, hkassoc: Hkey, pszextra: Pcwstr, pszout: Pwstr, pcchout: MutPtr<UInt>): Hresult =
+public actual fun assocQueryStringByKeyW(flags: Assocf, str: Assocstr, hkassoc: Hkey, pszextra: Pcwstr, pszout: Pwstr, pcchout: MutPtr): Hresult =
     WindowsWin32UiShellJniBridge.windowssysWindowsWin32UiShellAssocQueryStringByKeyW(flags.toInt(), str, hkassoc.rawAddress, pszextra.rawAddress, pszout.rawAddress, pcchout.rawAddress)
 
-public actual fun assocQueryStringW(flags: Assocf, str: Assocstr, pszassoc: Pcwstr, pszextra: Pcwstr, pszout: Pwstr, pcchout: MutPtr<UInt>): Hresult =
+public actual fun assocQueryStringW(flags: Assocf, str: Assocstr, pszassoc: Pcwstr, pszextra: Pcwstr, pszout: Pwstr, pcchout: MutPtr): Hresult =
     WindowsWin32UiShellJniBridge.windowssysWindowsWin32UiShellAssocQueryStringW(flags.toInt(), str, pszassoc.rawAddress, pszextra.rawAddress, pszout.rawAddress, pcchout.rawAddress)
 
-public actual fun cdefFolderMenuCreate2(pidlfolder: ConstPtr<Itemidlist>, hwnd: Hwnd, cidl: UInt, apidl: ConstPtr<ConstPtr<Itemidlist>>, psf: MutPtr<CVoid>, pfn: Lpfndfmcallback, nkeys: UInt, ahkeys: ConstPtr<Hkey>, ppcm: MutPtr<MutPtr<CVoid>>): Hresult =
+public actual fun cdefFolderMenuCreate2(pidlfolder: ConstPtr, hwnd: Hwnd, cidl: UInt, apidl: ConstPtr, psf: MutPtr, pfn: Lpfndfmcallback, nkeys: UInt, ahkeys: ConstPtr, ppcm: MutPtr): Hresult =
     WindowsWin32UiShellJniBridge.windowssysWindowsWin32UiShellCdefFolderMenuCreate2(pidlfolder.rawAddress, hwnd.rawAddress, cidl.toInt(), apidl.rawAddress, psf.rawAddress, 0L, nkeys.toInt(), ahkeys.rawAddress, ppcm.rawAddress)
 
-public actual fun cidldataCreateFromIdarray(pidlfolder: ConstPtr<Itemidlist>, cidl: UInt, apidl: ConstPtr<ConstPtr<Itemidlist>>, ppdtobj: MutPtr<MutPtr<CVoid>>): Hresult =
+public actual fun cidldataCreateFromIdarray(pidlfolder: ConstPtr, cidl: UInt, apidl: ConstPtr, ppdtobj: MutPtr): Hresult =
     WindowsWin32UiShellJniBridge.windowssysWindowsWin32UiShellCidldataCreateFromIdarray(pidlfolder.rawAddress, cidl.toInt(), apidl.rawAddress, ppdtobj.rawAddress)
 
 public actual fun chrCmpIA(w1: UShort, w2: UShort): Bool =
@@ -2215,26 +2201,26 @@ public actual fun colorAdjustLuma(clrrgb: Colorref, n: Int, fscale: Bool): Color
 public actual fun colorHLSToRGB(whue: UShort, wluminance: UShort, wsaturation: UShort): Colorref =
     WindowsWin32UiShellJniBridge.windowssysWindowsWin32UiShellColorHLSToRGB(whue.toShort(), wluminance.toShort(), wsaturation.toShort()).toUInt()
 
-public actual fun colorRGBToHLS(clrrgb: Colorref, pwhue: MutPtr<UShort>, pwluminance: MutPtr<UShort>, pwsaturation: MutPtr<UShort>) {
+public actual fun colorRGBToHLS(clrrgb: Colorref, pwhue: MutPtr, pwluminance: MutPtr, pwsaturation: MutPtr) {
     WindowsWin32UiShellJniBridge.windowssysWindowsWin32UiShellColorRGBToHLS(clrrgb.toInt(), pwhue.rawAddress, pwluminance.rawAddress, pwsaturation.rawAddress)
 }
 
-public actual fun commandLineToArgvW(lpcmdline: Pcwstr, pnumargs: MutPtr<Int>): MutPtr<Pwstr> =
+public actual fun commandLineToArgvW(lpcmdline: Pcwstr, pnumargs: MutPtr): MutPtr =
     MutPtr(WindowsWin32UiShellJniBridge.windowssysWindowsWin32UiShellCommandLineToArgvW(lpcmdline.rawAddress, pnumargs.rawAddress))
 
-public actual fun connectToConnectionPoint(punk: MutPtr<CVoid>, riidevent: ConstPtr<Guid>, fconnect: Bool, punktarget: MutPtr<CVoid>, pdwcookie: MutPtr<UInt>, ppcpout: MutPtr<MutPtr<CVoid>>): Hresult =
+public actual fun connectToConnectionPoint(punk: MutPtr, riidevent: ConstPtr, fconnect: Bool, punktarget: MutPtr, pdwcookie: MutPtr, ppcpout: MutPtr): Hresult =
     WindowsWin32UiShellJniBridge.windowssysWindowsWin32UiShellConnectToConnectionPoint(punk.rawAddress, riidevent.rawAddress, fconnect, punktarget.rawAddress, pdwcookie.rawAddress, ppcpout.rawAddress)
 
 public actual fun createProfile(pszusersid: Pcwstr, pszusername: Pcwstr, pszprofilepath: Pwstr, cchprofilepath: UInt): Hresult =
     WindowsWin32UiShellJniBridge.windowssysWindowsWin32UiShellCreateProfile(pszusersid.rawAddress, pszusername.rawAddress, pszprofilepath.rawAddress, cchprofilepath.toInt())
 
-public actual fun dadAutoScroll(hwnd: Hwnd, pad: MutPtr<AutoScrollData>, pptnow: ConstPtr<Point>): Bool =
+public actual fun dadAutoScroll(hwnd: Hwnd, pad: MutPtr, pptnow: ConstPtr): Bool =
     WindowsWin32UiShellJniBridge.windowssysWindowsWin32UiShellDadAutoScroll(hwnd.rawAddress, pad.rawAddress, pptnow.rawAddress)
 
 public actual fun dadDragEnterEx(hwndtarget: Hwnd, ptstart: Point): Bool =
     0
 
-public actual fun dadDragEnterEx2(hwndtarget: Hwnd, ptstart: Point, pdtobject: MutPtr<CVoid>): Bool =
+public actual fun dadDragEnterEx2(hwndtarget: Hwnd, ptstart: Point, pdtobject: MutPtr): Bool =
     0
 
 public actual fun dadDragLeave(): Bool =
@@ -2243,7 +2229,7 @@ public actual fun dadDragLeave(): Bool =
 public actual fun dadDragMove(pt: Point): Bool =
     0
 
-public actual fun dadSetDragImage(him: Himagelist, pptoffset: MutPtr<Point>): Bool =
+public actual fun dadSetDragImage(him: Himagelist, pptoffset: MutPtr): Bool =
     WindowsWin32UiShellJniBridge.windowssysWindowsWin32UiShellDadSetDragImage(him, pptoffset.rawAddress)
 
 public actual fun dadShowDragImage(fshow: Bool): Bool =
@@ -2278,7 +2264,7 @@ public actual fun dragQueryFileA(hdrop: Hdrop, ifile: UInt, lpszfile: Pstr, cch:
 public actual fun dragQueryFileW(hdrop: Hdrop, ifile: UInt, lpszfile: Pwstr, cch: UInt): UInt =
     WindowsWin32UiShellJniBridge.windowssysWindowsWin32UiShellDragQueryFileW(hdrop.rawAddress, ifile.toInt(), lpszfile.rawAddress, cch.toInt()).toUInt()
 
-public actual fun dragQueryPoint(hdrop: Hdrop, ppt: MutPtr<Point>): Bool =
+public actual fun dragQueryPoint(hdrop: Hdrop, ppt: MutPtr): Bool =
     WindowsWin32UiShellJniBridge.windowssysWindowsWin32UiShellDragQueryPoint(hdrop.rawAddress, ppt.rawAddress)
 
 public actual fun driveType(idrive: Int): Int =
@@ -2287,25 +2273,25 @@ public actual fun driveType(idrive: Int): Int =
 public actual fun duplicateIcon(hinst: Hinstance, hicon: Hicon): Hicon =
     MutPtr(WindowsWin32UiShellJniBridge.windowssysWindowsWin32UiShellDuplicateIcon(hinst.rawAddress, hicon.rawAddress))
 
-public actual fun extractAssociatedIconA(hinst: Hinstance, psziconpath: Pstr, piicon: MutPtr<UShort>): Hicon =
+public actual fun extractAssociatedIconA(hinst: Hinstance, psziconpath: Pstr, piicon: MutPtr): Hicon =
     MutPtr(WindowsWin32UiShellJniBridge.windowssysWindowsWin32UiShellExtractAssociatedIconA(hinst.rawAddress, psziconpath.rawAddress, piicon.rawAddress))
 
-public actual fun extractAssociatedIconExA(hinst: Hinstance, psziconpath: Pstr, piiconindex: MutPtr<UShort>, piiconid: MutPtr<UShort>): Hicon =
+public actual fun extractAssociatedIconExA(hinst: Hinstance, psziconpath: Pstr, piiconindex: MutPtr, piiconid: MutPtr): Hicon =
     MutPtr(WindowsWin32UiShellJniBridge.windowssysWindowsWin32UiShellExtractAssociatedIconExA(hinst.rawAddress, psziconpath.rawAddress, piiconindex.rawAddress, piiconid.rawAddress))
 
-public actual fun extractAssociatedIconExW(hinst: Hinstance, psziconpath: Pwstr, piiconindex: MutPtr<UShort>, piiconid: MutPtr<UShort>): Hicon =
+public actual fun extractAssociatedIconExW(hinst: Hinstance, psziconpath: Pwstr, piiconindex: MutPtr, piiconid: MutPtr): Hicon =
     MutPtr(WindowsWin32UiShellJniBridge.windowssysWindowsWin32UiShellExtractAssociatedIconExW(hinst.rawAddress, psziconpath.rawAddress, piiconindex.rawAddress, piiconid.rawAddress))
 
-public actual fun extractAssociatedIconW(hinst: Hinstance, psziconpath: Pwstr, piicon: MutPtr<UShort>): Hicon =
+public actual fun extractAssociatedIconW(hinst: Hinstance, psziconpath: Pwstr, piicon: MutPtr): Hicon =
     MutPtr(WindowsWin32UiShellJniBridge.windowssysWindowsWin32UiShellExtractAssociatedIconW(hinst.rawAddress, psziconpath.rawAddress, piicon.rawAddress))
 
 public actual fun extractIconA(hinst: Hinstance, pszexefilename: Pcstr, niconindex: UInt): Hicon =
     MutPtr(WindowsWin32UiShellJniBridge.windowssysWindowsWin32UiShellExtractIconA(hinst.rawAddress, pszexefilename.rawAddress, niconindex.toInt()))
 
-public actual fun extractIconExA(lpszfile: Pcstr, niconindex: Int, phiconlarge: MutPtr<Hicon>, phiconsmall: MutPtr<Hicon>, nicons: UInt): UInt =
+public actual fun extractIconExA(lpszfile: Pcstr, niconindex: Int, phiconlarge: MutPtr, phiconsmall: MutPtr, nicons: UInt): UInt =
     WindowsWin32UiShellJniBridge.windowssysWindowsWin32UiShellExtractIconExA(lpszfile.rawAddress, niconindex, phiconlarge.rawAddress, phiconsmall.rawAddress, nicons.toInt()).toUInt()
 
-public actual fun extractIconExW(lpszfile: Pcwstr, niconindex: Int, phiconlarge: MutPtr<Hicon>, phiconsmall: MutPtr<Hicon>, nicons: UInt): UInt =
+public actual fun extractIconExW(lpszfile: Pcwstr, niconindex: Int, phiconlarge: MutPtr, phiconsmall: MutPtr, nicons: UInt): UInt =
     WindowsWin32UiShellJniBridge.windowssysWindowsWin32UiShellExtractIconExW(lpszfile.rawAddress, niconindex, phiconlarge.rawAddress, phiconsmall.rawAddress, nicons.toInt()).toUInt()
 
 public actual fun extractIconW(hinst: Hinstance, pszexefilename: Pcwstr, niconindex: UInt): Hicon =
@@ -2317,25 +2303,25 @@ public actual fun findExecutableA(lpfile: Pcstr, lpdirectory: Pcstr, lpresult: P
 public actual fun findExecutableW(lpfile: Pcwstr, lpdirectory: Pcwstr, lpresult: Pwstr): Hinstance =
     MutPtr(WindowsWin32UiShellJniBridge.windowssysWindowsWin32UiShellFindExecutableW(lpfile.rawAddress, lpdirectory.rawAddress, lpresult.rawAddress))
 
-public actual fun getAcceptLanguagesA(pszlanguages: Pstr, pcchlanguages: MutPtr<UInt>): Hresult =
+public actual fun getAcceptLanguagesA(pszlanguages: Pstr, pcchlanguages: MutPtr): Hresult =
     WindowsWin32UiShellJniBridge.windowssysWindowsWin32UiShellGetAcceptLanguagesA(pszlanguages.rawAddress, pcchlanguages.rawAddress)
 
-public actual fun getAcceptLanguagesW(pszlanguages: Pwstr, pcchlanguages: MutPtr<UInt>): Hresult =
+public actual fun getAcceptLanguagesW(pszlanguages: Pwstr, pcchlanguages: MutPtr): Hresult =
     WindowsWin32UiShellJniBridge.windowssysWindowsWin32UiShellGetAcceptLanguagesW(pszlanguages.rawAddress, pcchlanguages.rawAddress)
 
-public actual fun getAllUsersProfileDirectoryA(lpprofiledir: Pstr, lpcchsize: MutPtr<UInt>): Bool =
+public actual fun getAllUsersProfileDirectoryA(lpprofiledir: Pstr, lpcchsize: MutPtr): Bool =
     WindowsWin32UiShellJniBridge.windowssysWindowsWin32UiShellGetAllUsersProfileDirectoryA(lpprofiledir.rawAddress, lpcchsize.rawAddress)
 
-public actual fun getAllUsersProfileDirectoryW(lpprofiledir: Pwstr, lpcchsize: MutPtr<UInt>): Bool =
+public actual fun getAllUsersProfileDirectoryW(lpprofiledir: Pwstr, lpcchsize: MutPtr): Bool =
     WindowsWin32UiShellJniBridge.windowssysWindowsWin32UiShellGetAllUsersProfileDirectoryW(lpprofiledir.rawAddress, lpcchsize.rawAddress)
 
-public actual fun getCurrentProcessExplicitAppUserModelID(appid: MutPtr<Pwstr>): Hresult =
+public actual fun getCurrentProcessExplicitAppUserModelID(appid: MutPtr): Hresult =
     WindowsWin32UiShellJniBridge.windowssysWindowsWin32UiShellGetCurrentProcessExplicitAppUserModelID(appid.rawAddress)
 
-public actual fun getDefaultUserProfileDirectoryA(lpprofiledir: Pstr, lpcchsize: MutPtr<UInt>): Bool =
+public actual fun getDefaultUserProfileDirectoryA(lpprofiledir: Pstr, lpcchsize: MutPtr): Bool =
     WindowsWin32UiShellJniBridge.windowssysWindowsWin32UiShellGetDefaultUserProfileDirectoryA(lpprofiledir.rawAddress, lpcchsize.rawAddress)
 
-public actual fun getDefaultUserProfileDirectoryW(lpprofiledir: Pwstr, lpcchsize: MutPtr<UInt>): Bool =
+public actual fun getDefaultUserProfileDirectoryW(lpprofiledir: Pwstr, lpcchsize: MutPtr): Bool =
     WindowsWin32UiShellJniBridge.windowssysWindowsWin32UiShellGetDefaultUserProfileDirectoryW(lpprofiledir.rawAddress, lpcchsize.rawAddress)
 
 public actual fun getDpiForShellUIComponent(param0: ShellUiComponent): UInt =
@@ -2350,249 +2336,249 @@ public actual fun getMenuContextHelpId(param0: Hmenu): UInt =
 public actual fun getMenuPosFromID(hmenu: Hmenu, id: UInt): Int =
     WindowsWin32UiShellJniBridge.windowssysWindowsWin32UiShellGetMenuPosFromID(hmenu.rawAddress, id.toInt())
 
-public actual fun getProfileType(dwflags: MutPtr<UInt>): Bool =
+public actual fun getProfileType(dwflags: MutPtr): Bool =
     WindowsWin32UiShellJniBridge.windowssysWindowsWin32UiShellGetProfileType(dwflags.rawAddress)
 
-public actual fun getProfilesDirectoryA(lpprofiledir: Pstr, lpcchsize: MutPtr<UInt>): Bool =
+public actual fun getProfilesDirectoryA(lpprofiledir: Pstr, lpcchsize: MutPtr): Bool =
     WindowsWin32UiShellJniBridge.windowssysWindowsWin32UiShellGetProfilesDirectoryA(lpprofiledir.rawAddress, lpcchsize.rawAddress)
 
-public actual fun getProfilesDirectoryW(lpprofiledir: Pwstr, lpcchsize: MutPtr<UInt>): Bool =
+public actual fun getProfilesDirectoryW(lpprofiledir: Pwstr, lpcchsize: MutPtr): Bool =
     WindowsWin32UiShellJniBridge.windowssysWindowsWin32UiShellGetProfilesDirectoryW(lpprofiledir.rawAddress, lpcchsize.rawAddress)
 
 public actual fun getScaleFactorForDevice(devicetype: DisplayDeviceType): DeviceScaleFactor =
     WindowsWin32UiShellJniBridge.windowssysWindowsWin32UiShellGetScaleFactorForDevice(devicetype)
 
-public actual fun getScaleFactorForMonitor(hmon: Hmonitor, pscale: MutPtr<DeviceScaleFactor>): Hresult =
+public actual fun getScaleFactorForMonitor(hmon: Hmonitor, pscale: MutPtr): Hresult =
     WindowsWin32UiShellJniBridge.windowssysWindowsWin32UiShellGetScaleFactorForMonitor(hmon.rawAddress, pscale.rawAddress)
 
-public actual fun getUserProfileDirectoryA(htoken: Handle, lpprofiledir: Pstr, lpcchsize: MutPtr<UInt>): Bool =
+public actual fun getUserProfileDirectoryA(htoken: Handle, lpprofiledir: Pstr, lpcchsize: MutPtr): Bool =
     WindowsWin32UiShellJniBridge.windowssysWindowsWin32UiShellGetUserProfileDirectoryA(htoken.rawAddress, lpprofiledir.rawAddress, lpcchsize.rawAddress)
 
-public actual fun getUserProfileDirectoryW(htoken: Handle, lpprofiledir: Pwstr, lpcchsize: MutPtr<UInt>): Bool =
+public actual fun getUserProfileDirectoryW(htoken: Handle, lpprofiledir: Pwstr, lpcchsize: MutPtr): Bool =
     WindowsWin32UiShellJniBridge.windowssysWindowsWin32UiShellGetUserProfileDirectoryW(htoken.rawAddress, lpprofiledir.rawAddress, lpcchsize.rawAddress)
 
 public actual fun getWindowContextHelpId(param0: Hwnd): UInt =
     WindowsWin32UiShellJniBridge.windowssysWindowsWin32UiShellGetWindowContextHelpId(param0.rawAddress).toUInt()
 
-public actual fun getWindowSubclass(hwnd: Hwnd, pfnsubclass: Subclassproc, uidsubclass: ULong, pdwrefdata: MutPtr<ULong>): Bool =
+public actual fun getWindowSubclass(hwnd: Hwnd, pfnsubclass: Subclassproc, uidsubclass: ULong, pdwrefdata: MutPtr): Bool =
     WindowsWin32UiShellJniBridge.windowssysWindowsWin32UiShellGetWindowSubclass(hwnd.rawAddress, 0L, uidsubclass.toLong(), pdwrefdata.rawAddress)
 
-public actual fun hmonitorUserFree(param0: ConstPtr<UInt>, param1: ConstPtr<Hmonitor>) {
+public actual fun hmonitorUserFree(param0: ConstPtr, param1: ConstPtr) {
     WindowsWin32UiShellJniBridge.windowssysWindowsWin32UiShellHmonitorUserFree(param0.rawAddress, param1.rawAddress)
 }
 
-public actual fun hmonitorUserFree64(param0: ConstPtr<UInt>, param1: ConstPtr<Hmonitor>) {
+public actual fun hmonitorUserFree64(param0: ConstPtr, param1: ConstPtr) {
     WindowsWin32UiShellJniBridge.windowssysWindowsWin32UiShellHmonitorUserFree64(param0.rawAddress, param1.rawAddress)
 }
 
-public actual fun hmonitorUserMarshal(param0: ConstPtr<UInt>, param1: MutPtr<UByte>, param2: ConstPtr<Hmonitor>): MutPtr<UByte> =
+public actual fun hmonitorUserMarshal(param0: ConstPtr, param1: MutPtr, param2: ConstPtr): MutPtr =
     MutPtr(WindowsWin32UiShellJniBridge.windowssysWindowsWin32UiShellHmonitorUserMarshal(param0.rawAddress, param1.rawAddress, param2.rawAddress))
 
-public actual fun hmonitorUserMarshal64(param0: ConstPtr<UInt>, param1: MutPtr<UByte>, param2: ConstPtr<Hmonitor>): MutPtr<UByte> =
+public actual fun hmonitorUserMarshal64(param0: ConstPtr, param1: MutPtr, param2: ConstPtr): MutPtr =
     MutPtr(WindowsWin32UiShellJniBridge.windowssysWindowsWin32UiShellHmonitorUserMarshal64(param0.rawAddress, param1.rawAddress, param2.rawAddress))
 
-public actual fun hmonitorUserSize(param0: ConstPtr<UInt>, param1: UInt, param2: ConstPtr<Hmonitor>): UInt =
+public actual fun hmonitorUserSize(param0: ConstPtr, param1: UInt, param2: ConstPtr): UInt =
     WindowsWin32UiShellJniBridge.windowssysWindowsWin32UiShellHmonitorUserSize(param0.rawAddress, param1.toInt(), param2.rawAddress).toUInt()
 
-public actual fun hmonitorUserSize64(param0: ConstPtr<UInt>, param1: UInt, param2: ConstPtr<Hmonitor>): UInt =
+public actual fun hmonitorUserSize64(param0: ConstPtr, param1: UInt, param2: ConstPtr): UInt =
     WindowsWin32UiShellJniBridge.windowssysWindowsWin32UiShellHmonitorUserSize64(param0.rawAddress, param1.toInt(), param2.rawAddress).toUInt()
 
-public actual fun hmonitorUserUnmarshal(param0: ConstPtr<UInt>, param1: ConstPtr<UByte>, param2: MutPtr<Hmonitor>): MutPtr<UByte> =
+public actual fun hmonitorUserUnmarshal(param0: ConstPtr, param1: ConstPtr, param2: MutPtr): MutPtr =
     MutPtr(WindowsWin32UiShellJniBridge.windowssysWindowsWin32UiShellHmonitorUserUnmarshal(param0.rawAddress, param1.rawAddress, param2.rawAddress))
 
-public actual fun hmonitorUserUnmarshal64(param0: ConstPtr<UInt>, param1: ConstPtr<UByte>, param2: MutPtr<Hmonitor>): MutPtr<UByte> =
+public actual fun hmonitorUserUnmarshal64(param0: ConstPtr, param1: ConstPtr, param2: MutPtr): MutPtr =
     MutPtr(WindowsWin32UiShellJniBridge.windowssysWindowsWin32UiShellHmonitorUserUnmarshal64(param0.rawAddress, param1.rawAddress, param2.rawAddress))
 
-public actual fun hashData(pbdata: ConstPtr<UByte>, cbdata: UInt, pbhash: MutPtr<UByte>, cbhash: UInt): Hresult =
+public actual fun hashData(pbdata: ConstPtr, cbdata: UInt, pbhash: MutPtr, cbhash: UInt): Hresult =
     WindowsWin32UiShellJniBridge.windowssysWindowsWin32UiShellHashData(pbdata.rawAddress, cbdata.toInt(), pbhash.rawAddress, cbhash.toInt())
 
-public actual fun hlinkClone(pihl: MutPtr<CVoid>, riid: ConstPtr<Guid>, pihlsiteforclone: MutPtr<CVoid>, dwsitedata: UInt, ppvobj: MutPtr<MutPtr<CVoid>>): Hresult =
+public actual fun hlinkClone(pihl: MutPtr, riid: ConstPtr, pihlsiteforclone: MutPtr, dwsitedata: UInt, ppvobj: MutPtr): Hresult =
     WindowsWin32UiShellJniBridge.windowssysWindowsWin32UiShellHlinkClone(pihl.rawAddress, riid.rawAddress, pihlsiteforclone.rawAddress, dwsitedata.toInt(), ppvobj.rawAddress)
 
-public actual fun hlinkCreateBrowseContext(piunkouter: MutPtr<CVoid>, riid: ConstPtr<Guid>, ppvobj: MutPtr<MutPtr<CVoid>>): Hresult =
+public actual fun hlinkCreateBrowseContext(piunkouter: MutPtr, riid: ConstPtr, ppvobj: MutPtr): Hresult =
     WindowsWin32UiShellJniBridge.windowssysWindowsWin32UiShellHlinkCreateBrowseContext(piunkouter.rawAddress, riid.rawAddress, ppvobj.rawAddress)
 
-public actual fun hlinkCreateExtensionServices(pwzadditionalheaders: Pcwstr, phwnd: Hwnd, pszusername: Pcwstr, pszpassword: Pcwstr, piunkouter: MutPtr<CVoid>, riid: ConstPtr<Guid>, ppvobj: MutPtr<MutPtr<CVoid>>): Hresult =
+public actual fun hlinkCreateExtensionServices(pwzadditionalheaders: Pcwstr, phwnd: Hwnd, pszusername: Pcwstr, pszpassword: Pcwstr, piunkouter: MutPtr, riid: ConstPtr, ppvobj: MutPtr): Hresult =
     WindowsWin32UiShellJniBridge.windowssysWindowsWin32UiShellHlinkCreateExtensionServices(pwzadditionalheaders.rawAddress, phwnd.rawAddress, pszusername.rawAddress, pszpassword.rawAddress, piunkouter.rawAddress, riid.rawAddress, ppvobj.rawAddress)
 
-public actual fun hlinkCreateFromData(pidataobj: MutPtr<CVoid>, pihlsite: MutPtr<CVoid>, dwsitedata: UInt, piunkouter: MutPtr<CVoid>, riid: ConstPtr<Guid>, ppvobj: MutPtr<MutPtr<CVoid>>): Hresult =
+public actual fun hlinkCreateFromData(pidataobj: MutPtr, pihlsite: MutPtr, dwsitedata: UInt, piunkouter: MutPtr, riid: ConstPtr, ppvobj: MutPtr): Hresult =
     WindowsWin32UiShellJniBridge.windowssysWindowsWin32UiShellHlinkCreateFromData(pidataobj.rawAddress, pihlsite.rawAddress, dwsitedata.toInt(), piunkouter.rawAddress, riid.rawAddress, ppvobj.rawAddress)
 
-public actual fun hlinkCreateFromMoniker(pimktrgt: MutPtr<CVoid>, pwzlocation: Pcwstr, pwzfriendlyname: Pcwstr, pihlsite: MutPtr<CVoid>, dwsitedata: UInt, piunkouter: MutPtr<CVoid>, riid: ConstPtr<Guid>, ppvobj: MutPtr<MutPtr<CVoid>>): Hresult =
+public actual fun hlinkCreateFromMoniker(pimktrgt: MutPtr, pwzlocation: Pcwstr, pwzfriendlyname: Pcwstr, pihlsite: MutPtr, dwsitedata: UInt, piunkouter: MutPtr, riid: ConstPtr, ppvobj: MutPtr): Hresult =
     WindowsWin32UiShellJniBridge.windowssysWindowsWin32UiShellHlinkCreateFromMoniker(pimktrgt.rawAddress, pwzlocation.rawAddress, pwzfriendlyname.rawAddress, pihlsite.rawAddress, dwsitedata.toInt(), piunkouter.rawAddress, riid.rawAddress, ppvobj.rawAddress)
 
-public actual fun hlinkCreateFromString(pwztarget: Pcwstr, pwzlocation: Pcwstr, pwzfriendlyname: Pcwstr, pihlsite: MutPtr<CVoid>, dwsitedata: UInt, piunkouter: MutPtr<CVoid>, riid: ConstPtr<Guid>, ppvobj: MutPtr<MutPtr<CVoid>>): Hresult =
+public actual fun hlinkCreateFromString(pwztarget: Pcwstr, pwzlocation: Pcwstr, pwzfriendlyname: Pcwstr, pihlsite: MutPtr, dwsitedata: UInt, piunkouter: MutPtr, riid: ConstPtr, ppvobj: MutPtr): Hresult =
     WindowsWin32UiShellJniBridge.windowssysWindowsWin32UiShellHlinkCreateFromString(pwztarget.rawAddress, pwzlocation.rawAddress, pwzfriendlyname.rawAddress, pihlsite.rawAddress, dwsitedata.toInt(), piunkouter.rawAddress, riid.rawAddress, ppvobj.rawAddress)
 
-public actual fun hlinkCreateShortcut(grfhlshortcutf: UInt, pihl: MutPtr<CVoid>, pwzdir: Pcwstr, pwzfilename: Pcwstr, ppwzshortcutfile: MutPtr<Pwstr>, dwreserved: UInt): Hresult =
+public actual fun hlinkCreateShortcut(grfhlshortcutf: UInt, pihl: MutPtr, pwzdir: Pcwstr, pwzfilename: Pcwstr, ppwzshortcutfile: MutPtr, dwreserved: UInt): Hresult =
     WindowsWin32UiShellJniBridge.windowssysWindowsWin32UiShellHlinkCreateShortcut(grfhlshortcutf.toInt(), pihl.rawAddress, pwzdir.rawAddress, pwzfilename.rawAddress, ppwzshortcutfile.rawAddress, dwreserved.toInt())
 
-public actual fun hlinkCreateShortcutFromMoniker(grfhlshortcutf: UInt, pimktarget: MutPtr<CVoid>, pwzlocation: Pcwstr, pwzdir: Pcwstr, pwzfilename: Pcwstr, ppwzshortcutfile: MutPtr<Pwstr>, dwreserved: UInt): Hresult =
+public actual fun hlinkCreateShortcutFromMoniker(grfhlshortcutf: UInt, pimktarget: MutPtr, pwzlocation: Pcwstr, pwzdir: Pcwstr, pwzfilename: Pcwstr, ppwzshortcutfile: MutPtr, dwreserved: UInt): Hresult =
     WindowsWin32UiShellJniBridge.windowssysWindowsWin32UiShellHlinkCreateShortcutFromMoniker(grfhlshortcutf.toInt(), pimktarget.rawAddress, pwzlocation.rawAddress, pwzdir.rawAddress, pwzfilename.rawAddress, ppwzshortcutfile.rawAddress, dwreserved.toInt())
 
-public actual fun hlinkCreateShortcutFromString(grfhlshortcutf: UInt, pwztarget: Pcwstr, pwzlocation: Pcwstr, pwzdir: Pcwstr, pwzfilename: Pcwstr, ppwzshortcutfile: MutPtr<Pwstr>, dwreserved: UInt): Hresult =
+public actual fun hlinkCreateShortcutFromString(grfhlshortcutf: UInt, pwztarget: Pcwstr, pwzlocation: Pcwstr, pwzdir: Pcwstr, pwzfilename: Pcwstr, ppwzshortcutfile: MutPtr, dwreserved: UInt): Hresult =
     WindowsWin32UiShellJniBridge.windowssysWindowsWin32UiShellHlinkCreateShortcutFromString(grfhlshortcutf.toInt(), pwztarget.rawAddress, pwzlocation.rawAddress, pwzdir.rawAddress, pwzfilename.rawAddress, ppwzshortcutfile.rawAddress, dwreserved.toInt())
 
-public actual fun hlinkGetSpecialReference(ureference: UInt, ppwzreference: MutPtr<Pwstr>): Hresult =
+public actual fun hlinkGetSpecialReference(ureference: UInt, ppwzreference: MutPtr): Hresult =
     WindowsWin32UiShellJniBridge.windowssysWindowsWin32UiShellHlinkGetSpecialReference(ureference.toInt(), ppwzreference.rawAddress)
 
-public actual fun hlinkGetValueFromParams(pwzparams: Pcwstr, pwzname: Pcwstr, ppwzvalue: MutPtr<Pwstr>): Hresult =
+public actual fun hlinkGetValueFromParams(pwzparams: Pcwstr, pwzname: Pcwstr, ppwzvalue: MutPtr): Hresult =
     WindowsWin32UiShellJniBridge.windowssysWindowsWin32UiShellHlinkGetValueFromParams(pwzparams.rawAddress, pwzname.rawAddress, ppwzvalue.rawAddress)
 
 public actual fun hlinkIsShortcut(pwzfilename: Pcwstr): Hresult =
     WindowsWin32UiShellJniBridge.windowssysWindowsWin32UiShellHlinkIsShortcut(pwzfilename.rawAddress)
 
-public actual fun hlinkNavigate(pihl: MutPtr<CVoid>, pihlframe: MutPtr<CVoid>, grfhlnf: UInt, pbc: MutPtr<CVoid>, pibsc: MutPtr<CVoid>, pihlbc: MutPtr<CVoid>): Hresult =
+public actual fun hlinkNavigate(pihl: MutPtr, pihlframe: MutPtr, grfhlnf: UInt, pbc: MutPtr, pibsc: MutPtr, pihlbc: MutPtr): Hresult =
     WindowsWin32UiShellJniBridge.windowssysWindowsWin32UiShellHlinkNavigate(pihl.rawAddress, pihlframe.rawAddress, grfhlnf.toInt(), pbc.rawAddress, pibsc.rawAddress, pihlbc.rawAddress)
 
-public actual fun hlinkNavigateToStringReference(pwztarget: Pcwstr, pwzlocation: Pcwstr, pihlsite: MutPtr<CVoid>, dwsitedata: UInt, pihlframe: MutPtr<CVoid>, grfhlnf: UInt, pibc: MutPtr<CVoid>, pibsc: MutPtr<CVoid>, pihlbc: MutPtr<CVoid>): Hresult =
+public actual fun hlinkNavigateToStringReference(pwztarget: Pcwstr, pwzlocation: Pcwstr, pihlsite: MutPtr, dwsitedata: UInt, pihlframe: MutPtr, grfhlnf: UInt, pibc: MutPtr, pibsc: MutPtr, pihlbc: MutPtr): Hresult =
     WindowsWin32UiShellJniBridge.windowssysWindowsWin32UiShellHlinkNavigateToStringReference(pwztarget.rawAddress, pwzlocation.rawAddress, pihlsite.rawAddress, dwsitedata.toInt(), pihlframe.rawAddress, grfhlnf.toInt(), pibc.rawAddress, pibsc.rawAddress, pihlbc.rawAddress)
 
-public actual fun hlinkOnNavigate(pihlframe: MutPtr<CVoid>, pihlbc: MutPtr<CVoid>, grfhlnf: UInt, pimktarget: MutPtr<CVoid>, pwzlocation: Pcwstr, pwzfriendlyname: Pcwstr, puhlid: MutPtr<UInt>): Hresult =
+public actual fun hlinkOnNavigate(pihlframe: MutPtr, pihlbc: MutPtr, grfhlnf: UInt, pimktarget: MutPtr, pwzlocation: Pcwstr, pwzfriendlyname: Pcwstr, puhlid: MutPtr): Hresult =
     WindowsWin32UiShellJniBridge.windowssysWindowsWin32UiShellHlinkOnNavigate(pihlframe.rawAddress, pihlbc.rawAddress, grfhlnf.toInt(), pimktarget.rawAddress, pwzlocation.rawAddress, pwzfriendlyname.rawAddress, puhlid.rawAddress)
 
-public actual fun hlinkOnRenameDocument(dwreserved: UInt, pihlbc: MutPtr<CVoid>, pimkold: MutPtr<CVoid>, pimknew: MutPtr<CVoid>): Hresult =
+public actual fun hlinkOnRenameDocument(dwreserved: UInt, pihlbc: MutPtr, pimkold: MutPtr, pimknew: MutPtr): Hresult =
     WindowsWin32UiShellJniBridge.windowssysWindowsWin32UiShellHlinkOnRenameDocument(dwreserved.toInt(), pihlbc.rawAddress, pimkold.rawAddress, pimknew.rawAddress)
 
-public actual fun hlinkParseDisplayName(pibc: MutPtr<CVoid>, pwzdisplayname: Pcwstr, fnoforceabs: Bool, pccheaten: MutPtr<UInt>, ppimk: MutPtr<MutPtr<CVoid>>): Hresult =
+public actual fun hlinkParseDisplayName(pibc: MutPtr, pwzdisplayname: Pcwstr, fnoforceabs: Bool, pccheaten: MutPtr, ppimk: MutPtr): Hresult =
     WindowsWin32UiShellJniBridge.windowssysWindowsWin32UiShellHlinkParseDisplayName(pibc.rawAddress, pwzdisplayname.rawAddress, fnoforceabs, pccheaten.rawAddress, ppimk.rawAddress)
 
-public actual fun hlinkPreprocessMoniker(pibc: MutPtr<CVoid>, pimkin: MutPtr<CVoid>, ppimkout: MutPtr<MutPtr<CVoid>>): Hresult =
+public actual fun hlinkPreprocessMoniker(pibc: MutPtr, pimkin: MutPtr, ppimkout: MutPtr): Hresult =
     WindowsWin32UiShellJniBridge.windowssysWindowsWin32UiShellHlinkPreprocessMoniker(pibc.rawAddress, pimkin.rawAddress, ppimkout.rawAddress)
 
-public actual fun hlinkQueryCreateFromData(pidataobj: MutPtr<CVoid>): Hresult =
+public actual fun hlinkQueryCreateFromData(pidataobj: MutPtr): Hresult =
     WindowsWin32UiShellJniBridge.windowssysWindowsWin32UiShellHlinkQueryCreateFromData(pidataobj.rawAddress)
 
-public actual fun hlinkResolveMonikerForData(pimkreference: MutPtr<CVoid>, reserved: UInt, pibc: MutPtr<CVoid>, cfmtetc: UInt, rgfmtetc: MutPtr<Formatetc>, pibsc: MutPtr<CVoid>, pimkbase: MutPtr<CVoid>): Hresult =
+public actual fun hlinkResolveMonikerForData(pimkreference: MutPtr, reserved: UInt, pibc: MutPtr, cfmtetc: UInt, rgfmtetc: MutPtr, pibsc: MutPtr, pimkbase: MutPtr): Hresult =
     WindowsWin32UiShellJniBridge.windowssysWindowsWin32UiShellHlinkResolveMonikerForData(pimkreference.rawAddress, reserved.toInt(), pibc.rawAddress, cfmtetc.toInt(), rgfmtetc.rawAddress, pibsc.rawAddress, pimkbase.rawAddress)
 
-public actual fun hlinkResolveShortcut(pwzshortcutfilename: Pcwstr, pihlsite: MutPtr<CVoid>, dwsitedata: UInt, piunkouter: MutPtr<CVoid>, riid: ConstPtr<Guid>, ppvobj: MutPtr<MutPtr<CVoid>>): Hresult =
+public actual fun hlinkResolveShortcut(pwzshortcutfilename: Pcwstr, pihlsite: MutPtr, dwsitedata: UInt, piunkouter: MutPtr, riid: ConstPtr, ppvobj: MutPtr): Hresult =
     WindowsWin32UiShellJniBridge.windowssysWindowsWin32UiShellHlinkResolveShortcut(pwzshortcutfilename.rawAddress, pihlsite.rawAddress, dwsitedata.toInt(), piunkouter.rawAddress, riid.rawAddress, ppvobj.rawAddress)
 
-public actual fun hlinkResolveShortcutToMoniker(pwzshortcutfilename: Pcwstr, ppimktarget: MutPtr<MutPtr<CVoid>>, ppwzlocation: MutPtr<Pwstr>): Hresult =
+public actual fun hlinkResolveShortcutToMoniker(pwzshortcutfilename: Pcwstr, ppimktarget: MutPtr, ppwzlocation: MutPtr): Hresult =
     WindowsWin32UiShellJniBridge.windowssysWindowsWin32UiShellHlinkResolveShortcutToMoniker(pwzshortcutfilename.rawAddress, ppimktarget.rawAddress, ppwzlocation.rawAddress)
 
-public actual fun hlinkResolveShortcutToString(pwzshortcutfilename: Pcwstr, ppwztarget: MutPtr<Pwstr>, ppwzlocation: MutPtr<Pwstr>): Hresult =
+public actual fun hlinkResolveShortcutToString(pwzshortcutfilename: Pcwstr, ppwztarget: MutPtr, ppwzlocation: MutPtr): Hresult =
     WindowsWin32UiShellJniBridge.windowssysWindowsWin32UiShellHlinkResolveShortcutToString(pwzshortcutfilename.rawAddress, ppwztarget.rawAddress, ppwzlocation.rawAddress)
 
-public actual fun hlinkResolveStringForData(pwzreference: Pcwstr, reserved: UInt, pibc: MutPtr<CVoid>, cfmtetc: UInt, rgfmtetc: MutPtr<Formatetc>, pibsc: MutPtr<CVoid>, pimkbase: MutPtr<CVoid>): Hresult =
+public actual fun hlinkResolveStringForData(pwzreference: Pcwstr, reserved: UInt, pibc: MutPtr, cfmtetc: UInt, rgfmtetc: MutPtr, pibsc: MutPtr, pimkbase: MutPtr): Hresult =
     WindowsWin32UiShellJniBridge.windowssysWindowsWin32UiShellHlinkResolveStringForData(pwzreference.rawAddress, reserved.toInt(), pibc.rawAddress, cfmtetc.toInt(), rgfmtetc.rawAddress, pibsc.rawAddress, pimkbase.rawAddress)
 
 public actual fun hlinkSetSpecialReference(ureference: UInt, pwzreference: Pcwstr): Hresult =
     WindowsWin32UiShellJniBridge.windowssysWindowsWin32UiShellHlinkSetSpecialReference(ureference.toInt(), pwzreference.rawAddress)
 
-public actual fun hlinkTranslateURL(pwzurl: Pcwstr, grfflags: UInt, ppwztranslatedurl: MutPtr<Pwstr>): Hresult =
+public actual fun hlinkTranslateURL(pwzurl: Pcwstr, grfflags: UInt, ppwztranslatedurl: MutPtr): Hresult =
     WindowsWin32UiShellJniBridge.windowssysWindowsWin32UiShellHlinkTranslateURL(pwzurl.rawAddress, grfflags.toInt(), ppwztranslatedurl.rawAddress)
 
-public actual fun hlinkUpdateStackItem(pihlframe: MutPtr<CVoid>, pihlbc: MutPtr<CVoid>, uhlid: UInt, pimktrgt: MutPtr<CVoid>, pwzlocation: Pcwstr, pwzfriendlyname: Pcwstr): Hresult =
+public actual fun hlinkUpdateStackItem(pihlframe: MutPtr, pihlbc: MutPtr, uhlid: UInt, pimktrgt: MutPtr, pwzlocation: Pcwstr, pwzfriendlyname: Pcwstr): Hresult =
     WindowsWin32UiShellJniBridge.windowssysWindowsWin32UiShellHlinkUpdateStackItem(pihlframe.rawAddress, pihlbc.rawAddress, uhlid.toInt(), pimktrgt.rawAddress, pwzlocation.rawAddress, pwzfriendlyname.rawAddress)
 
-public actual fun iLAppendID(pidl: ConstPtr<Itemidlist>, pmkid: ConstPtr<Shitemid>, fappend: Bool): MutPtr<Itemidlist> =
+public actual fun iLAppendID(pidl: ConstPtr, pmkid: ConstPtr, fappend: Bool): MutPtr =
     MutPtr(WindowsWin32UiShellJniBridge.windowssysWindowsWin32UiShellILAppendID(pidl.rawAddress, pmkid.rawAddress, fappend))
 
-public actual fun iLClone(pidl: ConstPtr<Itemidlist>): MutPtr<Itemidlist> =
+public actual fun iLClone(pidl: ConstPtr): MutPtr =
     MutPtr(WindowsWin32UiShellJniBridge.windowssysWindowsWin32UiShellILClone(pidl.rawAddress))
 
-public actual fun iLCloneFirst(pidl: ConstPtr<Itemidlist>): MutPtr<Itemidlist> =
+public actual fun iLCloneFirst(pidl: ConstPtr): MutPtr =
     MutPtr(WindowsWin32UiShellJniBridge.windowssysWindowsWin32UiShellILCloneFirst(pidl.rawAddress))
 
-public actual fun iLCombine(pidl1: ConstPtr<Itemidlist>, pidl2: ConstPtr<Itemidlist>): MutPtr<Itemidlist> =
+public actual fun iLCombine(pidl1: ConstPtr, pidl2: ConstPtr): MutPtr =
     MutPtr(WindowsWin32UiShellJniBridge.windowssysWindowsWin32UiShellILCombine(pidl1.rawAddress, pidl2.rawAddress))
 
-public actual fun iLCreateFromPathA(pszpath: Pcstr): MutPtr<Itemidlist> =
+public actual fun iLCreateFromPathA(pszpath: Pcstr): MutPtr =
     MutPtr(WindowsWin32UiShellJniBridge.windowssysWindowsWin32UiShellILCreateFromPathA(pszpath.rawAddress))
 
-public actual fun iLCreateFromPathW(pszpath: Pcwstr): MutPtr<Itemidlist> =
+public actual fun iLCreateFromPathW(pszpath: Pcwstr): MutPtr =
     MutPtr(WindowsWin32UiShellJniBridge.windowssysWindowsWin32UiShellILCreateFromPathW(pszpath.rawAddress))
 
-public actual fun iLFindChild(pidlparent: ConstPtr<Itemidlist>, pidlchild: ConstPtr<Itemidlist>): MutPtr<Itemidlist> =
+public actual fun iLFindChild(pidlparent: ConstPtr, pidlchild: ConstPtr): MutPtr =
     MutPtr(WindowsWin32UiShellJniBridge.windowssysWindowsWin32UiShellILFindChild(pidlparent.rawAddress, pidlchild.rawAddress))
 
-public actual fun iLFindLastID(pidl: ConstPtr<Itemidlist>): MutPtr<Itemidlist> =
+public actual fun iLFindLastID(pidl: ConstPtr): MutPtr =
     MutPtr(WindowsWin32UiShellJniBridge.windowssysWindowsWin32UiShellILFindLastID(pidl.rawAddress))
 
-public actual fun iLFree(pidl: ConstPtr<Itemidlist>) {
+public actual fun iLFree(pidl: ConstPtr) {
     WindowsWin32UiShellJniBridge.windowssysWindowsWin32UiShellILFree(pidl.rawAddress)
 }
 
-public actual fun iLGetNext(pidl: ConstPtr<Itemidlist>): MutPtr<Itemidlist> =
+public actual fun iLGetNext(pidl: ConstPtr): MutPtr =
     MutPtr(WindowsWin32UiShellJniBridge.windowssysWindowsWin32UiShellILGetNext(pidl.rawAddress))
 
-public actual fun iLGetSize(pidl: ConstPtr<Itemidlist>): UInt =
+public actual fun iLGetSize(pidl: ConstPtr): UInt =
     WindowsWin32UiShellJniBridge.windowssysWindowsWin32UiShellILGetSize(pidl.rawAddress).toUInt()
 
-public actual fun iLIsEqual(pidl1: ConstPtr<Itemidlist>, pidl2: ConstPtr<Itemidlist>): Bool =
+public actual fun iLIsEqual(pidl1: ConstPtr, pidl2: ConstPtr): Bool =
     WindowsWin32UiShellJniBridge.windowssysWindowsWin32UiShellILIsEqual(pidl1.rawAddress, pidl2.rawAddress)
 
-public actual fun iLIsParent(pidl1: ConstPtr<Itemidlist>, pidl2: ConstPtr<Itemidlist>, fimmediate: Bool): Bool =
+public actual fun iLIsParent(pidl1: ConstPtr, pidl2: ConstPtr, fimmediate: Bool): Bool =
     WindowsWin32UiShellJniBridge.windowssysWindowsWin32UiShellILIsParent(pidl1.rawAddress, pidl2.rawAddress, fimmediate)
 
-public actual fun iLLoadFromStreamEx(pstm: MutPtr<CVoid>, pidl: MutPtr<MutPtr<Itemidlist>>): Hresult =
+public actual fun iLLoadFromStreamEx(pstm: MutPtr, pidl: MutPtr): Hresult =
     WindowsWin32UiShellJniBridge.windowssysWindowsWin32UiShellILLoadFromStreamEx(pstm.rawAddress, pidl.rawAddress)
 
-public actual fun iLRemoveLastID(pidl: MutPtr<Itemidlist>): Bool =
+public actual fun iLRemoveLastID(pidl: MutPtr): Bool =
     WindowsWin32UiShellJniBridge.windowssysWindowsWin32UiShellILRemoveLastID(pidl.rawAddress)
 
-public actual fun iLSaveToStream(pstm: MutPtr<CVoid>, pidl: ConstPtr<Itemidlist>): Hresult =
+public actual fun iLSaveToStream(pstm: MutPtr, pidl: ConstPtr): Hresult =
     WindowsWin32UiShellJniBridge.windowssysWindowsWin32UiShellILSaveToStream(pstm.rawAddress, pidl.rawAddress)
 
-public actual fun istreamCopy(pstmfrom: MutPtr<CVoid>, pstmto: MutPtr<CVoid>, cb: UInt): Hresult =
+public actual fun istreamCopy(pstmfrom: MutPtr, pstmto: MutPtr, cb: UInt): Hresult =
     WindowsWin32UiShellJniBridge.windowssysWindowsWin32UiShellIstreamCopy(pstmfrom.rawAddress, pstmto.rawAddress, cb.toInt())
 
-public actual fun istreamRead(pstm: MutPtr<CVoid>, pv: MutPtr<CVoid>, cb: UInt): Hresult =
+public actual fun istreamRead(pstm: MutPtr, pv: MutPtr, cb: UInt): Hresult =
     WindowsWin32UiShellJniBridge.windowssysWindowsWin32UiShellIstreamRead(pstm.rawAddress, pv.rawAddress, cb.toInt())
 
-public actual fun istreamReadPidl(pstm: MutPtr<CVoid>, ppidlout: MutPtr<MutPtr<Itemidlist>>): Hresult =
+public actual fun istreamReadPidl(pstm: MutPtr, ppidlout: MutPtr): Hresult =
     WindowsWin32UiShellJniBridge.windowssysWindowsWin32UiShellIstreamReadPidl(pstm.rawAddress, ppidlout.rawAddress)
 
-public actual fun istreamReadStr(pstm: MutPtr<CVoid>, ppsz: MutPtr<Pwstr>): Hresult =
+public actual fun istreamReadStr(pstm: MutPtr, ppsz: MutPtr): Hresult =
     WindowsWin32UiShellJniBridge.windowssysWindowsWin32UiShellIstreamReadStr(pstm.rawAddress, ppsz.rawAddress)
 
-public actual fun istreamReset(pstm: MutPtr<CVoid>): Hresult =
+public actual fun istreamReset(pstm: MutPtr): Hresult =
     WindowsWin32UiShellJniBridge.windowssysWindowsWin32UiShellIstreamReset(pstm.rawAddress)
 
-public actual fun istreamSize(pstm: MutPtr<CVoid>, pui: MutPtr<ULong>): Hresult =
+public actual fun istreamSize(pstm: MutPtr, pui: MutPtr): Hresult =
     WindowsWin32UiShellJniBridge.windowssysWindowsWin32UiShellIstreamSize(pstm.rawAddress, pui.rawAddress)
 
-public actual fun istreamWrite(pstm: MutPtr<CVoid>, pv: ConstPtr<CVoid>, cb: UInt): Hresult =
+public actual fun istreamWrite(pstm: MutPtr, pv: ConstPtr, cb: UInt): Hresult =
     WindowsWin32UiShellJniBridge.windowssysWindowsWin32UiShellIstreamWrite(pstm.rawAddress, pv.rawAddress, cb.toInt())
 
-public actual fun istreamWritePidl(pstm: MutPtr<CVoid>, pidlwrite: ConstPtr<Itemidlist>): Hresult =
+public actual fun istreamWritePidl(pstm: MutPtr, pidlwrite: ConstPtr): Hresult =
     WindowsWin32UiShellJniBridge.windowssysWindowsWin32UiShellIstreamWritePidl(pstm.rawAddress, pidlwrite.rawAddress)
 
-public actual fun istreamWriteStr(pstm: MutPtr<CVoid>, psz: Pcwstr): Hresult =
+public actual fun istreamWriteStr(pstm: MutPtr, psz: Pcwstr): Hresult =
     WindowsWin32UiShellJniBridge.windowssysWindowsWin32UiShellIstreamWriteStr(pstm.rawAddress, psz.rawAddress)
 
-public actual fun iunknownAtomicRelease(ppunk: MutPtr<MutPtr<CVoid>>) {
+public actual fun iunknownAtomicRelease(ppunk: MutPtr) {
     WindowsWin32UiShellJniBridge.windowssysWindowsWin32UiShellIunknownAtomicRelease(ppunk.rawAddress)
 }
 
-public actual fun iunknownGetSite(punk: MutPtr<CVoid>, riid: ConstPtr<Guid>, ppv: MutPtr<MutPtr<CVoid>>): Hresult =
+public actual fun iunknownGetSite(punk: MutPtr, riid: ConstPtr, ppv: MutPtr): Hresult =
     WindowsWin32UiShellJniBridge.windowssysWindowsWin32UiShellIunknownGetSite(punk.rawAddress, riid.rawAddress, ppv.rawAddress)
 
-public actual fun iunknownGetWindow(punk: MutPtr<CVoid>, phwnd: MutPtr<Hwnd>): Hresult =
+public actual fun iunknownGetWindow(punk: MutPtr, phwnd: MutPtr): Hresult =
     WindowsWin32UiShellJniBridge.windowssysWindowsWin32UiShellIunknownGetWindow(punk.rawAddress, phwnd.rawAddress)
 
-public actual fun iunknownQueryService(punk: MutPtr<CVoid>, guidservice: ConstPtr<Guid>, riid: ConstPtr<Guid>, ppvout: MutPtr<MutPtr<CVoid>>): Hresult =
+public actual fun iunknownQueryService(punk: MutPtr, guidservice: ConstPtr, riid: ConstPtr, ppvout: MutPtr): Hresult =
     WindowsWin32UiShellJniBridge.windowssysWindowsWin32UiShellIunknownQueryService(punk.rawAddress, guidservice.rawAddress, riid.rawAddress, ppvout.rawAddress)
 
-public actual fun iunknownSet(ppunk: MutPtr<MutPtr<CVoid>>, punk: MutPtr<CVoid>) {
+public actual fun iunknownSet(ppunk: MutPtr, punk: MutPtr) {
     WindowsWin32UiShellJniBridge.windowssysWindowsWin32UiShellIunknownSet(ppunk.rawAddress, punk.rawAddress)
 }
 
-public actual fun iunknownSetSite(punk: MutPtr<CVoid>, punksite: MutPtr<CVoid>): Hresult =
+public actual fun iunknownSetSite(punk: MutPtr, punksite: MutPtr): Hresult =
     WindowsWin32UiShellJniBridge.windowssysWindowsWin32UiShellIunknownSetSite(punk.rawAddress, punksite.rawAddress)
 
-public actual fun importPrivacySettings(pszfilename: Pcwstr, pfparseprivacypreferences: MutPtr<Bool>, pfparsepersiterules: MutPtr<Bool>): Bool =
+public actual fun importPrivacySettings(pszfilename: Pcwstr, pfparseprivacypreferences: MutPtr, pfparsepersiterules: MutPtr): Bool =
     WindowsWin32UiShellJniBridge.windowssysWindowsWin32UiShellImportPrivacySettings(pszfilename.rawAddress, pfparseprivacypreferences.rawAddress, pfparsepersiterules.rawAddress)
 
 public actual fun initNetworkAddressControl(): Bool =
     WindowsWin32UiShellJniBridge.windowssysWindowsWin32UiShellInitNetworkAddressControl()
 
-public actual fun initPropVariantFromStrRet(pstrret: MutPtr<Strret>, pidl: ConstPtr<Itemidlist>, ppropvar: MutPtr<Propvariant>): Hresult =
+public actual fun initPropVariantFromStrRet(pstrret: MutPtr, pidl: ConstPtr, ppropvar: MutPtr): Hresult =
     WindowsWin32UiShellJniBridge.windowssysWindowsWin32UiShellInitPropVariantFromStrRet(pstrret.rawAddress, pidl.rawAddress, ppropvar.rawAddress)
 
-public actual fun initVariantFromStrRet(pstrret: ConstPtr<Strret>, pidl: ConstPtr<Itemidlist>, pvar: MutPtr<Variant.Variant>): Hresult =
+public actual fun initVariantFromStrRet(pstrret: ConstPtr, pidl: ConstPtr, pvar: MutPtr): Hresult =
     WindowsWin32UiShellJniBridge.windowssysWindowsWin32UiShellInitVariantFromStrRet(pstrret.rawAddress, pidl.rawAddress, pvar.rawAddress)
 
 public actual fun intlStrEqWorkerA(fcasesens: Bool, lpstring1: Pcstr, lpstring2: Pcstr, nchar: Int): Bool =
@@ -2625,22 +2611,22 @@ public actual fun isOS(dwos: OS): Bool =
 public actual fun isUserAnAdmin(): Bool =
     WindowsWin32UiShellJniBridge.windowssysWindowsWin32UiShellIsUserAnAdmin()
 
-public actual fun loadUserProfileA(htoken: Handle, lpprofileinfo: MutPtr<Profileinfoa>): Bool =
+public actual fun loadUserProfileA(htoken: Handle, lpprofileinfo: MutPtr): Bool =
     WindowsWin32UiShellJniBridge.windowssysWindowsWin32UiShellLoadUserProfileA(htoken.rawAddress, lpprofileinfo.rawAddress)
 
-public actual fun loadUserProfileW(htoken: Handle, lpprofileinfo: MutPtr<Profileinfow>): Bool =
+public actual fun loadUserProfileW(htoken: Handle, lpprofileinfo: MutPtr): Bool =
     WindowsWin32UiShellJniBridge.windowssysWindowsWin32UiShellLoadUserProfileW(htoken.rawAddress, lpprofileinfo.rawAddress)
 
-public actual fun oleSaveToStreamEx(piunk: MutPtr<CVoid>, pistm: MutPtr<CVoid>, fcleardirty: Bool): Hresult =
+public actual fun oleSaveToStreamEx(piunk: MutPtr, pistm: MutPtr, fcleardirty: Bool): Hresult =
     WindowsWin32UiShellJniBridge.windowssysWindowsWin32UiShellOleSaveToStreamEx(piunk.rawAddress, pistm.rawAddress, fcleardirty)
 
-public actual fun openRegStream(hkey: Hkey, pszsubkey: Pcwstr, pszvalue: Pcwstr, grfmode: UInt): MutPtr<CVoid> =
+public actual fun openRegStream(hkey: Hkey, pszsubkey: Pcwstr, pszvalue: Pcwstr, grfmode: UInt): MutPtr =
     MutPtr(WindowsWin32UiShellJniBridge.windowssysWindowsWin32UiShellOpenRegStream(hkey.rawAddress, pszsubkey.rawAddress, pszvalue.rawAddress, grfmode.toInt()))
 
-public actual fun parseURLA(pcszurl: Pcstr, ppu: MutPtr<Parsedurla>): Hresult =
+public actual fun parseURLA(pcszurl: Pcstr, ppu: MutPtr): Hresult =
     WindowsWin32UiShellJniBridge.windowssysWindowsWin32UiShellParseURLA(pcszurl.rawAddress, ppu.rawAddress)
 
-public actual fun parseURLW(pcszurl: Pcwstr, ppu: MutPtr<Parsedurlw>): Hresult =
+public actual fun parseURLW(pcszurl: Pcwstr, ppu: MutPtr): Hresult =
     WindowsWin32UiShellJniBridge.windowssysWindowsWin32UiShellParseURLW(pcszurl.rawAddress, ppu.rawAddress)
 
 public actual fun pathAddBackslashA(pszpath: Pstr): Pstr =
@@ -2655,10 +2641,10 @@ public actual fun pathAddExtensionA(pszpath: Pstr, pszext: Pcstr): Bool =
 public actual fun pathAddExtensionW(pszpath: Pwstr, pszext: Pcwstr): Bool =
     WindowsWin32UiShellJniBridge.windowssysWindowsWin32UiShellPathAddExtensionW(pszpath.rawAddress, pszext.rawAddress)
 
-public actual fun pathAllocCanonicalize(pszpathin: Pcwstr, dwflags: PathcchOptions, ppszpathout: MutPtr<Pwstr>): Hresult =
+public actual fun pathAllocCanonicalize(pszpathin: Pcwstr, dwflags: PathcchOptions, ppszpathout: MutPtr): Hresult =
     WindowsWin32UiShellJniBridge.windowssysWindowsWin32UiShellPathAllocCanonicalize(pszpathin.rawAddress, dwflags.toInt(), ppszpathout.rawAddress)
 
-public actual fun pathAllocCombine(pszpathin: Pcwstr, pszmore: Pcwstr, dwflags: PathcchOptions, ppszpathout: MutPtr<Pwstr>): Hresult =
+public actual fun pathAllocCombine(pszpathin: Pcwstr, pszmore: Pcwstr, dwflags: PathcchOptions, ppszpathout: MutPtr): Hresult =
     WindowsWin32UiShellJniBridge.windowssysWindowsWin32UiShellPathAllocCombine(pszpathin.rawAddress, pszmore.rawAddress, dwflags.toInt(), ppszpathout.rawAddress)
 
 public actual fun pathAppendA(pszpath: Pstr, pszmore: Pcstr): Bool =
@@ -2682,7 +2668,7 @@ public actual fun pathCanonicalizeW(pszbuf: Pwstr, pszpath: Pcwstr): Bool =
 public actual fun pathCchAddBackslash(pszpath: Pwstr, cchpath: ULong): Hresult =
     WindowsWin32UiShellJniBridge.windowssysWindowsWin32UiShellPathCchAddBackslash(pszpath.rawAddress, cchpath.toLong())
 
-public actual fun pathCchAddBackslashEx(pszpath: Pwstr, cchpath: ULong, ppszend: MutPtr<Pwstr>, pcchremaining: MutPtr<ULong>): Hresult =
+public actual fun pathCchAddBackslashEx(pszpath: Pwstr, cchpath: ULong, ppszend: MutPtr, pcchremaining: MutPtr): Hresult =
     WindowsWin32UiShellJniBridge.windowssysWindowsWin32UiShellPathCchAddBackslashEx(pszpath.rawAddress, cchpath.toLong(), ppszend.rawAddress, pcchremaining.rawAddress)
 
 public actual fun pathCchAddExtension(pszpath: Pwstr, cchpath: ULong, pszext: Pcwstr): Hresult =
@@ -2706,7 +2692,7 @@ public actual fun pathCchCombine(pszpathout: Pwstr, cchpathout: ULong, pszpathin
 public actual fun pathCchCombineEx(pszpathout: Pwstr, cchpathout: ULong, pszpathin: Pcwstr, pszmore: Pcwstr, dwflags: PathcchOptions): Hresult =
     WindowsWin32UiShellJniBridge.windowssysWindowsWin32UiShellPathCchCombineEx(pszpathout.rawAddress, cchpathout.toLong(), pszpathin.rawAddress, pszmore.rawAddress, dwflags.toInt())
 
-public actual fun pathCchFindExtension(pszpath: Pcwstr, cchpath: ULong, ppszext: MutPtr<Pcwstr>): Hresult =
+public actual fun pathCchFindExtension(pszpath: Pcwstr, cchpath: ULong, ppszext: MutPtr): Hresult =
     WindowsWin32UiShellJniBridge.windowssysWindowsWin32UiShellPathCchFindExtension(pszpath.rawAddress, cchpath.toLong(), ppszext.rawAddress)
 
 public actual fun pathCchIsRoot(pszpath: Pcwstr): Bool =
@@ -2715,7 +2701,7 @@ public actual fun pathCchIsRoot(pszpath: Pcwstr): Bool =
 public actual fun pathCchRemoveBackslash(pszpath: Pwstr, cchpath: ULong): Hresult =
     WindowsWin32UiShellJniBridge.windowssysWindowsWin32UiShellPathCchRemoveBackslash(pszpath.rawAddress, cchpath.toLong())
 
-public actual fun pathCchRemoveBackslashEx(pszpath: Pwstr, cchpath: ULong, ppszend: MutPtr<Pwstr>, pcchremaining: MutPtr<ULong>): Hresult =
+public actual fun pathCchRemoveBackslashEx(pszpath: Pwstr, cchpath: ULong, ppszend: MutPtr, pcchremaining: MutPtr): Hresult =
     WindowsWin32UiShellJniBridge.windowssysWindowsWin32UiShellPathCchRemoveBackslashEx(pszpath.rawAddress, cchpath.toLong(), ppszend.rawAddress, pcchremaining.rawAddress)
 
 public actual fun pathCchRemoveExtension(pszpath: Pwstr, cchpath: ULong): Hresult =
@@ -2727,7 +2713,7 @@ public actual fun pathCchRemoveFileSpec(pszpath: Pwstr, cchpath: ULong): Hresult
 public actual fun pathCchRenameExtension(pszpath: Pwstr, cchpath: ULong, pszext: Pcwstr): Hresult =
     WindowsWin32UiShellJniBridge.windowssysWindowsWin32UiShellPathCchRenameExtension(pszpath.rawAddress, cchpath.toLong(), pszext.rawAddress)
 
-public actual fun pathCchSkipRoot(pszpath: Pcwstr, ppszrootend: MutPtr<Pcwstr>): Hresult =
+public actual fun pathCchSkipRoot(pszpath: Pcwstr, ppszrootend: MutPtr): Hresult =
     WindowsWin32UiShellJniBridge.windowssysWindowsWin32UiShellPathCchSkipRoot(pszpath.rawAddress, ppszrootend.rawAddress)
 
 public actual fun pathCchStripPrefix(pszpath: Pwstr, cchpath: ULong): Hresult =
@@ -2763,13 +2749,13 @@ public actual fun pathCompactPathExW(pszout: Pwstr, pszsrc: Pcwstr, cchmax: UInt
 public actual fun pathCompactPathW(hdc: Hdc, pszpath: Pwstr, dx: UInt): Bool =
     WindowsWin32UiShellJniBridge.windowssysWindowsWin32UiShellPathCompactPathW(hdc.rawAddress, pszpath.rawAddress, dx.toInt())
 
-public actual fun pathCreateFromUrlA(pszurl: Pcstr, pszpath: Pstr, pcchpath: MutPtr<UInt>, dwflags: UInt): Hresult =
+public actual fun pathCreateFromUrlA(pszurl: Pcstr, pszpath: Pstr, pcchpath: MutPtr, dwflags: UInt): Hresult =
     WindowsWin32UiShellJniBridge.windowssysWindowsWin32UiShellPathCreateFromUrlA(pszurl.rawAddress, pszpath.rawAddress, pcchpath.rawAddress, dwflags.toInt())
 
-public actual fun pathCreateFromUrlAlloc(pszin: Pcwstr, ppszout: MutPtr<Pwstr>, dwflags: UInt): Hresult =
+public actual fun pathCreateFromUrlAlloc(pszin: Pcwstr, ppszout: MutPtr, dwflags: UInt): Hresult =
     WindowsWin32UiShellJniBridge.windowssysWindowsWin32UiShellPathCreateFromUrlAlloc(pszin.rawAddress, ppszout.rawAddress, dwflags.toInt())
 
-public actual fun pathCreateFromUrlW(pszurl: Pcwstr, pszpath: Pwstr, pcchpath: MutPtr<UInt>, dwflags: UInt): Hresult =
+public actual fun pathCreateFromUrlW(pszurl: Pcwstr, pszpath: Pwstr, pcchpath: MutPtr, dwflags: UInt): Hresult =
     WindowsWin32UiShellJniBridge.windowssysWindowsWin32UiShellPathCreateFromUrlW(pszurl.rawAddress, pszpath.rawAddress, pcchpath.rawAddress, dwflags.toInt())
 
 public actual fun pathFileExistsA(pszpath: Pcstr): Bool =
@@ -2796,16 +2782,16 @@ public actual fun pathFindNextComponentA(pszpath: Pcstr): Pstr =
 public actual fun pathFindNextComponentW(pszpath: Pcwstr): Pwstr =
     MutPtr(WindowsWin32UiShellJniBridge.windowssysWindowsWin32UiShellPathFindNextComponentW(pszpath.rawAddress))
 
-public actual fun pathFindOnPathA(pszpath: Pstr, ppszotherdirs: ConstPtr<ConstPtr<Byte>>): Bool =
+public actual fun pathFindOnPathA(pszpath: Pstr, ppszotherdirs: ConstPtr): Bool =
     WindowsWin32UiShellJniBridge.windowssysWindowsWin32UiShellPathFindOnPathA(pszpath.rawAddress, ppszotherdirs.rawAddress)
 
-public actual fun pathFindOnPathW(pszpath: Pwstr, ppszotherdirs: ConstPtr<ConstPtr<UShort>>): Bool =
+public actual fun pathFindOnPathW(pszpath: Pwstr, ppszotherdirs: ConstPtr): Bool =
     WindowsWin32UiShellJniBridge.windowssysWindowsWin32UiShellPathFindOnPathW(pszpath.rawAddress, ppszotherdirs.rawAddress)
 
-public actual fun pathFindSuffixArrayA(pszpath: Pcstr, apszsuffix: ConstPtr<Pcstr>, iarraysize: Int): Pcstr =
+public actual fun pathFindSuffixArrayA(pszpath: Pcstr, apszsuffix: ConstPtr, iarraysize: Int): Pcstr =
     ConstPtr(WindowsWin32UiShellJniBridge.windowssysWindowsWin32UiShellPathFindSuffixArrayA(pszpath.rawAddress, apszsuffix.rawAddress, iarraysize))
 
-public actual fun pathFindSuffixArrayW(pszpath: Pcwstr, apszsuffix: ConstPtr<Pcwstr>, iarraysize: Int): Pcwstr =
+public actual fun pathFindSuffixArrayW(pszpath: Pcwstr, apszsuffix: ConstPtr, iarraysize: Int): Pcwstr =
     ConstPtr(WindowsWin32UiShellJniBridge.windowssysWindowsWin32UiShellPathFindSuffixArrayW(pszpath.rawAddress, apszsuffix.rawAddress, iarraysize))
 
 public actual fun pathGetArgsA(pszpath: Pcstr): Pstr =
@@ -2908,7 +2894,7 @@ public actual fun pathIsSystemFolderW(pszpath: Pcwstr, dwattrb: UInt): Bool =
 public actual fun pathIsUNCA(pszpath: Pcstr): Bool =
     WindowsWin32UiShellJniBridge.windowssysWindowsWin32UiShellPathIsUNCA(pszpath.rawAddress)
 
-public actual fun pathIsUNCEx(pszpath: Pcwstr, ppszserver: MutPtr<Pcwstr>): Bool =
+public actual fun pathIsUNCEx(pszpath: Pcwstr, ppszserver: MutPtr): Bool =
     WindowsWin32UiShellJniBridge.windowssysWindowsWin32UiShellPathIsUNCEx(pszpath.rawAddress, ppszserver.rawAddress)
 
 public actual fun pathIsUNCServerA(pszpath: Pcstr): Bool =
@@ -3023,7 +3009,7 @@ public actual fun pathRenameExtensionA(pszpath: Pstr, pszext: Pcstr): Bool =
 public actual fun pathRenameExtensionW(pszpath: Pwstr, pszext: Pcwstr): Bool =
     WindowsWin32UiShellJniBridge.windowssysWindowsWin32UiShellPathRenameExtensionW(pszpath.rawAddress, pszext.rawAddress)
 
-public actual fun pathResolve(pszpath: Pwstr, dirs: ConstPtr<ConstPtr<UShort>>, fflags: UInt): Int =
+public actual fun pathResolve(pszpath: Pwstr, dirs: ConstPtr, fflags: UInt): Int =
     WindowsWin32UiShellJniBridge.windowssysWindowsWin32UiShellPathResolve(pszpath.rawAddress, dirs.rawAddress, fflags.toInt())
 
 public actual fun pathSearchAndQualifyA(pszpath: Pcstr, pszbuf: Pstr, cchbuf: UInt): Bool =
@@ -3089,31 +3075,31 @@ public actual fun pathUnquoteSpacesW(lpsz: Pwstr): Bool =
 public actual fun pathYetAnotherMakeUniqueName(pszuniquename: Pwstr, pszpath: Pcwstr, pszshort: Pcwstr, pszfilespec: Pcwstr): Bool =
     WindowsWin32UiShellJniBridge.windowssysWindowsWin32UiShellPathYetAnotherMakeUniqueName(pszuniquename.rawAddress, pszpath.rawAddress, pszshort.rawAddress, pszfilespec.rawAddress)
 
-public actual fun pickIconDlg(hwnd: Hwnd, psziconpath: Pwstr, cchiconpath: UInt, piiconindex: MutPtr<Int>): Int =
+public actual fun pickIconDlg(hwnd: Hwnd, psziconpath: Pwstr, cchiconpath: UInt, piiconindex: MutPtr): Int =
     WindowsWin32UiShellJniBridge.windowssysWindowsWin32UiShellPickIconDlg(hwnd.rawAddress, psziconpath.rawAddress, cchiconpath.toInt(), piiconindex.rawAddress)
 
-public actual fun propVariantToStrRet(propvar: ConstPtr<Propvariant>, pstrret: MutPtr<Strret>): Hresult =
+public actual fun propVariantToStrRet(propvar: ConstPtr, pstrret: MutPtr): Hresult =
     WindowsWin32UiShellJniBridge.windowssysWindowsWin32UiShellPropVariantToStrRet(propvar.rawAddress, pstrret.rawAddress)
 
-public actual fun qISearch(that: MutPtr<CVoid>, pqit: ConstPtr<Qitab>, riid: ConstPtr<Guid>, ppv: MutPtr<MutPtr<CVoid>>): Hresult =
+public actual fun qISearch(that: MutPtr, pqit: ConstPtr, riid: ConstPtr, ppv: MutPtr): Hresult =
     WindowsWin32UiShellJniBridge.windowssysWindowsWin32UiShellQISearch(that.rawAddress, pqit.rawAddress, riid.rawAddress, ppv.rawAddress)
 
-public actual fun readCabinetState(pcs: MutPtr<Cabinetstate>, clength: Int): Bool =
+public actual fun readCabinetState(pcs: MutPtr, clength: Int): Bool =
     WindowsWin32UiShellJniBridge.windowssysWindowsWin32UiShellReadCabinetState(pcs.rawAddress, clength)
 
 public actual fun realDriveType(idrive: Int, foktohitnet: Bool): Int =
     WindowsWin32UiShellJniBridge.windowssysWindowsWin32UiShellRealDriveType(idrive, foktohitnet)
 
-public actual fun registerAppConstrainedChangeNotification(routine: PappconstrainChangeRoutine, context: ConstPtr<CVoid>, registration: MutPtr<PappconstrainRegistration>): UInt =
+public actual fun registerAppConstrainedChangeNotification(routine: PappconstrainChangeRoutine, context: ConstPtr, registration: MutPtr): UInt =
     WindowsWin32UiShellJniBridge.windowssysWindowsWin32UiShellRegisterAppConstrainedChangeNotification(0L, context.rawAddress, registration.rawAddress).toUInt()
 
-public actual fun registerAppStateChangeNotification(routine: PappstateChangeRoutine, context: ConstPtr<CVoid>, registration: MutPtr<PappstateRegistration>): UInt =
+public actual fun registerAppStateChangeNotification(routine: PappstateChangeRoutine, context: ConstPtr, registration: MutPtr): UInt =
     WindowsWin32UiShellJniBridge.windowssysWindowsWin32UiShellRegisterAppStateChangeNotification(0L, context.rawAddress, registration.rawAddress).toUInt()
 
-public actual fun registerScaleChangeEvent(hevent: Handle, pdwcookie: MutPtr<ULong>): Hresult =
+public actual fun registerScaleChangeEvent(hevent: Handle, pdwcookie: MutPtr): Hresult =
     WindowsWin32UiShellJniBridge.windowssysWindowsWin32UiShellRegisterScaleChangeEvent(hevent.rawAddress, pdwcookie.rawAddress)
 
-public actual fun registerScaleChangeNotifications(displaydevice: DisplayDeviceType, hwndnotify: Hwnd, umsgnotify: UInt, pdwcookie: MutPtr<UInt>): Hresult =
+public actual fun registerScaleChangeNotifications(displaydevice: DisplayDeviceType, hwndnotify: Hwnd, umsgnotify: UInt, pdwcookie: MutPtr): Hresult =
     WindowsWin32UiShellJniBridge.windowssysWindowsWin32UiShellRegisterScaleChangeNotifications(displaydevice, hwndnotify.rawAddress, umsgnotify.toInt(), pdwcookie.rawAddress)
 
 public actual fun removeWindowSubclass(hwnd: Hwnd, pfnsubclass: Subclassproc, uidsubclass: ULong): Bool =
@@ -3131,14 +3117,14 @@ public actual fun revokeScaleChangeNotifications(displaydevice: DisplayDeviceTyp
 public actual fun sHAddFromPropSheetExtArray(hpsxa: Hpsxa, lpfnaddpage: Lpfnsvaddpropsheetpage, lparam: Lparam): UInt =
     0u
 
-public actual fun sHAddToRecentDocs(uflags: UInt, pv: ConstPtr<CVoid>) {
+public actual fun sHAddToRecentDocs(uflags: UInt, pv: ConstPtr) {
     WindowsWin32UiShellJniBridge.windowssysWindowsWin32UiShellSHAddToRecentDocs(uflags.toInt(), pv.rawAddress)
 }
 
-public actual fun sHAlloc(cb: ULong): MutPtr<CVoid> =
+public actual fun sHAlloc(cb: ULong): MutPtr =
     MutPtr(WindowsWin32UiShellJniBridge.windowssysWindowsWin32UiShellSHAlloc(cb.toLong()))
 
-public actual fun sHAllocShared(pvdata: ConstPtr<CVoid>, dwsize: UInt, dwprocessid: UInt): Handle =
+public actual fun sHAllocShared(pvdata: ConstPtr, dwsize: UInt, dwprocessid: UInt): Handle =
     MutPtr(WindowsWin32UiShellJniBridge.windowssysWindowsWin32UiShellSHAllocShared(pvdata.rawAddress, dwsize.toInt(), dwprocessid.toInt()))
 
 public actual fun sHAnsiToAnsi(pszsrc: Pcstr, pszdst: Pstr, cchbuf: Int): Int =
@@ -3147,63 +3133,63 @@ public actual fun sHAnsiToAnsi(pszsrc: Pcstr, pszdst: Pstr, cchbuf: Int): Int =
 public actual fun sHAnsiToUnicode(pszsrc: Pcstr, pwszdst: Pwstr, cwchbuf: Int): Int =
     WindowsWin32UiShellJniBridge.windowssysWindowsWin32UiShellSHAnsiToUnicode(pszsrc.rawAddress, pwszdst.rawAddress, cwchbuf)
 
-public actual fun sHAppBarMessage(dwmessage: UInt, pdata: MutPtr<Appbardata>): ULong =
+public actual fun sHAppBarMessage(dwmessage: UInt, pdata: MutPtr): ULong =
     WindowsWin32UiShellJniBridge.windowssysWindowsWin32UiShellSHAppBarMessage(dwmessage.toInt(), pdata.rawAddress).toULong()
 
-public actual fun sHAssocEnumHandlers(pszextra: Pcwstr, affilter: AssocFilter, ppenumhandler: MutPtr<MutPtr<CVoid>>): Hresult =
+public actual fun sHAssocEnumHandlers(pszextra: Pcwstr, affilter: AssocFilter, ppenumhandler: MutPtr): Hresult =
     WindowsWin32UiShellJniBridge.windowssysWindowsWin32UiShellSHAssocEnumHandlers(pszextra.rawAddress, affilter, ppenumhandler.rawAddress)
 
-public actual fun sHAssocEnumHandlersForProtocolByApplication(protocol: Pcwstr, riid: ConstPtr<Guid>, enumhandlers: MutPtr<MutPtr<CVoid>>): Hresult =
+public actual fun sHAssocEnumHandlersForProtocolByApplication(protocol: Pcwstr, riid: ConstPtr, enumhandlers: MutPtr): Hresult =
     WindowsWin32UiShellJniBridge.windowssysWindowsWin32UiShellSHAssocEnumHandlersForProtocolByApplication(protocol.rawAddress, riid.rawAddress, enumhandlers.rawAddress)
 
 public actual fun sHAutoComplete(hwndedit: Hwnd, dwflags: ShellAutocompleteFlags): Hresult =
     WindowsWin32UiShellJniBridge.windowssysWindowsWin32UiShellSHAutoComplete(hwndedit.rawAddress, dwflags.toInt())
 
-public actual fun sHBindToFolderIDListParent(psfroot: MutPtr<CVoid>, pidl: ConstPtr<Itemidlist>, riid: ConstPtr<Guid>, ppv: MutPtr<MutPtr<CVoid>>, ppidllast: MutPtr<MutPtr<Itemidlist>>): Hresult =
+public actual fun sHBindToFolderIDListParent(psfroot: MutPtr, pidl: ConstPtr, riid: ConstPtr, ppv: MutPtr, ppidllast: MutPtr): Hresult =
     WindowsWin32UiShellJniBridge.windowssysWindowsWin32UiShellSHBindToFolderIDListParent(psfroot.rawAddress, pidl.rawAddress, riid.rawAddress, ppv.rawAddress, ppidllast.rawAddress)
 
-public actual fun sHBindToFolderIDListParentEx(psfroot: MutPtr<CVoid>, pidl: ConstPtr<Itemidlist>, ppbc: MutPtr<CVoid>, riid: ConstPtr<Guid>, ppv: MutPtr<MutPtr<CVoid>>, ppidllast: MutPtr<MutPtr<Itemidlist>>): Hresult =
+public actual fun sHBindToFolderIDListParentEx(psfroot: MutPtr, pidl: ConstPtr, ppbc: MutPtr, riid: ConstPtr, ppv: MutPtr, ppidllast: MutPtr): Hresult =
     WindowsWin32UiShellJniBridge.windowssysWindowsWin32UiShellSHBindToFolderIDListParentEx(psfroot.rawAddress, pidl.rawAddress, ppbc.rawAddress, riid.rawAddress, ppv.rawAddress, ppidllast.rawAddress)
 
-public actual fun sHBindToObject(psf: MutPtr<CVoid>, pidl: ConstPtr<Itemidlist>, pbc: MutPtr<CVoid>, riid: ConstPtr<Guid>, ppv: MutPtr<MutPtr<CVoid>>): Hresult =
+public actual fun sHBindToObject(psf: MutPtr, pidl: ConstPtr, pbc: MutPtr, riid: ConstPtr, ppv: MutPtr): Hresult =
     WindowsWin32UiShellJniBridge.windowssysWindowsWin32UiShellSHBindToObject(psf.rawAddress, pidl.rawAddress, pbc.rawAddress, riid.rawAddress, ppv.rawAddress)
 
-public actual fun sHBindToParent(pidl: ConstPtr<Itemidlist>, riid: ConstPtr<Guid>, ppv: MutPtr<MutPtr<CVoid>>, ppidllast: MutPtr<MutPtr<Itemidlist>>): Hresult =
+public actual fun sHBindToParent(pidl: ConstPtr, riid: ConstPtr, ppv: MutPtr, ppidllast: MutPtr): Hresult =
     WindowsWin32UiShellJniBridge.windowssysWindowsWin32UiShellSHBindToParent(pidl.rawAddress, riid.rawAddress, ppv.rawAddress, ppidllast.rawAddress)
 
-public actual fun sHBrowseForFolderA(lpbi: ConstPtr<Browseinfoa>): MutPtr<Itemidlist> =
+public actual fun sHBrowseForFolderA(lpbi: ConstPtr): MutPtr =
     MutPtr(WindowsWin32UiShellJniBridge.windowssysWindowsWin32UiShellSHBrowseForFolderA(lpbi.rawAddress))
 
-public actual fun sHBrowseForFolderW(lpbi: ConstPtr<Browseinfow>): MutPtr<Itemidlist> =
+public actual fun sHBrowseForFolderW(lpbi: ConstPtr): MutPtr =
     MutPtr(WindowsWin32UiShellJniBridge.windowssysWindowsWin32UiShellSHBrowseForFolderW(lpbi.rawAddress))
 
-public actual fun sHCLSIDFromString(psz: Pcwstr, pclsid: MutPtr<Guid>): Hresult =
+public actual fun sHCLSIDFromString(psz: Pcwstr, pclsid: MutPtr): Hresult =
     WindowsWin32UiShellJniBridge.windowssysWindowsWin32UiShellSHCLSIDFromString(psz.rawAddress, pclsid.rawAddress)
 
-public actual fun shchangeNotificationLock(hchange: Handle, dwprocid: UInt, pppidl: MutPtr<MutPtr<MutPtr<Itemidlist>>>, plevent: MutPtr<Int>): Handle =
+public actual fun shchangeNotificationLock(hchange: Handle, dwprocid: UInt, pppidl: MutPtr, plevent: MutPtr): Handle =
     MutPtr(WindowsWin32UiShellJniBridge.windowssysWindowsWin32UiShellShchangeNotificationLock(hchange.rawAddress, dwprocid.toInt(), pppidl.rawAddress, plevent.rawAddress))
 
 public actual fun shchangeNotificationUnlock(hlock: Handle): Bool =
     WindowsWin32UiShellJniBridge.windowssysWindowsWin32UiShellShchangeNotificationUnlock(hlock.rawAddress)
 
-public actual fun sHChangeNotify(weventid: Int, uflags: ShcnfFlags, dwitem1: ConstPtr<CVoid>, dwitem2: ConstPtr<CVoid>) {
+public actual fun sHChangeNotify(weventid: Int, uflags: ShcnfFlags, dwitem1: ConstPtr, dwitem2: ConstPtr) {
     WindowsWin32UiShellJniBridge.windowssysWindowsWin32UiShellSHChangeNotify(weventid, uflags.toInt(), dwitem1.rawAddress, dwitem2.rawAddress)
 }
 
 public actual fun sHChangeNotifyDeregister(ulid: UInt): Bool =
     WindowsWin32UiShellJniBridge.windowssysWindowsWin32UiShellSHChangeNotifyDeregister(ulid.toInt())
 
-public actual fun sHChangeNotifyRegister(hwnd: Hwnd, fsources: ShcnrfSource, fevents: Int, wmsg: UInt, centries: Int, pshcne: ConstPtr<SHChangeNotifyEntry>): UInt =
+public actual fun sHChangeNotifyRegister(hwnd: Hwnd, fsources: ShcnrfSource, fevents: Int, wmsg: UInt, centries: Int, pshcne: ConstPtr): UInt =
     WindowsWin32UiShellJniBridge.windowssysWindowsWin32UiShellSHChangeNotifyRegister(hwnd.rawAddress, fsources, fevents, wmsg.toInt(), centries, pshcne.rawAddress).toUInt()
 
 public actual fun sHChangeNotifyRegisterThread(status: ScnrtStatus) {
     WindowsWin32UiShellJniBridge.windowssysWindowsWin32UiShellSHChangeNotifyRegisterThread(status)
 }
 
-public actual fun sHCloneSpecialIDList(hwnd: Hwnd, csidl: Int, fcreate: Bool): MutPtr<Itemidlist> =
+public actual fun sHCloneSpecialIDList(hwnd: Hwnd, csidl: Int, fcreate: Bool): MutPtr =
     MutPtr(WindowsWin32UiShellJniBridge.windowssysWindowsWin32UiShellSHCloneSpecialIDList(hwnd.rawAddress, csidl, fcreate))
 
-public actual fun sHCoCreateInstance(pszclsid: Pcwstr, pclsid: ConstPtr<Guid>, punkouter: MutPtr<CVoid>, riid: ConstPtr<Guid>, ppv: MutPtr<MutPtr<CVoid>>): Hresult =
+public actual fun sHCoCreateInstance(pszclsid: Pcwstr, pclsid: ConstPtr, punkouter: MutPtr, riid: ConstPtr, ppv: MutPtr): Hresult =
     WindowsWin32UiShellJniBridge.windowssysWindowsWin32UiShellSHCoCreateInstance(pszclsid.rawAddress, pclsid.rawAddress, punkouter.rawAddress, riid.rawAddress, ppv.rawAddress)
 
 public actual fun sHCopyKeyA(hkeysrc: Hkey, pszsrcsubkey: Pcstr, hkeydest: Hkey, freserved: UInt): Win32Error =
@@ -3212,109 +3198,109 @@ public actual fun sHCopyKeyA(hkeysrc: Hkey, pszsrcsubkey: Pcstr, hkeydest: Hkey,
 public actual fun sHCopyKeyW(hkeysrc: Hkey, pszsrcsubkey: Pcwstr, hkeydest: Hkey, freserved: UInt): Win32Error =
     WindowsWin32UiShellJniBridge.windowssysWindowsWin32UiShellSHCopyKeyW(hkeysrc.rawAddress, pszsrcsubkey.rawAddress, hkeydest.rawAddress, freserved.toInt()).toUInt()
 
-public actual fun sHCreateAssociationRegistration(riid: ConstPtr<Guid>, ppv: MutPtr<MutPtr<CVoid>>): Hresult =
+public actual fun sHCreateAssociationRegistration(riid: ConstPtr, ppv: MutPtr): Hresult =
     WindowsWin32UiShellJniBridge.windowssysWindowsWin32UiShellSHCreateAssociationRegistration(riid.rawAddress, ppv.rawAddress)
 
-public actual fun sHCreateDataObject(pidlfolder: ConstPtr<Itemidlist>, cidl: UInt, apidl: ConstPtr<ConstPtr<Itemidlist>>, pdtinner: MutPtr<CVoid>, riid: ConstPtr<Guid>, ppv: MutPtr<MutPtr<CVoid>>): Hresult =
+public actual fun sHCreateDataObject(pidlfolder: ConstPtr, cidl: UInt, apidl: ConstPtr, pdtinner: MutPtr, riid: ConstPtr, ppv: MutPtr): Hresult =
     WindowsWin32UiShellJniBridge.windowssysWindowsWin32UiShellSHCreateDataObject(pidlfolder.rawAddress, cidl.toInt(), apidl.rawAddress, pdtinner.rawAddress, riid.rawAddress, ppv.rawAddress)
 
-public actual fun sHCreateDefaultContextMenu(pdcm: ConstPtr<Defcontextmenu>, riid: ConstPtr<Guid>, ppv: MutPtr<MutPtr<CVoid>>): Hresult =
+public actual fun sHCreateDefaultContextMenu(pdcm: ConstPtr, riid: ConstPtr, ppv: MutPtr): Hresult =
     WindowsWin32UiShellJniBridge.windowssysWindowsWin32UiShellSHCreateDefaultContextMenu(pdcm.rawAddress, riid.rawAddress, ppv.rawAddress)
 
-public actual fun sHCreateDefaultExtractIcon(riid: ConstPtr<Guid>, ppv: MutPtr<MutPtr<CVoid>>): Hresult =
+public actual fun sHCreateDefaultExtractIcon(riid: ConstPtr, ppv: MutPtr): Hresult =
     WindowsWin32UiShellJniBridge.windowssysWindowsWin32UiShellSHCreateDefaultExtractIcon(riid.rawAddress, ppv.rawAddress)
 
-public actual fun sHCreateDefaultPropertiesOp(psi: MutPtr<CVoid>, ppfileop: MutPtr<MutPtr<CVoid>>): Hresult =
+public actual fun sHCreateDefaultPropertiesOp(psi: MutPtr, ppfileop: MutPtr): Hresult =
     WindowsWin32UiShellJniBridge.windowssysWindowsWin32UiShellSHCreateDefaultPropertiesOp(psi.rawAddress, ppfileop.rawAddress)
 
 public actual fun sHCreateDirectory(hwnd: Hwnd, pszpath: Pcwstr): Int =
     WindowsWin32UiShellJniBridge.windowssysWindowsWin32UiShellSHCreateDirectory(hwnd.rawAddress, pszpath.rawAddress)
 
-public actual fun sHCreateDirectoryExA(hwnd: Hwnd, pszpath: Pcstr, psa: ConstPtr<SecurityAttributes>): Int =
+public actual fun sHCreateDirectoryExA(hwnd: Hwnd, pszpath: Pcstr, psa: ConstPtr): Int =
     WindowsWin32UiShellJniBridge.windowssysWindowsWin32UiShellSHCreateDirectoryExA(hwnd.rawAddress, pszpath.rawAddress, psa.rawAddress)
 
-public actual fun sHCreateDirectoryExW(hwnd: Hwnd, pszpath: Pcwstr, psa: ConstPtr<SecurityAttributes>): Int =
+public actual fun sHCreateDirectoryExW(hwnd: Hwnd, pszpath: Pcwstr, psa: ConstPtr): Int =
     WindowsWin32UiShellJniBridge.windowssysWindowsWin32UiShellSHCreateDirectoryExW(hwnd.rawAddress, pszpath.rawAddress, psa.rawAddress)
 
-public actual fun sHCreateFileExtractIconW(pszfile: Pcwstr, dwfileattributes: UInt, riid: ConstPtr<Guid>, ppv: MutPtr<MutPtr<CVoid>>): Hresult =
+public actual fun sHCreateFileExtractIconW(pszfile: Pcwstr, dwfileattributes: UInt, riid: ConstPtr, ppv: MutPtr): Hresult =
     WindowsWin32UiShellJniBridge.windowssysWindowsWin32UiShellSHCreateFileExtractIconW(pszfile.rawAddress, dwfileattributes.toInt(), riid.rawAddress, ppv.rawAddress)
 
-public actual fun sHCreateItemFromIDList(pidl: ConstPtr<Itemidlist>, riid: ConstPtr<Guid>, ppv: MutPtr<MutPtr<CVoid>>): Hresult =
+public actual fun sHCreateItemFromIDList(pidl: ConstPtr, riid: ConstPtr, ppv: MutPtr): Hresult =
     WindowsWin32UiShellJniBridge.windowssysWindowsWin32UiShellSHCreateItemFromIDList(pidl.rawAddress, riid.rawAddress, ppv.rawAddress)
 
-public actual fun sHCreateItemFromParsingName(pszpath: Pcwstr, pbc: MutPtr<CVoid>, riid: ConstPtr<Guid>, ppv: MutPtr<MutPtr<CVoid>>): Hresult =
+public actual fun sHCreateItemFromParsingName(pszpath: Pcwstr, pbc: MutPtr, riid: ConstPtr, ppv: MutPtr): Hresult =
     WindowsWin32UiShellJniBridge.windowssysWindowsWin32UiShellSHCreateItemFromParsingName(pszpath.rawAddress, pbc.rawAddress, riid.rawAddress, ppv.rawAddress)
 
-public actual fun sHCreateItemFromRelativeName(psiparent: MutPtr<CVoid>, pszname: Pcwstr, pbc: MutPtr<CVoid>, riid: ConstPtr<Guid>, ppv: MutPtr<MutPtr<CVoid>>): Hresult =
+public actual fun sHCreateItemFromRelativeName(psiparent: MutPtr, pszname: Pcwstr, pbc: MutPtr, riid: ConstPtr, ppv: MutPtr): Hresult =
     WindowsWin32UiShellJniBridge.windowssysWindowsWin32UiShellSHCreateItemFromRelativeName(psiparent.rawAddress, pszname.rawAddress, pbc.rawAddress, riid.rawAddress, ppv.rawAddress)
 
-public actual fun sHCreateItemInKnownFolder(kfid: ConstPtr<Guid>, dwkfflags: UInt, pszitem: Pcwstr, riid: ConstPtr<Guid>, ppv: MutPtr<MutPtr<CVoid>>): Hresult =
+public actual fun sHCreateItemInKnownFolder(kfid: ConstPtr, dwkfflags: UInt, pszitem: Pcwstr, riid: ConstPtr, ppv: MutPtr): Hresult =
     WindowsWin32UiShellJniBridge.windowssysWindowsWin32UiShellSHCreateItemInKnownFolder(kfid.rawAddress, dwkfflags.toInt(), pszitem.rawAddress, riid.rawAddress, ppv.rawAddress)
 
-public actual fun sHCreateItemWithParent(pidlparent: ConstPtr<Itemidlist>, psfparent: MutPtr<CVoid>, pidl: ConstPtr<Itemidlist>, riid: ConstPtr<Guid>, ppvitem: MutPtr<MutPtr<CVoid>>): Hresult =
+public actual fun sHCreateItemWithParent(pidlparent: ConstPtr, psfparent: MutPtr, pidl: ConstPtr, riid: ConstPtr, ppvitem: MutPtr): Hresult =
     WindowsWin32UiShellJniBridge.windowssysWindowsWin32UiShellSHCreateItemWithParent(pidlparent.rawAddress, psfparent.rawAddress, pidl.rawAddress, riid.rawAddress, ppvitem.rawAddress)
 
-public actual fun sHCreateMemStream(pinit: ConstPtr<UByte>, cbinit: UInt): MutPtr<CVoid> =
+public actual fun sHCreateMemStream(pinit: ConstPtr, cbinit: UInt): MutPtr =
     MutPtr(WindowsWin32UiShellJniBridge.windowssysWindowsWin32UiShellSHCreateMemStream(pinit.rawAddress, cbinit.toInt()))
 
-public actual fun sHCreateProcessAsUserW(pscpi: MutPtr<Shcreateprocessinfow>): Bool =
+public actual fun sHCreateProcessAsUserW(pscpi: MutPtr): Bool =
     WindowsWin32UiShellJniBridge.windowssysWindowsWin32UiShellSHCreateProcessAsUserW(pscpi.rawAddress)
 
 public actual fun sHCreatePropSheetExtArray(hkey: Hkey, pszsubkey: Pcwstr, maxIface: UInt): Hpsxa =
     MutPtr(WindowsWin32UiShellJniBridge.windowssysWindowsWin32UiShellSHCreatePropSheetExtArray(hkey.rawAddress, pszsubkey.rawAddress, maxIface.toInt()))
 
-public actual fun sHCreateQueryCancelAutoPlayMoniker(ppmoniker: MutPtr<MutPtr<CVoid>>): Hresult =
+public actual fun sHCreateQueryCancelAutoPlayMoniker(ppmoniker: MutPtr): Hresult =
     WindowsWin32UiShellJniBridge.windowssysWindowsWin32UiShellSHCreateQueryCancelAutoPlayMoniker(ppmoniker.rawAddress)
 
-public actual fun sHCreateShellFolderView(pcsfv: ConstPtr<SfvCreate>, ppsv: MutPtr<MutPtr<CVoid>>): Hresult =
+public actual fun sHCreateShellFolderView(pcsfv: ConstPtr, ppsv: MutPtr): Hresult =
     WindowsWin32UiShellJniBridge.windowssysWindowsWin32UiShellSHCreateShellFolderView(pcsfv.rawAddress, ppsv.rawAddress)
 
-public actual fun sHCreateShellFolderViewEx(pcsfv: ConstPtr<Csfv>, ppsv: MutPtr<MutPtr<CVoid>>): Hresult =
+public actual fun sHCreateShellFolderViewEx(pcsfv: ConstPtr, ppsv: MutPtr): Hresult =
     WindowsWin32UiShellJniBridge.windowssysWindowsWin32UiShellSHCreateShellFolderViewEx(pcsfv.rawAddress, ppsv.rawAddress)
 
-public actual fun sHCreateShellItem(pidlparent: ConstPtr<Itemidlist>, psfparent: MutPtr<CVoid>, pidl: ConstPtr<Itemidlist>, ppsi: MutPtr<MutPtr<CVoid>>): Hresult =
+public actual fun sHCreateShellItem(pidlparent: ConstPtr, psfparent: MutPtr, pidl: ConstPtr, ppsi: MutPtr): Hresult =
     WindowsWin32UiShellJniBridge.windowssysWindowsWin32UiShellSHCreateShellItem(pidlparent.rawAddress, psfparent.rawAddress, pidl.rawAddress, ppsi.rawAddress)
 
-public actual fun sHCreateShellItemArray(pidlparent: ConstPtr<Itemidlist>, psf: MutPtr<CVoid>, cidl: UInt, ppidl: ConstPtr<ConstPtr<Itemidlist>>, ppsiitemarray: MutPtr<MutPtr<CVoid>>): Hresult =
+public actual fun sHCreateShellItemArray(pidlparent: ConstPtr, psf: MutPtr, cidl: UInt, ppidl: ConstPtr, ppsiitemarray: MutPtr): Hresult =
     WindowsWin32UiShellJniBridge.windowssysWindowsWin32UiShellSHCreateShellItemArray(pidlparent.rawAddress, psf.rawAddress, cidl.toInt(), ppidl.rawAddress, ppsiitemarray.rawAddress)
 
-public actual fun sHCreateShellItemArrayFromDataObject(pdo: MutPtr<CVoid>, riid: ConstPtr<Guid>, ppv: MutPtr<MutPtr<CVoid>>): Hresult =
+public actual fun sHCreateShellItemArrayFromDataObject(pdo: MutPtr, riid: ConstPtr, ppv: MutPtr): Hresult =
     WindowsWin32UiShellJniBridge.windowssysWindowsWin32UiShellSHCreateShellItemArrayFromDataObject(pdo.rawAddress, riid.rawAddress, ppv.rawAddress)
 
-public actual fun sHCreateShellItemArrayFromIDLists(cidl: UInt, rgpidl: ConstPtr<ConstPtr<Itemidlist>>, ppsiitemarray: MutPtr<MutPtr<CVoid>>): Hresult =
+public actual fun sHCreateShellItemArrayFromIDLists(cidl: UInt, rgpidl: ConstPtr, ppsiitemarray: MutPtr): Hresult =
     WindowsWin32UiShellJniBridge.windowssysWindowsWin32UiShellSHCreateShellItemArrayFromIDLists(cidl.toInt(), rgpidl.rawAddress, ppsiitemarray.rawAddress)
 
-public actual fun sHCreateShellItemArrayFromShellItem(psi: MutPtr<CVoid>, riid: ConstPtr<Guid>, ppv: MutPtr<MutPtr<CVoid>>): Hresult =
+public actual fun sHCreateShellItemArrayFromShellItem(psi: MutPtr, riid: ConstPtr, ppv: MutPtr): Hresult =
     WindowsWin32UiShellJniBridge.windowssysWindowsWin32UiShellSHCreateShellItemArrayFromShellItem(psi.rawAddress, riid.rawAddress, ppv.rawAddress)
 
 public actual fun sHCreateShellPalette(hdc: Hdc): Hpalette =
     MutPtr(WindowsWin32UiShellJniBridge.windowssysWindowsWin32UiShellSHCreateShellPalette(hdc.rawAddress))
 
-public actual fun sHCreateStdEnumFmtEtc(cfmt: UInt, afmt: ConstPtr<Formatetc>, ppenumformatetc: MutPtr<MutPtr<CVoid>>): Hresult =
+public actual fun sHCreateStdEnumFmtEtc(cfmt: UInt, afmt: ConstPtr, ppenumformatetc: MutPtr): Hresult =
     WindowsWin32UiShellJniBridge.windowssysWindowsWin32UiShellSHCreateStdEnumFmtEtc(cfmt.toInt(), afmt.rawAddress, ppenumformatetc.rawAddress)
 
-public actual fun sHCreateStreamOnFileA(pszfile: Pcstr, grfmode: UInt, ppstm: MutPtr<MutPtr<CVoid>>): Hresult =
+public actual fun sHCreateStreamOnFileA(pszfile: Pcstr, grfmode: UInt, ppstm: MutPtr): Hresult =
     WindowsWin32UiShellJniBridge.windowssysWindowsWin32UiShellSHCreateStreamOnFileA(pszfile.rawAddress, grfmode.toInt(), ppstm.rawAddress)
 
-public actual fun sHCreateStreamOnFileEx(pszfile: Pcwstr, grfmode: UInt, dwattributes: UInt, fcreate: Bool, pstmtemplate: MutPtr<CVoid>, ppstm: MutPtr<MutPtr<CVoid>>): Hresult =
+public actual fun sHCreateStreamOnFileEx(pszfile: Pcwstr, grfmode: UInt, dwattributes: UInt, fcreate: Bool, pstmtemplate: MutPtr, ppstm: MutPtr): Hresult =
     WindowsWin32UiShellJniBridge.windowssysWindowsWin32UiShellSHCreateStreamOnFileEx(pszfile.rawAddress, grfmode.toInt(), dwattributes.toInt(), fcreate, pstmtemplate.rawAddress, ppstm.rawAddress)
 
-public actual fun sHCreateStreamOnFileW(pszfile: Pcwstr, grfmode: UInt, ppstm: MutPtr<MutPtr<CVoid>>): Hresult =
+public actual fun sHCreateStreamOnFileW(pszfile: Pcwstr, grfmode: UInt, ppstm: MutPtr): Hresult =
     WindowsWin32UiShellJniBridge.windowssysWindowsWin32UiShellSHCreateStreamOnFileW(pszfile.rawAddress, grfmode.toInt(), ppstm.rawAddress)
 
-public actual fun sHCreateThread(pfnthreadproc: LpthreadStartRoutine, pdata: ConstPtr<CVoid>, flags: UInt, pfncallback: LpthreadStartRoutine): Bool =
+public actual fun sHCreateThread(pfnthreadproc: LpthreadStartRoutine, pdata: ConstPtr, flags: UInt, pfncallback: LpthreadStartRoutine): Bool =
     WindowsWin32UiShellJniBridge.windowssysWindowsWin32UiShellSHCreateThread(0L, pdata.rawAddress, flags.toInt(), 0L)
 
-public actual fun sHCreateThreadRef(pcref: MutPtr<Int>, ppunk: MutPtr<MutPtr<CVoid>>): Hresult =
+public actual fun sHCreateThreadRef(pcref: MutPtr, ppunk: MutPtr): Hresult =
     WindowsWin32UiShellJniBridge.windowssysWindowsWin32UiShellSHCreateThreadRef(pcref.rawAddress, ppunk.rawAddress)
 
-public actual fun sHCreateThreadWithHandle(pfnthreadproc: LpthreadStartRoutine, pdata: ConstPtr<CVoid>, flags: UInt, pfncallback: LpthreadStartRoutine, phandle: MutPtr<Handle>): Bool =
+public actual fun sHCreateThreadWithHandle(pfnthreadproc: LpthreadStartRoutine, pdata: ConstPtr, flags: UInt, pfncallback: LpthreadStartRoutine, phandle: MutPtr): Bool =
     WindowsWin32UiShellJniBridge.windowssysWindowsWin32UiShellSHCreateThreadWithHandle(0L, pdata.rawAddress, flags.toInt(), 0L, phandle.rawAddress)
 
-public actual fun sHDefExtractIconA(psziconfile: Pcstr, iindex: Int, uflags: UInt, phiconlarge: MutPtr<Hicon>, phiconsmall: MutPtr<Hicon>, niconsize: UInt): Hresult =
+public actual fun sHDefExtractIconA(psziconfile: Pcstr, iindex: Int, uflags: UInt, phiconlarge: MutPtr, phiconsmall: MutPtr, niconsize: UInt): Hresult =
     WindowsWin32UiShellJniBridge.windowssysWindowsWin32UiShellSHDefExtractIconA(psziconfile.rawAddress, iindex, uflags.toInt(), phiconlarge.rawAddress, phiconsmall.rawAddress, niconsize.toInt())
 
-public actual fun sHDefExtractIconW(psziconfile: Pcwstr, iindex: Int, uflags: UInt, phiconlarge: MutPtr<Hicon>, phiconsmall: MutPtr<Hicon>, niconsize: UInt): Hresult =
+public actual fun sHDefExtractIconW(psziconfile: Pcwstr, iindex: Int, uflags: UInt, phiconlarge: MutPtr, phiconsmall: MutPtr, niconsize: UInt): Hresult =
     WindowsWin32UiShellJniBridge.windowssysWindowsWin32UiShellSHDefExtractIconW(psziconfile.rawAddress, iindex, uflags.toInt(), phiconlarge.rawAddress, phiconsmall.rawAddress, niconsize.toInt())
 
 public actual fun sHDeleteEmptyKeyA(hkey: Hkey, pszsubkey: Pcstr): Win32Error =
@@ -3339,7 +3325,7 @@ public actual fun sHDestroyPropSheetExtArray(hpsxa: Hpsxa) {
     WindowsWin32UiShellJniBridge.windowssysWindowsWin32UiShellSHDestroyPropSheetExtArray(hpsxa.rawAddress)
 }
 
-public actual fun sHDoDragDrop(hwnd: Hwnd, pdata: MutPtr<CVoid>, pdsrc: MutPtr<CVoid>, dweffect: Dropeffect, pdweffect: MutPtr<Dropeffect>): Hresult =
+public actual fun sHDoDragDrop(hwnd: Hwnd, pdata: MutPtr, pdsrc: MutPtr, dweffect: Dropeffect, pdweffect: MutPtr): Hresult =
     WindowsWin32UiShellJniBridge.windowssysWindowsWin32UiShellSHDoDragDrop(hwnd.rawAddress, pdata.rawAddress, pdsrc.rawAddress, dweffect.toInt(), pdweffect.rawAddress)
 
 public actual fun sHEmptyRecycleBinA(hwnd: Hwnd, pszrootpath: Pcstr, dwflags: UInt): Hresult =
@@ -3348,50 +3334,50 @@ public actual fun sHEmptyRecycleBinA(hwnd: Hwnd, pszrootpath: Pcstr, dwflags: UI
 public actual fun sHEmptyRecycleBinW(hwnd: Hwnd, pszrootpath: Pcwstr, dwflags: UInt): Hresult =
     WindowsWin32UiShellJniBridge.windowssysWindowsWin32UiShellSHEmptyRecycleBinW(hwnd.rawAddress, pszrootpath.rawAddress, dwflags.toInt())
 
-public actual fun sHEnumKeyExA(hkey: Hkey, dwindex: UInt, pszname: Pstr, pcchname: MutPtr<UInt>): Win32Error =
+public actual fun sHEnumKeyExA(hkey: Hkey, dwindex: UInt, pszname: Pstr, pcchname: MutPtr): Win32Error =
     WindowsWin32UiShellJniBridge.windowssysWindowsWin32UiShellSHEnumKeyExA(hkey.rawAddress, dwindex.toInt(), pszname.rawAddress, pcchname.rawAddress).toUInt()
 
-public actual fun sHEnumKeyExW(hkey: Hkey, dwindex: UInt, pszname: Pwstr, pcchname: MutPtr<UInt>): Win32Error =
+public actual fun sHEnumKeyExW(hkey: Hkey, dwindex: UInt, pszname: Pwstr, pcchname: MutPtr): Win32Error =
     WindowsWin32UiShellJniBridge.windowssysWindowsWin32UiShellSHEnumKeyExW(hkey.rawAddress, dwindex.toInt(), pszname.rawAddress, pcchname.rawAddress).toUInt()
 
-public actual fun sHEnumValueA(hkey: Hkey, dwindex: UInt, pszvaluename: Pstr, pcchvaluename: MutPtr<UInt>, pdwtype: MutPtr<UInt>, pvdata: MutPtr<CVoid>, pcbdata: MutPtr<UInt>): Win32Error =
+public actual fun sHEnumValueA(hkey: Hkey, dwindex: UInt, pszvaluename: Pstr, pcchvaluename: MutPtr, pdwtype: MutPtr, pvdata: MutPtr, pcbdata: MutPtr): Win32Error =
     WindowsWin32UiShellJniBridge.windowssysWindowsWin32UiShellSHEnumValueA(hkey.rawAddress, dwindex.toInt(), pszvaluename.rawAddress, pcchvaluename.rawAddress, pdwtype.rawAddress, pvdata.rawAddress, pcbdata.rawAddress).toUInt()
 
-public actual fun sHEnumValueW(hkey: Hkey, dwindex: UInt, pszvaluename: Pwstr, pcchvaluename: MutPtr<UInt>, pdwtype: MutPtr<UInt>, pvdata: MutPtr<CVoid>, pcbdata: MutPtr<UInt>): Win32Error =
+public actual fun sHEnumValueW(hkey: Hkey, dwindex: UInt, pszvaluename: Pwstr, pcchvaluename: MutPtr, pdwtype: MutPtr, pvdata: MutPtr, pcbdata: MutPtr): Win32Error =
     WindowsWin32UiShellJniBridge.windowssysWindowsWin32UiShellSHEnumValueW(hkey.rawAddress, dwindex.toInt(), pszvaluename.rawAddress, pcchvaluename.rawAddress, pdwtype.rawAddress, pvdata.rawAddress, pcbdata.rawAddress).toUInt()
 
 public actual fun sHEnumerateUnreadMailAccountsW(hkeyuser: Hkey, dwindex: UInt, pszmailaddress: Pwstr, cchmailaddress: Int): Hresult =
     WindowsWin32UiShellJniBridge.windowssysWindowsWin32UiShellSHEnumerateUnreadMailAccountsW(hkeyuser.rawAddress, dwindex.toInt(), pszmailaddress.rawAddress, cchmailaddress)
 
-public actual fun sHEvaluateSystemCommandTemplate(pszcmdtemplate: Pcwstr, ppszapplication: MutPtr<Pwstr>, ppszcommandline: MutPtr<Pwstr>, ppszparameters: MutPtr<Pwstr>): Hresult =
+public actual fun sHEvaluateSystemCommandTemplate(pszcmdtemplate: Pcwstr, ppszapplication: MutPtr, ppszcommandline: MutPtr, ppszparameters: MutPtr): Hresult =
     WindowsWin32UiShellJniBridge.windowssysWindowsWin32UiShellSHEvaluateSystemCommandTemplate(pszcmdtemplate.rawAddress, ppszapplication.rawAddress, ppszcommandline.rawAddress, ppszparameters.rawAddress)
 
-public actual fun sHFileOperationA(lpfileop: MutPtr<Shfileopstructa>): Int =
+public actual fun sHFileOperationA(lpfileop: MutPtr): Int =
     WindowsWin32UiShellJniBridge.windowssysWindowsWin32UiShellSHFileOperationA(lpfileop.rawAddress)
 
-public actual fun sHFileOperationW(lpfileop: MutPtr<Shfileopstructw>): Int =
+public actual fun sHFileOperationW(lpfileop: MutPtr): Int =
     WindowsWin32UiShellJniBridge.windowssysWindowsWin32UiShellSHFileOperationW(lpfileop.rawAddress)
 
-public actual fun sHFindFiles(pidlfolder: ConstPtr<Itemidlist>, pidlsavefile: ConstPtr<Itemidlist>): Bool =
+public actual fun sHFindFiles(pidlfolder: ConstPtr, pidlsavefile: ConstPtr): Bool =
     WindowsWin32UiShellJniBridge.windowssysWindowsWin32UiShellSHFindFiles(pidlfolder.rawAddress, pidlsavefile.rawAddress)
 
-public actual fun shfindInitMenuPopup(hmenu: Hmenu, hwndowner: Hwnd, idcmdfirst: UInt, idcmdlast: UInt): MutPtr<CVoid> =
+public actual fun shfindInitMenuPopup(hmenu: Hmenu, hwndowner: Hwnd, idcmdfirst: UInt, idcmdlast: UInt): MutPtr =
     MutPtr(WindowsWin32UiShellJniBridge.windowssysWindowsWin32UiShellShfindInitMenuPopup(hmenu.rawAddress, hwndowner.rawAddress, idcmdfirst.toInt(), idcmdlast.toInt()))
 
 public actual fun sHFlushSFCache() {
     WindowsWin32UiShellJniBridge.windowssysWindowsWin32UiShellSHFlushSFCache()
 }
 
-public actual fun sHFormatDateTimeA(pft: ConstPtr<Filetime>, pdwflags: MutPtr<UInt>, pszbuf: Pstr, cchbuf: UInt): Int =
+public actual fun sHFormatDateTimeA(pft: ConstPtr, pdwflags: MutPtr, pszbuf: Pstr, cchbuf: UInt): Int =
     WindowsWin32UiShellJniBridge.windowssysWindowsWin32UiShellSHFormatDateTimeA(pft.rawAddress, pdwflags.rawAddress, pszbuf.rawAddress, cchbuf.toInt())
 
-public actual fun sHFormatDateTimeW(pft: ConstPtr<Filetime>, pdwflags: MutPtr<UInt>, pszbuf: Pwstr, cchbuf: UInt): Int =
+public actual fun sHFormatDateTimeW(pft: ConstPtr, pdwflags: MutPtr, pszbuf: Pwstr, cchbuf: UInt): Int =
     WindowsWin32UiShellJniBridge.windowssysWindowsWin32UiShellSHFormatDateTimeW(pft.rawAddress, pdwflags.rawAddress, pszbuf.rawAddress, cchbuf.toInt())
 
 public actual fun sHFormatDrive(hwnd: Hwnd, drive: UInt, fmtid: ShfmtId, options: UInt): UInt =
     WindowsWin32UiShellJniBridge.windowssysWindowsWin32UiShellSHFormatDrive(hwnd.rawAddress, drive.toInt(), fmtid.toInt(), options.toInt()).toUInt()
 
-public actual fun sHFree(pv: ConstPtr<CVoid>) {
+public actual fun sHFree(pv: ConstPtr) {
     WindowsWin32UiShellJniBridge.windowssysWindowsWin32UiShellSHFree(pv.rawAddress)
 }
 
@@ -3402,34 +3388,34 @@ public actual fun sHFreeNameMappings(hnamemappings: Handle) {
 public actual fun sHFreeShared(hdata: Handle, dwprocessid: UInt): Bool =
     WindowsWin32UiShellJniBridge.windowssysWindowsWin32UiShellSHFreeShared(hdata.rawAddress, dwprocessid.toInt())
 
-public actual fun sHGetAttributesFromDataObject(pdo: MutPtr<CVoid>, dwattributemask: UInt, pdwattributes: MutPtr<UInt>, pcitems: MutPtr<UInt>): Hresult =
+public actual fun sHGetAttributesFromDataObject(pdo: MutPtr, dwattributemask: UInt, pdwattributes: MutPtr, pcitems: MutPtr): Hresult =
     WindowsWin32UiShellJniBridge.windowssysWindowsWin32UiShellSHGetAttributesFromDataObject(pdo.rawAddress, dwattributemask.toInt(), pdwattributes.rawAddress, pcitems.rawAddress)
 
-public actual fun sHGetDataFromIDListA(psf: MutPtr<CVoid>, pidl: ConstPtr<Itemidlist>, nformat: ShgdfilFormat, pv: MutPtr<CVoid>, cb: Int): Hresult =
+public actual fun sHGetDataFromIDListA(psf: MutPtr, pidl: ConstPtr, nformat: ShgdfilFormat, pv: MutPtr, cb: Int): Hresult =
     WindowsWin32UiShellJniBridge.windowssysWindowsWin32UiShellSHGetDataFromIDListA(psf.rawAddress, pidl.rawAddress, nformat, pv.rawAddress, cb)
 
-public actual fun sHGetDataFromIDListW(psf: MutPtr<CVoid>, pidl: ConstPtr<Itemidlist>, nformat: ShgdfilFormat, pv: MutPtr<CVoid>, cb: Int): Hresult =
+public actual fun sHGetDataFromIDListW(psf: MutPtr, pidl: ConstPtr, nformat: ShgdfilFormat, pv: MutPtr, cb: Int): Hresult =
     WindowsWin32UiShellJniBridge.windowssysWindowsWin32UiShellSHGetDataFromIDListW(psf.rawAddress, pidl.rawAddress, nformat, pv.rawAddress, cb)
 
-public actual fun sHGetDesktopFolder(ppshf: MutPtr<MutPtr<CVoid>>): Hresult =
+public actual fun sHGetDesktopFolder(ppshf: MutPtr): Hresult =
     WindowsWin32UiShellJniBridge.windowssysWindowsWin32UiShellSHGetDesktopFolder(ppshf.rawAddress)
 
-public actual fun sHGetDiskFreeSpaceExA(pszdirectoryname: Pcstr, pulfreebytesavailabletocaller: MutPtr<ULong>, pultotalnumberofbytes: MutPtr<ULong>, pultotalnumberoffreebytes: MutPtr<ULong>): Bool =
+public actual fun sHGetDiskFreeSpaceExA(pszdirectoryname: Pcstr, pulfreebytesavailabletocaller: MutPtr, pultotalnumberofbytes: MutPtr, pultotalnumberoffreebytes: MutPtr): Bool =
     WindowsWin32UiShellJniBridge.windowssysWindowsWin32UiShellSHGetDiskFreeSpaceExA(pszdirectoryname.rawAddress, pulfreebytesavailabletocaller.rawAddress, pultotalnumberofbytes.rawAddress, pultotalnumberoffreebytes.rawAddress)
 
-public actual fun sHGetDiskFreeSpaceExW(pszdirectoryname: Pcwstr, pulfreebytesavailabletocaller: MutPtr<ULong>, pultotalnumberofbytes: MutPtr<ULong>, pultotalnumberoffreebytes: MutPtr<ULong>): Bool =
+public actual fun sHGetDiskFreeSpaceExW(pszdirectoryname: Pcwstr, pulfreebytesavailabletocaller: MutPtr, pultotalnumberofbytes: MutPtr, pultotalnumberoffreebytes: MutPtr): Bool =
     WindowsWin32UiShellJniBridge.windowssysWindowsWin32UiShellSHGetDiskFreeSpaceExW(pszdirectoryname.rawAddress, pulfreebytesavailabletocaller.rawAddress, pultotalnumberofbytes.rawAddress, pultotalnumberoffreebytes.rawAddress)
 
-public actual fun sHGetDriveMedia(pszdrive: Pcwstr, pdwmediacontent: MutPtr<UInt>): Hresult =
+public actual fun sHGetDriveMedia(pszdrive: Pcwstr, pdwmediacontent: MutPtr): Hresult =
     WindowsWin32UiShellJniBridge.windowssysWindowsWin32UiShellSHGetDriveMedia(pszdrive.rawAddress, pdwmediacontent.rawAddress)
 
-public actual fun sHGetFileInfoA(pszpath: Pcstr, dwfileattributes: FileFlagsAndAttributes, psfi: MutPtr<Shfileinfoa>, cbfileinfo: UInt, uflags: ShgfiFlags): ULong =
+public actual fun sHGetFileInfoA(pszpath: Pcstr, dwfileattributes: FileFlagsAndAttributes, psfi: MutPtr, cbfileinfo: UInt, uflags: ShgfiFlags): ULong =
     WindowsWin32UiShellJniBridge.windowssysWindowsWin32UiShellSHGetFileInfoA(pszpath.rawAddress, dwfileattributes.toInt(), psfi.rawAddress, cbfileinfo.toInt(), uflags.toInt()).toULong()
 
-public actual fun sHGetFileInfoW(pszpath: Pcwstr, dwfileattributes: FileFlagsAndAttributes, psfi: MutPtr<Shfileinfow>, cbfileinfo: UInt, uflags: ShgfiFlags): ULong =
+public actual fun sHGetFileInfoW(pszpath: Pcwstr, dwfileattributes: FileFlagsAndAttributes, psfi: MutPtr, cbfileinfo: UInt, uflags: ShgfiFlags): ULong =
     WindowsWin32UiShellJniBridge.windowssysWindowsWin32UiShellSHGetFileInfoW(pszpath.rawAddress, dwfileattributes.toInt(), psfi.rawAddress, cbfileinfo.toInt(), uflags.toInt()).toULong()
 
-public actual fun sHGetFolderLocation(hwnd: Hwnd, csidl: Int, htoken: Handle, dwflags: UInt, ppidl: MutPtr<MutPtr<Itemidlist>>): Hresult =
+public actual fun sHGetFolderLocation(hwnd: Hwnd, csidl: Int, htoken: Handle, dwflags: UInt, ppidl: MutPtr): Hresult =
     WindowsWin32UiShellJniBridge.windowssysWindowsWin32UiShellSHGetFolderLocation(hwnd.rawAddress, csidl, htoken.rawAddress, dwflags.toInt(), ppidl.rawAddress)
 
 public actual fun sHGetFolderPathA(hwnd: Hwnd, csidl: Int, htoken: Handle, dwflags: UInt, pszpath: Pstr): Hresult =
@@ -3444,7 +3430,7 @@ public actual fun sHGetFolderPathAndSubDirW(hwnd: Hwnd, csidl: Int, htoken: Hand
 public actual fun sHGetFolderPathW(hwnd: Hwnd, csidl: Int, htoken: Handle, dwflags: UInt, pszpath: Pwstr): Hresult =
     WindowsWin32UiShellJniBridge.windowssysWindowsWin32UiShellSHGetFolderPathW(hwnd.rawAddress, csidl, htoken.rawAddress, dwflags.toInt(), pszpath.rawAddress)
 
-public actual fun sHGetIDListFromObject(punk: MutPtr<CVoid>, ppidl: MutPtr<MutPtr<Itemidlist>>): Hresult =
+public actual fun sHGetIDListFromObject(punk: MutPtr, ppidl: MutPtr): Hresult =
     WindowsWin32UiShellJniBridge.windowssysWindowsWin32UiShellSHGetIDListFromObject(punk.rawAddress, ppidl.rawAddress)
 
 public actual fun sHGetIconOverlayIndexA(psziconpath: Pcstr, iiconindex: Int): Int =
@@ -3453,69 +3439,69 @@ public actual fun sHGetIconOverlayIndexA(psziconpath: Pcstr, iiconindex: Int): I
 public actual fun sHGetIconOverlayIndexW(psziconpath: Pcwstr, iiconindex: Int): Int =
     WindowsWin32UiShellJniBridge.windowssysWindowsWin32UiShellSHGetIconOverlayIndexW(psziconpath.rawAddress, iiconindex)
 
-public actual fun sHGetImageList(iimagelist: Int, riid: ConstPtr<Guid>, ppvobj: MutPtr<MutPtr<CVoid>>): Hresult =
+public actual fun sHGetImageList(iimagelist: Int, riid: ConstPtr, ppvobj: MutPtr): Hresult =
     WindowsWin32UiShellJniBridge.windowssysWindowsWin32UiShellSHGetImageList(iimagelist, riid.rawAddress, ppvobj.rawAddress)
 
-public actual fun sHGetInstanceExplorer(ppunk: MutPtr<MutPtr<CVoid>>): Hresult =
+public actual fun sHGetInstanceExplorer(ppunk: MutPtr): Hresult =
     WindowsWin32UiShellJniBridge.windowssysWindowsWin32UiShellSHGetInstanceExplorer(ppunk.rawAddress)
 
-public actual fun sHGetInverseCMAP(pbmap: MutPtr<UByte>, cbmap: UInt): Hresult =
+public actual fun sHGetInverseCMAP(pbmap: MutPtr, cbmap: UInt): Hresult =
     WindowsWin32UiShellJniBridge.windowssysWindowsWin32UiShellSHGetInverseCMAP(pbmap.rawAddress, cbmap.toInt())
 
-public actual fun sHGetItemFromDataObject(pdtobj: MutPtr<CVoid>, dwflags: DataobjGetItemFlags, riid: ConstPtr<Guid>, ppv: MutPtr<MutPtr<CVoid>>): Hresult =
+public actual fun sHGetItemFromDataObject(pdtobj: MutPtr, dwflags: DataobjGetItemFlags, riid: ConstPtr, ppv: MutPtr): Hresult =
     WindowsWin32UiShellJniBridge.windowssysWindowsWin32UiShellSHGetItemFromDataObject(pdtobj.rawAddress, dwflags, riid.rawAddress, ppv.rawAddress)
 
-public actual fun sHGetItemFromObject(punk: MutPtr<CVoid>, riid: ConstPtr<Guid>, ppv: MutPtr<MutPtr<CVoid>>): Hresult =
+public actual fun sHGetItemFromObject(punk: MutPtr, riid: ConstPtr, ppv: MutPtr): Hresult =
     WindowsWin32UiShellJniBridge.windowssysWindowsWin32UiShellSHGetItemFromObject(punk.rawAddress, riid.rawAddress, ppv.rawAddress)
 
-public actual fun sHGetKnownFolderIDList(rfid: ConstPtr<Guid>, dwflags: UInt, htoken: Handle, ppidl: MutPtr<MutPtr<Itemidlist>>): Hresult =
+public actual fun sHGetKnownFolderIDList(rfid: ConstPtr, dwflags: UInt, htoken: Handle, ppidl: MutPtr): Hresult =
     WindowsWin32UiShellJniBridge.windowssysWindowsWin32UiShellSHGetKnownFolderIDList(rfid.rawAddress, dwflags.toInt(), htoken.rawAddress, ppidl.rawAddress)
 
-public actual fun sHGetKnownFolderItem(rfid: ConstPtr<Guid>, flags: KnownFolderFlag, htoken: Handle, riid: ConstPtr<Guid>, ppv: MutPtr<MutPtr<CVoid>>): Hresult =
+public actual fun sHGetKnownFolderItem(rfid: ConstPtr, flags: KnownFolderFlag, htoken: Handle, riid: ConstPtr, ppv: MutPtr): Hresult =
     WindowsWin32UiShellJniBridge.windowssysWindowsWin32UiShellSHGetKnownFolderItem(rfid.rawAddress, flags, htoken.rawAddress, riid.rawAddress, ppv.rawAddress)
 
-public actual fun sHGetKnownFolderPath(rfid: ConstPtr<Guid>, dwflags: UInt, htoken: Handle, ppszpath: MutPtr<Pwstr>): Hresult =
+public actual fun sHGetKnownFolderPath(rfid: ConstPtr, dwflags: UInt, htoken: Handle, ppszpath: MutPtr): Hresult =
     WindowsWin32UiShellJniBridge.windowssysWindowsWin32UiShellSHGetKnownFolderPath(rfid.rawAddress, dwflags.toInt(), htoken.rawAddress, ppszpath.rawAddress)
 
-public actual fun sHGetLocalizedName(pszpath: Pcwstr, pszresmodule: Pwstr, cch: UInt, pidsres: MutPtr<Int>): Hresult =
+public actual fun sHGetLocalizedName(pszpath: Pcwstr, pszresmodule: Pwstr, cch: UInt, pidsres: MutPtr): Hresult =
     WindowsWin32UiShellJniBridge.windowssysWindowsWin32UiShellSHGetLocalizedName(pszpath.rawAddress, pszresmodule.rawAddress, cch.toInt(), pidsres.rawAddress)
 
-public actual fun sHGetMalloc(ppmalloc: MutPtr<MutPtr<CVoid>>): Hresult =
+public actual fun sHGetMalloc(ppmalloc: MutPtr): Hresult =
     WindowsWin32UiShellJniBridge.windowssysWindowsWin32UiShellSHGetMalloc(ppmalloc.rawAddress)
 
-public actual fun sHGetNameFromIDList(pidl: ConstPtr<Itemidlist>, sigdnname: Sigdn, ppszname: MutPtr<Pwstr>): Hresult =
+public actual fun sHGetNameFromIDList(pidl: ConstPtr, sigdnname: Sigdn, ppszname: MutPtr): Hresult =
     WindowsWin32UiShellJniBridge.windowssysWindowsWin32UiShellSHGetNameFromIDList(pidl.rawAddress, sigdnname, ppszname.rawAddress)
 
-public actual fun sHGetNewLinkInfoA(pszlinkto: Pcstr, pszdir: Pcstr, pszname: Pstr, pfmustcopy: MutPtr<Bool>, uflags: UInt): Bool =
+public actual fun sHGetNewLinkInfoA(pszlinkto: Pcstr, pszdir: Pcstr, pszname: Pstr, pfmustcopy: MutPtr, uflags: UInt): Bool =
     WindowsWin32UiShellJniBridge.windowssysWindowsWin32UiShellSHGetNewLinkInfoA(pszlinkto.rawAddress, pszdir.rawAddress, pszname.rawAddress, pfmustcopy.rawAddress, uflags.toInt())
 
-public actual fun sHGetNewLinkInfoW(pszlinkto: Pcwstr, pszdir: Pcwstr, pszname: Pwstr, pfmustcopy: MutPtr<Bool>, uflags: UInt): Bool =
+public actual fun sHGetNewLinkInfoW(pszlinkto: Pcwstr, pszdir: Pcwstr, pszname: Pwstr, pfmustcopy: MutPtr, uflags: UInt): Bool =
     WindowsWin32UiShellJniBridge.windowssysWindowsWin32UiShellSHGetNewLinkInfoW(pszlinkto.rawAddress, pszdir.rawAddress, pszname.rawAddress, pfmustcopy.rawAddress, uflags.toInt())
 
-public actual fun sHGetPathFromIDListA(pidl: ConstPtr<Itemidlist>, pszpath: Pstr): Bool =
+public actual fun sHGetPathFromIDListA(pidl: ConstPtr, pszpath: Pstr): Bool =
     WindowsWin32UiShellJniBridge.windowssysWindowsWin32UiShellSHGetPathFromIDListA(pidl.rawAddress, pszpath.rawAddress)
 
-public actual fun sHGetPathFromIDListEx(pidl: ConstPtr<Itemidlist>, pszpath: Pwstr, cchpath: UInt, uopts: GpfidlFlags): Bool =
+public actual fun sHGetPathFromIDListEx(pidl: ConstPtr, pszpath: Pwstr, cchpath: UInt, uopts: GpfidlFlags): Bool =
     WindowsWin32UiShellJniBridge.windowssysWindowsWin32UiShellSHGetPathFromIDListEx(pidl.rawAddress, pszpath.rawAddress, cchpath.toInt(), uopts.toInt())
 
-public actual fun sHGetPathFromIDListW(pidl: ConstPtr<Itemidlist>, pszpath: Pwstr): Bool =
+public actual fun sHGetPathFromIDListW(pidl: ConstPtr, pszpath: Pwstr): Bool =
     WindowsWin32UiShellJniBridge.windowssysWindowsWin32UiShellSHGetPathFromIDListW(pidl.rawAddress, pszpath.rawAddress)
 
-public actual fun sHGetRealIDL(psf: MutPtr<CVoid>, pidlsimple: ConstPtr<Itemidlist>, ppidlreal: MutPtr<MutPtr<Itemidlist>>): Hresult =
+public actual fun sHGetRealIDL(psf: MutPtr, pidlsimple: ConstPtr, ppidlreal: MutPtr): Hresult =
     WindowsWin32UiShellJniBridge.windowssysWindowsWin32UiShellSHGetRealIDL(psf.rawAddress, pidlsimple.rawAddress, ppidlreal.rawAddress)
 
-public actual fun sHGetSetFolderCustomSettings(pfcs: MutPtr<Shfoldercustomsettings>, pszpath: Pcwstr, dwreadwrite: UInt): Hresult =
+public actual fun sHGetSetFolderCustomSettings(pfcs: MutPtr, pszpath: Pcwstr, dwreadwrite: UInt): Hresult =
     WindowsWin32UiShellJniBridge.windowssysWindowsWin32UiShellSHGetSetFolderCustomSettings(pfcs.rawAddress, pszpath.rawAddress, dwreadwrite.toInt())
 
-public actual fun sHGetSetSettings(lpss: MutPtr<Shellstatea>, dwmask: SsfMask, bset: Bool) {
+public actual fun sHGetSetSettings(lpss: MutPtr, dwmask: SsfMask, bset: Bool) {
     WindowsWin32UiShellJniBridge.windowssysWindowsWin32UiShellSHGetSetSettings(lpss.rawAddress, dwmask.toInt(), bset)
 }
 
-public actual fun sHGetSettings(psfs: MutPtr<Shellflagstate>, dwmask: UInt) {
+public actual fun sHGetSettings(psfs: MutPtr, dwmask: UInt) {
     WindowsWin32UiShellJniBridge.windowssysWindowsWin32UiShellSHGetSettings(psfs.rawAddress, dwmask.toInt())
 }
 
-public actual fun sHGetSpecialFolderLocation(hwnd: Hwnd, csidl: Int, ppidl: MutPtr<MutPtr<Itemidlist>>): Hresult =
+public actual fun sHGetSpecialFolderLocation(hwnd: Hwnd, csidl: Int, ppidl: MutPtr): Hresult =
     WindowsWin32UiShellJniBridge.windowssysWindowsWin32UiShellSHGetSpecialFolderLocation(hwnd.rawAddress, csidl, ppidl.rawAddress)
 
 public actual fun sHGetSpecialFolderPathA(hwnd: Hwnd, pszpath: Pstr, csidl: Int, fcreate: Bool): Bool =
@@ -3524,25 +3510,25 @@ public actual fun sHGetSpecialFolderPathA(hwnd: Hwnd, pszpath: Pstr, csidl: Int,
 public actual fun sHGetSpecialFolderPathW(hwnd: Hwnd, pszpath: Pwstr, csidl: Int, fcreate: Bool): Bool =
     WindowsWin32UiShellJniBridge.windowssysWindowsWin32UiShellSHGetSpecialFolderPathW(hwnd.rawAddress, pszpath.rawAddress, csidl, fcreate)
 
-public actual fun sHGetStockIconInfo(siid: Shstockiconid, uflags: ShgsiFlags, psii: MutPtr<Shstockiconinfo>): Hresult =
+public actual fun sHGetStockIconInfo(siid: Shstockiconid, uflags: ShgsiFlags, psii: MutPtr): Hresult =
     WindowsWin32UiShellJniBridge.windowssysWindowsWin32UiShellSHGetStockIconInfo(siid, uflags.toInt(), psii.rawAddress)
 
-public actual fun sHGetTemporaryPropertyForItem(psi: MutPtr<CVoid>, propkey: ConstPtr<Propertykey>, ppropvar: MutPtr<Propvariant>): Hresult =
+public actual fun sHGetTemporaryPropertyForItem(psi: MutPtr, propkey: ConstPtr, ppropvar: MutPtr): Hresult =
     WindowsWin32UiShellJniBridge.windowssysWindowsWin32UiShellSHGetTemporaryPropertyForItem(psi.rawAddress, propkey.rawAddress, ppropvar.rawAddress)
 
-public actual fun sHGetThreadRef(ppunk: MutPtr<MutPtr<CVoid>>): Hresult =
+public actual fun sHGetThreadRef(ppunk: MutPtr): Hresult =
     WindowsWin32UiShellJniBridge.windowssysWindowsWin32UiShellSHGetThreadRef(ppunk.rawAddress)
 
-public actual fun sHGetUnreadMailCountW(hkeyuser: Hkey, pszmailaddress: Pcwstr, pdwcount: MutPtr<UInt>, pfiletime: MutPtr<Filetime>, pszshellexecutecommand: Pwstr, cchshellexecutecommand: Int): Hresult =
+public actual fun sHGetUnreadMailCountW(hkeyuser: Hkey, pszmailaddress: Pcwstr, pdwcount: MutPtr, pfiletime: MutPtr, pszshellexecutecommand: Pwstr, cchshellexecutecommand: Int): Hresult =
     WindowsWin32UiShellJniBridge.windowssysWindowsWin32UiShellSHGetUnreadMailCountW(hkeyuser.rawAddress, pszmailaddress.rawAddress, pdwcount.rawAddress, pfiletime.rawAddress, pszshellexecutecommand.rawAddress, cchshellexecutecommand)
 
-public actual fun sHGetValueA(hkey: Hkey, pszsubkey: Pcstr, pszvalue: Pcstr, pdwtype: MutPtr<UInt>, pvdata: MutPtr<CVoid>, pcbdata: MutPtr<UInt>): Win32Error =
+public actual fun sHGetValueA(hkey: Hkey, pszsubkey: Pcstr, pszvalue: Pcstr, pdwtype: MutPtr, pvdata: MutPtr, pcbdata: MutPtr): Win32Error =
     WindowsWin32UiShellJniBridge.windowssysWindowsWin32UiShellSHGetValueA(hkey.rawAddress, pszsubkey.rawAddress, pszvalue.rawAddress, pdwtype.rawAddress, pvdata.rawAddress, pcbdata.rawAddress).toUInt()
 
-public actual fun sHGetValueW(hkey: Hkey, pszsubkey: Pcwstr, pszvalue: Pcwstr, pdwtype: MutPtr<UInt>, pvdata: MutPtr<CVoid>, pcbdata: MutPtr<UInt>): Win32Error =
+public actual fun sHGetValueW(hkey: Hkey, pszsubkey: Pcwstr, pszvalue: Pcwstr, pdwtype: MutPtr, pvdata: MutPtr, pcbdata: MutPtr): Win32Error =
     WindowsWin32UiShellJniBridge.windowssysWindowsWin32UiShellSHGetValueW(hkey.rawAddress, pszsubkey.rawAddress, pszvalue.rawAddress, pdwtype.rawAddress, pvdata.rawAddress, pcbdata.rawAddress).toUInt()
 
-public actual fun sHGetViewStatePropertyBag(pidl: ConstPtr<Itemidlist>, pszbagname: Pcwstr, dwflags: UInt, riid: ConstPtr<Guid>, ppv: MutPtr<MutPtr<CVoid>>): Hresult =
+public actual fun sHGetViewStatePropertyBag(pidl: ConstPtr, pszbagname: Pcwstr, dwflags: UInt, riid: ConstPtr, ppv: MutPtr): Hresult =
     WindowsWin32UiShellJniBridge.windowssysWindowsWin32UiShellSHGetViewStatePropertyBag(pidl.rawAddress, pszbagname.rawAddress, dwflags.toInt(), riid.rawAddress, ppv.rawAddress)
 
 public actual fun sHGlobalCounterDecrement(id: Shglobalcounter): Int =
@@ -3554,10 +3540,10 @@ public actual fun sHGlobalCounterGetValue(id: Shglobalcounter): Int =
 public actual fun sHGlobalCounterIncrement(id: Shglobalcounter): Int =
     WindowsWin32UiShellJniBridge.windowssysWindowsWin32UiShellSHGlobalCounterIncrement(id)
 
-public actual fun sHHandleUpdateImage(pidlextra: ConstPtr<Itemidlist>): Int =
+public actual fun sHHandleUpdateImage(pidlextra: ConstPtr): Int =
     WindowsWin32UiShellJniBridge.windowssysWindowsWin32UiShellSHHandleUpdateImage(pidlextra.rawAddress)
 
-public actual fun sHILCreateFromPath(pszpath: Pcwstr, ppidl: MutPtr<MutPtr<Itemidlist>>, rgfinout: MutPtr<UInt>): Hresult =
+public actual fun sHILCreateFromPath(pszpath: Pcwstr, ppidl: MutPtr, rgfinout: MutPtr): Hresult =
     WindowsWin32UiShellJniBridge.windowssysWindowsWin32UiShellSHILCreateFromPath(pszpath.rawAddress, ppidl.rawAddress, rgfinout.rawAddress)
 
 public actual fun sHInvokePrinterCommandA(hwnd: Hwnd, uaction: UInt, lpbuf1: Pcstr, lpbuf2: Pcstr, fmodal: Bool): Bool =
@@ -3566,28 +3552,28 @@ public actual fun sHInvokePrinterCommandA(hwnd: Hwnd, uaction: UInt, lpbuf1: Pcs
 public actual fun sHInvokePrinterCommandW(hwnd: Hwnd, uaction: UInt, lpbuf1: Pcwstr, lpbuf2: Pcwstr, fmodal: Bool): Bool =
     WindowsWin32UiShellJniBridge.windowssysWindowsWin32UiShellSHInvokePrinterCommandW(hwnd.rawAddress, uaction.toInt(), lpbuf1.rawAddress, lpbuf2.rawAddress, fmodal)
 
-public actual fun sHIsFileAvailableOffline(pwszpath: Pcwstr, pdwstatus: MutPtr<UInt>): Hresult =
+public actual fun sHIsFileAvailableOffline(pwszpath: Pcwstr, pdwstatus: MutPtr): Hresult =
     WindowsWin32UiShellJniBridge.windowssysWindowsWin32UiShellSHIsFileAvailableOffline(pwszpath.rawAddress, pdwstatus.rawAddress)
 
 public actual fun sHIsLowMemoryMachine(dwtype: UInt): Bool =
     WindowsWin32UiShellJniBridge.windowssysWindowsWin32UiShellSHIsLowMemoryMachine(dwtype.toInt())
 
-public actual fun sHLimitInputEdit(hwndedit: Hwnd, psf: MutPtr<CVoid>): Hresult =
+public actual fun sHLimitInputEdit(hwndedit: Hwnd, psf: MutPtr): Hresult =
     WindowsWin32UiShellJniBridge.windowssysWindowsWin32UiShellSHLimitInputEdit(hwndedit.rawAddress, psf.rawAddress)
 
-public actual fun sHLoadInProc(rclsid: ConstPtr<Guid>): Hresult =
+public actual fun sHLoadInProc(rclsid: ConstPtr): Hresult =
     WindowsWin32UiShellJniBridge.windowssysWindowsWin32UiShellSHLoadInProc(rclsid.rawAddress)
 
-public actual fun sHLoadIndirectString(pszsource: Pcwstr, pszoutbuf: Pwstr, cchoutbuf: UInt, ppvreserved: ConstPtr<ConstPtr<CVoid>>): Hresult =
+public actual fun sHLoadIndirectString(pszsource: Pcwstr, pszoutbuf: Pwstr, cchoutbuf: UInt, ppvreserved: ConstPtr): Hresult =
     WindowsWin32UiShellJniBridge.windowssysWindowsWin32UiShellSHLoadIndirectString(pszsource.rawAddress, pszoutbuf.rawAddress, cchoutbuf.toInt(), ppvreserved.rawAddress)
 
 public actual fun sHLoadNonloadedIconOverlayIdentifiers(): Hresult =
     WindowsWin32UiShellJniBridge.windowssysWindowsWin32UiShellSHLoadNonloadedIconOverlayIdentifiers()
 
-public actual fun sHLockShared(hdata: Handle, dwprocessid: UInt): MutPtr<CVoid> =
+public actual fun sHLockShared(hdata: Handle, dwprocessid: UInt): MutPtr =
     MutPtr(WindowsWin32UiShellJniBridge.windowssysWindowsWin32UiShellSHLockShared(hdata.rawAddress, dwprocessid.toInt()))
 
-public actual fun sHMapPIDLToSystemImageListIndex(pshf: MutPtr<CVoid>, pidl: ConstPtr<Itemidlist>, piindexsel: MutPtr<Int>): Int =
+public actual fun sHMapPIDLToSystemImageListIndex(pshf: MutPtr, pidl: ConstPtr, piindexsel: MutPtr): Int =
     WindowsWin32UiShellJniBridge.windowssysWindowsWin32UiShellSHMapPIDLToSystemImageListIndex(pshf.rawAddress, pidl.rawAddress, piindexsel.rawAddress)
 
 public actual fun sHMessageBoxCheckA(hwnd: Hwnd, psztext: Pcstr, pszcaption: Pcstr, utype: UInt, idefault: Int, pszregval: Pcstr): Int =
@@ -3596,70 +3582,70 @@ public actual fun sHMessageBoxCheckA(hwnd: Hwnd, psztext: Pcstr, pszcaption: Pcs
 public actual fun sHMessageBoxCheckW(hwnd: Hwnd, psztext: Pcwstr, pszcaption: Pcwstr, utype: UInt, idefault: Int, pszregval: Pcwstr): Int =
     WindowsWin32UiShellJniBridge.windowssysWindowsWin32UiShellSHMessageBoxCheckW(hwnd.rawAddress, psztext.rawAddress, pszcaption.rawAddress, utype.toInt(), idefault, pszregval.rawAddress)
 
-public actual fun sHMultiFileProperties(pdtobj: MutPtr<CVoid>, dwflags: UInt): Hresult =
+public actual fun sHMultiFileProperties(pdtobj: MutPtr, dwflags: UInt): Hresult =
     WindowsWin32UiShellJniBridge.windowssysWindowsWin32UiShellSHMultiFileProperties(pdtobj.rawAddress, dwflags.toInt())
 
 public actual fun sHObjectProperties(hwnd: Hwnd, shopobjecttype: UInt, pszobjectname: Pcwstr, pszpropertypage: Pcwstr): Bool =
     WindowsWin32UiShellJniBridge.windowssysWindowsWin32UiShellSHObjectProperties(hwnd.rawAddress, shopobjecttype.toInt(), pszobjectname.rawAddress, pszpropertypage.rawAddress)
 
-public actual fun sHOpenFolderAndSelectItems(pidlfolder: ConstPtr<Itemidlist>, cidl: UInt, apidl: ConstPtr<ConstPtr<Itemidlist>>, dwflags: UInt): Hresult =
+public actual fun sHOpenFolderAndSelectItems(pidlfolder: ConstPtr, cidl: UInt, apidl: ConstPtr, dwflags: UInt): Hresult =
     WindowsWin32UiShellJniBridge.windowssysWindowsWin32UiShellSHOpenFolderAndSelectItems(pidlfolder.rawAddress, cidl.toInt(), apidl.rawAddress, dwflags.toInt())
 
-public actual fun sHOpenPropSheetW(pszcaption: Pcwstr, ahkeys: ConstPtr<Hkey>, ckeys: UInt, pclsiddefault: ConstPtr<Guid>, pdtobj: MutPtr<CVoid>, psb: MutPtr<CVoid>, pstartpage: Pcwstr): Bool =
+public actual fun sHOpenPropSheetW(pszcaption: Pcwstr, ahkeys: ConstPtr, ckeys: UInt, pclsiddefault: ConstPtr, pdtobj: MutPtr, psb: MutPtr, pstartpage: Pcwstr): Bool =
     WindowsWin32UiShellJniBridge.windowssysWindowsWin32UiShellSHOpenPropSheetW(pszcaption.rawAddress, ahkeys.rawAddress, ckeys.toInt(), pclsiddefault.rawAddress, pdtobj.rawAddress, psb.rawAddress, pstartpage.rawAddress)
 
-public actual fun sHOpenRegStream2A(hkey: Hkey, pszsubkey: Pcstr, pszvalue: Pcstr, grfmode: UInt): MutPtr<CVoid> =
+public actual fun sHOpenRegStream2A(hkey: Hkey, pszsubkey: Pcstr, pszvalue: Pcstr, grfmode: UInt): MutPtr =
     MutPtr(WindowsWin32UiShellJniBridge.windowssysWindowsWin32UiShellSHOpenRegStream2A(hkey.rawAddress, pszsubkey.rawAddress, pszvalue.rawAddress, grfmode.toInt()))
 
-public actual fun sHOpenRegStream2W(hkey: Hkey, pszsubkey: Pcwstr, pszvalue: Pcwstr, grfmode: UInt): MutPtr<CVoid> =
+public actual fun sHOpenRegStream2W(hkey: Hkey, pszsubkey: Pcwstr, pszvalue: Pcwstr, grfmode: UInt): MutPtr =
     MutPtr(WindowsWin32UiShellJniBridge.windowssysWindowsWin32UiShellSHOpenRegStream2W(hkey.rawAddress, pszsubkey.rawAddress, pszvalue.rawAddress, grfmode.toInt()))
 
-public actual fun sHOpenRegStreamA(hkey: Hkey, pszsubkey: Pcstr, pszvalue: Pcstr, grfmode: UInt): MutPtr<CVoid> =
+public actual fun sHOpenRegStreamA(hkey: Hkey, pszsubkey: Pcstr, pszvalue: Pcstr, grfmode: UInt): MutPtr =
     MutPtr(WindowsWin32UiShellJniBridge.windowssysWindowsWin32UiShellSHOpenRegStreamA(hkey.rawAddress, pszsubkey.rawAddress, pszvalue.rawAddress, grfmode.toInt()))
 
-public actual fun sHOpenRegStreamW(hkey: Hkey, pszsubkey: Pcwstr, pszvalue: Pcwstr, grfmode: UInt): MutPtr<CVoid> =
+public actual fun sHOpenRegStreamW(hkey: Hkey, pszsubkey: Pcwstr, pszvalue: Pcwstr, grfmode: UInt): MutPtr =
     MutPtr(WindowsWin32UiShellJniBridge.windowssysWindowsWin32UiShellSHOpenRegStreamW(hkey.rawAddress, pszsubkey.rawAddress, pszvalue.rawAddress, grfmode.toInt()))
 
-public actual fun sHOpenWithDialog(hwndparent: Hwnd, poainfo: ConstPtr<Openasinfo>): Hresult =
+public actual fun sHOpenWithDialog(hwndparent: Hwnd, poainfo: ConstPtr): Hresult =
     WindowsWin32UiShellJniBridge.windowssysWindowsWin32UiShellSHOpenWithDialog(hwndparent.rawAddress, poainfo.rawAddress)
 
-public actual fun sHParseDisplayName(pszname: Pcwstr, pbc: MutPtr<CVoid>, ppidl: MutPtr<MutPtr<Itemidlist>>, sfgaoin: UInt, psfgaoout: MutPtr<UInt>): Hresult =
+public actual fun sHParseDisplayName(pszname: Pcwstr, pbc: MutPtr, ppidl: MutPtr, sfgaoin: UInt, psfgaoout: MutPtr): Hresult =
     WindowsWin32UiShellJniBridge.windowssysWindowsWin32UiShellSHParseDisplayName(pszname.rawAddress, pbc.rawAddress, ppidl.rawAddress, sfgaoin.toInt(), psfgaoout.rawAddress)
 
-public actual fun sHPathPrepareForWriteA(hwnd: Hwnd, punkenablemodless: MutPtr<CVoid>, pszpath: Pcstr, dwflags: UInt): Hresult =
+public actual fun sHPathPrepareForWriteA(hwnd: Hwnd, punkenablemodless: MutPtr, pszpath: Pcstr, dwflags: UInt): Hresult =
     WindowsWin32UiShellJniBridge.windowssysWindowsWin32UiShellSHPathPrepareForWriteA(hwnd.rawAddress, punkenablemodless.rawAddress, pszpath.rawAddress, dwflags.toInt())
 
-public actual fun sHPathPrepareForWriteW(hwnd: Hwnd, punkenablemodless: MutPtr<CVoid>, pszpath: Pcwstr, dwflags: UInt): Hresult =
+public actual fun sHPathPrepareForWriteW(hwnd: Hwnd, punkenablemodless: MutPtr, pszpath: Pcwstr, dwflags: UInt): Hresult =
     WindowsWin32UiShellJniBridge.windowssysWindowsWin32UiShellSHPathPrepareForWriteW(hwnd.rawAddress, punkenablemodless.rawAddress, pszpath.rawAddress, dwflags.toInt())
 
-public actual fun sHQueryInfoKeyA(hkey: Hkey, pcsubkeys: MutPtr<UInt>, pcchmaxsubkeylen: MutPtr<UInt>, pcvalues: MutPtr<UInt>, pcchmaxvaluenamelen: MutPtr<UInt>): Win32Error =
+public actual fun sHQueryInfoKeyA(hkey: Hkey, pcsubkeys: MutPtr, pcchmaxsubkeylen: MutPtr, pcvalues: MutPtr, pcchmaxvaluenamelen: MutPtr): Win32Error =
     WindowsWin32UiShellJniBridge.windowssysWindowsWin32UiShellSHQueryInfoKeyA(hkey.rawAddress, pcsubkeys.rawAddress, pcchmaxsubkeylen.rawAddress, pcvalues.rawAddress, pcchmaxvaluenamelen.rawAddress).toUInt()
 
-public actual fun sHQueryInfoKeyW(hkey: Hkey, pcsubkeys: MutPtr<UInt>, pcchmaxsubkeylen: MutPtr<UInt>, pcvalues: MutPtr<UInt>, pcchmaxvaluenamelen: MutPtr<UInt>): Win32Error =
+public actual fun sHQueryInfoKeyW(hkey: Hkey, pcsubkeys: MutPtr, pcchmaxsubkeylen: MutPtr, pcvalues: MutPtr, pcchmaxvaluenamelen: MutPtr): Win32Error =
     WindowsWin32UiShellJniBridge.windowssysWindowsWin32UiShellSHQueryInfoKeyW(hkey.rawAddress, pcsubkeys.rawAddress, pcchmaxsubkeylen.rawAddress, pcvalues.rawAddress, pcchmaxvaluenamelen.rawAddress).toUInt()
 
-public actual fun sHQueryRecycleBinA(pszrootpath: Pcstr, pshqueryrbinfo: MutPtr<Shqueryrbinfo>): Hresult =
+public actual fun sHQueryRecycleBinA(pszrootpath: Pcstr, pshqueryrbinfo: MutPtr): Hresult =
     WindowsWin32UiShellJniBridge.windowssysWindowsWin32UiShellSHQueryRecycleBinA(pszrootpath.rawAddress, pshqueryrbinfo.rawAddress)
 
-public actual fun sHQueryRecycleBinW(pszrootpath: Pcwstr, pshqueryrbinfo: MutPtr<Shqueryrbinfo>): Hresult =
+public actual fun sHQueryRecycleBinW(pszrootpath: Pcwstr, pshqueryrbinfo: MutPtr): Hresult =
     WindowsWin32UiShellJniBridge.windowssysWindowsWin32UiShellSHQueryRecycleBinW(pszrootpath.rawAddress, pshqueryrbinfo.rawAddress)
 
-public actual fun sHQueryUserNotificationState(pquns: MutPtr<QueryUserNotificationState>): Hresult =
+public actual fun sHQueryUserNotificationState(pquns: MutPtr): Hresult =
     WindowsWin32UiShellJniBridge.windowssysWindowsWin32UiShellSHQueryUserNotificationState(pquns.rawAddress)
 
-public actual fun sHQueryValueExA(hkey: Hkey, pszvalue: Pcstr, pdwreserved: ConstPtr<UInt>, pdwtype: MutPtr<UInt>, pvdata: MutPtr<CVoid>, pcbdata: MutPtr<UInt>): Win32Error =
+public actual fun sHQueryValueExA(hkey: Hkey, pszvalue: Pcstr, pdwreserved: ConstPtr, pdwtype: MutPtr, pvdata: MutPtr, pcbdata: MutPtr): Win32Error =
     WindowsWin32UiShellJniBridge.windowssysWindowsWin32UiShellSHQueryValueExA(hkey.rawAddress, pszvalue.rawAddress, pdwreserved.rawAddress, pdwtype.rawAddress, pvdata.rawAddress, pcbdata.rawAddress).toUInt()
 
-public actual fun sHQueryValueExW(hkey: Hkey, pszvalue: Pcwstr, pdwreserved: ConstPtr<UInt>, pdwtype: MutPtr<UInt>, pvdata: MutPtr<CVoid>, pcbdata: MutPtr<UInt>): Win32Error =
+public actual fun sHQueryValueExW(hkey: Hkey, pszvalue: Pcwstr, pdwreserved: ConstPtr, pdwtype: MutPtr, pvdata: MutPtr, pcbdata: MutPtr): Win32Error =
     WindowsWin32UiShellJniBridge.windowssysWindowsWin32UiShellSHQueryValueExW(hkey.rawAddress, pszvalue.rawAddress, pdwreserved.rawAddress, pdwtype.rawAddress, pvdata.rawAddress, pcbdata.rawAddress).toUInt()
 
 public actual fun sHRegCloseUSKey(huskey: Long): Win32Error =
     WindowsWin32UiShellJniBridge.windowssysWindowsWin32UiShellSHRegCloseUSKey(huskey).toUInt()
 
-public actual fun sHRegCreateUSKeyA(pszpath: Pcstr, samdesired: UInt, hrelativeuskey: Long, phnewuskey: MutPtr<Long>, dwflags: UInt): Win32Error =
+public actual fun sHRegCreateUSKeyA(pszpath: Pcstr, samdesired: UInt, hrelativeuskey: Long, phnewuskey: MutPtr, dwflags: UInt): Win32Error =
     WindowsWin32UiShellJniBridge.windowssysWindowsWin32UiShellSHRegCreateUSKeyA(pszpath.rawAddress, samdesired.toInt(), hrelativeuskey, phnewuskey.rawAddress, dwflags.toInt()).toUInt()
 
-public actual fun sHRegCreateUSKeyW(pwzpath: Pcwstr, samdesired: UInt, hrelativeuskey: Long, phnewuskey: MutPtr<Long>, dwflags: UInt): Win32Error =
+public actual fun sHRegCreateUSKeyW(pwzpath: Pcwstr, samdesired: UInt, hrelativeuskey: Long, phnewuskey: MutPtr, dwflags: UInt): Win32Error =
     WindowsWin32UiShellJniBridge.windowssysWindowsWin32UiShellSHRegCreateUSKeyW(pwzpath.rawAddress, samdesired.toInt(), hrelativeuskey, phnewuskey.rawAddress, dwflags.toInt()).toUInt()
 
 public actual fun sHRegDeleteEmptyUSKeyA(huskey: Long, pszsubkey: Pcstr, delregflags: ShregdelFlags): Win32Error =
@@ -3677,16 +3663,16 @@ public actual fun sHRegDeleteUSValueW(huskey: Long, pwzvalue: Pcwstr, delregflag
 public actual fun sHRegDuplicateHKey(hkey: Hkey): Hkey =
     MutPtr(WindowsWin32UiShellJniBridge.windowssysWindowsWin32UiShellSHRegDuplicateHKey(hkey.rawAddress))
 
-public actual fun sHRegEnumUSKeyA(huskey: Long, dwindex: UInt, pszname: Pstr, pcchname: MutPtr<UInt>, enumregflags: ShregenumFlags): Win32Error =
+public actual fun sHRegEnumUSKeyA(huskey: Long, dwindex: UInt, pszname: Pstr, pcchname: MutPtr, enumregflags: ShregenumFlags): Win32Error =
     WindowsWin32UiShellJniBridge.windowssysWindowsWin32UiShellSHRegEnumUSKeyA(huskey, dwindex.toInt(), pszname.rawAddress, pcchname.rawAddress, enumregflags).toUInt()
 
-public actual fun sHRegEnumUSKeyW(huskey: Long, dwindex: UInt, pwzname: Pwstr, pcchname: MutPtr<UInt>, enumregflags: ShregenumFlags): Win32Error =
+public actual fun sHRegEnumUSKeyW(huskey: Long, dwindex: UInt, pwzname: Pwstr, pcchname: MutPtr, enumregflags: ShregenumFlags): Win32Error =
     WindowsWin32UiShellJniBridge.windowssysWindowsWin32UiShellSHRegEnumUSKeyW(huskey, dwindex.toInt(), pwzname.rawAddress, pcchname.rawAddress, enumregflags).toUInt()
 
-public actual fun sHRegEnumUSValueA(huskey: Long, dwindex: UInt, pszvaluename: Pstr, pcchvaluename: MutPtr<UInt>, pdwtype: MutPtr<UInt>, pvdata: MutPtr<CVoid>, pcbdata: MutPtr<UInt>, enumregflags: ShregenumFlags): Win32Error =
+public actual fun sHRegEnumUSValueA(huskey: Long, dwindex: UInt, pszvaluename: Pstr, pcchvaluename: MutPtr, pdwtype: MutPtr, pvdata: MutPtr, pcbdata: MutPtr, enumregflags: ShregenumFlags): Win32Error =
     WindowsWin32UiShellJniBridge.windowssysWindowsWin32UiShellSHRegEnumUSValueA(huskey, dwindex.toInt(), pszvaluename.rawAddress, pcchvaluename.rawAddress, pdwtype.rawAddress, pvdata.rawAddress, pcbdata.rawAddress, enumregflags).toUInt()
 
-public actual fun sHRegEnumUSValueW(huskey: Long, dwindex: UInt, pszvaluename: Pwstr, pcchvaluename: MutPtr<UInt>, pdwtype: MutPtr<UInt>, pvdata: MutPtr<CVoid>, pcbdata: MutPtr<UInt>, enumregflags: ShregenumFlags): Win32Error =
+public actual fun sHRegEnumUSValueW(huskey: Long, dwindex: UInt, pszvaluename: Pwstr, pcchvaluename: MutPtr, pdwtype: MutPtr, pvdata: MutPtr, pcbdata: MutPtr, enumregflags: ShregenumFlags): Win32Error =
     WindowsWin32UiShellJniBridge.windowssysWindowsWin32UiShellSHRegEnumUSValueW(huskey, dwindex.toInt(), pszvaluename.rawAddress, pcchvaluename.rawAddress, pdwtype.rawAddress, pvdata.rawAddress, pcbdata.rawAddress, enumregflags).toUInt()
 
 public actual fun sHRegGetBoolUSValueA(pszsubkey: Pcstr, pszvalue: Pcstr, fignorehkcu: Bool, fdefault: Bool): Bool =
@@ -3704,37 +3690,37 @@ public actual fun sHRegGetPathA(hkey: Hkey, pcszsubkey: Pcstr, pcszvalue: Pcstr,
 public actual fun sHRegGetPathW(hkey: Hkey, pcszsubkey: Pcwstr, pcszvalue: Pcwstr, pszpath: Pwstr, dwflags: UInt): Win32Error =
     WindowsWin32UiShellJniBridge.windowssysWindowsWin32UiShellSHRegGetPathW(hkey.rawAddress, pcszsubkey.rawAddress, pcszvalue.rawAddress, pszpath.rawAddress, dwflags.toInt()).toUInt()
 
-public actual fun sHRegGetUSValueA(pszsubkey: Pcstr, pszvalue: Pcstr, pdwtype: MutPtr<UInt>, pvdata: MutPtr<CVoid>, pcbdata: MutPtr<UInt>, fignorehkcu: Bool, pvdefaultdata: ConstPtr<CVoid>, dwdefaultdatasize: UInt): Win32Error =
+public actual fun sHRegGetUSValueA(pszsubkey: Pcstr, pszvalue: Pcstr, pdwtype: MutPtr, pvdata: MutPtr, pcbdata: MutPtr, fignorehkcu: Bool, pvdefaultdata: ConstPtr, dwdefaultdatasize: UInt): Win32Error =
     WindowsWin32UiShellJniBridge.windowssysWindowsWin32UiShellSHRegGetUSValueA(pszsubkey.rawAddress, pszvalue.rawAddress, pdwtype.rawAddress, pvdata.rawAddress, pcbdata.rawAddress, fignorehkcu, pvdefaultdata.rawAddress, dwdefaultdatasize.toInt()).toUInt()
 
-public actual fun sHRegGetUSValueW(pszsubkey: Pcwstr, pszvalue: Pcwstr, pdwtype: MutPtr<UInt>, pvdata: MutPtr<CVoid>, pcbdata: MutPtr<UInt>, fignorehkcu: Bool, pvdefaultdata: ConstPtr<CVoid>, dwdefaultdatasize: UInt): Win32Error =
+public actual fun sHRegGetUSValueW(pszsubkey: Pcwstr, pszvalue: Pcwstr, pdwtype: MutPtr, pvdata: MutPtr, pcbdata: MutPtr, fignorehkcu: Bool, pvdefaultdata: ConstPtr, dwdefaultdatasize: UInt): Win32Error =
     WindowsWin32UiShellJniBridge.windowssysWindowsWin32UiShellSHRegGetUSValueW(pszsubkey.rawAddress, pszvalue.rawAddress, pdwtype.rawAddress, pvdata.rawAddress, pcbdata.rawAddress, fignorehkcu, pvdefaultdata.rawAddress, dwdefaultdatasize.toInt()).toUInt()
 
-public actual fun sHRegGetValueA(hkey: Hkey, pszsubkey: Pcstr, pszvalue: Pcstr, srrfflags: Int, pdwtype: MutPtr<UInt>, pvdata: MutPtr<CVoid>, pcbdata: MutPtr<UInt>): Win32Error =
+public actual fun sHRegGetValueA(hkey: Hkey, pszsubkey: Pcstr, pszvalue: Pcstr, srrfflags: Int, pdwtype: MutPtr, pvdata: MutPtr, pcbdata: MutPtr): Win32Error =
     WindowsWin32UiShellJniBridge.windowssysWindowsWin32UiShellSHRegGetValueA(hkey.rawAddress, pszsubkey.rawAddress, pszvalue.rawAddress, srrfflags, pdwtype.rawAddress, pvdata.rawAddress, pcbdata.rawAddress).toUInt()
 
-public actual fun sHRegGetValueFromHKCUHKLM(pwszkey: Pcwstr, pwszvalue: Pcwstr, srrfflags: Int, pdwtype: MutPtr<UInt>, pvdata: MutPtr<CVoid>, pcbdata: MutPtr<UInt>): Win32Error =
+public actual fun sHRegGetValueFromHKCUHKLM(pwszkey: Pcwstr, pwszvalue: Pcwstr, srrfflags: Int, pdwtype: MutPtr, pvdata: MutPtr, pcbdata: MutPtr): Win32Error =
     WindowsWin32UiShellJniBridge.windowssysWindowsWin32UiShellSHRegGetValueFromHKCUHKLM(pwszkey.rawAddress, pwszvalue.rawAddress, srrfflags, pdwtype.rawAddress, pvdata.rawAddress, pcbdata.rawAddress).toUInt()
 
-public actual fun sHRegGetValueW(hkey: Hkey, pszsubkey: Pcwstr, pszvalue: Pcwstr, srrfflags: Int, pdwtype: MutPtr<UInt>, pvdata: MutPtr<CVoid>, pcbdata: MutPtr<UInt>): Win32Error =
+public actual fun sHRegGetValueW(hkey: Hkey, pszsubkey: Pcwstr, pszvalue: Pcwstr, srrfflags: Int, pdwtype: MutPtr, pvdata: MutPtr, pcbdata: MutPtr): Win32Error =
     WindowsWin32UiShellJniBridge.windowssysWindowsWin32UiShellSHRegGetValueW(hkey.rawAddress, pszsubkey.rawAddress, pszvalue.rawAddress, srrfflags, pdwtype.rawAddress, pvdata.rawAddress, pcbdata.rawAddress).toUInt()
 
-public actual fun sHRegOpenUSKeyA(pszpath: Pcstr, samdesired: UInt, hrelativeuskey: Long, phnewuskey: MutPtr<Long>, fignorehkcu: Bool): Win32Error =
+public actual fun sHRegOpenUSKeyA(pszpath: Pcstr, samdesired: UInt, hrelativeuskey: Long, phnewuskey: MutPtr, fignorehkcu: Bool): Win32Error =
     WindowsWin32UiShellJniBridge.windowssysWindowsWin32UiShellSHRegOpenUSKeyA(pszpath.rawAddress, samdesired.toInt(), hrelativeuskey, phnewuskey.rawAddress, fignorehkcu).toUInt()
 
-public actual fun sHRegOpenUSKeyW(pwzpath: Pcwstr, samdesired: UInt, hrelativeuskey: Long, phnewuskey: MutPtr<Long>, fignorehkcu: Bool): Win32Error =
+public actual fun sHRegOpenUSKeyW(pwzpath: Pcwstr, samdesired: UInt, hrelativeuskey: Long, phnewuskey: MutPtr, fignorehkcu: Bool): Win32Error =
     WindowsWin32UiShellJniBridge.windowssysWindowsWin32UiShellSHRegOpenUSKeyW(pwzpath.rawAddress, samdesired.toInt(), hrelativeuskey, phnewuskey.rawAddress, fignorehkcu).toUInt()
 
-public actual fun sHRegQueryInfoUSKeyA(huskey: Long, pcsubkeys: MutPtr<UInt>, pcchmaxsubkeylen: MutPtr<UInt>, pcvalues: MutPtr<UInt>, pcchmaxvaluenamelen: MutPtr<UInt>, enumregflags: ShregenumFlags): Win32Error =
+public actual fun sHRegQueryInfoUSKeyA(huskey: Long, pcsubkeys: MutPtr, pcchmaxsubkeylen: MutPtr, pcvalues: MutPtr, pcchmaxvaluenamelen: MutPtr, enumregflags: ShregenumFlags): Win32Error =
     WindowsWin32UiShellJniBridge.windowssysWindowsWin32UiShellSHRegQueryInfoUSKeyA(huskey, pcsubkeys.rawAddress, pcchmaxsubkeylen.rawAddress, pcvalues.rawAddress, pcchmaxvaluenamelen.rawAddress, enumregflags).toUInt()
 
-public actual fun sHRegQueryInfoUSKeyW(huskey: Long, pcsubkeys: MutPtr<UInt>, pcchmaxsubkeylen: MutPtr<UInt>, pcvalues: MutPtr<UInt>, pcchmaxvaluenamelen: MutPtr<UInt>, enumregflags: ShregenumFlags): Win32Error =
+public actual fun sHRegQueryInfoUSKeyW(huskey: Long, pcsubkeys: MutPtr, pcchmaxsubkeylen: MutPtr, pcvalues: MutPtr, pcchmaxvaluenamelen: MutPtr, enumregflags: ShregenumFlags): Win32Error =
     WindowsWin32UiShellJniBridge.windowssysWindowsWin32UiShellSHRegQueryInfoUSKeyW(huskey, pcsubkeys.rawAddress, pcchmaxsubkeylen.rawAddress, pcvalues.rawAddress, pcchmaxvaluenamelen.rawAddress, enumregflags).toUInt()
 
-public actual fun sHRegQueryUSValueA(huskey: Long, pszvalue: Pcstr, pdwtype: MutPtr<UInt>, pvdata: MutPtr<CVoid>, pcbdata: MutPtr<UInt>, fignorehkcu: Bool, pvdefaultdata: ConstPtr<CVoid>, dwdefaultdatasize: UInt): Win32Error =
+public actual fun sHRegQueryUSValueA(huskey: Long, pszvalue: Pcstr, pdwtype: MutPtr, pvdata: MutPtr, pcbdata: MutPtr, fignorehkcu: Bool, pvdefaultdata: ConstPtr, dwdefaultdatasize: UInt): Win32Error =
     WindowsWin32UiShellJniBridge.windowssysWindowsWin32UiShellSHRegQueryUSValueA(huskey, pszvalue.rawAddress, pdwtype.rawAddress, pvdata.rawAddress, pcbdata.rawAddress, fignorehkcu, pvdefaultdata.rawAddress, dwdefaultdatasize.toInt()).toUInt()
 
-public actual fun sHRegQueryUSValueW(huskey: Long, pszvalue: Pcwstr, pdwtype: MutPtr<UInt>, pvdata: MutPtr<CVoid>, pcbdata: MutPtr<UInt>, fignorehkcu: Bool, pvdefaultdata: ConstPtr<CVoid>, dwdefaultdatasize: UInt): Win32Error =
+public actual fun sHRegQueryUSValueW(huskey: Long, pszvalue: Pcwstr, pdwtype: MutPtr, pvdata: MutPtr, pcbdata: MutPtr, fignorehkcu: Bool, pvdefaultdata: ConstPtr, dwdefaultdatasize: UInt): Win32Error =
     WindowsWin32UiShellJniBridge.windowssysWindowsWin32UiShellSHRegQueryUSValueW(huskey, pszvalue.rawAddress, pdwtype.rawAddress, pvdata.rawAddress, pcbdata.rawAddress, fignorehkcu, pvdefaultdata.rawAddress, dwdefaultdatasize.toInt()).toUInt()
 
 public actual fun sHRegSetPathA(hkey: Hkey, pcszsubkey: Pcstr, pcszvalue: Pcstr, pcszpath: Pcstr, dwflags: UInt): Win32Error =
@@ -3743,16 +3729,16 @@ public actual fun sHRegSetPathA(hkey: Hkey, pcszsubkey: Pcstr, pcszvalue: Pcstr,
 public actual fun sHRegSetPathW(hkey: Hkey, pcszsubkey: Pcwstr, pcszvalue: Pcwstr, pcszpath: Pcwstr, dwflags: UInt): Win32Error =
     WindowsWin32UiShellJniBridge.windowssysWindowsWin32UiShellSHRegSetPathW(hkey.rawAddress, pcszsubkey.rawAddress, pcszvalue.rawAddress, pcszpath.rawAddress, dwflags.toInt()).toUInt()
 
-public actual fun sHRegSetUSValueA(pszsubkey: Pcstr, pszvalue: Pcstr, dwtype: UInt, pvdata: ConstPtr<CVoid>, cbdata: UInt, dwflags: UInt): Win32Error =
+public actual fun sHRegSetUSValueA(pszsubkey: Pcstr, pszvalue: Pcstr, dwtype: UInt, pvdata: ConstPtr, cbdata: UInt, dwflags: UInt): Win32Error =
     WindowsWin32UiShellJniBridge.windowssysWindowsWin32UiShellSHRegSetUSValueA(pszsubkey.rawAddress, pszvalue.rawAddress, dwtype.toInt(), pvdata.rawAddress, cbdata.toInt(), dwflags.toInt()).toUInt()
 
-public actual fun sHRegSetUSValueW(pwzsubkey: Pcwstr, pwzvalue: Pcwstr, dwtype: UInt, pvdata: ConstPtr<CVoid>, cbdata: UInt, dwflags: UInt): Win32Error =
+public actual fun sHRegSetUSValueW(pwzsubkey: Pcwstr, pwzvalue: Pcwstr, dwtype: UInt, pvdata: ConstPtr, cbdata: UInt, dwflags: UInt): Win32Error =
     WindowsWin32UiShellJniBridge.windowssysWindowsWin32UiShellSHRegSetUSValueW(pwzsubkey.rawAddress, pwzvalue.rawAddress, dwtype.toInt(), pvdata.rawAddress, cbdata.toInt(), dwflags.toInt()).toUInt()
 
-public actual fun sHRegWriteUSValueA(huskey: Long, pszvalue: Pcstr, dwtype: UInt, pvdata: ConstPtr<CVoid>, cbdata: UInt, dwflags: UInt): Win32Error =
+public actual fun sHRegWriteUSValueA(huskey: Long, pszvalue: Pcstr, dwtype: UInt, pvdata: ConstPtr, cbdata: UInt, dwflags: UInt): Win32Error =
     WindowsWin32UiShellJniBridge.windowssysWindowsWin32UiShellSHRegWriteUSValueA(huskey, pszvalue.rawAddress, dwtype.toInt(), pvdata.rawAddress, cbdata.toInt(), dwflags.toInt()).toUInt()
 
-public actual fun sHRegWriteUSValueW(huskey: Long, pwzvalue: Pcwstr, dwtype: UInt, pvdata: ConstPtr<CVoid>, cbdata: UInt, dwflags: UInt): Win32Error =
+public actual fun sHRegWriteUSValueW(huskey: Long, pwzvalue: Pcwstr, dwtype: UInt, pvdata: ConstPtr, cbdata: UInt, dwflags: UInt): Win32Error =
     WindowsWin32UiShellJniBridge.windowssysWindowsWin32UiShellSHRegWriteUSValueW(huskey, pwzvalue.rawAddress, dwtype.toInt(), pvdata.rawAddress, cbdata.toInt(), dwflags.toInt()).toUInt()
 
 public actual fun sHReleaseThreadRef(): Hresult =
@@ -3764,7 +3750,7 @@ public actual fun sHRemoveLocalizedName(pszpath: Pcwstr): Hresult =
 public actual fun sHReplaceFromPropSheetExtArray(hpsxa: Hpsxa, upageid: UInt, lpfnreplacewith: Lpfnsvaddpropsheetpage, lparam: Lparam): UInt =
     0u
 
-public actual fun sHResolveLibrary(psilibrary: MutPtr<CVoid>): Hresult =
+public actual fun sHResolveLibrary(psilibrary: MutPtr): Hresult =
     WindowsWin32UiShellJniBridge.windowssysWindowsWin32UiShellSHResolveLibrary(psilibrary.rawAddress)
 
 public actual fun sHRestricted(rest: Restrictions): UInt =
@@ -3776,7 +3762,7 @@ public actual fun sHSendMessageBroadcastA(umsg: UInt, wparam: Wparam, lparam: Lp
 public actual fun sHSendMessageBroadcastW(umsg: UInt, wparam: Wparam, lparam: Lparam): Lresult =
     WindowsWin32UiShellJniBridge.windowssysWindowsWin32UiShellSHSendMessageBroadcastW(umsg.toInt(), wparam.toLong(), lparam)
 
-public actual fun sHSetDefaultProperties(hwnd: Hwnd, psi: MutPtr<CVoid>, dwfileopflags: UInt, pfops: MutPtr<CVoid>): Hresult =
+public actual fun sHSetDefaultProperties(hwnd: Hwnd, psi: MutPtr, dwfileopflags: UInt, pfops: MutPtr): Hresult =
     WindowsWin32UiShellJniBridge.windowssysWindowsWin32UiShellSHSetDefaultProperties(hwnd.rawAddress, psi.rawAddress, dwfileopflags.toInt(), pfops.rawAddress)
 
 public actual fun sHSetFolderPathA(csidl: Int, htoken: Handle, dwflags: UInt, pszpath: Pcstr): Hresult =
@@ -3785,50 +3771,50 @@ public actual fun sHSetFolderPathA(csidl: Int, htoken: Handle, dwflags: UInt, ps
 public actual fun sHSetFolderPathW(csidl: Int, htoken: Handle, dwflags: UInt, pszpath: Pcwstr): Hresult =
     WindowsWin32UiShellJniBridge.windowssysWindowsWin32UiShellSHSetFolderPathW(csidl, htoken.rawAddress, dwflags.toInt(), pszpath.rawAddress)
 
-public actual fun sHSetInstanceExplorer(punk: MutPtr<CVoid>) {
+public actual fun sHSetInstanceExplorer(punk: MutPtr) {
     WindowsWin32UiShellJniBridge.windowssysWindowsWin32UiShellSHSetInstanceExplorer(punk.rawAddress)
 }
 
-public actual fun sHSetKnownFolderPath(rfid: ConstPtr<Guid>, dwflags: UInt, htoken: Handle, pszpath: Pcwstr): Hresult =
+public actual fun sHSetKnownFolderPath(rfid: ConstPtr, dwflags: UInt, htoken: Handle, pszpath: Pcwstr): Hresult =
     WindowsWin32UiShellJniBridge.windowssysWindowsWin32UiShellSHSetKnownFolderPath(rfid.rawAddress, dwflags.toInt(), htoken.rawAddress, pszpath.rawAddress)
 
 public actual fun sHSetLocalizedName(pszpath: Pcwstr, pszresmodule: Pcwstr, idsres: Int): Hresult =
     WindowsWin32UiShellJniBridge.windowssysWindowsWin32UiShellSHSetLocalizedName(pszpath.rawAddress, pszresmodule.rawAddress, idsres)
 
-public actual fun sHSetTemporaryPropertyForItem(psi: MutPtr<CVoid>, propkey: ConstPtr<Propertykey>, propvar: ConstPtr<Propvariant>): Hresult =
+public actual fun sHSetTemporaryPropertyForItem(psi: MutPtr, propkey: ConstPtr, propvar: ConstPtr): Hresult =
     WindowsWin32UiShellJniBridge.windowssysWindowsWin32UiShellSHSetTemporaryPropertyForItem(psi.rawAddress, propkey.rawAddress, propvar.rawAddress)
 
-public actual fun sHSetThreadRef(punk: MutPtr<CVoid>): Hresult =
+public actual fun sHSetThreadRef(punk: MutPtr): Hresult =
     WindowsWin32UiShellJniBridge.windowssysWindowsWin32UiShellSHSetThreadRef(punk.rawAddress)
 
 public actual fun sHSetUnreadMailCountW(pszmailaddress: Pcwstr, dwcount: UInt, pszshellexecutecommand: Pcwstr): Hresult =
     WindowsWin32UiShellJniBridge.windowssysWindowsWin32UiShellSHSetUnreadMailCountW(pszmailaddress.rawAddress, dwcount.toInt(), pszshellexecutecommand.rawAddress)
 
-public actual fun sHSetValueA(hkey: Hkey, pszsubkey: Pcstr, pszvalue: Pcstr, dwtype: UInt, pvdata: ConstPtr<CVoid>, cbdata: UInt): Int =
+public actual fun sHSetValueA(hkey: Hkey, pszsubkey: Pcstr, pszvalue: Pcstr, dwtype: UInt, pvdata: ConstPtr, cbdata: UInt): Int =
     WindowsWin32UiShellJniBridge.windowssysWindowsWin32UiShellSHSetValueA(hkey.rawAddress, pszsubkey.rawAddress, pszvalue.rawAddress, dwtype.toInt(), pvdata.rawAddress, cbdata.toInt())
 
-public actual fun sHSetValueW(hkey: Hkey, pszsubkey: Pcwstr, pszvalue: Pcwstr, dwtype: UInt, pvdata: ConstPtr<CVoid>, cbdata: UInt): Int =
+public actual fun sHSetValueW(hkey: Hkey, pszsubkey: Pcwstr, pszvalue: Pcwstr, dwtype: UInt, pvdata: ConstPtr, cbdata: UInt): Int =
     WindowsWin32UiShellJniBridge.windowssysWindowsWin32UiShellSHSetValueW(hkey.rawAddress, pszsubkey.rawAddress, pszvalue.rawAddress, dwtype.toInt(), pvdata.rawAddress, cbdata.toInt())
 
 public actual fun shshellFolderViewMessage(hwndmain: Hwnd, umsg: UInt, lparam: Lparam): Lresult =
     WindowsWin32UiShellJniBridge.windowssysWindowsWin32UiShellShshellFolderViewMessage(hwndmain.rawAddress, umsg.toInt(), lparam)
 
-public actual fun sHShowManageLibraryUI(psilibrary: MutPtr<CVoid>, hwndowner: Hwnd, psztitle: Pcwstr, pszinstruction: Pcwstr, lmdoptions: Librarymanagedialogoptions): Hresult =
+public actual fun sHShowManageLibraryUI(psilibrary: MutPtr, hwndowner: Hwnd, psztitle: Pcwstr, pszinstruction: Pcwstr, lmdoptions: Librarymanagedialogoptions): Hresult =
     WindowsWin32UiShellJniBridge.windowssysWindowsWin32UiShellSHShowManageLibraryUI(psilibrary.rawAddress, hwndowner.rawAddress, psztitle.rawAddress, pszinstruction.rawAddress, lmdoptions)
 
-public actual fun sHSimpleIDListFromPath(pszpath: Pcwstr): MutPtr<Itemidlist> =
+public actual fun sHSimpleIDListFromPath(pszpath: Pcwstr): MutPtr =
     MutPtr(WindowsWin32UiShellJniBridge.windowssysWindowsWin32UiShellSHSimpleIDListFromPath(pszpath.rawAddress))
 
-public actual fun sHSkipJunction(pbc: MutPtr<CVoid>, pclsid: ConstPtr<Guid>): Bool =
+public actual fun sHSkipJunction(pbc: MutPtr, pclsid: ConstPtr): Bool =
     WindowsWin32UiShellJniBridge.windowssysWindowsWin32UiShellSHSkipJunction(pbc.rawAddress, pclsid.rawAddress)
 
 public actual fun sHStartNetConnectionDialogW(hwnd: Hwnd, pszremotename: Pcwstr, dwtype: UInt): Hresult =
     WindowsWin32UiShellJniBridge.windowssysWindowsWin32UiShellSHStartNetConnectionDialogW(hwnd.rawAddress, pszremotename.rawAddress, dwtype.toInt())
 
-public actual fun sHStrDupA(psz: Pcstr, ppwsz: MutPtr<Pwstr>): Hresult =
+public actual fun sHStrDupA(psz: Pcstr, ppwsz: MutPtr): Hresult =
     WindowsWin32UiShellJniBridge.windowssysWindowsWin32UiShellSHStrDupA(psz.rawAddress, ppwsz.rawAddress)
 
-public actual fun sHStrDupW(psz: Pcwstr, ppwsz: MutPtr<Pwstr>): Hresult =
+public actual fun sHStrDupW(psz: Pcwstr, ppwsz: MutPtr): Hresult =
     WindowsWin32UiShellJniBridge.windowssysWindowsWin32UiShellSHStrDupW(psz.rawAddress, ppwsz.rawAddress)
 
 public actual fun sHStripMneumonicA(pszmenu: Pstr): Byte =
@@ -3846,7 +3832,7 @@ public actual fun sHUnicodeToAnsi(pwszsrc: Pcwstr, pszdst: Pstr, cchbuf: Int): I
 public actual fun sHUnicodeToUnicode(pwzsrc: Pcwstr, pwzdst: Pwstr, cwchbuf: Int): Int =
     WindowsWin32UiShellJniBridge.windowssysWindowsWin32UiShellSHUnicodeToUnicode(pwzsrc.rawAddress, pwzdst.rawAddress, cwchbuf)
 
-public actual fun sHUnlockShared(pvdata: ConstPtr<CVoid>): Bool =
+public actual fun sHUnlockShared(pvdata: ConstPtr): Bool =
     WindowsWin32UiShellJniBridge.windowssysWindowsWin32UiShellSHUnlockShared(pvdata.rawAddress)
 
 public actual fun sHUpdateImageA(pszhashitem: Pcstr, iindex: Int, uflags: UInt, iimageindex: Int) {
@@ -3881,10 +3867,10 @@ public actual fun shellAboutW(hwnd: Hwnd, szapp: Pcwstr, szotherstuff: Pcwstr, h
 public actual fun shellExecuteA(hwnd: Hwnd, lpoperation: Pcstr, lpfile: Pcstr, lpparameters: Pcstr, lpdirectory: Pcstr, nshowcmd: ShowWindowCmd): Hinstance =
     MutPtr(WindowsWin32UiShellJniBridge.windowssysWindowsWin32UiShellShellExecuteA(hwnd.rawAddress, lpoperation.rawAddress, lpfile.rawAddress, lpparameters.rawAddress, lpdirectory.rawAddress, nshowcmd))
 
-public actual fun shellExecuteExA(pexecinfo: MutPtr<Shellexecuteinfoa>): Bool =
+public actual fun shellExecuteExA(pexecinfo: MutPtr): Bool =
     WindowsWin32UiShellJniBridge.windowssysWindowsWin32UiShellShellExecuteExA(pexecinfo.rawAddress)
 
-public actual fun shellExecuteExW(pexecinfo: MutPtr<Shellexecuteinfow>): Bool =
+public actual fun shellExecuteExW(pexecinfo: MutPtr): Bool =
     WindowsWin32UiShellJniBridge.windowssysWindowsWin32UiShellShellExecuteExW(pexecinfo.rawAddress)
 
 public actual fun shellExecuteW(hwnd: Hwnd, lpoperation: Pcwstr, lpfile: Pcwstr, lpparameters: Pcwstr, lpdirectory: Pcwstr, nshowcmd: ShowWindowCmd): Hinstance =
@@ -3905,28 +3891,28 @@ public actual fun shellGetCachedImageIndexA(psziconpath: Pcstr, iiconindex: Int,
 public actual fun shellGetCachedImageIndexW(psziconpath: Pcwstr, iiconindex: Int, uiconflags: UInt): Int =
     WindowsWin32UiShellJniBridge.windowssysWindowsWin32UiShellShellGetCachedImageIndexW(psziconpath.rawAddress, iiconindex, uiconflags.toInt())
 
-public actual fun shellGetImageLists(phiml: MutPtr<Himagelist>, phimlsmall: MutPtr<Himagelist>): Bool =
+public actual fun shellGetImageLists(phiml: MutPtr, phimlsmall: MutPtr): Bool =
     WindowsWin32UiShellJniBridge.windowssysWindowsWin32UiShellShellGetImageLists(phiml.rawAddress, phimlsmall.rawAddress)
 
 public actual fun shellMergeMenus(hmdst: Hmenu, hmsrc: Hmenu, uinsert: UInt, uidadjust: UInt, uidadjustmax: UInt, uflags: MmFlags): UInt =
     WindowsWin32UiShellJniBridge.windowssysWindowsWin32UiShellShellMergeMenus(hmdst.rawAddress, hmsrc.rawAddress, uinsert.toInt(), uidadjust.toInt(), uidadjustmax.toInt(), uflags.toInt()).toUInt()
 
-public actual fun shellNotifyIconA(dwmessage: NotifyIconMessage, lpdata: ConstPtr<Notifyicondataa>): Bool =
+public actual fun shellNotifyIconA(dwmessage: NotifyIconMessage, lpdata: ConstPtr): Bool =
     WindowsWin32UiShellJniBridge.windowssysWindowsWin32UiShellShellNotifyIconA(dwmessage.toInt(), lpdata.rawAddress)
 
-public actual fun shellNotifyIconGetRect(identifier: ConstPtr<Notifyiconidentifier>, iconlocation: MutPtr<Rect>): Hresult =
+public actual fun shellNotifyIconGetRect(identifier: ConstPtr, iconlocation: MutPtr): Hresult =
     WindowsWin32UiShellJniBridge.windowssysWindowsWin32UiShellShellNotifyIconGetRect(identifier.rawAddress, iconlocation.rawAddress)
 
-public actual fun shellNotifyIconW(dwmessage: NotifyIconMessage, lpdata: ConstPtr<Notifyicondataw>): Bool =
+public actual fun shellNotifyIconW(dwmessage: NotifyIconMessage, lpdata: ConstPtr): Bool =
     WindowsWin32UiShellJniBridge.windowssysWindowsWin32UiShellShellNotifyIconW(dwmessage.toInt(), lpdata.rawAddress)
 
-public actual fun signalFileOpen(pidl: ConstPtr<Itemidlist>): Bool =
+public actual fun signalFileOpen(pidl: ConstPtr): Bool =
     WindowsWin32UiShellJniBridge.windowssysWindowsWin32UiShellSignalFileOpen(pidl.rawAddress)
 
-public actual fun softwareUpdateMessageBox(hwnd: Hwnd, pszdistunit: Pcwstr, dwflags: UInt, psdi: MutPtr<Softdistinfo>): UInt =
+public actual fun softwareUpdateMessageBox(hwnd: Hwnd, pszdistunit: Pcwstr, dwflags: UInt, psdi: MutPtr): UInt =
     WindowsWin32UiShellJniBridge.windowssysWindowsWin32UiShellSoftwareUpdateMessageBox(hwnd.rawAddress, pszdistunit.rawAddress, dwflags.toInt(), psdi.rawAddress).toUInt()
 
-public actual fun stgMakeUniqueName(pstgparent: MutPtr<CVoid>, pszfilespec: Pcwstr, grfmode: UInt, riid: ConstPtr<Guid>, ppv: MutPtr<MutPtr<CVoid>>): Hresult =
+public actual fun stgMakeUniqueName(pstgparent: MutPtr, pszfilespec: Pcwstr, grfmode: UInt, riid: ConstPtr, ppv: MutPtr): Hresult =
     WindowsWin32UiShellJniBridge.windowssysWindowsWin32UiShellStgMakeUniqueName(pstgparent.rawAddress, pszfilespec.rawAddress, grfmode.toInt(), riid.rawAddress, ppv.rawAddress)
 
 public actual fun strCSpnA(pszstr: Pcstr, pszset: Pcstr): Int =
@@ -4088,19 +4074,19 @@ public actual fun strRStrIA(pszsource: Pcstr, pszlast: Pcstr, pszsrch: Pcstr): P
 public actual fun strRStrIW(pszsource: Pcwstr, pszlast: Pcwstr, pszsrch: Pcwstr): Pwstr =
     MutPtr(WindowsWin32UiShellJniBridge.windowssysWindowsWin32UiShellStrRStrIW(pszsource.rawAddress, pszlast.rawAddress, pszsrch.rawAddress))
 
-public actual fun strRetToBSTR(pstr: MutPtr<Strret>, pidl: ConstPtr<Itemidlist>, pbstr: MutPtr<Bstr>): Hresult =
+public actual fun strRetToBSTR(pstr: MutPtr, pidl: ConstPtr, pbstr: MutPtr): Hresult =
     WindowsWin32UiShellJniBridge.windowssysWindowsWin32UiShellStrRetToBSTR(pstr.rawAddress, pidl.rawAddress, pbstr.rawAddress)
 
-public actual fun strRetToBufA(pstr: MutPtr<Strret>, pidl: ConstPtr<Itemidlist>, pszbuf: Pstr, cchbuf: UInt): Hresult =
+public actual fun strRetToBufA(pstr: MutPtr, pidl: ConstPtr, pszbuf: Pstr, cchbuf: UInt): Hresult =
     WindowsWin32UiShellJniBridge.windowssysWindowsWin32UiShellStrRetToBufA(pstr.rawAddress, pidl.rawAddress, pszbuf.rawAddress, cchbuf.toInt())
 
-public actual fun strRetToBufW(pstr: MutPtr<Strret>, pidl: ConstPtr<Itemidlist>, pszbuf: Pwstr, cchbuf: UInt): Hresult =
+public actual fun strRetToBufW(pstr: MutPtr, pidl: ConstPtr, pszbuf: Pwstr, cchbuf: UInt): Hresult =
     WindowsWin32UiShellJniBridge.windowssysWindowsWin32UiShellStrRetToBufW(pstr.rawAddress, pidl.rawAddress, pszbuf.rawAddress, cchbuf.toInt())
 
-public actual fun strRetToStrA(pstr: MutPtr<Strret>, pidl: ConstPtr<Itemidlist>, ppsz: MutPtr<Pstr>): Hresult =
+public actual fun strRetToStrA(pstr: MutPtr, pidl: ConstPtr, ppsz: MutPtr): Hresult =
     WindowsWin32UiShellJniBridge.windowssysWindowsWin32UiShellStrRetToStrA(pstr.rawAddress, pidl.rawAddress, ppsz.rawAddress)
 
-public actual fun strRetToStrW(pstr: MutPtr<Strret>, pidl: ConstPtr<Itemidlist>, ppsz: MutPtr<Pwstr>): Hresult =
+public actual fun strRetToStrW(pstr: MutPtr, pidl: ConstPtr, ppsz: MutPtr): Hresult =
     WindowsWin32UiShellJniBridge.windowssysWindowsWin32UiShellStrRetToStrW(pstr.rawAddress, pidl.rawAddress, ppsz.rawAddress)
 
 public actual fun strSpnA(psz: Pcstr, pszset: Pcstr): Int =
@@ -4127,19 +4113,19 @@ public actual fun strStrNW(pszfirst: Pcwstr, pszsrch: Pcwstr, cchmax: UInt): Pws
 public actual fun strStrW(pszfirst: Pcwstr, pszsrch: Pcwstr): Pwstr =
     MutPtr(WindowsWin32UiShellJniBridge.windowssysWindowsWin32UiShellStrStrW(pszfirst.rawAddress, pszsrch.rawAddress))
 
-public actual fun strToInt64ExA(pszstring: Pcstr, dwflags: Int, pllret: MutPtr<Long>): Bool =
+public actual fun strToInt64ExA(pszstring: Pcstr, dwflags: Int, pllret: MutPtr): Bool =
     WindowsWin32UiShellJniBridge.windowssysWindowsWin32UiShellStrToInt64ExA(pszstring.rawAddress, dwflags, pllret.rawAddress)
 
-public actual fun strToInt64ExW(pszstring: Pcwstr, dwflags: Int, pllret: MutPtr<Long>): Bool =
+public actual fun strToInt64ExW(pszstring: Pcwstr, dwflags: Int, pllret: MutPtr): Bool =
     WindowsWin32UiShellJniBridge.windowssysWindowsWin32UiShellStrToInt64ExW(pszstring.rawAddress, dwflags, pllret.rawAddress)
 
 public actual fun strToIntA(pszsrc: Pcstr): Int =
     WindowsWin32UiShellJniBridge.windowssysWindowsWin32UiShellStrToIntA(pszsrc.rawAddress)
 
-public actual fun strToIntExA(pszstring: Pcstr, dwflags: Int, piret: MutPtr<Int>): Bool =
+public actual fun strToIntExA(pszstring: Pcstr, dwflags: Int, piret: MutPtr): Bool =
     WindowsWin32UiShellJniBridge.windowssysWindowsWin32UiShellStrToIntExA(pszstring.rawAddress, dwflags, piret.rawAddress)
 
-public actual fun strToIntExW(pszstring: Pcwstr, dwflags: Int, piret: MutPtr<Int>): Bool =
+public actual fun strToIntExW(pszstring: Pcwstr, dwflags: Int, piret: MutPtr): Bool =
     WindowsWin32UiShellJniBridge.windowssysWindowsWin32UiShellStrToIntExW(pszstring.rawAddress, dwflags, piret.rawAddress)
 
 public actual fun strToIntW(pszsrc: Pcwstr): Int =
@@ -4165,22 +4151,22 @@ public actual fun unregisterAppStateChangeNotification(registration: PappstateRe
 public actual fun unregisterScaleChangeEvent(dwcookie: ULong): Hresult =
     WindowsWin32UiShellJniBridge.windowssysWindowsWin32UiShellUnregisterScaleChangeEvent(dwcookie.toLong())
 
-public actual fun urlApplySchemeA(pszin: Pcstr, pszout: Pstr, pcchout: MutPtr<UInt>, dwflags: UInt): Hresult =
+public actual fun urlApplySchemeA(pszin: Pcstr, pszout: Pstr, pcchout: MutPtr, dwflags: UInt): Hresult =
     WindowsWin32UiShellJniBridge.windowssysWindowsWin32UiShellUrlApplySchemeA(pszin.rawAddress, pszout.rawAddress, pcchout.rawAddress, dwflags.toInt())
 
-public actual fun urlApplySchemeW(pszin: Pcwstr, pszout: Pwstr, pcchout: MutPtr<UInt>, dwflags: UInt): Hresult =
+public actual fun urlApplySchemeW(pszin: Pcwstr, pszout: Pwstr, pcchout: MutPtr, dwflags: UInt): Hresult =
     WindowsWin32UiShellJniBridge.windowssysWindowsWin32UiShellUrlApplySchemeW(pszin.rawAddress, pszout.rawAddress, pcchout.rawAddress, dwflags.toInt())
 
-public actual fun urlCanonicalizeA(pszurl: Pcstr, pszcanonicalized: Pstr, pcchcanonicalized: MutPtr<UInt>, dwflags: UInt): Hresult =
+public actual fun urlCanonicalizeA(pszurl: Pcstr, pszcanonicalized: Pstr, pcchcanonicalized: MutPtr, dwflags: UInt): Hresult =
     WindowsWin32UiShellJniBridge.windowssysWindowsWin32UiShellUrlCanonicalizeA(pszurl.rawAddress, pszcanonicalized.rawAddress, pcchcanonicalized.rawAddress, dwflags.toInt())
 
-public actual fun urlCanonicalizeW(pszurl: Pcwstr, pszcanonicalized: Pwstr, pcchcanonicalized: MutPtr<UInt>, dwflags: UInt): Hresult =
+public actual fun urlCanonicalizeW(pszurl: Pcwstr, pszcanonicalized: Pwstr, pcchcanonicalized: MutPtr, dwflags: UInt): Hresult =
     WindowsWin32UiShellJniBridge.windowssysWindowsWin32UiShellUrlCanonicalizeW(pszurl.rawAddress, pszcanonicalized.rawAddress, pcchcanonicalized.rawAddress, dwflags.toInt())
 
-public actual fun urlCombineA(pszbase: Pcstr, pszrelative: Pcstr, pszcombined: Pstr, pcchcombined: MutPtr<UInt>, dwflags: UInt): Hresult =
+public actual fun urlCombineA(pszbase: Pcstr, pszrelative: Pcstr, pszcombined: Pstr, pcchcombined: MutPtr, dwflags: UInt): Hresult =
     WindowsWin32UiShellJniBridge.windowssysWindowsWin32UiShellUrlCombineA(pszbase.rawAddress, pszrelative.rawAddress, pszcombined.rawAddress, pcchcombined.rawAddress, dwflags.toInt())
 
-public actual fun urlCombineW(pszbase: Pcwstr, pszrelative: Pcwstr, pszcombined: Pwstr, pcchcombined: MutPtr<UInt>, dwflags: UInt): Hresult =
+public actual fun urlCombineW(pszbase: Pcwstr, pszrelative: Pcwstr, pszcombined: Pwstr, pcchcombined: MutPtr, dwflags: UInt): Hresult =
     WindowsWin32UiShellJniBridge.windowssysWindowsWin32UiShellUrlCombineW(pszbase.rawAddress, pszrelative.rawAddress, pszcombined.rawAddress, pcchcombined.rawAddress, dwflags.toInt())
 
 public actual fun urlCompareA(psz1: Pcstr, psz2: Pcstr, fignoreslash: Bool): Int =
@@ -4189,16 +4175,16 @@ public actual fun urlCompareA(psz1: Pcstr, psz2: Pcstr, fignoreslash: Bool): Int
 public actual fun urlCompareW(psz1: Pcwstr, psz2: Pcwstr, fignoreslash: Bool): Int =
     WindowsWin32UiShellJniBridge.windowssysWindowsWin32UiShellUrlCompareW(psz1.rawAddress, psz2.rawAddress, fignoreslash)
 
-public actual fun urlCreateFromPathA(pszpath: Pcstr, pszurl: Pstr, pcchurl: MutPtr<UInt>, dwflags: UInt): Hresult =
+public actual fun urlCreateFromPathA(pszpath: Pcstr, pszurl: Pstr, pcchurl: MutPtr, dwflags: UInt): Hresult =
     WindowsWin32UiShellJniBridge.windowssysWindowsWin32UiShellUrlCreateFromPathA(pszpath.rawAddress, pszurl.rawAddress, pcchurl.rawAddress, dwflags.toInt())
 
-public actual fun urlCreateFromPathW(pszpath: Pcwstr, pszurl: Pwstr, pcchurl: MutPtr<UInt>, dwflags: UInt): Hresult =
+public actual fun urlCreateFromPathW(pszpath: Pcwstr, pszurl: Pwstr, pcchurl: MutPtr, dwflags: UInt): Hresult =
     WindowsWin32UiShellJniBridge.windowssysWindowsWin32UiShellUrlCreateFromPathW(pszpath.rawAddress, pszurl.rawAddress, pcchurl.rawAddress, dwflags.toInt())
 
-public actual fun urlEscapeA(pszurl: Pcstr, pszescaped: Pstr, pcchescaped: MutPtr<UInt>, dwflags: UInt): Hresult =
+public actual fun urlEscapeA(pszurl: Pcstr, pszescaped: Pstr, pcchescaped: MutPtr, dwflags: UInt): Hresult =
     WindowsWin32UiShellJniBridge.windowssysWindowsWin32UiShellUrlEscapeA(pszurl.rawAddress, pszescaped.rawAddress, pcchescaped.rawAddress, dwflags.toInt())
 
-public actual fun urlEscapeW(pszurl: Pcwstr, pszescaped: Pwstr, pcchescaped: MutPtr<UInt>, dwflags: UInt): Hresult =
+public actual fun urlEscapeW(pszurl: Pcwstr, pszescaped: Pwstr, pcchescaped: MutPtr, dwflags: UInt): Hresult =
     WindowsWin32UiShellJniBridge.windowssysWindowsWin32UiShellUrlEscapeW(pszurl.rawAddress, pszescaped.rawAddress, pcchescaped.rawAddress, dwflags.toInt())
 
 public actual fun urlFixupW(pcszurl: Pcwstr, psztranslatedurl: Pwstr, cchmax: UInt): Hresult =
@@ -4210,16 +4196,16 @@ public actual fun urlGetLocationA(pszurl: Pcstr): Pcstr =
 public actual fun urlGetLocationW(pszurl: Pcwstr): Pcwstr =
     ConstPtr(WindowsWin32UiShellJniBridge.windowssysWindowsWin32UiShellUrlGetLocationW(pszurl.rawAddress))
 
-public actual fun urlGetPartA(pszin: Pcstr, pszout: Pstr, pcchout: MutPtr<UInt>, dwpart: UInt, dwflags: UInt): Hresult =
+public actual fun urlGetPartA(pszin: Pcstr, pszout: Pstr, pcchout: MutPtr, dwpart: UInt, dwflags: UInt): Hresult =
     WindowsWin32UiShellJniBridge.windowssysWindowsWin32UiShellUrlGetPartA(pszin.rawAddress, pszout.rawAddress, pcchout.rawAddress, dwpart.toInt(), dwflags.toInt())
 
-public actual fun urlGetPartW(pszin: Pcwstr, pszout: Pwstr, pcchout: MutPtr<UInt>, dwpart: UInt, dwflags: UInt): Hresult =
+public actual fun urlGetPartW(pszin: Pcwstr, pszout: Pwstr, pcchout: MutPtr, dwpart: UInt, dwflags: UInt): Hresult =
     WindowsWin32UiShellJniBridge.windowssysWindowsWin32UiShellUrlGetPartW(pszin.rawAddress, pszout.rawAddress, pcchout.rawAddress, dwpart.toInt(), dwflags.toInt())
 
-public actual fun urlHashA(pszurl: Pcstr, pbhash: MutPtr<UByte>, cbhash: UInt): Hresult =
+public actual fun urlHashA(pszurl: Pcstr, pbhash: MutPtr, cbhash: UInt): Hresult =
     WindowsWin32UiShellJniBridge.windowssysWindowsWin32UiShellUrlHashA(pszurl.rawAddress, pbhash.rawAddress, cbhash.toInt())
 
-public actual fun urlHashW(pszurl: Pcwstr, pbhash: MutPtr<UByte>, cbhash: UInt): Hresult =
+public actual fun urlHashW(pszurl: Pcwstr, pbhash: MutPtr, cbhash: UInt): Hresult =
     WindowsWin32UiShellJniBridge.windowssysWindowsWin32UiShellUrlHashW(pszurl.rawAddress, pbhash.rawAddress, cbhash.toInt())
 
 public actual fun urlIsA(pszurl: Pcstr, urlis: Urlis): Bool =
@@ -4240,13 +4226,13 @@ public actual fun urlIsOpaqueW(pszurl: Pcwstr): Bool =
 public actual fun urlIsW(pszurl: Pcwstr, urlis: Urlis): Bool =
     WindowsWin32UiShellJniBridge.windowssysWindowsWin32UiShellUrlIsW(pszurl.rawAddress, urlis)
 
-public actual fun urlUnescapeA(pszurl: Pstr, pszunescaped: Pstr, pcchunescaped: MutPtr<UInt>, dwflags: UInt): Hresult =
+public actual fun urlUnescapeA(pszurl: Pstr, pszunescaped: Pstr, pcchunescaped: MutPtr, dwflags: UInt): Hresult =
     WindowsWin32UiShellJniBridge.windowssysWindowsWin32UiShellUrlUnescapeA(pszurl.rawAddress, pszunescaped.rawAddress, pcchunescaped.rawAddress, dwflags.toInt())
 
-public actual fun urlUnescapeW(pszurl: Pwstr, pszunescaped: Pwstr, pcchunescaped: MutPtr<UInt>, dwflags: UInt): Hresult =
+public actual fun urlUnescapeW(pszurl: Pwstr, pszunescaped: Pwstr, pcchunescaped: MutPtr, dwflags: UInt): Hresult =
     WindowsWin32UiShellJniBridge.windowssysWindowsWin32UiShellUrlUnescapeW(pszurl.rawAddress, pszunescaped.rawAddress, pcchunescaped.rawAddress, dwflags.toInt())
 
-public actual fun variantToStrRet(varin: ConstPtr<Variant.Variant>, pstrret: MutPtr<Strret>): Hresult =
+public actual fun variantToStrRet(varin: ConstPtr, pstrret: MutPtr): Hresult =
     WindowsWin32UiShellJniBridge.windowssysWindowsWin32UiShellVariantToStrRet(varin.rawAddress, pstrret.rawAddress)
 
 public actual fun whichPlatform(): UInt =
@@ -4261,7 +4247,7 @@ public actual fun winHelpA(hwndmain: Hwnd, lpszhelp: Pcstr, ucommand: UInt, dwda
 public actual fun winHelpW(hwndmain: Hwnd, lpszhelp: Pcwstr, ucommand: UInt, dwdata: ULong): Bool =
     WindowsWin32UiShellJniBridge.windowssysWindowsWin32UiShellWinHelpW(hwndmain.rawAddress, lpszhelp.rawAddress, ucommand.toInt(), dwdata.toLong())
 
-public actual fun writeCabinetState(pcs: ConstPtr<Cabinetstate>): Bool =
+public actual fun writeCabinetState(pcs: ConstPtr): Bool =
     WindowsWin32UiShellJniBridge.windowssysWindowsWin32UiShellWriteCabinetState(pcs.rawAddress)
 
 public actual fun wnsprintfA(pszdest: Pstr, cchdest: Int, pszfmt: Pcstr, vararg variadicArgs: Long): Int =
@@ -4270,8 +4256,8 @@ public actual fun wnsprintfA(pszdest: Pstr, cchdest: Int, pszfmt: Pcstr, vararg 
 public actual fun wnsprintfW(pszdest: Pwstr, cchdest: Int, pszfmt: Pcwstr, vararg variadicArgs: Long): Int =
     WindowsWin32UiShellJniBridge.windowssysWindowsWin32UiShellWnsprintfW(pszdest.rawAddress, cchdest, pszfmt.rawAddress, variadicArgs.size.coerceAtMost(4), if (variadicArgs.size > 0) variadicArgs[0] else 0L, if (variadicArgs.size > 1) variadicArgs[1] else 0L, if (variadicArgs.size > 2) variadicArgs[2] else 0L, if (variadicArgs.size > 3) variadicArgs[3] else 0L)
 
-public actual fun wvnsprintfA(pszdest: Pstr, cchdest: Int, pszfmt: Pcstr, arglist: ConstPtr<Byte>): Int =
+public actual fun wvnsprintfA(pszdest: Pstr, cchdest: Int, pszfmt: Pcstr, arglist: ConstPtr): Int =
     WindowsWin32UiShellJniBridge.windowssysWindowsWin32UiShellWvnsprintfA(pszdest.rawAddress, cchdest, pszfmt.rawAddress, arglist.rawAddress)
 
-public actual fun wvnsprintfW(pszdest: Pwstr, cchdest: Int, pszfmt: Pcwstr, arglist: ConstPtr<Byte>): Int =
+public actual fun wvnsprintfW(pszdest: Pwstr, cchdest: Int, pszfmt: Pcwstr, arglist: ConstPtr): Int =
     WindowsWin32UiShellJniBridge.windowssysWindowsWin32UiShellWvnsprintfW(pszdest.rawAddress, cchdest, pszfmt.rawAddress, arglist.rawAddress)

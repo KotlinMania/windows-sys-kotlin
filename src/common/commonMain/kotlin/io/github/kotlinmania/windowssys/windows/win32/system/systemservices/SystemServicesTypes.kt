@@ -1,11 +1,8 @@
 package io.github.kotlinmania.windowssys.windows.win32.system.systemservices
 
-import io.github.kotlinmania.rustlang.core.ffi.CVoid
 import io.github.kotlinmania.rustlang.core.ptr.ConstPtr
 import io.github.kotlinmania.rustlang.core.ptr.MutPtr
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Handle
-import io.github.kotlinmania.windowssys.windows.win32.system.diagnostics.debug.ExceptionPointers
-import io.github.kotlinmania.windowssys.windows.win32.system.diagnostics.debug.ImageRuntimeFunctionEntry
 
 public typealias AccessReasonType = Int
 
@@ -48,31 +45,31 @@ public typealias ModifierkeysFlags = UInt
 public typealias MonitorDisplayState = Int
 
 public fun interface PexceptionFilterFn {
-    public operator fun invoke(exceptionpointers: MutPtr<ExceptionPointers>, establisherframe: ConstPtr<CVoid>): Int
+    public operator fun invoke(exceptionpointers: MutPtr, establisherframe: ConstPtr): Int
 }
 
 public typealias PexceptionFilter = PexceptionFilterFn?
 
 public fun interface PimageTlsCallbackFn {
-    public operator fun invoke(dllhandle: MutPtr<CVoid>, reason: UInt, reserved: MutPtr<CVoid>)
+    public operator fun invoke(dllhandle: MutPtr, reason: UInt, reserved: MutPtr)
 }
 
 public typealias PimageTlsCallback = PimageTlsCallbackFn?
 
 public fun interface PoutOfProcessFunctionTableCallbackFn {
-    public operator fun invoke(process: Handle, tableaddress: ConstPtr<CVoid>, entries: MutPtr<UInt>, functions: MutPtr<MutPtr<ImageRuntimeFunctionEntry>>): UInt
+    public operator fun invoke(process: Handle, tableaddress: ConstPtr, entries: MutPtr, functions: MutPtr): UInt
 }
 
 public typealias PoutOfProcessFunctionTableCallback = PoutOfProcessFunctionTableCallbackFn?
 
 public fun interface PterminationHandlerFn {
-    public operator fun invoke(abnormalTermination: Boolean, establisherframe: MutPtr<CVoid>)
+    public operator fun invoke(abnormalTermination: Boolean, establisherframe: MutPtr)
 }
 
 public typealias PterminationHandler = PterminationHandlerFn?
 
 public fun interface PumsSchedulerEntryPointFn {
-    public operator fun invoke(reason: RtlUmsSchedulerReason, activationpayload: ULong, schedulerparam: ConstPtr<CVoid>)
+    public operator fun invoke(reason: RtlUmsSchedulerReason, activationpayload: ULong, schedulerparam: ConstPtr)
 }
 
 public typealias PumsSchedulerEntryPoint = PumsSchedulerEntryPointFn?

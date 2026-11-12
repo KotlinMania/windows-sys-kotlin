@@ -2,7 +2,6 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.networkmanagement.rras
 
-import io.github.kotlinmania.rustlang.core.ffi.CVoid
 import io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
 import io.github.kotlinmania.rustlang.core.mem.TypeLayout
 import io.github.kotlinmania.rustlang.core.ptr.MutPtr
@@ -397,15 +396,15 @@ public class Ikev2TunnelConfigParams2 internal constructor(
     public var dwSaDataSizeForRenegotiation: UInt,
     public var dwConfigOptions: UInt,
     public var dwTotalCertificates: UInt,
-    certificateNamesCtorArg: MutPtr<CryptIntegerBlob>,
+    certificateNamesCtorArg: MutPtr,
     public var machineCertificateName: CryptIntegerBlob,
     public var dwEncryptionType: UInt,
-    customPolicyCtorArg: MutPtr<RouterCustomIkev2Policy0>,
+    customPolicyCtorArg: MutPtr,
 ) {
-    public var certificateNames: MutPtr<CryptIntegerBlob> = certificateNamesCtorArg
+    public var certificateNames: MutPtr = certificateNamesCtorArg
         internal set
 
-    public var customPolicy: MutPtr<RouterCustomIkev2Policy0> = customPolicyCtorArg
+    public var customPolicy: MutPtr = customPolicyCtorArg
         internal set
 
     public constructor() : this(
@@ -433,15 +432,15 @@ public class Ikev2TunnelConfigParams2 internal constructor(
 
     public operator fun component6(): UInt = this.dwTotalCertificates
 
-    public operator fun component7(): MutPtr<CryptIntegerBlob> = this.certificateNames
+    public operator fun component7(): MutPtr = this.certificateNames
 
     public operator fun component8(): CryptIntegerBlob = this.machineCertificateName
 
     public operator fun component9(): UInt = this.dwEncryptionType
 
-    public operator fun component10(): MutPtr<RouterCustomIkev2Policy0> = this.customPolicy
+    public operator fun component10(): MutPtr = this.customPolicy
 
-    public fun copy(dwIdleTimeout: UInt = this.dwIdleTimeout, dwNetworkBlackoutTime: UInt = this.dwNetworkBlackoutTime, dwSaLifeTime: UInt = this.dwSaLifeTime, dwSaDataSizeForRenegotiation: UInt = this.dwSaDataSizeForRenegotiation, dwConfigOptions: UInt = this.dwConfigOptions, dwTotalCertificates: UInt = this.dwTotalCertificates, certificateNames: MutPtr<CryptIntegerBlob> = this.certificateNames, machineCertificateName: CryptIntegerBlob = this.machineCertificateName, dwEncryptionType: UInt = this.dwEncryptionType, customPolicy: MutPtr<RouterCustomIkev2Policy0> = this.customPolicy): Ikev2TunnelConfigParams2 = Ikev2TunnelConfigParams2(dwIdleTimeout = dwIdleTimeout, dwNetworkBlackoutTime = dwNetworkBlackoutTime, dwSaLifeTime = dwSaLifeTime, dwSaDataSizeForRenegotiation = dwSaDataSizeForRenegotiation, dwConfigOptions = dwConfigOptions, dwTotalCertificates = dwTotalCertificates, certificateNamesCtorArg = certificateNames, machineCertificateName = machineCertificateName, dwEncryptionType = dwEncryptionType, customPolicyCtorArg = customPolicy)
+    public fun copy(dwIdleTimeout: UInt = this.dwIdleTimeout, dwNetworkBlackoutTime: UInt = this.dwNetworkBlackoutTime, dwSaLifeTime: UInt = this.dwSaLifeTime, dwSaDataSizeForRenegotiation: UInt = this.dwSaDataSizeForRenegotiation, dwConfigOptions: UInt = this.dwConfigOptions, dwTotalCertificates: UInt = this.dwTotalCertificates, certificateNames: MutPtr = this.certificateNames, machineCertificateName: CryptIntegerBlob = this.machineCertificateName, dwEncryptionType: UInt = this.dwEncryptionType, customPolicy: MutPtr = this.customPolicy): Ikev2TunnelConfigParams2 = Ikev2TunnelConfigParams2(dwIdleTimeout = dwIdleTimeout, dwNetworkBlackoutTime = dwNetworkBlackoutTime, dwSaLifeTime = dwSaLifeTime, dwSaDataSizeForRenegotiation = dwSaDataSizeForRenegotiation, dwConfigOptions = dwConfigOptions, dwTotalCertificates = dwTotalCertificates, certificateNamesCtorArg = certificateNames, machineCertificateName = machineCertificateName, dwEncryptionType = dwEncryptionType, customPolicyCtorArg = customPolicy)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -481,10 +480,10 @@ public class Ikev2TunnelConfigParams2 internal constructor(
             dwSaDataSizeForRenegotiation: UInt = 0u,
             dwConfigOptions: UInt = 0u,
             dwTotalCertificates: UInt = 0u,
-            certificateNames: MutPtr<CryptIntegerBlob> = MutPtr(0L),
+            certificateNames: MutPtr = MutPtr(0L),
             machineCertificateName: CryptIntegerBlob = CryptIntegerBlob(),
             dwEncryptionType: UInt = 0u,
-            customPolicy: MutPtr<RouterCustomIkev2Policy0> = MutPtr(0L),
+            customPolicy: MutPtr = MutPtr(0L),
         ): Ikev2TunnelConfigParams2 =
             Ikev2TunnelConfigParams2(
                 dwIdleTimeout = dwIdleTimeout,
@@ -508,21 +507,21 @@ public class Ikev2TunnelConfigParams3 internal constructor(
     public var dwSaDataSizeForRenegotiation: UInt,
     public var dwConfigOptions: UInt,
     public var dwTotalCertificates: UInt,
-    certificateNamesCtorArg: MutPtr<CryptIntegerBlob>,
+    certificateNamesCtorArg: MutPtr,
     public var machineCertificateName: CryptIntegerBlob,
     public var dwEncryptionType: UInt,
-    customPolicyCtorArg: MutPtr<RouterCustomIkev2Policy0>,
+    customPolicyCtorArg: MutPtr,
     public var dwTotalEkus: UInt,
-    certificateEKUsCtorArg: MutPtr<MprCertEku>,
+    certificateEKUsCtorArg: MutPtr,
     public var machineCertificateHash: CryptIntegerBlob,
 ) {
-    public var certificateNames: MutPtr<CryptIntegerBlob> = certificateNamesCtorArg
+    public var certificateNames: MutPtr = certificateNamesCtorArg
         internal set
 
-    public var customPolicy: MutPtr<RouterCustomIkev2Policy0> = customPolicyCtorArg
+    public var customPolicy: MutPtr = customPolicyCtorArg
         internal set
 
-    public var certificateEKUs: MutPtr<MprCertEku> = certificateEKUsCtorArg
+    public var certificateEKUs: MutPtr = certificateEKUsCtorArg
         internal set
 
     public constructor() : this(
@@ -553,21 +552,21 @@ public class Ikev2TunnelConfigParams3 internal constructor(
 
     public operator fun component6(): UInt = this.dwTotalCertificates
 
-    public operator fun component7(): MutPtr<CryptIntegerBlob> = this.certificateNames
+    public operator fun component7(): MutPtr = this.certificateNames
 
     public operator fun component8(): CryptIntegerBlob = this.machineCertificateName
 
     public operator fun component9(): UInt = this.dwEncryptionType
 
-    public operator fun component10(): MutPtr<RouterCustomIkev2Policy0> = this.customPolicy
+    public operator fun component10(): MutPtr = this.customPolicy
 
     public operator fun component11(): UInt = this.dwTotalEkus
 
-    public operator fun component12(): MutPtr<MprCertEku> = this.certificateEKUs
+    public operator fun component12(): MutPtr = this.certificateEKUs
 
     public operator fun component13(): CryptIntegerBlob = this.machineCertificateHash
 
-    public fun copy(dwIdleTimeout: UInt = this.dwIdleTimeout, dwNetworkBlackoutTime: UInt = this.dwNetworkBlackoutTime, dwSaLifeTime: UInt = this.dwSaLifeTime, dwSaDataSizeForRenegotiation: UInt = this.dwSaDataSizeForRenegotiation, dwConfigOptions: UInt = this.dwConfigOptions, dwTotalCertificates: UInt = this.dwTotalCertificates, certificateNames: MutPtr<CryptIntegerBlob> = this.certificateNames, machineCertificateName: CryptIntegerBlob = this.machineCertificateName, dwEncryptionType: UInt = this.dwEncryptionType, customPolicy: MutPtr<RouterCustomIkev2Policy0> = this.customPolicy, dwTotalEkus: UInt = this.dwTotalEkus, certificateEKUs: MutPtr<MprCertEku> = this.certificateEKUs, machineCertificateHash: CryptIntegerBlob = this.machineCertificateHash): Ikev2TunnelConfigParams3 = Ikev2TunnelConfigParams3(dwIdleTimeout = dwIdleTimeout, dwNetworkBlackoutTime = dwNetworkBlackoutTime, dwSaLifeTime = dwSaLifeTime, dwSaDataSizeForRenegotiation = dwSaDataSizeForRenegotiation, dwConfigOptions = dwConfigOptions, dwTotalCertificates = dwTotalCertificates, certificateNamesCtorArg = certificateNames, machineCertificateName = machineCertificateName, dwEncryptionType = dwEncryptionType, customPolicyCtorArg = customPolicy, dwTotalEkus = dwTotalEkus, certificateEKUsCtorArg = certificateEKUs, machineCertificateHash = machineCertificateHash)
+    public fun copy(dwIdleTimeout: UInt = this.dwIdleTimeout, dwNetworkBlackoutTime: UInt = this.dwNetworkBlackoutTime, dwSaLifeTime: UInt = this.dwSaLifeTime, dwSaDataSizeForRenegotiation: UInt = this.dwSaDataSizeForRenegotiation, dwConfigOptions: UInt = this.dwConfigOptions, dwTotalCertificates: UInt = this.dwTotalCertificates, certificateNames: MutPtr = this.certificateNames, machineCertificateName: CryptIntegerBlob = this.machineCertificateName, dwEncryptionType: UInt = this.dwEncryptionType, customPolicy: MutPtr = this.customPolicy, dwTotalEkus: UInt = this.dwTotalEkus, certificateEKUs: MutPtr = this.certificateEKUs, machineCertificateHash: CryptIntegerBlob = this.machineCertificateHash): Ikev2TunnelConfigParams3 = Ikev2TunnelConfigParams3(dwIdleTimeout = dwIdleTimeout, dwNetworkBlackoutTime = dwNetworkBlackoutTime, dwSaLifeTime = dwSaLifeTime, dwSaDataSizeForRenegotiation = dwSaDataSizeForRenegotiation, dwConfigOptions = dwConfigOptions, dwTotalCertificates = dwTotalCertificates, certificateNamesCtorArg = certificateNames, machineCertificateName = machineCertificateName, dwEncryptionType = dwEncryptionType, customPolicyCtorArg = customPolicy, dwTotalEkus = dwTotalEkus, certificateEKUsCtorArg = certificateEKUs, machineCertificateHash = machineCertificateHash)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -613,12 +612,12 @@ public class Ikev2TunnelConfigParams3 internal constructor(
             dwSaDataSizeForRenegotiation: UInt = 0u,
             dwConfigOptions: UInt = 0u,
             dwTotalCertificates: UInt = 0u,
-            certificateNames: MutPtr<CryptIntegerBlob> = MutPtr(0L),
+            certificateNames: MutPtr = MutPtr(0L),
             machineCertificateName: CryptIntegerBlob = CryptIntegerBlob(),
             dwEncryptionType: UInt = 0u,
-            customPolicy: MutPtr<RouterCustomIkev2Policy0> = MutPtr(0L),
+            customPolicy: MutPtr = MutPtr(0L),
             dwTotalEkus: UInt = 0u,
-            certificateEKUs: MutPtr<MprCertEku> = MutPtr(0L),
+            certificateEKUs: MutPtr = MutPtr(0L),
             machineCertificateHash: CryptIntegerBlob = CryptIntegerBlob(),
         ): Ikev2TunnelConfigParams3 =
             Ikev2TunnelConfigParams3(
@@ -646,22 +645,22 @@ public class Ikev2TunnelConfigParams4 internal constructor(
     public var dwSaDataSizeForRenegotiation: UInt,
     public var dwConfigOptions: UInt,
     public var dwTotalCertificates: UInt,
-    certificateNamesCtorArg: MutPtr<CryptIntegerBlob>,
+    certificateNamesCtorArg: MutPtr,
     public var machineCertificateName: CryptIntegerBlob,
     public var dwEncryptionType: UInt,
-    customPolicyCtorArg: MutPtr<RouterCustomIkev2Policy0>,
+    customPolicyCtorArg: MutPtr,
     public var dwTotalEkus: UInt,
-    certificateEKUsCtorArg: MutPtr<MprCertEku>,
+    certificateEKUsCtorArg: MutPtr,
     public var machineCertificateHash: CryptIntegerBlob,
     public var dwMmSaLifeTime: UInt,
 ) {
-    public var certificateNames: MutPtr<CryptIntegerBlob> = certificateNamesCtorArg
+    public var certificateNames: MutPtr = certificateNamesCtorArg
         internal set
 
-    public var customPolicy: MutPtr<RouterCustomIkev2Policy0> = customPolicyCtorArg
+    public var customPolicy: MutPtr = customPolicyCtorArg
         internal set
 
-    public var certificateEKUs: MutPtr<MprCertEku> = certificateEKUsCtorArg
+    public var certificateEKUs: MutPtr = certificateEKUsCtorArg
         internal set
 
     public constructor() : this(
@@ -693,23 +692,23 @@ public class Ikev2TunnelConfigParams4 internal constructor(
 
     public operator fun component6(): UInt = this.dwTotalCertificates
 
-    public operator fun component7(): MutPtr<CryptIntegerBlob> = this.certificateNames
+    public operator fun component7(): MutPtr = this.certificateNames
 
     public operator fun component8(): CryptIntegerBlob = this.machineCertificateName
 
     public operator fun component9(): UInt = this.dwEncryptionType
 
-    public operator fun component10(): MutPtr<RouterCustomIkev2Policy0> = this.customPolicy
+    public operator fun component10(): MutPtr = this.customPolicy
 
     public operator fun component11(): UInt = this.dwTotalEkus
 
-    public operator fun component12(): MutPtr<MprCertEku> = this.certificateEKUs
+    public operator fun component12(): MutPtr = this.certificateEKUs
 
     public operator fun component13(): CryptIntegerBlob = this.machineCertificateHash
 
     public operator fun component14(): UInt = this.dwMmSaLifeTime
 
-    public fun copy(dwIdleTimeout: UInt = this.dwIdleTimeout, dwNetworkBlackoutTime: UInt = this.dwNetworkBlackoutTime, dwSaLifeTime: UInt = this.dwSaLifeTime, dwSaDataSizeForRenegotiation: UInt = this.dwSaDataSizeForRenegotiation, dwConfigOptions: UInt = this.dwConfigOptions, dwTotalCertificates: UInt = this.dwTotalCertificates, certificateNames: MutPtr<CryptIntegerBlob> = this.certificateNames, machineCertificateName: CryptIntegerBlob = this.machineCertificateName, dwEncryptionType: UInt = this.dwEncryptionType, customPolicy: MutPtr<RouterCustomIkev2Policy0> = this.customPolicy, dwTotalEkus: UInt = this.dwTotalEkus, certificateEKUs: MutPtr<MprCertEku> = this.certificateEKUs, machineCertificateHash: CryptIntegerBlob = this.machineCertificateHash, dwMmSaLifeTime: UInt = this.dwMmSaLifeTime): Ikev2TunnelConfigParams4 = Ikev2TunnelConfigParams4(dwIdleTimeout = dwIdleTimeout, dwNetworkBlackoutTime = dwNetworkBlackoutTime, dwSaLifeTime = dwSaLifeTime, dwSaDataSizeForRenegotiation = dwSaDataSizeForRenegotiation, dwConfigOptions = dwConfigOptions, dwTotalCertificates = dwTotalCertificates, certificateNamesCtorArg = certificateNames, machineCertificateName = machineCertificateName, dwEncryptionType = dwEncryptionType, customPolicyCtorArg = customPolicy, dwTotalEkus = dwTotalEkus, certificateEKUsCtorArg = certificateEKUs, machineCertificateHash = machineCertificateHash, dwMmSaLifeTime = dwMmSaLifeTime)
+    public fun copy(dwIdleTimeout: UInt = this.dwIdleTimeout, dwNetworkBlackoutTime: UInt = this.dwNetworkBlackoutTime, dwSaLifeTime: UInt = this.dwSaLifeTime, dwSaDataSizeForRenegotiation: UInt = this.dwSaDataSizeForRenegotiation, dwConfigOptions: UInt = this.dwConfigOptions, dwTotalCertificates: UInt = this.dwTotalCertificates, certificateNames: MutPtr = this.certificateNames, machineCertificateName: CryptIntegerBlob = this.machineCertificateName, dwEncryptionType: UInt = this.dwEncryptionType, customPolicy: MutPtr = this.customPolicy, dwTotalEkus: UInt = this.dwTotalEkus, certificateEKUs: MutPtr = this.certificateEKUs, machineCertificateHash: CryptIntegerBlob = this.machineCertificateHash, dwMmSaLifeTime: UInt = this.dwMmSaLifeTime): Ikev2TunnelConfigParams4 = Ikev2TunnelConfigParams4(dwIdleTimeout = dwIdleTimeout, dwNetworkBlackoutTime = dwNetworkBlackoutTime, dwSaLifeTime = dwSaLifeTime, dwSaDataSizeForRenegotiation = dwSaDataSizeForRenegotiation, dwConfigOptions = dwConfigOptions, dwTotalCertificates = dwTotalCertificates, certificateNamesCtorArg = certificateNames, machineCertificateName = machineCertificateName, dwEncryptionType = dwEncryptionType, customPolicyCtorArg = customPolicy, dwTotalEkus = dwTotalEkus, certificateEKUsCtorArg = certificateEKUs, machineCertificateHash = machineCertificateHash, dwMmSaLifeTime = dwMmSaLifeTime)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -757,12 +756,12 @@ public class Ikev2TunnelConfigParams4 internal constructor(
             dwSaDataSizeForRenegotiation: UInt = 0u,
             dwConfigOptions: UInt = 0u,
             dwTotalCertificates: UInt = 0u,
-            certificateNames: MutPtr<CryptIntegerBlob> = MutPtr(0L),
+            certificateNames: MutPtr = MutPtr(0L),
             machineCertificateName: CryptIntegerBlob = CryptIntegerBlob(),
             dwEncryptionType: UInt = 0u,
-            customPolicy: MutPtr<RouterCustomIkev2Policy0> = MutPtr(0L),
+            customPolicy: MutPtr = MutPtr(0L),
             dwTotalEkus: UInt = 0u,
-            certificateEKUs: MutPtr<MprCertEku> = MutPtr(0L),
+            certificateEKUs: MutPtr = MutPtr(0L),
             machineCertificateHash: CryptIntegerBlob = CryptIntegerBlob(),
             dwMmSaLifeTime: UInt = 0u,
         ): Ikev2TunnelConfigParams4 =
@@ -840,9 +839,9 @@ public class L2tpTunnelConfigParams1 internal constructor(
     public var dwEncryptionType: UInt,
     public var dwSaLifeTime: UInt,
     public var dwSaDataSizeForRenegotiation: UInt,
-    customPolicyCtorArg: MutPtr<RouterCustomIkev2Policy0>,
+    customPolicyCtorArg: MutPtr,
 ) {
-    public var customPolicy: MutPtr<RouterCustomIkev2Policy0> = customPolicyCtorArg
+    public var customPolicy: MutPtr = customPolicyCtorArg
         internal set
 
     public constructor() : this(
@@ -861,9 +860,9 @@ public class L2tpTunnelConfigParams1 internal constructor(
 
     public operator fun component4(): UInt = this.dwSaDataSizeForRenegotiation
 
-    public operator fun component5(): MutPtr<RouterCustomIkev2Policy0> = this.customPolicy
+    public operator fun component5(): MutPtr = this.customPolicy
 
-    public fun copy(dwIdleTimeout: UInt = this.dwIdleTimeout, dwEncryptionType: UInt = this.dwEncryptionType, dwSaLifeTime: UInt = this.dwSaLifeTime, dwSaDataSizeForRenegotiation: UInt = this.dwSaDataSizeForRenegotiation, customPolicy: MutPtr<RouterCustomIkev2Policy0> = this.customPolicy): L2tpTunnelConfigParams1 = L2tpTunnelConfigParams1(dwIdleTimeout = dwIdleTimeout, dwEncryptionType = dwEncryptionType, dwSaLifeTime = dwSaLifeTime, dwSaDataSizeForRenegotiation = dwSaDataSizeForRenegotiation, customPolicyCtorArg = customPolicy)
+    public fun copy(dwIdleTimeout: UInt = this.dwIdleTimeout, dwEncryptionType: UInt = this.dwEncryptionType, dwSaLifeTime: UInt = this.dwSaLifeTime, dwSaDataSizeForRenegotiation: UInt = this.dwSaDataSizeForRenegotiation, customPolicy: MutPtr = this.customPolicy): L2tpTunnelConfigParams1 = L2tpTunnelConfigParams1(dwIdleTimeout = dwIdleTimeout, dwEncryptionType = dwEncryptionType, dwSaLifeTime = dwSaLifeTime, dwSaDataSizeForRenegotiation = dwSaDataSizeForRenegotiation, customPolicyCtorArg = customPolicy)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -898,7 +897,7 @@ public class L2tpTunnelConfigParams1 internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 12L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<RouterCustomIkev2Policy0>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 16L),
                     )
                 override fun writeNative(addr: Long, value: L2tpTunnelConfigParams1) {
@@ -908,7 +907,7 @@ public class L2tpTunnelConfigParams1 internal constructor(
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 12L, value.dwSaDataSizeForRenegotiation)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<RouterCustomIkev2Policy0>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 16L, value.customPolicy)
                 }
             }
@@ -918,7 +917,7 @@ public class L2tpTunnelConfigParams1 internal constructor(
             dwEncryptionType: UInt = 0u,
             dwSaLifeTime: UInt = 0u,
             dwSaDataSizeForRenegotiation: UInt = 0u,
-            customPolicy: MutPtr<RouterCustomIkev2Policy0> = MutPtr(0L),
+            customPolicy: MutPtr = MutPtr(0L),
         ): L2tpTunnelConfigParams1 =
             L2tpTunnelConfigParams1(
                 dwIdleTimeout = dwIdleTimeout,
@@ -935,10 +934,10 @@ public class L2tpTunnelConfigParams2 internal constructor(
     public var dwEncryptionType: UInt,
     public var dwSaLifeTime: UInt,
     public var dwSaDataSizeForRenegotiation: UInt,
-    customPolicyCtorArg: MutPtr<RouterCustomIkev2Policy0>,
+    customPolicyCtorArg: MutPtr,
     public var dwMmSaLifeTime: UInt,
 ) {
-    public var customPolicy: MutPtr<RouterCustomIkev2Policy0> = customPolicyCtorArg
+    public var customPolicy: MutPtr = customPolicyCtorArg
         internal set
 
     public constructor() : this(
@@ -958,11 +957,11 @@ public class L2tpTunnelConfigParams2 internal constructor(
 
     public operator fun component4(): UInt = this.dwSaDataSizeForRenegotiation
 
-    public operator fun component5(): MutPtr<RouterCustomIkev2Policy0> = this.customPolicy
+    public operator fun component5(): MutPtr = this.customPolicy
 
     public operator fun component6(): UInt = this.dwMmSaLifeTime
 
-    public fun copy(dwIdleTimeout: UInt = this.dwIdleTimeout, dwEncryptionType: UInt = this.dwEncryptionType, dwSaLifeTime: UInt = this.dwSaLifeTime, dwSaDataSizeForRenegotiation: UInt = this.dwSaDataSizeForRenegotiation, customPolicy: MutPtr<RouterCustomIkev2Policy0> = this.customPolicy, dwMmSaLifeTime: UInt = this.dwMmSaLifeTime): L2tpTunnelConfigParams2 = L2tpTunnelConfigParams2(dwIdleTimeout = dwIdleTimeout, dwEncryptionType = dwEncryptionType, dwSaLifeTime = dwSaLifeTime, dwSaDataSizeForRenegotiation = dwSaDataSizeForRenegotiation, customPolicyCtorArg = customPolicy, dwMmSaLifeTime = dwMmSaLifeTime)
+    public fun copy(dwIdleTimeout: UInt = this.dwIdleTimeout, dwEncryptionType: UInt = this.dwEncryptionType, dwSaLifeTime: UInt = this.dwSaLifeTime, dwSaDataSizeForRenegotiation: UInt = this.dwSaDataSizeForRenegotiation, customPolicy: MutPtr = this.customPolicy, dwMmSaLifeTime: UInt = this.dwMmSaLifeTime): L2tpTunnelConfigParams2 = L2tpTunnelConfigParams2(dwIdleTimeout = dwIdleTimeout, dwEncryptionType = dwEncryptionType, dwSaLifeTime = dwSaLifeTime, dwSaDataSizeForRenegotiation = dwSaDataSizeForRenegotiation, customPolicyCtorArg = customPolicy, dwMmSaLifeTime = dwMmSaLifeTime)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -999,7 +998,7 @@ public class L2tpTunnelConfigParams2 internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 12L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<RouterCustomIkev2Policy0>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 16L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 24L),
                     )
@@ -1010,7 +1009,7 @@ public class L2tpTunnelConfigParams2 internal constructor(
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 12L, value.dwSaDataSizeForRenegotiation)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<RouterCustomIkev2Policy0>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 16L, value.customPolicy)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 24L, value.dwMmSaLifeTime)
                 }
@@ -1021,7 +1020,7 @@ public class L2tpTunnelConfigParams2 internal constructor(
             dwEncryptionType: UInt = 0u,
             dwSaLifeTime: UInt = 0u,
             dwSaDataSizeForRenegotiation: UInt = 0u,
-            customPolicy: MutPtr<RouterCustomIkev2Policy0> = MutPtr(0L),
+            customPolicy: MutPtr = MutPtr(0L),
             dwMmSaLifeTime: UInt = 0u,
         ): L2tpTunnelConfigParams2 =
             L2tpTunnelConfigParams2(
@@ -1173,9 +1172,9 @@ public class MprCertEku internal constructor(
 
 public class MprCredentialsex0 internal constructor(
     public var dwSize: UInt,
-    lpbCredentialsInfoCtorArg: MutPtr<UByte>,
+    lpbCredentialsInfoCtorArg: MutPtr,
 ) {
-    public var lpbCredentialsInfo: MutPtr<UByte> = lpbCredentialsInfoCtorArg
+    public var lpbCredentialsInfo: MutPtr = lpbCredentialsInfoCtorArg
         internal set
 
     public constructor() : this(
@@ -1185,9 +1184,9 @@ public class MprCredentialsex0 internal constructor(
 
     public operator fun component1(): UInt = this.dwSize
 
-    public operator fun component2(): MutPtr<UByte> = this.lpbCredentialsInfo
+    public operator fun component2(): MutPtr = this.lpbCredentialsInfo
 
-    public fun copy(dwSize: UInt = this.dwSize, lpbCredentialsInfo: MutPtr<UByte> = this.lpbCredentialsInfo): MprCredentialsex0 = MprCredentialsex0(dwSize = dwSize, lpbCredentialsInfoCtorArg = lpbCredentialsInfo)
+    public fun copy(dwSize: UInt = this.dwSize, lpbCredentialsInfo: MutPtr = this.lpbCredentialsInfo): MprCredentialsex0 = MprCredentialsex0(dwSize = dwSize, lpbCredentialsInfoCtorArg = lpbCredentialsInfo)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -1213,21 +1212,21 @@ public class MprCredentialsex0 internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<UByte>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                     )
                 override fun writeNative(addr: Long, value: MprCredentialsex0) {
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr, value.dwSize)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<UByte>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.lpbCredentialsInfo)
                 }
             }
 
         public operator fun invoke(
             dwSize: UInt = 0u,
-            lpbCredentialsInfo: MutPtr<UByte> = MutPtr(0L),
+            lpbCredentialsInfo: MutPtr = MutPtr(0L),
         ): MprCredentialsex0 =
             MprCredentialsex0(
                 dwSize = dwSize,
@@ -1238,9 +1237,9 @@ public class MprCredentialsex0 internal constructor(
 
 public class MprCredentialsex1 internal constructor(
     public var dwSize: UInt,
-    lpbCredentialsInfoCtorArg: MutPtr<UByte>,
+    lpbCredentialsInfoCtorArg: MutPtr,
 ) {
-    public var lpbCredentialsInfo: MutPtr<UByte> = lpbCredentialsInfoCtorArg
+    public var lpbCredentialsInfo: MutPtr = lpbCredentialsInfoCtorArg
         internal set
 
     public constructor() : this(
@@ -1250,9 +1249,9 @@ public class MprCredentialsex1 internal constructor(
 
     public operator fun component1(): UInt = this.dwSize
 
-    public operator fun component2(): MutPtr<UByte> = this.lpbCredentialsInfo
+    public operator fun component2(): MutPtr = this.lpbCredentialsInfo
 
-    public fun copy(dwSize: UInt = this.dwSize, lpbCredentialsInfo: MutPtr<UByte> = this.lpbCredentialsInfo): MprCredentialsex1 = MprCredentialsex1(dwSize = dwSize, lpbCredentialsInfoCtorArg = lpbCredentialsInfo)
+    public fun copy(dwSize: UInt = this.dwSize, lpbCredentialsInfo: MutPtr = this.lpbCredentialsInfo): MprCredentialsex1 = MprCredentialsex1(dwSize = dwSize, lpbCredentialsInfoCtorArg = lpbCredentialsInfo)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -1278,21 +1277,21 @@ public class MprCredentialsex1 internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<UByte>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                     )
                 override fun writeNative(addr: Long, value: MprCredentialsex1) {
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr, value.dwSize)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<UByte>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.lpbCredentialsInfo)
                 }
             }
 
         public operator fun invoke(
             dwSize: UInt = 0u,
-            lpbCredentialsInfo: MutPtr<UByte> = MutPtr(0L),
+            lpbCredentialsInfo: MutPtr = MutPtr(0L),
         ): MprCredentialsex1 =
             MprCredentialsex1(
                 dwSize = dwSize,
@@ -1712,7 +1711,7 @@ public class MprInterface2 internal constructor(
     public var dwEncryptionType: MprEt,
     public var dwCustomAuthKey: UInt,
     public var dwCustomAuthDataSize: UInt,
-    lpbCustomAuthDataCtorArg: MutPtr<UByte>,
+    lpbCustomAuthDataCtorArg: MutPtr,
     public var guidId: Guid,
     public var dwVpnStrategy: MprVs,
 ) {
@@ -1722,7 +1721,7 @@ public class MprInterface2 internal constructor(
     public var szAlternates: Pwstr = szAlternatesCtorArg
         internal set
 
-    public var lpbCustomAuthData: MutPtr<UByte> = lpbCustomAuthDataCtorArg
+    public var lpbCustomAuthData: MutPtr = lpbCustomAuthDataCtorArg
         internal set
 
     public constructor() : this(
@@ -1801,7 +1800,7 @@ public class MprInterface2 internal constructor(
             dwEncryptionType: MprEt = 0u,
             dwCustomAuthKey: UInt = 0u,
             dwCustomAuthDataSize: UInt = 0u,
-            lpbCustomAuthData: MutPtr<UByte> = MutPtr(0L),
+            lpbCustomAuthData: MutPtr = MutPtr(0L),
             guidId: Guid = Guid(),
             dwVpnStrategy: MprVs = 0u,
         ): MprInterface2 =
@@ -1882,13 +1881,13 @@ public class MprInterface3 internal constructor(
     public var dwEncryptionType: MprEt,
     public var dwCustomAuthKey: UInt,
     public var dwCustomAuthDataSize: UInt,
-    lpbCustomAuthDataCtorArg: MutPtr<UByte>,
+    lpbCustomAuthDataCtorArg: MutPtr,
     public var guidId: Guid,
     public var dwVpnStrategy: MprVs,
     public var addressCount: UInt,
     public var ipv6addrDns: In6Addr,
     public var ipv6addrDnsAlt: In6Addr,
-    ipv6addrCtorArg: MutPtr<In6Addr>,
+    ipv6addrCtorArg: MutPtr,
 ) {
     public var hInterface: Handle = hInterfaceCtorArg
         internal set
@@ -1896,10 +1895,10 @@ public class MprInterface3 internal constructor(
     public var szAlternates: Pwstr = szAlternatesCtorArg
         internal set
 
-    public var lpbCustomAuthData: MutPtr<UByte> = lpbCustomAuthDataCtorArg
+    public var lpbCustomAuthData: MutPtr = lpbCustomAuthDataCtorArg
         internal set
 
-    public var ipv6addr: MutPtr<In6Addr> = ipv6addrCtorArg
+    public var ipv6addr: MutPtr = ipv6addrCtorArg
         internal set
 
     public constructor() : this(
@@ -1982,13 +1981,13 @@ public class MprInterface3 internal constructor(
             dwEncryptionType: MprEt = 0u,
             dwCustomAuthKey: UInt = 0u,
             dwCustomAuthDataSize: UInt = 0u,
-            lpbCustomAuthData: MutPtr<UByte> = MutPtr(0L),
+            lpbCustomAuthData: MutPtr = MutPtr(0L),
             guidId: Guid = Guid(),
             dwVpnStrategy: MprVs = 0u,
             addressCount: UInt = 0u,
             ipv6addrDns: In6Addr = In6Addr(),
             ipv6addrDnsAlt: In6Addr = In6Addr(),
-            ipv6addr: MutPtr<In6Addr> = MutPtr(0L),
+            ipv6addr: MutPtr = MutPtr(0L),
         ): MprInterface3 =
             MprInterface3(
                 wszInterfaceName = wszInterfaceName,
@@ -2242,13 +2241,13 @@ public data class MprVpnTrafficSelector(
 public class MprVpnTrafficSelectors internal constructor(
     public var numTsi: UInt,
     public var numTsr: UInt,
-    tsICtorArg: MutPtr<MprVpnTrafficSelector>,
-    tsRCtorArg: MutPtr<MprVpnTrafficSelector>,
+    tsICtorArg: MutPtr,
+    tsRCtorArg: MutPtr,
 ) {
-    public var tsI: MutPtr<MprVpnTrafficSelector> = tsICtorArg
+    public var tsI: MutPtr = tsICtorArg
         internal set
 
-    public var tsR: MutPtr<MprVpnTrafficSelector> = tsRCtorArg
+    public var tsR: MutPtr = tsRCtorArg
         internal set
 
     public constructor() : this(
@@ -2262,11 +2261,11 @@ public class MprVpnTrafficSelectors internal constructor(
 
     public operator fun component2(): UInt = this.numTsr
 
-    public operator fun component3(): MutPtr<MprVpnTrafficSelector> = this.tsI
+    public operator fun component3(): MutPtr = this.tsI
 
-    public operator fun component4(): MutPtr<MprVpnTrafficSelector> = this.tsR
+    public operator fun component4(): MutPtr = this.tsR
 
-    public fun copy(numTsi: UInt = this.numTsi, numTsr: UInt = this.numTsr, tsI: MutPtr<MprVpnTrafficSelector> = this.tsI, tsR: MutPtr<MprVpnTrafficSelector> = this.tsR): MprVpnTrafficSelectors = MprVpnTrafficSelectors(numTsi = numTsi, numTsr = numTsr, tsICtorArg = tsI, tsRCtorArg = tsR)
+    public fun copy(numTsi: UInt = this.numTsi, numTsr: UInt = this.numTsr, tsI: MutPtr = this.tsI, tsR: MutPtr = this.tsR): MprVpnTrafficSelectors = MprVpnTrafficSelectors(numTsi = numTsi, numTsr = numTsr, tsICtorArg = tsI, tsRCtorArg = tsR)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -2297,11 +2296,11 @@ public class MprVpnTrafficSelectors internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 4L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<MprVpnTrafficSelector>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<MprVpnTrafficSelector>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 16L),
                     )
                 override fun writeNative(addr: Long, value: MprVpnTrafficSelectors) {
@@ -2309,11 +2308,11 @@ public class MprVpnTrafficSelectors internal constructor(
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 4L, value.numTsr)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<MprVpnTrafficSelector>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.tsI)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<MprVpnTrafficSelector>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 16L, value.tsR)
                 }
             }
@@ -2321,8 +2320,8 @@ public class MprVpnTrafficSelectors internal constructor(
         public operator fun invoke(
             numTsi: UInt = 0u,
             numTsr: UInt = 0u,
-            tsI: MutPtr<MprVpnTrafficSelector> = MutPtr(0L),
-            tsR: MutPtr<MprVpnTrafficSelector> = MutPtr(0L),
+            tsI: MutPtr = MutPtr(0L),
+            tsR: MutPtr = MutPtr(0L),
         ): MprVpnTrafficSelectors =
             MprVpnTrafficSelectors(
                 numTsi = numTsi,
@@ -4043,9 +4042,9 @@ public data class Rasdevinfow(
 
 public class Rasdevspecificinfo internal constructor(
     public var dwSize: UInt,
-    pbDevSpecificInfoCtorArg: MutPtr<UByte>,
+    pbDevSpecificInfoCtorArg: MutPtr,
 ) {
-    public var pbDevSpecificInfo: MutPtr<UByte> = pbDevSpecificInfoCtorArg
+    public var pbDevSpecificInfo: MutPtr = pbDevSpecificInfoCtorArg
         internal set
 
     public constructor() : this(
@@ -4055,9 +4054,9 @@ public class Rasdevspecificinfo internal constructor(
 
     public operator fun component1(): UInt = this.dwSize
 
-    public operator fun component2(): MutPtr<UByte> = this.pbDevSpecificInfo
+    public operator fun component2(): MutPtr = this.pbDevSpecificInfo
 
-    public fun copy(dwSize: UInt = this.dwSize, pbDevSpecificInfo: MutPtr<UByte> = this.pbDevSpecificInfo): Rasdevspecificinfo = Rasdevspecificinfo(dwSize = dwSize, pbDevSpecificInfoCtorArg = pbDevSpecificInfo)
+    public fun copy(dwSize: UInt = this.dwSize, pbDevSpecificInfo: MutPtr = this.pbDevSpecificInfo): Rasdevspecificinfo = Rasdevspecificinfo(dwSize = dwSize, pbDevSpecificInfoCtorArg = pbDevSpecificInfo)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -4083,21 +4082,21 @@ public class Rasdevspecificinfo internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<UByte>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 4L),
                     )
                 override fun writeNative(addr: Long, value: Rasdevspecificinfo) {
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr, value.dwSize)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<UByte>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 4L, value.pbDevSpecificInfo)
                 }
             }
 
         public operator fun invoke(
             dwSize: UInt = 0u,
-            pbDevSpecificInfo: MutPtr<UByte> = MutPtr(0L),
+            pbDevSpecificInfo: MutPtr = MutPtr(0L),
         ): Rasdevspecificinfo =
             Rasdevspecificinfo(
                 dwSize = dwSize,
@@ -4532,9 +4531,9 @@ public class Rasdialparamsw internal constructor(
 
 public class Raseapinfo internal constructor(
     public var dwSizeofEapInfo: UInt,
-    pbEapInfoCtorArg: MutPtr<UByte>,
+    pbEapInfoCtorArg: MutPtr,
 ) {
-    public var pbEapInfo: MutPtr<UByte> = pbEapInfoCtorArg
+    public var pbEapInfo: MutPtr = pbEapInfoCtorArg
         internal set
 
     public constructor() : this(
@@ -4544,9 +4543,9 @@ public class Raseapinfo internal constructor(
 
     public operator fun component1(): UInt = this.dwSizeofEapInfo
 
-    public operator fun component2(): MutPtr<UByte> = this.pbEapInfo
+    public operator fun component2(): MutPtr = this.pbEapInfo
 
-    public fun copy(dwSizeofEapInfo: UInt = this.dwSizeofEapInfo, pbEapInfo: MutPtr<UByte> = this.pbEapInfo): Raseapinfo = Raseapinfo(dwSizeofEapInfo = dwSizeofEapInfo, pbEapInfoCtorArg = pbEapInfo)
+    public fun copy(dwSizeofEapInfo: UInt = this.dwSizeofEapInfo, pbEapInfo: MutPtr = this.pbEapInfo): Raseapinfo = Raseapinfo(dwSizeofEapInfo = dwSizeofEapInfo, pbEapInfoCtorArg = pbEapInfo)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -4572,21 +4571,21 @@ public class Raseapinfo internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<UByte>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 4L),
                     )
                 override fun writeNative(addr: Long, value: Raseapinfo) {
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr, value.dwSizeofEapInfo)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<UByte>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 4L, value.pbEapInfo)
                 }
             }
 
         public operator fun invoke(
             dwSizeofEapInfo: UInt = 0u,
-            pbEapInfo: MutPtr<UByte> = MutPtr(0L),
+            pbEapInfo: MutPtr = MutPtr(0L),
         ): Raseapinfo =
             Raseapinfo(
                 dwSizeofEapInfo = dwSizeofEapInfo,
@@ -5158,14 +5157,14 @@ public class Rasikev2ProjectionInfo internal constructor(
     public var dwFlags: RasikevProjectionInfoFlags,
     public var dwEncryptionMethod: UInt,
     public var numIPv4ServerAddresses: UInt,
-    ipv4ServerAddressesCtorArg: MutPtr<InAddr>,
+    ipv4ServerAddressesCtorArg: MutPtr,
     public var numIPv6ServerAddresses: UInt,
-    ipv6ServerAddressesCtorArg: MutPtr<In6Addr>,
+    ipv6ServerAddressesCtorArg: MutPtr,
 ) {
-    public var ipv4ServerAddresses: MutPtr<InAddr> = ipv4ServerAddressesCtorArg
+    public var ipv4ServerAddresses: MutPtr = ipv4ServerAddressesCtorArg
         internal set
 
-    public var ipv6ServerAddresses: MutPtr<In6Addr> = ipv6ServerAddressesCtorArg
+    public var ipv6ServerAddresses: MutPtr = ipv6ServerAddressesCtorArg
         internal set
 
     public constructor() : this(
@@ -5210,13 +5209,13 @@ public class Rasikev2ProjectionInfo internal constructor(
 
     public operator fun component12(): UInt = this.numIPv4ServerAddresses
 
-    public operator fun component13(): MutPtr<InAddr> = this.ipv4ServerAddresses
+    public operator fun component13(): MutPtr = this.ipv4ServerAddresses
 
     public operator fun component14(): UInt = this.numIPv6ServerAddresses
 
-    public operator fun component15(): MutPtr<In6Addr> = this.ipv6ServerAddresses
+    public operator fun component15(): MutPtr = this.ipv6ServerAddresses
 
-    public fun copy(dwIPv4NegotiationError: UInt = this.dwIPv4NegotiationError, ipv4Address: InAddr = this.ipv4Address, ipv4ServerAddress: InAddr = this.ipv4ServerAddress, dwIPv6NegotiationError: UInt = this.dwIPv6NegotiationError, ipv6Address: In6Addr = this.ipv6Address, ipv6ServerAddress: In6Addr = this.ipv6ServerAddress, dwPrefixLength: UInt = this.dwPrefixLength, dwAuthenticationProtocol: UInt = this.dwAuthenticationProtocol, dwEapTypeId: UInt = this.dwEapTypeId, dwFlags: RasikevProjectionInfoFlags = this.dwFlags, dwEncryptionMethod: UInt = this.dwEncryptionMethod, numIPv4ServerAddresses: UInt = this.numIPv4ServerAddresses, ipv4ServerAddresses: MutPtr<InAddr> = this.ipv4ServerAddresses, numIPv6ServerAddresses: UInt = this.numIPv6ServerAddresses, ipv6ServerAddresses: MutPtr<In6Addr> = this.ipv6ServerAddresses): Rasikev2ProjectionInfo = Rasikev2ProjectionInfo(dwIPv4NegotiationError = dwIPv4NegotiationError, ipv4Address = ipv4Address, ipv4ServerAddress = ipv4ServerAddress, dwIPv6NegotiationError = dwIPv6NegotiationError, ipv6Address = ipv6Address, ipv6ServerAddress = ipv6ServerAddress, dwPrefixLength = dwPrefixLength, dwAuthenticationProtocol = dwAuthenticationProtocol, dwEapTypeId = dwEapTypeId, dwFlags = dwFlags, dwEncryptionMethod = dwEncryptionMethod, numIPv4ServerAddresses = numIPv4ServerAddresses, ipv4ServerAddressesCtorArg = ipv4ServerAddresses, numIPv6ServerAddresses = numIPv6ServerAddresses, ipv6ServerAddressesCtorArg = ipv6ServerAddresses)
+    public fun copy(dwIPv4NegotiationError: UInt = this.dwIPv4NegotiationError, ipv4Address: InAddr = this.ipv4Address, ipv4ServerAddress: InAddr = this.ipv4ServerAddress, dwIPv6NegotiationError: UInt = this.dwIPv6NegotiationError, ipv6Address: In6Addr = this.ipv6Address, ipv6ServerAddress: In6Addr = this.ipv6ServerAddress, dwPrefixLength: UInt = this.dwPrefixLength, dwAuthenticationProtocol: UInt = this.dwAuthenticationProtocol, dwEapTypeId: UInt = this.dwEapTypeId, dwFlags: RasikevProjectionInfoFlags = this.dwFlags, dwEncryptionMethod: UInt = this.dwEncryptionMethod, numIPv4ServerAddresses: UInt = this.numIPv4ServerAddresses, ipv4ServerAddresses: MutPtr = this.ipv4ServerAddresses, numIPv6ServerAddresses: UInt = this.numIPv6ServerAddresses, ipv6ServerAddresses: MutPtr = this.ipv6ServerAddresses): Rasikev2ProjectionInfo = Rasikev2ProjectionInfo(dwIPv4NegotiationError = dwIPv4NegotiationError, ipv4Address = ipv4Address, ipv4ServerAddress = ipv4ServerAddress, dwIPv6NegotiationError = dwIPv6NegotiationError, ipv6Address = ipv6Address, ipv6ServerAddress = ipv6ServerAddress, dwPrefixLength = dwPrefixLength, dwAuthenticationProtocol = dwAuthenticationProtocol, dwEapTypeId = dwEapTypeId, dwFlags = dwFlags, dwEncryptionMethod = dwEncryptionMethod, numIPv4ServerAddresses = numIPv4ServerAddresses, ipv4ServerAddressesCtorArg = ipv4ServerAddresses, numIPv6ServerAddresses = numIPv6ServerAddresses, ipv6ServerAddressesCtorArg = ipv6ServerAddresses)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -5272,9 +5271,9 @@ public class Rasikev2ProjectionInfo internal constructor(
             dwFlags: RasikevProjectionInfoFlags = 0u,
             dwEncryptionMethod: UInt = 0u,
             numIPv4ServerAddresses: UInt = 0u,
-            ipv4ServerAddresses: MutPtr<InAddr> = MutPtr(0L),
+            ipv4ServerAddresses: MutPtr = MutPtr(0L),
             numIPv6ServerAddresses: UInt = 0u,
-            ipv6ServerAddresses: MutPtr<In6Addr> = MutPtr(0L),
+            ipv6ServerAddresses: MutPtr = MutPtr(0L),
         ): Rasikev2ProjectionInfo =
             Rasikev2ProjectionInfo(
                 dwIPv4NegotiationError = dwIPv4NegotiationError,
@@ -7964,9 +7963,9 @@ public class RouterIkev2IfCustomConfig0 internal constructor(
     public var dwSaLifeTime: UInt,
     public var dwSaDataSize: UInt,
     public var certificateName: CryptIntegerBlob,
-    customPolicyCtorArg: MutPtr<RouterCustomIkev2Policy0>,
+    customPolicyCtorArg: MutPtr,
 ) {
-    public var customPolicy: MutPtr<RouterCustomIkev2Policy0> = customPolicyCtorArg
+    public var customPolicy: MutPtr = customPolicyCtorArg
         internal set
 
     public constructor() : this(
@@ -7982,9 +7981,9 @@ public class RouterIkev2IfCustomConfig0 internal constructor(
 
     public operator fun component3(): CryptIntegerBlob = this.certificateName
 
-    public operator fun component4(): MutPtr<RouterCustomIkev2Policy0> = this.customPolicy
+    public operator fun component4(): MutPtr = this.customPolicy
 
-    public fun copy(dwSaLifeTime: UInt = this.dwSaLifeTime, dwSaDataSize: UInt = this.dwSaDataSize, certificateName: CryptIntegerBlob = this.certificateName, customPolicy: MutPtr<RouterCustomIkev2Policy0> = this.customPolicy): RouterIkev2IfCustomConfig0 = RouterIkev2IfCustomConfig0(dwSaLifeTime = dwSaLifeTime, dwSaDataSize = dwSaDataSize, certificateName = certificateName, customPolicyCtorArg = customPolicy)
+    public fun copy(dwSaLifeTime: UInt = this.dwSaLifeTime, dwSaDataSize: UInt = this.dwSaDataSize, certificateName: CryptIntegerBlob = this.certificateName, customPolicy: MutPtr = this.customPolicy): RouterIkev2IfCustomConfig0 = RouterIkev2IfCustomConfig0(dwSaLifeTime = dwSaLifeTime, dwSaDataSize = dwSaDataSize, certificateName = certificateName, customPolicyCtorArg = customPolicy)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -8009,7 +8008,7 @@ public class RouterIkev2IfCustomConfig0 internal constructor(
             dwSaLifeTime: UInt = 0u,
             dwSaDataSize: UInt = 0u,
             certificateName: CryptIntegerBlob = CryptIntegerBlob(),
-            customPolicy: MutPtr<RouterCustomIkev2Policy0> = MutPtr(0L),
+            customPolicy: MutPtr = MutPtr(0L),
         ): RouterIkev2IfCustomConfig0 =
             RouterIkev2IfCustomConfig0(
                 dwSaLifeTime = dwSaLifeTime,
@@ -8024,10 +8023,10 @@ public class RouterIkev2IfCustomConfig1 internal constructor(
     public var dwSaLifeTime: UInt,
     public var dwSaDataSize: UInt,
     public var certificateName: CryptIntegerBlob,
-    customPolicyCtorArg: MutPtr<RouterCustomIkev2Policy0>,
+    customPolicyCtorArg: MutPtr,
     public var certificateHash: CryptIntegerBlob,
 ) {
-    public var customPolicy: MutPtr<RouterCustomIkev2Policy0> = customPolicyCtorArg
+    public var customPolicy: MutPtr = customPolicyCtorArg
         internal set
 
     public constructor() : this(
@@ -8044,11 +8043,11 @@ public class RouterIkev2IfCustomConfig1 internal constructor(
 
     public operator fun component3(): CryptIntegerBlob = this.certificateName
 
-    public operator fun component4(): MutPtr<RouterCustomIkev2Policy0> = this.customPolicy
+    public operator fun component4(): MutPtr = this.customPolicy
 
     public operator fun component5(): CryptIntegerBlob = this.certificateHash
 
-    public fun copy(dwSaLifeTime: UInt = this.dwSaLifeTime, dwSaDataSize: UInt = this.dwSaDataSize, certificateName: CryptIntegerBlob = this.certificateName, customPolicy: MutPtr<RouterCustomIkev2Policy0> = this.customPolicy, certificateHash: CryptIntegerBlob = this.certificateHash): RouterIkev2IfCustomConfig1 = RouterIkev2IfCustomConfig1(dwSaLifeTime = dwSaLifeTime, dwSaDataSize = dwSaDataSize, certificateName = certificateName, customPolicyCtorArg = customPolicy, certificateHash = certificateHash)
+    public fun copy(dwSaLifeTime: UInt = this.dwSaLifeTime, dwSaDataSize: UInt = this.dwSaDataSize, certificateName: CryptIntegerBlob = this.certificateName, customPolicy: MutPtr = this.customPolicy, certificateHash: CryptIntegerBlob = this.certificateHash): RouterIkev2IfCustomConfig1 = RouterIkev2IfCustomConfig1(dwSaLifeTime = dwSaLifeTime, dwSaDataSize = dwSaDataSize, certificateName = certificateName, customPolicyCtorArg = customPolicy, certificateHash = certificateHash)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -8075,7 +8074,7 @@ public class RouterIkev2IfCustomConfig1 internal constructor(
             dwSaLifeTime: UInt = 0u,
             dwSaDataSize: UInt = 0u,
             certificateName: CryptIntegerBlob = CryptIntegerBlob(),
-            customPolicy: MutPtr<RouterCustomIkev2Policy0> = MutPtr(0L),
+            customPolicy: MutPtr = MutPtr(0L),
             certificateHash: CryptIntegerBlob = CryptIntegerBlob(),
         ): RouterIkev2IfCustomConfig1 =
             RouterIkev2IfCustomConfig1(
@@ -8092,12 +8091,12 @@ public class RouterIkev2IfCustomConfig2 internal constructor(
     public var dwSaLifeTime: UInt,
     public var dwSaDataSize: UInt,
     public var certificateName: CryptIntegerBlob,
-    customPolicyCtorArg: MutPtr<RouterCustomIkev2Policy0>,
+    customPolicyCtorArg: MutPtr,
     public var certificateHash: CryptIntegerBlob,
     public var dwMmSaLifeTime: UInt,
     public var vpnTrafficSelectors: MprVpnTrafficSelectors,
 ) {
-    public var customPolicy: MutPtr<RouterCustomIkev2Policy0> = customPolicyCtorArg
+    public var customPolicy: MutPtr = customPolicyCtorArg
         internal set
 
     public constructor() : this(
@@ -8116,7 +8115,7 @@ public class RouterIkev2IfCustomConfig2 internal constructor(
 
     public operator fun component3(): CryptIntegerBlob = this.certificateName
 
-    public operator fun component4(): MutPtr<RouterCustomIkev2Policy0> = this.customPolicy
+    public operator fun component4(): MutPtr = this.customPolicy
 
     public operator fun component5(): CryptIntegerBlob = this.certificateHash
 
@@ -8124,7 +8123,7 @@ public class RouterIkev2IfCustomConfig2 internal constructor(
 
     public operator fun component7(): MprVpnTrafficSelectors = this.vpnTrafficSelectors
 
-    public fun copy(dwSaLifeTime: UInt = this.dwSaLifeTime, dwSaDataSize: UInt = this.dwSaDataSize, certificateName: CryptIntegerBlob = this.certificateName, customPolicy: MutPtr<RouterCustomIkev2Policy0> = this.customPolicy, certificateHash: CryptIntegerBlob = this.certificateHash, dwMmSaLifeTime: UInt = this.dwMmSaLifeTime, vpnTrafficSelectors: MprVpnTrafficSelectors = this.vpnTrafficSelectors): RouterIkev2IfCustomConfig2 = RouterIkev2IfCustomConfig2(dwSaLifeTime = dwSaLifeTime, dwSaDataSize = dwSaDataSize, certificateName = certificateName, customPolicyCtorArg = customPolicy, certificateHash = certificateHash, dwMmSaLifeTime = dwMmSaLifeTime, vpnTrafficSelectors = vpnTrafficSelectors)
+    public fun copy(dwSaLifeTime: UInt = this.dwSaLifeTime, dwSaDataSize: UInt = this.dwSaDataSize, certificateName: CryptIntegerBlob = this.certificateName, customPolicy: MutPtr = this.customPolicy, certificateHash: CryptIntegerBlob = this.certificateHash, dwMmSaLifeTime: UInt = this.dwMmSaLifeTime, vpnTrafficSelectors: MprVpnTrafficSelectors = this.vpnTrafficSelectors): RouterIkev2IfCustomConfig2 = RouterIkev2IfCustomConfig2(dwSaLifeTime = dwSaLifeTime, dwSaDataSize = dwSaDataSize, certificateName = certificateName, customPolicyCtorArg = customPolicy, certificateHash = certificateHash, dwMmSaLifeTime = dwMmSaLifeTime, vpnTrafficSelectors = vpnTrafficSelectors)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -8155,7 +8154,7 @@ public class RouterIkev2IfCustomConfig2 internal constructor(
             dwSaLifeTime: UInt = 0u,
             dwSaDataSize: UInt = 0u,
             certificateName: CryptIntegerBlob = CryptIntegerBlob(),
-            customPolicy: MutPtr<RouterCustomIkev2Policy0> = MutPtr(0L),
+            customPolicy: MutPtr = MutPtr(0L),
             certificateHash: CryptIntegerBlob = CryptIntegerBlob(),
             dwMmSaLifeTime: UInt = 0u,
             vpnTrafficSelectors: MprVpnTrafficSelectors = MprVpnTrafficSelectors(),
@@ -8422,10 +8421,10 @@ public class RtmNexthopInfo internal constructor(
     public var interfaceIndex: UInt,
     public var state: UShort,
     public var flags: UShort,
-    entitySpecificInfoCtorArg: MutPtr<CVoid>,
+    entitySpecificInfoCtorArg: MutPtr,
     public var remoteNextHop: Int,
 ) {
-    public var entitySpecificInfo: MutPtr<CVoid> = entitySpecificInfoCtorArg
+    public var entitySpecificInfo: MutPtr = entitySpecificInfoCtorArg
         internal set
 
     public constructor() : this(
@@ -8448,11 +8447,11 @@ public class RtmNexthopInfo internal constructor(
 
     public operator fun component5(): UShort = this.flags
 
-    public operator fun component6(): MutPtr<CVoid> = this.entitySpecificInfo
+    public operator fun component6(): MutPtr = this.entitySpecificInfo
 
     public operator fun component7(): Int = this.remoteNextHop
 
-    public fun copy(nextHopAddress: RtmNetAddress = this.nextHopAddress, nextHopOwner: Int = this.nextHopOwner, interfaceIndex: UInt = this.interfaceIndex, state: UShort = this.state, flags: UShort = this.flags, entitySpecificInfo: MutPtr<CVoid> = this.entitySpecificInfo, remoteNextHop: Int = this.remoteNextHop): RtmNexthopInfo = RtmNexthopInfo(nextHopAddress = nextHopAddress, nextHopOwner = nextHopOwner, interfaceIndex = interfaceIndex, state = state, flags = flags, entitySpecificInfoCtorArg = entitySpecificInfo, remoteNextHop = remoteNextHop)
+    public fun copy(nextHopAddress: RtmNetAddress = this.nextHopAddress, nextHopOwner: Int = this.nextHopOwner, interfaceIndex: UInt = this.interfaceIndex, state: UShort = this.state, flags: UShort = this.flags, entitySpecificInfo: MutPtr = this.entitySpecificInfo, remoteNextHop: Int = this.remoteNextHop): RtmNexthopInfo = RtmNexthopInfo(nextHopAddress = nextHopAddress, nextHopOwner = nextHopOwner, interfaceIndex = interfaceIndex, state = state, flags = flags, entitySpecificInfoCtorArg = entitySpecificInfo, remoteNextHop = remoteNextHop)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -8492,7 +8491,7 @@ public class RtmNexthopInfo internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16).readNative(addr + 38L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<CVoid>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 40L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.ISIZE64).readNative(addr + 48L),
                     )
@@ -8504,7 +8503,7 @@ public class RtmNexthopInfo internal constructor(
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16).writeNative(addr + 38L, value.flags)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<CVoid>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 40L, value.entitySpecificInfo)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.ISIZE64).writeNative(addr + 48L, value.remoteNextHop)
                 }
@@ -8516,7 +8515,7 @@ public class RtmNexthopInfo internal constructor(
             interfaceIndex: UInt = 0u,
             state: UShort = 0u,
             flags: UShort = 0u,
-            entitySpecificInfo: MutPtr<CVoid> = MutPtr(0L),
+            entitySpecificInfo: MutPtr = MutPtr(0L),
             remoteNextHop: Int = 0,
         ): RtmNexthopInfo =
             RtmNexthopInfo(
@@ -8632,10 +8631,10 @@ public class RtmRouteInfo internal constructor(
     public var flags: UShort,
     public var prefInfo: RtmPrefInfo,
     public var belongsToViews: UInt,
-    entitySpecificInfoCtorArg: MutPtr<CVoid>,
+    entitySpecificInfoCtorArg: MutPtr,
     public var nextHopsList: RtmNexthopList,
 ) {
-    public var entitySpecificInfo: MutPtr<CVoid> = entitySpecificInfoCtorArg
+    public var entitySpecificInfo: MutPtr = entitySpecificInfoCtorArg
         internal set
 
     public constructor() : this(
@@ -8667,11 +8666,11 @@ public class RtmRouteInfo internal constructor(
 
     public operator fun component8(): UInt = this.belongsToViews
 
-    public operator fun component9(): MutPtr<CVoid> = this.entitySpecificInfo
+    public operator fun component9(): MutPtr = this.entitySpecificInfo
 
     public operator fun component10(): RtmNexthopList = this.nextHopsList
 
-    public fun copy(destHandle: Int = this.destHandle, routeOwner: Int = this.routeOwner, neighbour: Int = this.neighbour, state: UByte = this.state, flags1: UByte = this.flags1, flags: UShort = this.flags, prefInfo: RtmPrefInfo = this.prefInfo, belongsToViews: UInt = this.belongsToViews, entitySpecificInfo: MutPtr<CVoid> = this.entitySpecificInfo, nextHopsList: RtmNexthopList = this.nextHopsList): RtmRouteInfo = RtmRouteInfo(destHandle = destHandle, routeOwner = routeOwner, neighbour = neighbour, state = state, flags1 = flags1, flags = flags, prefInfo = prefInfo, belongsToViews = belongsToViews, entitySpecificInfoCtorArg = entitySpecificInfo, nextHopsList = nextHopsList)
+    public fun copy(destHandle: Int = this.destHandle, routeOwner: Int = this.routeOwner, neighbour: Int = this.neighbour, state: UByte = this.state, flags1: UByte = this.flags1, flags: UShort = this.flags, prefInfo: RtmPrefInfo = this.prefInfo, belongsToViews: UInt = this.belongsToViews, entitySpecificInfo: MutPtr = this.entitySpecificInfo, nextHopsList: RtmNexthopList = this.nextHopsList): RtmRouteInfo = RtmRouteInfo(destHandle = destHandle, routeOwner = routeOwner, neighbour = neighbour, state = state, flags1 = flags1, flags = flags, prefInfo = prefInfo, belongsToViews = belongsToViews, entitySpecificInfoCtorArg = entitySpecificInfo, nextHopsList = nextHopsList)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -8720,7 +8719,7 @@ public class RtmRouteInfo internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 36L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<CVoid>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 40L),
                         (RtmNexthopList.typeLayout()).readNative(addr + 48L),
                     )
@@ -8735,7 +8734,7 @@ public class RtmRouteInfo internal constructor(
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 36L, value.belongsToViews)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<CVoid>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 40L, value.entitySpecificInfo)
                     (RtmNexthopList.typeLayout()).writeNative(addr + 48L, value.nextHopsList)
                 }
@@ -8750,7 +8749,7 @@ public class RtmRouteInfo internal constructor(
             flags: UShort = 0u,
             prefInfo: RtmPrefInfo = RtmPrefInfo(),
             belongsToViews: UInt = 0u,
-            entitySpecificInfo: MutPtr<CVoid> = MutPtr(0L),
+            entitySpecificInfo: MutPtr = MutPtr(0L),
             nextHopsList: RtmNexthopList = RtmNexthopList(),
         ): RtmRouteInfo =
             RtmRouteInfo(

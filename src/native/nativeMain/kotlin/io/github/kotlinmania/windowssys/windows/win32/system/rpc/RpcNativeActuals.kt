@@ -2,7 +2,6 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.system.rpc
 
-import io.github.kotlinmania.rustlang.core.ffi.CVoid
 import io.github.kotlinmania.rustlang.core.ptr.ConstPtr
 import io.github.kotlinmania.rustlang.core.ptr.MutPtr
 import io.github.kotlinmania.windowssys.core.Bool
@@ -13,7 +12,6 @@ import io.github.kotlinmania.windowssys.core.Pcwstr
 import io.github.kotlinmania.windowssys.core.Pstr
 import io.github.kotlinmania.windowssys.core.Pwstr
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Luid
-import io.github.kotlinmania.windowssys.windows.win32.security.cryptography.CertContext
 import io.github.kotlinmania.windowssys.windows.win32.system.rpc.cinterop.windowssysWindowsWin32SystemRpcDceErrorInqTextA
 import io.github.kotlinmania.windowssys.windows.win32.system.rpc.cinterop.windowssysWindowsWin32SystemRpcDceErrorInqTextW
 import io.github.kotlinmania.windowssys.windows.win32.system.rpc.cinterop.windowssysWindowsWin32SystemRpcIRpcAllocate
@@ -522,109 +520,109 @@ public actual fun dceErrorInqTextA(rpcstatus: RpcStatus, errortext: Pstr): RpcSt
 public actual fun dceErrorInqTextW(rpcstatus: RpcStatus, errortext: Pwstr): RpcStatus =
     windowssysWindowsWin32SystemRpcDceErrorInqTextW(rpcstatus, errortext.rawAddress.toCPointer<ByteVar>())
 
-public actual fun iunknownAddRefProxy(thisRef: MutPtr<CVoid>): UInt =
+public actual fun iunknownAddRefProxy(thisRef: MutPtr): UInt =
     windowssysWindowsWin32SystemRpcIunknownAddRefProxy(thisRef.rawAddress.toCPointer<ByteVar>())
 
-public actual fun iunknownQueryInterfaceProxy(thisRef: MutPtr<CVoid>, riid: ConstPtr<Guid>, ppvobject: MutPtr<MutPtr<CVoid>>): Hresult =
+public actual fun iunknownQueryInterfaceProxy(thisRef: MutPtr, riid: ConstPtr, ppvobject: MutPtr): Hresult =
     windowssysWindowsWin32SystemRpcIunknownQueryInterfaceProxy(thisRef.rawAddress.toCPointer<ByteVar>(), riid.rawAddress.toCPointer<ByteVar>(), ppvobject.rawAddress.toCPointer<ByteVar>())
 
-public actual fun iunknownReleaseProxy(thisRef: MutPtr<CVoid>): UInt =
+public actual fun iunknownReleaseProxy(thisRef: MutPtr): UInt =
     windowssysWindowsWin32SystemRpcIunknownReleaseProxy(thisRef.rawAddress.toCPointer<ByteVar>())
 
-public actual fun iRpcAllocate(size: UInt): MutPtr<CVoid> =
+public actual fun iRpcAllocate(size: UInt): MutPtr =
     MutPtr(windowssysWindowsWin32SystemRpcIRpcAllocate(size)?.toLong() ?: 0L)
 
-public actual fun iRpcAsyncAbortCall(pasync: ConstPtr<RpcAsyncState>, exceptioncode: UInt): RpcStatus =
+public actual fun iRpcAsyncAbortCall(pasync: ConstPtr, exceptioncode: UInt): RpcStatus =
     windowssysWindowsWin32SystemRpcIRpcAsyncAbortCall(pasync.rawAddress.toCPointer<ByteVar>(), exceptioncode)
 
-public actual fun iRpcAsyncSetHandle(message: ConstPtr<RpcMessage>, pasync: ConstPtr<RpcAsyncState>): RpcStatus =
+public actual fun iRpcAsyncSetHandle(message: ConstPtr, pasync: ConstPtr): RpcStatus =
     windowssysWindowsWin32SystemRpcIRpcAsyncSetHandle(message.rawAddress.toCPointer<ByteVar>(), pasync.rawAddress.toCPointer<ByteVar>())
 
-public actual fun iRpcBindingCopy(sourcebinding: MutPtr<CVoid>, destinationbinding: MutPtr<MutPtr<CVoid>>): RpcStatus =
+public actual fun iRpcBindingCopy(sourcebinding: MutPtr, destinationbinding: MutPtr): RpcStatus =
     windowssysWindowsWin32SystemRpcIRpcBindingCopy(sourcebinding.rawAddress.toCPointer<ByteVar>(), destinationbinding.rawAddress.toCPointer<ByteVar>())
 
-public actual fun iRpcBindingCreateNp(servername: Pcwstr, servicename: Pcwstr, networkoptions: Pcwstr, binding: MutPtr<MutPtr<CVoid>>): RpcStatus =
+public actual fun iRpcBindingCreateNp(servername: Pcwstr, servicename: Pcwstr, networkoptions: Pcwstr, binding: MutPtr): RpcStatus =
     windowssysWindowsWin32SystemRpcIRpcBindingCreateNp(servername.rawAddress.toCPointer<ByteVar>(), servicename.rawAddress.toCPointer<ByteVar>(), networkoptions.rawAddress.toCPointer<ByteVar>(), binding.rawAddress.toCPointer<ByteVar>())
 
-public actual fun iRpcBindingHandleToAsyncHandle(binding: MutPtr<CVoid>, asynchandle: MutPtr<MutPtr<CVoid>>): RpcStatus =
+public actual fun iRpcBindingHandleToAsyncHandle(binding: MutPtr, asynchandle: MutPtr): RpcStatus =
     windowssysWindowsWin32SystemRpcIRpcBindingHandleToAsyncHandle(binding.rawAddress.toCPointer<ByteVar>(), asynchandle.rawAddress.toCPointer<ByteVar>())
 
-public actual fun iRpcBindingInqClientTokenAttributes(binding: ConstPtr<CVoid>, tokenid: MutPtr<Luid>, authenticationid: MutPtr<Luid>, modifiedid: MutPtr<Luid>): RpcStatus =
+public actual fun iRpcBindingInqClientTokenAttributes(binding: ConstPtr, tokenid: MutPtr, authenticationid: MutPtr, modifiedid: MutPtr): RpcStatus =
     windowssysWindowsWin32SystemRpcIRpcBindingInqClientTokenAttributes(binding.rawAddress.toCPointer<ByteVar>(), tokenid.rawAddress.toCPointer<ByteVar>(), authenticationid.rawAddress.toCPointer<ByteVar>(), modifiedid.rawAddress.toCPointer<ByteVar>())
 
-public actual fun iRpcBindingInqDynamicEndpointA(binding: ConstPtr<CVoid>, dynamicendpoint: MutPtr<Pstr>): RpcStatus =
+public actual fun iRpcBindingInqDynamicEndpointA(binding: ConstPtr, dynamicendpoint: MutPtr): RpcStatus =
     windowssysWindowsWin32SystemRpcIRpcBindingInqDynamicEndpointA(binding.rawAddress.toCPointer<ByteVar>(), dynamicendpoint.rawAddress.toCPointer<ByteVar>())
 
-public actual fun iRpcBindingInqDynamicEndpointW(binding: ConstPtr<CVoid>, dynamicendpoint: MutPtr<Pwstr>): RpcStatus =
+public actual fun iRpcBindingInqDynamicEndpointW(binding: ConstPtr, dynamicendpoint: MutPtr): RpcStatus =
     windowssysWindowsWin32SystemRpcIRpcBindingInqDynamicEndpointW(binding.rawAddress.toCPointer<ByteVar>(), dynamicendpoint.rawAddress.toCPointer<ByteVar>())
 
-public actual fun iRpcBindingInqLocalClientPid(binding: MutPtr<CVoid>, pid: MutPtr<UInt>): RpcStatus =
+public actual fun iRpcBindingInqLocalClientPid(binding: MutPtr, pid: MutPtr): RpcStatus =
     windowssysWindowsWin32SystemRpcIRpcBindingInqLocalClientPid(binding.rawAddress.toCPointer<ByteVar>(), pid.rawAddress.toCPointer<ByteVar>())
 
-public actual fun iRpcBindingInqMarshalledTargetInfo(binding: ConstPtr<CVoid>, marshalledtargetinfosize: MutPtr<UInt>, marshalledtargetinfo: MutPtr<Pstr>): RpcStatus =
+public actual fun iRpcBindingInqMarshalledTargetInfo(binding: ConstPtr, marshalledtargetinfosize: MutPtr, marshalledtargetinfo: MutPtr): RpcStatus =
     windowssysWindowsWin32SystemRpcIRpcBindingInqMarshalledTargetInfo(binding.rawAddress.toCPointer<ByteVar>(), marshalledtargetinfosize.rawAddress.toCPointer<ByteVar>(), marshalledtargetinfo.rawAddress.toCPointer<ByteVar>())
 
-public actual fun iRpcBindingInqSecurityContext(binding: MutPtr<CVoid>, securitycontexthandle: MutPtr<MutPtr<CVoid>>): RpcStatus =
+public actual fun iRpcBindingInqSecurityContext(binding: MutPtr, securitycontexthandle: MutPtr): RpcStatus =
     windowssysWindowsWin32SystemRpcIRpcBindingInqSecurityContext(binding.rawAddress.toCPointer<ByteVar>(), securitycontexthandle.rawAddress.toCPointer<ByteVar>())
 
-public actual fun iRpcBindingInqSecurityContextKeyInfo(binding: ConstPtr<CVoid>, keyinfo: MutPtr<CVoid>): RpcStatus =
+public actual fun iRpcBindingInqSecurityContextKeyInfo(binding: ConstPtr, keyinfo: MutPtr): RpcStatus =
     windowssysWindowsWin32SystemRpcIRpcBindingInqSecurityContextKeyInfo(binding.rawAddress.toCPointer<ByteVar>(), keyinfo.rawAddress.toCPointer<ByteVar>())
 
-public actual fun iRpcBindingInqTransportType(binding: MutPtr<CVoid>, type: MutPtr<UInt>): RpcStatus =
+public actual fun iRpcBindingInqTransportType(binding: MutPtr, type: MutPtr): RpcStatus =
     windowssysWindowsWin32SystemRpcIRpcBindingInqTransportType(binding.rawAddress.toCPointer<ByteVar>(), type.rawAddress.toCPointer<ByteVar>())
 
-public actual fun iRpcBindingInqWireIdForSnego(binding: ConstPtr<CVoid>, wireid: MutPtr<UByte>): RpcStatus =
+public actual fun iRpcBindingInqWireIdForSnego(binding: ConstPtr, wireid: MutPtr): RpcStatus =
     windowssysWindowsWin32SystemRpcIRpcBindingInqWireIdForSnego(binding.rawAddress.toCPointer<ByteVar>(), wireid.rawAddress.toCPointer<ByteVar>())
 
-public actual fun iRpcBindingIsClientLocal(bindinghandle: MutPtr<CVoid>, clientlocalflag: MutPtr<UInt>): RpcStatus =
+public actual fun iRpcBindingIsClientLocal(bindinghandle: MutPtr, clientlocalflag: MutPtr): RpcStatus =
     windowssysWindowsWin32SystemRpcIRpcBindingIsClientLocal(bindinghandle.rawAddress.toCPointer<ByteVar>(), clientlocalflag.rawAddress.toCPointer<ByteVar>())
 
-public actual fun iRpcBindingIsServerLocal(binding: ConstPtr<CVoid>, serverlocalflag: MutPtr<UInt>): RpcStatus =
+public actual fun iRpcBindingIsServerLocal(binding: ConstPtr, serverlocalflag: MutPtr): RpcStatus =
     windowssysWindowsWin32SystemRpcIRpcBindingIsServerLocal(binding.rawAddress.toCPointer<ByteVar>(), serverlocalflag.rawAddress.toCPointer<ByteVar>())
 
-public actual fun iRpcBindingSetPrivateOption(hbinding: ConstPtr<CVoid>, option: UInt, optionvalue: ULong): RpcStatus =
+public actual fun iRpcBindingSetPrivateOption(hbinding: ConstPtr, option: UInt, optionvalue: ULong): RpcStatus =
     windowssysWindowsWin32SystemRpcIRpcBindingSetPrivateOption(hbinding.rawAddress.toCPointer<ByteVar>(), option, optionvalue)
 
-public actual fun iRpcBindingToStaticStringBindingW(binding: MutPtr<CVoid>, stringbinding: MutPtr<MutPtr<UShort>>): RpcStatus =
+public actual fun iRpcBindingToStaticStringBindingW(binding: MutPtr, stringbinding: MutPtr): RpcStatus =
     windowssysWindowsWin32SystemRpcIRpcBindingToStaticStringBindingW(binding.rawAddress.toCPointer<ByteVar>(), stringbinding.rawAddress.toCPointer<ByteVar>())
 
-public actual fun iRpcClearMutex(mutex: MutPtr<CVoid>) {
+public actual fun iRpcClearMutex(mutex: MutPtr) {
     windowssysWindowsWin32SystemRpcIRpcClearMutex(mutex.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun iRpcDeleteMutex(mutex: MutPtr<CVoid>) {
+public actual fun iRpcDeleteMutex(mutex: MutPtr) {
     windowssysWindowsWin32SystemRpcIRpcDeleteMutex(mutex.rawAddress.toCPointer<ByteVar>())
 }
 
 public actual fun iRpcExceptionFilter(exceptioncode: UInt): Int =
     windowssysWindowsWin32SystemRpcIRpcExceptionFilter(exceptioncode)
 
-public actual fun iRpcFree(obj: MutPtr<CVoid>) {
+public actual fun iRpcFree(obj: MutPtr) {
     windowssysWindowsWin32SystemRpcIRpcFree(obj.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun iRpcFreeBuffer(message: MutPtr<RpcMessage>): RpcStatus =
+public actual fun iRpcFreeBuffer(message: MutPtr): RpcStatus =
     windowssysWindowsWin32SystemRpcIRpcFreeBuffer(message.rawAddress.toCPointer<ByteVar>())
 
-public actual fun iRpcFreePipeBuffer(message: MutPtr<RpcMessage>): RpcStatus =
+public actual fun iRpcFreePipeBuffer(message: MutPtr): RpcStatus =
     windowssysWindowsWin32SystemRpcIRpcFreePipeBuffer(message.rawAddress.toCPointer<ByteVar>())
 
-public actual fun iRpcGetBuffer(message: MutPtr<RpcMessage>): RpcStatus =
+public actual fun iRpcGetBuffer(message: MutPtr): RpcStatus =
     windowssysWindowsWin32SystemRpcIRpcGetBuffer(message.rawAddress.toCPointer<ByteVar>())
 
-public actual fun iRpcGetBufferWithObject(message: MutPtr<RpcMessage>, objectuuid: MutPtr<Guid>): RpcStatus =
+public actual fun iRpcGetBufferWithObject(message: MutPtr, objectuuid: MutPtr): RpcStatus =
     windowssysWindowsWin32SystemRpcIRpcGetBufferWithObject(message.rawAddress.toCPointer<ByteVar>(), objectuuid.rawAddress.toCPointer<ByteVar>())
 
-public actual fun iRpcGetCurrentCallHandle(): MutPtr<CVoid> =
+public actual fun iRpcGetCurrentCallHandle(): MutPtr =
     MutPtr(windowssysWindowsWin32SystemRpcIRpcGetCurrentCallHandle()?.toLong() ?: 0L)
 
-public actual fun iRpcGetDefaultSd(ppsecuritydescriptor: MutPtr<MutPtr<CVoid>>): RpcStatus =
+public actual fun iRpcGetDefaultSd(ppsecuritydescriptor: MutPtr): RpcStatus =
     windowssysWindowsWin32SystemRpcIRpcGetDefaultSd(ppsecuritydescriptor.rawAddress.toCPointer<ByteVar>())
 
 public actual fun iRpcGetExtendedError(): RpcStatus =
     windowssysWindowsWin32SystemRpcIRpcGetExtendedError()
 
-public actual fun iRpcIfInqTransferSyntaxes(rpcifhandle: MutPtr<CVoid>, transfersyntaxes: MutPtr<RpcTransferSyntax>, transfersyntaxsize: UInt, transfersyntaxcount: MutPtr<UInt>): RpcStatus =
+public actual fun iRpcIfInqTransferSyntaxes(rpcifhandle: MutPtr, transfersyntaxes: MutPtr, transfersyntaxsize: UInt, transfersyntaxcount: MutPtr): RpcStatus =
     windowssysWindowsWin32SystemRpcIRpcIfInqTransferSyntaxes(rpcifhandle.rawAddress.toCPointer<ByteVar>(), transfersyntaxes.rawAddress.toCPointer<ByteVar>(), transfersyntaxsize, transfersyntaxcount.rawAddress.toCPointer<ByteVar>())
 
 public actual fun iRpcMapWin32Status(status: RpcStatus): Int =
@@ -633,110 +631,110 @@ public actual fun iRpcMapWin32Status(status: RpcStatus): Int =
 public actual fun iRpcMgmtEnableDedicatedThreadPool(): RpcStatus =
     windowssysWindowsWin32SystemRpcIRpcMgmtEnableDedicatedThreadPool()
 
-public actual fun iRpcNegotiateTransferSyntax(message: MutPtr<RpcMessage>): RpcStatus =
+public actual fun iRpcNegotiateTransferSyntax(message: MutPtr): RpcStatus =
     windowssysWindowsWin32SystemRpcIRpcNegotiateTransferSyntax(message.rawAddress.toCPointer<ByteVar>())
 
-public actual fun iRpcNsBindingSetEntryNameA(binding: ConstPtr<CVoid>, entrynamesyntax: UInt, entryname: Pcstr): RpcStatus =
+public actual fun iRpcNsBindingSetEntryNameA(binding: ConstPtr, entrynamesyntax: UInt, entryname: Pcstr): RpcStatus =
     windowssysWindowsWin32SystemRpcIRpcNsBindingSetEntryNameA(binding.rawAddress.toCPointer<ByteVar>(), entrynamesyntax, entryname.rawAddress.toCPointer<ByteVar>())
 
-public actual fun iRpcNsBindingSetEntryNameW(binding: ConstPtr<CVoid>, entrynamesyntax: UInt, entryname: Pcwstr): RpcStatus =
+public actual fun iRpcNsBindingSetEntryNameW(binding: ConstPtr, entrynamesyntax: UInt, entryname: Pcwstr): RpcStatus =
     windowssysWindowsWin32SystemRpcIRpcNsBindingSetEntryNameW(binding.rawAddress.toCPointer<ByteVar>(), entrynamesyntax, entryname.rawAddress.toCPointer<ByteVar>())
 
-public actual fun iRpcNsGetBuffer(message: MutPtr<RpcMessage>): RpcStatus =
+public actual fun iRpcNsGetBuffer(message: MutPtr): RpcStatus =
     windowssysWindowsWin32SystemRpcIRpcNsGetBuffer(message.rawAddress.toCPointer<ByteVar>())
 
-public actual fun iRpcNsInterfaceExported(entrynamesyntax: UInt, entryname: ConstPtr<UShort>, rpcinterfaceinformation: ConstPtr<RpcServerInterface>): RpcStatus =
+public actual fun iRpcNsInterfaceExported(entrynamesyntax: UInt, entryname: ConstPtr, rpcinterfaceinformation: ConstPtr): RpcStatus =
     windowssysWindowsWin32SystemRpcIRpcNsInterfaceExported(entrynamesyntax, entryname.rawAddress.toCPointer<ByteVar>(), rpcinterfaceinformation.rawAddress.toCPointer<ByteVar>())
 
-public actual fun iRpcNsInterfaceUnexported(entrynamesyntax: UInt, entryname: MutPtr<UShort>, rpcinterfaceinformation: MutPtr<RpcServerInterface>): RpcStatus =
+public actual fun iRpcNsInterfaceUnexported(entrynamesyntax: UInt, entryname: MutPtr, rpcinterfaceinformation: MutPtr): RpcStatus =
     windowssysWindowsWin32SystemRpcIRpcNsInterfaceUnexported(entrynamesyntax, entryname.rawAddress.toCPointer<ByteVar>(), rpcinterfaceinformation.rawAddress.toCPointer<ByteVar>())
 
-public actual fun iRpcNsRaiseException(message: MutPtr<RpcMessage>, status: RpcStatus) {
+public actual fun iRpcNsRaiseException(message: MutPtr, status: RpcStatus) {
     windowssysWindowsWin32SystemRpcIRpcNsRaiseException(message.rawAddress.toCPointer<ByteVar>(), status)
 }
 
-public actual fun iRpcNsSendReceive(message: MutPtr<RpcMessage>, handle: MutPtr<MutPtr<CVoid>>): RpcStatus =
+public actual fun iRpcNsSendReceive(message: MutPtr, handle: MutPtr): RpcStatus =
     windowssysWindowsWin32SystemRpcIRpcNsSendReceive(message.rawAddress.toCPointer<ByteVar>(), handle.rawAddress.toCPointer<ByteVar>())
 
-public actual fun iRpcOpenClientProcess(binding: ConstPtr<CVoid>, desiredaccess: UInt, clientprocess: MutPtr<MutPtr<CVoid>>): RpcStatus =
+public actual fun iRpcOpenClientProcess(binding: ConstPtr, desiredaccess: UInt, clientprocess: MutPtr): RpcStatus =
     windowssysWindowsWin32SystemRpcIRpcOpenClientProcess(binding.rawAddress.toCPointer<ByteVar>(), desiredaccess, clientprocess.rawAddress.toCPointer<ByteVar>())
 
 public actual fun iRpcPauseExecution(milliseconds: UInt) {
     windowssysWindowsWin32SystemRpcIRpcPauseExecution(milliseconds)
 }
 
-public actual fun iRpcReBindBuffer(message: MutPtr<RpcMessage>): RpcStatus =
+public actual fun iRpcReBindBuffer(message: MutPtr): RpcStatus =
     windowssysWindowsWin32SystemRpcIRpcReBindBuffer(message.rawAddress.toCPointer<ByteVar>())
 
-public actual fun iRpcReallocPipeBuffer(message: ConstPtr<RpcMessage>, newsize: UInt): RpcStatus =
+public actual fun iRpcReallocPipeBuffer(message: ConstPtr, newsize: UInt): RpcStatus =
     windowssysWindowsWin32SystemRpcIRpcReallocPipeBuffer(message.rawAddress.toCPointer<ByteVar>(), newsize)
 
-public actual fun iRpcReceive(message: MutPtr<RpcMessage>, size: UInt): RpcStatus =
+public actual fun iRpcReceive(message: MutPtr, size: UInt): RpcStatus =
     windowssysWindowsWin32SystemRpcIRpcReceive(message.rawAddress.toCPointer<ByteVar>(), size)
 
-public actual fun iRpcRecordCalloutFailure(rpcstatus: RpcStatus, calloutstate: MutPtr<RdrCalloutState>, dllname: MutPtr<UShort>) {
+public actual fun iRpcRecordCalloutFailure(rpcstatus: RpcStatus, calloutstate: MutPtr, dllname: MutPtr) {
     windowssysWindowsWin32SystemRpcIRpcRecordCalloutFailure(rpcstatus, calloutstate.rawAddress.toCPointer<ByteVar>(), dllname.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun iRpcRequestMutex(mutex: MutPtr<MutPtr<CVoid>>) {
+public actual fun iRpcRequestMutex(mutex: MutPtr) {
     windowssysWindowsWin32SystemRpcIRpcRequestMutex(mutex.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun iRpcSend(message: MutPtr<RpcMessage>): RpcStatus =
+public actual fun iRpcSend(message: MutPtr): RpcStatus =
     windowssysWindowsWin32SystemRpcIRpcSend(message.rawAddress.toCPointer<ByteVar>())
 
-public actual fun iRpcSendReceive(message: MutPtr<RpcMessage>): RpcStatus =
+public actual fun iRpcSendReceive(message: MutPtr): RpcStatus =
     windowssysWindowsWin32SystemRpcIRpcSendReceive(message.rawAddress.toCPointer<ByteVar>())
 
-public actual fun iRpcServerCheckClientRestriction(context: MutPtr<CVoid>): RpcStatus =
+public actual fun iRpcServerCheckClientRestriction(context: MutPtr): RpcStatus =
     windowssysWindowsWin32SystemRpcIRpcServerCheckClientRestriction(context.rawAddress.toCPointer<ByteVar>())
 
 public actual fun iRpcServerDisableExceptionFilter(): Int =
     windowssysWindowsWin32SystemRpcIRpcServerDisableExceptionFilter()
 
-public actual fun iRpcServerGetAssociationId(binding: ConstPtr<CVoid>, associationid: MutPtr<UInt>): RpcStatus =
+public actual fun iRpcServerGetAssociationId(binding: ConstPtr, associationid: MutPtr): RpcStatus =
     windowssysWindowsWin32SystemRpcIRpcServerGetAssociationId(binding.rawAddress.toCPointer<ByteVar>(), associationid.rawAddress.toCPointer<ByteVar>())
 
-public actual fun iRpcServerInqAddressChangeFn(): MutPtr<RpcAddressChangeFn> =
+public actual fun iRpcServerInqAddressChangeFn(): MutPtr =
     MutPtr(windowssysWindowsWin32SystemRpcIRpcServerInqAddressChangeFn()?.toLong() ?: 0L)
 
-public actual fun iRpcServerInqLocalConnAddress(binding: MutPtr<CVoid>, buffer: MutPtr<CVoid>, buffersize: MutPtr<UInt>, addressformat: MutPtr<UInt>): RpcStatus =
+public actual fun iRpcServerInqLocalConnAddress(binding: MutPtr, buffer: MutPtr, buffersize: MutPtr, addressformat: MutPtr): RpcStatus =
     windowssysWindowsWin32SystemRpcIRpcServerInqLocalConnAddress(binding.rawAddress.toCPointer<ByteVar>(), buffer.rawAddress.toCPointer<ByteVar>(), buffersize.rawAddress.toCPointer<ByteVar>(), addressformat.rawAddress.toCPointer<ByteVar>())
 
-public actual fun iRpcServerInqRemoteConnAddress(binding: MutPtr<CVoid>, buffer: MutPtr<CVoid>, buffersize: MutPtr<UInt>, addressformat: MutPtr<UInt>): RpcStatus =
+public actual fun iRpcServerInqRemoteConnAddress(binding: MutPtr, buffer: MutPtr, buffersize: MutPtr, addressformat: MutPtr): RpcStatus =
     windowssysWindowsWin32SystemRpcIRpcServerInqRemoteConnAddress(binding.rawAddress.toCPointer<ByteVar>(), buffer.rawAddress.toCPointer<ByteVar>(), buffersize.rawAddress.toCPointer<ByteVar>(), addressformat.rawAddress.toCPointer<ByteVar>())
 
-public actual fun iRpcServerInqTransportType(type: MutPtr<UInt>): RpcStatus =
+public actual fun iRpcServerInqTransportType(type: MutPtr): RpcStatus =
     windowssysWindowsWin32SystemRpcIRpcServerInqTransportType(type.rawAddress.toCPointer<ByteVar>())
 
-public actual fun iRpcServerRegisterForwardFunction(pforwardfunction: MutPtr<RpcForwardFunction>): RpcStatus =
+public actual fun iRpcServerRegisterForwardFunction(pforwardfunction: MutPtr): RpcStatus =
     windowssysWindowsWin32SystemRpcIRpcServerRegisterForwardFunction(pforwardfunction.rawAddress.toCPointer<ByteVar>())
 
-public actual fun iRpcServerSetAddressChangeFn(paddresschangefn: MutPtr<RpcAddressChangeFn>): RpcStatus =
+public actual fun iRpcServerSetAddressChangeFn(paddresschangefn: MutPtr): RpcStatus =
     windowssysWindowsWin32SystemRpcIRpcServerSetAddressChangeFn(paddresschangefn.rawAddress.toCPointer<ByteVar>())
 
-public actual fun iRpcServerStartService(protseq: Pcwstr, endpoint: Pcwstr, ifspec: ConstPtr<CVoid>): RpcStatus =
+public actual fun iRpcServerStartService(protseq: Pcwstr, endpoint: Pcwstr, ifspec: ConstPtr): RpcStatus =
     windowssysWindowsWin32SystemRpcIRpcServerStartService(protseq.rawAddress.toCPointer<ByteVar>(), endpoint.rawAddress.toCPointer<ByteVar>(), ifspec.rawAddress.toCPointer<ByteVar>())
 
-public actual fun iRpcServerSubscribeForDisconnectNotification(binding: ConstPtr<CVoid>, hevent: ConstPtr<CVoid>): RpcStatus =
+public actual fun iRpcServerSubscribeForDisconnectNotification(binding: ConstPtr, hevent: ConstPtr): RpcStatus =
     windowssysWindowsWin32SystemRpcIRpcServerSubscribeForDisconnectNotification(binding.rawAddress.toCPointer<ByteVar>(), hevent.rawAddress.toCPointer<ByteVar>())
 
-public actual fun iRpcServerSubscribeForDisconnectNotification2(binding: ConstPtr<CVoid>, hevent: ConstPtr<CVoid>, subscriptionid: MutPtr<Guid>): RpcStatus =
+public actual fun iRpcServerSubscribeForDisconnectNotification2(binding: ConstPtr, hevent: ConstPtr, subscriptionid: MutPtr): RpcStatus =
     windowssysWindowsWin32SystemRpcIRpcServerSubscribeForDisconnectNotification2(binding.rawAddress.toCPointer<ByteVar>(), hevent.rawAddress.toCPointer<ByteVar>(), subscriptionid.rawAddress.toCPointer<ByteVar>())
 
-public actual fun iRpcServerUnsubscribeForDisconnectNotification(binding: ConstPtr<CVoid>, subscriptionid: Guid): RpcStatus =
+public actual fun iRpcServerUnsubscribeForDisconnectNotification(binding: ConstPtr, subscriptionid: Guid): RpcStatus =
     0
 
-public actual fun iRpcServerUseProtseq2A(networkaddress: Pcstr, protseq: Pcstr, maxcalls: UInt, securitydescriptor: ConstPtr<CVoid>, policy: ConstPtr<CVoid>): RpcStatus =
+public actual fun iRpcServerUseProtseq2A(networkaddress: Pcstr, protseq: Pcstr, maxcalls: UInt, securitydescriptor: ConstPtr, policy: ConstPtr): RpcStatus =
     windowssysWindowsWin32SystemRpcIRpcServerUseProtseq2A(networkaddress.rawAddress.toCPointer<ByteVar>(), protseq.rawAddress.toCPointer<ByteVar>(), maxcalls, securitydescriptor.rawAddress.toCPointer<ByteVar>(), policy.rawAddress.toCPointer<ByteVar>())
 
-public actual fun iRpcServerUseProtseq2W(networkaddress: Pcwstr, protseq: Pcwstr, maxcalls: UInt, securitydescriptor: ConstPtr<CVoid>, policy: ConstPtr<CVoid>): RpcStatus =
+public actual fun iRpcServerUseProtseq2W(networkaddress: Pcwstr, protseq: Pcwstr, maxcalls: UInt, securitydescriptor: ConstPtr, policy: ConstPtr): RpcStatus =
     windowssysWindowsWin32SystemRpcIRpcServerUseProtseq2W(networkaddress.rawAddress.toCPointer<ByteVar>(), protseq.rawAddress.toCPointer<ByteVar>(), maxcalls, securitydescriptor.rawAddress.toCPointer<ByteVar>(), policy.rawAddress.toCPointer<ByteVar>())
 
-public actual fun iRpcServerUseProtseqEp2A(networkaddress: Pcstr, protseq: Pcstr, maxcalls: UInt, endpoint: Pcstr, securitydescriptor: ConstPtr<CVoid>, policy: ConstPtr<CVoid>): RpcStatus =
+public actual fun iRpcServerUseProtseqEp2A(networkaddress: Pcstr, protseq: Pcstr, maxcalls: UInt, endpoint: Pcstr, securitydescriptor: ConstPtr, policy: ConstPtr): RpcStatus =
     windowssysWindowsWin32SystemRpcIRpcServerUseProtseqEp2A(networkaddress.rawAddress.toCPointer<ByteVar>(), protseq.rawAddress.toCPointer<ByteVar>(), maxcalls, endpoint.rawAddress.toCPointer<ByteVar>(), securitydescriptor.rawAddress.toCPointer<ByteVar>(), policy.rawAddress.toCPointer<ByteVar>())
 
-public actual fun iRpcServerUseProtseqEp2W(networkaddress: Pcwstr, protseq: Pcwstr, maxcalls: UInt, endpoint: Pcwstr, securitydescriptor: ConstPtr<CVoid>, policy: ConstPtr<CVoid>): RpcStatus =
+public actual fun iRpcServerUseProtseqEp2W(networkaddress: Pcwstr, protseq: Pcwstr, maxcalls: UInt, endpoint: Pcwstr, securitydescriptor: ConstPtr, policy: ConstPtr): RpcStatus =
     windowssysWindowsWin32SystemRpcIRpcServerUseProtseqEp2W(networkaddress.rawAddress.toCPointer<ByteVar>(), protseq.rawAddress.toCPointer<ByteVar>(), maxcalls, endpoint.rawAddress.toCPointer<ByteVar>(), securitydescriptor.rawAddress.toCPointer<ByteVar>(), policy.rawAddress.toCPointer<ByteVar>())
 
 public actual fun iRpcSessionStrictContextHandle() {
@@ -747,902 +745,902 @@ public actual fun iRpcSsDontSerializeContext() {
     windowssysWindowsWin32SystemRpcIRpcSsDontSerializeContext()
 }
 
-public actual fun iRpcSystemHandleTypeSpecificWork(handle: MutPtr<CVoid>, actualtype: UByte, idltype: UByte, marshaldirection: LrpcSystemHandleMarshalDirection): RpcStatus =
+public actual fun iRpcSystemHandleTypeSpecificWork(handle: MutPtr, actualtype: UByte, idltype: UByte, marshaldirection: LrpcSystemHandleMarshalDirection): RpcStatus =
     windowssysWindowsWin32SystemRpcIRpcSystemHandleTypeSpecificWork(handle.rawAddress.toCPointer<ByteVar>(), actualtype, idltype, marshaldirection)
 
 public actual fun iRpcTurnOnEeinfoPropagation(): RpcStatus =
     windowssysWindowsWin32SystemRpcIRpcTurnOnEeinfoPropagation()
 
-public actual fun iUuidCreate(uuid: MutPtr<Guid>): RpcStatus =
+public actual fun iUuidCreate(uuid: MutPtr): RpcStatus =
     windowssysWindowsWin32SystemRpcIUuidCreate(uuid.rawAddress.toCPointer<ByteVar>())
 
-public actual fun mesBufferHandleReset(handle: ConstPtr<CVoid>, handlestyle: UInt, operation: MidlEsCode, pbuffer: ConstPtr<ConstPtr<Byte>>, buffersize: UInt, pencodedsize: MutPtr<UInt>): RpcStatus =
+public actual fun mesBufferHandleReset(handle: ConstPtr, handlestyle: UInt, operation: MidlEsCode, pbuffer: ConstPtr, buffersize: UInt, pencodedsize: MutPtr): RpcStatus =
     windowssysWindowsWin32SystemRpcMesBufferHandleReset(handle.rawAddress.toCPointer<ByteVar>(), handlestyle, operation, pbuffer.rawAddress.toCPointer<ByteVar>(), buffersize, pencodedsize.rawAddress.toCPointer<ByteVar>())
 
-public actual fun mesDecodeBufferHandleCreate(buffer: Pcstr, buffersize: UInt, phandle: MutPtr<MutPtr<CVoid>>): RpcStatus =
+public actual fun mesDecodeBufferHandleCreate(buffer: Pcstr, buffersize: UInt, phandle: MutPtr): RpcStatus =
     windowssysWindowsWin32SystemRpcMesDecodeBufferHandleCreate(buffer.rawAddress.toCPointer<ByteVar>(), buffersize, phandle.rawAddress.toCPointer<ByteVar>())
 
-public actual fun mesDecodeIncrementalHandleCreate(userstate: MutPtr<CVoid>, readfn: MidlEsRead, phandle: MutPtr<MutPtr<CVoid>>): RpcStatus =
+public actual fun mesDecodeIncrementalHandleCreate(userstate: MutPtr, readfn: MidlEsRead, phandle: MutPtr): RpcStatus =
     windowssysWindowsWin32SystemRpcMesDecodeIncrementalHandleCreate(userstate.rawAddress.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>(), phandle.rawAddress.toCPointer<ByteVar>())
 
-public actual fun mesEncodeDynBufferHandleCreate(pbuffer: MutPtr<MutPtr<Byte>>, pencodedsize: MutPtr<UInt>, phandle: MutPtr<MutPtr<CVoid>>): RpcStatus =
+public actual fun mesEncodeDynBufferHandleCreate(pbuffer: MutPtr, pencodedsize: MutPtr, phandle: MutPtr): RpcStatus =
     windowssysWindowsWin32SystemRpcMesEncodeDynBufferHandleCreate(pbuffer.rawAddress.toCPointer<ByteVar>(), pencodedsize.rawAddress.toCPointer<ByteVar>(), phandle.rawAddress.toCPointer<ByteVar>())
 
-public actual fun mesEncodeFixedBufferHandleCreate(pbuffer: Pstr, buffersize: UInt, pencodedsize: MutPtr<UInt>, phandle: MutPtr<MutPtr<CVoid>>): RpcStatus =
+public actual fun mesEncodeFixedBufferHandleCreate(pbuffer: Pstr, buffersize: UInt, pencodedsize: MutPtr, phandle: MutPtr): RpcStatus =
     windowssysWindowsWin32SystemRpcMesEncodeFixedBufferHandleCreate(pbuffer.rawAddress.toCPointer<ByteVar>(), buffersize, pencodedsize.rawAddress.toCPointer<ByteVar>(), phandle.rawAddress.toCPointer<ByteVar>())
 
-public actual fun mesEncodeIncrementalHandleCreate(userstate: MutPtr<CVoid>, allocfn: MidlEsAlloc, writefn: MidlEsWrite, phandle: MutPtr<MutPtr<CVoid>>): RpcStatus =
+public actual fun mesEncodeIncrementalHandleCreate(userstate: MutPtr, allocfn: MidlEsAlloc, writefn: MidlEsWrite, phandle: MutPtr): RpcStatus =
     windowssysWindowsWin32SystemRpcMesEncodeIncrementalHandleCreate(userstate.rawAddress.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>(), phandle.rawAddress.toCPointer<ByteVar>())
 
-public actual fun mesHandleFree(handle: MutPtr<CVoid>): RpcStatus =
+public actual fun mesHandleFree(handle: MutPtr): RpcStatus =
     windowssysWindowsWin32SystemRpcMesHandleFree(handle.rawAddress.toCPointer<ByteVar>())
 
-public actual fun mesIncrementalHandleReset(handle: MutPtr<CVoid>, userstate: MutPtr<CVoid>, allocfn: MidlEsAlloc, writefn: MidlEsWrite, readfn: MidlEsRead, operation: MidlEsCode): RpcStatus =
+public actual fun mesIncrementalHandleReset(handle: MutPtr, userstate: MutPtr, allocfn: MidlEsAlloc, writefn: MidlEsWrite, readfn: MidlEsRead, operation: MidlEsCode): RpcStatus =
     windowssysWindowsWin32SystemRpcMesIncrementalHandleReset(handle.rawAddress.toCPointer<ByteVar>(), userstate.rawAddress.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>(), operation)
 
-public actual fun mesInqProcEncodingId(handle: MutPtr<CVoid>, pinterfaceid: MutPtr<RpcSyntaxIdentifier>, pprocnum: MutPtr<UInt>): RpcStatus =
+public actual fun mesInqProcEncodingId(handle: MutPtr, pinterfaceid: MutPtr, pprocnum: MutPtr): RpcStatus =
     windowssysWindowsWin32SystemRpcMesInqProcEncodingId(handle.rawAddress.toCPointer<ByteVar>(), pinterfaceid.rawAddress.toCPointer<ByteVar>(), pprocnum.rawAddress.toCPointer<ByteVar>())
 
-public actual fun nDRCContextBinding(ccontext: Long): MutPtr<CVoid> =
+public actual fun nDRCContextBinding(ccontext: Long): MutPtr =
     MutPtr(windowssysWindowsWin32SystemRpcNDRCContextBinding(ccontext)?.toLong() ?: 0L)
 
-public actual fun nDRCContextMarshall(ccontext: Long, pbuff: MutPtr<CVoid>) {
+public actual fun nDRCContextMarshall(ccontext: Long, pbuff: MutPtr) {
     windowssysWindowsWin32SystemRpcNDRCContextMarshall(ccontext, pbuff.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun nDRCContextUnmarshall(pccontext: MutPtr<Long>, hbinding: ConstPtr<CVoid>, pbuff: ConstPtr<CVoid>, datarepresentation: UInt) {
+public actual fun nDRCContextUnmarshall(pccontext: MutPtr, hbinding: ConstPtr, pbuff: ConstPtr, datarepresentation: UInt) {
     windowssysWindowsWin32SystemRpcNDRCContextUnmarshall(pccontext.rawAddress.toCPointer<ByteVar>(), hbinding.rawAddress.toCPointer<ByteVar>(), pbuff.rawAddress.toCPointer<ByteVar>(), datarepresentation)
 }
 
-public actual fun nDRSContextMarshall(ccontext: ConstPtr<NdrScontext>, pbuff: MutPtr<CVoid>, userrundownin: NdrRundown) {
+public actual fun nDRSContextMarshall(ccontext: ConstPtr, pbuff: MutPtr, userrundownin: NdrRundown) {
     windowssysWindowsWin32SystemRpcNDRSContextMarshall(ccontext.rawAddress.toCPointer<ByteVar>(), pbuff.rawAddress.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>())
 }
 
-public actual fun nDRSContextMarshall2(bindinghandle: ConstPtr<CVoid>, ccontext: ConstPtr<NdrScontext>, pbuff: MutPtr<CVoid>, userrundownin: NdrRundown, ctxguard: ConstPtr<CVoid>, flags: UInt) {
+public actual fun nDRSContextMarshall2(bindinghandle: ConstPtr, ccontext: ConstPtr, pbuff: MutPtr, userrundownin: NdrRundown, ctxguard: ConstPtr, flags: UInt) {
     windowssysWindowsWin32SystemRpcNDRSContextMarshall2(bindinghandle.rawAddress.toCPointer<ByteVar>(), ccontext.rawAddress.toCPointer<ByteVar>(), pbuff.rawAddress.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>(), ctxguard.rawAddress.toCPointer<ByteVar>(), flags)
 }
 
-public actual fun nDRSContextMarshallEx(bindinghandle: ConstPtr<CVoid>, ccontext: ConstPtr<NdrScontext>, pbuff: MutPtr<CVoid>, userrundownin: NdrRundown) {
+public actual fun nDRSContextMarshallEx(bindinghandle: ConstPtr, ccontext: ConstPtr, pbuff: MutPtr, userrundownin: NdrRundown) {
     windowssysWindowsWin32SystemRpcNDRSContextMarshallEx(bindinghandle.rawAddress.toCPointer<ByteVar>(), ccontext.rawAddress.toCPointer<ByteVar>(), pbuff.rawAddress.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>())
 }
 
-public actual fun nDRSContextUnmarshall(pbuff: ConstPtr<CVoid>, datarepresentation: UInt): MutPtr<NdrScontext> =
+public actual fun nDRSContextUnmarshall(pbuff: ConstPtr, datarepresentation: UInt): MutPtr =
     MutPtr(windowssysWindowsWin32SystemRpcNDRSContextUnmarshall(pbuff.rawAddress.toCPointer<ByteVar>(), datarepresentation)?.toLong() ?: 0L)
 
-public actual fun nDRSContextUnmarshall2(bindinghandle: ConstPtr<CVoid>, pbuff: ConstPtr<CVoid>, datarepresentation: UInt, ctxguard: ConstPtr<CVoid>, flags: UInt): MutPtr<NdrScontext> =
+public actual fun nDRSContextUnmarshall2(bindinghandle: ConstPtr, pbuff: ConstPtr, datarepresentation: UInt, ctxguard: ConstPtr, flags: UInt): MutPtr =
     MutPtr(windowssysWindowsWin32SystemRpcNDRSContextUnmarshall2(bindinghandle.rawAddress.toCPointer<ByteVar>(), pbuff.rawAddress.toCPointer<ByteVar>(), datarepresentation, ctxguard.rawAddress.toCPointer<ByteVar>(), flags)?.toLong() ?: 0L)
 
-public actual fun nDRSContextUnmarshallEx(bindinghandle: ConstPtr<CVoid>, pbuff: ConstPtr<CVoid>, datarepresentation: UInt): MutPtr<NdrScontext> =
+public actual fun nDRSContextUnmarshallEx(bindinghandle: ConstPtr, pbuff: ConstPtr, datarepresentation: UInt): MutPtr =
     MutPtr(windowssysWindowsWin32SystemRpcNDRSContextUnmarshallEx(bindinghandle.rawAddress.toCPointer<ByteVar>(), pbuff.rawAddress.toCPointer<ByteVar>(), datarepresentation)?.toLong() ?: 0L)
 
-public actual fun ndr64AsyncClientCall(pproxyinfo: MutPtr<MidlStublessProxyInfo>, nprocnum: UInt, preturnvalue: MutPtr<CVoid>, vararg variadicArgs: Long): ClientCallReturn =
+public actual fun ndr64AsyncClientCall(pproxyinfo: MutPtr, nprocnum: UInt, preturnvalue: MutPtr, vararg variadicArgs: Long): ClientCallReturn =
     ClientCallReturn()
 
-public actual fun ndr64AsyncServerCall64(prpcmsg: MutPtr<RpcMessage>) {
+public actual fun ndr64AsyncServerCall64(prpcmsg: MutPtr) {
     windowssysWindowsWin32SystemRpcNdr64AsyncServerCall64(prpcmsg.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun ndr64AsyncServerCallAll(prpcmsg: MutPtr<RpcMessage>) {
+public actual fun ndr64AsyncServerCallAll(prpcmsg: MutPtr) {
     windowssysWindowsWin32SystemRpcNdr64AsyncServerCallAll(prpcmsg.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun ndr64DcomAsyncClientCall(pproxyinfo: MutPtr<MidlStublessProxyInfo>, nprocnum: UInt, preturnvalue: MutPtr<CVoid>, vararg variadicArgs: Long): ClientCallReturn =
+public actual fun ndr64DcomAsyncClientCall(pproxyinfo: MutPtr, nprocnum: UInt, preturnvalue: MutPtr, vararg variadicArgs: Long): ClientCallReturn =
     ClientCallReturn()
 
-public actual fun ndr64DcomAsyncStubCall(pthis: MutPtr<CVoid>, pchannel: MutPtr<CVoid>, prpcmsg: MutPtr<RpcMessage>, pdwstubphase: MutPtr<UInt>): Int =
+public actual fun ndr64DcomAsyncStubCall(pthis: MutPtr, pchannel: MutPtr, prpcmsg: MutPtr, pdwstubphase: MutPtr): Int =
     windowssysWindowsWin32SystemRpcNdr64DcomAsyncStubCall(pthis.rawAddress.toCPointer<ByteVar>(), pchannel.rawAddress.toCPointer<ByteVar>(), prpcmsg.rawAddress.toCPointer<ByteVar>(), pdwstubphase.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ndrAllocate(pstubmsg: MutPtr<MidlStubMessage>, len: ULong): MutPtr<CVoid> =
+public actual fun ndrAllocate(pstubmsg: MutPtr, len: ULong): MutPtr =
     MutPtr(windowssysWindowsWin32SystemRpcNdrAllocate(pstubmsg.rawAddress.toCPointer<ByteVar>(), len)?.toLong() ?: 0L)
 
-public actual fun ndrAsyncClientCall(pstubdescriptor: MutPtr<MidlStubDesc>, pformat: MutPtr<UByte>, vararg variadicArgs: Long): ClientCallReturn =
+public actual fun ndrAsyncClientCall(pstubdescriptor: MutPtr, pformat: MutPtr, vararg variadicArgs: Long): ClientCallReturn =
     ClientCallReturn()
 
-public actual fun ndrAsyncServerCall(prpcmsg: MutPtr<RpcMessage>) {
+public actual fun ndrAsyncServerCall(prpcmsg: MutPtr) {
     windowssysWindowsWin32SystemRpcNdrAsyncServerCall(prpcmsg.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun ndrByteCountPointerBufferSize(pstubmsg: MutPtr<MidlStubMessage>, pmemory: MutPtr<UByte>, pformat: MutPtr<UByte>) {
+public actual fun ndrByteCountPointerBufferSize(pstubmsg: MutPtr, pmemory: MutPtr, pformat: MutPtr) {
     windowssysWindowsWin32SystemRpcNdrByteCountPointerBufferSize(pstubmsg.rawAddress.toCPointer<ByteVar>(), pmemory.rawAddress.toCPointer<ByteVar>(), pformat.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun ndrByteCountPointerFree(pstubmsg: MutPtr<MidlStubMessage>, pmemory: MutPtr<UByte>, pformat: MutPtr<UByte>) {
+public actual fun ndrByteCountPointerFree(pstubmsg: MutPtr, pmemory: MutPtr, pformat: MutPtr) {
     windowssysWindowsWin32SystemRpcNdrByteCountPointerFree(pstubmsg.rawAddress.toCPointer<ByteVar>(), pmemory.rawAddress.toCPointer<ByteVar>(), pformat.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun ndrByteCountPointerMarshall(pstubmsg: MutPtr<MidlStubMessage>, pmemory: MutPtr<UByte>, pformat: MutPtr<UByte>): MutPtr<UByte> =
+public actual fun ndrByteCountPointerMarshall(pstubmsg: MutPtr, pmemory: MutPtr, pformat: MutPtr): MutPtr =
     MutPtr(windowssysWindowsWin32SystemRpcNdrByteCountPointerMarshall(pstubmsg.rawAddress.toCPointer<ByteVar>(), pmemory.rawAddress.toCPointer<ByteVar>(), pformat.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun ndrByteCountPointerUnmarshall(pstubmsg: MutPtr<MidlStubMessage>, ppmemory: MutPtr<MutPtr<UByte>>, pformat: MutPtr<UByte>, fmustalloc: UByte): MutPtr<UByte> =
+public actual fun ndrByteCountPointerUnmarshall(pstubmsg: MutPtr, ppmemory: MutPtr, pformat: MutPtr, fmustalloc: UByte): MutPtr =
     MutPtr(windowssysWindowsWin32SystemRpcNdrByteCountPointerUnmarshall(pstubmsg.rawAddress.toCPointer<ByteVar>(), ppmemory.rawAddress.toCPointer<ByteVar>(), pformat.rawAddress.toCPointer<ByteVar>(), fmustalloc)?.toLong() ?: 0L)
 
-public actual fun ndrClearOutParameters(pstubmsg: MutPtr<MidlStubMessage>, pformat: MutPtr<UByte>, argaddr: MutPtr<CVoid>) {
+public actual fun ndrClearOutParameters(pstubmsg: MutPtr, pformat: MutPtr, argaddr: MutPtr) {
     windowssysWindowsWin32SystemRpcNdrClearOutParameters(pstubmsg.rawAddress.toCPointer<ByteVar>(), pformat.rawAddress.toCPointer<ByteVar>(), argaddr.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun ndrClientCall2(pstubdescriptor: MutPtr<MidlStubDesc>, pformat: MutPtr<UByte>, vararg variadicArgs: Long): ClientCallReturn =
+public actual fun ndrClientCall2(pstubdescriptor: MutPtr, pformat: MutPtr, vararg variadicArgs: Long): ClientCallReturn =
     ClientCallReturn()
 
-public actual fun ndrClientCall3(pproxyinfo: MutPtr<MidlStublessProxyInfo>, nprocnum: UInt, preturnvalue: MutPtr<CVoid>, vararg variadicArgs: Long): ClientCallReturn =
+public actual fun ndrClientCall3(pproxyinfo: MutPtr, nprocnum: UInt, preturnvalue: MutPtr, vararg variadicArgs: Long): ClientCallReturn =
     ClientCallReturn()
 
-public actual fun ndrClientContextMarshall(pstubmsg: MutPtr<MidlStubMessage>, contexthandle: Long, fcheck: Int) {
+public actual fun ndrClientContextMarshall(pstubmsg: MutPtr, contexthandle: Long, fcheck: Int) {
     windowssysWindowsWin32SystemRpcNdrClientContextMarshall(pstubmsg.rawAddress.toCPointer<ByteVar>(), contexthandle, fcheck)
 }
 
-public actual fun ndrClientContextUnmarshall(pstubmsg: MutPtr<MidlStubMessage>, pcontexthandle: MutPtr<Long>, bindhandle: MutPtr<CVoid>) {
+public actual fun ndrClientContextUnmarshall(pstubmsg: MutPtr, pcontexthandle: MutPtr, bindhandle: MutPtr) {
     windowssysWindowsWin32SystemRpcNdrClientContextUnmarshall(pstubmsg.rawAddress.toCPointer<ByteVar>(), pcontexthandle.rawAddress.toCPointer<ByteVar>(), bindhandle.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun ndrClientInitialize(prpcmsg: MutPtr<RpcMessage>, pstubmsg: MutPtr<MidlStubMessage>, pstubdescriptor: MutPtr<MidlStubDesc>, procnum: UInt) {
+public actual fun ndrClientInitialize(prpcmsg: MutPtr, pstubmsg: MutPtr, pstubdescriptor: MutPtr, procnum: UInt) {
     windowssysWindowsWin32SystemRpcNdrClientInitialize(prpcmsg.rawAddress.toCPointer<ByteVar>(), pstubmsg.rawAddress.toCPointer<ByteVar>(), pstubdescriptor.rawAddress.toCPointer<ByteVar>(), procnum)
 }
 
-public actual fun ndrClientInitializeNew(prpcmsg: MutPtr<RpcMessage>, pstubmsg: MutPtr<MidlStubMessage>, pstubdescriptor: MutPtr<MidlStubDesc>, procnum: UInt) {
+public actual fun ndrClientInitializeNew(prpcmsg: MutPtr, pstubmsg: MutPtr, pstubdescriptor: MutPtr, procnum: UInt) {
     windowssysWindowsWin32SystemRpcNdrClientInitializeNew(prpcmsg.rawAddress.toCPointer<ByteVar>(), pstubmsg.rawAddress.toCPointer<ByteVar>(), pstubdescriptor.rawAddress.toCPointer<ByteVar>(), procnum)
 }
 
-public actual fun ndrComplexArrayBufferSize(pstubmsg: MutPtr<MidlStubMessage>, pmemory: MutPtr<UByte>, pformat: MutPtr<UByte>) {
+public actual fun ndrComplexArrayBufferSize(pstubmsg: MutPtr, pmemory: MutPtr, pformat: MutPtr) {
     windowssysWindowsWin32SystemRpcNdrComplexArrayBufferSize(pstubmsg.rawAddress.toCPointer<ByteVar>(), pmemory.rawAddress.toCPointer<ByteVar>(), pformat.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun ndrComplexArrayFree(pstubmsg: MutPtr<MidlStubMessage>, pmemory: MutPtr<UByte>, pformat: MutPtr<UByte>) {
+public actual fun ndrComplexArrayFree(pstubmsg: MutPtr, pmemory: MutPtr, pformat: MutPtr) {
     windowssysWindowsWin32SystemRpcNdrComplexArrayFree(pstubmsg.rawAddress.toCPointer<ByteVar>(), pmemory.rawAddress.toCPointer<ByteVar>(), pformat.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun ndrComplexArrayMarshall(pstubmsg: MutPtr<MidlStubMessage>, pmemory: MutPtr<UByte>, pformat: MutPtr<UByte>): MutPtr<UByte> =
+public actual fun ndrComplexArrayMarshall(pstubmsg: MutPtr, pmemory: MutPtr, pformat: MutPtr): MutPtr =
     MutPtr(windowssysWindowsWin32SystemRpcNdrComplexArrayMarshall(pstubmsg.rawAddress.toCPointer<ByteVar>(), pmemory.rawAddress.toCPointer<ByteVar>(), pformat.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun ndrComplexArrayMemorySize(pstubmsg: MutPtr<MidlStubMessage>, pformat: MutPtr<UByte>): UInt =
+public actual fun ndrComplexArrayMemorySize(pstubmsg: MutPtr, pformat: MutPtr): UInt =
     windowssysWindowsWin32SystemRpcNdrComplexArrayMemorySize(pstubmsg.rawAddress.toCPointer<ByteVar>(), pformat.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ndrComplexArrayUnmarshall(pstubmsg: MutPtr<MidlStubMessage>, ppmemory: MutPtr<MutPtr<UByte>>, pformat: MutPtr<UByte>, fmustalloc: UByte): MutPtr<UByte> =
+public actual fun ndrComplexArrayUnmarshall(pstubmsg: MutPtr, ppmemory: MutPtr, pformat: MutPtr, fmustalloc: UByte): MutPtr =
     MutPtr(windowssysWindowsWin32SystemRpcNdrComplexArrayUnmarshall(pstubmsg.rawAddress.toCPointer<ByteVar>(), ppmemory.rawAddress.toCPointer<ByteVar>(), pformat.rawAddress.toCPointer<ByteVar>(), fmustalloc)?.toLong() ?: 0L)
 
-public actual fun ndrComplexStructBufferSize(pstubmsg: MutPtr<MidlStubMessage>, pmemory: MutPtr<UByte>, pformat: MutPtr<UByte>) {
+public actual fun ndrComplexStructBufferSize(pstubmsg: MutPtr, pmemory: MutPtr, pformat: MutPtr) {
     windowssysWindowsWin32SystemRpcNdrComplexStructBufferSize(pstubmsg.rawAddress.toCPointer<ByteVar>(), pmemory.rawAddress.toCPointer<ByteVar>(), pformat.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun ndrComplexStructFree(pstubmsg: MutPtr<MidlStubMessage>, pmemory: MutPtr<UByte>, pformat: MutPtr<UByte>) {
+public actual fun ndrComplexStructFree(pstubmsg: MutPtr, pmemory: MutPtr, pformat: MutPtr) {
     windowssysWindowsWin32SystemRpcNdrComplexStructFree(pstubmsg.rawAddress.toCPointer<ByteVar>(), pmemory.rawAddress.toCPointer<ByteVar>(), pformat.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun ndrComplexStructMarshall(pstubmsg: MutPtr<MidlStubMessage>, pmemory: MutPtr<UByte>, pformat: MutPtr<UByte>): MutPtr<UByte> =
+public actual fun ndrComplexStructMarshall(pstubmsg: MutPtr, pmemory: MutPtr, pformat: MutPtr): MutPtr =
     MutPtr(windowssysWindowsWin32SystemRpcNdrComplexStructMarshall(pstubmsg.rawAddress.toCPointer<ByteVar>(), pmemory.rawAddress.toCPointer<ByteVar>(), pformat.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun ndrComplexStructMemorySize(pstubmsg: MutPtr<MidlStubMessage>, pformat: MutPtr<UByte>): UInt =
+public actual fun ndrComplexStructMemorySize(pstubmsg: MutPtr, pformat: MutPtr): UInt =
     windowssysWindowsWin32SystemRpcNdrComplexStructMemorySize(pstubmsg.rawAddress.toCPointer<ByteVar>(), pformat.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ndrComplexStructUnmarshall(pstubmsg: MutPtr<MidlStubMessage>, ppmemory: MutPtr<MutPtr<UByte>>, pformat: MutPtr<UByte>, fmustalloc: UByte): MutPtr<UByte> =
+public actual fun ndrComplexStructUnmarshall(pstubmsg: MutPtr, ppmemory: MutPtr, pformat: MutPtr, fmustalloc: UByte): MutPtr =
     MutPtr(windowssysWindowsWin32SystemRpcNdrComplexStructUnmarshall(pstubmsg.rawAddress.toCPointer<ByteVar>(), ppmemory.rawAddress.toCPointer<ByteVar>(), pformat.rawAddress.toCPointer<ByteVar>(), fmustalloc)?.toLong() ?: 0L)
 
-public actual fun ndrConformantArrayBufferSize(pstubmsg: MutPtr<MidlStubMessage>, pmemory: MutPtr<UByte>, pformat: MutPtr<UByte>) {
+public actual fun ndrConformantArrayBufferSize(pstubmsg: MutPtr, pmemory: MutPtr, pformat: MutPtr) {
     windowssysWindowsWin32SystemRpcNdrConformantArrayBufferSize(pstubmsg.rawAddress.toCPointer<ByteVar>(), pmemory.rawAddress.toCPointer<ByteVar>(), pformat.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun ndrConformantArrayFree(pstubmsg: MutPtr<MidlStubMessage>, pmemory: MutPtr<UByte>, pformat: MutPtr<UByte>) {
+public actual fun ndrConformantArrayFree(pstubmsg: MutPtr, pmemory: MutPtr, pformat: MutPtr) {
     windowssysWindowsWin32SystemRpcNdrConformantArrayFree(pstubmsg.rawAddress.toCPointer<ByteVar>(), pmemory.rawAddress.toCPointer<ByteVar>(), pformat.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun ndrConformantArrayMarshall(pstubmsg: MutPtr<MidlStubMessage>, pmemory: MutPtr<UByte>, pformat: MutPtr<UByte>): MutPtr<UByte> =
+public actual fun ndrConformantArrayMarshall(pstubmsg: MutPtr, pmemory: MutPtr, pformat: MutPtr): MutPtr =
     MutPtr(windowssysWindowsWin32SystemRpcNdrConformantArrayMarshall(pstubmsg.rawAddress.toCPointer<ByteVar>(), pmemory.rawAddress.toCPointer<ByteVar>(), pformat.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun ndrConformantArrayMemorySize(pstubmsg: MutPtr<MidlStubMessage>, pformat: MutPtr<UByte>): UInt =
+public actual fun ndrConformantArrayMemorySize(pstubmsg: MutPtr, pformat: MutPtr): UInt =
     windowssysWindowsWin32SystemRpcNdrConformantArrayMemorySize(pstubmsg.rawAddress.toCPointer<ByteVar>(), pformat.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ndrConformantArrayUnmarshall(pstubmsg: MutPtr<MidlStubMessage>, ppmemory: MutPtr<MutPtr<UByte>>, pformat: MutPtr<UByte>, fmustalloc: UByte): MutPtr<UByte> =
+public actual fun ndrConformantArrayUnmarshall(pstubmsg: MutPtr, ppmemory: MutPtr, pformat: MutPtr, fmustalloc: UByte): MutPtr =
     MutPtr(windowssysWindowsWin32SystemRpcNdrConformantArrayUnmarshall(pstubmsg.rawAddress.toCPointer<ByteVar>(), ppmemory.rawAddress.toCPointer<ByteVar>(), pformat.rawAddress.toCPointer<ByteVar>(), fmustalloc)?.toLong() ?: 0L)
 
-public actual fun ndrConformantStringBufferSize(pstubmsg: MutPtr<MidlStubMessage>, pmemory: MutPtr<UByte>, pformat: MutPtr<UByte>) {
+public actual fun ndrConformantStringBufferSize(pstubmsg: MutPtr, pmemory: MutPtr, pformat: MutPtr) {
     windowssysWindowsWin32SystemRpcNdrConformantStringBufferSize(pstubmsg.rawAddress.toCPointer<ByteVar>(), pmemory.rawAddress.toCPointer<ByteVar>(), pformat.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun ndrConformantStringMarshall(pstubmsg: MutPtr<MidlStubMessage>, pmemory: MutPtr<UByte>, pformat: MutPtr<UByte>): MutPtr<UByte> =
+public actual fun ndrConformantStringMarshall(pstubmsg: MutPtr, pmemory: MutPtr, pformat: MutPtr): MutPtr =
     MutPtr(windowssysWindowsWin32SystemRpcNdrConformantStringMarshall(pstubmsg.rawAddress.toCPointer<ByteVar>(), pmemory.rawAddress.toCPointer<ByteVar>(), pformat.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun ndrConformantStringMemorySize(pstubmsg: MutPtr<MidlStubMessage>, pformat: MutPtr<UByte>): UInt =
+public actual fun ndrConformantStringMemorySize(pstubmsg: MutPtr, pformat: MutPtr): UInt =
     windowssysWindowsWin32SystemRpcNdrConformantStringMemorySize(pstubmsg.rawAddress.toCPointer<ByteVar>(), pformat.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ndrConformantStringUnmarshall(pstubmsg: MutPtr<MidlStubMessage>, ppmemory: MutPtr<MutPtr<UByte>>, pformat: MutPtr<UByte>, fmustalloc: UByte): MutPtr<UByte> =
+public actual fun ndrConformantStringUnmarshall(pstubmsg: MutPtr, ppmemory: MutPtr, pformat: MutPtr, fmustalloc: UByte): MutPtr =
     MutPtr(windowssysWindowsWin32SystemRpcNdrConformantStringUnmarshall(pstubmsg.rawAddress.toCPointer<ByteVar>(), ppmemory.rawAddress.toCPointer<ByteVar>(), pformat.rawAddress.toCPointer<ByteVar>(), fmustalloc)?.toLong() ?: 0L)
 
-public actual fun ndrConformantStructBufferSize(pstubmsg: MutPtr<MidlStubMessage>, pmemory: MutPtr<UByte>, pformat: MutPtr<UByte>) {
+public actual fun ndrConformantStructBufferSize(pstubmsg: MutPtr, pmemory: MutPtr, pformat: MutPtr) {
     windowssysWindowsWin32SystemRpcNdrConformantStructBufferSize(pstubmsg.rawAddress.toCPointer<ByteVar>(), pmemory.rawAddress.toCPointer<ByteVar>(), pformat.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun ndrConformantStructFree(pstubmsg: MutPtr<MidlStubMessage>, pmemory: MutPtr<UByte>, pformat: MutPtr<UByte>) {
+public actual fun ndrConformantStructFree(pstubmsg: MutPtr, pmemory: MutPtr, pformat: MutPtr) {
     windowssysWindowsWin32SystemRpcNdrConformantStructFree(pstubmsg.rawAddress.toCPointer<ByteVar>(), pmemory.rawAddress.toCPointer<ByteVar>(), pformat.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun ndrConformantStructMarshall(pstubmsg: MutPtr<MidlStubMessage>, pmemory: MutPtr<UByte>, pformat: MutPtr<UByte>): MutPtr<UByte> =
+public actual fun ndrConformantStructMarshall(pstubmsg: MutPtr, pmemory: MutPtr, pformat: MutPtr): MutPtr =
     MutPtr(windowssysWindowsWin32SystemRpcNdrConformantStructMarshall(pstubmsg.rawAddress.toCPointer<ByteVar>(), pmemory.rawAddress.toCPointer<ByteVar>(), pformat.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun ndrConformantStructMemorySize(pstubmsg: MutPtr<MidlStubMessage>, pformat: MutPtr<UByte>): UInt =
+public actual fun ndrConformantStructMemorySize(pstubmsg: MutPtr, pformat: MutPtr): UInt =
     windowssysWindowsWin32SystemRpcNdrConformantStructMemorySize(pstubmsg.rawAddress.toCPointer<ByteVar>(), pformat.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ndrConformantStructUnmarshall(pstubmsg: MutPtr<MidlStubMessage>, ppmemory: MutPtr<MutPtr<UByte>>, pformat: MutPtr<UByte>, fmustalloc: UByte): MutPtr<UByte> =
+public actual fun ndrConformantStructUnmarshall(pstubmsg: MutPtr, ppmemory: MutPtr, pformat: MutPtr, fmustalloc: UByte): MutPtr =
     MutPtr(windowssysWindowsWin32SystemRpcNdrConformantStructUnmarshall(pstubmsg.rawAddress.toCPointer<ByteVar>(), ppmemory.rawAddress.toCPointer<ByteVar>(), pformat.rawAddress.toCPointer<ByteVar>(), fmustalloc)?.toLong() ?: 0L)
 
-public actual fun ndrConformantVaryingArrayBufferSize(pstubmsg: MutPtr<MidlStubMessage>, pmemory: MutPtr<UByte>, pformat: MutPtr<UByte>) {
+public actual fun ndrConformantVaryingArrayBufferSize(pstubmsg: MutPtr, pmemory: MutPtr, pformat: MutPtr) {
     windowssysWindowsWin32SystemRpcNdrConformantVaryingArrayBufferSize(pstubmsg.rawAddress.toCPointer<ByteVar>(), pmemory.rawAddress.toCPointer<ByteVar>(), pformat.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun ndrConformantVaryingArrayFree(pstubmsg: MutPtr<MidlStubMessage>, pmemory: MutPtr<UByte>, pformat: MutPtr<UByte>) {
+public actual fun ndrConformantVaryingArrayFree(pstubmsg: MutPtr, pmemory: MutPtr, pformat: MutPtr) {
     windowssysWindowsWin32SystemRpcNdrConformantVaryingArrayFree(pstubmsg.rawAddress.toCPointer<ByteVar>(), pmemory.rawAddress.toCPointer<ByteVar>(), pformat.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun ndrConformantVaryingArrayMarshall(pstubmsg: MutPtr<MidlStubMessage>, pmemory: MutPtr<UByte>, pformat: MutPtr<UByte>): MutPtr<UByte> =
+public actual fun ndrConformantVaryingArrayMarshall(pstubmsg: MutPtr, pmemory: MutPtr, pformat: MutPtr): MutPtr =
     MutPtr(windowssysWindowsWin32SystemRpcNdrConformantVaryingArrayMarshall(pstubmsg.rawAddress.toCPointer<ByteVar>(), pmemory.rawAddress.toCPointer<ByteVar>(), pformat.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun ndrConformantVaryingArrayMemorySize(pstubmsg: MutPtr<MidlStubMessage>, pformat: MutPtr<UByte>): UInt =
+public actual fun ndrConformantVaryingArrayMemorySize(pstubmsg: MutPtr, pformat: MutPtr): UInt =
     windowssysWindowsWin32SystemRpcNdrConformantVaryingArrayMemorySize(pstubmsg.rawAddress.toCPointer<ByteVar>(), pformat.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ndrConformantVaryingArrayUnmarshall(pstubmsg: MutPtr<MidlStubMessage>, ppmemory: MutPtr<MutPtr<UByte>>, pformat: MutPtr<UByte>, fmustalloc: UByte): MutPtr<UByte> =
+public actual fun ndrConformantVaryingArrayUnmarshall(pstubmsg: MutPtr, ppmemory: MutPtr, pformat: MutPtr, fmustalloc: UByte): MutPtr =
     MutPtr(windowssysWindowsWin32SystemRpcNdrConformantVaryingArrayUnmarshall(pstubmsg.rawAddress.toCPointer<ByteVar>(), ppmemory.rawAddress.toCPointer<ByteVar>(), pformat.rawAddress.toCPointer<ByteVar>(), fmustalloc)?.toLong() ?: 0L)
 
-public actual fun ndrConformantVaryingStructBufferSize(pstubmsg: MutPtr<MidlStubMessage>, pmemory: MutPtr<UByte>, pformat: MutPtr<UByte>) {
+public actual fun ndrConformantVaryingStructBufferSize(pstubmsg: MutPtr, pmemory: MutPtr, pformat: MutPtr) {
     windowssysWindowsWin32SystemRpcNdrConformantVaryingStructBufferSize(pstubmsg.rawAddress.toCPointer<ByteVar>(), pmemory.rawAddress.toCPointer<ByteVar>(), pformat.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun ndrConformantVaryingStructFree(pstubmsg: MutPtr<MidlStubMessage>, pmemory: MutPtr<UByte>, pformat: MutPtr<UByte>) {
+public actual fun ndrConformantVaryingStructFree(pstubmsg: MutPtr, pmemory: MutPtr, pformat: MutPtr) {
     windowssysWindowsWin32SystemRpcNdrConformantVaryingStructFree(pstubmsg.rawAddress.toCPointer<ByteVar>(), pmemory.rawAddress.toCPointer<ByteVar>(), pformat.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun ndrConformantVaryingStructMarshall(pstubmsg: MutPtr<MidlStubMessage>, pmemory: MutPtr<UByte>, pformat: MutPtr<UByte>): MutPtr<UByte> =
+public actual fun ndrConformantVaryingStructMarshall(pstubmsg: MutPtr, pmemory: MutPtr, pformat: MutPtr): MutPtr =
     MutPtr(windowssysWindowsWin32SystemRpcNdrConformantVaryingStructMarshall(pstubmsg.rawAddress.toCPointer<ByteVar>(), pmemory.rawAddress.toCPointer<ByteVar>(), pformat.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun ndrConformantVaryingStructMemorySize(pstubmsg: MutPtr<MidlStubMessage>, pformat: MutPtr<UByte>): UInt =
+public actual fun ndrConformantVaryingStructMemorySize(pstubmsg: MutPtr, pformat: MutPtr): UInt =
     windowssysWindowsWin32SystemRpcNdrConformantVaryingStructMemorySize(pstubmsg.rawAddress.toCPointer<ByteVar>(), pformat.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ndrConformantVaryingStructUnmarshall(pstubmsg: MutPtr<MidlStubMessage>, ppmemory: MutPtr<MutPtr<UByte>>, pformat: MutPtr<UByte>, fmustalloc: UByte): MutPtr<UByte> =
+public actual fun ndrConformantVaryingStructUnmarshall(pstubmsg: MutPtr, ppmemory: MutPtr, pformat: MutPtr, fmustalloc: UByte): MutPtr =
     MutPtr(windowssysWindowsWin32SystemRpcNdrConformantVaryingStructUnmarshall(pstubmsg.rawAddress.toCPointer<ByteVar>(), ppmemory.rawAddress.toCPointer<ByteVar>(), pformat.rawAddress.toCPointer<ByteVar>(), fmustalloc)?.toLong() ?: 0L)
 
-public actual fun ndrContextHandleInitialize(pstubmsg: ConstPtr<MidlStubMessage>, pformat: ConstPtr<UByte>): MutPtr<NdrScontext> =
+public actual fun ndrContextHandleInitialize(pstubmsg: ConstPtr, pformat: ConstPtr): MutPtr =
     MutPtr(windowssysWindowsWin32SystemRpcNdrContextHandleInitialize(pstubmsg.rawAddress.toCPointer<ByteVar>(), pformat.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun ndrContextHandleSize(pstubmsg: MutPtr<MidlStubMessage>, pmemory: MutPtr<UByte>, pformat: MutPtr<UByte>) {
+public actual fun ndrContextHandleSize(pstubmsg: MutPtr, pmemory: MutPtr, pformat: MutPtr) {
     windowssysWindowsWin32SystemRpcNdrContextHandleSize(pstubmsg.rawAddress.toCPointer<ByteVar>(), pmemory.rawAddress.toCPointer<ByteVar>(), pformat.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun ndrConvert(pstubmsg: MutPtr<MidlStubMessage>, pformat: MutPtr<UByte>) {
+public actual fun ndrConvert(pstubmsg: MutPtr, pformat: MutPtr) {
     windowssysWindowsWin32SystemRpcNdrConvert(pstubmsg.rawAddress.toCPointer<ByteVar>(), pformat.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun ndrConvert2(pstubmsg: MutPtr<MidlStubMessage>, pformat: MutPtr<UByte>, numberparams: Int) {
+public actual fun ndrConvert2(pstubmsg: MutPtr, pformat: MutPtr, numberparams: Int) {
     windowssysWindowsWin32SystemRpcNdrConvert2(pstubmsg.rawAddress.toCPointer<ByteVar>(), pformat.rawAddress.toCPointer<ByteVar>(), numberparams)
 }
 
-public actual fun ndrCorrelationFree(pstubmsg: MutPtr<MidlStubMessage>) {
+public actual fun ndrCorrelationFree(pstubmsg: MutPtr) {
     windowssysWindowsWin32SystemRpcNdrCorrelationFree(pstubmsg.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun ndrCorrelationInitialize(pstubmsg: MutPtr<MidlStubMessage>, pmemory: MutPtr<CVoid>, cachesize: UInt, flags: UInt) {
+public actual fun ndrCorrelationInitialize(pstubmsg: MutPtr, pmemory: MutPtr, cachesize: UInt, flags: UInt) {
     windowssysWindowsWin32SystemRpcNdrCorrelationInitialize(pstubmsg.rawAddress.toCPointer<ByteVar>(), pmemory.rawAddress.toCPointer<ByteVar>(), cachesize, flags)
 }
 
-public actual fun ndrCorrelationPass(pstubmsg: MutPtr<MidlStubMessage>) {
+public actual fun ndrCorrelationPass(pstubmsg: MutPtr) {
     windowssysWindowsWin32SystemRpcNdrCorrelationPass(pstubmsg.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun ndrCreateServerInterfaceFromStub(pstub: MutPtr<CVoid>, pserverif: MutPtr<RpcServerInterface>): RpcStatus =
+public actual fun ndrCreateServerInterfaceFromStub(pstub: MutPtr, pserverif: MutPtr): RpcStatus =
     windowssysWindowsWin32SystemRpcNdrCreateServerInterfaceFromStub(pstub.rawAddress.toCPointer<ByteVar>(), pserverif.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ndrDcomAsyncClientCall(pstubdescriptor: MutPtr<MidlStubDesc>, pformat: MutPtr<UByte>, vararg variadicArgs: Long): ClientCallReturn =
+public actual fun ndrDcomAsyncClientCall(pstubdescriptor: MutPtr, pformat: MutPtr, vararg variadicArgs: Long): ClientCallReturn =
     ClientCallReturn()
 
-public actual fun ndrDcomAsyncStubCall(pthis: MutPtr<CVoid>, pchannel: MutPtr<CVoid>, prpcmsg: MutPtr<RpcMessage>, pdwstubphase: MutPtr<UInt>): Int =
+public actual fun ndrDcomAsyncStubCall(pthis: MutPtr, pchannel: MutPtr, prpcmsg: MutPtr, pdwstubphase: MutPtr): Int =
     windowssysWindowsWin32SystemRpcNdrDcomAsyncStubCall(pthis.rawAddress.toCPointer<ByteVar>(), pchannel.rawAddress.toCPointer<ByteVar>(), prpcmsg.rawAddress.toCPointer<ByteVar>(), pdwstubphase.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ndrEncapsulatedUnionBufferSize(pstubmsg: MutPtr<MidlStubMessage>, pmemory: MutPtr<UByte>, pformat: MutPtr<UByte>) {
+public actual fun ndrEncapsulatedUnionBufferSize(pstubmsg: MutPtr, pmemory: MutPtr, pformat: MutPtr) {
     windowssysWindowsWin32SystemRpcNdrEncapsulatedUnionBufferSize(pstubmsg.rawAddress.toCPointer<ByteVar>(), pmemory.rawAddress.toCPointer<ByteVar>(), pformat.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun ndrEncapsulatedUnionFree(pstubmsg: MutPtr<MidlStubMessage>, pmemory: MutPtr<UByte>, pformat: MutPtr<UByte>) {
+public actual fun ndrEncapsulatedUnionFree(pstubmsg: MutPtr, pmemory: MutPtr, pformat: MutPtr) {
     windowssysWindowsWin32SystemRpcNdrEncapsulatedUnionFree(pstubmsg.rawAddress.toCPointer<ByteVar>(), pmemory.rawAddress.toCPointer<ByteVar>(), pformat.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun ndrEncapsulatedUnionMarshall(pstubmsg: MutPtr<MidlStubMessage>, pmemory: MutPtr<UByte>, pformat: MutPtr<UByte>): MutPtr<UByte> =
+public actual fun ndrEncapsulatedUnionMarshall(pstubmsg: MutPtr, pmemory: MutPtr, pformat: MutPtr): MutPtr =
     MutPtr(windowssysWindowsWin32SystemRpcNdrEncapsulatedUnionMarshall(pstubmsg.rawAddress.toCPointer<ByteVar>(), pmemory.rawAddress.toCPointer<ByteVar>(), pformat.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun ndrEncapsulatedUnionMemorySize(pstubmsg: MutPtr<MidlStubMessage>, pformat: MutPtr<UByte>): UInt =
+public actual fun ndrEncapsulatedUnionMemorySize(pstubmsg: MutPtr, pformat: MutPtr): UInt =
     windowssysWindowsWin32SystemRpcNdrEncapsulatedUnionMemorySize(pstubmsg.rawAddress.toCPointer<ByteVar>(), pformat.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ndrEncapsulatedUnionUnmarshall(pstubmsg: MutPtr<MidlStubMessage>, ppmemory: MutPtr<MutPtr<UByte>>, pformat: MutPtr<UByte>, fmustalloc: UByte): MutPtr<UByte> =
+public actual fun ndrEncapsulatedUnionUnmarshall(pstubmsg: MutPtr, ppmemory: MutPtr, pformat: MutPtr, fmustalloc: UByte): MutPtr =
     MutPtr(windowssysWindowsWin32SystemRpcNdrEncapsulatedUnionUnmarshall(pstubmsg.rawAddress.toCPointer<ByteVar>(), ppmemory.rawAddress.toCPointer<ByteVar>(), pformat.rawAddress.toCPointer<ByteVar>(), fmustalloc)?.toLong() ?: 0L)
 
-public actual fun ndrFixedArrayBufferSize(pstubmsg: MutPtr<MidlStubMessage>, pmemory: MutPtr<UByte>, pformat: MutPtr<UByte>) {
+public actual fun ndrFixedArrayBufferSize(pstubmsg: MutPtr, pmemory: MutPtr, pformat: MutPtr) {
     windowssysWindowsWin32SystemRpcNdrFixedArrayBufferSize(pstubmsg.rawAddress.toCPointer<ByteVar>(), pmemory.rawAddress.toCPointer<ByteVar>(), pformat.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun ndrFixedArrayFree(pstubmsg: MutPtr<MidlStubMessage>, pmemory: MutPtr<UByte>, pformat: MutPtr<UByte>) {
+public actual fun ndrFixedArrayFree(pstubmsg: MutPtr, pmemory: MutPtr, pformat: MutPtr) {
     windowssysWindowsWin32SystemRpcNdrFixedArrayFree(pstubmsg.rawAddress.toCPointer<ByteVar>(), pmemory.rawAddress.toCPointer<ByteVar>(), pformat.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun ndrFixedArrayMarshall(pstubmsg: MutPtr<MidlStubMessage>, pmemory: MutPtr<UByte>, pformat: MutPtr<UByte>): MutPtr<UByte> =
+public actual fun ndrFixedArrayMarshall(pstubmsg: MutPtr, pmemory: MutPtr, pformat: MutPtr): MutPtr =
     MutPtr(windowssysWindowsWin32SystemRpcNdrFixedArrayMarshall(pstubmsg.rawAddress.toCPointer<ByteVar>(), pmemory.rawAddress.toCPointer<ByteVar>(), pformat.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun ndrFixedArrayMemorySize(pstubmsg: MutPtr<MidlStubMessage>, pformat: MutPtr<UByte>): UInt =
+public actual fun ndrFixedArrayMemorySize(pstubmsg: MutPtr, pformat: MutPtr): UInt =
     windowssysWindowsWin32SystemRpcNdrFixedArrayMemorySize(pstubmsg.rawAddress.toCPointer<ByteVar>(), pformat.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ndrFixedArrayUnmarshall(pstubmsg: MutPtr<MidlStubMessage>, ppmemory: MutPtr<MutPtr<UByte>>, pformat: MutPtr<UByte>, fmustalloc: UByte): MutPtr<UByte> =
+public actual fun ndrFixedArrayUnmarshall(pstubmsg: MutPtr, ppmemory: MutPtr, pformat: MutPtr, fmustalloc: UByte): MutPtr =
     MutPtr(windowssysWindowsWin32SystemRpcNdrFixedArrayUnmarshall(pstubmsg.rawAddress.toCPointer<ByteVar>(), ppmemory.rawAddress.toCPointer<ByteVar>(), pformat.rawAddress.toCPointer<ByteVar>(), fmustalloc)?.toLong() ?: 0L)
 
-public actual fun ndrFreeBuffer(pstubmsg: MutPtr<MidlStubMessage>) {
+public actual fun ndrFreeBuffer(pstubmsg: MutPtr) {
     windowssysWindowsWin32SystemRpcNdrFreeBuffer(pstubmsg.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun ndrFullPointerXlatFree(pxlattables: MutPtr<FullPtrXlatTables>) {
+public actual fun ndrFullPointerXlatFree(pxlattables: MutPtr) {
     windowssysWindowsWin32SystemRpcNdrFullPointerXlatFree(pxlattables.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun ndrFullPointerXlatInit(numberofpointers: UInt, xlatside: XlatSide): MutPtr<FullPtrXlatTables> =
+public actual fun ndrFullPointerXlatInit(numberofpointers: UInt, xlatside: XlatSide): MutPtr =
     MutPtr(windowssysWindowsWin32SystemRpcNdrFullPointerXlatInit(numberofpointers, xlatside)?.toLong() ?: 0L)
 
-public actual fun ndrGetBuffer(pstubmsg: MutPtr<MidlStubMessage>, bufferlength: UInt, handle: MutPtr<CVoid>): MutPtr<UByte> =
+public actual fun ndrGetBuffer(pstubmsg: MutPtr, bufferlength: UInt, handle: MutPtr): MutPtr =
     MutPtr(windowssysWindowsWin32SystemRpcNdrGetBuffer(pstubmsg.rawAddress.toCPointer<ByteVar>(), bufferlength, handle.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun ndrGetDcomProtocolVersion(pstubmsg: MutPtr<MidlStubMessage>, pversion: MutPtr<RpcVersion>): Hresult =
+public actual fun ndrGetDcomProtocolVersion(pstubmsg: MutPtr, pversion: MutPtr): Hresult =
     windowssysWindowsWin32SystemRpcNdrGetDcomProtocolVersion(pstubmsg.rawAddress.toCPointer<ByteVar>(), pversion.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ndrGetUserMarshalInfo(pflags: ConstPtr<UInt>, informationlevel: UInt, pmarshalinfo: MutPtr<NdrUserMarshalInfo>): RpcStatus =
+public actual fun ndrGetUserMarshalInfo(pflags: ConstPtr, informationlevel: UInt, pmarshalinfo: MutPtr): RpcStatus =
     windowssysWindowsWin32SystemRpcNdrGetUserMarshalInfo(pflags.rawAddress.toCPointer<ByteVar>(), informationlevel, pmarshalinfo.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ndrInterfacePointerBufferSize(pstubmsg: MutPtr<MidlStubMessage>, pmemory: MutPtr<UByte>, pformat: MutPtr<UByte>) {
+public actual fun ndrInterfacePointerBufferSize(pstubmsg: MutPtr, pmemory: MutPtr, pformat: MutPtr) {
     windowssysWindowsWin32SystemRpcNdrInterfacePointerBufferSize(pstubmsg.rawAddress.toCPointer<ByteVar>(), pmemory.rawAddress.toCPointer<ByteVar>(), pformat.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun ndrInterfacePointerFree(pstubmsg: MutPtr<MidlStubMessage>, pmemory: MutPtr<UByte>, pformat: MutPtr<UByte>) {
+public actual fun ndrInterfacePointerFree(pstubmsg: MutPtr, pmemory: MutPtr, pformat: MutPtr) {
     windowssysWindowsWin32SystemRpcNdrInterfacePointerFree(pstubmsg.rawAddress.toCPointer<ByteVar>(), pmemory.rawAddress.toCPointer<ByteVar>(), pformat.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun ndrInterfacePointerMarshall(pstubmsg: MutPtr<MidlStubMessage>, pmemory: MutPtr<UByte>, pformat: MutPtr<UByte>): MutPtr<UByte> =
+public actual fun ndrInterfacePointerMarshall(pstubmsg: MutPtr, pmemory: MutPtr, pformat: MutPtr): MutPtr =
     MutPtr(windowssysWindowsWin32SystemRpcNdrInterfacePointerMarshall(pstubmsg.rawAddress.toCPointer<ByteVar>(), pmemory.rawAddress.toCPointer<ByteVar>(), pformat.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun ndrInterfacePointerMemorySize(pstubmsg: MutPtr<MidlStubMessage>, pformat: MutPtr<UByte>): UInt =
+public actual fun ndrInterfacePointerMemorySize(pstubmsg: MutPtr, pformat: MutPtr): UInt =
     windowssysWindowsWin32SystemRpcNdrInterfacePointerMemorySize(pstubmsg.rawAddress.toCPointer<ByteVar>(), pformat.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ndrInterfacePointerUnmarshall(pstubmsg: MutPtr<MidlStubMessage>, ppmemory: MutPtr<MutPtr<UByte>>, pformat: MutPtr<UByte>, fmustalloc: UByte): MutPtr<UByte> =
+public actual fun ndrInterfacePointerUnmarshall(pstubmsg: MutPtr, ppmemory: MutPtr, pformat: MutPtr, fmustalloc: UByte): MutPtr =
     MutPtr(windowssysWindowsWin32SystemRpcNdrInterfacePointerUnmarshall(pstubmsg.rawAddress.toCPointer<ByteVar>(), ppmemory.rawAddress.toCPointer<ByteVar>(), pformat.rawAddress.toCPointer<ByteVar>(), fmustalloc)?.toLong() ?: 0L)
 
-public actual fun ndrMapCommAndFaultStatus(pstubmsg: MutPtr<MidlStubMessage>, pcommstatus: MutPtr<UInt>, pfaultstatus: MutPtr<UInt>, status: RpcStatus): RpcStatus =
+public actual fun ndrMapCommAndFaultStatus(pstubmsg: MutPtr, pcommstatus: MutPtr, pfaultstatus: MutPtr, status: RpcStatus): RpcStatus =
     windowssysWindowsWin32SystemRpcNdrMapCommAndFaultStatus(pstubmsg.rawAddress.toCPointer<ByteVar>(), pcommstatus.rawAddress.toCPointer<ByteVar>(), pfaultstatus.rawAddress.toCPointer<ByteVar>(), status)
 
-public actual fun ndrMesProcEncodeDecode(handle: MutPtr<CVoid>, pstubdesc: ConstPtr<MidlStubDesc>, pformatstring: MutPtr<UByte>, vararg variadicArgs: Long) {
+public actual fun ndrMesProcEncodeDecode(handle: MutPtr, pstubdesc: ConstPtr, pformatstring: MutPtr, vararg variadicArgs: Long) {
     windowssysWindowsWin32SystemRpcNdrMesProcEncodeDecode(handle.rawAddress.toCPointer<ByteVar>(), pstubdesc.rawAddress.toCPointer<ByteVar>(), pformatstring.rawAddress.toCPointer<ByteVar>(), variadicArgs.size.coerceAtMost(4), if (variadicArgs.size > 0) variadicArgs[0] else 0L, if (variadicArgs.size > 1) variadicArgs[1] else 0L, if (variadicArgs.size > 2) variadicArgs[2] else 0L, if (variadicArgs.size > 3) variadicArgs[3] else 0L)
 }
 
-public actual fun ndrMesProcEncodeDecode2(handle: MutPtr<CVoid>, pstubdesc: ConstPtr<MidlStubDesc>, pformatstring: MutPtr<UByte>, vararg variadicArgs: Long): ClientCallReturn =
+public actual fun ndrMesProcEncodeDecode2(handle: MutPtr, pstubdesc: ConstPtr, pformatstring: MutPtr, vararg variadicArgs: Long): ClientCallReturn =
     ClientCallReturn()
 
-public actual fun ndrMesProcEncodeDecode3(handle: MutPtr<CVoid>, pproxyinfo: ConstPtr<MidlStublessProxyInfo>, nprocnum: UInt, preturnvalue: MutPtr<CVoid>, vararg variadicArgs: Long): ClientCallReturn =
+public actual fun ndrMesProcEncodeDecode3(handle: MutPtr, pproxyinfo: ConstPtr, nprocnum: UInt, preturnvalue: MutPtr, vararg variadicArgs: Long): ClientCallReturn =
     ClientCallReturn()
 
-public actual fun ndrMesSimpleTypeAlignSize(param0: MutPtr<CVoid>): ULong =
+public actual fun ndrMesSimpleTypeAlignSize(param0: MutPtr): ULong =
     windowssysWindowsWin32SystemRpcNdrMesSimpleTypeAlignSize(param0.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ndrMesSimpleTypeAlignSizeAll(handle: MutPtr<CVoid>, pproxyinfo: ConstPtr<MidlStublessProxyInfo>): ULong =
+public actual fun ndrMesSimpleTypeAlignSizeAll(handle: MutPtr, pproxyinfo: ConstPtr): ULong =
     windowssysWindowsWin32SystemRpcNdrMesSimpleTypeAlignSizeAll(handle.rawAddress.toCPointer<ByteVar>(), pproxyinfo.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ndrMesSimpleTypeDecode(handle: MutPtr<CVoid>, pobject: MutPtr<CVoid>, size: Short) {
+public actual fun ndrMesSimpleTypeDecode(handle: MutPtr, pobject: MutPtr, size: Short) {
     windowssysWindowsWin32SystemRpcNdrMesSimpleTypeDecode(handle.rawAddress.toCPointer<ByteVar>(), pobject.rawAddress.toCPointer<ByteVar>(), size)
 }
 
-public actual fun ndrMesSimpleTypeDecodeAll(handle: MutPtr<CVoid>, pproxyinfo: ConstPtr<MidlStublessProxyInfo>, pobject: MutPtr<CVoid>, size: Short) {
+public actual fun ndrMesSimpleTypeDecodeAll(handle: MutPtr, pproxyinfo: ConstPtr, pobject: MutPtr, size: Short) {
     windowssysWindowsWin32SystemRpcNdrMesSimpleTypeDecodeAll(handle.rawAddress.toCPointer<ByteVar>(), pproxyinfo.rawAddress.toCPointer<ByteVar>(), pobject.rawAddress.toCPointer<ByteVar>(), size)
 }
 
-public actual fun ndrMesSimpleTypeEncode(handle: MutPtr<CVoid>, pstubdesc: ConstPtr<MidlStubDesc>, pobject: ConstPtr<CVoid>, size: Short) {
+public actual fun ndrMesSimpleTypeEncode(handle: MutPtr, pstubdesc: ConstPtr, pobject: ConstPtr, size: Short) {
     windowssysWindowsWin32SystemRpcNdrMesSimpleTypeEncode(handle.rawAddress.toCPointer<ByteVar>(), pstubdesc.rawAddress.toCPointer<ByteVar>(), pobject.rawAddress.toCPointer<ByteVar>(), size)
 }
 
-public actual fun ndrMesSimpleTypeEncodeAll(handle: MutPtr<CVoid>, pproxyinfo: ConstPtr<MidlStublessProxyInfo>, pobject: ConstPtr<CVoid>, size: Short) {
+public actual fun ndrMesSimpleTypeEncodeAll(handle: MutPtr, pproxyinfo: ConstPtr, pobject: ConstPtr, size: Short) {
     windowssysWindowsWin32SystemRpcNdrMesSimpleTypeEncodeAll(handle.rawAddress.toCPointer<ByteVar>(), pproxyinfo.rawAddress.toCPointer<ByteVar>(), pobject.rawAddress.toCPointer<ByteVar>(), size)
 }
 
-public actual fun ndrMesTypeAlignSize(handle: MutPtr<CVoid>, pstubdesc: ConstPtr<MidlStubDesc>, pformatstring: MutPtr<UByte>, pobject: ConstPtr<CVoid>): ULong =
+public actual fun ndrMesTypeAlignSize(handle: MutPtr, pstubdesc: ConstPtr, pformatstring: MutPtr, pobject: ConstPtr): ULong =
     windowssysWindowsWin32SystemRpcNdrMesTypeAlignSize(handle.rawAddress.toCPointer<ByteVar>(), pstubdesc.rawAddress.toCPointer<ByteVar>(), pformatstring.rawAddress.toCPointer<ByteVar>(), pobject.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ndrMesTypeAlignSize2(handle: MutPtr<CVoid>, ppicklinginfo: ConstPtr<MidlTypePicklingInfo>, pstubdesc: ConstPtr<MidlStubDesc>, pformatstring: MutPtr<UByte>, pobject: ConstPtr<CVoid>): ULong =
+public actual fun ndrMesTypeAlignSize2(handle: MutPtr, ppicklinginfo: ConstPtr, pstubdesc: ConstPtr, pformatstring: MutPtr, pobject: ConstPtr): ULong =
     windowssysWindowsWin32SystemRpcNdrMesTypeAlignSize2(handle.rawAddress.toCPointer<ByteVar>(), ppicklinginfo.rawAddress.toCPointer<ByteVar>(), pstubdesc.rawAddress.toCPointer<ByteVar>(), pformatstring.rawAddress.toCPointer<ByteVar>(), pobject.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ndrMesTypeAlignSize3(handle: MutPtr<CVoid>, ppicklinginfo: ConstPtr<MidlTypePicklingInfo>, pproxyinfo: ConstPtr<MidlStublessProxyInfo>, arrtypeoffset: ConstPtr<ConstPtr<UInt>>, ntypeindex: UInt, pobject: ConstPtr<CVoid>): ULong =
+public actual fun ndrMesTypeAlignSize3(handle: MutPtr, ppicklinginfo: ConstPtr, pproxyinfo: ConstPtr, arrtypeoffset: ConstPtr, ntypeindex: UInt, pobject: ConstPtr): ULong =
     windowssysWindowsWin32SystemRpcNdrMesTypeAlignSize3(handle.rawAddress.toCPointer<ByteVar>(), ppicklinginfo.rawAddress.toCPointer<ByteVar>(), pproxyinfo.rawAddress.toCPointer<ByteVar>(), arrtypeoffset.rawAddress.toCPointer<ByteVar>(), ntypeindex, pobject.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ndrMesTypeDecode(handle: MutPtr<CVoid>, pstubdesc: ConstPtr<MidlStubDesc>, pformatstring: MutPtr<UByte>, pobject: MutPtr<CVoid>) {
+public actual fun ndrMesTypeDecode(handle: MutPtr, pstubdesc: ConstPtr, pformatstring: MutPtr, pobject: MutPtr) {
     windowssysWindowsWin32SystemRpcNdrMesTypeDecode(handle.rawAddress.toCPointer<ByteVar>(), pstubdesc.rawAddress.toCPointer<ByteVar>(), pformatstring.rawAddress.toCPointer<ByteVar>(), pobject.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun ndrMesTypeDecode2(handle: MutPtr<CVoid>, ppicklinginfo: ConstPtr<MidlTypePicklingInfo>, pstubdesc: ConstPtr<MidlStubDesc>, pformatstring: MutPtr<UByte>, pobject: MutPtr<CVoid>) {
+public actual fun ndrMesTypeDecode2(handle: MutPtr, ppicklinginfo: ConstPtr, pstubdesc: ConstPtr, pformatstring: MutPtr, pobject: MutPtr) {
     windowssysWindowsWin32SystemRpcNdrMesTypeDecode2(handle.rawAddress.toCPointer<ByteVar>(), ppicklinginfo.rawAddress.toCPointer<ByteVar>(), pstubdesc.rawAddress.toCPointer<ByteVar>(), pformatstring.rawAddress.toCPointer<ByteVar>(), pobject.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun ndrMesTypeDecode3(handle: MutPtr<CVoid>, ppicklinginfo: ConstPtr<MidlTypePicklingInfo>, pproxyinfo: ConstPtr<MidlStublessProxyInfo>, arrtypeoffset: ConstPtr<ConstPtr<UInt>>, ntypeindex: UInt, pobject: MutPtr<CVoid>) {
+public actual fun ndrMesTypeDecode3(handle: MutPtr, ppicklinginfo: ConstPtr, pproxyinfo: ConstPtr, arrtypeoffset: ConstPtr, ntypeindex: UInt, pobject: MutPtr) {
     windowssysWindowsWin32SystemRpcNdrMesTypeDecode3(handle.rawAddress.toCPointer<ByteVar>(), ppicklinginfo.rawAddress.toCPointer<ByteVar>(), pproxyinfo.rawAddress.toCPointer<ByteVar>(), arrtypeoffset.rawAddress.toCPointer<ByteVar>(), ntypeindex, pobject.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun ndrMesTypeEncode(handle: MutPtr<CVoid>, pstubdesc: ConstPtr<MidlStubDesc>, pformatstring: MutPtr<UByte>, pobject: ConstPtr<CVoid>) {
+public actual fun ndrMesTypeEncode(handle: MutPtr, pstubdesc: ConstPtr, pformatstring: MutPtr, pobject: ConstPtr) {
     windowssysWindowsWin32SystemRpcNdrMesTypeEncode(handle.rawAddress.toCPointer<ByteVar>(), pstubdesc.rawAddress.toCPointer<ByteVar>(), pformatstring.rawAddress.toCPointer<ByteVar>(), pobject.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun ndrMesTypeEncode2(handle: MutPtr<CVoid>, ppicklinginfo: ConstPtr<MidlTypePicklingInfo>, pstubdesc: ConstPtr<MidlStubDesc>, pformatstring: MutPtr<UByte>, pobject: ConstPtr<CVoid>) {
+public actual fun ndrMesTypeEncode2(handle: MutPtr, ppicklinginfo: ConstPtr, pstubdesc: ConstPtr, pformatstring: MutPtr, pobject: ConstPtr) {
     windowssysWindowsWin32SystemRpcNdrMesTypeEncode2(handle.rawAddress.toCPointer<ByteVar>(), ppicklinginfo.rawAddress.toCPointer<ByteVar>(), pstubdesc.rawAddress.toCPointer<ByteVar>(), pformatstring.rawAddress.toCPointer<ByteVar>(), pobject.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun ndrMesTypeEncode3(handle: MutPtr<CVoid>, ppicklinginfo: ConstPtr<MidlTypePicklingInfo>, pproxyinfo: ConstPtr<MidlStublessProxyInfo>, arrtypeoffset: ConstPtr<ConstPtr<UInt>>, ntypeindex: UInt, pobject: ConstPtr<CVoid>) {
+public actual fun ndrMesTypeEncode3(handle: MutPtr, ppicklinginfo: ConstPtr, pproxyinfo: ConstPtr, arrtypeoffset: ConstPtr, ntypeindex: UInt, pobject: ConstPtr) {
     windowssysWindowsWin32SystemRpcNdrMesTypeEncode3(handle.rawAddress.toCPointer<ByteVar>(), ppicklinginfo.rawAddress.toCPointer<ByteVar>(), pproxyinfo.rawAddress.toCPointer<ByteVar>(), arrtypeoffset.rawAddress.toCPointer<ByteVar>(), ntypeindex, pobject.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun ndrMesTypeFree2(handle: MutPtr<CVoid>, ppicklinginfo: ConstPtr<MidlTypePicklingInfo>, pstubdesc: ConstPtr<MidlStubDesc>, pformatstring: MutPtr<UByte>, pobject: MutPtr<CVoid>) {
+public actual fun ndrMesTypeFree2(handle: MutPtr, ppicklinginfo: ConstPtr, pstubdesc: ConstPtr, pformatstring: MutPtr, pobject: MutPtr) {
     windowssysWindowsWin32SystemRpcNdrMesTypeFree2(handle.rawAddress.toCPointer<ByteVar>(), ppicklinginfo.rawAddress.toCPointer<ByteVar>(), pstubdesc.rawAddress.toCPointer<ByteVar>(), pformatstring.rawAddress.toCPointer<ByteVar>(), pobject.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun ndrMesTypeFree3(handle: MutPtr<CVoid>, ppicklinginfo: ConstPtr<MidlTypePicklingInfo>, pproxyinfo: ConstPtr<MidlStublessProxyInfo>, arrtypeoffset: ConstPtr<ConstPtr<UInt>>, ntypeindex: UInt, pobject: MutPtr<CVoid>) {
+public actual fun ndrMesTypeFree3(handle: MutPtr, ppicklinginfo: ConstPtr, pproxyinfo: ConstPtr, arrtypeoffset: ConstPtr, ntypeindex: UInt, pobject: MutPtr) {
     windowssysWindowsWin32SystemRpcNdrMesTypeFree3(handle.rawAddress.toCPointer<ByteVar>(), ppicklinginfo.rawAddress.toCPointer<ByteVar>(), pproxyinfo.rawAddress.toCPointer<ByteVar>(), arrtypeoffset.rawAddress.toCPointer<ByteVar>(), ntypeindex, pobject.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun ndrNonConformantStringBufferSize(pstubmsg: MutPtr<MidlStubMessage>, pmemory: MutPtr<UByte>, pformat: MutPtr<UByte>) {
+public actual fun ndrNonConformantStringBufferSize(pstubmsg: MutPtr, pmemory: MutPtr, pformat: MutPtr) {
     windowssysWindowsWin32SystemRpcNdrNonConformantStringBufferSize(pstubmsg.rawAddress.toCPointer<ByteVar>(), pmemory.rawAddress.toCPointer<ByteVar>(), pformat.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun ndrNonConformantStringMarshall(pstubmsg: MutPtr<MidlStubMessage>, pmemory: MutPtr<UByte>, pformat: MutPtr<UByte>): MutPtr<UByte> =
+public actual fun ndrNonConformantStringMarshall(pstubmsg: MutPtr, pmemory: MutPtr, pformat: MutPtr): MutPtr =
     MutPtr(windowssysWindowsWin32SystemRpcNdrNonConformantStringMarshall(pstubmsg.rawAddress.toCPointer<ByteVar>(), pmemory.rawAddress.toCPointer<ByteVar>(), pformat.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun ndrNonConformantStringMemorySize(pstubmsg: MutPtr<MidlStubMessage>, pformat: MutPtr<UByte>): UInt =
+public actual fun ndrNonConformantStringMemorySize(pstubmsg: MutPtr, pformat: MutPtr): UInt =
     windowssysWindowsWin32SystemRpcNdrNonConformantStringMemorySize(pstubmsg.rawAddress.toCPointer<ByteVar>(), pformat.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ndrNonConformantStringUnmarshall(pstubmsg: MutPtr<MidlStubMessage>, ppmemory: MutPtr<MutPtr<UByte>>, pformat: MutPtr<UByte>, fmustalloc: UByte): MutPtr<UByte> =
+public actual fun ndrNonConformantStringUnmarshall(pstubmsg: MutPtr, ppmemory: MutPtr, pformat: MutPtr, fmustalloc: UByte): MutPtr =
     MutPtr(windowssysWindowsWin32SystemRpcNdrNonConformantStringUnmarshall(pstubmsg.rawAddress.toCPointer<ByteVar>(), ppmemory.rawAddress.toCPointer<ByteVar>(), pformat.rawAddress.toCPointer<ByteVar>(), fmustalloc)?.toLong() ?: 0L)
 
-public actual fun ndrNonEncapsulatedUnionBufferSize(pstubmsg: MutPtr<MidlStubMessage>, pmemory: MutPtr<UByte>, pformat: MutPtr<UByte>) {
+public actual fun ndrNonEncapsulatedUnionBufferSize(pstubmsg: MutPtr, pmemory: MutPtr, pformat: MutPtr) {
     windowssysWindowsWin32SystemRpcNdrNonEncapsulatedUnionBufferSize(pstubmsg.rawAddress.toCPointer<ByteVar>(), pmemory.rawAddress.toCPointer<ByteVar>(), pformat.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun ndrNonEncapsulatedUnionFree(pstubmsg: MutPtr<MidlStubMessage>, pmemory: MutPtr<UByte>, pformat: MutPtr<UByte>) {
+public actual fun ndrNonEncapsulatedUnionFree(pstubmsg: MutPtr, pmemory: MutPtr, pformat: MutPtr) {
     windowssysWindowsWin32SystemRpcNdrNonEncapsulatedUnionFree(pstubmsg.rawAddress.toCPointer<ByteVar>(), pmemory.rawAddress.toCPointer<ByteVar>(), pformat.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun ndrNonEncapsulatedUnionMarshall(pstubmsg: MutPtr<MidlStubMessage>, pmemory: MutPtr<UByte>, pformat: MutPtr<UByte>): MutPtr<UByte> =
+public actual fun ndrNonEncapsulatedUnionMarshall(pstubmsg: MutPtr, pmemory: MutPtr, pformat: MutPtr): MutPtr =
     MutPtr(windowssysWindowsWin32SystemRpcNdrNonEncapsulatedUnionMarshall(pstubmsg.rawAddress.toCPointer<ByteVar>(), pmemory.rawAddress.toCPointer<ByteVar>(), pformat.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun ndrNonEncapsulatedUnionMemorySize(pstubmsg: MutPtr<MidlStubMessage>, pformat: MutPtr<UByte>): UInt =
+public actual fun ndrNonEncapsulatedUnionMemorySize(pstubmsg: MutPtr, pformat: MutPtr): UInt =
     windowssysWindowsWin32SystemRpcNdrNonEncapsulatedUnionMemorySize(pstubmsg.rawAddress.toCPointer<ByteVar>(), pformat.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ndrNonEncapsulatedUnionUnmarshall(pstubmsg: MutPtr<MidlStubMessage>, ppmemory: MutPtr<MutPtr<UByte>>, pformat: MutPtr<UByte>, fmustalloc: UByte): MutPtr<UByte> =
+public actual fun ndrNonEncapsulatedUnionUnmarshall(pstubmsg: MutPtr, ppmemory: MutPtr, pformat: MutPtr, fmustalloc: UByte): MutPtr =
     MutPtr(windowssysWindowsWin32SystemRpcNdrNonEncapsulatedUnionUnmarshall(pstubmsg.rawAddress.toCPointer<ByteVar>(), ppmemory.rawAddress.toCPointer<ByteVar>(), pformat.rawAddress.toCPointer<ByteVar>(), fmustalloc)?.toLong() ?: 0L)
 
-public actual fun ndrNsGetBuffer(pstubmsg: MutPtr<MidlStubMessage>, bufferlength: UInt, handle: MutPtr<CVoid>): MutPtr<UByte> =
+public actual fun ndrNsGetBuffer(pstubmsg: MutPtr, bufferlength: UInt, handle: MutPtr): MutPtr =
     MutPtr(windowssysWindowsWin32SystemRpcNdrNsGetBuffer(pstubmsg.rawAddress.toCPointer<ByteVar>(), bufferlength, handle.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun ndrNsSendReceive(pstubmsg: MutPtr<MidlStubMessage>, pbufferend: MutPtr<UByte>, pautohandle: MutPtr<MutPtr<CVoid>>): MutPtr<UByte> =
+public actual fun ndrNsSendReceive(pstubmsg: MutPtr, pbufferend: MutPtr, pautohandle: MutPtr): MutPtr =
     MutPtr(windowssysWindowsWin32SystemRpcNdrNsSendReceive(pstubmsg.rawAddress.toCPointer<ByteVar>(), pbufferend.rawAddress.toCPointer<ByteVar>(), pautohandle.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun ndrOleAllocate(size: ULong): MutPtr<CVoid> =
+public actual fun ndrOleAllocate(size: ULong): MutPtr =
     MutPtr(windowssysWindowsWin32SystemRpcNdrOleAllocate(size)?.toLong() ?: 0L)
 
-public actual fun ndrOleFree(nodetofree: ConstPtr<CVoid>) {
+public actual fun ndrOleFree(nodetofree: ConstPtr) {
     windowssysWindowsWin32SystemRpcNdrOleFree(nodetofree.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun ndrPartialIgnoreClientBufferSize(pstubmsg: MutPtr<MidlStubMessage>, pmemory: MutPtr<CVoid>) {
+public actual fun ndrPartialIgnoreClientBufferSize(pstubmsg: MutPtr, pmemory: MutPtr) {
     windowssysWindowsWin32SystemRpcNdrPartialIgnoreClientBufferSize(pstubmsg.rawAddress.toCPointer<ByteVar>(), pmemory.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun ndrPartialIgnoreClientMarshall(pstubmsg: MutPtr<MidlStubMessage>, pmemory: MutPtr<CVoid>) {
+public actual fun ndrPartialIgnoreClientMarshall(pstubmsg: MutPtr, pmemory: MutPtr) {
     windowssysWindowsWin32SystemRpcNdrPartialIgnoreClientMarshall(pstubmsg.rawAddress.toCPointer<ByteVar>(), pmemory.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun ndrPartialIgnoreServerInitialize(pstubmsg: MutPtr<MidlStubMessage>, ppmemory: MutPtr<MutPtr<CVoid>>, pformat: MutPtr<UByte>) {
+public actual fun ndrPartialIgnoreServerInitialize(pstubmsg: MutPtr, ppmemory: MutPtr, pformat: MutPtr) {
     windowssysWindowsWin32SystemRpcNdrPartialIgnoreServerInitialize(pstubmsg.rawAddress.toCPointer<ByteVar>(), ppmemory.rawAddress.toCPointer<ByteVar>(), pformat.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun ndrPartialIgnoreServerUnmarshall(pstubmsg: MutPtr<MidlStubMessage>, ppmemory: MutPtr<MutPtr<CVoid>>) {
+public actual fun ndrPartialIgnoreServerUnmarshall(pstubmsg: MutPtr, ppmemory: MutPtr) {
     windowssysWindowsWin32SystemRpcNdrPartialIgnoreServerUnmarshall(pstubmsg.rawAddress.toCPointer<ByteVar>(), ppmemory.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun ndrPointerBufferSize(pstubmsg: MutPtr<MidlStubMessage>, pmemory: MutPtr<UByte>, pformat: MutPtr<UByte>) {
+public actual fun ndrPointerBufferSize(pstubmsg: MutPtr, pmemory: MutPtr, pformat: MutPtr) {
     windowssysWindowsWin32SystemRpcNdrPointerBufferSize(pstubmsg.rawAddress.toCPointer<ByteVar>(), pmemory.rawAddress.toCPointer<ByteVar>(), pformat.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun ndrPointerFree(pstubmsg: MutPtr<MidlStubMessage>, pmemory: MutPtr<UByte>, pformat: MutPtr<UByte>) {
+public actual fun ndrPointerFree(pstubmsg: MutPtr, pmemory: MutPtr, pformat: MutPtr) {
     windowssysWindowsWin32SystemRpcNdrPointerFree(pstubmsg.rawAddress.toCPointer<ByteVar>(), pmemory.rawAddress.toCPointer<ByteVar>(), pformat.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun ndrPointerMarshall(pstubmsg: MutPtr<MidlStubMessage>, pmemory: MutPtr<UByte>, pformat: MutPtr<UByte>): MutPtr<UByte> =
+public actual fun ndrPointerMarshall(pstubmsg: MutPtr, pmemory: MutPtr, pformat: MutPtr): MutPtr =
     MutPtr(windowssysWindowsWin32SystemRpcNdrPointerMarshall(pstubmsg.rawAddress.toCPointer<ByteVar>(), pmemory.rawAddress.toCPointer<ByteVar>(), pformat.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun ndrPointerMemorySize(pstubmsg: MutPtr<MidlStubMessage>, pformat: MutPtr<UByte>): UInt =
+public actual fun ndrPointerMemorySize(pstubmsg: MutPtr, pformat: MutPtr): UInt =
     windowssysWindowsWin32SystemRpcNdrPointerMemorySize(pstubmsg.rawAddress.toCPointer<ByteVar>(), pformat.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ndrPointerUnmarshall(pstubmsg: MutPtr<MidlStubMessage>, ppmemory: MutPtr<MutPtr<UByte>>, pformat: MutPtr<UByte>, fmustalloc: UByte): MutPtr<UByte> =
+public actual fun ndrPointerUnmarshall(pstubmsg: MutPtr, ppmemory: MutPtr, pformat: MutPtr, fmustalloc: UByte): MutPtr =
     MutPtr(windowssysWindowsWin32SystemRpcNdrPointerUnmarshall(pstubmsg.rawAddress.toCPointer<ByteVar>(), ppmemory.rawAddress.toCPointer<ByteVar>(), pformat.rawAddress.toCPointer<ByteVar>(), fmustalloc)?.toLong() ?: 0L)
 
-public actual fun ndrRangeUnmarshall(pstubmsg: MutPtr<MidlStubMessage>, ppmemory: MutPtr<MutPtr<UByte>>, pformat: MutPtr<UByte>, fmustalloc: UByte): MutPtr<UByte> =
+public actual fun ndrRangeUnmarshall(pstubmsg: MutPtr, ppmemory: MutPtr, pformat: MutPtr, fmustalloc: UByte): MutPtr =
     MutPtr(windowssysWindowsWin32SystemRpcNdrRangeUnmarshall(pstubmsg.rawAddress.toCPointer<ByteVar>(), ppmemory.rawAddress.toCPointer<ByteVar>(), pformat.rawAddress.toCPointer<ByteVar>(), fmustalloc)?.toLong() ?: 0L)
 
-public actual fun ndrRpcSmClientAllocate(size: ULong): MutPtr<CVoid> =
+public actual fun ndrRpcSmClientAllocate(size: ULong): MutPtr =
     MutPtr(windowssysWindowsWin32SystemRpcNdrRpcSmClientAllocate(size)?.toLong() ?: 0L)
 
-public actual fun ndrRpcSmClientFree(nodetofree: ConstPtr<CVoid>) {
+public actual fun ndrRpcSmClientFree(nodetofree: ConstPtr) {
     windowssysWindowsWin32SystemRpcNdrRpcSmClientFree(nodetofree.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun ndrRpcSmSetClientToOsf(pmessage: MutPtr<MidlStubMessage>) {
+public actual fun ndrRpcSmSetClientToOsf(pmessage: MutPtr) {
     windowssysWindowsWin32SystemRpcNdrRpcSmSetClientToOsf(pmessage.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun ndrRpcSsDefaultAllocate(size: ULong): MutPtr<CVoid> =
+public actual fun ndrRpcSsDefaultAllocate(size: ULong): MutPtr =
     MutPtr(windowssysWindowsWin32SystemRpcNdrRpcSsDefaultAllocate(size)?.toLong() ?: 0L)
 
-public actual fun ndrRpcSsDefaultFree(nodetofree: ConstPtr<CVoid>) {
+public actual fun ndrRpcSsDefaultFree(nodetofree: ConstPtr) {
     windowssysWindowsWin32SystemRpcNdrRpcSsDefaultFree(nodetofree.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun ndrRpcSsDisableAllocate(pmessage: MutPtr<MidlStubMessage>) {
+public actual fun ndrRpcSsDisableAllocate(pmessage: MutPtr) {
     windowssysWindowsWin32SystemRpcNdrRpcSsDisableAllocate(pmessage.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun ndrRpcSsEnableAllocate(pmessage: MutPtr<MidlStubMessage>) {
+public actual fun ndrRpcSsEnableAllocate(pmessage: MutPtr) {
     windowssysWindowsWin32SystemRpcNdrRpcSsEnableAllocate(pmessage.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun ndrSendReceive(pstubmsg: MutPtr<MidlStubMessage>, pbufferend: MutPtr<UByte>): MutPtr<UByte> =
+public actual fun ndrSendReceive(pstubmsg: MutPtr, pbufferend: MutPtr): MutPtr =
     MutPtr(windowssysWindowsWin32SystemRpcNdrSendReceive(pstubmsg.rawAddress.toCPointer<ByteVar>(), pbufferend.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun ndrServerCall2(prpcmsg: MutPtr<RpcMessage>) {
+public actual fun ndrServerCall2(prpcmsg: MutPtr) {
     windowssysWindowsWin32SystemRpcNdrServerCall2(prpcmsg.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun ndrServerCallAll(prpcmsg: MutPtr<RpcMessage>) {
+public actual fun ndrServerCallAll(prpcmsg: MutPtr) {
     windowssysWindowsWin32SystemRpcNdrServerCallAll(prpcmsg.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun ndrServerCallNdr64(prpcmsg: MutPtr<RpcMessage>) {
+public actual fun ndrServerCallNdr64(prpcmsg: MutPtr) {
     windowssysWindowsWin32SystemRpcNdrServerCallNdr64(prpcmsg.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun ndrServerContextMarshall(pstubmsg: MutPtr<MidlStubMessage>, contexthandle: MutPtr<NdrScontext>, rundownroutine: NdrRundown) {
+public actual fun ndrServerContextMarshall(pstubmsg: MutPtr, contexthandle: MutPtr, rundownroutine: NdrRundown) {
     windowssysWindowsWin32SystemRpcNdrServerContextMarshall(pstubmsg.rawAddress.toCPointer<ByteVar>(), contexthandle.rawAddress.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>())
 }
 
-public actual fun ndrServerContextNewMarshall(pstubmsg: MutPtr<MidlStubMessage>, contexthandle: MutPtr<NdrScontext>, rundownroutine: NdrRundown, pformat: MutPtr<UByte>) {
+public actual fun ndrServerContextNewMarshall(pstubmsg: MutPtr, contexthandle: MutPtr, rundownroutine: NdrRundown, pformat: MutPtr) {
     windowssysWindowsWin32SystemRpcNdrServerContextNewMarshall(pstubmsg.rawAddress.toCPointer<ByteVar>(), contexthandle.rawAddress.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>(), pformat.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun ndrServerContextNewUnmarshall(pstubmsg: ConstPtr<MidlStubMessage>, pformat: ConstPtr<UByte>): MutPtr<NdrScontext> =
+public actual fun ndrServerContextNewUnmarshall(pstubmsg: ConstPtr, pformat: ConstPtr): MutPtr =
     MutPtr(windowssysWindowsWin32SystemRpcNdrServerContextNewUnmarshall(pstubmsg.rawAddress.toCPointer<ByteVar>(), pformat.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun ndrServerContextUnmarshall(pstubmsg: MutPtr<MidlStubMessage>): MutPtr<NdrScontext> =
+public actual fun ndrServerContextUnmarshall(pstubmsg: MutPtr): MutPtr =
     MutPtr(windowssysWindowsWin32SystemRpcNdrServerContextUnmarshall(pstubmsg.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun ndrServerInitialize(prpcmsg: MutPtr<RpcMessage>, pstubmsg: MutPtr<MidlStubMessage>, pstubdescriptor: MutPtr<MidlStubDesc>): MutPtr<UByte> =
+public actual fun ndrServerInitialize(prpcmsg: MutPtr, pstubmsg: MutPtr, pstubdescriptor: MutPtr): MutPtr =
     MutPtr(windowssysWindowsWin32SystemRpcNdrServerInitialize(prpcmsg.rawAddress.toCPointer<ByteVar>(), pstubmsg.rawAddress.toCPointer<ByteVar>(), pstubdescriptor.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun ndrServerInitializeMarshall(prpcmsg: MutPtr<RpcMessage>, pstubmsg: MutPtr<MidlStubMessage>) {
+public actual fun ndrServerInitializeMarshall(prpcmsg: MutPtr, pstubmsg: MutPtr) {
     windowssysWindowsWin32SystemRpcNdrServerInitializeMarshall(prpcmsg.rawAddress.toCPointer<ByteVar>(), pstubmsg.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun ndrServerInitializeNew(prpcmsg: MutPtr<RpcMessage>, pstubmsg: MutPtr<MidlStubMessage>, pstubdescriptor: MutPtr<MidlStubDesc>): MutPtr<UByte> =
+public actual fun ndrServerInitializeNew(prpcmsg: MutPtr, pstubmsg: MutPtr, pstubdescriptor: MutPtr): MutPtr =
     MutPtr(windowssysWindowsWin32SystemRpcNdrServerInitializeNew(prpcmsg.rawAddress.toCPointer<ByteVar>(), pstubmsg.rawAddress.toCPointer<ByteVar>(), pstubdescriptor.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun ndrServerInitializePartial(prpcmsg: MutPtr<RpcMessage>, pstubmsg: MutPtr<MidlStubMessage>, pstubdescriptor: MutPtr<MidlStubDesc>, requestedbuffersize: UInt) {
+public actual fun ndrServerInitializePartial(prpcmsg: MutPtr, pstubmsg: MutPtr, pstubdescriptor: MutPtr, requestedbuffersize: UInt) {
     windowssysWindowsWin32SystemRpcNdrServerInitializePartial(prpcmsg.rawAddress.toCPointer<ByteVar>(), pstubmsg.rawAddress.toCPointer<ByteVar>(), pstubdescriptor.rawAddress.toCPointer<ByteVar>(), requestedbuffersize)
 }
 
-public actual fun ndrServerInitializeUnmarshall(pstubmsg: MutPtr<MidlStubMessage>, pstubdescriptor: MutPtr<MidlStubDesc>, prpcmsg: MutPtr<RpcMessage>): MutPtr<UByte> =
+public actual fun ndrServerInitializeUnmarshall(pstubmsg: MutPtr, pstubdescriptor: MutPtr, prpcmsg: MutPtr): MutPtr =
     MutPtr(windowssysWindowsWin32SystemRpcNdrServerInitializeUnmarshall(pstubmsg.rawAddress.toCPointer<ByteVar>(), pstubdescriptor.rawAddress.toCPointer<ByteVar>(), prpcmsg.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun ndrSimpleStructBufferSize(pstubmsg: MutPtr<MidlStubMessage>, pmemory: MutPtr<UByte>, pformat: MutPtr<UByte>) {
+public actual fun ndrSimpleStructBufferSize(pstubmsg: MutPtr, pmemory: MutPtr, pformat: MutPtr) {
     windowssysWindowsWin32SystemRpcNdrSimpleStructBufferSize(pstubmsg.rawAddress.toCPointer<ByteVar>(), pmemory.rawAddress.toCPointer<ByteVar>(), pformat.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun ndrSimpleStructFree(pstubmsg: MutPtr<MidlStubMessage>, pmemory: MutPtr<UByte>, pformat: MutPtr<UByte>) {
+public actual fun ndrSimpleStructFree(pstubmsg: MutPtr, pmemory: MutPtr, pformat: MutPtr) {
     windowssysWindowsWin32SystemRpcNdrSimpleStructFree(pstubmsg.rawAddress.toCPointer<ByteVar>(), pmemory.rawAddress.toCPointer<ByteVar>(), pformat.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun ndrSimpleStructMarshall(pstubmsg: MutPtr<MidlStubMessage>, pmemory: MutPtr<UByte>, pformat: MutPtr<UByte>): MutPtr<UByte> =
+public actual fun ndrSimpleStructMarshall(pstubmsg: MutPtr, pmemory: MutPtr, pformat: MutPtr): MutPtr =
     MutPtr(windowssysWindowsWin32SystemRpcNdrSimpleStructMarshall(pstubmsg.rawAddress.toCPointer<ByteVar>(), pmemory.rawAddress.toCPointer<ByteVar>(), pformat.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun ndrSimpleStructMemorySize(pstubmsg: MutPtr<MidlStubMessage>, pformat: MutPtr<UByte>): UInt =
+public actual fun ndrSimpleStructMemorySize(pstubmsg: MutPtr, pformat: MutPtr): UInt =
     windowssysWindowsWin32SystemRpcNdrSimpleStructMemorySize(pstubmsg.rawAddress.toCPointer<ByteVar>(), pformat.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ndrSimpleStructUnmarshall(pstubmsg: MutPtr<MidlStubMessage>, ppmemory: MutPtr<MutPtr<UByte>>, pformat: MutPtr<UByte>, fmustalloc: UByte): MutPtr<UByte> =
+public actual fun ndrSimpleStructUnmarshall(pstubmsg: MutPtr, ppmemory: MutPtr, pformat: MutPtr, fmustalloc: UByte): MutPtr =
     MutPtr(windowssysWindowsWin32SystemRpcNdrSimpleStructUnmarshall(pstubmsg.rawAddress.toCPointer<ByteVar>(), ppmemory.rawAddress.toCPointer<ByteVar>(), pformat.rawAddress.toCPointer<ByteVar>(), fmustalloc)?.toLong() ?: 0L)
 
-public actual fun ndrSimpleTypeMarshall(pstubmsg: MutPtr<MidlStubMessage>, pmemory: MutPtr<UByte>, formatchar: UByte) {
+public actual fun ndrSimpleTypeMarshall(pstubmsg: MutPtr, pmemory: MutPtr, formatchar: UByte) {
     windowssysWindowsWin32SystemRpcNdrSimpleTypeMarshall(pstubmsg.rawAddress.toCPointer<ByteVar>(), pmemory.rawAddress.toCPointer<ByteVar>(), formatchar)
 }
 
-public actual fun ndrSimpleTypeUnmarshall(pstubmsg: MutPtr<MidlStubMessage>, pmemory: MutPtr<UByte>, formatchar: UByte) {
+public actual fun ndrSimpleTypeUnmarshall(pstubmsg: MutPtr, pmemory: MutPtr, formatchar: UByte) {
     windowssysWindowsWin32SystemRpcNdrSimpleTypeUnmarshall(pstubmsg.rawAddress.toCPointer<ByteVar>(), pmemory.rawAddress.toCPointer<ByteVar>(), formatchar)
 }
 
-public actual fun ndrStubCall2(pthis: MutPtr<CVoid>, pchannel: MutPtr<CVoid>, prpcmsg: MutPtr<RpcMessage>, pdwstubphase: MutPtr<UInt>): Int =
+public actual fun ndrStubCall2(pthis: MutPtr, pchannel: MutPtr, prpcmsg: MutPtr, pdwstubphase: MutPtr): Int =
     windowssysWindowsWin32SystemRpcNdrStubCall2(pthis.rawAddress.toCPointer<ByteVar>(), pchannel.rawAddress.toCPointer<ByteVar>(), prpcmsg.rawAddress.toCPointer<ByteVar>(), pdwstubphase.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ndrStubCall3(pthis: MutPtr<CVoid>, pchannel: MutPtr<CVoid>, prpcmsg: MutPtr<RpcMessage>, pdwstubphase: MutPtr<UInt>): Int =
+public actual fun ndrStubCall3(pthis: MutPtr, pchannel: MutPtr, prpcmsg: MutPtr, pdwstubphase: MutPtr): Int =
     windowssysWindowsWin32SystemRpcNdrStubCall3(pthis.rawAddress.toCPointer<ByteVar>(), pchannel.rawAddress.toCPointer<ByteVar>(), prpcmsg.rawAddress.toCPointer<ByteVar>(), pdwstubphase.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ndrUserMarshalBufferSize(pstubmsg: MutPtr<MidlStubMessage>, pmemory: MutPtr<UByte>, pformat: MutPtr<UByte>) {
+public actual fun ndrUserMarshalBufferSize(pstubmsg: MutPtr, pmemory: MutPtr, pformat: MutPtr) {
     windowssysWindowsWin32SystemRpcNdrUserMarshalBufferSize(pstubmsg.rawAddress.toCPointer<ByteVar>(), pmemory.rawAddress.toCPointer<ByteVar>(), pformat.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun ndrUserMarshalFree(pstubmsg: MutPtr<MidlStubMessage>, pmemory: MutPtr<UByte>, pformat: MutPtr<UByte>) {
+public actual fun ndrUserMarshalFree(pstubmsg: MutPtr, pmemory: MutPtr, pformat: MutPtr) {
     windowssysWindowsWin32SystemRpcNdrUserMarshalFree(pstubmsg.rawAddress.toCPointer<ByteVar>(), pmemory.rawAddress.toCPointer<ByteVar>(), pformat.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun ndrUserMarshalMarshall(pstubmsg: MutPtr<MidlStubMessage>, pmemory: MutPtr<UByte>, pformat: MutPtr<UByte>): MutPtr<UByte> =
+public actual fun ndrUserMarshalMarshall(pstubmsg: MutPtr, pmemory: MutPtr, pformat: MutPtr): MutPtr =
     MutPtr(windowssysWindowsWin32SystemRpcNdrUserMarshalMarshall(pstubmsg.rawAddress.toCPointer<ByteVar>(), pmemory.rawAddress.toCPointer<ByteVar>(), pformat.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun ndrUserMarshalMemorySize(pstubmsg: MutPtr<MidlStubMessage>, pformat: MutPtr<UByte>): UInt =
+public actual fun ndrUserMarshalMemorySize(pstubmsg: MutPtr, pformat: MutPtr): UInt =
     windowssysWindowsWin32SystemRpcNdrUserMarshalMemorySize(pstubmsg.rawAddress.toCPointer<ByteVar>(), pformat.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ndrUserMarshalSimpleTypeConvert(pflags: MutPtr<UInt>, pbuffer: MutPtr<UByte>, formatchar: UByte): MutPtr<UByte> =
+public actual fun ndrUserMarshalSimpleTypeConvert(pflags: MutPtr, pbuffer: MutPtr, formatchar: UByte): MutPtr =
     MutPtr(windowssysWindowsWin32SystemRpcNdrUserMarshalSimpleTypeConvert(pflags.rawAddress.toCPointer<ByteVar>(), pbuffer.rawAddress.toCPointer<ByteVar>(), formatchar)?.toLong() ?: 0L)
 
-public actual fun ndrUserMarshalUnmarshall(pstubmsg: MutPtr<MidlStubMessage>, ppmemory: MutPtr<MutPtr<UByte>>, pformat: MutPtr<UByte>, fmustalloc: UByte): MutPtr<UByte> =
+public actual fun ndrUserMarshalUnmarshall(pstubmsg: MutPtr, ppmemory: MutPtr, pformat: MutPtr, fmustalloc: UByte): MutPtr =
     MutPtr(windowssysWindowsWin32SystemRpcNdrUserMarshalUnmarshall(pstubmsg.rawAddress.toCPointer<ByteVar>(), ppmemory.rawAddress.toCPointer<ByteVar>(), pformat.rawAddress.toCPointer<ByteVar>(), fmustalloc)?.toLong() ?: 0L)
 
-public actual fun ndrVaryingArrayBufferSize(pstubmsg: MutPtr<MidlStubMessage>, pmemory: MutPtr<UByte>, pformat: MutPtr<UByte>) {
+public actual fun ndrVaryingArrayBufferSize(pstubmsg: MutPtr, pmemory: MutPtr, pformat: MutPtr) {
     windowssysWindowsWin32SystemRpcNdrVaryingArrayBufferSize(pstubmsg.rawAddress.toCPointer<ByteVar>(), pmemory.rawAddress.toCPointer<ByteVar>(), pformat.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun ndrVaryingArrayFree(pstubmsg: MutPtr<MidlStubMessage>, pmemory: MutPtr<UByte>, pformat: MutPtr<UByte>) {
+public actual fun ndrVaryingArrayFree(pstubmsg: MutPtr, pmemory: MutPtr, pformat: MutPtr) {
     windowssysWindowsWin32SystemRpcNdrVaryingArrayFree(pstubmsg.rawAddress.toCPointer<ByteVar>(), pmemory.rawAddress.toCPointer<ByteVar>(), pformat.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun ndrVaryingArrayMarshall(pstubmsg: MutPtr<MidlStubMessage>, pmemory: MutPtr<UByte>, pformat: MutPtr<UByte>): MutPtr<UByte> =
+public actual fun ndrVaryingArrayMarshall(pstubmsg: MutPtr, pmemory: MutPtr, pformat: MutPtr): MutPtr =
     MutPtr(windowssysWindowsWin32SystemRpcNdrVaryingArrayMarshall(pstubmsg.rawAddress.toCPointer<ByteVar>(), pmemory.rawAddress.toCPointer<ByteVar>(), pformat.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun ndrVaryingArrayMemorySize(pstubmsg: MutPtr<MidlStubMessage>, pformat: MutPtr<UByte>): UInt =
+public actual fun ndrVaryingArrayMemorySize(pstubmsg: MutPtr, pformat: MutPtr): UInt =
     windowssysWindowsWin32SystemRpcNdrVaryingArrayMemorySize(pstubmsg.rawAddress.toCPointer<ByteVar>(), pformat.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ndrVaryingArrayUnmarshall(pstubmsg: MutPtr<MidlStubMessage>, ppmemory: MutPtr<MutPtr<UByte>>, pformat: MutPtr<UByte>, fmustalloc: UByte): MutPtr<UByte> =
+public actual fun ndrVaryingArrayUnmarshall(pstubmsg: MutPtr, ppmemory: MutPtr, pformat: MutPtr, fmustalloc: UByte): MutPtr =
     MutPtr(windowssysWindowsWin32SystemRpcNdrVaryingArrayUnmarshall(pstubmsg.rawAddress.toCPointer<ByteVar>(), ppmemory.rawAddress.toCPointer<ByteVar>(), pformat.rawAddress.toCPointer<ByteVar>(), fmustalloc)?.toLong() ?: 0L)
 
-public actual fun ndrXmitOrRepAsBufferSize(pstubmsg: MutPtr<MidlStubMessage>, pmemory: MutPtr<UByte>, pformat: MutPtr<UByte>) {
+public actual fun ndrXmitOrRepAsBufferSize(pstubmsg: MutPtr, pmemory: MutPtr, pformat: MutPtr) {
     windowssysWindowsWin32SystemRpcNdrXmitOrRepAsBufferSize(pstubmsg.rawAddress.toCPointer<ByteVar>(), pmemory.rawAddress.toCPointer<ByteVar>(), pformat.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun ndrXmitOrRepAsFree(pstubmsg: MutPtr<MidlStubMessage>, pmemory: MutPtr<UByte>, pformat: MutPtr<UByte>) {
+public actual fun ndrXmitOrRepAsFree(pstubmsg: MutPtr, pmemory: MutPtr, pformat: MutPtr) {
     windowssysWindowsWin32SystemRpcNdrXmitOrRepAsFree(pstubmsg.rawAddress.toCPointer<ByteVar>(), pmemory.rawAddress.toCPointer<ByteVar>(), pformat.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun ndrXmitOrRepAsMarshall(pstubmsg: MutPtr<MidlStubMessage>, pmemory: MutPtr<UByte>, pformat: MutPtr<UByte>): MutPtr<UByte> =
+public actual fun ndrXmitOrRepAsMarshall(pstubmsg: MutPtr, pmemory: MutPtr, pformat: MutPtr): MutPtr =
     MutPtr(windowssysWindowsWin32SystemRpcNdrXmitOrRepAsMarshall(pstubmsg.rawAddress.toCPointer<ByteVar>(), pmemory.rawAddress.toCPointer<ByteVar>(), pformat.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun ndrXmitOrRepAsMemorySize(pstubmsg: MutPtr<MidlStubMessage>, pformat: MutPtr<UByte>): UInt =
+public actual fun ndrXmitOrRepAsMemorySize(pstubmsg: MutPtr, pformat: MutPtr): UInt =
     windowssysWindowsWin32SystemRpcNdrXmitOrRepAsMemorySize(pstubmsg.rawAddress.toCPointer<ByteVar>(), pformat.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ndrXmitOrRepAsUnmarshall(pstubmsg: MutPtr<MidlStubMessage>, ppmemory: MutPtr<MutPtr<UByte>>, pformat: MutPtr<UByte>, fmustalloc: UByte): MutPtr<UByte> =
+public actual fun ndrXmitOrRepAsUnmarshall(pstubmsg: MutPtr, ppmemory: MutPtr, pformat: MutPtr, fmustalloc: UByte): MutPtr =
     MutPtr(windowssysWindowsWin32SystemRpcNdrXmitOrRepAsUnmarshall(pstubmsg.rawAddress.toCPointer<ByteVar>(), ppmemory.rawAddress.toCPointer<ByteVar>(), pformat.rawAddress.toCPointer<ByteVar>(), fmustalloc)?.toLong() ?: 0L)
 
-public actual fun rpcAsyncAbortCall(pasync: MutPtr<RpcAsyncState>, exceptioncode: UInt): RpcStatus =
+public actual fun rpcAsyncAbortCall(pasync: MutPtr, exceptioncode: UInt): RpcStatus =
     windowssysWindowsWin32SystemRpcRpcAsyncAbortCall(pasync.rawAddress.toCPointer<ByteVar>(), exceptioncode)
 
-public actual fun rpcAsyncCancelCall(pasync: MutPtr<RpcAsyncState>, fabort: Bool): RpcStatus =
+public actual fun rpcAsyncCancelCall(pasync: MutPtr, fabort: Bool): RpcStatus =
     windowssysWindowsWin32SystemRpcRpcAsyncCancelCall(pasync.rawAddress.toCPointer<ByteVar>(), fabort)
 
-public actual fun rpcAsyncCompleteCall(pasync: MutPtr<RpcAsyncState>, reply: MutPtr<CVoid>): RpcStatus =
+public actual fun rpcAsyncCompleteCall(pasync: MutPtr, reply: MutPtr): RpcStatus =
     windowssysWindowsWin32SystemRpcRpcAsyncCompleteCall(pasync.rawAddress.toCPointer<ByteVar>(), reply.rawAddress.toCPointer<ByteVar>())
 
-public actual fun rpcAsyncGetCallStatus(pasync: ConstPtr<RpcAsyncState>): RpcStatus =
+public actual fun rpcAsyncGetCallStatus(pasync: ConstPtr): RpcStatus =
     windowssysWindowsWin32SystemRpcRpcAsyncGetCallStatus(pasync.rawAddress.toCPointer<ByteVar>())
 
-public actual fun rpcAsyncInitializeHandle(pasync: MutPtr<RpcAsyncState>, size: UInt): RpcStatus =
+public actual fun rpcAsyncInitializeHandle(pasync: MutPtr, size: UInt): RpcStatus =
     windowssysWindowsWin32SystemRpcRpcAsyncInitializeHandle(pasync.rawAddress.toCPointer<ByteVar>(), size)
 
-public actual fun rpcAsyncRegisterInfo(pasync: ConstPtr<RpcAsyncState>): RpcStatus =
+public actual fun rpcAsyncRegisterInfo(pasync: ConstPtr): RpcStatus =
     windowssysWindowsWin32SystemRpcRpcAsyncRegisterInfo(pasync.rawAddress.toCPointer<ByteVar>())
 
-public actual fun rpcBindingBind(pasync: ConstPtr<RpcAsyncState>, binding: ConstPtr<CVoid>, ifspec: ConstPtr<CVoid>): RpcStatus =
+public actual fun rpcBindingBind(pasync: ConstPtr, binding: ConstPtr, ifspec: ConstPtr): RpcStatus =
     windowssysWindowsWin32SystemRpcRpcBindingBind(pasync.rawAddress.toCPointer<ByteVar>(), binding.rawAddress.toCPointer<ByteVar>(), ifspec.rawAddress.toCPointer<ByteVar>())
 
-public actual fun rpcBindingCopy(sourcebinding: ConstPtr<CVoid>, destinationbinding: MutPtr<MutPtr<CVoid>>): RpcStatus =
+public actual fun rpcBindingCopy(sourcebinding: ConstPtr, destinationbinding: MutPtr): RpcStatus =
     windowssysWindowsWin32SystemRpcRpcBindingCopy(sourcebinding.rawAddress.toCPointer<ByteVar>(), destinationbinding.rawAddress.toCPointer<ByteVar>())
 
-public actual fun rpcBindingCreateA(template: ConstPtr<RpcBindingHandleTemplateV1A>, security: ConstPtr<RpcBindingHandleSecurityV1A>, options: ConstPtr<RpcBindingHandleOptionsV1>, binding: MutPtr<MutPtr<CVoid>>): RpcStatus =
+public actual fun rpcBindingCreateA(template: ConstPtr, security: ConstPtr, options: ConstPtr, binding: MutPtr): RpcStatus =
     windowssysWindowsWin32SystemRpcRpcBindingCreateA(template.rawAddress.toCPointer<ByteVar>(), security.rawAddress.toCPointer<ByteVar>(), options.rawAddress.toCPointer<ByteVar>(), binding.rawAddress.toCPointer<ByteVar>())
 
-public actual fun rpcBindingCreateW(template: ConstPtr<RpcBindingHandleTemplateV1W>, security: ConstPtr<RpcBindingHandleSecurityV1W>, options: ConstPtr<RpcBindingHandleOptionsV1>, binding: MutPtr<MutPtr<CVoid>>): RpcStatus =
+public actual fun rpcBindingCreateW(template: ConstPtr, security: ConstPtr, options: ConstPtr, binding: MutPtr): RpcStatus =
     windowssysWindowsWin32SystemRpcRpcBindingCreateW(template.rawAddress.toCPointer<ByteVar>(), security.rawAddress.toCPointer<ByteVar>(), options.rawAddress.toCPointer<ByteVar>(), binding.rawAddress.toCPointer<ByteVar>())
 
-public actual fun rpcBindingFree(binding: MutPtr<MutPtr<CVoid>>): RpcStatus =
+public actual fun rpcBindingFree(binding: MutPtr): RpcStatus =
     windowssysWindowsWin32SystemRpcRpcBindingFree(binding.rawAddress.toCPointer<ByteVar>())
 
-public actual fun rpcBindingFromStringBindingA(stringbinding: Pcstr, binding: MutPtr<MutPtr<CVoid>>): RpcStatus =
+public actual fun rpcBindingFromStringBindingA(stringbinding: Pcstr, binding: MutPtr): RpcStatus =
     windowssysWindowsWin32SystemRpcRpcBindingFromStringBindingA(stringbinding.rawAddress.toCPointer<ByteVar>(), binding.rawAddress.toCPointer<ByteVar>())
 
-public actual fun rpcBindingFromStringBindingW(stringbinding: Pcwstr, binding: MutPtr<MutPtr<CVoid>>): RpcStatus =
+public actual fun rpcBindingFromStringBindingW(stringbinding: Pcwstr, binding: MutPtr): RpcStatus =
     windowssysWindowsWin32SystemRpcRpcBindingFromStringBindingW(stringbinding.rawAddress.toCPointer<ByteVar>(), binding.rawAddress.toCPointer<ByteVar>())
 
-public actual fun rpcBindingInqAuthClientA(clientbinding: ConstPtr<CVoid>, privs: MutPtr<MutPtr<CVoid>>, serverprincname: MutPtr<Pstr>, authnlevel: MutPtr<UInt>, authnsvc: MutPtr<UInt>, authzsvc: MutPtr<UInt>): RpcStatus =
+public actual fun rpcBindingInqAuthClientA(clientbinding: ConstPtr, privs: MutPtr, serverprincname: MutPtr, authnlevel: MutPtr, authnsvc: MutPtr, authzsvc: MutPtr): RpcStatus =
     windowssysWindowsWin32SystemRpcRpcBindingInqAuthClientA(clientbinding.rawAddress.toCPointer<ByteVar>(), privs.rawAddress.toCPointer<ByteVar>(), serverprincname.rawAddress.toCPointer<ByteVar>(), authnlevel.rawAddress.toCPointer<ByteVar>(), authnsvc.rawAddress.toCPointer<ByteVar>(), authzsvc.rawAddress.toCPointer<ByteVar>())
 
-public actual fun rpcBindingInqAuthClientExA(clientbinding: ConstPtr<CVoid>, privs: MutPtr<MutPtr<CVoid>>, serverprincname: MutPtr<Pstr>, authnlevel: MutPtr<UInt>, authnsvc: MutPtr<UInt>, authzsvc: MutPtr<UInt>, flags: UInt): RpcStatus =
+public actual fun rpcBindingInqAuthClientExA(clientbinding: ConstPtr, privs: MutPtr, serverprincname: MutPtr, authnlevel: MutPtr, authnsvc: MutPtr, authzsvc: MutPtr, flags: UInt): RpcStatus =
     windowssysWindowsWin32SystemRpcRpcBindingInqAuthClientExA(clientbinding.rawAddress.toCPointer<ByteVar>(), privs.rawAddress.toCPointer<ByteVar>(), serverprincname.rawAddress.toCPointer<ByteVar>(), authnlevel.rawAddress.toCPointer<ByteVar>(), authnsvc.rawAddress.toCPointer<ByteVar>(), authzsvc.rawAddress.toCPointer<ByteVar>(), flags)
 
-public actual fun rpcBindingInqAuthClientExW(clientbinding: ConstPtr<CVoid>, privs: MutPtr<MutPtr<CVoid>>, serverprincname: MutPtr<Pwstr>, authnlevel: MutPtr<UInt>, authnsvc: MutPtr<UInt>, authzsvc: MutPtr<UInt>, flags: UInt): RpcStatus =
+public actual fun rpcBindingInqAuthClientExW(clientbinding: ConstPtr, privs: MutPtr, serverprincname: MutPtr, authnlevel: MutPtr, authnsvc: MutPtr, authzsvc: MutPtr, flags: UInt): RpcStatus =
     windowssysWindowsWin32SystemRpcRpcBindingInqAuthClientExW(clientbinding.rawAddress.toCPointer<ByteVar>(), privs.rawAddress.toCPointer<ByteVar>(), serverprincname.rawAddress.toCPointer<ByteVar>(), authnlevel.rawAddress.toCPointer<ByteVar>(), authnsvc.rawAddress.toCPointer<ByteVar>(), authzsvc.rawAddress.toCPointer<ByteVar>(), flags)
 
-public actual fun rpcBindingInqAuthClientW(clientbinding: ConstPtr<CVoid>, privs: MutPtr<MutPtr<CVoid>>, serverprincname: MutPtr<Pwstr>, authnlevel: MutPtr<UInt>, authnsvc: MutPtr<UInt>, authzsvc: MutPtr<UInt>): RpcStatus =
+public actual fun rpcBindingInqAuthClientW(clientbinding: ConstPtr, privs: MutPtr, serverprincname: MutPtr, authnlevel: MutPtr, authnsvc: MutPtr, authzsvc: MutPtr): RpcStatus =
     windowssysWindowsWin32SystemRpcRpcBindingInqAuthClientW(clientbinding.rawAddress.toCPointer<ByteVar>(), privs.rawAddress.toCPointer<ByteVar>(), serverprincname.rawAddress.toCPointer<ByteVar>(), authnlevel.rawAddress.toCPointer<ByteVar>(), authnsvc.rawAddress.toCPointer<ByteVar>(), authzsvc.rawAddress.toCPointer<ByteVar>())
 
-public actual fun rpcBindingInqAuthInfoA(binding: ConstPtr<CVoid>, serverprincname: MutPtr<Pstr>, authnlevel: MutPtr<UInt>, authnsvc: MutPtr<UInt>, authidentity: MutPtr<MutPtr<CVoid>>, authzsvc: MutPtr<UInt>): RpcStatus =
+public actual fun rpcBindingInqAuthInfoA(binding: ConstPtr, serverprincname: MutPtr, authnlevel: MutPtr, authnsvc: MutPtr, authidentity: MutPtr, authzsvc: MutPtr): RpcStatus =
     windowssysWindowsWin32SystemRpcRpcBindingInqAuthInfoA(binding.rawAddress.toCPointer<ByteVar>(), serverprincname.rawAddress.toCPointer<ByteVar>(), authnlevel.rawAddress.toCPointer<ByteVar>(), authnsvc.rawAddress.toCPointer<ByteVar>(), authidentity.rawAddress.toCPointer<ByteVar>(), authzsvc.rawAddress.toCPointer<ByteVar>())
 
-public actual fun rpcBindingInqAuthInfoExA(binding: ConstPtr<CVoid>, serverprincname: MutPtr<Pstr>, authnlevel: MutPtr<UInt>, authnsvc: MutPtr<UInt>, authidentity: MutPtr<MutPtr<CVoid>>, authzsvc: MutPtr<UInt>, rpcqosversion: UInt, securityqos: MutPtr<RpcSecurityQos>): RpcStatus =
+public actual fun rpcBindingInqAuthInfoExA(binding: ConstPtr, serverprincname: MutPtr, authnlevel: MutPtr, authnsvc: MutPtr, authidentity: MutPtr, authzsvc: MutPtr, rpcqosversion: UInt, securityqos: MutPtr): RpcStatus =
     windowssysWindowsWin32SystemRpcRpcBindingInqAuthInfoExA(binding.rawAddress.toCPointer<ByteVar>(), serverprincname.rawAddress.toCPointer<ByteVar>(), authnlevel.rawAddress.toCPointer<ByteVar>(), authnsvc.rawAddress.toCPointer<ByteVar>(), authidentity.rawAddress.toCPointer<ByteVar>(), authzsvc.rawAddress.toCPointer<ByteVar>(), rpcqosversion, securityqos.rawAddress.toCPointer<ByteVar>())
 
-public actual fun rpcBindingInqAuthInfoExW(binding: ConstPtr<CVoid>, serverprincname: MutPtr<Pwstr>, authnlevel: MutPtr<UInt>, authnsvc: MutPtr<UInt>, authidentity: MutPtr<MutPtr<CVoid>>, authzsvc: MutPtr<UInt>, rpcqosversion: UInt, securityqos: MutPtr<RpcSecurityQos>): RpcStatus =
+public actual fun rpcBindingInqAuthInfoExW(binding: ConstPtr, serverprincname: MutPtr, authnlevel: MutPtr, authnsvc: MutPtr, authidentity: MutPtr, authzsvc: MutPtr, rpcqosversion: UInt, securityqos: MutPtr): RpcStatus =
     windowssysWindowsWin32SystemRpcRpcBindingInqAuthInfoExW(binding.rawAddress.toCPointer<ByteVar>(), serverprincname.rawAddress.toCPointer<ByteVar>(), authnlevel.rawAddress.toCPointer<ByteVar>(), authnsvc.rawAddress.toCPointer<ByteVar>(), authidentity.rawAddress.toCPointer<ByteVar>(), authzsvc.rawAddress.toCPointer<ByteVar>(), rpcqosversion, securityqos.rawAddress.toCPointer<ByteVar>())
 
-public actual fun rpcBindingInqAuthInfoW(binding: ConstPtr<CVoid>, serverprincname: MutPtr<Pwstr>, authnlevel: MutPtr<UInt>, authnsvc: MutPtr<UInt>, authidentity: MutPtr<MutPtr<CVoid>>, authzsvc: MutPtr<UInt>): RpcStatus =
+public actual fun rpcBindingInqAuthInfoW(binding: ConstPtr, serverprincname: MutPtr, authnlevel: MutPtr, authnsvc: MutPtr, authidentity: MutPtr, authzsvc: MutPtr): RpcStatus =
     windowssysWindowsWin32SystemRpcRpcBindingInqAuthInfoW(binding.rawAddress.toCPointer<ByteVar>(), serverprincname.rawAddress.toCPointer<ByteVar>(), authnlevel.rawAddress.toCPointer<ByteVar>(), authnsvc.rawAddress.toCPointer<ByteVar>(), authidentity.rawAddress.toCPointer<ByteVar>(), authzsvc.rawAddress.toCPointer<ByteVar>())
 
-public actual fun rpcBindingInqMaxCalls(binding: ConstPtr<CVoid>, maxcalls: MutPtr<UInt>): RpcStatus =
+public actual fun rpcBindingInqMaxCalls(binding: ConstPtr, maxcalls: MutPtr): RpcStatus =
     windowssysWindowsWin32SystemRpcRpcBindingInqMaxCalls(binding.rawAddress.toCPointer<ByteVar>(), maxcalls.rawAddress.toCPointer<ByteVar>())
 
-public actual fun rpcBindingInqObject(binding: ConstPtr<CVoid>, objectuuid: MutPtr<Guid>): RpcStatus =
+public actual fun rpcBindingInqObject(binding: ConstPtr, objectuuid: MutPtr): RpcStatus =
     windowssysWindowsWin32SystemRpcRpcBindingInqObject(binding.rawAddress.toCPointer<ByteVar>(), objectuuid.rawAddress.toCPointer<ByteVar>())
 
-public actual fun rpcBindingInqOption(hbinding: ConstPtr<CVoid>, option: UInt, poptionvalue: MutPtr<ULong>): RpcStatus =
+public actual fun rpcBindingInqOption(hbinding: ConstPtr, option: UInt, poptionvalue: MutPtr): RpcStatus =
     windowssysWindowsWin32SystemRpcRpcBindingInqOption(hbinding.rawAddress.toCPointer<ByteVar>(), option, poptionvalue.rawAddress.toCPointer<ByteVar>())
 
-public actual fun rpcBindingReset(binding: ConstPtr<CVoid>): RpcStatus =
+public actual fun rpcBindingReset(binding: ConstPtr): RpcStatus =
     windowssysWindowsWin32SystemRpcRpcBindingReset(binding.rawAddress.toCPointer<ByteVar>())
 
-public actual fun rpcBindingServerFromClient(clientbinding: ConstPtr<CVoid>, serverbinding: MutPtr<MutPtr<CVoid>>): RpcStatus =
+public actual fun rpcBindingServerFromClient(clientbinding: ConstPtr, serverbinding: MutPtr): RpcStatus =
     windowssysWindowsWin32SystemRpcRpcBindingServerFromClient(clientbinding.rawAddress.toCPointer<ByteVar>(), serverbinding.rawAddress.toCPointer<ByteVar>())
 
-public actual fun rpcBindingSetAuthInfoA(binding: ConstPtr<CVoid>, serverprincname: Pcstr, authnlevel: UInt, authnsvc: UInt, authidentity: ConstPtr<CVoid>, authzsvc: UInt): RpcStatus =
+public actual fun rpcBindingSetAuthInfoA(binding: ConstPtr, serverprincname: Pcstr, authnlevel: UInt, authnsvc: UInt, authidentity: ConstPtr, authzsvc: UInt): RpcStatus =
     windowssysWindowsWin32SystemRpcRpcBindingSetAuthInfoA(binding.rawAddress.toCPointer<ByteVar>(), serverprincname.rawAddress.toCPointer<ByteVar>(), authnlevel, authnsvc, authidentity.rawAddress.toCPointer<ByteVar>(), authzsvc)
 
-public actual fun rpcBindingSetAuthInfoExA(binding: ConstPtr<CVoid>, serverprincname: Pcstr, authnlevel: UInt, authnsvc: UInt, authidentity: ConstPtr<CVoid>, authzsvc: UInt, securityqos: ConstPtr<RpcSecurityQos>): RpcStatus =
+public actual fun rpcBindingSetAuthInfoExA(binding: ConstPtr, serverprincname: Pcstr, authnlevel: UInt, authnsvc: UInt, authidentity: ConstPtr, authzsvc: UInt, securityqos: ConstPtr): RpcStatus =
     windowssysWindowsWin32SystemRpcRpcBindingSetAuthInfoExA(binding.rawAddress.toCPointer<ByteVar>(), serverprincname.rawAddress.toCPointer<ByteVar>(), authnlevel, authnsvc, authidentity.rawAddress.toCPointer<ByteVar>(), authzsvc, securityqos.rawAddress.toCPointer<ByteVar>())
 
-public actual fun rpcBindingSetAuthInfoExW(binding: ConstPtr<CVoid>, serverprincname: Pcwstr, authnlevel: UInt, authnsvc: UInt, authidentity: ConstPtr<CVoid>, authzsvc: UInt, securityqos: ConstPtr<RpcSecurityQos>): RpcStatus =
+public actual fun rpcBindingSetAuthInfoExW(binding: ConstPtr, serverprincname: Pcwstr, authnlevel: UInt, authnsvc: UInt, authidentity: ConstPtr, authzsvc: UInt, securityqos: ConstPtr): RpcStatus =
     windowssysWindowsWin32SystemRpcRpcBindingSetAuthInfoExW(binding.rawAddress.toCPointer<ByteVar>(), serverprincname.rawAddress.toCPointer<ByteVar>(), authnlevel, authnsvc, authidentity.rawAddress.toCPointer<ByteVar>(), authzsvc, securityqos.rawAddress.toCPointer<ByteVar>())
 
-public actual fun rpcBindingSetAuthInfoW(binding: ConstPtr<CVoid>, serverprincname: Pcwstr, authnlevel: UInt, authnsvc: UInt, authidentity: ConstPtr<CVoid>, authzsvc: UInt): RpcStatus =
+public actual fun rpcBindingSetAuthInfoW(binding: ConstPtr, serverprincname: Pcwstr, authnlevel: UInt, authnsvc: UInt, authidentity: ConstPtr, authzsvc: UInt): RpcStatus =
     windowssysWindowsWin32SystemRpcRpcBindingSetAuthInfoW(binding.rawAddress.toCPointer<ByteVar>(), serverprincname.rawAddress.toCPointer<ByteVar>(), authnlevel, authnsvc, authidentity.rawAddress.toCPointer<ByteVar>(), authzsvc)
 
-public actual fun rpcBindingSetObject(binding: ConstPtr<CVoid>, objectuuid: ConstPtr<Guid>): RpcStatus =
+public actual fun rpcBindingSetObject(binding: ConstPtr, objectuuid: ConstPtr): RpcStatus =
     windowssysWindowsWin32SystemRpcRpcBindingSetObject(binding.rawAddress.toCPointer<ByteVar>(), objectuuid.rawAddress.toCPointer<ByteVar>())
 
-public actual fun rpcBindingSetOption(hbinding: ConstPtr<CVoid>, option: UInt, optionvalue: ULong): RpcStatus =
+public actual fun rpcBindingSetOption(hbinding: ConstPtr, option: UInt, optionvalue: ULong): RpcStatus =
     windowssysWindowsWin32SystemRpcRpcBindingSetOption(hbinding.rawAddress.toCPointer<ByteVar>(), option, optionvalue)
 
-public actual fun rpcBindingToStringBindingA(binding: ConstPtr<CVoid>, stringbinding: MutPtr<Pstr>): RpcStatus =
+public actual fun rpcBindingToStringBindingA(binding: ConstPtr, stringbinding: MutPtr): RpcStatus =
     windowssysWindowsWin32SystemRpcRpcBindingToStringBindingA(binding.rawAddress.toCPointer<ByteVar>(), stringbinding.rawAddress.toCPointer<ByteVar>())
 
-public actual fun rpcBindingToStringBindingW(binding: ConstPtr<CVoid>, stringbinding: MutPtr<Pwstr>): RpcStatus =
+public actual fun rpcBindingToStringBindingW(binding: ConstPtr, stringbinding: MutPtr): RpcStatus =
     windowssysWindowsWin32SystemRpcRpcBindingToStringBindingW(binding.rawAddress.toCPointer<ByteVar>(), stringbinding.rawAddress.toCPointer<ByteVar>())
 
-public actual fun rpcBindingUnbind(binding: ConstPtr<CVoid>): RpcStatus =
+public actual fun rpcBindingUnbind(binding: ConstPtr): RpcStatus =
     windowssysWindowsWin32SystemRpcRpcBindingUnbind(binding.rawAddress.toCPointer<ByteVar>())
 
-public actual fun rpcBindingVectorFree(bindingvector: MutPtr<MutPtr<RpcBindingVector>>): RpcStatus =
+public actual fun rpcBindingVectorFree(bindingvector: MutPtr): RpcStatus =
     windowssysWindowsWin32SystemRpcRpcBindingVectorFree(bindingvector.rawAddress.toCPointer<ByteVar>())
 
-public actual fun rpcCancelThread(thread: ConstPtr<CVoid>): RpcStatus =
+public actual fun rpcCancelThread(thread: ConstPtr): RpcStatus =
     windowssysWindowsWin32SystemRpcRpcCancelThread(thread.rawAddress.toCPointer<ByteVar>())
 
-public actual fun rpcCancelThreadEx(thread: ConstPtr<CVoid>, timeout: Int): RpcStatus =
+public actual fun rpcCancelThreadEx(thread: ConstPtr, timeout: Int): RpcStatus =
     windowssysWindowsWin32SystemRpcRpcCancelThreadEx(thread.rawAddress.toCPointer<ByteVar>(), timeout)
 
-public actual fun rpcCertGeneratePrincipalNameA(context: ConstPtr<CertContext>, flags: UInt, pbuffer: MutPtr<Pstr>): RpcStatus =
+public actual fun rpcCertGeneratePrincipalNameA(context: ConstPtr, flags: UInt, pbuffer: MutPtr): RpcStatus =
     windowssysWindowsWin32SystemRpcRpcCertGeneratePrincipalNameA(context.rawAddress.toCPointer<ByteVar>(), flags, pbuffer.rawAddress.toCPointer<ByteVar>())
 
-public actual fun rpcCertGeneratePrincipalNameW(context: ConstPtr<CertContext>, flags: UInt, pbuffer: MutPtr<Pwstr>): RpcStatus =
+public actual fun rpcCertGeneratePrincipalNameW(context: ConstPtr, flags: UInt, pbuffer: MutPtr): RpcStatus =
     windowssysWindowsWin32SystemRpcRpcCertGeneratePrincipalNameW(context.rawAddress.toCPointer<ByteVar>(), flags, pbuffer.rawAddress.toCPointer<ByteVar>())
 
-public actual fun rpcEpRegisterA(ifspec: ConstPtr<CVoid>, bindingvector: ConstPtr<RpcBindingVector>, uuidvector: ConstPtr<UuidVector>, annotation: Pcstr): RpcStatus =
+public actual fun rpcEpRegisterA(ifspec: ConstPtr, bindingvector: ConstPtr, uuidvector: ConstPtr, annotation: Pcstr): RpcStatus =
     windowssysWindowsWin32SystemRpcRpcEpRegisterA(ifspec.rawAddress.toCPointer<ByteVar>(), bindingvector.rawAddress.toCPointer<ByteVar>(), uuidvector.rawAddress.toCPointer<ByteVar>(), annotation.rawAddress.toCPointer<ByteVar>())
 
-public actual fun rpcEpRegisterNoReplaceA(ifspec: ConstPtr<CVoid>, bindingvector: ConstPtr<RpcBindingVector>, uuidvector: ConstPtr<UuidVector>, annotation: Pcstr): RpcStatus =
+public actual fun rpcEpRegisterNoReplaceA(ifspec: ConstPtr, bindingvector: ConstPtr, uuidvector: ConstPtr, annotation: Pcstr): RpcStatus =
     windowssysWindowsWin32SystemRpcRpcEpRegisterNoReplaceA(ifspec.rawAddress.toCPointer<ByteVar>(), bindingvector.rawAddress.toCPointer<ByteVar>(), uuidvector.rawAddress.toCPointer<ByteVar>(), annotation.rawAddress.toCPointer<ByteVar>())
 
-public actual fun rpcEpRegisterNoReplaceW(ifspec: ConstPtr<CVoid>, bindingvector: ConstPtr<RpcBindingVector>, uuidvector: ConstPtr<UuidVector>, annotation: Pcwstr): RpcStatus =
+public actual fun rpcEpRegisterNoReplaceW(ifspec: ConstPtr, bindingvector: ConstPtr, uuidvector: ConstPtr, annotation: Pcwstr): RpcStatus =
     windowssysWindowsWin32SystemRpcRpcEpRegisterNoReplaceW(ifspec.rawAddress.toCPointer<ByteVar>(), bindingvector.rawAddress.toCPointer<ByteVar>(), uuidvector.rawAddress.toCPointer<ByteVar>(), annotation.rawAddress.toCPointer<ByteVar>())
 
-public actual fun rpcEpRegisterW(ifspec: ConstPtr<CVoid>, bindingvector: ConstPtr<RpcBindingVector>, uuidvector: ConstPtr<UuidVector>, annotation: Pcwstr): RpcStatus =
+public actual fun rpcEpRegisterW(ifspec: ConstPtr, bindingvector: ConstPtr, uuidvector: ConstPtr, annotation: Pcwstr): RpcStatus =
     windowssysWindowsWin32SystemRpcRpcEpRegisterW(ifspec.rawAddress.toCPointer<ByteVar>(), bindingvector.rawAddress.toCPointer<ByteVar>(), uuidvector.rawAddress.toCPointer<ByteVar>(), annotation.rawAddress.toCPointer<ByteVar>())
 
-public actual fun rpcEpResolveBinding(binding: ConstPtr<CVoid>, ifspec: ConstPtr<CVoid>): RpcStatus =
+public actual fun rpcEpResolveBinding(binding: ConstPtr, ifspec: ConstPtr): RpcStatus =
     windowssysWindowsWin32SystemRpcRpcEpResolveBinding(binding.rawAddress.toCPointer<ByteVar>(), ifspec.rawAddress.toCPointer<ByteVar>())
 
-public actual fun rpcEpUnregister(ifspec: ConstPtr<CVoid>, bindingvector: ConstPtr<RpcBindingVector>, uuidvector: ConstPtr<UuidVector>): RpcStatus =
+public actual fun rpcEpUnregister(ifspec: ConstPtr, bindingvector: ConstPtr, uuidvector: ConstPtr): RpcStatus =
     windowssysWindowsWin32SystemRpcRpcEpUnregister(ifspec.rawAddress.toCPointer<ByteVar>(), bindingvector.rawAddress.toCPointer<ByteVar>(), uuidvector.rawAddress.toCPointer<ByteVar>())
 
-public actual fun rpcErrorAddRecord(errorinfo: ConstPtr<RpcExtendedErrorInfo>): RpcStatus =
+public actual fun rpcErrorAddRecord(errorinfo: ConstPtr): RpcStatus =
     windowssysWindowsWin32SystemRpcRpcErrorAddRecord(errorinfo.rawAddress.toCPointer<ByteVar>())
 
 public actual fun rpcErrorClearInformation() {
     windowssysWindowsWin32SystemRpcRpcErrorClearInformation()
 }
 
-public actual fun rpcErrorEndEnumeration(enumhandle: MutPtr<RpcErrorEnumHandle>): RpcStatus =
+public actual fun rpcErrorEndEnumeration(enumhandle: MutPtr): RpcStatus =
     windowssysWindowsWin32SystemRpcRpcErrorEndEnumeration(enumhandle.rawAddress.toCPointer<ByteVar>())
 
-public actual fun rpcErrorGetNextRecord(enumhandle: ConstPtr<RpcErrorEnumHandle>, copystrings: Bool, errorinfo: MutPtr<RpcExtendedErrorInfo>): RpcStatus =
+public actual fun rpcErrorGetNextRecord(enumhandle: ConstPtr, copystrings: Bool, errorinfo: MutPtr): RpcStatus =
     windowssysWindowsWin32SystemRpcRpcErrorGetNextRecord(enumhandle.rawAddress.toCPointer<ByteVar>(), copystrings, errorinfo.rawAddress.toCPointer<ByteVar>())
 
-public actual fun rpcErrorGetNumberOfRecords(enumhandle: ConstPtr<RpcErrorEnumHandle>, records: MutPtr<Int>): RpcStatus =
+public actual fun rpcErrorGetNumberOfRecords(enumhandle: ConstPtr, records: MutPtr): RpcStatus =
     windowssysWindowsWin32SystemRpcRpcErrorGetNumberOfRecords(enumhandle.rawAddress.toCPointer<ByteVar>(), records.rawAddress.toCPointer<ByteVar>())
 
-public actual fun rpcErrorLoadErrorInfo(errorblob: ConstPtr<CVoid>, blobsize: ULong, enumhandle: MutPtr<RpcErrorEnumHandle>): RpcStatus =
+public actual fun rpcErrorLoadErrorInfo(errorblob: ConstPtr, blobsize: ULong, enumhandle: MutPtr): RpcStatus =
     windowssysWindowsWin32SystemRpcRpcErrorLoadErrorInfo(errorblob.rawAddress.toCPointer<ByteVar>(), blobsize, enumhandle.rawAddress.toCPointer<ByteVar>())
 
-public actual fun rpcErrorResetEnumeration(enumhandle: MutPtr<RpcErrorEnumHandle>): RpcStatus =
+public actual fun rpcErrorResetEnumeration(enumhandle: MutPtr): RpcStatus =
     windowssysWindowsWin32SystemRpcRpcErrorResetEnumeration(enumhandle.rawAddress.toCPointer<ByteVar>())
 
-public actual fun rpcErrorSaveErrorInfo(enumhandle: ConstPtr<RpcErrorEnumHandle>, errorblob: MutPtr<MutPtr<CVoid>>, blobsize: MutPtr<ULong>): RpcStatus =
+public actual fun rpcErrorSaveErrorInfo(enumhandle: ConstPtr, errorblob: MutPtr, blobsize: MutPtr): RpcStatus =
     windowssysWindowsWin32SystemRpcRpcErrorSaveErrorInfo(enumhandle.rawAddress.toCPointer<ByteVar>(), errorblob.rawAddress.toCPointer<ByteVar>(), blobsize.rawAddress.toCPointer<ByteVar>())
 
-public actual fun rpcErrorStartEnumeration(enumhandle: MutPtr<RpcErrorEnumHandle>): RpcStatus =
+public actual fun rpcErrorStartEnumeration(enumhandle: MutPtr): RpcStatus =
     windowssysWindowsWin32SystemRpcRpcErrorStartEnumeration(enumhandle.rawAddress.toCPointer<ByteVar>())
 
 public actual fun rpcExceptionFilter(exceptioncode: UInt): Int =
     windowssysWindowsWin32SystemRpcRpcExceptionFilter(exceptioncode)
 
-public actual fun rpcFreeAuthorizationContext(pauthzclientcontext: MutPtr<MutPtr<CVoid>>): RpcStatus =
+public actual fun rpcFreeAuthorizationContext(pauthzclientcontext: MutPtr): RpcStatus =
     windowssysWindowsWin32SystemRpcRpcFreeAuthorizationContext(pauthzclientcontext.rawAddress.toCPointer<ByteVar>())
 
-public actual fun rpcGetAuthorizationContextForClient(clientbinding: ConstPtr<CVoid>, impersonateonreturn: Bool, reserved1: ConstPtr<CVoid>, pexpirationtime: ConstPtr<Long>, reserved2: Luid, reserved3: UInt, reserved4: ConstPtr<CVoid>, pauthzclientcontext: MutPtr<MutPtr<CVoid>>): RpcStatus =
+public actual fun rpcGetAuthorizationContextForClient(clientbinding: ConstPtr, impersonateonreturn: Bool, reserved1: ConstPtr, pexpirationtime: ConstPtr, reserved2: Luid, reserved3: UInt, reserved4: ConstPtr, pauthzclientcontext: MutPtr): RpcStatus =
     0
 
-public actual fun rpcIfIdVectorFree(ifidvector: MutPtr<MutPtr<RpcIfIdVector>>): RpcStatus =
+public actual fun rpcIfIdVectorFree(ifidvector: MutPtr): RpcStatus =
     windowssysWindowsWin32SystemRpcRpcIfIdVectorFree(ifidvector.rawAddress.toCPointer<ByteVar>())
 
-public actual fun rpcIfInqId(rpcifhandle: ConstPtr<CVoid>, rpcifid: MutPtr<RpcIfId>): RpcStatus =
+public actual fun rpcIfInqId(rpcifhandle: ConstPtr, rpcifid: MutPtr): RpcStatus =
     windowssysWindowsWin32SystemRpcRpcIfInqId(rpcifhandle.rawAddress.toCPointer<ByteVar>(), rpcifid.rawAddress.toCPointer<ByteVar>())
 
-public actual fun rpcImpersonateClient(bindinghandle: ConstPtr<CVoid>): RpcStatus =
+public actual fun rpcImpersonateClient(bindinghandle: ConstPtr): RpcStatus =
     windowssysWindowsWin32SystemRpcRpcImpersonateClient(bindinghandle.rawAddress.toCPointer<ByteVar>())
 
-public actual fun rpcImpersonateClient2(bindinghandle: ConstPtr<CVoid>): RpcStatus =
+public actual fun rpcImpersonateClient2(bindinghandle: ConstPtr): RpcStatus =
     windowssysWindowsWin32SystemRpcRpcImpersonateClient2(bindinghandle.rawAddress.toCPointer<ByteVar>())
 
-public actual fun rpcImpersonateClientContainer(bindinghandle: ConstPtr<CVoid>): RpcStatus =
+public actual fun rpcImpersonateClientContainer(bindinghandle: ConstPtr): RpcStatus =
     windowssysWindowsWin32SystemRpcRpcImpersonateClientContainer(bindinghandle.rawAddress.toCPointer<ByteVar>())
 
 public actual fun rpcMgmtEnableIdleCleanup(): RpcStatus =
     windowssysWindowsWin32SystemRpcRpcMgmtEnableIdleCleanup()
 
-public actual fun rpcMgmtEpEltInqBegin(epbinding: ConstPtr<CVoid>, inquirytype: UInt, ifid: ConstPtr<RpcIfId>, versoption: UInt, objectuuid: ConstPtr<Guid>, inquirycontext: MutPtr<MutPtr<MutPtr<CVoid>>>): RpcStatus =
+public actual fun rpcMgmtEpEltInqBegin(epbinding: ConstPtr, inquirytype: UInt, ifid: ConstPtr, versoption: UInt, objectuuid: ConstPtr, inquirycontext: MutPtr): RpcStatus =
     windowssysWindowsWin32SystemRpcRpcMgmtEpEltInqBegin(epbinding.rawAddress.toCPointer<ByteVar>(), inquirytype, ifid.rawAddress.toCPointer<ByteVar>(), versoption, objectuuid.rawAddress.toCPointer<ByteVar>(), inquirycontext.rawAddress.toCPointer<ByteVar>())
 
-public actual fun rpcMgmtEpEltInqDone(inquirycontext: MutPtr<MutPtr<MutPtr<CVoid>>>): RpcStatus =
+public actual fun rpcMgmtEpEltInqDone(inquirycontext: MutPtr): RpcStatus =
     windowssysWindowsWin32SystemRpcRpcMgmtEpEltInqDone(inquirycontext.rawAddress.toCPointer<ByteVar>())
 
-public actual fun rpcMgmtEpEltInqNextA(inquirycontext: ConstPtr<ConstPtr<CVoid>>, ifid: MutPtr<RpcIfId>, binding: MutPtr<MutPtr<CVoid>>, objectuuid: MutPtr<Guid>, annotation: MutPtr<Pstr>): RpcStatus =
+public actual fun rpcMgmtEpEltInqNextA(inquirycontext: ConstPtr, ifid: MutPtr, binding: MutPtr, objectuuid: MutPtr, annotation: MutPtr): RpcStatus =
     windowssysWindowsWin32SystemRpcRpcMgmtEpEltInqNextA(inquirycontext.rawAddress.toCPointer<ByteVar>(), ifid.rawAddress.toCPointer<ByteVar>(), binding.rawAddress.toCPointer<ByteVar>(), objectuuid.rawAddress.toCPointer<ByteVar>(), annotation.rawAddress.toCPointer<ByteVar>())
 
-public actual fun rpcMgmtEpEltInqNextW(inquirycontext: ConstPtr<ConstPtr<CVoid>>, ifid: MutPtr<RpcIfId>, binding: MutPtr<MutPtr<CVoid>>, objectuuid: MutPtr<Guid>, annotation: MutPtr<Pwstr>): RpcStatus =
+public actual fun rpcMgmtEpEltInqNextW(inquirycontext: ConstPtr, ifid: MutPtr, binding: MutPtr, objectuuid: MutPtr, annotation: MutPtr): RpcStatus =
     windowssysWindowsWin32SystemRpcRpcMgmtEpEltInqNextW(inquirycontext.rawAddress.toCPointer<ByteVar>(), ifid.rawAddress.toCPointer<ByteVar>(), binding.rawAddress.toCPointer<ByteVar>(), objectuuid.rawAddress.toCPointer<ByteVar>(), annotation.rawAddress.toCPointer<ByteVar>())
 
-public actual fun rpcMgmtEpUnregister(epbinding: ConstPtr<CVoid>, ifid: ConstPtr<RpcIfId>, binding: ConstPtr<CVoid>, objectuuid: ConstPtr<Guid>): RpcStatus =
+public actual fun rpcMgmtEpUnregister(epbinding: ConstPtr, ifid: ConstPtr, binding: ConstPtr, objectuuid: ConstPtr): RpcStatus =
     windowssysWindowsWin32SystemRpcRpcMgmtEpUnregister(epbinding.rawAddress.toCPointer<ByteVar>(), ifid.rawAddress.toCPointer<ByteVar>(), binding.rawAddress.toCPointer<ByteVar>(), objectuuid.rawAddress.toCPointer<ByteVar>())
 
-public actual fun rpcMgmtInqComTimeout(binding: ConstPtr<CVoid>, timeout: MutPtr<UInt>): RpcStatus =
+public actual fun rpcMgmtInqComTimeout(binding: ConstPtr, timeout: MutPtr): RpcStatus =
     windowssysWindowsWin32SystemRpcRpcMgmtInqComTimeout(binding.rawAddress.toCPointer<ByteVar>(), timeout.rawAddress.toCPointer<ByteVar>())
 
-public actual fun rpcMgmtInqDefaultProtectLevel(authnsvc: UInt, authnlevel: MutPtr<UInt>): RpcStatus =
+public actual fun rpcMgmtInqDefaultProtectLevel(authnsvc: UInt, authnlevel: MutPtr): RpcStatus =
     windowssysWindowsWin32SystemRpcRpcMgmtInqDefaultProtectLevel(authnsvc, authnlevel.rawAddress.toCPointer<ByteVar>())
 
-public actual fun rpcMgmtInqIfIds(binding: ConstPtr<CVoid>, ifidvector: MutPtr<MutPtr<RpcIfIdVector>>): RpcStatus =
+public actual fun rpcMgmtInqIfIds(binding: ConstPtr, ifidvector: MutPtr): RpcStatus =
     windowssysWindowsWin32SystemRpcRpcMgmtInqIfIds(binding.rawAddress.toCPointer<ByteVar>(), ifidvector.rawAddress.toCPointer<ByteVar>())
 
-public actual fun rpcMgmtInqServerPrincNameA(binding: ConstPtr<CVoid>, authnsvc: UInt, serverprincname: MutPtr<Pstr>): RpcStatus =
+public actual fun rpcMgmtInqServerPrincNameA(binding: ConstPtr, authnsvc: UInt, serverprincname: MutPtr): RpcStatus =
     windowssysWindowsWin32SystemRpcRpcMgmtInqServerPrincNameA(binding.rawAddress.toCPointer<ByteVar>(), authnsvc, serverprincname.rawAddress.toCPointer<ByteVar>())
 
-public actual fun rpcMgmtInqServerPrincNameW(binding: ConstPtr<CVoid>, authnsvc: UInt, serverprincname: MutPtr<Pwstr>): RpcStatus =
+public actual fun rpcMgmtInqServerPrincNameW(binding: ConstPtr, authnsvc: UInt, serverprincname: MutPtr): RpcStatus =
     windowssysWindowsWin32SystemRpcRpcMgmtInqServerPrincNameW(binding.rawAddress.toCPointer<ByteVar>(), authnsvc, serverprincname.rawAddress.toCPointer<ByteVar>())
 
-public actual fun rpcMgmtInqStats(binding: ConstPtr<CVoid>, statistics: MutPtr<MutPtr<RpcStatsVector>>): RpcStatus =
+public actual fun rpcMgmtInqStats(binding: ConstPtr, statistics: MutPtr): RpcStatus =
     windowssysWindowsWin32SystemRpcRpcMgmtInqStats(binding.rawAddress.toCPointer<ByteVar>(), statistics.rawAddress.toCPointer<ByteVar>())
 
-public actual fun rpcMgmtIsServerListening(binding: ConstPtr<CVoid>): RpcStatus =
+public actual fun rpcMgmtIsServerListening(binding: ConstPtr): RpcStatus =
     windowssysWindowsWin32SystemRpcRpcMgmtIsServerListening(binding.rawAddress.toCPointer<ByteVar>())
 
 public actual fun rpcMgmtSetAuthorizationFn(authorizationfn: RpcMgmtAuthorizationFn): RpcStatus =
@@ -1651,25 +1649,25 @@ public actual fun rpcMgmtSetAuthorizationFn(authorizationfn: RpcMgmtAuthorizatio
 public actual fun rpcMgmtSetCancelTimeout(timeout: Int): RpcStatus =
     windowssysWindowsWin32SystemRpcRpcMgmtSetCancelTimeout(timeout)
 
-public actual fun rpcMgmtSetComTimeout(binding: ConstPtr<CVoid>, timeout: UInt): RpcStatus =
+public actual fun rpcMgmtSetComTimeout(binding: ConstPtr, timeout: UInt): RpcStatus =
     windowssysWindowsWin32SystemRpcRpcMgmtSetComTimeout(binding.rawAddress.toCPointer<ByteVar>(), timeout)
 
 public actual fun rpcMgmtSetServerStackSize(threadstacksize: UInt): RpcStatus =
     windowssysWindowsWin32SystemRpcRpcMgmtSetServerStackSize(threadstacksize)
 
-public actual fun rpcMgmtStatsVectorFree(statsvector: MutPtr<MutPtr<RpcStatsVector>>): RpcStatus =
+public actual fun rpcMgmtStatsVectorFree(statsvector: MutPtr): RpcStatus =
     windowssysWindowsWin32SystemRpcRpcMgmtStatsVectorFree(statsvector.rawAddress.toCPointer<ByteVar>())
 
-public actual fun rpcMgmtStopServerListening(binding: ConstPtr<CVoid>): RpcStatus =
+public actual fun rpcMgmtStopServerListening(binding: ConstPtr): RpcStatus =
     windowssysWindowsWin32SystemRpcRpcMgmtStopServerListening(binding.rawAddress.toCPointer<ByteVar>())
 
 public actual fun rpcMgmtWaitServerListen(): RpcStatus =
     windowssysWindowsWin32SystemRpcRpcMgmtWaitServerListen()
 
-public actual fun rpcNetworkInqProtseqsA(protseqvector: MutPtr<MutPtr<RpcProtseqVectora>>): RpcStatus =
+public actual fun rpcNetworkInqProtseqsA(protseqvector: MutPtr): RpcStatus =
     windowssysWindowsWin32SystemRpcRpcNetworkInqProtseqsA(protseqvector.rawAddress.toCPointer<ByteVar>())
 
-public actual fun rpcNetworkInqProtseqsW(protseqvector: MutPtr<MutPtr<RpcProtseqVectorw>>): RpcStatus =
+public actual fun rpcNetworkInqProtseqsW(protseqvector: MutPtr): RpcStatus =
     windowssysWindowsWin32SystemRpcRpcNetworkInqProtseqsW(protseqvector.rawAddress.toCPointer<ByteVar>())
 
 public actual fun rpcNetworkIsProtseqValidA(protseq: Pcstr): RpcStatus =
@@ -1678,79 +1676,79 @@ public actual fun rpcNetworkIsProtseqValidA(protseq: Pcstr): RpcStatus =
 public actual fun rpcNetworkIsProtseqValidW(protseq: Pcwstr): RpcStatus =
     windowssysWindowsWin32SystemRpcRpcNetworkIsProtseqValidW(protseq.rawAddress.toCPointer<ByteVar>())
 
-public actual fun rpcNsBindingExportA(entrynamesyntax: UInt, entryname: Pcstr, ifspec: ConstPtr<CVoid>, bindingvec: ConstPtr<RpcBindingVector>, objectuuidvec: ConstPtr<UuidVector>): RpcStatus =
+public actual fun rpcNsBindingExportA(entrynamesyntax: UInt, entryname: Pcstr, ifspec: ConstPtr, bindingvec: ConstPtr, objectuuidvec: ConstPtr): RpcStatus =
     windowssysWindowsWin32SystemRpcRpcNsBindingExportA(entrynamesyntax, entryname.rawAddress.toCPointer<ByteVar>(), ifspec.rawAddress.toCPointer<ByteVar>(), bindingvec.rawAddress.toCPointer<ByteVar>(), objectuuidvec.rawAddress.toCPointer<ByteVar>())
 
-public actual fun rpcNsBindingExportPnPA(entrynamesyntax: UInt, entryname: Pcstr, ifspec: ConstPtr<CVoid>, objectvector: ConstPtr<UuidVector>): RpcStatus =
+public actual fun rpcNsBindingExportPnPA(entrynamesyntax: UInt, entryname: Pcstr, ifspec: ConstPtr, objectvector: ConstPtr): RpcStatus =
     windowssysWindowsWin32SystemRpcRpcNsBindingExportPnPA(entrynamesyntax, entryname.rawAddress.toCPointer<ByteVar>(), ifspec.rawAddress.toCPointer<ByteVar>(), objectvector.rawAddress.toCPointer<ByteVar>())
 
-public actual fun rpcNsBindingExportPnPW(entrynamesyntax: UInt, entryname: Pcwstr, ifspec: ConstPtr<CVoid>, objectvector: ConstPtr<UuidVector>): RpcStatus =
+public actual fun rpcNsBindingExportPnPW(entrynamesyntax: UInt, entryname: Pcwstr, ifspec: ConstPtr, objectvector: ConstPtr): RpcStatus =
     windowssysWindowsWin32SystemRpcRpcNsBindingExportPnPW(entrynamesyntax, entryname.rawAddress.toCPointer<ByteVar>(), ifspec.rawAddress.toCPointer<ByteVar>(), objectvector.rawAddress.toCPointer<ByteVar>())
 
-public actual fun rpcNsBindingExportW(entrynamesyntax: UInt, entryname: Pcwstr, ifspec: ConstPtr<CVoid>, bindingvec: ConstPtr<RpcBindingVector>, objectuuidvec: ConstPtr<UuidVector>): RpcStatus =
+public actual fun rpcNsBindingExportW(entrynamesyntax: UInt, entryname: Pcwstr, ifspec: ConstPtr, bindingvec: ConstPtr, objectuuidvec: ConstPtr): RpcStatus =
     windowssysWindowsWin32SystemRpcRpcNsBindingExportW(entrynamesyntax, entryname.rawAddress.toCPointer<ByteVar>(), ifspec.rawAddress.toCPointer<ByteVar>(), bindingvec.rawAddress.toCPointer<ByteVar>(), objectuuidvec.rawAddress.toCPointer<ByteVar>())
 
-public actual fun rpcNsBindingImportBeginA(entrynamesyntax: UInt, entryname: Pcstr, ifspec: ConstPtr<CVoid>, objuuid: ConstPtr<Guid>, importcontext: MutPtr<MutPtr<CVoid>>): RpcStatus =
+public actual fun rpcNsBindingImportBeginA(entrynamesyntax: UInt, entryname: Pcstr, ifspec: ConstPtr, objuuid: ConstPtr, importcontext: MutPtr): RpcStatus =
     windowssysWindowsWin32SystemRpcRpcNsBindingImportBeginA(entrynamesyntax, entryname.rawAddress.toCPointer<ByteVar>(), ifspec.rawAddress.toCPointer<ByteVar>(), objuuid.rawAddress.toCPointer<ByteVar>(), importcontext.rawAddress.toCPointer<ByteVar>())
 
-public actual fun rpcNsBindingImportBeginW(entrynamesyntax: UInt, entryname: Pcwstr, ifspec: ConstPtr<CVoid>, objuuid: ConstPtr<Guid>, importcontext: MutPtr<MutPtr<CVoid>>): RpcStatus =
+public actual fun rpcNsBindingImportBeginW(entrynamesyntax: UInt, entryname: Pcwstr, ifspec: ConstPtr, objuuid: ConstPtr, importcontext: MutPtr): RpcStatus =
     windowssysWindowsWin32SystemRpcRpcNsBindingImportBeginW(entrynamesyntax, entryname.rawAddress.toCPointer<ByteVar>(), ifspec.rawAddress.toCPointer<ByteVar>(), objuuid.rawAddress.toCPointer<ByteVar>(), importcontext.rawAddress.toCPointer<ByteVar>())
 
-public actual fun rpcNsBindingImportDone(importcontext: MutPtr<MutPtr<CVoid>>): RpcStatus =
+public actual fun rpcNsBindingImportDone(importcontext: MutPtr): RpcStatus =
     windowssysWindowsWin32SystemRpcRpcNsBindingImportDone(importcontext.rawAddress.toCPointer<ByteVar>())
 
-public actual fun rpcNsBindingImportNext(importcontext: MutPtr<CVoid>, binding: MutPtr<MutPtr<CVoid>>): RpcStatus =
+public actual fun rpcNsBindingImportNext(importcontext: MutPtr, binding: MutPtr): RpcStatus =
     windowssysWindowsWin32SystemRpcRpcNsBindingImportNext(importcontext.rawAddress.toCPointer<ByteVar>(), binding.rawAddress.toCPointer<ByteVar>())
 
-public actual fun rpcNsBindingInqEntryNameA(binding: ConstPtr<CVoid>, entrynamesyntax: UInt, entryname: MutPtr<Pstr>): RpcStatus =
+public actual fun rpcNsBindingInqEntryNameA(binding: ConstPtr, entrynamesyntax: UInt, entryname: MutPtr): RpcStatus =
     windowssysWindowsWin32SystemRpcRpcNsBindingInqEntryNameA(binding.rawAddress.toCPointer<ByteVar>(), entrynamesyntax, entryname.rawAddress.toCPointer<ByteVar>())
 
-public actual fun rpcNsBindingInqEntryNameW(binding: ConstPtr<CVoid>, entrynamesyntax: UInt, entryname: MutPtr<Pwstr>): RpcStatus =
+public actual fun rpcNsBindingInqEntryNameW(binding: ConstPtr, entrynamesyntax: UInt, entryname: MutPtr): RpcStatus =
     windowssysWindowsWin32SystemRpcRpcNsBindingInqEntryNameW(binding.rawAddress.toCPointer<ByteVar>(), entrynamesyntax, entryname.rawAddress.toCPointer<ByteVar>())
 
-public actual fun rpcNsBindingLookupBeginA(entrynamesyntax: UInt, entryname: Pcstr, ifspec: ConstPtr<CVoid>, objuuid: ConstPtr<Guid>, bindingmaxcount: UInt, lookupcontext: MutPtr<MutPtr<CVoid>>): RpcStatus =
+public actual fun rpcNsBindingLookupBeginA(entrynamesyntax: UInt, entryname: Pcstr, ifspec: ConstPtr, objuuid: ConstPtr, bindingmaxcount: UInt, lookupcontext: MutPtr): RpcStatus =
     windowssysWindowsWin32SystemRpcRpcNsBindingLookupBeginA(entrynamesyntax, entryname.rawAddress.toCPointer<ByteVar>(), ifspec.rawAddress.toCPointer<ByteVar>(), objuuid.rawAddress.toCPointer<ByteVar>(), bindingmaxcount, lookupcontext.rawAddress.toCPointer<ByteVar>())
 
-public actual fun rpcNsBindingLookupBeginW(entrynamesyntax: UInt, entryname: Pcwstr, ifspec: ConstPtr<CVoid>, objuuid: ConstPtr<Guid>, bindingmaxcount: UInt, lookupcontext: MutPtr<MutPtr<CVoid>>): RpcStatus =
+public actual fun rpcNsBindingLookupBeginW(entrynamesyntax: UInt, entryname: Pcwstr, ifspec: ConstPtr, objuuid: ConstPtr, bindingmaxcount: UInt, lookupcontext: MutPtr): RpcStatus =
     windowssysWindowsWin32SystemRpcRpcNsBindingLookupBeginW(entrynamesyntax, entryname.rawAddress.toCPointer<ByteVar>(), ifspec.rawAddress.toCPointer<ByteVar>(), objuuid.rawAddress.toCPointer<ByteVar>(), bindingmaxcount, lookupcontext.rawAddress.toCPointer<ByteVar>())
 
-public actual fun rpcNsBindingLookupDone(lookupcontext: MutPtr<MutPtr<CVoid>>): RpcStatus =
+public actual fun rpcNsBindingLookupDone(lookupcontext: MutPtr): RpcStatus =
     windowssysWindowsWin32SystemRpcRpcNsBindingLookupDone(lookupcontext.rawAddress.toCPointer<ByteVar>())
 
-public actual fun rpcNsBindingLookupNext(lookupcontext: MutPtr<CVoid>, bindingvec: MutPtr<MutPtr<RpcBindingVector>>): RpcStatus =
+public actual fun rpcNsBindingLookupNext(lookupcontext: MutPtr, bindingvec: MutPtr): RpcStatus =
     windowssysWindowsWin32SystemRpcRpcNsBindingLookupNext(lookupcontext.rawAddress.toCPointer<ByteVar>(), bindingvec.rawAddress.toCPointer<ByteVar>())
 
-public actual fun rpcNsBindingSelect(bindingvec: MutPtr<RpcBindingVector>, binding: MutPtr<MutPtr<CVoid>>): RpcStatus =
+public actual fun rpcNsBindingSelect(bindingvec: MutPtr, binding: MutPtr): RpcStatus =
     windowssysWindowsWin32SystemRpcRpcNsBindingSelect(bindingvec.rawAddress.toCPointer<ByteVar>(), binding.rawAddress.toCPointer<ByteVar>())
 
-public actual fun rpcNsBindingUnexportA(entrynamesyntax: UInt, entryname: Pcstr, ifspec: ConstPtr<CVoid>, objectuuidvec: ConstPtr<UuidVector>): RpcStatus =
+public actual fun rpcNsBindingUnexportA(entrynamesyntax: UInt, entryname: Pcstr, ifspec: ConstPtr, objectuuidvec: ConstPtr): RpcStatus =
     windowssysWindowsWin32SystemRpcRpcNsBindingUnexportA(entrynamesyntax, entryname.rawAddress.toCPointer<ByteVar>(), ifspec.rawAddress.toCPointer<ByteVar>(), objectuuidvec.rawAddress.toCPointer<ByteVar>())
 
-public actual fun rpcNsBindingUnexportPnPA(entrynamesyntax: UInt, entryname: Pcstr, ifspec: ConstPtr<CVoid>, objectvector: ConstPtr<UuidVector>): RpcStatus =
+public actual fun rpcNsBindingUnexportPnPA(entrynamesyntax: UInt, entryname: Pcstr, ifspec: ConstPtr, objectvector: ConstPtr): RpcStatus =
     windowssysWindowsWin32SystemRpcRpcNsBindingUnexportPnPA(entrynamesyntax, entryname.rawAddress.toCPointer<ByteVar>(), ifspec.rawAddress.toCPointer<ByteVar>(), objectvector.rawAddress.toCPointer<ByteVar>())
 
-public actual fun rpcNsBindingUnexportPnPW(entrynamesyntax: UInt, entryname: Pcwstr, ifspec: ConstPtr<CVoid>, objectvector: ConstPtr<UuidVector>): RpcStatus =
+public actual fun rpcNsBindingUnexportPnPW(entrynamesyntax: UInt, entryname: Pcwstr, ifspec: ConstPtr, objectvector: ConstPtr): RpcStatus =
     windowssysWindowsWin32SystemRpcRpcNsBindingUnexportPnPW(entrynamesyntax, entryname.rawAddress.toCPointer<ByteVar>(), ifspec.rawAddress.toCPointer<ByteVar>(), objectvector.rawAddress.toCPointer<ByteVar>())
 
-public actual fun rpcNsBindingUnexportW(entrynamesyntax: UInt, entryname: Pcwstr, ifspec: ConstPtr<CVoid>, objectuuidvec: ConstPtr<UuidVector>): RpcStatus =
+public actual fun rpcNsBindingUnexportW(entrynamesyntax: UInt, entryname: Pcwstr, ifspec: ConstPtr, objectuuidvec: ConstPtr): RpcStatus =
     windowssysWindowsWin32SystemRpcRpcNsBindingUnexportW(entrynamesyntax, entryname.rawAddress.toCPointer<ByteVar>(), ifspec.rawAddress.toCPointer<ByteVar>(), objectuuidvec.rawAddress.toCPointer<ByteVar>())
 
-public actual fun rpcNsEntryExpandNameA(entrynamesyntax: UInt, entryname: Pcstr, expandedname: MutPtr<Pstr>): RpcStatus =
+public actual fun rpcNsEntryExpandNameA(entrynamesyntax: UInt, entryname: Pcstr, expandedname: MutPtr): RpcStatus =
     windowssysWindowsWin32SystemRpcRpcNsEntryExpandNameA(entrynamesyntax, entryname.rawAddress.toCPointer<ByteVar>(), expandedname.rawAddress.toCPointer<ByteVar>())
 
-public actual fun rpcNsEntryExpandNameW(entrynamesyntax: UInt, entryname: Pcwstr, expandedname: MutPtr<Pwstr>): RpcStatus =
+public actual fun rpcNsEntryExpandNameW(entrynamesyntax: UInt, entryname: Pcwstr, expandedname: MutPtr): RpcStatus =
     windowssysWindowsWin32SystemRpcRpcNsEntryExpandNameW(entrynamesyntax, entryname.rawAddress.toCPointer<ByteVar>(), expandedname.rawAddress.toCPointer<ByteVar>())
 
-public actual fun rpcNsEntryObjectInqBeginA(entrynamesyntax: UInt, entryname: Pcstr, inquirycontext: MutPtr<MutPtr<CVoid>>): RpcStatus =
+public actual fun rpcNsEntryObjectInqBeginA(entrynamesyntax: UInt, entryname: Pcstr, inquirycontext: MutPtr): RpcStatus =
     windowssysWindowsWin32SystemRpcRpcNsEntryObjectInqBeginA(entrynamesyntax, entryname.rawAddress.toCPointer<ByteVar>(), inquirycontext.rawAddress.toCPointer<ByteVar>())
 
-public actual fun rpcNsEntryObjectInqBeginW(entrynamesyntax: UInt, entryname: Pcwstr, inquirycontext: MutPtr<MutPtr<CVoid>>): RpcStatus =
+public actual fun rpcNsEntryObjectInqBeginW(entrynamesyntax: UInt, entryname: Pcwstr, inquirycontext: MutPtr): RpcStatus =
     windowssysWindowsWin32SystemRpcRpcNsEntryObjectInqBeginW(entrynamesyntax, entryname.rawAddress.toCPointer<ByteVar>(), inquirycontext.rawAddress.toCPointer<ByteVar>())
 
-public actual fun rpcNsEntryObjectInqDone(inquirycontext: MutPtr<MutPtr<CVoid>>): RpcStatus =
+public actual fun rpcNsEntryObjectInqDone(inquirycontext: MutPtr): RpcStatus =
     windowssysWindowsWin32SystemRpcRpcNsEntryObjectInqDone(inquirycontext.rawAddress.toCPointer<ByteVar>())
 
-public actual fun rpcNsEntryObjectInqNext(inquirycontext: MutPtr<CVoid>, objuuid: MutPtr<Guid>): RpcStatus =
+public actual fun rpcNsEntryObjectInqNext(inquirycontext: MutPtr, objuuid: MutPtr): RpcStatus =
     windowssysWindowsWin32SystemRpcRpcNsEntryObjectInqNext(inquirycontext.rawAddress.toCPointer<ByteVar>(), objuuid.rawAddress.toCPointer<ByteVar>())
 
 public actual fun rpcNsGroupDeleteA(groupnamesyntax: GroupNameSyntax, groupname: Pcstr): RpcStatus =
@@ -1765,19 +1763,19 @@ public actual fun rpcNsGroupMbrAddA(groupnamesyntax: UInt, groupname: Pcstr, mem
 public actual fun rpcNsGroupMbrAddW(groupnamesyntax: UInt, groupname: Pcwstr, membernamesyntax: UInt, membername: Pcwstr): RpcStatus =
     windowssysWindowsWin32SystemRpcRpcNsGroupMbrAddW(groupnamesyntax, groupname.rawAddress.toCPointer<ByteVar>(), membernamesyntax, membername.rawAddress.toCPointer<ByteVar>())
 
-public actual fun rpcNsGroupMbrInqBeginA(groupnamesyntax: UInt, groupname: Pcstr, membernamesyntax: UInt, inquirycontext: MutPtr<MutPtr<CVoid>>): RpcStatus =
+public actual fun rpcNsGroupMbrInqBeginA(groupnamesyntax: UInt, groupname: Pcstr, membernamesyntax: UInt, inquirycontext: MutPtr): RpcStatus =
     windowssysWindowsWin32SystemRpcRpcNsGroupMbrInqBeginA(groupnamesyntax, groupname.rawAddress.toCPointer<ByteVar>(), membernamesyntax, inquirycontext.rawAddress.toCPointer<ByteVar>())
 
-public actual fun rpcNsGroupMbrInqBeginW(groupnamesyntax: UInt, groupname: Pcwstr, membernamesyntax: UInt, inquirycontext: MutPtr<MutPtr<CVoid>>): RpcStatus =
+public actual fun rpcNsGroupMbrInqBeginW(groupnamesyntax: UInt, groupname: Pcwstr, membernamesyntax: UInt, inquirycontext: MutPtr): RpcStatus =
     windowssysWindowsWin32SystemRpcRpcNsGroupMbrInqBeginW(groupnamesyntax, groupname.rawAddress.toCPointer<ByteVar>(), membernamesyntax, inquirycontext.rawAddress.toCPointer<ByteVar>())
 
-public actual fun rpcNsGroupMbrInqDone(inquirycontext: MutPtr<MutPtr<CVoid>>): RpcStatus =
+public actual fun rpcNsGroupMbrInqDone(inquirycontext: MutPtr): RpcStatus =
     windowssysWindowsWin32SystemRpcRpcNsGroupMbrInqDone(inquirycontext.rawAddress.toCPointer<ByteVar>())
 
-public actual fun rpcNsGroupMbrInqNextA(inquirycontext: MutPtr<CVoid>, membername: MutPtr<Pstr>): RpcStatus =
+public actual fun rpcNsGroupMbrInqNextA(inquirycontext: MutPtr, membername: MutPtr): RpcStatus =
     windowssysWindowsWin32SystemRpcRpcNsGroupMbrInqNextA(inquirycontext.rawAddress.toCPointer<ByteVar>(), membername.rawAddress.toCPointer<ByteVar>())
 
-public actual fun rpcNsGroupMbrInqNextW(inquirycontext: MutPtr<CVoid>, membername: MutPtr<Pwstr>): RpcStatus =
+public actual fun rpcNsGroupMbrInqNextW(inquirycontext: MutPtr, membername: MutPtr): RpcStatus =
     windowssysWindowsWin32SystemRpcRpcNsGroupMbrInqNextW(inquirycontext.rawAddress.toCPointer<ByteVar>(), membername.rawAddress.toCPointer<ByteVar>())
 
 public actual fun rpcNsGroupMbrRemoveA(groupnamesyntax: UInt, groupname: Pcstr, membernamesyntax: UInt, membername: Pcstr): RpcStatus =
@@ -1786,10 +1784,10 @@ public actual fun rpcNsGroupMbrRemoveA(groupnamesyntax: UInt, groupname: Pcstr, 
 public actual fun rpcNsGroupMbrRemoveW(groupnamesyntax: UInt, groupname: Pcwstr, membernamesyntax: UInt, membername: Pcwstr): RpcStatus =
     windowssysWindowsWin32SystemRpcRpcNsGroupMbrRemoveW(groupnamesyntax, groupname.rawAddress.toCPointer<ByteVar>(), membernamesyntax, membername.rawAddress.toCPointer<ByteVar>())
 
-public actual fun rpcNsMgmtBindingUnexportA(entrynamesyntax: UInt, entryname: Pcstr, ifid: ConstPtr<RpcIfId>, versoption: UInt, objectuuidvec: ConstPtr<UuidVector>): RpcStatus =
+public actual fun rpcNsMgmtBindingUnexportA(entrynamesyntax: UInt, entryname: Pcstr, ifid: ConstPtr, versoption: UInt, objectuuidvec: ConstPtr): RpcStatus =
     windowssysWindowsWin32SystemRpcRpcNsMgmtBindingUnexportA(entrynamesyntax, entryname.rawAddress.toCPointer<ByteVar>(), ifid.rawAddress.toCPointer<ByteVar>(), versoption, objectuuidvec.rawAddress.toCPointer<ByteVar>())
 
-public actual fun rpcNsMgmtBindingUnexportW(entrynamesyntax: UInt, entryname: Pcwstr, ifid: ConstPtr<RpcIfId>, versoption: UInt, objectuuidvec: ConstPtr<UuidVector>): RpcStatus =
+public actual fun rpcNsMgmtBindingUnexportW(entrynamesyntax: UInt, entryname: Pcwstr, ifid: ConstPtr, versoption: UInt, objectuuidvec: ConstPtr): RpcStatus =
     windowssysWindowsWin32SystemRpcRpcNsMgmtBindingUnexportW(entrynamesyntax, entryname.rawAddress.toCPointer<ByteVar>(), ifid.rawAddress.toCPointer<ByteVar>(), versoption, objectuuidvec.rawAddress.toCPointer<ByteVar>())
 
 public actual fun rpcNsMgmtEntryCreateA(entrynamesyntax: UInt, entryname: Pcstr): RpcStatus =
@@ -1804,16 +1802,16 @@ public actual fun rpcNsMgmtEntryDeleteA(entrynamesyntax: UInt, entryname: Pcstr)
 public actual fun rpcNsMgmtEntryDeleteW(entrynamesyntax: UInt, entryname: Pcwstr): RpcStatus =
     windowssysWindowsWin32SystemRpcRpcNsMgmtEntryDeleteW(entrynamesyntax, entryname.rawAddress.toCPointer<ByteVar>())
 
-public actual fun rpcNsMgmtEntryInqIfIdsA(entrynamesyntax: UInt, entryname: Pcstr, ifidvec: MutPtr<MutPtr<RpcIfIdVector>>): RpcStatus =
+public actual fun rpcNsMgmtEntryInqIfIdsA(entrynamesyntax: UInt, entryname: Pcstr, ifidvec: MutPtr): RpcStatus =
     windowssysWindowsWin32SystemRpcRpcNsMgmtEntryInqIfIdsA(entrynamesyntax, entryname.rawAddress.toCPointer<ByteVar>(), ifidvec.rawAddress.toCPointer<ByteVar>())
 
-public actual fun rpcNsMgmtEntryInqIfIdsW(entrynamesyntax: UInt, entryname: Pcwstr, ifidvec: MutPtr<MutPtr<RpcIfIdVector>>): RpcStatus =
+public actual fun rpcNsMgmtEntryInqIfIdsW(entrynamesyntax: UInt, entryname: Pcwstr, ifidvec: MutPtr): RpcStatus =
     windowssysWindowsWin32SystemRpcRpcNsMgmtEntryInqIfIdsW(entrynamesyntax, entryname.rawAddress.toCPointer<ByteVar>(), ifidvec.rawAddress.toCPointer<ByteVar>())
 
-public actual fun rpcNsMgmtHandleSetExpAge(nshandle: MutPtr<CVoid>, expirationage: UInt): RpcStatus =
+public actual fun rpcNsMgmtHandleSetExpAge(nshandle: MutPtr, expirationage: UInt): RpcStatus =
     windowssysWindowsWin32SystemRpcRpcNsMgmtHandleSetExpAge(nshandle.rawAddress.toCPointer<ByteVar>(), expirationage)
 
-public actual fun rpcNsMgmtInqExpAge(expirationage: MutPtr<UInt>): RpcStatus =
+public actual fun rpcNsMgmtInqExpAge(expirationage: MutPtr): RpcStatus =
     windowssysWindowsWin32SystemRpcRpcNsMgmtInqExpAge(expirationage.rawAddress.toCPointer<ByteVar>())
 
 public actual fun rpcNsMgmtSetExpAge(expirationage: UInt): RpcStatus =
@@ -1825,46 +1823,46 @@ public actual fun rpcNsProfileDeleteA(profilenamesyntax: UInt, profilename: Pcst
 public actual fun rpcNsProfileDeleteW(profilenamesyntax: UInt, profilename: Pcwstr): RpcStatus =
     windowssysWindowsWin32SystemRpcRpcNsProfileDeleteW(profilenamesyntax, profilename.rawAddress.toCPointer<ByteVar>())
 
-public actual fun rpcNsProfileEltAddA(profilenamesyntax: UInt, profilename: Pcstr, ifid: ConstPtr<RpcIfId>, membernamesyntax: UInt, membername: Pcstr, priority: UInt, annotation: Pcstr): RpcStatus =
+public actual fun rpcNsProfileEltAddA(profilenamesyntax: UInt, profilename: Pcstr, ifid: ConstPtr, membernamesyntax: UInt, membername: Pcstr, priority: UInt, annotation: Pcstr): RpcStatus =
     windowssysWindowsWin32SystemRpcRpcNsProfileEltAddA(profilenamesyntax, profilename.rawAddress.toCPointer<ByteVar>(), ifid.rawAddress.toCPointer<ByteVar>(), membernamesyntax, membername.rawAddress.toCPointer<ByteVar>(), priority, annotation.rawAddress.toCPointer<ByteVar>())
 
-public actual fun rpcNsProfileEltAddW(profilenamesyntax: UInt, profilename: Pcwstr, ifid: ConstPtr<RpcIfId>, membernamesyntax: UInt, membername: Pcwstr, priority: UInt, annotation: Pcwstr): RpcStatus =
+public actual fun rpcNsProfileEltAddW(profilenamesyntax: UInt, profilename: Pcwstr, ifid: ConstPtr, membernamesyntax: UInt, membername: Pcwstr, priority: UInt, annotation: Pcwstr): RpcStatus =
     windowssysWindowsWin32SystemRpcRpcNsProfileEltAddW(profilenamesyntax, profilename.rawAddress.toCPointer<ByteVar>(), ifid.rawAddress.toCPointer<ByteVar>(), membernamesyntax, membername.rawAddress.toCPointer<ByteVar>(), priority, annotation.rawAddress.toCPointer<ByteVar>())
 
-public actual fun rpcNsProfileEltInqBeginA(profilenamesyntax: UInt, profilename: Pcstr, inquirytype: UInt, ifid: ConstPtr<RpcIfId>, versoption: UInt, membernamesyntax: UInt, membername: Pcstr, inquirycontext: MutPtr<MutPtr<CVoid>>): RpcStatus =
+public actual fun rpcNsProfileEltInqBeginA(profilenamesyntax: UInt, profilename: Pcstr, inquirytype: UInt, ifid: ConstPtr, versoption: UInt, membernamesyntax: UInt, membername: Pcstr, inquirycontext: MutPtr): RpcStatus =
     windowssysWindowsWin32SystemRpcRpcNsProfileEltInqBeginA(profilenamesyntax, profilename.rawAddress.toCPointer<ByteVar>(), inquirytype, ifid.rawAddress.toCPointer<ByteVar>(), versoption, membernamesyntax, membername.rawAddress.toCPointer<ByteVar>(), inquirycontext.rawAddress.toCPointer<ByteVar>())
 
-public actual fun rpcNsProfileEltInqBeginW(profilenamesyntax: UInt, profilename: Pcwstr, inquirytype: UInt, ifid: ConstPtr<RpcIfId>, versoption: UInt, membernamesyntax: UInt, membername: Pcwstr, inquirycontext: MutPtr<MutPtr<CVoid>>): RpcStatus =
+public actual fun rpcNsProfileEltInqBeginW(profilenamesyntax: UInt, profilename: Pcwstr, inquirytype: UInt, ifid: ConstPtr, versoption: UInt, membernamesyntax: UInt, membername: Pcwstr, inquirycontext: MutPtr): RpcStatus =
     windowssysWindowsWin32SystemRpcRpcNsProfileEltInqBeginW(profilenamesyntax, profilename.rawAddress.toCPointer<ByteVar>(), inquirytype, ifid.rawAddress.toCPointer<ByteVar>(), versoption, membernamesyntax, membername.rawAddress.toCPointer<ByteVar>(), inquirycontext.rawAddress.toCPointer<ByteVar>())
 
-public actual fun rpcNsProfileEltInqDone(inquirycontext: MutPtr<MutPtr<CVoid>>): RpcStatus =
+public actual fun rpcNsProfileEltInqDone(inquirycontext: MutPtr): RpcStatus =
     windowssysWindowsWin32SystemRpcRpcNsProfileEltInqDone(inquirycontext.rawAddress.toCPointer<ByteVar>())
 
-public actual fun rpcNsProfileEltInqNextA(inquirycontext: ConstPtr<CVoid>, ifid: MutPtr<RpcIfId>, membername: MutPtr<Pstr>, priority: MutPtr<UInt>, annotation: MutPtr<Pstr>): RpcStatus =
+public actual fun rpcNsProfileEltInqNextA(inquirycontext: ConstPtr, ifid: MutPtr, membername: MutPtr, priority: MutPtr, annotation: MutPtr): RpcStatus =
     windowssysWindowsWin32SystemRpcRpcNsProfileEltInqNextA(inquirycontext.rawAddress.toCPointer<ByteVar>(), ifid.rawAddress.toCPointer<ByteVar>(), membername.rawAddress.toCPointer<ByteVar>(), priority.rawAddress.toCPointer<ByteVar>(), annotation.rawAddress.toCPointer<ByteVar>())
 
-public actual fun rpcNsProfileEltInqNextW(inquirycontext: ConstPtr<CVoid>, ifid: MutPtr<RpcIfId>, membername: MutPtr<Pwstr>, priority: MutPtr<UInt>, annotation: MutPtr<Pwstr>): RpcStatus =
+public actual fun rpcNsProfileEltInqNextW(inquirycontext: ConstPtr, ifid: MutPtr, membername: MutPtr, priority: MutPtr, annotation: MutPtr): RpcStatus =
     windowssysWindowsWin32SystemRpcRpcNsProfileEltInqNextW(inquirycontext.rawAddress.toCPointer<ByteVar>(), ifid.rawAddress.toCPointer<ByteVar>(), membername.rawAddress.toCPointer<ByteVar>(), priority.rawAddress.toCPointer<ByteVar>(), annotation.rawAddress.toCPointer<ByteVar>())
 
-public actual fun rpcNsProfileEltRemoveA(profilenamesyntax: UInt, profilename: Pcstr, ifid: ConstPtr<RpcIfId>, membernamesyntax: UInt, membername: Pcstr): RpcStatus =
+public actual fun rpcNsProfileEltRemoveA(profilenamesyntax: UInt, profilename: Pcstr, ifid: ConstPtr, membernamesyntax: UInt, membername: Pcstr): RpcStatus =
     windowssysWindowsWin32SystemRpcRpcNsProfileEltRemoveA(profilenamesyntax, profilename.rawAddress.toCPointer<ByteVar>(), ifid.rawAddress.toCPointer<ByteVar>(), membernamesyntax, membername.rawAddress.toCPointer<ByteVar>())
 
-public actual fun rpcNsProfileEltRemoveW(profilenamesyntax: UInt, profilename: Pcwstr, ifid: ConstPtr<RpcIfId>, membernamesyntax: UInt, membername: Pcwstr): RpcStatus =
+public actual fun rpcNsProfileEltRemoveW(profilenamesyntax: UInt, profilename: Pcwstr, ifid: ConstPtr, membernamesyntax: UInt, membername: Pcwstr): RpcStatus =
     windowssysWindowsWin32SystemRpcRpcNsProfileEltRemoveW(profilenamesyntax, profilename.rawAddress.toCPointer<ByteVar>(), ifid.rawAddress.toCPointer<ByteVar>(), membernamesyntax, membername.rawAddress.toCPointer<ByteVar>())
 
-public actual fun rpcObjectInqType(objuuid: ConstPtr<Guid>, typeuuid: MutPtr<Guid>): RpcStatus =
+public actual fun rpcObjectInqType(objuuid: ConstPtr, typeuuid: MutPtr): RpcStatus =
     windowssysWindowsWin32SystemRpcRpcObjectInqType(objuuid.rawAddress.toCPointer<ByteVar>(), typeuuid.rawAddress.toCPointer<ByteVar>())
 
 public actual fun rpcObjectSetInqFn(inquiryfn: RpcObjectInqFn): RpcStatus =
     windowssysWindowsWin32SystemRpcRpcObjectSetInqFn(0L.toCPointer<ByteVar>())
 
-public actual fun rpcObjectSetType(objuuid: ConstPtr<Guid>, typeuuid: ConstPtr<Guid>): RpcStatus =
+public actual fun rpcObjectSetType(objuuid: ConstPtr, typeuuid: ConstPtr): RpcStatus =
     windowssysWindowsWin32SystemRpcRpcObjectSetType(objuuid.rawAddress.toCPointer<ByteVar>(), typeuuid.rawAddress.toCPointer<ByteVar>())
 
-public actual fun rpcProtseqVectorFreeA(protseqvector: MutPtr<MutPtr<RpcProtseqVectora>>): RpcStatus =
+public actual fun rpcProtseqVectorFreeA(protseqvector: MutPtr): RpcStatus =
     windowssysWindowsWin32SystemRpcRpcProtseqVectorFreeA(protseqvector.rawAddress.toCPointer<ByteVar>())
 
-public actual fun rpcProtseqVectorFreeW(protseqvector: MutPtr<MutPtr<RpcProtseqVectorw>>): RpcStatus =
+public actual fun rpcProtseqVectorFreeW(protseqvector: MutPtr): RpcStatus =
     windowssysWindowsWin32SystemRpcRpcProtseqVectorFreeW(protseqvector.rawAddress.toCPointer<ByteVar>())
 
 public actual fun rpcRaiseException(exception: RpcStatus) {
@@ -1877,149 +1875,149 @@ public actual fun rpcRevertContainerImpersonation(): RpcStatus =
 public actual fun rpcRevertToSelf(): RpcStatus =
     windowssysWindowsWin32SystemRpcRpcRevertToSelf()
 
-public actual fun rpcRevertToSelfEx(bindinghandle: ConstPtr<CVoid>): RpcStatus =
+public actual fun rpcRevertToSelfEx(bindinghandle: ConstPtr): RpcStatus =
     windowssysWindowsWin32SystemRpcRpcRevertToSelfEx(bindinghandle.rawAddress.toCPointer<ByteVar>())
 
-public actual fun rpcServerCompleteSecurityCallback(bindinghandle: ConstPtr<CVoid>, status: RpcStatus): RpcStatus =
+public actual fun rpcServerCompleteSecurityCallback(bindinghandle: ConstPtr, status: RpcStatus): RpcStatus =
     windowssysWindowsWin32SystemRpcRpcServerCompleteSecurityCallback(bindinghandle.rawAddress.toCPointer<ByteVar>(), status)
 
-public actual fun rpcServerInqBindingHandle(binding: MutPtr<MutPtr<CVoid>>): RpcStatus =
+public actual fun rpcServerInqBindingHandle(binding: MutPtr): RpcStatus =
     windowssysWindowsWin32SystemRpcRpcServerInqBindingHandle(binding.rawAddress.toCPointer<ByteVar>())
 
-public actual fun rpcServerInqBindings(bindingvector: MutPtr<MutPtr<RpcBindingVector>>): RpcStatus =
+public actual fun rpcServerInqBindings(bindingvector: MutPtr): RpcStatus =
     windowssysWindowsWin32SystemRpcRpcServerInqBindings(bindingvector.rawAddress.toCPointer<ByteVar>())
 
-public actual fun rpcServerInqBindingsEx(securitydescriptor: ConstPtr<CVoid>, bindingvector: MutPtr<MutPtr<RpcBindingVector>>): RpcStatus =
+public actual fun rpcServerInqBindingsEx(securitydescriptor: ConstPtr, bindingvector: MutPtr): RpcStatus =
     windowssysWindowsWin32SystemRpcRpcServerInqBindingsEx(securitydescriptor.rawAddress.toCPointer<ByteVar>(), bindingvector.rawAddress.toCPointer<ByteVar>())
 
-public actual fun rpcServerInqCallAttributesA(clientbinding: ConstPtr<CVoid>, rpccallattributes: MutPtr<CVoid>): RpcStatus =
+public actual fun rpcServerInqCallAttributesA(clientbinding: ConstPtr, rpccallattributes: MutPtr): RpcStatus =
     windowssysWindowsWin32SystemRpcRpcServerInqCallAttributesA(clientbinding.rawAddress.toCPointer<ByteVar>(), rpccallattributes.rawAddress.toCPointer<ByteVar>())
 
-public actual fun rpcServerInqCallAttributesW(clientbinding: ConstPtr<CVoid>, rpccallattributes: MutPtr<CVoid>): RpcStatus =
+public actual fun rpcServerInqCallAttributesW(clientbinding: ConstPtr, rpccallattributes: MutPtr): RpcStatus =
     windowssysWindowsWin32SystemRpcRpcServerInqCallAttributesW(clientbinding.rawAddress.toCPointer<ByteVar>(), rpccallattributes.rawAddress.toCPointer<ByteVar>())
 
-public actual fun rpcServerInqDefaultPrincNameA(authnsvc: UInt, princname: MutPtr<Pstr>): RpcStatus =
+public actual fun rpcServerInqDefaultPrincNameA(authnsvc: UInt, princname: MutPtr): RpcStatus =
     windowssysWindowsWin32SystemRpcRpcServerInqDefaultPrincNameA(authnsvc, princname.rawAddress.toCPointer<ByteVar>())
 
-public actual fun rpcServerInqDefaultPrincNameW(authnsvc: UInt, princname: MutPtr<Pwstr>): RpcStatus =
+public actual fun rpcServerInqDefaultPrincNameW(authnsvc: UInt, princname: MutPtr): RpcStatus =
     windowssysWindowsWin32SystemRpcRpcServerInqDefaultPrincNameW(authnsvc, princname.rawAddress.toCPointer<ByteVar>())
 
-public actual fun rpcServerInqIf(ifspec: ConstPtr<CVoid>, mgrtypeuuid: ConstPtr<Guid>, mgrepv: MutPtr<MutPtr<CVoid>>): RpcStatus =
+public actual fun rpcServerInqIf(ifspec: ConstPtr, mgrtypeuuid: ConstPtr, mgrepv: MutPtr): RpcStatus =
     windowssysWindowsWin32SystemRpcRpcServerInqIf(ifspec.rawAddress.toCPointer<ByteVar>(), mgrtypeuuid.rawAddress.toCPointer<ByteVar>(), mgrepv.rawAddress.toCPointer<ByteVar>())
 
-public actual fun rpcServerInterfaceGroupActivate(ifgroup: ConstPtr<CVoid>): RpcStatus =
+public actual fun rpcServerInterfaceGroupActivate(ifgroup: ConstPtr): RpcStatus =
     windowssysWindowsWin32SystemRpcRpcServerInterfaceGroupActivate(ifgroup.rawAddress.toCPointer<ByteVar>())
 
-public actual fun rpcServerInterfaceGroupClose(ifgroup: ConstPtr<CVoid>): RpcStatus =
+public actual fun rpcServerInterfaceGroupClose(ifgroup: ConstPtr): RpcStatus =
     windowssysWindowsWin32SystemRpcRpcServerInterfaceGroupClose(ifgroup.rawAddress.toCPointer<ByteVar>())
 
-public actual fun rpcServerInterfaceGroupCreateA(interfaces: ConstPtr<RpcInterfaceTemplatea>, numifs: UInt, endpoints: ConstPtr<RpcEndpointTemplatea>, numendpoints: UInt, idleperiod: UInt, idlecallbackfn: RpcInterfaceGroupIdleCallbackFn, idlecallbackcontext: ConstPtr<CVoid>, ifgroup: MutPtr<MutPtr<CVoid>>): RpcStatus =
+public actual fun rpcServerInterfaceGroupCreateA(interfaces: ConstPtr, numifs: UInt, endpoints: ConstPtr, numendpoints: UInt, idleperiod: UInt, idlecallbackfn: RpcInterfaceGroupIdleCallbackFn, idlecallbackcontext: ConstPtr, ifgroup: MutPtr): RpcStatus =
     windowssysWindowsWin32SystemRpcRpcServerInterfaceGroupCreateA(interfaces.rawAddress.toCPointer<ByteVar>(), numifs, endpoints.rawAddress.toCPointer<ByteVar>(), numendpoints, idleperiod, 0L.toCPointer<ByteVar>(), idlecallbackcontext.rawAddress.toCPointer<ByteVar>(), ifgroup.rawAddress.toCPointer<ByteVar>())
 
-public actual fun rpcServerInterfaceGroupCreateW(interfaces: ConstPtr<RpcInterfaceTemplatew>, numifs: UInt, endpoints: ConstPtr<RpcEndpointTemplatew>, numendpoints: UInt, idleperiod: UInt, idlecallbackfn: RpcInterfaceGroupIdleCallbackFn, idlecallbackcontext: ConstPtr<CVoid>, ifgroup: MutPtr<MutPtr<CVoid>>): RpcStatus =
+public actual fun rpcServerInterfaceGroupCreateW(interfaces: ConstPtr, numifs: UInt, endpoints: ConstPtr, numendpoints: UInt, idleperiod: UInt, idlecallbackfn: RpcInterfaceGroupIdleCallbackFn, idlecallbackcontext: ConstPtr, ifgroup: MutPtr): RpcStatus =
     windowssysWindowsWin32SystemRpcRpcServerInterfaceGroupCreateW(interfaces.rawAddress.toCPointer<ByteVar>(), numifs, endpoints.rawAddress.toCPointer<ByteVar>(), numendpoints, idleperiod, 0L.toCPointer<ByteVar>(), idlecallbackcontext.rawAddress.toCPointer<ByteVar>(), ifgroup.rawAddress.toCPointer<ByteVar>())
 
-public actual fun rpcServerInterfaceGroupDeactivate(ifgroup: ConstPtr<CVoid>, forcedeactivation: UInt): RpcStatus =
+public actual fun rpcServerInterfaceGroupDeactivate(ifgroup: ConstPtr, forcedeactivation: UInt): RpcStatus =
     windowssysWindowsWin32SystemRpcRpcServerInterfaceGroupDeactivate(ifgroup.rawAddress.toCPointer<ByteVar>(), forcedeactivation)
 
-public actual fun rpcServerInterfaceGroupInqBindings(ifgroup: ConstPtr<CVoid>, bindingvector: MutPtr<MutPtr<RpcBindingVector>>): RpcStatus =
+public actual fun rpcServerInterfaceGroupInqBindings(ifgroup: ConstPtr, bindingvector: MutPtr): RpcStatus =
     windowssysWindowsWin32SystemRpcRpcServerInterfaceGroupInqBindings(ifgroup.rawAddress.toCPointer<ByteVar>(), bindingvector.rawAddress.toCPointer<ByteVar>())
 
 public actual fun rpcServerListen(minimumcallthreads: UInt, maxcalls: UInt, dontwait: UInt): RpcStatus =
     windowssysWindowsWin32SystemRpcRpcServerListen(minimumcallthreads, maxcalls, dontwait)
 
-public actual fun rpcServerRegisterAuthInfoA(serverprincname: Pcstr, authnsvc: UInt, getkeyfn: RpcAuthKeyRetrievalFn, arg: ConstPtr<CVoid>): RpcStatus =
+public actual fun rpcServerRegisterAuthInfoA(serverprincname: Pcstr, authnsvc: UInt, getkeyfn: RpcAuthKeyRetrievalFn, arg: ConstPtr): RpcStatus =
     windowssysWindowsWin32SystemRpcRpcServerRegisterAuthInfoA(serverprincname.rawAddress.toCPointer<ByteVar>(), authnsvc, 0L.toCPointer<ByteVar>(), arg.rawAddress.toCPointer<ByteVar>())
 
-public actual fun rpcServerRegisterAuthInfoW(serverprincname: Pcwstr, authnsvc: UInt, getkeyfn: RpcAuthKeyRetrievalFn, arg: ConstPtr<CVoid>): RpcStatus =
+public actual fun rpcServerRegisterAuthInfoW(serverprincname: Pcwstr, authnsvc: UInt, getkeyfn: RpcAuthKeyRetrievalFn, arg: ConstPtr): RpcStatus =
     windowssysWindowsWin32SystemRpcRpcServerRegisterAuthInfoW(serverprincname.rawAddress.toCPointer<ByteVar>(), authnsvc, 0L.toCPointer<ByteVar>(), arg.rawAddress.toCPointer<ByteVar>())
 
-public actual fun rpcServerRegisterIf(ifspec: ConstPtr<CVoid>, mgrtypeuuid: ConstPtr<Guid>, mgrepv: ConstPtr<CVoid>): RpcStatus =
+public actual fun rpcServerRegisterIf(ifspec: ConstPtr, mgrtypeuuid: ConstPtr, mgrepv: ConstPtr): RpcStatus =
     windowssysWindowsWin32SystemRpcRpcServerRegisterIf(ifspec.rawAddress.toCPointer<ByteVar>(), mgrtypeuuid.rawAddress.toCPointer<ByteVar>(), mgrepv.rawAddress.toCPointer<ByteVar>())
 
-public actual fun rpcServerRegisterIf2(ifspec: ConstPtr<CVoid>, mgrtypeuuid: ConstPtr<Guid>, mgrepv: ConstPtr<CVoid>, flags: UInt, maxcalls: UInt, maxrpcsize: UInt, ifcallbackfn: RpcIfCallbackFn): RpcStatus =
+public actual fun rpcServerRegisterIf2(ifspec: ConstPtr, mgrtypeuuid: ConstPtr, mgrepv: ConstPtr, flags: UInt, maxcalls: UInt, maxrpcsize: UInt, ifcallbackfn: RpcIfCallbackFn): RpcStatus =
     windowssysWindowsWin32SystemRpcRpcServerRegisterIf2(ifspec.rawAddress.toCPointer<ByteVar>(), mgrtypeuuid.rawAddress.toCPointer<ByteVar>(), mgrepv.rawAddress.toCPointer<ByteVar>(), flags, maxcalls, maxrpcsize, 0L.toCPointer<ByteVar>())
 
-public actual fun rpcServerRegisterIf3(ifspec: ConstPtr<CVoid>, mgrtypeuuid: ConstPtr<Guid>, mgrepv: ConstPtr<CVoid>, flags: UInt, maxcalls: UInt, maxrpcsize: UInt, ifcallback: RpcIfCallbackFn, securitydescriptor: ConstPtr<CVoid>): RpcStatus =
+public actual fun rpcServerRegisterIf3(ifspec: ConstPtr, mgrtypeuuid: ConstPtr, mgrepv: ConstPtr, flags: UInt, maxcalls: UInt, maxrpcsize: UInt, ifcallback: RpcIfCallbackFn, securitydescriptor: ConstPtr): RpcStatus =
     windowssysWindowsWin32SystemRpcRpcServerRegisterIf3(ifspec.rawAddress.toCPointer<ByteVar>(), mgrtypeuuid.rawAddress.toCPointer<ByteVar>(), mgrepv.rawAddress.toCPointer<ByteVar>(), flags, maxcalls, maxrpcsize, 0L.toCPointer<ByteVar>(), securitydescriptor.rawAddress.toCPointer<ByteVar>())
 
-public actual fun rpcServerRegisterIfEx(ifspec: ConstPtr<CVoid>, mgrtypeuuid: ConstPtr<Guid>, mgrepv: ConstPtr<CVoid>, flags: UInt, maxcalls: UInt, ifcallback: RpcIfCallbackFn): RpcStatus =
+public actual fun rpcServerRegisterIfEx(ifspec: ConstPtr, mgrtypeuuid: ConstPtr, mgrepv: ConstPtr, flags: UInt, maxcalls: UInt, ifcallback: RpcIfCallbackFn): RpcStatus =
     windowssysWindowsWin32SystemRpcRpcServerRegisterIfEx(ifspec.rawAddress.toCPointer<ByteVar>(), mgrtypeuuid.rawAddress.toCPointer<ByteVar>(), mgrepv.rawAddress.toCPointer<ByteVar>(), flags, maxcalls, 0L.toCPointer<ByteVar>())
 
-public actual fun rpcServerSubscribeForNotification(binding: ConstPtr<CVoid>, notification: RpcNotifications, notificationtype: RpcNotificationTypes, notificationinfo: ConstPtr<RpcAsyncNotificationInfo>): RpcStatus =
+public actual fun rpcServerSubscribeForNotification(binding: ConstPtr, notification: RpcNotifications, notificationtype: RpcNotificationTypes, notificationinfo: ConstPtr): RpcStatus =
     windowssysWindowsWin32SystemRpcRpcServerSubscribeForNotification(binding.rawAddress.toCPointer<ByteVar>(), notification, notificationtype, notificationinfo.rawAddress.toCPointer<ByteVar>())
 
-public actual fun rpcServerTestCancel(bindinghandle: ConstPtr<CVoid>): RpcStatus =
+public actual fun rpcServerTestCancel(bindinghandle: ConstPtr): RpcStatus =
     windowssysWindowsWin32SystemRpcRpcServerTestCancel(bindinghandle.rawAddress.toCPointer<ByteVar>())
 
-public actual fun rpcServerUnregisterIf(ifspec: ConstPtr<CVoid>, mgrtypeuuid: ConstPtr<Guid>, waitforcallstocomplete: UInt): RpcStatus =
+public actual fun rpcServerUnregisterIf(ifspec: ConstPtr, mgrtypeuuid: ConstPtr, waitforcallstocomplete: UInt): RpcStatus =
     windowssysWindowsWin32SystemRpcRpcServerUnregisterIf(ifspec.rawAddress.toCPointer<ByteVar>(), mgrtypeuuid.rawAddress.toCPointer<ByteVar>(), waitforcallstocomplete)
 
-public actual fun rpcServerUnregisterIfEx(ifspec: ConstPtr<CVoid>, mgrtypeuuid: ConstPtr<Guid>, rundowncontexthandles: Int): RpcStatus =
+public actual fun rpcServerUnregisterIfEx(ifspec: ConstPtr, mgrtypeuuid: ConstPtr, rundowncontexthandles: Int): RpcStatus =
     windowssysWindowsWin32SystemRpcRpcServerUnregisterIfEx(ifspec.rawAddress.toCPointer<ByteVar>(), mgrtypeuuid.rawAddress.toCPointer<ByteVar>(), rundowncontexthandles)
 
-public actual fun rpcServerUnsubscribeForNotification(binding: ConstPtr<CVoid>, notification: RpcNotifications, notificationsqueued: MutPtr<UInt>): RpcStatus =
+public actual fun rpcServerUnsubscribeForNotification(binding: ConstPtr, notification: RpcNotifications, notificationsqueued: MutPtr): RpcStatus =
     windowssysWindowsWin32SystemRpcRpcServerUnsubscribeForNotification(binding.rawAddress.toCPointer<ByteVar>(), notification, notificationsqueued.rawAddress.toCPointer<ByteVar>())
 
-public actual fun rpcServerUseAllProtseqs(maxcalls: UInt, securitydescriptor: ConstPtr<CVoid>): RpcStatus =
+public actual fun rpcServerUseAllProtseqs(maxcalls: UInt, securitydescriptor: ConstPtr): RpcStatus =
     windowssysWindowsWin32SystemRpcRpcServerUseAllProtseqs(maxcalls, securitydescriptor.rawAddress.toCPointer<ByteVar>())
 
-public actual fun rpcServerUseAllProtseqsEx(maxcalls: UInt, securitydescriptor: ConstPtr<CVoid>, policy: ConstPtr<RpcPolicy>): RpcStatus =
+public actual fun rpcServerUseAllProtseqsEx(maxcalls: UInt, securitydescriptor: ConstPtr, policy: ConstPtr): RpcStatus =
     windowssysWindowsWin32SystemRpcRpcServerUseAllProtseqsEx(maxcalls, securitydescriptor.rawAddress.toCPointer<ByteVar>(), policy.rawAddress.toCPointer<ByteVar>())
 
-public actual fun rpcServerUseAllProtseqsIf(maxcalls: UInt, ifspec: ConstPtr<CVoid>, securitydescriptor: ConstPtr<CVoid>): RpcStatus =
+public actual fun rpcServerUseAllProtseqsIf(maxcalls: UInt, ifspec: ConstPtr, securitydescriptor: ConstPtr): RpcStatus =
     windowssysWindowsWin32SystemRpcRpcServerUseAllProtseqsIf(maxcalls, ifspec.rawAddress.toCPointer<ByteVar>(), securitydescriptor.rawAddress.toCPointer<ByteVar>())
 
-public actual fun rpcServerUseAllProtseqsIfEx(maxcalls: UInt, ifspec: ConstPtr<CVoid>, securitydescriptor: ConstPtr<CVoid>, policy: ConstPtr<RpcPolicy>): RpcStatus =
+public actual fun rpcServerUseAllProtseqsIfEx(maxcalls: UInt, ifspec: ConstPtr, securitydescriptor: ConstPtr, policy: ConstPtr): RpcStatus =
     windowssysWindowsWin32SystemRpcRpcServerUseAllProtseqsIfEx(maxcalls, ifspec.rawAddress.toCPointer<ByteVar>(), securitydescriptor.rawAddress.toCPointer<ByteVar>(), policy.rawAddress.toCPointer<ByteVar>())
 
-public actual fun rpcServerUseProtseqA(protseq: Pcstr, maxcalls: UInt, securitydescriptor: ConstPtr<CVoid>): RpcStatus =
+public actual fun rpcServerUseProtseqA(protseq: Pcstr, maxcalls: UInt, securitydescriptor: ConstPtr): RpcStatus =
     windowssysWindowsWin32SystemRpcRpcServerUseProtseqA(protseq.rawAddress.toCPointer<ByteVar>(), maxcalls, securitydescriptor.rawAddress.toCPointer<ByteVar>())
 
-public actual fun rpcServerUseProtseqEpA(protseq: Pcstr, maxcalls: UInt, endpoint: Pcstr, securitydescriptor: ConstPtr<CVoid>): RpcStatus =
+public actual fun rpcServerUseProtseqEpA(protseq: Pcstr, maxcalls: UInt, endpoint: Pcstr, securitydescriptor: ConstPtr): RpcStatus =
     windowssysWindowsWin32SystemRpcRpcServerUseProtseqEpA(protseq.rawAddress.toCPointer<ByteVar>(), maxcalls, endpoint.rawAddress.toCPointer<ByteVar>(), securitydescriptor.rawAddress.toCPointer<ByteVar>())
 
-public actual fun rpcServerUseProtseqEpExA(protseq: Pcstr, maxcalls: UInt, endpoint: Pcstr, securitydescriptor: ConstPtr<CVoid>, policy: ConstPtr<RpcPolicy>): RpcStatus =
+public actual fun rpcServerUseProtseqEpExA(protseq: Pcstr, maxcalls: UInt, endpoint: Pcstr, securitydescriptor: ConstPtr, policy: ConstPtr): RpcStatus =
     windowssysWindowsWin32SystemRpcRpcServerUseProtseqEpExA(protseq.rawAddress.toCPointer<ByteVar>(), maxcalls, endpoint.rawAddress.toCPointer<ByteVar>(), securitydescriptor.rawAddress.toCPointer<ByteVar>(), policy.rawAddress.toCPointer<ByteVar>())
 
-public actual fun rpcServerUseProtseqEpExW(protseq: Pcwstr, maxcalls: UInt, endpoint: Pcwstr, securitydescriptor: ConstPtr<CVoid>, policy: ConstPtr<RpcPolicy>): RpcStatus =
+public actual fun rpcServerUseProtseqEpExW(protseq: Pcwstr, maxcalls: UInt, endpoint: Pcwstr, securitydescriptor: ConstPtr, policy: ConstPtr): RpcStatus =
     windowssysWindowsWin32SystemRpcRpcServerUseProtseqEpExW(protseq.rawAddress.toCPointer<ByteVar>(), maxcalls, endpoint.rawAddress.toCPointer<ByteVar>(), securitydescriptor.rawAddress.toCPointer<ByteVar>(), policy.rawAddress.toCPointer<ByteVar>())
 
-public actual fun rpcServerUseProtseqEpW(protseq: Pcwstr, maxcalls: UInt, endpoint: Pcwstr, securitydescriptor: ConstPtr<CVoid>): RpcStatus =
+public actual fun rpcServerUseProtseqEpW(protseq: Pcwstr, maxcalls: UInt, endpoint: Pcwstr, securitydescriptor: ConstPtr): RpcStatus =
     windowssysWindowsWin32SystemRpcRpcServerUseProtseqEpW(protseq.rawAddress.toCPointer<ByteVar>(), maxcalls, endpoint.rawAddress.toCPointer<ByteVar>(), securitydescriptor.rawAddress.toCPointer<ByteVar>())
 
-public actual fun rpcServerUseProtseqExA(protseq: Pcstr, maxcalls: UInt, securitydescriptor: ConstPtr<CVoid>, policy: ConstPtr<RpcPolicy>): RpcStatus =
+public actual fun rpcServerUseProtseqExA(protseq: Pcstr, maxcalls: UInt, securitydescriptor: ConstPtr, policy: ConstPtr): RpcStatus =
     windowssysWindowsWin32SystemRpcRpcServerUseProtseqExA(protseq.rawAddress.toCPointer<ByteVar>(), maxcalls, securitydescriptor.rawAddress.toCPointer<ByteVar>(), policy.rawAddress.toCPointer<ByteVar>())
 
-public actual fun rpcServerUseProtseqExW(protseq: Pcwstr, maxcalls: UInt, securitydescriptor: ConstPtr<CVoid>, policy: ConstPtr<RpcPolicy>): RpcStatus =
+public actual fun rpcServerUseProtseqExW(protseq: Pcwstr, maxcalls: UInt, securitydescriptor: ConstPtr, policy: ConstPtr): RpcStatus =
     windowssysWindowsWin32SystemRpcRpcServerUseProtseqExW(protseq.rawAddress.toCPointer<ByteVar>(), maxcalls, securitydescriptor.rawAddress.toCPointer<ByteVar>(), policy.rawAddress.toCPointer<ByteVar>())
 
-public actual fun rpcServerUseProtseqIfA(protseq: Pcstr, maxcalls: UInt, ifspec: ConstPtr<CVoid>, securitydescriptor: ConstPtr<CVoid>): RpcStatus =
+public actual fun rpcServerUseProtseqIfA(protseq: Pcstr, maxcalls: UInt, ifspec: ConstPtr, securitydescriptor: ConstPtr): RpcStatus =
     windowssysWindowsWin32SystemRpcRpcServerUseProtseqIfA(protseq.rawAddress.toCPointer<ByteVar>(), maxcalls, ifspec.rawAddress.toCPointer<ByteVar>(), securitydescriptor.rawAddress.toCPointer<ByteVar>())
 
-public actual fun rpcServerUseProtseqIfExA(protseq: Pcstr, maxcalls: UInt, ifspec: ConstPtr<CVoid>, securitydescriptor: ConstPtr<CVoid>, policy: ConstPtr<RpcPolicy>): RpcStatus =
+public actual fun rpcServerUseProtseqIfExA(protseq: Pcstr, maxcalls: UInt, ifspec: ConstPtr, securitydescriptor: ConstPtr, policy: ConstPtr): RpcStatus =
     windowssysWindowsWin32SystemRpcRpcServerUseProtseqIfExA(protseq.rawAddress.toCPointer<ByteVar>(), maxcalls, ifspec.rawAddress.toCPointer<ByteVar>(), securitydescriptor.rawAddress.toCPointer<ByteVar>(), policy.rawAddress.toCPointer<ByteVar>())
 
-public actual fun rpcServerUseProtseqIfExW(protseq: Pcwstr, maxcalls: UInt, ifspec: ConstPtr<CVoid>, securitydescriptor: ConstPtr<CVoid>, policy: ConstPtr<RpcPolicy>): RpcStatus =
+public actual fun rpcServerUseProtseqIfExW(protseq: Pcwstr, maxcalls: UInt, ifspec: ConstPtr, securitydescriptor: ConstPtr, policy: ConstPtr): RpcStatus =
     windowssysWindowsWin32SystemRpcRpcServerUseProtseqIfExW(protseq.rawAddress.toCPointer<ByteVar>(), maxcalls, ifspec.rawAddress.toCPointer<ByteVar>(), securitydescriptor.rawAddress.toCPointer<ByteVar>(), policy.rawAddress.toCPointer<ByteVar>())
 
-public actual fun rpcServerUseProtseqIfW(protseq: Pcwstr, maxcalls: UInt, ifspec: ConstPtr<CVoid>, securitydescriptor: ConstPtr<CVoid>): RpcStatus =
+public actual fun rpcServerUseProtseqIfW(protseq: Pcwstr, maxcalls: UInt, ifspec: ConstPtr, securitydescriptor: ConstPtr): RpcStatus =
     windowssysWindowsWin32SystemRpcRpcServerUseProtseqIfW(protseq.rawAddress.toCPointer<ByteVar>(), maxcalls, ifspec.rawAddress.toCPointer<ByteVar>(), securitydescriptor.rawAddress.toCPointer<ByteVar>())
 
-public actual fun rpcServerUseProtseqW(protseq: Pcwstr, maxcalls: UInt, securitydescriptor: ConstPtr<CVoid>): RpcStatus =
+public actual fun rpcServerUseProtseqW(protseq: Pcwstr, maxcalls: UInt, securitydescriptor: ConstPtr): RpcStatus =
     windowssysWindowsWin32SystemRpcRpcServerUseProtseqW(protseq.rawAddress.toCPointer<ByteVar>(), maxcalls, securitydescriptor.rawAddress.toCPointer<ByteVar>())
 
 public actual fun rpcServerYield() {
     windowssysWindowsWin32SystemRpcRpcServerYield()
 }
 
-public actual fun rpcSmAllocate(size: ULong, pstatus: MutPtr<RpcStatus>): MutPtr<CVoid> =
+public actual fun rpcSmAllocate(size: ULong, pstatus: MutPtr): MutPtr =
     MutPtr(windowssysWindowsWin32SystemRpcRpcSmAllocate(size, pstatus.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun rpcSmClientFree(pnodetofree: ConstPtr<CVoid>): RpcStatus =
+public actual fun rpcSmClientFree(pnodetofree: ConstPtr): RpcStatus =
     windowssysWindowsWin32SystemRpcRpcSmClientFree(pnodetofree.rawAddress.toCPointer<ByteVar>())
 
-public actual fun rpcSmDestroyClientContext(contexthandle: ConstPtr<ConstPtr<CVoid>>): RpcStatus =
+public actual fun rpcSmDestroyClientContext(contexthandle: ConstPtr): RpcStatus =
     windowssysWindowsWin32SystemRpcRpcSmDestroyClientContext(contexthandle.rawAddress.toCPointer<ByteVar>())
 
 public actual fun rpcSmDisableAllocate(): RpcStatus =
@@ -2028,31 +2026,31 @@ public actual fun rpcSmDisableAllocate(): RpcStatus =
 public actual fun rpcSmEnableAllocate(): RpcStatus =
     windowssysWindowsWin32SystemRpcRpcSmEnableAllocate()
 
-public actual fun rpcSmFree(nodetofree: ConstPtr<CVoid>): RpcStatus =
+public actual fun rpcSmFree(nodetofree: ConstPtr): RpcStatus =
     windowssysWindowsWin32SystemRpcRpcSmFree(nodetofree.rawAddress.toCPointer<ByteVar>())
 
-public actual fun rpcSmGetThreadHandle(pstatus: MutPtr<RpcStatus>): MutPtr<CVoid> =
+public actual fun rpcSmGetThreadHandle(pstatus: MutPtr): MutPtr =
     MutPtr(windowssysWindowsWin32SystemRpcRpcSmGetThreadHandle(pstatus.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
 public actual fun rpcSmSetClientAllocFree(clientalloc: RpcClientAlloc, clientfree: RpcClientFree): RpcStatus =
     windowssysWindowsWin32SystemRpcRpcSmSetClientAllocFree(0L.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>())
 
-public actual fun rpcSmSetThreadHandle(id: ConstPtr<CVoid>): RpcStatus =
+public actual fun rpcSmSetThreadHandle(id: ConstPtr): RpcStatus =
     windowssysWindowsWin32SystemRpcRpcSmSetThreadHandle(id.rawAddress.toCPointer<ByteVar>())
 
-public actual fun rpcSmSwapClientAllocFree(clientalloc: RpcClientAlloc, clientfree: RpcClientFree, oldclientalloc: MutPtr<RpcClientAlloc>, oldclientfree: MutPtr<RpcClientFree>): RpcStatus =
+public actual fun rpcSmSwapClientAllocFree(clientalloc: RpcClientAlloc, clientfree: RpcClientFree, oldclientalloc: MutPtr, oldclientfree: MutPtr): RpcStatus =
     windowssysWindowsWin32SystemRpcRpcSmSwapClientAllocFree(0L.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>(), oldclientalloc.rawAddress.toCPointer<ByteVar>(), oldclientfree.rawAddress.toCPointer<ByteVar>())
 
-public actual fun rpcSsAllocate(size: ULong): MutPtr<CVoid> =
+public actual fun rpcSsAllocate(size: ULong): MutPtr =
     MutPtr(windowssysWindowsWin32SystemRpcRpcSsAllocate(size)?.toLong() ?: 0L)
 
-public actual fun rpcSsContextLockExclusive(serverbindinghandle: ConstPtr<CVoid>, usercontext: ConstPtr<CVoid>): RpcStatus =
+public actual fun rpcSsContextLockExclusive(serverbindinghandle: ConstPtr, usercontext: ConstPtr): RpcStatus =
     windowssysWindowsWin32SystemRpcRpcSsContextLockExclusive(serverbindinghandle.rawAddress.toCPointer<ByteVar>(), usercontext.rawAddress.toCPointer<ByteVar>())
 
-public actual fun rpcSsContextLockShared(serverbindinghandle: ConstPtr<CVoid>, usercontext: ConstPtr<CVoid>): RpcStatus =
+public actual fun rpcSsContextLockShared(serverbindinghandle: ConstPtr, usercontext: ConstPtr): RpcStatus =
     windowssysWindowsWin32SystemRpcRpcSsContextLockShared(serverbindinghandle.rawAddress.toCPointer<ByteVar>(), usercontext.rawAddress.toCPointer<ByteVar>())
 
-public actual fun rpcSsDestroyClientContext(contexthandle: ConstPtr<ConstPtr<CVoid>>) {
+public actual fun rpcSsDestroyClientContext(contexthandle: ConstPtr) {
     windowssysWindowsWin32SystemRpcRpcSsDestroyClientContext(contexthandle.rawAddress.toCPointer<ByteVar>())
 }
 
@@ -2068,82 +2066,82 @@ public actual fun rpcSsEnableAllocate() {
     windowssysWindowsWin32SystemRpcRpcSsEnableAllocate()
 }
 
-public actual fun rpcSsFree(nodetofree: ConstPtr<CVoid>) {
+public actual fun rpcSsFree(nodetofree: ConstPtr) {
     windowssysWindowsWin32SystemRpcRpcSsFree(nodetofree.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun rpcSsGetContextBinding(contexthandle: ConstPtr<CVoid>, binding: MutPtr<MutPtr<CVoid>>): RpcStatus =
+public actual fun rpcSsGetContextBinding(contexthandle: ConstPtr, binding: MutPtr): RpcStatus =
     windowssysWindowsWin32SystemRpcRpcSsGetContextBinding(contexthandle.rawAddress.toCPointer<ByteVar>(), binding.rawAddress.toCPointer<ByteVar>())
 
-public actual fun rpcSsGetThreadHandle(): MutPtr<CVoid> =
+public actual fun rpcSsGetThreadHandle(): MutPtr =
     MutPtr(windowssysWindowsWin32SystemRpcRpcSsGetThreadHandle()?.toLong() ?: 0L)
 
 public actual fun rpcSsSetClientAllocFree(clientalloc: RpcClientAlloc, clientfree: RpcClientFree) {
     windowssysWindowsWin32SystemRpcRpcSsSetClientAllocFree(0L.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>())
 }
 
-public actual fun rpcSsSetThreadHandle(id: ConstPtr<CVoid>) {
+public actual fun rpcSsSetThreadHandle(id: ConstPtr) {
     windowssysWindowsWin32SystemRpcRpcSsSetThreadHandle(id.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun rpcSsSwapClientAllocFree(clientalloc: RpcClientAlloc, clientfree: RpcClientFree, oldclientalloc: MutPtr<RpcClientAlloc>, oldclientfree: MutPtr<RpcClientFree>) {
+public actual fun rpcSsSwapClientAllocFree(clientalloc: RpcClientAlloc, clientfree: RpcClientFree, oldclientalloc: MutPtr, oldclientfree: MutPtr) {
     windowssysWindowsWin32SystemRpcRpcSsSwapClientAllocFree(0L.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>(), oldclientalloc.rawAddress.toCPointer<ByteVar>(), oldclientfree.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun rpcStringBindingComposeA(objuuid: Pcstr, protseq: Pcstr, networkaddr: Pcstr, endpoint: Pcstr, options: Pcstr, stringbinding: MutPtr<Pstr>): RpcStatus =
+public actual fun rpcStringBindingComposeA(objuuid: Pcstr, protseq: Pcstr, networkaddr: Pcstr, endpoint: Pcstr, options: Pcstr, stringbinding: MutPtr): RpcStatus =
     windowssysWindowsWin32SystemRpcRpcStringBindingComposeA(objuuid.rawAddress.toCPointer<ByteVar>(), protseq.rawAddress.toCPointer<ByteVar>(), networkaddr.rawAddress.toCPointer<ByteVar>(), endpoint.rawAddress.toCPointer<ByteVar>(), options.rawAddress.toCPointer<ByteVar>(), stringbinding.rawAddress.toCPointer<ByteVar>())
 
-public actual fun rpcStringBindingComposeW(objuuid: Pcwstr, protseq: Pcwstr, networkaddr: Pcwstr, endpoint: Pcwstr, options: Pcwstr, stringbinding: MutPtr<Pwstr>): RpcStatus =
+public actual fun rpcStringBindingComposeW(objuuid: Pcwstr, protseq: Pcwstr, networkaddr: Pcwstr, endpoint: Pcwstr, options: Pcwstr, stringbinding: MutPtr): RpcStatus =
     windowssysWindowsWin32SystemRpcRpcStringBindingComposeW(objuuid.rawAddress.toCPointer<ByteVar>(), protseq.rawAddress.toCPointer<ByteVar>(), networkaddr.rawAddress.toCPointer<ByteVar>(), endpoint.rawAddress.toCPointer<ByteVar>(), options.rawAddress.toCPointer<ByteVar>(), stringbinding.rawAddress.toCPointer<ByteVar>())
 
-public actual fun rpcStringBindingParseA(stringbinding: Pcstr, objuuid: MutPtr<Pstr>, protseq: MutPtr<Pstr>, networkaddr: MutPtr<Pstr>, endpoint: MutPtr<Pstr>, networkoptions: MutPtr<Pstr>): RpcStatus =
+public actual fun rpcStringBindingParseA(stringbinding: Pcstr, objuuid: MutPtr, protseq: MutPtr, networkaddr: MutPtr, endpoint: MutPtr, networkoptions: MutPtr): RpcStatus =
     windowssysWindowsWin32SystemRpcRpcStringBindingParseA(stringbinding.rawAddress.toCPointer<ByteVar>(), objuuid.rawAddress.toCPointer<ByteVar>(), protseq.rawAddress.toCPointer<ByteVar>(), networkaddr.rawAddress.toCPointer<ByteVar>(), endpoint.rawAddress.toCPointer<ByteVar>(), networkoptions.rawAddress.toCPointer<ByteVar>())
 
-public actual fun rpcStringBindingParseW(stringbinding: Pcwstr, objuuid: MutPtr<Pwstr>, protseq: MutPtr<Pwstr>, networkaddr: MutPtr<Pwstr>, endpoint: MutPtr<Pwstr>, networkoptions: MutPtr<Pwstr>): RpcStatus =
+public actual fun rpcStringBindingParseW(stringbinding: Pcwstr, objuuid: MutPtr, protseq: MutPtr, networkaddr: MutPtr, endpoint: MutPtr, networkoptions: MutPtr): RpcStatus =
     windowssysWindowsWin32SystemRpcRpcStringBindingParseW(stringbinding.rawAddress.toCPointer<ByteVar>(), objuuid.rawAddress.toCPointer<ByteVar>(), protseq.rawAddress.toCPointer<ByteVar>(), networkaddr.rawAddress.toCPointer<ByteVar>(), endpoint.rawAddress.toCPointer<ByteVar>(), networkoptions.rawAddress.toCPointer<ByteVar>())
 
-public actual fun rpcStringFreeA(string: MutPtr<Pstr>): RpcStatus =
+public actual fun rpcStringFreeA(string: MutPtr): RpcStatus =
     windowssysWindowsWin32SystemRpcRpcStringFreeA(string.rawAddress.toCPointer<ByteVar>())
 
-public actual fun rpcStringFreeW(string: MutPtr<Pwstr>): RpcStatus =
+public actual fun rpcStringFreeW(string: MutPtr): RpcStatus =
     windowssysWindowsWin32SystemRpcRpcStringFreeW(string.rawAddress.toCPointer<ByteVar>())
 
 public actual fun rpcTestCancel(): RpcStatus =
     windowssysWindowsWin32SystemRpcRpcTestCancel()
 
-public actual fun rpcUserFree(asynchandle: MutPtr<CVoid>, pbuffer: MutPtr<CVoid>) {
+public actual fun rpcUserFree(asynchandle: MutPtr, pbuffer: MutPtr) {
     windowssysWindowsWin32SystemRpcRpcUserFree(asynchandle.rawAddress.toCPointer<ByteVar>(), pbuffer.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun uuidCompare(uuid1: ConstPtr<Guid>, uuid2: ConstPtr<Guid>, status: MutPtr<RpcStatus>): Int =
+public actual fun uuidCompare(uuid1: ConstPtr, uuid2: ConstPtr, status: MutPtr): Int =
     windowssysWindowsWin32SystemRpcUuidCompare(uuid1.rawAddress.toCPointer<ByteVar>(), uuid2.rawAddress.toCPointer<ByteVar>(), status.rawAddress.toCPointer<ByteVar>())
 
-public actual fun uuidCreate(uuid: MutPtr<Guid>): RpcStatus =
+public actual fun uuidCreate(uuid: MutPtr): RpcStatus =
     windowssysWindowsWin32SystemRpcUuidCreate(uuid.rawAddress.toCPointer<ByteVar>())
 
-public actual fun uuidCreateNil(niluuid: MutPtr<Guid>): RpcStatus =
+public actual fun uuidCreateNil(niluuid: MutPtr): RpcStatus =
     windowssysWindowsWin32SystemRpcUuidCreateNil(niluuid.rawAddress.toCPointer<ByteVar>())
 
-public actual fun uuidCreateSequential(uuid: MutPtr<Guid>): RpcStatus =
+public actual fun uuidCreateSequential(uuid: MutPtr): RpcStatus =
     windowssysWindowsWin32SystemRpcUuidCreateSequential(uuid.rawAddress.toCPointer<ByteVar>())
 
-public actual fun uuidEqual(uuid1: ConstPtr<Guid>, uuid2: ConstPtr<Guid>, status: MutPtr<RpcStatus>): Int =
+public actual fun uuidEqual(uuid1: ConstPtr, uuid2: ConstPtr, status: MutPtr): Int =
     windowssysWindowsWin32SystemRpcUuidEqual(uuid1.rawAddress.toCPointer<ByteVar>(), uuid2.rawAddress.toCPointer<ByteVar>(), status.rawAddress.toCPointer<ByteVar>())
 
-public actual fun uuidFromStringA(stringuuid: Pcstr, uuid: MutPtr<Guid>): RpcStatus =
+public actual fun uuidFromStringA(stringuuid: Pcstr, uuid: MutPtr): RpcStatus =
     windowssysWindowsWin32SystemRpcUuidFromStringA(stringuuid.rawAddress.toCPointer<ByteVar>(), uuid.rawAddress.toCPointer<ByteVar>())
 
-public actual fun uuidFromStringW(stringuuid: Pcwstr, uuid: MutPtr<Guid>): RpcStatus =
+public actual fun uuidFromStringW(stringuuid: Pcwstr, uuid: MutPtr): RpcStatus =
     windowssysWindowsWin32SystemRpcUuidFromStringW(stringuuid.rawAddress.toCPointer<ByteVar>(), uuid.rawAddress.toCPointer<ByteVar>())
 
-public actual fun uuidHash(uuid: ConstPtr<Guid>, status: MutPtr<RpcStatus>): UShort =
+public actual fun uuidHash(uuid: ConstPtr, status: MutPtr): UShort =
     windowssysWindowsWin32SystemRpcUuidHash(uuid.rawAddress.toCPointer<ByteVar>(), status.rawAddress.toCPointer<ByteVar>())
 
-public actual fun uuidIsNil(uuid: ConstPtr<Guid>, status: MutPtr<RpcStatus>): Int =
+public actual fun uuidIsNil(uuid: ConstPtr, status: MutPtr): Int =
     windowssysWindowsWin32SystemRpcUuidIsNil(uuid.rawAddress.toCPointer<ByteVar>(), status.rawAddress.toCPointer<ByteVar>())
 
-public actual fun uuidToStringA(uuid: ConstPtr<Guid>, stringuuid: MutPtr<Pstr>): RpcStatus =
+public actual fun uuidToStringA(uuid: ConstPtr, stringuuid: MutPtr): RpcStatus =
     windowssysWindowsWin32SystemRpcUuidToStringA(uuid.rawAddress.toCPointer<ByteVar>(), stringuuid.rawAddress.toCPointer<ByteVar>())
 
-public actual fun uuidToStringW(uuid: ConstPtr<Guid>, stringuuid: MutPtr<Pwstr>): RpcStatus =
+public actual fun uuidToStringW(uuid: ConstPtr, stringuuid: MutPtr): RpcStatus =
     windowssysWindowsWin32SystemRpcUuidToStringW(uuid.rawAddress.toCPointer<ByteVar>(), stringuuid.rawAddress.toCPointer<ByteVar>())

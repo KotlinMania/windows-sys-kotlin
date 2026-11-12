@@ -2,14 +2,11 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.system.hostcomputesystem
 
-import io.github.kotlinmania.rustlang.core.ffi.CVoid
 import io.github.kotlinmania.rustlang.core.ptr.ConstPtr
 import io.github.kotlinmania.rustlang.core.ptr.MutPtr
 import io.github.kotlinmania.windowssys.core.Hresult
 import io.github.kotlinmania.windowssys.core.Pcwstr
-import io.github.kotlinmania.windowssys.core.Pwstr
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Handle
-import io.github.kotlinmania.windowssys.windows.win32.security.SecurityDescriptor
 
 // The host must provide the C companion wrapper exports in import module windowssys.
 public actual fun hcsAddResourceToOperation(operation: HcsOperation, type: HcsResourceType, uri: Pcwstr, handle: Handle): Hresult =
@@ -30,10 +27,10 @@ public actual fun hcsCloseProcess(process: HcsProcess): Unit = throw Unsupported
 public actual fun hcsCrashComputeSystem(computesystem: HcsSystem, operation: HcsOperation, options: Pcwstr): Hresult =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32SystemHostcomputesystemHcsCrashComputeSystem")
 
-public actual fun hcsCreateComputeSystem(id: Pcwstr, configuration: Pcwstr, operation: HcsOperation, securitydescriptor: ConstPtr<SecurityDescriptor>, computesystem: MutPtr<HcsSystem>): Hresult =
+public actual fun hcsCreateComputeSystem(id: Pcwstr, configuration: Pcwstr, operation: HcsOperation, securitydescriptor: ConstPtr, computesystem: MutPtr): Hresult =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32SystemHostcomputesystemHcsCreateComputeSystem")
 
-public actual fun hcsCreateComputeSystemInNamespace(idnamespace: Pcwstr, id: Pcwstr, configuration: Pcwstr, operation: HcsOperation, options: ConstPtr<HcsCreateOptions>, computesystem: MutPtr<HcsSystem>): Hresult =
+public actual fun hcsCreateComputeSystemInNamespace(idnamespace: Pcwstr, id: Pcwstr, configuration: Pcwstr, operation: HcsOperation, options: ConstPtr, computesystem: MutPtr): Hresult =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32SystemHostcomputesystemHcsCreateComputeSystemInNamespace")
 
 public actual fun hcsCreateEmptyGuestStateFile(gueststatefilepath: Pcwstr): Hresult =
@@ -42,13 +39,13 @@ public actual fun hcsCreateEmptyGuestStateFile(gueststatefilepath: Pcwstr): Hres
 public actual fun hcsCreateEmptyRuntimeStateFile(runtimestatefilepath: Pcwstr): Hresult =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32SystemHostcomputesystemHcsCreateEmptyRuntimeStateFile")
 
-public actual fun hcsCreateOperation(context: ConstPtr<CVoid>, callback: HcsOperationCompletion): HcsOperation =
+public actual fun hcsCreateOperation(context: ConstPtr, callback: HcsOperationCompletion): HcsOperation =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32SystemHostcomputesystemHcsCreateOperation")
 
-public actual fun hcsCreateOperationWithNotifications(eventtypes: HcsOperationOptions, context: ConstPtr<CVoid>, callback: HcsEventCallback): HcsOperation =
+public actual fun hcsCreateOperationWithNotifications(eventtypes: HcsOperationOptions, context: ConstPtr, callback: HcsEventCallback): HcsOperation =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32SystemHostcomputesystemHcsCreateOperationWithNotifications")
 
-public actual fun hcsCreateProcess(computesystem: HcsSystem, processparameters: Pcwstr, operation: HcsOperation, securitydescriptor: ConstPtr<SecurityDescriptor>, process: MutPtr<HcsProcess>): Hresult =
+public actual fun hcsCreateProcess(computesystem: HcsSystem, processparameters: Pcwstr, operation: HcsOperation, securitydescriptor: ConstPtr, process: MutPtr): Hresult =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32SystemHostcomputesystemHcsCreateProcess")
 
 public actual fun hcsDestroyLayer(layerpath: Pcwstr): Hresult =
@@ -78,19 +75,19 @@ public actual fun hcsGetComputeSystemFromOperation(operation: HcsOperation): Hcs
 public actual fun hcsGetComputeSystemProperties(computesystem: HcsSystem, operation: HcsOperation, propertyquery: Pcwstr): Hresult =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32SystemHostcomputesystemHcsGetComputeSystemProperties")
 
-public actual fun hcsGetLayerVhdMountPath(vhdhandle: Handle, mountpath: MutPtr<Pwstr>): Hresult =
+public actual fun hcsGetLayerVhdMountPath(vhdhandle: Handle, mountpath: MutPtr): Hresult =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32SystemHostcomputesystemHcsGetLayerVhdMountPath")
 
-public actual fun hcsGetOperationContext(operation: HcsOperation): MutPtr<CVoid> =
+public actual fun hcsGetOperationContext(operation: HcsOperation): MutPtr =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32SystemHostcomputesystemHcsGetOperationContext")
 
 public actual fun hcsGetOperationId(operation: HcsOperation): ULong =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32SystemHostcomputesystemHcsGetOperationId")
 
-public actual fun hcsGetOperationResult(operation: HcsOperation, resultdocument: MutPtr<Pwstr>): Hresult =
+public actual fun hcsGetOperationResult(operation: HcsOperation, resultdocument: MutPtr): Hresult =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32SystemHostcomputesystemHcsGetOperationResult")
 
-public actual fun hcsGetOperationResultAndProcessInfo(operation: HcsOperation, processinformation: MutPtr<HcsProcessInformation>, resultdocument: MutPtr<Pwstr>): Hresult =
+public actual fun hcsGetOperationResultAndProcessInfo(operation: HcsOperation, processinformation: MutPtr, resultdocument: MutPtr): Hresult =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32SystemHostcomputesystemHcsGetOperationResultAndProcessInfo")
 
 public actual fun hcsGetOperationType(operation: HcsOperation): HcsOperationType =
@@ -105,10 +102,10 @@ public actual fun hcsGetProcessInfo(process: HcsProcess, operation: HcsOperation
 public actual fun hcsGetProcessProperties(process: HcsProcess, operation: HcsOperation, propertyquery: Pcwstr): Hresult =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32SystemHostcomputesystemHcsGetProcessProperties")
 
-public actual fun hcsGetProcessorCompatibilityFromSavedState(runtimefilename: Pcwstr, processorfeaturesstring: MutPtr<Pcwstr>): Hresult =
+public actual fun hcsGetProcessorCompatibilityFromSavedState(runtimefilename: Pcwstr, processorfeaturesstring: MutPtr): Hresult =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32SystemHostcomputesystemHcsGetProcessorCompatibilityFromSavedState")
 
-public actual fun hcsGetServiceProperties(propertyquery: Pcwstr, result: MutPtr<Pwstr>): Hresult =
+public actual fun hcsGetServiceProperties(propertyquery: Pcwstr, result: MutPtr): Hresult =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32SystemHostcomputesystemHcsGetServiceProperties")
 
 public actual fun hcsGrantVmAccess(vmid: Pcwstr, filepath: Pcwstr): Hresult =
@@ -132,16 +129,16 @@ public actual fun hcsModifyComputeSystem(computesystem: HcsSystem, operation: Hc
 public actual fun hcsModifyProcess(process: HcsProcess, operation: HcsOperation, settings: Pcwstr): Hresult =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32SystemHostcomputesystemHcsModifyProcess")
 
-public actual fun hcsModifyServiceSettings(settings: Pcwstr, result: MutPtr<Pwstr>): Hresult =
+public actual fun hcsModifyServiceSettings(settings: Pcwstr, result: MutPtr): Hresult =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32SystemHostcomputesystemHcsModifyServiceSettings")
 
-public actual fun hcsOpenComputeSystem(id: Pcwstr, requestedaccess: UInt, computesystem: MutPtr<HcsSystem>): Hresult =
+public actual fun hcsOpenComputeSystem(id: Pcwstr, requestedaccess: UInt, computesystem: MutPtr): Hresult =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32SystemHostcomputesystemHcsOpenComputeSystem")
 
-public actual fun hcsOpenComputeSystemInNamespace(idnamespace: Pcwstr, id: Pcwstr, requestedaccess: UInt, computesystem: MutPtr<HcsSystem>): Hresult =
+public actual fun hcsOpenComputeSystemInNamespace(idnamespace: Pcwstr, id: Pcwstr, requestedaccess: UInt, computesystem: MutPtr): Hresult =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32SystemHostcomputesystemHcsOpenComputeSystemInNamespace")
 
-public actual fun hcsOpenProcess(computesystem: HcsSystem, processid: UInt, requestedaccess: UInt, process: MutPtr<HcsProcess>): Hresult =
+public actual fun hcsOpenProcess(computesystem: HcsSystem, processid: UInt, requestedaccess: UInt, process: MutPtr): Hresult =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32SystemHostcomputesystemHcsOpenProcess")
 
 public actual fun hcsPauseComputeSystem(computesystem: HcsSystem, operation: HcsOperation, options: Pcwstr): Hresult =
@@ -159,16 +156,16 @@ public actual fun hcsRevokeVmGroupAccess(filepath: Pcwstr): Hresult =
 public actual fun hcsSaveComputeSystem(computesystem: HcsSystem, operation: HcsOperation, options: Pcwstr): Hresult =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32SystemHostcomputesystemHcsSaveComputeSystem")
 
-public actual fun hcsSetComputeSystemCallback(computesystem: HcsSystem, callbackoptions: HcsEventOptions, context: ConstPtr<CVoid>, callback: HcsEventCallback): Hresult =
+public actual fun hcsSetComputeSystemCallback(computesystem: HcsSystem, callbackoptions: HcsEventOptions, context: ConstPtr, callback: HcsEventCallback): Hresult =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32SystemHostcomputesystemHcsSetComputeSystemCallback")
 
-public actual fun hcsSetOperationCallback(operation: HcsOperation, context: ConstPtr<CVoid>, callback: HcsOperationCompletion): Hresult =
+public actual fun hcsSetOperationCallback(operation: HcsOperation, context: ConstPtr, callback: HcsOperationCompletion): Hresult =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32SystemHostcomputesystemHcsSetOperationCallback")
 
-public actual fun hcsSetOperationContext(operation: HcsOperation, context: ConstPtr<CVoid>): Hresult =
+public actual fun hcsSetOperationContext(operation: HcsOperation, context: ConstPtr): Hresult =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32SystemHostcomputesystemHcsSetOperationContext")
 
-public actual fun hcsSetProcessCallback(process: HcsProcess, callbackoptions: HcsEventOptions, context: ConstPtr<CVoid>, callback: HcsEventCallback): Hresult =
+public actual fun hcsSetProcessCallback(process: HcsProcess, callbackoptions: HcsEventOptions, context: ConstPtr, callback: HcsEventCallback): Hresult =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32SystemHostcomputesystemHcsSetProcessCallback")
 
 public actual fun hcsSetupBaseOSLayer(layerpath: Pcwstr, vhdhandle: Handle, options: Pcwstr): Hresult =
@@ -195,14 +192,14 @@ public actual fun hcsTerminateComputeSystem(computesystem: HcsSystem, operation:
 public actual fun hcsTerminateProcess(process: HcsProcess, operation: HcsOperation, options: Pcwstr): Hresult =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32SystemHostcomputesystemHcsTerminateProcess")
 
-public actual fun hcsWaitForComputeSystemExit(computesystem: HcsSystem, timeoutms: UInt, result: MutPtr<Pwstr>): Hresult =
+public actual fun hcsWaitForComputeSystemExit(computesystem: HcsSystem, timeoutms: UInt, result: MutPtr): Hresult =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32SystemHostcomputesystemHcsWaitForComputeSystemExit")
 
-public actual fun hcsWaitForOperationResult(operation: HcsOperation, timeoutms: UInt, resultdocument: MutPtr<Pwstr>): Hresult =
+public actual fun hcsWaitForOperationResult(operation: HcsOperation, timeoutms: UInt, resultdocument: MutPtr): Hresult =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32SystemHostcomputesystemHcsWaitForOperationResult")
 
-public actual fun hcsWaitForOperationResultAndProcessInfo(operation: HcsOperation, timeoutms: UInt, processinformation: MutPtr<HcsProcessInformation>, resultdocument: MutPtr<Pwstr>): Hresult =
+public actual fun hcsWaitForOperationResultAndProcessInfo(operation: HcsOperation, timeoutms: UInt, processinformation: MutPtr, resultdocument: MutPtr): Hresult =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32SystemHostcomputesystemHcsWaitForOperationResultAndProcessInfo")
 
-public actual fun hcsWaitForProcessExit(computesystem: HcsProcess, timeoutms: UInt, result: MutPtr<Pwstr>): Hresult =
+public actual fun hcsWaitForProcessExit(computesystem: HcsProcess, timeoutms: UInt, result: MutPtr): Hresult =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32SystemHostcomputesystemHcsWaitForProcessExit")

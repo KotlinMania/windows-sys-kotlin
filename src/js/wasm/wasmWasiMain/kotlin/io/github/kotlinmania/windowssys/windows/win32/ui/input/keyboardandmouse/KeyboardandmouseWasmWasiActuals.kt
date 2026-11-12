@@ -70,7 +70,7 @@ public actual fun getKeyState(nvirtkey: Int): Short =
 public actual fun getKeyboardLayout(idthread: UInt): Hkl =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32UiInputKeyboardandmouseGetKeyboardLayout")
 
-public actual fun getKeyboardLayoutList(nbuff: Int, lplist: MutPtr<Hkl>): Int =
+public actual fun getKeyboardLayoutList(nbuff: Int, lplist: MutPtr): Int =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32UiInputKeyboardandmouseGetKeyboardLayoutList")
 
 public actual fun getKeyboardLayoutNameA(pwszklid: Pstr): Bool =
@@ -79,7 +79,7 @@ public actual fun getKeyboardLayoutNameA(pwszklid: Pstr): Bool =
 public actual fun getKeyboardLayoutNameW(pwszklid: Pwstr): Bool =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32UiInputKeyboardandmouseGetKeyboardLayoutNameW")
 
-public actual fun getKeyboardState(lpkeystate: MutPtr<UByte>): Bool =
+public actual fun getKeyboardState(lpkeystate: MutPtr): Bool =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32UiInputKeyboardandmouseGetKeyboardState")
 
 @kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32UiInputKeyboardandmouseGetKeyboardType")
@@ -88,10 +88,10 @@ private external fun wasiWindowssysWindowsWin32UiInputKeyboardandmouseGetKeyboar
 public actual fun getKeyboardType(ntypeflag: Int): Int =
     wasiWindowssysWindowsWin32UiInputKeyboardandmouseGetKeyboardType(ntypeflag)
 
-public actual fun getLastInputInfo(plii: MutPtr<Lastinputinfo>): Bool =
+public actual fun getLastInputInfo(plii: MutPtr): Bool =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32UiInputKeyboardandmouseGetLastInputInfo")
 
-public actual fun getMouseMovePointsEx(cbsize: UInt, lppt: ConstPtr<Mousemovepoint>, lpptbuf: MutPtr<Mousemovepoint>, nbufpoints: Int, resolution: GetMouseMovePointsExResolution): Int =
+public actual fun getMouseMovePointsEx(cbsize: UInt, lppt: ConstPtr, lpptbuf: MutPtr, nbufpoints: Int, resolution: GetMouseMovePointsExResolution): Int =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32UiInputKeyboardandmouseGetMouseMovePointsEx")
 
 public actual fun isWindowEnabled(hwnd: Hwnd): Bool =
@@ -136,7 +136,7 @@ private external fun wasiWindowssysWindowsWin32UiInputKeyboardandmouseReleaseCap
 public actual fun releaseCapture(): Bool =
     wasiWindowssysWindowsWin32UiInputKeyboardandmouseReleaseCapture()
 
-public actual fun sendInput(cinputs: UInt, pinputs: ConstPtr<Input>, cbsize: Int): UInt =
+public actual fun sendInput(cinputs: UInt, pinputs: ConstPtr, cbsize: Int): UInt =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32UiInputKeyboardandmouseSendInput")
 
 public actual fun setActiveWindow(hwnd: Hwnd): Hwnd =
@@ -154,7 +154,7 @@ public actual fun setDoubleClickTime(param0: UInt): Bool =
 public actual fun setFocus(hwnd: Hwnd): Hwnd =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32UiInputKeyboardandmouseSetFocus")
 
-public actual fun setKeyboardState(lpkeystate: ConstPtr<UByte>): Bool =
+public actual fun setKeyboardState(lpkeystate: ConstPtr): Bool =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32UiInputKeyboardandmouseSetKeyboardState")
 
 @kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32UiInputKeyboardandmouseSwapMouseButton")
@@ -163,19 +163,19 @@ private external fun wasiWindowssysWindowsWin32UiInputKeyboardandmouseSwapMouseB
 public actual fun swapMouseButton(fswap: Bool): Bool =
     wasiWindowssysWindowsWin32UiInputKeyboardandmouseSwapMouseButton(fswap)
 
-public actual fun toAscii(uvirtkey: UInt, uscancode: UInt, lpkeystate: ConstPtr<UByte>, lpchar: MutPtr<UShort>, uflags: UInt): Int =
+public actual fun toAscii(uvirtkey: UInt, uscancode: UInt, lpkeystate: ConstPtr, lpchar: MutPtr, uflags: UInt): Int =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32UiInputKeyboardandmouseToAscii")
 
-public actual fun toAsciiEx(uvirtkey: UInt, uscancode: UInt, lpkeystate: ConstPtr<UByte>, lpchar: MutPtr<UShort>, uflags: UInt, dwhkl: Hkl): Int =
+public actual fun toAsciiEx(uvirtkey: UInt, uscancode: UInt, lpkeystate: ConstPtr, lpchar: MutPtr, uflags: UInt, dwhkl: Hkl): Int =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32UiInputKeyboardandmouseToAsciiEx")
 
-public actual fun toUnicode(wvirtkey: UInt, wscancode: UInt, lpkeystate: ConstPtr<UByte>, pwszbuff: Pwstr, cchbuff: Int, wflags: UInt): Int =
+public actual fun toUnicode(wvirtkey: UInt, wscancode: UInt, lpkeystate: ConstPtr, pwszbuff: Pwstr, cchbuff: Int, wflags: UInt): Int =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32UiInputKeyboardandmouseToUnicode")
 
-public actual fun toUnicodeEx(wvirtkey: UInt, wscancode: UInt, lpkeystate: ConstPtr<UByte>, pwszbuff: Pwstr, cchbuff: Int, wflags: UInt, dwhkl: Hkl): Int =
+public actual fun toUnicodeEx(wvirtkey: UInt, wscancode: UInt, lpkeystate: ConstPtr, pwszbuff: Pwstr, cchbuff: Int, wflags: UInt, dwhkl: Hkl): Int =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32UiInputKeyboardandmouseToUnicodeEx")
 
-public actual fun trackMouseEvent(lpeventtrack: MutPtr<Trackmouseevent>): Bool =
+public actual fun trackMouseEvent(lpeventtrack: MutPtr): Bool =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32UiInputKeyboardandmouseTrackMouseEvent")
 
 public actual fun unloadKeyboardLayout(hkl: Hkl): Bool =

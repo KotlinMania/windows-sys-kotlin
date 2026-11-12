@@ -3,7 +3,7 @@ package io.github.kotlinmania.windowssys.windows.win32.storage.cloudfilters
 import io.github.kotlinmania.rustlang.core.ptr.ConstPtr
 
 public fun interface CfCallbackFn {
-    public operator fun invoke(callbackinfo: ConstPtr<CfCallbackInfo>, callbackparameters: ConstPtr<CfCallbackParameters>)
+    public operator fun invoke(callbackinfo: ConstPtr, callbackparameters: ConstPtr)
 }
 
 public typealias CfCallback = CfCallbackFn?

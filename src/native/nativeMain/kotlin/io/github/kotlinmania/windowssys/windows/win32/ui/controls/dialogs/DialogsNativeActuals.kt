@@ -35,25 +35,25 @@ import kotlinx.cinterop.ByteVar
 import kotlinx.cinterop.toCPointer
 import kotlinx.cinterop.toLong
 
-public actual fun chooseColorA(param0: MutPtr<Choosecolora>): Bool =
+public actual fun chooseColorA(param0: MutPtr): Bool =
     windowssysWindowsWin32UiControlsDialogsChooseColorA(param0.rawAddress.toCPointer<ByteVar>())
 
-public actual fun chooseColorW(param0: MutPtr<Choosecolorw>): Bool =
+public actual fun chooseColorW(param0: MutPtr): Bool =
     windowssysWindowsWin32UiControlsDialogsChooseColorW(param0.rawAddress.toCPointer<ByteVar>())
 
-public actual fun chooseFontA(param0: MutPtr<Choosefonta>): Bool =
+public actual fun chooseFontA(param0: MutPtr): Bool =
     windowssysWindowsWin32UiControlsDialogsChooseFontA(param0.rawAddress.toCPointer<ByteVar>())
 
-public actual fun chooseFontW(param0: MutPtr<Choosefontw>): Bool =
+public actual fun chooseFontW(param0: MutPtr): Bool =
     windowssysWindowsWin32UiControlsDialogsChooseFontW(param0.rawAddress.toCPointer<ByteVar>())
 
 public actual fun commDlgExtendedError(): CommonDlgErrors =
     windowssysWindowsWin32UiControlsDialogsCommDlgExtendedError()
 
-public actual fun findTextA(param0: MutPtr<Findreplacea>): Hwnd =
+public actual fun findTextA(param0: MutPtr): Hwnd =
     MutPtr(windowssysWindowsWin32UiControlsDialogsFindTextA(param0.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun findTextW(param0: MutPtr<Findreplacew>): Hwnd =
+public actual fun findTextW(param0: MutPtr): Hwnd =
     MutPtr(windowssysWindowsWin32UiControlsDialogsFindTextW(param0.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
 public actual fun getFileTitleA(param0: Pcstr, buf: Pstr, cchsize: UShort): Short =
@@ -62,38 +62,38 @@ public actual fun getFileTitleA(param0: Pcstr, buf: Pstr, cchsize: UShort): Shor
 public actual fun getFileTitleW(param0: Pcwstr, buf: Pwstr, cchsize: UShort): Short =
     windowssysWindowsWin32UiControlsDialogsGetFileTitleW(param0.rawAddress.toCPointer<ByteVar>(), buf.rawAddress.toCPointer<ByteVar>(), cchsize)
 
-public actual fun getOpenFileNameA(param0: MutPtr<Openfilenamea>): Bool =
+public actual fun getOpenFileNameA(param0: MutPtr): Bool =
     windowssysWindowsWin32UiControlsDialogsGetOpenFileNameA(param0.rawAddress.toCPointer<ByteVar>())
 
-public actual fun getOpenFileNameW(param0: MutPtr<Openfilenamew>): Bool =
+public actual fun getOpenFileNameW(param0: MutPtr): Bool =
     windowssysWindowsWin32UiControlsDialogsGetOpenFileNameW(param0.rawAddress.toCPointer<ByteVar>())
 
-public actual fun getSaveFileNameA(param0: MutPtr<Openfilenamea>): Bool =
+public actual fun getSaveFileNameA(param0: MutPtr): Bool =
     windowssysWindowsWin32UiControlsDialogsGetSaveFileNameA(param0.rawAddress.toCPointer<ByteVar>())
 
-public actual fun getSaveFileNameW(param0: MutPtr<Openfilenamew>): Bool =
+public actual fun getSaveFileNameW(param0: MutPtr): Bool =
     windowssysWindowsWin32UiControlsDialogsGetSaveFileNameW(param0.rawAddress.toCPointer<ByteVar>())
 
-public actual fun pageSetupDlgA(param0: MutPtr<Pagesetupdlga>): Bool =
+public actual fun pageSetupDlgA(param0: MutPtr): Bool =
     windowssysWindowsWin32UiControlsDialogsPageSetupDlgA(param0.rawAddress.toCPointer<ByteVar>())
 
-public actual fun pageSetupDlgW(param0: MutPtr<Pagesetupdlgw>): Bool =
+public actual fun pageSetupDlgW(param0: MutPtr): Bool =
     windowssysWindowsWin32UiControlsDialogsPageSetupDlgW(param0.rawAddress.toCPointer<ByteVar>())
 
-public actual fun printDlgA(ppd: MutPtr<Printdlga>): Bool =
+public actual fun printDlgA(ppd: MutPtr): Bool =
     windowssysWindowsWin32UiControlsDialogsPrintDlgA(ppd.rawAddress.toCPointer<ByteVar>())
 
-public actual fun printDlgExA(ppd: MutPtr<Printdlgexa>): Hresult =
+public actual fun printDlgExA(ppd: MutPtr): Hresult =
     windowssysWindowsWin32UiControlsDialogsPrintDlgExA(ppd.rawAddress.toCPointer<ByteVar>())
 
-public actual fun printDlgExW(ppd: MutPtr<Printdlgexw>): Hresult =
+public actual fun printDlgExW(ppd: MutPtr): Hresult =
     windowssysWindowsWin32UiControlsDialogsPrintDlgExW(ppd.rawAddress.toCPointer<ByteVar>())
 
-public actual fun printDlgW(ppd: MutPtr<Printdlgw>): Bool =
+public actual fun printDlgW(ppd: MutPtr): Bool =
     windowssysWindowsWin32UiControlsDialogsPrintDlgW(ppd.rawAddress.toCPointer<ByteVar>())
 
-public actual fun replaceTextA(param0: MutPtr<Findreplacea>): Hwnd =
+public actual fun replaceTextA(param0: MutPtr): Hwnd =
     MutPtr(windowssysWindowsWin32UiControlsDialogsReplaceTextA(param0.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun replaceTextW(param0: MutPtr<Findreplacew>): Hwnd =
+public actual fun replaceTextW(param0: MutPtr): Hwnd =
     MutPtr(windowssysWindowsWin32UiControlsDialogsReplaceTextW(param0.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)

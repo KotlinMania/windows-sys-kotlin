@@ -292,9 +292,9 @@ public class DiagnosticDataRecord internal constructor(
     fullEventNameCtorArg: Pwstr,
     providerGroupGuidCtorArg: Pwstr,
     producerNameCtorArg: Pwstr,
-    privacyTagsCtorArg: MutPtr<Int>,
+    privacyTagsCtorArg: MutPtr,
     public var privacyTagCount: UInt,
-    categoryIdsCtorArg: MutPtr<Int>,
+    categoryIdsCtorArg: MutPtr,
     public var categoryIdCount: UInt,
     public var isCoreData: Bool,
     extra1CtorArg: Pwstr,
@@ -310,10 +310,10 @@ public class DiagnosticDataRecord internal constructor(
     public var producerName: Pwstr = producerNameCtorArg
         internal set
 
-    public var privacyTags: MutPtr<Int> = privacyTagsCtorArg
+    public var privacyTags: MutPtr = privacyTagsCtorArg
         internal set
 
-    public var categoryIds: MutPtr<Int> = categoryIdsCtorArg
+    public var categoryIds: MutPtr = categoryIdsCtorArg
         internal set
 
     public var extra1: Pwstr = extra1CtorArg
@@ -354,11 +354,11 @@ public class DiagnosticDataRecord internal constructor(
 
     public operator fun component6(): Pwstr = this.producerName
 
-    public operator fun component7(): MutPtr<Int> = this.privacyTags
+    public operator fun component7(): MutPtr = this.privacyTags
 
     public operator fun component8(): UInt = this.privacyTagCount
 
-    public operator fun component9(): MutPtr<Int> = this.categoryIds
+    public operator fun component9(): MutPtr = this.categoryIds
 
     public operator fun component10(): UInt = this.categoryIdCount
 
@@ -370,7 +370,7 @@ public class DiagnosticDataRecord internal constructor(
 
     public operator fun component14(): Pwstr = this.extra3
 
-    public fun copy(rowId: Long = this.rowId, timestamp: ULong = this.timestamp, eventKeywords: ULong = this.eventKeywords, fullEventName: Pwstr = this.fullEventName, providerGroupGuid: Pwstr = this.providerGroupGuid, producerName: Pwstr = this.producerName, privacyTags: MutPtr<Int> = this.privacyTags, privacyTagCount: UInt = this.privacyTagCount, categoryIds: MutPtr<Int> = this.categoryIds, categoryIdCount: UInt = this.categoryIdCount, isCoreData: Bool = this.isCoreData, extra1: Pwstr = this.extra1, extra2: Pwstr = this.extra2, extra3: Pwstr = this.extra3): DiagnosticDataRecord = DiagnosticDataRecord(rowId = rowId, timestamp = timestamp, eventKeywords = eventKeywords, fullEventNameCtorArg = fullEventName, providerGroupGuidCtorArg = providerGroupGuid, producerNameCtorArg = producerName, privacyTagsCtorArg = privacyTags, privacyTagCount = privacyTagCount, categoryIdsCtorArg = categoryIds, categoryIdCount = categoryIdCount, isCoreData = isCoreData, extra1CtorArg = extra1, extra2CtorArg = extra2, extra3CtorArg = extra3)
+    public fun copy(rowId: Long = this.rowId, timestamp: ULong = this.timestamp, eventKeywords: ULong = this.eventKeywords, fullEventName: Pwstr = this.fullEventName, providerGroupGuid: Pwstr = this.providerGroupGuid, producerName: Pwstr = this.producerName, privacyTags: MutPtr = this.privacyTags, privacyTagCount: UInt = this.privacyTagCount, categoryIds: MutPtr = this.categoryIds, categoryIdCount: UInt = this.categoryIdCount, isCoreData: Bool = this.isCoreData, extra1: Pwstr = this.extra1, extra2: Pwstr = this.extra2, extra3: Pwstr = this.extra3): DiagnosticDataRecord = DiagnosticDataRecord(rowId = rowId, timestamp = timestamp, eventKeywords = eventKeywords, fullEventNameCtorArg = fullEventName, providerGroupGuidCtorArg = providerGroupGuid, producerNameCtorArg = producerName, privacyTagsCtorArg = privacyTags, privacyTagCount = privacyTagCount, categoryIdsCtorArg = categoryIds, categoryIdCount = categoryIdCount, isCoreData = isCoreData, extra1CtorArg = extra1, extra2CtorArg = extra2, extra3CtorArg = extra3)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -418,9 +418,9 @@ public class DiagnosticDataRecord internal constructor(
             fullEventName: Pwstr = MutPtr(0L),
             providerGroupGuid: Pwstr = MutPtr(0L),
             producerName: Pwstr = MutPtr(0L),
-            privacyTags: MutPtr<Int> = MutPtr(0L),
+            privacyTags: MutPtr = MutPtr(0L),
             privacyTagCount: UInt = 0u,
-            categoryIds: MutPtr<Int> = MutPtr(0L),
+            categoryIds: MutPtr = MutPtr(0L),
             categoryIdCount: UInt = 0u,
             isCoreData: Bool = 0,
             extra1: Pwstr = MutPtr(0L),
@@ -447,25 +447,25 @@ public class DiagnosticDataRecord internal constructor(
 }
 
 public class DiagnosticDataSearchCriteria internal constructor(
-    producerNamesCtorArg: ConstPtr<Pcwstr>,
+    producerNamesCtorArg: ConstPtr,
     public var producerNameCount: UInt,
     textToMatchCtorArg: Pcwstr,
-    categoryIdsCtorArg: ConstPtr<Int>,
+    categoryIdsCtorArg: ConstPtr,
     public var categoryIdCount: UInt,
-    privacyTagsCtorArg: ConstPtr<Int>,
+    privacyTagsCtorArg: ConstPtr,
     public var privacyTagCount: UInt,
     public var coreDataOnly: Bool,
 ) {
-    public var producerNames: ConstPtr<Pcwstr> = producerNamesCtorArg
+    public var producerNames: ConstPtr = producerNamesCtorArg
         internal set
 
     public var textToMatch: Pcwstr = textToMatchCtorArg
         internal set
 
-    public var categoryIds: ConstPtr<Int> = categoryIdsCtorArg
+    public var categoryIds: ConstPtr = categoryIdsCtorArg
         internal set
 
-    public var privacyTags: ConstPtr<Int> = privacyTagsCtorArg
+    public var privacyTags: ConstPtr = privacyTagsCtorArg
         internal set
 
     public constructor() : this(
@@ -479,23 +479,23 @@ public class DiagnosticDataSearchCriteria internal constructor(
         coreDataOnly = 0,
     )
 
-    public operator fun component1(): ConstPtr<Pcwstr> = this.producerNames
+    public operator fun component1(): ConstPtr = this.producerNames
 
     public operator fun component2(): UInt = this.producerNameCount
 
     public operator fun component3(): Pcwstr = this.textToMatch
 
-    public operator fun component4(): ConstPtr<Int> = this.categoryIds
+    public operator fun component4(): ConstPtr = this.categoryIds
 
     public operator fun component5(): UInt = this.categoryIdCount
 
-    public operator fun component6(): ConstPtr<Int> = this.privacyTags
+    public operator fun component6(): ConstPtr = this.privacyTags
 
     public operator fun component7(): UInt = this.privacyTagCount
 
     public operator fun component8(): Bool = this.coreDataOnly
 
-    public fun copy(producerNames: ConstPtr<Pcwstr> = this.producerNames, producerNameCount: UInt = this.producerNameCount, textToMatch: Pcwstr = this.textToMatch, categoryIds: ConstPtr<Int> = this.categoryIds, categoryIdCount: UInt = this.categoryIdCount, privacyTags: ConstPtr<Int> = this.privacyTags, privacyTagCount: UInt = this.privacyTagCount, coreDataOnly: Bool = this.coreDataOnly): DiagnosticDataSearchCriteria = DiagnosticDataSearchCriteria(producerNamesCtorArg = producerNames, producerNameCount = producerNameCount, textToMatchCtorArg = textToMatch, categoryIdsCtorArg = categoryIds, categoryIdCount = categoryIdCount, privacyTagsCtorArg = privacyTags, privacyTagCount = privacyTagCount, coreDataOnly = coreDataOnly)
+    public fun copy(producerNames: ConstPtr = this.producerNames, producerNameCount: UInt = this.producerNameCount, textToMatch: Pcwstr = this.textToMatch, categoryIds: ConstPtr = this.categoryIds, categoryIdCount: UInt = this.categoryIdCount, privacyTags: ConstPtr = this.privacyTags, privacyTagCount: UInt = this.privacyTagCount, coreDataOnly: Bool = this.coreDataOnly): DiagnosticDataSearchCriteria = DiagnosticDataSearchCriteria(producerNamesCtorArg = producerNames, producerNameCount = producerNameCount, textToMatchCtorArg = textToMatch, categoryIdsCtorArg = categoryIds, categoryIdCount = categoryIdCount, privacyTagsCtorArg = privacyTags, privacyTagCount = privacyTagCount, coreDataOnly = coreDataOnly)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -525,12 +525,12 @@ public class DiagnosticDataSearchCriteria internal constructor(
 
     public companion object {
         public operator fun invoke(
-            producerNames: ConstPtr<Pcwstr> = ConstPtr(0L),
+            producerNames: ConstPtr = ConstPtr(0L),
             producerNameCount: UInt = 0u,
             textToMatch: Pcwstr = ConstPtr(0L),
-            categoryIds: ConstPtr<Int> = ConstPtr(0L),
+            categoryIds: ConstPtr = ConstPtr(0L),
             categoryIdCount: UInt = 0u,
-            privacyTags: ConstPtr<Int> = ConstPtr(0L),
+            privacyTags: ConstPtr = ConstPtr(0L),
             privacyTagCount: UInt = 0u,
             coreDataOnly: Bool = 0,
         ): DiagnosticDataSearchCriteria =
@@ -556,7 +556,7 @@ public class DiagnosticReportData internal constructor(
     cabIdCtorArg: Pwstr,
     public var reportStatus: UInt,
     public var reportIntegratorId: Guid,
-    fileNamesCtorArg: MutPtr<Pwstr>,
+    fileNamesCtorArg: MutPtr,
     public var fileCount: UInt,
     friendlyEventNameCtorArg: Pwstr,
     applicationNameCtorArg: Pwstr,
@@ -569,7 +569,7 @@ public class DiagnosticReportData internal constructor(
     public var cabId: Pwstr = cabIdCtorArg
         internal set
 
-    public var fileNames: MutPtr<Pwstr> = fileNamesCtorArg
+    public var fileNames: MutPtr = fileNamesCtorArg
         internal set
 
     public var friendlyEventName: Pwstr = friendlyEventNameCtorArg
@@ -620,7 +620,7 @@ public class DiagnosticReportData internal constructor(
             cabId: Pwstr = MutPtr(0L),
             reportStatus: UInt = 0u,
             reportIntegratorId: Guid = Guid(),
-            fileNames: MutPtr<Pwstr> = MutPtr(0L),
+            fileNames: MutPtr = MutPtr(0L),
             fileCount: UInt = 0u,
             friendlyEventName: Pwstr = MutPtr(0L),
             applicationName: Pwstr = MutPtr(0L),

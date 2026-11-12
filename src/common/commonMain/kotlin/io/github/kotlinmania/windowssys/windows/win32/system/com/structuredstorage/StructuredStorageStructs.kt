@@ -2,7 +2,6 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.system.com.structuredstorage
 
-import io.github.kotlinmania.rustlang.core.ffi.CVoid
 import io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
 import io.github.kotlinmania.rustlang.core.mem.TypeLayout
 import io.github.kotlinmania.rustlang.core.ptr.ConstPtr
@@ -17,14 +16,13 @@ import io.github.kotlinmania.windowssys.windows.win32.foundation.Filetime
 import io.github.kotlinmania.windowssys.windows.win32.foundation.VariantBool
 import io.github.kotlinmania.windowssys.windows.win32.system.com.Blob
 import io.github.kotlinmania.windowssys.windows.win32.system.com.CY
-import io.github.kotlinmania.windowssys.windows.win32.system.com.Safearray
 import io.github.kotlinmania.windowssys.windows.win32.system.variant.Variant
 
 public class Bstrblob internal constructor(
     public var cbSize: UInt,
-    pDataCtorArg: MutPtr<UByte>,
+    pDataCtorArg: MutPtr,
 ) {
-    public var pData: MutPtr<UByte> = pDataCtorArg
+    public var pData: MutPtr = pDataCtorArg
         internal set
 
     public constructor() : this(
@@ -34,9 +32,9 @@ public class Bstrblob internal constructor(
 
     public operator fun component1(): UInt = this.cbSize
 
-    public operator fun component2(): MutPtr<UByte> = this.pData
+    public operator fun component2(): MutPtr = this.pData
 
-    public fun copy(cbSize: UInt = this.cbSize, pData: MutPtr<UByte> = this.pData): Bstrblob = Bstrblob(cbSize = cbSize, pDataCtorArg = pData)
+    public fun copy(cbSize: UInt = this.cbSize, pData: MutPtr = this.pData): Bstrblob = Bstrblob(cbSize = cbSize, pDataCtorArg = pData)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -62,21 +60,21 @@ public class Bstrblob internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<UByte>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                     )
                 override fun writeNative(addr: Long, value: Bstrblob) {
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr, value.cbSize)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<UByte>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.pData)
                 }
             }
 
         public operator fun invoke(
             cbSize: UInt = 0u,
-            pData: MutPtr<UByte> = MutPtr(0L),
+            pData: MutPtr = MutPtr(0L),
         ): Bstrblob =
             Bstrblob(
                 cbSize = cbSize,
@@ -87,9 +85,9 @@ public class Bstrblob internal constructor(
 
 public class Cabool internal constructor(
     public var cElems: UInt,
-    pElemsCtorArg: MutPtr<VariantBool>,
+    pElemsCtorArg: MutPtr,
 ) {
-    public var pElems: MutPtr<VariantBool> = pElemsCtorArg
+    public var pElems: MutPtr = pElemsCtorArg
         internal set
 
     public constructor() : this(
@@ -99,9 +97,9 @@ public class Cabool internal constructor(
 
     public operator fun component1(): UInt = this.cElems
 
-    public operator fun component2(): MutPtr<VariantBool> = this.pElems
+    public operator fun component2(): MutPtr = this.pElems
 
-    public fun copy(cElems: UInt = this.cElems, pElems: MutPtr<VariantBool> = this.pElems): Cabool = Cabool(cElems = cElems, pElemsCtorArg = pElems)
+    public fun copy(cElems: UInt = this.cElems, pElems: MutPtr = this.pElems): Cabool = Cabool(cElems = cElems, pElemsCtorArg = pElems)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -127,21 +125,21 @@ public class Cabool internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<VariantBool>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                     )
                 override fun writeNative(addr: Long, value: Cabool) {
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr, value.cElems)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<VariantBool>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.pElems)
                 }
             }
 
         public operator fun invoke(
             cElems: UInt = 0u,
-            pElems: MutPtr<VariantBool> = MutPtr(0L),
+            pElems: MutPtr = MutPtr(0L),
         ): Cabool =
             Cabool(
                 cElems = cElems,
@@ -152,9 +150,9 @@ public class Cabool internal constructor(
 
 public class Cabstr internal constructor(
     public var cElems: UInt,
-    pElemsCtorArg: MutPtr<Bstr>,
+    pElemsCtorArg: MutPtr,
 ) {
-    public var pElems: MutPtr<Bstr> = pElemsCtorArg
+    public var pElems: MutPtr = pElemsCtorArg
         internal set
 
     public constructor() : this(
@@ -164,9 +162,9 @@ public class Cabstr internal constructor(
 
     public operator fun component1(): UInt = this.cElems
 
-    public operator fun component2(): MutPtr<Bstr> = this.pElems
+    public operator fun component2(): MutPtr = this.pElems
 
-    public fun copy(cElems: UInt = this.cElems, pElems: MutPtr<Bstr> = this.pElems): Cabstr = Cabstr(cElems = cElems, pElemsCtorArg = pElems)
+    public fun copy(cElems: UInt = this.cElems, pElems: MutPtr = this.pElems): Cabstr = Cabstr(cElems = cElems, pElemsCtorArg = pElems)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -192,21 +190,21 @@ public class Cabstr internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<Bstr>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                     )
                 override fun writeNative(addr: Long, value: Cabstr) {
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr, value.cElems)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<Bstr>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.pElems)
                 }
             }
 
         public operator fun invoke(
             cElems: UInt = 0u,
-            pElems: MutPtr<Bstr> = MutPtr(0L),
+            pElems: MutPtr = MutPtr(0L),
         ): Cabstr =
             Cabstr(
                 cElems = cElems,
@@ -217,9 +215,9 @@ public class Cabstr internal constructor(
 
 public class Cabstrblob internal constructor(
     public var cElems: UInt,
-    pElemsCtorArg: MutPtr<Bstrblob>,
+    pElemsCtorArg: MutPtr,
 ) {
-    public var pElems: MutPtr<Bstrblob> = pElemsCtorArg
+    public var pElems: MutPtr = pElemsCtorArg
         internal set
 
     public constructor() : this(
@@ -229,9 +227,9 @@ public class Cabstrblob internal constructor(
 
     public operator fun component1(): UInt = this.cElems
 
-    public operator fun component2(): MutPtr<Bstrblob> = this.pElems
+    public operator fun component2(): MutPtr = this.pElems
 
-    public fun copy(cElems: UInt = this.cElems, pElems: MutPtr<Bstrblob> = this.pElems): Cabstrblob = Cabstrblob(cElems = cElems, pElemsCtorArg = pElems)
+    public fun copy(cElems: UInt = this.cElems, pElems: MutPtr = this.pElems): Cabstrblob = Cabstrblob(cElems = cElems, pElemsCtorArg = pElems)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -257,21 +255,21 @@ public class Cabstrblob internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<Bstrblob>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                     )
                 override fun writeNative(addr: Long, value: Cabstrblob) {
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr, value.cElems)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<Bstrblob>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.pElems)
                 }
             }
 
         public operator fun invoke(
             cElems: UInt = 0u,
-            pElems: MutPtr<Bstrblob> = MutPtr(0L),
+            pElems: MutPtr = MutPtr(0L),
         ): Cabstrblob =
             Cabstrblob(
                 cElems = cElems,
@@ -326,9 +324,9 @@ public class Cac internal constructor(
 
 public class Caclipdata internal constructor(
     public var cElems: UInt,
-    pElemsCtorArg: MutPtr<Clipdata>,
+    pElemsCtorArg: MutPtr,
 ) {
-    public var pElems: MutPtr<Clipdata> = pElemsCtorArg
+    public var pElems: MutPtr = pElemsCtorArg
         internal set
 
     public constructor() : this(
@@ -338,9 +336,9 @@ public class Caclipdata internal constructor(
 
     public operator fun component1(): UInt = this.cElems
 
-    public operator fun component2(): MutPtr<Clipdata> = this.pElems
+    public operator fun component2(): MutPtr = this.pElems
 
-    public fun copy(cElems: UInt = this.cElems, pElems: MutPtr<Clipdata> = this.pElems): Caclipdata = Caclipdata(cElems = cElems, pElemsCtorArg = pElems)
+    public fun copy(cElems: UInt = this.cElems, pElems: MutPtr = this.pElems): Caclipdata = Caclipdata(cElems = cElems, pElemsCtorArg = pElems)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -366,21 +364,21 @@ public class Caclipdata internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<Clipdata>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                     )
                 override fun writeNative(addr: Long, value: Caclipdata) {
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr, value.cElems)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<Clipdata>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.pElems)
                 }
             }
 
         public operator fun invoke(
             cElems: UInt = 0u,
-            pElems: MutPtr<Clipdata> = MutPtr(0L),
+            pElems: MutPtr = MutPtr(0L),
         ): Caclipdata =
             Caclipdata(
                 cElems = cElems,
@@ -391,9 +389,9 @@ public class Caclipdata internal constructor(
 
 public class Caclsid internal constructor(
     public var cElems: UInt,
-    pElemsCtorArg: MutPtr<Guid>,
+    pElemsCtorArg: MutPtr,
 ) {
-    public var pElems: MutPtr<Guid> = pElemsCtorArg
+    public var pElems: MutPtr = pElemsCtorArg
         internal set
 
     public constructor() : this(
@@ -403,9 +401,9 @@ public class Caclsid internal constructor(
 
     public operator fun component1(): UInt = this.cElems
 
-    public operator fun component2(): MutPtr<Guid> = this.pElems
+    public operator fun component2(): MutPtr = this.pElems
 
-    public fun copy(cElems: UInt = this.cElems, pElems: MutPtr<Guid> = this.pElems): Caclsid = Caclsid(cElems = cElems, pElemsCtorArg = pElems)
+    public fun copy(cElems: UInt = this.cElems, pElems: MutPtr = this.pElems): Caclsid = Caclsid(cElems = cElems, pElemsCtorArg = pElems)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -431,21 +429,21 @@ public class Caclsid internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<Guid>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                     )
                 override fun writeNative(addr: Long, value: Caclsid) {
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr, value.cElems)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<Guid>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.pElems)
                 }
             }
 
         public operator fun invoke(
             cElems: UInt = 0u,
-            pElems: MutPtr<Guid> = MutPtr(0L),
+            pElems: MutPtr = MutPtr(0L),
         ): Caclsid =
             Caclsid(
                 cElems = cElems,
@@ -456,9 +454,9 @@ public class Caclsid internal constructor(
 
 public class Cacy internal constructor(
     public var cElems: UInt,
-    pElemsCtorArg: MutPtr<CY>,
+    pElemsCtorArg: MutPtr,
 ) {
-    public var pElems: MutPtr<CY> = pElemsCtorArg
+    public var pElems: MutPtr = pElemsCtorArg
         internal set
 
     public constructor() : this(
@@ -468,9 +466,9 @@ public class Cacy internal constructor(
 
     public operator fun component1(): UInt = this.cElems
 
-    public operator fun component2(): MutPtr<CY> = this.pElems
+    public operator fun component2(): MutPtr = this.pElems
 
-    public fun copy(cElems: UInt = this.cElems, pElems: MutPtr<CY> = this.pElems): Cacy = Cacy(cElems = cElems, pElemsCtorArg = pElems)
+    public fun copy(cElems: UInt = this.cElems, pElems: MutPtr = this.pElems): Cacy = Cacy(cElems = cElems, pElemsCtorArg = pElems)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -496,21 +494,21 @@ public class Cacy internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<CY>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                     )
                 override fun writeNative(addr: Long, value: Cacy) {
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr, value.cElems)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<CY>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.pElems)
                 }
             }
 
         public operator fun invoke(
             cElems: UInt = 0u,
-            pElems: MutPtr<CY> = MutPtr(0L),
+            pElems: MutPtr = MutPtr(0L),
         ): Cacy =
             Cacy(
                 cElems = cElems,
@@ -521,9 +519,9 @@ public class Cacy internal constructor(
 
 public class Cadate internal constructor(
     public var cElems: UInt,
-    pElemsCtorArg: MutPtr<Double>,
+    pElemsCtorArg: MutPtr,
 ) {
-    public var pElems: MutPtr<Double> = pElemsCtorArg
+    public var pElems: MutPtr = pElemsCtorArg
         internal set
 
     public constructor() : this(
@@ -533,9 +531,9 @@ public class Cadate internal constructor(
 
     public operator fun component1(): UInt = this.cElems
 
-    public operator fun component2(): MutPtr<Double> = this.pElems
+    public operator fun component2(): MutPtr = this.pElems
 
-    public fun copy(cElems: UInt = this.cElems, pElems: MutPtr<Double> = this.pElems): Cadate = Cadate(cElems = cElems, pElemsCtorArg = pElems)
+    public fun copy(cElems: UInt = this.cElems, pElems: MutPtr = this.pElems): Cadate = Cadate(cElems = cElems, pElemsCtorArg = pElems)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -561,21 +559,21 @@ public class Cadate internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<Double>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                     )
                 override fun writeNative(addr: Long, value: Cadate) {
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr, value.cElems)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<Double>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.pElems)
                 }
             }
 
         public operator fun invoke(
             cElems: UInt = 0u,
-            pElems: MutPtr<Double> = MutPtr(0L),
+            pElems: MutPtr = MutPtr(0L),
         ): Cadate =
             Cadate(
                 cElems = cElems,
@@ -586,9 +584,9 @@ public class Cadate internal constructor(
 
 public class Cadbl internal constructor(
     public var cElems: UInt,
-    pElemsCtorArg: MutPtr<Double>,
+    pElemsCtorArg: MutPtr,
 ) {
-    public var pElems: MutPtr<Double> = pElemsCtorArg
+    public var pElems: MutPtr = pElemsCtorArg
         internal set
 
     public constructor() : this(
@@ -598,9 +596,9 @@ public class Cadbl internal constructor(
 
     public operator fun component1(): UInt = this.cElems
 
-    public operator fun component2(): MutPtr<Double> = this.pElems
+    public operator fun component2(): MutPtr = this.pElems
 
-    public fun copy(cElems: UInt = this.cElems, pElems: MutPtr<Double> = this.pElems): Cadbl = Cadbl(cElems = cElems, pElemsCtorArg = pElems)
+    public fun copy(cElems: UInt = this.cElems, pElems: MutPtr = this.pElems): Cadbl = Cadbl(cElems = cElems, pElemsCtorArg = pElems)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -626,21 +624,21 @@ public class Cadbl internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<Double>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                     )
                 override fun writeNative(addr: Long, value: Cadbl) {
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr, value.cElems)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<Double>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.pElems)
                 }
             }
 
         public operator fun invoke(
             cElems: UInt = 0u,
-            pElems: MutPtr<Double> = MutPtr(0L),
+            pElems: MutPtr = MutPtr(0L),
         ): Cadbl =
             Cadbl(
                 cElems = cElems,
@@ -651,9 +649,9 @@ public class Cadbl internal constructor(
 
 public class Cafiletime internal constructor(
     public var cElems: UInt,
-    pElemsCtorArg: MutPtr<Filetime>,
+    pElemsCtorArg: MutPtr,
 ) {
-    public var pElems: MutPtr<Filetime> = pElemsCtorArg
+    public var pElems: MutPtr = pElemsCtorArg
         internal set
 
     public constructor() : this(
@@ -663,9 +661,9 @@ public class Cafiletime internal constructor(
 
     public operator fun component1(): UInt = this.cElems
 
-    public operator fun component2(): MutPtr<Filetime> = this.pElems
+    public operator fun component2(): MutPtr = this.pElems
 
-    public fun copy(cElems: UInt = this.cElems, pElems: MutPtr<Filetime> = this.pElems): Cafiletime = Cafiletime(cElems = cElems, pElemsCtorArg = pElems)
+    public fun copy(cElems: UInt = this.cElems, pElems: MutPtr = this.pElems): Cafiletime = Cafiletime(cElems = cElems, pElemsCtorArg = pElems)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -691,21 +689,21 @@ public class Cafiletime internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<Filetime>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                     )
                 override fun writeNative(addr: Long, value: Cafiletime) {
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr, value.cElems)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<Filetime>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.pElems)
                 }
             }
 
         public operator fun invoke(
             cElems: UInt = 0u,
-            pElems: MutPtr<Filetime> = MutPtr(0L),
+            pElems: MutPtr = MutPtr(0L),
         ): Cafiletime =
             Cafiletime(
                 cElems = cElems,
@@ -716,9 +714,9 @@ public class Cafiletime internal constructor(
 
 public class Caflt internal constructor(
     public var cElems: UInt,
-    pElemsCtorArg: MutPtr<Float>,
+    pElemsCtorArg: MutPtr,
 ) {
-    public var pElems: MutPtr<Float> = pElemsCtorArg
+    public var pElems: MutPtr = pElemsCtorArg
         internal set
 
     public constructor() : this(
@@ -728,9 +726,9 @@ public class Caflt internal constructor(
 
     public operator fun component1(): UInt = this.cElems
 
-    public operator fun component2(): MutPtr<Float> = this.pElems
+    public operator fun component2(): MutPtr = this.pElems
 
-    public fun copy(cElems: UInt = this.cElems, pElems: MutPtr<Float> = this.pElems): Caflt = Caflt(cElems = cElems, pElemsCtorArg = pElems)
+    public fun copy(cElems: UInt = this.cElems, pElems: MutPtr = this.pElems): Caflt = Caflt(cElems = cElems, pElemsCtorArg = pElems)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -756,21 +754,21 @@ public class Caflt internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<Float>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                     )
                 override fun writeNative(addr: Long, value: Caflt) {
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr, value.cElems)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<Float>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.pElems)
                 }
             }
 
         public operator fun invoke(
             cElems: UInt = 0u,
-            pElems: MutPtr<Float> = MutPtr(0L),
+            pElems: MutPtr = MutPtr(0L),
         ): Caflt =
             Caflt(
                 cElems = cElems,
@@ -781,9 +779,9 @@ public class Caflt internal constructor(
 
 public class Cah internal constructor(
     public var cElems: UInt,
-    pElemsCtorArg: MutPtr<Long>,
+    pElemsCtorArg: MutPtr,
 ) {
-    public var pElems: MutPtr<Long> = pElemsCtorArg
+    public var pElems: MutPtr = pElemsCtorArg
         internal set
 
     public constructor() : this(
@@ -793,9 +791,9 @@ public class Cah internal constructor(
 
     public operator fun component1(): UInt = this.cElems
 
-    public operator fun component2(): MutPtr<Long> = this.pElems
+    public operator fun component2(): MutPtr = this.pElems
 
-    public fun copy(cElems: UInt = this.cElems, pElems: MutPtr<Long> = this.pElems): Cah = Cah(cElems = cElems, pElemsCtorArg = pElems)
+    public fun copy(cElems: UInt = this.cElems, pElems: MutPtr = this.pElems): Cah = Cah(cElems = cElems, pElemsCtorArg = pElems)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -821,21 +819,21 @@ public class Cah internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<Long>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                     )
                 override fun writeNative(addr: Long, value: Cah) {
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr, value.cElems)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<Long>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.pElems)
                 }
             }
 
         public operator fun invoke(
             cElems: UInt = 0u,
-            pElems: MutPtr<Long> = MutPtr(0L),
+            pElems: MutPtr = MutPtr(0L),
         ): Cah =
             Cah(
                 cElems = cElems,
@@ -846,9 +844,9 @@ public class Cah internal constructor(
 
 public class Cai internal constructor(
     public var cElems: UInt,
-    pElemsCtorArg: MutPtr<Short>,
+    pElemsCtorArg: MutPtr,
 ) {
-    public var pElems: MutPtr<Short> = pElemsCtorArg
+    public var pElems: MutPtr = pElemsCtorArg
         internal set
 
     public constructor() : this(
@@ -858,9 +856,9 @@ public class Cai internal constructor(
 
     public operator fun component1(): UInt = this.cElems
 
-    public operator fun component2(): MutPtr<Short> = this.pElems
+    public operator fun component2(): MutPtr = this.pElems
 
-    public fun copy(cElems: UInt = this.cElems, pElems: MutPtr<Short> = this.pElems): Cai = Cai(cElems = cElems, pElemsCtorArg = pElems)
+    public fun copy(cElems: UInt = this.cElems, pElems: MutPtr = this.pElems): Cai = Cai(cElems = cElems, pElemsCtorArg = pElems)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -886,21 +884,21 @@ public class Cai internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<Short>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                     )
                 override fun writeNative(addr: Long, value: Cai) {
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr, value.cElems)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<Short>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.pElems)
                 }
             }
 
         public operator fun invoke(
             cElems: UInt = 0u,
-            pElems: MutPtr<Short> = MutPtr(0L),
+            pElems: MutPtr = MutPtr(0L),
         ): Cai =
             Cai(
                 cElems = cElems,
@@ -911,9 +909,9 @@ public class Cai internal constructor(
 
 public class Cal internal constructor(
     public var cElems: UInt,
-    pElemsCtorArg: MutPtr<Int>,
+    pElemsCtorArg: MutPtr,
 ) {
-    public var pElems: MutPtr<Int> = pElemsCtorArg
+    public var pElems: MutPtr = pElemsCtorArg
         internal set
 
     public constructor() : this(
@@ -923,9 +921,9 @@ public class Cal internal constructor(
 
     public operator fun component1(): UInt = this.cElems
 
-    public operator fun component2(): MutPtr<Int> = this.pElems
+    public operator fun component2(): MutPtr = this.pElems
 
-    public fun copy(cElems: UInt = this.cElems, pElems: MutPtr<Int> = this.pElems): Cal = Cal(cElems = cElems, pElemsCtorArg = pElems)
+    public fun copy(cElems: UInt = this.cElems, pElems: MutPtr = this.pElems): Cal = Cal(cElems = cElems, pElemsCtorArg = pElems)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -951,21 +949,21 @@ public class Cal internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<Int>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                     )
                 override fun writeNative(addr: Long, value: Cal) {
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr, value.cElems)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<Int>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.pElems)
                 }
             }
 
         public operator fun invoke(
             cElems: UInt = 0u,
-            pElems: MutPtr<Int> = MutPtr(0L),
+            pElems: MutPtr = MutPtr(0L),
         ): Cal =
             Cal(
                 cElems = cElems,
@@ -976,9 +974,9 @@ public class Cal internal constructor(
 
 public class Calpstr internal constructor(
     public var cElems: UInt,
-    pElemsCtorArg: MutPtr<Pstr>,
+    pElemsCtorArg: MutPtr,
 ) {
-    public var pElems: MutPtr<Pstr> = pElemsCtorArg
+    public var pElems: MutPtr = pElemsCtorArg
         internal set
 
     public constructor() : this(
@@ -988,9 +986,9 @@ public class Calpstr internal constructor(
 
     public operator fun component1(): UInt = this.cElems
 
-    public operator fun component2(): MutPtr<Pstr> = this.pElems
+    public operator fun component2(): MutPtr = this.pElems
 
-    public fun copy(cElems: UInt = this.cElems, pElems: MutPtr<Pstr> = this.pElems): Calpstr = Calpstr(cElems = cElems, pElemsCtorArg = pElems)
+    public fun copy(cElems: UInt = this.cElems, pElems: MutPtr = this.pElems): Calpstr = Calpstr(cElems = cElems, pElemsCtorArg = pElems)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -1016,21 +1014,21 @@ public class Calpstr internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<Pstr>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                     )
                 override fun writeNative(addr: Long, value: Calpstr) {
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr, value.cElems)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<Pstr>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.pElems)
                 }
             }
 
         public operator fun invoke(
             cElems: UInt = 0u,
-            pElems: MutPtr<Pstr> = MutPtr(0L),
+            pElems: MutPtr = MutPtr(0L),
         ): Calpstr =
             Calpstr(
                 cElems = cElems,
@@ -1041,9 +1039,9 @@ public class Calpstr internal constructor(
 
 public class Calpwstr internal constructor(
     public var cElems: UInt,
-    pElemsCtorArg: MutPtr<Pwstr>,
+    pElemsCtorArg: MutPtr,
 ) {
-    public var pElems: MutPtr<Pwstr> = pElemsCtorArg
+    public var pElems: MutPtr = pElemsCtorArg
         internal set
 
     public constructor() : this(
@@ -1053,9 +1051,9 @@ public class Calpwstr internal constructor(
 
     public operator fun component1(): UInt = this.cElems
 
-    public operator fun component2(): MutPtr<Pwstr> = this.pElems
+    public operator fun component2(): MutPtr = this.pElems
 
-    public fun copy(cElems: UInt = this.cElems, pElems: MutPtr<Pwstr> = this.pElems): Calpwstr = Calpwstr(cElems = cElems, pElemsCtorArg = pElems)
+    public fun copy(cElems: UInt = this.cElems, pElems: MutPtr = this.pElems): Calpwstr = Calpwstr(cElems = cElems, pElemsCtorArg = pElems)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -1081,21 +1079,21 @@ public class Calpwstr internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<Pwstr>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                     )
                 override fun writeNative(addr: Long, value: Calpwstr) {
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr, value.cElems)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<Pwstr>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.pElems)
                 }
             }
 
         public operator fun invoke(
             cElems: UInt = 0u,
-            pElems: MutPtr<Pwstr> = MutPtr(0L),
+            pElems: MutPtr = MutPtr(0L),
         ): Calpwstr =
             Calpwstr(
                 cElems = cElems,
@@ -1106,9 +1104,9 @@ public class Calpwstr internal constructor(
 
 public class Capropvariant internal constructor(
     public var cElems: UInt,
-    pElemsCtorArg: MutPtr<Propvariant>,
+    pElemsCtorArg: MutPtr,
 ) {
-    public var pElems: MutPtr<Propvariant> = pElemsCtorArg
+    public var pElems: MutPtr = pElemsCtorArg
         internal set
 
     public constructor() : this(
@@ -1118,9 +1116,9 @@ public class Capropvariant internal constructor(
 
     public operator fun component1(): UInt = this.cElems
 
-    public operator fun component2(): MutPtr<Propvariant> = this.pElems
+    public operator fun component2(): MutPtr = this.pElems
 
-    public fun copy(cElems: UInt = this.cElems, pElems: MutPtr<Propvariant> = this.pElems): Capropvariant = Capropvariant(cElems = cElems, pElemsCtorArg = pElems)
+    public fun copy(cElems: UInt = this.cElems, pElems: MutPtr = this.pElems): Capropvariant = Capropvariant(cElems = cElems, pElemsCtorArg = pElems)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -1146,21 +1144,21 @@ public class Capropvariant internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<Propvariant>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                     )
                 override fun writeNative(addr: Long, value: Capropvariant) {
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr, value.cElems)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<Propvariant>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.pElems)
                 }
             }
 
         public operator fun invoke(
             cElems: UInt = 0u,
-            pElems: MutPtr<Propvariant> = MutPtr(0L),
+            pElems: MutPtr = MutPtr(0L),
         ): Capropvariant =
             Capropvariant(
                 cElems = cElems,
@@ -1171,9 +1169,9 @@ public class Capropvariant internal constructor(
 
 public class Cascode internal constructor(
     public var cElems: UInt,
-    pElemsCtorArg: MutPtr<Int>,
+    pElemsCtorArg: MutPtr,
 ) {
-    public var pElems: MutPtr<Int> = pElemsCtorArg
+    public var pElems: MutPtr = pElemsCtorArg
         internal set
 
     public constructor() : this(
@@ -1183,9 +1181,9 @@ public class Cascode internal constructor(
 
     public operator fun component1(): UInt = this.cElems
 
-    public operator fun component2(): MutPtr<Int> = this.pElems
+    public operator fun component2(): MutPtr = this.pElems
 
-    public fun copy(cElems: UInt = this.cElems, pElems: MutPtr<Int> = this.pElems): Cascode = Cascode(cElems = cElems, pElemsCtorArg = pElems)
+    public fun copy(cElems: UInt = this.cElems, pElems: MutPtr = this.pElems): Cascode = Cascode(cElems = cElems, pElemsCtorArg = pElems)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -1211,21 +1209,21 @@ public class Cascode internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<Int>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                     )
                 override fun writeNative(addr: Long, value: Cascode) {
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr, value.cElems)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<Int>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.pElems)
                 }
             }
 
         public operator fun invoke(
             cElems: UInt = 0u,
-            pElems: MutPtr<Int> = MutPtr(0L),
+            pElems: MutPtr = MutPtr(0L),
         ): Cascode =
             Cascode(
                 cElems = cElems,
@@ -1236,9 +1234,9 @@ public class Cascode internal constructor(
 
 public class Caub internal constructor(
     public var cElems: UInt,
-    pElemsCtorArg: MutPtr<UByte>,
+    pElemsCtorArg: MutPtr,
 ) {
-    public var pElems: MutPtr<UByte> = pElemsCtorArg
+    public var pElems: MutPtr = pElemsCtorArg
         internal set
 
     public constructor() : this(
@@ -1248,9 +1246,9 @@ public class Caub internal constructor(
 
     public operator fun component1(): UInt = this.cElems
 
-    public operator fun component2(): MutPtr<UByte> = this.pElems
+    public operator fun component2(): MutPtr = this.pElems
 
-    public fun copy(cElems: UInt = this.cElems, pElems: MutPtr<UByte> = this.pElems): Caub = Caub(cElems = cElems, pElemsCtorArg = pElems)
+    public fun copy(cElems: UInt = this.cElems, pElems: MutPtr = this.pElems): Caub = Caub(cElems = cElems, pElemsCtorArg = pElems)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -1276,21 +1274,21 @@ public class Caub internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<UByte>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                     )
                 override fun writeNative(addr: Long, value: Caub) {
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr, value.cElems)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<UByte>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.pElems)
                 }
             }
 
         public operator fun invoke(
             cElems: UInt = 0u,
-            pElems: MutPtr<UByte> = MutPtr(0L),
+            pElems: MutPtr = MutPtr(0L),
         ): Caub =
             Caub(
                 cElems = cElems,
@@ -1301,9 +1299,9 @@ public class Caub internal constructor(
 
 public class Cauh internal constructor(
     public var cElems: UInt,
-    pElemsCtorArg: MutPtr<ULong>,
+    pElemsCtorArg: MutPtr,
 ) {
-    public var pElems: MutPtr<ULong> = pElemsCtorArg
+    public var pElems: MutPtr = pElemsCtorArg
         internal set
 
     public constructor() : this(
@@ -1313,9 +1311,9 @@ public class Cauh internal constructor(
 
     public operator fun component1(): UInt = this.cElems
 
-    public operator fun component2(): MutPtr<ULong> = this.pElems
+    public operator fun component2(): MutPtr = this.pElems
 
-    public fun copy(cElems: UInt = this.cElems, pElems: MutPtr<ULong> = this.pElems): Cauh = Cauh(cElems = cElems, pElemsCtorArg = pElems)
+    public fun copy(cElems: UInt = this.cElems, pElems: MutPtr = this.pElems): Cauh = Cauh(cElems = cElems, pElemsCtorArg = pElems)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -1341,21 +1339,21 @@ public class Cauh internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<ULong>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                     )
                 override fun writeNative(addr: Long, value: Cauh) {
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr, value.cElems)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<ULong>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.pElems)
                 }
             }
 
         public operator fun invoke(
             cElems: UInt = 0u,
-            pElems: MutPtr<ULong> = MutPtr(0L),
+            pElems: MutPtr = MutPtr(0L),
         ): Cauh =
             Cauh(
                 cElems = cElems,
@@ -1366,9 +1364,9 @@ public class Cauh internal constructor(
 
 public class Caui internal constructor(
     public var cElems: UInt,
-    pElemsCtorArg: MutPtr<UShort>,
+    pElemsCtorArg: MutPtr,
 ) {
-    public var pElems: MutPtr<UShort> = pElemsCtorArg
+    public var pElems: MutPtr = pElemsCtorArg
         internal set
 
     public constructor() : this(
@@ -1378,9 +1376,9 @@ public class Caui internal constructor(
 
     public operator fun component1(): UInt = this.cElems
 
-    public operator fun component2(): MutPtr<UShort> = this.pElems
+    public operator fun component2(): MutPtr = this.pElems
 
-    public fun copy(cElems: UInt = this.cElems, pElems: MutPtr<UShort> = this.pElems): Caui = Caui(cElems = cElems, pElemsCtorArg = pElems)
+    public fun copy(cElems: UInt = this.cElems, pElems: MutPtr = this.pElems): Caui = Caui(cElems = cElems, pElemsCtorArg = pElems)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -1406,21 +1404,21 @@ public class Caui internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<UShort>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                     )
                 override fun writeNative(addr: Long, value: Caui) {
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr, value.cElems)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<UShort>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.pElems)
                 }
             }
 
         public operator fun invoke(
             cElems: UInt = 0u,
-            pElems: MutPtr<UShort> = MutPtr(0L),
+            pElems: MutPtr = MutPtr(0L),
         ): Caui =
             Caui(
                 cElems = cElems,
@@ -1431,9 +1429,9 @@ public class Caui internal constructor(
 
 public class Caul internal constructor(
     public var cElems: UInt,
-    pElemsCtorArg: MutPtr<UInt>,
+    pElemsCtorArg: MutPtr,
 ) {
-    public var pElems: MutPtr<UInt> = pElemsCtorArg
+    public var pElems: MutPtr = pElemsCtorArg
         internal set
 
     public constructor() : this(
@@ -1443,9 +1441,9 @@ public class Caul internal constructor(
 
     public operator fun component1(): UInt = this.cElems
 
-    public operator fun component2(): MutPtr<UInt> = this.pElems
+    public operator fun component2(): MutPtr = this.pElems
 
-    public fun copy(cElems: UInt = this.cElems, pElems: MutPtr<UInt> = this.pElems): Caul = Caul(cElems = cElems, pElemsCtorArg = pElems)
+    public fun copy(cElems: UInt = this.cElems, pElems: MutPtr = this.pElems): Caul = Caul(cElems = cElems, pElemsCtorArg = pElems)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -1471,21 +1469,21 @@ public class Caul internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<UInt>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                     )
                 override fun writeNative(addr: Long, value: Caul) {
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr, value.cElems)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<UInt>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.pElems)
                 }
             }
 
         public operator fun invoke(
             cElems: UInt = 0u,
-            pElems: MutPtr<UInt> = MutPtr(0L),
+            pElems: MutPtr = MutPtr(0L),
         ): Caul =
             Caul(
                 cElems = cElems,
@@ -1497,9 +1495,9 @@ public class Caul internal constructor(
 public class Clipdata internal constructor(
     public var cbSize: UInt,
     public var ulClipFmt: Int,
-    pClipDataCtorArg: MutPtr<UByte>,
+    pClipDataCtorArg: MutPtr,
 ) {
-    public var pClipData: MutPtr<UByte> = pClipDataCtorArg
+    public var pClipData: MutPtr = pClipDataCtorArg
         internal set
 
     public constructor() : this(
@@ -1512,9 +1510,9 @@ public class Clipdata internal constructor(
 
     public operator fun component2(): Int = this.ulClipFmt
 
-    public operator fun component3(): MutPtr<UByte> = this.pClipData
+    public operator fun component3(): MutPtr = this.pClipData
 
-    public fun copy(cbSize: UInt = this.cbSize, ulClipFmt: Int = this.ulClipFmt, pClipData: MutPtr<UByte> = this.pClipData): Clipdata = Clipdata(cbSize = cbSize, ulClipFmt = ulClipFmt, pClipDataCtorArg = pClipData)
+    public fun copy(cbSize: UInt = this.cbSize, ulClipFmt: Int = this.ulClipFmt, pClipData: MutPtr = this.pClipData): Clipdata = Clipdata(cbSize = cbSize, ulClipFmt = ulClipFmt, pClipDataCtorArg = pClipData)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -1543,7 +1541,7 @@ public class Clipdata internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr + 4L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<UByte>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                     )
                 override fun writeNative(addr: Long, value: Clipdata) {
@@ -1551,7 +1549,7 @@ public class Clipdata internal constructor(
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr + 4L, value.ulClipFmt)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<UByte>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.pClipData)
                 }
             }
@@ -1559,7 +1557,7 @@ public class Clipdata internal constructor(
         public operator fun invoke(
             cbSize: UInt = 0u,
             ulClipFmt: Int = 0,
-            pClipData: MutPtr<UByte> = MutPtr(0L),
+            pClipData: MutPtr = MutPtr(0L),
         ): Clipdata =
             Clipdata(
                 cbSize = cbSize,
@@ -1570,18 +1568,18 @@ public class Clipdata internal constructor(
 }
 
 public class Olestream internal constructor(
-    lpstblCtorArg: MutPtr<Olestreamvtbl>,
+    lpstblCtorArg: MutPtr,
 ) {
-    public var lpstbl: MutPtr<Olestreamvtbl> = lpstblCtorArg
+    public var lpstbl: MutPtr = lpstblCtorArg
         internal set
 
     public constructor() : this(
         lpstblCtorArg = MutPtr(0L),
     )
 
-    public operator fun component1(): MutPtr<Olestreamvtbl> = this.lpstbl
+    public operator fun component1(): MutPtr = this.lpstbl
 
-    public fun copy(lpstbl: MutPtr<Olestreamvtbl> = this.lpstbl): Olestream = Olestream(lpstblCtorArg = lpstbl)
+    public fun copy(lpstbl: MutPtr = this.lpstbl): Olestream = Olestream(lpstblCtorArg = lpstbl)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -1601,19 +1599,19 @@ public class Olestream internal constructor(
                     Olestream(
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<Olestreamvtbl>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr),
                     )
                 override fun writeNative(addr: Long, value: Olestream) {
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<Olestreamvtbl>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr, value.lpstbl)
                 }
             }
 
         public operator fun invoke(
-            lpstbl: MutPtr<Olestreamvtbl> = MutPtr(0L),
+            lpstbl: MutPtr = MutPtr(0L),
         ): Olestream =
             Olestream(
                 lpstblCtorArg = lpstbl,
@@ -1822,10 +1820,10 @@ public class Propvariant000 {
 
     public var filetime: Filetime = Filetime()
 
-    public var puuid: MutPtr<Guid> = MutPtr(0L)
+    public var puuid: MutPtr = MutPtr(0L)
         internal set
 
-    public var pclipdata: MutPtr<Clipdata> = MutPtr(0L)
+    public var pclipdata: MutPtr = MutPtr(0L)
         internal set
 
     public var bstrVal: Bstr = ConstPtr(0L)
@@ -1841,22 +1839,22 @@ public class Propvariant000 {
     public var pwszVal: Pwstr = MutPtr(0L)
         internal set
 
-    public var punkVal: MutPtr<CVoid> = MutPtr(0L)
+    public var punkVal: MutPtr = MutPtr(0L)
         internal set
 
-    public var pdispVal: MutPtr<CVoid> = MutPtr(0L)
+    public var pdispVal: MutPtr = MutPtr(0L)
         internal set
 
-    public var pStream: MutPtr<CVoid> = MutPtr(0L)
+    public var pStream: MutPtr = MutPtr(0L)
         internal set
 
-    public var pStorage: MutPtr<CVoid> = MutPtr(0L)
+    public var pStorage: MutPtr = MutPtr(0L)
         internal set
 
-    public var pVersionedStream: MutPtr<Versionedstream> = MutPtr(0L)
+    public var pVersionedStream: MutPtr = MutPtr(0L)
         internal set
 
-    public var parray: MutPtr<Safearray> = MutPtr(0L)
+    public var parray: MutPtr = MutPtr(0L)
         internal set
 
     public var cac: Cac = Cac()
@@ -1906,61 +1904,61 @@ public class Propvariant000 {
     public var pcVal: Pstr = MutPtr(0L)
         internal set
 
-    public var pbVal: MutPtr<UByte> = MutPtr(0L)
+    public var pbVal: MutPtr = MutPtr(0L)
         internal set
 
-    public var piVal: MutPtr<Short> = MutPtr(0L)
+    public var piVal: MutPtr = MutPtr(0L)
         internal set
 
-    public var puiVal: MutPtr<UShort> = MutPtr(0L)
+    public var puiVal: MutPtr = MutPtr(0L)
         internal set
 
-    public var plVal: MutPtr<Int> = MutPtr(0L)
+    public var plVal: MutPtr = MutPtr(0L)
         internal set
 
-    public var pulVal: MutPtr<UInt> = MutPtr(0L)
+    public var pulVal: MutPtr = MutPtr(0L)
         internal set
 
-    public var pintVal: MutPtr<Int> = MutPtr(0L)
+    public var pintVal: MutPtr = MutPtr(0L)
         internal set
 
-    public var puintVal: MutPtr<UInt> = MutPtr(0L)
+    public var puintVal: MutPtr = MutPtr(0L)
         internal set
 
-    public var pfltVal: MutPtr<Float> = MutPtr(0L)
+    public var pfltVal: MutPtr = MutPtr(0L)
         internal set
 
-    public var pdblVal: MutPtr<Double> = MutPtr(0L)
+    public var pdblVal: MutPtr = MutPtr(0L)
         internal set
 
-    public var pboolVal: MutPtr<VariantBool> = MutPtr(0L)
+    public var pboolVal: MutPtr = MutPtr(0L)
         internal set
 
-    public var pdecVal: MutPtr<Decimal> = MutPtr(0L)
+    public var pdecVal: MutPtr = MutPtr(0L)
         internal set
 
-    public var pscode: MutPtr<Int> = MutPtr(0L)
+    public var pscode: MutPtr = MutPtr(0L)
         internal set
 
-    public var pcyVal: MutPtr<CY> = MutPtr(0L)
+    public var pcyVal: MutPtr = MutPtr(0L)
         internal set
 
-    public var pdate: MutPtr<Double> = MutPtr(0L)
+    public var pdate: MutPtr = MutPtr(0L)
         internal set
 
-    public var pbstrVal: MutPtr<Bstr> = MutPtr(0L)
+    public var pbstrVal: MutPtr = MutPtr(0L)
         internal set
 
-    public var ppunkVal: MutPtr<MutPtr<CVoid>> = MutPtr(0L)
+    public var ppunkVal: MutPtr = MutPtr(0L)
         internal set
 
-    public var ppdispVal: MutPtr<MutPtr<CVoid>> = MutPtr(0L)
+    public var ppdispVal: MutPtr = MutPtr(0L)
         internal set
 
-    public var pparray: MutPtr<MutPtr<Safearray>> = MutPtr(0L)
+    public var pparray: MutPtr = MutPtr(0L)
         internal set
 
-    public var pvarVal: MutPtr<Propvariant> = MutPtr(0L)
+    public var pvarVal: MutPtr = MutPtr(0L)
         internal set
 }
 
@@ -2177,9 +2175,9 @@ public class Stgoptions internal constructor(
 
 public class Versionedstream internal constructor(
     public var guidVersion: Guid,
-    pStreamCtorArg: MutPtr<CVoid>,
+    pStreamCtorArg: MutPtr,
 ) {
-    public var pStream: MutPtr<CVoid> = pStreamCtorArg
+    public var pStream: MutPtr = pStreamCtorArg
         internal set
 
     public constructor() : this(
@@ -2189,9 +2187,9 @@ public class Versionedstream internal constructor(
 
     public operator fun component1(): Guid = this.guidVersion
 
-    public operator fun component2(): MutPtr<CVoid> = this.pStream
+    public operator fun component2(): MutPtr = this.pStream
 
-    public fun copy(guidVersion: Guid = this.guidVersion, pStream: MutPtr<CVoid> = this.pStream): Versionedstream = Versionedstream(guidVersion = guidVersion, pStreamCtorArg = pStream)
+    public fun copy(guidVersion: Guid = this.guidVersion, pStream: MutPtr = this.pStream): Versionedstream = Versionedstream(guidVersion = guidVersion, pStreamCtorArg = pStream)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -2210,7 +2208,7 @@ public class Versionedstream internal constructor(
     public companion object {
         public operator fun invoke(
             guidVersion: Guid = Guid(),
-            pStream: MutPtr<CVoid> = MutPtr(0L),
+            pStream: MutPtr = MutPtr(0L),
         ): Versionedstream =
             Versionedstream(
                 guidVersion = guidVersion,

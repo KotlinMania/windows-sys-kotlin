@@ -12,5 +12,5 @@ private val windowsWin32NetworkmanagementNetbiosNapiAvailable: Boolean = initWin
 @JsFun("(p0) => globalThis.__km_napi_windowssys.windowssysWindowsWin32NetworkmanagementNetbiosNetbios(p0)")
 private external fun wasmWindowssysWindowsWin32NetworkmanagementNetbiosNetbios(p0: String): Int
 
-public actual fun netbios(pncb: MutPtr<Ncb>): UByte =
+public actual fun netbios(pncb: MutPtr): UByte =
     if (windowsWin32NetworkmanagementNetbiosNapiAvailable) wasmWindowssysWindowsWin32NetworkmanagementNetbiosNetbios(pncb.rawAddress.toString()).toUByte() else throw UnsupportedOperationException("Native FFI addon is not available")

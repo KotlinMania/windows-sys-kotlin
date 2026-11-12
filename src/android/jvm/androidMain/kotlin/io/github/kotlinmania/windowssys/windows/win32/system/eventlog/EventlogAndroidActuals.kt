@@ -2,7 +2,6 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.system.eventlog
 
-import io.github.kotlinmania.rustlang.core.ffi.CVoid
 import io.github.kotlinmania.rustlang.core.ptr.ConstPtr
 import io.github.kotlinmania.rustlang.core.ptr.MutPtr
 import io.github.kotlinmania.windowssys.core.Bool
@@ -216,52 +215,52 @@ public actual fun evtClose(obj: EvtHandle): Bool =
 public actual fun evtCreateBookmark(bookmarkxml: Pcwstr): EvtHandle =
     WindowsWin32SystemEventlogJniBridge.windowssysWindowsWin32SystemEventlogEvtCreateBookmark(bookmarkxml.rawAddress)
 
-public actual fun evtCreateRenderContext(valuepathscount: UInt, valuepaths: ConstPtr<Pcwstr>, flags: UInt): EvtHandle =
+public actual fun evtCreateRenderContext(valuepathscount: UInt, valuepaths: ConstPtr, flags: UInt): EvtHandle =
     WindowsWin32SystemEventlogJniBridge.windowssysWindowsWin32SystemEventlogEvtCreateRenderContext(valuepathscount.toInt(), valuepaths.rawAddress, flags.toInt())
 
 public actual fun evtExportLog(session: EvtHandle, path: Pcwstr, query: Pcwstr, targetfilepath: Pcwstr, flags: UInt): Bool =
     WindowsWin32SystemEventlogJniBridge.windowssysWindowsWin32SystemEventlogEvtExportLog(session, path.rawAddress, query.rawAddress, targetfilepath.rawAddress, flags.toInt())
 
-public actual fun evtFormatMessage(publishermetadata: EvtHandle, event: EvtHandle, messageid: UInt, valuecount: UInt, values: ConstPtr<EvtVariant>, flags: UInt, buffersize: UInt, buffer: Pwstr, bufferused: MutPtr<UInt>): Bool =
+public actual fun evtFormatMessage(publishermetadata: EvtHandle, event: EvtHandle, messageid: UInt, valuecount: UInt, values: ConstPtr, flags: UInt, buffersize: UInt, buffer: Pwstr, bufferused: MutPtr): Bool =
     WindowsWin32SystemEventlogJniBridge.windowssysWindowsWin32SystemEventlogEvtFormatMessage(publishermetadata, event, messageid.toInt(), valuecount.toInt(), values.rawAddress, flags.toInt(), buffersize.toInt(), buffer.rawAddress, bufferused.rawAddress)
 
-public actual fun evtGetChannelConfigProperty(channelconfig: EvtHandle, propertyid: EvtChannelConfigPropertyId, flags: UInt, propertyvaluebuffersize: UInt, propertyvaluebuffer: MutPtr<EvtVariant>, propertyvaluebufferused: MutPtr<UInt>): Bool =
+public actual fun evtGetChannelConfigProperty(channelconfig: EvtHandle, propertyid: EvtChannelConfigPropertyId, flags: UInt, propertyvaluebuffersize: UInt, propertyvaluebuffer: MutPtr, propertyvaluebufferused: MutPtr): Bool =
     WindowsWin32SystemEventlogJniBridge.windowssysWindowsWin32SystemEventlogEvtGetChannelConfigProperty(channelconfig, propertyid, flags.toInt(), propertyvaluebuffersize.toInt(), propertyvaluebuffer.rawAddress, propertyvaluebufferused.rawAddress)
 
-public actual fun evtGetEventInfo(event: EvtHandle, propertyid: EvtEventPropertyId, propertyvaluebuffersize: UInt, propertyvaluebuffer: MutPtr<EvtVariant>, propertyvaluebufferused: MutPtr<UInt>): Bool =
+public actual fun evtGetEventInfo(event: EvtHandle, propertyid: EvtEventPropertyId, propertyvaluebuffersize: UInt, propertyvaluebuffer: MutPtr, propertyvaluebufferused: MutPtr): Bool =
     WindowsWin32SystemEventlogJniBridge.windowssysWindowsWin32SystemEventlogEvtGetEventInfo(event, propertyid, propertyvaluebuffersize.toInt(), propertyvaluebuffer.rawAddress, propertyvaluebufferused.rawAddress)
 
-public actual fun evtGetEventMetadataProperty(eventmetadata: EvtHandle, propertyid: EvtEventMetadataPropertyId, flags: UInt, eventmetadatapropertybuffersize: UInt, eventmetadatapropertybuffer: MutPtr<EvtVariant>, eventmetadatapropertybufferused: MutPtr<UInt>): Bool =
+public actual fun evtGetEventMetadataProperty(eventmetadata: EvtHandle, propertyid: EvtEventMetadataPropertyId, flags: UInt, eventmetadatapropertybuffersize: UInt, eventmetadatapropertybuffer: MutPtr, eventmetadatapropertybufferused: MutPtr): Bool =
     WindowsWin32SystemEventlogJniBridge.windowssysWindowsWin32SystemEventlogEvtGetEventMetadataProperty(eventmetadata, propertyid, flags.toInt(), eventmetadatapropertybuffersize.toInt(), eventmetadatapropertybuffer.rawAddress, eventmetadatapropertybufferused.rawAddress)
 
-public actual fun evtGetExtendedStatus(buffersize: UInt, buffer: Pwstr, bufferused: MutPtr<UInt>): UInt =
+public actual fun evtGetExtendedStatus(buffersize: UInt, buffer: Pwstr, bufferused: MutPtr): UInt =
     WindowsWin32SystemEventlogJniBridge.windowssysWindowsWin32SystemEventlogEvtGetExtendedStatus(buffersize.toInt(), buffer.rawAddress, bufferused.rawAddress).toUInt()
 
-public actual fun evtGetLogInfo(log: EvtHandle, propertyid: EvtLogPropertyId, propertyvaluebuffersize: UInt, propertyvaluebuffer: MutPtr<EvtVariant>, propertyvaluebufferused: MutPtr<UInt>): Bool =
+public actual fun evtGetLogInfo(log: EvtHandle, propertyid: EvtLogPropertyId, propertyvaluebuffersize: UInt, propertyvaluebuffer: MutPtr, propertyvaluebufferused: MutPtr): Bool =
     WindowsWin32SystemEventlogJniBridge.windowssysWindowsWin32SystemEventlogEvtGetLogInfo(log, propertyid, propertyvaluebuffersize.toInt(), propertyvaluebuffer.rawAddress, propertyvaluebufferused.rawAddress)
 
-public actual fun evtGetObjectArrayProperty(objectarray: Long, propertyid: UInt, arrayindex: UInt, flags: UInt, propertyvaluebuffersize: UInt, propertyvaluebuffer: MutPtr<EvtVariant>, propertyvaluebufferused: MutPtr<UInt>): Bool =
+public actual fun evtGetObjectArrayProperty(objectarray: Long, propertyid: UInt, arrayindex: UInt, flags: UInt, propertyvaluebuffersize: UInt, propertyvaluebuffer: MutPtr, propertyvaluebufferused: MutPtr): Bool =
     WindowsWin32SystemEventlogJniBridge.windowssysWindowsWin32SystemEventlogEvtGetObjectArrayProperty(objectarray, propertyid.toInt(), arrayindex.toInt(), flags.toInt(), propertyvaluebuffersize.toInt(), propertyvaluebuffer.rawAddress, propertyvaluebufferused.rawAddress)
 
-public actual fun evtGetObjectArraySize(objectarray: Long, objectarraysize: MutPtr<UInt>): Bool =
+public actual fun evtGetObjectArraySize(objectarray: Long, objectarraysize: MutPtr): Bool =
     WindowsWin32SystemEventlogJniBridge.windowssysWindowsWin32SystemEventlogEvtGetObjectArraySize(objectarray, objectarraysize.rawAddress)
 
-public actual fun evtGetPublisherMetadataProperty(publishermetadata: EvtHandle, propertyid: EvtPublisherMetadataPropertyId, flags: UInt, publishermetadatapropertybuffersize: UInt, publishermetadatapropertybuffer: MutPtr<EvtVariant>, publishermetadatapropertybufferused: MutPtr<UInt>): Bool =
+public actual fun evtGetPublisherMetadataProperty(publishermetadata: EvtHandle, propertyid: EvtPublisherMetadataPropertyId, flags: UInt, publishermetadatapropertybuffersize: UInt, publishermetadatapropertybuffer: MutPtr, publishermetadatapropertybufferused: MutPtr): Bool =
     WindowsWin32SystemEventlogJniBridge.windowssysWindowsWin32SystemEventlogEvtGetPublisherMetadataProperty(publishermetadata, propertyid, flags.toInt(), publishermetadatapropertybuffersize.toInt(), publishermetadatapropertybuffer.rawAddress, publishermetadatapropertybufferused.rawAddress)
 
-public actual fun evtGetQueryInfo(queryorsubscription: EvtHandle, propertyid: EvtQueryPropertyId, propertyvaluebuffersize: UInt, propertyvaluebuffer: MutPtr<EvtVariant>, propertyvaluebufferused: MutPtr<UInt>): Bool =
+public actual fun evtGetQueryInfo(queryorsubscription: EvtHandle, propertyid: EvtQueryPropertyId, propertyvaluebuffersize: UInt, propertyvaluebuffer: MutPtr, propertyvaluebufferused: MutPtr): Bool =
     WindowsWin32SystemEventlogJniBridge.windowssysWindowsWin32SystemEventlogEvtGetQueryInfo(queryorsubscription, propertyid, propertyvaluebuffersize.toInt(), propertyvaluebuffer.rawAddress, propertyvaluebufferused.rawAddress)
 
-public actual fun evtNext(resultset: EvtHandle, eventssize: UInt, events: MutPtr<Long>, timeout: UInt, flags: UInt, returned: MutPtr<UInt>): Bool =
+public actual fun evtNext(resultset: EvtHandle, eventssize: UInt, events: MutPtr, timeout: UInt, flags: UInt, returned: MutPtr): Bool =
     WindowsWin32SystemEventlogJniBridge.windowssysWindowsWin32SystemEventlogEvtNext(resultset, eventssize.toInt(), events.rawAddress, timeout.toInt(), flags.toInt(), returned.rawAddress)
 
-public actual fun evtNextChannelPath(channelenum: EvtHandle, channelpathbuffersize: UInt, channelpathbuffer: Pwstr, channelpathbufferused: MutPtr<UInt>): Bool =
+public actual fun evtNextChannelPath(channelenum: EvtHandle, channelpathbuffersize: UInt, channelpathbuffer: Pwstr, channelpathbufferused: MutPtr): Bool =
     WindowsWin32SystemEventlogJniBridge.windowssysWindowsWin32SystemEventlogEvtNextChannelPath(channelenum, channelpathbuffersize.toInt(), channelpathbuffer.rawAddress, channelpathbufferused.rawAddress)
 
 public actual fun evtNextEventMetadata(eventmetadataenum: EvtHandle, flags: UInt): EvtHandle =
     WindowsWin32SystemEventlogJniBridge.windowssysWindowsWin32SystemEventlogEvtNextEventMetadata(eventmetadataenum, flags.toInt())
 
-public actual fun evtNextPublisherId(publisherenum: EvtHandle, publisheridbuffersize: UInt, publisheridbuffer: Pwstr, publisheridbufferused: MutPtr<UInt>): Bool =
+public actual fun evtNextPublisherId(publisherenum: EvtHandle, publisheridbuffersize: UInt, publisheridbuffer: Pwstr, publisheridbufferused: MutPtr): Bool =
     WindowsWin32SystemEventlogJniBridge.windowssysWindowsWin32SystemEventlogEvtNextPublisherId(publisherenum, publisheridbuffersize.toInt(), publisheridbuffer.rawAddress, publisheridbufferused.rawAddress)
 
 public actual fun evtOpenChannelConfig(session: EvtHandle, channelpath: Pcwstr, flags: UInt): EvtHandle =
@@ -282,13 +281,13 @@ public actual fun evtOpenPublisherEnum(session: EvtHandle, flags: UInt): EvtHand
 public actual fun evtOpenPublisherMetadata(session: EvtHandle, publisherid: Pcwstr, logfilepath: Pcwstr, locale: UInt, flags: UInt): EvtHandle =
     WindowsWin32SystemEventlogJniBridge.windowssysWindowsWin32SystemEventlogEvtOpenPublisherMetadata(session, publisherid.rawAddress, logfilepath.rawAddress, locale.toInt(), flags.toInt())
 
-public actual fun evtOpenSession(loginclass: EvtLoginClass, login: ConstPtr<CVoid>, timeout: UInt, flags: UInt): EvtHandle =
+public actual fun evtOpenSession(loginclass: EvtLoginClass, login: ConstPtr, timeout: UInt, flags: UInt): EvtHandle =
     WindowsWin32SystemEventlogJniBridge.windowssysWindowsWin32SystemEventlogEvtOpenSession(loginclass, login.rawAddress, timeout.toInt(), flags.toInt())
 
 public actual fun evtQuery(session: EvtHandle, path: Pcwstr, query: Pcwstr, flags: UInt): EvtHandle =
     WindowsWin32SystemEventlogJniBridge.windowssysWindowsWin32SystemEventlogEvtQuery(session, path.rawAddress, query.rawAddress, flags.toInt())
 
-public actual fun evtRender(context: EvtHandle, fragment: EvtHandle, flags: UInt, buffersize: UInt, buffer: MutPtr<CVoid>, bufferused: MutPtr<UInt>, propertycount: MutPtr<UInt>): Bool =
+public actual fun evtRender(context: EvtHandle, fragment: EvtHandle, flags: UInt, buffersize: UInt, buffer: MutPtr, bufferused: MutPtr, propertycount: MutPtr): Bool =
     WindowsWin32SystemEventlogJniBridge.windowssysWindowsWin32SystemEventlogEvtRender(context, fragment, flags.toInt(), buffersize.toInt(), buffer.rawAddress, bufferused.rawAddress, propertycount.rawAddress)
 
 public actual fun evtSaveChannelConfig(channelconfig: EvtHandle, flags: UInt): Bool =
@@ -297,22 +296,22 @@ public actual fun evtSaveChannelConfig(channelconfig: EvtHandle, flags: UInt): B
 public actual fun evtSeek(resultset: EvtHandle, position: Long, bookmark: EvtHandle, timeout: UInt, flags: UInt): Bool =
     WindowsWin32SystemEventlogJniBridge.windowssysWindowsWin32SystemEventlogEvtSeek(resultset, position, bookmark, timeout.toInt(), flags.toInt())
 
-public actual fun evtSetChannelConfigProperty(channelconfig: EvtHandle, propertyid: EvtChannelConfigPropertyId, flags: UInt, propertyvalue: ConstPtr<EvtVariant>): Bool =
+public actual fun evtSetChannelConfigProperty(channelconfig: EvtHandle, propertyid: EvtChannelConfigPropertyId, flags: UInt, propertyvalue: ConstPtr): Bool =
     WindowsWin32SystemEventlogJniBridge.windowssysWindowsWin32SystemEventlogEvtSetChannelConfigProperty(channelconfig, propertyid, flags.toInt(), propertyvalue.rawAddress)
 
-public actual fun evtSubscribe(session: EvtHandle, signalevent: Handle, channelpath: Pcwstr, query: Pcwstr, bookmark: EvtHandle, context: ConstPtr<CVoid>, callback: EvtSubscribeCallback, flags: UInt): EvtHandle =
+public actual fun evtSubscribe(session: EvtHandle, signalevent: Handle, channelpath: Pcwstr, query: Pcwstr, bookmark: EvtHandle, context: ConstPtr, callback: EvtSubscribeCallback, flags: UInt): EvtHandle =
     WindowsWin32SystemEventlogJniBridge.windowssysWindowsWin32SystemEventlogEvtSubscribe(session, signalevent.rawAddress, channelpath.rawAddress, query.rawAddress, bookmark, context.rawAddress, 0L, flags.toInt())
 
 public actual fun evtUpdateBookmark(bookmark: EvtHandle, event: EvtHandle): Bool =
     WindowsWin32SystemEventlogJniBridge.windowssysWindowsWin32SystemEventlogEvtUpdateBookmark(bookmark, event)
 
-public actual fun getEventLogInformation(heventlog: Handle, dwinfolevel: UInt, lpbuffer: MutPtr<CVoid>, cbbufsize: UInt, pcbbytesneeded: MutPtr<UInt>): Bool =
+public actual fun getEventLogInformation(heventlog: Handle, dwinfolevel: UInt, lpbuffer: MutPtr, cbbufsize: UInt, pcbbytesneeded: MutPtr): Bool =
     WindowsWin32SystemEventlogJniBridge.windowssysWindowsWin32SystemEventlogGetEventLogInformation(heventlog.rawAddress, dwinfolevel.toInt(), lpbuffer.rawAddress, cbbufsize.toInt(), pcbbytesneeded.rawAddress)
 
-public actual fun getNumberOfEventLogRecords(heventlog: Handle, numberofrecords: MutPtr<UInt>): Bool =
+public actual fun getNumberOfEventLogRecords(heventlog: Handle, numberofrecords: MutPtr): Bool =
     WindowsWin32SystemEventlogJniBridge.windowssysWindowsWin32SystemEventlogGetNumberOfEventLogRecords(heventlog.rawAddress, numberofrecords.rawAddress)
 
-public actual fun getOldestEventLogRecord(heventlog: Handle, oldestrecord: MutPtr<UInt>): Bool =
+public actual fun getOldestEventLogRecord(heventlog: Handle, oldestrecord: MutPtr): Bool =
     WindowsWin32SystemEventlogJniBridge.windowssysWindowsWin32SystemEventlogGetOldestEventLogRecord(heventlog.rawAddress, oldestrecord.rawAddress)
 
 public actual fun notifyChangeEventLog(heventlog: Handle, hevent: Handle): Bool =
@@ -330,10 +329,10 @@ public actual fun openEventLogA(lpuncservername: Pcstr, lpsourcename: Pcstr): Ha
 public actual fun openEventLogW(lpuncservername: Pcwstr, lpsourcename: Pcwstr): Handle =
     MutPtr(WindowsWin32SystemEventlogJniBridge.windowssysWindowsWin32SystemEventlogOpenEventLogW(lpuncservername.rawAddress, lpsourcename.rawAddress))
 
-public actual fun readEventLogA(heventlog: Handle, dwreadflags: ReadEventLogReadFlags, dwrecordoffset: UInt, lpbuffer: MutPtr<CVoid>, nnumberofbytestoread: UInt, pnbytesread: MutPtr<UInt>, pnminnumberofbytesneeded: MutPtr<UInt>): Bool =
+public actual fun readEventLogA(heventlog: Handle, dwreadflags: ReadEventLogReadFlags, dwrecordoffset: UInt, lpbuffer: MutPtr, nnumberofbytestoread: UInt, pnbytesread: MutPtr, pnminnumberofbytesneeded: MutPtr): Bool =
     WindowsWin32SystemEventlogJniBridge.windowssysWindowsWin32SystemEventlogReadEventLogA(heventlog.rawAddress, dwreadflags.toInt(), dwrecordoffset.toInt(), lpbuffer.rawAddress, nnumberofbytestoread.toInt(), pnbytesread.rawAddress, pnminnumberofbytesneeded.rawAddress)
 
-public actual fun readEventLogW(heventlog: Handle, dwreadflags: ReadEventLogReadFlags, dwrecordoffset: UInt, lpbuffer: MutPtr<CVoid>, nnumberofbytestoread: UInt, pnbytesread: MutPtr<UInt>, pnminnumberofbytesneeded: MutPtr<UInt>): Bool =
+public actual fun readEventLogW(heventlog: Handle, dwreadflags: ReadEventLogReadFlags, dwrecordoffset: UInt, lpbuffer: MutPtr, nnumberofbytestoread: UInt, pnbytesread: MutPtr, pnminnumberofbytesneeded: MutPtr): Bool =
     WindowsWin32SystemEventlogJniBridge.windowssysWindowsWin32SystemEventlogReadEventLogW(heventlog.rawAddress, dwreadflags.toInt(), dwrecordoffset.toInt(), lpbuffer.rawAddress, nnumberofbytestoread.toInt(), pnbytesread.rawAddress, pnminnumberofbytesneeded.rawAddress)
 
 public actual fun registerEventSourceA(lpuncservername: Pcstr, lpsourcename: Pcstr): Handle =
@@ -342,8 +341,8 @@ public actual fun registerEventSourceA(lpuncservername: Pcstr, lpsourcename: Pcs
 public actual fun registerEventSourceW(lpuncservername: Pcwstr, lpsourcename: Pcwstr): Handle =
     MutPtr(WindowsWin32SystemEventlogJniBridge.windowssysWindowsWin32SystemEventlogRegisterEventSourceW(lpuncservername.rawAddress, lpsourcename.rawAddress))
 
-public actual fun reportEventA(heventlog: Handle, wtype: ReportEventType, wcategory: UShort, dweventid: UInt, lpusersid: Psid, wnumstrings: UShort, dwdatasize: UInt, lpstrings: ConstPtr<Pcstr>, lprawdata: ConstPtr<CVoid>): Bool =
+public actual fun reportEventA(heventlog: Handle, wtype: ReportEventType, wcategory: UShort, dweventid: UInt, lpusersid: Psid, wnumstrings: UShort, dwdatasize: UInt, lpstrings: ConstPtr, lprawdata: ConstPtr): Bool =
     WindowsWin32SystemEventlogJniBridge.windowssysWindowsWin32SystemEventlogReportEventA(heventlog.rawAddress, wtype.toShort(), wcategory.toShort(), dweventid.toInt(), lpusersid.rawAddress, wnumstrings.toShort(), dwdatasize.toInt(), lpstrings.rawAddress, lprawdata.rawAddress)
 
-public actual fun reportEventW(heventlog: Handle, wtype: ReportEventType, wcategory: UShort, dweventid: UInt, lpusersid: Psid, wnumstrings: UShort, dwdatasize: UInt, lpstrings: ConstPtr<Pcwstr>, lprawdata: ConstPtr<CVoid>): Bool =
+public actual fun reportEventW(heventlog: Handle, wtype: ReportEventType, wcategory: UShort, dweventid: UInt, lpusersid: Psid, wnumstrings: UShort, dwdatasize: UInt, lpstrings: ConstPtr, lprawdata: ConstPtr): Bool =
     WindowsWin32SystemEventlogJniBridge.windowssysWindowsWin32SystemEventlogReportEventW(heventlog.rawAddress, wtype.toShort(), wcategory.toShort(), dweventid.toInt(), lpusersid.rawAddress, wnumstrings.toShort(), dwdatasize.toInt(), lpstrings.rawAddress, lprawdata.rawAddress)

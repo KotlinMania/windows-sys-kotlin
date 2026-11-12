@@ -2,21 +2,16 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing
 
-import io.github.kotlinmania.rustlang.core.ffi.CVoid
 import io.github.kotlinmania.rustlang.core.ptr.ConstPtr
 import io.github.kotlinmania.rustlang.core.ptr.MutPtr
 import io.github.kotlinmania.windowssys.core.Bool
-import io.github.kotlinmania.windowssys.core.Guid
 import io.github.kotlinmania.windowssys.core.Hresult
 import io.github.kotlinmania.windowssys.core.Pcstr
 import io.github.kotlinmania.windowssys.core.Pcwstr
 import io.github.kotlinmania.windowssys.core.Pstr
 import io.github.kotlinmania.windowssys.core.Pwstr
-import io.github.kotlinmania.windowssys.windows.win32.foundation.Filetime
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Handle
-import io.github.kotlinmania.windowssys.windows.win32.foundation.Hwnd
 import io.github.kotlinmania.windowssys.windows.win32.security.cryptography.AlgId
-import io.github.kotlinmania.windowssys.windows.win32.security.cryptography.CertContext
 import io.github.kotlinmania.windowssys.windows.win32.system.registry.Hkey
 
 private object WindowsWin32SystemApplicationinstallationandservicingJniBridge {
@@ -1015,7 +1010,7 @@ private object WindowsWin32SystemApplicationinstallationandservicingJniBridge {
     external fun windowssysWindowsWin32SystemApplicationinstallationandservicingZombifyActCtx(hactctx: Long): Int
 }
 
-public actual fun activateActCtx(hactctx: Handle, lpcookie: MutPtr<ULong>): Bool =
+public actual fun activateActCtx(hactctx: Handle, lpcookie: MutPtr): Bool =
     WindowsWin32SystemApplicationinstallationandservicingJniBridge.windowssysWindowsWin32SystemApplicationinstallationandservicingActivateActCtx(hactctx.rawAddress, lpcookie.rawAddress)
 
 public actual fun addRefActCtx(hactctx: Handle) {
@@ -1025,13 +1020,13 @@ public actual fun addRefActCtx(hactctx: Handle) {
 public actual fun applyDeltaA(applyflags: Long, lpsourcename: Pcstr, lpdeltaname: Pcstr, lptargetname: Pcstr): Bool =
     WindowsWin32SystemApplicationinstallationandservicingJniBridge.windowssysWindowsWin32SystemApplicationinstallationandservicingApplyDeltaA(applyflags, lpsourcename.rawAddress, lpdeltaname.rawAddress, lptargetname.rawAddress)
 
-public actual fun applyDeltaB(applyflags: Long, source: DeltaInput, delta: DeltaInput, lptarget: MutPtr<DeltaOutput>): Bool =
+public actual fun applyDeltaB(applyflags: Long, source: DeltaInput, delta: DeltaInput, lptarget: MutPtr): Bool =
     0
 
-public actual fun applyDeltaGetReverseB(applyflags: Long, source: DeltaInput, delta: DeltaInput, lpreversefiletime: ConstPtr<Filetime>, lptarget: MutPtr<DeltaOutput>, lptargetreverse: MutPtr<DeltaOutput>): Bool =
+public actual fun applyDeltaGetReverseB(applyflags: Long, source: DeltaInput, delta: DeltaInput, lpreversefiletime: ConstPtr, lptarget: MutPtr, lptargetreverse: MutPtr): Bool =
     0
 
-public actual fun applyDeltaProvidedB(applyflags: Long, source: DeltaInput, delta: DeltaInput, lptarget: MutPtr<CVoid>, utargetsize: ULong): Bool =
+public actual fun applyDeltaProvidedB(applyflags: Long, source: DeltaInput, delta: DeltaInput, lptarget: MutPtr, utargetsize: ULong): Bool =
     0
 
 public actual fun applyDeltaW(applyflags: Long, lpsourcename: Pcwstr, lpdeltaname: Pcwstr, lptargetname: Pcwstr): Bool =
@@ -1040,64 +1035,64 @@ public actual fun applyDeltaW(applyflags: Long, lpsourcename: Pcwstr, lpdeltanam
 public actual fun applyPatchToFileA(patchfilename: Pcstr, oldfilename: Pcstr, newfilename: Pcstr, applyoptionflags: UInt): Bool =
     WindowsWin32SystemApplicationinstallationandservicingJniBridge.windowssysWindowsWin32SystemApplicationinstallationandservicingApplyPatchToFileA(patchfilename.rawAddress, oldfilename.rawAddress, newfilename.rawAddress, applyoptionflags.toInt())
 
-public actual fun applyPatchToFileByBuffers(patchfilemapped: ConstPtr<UByte>, patchfilesize: UInt, oldfilemapped: ConstPtr<UByte>, oldfilesize: UInt, newfilebuffer: MutPtr<MutPtr<UByte>>, newfilebuffersize: UInt, newfileactualsize: MutPtr<UInt>, newfiletime: MutPtr<Filetime>, applyoptionflags: UInt, progresscallback: PpatchProgressCallback, callbackcontext: ConstPtr<CVoid>): Bool =
+public actual fun applyPatchToFileByBuffers(patchfilemapped: ConstPtr, patchfilesize: UInt, oldfilemapped: ConstPtr, oldfilesize: UInt, newfilebuffer: MutPtr, newfilebuffersize: UInt, newfileactualsize: MutPtr, newfiletime: MutPtr, applyoptionflags: UInt, progresscallback: PpatchProgressCallback, callbackcontext: ConstPtr): Bool =
     WindowsWin32SystemApplicationinstallationandservicingJniBridge.windowssysWindowsWin32SystemApplicationinstallationandservicingApplyPatchToFileByBuffers(patchfilemapped.rawAddress, patchfilesize.toInt(), oldfilemapped.rawAddress, oldfilesize.toInt(), newfilebuffer.rawAddress, newfilebuffersize.toInt(), newfileactualsize.rawAddress, newfiletime.rawAddress, applyoptionflags.toInt(), 0L, callbackcontext.rawAddress)
 
 public actual fun applyPatchToFileByHandles(patchfilehandle: Handle, oldfilehandle: Handle, newfilehandle: Handle, applyoptionflags: UInt): Bool =
     WindowsWin32SystemApplicationinstallationandservicingJniBridge.windowssysWindowsWin32SystemApplicationinstallationandservicingApplyPatchToFileByHandles(patchfilehandle.rawAddress, oldfilehandle.rawAddress, newfilehandle.rawAddress, applyoptionflags.toInt())
 
-public actual fun applyPatchToFileByHandlesEx(patchfilehandle: Handle, oldfilehandle: Handle, newfilehandle: Handle, applyoptionflags: UInt, progresscallback: PpatchProgressCallback, callbackcontext: ConstPtr<CVoid>): Bool =
+public actual fun applyPatchToFileByHandlesEx(patchfilehandle: Handle, oldfilehandle: Handle, newfilehandle: Handle, applyoptionflags: UInt, progresscallback: PpatchProgressCallback, callbackcontext: ConstPtr): Bool =
     WindowsWin32SystemApplicationinstallationandservicingJniBridge.windowssysWindowsWin32SystemApplicationinstallationandservicingApplyPatchToFileByHandlesEx(patchfilehandle.rawAddress, oldfilehandle.rawAddress, newfilehandle.rawAddress, applyoptionflags.toInt(), 0L, callbackcontext.rawAddress)
 
-public actual fun applyPatchToFileExA(patchfilename: Pcstr, oldfilename: Pcstr, newfilename: Pcstr, applyoptionflags: UInt, progresscallback: PpatchProgressCallback, callbackcontext: ConstPtr<CVoid>): Bool =
+public actual fun applyPatchToFileExA(patchfilename: Pcstr, oldfilename: Pcstr, newfilename: Pcstr, applyoptionflags: UInt, progresscallback: PpatchProgressCallback, callbackcontext: ConstPtr): Bool =
     WindowsWin32SystemApplicationinstallationandservicingJniBridge.windowssysWindowsWin32SystemApplicationinstallationandservicingApplyPatchToFileExA(patchfilename.rawAddress, oldfilename.rawAddress, newfilename.rawAddress, applyoptionflags.toInt(), 0L, callbackcontext.rawAddress)
 
-public actual fun applyPatchToFileExW(patchfilename: Pcwstr, oldfilename: Pcwstr, newfilename: Pcwstr, applyoptionflags: UInt, progresscallback: PpatchProgressCallback, callbackcontext: ConstPtr<CVoid>): Bool =
+public actual fun applyPatchToFileExW(patchfilename: Pcwstr, oldfilename: Pcwstr, newfilename: Pcwstr, applyoptionflags: UInt, progresscallback: PpatchProgressCallback, callbackcontext: ConstPtr): Bool =
     WindowsWin32SystemApplicationinstallationandservicingJniBridge.windowssysWindowsWin32SystemApplicationinstallationandservicingApplyPatchToFileExW(patchfilename.rawAddress, oldfilename.rawAddress, newfilename.rawAddress, applyoptionflags.toInt(), 0L, callbackcontext.rawAddress)
 
 public actual fun applyPatchToFileW(patchfilename: Pcwstr, oldfilename: Pcwstr, newfilename: Pcwstr, applyoptionflags: UInt): Bool =
     WindowsWin32SystemApplicationinstallationandservicingJniBridge.windowssysWindowsWin32SystemApplicationinstallationandservicingApplyPatchToFileW(patchfilename.rawAddress, oldfilename.rawAddress, newfilename.rawAddress, applyoptionflags.toInt())
 
-public actual fun createActCtxA(pactctx: ConstPtr<Actctxa>): Handle =
+public actual fun createActCtxA(pactctx: ConstPtr): Handle =
     MutPtr(WindowsWin32SystemApplicationinstallationandservicingJniBridge.windowssysWindowsWin32SystemApplicationinstallationandservicingCreateActCtxA(pactctx.rawAddress))
 
-public actual fun createActCtxW(pactctx: ConstPtr<Actctxw>): Handle =
+public actual fun createActCtxW(pactctx: ConstPtr): Handle =
     MutPtr(WindowsWin32SystemApplicationinstallationandservicingJniBridge.windowssysWindowsWin32SystemApplicationinstallationandservicingCreateActCtxW(pactctx.rawAddress))
 
-public actual fun createDeltaA(filetypeset: Long, setflags: Long, resetflags: Long, lpsourcename: Pcstr, lptargetname: Pcstr, lpsourceoptionsname: Pcstr, lptargetoptionsname: Pcstr, globaloptions: DeltaInput, lptargetfiletime: ConstPtr<Filetime>, hashalgid: AlgId, lpdeltaname: Pcstr): Bool =
+public actual fun createDeltaA(filetypeset: Long, setflags: Long, resetflags: Long, lpsourcename: Pcstr, lptargetname: Pcstr, lpsourceoptionsname: Pcstr, lptargetoptionsname: Pcstr, globaloptions: DeltaInput, lptargetfiletime: ConstPtr, hashalgid: AlgId, lpdeltaname: Pcstr): Bool =
     0
 
-public actual fun createDeltaB(filetypeset: Long, setflags: Long, resetflags: Long, source: DeltaInput, target: DeltaInput, sourceoptions: DeltaInput, targetoptions: DeltaInput, globaloptions: DeltaInput, lptargetfiletime: ConstPtr<Filetime>, hashalgid: AlgId, lpdelta: MutPtr<DeltaOutput>): Bool =
+public actual fun createDeltaB(filetypeset: Long, setflags: Long, resetflags: Long, source: DeltaInput, target: DeltaInput, sourceoptions: DeltaInput, targetoptions: DeltaInput, globaloptions: DeltaInput, lptargetfiletime: ConstPtr, hashalgid: AlgId, lpdelta: MutPtr): Bool =
     0
 
-public actual fun createDeltaW(filetypeset: Long, setflags: Long, resetflags: Long, lpsourcename: Pcwstr, lptargetname: Pcwstr, lpsourceoptionsname: Pcwstr, lptargetoptionsname: Pcwstr, globaloptions: DeltaInput, lptargetfiletime: ConstPtr<Filetime>, hashalgid: AlgId, lpdeltaname: Pcwstr): Bool =
+public actual fun createDeltaW(filetypeset: Long, setflags: Long, resetflags: Long, lpsourcename: Pcwstr, lptargetname: Pcwstr, lpsourceoptionsname: Pcwstr, lptargetoptionsname: Pcwstr, globaloptions: DeltaInput, lptargetfiletime: ConstPtr, hashalgid: AlgId, lpdeltaname: Pcwstr): Bool =
     0
 
-public actual fun createPatchFileA(oldfilename: Pcstr, newfilename: Pcstr, patchfilename: Pcstr, optionflags: UInt, optiondata: ConstPtr<PatchOptionData>): Bool =
+public actual fun createPatchFileA(oldfilename: Pcstr, newfilename: Pcstr, patchfilename: Pcstr, optionflags: UInt, optiondata: ConstPtr): Bool =
     WindowsWin32SystemApplicationinstallationandservicingJniBridge.windowssysWindowsWin32SystemApplicationinstallationandservicingCreatePatchFileA(oldfilename.rawAddress, newfilename.rawAddress, patchfilename.rawAddress, optionflags.toInt(), optiondata.rawAddress)
 
-public actual fun createPatchFileByHandles(oldfilehandle: Handle, newfilehandle: Handle, patchfilehandle: Handle, optionflags: UInt, optiondata: ConstPtr<PatchOptionData>): Bool =
+public actual fun createPatchFileByHandles(oldfilehandle: Handle, newfilehandle: Handle, patchfilehandle: Handle, optionflags: UInt, optiondata: ConstPtr): Bool =
     WindowsWin32SystemApplicationinstallationandservicingJniBridge.windowssysWindowsWin32SystemApplicationinstallationandservicingCreatePatchFileByHandles(oldfilehandle.rawAddress, newfilehandle.rawAddress, patchfilehandle.rawAddress, optionflags.toInt(), optiondata.rawAddress)
 
-public actual fun createPatchFileByHandlesEx(oldfilecount: UInt, oldfileinfoarray: ConstPtr<PatchOldFileInfoH>, newfilehandle: Handle, patchfilehandle: Handle, optionflags: UInt, optiondata: ConstPtr<PatchOptionData>, progresscallback: PpatchProgressCallback, callbackcontext: ConstPtr<CVoid>): Bool =
+public actual fun createPatchFileByHandlesEx(oldfilecount: UInt, oldfileinfoarray: ConstPtr, newfilehandle: Handle, patchfilehandle: Handle, optionflags: UInt, optiondata: ConstPtr, progresscallback: PpatchProgressCallback, callbackcontext: ConstPtr): Bool =
     WindowsWin32SystemApplicationinstallationandservicingJniBridge.windowssysWindowsWin32SystemApplicationinstallationandservicingCreatePatchFileByHandlesEx(oldfilecount.toInt(), oldfileinfoarray.rawAddress, newfilehandle.rawAddress, patchfilehandle.rawAddress, optionflags.toInt(), optiondata.rawAddress, 0L, callbackcontext.rawAddress)
 
-public actual fun createPatchFileExA(oldfilecount: UInt, oldfileinfoarray: ConstPtr<PatchOldFileInfoA>, newfilename: Pcstr, patchfilename: Pcstr, optionflags: UInt, optiondata: ConstPtr<PatchOptionData>, progresscallback: PpatchProgressCallback, callbackcontext: ConstPtr<CVoid>): Bool =
+public actual fun createPatchFileExA(oldfilecount: UInt, oldfileinfoarray: ConstPtr, newfilename: Pcstr, patchfilename: Pcstr, optionflags: UInt, optiondata: ConstPtr, progresscallback: PpatchProgressCallback, callbackcontext: ConstPtr): Bool =
     WindowsWin32SystemApplicationinstallationandservicingJniBridge.windowssysWindowsWin32SystemApplicationinstallationandservicingCreatePatchFileExA(oldfilecount.toInt(), oldfileinfoarray.rawAddress, newfilename.rawAddress, patchfilename.rawAddress, optionflags.toInt(), optiondata.rawAddress, 0L, callbackcontext.rawAddress)
 
-public actual fun createPatchFileExW(oldfilecount: UInt, oldfileinfoarray: ConstPtr<PatchOldFileInfoW>, newfilename: Pcwstr, patchfilename: Pcwstr, optionflags: UInt, optiondata: ConstPtr<PatchOptionData>, progresscallback: PpatchProgressCallback, callbackcontext: ConstPtr<CVoid>): Bool =
+public actual fun createPatchFileExW(oldfilecount: UInt, oldfileinfoarray: ConstPtr, newfilename: Pcwstr, patchfilename: Pcwstr, optionflags: UInt, optiondata: ConstPtr, progresscallback: PpatchProgressCallback, callbackcontext: ConstPtr): Bool =
     WindowsWin32SystemApplicationinstallationandservicingJniBridge.windowssysWindowsWin32SystemApplicationinstallationandservicingCreatePatchFileExW(oldfilecount.toInt(), oldfileinfoarray.rawAddress, newfilename.rawAddress, patchfilename.rawAddress, optionflags.toInt(), optiondata.rawAddress, 0L, callbackcontext.rawAddress)
 
-public actual fun createPatchFileW(oldfilename: Pcwstr, newfilename: Pcwstr, patchfilename: Pcwstr, optionflags: UInt, optiondata: ConstPtr<PatchOptionData>): Bool =
+public actual fun createPatchFileW(oldfilename: Pcwstr, newfilename: Pcwstr, patchfilename: Pcwstr, optionflags: UInt, optiondata: ConstPtr): Bool =
     WindowsWin32SystemApplicationinstallationandservicingJniBridge.windowssysWindowsWin32SystemApplicationinstallationandservicingCreatePatchFileW(oldfilename.rawAddress, newfilename.rawAddress, patchfilename.rawAddress, optionflags.toInt(), optiondata.rawAddress)
 
 public actual fun deactivateActCtx(dwflags: UInt, ulcookie: ULong): Bool =
     WindowsWin32SystemApplicationinstallationandservicingJniBridge.windowssysWindowsWin32SystemApplicationinstallationandservicingDeactivateActCtx(dwflags.toInt(), ulcookie.toLong())
 
-public actual fun deltaFree(lpmemory: ConstPtr<CVoid>): Bool =
+public actual fun deltaFree(lpmemory: ConstPtr): Bool =
     WindowsWin32SystemApplicationinstallationandservicingJniBridge.windowssysWindowsWin32SystemApplicationinstallationandservicingDeltaFree(lpmemory.rawAddress)
 
-public actual fun deltaNormalizeProvidedB(filetypeset: Long, normalizeflags: Long, normalizeoptions: DeltaInput, lpsource: MutPtr<CVoid>, usourcesize: ULong): Bool =
+public actual fun deltaNormalizeProvidedB(filetypeset: Long, normalizeflags: Long, normalizeoptions: DeltaInput, lpsource: MutPtr, usourcesize: ULong): Bool =
     0
 
 public actual fun extractPatchHeaderToFileA(patchfilename: Pcstr, patchheaderfilename: Pcstr): Bool =
@@ -1109,46 +1104,46 @@ public actual fun extractPatchHeaderToFileByHandles(patchfilehandle: Handle, pat
 public actual fun extractPatchHeaderToFileW(patchfilename: Pcwstr, patchheaderfilename: Pcwstr): Bool =
     WindowsWin32SystemApplicationinstallationandservicingJniBridge.windowssysWindowsWin32SystemApplicationinstallationandservicingExtractPatchHeaderToFileW(patchfilename.rawAddress, patchheaderfilename.rawAddress)
 
-public actual fun findActCtxSectionGuid(dwflags: UInt, lpextensionguid: ConstPtr<Guid>, ulsectionid: UInt, lpguidtofind: ConstPtr<Guid>, returneddata: MutPtr<ActctxSectionKeyedData>): Bool =
+public actual fun findActCtxSectionGuid(dwflags: UInt, lpextensionguid: ConstPtr, ulsectionid: UInt, lpguidtofind: ConstPtr, returneddata: MutPtr): Bool =
     WindowsWin32SystemApplicationinstallationandservicingJniBridge.windowssysWindowsWin32SystemApplicationinstallationandservicingFindActCtxSectionGuid(dwflags.toInt(), lpextensionguid.rawAddress, ulsectionid.toInt(), lpguidtofind.rawAddress, returneddata.rawAddress)
 
-public actual fun findActCtxSectionStringA(dwflags: UInt, lpextensionguid: ConstPtr<Guid>, ulsectionid: UInt, lpstringtofind: Pcstr, returneddata: MutPtr<ActctxSectionKeyedData>): Bool =
+public actual fun findActCtxSectionStringA(dwflags: UInt, lpextensionguid: ConstPtr, ulsectionid: UInt, lpstringtofind: Pcstr, returneddata: MutPtr): Bool =
     WindowsWin32SystemApplicationinstallationandservicingJniBridge.windowssysWindowsWin32SystemApplicationinstallationandservicingFindActCtxSectionStringA(dwflags.toInt(), lpextensionguid.rawAddress, ulsectionid.toInt(), lpstringtofind.rawAddress, returneddata.rawAddress)
 
-public actual fun findActCtxSectionStringW(dwflags: UInt, lpextensionguid: ConstPtr<Guid>, ulsectionid: UInt, lpstringtofind: Pcwstr, returneddata: MutPtr<ActctxSectionKeyedData>): Bool =
+public actual fun findActCtxSectionStringW(dwflags: UInt, lpextensionguid: ConstPtr, ulsectionid: UInt, lpstringtofind: Pcwstr, returneddata: MutPtr): Bool =
     WindowsWin32SystemApplicationinstallationandservicingJniBridge.windowssysWindowsWin32SystemApplicationinstallationandservicingFindActCtxSectionStringW(dwflags.toInt(), lpextensionguid.rawAddress, ulsectionid.toInt(), lpstringtofind.rawAddress, returneddata.rawAddress)
 
-public actual fun getCurrentActCtx(lphactctx: MutPtr<Handle>): Bool =
+public actual fun getCurrentActCtx(lphactctx: MutPtr): Bool =
     WindowsWin32SystemApplicationinstallationandservicingJniBridge.windowssysWindowsWin32SystemApplicationinstallationandservicingGetCurrentActCtx(lphactctx.rawAddress)
 
-public actual fun getDeltaInfoA(lpdeltaname: Pcstr, lpheaderinfo: MutPtr<DeltaHeaderInfo>): Bool =
+public actual fun getDeltaInfoA(lpdeltaname: Pcstr, lpheaderinfo: MutPtr): Bool =
     WindowsWin32SystemApplicationinstallationandservicingJniBridge.windowssysWindowsWin32SystemApplicationinstallationandservicingGetDeltaInfoA(lpdeltaname.rawAddress, lpheaderinfo.rawAddress)
 
-public actual fun getDeltaInfoB(delta: DeltaInput, lpheaderinfo: MutPtr<DeltaHeaderInfo>): Bool =
+public actual fun getDeltaInfoB(delta: DeltaInput, lpheaderinfo: MutPtr): Bool =
     0
 
-public actual fun getDeltaInfoW(lpdeltaname: Pcwstr, lpheaderinfo: MutPtr<DeltaHeaderInfo>): Bool =
+public actual fun getDeltaInfoW(lpdeltaname: Pcwstr, lpheaderinfo: MutPtr): Bool =
     WindowsWin32SystemApplicationinstallationandservicingJniBridge.windowssysWindowsWin32SystemApplicationinstallationandservicingGetDeltaInfoW(lpdeltaname.rawAddress, lpheaderinfo.rawAddress)
 
-public actual fun getDeltaSignatureA(filetypeset: Long, hashalgid: AlgId, lpsourcename: Pcstr, lphash: MutPtr<DeltaHash>): Bool =
+public actual fun getDeltaSignatureA(filetypeset: Long, hashalgid: AlgId, lpsourcename: Pcstr, lphash: MutPtr): Bool =
     WindowsWin32SystemApplicationinstallationandservicingJniBridge.windowssysWindowsWin32SystemApplicationinstallationandservicingGetDeltaSignatureA(filetypeset, hashalgid.toInt(), lpsourcename.rawAddress, lphash.rawAddress)
 
-public actual fun getDeltaSignatureB(filetypeset: Long, hashalgid: AlgId, source: DeltaInput, lphash: MutPtr<DeltaHash>): Bool =
+public actual fun getDeltaSignatureB(filetypeset: Long, hashalgid: AlgId, source: DeltaInput, lphash: MutPtr): Bool =
     0
 
-public actual fun getDeltaSignatureW(filetypeset: Long, hashalgid: AlgId, lpsourcename: Pcwstr, lphash: MutPtr<DeltaHash>): Bool =
+public actual fun getDeltaSignatureW(filetypeset: Long, hashalgid: AlgId, lpsourcename: Pcwstr, lphash: MutPtr): Bool =
     WindowsWin32SystemApplicationinstallationandservicingJniBridge.windowssysWindowsWin32SystemApplicationinstallationandservicingGetDeltaSignatureW(filetypeset, hashalgid.toInt(), lpsourcename.rawAddress, lphash.rawAddress)
 
-public actual fun getFilePatchSignatureA(filename: Pcstr, optionflags: UInt, optiondata: ConstPtr<CVoid>, ignorerangecount: UInt, ignorerangearray: ConstPtr<PatchIgnoreRange>, retainrangecount: UInt, retainrangearray: ConstPtr<PatchRetainRange>, signaturebuffersize: UInt, signaturebuffer: Pstr): Bool =
+public actual fun getFilePatchSignatureA(filename: Pcstr, optionflags: UInt, optiondata: ConstPtr, ignorerangecount: UInt, ignorerangearray: ConstPtr, retainrangecount: UInt, retainrangearray: ConstPtr, signaturebuffersize: UInt, signaturebuffer: Pstr): Bool =
     WindowsWin32SystemApplicationinstallationandservicingJniBridge.windowssysWindowsWin32SystemApplicationinstallationandservicingGetFilePatchSignatureA(filename.rawAddress, optionflags.toInt(), optiondata.rawAddress, ignorerangecount.toInt(), ignorerangearray.rawAddress, retainrangecount.toInt(), retainrangearray.rawAddress, signaturebuffersize.toInt(), signaturebuffer.rawAddress)
 
-public actual fun getFilePatchSignatureByBuffer(filebufferwritable: MutPtr<UByte>, filesize: UInt, optionflags: UInt, optiondata: ConstPtr<CVoid>, ignorerangecount: UInt, ignorerangearray: ConstPtr<PatchIgnoreRange>, retainrangecount: UInt, retainrangearray: ConstPtr<PatchRetainRange>, signaturebuffersize: UInt, signaturebuffer: Pstr): Bool =
+public actual fun getFilePatchSignatureByBuffer(filebufferwritable: MutPtr, filesize: UInt, optionflags: UInt, optiondata: ConstPtr, ignorerangecount: UInt, ignorerangearray: ConstPtr, retainrangecount: UInt, retainrangearray: ConstPtr, signaturebuffersize: UInt, signaturebuffer: Pstr): Bool =
     WindowsWin32SystemApplicationinstallationandservicingJniBridge.windowssysWindowsWin32SystemApplicationinstallationandservicingGetFilePatchSignatureByBuffer(filebufferwritable.rawAddress, filesize.toInt(), optionflags.toInt(), optiondata.rawAddress, ignorerangecount.toInt(), ignorerangearray.rawAddress, retainrangecount.toInt(), retainrangearray.rawAddress, signaturebuffersize.toInt(), signaturebuffer.rawAddress)
 
-public actual fun getFilePatchSignatureByHandle(filehandle: Handle, optionflags: UInt, optiondata: ConstPtr<CVoid>, ignorerangecount: UInt, ignorerangearray: ConstPtr<PatchIgnoreRange>, retainrangecount: UInt, retainrangearray: ConstPtr<PatchRetainRange>, signaturebuffersize: UInt, signaturebuffer: Pstr): Bool =
+public actual fun getFilePatchSignatureByHandle(filehandle: Handle, optionflags: UInt, optiondata: ConstPtr, ignorerangecount: UInt, ignorerangearray: ConstPtr, retainrangecount: UInt, retainrangearray: ConstPtr, signaturebuffersize: UInt, signaturebuffer: Pstr): Bool =
     WindowsWin32SystemApplicationinstallationandservicingJniBridge.windowssysWindowsWin32SystemApplicationinstallationandservicingGetFilePatchSignatureByHandle(filehandle.rawAddress, optionflags.toInt(), optiondata.rawAddress, ignorerangecount.toInt(), ignorerangearray.rawAddress, retainrangecount.toInt(), retainrangearray.rawAddress, signaturebuffersize.toInt(), signaturebuffer.rawAddress)
 
-public actual fun getFilePatchSignatureW(filename: Pcwstr, optionflags: UInt, optiondata: ConstPtr<CVoid>, ignorerangecount: UInt, ignorerangearray: ConstPtr<PatchIgnoreRange>, retainrangecount: UInt, retainrangearray: ConstPtr<PatchRetainRange>, signaturebuffersize: UInt, signaturebuffer: Pwstr): Bool =
+public actual fun getFilePatchSignatureW(filename: Pcwstr, optionflags: UInt, optiondata: ConstPtr, ignorerangecount: UInt, ignorerangearray: ConstPtr, retainrangecount: UInt, retainrangearray: ConstPtr, signaturebuffersize: UInt, signaturebuffer: Pwstr): Bool =
     WindowsWin32SystemApplicationinstallationandservicingJniBridge.windowssysWindowsWin32SystemApplicationinstallationandservicingGetFilePatchSignatureW(filename.rawAddress, optionflags.toInt(), optiondata.rawAddress, ignorerangecount.toInt(), ignorerangearray.rawAddress, retainrangecount.toInt(), retainrangearray.rawAddress, signaturebuffersize.toInt(), signaturebuffer.rawAddress)
 
 public actual fun msiAdvertiseProductA(szpackagepath: Pcstr, szscriptfilepath: Pcstr, sztransforms: Pcstr, lgidlanguage: UShort): UInt =
@@ -1163,10 +1158,10 @@ public actual fun msiAdvertiseProductExW(szpackagepath: Pcwstr, szscriptfilepath
 public actual fun msiAdvertiseProductW(szpackagepath: Pcwstr, szscriptfilepath: Pcwstr, sztransforms: Pcwstr, lgidlanguage: UShort): UInt =
     WindowsWin32SystemApplicationinstallationandservicingJniBridge.windowssysWindowsWin32SystemApplicationinstallationandservicingMsiAdvertiseProductW(szpackagepath.rawAddress, szscriptfilepath.rawAddress, sztransforms.rawAddress, lgidlanguage.toShort()).toUInt()
 
-public actual fun msiAdvertiseScriptA(szscriptfile: Pcstr, dwflags: UInt, phregdata: ConstPtr<Hkey>, fremoveitems: Bool): UInt =
+public actual fun msiAdvertiseScriptA(szscriptfile: Pcstr, dwflags: UInt, phregdata: ConstPtr, fremoveitems: Bool): UInt =
     WindowsWin32SystemApplicationinstallationandservicingJniBridge.windowssysWindowsWin32SystemApplicationinstallationandservicingMsiAdvertiseScriptA(szscriptfile.rawAddress, dwflags.toInt(), phregdata.rawAddress, fremoveitems).toUInt()
 
-public actual fun msiAdvertiseScriptW(szscriptfile: Pcwstr, dwflags: UInt, phregdata: ConstPtr<Hkey>, fremoveitems: Bool): UInt =
+public actual fun msiAdvertiseScriptW(szscriptfile: Pcwstr, dwflags: UInt, phregdata: ConstPtr, fremoveitems: Bool): UInt =
     WindowsWin32SystemApplicationinstallationandservicingJniBridge.windowssysWindowsWin32SystemApplicationinstallationandservicingMsiAdvertiseScriptW(szscriptfile.rawAddress, dwflags.toInt(), phregdata.rawAddress, fremoveitems).toUInt()
 
 public actual fun msiApplyMultiplePatchesA(szpatchpackages: Pcstr, szproductcode: Pcstr, szpropertieslist: Pcstr): UInt =
@@ -1181,10 +1176,10 @@ public actual fun msiApplyPatchA(szpatchpackage: Pcstr, szinstallpackage: Pcstr,
 public actual fun msiApplyPatchW(szpatchpackage: Pcwstr, szinstallpackage: Pcwstr, einstalltype: Installtype, szcommandline: Pcwstr): UInt =
     WindowsWin32SystemApplicationinstallationandservicingJniBridge.windowssysWindowsWin32SystemApplicationinstallationandservicingMsiApplyPatchW(szpatchpackage.rawAddress, szinstallpackage.rawAddress, einstalltype, szcommandline.rawAddress).toUInt()
 
-public actual fun msiBeginTransactionA(szname: Pcstr, dwtransactionattributes: UInt, phtransactionhandle: MutPtr<Msihandle>, phchangeofownerevent: MutPtr<Handle>): UInt =
+public actual fun msiBeginTransactionA(szname: Pcstr, dwtransactionattributes: UInt, phtransactionhandle: MutPtr, phchangeofownerevent: MutPtr): UInt =
     WindowsWin32SystemApplicationinstallationandservicingJniBridge.windowssysWindowsWin32SystemApplicationinstallationandservicingMsiBeginTransactionA(szname.rawAddress, dwtransactionattributes.toInt(), phtransactionhandle.rawAddress, phchangeofownerevent.rawAddress).toUInt()
 
-public actual fun msiBeginTransactionW(szname: Pcwstr, dwtransactionattributes: UInt, phtransactionhandle: MutPtr<Msihandle>, phchangeofownerevent: MutPtr<Handle>): UInt =
+public actual fun msiBeginTransactionW(szname: Pcwstr, dwtransactionattributes: UInt, phtransactionhandle: MutPtr, phchangeofownerevent: MutPtr): UInt =
     WindowsWin32SystemApplicationinstallationandservicingJniBridge.windowssysWindowsWin32SystemApplicationinstallationandservicingMsiBeginTransactionW(szname.rawAddress, dwtransactionattributes.toInt(), phtransactionhandle.rawAddress, phchangeofownerevent.rawAddress).toUInt()
 
 public actual fun msiCloseAllHandles(): UInt =
@@ -1247,10 +1242,10 @@ public actual fun msiDatabaseGenerateTransformA(hdatabase: Msihandle, hdatabaser
 public actual fun msiDatabaseGenerateTransformW(hdatabase: Msihandle, hdatabasereference: Msihandle, sztransformfile: Pcwstr, ireserved1: Int, ireserved2: Int): UInt =
     WindowsWin32SystemApplicationinstallationandservicingJniBridge.windowssysWindowsWin32SystemApplicationinstallationandservicingMsiDatabaseGenerateTransformW(hdatabase.toInt(), hdatabasereference.toInt(), sztransformfile.rawAddress, ireserved1, ireserved2).toUInt()
 
-public actual fun msiDatabaseGetPrimaryKeysA(hdatabase: Msihandle, sztablename: Pcstr, phrecord: MutPtr<Msihandle>): UInt =
+public actual fun msiDatabaseGetPrimaryKeysA(hdatabase: Msihandle, sztablename: Pcstr, phrecord: MutPtr): UInt =
     WindowsWin32SystemApplicationinstallationandservicingJniBridge.windowssysWindowsWin32SystemApplicationinstallationandservicingMsiDatabaseGetPrimaryKeysA(hdatabase.toInt(), sztablename.rawAddress, phrecord.rawAddress).toUInt()
 
-public actual fun msiDatabaseGetPrimaryKeysW(hdatabase: Msihandle, sztablename: Pcwstr, phrecord: MutPtr<Msihandle>): UInt =
+public actual fun msiDatabaseGetPrimaryKeysW(hdatabase: Msihandle, sztablename: Pcwstr, phrecord: MutPtr): UInt =
     WindowsWin32SystemApplicationinstallationandservicingJniBridge.windowssysWindowsWin32SystemApplicationinstallationandservicingMsiDatabaseGetPrimaryKeysW(hdatabase.toInt(), sztablename.rawAddress, phrecord.rawAddress).toUInt()
 
 public actual fun msiDatabaseImportA(hdatabase: Msihandle, szfolderpath: Pcstr, szfilename: Pcstr): UInt =
@@ -1271,22 +1266,22 @@ public actual fun msiDatabaseMergeA(hdatabase: Msihandle, hdatabasemerge: Msihan
 public actual fun msiDatabaseMergeW(hdatabase: Msihandle, hdatabasemerge: Msihandle, sztablename: Pcwstr): UInt =
     WindowsWin32SystemApplicationinstallationandservicingJniBridge.windowssysWindowsWin32SystemApplicationinstallationandservicingMsiDatabaseMergeW(hdatabase.toInt(), hdatabasemerge.toInt(), sztablename.rawAddress).toUInt()
 
-public actual fun msiDatabaseOpenViewA(hdatabase: Msihandle, szquery: Pcstr, phview: MutPtr<Msihandle>): UInt =
+public actual fun msiDatabaseOpenViewA(hdatabase: Msihandle, szquery: Pcstr, phview: MutPtr): UInt =
     WindowsWin32SystemApplicationinstallationandservicingJniBridge.windowssysWindowsWin32SystemApplicationinstallationandservicingMsiDatabaseOpenViewA(hdatabase.toInt(), szquery.rawAddress, phview.rawAddress).toUInt()
 
-public actual fun msiDatabaseOpenViewW(hdatabase: Msihandle, szquery: Pcwstr, phview: MutPtr<Msihandle>): UInt =
+public actual fun msiDatabaseOpenViewW(hdatabase: Msihandle, szquery: Pcwstr, phview: MutPtr): UInt =
     WindowsWin32SystemApplicationinstallationandservicingJniBridge.windowssysWindowsWin32SystemApplicationinstallationandservicingMsiDatabaseOpenViewW(hdatabase.toInt(), szquery.rawAddress, phview.rawAddress).toUInt()
 
-public actual fun msiDetermineApplicablePatchesA(szproductpackagepath: Pcstr, cpatchinfo: UInt, ppatchinfo: MutPtr<Msipatchsequenceinfoa>): UInt =
+public actual fun msiDetermineApplicablePatchesA(szproductpackagepath: Pcstr, cpatchinfo: UInt, ppatchinfo: MutPtr): UInt =
     WindowsWin32SystemApplicationinstallationandservicingJniBridge.windowssysWindowsWin32SystemApplicationinstallationandservicingMsiDetermineApplicablePatchesA(szproductpackagepath.rawAddress, cpatchinfo.toInt(), ppatchinfo.rawAddress).toUInt()
 
-public actual fun msiDetermineApplicablePatchesW(szproductpackagepath: Pcwstr, cpatchinfo: UInt, ppatchinfo: MutPtr<Msipatchsequenceinfow>): UInt =
+public actual fun msiDetermineApplicablePatchesW(szproductpackagepath: Pcwstr, cpatchinfo: UInt, ppatchinfo: MutPtr): UInt =
     WindowsWin32SystemApplicationinstallationandservicingJniBridge.windowssysWindowsWin32SystemApplicationinstallationandservicingMsiDetermineApplicablePatchesW(szproductpackagepath.rawAddress, cpatchinfo.toInt(), ppatchinfo.rawAddress).toUInt()
 
-public actual fun msiDeterminePatchSequenceA(szproductcode: Pcstr, szusersid: Pcstr, dwcontext: Msiinstallcontext, cpatchinfo: UInt, ppatchinfo: MutPtr<Msipatchsequenceinfoa>): UInt =
+public actual fun msiDeterminePatchSequenceA(szproductcode: Pcstr, szusersid: Pcstr, dwcontext: Msiinstallcontext, cpatchinfo: UInt, ppatchinfo: MutPtr): UInt =
     WindowsWin32SystemApplicationinstallationandservicingJniBridge.windowssysWindowsWin32SystemApplicationinstallationandservicingMsiDeterminePatchSequenceA(szproductcode.rawAddress, szusersid.rawAddress, dwcontext, cpatchinfo.toInt(), ppatchinfo.rawAddress).toUInt()
 
-public actual fun msiDeterminePatchSequenceW(szproductcode: Pcwstr, szusersid: Pcwstr, dwcontext: Msiinstallcontext, cpatchinfo: UInt, ppatchinfo: MutPtr<Msipatchsequenceinfow>): UInt =
+public actual fun msiDeterminePatchSequenceW(szproductcode: Pcwstr, szusersid: Pcwstr, dwcontext: Msiinstallcontext, cpatchinfo: UInt, ppatchinfo: MutPtr): UInt =
     WindowsWin32SystemApplicationinstallationandservicingJniBridge.windowssysWindowsWin32SystemApplicationinstallationandservicingMsiDeterminePatchSequenceW(szproductcode.rawAddress, szusersid.rawAddress, dwcontext, cpatchinfo.toInt(), ppatchinfo.rawAddress).toUInt()
 
 public actual fun msiDoActionA(hinstall: Msihandle, szaction: Pcstr): UInt =
@@ -1301,7 +1296,7 @@ public actual fun msiEnableLogA(dwlogmode: UInt, szlogfile: Pcstr, dwlogattribut
 public actual fun msiEnableLogW(dwlogmode: UInt, szlogfile: Pcwstr, dwlogattributes: UInt): UInt =
     WindowsWin32SystemApplicationinstallationandservicingJniBridge.windowssysWindowsWin32SystemApplicationinstallationandservicingMsiEnableLogW(dwlogmode.toInt(), szlogfile.rawAddress, dwlogattributes.toInt()).toUInt()
 
-public actual fun msiEnableUIPreview(hdatabase: Msihandle, phpreview: MutPtr<Msihandle>): UInt =
+public actual fun msiEnableUIPreview(hdatabase: Msihandle, phpreview: MutPtr): UInt =
     WindowsWin32SystemApplicationinstallationandservicingJniBridge.windowssysWindowsWin32SystemApplicationinstallationandservicingMsiEnableUIPreview(hdatabase.toInt(), phpreview.rawAddress).toUInt()
 
 public actual fun msiEndTransaction(dwtransactionstate: Msitransactionstate): UInt =
@@ -1310,34 +1305,34 @@ public actual fun msiEndTransaction(dwtransactionstate: Msitransactionstate): UI
 public actual fun msiEnumClientsA(szcomponent: Pcstr, iproductindex: UInt, lpproductbuf: Pstr): UInt =
     WindowsWin32SystemApplicationinstallationandservicingJniBridge.windowssysWindowsWin32SystemApplicationinstallationandservicingMsiEnumClientsA(szcomponent.rawAddress, iproductindex.toInt(), lpproductbuf.rawAddress).toUInt()
 
-public actual fun msiEnumClientsExA(szcomponent: Pcstr, szusersid: Pcstr, dwcontext: UInt, dwproductindex: UInt, szproductbuf: Pstr, pdwinstalledcontext: MutPtr<Msiinstallcontext>, szsid: Pstr, pcchsid: MutPtr<UInt>): UInt =
+public actual fun msiEnumClientsExA(szcomponent: Pcstr, szusersid: Pcstr, dwcontext: UInt, dwproductindex: UInt, szproductbuf: Pstr, pdwinstalledcontext: MutPtr, szsid: Pstr, pcchsid: MutPtr): UInt =
     WindowsWin32SystemApplicationinstallationandservicingJniBridge.windowssysWindowsWin32SystemApplicationinstallationandservicingMsiEnumClientsExA(szcomponent.rawAddress, szusersid.rawAddress, dwcontext.toInt(), dwproductindex.toInt(), szproductbuf.rawAddress, pdwinstalledcontext.rawAddress, szsid.rawAddress, pcchsid.rawAddress).toUInt()
 
-public actual fun msiEnumClientsExW(szcomponent: Pcwstr, szusersid: Pcwstr, dwcontext: UInt, dwproductindex: UInt, szproductbuf: Pwstr, pdwinstalledcontext: MutPtr<Msiinstallcontext>, szsid: Pwstr, pcchsid: MutPtr<UInt>): UInt =
+public actual fun msiEnumClientsExW(szcomponent: Pcwstr, szusersid: Pcwstr, dwcontext: UInt, dwproductindex: UInt, szproductbuf: Pwstr, pdwinstalledcontext: MutPtr, szsid: Pwstr, pcchsid: MutPtr): UInt =
     WindowsWin32SystemApplicationinstallationandservicingJniBridge.windowssysWindowsWin32SystemApplicationinstallationandservicingMsiEnumClientsExW(szcomponent.rawAddress, szusersid.rawAddress, dwcontext.toInt(), dwproductindex.toInt(), szproductbuf.rawAddress, pdwinstalledcontext.rawAddress, szsid.rawAddress, pcchsid.rawAddress).toUInt()
 
 public actual fun msiEnumClientsW(szcomponent: Pcwstr, iproductindex: UInt, lpproductbuf: Pwstr): UInt =
     WindowsWin32SystemApplicationinstallationandservicingJniBridge.windowssysWindowsWin32SystemApplicationinstallationandservicingMsiEnumClientsW(szcomponent.rawAddress, iproductindex.toInt(), lpproductbuf.rawAddress).toUInt()
 
-public actual fun msiEnumComponentCostsA(hinstall: Msihandle, szcomponent: Pcstr, dwindex: UInt, istate: Installstate, szdrivebuf: Pstr, pcchdrivebuf: MutPtr<UInt>, picost: MutPtr<Int>, pitempcost: MutPtr<Int>): UInt =
+public actual fun msiEnumComponentCostsA(hinstall: Msihandle, szcomponent: Pcstr, dwindex: UInt, istate: Installstate, szdrivebuf: Pstr, pcchdrivebuf: MutPtr, picost: MutPtr, pitempcost: MutPtr): UInt =
     WindowsWin32SystemApplicationinstallationandservicingJniBridge.windowssysWindowsWin32SystemApplicationinstallationandservicingMsiEnumComponentCostsA(hinstall.toInt(), szcomponent.rawAddress, dwindex.toInt(), istate, szdrivebuf.rawAddress, pcchdrivebuf.rawAddress, picost.rawAddress, pitempcost.rawAddress).toUInt()
 
-public actual fun msiEnumComponentCostsW(hinstall: Msihandle, szcomponent: Pcwstr, dwindex: UInt, istate: Installstate, szdrivebuf: Pwstr, pcchdrivebuf: MutPtr<UInt>, picost: MutPtr<Int>, pitempcost: MutPtr<Int>): UInt =
+public actual fun msiEnumComponentCostsW(hinstall: Msihandle, szcomponent: Pcwstr, dwindex: UInt, istate: Installstate, szdrivebuf: Pwstr, pcchdrivebuf: MutPtr, picost: MutPtr, pitempcost: MutPtr): UInt =
     WindowsWin32SystemApplicationinstallationandservicingJniBridge.windowssysWindowsWin32SystemApplicationinstallationandservicingMsiEnumComponentCostsW(hinstall.toInt(), szcomponent.rawAddress, dwindex.toInt(), istate, szdrivebuf.rawAddress, pcchdrivebuf.rawAddress, picost.rawAddress, pitempcost.rawAddress).toUInt()
 
-public actual fun msiEnumComponentQualifiersA(szcomponent: Pcstr, iindex: UInt, lpqualifierbuf: Pstr, pcchqualifierbuf: MutPtr<UInt>, lpapplicationdatabuf: Pstr, pcchapplicationdatabuf: MutPtr<UInt>): UInt =
+public actual fun msiEnumComponentQualifiersA(szcomponent: Pcstr, iindex: UInt, lpqualifierbuf: Pstr, pcchqualifierbuf: MutPtr, lpapplicationdatabuf: Pstr, pcchapplicationdatabuf: MutPtr): UInt =
     WindowsWin32SystemApplicationinstallationandservicingJniBridge.windowssysWindowsWin32SystemApplicationinstallationandservicingMsiEnumComponentQualifiersA(szcomponent.rawAddress, iindex.toInt(), lpqualifierbuf.rawAddress, pcchqualifierbuf.rawAddress, lpapplicationdatabuf.rawAddress, pcchapplicationdatabuf.rawAddress).toUInt()
 
-public actual fun msiEnumComponentQualifiersW(szcomponent: Pcwstr, iindex: UInt, lpqualifierbuf: Pwstr, pcchqualifierbuf: MutPtr<UInt>, lpapplicationdatabuf: Pwstr, pcchapplicationdatabuf: MutPtr<UInt>): UInt =
+public actual fun msiEnumComponentQualifiersW(szcomponent: Pcwstr, iindex: UInt, lpqualifierbuf: Pwstr, pcchqualifierbuf: MutPtr, lpapplicationdatabuf: Pwstr, pcchapplicationdatabuf: MutPtr): UInt =
     WindowsWin32SystemApplicationinstallationandservicingJniBridge.windowssysWindowsWin32SystemApplicationinstallationandservicingMsiEnumComponentQualifiersW(szcomponent.rawAddress, iindex.toInt(), lpqualifierbuf.rawAddress, pcchqualifierbuf.rawAddress, lpapplicationdatabuf.rawAddress, pcchapplicationdatabuf.rawAddress).toUInt()
 
 public actual fun msiEnumComponentsA(icomponentindex: UInt, lpcomponentbuf: Pstr): UInt =
     WindowsWin32SystemApplicationinstallationandservicingJniBridge.windowssysWindowsWin32SystemApplicationinstallationandservicingMsiEnumComponentsA(icomponentindex.toInt(), lpcomponentbuf.rawAddress).toUInt()
 
-public actual fun msiEnumComponentsExA(szusersid: Pcstr, dwcontext: UInt, dwindex: UInt, szinstalledcomponentcode: Pstr, pdwinstalledcontext: MutPtr<Msiinstallcontext>, szsid: Pstr, pcchsid: MutPtr<UInt>): UInt =
+public actual fun msiEnumComponentsExA(szusersid: Pcstr, dwcontext: UInt, dwindex: UInt, szinstalledcomponentcode: Pstr, pdwinstalledcontext: MutPtr, szsid: Pstr, pcchsid: MutPtr): UInt =
     WindowsWin32SystemApplicationinstallationandservicingJniBridge.windowssysWindowsWin32SystemApplicationinstallationandservicingMsiEnumComponentsExA(szusersid.rawAddress, dwcontext.toInt(), dwindex.toInt(), szinstalledcomponentcode.rawAddress, pdwinstalledcontext.rawAddress, szsid.rawAddress, pcchsid.rawAddress).toUInt()
 
-public actual fun msiEnumComponentsExW(szusersid: Pcwstr, dwcontext: UInt, dwindex: UInt, szinstalledcomponentcode: Pwstr, pdwinstalledcontext: MutPtr<Msiinstallcontext>, szsid: Pwstr, pcchsid: MutPtr<UInt>): UInt =
+public actual fun msiEnumComponentsExW(szusersid: Pcwstr, dwcontext: UInt, dwindex: UInt, szinstalledcomponentcode: Pwstr, pdwinstalledcontext: MutPtr, szsid: Pwstr, pcchsid: MutPtr): UInt =
     WindowsWin32SystemApplicationinstallationandservicingJniBridge.windowssysWindowsWin32SystemApplicationinstallationandservicingMsiEnumComponentsExW(szusersid.rawAddress, dwcontext.toInt(), dwindex.toInt(), szinstalledcomponentcode.rawAddress, pdwinstalledcontext.rawAddress, szsid.rawAddress, pcchsid.rawAddress).toUInt()
 
 public actual fun msiEnumComponentsW(icomponentindex: UInt, lpcomponentbuf: Pwstr): UInt =
@@ -1349,25 +1344,25 @@ public actual fun msiEnumFeaturesA(szproduct: Pcstr, ifeatureindex: UInt, lpfeat
 public actual fun msiEnumFeaturesW(szproduct: Pcwstr, ifeatureindex: UInt, lpfeaturebuf: Pwstr, lpparentbuf: Pwstr): UInt =
     WindowsWin32SystemApplicationinstallationandservicingJniBridge.windowssysWindowsWin32SystemApplicationinstallationandservicingMsiEnumFeaturesW(szproduct.rawAddress, ifeatureindex.toInt(), lpfeaturebuf.rawAddress, lpparentbuf.rawAddress).toUInt()
 
-public actual fun msiEnumPatchesA(szproduct: Pcstr, ipatchindex: UInt, lppatchbuf: Pstr, lptransformsbuf: Pstr, pcchtransformsbuf: MutPtr<UInt>): UInt =
+public actual fun msiEnumPatchesA(szproduct: Pcstr, ipatchindex: UInt, lppatchbuf: Pstr, lptransformsbuf: Pstr, pcchtransformsbuf: MutPtr): UInt =
     WindowsWin32SystemApplicationinstallationandservicingJniBridge.windowssysWindowsWin32SystemApplicationinstallationandservicingMsiEnumPatchesA(szproduct.rawAddress, ipatchindex.toInt(), lppatchbuf.rawAddress, lptransformsbuf.rawAddress, pcchtransformsbuf.rawAddress).toUInt()
 
-public actual fun msiEnumPatchesExA(szproductcode: Pcstr, szusersid: Pcstr, dwcontext: UInt, dwfilter: UInt, dwindex: UInt, szpatchcode: Pstr, sztargetproductcode: Pstr, pdwtargetproductcontext: MutPtr<Msiinstallcontext>, sztargetusersid: Pstr, pcchtargetusersid: MutPtr<UInt>): UInt =
+public actual fun msiEnumPatchesExA(szproductcode: Pcstr, szusersid: Pcstr, dwcontext: UInt, dwfilter: UInt, dwindex: UInt, szpatchcode: Pstr, sztargetproductcode: Pstr, pdwtargetproductcontext: MutPtr, sztargetusersid: Pstr, pcchtargetusersid: MutPtr): UInt =
     WindowsWin32SystemApplicationinstallationandservicingJniBridge.windowssysWindowsWin32SystemApplicationinstallationandservicingMsiEnumPatchesExA(szproductcode.rawAddress, szusersid.rawAddress, dwcontext.toInt(), dwfilter.toInt(), dwindex.toInt(), szpatchcode.rawAddress, sztargetproductcode.rawAddress, pdwtargetproductcontext.rawAddress, sztargetusersid.rawAddress, pcchtargetusersid.rawAddress).toUInt()
 
-public actual fun msiEnumPatchesExW(szproductcode: Pcwstr, szusersid: Pcwstr, dwcontext: UInt, dwfilter: UInt, dwindex: UInt, szpatchcode: Pwstr, sztargetproductcode: Pwstr, pdwtargetproductcontext: MutPtr<Msiinstallcontext>, sztargetusersid: Pwstr, pcchtargetusersid: MutPtr<UInt>): UInt =
+public actual fun msiEnumPatchesExW(szproductcode: Pcwstr, szusersid: Pcwstr, dwcontext: UInt, dwfilter: UInt, dwindex: UInt, szpatchcode: Pwstr, sztargetproductcode: Pwstr, pdwtargetproductcontext: MutPtr, sztargetusersid: Pwstr, pcchtargetusersid: MutPtr): UInt =
     WindowsWin32SystemApplicationinstallationandservicingJniBridge.windowssysWindowsWin32SystemApplicationinstallationandservicingMsiEnumPatchesExW(szproductcode.rawAddress, szusersid.rawAddress, dwcontext.toInt(), dwfilter.toInt(), dwindex.toInt(), szpatchcode.rawAddress, sztargetproductcode.rawAddress, pdwtargetproductcontext.rawAddress, sztargetusersid.rawAddress, pcchtargetusersid.rawAddress).toUInt()
 
-public actual fun msiEnumPatchesW(szproduct: Pcwstr, ipatchindex: UInt, lppatchbuf: Pwstr, lptransformsbuf: Pwstr, pcchtransformsbuf: MutPtr<UInt>): UInt =
+public actual fun msiEnumPatchesW(szproduct: Pcwstr, ipatchindex: UInt, lppatchbuf: Pwstr, lptransformsbuf: Pwstr, pcchtransformsbuf: MutPtr): UInt =
     WindowsWin32SystemApplicationinstallationandservicingJniBridge.windowssysWindowsWin32SystemApplicationinstallationandservicingMsiEnumPatchesW(szproduct.rawAddress, ipatchindex.toInt(), lppatchbuf.rawAddress, lptransformsbuf.rawAddress, pcchtransformsbuf.rawAddress).toUInt()
 
 public actual fun msiEnumProductsA(iproductindex: UInt, lpproductbuf: Pstr): UInt =
     WindowsWin32SystemApplicationinstallationandservicingJniBridge.windowssysWindowsWin32SystemApplicationinstallationandservicingMsiEnumProductsA(iproductindex.toInt(), lpproductbuf.rawAddress).toUInt()
 
-public actual fun msiEnumProductsExA(szproductcode: Pcstr, szusersid: Pcstr, dwcontext: UInt, dwindex: UInt, szinstalledproductcode: Pstr, pdwinstalledcontext: MutPtr<Msiinstallcontext>, szsid: Pstr, pcchsid: MutPtr<UInt>): UInt =
+public actual fun msiEnumProductsExA(szproductcode: Pcstr, szusersid: Pcstr, dwcontext: UInt, dwindex: UInt, szinstalledproductcode: Pstr, pdwinstalledcontext: MutPtr, szsid: Pstr, pcchsid: MutPtr): UInt =
     WindowsWin32SystemApplicationinstallationandservicingJniBridge.windowssysWindowsWin32SystemApplicationinstallationandservicingMsiEnumProductsExA(szproductcode.rawAddress, szusersid.rawAddress, dwcontext.toInt(), dwindex.toInt(), szinstalledproductcode.rawAddress, pdwinstalledcontext.rawAddress, szsid.rawAddress, pcchsid.rawAddress).toUInt()
 
-public actual fun msiEnumProductsExW(szproductcode: Pcwstr, szusersid: Pcwstr, dwcontext: UInt, dwindex: UInt, szinstalledproductcode: Pwstr, pdwinstalledcontext: MutPtr<Msiinstallcontext>, szsid: Pwstr, pcchsid: MutPtr<UInt>): UInt =
+public actual fun msiEnumProductsExW(szproductcode: Pcwstr, szusersid: Pcwstr, dwcontext: UInt, dwindex: UInt, szinstalledproductcode: Pwstr, pdwinstalledcontext: MutPtr, szsid: Pwstr, pcchsid: MutPtr): UInt =
     WindowsWin32SystemApplicationinstallationandservicingJniBridge.windowssysWindowsWin32SystemApplicationinstallationandservicingMsiEnumProductsExW(szproductcode.rawAddress, szusersid.rawAddress, dwcontext.toInt(), dwindex.toInt(), szinstalledproductcode.rawAddress, pdwinstalledcontext.rawAddress, szsid.rawAddress, pcchsid.rawAddress).toUInt()
 
 public actual fun msiEnumProductsW(iproductindex: UInt, lpproductbuf: Pwstr): UInt =
@@ -1385,88 +1380,88 @@ public actual fun msiEvaluateConditionA(hinstall: Msihandle, szcondition: Pcstr)
 public actual fun msiEvaluateConditionW(hinstall: Msihandle, szcondition: Pcwstr): Msicondition =
     WindowsWin32SystemApplicationinstallationandservicingJniBridge.windowssysWindowsWin32SystemApplicationinstallationandservicingMsiEvaluateConditionW(hinstall.toInt(), szcondition.rawAddress)
 
-public actual fun msiExtractPatchXMLDataA(szpatchpath: Pcstr, dwreserved: UInt, szxmldata: Pstr, pcchxmldata: MutPtr<UInt>): UInt =
+public actual fun msiExtractPatchXMLDataA(szpatchpath: Pcstr, dwreserved: UInt, szxmldata: Pstr, pcchxmldata: MutPtr): UInt =
     WindowsWin32SystemApplicationinstallationandservicingJniBridge.windowssysWindowsWin32SystemApplicationinstallationandservicingMsiExtractPatchXMLDataA(szpatchpath.rawAddress, dwreserved.toInt(), szxmldata.rawAddress, pcchxmldata.rawAddress).toUInt()
 
-public actual fun msiExtractPatchXMLDataW(szpatchpath: Pcwstr, dwreserved: UInt, szxmldata: Pwstr, pcchxmldata: MutPtr<UInt>): UInt =
+public actual fun msiExtractPatchXMLDataW(szpatchpath: Pcwstr, dwreserved: UInt, szxmldata: Pwstr, pcchxmldata: MutPtr): UInt =
     WindowsWin32SystemApplicationinstallationandservicingJniBridge.windowssysWindowsWin32SystemApplicationinstallationandservicingMsiExtractPatchXMLDataW(szpatchpath.rawAddress, dwreserved.toInt(), szxmldata.rawAddress, pcchxmldata.rawAddress).toUInt()
 
-public actual fun msiFormatRecordA(hinstall: Msihandle, hrecord: Msihandle, szresultbuf: Pstr, pcchresultbuf: MutPtr<UInt>): UInt =
+public actual fun msiFormatRecordA(hinstall: Msihandle, hrecord: Msihandle, szresultbuf: Pstr, pcchresultbuf: MutPtr): UInt =
     WindowsWin32SystemApplicationinstallationandservicingJniBridge.windowssysWindowsWin32SystemApplicationinstallationandservicingMsiFormatRecordA(hinstall.toInt(), hrecord.toInt(), szresultbuf.rawAddress, pcchresultbuf.rawAddress).toUInt()
 
-public actual fun msiFormatRecordW(hinstall: Msihandle, hrecord: Msihandle, szresultbuf: Pwstr, pcchresultbuf: MutPtr<UInt>): UInt =
+public actual fun msiFormatRecordW(hinstall: Msihandle, hrecord: Msihandle, szresultbuf: Pwstr, pcchresultbuf: MutPtr): UInt =
     WindowsWin32SystemApplicationinstallationandservicingJniBridge.windowssysWindowsWin32SystemApplicationinstallationandservicingMsiFormatRecordW(hinstall.toInt(), hrecord.toInt(), szresultbuf.rawAddress, pcchresultbuf.rawAddress).toUInt()
 
 public actual fun msiGetActiveDatabase(hinstall: Msihandle): Msihandle =
     WindowsWin32SystemApplicationinstallationandservicingJniBridge.windowssysWindowsWin32SystemApplicationinstallationandservicingMsiGetActiveDatabase(hinstall.toInt()).toUInt()
 
-public actual fun msiGetComponentPathA(szproduct: Pcstr, szcomponent: Pcstr, lppathbuf: Pstr, pcchbuf: MutPtr<UInt>): Installstate =
+public actual fun msiGetComponentPathA(szproduct: Pcstr, szcomponent: Pcstr, lppathbuf: Pstr, pcchbuf: MutPtr): Installstate =
     WindowsWin32SystemApplicationinstallationandservicingJniBridge.windowssysWindowsWin32SystemApplicationinstallationandservicingMsiGetComponentPathA(szproduct.rawAddress, szcomponent.rawAddress, lppathbuf.rawAddress, pcchbuf.rawAddress)
 
-public actual fun msiGetComponentPathExA(szproductcode: Pcstr, szcomponentcode: Pcstr, szusersid: Pcstr, dwcontext: Msiinstallcontext, lpoutpathbuffer: Pstr, pcchoutpathbuffer: MutPtr<UInt>): Installstate =
+public actual fun msiGetComponentPathExA(szproductcode: Pcstr, szcomponentcode: Pcstr, szusersid: Pcstr, dwcontext: Msiinstallcontext, lpoutpathbuffer: Pstr, pcchoutpathbuffer: MutPtr): Installstate =
     WindowsWin32SystemApplicationinstallationandservicingJniBridge.windowssysWindowsWin32SystemApplicationinstallationandservicingMsiGetComponentPathExA(szproductcode.rawAddress, szcomponentcode.rawAddress, szusersid.rawAddress, dwcontext, lpoutpathbuffer.rawAddress, pcchoutpathbuffer.rawAddress)
 
-public actual fun msiGetComponentPathExW(szproductcode: Pcwstr, szcomponentcode: Pcwstr, szusersid: Pcwstr, dwcontext: Msiinstallcontext, lpoutpathbuffer: Pwstr, pcchoutpathbuffer: MutPtr<UInt>): Installstate =
+public actual fun msiGetComponentPathExW(szproductcode: Pcwstr, szcomponentcode: Pcwstr, szusersid: Pcwstr, dwcontext: Msiinstallcontext, lpoutpathbuffer: Pwstr, pcchoutpathbuffer: MutPtr): Installstate =
     WindowsWin32SystemApplicationinstallationandservicingJniBridge.windowssysWindowsWin32SystemApplicationinstallationandservicingMsiGetComponentPathExW(szproductcode.rawAddress, szcomponentcode.rawAddress, szusersid.rawAddress, dwcontext, lpoutpathbuffer.rawAddress, pcchoutpathbuffer.rawAddress)
 
-public actual fun msiGetComponentPathW(szproduct: Pcwstr, szcomponent: Pcwstr, lppathbuf: Pwstr, pcchbuf: MutPtr<UInt>): Installstate =
+public actual fun msiGetComponentPathW(szproduct: Pcwstr, szcomponent: Pcwstr, lppathbuf: Pwstr, pcchbuf: MutPtr): Installstate =
     WindowsWin32SystemApplicationinstallationandservicingJniBridge.windowssysWindowsWin32SystemApplicationinstallationandservicingMsiGetComponentPathW(szproduct.rawAddress, szcomponent.rawAddress, lppathbuf.rawAddress, pcchbuf.rawAddress)
 
-public actual fun msiGetComponentStateA(hinstall: Msihandle, szcomponent: Pcstr, piinstalled: MutPtr<Installstate>, piaction: MutPtr<Installstate>): UInt =
+public actual fun msiGetComponentStateA(hinstall: Msihandle, szcomponent: Pcstr, piinstalled: MutPtr, piaction: MutPtr): UInt =
     WindowsWin32SystemApplicationinstallationandservicingJniBridge.windowssysWindowsWin32SystemApplicationinstallationandservicingMsiGetComponentStateA(hinstall.toInt(), szcomponent.rawAddress, piinstalled.rawAddress, piaction.rawAddress).toUInt()
 
-public actual fun msiGetComponentStateW(hinstall: Msihandle, szcomponent: Pcwstr, piinstalled: MutPtr<Installstate>, piaction: MutPtr<Installstate>): UInt =
+public actual fun msiGetComponentStateW(hinstall: Msihandle, szcomponent: Pcwstr, piinstalled: MutPtr, piaction: MutPtr): UInt =
     WindowsWin32SystemApplicationinstallationandservicingJniBridge.windowssysWindowsWin32SystemApplicationinstallationandservicingMsiGetComponentStateW(hinstall.toInt(), szcomponent.rawAddress, piinstalled.rawAddress, piaction.rawAddress).toUInt()
 
 public actual fun msiGetDatabaseState(hdatabase: Msihandle): Msidbstate =
     WindowsWin32SystemApplicationinstallationandservicingJniBridge.windowssysWindowsWin32SystemApplicationinstallationandservicingMsiGetDatabaseState(hdatabase.toInt())
 
-public actual fun msiGetFeatureCostA(hinstall: Msihandle, szfeature: Pcstr, icosttree: Msicosttree, istate: Installstate, picost: MutPtr<Int>): UInt =
+public actual fun msiGetFeatureCostA(hinstall: Msihandle, szfeature: Pcstr, icosttree: Msicosttree, istate: Installstate, picost: MutPtr): UInt =
     WindowsWin32SystemApplicationinstallationandservicingJniBridge.windowssysWindowsWin32SystemApplicationinstallationandservicingMsiGetFeatureCostA(hinstall.toInt(), szfeature.rawAddress, icosttree, istate, picost.rawAddress).toUInt()
 
-public actual fun msiGetFeatureCostW(hinstall: Msihandle, szfeature: Pcwstr, icosttree: Msicosttree, istate: Installstate, picost: MutPtr<Int>): UInt =
+public actual fun msiGetFeatureCostW(hinstall: Msihandle, szfeature: Pcwstr, icosttree: Msicosttree, istate: Installstate, picost: MutPtr): UInt =
     WindowsWin32SystemApplicationinstallationandservicingJniBridge.windowssysWindowsWin32SystemApplicationinstallationandservicingMsiGetFeatureCostW(hinstall.toInt(), szfeature.rawAddress, icosttree, istate, picost.rawAddress).toUInt()
 
-public actual fun msiGetFeatureInfoA(hproduct: Msihandle, szfeature: Pcstr, lpattributes: MutPtr<UInt>, lptitlebuf: Pstr, pcchtitlebuf: MutPtr<UInt>, lphelpbuf: Pstr, pcchhelpbuf: MutPtr<UInt>): UInt =
+public actual fun msiGetFeatureInfoA(hproduct: Msihandle, szfeature: Pcstr, lpattributes: MutPtr, lptitlebuf: Pstr, pcchtitlebuf: MutPtr, lphelpbuf: Pstr, pcchhelpbuf: MutPtr): UInt =
     WindowsWin32SystemApplicationinstallationandservicingJniBridge.windowssysWindowsWin32SystemApplicationinstallationandservicingMsiGetFeatureInfoA(hproduct.toInt(), szfeature.rawAddress, lpattributes.rawAddress, lptitlebuf.rawAddress, pcchtitlebuf.rawAddress, lphelpbuf.rawAddress, pcchhelpbuf.rawAddress).toUInt()
 
-public actual fun msiGetFeatureInfoW(hproduct: Msihandle, szfeature: Pcwstr, lpattributes: MutPtr<UInt>, lptitlebuf: Pwstr, pcchtitlebuf: MutPtr<UInt>, lphelpbuf: Pwstr, pcchhelpbuf: MutPtr<UInt>): UInt =
+public actual fun msiGetFeatureInfoW(hproduct: Msihandle, szfeature: Pcwstr, lpattributes: MutPtr, lptitlebuf: Pwstr, pcchtitlebuf: MutPtr, lphelpbuf: Pwstr, pcchhelpbuf: MutPtr): UInt =
     WindowsWin32SystemApplicationinstallationandservicingJniBridge.windowssysWindowsWin32SystemApplicationinstallationandservicingMsiGetFeatureInfoW(hproduct.toInt(), szfeature.rawAddress, lpattributes.rawAddress, lptitlebuf.rawAddress, pcchtitlebuf.rawAddress, lphelpbuf.rawAddress, pcchhelpbuf.rawAddress).toUInt()
 
-public actual fun msiGetFeatureStateA(hinstall: Msihandle, szfeature: Pcstr, piinstalled: MutPtr<Installstate>, piaction: MutPtr<Installstate>): UInt =
+public actual fun msiGetFeatureStateA(hinstall: Msihandle, szfeature: Pcstr, piinstalled: MutPtr, piaction: MutPtr): UInt =
     WindowsWin32SystemApplicationinstallationandservicingJniBridge.windowssysWindowsWin32SystemApplicationinstallationandservicingMsiGetFeatureStateA(hinstall.toInt(), szfeature.rawAddress, piinstalled.rawAddress, piaction.rawAddress).toUInt()
 
-public actual fun msiGetFeatureStateW(hinstall: Msihandle, szfeature: Pcwstr, piinstalled: MutPtr<Installstate>, piaction: MutPtr<Installstate>): UInt =
+public actual fun msiGetFeatureStateW(hinstall: Msihandle, szfeature: Pcwstr, piinstalled: MutPtr, piaction: MutPtr): UInt =
     WindowsWin32SystemApplicationinstallationandservicingJniBridge.windowssysWindowsWin32SystemApplicationinstallationandservicingMsiGetFeatureStateW(hinstall.toInt(), szfeature.rawAddress, piinstalled.rawAddress, piaction.rawAddress).toUInt()
 
-public actual fun msiGetFeatureUsageA(szproduct: Pcstr, szfeature: Pcstr, pdwusecount: MutPtr<UInt>, pwdateused: MutPtr<UShort>): UInt =
+public actual fun msiGetFeatureUsageA(szproduct: Pcstr, szfeature: Pcstr, pdwusecount: MutPtr, pwdateused: MutPtr): UInt =
     WindowsWin32SystemApplicationinstallationandservicingJniBridge.windowssysWindowsWin32SystemApplicationinstallationandservicingMsiGetFeatureUsageA(szproduct.rawAddress, szfeature.rawAddress, pdwusecount.rawAddress, pwdateused.rawAddress).toUInt()
 
-public actual fun msiGetFeatureUsageW(szproduct: Pcwstr, szfeature: Pcwstr, pdwusecount: MutPtr<UInt>, pwdateused: MutPtr<UShort>): UInt =
+public actual fun msiGetFeatureUsageW(szproduct: Pcwstr, szfeature: Pcwstr, pdwusecount: MutPtr, pwdateused: MutPtr): UInt =
     WindowsWin32SystemApplicationinstallationandservicingJniBridge.windowssysWindowsWin32SystemApplicationinstallationandservicingMsiGetFeatureUsageW(szproduct.rawAddress, szfeature.rawAddress, pdwusecount.rawAddress, pwdateused.rawAddress).toUInt()
 
-public actual fun msiGetFeatureValidStatesA(hinstall: Msihandle, szfeature: Pcstr, lpinstallstates: MutPtr<UInt>): UInt =
+public actual fun msiGetFeatureValidStatesA(hinstall: Msihandle, szfeature: Pcstr, lpinstallstates: MutPtr): UInt =
     WindowsWin32SystemApplicationinstallationandservicingJniBridge.windowssysWindowsWin32SystemApplicationinstallationandservicingMsiGetFeatureValidStatesA(hinstall.toInt(), szfeature.rawAddress, lpinstallstates.rawAddress).toUInt()
 
-public actual fun msiGetFeatureValidStatesW(hinstall: Msihandle, szfeature: Pcwstr, lpinstallstates: MutPtr<UInt>): UInt =
+public actual fun msiGetFeatureValidStatesW(hinstall: Msihandle, szfeature: Pcwstr, lpinstallstates: MutPtr): UInt =
     WindowsWin32SystemApplicationinstallationandservicingJniBridge.windowssysWindowsWin32SystemApplicationinstallationandservicingMsiGetFeatureValidStatesW(hinstall.toInt(), szfeature.rawAddress, lpinstallstates.rawAddress).toUInt()
 
-public actual fun msiGetFileHashA(szfilepath: Pcstr, dwoptions: UInt, phash: MutPtr<Msifilehashinfo>): UInt =
+public actual fun msiGetFileHashA(szfilepath: Pcstr, dwoptions: UInt, phash: MutPtr): UInt =
     WindowsWin32SystemApplicationinstallationandservicingJniBridge.windowssysWindowsWin32SystemApplicationinstallationandservicingMsiGetFileHashA(szfilepath.rawAddress, dwoptions.toInt(), phash.rawAddress).toUInt()
 
-public actual fun msiGetFileHashW(szfilepath: Pcwstr, dwoptions: UInt, phash: MutPtr<Msifilehashinfo>): UInt =
+public actual fun msiGetFileHashW(szfilepath: Pcwstr, dwoptions: UInt, phash: MutPtr): UInt =
     WindowsWin32SystemApplicationinstallationandservicingJniBridge.windowssysWindowsWin32SystemApplicationinstallationandservicingMsiGetFileHashW(szfilepath.rawAddress, dwoptions.toInt(), phash.rawAddress).toUInt()
 
-public actual fun msiGetFileSignatureInformationA(szsignedobjectpath: Pcstr, dwflags: UInt, ppccertcontext: MutPtr<MutPtr<CertContext>>, pbhashdata: MutPtr<UByte>, pcbhashdata: MutPtr<UInt>): Hresult =
+public actual fun msiGetFileSignatureInformationA(szsignedobjectpath: Pcstr, dwflags: UInt, ppccertcontext: MutPtr, pbhashdata: MutPtr, pcbhashdata: MutPtr): Hresult =
     WindowsWin32SystemApplicationinstallationandservicingJniBridge.windowssysWindowsWin32SystemApplicationinstallationandservicingMsiGetFileSignatureInformationA(szsignedobjectpath.rawAddress, dwflags.toInt(), ppccertcontext.rawAddress, pbhashdata.rawAddress, pcbhashdata.rawAddress)
 
-public actual fun msiGetFileSignatureInformationW(szsignedobjectpath: Pcwstr, dwflags: UInt, ppccertcontext: MutPtr<MutPtr<CertContext>>, pbhashdata: MutPtr<UByte>, pcbhashdata: MutPtr<UInt>): Hresult =
+public actual fun msiGetFileSignatureInformationW(szsignedobjectpath: Pcwstr, dwflags: UInt, ppccertcontext: MutPtr, pbhashdata: MutPtr, pcbhashdata: MutPtr): Hresult =
     WindowsWin32SystemApplicationinstallationandservicingJniBridge.windowssysWindowsWin32SystemApplicationinstallationandservicingMsiGetFileSignatureInformationW(szsignedobjectpath.rawAddress, dwflags.toInt(), ppccertcontext.rawAddress, pbhashdata.rawAddress, pcbhashdata.rawAddress)
 
-public actual fun msiGetFileVersionA(szfilepath: Pcstr, lpversionbuf: Pstr, pcchversionbuf: MutPtr<UInt>, lplangbuf: Pstr, pcchlangbuf: MutPtr<UInt>): UInt =
+public actual fun msiGetFileVersionA(szfilepath: Pcstr, lpversionbuf: Pstr, pcchversionbuf: MutPtr, lplangbuf: Pstr, pcchlangbuf: MutPtr): UInt =
     WindowsWin32SystemApplicationinstallationandservicingJniBridge.windowssysWindowsWin32SystemApplicationinstallationandservicingMsiGetFileVersionA(szfilepath.rawAddress, lpversionbuf.rawAddress, pcchversionbuf.rawAddress, lplangbuf.rawAddress, pcchlangbuf.rawAddress).toUInt()
 
-public actual fun msiGetFileVersionW(szfilepath: Pcwstr, lpversionbuf: Pwstr, pcchversionbuf: MutPtr<UInt>, lplangbuf: Pwstr, pcchlangbuf: MutPtr<UInt>): UInt =
+public actual fun msiGetFileVersionW(szfilepath: Pcwstr, lpversionbuf: Pwstr, pcchversionbuf: MutPtr, lplangbuf: Pwstr, pcchlangbuf: MutPtr): UInt =
     WindowsWin32SystemApplicationinstallationandservicingJniBridge.windowssysWindowsWin32SystemApplicationinstallationandservicingMsiGetFileVersionW(szfilepath.rawAddress, lpversionbuf.rawAddress, pcchversionbuf.rawAddress, lplangbuf.rawAddress, pcchlangbuf.rawAddress).toUInt()
 
 public actual fun msiGetLanguage(hinstall: Msihandle): UShort =
@@ -1478,22 +1473,22 @@ public actual fun msiGetLastErrorRecord(): Msihandle =
 public actual fun msiGetMode(hinstall: Msihandle, erunmode: Msirunmode): Bool =
     WindowsWin32SystemApplicationinstallationandservicingJniBridge.windowssysWindowsWin32SystemApplicationinstallationandservicingMsiGetMode(hinstall.toInt(), erunmode)
 
-public actual fun msiGetPatchFileListA(szproductcode: Pcstr, szpatchpackages: Pcstr, pcfiles: MutPtr<UInt>, pphfilerecords: MutPtr<MutPtr<Msihandle>>): UInt =
+public actual fun msiGetPatchFileListA(szproductcode: Pcstr, szpatchpackages: Pcstr, pcfiles: MutPtr, pphfilerecords: MutPtr): UInt =
     WindowsWin32SystemApplicationinstallationandservicingJniBridge.windowssysWindowsWin32SystemApplicationinstallationandservicingMsiGetPatchFileListA(szproductcode.rawAddress, szpatchpackages.rawAddress, pcfiles.rawAddress, pphfilerecords.rawAddress).toUInt()
 
-public actual fun msiGetPatchFileListW(szproductcode: Pcwstr, szpatchpackages: Pcwstr, pcfiles: MutPtr<UInt>, pphfilerecords: MutPtr<MutPtr<Msihandle>>): UInt =
+public actual fun msiGetPatchFileListW(szproductcode: Pcwstr, szpatchpackages: Pcwstr, pcfiles: MutPtr, pphfilerecords: MutPtr): UInt =
     WindowsWin32SystemApplicationinstallationandservicingJniBridge.windowssysWindowsWin32SystemApplicationinstallationandservicingMsiGetPatchFileListW(szproductcode.rawAddress, szpatchpackages.rawAddress, pcfiles.rawAddress, pphfilerecords.rawAddress).toUInt()
 
-public actual fun msiGetPatchInfoA(szpatch: Pcstr, szattribute: Pcstr, lpvaluebuf: Pstr, pcchvaluebuf: MutPtr<UInt>): UInt =
+public actual fun msiGetPatchInfoA(szpatch: Pcstr, szattribute: Pcstr, lpvaluebuf: Pstr, pcchvaluebuf: MutPtr): UInt =
     WindowsWin32SystemApplicationinstallationandservicingJniBridge.windowssysWindowsWin32SystemApplicationinstallationandservicingMsiGetPatchInfoA(szpatch.rawAddress, szattribute.rawAddress, lpvaluebuf.rawAddress, pcchvaluebuf.rawAddress).toUInt()
 
-public actual fun msiGetPatchInfoExA(szpatchcode: Pcstr, szproductcode: Pcstr, szusersid: Pcstr, dwcontext: Msiinstallcontext, szproperty: Pcstr, lpvalue: Pstr, pcchvalue: MutPtr<UInt>): UInt =
+public actual fun msiGetPatchInfoExA(szpatchcode: Pcstr, szproductcode: Pcstr, szusersid: Pcstr, dwcontext: Msiinstallcontext, szproperty: Pcstr, lpvalue: Pstr, pcchvalue: MutPtr): UInt =
     WindowsWin32SystemApplicationinstallationandservicingJniBridge.windowssysWindowsWin32SystemApplicationinstallationandservicingMsiGetPatchInfoExA(szpatchcode.rawAddress, szproductcode.rawAddress, szusersid.rawAddress, dwcontext, szproperty.rawAddress, lpvalue.rawAddress, pcchvalue.rawAddress).toUInt()
 
-public actual fun msiGetPatchInfoExW(szpatchcode: Pcwstr, szproductcode: Pcwstr, szusersid: Pcwstr, dwcontext: Msiinstallcontext, szproperty: Pcwstr, lpvalue: Pwstr, pcchvalue: MutPtr<UInt>): UInt =
+public actual fun msiGetPatchInfoExW(szpatchcode: Pcwstr, szproductcode: Pcwstr, szusersid: Pcwstr, dwcontext: Msiinstallcontext, szproperty: Pcwstr, lpvalue: Pwstr, pcchvalue: MutPtr): UInt =
     WindowsWin32SystemApplicationinstallationandservicingJniBridge.windowssysWindowsWin32SystemApplicationinstallationandservicingMsiGetPatchInfoExW(szpatchcode.rawAddress, szproductcode.rawAddress, szusersid.rawAddress, dwcontext, szproperty.rawAddress, lpvalue.rawAddress, pcchvalue.rawAddress).toUInt()
 
-public actual fun msiGetPatchInfoW(szpatch: Pcwstr, szattribute: Pcwstr, lpvaluebuf: Pwstr, pcchvaluebuf: MutPtr<UInt>): UInt =
+public actual fun msiGetPatchInfoW(szpatch: Pcwstr, szattribute: Pcwstr, lpvaluebuf: Pwstr, pcchvaluebuf: MutPtr): UInt =
     WindowsWin32SystemApplicationinstallationandservicingJniBridge.windowssysWindowsWin32SystemApplicationinstallationandservicingMsiGetPatchInfoW(szpatch.rawAddress, szattribute.rawAddress, lpvaluebuf.rawAddress, pcchvaluebuf.rawAddress).toUInt()
 
 public actual fun msiGetProductCodeA(szcomponent: Pcstr, lpbuf39: Pstr): UInt =
@@ -1502,34 +1497,34 @@ public actual fun msiGetProductCodeA(szcomponent: Pcstr, lpbuf39: Pstr): UInt =
 public actual fun msiGetProductCodeW(szcomponent: Pcwstr, lpbuf39: Pwstr): UInt =
     WindowsWin32SystemApplicationinstallationandservicingJniBridge.windowssysWindowsWin32SystemApplicationinstallationandservicingMsiGetProductCodeW(szcomponent.rawAddress, lpbuf39.rawAddress).toUInt()
 
-public actual fun msiGetProductInfoA(szproduct: Pcstr, szattribute: Pcstr, lpvaluebuf: Pstr, pcchvaluebuf: MutPtr<UInt>): UInt =
+public actual fun msiGetProductInfoA(szproduct: Pcstr, szattribute: Pcstr, lpvaluebuf: Pstr, pcchvaluebuf: MutPtr): UInt =
     WindowsWin32SystemApplicationinstallationandservicingJniBridge.windowssysWindowsWin32SystemApplicationinstallationandservicingMsiGetProductInfoA(szproduct.rawAddress, szattribute.rawAddress, lpvaluebuf.rawAddress, pcchvaluebuf.rawAddress).toUInt()
 
-public actual fun msiGetProductInfoExA(szproductcode: Pcstr, szusersid: Pcstr, dwcontext: Msiinstallcontext, szproperty: Pcstr, szvalue: Pstr, pcchvalue: MutPtr<UInt>): UInt =
+public actual fun msiGetProductInfoExA(szproductcode: Pcstr, szusersid: Pcstr, dwcontext: Msiinstallcontext, szproperty: Pcstr, szvalue: Pstr, pcchvalue: MutPtr): UInt =
     WindowsWin32SystemApplicationinstallationandservicingJniBridge.windowssysWindowsWin32SystemApplicationinstallationandservicingMsiGetProductInfoExA(szproductcode.rawAddress, szusersid.rawAddress, dwcontext, szproperty.rawAddress, szvalue.rawAddress, pcchvalue.rawAddress).toUInt()
 
-public actual fun msiGetProductInfoExW(szproductcode: Pcwstr, szusersid: Pcwstr, dwcontext: Msiinstallcontext, szproperty: Pcwstr, szvalue: Pwstr, pcchvalue: MutPtr<UInt>): UInt =
+public actual fun msiGetProductInfoExW(szproductcode: Pcwstr, szusersid: Pcwstr, dwcontext: Msiinstallcontext, szproperty: Pcwstr, szvalue: Pwstr, pcchvalue: MutPtr): UInt =
     WindowsWin32SystemApplicationinstallationandservicingJniBridge.windowssysWindowsWin32SystemApplicationinstallationandservicingMsiGetProductInfoExW(szproductcode.rawAddress, szusersid.rawAddress, dwcontext, szproperty.rawAddress, szvalue.rawAddress, pcchvalue.rawAddress).toUInt()
 
-public actual fun msiGetProductInfoFromScriptA(szscriptfile: Pcstr, lpproductbuf39: Pstr, plgidlanguage: MutPtr<UShort>, pdwversion: MutPtr<UInt>, lpnamebuf: Pstr, pcchnamebuf: MutPtr<UInt>, lppackagebuf: Pstr, pcchpackagebuf: MutPtr<UInt>): UInt =
+public actual fun msiGetProductInfoFromScriptA(szscriptfile: Pcstr, lpproductbuf39: Pstr, plgidlanguage: MutPtr, pdwversion: MutPtr, lpnamebuf: Pstr, pcchnamebuf: MutPtr, lppackagebuf: Pstr, pcchpackagebuf: MutPtr): UInt =
     WindowsWin32SystemApplicationinstallationandservicingJniBridge.windowssysWindowsWin32SystemApplicationinstallationandservicingMsiGetProductInfoFromScriptA(szscriptfile.rawAddress, lpproductbuf39.rawAddress, plgidlanguage.rawAddress, pdwversion.rawAddress, lpnamebuf.rawAddress, pcchnamebuf.rawAddress, lppackagebuf.rawAddress, pcchpackagebuf.rawAddress).toUInt()
 
-public actual fun msiGetProductInfoFromScriptW(szscriptfile: Pcwstr, lpproductbuf39: Pwstr, plgidlanguage: MutPtr<UShort>, pdwversion: MutPtr<UInt>, lpnamebuf: Pwstr, pcchnamebuf: MutPtr<UInt>, lppackagebuf: Pwstr, pcchpackagebuf: MutPtr<UInt>): UInt =
+public actual fun msiGetProductInfoFromScriptW(szscriptfile: Pcwstr, lpproductbuf39: Pwstr, plgidlanguage: MutPtr, pdwversion: MutPtr, lpnamebuf: Pwstr, pcchnamebuf: MutPtr, lppackagebuf: Pwstr, pcchpackagebuf: MutPtr): UInt =
     WindowsWin32SystemApplicationinstallationandservicingJniBridge.windowssysWindowsWin32SystemApplicationinstallationandservicingMsiGetProductInfoFromScriptW(szscriptfile.rawAddress, lpproductbuf39.rawAddress, plgidlanguage.rawAddress, pdwversion.rawAddress, lpnamebuf.rawAddress, pcchnamebuf.rawAddress, lppackagebuf.rawAddress, pcchpackagebuf.rawAddress).toUInt()
 
-public actual fun msiGetProductInfoW(szproduct: Pcwstr, szattribute: Pcwstr, lpvaluebuf: Pwstr, pcchvaluebuf: MutPtr<UInt>): UInt =
+public actual fun msiGetProductInfoW(szproduct: Pcwstr, szattribute: Pcwstr, lpvaluebuf: Pwstr, pcchvaluebuf: MutPtr): UInt =
     WindowsWin32SystemApplicationinstallationandservicingJniBridge.windowssysWindowsWin32SystemApplicationinstallationandservicingMsiGetProductInfoW(szproduct.rawAddress, szattribute.rawAddress, lpvaluebuf.rawAddress, pcchvaluebuf.rawAddress).toUInt()
 
-public actual fun msiGetProductPropertyA(hproduct: Msihandle, szproperty: Pcstr, lpvaluebuf: Pstr, pcchvaluebuf: MutPtr<UInt>): UInt =
+public actual fun msiGetProductPropertyA(hproduct: Msihandle, szproperty: Pcstr, lpvaluebuf: Pstr, pcchvaluebuf: MutPtr): UInt =
     WindowsWin32SystemApplicationinstallationandservicingJniBridge.windowssysWindowsWin32SystemApplicationinstallationandservicingMsiGetProductPropertyA(hproduct.toInt(), szproperty.rawAddress, lpvaluebuf.rawAddress, pcchvaluebuf.rawAddress).toUInt()
 
-public actual fun msiGetProductPropertyW(hproduct: Msihandle, szproperty: Pcwstr, lpvaluebuf: Pwstr, pcchvaluebuf: MutPtr<UInt>): UInt =
+public actual fun msiGetProductPropertyW(hproduct: Msihandle, szproperty: Pcwstr, lpvaluebuf: Pwstr, pcchvaluebuf: MutPtr): UInt =
     WindowsWin32SystemApplicationinstallationandservicingJniBridge.windowssysWindowsWin32SystemApplicationinstallationandservicingMsiGetProductPropertyW(hproduct.toInt(), szproperty.rawAddress, lpvaluebuf.rawAddress, pcchvaluebuf.rawAddress).toUInt()
 
-public actual fun msiGetPropertyA(hinstall: Msihandle, szname: Pcstr, szvaluebuf: Pstr, pcchvaluebuf: MutPtr<UInt>): UInt =
+public actual fun msiGetPropertyA(hinstall: Msihandle, szname: Pcstr, szvaluebuf: Pstr, pcchvaluebuf: MutPtr): UInt =
     WindowsWin32SystemApplicationinstallationandservicingJniBridge.windowssysWindowsWin32SystemApplicationinstallationandservicingMsiGetPropertyA(hinstall.toInt(), szname.rawAddress, szvaluebuf.rawAddress, pcchvaluebuf.rawAddress).toUInt()
 
-public actual fun msiGetPropertyW(hinstall: Msihandle, szname: Pcwstr, szvaluebuf: Pwstr, pcchvaluebuf: MutPtr<UInt>): UInt =
+public actual fun msiGetPropertyW(hinstall: Msihandle, szname: Pcwstr, szvaluebuf: Pwstr, pcchvaluebuf: MutPtr): UInt =
     WindowsWin32SystemApplicationinstallationandservicingJniBridge.windowssysWindowsWin32SystemApplicationinstallationandservicingMsiGetPropertyW(hinstall.toInt(), szname.rawAddress, szvaluebuf.rawAddress, pcchvaluebuf.rawAddress).toUInt()
 
 public actual fun msiGetShortcutTargetA(szshortcutpath: Pcstr, szproductcode: Pstr, szfeatureid: Pstr, szcomponentcode: Pstr): UInt =
@@ -1538,28 +1533,28 @@ public actual fun msiGetShortcutTargetA(szshortcutpath: Pcstr, szproductcode: Ps
 public actual fun msiGetShortcutTargetW(szshortcutpath: Pcwstr, szproductcode: Pwstr, szfeatureid: Pwstr, szcomponentcode: Pwstr): UInt =
     WindowsWin32SystemApplicationinstallationandservicingJniBridge.windowssysWindowsWin32SystemApplicationinstallationandservicingMsiGetShortcutTargetW(szshortcutpath.rawAddress, szproductcode.rawAddress, szfeatureid.rawAddress, szcomponentcode.rawAddress).toUInt()
 
-public actual fun msiGetSourcePathA(hinstall: Msihandle, szfolder: Pcstr, szpathbuf: Pstr, pcchpathbuf: MutPtr<UInt>): UInt =
+public actual fun msiGetSourcePathA(hinstall: Msihandle, szfolder: Pcstr, szpathbuf: Pstr, pcchpathbuf: MutPtr): UInt =
     WindowsWin32SystemApplicationinstallationandservicingJniBridge.windowssysWindowsWin32SystemApplicationinstallationandservicingMsiGetSourcePathA(hinstall.toInt(), szfolder.rawAddress, szpathbuf.rawAddress, pcchpathbuf.rawAddress).toUInt()
 
-public actual fun msiGetSourcePathW(hinstall: Msihandle, szfolder: Pcwstr, szpathbuf: Pwstr, pcchpathbuf: MutPtr<UInt>): UInt =
+public actual fun msiGetSourcePathW(hinstall: Msihandle, szfolder: Pcwstr, szpathbuf: Pwstr, pcchpathbuf: MutPtr): UInt =
     WindowsWin32SystemApplicationinstallationandservicingJniBridge.windowssysWindowsWin32SystemApplicationinstallationandservicingMsiGetSourcePathW(hinstall.toInt(), szfolder.rawAddress, szpathbuf.rawAddress, pcchpathbuf.rawAddress).toUInt()
 
-public actual fun msiGetSummaryInformationA(hdatabase: Msihandle, szdatabasepath: Pcstr, uiupdatecount: UInt, phsummaryinfo: MutPtr<Msihandle>): UInt =
+public actual fun msiGetSummaryInformationA(hdatabase: Msihandle, szdatabasepath: Pcstr, uiupdatecount: UInt, phsummaryinfo: MutPtr): UInt =
     WindowsWin32SystemApplicationinstallationandservicingJniBridge.windowssysWindowsWin32SystemApplicationinstallationandservicingMsiGetSummaryInformationA(hdatabase.toInt(), szdatabasepath.rawAddress, uiupdatecount.toInt(), phsummaryinfo.rawAddress).toUInt()
 
-public actual fun msiGetSummaryInformationW(hdatabase: Msihandle, szdatabasepath: Pcwstr, uiupdatecount: UInt, phsummaryinfo: MutPtr<Msihandle>): UInt =
+public actual fun msiGetSummaryInformationW(hdatabase: Msihandle, szdatabasepath: Pcwstr, uiupdatecount: UInt, phsummaryinfo: MutPtr): UInt =
     WindowsWin32SystemApplicationinstallationandservicingJniBridge.windowssysWindowsWin32SystemApplicationinstallationandservicingMsiGetSummaryInformationW(hdatabase.toInt(), szdatabasepath.rawAddress, uiupdatecount.toInt(), phsummaryinfo.rawAddress).toUInt()
 
-public actual fun msiGetTargetPathA(hinstall: Msihandle, szfolder: Pcstr, szpathbuf: Pstr, pcchpathbuf: MutPtr<UInt>): UInt =
+public actual fun msiGetTargetPathA(hinstall: Msihandle, szfolder: Pcstr, szpathbuf: Pstr, pcchpathbuf: MutPtr): UInt =
     WindowsWin32SystemApplicationinstallationandservicingJniBridge.windowssysWindowsWin32SystemApplicationinstallationandservicingMsiGetTargetPathA(hinstall.toInt(), szfolder.rawAddress, szpathbuf.rawAddress, pcchpathbuf.rawAddress).toUInt()
 
-public actual fun msiGetTargetPathW(hinstall: Msihandle, szfolder: Pcwstr, szpathbuf: Pwstr, pcchpathbuf: MutPtr<UInt>): UInt =
+public actual fun msiGetTargetPathW(hinstall: Msihandle, szfolder: Pcwstr, szpathbuf: Pwstr, pcchpathbuf: MutPtr): UInt =
     WindowsWin32SystemApplicationinstallationandservicingJniBridge.windowssysWindowsWin32SystemApplicationinstallationandservicingMsiGetTargetPathW(hinstall.toInt(), szfolder.rawAddress, szpathbuf.rawAddress, pcchpathbuf.rawAddress).toUInt()
 
-public actual fun msiGetUserInfoA(szproduct: Pcstr, lpusernamebuf: Pstr, pcchusernamebuf: MutPtr<UInt>, lporgnamebuf: Pstr, pcchorgnamebuf: MutPtr<UInt>, lpserialbuf: Pstr, pcchserialbuf: MutPtr<UInt>): Userinfostate =
+public actual fun msiGetUserInfoA(szproduct: Pcstr, lpusernamebuf: Pstr, pcchusernamebuf: MutPtr, lporgnamebuf: Pstr, pcchorgnamebuf: MutPtr, lpserialbuf: Pstr, pcchserialbuf: MutPtr): Userinfostate =
     WindowsWin32SystemApplicationinstallationandservicingJniBridge.windowssysWindowsWin32SystemApplicationinstallationandservicingMsiGetUserInfoA(szproduct.rawAddress, lpusernamebuf.rawAddress, pcchusernamebuf.rawAddress, lporgnamebuf.rawAddress, pcchorgnamebuf.rawAddress, lpserialbuf.rawAddress, pcchserialbuf.rawAddress)
 
-public actual fun msiGetUserInfoW(szproduct: Pcwstr, lpusernamebuf: Pwstr, pcchusernamebuf: MutPtr<UInt>, lporgnamebuf: Pwstr, pcchorgnamebuf: MutPtr<UInt>, lpserialbuf: Pwstr, pcchserialbuf: MutPtr<UInt>): Userinfostate =
+public actual fun msiGetUserInfoW(szproduct: Pcwstr, lpusernamebuf: Pwstr, pcchusernamebuf: MutPtr, lporgnamebuf: Pwstr, pcchorgnamebuf: MutPtr, lpserialbuf: Pwstr, pcchserialbuf: MutPtr): Userinfostate =
     WindowsWin32SystemApplicationinstallationandservicingJniBridge.windowssysWindowsWin32SystemApplicationinstallationandservicingMsiGetUserInfoW(szproduct.rawAddress, lpusernamebuf.rawAddress, pcchusernamebuf.rawAddress, lporgnamebuf.rawAddress, pcchorgnamebuf.rawAddress, lpserialbuf.rawAddress, pcchserialbuf.rawAddress)
 
 public actual fun msiInstallMissingComponentA(szproduct: Pcstr, szcomponent: Pcstr, einstallstate: Installstate): UInt =
@@ -1580,19 +1575,19 @@ public actual fun msiInstallProductA(szpackagepath: Pcstr, szcommandline: Pcstr)
 public actual fun msiInstallProductW(szpackagepath: Pcwstr, szcommandline: Pcwstr): UInt =
     WindowsWin32SystemApplicationinstallationandservicingJniBridge.windowssysWindowsWin32SystemApplicationinstallationandservicingMsiInstallProductW(szpackagepath.rawAddress, szcommandline.rawAddress).toUInt()
 
-public actual fun msiIsProductElevatedA(szproduct: Pcstr, pfelevated: MutPtr<Bool>): UInt =
+public actual fun msiIsProductElevatedA(szproduct: Pcstr, pfelevated: MutPtr): UInt =
     WindowsWin32SystemApplicationinstallationandservicingJniBridge.windowssysWindowsWin32SystemApplicationinstallationandservicingMsiIsProductElevatedA(szproduct.rawAddress, pfelevated.rawAddress).toUInt()
 
-public actual fun msiIsProductElevatedW(szproduct: Pcwstr, pfelevated: MutPtr<Bool>): UInt =
+public actual fun msiIsProductElevatedW(szproduct: Pcwstr, pfelevated: MutPtr): UInt =
     WindowsWin32SystemApplicationinstallationandservicingJniBridge.windowssysWindowsWin32SystemApplicationinstallationandservicingMsiIsProductElevatedW(szproduct.rawAddress, pfelevated.rawAddress).toUInt()
 
-public actual fun msiJoinTransaction(htransactionhandle: Msihandle, dwtransactionattributes: UInt, phchangeofownerevent: MutPtr<Handle>): UInt =
+public actual fun msiJoinTransaction(htransactionhandle: Msihandle, dwtransactionattributes: UInt, phchangeofownerevent: MutPtr): UInt =
     WindowsWin32SystemApplicationinstallationandservicingJniBridge.windowssysWindowsWin32SystemApplicationinstallationandservicingMsiJoinTransaction(htransactionhandle.toInt(), dwtransactionattributes.toInt(), phchangeofownerevent.rawAddress).toUInt()
 
-public actual fun msiLocateComponentA(szcomponent: Pcstr, lppathbuf: Pstr, pcchbuf: MutPtr<UInt>): Installstate =
+public actual fun msiLocateComponentA(szcomponent: Pcstr, lppathbuf: Pstr, pcchbuf: MutPtr): Installstate =
     WindowsWin32SystemApplicationinstallationandservicingJniBridge.windowssysWindowsWin32SystemApplicationinstallationandservicingMsiLocateComponentA(szcomponent.rawAddress, lppathbuf.rawAddress, pcchbuf.rawAddress)
 
-public actual fun msiLocateComponentW(szcomponent: Pcwstr, lppathbuf: Pwstr, pcchbuf: MutPtr<UInt>): Installstate =
+public actual fun msiLocateComponentW(szcomponent: Pcwstr, lppathbuf: Pwstr, pcchbuf: MutPtr): Installstate =
     WindowsWin32SystemApplicationinstallationandservicingJniBridge.windowssysWindowsWin32SystemApplicationinstallationandservicingMsiLocateComponentW(szcomponent.rawAddress, lppathbuf.rawAddress, pcchbuf.rawAddress)
 
 public actual fun msiNotifySidChangeA(poldsid: Pcstr, pnewsid: Pcstr): UInt =
@@ -1601,28 +1596,28 @@ public actual fun msiNotifySidChangeA(poldsid: Pcstr, pnewsid: Pcstr): UInt =
 public actual fun msiNotifySidChangeW(poldsid: Pcwstr, pnewsid: Pcwstr): UInt =
     WindowsWin32SystemApplicationinstallationandservicingJniBridge.windowssysWindowsWin32SystemApplicationinstallationandservicingMsiNotifySidChangeW(poldsid.rawAddress, pnewsid.rawAddress).toUInt()
 
-public actual fun msiOpenDatabaseA(szdatabasepath: Pcstr, szpersist: Pcstr, phdatabase: MutPtr<Msihandle>): UInt =
+public actual fun msiOpenDatabaseA(szdatabasepath: Pcstr, szpersist: Pcstr, phdatabase: MutPtr): UInt =
     WindowsWin32SystemApplicationinstallationandservicingJniBridge.windowssysWindowsWin32SystemApplicationinstallationandservicingMsiOpenDatabaseA(szdatabasepath.rawAddress, szpersist.rawAddress, phdatabase.rawAddress).toUInt()
 
-public actual fun msiOpenDatabaseW(szdatabasepath: Pcwstr, szpersist: Pcwstr, phdatabase: MutPtr<Msihandle>): UInt =
+public actual fun msiOpenDatabaseW(szdatabasepath: Pcwstr, szpersist: Pcwstr, phdatabase: MutPtr): UInt =
     WindowsWin32SystemApplicationinstallationandservicingJniBridge.windowssysWindowsWin32SystemApplicationinstallationandservicingMsiOpenDatabaseW(szdatabasepath.rawAddress, szpersist.rawAddress, phdatabase.rawAddress).toUInt()
 
-public actual fun msiOpenPackageA(szpackagepath: Pcstr, hproduct: MutPtr<Msihandle>): UInt =
+public actual fun msiOpenPackageA(szpackagepath: Pcstr, hproduct: MutPtr): UInt =
     WindowsWin32SystemApplicationinstallationandservicingJniBridge.windowssysWindowsWin32SystemApplicationinstallationandservicingMsiOpenPackageA(szpackagepath.rawAddress, hproduct.rawAddress).toUInt()
 
-public actual fun msiOpenPackageExA(szpackagepath: Pcstr, dwoptions: UInt, hproduct: MutPtr<Msihandle>): UInt =
+public actual fun msiOpenPackageExA(szpackagepath: Pcstr, dwoptions: UInt, hproduct: MutPtr): UInt =
     WindowsWin32SystemApplicationinstallationandservicingJniBridge.windowssysWindowsWin32SystemApplicationinstallationandservicingMsiOpenPackageExA(szpackagepath.rawAddress, dwoptions.toInt(), hproduct.rawAddress).toUInt()
 
-public actual fun msiOpenPackageExW(szpackagepath: Pcwstr, dwoptions: UInt, hproduct: MutPtr<Msihandle>): UInt =
+public actual fun msiOpenPackageExW(szpackagepath: Pcwstr, dwoptions: UInt, hproduct: MutPtr): UInt =
     WindowsWin32SystemApplicationinstallationandservicingJniBridge.windowssysWindowsWin32SystemApplicationinstallationandservicingMsiOpenPackageExW(szpackagepath.rawAddress, dwoptions.toInt(), hproduct.rawAddress).toUInt()
 
-public actual fun msiOpenPackageW(szpackagepath: Pcwstr, hproduct: MutPtr<Msihandle>): UInt =
+public actual fun msiOpenPackageW(szpackagepath: Pcwstr, hproduct: MutPtr): UInt =
     WindowsWin32SystemApplicationinstallationandservicingJniBridge.windowssysWindowsWin32SystemApplicationinstallationandservicingMsiOpenPackageW(szpackagepath.rawAddress, hproduct.rawAddress).toUInt()
 
-public actual fun msiOpenProductA(szproduct: Pcstr, hproduct: MutPtr<Msihandle>): UInt =
+public actual fun msiOpenProductA(szproduct: Pcstr, hproduct: MutPtr): UInt =
     WindowsWin32SystemApplicationinstallationandservicingJniBridge.windowssysWindowsWin32SystemApplicationinstallationandservicingMsiOpenProductA(szproduct.rawAddress, hproduct.rawAddress).toUInt()
 
-public actual fun msiOpenProductW(szproduct: Pcwstr, hproduct: MutPtr<Msihandle>): UInt =
+public actual fun msiOpenProductW(szproduct: Pcwstr, hproduct: MutPtr): UInt =
     WindowsWin32SystemApplicationinstallationandservicingJniBridge.windowssysWindowsWin32SystemApplicationinstallationandservicingMsiOpenProductW(szproduct.rawAddress, hproduct.rawAddress).toUInt()
 
 public actual fun msiPreviewBillboardA(hpreview: Msihandle, szcontrolname: Pcstr, szbillboard: Pcstr): UInt =
@@ -1646,43 +1641,43 @@ public actual fun msiProcessAdvertiseScriptW(szscriptfile: Pcwstr, sziconfolder:
 public actual fun msiProcessMessage(hinstall: Msihandle, emessagetype: Installmessage, hrecord: Msihandle): Int =
     WindowsWin32SystemApplicationinstallationandservicingJniBridge.windowssysWindowsWin32SystemApplicationinstallationandservicingMsiProcessMessage(hinstall.toInt(), emessagetype, hrecord.toInt())
 
-public actual fun msiProvideAssemblyA(szassemblyname: Pcstr, szappcontext: Pcstr, dwinstallmode: UInt, dwassemblyinfo: Msiassemblyinfo, lppathbuf: Pstr, pcchpathbuf: MutPtr<UInt>): UInt =
+public actual fun msiProvideAssemblyA(szassemblyname: Pcstr, szappcontext: Pcstr, dwinstallmode: UInt, dwassemblyinfo: Msiassemblyinfo, lppathbuf: Pstr, pcchpathbuf: MutPtr): UInt =
     WindowsWin32SystemApplicationinstallationandservicingJniBridge.windowssysWindowsWin32SystemApplicationinstallationandservicingMsiProvideAssemblyA(szassemblyname.rawAddress, szappcontext.rawAddress, dwinstallmode.toInt(), dwassemblyinfo.toInt(), lppathbuf.rawAddress, pcchpathbuf.rawAddress).toUInt()
 
-public actual fun msiProvideAssemblyW(szassemblyname: Pcwstr, szappcontext: Pcwstr, dwinstallmode: UInt, dwassemblyinfo: Msiassemblyinfo, lppathbuf: Pwstr, pcchpathbuf: MutPtr<UInt>): UInt =
+public actual fun msiProvideAssemblyW(szassemblyname: Pcwstr, szappcontext: Pcwstr, dwinstallmode: UInt, dwassemblyinfo: Msiassemblyinfo, lppathbuf: Pwstr, pcchpathbuf: MutPtr): UInt =
     WindowsWin32SystemApplicationinstallationandservicingJniBridge.windowssysWindowsWin32SystemApplicationinstallationandservicingMsiProvideAssemblyW(szassemblyname.rawAddress, szappcontext.rawAddress, dwinstallmode.toInt(), dwassemblyinfo.toInt(), lppathbuf.rawAddress, pcchpathbuf.rawAddress).toUInt()
 
-public actual fun msiProvideComponentA(szproduct: Pcstr, szfeature: Pcstr, szcomponent: Pcstr, dwinstallmode: UInt, lppathbuf: Pstr, pcchpathbuf: MutPtr<UInt>): UInt =
+public actual fun msiProvideComponentA(szproduct: Pcstr, szfeature: Pcstr, szcomponent: Pcstr, dwinstallmode: UInt, lppathbuf: Pstr, pcchpathbuf: MutPtr): UInt =
     WindowsWin32SystemApplicationinstallationandservicingJniBridge.windowssysWindowsWin32SystemApplicationinstallationandservicingMsiProvideComponentA(szproduct.rawAddress, szfeature.rawAddress, szcomponent.rawAddress, dwinstallmode.toInt(), lppathbuf.rawAddress, pcchpathbuf.rawAddress).toUInt()
 
-public actual fun msiProvideComponentW(szproduct: Pcwstr, szfeature: Pcwstr, szcomponent: Pcwstr, dwinstallmode: UInt, lppathbuf: Pwstr, pcchpathbuf: MutPtr<UInt>): UInt =
+public actual fun msiProvideComponentW(szproduct: Pcwstr, szfeature: Pcwstr, szcomponent: Pcwstr, dwinstallmode: UInt, lppathbuf: Pwstr, pcchpathbuf: MutPtr): UInt =
     WindowsWin32SystemApplicationinstallationandservicingJniBridge.windowssysWindowsWin32SystemApplicationinstallationandservicingMsiProvideComponentW(szproduct.rawAddress, szfeature.rawAddress, szcomponent.rawAddress, dwinstallmode.toInt(), lppathbuf.rawAddress, pcchpathbuf.rawAddress).toUInt()
 
-public actual fun msiProvideQualifiedComponentA(szcategory: Pcstr, szqualifier: Pcstr, dwinstallmode: UInt, lppathbuf: Pstr, pcchpathbuf: MutPtr<UInt>): UInt =
+public actual fun msiProvideQualifiedComponentA(szcategory: Pcstr, szqualifier: Pcstr, dwinstallmode: UInt, lppathbuf: Pstr, pcchpathbuf: MutPtr): UInt =
     WindowsWin32SystemApplicationinstallationandservicingJniBridge.windowssysWindowsWin32SystemApplicationinstallationandservicingMsiProvideQualifiedComponentA(szcategory.rawAddress, szqualifier.rawAddress, dwinstallmode.toInt(), lppathbuf.rawAddress, pcchpathbuf.rawAddress).toUInt()
 
-public actual fun msiProvideQualifiedComponentExA(szcategory: Pcstr, szqualifier: Pcstr, dwinstallmode: UInt, szproduct: Pcstr, dwunused1: UInt, dwunused2: UInt, lppathbuf: Pstr, pcchpathbuf: MutPtr<UInt>): UInt =
+public actual fun msiProvideQualifiedComponentExA(szcategory: Pcstr, szqualifier: Pcstr, dwinstallmode: UInt, szproduct: Pcstr, dwunused1: UInt, dwunused2: UInt, lppathbuf: Pstr, pcchpathbuf: MutPtr): UInt =
     WindowsWin32SystemApplicationinstallationandservicingJniBridge.windowssysWindowsWin32SystemApplicationinstallationandservicingMsiProvideQualifiedComponentExA(szcategory.rawAddress, szqualifier.rawAddress, dwinstallmode.toInt(), szproduct.rawAddress, dwunused1.toInt(), dwunused2.toInt(), lppathbuf.rawAddress, pcchpathbuf.rawAddress).toUInt()
 
-public actual fun msiProvideQualifiedComponentExW(szcategory: Pcwstr, szqualifier: Pcwstr, dwinstallmode: UInt, szproduct: Pcwstr, dwunused1: UInt, dwunused2: UInt, lppathbuf: Pwstr, pcchpathbuf: MutPtr<UInt>): UInt =
+public actual fun msiProvideQualifiedComponentExW(szcategory: Pcwstr, szqualifier: Pcwstr, dwinstallmode: UInt, szproduct: Pcwstr, dwunused1: UInt, dwunused2: UInt, lppathbuf: Pwstr, pcchpathbuf: MutPtr): UInt =
     WindowsWin32SystemApplicationinstallationandservicingJniBridge.windowssysWindowsWin32SystemApplicationinstallationandservicingMsiProvideQualifiedComponentExW(szcategory.rawAddress, szqualifier.rawAddress, dwinstallmode.toInt(), szproduct.rawAddress, dwunused1.toInt(), dwunused2.toInt(), lppathbuf.rawAddress, pcchpathbuf.rawAddress).toUInt()
 
-public actual fun msiProvideQualifiedComponentW(szcategory: Pcwstr, szqualifier: Pcwstr, dwinstallmode: UInt, lppathbuf: Pwstr, pcchpathbuf: MutPtr<UInt>): UInt =
+public actual fun msiProvideQualifiedComponentW(szcategory: Pcwstr, szqualifier: Pcwstr, dwinstallmode: UInt, lppathbuf: Pwstr, pcchpathbuf: MutPtr): UInt =
     WindowsWin32SystemApplicationinstallationandservicingJniBridge.windowssysWindowsWin32SystemApplicationinstallationandservicingMsiProvideQualifiedComponentW(szcategory.rawAddress, szqualifier.rawAddress, dwinstallmode.toInt(), lppathbuf.rawAddress, pcchpathbuf.rawAddress).toUInt()
 
-public actual fun msiQueryComponentStateA(szproductcode: Pcstr, szusersid: Pcstr, dwcontext: Msiinstallcontext, szcomponentcode: Pcstr, pdwstate: MutPtr<Installstate>): UInt =
+public actual fun msiQueryComponentStateA(szproductcode: Pcstr, szusersid: Pcstr, dwcontext: Msiinstallcontext, szcomponentcode: Pcstr, pdwstate: MutPtr): UInt =
     WindowsWin32SystemApplicationinstallationandservicingJniBridge.windowssysWindowsWin32SystemApplicationinstallationandservicingMsiQueryComponentStateA(szproductcode.rawAddress, szusersid.rawAddress, dwcontext, szcomponentcode.rawAddress, pdwstate.rawAddress).toUInt()
 
-public actual fun msiQueryComponentStateW(szproductcode: Pcwstr, szusersid: Pcwstr, dwcontext: Msiinstallcontext, szcomponentcode: Pcwstr, pdwstate: MutPtr<Installstate>): UInt =
+public actual fun msiQueryComponentStateW(szproductcode: Pcwstr, szusersid: Pcwstr, dwcontext: Msiinstallcontext, szcomponentcode: Pcwstr, pdwstate: MutPtr): UInt =
     WindowsWin32SystemApplicationinstallationandservicingJniBridge.windowssysWindowsWin32SystemApplicationinstallationandservicingMsiQueryComponentStateW(szproductcode.rawAddress, szusersid.rawAddress, dwcontext, szcomponentcode.rawAddress, pdwstate.rawAddress).toUInt()
 
 public actual fun msiQueryFeatureStateA(szproduct: Pcstr, szfeature: Pcstr): Installstate =
     WindowsWin32SystemApplicationinstallationandservicingJniBridge.windowssysWindowsWin32SystemApplicationinstallationandservicingMsiQueryFeatureStateA(szproduct.rawAddress, szfeature.rawAddress)
 
-public actual fun msiQueryFeatureStateExA(szproductcode: Pcstr, szusersid: Pcstr, dwcontext: Msiinstallcontext, szfeature: Pcstr, pdwstate: MutPtr<Installstate>): UInt =
+public actual fun msiQueryFeatureStateExA(szproductcode: Pcstr, szusersid: Pcstr, dwcontext: Msiinstallcontext, szfeature: Pcstr, pdwstate: MutPtr): UInt =
     WindowsWin32SystemApplicationinstallationandservicingJniBridge.windowssysWindowsWin32SystemApplicationinstallationandservicingMsiQueryFeatureStateExA(szproductcode.rawAddress, szusersid.rawAddress, dwcontext, szfeature.rawAddress, pdwstate.rawAddress).toUInt()
 
-public actual fun msiQueryFeatureStateExW(szproductcode: Pcwstr, szusersid: Pcwstr, dwcontext: Msiinstallcontext, szfeature: Pcwstr, pdwstate: MutPtr<Installstate>): UInt =
+public actual fun msiQueryFeatureStateExW(szproductcode: Pcwstr, szusersid: Pcwstr, dwcontext: Msiinstallcontext, szfeature: Pcwstr, pdwstate: MutPtr): UInt =
     WindowsWin32SystemApplicationinstallationandservicingJniBridge.windowssysWindowsWin32SystemApplicationinstallationandservicingMsiQueryFeatureStateExW(szproductcode.rawAddress, szusersid.rawAddress, dwcontext, szfeature.rawAddress, pdwstate.rawAddress).toUInt()
 
 public actual fun msiQueryFeatureStateW(szproduct: Pcwstr, szfeature: Pcwstr): Installstate =
@@ -1706,16 +1701,16 @@ public actual fun msiRecordGetFieldCount(hrecord: Msihandle): UInt =
 public actual fun msiRecordGetInteger(hrecord: Msihandle, ifield: UInt): Int =
     WindowsWin32SystemApplicationinstallationandservicingJniBridge.windowssysWindowsWin32SystemApplicationinstallationandservicingMsiRecordGetInteger(hrecord.toInt(), ifield.toInt())
 
-public actual fun msiRecordGetStringA(hrecord: Msihandle, ifield: UInt, szvaluebuf: Pstr, pcchvaluebuf: MutPtr<UInt>): UInt =
+public actual fun msiRecordGetStringA(hrecord: Msihandle, ifield: UInt, szvaluebuf: Pstr, pcchvaluebuf: MutPtr): UInt =
     WindowsWin32SystemApplicationinstallationandservicingJniBridge.windowssysWindowsWin32SystemApplicationinstallationandservicingMsiRecordGetStringA(hrecord.toInt(), ifield.toInt(), szvaluebuf.rawAddress, pcchvaluebuf.rawAddress).toUInt()
 
-public actual fun msiRecordGetStringW(hrecord: Msihandle, ifield: UInt, szvaluebuf: Pwstr, pcchvaluebuf: MutPtr<UInt>): UInt =
+public actual fun msiRecordGetStringW(hrecord: Msihandle, ifield: UInt, szvaluebuf: Pwstr, pcchvaluebuf: MutPtr): UInt =
     WindowsWin32SystemApplicationinstallationandservicingJniBridge.windowssysWindowsWin32SystemApplicationinstallationandservicingMsiRecordGetStringW(hrecord.toInt(), ifield.toInt(), szvaluebuf.rawAddress, pcchvaluebuf.rawAddress).toUInt()
 
 public actual fun msiRecordIsNull(hrecord: Msihandle, ifield: UInt): Bool =
     WindowsWin32SystemApplicationinstallationandservicingJniBridge.windowssysWindowsWin32SystemApplicationinstallationandservicingMsiRecordIsNull(hrecord.toInt(), ifield.toInt())
 
-public actual fun msiRecordReadStream(hrecord: Msihandle, ifield: UInt, szdatabuf: Pstr, pcbdatabuf: MutPtr<UInt>): UInt =
+public actual fun msiRecordReadStream(hrecord: Msihandle, ifield: UInt, szdatabuf: Pstr, pcbdatabuf: MutPtr): UInt =
     WindowsWin32SystemApplicationinstallationandservicingJniBridge.windowssysWindowsWin32SystemApplicationinstallationandservicingMsiRecordReadStream(hrecord.toInt(), ifield.toInt(), szdatabuf.rawAddress, pcbdatabuf.rawAddress).toUInt()
 
 public actual fun msiRecordSetInteger(hrecord: Msihandle, ifield: UInt, ivalue: Int): UInt =
@@ -1763,13 +1758,13 @@ public actual fun msiSetComponentStateA(hinstall: Msihandle, szcomponent: Pcstr,
 public actual fun msiSetComponentStateW(hinstall: Msihandle, szcomponent: Pcwstr, istate: Installstate): UInt =
     WindowsWin32SystemApplicationinstallationandservicingJniBridge.windowssysWindowsWin32SystemApplicationinstallationandservicingMsiSetComponentStateW(hinstall.toInt(), szcomponent.rawAddress, istate).toUInt()
 
-public actual fun msiSetExternalUIA(puihandler: InstalluiHandlera, dwmessagefilter: UInt, pvcontext: ConstPtr<CVoid>): InstalluiHandlera =
+public actual fun msiSetExternalUIA(puihandler: InstalluiHandlera, dwmessagefilter: UInt, pvcontext: ConstPtr): InstalluiHandlera =
     null
 
-public actual fun msiSetExternalUIRecord(puihandler: PinstalluiHandlerRecord, dwmessagefilter: UInt, pvcontext: ConstPtr<CVoid>, ppuiprevhandler: PinstalluiHandlerRecord): UInt =
+public actual fun msiSetExternalUIRecord(puihandler: PinstalluiHandlerRecord, dwmessagefilter: UInt, pvcontext: ConstPtr, ppuiprevhandler: PinstalluiHandlerRecord): UInt =
     WindowsWin32SystemApplicationinstallationandservicingJniBridge.windowssysWindowsWin32SystemApplicationinstallationandservicingMsiSetExternalUIRecord(0L, dwmessagefilter.toInt(), pvcontext.rawAddress, 0L).toUInt()
 
-public actual fun msiSetExternalUIW(puihandler: InstalluiHandlerw, dwmessagefilter: UInt, pvcontext: ConstPtr<CVoid>): InstalluiHandlerw =
+public actual fun msiSetExternalUIW(puihandler: InstalluiHandlerw, dwmessagefilter: UInt, pvcontext: ConstPtr): InstalluiHandlerw =
     null
 
 public actual fun msiSetFeatureAttributesA(hinstall: Msihandle, szfeature: Pcstr, dwattributes: UInt): UInt =
@@ -1787,7 +1782,7 @@ public actual fun msiSetFeatureStateW(hinstall: Msihandle, szfeature: Pcwstr, is
 public actual fun msiSetInstallLevel(hinstall: Msihandle, iinstalllevel: Int): UInt =
     WindowsWin32SystemApplicationinstallationandservicingJniBridge.windowssysWindowsWin32SystemApplicationinstallationandservicingMsiSetInstallLevel(hinstall.toInt(), iinstalllevel).toUInt()
 
-public actual fun msiSetInternalUI(dwuilevel: Installuilevel, phwnd: MutPtr<Hwnd>): Installuilevel =
+public actual fun msiSetInternalUI(dwuilevel: Installuilevel, phwnd: MutPtr): Installuilevel =
     WindowsWin32SystemApplicationinstallationandservicingJniBridge.windowssysWindowsWin32SystemApplicationinstallationandservicingMsiSetInternalUI(dwuilevel, phwnd.rawAddress)
 
 public actual fun msiSetMode(hinstall: Msihandle, erunmode: Msirunmode, fstate: Bool): UInt =
@@ -1847,16 +1842,16 @@ public actual fun msiSourceListClearSourceA(szproductcodeorpatchcode: Pcstr, szu
 public actual fun msiSourceListClearSourceW(szproductcodeorpatchcode: Pcwstr, szusersid: Pcwstr, dwcontext: Msiinstallcontext, dwoptions: UInt, szsource: Pcwstr): UInt =
     WindowsWin32SystemApplicationinstallationandservicingJniBridge.windowssysWindowsWin32SystemApplicationinstallationandservicingMsiSourceListClearSourceW(szproductcodeorpatchcode.rawAddress, szusersid.rawAddress, dwcontext, dwoptions.toInt(), szsource.rawAddress).toUInt()
 
-public actual fun msiSourceListEnumMediaDisksA(szproductcodeorpatchcode: Pcstr, szusersid: Pcstr, dwcontext: Msiinstallcontext, dwoptions: UInt, dwindex: UInt, pdwdiskid: MutPtr<UInt>, szvolumelabel: Pstr, pcchvolumelabel: MutPtr<UInt>, szdiskprompt: Pstr, pcchdiskprompt: MutPtr<UInt>): UInt =
+public actual fun msiSourceListEnumMediaDisksA(szproductcodeorpatchcode: Pcstr, szusersid: Pcstr, dwcontext: Msiinstallcontext, dwoptions: UInt, dwindex: UInt, pdwdiskid: MutPtr, szvolumelabel: Pstr, pcchvolumelabel: MutPtr, szdiskprompt: Pstr, pcchdiskprompt: MutPtr): UInt =
     WindowsWin32SystemApplicationinstallationandservicingJniBridge.windowssysWindowsWin32SystemApplicationinstallationandservicingMsiSourceListEnumMediaDisksA(szproductcodeorpatchcode.rawAddress, szusersid.rawAddress, dwcontext, dwoptions.toInt(), dwindex.toInt(), pdwdiskid.rawAddress, szvolumelabel.rawAddress, pcchvolumelabel.rawAddress, szdiskprompt.rawAddress, pcchdiskprompt.rawAddress).toUInt()
 
-public actual fun msiSourceListEnumMediaDisksW(szproductcodeorpatchcode: Pcwstr, szusersid: Pcwstr, dwcontext: Msiinstallcontext, dwoptions: UInt, dwindex: UInt, pdwdiskid: MutPtr<UInt>, szvolumelabel: Pwstr, pcchvolumelabel: MutPtr<UInt>, szdiskprompt: Pwstr, pcchdiskprompt: MutPtr<UInt>): UInt =
+public actual fun msiSourceListEnumMediaDisksW(szproductcodeorpatchcode: Pcwstr, szusersid: Pcwstr, dwcontext: Msiinstallcontext, dwoptions: UInt, dwindex: UInt, pdwdiskid: MutPtr, szvolumelabel: Pwstr, pcchvolumelabel: MutPtr, szdiskprompt: Pwstr, pcchdiskprompt: MutPtr): UInt =
     WindowsWin32SystemApplicationinstallationandservicingJniBridge.windowssysWindowsWin32SystemApplicationinstallationandservicingMsiSourceListEnumMediaDisksW(szproductcodeorpatchcode.rawAddress, szusersid.rawAddress, dwcontext, dwoptions.toInt(), dwindex.toInt(), pdwdiskid.rawAddress, szvolumelabel.rawAddress, pcchvolumelabel.rawAddress, szdiskprompt.rawAddress, pcchdiskprompt.rawAddress).toUInt()
 
-public actual fun msiSourceListEnumSourcesA(szproductcodeorpatchcode: Pcstr, szusersid: Pcstr, dwcontext: Msiinstallcontext, dwoptions: UInt, dwindex: UInt, szsource: Pstr, pcchsource: MutPtr<UInt>): UInt =
+public actual fun msiSourceListEnumSourcesA(szproductcodeorpatchcode: Pcstr, szusersid: Pcstr, dwcontext: Msiinstallcontext, dwoptions: UInt, dwindex: UInt, szsource: Pstr, pcchsource: MutPtr): UInt =
     WindowsWin32SystemApplicationinstallationandservicingJniBridge.windowssysWindowsWin32SystemApplicationinstallationandservicingMsiSourceListEnumSourcesA(szproductcodeorpatchcode.rawAddress, szusersid.rawAddress, dwcontext, dwoptions.toInt(), dwindex.toInt(), szsource.rawAddress, pcchsource.rawAddress).toUInt()
 
-public actual fun msiSourceListEnumSourcesW(szproductcodeorpatchcode: Pcwstr, szusersid: Pcwstr, dwcontext: Msiinstallcontext, dwoptions: UInt, dwindex: UInt, szsource: Pwstr, pcchsource: MutPtr<UInt>): UInt =
+public actual fun msiSourceListEnumSourcesW(szproductcodeorpatchcode: Pcwstr, szusersid: Pcwstr, dwcontext: Msiinstallcontext, dwoptions: UInt, dwindex: UInt, szsource: Pwstr, pcchsource: MutPtr): UInt =
     WindowsWin32SystemApplicationinstallationandservicingJniBridge.windowssysWindowsWin32SystemApplicationinstallationandservicingMsiSourceListEnumSourcesW(szproductcodeorpatchcode.rawAddress, szusersid.rawAddress, dwcontext, dwoptions.toInt(), dwindex.toInt(), szsource.rawAddress, pcchsource.rawAddress).toUInt()
 
 public actual fun msiSourceListForceResolutionA(szproduct: Pcstr, szusername: Pcstr, dwreserved: UInt): UInt =
@@ -1871,10 +1866,10 @@ public actual fun msiSourceListForceResolutionExW(szproductcodeorpatchcode: Pcws
 public actual fun msiSourceListForceResolutionW(szproduct: Pcwstr, szusername: Pcwstr, dwreserved: UInt): UInt =
     WindowsWin32SystemApplicationinstallationandservicingJniBridge.windowssysWindowsWin32SystemApplicationinstallationandservicingMsiSourceListForceResolutionW(szproduct.rawAddress, szusername.rawAddress, dwreserved.toInt()).toUInt()
 
-public actual fun msiSourceListGetInfoA(szproductcodeorpatchcode: Pcstr, szusersid: Pcstr, dwcontext: Msiinstallcontext, dwoptions: UInt, szproperty: Pcstr, szvalue: Pstr, pcchvalue: MutPtr<UInt>): UInt =
+public actual fun msiSourceListGetInfoA(szproductcodeorpatchcode: Pcstr, szusersid: Pcstr, dwcontext: Msiinstallcontext, dwoptions: UInt, szproperty: Pcstr, szvalue: Pstr, pcchvalue: MutPtr): UInt =
     WindowsWin32SystemApplicationinstallationandservicingJniBridge.windowssysWindowsWin32SystemApplicationinstallationandservicingMsiSourceListGetInfoA(szproductcodeorpatchcode.rawAddress, szusersid.rawAddress, dwcontext, dwoptions.toInt(), szproperty.rawAddress, szvalue.rawAddress, pcchvalue.rawAddress).toUInt()
 
-public actual fun msiSourceListGetInfoW(szproductcodeorpatchcode: Pcwstr, szusersid: Pcwstr, dwcontext: Msiinstallcontext, dwoptions: UInt, szproperty: Pcwstr, szvalue: Pwstr, pcchvalue: MutPtr<UInt>): UInt =
+public actual fun msiSourceListGetInfoW(szproductcodeorpatchcode: Pcwstr, szusersid: Pcwstr, dwcontext: Msiinstallcontext, dwoptions: UInt, szproperty: Pcwstr, szvalue: Pwstr, pcchvalue: MutPtr): UInt =
     WindowsWin32SystemApplicationinstallationandservicingJniBridge.windowssysWindowsWin32SystemApplicationinstallationandservicingMsiSourceListGetInfoW(szproductcodeorpatchcode.rawAddress, szusersid.rawAddress, dwcontext, dwoptions.toInt(), szproperty.rawAddress, szvalue.rawAddress, pcchvalue.rawAddress).toUInt()
 
 public actual fun msiSourceListSetInfoA(szproductcodeorpatchcode: Pcstr, szusersid: Pcstr, dwcontext: Msiinstallcontext, dwoptions: UInt, szproperty: Pcstr, szvalue: Pcstr): UInt =
@@ -1883,22 +1878,22 @@ public actual fun msiSourceListSetInfoA(szproductcodeorpatchcode: Pcstr, szusers
 public actual fun msiSourceListSetInfoW(szproductcodeorpatchcode: Pcwstr, szusersid: Pcwstr, dwcontext: Msiinstallcontext, dwoptions: UInt, szproperty: Pcwstr, szvalue: Pcwstr): UInt =
     WindowsWin32SystemApplicationinstallationandservicingJniBridge.windowssysWindowsWin32SystemApplicationinstallationandservicingMsiSourceListSetInfoW(szproductcodeorpatchcode.rawAddress, szusersid.rawAddress, dwcontext, dwoptions.toInt(), szproperty.rawAddress, szvalue.rawAddress).toUInt()
 
-public actual fun msiSummaryInfoGetPropertyA(hsummaryinfo: Msihandle, uiproperty: UInt, puidatatype: MutPtr<UInt>, pivalue: MutPtr<Int>, pftvalue: MutPtr<Filetime>, szvaluebuf: Pstr, pcchvaluebuf: MutPtr<UInt>): UInt =
+public actual fun msiSummaryInfoGetPropertyA(hsummaryinfo: Msihandle, uiproperty: UInt, puidatatype: MutPtr, pivalue: MutPtr, pftvalue: MutPtr, szvaluebuf: Pstr, pcchvaluebuf: MutPtr): UInt =
     WindowsWin32SystemApplicationinstallationandservicingJniBridge.windowssysWindowsWin32SystemApplicationinstallationandservicingMsiSummaryInfoGetPropertyA(hsummaryinfo.toInt(), uiproperty.toInt(), puidatatype.rawAddress, pivalue.rawAddress, pftvalue.rawAddress, szvaluebuf.rawAddress, pcchvaluebuf.rawAddress).toUInt()
 
-public actual fun msiSummaryInfoGetPropertyCount(hsummaryinfo: Msihandle, puipropertycount: MutPtr<UInt>): UInt =
+public actual fun msiSummaryInfoGetPropertyCount(hsummaryinfo: Msihandle, puipropertycount: MutPtr): UInt =
     WindowsWin32SystemApplicationinstallationandservicingJniBridge.windowssysWindowsWin32SystemApplicationinstallationandservicingMsiSummaryInfoGetPropertyCount(hsummaryinfo.toInt(), puipropertycount.rawAddress).toUInt()
 
-public actual fun msiSummaryInfoGetPropertyW(hsummaryinfo: Msihandle, uiproperty: UInt, puidatatype: MutPtr<UInt>, pivalue: MutPtr<Int>, pftvalue: MutPtr<Filetime>, szvaluebuf: Pwstr, pcchvaluebuf: MutPtr<UInt>): UInt =
+public actual fun msiSummaryInfoGetPropertyW(hsummaryinfo: Msihandle, uiproperty: UInt, puidatatype: MutPtr, pivalue: MutPtr, pftvalue: MutPtr, szvaluebuf: Pwstr, pcchvaluebuf: MutPtr): UInt =
     WindowsWin32SystemApplicationinstallationandservicingJniBridge.windowssysWindowsWin32SystemApplicationinstallationandservicingMsiSummaryInfoGetPropertyW(hsummaryinfo.toInt(), uiproperty.toInt(), puidatatype.rawAddress, pivalue.rawAddress, pftvalue.rawAddress, szvaluebuf.rawAddress, pcchvaluebuf.rawAddress).toUInt()
 
 public actual fun msiSummaryInfoPersist(hsummaryinfo: Msihandle): UInt =
     WindowsWin32SystemApplicationinstallationandservicingJniBridge.windowssysWindowsWin32SystemApplicationinstallationandservicingMsiSummaryInfoPersist(hsummaryinfo.toInt()).toUInt()
 
-public actual fun msiSummaryInfoSetPropertyA(hsummaryinfo: Msihandle, uiproperty: UInt, uidatatype: UInt, ivalue: Int, pftvalue: MutPtr<Filetime>, szvalue: Pcstr): UInt =
+public actual fun msiSummaryInfoSetPropertyA(hsummaryinfo: Msihandle, uiproperty: UInt, uidatatype: UInt, ivalue: Int, pftvalue: MutPtr, szvalue: Pcstr): UInt =
     WindowsWin32SystemApplicationinstallationandservicingJniBridge.windowssysWindowsWin32SystemApplicationinstallationandservicingMsiSummaryInfoSetPropertyA(hsummaryinfo.toInt(), uiproperty.toInt(), uidatatype.toInt(), ivalue, pftvalue.rawAddress, szvalue.rawAddress).toUInt()
 
-public actual fun msiSummaryInfoSetPropertyW(hsummaryinfo: Msihandle, uiproperty: UInt, uidatatype: UInt, ivalue: Int, pftvalue: MutPtr<Filetime>, szvalue: Pcwstr): UInt =
+public actual fun msiSummaryInfoSetPropertyW(hsummaryinfo: Msihandle, uiproperty: UInt, uidatatype: UInt, ivalue: Int, pftvalue: MutPtr, szvalue: Pcwstr): UInt =
     WindowsWin32SystemApplicationinstallationandservicingJniBridge.windowssysWindowsWin32SystemApplicationinstallationandservicingMsiSummaryInfoSetPropertyW(hsummaryinfo.toInt(), uiproperty.toInt(), uidatatype.toInt(), ivalue, pftvalue.rawAddress, szvalue.rawAddress).toUInt()
 
 public actual fun msiUseFeatureA(szproduct: Pcstr, szfeature: Pcstr): Installstate =
@@ -1928,35 +1923,35 @@ public actual fun msiViewClose(hview: Msihandle): UInt =
 public actual fun msiViewExecute(hview: Msihandle, hrecord: Msihandle): UInt =
     WindowsWin32SystemApplicationinstallationandservicingJniBridge.windowssysWindowsWin32SystemApplicationinstallationandservicingMsiViewExecute(hview.toInt(), hrecord.toInt()).toUInt()
 
-public actual fun msiViewFetch(hview: Msihandle, phrecord: MutPtr<Msihandle>): UInt =
+public actual fun msiViewFetch(hview: Msihandle, phrecord: MutPtr): UInt =
     WindowsWin32SystemApplicationinstallationandservicingJniBridge.windowssysWindowsWin32SystemApplicationinstallationandservicingMsiViewFetch(hview.toInt(), phrecord.rawAddress).toUInt()
 
-public actual fun msiViewGetColumnInfo(hview: Msihandle, ecolumninfo: Msicolinfo, phrecord: MutPtr<Msihandle>): UInt =
+public actual fun msiViewGetColumnInfo(hview: Msihandle, ecolumninfo: Msicolinfo, phrecord: MutPtr): UInt =
     WindowsWin32SystemApplicationinstallationandservicingJniBridge.windowssysWindowsWin32SystemApplicationinstallationandservicingMsiViewGetColumnInfo(hview.toInt(), ecolumninfo, phrecord.rawAddress).toUInt()
 
-public actual fun msiViewGetErrorA(hview: Msihandle, szcolumnnamebuffer: Pstr, pcchbuf: MutPtr<UInt>): Msidberror =
+public actual fun msiViewGetErrorA(hview: Msihandle, szcolumnnamebuffer: Pstr, pcchbuf: MutPtr): Msidberror =
     WindowsWin32SystemApplicationinstallationandservicingJniBridge.windowssysWindowsWin32SystemApplicationinstallationandservicingMsiViewGetErrorA(hview.toInt(), szcolumnnamebuffer.rawAddress, pcchbuf.rawAddress)
 
-public actual fun msiViewGetErrorW(hview: Msihandle, szcolumnnamebuffer: Pwstr, pcchbuf: MutPtr<UInt>): Msidberror =
+public actual fun msiViewGetErrorW(hview: Msihandle, szcolumnnamebuffer: Pwstr, pcchbuf: MutPtr): Msidberror =
     WindowsWin32SystemApplicationinstallationandservicingJniBridge.windowssysWindowsWin32SystemApplicationinstallationandservicingMsiViewGetErrorW(hview.toInt(), szcolumnnamebuffer.rawAddress, pcchbuf.rawAddress)
 
 public actual fun msiViewModify(hview: Msihandle, emodifymode: Msimodify, hrecord: Msihandle): UInt =
     WindowsWin32SystemApplicationinstallationandservicingJniBridge.windowssysWindowsWin32SystemApplicationinstallationandservicingMsiViewModify(hview.toInt(), emodifymode, hrecord.toInt()).toUInt()
 
-public actual fun normalizeFileForPatchSignature(filebuffer: MutPtr<CVoid>, filesize: UInt, optionflags: UInt, optiondata: ConstPtr<PatchOptionData>, newfilecoffbase: UInt, newfilecofftime: UInt, ignorerangecount: UInt, ignorerangearray: ConstPtr<PatchIgnoreRange>, retainrangecount: UInt, retainrangearray: ConstPtr<PatchRetainRange>): Int =
+public actual fun normalizeFileForPatchSignature(filebuffer: MutPtr, filesize: UInt, optionflags: UInt, optiondata: ConstPtr, newfilecoffbase: UInt, newfilecofftime: UInt, ignorerangecount: UInt, ignorerangearray: ConstPtr, retainrangecount: UInt, retainrangearray: ConstPtr): Int =
     WindowsWin32SystemApplicationinstallationandservicingJniBridge.windowssysWindowsWin32SystemApplicationinstallationandservicingNormalizeFileForPatchSignature(filebuffer.rawAddress, filesize.toInt(), optionflags.toInt(), optiondata.rawAddress, newfilecoffbase.toInt(), newfilecofftime.toInt(), ignorerangecount.toInt(), ignorerangearray.rawAddress, retainrangecount.toInt(), retainrangearray.rawAddress)
 
-public actual fun queryActCtxSettingsW(dwflags: UInt, hactctx: Handle, settingsnamespace: Pcwstr, settingname: Pcwstr, pvbuffer: Pwstr, dwbuffer: ULong, pdwwrittenorrequired: MutPtr<ULong>): Bool =
+public actual fun queryActCtxSettingsW(dwflags: UInt, hactctx: Handle, settingsnamespace: Pcwstr, settingname: Pcwstr, pvbuffer: Pwstr, dwbuffer: ULong, pdwwrittenorrequired: MutPtr): Bool =
     WindowsWin32SystemApplicationinstallationandservicingJniBridge.windowssysWindowsWin32SystemApplicationinstallationandservicingQueryActCtxSettingsW(dwflags.toInt(), hactctx.rawAddress, settingsnamespace.rawAddress, settingname.rawAddress, pvbuffer.rawAddress, dwbuffer.toLong(), pdwwrittenorrequired.rawAddress)
 
-public actual fun queryActCtxW(dwflags: UInt, hactctx: Handle, pvsubinstance: ConstPtr<CVoid>, ulinfoclass: UInt, pvbuffer: MutPtr<CVoid>, cbbuffer: ULong, pcbwrittenorrequired: MutPtr<ULong>): Bool =
+public actual fun queryActCtxW(dwflags: UInt, hactctx: Handle, pvsubinstance: ConstPtr, ulinfoclass: UInt, pvbuffer: MutPtr, cbbuffer: ULong, pcbwrittenorrequired: MutPtr): Bool =
     WindowsWin32SystemApplicationinstallationandservicingJniBridge.windowssysWindowsWin32SystemApplicationinstallationandservicingQueryActCtxW(dwflags.toInt(), hactctx.rawAddress, pvsubinstance.rawAddress, ulinfoclass.toInt(), pvbuffer.rawAddress, cbbuffer.toLong(), pcbwrittenorrequired.rawAddress)
 
 public actual fun releaseActCtx(hactctx: Handle) {
     WindowsWin32SystemApplicationinstallationandservicingJniBridge.windowssysWindowsWin32SystemApplicationinstallationandservicingReleaseActCtx(hactctx.rawAddress)
 }
 
-public actual fun sfcGetNextProtectedFile(rpchandle: Handle, protfiledata: MutPtr<ProtectedFileData>): Bool =
+public actual fun sfcGetNextProtectedFile(rpchandle: Handle, protfiledata: MutPtr): Bool =
     WindowsWin32SystemApplicationinstallationandservicingJniBridge.windowssysWindowsWin32SystemApplicationinstallationandservicingSfcGetNextProtectedFile(rpchandle.rawAddress, protfiledata.rawAddress)
 
 public actual fun sfcIsFileProtected(rpchandle: Handle, protfilename: Pcwstr): Bool =
@@ -1971,7 +1966,7 @@ public actual fun sfpVerifyFile(pszfilename: Pcstr, pszerror: Pcstr, dwerrsize: 
 public actual fun testApplyPatchToFileA(patchfilename: Pcstr, oldfilename: Pcstr, applyoptionflags: UInt): Bool =
     WindowsWin32SystemApplicationinstallationandservicingJniBridge.windowssysWindowsWin32SystemApplicationinstallationandservicingTestApplyPatchToFileA(patchfilename.rawAddress, oldfilename.rawAddress, applyoptionflags.toInt())
 
-public actual fun testApplyPatchToFileByBuffers(patchfilebuffer: ConstPtr<UByte>, patchfilesize: UInt, oldfilebuffer: ConstPtr<UByte>, oldfilesize: UInt, newfilesize: MutPtr<UInt>, applyoptionflags: UInt): Bool =
+public actual fun testApplyPatchToFileByBuffers(patchfilebuffer: ConstPtr, patchfilesize: UInt, oldfilebuffer: ConstPtr, oldfilesize: UInt, newfilesize: MutPtr, applyoptionflags: UInt): Bool =
     WindowsWin32SystemApplicationinstallationandservicingJniBridge.windowssysWindowsWin32SystemApplicationinstallationandservicingTestApplyPatchToFileByBuffers(patchfilebuffer.rawAddress, patchfilesize.toInt(), oldfilebuffer.rawAddress, oldfilesize.toInt(), newfilesize.rawAddress, applyoptionflags.toInt())
 
 public actual fun testApplyPatchToFileByHandles(patchfilehandle: Handle, oldfilehandle: Handle, applyoptionflags: UInt): Bool =

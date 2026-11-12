@@ -2,7 +2,6 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.networkmanagement.qos
 
-import io.github.kotlinmania.rustlang.core.ffi.CVoid
 import io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
 import io.github.kotlinmania.rustlang.core.mem.TypeLayout
 import io.github.kotlinmania.rustlang.core.ptr.ConstPtr
@@ -11,7 +10,6 @@ import io.github.kotlinmania.windowssys.core.Bool
 import io.github.kotlinmania.windowssys.core.Pwstr
 import io.github.kotlinmania.windowssys.windows.win32.networking.winsock.Flowspec
 import io.github.kotlinmania.windowssys.windows.win32.networking.winsock.InAddr
-import io.github.kotlinmania.windowssys.windows.win32.networking.winsock.Sockaddr
 import io.github.kotlinmania.windowssys.windows.win32.networkmanagement.ndis.NetworkAddressList
 
 public data class AddressListDescriptor(
@@ -142,11 +140,11 @@ public class EnumerationBuffer internal constructor(
     public var ownerProcessId: UInt,
     public var flowNameLength: UShort,
     public var flowName: UShortArray,
-    pFlowCtorArg: MutPtr<TcGenFlow>,
+    pFlowCtorArg: MutPtr,
     public var numberOfFilters: UInt,
     public var genericFilter: List<TcGenFilter>,
 ) {
-    public var pFlow: MutPtr<TcGenFlow> = pFlowCtorArg
+    public var pFlow: MutPtr = pFlowCtorArg
         internal set
 
     public constructor() : this(
@@ -167,13 +165,13 @@ public class EnumerationBuffer internal constructor(
 
     public operator fun component4(): UShortArray = this.flowName
 
-    public operator fun component5(): MutPtr<TcGenFlow> = this.pFlow
+    public operator fun component5(): MutPtr = this.pFlow
 
     public operator fun component6(): UInt = this.numberOfFilters
 
     public operator fun component7(): List<TcGenFilter> = this.genericFilter
 
-    public fun copy(length: UInt = this.length, ownerProcessId: UInt = this.ownerProcessId, flowNameLength: UShort = this.flowNameLength, flowName: UShortArray = this.flowName, pFlow: MutPtr<TcGenFlow> = this.pFlow, numberOfFilters: UInt = this.numberOfFilters, genericFilter: List<TcGenFilter> = this.genericFilter): EnumerationBuffer = EnumerationBuffer(length = length, ownerProcessId = ownerProcessId, flowNameLength = flowNameLength, flowName = flowName, pFlowCtorArg = pFlow, numberOfFilters = numberOfFilters, genericFilter = genericFilter)
+    public fun copy(length: UInt = this.length, ownerProcessId: UInt = this.ownerProcessId, flowNameLength: UShort = this.flowNameLength, flowName: UShortArray = this.flowName, pFlow: MutPtr = this.pFlow, numberOfFilters: UInt = this.numberOfFilters, genericFilter: List<TcGenFilter> = this.genericFilter): EnumerationBuffer = EnumerationBuffer(length = length, ownerProcessId = ownerProcessId, flowNameLength = flowNameLength, flowName = flowName, pFlowCtorArg = pFlow, numberOfFilters = numberOfFilters, genericFilter = genericFilter)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -215,7 +213,7 @@ public class EnumerationBuffer internal constructor(
                         ).readNative(addr + 10L).toUShortArray(),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<TcGenFlow>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 528L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 536L),
                         (
@@ -233,7 +231,7 @@ public class EnumerationBuffer internal constructor(
                     ).writeNative(addr + 10L, value.flowName.toList())
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<TcGenFlow>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 528L, value.pFlow)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 536L, value.numberOfFilters)
                     (
@@ -248,7 +246,7 @@ public class EnumerationBuffer internal constructor(
             ownerProcessId: UInt = 0u,
             flowNameLength: UShort = 0u,
             flowName: UShortArray = UShortArray(256),
-            pFlow: MutPtr<TcGenFlow> = MutPtr(0L),
+            pFlow: MutPtr = MutPtr(0L),
             numberOfFilters: UInt = 0u,
             genericFilter: List<TcGenFilter> = List(1) { TcGenFilter() },
         ): EnumerationBuffer =
@@ -293,9 +291,9 @@ public data class FilterSpec0(
 public class Flowdescriptor internal constructor(
     public var flowSpec: Flowspec,
     public var numFilters: UInt,
-    filterListCtorArg: MutPtr<RsvpFilterspec>,
+    filterListCtorArg: MutPtr,
 ) {
-    public var filterList: MutPtr<RsvpFilterspec> = filterListCtorArg
+    public var filterList: MutPtr = filterListCtorArg
         internal set
 
     public constructor() : this(
@@ -308,9 +306,9 @@ public class Flowdescriptor internal constructor(
 
     public operator fun component2(): UInt = this.numFilters
 
-    public operator fun component3(): MutPtr<RsvpFilterspec> = this.filterList
+    public operator fun component3(): MutPtr = this.filterList
 
-    public fun copy(flowSpec: Flowspec = this.flowSpec, numFilters: UInt = this.numFilters, filterList: MutPtr<RsvpFilterspec> = this.filterList): Flowdescriptor = Flowdescriptor(flowSpec = flowSpec, numFilters = numFilters, filterListCtorArg = filterList)
+    public fun copy(flowSpec: Flowspec = this.flowSpec, numFilters: UInt = this.numFilters, filterList: MutPtr = this.filterList): Flowdescriptor = Flowdescriptor(flowSpec = flowSpec, numFilters = numFilters, filterListCtorArg = filterList)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -332,7 +330,7 @@ public class Flowdescriptor internal constructor(
         public operator fun invoke(
             flowSpec: Flowspec = Flowspec(),
             numFilters: UInt = 0u,
-            filterList: MutPtr<RsvpFilterspec> = MutPtr(0L),
+            filterList: MutPtr = MutPtr(0L),
         ): Flowdescriptor =
             Flowdescriptor(
                 flowSpec = flowSpec,
@@ -348,13 +346,13 @@ public data class FlowDesc(
 )
 
 public class FlowDesc0 internal constructor(
-    stspecCtorArg: MutPtr<SenderTspec>,
-    isflowCtorArg: MutPtr<IsFlowspec>,
+    stspecCtorArg: MutPtr,
+    isflowCtorArg: MutPtr,
 ) {
-    public var stspec: MutPtr<SenderTspec> = stspecCtorArg
+    public var stspec: MutPtr = stspecCtorArg
         internal set
 
-    public var isflow: MutPtr<IsFlowspec> = isflowCtorArg
+    public var isflow: MutPtr = isflowCtorArg
         internal set
 
     public constructor() : this(
@@ -362,11 +360,11 @@ public class FlowDesc0 internal constructor(
         isflowCtorArg = MutPtr(0L),
     )
 
-    public operator fun component1(): MutPtr<SenderTspec> = this.stspec
+    public operator fun component1(): MutPtr = this.stspec
 
-    public operator fun component2(): MutPtr<IsFlowspec> = this.isflow
+    public operator fun component2(): MutPtr = this.isflow
 
-    public fun copy(stspec: MutPtr<SenderTspec> = this.stspec, isflow: MutPtr<IsFlowspec> = this.isflow): FlowDesc0 = FlowDesc0(stspecCtorArg = stspec, isflowCtorArg = isflow)
+    public fun copy(stspec: MutPtr = this.stspec, isflow: MutPtr = this.isflow): FlowDesc0 = FlowDesc0(stspecCtorArg = stspec, isflowCtorArg = isflow)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -384,8 +382,8 @@ public class FlowDesc0 internal constructor(
 
     public companion object {
         public operator fun invoke(
-            stspec: MutPtr<SenderTspec> = MutPtr(0L),
-            isflow: MutPtr<IsFlowspec> = MutPtr(0L),
+            stspec: MutPtr = MutPtr(0L),
+            isflow: MutPtr = MutPtr(0L),
         ): FlowDesc0 =
             FlowDesc0(
                 stspecCtorArg = stspec,
@@ -395,13 +393,13 @@ public class FlowDesc0 internal constructor(
 }
 
 public class FlowDesc1 internal constructor(
-    stempCtorArg: MutPtr<FilterSpec>,
-    fspecCtorArg: MutPtr<FilterSpec>,
+    stempCtorArg: MutPtr,
+    fspecCtorArg: MutPtr,
 ) {
-    public var stemp: MutPtr<FilterSpec> = stempCtorArg
+    public var stemp: MutPtr = stempCtorArg
         internal set
 
-    public var fspec: MutPtr<FilterSpec> = fspecCtorArg
+    public var fspec: MutPtr = fspecCtorArg
         internal set
 
     public constructor() : this(
@@ -409,11 +407,11 @@ public class FlowDesc1 internal constructor(
         fspecCtorArg = MutPtr(0L),
     )
 
-    public operator fun component1(): MutPtr<FilterSpec> = this.stemp
+    public operator fun component1(): MutPtr = this.stemp
 
-    public operator fun component2(): MutPtr<FilterSpec> = this.fspec
+    public operator fun component2(): MutPtr = this.fspec
 
-    public fun copy(stemp: MutPtr<FilterSpec> = this.stemp, fspec: MutPtr<FilterSpec> = this.fspec): FlowDesc1 = FlowDesc1(stempCtorArg = stemp, fspecCtorArg = fspec)
+    public fun copy(stemp: MutPtr = this.stemp, fspec: MutPtr = this.fspec): FlowDesc1 = FlowDesc1(stempCtorArg = stemp, fspecCtorArg = fspec)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -431,8 +429,8 @@ public class FlowDesc1 internal constructor(
 
     public companion object {
         public operator fun invoke(
-            stemp: MutPtr<FilterSpec> = MutPtr(0L),
-            fspec: MutPtr<FilterSpec> = MutPtr(0L),
+            stemp: MutPtr = MutPtr(0L),
+            fspec: MutPtr = MutPtr(0L),
         ): FlowDesc1 =
             FlowDesc1(
                 stempCtorArg = stemp,
@@ -1311,10 +1309,10 @@ public data class PolicyElement(
 
 public class QosDestaddr internal constructor(
     public var objectHdr: QosObjectHdr,
-    socketAddressCtorArg: ConstPtr<Sockaddr>,
+    socketAddressCtorArg: ConstPtr,
     public var socketAddressLength: UInt,
 ) {
-    public var socketAddress: ConstPtr<Sockaddr> = socketAddressCtorArg
+    public var socketAddress: ConstPtr = socketAddressCtorArg
         internal set
 
     public constructor() : this(
@@ -1325,11 +1323,11 @@ public class QosDestaddr internal constructor(
 
     public operator fun component1(): QosObjectHdr = this.objectHdr
 
-    public operator fun component2(): ConstPtr<Sockaddr> = this.socketAddress
+    public operator fun component2(): ConstPtr = this.socketAddress
 
     public operator fun component3(): UInt = this.socketAddressLength
 
-    public fun copy(objectHdr: QosObjectHdr = this.objectHdr, socketAddress: ConstPtr<Sockaddr> = this.socketAddress, socketAddressLength: UInt = this.socketAddressLength): QosDestaddr = QosDestaddr(objectHdr = objectHdr, socketAddressCtorArg = socketAddress, socketAddressLength = socketAddressLength)
+    public fun copy(objectHdr: QosObjectHdr = this.objectHdr, socketAddress: ConstPtr = this.socketAddress, socketAddressLength: UInt = this.socketAddressLength): QosDestaddr = QosDestaddr(objectHdr = objectHdr, socketAddressCtorArg = socketAddress, socketAddressLength = socketAddressLength)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -1357,7 +1355,7 @@ public class QosDestaddr internal constructor(
                         (QosObjectHdr.typeLayout()).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .constPtrLayout<Sockaddr>(64)
+                                .constPtrLayout(64)
                         ).readNative(addr + 8L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 16L),
                     )
@@ -1365,7 +1363,7 @@ public class QosDestaddr internal constructor(
                     (QosObjectHdr.typeLayout()).writeNative(addr, value.objectHdr)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .constPtrLayout<Sockaddr>(64)
+                            .constPtrLayout(64)
                     ).writeNative(addr + 8L, value.socketAddress)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 16L, value.socketAddressLength)
                 }
@@ -1373,7 +1371,7 @@ public class QosDestaddr internal constructor(
 
         public operator fun invoke(
             objectHdr: QosObjectHdr = QosObjectHdr(),
-            socketAddress: ConstPtr<Sockaddr> = ConstPtr(0L),
+            socketAddress: ConstPtr = ConstPtr(0L),
             socketAddressLength: UInt = 0u,
         ): QosDestaddr =
             QosDestaddr(
@@ -1969,43 +1967,43 @@ public data class RsvpHop0(
 
 public class RsvpMsgObjs internal constructor(
     public var rsvpMsgType: Int,
-    pRsvpSessionCtorArg: MutPtr<RsvpSession>,
-    pRsvpFromHopCtorArg: MutPtr<RsvpHop>,
-    pRsvpToHopCtorArg: MutPtr<RsvpHop>,
-    pResvStyleCtorArg: MutPtr<ResvStyle>,
-    pRsvpScopeCtorArg: MutPtr<RsvpScope>,
+    pRsvpSessionCtorArg: MutPtr,
+    pRsvpFromHopCtorArg: MutPtr,
+    pRsvpToHopCtorArg: MutPtr,
+    pResvStyleCtorArg: MutPtr,
+    pRsvpScopeCtorArg: MutPtr,
     public var flowDescCount: Int,
-    pFlowDescsCtorArg: MutPtr<FlowDesc>,
+    pFlowDescsCtorArg: MutPtr,
     public var pdObjectCount: Int,
-    ppPdObjectsCtorArg: MutPtr<MutPtr<PolicyData>>,
-    pErrorSpecCtorArg: MutPtr<ErrorSpec>,
-    pAdspecCtorArg: MutPtr<Adspec>,
+    ppPdObjectsCtorArg: MutPtr,
+    pErrorSpecCtorArg: MutPtr,
+    pAdspecCtorArg: MutPtr,
 ) {
-    public var pRsvpSession: MutPtr<RsvpSession> = pRsvpSessionCtorArg
+    public var pRsvpSession: MutPtr = pRsvpSessionCtorArg
         internal set
 
-    public var pRsvpFromHop: MutPtr<RsvpHop> = pRsvpFromHopCtorArg
+    public var pRsvpFromHop: MutPtr = pRsvpFromHopCtorArg
         internal set
 
-    public var pRsvpToHop: MutPtr<RsvpHop> = pRsvpToHopCtorArg
+    public var pRsvpToHop: MutPtr = pRsvpToHopCtorArg
         internal set
 
-    public var pResvStyle: MutPtr<ResvStyle> = pResvStyleCtorArg
+    public var pResvStyle: MutPtr = pResvStyleCtorArg
         internal set
 
-    public var pRsvpScope: MutPtr<RsvpScope> = pRsvpScopeCtorArg
+    public var pRsvpScope: MutPtr = pRsvpScopeCtorArg
         internal set
 
-    public var pFlowDescs: MutPtr<FlowDesc> = pFlowDescsCtorArg
+    public var pFlowDescs: MutPtr = pFlowDescsCtorArg
         internal set
 
-    public var ppPdObjects: MutPtr<MutPtr<PolicyData>> = ppPdObjectsCtorArg
+    public var ppPdObjects: MutPtr = ppPdObjectsCtorArg
         internal set
 
-    public var pErrorSpec: MutPtr<ErrorSpec> = pErrorSpecCtorArg
+    public var pErrorSpec: MutPtr = pErrorSpecCtorArg
         internal set
 
-    public var pAdspec: MutPtr<Adspec> = pAdspecCtorArg
+    public var pAdspec: MutPtr = pAdspecCtorArg
         internal set
 
     public constructor() : this(
@@ -2025,29 +2023,29 @@ public class RsvpMsgObjs internal constructor(
 
     public operator fun component1(): Int = this.rsvpMsgType
 
-    public operator fun component2(): MutPtr<RsvpSession> = this.pRsvpSession
+    public operator fun component2(): MutPtr = this.pRsvpSession
 
-    public operator fun component3(): MutPtr<RsvpHop> = this.pRsvpFromHop
+    public operator fun component3(): MutPtr = this.pRsvpFromHop
 
-    public operator fun component4(): MutPtr<RsvpHop> = this.pRsvpToHop
+    public operator fun component4(): MutPtr = this.pRsvpToHop
 
-    public operator fun component5(): MutPtr<ResvStyle> = this.pResvStyle
+    public operator fun component5(): MutPtr = this.pResvStyle
 
-    public operator fun component6(): MutPtr<RsvpScope> = this.pRsvpScope
+    public operator fun component6(): MutPtr = this.pRsvpScope
 
     public operator fun component7(): Int = this.flowDescCount
 
-    public operator fun component8(): MutPtr<FlowDesc> = this.pFlowDescs
+    public operator fun component8(): MutPtr = this.pFlowDescs
 
     public operator fun component9(): Int = this.pdObjectCount
 
-    public operator fun component10(): MutPtr<MutPtr<PolicyData>> = this.ppPdObjects
+    public operator fun component10(): MutPtr = this.ppPdObjects
 
-    public operator fun component11(): MutPtr<ErrorSpec> = this.pErrorSpec
+    public operator fun component11(): MutPtr = this.pErrorSpec
 
-    public operator fun component12(): MutPtr<Adspec> = this.pAdspec
+    public operator fun component12(): MutPtr = this.pAdspec
 
-    public fun copy(rsvpMsgType: Int = this.rsvpMsgType, pRsvpSession: MutPtr<RsvpSession> = this.pRsvpSession, pRsvpFromHop: MutPtr<RsvpHop> = this.pRsvpFromHop, pRsvpToHop: MutPtr<RsvpHop> = this.pRsvpToHop, pResvStyle: MutPtr<ResvStyle> = this.pResvStyle, pRsvpScope: MutPtr<RsvpScope> = this.pRsvpScope, flowDescCount: Int = this.flowDescCount, pFlowDescs: MutPtr<FlowDesc> = this.pFlowDescs, pdObjectCount: Int = this.pdObjectCount, ppPdObjects: MutPtr<MutPtr<PolicyData>> = this.ppPdObjects, pErrorSpec: MutPtr<ErrorSpec> = this.pErrorSpec, pAdspec: MutPtr<Adspec> = this.pAdspec): RsvpMsgObjs = RsvpMsgObjs(rsvpMsgType = rsvpMsgType, pRsvpSessionCtorArg = pRsvpSession, pRsvpFromHopCtorArg = pRsvpFromHop, pRsvpToHopCtorArg = pRsvpToHop, pResvStyleCtorArg = pResvStyle, pRsvpScopeCtorArg = pRsvpScope, flowDescCount = flowDescCount, pFlowDescsCtorArg = pFlowDescs, pdObjectCount = pdObjectCount, ppPdObjectsCtorArg = ppPdObjects, pErrorSpecCtorArg = pErrorSpec, pAdspecCtorArg = pAdspec)
+    public fun copy(rsvpMsgType: Int = this.rsvpMsgType, pRsvpSession: MutPtr = this.pRsvpSession, pRsvpFromHop: MutPtr = this.pRsvpFromHop, pRsvpToHop: MutPtr = this.pRsvpToHop, pResvStyle: MutPtr = this.pResvStyle, pRsvpScope: MutPtr = this.pRsvpScope, flowDescCount: Int = this.flowDescCount, pFlowDescs: MutPtr = this.pFlowDescs, pdObjectCount: Int = this.pdObjectCount, ppPdObjects: MutPtr = this.ppPdObjects, pErrorSpec: MutPtr = this.pErrorSpec, pAdspec: MutPtr = this.pAdspec): RsvpMsgObjs = RsvpMsgObjs(rsvpMsgType = rsvpMsgType, pRsvpSessionCtorArg = pRsvpSession, pRsvpFromHopCtorArg = pRsvpFromHop, pRsvpToHopCtorArg = pRsvpToHop, pResvStyleCtorArg = pResvStyle, pRsvpScopeCtorArg = pRsvpScope, flowDescCount = flowDescCount, pFlowDescsCtorArg = pFlowDescs, pdObjectCount = pdObjectCount, ppPdObjectsCtorArg = ppPdObjects, pErrorSpecCtorArg = pErrorSpec, pAdspecCtorArg = pAdspec)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -2093,99 +2091,99 @@ public class RsvpMsgObjs internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<RsvpSession>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<RsvpHop>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 16L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<RsvpHop>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 24L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<ResvStyle>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 32L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<RsvpScope>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 40L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr + 48L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<FlowDesc>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 56L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr + 64L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<MutPtr<PolicyData>>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 72L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<ErrorSpec>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 80L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<Adspec>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 88L),
                     )
                 override fun writeNative(addr: Long, value: RsvpMsgObjs) {
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr, value.rsvpMsgType)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<RsvpSession>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.pRsvpSession)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<RsvpHop>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 16L, value.pRsvpFromHop)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<RsvpHop>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 24L, value.pRsvpToHop)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<ResvStyle>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 32L, value.pResvStyle)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<RsvpScope>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 40L, value.pRsvpScope)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr + 48L, value.flowDescCount)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<FlowDesc>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 56L, value.pFlowDescs)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr + 64L, value.pdObjectCount)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<MutPtr<PolicyData>>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 72L, value.ppPdObjects)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<ErrorSpec>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 80L, value.pErrorSpec)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<Adspec>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 88L, value.pAdspec)
                 }
             }
 
         public operator fun invoke(
             rsvpMsgType: Int = 0,
-            pRsvpSession: MutPtr<RsvpSession> = MutPtr(0L),
-            pRsvpFromHop: MutPtr<RsvpHop> = MutPtr(0L),
-            pRsvpToHop: MutPtr<RsvpHop> = MutPtr(0L),
-            pResvStyle: MutPtr<ResvStyle> = MutPtr(0L),
-            pRsvpScope: MutPtr<RsvpScope> = MutPtr(0L),
+            pRsvpSession: MutPtr = MutPtr(0L),
+            pRsvpFromHop: MutPtr = MutPtr(0L),
+            pRsvpToHop: MutPtr = MutPtr(0L),
+            pResvStyle: MutPtr = MutPtr(0L),
+            pRsvpScope: MutPtr = MutPtr(0L),
             flowDescCount: Int = 0,
-            pFlowDescs: MutPtr<FlowDesc> = MutPtr(0L),
+            pFlowDescs: MutPtr = MutPtr(0L),
             pdObjectCount: Int = 0,
-            ppPdObjects: MutPtr<MutPtr<PolicyData>> = MutPtr(0L),
-            pErrorSpec: MutPtr<ErrorSpec> = MutPtr(0L),
-            pAdspec: MutPtr<Adspec> = MutPtr(0L),
+            ppPdObjects: MutPtr = MutPtr(0L),
+            pErrorSpec: MutPtr = MutPtr(0L),
+            pAdspec: MutPtr = MutPtr(0L),
         ): RsvpMsgObjs =
             RsvpMsgObjs(
                 rsvpMsgType = rsvpMsgType,
@@ -2286,14 +2284,14 @@ public class RsvpReserveInfo internal constructor(
     public var objectHdr: QosObjectHdr,
     public var style: UInt,
     public var confirmRequest: UInt,
-    policyElementListCtorArg: MutPtr<RsvpPolicyInfo>,
+    policyElementListCtorArg: MutPtr,
     public var numFlowDesc: UInt,
-    flowDescListCtorArg: MutPtr<Flowdescriptor>,
+    flowDescListCtorArg: MutPtr,
 ) {
-    public var policyElementList: MutPtr<RsvpPolicyInfo> = policyElementListCtorArg
+    public var policyElementList: MutPtr = policyElementListCtorArg
         internal set
 
-    public var flowDescList: MutPtr<Flowdescriptor> = flowDescListCtorArg
+    public var flowDescList: MutPtr = flowDescListCtorArg
         internal set
 
     public constructor() : this(
@@ -2311,13 +2309,13 @@ public class RsvpReserveInfo internal constructor(
 
     public operator fun component3(): UInt = this.confirmRequest
 
-    public operator fun component4(): MutPtr<RsvpPolicyInfo> = this.policyElementList
+    public operator fun component4(): MutPtr = this.policyElementList
 
     public operator fun component5(): UInt = this.numFlowDesc
 
-    public operator fun component6(): MutPtr<Flowdescriptor> = this.flowDescList
+    public operator fun component6(): MutPtr = this.flowDescList
 
-    public fun copy(objectHdr: QosObjectHdr = this.objectHdr, style: UInt = this.style, confirmRequest: UInt = this.confirmRequest, policyElementList: MutPtr<RsvpPolicyInfo> = this.policyElementList, numFlowDesc: UInt = this.numFlowDesc, flowDescList: MutPtr<Flowdescriptor> = this.flowDescList): RsvpReserveInfo = RsvpReserveInfo(objectHdr = objectHdr, style = style, confirmRequest = confirmRequest, policyElementListCtorArg = policyElementList, numFlowDesc = numFlowDesc, flowDescListCtorArg = flowDescList)
+    public fun copy(objectHdr: QosObjectHdr = this.objectHdr, style: UInt = this.style, confirmRequest: UInt = this.confirmRequest, policyElementList: MutPtr = this.policyElementList, numFlowDesc: UInt = this.numFlowDesc, flowDescList: MutPtr = this.flowDescList): RsvpReserveInfo = RsvpReserveInfo(objectHdr = objectHdr, style = style, confirmRequest = confirmRequest, policyElementListCtorArg = policyElementList, numFlowDesc = numFlowDesc, flowDescListCtorArg = flowDescList)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -2353,12 +2351,12 @@ public class RsvpReserveInfo internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 12L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<RsvpPolicyInfo>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 16L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 24L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<Flowdescriptor>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 32L),
                     )
                 override fun writeNative(addr: Long, value: RsvpReserveInfo) {
@@ -2367,12 +2365,12 @@ public class RsvpReserveInfo internal constructor(
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 12L, value.confirmRequest)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<RsvpPolicyInfo>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 16L, value.policyElementList)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 24L, value.numFlowDesc)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<Flowdescriptor>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 32L, value.flowDescList)
                 }
             }
@@ -2381,9 +2379,9 @@ public class RsvpReserveInfo internal constructor(
             objectHdr: QosObjectHdr = QosObjectHdr(),
             style: UInt = 0u,
             confirmRequest: UInt = 0u,
-            policyElementList: MutPtr<RsvpPolicyInfo> = MutPtr(0L),
+            policyElementList: MutPtr = MutPtr(0L),
             numFlowDesc: UInt = 0u,
-            flowDescList: MutPtr<Flowdescriptor> = MutPtr(0L),
+            flowDescList: MutPtr = MutPtr(0L),
         ): RsvpReserveInfo =
             RsvpReserveInfo(
                 objectHdr = objectHdr,
@@ -2892,13 +2890,13 @@ public data class TciClientFuncList(
 public class TcGenFilter internal constructor(
     public var addressType: UShort,
     public var patternSize: UInt,
-    patternCtorArg: MutPtr<CVoid>,
-    maskCtorArg: MutPtr<CVoid>,
+    patternCtorArg: MutPtr,
+    maskCtorArg: MutPtr,
 ) {
-    public var pattern: MutPtr<CVoid> = patternCtorArg
+    public var pattern: MutPtr = patternCtorArg
         internal set
 
-    public var mask: MutPtr<CVoid> = maskCtorArg
+    public var mask: MutPtr = maskCtorArg
         internal set
 
     public constructor() : this(
@@ -2912,11 +2910,11 @@ public class TcGenFilter internal constructor(
 
     public operator fun component2(): UInt = this.patternSize
 
-    public operator fun component3(): MutPtr<CVoid> = this.pattern
+    public operator fun component3(): MutPtr = this.pattern
 
-    public operator fun component4(): MutPtr<CVoid> = this.mask
+    public operator fun component4(): MutPtr = this.mask
 
-    public fun copy(addressType: UShort = this.addressType, patternSize: UInt = this.patternSize, pattern: MutPtr<CVoid> = this.pattern, mask: MutPtr<CVoid> = this.mask): TcGenFilter = TcGenFilter(addressType = addressType, patternSize = patternSize, patternCtorArg = pattern, maskCtorArg = mask)
+    public fun copy(addressType: UShort = this.addressType, patternSize: UInt = this.patternSize, pattern: MutPtr = this.pattern, mask: MutPtr = this.mask): TcGenFilter = TcGenFilter(addressType = addressType, patternSize = patternSize, patternCtorArg = pattern, maskCtorArg = mask)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -2947,11 +2945,11 @@ public class TcGenFilter internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 4L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<CVoid>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<CVoid>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 16L),
                     )
                 override fun writeNative(addr: Long, value: TcGenFilter) {
@@ -2959,11 +2957,11 @@ public class TcGenFilter internal constructor(
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 4L, value.patternSize)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<CVoid>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.pattern)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<CVoid>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 16L, value.mask)
                 }
             }
@@ -2971,8 +2969,8 @@ public class TcGenFilter internal constructor(
         public operator fun invoke(
             addressType: UShort = 0u,
             patternSize: UInt = 0u,
-            pattern: MutPtr<CVoid> = MutPtr(0L),
-            mask: MutPtr<CVoid> = MutPtr(0L),
+            pattern: MutPtr = MutPtr(0L),
+            mask: MutPtr = MutPtr(0L),
         ): TcGenFilter =
             TcGenFilter(
                 addressType = addressType,
@@ -3079,24 +3077,24 @@ public data class TcSupportedInfoBuffer(
 }
 
 public class WbclIterator internal constructor(
-    firstElementPtrCtorArg: MutPtr<CVoid>,
+    firstElementPtrCtorArg: MutPtr,
     public var logSize: UInt,
-    currentElementPtrCtorArg: MutPtr<CVoid>,
+    currentElementPtrCtorArg: MutPtr,
     public var currentElementSize: UInt,
     public var digestSize: UShort,
     public var logFormat: UShort,
     public var numberOfDigests: UInt,
-    digestSizesCtorArg: MutPtr<CVoid>,
+    digestSizesCtorArg: MutPtr,
     public var supportedAlgorithms: UInt,
     public var hashAlgorithm: UShort,
 ) {
-    public var firstElementPtr: MutPtr<CVoid> = firstElementPtrCtorArg
+    public var firstElementPtr: MutPtr = firstElementPtrCtorArg
         internal set
 
-    public var currentElementPtr: MutPtr<CVoid> = currentElementPtrCtorArg
+    public var currentElementPtr: MutPtr = currentElementPtrCtorArg
         internal set
 
-    public var digestSizes: MutPtr<CVoid> = digestSizesCtorArg
+    public var digestSizes: MutPtr = digestSizesCtorArg
         internal set
 
     public constructor() : this(
@@ -3112,11 +3110,11 @@ public class WbclIterator internal constructor(
         hashAlgorithm = 0u,
     )
 
-    public operator fun component1(): MutPtr<CVoid> = this.firstElementPtr
+    public operator fun component1(): MutPtr = this.firstElementPtr
 
     public operator fun component2(): UInt = this.logSize
 
-    public operator fun component3(): MutPtr<CVoid> = this.currentElementPtr
+    public operator fun component3(): MutPtr = this.currentElementPtr
 
     public operator fun component4(): UInt = this.currentElementSize
 
@@ -3126,13 +3124,13 @@ public class WbclIterator internal constructor(
 
     public operator fun component7(): UInt = this.numberOfDigests
 
-    public operator fun component8(): MutPtr<CVoid> = this.digestSizes
+    public operator fun component8(): MutPtr = this.digestSizes
 
     public operator fun component9(): UInt = this.supportedAlgorithms
 
     public operator fun component10(): UShort = this.hashAlgorithm
 
-    public fun copy(firstElementPtr: MutPtr<CVoid> = this.firstElementPtr, logSize: UInt = this.logSize, currentElementPtr: MutPtr<CVoid> = this.currentElementPtr, currentElementSize: UInt = this.currentElementSize, digestSize: UShort = this.digestSize, logFormat: UShort = this.logFormat, numberOfDigests: UInt = this.numberOfDigests, digestSizes: MutPtr<CVoid> = this.digestSizes, supportedAlgorithms: UInt = this.supportedAlgorithms, hashAlgorithm: UShort = this.hashAlgorithm): WbclIterator = WbclIterator(firstElementPtrCtorArg = firstElementPtr, logSize = logSize, currentElementPtrCtorArg = currentElementPtr, currentElementSize = currentElementSize, digestSize = digestSize, logFormat = logFormat, numberOfDigests = numberOfDigests, digestSizesCtorArg = digestSizes, supportedAlgorithms = supportedAlgorithms, hashAlgorithm = hashAlgorithm)
+    public fun copy(firstElementPtr: MutPtr = this.firstElementPtr, logSize: UInt = this.logSize, currentElementPtr: MutPtr = this.currentElementPtr, currentElementSize: UInt = this.currentElementSize, digestSize: UShort = this.digestSize, logFormat: UShort = this.logFormat, numberOfDigests: UInt = this.numberOfDigests, digestSizes: MutPtr = this.digestSizes, supportedAlgorithms: UInt = this.supportedAlgorithms, hashAlgorithm: UShort = this.hashAlgorithm): WbclIterator = WbclIterator(firstElementPtrCtorArg = firstElementPtr, logSize = logSize, currentElementPtrCtorArg = currentElementPtr, currentElementSize = currentElementSize, digestSize = digestSize, logFormat = logFormat, numberOfDigests = numberOfDigests, digestSizesCtorArg = digestSizes, supportedAlgorithms = supportedAlgorithms, hashAlgorithm = hashAlgorithm)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -3173,12 +3171,12 @@ public class WbclIterator internal constructor(
                     WbclIterator(
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<CVoid>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 8L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<CVoid>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 12L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 20L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16).readNative(addr + 24L),
@@ -3186,7 +3184,7 @@ public class WbclIterator internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 28L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<CVoid>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 32L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 40L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16).readNative(addr + 44L),
@@ -3194,12 +3192,12 @@ public class WbclIterator internal constructor(
                 override fun writeNative(addr: Long, value: WbclIterator) {
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<CVoid>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr, value.firstElementPtr)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 8L, value.logSize)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<CVoid>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 12L, value.currentElementPtr)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 20L, value.currentElementSize)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16).writeNative(addr + 24L, value.digestSize)
@@ -3207,7 +3205,7 @@ public class WbclIterator internal constructor(
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 28L, value.numberOfDigests)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<CVoid>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 32L, value.digestSizes)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 40L, value.supportedAlgorithms)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16).writeNative(addr + 44L, value.hashAlgorithm)
@@ -3215,14 +3213,14 @@ public class WbclIterator internal constructor(
             }
 
         public operator fun invoke(
-            firstElementPtr: MutPtr<CVoid> = MutPtr(0L),
+            firstElementPtr: MutPtr = MutPtr(0L),
             logSize: UInt = 0u,
-            currentElementPtr: MutPtr<CVoid> = MutPtr(0L),
+            currentElementPtr: MutPtr = MutPtr(0L),
             currentElementSize: UInt = 0u,
             digestSize: UShort = 0u,
             logFormat: UShort = 0u,
             numberOfDigests: UInt = 0u,
-            digestSizes: MutPtr<CVoid> = MutPtr(0L),
+            digestSizes: MutPtr = MutPtr(0L),
             supportedAlgorithms: UInt = 0u,
             hashAlgorithm: UShort = 0u,
         ): WbclIterator =

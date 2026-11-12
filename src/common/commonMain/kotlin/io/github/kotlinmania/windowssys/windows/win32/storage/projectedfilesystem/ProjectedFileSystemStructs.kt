@@ -2,7 +2,6 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.storage.projectedfilesystem
 
-import io.github.kotlinmania.rustlang.core.ffi.CVoid
 import io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
 import io.github.kotlinmania.rustlang.core.mem.TypeLayout
 import io.github.kotlinmania.rustlang.core.ptr.ConstPtr
@@ -29,10 +28,10 @@ public class PrjCallbackData internal constructor(
     public var fileId: Guid,
     public var dataStreamId: Guid,
     filePathNameCtorArg: Pcwstr,
-    versionInfoCtorArg: MutPtr<PrjPlaceholderVersionInfo>,
+    versionInfoCtorArg: MutPtr,
     public var triggeringProcessId: UInt,
     triggeringProcessImageFileNameCtorArg: Pcwstr,
-    instanceContextCtorArg: MutPtr<CVoid>,
+    instanceContextCtorArg: MutPtr,
 ) {
     public var namespaceVirtualizationContext: PrjNamespaceVirtualizationContext = namespaceVirtualizationContextCtorArg
         internal set
@@ -40,13 +39,13 @@ public class PrjCallbackData internal constructor(
     public var filePathName: Pcwstr = filePathNameCtorArg
         internal set
 
-    public var versionInfo: MutPtr<PrjPlaceholderVersionInfo> = versionInfoCtorArg
+    public var versionInfo: MutPtr = versionInfoCtorArg
         internal set
 
     public var triggeringProcessImageFileName: Pcwstr = triggeringProcessImageFileNameCtorArg
         internal set
 
-    public var instanceContext: MutPtr<CVoid> = instanceContextCtorArg
+    public var instanceContext: MutPtr = instanceContextCtorArg
         internal set
 
     public constructor() : this(
@@ -77,15 +76,15 @@ public class PrjCallbackData internal constructor(
 
     public operator fun component7(): Pcwstr = this.filePathName
 
-    public operator fun component8(): MutPtr<PrjPlaceholderVersionInfo> = this.versionInfo
+    public operator fun component8(): MutPtr = this.versionInfo
 
     public operator fun component9(): UInt = this.triggeringProcessId
 
     public operator fun component10(): Pcwstr = this.triggeringProcessImageFileName
 
-    public operator fun component11(): MutPtr<CVoid> = this.instanceContext
+    public operator fun component11(): MutPtr = this.instanceContext
 
-    public fun copy(size: UInt = this.size, flags: PrjCallbackDataFlags = this.flags, namespaceVirtualizationContext: PrjNamespaceVirtualizationContext = this.namespaceVirtualizationContext, commandId: Int = this.commandId, fileId: Guid = this.fileId, dataStreamId: Guid = this.dataStreamId, filePathName: Pcwstr = this.filePathName, versionInfo: MutPtr<PrjPlaceholderVersionInfo> = this.versionInfo, triggeringProcessId: UInt = this.triggeringProcessId, triggeringProcessImageFileName: Pcwstr = this.triggeringProcessImageFileName, instanceContext: MutPtr<CVoid> = this.instanceContext): PrjCallbackData = PrjCallbackData(size = size, flags = flags, namespaceVirtualizationContextCtorArg = namespaceVirtualizationContext, commandId = commandId, fileId = fileId, dataStreamId = dataStreamId, filePathNameCtorArg = filePathName, versionInfoCtorArg = versionInfo, triggeringProcessId = triggeringProcessId, triggeringProcessImageFileNameCtorArg = triggeringProcessImageFileName, instanceContextCtorArg = instanceContext)
+    public fun copy(size: UInt = this.size, flags: PrjCallbackDataFlags = this.flags, namespaceVirtualizationContext: PrjNamespaceVirtualizationContext = this.namespaceVirtualizationContext, commandId: Int = this.commandId, fileId: Guid = this.fileId, dataStreamId: Guid = this.dataStreamId, filePathName: Pcwstr = this.filePathName, versionInfo: MutPtr = this.versionInfo, triggeringProcessId: UInt = this.triggeringProcessId, triggeringProcessImageFileName: Pcwstr = this.triggeringProcessImageFileName, instanceContext: MutPtr = this.instanceContext): PrjCallbackData = PrjCallbackData(size = size, flags = flags, namespaceVirtualizationContextCtorArg = namespaceVirtualizationContext, commandId = commandId, fileId = fileId, dataStreamId = dataStreamId, filePathNameCtorArg = filePathName, versionInfoCtorArg = versionInfo, triggeringProcessId = triggeringProcessId, triggeringProcessImageFileNameCtorArg = triggeringProcessImageFileName, instanceContextCtorArg = instanceContext)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -128,10 +127,10 @@ public class PrjCallbackData internal constructor(
             fileId: Guid = Guid(),
             dataStreamId: Guid = Guid(),
             filePathName: Pcwstr = ConstPtr(0L),
-            versionInfo: MutPtr<PrjPlaceholderVersionInfo> = MutPtr(0L),
+            versionInfo: MutPtr = MutPtr(0L),
             triggeringProcessId: UInt = 0u,
             triggeringProcessImageFileName: Pcwstr = ConstPtr(0L),
-            instanceContext: MutPtr<CVoid> = MutPtr(0L),
+            instanceContext: MutPtr = MutPtr(0L),
         ): PrjCallbackData =
             PrjCallbackData(
                 size = size,
@@ -191,13 +190,13 @@ public class PrjCompleteCommandExtendedParameters01 internal constructor(
                     PrjCompleteCommandExtendedParameters01(
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<CVoid>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr),
                     )
                 override fun writeNative(addr: Long, value: PrjCompleteCommandExtendedParameters01) {
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<CVoid>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr, value.dirEntryBufferHandle)
                 }
             }
@@ -597,10 +596,10 @@ public class PrjStartvirtualizingOptions internal constructor(
     public var flags: PrjStartvirtualizingFlags,
     public var poolThreadCount: UInt,
     public var concurrentThreadCount: UInt,
-    notificationMappingsCtorArg: MutPtr<PrjNotificationMapping>,
+    notificationMappingsCtorArg: MutPtr,
     public var notificationMappingsCount: UInt,
 ) {
-    public var notificationMappings: MutPtr<PrjNotificationMapping> = notificationMappingsCtorArg
+    public var notificationMappings: MutPtr = notificationMappingsCtorArg
         internal set
 
     public constructor() : this(
@@ -617,11 +616,11 @@ public class PrjStartvirtualizingOptions internal constructor(
 
     public operator fun component3(): UInt = this.concurrentThreadCount
 
-    public operator fun component4(): MutPtr<PrjNotificationMapping> = this.notificationMappings
+    public operator fun component4(): MutPtr = this.notificationMappings
 
     public operator fun component5(): UInt = this.notificationMappingsCount
 
-    public fun copy(flags: PrjStartvirtualizingFlags = this.flags, poolThreadCount: UInt = this.poolThreadCount, concurrentThreadCount: UInt = this.concurrentThreadCount, notificationMappings: MutPtr<PrjNotificationMapping> = this.notificationMappings, notificationMappingsCount: UInt = this.notificationMappingsCount): PrjStartvirtualizingOptions = PrjStartvirtualizingOptions(flags = flags, poolThreadCount = poolThreadCount, concurrentThreadCount = concurrentThreadCount, notificationMappingsCtorArg = notificationMappings, notificationMappingsCount = notificationMappingsCount)
+    public fun copy(flags: PrjStartvirtualizingFlags = this.flags, poolThreadCount: UInt = this.poolThreadCount, concurrentThreadCount: UInt = this.concurrentThreadCount, notificationMappings: MutPtr = this.notificationMappings, notificationMappingsCount: UInt = this.notificationMappingsCount): PrjStartvirtualizingOptions = PrjStartvirtualizingOptions(flags = flags, poolThreadCount = poolThreadCount, concurrentThreadCount = concurrentThreadCount, notificationMappingsCtorArg = notificationMappings, notificationMappingsCount = notificationMappingsCount)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -655,7 +654,7 @@ public class PrjStartvirtualizingOptions internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 8L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<PrjNotificationMapping>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 16L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 24L),
                     )
@@ -665,7 +664,7 @@ public class PrjStartvirtualizingOptions internal constructor(
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 8L, value.concurrentThreadCount)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<PrjNotificationMapping>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 16L, value.notificationMappings)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 24L, value.notificationMappingsCount)
                 }
@@ -675,7 +674,7 @@ public class PrjStartvirtualizingOptions internal constructor(
             flags: PrjStartvirtualizingFlags = 0,
             poolThreadCount: UInt = 0u,
             concurrentThreadCount: UInt = 0u,
-            notificationMappings: MutPtr<PrjNotificationMapping> = MutPtr(0L),
+            notificationMappings: MutPtr = MutPtr(0L),
             notificationMappingsCount: UInt = 0u,
         ): PrjStartvirtualizingOptions =
             PrjStartvirtualizingOptions(

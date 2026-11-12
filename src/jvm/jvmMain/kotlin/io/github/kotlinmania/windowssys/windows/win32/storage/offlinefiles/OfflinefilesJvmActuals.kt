@@ -74,13 +74,13 @@ private object WindowsWin32StorageOfflinefilesJniBridge {
     external fun windowssysWindowsWin32StorageOfflinefilesOfflineFilesStart(): Int
 }
 
-public actual fun offlineFilesEnable(benable: Bool, pbrebootrequired: MutPtr<Bool>): UInt =
+public actual fun offlineFilesEnable(benable: Bool, pbrebootrequired: MutPtr): UInt =
     WindowsWin32StorageOfflinefilesJniBridge.windowssysWindowsWin32StorageOfflinefilesOfflineFilesEnable(benable, pbrebootrequired.rawAddress).toUInt()
 
-public actual fun offlineFilesQueryStatus(pbactive: MutPtr<Bool>, pbenabled: MutPtr<Bool>): UInt =
+public actual fun offlineFilesQueryStatus(pbactive: MutPtr, pbenabled: MutPtr): UInt =
     WindowsWin32StorageOfflinefilesJniBridge.windowssysWindowsWin32StorageOfflinefilesOfflineFilesQueryStatus(pbactive.rawAddress, pbenabled.rawAddress).toUInt()
 
-public actual fun offlineFilesQueryStatusEx(pbactive: MutPtr<Bool>, pbenabled: MutPtr<Bool>, pbavailable: MutPtr<Bool>): UInt =
+public actual fun offlineFilesQueryStatusEx(pbactive: MutPtr, pbenabled: MutPtr, pbavailable: MutPtr): UInt =
     WindowsWin32StorageOfflinefilesJniBridge.windowssysWindowsWin32StorageOfflinefilesOfflineFilesQueryStatusEx(pbactive.rawAddress, pbenabled.rawAddress, pbavailable.rawAddress).toUInt()
 
 public actual fun offlineFilesStart(): UInt =

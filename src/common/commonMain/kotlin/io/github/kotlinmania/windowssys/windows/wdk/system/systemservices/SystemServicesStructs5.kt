@@ -2,14 +2,12 @@
 
 package io.github.kotlinmania.windowssys.windows.wdk.system.systemservices
 
-import io.github.kotlinmania.rustlang.core.ffi.CVoid
 import io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
 import io.github.kotlinmania.rustlang.core.mem.TypeLayout
 import io.github.kotlinmania.rustlang.core.ptr.MutPtr
 import io.github.kotlinmania.windowssys.core.Guid
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Ntstatus
 import io.github.kotlinmania.windowssys.windows.win32.system.diagnostics.debug.M128a
-import io.github.kotlinmania.windowssys.windows.win32.system.diagnostics.debug.XsaveArea
 import io.github.kotlinmania.windowssys.windows.win32.system.kernel.SingleListEntry
 
 public data class WheaRecoveryContext0(
@@ -959,15 +957,15 @@ public class XstateContext internal constructor(
     public var mask: ULong,
     public var length: UInt,
     public var reserved1: UInt,
-    areaCtorArg: MutPtr<XsaveArea>,
+    areaCtorArg: MutPtr,
     public var reserved2: UInt,
-    bufferCtorArg: MutPtr<CVoid>,
+    bufferCtorArg: MutPtr,
     public var reserved3: UInt,
 ) {
-    public var area: MutPtr<XsaveArea> = areaCtorArg
+    public var area: MutPtr = areaCtorArg
         internal set
 
-    public var buffer: MutPtr<CVoid> = bufferCtorArg
+    public var buffer: MutPtr = bufferCtorArg
         internal set
 
     public constructor() : this(
@@ -986,15 +984,15 @@ public class XstateContext internal constructor(
 
     public operator fun component3(): UInt = this.reserved1
 
-    public operator fun component4(): MutPtr<XsaveArea> = this.area
+    public operator fun component4(): MutPtr = this.area
 
     public operator fun component5(): UInt = this.reserved2
 
-    public operator fun component6(): MutPtr<CVoid> = this.buffer
+    public operator fun component6(): MutPtr = this.buffer
 
     public operator fun component7(): UInt = this.reserved3
 
-    public fun copy(mask: ULong = this.mask, length: UInt = this.length, reserved1: UInt = this.reserved1, area: MutPtr<XsaveArea> = this.area, reserved2: UInt = this.reserved2, buffer: MutPtr<CVoid> = this.buffer, reserved3: UInt = this.reserved3): XstateContext = XstateContext(mask = mask, length = length, reserved1 = reserved1, areaCtorArg = area, reserved2 = reserved2, bufferCtorArg = buffer, reserved3 = reserved3)
+    public fun copy(mask: ULong = this.mask, length: UInt = this.length, reserved1: UInt = this.reserved1, area: MutPtr = this.area, reserved2: UInt = this.reserved2, buffer: MutPtr = this.buffer, reserved3: UInt = this.reserved3): XstateContext = XstateContext(mask = mask, length = length, reserved1 = reserved1, areaCtorArg = area, reserved2 = reserved2, bufferCtorArg = buffer, reserved3 = reserved3)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -1032,12 +1030,12 @@ public class XstateContext internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 12L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<XsaveArea>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 16L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 24L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<CVoid>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 32L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 40L),
                     )
@@ -1047,12 +1045,12 @@ public class XstateContext internal constructor(
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 12L, value.reserved1)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<XsaveArea>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 16L, value.area)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 24L, value.reserved2)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<CVoid>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 32L, value.buffer)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 40L, value.reserved3)
                 }
@@ -1062,9 +1060,9 @@ public class XstateContext internal constructor(
             mask: ULong = 0uL,
             length: UInt = 0u,
             reserved1: UInt = 0u,
-            area: MutPtr<XsaveArea> = MutPtr(0L),
+            area: MutPtr = MutPtr(0L),
             reserved2: UInt = 0u,
-            buffer: MutPtr<CVoid> = MutPtr(0L),
+            buffer: MutPtr = MutPtr(0L),
             reserved3: UInt = 0u,
         ): XstateContext =
             XstateContext(
@@ -1091,22 +1089,22 @@ public data class XstateSave0(
 public class XstateSave00 internal constructor(
     public var reserved1: Long,
     public var reserved2: UInt,
-    prevCtorArg: MutPtr<XstateSave>,
-    reserved3CtorArg: MutPtr<XsaveArea>,
-    threadCtorArg: MutPtr<Int>,
-    reserved4CtorArg: MutPtr<CVoid>,
+    prevCtorArg: MutPtr,
+    reserved3CtorArg: MutPtr,
+    threadCtorArg: MutPtr,
+    reserved4CtorArg: MutPtr,
     public var level: UByte,
 ) {
-    public var prev: MutPtr<XstateSave> = prevCtorArg
+    public var prev: MutPtr = prevCtorArg
         internal set
 
-    public var reserved3: MutPtr<XsaveArea> = reserved3CtorArg
+    public var reserved3: MutPtr = reserved3CtorArg
         internal set
 
-    public var thread: MutPtr<Int> = threadCtorArg
+    public var thread: MutPtr = threadCtorArg
         internal set
 
-    public var reserved4: MutPtr<CVoid> = reserved4CtorArg
+    public var reserved4: MutPtr = reserved4CtorArg
         internal set
 
     public constructor() : this(
@@ -1123,17 +1121,17 @@ public class XstateSave00 internal constructor(
 
     public operator fun component2(): UInt = this.reserved2
 
-    public operator fun component3(): MutPtr<XstateSave> = this.prev
+    public operator fun component3(): MutPtr = this.prev
 
-    public operator fun component4(): MutPtr<XsaveArea> = this.reserved3
+    public operator fun component4(): MutPtr = this.reserved3
 
-    public operator fun component5(): MutPtr<Int> = this.thread
+    public operator fun component5(): MutPtr = this.thread
 
-    public operator fun component6(): MutPtr<CVoid> = this.reserved4
+    public operator fun component6(): MutPtr = this.reserved4
 
     public operator fun component7(): UByte = this.level
 
-    public fun copy(reserved1: Long = this.reserved1, reserved2: UInt = this.reserved2, prev: MutPtr<XstateSave> = this.prev, reserved3: MutPtr<XsaveArea> = this.reserved3, thread: MutPtr<Int> = this.thread, reserved4: MutPtr<CVoid> = this.reserved4, level: UByte = this.level): XstateSave00 = XstateSave00(reserved1 = reserved1, reserved2 = reserved2, prevCtorArg = prev, reserved3CtorArg = reserved3, threadCtorArg = thread, reserved4CtorArg = reserved4, level = level)
+    public fun copy(reserved1: Long = this.reserved1, reserved2: UInt = this.reserved2, prev: MutPtr = this.prev, reserved3: MutPtr = this.reserved3, thread: MutPtr = this.thread, reserved4: MutPtr = this.reserved4, level: UByte = this.level): XstateSave00 = XstateSave00(reserved1 = reserved1, reserved2 = reserved2, prevCtorArg = prev, reserved3CtorArg = reserved3, threadCtorArg = thread, reserved4CtorArg = reserved4, level = level)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -1170,19 +1168,19 @@ public class XstateSave00 internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 8L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<XstateSave>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 16L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<XsaveArea>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 24L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<Int>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 32L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<CVoid>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 40L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8).readNative(addr + 48L),
                     )
@@ -1191,19 +1189,19 @@ public class XstateSave00 internal constructor(
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 8L, value.reserved2)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<XstateSave>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 16L, value.prev)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<XsaveArea>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 24L, value.reserved3)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<Int>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 32L, value.thread)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<CVoid>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 40L, value.reserved4)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8).writeNative(addr + 48L, value.level)
                 }
@@ -1212,10 +1210,10 @@ public class XstateSave00 internal constructor(
         public operator fun invoke(
             reserved1: Long = 0L,
             reserved2: UInt = 0u,
-            prev: MutPtr<XstateSave> = MutPtr(0L),
-            reserved3: MutPtr<XsaveArea> = MutPtr(0L),
-            thread: MutPtr<Int> = MutPtr(0L),
-            reserved4: MutPtr<CVoid> = MutPtr(0L),
+            prev: MutPtr = MutPtr(0L),
+            reserved3: MutPtr = MutPtr(0L),
+            thread: MutPtr = MutPtr(0L),
+            reserved4: MutPtr = MutPtr(0L),
             level: UByte = 0u,
         ): XstateSave00 =
             XstateSave00(
@@ -1239,9 +1237,9 @@ public data class ZoneHeader(
 
 public class ZoneSegmentHeader internal constructor(
     public var segmentList: SingleListEntry,
-    reservedCtorArg: MutPtr<CVoid>,
+    reservedCtorArg: MutPtr,
 ) {
-    public var reserved: MutPtr<CVoid> = reservedCtorArg
+    public var reserved: MutPtr = reservedCtorArg
         internal set
 
     public constructor() : this(
@@ -1251,9 +1249,9 @@ public class ZoneSegmentHeader internal constructor(
 
     public operator fun component1(): SingleListEntry = this.segmentList
 
-    public operator fun component2(): MutPtr<CVoid> = this.reserved
+    public operator fun component2(): MutPtr = this.reserved
 
-    public fun copy(segmentList: SingleListEntry = this.segmentList, reserved: MutPtr<CVoid> = this.reserved): ZoneSegmentHeader = ZoneSegmentHeader(segmentList = segmentList, reservedCtorArg = reserved)
+    public fun copy(segmentList: SingleListEntry = this.segmentList, reserved: MutPtr = this.reserved): ZoneSegmentHeader = ZoneSegmentHeader(segmentList = segmentList, reservedCtorArg = reserved)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -1272,7 +1270,7 @@ public class ZoneSegmentHeader internal constructor(
     public companion object {
         public operator fun invoke(
             segmentList: SingleListEntry = SingleListEntry(),
-            reserved: MutPtr<CVoid> = MutPtr(0L),
+            reserved: MutPtr = MutPtr(0L),
         ): ZoneSegmentHeader =
             ZoneSegmentHeader(
                 segmentList = segmentList,

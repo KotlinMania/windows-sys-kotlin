@@ -1,6 +1,5 @@
 package io.github.kotlinmania.windowssys.windows.win32.system.remotemanagement
 
-import io.github.kotlinmania.rustlang.core.ffi.CVoid
 import io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
 import io.github.kotlinmania.rustlang.core.mem.TypeLayout
 import io.github.kotlinmania.rustlang.core.ptr.ConstPtr
@@ -157,9 +156,9 @@ public class WsmanCertificateDetails internal constructor(
 
 public class WsmanCommandArgSet internal constructor(
     public var argsCount: UInt,
-    argsCtorArg: ConstPtr<Pcwstr>,
+    argsCtorArg: ConstPtr,
 ) {
-    public var args: ConstPtr<Pcwstr> = argsCtorArg
+    public var args: ConstPtr = argsCtorArg
         internal set
 
     public constructor() : this(
@@ -169,9 +168,9 @@ public class WsmanCommandArgSet internal constructor(
 
     public operator fun component1(): UInt = this.argsCount
 
-    public operator fun component2(): ConstPtr<Pcwstr> = this.args
+    public operator fun component2(): ConstPtr = this.args
 
-    public fun copy(argsCount: UInt = this.argsCount, args: ConstPtr<Pcwstr> = this.args): WsmanCommandArgSet = WsmanCommandArgSet(argsCount = argsCount, argsCtorArg = args)
+    public fun copy(argsCount: UInt = this.argsCount, args: ConstPtr = this.args): WsmanCommandArgSet = WsmanCommandArgSet(argsCount = argsCount, argsCtorArg = args)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -197,21 +196,21 @@ public class WsmanCommandArgSet internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .constPtrLayout<Pcwstr>(64)
+                                .constPtrLayout(64)
                         ).readNative(addr + 8L),
                     )
                 override fun writeNative(addr: Long, value: WsmanCommandArgSet) {
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr, value.argsCount)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .constPtrLayout<Pcwstr>(64)
+                            .constPtrLayout(64)
                     ).writeNative(addr + 8L, value.args)
                 }
             }
 
         public operator fun invoke(
             argsCount: UInt = 0u,
-            args: ConstPtr<Pcwstr> = ConstPtr(0L),
+            args: ConstPtr = ConstPtr(0L),
         ): WsmanCommandArgSet =
             WsmanCommandArgSet(
                 argsCount = argsCount,
@@ -241,9 +240,9 @@ public data class WsmanData0(
 
 public class WsmanDataBinary internal constructor(
     public var dataLength: UInt,
-    dataCtorArg: MutPtr<UByte>,
+    dataCtorArg: MutPtr,
 ) {
-    public var data: MutPtr<UByte> = dataCtorArg
+    public var data: MutPtr = dataCtorArg
         internal set
 
     public constructor() : this(
@@ -253,9 +252,9 @@ public class WsmanDataBinary internal constructor(
 
     public operator fun component1(): UInt = this.dataLength
 
-    public operator fun component2(): MutPtr<UByte> = this.data
+    public operator fun component2(): MutPtr = this.data
 
-    public fun copy(dataLength: UInt = this.dataLength, data: MutPtr<UByte> = this.data): WsmanDataBinary = WsmanDataBinary(dataLength = dataLength, dataCtorArg = data)
+    public fun copy(dataLength: UInt = this.dataLength, data: MutPtr = this.data): WsmanDataBinary = WsmanDataBinary(dataLength = dataLength, dataCtorArg = data)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -281,21 +280,21 @@ public class WsmanDataBinary internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<UByte>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                     )
                 override fun writeNative(addr: Long, value: WsmanDataBinary) {
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr, value.dataLength)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<UByte>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.data)
                 }
             }
 
         public operator fun invoke(
             dataLength: UInt = 0u,
-            data: MutPtr<UByte> = MutPtr(0L),
+            data: MutPtr = MutPtr(0L),
         ): WsmanDataBinary =
             WsmanDataBinary(
                 dataLength = dataLength,
@@ -397,9 +396,9 @@ public class WsmanEnvironmentVariable internal constructor(
 
 public class WsmanEnvironmentVariableSet internal constructor(
     public var varsCount: UInt,
-    varsCtorArg: MutPtr<WsmanEnvironmentVariable>,
+    varsCtorArg: MutPtr,
 ) {
-    public var vars: MutPtr<WsmanEnvironmentVariable> = varsCtorArg
+    public var vars: MutPtr = varsCtorArg
         internal set
 
     public constructor() : this(
@@ -409,9 +408,9 @@ public class WsmanEnvironmentVariableSet internal constructor(
 
     public operator fun component1(): UInt = this.varsCount
 
-    public operator fun component2(): MutPtr<WsmanEnvironmentVariable> = this.vars
+    public operator fun component2(): MutPtr = this.vars
 
-    public fun copy(varsCount: UInt = this.varsCount, vars: MutPtr<WsmanEnvironmentVariable> = this.vars): WsmanEnvironmentVariableSet = WsmanEnvironmentVariableSet(varsCount = varsCount, varsCtorArg = vars)
+    public fun copy(varsCount: UInt = this.varsCount, vars: MutPtr = this.vars): WsmanEnvironmentVariableSet = WsmanEnvironmentVariableSet(varsCount = varsCount, varsCtorArg = vars)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -437,21 +436,21 @@ public class WsmanEnvironmentVariableSet internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<WsmanEnvironmentVariable>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                     )
                 override fun writeNative(addr: Long, value: WsmanEnvironmentVariableSet) {
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr, value.varsCount)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<WsmanEnvironmentVariable>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.vars)
                 }
             }
 
         public operator fun invoke(
             varsCount: UInt = 0u,
-            vars: MutPtr<WsmanEnvironmentVariable> = MutPtr(0L),
+            vars: MutPtr = MutPtr(0L),
         ): WsmanEnvironmentVariableSet =
             WsmanEnvironmentVariableSet(
                 varsCount = varsCount,
@@ -683,10 +682,10 @@ public class WsmanOperationInfo internal constructor(
     public var filter: WsmanFilter,
     public var selectorSet: WsmanSelectorSet,
     public var optionSet: WsmanOptionSet,
-    reservedCtorArg: MutPtr<CVoid>,
+    reservedCtorArg: MutPtr,
     public var version: UInt,
 ) {
-    public var reserved: MutPtr<CVoid> = reservedCtorArg
+    public var reserved: MutPtr = reservedCtorArg
         internal set
 
     public constructor() : this(
@@ -706,11 +705,11 @@ public class WsmanOperationInfo internal constructor(
 
     public operator fun component4(): WsmanOptionSet = this.optionSet
 
-    public operator fun component5(): MutPtr<CVoid> = this.reserved
+    public operator fun component5(): MutPtr = this.reserved
 
     public operator fun component6(): UInt = this.version
 
-    public fun copy(fragment: WsmanFragment = this.fragment, filter: WsmanFilter = this.filter, selectorSet: WsmanSelectorSet = this.selectorSet, optionSet: WsmanOptionSet = this.optionSet, reserved: MutPtr<CVoid> = this.reserved, version: UInt = this.version): WsmanOperationInfo = WsmanOperationInfo(fragment = fragment, filter = filter, selectorSet = selectorSet, optionSet = optionSet, reservedCtorArg = reserved, version = version)
+    public fun copy(fragment: WsmanFragment = this.fragment, filter: WsmanFilter = this.filter, selectorSet: WsmanSelectorSet = this.selectorSet, optionSet: WsmanOptionSet = this.optionSet, reserved: MutPtr = this.reserved, version: UInt = this.version): WsmanOperationInfo = WsmanOperationInfo(fragment = fragment, filter = filter, selectorSet = selectorSet, optionSet = optionSet, reservedCtorArg = reserved, version = version)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -740,7 +739,7 @@ public class WsmanOperationInfo internal constructor(
             filter: WsmanFilter = WsmanFilter(),
             selectorSet: WsmanSelectorSet = WsmanSelectorSet(),
             optionSet: WsmanOptionSet = WsmanOptionSet(),
-            reserved: MutPtr<CVoid> = MutPtr(0L),
+            reserved: MutPtr = MutPtr(0L),
             version: UInt = 0u,
         ): WsmanOperationInfo =
             WsmanOperationInfo(
@@ -898,10 +897,10 @@ public class WsmanOption internal constructor(
 
 public class WsmanOptionSet internal constructor(
     public var optionsCount: UInt,
-    optionsCtorArg: MutPtr<WsmanOption>,
+    optionsCtorArg: MutPtr,
     public var optionsMustUnderstand: Bool,
 ) {
-    public var options: MutPtr<WsmanOption> = optionsCtorArg
+    public var options: MutPtr = optionsCtorArg
         internal set
 
     public constructor() : this(
@@ -912,11 +911,11 @@ public class WsmanOptionSet internal constructor(
 
     public operator fun component1(): UInt = this.optionsCount
 
-    public operator fun component2(): MutPtr<WsmanOption> = this.options
+    public operator fun component2(): MutPtr = this.options
 
     public operator fun component3(): Bool = this.optionsMustUnderstand
 
-    public fun copy(optionsCount: UInt = this.optionsCount, options: MutPtr<WsmanOption> = this.options, optionsMustUnderstand: Bool = this.optionsMustUnderstand): WsmanOptionSet = WsmanOptionSet(optionsCount = optionsCount, optionsCtorArg = options, optionsMustUnderstand = optionsMustUnderstand)
+    public fun copy(optionsCount: UInt = this.optionsCount, options: MutPtr = this.options, optionsMustUnderstand: Bool = this.optionsMustUnderstand): WsmanOptionSet = WsmanOptionSet(optionsCount = optionsCount, optionsCtorArg = options, optionsMustUnderstand = optionsMustUnderstand)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -944,7 +943,7 @@ public class WsmanOptionSet internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<WsmanOption>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr + 16L),
                     )
@@ -952,7 +951,7 @@ public class WsmanOptionSet internal constructor(
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr, value.optionsCount)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<WsmanOption>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.options)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr + 16L, value.optionsMustUnderstand)
                 }
@@ -960,7 +959,7 @@ public class WsmanOptionSet internal constructor(
 
         public operator fun invoke(
             optionsCount: UInt = 0u,
-            options: MutPtr<WsmanOption> = MutPtr(0L),
+            options: MutPtr = MutPtr(0L),
             optionsMustUnderstand: Bool = 0,
         ): WsmanOptionSet =
             WsmanOptionSet(
@@ -973,14 +972,14 @@ public class WsmanOptionSet internal constructor(
 
 public class WsmanOptionSetex internal constructor(
     public var optionsCount: UInt,
-    optionsCtorArg: MutPtr<WsmanOption>,
+    optionsCtorArg: MutPtr,
     public var optionsMustUnderstand: Bool,
-    optionTypesCtorArg: ConstPtr<Pcwstr>,
+    optionTypesCtorArg: ConstPtr,
 ) {
-    public var options: MutPtr<WsmanOption> = optionsCtorArg
+    public var options: MutPtr = optionsCtorArg
         internal set
 
-    public var optionTypes: ConstPtr<Pcwstr> = optionTypesCtorArg
+    public var optionTypes: ConstPtr = optionTypesCtorArg
         internal set
 
     public constructor() : this(
@@ -992,13 +991,13 @@ public class WsmanOptionSetex internal constructor(
 
     public operator fun component1(): UInt = this.optionsCount
 
-    public operator fun component2(): MutPtr<WsmanOption> = this.options
+    public operator fun component2(): MutPtr = this.options
 
     public operator fun component3(): Bool = this.optionsMustUnderstand
 
-    public operator fun component4(): ConstPtr<Pcwstr> = this.optionTypes
+    public operator fun component4(): ConstPtr = this.optionTypes
 
-    public fun copy(optionsCount: UInt = this.optionsCount, options: MutPtr<WsmanOption> = this.options, optionsMustUnderstand: Bool = this.optionsMustUnderstand, optionTypes: ConstPtr<Pcwstr> = this.optionTypes): WsmanOptionSetex = WsmanOptionSetex(optionsCount = optionsCount, optionsCtorArg = options, optionsMustUnderstand = optionsMustUnderstand, optionTypesCtorArg = optionTypes)
+    public fun copy(optionsCount: UInt = this.optionsCount, options: MutPtr = this.options, optionsMustUnderstand: Bool = this.optionsMustUnderstand, optionTypes: ConstPtr = this.optionTypes): WsmanOptionSetex = WsmanOptionSetex(optionsCount = optionsCount, optionsCtorArg = options, optionsMustUnderstand = optionsMustUnderstand, optionTypesCtorArg = optionTypes)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -1028,33 +1027,33 @@ public class WsmanOptionSetex internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<WsmanOption>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr + 16L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .constPtrLayout<Pcwstr>(64)
+                                .constPtrLayout(64)
                         ).readNative(addr + 24L),
                     )
                 override fun writeNative(addr: Long, value: WsmanOptionSetex) {
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr, value.optionsCount)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<WsmanOption>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.options)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr + 16L, value.optionsMustUnderstand)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .constPtrLayout<Pcwstr>(64)
+                            .constPtrLayout(64)
                     ).writeNative(addr + 24L, value.optionTypes)
                 }
             }
 
         public operator fun invoke(
             optionsCount: UInt = 0u,
-            options: MutPtr<WsmanOption> = MutPtr(0L),
+            options: MutPtr = MutPtr(0L),
             optionsMustUnderstand: Bool = 0,
-            optionTypes: ConstPtr<Pcwstr> = ConstPtr(0L),
+            optionTypes: ConstPtr = ConstPtr(0L),
         ): WsmanOptionSetex =
             WsmanOptionSetex(
                 optionsCount = optionsCount,
@@ -1066,15 +1065,15 @@ public class WsmanOptionSetex internal constructor(
 }
 
 public class WsmanPluginRequest internal constructor(
-    senderDetailsCtorArg: MutPtr<WsmanSenderDetails>,
+    senderDetailsCtorArg: MutPtr,
     localeCtorArg: Pcwstr,
     resourceUriCtorArg: Pcwstr,
-    operationInfoCtorArg: MutPtr<WsmanOperationInfo>,
+    operationInfoCtorArg: MutPtr,
     public var shutdownNotification: Bool,
     shutdownNotificationHandleCtorArg: Handle,
     dataLocaleCtorArg: Pcwstr,
 ) {
-    public var senderDetails: MutPtr<WsmanSenderDetails> = senderDetailsCtorArg
+    public var senderDetails: MutPtr = senderDetailsCtorArg
         internal set
 
     public var locale: Pcwstr = localeCtorArg
@@ -1083,7 +1082,7 @@ public class WsmanPluginRequest internal constructor(
     public var resourceUri: Pcwstr = resourceUriCtorArg
         internal set
 
-    public var operationInfo: MutPtr<WsmanOperationInfo> = operationInfoCtorArg
+    public var operationInfo: MutPtr = operationInfoCtorArg
         internal set
 
     public var shutdownNotificationHandle: Handle = shutdownNotificationHandleCtorArg
@@ -1102,13 +1101,13 @@ public class WsmanPluginRequest internal constructor(
         dataLocaleCtorArg = ConstPtr(0L),
     )
 
-    public operator fun component1(): MutPtr<WsmanSenderDetails> = this.senderDetails
+    public operator fun component1(): MutPtr = this.senderDetails
 
     public operator fun component2(): Pcwstr = this.locale
 
     public operator fun component3(): Pcwstr = this.resourceUri
 
-    public operator fun component4(): MutPtr<WsmanOperationInfo> = this.operationInfo
+    public operator fun component4(): MutPtr = this.operationInfo
 
     public operator fun component5(): Bool = this.shutdownNotification
 
@@ -1116,7 +1115,7 @@ public class WsmanPluginRequest internal constructor(
 
     public operator fun component7(): Pcwstr = this.dataLocale
 
-    public fun copy(senderDetails: MutPtr<WsmanSenderDetails> = this.senderDetails, locale: Pcwstr = this.locale, resourceUri: Pcwstr = this.resourceUri, operationInfo: MutPtr<WsmanOperationInfo> = this.operationInfo, shutdownNotification: Bool = this.shutdownNotification, shutdownNotificationHandle: Handle = this.shutdownNotificationHandle, dataLocale: Pcwstr = this.dataLocale): WsmanPluginRequest = WsmanPluginRequest(senderDetailsCtorArg = senderDetails, localeCtorArg = locale, resourceUriCtorArg = resourceUri, operationInfoCtorArg = operationInfo, shutdownNotification = shutdownNotification, shutdownNotificationHandleCtorArg = shutdownNotificationHandle, dataLocaleCtorArg = dataLocale)
+    public fun copy(senderDetails: MutPtr = this.senderDetails, locale: Pcwstr = this.locale, resourceUri: Pcwstr = this.resourceUri, operationInfo: MutPtr = this.operationInfo, shutdownNotification: Bool = this.shutdownNotification, shutdownNotificationHandle: Handle = this.shutdownNotificationHandle, dataLocale: Pcwstr = this.dataLocale): WsmanPluginRequest = WsmanPluginRequest(senderDetailsCtorArg = senderDetails, localeCtorArg = locale, resourceUriCtorArg = resourceUri, operationInfoCtorArg = operationInfo, shutdownNotification = shutdownNotification, shutdownNotificationHandleCtorArg = shutdownNotificationHandle, dataLocaleCtorArg = dataLocale)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -1144,10 +1143,10 @@ public class WsmanPluginRequest internal constructor(
 
     public companion object {
         public operator fun invoke(
-            senderDetails: MutPtr<WsmanSenderDetails> = MutPtr(0L),
+            senderDetails: MutPtr = MutPtr(0L),
             locale: Pcwstr = ConstPtr(0L),
             resourceUri: Pcwstr = ConstPtr(0L),
-            operationInfo: MutPtr<WsmanOperationInfo> = MutPtr(0L),
+            operationInfo: MutPtr = MutPtr(0L),
             shutdownNotification: Bool = 0,
             shutdownNotificationHandle: Handle = MutPtr(0L),
             dataLocale: Pcwstr = ConstPtr(0L),
@@ -1240,9 +1239,9 @@ public data class WsmanResponseData(
 
 public class WsmanSelectorSet internal constructor(
     public var numberKeys: UInt,
-    keysCtorArg: MutPtr<WsmanKey>,
+    keysCtorArg: MutPtr,
 ) {
-    public var keys: MutPtr<WsmanKey> = keysCtorArg
+    public var keys: MutPtr = keysCtorArg
         internal set
 
     public constructor() : this(
@@ -1252,9 +1251,9 @@ public class WsmanSelectorSet internal constructor(
 
     public operator fun component1(): UInt = this.numberKeys
 
-    public operator fun component2(): MutPtr<WsmanKey> = this.keys
+    public operator fun component2(): MutPtr = this.keys
 
-    public fun copy(numberKeys: UInt = this.numberKeys, keys: MutPtr<WsmanKey> = this.keys): WsmanSelectorSet = WsmanSelectorSet(numberKeys = numberKeys, keysCtorArg = keys)
+    public fun copy(numberKeys: UInt = this.numberKeys, keys: MutPtr = this.keys): WsmanSelectorSet = WsmanSelectorSet(numberKeys = numberKeys, keysCtorArg = keys)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -1280,21 +1279,21 @@ public class WsmanSelectorSet internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<WsmanKey>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                     )
                 override fun writeNative(addr: Long, value: WsmanSelectorSet) {
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr, value.numberKeys)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<WsmanKey>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.keys)
                 }
             }
 
         public operator fun invoke(
             numberKeys: UInt = 0u,
-            keys: MutPtr<WsmanKey> = MutPtr(0L),
+            keys: MutPtr = MutPtr(0L),
         ): WsmanSelectorSet =
             WsmanSelectorSet(
                 numberKeys = numberKeys,
@@ -1306,7 +1305,7 @@ public class WsmanSelectorSet internal constructor(
 public class WsmanSenderDetails internal constructor(
     senderNameCtorArg: Pcwstr,
     authenticationMechanismCtorArg: Pcwstr,
-    certificateDetailsCtorArg: MutPtr<WsmanCertificateDetails>,
+    certificateDetailsCtorArg: MutPtr,
     clientTokenCtorArg: Handle,
     httpURLCtorArg: Pcwstr,
 ) {
@@ -1316,7 +1315,7 @@ public class WsmanSenderDetails internal constructor(
     public var authenticationMechanism: Pcwstr = authenticationMechanismCtorArg
         internal set
 
-    public var certificateDetails: MutPtr<WsmanCertificateDetails> = certificateDetailsCtorArg
+    public var certificateDetails: MutPtr = certificateDetailsCtorArg
         internal set
 
     public var clientToken: Handle = clientTokenCtorArg
@@ -1337,13 +1336,13 @@ public class WsmanSenderDetails internal constructor(
 
     public operator fun component2(): Pcwstr = this.authenticationMechanism
 
-    public operator fun component3(): MutPtr<WsmanCertificateDetails> = this.certificateDetails
+    public operator fun component3(): MutPtr = this.certificateDetails
 
     public operator fun component4(): Handle = this.clientToken
 
     public operator fun component5(): Pcwstr = this.httpURL
 
-    public fun copy(senderName: Pcwstr = this.senderName, authenticationMechanism: Pcwstr = this.authenticationMechanism, certificateDetails: MutPtr<WsmanCertificateDetails> = this.certificateDetails, clientToken: Handle = this.clientToken, httpURL: Pcwstr = this.httpURL): WsmanSenderDetails = WsmanSenderDetails(senderNameCtorArg = senderName, authenticationMechanismCtorArg = authenticationMechanism, certificateDetailsCtorArg = certificateDetails, clientTokenCtorArg = clientToken, httpURLCtorArg = httpURL)
+    public fun copy(senderName: Pcwstr = this.senderName, authenticationMechanism: Pcwstr = this.authenticationMechanism, certificateDetails: MutPtr = this.certificateDetails, clientToken: Handle = this.clientToken, httpURL: Pcwstr = this.httpURL): WsmanSenderDetails = WsmanSenderDetails(senderNameCtorArg = senderName, authenticationMechanismCtorArg = authenticationMechanism, certificateDetailsCtorArg = certificateDetails, clientTokenCtorArg = clientToken, httpURLCtorArg = httpURL)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -1369,7 +1368,7 @@ public class WsmanSenderDetails internal constructor(
         public operator fun invoke(
             senderName: Pcwstr = ConstPtr(0L),
             authenticationMechanism: Pcwstr = ConstPtr(0L),
-            certificateDetails: MutPtr<WsmanCertificateDetails> = MutPtr(0L),
+            certificateDetails: MutPtr = MutPtr(0L),
             clientToken: Handle = MutPtr(0L),
             httpURL: Pcwstr = ConstPtr(0L),
         ): WsmanSenderDetails =
@@ -1384,10 +1383,10 @@ public class WsmanSenderDetails internal constructor(
 }
 
 public class WsmanShellAsync internal constructor(
-    operationContextCtorArg: MutPtr<CVoid>,
+    operationContextCtorArg: MutPtr,
     public var completionFunction: WsmanShellCompletionFunction,
 ) {
-    public var operationContext: MutPtr<CVoid> = operationContextCtorArg
+    public var operationContext: MutPtr = operationContextCtorArg
         internal set
 
     public constructor() : this(
@@ -1395,11 +1394,11 @@ public class WsmanShellAsync internal constructor(
         completionFunction = null,
     )
 
-    public operator fun component1(): MutPtr<CVoid> = this.operationContext
+    public operator fun component1(): MutPtr = this.operationContext
 
     public operator fun component2(): WsmanShellCompletionFunction = this.completionFunction
 
-    public fun copy(operationContext: MutPtr<CVoid> = this.operationContext, completionFunction: WsmanShellCompletionFunction = this.completionFunction): WsmanShellAsync = WsmanShellAsync(operationContextCtorArg = operationContext, completionFunction = completionFunction)
+    public fun copy(operationContext: MutPtr = this.operationContext, completionFunction: WsmanShellCompletionFunction = this.completionFunction): WsmanShellAsync = WsmanShellAsync(operationContextCtorArg = operationContext, completionFunction = completionFunction)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -1417,7 +1416,7 @@ public class WsmanShellAsync internal constructor(
 
     public companion object {
         public operator fun invoke(
-            operationContext: MutPtr<CVoid> = MutPtr(0L),
+            operationContext: MutPtr = MutPtr(0L),
             completionFunction: WsmanShellCompletionFunction = null,
         ): WsmanShellAsync =
             WsmanShellAsync(
@@ -1447,22 +1446,22 @@ public data class WsmanShellDisconnectInfo(
 }
 
 public class WsmanShellStartupInfoV10 internal constructor(
-    inputStreamSetCtorArg: MutPtr<WsmanStreamIdSet>,
-    outputStreamSetCtorArg: MutPtr<WsmanStreamIdSet>,
+    inputStreamSetCtorArg: MutPtr,
+    outputStreamSetCtorArg: MutPtr,
     public var idleTimeoutMs: UInt,
     workingDirectoryCtorArg: Pcwstr,
-    variableSetCtorArg: MutPtr<WsmanEnvironmentVariableSet>,
+    variableSetCtorArg: MutPtr,
 ) {
-    public var inputStreamSet: MutPtr<WsmanStreamIdSet> = inputStreamSetCtorArg
+    public var inputStreamSet: MutPtr = inputStreamSetCtorArg
         internal set
 
-    public var outputStreamSet: MutPtr<WsmanStreamIdSet> = outputStreamSetCtorArg
+    public var outputStreamSet: MutPtr = outputStreamSetCtorArg
         internal set
 
     public var workingDirectory: Pcwstr = workingDirectoryCtorArg
         internal set
 
-    public var variableSet: MutPtr<WsmanEnvironmentVariableSet> = variableSetCtorArg
+    public var variableSet: MutPtr = variableSetCtorArg
         internal set
 
     public constructor() : this(
@@ -1473,17 +1472,17 @@ public class WsmanShellStartupInfoV10 internal constructor(
         variableSetCtorArg = MutPtr(0L),
     )
 
-    public operator fun component1(): MutPtr<WsmanStreamIdSet> = this.inputStreamSet
+    public operator fun component1(): MutPtr = this.inputStreamSet
 
-    public operator fun component2(): MutPtr<WsmanStreamIdSet> = this.outputStreamSet
+    public operator fun component2(): MutPtr = this.outputStreamSet
 
     public operator fun component3(): UInt = this.idleTimeoutMs
 
     public operator fun component4(): Pcwstr = this.workingDirectory
 
-    public operator fun component5(): MutPtr<WsmanEnvironmentVariableSet> = this.variableSet
+    public operator fun component5(): MutPtr = this.variableSet
 
-    public fun copy(inputStreamSet: MutPtr<WsmanStreamIdSet> = this.inputStreamSet, outputStreamSet: MutPtr<WsmanStreamIdSet> = this.outputStreamSet, idleTimeoutMs: UInt = this.idleTimeoutMs, workingDirectory: Pcwstr = this.workingDirectory, variableSet: MutPtr<WsmanEnvironmentVariableSet> = this.variableSet): WsmanShellStartupInfoV10 = WsmanShellStartupInfoV10(inputStreamSetCtorArg = inputStreamSet, outputStreamSetCtorArg = outputStreamSet, idleTimeoutMs = idleTimeoutMs, workingDirectoryCtorArg = workingDirectory, variableSetCtorArg = variableSet)
+    public fun copy(inputStreamSet: MutPtr = this.inputStreamSet, outputStreamSet: MutPtr = this.outputStreamSet, idleTimeoutMs: UInt = this.idleTimeoutMs, workingDirectory: Pcwstr = this.workingDirectory, variableSet: MutPtr = this.variableSet): WsmanShellStartupInfoV10 = WsmanShellStartupInfoV10(inputStreamSetCtorArg = inputStreamSet, outputStreamSetCtorArg = outputStreamSet, idleTimeoutMs = idleTimeoutMs, workingDirectoryCtorArg = workingDirectory, variableSetCtorArg = variableSet)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -1507,11 +1506,11 @@ public class WsmanShellStartupInfoV10 internal constructor(
 
     public companion object {
         public operator fun invoke(
-            inputStreamSet: MutPtr<WsmanStreamIdSet> = MutPtr(0L),
-            outputStreamSet: MutPtr<WsmanStreamIdSet> = MutPtr(0L),
+            inputStreamSet: MutPtr = MutPtr(0L),
+            outputStreamSet: MutPtr = MutPtr(0L),
             idleTimeoutMs: UInt = 0u,
             workingDirectory: Pcwstr = ConstPtr(0L),
-            variableSet: MutPtr<WsmanEnvironmentVariableSet> = MutPtr(0L),
+            variableSet: MutPtr = MutPtr(0L),
         ): WsmanShellStartupInfoV10 =
             WsmanShellStartupInfoV10(
                 inputStreamSetCtorArg = inputStreamSet,
@@ -1569,9 +1568,9 @@ public class WsmanShellStartupInfoV11 internal constructor(
 
 public class WsmanStreamIdSet internal constructor(
     public var streamIDsCount: UInt,
-    streamIDsCtorArg: ConstPtr<Pcwstr>,
+    streamIDsCtorArg: ConstPtr,
 ) {
-    public var streamIDs: ConstPtr<Pcwstr> = streamIDsCtorArg
+    public var streamIDs: ConstPtr = streamIDsCtorArg
         internal set
 
     public constructor() : this(
@@ -1581,9 +1580,9 @@ public class WsmanStreamIdSet internal constructor(
 
     public operator fun component1(): UInt = this.streamIDsCount
 
-    public operator fun component2(): ConstPtr<Pcwstr> = this.streamIDs
+    public operator fun component2(): ConstPtr = this.streamIDs
 
-    public fun copy(streamIDsCount: UInt = this.streamIDsCount, streamIDs: ConstPtr<Pcwstr> = this.streamIDs): WsmanStreamIdSet = WsmanStreamIdSet(streamIDsCount = streamIDsCount, streamIDsCtorArg = streamIDs)
+    public fun copy(streamIDsCount: UInt = this.streamIDsCount, streamIDs: ConstPtr = this.streamIDs): WsmanStreamIdSet = WsmanStreamIdSet(streamIDsCount = streamIDsCount, streamIDsCtorArg = streamIDs)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -1609,21 +1608,21 @@ public class WsmanStreamIdSet internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .constPtrLayout<Pcwstr>(64)
+                                .constPtrLayout(64)
                         ).readNative(addr + 8L),
                     )
                 override fun writeNative(addr: Long, value: WsmanStreamIdSet) {
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr, value.streamIDsCount)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .constPtrLayout<Pcwstr>(64)
+                            .constPtrLayout(64)
                     ).writeNative(addr + 8L, value.streamIDs)
                 }
             }
 
         public operator fun invoke(
             streamIDsCount: UInt = 0u,
-            streamIDs: ConstPtr<Pcwstr> = ConstPtr(0L),
+            streamIDs: ConstPtr = ConstPtr(0L),
         ): WsmanStreamIdSet =
             WsmanStreamIdSet(
                 streamIDsCount = streamIDsCount,

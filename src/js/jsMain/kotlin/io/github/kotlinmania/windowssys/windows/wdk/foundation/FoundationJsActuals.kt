@@ -2,7 +2,6 @@
 
 package io.github.kotlinmania.windowssys.windows.wdk.foundation
 
-import io.github.kotlinmania.rustlang.core.ffi.CVoid
 import io.github.kotlinmania.rustlang.core.ptr.MutPtr
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Handle
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Ntstatus
@@ -13,5 +12,5 @@ private val windowsWdkFoundationNapiAddon: dynamic =
 public actual fun ntClose(handle: Handle): Ntstatus =
     if (windowsWdkFoundationNapiAddon != null) (windowsWdkFoundationNapiAddon.windowssysWindowsWdkFoundationNtClose(handle.rawAddress.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ntQueryObject(handle: Handle, objectinformationclass: ObjectInformationClass, objectinformation: MutPtr<CVoid>, objectinformationlength: UInt, returnlength: MutPtr<UInt>): Ntstatus =
+public actual fun ntQueryObject(handle: Handle, objectinformationclass: ObjectInformationClass, objectinformation: MutPtr, objectinformationlength: UInt, returnlength: MutPtr): Ntstatus =
     if (windowsWdkFoundationNapiAddon != null) (windowsWdkFoundationNapiAddon.windowssysWindowsWdkFoundationNtQueryObject(handle.rawAddress.toString(), objectinformationclass, objectinformation.rawAddress.toString(), objectinformationlength.toInt(), returnlength.rawAddress.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")

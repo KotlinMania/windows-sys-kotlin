@@ -1,6 +1,5 @@
 package io.github.kotlinmania.windowssys.windows.win32.system.deploymentservices
 
-import io.github.kotlinmania.rustlang.core.ffi.CVoid
 import io.github.kotlinmania.rustlang.core.ptr.ConstPtr
 import io.github.kotlinmania.windowssys.core.Pcwstr
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Handle
@@ -12,49 +11,49 @@ public typealias CpuArchitecture = UInt
 public typealias PfnWdsCliCallbackMessageId = UInt
 
 public fun interface PfnWdsCliCallbackFn {
-    public operator fun invoke(dwmessageid: PfnWdsCliCallbackMessageId, wparam: Wparam, lparam: Lparam, pvuserdata: ConstPtr<CVoid>)
+    public operator fun invoke(dwmessageid: PfnWdsCliCallbackMessageId, wparam: Wparam, lparam: Lparam, pvuserdata: ConstPtr)
 }
 
 public typealias PfnWdsCliCallback = PfnWdsCliCallbackFn?
 
 public fun interface PfnWdsCliTraceFunctionFn {
-    public operator fun invoke(pwszformat: Pcwstr, params: ConstPtr<Byte>)
+    public operator fun invoke(pwszformat: Pcwstr, params: ConstPtr)
 }
 
 public typealias PfnWdsCliTraceFunction = PfnWdsCliTraceFunctionFn?
 
 public fun interface PfnWdsTransportClientReceiveContentsFn {
-    public operator fun invoke(hsessionkey: Handle, pcallerdata: ConstPtr<CVoid>, pcontents: ConstPtr<CVoid>, ulsize: UInt, pullcontentoffset: ConstPtr<ULong>)
+    public operator fun invoke(hsessionkey: Handle, pcallerdata: ConstPtr, pcontents: ConstPtr, ulsize: UInt, pullcontentoffset: ConstPtr)
 }
 
 public typealias PfnWdsTransportClientReceiveContents = PfnWdsTransportClientReceiveContentsFn?
 
 public fun interface PfnWdsTransportClientReceiveMetadataFn {
-    public operator fun invoke(hsessionkey: Handle, pcallerdata: ConstPtr<CVoid>, pmetadata: ConstPtr<CVoid>, ulsize: UInt)
+    public operator fun invoke(hsessionkey: Handle, pcallerdata: ConstPtr, pmetadata: ConstPtr, ulsize: UInt)
 }
 
 public typealias PfnWdsTransportClientReceiveMetadata = PfnWdsTransportClientReceiveMetadataFn?
 
 public fun interface PfnWdsTransportClientSessionCompleteFn {
-    public operator fun invoke(hsessionkey: Handle, pcallerdata: ConstPtr<CVoid>, dwerror: UInt)
+    public operator fun invoke(hsessionkey: Handle, pcallerdata: ConstPtr, dwerror: UInt)
 }
 
 public typealias PfnWdsTransportClientSessionComplete = PfnWdsTransportClientSessionCompleteFn?
 
 public fun interface PfnWdsTransportClientSessionNegotiateFn {
-    public operator fun invoke(hsessionkey: Handle, pcallerdata: ConstPtr<CVoid>, pinfo: ConstPtr<TransportclientSessionInfo>, hnegotiatekey: Handle)
+    public operator fun invoke(hsessionkey: Handle, pcallerdata: ConstPtr, pinfo: ConstPtr, hnegotiatekey: Handle)
 }
 
 public typealias PfnWdsTransportClientSessionNegotiate = PfnWdsTransportClientSessionNegotiateFn?
 
 public fun interface PfnWdsTransportClientSessionStartFn {
-    public operator fun invoke(hsessionkey: Handle, pcallerdata: ConstPtr<CVoid>, ullfilesize: ConstPtr<ULong>)
+    public operator fun invoke(hsessionkey: Handle, pcallerdata: ConstPtr, ullfilesize: ConstPtr)
 }
 
 public typealias PfnWdsTransportClientSessionStart = PfnWdsTransportClientSessionStartFn?
 
 public fun interface PfnWdsTransportClientSessionStartExFn {
-    public operator fun invoke(hsessionkey: Handle, pcallerdata: ConstPtr<CVoid>, info: ConstPtr<TransportclientSessionInfo>)
+    public operator fun invoke(hsessionkey: Handle, pcallerdata: ConstPtr, info: ConstPtr)
 }
 
 public typealias PfnWdsTransportClientSessionStartEx = PfnWdsTransportClientSessionStartExFn?

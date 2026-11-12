@@ -2,7 +2,6 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.devices.bluetooth
 
-import io.github.kotlinmania.rustlang.core.ffi.CVoid
 import io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
 import io.github.kotlinmania.rustlang.core.mem.TypeLayout
 import io.github.kotlinmania.rustlang.core.ptr.ConstPtr
@@ -263,9 +262,9 @@ public data class BluetoothFindRadioParams(
 public class BluetoothGattValueChangedEvent internal constructor(
     public var changedAttributeHandle: UShort,
     public var characteristicValueDataSize: Int,
-    characteristicValueCtorArg: MutPtr<BthLeGattCharacteristicValue>,
+    characteristicValueCtorArg: MutPtr,
 ) {
-    public var characteristicValue: MutPtr<BthLeGattCharacteristicValue> = characteristicValueCtorArg
+    public var characteristicValue: MutPtr = characteristicValueCtorArg
         internal set
 
     public constructor() : this(
@@ -278,9 +277,9 @@ public class BluetoothGattValueChangedEvent internal constructor(
 
     public operator fun component2(): Int = this.characteristicValueDataSize
 
-    public operator fun component3(): MutPtr<BthLeGattCharacteristicValue> = this.characteristicValue
+    public operator fun component3(): MutPtr = this.characteristicValue
 
-    public fun copy(changedAttributeHandle: UShort = this.changedAttributeHandle, characteristicValueDataSize: Int = this.characteristicValueDataSize, characteristicValue: MutPtr<BthLeGattCharacteristicValue> = this.characteristicValue): BluetoothGattValueChangedEvent = BluetoothGattValueChangedEvent(changedAttributeHandle = changedAttributeHandle, characteristicValueDataSize = characteristicValueDataSize, characteristicValueCtorArg = characteristicValue)
+    public fun copy(changedAttributeHandle: UShort = this.changedAttributeHandle, characteristicValueDataSize: Int = this.characteristicValueDataSize, characteristicValue: MutPtr = this.characteristicValue): BluetoothGattValueChangedEvent = BluetoothGattValueChangedEvent(changedAttributeHandle = changedAttributeHandle, characteristicValueDataSize = characteristicValueDataSize, characteristicValueCtorArg = characteristicValue)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -309,7 +308,7 @@ public class BluetoothGattValueChangedEvent internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.USIZE64).readNative(addr + 8L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<BthLeGattCharacteristicValue>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 16L),
                     )
                 override fun writeNative(addr: Long, value: BluetoothGattValueChangedEvent) {
@@ -317,7 +316,7 @@ public class BluetoothGattValueChangedEvent internal constructor(
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.USIZE64).writeNative(addr + 8L, value.characteristicValueDataSize)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<BthLeGattCharacteristicValue>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 16L, value.characteristicValue)
                 }
             }
@@ -325,7 +324,7 @@ public class BluetoothGattValueChangedEvent internal constructor(
         public operator fun invoke(
             changedAttributeHandle: UShort = 0u,
             characteristicValueDataSize: Int = 0,
-            characteristicValue: MutPtr<BthLeGattCharacteristicValue> = MutPtr(0L),
+            characteristicValue: MutPtr = MutPtr(0L),
         ): BluetoothGattValueChangedEvent =
             BluetoothGattValueChangedEvent(
                 changedAttributeHandle = changedAttributeHandle,
@@ -527,7 +526,7 @@ public data class BluetoothRadioInfo(
 public class BluetoothSelectDeviceParams internal constructor(
     public var dwSize: UInt,
     public var cNumOfClasses: UInt,
-    prgClassOfDevicesCtorArg: MutPtr<BluetoothCodPairs>,
+    prgClassOfDevicesCtorArg: MutPtr,
     pszInfoCtorArg: Pwstr,
     hwndParentCtorArg: Hwnd,
     public var fForceAuthentication: Bool,
@@ -537,11 +536,11 @@ public class BluetoothSelectDeviceParams internal constructor(
     public var fAddNewDeviceWizard: Bool,
     public var fSkipServicesPage: Bool,
     public var pfnDeviceCallback: PfnDeviceCallback,
-    pvParamCtorArg: MutPtr<CVoid>,
+    pvParamCtorArg: MutPtr,
     public var cNumDevices: UInt,
-    pDevicesCtorArg: MutPtr<BluetoothDeviceInfo>,
+    pDevicesCtorArg: MutPtr,
 ) {
-    public var prgClassOfDevices: MutPtr<BluetoothCodPairs> = prgClassOfDevicesCtorArg
+    public var prgClassOfDevices: MutPtr = prgClassOfDevicesCtorArg
         internal set
 
     public var pszInfo: Pwstr = pszInfoCtorArg
@@ -550,10 +549,10 @@ public class BluetoothSelectDeviceParams internal constructor(
     public var hwndParent: Hwnd = hwndParentCtorArg
         internal set
 
-    public var pvParam: MutPtr<CVoid> = pvParamCtorArg
+    public var pvParam: MutPtr = pvParamCtorArg
         internal set
 
-    public var pDevices: MutPtr<BluetoothDeviceInfo> = pDevicesCtorArg
+    public var pDevices: MutPtr = pDevicesCtorArg
         internal set
 
     public constructor() : this(
@@ -578,7 +577,7 @@ public class BluetoothSelectDeviceParams internal constructor(
 
     public operator fun component2(): UInt = this.cNumOfClasses
 
-    public operator fun component3(): MutPtr<BluetoothCodPairs> = this.prgClassOfDevices
+    public operator fun component3(): MutPtr = this.prgClassOfDevices
 
     public operator fun component4(): Pwstr = this.pszInfo
 
@@ -598,13 +597,13 @@ public class BluetoothSelectDeviceParams internal constructor(
 
     public operator fun component12(): PfnDeviceCallback = this.pfnDeviceCallback
 
-    public operator fun component13(): MutPtr<CVoid> = this.pvParam
+    public operator fun component13(): MutPtr = this.pvParam
 
     public operator fun component14(): UInt = this.cNumDevices
 
-    public operator fun component15(): MutPtr<BluetoothDeviceInfo> = this.pDevices
+    public operator fun component15(): MutPtr = this.pDevices
 
-    public fun copy(dwSize: UInt = this.dwSize, cNumOfClasses: UInt = this.cNumOfClasses, prgClassOfDevices: MutPtr<BluetoothCodPairs> = this.prgClassOfDevices, pszInfo: Pwstr = this.pszInfo, hwndParent: Hwnd = this.hwndParent, fForceAuthentication: Bool = this.fForceAuthentication, fShowAuthenticated: Bool = this.fShowAuthenticated, fShowRemembered: Bool = this.fShowRemembered, fShowUnknown: Bool = this.fShowUnknown, fAddNewDeviceWizard: Bool = this.fAddNewDeviceWizard, fSkipServicesPage: Bool = this.fSkipServicesPage, pfnDeviceCallback: PfnDeviceCallback = this.pfnDeviceCallback, pvParam: MutPtr<CVoid> = this.pvParam, cNumDevices: UInt = this.cNumDevices, pDevices: MutPtr<BluetoothDeviceInfo> = this.pDevices): BluetoothSelectDeviceParams = BluetoothSelectDeviceParams(dwSize = dwSize, cNumOfClasses = cNumOfClasses, prgClassOfDevicesCtorArg = prgClassOfDevices, pszInfoCtorArg = pszInfo, hwndParentCtorArg = hwndParent, fForceAuthentication = fForceAuthentication, fShowAuthenticated = fShowAuthenticated, fShowRemembered = fShowRemembered, fShowUnknown = fShowUnknown, fAddNewDeviceWizard = fAddNewDeviceWizard, fSkipServicesPage = fSkipServicesPage, pfnDeviceCallback = pfnDeviceCallback, pvParamCtorArg = pvParam, cNumDevices = cNumDevices, pDevicesCtorArg = pDevices)
+    public fun copy(dwSize: UInt = this.dwSize, cNumOfClasses: UInt = this.cNumOfClasses, prgClassOfDevices: MutPtr = this.prgClassOfDevices, pszInfo: Pwstr = this.pszInfo, hwndParent: Hwnd = this.hwndParent, fForceAuthentication: Bool = this.fForceAuthentication, fShowAuthenticated: Bool = this.fShowAuthenticated, fShowRemembered: Bool = this.fShowRemembered, fShowUnknown: Bool = this.fShowUnknown, fAddNewDeviceWizard: Bool = this.fAddNewDeviceWizard, fSkipServicesPage: Bool = this.fSkipServicesPage, pfnDeviceCallback: PfnDeviceCallback = this.pfnDeviceCallback, pvParam: MutPtr = this.pvParam, cNumDevices: UInt = this.cNumDevices, pDevices: MutPtr = this.pDevices): BluetoothSelectDeviceParams = BluetoothSelectDeviceParams(dwSize = dwSize, cNumOfClasses = cNumOfClasses, prgClassOfDevicesCtorArg = prgClassOfDevices, pszInfoCtorArg = pszInfo, hwndParentCtorArg = hwndParent, fForceAuthentication = fForceAuthentication, fShowAuthenticated = fShowAuthenticated, fShowRemembered = fShowRemembered, fShowUnknown = fShowUnknown, fAddNewDeviceWizard = fAddNewDeviceWizard, fSkipServicesPage = fSkipServicesPage, pfnDeviceCallback = pfnDeviceCallback, pvParamCtorArg = pvParam, cNumDevices = cNumDevices, pDevicesCtorArg = pDevices)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -650,7 +649,7 @@ public class BluetoothSelectDeviceParams internal constructor(
         public operator fun invoke(
             dwSize: UInt = 0u,
             cNumOfClasses: UInt = 0u,
-            prgClassOfDevices: MutPtr<BluetoothCodPairs> = MutPtr(0L),
+            prgClassOfDevices: MutPtr = MutPtr(0L),
             pszInfo: Pwstr = MutPtr(0L),
             hwndParent: Hwnd = MutPtr(0L),
             fForceAuthentication: Bool = 0,
@@ -660,9 +659,9 @@ public class BluetoothSelectDeviceParams internal constructor(
             fAddNewDeviceWizard: Bool = 0,
             fSkipServicesPage: Bool = 0,
             pfnDeviceCallback: PfnDeviceCallback = null,
-            pvParam: MutPtr<CVoid> = MutPtr(0L),
+            pvParam: MutPtr = MutPtr(0L),
             cNumDevices: UInt = 0u,
-            pDevices: MutPtr<BluetoothDeviceInfo> = MutPtr(0L),
+            pDevices: MutPtr = MutPtr(0L),
         ): BluetoothSelectDeviceParams =
             BluetoothSelectDeviceParams(
                 dwSize = dwSize,
@@ -1164,17 +1163,17 @@ public data class BthRadioInRange(
 }
 
 public class BthSetService internal constructor(
-    pSdpVersionCtorArg: MutPtr<UInt>,
-    pRecordHandleCtorArg: MutPtr<Handle>,
+    pSdpVersionCtorArg: MutPtr,
+    pRecordHandleCtorArg: MutPtr,
     public var fCodService: UInt,
     public var reserved: UIntArray,
     public var ulRecordLength: UInt,
     public var pRecord: UByteArray,
 ) {
-    public var pSdpVersion: MutPtr<UInt> = pSdpVersionCtorArg
+    public var pSdpVersion: MutPtr = pSdpVersionCtorArg
         internal set
 
-    public var pRecordHandle: MutPtr<Handle> = pRecordHandleCtorArg
+    public var pRecordHandle: MutPtr = pRecordHandleCtorArg
         internal set
 
     public constructor() : this(
@@ -1186,9 +1185,9 @@ public class BthSetService internal constructor(
         pRecord = UByteArray(1),
     )
 
-    public operator fun component1(): MutPtr<UInt> = this.pSdpVersion
+    public operator fun component1(): MutPtr = this.pSdpVersion
 
-    public operator fun component2(): MutPtr<Handle> = this.pRecordHandle
+    public operator fun component2(): MutPtr = this.pRecordHandle
 
     public operator fun component3(): UInt = this.fCodService
 
@@ -1198,7 +1197,7 @@ public class BthSetService internal constructor(
 
     public operator fun component6(): UByteArray = this.pRecord
 
-    public fun copy(pSdpVersion: MutPtr<UInt> = this.pSdpVersion, pRecordHandle: MutPtr<Handle> = this.pRecordHandle, fCodService: UInt = this.fCodService, reserved: UIntArray = this.reserved, ulRecordLength: UInt = this.ulRecordLength, pRecord: UByteArray = this.pRecord): BthSetService = BthSetService(pSdpVersionCtorArg = pSdpVersion, pRecordHandleCtorArg = pRecordHandle, fCodService = fCodService, reserved = reserved, ulRecordLength = ulRecordLength, pRecord = pRecord)
+    public fun copy(pSdpVersion: MutPtr = this.pSdpVersion, pRecordHandle: MutPtr = this.pRecordHandle, fCodService: UInt = this.fCodService, reserved: UIntArray = this.reserved, ulRecordLength: UInt = this.ulRecordLength, pRecord: UByteArray = this.pRecord): BthSetService = BthSetService(pSdpVersionCtorArg = pSdpVersion, pRecordHandleCtorArg = pRecordHandle, fCodService = fCodService, reserved = reserved, ulRecordLength = ulRecordLength, pRecord = pRecord)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -1231,11 +1230,11 @@ public class BthSetService internal constructor(
                     BthSetService(
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<UInt>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<Handle>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 16L),
                         (
@@ -1251,11 +1250,11 @@ public class BthSetService internal constructor(
                 override fun writeNative(addr: Long, value: BthSetService) {
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<UInt>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr, value.pSdpVersion)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<Handle>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.pRecordHandle)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 16L, value.fCodService)
                     (
@@ -1271,8 +1270,8 @@ public class BthSetService internal constructor(
             }
 
         public operator fun invoke(
-            pSdpVersion: MutPtr<UInt> = MutPtr(0L),
-            pRecordHandle: MutPtr<Handle> = MutPtr(0L),
+            pSdpVersion: MutPtr = MutPtr(0L),
+            pRecordHandle: MutPtr = MutPtr(0L),
             fCodService: UInt = 0u,
             reserved: UIntArray = UIntArray(5),
             ulRecordLength: UInt = 0u,
@@ -1406,10 +1405,10 @@ public class SdpElementData0(
 )
 
 public class SdpElementData03 internal constructor(
-    valueCtorArg: MutPtr<UByte>,
+    valueCtorArg: MutPtr,
     public var length: UInt,
 ) {
-    public var value: MutPtr<UByte> = valueCtorArg
+    public var value: MutPtr = valueCtorArg
         internal set
 
     public constructor() : this(
@@ -1417,11 +1416,11 @@ public class SdpElementData03 internal constructor(
         length = 0u,
     )
 
-    public operator fun component1(): MutPtr<UByte> = this.value
+    public operator fun component1(): MutPtr = this.value
 
     public operator fun component2(): UInt = this.length
 
-    public fun copy(value: MutPtr<UByte> = this.value, length: UInt = this.length): SdpElementData03 = SdpElementData03(valueCtorArg = value, length = length)
+    public fun copy(value: MutPtr = this.value, length: UInt = this.length): SdpElementData03 = SdpElementData03(valueCtorArg = value, length = length)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -1446,21 +1445,21 @@ public class SdpElementData03 internal constructor(
                     SdpElementData03(
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<UByte>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 8L),
                     )
                 override fun writeNative(addr: Long, value: SdpElementData03) {
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<UByte>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr, value.value)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 8L, value.length)
                 }
             }
 
         public operator fun invoke(
-            value: MutPtr<UByte> = MutPtr(0L),
+            value: MutPtr = MutPtr(0L),
             length: UInt = 0u,
         ): SdpElementData03 =
             SdpElementData03(
@@ -1471,10 +1470,10 @@ public class SdpElementData03 internal constructor(
 }
 
 public class SdpElementData02 internal constructor(
-    valueCtorArg: MutPtr<UByte>,
+    valueCtorArg: MutPtr,
     public var length: UInt,
 ) {
-    public var value: MutPtr<UByte> = valueCtorArg
+    public var value: MutPtr = valueCtorArg
         internal set
 
     public constructor() : this(
@@ -1482,11 +1481,11 @@ public class SdpElementData02 internal constructor(
         length = 0u,
     )
 
-    public operator fun component1(): MutPtr<UByte> = this.value
+    public operator fun component1(): MutPtr = this.value
 
     public operator fun component2(): UInt = this.length
 
-    public fun copy(value: MutPtr<UByte> = this.value, length: UInt = this.length): SdpElementData02 = SdpElementData02(valueCtorArg = value, length = length)
+    public fun copy(value: MutPtr = this.value, length: UInt = this.length): SdpElementData02 = SdpElementData02(valueCtorArg = value, length = length)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -1511,21 +1510,21 @@ public class SdpElementData02 internal constructor(
                     SdpElementData02(
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<UByte>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 8L),
                     )
                 override fun writeNative(addr: Long, value: SdpElementData02) {
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<UByte>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr, value.value)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 8L, value.length)
                 }
             }
 
         public operator fun invoke(
-            value: MutPtr<UByte> = MutPtr(0L),
+            value: MutPtr = MutPtr(0L),
             length: UInt = 0u,
         ): SdpElementData02 =
             SdpElementData02(
@@ -1536,10 +1535,10 @@ public class SdpElementData02 internal constructor(
 }
 
 public class SdpElementData00 internal constructor(
-    valueCtorArg: MutPtr<UByte>,
+    valueCtorArg: MutPtr,
     public var length: UInt,
 ) {
-    public var value: MutPtr<UByte> = valueCtorArg
+    public var value: MutPtr = valueCtorArg
         internal set
 
     public constructor() : this(
@@ -1547,11 +1546,11 @@ public class SdpElementData00 internal constructor(
         length = 0u,
     )
 
-    public operator fun component1(): MutPtr<UByte> = this.value
+    public operator fun component1(): MutPtr = this.value
 
     public operator fun component2(): UInt = this.length
 
-    public fun copy(value: MutPtr<UByte> = this.value, length: UInt = this.length): SdpElementData00 = SdpElementData00(valueCtorArg = value, length = length)
+    public fun copy(value: MutPtr = this.value, length: UInt = this.length): SdpElementData00 = SdpElementData00(valueCtorArg = value, length = length)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -1576,21 +1575,21 @@ public class SdpElementData00 internal constructor(
                     SdpElementData00(
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<UByte>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 8L),
                     )
                 override fun writeNative(addr: Long, value: SdpElementData00) {
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<UByte>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr, value.value)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 8L, value.length)
                 }
             }
 
         public operator fun invoke(
-            value: MutPtr<UByte> = MutPtr(0L),
+            value: MutPtr = MutPtr(0L),
             length: UInt = 0u,
         ): SdpElementData00 =
             SdpElementData00(
@@ -1601,10 +1600,10 @@ public class SdpElementData00 internal constructor(
 }
 
 public class SdpElementData01 internal constructor(
-    valueCtorArg: MutPtr<UByte>,
+    valueCtorArg: MutPtr,
     public var length: UInt,
 ) {
-    public var value: MutPtr<UByte> = valueCtorArg
+    public var value: MutPtr = valueCtorArg
         internal set
 
     public constructor() : this(
@@ -1612,11 +1611,11 @@ public class SdpElementData01 internal constructor(
         length = 0u,
     )
 
-    public operator fun component1(): MutPtr<UByte> = this.value
+    public operator fun component1(): MutPtr = this.value
 
     public operator fun component2(): UInt = this.length
 
-    public fun copy(value: MutPtr<UByte> = this.value, length: UInt = this.length): SdpElementData01 = SdpElementData01(valueCtorArg = value, length = length)
+    public fun copy(value: MutPtr = this.value, length: UInt = this.length): SdpElementData01 = SdpElementData01(valueCtorArg = value, length = length)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -1641,21 +1640,21 @@ public class SdpElementData01 internal constructor(
                     SdpElementData01(
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<UByte>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 8L),
                     )
                 override fun writeNative(addr: Long, value: SdpElementData01) {
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<UByte>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr, value.value)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 8L, value.length)
                 }
             }
 
         public operator fun invoke(
-            value: MutPtr<UByte> = MutPtr(0L),
+            value: MutPtr = MutPtr(0L),
             length: UInt = 0u,
         ): SdpElementData01 =
             SdpElementData01(

@@ -2,22 +2,18 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.security.cryptography
 
-import io.github.kotlinmania.rustlang.core.ffi.CVoid
 import io.github.kotlinmania.rustlang.core.ptr.ConstPtr
 import io.github.kotlinmania.rustlang.core.ptr.MutPtr
 import io.github.kotlinmania.windowssys.core.Bool
-import io.github.kotlinmania.windowssys.core.Guid
 import io.github.kotlinmania.windowssys.core.Hresult
 import io.github.kotlinmania.windowssys.core.Pcstr
 import io.github.kotlinmania.windowssys.core.Pcwstr
 import io.github.kotlinmania.windowssys.core.Pstr
 import io.github.kotlinmania.windowssys.core.Pwstr
-import io.github.kotlinmania.windowssys.windows.win32.foundation.Filetime
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Handle
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Hmodule
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Hwnd
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Ntstatus
-import io.github.kotlinmania.windowssys.windows.win32.foundation.Systemtime
 import io.github.kotlinmania.windowssys.windows.win32.security.NcryptDescriptorHandle
 import io.github.kotlinmania.windowssys.windows.win32.security.NcryptStreamHandle
 import io.github.kotlinmania.windowssys.windows.win32.security.ObjectSecurityInformation
@@ -501,34 +497,34 @@ public actual fun bCryptAddContextFunctionProvider(dwtable: UInt, pszcontext: Pc
 public actual fun bCryptCloseAlgorithmProvider(halgorithm: BcryptAlgHandle, dwflags: UInt): Ntstatus =
     windowssysWindowsWin32SecurityCryptographyBCryptCloseAlgorithmProvider(halgorithm.rawAddress.toCPointer<ByteVar>(), dwflags)
 
-public actual fun bCryptConfigureContext(dwtable: BcryptTable, pszcontext: Pcwstr, pconfig: ConstPtr<CryptContextConfig>): Ntstatus =
+public actual fun bCryptConfigureContext(dwtable: BcryptTable, pszcontext: Pcwstr, pconfig: ConstPtr): Ntstatus =
     windowssysWindowsWin32SecurityCryptographyBCryptConfigureContext(dwtable, pszcontext.rawAddress.toCPointer<ByteVar>(), pconfig.rawAddress.toCPointer<ByteVar>())
 
-public actual fun bCryptConfigureContextFunction(dwtable: BcryptTable, pszcontext: Pcwstr, dwinterface: BcryptInterface, pszfunction: Pcwstr, pconfig: ConstPtr<CryptContextFunctionConfig>): Ntstatus =
+public actual fun bCryptConfigureContextFunction(dwtable: BcryptTable, pszcontext: Pcwstr, dwinterface: BcryptInterface, pszfunction: Pcwstr, pconfig: ConstPtr): Ntstatus =
     windowssysWindowsWin32SecurityCryptographyBCryptConfigureContextFunction(dwtable, pszcontext.rawAddress.toCPointer<ByteVar>(), dwinterface, pszfunction.rawAddress.toCPointer<ByteVar>(), pconfig.rawAddress.toCPointer<ByteVar>())
 
-public actual fun bCryptCreateContext(dwtable: BcryptTable, pszcontext: Pcwstr, pconfig: ConstPtr<CryptContextConfig>): Ntstatus =
+public actual fun bCryptCreateContext(dwtable: BcryptTable, pszcontext: Pcwstr, pconfig: ConstPtr): Ntstatus =
     windowssysWindowsWin32SecurityCryptographyBCryptCreateContext(dwtable, pszcontext.rawAddress.toCPointer<ByteVar>(), pconfig.rawAddress.toCPointer<ByteVar>())
 
-public actual fun bCryptCreateHash(halgorithm: BcryptAlgHandle, phhash: MutPtr<BcryptHashHandle>, pbhashobject: MutPtr<UByte>, cbhashobject: UInt, pbsecret: ConstPtr<UByte>, cbsecret: UInt, dwflags: UInt): Ntstatus =
+public actual fun bCryptCreateHash(halgorithm: BcryptAlgHandle, phhash: MutPtr, pbhashobject: MutPtr, cbhashobject: UInt, pbsecret: ConstPtr, cbsecret: UInt, dwflags: UInt): Ntstatus =
     windowssysWindowsWin32SecurityCryptographyBCryptCreateHash(halgorithm.rawAddress.toCPointer<ByteVar>(), phhash.rawAddress.toCPointer<ByteVar>(), pbhashobject.rawAddress.toCPointer<ByteVar>(), cbhashobject, pbsecret.rawAddress.toCPointer<ByteVar>(), cbsecret, dwflags)
 
-public actual fun bCryptCreateMultiHash(halgorithm: BcryptAlgHandle, phhash: MutPtr<BcryptHashHandle>, nhashes: UInt, pbhashobject: MutPtr<UByte>, cbhashobject: UInt, pbsecret: ConstPtr<UByte>, cbsecret: UInt, dwflags: UInt): Ntstatus =
+public actual fun bCryptCreateMultiHash(halgorithm: BcryptAlgHandle, phhash: MutPtr, nhashes: UInt, pbhashobject: MutPtr, cbhashobject: UInt, pbsecret: ConstPtr, cbsecret: UInt, dwflags: UInt): Ntstatus =
     windowssysWindowsWin32SecurityCryptographyBCryptCreateMultiHash(halgorithm.rawAddress.toCPointer<ByteVar>(), phhash.rawAddress.toCPointer<ByteVar>(), nhashes, pbhashobject.rawAddress.toCPointer<ByteVar>(), cbhashobject, pbsecret.rawAddress.toCPointer<ByteVar>(), cbsecret, dwflags)
 
-public actual fun bCryptDecrypt(hkey: BcryptKeyHandle, pbinput: ConstPtr<UByte>, cbinput: UInt, ppaddinginfo: ConstPtr<CVoid>, pbiv: MutPtr<UByte>, cbiv: UInt, pboutput: MutPtr<UByte>, cboutput: UInt, pcbresult: MutPtr<UInt>, dwflags: BcryptFlags): Ntstatus =
+public actual fun bCryptDecrypt(hkey: BcryptKeyHandle, pbinput: ConstPtr, cbinput: UInt, ppaddinginfo: ConstPtr, pbiv: MutPtr, cbiv: UInt, pboutput: MutPtr, cboutput: UInt, pcbresult: MutPtr, dwflags: BcryptFlags): Ntstatus =
     windowssysWindowsWin32SecurityCryptographyBCryptDecrypt(hkey.rawAddress.toCPointer<ByteVar>(), pbinput.rawAddress.toCPointer<ByteVar>(), cbinput, ppaddinginfo.rawAddress.toCPointer<ByteVar>(), pbiv.rawAddress.toCPointer<ByteVar>(), cbiv, pboutput.rawAddress.toCPointer<ByteVar>(), cboutput, pcbresult.rawAddress.toCPointer<ByteVar>(), dwflags)
 
 public actual fun bCryptDeleteContext(dwtable: BcryptTable, pszcontext: Pcwstr): Ntstatus =
     windowssysWindowsWin32SecurityCryptographyBCryptDeleteContext(dwtable, pszcontext.rawAddress.toCPointer<ByteVar>())
 
-public actual fun bCryptDeriveKey(hsharedsecret: BcryptSecretHandle, pwszkdf: Pcwstr, pparameterlist: ConstPtr<BCryptBufferDesc>, pbderivedkey: MutPtr<UByte>, cbderivedkey: UInt, pcbresult: MutPtr<UInt>, dwflags: UInt): Ntstatus =
+public actual fun bCryptDeriveKey(hsharedsecret: BcryptSecretHandle, pwszkdf: Pcwstr, pparameterlist: ConstPtr, pbderivedkey: MutPtr, cbderivedkey: UInt, pcbresult: MutPtr, dwflags: UInt): Ntstatus =
     windowssysWindowsWin32SecurityCryptographyBCryptDeriveKey(hsharedsecret.rawAddress.toCPointer<ByteVar>(), pwszkdf.rawAddress.toCPointer<ByteVar>(), pparameterlist.rawAddress.toCPointer<ByteVar>(), pbderivedkey.rawAddress.toCPointer<ByteVar>(), cbderivedkey, pcbresult.rawAddress.toCPointer<ByteVar>(), dwflags)
 
-public actual fun bCryptDeriveKeyCapi(hhash: BcryptHashHandle, htargetalg: BcryptAlgHandle, pbderivedkey: MutPtr<UByte>, cbderivedkey: UInt, dwflags: UInt): Ntstatus =
+public actual fun bCryptDeriveKeyCapi(hhash: BcryptHashHandle, htargetalg: BcryptAlgHandle, pbderivedkey: MutPtr, cbderivedkey: UInt, dwflags: UInt): Ntstatus =
     windowssysWindowsWin32SecurityCryptographyBCryptDeriveKeyCapi(hhash.rawAddress.toCPointer<ByteVar>(), htargetalg.rawAddress.toCPointer<ByteVar>(), pbderivedkey.rawAddress.toCPointer<ByteVar>(), cbderivedkey, dwflags)
 
-public actual fun bCryptDeriveKeyPBKDF2(hprf: BcryptAlgHandle, pbpassword: ConstPtr<UByte>, cbpassword: UInt, pbsalt: ConstPtr<UByte>, cbsalt: UInt, citerations: ULong, pbderivedkey: MutPtr<UByte>, cbderivedkey: UInt, dwflags: UInt): Ntstatus =
+public actual fun bCryptDeriveKeyPBKDF2(hprf: BcryptAlgHandle, pbpassword: ConstPtr, cbpassword: UInt, pbsalt: ConstPtr, cbsalt: UInt, citerations: ULong, pbderivedkey: MutPtr, cbderivedkey: UInt, dwflags: UInt): Ntstatus =
     windowssysWindowsWin32SecurityCryptographyBCryptDeriveKeyPBKDF2(hprf.rawAddress.toCPointer<ByteVar>(), pbpassword.rawAddress.toCPointer<ByteVar>(), cbpassword, pbsalt.rawAddress.toCPointer<ByteVar>(), cbsalt, citerations, pbderivedkey.rawAddress.toCPointer<ByteVar>(), cbderivedkey, dwflags)
 
 public actual fun bCryptDestroyHash(hhash: BcryptHashHandle): Ntstatus =
@@ -540,98 +536,98 @@ public actual fun bCryptDestroyKey(hkey: BcryptKeyHandle): Ntstatus =
 public actual fun bCryptDestroySecret(hsecret: BcryptSecretHandle): Ntstatus =
     windowssysWindowsWin32SecurityCryptographyBCryptDestroySecret(hsecret.rawAddress.toCPointer<ByteVar>())
 
-public actual fun bCryptDuplicateHash(hhash: BcryptHashHandle, phnewhash: MutPtr<BcryptHashHandle>, pbhashobject: MutPtr<UByte>, cbhashobject: UInt, dwflags: UInt): Ntstatus =
+public actual fun bCryptDuplicateHash(hhash: BcryptHashHandle, phnewhash: MutPtr, pbhashobject: MutPtr, cbhashobject: UInt, dwflags: UInt): Ntstatus =
     windowssysWindowsWin32SecurityCryptographyBCryptDuplicateHash(hhash.rawAddress.toCPointer<ByteVar>(), phnewhash.rawAddress.toCPointer<ByteVar>(), pbhashobject.rawAddress.toCPointer<ByteVar>(), cbhashobject, dwflags)
 
-public actual fun bCryptDuplicateKey(hkey: BcryptKeyHandle, phnewkey: MutPtr<BcryptKeyHandle>, pbkeyobject: MutPtr<UByte>, cbkeyobject: UInt, dwflags: UInt): Ntstatus =
+public actual fun bCryptDuplicateKey(hkey: BcryptKeyHandle, phnewkey: MutPtr, pbkeyobject: MutPtr, cbkeyobject: UInt, dwflags: UInt): Ntstatus =
     windowssysWindowsWin32SecurityCryptographyBCryptDuplicateKey(hkey.rawAddress.toCPointer<ByteVar>(), phnewkey.rawAddress.toCPointer<ByteVar>(), pbkeyobject.rawAddress.toCPointer<ByteVar>(), cbkeyobject, dwflags)
 
-public actual fun bCryptEncrypt(hkey: BcryptKeyHandle, pbinput: ConstPtr<UByte>, cbinput: UInt, ppaddinginfo: ConstPtr<CVoid>, pbiv: MutPtr<UByte>, cbiv: UInt, pboutput: MutPtr<UByte>, cboutput: UInt, pcbresult: MutPtr<UInt>, dwflags: BcryptFlags): Ntstatus =
+public actual fun bCryptEncrypt(hkey: BcryptKeyHandle, pbinput: ConstPtr, cbinput: UInt, ppaddinginfo: ConstPtr, pbiv: MutPtr, cbiv: UInt, pboutput: MutPtr, cboutput: UInt, pcbresult: MutPtr, dwflags: BcryptFlags): Ntstatus =
     windowssysWindowsWin32SecurityCryptographyBCryptEncrypt(hkey.rawAddress.toCPointer<ByteVar>(), pbinput.rawAddress.toCPointer<ByteVar>(), cbinput, ppaddinginfo.rawAddress.toCPointer<ByteVar>(), pbiv.rawAddress.toCPointer<ByteVar>(), cbiv, pboutput.rawAddress.toCPointer<ByteVar>(), cboutput, pcbresult.rawAddress.toCPointer<ByteVar>(), dwflags)
 
-public actual fun bCryptEnumAlgorithms(dwalgoperations: BcryptOperation, palgcount: MutPtr<UInt>, ppalglist: MutPtr<MutPtr<BcryptAlgorithmIdentifier>>, dwflags: UInt): Ntstatus =
+public actual fun bCryptEnumAlgorithms(dwalgoperations: BcryptOperation, palgcount: MutPtr, ppalglist: MutPtr, dwflags: UInt): Ntstatus =
     windowssysWindowsWin32SecurityCryptographyBCryptEnumAlgorithms(dwalgoperations, palgcount.rawAddress.toCPointer<ByteVar>(), ppalglist.rawAddress.toCPointer<ByteVar>(), dwflags)
 
-public actual fun bCryptEnumContextFunctionProviders(dwtable: BcryptTable, pszcontext: Pcwstr, dwinterface: BcryptInterface, pszfunction: Pcwstr, pcbbuffer: MutPtr<UInt>, ppbuffer: MutPtr<MutPtr<CryptContextFunctionProviders>>): Ntstatus =
+public actual fun bCryptEnumContextFunctionProviders(dwtable: BcryptTable, pszcontext: Pcwstr, dwinterface: BcryptInterface, pszfunction: Pcwstr, pcbbuffer: MutPtr, ppbuffer: MutPtr): Ntstatus =
     windowssysWindowsWin32SecurityCryptographyBCryptEnumContextFunctionProviders(dwtable, pszcontext.rawAddress.toCPointer<ByteVar>(), dwinterface, pszfunction.rawAddress.toCPointer<ByteVar>(), pcbbuffer.rawAddress.toCPointer<ByteVar>(), ppbuffer.rawAddress.toCPointer<ByteVar>())
 
-public actual fun bCryptEnumContextFunctions(dwtable: BcryptTable, pszcontext: Pcwstr, dwinterface: BcryptInterface, pcbbuffer: MutPtr<UInt>, ppbuffer: MutPtr<MutPtr<CryptContextFunctions>>): Ntstatus =
+public actual fun bCryptEnumContextFunctions(dwtable: BcryptTable, pszcontext: Pcwstr, dwinterface: BcryptInterface, pcbbuffer: MutPtr, ppbuffer: MutPtr): Ntstatus =
     windowssysWindowsWin32SecurityCryptographyBCryptEnumContextFunctions(dwtable, pszcontext.rawAddress.toCPointer<ByteVar>(), dwinterface, pcbbuffer.rawAddress.toCPointer<ByteVar>(), ppbuffer.rawAddress.toCPointer<ByteVar>())
 
-public actual fun bCryptEnumContexts(dwtable: BcryptTable, pcbbuffer: MutPtr<UInt>, ppbuffer: MutPtr<MutPtr<CryptContexts>>): Ntstatus =
+public actual fun bCryptEnumContexts(dwtable: BcryptTable, pcbbuffer: MutPtr, ppbuffer: MutPtr): Ntstatus =
     windowssysWindowsWin32SecurityCryptographyBCryptEnumContexts(dwtable, pcbbuffer.rawAddress.toCPointer<ByteVar>(), ppbuffer.rawAddress.toCPointer<ByteVar>())
 
-public actual fun bCryptEnumProviders(pszalgid: Pcwstr, pimplcount: MutPtr<UInt>, ppimpllist: MutPtr<MutPtr<BcryptProviderName>>, dwflags: UInt): Ntstatus =
+public actual fun bCryptEnumProviders(pszalgid: Pcwstr, pimplcount: MutPtr, ppimpllist: MutPtr, dwflags: UInt): Ntstatus =
     windowssysWindowsWin32SecurityCryptographyBCryptEnumProviders(pszalgid.rawAddress.toCPointer<ByteVar>(), pimplcount.rawAddress.toCPointer<ByteVar>(), ppimpllist.rawAddress.toCPointer<ByteVar>(), dwflags)
 
-public actual fun bCryptEnumRegisteredProviders(pcbbuffer: MutPtr<UInt>, ppbuffer: MutPtr<MutPtr<CryptProviders>>): Ntstatus =
+public actual fun bCryptEnumRegisteredProviders(pcbbuffer: MutPtr, ppbuffer: MutPtr): Ntstatus =
     windowssysWindowsWin32SecurityCryptographyBCryptEnumRegisteredProviders(pcbbuffer.rawAddress.toCPointer<ByteVar>(), ppbuffer.rawAddress.toCPointer<ByteVar>())
 
-public actual fun bCryptExportKey(hkey: BcryptKeyHandle, hexportkey: BcryptKeyHandle, pszblobtype: Pcwstr, pboutput: MutPtr<UByte>, cboutput: UInt, pcbresult: MutPtr<UInt>, dwflags: UInt): Ntstatus =
+public actual fun bCryptExportKey(hkey: BcryptKeyHandle, hexportkey: BcryptKeyHandle, pszblobtype: Pcwstr, pboutput: MutPtr, cboutput: UInt, pcbresult: MutPtr, dwflags: UInt): Ntstatus =
     windowssysWindowsWin32SecurityCryptographyBCryptExportKey(hkey.rawAddress.toCPointer<ByteVar>(), hexportkey.rawAddress.toCPointer<ByteVar>(), pszblobtype.rawAddress.toCPointer<ByteVar>(), pboutput.rawAddress.toCPointer<ByteVar>(), cboutput, pcbresult.rawAddress.toCPointer<ByteVar>(), dwflags)
 
 public actual fun bCryptFinalizeKeyPair(hkey: BcryptKeyHandle, dwflags: UInt): Ntstatus =
     windowssysWindowsWin32SecurityCryptographyBCryptFinalizeKeyPair(hkey.rawAddress.toCPointer<ByteVar>(), dwflags)
 
-public actual fun bCryptFinishHash(hhash: BcryptHashHandle, pboutput: MutPtr<UByte>, cboutput: UInt, dwflags: UInt): Ntstatus =
+public actual fun bCryptFinishHash(hhash: BcryptHashHandle, pboutput: MutPtr, cboutput: UInt, dwflags: UInt): Ntstatus =
     windowssysWindowsWin32SecurityCryptographyBCryptFinishHash(hhash.rawAddress.toCPointer<ByteVar>(), pboutput.rawAddress.toCPointer<ByteVar>(), cboutput, dwflags)
 
-public actual fun bCryptFreeBuffer(pvbuffer: ConstPtr<CVoid>) {
+public actual fun bCryptFreeBuffer(pvbuffer: ConstPtr) {
     windowssysWindowsWin32SecurityCryptographyBCryptFreeBuffer(pvbuffer.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun bCryptGenRandom(halgorithm: BcryptAlgHandle, pbbuffer: MutPtr<UByte>, cbbuffer: UInt, dwflags: BcryptgenrandomFlags): Ntstatus =
+public actual fun bCryptGenRandom(halgorithm: BcryptAlgHandle, pbbuffer: MutPtr, cbbuffer: UInt, dwflags: BcryptgenrandomFlags): Ntstatus =
     windowssysWindowsWin32SecurityCryptographyBCryptGenRandom(halgorithm.rawAddress.toCPointer<ByteVar>(), pbbuffer.rawAddress.toCPointer<ByteVar>(), cbbuffer, dwflags)
 
-public actual fun bCryptGenerateKeyPair(halgorithm: BcryptAlgHandle, phkey: MutPtr<BcryptKeyHandle>, dwlength: UInt, dwflags: UInt): Ntstatus =
+public actual fun bCryptGenerateKeyPair(halgorithm: BcryptAlgHandle, phkey: MutPtr, dwlength: UInt, dwflags: UInt): Ntstatus =
     windowssysWindowsWin32SecurityCryptographyBCryptGenerateKeyPair(halgorithm.rawAddress.toCPointer<ByteVar>(), phkey.rawAddress.toCPointer<ByteVar>(), dwlength, dwflags)
 
-public actual fun bCryptGenerateSymmetricKey(halgorithm: BcryptAlgHandle, phkey: MutPtr<BcryptKeyHandle>, pbkeyobject: MutPtr<UByte>, cbkeyobject: UInt, pbsecret: ConstPtr<UByte>, cbsecret: UInt, dwflags: UInt): Ntstatus =
+public actual fun bCryptGenerateSymmetricKey(halgorithm: BcryptAlgHandle, phkey: MutPtr, pbkeyobject: MutPtr, cbkeyobject: UInt, pbsecret: ConstPtr, cbsecret: UInt, dwflags: UInt): Ntstatus =
     windowssysWindowsWin32SecurityCryptographyBCryptGenerateSymmetricKey(halgorithm.rawAddress.toCPointer<ByteVar>(), phkey.rawAddress.toCPointer<ByteVar>(), pbkeyobject.rawAddress.toCPointer<ByteVar>(), cbkeyobject, pbsecret.rawAddress.toCPointer<ByteVar>(), cbsecret, dwflags)
 
-public actual fun bCryptGetFipsAlgorithmMode(pfenabled: MutPtr<UByte>): Ntstatus =
+public actual fun bCryptGetFipsAlgorithmMode(pfenabled: MutPtr): Ntstatus =
     windowssysWindowsWin32SecurityCryptographyBCryptGetFipsAlgorithmMode(pfenabled.rawAddress.toCPointer<ByteVar>())
 
-public actual fun bCryptGetProperty(hobject: BcryptHandle, pszproperty: Pcwstr, pboutput: MutPtr<UByte>, cboutput: UInt, pcbresult: MutPtr<UInt>, dwflags: UInt): Ntstatus =
+public actual fun bCryptGetProperty(hobject: BcryptHandle, pszproperty: Pcwstr, pboutput: MutPtr, cboutput: UInt, pcbresult: MutPtr, dwflags: UInt): Ntstatus =
     windowssysWindowsWin32SecurityCryptographyBCryptGetProperty(hobject.rawAddress.toCPointer<ByteVar>(), pszproperty.rawAddress.toCPointer<ByteVar>(), pboutput.rawAddress.toCPointer<ByteVar>(), cboutput, pcbresult.rawAddress.toCPointer<ByteVar>(), dwflags)
 
-public actual fun bCryptHash(halgorithm: BcryptAlgHandle, pbsecret: ConstPtr<UByte>, cbsecret: UInt, pbinput: ConstPtr<UByte>, cbinput: UInt, pboutput: MutPtr<UByte>, cboutput: UInt): Ntstatus =
+public actual fun bCryptHash(halgorithm: BcryptAlgHandle, pbsecret: ConstPtr, cbsecret: UInt, pbinput: ConstPtr, cbinput: UInt, pboutput: MutPtr, cboutput: UInt): Ntstatus =
     windowssysWindowsWin32SecurityCryptographyBCryptHash(halgorithm.rawAddress.toCPointer<ByteVar>(), pbsecret.rawAddress.toCPointer<ByteVar>(), cbsecret, pbinput.rawAddress.toCPointer<ByteVar>(), cbinput, pboutput.rawAddress.toCPointer<ByteVar>(), cboutput)
 
-public actual fun bCryptHashData(hhash: BcryptHashHandle, pbinput: ConstPtr<UByte>, cbinput: UInt, dwflags: UInt): Ntstatus =
+public actual fun bCryptHashData(hhash: BcryptHashHandle, pbinput: ConstPtr, cbinput: UInt, dwflags: UInt): Ntstatus =
     windowssysWindowsWin32SecurityCryptographyBCryptHashData(hhash.rawAddress.toCPointer<ByteVar>(), pbinput.rawAddress.toCPointer<ByteVar>(), cbinput, dwflags)
 
-public actual fun bCryptImportKey(halgorithm: BcryptAlgHandle, himportkey: BcryptKeyHandle, pszblobtype: Pcwstr, phkey: MutPtr<BcryptKeyHandle>, pbkeyobject: MutPtr<UByte>, cbkeyobject: UInt, pbinput: ConstPtr<UByte>, cbinput: UInt, dwflags: UInt): Ntstatus =
+public actual fun bCryptImportKey(halgorithm: BcryptAlgHandle, himportkey: BcryptKeyHandle, pszblobtype: Pcwstr, phkey: MutPtr, pbkeyobject: MutPtr, cbkeyobject: UInt, pbinput: ConstPtr, cbinput: UInt, dwflags: UInt): Ntstatus =
     windowssysWindowsWin32SecurityCryptographyBCryptImportKey(halgorithm.rawAddress.toCPointer<ByteVar>(), himportkey.rawAddress.toCPointer<ByteVar>(), pszblobtype.rawAddress.toCPointer<ByteVar>(), phkey.rawAddress.toCPointer<ByteVar>(), pbkeyobject.rawAddress.toCPointer<ByteVar>(), cbkeyobject, pbinput.rawAddress.toCPointer<ByteVar>(), cbinput, dwflags)
 
-public actual fun bCryptImportKeyPair(halgorithm: BcryptAlgHandle, himportkey: BcryptKeyHandle, pszblobtype: Pcwstr, phkey: MutPtr<BcryptKeyHandle>, pbinput: ConstPtr<UByte>, cbinput: UInt, dwflags: UInt): Ntstatus =
+public actual fun bCryptImportKeyPair(halgorithm: BcryptAlgHandle, himportkey: BcryptKeyHandle, pszblobtype: Pcwstr, phkey: MutPtr, pbinput: ConstPtr, cbinput: UInt, dwflags: UInt): Ntstatus =
     windowssysWindowsWin32SecurityCryptographyBCryptImportKeyPair(halgorithm.rawAddress.toCPointer<ByteVar>(), himportkey.rawAddress.toCPointer<ByteVar>(), pszblobtype.rawAddress.toCPointer<ByteVar>(), phkey.rawAddress.toCPointer<ByteVar>(), pbinput.rawAddress.toCPointer<ByteVar>(), cbinput, dwflags)
 
-public actual fun bCryptKeyDerivation(hkey: BcryptKeyHandle, pparameterlist: ConstPtr<BCryptBufferDesc>, pbderivedkey: MutPtr<UByte>, cbderivedkey: UInt, pcbresult: MutPtr<UInt>, dwflags: UInt): Ntstatus =
+public actual fun bCryptKeyDerivation(hkey: BcryptKeyHandle, pparameterlist: ConstPtr, pbderivedkey: MutPtr, cbderivedkey: UInt, pcbresult: MutPtr, dwflags: UInt): Ntstatus =
     windowssysWindowsWin32SecurityCryptographyBCryptKeyDerivation(hkey.rawAddress.toCPointer<ByteVar>(), pparameterlist.rawAddress.toCPointer<ByteVar>(), pbderivedkey.rawAddress.toCPointer<ByteVar>(), cbderivedkey, pcbresult.rawAddress.toCPointer<ByteVar>(), dwflags)
 
-public actual fun bCryptOpenAlgorithmProvider(phalgorithm: MutPtr<BcryptAlgHandle>, pszalgid: Pcwstr, pszimplementation: Pcwstr, dwflags: BcryptOpenAlgorithmProviderFlags): Ntstatus =
+public actual fun bCryptOpenAlgorithmProvider(phalgorithm: MutPtr, pszalgid: Pcwstr, pszimplementation: Pcwstr, dwflags: BcryptOpenAlgorithmProviderFlags): Ntstatus =
     windowssysWindowsWin32SecurityCryptographyBCryptOpenAlgorithmProvider(phalgorithm.rawAddress.toCPointer<ByteVar>(), pszalgid.rawAddress.toCPointer<ByteVar>(), pszimplementation.rawAddress.toCPointer<ByteVar>(), dwflags)
 
-public actual fun bCryptProcessMultiOperations(hobject: BcryptHandle, operationtype: BcryptMultiOperationType, poperations: ConstPtr<CVoid>, cboperations: UInt, dwflags: UInt): Ntstatus =
+public actual fun bCryptProcessMultiOperations(hobject: BcryptHandle, operationtype: BcryptMultiOperationType, poperations: ConstPtr, cboperations: UInt, dwflags: UInt): Ntstatus =
     windowssysWindowsWin32SecurityCryptographyBCryptProcessMultiOperations(hobject.rawAddress.toCPointer<ByteVar>(), operationtype, poperations.rawAddress.toCPointer<ByteVar>(), cboperations, dwflags)
 
-public actual fun bCryptQueryContextConfiguration(dwtable: BcryptTable, pszcontext: Pcwstr, pcbbuffer: MutPtr<UInt>, ppbuffer: MutPtr<MutPtr<CryptContextConfig>>): Ntstatus =
+public actual fun bCryptQueryContextConfiguration(dwtable: BcryptTable, pszcontext: Pcwstr, pcbbuffer: MutPtr, ppbuffer: MutPtr): Ntstatus =
     windowssysWindowsWin32SecurityCryptographyBCryptQueryContextConfiguration(dwtable, pszcontext.rawAddress.toCPointer<ByteVar>(), pcbbuffer.rawAddress.toCPointer<ByteVar>(), ppbuffer.rawAddress.toCPointer<ByteVar>())
 
-public actual fun bCryptQueryContextFunctionConfiguration(dwtable: BcryptTable, pszcontext: Pcwstr, dwinterface: BcryptInterface, pszfunction: Pcwstr, pcbbuffer: MutPtr<UInt>, ppbuffer: MutPtr<MutPtr<CryptContextFunctionConfig>>): Ntstatus =
+public actual fun bCryptQueryContextFunctionConfiguration(dwtable: BcryptTable, pszcontext: Pcwstr, dwinterface: BcryptInterface, pszfunction: Pcwstr, pcbbuffer: MutPtr, ppbuffer: MutPtr): Ntstatus =
     windowssysWindowsWin32SecurityCryptographyBCryptQueryContextFunctionConfiguration(dwtable, pszcontext.rawAddress.toCPointer<ByteVar>(), dwinterface, pszfunction.rawAddress.toCPointer<ByteVar>(), pcbbuffer.rawAddress.toCPointer<ByteVar>(), ppbuffer.rawAddress.toCPointer<ByteVar>())
 
-public actual fun bCryptQueryContextFunctionProperty(dwtable: BcryptTable, pszcontext: Pcwstr, dwinterface: BcryptInterface, pszfunction: Pcwstr, pszproperty: Pcwstr, pcbvalue: MutPtr<UInt>, ppbvalue: MutPtr<MutPtr<UByte>>): Ntstatus =
+public actual fun bCryptQueryContextFunctionProperty(dwtable: BcryptTable, pszcontext: Pcwstr, dwinterface: BcryptInterface, pszfunction: Pcwstr, pszproperty: Pcwstr, pcbvalue: MutPtr, ppbvalue: MutPtr): Ntstatus =
     windowssysWindowsWin32SecurityCryptographyBCryptQueryContextFunctionProperty(dwtable, pszcontext.rawAddress.toCPointer<ByteVar>(), dwinterface, pszfunction.rawAddress.toCPointer<ByteVar>(), pszproperty.rawAddress.toCPointer<ByteVar>(), pcbvalue.rawAddress.toCPointer<ByteVar>(), ppbvalue.rawAddress.toCPointer<ByteVar>())
 
-public actual fun bCryptQueryProviderRegistration(pszprovider: Pcwstr, dwmode: BcryptQueryProviderMode, dwinterface: BcryptInterface, pcbbuffer: MutPtr<UInt>, ppbuffer: MutPtr<MutPtr<CryptProviderReg>>): Ntstatus =
+public actual fun bCryptQueryProviderRegistration(pszprovider: Pcwstr, dwmode: BcryptQueryProviderMode, dwinterface: BcryptInterface, pcbbuffer: MutPtr, ppbuffer: MutPtr): Ntstatus =
     windowssysWindowsWin32SecurityCryptographyBCryptQueryProviderRegistration(pszprovider.rawAddress.toCPointer<ByteVar>(), dwmode, dwinterface, pcbbuffer.rawAddress.toCPointer<ByteVar>(), ppbuffer.rawAddress.toCPointer<ByteVar>())
 
-public actual fun bCryptRegisterConfigChangeNotify(phevent: MutPtr<Handle>): Ntstatus =
+public actual fun bCryptRegisterConfigChangeNotify(phevent: MutPtr): Ntstatus =
     windowssysWindowsWin32SecurityCryptographyBCryptRegisterConfigChangeNotify(phevent.rawAddress.toCPointer<ByteVar>())
 
-public actual fun bCryptRegisterProvider(pszprovider: Pcwstr, dwflags: UInt, preg: ConstPtr<CryptProviderReg>): Ntstatus =
+public actual fun bCryptRegisterProvider(pszprovider: Pcwstr, dwflags: UInt, preg: ConstPtr): Ntstatus =
     windowssysWindowsWin32SecurityCryptographyBCryptRegisterProvider(pszprovider.rawAddress.toCPointer<ByteVar>(), dwflags, preg.rawAddress.toCPointer<ByteVar>())
 
 public actual fun bCryptRemoveContextFunction(dwtable: BcryptTable, pszcontext: Pcwstr, dwinterface: BcryptInterface, pszfunction: Pcwstr): Ntstatus =
@@ -640,19 +636,19 @@ public actual fun bCryptRemoveContextFunction(dwtable: BcryptTable, pszcontext: 
 public actual fun bCryptRemoveContextFunctionProvider(dwtable: UInt, pszcontext: Pcwstr, dwinterface: UInt, pszfunction: Pcwstr, pszprovider: Pcwstr): Ntstatus =
     windowssysWindowsWin32SecurityCryptographyBCryptRemoveContextFunctionProvider(dwtable, pszcontext.rawAddress.toCPointer<ByteVar>(), dwinterface, pszfunction.rawAddress.toCPointer<ByteVar>(), pszprovider.rawAddress.toCPointer<ByteVar>())
 
-public actual fun bCryptResolveProviders(pszcontext: Pcwstr, dwinterface: UInt, pszfunction: Pcwstr, pszprovider: Pcwstr, dwmode: BcryptQueryProviderMode, dwflags: BcryptResolveProvidersFlags, pcbbuffer: MutPtr<UInt>, ppbuffer: MutPtr<MutPtr<CryptProviderRefs>>): Ntstatus =
+public actual fun bCryptResolveProviders(pszcontext: Pcwstr, dwinterface: UInt, pszfunction: Pcwstr, pszprovider: Pcwstr, dwmode: BcryptQueryProviderMode, dwflags: BcryptResolveProvidersFlags, pcbbuffer: MutPtr, ppbuffer: MutPtr): Ntstatus =
     windowssysWindowsWin32SecurityCryptographyBCryptResolveProviders(pszcontext.rawAddress.toCPointer<ByteVar>(), dwinterface, pszfunction.rawAddress.toCPointer<ByteVar>(), pszprovider.rawAddress.toCPointer<ByteVar>(), dwmode, dwflags, pcbbuffer.rawAddress.toCPointer<ByteVar>(), ppbuffer.rawAddress.toCPointer<ByteVar>())
 
-public actual fun bCryptSecretAgreement(hprivkey: BcryptKeyHandle, hpubkey: BcryptKeyHandle, phagreedsecret: MutPtr<BcryptSecretHandle>, dwflags: UInt): Ntstatus =
+public actual fun bCryptSecretAgreement(hprivkey: BcryptKeyHandle, hpubkey: BcryptKeyHandle, phagreedsecret: MutPtr, dwflags: UInt): Ntstatus =
     windowssysWindowsWin32SecurityCryptographyBCryptSecretAgreement(hprivkey.rawAddress.toCPointer<ByteVar>(), hpubkey.rawAddress.toCPointer<ByteVar>(), phagreedsecret.rawAddress.toCPointer<ByteVar>(), dwflags)
 
-public actual fun bCryptSetContextFunctionProperty(dwtable: BcryptTable, pszcontext: Pcwstr, dwinterface: BcryptInterface, pszfunction: Pcwstr, pszproperty: Pcwstr, cbvalue: UInt, pbvalue: ConstPtr<UByte>): Ntstatus =
+public actual fun bCryptSetContextFunctionProperty(dwtable: BcryptTable, pszcontext: Pcwstr, dwinterface: BcryptInterface, pszfunction: Pcwstr, pszproperty: Pcwstr, cbvalue: UInt, pbvalue: ConstPtr): Ntstatus =
     windowssysWindowsWin32SecurityCryptographyBCryptSetContextFunctionProperty(dwtable, pszcontext.rawAddress.toCPointer<ByteVar>(), dwinterface, pszfunction.rawAddress.toCPointer<ByteVar>(), pszproperty.rawAddress.toCPointer<ByteVar>(), cbvalue, pbvalue.rawAddress.toCPointer<ByteVar>())
 
-public actual fun bCryptSetProperty(hobject: BcryptHandle, pszproperty: Pcwstr, pbinput: ConstPtr<UByte>, cbinput: UInt, dwflags: UInt): Ntstatus =
+public actual fun bCryptSetProperty(hobject: BcryptHandle, pszproperty: Pcwstr, pbinput: ConstPtr, cbinput: UInt, dwflags: UInt): Ntstatus =
     windowssysWindowsWin32SecurityCryptographyBCryptSetProperty(hobject.rawAddress.toCPointer<ByteVar>(), pszproperty.rawAddress.toCPointer<ByteVar>(), pbinput.rawAddress.toCPointer<ByteVar>(), cbinput, dwflags)
 
-public actual fun bCryptSignHash(hkey: BcryptKeyHandle, ppaddinginfo: ConstPtr<CVoid>, pbinput: ConstPtr<UByte>, cbinput: UInt, pboutput: MutPtr<UByte>, cboutput: UInt, pcbresult: MutPtr<UInt>, dwflags: BcryptFlags): Ntstatus =
+public actual fun bCryptSignHash(hkey: BcryptKeyHandle, ppaddinginfo: ConstPtr, pbinput: ConstPtr, cbinput: UInt, pboutput: MutPtr, cboutput: UInt, pcbresult: MutPtr, dwflags: BcryptFlags): Ntstatus =
     windowssysWindowsWin32SecurityCryptographyBCryptSignHash(hkey.rawAddress.toCPointer<ByteVar>(), ppaddinginfo.rawAddress.toCPointer<ByteVar>(), pbinput.rawAddress.toCPointer<ByteVar>(), cbinput, pboutput.rawAddress.toCPointer<ByteVar>(), cboutput, pcbresult.rawAddress.toCPointer<ByteVar>(), dwflags)
 
 public actual fun bCryptUnregisterConfigChangeNotify(hevent: Handle): Ntstatus =
@@ -661,54 +657,54 @@ public actual fun bCryptUnregisterConfigChangeNotify(hevent: Handle): Ntstatus =
 public actual fun bCryptUnregisterProvider(pszprovider: Pcwstr): Ntstatus =
     windowssysWindowsWin32SecurityCryptographyBCryptUnregisterProvider(pszprovider.rawAddress.toCPointer<ByteVar>())
 
-public actual fun bCryptVerifySignature(hkey: BcryptKeyHandle, ppaddinginfo: ConstPtr<CVoid>, pbhash: ConstPtr<UByte>, cbhash: UInt, pbsignature: ConstPtr<UByte>, cbsignature: UInt, dwflags: BcryptFlags): Ntstatus =
+public actual fun bCryptVerifySignature(hkey: BcryptKeyHandle, ppaddinginfo: ConstPtr, pbhash: ConstPtr, cbhash: UInt, pbsignature: ConstPtr, cbsignature: UInt, dwflags: BcryptFlags): Ntstatus =
     windowssysWindowsWin32SecurityCryptographyBCryptVerifySignature(hkey.rawAddress.toCPointer<ByteVar>(), ppaddinginfo.rawAddress.toCPointer<ByteVar>(), pbhash.rawAddress.toCPointer<ByteVar>(), cbhash, pbsignature.rawAddress.toCPointer<ByteVar>(), cbsignature, dwflags)
 
-public actual fun certAddCRLContextToStore(hcertstore: Hcertstore, pcrlcontext: ConstPtr<CrlContext>, dwadddisposition: UInt, ppstorecontext: MutPtr<MutPtr<CrlContext>>): Bool =
+public actual fun certAddCRLContextToStore(hcertstore: Hcertstore, pcrlcontext: ConstPtr, dwadddisposition: UInt, ppstorecontext: MutPtr): Bool =
     windowssysWindowsWin32SecurityCryptographyCertAddCRLContextToStore(hcertstore.rawAddress.toCPointer<ByteVar>(), pcrlcontext.rawAddress.toCPointer<ByteVar>(), dwadddisposition, ppstorecontext.rawAddress.toCPointer<ByteVar>())
 
-public actual fun certAddCRLLinkToStore(hcertstore: Hcertstore, pcrlcontext: ConstPtr<CrlContext>, dwadddisposition: UInt, ppstorecontext: MutPtr<MutPtr<CrlContext>>): Bool =
+public actual fun certAddCRLLinkToStore(hcertstore: Hcertstore, pcrlcontext: ConstPtr, dwadddisposition: UInt, ppstorecontext: MutPtr): Bool =
     windowssysWindowsWin32SecurityCryptographyCertAddCRLLinkToStore(hcertstore.rawAddress.toCPointer<ByteVar>(), pcrlcontext.rawAddress.toCPointer<ByteVar>(), dwadddisposition, ppstorecontext.rawAddress.toCPointer<ByteVar>())
 
-public actual fun certAddCTLContextToStore(hcertstore: Hcertstore, pctlcontext: ConstPtr<CtlContext>, dwadddisposition: UInt, ppstorecontext: MutPtr<MutPtr<CtlContext>>): Bool =
+public actual fun certAddCTLContextToStore(hcertstore: Hcertstore, pctlcontext: ConstPtr, dwadddisposition: UInt, ppstorecontext: MutPtr): Bool =
     windowssysWindowsWin32SecurityCryptographyCertAddCTLContextToStore(hcertstore.rawAddress.toCPointer<ByteVar>(), pctlcontext.rawAddress.toCPointer<ByteVar>(), dwadddisposition, ppstorecontext.rawAddress.toCPointer<ByteVar>())
 
-public actual fun certAddCTLLinkToStore(hcertstore: Hcertstore, pctlcontext: ConstPtr<CtlContext>, dwadddisposition: UInt, ppstorecontext: MutPtr<MutPtr<CtlContext>>): Bool =
+public actual fun certAddCTLLinkToStore(hcertstore: Hcertstore, pctlcontext: ConstPtr, dwadddisposition: UInt, ppstorecontext: MutPtr): Bool =
     windowssysWindowsWin32SecurityCryptographyCertAddCTLLinkToStore(hcertstore.rawAddress.toCPointer<ByteVar>(), pctlcontext.rawAddress.toCPointer<ByteVar>(), dwadddisposition, ppstorecontext.rawAddress.toCPointer<ByteVar>())
 
-public actual fun certAddCertificateContextToStore(hcertstore: Hcertstore, pcertcontext: ConstPtr<CertContext>, dwadddisposition: UInt, ppstorecontext: MutPtr<MutPtr<CertContext>>): Bool =
+public actual fun certAddCertificateContextToStore(hcertstore: Hcertstore, pcertcontext: ConstPtr, dwadddisposition: UInt, ppstorecontext: MutPtr): Bool =
     windowssysWindowsWin32SecurityCryptographyCertAddCertificateContextToStore(hcertstore.rawAddress.toCPointer<ByteVar>(), pcertcontext.rawAddress.toCPointer<ByteVar>(), dwadddisposition, ppstorecontext.rawAddress.toCPointer<ByteVar>())
 
-public actual fun certAddCertificateLinkToStore(hcertstore: Hcertstore, pcertcontext: ConstPtr<CertContext>, dwadddisposition: UInt, ppstorecontext: MutPtr<MutPtr<CertContext>>): Bool =
+public actual fun certAddCertificateLinkToStore(hcertstore: Hcertstore, pcertcontext: ConstPtr, dwadddisposition: UInt, ppstorecontext: MutPtr): Bool =
     windowssysWindowsWin32SecurityCryptographyCertAddCertificateLinkToStore(hcertstore.rawAddress.toCPointer<ByteVar>(), pcertcontext.rawAddress.toCPointer<ByteVar>(), dwadddisposition, ppstorecontext.rawAddress.toCPointer<ByteVar>())
 
-public actual fun certAddEncodedCRLToStore(hcertstore: Hcertstore, dwcertencodingtype: CertQueryEncodingType, pbcrlencoded: ConstPtr<UByte>, cbcrlencoded: UInt, dwadddisposition: UInt, ppcrlcontext: MutPtr<MutPtr<CrlContext>>): Bool =
+public actual fun certAddEncodedCRLToStore(hcertstore: Hcertstore, dwcertencodingtype: CertQueryEncodingType, pbcrlencoded: ConstPtr, cbcrlencoded: UInt, dwadddisposition: UInt, ppcrlcontext: MutPtr): Bool =
     windowssysWindowsWin32SecurityCryptographyCertAddEncodedCRLToStore(hcertstore.rawAddress.toCPointer<ByteVar>(), dwcertencodingtype, pbcrlencoded.rawAddress.toCPointer<ByteVar>(), cbcrlencoded, dwadddisposition, ppcrlcontext.rawAddress.toCPointer<ByteVar>())
 
-public actual fun certAddEncodedCTLToStore(hcertstore: Hcertstore, dwmsgandcertencodingtype: CertQueryEncodingType, pbctlencoded: ConstPtr<UByte>, cbctlencoded: UInt, dwadddisposition: UInt, ppctlcontext: MutPtr<MutPtr<CtlContext>>): Bool =
+public actual fun certAddEncodedCTLToStore(hcertstore: Hcertstore, dwmsgandcertencodingtype: CertQueryEncodingType, pbctlencoded: ConstPtr, cbctlencoded: UInt, dwadddisposition: UInt, ppctlcontext: MutPtr): Bool =
     windowssysWindowsWin32SecurityCryptographyCertAddEncodedCTLToStore(hcertstore.rawAddress.toCPointer<ByteVar>(), dwmsgandcertencodingtype, pbctlencoded.rawAddress.toCPointer<ByteVar>(), cbctlencoded, dwadddisposition, ppctlcontext.rawAddress.toCPointer<ByteVar>())
 
-public actual fun certAddEncodedCertificateToStore(hcertstore: Hcertstore, dwcertencodingtype: CertQueryEncodingType, pbcertencoded: ConstPtr<UByte>, cbcertencoded: UInt, dwadddisposition: UInt, ppcertcontext: MutPtr<MutPtr<CertContext>>): Bool =
+public actual fun certAddEncodedCertificateToStore(hcertstore: Hcertstore, dwcertencodingtype: CertQueryEncodingType, pbcertencoded: ConstPtr, cbcertencoded: UInt, dwadddisposition: UInt, ppcertcontext: MutPtr): Bool =
     windowssysWindowsWin32SecurityCryptographyCertAddEncodedCertificateToStore(hcertstore.rawAddress.toCPointer<ByteVar>(), dwcertencodingtype, pbcertencoded.rawAddress.toCPointer<ByteVar>(), cbcertencoded, dwadddisposition, ppcertcontext.rawAddress.toCPointer<ByteVar>())
 
-public actual fun certAddEncodedCertificateToSystemStoreA(szcertstorename: Pcstr, pbcertencoded: ConstPtr<UByte>, cbcertencoded: UInt): Bool =
+public actual fun certAddEncodedCertificateToSystemStoreA(szcertstorename: Pcstr, pbcertencoded: ConstPtr, cbcertencoded: UInt): Bool =
     windowssysWindowsWin32SecurityCryptographyCertAddEncodedCertificateToSystemStoreA(szcertstorename.rawAddress.toCPointer<ByteVar>(), pbcertencoded.rawAddress.toCPointer<ByteVar>(), cbcertencoded)
 
-public actual fun certAddEncodedCertificateToSystemStoreW(szcertstorename: Pcwstr, pbcertencoded: ConstPtr<UByte>, cbcertencoded: UInt): Bool =
+public actual fun certAddEncodedCertificateToSystemStoreW(szcertstorename: Pcwstr, pbcertencoded: ConstPtr, cbcertencoded: UInt): Bool =
     windowssysWindowsWin32SecurityCryptographyCertAddEncodedCertificateToSystemStoreW(szcertstorename.rawAddress.toCPointer<ByteVar>(), pbcertencoded.rawAddress.toCPointer<ByteVar>(), cbcertencoded)
 
-public actual fun certAddEnhancedKeyUsageIdentifier(pcertcontext: ConstPtr<CertContext>, pszusageidentifier: Pcstr): Bool =
+public actual fun certAddEnhancedKeyUsageIdentifier(pcertcontext: ConstPtr, pszusageidentifier: Pcstr): Bool =
     windowssysWindowsWin32SecurityCryptographyCertAddEnhancedKeyUsageIdentifier(pcertcontext.rawAddress.toCPointer<ByteVar>(), pszusageidentifier.rawAddress.toCPointer<ByteVar>())
 
-public actual fun certAddRefServerOcspResponse(hserverocspresponse: ConstPtr<CVoid>) {
+public actual fun certAddRefServerOcspResponse(hserverocspresponse: ConstPtr) {
     windowssysWindowsWin32SecurityCryptographyCertAddRefServerOcspResponse(hserverocspresponse.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun certAddRefServerOcspResponseContext(pserverocspresponsecontext: ConstPtr<CertServerOcspResponseContext>) {
+public actual fun certAddRefServerOcspResponseContext(pserverocspresponsecontext: ConstPtr) {
     windowssysWindowsWin32SecurityCryptographyCertAddRefServerOcspResponseContext(pserverocspresponsecontext.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun certAddSerializedElementToStore(hcertstore: Hcertstore, pbelement: ConstPtr<UByte>, cbelement: UInt, dwadddisposition: UInt, dwflags: UInt, dwcontexttypeflags: UInt, pdwcontexttype: MutPtr<UInt>, ppvcontext: MutPtr<MutPtr<CVoid>>): Bool =
+public actual fun certAddSerializedElementToStore(hcertstore: Hcertstore, pbelement: ConstPtr, cbelement: UInt, dwadddisposition: UInt, dwflags: UInt, dwcontexttypeflags: UInt, pdwcontexttype: MutPtr, ppvcontext: MutPtr): Bool =
     windowssysWindowsWin32SecurityCryptographyCertAddSerializedElementToStore(hcertstore.rawAddress.toCPointer<ByteVar>(), pbelement.rawAddress.toCPointer<ByteVar>(), cbelement, dwadddisposition, dwflags, dwcontexttypeflags, pdwcontexttype.rawAddress.toCPointer<ByteVar>(), ppvcontext.rawAddress.toCPointer<ByteVar>())
 
 public actual fun certAddStoreToCollection(hcollectionstore: Hcertstore, hsiblingstore: Hcertstore, dwupdateflags: UInt, dwpriority: UInt): Bool =
@@ -717,140 +713,140 @@ public actual fun certAddStoreToCollection(hcollectionstore: Hcertstore, hsiblin
 public actual fun certAlgIdToOID(dwalgid: UInt): Pcstr =
     ConstPtr(windowssysWindowsWin32SecurityCryptographyCertAlgIdToOID(dwalgid)?.toLong() ?: 0L)
 
-public actual fun certCloseServerOcspResponse(hserverocspresponse: ConstPtr<CVoid>, dwflags: UInt) {
+public actual fun certCloseServerOcspResponse(hserverocspresponse: ConstPtr, dwflags: UInt) {
     windowssysWindowsWin32SecurityCryptographyCertCloseServerOcspResponse(hserverocspresponse.rawAddress.toCPointer<ByteVar>(), dwflags)
 }
 
 public actual fun certCloseStore(hcertstore: Hcertstore, dwflags: UInt): Bool =
     windowssysWindowsWin32SecurityCryptographyCertCloseStore(hcertstore.rawAddress.toCPointer<ByteVar>(), dwflags)
 
-public actual fun certCompareCertificate(dwcertencodingtype: CertQueryEncodingType, pcertid1: ConstPtr<CertInfo>, pcertid2: ConstPtr<CertInfo>): Bool =
+public actual fun certCompareCertificate(dwcertencodingtype: CertQueryEncodingType, pcertid1: ConstPtr, pcertid2: ConstPtr): Bool =
     windowssysWindowsWin32SecurityCryptographyCertCompareCertificate(dwcertencodingtype, pcertid1.rawAddress.toCPointer<ByteVar>(), pcertid2.rawAddress.toCPointer<ByteVar>())
 
-public actual fun certCompareCertificateName(dwcertencodingtype: CertQueryEncodingType, pcertname1: ConstPtr<CryptIntegerBlob>, pcertname2: ConstPtr<CryptIntegerBlob>): Bool =
+public actual fun certCompareCertificateName(dwcertencodingtype: CertQueryEncodingType, pcertname1: ConstPtr, pcertname2: ConstPtr): Bool =
     windowssysWindowsWin32SecurityCryptographyCertCompareCertificateName(dwcertencodingtype, pcertname1.rawAddress.toCPointer<ByteVar>(), pcertname2.rawAddress.toCPointer<ByteVar>())
 
-public actual fun certCompareIntegerBlob(pint1: ConstPtr<CryptIntegerBlob>, pint2: ConstPtr<CryptIntegerBlob>): Bool =
+public actual fun certCompareIntegerBlob(pint1: ConstPtr, pint2: ConstPtr): Bool =
     windowssysWindowsWin32SecurityCryptographyCertCompareIntegerBlob(pint1.rawAddress.toCPointer<ByteVar>(), pint2.rawAddress.toCPointer<ByteVar>())
 
-public actual fun certComparePublicKeyInfo(dwcertencodingtype: CertQueryEncodingType, ppublickey1: ConstPtr<CertPublicKeyInfo>, ppublickey2: ConstPtr<CertPublicKeyInfo>): Bool =
+public actual fun certComparePublicKeyInfo(dwcertencodingtype: CertQueryEncodingType, ppublickey1: ConstPtr, ppublickey2: ConstPtr): Bool =
     windowssysWindowsWin32SecurityCryptographyCertComparePublicKeyInfo(dwcertencodingtype, ppublickey1.rawAddress.toCPointer<ByteVar>(), ppublickey2.rawAddress.toCPointer<ByteVar>())
 
-public actual fun certControlStore(hcertstore: Hcertstore, dwflags: CertControlStoreFlags, dwctrltype: UInt, pvctrlpara: ConstPtr<CVoid>): Bool =
+public actual fun certControlStore(hcertstore: Hcertstore, dwflags: CertControlStoreFlags, dwctrltype: UInt, pvctrlpara: ConstPtr): Bool =
     windowssysWindowsWin32SecurityCryptographyCertControlStore(hcertstore.rawAddress.toCPointer<ByteVar>(), dwflags, dwctrltype, pvctrlpara.rawAddress.toCPointer<ByteVar>())
 
-public actual fun certCreateCRLContext(dwcertencodingtype: CertQueryEncodingType, pbcrlencoded: ConstPtr<UByte>, cbcrlencoded: UInt): MutPtr<CrlContext> =
+public actual fun certCreateCRLContext(dwcertencodingtype: CertQueryEncodingType, pbcrlencoded: ConstPtr, cbcrlencoded: UInt): MutPtr =
     MutPtr(windowssysWindowsWin32SecurityCryptographyCertCreateCRLContext(dwcertencodingtype, pbcrlencoded.rawAddress.toCPointer<ByteVar>(), cbcrlencoded)?.toLong() ?: 0L)
 
-public actual fun certCreateCTLContext(dwmsgandcertencodingtype: UInt, pbctlencoded: ConstPtr<UByte>, cbctlencoded: UInt): MutPtr<CtlContext> =
+public actual fun certCreateCTLContext(dwmsgandcertencodingtype: UInt, pbctlencoded: ConstPtr, cbctlencoded: UInt): MutPtr =
     MutPtr(windowssysWindowsWin32SecurityCryptographyCertCreateCTLContext(dwmsgandcertencodingtype, pbctlencoded.rawAddress.toCPointer<ByteVar>(), cbctlencoded)?.toLong() ?: 0L)
 
-public actual fun certCreateCTLEntryFromCertificateContextProperties(pcertcontext: ConstPtr<CertContext>, coptattr: UInt, rgoptattr: ConstPtr<CryptAttribute>, dwflags: UInt, pvreserved: ConstPtr<CVoid>, pctlentry: MutPtr<CtlEntry>, pcbctlentry: MutPtr<UInt>): Bool =
+public actual fun certCreateCTLEntryFromCertificateContextProperties(pcertcontext: ConstPtr, coptattr: UInt, rgoptattr: ConstPtr, dwflags: UInt, pvreserved: ConstPtr, pctlentry: MutPtr, pcbctlentry: MutPtr): Bool =
     windowssysWindowsWin32SecurityCryptographyCertCreateCTLEntryFromCertificateContextProperties(pcertcontext.rawAddress.toCPointer<ByteVar>(), coptattr, rgoptattr.rawAddress.toCPointer<ByteVar>(), dwflags, pvreserved.rawAddress.toCPointer<ByteVar>(), pctlentry.rawAddress.toCPointer<ByteVar>(), pcbctlentry.rawAddress.toCPointer<ByteVar>())
 
-public actual fun certCreateCertificateChainEngine(pconfig: ConstPtr<CertChainEngineConfig>, phchainengine: MutPtr<Hcertchainengine>): Bool =
+public actual fun certCreateCertificateChainEngine(pconfig: ConstPtr, phchainengine: MutPtr): Bool =
     windowssysWindowsWin32SecurityCryptographyCertCreateCertificateChainEngine(pconfig.rawAddress.toCPointer<ByteVar>(), phchainengine.rawAddress.toCPointer<ByteVar>())
 
-public actual fun certCreateCertificateContext(dwcertencodingtype: CertQueryEncodingType, pbcertencoded: ConstPtr<UByte>, cbcertencoded: UInt): MutPtr<CertContext> =
+public actual fun certCreateCertificateContext(dwcertencodingtype: CertQueryEncodingType, pbcertencoded: ConstPtr, cbcertencoded: UInt): MutPtr =
     MutPtr(windowssysWindowsWin32SecurityCryptographyCertCreateCertificateContext(dwcertencodingtype, pbcertencoded.rawAddress.toCPointer<ByteVar>(), cbcertencoded)?.toLong() ?: 0L)
 
-public actual fun certCreateContext(dwcontexttype: UInt, dwencodingtype: UInt, pbencoded: ConstPtr<UByte>, cbencoded: UInt, dwflags: UInt, pcreatepara: ConstPtr<CertCreateContextPara>): MutPtr<CVoid> =
+public actual fun certCreateContext(dwcontexttype: UInt, dwencodingtype: UInt, pbencoded: ConstPtr, cbencoded: UInt, dwflags: UInt, pcreatepara: ConstPtr): MutPtr =
     MutPtr(windowssysWindowsWin32SecurityCryptographyCertCreateContext(dwcontexttype, dwencodingtype, pbencoded.rawAddress.toCPointer<ByteVar>(), cbencoded, dwflags, pcreatepara.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun certCreateSelfSignCertificate(hcryptprovorncryptkey: HcryptprovOrNcryptKeyHandle, psubjectissuerblob: ConstPtr<CryptIntegerBlob>, dwflags: CertCreateSelfsignFlags, pkeyprovinfo: ConstPtr<CryptKeyProvInfo>, psignaturealgorithm: ConstPtr<CryptAlgorithmIdentifier>, pstarttime: ConstPtr<Systemtime>, pendtime: ConstPtr<Systemtime>, pextensions: ConstPtr<CertExtensions>): MutPtr<CertContext> =
+public actual fun certCreateSelfSignCertificate(hcryptprovorncryptkey: HcryptprovOrNcryptKeyHandle, psubjectissuerblob: ConstPtr, dwflags: CertCreateSelfsignFlags, pkeyprovinfo: ConstPtr, psignaturealgorithm: ConstPtr, pstarttime: ConstPtr, pendtime: ConstPtr, pextensions: ConstPtr): MutPtr =
     MutPtr(windowssysWindowsWin32SecurityCryptographyCertCreateSelfSignCertificate(hcryptprovorncryptkey, psubjectissuerblob.rawAddress.toCPointer<ByteVar>(), dwflags, pkeyprovinfo.rawAddress.toCPointer<ByteVar>(), psignaturealgorithm.rawAddress.toCPointer<ByteVar>(), pstarttime.rawAddress.toCPointer<ByteVar>(), pendtime.rawAddress.toCPointer<ByteVar>(), pextensions.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun certDeleteCRLFromStore(pcrlcontext: ConstPtr<CrlContext>): Bool =
+public actual fun certDeleteCRLFromStore(pcrlcontext: ConstPtr): Bool =
     windowssysWindowsWin32SecurityCryptographyCertDeleteCRLFromStore(pcrlcontext.rawAddress.toCPointer<ByteVar>())
 
-public actual fun certDeleteCTLFromStore(pctlcontext: ConstPtr<CtlContext>): Bool =
+public actual fun certDeleteCTLFromStore(pctlcontext: ConstPtr): Bool =
     windowssysWindowsWin32SecurityCryptographyCertDeleteCTLFromStore(pctlcontext.rawAddress.toCPointer<ByteVar>())
 
-public actual fun certDeleteCertificateFromStore(pcertcontext: ConstPtr<CertContext>): Bool =
+public actual fun certDeleteCertificateFromStore(pcertcontext: ConstPtr): Bool =
     windowssysWindowsWin32SecurityCryptographyCertDeleteCertificateFromStore(pcertcontext.rawAddress.toCPointer<ByteVar>())
 
-public actual fun certDuplicateCRLContext(pcrlcontext: ConstPtr<CrlContext>): MutPtr<CrlContext> =
+public actual fun certDuplicateCRLContext(pcrlcontext: ConstPtr): MutPtr =
     MutPtr(windowssysWindowsWin32SecurityCryptographyCertDuplicateCRLContext(pcrlcontext.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun certDuplicateCTLContext(pctlcontext: ConstPtr<CtlContext>): MutPtr<CtlContext> =
+public actual fun certDuplicateCTLContext(pctlcontext: ConstPtr): MutPtr =
     MutPtr(windowssysWindowsWin32SecurityCryptographyCertDuplicateCTLContext(pctlcontext.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun certDuplicateCertificateChain(pchaincontext: ConstPtr<CertChainContext>): MutPtr<CertChainContext> =
+public actual fun certDuplicateCertificateChain(pchaincontext: ConstPtr): MutPtr =
     MutPtr(windowssysWindowsWin32SecurityCryptographyCertDuplicateCertificateChain(pchaincontext.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun certDuplicateCertificateContext(pcertcontext: ConstPtr<CertContext>): MutPtr<CertContext> =
+public actual fun certDuplicateCertificateContext(pcertcontext: ConstPtr): MutPtr =
     MutPtr(windowssysWindowsWin32SecurityCryptographyCertDuplicateCertificateContext(pcertcontext.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
 public actual fun certDuplicateStore(hcertstore: Hcertstore): Hcertstore =
     MutPtr(windowssysWindowsWin32SecurityCryptographyCertDuplicateStore(hcertstore.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun certEnumCRLContextProperties(pcrlcontext: ConstPtr<CrlContext>, dwpropid: UInt): UInt =
+public actual fun certEnumCRLContextProperties(pcrlcontext: ConstPtr, dwpropid: UInt): UInt =
     windowssysWindowsWin32SecurityCryptographyCertEnumCRLContextProperties(pcrlcontext.rawAddress.toCPointer<ByteVar>(), dwpropid)
 
-public actual fun certEnumCRLsInStore(hcertstore: Hcertstore, pprevcrlcontext: ConstPtr<CrlContext>): MutPtr<CrlContext> =
+public actual fun certEnumCRLsInStore(hcertstore: Hcertstore, pprevcrlcontext: ConstPtr): MutPtr =
     MutPtr(windowssysWindowsWin32SecurityCryptographyCertEnumCRLsInStore(hcertstore.rawAddress.toCPointer<ByteVar>(), pprevcrlcontext.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun certEnumCTLContextProperties(pctlcontext: ConstPtr<CtlContext>, dwpropid: UInt): UInt =
+public actual fun certEnumCTLContextProperties(pctlcontext: ConstPtr, dwpropid: UInt): UInt =
     windowssysWindowsWin32SecurityCryptographyCertEnumCTLContextProperties(pctlcontext.rawAddress.toCPointer<ByteVar>(), dwpropid)
 
-public actual fun certEnumCTLsInStore(hcertstore: Hcertstore, pprevctlcontext: ConstPtr<CtlContext>): MutPtr<CtlContext> =
+public actual fun certEnumCTLsInStore(hcertstore: Hcertstore, pprevctlcontext: ConstPtr): MutPtr =
     MutPtr(windowssysWindowsWin32SecurityCryptographyCertEnumCTLsInStore(hcertstore.rawAddress.toCPointer<ByteVar>(), pprevctlcontext.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun certEnumCertificateContextProperties(pcertcontext: ConstPtr<CertContext>, dwpropid: UInt): UInt =
+public actual fun certEnumCertificateContextProperties(pcertcontext: ConstPtr, dwpropid: UInt): UInt =
     windowssysWindowsWin32SecurityCryptographyCertEnumCertificateContextProperties(pcertcontext.rawAddress.toCPointer<ByteVar>(), dwpropid)
 
-public actual fun certEnumCertificatesInStore(hcertstore: Hcertstore, pprevcertcontext: ConstPtr<CertContext>): MutPtr<CertContext> =
+public actual fun certEnumCertificatesInStore(hcertstore: Hcertstore, pprevcertcontext: ConstPtr): MutPtr =
     MutPtr(windowssysWindowsWin32SecurityCryptographyCertEnumCertificatesInStore(hcertstore.rawAddress.toCPointer<ByteVar>(), pprevcertcontext.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun certEnumPhysicalStore(pvsystemstore: ConstPtr<CVoid>, dwflags: UInt, pvarg: MutPtr<CVoid>, pfnenum: PfnCertEnumPhysicalStore): Bool =
+public actual fun certEnumPhysicalStore(pvsystemstore: ConstPtr, dwflags: UInt, pvarg: MutPtr, pfnenum: PfnCertEnumPhysicalStore): Bool =
     windowssysWindowsWin32SecurityCryptographyCertEnumPhysicalStore(pvsystemstore.rawAddress.toCPointer<ByteVar>(), dwflags, pvarg.rawAddress.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>())
 
-public actual fun certEnumSubjectInSortedCTL(pctlcontext: ConstPtr<CtlContext>, ppvnextsubject: MutPtr<MutPtr<CVoid>>, psubjectidentifier: MutPtr<CryptIntegerBlob>, pencodedattributes: MutPtr<CryptIntegerBlob>): Bool =
+public actual fun certEnumSubjectInSortedCTL(pctlcontext: ConstPtr, ppvnextsubject: MutPtr, psubjectidentifier: MutPtr, pencodedattributes: MutPtr): Bool =
     windowssysWindowsWin32SecurityCryptographyCertEnumSubjectInSortedCTL(pctlcontext.rawAddress.toCPointer<ByteVar>(), ppvnextsubject.rawAddress.toCPointer<ByteVar>(), psubjectidentifier.rawAddress.toCPointer<ByteVar>(), pencodedattributes.rawAddress.toCPointer<ByteVar>())
 
-public actual fun certEnumSystemStore(dwflags: UInt, pvsystemstorelocationpara: ConstPtr<CVoid>, pvarg: MutPtr<CVoid>, pfnenum: PfnCertEnumSystemStore): Bool =
+public actual fun certEnumSystemStore(dwflags: UInt, pvsystemstorelocationpara: ConstPtr, pvarg: MutPtr, pfnenum: PfnCertEnumSystemStore): Bool =
     windowssysWindowsWin32SecurityCryptographyCertEnumSystemStore(dwflags, pvsystemstorelocationpara.rawAddress.toCPointer<ByteVar>(), pvarg.rawAddress.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>())
 
-public actual fun certEnumSystemStoreLocation(dwflags: UInt, pvarg: MutPtr<CVoid>, pfnenum: PfnCertEnumSystemStoreLocation): Bool =
+public actual fun certEnumSystemStoreLocation(dwflags: UInt, pvarg: MutPtr, pfnenum: PfnCertEnumSystemStoreLocation): Bool =
     windowssysWindowsWin32SecurityCryptographyCertEnumSystemStoreLocation(dwflags, pvarg.rawAddress.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>())
 
-public actual fun certFindAttribute(pszobjid: Pcstr, cattr: UInt, rgattr: ConstPtr<CryptAttribute>): MutPtr<CryptAttribute> =
+public actual fun certFindAttribute(pszobjid: Pcstr, cattr: UInt, rgattr: ConstPtr): MutPtr =
     MutPtr(windowssysWindowsWin32SecurityCryptographyCertFindAttribute(pszobjid.rawAddress.toCPointer<ByteVar>(), cattr, rgattr.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun certFindCRLInStore(hcertstore: Hcertstore, dwcertencodingtype: CertQueryEncodingType, dwfindflags: UInt, dwfindtype: UInt, pvfindpara: ConstPtr<CVoid>, pprevcrlcontext: ConstPtr<CrlContext>): MutPtr<CrlContext> =
+public actual fun certFindCRLInStore(hcertstore: Hcertstore, dwcertencodingtype: CertQueryEncodingType, dwfindflags: UInt, dwfindtype: UInt, pvfindpara: ConstPtr, pprevcrlcontext: ConstPtr): MutPtr =
     MutPtr(windowssysWindowsWin32SecurityCryptographyCertFindCRLInStore(hcertstore.rawAddress.toCPointer<ByteVar>(), dwcertencodingtype, dwfindflags, dwfindtype, pvfindpara.rawAddress.toCPointer<ByteVar>(), pprevcrlcontext.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun certFindCTLInStore(hcertstore: Hcertstore, dwmsgandcertencodingtype: UInt, dwfindflags: UInt, dwfindtype: CertFindType, pvfindpara: ConstPtr<CVoid>, pprevctlcontext: ConstPtr<CtlContext>): MutPtr<CtlContext> =
+public actual fun certFindCTLInStore(hcertstore: Hcertstore, dwmsgandcertencodingtype: UInt, dwfindflags: UInt, dwfindtype: CertFindType, pvfindpara: ConstPtr, pprevctlcontext: ConstPtr): MutPtr =
     MutPtr(windowssysWindowsWin32SecurityCryptographyCertFindCTLInStore(hcertstore.rawAddress.toCPointer<ByteVar>(), dwmsgandcertencodingtype, dwfindflags, dwfindtype, pvfindpara.rawAddress.toCPointer<ByteVar>(), pprevctlcontext.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun certFindCertificateInCRL(pcert: ConstPtr<CertContext>, pcrlcontext: ConstPtr<CrlContext>, dwflags: UInt, pvreserved: ConstPtr<CVoid>, ppcrlentry: MutPtr<MutPtr<CrlEntry>>): Bool =
+public actual fun certFindCertificateInCRL(pcert: ConstPtr, pcrlcontext: ConstPtr, dwflags: UInt, pvreserved: ConstPtr, ppcrlentry: MutPtr): Bool =
     windowssysWindowsWin32SecurityCryptographyCertFindCertificateInCRL(pcert.rawAddress.toCPointer<ByteVar>(), pcrlcontext.rawAddress.toCPointer<ByteVar>(), dwflags, pvreserved.rawAddress.toCPointer<ByteVar>(), ppcrlentry.rawAddress.toCPointer<ByteVar>())
 
-public actual fun certFindCertificateInStore(hcertstore: Hcertstore, dwcertencodingtype: CertQueryEncodingType, dwfindflags: UInt, dwfindtype: CertFindFlags, pvfindpara: ConstPtr<CVoid>, pprevcertcontext: ConstPtr<CertContext>): MutPtr<CertContext> =
+public actual fun certFindCertificateInStore(hcertstore: Hcertstore, dwcertencodingtype: CertQueryEncodingType, dwfindflags: UInt, dwfindtype: CertFindFlags, pvfindpara: ConstPtr, pprevcertcontext: ConstPtr): MutPtr =
     MutPtr(windowssysWindowsWin32SecurityCryptographyCertFindCertificateInStore(hcertstore.rawAddress.toCPointer<ByteVar>(), dwcertencodingtype, dwfindflags, dwfindtype, pvfindpara.rawAddress.toCPointer<ByteVar>(), pprevcertcontext.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun certFindChainInStore(hcertstore: Hcertstore, dwcertencodingtype: CertQueryEncodingType, dwfindflags: CertFindChainInStoreFlags, dwfindtype: UInt, pvfindpara: ConstPtr<CVoid>, pprevchaincontext: ConstPtr<CertChainContext>): MutPtr<CertChainContext> =
+public actual fun certFindChainInStore(hcertstore: Hcertstore, dwcertencodingtype: CertQueryEncodingType, dwfindflags: CertFindChainInStoreFlags, dwfindtype: UInt, pvfindpara: ConstPtr, pprevchaincontext: ConstPtr): MutPtr =
     MutPtr(windowssysWindowsWin32SecurityCryptographyCertFindChainInStore(hcertstore.rawAddress.toCPointer<ByteVar>(), dwcertencodingtype, dwfindflags, dwfindtype, pvfindpara.rawAddress.toCPointer<ByteVar>(), pprevchaincontext.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun certFindExtension(pszobjid: Pcstr, cextensions: UInt, rgextensions: ConstPtr<CertExtension>): MutPtr<CertExtension> =
+public actual fun certFindExtension(pszobjid: Pcstr, cextensions: UInt, rgextensions: ConstPtr): MutPtr =
     MutPtr(windowssysWindowsWin32SecurityCryptographyCertFindExtension(pszobjid.rawAddress.toCPointer<ByteVar>(), cextensions, rgextensions.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun certFindRDNAttr(pszobjid: Pcstr, pname: ConstPtr<CertNameInfo>): MutPtr<CertRdnAttr> =
+public actual fun certFindRDNAttr(pszobjid: Pcstr, pname: ConstPtr): MutPtr =
     MutPtr(windowssysWindowsWin32SecurityCryptographyCertFindRDNAttr(pszobjid.rawAddress.toCPointer<ByteVar>(), pname.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun certFindSubjectInCTL(dwencodingtype: UInt, dwsubjecttype: UInt, pvsubject: ConstPtr<CVoid>, pctlcontext: ConstPtr<CtlContext>, dwflags: UInt): MutPtr<CtlEntry> =
+public actual fun certFindSubjectInCTL(dwencodingtype: UInt, dwsubjecttype: UInt, pvsubject: ConstPtr, pctlcontext: ConstPtr, dwflags: UInt): MutPtr =
     MutPtr(windowssysWindowsWin32SecurityCryptographyCertFindSubjectInCTL(dwencodingtype, dwsubjecttype, pvsubject.rawAddress.toCPointer<ByteVar>(), pctlcontext.rawAddress.toCPointer<ByteVar>(), dwflags)?.toLong() ?: 0L)
 
-public actual fun certFindSubjectInSortedCTL(psubjectidentifier: ConstPtr<CryptIntegerBlob>, pctlcontext: ConstPtr<CtlContext>, dwflags: UInt, pvreserved: ConstPtr<CVoid>, pencodedattributes: MutPtr<CryptIntegerBlob>): Bool =
+public actual fun certFindSubjectInSortedCTL(psubjectidentifier: ConstPtr, pctlcontext: ConstPtr, dwflags: UInt, pvreserved: ConstPtr, pencodedattributes: MutPtr): Bool =
     windowssysWindowsWin32SecurityCryptographyCertFindSubjectInSortedCTL(psubjectidentifier.rawAddress.toCPointer<ByteVar>(), pctlcontext.rawAddress.toCPointer<ByteVar>(), dwflags, pvreserved.rawAddress.toCPointer<ByteVar>(), pencodedattributes.rawAddress.toCPointer<ByteVar>())
 
-public actual fun certFreeCRLContext(pcrlcontext: ConstPtr<CrlContext>): Bool =
+public actual fun certFreeCRLContext(pcrlcontext: ConstPtr): Bool =
     windowssysWindowsWin32SecurityCryptographyCertFreeCRLContext(pcrlcontext.rawAddress.toCPointer<ByteVar>())
 
-public actual fun certFreeCTLContext(pctlcontext: ConstPtr<CtlContext>): Bool =
+public actual fun certFreeCTLContext(pctlcontext: ConstPtr): Bool =
     windowssysWindowsWin32SecurityCryptographyCertFreeCTLContext(pctlcontext.rawAddress.toCPointer<ByteVar>())
 
-public actual fun certFreeCertificateChain(pchaincontext: ConstPtr<CertChainContext>) {
+public actual fun certFreeCertificateChain(pchaincontext: ConstPtr) {
     windowssysWindowsWin32SecurityCryptographyCertFreeCertificateChain(pchaincontext.rawAddress.toCPointer<ByteVar>())
 }
 
@@ -858,87 +854,87 @@ public actual fun certFreeCertificateChainEngine(hchainengine: Hcertchainengine)
     windowssysWindowsWin32SecurityCryptographyCertFreeCertificateChainEngine(hchainengine.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun certFreeCertificateChainList(prgpselection: ConstPtr<ConstPtr<CertChainContext>>) {
+public actual fun certFreeCertificateChainList(prgpselection: ConstPtr) {
     windowssysWindowsWin32SecurityCryptographyCertFreeCertificateChainList(prgpselection.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun certFreeCertificateContext(pcertcontext: ConstPtr<CertContext>): Bool =
+public actual fun certFreeCertificateContext(pcertcontext: ConstPtr): Bool =
     windowssysWindowsWin32SecurityCryptographyCertFreeCertificateContext(pcertcontext.rawAddress.toCPointer<ByteVar>())
 
-public actual fun certFreeServerOcspResponseContext(pserverocspresponsecontext: ConstPtr<CertServerOcspResponseContext>) {
+public actual fun certFreeServerOcspResponseContext(pserverocspresponsecontext: ConstPtr) {
     windowssysWindowsWin32SecurityCryptographyCertFreeServerOcspResponseContext(pserverocspresponsecontext.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun certGetCRLContextProperty(pcrlcontext: ConstPtr<CrlContext>, dwpropid: UInt, pvdata: MutPtr<CVoid>, pcbdata: MutPtr<UInt>): Bool =
+public actual fun certGetCRLContextProperty(pcrlcontext: ConstPtr, dwpropid: UInt, pvdata: MutPtr, pcbdata: MutPtr): Bool =
     windowssysWindowsWin32SecurityCryptographyCertGetCRLContextProperty(pcrlcontext.rawAddress.toCPointer<ByteVar>(), dwpropid, pvdata.rawAddress.toCPointer<ByteVar>(), pcbdata.rawAddress.toCPointer<ByteVar>())
 
-public actual fun certGetCRLFromStore(hcertstore: Hcertstore, pissuercontext: ConstPtr<CertContext>, pprevcrlcontext: ConstPtr<CrlContext>, pdwflags: MutPtr<UInt>): MutPtr<CrlContext> =
+public actual fun certGetCRLFromStore(hcertstore: Hcertstore, pissuercontext: ConstPtr, pprevcrlcontext: ConstPtr, pdwflags: MutPtr): MutPtr =
     MutPtr(windowssysWindowsWin32SecurityCryptographyCertGetCRLFromStore(hcertstore.rawAddress.toCPointer<ByteVar>(), pissuercontext.rawAddress.toCPointer<ByteVar>(), pprevcrlcontext.rawAddress.toCPointer<ByteVar>(), pdwflags.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun certGetCTLContextProperty(pctlcontext: ConstPtr<CtlContext>, dwpropid: UInt, pvdata: MutPtr<CVoid>, pcbdata: MutPtr<UInt>): Bool =
+public actual fun certGetCTLContextProperty(pctlcontext: ConstPtr, dwpropid: UInt, pvdata: MutPtr, pcbdata: MutPtr): Bool =
     windowssysWindowsWin32SecurityCryptographyCertGetCTLContextProperty(pctlcontext.rawAddress.toCPointer<ByteVar>(), dwpropid, pvdata.rawAddress.toCPointer<ByteVar>(), pcbdata.rawAddress.toCPointer<ByteVar>())
 
-public actual fun certGetCertificateChain(hchainengine: Hcertchainengine, pcertcontext: ConstPtr<CertContext>, ptime: ConstPtr<Filetime>, hadditionalstore: Hcertstore, pchainpara: ConstPtr<CertChainPara>, dwflags: UInt, pvreserved: ConstPtr<CVoid>, ppchaincontext: MutPtr<MutPtr<CertChainContext>>): Bool =
+public actual fun certGetCertificateChain(hchainengine: Hcertchainengine, pcertcontext: ConstPtr, ptime: ConstPtr, hadditionalstore: Hcertstore, pchainpara: ConstPtr, dwflags: UInt, pvreserved: ConstPtr, ppchaincontext: MutPtr): Bool =
     windowssysWindowsWin32SecurityCryptographyCertGetCertificateChain(hchainengine.rawAddress.toCPointer<ByteVar>(), pcertcontext.rawAddress.toCPointer<ByteVar>(), ptime.rawAddress.toCPointer<ByteVar>(), hadditionalstore.rawAddress.toCPointer<ByteVar>(), pchainpara.rawAddress.toCPointer<ByteVar>(), dwflags, pvreserved.rawAddress.toCPointer<ByteVar>(), ppchaincontext.rawAddress.toCPointer<ByteVar>())
 
-public actual fun certGetCertificateContextProperty(pcertcontext: ConstPtr<CertContext>, dwpropid: UInt, pvdata: MutPtr<CVoid>, pcbdata: MutPtr<UInt>): Bool =
+public actual fun certGetCertificateContextProperty(pcertcontext: ConstPtr, dwpropid: UInt, pvdata: MutPtr, pcbdata: MutPtr): Bool =
     windowssysWindowsWin32SecurityCryptographyCertGetCertificateContextProperty(pcertcontext.rawAddress.toCPointer<ByteVar>(), dwpropid, pvdata.rawAddress.toCPointer<ByteVar>(), pcbdata.rawAddress.toCPointer<ByteVar>())
 
-public actual fun certGetEnhancedKeyUsage(pcertcontext: ConstPtr<CertContext>, dwflags: UInt, pusage: MutPtr<CtlUsage>, pcbusage: MutPtr<UInt>): Bool =
+public actual fun certGetEnhancedKeyUsage(pcertcontext: ConstPtr, dwflags: UInt, pusage: MutPtr, pcbusage: MutPtr): Bool =
     windowssysWindowsWin32SecurityCryptographyCertGetEnhancedKeyUsage(pcertcontext.rawAddress.toCPointer<ByteVar>(), dwflags, pusage.rawAddress.toCPointer<ByteVar>(), pcbusage.rawAddress.toCPointer<ByteVar>())
 
-public actual fun certGetIntendedKeyUsage(dwcertencodingtype: CertQueryEncodingType, pcertinfo: ConstPtr<CertInfo>, pbkeyusage: MutPtr<UByte>, cbkeyusage: UInt): Bool =
+public actual fun certGetIntendedKeyUsage(dwcertencodingtype: CertQueryEncodingType, pcertinfo: ConstPtr, pbkeyusage: MutPtr, cbkeyusage: UInt): Bool =
     windowssysWindowsWin32SecurityCryptographyCertGetIntendedKeyUsage(dwcertencodingtype, pcertinfo.rawAddress.toCPointer<ByteVar>(), pbkeyusage.rawAddress.toCPointer<ByteVar>(), cbkeyusage)
 
-public actual fun certGetIssuerCertificateFromStore(hcertstore: Hcertstore, psubjectcontext: ConstPtr<CertContext>, pprevissuercontext: ConstPtr<CertContext>, pdwflags: MutPtr<UInt>): MutPtr<CertContext> =
+public actual fun certGetIssuerCertificateFromStore(hcertstore: Hcertstore, psubjectcontext: ConstPtr, pprevissuercontext: ConstPtr, pdwflags: MutPtr): MutPtr =
     MutPtr(windowssysWindowsWin32SecurityCryptographyCertGetIssuerCertificateFromStore(hcertstore.rawAddress.toCPointer<ByteVar>(), psubjectcontext.rawAddress.toCPointer<ByteVar>(), pprevissuercontext.rawAddress.toCPointer<ByteVar>(), pdwflags.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun certGetNameStringA(pcertcontext: ConstPtr<CertContext>, dwtype: UInt, dwflags: UInt, pvtypepara: ConstPtr<CVoid>, psznamestring: Pstr, cchnamestring: UInt): UInt =
+public actual fun certGetNameStringA(pcertcontext: ConstPtr, dwtype: UInt, dwflags: UInt, pvtypepara: ConstPtr, psznamestring: Pstr, cchnamestring: UInt): UInt =
     windowssysWindowsWin32SecurityCryptographyCertGetNameStringA(pcertcontext.rawAddress.toCPointer<ByteVar>(), dwtype, dwflags, pvtypepara.rawAddress.toCPointer<ByteVar>(), psznamestring.rawAddress.toCPointer<ByteVar>(), cchnamestring)
 
-public actual fun certGetNameStringW(pcertcontext: ConstPtr<CertContext>, dwtype: UInt, dwflags: UInt, pvtypepara: ConstPtr<CVoid>, psznamestring: Pwstr, cchnamestring: UInt): UInt =
+public actual fun certGetNameStringW(pcertcontext: ConstPtr, dwtype: UInt, dwflags: UInt, pvtypepara: ConstPtr, psznamestring: Pwstr, cchnamestring: UInt): UInt =
     windowssysWindowsWin32SecurityCryptographyCertGetNameStringW(pcertcontext.rawAddress.toCPointer<ByteVar>(), dwtype, dwflags, pvtypepara.rawAddress.toCPointer<ByteVar>(), psznamestring.rawAddress.toCPointer<ByteVar>(), cchnamestring)
 
-public actual fun certGetPublicKeyLength(dwcertencodingtype: CertQueryEncodingType, ppublickey: ConstPtr<CertPublicKeyInfo>): UInt =
+public actual fun certGetPublicKeyLength(dwcertencodingtype: CertQueryEncodingType, ppublickey: ConstPtr): UInt =
     windowssysWindowsWin32SecurityCryptographyCertGetPublicKeyLength(dwcertencodingtype, ppublickey.rawAddress.toCPointer<ByteVar>())
 
-public actual fun certGetServerOcspResponseContext(hserverocspresponse: ConstPtr<CVoid>, dwflags: UInt, pvreserved: ConstPtr<CVoid>): MutPtr<CertServerOcspResponseContext> =
+public actual fun certGetServerOcspResponseContext(hserverocspresponse: ConstPtr, dwflags: UInt, pvreserved: ConstPtr): MutPtr =
     MutPtr(windowssysWindowsWin32SecurityCryptographyCertGetServerOcspResponseContext(hserverocspresponse.rawAddress.toCPointer<ByteVar>(), dwflags, pvreserved.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun certGetStoreProperty(hcertstore: Hcertstore, dwpropid: UInt, pvdata: MutPtr<CVoid>, pcbdata: MutPtr<UInt>): Bool =
+public actual fun certGetStoreProperty(hcertstore: Hcertstore, dwpropid: UInt, pvdata: MutPtr, pcbdata: MutPtr): Bool =
     windowssysWindowsWin32SecurityCryptographyCertGetStoreProperty(hcertstore.rawAddress.toCPointer<ByteVar>(), dwpropid, pvdata.rawAddress.toCPointer<ByteVar>(), pcbdata.rawAddress.toCPointer<ByteVar>())
 
-public actual fun certGetSubjectCertificateFromStore(hcertstore: Hcertstore, dwcertencodingtype: CertQueryEncodingType, pcertid: ConstPtr<CertInfo>): MutPtr<CertContext> =
+public actual fun certGetSubjectCertificateFromStore(hcertstore: Hcertstore, dwcertencodingtype: CertQueryEncodingType, pcertid: ConstPtr): MutPtr =
     MutPtr(windowssysWindowsWin32SecurityCryptographyCertGetSubjectCertificateFromStore(hcertstore.rawAddress.toCPointer<ByteVar>(), dwcertencodingtype, pcertid.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun certGetValidUsages(ccerts: UInt, rghcerts: ConstPtr<ConstPtr<CertContext>>, cnumoids: MutPtr<Int>, rghoids: MutPtr<Pstr>, pcboids: MutPtr<UInt>): Bool =
+public actual fun certGetValidUsages(ccerts: UInt, rghcerts: ConstPtr, cnumoids: MutPtr, rghoids: MutPtr, pcboids: MutPtr): Bool =
     windowssysWindowsWin32SecurityCryptographyCertGetValidUsages(ccerts, rghcerts.rawAddress.toCPointer<ByteVar>(), cnumoids.rawAddress.toCPointer<ByteVar>(), rghoids.rawAddress.toCPointer<ByteVar>(), pcboids.rawAddress.toCPointer<ByteVar>())
 
-public actual fun certIsRDNAttrsInCertificateName(dwcertencodingtype: CertQueryEncodingType, dwflags: UInt, pcertname: ConstPtr<CryptIntegerBlob>, prdn: ConstPtr<CertRdn>): Bool =
+public actual fun certIsRDNAttrsInCertificateName(dwcertencodingtype: CertQueryEncodingType, dwflags: UInt, pcertname: ConstPtr, prdn: ConstPtr): Bool =
     windowssysWindowsWin32SecurityCryptographyCertIsRDNAttrsInCertificateName(dwcertencodingtype, dwflags, pcertname.rawAddress.toCPointer<ByteVar>(), prdn.rawAddress.toCPointer<ByteVar>())
 
-public actual fun certIsStrongHashToSign(pstrongsignpara: ConstPtr<CertStrongSignPara>, pwszcnghashalgid: Pcwstr, psigningcert: ConstPtr<CertContext>): Bool =
+public actual fun certIsStrongHashToSign(pstrongsignpara: ConstPtr, pwszcnghashalgid: Pcwstr, psigningcert: ConstPtr): Bool =
     windowssysWindowsWin32SecurityCryptographyCertIsStrongHashToSign(pstrongsignpara.rawAddress.toCPointer<ByteVar>(), pwszcnghashalgid.rawAddress.toCPointer<ByteVar>(), psigningcert.rawAddress.toCPointer<ByteVar>())
 
-public actual fun certIsValidCRLForCertificate(pcert: ConstPtr<CertContext>, pcrl: ConstPtr<CrlContext>, dwflags: UInt, pvreserved: ConstPtr<CVoid>): Bool =
+public actual fun certIsValidCRLForCertificate(pcert: ConstPtr, pcrl: ConstPtr, dwflags: UInt, pvreserved: ConstPtr): Bool =
     windowssysWindowsWin32SecurityCryptographyCertIsValidCRLForCertificate(pcert.rawAddress.toCPointer<ByteVar>(), pcrl.rawAddress.toCPointer<ByteVar>(), dwflags, pvreserved.rawAddress.toCPointer<ByteVar>())
 
-public actual fun certIsWeakHash(dwhashusetype: UInt, pwszcnghashalgid: Pcwstr, dwchainflags: UInt, psignerchaincontext: ConstPtr<CertChainContext>, ptimestamp: ConstPtr<Filetime>, pwszfilename: Pcwstr): Bool =
+public actual fun certIsWeakHash(dwhashusetype: UInt, pwszcnghashalgid: Pcwstr, dwchainflags: UInt, psignerchaincontext: ConstPtr, ptimestamp: ConstPtr, pwszfilename: Pcwstr): Bool =
     windowssysWindowsWin32SecurityCryptographyCertIsWeakHash(dwhashusetype, pwszcnghashalgid.rawAddress.toCPointer<ByteVar>(), dwchainflags, psignerchaincontext.rawAddress.toCPointer<ByteVar>(), ptimestamp.rawAddress.toCPointer<ByteVar>(), pwszfilename.rawAddress.toCPointer<ByteVar>())
 
-public actual fun certNameToStrA(dwcertencodingtype: CertQueryEncodingType, pname: ConstPtr<CryptIntegerBlob>, dwstrtype: CertStringType, psz: Pstr, csz: UInt): UInt =
+public actual fun certNameToStrA(dwcertencodingtype: CertQueryEncodingType, pname: ConstPtr, dwstrtype: CertStringType, psz: Pstr, csz: UInt): UInt =
     windowssysWindowsWin32SecurityCryptographyCertNameToStrA(dwcertencodingtype, pname.rawAddress.toCPointer<ByteVar>(), dwstrtype, psz.rawAddress.toCPointer<ByteVar>(), csz)
 
-public actual fun certNameToStrW(dwcertencodingtype: CertQueryEncodingType, pname: ConstPtr<CryptIntegerBlob>, dwstrtype: CertStringType, psz: Pwstr, csz: UInt): UInt =
+public actual fun certNameToStrW(dwcertencodingtype: CertQueryEncodingType, pname: ConstPtr, dwstrtype: CertStringType, psz: Pwstr, csz: UInt): UInt =
     windowssysWindowsWin32SecurityCryptographyCertNameToStrW(dwcertencodingtype, pname.rawAddress.toCPointer<ByteVar>(), dwstrtype, psz.rawAddress.toCPointer<ByteVar>(), csz)
 
 public actual fun certOIDToAlgId(pszobjid: Pcstr): UInt =
     windowssysWindowsWin32SecurityCryptographyCertOIDToAlgId(pszobjid.rawAddress.toCPointer<ByteVar>())
 
-public actual fun certOpenServerOcspResponse(pchaincontext: ConstPtr<CertChainContext>, dwflags: UInt, popenpara: ConstPtr<CertServerOcspResponseOpenPara>): MutPtr<CVoid> =
+public actual fun certOpenServerOcspResponse(pchaincontext: ConstPtr, dwflags: UInt, popenpara: ConstPtr): MutPtr =
     MutPtr(windowssysWindowsWin32SecurityCryptographyCertOpenServerOcspResponse(pchaincontext.rawAddress.toCPointer<ByteVar>(), dwflags, popenpara.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun certOpenStore(lpszstoreprovider: Pcstr, dwencodingtype: CertQueryEncodingType, hcryptprov: HcryptprovLegacy, dwflags: CertOpenStoreFlags, pvpara: ConstPtr<CVoid>): Hcertstore =
+public actual fun certOpenStore(lpszstoreprovider: Pcstr, dwencodingtype: CertQueryEncodingType, hcryptprov: HcryptprovLegacy, dwflags: CertOpenStoreFlags, pvpara: ConstPtr): Hcertstore =
     MutPtr(windowssysWindowsWin32SecurityCryptographyCertOpenStore(lpszstoreprovider.rawAddress.toCPointer<ByteVar>(), dwencodingtype, hcryptprov, dwflags, pvpara.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
 public actual fun certOpenSystemStoreA(hprov: HcryptprovLegacy, szsubsystemprotocol: Pcstr): Hcertstore =
@@ -947,19 +943,19 @@ public actual fun certOpenSystemStoreA(hprov: HcryptprovLegacy, szsubsystemproto
 public actual fun certOpenSystemStoreW(hprov: HcryptprovLegacy, szsubsystemprotocol: Pcwstr): Hcertstore =
     MutPtr(windowssysWindowsWin32SecurityCryptographyCertOpenSystemStoreW(hprov, szsubsystemprotocol.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun certRDNValueToStrA(dwvaluetype: UInt, pvalue: ConstPtr<CryptIntegerBlob>, psz: Pstr, csz: UInt): UInt =
+public actual fun certRDNValueToStrA(dwvaluetype: UInt, pvalue: ConstPtr, psz: Pstr, csz: UInt): UInt =
     windowssysWindowsWin32SecurityCryptographyCertRDNValueToStrA(dwvaluetype, pvalue.rawAddress.toCPointer<ByteVar>(), psz.rawAddress.toCPointer<ByteVar>(), csz)
 
-public actual fun certRDNValueToStrW(dwvaluetype: UInt, pvalue: ConstPtr<CryptIntegerBlob>, psz: Pwstr, csz: UInt): UInt =
+public actual fun certRDNValueToStrW(dwvaluetype: UInt, pvalue: ConstPtr, psz: Pwstr, csz: UInt): UInt =
     windowssysWindowsWin32SecurityCryptographyCertRDNValueToStrW(dwvaluetype, pvalue.rawAddress.toCPointer<ByteVar>(), psz.rawAddress.toCPointer<ByteVar>(), csz)
 
-public actual fun certRegisterPhysicalStore(pvsystemstore: ConstPtr<CVoid>, dwflags: UInt, pwszstorename: Pcwstr, pstoreinfo: ConstPtr<CertPhysicalStoreInfo>, pvreserved: ConstPtr<CVoid>): Bool =
+public actual fun certRegisterPhysicalStore(pvsystemstore: ConstPtr, dwflags: UInt, pwszstorename: Pcwstr, pstoreinfo: ConstPtr, pvreserved: ConstPtr): Bool =
     windowssysWindowsWin32SecurityCryptographyCertRegisterPhysicalStore(pvsystemstore.rawAddress.toCPointer<ByteVar>(), dwflags, pwszstorename.rawAddress.toCPointer<ByteVar>(), pstoreinfo.rawAddress.toCPointer<ByteVar>(), pvreserved.rawAddress.toCPointer<ByteVar>())
 
-public actual fun certRegisterSystemStore(pvsystemstore: ConstPtr<CVoid>, dwflags: UInt, pstoreinfo: ConstPtr<CertSystemStoreInfo>, pvreserved: ConstPtr<CVoid>): Bool =
+public actual fun certRegisterSystemStore(pvsystemstore: ConstPtr, dwflags: UInt, pstoreinfo: ConstPtr, pvreserved: ConstPtr): Bool =
     windowssysWindowsWin32SecurityCryptographyCertRegisterSystemStore(pvsystemstore.rawAddress.toCPointer<ByteVar>(), dwflags, pstoreinfo.rawAddress.toCPointer<ByteVar>(), pvreserved.rawAddress.toCPointer<ByteVar>())
 
-public actual fun certRemoveEnhancedKeyUsageIdentifier(pcertcontext: ConstPtr<CertContext>, pszusageidentifier: Pcstr): Bool =
+public actual fun certRemoveEnhancedKeyUsageIdentifier(pcertcontext: ConstPtr, pszusageidentifier: Pcstr): Bool =
     windowssysWindowsWin32SecurityCryptographyCertRemoveEnhancedKeyUsageIdentifier(pcertcontext.rawAddress.toCPointer<ByteVar>(), pszusageidentifier.rawAddress.toCPointer<ByteVar>())
 
 public actual fun certRemoveStoreFromCollection(hcollectionstore: Hcertstore, hsiblingstore: Hcertstore) {
@@ -969,130 +965,130 @@ public actual fun certRemoveStoreFromCollection(hcollectionstore: Hcertstore, hs
 public actual fun certResyncCertificateChainEngine(hchainengine: Hcertchainengine): Bool =
     windowssysWindowsWin32SecurityCryptographyCertResyncCertificateChainEngine(hchainengine.rawAddress.toCPointer<ByteVar>())
 
-public actual fun certRetrieveLogoOrBiometricInfo(pcertcontext: ConstPtr<CertContext>, lpszlogoorbiometrictype: Pcstr, dwretrievalflags: UInt, dwtimeout: UInt, dwflags: UInt, pvreserved: ConstPtr<CVoid>, ppbdata: MutPtr<MutPtr<UByte>>, pcbdata: MutPtr<UInt>, ppwszmimetype: MutPtr<Pwstr>): Bool =
+public actual fun certRetrieveLogoOrBiometricInfo(pcertcontext: ConstPtr, lpszlogoorbiometrictype: Pcstr, dwretrievalflags: UInt, dwtimeout: UInt, dwflags: UInt, pvreserved: ConstPtr, ppbdata: MutPtr, pcbdata: MutPtr, ppwszmimetype: MutPtr): Bool =
     windowssysWindowsWin32SecurityCryptographyCertRetrieveLogoOrBiometricInfo(pcertcontext.rawAddress.toCPointer<ByteVar>(), lpszlogoorbiometrictype.rawAddress.toCPointer<ByteVar>(), dwretrievalflags, dwtimeout, dwflags, pvreserved.rawAddress.toCPointer<ByteVar>(), ppbdata.rawAddress.toCPointer<ByteVar>(), pcbdata.rawAddress.toCPointer<ByteVar>(), ppwszmimetype.rawAddress.toCPointer<ByteVar>())
 
-public actual fun certSaveStore(hcertstore: Hcertstore, dwencodingtype: CertQueryEncodingType, dwsaveas: CertStoreSaveAs, dwsaveto: CertStoreSaveTo, pvsavetopara: MutPtr<CVoid>, dwflags: UInt): Bool =
+public actual fun certSaveStore(hcertstore: Hcertstore, dwencodingtype: CertQueryEncodingType, dwsaveas: CertStoreSaveAs, dwsaveto: CertStoreSaveTo, pvsavetopara: MutPtr, dwflags: UInt): Bool =
     windowssysWindowsWin32SecurityCryptographyCertSaveStore(hcertstore.rawAddress.toCPointer<ByteVar>(), dwencodingtype, dwsaveas, dwsaveto, pvsavetopara.rawAddress.toCPointer<ByteVar>(), dwflags)
 
-public actual fun certSelectCertificateChains(pselectioncontext: ConstPtr<Guid>, dwflags: UInt, pchainparameters: ConstPtr<CertSelectChainPara>, ccriteria: UInt, rgpcriteria: ConstPtr<CertSelectCriteria>, hstore: Hcertstore, pcselection: MutPtr<UInt>, pprgpselection: MutPtr<MutPtr<MutPtr<CertChainContext>>>): Bool =
+public actual fun certSelectCertificateChains(pselectioncontext: ConstPtr, dwflags: UInt, pchainparameters: ConstPtr, ccriteria: UInt, rgpcriteria: ConstPtr, hstore: Hcertstore, pcselection: MutPtr, pprgpselection: MutPtr): Bool =
     windowssysWindowsWin32SecurityCryptographyCertSelectCertificateChains(pselectioncontext.rawAddress.toCPointer<ByteVar>(), dwflags, pchainparameters.rawAddress.toCPointer<ByteVar>(), ccriteria, rgpcriteria.rawAddress.toCPointer<ByteVar>(), hstore.rawAddress.toCPointer<ByteVar>(), pcselection.rawAddress.toCPointer<ByteVar>(), pprgpselection.rawAddress.toCPointer<ByteVar>())
 
-public actual fun certSerializeCRLStoreElement(pcrlcontext: ConstPtr<CrlContext>, dwflags: UInt, pbelement: MutPtr<UByte>, pcbelement: MutPtr<UInt>): Bool =
+public actual fun certSerializeCRLStoreElement(pcrlcontext: ConstPtr, dwflags: UInt, pbelement: MutPtr, pcbelement: MutPtr): Bool =
     windowssysWindowsWin32SecurityCryptographyCertSerializeCRLStoreElement(pcrlcontext.rawAddress.toCPointer<ByteVar>(), dwflags, pbelement.rawAddress.toCPointer<ByteVar>(), pcbelement.rawAddress.toCPointer<ByteVar>())
 
-public actual fun certSerializeCTLStoreElement(pctlcontext: ConstPtr<CtlContext>, dwflags: UInt, pbelement: MutPtr<UByte>, pcbelement: MutPtr<UInt>): Bool =
+public actual fun certSerializeCTLStoreElement(pctlcontext: ConstPtr, dwflags: UInt, pbelement: MutPtr, pcbelement: MutPtr): Bool =
     windowssysWindowsWin32SecurityCryptographyCertSerializeCTLStoreElement(pctlcontext.rawAddress.toCPointer<ByteVar>(), dwflags, pbelement.rawAddress.toCPointer<ByteVar>(), pcbelement.rawAddress.toCPointer<ByteVar>())
 
-public actual fun certSerializeCertificateStoreElement(pcertcontext: ConstPtr<CertContext>, dwflags: UInt, pbelement: MutPtr<UByte>, pcbelement: MutPtr<UInt>): Bool =
+public actual fun certSerializeCertificateStoreElement(pcertcontext: ConstPtr, dwflags: UInt, pbelement: MutPtr, pcbelement: MutPtr): Bool =
     windowssysWindowsWin32SecurityCryptographyCertSerializeCertificateStoreElement(pcertcontext.rawAddress.toCPointer<ByteVar>(), dwflags, pbelement.rawAddress.toCPointer<ByteVar>(), pcbelement.rawAddress.toCPointer<ByteVar>())
 
-public actual fun certSetCRLContextProperty(pcrlcontext: ConstPtr<CrlContext>, dwpropid: UInt, dwflags: UInt, pvdata: ConstPtr<CVoid>): Bool =
+public actual fun certSetCRLContextProperty(pcrlcontext: ConstPtr, dwpropid: UInt, dwflags: UInt, pvdata: ConstPtr): Bool =
     windowssysWindowsWin32SecurityCryptographyCertSetCRLContextProperty(pcrlcontext.rawAddress.toCPointer<ByteVar>(), dwpropid, dwflags, pvdata.rawAddress.toCPointer<ByteVar>())
 
-public actual fun certSetCTLContextProperty(pctlcontext: ConstPtr<CtlContext>, dwpropid: UInt, dwflags: UInt, pvdata: ConstPtr<CVoid>): Bool =
+public actual fun certSetCTLContextProperty(pctlcontext: ConstPtr, dwpropid: UInt, dwflags: UInt, pvdata: ConstPtr): Bool =
     windowssysWindowsWin32SecurityCryptographyCertSetCTLContextProperty(pctlcontext.rawAddress.toCPointer<ByteVar>(), dwpropid, dwflags, pvdata.rawAddress.toCPointer<ByteVar>())
 
-public actual fun certSetCertificateContextPropertiesFromCTLEntry(pcertcontext: ConstPtr<CertContext>, pctlentry: ConstPtr<CtlEntry>, dwflags: UInt): Bool =
+public actual fun certSetCertificateContextPropertiesFromCTLEntry(pcertcontext: ConstPtr, pctlentry: ConstPtr, dwflags: UInt): Bool =
     windowssysWindowsWin32SecurityCryptographyCertSetCertificateContextPropertiesFromCTLEntry(pcertcontext.rawAddress.toCPointer<ByteVar>(), pctlentry.rawAddress.toCPointer<ByteVar>(), dwflags)
 
-public actual fun certSetCertificateContextProperty(pcertcontext: ConstPtr<CertContext>, dwpropid: UInt, dwflags: UInt, pvdata: ConstPtr<CVoid>): Bool =
+public actual fun certSetCertificateContextProperty(pcertcontext: ConstPtr, dwpropid: UInt, dwflags: UInt, pvdata: ConstPtr): Bool =
     windowssysWindowsWin32SecurityCryptographyCertSetCertificateContextProperty(pcertcontext.rawAddress.toCPointer<ByteVar>(), dwpropid, dwflags, pvdata.rawAddress.toCPointer<ByteVar>())
 
-public actual fun certSetEnhancedKeyUsage(pcertcontext: ConstPtr<CertContext>, pusage: ConstPtr<CtlUsage>): Bool =
+public actual fun certSetEnhancedKeyUsage(pcertcontext: ConstPtr, pusage: ConstPtr): Bool =
     windowssysWindowsWin32SecurityCryptographyCertSetEnhancedKeyUsage(pcertcontext.rawAddress.toCPointer<ByteVar>(), pusage.rawAddress.toCPointer<ByteVar>())
 
-public actual fun certSetStoreProperty(hcertstore: Hcertstore, dwpropid: UInt, dwflags: UInt, pvdata: ConstPtr<CVoid>): Bool =
+public actual fun certSetStoreProperty(hcertstore: Hcertstore, dwpropid: UInt, dwflags: UInt, pvdata: ConstPtr): Bool =
     windowssysWindowsWin32SecurityCryptographyCertSetStoreProperty(hcertstore.rawAddress.toCPointer<ByteVar>(), dwpropid, dwflags, pvdata.rawAddress.toCPointer<ByteVar>())
 
-public actual fun certStrToNameA(dwcertencodingtype: CertQueryEncodingType, pszx500: Pcstr, dwstrtype: CertStringType, pvreserved: ConstPtr<CVoid>, pbencoded: MutPtr<UByte>, pcbencoded: MutPtr<UInt>, ppszerror: MutPtr<Pcstr>): Bool =
+public actual fun certStrToNameA(dwcertencodingtype: CertQueryEncodingType, pszx500: Pcstr, dwstrtype: CertStringType, pvreserved: ConstPtr, pbencoded: MutPtr, pcbencoded: MutPtr, ppszerror: MutPtr): Bool =
     windowssysWindowsWin32SecurityCryptographyCertStrToNameA(dwcertencodingtype, pszx500.rawAddress.toCPointer<ByteVar>(), dwstrtype, pvreserved.rawAddress.toCPointer<ByteVar>(), pbencoded.rawAddress.toCPointer<ByteVar>(), pcbencoded.rawAddress.toCPointer<ByteVar>(), ppszerror.rawAddress.toCPointer<ByteVar>())
 
-public actual fun certStrToNameW(dwcertencodingtype: CertQueryEncodingType, pszx500: Pcwstr, dwstrtype: CertStringType, pvreserved: ConstPtr<CVoid>, pbencoded: MutPtr<UByte>, pcbencoded: MutPtr<UInt>, ppszerror: MutPtr<Pcwstr>): Bool =
+public actual fun certStrToNameW(dwcertencodingtype: CertQueryEncodingType, pszx500: Pcwstr, dwstrtype: CertStringType, pvreserved: ConstPtr, pbencoded: MutPtr, pcbencoded: MutPtr, ppszerror: MutPtr): Bool =
     windowssysWindowsWin32SecurityCryptographyCertStrToNameW(dwcertencodingtype, pszx500.rawAddress.toCPointer<ByteVar>(), dwstrtype, pvreserved.rawAddress.toCPointer<ByteVar>(), pbencoded.rawAddress.toCPointer<ByteVar>(), pcbencoded.rawAddress.toCPointer<ByteVar>(), ppszerror.rawAddress.toCPointer<ByteVar>())
 
-public actual fun certUnregisterPhysicalStore(pvsystemstore: ConstPtr<CVoid>, dwflags: UInt, pwszstorename: Pcwstr): Bool =
+public actual fun certUnregisterPhysicalStore(pvsystemstore: ConstPtr, dwflags: UInt, pwszstorename: Pcwstr): Bool =
     windowssysWindowsWin32SecurityCryptographyCertUnregisterPhysicalStore(pvsystemstore.rawAddress.toCPointer<ByteVar>(), dwflags, pwszstorename.rawAddress.toCPointer<ByteVar>())
 
-public actual fun certUnregisterSystemStore(pvsystemstore: ConstPtr<CVoid>, dwflags: UInt): Bool =
+public actual fun certUnregisterSystemStore(pvsystemstore: ConstPtr, dwflags: UInt): Bool =
     windowssysWindowsWin32SecurityCryptographyCertUnregisterSystemStore(pvsystemstore.rawAddress.toCPointer<ByteVar>(), dwflags)
 
-public actual fun certVerifyCRLRevocation(dwcertencodingtype: CertQueryEncodingType, pcertid: ConstPtr<CertInfo>, ccrlinfo: UInt, rgpcrlinfo: ConstPtr<ConstPtr<CrlInfo>>): Bool =
+public actual fun certVerifyCRLRevocation(dwcertencodingtype: CertQueryEncodingType, pcertid: ConstPtr, ccrlinfo: UInt, rgpcrlinfo: ConstPtr): Bool =
     windowssysWindowsWin32SecurityCryptographyCertVerifyCRLRevocation(dwcertencodingtype, pcertid.rawAddress.toCPointer<ByteVar>(), ccrlinfo, rgpcrlinfo.rawAddress.toCPointer<ByteVar>())
 
-public actual fun certVerifyCRLTimeValidity(ptimetoverify: ConstPtr<Filetime>, pcrlinfo: ConstPtr<CrlInfo>): Int =
+public actual fun certVerifyCRLTimeValidity(ptimetoverify: ConstPtr, pcrlinfo: ConstPtr): Int =
     windowssysWindowsWin32SecurityCryptographyCertVerifyCRLTimeValidity(ptimetoverify.rawAddress.toCPointer<ByteVar>(), pcrlinfo.rawAddress.toCPointer<ByteVar>())
 
-public actual fun certVerifyCTLUsage(dwencodingtype: UInt, dwsubjecttype: UInt, pvsubject: ConstPtr<CVoid>, psubjectusage: ConstPtr<CtlUsage>, dwflags: UInt, pverifyusagepara: ConstPtr<CtlVerifyUsagePara>, pverifyusagestatus: MutPtr<CtlVerifyUsageStatus>): Bool =
+public actual fun certVerifyCTLUsage(dwencodingtype: UInt, dwsubjecttype: UInt, pvsubject: ConstPtr, psubjectusage: ConstPtr, dwflags: UInt, pverifyusagepara: ConstPtr, pverifyusagestatus: MutPtr): Bool =
     windowssysWindowsWin32SecurityCryptographyCertVerifyCTLUsage(dwencodingtype, dwsubjecttype, pvsubject.rawAddress.toCPointer<ByteVar>(), psubjectusage.rawAddress.toCPointer<ByteVar>(), dwflags, pverifyusagepara.rawAddress.toCPointer<ByteVar>(), pverifyusagestatus.rawAddress.toCPointer<ByteVar>())
 
-public actual fun certVerifyCertificateChainPolicy(pszpolicyoid: Pcstr, pchaincontext: ConstPtr<CertChainContext>, ppolicypara: ConstPtr<CertChainPolicyPara>, ppolicystatus: MutPtr<CertChainPolicyStatus>): Bool =
+public actual fun certVerifyCertificateChainPolicy(pszpolicyoid: Pcstr, pchaincontext: ConstPtr, ppolicypara: ConstPtr, ppolicystatus: MutPtr): Bool =
     windowssysWindowsWin32SecurityCryptographyCertVerifyCertificateChainPolicy(pszpolicyoid.rawAddress.toCPointer<ByteVar>(), pchaincontext.rawAddress.toCPointer<ByteVar>(), ppolicypara.rawAddress.toCPointer<ByteVar>(), ppolicystatus.rawAddress.toCPointer<ByteVar>())
 
-public actual fun certVerifyRevocation(dwencodingtype: UInt, dwrevtype: UInt, ccontext: UInt, rgpvcontext: ConstPtr<ConstPtr<CVoid>>, dwflags: UInt, prevpara: ConstPtr<CertRevocationPara>, prevstatus: MutPtr<CertRevocationStatus>): Bool =
+public actual fun certVerifyRevocation(dwencodingtype: UInt, dwrevtype: UInt, ccontext: UInt, rgpvcontext: ConstPtr, dwflags: UInt, prevpara: ConstPtr, prevstatus: MutPtr): Bool =
     windowssysWindowsWin32SecurityCryptographyCertVerifyRevocation(dwencodingtype, dwrevtype, ccontext, rgpvcontext.rawAddress.toCPointer<ByteVar>(), dwflags, prevpara.rawAddress.toCPointer<ByteVar>(), prevstatus.rawAddress.toCPointer<ByteVar>())
 
-public actual fun certVerifySubjectCertificateContext(psubject: ConstPtr<CertContext>, pissuer: ConstPtr<CertContext>, pdwflags: MutPtr<UInt>): Bool =
+public actual fun certVerifySubjectCertificateContext(psubject: ConstPtr, pissuer: ConstPtr, pdwflags: MutPtr): Bool =
     windowssysWindowsWin32SecurityCryptographyCertVerifySubjectCertificateContext(psubject.rawAddress.toCPointer<ByteVar>(), pissuer.rawAddress.toCPointer<ByteVar>(), pdwflags.rawAddress.toCPointer<ByteVar>())
 
-public actual fun certVerifyTimeValidity(ptimetoverify: ConstPtr<Filetime>, pcertinfo: ConstPtr<CertInfo>): Int =
+public actual fun certVerifyTimeValidity(ptimetoverify: ConstPtr, pcertinfo: ConstPtr): Int =
     windowssysWindowsWin32SecurityCryptographyCertVerifyTimeValidity(ptimetoverify.rawAddress.toCPointer<ByteVar>(), pcertinfo.rawAddress.toCPointer<ByteVar>())
 
-public actual fun certVerifyValidityNesting(psubjectinfo: ConstPtr<CertInfo>, pissuerinfo: ConstPtr<CertInfo>): Bool =
+public actual fun certVerifyValidityNesting(psubjectinfo: ConstPtr, pissuerinfo: ConstPtr): Bool =
     windowssysWindowsWin32SecurityCryptographyCertVerifyValidityNesting(psubjectinfo.rawAddress.toCPointer<ByteVar>(), pissuerinfo.rawAddress.toCPointer<ByteVar>())
 
-public actual fun closeCryptoHandle(hcrypto: ConstPtr<InformationcardCryptoHandle>): Hresult =
+public actual fun closeCryptoHandle(hcrypto: ConstPtr): Hresult =
     windowssysWindowsWin32SecurityCryptographyCloseCryptoHandle(hcrypto.rawAddress.toCPointer<ByteVar>())
 
-public actual fun cryptAcquireCertificatePrivateKey(pcert: ConstPtr<CertContext>, dwflags: CryptAcquireFlags, pvparameters: ConstPtr<CVoid>, phcryptprovorncryptkey: MutPtr<HcryptprovOrNcryptKeyHandle>, pdwkeyspec: MutPtr<CertKeySpec>, pfcallerfreeprovorncryptkey: MutPtr<Bool>): Bool =
+public actual fun cryptAcquireCertificatePrivateKey(pcert: ConstPtr, dwflags: CryptAcquireFlags, pvparameters: ConstPtr, phcryptprovorncryptkey: MutPtr, pdwkeyspec: MutPtr, pfcallerfreeprovorncryptkey: MutPtr): Bool =
     windowssysWindowsWin32SecurityCryptographyCryptAcquireCertificatePrivateKey(pcert.rawAddress.toCPointer<ByteVar>(), dwflags, pvparameters.rawAddress.toCPointer<ByteVar>(), phcryptprovorncryptkey.rawAddress.toCPointer<ByteVar>(), pdwkeyspec.rawAddress.toCPointer<ByteVar>(), pfcallerfreeprovorncryptkey.rawAddress.toCPointer<ByteVar>())
 
-public actual fun cryptAcquireContextA(phprov: MutPtr<ULong>, szcontainer: Pcstr, szprovider: Pcstr, dwprovtype: UInt, dwflags: UInt): Bool =
+public actual fun cryptAcquireContextA(phprov: MutPtr, szcontainer: Pcstr, szprovider: Pcstr, dwprovtype: UInt, dwflags: UInt): Bool =
     windowssysWindowsWin32SecurityCryptographyCryptAcquireContextA(phprov.rawAddress.toCPointer<ByteVar>(), szcontainer.rawAddress.toCPointer<ByteVar>(), szprovider.rawAddress.toCPointer<ByteVar>(), dwprovtype, dwflags)
 
-public actual fun cryptAcquireContextW(phprov: MutPtr<ULong>, szcontainer: Pcwstr, szprovider: Pcwstr, dwprovtype: UInt, dwflags: UInt): Bool =
+public actual fun cryptAcquireContextW(phprov: MutPtr, szcontainer: Pcwstr, szprovider: Pcwstr, dwprovtype: UInt, dwflags: UInt): Bool =
     windowssysWindowsWin32SecurityCryptographyCryptAcquireContextW(phprov.rawAddress.toCPointer<ByteVar>(), szcontainer.rawAddress.toCPointer<ByteVar>(), szprovider.rawAddress.toCPointer<ByteVar>(), dwprovtype, dwflags)
 
-public actual fun cryptBinaryToStringA(pbbinary: ConstPtr<UByte>, cbbinary: UInt, dwflags: CryptString, pszstring: Pstr, pcchstring: MutPtr<UInt>): Bool =
+public actual fun cryptBinaryToStringA(pbbinary: ConstPtr, cbbinary: UInt, dwflags: CryptString, pszstring: Pstr, pcchstring: MutPtr): Bool =
     windowssysWindowsWin32SecurityCryptographyCryptBinaryToStringA(pbbinary.rawAddress.toCPointer<ByteVar>(), cbbinary, dwflags, pszstring.rawAddress.toCPointer<ByteVar>(), pcchstring.rawAddress.toCPointer<ByteVar>())
 
-public actual fun cryptBinaryToStringW(pbbinary: ConstPtr<UByte>, cbbinary: UInt, dwflags: CryptString, pszstring: Pwstr, pcchstring: MutPtr<UInt>): Bool =
+public actual fun cryptBinaryToStringW(pbbinary: ConstPtr, cbbinary: UInt, dwflags: CryptString, pszstring: Pwstr, pcchstring: MutPtr): Bool =
     windowssysWindowsWin32SecurityCryptographyCryptBinaryToStringW(pbbinary.rawAddress.toCPointer<ByteVar>(), cbbinary, dwflags, pszstring.rawAddress.toCPointer<ByteVar>(), pcchstring.rawAddress.toCPointer<ByteVar>())
 
 public actual fun cryptCloseAsyncHandle(hasync: Hcryptasync): Bool =
     windowssysWindowsWin32SecurityCryptographyCryptCloseAsyncHandle(hasync)
 
-public actual fun cryptContextAddRef(hprov: ULong, pdwreserved: ConstPtr<UInt>, dwflags: UInt): Bool =
+public actual fun cryptContextAddRef(hprov: ULong, pdwreserved: ConstPtr, dwflags: UInt): Bool =
     windowssysWindowsWin32SecurityCryptographyCryptContextAddRef(hprov, pdwreserved.rawAddress.toCPointer<ByteVar>(), dwflags)
 
-public actual fun cryptCreateAsyncHandle(dwflags: UInt, phasync: MutPtr<Hcryptasync>): Bool =
+public actual fun cryptCreateAsyncHandle(dwflags: UInt, phasync: MutPtr): Bool =
     windowssysWindowsWin32SecurityCryptographyCryptCreateAsyncHandle(dwflags, phasync.rawAddress.toCPointer<ByteVar>())
 
-public actual fun cryptCreateHash(hprov: ULong, algid: AlgId, hkey: ULong, dwflags: UInt, phhash: MutPtr<ULong>): Bool =
+public actual fun cryptCreateHash(hprov: ULong, algid: AlgId, hkey: ULong, dwflags: UInt, phhash: MutPtr): Bool =
     windowssysWindowsWin32SecurityCryptographyCryptCreateHash(hprov, algid, hkey, dwflags, phhash.rawAddress.toCPointer<ByteVar>())
 
-public actual fun cryptCreateKeyIdentifierFromCSP(dwcertencodingtype: CertQueryEncodingType, pszpubkeyoid: Pcstr, ppubkeystruc: ConstPtr<Publickeystruc>, cbpubkeystruc: UInt, dwflags: UInt, pvreserved: ConstPtr<CVoid>, pbhash: MutPtr<UByte>, pcbhash: MutPtr<UInt>): Bool =
+public actual fun cryptCreateKeyIdentifierFromCSP(dwcertencodingtype: CertQueryEncodingType, pszpubkeyoid: Pcstr, ppubkeystruc: ConstPtr, cbpubkeystruc: UInt, dwflags: UInt, pvreserved: ConstPtr, pbhash: MutPtr, pcbhash: MutPtr): Bool =
     windowssysWindowsWin32SecurityCryptographyCryptCreateKeyIdentifierFromCSP(dwcertencodingtype, pszpubkeyoid.rawAddress.toCPointer<ByteVar>(), ppubkeystruc.rawAddress.toCPointer<ByteVar>(), cbpubkeystruc, dwflags, pvreserved.rawAddress.toCPointer<ByteVar>(), pbhash.rawAddress.toCPointer<ByteVar>(), pcbhash.rawAddress.toCPointer<ByteVar>())
 
-public actual fun cryptDecodeMessage(dwmsgtypeflags: UInt, pdecryptpara: ConstPtr<CryptDecryptMessagePara>, pverifypara: ConstPtr<CryptVerifyMessagePara>, dwsignerindex: UInt, pbencodedblob: ConstPtr<UByte>, cbencodedblob: UInt, dwprevinnercontenttype: UInt, pdwmsgtype: MutPtr<UInt>, pdwinnercontenttype: MutPtr<UInt>, pbdecoded: MutPtr<UByte>, pcbdecoded: MutPtr<UInt>, ppxchgcert: MutPtr<MutPtr<CertContext>>, ppsignercert: MutPtr<MutPtr<CertContext>>): Bool =
+public actual fun cryptDecodeMessage(dwmsgtypeflags: UInt, pdecryptpara: ConstPtr, pverifypara: ConstPtr, dwsignerindex: UInt, pbencodedblob: ConstPtr, cbencodedblob: UInt, dwprevinnercontenttype: UInt, pdwmsgtype: MutPtr, pdwinnercontenttype: MutPtr, pbdecoded: MutPtr, pcbdecoded: MutPtr, ppxchgcert: MutPtr, ppsignercert: MutPtr): Bool =
     windowssysWindowsWin32SecurityCryptographyCryptDecodeMessage(dwmsgtypeflags, pdecryptpara.rawAddress.toCPointer<ByteVar>(), pverifypara.rawAddress.toCPointer<ByteVar>(), dwsignerindex, pbencodedblob.rawAddress.toCPointer<ByteVar>(), cbencodedblob, dwprevinnercontenttype, pdwmsgtype.rawAddress.toCPointer<ByteVar>(), pdwinnercontenttype.rawAddress.toCPointer<ByteVar>(), pbdecoded.rawAddress.toCPointer<ByteVar>(), pcbdecoded.rawAddress.toCPointer<ByteVar>(), ppxchgcert.rawAddress.toCPointer<ByteVar>(), ppsignercert.rawAddress.toCPointer<ByteVar>())
 
-public actual fun cryptDecodeObject(dwcertencodingtype: CertQueryEncodingType, lpszstructtype: Pcstr, pbencoded: ConstPtr<UByte>, cbencoded: UInt, dwflags: UInt, pvstructinfo: MutPtr<CVoid>, pcbstructinfo: MutPtr<UInt>): Bool =
+public actual fun cryptDecodeObject(dwcertencodingtype: CertQueryEncodingType, lpszstructtype: Pcstr, pbencoded: ConstPtr, cbencoded: UInt, dwflags: UInt, pvstructinfo: MutPtr, pcbstructinfo: MutPtr): Bool =
     windowssysWindowsWin32SecurityCryptographyCryptDecodeObject(dwcertencodingtype, lpszstructtype.rawAddress.toCPointer<ByteVar>(), pbencoded.rawAddress.toCPointer<ByteVar>(), cbencoded, dwflags, pvstructinfo.rawAddress.toCPointer<ByteVar>(), pcbstructinfo.rawAddress.toCPointer<ByteVar>())
 
-public actual fun cryptDecodeObjectEx(dwcertencodingtype: CertQueryEncodingType, lpszstructtype: Pcstr, pbencoded: ConstPtr<UByte>, cbencoded: UInt, dwflags: UInt, pdecodepara: ConstPtr<CryptDecodePara>, pvstructinfo: MutPtr<CVoid>, pcbstructinfo: MutPtr<UInt>): Bool =
+public actual fun cryptDecodeObjectEx(dwcertencodingtype: CertQueryEncodingType, lpszstructtype: Pcstr, pbencoded: ConstPtr, cbencoded: UInt, dwflags: UInt, pdecodepara: ConstPtr, pvstructinfo: MutPtr, pcbstructinfo: MutPtr): Bool =
     windowssysWindowsWin32SecurityCryptographyCryptDecodeObjectEx(dwcertencodingtype, lpszstructtype.rawAddress.toCPointer<ByteVar>(), pbencoded.rawAddress.toCPointer<ByteVar>(), cbencoded, dwflags, pdecodepara.rawAddress.toCPointer<ByteVar>(), pvstructinfo.rawAddress.toCPointer<ByteVar>(), pcbstructinfo.rawAddress.toCPointer<ByteVar>())
 
-public actual fun cryptDecrypt(hkey: ULong, hhash: ULong, final: Bool, dwflags: UInt, pbdata: MutPtr<UByte>, pdwdatalen: MutPtr<UInt>): Bool =
+public actual fun cryptDecrypt(hkey: ULong, hhash: ULong, final: Bool, dwflags: UInt, pbdata: MutPtr, pdwdatalen: MutPtr): Bool =
     windowssysWindowsWin32SecurityCryptographyCryptDecrypt(hkey, hhash, final, dwflags, pbdata.rawAddress.toCPointer<ByteVar>(), pdwdatalen.rawAddress.toCPointer<ByteVar>())
 
-public actual fun cryptDecryptAndVerifyMessageSignature(pdecryptpara: ConstPtr<CryptDecryptMessagePara>, pverifypara: ConstPtr<CryptVerifyMessagePara>, dwsignerindex: UInt, pbencryptedblob: ConstPtr<UByte>, cbencryptedblob: UInt, pbdecrypted: MutPtr<UByte>, pcbdecrypted: MutPtr<UInt>, ppxchgcert: MutPtr<MutPtr<CertContext>>, ppsignercert: MutPtr<MutPtr<CertContext>>): Bool =
+public actual fun cryptDecryptAndVerifyMessageSignature(pdecryptpara: ConstPtr, pverifypara: ConstPtr, dwsignerindex: UInt, pbencryptedblob: ConstPtr, cbencryptedblob: UInt, pbdecrypted: MutPtr, pcbdecrypted: MutPtr, ppxchgcert: MutPtr, ppsignercert: MutPtr): Bool =
     windowssysWindowsWin32SecurityCryptographyCryptDecryptAndVerifyMessageSignature(pdecryptpara.rawAddress.toCPointer<ByteVar>(), pverifypara.rawAddress.toCPointer<ByteVar>(), dwsignerindex, pbencryptedblob.rawAddress.toCPointer<ByteVar>(), cbencryptedblob, pbdecrypted.rawAddress.toCPointer<ByteVar>(), pcbdecrypted.rawAddress.toCPointer<ByteVar>(), ppxchgcert.rawAddress.toCPointer<ByteVar>(), ppsignercert.rawAddress.toCPointer<ByteVar>())
 
-public actual fun cryptDecryptMessage(pdecryptpara: ConstPtr<CryptDecryptMessagePara>, pbencryptedblob: ConstPtr<UByte>, cbencryptedblob: UInt, pbdecrypted: MutPtr<UByte>, pcbdecrypted: MutPtr<UInt>, ppxchgcert: MutPtr<MutPtr<CertContext>>): Bool =
+public actual fun cryptDecryptMessage(pdecryptpara: ConstPtr, pbencryptedblob: ConstPtr, cbencryptedblob: UInt, pbdecrypted: MutPtr, pcbdecrypted: MutPtr, ppxchgcert: MutPtr): Bool =
     windowssysWindowsWin32SecurityCryptographyCryptDecryptMessage(pdecryptpara.rawAddress.toCPointer<ByteVar>(), pbencryptedblob.rawAddress.toCPointer<ByteVar>(), cbencryptedblob, pbdecrypted.rawAddress.toCPointer<ByteVar>(), pcbdecrypted.rawAddress.toCPointer<ByteVar>(), ppxchgcert.rawAddress.toCPointer<ByteVar>())
 
-public actual fun cryptDeriveKey(hprov: ULong, algid: AlgId, hbasedata: ULong, dwflags: UInt, phkey: MutPtr<ULong>): Bool =
+public actual fun cryptDeriveKey(hprov: ULong, algid: AlgId, hbasedata: ULong, dwflags: UInt, phkey: MutPtr): Bool =
     windowssysWindowsWin32SecurityCryptographyCryptDeriveKey(hprov, algid, hbasedata, dwflags, phkey.rawAddress.toCPointer<ByteVar>())
 
 public actual fun cryptDestroyHash(hhash: ULong): Bool =
@@ -1101,236 +1097,236 @@ public actual fun cryptDestroyHash(hhash: ULong): Bool =
 public actual fun cryptDestroyKey(hkey: ULong): Bool =
     windowssysWindowsWin32SecurityCryptographyCryptDestroyKey(hkey)
 
-public actual fun cryptDuplicateHash(hhash: ULong, pdwreserved: ConstPtr<UInt>, dwflags: UInt, phhash: MutPtr<ULong>): Bool =
+public actual fun cryptDuplicateHash(hhash: ULong, pdwreserved: ConstPtr, dwflags: UInt, phhash: MutPtr): Bool =
     windowssysWindowsWin32SecurityCryptographyCryptDuplicateHash(hhash, pdwreserved.rawAddress.toCPointer<ByteVar>(), dwflags, phhash.rawAddress.toCPointer<ByteVar>())
 
-public actual fun cryptDuplicateKey(hkey: ULong, pdwreserved: ConstPtr<UInt>, dwflags: UInt, phkey: MutPtr<ULong>): Bool =
+public actual fun cryptDuplicateKey(hkey: ULong, pdwreserved: ConstPtr, dwflags: UInt, phkey: MutPtr): Bool =
     windowssysWindowsWin32SecurityCryptographyCryptDuplicateKey(hkey, pdwreserved.rawAddress.toCPointer<ByteVar>(), dwflags, phkey.rawAddress.toCPointer<ByteVar>())
 
-public actual fun cryptEncodeObject(dwcertencodingtype: CertQueryEncodingType, lpszstructtype: Pcstr, pvstructinfo: ConstPtr<CVoid>, pbencoded: MutPtr<UByte>, pcbencoded: MutPtr<UInt>): Bool =
+public actual fun cryptEncodeObject(dwcertencodingtype: CertQueryEncodingType, lpszstructtype: Pcstr, pvstructinfo: ConstPtr, pbencoded: MutPtr, pcbencoded: MutPtr): Bool =
     windowssysWindowsWin32SecurityCryptographyCryptEncodeObject(dwcertencodingtype, lpszstructtype.rawAddress.toCPointer<ByteVar>(), pvstructinfo.rawAddress.toCPointer<ByteVar>(), pbencoded.rawAddress.toCPointer<ByteVar>(), pcbencoded.rawAddress.toCPointer<ByteVar>())
 
-public actual fun cryptEncodeObjectEx(dwcertencodingtype: CertQueryEncodingType, lpszstructtype: Pcstr, pvstructinfo: ConstPtr<CVoid>, dwflags: CryptEncodeObjectFlags, pencodepara: ConstPtr<CryptEncodePara>, pvencoded: MutPtr<CVoid>, pcbencoded: MutPtr<UInt>): Bool =
+public actual fun cryptEncodeObjectEx(dwcertencodingtype: CertQueryEncodingType, lpszstructtype: Pcstr, pvstructinfo: ConstPtr, dwflags: CryptEncodeObjectFlags, pencodepara: ConstPtr, pvencoded: MutPtr, pcbencoded: MutPtr): Bool =
     windowssysWindowsWin32SecurityCryptographyCryptEncodeObjectEx(dwcertencodingtype, lpszstructtype.rawAddress.toCPointer<ByteVar>(), pvstructinfo.rawAddress.toCPointer<ByteVar>(), dwflags, pencodepara.rawAddress.toCPointer<ByteVar>(), pvencoded.rawAddress.toCPointer<ByteVar>(), pcbencoded.rawAddress.toCPointer<ByteVar>())
 
-public actual fun cryptEncrypt(hkey: ULong, hhash: ULong, final: Bool, dwflags: UInt, pbdata: MutPtr<UByte>, pdwdatalen: MutPtr<UInt>, dwbuflen: UInt): Bool =
+public actual fun cryptEncrypt(hkey: ULong, hhash: ULong, final: Bool, dwflags: UInt, pbdata: MutPtr, pdwdatalen: MutPtr, dwbuflen: UInt): Bool =
     windowssysWindowsWin32SecurityCryptographyCryptEncrypt(hkey, hhash, final, dwflags, pbdata.rawAddress.toCPointer<ByteVar>(), pdwdatalen.rawAddress.toCPointer<ByteVar>(), dwbuflen)
 
-public actual fun cryptEncryptMessage(pencryptpara: ConstPtr<CryptEncryptMessagePara>, crecipientcert: UInt, rgprecipientcert: ConstPtr<ConstPtr<CertContext>>, pbtobeencrypted: ConstPtr<UByte>, cbtobeencrypted: UInt, pbencryptedblob: MutPtr<UByte>, pcbencryptedblob: MutPtr<UInt>): Bool =
+public actual fun cryptEncryptMessage(pencryptpara: ConstPtr, crecipientcert: UInt, rgprecipientcert: ConstPtr, pbtobeencrypted: ConstPtr, cbtobeencrypted: UInt, pbencryptedblob: MutPtr, pcbencryptedblob: MutPtr): Bool =
     windowssysWindowsWin32SecurityCryptographyCryptEncryptMessage(pencryptpara.rawAddress.toCPointer<ByteVar>(), crecipientcert, rgprecipientcert.rawAddress.toCPointer<ByteVar>(), pbtobeencrypted.rawAddress.toCPointer<ByteVar>(), cbtobeencrypted, pbencryptedblob.rawAddress.toCPointer<ByteVar>(), pcbencryptedblob.rawAddress.toCPointer<ByteVar>())
 
-public actual fun cryptEnumKeyIdentifierProperties(pkeyidentifier: ConstPtr<CryptIntegerBlob>, dwpropid: UInt, dwflags: UInt, pwszcomputername: Pcwstr, pvreserved: ConstPtr<CVoid>, pvarg: MutPtr<CVoid>, pfnenum: PfnCryptEnumKeyidProp): Bool =
+public actual fun cryptEnumKeyIdentifierProperties(pkeyidentifier: ConstPtr, dwpropid: UInt, dwflags: UInt, pwszcomputername: Pcwstr, pvreserved: ConstPtr, pvarg: MutPtr, pfnenum: PfnCryptEnumKeyidProp): Bool =
     windowssysWindowsWin32SecurityCryptographyCryptEnumKeyIdentifierProperties(pkeyidentifier.rawAddress.toCPointer<ByteVar>(), dwpropid, dwflags, pwszcomputername.rawAddress.toCPointer<ByteVar>(), pvreserved.rawAddress.toCPointer<ByteVar>(), pvarg.rawAddress.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>())
 
-public actual fun cryptEnumOIDFunction(dwencodingtype: UInt, pszfuncname: Pcstr, pszoid: Pcstr, dwflags: UInt, pvarg: MutPtr<CVoid>, pfnenumoidfunc: PfnCryptEnumOidFunc): Bool =
+public actual fun cryptEnumOIDFunction(dwencodingtype: UInt, pszfuncname: Pcstr, pszoid: Pcstr, dwflags: UInt, pvarg: MutPtr, pfnenumoidfunc: PfnCryptEnumOidFunc): Bool =
     windowssysWindowsWin32SecurityCryptographyCryptEnumOIDFunction(dwencodingtype, pszfuncname.rawAddress.toCPointer<ByteVar>(), pszoid.rawAddress.toCPointer<ByteVar>(), dwflags, pvarg.rawAddress.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>())
 
-public actual fun cryptEnumOIDInfo(dwgroupid: UInt, dwflags: UInt, pvarg: MutPtr<CVoid>, pfnenumoidinfo: PfnCryptEnumOidInfo): Bool =
+public actual fun cryptEnumOIDInfo(dwgroupid: UInt, dwflags: UInt, pvarg: MutPtr, pfnenumoidinfo: PfnCryptEnumOidInfo): Bool =
     windowssysWindowsWin32SecurityCryptographyCryptEnumOIDInfo(dwgroupid, dwflags, pvarg.rawAddress.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>())
 
-public actual fun cryptEnumProviderTypesA(dwindex: UInt, pdwreserved: ConstPtr<UInt>, dwflags: UInt, pdwprovtype: MutPtr<UInt>, sztypename: Pstr, pcbtypename: MutPtr<UInt>): Bool =
+public actual fun cryptEnumProviderTypesA(dwindex: UInt, pdwreserved: ConstPtr, dwflags: UInt, pdwprovtype: MutPtr, sztypename: Pstr, pcbtypename: MutPtr): Bool =
     windowssysWindowsWin32SecurityCryptographyCryptEnumProviderTypesA(dwindex, pdwreserved.rawAddress.toCPointer<ByteVar>(), dwflags, pdwprovtype.rawAddress.toCPointer<ByteVar>(), sztypename.rawAddress.toCPointer<ByteVar>(), pcbtypename.rawAddress.toCPointer<ByteVar>())
 
-public actual fun cryptEnumProviderTypesW(dwindex: UInt, pdwreserved: ConstPtr<UInt>, dwflags: UInt, pdwprovtype: MutPtr<UInt>, sztypename: Pwstr, pcbtypename: MutPtr<UInt>): Bool =
+public actual fun cryptEnumProviderTypesW(dwindex: UInt, pdwreserved: ConstPtr, dwflags: UInt, pdwprovtype: MutPtr, sztypename: Pwstr, pcbtypename: MutPtr): Bool =
     windowssysWindowsWin32SecurityCryptographyCryptEnumProviderTypesW(dwindex, pdwreserved.rawAddress.toCPointer<ByteVar>(), dwflags, pdwprovtype.rawAddress.toCPointer<ByteVar>(), sztypename.rawAddress.toCPointer<ByteVar>(), pcbtypename.rawAddress.toCPointer<ByteVar>())
 
-public actual fun cryptEnumProvidersA(dwindex: UInt, pdwreserved: ConstPtr<UInt>, dwflags: UInt, pdwprovtype: MutPtr<UInt>, szprovname: Pstr, pcbprovname: MutPtr<UInt>): Bool =
+public actual fun cryptEnumProvidersA(dwindex: UInt, pdwreserved: ConstPtr, dwflags: UInt, pdwprovtype: MutPtr, szprovname: Pstr, pcbprovname: MutPtr): Bool =
     windowssysWindowsWin32SecurityCryptographyCryptEnumProvidersA(dwindex, pdwreserved.rawAddress.toCPointer<ByteVar>(), dwflags, pdwprovtype.rawAddress.toCPointer<ByteVar>(), szprovname.rawAddress.toCPointer<ByteVar>(), pcbprovname.rawAddress.toCPointer<ByteVar>())
 
-public actual fun cryptEnumProvidersW(dwindex: UInt, pdwreserved: ConstPtr<UInt>, dwflags: UInt, pdwprovtype: MutPtr<UInt>, szprovname: Pwstr, pcbprovname: MutPtr<UInt>): Bool =
+public actual fun cryptEnumProvidersW(dwindex: UInt, pdwreserved: ConstPtr, dwflags: UInt, pdwprovtype: MutPtr, szprovname: Pwstr, pcbprovname: MutPtr): Bool =
     windowssysWindowsWin32SecurityCryptographyCryptEnumProvidersW(dwindex, pdwreserved.rawAddress.toCPointer<ByteVar>(), dwflags, pdwprovtype.rawAddress.toCPointer<ByteVar>(), szprovname.rawAddress.toCPointer<ByteVar>(), pcbprovname.rawAddress.toCPointer<ByteVar>())
 
-public actual fun cryptExportKey(hkey: ULong, hexpkey: ULong, dwblobtype: UInt, dwflags: CryptKeyFlags, pbdata: MutPtr<UByte>, pdwdatalen: MutPtr<UInt>): Bool =
+public actual fun cryptExportKey(hkey: ULong, hexpkey: ULong, dwblobtype: UInt, dwflags: CryptKeyFlags, pbdata: MutPtr, pdwdatalen: MutPtr): Bool =
     windowssysWindowsWin32SecurityCryptographyCryptExportKey(hkey, hexpkey, dwblobtype, dwflags, pbdata.rawAddress.toCPointer<ByteVar>(), pdwdatalen.rawAddress.toCPointer<ByteVar>())
 
-public actual fun cryptExportPKCS8(hcryptprov: ULong, dwkeyspec: UInt, pszprivatekeyobjid: Pcstr, dwflags: UInt, pvauxinfo: ConstPtr<CVoid>, pbprivatekeyblob: MutPtr<UByte>, pcbprivatekeyblob: MutPtr<UInt>): Bool =
+public actual fun cryptExportPKCS8(hcryptprov: ULong, dwkeyspec: UInt, pszprivatekeyobjid: Pcstr, dwflags: UInt, pvauxinfo: ConstPtr, pbprivatekeyblob: MutPtr, pcbprivatekeyblob: MutPtr): Bool =
     windowssysWindowsWin32SecurityCryptographyCryptExportPKCS8(hcryptprov, dwkeyspec, pszprivatekeyobjid.rawAddress.toCPointer<ByteVar>(), dwflags, pvauxinfo.rawAddress.toCPointer<ByteVar>(), pbprivatekeyblob.rawAddress.toCPointer<ByteVar>(), pcbprivatekeyblob.rawAddress.toCPointer<ByteVar>())
 
-public actual fun cryptExportPublicKeyInfo(hcryptprovorncryptkey: HcryptprovOrNcryptKeyHandle, dwkeyspec: UInt, dwcertencodingtype: CertQueryEncodingType, pinfo: MutPtr<CertPublicKeyInfo>, pcbinfo: MutPtr<UInt>): Bool =
+public actual fun cryptExportPublicKeyInfo(hcryptprovorncryptkey: HcryptprovOrNcryptKeyHandle, dwkeyspec: UInt, dwcertencodingtype: CertQueryEncodingType, pinfo: MutPtr, pcbinfo: MutPtr): Bool =
     windowssysWindowsWin32SecurityCryptographyCryptExportPublicKeyInfo(hcryptprovorncryptkey, dwkeyspec, dwcertencodingtype, pinfo.rawAddress.toCPointer<ByteVar>(), pcbinfo.rawAddress.toCPointer<ByteVar>())
 
-public actual fun cryptExportPublicKeyInfoEx(hcryptprovorncryptkey: HcryptprovOrNcryptKeyHandle, dwkeyspec: UInt, dwcertencodingtype: CertQueryEncodingType, pszpublickeyobjid: Pcstr, dwflags: UInt, pvauxinfo: ConstPtr<CVoid>, pinfo: MutPtr<CertPublicKeyInfo>, pcbinfo: MutPtr<UInt>): Bool =
+public actual fun cryptExportPublicKeyInfoEx(hcryptprovorncryptkey: HcryptprovOrNcryptKeyHandle, dwkeyspec: UInt, dwcertencodingtype: CertQueryEncodingType, pszpublickeyobjid: Pcstr, dwflags: UInt, pvauxinfo: ConstPtr, pinfo: MutPtr, pcbinfo: MutPtr): Bool =
     windowssysWindowsWin32SecurityCryptographyCryptExportPublicKeyInfoEx(hcryptprovorncryptkey, dwkeyspec, dwcertencodingtype, pszpublickeyobjid.rawAddress.toCPointer<ByteVar>(), dwflags, pvauxinfo.rawAddress.toCPointer<ByteVar>(), pinfo.rawAddress.toCPointer<ByteVar>(), pcbinfo.rawAddress.toCPointer<ByteVar>())
 
-public actual fun cryptExportPublicKeyInfoFromBCryptKeyHandle(hbcryptkey: BcryptKeyHandle, dwcertencodingtype: CertQueryEncodingType, pszpublickeyobjid: Pcstr, dwflags: UInt, pvauxinfo: ConstPtr<CVoid>, pinfo: MutPtr<CertPublicKeyInfo>, pcbinfo: MutPtr<UInt>): Bool =
+public actual fun cryptExportPublicKeyInfoFromBCryptKeyHandle(hbcryptkey: BcryptKeyHandle, dwcertencodingtype: CertQueryEncodingType, pszpublickeyobjid: Pcstr, dwflags: UInt, pvauxinfo: ConstPtr, pinfo: MutPtr, pcbinfo: MutPtr): Bool =
     windowssysWindowsWin32SecurityCryptographyCryptExportPublicKeyInfoFromBCryptKeyHandle(hbcryptkey.rawAddress.toCPointer<ByteVar>(), dwcertencodingtype, pszpublickeyobjid.rawAddress.toCPointer<ByteVar>(), dwflags, pvauxinfo.rawAddress.toCPointer<ByteVar>(), pinfo.rawAddress.toCPointer<ByteVar>(), pcbinfo.rawAddress.toCPointer<ByteVar>())
 
-public actual fun cryptFindCertificateKeyProvInfo(pcert: ConstPtr<CertContext>, dwflags: CryptFindFlags, pvreserved: ConstPtr<CVoid>): Bool =
+public actual fun cryptFindCertificateKeyProvInfo(pcert: ConstPtr, dwflags: CryptFindFlags, pvreserved: ConstPtr): Bool =
     windowssysWindowsWin32SecurityCryptographyCryptFindCertificateKeyProvInfo(pcert.rawAddress.toCPointer<ByteVar>(), dwflags, pvreserved.rawAddress.toCPointer<ByteVar>())
 
 public actual fun cryptFindLocalizedName(pwszcryptname: Pcwstr): Pcwstr =
     ConstPtr(windowssysWindowsWin32SecurityCryptographyCryptFindLocalizedName(pwszcryptname.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun cryptFindOIDInfo(dwkeytype: UInt, pvkey: ConstPtr<CVoid>, dwgroupid: UInt): MutPtr<CryptOidInfo> =
+public actual fun cryptFindOIDInfo(dwkeytype: UInt, pvkey: ConstPtr, dwgroupid: UInt): MutPtr =
     MutPtr(windowssysWindowsWin32SecurityCryptographyCryptFindOIDInfo(dwkeytype, pvkey.rawAddress.toCPointer<ByteVar>(), dwgroupid)?.toLong() ?: 0L)
 
-public actual fun cryptFormatObject(dwcertencodingtype: CertQueryEncodingType, dwformattype: UInt, dwformatstrtype: UInt, pformatstruct: ConstPtr<CVoid>, lpszstructtype: Pcstr, pbencoded: ConstPtr<UByte>, cbencoded: UInt, pbformat: MutPtr<CVoid>, pcbformat: MutPtr<UInt>): Bool =
+public actual fun cryptFormatObject(dwcertencodingtype: CertQueryEncodingType, dwformattype: UInt, dwformatstrtype: UInt, pformatstruct: ConstPtr, lpszstructtype: Pcstr, pbencoded: ConstPtr, cbencoded: UInt, pbformat: MutPtr, pcbformat: MutPtr): Bool =
     windowssysWindowsWin32SecurityCryptographyCryptFormatObject(dwcertencodingtype, dwformattype, dwformatstrtype, pformatstruct.rawAddress.toCPointer<ByteVar>(), lpszstructtype.rawAddress.toCPointer<ByteVar>(), pbencoded.rawAddress.toCPointer<ByteVar>(), cbencoded, pbformat.rawAddress.toCPointer<ByteVar>(), pcbformat.rawAddress.toCPointer<ByteVar>())
 
-public actual fun cryptFreeOIDFunctionAddress(hfuncaddr: ConstPtr<CVoid>, dwflags: UInt): Bool =
+public actual fun cryptFreeOIDFunctionAddress(hfuncaddr: ConstPtr, dwflags: UInt): Bool =
     windowssysWindowsWin32SecurityCryptographyCryptFreeOIDFunctionAddress(hfuncaddr.rawAddress.toCPointer<ByteVar>(), dwflags)
 
-public actual fun cryptGenKey(hprov: ULong, algid: AlgId, dwflags: CryptKeyFlags, phkey: MutPtr<ULong>): Bool =
+public actual fun cryptGenKey(hprov: ULong, algid: AlgId, dwflags: CryptKeyFlags, phkey: MutPtr): Bool =
     windowssysWindowsWin32SecurityCryptographyCryptGenKey(hprov, algid, dwflags, phkey.rawAddress.toCPointer<ByteVar>())
 
-public actual fun cryptGenRandom(hprov: ULong, dwlen: UInt, pbbuffer: MutPtr<UByte>): Bool =
+public actual fun cryptGenRandom(hprov: ULong, dwlen: UInt, pbbuffer: MutPtr): Bool =
     windowssysWindowsWin32SecurityCryptographyCryptGenRandom(hprov, dwlen, pbbuffer.rawAddress.toCPointer<ByteVar>())
 
-public actual fun cryptGetAsyncParam(hasync: Hcryptasync, pszparamoid: Pcstr, ppvparam: MutPtr<MutPtr<CVoid>>, ppfnfree: MutPtr<PfnCryptAsyncParamFreeFunc>): Bool =
+public actual fun cryptGetAsyncParam(hasync: Hcryptasync, pszparamoid: Pcstr, ppvparam: MutPtr, ppfnfree: MutPtr): Bool =
     windowssysWindowsWin32SecurityCryptographyCryptGetAsyncParam(hasync, pszparamoid.rawAddress.toCPointer<ByteVar>(), ppvparam.rawAddress.toCPointer<ByteVar>(), ppfnfree.rawAddress.toCPointer<ByteVar>())
 
-public actual fun cryptGetDefaultOIDDllList(hfuncset: ConstPtr<CVoid>, dwencodingtype: UInt, pwszdlllist: Pwstr, pcchdlllist: MutPtr<UInt>): Bool =
+public actual fun cryptGetDefaultOIDDllList(hfuncset: ConstPtr, dwencodingtype: UInt, pwszdlllist: Pwstr, pcchdlllist: MutPtr): Bool =
     windowssysWindowsWin32SecurityCryptographyCryptGetDefaultOIDDllList(hfuncset.rawAddress.toCPointer<ByteVar>(), dwencodingtype, pwszdlllist.rawAddress.toCPointer<ByteVar>(), pcchdlllist.rawAddress.toCPointer<ByteVar>())
 
-public actual fun cryptGetDefaultOIDFunctionAddress(hfuncset: ConstPtr<CVoid>, dwencodingtype: UInt, pwszdll: Pcwstr, dwflags: UInt, ppvfuncaddr: MutPtr<MutPtr<CVoid>>, phfuncaddr: MutPtr<MutPtr<CVoid>>): Bool =
+public actual fun cryptGetDefaultOIDFunctionAddress(hfuncset: ConstPtr, dwencodingtype: UInt, pwszdll: Pcwstr, dwflags: UInt, ppvfuncaddr: MutPtr, phfuncaddr: MutPtr): Bool =
     windowssysWindowsWin32SecurityCryptographyCryptGetDefaultOIDFunctionAddress(hfuncset.rawAddress.toCPointer<ByteVar>(), dwencodingtype, pwszdll.rawAddress.toCPointer<ByteVar>(), dwflags, ppvfuncaddr.rawAddress.toCPointer<ByteVar>(), phfuncaddr.rawAddress.toCPointer<ByteVar>())
 
-public actual fun cryptGetDefaultProviderA(dwprovtype: UInt, pdwreserved: ConstPtr<UInt>, dwflags: UInt, pszprovname: Pstr, pcbprovname: MutPtr<UInt>): Bool =
+public actual fun cryptGetDefaultProviderA(dwprovtype: UInt, pdwreserved: ConstPtr, dwflags: UInt, pszprovname: Pstr, pcbprovname: MutPtr): Bool =
     windowssysWindowsWin32SecurityCryptographyCryptGetDefaultProviderA(dwprovtype, pdwreserved.rawAddress.toCPointer<ByteVar>(), dwflags, pszprovname.rawAddress.toCPointer<ByteVar>(), pcbprovname.rawAddress.toCPointer<ByteVar>())
 
-public actual fun cryptGetDefaultProviderW(dwprovtype: UInt, pdwreserved: ConstPtr<UInt>, dwflags: UInt, pszprovname: Pwstr, pcbprovname: MutPtr<UInt>): Bool =
+public actual fun cryptGetDefaultProviderW(dwprovtype: UInt, pdwreserved: ConstPtr, dwflags: UInt, pszprovname: Pwstr, pcbprovname: MutPtr): Bool =
     windowssysWindowsWin32SecurityCryptographyCryptGetDefaultProviderW(dwprovtype, pdwreserved.rawAddress.toCPointer<ByteVar>(), dwflags, pszprovname.rawAddress.toCPointer<ByteVar>(), pcbprovname.rawAddress.toCPointer<ByteVar>())
 
-public actual fun cryptGetHashParam(hhash: ULong, dwparam: UInt, pbdata: MutPtr<UByte>, pdwdatalen: MutPtr<UInt>, dwflags: UInt): Bool =
+public actual fun cryptGetHashParam(hhash: ULong, dwparam: UInt, pbdata: MutPtr, pdwdatalen: MutPtr, dwflags: UInt): Bool =
     windowssysWindowsWin32SecurityCryptographyCryptGetHashParam(hhash, dwparam, pbdata.rawAddress.toCPointer<ByteVar>(), pdwdatalen.rawAddress.toCPointer<ByteVar>(), dwflags)
 
-public actual fun cryptGetKeyIdentifierProperty(pkeyidentifier: ConstPtr<CryptIntegerBlob>, dwpropid: UInt, dwflags: UInt, pwszcomputername: Pcwstr, pvreserved: ConstPtr<CVoid>, pvdata: MutPtr<CVoid>, pcbdata: MutPtr<UInt>): Bool =
+public actual fun cryptGetKeyIdentifierProperty(pkeyidentifier: ConstPtr, dwpropid: UInt, dwflags: UInt, pwszcomputername: Pcwstr, pvreserved: ConstPtr, pvdata: MutPtr, pcbdata: MutPtr): Bool =
     windowssysWindowsWin32SecurityCryptographyCryptGetKeyIdentifierProperty(pkeyidentifier.rawAddress.toCPointer<ByteVar>(), dwpropid, dwflags, pwszcomputername.rawAddress.toCPointer<ByteVar>(), pvreserved.rawAddress.toCPointer<ByteVar>(), pvdata.rawAddress.toCPointer<ByteVar>(), pcbdata.rawAddress.toCPointer<ByteVar>())
 
-public actual fun cryptGetKeyParam(hkey: ULong, dwparam: CryptKeyParamId, pbdata: MutPtr<UByte>, pdwdatalen: MutPtr<UInt>, dwflags: UInt): Bool =
+public actual fun cryptGetKeyParam(hkey: ULong, dwparam: CryptKeyParamId, pbdata: MutPtr, pdwdatalen: MutPtr, dwflags: UInt): Bool =
     windowssysWindowsWin32SecurityCryptographyCryptGetKeyParam(hkey, dwparam, pbdata.rawAddress.toCPointer<ByteVar>(), pdwdatalen.rawAddress.toCPointer<ByteVar>(), dwflags)
 
-public actual fun cryptGetMessageCertificates(dwmsgandcertencodingtype: UInt, hcryptprov: HcryptprovLegacy, dwflags: UInt, pbsignedblob: ConstPtr<UByte>, cbsignedblob: UInt): Hcertstore =
+public actual fun cryptGetMessageCertificates(dwmsgandcertencodingtype: UInt, hcryptprov: HcryptprovLegacy, dwflags: UInt, pbsignedblob: ConstPtr, cbsignedblob: UInt): Hcertstore =
     MutPtr(windowssysWindowsWin32SecurityCryptographyCryptGetMessageCertificates(dwmsgandcertencodingtype, hcryptprov, dwflags, pbsignedblob.rawAddress.toCPointer<ByteVar>(), cbsignedblob)?.toLong() ?: 0L)
 
-public actual fun cryptGetMessageSignerCount(dwmsgencodingtype: UInt, pbsignedblob: ConstPtr<UByte>, cbsignedblob: UInt): Int =
+public actual fun cryptGetMessageSignerCount(dwmsgencodingtype: UInt, pbsignedblob: ConstPtr, cbsignedblob: UInt): Int =
     windowssysWindowsWin32SecurityCryptographyCryptGetMessageSignerCount(dwmsgencodingtype, pbsignedblob.rawAddress.toCPointer<ByteVar>(), cbsignedblob)
 
-public actual fun cryptGetOIDFunctionAddress(hfuncset: ConstPtr<CVoid>, dwencodingtype: UInt, pszoid: Pcstr, dwflags: UInt, ppvfuncaddr: MutPtr<MutPtr<CVoid>>, phfuncaddr: MutPtr<MutPtr<CVoid>>): Bool =
+public actual fun cryptGetOIDFunctionAddress(hfuncset: ConstPtr, dwencodingtype: UInt, pszoid: Pcstr, dwflags: UInt, ppvfuncaddr: MutPtr, phfuncaddr: MutPtr): Bool =
     windowssysWindowsWin32SecurityCryptographyCryptGetOIDFunctionAddress(hfuncset.rawAddress.toCPointer<ByteVar>(), dwencodingtype, pszoid.rawAddress.toCPointer<ByteVar>(), dwflags, ppvfuncaddr.rawAddress.toCPointer<ByteVar>(), phfuncaddr.rawAddress.toCPointer<ByteVar>())
 
-public actual fun cryptGetOIDFunctionValue(dwencodingtype: UInt, pszfuncname: Pcstr, pszoid: Pcstr, pwszvaluename: Pcwstr, pdwvaluetype: MutPtr<UInt>, pbvaluedata: MutPtr<UByte>, pcbvaluedata: MutPtr<UInt>): Bool =
+public actual fun cryptGetOIDFunctionValue(dwencodingtype: UInt, pszfuncname: Pcstr, pszoid: Pcstr, pwszvaluename: Pcwstr, pdwvaluetype: MutPtr, pbvaluedata: MutPtr, pcbvaluedata: MutPtr): Bool =
     windowssysWindowsWin32SecurityCryptographyCryptGetOIDFunctionValue(dwencodingtype, pszfuncname.rawAddress.toCPointer<ByteVar>(), pszoid.rawAddress.toCPointer<ByteVar>(), pwszvaluename.rawAddress.toCPointer<ByteVar>(), pdwvaluetype.rawAddress.toCPointer<ByteVar>(), pbvaluedata.rawAddress.toCPointer<ByteVar>(), pcbvaluedata.rawAddress.toCPointer<ByteVar>())
 
-public actual fun cryptGetObjectUrl(pszurloid: Pcstr, pvpara: ConstPtr<CVoid>, dwflags: CryptGetUrlFlags, purlarray: MutPtr<CryptUrlArray>, pcburlarray: MutPtr<UInt>, purlinfo: MutPtr<CryptUrlInfo>, pcburlinfo: MutPtr<UInt>, pvreserved: ConstPtr<CVoid>): Bool =
+public actual fun cryptGetObjectUrl(pszurloid: Pcstr, pvpara: ConstPtr, dwflags: CryptGetUrlFlags, purlarray: MutPtr, pcburlarray: MutPtr, purlinfo: MutPtr, pcburlinfo: MutPtr, pvreserved: ConstPtr): Bool =
     windowssysWindowsWin32SecurityCryptographyCryptGetObjectUrl(pszurloid.rawAddress.toCPointer<ByteVar>(), pvpara.rawAddress.toCPointer<ByteVar>(), dwflags, purlarray.rawAddress.toCPointer<ByteVar>(), pcburlarray.rawAddress.toCPointer<ByteVar>(), purlinfo.rawAddress.toCPointer<ByteVar>(), pcburlinfo.rawAddress.toCPointer<ByteVar>(), pvreserved.rawAddress.toCPointer<ByteVar>())
 
-public actual fun cryptGetProvParam(hprov: ULong, dwparam: UInt, pbdata: MutPtr<UByte>, pdwdatalen: MutPtr<UInt>, dwflags: UInt): Bool =
+public actual fun cryptGetProvParam(hprov: ULong, dwparam: UInt, pbdata: MutPtr, pdwdatalen: MutPtr, dwflags: UInt): Bool =
     windowssysWindowsWin32SecurityCryptographyCryptGetProvParam(hprov, dwparam, pbdata.rawAddress.toCPointer<ByteVar>(), pdwdatalen.rawAddress.toCPointer<ByteVar>(), dwflags)
 
-public actual fun cryptGetUserKey(hprov: ULong, dwkeyspec: UInt, phuserkey: MutPtr<ULong>): Bool =
+public actual fun cryptGetUserKey(hprov: ULong, dwkeyspec: UInt, phuserkey: MutPtr): Bool =
     windowssysWindowsWin32SecurityCryptographyCryptGetUserKey(hprov, dwkeyspec, phuserkey.rawAddress.toCPointer<ByteVar>())
 
-public actual fun cryptHashCertificate(hcryptprov: HcryptprovLegacy, algid: AlgId, dwflags: UInt, pbencoded: ConstPtr<UByte>, cbencoded: UInt, pbcomputedhash: MutPtr<UByte>, pcbcomputedhash: MutPtr<UInt>): Bool =
+public actual fun cryptHashCertificate(hcryptprov: HcryptprovLegacy, algid: AlgId, dwflags: UInt, pbencoded: ConstPtr, cbencoded: UInt, pbcomputedhash: MutPtr, pcbcomputedhash: MutPtr): Bool =
     windowssysWindowsWin32SecurityCryptographyCryptHashCertificate(hcryptprov, algid, dwflags, pbencoded.rawAddress.toCPointer<ByteVar>(), cbencoded, pbcomputedhash.rawAddress.toCPointer<ByteVar>(), pcbcomputedhash.rawAddress.toCPointer<ByteVar>())
 
-public actual fun cryptHashCertificate2(pwszcnghashalgid: Pcwstr, dwflags: UInt, pvreserved: ConstPtr<CVoid>, pbencoded: ConstPtr<UByte>, cbencoded: UInt, pbcomputedhash: MutPtr<UByte>, pcbcomputedhash: MutPtr<UInt>): Bool =
+public actual fun cryptHashCertificate2(pwszcnghashalgid: Pcwstr, dwflags: UInt, pvreserved: ConstPtr, pbencoded: ConstPtr, cbencoded: UInt, pbcomputedhash: MutPtr, pcbcomputedhash: MutPtr): Bool =
     windowssysWindowsWin32SecurityCryptographyCryptHashCertificate2(pwszcnghashalgid.rawAddress.toCPointer<ByteVar>(), dwflags, pvreserved.rawAddress.toCPointer<ByteVar>(), pbencoded.rawAddress.toCPointer<ByteVar>(), cbencoded, pbcomputedhash.rawAddress.toCPointer<ByteVar>(), pcbcomputedhash.rawAddress.toCPointer<ByteVar>())
 
-public actual fun cryptHashData(hhash: ULong, pbdata: ConstPtr<UByte>, dwdatalen: UInt, dwflags: UInt): Bool =
+public actual fun cryptHashData(hhash: ULong, pbdata: ConstPtr, dwdatalen: UInt, dwflags: UInt): Bool =
     windowssysWindowsWin32SecurityCryptographyCryptHashData(hhash, pbdata.rawAddress.toCPointer<ByteVar>(), dwdatalen, dwflags)
 
-public actual fun cryptHashMessage(phashpara: ConstPtr<CryptHashMessagePara>, fdetachedhash: Bool, ctobehashed: UInt, rgpbtobehashed: ConstPtr<ConstPtr<UByte>>, rgcbtobehashed: ConstPtr<UInt>, pbhashedblob: MutPtr<UByte>, pcbhashedblob: MutPtr<UInt>, pbcomputedhash: MutPtr<UByte>, pcbcomputedhash: MutPtr<UInt>): Bool =
+public actual fun cryptHashMessage(phashpara: ConstPtr, fdetachedhash: Bool, ctobehashed: UInt, rgpbtobehashed: ConstPtr, rgcbtobehashed: ConstPtr, pbhashedblob: MutPtr, pcbhashedblob: MutPtr, pbcomputedhash: MutPtr, pcbcomputedhash: MutPtr): Bool =
     windowssysWindowsWin32SecurityCryptographyCryptHashMessage(phashpara.rawAddress.toCPointer<ByteVar>(), fdetachedhash, ctobehashed, rgpbtobehashed.rawAddress.toCPointer<ByteVar>(), rgcbtobehashed.rawAddress.toCPointer<ByteVar>(), pbhashedblob.rawAddress.toCPointer<ByteVar>(), pcbhashedblob.rawAddress.toCPointer<ByteVar>(), pbcomputedhash.rawAddress.toCPointer<ByteVar>(), pcbcomputedhash.rawAddress.toCPointer<ByteVar>())
 
-public actual fun cryptHashPublicKeyInfo(hcryptprov: HcryptprovLegacy, algid: AlgId, dwflags: UInt, dwcertencodingtype: CertQueryEncodingType, pinfo: ConstPtr<CertPublicKeyInfo>, pbcomputedhash: MutPtr<UByte>, pcbcomputedhash: MutPtr<UInt>): Bool =
+public actual fun cryptHashPublicKeyInfo(hcryptprov: HcryptprovLegacy, algid: AlgId, dwflags: UInt, dwcertencodingtype: CertQueryEncodingType, pinfo: ConstPtr, pbcomputedhash: MutPtr, pcbcomputedhash: MutPtr): Bool =
     windowssysWindowsWin32SecurityCryptographyCryptHashPublicKeyInfo(hcryptprov, algid, dwflags, dwcertencodingtype, pinfo.rawAddress.toCPointer<ByteVar>(), pbcomputedhash.rawAddress.toCPointer<ByteVar>(), pcbcomputedhash.rawAddress.toCPointer<ByteVar>())
 
 public actual fun cryptHashSessionKey(hhash: ULong, hkey: ULong, dwflags: UInt): Bool =
     windowssysWindowsWin32SecurityCryptographyCryptHashSessionKey(hhash, hkey, dwflags)
 
-public actual fun cryptHashToBeSigned(hcryptprov: HcryptprovLegacy, dwcertencodingtype: CertQueryEncodingType, pbencoded: ConstPtr<UByte>, cbencoded: UInt, pbcomputedhash: MutPtr<UByte>, pcbcomputedhash: MutPtr<UInt>): Bool =
+public actual fun cryptHashToBeSigned(hcryptprov: HcryptprovLegacy, dwcertencodingtype: CertQueryEncodingType, pbencoded: ConstPtr, cbencoded: UInt, pbcomputedhash: MutPtr, pcbcomputedhash: MutPtr): Bool =
     windowssysWindowsWin32SecurityCryptographyCryptHashToBeSigned(hcryptprov, dwcertencodingtype, pbencoded.rawAddress.toCPointer<ByteVar>(), cbencoded, pbcomputedhash.rawAddress.toCPointer<ByteVar>(), pcbcomputedhash.rawAddress.toCPointer<ByteVar>())
 
-public actual fun cryptImportKey(hprov: ULong, pbdata: ConstPtr<UByte>, dwdatalen: UInt, hpubkey: ULong, dwflags: CryptKeyFlags, phkey: MutPtr<ULong>): Bool =
+public actual fun cryptImportKey(hprov: ULong, pbdata: ConstPtr, dwdatalen: UInt, hpubkey: ULong, dwflags: CryptKeyFlags, phkey: MutPtr): Bool =
     windowssysWindowsWin32SecurityCryptographyCryptImportKey(hprov, pbdata.rawAddress.toCPointer<ByteVar>(), dwdatalen, hpubkey, dwflags, phkey.rawAddress.toCPointer<ByteVar>())
 
-public actual fun cryptImportPKCS8(sprivatekeyandparams: CryptPkcs8ImportParams, dwflags: CryptKeyFlags, phcryptprov: MutPtr<ULong>, pvauxinfo: ConstPtr<CVoid>): Bool =
+public actual fun cryptImportPKCS8(sprivatekeyandparams: CryptPkcs8ImportParams, dwflags: CryptKeyFlags, phcryptprov: MutPtr, pvauxinfo: ConstPtr): Bool =
     0
 
-public actual fun cryptImportPublicKeyInfo(hcryptprov: ULong, dwcertencodingtype: CertQueryEncodingType, pinfo: ConstPtr<CertPublicKeyInfo>, phkey: MutPtr<ULong>): Bool =
+public actual fun cryptImportPublicKeyInfo(hcryptprov: ULong, dwcertencodingtype: CertQueryEncodingType, pinfo: ConstPtr, phkey: MutPtr): Bool =
     windowssysWindowsWin32SecurityCryptographyCryptImportPublicKeyInfo(hcryptprov, dwcertencodingtype, pinfo.rawAddress.toCPointer<ByteVar>(), phkey.rawAddress.toCPointer<ByteVar>())
 
-public actual fun cryptImportPublicKeyInfoEx(hcryptprov: ULong, dwcertencodingtype: CertQueryEncodingType, pinfo: ConstPtr<CertPublicKeyInfo>, aikeyalg: AlgId, dwflags: UInt, pvauxinfo: ConstPtr<CVoid>, phkey: MutPtr<ULong>): Bool =
+public actual fun cryptImportPublicKeyInfoEx(hcryptprov: ULong, dwcertencodingtype: CertQueryEncodingType, pinfo: ConstPtr, aikeyalg: AlgId, dwflags: UInt, pvauxinfo: ConstPtr, phkey: MutPtr): Bool =
     windowssysWindowsWin32SecurityCryptographyCryptImportPublicKeyInfoEx(hcryptprov, dwcertencodingtype, pinfo.rawAddress.toCPointer<ByteVar>(), aikeyalg, dwflags, pvauxinfo.rawAddress.toCPointer<ByteVar>(), phkey.rawAddress.toCPointer<ByteVar>())
 
-public actual fun cryptImportPublicKeyInfoEx2(dwcertencodingtype: CertQueryEncodingType, pinfo: ConstPtr<CertPublicKeyInfo>, dwflags: CryptImportPublicKeyFlags, pvauxinfo: ConstPtr<CVoid>, phkey: MutPtr<BcryptKeyHandle>): Bool =
+public actual fun cryptImportPublicKeyInfoEx2(dwcertencodingtype: CertQueryEncodingType, pinfo: ConstPtr, dwflags: CryptImportPublicKeyFlags, pvauxinfo: ConstPtr, phkey: MutPtr): Bool =
     windowssysWindowsWin32SecurityCryptographyCryptImportPublicKeyInfoEx2(dwcertencodingtype, pinfo.rawAddress.toCPointer<ByteVar>(), dwflags, pvauxinfo.rawAddress.toCPointer<ByteVar>(), phkey.rawAddress.toCPointer<ByteVar>())
 
-public actual fun cryptInitOIDFunctionSet(pszfuncname: Pcstr, dwflags: UInt): MutPtr<CVoid> =
+public actual fun cryptInitOIDFunctionSet(pszfuncname: Pcstr, dwflags: UInt): MutPtr =
     MutPtr(windowssysWindowsWin32SecurityCryptographyCryptInitOIDFunctionSet(pszfuncname.rawAddress.toCPointer<ByteVar>(), dwflags)?.toLong() ?: 0L)
 
-public actual fun cryptInstallCancelRetrieval(pfncancel: PfnCryptCancelRetrieval, pvarg: ConstPtr<CVoid>, dwflags: UInt, pvreserved: ConstPtr<CVoid>): Bool =
+public actual fun cryptInstallCancelRetrieval(pfncancel: PfnCryptCancelRetrieval, pvarg: ConstPtr, dwflags: UInt, pvreserved: ConstPtr): Bool =
     windowssysWindowsWin32SecurityCryptographyCryptInstallCancelRetrieval(0L.toCPointer<ByteVar>(), pvarg.rawAddress.toCPointer<ByteVar>(), dwflags, pvreserved.rawAddress.toCPointer<ByteVar>())
 
-public actual fun cryptInstallDefaultContext(hcryptprov: ULong, dwdefaulttype: CryptDefaultContextType, pvdefaultpara: ConstPtr<CVoid>, dwflags: CryptDefaultContextFlags, pvreserved: ConstPtr<CVoid>, phdefaultcontext: MutPtr<MutPtr<CVoid>>): Bool =
+public actual fun cryptInstallDefaultContext(hcryptprov: ULong, dwdefaulttype: CryptDefaultContextType, pvdefaultpara: ConstPtr, dwflags: CryptDefaultContextFlags, pvreserved: ConstPtr, phdefaultcontext: MutPtr): Bool =
     windowssysWindowsWin32SecurityCryptographyCryptInstallDefaultContext(hcryptprov, dwdefaulttype, pvdefaultpara.rawAddress.toCPointer<ByteVar>(), dwflags, pvreserved.rawAddress.toCPointer<ByteVar>(), phdefaultcontext.rawAddress.toCPointer<ByteVar>())
 
-public actual fun cryptInstallOIDFunctionAddress(hmodule: Hmodule, dwencodingtype: UInt, pszfuncname: Pcstr, cfuncentry: UInt, rgfuncentry: ConstPtr<CryptOidFuncEntry>, dwflags: UInt): Bool =
+public actual fun cryptInstallOIDFunctionAddress(hmodule: Hmodule, dwencodingtype: UInt, pszfuncname: Pcstr, cfuncentry: UInt, rgfuncentry: ConstPtr, dwflags: UInt): Bool =
     windowssysWindowsWin32SecurityCryptographyCryptInstallOIDFunctionAddress(hmodule.rawAddress.toCPointer<ByteVar>(), dwencodingtype, pszfuncname.rawAddress.toCPointer<ByteVar>(), cfuncentry, rgfuncentry.rawAddress.toCPointer<ByteVar>(), dwflags)
 
-public actual fun cryptMemAlloc(cbsize: UInt): MutPtr<CVoid> =
+public actual fun cryptMemAlloc(cbsize: UInt): MutPtr =
     MutPtr(windowssysWindowsWin32SecurityCryptographyCryptMemAlloc(cbsize)?.toLong() ?: 0L)
 
-public actual fun cryptMemFree(pv: ConstPtr<CVoid>) {
+public actual fun cryptMemFree(pv: ConstPtr) {
     windowssysWindowsWin32SecurityCryptographyCryptMemFree(pv.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun cryptMemRealloc(pv: ConstPtr<CVoid>, cbsize: UInt): MutPtr<CVoid> =
+public actual fun cryptMemRealloc(pv: ConstPtr, cbsize: UInt): MutPtr =
     MutPtr(windowssysWindowsWin32SecurityCryptographyCryptMemRealloc(pv.rawAddress.toCPointer<ByteVar>(), cbsize)?.toLong() ?: 0L)
 
-public actual fun cryptMsgCalculateEncodedLength(dwmsgencodingtype: UInt, dwflags: UInt, dwmsgtype: UInt, pvmsgencodeinfo: ConstPtr<CVoid>, pszinnercontentobjid: Pcstr, cbdata: UInt): UInt =
+public actual fun cryptMsgCalculateEncodedLength(dwmsgencodingtype: UInt, dwflags: UInt, dwmsgtype: UInt, pvmsgencodeinfo: ConstPtr, pszinnercontentobjid: Pcstr, cbdata: UInt): UInt =
     windowssysWindowsWin32SecurityCryptographyCryptMsgCalculateEncodedLength(dwmsgencodingtype, dwflags, dwmsgtype, pvmsgencodeinfo.rawAddress.toCPointer<ByteVar>(), pszinnercontentobjid.rawAddress.toCPointer<ByteVar>(), cbdata)
 
-public actual fun cryptMsgClose(hcryptmsg: ConstPtr<CVoid>): Bool =
+public actual fun cryptMsgClose(hcryptmsg: ConstPtr): Bool =
     windowssysWindowsWin32SecurityCryptographyCryptMsgClose(hcryptmsg.rawAddress.toCPointer<ByteVar>())
 
-public actual fun cryptMsgControl(hcryptmsg: ConstPtr<CVoid>, dwflags: UInt, dwctrltype: UInt, pvctrlpara: ConstPtr<CVoid>): Bool =
+public actual fun cryptMsgControl(hcryptmsg: ConstPtr, dwflags: UInt, dwctrltype: UInt, pvctrlpara: ConstPtr): Bool =
     windowssysWindowsWin32SecurityCryptographyCryptMsgControl(hcryptmsg.rawAddress.toCPointer<ByteVar>(), dwflags, dwctrltype, pvctrlpara.rawAddress.toCPointer<ByteVar>())
 
-public actual fun cryptMsgCountersign(hcryptmsg: ConstPtr<CVoid>, dwindex: UInt, ccountersigners: UInt, rgcountersigners: ConstPtr<CmsgSignerEncodeInfo>): Bool =
+public actual fun cryptMsgCountersign(hcryptmsg: ConstPtr, dwindex: UInt, ccountersigners: UInt, rgcountersigners: ConstPtr): Bool =
     windowssysWindowsWin32SecurityCryptographyCryptMsgCountersign(hcryptmsg.rawAddress.toCPointer<ByteVar>(), dwindex, ccountersigners, rgcountersigners.rawAddress.toCPointer<ByteVar>())
 
-public actual fun cryptMsgCountersignEncoded(dwencodingtype: UInt, pbsignerinfo: ConstPtr<UByte>, cbsignerinfo: UInt, ccountersigners: UInt, rgcountersigners: ConstPtr<CmsgSignerEncodeInfo>, pbcountersignature: MutPtr<UByte>, pcbcountersignature: MutPtr<UInt>): Bool =
+public actual fun cryptMsgCountersignEncoded(dwencodingtype: UInt, pbsignerinfo: ConstPtr, cbsignerinfo: UInt, ccountersigners: UInt, rgcountersigners: ConstPtr, pbcountersignature: MutPtr, pcbcountersignature: MutPtr): Bool =
     windowssysWindowsWin32SecurityCryptographyCryptMsgCountersignEncoded(dwencodingtype, pbsignerinfo.rawAddress.toCPointer<ByteVar>(), cbsignerinfo, ccountersigners, rgcountersigners.rawAddress.toCPointer<ByteVar>(), pbcountersignature.rawAddress.toCPointer<ByteVar>(), pcbcountersignature.rawAddress.toCPointer<ByteVar>())
 
-public actual fun cryptMsgDuplicate(hcryptmsg: ConstPtr<CVoid>): MutPtr<CVoid> =
+public actual fun cryptMsgDuplicate(hcryptmsg: ConstPtr): MutPtr =
     MutPtr(windowssysWindowsWin32SecurityCryptographyCryptMsgDuplicate(hcryptmsg.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun cryptMsgEncodeAndSignCTL(dwmsgencodingtype: UInt, pctlinfo: ConstPtr<CtlInfo>, psigninfo: ConstPtr<CmsgSignedEncodeInfo>, dwflags: UInt, pbencoded: MutPtr<UByte>, pcbencoded: MutPtr<UInt>): Bool =
+public actual fun cryptMsgEncodeAndSignCTL(dwmsgencodingtype: UInt, pctlinfo: ConstPtr, psigninfo: ConstPtr, dwflags: UInt, pbencoded: MutPtr, pcbencoded: MutPtr): Bool =
     windowssysWindowsWin32SecurityCryptographyCryptMsgEncodeAndSignCTL(dwmsgencodingtype, pctlinfo.rawAddress.toCPointer<ByteVar>(), psigninfo.rawAddress.toCPointer<ByteVar>(), dwflags, pbencoded.rawAddress.toCPointer<ByteVar>(), pcbencoded.rawAddress.toCPointer<ByteVar>())
 
-public actual fun cryptMsgGetAndVerifySigner(hcryptmsg: ConstPtr<CVoid>, csignerstore: UInt, rghsignerstore: ConstPtr<Hcertstore>, dwflags: UInt, ppsigner: MutPtr<MutPtr<CertContext>>, pdwsignerindex: MutPtr<UInt>): Bool =
+public actual fun cryptMsgGetAndVerifySigner(hcryptmsg: ConstPtr, csignerstore: UInt, rghsignerstore: ConstPtr, dwflags: UInt, ppsigner: MutPtr, pdwsignerindex: MutPtr): Bool =
     windowssysWindowsWin32SecurityCryptographyCryptMsgGetAndVerifySigner(hcryptmsg.rawAddress.toCPointer<ByteVar>(), csignerstore, rghsignerstore.rawAddress.toCPointer<ByteVar>(), dwflags, ppsigner.rawAddress.toCPointer<ByteVar>(), pdwsignerindex.rawAddress.toCPointer<ByteVar>())
 
-public actual fun cryptMsgGetParam(hcryptmsg: ConstPtr<CVoid>, dwparamtype: UInt, dwindex: UInt, pvdata: MutPtr<CVoid>, pcbdata: MutPtr<UInt>): Bool =
+public actual fun cryptMsgGetParam(hcryptmsg: ConstPtr, dwparamtype: UInt, dwindex: UInt, pvdata: MutPtr, pcbdata: MutPtr): Bool =
     windowssysWindowsWin32SecurityCryptographyCryptMsgGetParam(hcryptmsg.rawAddress.toCPointer<ByteVar>(), dwparamtype, dwindex, pvdata.rawAddress.toCPointer<ByteVar>(), pcbdata.rawAddress.toCPointer<ByteVar>())
 
-public actual fun cryptMsgOpenToDecode(dwmsgencodingtype: UInt, dwflags: UInt, dwmsgtype: UInt, hcryptprov: HcryptprovLegacy, precipientinfo: ConstPtr<CertInfo>, pstreaminfo: ConstPtr<CmsgStreamInfo>): MutPtr<CVoid> =
+public actual fun cryptMsgOpenToDecode(dwmsgencodingtype: UInt, dwflags: UInt, dwmsgtype: UInt, hcryptprov: HcryptprovLegacy, precipientinfo: ConstPtr, pstreaminfo: ConstPtr): MutPtr =
     MutPtr(windowssysWindowsWin32SecurityCryptographyCryptMsgOpenToDecode(dwmsgencodingtype, dwflags, dwmsgtype, hcryptprov, precipientinfo.rawAddress.toCPointer<ByteVar>(), pstreaminfo.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun cryptMsgOpenToEncode(dwmsgencodingtype: UInt, dwflags: UInt, dwmsgtype: CryptMsgType, pvmsgencodeinfo: ConstPtr<CVoid>, pszinnercontentobjid: Pcstr, pstreaminfo: ConstPtr<CmsgStreamInfo>): MutPtr<CVoid> =
+public actual fun cryptMsgOpenToEncode(dwmsgencodingtype: UInt, dwflags: UInt, dwmsgtype: CryptMsgType, pvmsgencodeinfo: ConstPtr, pszinnercontentobjid: Pcstr, pstreaminfo: ConstPtr): MutPtr =
     MutPtr(windowssysWindowsWin32SecurityCryptographyCryptMsgOpenToEncode(dwmsgencodingtype, dwflags, dwmsgtype, pvmsgencodeinfo.rawAddress.toCPointer<ByteVar>(), pszinnercontentobjid.rawAddress.toCPointer<ByteVar>(), pstreaminfo.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun cryptMsgSignCTL(dwmsgencodingtype: UInt, pbctlcontent: ConstPtr<UByte>, cbctlcontent: UInt, psigninfo: ConstPtr<CmsgSignedEncodeInfo>, dwflags: UInt, pbencoded: MutPtr<UByte>, pcbencoded: MutPtr<UInt>): Bool =
+public actual fun cryptMsgSignCTL(dwmsgencodingtype: UInt, pbctlcontent: ConstPtr, cbctlcontent: UInt, psigninfo: ConstPtr, dwflags: UInt, pbencoded: MutPtr, pcbencoded: MutPtr): Bool =
     windowssysWindowsWin32SecurityCryptographyCryptMsgSignCTL(dwmsgencodingtype, pbctlcontent.rawAddress.toCPointer<ByteVar>(), cbctlcontent, psigninfo.rawAddress.toCPointer<ByteVar>(), dwflags, pbencoded.rawAddress.toCPointer<ByteVar>(), pcbencoded.rawAddress.toCPointer<ByteVar>())
 
-public actual fun cryptMsgUpdate(hcryptmsg: ConstPtr<CVoid>, pbdata: ConstPtr<UByte>, cbdata: UInt, ffinal: Bool): Bool =
+public actual fun cryptMsgUpdate(hcryptmsg: ConstPtr, pbdata: ConstPtr, cbdata: UInt, ffinal: Bool): Bool =
     windowssysWindowsWin32SecurityCryptographyCryptMsgUpdate(hcryptmsg.rawAddress.toCPointer<ByteVar>(), pbdata.rawAddress.toCPointer<ByteVar>(), cbdata, ffinal)
 
-public actual fun cryptMsgVerifyCountersignatureEncoded(hcryptprov: HcryptprovLegacy, dwencodingtype: UInt, pbsignerinfo: ConstPtr<UByte>, cbsignerinfo: UInt, pbsignerinfocountersignature: ConstPtr<UByte>, cbsignerinfocountersignature: UInt, pcicountersigner: ConstPtr<CertInfo>): Bool =
+public actual fun cryptMsgVerifyCountersignatureEncoded(hcryptprov: HcryptprovLegacy, dwencodingtype: UInt, pbsignerinfo: ConstPtr, cbsignerinfo: UInt, pbsignerinfocountersignature: ConstPtr, cbsignerinfocountersignature: UInt, pcicountersigner: ConstPtr): Bool =
     windowssysWindowsWin32SecurityCryptographyCryptMsgVerifyCountersignatureEncoded(hcryptprov, dwencodingtype, pbsignerinfo.rawAddress.toCPointer<ByteVar>(), cbsignerinfo, pbsignerinfocountersignature.rawAddress.toCPointer<ByteVar>(), cbsignerinfocountersignature, pcicountersigner.rawAddress.toCPointer<ByteVar>())
 
-public actual fun cryptMsgVerifyCountersignatureEncodedEx(hcryptprov: HcryptprovLegacy, dwencodingtype: UInt, pbsignerinfo: ConstPtr<UByte>, cbsignerinfo: UInt, pbsignerinfocountersignature: ConstPtr<UByte>, cbsignerinfocountersignature: UInt, dwsignertype: UInt, pvsigner: ConstPtr<CVoid>, dwflags: UInt, pvextra: MutPtr<CVoid>): Bool =
+public actual fun cryptMsgVerifyCountersignatureEncodedEx(hcryptprov: HcryptprovLegacy, dwencodingtype: UInt, pbsignerinfo: ConstPtr, cbsignerinfo: UInt, pbsignerinfocountersignature: ConstPtr, cbsignerinfocountersignature: UInt, dwsignertype: UInt, pvsigner: ConstPtr, dwflags: UInt, pvextra: MutPtr): Bool =
     windowssysWindowsWin32SecurityCryptographyCryptMsgVerifyCountersignatureEncodedEx(hcryptprov, dwencodingtype, pbsignerinfo.rawAddress.toCPointer<ByteVar>(), cbsignerinfo, pbsignerinfocountersignature.rawAddress.toCPointer<ByteVar>(), cbsignerinfocountersignature, dwsignertype, pvsigner.rawAddress.toCPointer<ByteVar>(), dwflags, pvextra.rawAddress.toCPointer<ByteVar>())
 
-public actual fun cryptProtectData(pdatain: ConstPtr<CryptIntegerBlob>, szdatadescr: Pcwstr, poptionalentropy: ConstPtr<CryptIntegerBlob>, pvreserved: ConstPtr<CVoid>, ppromptstruct: ConstPtr<CryptprotectPromptstruct>, dwflags: UInt, pdataout: MutPtr<CryptIntegerBlob>): Bool =
+public actual fun cryptProtectData(pdatain: ConstPtr, szdatadescr: Pcwstr, poptionalentropy: ConstPtr, pvreserved: ConstPtr, ppromptstruct: ConstPtr, dwflags: UInt, pdataout: MutPtr): Bool =
     windowssysWindowsWin32SecurityCryptographyCryptProtectData(pdatain.rawAddress.toCPointer<ByteVar>(), szdatadescr.rawAddress.toCPointer<ByteVar>(), poptionalentropy.rawAddress.toCPointer<ByteVar>(), pvreserved.rawAddress.toCPointer<ByteVar>(), ppromptstruct.rawAddress.toCPointer<ByteVar>(), dwflags, pdataout.rawAddress.toCPointer<ByteVar>())
 
-public actual fun cryptProtectMemory(pdatain: MutPtr<CVoid>, cbdatain: UInt, dwflags: UInt): Bool =
+public actual fun cryptProtectMemory(pdatain: MutPtr, cbdatain: UInt, dwflags: UInt): Bool =
     windowssysWindowsWin32SecurityCryptographyCryptProtectMemory(pdatain.rawAddress.toCPointer<ByteVar>(), cbdatain, dwflags)
 
-public actual fun cryptQueryObject(dwobjecttype: CertQueryObjectType, pvobject: ConstPtr<CVoid>, dwexpectedcontenttypeflags: CertQueryContentTypeFlags, dwexpectedformattypeflags: CertQueryFormatTypeFlags, dwflags: UInt, pdwmsgandcertencodingtype: MutPtr<CertQueryEncodingType>, pdwcontenttype: MutPtr<CertQueryContentType>, pdwformattype: MutPtr<CertQueryFormatType>, phcertstore: MutPtr<Hcertstore>, phmsg: MutPtr<MutPtr<CVoid>>, ppvcontext: MutPtr<MutPtr<CVoid>>): Bool =
+public actual fun cryptQueryObject(dwobjecttype: CertQueryObjectType, pvobject: ConstPtr, dwexpectedcontenttypeflags: CertQueryContentTypeFlags, dwexpectedformattypeflags: CertQueryFormatTypeFlags, dwflags: UInt, pdwmsgandcertencodingtype: MutPtr, pdwcontenttype: MutPtr, pdwformattype: MutPtr, phcertstore: MutPtr, phmsg: MutPtr, ppvcontext: MutPtr): Bool =
     windowssysWindowsWin32SecurityCryptographyCryptQueryObject(dwobjecttype, pvobject.rawAddress.toCPointer<ByteVar>(), dwexpectedcontenttypeflags, dwexpectedformattypeflags, dwflags, pdwmsgandcertencodingtype.rawAddress.toCPointer<ByteVar>(), pdwcontenttype.rawAddress.toCPointer<ByteVar>(), pdwformattype.rawAddress.toCPointer<ByteVar>(), phcertstore.rawAddress.toCPointer<ByteVar>(), phmsg.rawAddress.toCPointer<ByteVar>(), ppvcontext.rawAddress.toCPointer<ByteVar>())
 
 public actual fun cryptRegisterDefaultOIDFunction(dwencodingtype: UInt, pszfuncname: Pcstr, dwindex: UInt, pwszdll: Pcwstr): Bool =
@@ -1339,88 +1335,88 @@ public actual fun cryptRegisterDefaultOIDFunction(dwencodingtype: UInt, pszfuncn
 public actual fun cryptRegisterOIDFunction(dwencodingtype: UInt, pszfuncname: Pcstr, pszoid: Pcstr, pwszdll: Pcwstr, pszoverridefuncname: Pcstr): Bool =
     windowssysWindowsWin32SecurityCryptographyCryptRegisterOIDFunction(dwencodingtype, pszfuncname.rawAddress.toCPointer<ByteVar>(), pszoid.rawAddress.toCPointer<ByteVar>(), pwszdll.rawAddress.toCPointer<ByteVar>(), pszoverridefuncname.rawAddress.toCPointer<ByteVar>())
 
-public actual fun cryptRegisterOIDInfo(pinfo: ConstPtr<CryptOidInfo>, dwflags: UInt): Bool =
+public actual fun cryptRegisterOIDInfo(pinfo: ConstPtr, dwflags: UInt): Bool =
     windowssysWindowsWin32SecurityCryptographyCryptRegisterOIDInfo(pinfo.rawAddress.toCPointer<ByteVar>(), dwflags)
 
 public actual fun cryptReleaseContext(hprov: ULong, dwflags: UInt): Bool =
     windowssysWindowsWin32SecurityCryptographyCryptReleaseContext(hprov, dwflags)
 
-public actual fun cryptRetrieveObjectByUrlA(pszurl: Pcstr, pszobjectoid: Pcstr, dwretrievalflags: UInt, dwtimeout: UInt, ppvobject: MutPtr<MutPtr<CVoid>>, hasyncretrieve: Hcryptasync, pcredentials: ConstPtr<CryptCredentials>, pvverify: ConstPtr<CVoid>, pauxinfo: MutPtr<CryptRetrieveAuxInfo>): Bool =
+public actual fun cryptRetrieveObjectByUrlA(pszurl: Pcstr, pszobjectoid: Pcstr, dwretrievalflags: UInt, dwtimeout: UInt, ppvobject: MutPtr, hasyncretrieve: Hcryptasync, pcredentials: ConstPtr, pvverify: ConstPtr, pauxinfo: MutPtr): Bool =
     windowssysWindowsWin32SecurityCryptographyCryptRetrieveObjectByUrlA(pszurl.rawAddress.toCPointer<ByteVar>(), pszobjectoid.rawAddress.toCPointer<ByteVar>(), dwretrievalflags, dwtimeout, ppvobject.rawAddress.toCPointer<ByteVar>(), hasyncretrieve, pcredentials.rawAddress.toCPointer<ByteVar>(), pvverify.rawAddress.toCPointer<ByteVar>(), pauxinfo.rawAddress.toCPointer<ByteVar>())
 
-public actual fun cryptRetrieveObjectByUrlW(pszurl: Pcwstr, pszobjectoid: Pcstr, dwretrievalflags: UInt, dwtimeout: UInt, ppvobject: MutPtr<MutPtr<CVoid>>, hasyncretrieve: Hcryptasync, pcredentials: ConstPtr<CryptCredentials>, pvverify: ConstPtr<CVoid>, pauxinfo: MutPtr<CryptRetrieveAuxInfo>): Bool =
+public actual fun cryptRetrieveObjectByUrlW(pszurl: Pcwstr, pszobjectoid: Pcstr, dwretrievalflags: UInt, dwtimeout: UInt, ppvobject: MutPtr, hasyncretrieve: Hcryptasync, pcredentials: ConstPtr, pvverify: ConstPtr, pauxinfo: MutPtr): Bool =
     windowssysWindowsWin32SecurityCryptographyCryptRetrieveObjectByUrlW(pszurl.rawAddress.toCPointer<ByteVar>(), pszobjectoid.rawAddress.toCPointer<ByteVar>(), dwretrievalflags, dwtimeout, ppvobject.rawAddress.toCPointer<ByteVar>(), hasyncretrieve, pcredentials.rawAddress.toCPointer<ByteVar>(), pvverify.rawAddress.toCPointer<ByteVar>(), pauxinfo.rawAddress.toCPointer<ByteVar>())
 
-public actual fun cryptRetrieveTimeStamp(wszurl: Pcwstr, dwretrievalflags: UInt, dwtimeout: UInt, pszhashid: Pcstr, ppara: ConstPtr<CryptTimestampPara>, pbdata: ConstPtr<UByte>, cbdata: UInt, pptscontext: MutPtr<MutPtr<CryptTimestampContext>>, pptssigner: MutPtr<MutPtr<CertContext>>, phstore: MutPtr<Hcertstore>): Bool =
+public actual fun cryptRetrieveTimeStamp(wszurl: Pcwstr, dwretrievalflags: UInt, dwtimeout: UInt, pszhashid: Pcstr, ppara: ConstPtr, pbdata: ConstPtr, cbdata: UInt, pptscontext: MutPtr, pptssigner: MutPtr, phstore: MutPtr): Bool =
     windowssysWindowsWin32SecurityCryptographyCryptRetrieveTimeStamp(wszurl.rawAddress.toCPointer<ByteVar>(), dwretrievalflags, dwtimeout, pszhashid.rawAddress.toCPointer<ByteVar>(), ppara.rawAddress.toCPointer<ByteVar>(), pbdata.rawAddress.toCPointer<ByteVar>(), cbdata, pptscontext.rawAddress.toCPointer<ByteVar>(), pptssigner.rawAddress.toCPointer<ByteVar>(), phstore.rawAddress.toCPointer<ByteVar>())
 
-public actual fun cryptSetAsyncParam(hasync: Hcryptasync, pszparamoid: Pcstr, pvparam: ConstPtr<CVoid>, pfnfree: PfnCryptAsyncParamFreeFunc): Bool =
+public actual fun cryptSetAsyncParam(hasync: Hcryptasync, pszparamoid: Pcstr, pvparam: ConstPtr, pfnfree: PfnCryptAsyncParamFreeFunc): Bool =
     windowssysWindowsWin32SecurityCryptographyCryptSetAsyncParam(hasync, pszparamoid.rawAddress.toCPointer<ByteVar>(), pvparam.rawAddress.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>())
 
-public actual fun cryptSetHashParam(hhash: ULong, dwparam: CryptSetHashParam, pbdata: ConstPtr<UByte>, dwflags: UInt): Bool =
+public actual fun cryptSetHashParam(hhash: ULong, dwparam: CryptSetHashParam, pbdata: ConstPtr, dwflags: UInt): Bool =
     windowssysWindowsWin32SecurityCryptographyCryptSetHashParam(hhash, dwparam, pbdata.rawAddress.toCPointer<ByteVar>(), dwflags)
 
-public actual fun cryptSetKeyIdentifierProperty(pkeyidentifier: ConstPtr<CryptIntegerBlob>, dwpropid: UInt, dwflags: UInt, pwszcomputername: Pcwstr, pvreserved: ConstPtr<CVoid>, pvdata: ConstPtr<CVoid>): Bool =
+public actual fun cryptSetKeyIdentifierProperty(pkeyidentifier: ConstPtr, dwpropid: UInt, dwflags: UInt, pwszcomputername: Pcwstr, pvreserved: ConstPtr, pvdata: ConstPtr): Bool =
     windowssysWindowsWin32SecurityCryptographyCryptSetKeyIdentifierProperty(pkeyidentifier.rawAddress.toCPointer<ByteVar>(), dwpropid, dwflags, pwszcomputername.rawAddress.toCPointer<ByteVar>(), pvreserved.rawAddress.toCPointer<ByteVar>(), pvdata.rawAddress.toCPointer<ByteVar>())
 
-public actual fun cryptSetKeyParam(hkey: ULong, dwparam: CryptKeyParamId, pbdata: ConstPtr<UByte>, dwflags: UInt): Bool =
+public actual fun cryptSetKeyParam(hkey: ULong, dwparam: CryptKeyParamId, pbdata: ConstPtr, dwflags: UInt): Bool =
     windowssysWindowsWin32SecurityCryptographyCryptSetKeyParam(hkey, dwparam, pbdata.rawAddress.toCPointer<ByteVar>(), dwflags)
 
-public actual fun cryptSetOIDFunctionValue(dwencodingtype: UInt, pszfuncname: Pcstr, pszoid: Pcstr, pwszvaluename: Pcwstr, dwvaluetype: RegValueType, pbvaluedata: ConstPtr<UByte>, cbvaluedata: UInt): Bool =
+public actual fun cryptSetOIDFunctionValue(dwencodingtype: UInt, pszfuncname: Pcstr, pszoid: Pcstr, pwszvaluename: Pcwstr, dwvaluetype: RegValueType, pbvaluedata: ConstPtr, cbvaluedata: UInt): Bool =
     windowssysWindowsWin32SecurityCryptographyCryptSetOIDFunctionValue(dwencodingtype, pszfuncname.rawAddress.toCPointer<ByteVar>(), pszoid.rawAddress.toCPointer<ByteVar>(), pwszvaluename.rawAddress.toCPointer<ByteVar>(), dwvaluetype, pbvaluedata.rawAddress.toCPointer<ByteVar>(), cbvaluedata)
 
-public actual fun cryptSetProvParam(hprov: ULong, dwparam: CryptSetProvParamId, pbdata: ConstPtr<UByte>, dwflags: UInt): Bool =
+public actual fun cryptSetProvParam(hprov: ULong, dwparam: CryptSetProvParamId, pbdata: ConstPtr, dwflags: UInt): Bool =
     windowssysWindowsWin32SecurityCryptographyCryptSetProvParam(hprov, dwparam, pbdata.rawAddress.toCPointer<ByteVar>(), dwflags)
 
 public actual fun cryptSetProviderA(pszprovname: Pcstr, dwprovtype: UInt): Bool =
     windowssysWindowsWin32SecurityCryptographyCryptSetProviderA(pszprovname.rawAddress.toCPointer<ByteVar>(), dwprovtype)
 
-public actual fun cryptSetProviderExA(pszprovname: Pcstr, dwprovtype: UInt, pdwreserved: ConstPtr<UInt>, dwflags: UInt): Bool =
+public actual fun cryptSetProviderExA(pszprovname: Pcstr, dwprovtype: UInt, pdwreserved: ConstPtr, dwflags: UInt): Bool =
     windowssysWindowsWin32SecurityCryptographyCryptSetProviderExA(pszprovname.rawAddress.toCPointer<ByteVar>(), dwprovtype, pdwreserved.rawAddress.toCPointer<ByteVar>(), dwflags)
 
-public actual fun cryptSetProviderExW(pszprovname: Pcwstr, dwprovtype: UInt, pdwreserved: ConstPtr<UInt>, dwflags: UInt): Bool =
+public actual fun cryptSetProviderExW(pszprovname: Pcwstr, dwprovtype: UInt, pdwreserved: ConstPtr, dwflags: UInt): Bool =
     windowssysWindowsWin32SecurityCryptographyCryptSetProviderExW(pszprovname.rawAddress.toCPointer<ByteVar>(), dwprovtype, pdwreserved.rawAddress.toCPointer<ByteVar>(), dwflags)
 
 public actual fun cryptSetProviderW(pszprovname: Pcwstr, dwprovtype: UInt): Bool =
     windowssysWindowsWin32SecurityCryptographyCryptSetProviderW(pszprovname.rawAddress.toCPointer<ByteVar>(), dwprovtype)
 
-public actual fun cryptSignAndEncodeCertificate(hcryptprovorncryptkey: HcryptprovOrNcryptKeyHandle, dwkeyspec: CertKeySpec, dwcertencodingtype: CertQueryEncodingType, lpszstructtype: Pcstr, pvstructinfo: ConstPtr<CVoid>, psignaturealgorithm: ConstPtr<CryptAlgorithmIdentifier>, pvhashauxinfo: ConstPtr<CVoid>, pbencoded: MutPtr<UByte>, pcbencoded: MutPtr<UInt>): Bool =
+public actual fun cryptSignAndEncodeCertificate(hcryptprovorncryptkey: HcryptprovOrNcryptKeyHandle, dwkeyspec: CertKeySpec, dwcertencodingtype: CertQueryEncodingType, lpszstructtype: Pcstr, pvstructinfo: ConstPtr, psignaturealgorithm: ConstPtr, pvhashauxinfo: ConstPtr, pbencoded: MutPtr, pcbencoded: MutPtr): Bool =
     windowssysWindowsWin32SecurityCryptographyCryptSignAndEncodeCertificate(hcryptprovorncryptkey, dwkeyspec, dwcertencodingtype, lpszstructtype.rawAddress.toCPointer<ByteVar>(), pvstructinfo.rawAddress.toCPointer<ByteVar>(), psignaturealgorithm.rawAddress.toCPointer<ByteVar>(), pvhashauxinfo.rawAddress.toCPointer<ByteVar>(), pbencoded.rawAddress.toCPointer<ByteVar>(), pcbencoded.rawAddress.toCPointer<ByteVar>())
 
-public actual fun cryptSignAndEncryptMessage(psignpara: ConstPtr<CryptSignMessagePara>, pencryptpara: ConstPtr<CryptEncryptMessagePara>, crecipientcert: UInt, rgprecipientcert: ConstPtr<ConstPtr<CertContext>>, pbtobesignedandencrypted: ConstPtr<UByte>, cbtobesignedandencrypted: UInt, pbsignedandencryptedblob: MutPtr<UByte>, pcbsignedandencryptedblob: MutPtr<UInt>): Bool =
+public actual fun cryptSignAndEncryptMessage(psignpara: ConstPtr, pencryptpara: ConstPtr, crecipientcert: UInt, rgprecipientcert: ConstPtr, pbtobesignedandencrypted: ConstPtr, cbtobesignedandencrypted: UInt, pbsignedandencryptedblob: MutPtr, pcbsignedandencryptedblob: MutPtr): Bool =
     windowssysWindowsWin32SecurityCryptographyCryptSignAndEncryptMessage(psignpara.rawAddress.toCPointer<ByteVar>(), pencryptpara.rawAddress.toCPointer<ByteVar>(), crecipientcert, rgprecipientcert.rawAddress.toCPointer<ByteVar>(), pbtobesignedandencrypted.rawAddress.toCPointer<ByteVar>(), cbtobesignedandencrypted, pbsignedandencryptedblob.rawAddress.toCPointer<ByteVar>(), pcbsignedandencryptedblob.rawAddress.toCPointer<ByteVar>())
 
-public actual fun cryptSignCertificate(hcryptprovorncryptkey: HcryptprovOrNcryptKeyHandle, dwkeyspec: UInt, dwcertencodingtype: CertQueryEncodingType, pbencodedtobesigned: ConstPtr<UByte>, cbencodedtobesigned: UInt, psignaturealgorithm: ConstPtr<CryptAlgorithmIdentifier>, pvhashauxinfo: ConstPtr<CVoid>, pbsignature: MutPtr<UByte>, pcbsignature: MutPtr<UInt>): Bool =
+public actual fun cryptSignCertificate(hcryptprovorncryptkey: HcryptprovOrNcryptKeyHandle, dwkeyspec: UInt, dwcertencodingtype: CertQueryEncodingType, pbencodedtobesigned: ConstPtr, cbencodedtobesigned: UInt, psignaturealgorithm: ConstPtr, pvhashauxinfo: ConstPtr, pbsignature: MutPtr, pcbsignature: MutPtr): Bool =
     windowssysWindowsWin32SecurityCryptographyCryptSignCertificate(hcryptprovorncryptkey, dwkeyspec, dwcertencodingtype, pbencodedtobesigned.rawAddress.toCPointer<ByteVar>(), cbencodedtobesigned, psignaturealgorithm.rawAddress.toCPointer<ByteVar>(), pvhashauxinfo.rawAddress.toCPointer<ByteVar>(), pbsignature.rawAddress.toCPointer<ByteVar>(), pcbsignature.rawAddress.toCPointer<ByteVar>())
 
-public actual fun cryptSignHashA(hhash: ULong, dwkeyspec: UInt, szdescription: Pcstr, dwflags: UInt, pbsignature: MutPtr<UByte>, pdwsiglen: MutPtr<UInt>): Bool =
+public actual fun cryptSignHashA(hhash: ULong, dwkeyspec: UInt, szdescription: Pcstr, dwflags: UInt, pbsignature: MutPtr, pdwsiglen: MutPtr): Bool =
     windowssysWindowsWin32SecurityCryptographyCryptSignHashA(hhash, dwkeyspec, szdescription.rawAddress.toCPointer<ByteVar>(), dwflags, pbsignature.rawAddress.toCPointer<ByteVar>(), pdwsiglen.rawAddress.toCPointer<ByteVar>())
 
-public actual fun cryptSignHashW(hhash: ULong, dwkeyspec: UInt, szdescription: Pcwstr, dwflags: UInt, pbsignature: MutPtr<UByte>, pdwsiglen: MutPtr<UInt>): Bool =
+public actual fun cryptSignHashW(hhash: ULong, dwkeyspec: UInt, szdescription: Pcwstr, dwflags: UInt, pbsignature: MutPtr, pdwsiglen: MutPtr): Bool =
     windowssysWindowsWin32SecurityCryptographyCryptSignHashW(hhash, dwkeyspec, szdescription.rawAddress.toCPointer<ByteVar>(), dwflags, pbsignature.rawAddress.toCPointer<ByteVar>(), pdwsiglen.rawAddress.toCPointer<ByteVar>())
 
-public actual fun cryptSignMessage(psignpara: ConstPtr<CryptSignMessagePara>, fdetachedsignature: Bool, ctobesigned: UInt, rgpbtobesigned: ConstPtr<ConstPtr<UByte>>, rgcbtobesigned: ConstPtr<UInt>, pbsignedblob: MutPtr<UByte>, pcbsignedblob: MutPtr<UInt>): Bool =
+public actual fun cryptSignMessage(psignpara: ConstPtr, fdetachedsignature: Bool, ctobesigned: UInt, rgpbtobesigned: ConstPtr, rgcbtobesigned: ConstPtr, pbsignedblob: MutPtr, pcbsignedblob: MutPtr): Bool =
     windowssysWindowsWin32SecurityCryptographyCryptSignMessage(psignpara.rawAddress.toCPointer<ByteVar>(), fdetachedsignature, ctobesigned, rgpbtobesigned.rawAddress.toCPointer<ByteVar>(), rgcbtobesigned.rawAddress.toCPointer<ByteVar>(), pbsignedblob.rawAddress.toCPointer<ByteVar>(), pcbsignedblob.rawAddress.toCPointer<ByteVar>())
 
-public actual fun cryptSignMessageWithKey(psignpara: ConstPtr<CryptKeySignMessagePara>, pbtobesigned: ConstPtr<UByte>, cbtobesigned: UInt, pbsignedblob: MutPtr<UByte>, pcbsignedblob: MutPtr<UInt>): Bool =
+public actual fun cryptSignMessageWithKey(psignpara: ConstPtr, pbtobesigned: ConstPtr, cbtobesigned: UInt, pbsignedblob: MutPtr, pcbsignedblob: MutPtr): Bool =
     windowssysWindowsWin32SecurityCryptographyCryptSignMessageWithKey(psignpara.rawAddress.toCPointer<ByteVar>(), pbtobesigned.rawAddress.toCPointer<ByteVar>(), cbtobesigned, pbsignedblob.rawAddress.toCPointer<ByteVar>(), pcbsignedblob.rawAddress.toCPointer<ByteVar>())
 
-public actual fun cryptStringToBinaryA(pszstring: Pcstr, cchstring: UInt, dwflags: CryptString, pbbinary: MutPtr<UByte>, pcbbinary: MutPtr<UInt>, pdwskip: MutPtr<UInt>, pdwflags: MutPtr<UInt>): Bool =
+public actual fun cryptStringToBinaryA(pszstring: Pcstr, cchstring: UInt, dwflags: CryptString, pbbinary: MutPtr, pcbbinary: MutPtr, pdwskip: MutPtr, pdwflags: MutPtr): Bool =
     windowssysWindowsWin32SecurityCryptographyCryptStringToBinaryA(pszstring.rawAddress.toCPointer<ByteVar>(), cchstring, dwflags, pbbinary.rawAddress.toCPointer<ByteVar>(), pcbbinary.rawAddress.toCPointer<ByteVar>(), pdwskip.rawAddress.toCPointer<ByteVar>(), pdwflags.rawAddress.toCPointer<ByteVar>())
 
-public actual fun cryptStringToBinaryW(pszstring: Pcwstr, cchstring: UInt, dwflags: CryptString, pbbinary: MutPtr<UByte>, pcbbinary: MutPtr<UInt>, pdwskip: MutPtr<UInt>, pdwflags: MutPtr<UInt>): Bool =
+public actual fun cryptStringToBinaryW(pszstring: Pcwstr, cchstring: UInt, dwflags: CryptString, pbbinary: MutPtr, pcbbinary: MutPtr, pdwskip: MutPtr, pdwflags: MutPtr): Bool =
     windowssysWindowsWin32SecurityCryptographyCryptStringToBinaryW(pszstring.rawAddress.toCPointer<ByteVar>(), cchstring, dwflags, pbbinary.rawAddress.toCPointer<ByteVar>(), pcbbinary.rawAddress.toCPointer<ByteVar>(), pdwskip.rawAddress.toCPointer<ByteVar>(), pdwflags.rawAddress.toCPointer<ByteVar>())
 
-public actual fun cryptUninstallCancelRetrieval(dwflags: UInt, pvreserved: ConstPtr<CVoid>): Bool =
+public actual fun cryptUninstallCancelRetrieval(dwflags: UInt, pvreserved: ConstPtr): Bool =
     windowssysWindowsWin32SecurityCryptographyCryptUninstallCancelRetrieval(dwflags, pvreserved.rawAddress.toCPointer<ByteVar>())
 
-public actual fun cryptUninstallDefaultContext(hdefaultcontext: ConstPtr<CVoid>, dwflags: UInt, pvreserved: ConstPtr<CVoid>): Bool =
+public actual fun cryptUninstallDefaultContext(hdefaultcontext: ConstPtr, dwflags: UInt, pvreserved: ConstPtr): Bool =
     windowssysWindowsWin32SecurityCryptographyCryptUninstallDefaultContext(hdefaultcontext.rawAddress.toCPointer<ByteVar>(), dwflags, pvreserved.rawAddress.toCPointer<ByteVar>())
 
-public actual fun cryptUnprotectData(pdatain: ConstPtr<CryptIntegerBlob>, ppszdatadescr: MutPtr<Pwstr>, poptionalentropy: ConstPtr<CryptIntegerBlob>, pvreserved: ConstPtr<CVoid>, ppromptstruct: ConstPtr<CryptprotectPromptstruct>, dwflags: UInt, pdataout: MutPtr<CryptIntegerBlob>): Bool =
+public actual fun cryptUnprotectData(pdatain: ConstPtr, ppszdatadescr: MutPtr, poptionalentropy: ConstPtr, pvreserved: ConstPtr, ppromptstruct: ConstPtr, dwflags: UInt, pdataout: MutPtr): Bool =
     windowssysWindowsWin32SecurityCryptographyCryptUnprotectData(pdatain.rawAddress.toCPointer<ByteVar>(), ppszdatadescr.rawAddress.toCPointer<ByteVar>(), poptionalentropy.rawAddress.toCPointer<ByteVar>(), pvreserved.rawAddress.toCPointer<ByteVar>(), ppromptstruct.rawAddress.toCPointer<ByteVar>(), dwflags, pdataout.rawAddress.toCPointer<ByteVar>())
 
-public actual fun cryptUnprotectMemory(pdatain: MutPtr<CVoid>, cbdatain: UInt, dwflags: UInt): Bool =
+public actual fun cryptUnprotectMemory(pdatain: MutPtr, cbdatain: UInt, dwflags: UInt): Bool =
     windowssysWindowsWin32SecurityCryptographyCryptUnprotectMemory(pdatain.rawAddress.toCPointer<ByteVar>(), cbdatain, dwflags)
 
 public actual fun cryptUnregisterDefaultOIDFunction(dwencodingtype: UInt, pszfuncname: Pcstr, pwszdll: Pcwstr): Bool =
@@ -1429,157 +1425,157 @@ public actual fun cryptUnregisterDefaultOIDFunction(dwencodingtype: UInt, pszfun
 public actual fun cryptUnregisterOIDFunction(dwencodingtype: UInt, pszfuncname: Pcstr, pszoid: Pcstr): Bool =
     windowssysWindowsWin32SecurityCryptographyCryptUnregisterOIDFunction(dwencodingtype, pszfuncname.rawAddress.toCPointer<ByteVar>(), pszoid.rawAddress.toCPointer<ByteVar>())
 
-public actual fun cryptUnregisterOIDInfo(pinfo: ConstPtr<CryptOidInfo>): Bool =
+public actual fun cryptUnregisterOIDInfo(pinfo: ConstPtr): Bool =
     windowssysWindowsWin32SecurityCryptographyCryptUnregisterOIDInfo(pinfo.rawAddress.toCPointer<ByteVar>())
 
-public actual fun cryptUpdateProtectedState(poldsid: Psid, pwszoldpassword: Pcwstr, dwflags: UInt, pdwsuccesscount: MutPtr<UInt>, pdwfailurecount: MutPtr<UInt>): Bool =
+public actual fun cryptUpdateProtectedState(poldsid: Psid, pwszoldpassword: Pcwstr, dwflags: UInt, pdwsuccesscount: MutPtr, pdwfailurecount: MutPtr): Bool =
     windowssysWindowsWin32SecurityCryptographyCryptUpdateProtectedState(poldsid.rawAddress.toCPointer<ByteVar>(), pwszoldpassword.rawAddress.toCPointer<ByteVar>(), dwflags, pdwsuccesscount.rawAddress.toCPointer<ByteVar>(), pdwfailurecount.rawAddress.toCPointer<ByteVar>())
 
-public actual fun cryptVerifyCertificateSignature(hcryptprov: HcryptprovLegacy, dwcertencodingtype: CertQueryEncodingType, pbencoded: ConstPtr<UByte>, cbencoded: UInt, ppublickey: ConstPtr<CertPublicKeyInfo>): Bool =
+public actual fun cryptVerifyCertificateSignature(hcryptprov: HcryptprovLegacy, dwcertencodingtype: CertQueryEncodingType, pbencoded: ConstPtr, cbencoded: UInt, ppublickey: ConstPtr): Bool =
     windowssysWindowsWin32SecurityCryptographyCryptVerifyCertificateSignature(hcryptprov, dwcertencodingtype, pbencoded.rawAddress.toCPointer<ByteVar>(), cbencoded, ppublickey.rawAddress.toCPointer<ByteVar>())
 
-public actual fun cryptVerifyCertificateSignatureEx(hcryptprov: HcryptprovLegacy, dwcertencodingtype: CertQueryEncodingType, dwsubjecttype: UInt, pvsubject: ConstPtr<CVoid>, dwissuertype: UInt, pvissuer: ConstPtr<CVoid>, dwflags: CryptVerifyCertFlags, pvextra: MutPtr<CVoid>): Bool =
+public actual fun cryptVerifyCertificateSignatureEx(hcryptprov: HcryptprovLegacy, dwcertencodingtype: CertQueryEncodingType, dwsubjecttype: UInt, pvsubject: ConstPtr, dwissuertype: UInt, pvissuer: ConstPtr, dwflags: CryptVerifyCertFlags, pvextra: MutPtr): Bool =
     windowssysWindowsWin32SecurityCryptographyCryptVerifyCertificateSignatureEx(hcryptprov, dwcertencodingtype, dwsubjecttype, pvsubject.rawAddress.toCPointer<ByteVar>(), dwissuertype, pvissuer.rawAddress.toCPointer<ByteVar>(), dwflags, pvextra.rawAddress.toCPointer<ByteVar>())
 
-public actual fun cryptVerifyDetachedMessageHash(phashpara: ConstPtr<CryptHashMessagePara>, pbdetachedhashblob: ConstPtr<UByte>, cbdetachedhashblob: UInt, ctobehashed: UInt, rgpbtobehashed: ConstPtr<ConstPtr<UByte>>, rgcbtobehashed: ConstPtr<UInt>, pbcomputedhash: MutPtr<UByte>, pcbcomputedhash: MutPtr<UInt>): Bool =
+public actual fun cryptVerifyDetachedMessageHash(phashpara: ConstPtr, pbdetachedhashblob: ConstPtr, cbdetachedhashblob: UInt, ctobehashed: UInt, rgpbtobehashed: ConstPtr, rgcbtobehashed: ConstPtr, pbcomputedhash: MutPtr, pcbcomputedhash: MutPtr): Bool =
     windowssysWindowsWin32SecurityCryptographyCryptVerifyDetachedMessageHash(phashpara.rawAddress.toCPointer<ByteVar>(), pbdetachedhashblob.rawAddress.toCPointer<ByteVar>(), cbdetachedhashblob, ctobehashed, rgpbtobehashed.rawAddress.toCPointer<ByteVar>(), rgcbtobehashed.rawAddress.toCPointer<ByteVar>(), pbcomputedhash.rawAddress.toCPointer<ByteVar>(), pcbcomputedhash.rawAddress.toCPointer<ByteVar>())
 
-public actual fun cryptVerifyDetachedMessageSignature(pverifypara: ConstPtr<CryptVerifyMessagePara>, dwsignerindex: UInt, pbdetachedsignblob: ConstPtr<UByte>, cbdetachedsignblob: UInt, ctobesigned: UInt, rgpbtobesigned: ConstPtr<ConstPtr<UByte>>, rgcbtobesigned: ConstPtr<UInt>, ppsignercert: MutPtr<MutPtr<CertContext>>): Bool =
+public actual fun cryptVerifyDetachedMessageSignature(pverifypara: ConstPtr, dwsignerindex: UInt, pbdetachedsignblob: ConstPtr, cbdetachedsignblob: UInt, ctobesigned: UInt, rgpbtobesigned: ConstPtr, rgcbtobesigned: ConstPtr, ppsignercert: MutPtr): Bool =
     windowssysWindowsWin32SecurityCryptographyCryptVerifyDetachedMessageSignature(pverifypara.rawAddress.toCPointer<ByteVar>(), dwsignerindex, pbdetachedsignblob.rawAddress.toCPointer<ByteVar>(), cbdetachedsignblob, ctobesigned, rgpbtobesigned.rawAddress.toCPointer<ByteVar>(), rgcbtobesigned.rawAddress.toCPointer<ByteVar>(), ppsignercert.rawAddress.toCPointer<ByteVar>())
 
-public actual fun cryptVerifyMessageHash(phashpara: ConstPtr<CryptHashMessagePara>, pbhashedblob: ConstPtr<UByte>, cbhashedblob: UInt, pbtobehashed: MutPtr<UByte>, pcbtobehashed: MutPtr<UInt>, pbcomputedhash: MutPtr<UByte>, pcbcomputedhash: MutPtr<UInt>): Bool =
+public actual fun cryptVerifyMessageHash(phashpara: ConstPtr, pbhashedblob: ConstPtr, cbhashedblob: UInt, pbtobehashed: MutPtr, pcbtobehashed: MutPtr, pbcomputedhash: MutPtr, pcbcomputedhash: MutPtr): Bool =
     windowssysWindowsWin32SecurityCryptographyCryptVerifyMessageHash(phashpara.rawAddress.toCPointer<ByteVar>(), pbhashedblob.rawAddress.toCPointer<ByteVar>(), cbhashedblob, pbtobehashed.rawAddress.toCPointer<ByteVar>(), pcbtobehashed.rawAddress.toCPointer<ByteVar>(), pbcomputedhash.rawAddress.toCPointer<ByteVar>(), pcbcomputedhash.rawAddress.toCPointer<ByteVar>())
 
-public actual fun cryptVerifyMessageSignature(pverifypara: ConstPtr<CryptVerifyMessagePara>, dwsignerindex: UInt, pbsignedblob: ConstPtr<UByte>, cbsignedblob: UInt, pbdecoded: MutPtr<UByte>, pcbdecoded: MutPtr<UInt>, ppsignercert: MutPtr<MutPtr<CertContext>>): Bool =
+public actual fun cryptVerifyMessageSignature(pverifypara: ConstPtr, dwsignerindex: UInt, pbsignedblob: ConstPtr, cbsignedblob: UInt, pbdecoded: MutPtr, pcbdecoded: MutPtr, ppsignercert: MutPtr): Bool =
     windowssysWindowsWin32SecurityCryptographyCryptVerifyMessageSignature(pverifypara.rawAddress.toCPointer<ByteVar>(), dwsignerindex, pbsignedblob.rawAddress.toCPointer<ByteVar>(), cbsignedblob, pbdecoded.rawAddress.toCPointer<ByteVar>(), pcbdecoded.rawAddress.toCPointer<ByteVar>(), ppsignercert.rawAddress.toCPointer<ByteVar>())
 
-public actual fun cryptVerifyMessageSignatureWithKey(pverifypara: ConstPtr<CryptKeyVerifyMessagePara>, ppublickeyinfo: ConstPtr<CertPublicKeyInfo>, pbsignedblob: ConstPtr<UByte>, cbsignedblob: UInt, pbdecoded: MutPtr<UByte>, pcbdecoded: MutPtr<UInt>): Bool =
+public actual fun cryptVerifyMessageSignatureWithKey(pverifypara: ConstPtr, ppublickeyinfo: ConstPtr, pbsignedblob: ConstPtr, cbsignedblob: UInt, pbdecoded: MutPtr, pcbdecoded: MutPtr): Bool =
     windowssysWindowsWin32SecurityCryptographyCryptVerifyMessageSignatureWithKey(pverifypara.rawAddress.toCPointer<ByteVar>(), ppublickeyinfo.rawAddress.toCPointer<ByteVar>(), pbsignedblob.rawAddress.toCPointer<ByteVar>(), cbsignedblob, pbdecoded.rawAddress.toCPointer<ByteVar>(), pcbdecoded.rawAddress.toCPointer<ByteVar>())
 
-public actual fun cryptVerifySignatureA(hhash: ULong, pbsignature: ConstPtr<UByte>, dwsiglen: UInt, hpubkey: ULong, szdescription: Pcstr, dwflags: UInt): Bool =
+public actual fun cryptVerifySignatureA(hhash: ULong, pbsignature: ConstPtr, dwsiglen: UInt, hpubkey: ULong, szdescription: Pcstr, dwflags: UInt): Bool =
     windowssysWindowsWin32SecurityCryptographyCryptVerifySignatureA(hhash, pbsignature.rawAddress.toCPointer<ByteVar>(), dwsiglen, hpubkey, szdescription.rawAddress.toCPointer<ByteVar>(), dwflags)
 
-public actual fun cryptVerifySignatureW(hhash: ULong, pbsignature: ConstPtr<UByte>, dwsiglen: UInt, hpubkey: ULong, szdescription: Pcwstr, dwflags: UInt): Bool =
+public actual fun cryptVerifySignatureW(hhash: ULong, pbsignature: ConstPtr, dwsiglen: UInt, hpubkey: ULong, szdescription: Pcwstr, dwflags: UInt): Bool =
     windowssysWindowsWin32SecurityCryptographyCryptVerifySignatureW(hhash, pbsignature.rawAddress.toCPointer<ByteVar>(), dwsiglen, hpubkey, szdescription.rawAddress.toCPointer<ByteVar>(), dwflags)
 
-public actual fun cryptVerifyTimeStampSignature(pbtscontentinfo: ConstPtr<UByte>, cbtscontentinfo: UInt, pbdata: ConstPtr<UByte>, cbdata: UInt, hadditionalstore: Hcertstore, pptscontext: MutPtr<MutPtr<CryptTimestampContext>>, pptssigner: MutPtr<MutPtr<CertContext>>, phstore: MutPtr<Hcertstore>): Bool =
+public actual fun cryptVerifyTimeStampSignature(pbtscontentinfo: ConstPtr, cbtscontentinfo: UInt, pbdata: ConstPtr, cbdata: UInt, hadditionalstore: Hcertstore, pptscontext: MutPtr, pptssigner: MutPtr, phstore: MutPtr): Bool =
     windowssysWindowsWin32SecurityCryptographyCryptVerifyTimeStampSignature(pbtscontentinfo.rawAddress.toCPointer<ByteVar>(), cbtscontentinfo, pbdata.rawAddress.toCPointer<ByteVar>(), cbdata, hadditionalstore.rawAddress.toCPointer<ByteVar>(), pptscontext.rawAddress.toCPointer<ByteVar>(), pptssigner.rawAddress.toCPointer<ByteVar>(), phstore.rawAddress.toCPointer<ByteVar>())
 
-public actual fun cryptXmlAddObject(hsignatureorobject: ConstPtr<CVoid>, dwflags: UInt, rgproperty: ConstPtr<CryptXmlProperty>, cproperty: UInt, pencoded: ConstPtr<CryptXmlBlob>, ppobject: MutPtr<MutPtr<CryptXmlObject>>): Hresult =
+public actual fun cryptXmlAddObject(hsignatureorobject: ConstPtr, dwflags: UInt, rgproperty: ConstPtr, cproperty: UInt, pencoded: ConstPtr, ppobject: MutPtr): Hresult =
     windowssysWindowsWin32SecurityCryptographyCryptXmlAddObject(hsignatureorobject.rawAddress.toCPointer<ByteVar>(), dwflags, rgproperty.rawAddress.toCPointer<ByteVar>(), cproperty, pencoded.rawAddress.toCPointer<ByteVar>(), ppobject.rawAddress.toCPointer<ByteVar>())
 
-public actual fun cryptXmlClose(hcryptxml: ConstPtr<CVoid>): Hresult =
+public actual fun cryptXmlClose(hcryptxml: ConstPtr): Hresult =
     windowssysWindowsWin32SecurityCryptographyCryptXmlClose(hcryptxml.rawAddress.toCPointer<ByteVar>())
 
-public actual fun cryptXmlCreateReference(hcryptxml: ConstPtr<CVoid>, dwflags: UInt, wszid: Pcwstr, wszuri: Pcwstr, wsztype: Pcwstr, pdigestmethod: ConstPtr<CryptXmlAlgorithm>, ctransform: UInt, rgtransform: ConstPtr<CryptXmlAlgorithm>, phreference: MutPtr<MutPtr<CVoid>>): Hresult =
+public actual fun cryptXmlCreateReference(hcryptxml: ConstPtr, dwflags: UInt, wszid: Pcwstr, wszuri: Pcwstr, wsztype: Pcwstr, pdigestmethod: ConstPtr, ctransform: UInt, rgtransform: ConstPtr, phreference: MutPtr): Hresult =
     windowssysWindowsWin32SecurityCryptographyCryptXmlCreateReference(hcryptxml.rawAddress.toCPointer<ByteVar>(), dwflags, wszid.rawAddress.toCPointer<ByteVar>(), wszuri.rawAddress.toCPointer<ByteVar>(), wsztype.rawAddress.toCPointer<ByteVar>(), pdigestmethod.rawAddress.toCPointer<ByteVar>(), ctransform, rgtransform.rawAddress.toCPointer<ByteVar>(), phreference.rawAddress.toCPointer<ByteVar>())
 
-public actual fun cryptXmlDigestReference(hreference: ConstPtr<CVoid>, dwflags: UInt, pdataproviderin: ConstPtr<CryptXmlDataProvider>): Hresult =
+public actual fun cryptXmlDigestReference(hreference: ConstPtr, dwflags: UInt, pdataproviderin: ConstPtr): Hresult =
     windowssysWindowsWin32SecurityCryptographyCryptXmlDigestReference(hreference.rawAddress.toCPointer<ByteVar>(), dwflags, pdataproviderin.rawAddress.toCPointer<ByteVar>())
 
-public actual fun cryptXmlEncode(hcryptxml: ConstPtr<CVoid>, dwcharset: CryptXmlCharset, rgproperty: ConstPtr<CryptXmlProperty>, cproperty: UInt, pvcallbackstate: MutPtr<CVoid>, pfnwrite: PfnCryptXmlWriteCallback): Hresult =
+public actual fun cryptXmlEncode(hcryptxml: ConstPtr, dwcharset: CryptXmlCharset, rgproperty: ConstPtr, cproperty: UInt, pvcallbackstate: MutPtr, pfnwrite: PfnCryptXmlWriteCallback): Hresult =
     windowssysWindowsWin32SecurityCryptographyCryptXmlEncode(hcryptxml.rawAddress.toCPointer<ByteVar>(), dwcharset, rgproperty.rawAddress.toCPointer<ByteVar>(), cproperty, pvcallbackstate.rawAddress.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>())
 
-public actual fun cryptXmlEnumAlgorithmInfo(dwgroupid: UInt, dwflags: UInt, pvarg: MutPtr<CVoid>, pfnenumalginfo: PfnCryptXmlEnumAlgInfo): Hresult =
+public actual fun cryptXmlEnumAlgorithmInfo(dwgroupid: UInt, dwflags: UInt, pvarg: MutPtr, pfnenumalginfo: PfnCryptXmlEnumAlgInfo): Hresult =
     windowssysWindowsWin32SecurityCryptographyCryptXmlEnumAlgorithmInfo(dwgroupid, dwflags, pvarg.rawAddress.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>())
 
-public actual fun cryptXmlFindAlgorithmInfo(dwfindbytype: UInt, pvfindby: ConstPtr<CVoid>, dwgroupid: UInt, dwflags: UInt): MutPtr<CryptXmlAlgorithmInfo> =
+public actual fun cryptXmlFindAlgorithmInfo(dwfindbytype: UInt, pvfindby: ConstPtr, dwgroupid: UInt, dwflags: UInt): MutPtr =
     MutPtr(windowssysWindowsWin32SecurityCryptographyCryptXmlFindAlgorithmInfo(dwfindbytype, pvfindby.rawAddress.toCPointer<ByteVar>(), dwgroupid, dwflags)?.toLong() ?: 0L)
 
-public actual fun cryptXmlGetAlgorithmInfo(pxmlalgorithm: ConstPtr<CryptXmlAlgorithm>, dwflags: CryptXmlFlags, ppalginfo: MutPtr<MutPtr<CryptXmlAlgorithmInfo>>): Hresult =
+public actual fun cryptXmlGetAlgorithmInfo(pxmlalgorithm: ConstPtr, dwflags: CryptXmlFlags, ppalginfo: MutPtr): Hresult =
     windowssysWindowsWin32SecurityCryptographyCryptXmlGetAlgorithmInfo(pxmlalgorithm.rawAddress.toCPointer<ByteVar>(), dwflags, ppalginfo.rawAddress.toCPointer<ByteVar>())
 
-public actual fun cryptXmlGetDocContext(hcryptxml: ConstPtr<CVoid>, ppstruct: MutPtr<MutPtr<CryptXmlDocCtxt>>): Hresult =
+public actual fun cryptXmlGetDocContext(hcryptxml: ConstPtr, ppstruct: MutPtr): Hresult =
     windowssysWindowsWin32SecurityCryptographyCryptXmlGetDocContext(hcryptxml.rawAddress.toCPointer<ByteVar>(), ppstruct.rawAddress.toCPointer<ByteVar>())
 
-public actual fun cryptXmlGetReference(hcryptxml: ConstPtr<CVoid>, ppstruct: MutPtr<MutPtr<CryptXmlReference>>): Hresult =
+public actual fun cryptXmlGetReference(hcryptxml: ConstPtr, ppstruct: MutPtr): Hresult =
     windowssysWindowsWin32SecurityCryptographyCryptXmlGetReference(hcryptxml.rawAddress.toCPointer<ByteVar>(), ppstruct.rawAddress.toCPointer<ByteVar>())
 
-public actual fun cryptXmlGetSignature(hcryptxml: ConstPtr<CVoid>, ppstruct: MutPtr<MutPtr<CryptXmlSignature>>): Hresult =
+public actual fun cryptXmlGetSignature(hcryptxml: ConstPtr, ppstruct: MutPtr): Hresult =
     windowssysWindowsWin32SecurityCryptographyCryptXmlGetSignature(hcryptxml.rawAddress.toCPointer<ByteVar>(), ppstruct.rawAddress.toCPointer<ByteVar>())
 
-public actual fun cryptXmlGetStatus(hcryptxml: ConstPtr<CVoid>, pstatus: MutPtr<CryptXmlStatus>): Hresult =
+public actual fun cryptXmlGetStatus(hcryptxml: ConstPtr, pstatus: MutPtr): Hresult =
     windowssysWindowsWin32SecurityCryptographyCryptXmlGetStatus(hcryptxml.rawAddress.toCPointer<ByteVar>(), pstatus.rawAddress.toCPointer<ByteVar>())
 
-public actual fun cryptXmlGetTransforms(ppconfig: MutPtr<MutPtr<CryptXmlTransformChainConfig>>): Hresult =
+public actual fun cryptXmlGetTransforms(ppconfig: MutPtr): Hresult =
     windowssysWindowsWin32SecurityCryptographyCryptXmlGetTransforms(ppconfig.rawAddress.toCPointer<ByteVar>())
 
-public actual fun cryptXmlImportPublicKey(dwflags: CryptXmlFlags, pkeyvalue: ConstPtr<CryptXmlKeyValue>, phkey: MutPtr<BcryptKeyHandle>): Hresult =
+public actual fun cryptXmlImportPublicKey(dwflags: CryptXmlFlags, pkeyvalue: ConstPtr, phkey: MutPtr): Hresult =
     windowssysWindowsWin32SecurityCryptographyCryptXmlImportPublicKey(dwflags, pkeyvalue.rawAddress.toCPointer<ByteVar>(), phkey.rawAddress.toCPointer<ByteVar>())
 
-public actual fun cryptXmlOpenToDecode(pconfig: ConstPtr<CryptXmlTransformChainConfig>, dwflags: CryptXmlFlags, rgproperty: ConstPtr<CryptXmlProperty>, cproperty: UInt, pencoded: ConstPtr<CryptXmlBlob>, phcryptxml: MutPtr<MutPtr<CVoid>>): Hresult =
+public actual fun cryptXmlOpenToDecode(pconfig: ConstPtr, dwflags: CryptXmlFlags, rgproperty: ConstPtr, cproperty: UInt, pencoded: ConstPtr, phcryptxml: MutPtr): Hresult =
     windowssysWindowsWin32SecurityCryptographyCryptXmlOpenToDecode(pconfig.rawAddress.toCPointer<ByteVar>(), dwflags, rgproperty.rawAddress.toCPointer<ByteVar>(), cproperty, pencoded.rawAddress.toCPointer<ByteVar>(), phcryptxml.rawAddress.toCPointer<ByteVar>())
 
-public actual fun cryptXmlOpenToEncode(pconfig: ConstPtr<CryptXmlTransformChainConfig>, dwflags: CryptXmlFlags, wszid: Pcwstr, rgproperty: ConstPtr<CryptXmlProperty>, cproperty: UInt, pencoded: ConstPtr<CryptXmlBlob>, phsignature: MutPtr<MutPtr<CVoid>>): Hresult =
+public actual fun cryptXmlOpenToEncode(pconfig: ConstPtr, dwflags: CryptXmlFlags, wszid: Pcwstr, rgproperty: ConstPtr, cproperty: UInt, pencoded: ConstPtr, phsignature: MutPtr): Hresult =
     windowssysWindowsWin32SecurityCryptographyCryptXmlOpenToEncode(pconfig.rawAddress.toCPointer<ByteVar>(), dwflags, wszid.rawAddress.toCPointer<ByteVar>(), rgproperty.rawAddress.toCPointer<ByteVar>(), cproperty, pencoded.rawAddress.toCPointer<ByteVar>(), phsignature.rawAddress.toCPointer<ByteVar>())
 
-public actual fun cryptXmlSetHMACSecret(hsignature: ConstPtr<CVoid>, pbsecret: ConstPtr<UByte>, cbsecret: UInt): Hresult =
+public actual fun cryptXmlSetHMACSecret(hsignature: ConstPtr, pbsecret: ConstPtr, cbsecret: UInt): Hresult =
     windowssysWindowsWin32SecurityCryptographyCryptXmlSetHMACSecret(hsignature.rawAddress.toCPointer<ByteVar>(), pbsecret.rawAddress.toCPointer<ByteVar>(), cbsecret)
 
-public actual fun cryptXmlSign(hsignature: ConstPtr<CVoid>, hkey: HcryptprovOrNcryptKeyHandle, dwkeyspec: CertKeySpec, dwflags: CryptXmlFlags, dwkeyinfospec: CryptXmlKeyinfoSpec, pvkeyinfospec: ConstPtr<CVoid>, psignaturemethod: ConstPtr<CryptXmlAlgorithm>, pcanonicalization: ConstPtr<CryptXmlAlgorithm>): Hresult =
+public actual fun cryptXmlSign(hsignature: ConstPtr, hkey: HcryptprovOrNcryptKeyHandle, dwkeyspec: CertKeySpec, dwflags: CryptXmlFlags, dwkeyinfospec: CryptXmlKeyinfoSpec, pvkeyinfospec: ConstPtr, psignaturemethod: ConstPtr, pcanonicalization: ConstPtr): Hresult =
     windowssysWindowsWin32SecurityCryptographyCryptXmlSign(hsignature.rawAddress.toCPointer<ByteVar>(), hkey, dwkeyspec, dwflags, dwkeyinfospec, pvkeyinfospec.rawAddress.toCPointer<ByteVar>(), psignaturemethod.rawAddress.toCPointer<ByteVar>(), pcanonicalization.rawAddress.toCPointer<ByteVar>())
 
-public actual fun cryptXmlVerifySignature(hsignature: ConstPtr<CVoid>, hkey: BcryptKeyHandle, dwflags: CryptXmlFlags): Hresult =
+public actual fun cryptXmlVerifySignature(hsignature: ConstPtr, hkey: BcryptKeyHandle, dwflags: CryptXmlFlags): Hresult =
     windowssysWindowsWin32SecurityCryptographyCryptXmlVerifySignature(hsignature.rawAddress.toCPointer<ByteVar>(), hkey.rawAddress.toCPointer<ByteVar>(), dwflags)
 
-public actual fun decrypt(hcrypto: ConstPtr<InformationcardCryptoHandle>, foaep: Bool, cbindata: UInt, pindata: ConstPtr<UByte>, pcboutdata: MutPtr<UInt>, ppoutdata: MutPtr<MutPtr<UByte>>): Hresult =
+public actual fun decrypt(hcrypto: ConstPtr, foaep: Bool, cbindata: UInt, pindata: ConstPtr, pcboutdata: MutPtr, ppoutdata: MutPtr): Hresult =
     windowssysWindowsWin32SecurityCryptographyDecrypt(hcrypto.rawAddress.toCPointer<ByteVar>(), foaep, cbindata, pindata.rawAddress.toCPointer<ByteVar>(), pcboutdata.rawAddress.toCPointer<ByteVar>(), ppoutdata.rawAddress.toCPointer<ByteVar>())
 
-public actual fun encrypt(hcrypto: ConstPtr<InformationcardCryptoHandle>, foaep: Bool, cbindata: UInt, pindata: ConstPtr<UByte>, pcboutdata: MutPtr<UInt>, ppoutdata: MutPtr<MutPtr<UByte>>): Hresult =
+public actual fun encrypt(hcrypto: ConstPtr, foaep: Bool, cbindata: UInt, pindata: ConstPtr, pcboutdata: MutPtr, ppoutdata: MutPtr): Hresult =
     windowssysWindowsWin32SecurityCryptographyEncrypt(hcrypto.rawAddress.toCPointer<ByteVar>(), foaep, cbindata, pindata.rawAddress.toCPointer<ByteVar>(), pcboutdata.rawAddress.toCPointer<ByteVar>(), ppoutdata.rawAddress.toCPointer<ByteVar>())
 
-public actual fun findCertsByIssuer(pcertchains: MutPtr<CertChain>, pcbcertchains: MutPtr<UInt>, pccertchains: MutPtr<UInt>, pbencodedissuername: ConstPtr<UByte>, cbencodedissuername: UInt, pwszpurpose: Pcwstr, dwkeyspec: UInt): Hresult =
+public actual fun findCertsByIssuer(pcertchains: MutPtr, pcbcertchains: MutPtr, pccertchains: MutPtr, pbencodedissuername: ConstPtr, cbencodedissuername: UInt, pwszpurpose: Pcwstr, dwkeyspec: UInt): Hresult =
     windowssysWindowsWin32SecurityCryptographyFindCertsByIssuer(pcertchains.rawAddress.toCPointer<ByteVar>(), pcbcertchains.rawAddress.toCPointer<ByteVar>(), pccertchains.rawAddress.toCPointer<ByteVar>(), pbencodedissuername.rawAddress.toCPointer<ByteVar>(), cbencodedissuername, pwszpurpose.rawAddress.toCPointer<ByteVar>(), dwkeyspec)
 
-public actual fun freeToken(pallocmemory: ConstPtr<GenericXmlToken>): Bool =
+public actual fun freeToken(pallocmemory: ConstPtr): Bool =
     windowssysWindowsWin32SecurityCryptographyFreeToken(pallocmemory.rawAddress.toCPointer<ByteVar>())
 
-public actual fun generateDerivedKey(hcrypto: ConstPtr<InformationcardCryptoHandle>, cblabel: UInt, plabel: ConstPtr<UByte>, cbnonce: UInt, pnonce: ConstPtr<UByte>, derivedkeylength: UInt, offset: UInt, algid: Pcwstr, pcbkey: MutPtr<UInt>, ppkey: MutPtr<MutPtr<UByte>>): Hresult =
+public actual fun generateDerivedKey(hcrypto: ConstPtr, cblabel: UInt, plabel: ConstPtr, cbnonce: UInt, pnonce: ConstPtr, derivedkeylength: UInt, offset: UInt, algid: Pcwstr, pcbkey: MutPtr, ppkey: MutPtr): Hresult =
     windowssysWindowsWin32SecurityCryptographyGenerateDerivedKey(hcrypto.rawAddress.toCPointer<ByteVar>(), cblabel, plabel.rawAddress.toCPointer<ByteVar>(), cbnonce, pnonce.rawAddress.toCPointer<ByteVar>(), derivedkeylength, offset, algid.rawAddress.toCPointer<ByteVar>(), pcbkey.rawAddress.toCPointer<ByteVar>(), ppkey.rawAddress.toCPointer<ByteVar>())
 
-public actual fun getAsymmetricEncryptionInterface(pszprovidername: Pcwstr, pszalgid: Pcwstr, ppfunctiontable: MutPtr<MutPtr<BcryptAsymmetricEncryptionFunctionTable>>, dwflags: UInt): Ntstatus =
+public actual fun getAsymmetricEncryptionInterface(pszprovidername: Pcwstr, pszalgid: Pcwstr, ppfunctiontable: MutPtr, dwflags: UInt): Ntstatus =
     windowssysWindowsWin32SecurityCryptographyGetAsymmetricEncryptionInterface(pszprovidername.rawAddress.toCPointer<ByteVar>(), pszalgid.rawAddress.toCPointer<ByteVar>(), ppfunctiontable.rawAddress.toCPointer<ByteVar>(), dwflags)
 
-public actual fun getBrowserToken(dwparamtype: UInt, pparam: ConstPtr<CVoid>, pcbtoken: MutPtr<UInt>, pptoken: MutPtr<MutPtr<UByte>>): Hresult =
+public actual fun getBrowserToken(dwparamtype: UInt, pparam: ConstPtr, pcbtoken: MutPtr, pptoken: MutPtr): Hresult =
     windowssysWindowsWin32SecurityCryptographyGetBrowserToken(dwparamtype, pparam.rawAddress.toCPointer<ByteVar>(), pcbtoken.rawAddress.toCPointer<ByteVar>(), pptoken.rawAddress.toCPointer<ByteVar>())
 
-public actual fun getCipherInterface(pszprovidername: Pcwstr, pszalgid: Pcwstr, ppfunctiontable: MutPtr<MutPtr<BcryptCipherFunctionTable>>, dwflags: UInt): Ntstatus =
+public actual fun getCipherInterface(pszprovidername: Pcwstr, pszalgid: Pcwstr, ppfunctiontable: MutPtr, dwflags: UInt): Ntstatus =
     windowssysWindowsWin32SecurityCryptographyGetCipherInterface(pszprovidername.rawAddress.toCPointer<ByteVar>(), pszalgid.rawAddress.toCPointer<ByteVar>(), ppfunctiontable.rawAddress.toCPointer<ByteVar>(), dwflags)
 
-public actual fun getCryptoTransform(hsymmetriccrypto: ConstPtr<InformationcardCryptoHandle>, mode: UInt, padding: PaddingMode, feedbacksize: UInt, direction: Direction, cbiv: UInt, piv: ConstPtr<UByte>, pphtransform: MutPtr<MutPtr<InformationcardCryptoHandle>>): Hresult =
+public actual fun getCryptoTransform(hsymmetriccrypto: ConstPtr, mode: UInt, padding: PaddingMode, feedbacksize: UInt, direction: Direction, cbiv: UInt, piv: ConstPtr, pphtransform: MutPtr): Hresult =
     0
 
-public actual fun getHashInterface(pszprovidername: Pcwstr, pszalgid: Pcwstr, ppfunctiontable: MutPtr<MutPtr<BcryptHashFunctionTable>>, dwflags: UInt): Ntstatus =
+public actual fun getHashInterface(pszprovidername: Pcwstr, pszalgid: Pcwstr, ppfunctiontable: MutPtr, dwflags: UInt): Ntstatus =
     windowssysWindowsWin32SecurityCryptographyGetHashInterface(pszprovidername.rawAddress.toCPointer<ByteVar>(), pszalgid.rawAddress.toCPointer<ByteVar>(), ppfunctiontable.rawAddress.toCPointer<ByteVar>(), dwflags)
 
-public actual fun getKeyDerivationInterface(pszprovidername: Pcwstr, pszalgid: Pcwstr, ppfunctiontable: MutPtr<MutPtr<BcryptKeyDerivationFunctionTable>>, dwflags: UInt): Ntstatus =
+public actual fun getKeyDerivationInterface(pszprovidername: Pcwstr, pszalgid: Pcwstr, ppfunctiontable: MutPtr, dwflags: UInt): Ntstatus =
     windowssysWindowsWin32SecurityCryptographyGetKeyDerivationInterface(pszprovidername.rawAddress.toCPointer<ByteVar>(), pszalgid.rawAddress.toCPointer<ByteVar>(), ppfunctiontable.rawAddress.toCPointer<ByteVar>(), dwflags)
 
-public actual fun getKeyStorageInterface(pszprovidername: Pcwstr, ppfunctiontable: MutPtr<MutPtr<NcryptKeyStorageFunctionTable>>, dwflags: UInt): Ntstatus =
+public actual fun getKeyStorageInterface(pszprovidername: Pcwstr, ppfunctiontable: MutPtr, dwflags: UInt): Ntstatus =
     windowssysWindowsWin32SecurityCryptographyGetKeyStorageInterface(pszprovidername.rawAddress.toCPointer<ByteVar>(), ppfunctiontable.rawAddress.toCPointer<ByteVar>(), dwflags)
 
-public actual fun getKeyedHash(hsymmetriccrypto: ConstPtr<InformationcardCryptoHandle>, pphhash: MutPtr<MutPtr<InformationcardCryptoHandle>>): Hresult =
+public actual fun getKeyedHash(hsymmetriccrypto: ConstPtr, pphhash: MutPtr): Hresult =
     windowssysWindowsWin32SecurityCryptographyGetKeyedHash(hsymmetriccrypto.rawAddress.toCPointer<ByteVar>(), pphhash.rawAddress.toCPointer<ByteVar>())
 
-public actual fun getRngInterface(pszprovidername: Pcwstr, ppfunctiontable: MutPtr<MutPtr<BcryptRngFunctionTable>>, dwflags: UInt): Ntstatus =
+public actual fun getRngInterface(pszprovidername: Pcwstr, ppfunctiontable: MutPtr, dwflags: UInt): Ntstatus =
     windowssysWindowsWin32SecurityCryptographyGetRngInterface(pszprovidername.rawAddress.toCPointer<ByteVar>(), ppfunctiontable.rawAddress.toCPointer<ByteVar>(), dwflags)
 
-public actual fun getSChannelInterface(pszprovidername: Pcwstr, ppfunctiontable: MutPtr<MutPtr<NcryptSslFunctionTable>>, dwflags: UInt): Ntstatus =
+public actual fun getSChannelInterface(pszprovidername: Pcwstr, ppfunctiontable: MutPtr, dwflags: UInt): Ntstatus =
     windowssysWindowsWin32SecurityCryptographyGetSChannelInterface(pszprovidername.rawAddress.toCPointer<ByteVar>(), ppfunctiontable.rawAddress.toCPointer<ByteVar>(), dwflags)
 
-public actual fun getSecretAgreementInterface(pszprovidername: Pcwstr, pszalgid: Pcwstr, ppfunctiontable: MutPtr<MutPtr<BcryptSecretAgreementFunctionTable>>, dwflags: UInt): Ntstatus =
+public actual fun getSecretAgreementInterface(pszprovidername: Pcwstr, pszalgid: Pcwstr, ppfunctiontable: MutPtr, dwflags: UInt): Ntstatus =
     windowssysWindowsWin32SecurityCryptographyGetSecretAgreementInterface(pszprovidername.rawAddress.toCPointer<ByteVar>(), pszalgid.rawAddress.toCPointer<ByteVar>(), ppfunctiontable.rawAddress.toCPointer<ByteVar>(), dwflags)
 
-public actual fun getSignatureInterface(pszprovidername: Pcwstr, pszalgid: Pcwstr, ppfunctiontable: MutPtr<MutPtr<BcryptSignatureFunctionTable>>, dwflags: UInt): Ntstatus =
+public actual fun getSignatureInterface(pszprovidername: Pcwstr, pszalgid: Pcwstr, ppfunctiontable: MutPtr, dwflags: UInt): Ntstatus =
     windowssysWindowsWin32SecurityCryptographyGetSignatureInterface(pszprovidername.rawAddress.toCPointer<ByteVar>(), pszalgid.rawAddress.toCPointer<ByteVar>(), ppfunctiontable.rawAddress.toCPointer<ByteVar>(), dwflags)
 
-public actual fun getToken(cpolicychain: UInt, ppolicychain: ConstPtr<PolicyElement>, securitytoken: MutPtr<MutPtr<GenericXmlToken>>, phprooftokencrypto: MutPtr<MutPtr<InformationcardCryptoHandle>>): Hresult =
+public actual fun getToken(cpolicychain: UInt, ppolicychain: ConstPtr, securitytoken: MutPtr, phprooftokencrypto: MutPtr): Hresult =
     windowssysWindowsWin32SecurityCryptographyGetToken(cpolicychain, ppolicychain.rawAddress.toCPointer<ByteVar>(), securitytoken.rawAddress.toCPointer<ByteVar>(), phprooftokencrypto.rawAddress.toCPointer<ByteVar>())
 
-public actual fun hashCore(hcrypto: ConstPtr<InformationcardCryptoHandle>, cbindata: UInt, pindata: ConstPtr<UByte>): Hresult =
+public actual fun hashCore(hcrypto: ConstPtr, cbindata: UInt, pindata: ConstPtr): Hresult =
     windowssysWindowsWin32SecurityCryptographyHashCore(hcrypto.rawAddress.toCPointer<ByteVar>(), cbindata, pindata.rawAddress.toCPointer<ByteVar>())
 
-public actual fun hashFinal(hcrypto: ConstPtr<InformationcardCryptoHandle>, cbindata: UInt, pindata: ConstPtr<UByte>, pcboutdata: MutPtr<UInt>, ppoutdata: MutPtr<MutPtr<UByte>>): Hresult =
+public actual fun hashFinal(hcrypto: ConstPtr, cbindata: UInt, pindata: ConstPtr, pcboutdata: MutPtr, ppoutdata: MutPtr): Hresult =
     windowssysWindowsWin32SecurityCryptographyHashFinal(hcrypto.rawAddress.toCPointer<ByteVar>(), cbindata, pindata.rawAddress.toCPointer<ByteVar>(), pcboutdata.rawAddress.toCPointer<ByteVar>(), ppoutdata.rawAddress.toCPointer<ByteVar>())
 
 public actual fun importInformationCard(filename: Pcwstr): Hresult =
@@ -1591,55 +1587,55 @@ public actual fun manageCardSpace(): Hresult =
 public actual fun nCryptCloseProtectionDescriptor(hdescriptor: NcryptDescriptorHandle): Hresult =
     windowssysWindowsWin32SecurityCryptographyNCryptCloseProtectionDescriptor(hdescriptor.rawAddress.toCPointer<ByteVar>())
 
-public actual fun nCryptCreateClaim(hsubjectkey: NcryptKeyHandle, hauthoritykey: NcryptKeyHandle, dwclaimtype: UInt, pparameterlist: ConstPtr<BCryptBufferDesc>, pbclaimblob: MutPtr<UByte>, cbclaimblob: UInt, pcbresult: MutPtr<UInt>, dwflags: UInt): Hresult =
+public actual fun nCryptCreateClaim(hsubjectkey: NcryptKeyHandle, hauthoritykey: NcryptKeyHandle, dwclaimtype: UInt, pparameterlist: ConstPtr, pbclaimblob: MutPtr, cbclaimblob: UInt, pcbresult: MutPtr, dwflags: UInt): Hresult =
     windowssysWindowsWin32SecurityCryptographyNCryptCreateClaim(hsubjectkey, hauthoritykey, dwclaimtype, pparameterlist.rawAddress.toCPointer<ByteVar>(), pbclaimblob.rawAddress.toCPointer<ByteVar>(), cbclaimblob, pcbresult.rawAddress.toCPointer<ByteVar>(), dwflags)
 
-public actual fun nCryptCreatePersistedKey(hprovider: NcryptProvHandle, phkey: MutPtr<NcryptKeyHandle>, pszalgid: Pcwstr, pszkeyname: Pcwstr, dwlegacykeyspec: CertKeySpec, dwflags: NcryptFlags): Hresult =
+public actual fun nCryptCreatePersistedKey(hprovider: NcryptProvHandle, phkey: MutPtr, pszalgid: Pcwstr, pszkeyname: Pcwstr, dwlegacykeyspec: CertKeySpec, dwflags: NcryptFlags): Hresult =
     windowssysWindowsWin32SecurityCryptographyNCryptCreatePersistedKey(hprovider, phkey.rawAddress.toCPointer<ByteVar>(), pszalgid.rawAddress.toCPointer<ByteVar>(), pszkeyname.rawAddress.toCPointer<ByteVar>(), dwlegacykeyspec, dwflags)
 
-public actual fun nCryptCreateProtectionDescriptor(pwszdescriptorstring: Pcwstr, dwflags: UInt, phdescriptor: MutPtr<NcryptDescriptorHandle>): Hresult =
+public actual fun nCryptCreateProtectionDescriptor(pwszdescriptorstring: Pcwstr, dwflags: UInt, phdescriptor: MutPtr): Hresult =
     windowssysWindowsWin32SecurityCryptographyNCryptCreateProtectionDescriptor(pwszdescriptorstring.rawAddress.toCPointer<ByteVar>(), dwflags, phdescriptor.rawAddress.toCPointer<ByteVar>())
 
-public actual fun nCryptDecrypt(hkey: NcryptKeyHandle, pbinput: ConstPtr<UByte>, cbinput: UInt, ppaddinginfo: ConstPtr<CVoid>, pboutput: MutPtr<UByte>, cboutput: UInt, pcbresult: MutPtr<UInt>, dwflags: NcryptFlags): Hresult =
+public actual fun nCryptDecrypt(hkey: NcryptKeyHandle, pbinput: ConstPtr, cbinput: UInt, ppaddinginfo: ConstPtr, pboutput: MutPtr, cboutput: UInt, pcbresult: MutPtr, dwflags: NcryptFlags): Hresult =
     windowssysWindowsWin32SecurityCryptographyNCryptDecrypt(hkey, pbinput.rawAddress.toCPointer<ByteVar>(), cbinput, ppaddinginfo.rawAddress.toCPointer<ByteVar>(), pboutput.rawAddress.toCPointer<ByteVar>(), cboutput, pcbresult.rawAddress.toCPointer<ByteVar>(), dwflags)
 
 public actual fun nCryptDeleteKey(hkey: NcryptKeyHandle, dwflags: UInt): Hresult =
     windowssysWindowsWin32SecurityCryptographyNCryptDeleteKey(hkey, dwflags)
 
-public actual fun nCryptDeriveKey(hsharedsecret: NcryptSecretHandle, pwszkdf: Pcwstr, pparameterlist: ConstPtr<BCryptBufferDesc>, pbderivedkey: MutPtr<UByte>, cbderivedkey: UInt, pcbresult: MutPtr<UInt>, dwflags: UInt): Hresult =
+public actual fun nCryptDeriveKey(hsharedsecret: NcryptSecretHandle, pwszkdf: Pcwstr, pparameterlist: ConstPtr, pbderivedkey: MutPtr, cbderivedkey: UInt, pcbresult: MutPtr, dwflags: UInt): Hresult =
     windowssysWindowsWin32SecurityCryptographyNCryptDeriveKey(hsharedsecret, pwszkdf.rawAddress.toCPointer<ByteVar>(), pparameterlist.rawAddress.toCPointer<ByteVar>(), pbderivedkey.rawAddress.toCPointer<ByteVar>(), cbderivedkey, pcbresult.rawAddress.toCPointer<ByteVar>(), dwflags)
 
-public actual fun nCryptEncrypt(hkey: NcryptKeyHandle, pbinput: ConstPtr<UByte>, cbinput: UInt, ppaddinginfo: ConstPtr<CVoid>, pboutput: MutPtr<UByte>, cboutput: UInt, pcbresult: MutPtr<UInt>, dwflags: NcryptFlags): Hresult =
+public actual fun nCryptEncrypt(hkey: NcryptKeyHandle, pbinput: ConstPtr, cbinput: UInt, ppaddinginfo: ConstPtr, pboutput: MutPtr, cboutput: UInt, pcbresult: MutPtr, dwflags: NcryptFlags): Hresult =
     windowssysWindowsWin32SecurityCryptographyNCryptEncrypt(hkey, pbinput.rawAddress.toCPointer<ByteVar>(), cbinput, ppaddinginfo.rawAddress.toCPointer<ByteVar>(), pboutput.rawAddress.toCPointer<ByteVar>(), cboutput, pcbresult.rawAddress.toCPointer<ByteVar>(), dwflags)
 
-public actual fun nCryptEnumAlgorithms(hprovider: NcryptProvHandle, dwalgoperations: NcryptOperation, pdwalgcount: MutPtr<UInt>, ppalglist: MutPtr<MutPtr<NCryptAlgorithmName>>, dwflags: UInt): Hresult =
+public actual fun nCryptEnumAlgorithms(hprovider: NcryptProvHandle, dwalgoperations: NcryptOperation, pdwalgcount: MutPtr, ppalglist: MutPtr, dwflags: UInt): Hresult =
     windowssysWindowsWin32SecurityCryptographyNCryptEnumAlgorithms(hprovider, dwalgoperations, pdwalgcount.rawAddress.toCPointer<ByteVar>(), ppalglist.rawAddress.toCPointer<ByteVar>(), dwflags)
 
-public actual fun nCryptEnumKeys(hprovider: NcryptProvHandle, pszscope: Pcwstr, ppkeyname: MutPtr<MutPtr<NCryptKeyName>>, ppenumstate: MutPtr<MutPtr<CVoid>>, dwflags: NcryptFlags): Hresult =
+public actual fun nCryptEnumKeys(hprovider: NcryptProvHandle, pszscope: Pcwstr, ppkeyname: MutPtr, ppenumstate: MutPtr, dwflags: NcryptFlags): Hresult =
     windowssysWindowsWin32SecurityCryptographyNCryptEnumKeys(hprovider, pszscope.rawAddress.toCPointer<ByteVar>(), ppkeyname.rawAddress.toCPointer<ByteVar>(), ppenumstate.rawAddress.toCPointer<ByteVar>(), dwflags)
 
-public actual fun nCryptEnumStorageProviders(pdwprovidercount: MutPtr<UInt>, ppproviderlist: MutPtr<MutPtr<NCryptProviderName>>, dwflags: UInt): Hresult =
+public actual fun nCryptEnumStorageProviders(pdwprovidercount: MutPtr, ppproviderlist: MutPtr, dwflags: UInt): Hresult =
     windowssysWindowsWin32SecurityCryptographyNCryptEnumStorageProviders(pdwprovidercount.rawAddress.toCPointer<ByteVar>(), ppproviderlist.rawAddress.toCPointer<ByteVar>(), dwflags)
 
-public actual fun nCryptExportKey(hkey: NcryptKeyHandle, hexportkey: NcryptKeyHandle, pszblobtype: Pcwstr, pparameterlist: ConstPtr<BCryptBufferDesc>, pboutput: MutPtr<UByte>, cboutput: UInt, pcbresult: MutPtr<UInt>, dwflags: NcryptFlags): Hresult =
+public actual fun nCryptExportKey(hkey: NcryptKeyHandle, hexportkey: NcryptKeyHandle, pszblobtype: Pcwstr, pparameterlist: ConstPtr, pboutput: MutPtr, cboutput: UInt, pcbresult: MutPtr, dwflags: NcryptFlags): Hresult =
     windowssysWindowsWin32SecurityCryptographyNCryptExportKey(hkey, hexportkey, pszblobtype.rawAddress.toCPointer<ByteVar>(), pparameterlist.rawAddress.toCPointer<ByteVar>(), pboutput.rawAddress.toCPointer<ByteVar>(), cboutput, pcbresult.rawAddress.toCPointer<ByteVar>(), dwflags)
 
 public actual fun nCryptFinalizeKey(hkey: NcryptKeyHandle, dwflags: NcryptFlags): Hresult =
     windowssysWindowsWin32SecurityCryptographyNCryptFinalizeKey(hkey, dwflags)
 
-public actual fun nCryptFreeBuffer(pvinput: MutPtr<CVoid>): Hresult =
+public actual fun nCryptFreeBuffer(pvinput: MutPtr): Hresult =
     windowssysWindowsWin32SecurityCryptographyNCryptFreeBuffer(pvinput.rawAddress.toCPointer<ByteVar>())
 
 public actual fun nCryptFreeObject(hobject: NcryptHandle): Hresult =
     windowssysWindowsWin32SecurityCryptographyNCryptFreeObject(hobject)
 
-public actual fun nCryptGetProperty(hobject: NcryptHandle, pszproperty: Pcwstr, pboutput: MutPtr<UByte>, cboutput: UInt, pcbresult: MutPtr<UInt>, dwflags: ObjectSecurityInformation): Hresult =
+public actual fun nCryptGetProperty(hobject: NcryptHandle, pszproperty: Pcwstr, pboutput: MutPtr, cboutput: UInt, pcbresult: MutPtr, dwflags: ObjectSecurityInformation): Hresult =
     windowssysWindowsWin32SecurityCryptographyNCryptGetProperty(hobject, pszproperty.rawAddress.toCPointer<ByteVar>(), pboutput.rawAddress.toCPointer<ByteVar>(), cboutput, pcbresult.rawAddress.toCPointer<ByteVar>(), dwflags)
 
-public actual fun nCryptGetProtectionDescriptorInfo(hdescriptor: NcryptDescriptorHandle, pmempara: ConstPtr<NcryptAllocPara>, dwinfotype: UInt, ppvinfo: MutPtr<MutPtr<CVoid>>): Hresult =
+public actual fun nCryptGetProtectionDescriptorInfo(hdescriptor: NcryptDescriptorHandle, pmempara: ConstPtr, dwinfotype: UInt, ppvinfo: MutPtr): Hresult =
     windowssysWindowsWin32SecurityCryptographyNCryptGetProtectionDescriptorInfo(hdescriptor.rawAddress.toCPointer<ByteVar>(), pmempara.rawAddress.toCPointer<ByteVar>(), dwinfotype, ppvinfo.rawAddress.toCPointer<ByteVar>())
 
-public actual fun nCryptImportKey(hprovider: NcryptProvHandle, himportkey: NcryptKeyHandle, pszblobtype: Pcwstr, pparameterlist: ConstPtr<BCryptBufferDesc>, phkey: MutPtr<NcryptKeyHandle>, pbdata: ConstPtr<UByte>, cbdata: UInt, dwflags: NcryptFlags): Hresult =
+public actual fun nCryptImportKey(hprovider: NcryptProvHandle, himportkey: NcryptKeyHandle, pszblobtype: Pcwstr, pparameterlist: ConstPtr, phkey: MutPtr, pbdata: ConstPtr, cbdata: UInt, dwflags: NcryptFlags): Hresult =
     windowssysWindowsWin32SecurityCryptographyNCryptImportKey(hprovider, himportkey, pszblobtype.rawAddress.toCPointer<ByteVar>(), pparameterlist.rawAddress.toCPointer<ByteVar>(), phkey.rawAddress.toCPointer<ByteVar>(), pbdata.rawAddress.toCPointer<ByteVar>(), cbdata, dwflags)
 
 public actual fun nCryptIsAlgSupported(hprovider: NcryptProvHandle, pszalgid: Pcwstr, dwflags: UInt): Hresult =
@@ -1648,257 +1644,257 @@ public actual fun nCryptIsAlgSupported(hprovider: NcryptProvHandle, pszalgid: Pc
 public actual fun nCryptIsKeyHandle(hkey: NcryptKeyHandle): Bool =
     windowssysWindowsWin32SecurityCryptographyNCryptIsKeyHandle(hkey)
 
-public actual fun nCryptKeyDerivation(hkey: NcryptKeyHandle, pparameterlist: ConstPtr<BCryptBufferDesc>, pbderivedkey: MutPtr<UByte>, cbderivedkey: UInt, pcbresult: MutPtr<UInt>, dwflags: UInt): Hresult =
+public actual fun nCryptKeyDerivation(hkey: NcryptKeyHandle, pparameterlist: ConstPtr, pbderivedkey: MutPtr, cbderivedkey: UInt, pcbresult: MutPtr, dwflags: UInt): Hresult =
     windowssysWindowsWin32SecurityCryptographyNCryptKeyDerivation(hkey, pparameterlist.rawAddress.toCPointer<ByteVar>(), pbderivedkey.rawAddress.toCPointer<ByteVar>(), cbderivedkey, pcbresult.rawAddress.toCPointer<ByteVar>(), dwflags)
 
-public actual fun nCryptNotifyChangeKey(hprovider: NcryptProvHandle, phevent: MutPtr<Handle>, dwflags: NcryptFlags): Hresult =
+public actual fun nCryptNotifyChangeKey(hprovider: NcryptProvHandle, phevent: MutPtr, dwflags: NcryptFlags): Hresult =
     windowssysWindowsWin32SecurityCryptographyNCryptNotifyChangeKey(hprovider, phevent.rawAddress.toCPointer<ByteVar>(), dwflags)
 
-public actual fun nCryptOpenKey(hprovider: NcryptProvHandle, phkey: MutPtr<NcryptKeyHandle>, pszkeyname: Pcwstr, dwlegacykeyspec: CertKeySpec, dwflags: NcryptFlags): Hresult =
+public actual fun nCryptOpenKey(hprovider: NcryptProvHandle, phkey: MutPtr, pszkeyname: Pcwstr, dwlegacykeyspec: CertKeySpec, dwflags: NcryptFlags): Hresult =
     windowssysWindowsWin32SecurityCryptographyNCryptOpenKey(hprovider, phkey.rawAddress.toCPointer<ByteVar>(), pszkeyname.rawAddress.toCPointer<ByteVar>(), dwlegacykeyspec, dwflags)
 
-public actual fun nCryptOpenStorageProvider(phprovider: MutPtr<NcryptProvHandle>, pszprovidername: Pcwstr, dwflags: UInt): Hresult =
+public actual fun nCryptOpenStorageProvider(phprovider: MutPtr, pszprovidername: Pcwstr, dwflags: UInt): Hresult =
     windowssysWindowsWin32SecurityCryptographyNCryptOpenStorageProvider(phprovider.rawAddress.toCPointer<ByteVar>(), pszprovidername.rawAddress.toCPointer<ByteVar>(), dwflags)
 
-public actual fun nCryptProtectSecret(hdescriptor: NcryptDescriptorHandle, dwflags: UInt, pbdata: ConstPtr<UByte>, cbdata: UInt, pmempara: ConstPtr<NcryptAllocPara>, hwnd: Hwnd, ppbprotectedblob: MutPtr<MutPtr<UByte>>, pcbprotectedblob: MutPtr<UInt>): Hresult =
+public actual fun nCryptProtectSecret(hdescriptor: NcryptDescriptorHandle, dwflags: UInt, pbdata: ConstPtr, cbdata: UInt, pmempara: ConstPtr, hwnd: Hwnd, ppbprotectedblob: MutPtr, pcbprotectedblob: MutPtr): Hresult =
     windowssysWindowsWin32SecurityCryptographyNCryptProtectSecret(hdescriptor.rawAddress.toCPointer<ByteVar>(), dwflags, pbdata.rawAddress.toCPointer<ByteVar>(), cbdata, pmempara.rawAddress.toCPointer<ByteVar>(), hwnd.rawAddress.toCPointer<ByteVar>(), ppbprotectedblob.rawAddress.toCPointer<ByteVar>(), pcbprotectedblob.rawAddress.toCPointer<ByteVar>())
 
-public actual fun nCryptQueryProtectionDescriptorName(pwszname: Pcwstr, pwszdescriptorstring: Pwstr, pcdescriptorstring: MutPtr<ULong>, dwflags: UInt): Hresult =
+public actual fun nCryptQueryProtectionDescriptorName(pwszname: Pcwstr, pwszdescriptorstring: Pwstr, pcdescriptorstring: MutPtr, dwflags: UInt): Hresult =
     windowssysWindowsWin32SecurityCryptographyNCryptQueryProtectionDescriptorName(pwszname.rawAddress.toCPointer<ByteVar>(), pwszdescriptorstring.rawAddress.toCPointer<ByteVar>(), pcdescriptorstring.rawAddress.toCPointer<ByteVar>(), dwflags)
 
 public actual fun nCryptRegisterProtectionDescriptorName(pwszname: Pcwstr, pwszdescriptorstring: Pcwstr, dwflags: UInt): Hresult =
     windowssysWindowsWin32SecurityCryptographyNCryptRegisterProtectionDescriptorName(pwszname.rawAddress.toCPointer<ByteVar>(), pwszdescriptorstring.rawAddress.toCPointer<ByteVar>(), dwflags)
 
-public actual fun nCryptSecretAgreement(hprivkey: NcryptKeyHandle, hpubkey: NcryptKeyHandle, phagreedsecret: MutPtr<NcryptSecretHandle>, dwflags: NcryptFlags): Hresult =
+public actual fun nCryptSecretAgreement(hprivkey: NcryptKeyHandle, hpubkey: NcryptKeyHandle, phagreedsecret: MutPtr, dwflags: NcryptFlags): Hresult =
     windowssysWindowsWin32SecurityCryptographyNCryptSecretAgreement(hprivkey, hpubkey, phagreedsecret.rawAddress.toCPointer<ByteVar>(), dwflags)
 
-public actual fun nCryptSetProperty(hobject: NcryptHandle, pszproperty: Pcwstr, pbinput: ConstPtr<UByte>, cbinput: UInt, dwflags: NcryptFlags): Hresult =
+public actual fun nCryptSetProperty(hobject: NcryptHandle, pszproperty: Pcwstr, pbinput: ConstPtr, cbinput: UInt, dwflags: NcryptFlags): Hresult =
     windowssysWindowsWin32SecurityCryptographyNCryptSetProperty(hobject, pszproperty.rawAddress.toCPointer<ByteVar>(), pbinput.rawAddress.toCPointer<ByteVar>(), cbinput, dwflags)
 
-public actual fun nCryptSignHash(hkey: NcryptKeyHandle, ppaddinginfo: ConstPtr<CVoid>, pbhashvalue: ConstPtr<UByte>, cbhashvalue: UInt, pbsignature: MutPtr<UByte>, cbsignature: UInt, pcbresult: MutPtr<UInt>, dwflags: NcryptFlags): Hresult =
+public actual fun nCryptSignHash(hkey: NcryptKeyHandle, ppaddinginfo: ConstPtr, pbhashvalue: ConstPtr, cbhashvalue: UInt, pbsignature: MutPtr, cbsignature: UInt, pcbresult: MutPtr, dwflags: NcryptFlags): Hresult =
     windowssysWindowsWin32SecurityCryptographyNCryptSignHash(hkey, ppaddinginfo.rawAddress.toCPointer<ByteVar>(), pbhashvalue.rawAddress.toCPointer<ByteVar>(), cbhashvalue, pbsignature.rawAddress.toCPointer<ByteVar>(), cbsignature, pcbresult.rawAddress.toCPointer<ByteVar>(), dwflags)
 
 public actual fun nCryptStreamClose(hstream: NcryptStreamHandle): Hresult =
     windowssysWindowsWin32SecurityCryptographyNCryptStreamClose(hstream.rawAddress.toCPointer<ByteVar>())
 
-public actual fun nCryptStreamOpenToProtect(hdescriptor: NcryptDescriptorHandle, dwflags: UInt, hwnd: Hwnd, pstreaminfo: ConstPtr<NcryptProtectStreamInfo>, phstream: MutPtr<NcryptStreamHandle>): Hresult =
+public actual fun nCryptStreamOpenToProtect(hdescriptor: NcryptDescriptorHandle, dwflags: UInt, hwnd: Hwnd, pstreaminfo: ConstPtr, phstream: MutPtr): Hresult =
     windowssysWindowsWin32SecurityCryptographyNCryptStreamOpenToProtect(hdescriptor.rawAddress.toCPointer<ByteVar>(), dwflags, hwnd.rawAddress.toCPointer<ByteVar>(), pstreaminfo.rawAddress.toCPointer<ByteVar>(), phstream.rawAddress.toCPointer<ByteVar>())
 
-public actual fun nCryptStreamOpenToUnprotect(pstreaminfo: ConstPtr<NcryptProtectStreamInfo>, dwflags: UInt, hwnd: Hwnd, phstream: MutPtr<NcryptStreamHandle>): Hresult =
+public actual fun nCryptStreamOpenToUnprotect(pstreaminfo: ConstPtr, dwflags: UInt, hwnd: Hwnd, phstream: MutPtr): Hresult =
     windowssysWindowsWin32SecurityCryptographyNCryptStreamOpenToUnprotect(pstreaminfo.rawAddress.toCPointer<ByteVar>(), dwflags, hwnd.rawAddress.toCPointer<ByteVar>(), phstream.rawAddress.toCPointer<ByteVar>())
 
-public actual fun nCryptStreamOpenToUnprotectEx(pstreaminfo: ConstPtr<NcryptProtectStreamInfoEx>, dwflags: UInt, hwnd: Hwnd, phstream: MutPtr<NcryptStreamHandle>): Hresult =
+public actual fun nCryptStreamOpenToUnprotectEx(pstreaminfo: ConstPtr, dwflags: UInt, hwnd: Hwnd, phstream: MutPtr): Hresult =
     windowssysWindowsWin32SecurityCryptographyNCryptStreamOpenToUnprotectEx(pstreaminfo.rawAddress.toCPointer<ByteVar>(), dwflags, hwnd.rawAddress.toCPointer<ByteVar>(), phstream.rawAddress.toCPointer<ByteVar>())
 
-public actual fun nCryptStreamUpdate(hstream: NcryptStreamHandle, pbdata: ConstPtr<UByte>, cbdata: ULong, ffinal: Bool): Hresult =
+public actual fun nCryptStreamUpdate(hstream: NcryptStreamHandle, pbdata: ConstPtr, cbdata: ULong, ffinal: Bool): Hresult =
     windowssysWindowsWin32SecurityCryptographyNCryptStreamUpdate(hstream.rawAddress.toCPointer<ByteVar>(), pbdata.rawAddress.toCPointer<ByteVar>(), cbdata, ffinal)
 
-public actual fun nCryptTranslateHandle(phprovider: MutPtr<NcryptProvHandle>, phkey: MutPtr<NcryptKeyHandle>, hlegacyprov: ULong, hlegacykey: ULong, dwlegacykeyspec: CertKeySpec, dwflags: UInt): Hresult =
+public actual fun nCryptTranslateHandle(phprovider: MutPtr, phkey: MutPtr, hlegacyprov: ULong, hlegacykey: ULong, dwlegacykeyspec: CertKeySpec, dwflags: UInt): Hresult =
     windowssysWindowsWin32SecurityCryptographyNCryptTranslateHandle(phprovider.rawAddress.toCPointer<ByteVar>(), phkey.rawAddress.toCPointer<ByteVar>(), hlegacyprov, hlegacykey, dwlegacykeyspec, dwflags)
 
-public actual fun nCryptUnprotectSecret(phdescriptor: MutPtr<NcryptDescriptorHandle>, dwflags: NcryptFlags, pbprotectedblob: ConstPtr<UByte>, cbprotectedblob: UInt, pmempara: ConstPtr<NcryptAllocPara>, hwnd: Hwnd, ppbdata: MutPtr<MutPtr<UByte>>, pcbdata: MutPtr<UInt>): Hresult =
+public actual fun nCryptUnprotectSecret(phdescriptor: MutPtr, dwflags: NcryptFlags, pbprotectedblob: ConstPtr, cbprotectedblob: UInt, pmempara: ConstPtr, hwnd: Hwnd, ppbdata: MutPtr, pcbdata: MutPtr): Hresult =
     windowssysWindowsWin32SecurityCryptographyNCryptUnprotectSecret(phdescriptor.rawAddress.toCPointer<ByteVar>(), dwflags, pbprotectedblob.rawAddress.toCPointer<ByteVar>(), cbprotectedblob, pmempara.rawAddress.toCPointer<ByteVar>(), hwnd.rawAddress.toCPointer<ByteVar>(), ppbdata.rawAddress.toCPointer<ByteVar>(), pcbdata.rawAddress.toCPointer<ByteVar>())
 
-public actual fun nCryptVerifyClaim(hsubjectkey: NcryptKeyHandle, hauthoritykey: NcryptKeyHandle, dwclaimtype: UInt, pparameterlist: ConstPtr<BCryptBufferDesc>, pbclaimblob: ConstPtr<UByte>, cbclaimblob: UInt, poutput: MutPtr<BCryptBufferDesc>, dwflags: UInt): Hresult =
+public actual fun nCryptVerifyClaim(hsubjectkey: NcryptKeyHandle, hauthoritykey: NcryptKeyHandle, dwclaimtype: UInt, pparameterlist: ConstPtr, pbclaimblob: ConstPtr, cbclaimblob: UInt, poutput: MutPtr, dwflags: UInt): Hresult =
     windowssysWindowsWin32SecurityCryptographyNCryptVerifyClaim(hsubjectkey, hauthoritykey, dwclaimtype, pparameterlist.rawAddress.toCPointer<ByteVar>(), pbclaimblob.rawAddress.toCPointer<ByteVar>(), cbclaimblob, poutput.rawAddress.toCPointer<ByteVar>(), dwflags)
 
-public actual fun nCryptVerifySignature(hkey: NcryptKeyHandle, ppaddinginfo: ConstPtr<CVoid>, pbhashvalue: ConstPtr<UByte>, cbhashvalue: UInt, pbsignature: ConstPtr<UByte>, cbsignature: UInt, dwflags: NcryptFlags): Hresult =
+public actual fun nCryptVerifySignature(hkey: NcryptKeyHandle, ppaddinginfo: ConstPtr, pbhashvalue: ConstPtr, cbhashvalue: UInt, pbsignature: ConstPtr, cbsignature: UInt, dwflags: NcryptFlags): Hresult =
     windowssysWindowsWin32SecurityCryptographyNCryptVerifySignature(hkey, ppaddinginfo.rawAddress.toCPointer<ByteVar>(), pbhashvalue.rawAddress.toCPointer<ByteVar>(), cbhashvalue, pbsignature.rawAddress.toCPointer<ByteVar>(), cbsignature, dwflags)
 
-public actual fun pFXExportCertStore(hstore: Hcertstore, ppfx: MutPtr<CryptIntegerBlob>, szpassword: Pcwstr, dwflags: UInt): Bool =
+public actual fun pFXExportCertStore(hstore: Hcertstore, ppfx: MutPtr, szpassword: Pcwstr, dwflags: UInt): Bool =
     windowssysWindowsWin32SecurityCryptographyPFXExportCertStore(hstore.rawAddress.toCPointer<ByteVar>(), ppfx.rawAddress.toCPointer<ByteVar>(), szpassword.rawAddress.toCPointer<ByteVar>(), dwflags)
 
-public actual fun pFXExportCertStoreEx(hstore: Hcertstore, ppfx: MutPtr<CryptIntegerBlob>, szpassword: Pcwstr, pvpara: ConstPtr<CVoid>, dwflags: UInt): Bool =
+public actual fun pFXExportCertStoreEx(hstore: Hcertstore, ppfx: MutPtr, szpassword: Pcwstr, pvpara: ConstPtr, dwflags: UInt): Bool =
     windowssysWindowsWin32SecurityCryptographyPFXExportCertStoreEx(hstore.rawAddress.toCPointer<ByteVar>(), ppfx.rawAddress.toCPointer<ByteVar>(), szpassword.rawAddress.toCPointer<ByteVar>(), pvpara.rawAddress.toCPointer<ByteVar>(), dwflags)
 
-public actual fun pFXImportCertStore(ppfx: ConstPtr<CryptIntegerBlob>, szpassword: Pcwstr, dwflags: CryptKeyFlags): Hcertstore =
+public actual fun pFXImportCertStore(ppfx: ConstPtr, szpassword: Pcwstr, dwflags: CryptKeyFlags): Hcertstore =
     MutPtr(windowssysWindowsWin32SecurityCryptographyPFXImportCertStore(ppfx.rawAddress.toCPointer<ByteVar>(), szpassword.rawAddress.toCPointer<ByteVar>(), dwflags)?.toLong() ?: 0L)
 
-public actual fun pFXIsPFXBlob(ppfx: ConstPtr<CryptIntegerBlob>): Bool =
+public actual fun pFXIsPFXBlob(ppfx: ConstPtr): Bool =
     windowssysWindowsWin32SecurityCryptographyPFXIsPFXBlob(ppfx.rawAddress.toCPointer<ByteVar>())
 
-public actual fun pFXVerifyPassword(ppfx: ConstPtr<CryptIntegerBlob>, szpassword: Pcwstr, dwflags: UInt): Bool =
+public actual fun pFXVerifyPassword(ppfx: ConstPtr, szpassword: Pcwstr, dwflags: UInt): Bool =
     windowssysWindowsWin32SecurityCryptographyPFXVerifyPassword(ppfx.rawAddress.toCPointer<ByteVar>(), szpassword.rawAddress.toCPointer<ByteVar>(), dwflags)
 
-public actual fun processPrng(pbdata: MutPtr<UByte>, cbdata: ULong): Bool =
+public actual fun processPrng(pbdata: MutPtr, cbdata: ULong): Bool =
     windowssysWindowsWin32SecurityCryptographyProcessPrng(pbdata.rawAddress.toCPointer<ByteVar>(), cbdata)
 
 public actual fun signError(): Hresult =
     windowssysWindowsWin32SecurityCryptographySignError()
 
-public actual fun signHash(hcrypto: ConstPtr<InformationcardCryptoHandle>, cbhash: UInt, phash: ConstPtr<UByte>, hashalgoid: Pcwstr, pcbsig: MutPtr<UInt>, ppsig: MutPtr<MutPtr<UByte>>): Hresult =
+public actual fun signHash(hcrypto: ConstPtr, cbhash: UInt, phash: ConstPtr, hashalgoid: Pcwstr, pcbsig: MutPtr, ppsig: MutPtr): Hresult =
     windowssysWindowsWin32SecurityCryptographySignHash(hcrypto.rawAddress.toCPointer<ByteVar>(), cbhash, phash.rawAddress.toCPointer<ByteVar>(), hashalgoid.rawAddress.toCPointer<ByteVar>(), pcbsig.rawAddress.toCPointer<ByteVar>(), ppsig.rawAddress.toCPointer<ByteVar>())
 
-public actual fun signerFreeSignerContext(psignercontext: ConstPtr<SignerContext>): Hresult =
+public actual fun signerFreeSignerContext(psignercontext: ConstPtr): Hresult =
     windowssysWindowsWin32SecurityCryptographySignerFreeSignerContext(psignercontext.rawAddress.toCPointer<ByteVar>())
 
-public actual fun signerSign(psubjectinfo: ConstPtr<SignerSubjectInfo>, psignercert: ConstPtr<SignerCert>, psignatureinfo: ConstPtr<SignerSignatureInfo>, pproviderinfo: ConstPtr<SignerProviderInfo>, pwszhttptimestamp: Pcwstr, psrequest: ConstPtr<CryptAttributes>, psipdata: ConstPtr<CVoid>): Hresult =
+public actual fun signerSign(psubjectinfo: ConstPtr, psignercert: ConstPtr, psignatureinfo: ConstPtr, pproviderinfo: ConstPtr, pwszhttptimestamp: Pcwstr, psrequest: ConstPtr, psipdata: ConstPtr): Hresult =
     windowssysWindowsWin32SecurityCryptographySignerSign(psubjectinfo.rawAddress.toCPointer<ByteVar>(), psignercert.rawAddress.toCPointer<ByteVar>(), psignatureinfo.rawAddress.toCPointer<ByteVar>(), pproviderinfo.rawAddress.toCPointer<ByteVar>(), pwszhttptimestamp.rawAddress.toCPointer<ByteVar>(), psrequest.rawAddress.toCPointer<ByteVar>(), psipdata.rawAddress.toCPointer<ByteVar>())
 
-public actual fun signerSignEx(dwflags: SignerSignFlags, psubjectinfo: ConstPtr<SignerSubjectInfo>, psignercert: ConstPtr<SignerCert>, psignatureinfo: ConstPtr<SignerSignatureInfo>, pproviderinfo: ConstPtr<SignerProviderInfo>, pwszhttptimestamp: Pcwstr, psrequest: ConstPtr<CryptAttributes>, psipdata: ConstPtr<CVoid>, ppsignercontext: MutPtr<MutPtr<SignerContext>>): Hresult =
+public actual fun signerSignEx(dwflags: SignerSignFlags, psubjectinfo: ConstPtr, psignercert: ConstPtr, psignatureinfo: ConstPtr, pproviderinfo: ConstPtr, pwszhttptimestamp: Pcwstr, psrequest: ConstPtr, psipdata: ConstPtr, ppsignercontext: MutPtr): Hresult =
     windowssysWindowsWin32SecurityCryptographySignerSignEx(dwflags, psubjectinfo.rawAddress.toCPointer<ByteVar>(), psignercert.rawAddress.toCPointer<ByteVar>(), psignatureinfo.rawAddress.toCPointer<ByteVar>(), pproviderinfo.rawAddress.toCPointer<ByteVar>(), pwszhttptimestamp.rawAddress.toCPointer<ByteVar>(), psrequest.rawAddress.toCPointer<ByteVar>(), psipdata.rawAddress.toCPointer<ByteVar>(), ppsignercontext.rawAddress.toCPointer<ByteVar>())
 
-public actual fun signerSignEx2(dwflags: SignerSignFlags, psubjectinfo: ConstPtr<SignerSubjectInfo>, psignercert: ConstPtr<SignerCert>, psignatureinfo: ConstPtr<SignerSignatureInfo>, pproviderinfo: ConstPtr<SignerProviderInfo>, dwtimestampflags: SignerTimestampFlags, psztimestampalgorithmoid: Pcstr, pwszhttptimestamp: Pcwstr, psrequest: ConstPtr<CryptAttributes>, psipdata: ConstPtr<CVoid>, ppsignercontext: MutPtr<MutPtr<SignerContext>>, pcryptopolicy: ConstPtr<CertStrongSignPara>, preserved: ConstPtr<CVoid>): Hresult =
+public actual fun signerSignEx2(dwflags: SignerSignFlags, psubjectinfo: ConstPtr, psignercert: ConstPtr, psignatureinfo: ConstPtr, pproviderinfo: ConstPtr, dwtimestampflags: SignerTimestampFlags, psztimestampalgorithmoid: Pcstr, pwszhttptimestamp: Pcwstr, psrequest: ConstPtr, psipdata: ConstPtr, ppsignercontext: MutPtr, pcryptopolicy: ConstPtr, preserved: ConstPtr): Hresult =
     windowssysWindowsWin32SecurityCryptographySignerSignEx2(dwflags, psubjectinfo.rawAddress.toCPointer<ByteVar>(), psignercert.rawAddress.toCPointer<ByteVar>(), psignatureinfo.rawAddress.toCPointer<ByteVar>(), pproviderinfo.rawAddress.toCPointer<ByteVar>(), dwtimestampflags, psztimestampalgorithmoid.rawAddress.toCPointer<ByteVar>(), pwszhttptimestamp.rawAddress.toCPointer<ByteVar>(), psrequest.rawAddress.toCPointer<ByteVar>(), psipdata.rawAddress.toCPointer<ByteVar>(), ppsignercontext.rawAddress.toCPointer<ByteVar>(), pcryptopolicy.rawAddress.toCPointer<ByteVar>(), preserved.rawAddress.toCPointer<ByteVar>())
 
-public actual fun signerSignEx3(dwflags: SignerSignFlags, psubjectinfo: ConstPtr<SignerSubjectInfo>, psignercert: ConstPtr<SignerCert>, psignatureinfo: ConstPtr<SignerSignatureInfo>, pproviderinfo: ConstPtr<SignerProviderInfo>, dwtimestampflags: SignerTimestampFlags, psztimestampalgorithmoid: Pcstr, pwszhttptimestamp: Pcwstr, psrequest: ConstPtr<CryptAttributes>, psipdata: ConstPtr<CVoid>, ppsignercontext: MutPtr<MutPtr<SignerContext>>, pcryptopolicy: ConstPtr<CertStrongSignPara>, pdigestsigninfo: ConstPtr<SignerDigestSignInfo>, preserved: ConstPtr<CVoid>): Hresult =
+public actual fun signerSignEx3(dwflags: SignerSignFlags, psubjectinfo: ConstPtr, psignercert: ConstPtr, psignatureinfo: ConstPtr, pproviderinfo: ConstPtr, dwtimestampflags: SignerTimestampFlags, psztimestampalgorithmoid: Pcstr, pwszhttptimestamp: Pcwstr, psrequest: ConstPtr, psipdata: ConstPtr, ppsignercontext: MutPtr, pcryptopolicy: ConstPtr, pdigestsigninfo: ConstPtr, preserved: ConstPtr): Hresult =
     windowssysWindowsWin32SecurityCryptographySignerSignEx3(dwflags, psubjectinfo.rawAddress.toCPointer<ByteVar>(), psignercert.rawAddress.toCPointer<ByteVar>(), psignatureinfo.rawAddress.toCPointer<ByteVar>(), pproviderinfo.rawAddress.toCPointer<ByteVar>(), dwtimestampflags, psztimestampalgorithmoid.rawAddress.toCPointer<ByteVar>(), pwszhttptimestamp.rawAddress.toCPointer<ByteVar>(), psrequest.rawAddress.toCPointer<ByteVar>(), psipdata.rawAddress.toCPointer<ByteVar>(), ppsignercontext.rawAddress.toCPointer<ByteVar>(), pcryptopolicy.rawAddress.toCPointer<ByteVar>(), pdigestsigninfo.rawAddress.toCPointer<ByteVar>(), preserved.rawAddress.toCPointer<ByteVar>())
 
-public actual fun signerTimeStamp(psubjectinfo: ConstPtr<SignerSubjectInfo>, pwszhttptimestamp: Pcwstr, psrequest: ConstPtr<CryptAttributes>, psipdata: ConstPtr<CVoid>): Hresult =
+public actual fun signerTimeStamp(psubjectinfo: ConstPtr, pwszhttptimestamp: Pcwstr, psrequest: ConstPtr, psipdata: ConstPtr): Hresult =
     windowssysWindowsWin32SecurityCryptographySignerTimeStamp(psubjectinfo.rawAddress.toCPointer<ByteVar>(), pwszhttptimestamp.rawAddress.toCPointer<ByteVar>(), psrequest.rawAddress.toCPointer<ByteVar>(), psipdata.rawAddress.toCPointer<ByteVar>())
 
-public actual fun signerTimeStampEx(dwflags: UInt, psubjectinfo: ConstPtr<SignerSubjectInfo>, pwszhttptimestamp: Pcwstr, psrequest: ConstPtr<CryptAttributes>, psipdata: ConstPtr<CVoid>, ppsignercontext: MutPtr<MutPtr<SignerContext>>): Hresult =
+public actual fun signerTimeStampEx(dwflags: UInt, psubjectinfo: ConstPtr, pwszhttptimestamp: Pcwstr, psrequest: ConstPtr, psipdata: ConstPtr, ppsignercontext: MutPtr): Hresult =
     windowssysWindowsWin32SecurityCryptographySignerTimeStampEx(dwflags, psubjectinfo.rawAddress.toCPointer<ByteVar>(), pwszhttptimestamp.rawAddress.toCPointer<ByteVar>(), psrequest.rawAddress.toCPointer<ByteVar>(), psipdata.rawAddress.toCPointer<ByteVar>(), ppsignercontext.rawAddress.toCPointer<ByteVar>())
 
-public actual fun signerTimeStampEx2(dwflags: SignerTimestampFlags, psubjectinfo: ConstPtr<SignerSubjectInfo>, pwszhttptimestamp: Pcwstr, dwalgid: AlgId, psrequest: ConstPtr<CryptAttributes>, psipdata: ConstPtr<CVoid>, ppsignercontext: MutPtr<MutPtr<SignerContext>>): Hresult =
+public actual fun signerTimeStampEx2(dwflags: SignerTimestampFlags, psubjectinfo: ConstPtr, pwszhttptimestamp: Pcwstr, dwalgid: AlgId, psrequest: ConstPtr, psipdata: ConstPtr, ppsignercontext: MutPtr): Hresult =
     windowssysWindowsWin32SecurityCryptographySignerTimeStampEx2(dwflags, psubjectinfo.rawAddress.toCPointer<ByteVar>(), pwszhttptimestamp.rawAddress.toCPointer<ByteVar>(), dwalgid, psrequest.rawAddress.toCPointer<ByteVar>(), psipdata.rawAddress.toCPointer<ByteVar>(), ppsignercontext.rawAddress.toCPointer<ByteVar>())
 
-public actual fun signerTimeStampEx3(dwflags: SignerTimestampFlags, dwindex: UInt, psubjectinfo: ConstPtr<SignerSubjectInfo>, pwszhttptimestamp: Pcwstr, pszalgorithmoid: Pcwstr, psrequest: ConstPtr<CryptAttributes>, psipdata: ConstPtr<CVoid>, ppsignercontext: MutPtr<MutPtr<SignerContext>>, pcryptopolicy: ConstPtr<CertStrongSignPara>, preserved: ConstPtr<CVoid>): Hresult =
+public actual fun signerTimeStampEx3(dwflags: SignerTimestampFlags, dwindex: UInt, psubjectinfo: ConstPtr, pwszhttptimestamp: Pcwstr, pszalgorithmoid: Pcwstr, psrequest: ConstPtr, psipdata: ConstPtr, ppsignercontext: MutPtr, pcryptopolicy: ConstPtr, preserved: ConstPtr): Hresult =
     windowssysWindowsWin32SecurityCryptographySignerTimeStampEx3(dwflags, dwindex, psubjectinfo.rawAddress.toCPointer<ByteVar>(), pwszhttptimestamp.rawAddress.toCPointer<ByteVar>(), pszalgorithmoid.rawAddress.toCPointer<ByteVar>(), psrequest.rawAddress.toCPointer<ByteVar>(), psipdata.rawAddress.toCPointer<ByteVar>(), ppsignercontext.rawAddress.toCPointer<ByteVar>(), pcryptopolicy.rawAddress.toCPointer<ByteVar>(), preserved.rawAddress.toCPointer<ByteVar>())
 
 public actual fun sslChangeNotify(hevent: Handle, dwflags: UInt): Hresult =
     windowssysWindowsWin32SecurityCryptographySslChangeNotify(hevent.rawAddress.toCPointer<ByteVar>(), dwflags)
 
-public actual fun sslComputeClientAuthHash(hsslprovider: NcryptProvHandle, hmasterkey: NcryptKeyHandle, hhandshakehash: NcryptHashHandle, pszalgid: Pcwstr, pboutput: MutPtr<UByte>, cboutput: UInt, pcbresult: MutPtr<UInt>, dwflags: UInt): Hresult =
+public actual fun sslComputeClientAuthHash(hsslprovider: NcryptProvHandle, hmasterkey: NcryptKeyHandle, hhandshakehash: NcryptHashHandle, pszalgid: Pcwstr, pboutput: MutPtr, cboutput: UInt, pcbresult: MutPtr, dwflags: UInt): Hresult =
     windowssysWindowsWin32SecurityCryptographySslComputeClientAuthHash(hsslprovider, hmasterkey, hhandshakehash, pszalgid.rawAddress.toCPointer<ByteVar>(), pboutput.rawAddress.toCPointer<ByteVar>(), cboutput, pcbresult.rawAddress.toCPointer<ByteVar>(), dwflags)
 
-public actual fun sslComputeEapKeyBlock(hsslprovider: NcryptProvHandle, hmasterkey: NcryptKeyHandle, pbrandoms: ConstPtr<UByte>, cbrandoms: UInt, pboutput: MutPtr<UByte>, cboutput: UInt, pcbresult: MutPtr<UInt>, dwflags: UInt): Hresult =
+public actual fun sslComputeEapKeyBlock(hsslprovider: NcryptProvHandle, hmasterkey: NcryptKeyHandle, pbrandoms: ConstPtr, cbrandoms: UInt, pboutput: MutPtr, cboutput: UInt, pcbresult: MutPtr, dwflags: UInt): Hresult =
     windowssysWindowsWin32SecurityCryptographySslComputeEapKeyBlock(hsslprovider, hmasterkey, pbrandoms.rawAddress.toCPointer<ByteVar>(), cbrandoms, pboutput.rawAddress.toCPointer<ByteVar>(), cboutput, pcbresult.rawAddress.toCPointer<ByteVar>(), dwflags)
 
-public actual fun sslComputeFinishedHash(hsslprovider: NcryptProvHandle, hmasterkey: NcryptKeyHandle, hhandshakehash: NcryptHashHandle, pboutput: MutPtr<UByte>, cboutput: UInt, dwflags: UInt): Hresult =
+public actual fun sslComputeFinishedHash(hsslprovider: NcryptProvHandle, hmasterkey: NcryptKeyHandle, hhandshakehash: NcryptHashHandle, pboutput: MutPtr, cboutput: UInt, dwflags: UInt): Hresult =
     windowssysWindowsWin32SecurityCryptographySslComputeFinishedHash(hsslprovider, hmasterkey, hhandshakehash, pboutput.rawAddress.toCPointer<ByteVar>(), cboutput, dwflags)
 
-public actual fun sslComputeSessionHash(hsslprovider: NcryptProvHandle, hhandshakehash: NcryptHashHandle, dwprotocol: UInt, pboutput: MutPtr<UByte>, cboutput: UInt, pcbresult: MutPtr<UInt>, dwflags: UInt): Hresult =
+public actual fun sslComputeSessionHash(hsslprovider: NcryptProvHandle, hhandshakehash: NcryptHashHandle, dwprotocol: UInt, pboutput: MutPtr, cboutput: UInt, pcbresult: MutPtr, dwflags: UInt): Hresult =
     windowssysWindowsWin32SecurityCryptographySslComputeSessionHash(hsslprovider, hhandshakehash, dwprotocol, pboutput.rawAddress.toCPointer<ByteVar>(), cboutput, pcbresult.rawAddress.toCPointer<ByteVar>(), dwflags)
 
-public actual fun sslCreateClientAuthHash(hsslprovider: NcryptProvHandle, phhandshakehash: MutPtr<NcryptHashHandle>, dwprotocol: UInt, dwciphersuite: UInt, pszhashalgid: Pcwstr, dwflags: UInt): Hresult =
+public actual fun sslCreateClientAuthHash(hsslprovider: NcryptProvHandle, phhandshakehash: MutPtr, dwprotocol: UInt, dwciphersuite: UInt, pszhashalgid: Pcwstr, dwflags: UInt): Hresult =
     windowssysWindowsWin32SecurityCryptographySslCreateClientAuthHash(hsslprovider, phhandshakehash.rawAddress.toCPointer<ByteVar>(), dwprotocol, dwciphersuite, pszhashalgid.rawAddress.toCPointer<ByteVar>(), dwflags)
 
-public actual fun sslCreateEphemeralKey(hsslprovider: NcryptProvHandle, phephemeralkey: MutPtr<NcryptKeyHandle>, dwprotocol: UInt, dwciphersuite: UInt, dwkeytype: UInt, dwkeybitlen: UInt, pbparams: ConstPtr<UByte>, cbparams: UInt, dwflags: UInt): Hresult =
+public actual fun sslCreateEphemeralKey(hsslprovider: NcryptProvHandle, phephemeralkey: MutPtr, dwprotocol: UInt, dwciphersuite: UInt, dwkeytype: UInt, dwkeybitlen: UInt, pbparams: ConstPtr, cbparams: UInt, dwflags: UInt): Hresult =
     windowssysWindowsWin32SecurityCryptographySslCreateEphemeralKey(hsslprovider, phephemeralkey.rawAddress.toCPointer<ByteVar>(), dwprotocol, dwciphersuite, dwkeytype, dwkeybitlen, pbparams.rawAddress.toCPointer<ByteVar>(), cbparams, dwflags)
 
-public actual fun sslCreateHandshakeHash(hsslprovider: NcryptProvHandle, phhandshakehash: MutPtr<NcryptHashHandle>, dwprotocol: UInt, dwciphersuite: UInt, dwflags: UInt): Hresult =
+public actual fun sslCreateHandshakeHash(hsslprovider: NcryptProvHandle, phhandshakehash: MutPtr, dwprotocol: UInt, dwciphersuite: UInt, dwflags: UInt): Hresult =
     windowssysWindowsWin32SecurityCryptographySslCreateHandshakeHash(hsslprovider, phhandshakehash.rawAddress.toCPointer<ByteVar>(), dwprotocol, dwciphersuite, dwflags)
 
 public actual fun sslDecrementProviderReferenceCount(hsslprovider: NcryptProvHandle): Hresult =
     windowssysWindowsWin32SecurityCryptographySslDecrementProviderReferenceCount(hsslprovider)
 
-public actual fun sslDecryptPacket(hsslprovider: NcryptProvHandle, hkey: NcryptKeyHandle, pbinput: ConstPtr<UByte>, cbinput: UInt, pboutput: MutPtr<UByte>, cboutput: UInt, pcbresult: MutPtr<UInt>, sequencenumber: ULong, dwflags: UInt): Hresult =
+public actual fun sslDecryptPacket(hsslprovider: NcryptProvHandle, hkey: NcryptKeyHandle, pbinput: ConstPtr, cbinput: UInt, pboutput: MutPtr, cboutput: UInt, pcbresult: MutPtr, sequencenumber: ULong, dwflags: UInt): Hresult =
     windowssysWindowsWin32SecurityCryptographySslDecryptPacket(hsslprovider, hkey, pbinput.rawAddress.toCPointer<ByteVar>(), cbinput, pboutput.rawAddress.toCPointer<ByteVar>(), cboutput, pcbresult.rawAddress.toCPointer<ByteVar>(), sequencenumber, dwflags)
 
-public actual fun sslDuplicateTranscriptHash(hsslprovider: NcryptProvHandle, htranscripthash: NcryptHashHandle, phtranscripthash: MutPtr<NcryptHashHandle>, dwflags: UInt): Hresult =
+public actual fun sslDuplicateTranscriptHash(hsslprovider: NcryptProvHandle, htranscripthash: NcryptHashHandle, phtranscripthash: MutPtr, dwflags: UInt): Hresult =
     windowssysWindowsWin32SecurityCryptographySslDuplicateTranscriptHash(hsslprovider, htranscripthash, phtranscripthash.rawAddress.toCPointer<ByteVar>(), dwflags)
 
-public actual fun sslEncryptPacket(hsslprovider: NcryptProvHandle, hkey: NcryptKeyHandle, pbinput: ConstPtr<UByte>, cbinput: UInt, pboutput: MutPtr<UByte>, cboutput: UInt, pcbresult: MutPtr<UInt>, sequencenumber: ULong, dwcontenttype: UInt, dwflags: UInt): Hresult =
+public actual fun sslEncryptPacket(hsslprovider: NcryptProvHandle, hkey: NcryptKeyHandle, pbinput: ConstPtr, cbinput: UInt, pboutput: MutPtr, cboutput: UInt, pcbresult: MutPtr, sequencenumber: ULong, dwcontenttype: UInt, dwflags: UInt): Hresult =
     windowssysWindowsWin32SecurityCryptographySslEncryptPacket(hsslprovider, hkey, pbinput.rawAddress.toCPointer<ByteVar>(), cbinput, pboutput.rawAddress.toCPointer<ByteVar>(), cboutput, pcbresult.rawAddress.toCPointer<ByteVar>(), sequencenumber, dwcontenttype, dwflags)
 
-public actual fun sslEnumCipherSuites(hsslprovider: NcryptProvHandle, hprivatekey: NcryptKeyHandle, ppciphersuite: MutPtr<MutPtr<NcryptSslCipherSuite>>, ppenumstate: MutPtr<MutPtr<CVoid>>, dwflags: UInt): Hresult =
+public actual fun sslEnumCipherSuites(hsslprovider: NcryptProvHandle, hprivatekey: NcryptKeyHandle, ppciphersuite: MutPtr, ppenumstate: MutPtr, dwflags: UInt): Hresult =
     windowssysWindowsWin32SecurityCryptographySslEnumCipherSuites(hsslprovider, hprivatekey, ppciphersuite.rawAddress.toCPointer<ByteVar>(), ppenumstate.rawAddress.toCPointer<ByteVar>(), dwflags)
 
-public actual fun sslEnumCipherSuitesEx(hsslprovider: NcryptProvHandle, hprivatekey: NcryptKeyHandle, ppciphersuite: MutPtr<MutPtr<NcryptSslCipherSuiteEx>>, ppenumstate: MutPtr<MutPtr<CVoid>>, dwflags: UInt): Hresult =
+public actual fun sslEnumCipherSuitesEx(hsslprovider: NcryptProvHandle, hprivatekey: NcryptKeyHandle, ppciphersuite: MutPtr, ppenumstate: MutPtr, dwflags: UInt): Hresult =
     windowssysWindowsWin32SecurityCryptographySslEnumCipherSuitesEx(hsslprovider, hprivatekey, ppciphersuite.rawAddress.toCPointer<ByteVar>(), ppenumstate.rawAddress.toCPointer<ByteVar>(), dwflags)
 
-public actual fun sslEnumEccCurves(hsslprovider: NcryptProvHandle, pecccurvecount: MutPtr<UInt>, ppecccurve: MutPtr<MutPtr<NcryptSslEccCurve>>, dwflags: UInt): Hresult =
+public actual fun sslEnumEccCurves(hsslprovider: NcryptProvHandle, pecccurvecount: MutPtr, ppecccurve: MutPtr, dwflags: UInt): Hresult =
     windowssysWindowsWin32SecurityCryptographySslEnumEccCurves(hsslprovider, pecccurvecount.rawAddress.toCPointer<ByteVar>(), ppecccurve.rawAddress.toCPointer<ByteVar>(), dwflags)
 
-public actual fun sslEnumProtocolProviders(pdwprovidercount: MutPtr<UInt>, ppproviderlist: MutPtr<MutPtr<NCryptProviderName>>, dwflags: UInt): Hresult =
+public actual fun sslEnumProtocolProviders(pdwprovidercount: MutPtr, ppproviderlist: MutPtr, dwflags: UInt): Hresult =
     windowssysWindowsWin32SecurityCryptographySslEnumProtocolProviders(pdwprovidercount.rawAddress.toCPointer<ByteVar>(), ppproviderlist.rawAddress.toCPointer<ByteVar>(), dwflags)
 
-public actual fun sslExpandBinderKey(hsslprovider: NcryptProvHandle, hearlykey: NcryptKeyHandle, phbinderkey: MutPtr<NcryptKeyHandle>, pparameterlist: ConstPtr<BCryptBufferDesc>, dwflags: UInt): Hresult =
+public actual fun sslExpandBinderKey(hsslprovider: NcryptProvHandle, hearlykey: NcryptKeyHandle, phbinderkey: MutPtr, pparameterlist: ConstPtr, dwflags: UInt): Hresult =
     windowssysWindowsWin32SecurityCryptographySslExpandBinderKey(hsslprovider, hearlykey, phbinderkey.rawAddress.toCPointer<ByteVar>(), pparameterlist.rawAddress.toCPointer<ByteVar>(), dwflags)
 
-public actual fun sslExpandExporterMasterKey(hsslprovider: NcryptProvHandle, hbasekey: NcryptKeyHandle, hhashvalue: NcryptHashHandle, phexportermasterkey: MutPtr<NcryptKeyHandle>, pparameterlist: ConstPtr<BCryptBufferDesc>, dwflags: UInt): Hresult =
+public actual fun sslExpandExporterMasterKey(hsslprovider: NcryptProvHandle, hbasekey: NcryptKeyHandle, hhashvalue: NcryptHashHandle, phexportermasterkey: MutPtr, pparameterlist: ConstPtr, dwflags: UInt): Hresult =
     windowssysWindowsWin32SecurityCryptographySslExpandExporterMasterKey(hsslprovider, hbasekey, hhashvalue, phexportermasterkey.rawAddress.toCPointer<ByteVar>(), pparameterlist.rawAddress.toCPointer<ByteVar>(), dwflags)
 
-public actual fun sslExpandPreSharedKey(hsslprovider: NcryptProvHandle, hresumptionmasterkey: NcryptKeyHandle, pbticketnonce: ConstPtr<UByte>, cbticketnonce: UInt, phpresharedkey: MutPtr<NcryptKeyHandle>, pparameterlist: ConstPtr<BCryptBufferDesc>, dwflags: UInt): Hresult =
+public actual fun sslExpandPreSharedKey(hsslprovider: NcryptProvHandle, hresumptionmasterkey: NcryptKeyHandle, pbticketnonce: ConstPtr, cbticketnonce: UInt, phpresharedkey: MutPtr, pparameterlist: ConstPtr, dwflags: UInt): Hresult =
     windowssysWindowsWin32SecurityCryptographySslExpandPreSharedKey(hsslprovider, hresumptionmasterkey, pbticketnonce.rawAddress.toCPointer<ByteVar>(), cbticketnonce, phpresharedkey.rawAddress.toCPointer<ByteVar>(), pparameterlist.rawAddress.toCPointer<ByteVar>(), dwflags)
 
-public actual fun sslExpandResumptionMasterKey(hsslprovider: NcryptProvHandle, hmasterkey: NcryptKeyHandle, hhashvalue: NcryptHashHandle, phresumptionmasterkey: MutPtr<NcryptKeyHandle>, pparameterlist: ConstPtr<BCryptBufferDesc>, dwflags: UInt): Hresult =
+public actual fun sslExpandResumptionMasterKey(hsslprovider: NcryptProvHandle, hmasterkey: NcryptKeyHandle, hhashvalue: NcryptHashHandle, phresumptionmasterkey: MutPtr, pparameterlist: ConstPtr, dwflags: UInt): Hresult =
     windowssysWindowsWin32SecurityCryptographySslExpandResumptionMasterKey(hsslprovider, hmasterkey, hhashvalue, phresumptionmasterkey.rawAddress.toCPointer<ByteVar>(), pparameterlist.rawAddress.toCPointer<ByteVar>(), dwflags)
 
-public actual fun sslExpandTrafficKeys(hsslprovider: NcryptProvHandle, hbasekey: NcryptKeyHandle, hhashvalue: NcryptHashHandle, phclienttraffickey: MutPtr<NcryptKeyHandle>, phservertraffickey: MutPtr<NcryptKeyHandle>, pparameterlist: ConstPtr<BCryptBufferDesc>, dwflags: UInt): Hresult =
+public actual fun sslExpandTrafficKeys(hsslprovider: NcryptProvHandle, hbasekey: NcryptKeyHandle, hhashvalue: NcryptHashHandle, phclienttraffickey: MutPtr, phservertraffickey: MutPtr, pparameterlist: ConstPtr, dwflags: UInt): Hresult =
     windowssysWindowsWin32SecurityCryptographySslExpandTrafficKeys(hsslprovider, hbasekey, hhashvalue, phclienttraffickey.rawAddress.toCPointer<ByteVar>(), phservertraffickey.rawAddress.toCPointer<ByteVar>(), pparameterlist.rawAddress.toCPointer<ByteVar>(), dwflags)
 
-public actual fun sslExpandWriteKey(hsslprovider: NcryptProvHandle, hbasetraffickey: NcryptKeyHandle, phwritekey: MutPtr<NcryptKeyHandle>, pparameterlist: ConstPtr<BCryptBufferDesc>, dwflags: UInt): Hresult =
+public actual fun sslExpandWriteKey(hsslprovider: NcryptProvHandle, hbasetraffickey: NcryptKeyHandle, phwritekey: MutPtr, pparameterlist: ConstPtr, dwflags: UInt): Hresult =
     windowssysWindowsWin32SecurityCryptographySslExpandWriteKey(hsslprovider, hbasetraffickey, phwritekey.rawAddress.toCPointer<ByteVar>(), pparameterlist.rawAddress.toCPointer<ByteVar>(), dwflags)
 
-public actual fun sslExportKey(hsslprovider: NcryptProvHandle, hkey: NcryptKeyHandle, pszblobtype: Pcwstr, pboutput: MutPtr<UByte>, cboutput: UInt, pcbresult: MutPtr<UInt>, dwflags: UInt): Hresult =
+public actual fun sslExportKey(hsslprovider: NcryptProvHandle, hkey: NcryptKeyHandle, pszblobtype: Pcwstr, pboutput: MutPtr, cboutput: UInt, pcbresult: MutPtr, dwflags: UInt): Hresult =
     windowssysWindowsWin32SecurityCryptographySslExportKey(hsslprovider, hkey, pszblobtype.rawAddress.toCPointer<ByteVar>(), pboutput.rawAddress.toCPointer<ByteVar>(), cboutput, pcbresult.rawAddress.toCPointer<ByteVar>(), dwflags)
 
-public actual fun sslExportKeyingMaterial(hsslprovider: NcryptProvHandle, hmasterkey: NcryptKeyHandle, slabel: Pcstr, pbrandoms: ConstPtr<UByte>, cbrandoms: UInt, pbcontextvalue: ConstPtr<UByte>, cbcontextvalue: UShort, pboutput: MutPtr<UByte>, cboutput: UInt, dwflags: UInt): Hresult =
+public actual fun sslExportKeyingMaterial(hsslprovider: NcryptProvHandle, hmasterkey: NcryptKeyHandle, slabel: Pcstr, pbrandoms: ConstPtr, cbrandoms: UInt, pbcontextvalue: ConstPtr, cbcontextvalue: UShort, pboutput: MutPtr, cboutput: UInt, dwflags: UInt): Hresult =
     windowssysWindowsWin32SecurityCryptographySslExportKeyingMaterial(hsslprovider, hmasterkey, slabel.rawAddress.toCPointer<ByteVar>(), pbrandoms.rawAddress.toCPointer<ByteVar>(), cbrandoms, pbcontextvalue.rawAddress.toCPointer<ByteVar>(), cbcontextvalue, pboutput.rawAddress.toCPointer<ByteVar>(), cboutput, dwflags)
 
-public actual fun sslExtractEarlyKey(hsslprovider: NcryptProvHandle, hpresharedkey: NcryptKeyHandle, phearlykey: MutPtr<NcryptKeyHandle>, dwprotocol: UInt, dwciphersuite: UInt, pparameterlist: ConstPtr<BCryptBufferDesc>, dwflags: UInt): Hresult =
+public actual fun sslExtractEarlyKey(hsslprovider: NcryptProvHandle, hpresharedkey: NcryptKeyHandle, phearlykey: MutPtr, dwprotocol: UInt, dwciphersuite: UInt, pparameterlist: ConstPtr, dwflags: UInt): Hresult =
     windowssysWindowsWin32SecurityCryptographySslExtractEarlyKey(hsslprovider, hpresharedkey, phearlykey.rawAddress.toCPointer<ByteVar>(), dwprotocol, dwciphersuite, pparameterlist.rawAddress.toCPointer<ByteVar>(), dwflags)
 
-public actual fun sslExtractHandshakeKey(hsslprovider: NcryptProvHandle, hprivatekey: NcryptKeyHandle, hpublickey: NcryptKeyHandle, hearlykey: NcryptKeyHandle, phhandshakekey: MutPtr<NcryptKeyHandle>, pparameterlist: ConstPtr<BCryptBufferDesc>, dwflags: UInt): Hresult =
+public actual fun sslExtractHandshakeKey(hsslprovider: NcryptProvHandle, hprivatekey: NcryptKeyHandle, hpublickey: NcryptKeyHandle, hearlykey: NcryptKeyHandle, phhandshakekey: MutPtr, pparameterlist: ConstPtr, dwflags: UInt): Hresult =
     windowssysWindowsWin32SecurityCryptographySslExtractHandshakeKey(hsslprovider, hprivatekey, hpublickey, hearlykey, phhandshakekey.rawAddress.toCPointer<ByteVar>(), pparameterlist.rawAddress.toCPointer<ByteVar>(), dwflags)
 
-public actual fun sslExtractMasterKey(hsslprovider: NcryptProvHandle, hhandshakekey: NcryptKeyHandle, phmasterkey: MutPtr<NcryptKeyHandle>, pparameterlist: ConstPtr<BCryptBufferDesc>, dwflags: UInt): Hresult =
+public actual fun sslExtractMasterKey(hsslprovider: NcryptProvHandle, hhandshakekey: NcryptKeyHandle, phmasterkey: MutPtr, pparameterlist: ConstPtr, dwflags: UInt): Hresult =
     windowssysWindowsWin32SecurityCryptographySslExtractMasterKey(hsslprovider, hhandshakekey, phmasterkey.rawAddress.toCPointer<ByteVar>(), pparameterlist.rawAddress.toCPointer<ByteVar>(), dwflags)
 
-public actual fun sslFreeBuffer(pvinput: MutPtr<CVoid>): Hresult =
+public actual fun sslFreeBuffer(pvinput: MutPtr): Hresult =
     windowssysWindowsWin32SecurityCryptographySslFreeBuffer(pvinput.rawAddress.toCPointer<ByteVar>())
 
 public actual fun sslFreeObject(hobject: NcryptHandle, dwflags: UInt): Hresult =
     windowssysWindowsWin32SecurityCryptographySslFreeObject(hobject, dwflags)
 
-public actual fun sslGenerateMasterKey(hsslprovider: NcryptProvHandle, hprivatekey: NcryptKeyHandle, hpublickey: NcryptKeyHandle, phmasterkey: MutPtr<NcryptKeyHandle>, dwprotocol: UInt, dwciphersuite: UInt, pparameterlist: ConstPtr<BCryptBufferDesc>, pboutput: MutPtr<UByte>, cboutput: UInt, pcbresult: MutPtr<UInt>, dwflags: UInt): Hresult =
+public actual fun sslGenerateMasterKey(hsslprovider: NcryptProvHandle, hprivatekey: NcryptKeyHandle, hpublickey: NcryptKeyHandle, phmasterkey: MutPtr, dwprotocol: UInt, dwciphersuite: UInt, pparameterlist: ConstPtr, pboutput: MutPtr, cboutput: UInt, pcbresult: MutPtr, dwflags: UInt): Hresult =
     windowssysWindowsWin32SecurityCryptographySslGenerateMasterKey(hsslprovider, hprivatekey, hpublickey, phmasterkey.rawAddress.toCPointer<ByteVar>(), dwprotocol, dwciphersuite, pparameterlist.rawAddress.toCPointer<ByteVar>(), pboutput.rawAddress.toCPointer<ByteVar>(), cboutput, pcbresult.rawAddress.toCPointer<ByteVar>(), dwflags)
 
-public actual fun sslGeneratePreMasterKey(hsslprovider: NcryptProvHandle, hpublickey: NcryptKeyHandle, phpremasterkey: MutPtr<NcryptKeyHandle>, dwprotocol: UInt, dwciphersuite: UInt, pparameterlist: ConstPtr<BCryptBufferDesc>, pboutput: MutPtr<UByte>, cboutput: UInt, pcbresult: MutPtr<UInt>, dwflags: UInt): Hresult =
+public actual fun sslGeneratePreMasterKey(hsslprovider: NcryptProvHandle, hpublickey: NcryptKeyHandle, phpremasterkey: MutPtr, dwprotocol: UInt, dwciphersuite: UInt, pparameterlist: ConstPtr, pboutput: MutPtr, cboutput: UInt, pcbresult: MutPtr, dwflags: UInt): Hresult =
     windowssysWindowsWin32SecurityCryptographySslGeneratePreMasterKey(hsslprovider, hpublickey, phpremasterkey.rawAddress.toCPointer<ByteVar>(), dwprotocol, dwciphersuite, pparameterlist.rawAddress.toCPointer<ByteVar>(), pboutput.rawAddress.toCPointer<ByteVar>(), cboutput, pcbresult.rawAddress.toCPointer<ByteVar>(), dwflags)
 
-public actual fun sslGenerateSessionKeys(hsslprovider: NcryptProvHandle, hmasterkey: NcryptKeyHandle, phreadkey: MutPtr<NcryptKeyHandle>, phwritekey: MutPtr<NcryptKeyHandle>, pparameterlist: ConstPtr<BCryptBufferDesc>, dwflags: UInt): Hresult =
+public actual fun sslGenerateSessionKeys(hsslprovider: NcryptProvHandle, hmasterkey: NcryptKeyHandle, phreadkey: MutPtr, phwritekey: MutPtr, pparameterlist: ConstPtr, dwflags: UInt): Hresult =
     windowssysWindowsWin32SecurityCryptographySslGenerateSessionKeys(hsslprovider, hmasterkey, phreadkey.rawAddress.toCPointer<ByteVar>(), phwritekey.rawAddress.toCPointer<ByteVar>(), pparameterlist.rawAddress.toCPointer<ByteVar>(), dwflags)
 
 public actual fun sslGetCipherSuitePRFHashAlgorithm(hsslprovider: NcryptProvHandle, dwprotocol: UInt, dwciphersuite: UInt, dwkeytype: UInt, szprfhash: Pwstr, dwflags: UInt): Hresult =
     windowssysWindowsWin32SecurityCryptographySslGetCipherSuitePRFHashAlgorithm(hsslprovider, dwprotocol, dwciphersuite, dwkeytype, szprfhash.rawAddress.toCPointer<ByteVar>(), dwflags)
 
-public actual fun sslGetKeyProperty(hkey: NcryptKeyHandle, pszproperty: Pcwstr, ppboutput: MutPtr<MutPtr<UByte>>, pcboutput: MutPtr<UInt>, dwflags: UInt): Hresult =
+public actual fun sslGetKeyProperty(hkey: NcryptKeyHandle, pszproperty: Pcwstr, ppboutput: MutPtr, pcboutput: MutPtr, dwflags: UInt): Hresult =
     windowssysWindowsWin32SecurityCryptographySslGetKeyProperty(hkey, pszproperty.rawAddress.toCPointer<ByteVar>(), ppboutput.rawAddress.toCPointer<ByteVar>(), pcboutput.rawAddress.toCPointer<ByteVar>(), dwflags)
 
-public actual fun sslGetProviderProperty(hsslprovider: NcryptProvHandle, pszproperty: Pcwstr, ppboutput: MutPtr<MutPtr<UByte>>, pcboutput: MutPtr<UInt>, ppenumstate: MutPtr<MutPtr<CVoid>>, dwflags: UInt): Hresult =
+public actual fun sslGetProviderProperty(hsslprovider: NcryptProvHandle, pszproperty: Pcwstr, ppboutput: MutPtr, pcboutput: MutPtr, ppenumstate: MutPtr, dwflags: UInt): Hresult =
     windowssysWindowsWin32SecurityCryptographySslGetProviderProperty(hsslprovider, pszproperty.rawAddress.toCPointer<ByteVar>(), ppboutput.rawAddress.toCPointer<ByteVar>(), pcboutput.rawAddress.toCPointer<ByteVar>(), ppenumstate.rawAddress.toCPointer<ByteVar>(), dwflags)
 
-public actual fun sslHashHandshake(hsslprovider: NcryptProvHandle, hhandshakehash: NcryptHashHandle, pbinput: ConstPtr<UByte>, cbinput: UInt, dwflags: UInt): Hresult =
+public actual fun sslHashHandshake(hsslprovider: NcryptProvHandle, hhandshakehash: NcryptHashHandle, pbinput: ConstPtr, cbinput: UInt, dwflags: UInt): Hresult =
     windowssysWindowsWin32SecurityCryptographySslHashHandshake(hsslprovider, hhandshakehash, pbinput.rawAddress.toCPointer<ByteVar>(), cbinput, dwflags)
 
-public actual fun sslImportKey(hsslprovider: NcryptProvHandle, phkey: MutPtr<NcryptKeyHandle>, pszblobtype: Pcwstr, pbkeyblob: ConstPtr<UByte>, cbkeyblob: UInt, dwflags: UInt): Hresult =
+public actual fun sslImportKey(hsslprovider: NcryptProvHandle, phkey: MutPtr, pszblobtype: Pcwstr, pbkeyblob: ConstPtr, cbkeyblob: UInt, dwflags: UInt): Hresult =
     windowssysWindowsWin32SecurityCryptographySslImportKey(hsslprovider, phkey.rawAddress.toCPointer<ByteVar>(), pszblobtype.rawAddress.toCPointer<ByteVar>(), pbkeyblob.rawAddress.toCPointer<ByteVar>(), cbkeyblob, dwflags)
 
-public actual fun sslImportMasterKey(hsslprovider: NcryptProvHandle, hprivatekey: NcryptKeyHandle, phmasterkey: MutPtr<NcryptKeyHandle>, dwprotocol: UInt, dwciphersuite: UInt, pparameterlist: ConstPtr<BCryptBufferDesc>, pbencryptedkey: ConstPtr<UByte>, cbencryptedkey: UInt, dwflags: UInt): Hresult =
+public actual fun sslImportMasterKey(hsslprovider: NcryptProvHandle, hprivatekey: NcryptKeyHandle, phmasterkey: MutPtr, dwprotocol: UInt, dwciphersuite: UInt, pparameterlist: ConstPtr, pbencryptedkey: ConstPtr, cbencryptedkey: UInt, dwflags: UInt): Hresult =
     windowssysWindowsWin32SecurityCryptographySslImportMasterKey(hsslprovider, hprivatekey, phmasterkey.rawAddress.toCPointer<ByteVar>(), dwprotocol, dwciphersuite, pparameterlist.rawAddress.toCPointer<ByteVar>(), pbencryptedkey.rawAddress.toCPointer<ByteVar>(), cbencryptedkey, dwflags)
 
 public actual fun sslIncrementProviderReferenceCount(hsslprovider: NcryptProvHandle): Hresult =
     windowssysWindowsWin32SecurityCryptographySslIncrementProviderReferenceCount(hsslprovider)
 
-public actual fun sslLookupCipherLengths(hsslprovider: NcryptProvHandle, dwprotocol: UInt, dwciphersuite: UInt, dwkeytype: UInt, pcipherlengths: MutPtr<NcryptSslCipherLengths>, cbcipherlengths: UInt, dwflags: UInt): Hresult =
+public actual fun sslLookupCipherLengths(hsslprovider: NcryptProvHandle, dwprotocol: UInt, dwciphersuite: UInt, dwkeytype: UInt, pcipherlengths: MutPtr, cbcipherlengths: UInt, dwflags: UInt): Hresult =
     windowssysWindowsWin32SecurityCryptographySslLookupCipherLengths(hsslprovider, dwprotocol, dwciphersuite, dwkeytype, pcipherlengths.rawAddress.toCPointer<ByteVar>(), cbcipherlengths, dwflags)
 
-public actual fun sslLookupCipherSuiteInfo(hsslprovider: NcryptProvHandle, dwprotocol: UInt, dwciphersuite: UInt, dwkeytype: UInt, pciphersuite: MutPtr<NcryptSslCipherSuite>, dwflags: UInt): Hresult =
+public actual fun sslLookupCipherSuiteInfo(hsslprovider: NcryptProvHandle, dwprotocol: UInt, dwciphersuite: UInt, dwkeytype: UInt, pciphersuite: MutPtr, dwflags: UInt): Hresult =
     windowssysWindowsWin32SecurityCryptographySslLookupCipherSuiteInfo(hsslprovider, dwprotocol, dwciphersuite, dwkeytype, pciphersuite.rawAddress.toCPointer<ByteVar>(), dwflags)
 
-public actual fun sslOpenPrivateKey(hsslprovider: NcryptProvHandle, phprivatekey: MutPtr<NcryptKeyHandle>, pcertcontext: ConstPtr<CertContext>, dwflags: UInt): Hresult =
+public actual fun sslOpenPrivateKey(hsslprovider: NcryptProvHandle, phprivatekey: MutPtr, pcertcontext: ConstPtr, dwflags: UInt): Hresult =
     windowssysWindowsWin32SecurityCryptographySslOpenPrivateKey(hsslprovider, phprivatekey.rawAddress.toCPointer<ByteVar>(), pcertcontext.rawAddress.toCPointer<ByteVar>(), dwflags)
 
-public actual fun sslOpenProvider(phsslprovider: MutPtr<NcryptProvHandle>, pszprovidername: Pcwstr, dwflags: UInt): Hresult =
+public actual fun sslOpenProvider(phsslprovider: MutPtr, pszprovidername: Pcwstr, dwflags: UInt): Hresult =
     windowssysWindowsWin32SecurityCryptographySslOpenProvider(phsslprovider.rawAddress.toCPointer<ByteVar>(), pszprovidername.rawAddress.toCPointer<ByteVar>(), dwflags)
 
-public actual fun sslSignHash(hsslprovider: NcryptProvHandle, hprivatekey: NcryptKeyHandle, pbhashvalue: ConstPtr<UByte>, cbhashvalue: UInt, pbsignature: MutPtr<UByte>, cbsignature: UInt, pcbresult: MutPtr<UInt>, dwflags: UInt): Hresult =
+public actual fun sslSignHash(hsslprovider: NcryptProvHandle, hprivatekey: NcryptKeyHandle, pbhashvalue: ConstPtr, cbhashvalue: UInt, pbsignature: MutPtr, cbsignature: UInt, pcbresult: MutPtr, dwflags: UInt): Hresult =
     windowssysWindowsWin32SecurityCryptographySslSignHash(hsslprovider, hprivatekey, pbhashvalue.rawAddress.toCPointer<ByteVar>(), cbhashvalue, pbsignature.rawAddress.toCPointer<ByteVar>(), cbsignature, pcbresult.rawAddress.toCPointer<ByteVar>(), dwflags)
 
-public actual fun sslVerifySignature(hsslprovider: NcryptProvHandle, hpublickey: NcryptKeyHandle, pbhashvalue: ConstPtr<UByte>, cbhashvalue: UInt, pbsignature: ConstPtr<UByte>, cbsignature: UInt, dwflags: UInt): Hresult =
+public actual fun sslVerifySignature(hsslprovider: NcryptProvHandle, hpublickey: NcryptKeyHandle, pbhashvalue: ConstPtr, cbhashvalue: UInt, pbsignature: ConstPtr, cbsignature: UInt, dwflags: UInt): Hresult =
     windowssysWindowsWin32SecurityCryptographySslVerifySignature(hsslprovider, hpublickey, pbhashvalue.rawAddress.toCPointer<ByteVar>(), cbhashvalue, pbsignature.rawAddress.toCPointer<ByteVar>(), cbsignature, dwflags)
 
-public actual fun systemPrng(pbrandomdata: MutPtr<UByte>, cbrandomdata: ULong): Bool =
+public actual fun systemPrng(pbrandomdata: MutPtr, cbrandomdata: ULong): Bool =
     windowssysWindowsWin32SecurityCryptographySystemPrng(pbrandomdata.rawAddress.toCPointer<ByteVar>(), cbrandomdata)
 
-public actual fun transformBlock(hcrypto: ConstPtr<InformationcardCryptoHandle>, cbindata: UInt, pindata: ConstPtr<UByte>, pcboutdata: MutPtr<UInt>, ppoutdata: MutPtr<MutPtr<UByte>>): Hresult =
+public actual fun transformBlock(hcrypto: ConstPtr, cbindata: UInt, pindata: ConstPtr, pcboutdata: MutPtr, ppoutdata: MutPtr): Hresult =
     windowssysWindowsWin32SecurityCryptographyTransformBlock(hcrypto.rawAddress.toCPointer<ByteVar>(), cbindata, pindata.rawAddress.toCPointer<ByteVar>(), pcboutdata.rawAddress.toCPointer<ByteVar>(), ppoutdata.rawAddress.toCPointer<ByteVar>())
 
-public actual fun transformFinalBlock(hcrypto: ConstPtr<InformationcardCryptoHandle>, cbindata: UInt, pindata: ConstPtr<UByte>, pcboutdata: MutPtr<UInt>, ppoutdata: MutPtr<MutPtr<UByte>>): Hresult =
+public actual fun transformFinalBlock(hcrypto: ConstPtr, cbindata: UInt, pindata: ConstPtr, pcboutdata: MutPtr, ppoutdata: MutPtr): Hresult =
     windowssysWindowsWin32SecurityCryptographyTransformFinalBlock(hcrypto.rawAddress.toCPointer<ByteVar>(), cbindata, pindata.rawAddress.toCPointer<ByteVar>(), pcboutdata.rawAddress.toCPointer<ByteVar>(), ppoutdata.rawAddress.toCPointer<ByteVar>())
 
-public actual fun verifyHash(hcrypto: ConstPtr<InformationcardCryptoHandle>, cbhash: UInt, phash: ConstPtr<UByte>, hashalgoid: Pcwstr, cbsig: UInt, psig: ConstPtr<UByte>, pfverified: MutPtr<Bool>): Hresult =
+public actual fun verifyHash(hcrypto: ConstPtr, cbhash: UInt, phash: ConstPtr, hashalgoid: Pcwstr, cbsig: UInt, psig: ConstPtr, pfverified: MutPtr): Hresult =
     windowssysWindowsWin32SecurityCryptographyVerifyHash(hcrypto.rawAddress.toCPointer<ByteVar>(), cbhash, phash.rawAddress.toCPointer<ByteVar>(), hashalgoid.rawAddress.toCPointer<ByteVar>(), cbsig, psig.rawAddress.toCPointer<ByteVar>(), pfverified.rawAddress.toCPointer<ByteVar>())

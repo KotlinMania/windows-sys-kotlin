@@ -38,20 +38,20 @@ public actual fun xInputEnable(enable: Bool) {
     WindowsWin32UiInputXboxcontrollerJniBridge.windowssysWindowsWin32UiInputXboxcontrollerXInputEnable(enable)
 }
 
-public actual fun xInputGetAudioDeviceIds(dwuserindex: UInt, prenderdeviceid: Pwstr, prendercount: MutPtr<UInt>, pcapturedeviceid: Pwstr, pcapturecount: MutPtr<UInt>): UInt =
+public actual fun xInputGetAudioDeviceIds(dwuserindex: UInt, prenderdeviceid: Pwstr, prendercount: MutPtr, pcapturedeviceid: Pwstr, pcapturecount: MutPtr): UInt =
     WindowsWin32UiInputXboxcontrollerJniBridge.windowssysWindowsWin32UiInputXboxcontrollerXInputGetAudioDeviceIds(dwuserindex.toInt(), prenderdeviceid.rawAddress, prendercount.rawAddress, pcapturedeviceid.rawAddress, pcapturecount.rawAddress).toUInt()
 
-public actual fun xInputGetBatteryInformation(dwuserindex: UInt, devtype: BatteryDevtype, pbatteryinformation: MutPtr<XinputBatteryInformation>): UInt =
+public actual fun xInputGetBatteryInformation(dwuserindex: UInt, devtype: BatteryDevtype, pbatteryinformation: MutPtr): UInt =
     WindowsWin32UiInputXboxcontrollerJniBridge.windowssysWindowsWin32UiInputXboxcontrollerXInputGetBatteryInformation(dwuserindex.toInt(), devtype.toByte(), pbatteryinformation.rawAddress).toUInt()
 
-public actual fun xInputGetCapabilities(dwuserindex: UInt, dwflags: XinputFlag, pcapabilities: MutPtr<XinputCapabilities>): UInt =
+public actual fun xInputGetCapabilities(dwuserindex: UInt, dwflags: XinputFlag, pcapabilities: MutPtr): UInt =
     WindowsWin32UiInputXboxcontrollerJniBridge.windowssysWindowsWin32UiInputXboxcontrollerXInputGetCapabilities(dwuserindex.toInt(), dwflags.toInt(), pcapabilities.rawAddress).toUInt()
 
-public actual fun xInputGetKeystroke(dwuserindex: UInt, dwreserved: UInt, pkeystroke: MutPtr<XinputKeystroke>): UInt =
+public actual fun xInputGetKeystroke(dwuserindex: UInt, dwreserved: UInt, pkeystroke: MutPtr): UInt =
     WindowsWin32UiInputXboxcontrollerJniBridge.windowssysWindowsWin32UiInputXboxcontrollerXInputGetKeystroke(dwuserindex.toInt(), dwreserved.toInt(), pkeystroke.rawAddress).toUInt()
 
-public actual fun xInputGetState(dwuserindex: UInt, pstate: MutPtr<XinputState>): UInt =
+public actual fun xInputGetState(dwuserindex: UInt, pstate: MutPtr): UInt =
     WindowsWin32UiInputXboxcontrollerJniBridge.windowssysWindowsWin32UiInputXboxcontrollerXInputGetState(dwuserindex.toInt(), pstate.rawAddress).toUInt()
 
-public actual fun xInputSetState(dwuserindex: UInt, pvibration: ConstPtr<XinputVibration>): UInt =
+public actual fun xInputSetState(dwuserindex: UInt, pvibration: ConstPtr): UInt =
     WindowsWin32UiInputXboxcontrollerJniBridge.windowssysWindowsWin32UiInputXboxcontrollerXInputSetState(dwuserindex.toInt(), pvibration.rawAddress).toUInt()

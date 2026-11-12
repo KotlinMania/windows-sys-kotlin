@@ -76,9 +76,9 @@ public data class Dbid(
 
 public class Dbid0 internal constructor(
     public var guid: Guid,
-    pguidCtorArg: MutPtr<Guid>,
+    pguidCtorArg: MutPtr,
 ) {
-    public var pguid: MutPtr<Guid> = pguidCtorArg
+    public var pguid: MutPtr = pguidCtorArg
         internal set
 
     public constructor() : this(
@@ -88,9 +88,9 @@ public class Dbid0 internal constructor(
 
     public operator fun component1(): Guid = this.guid
 
-    public operator fun component2(): MutPtr<Guid> = this.pguid
+    public operator fun component2(): MutPtr = this.pguid
 
-    public fun copy(guid: Guid = this.guid, pguid: MutPtr<Guid> = this.pguid): Dbid0 = Dbid0(guid = guid, pguidCtorArg = pguid)
+    public fun copy(guid: Guid = this.guid, pguid: MutPtr = this.pguid): Dbid0 = Dbid0(guid = guid, pguidCtorArg = pguid)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -109,7 +109,7 @@ public class Dbid0 internal constructor(
     public companion object {
         public operator fun invoke(
             guid: Guid = Guid(),
-            pguid: MutPtr<Guid> = MutPtr(0L),
+            pguid: MutPtr = MutPtr(0L),
         ): Dbid0 =
             Dbid0(
                 guid = guid,

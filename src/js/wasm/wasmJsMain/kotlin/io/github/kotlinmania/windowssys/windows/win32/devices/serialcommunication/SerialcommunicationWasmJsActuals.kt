@@ -31,19 +31,19 @@ private external fun wasmWindowssysWindowsWin32DevicesSerialcommunicationComDBRe
 @JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesSerialcommunicationComDBResizeDatabase(p0, p1)")
 private external fun wasmWindowssysWindowsWin32DevicesSerialcommunicationComDBResizeDatabase(p0: String, p1: Int): Int
 
-public actual fun comDBClaimNextFreePort(hcomdb: Hcomdb, comnumber: MutPtr<UInt>): Int =
+public actual fun comDBClaimNextFreePort(hcomdb: Hcomdb, comnumber: MutPtr): Int =
     if (windowsWin32DevicesSerialcommunicationNapiAvailable) wasmWindowssysWindowsWin32DevicesSerialcommunicationComDBClaimNextFreePort(hcomdb.rawAddress.toString(), comnumber.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun comDBClaimPort(hcomdb: Hcomdb, comnumber: UInt, forceclaim: Bool, forced: MutPtr<Bool>): Int =
+public actual fun comDBClaimPort(hcomdb: Hcomdb, comnumber: UInt, forceclaim: Bool, forced: MutPtr): Int =
     if (windowsWin32DevicesSerialcommunicationNapiAvailable) wasmWindowssysWindowsWin32DevicesSerialcommunicationComDBClaimPort(hcomdb.rawAddress.toString(), comnumber.toInt(), forceclaim, forced.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun comDBClose(hcomdb: Hcomdb): Int =
     if (windowsWin32DevicesSerialcommunicationNapiAvailable) wasmWindowssysWindowsWin32DevicesSerialcommunicationComDBClose(hcomdb.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun comDBGetCurrentPortUsage(hcomdb: Hcomdb, buffer: MutPtr<UByte>, buffersize: UInt, reporttype: UInt, maxportsreported: MutPtr<UInt>): Int =
+public actual fun comDBGetCurrentPortUsage(hcomdb: Hcomdb, buffer: MutPtr, buffersize: UInt, reporttype: UInt, maxportsreported: MutPtr): Int =
     if (windowsWin32DevicesSerialcommunicationNapiAvailable) wasmWindowssysWindowsWin32DevicesSerialcommunicationComDBGetCurrentPortUsage(hcomdb.rawAddress.toString(), buffer.rawAddress.toString(), buffersize.toInt(), reporttype.toInt(), maxportsreported.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun comDBOpen(phcomdb: MutPtr<Hcomdb>): Int =
+public actual fun comDBOpen(phcomdb: MutPtr): Int =
     if (windowsWin32DevicesSerialcommunicationNapiAvailable) wasmWindowssysWindowsWin32DevicesSerialcommunicationComDBOpen(phcomdb.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun comDBReleasePort(hcomdb: Hcomdb, comnumber: UInt): Int =

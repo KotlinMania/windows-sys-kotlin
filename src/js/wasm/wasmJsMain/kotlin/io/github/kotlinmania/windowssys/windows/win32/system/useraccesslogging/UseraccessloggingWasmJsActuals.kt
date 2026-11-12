@@ -23,14 +23,14 @@ private external fun wasmWindowssysWindowsWin32SystemUseraccessloggingUalStart(p
 @JsFun("(p0) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemUseraccessloggingUalStop(p0)")
 private external fun wasmWindowssysWindowsWin32SystemUseraccessloggingUalStop(p0: String): Int
 
-public actual fun ualInstrument(data: ConstPtr<UalDataBlob>): Hresult =
+public actual fun ualInstrument(data: ConstPtr): Hresult =
     if (windowsWin32SystemUseraccessloggingNapiAvailable) wasmWindowssysWindowsWin32SystemUseraccessloggingUalInstrument(data.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun ualRegisterProduct(wszproductname: Pcwstr, wszrolename: Pcwstr, wszguid: Pcwstr): Hresult =
     if (windowsWin32SystemUseraccessloggingNapiAvailable) wasmWindowssysWindowsWin32SystemUseraccessloggingUalRegisterProduct(wszproductname.rawAddress.toString(), wszrolename.rawAddress.toString(), wszguid.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ualStart(data: ConstPtr<UalDataBlob>): Hresult =
+public actual fun ualStart(data: ConstPtr): Hresult =
     if (windowsWin32SystemUseraccessloggingNapiAvailable) wasmWindowssysWindowsWin32SystemUseraccessloggingUalStart(data.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ualStop(data: ConstPtr<UalDataBlob>): Hresult =
+public actual fun ualStop(data: ConstPtr): Hresult =
     if (windowsWin32SystemUseraccessloggingNapiAvailable) wasmWindowssysWindowsWin32SystemUseraccessloggingUalStop(data.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")

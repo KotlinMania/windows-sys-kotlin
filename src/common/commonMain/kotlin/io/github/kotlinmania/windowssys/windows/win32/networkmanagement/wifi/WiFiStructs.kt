@@ -2,7 +2,6 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.networkmanagement.wifi
 
-import io.github.kotlinmania.rustlang.core.ffi.CVoid
 import io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
 import io.github.kotlinmania.rustlang.core.mem.TypeLayout
 import io.github.kotlinmania.rustlang.core.ptr.MutPtr
@@ -11,7 +10,6 @@ import io.github.kotlinmania.windowssys.core.Guid
 import io.github.kotlinmania.windowssys.core.Pwstr
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Handle
 import io.github.kotlinmania.windowssys.windows.win32.networkmanagement.ndis.NdisObjectHeader
-import io.github.kotlinmania.windowssys.windows.win32.security.extensibleauthenticationprotocol.EapAttributes
 import io.github.kotlinmania.windowssys.windows.win32.security.extensibleauthenticationprotocol.EapMethodType
 
 public class Dot11extApis(
@@ -79,9 +77,9 @@ public data class Dot11extIhvDiscoveryProfile(
 
 public class Dot11extIhvDiscoveryProfileList internal constructor(
     public var dwCount: UInt,
-    pIhvDiscoveryProfilesCtorArg: MutPtr<Dot11extIhvDiscoveryProfile>,
+    pIhvDiscoveryProfilesCtorArg: MutPtr,
 ) {
-    public var pIhvDiscoveryProfiles: MutPtr<Dot11extIhvDiscoveryProfile> = pIhvDiscoveryProfilesCtorArg
+    public var pIhvDiscoveryProfiles: MutPtr = pIhvDiscoveryProfilesCtorArg
         internal set
 
     public constructor() : this(
@@ -91,9 +89,9 @@ public class Dot11extIhvDiscoveryProfileList internal constructor(
 
     public operator fun component1(): UInt = this.dwCount
 
-    public operator fun component2(): MutPtr<Dot11extIhvDiscoveryProfile> = this.pIhvDiscoveryProfiles
+    public operator fun component2(): MutPtr = this.pIhvDiscoveryProfiles
 
-    public fun copy(dwCount: UInt = this.dwCount, pIhvDiscoveryProfiles: MutPtr<Dot11extIhvDiscoveryProfile> = this.pIhvDiscoveryProfiles): Dot11extIhvDiscoveryProfileList = Dot11extIhvDiscoveryProfileList(dwCount = dwCount, pIhvDiscoveryProfilesCtorArg = pIhvDiscoveryProfiles)
+    public fun copy(dwCount: UInt = this.dwCount, pIhvDiscoveryProfiles: MutPtr = this.pIhvDiscoveryProfiles): Dot11extIhvDiscoveryProfileList = Dot11extIhvDiscoveryProfileList(dwCount = dwCount, pIhvDiscoveryProfilesCtorArg = pIhvDiscoveryProfiles)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -119,21 +117,21 @@ public class Dot11extIhvDiscoveryProfileList internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<Dot11extIhvDiscoveryProfile>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                     )
                 override fun writeNative(addr: Long, value: Dot11extIhvDiscoveryProfileList) {
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr, value.dwCount)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<Dot11extIhvDiscoveryProfile>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.pIhvDiscoveryProfiles)
                 }
             }
 
         public operator fun invoke(
             dwCount: UInt = 0u,
-            pIhvDiscoveryProfiles: MutPtr<Dot11extIhvDiscoveryProfile> = MutPtr(0L),
+            pIhvDiscoveryProfiles: MutPtr = MutPtr(0L),
         ): Dot11extIhvDiscoveryProfileList =
             Dot11extIhvDiscoveryProfileList(
                 dwCount = dwCount,
@@ -190,14 +188,14 @@ public data class Dot11extIhvParams(
 }
 
 public class Dot11extIhvProfileParams internal constructor(
-    pSsidListCtorArg: MutPtr<Dot11extIhvSsidList>,
+    pSsidListCtorArg: MutPtr,
     public var bssType: Dot11BssType,
-    pMSSecuritySettingsCtorArg: MutPtr<Dot11MssecuritySettings>,
+    pMSSecuritySettingsCtorArg: MutPtr,
 ) {
-    public var pSsidList: MutPtr<Dot11extIhvSsidList> = pSsidListCtorArg
+    public var pSsidList: MutPtr = pSsidListCtorArg
         internal set
 
-    public var pMSSecuritySettings: MutPtr<Dot11MssecuritySettings> = pMSSecuritySettingsCtorArg
+    public var pMSSecuritySettings: MutPtr = pMSSecuritySettingsCtorArg
         internal set
 
     public constructor() : this(
@@ -206,13 +204,13 @@ public class Dot11extIhvProfileParams internal constructor(
         pMSSecuritySettingsCtorArg = MutPtr(0L),
     )
 
-    public operator fun component1(): MutPtr<Dot11extIhvSsidList> = this.pSsidList
+    public operator fun component1(): MutPtr = this.pSsidList
 
     public operator fun component2(): Dot11BssType = this.bssType
 
-    public operator fun component3(): MutPtr<Dot11MssecuritySettings> = this.pMSSecuritySettings
+    public operator fun component3(): MutPtr = this.pMSSecuritySettings
 
-    public fun copy(pSsidList: MutPtr<Dot11extIhvSsidList> = this.pSsidList, bssType: Dot11BssType = this.bssType, pMSSecuritySettings: MutPtr<Dot11MssecuritySettings> = this.pMSSecuritySettings): Dot11extIhvProfileParams = Dot11extIhvProfileParams(pSsidListCtorArg = pSsidList, bssType = bssType, pMSSecuritySettingsCtorArg = pMSSecuritySettings)
+    public fun copy(pSsidList: MutPtr = this.pSsidList, bssType: Dot11BssType = this.bssType, pMSSecuritySettings: MutPtr = this.pMSSecuritySettings): Dot11extIhvProfileParams = Dot11extIhvProfileParams(pSsidListCtorArg = pSsidList, bssType = bssType, pMSSecuritySettingsCtorArg = pMSSecuritySettings)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -239,31 +237,31 @@ public class Dot11extIhvProfileParams internal constructor(
                     Dot11extIhvProfileParams(
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<Dot11extIhvSsidList>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr + 8L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<Dot11MssecuritySettings>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 16L),
                     )
                 override fun writeNative(addr: Long, value: Dot11extIhvProfileParams) {
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<Dot11extIhvSsidList>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr, value.pSsidList)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr + 8L, value.bssType)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<Dot11MssecuritySettings>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 16L, value.pMSSecuritySettings)
                 }
             }
 
         public operator fun invoke(
-            pSsidList: MutPtr<Dot11extIhvSsidList> = MutPtr(0L),
+            pSsidList: MutPtr = MutPtr(0L),
             bssType: Dot11BssType = 0,
-            pMSSecuritySettings: MutPtr<Dot11MssecuritySettings> = MutPtr(0L),
+            pMSSecuritySettings: MutPtr = MutPtr(0L),
         ): Dot11extIhvProfileParams =
             Dot11extIhvProfileParams(
                 pSsidListCtorArg = pSsidList,
@@ -350,9 +348,9 @@ public class Dot11extIhvUiRequest internal constructor(
     public var guidUIRequest: Guid,
     public var uIPageClsid: Guid,
     public var dwByteCount: UInt,
-    pvUIRequestCtorArg: MutPtr<UByte>,
+    pvUIRequestCtorArg: MutPtr,
 ) {
-    public var pvUIRequest: MutPtr<UByte> = pvUIRequestCtorArg
+    public var pvUIRequest: MutPtr = pvUIRequestCtorArg
         internal set
 
     public constructor() : this(
@@ -371,9 +369,9 @@ public class Dot11extIhvUiRequest internal constructor(
 
     public operator fun component4(): UInt = this.dwByteCount
 
-    public operator fun component5(): MutPtr<UByte> = this.pvUIRequest
+    public operator fun component5(): MutPtr = this.pvUIRequest
 
-    public fun copy(dwSessionId: UInt = this.dwSessionId, guidUIRequest: Guid = this.guidUIRequest, uIPageClsid: Guid = this.uIPageClsid, dwByteCount: UInt = this.dwByteCount, pvUIRequest: MutPtr<UByte> = this.pvUIRequest): Dot11extIhvUiRequest = Dot11extIhvUiRequest(dwSessionId = dwSessionId, guidUIRequest = guidUIRequest, uIPageClsid = uIPageClsid, dwByteCount = dwByteCount, pvUIRequestCtorArg = pvUIRequest)
+    public fun copy(dwSessionId: UInt = this.dwSessionId, guidUIRequest: Guid = this.guidUIRequest, uIPageClsid: Guid = this.uIPageClsid, dwByteCount: UInt = this.dwByteCount, pvUIRequest: MutPtr = this.pvUIRequest): Dot11extIhvUiRequest = Dot11extIhvUiRequest(dwSessionId = dwSessionId, guidUIRequest = guidUIRequest, uIPageClsid = uIPageClsid, dwByteCount = dwByteCount, pvUIRequestCtorArg = pvUIRequest)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -401,7 +399,7 @@ public class Dot11extIhvUiRequest internal constructor(
             guidUIRequest: Guid = Guid(),
             uIPageClsid: Guid = Guid(),
             dwByteCount: UInt = 0u,
-            pvUIRequest: MutPtr<UByte> = MutPtr(0L),
+            pvUIRequest: MutPtr = MutPtr(0L),
         ): Dot11extIhvUiRequest =
             Dot11extIhvUiRequest(
                 dwSessionId = dwSessionId,
@@ -1192,9 +1190,9 @@ public data class Dot11BssEntryPhySpecificInfo0(
 
 public class Dot11BssList internal constructor(
     public var uNumOfBytes: UInt,
-    pucBufferCtorArg: MutPtr<UByte>,
+    pucBufferCtorArg: MutPtr,
 ) {
-    public var pucBuffer: MutPtr<UByte> = pucBufferCtorArg
+    public var pucBuffer: MutPtr = pucBufferCtorArg
         internal set
 
     public constructor() : this(
@@ -1204,9 +1202,9 @@ public class Dot11BssList internal constructor(
 
     public operator fun component1(): UInt = this.uNumOfBytes
 
-    public operator fun component2(): MutPtr<UByte> = this.pucBuffer
+    public operator fun component2(): MutPtr = this.pucBuffer
 
-    public fun copy(uNumOfBytes: UInt = this.uNumOfBytes, pucBuffer: MutPtr<UByte> = this.pucBuffer): Dot11BssList = Dot11BssList(uNumOfBytes = uNumOfBytes, pucBufferCtorArg = pucBuffer)
+    public fun copy(uNumOfBytes: UInt = this.uNumOfBytes, pucBuffer: MutPtr = this.pucBuffer): Dot11BssList = Dot11BssList(uNumOfBytes = uNumOfBytes, pucBufferCtorArg = pucBuffer)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -1232,21 +1230,21 @@ public class Dot11BssList internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<UByte>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                     )
                 override fun writeNative(addr: Long, value: Dot11BssList) {
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr, value.uNumOfBytes)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<UByte>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.pucBuffer)
                 }
             }
 
         public operator fun invoke(
             uNumOfBytes: UInt = 0u,
-            pucBuffer: MutPtr<UByte> = MutPtr(0L),
+            pucBuffer: MutPtr = MutPtr(0L),
         ): Dot11BssList =
             Dot11BssList(
                 uNumOfBytes = uNumOfBytes,
@@ -1982,9 +1980,9 @@ public data class Dot11DiversitySelectionRxList(
 
 public class Dot11EapResult internal constructor(
     public var dwFailureReasonCode: UInt,
-    pAttribArrayCtorArg: MutPtr<EapAttributes>,
+    pAttribArrayCtorArg: MutPtr,
 ) {
-    public var pAttribArray: MutPtr<EapAttributes> = pAttribArrayCtorArg
+    public var pAttribArray: MutPtr = pAttribArrayCtorArg
         internal set
 
     public constructor() : this(
@@ -1994,9 +1992,9 @@ public class Dot11EapResult internal constructor(
 
     public operator fun component1(): UInt = this.dwFailureReasonCode
 
-    public operator fun component2(): MutPtr<EapAttributes> = this.pAttribArray
+    public operator fun component2(): MutPtr = this.pAttribArray
 
-    public fun copy(dwFailureReasonCode: UInt = this.dwFailureReasonCode, pAttribArray: MutPtr<EapAttributes> = this.pAttribArray): Dot11EapResult = Dot11EapResult(dwFailureReasonCode = dwFailureReasonCode, pAttribArrayCtorArg = pAttribArray)
+    public fun copy(dwFailureReasonCode: UInt = this.dwFailureReasonCode, pAttribArray: MutPtr = this.pAttribArray): Dot11EapResult = Dot11EapResult(dwFailureReasonCode = dwFailureReasonCode, pAttribArrayCtorArg = pAttribArray)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -2022,21 +2020,21 @@ public class Dot11EapResult internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<EapAttributes>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                     )
                 override fun writeNative(addr: Long, value: Dot11EapResult) {
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr, value.dwFailureReasonCode)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<EapAttributes>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.pAttribArray)
                 }
             }
 
         public operator fun invoke(
             dwFailureReasonCode: UInt = 0u,
-            pAttribArray: MutPtr<EapAttributes> = MutPtr(0L),
+            pAttribArray: MutPtr = MutPtr(0L),
         ): Dot11EapResult =
             Dot11EapResult(
                 dwFailureReasonCode = dwFailureReasonCode,
@@ -2105,19 +2103,19 @@ public class Dot11ExtapAttributes internal constructor(
     public var uWEPKeyValueMaxLength: UInt,
     public var bStrictlyOrderedServiceClassImplemented: Boolean,
     public var uNumSupportedCountryOrRegionStrings: UInt,
-    pSupportedCountryOrRegionStringsCtorArg: MutPtr<UByte>,
+    pSupportedCountryOrRegionStringsCtorArg: MutPtr,
     public var uInfraNumSupportedUcastAlgoPairs: UInt,
-    pInfraSupportedUcastAlgoPairsCtorArg: MutPtr<Dot11AuthCipherPair>,
+    pInfraSupportedUcastAlgoPairsCtorArg: MutPtr,
     public var uInfraNumSupportedMcastAlgoPairs: UInt,
-    pInfraSupportedMcastAlgoPairsCtorArg: MutPtr<Dot11AuthCipherPair>,
+    pInfraSupportedMcastAlgoPairsCtorArg: MutPtr,
 ) {
-    public var pSupportedCountryOrRegionStrings: MutPtr<UByte> = pSupportedCountryOrRegionStringsCtorArg
+    public var pSupportedCountryOrRegionStrings: MutPtr = pSupportedCountryOrRegionStringsCtorArg
         internal set
 
-    public var pInfraSupportedUcastAlgoPairs: MutPtr<Dot11AuthCipherPair> = pInfraSupportedUcastAlgoPairsCtorArg
+    public var pInfraSupportedUcastAlgoPairs: MutPtr = pInfraSupportedUcastAlgoPairsCtorArg
         internal set
 
-    public var pInfraSupportedMcastAlgoPairs: MutPtr<Dot11AuthCipherPair> = pInfraSupportedMcastAlgoPairsCtorArg
+    public var pInfraSupportedMcastAlgoPairs: MutPtr = pInfraSupportedMcastAlgoPairsCtorArg
         internal set
 
     public constructor() : this(
@@ -2155,17 +2153,17 @@ public class Dot11ExtapAttributes internal constructor(
 
     public operator fun component9(): UInt = this.uNumSupportedCountryOrRegionStrings
 
-    public operator fun component10(): MutPtr<UByte> = this.pSupportedCountryOrRegionStrings
+    public operator fun component10(): MutPtr = this.pSupportedCountryOrRegionStrings
 
     public operator fun component11(): UInt = this.uInfraNumSupportedUcastAlgoPairs
 
-    public operator fun component12(): MutPtr<Dot11AuthCipherPair> = this.pInfraSupportedUcastAlgoPairs
+    public operator fun component12(): MutPtr = this.pInfraSupportedUcastAlgoPairs
 
     public operator fun component13(): UInt = this.uInfraNumSupportedMcastAlgoPairs
 
-    public operator fun component14(): MutPtr<Dot11AuthCipherPair> = this.pInfraSupportedMcastAlgoPairs
+    public operator fun component14(): MutPtr = this.pInfraSupportedMcastAlgoPairs
 
-    public fun copy(header: NdisObjectHeader = this.header, uScanSSIDListSize: UInt = this.uScanSSIDListSize, uDesiredSSIDListSize: UInt = this.uDesiredSSIDListSize, uPrivacyExemptionListSize: UInt = this.uPrivacyExemptionListSize, uAssociationTableSize: UInt = this.uAssociationTableSize, uDefaultKeyTableSize: UInt = this.uDefaultKeyTableSize, uWEPKeyValueMaxLength: UInt = this.uWEPKeyValueMaxLength, bStrictlyOrderedServiceClassImplemented: Boolean = this.bStrictlyOrderedServiceClassImplemented, uNumSupportedCountryOrRegionStrings: UInt = this.uNumSupportedCountryOrRegionStrings, pSupportedCountryOrRegionStrings: MutPtr<UByte> = this.pSupportedCountryOrRegionStrings, uInfraNumSupportedUcastAlgoPairs: UInt = this.uInfraNumSupportedUcastAlgoPairs, pInfraSupportedUcastAlgoPairs: MutPtr<Dot11AuthCipherPair> = this.pInfraSupportedUcastAlgoPairs, uInfraNumSupportedMcastAlgoPairs: UInt = this.uInfraNumSupportedMcastAlgoPairs, pInfraSupportedMcastAlgoPairs: MutPtr<Dot11AuthCipherPair> = this.pInfraSupportedMcastAlgoPairs): Dot11ExtapAttributes = Dot11ExtapAttributes(header = header, uScanSSIDListSize = uScanSSIDListSize, uDesiredSSIDListSize = uDesiredSSIDListSize, uPrivacyExemptionListSize = uPrivacyExemptionListSize, uAssociationTableSize = uAssociationTableSize, uDefaultKeyTableSize = uDefaultKeyTableSize, uWEPKeyValueMaxLength = uWEPKeyValueMaxLength, bStrictlyOrderedServiceClassImplemented = bStrictlyOrderedServiceClassImplemented, uNumSupportedCountryOrRegionStrings = uNumSupportedCountryOrRegionStrings, pSupportedCountryOrRegionStringsCtorArg = pSupportedCountryOrRegionStrings, uInfraNumSupportedUcastAlgoPairs = uInfraNumSupportedUcastAlgoPairs, pInfraSupportedUcastAlgoPairsCtorArg = pInfraSupportedUcastAlgoPairs, uInfraNumSupportedMcastAlgoPairs = uInfraNumSupportedMcastAlgoPairs, pInfraSupportedMcastAlgoPairsCtorArg = pInfraSupportedMcastAlgoPairs)
+    public fun copy(header: NdisObjectHeader = this.header, uScanSSIDListSize: UInt = this.uScanSSIDListSize, uDesiredSSIDListSize: UInt = this.uDesiredSSIDListSize, uPrivacyExemptionListSize: UInt = this.uPrivacyExemptionListSize, uAssociationTableSize: UInt = this.uAssociationTableSize, uDefaultKeyTableSize: UInt = this.uDefaultKeyTableSize, uWEPKeyValueMaxLength: UInt = this.uWEPKeyValueMaxLength, bStrictlyOrderedServiceClassImplemented: Boolean = this.bStrictlyOrderedServiceClassImplemented, uNumSupportedCountryOrRegionStrings: UInt = this.uNumSupportedCountryOrRegionStrings, pSupportedCountryOrRegionStrings: MutPtr = this.pSupportedCountryOrRegionStrings, uInfraNumSupportedUcastAlgoPairs: UInt = this.uInfraNumSupportedUcastAlgoPairs, pInfraSupportedUcastAlgoPairs: MutPtr = this.pInfraSupportedUcastAlgoPairs, uInfraNumSupportedMcastAlgoPairs: UInt = this.uInfraNumSupportedMcastAlgoPairs, pInfraSupportedMcastAlgoPairs: MutPtr = this.pInfraSupportedMcastAlgoPairs): Dot11ExtapAttributes = Dot11ExtapAttributes(header = header, uScanSSIDListSize = uScanSSIDListSize, uDesiredSSIDListSize = uDesiredSSIDListSize, uPrivacyExemptionListSize = uPrivacyExemptionListSize, uAssociationTableSize = uAssociationTableSize, uDefaultKeyTableSize = uDefaultKeyTableSize, uWEPKeyValueMaxLength = uWEPKeyValueMaxLength, bStrictlyOrderedServiceClassImplemented = bStrictlyOrderedServiceClassImplemented, uNumSupportedCountryOrRegionStrings = uNumSupportedCountryOrRegionStrings, pSupportedCountryOrRegionStringsCtorArg = pSupportedCountryOrRegionStrings, uInfraNumSupportedUcastAlgoPairs = uInfraNumSupportedUcastAlgoPairs, pInfraSupportedUcastAlgoPairsCtorArg = pInfraSupportedUcastAlgoPairs, uInfraNumSupportedMcastAlgoPairs = uInfraNumSupportedMcastAlgoPairs, pInfraSupportedMcastAlgoPairsCtorArg = pInfraSupportedMcastAlgoPairs)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -2216,11 +2214,11 @@ public class Dot11ExtapAttributes internal constructor(
             uWEPKeyValueMaxLength: UInt = 0u,
             bStrictlyOrderedServiceClassImplemented: Boolean = false,
             uNumSupportedCountryOrRegionStrings: UInt = 0u,
-            pSupportedCountryOrRegionStrings: MutPtr<UByte> = MutPtr(0L),
+            pSupportedCountryOrRegionStrings: MutPtr = MutPtr(0L),
             uInfraNumSupportedUcastAlgoPairs: UInt = 0u,
-            pInfraSupportedUcastAlgoPairs: MutPtr<Dot11AuthCipherPair> = MutPtr(0L),
+            pInfraSupportedUcastAlgoPairs: MutPtr = MutPtr(0L),
             uInfraNumSupportedMcastAlgoPairs: UInt = 0u,
-            pInfraSupportedMcastAlgoPairs: MutPtr<Dot11AuthCipherPair> = MutPtr(0L),
+            pInfraSupportedMcastAlgoPairs: MutPtr = MutPtr(0L),
         ): Dot11ExtapAttributes =
             Dot11ExtapAttributes(
                 header = header,
@@ -2257,42 +2255,42 @@ public class Dot11ExtstaAttributes internal constructor(
     public var ucSupportedQoSProtocolFlags: UByte,
     public var bSafeModeImplemented: Boolean,
     public var uNumSupportedCountryOrRegionStrings: UInt,
-    pSupportedCountryOrRegionStringsCtorArg: MutPtr<UByte>,
+    pSupportedCountryOrRegionStringsCtorArg: MutPtr,
     public var uInfraNumSupportedUcastAlgoPairs: UInt,
-    pInfraSupportedUcastAlgoPairsCtorArg: MutPtr<Dot11AuthCipherPair>,
+    pInfraSupportedUcastAlgoPairsCtorArg: MutPtr,
     public var uInfraNumSupportedMcastAlgoPairs: UInt,
-    pInfraSupportedMcastAlgoPairsCtorArg: MutPtr<Dot11AuthCipherPair>,
+    pInfraSupportedMcastAlgoPairsCtorArg: MutPtr,
     public var uAdhocNumSupportedUcastAlgoPairs: UInt,
-    pAdhocSupportedUcastAlgoPairsCtorArg: MutPtr<Dot11AuthCipherPair>,
+    pAdhocSupportedUcastAlgoPairsCtorArg: MutPtr,
     public var uAdhocNumSupportedMcastAlgoPairs: UInt,
-    pAdhocSupportedMcastAlgoPairsCtorArg: MutPtr<Dot11AuthCipherPair>,
+    pAdhocSupportedMcastAlgoPairsCtorArg: MutPtr,
     public var bAutoPowerSaveMode: Boolean,
     public var uMaxNetworkOffloadListSize: UInt,
     public var bMFPCapable: Boolean,
     public var uInfraNumSupportedMcastMgmtAlgoPairs: UInt,
-    pInfraSupportedMcastMgmtAlgoPairsCtorArg: MutPtr<Dot11AuthCipherPair>,
+    pInfraSupportedMcastMgmtAlgoPairsCtorArg: MutPtr,
     public var bNeighborReportSupported: Boolean,
     public var bAPChannelReportSupported: Boolean,
     public var bActionFramesSupported: Boolean,
     public var bANQPQueryOffloadSupported: Boolean,
     public var bHESSIDConnectionSupported: Boolean,
 ) {
-    public var pSupportedCountryOrRegionStrings: MutPtr<UByte> = pSupportedCountryOrRegionStringsCtorArg
+    public var pSupportedCountryOrRegionStrings: MutPtr = pSupportedCountryOrRegionStringsCtorArg
         internal set
 
-    public var pInfraSupportedUcastAlgoPairs: MutPtr<Dot11AuthCipherPair> = pInfraSupportedUcastAlgoPairsCtorArg
+    public var pInfraSupportedUcastAlgoPairs: MutPtr = pInfraSupportedUcastAlgoPairsCtorArg
         internal set
 
-    public var pInfraSupportedMcastAlgoPairs: MutPtr<Dot11AuthCipherPair> = pInfraSupportedMcastAlgoPairsCtorArg
+    public var pInfraSupportedMcastAlgoPairs: MutPtr = pInfraSupportedMcastAlgoPairsCtorArg
         internal set
 
-    public var pAdhocSupportedUcastAlgoPairs: MutPtr<Dot11AuthCipherPair> = pAdhocSupportedUcastAlgoPairsCtorArg
+    public var pAdhocSupportedUcastAlgoPairs: MutPtr = pAdhocSupportedUcastAlgoPairsCtorArg
         internal set
 
-    public var pAdhocSupportedMcastAlgoPairs: MutPtr<Dot11AuthCipherPair> = pAdhocSupportedMcastAlgoPairsCtorArg
+    public var pAdhocSupportedMcastAlgoPairs: MutPtr = pAdhocSupportedMcastAlgoPairsCtorArg
         internal set
 
-    public var pInfraSupportedMcastMgmtAlgoPairs: MutPtr<Dot11AuthCipherPair> = pInfraSupportedMcastMgmtAlgoPairsCtorArg
+    public var pInfraSupportedMcastMgmtAlgoPairs: MutPtr = pInfraSupportedMcastMgmtAlgoPairsCtorArg
         internal set
 
     public constructor() : this(
@@ -2349,20 +2347,20 @@ public class Dot11ExtstaAttributes internal constructor(
             ucSupportedQoSProtocolFlags: UByte = 0u,
             bSafeModeImplemented: Boolean = false,
             uNumSupportedCountryOrRegionStrings: UInt = 0u,
-            pSupportedCountryOrRegionStrings: MutPtr<UByte> = MutPtr(0L),
+            pSupportedCountryOrRegionStrings: MutPtr = MutPtr(0L),
             uInfraNumSupportedUcastAlgoPairs: UInt = 0u,
-            pInfraSupportedUcastAlgoPairs: MutPtr<Dot11AuthCipherPair> = MutPtr(0L),
+            pInfraSupportedUcastAlgoPairs: MutPtr = MutPtr(0L),
             uInfraNumSupportedMcastAlgoPairs: UInt = 0u,
-            pInfraSupportedMcastAlgoPairs: MutPtr<Dot11AuthCipherPair> = MutPtr(0L),
+            pInfraSupportedMcastAlgoPairs: MutPtr = MutPtr(0L),
             uAdhocNumSupportedUcastAlgoPairs: UInt = 0u,
-            pAdhocSupportedUcastAlgoPairs: MutPtr<Dot11AuthCipherPair> = MutPtr(0L),
+            pAdhocSupportedUcastAlgoPairs: MutPtr = MutPtr(0L),
             uAdhocNumSupportedMcastAlgoPairs: UInt = 0u,
-            pAdhocSupportedMcastAlgoPairs: MutPtr<Dot11AuthCipherPair> = MutPtr(0L),
+            pAdhocSupportedMcastAlgoPairs: MutPtr = MutPtr(0L),
             bAutoPowerSaveMode: Boolean = false,
             uMaxNetworkOffloadListSize: UInt = 0u,
             bMFPCapable: Boolean = false,
             uInfraNumSupportedMcastMgmtAlgoPairs: UInt = 0u,
-            pInfraSupportedMcastMgmtAlgoPairs: MutPtr<Dot11AuthCipherPair> = MutPtr(0L),
+            pInfraSupportedMcastMgmtAlgoPairs: MutPtr = MutPtr(0L),
             bNeighborReportSupported: Boolean = false,
             bAPChannelReportSupported: Boolean = false,
             bActionFramesSupported: Boolean = false,
@@ -2431,10 +2429,10 @@ public class Dot11ExtstaRecvContext internal constructor(
     public var lRSSI: Int,
     public var ucDataRate: UByte,
     public var uSizeMediaSpecificInfo: UInt,
-    pvMediaSpecificInfoCtorArg: MutPtr<CVoid>,
+    pvMediaSpecificInfoCtorArg: MutPtr,
     public var ullTimestamp: ULong,
 ) {
-    public var pvMediaSpecificInfo: MutPtr<CVoid> = pvMediaSpecificInfoCtorArg
+    public var pvMediaSpecificInfo: MutPtr = pvMediaSpecificInfoCtorArg
         internal set
 
     public constructor() : this(
@@ -2466,11 +2464,11 @@ public class Dot11ExtstaRecvContext internal constructor(
 
     public operator fun component8(): UInt = this.uSizeMediaSpecificInfo
 
-    public operator fun component9(): MutPtr<CVoid> = this.pvMediaSpecificInfo
+    public operator fun component9(): MutPtr = this.pvMediaSpecificInfo
 
     public operator fun component10(): ULong = this.ullTimestamp
 
-    public fun copy(header: NdisObjectHeader = this.header, uReceiveFlags: UInt = this.uReceiveFlags, uPhyId: UInt = this.uPhyId, uChCenterFrequency: UInt = this.uChCenterFrequency, usNumberOfMPDUsReceived: UShort = this.usNumberOfMPDUsReceived, lRSSI: Int = this.lRSSI, ucDataRate: UByte = this.ucDataRate, uSizeMediaSpecificInfo: UInt = this.uSizeMediaSpecificInfo, pvMediaSpecificInfo: MutPtr<CVoid> = this.pvMediaSpecificInfo, ullTimestamp: ULong = this.ullTimestamp): Dot11ExtstaRecvContext = Dot11ExtstaRecvContext(header = header, uReceiveFlags = uReceiveFlags, uPhyId = uPhyId, uChCenterFrequency = uChCenterFrequency, usNumberOfMPDUsReceived = usNumberOfMPDUsReceived, lRSSI = lRSSI, ucDataRate = ucDataRate, uSizeMediaSpecificInfo = uSizeMediaSpecificInfo, pvMediaSpecificInfoCtorArg = pvMediaSpecificInfo, ullTimestamp = ullTimestamp)
+    public fun copy(header: NdisObjectHeader = this.header, uReceiveFlags: UInt = this.uReceiveFlags, uPhyId: UInt = this.uPhyId, uChCenterFrequency: UInt = this.uChCenterFrequency, usNumberOfMPDUsReceived: UShort = this.usNumberOfMPDUsReceived, lRSSI: Int = this.lRSSI, ucDataRate: UByte = this.ucDataRate, uSizeMediaSpecificInfo: UInt = this.uSizeMediaSpecificInfo, pvMediaSpecificInfo: MutPtr = this.pvMediaSpecificInfo, ullTimestamp: ULong = this.ullTimestamp): Dot11ExtstaRecvContext = Dot11ExtstaRecvContext(header = header, uReceiveFlags = uReceiveFlags, uPhyId = uPhyId, uChCenterFrequency = uChCenterFrequency, usNumberOfMPDUsReceived = usNumberOfMPDUsReceived, lRSSI = lRSSI, ucDataRate = ucDataRate, uSizeMediaSpecificInfo = uSizeMediaSpecificInfo, pvMediaSpecificInfoCtorArg = pvMediaSpecificInfo, ullTimestamp = ullTimestamp)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -2512,7 +2510,7 @@ public class Dot11ExtstaRecvContext internal constructor(
             lRSSI: Int = 0,
             ucDataRate: UByte = 0u,
             uSizeMediaSpecificInfo: UInt = 0u,
-            pvMediaSpecificInfo: MutPtr<CVoid> = MutPtr(0L),
+            pvMediaSpecificInfo: MutPtr = MutPtr(0L),
             ullTimestamp: ULong = 0uL,
         ): Dot11ExtstaRecvContext =
             Dot11ExtstaRecvContext(
@@ -2535,10 +2533,10 @@ public class Dot11ExtstaSendContext internal constructor(
     public var usExemptionActionType: UShort,
     public var uPhyId: UInt,
     public var uDelayedSleepValue: UInt,
-    pvMediaSpecificInfoCtorArg: MutPtr<CVoid>,
+    pvMediaSpecificInfoCtorArg: MutPtr,
     public var uSendFlags: UInt,
 ) {
-    public var pvMediaSpecificInfo: MutPtr<CVoid> = pvMediaSpecificInfoCtorArg
+    public var pvMediaSpecificInfo: MutPtr = pvMediaSpecificInfoCtorArg
         internal set
 
     public constructor() : this(
@@ -2558,11 +2556,11 @@ public class Dot11ExtstaSendContext internal constructor(
 
     public operator fun component4(): UInt = this.uDelayedSleepValue
 
-    public operator fun component5(): MutPtr<CVoid> = this.pvMediaSpecificInfo
+    public operator fun component5(): MutPtr = this.pvMediaSpecificInfo
 
     public operator fun component6(): UInt = this.uSendFlags
 
-    public fun copy(header: NdisObjectHeader = this.header, usExemptionActionType: UShort = this.usExemptionActionType, uPhyId: UInt = this.uPhyId, uDelayedSleepValue: UInt = this.uDelayedSleepValue, pvMediaSpecificInfo: MutPtr<CVoid> = this.pvMediaSpecificInfo, uSendFlags: UInt = this.uSendFlags): Dot11ExtstaSendContext = Dot11ExtstaSendContext(header = header, usExemptionActionType = usExemptionActionType, uPhyId = uPhyId, uDelayedSleepValue = uDelayedSleepValue, pvMediaSpecificInfoCtorArg = pvMediaSpecificInfo, uSendFlags = uSendFlags)
+    public fun copy(header: NdisObjectHeader = this.header, usExemptionActionType: UShort = this.usExemptionActionType, uPhyId: UInt = this.uPhyId, uDelayedSleepValue: UInt = this.uDelayedSleepValue, pvMediaSpecificInfo: MutPtr = this.pvMediaSpecificInfo, uSendFlags: UInt = this.uSendFlags): Dot11ExtstaSendContext = Dot11ExtstaSendContext(header = header, usExemptionActionType = usExemptionActionType, uPhyId = uPhyId, uDelayedSleepValue = uDelayedSleepValue, pvMediaSpecificInfoCtorArg = pvMediaSpecificInfo, uSendFlags = uSendFlags)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -2592,7 +2590,7 @@ public class Dot11ExtstaSendContext internal constructor(
             usExemptionActionType: UShort = 0u,
             uPhyId: UInt = 0u,
             uDelayedSleepValue: UInt = 0u,
-            pvMediaSpecificInfo: MutPtr<CVoid> = MutPtr(0L),
+            pvMediaSpecificInfo: MutPtr = MutPtr(0L),
             uSendFlags: UInt = 0u,
         ): Dot11ExtstaSendContext =
             Dot11ExtstaSendContext(
@@ -3588,9 +3586,9 @@ public class Dot11ManufacturingCallbackParameters internal constructor(
     public var header: NdisObjectHeader,
     public var dot11ManufacturingCallbackType: Dot11ManufacturingCallbackType,
     public var uStatus: UInt,
-    pvContextCtorArg: MutPtr<CVoid>,
+    pvContextCtorArg: MutPtr,
 ) {
-    public var pvContext: MutPtr<CVoid> = pvContextCtorArg
+    public var pvContext: MutPtr = pvContextCtorArg
         internal set
 
     public constructor() : this(
@@ -3606,9 +3604,9 @@ public class Dot11ManufacturingCallbackParameters internal constructor(
 
     public operator fun component3(): UInt = this.uStatus
 
-    public operator fun component4(): MutPtr<CVoid> = this.pvContext
+    public operator fun component4(): MutPtr = this.pvContext
 
-    public fun copy(header: NdisObjectHeader = this.header, dot11ManufacturingCallbackType: Dot11ManufacturingCallbackType = this.dot11ManufacturingCallbackType, uStatus: UInt = this.uStatus, pvContext: MutPtr<CVoid> = this.pvContext): Dot11ManufacturingCallbackParameters = Dot11ManufacturingCallbackParameters(header = header, dot11ManufacturingCallbackType = dot11ManufacturingCallbackType, uStatus = uStatus, pvContextCtorArg = pvContext)
+    public fun copy(header: NdisObjectHeader = this.header, dot11ManufacturingCallbackType: Dot11ManufacturingCallbackType = this.dot11ManufacturingCallbackType, uStatus: UInt = this.uStatus, pvContext: MutPtr = this.pvContext): Dot11ManufacturingCallbackParameters = Dot11ManufacturingCallbackParameters(header = header, dot11ManufacturingCallbackType = dot11ManufacturingCallbackType, uStatus = uStatus, pvContextCtorArg = pvContext)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -3633,7 +3631,7 @@ public class Dot11ManufacturingCallbackParameters internal constructor(
             header: NdisObjectHeader = NdisObjectHeader(),
             dot11ManufacturingCallbackType: Dot11ManufacturingCallbackType = 0,
             uStatus: UInt = 0u,
-            pvContext: MutPtr<CVoid> = MutPtr(0L),
+            pvContext: MutPtr = MutPtr(0L),
         ): Dot11ManufacturingCallbackParameters =
             Dot11ManufacturingCallbackParameters(
                 header = header,
@@ -3736,11 +3734,11 @@ public class Dot11ManufacturingSelfTestQueryResults internal constructor(
     public var uTestID: UInt,
     public var bResult: Boolean,
     public var uPinFailedBitMask: UInt,
-    pvContextCtorArg: MutPtr<CVoid>,
+    pvContextCtorArg: MutPtr,
     public var uBytesWrittenOut: UInt,
     public var ucBufferOut: UByteArray,
 ) {
-    public var pvContext: MutPtr<CVoid> = pvContextCtorArg
+    public var pvContext: MutPtr = pvContextCtorArg
         internal set
 
     public constructor() : this(
@@ -3761,13 +3759,13 @@ public class Dot11ManufacturingSelfTestQueryResults internal constructor(
 
     public operator fun component4(): UInt = this.uPinFailedBitMask
 
-    public operator fun component5(): MutPtr<CVoid> = this.pvContext
+    public operator fun component5(): MutPtr = this.pvContext
 
     public operator fun component6(): UInt = this.uBytesWrittenOut
 
     public operator fun component7(): UByteArray = this.ucBufferOut
 
-    public fun copy(selfTestType: Dot11ManufacturingSelfTestType = this.selfTestType, uTestID: UInt = this.uTestID, bResult: Boolean = this.bResult, uPinFailedBitMask: UInt = this.uPinFailedBitMask, pvContext: MutPtr<CVoid> = this.pvContext, uBytesWrittenOut: UInt = this.uBytesWrittenOut, ucBufferOut: UByteArray = this.ucBufferOut): Dot11ManufacturingSelfTestQueryResults = Dot11ManufacturingSelfTestQueryResults(selfTestType = selfTestType, uTestID = uTestID, bResult = bResult, uPinFailedBitMask = uPinFailedBitMask, pvContextCtorArg = pvContext, uBytesWrittenOut = uBytesWrittenOut, ucBufferOut = ucBufferOut)
+    public fun copy(selfTestType: Dot11ManufacturingSelfTestType = this.selfTestType, uTestID: UInt = this.uTestID, bResult: Boolean = this.bResult, uPinFailedBitMask: UInt = this.uPinFailedBitMask, pvContext: MutPtr = this.pvContext, uBytesWrittenOut: UInt = this.uBytesWrittenOut, ucBufferOut: UByteArray = this.ucBufferOut): Dot11ManufacturingSelfTestQueryResults = Dot11ManufacturingSelfTestQueryResults(selfTestType = selfTestType, uTestID = uTestID, bResult = bResult, uPinFailedBitMask = uPinFailedBitMask, pvContextCtorArg = pvContext, uBytesWrittenOut = uBytesWrittenOut, ucBufferOut = ucBufferOut)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -3806,7 +3804,7 @@ public class Dot11ManufacturingSelfTestQueryResults internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 12L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<CVoid>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 16L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 24L),
                         (
@@ -3821,7 +3819,7 @@ public class Dot11ManufacturingSelfTestQueryResults internal constructor(
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 12L, value.uPinFailedBitMask)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<CVoid>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 16L, value.pvContext)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 24L, value.uBytesWrittenOut)
                     (
@@ -3836,7 +3834,7 @@ public class Dot11ManufacturingSelfTestQueryResults internal constructor(
             uTestID: UInt = 0u,
             bResult: Boolean = false,
             uPinFailedBitMask: UInt = 0u,
-            pvContext: MutPtr<CVoid> = MutPtr(0L),
+            pvContext: MutPtr = MutPtr(0L),
             uBytesWrittenOut: UInt = 0u,
             ucBufferOut: UByteArray = UByteArray(1),
         ): Dot11ManufacturingSelfTestQueryResults =
@@ -3856,11 +3854,11 @@ public class Dot11ManufacturingSelfTestSetParams internal constructor(
     public var selfTestType: Dot11ManufacturingSelfTestType,
     public var uTestID: UInt,
     public var uPinBitMask: UInt,
-    pvContextCtorArg: MutPtr<CVoid>,
+    pvContextCtorArg: MutPtr,
     public var uBufferLength: UInt,
     public var ucBufferIn: UByteArray,
 ) {
-    public var pvContext: MutPtr<CVoid> = pvContextCtorArg
+    public var pvContext: MutPtr = pvContextCtorArg
         internal set
 
     public constructor() : this(
@@ -3878,13 +3876,13 @@ public class Dot11ManufacturingSelfTestSetParams internal constructor(
 
     public operator fun component3(): UInt = this.uPinBitMask
 
-    public operator fun component4(): MutPtr<CVoid> = this.pvContext
+    public operator fun component4(): MutPtr = this.pvContext
 
     public operator fun component5(): UInt = this.uBufferLength
 
     public operator fun component6(): UByteArray = this.ucBufferIn
 
-    public fun copy(selfTestType: Dot11ManufacturingSelfTestType = this.selfTestType, uTestID: UInt = this.uTestID, uPinBitMask: UInt = this.uPinBitMask, pvContext: MutPtr<CVoid> = this.pvContext, uBufferLength: UInt = this.uBufferLength, ucBufferIn: UByteArray = this.ucBufferIn): Dot11ManufacturingSelfTestSetParams = Dot11ManufacturingSelfTestSetParams(selfTestType = selfTestType, uTestID = uTestID, uPinBitMask = uPinBitMask, pvContextCtorArg = pvContext, uBufferLength = uBufferLength, ucBufferIn = ucBufferIn)
+    public fun copy(selfTestType: Dot11ManufacturingSelfTestType = this.selfTestType, uTestID: UInt = this.uTestID, uPinBitMask: UInt = this.uPinBitMask, pvContext: MutPtr = this.pvContext, uBufferLength: UInt = this.uBufferLength, ucBufferIn: UByteArray = this.ucBufferIn): Dot11ManufacturingSelfTestSetParams = Dot11ManufacturingSelfTestSetParams(selfTestType = selfTestType, uTestID = uTestID, uPinBitMask = uPinBitMask, pvContextCtorArg = pvContext, uBufferLength = uBufferLength, ucBufferIn = ucBufferIn)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -3920,7 +3918,7 @@ public class Dot11ManufacturingSelfTestSetParams internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 8L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<CVoid>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 16L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 24L),
                         (
@@ -3934,7 +3932,7 @@ public class Dot11ManufacturingSelfTestSetParams internal constructor(
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 8L, value.uPinBitMask)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<CVoid>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 16L, value.pvContext)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 24L, value.uBufferLength)
                     (
@@ -3948,7 +3946,7 @@ public class Dot11ManufacturingSelfTestSetParams internal constructor(
             selfTestType: Dot11ManufacturingSelfTestType = 0,
             uTestID: UInt = 0u,
             uPinBitMask: UInt = 0u,
-            pvContext: MutPtr<CVoid> = MutPtr(0L),
+            pvContext: MutPtr = MutPtr(0L),
             uBufferLength: UInt = 0u,
             ucBufferIn: UByteArray = UByteArray(1),
         ): Dot11ManufacturingSelfTestSetParams =
@@ -4121,9 +4119,9 @@ public data class Dot11ManufacturingTestSetData(
 
 public class Dot11ManufacturingTestSleep internal constructor(
     public var uSleepTime: UInt,
-    pvContextCtorArg: MutPtr<CVoid>,
+    pvContextCtorArg: MutPtr,
 ) {
-    public var pvContext: MutPtr<CVoid> = pvContextCtorArg
+    public var pvContext: MutPtr = pvContextCtorArg
         internal set
 
     public constructor() : this(
@@ -4133,9 +4131,9 @@ public class Dot11ManufacturingTestSleep internal constructor(
 
     public operator fun component1(): UInt = this.uSleepTime
 
-    public operator fun component2(): MutPtr<CVoid> = this.pvContext
+    public operator fun component2(): MutPtr = this.pvContext
 
-    public fun copy(uSleepTime: UInt = this.uSleepTime, pvContext: MutPtr<CVoid> = this.pvContext): Dot11ManufacturingTestSleep = Dot11ManufacturingTestSleep(uSleepTime = uSleepTime, pvContextCtorArg = pvContext)
+    public fun copy(uSleepTime: UInt = this.uSleepTime, pvContext: MutPtr = this.pvContext): Dot11ManufacturingTestSleep = Dot11ManufacturingTestSleep(uSleepTime = uSleepTime, pvContextCtorArg = pvContext)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -4161,21 +4159,21 @@ public class Dot11ManufacturingTestSleep internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<CVoid>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                     )
                 override fun writeNative(addr: Long, value: Dot11ManufacturingTestSleep) {
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr, value.uSleepTime)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<CVoid>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.pvContext)
                 }
             }
 
         public operator fun invoke(
             uSleepTime: UInt = 0u,
-            pvContext: MutPtr<CVoid> = MutPtr(0L),
+            pvContext: MutPtr = MutPtr(0L),
         ): Dot11ManufacturingTestSleep =
             Dot11ManufacturingTestSleep(
                 uSleepTime = uSleepTime,
@@ -4224,19 +4222,19 @@ public data class Dot11MpduMaxLengthIndication(
 public class Dot11MsonexResultParams internal constructor(
     public var dot11OnexAuthStatus: OnexAuthStatus,
     public var dot11OneXReasonCode: OnexReasonCode,
-    pbMPPESendKeyCtorArg: MutPtr<UByte>,
+    pbMPPESendKeyCtorArg: MutPtr,
     public var dwMPPESendKeyLen: UInt,
-    pbMPPERecvKeyCtorArg: MutPtr<UByte>,
+    pbMPPERecvKeyCtorArg: MutPtr,
     public var dwMPPERecvKeyLen: UInt,
-    pDot11EapResultCtorArg: MutPtr<Dot11EapResult>,
+    pDot11EapResultCtorArg: MutPtr,
 ) {
-    public var pbMPPESendKey: MutPtr<UByte> = pbMPPESendKeyCtorArg
+    public var pbMPPESendKey: MutPtr = pbMPPESendKeyCtorArg
         internal set
 
-    public var pbMPPERecvKey: MutPtr<UByte> = pbMPPERecvKeyCtorArg
+    public var pbMPPERecvKey: MutPtr = pbMPPERecvKeyCtorArg
         internal set
 
-    public var pDot11EapResult: MutPtr<Dot11EapResult> = pDot11EapResultCtorArg
+    public var pDot11EapResult: MutPtr = pDot11EapResultCtorArg
         internal set
 
     public constructor() : this(
@@ -4253,17 +4251,17 @@ public class Dot11MsonexResultParams internal constructor(
 
     public operator fun component2(): OnexReasonCode = this.dot11OneXReasonCode
 
-    public operator fun component3(): MutPtr<UByte> = this.pbMPPESendKey
+    public operator fun component3(): MutPtr = this.pbMPPESendKey
 
     public operator fun component4(): UInt = this.dwMPPESendKeyLen
 
-    public operator fun component5(): MutPtr<UByte> = this.pbMPPERecvKey
+    public operator fun component5(): MutPtr = this.pbMPPERecvKey
 
     public operator fun component6(): UInt = this.dwMPPERecvKeyLen
 
-    public operator fun component7(): MutPtr<Dot11EapResult> = this.pDot11EapResult
+    public operator fun component7(): MutPtr = this.pDot11EapResult
 
-    public fun copy(dot11OnexAuthStatus: OnexAuthStatus = this.dot11OnexAuthStatus, dot11OneXReasonCode: OnexReasonCode = this.dot11OneXReasonCode, pbMPPESendKey: MutPtr<UByte> = this.pbMPPESendKey, dwMPPESendKeyLen: UInt = this.dwMPPESendKeyLen, pbMPPERecvKey: MutPtr<UByte> = this.pbMPPERecvKey, dwMPPERecvKeyLen: UInt = this.dwMPPERecvKeyLen, pDot11EapResult: MutPtr<Dot11EapResult> = this.pDot11EapResult): Dot11MsonexResultParams = Dot11MsonexResultParams(dot11OnexAuthStatus = dot11OnexAuthStatus, dot11OneXReasonCode = dot11OneXReasonCode, pbMPPESendKeyCtorArg = pbMPPESendKey, dwMPPESendKeyLen = dwMPPESendKeyLen, pbMPPERecvKeyCtorArg = pbMPPERecvKey, dwMPPERecvKeyLen = dwMPPERecvKeyLen, pDot11EapResultCtorArg = pDot11EapResult)
+    public fun copy(dot11OnexAuthStatus: OnexAuthStatus = this.dot11OnexAuthStatus, dot11OneXReasonCode: OnexReasonCode = this.dot11OneXReasonCode, pbMPPESendKey: MutPtr = this.pbMPPESendKey, dwMPPESendKeyLen: UInt = this.dwMPPESendKeyLen, pbMPPERecvKey: MutPtr = this.pbMPPERecvKey, dwMPPERecvKeyLen: UInt = this.dwMPPERecvKeyLen, pDot11EapResult: MutPtr = this.pDot11EapResult): Dot11MsonexResultParams = Dot11MsonexResultParams(dot11OnexAuthStatus = dot11OnexAuthStatus, dot11OneXReasonCode = dot11OneXReasonCode, pbMPPESendKeyCtorArg = pbMPPESendKey, dwMPPESendKeyLen = dwMPPESendKeyLen, pbMPPERecvKeyCtorArg = pbMPPERecvKey, dwMPPERecvKeyLen = dwMPPERecvKeyLen, pDot11EapResultCtorArg = pDot11EapResult)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -4300,17 +4298,17 @@ public class Dot11MsonexResultParams internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr + 4L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<UByte>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 16L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<UByte>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 24L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 32L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<Dot11EapResult>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 40L),
                     )
                 override fun writeNative(addr: Long, value: Dot11MsonexResultParams) {
@@ -4318,17 +4316,17 @@ public class Dot11MsonexResultParams internal constructor(
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr + 4L, value.dot11OneXReasonCode)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<UByte>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.pbMPPESendKey)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 16L, value.dwMPPESendKeyLen)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<UByte>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 24L, value.pbMPPERecvKey)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 32L, value.dwMPPERecvKeyLen)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<Dot11EapResult>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 40L, value.pDot11EapResult)
                 }
             }
@@ -4336,11 +4334,11 @@ public class Dot11MsonexResultParams internal constructor(
         public operator fun invoke(
             dot11OnexAuthStatus: OnexAuthStatus = 0,
             dot11OneXReasonCode: OnexReasonCode = 0,
-            pbMPPESendKey: MutPtr<UByte> = MutPtr(0L),
+            pbMPPESendKey: MutPtr = MutPtr(0L),
             dwMPPESendKeyLen: UInt = 0u,
-            pbMPPERecvKey: MutPtr<UByte> = MutPtr(0L),
+            pbMPPERecvKey: MutPtr = MutPtr(0L),
             dwMPPERecvKeyLen: UInt = 0u,
-            pDot11EapResult: MutPtr<Dot11EapResult> = MutPtr(0L),
+            pDot11EapResult: MutPtr = MutPtr(0L),
         ): Dot11MsonexResultParams =
             Dot11MsonexResultParams(
                 dot11OnexAuthStatus = dot11OnexAuthStatus,
@@ -4360,9 +4358,9 @@ public class Dot11MssecuritySettings internal constructor(
     public var fOneXEnabled: Bool,
     public var eapMethodType: EapMethodType,
     public var dwEapConnectionDataLen: UInt,
-    pEapConnectionDataCtorArg: MutPtr<UByte>,
+    pEapConnectionDataCtorArg: MutPtr,
 ) {
-    public var pEapConnectionData: MutPtr<UByte> = pEapConnectionDataCtorArg
+    public var pEapConnectionData: MutPtr = pEapConnectionDataCtorArg
         internal set
 
     public constructor() : this(
@@ -4384,9 +4382,9 @@ public class Dot11MssecuritySettings internal constructor(
 
     public operator fun component5(): UInt = this.dwEapConnectionDataLen
 
-    public operator fun component6(): MutPtr<UByte> = this.pEapConnectionData
+    public operator fun component6(): MutPtr = this.pEapConnectionData
 
-    public fun copy(dot11AuthAlgorithm: Dot11AuthAlgorithm = this.dot11AuthAlgorithm, dot11CipherAlgorithm: Dot11CipherAlgorithm = this.dot11CipherAlgorithm, fOneXEnabled: Bool = this.fOneXEnabled, eapMethodType: EapMethodType = this.eapMethodType, dwEapConnectionDataLen: UInt = this.dwEapConnectionDataLen, pEapConnectionData: MutPtr<UByte> = this.pEapConnectionData): Dot11MssecuritySettings = Dot11MssecuritySettings(dot11AuthAlgorithm = dot11AuthAlgorithm, dot11CipherAlgorithm = dot11CipherAlgorithm, fOneXEnabled = fOneXEnabled, eapMethodType = eapMethodType, dwEapConnectionDataLen = dwEapConnectionDataLen, pEapConnectionDataCtorArg = pEapConnectionData)
+    public fun copy(dot11AuthAlgorithm: Dot11AuthAlgorithm = this.dot11AuthAlgorithm, dot11CipherAlgorithm: Dot11CipherAlgorithm = this.dot11CipherAlgorithm, fOneXEnabled: Bool = this.fOneXEnabled, eapMethodType: EapMethodType = this.eapMethodType, dwEapConnectionDataLen: UInt = this.dwEapConnectionDataLen, pEapConnectionData: MutPtr = this.pEapConnectionData): Dot11MssecuritySettings = Dot11MssecuritySettings(dot11AuthAlgorithm = dot11AuthAlgorithm, dot11CipherAlgorithm = dot11CipherAlgorithm, fOneXEnabled = fOneXEnabled, eapMethodType = eapMethodType, dwEapConnectionDataLen = dwEapConnectionDataLen, pEapConnectionDataCtorArg = pEapConnectionData)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -4417,7 +4415,7 @@ public class Dot11MssecuritySettings internal constructor(
             fOneXEnabled: Bool = 0,
             eapMethodType: EapMethodType = EapMethodType(),
             dwEapConnectionDataLen: UInt = 0u,
-            pEapConnectionData: MutPtr<UByte> = MutPtr(0L),
+            pEapConnectionData: MutPtr = MutPtr(0L),
         ): Dot11MssecuritySettings =
             Dot11MssecuritySettings(
                 dot11AuthAlgorithm = dot11AuthAlgorithm,
@@ -5644,11 +5642,11 @@ public class Dot11ReceivedGoNegotiationRequestParameters internal constructor(
     public var header: NdisObjectHeader,
     public var peerDeviceAddress: UByteArray,
     public var dialogToken: UByte,
-    requestContextCtorArg: MutPtr<CVoid>,
+    requestContextCtorArg: MutPtr,
     public var uIEsOffset: UInt,
     public var uIEsLength: UInt,
 ) {
-    public var requestContext: MutPtr<CVoid> = requestContextCtorArg
+    public var requestContext: MutPtr = requestContextCtorArg
         internal set
 
     public constructor() : this(
@@ -5666,13 +5664,13 @@ public class Dot11ReceivedGoNegotiationRequestParameters internal constructor(
 
     public operator fun component3(): UByte = this.dialogToken
 
-    public operator fun component4(): MutPtr<CVoid> = this.requestContext
+    public operator fun component4(): MutPtr = this.requestContext
 
     public operator fun component5(): UInt = this.uIEsOffset
 
     public operator fun component6(): UInt = this.uIEsLength
 
-    public fun copy(header: NdisObjectHeader = this.header, peerDeviceAddress: UByteArray = this.peerDeviceAddress, dialogToken: UByte = this.dialogToken, requestContext: MutPtr<CVoid> = this.requestContext, uIEsOffset: UInt = this.uIEsOffset, uIEsLength: UInt = this.uIEsLength): Dot11ReceivedGoNegotiationRequestParameters = Dot11ReceivedGoNegotiationRequestParameters(header = header, peerDeviceAddress = peerDeviceAddress, dialogToken = dialogToken, requestContextCtorArg = requestContext, uIEsOffset = uIEsOffset, uIEsLength = uIEsLength)
+    public fun copy(header: NdisObjectHeader = this.header, peerDeviceAddress: UByteArray = this.peerDeviceAddress, dialogToken: UByte = this.dialogToken, requestContext: MutPtr = this.requestContext, uIEsOffset: UInt = this.uIEsOffset, uIEsLength: UInt = this.uIEsLength): Dot11ReceivedGoNegotiationRequestParameters = Dot11ReceivedGoNegotiationRequestParameters(header = header, peerDeviceAddress = peerDeviceAddress, dialogToken = dialogToken, requestContextCtorArg = requestContext, uIEsOffset = uIEsOffset, uIEsLength = uIEsLength)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -5701,7 +5699,7 @@ public class Dot11ReceivedGoNegotiationRequestParameters internal constructor(
             header: NdisObjectHeader = NdisObjectHeader(),
             peerDeviceAddress: UByteArray = UByteArray(6),
             dialogToken: UByte = 0u,
-            requestContext: MutPtr<CVoid> = MutPtr(0L),
+            requestContext: MutPtr = MutPtr(0L),
             uIEsOffset: UInt = 0u,
             uIEsLength: UInt = 0u,
         ): Dot11ReceivedGoNegotiationRequestParameters =
@@ -5720,11 +5718,11 @@ public class Dot11ReceivedGoNegotiationResponseParameters internal constructor(
     public var header: NdisObjectHeader,
     public var peerDeviceAddress: UByteArray,
     public var dialogToken: UByte,
-    responseContextCtorArg: MutPtr<CVoid>,
+    responseContextCtorArg: MutPtr,
     public var uIEsOffset: UInt,
     public var uIEsLength: UInt,
 ) {
-    public var responseContext: MutPtr<CVoid> = responseContextCtorArg
+    public var responseContext: MutPtr = responseContextCtorArg
         internal set
 
     public constructor() : this(
@@ -5742,13 +5740,13 @@ public class Dot11ReceivedGoNegotiationResponseParameters internal constructor(
 
     public operator fun component3(): UByte = this.dialogToken
 
-    public operator fun component4(): MutPtr<CVoid> = this.responseContext
+    public operator fun component4(): MutPtr = this.responseContext
 
     public operator fun component5(): UInt = this.uIEsOffset
 
     public operator fun component6(): UInt = this.uIEsLength
 
-    public fun copy(header: NdisObjectHeader = this.header, peerDeviceAddress: UByteArray = this.peerDeviceAddress, dialogToken: UByte = this.dialogToken, responseContext: MutPtr<CVoid> = this.responseContext, uIEsOffset: UInt = this.uIEsOffset, uIEsLength: UInt = this.uIEsLength): Dot11ReceivedGoNegotiationResponseParameters = Dot11ReceivedGoNegotiationResponseParameters(header = header, peerDeviceAddress = peerDeviceAddress, dialogToken = dialogToken, responseContextCtorArg = responseContext, uIEsOffset = uIEsOffset, uIEsLength = uIEsLength)
+    public fun copy(header: NdisObjectHeader = this.header, peerDeviceAddress: UByteArray = this.peerDeviceAddress, dialogToken: UByte = this.dialogToken, responseContext: MutPtr = this.responseContext, uIEsOffset: UInt = this.uIEsOffset, uIEsLength: UInt = this.uIEsLength): Dot11ReceivedGoNegotiationResponseParameters = Dot11ReceivedGoNegotiationResponseParameters(header = header, peerDeviceAddress = peerDeviceAddress, dialogToken = dialogToken, responseContextCtorArg = responseContext, uIEsOffset = uIEsOffset, uIEsLength = uIEsLength)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -5777,7 +5775,7 @@ public class Dot11ReceivedGoNegotiationResponseParameters internal constructor(
             header: NdisObjectHeader = NdisObjectHeader(),
             peerDeviceAddress: UByteArray = UByteArray(6),
             dialogToken: UByte = 0u,
-            responseContext: MutPtr<CVoid> = MutPtr(0L),
+            responseContext: MutPtr = MutPtr(0L),
             uIEsOffset: UInt = 0u,
             uIEsLength: UInt = 0u,
         ): Dot11ReceivedGoNegotiationResponseParameters =
@@ -5797,11 +5795,11 @@ public class Dot11ReceivedInvitationRequestParameters internal constructor(
     public var transmitterDeviceAddress: UByteArray,
     public var bssid: UByteArray,
     public var dialogToken: UByte,
-    requestContextCtorArg: MutPtr<CVoid>,
+    requestContextCtorArg: MutPtr,
     public var uIEsOffset: UInt,
     public var uIEsLength: UInt,
 ) {
-    public var requestContext: MutPtr<CVoid> = requestContextCtorArg
+    public var requestContext: MutPtr = requestContextCtorArg
         internal set
 
     public constructor() : this(
@@ -5822,13 +5820,13 @@ public class Dot11ReceivedInvitationRequestParameters internal constructor(
 
     public operator fun component4(): UByte = this.dialogToken
 
-    public operator fun component5(): MutPtr<CVoid> = this.requestContext
+    public operator fun component5(): MutPtr = this.requestContext
 
     public operator fun component6(): UInt = this.uIEsOffset
 
     public operator fun component7(): UInt = this.uIEsLength
 
-    public fun copy(header: NdisObjectHeader = this.header, transmitterDeviceAddress: UByteArray = this.transmitterDeviceAddress, bssid: UByteArray = this.bssid, dialogToken: UByte = this.dialogToken, requestContext: MutPtr<CVoid> = this.requestContext, uIEsOffset: UInt = this.uIEsOffset, uIEsLength: UInt = this.uIEsLength): Dot11ReceivedInvitationRequestParameters = Dot11ReceivedInvitationRequestParameters(header = header, transmitterDeviceAddress = transmitterDeviceAddress, bssid = bssid, dialogToken = dialogToken, requestContextCtorArg = requestContext, uIEsOffset = uIEsOffset, uIEsLength = uIEsLength)
+    public fun copy(header: NdisObjectHeader = this.header, transmitterDeviceAddress: UByteArray = this.transmitterDeviceAddress, bssid: UByteArray = this.bssid, dialogToken: UByte = this.dialogToken, requestContext: MutPtr = this.requestContext, uIEsOffset: UInt = this.uIEsOffset, uIEsLength: UInt = this.uIEsLength): Dot11ReceivedInvitationRequestParameters = Dot11ReceivedInvitationRequestParameters(header = header, transmitterDeviceAddress = transmitterDeviceAddress, bssid = bssid, dialogToken = dialogToken, requestContextCtorArg = requestContext, uIEsOffset = uIEsOffset, uIEsLength = uIEsLength)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -5860,7 +5858,7 @@ public class Dot11ReceivedInvitationRequestParameters internal constructor(
             transmitterDeviceAddress: UByteArray = UByteArray(6),
             bssid: UByteArray = UByteArray(6),
             dialogToken: UByte = 0u,
-            requestContext: MutPtr<CVoid> = MutPtr(0L),
+            requestContext: MutPtr = MutPtr(0L),
             uIEsOffset: UInt = 0u,
             uIEsLength: UInt = 0u,
         ): Dot11ReceivedInvitationRequestParameters =
@@ -5912,11 +5910,11 @@ public class Dot11ReceivedProvisionDiscoveryRequestParameters internal construct
     public var transmitterDeviceAddress: UByteArray,
     public var bssid: UByteArray,
     public var dialogToken: UByte,
-    requestContextCtorArg: MutPtr<CVoid>,
+    requestContextCtorArg: MutPtr,
     public var uIEsOffset: UInt,
     public var uIEsLength: UInt,
 ) {
-    public var requestContext: MutPtr<CVoid> = requestContextCtorArg
+    public var requestContext: MutPtr = requestContextCtorArg
         internal set
 
     public constructor() : this(
@@ -5937,13 +5935,13 @@ public class Dot11ReceivedProvisionDiscoveryRequestParameters internal construct
 
     public operator fun component4(): UByte = this.dialogToken
 
-    public operator fun component5(): MutPtr<CVoid> = this.requestContext
+    public operator fun component5(): MutPtr = this.requestContext
 
     public operator fun component6(): UInt = this.uIEsOffset
 
     public operator fun component7(): UInt = this.uIEsLength
 
-    public fun copy(header: NdisObjectHeader = this.header, transmitterDeviceAddress: UByteArray = this.transmitterDeviceAddress, bssid: UByteArray = this.bssid, dialogToken: UByte = this.dialogToken, requestContext: MutPtr<CVoid> = this.requestContext, uIEsOffset: UInt = this.uIEsOffset, uIEsLength: UInt = this.uIEsLength): Dot11ReceivedProvisionDiscoveryRequestParameters = Dot11ReceivedProvisionDiscoveryRequestParameters(header = header, transmitterDeviceAddress = transmitterDeviceAddress, bssid = bssid, dialogToken = dialogToken, requestContextCtorArg = requestContext, uIEsOffset = uIEsOffset, uIEsLength = uIEsLength)
+    public fun copy(header: NdisObjectHeader = this.header, transmitterDeviceAddress: UByteArray = this.transmitterDeviceAddress, bssid: UByteArray = this.bssid, dialogToken: UByte = this.dialogToken, requestContext: MutPtr = this.requestContext, uIEsOffset: UInt = this.uIEsOffset, uIEsLength: UInt = this.uIEsLength): Dot11ReceivedProvisionDiscoveryRequestParameters = Dot11ReceivedProvisionDiscoveryRequestParameters(header = header, transmitterDeviceAddress = transmitterDeviceAddress, bssid = bssid, dialogToken = dialogToken, requestContextCtorArg = requestContext, uIEsOffset = uIEsOffset, uIEsLength = uIEsLength)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -5975,7 +5973,7 @@ public class Dot11ReceivedProvisionDiscoveryRequestParameters internal construct
             transmitterDeviceAddress: UByteArray = UByteArray(6),
             bssid: UByteArray = UByteArray(6),
             dialogToken: UByte = 0u,
-            requestContext: MutPtr<CVoid> = MutPtr(0L),
+            requestContext: MutPtr = MutPtr(0L),
             uIEsOffset: UInt = 0u,
             uIEsLength: UInt = 0u,
         ): Dot11ReceivedProvisionDiscoveryRequestParameters =
@@ -6024,7 +6022,7 @@ public data class Dot11ReceivedProvisionDiscoveryResponseParameters(
 
 public class Dot11RecvExtensionInfo internal constructor(
     public var uVersion: UInt,
-    pvReservedCtorArg: MutPtr<CVoid>,
+    pvReservedCtorArg: MutPtr,
     public var dot11PhyType: Dot11PhyType,
     public var uChCenterFrequency: UInt,
     public var lRSSI: Int,
@@ -6045,9 +6043,9 @@ public class Dot11RecvExtensionInfo internal constructor(
     public var usDot11RightRWBitMap: UShort,
     public var usNumberOfMPDUsReceived: UShort,
     public var usNumberOfFragments: UShort,
-    pNdisPacketsCtorArg: List<MutPtr<CVoid>>,
+    pNdisPacketsCtorArg: List<MutPtr>,
 ) {
-    public var pvReserved: MutPtr<CVoid> = pvReservedCtorArg
+    public var pvReserved: MutPtr = pvReservedCtorArg
         internal set
 
     public var hWEPOffloadContext: Handle = hWEPOffloadContextCtorArg
@@ -6056,7 +6054,7 @@ public class Dot11RecvExtensionInfo internal constructor(
     public var hAuthOffloadContext: Handle = hAuthOffloadContextCtorArg
         internal set
 
-    public var pNdisPackets: List<MutPtr<CVoid>> = pNdisPacketsCtorArg
+    public var pNdisPackets: List<MutPtr> = pNdisPacketsCtorArg
         internal set
 
     public constructor() : this(
@@ -6088,7 +6086,7 @@ public class Dot11RecvExtensionInfo internal constructor(
     public companion object {
         public operator fun invoke(
             uVersion: UInt = 0u,
-            pvReserved: MutPtr<CVoid> = MutPtr(0L),
+            pvReserved: MutPtr = MutPtr(0L),
             dot11PhyType: Dot11PhyType = 0,
             uChCenterFrequency: UInt = 0u,
             lRSSI: Int = 0,
@@ -6109,7 +6107,7 @@ public class Dot11RecvExtensionInfo internal constructor(
             usDot11RightRWBitMap: UShort = 0u,
             usNumberOfMPDUsReceived: UShort = 0u,
             usNumberOfFragments: UShort = 0u,
-            pNdisPackets: List<MutPtr<CVoid>> = List(1) { MutPtr(0L) },
+            pNdisPackets: List<MutPtr> = List(1) { MutPtr(0L) },
         ): Dot11RecvExtensionInfo =
             Dot11RecvExtensionInfo(
                 uVersion = uVersion,
@@ -6141,7 +6139,7 @@ public class Dot11RecvExtensionInfo internal constructor(
 
 public class Dot11RecvExtensionInfoV2 internal constructor(
     public var uVersion: UInt,
-    pvReservedCtorArg: MutPtr<CVoid>,
+    pvReservedCtorArg: MutPtr,
     public var dot11PhyType: Dot11PhyType,
     public var uChCenterFrequency: UInt,
     public var lRSSI: Int,
@@ -6160,9 +6158,9 @@ public class Dot11RecvExtensionInfoV2 internal constructor(
     public var usDot11RightRWBitMap: UShort,
     public var usNumberOfMPDUsReceived: UShort,
     public var usNumberOfFragments: UShort,
-    pNdisPacketsCtorArg: List<MutPtr<CVoid>>,
+    pNdisPacketsCtorArg: List<MutPtr>,
 ) {
-    public var pvReserved: MutPtr<CVoid> = pvReservedCtorArg
+    public var pvReserved: MutPtr = pvReservedCtorArg
         internal set
 
     public var hWEPOffloadContext: Handle = hWEPOffloadContextCtorArg
@@ -6171,7 +6169,7 @@ public class Dot11RecvExtensionInfoV2 internal constructor(
     public var hAuthOffloadContext: Handle = hAuthOffloadContextCtorArg
         internal set
 
-    public var pNdisPackets: List<MutPtr<CVoid>> = pNdisPacketsCtorArg
+    public var pNdisPackets: List<MutPtr> = pNdisPacketsCtorArg
         internal set
 
     public constructor() : this(
@@ -6201,7 +6199,7 @@ public class Dot11RecvExtensionInfoV2 internal constructor(
     public companion object {
         public operator fun invoke(
             uVersion: UInt = 0u,
-            pvReserved: MutPtr<CVoid> = MutPtr(0L),
+            pvReserved: MutPtr = MutPtr(0L),
             dot11PhyType: Dot11PhyType = 0,
             uChCenterFrequency: UInt = 0u,
             lRSSI: Int = 0,
@@ -6220,7 +6218,7 @@ public class Dot11RecvExtensionInfoV2 internal constructor(
             usDot11RightRWBitMap: UShort = 0u,
             usNumberOfMPDUsReceived: UShort = 0u,
             usNumberOfFragments: UShort = 0u,
-            pNdisPackets: List<MutPtr<CVoid>> = List(1) { MutPtr(0L) },
+            pNdisPackets: List<MutPtr> = List(1) { MutPtr(0L) },
         ): Dot11RecvExtensionInfoV2 =
             Dot11RecvExtensionInfoV2(
                 uVersion = uVersion,
@@ -6708,7 +6706,7 @@ public class Dot11SendGoNegotiationConfirmationParameters internal constructor(
     public var header: NdisObjectHeader,
     public var peerDeviceAddress: UByteArray,
     public var dialogToken: UByte,
-    responseContextCtorArg: MutPtr<CVoid>,
+    responseContextCtorArg: MutPtr,
     public var uSendTimeout: UInt,
     public var status: UByte,
     public var groupCapability: UByte,
@@ -6717,7 +6715,7 @@ public class Dot11SendGoNegotiationConfirmationParameters internal constructor(
     public var uIEsOffset: UInt,
     public var uIEsLength: UInt,
 ) {
-    public var responseContext: MutPtr<CVoid> = responseContextCtorArg
+    public var responseContext: MutPtr = responseContextCtorArg
         internal set
 
     public constructor() : this(
@@ -6740,7 +6738,7 @@ public class Dot11SendGoNegotiationConfirmationParameters internal constructor(
 
     public operator fun component3(): UByte = this.dialogToken
 
-    public operator fun component4(): MutPtr<CVoid> = this.responseContext
+    public operator fun component4(): MutPtr = this.responseContext
 
     public operator fun component5(): UInt = this.uSendTimeout
 
@@ -6756,7 +6754,7 @@ public class Dot11SendGoNegotiationConfirmationParameters internal constructor(
 
     public operator fun component11(): UInt = this.uIEsLength
 
-    public fun copy(header: NdisObjectHeader = this.header, peerDeviceAddress: UByteArray = this.peerDeviceAddress, dialogToken: UByte = this.dialogToken, responseContext: MutPtr<CVoid> = this.responseContext, uSendTimeout: UInt = this.uSendTimeout, status: UByte = this.status, groupCapability: UByte = this.groupCapability, groupID: Dot11WfdGroupId = this.groupID, bUseGroupID: Boolean = this.bUseGroupID, uIEsOffset: UInt = this.uIEsOffset, uIEsLength: UInt = this.uIEsLength): Dot11SendGoNegotiationConfirmationParameters = Dot11SendGoNegotiationConfirmationParameters(header = header, peerDeviceAddress = peerDeviceAddress, dialogToken = dialogToken, responseContextCtorArg = responseContext, uSendTimeout = uSendTimeout, status = status, groupCapability = groupCapability, groupID = groupID, bUseGroupID = bUseGroupID, uIEsOffset = uIEsOffset, uIEsLength = uIEsLength)
+    public fun copy(header: NdisObjectHeader = this.header, peerDeviceAddress: UByteArray = this.peerDeviceAddress, dialogToken: UByte = this.dialogToken, responseContext: MutPtr = this.responseContext, uSendTimeout: UInt = this.uSendTimeout, status: UByte = this.status, groupCapability: UByte = this.groupCapability, groupID: Dot11WfdGroupId = this.groupID, bUseGroupID: Boolean = this.bUseGroupID, uIEsOffset: UInt = this.uIEsOffset, uIEsLength: UInt = this.uIEsLength): Dot11SendGoNegotiationConfirmationParameters = Dot11SendGoNegotiationConfirmationParameters(header = header, peerDeviceAddress = peerDeviceAddress, dialogToken = dialogToken, responseContextCtorArg = responseContext, uSendTimeout = uSendTimeout, status = status, groupCapability = groupCapability, groupID = groupID, bUseGroupID = bUseGroupID, uIEsOffset = uIEsOffset, uIEsLength = uIEsLength)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -6795,7 +6793,7 @@ public class Dot11SendGoNegotiationConfirmationParameters internal constructor(
             header: NdisObjectHeader = NdisObjectHeader(),
             peerDeviceAddress: UByteArray = UByteArray(6),
             dialogToken: UByte = 0u,
-            responseContext: MutPtr<CVoid> = MutPtr(0L),
+            responseContext: MutPtr = MutPtr(0L),
             uSendTimeout: UInt = 0u,
             status: UByte = 0u,
             groupCapability: UByte = 0u,
@@ -6867,7 +6865,7 @@ public class Dot11SendGoNegotiationResponseParameters internal constructor(
     public var header: NdisObjectHeader,
     public var peerDeviceAddress: UByteArray,
     public var dialogToken: UByte,
-    requestContextCtorArg: MutPtr<CVoid>,
+    requestContextCtorArg: MutPtr,
     public var uSendTimeout: UInt,
     public var status: UByte,
     public var groupOwnerIntent: Dot11WfdGoIntent,
@@ -6879,7 +6877,7 @@ public class Dot11SendGoNegotiationResponseParameters internal constructor(
     public var uIEsOffset: UInt,
     public var uIEsLength: UInt,
 ) {
-    public var requestContext: MutPtr<CVoid> = requestContextCtorArg
+    public var requestContext: MutPtr = requestContextCtorArg
         internal set
 
     public constructor() : this(
@@ -6905,7 +6903,7 @@ public class Dot11SendGoNegotiationResponseParameters internal constructor(
 
     public operator fun component3(): UByte = this.dialogToken
 
-    public operator fun component4(): MutPtr<CVoid> = this.requestContext
+    public operator fun component4(): MutPtr = this.requestContext
 
     public operator fun component5(): UInt = this.uSendTimeout
 
@@ -6927,7 +6925,7 @@ public class Dot11SendGoNegotiationResponseParameters internal constructor(
 
     public operator fun component14(): UInt = this.uIEsLength
 
-    public fun copy(header: NdisObjectHeader = this.header, peerDeviceAddress: UByteArray = this.peerDeviceAddress, dialogToken: UByte = this.dialogToken, requestContext: MutPtr<CVoid> = this.requestContext, uSendTimeout: UInt = this.uSendTimeout, status: UByte = this.status, groupOwnerIntent: Dot11WfdGoIntent = this.groupOwnerIntent, minimumConfigTimeout: Dot11WfdConfigurationTimeout = this.minimumConfigTimeout, intendedInterfaceAddress: UByteArray = this.intendedInterfaceAddress, groupCapability: UByte = this.groupCapability, groupID: Dot11WfdGroupId = this.groupID, bUseGroupID: Boolean = this.bUseGroupID, uIEsOffset: UInt = this.uIEsOffset, uIEsLength: UInt = this.uIEsLength): Dot11SendGoNegotiationResponseParameters = Dot11SendGoNegotiationResponseParameters(header = header, peerDeviceAddress = peerDeviceAddress, dialogToken = dialogToken, requestContextCtorArg = requestContext, uSendTimeout = uSendTimeout, status = status, groupOwnerIntent = groupOwnerIntent, minimumConfigTimeout = minimumConfigTimeout, intendedInterfaceAddress = intendedInterfaceAddress, groupCapability = groupCapability, groupID = groupID, bUseGroupID = bUseGroupID, uIEsOffset = uIEsOffset, uIEsLength = uIEsLength)
+    public fun copy(header: NdisObjectHeader = this.header, peerDeviceAddress: UByteArray = this.peerDeviceAddress, dialogToken: UByte = this.dialogToken, requestContext: MutPtr = this.requestContext, uSendTimeout: UInt = this.uSendTimeout, status: UByte = this.status, groupOwnerIntent: Dot11WfdGoIntent = this.groupOwnerIntent, minimumConfigTimeout: Dot11WfdConfigurationTimeout = this.minimumConfigTimeout, intendedInterfaceAddress: UByteArray = this.intendedInterfaceAddress, groupCapability: UByte = this.groupCapability, groupID: Dot11WfdGroupId = this.groupID, bUseGroupID: Boolean = this.bUseGroupID, uIEsOffset: UInt = this.uIEsOffset, uIEsLength: UInt = this.uIEsLength): Dot11SendGoNegotiationResponseParameters = Dot11SendGoNegotiationResponseParameters(header = header, peerDeviceAddress = peerDeviceAddress, dialogToken = dialogToken, requestContextCtorArg = requestContext, uSendTimeout = uSendTimeout, status = status, groupOwnerIntent = groupOwnerIntent, minimumConfigTimeout = minimumConfigTimeout, intendedInterfaceAddress = intendedInterfaceAddress, groupCapability = groupCapability, groupID = groupID, bUseGroupID = bUseGroupID, uIEsOffset = uIEsOffset, uIEsLength = uIEsLength)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -6972,7 +6970,7 @@ public class Dot11SendGoNegotiationResponseParameters internal constructor(
             header: NdisObjectHeader = NdisObjectHeader(),
             peerDeviceAddress: UByteArray = UByteArray(6),
             dialogToken: UByte = 0u,
-            requestContext: MutPtr<CVoid> = MutPtr(0L),
+            requestContext: MutPtr = MutPtr(0L),
             uSendTimeout: UInt = 0u,
             status: UByte = 0u,
             groupOwnerIntent: Dot11WfdGoIntent = Dot11WfdGoIntent(),
@@ -7062,7 +7060,7 @@ public class Dot11SendInvitationResponseParameters internal constructor(
     public var header: NdisObjectHeader,
     public var receiverDeviceAddress: UByteArray,
     public var dialogToken: UByte,
-    requestContextCtorArg: MutPtr<CVoid>,
+    requestContextCtorArg: MutPtr,
     public var uSendTimeout: UInt,
     public var status: UByte,
     public var minimumConfigTimeout: Dot11WfdConfigurationTimeout,
@@ -7073,7 +7071,7 @@ public class Dot11SendInvitationResponseParameters internal constructor(
     public var uIEsOffset: UInt,
     public var uIEsLength: UInt,
 ) {
-    public var requestContext: MutPtr<CVoid> = requestContextCtorArg
+    public var requestContext: MutPtr = requestContextCtorArg
         internal set
 
     public constructor() : this(
@@ -7098,7 +7096,7 @@ public class Dot11SendInvitationResponseParameters internal constructor(
 
     public operator fun component3(): UByte = this.dialogToken
 
-    public operator fun component4(): MutPtr<CVoid> = this.requestContext
+    public operator fun component4(): MutPtr = this.requestContext
 
     public operator fun component5(): UInt = this.uSendTimeout
 
@@ -7118,7 +7116,7 @@ public class Dot11SendInvitationResponseParameters internal constructor(
 
     public operator fun component13(): UInt = this.uIEsLength
 
-    public fun copy(header: NdisObjectHeader = this.header, receiverDeviceAddress: UByteArray = this.receiverDeviceAddress, dialogToken: UByte = this.dialogToken, requestContext: MutPtr<CVoid> = this.requestContext, uSendTimeout: UInt = this.uSendTimeout, status: UByte = this.status, minimumConfigTimeout: Dot11WfdConfigurationTimeout = this.minimumConfigTimeout, groupBSSID: UByteArray = this.groupBSSID, bUseGroupBSSID: Boolean = this.bUseGroupBSSID, operatingChannel: Dot11WfdChannel = this.operatingChannel, bUseSpecifiedOperatingChannel: Boolean = this.bUseSpecifiedOperatingChannel, uIEsOffset: UInt = this.uIEsOffset, uIEsLength: UInt = this.uIEsLength): Dot11SendInvitationResponseParameters = Dot11SendInvitationResponseParameters(header = header, receiverDeviceAddress = receiverDeviceAddress, dialogToken = dialogToken, requestContextCtorArg = requestContext, uSendTimeout = uSendTimeout, status = status, minimumConfigTimeout = minimumConfigTimeout, groupBSSID = groupBSSID, bUseGroupBSSID = bUseGroupBSSID, operatingChannel = operatingChannel, bUseSpecifiedOperatingChannel = bUseSpecifiedOperatingChannel, uIEsOffset = uIEsOffset, uIEsLength = uIEsLength)
+    public fun copy(header: NdisObjectHeader = this.header, receiverDeviceAddress: UByteArray = this.receiverDeviceAddress, dialogToken: UByte = this.dialogToken, requestContext: MutPtr = this.requestContext, uSendTimeout: UInt = this.uSendTimeout, status: UByte = this.status, minimumConfigTimeout: Dot11WfdConfigurationTimeout = this.minimumConfigTimeout, groupBSSID: UByteArray = this.groupBSSID, bUseGroupBSSID: Boolean = this.bUseGroupBSSID, operatingChannel: Dot11WfdChannel = this.operatingChannel, bUseSpecifiedOperatingChannel: Boolean = this.bUseSpecifiedOperatingChannel, uIEsOffset: UInt = this.uIEsOffset, uIEsLength: UInt = this.uIEsLength): Dot11SendInvitationResponseParameters = Dot11SendInvitationResponseParameters(header = header, receiverDeviceAddress = receiverDeviceAddress, dialogToken = dialogToken, requestContextCtorArg = requestContext, uSendTimeout = uSendTimeout, status = status, minimumConfigTimeout = minimumConfigTimeout, groupBSSID = groupBSSID, bUseGroupBSSID = bUseGroupBSSID, operatingChannel = operatingChannel, bUseSpecifiedOperatingChannel = bUseSpecifiedOperatingChannel, uIEsOffset = uIEsOffset, uIEsLength = uIEsLength)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -7161,7 +7159,7 @@ public class Dot11SendInvitationResponseParameters internal constructor(
             header: NdisObjectHeader = NdisObjectHeader(),
             receiverDeviceAddress: UByteArray = UByteArray(6),
             dialogToken: UByte = 0u,
-            requestContext: MutPtr<CVoid> = MutPtr(0L),
+            requestContext: MutPtr = MutPtr(0L),
             uSendTimeout: UInt = 0u,
             status: UByte = 0u,
             minimumConfigTimeout: Dot11WfdConfigurationTimeout = Dot11WfdConfigurationTimeout(),
@@ -7234,12 +7232,12 @@ public class Dot11SendProvisionDiscoveryResponseParameters internal constructor(
     public var header: NdisObjectHeader,
     public var receiverDeviceAddress: UByteArray,
     public var dialogToken: UByte,
-    requestContextCtorArg: MutPtr<CVoid>,
+    requestContextCtorArg: MutPtr,
     public var uSendTimeout: UInt,
     public var uIEsOffset: UInt,
     public var uIEsLength: UInt,
 ) {
-    public var requestContext: MutPtr<CVoid> = requestContextCtorArg
+    public var requestContext: MutPtr = requestContextCtorArg
         internal set
 
     public constructor() : this(
@@ -7258,7 +7256,7 @@ public class Dot11SendProvisionDiscoveryResponseParameters internal constructor(
 
     public operator fun component3(): UByte = this.dialogToken
 
-    public operator fun component4(): MutPtr<CVoid> = this.requestContext
+    public operator fun component4(): MutPtr = this.requestContext
 
     public operator fun component5(): UInt = this.uSendTimeout
 
@@ -7266,7 +7264,7 @@ public class Dot11SendProvisionDiscoveryResponseParameters internal constructor(
 
     public operator fun component7(): UInt = this.uIEsLength
 
-    public fun copy(header: NdisObjectHeader = this.header, receiverDeviceAddress: UByteArray = this.receiverDeviceAddress, dialogToken: UByte = this.dialogToken, requestContext: MutPtr<CVoid> = this.requestContext, uSendTimeout: UInt = this.uSendTimeout, uIEsOffset: UInt = this.uIEsOffset, uIEsLength: UInt = this.uIEsLength): Dot11SendProvisionDiscoveryResponseParameters = Dot11SendProvisionDiscoveryResponseParameters(header = header, receiverDeviceAddress = receiverDeviceAddress, dialogToken = dialogToken, requestContextCtorArg = requestContext, uSendTimeout = uSendTimeout, uIEsOffset = uIEsOffset, uIEsLength = uIEsLength)
+    public fun copy(header: NdisObjectHeader = this.header, receiverDeviceAddress: UByteArray = this.receiverDeviceAddress, dialogToken: UByte = this.dialogToken, requestContext: MutPtr = this.requestContext, uSendTimeout: UInt = this.uSendTimeout, uIEsOffset: UInt = this.uIEsOffset, uIEsLength: UInt = this.uIEsLength): Dot11SendProvisionDiscoveryResponseParameters = Dot11SendProvisionDiscoveryResponseParameters(header = header, receiverDeviceAddress = receiverDeviceAddress, dialogToken = dialogToken, requestContextCtorArg = requestContext, uSendTimeout = uSendTimeout, uIEsOffset = uIEsOffset, uIEsLength = uIEsLength)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -7297,7 +7295,7 @@ public class Dot11SendProvisionDiscoveryResponseParameters internal constructor(
             header: NdisObjectHeader = NdisObjectHeader(),
             receiverDeviceAddress: UByteArray = UByteArray(6),
             dialogToken: UByte = 0u,
-            requestContext: MutPtr<CVoid> = MutPtr(0L),
+            requestContext: MutPtr = MutPtr(0L),
             uSendTimeout: UInt = 0u,
             uIEsOffset: UInt = 0u,
             uIEsLength: UInt = 0u,
@@ -8260,16 +8258,16 @@ public class Dot11WfdAttributes internal constructor(
     public var uMaxSecondaryDeviceTypeListSize: UInt,
     public var deviceAddress: UByteArray,
     public var uInterfaceAddressListCount: UInt,
-    pInterfaceAddressListCtorArg: MutPtr<UByte>,
+    pInterfaceAddressListCtorArg: MutPtr,
     public var uNumSupportedCountryOrRegionStrings: UInt,
-    pSupportedCountryOrRegionStringsCtorArg: MutPtr<UByte>,
+    pSupportedCountryOrRegionStringsCtorArg: MutPtr,
     public var uDiscoveryFilterListSize: UInt,
     public var uGORoleClientTableSize: UInt,
 ) {
-    public var pInterfaceAddressList: MutPtr<UByte> = pInterfaceAddressListCtorArg
+    public var pInterfaceAddressList: MutPtr = pInterfaceAddressListCtorArg
         internal set
 
-    public var pSupportedCountryOrRegionStrings: MutPtr<UByte> = pSupportedCountryOrRegionStringsCtorArg
+    public var pSupportedCountryOrRegionStrings: MutPtr = pSupportedCountryOrRegionStringsCtorArg
         internal set
 
     public constructor() : this(
@@ -8310,17 +8308,17 @@ public class Dot11WfdAttributes internal constructor(
 
     public operator fun component10(): UInt = this.uInterfaceAddressListCount
 
-    public operator fun component11(): MutPtr<UByte> = this.pInterfaceAddressList
+    public operator fun component11(): MutPtr = this.pInterfaceAddressList
 
     public operator fun component12(): UInt = this.uNumSupportedCountryOrRegionStrings
 
-    public operator fun component13(): MutPtr<UByte> = this.pSupportedCountryOrRegionStrings
+    public operator fun component13(): MutPtr = this.pSupportedCountryOrRegionStrings
 
     public operator fun component14(): UInt = this.uDiscoveryFilterListSize
 
     public operator fun component15(): UInt = this.uGORoleClientTableSize
 
-    public fun copy(header: NdisObjectHeader = this.header, uNumConcurrentGORole: UInt = this.uNumConcurrentGORole, uNumConcurrentClientRole: UInt = this.uNumConcurrentClientRole, wPSVersionsSupported: UInt = this.wPSVersionsSupported, bServiceDiscoverySupported: Boolean = this.bServiceDiscoverySupported, bClientDiscoverabilitySupported: Boolean = this.bClientDiscoverabilitySupported, bInfrastructureManagementSupported: Boolean = this.bInfrastructureManagementSupported, uMaxSecondaryDeviceTypeListSize: UInt = this.uMaxSecondaryDeviceTypeListSize, deviceAddress: UByteArray = this.deviceAddress, uInterfaceAddressListCount: UInt = this.uInterfaceAddressListCount, pInterfaceAddressList: MutPtr<UByte> = this.pInterfaceAddressList, uNumSupportedCountryOrRegionStrings: UInt = this.uNumSupportedCountryOrRegionStrings, pSupportedCountryOrRegionStrings: MutPtr<UByte> = this.pSupportedCountryOrRegionStrings, uDiscoveryFilterListSize: UInt = this.uDiscoveryFilterListSize, uGORoleClientTableSize: UInt = this.uGORoleClientTableSize): Dot11WfdAttributes = Dot11WfdAttributes(header = header, uNumConcurrentGORole = uNumConcurrentGORole, uNumConcurrentClientRole = uNumConcurrentClientRole, wPSVersionsSupported = wPSVersionsSupported, bServiceDiscoverySupported = bServiceDiscoverySupported, bClientDiscoverabilitySupported = bClientDiscoverabilitySupported, bInfrastructureManagementSupported = bInfrastructureManagementSupported, uMaxSecondaryDeviceTypeListSize = uMaxSecondaryDeviceTypeListSize, deviceAddress = deviceAddress, uInterfaceAddressListCount = uInterfaceAddressListCount, pInterfaceAddressListCtorArg = pInterfaceAddressList, uNumSupportedCountryOrRegionStrings = uNumSupportedCountryOrRegionStrings, pSupportedCountryOrRegionStringsCtorArg = pSupportedCountryOrRegionStrings, uDiscoveryFilterListSize = uDiscoveryFilterListSize, uGORoleClientTableSize = uGORoleClientTableSize)
+    public fun copy(header: NdisObjectHeader = this.header, uNumConcurrentGORole: UInt = this.uNumConcurrentGORole, uNumConcurrentClientRole: UInt = this.uNumConcurrentClientRole, wPSVersionsSupported: UInt = this.wPSVersionsSupported, bServiceDiscoverySupported: Boolean = this.bServiceDiscoverySupported, bClientDiscoverabilitySupported: Boolean = this.bClientDiscoverabilitySupported, bInfrastructureManagementSupported: Boolean = this.bInfrastructureManagementSupported, uMaxSecondaryDeviceTypeListSize: UInt = this.uMaxSecondaryDeviceTypeListSize, deviceAddress: UByteArray = this.deviceAddress, uInterfaceAddressListCount: UInt = this.uInterfaceAddressListCount, pInterfaceAddressList: MutPtr = this.pInterfaceAddressList, uNumSupportedCountryOrRegionStrings: UInt = this.uNumSupportedCountryOrRegionStrings, pSupportedCountryOrRegionStrings: MutPtr = this.pSupportedCountryOrRegionStrings, uDiscoveryFilterListSize: UInt = this.uDiscoveryFilterListSize, uGORoleClientTableSize: UInt = this.uGORoleClientTableSize): Dot11WfdAttributes = Dot11WfdAttributes(header = header, uNumConcurrentGORole = uNumConcurrentGORole, uNumConcurrentClientRole = uNumConcurrentClientRole, wPSVersionsSupported = wPSVersionsSupported, bServiceDiscoverySupported = bServiceDiscoverySupported, bClientDiscoverabilitySupported = bClientDiscoverabilitySupported, bInfrastructureManagementSupported = bInfrastructureManagementSupported, uMaxSecondaryDeviceTypeListSize = uMaxSecondaryDeviceTypeListSize, deviceAddress = deviceAddress, uInterfaceAddressListCount = uInterfaceAddressListCount, pInterfaceAddressListCtorArg = pInterfaceAddressList, uNumSupportedCountryOrRegionStrings = uNumSupportedCountryOrRegionStrings, pSupportedCountryOrRegionStringsCtorArg = pSupportedCountryOrRegionStrings, uDiscoveryFilterListSize = uDiscoveryFilterListSize, uGORoleClientTableSize = uGORoleClientTableSize)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -8374,9 +8372,9 @@ public class Dot11WfdAttributes internal constructor(
             uMaxSecondaryDeviceTypeListSize: UInt = 0u,
             deviceAddress: UByteArray = UByteArray(6),
             uInterfaceAddressListCount: UInt = 0u,
-            pInterfaceAddressList: MutPtr<UByte> = MutPtr(0L),
+            pInterfaceAddressList: MutPtr = MutPtr(0L),
             uNumSupportedCountryOrRegionStrings: UInt = 0u,
-            pSupportedCountryOrRegionStrings: MutPtr<UByte> = MutPtr(0L),
+            pSupportedCountryOrRegionStrings: MutPtr = MutPtr(0L),
             uDiscoveryFilterListSize: UInt = 0u,
             uGORoleClientTableSize: UInt = 0u,
         ): Dot11WfdAttributes =
@@ -9167,9 +9165,9 @@ public class L2NotificationData internal constructor(
     public var notificationCode: UInt,
     public var interfaceGuid: Guid,
     public var dwDataSize: UInt,
-    pDataCtorArg: MutPtr<CVoid>,
+    pDataCtorArg: MutPtr,
 ) {
-    public var pData: MutPtr<CVoid> = pDataCtorArg
+    public var pData: MutPtr = pDataCtorArg
         internal set
 
     public constructor() : this(
@@ -9188,9 +9186,9 @@ public class L2NotificationData internal constructor(
 
     public operator fun component4(): UInt = this.dwDataSize
 
-    public operator fun component5(): MutPtr<CVoid> = this.pData
+    public operator fun component5(): MutPtr = this.pData
 
-    public fun copy(notificationSource: WlanNotificationSources = this.notificationSource, notificationCode: UInt = this.notificationCode, interfaceGuid: Guid = this.interfaceGuid, dwDataSize: UInt = this.dwDataSize, pData: MutPtr<CVoid> = this.pData): L2NotificationData = L2NotificationData(notificationSource = notificationSource, notificationCode = notificationCode, interfaceGuid = interfaceGuid, dwDataSize = dwDataSize, pDataCtorArg = pData)
+    public fun copy(notificationSource: WlanNotificationSources = this.notificationSource, notificationCode: UInt = this.notificationCode, interfaceGuid: Guid = this.interfaceGuid, dwDataSize: UInt = this.dwDataSize, pData: MutPtr = this.pData): L2NotificationData = L2NotificationData(notificationSource = notificationSource, notificationCode = notificationCode, interfaceGuid = interfaceGuid, dwDataSize = dwDataSize, pDataCtorArg = pData)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -9218,7 +9216,7 @@ public class L2NotificationData internal constructor(
             notificationCode: UInt = 0u,
             interfaceGuid: Guid = Guid(),
             dwDataSize: UInt = 0u,
-            pData: MutPtr<CVoid> = MutPtr(0L),
+            pData: MutPtr = MutPtr(0L),
         ): L2NotificationData =
             L2NotificationData(
                 notificationSource = notificationSource,

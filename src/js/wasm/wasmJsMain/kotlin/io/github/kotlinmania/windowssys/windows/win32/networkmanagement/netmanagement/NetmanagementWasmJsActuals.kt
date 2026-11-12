@@ -2,14 +2,12 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.networkmanagement.netmanagement
 
-import io.github.kotlinmania.rustlang.core.ffi.CVoid
 import io.github.kotlinmania.rustlang.core.ptr.ConstPtr
 import io.github.kotlinmania.rustlang.core.ptr.MutPtr
 import io.github.kotlinmania.windowssys.core.Bool
 import io.github.kotlinmania.windowssys.core.Hresult
 import io.github.kotlinmania.windowssys.core.Pcstr
 import io.github.kotlinmania.windowssys.core.Pcwstr
-import io.github.kotlinmania.windowssys.core.Pstr
 import io.github.kotlinmania.windowssys.core.Pwstr
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Handle
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Ntstatus
@@ -548,10 +546,10 @@ private external fun wasmWindowssysWindowsWin32NetworkmanagementNetmanagementTra
 public actual fun getNetScheduleAccountInformation(pwszservername: Pcwstr, ccaccount: UInt, wszaccount: Pwstr): Hresult =
     if (windowsWin32NetworkmanagementNetmanagementNapiAvailable) wasmWindowssysWindowsWin32NetworkmanagementNetmanagementGetNetScheduleAccountInformation(pwszservername.rawAddress.toString(), ccaccount.toInt(), wszaccount.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun iNetLogonControl2(servername: Pcwstr, functioncode: UInt, querylevel: UInt, data: ConstPtr<UByte>, buffer: MutPtr<MutPtr<UByte>>): UInt =
+public actual fun iNetLogonControl2(servername: Pcwstr, functioncode: UInt, querylevel: UInt, data: ConstPtr, buffer: MutPtr): UInt =
     if (windowsWin32NetworkmanagementNetmanagementNapiAvailable) wasmWindowssysWindowsWin32NetworkmanagementNetmanagementINetLogonControl2(servername.rawAddress.toString(), functioncode.toInt(), querylevel.toInt(), data.rawAddress.toString(), buffer.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun logErrorA(dwmessageid: UInt, cnumberofsubstrings: UInt, plpwssubstrings: ConstPtr<Pcstr>, dwerrorcode: UInt) {
+public actual fun logErrorA(dwmessageid: UInt, cnumberofsubstrings: UInt, plpwssubstrings: ConstPtr, dwerrorcode: UInt) {
     if (windowsWin32NetworkmanagementNetmanagementNapiAvailable) {
         wasmWindowssysWindowsWin32NetworkmanagementNetmanagementLogErrorA(dwmessageid.toInt(), cnumberofsubstrings.toInt(), plpwssubstrings.rawAddress.toString(), dwerrorcode.toInt())
     } else {
@@ -559,7 +557,7 @@ public actual fun logErrorA(dwmessageid: UInt, cnumberofsubstrings: UInt, plpwss
     }
 }
 
-public actual fun logErrorW(dwmessageid: UInt, cnumberofsubstrings: UInt, plpwssubstrings: ConstPtr<Pcwstr>, dwerrorcode: UInt) {
+public actual fun logErrorW(dwmessageid: UInt, cnumberofsubstrings: UInt, plpwssubstrings: ConstPtr, dwerrorcode: UInt) {
     if (windowsWin32NetworkmanagementNetmanagementNapiAvailable) {
         wasmWindowssysWindowsWin32NetworkmanagementNetmanagementLogErrorW(dwmessageid.toInt(), cnumberofsubstrings.toInt(), plpwssubstrings.rawAddress.toString(), dwerrorcode.toInt())
     } else {
@@ -567,7 +565,7 @@ public actual fun logErrorW(dwmessageid: UInt, cnumberofsubstrings: UInt, plpwss
     }
 }
 
-public actual fun logEventA(weventtype: UInt, dwmessageid: UInt, cnumberofsubstrings: UInt, plpwssubstrings: ConstPtr<Pcstr>) {
+public actual fun logEventA(weventtype: UInt, dwmessageid: UInt, cnumberofsubstrings: UInt, plpwssubstrings: ConstPtr) {
     if (windowsWin32NetworkmanagementNetmanagementNapiAvailable) {
         wasmWindowssysWindowsWin32NetworkmanagementNetmanagementLogEventA(weventtype.toInt(), dwmessageid.toInt(), cnumberofsubstrings.toInt(), plpwssubstrings.rawAddress.toString())
     } else {
@@ -575,7 +573,7 @@ public actual fun logEventA(weventtype: UInt, dwmessageid: UInt, cnumberofsubstr
     }
 }
 
-public actual fun logEventW(weventtype: UInt, dwmessageid: UInt, cnumberofsubstrings: UInt, plpwssubstrings: ConstPtr<Pcwstr>) {
+public actual fun logEventW(weventtype: UInt, dwmessageid: UInt, cnumberofsubstrings: UInt, plpwssubstrings: ConstPtr) {
     if (windowsWin32NetworkmanagementNetmanagementNapiAvailable) {
         wasmWindowssysWindowsWin32NetworkmanagementNetmanagementLogEventW(weventtype.toInt(), dwmessageid.toInt(), cnumberofsubstrings.toInt(), plpwssubstrings.rawAddress.toString())
     } else {
@@ -583,28 +581,28 @@ public actual fun logEventW(weventtype: UInt, dwmessageid: UInt, cnumberofsubstr
     }
 }
 
-public actual fun mprSetupProtocolEnum(dwtransportid: UInt, lplpbuffer: MutPtr<MutPtr<UByte>>, lpdwentriesread: MutPtr<UInt>): UInt =
+public actual fun mprSetupProtocolEnum(dwtransportid: UInt, lplpbuffer: MutPtr, lpdwentriesread: MutPtr): UInt =
     if (windowsWin32NetworkmanagementNetmanagementNapiAvailable) wasmWindowssysWindowsWin32NetworkmanagementNetmanagementMprSetupProtocolEnum(dwtransportid.toInt(), lplpbuffer.rawAddress.toString(), lpdwentriesread.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun mprSetupProtocolFree(lpbuffer: MutPtr<CVoid>): UInt =
+public actual fun mprSetupProtocolFree(lpbuffer: MutPtr): UInt =
     if (windowsWin32NetworkmanagementNetmanagementNapiAvailable) wasmWindowssysWindowsWin32NetworkmanagementNetmanagementMprSetupProtocolFree(lpbuffer.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun netAccessAdd(servername: Pcwstr, level: UInt, buf: ConstPtr<UByte>, parmErr: MutPtr<UInt>): UInt =
+public actual fun netAccessAdd(servername: Pcwstr, level: UInt, buf: ConstPtr, parmErr: MutPtr): UInt =
     if (windowsWin32NetworkmanagementNetmanagementNapiAvailable) wasmWindowssysWindowsWin32NetworkmanagementNetmanagementNetAccessAdd(servername.rawAddress.toString(), level.toInt(), buf.rawAddress.toString(), parmErr.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun netAccessDel(servername: Pcwstr, resource: Pcwstr): UInt =
     if (windowsWin32NetworkmanagementNetmanagementNapiAvailable) wasmWindowssysWindowsWin32NetworkmanagementNetmanagementNetAccessDel(servername.rawAddress.toString(), resource.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun netAccessEnum(servername: Pcwstr, basepath: Pcwstr, recursive: UInt, level: UInt, bufptr: MutPtr<MutPtr<UByte>>, prefmaxlen: UInt, entriesread: MutPtr<UInt>, totalentries: MutPtr<UInt>, resumeHandle: MutPtr<UInt>): UInt =
+public actual fun netAccessEnum(servername: Pcwstr, basepath: Pcwstr, recursive: UInt, level: UInt, bufptr: MutPtr, prefmaxlen: UInt, entriesread: MutPtr, totalentries: MutPtr, resumeHandle: MutPtr): UInt =
     if (windowsWin32NetworkmanagementNetmanagementNapiAvailable) wasmWindowssysWindowsWin32NetworkmanagementNetmanagementNetAccessEnum(servername.rawAddress.toString(), basepath.rawAddress.toString(), recursive.toInt(), level.toInt(), bufptr.rawAddress.toString(), prefmaxlen.toInt(), entriesread.rawAddress.toString(), totalentries.rawAddress.toString(), resumeHandle.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun netAccessGetInfo(servername: Pcwstr, resource: Pcwstr, level: UInt, bufptr: MutPtr<MutPtr<UByte>>): UInt =
+public actual fun netAccessGetInfo(servername: Pcwstr, resource: Pcwstr, level: UInt, bufptr: MutPtr): UInt =
     if (windowsWin32NetworkmanagementNetmanagementNapiAvailable) wasmWindowssysWindowsWin32NetworkmanagementNetmanagementNetAccessGetInfo(servername.rawAddress.toString(), resource.rawAddress.toString(), level.toInt(), bufptr.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun netAccessGetUserPerms(servername: Pcwstr, ugname: Pcwstr, resource: Pcwstr, perms: MutPtr<UInt>): UInt =
+public actual fun netAccessGetUserPerms(servername: Pcwstr, ugname: Pcwstr, resource: Pcwstr, perms: MutPtr): UInt =
     if (windowsWin32NetworkmanagementNetmanagementNapiAvailable) wasmWindowssysWindowsWin32NetworkmanagementNetmanagementNetAccessGetUserPerms(servername.rawAddress.toString(), ugname.rawAddress.toString(), resource.rawAddress.toString(), perms.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun netAccessSetInfo(servername: Pcwstr, resource: Pcwstr, level: UInt, buf: ConstPtr<UByte>, parmErr: MutPtr<UInt>): UInt =
+public actual fun netAccessSetInfo(servername: Pcwstr, resource: Pcwstr, level: UInt, buf: ConstPtr, parmErr: MutPtr): UInt =
     if (windowsWin32NetworkmanagementNetmanagementNapiAvailable) wasmWindowssysWindowsWin32NetworkmanagementNetmanagementNetAccessSetInfo(servername.rawAddress.toString(), resource.rawAddress.toString(), level.toInt(), buf.rawAddress.toString(), parmErr.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun netAddAlternateComputerName(server: Pcwstr, alternatename: Pcwstr, domainaccount: Pcwstr, domainaccountpassword: Pcwstr, reserved: UInt): UInt =
@@ -613,61 +611,61 @@ public actual fun netAddAlternateComputerName(server: Pcwstr, alternatename: Pcw
 public actual fun netAddServiceAccount(servername: Pcwstr, accountname: Pcwstr, password: Pcwstr, flags: UInt): Ntstatus =
     if (windowsWin32NetworkmanagementNetmanagementNapiAvailable) wasmWindowssysWindowsWin32NetworkmanagementNetmanagementNetAddServiceAccount(servername.rawAddress.toString(), accountname.rawAddress.toString(), password.rawAddress.toString(), flags.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun netAlertRaise(alerttype: Pcwstr, buffer: ConstPtr<CVoid>, buffersize: UInt): UInt =
+public actual fun netAlertRaise(alerttype: Pcwstr, buffer: ConstPtr, buffersize: UInt): UInt =
     if (windowsWin32NetworkmanagementNetmanagementNapiAvailable) wasmWindowssysWindowsWin32NetworkmanagementNetmanagementNetAlertRaise(alerttype.rawAddress.toString(), buffer.rawAddress.toString(), buffersize.toInt()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun netAlertRaiseEx(alerttype: Pcwstr, variableinfo: ConstPtr<CVoid>, variableinfosize: UInt, servicename: Pcwstr): UInt =
+public actual fun netAlertRaiseEx(alerttype: Pcwstr, variableinfo: ConstPtr, variableinfosize: UInt, servicename: Pcwstr): UInt =
     if (windowsWin32NetworkmanagementNetmanagementNapiAvailable) wasmWindowssysWindowsWin32NetworkmanagementNetmanagementNetAlertRaiseEx(alerttype.rawAddress.toString(), variableinfo.rawAddress.toString(), variableinfosize.toInt(), servicename.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun netApiBufferAllocate(bytecount: UInt, buffer: MutPtr<MutPtr<CVoid>>): UInt =
+public actual fun netApiBufferAllocate(bytecount: UInt, buffer: MutPtr): UInt =
     if (windowsWin32NetworkmanagementNetmanagementNapiAvailable) wasmWindowssysWindowsWin32NetworkmanagementNetmanagementNetApiBufferAllocate(bytecount.toInt(), buffer.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun netApiBufferFree(buffer: ConstPtr<CVoid>): UInt =
+public actual fun netApiBufferFree(buffer: ConstPtr): UInt =
     if (windowsWin32NetworkmanagementNetmanagementNapiAvailable) wasmWindowssysWindowsWin32NetworkmanagementNetmanagementNetApiBufferFree(buffer.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun netApiBufferReallocate(oldbuffer: ConstPtr<CVoid>, newbytecount: UInt, newbuffer: MutPtr<MutPtr<CVoid>>): UInt =
+public actual fun netApiBufferReallocate(oldbuffer: ConstPtr, newbytecount: UInt, newbuffer: MutPtr): UInt =
     if (windowsWin32NetworkmanagementNetmanagementNapiAvailable) wasmWindowssysWindowsWin32NetworkmanagementNetmanagementNetApiBufferReallocate(oldbuffer.rawAddress.toString(), newbytecount.toInt(), newbuffer.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun netApiBufferSize(buffer: ConstPtr<CVoid>, bytecount: MutPtr<UInt>): UInt =
+public actual fun netApiBufferSize(buffer: ConstPtr, bytecount: MutPtr): UInt =
     if (windowsWin32NetworkmanagementNetmanagementNapiAvailable) wasmWindowssysWindowsWin32NetworkmanagementNetmanagementNetApiBufferSize(buffer.rawAddress.toString(), bytecount.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun netAuditClear(server: Pcwstr, backupfile: Pcwstr, service: Pcwstr): UInt =
     if (windowsWin32NetworkmanagementNetmanagementNapiAvailable) wasmWindowssysWindowsWin32NetworkmanagementNetmanagementNetAuditClear(server.rawAddress.toString(), backupfile.rawAddress.toString(), service.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun netAuditRead(server: Pcwstr, service: Pcwstr, auditloghandle: MutPtr<Hlog>, offset: UInt, reserved1: MutPtr<UInt>, reserved2: UInt, offsetflag: UInt, bufptr: MutPtr<MutPtr<UByte>>, prefmaxlen: UInt, bytesread: MutPtr<UInt>, totalavailable: MutPtr<UInt>): UInt =
+public actual fun netAuditRead(server: Pcwstr, service: Pcwstr, auditloghandle: MutPtr, offset: UInt, reserved1: MutPtr, reserved2: UInt, offsetflag: UInt, bufptr: MutPtr, prefmaxlen: UInt, bytesread: MutPtr, totalavailable: MutPtr): UInt =
     if (windowsWin32NetworkmanagementNetmanagementNapiAvailable) wasmWindowssysWindowsWin32NetworkmanagementNetmanagementNetAuditRead(server.rawAddress.toString(), service.rawAddress.toString(), auditloghandle.rawAddress.toString(), offset.toInt(), reserved1.rawAddress.toString(), reserved2.toInt(), offsetflag.toInt(), bufptr.rawAddress.toString(), prefmaxlen.toInt(), bytesread.rawAddress.toString(), totalavailable.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun netAuditWrite(type: UInt, buf: MutPtr<UByte>, numbytes: UInt, service: Pcwstr, reserved: MutPtr<UByte>): UInt =
+public actual fun netAuditWrite(type: UInt, buf: MutPtr, numbytes: UInt, service: Pcwstr, reserved: MutPtr): UInt =
     if (windowsWin32NetworkmanagementNetmanagementNapiAvailable) wasmWindowssysWindowsWin32NetworkmanagementNetmanagementNetAuditWrite(type.toInt(), buf.rawAddress.toString(), numbytes.toInt(), service.rawAddress.toString(), reserved.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun netConfigGet(server: Pcwstr, component: Pcwstr, parameter: Pcwstr, bufptr: MutPtr<MutPtr<UByte>>): UInt =
+public actual fun netConfigGet(server: Pcwstr, component: Pcwstr, parameter: Pcwstr, bufptr: MutPtr): UInt =
     if (windowsWin32NetworkmanagementNetmanagementNapiAvailable) wasmWindowssysWindowsWin32NetworkmanagementNetmanagementNetConfigGet(server.rawAddress.toString(), component.rawAddress.toString(), parameter.rawAddress.toString(), bufptr.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun netConfigGetAll(server: Pcwstr, component: Pcwstr, bufptr: MutPtr<MutPtr<UByte>>): UInt =
+public actual fun netConfigGetAll(server: Pcwstr, component: Pcwstr, bufptr: MutPtr): UInt =
     if (windowsWin32NetworkmanagementNetmanagementNapiAvailable) wasmWindowssysWindowsWin32NetworkmanagementNetmanagementNetConfigGetAll(server.rawAddress.toString(), component.rawAddress.toString(), bufptr.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun netConfigSet(server: Pcwstr, reserved1: Pcwstr, component: Pcwstr, level: UInt, reserved2: UInt, buf: MutPtr<UByte>, reserved3: UInt): UInt =
+public actual fun netConfigSet(server: Pcwstr, reserved1: Pcwstr, component: Pcwstr, level: UInt, reserved2: UInt, buf: MutPtr, reserved3: UInt): UInt =
     if (windowsWin32NetworkmanagementNetmanagementNapiAvailable) wasmWindowssysWindowsWin32NetworkmanagementNetmanagementNetConfigSet(server.rawAddress.toString(), reserved1.rawAddress.toString(), component.rawAddress.toString(), level.toInt(), reserved2.toInt(), buf.rawAddress.toString(), reserved3.toInt()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun netCreateProvisioningPackage(pprovisioningparams: ConstPtr<NetsetupProvisioningParams>, pppackagebindata: MutPtr<MutPtr<UByte>>, pdwpackagebindatasize: MutPtr<UInt>, pppackagetextdata: MutPtr<Pwstr>): UInt =
+public actual fun netCreateProvisioningPackage(pprovisioningparams: ConstPtr, pppackagebindata: MutPtr, pdwpackagebindatasize: MutPtr, pppackagetextdata: MutPtr): UInt =
     if (windowsWin32NetworkmanagementNetmanagementNapiAvailable) wasmWindowssysWindowsWin32NetworkmanagementNetmanagementNetCreateProvisioningPackage(pprovisioningparams.rawAddress.toString(), pppackagebindata.rawAddress.toString(), pdwpackagebindatasize.rawAddress.toString(), pppackagetextdata.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun netEnumerateComputerNames(server: Pcwstr, nametype: NetComputerNameType, reserved: UInt, entrycount: MutPtr<UInt>, computernames: MutPtr<MutPtr<Pwstr>>): UInt =
+public actual fun netEnumerateComputerNames(server: Pcwstr, nametype: NetComputerNameType, reserved: UInt, entrycount: MutPtr, computernames: MutPtr): UInt =
     if (windowsWin32NetworkmanagementNetmanagementNapiAvailable) wasmWindowssysWindowsWin32NetworkmanagementNetmanagementNetEnumerateComputerNames(server.rawAddress.toString(), nametype, reserved.toInt(), entrycount.rawAddress.toString(), computernames.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun netEnumerateServiceAccounts(servername: Pcwstr, flags: UInt, accountscount: MutPtr<UInt>, accounts: MutPtr<MutPtr<MutPtr<UShort>>>): Ntstatus =
+public actual fun netEnumerateServiceAccounts(servername: Pcwstr, flags: UInt, accountscount: MutPtr, accounts: MutPtr): Ntstatus =
     if (windowsWin32NetworkmanagementNetmanagementNapiAvailable) wasmWindowssysWindowsWin32NetworkmanagementNetmanagementNetEnumerateServiceAccounts(servername.rawAddress.toString(), flags.toInt(), accountscount.rawAddress.toString(), accounts.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun netErrorLogClear(uncservername: Pcwstr, backupfile: Pcwstr, reserved: ConstPtr<UByte>): UInt =
+public actual fun netErrorLogClear(uncservername: Pcwstr, backupfile: Pcwstr, reserved: ConstPtr): UInt =
     if (windowsWin32NetworkmanagementNetmanagementNapiAvailable) wasmWindowssysWindowsWin32NetworkmanagementNetmanagementNetErrorLogClear(uncservername.rawAddress.toString(), backupfile.rawAddress.toString(), reserved.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun netErrorLogRead(uncservername: Pcwstr, reserved1: Pcwstr, errorloghandle: ConstPtr<Hlog>, offset: UInt, reserved2: ConstPtr<UInt>, reserved3: UInt, offsetflag: UInt, bufptr: MutPtr<MutPtr<UByte>>, prefmaxsize: UInt, bytesread: MutPtr<UInt>, totalavailable: MutPtr<UInt>): UInt =
+public actual fun netErrorLogRead(uncservername: Pcwstr, reserved1: Pcwstr, errorloghandle: ConstPtr, offset: UInt, reserved2: ConstPtr, reserved3: UInt, offsetflag: UInt, bufptr: MutPtr, prefmaxsize: UInt, bytesread: MutPtr, totalavailable: MutPtr): UInt =
     if (windowsWin32NetworkmanagementNetmanagementNapiAvailable) wasmWindowssysWindowsWin32NetworkmanagementNetmanagementNetErrorLogRead(uncservername.rawAddress.toString(), reserved1.rawAddress.toString(), errorloghandle.rawAddress.toString(), offset.toInt(), reserved2.rawAddress.toString(), reserved3.toInt(), offsetflag.toInt(), bufptr.rawAddress.toString(), prefmaxsize.toInt(), bytesread.rawAddress.toString(), totalavailable.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun netErrorLogWrite(reserved1: ConstPtr<UByte>, code: UInt, component: Pcwstr, buffer: ConstPtr<UByte>, numbytes: UInt, msgbuf: ConstPtr<UByte>, strcount: UInt, reserved2: ConstPtr<UByte>): UInt =
+public actual fun netErrorLogWrite(reserved1: ConstPtr, code: UInt, component: Pcwstr, buffer: ConstPtr, numbytes: UInt, msgbuf: ConstPtr, strcount: UInt, reserved2: ConstPtr): UInt =
     if (windowsWin32NetworkmanagementNetmanagementNapiAvailable) wasmWindowssysWindowsWin32NetworkmanagementNetmanagementNetErrorLogWrite(reserved1.rawAddress.toString(), code.toInt(), component.rawAddress.toString(), buffer.rawAddress.toString(), numbytes.toInt(), msgbuf.rawAddress.toString(), strcount.toInt(), reserved2.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun netFreeAadJoinInformation(pjoininfo: ConstPtr<DsregJoinInfo>) {
+public actual fun netFreeAadJoinInformation(pjoininfo: ConstPtr) {
     if (windowsWin32NetworkmanagementNetmanagementNapiAvailable) {
         wasmWindowssysWindowsWin32NetworkmanagementNetmanagementNetFreeAadJoinInformation(pjoininfo.rawAddress.toString())
     } else {
@@ -675,25 +673,25 @@ public actual fun netFreeAadJoinInformation(pjoininfo: ConstPtr<DsregJoinInfo>) 
     }
 }
 
-public actual fun netGetAadJoinInformation(pcsztenantid: Pcwstr, ppjoininfo: MutPtr<MutPtr<DsregJoinInfo>>): Hresult =
+public actual fun netGetAadJoinInformation(pcsztenantid: Pcwstr, ppjoininfo: MutPtr): Hresult =
     if (windowsWin32NetworkmanagementNetmanagementNapiAvailable) wasmWindowssysWindowsWin32NetworkmanagementNetmanagementNetGetAadJoinInformation(pcsztenantid.rawAddress.toString(), ppjoininfo.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun netGetAnyDCName(servername: Pcwstr, domainname: Pcwstr, buffer: MutPtr<MutPtr<UByte>>): UInt =
+public actual fun netGetAnyDCName(servername: Pcwstr, domainname: Pcwstr, buffer: MutPtr): UInt =
     if (windowsWin32NetworkmanagementNetmanagementNapiAvailable) wasmWindowssysWindowsWin32NetworkmanagementNetmanagementNetGetAnyDCName(servername.rawAddress.toString(), domainname.rawAddress.toString(), buffer.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun netGetDCName(servername: Pcwstr, domainname: Pcwstr, buffer: MutPtr<MutPtr<UByte>>): UInt =
+public actual fun netGetDCName(servername: Pcwstr, domainname: Pcwstr, buffer: MutPtr): UInt =
     if (windowsWin32NetworkmanagementNetmanagementNapiAvailable) wasmWindowssysWindowsWin32NetworkmanagementNetmanagementNetGetDCName(servername.rawAddress.toString(), domainname.rawAddress.toString(), buffer.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun netGetDisplayInformationIndex(servername: Pcwstr, level: UInt, prefix: Pcwstr, index: MutPtr<UInt>): UInt =
+public actual fun netGetDisplayInformationIndex(servername: Pcwstr, level: UInt, prefix: Pcwstr, index: MutPtr): UInt =
     if (windowsWin32NetworkmanagementNetmanagementNapiAvailable) wasmWindowssysWindowsWin32NetworkmanagementNetmanagementNetGetDisplayInformationIndex(servername.rawAddress.toString(), level.toInt(), prefix.rawAddress.toString(), index.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun netGetJoinInformation(lpserver: Pcwstr, lpnamebuffer: MutPtr<Pwstr>, buffertype: MutPtr<NetsetupJoinStatus>): UInt =
+public actual fun netGetJoinInformation(lpserver: Pcwstr, lpnamebuffer: MutPtr, buffertype: MutPtr): UInt =
     if (windowsWin32NetworkmanagementNetmanagementNapiAvailable) wasmWindowssysWindowsWin32NetworkmanagementNetmanagementNetGetJoinInformation(lpserver.rawAddress.toString(), lpnamebuffer.rawAddress.toString(), buffertype.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun netGetJoinableOUs(lpserver: Pcwstr, lpdomain: Pcwstr, lpaccount: Pcwstr, lppassword: Pcwstr, oucount: MutPtr<UInt>, ous: MutPtr<MutPtr<Pwstr>>): UInt =
+public actual fun netGetJoinableOUs(lpserver: Pcwstr, lpdomain: Pcwstr, lpaccount: Pcwstr, lppassword: Pcwstr, oucount: MutPtr, ous: MutPtr): UInt =
     if (windowsWin32NetworkmanagementNetmanagementNapiAvailable) wasmWindowssysWindowsWin32NetworkmanagementNetmanagementNetGetJoinableOUs(lpserver.rawAddress.toString(), lpdomain.rawAddress.toString(), lpaccount.rawAddress.toString(), lppassword.rawAddress.toString(), oucount.rawAddress.toString(), ous.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun netGroupAdd(servername: Pcwstr, level: UInt, buf: ConstPtr<UByte>, parmErr: MutPtr<UInt>): UInt =
+public actual fun netGroupAdd(servername: Pcwstr, level: UInt, buf: ConstPtr, parmErr: MutPtr): UInt =
     if (windowsWin32NetworkmanagementNetmanagementNapiAvailable) wasmWindowssysWindowsWin32NetworkmanagementNetmanagementNetGroupAdd(servername.rawAddress.toString(), level.toInt(), buf.rawAddress.toString(), parmErr.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun netGroupAddUser(servername: Pcwstr, groupname: Pcwstr, username: Pcwstr): UInt =
@@ -705,34 +703,34 @@ public actual fun netGroupDel(servername: Pcwstr, groupname: Pcwstr): UInt =
 public actual fun netGroupDelUser(servername: Pcwstr, groupname: Pcwstr, username: Pcwstr): UInt =
     if (windowsWin32NetworkmanagementNetmanagementNapiAvailable) wasmWindowssysWindowsWin32NetworkmanagementNetmanagementNetGroupDelUser(servername.rawAddress.toString(), groupname.rawAddress.toString(), username.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun netGroupEnum(servername: Pcwstr, level: UInt, bufptr: MutPtr<MutPtr<UByte>>, prefmaxlen: UInt, entriesread: MutPtr<UInt>, totalentries: MutPtr<UInt>, resumeHandle: MutPtr<ULong>): UInt =
+public actual fun netGroupEnum(servername: Pcwstr, level: UInt, bufptr: MutPtr, prefmaxlen: UInt, entriesread: MutPtr, totalentries: MutPtr, resumeHandle: MutPtr): UInt =
     if (windowsWin32NetworkmanagementNetmanagementNapiAvailable) wasmWindowssysWindowsWin32NetworkmanagementNetmanagementNetGroupEnum(servername.rawAddress.toString(), level.toInt(), bufptr.rawAddress.toString(), prefmaxlen.toInt(), entriesread.rawAddress.toString(), totalentries.rawAddress.toString(), resumeHandle.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun netGroupGetInfo(servername: Pcwstr, groupname: Pcwstr, level: UInt, bufptr: MutPtr<MutPtr<UByte>>): UInt =
+public actual fun netGroupGetInfo(servername: Pcwstr, groupname: Pcwstr, level: UInt, bufptr: MutPtr): UInt =
     if (windowsWin32NetworkmanagementNetmanagementNapiAvailable) wasmWindowssysWindowsWin32NetworkmanagementNetmanagementNetGroupGetInfo(servername.rawAddress.toString(), groupname.rawAddress.toString(), level.toInt(), bufptr.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun netGroupGetUsers(servername: Pcwstr, groupname: Pcwstr, level: UInt, bufptr: MutPtr<MutPtr<UByte>>, prefmaxlen: UInt, entriesread: MutPtr<UInt>, totalentries: MutPtr<UInt>, resumehandle: MutPtr<ULong>): UInt =
+public actual fun netGroupGetUsers(servername: Pcwstr, groupname: Pcwstr, level: UInt, bufptr: MutPtr, prefmaxlen: UInt, entriesread: MutPtr, totalentries: MutPtr, resumehandle: MutPtr): UInt =
     if (windowsWin32NetworkmanagementNetmanagementNapiAvailable) wasmWindowssysWindowsWin32NetworkmanagementNetmanagementNetGroupGetUsers(servername.rawAddress.toString(), groupname.rawAddress.toString(), level.toInt(), bufptr.rawAddress.toString(), prefmaxlen.toInt(), entriesread.rawAddress.toString(), totalentries.rawAddress.toString(), resumehandle.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun netGroupSetInfo(servername: Pcwstr, groupname: Pcwstr, level: UInt, buf: ConstPtr<UByte>, parmErr: MutPtr<UInt>): UInt =
+public actual fun netGroupSetInfo(servername: Pcwstr, groupname: Pcwstr, level: UInt, buf: ConstPtr, parmErr: MutPtr): UInt =
     if (windowsWin32NetworkmanagementNetmanagementNapiAvailable) wasmWindowssysWindowsWin32NetworkmanagementNetmanagementNetGroupSetInfo(servername.rawAddress.toString(), groupname.rawAddress.toString(), level.toInt(), buf.rawAddress.toString(), parmErr.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun netGroupSetUsers(servername: Pcwstr, groupname: Pcwstr, level: UInt, buf: ConstPtr<UByte>, totalentries: UInt): UInt =
+public actual fun netGroupSetUsers(servername: Pcwstr, groupname: Pcwstr, level: UInt, buf: ConstPtr, totalentries: UInt): UInt =
     if (windowsWin32NetworkmanagementNetmanagementNapiAvailable) wasmWindowssysWindowsWin32NetworkmanagementNetmanagementNetGroupSetUsers(servername.rawAddress.toString(), groupname.rawAddress.toString(), level.toInt(), buf.rawAddress.toString(), totalentries.toInt()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun netIsServiceAccount(servername: Pcwstr, accountname: Pcwstr, isservice: MutPtr<Bool>): Ntstatus =
+public actual fun netIsServiceAccount(servername: Pcwstr, accountname: Pcwstr, isservice: MutPtr): Ntstatus =
     if (windowsWin32NetworkmanagementNetmanagementNapiAvailable) wasmWindowssysWindowsWin32NetworkmanagementNetmanagementNetIsServiceAccount(servername.rawAddress.toString(), accountname.rawAddress.toString(), isservice.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun netJoinDomain(lpserver: Pcwstr, lpdomain: Pcwstr, lpmachineaccountou: Pcwstr, lpaccount: Pcwstr, lppassword: Pcwstr, fjoinoptions: NetJoinDomainJoinOptions): UInt =
     if (windowsWin32NetworkmanagementNetmanagementNapiAvailable) wasmWindowssysWindowsWin32NetworkmanagementNetmanagementNetJoinDomain(lpserver.rawAddress.toString(), lpdomain.rawAddress.toString(), lpmachineaccountou.rawAddress.toString(), lpaccount.rawAddress.toString(), lppassword.rawAddress.toString(), fjoinoptions.toInt()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun netLocalGroupAdd(servername: Pcwstr, level: UInt, buf: ConstPtr<UByte>, parmErr: MutPtr<UInt>): UInt =
+public actual fun netLocalGroupAdd(servername: Pcwstr, level: UInt, buf: ConstPtr, parmErr: MutPtr): UInt =
     if (windowsWin32NetworkmanagementNetmanagementNapiAvailable) wasmWindowssysWindowsWin32NetworkmanagementNetmanagementNetLocalGroupAdd(servername.rawAddress.toString(), level.toInt(), buf.rawAddress.toString(), parmErr.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun netLocalGroupAddMember(servername: Pcwstr, groupname: Pcwstr, membersid: Psid): UInt =
     if (windowsWin32NetworkmanagementNetmanagementNapiAvailable) wasmWindowssysWindowsWin32NetworkmanagementNetmanagementNetLocalGroupAddMember(servername.rawAddress.toString(), groupname.rawAddress.toString(), membersid.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun netLocalGroupAddMembers(servername: Pcwstr, groupname: Pcwstr, level: UInt, buf: ConstPtr<UByte>, totalentries: UInt): UInt =
+public actual fun netLocalGroupAddMembers(servername: Pcwstr, groupname: Pcwstr, level: UInt, buf: ConstPtr, totalentries: UInt): UInt =
     if (windowsWin32NetworkmanagementNetmanagementNapiAvailable) wasmWindowssysWindowsWin32NetworkmanagementNetmanagementNetLocalGroupAddMembers(servername.rawAddress.toString(), groupname.rawAddress.toString(), level.toInt(), buf.rawAddress.toString(), totalentries.toInt()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun netLocalGroupDel(servername: Pcwstr, groupname: Pcwstr): UInt =
@@ -741,25 +739,25 @@ public actual fun netLocalGroupDel(servername: Pcwstr, groupname: Pcwstr): UInt 
 public actual fun netLocalGroupDelMember(servername: Pcwstr, groupname: Pcwstr, membersid: Psid): UInt =
     if (windowsWin32NetworkmanagementNetmanagementNapiAvailable) wasmWindowssysWindowsWin32NetworkmanagementNetmanagementNetLocalGroupDelMember(servername.rawAddress.toString(), groupname.rawAddress.toString(), membersid.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun netLocalGroupDelMembers(servername: Pcwstr, groupname: Pcwstr, level: UInt, buf: ConstPtr<UByte>, totalentries: UInt): UInt =
+public actual fun netLocalGroupDelMembers(servername: Pcwstr, groupname: Pcwstr, level: UInt, buf: ConstPtr, totalentries: UInt): UInt =
     if (windowsWin32NetworkmanagementNetmanagementNapiAvailable) wasmWindowssysWindowsWin32NetworkmanagementNetmanagementNetLocalGroupDelMembers(servername.rawAddress.toString(), groupname.rawAddress.toString(), level.toInt(), buf.rawAddress.toString(), totalentries.toInt()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun netLocalGroupEnum(servername: Pcwstr, level: UInt, bufptr: MutPtr<MutPtr<UByte>>, prefmaxlen: UInt, entriesread: MutPtr<UInt>, totalentries: MutPtr<UInt>, resumehandle: MutPtr<ULong>): UInt =
+public actual fun netLocalGroupEnum(servername: Pcwstr, level: UInt, bufptr: MutPtr, prefmaxlen: UInt, entriesread: MutPtr, totalentries: MutPtr, resumehandle: MutPtr): UInt =
     if (windowsWin32NetworkmanagementNetmanagementNapiAvailable) wasmWindowssysWindowsWin32NetworkmanagementNetmanagementNetLocalGroupEnum(servername.rawAddress.toString(), level.toInt(), bufptr.rawAddress.toString(), prefmaxlen.toInt(), entriesread.rawAddress.toString(), totalentries.rawAddress.toString(), resumehandle.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun netLocalGroupGetInfo(servername: Pcwstr, groupname: Pcwstr, level: UInt, bufptr: MutPtr<MutPtr<UByte>>): UInt =
+public actual fun netLocalGroupGetInfo(servername: Pcwstr, groupname: Pcwstr, level: UInt, bufptr: MutPtr): UInt =
     if (windowsWin32NetworkmanagementNetmanagementNapiAvailable) wasmWindowssysWindowsWin32NetworkmanagementNetmanagementNetLocalGroupGetInfo(servername.rawAddress.toString(), groupname.rawAddress.toString(), level.toInt(), bufptr.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun netLocalGroupGetMembers(servername: Pcwstr, localgroupname: Pcwstr, level: UInt, bufptr: MutPtr<MutPtr<UByte>>, prefmaxlen: UInt, entriesread: MutPtr<UInt>, totalentries: MutPtr<UInt>, resumehandle: MutPtr<ULong>): UInt =
+public actual fun netLocalGroupGetMembers(servername: Pcwstr, localgroupname: Pcwstr, level: UInt, bufptr: MutPtr, prefmaxlen: UInt, entriesread: MutPtr, totalentries: MutPtr, resumehandle: MutPtr): UInt =
     if (windowsWin32NetworkmanagementNetmanagementNapiAvailable) wasmWindowssysWindowsWin32NetworkmanagementNetmanagementNetLocalGroupGetMembers(servername.rawAddress.toString(), localgroupname.rawAddress.toString(), level.toInt(), bufptr.rawAddress.toString(), prefmaxlen.toInt(), entriesread.rawAddress.toString(), totalentries.rawAddress.toString(), resumehandle.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun netLocalGroupSetInfo(servername: Pcwstr, groupname: Pcwstr, level: UInt, buf: ConstPtr<UByte>, parmErr: MutPtr<UInt>): UInt =
+public actual fun netLocalGroupSetInfo(servername: Pcwstr, groupname: Pcwstr, level: UInt, buf: ConstPtr, parmErr: MutPtr): UInt =
     if (windowsWin32NetworkmanagementNetmanagementNapiAvailable) wasmWindowssysWindowsWin32NetworkmanagementNetmanagementNetLocalGroupSetInfo(servername.rawAddress.toString(), groupname.rawAddress.toString(), level.toInt(), buf.rawAddress.toString(), parmErr.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun netLocalGroupSetMembers(servername: Pcwstr, groupname: Pcwstr, level: UInt, buf: ConstPtr<UByte>, totalentries: UInt): UInt =
+public actual fun netLocalGroupSetMembers(servername: Pcwstr, groupname: Pcwstr, level: UInt, buf: ConstPtr, totalentries: UInt): UInt =
     if (windowsWin32NetworkmanagementNetmanagementNapiAvailable) wasmWindowssysWindowsWin32NetworkmanagementNetmanagementNetLocalGroupSetMembers(servername.rawAddress.toString(), groupname.rawAddress.toString(), level.toInt(), buf.rawAddress.toString(), totalentries.toInt()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun netMessageBufferSend(servername: Pcwstr, msgname: Pcwstr, fromname: Pcwstr, buf: ConstPtr<UByte>, buflen: UInt): UInt =
+public actual fun netMessageBufferSend(servername: Pcwstr, msgname: Pcwstr, fromname: Pcwstr, buf: ConstPtr, buflen: UInt): UInt =
     if (windowsWin32NetworkmanagementNetmanagementNapiAvailable) wasmWindowssysWindowsWin32NetworkmanagementNetmanagementNetMessageBufferSend(servername.rawAddress.toString(), msgname.rawAddress.toString(), fromname.rawAddress.toString(), buf.rawAddress.toString(), buflen.toInt()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun netMessageNameAdd(servername: Pcwstr, msgname: Pcwstr): UInt =
@@ -768,25 +766,25 @@ public actual fun netMessageNameAdd(servername: Pcwstr, msgname: Pcwstr): UInt =
 public actual fun netMessageNameDel(servername: Pcwstr, msgname: Pcwstr): UInt =
     if (windowsWin32NetworkmanagementNetmanagementNapiAvailable) wasmWindowssysWindowsWin32NetworkmanagementNetmanagementNetMessageNameDel(servername.rawAddress.toString(), msgname.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun netMessageNameEnum(servername: Pcwstr, level: UInt, bufptr: ConstPtr<ConstPtr<UByte>>, prefmaxlen: UInt, entriesread: MutPtr<UInt>, totalentries: MutPtr<UInt>, resumeHandle: MutPtr<UInt>): UInt =
+public actual fun netMessageNameEnum(servername: Pcwstr, level: UInt, bufptr: ConstPtr, prefmaxlen: UInt, entriesread: MutPtr, totalentries: MutPtr, resumeHandle: MutPtr): UInt =
     if (windowsWin32NetworkmanagementNetmanagementNapiAvailable) wasmWindowssysWindowsWin32NetworkmanagementNetmanagementNetMessageNameEnum(servername.rawAddress.toString(), level.toInt(), bufptr.rawAddress.toString(), prefmaxlen.toInt(), entriesread.rawAddress.toString(), totalentries.rawAddress.toString(), resumeHandle.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun netMessageNameGetInfo(servername: Pcwstr, msgname: Pcwstr, level: UInt, bufptr: ConstPtr<ConstPtr<UByte>>): UInt =
+public actual fun netMessageNameGetInfo(servername: Pcwstr, msgname: Pcwstr, level: UInt, bufptr: ConstPtr): UInt =
     if (windowsWin32NetworkmanagementNetmanagementNapiAvailable) wasmWindowssysWindowsWin32NetworkmanagementNetmanagementNetMessageNameGetInfo(servername.rawAddress.toString(), msgname.rawAddress.toString(), level.toInt(), bufptr.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun netProvisionComputerAccount(lpdomain: Pcwstr, lpmachinename: Pcwstr, lpmachineaccountou: Pcwstr, lpdcname: Pcwstr, dwoptions: NetsetupProvision, pprovisionbindata: MutPtr<MutPtr<UByte>>, pdwprovisionbindatasize: MutPtr<UInt>, pprovisiontextdata: MutPtr<Pwstr>): UInt =
+public actual fun netProvisionComputerAccount(lpdomain: Pcwstr, lpmachinename: Pcwstr, lpmachineaccountou: Pcwstr, lpdcname: Pcwstr, dwoptions: NetsetupProvision, pprovisionbindata: MutPtr, pdwprovisionbindatasize: MutPtr, pprovisiontextdata: MutPtr): UInt =
     if (windowsWin32NetworkmanagementNetmanagementNapiAvailable) wasmWindowssysWindowsWin32NetworkmanagementNetmanagementNetProvisionComputerAccount(lpdomain.rawAddress.toString(), lpmachinename.rawAddress.toString(), lpmachineaccountou.rawAddress.toString(), lpdcname.rawAddress.toString(), dwoptions.toInt(), pprovisionbindata.rawAddress.toString(), pdwprovisionbindatasize.rawAddress.toString(), pprovisiontextdata.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun netQueryDisplayInformation(servername: Pcwstr, level: UInt, index: UInt, entriesrequested: UInt, preferredmaximumlength: UInt, returnedentrycount: MutPtr<UInt>, sortedbuffer: MutPtr<MutPtr<CVoid>>): UInt =
+public actual fun netQueryDisplayInformation(servername: Pcwstr, level: UInt, index: UInt, entriesrequested: UInt, preferredmaximumlength: UInt, returnedentrycount: MutPtr, sortedbuffer: MutPtr): UInt =
     if (windowsWin32NetworkmanagementNetmanagementNapiAvailable) wasmWindowssysWindowsWin32NetworkmanagementNetmanagementNetQueryDisplayInformation(servername.rawAddress.toString(), level.toInt(), index.toInt(), entriesrequested.toInt(), preferredmaximumlength.toInt(), returnedentrycount.rawAddress.toString(), sortedbuffer.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun netQueryServiceAccount(servername: Pcwstr, accountname: Pcwstr, infolevel: UInt, buffer: MutPtr<MutPtr<UByte>>): Ntstatus =
+public actual fun netQueryServiceAccount(servername: Pcwstr, accountname: Pcwstr, infolevel: UInt, buffer: MutPtr): Ntstatus =
     if (windowsWin32NetworkmanagementNetmanagementNapiAvailable) wasmWindowssysWindowsWin32NetworkmanagementNetmanagementNetQueryServiceAccount(servername.rawAddress.toString(), accountname.rawAddress.toString(), infolevel.toInt(), buffer.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun netRemoteComputerSupports(uncservername: Pcwstr, optionswanted: NetRemoteComputerSupportsOptions, optionssupported: MutPtr<UInt>): UInt =
+public actual fun netRemoteComputerSupports(uncservername: Pcwstr, optionswanted: NetRemoteComputerSupportsOptions, optionssupported: MutPtr): UInt =
     if (windowsWin32NetworkmanagementNetmanagementNapiAvailable) wasmWindowssysWindowsWin32NetworkmanagementNetmanagementNetRemoteComputerSupports(uncservername.rawAddress.toString(), optionswanted.toInt(), optionssupported.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun netRemoteTOD(uncservername: Pcwstr, bufferptr: MutPtr<MutPtr<UByte>>): UInt =
+public actual fun netRemoteTOD(uncservername: Pcwstr, bufferptr: MutPtr): UInt =
     if (windowsWin32NetworkmanagementNetmanagementNapiAvailable) wasmWindowssysWindowsWin32NetworkmanagementNetmanagementNetRemoteTOD(uncservername.rawAddress.toString(), bufferptr.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun netRemoveAlternateComputerName(server: Pcwstr, alternatename: Pcwstr, domainaccount: Pcwstr, domainaccountpassword: Pcwstr, reserved: UInt): UInt =
@@ -798,40 +796,40 @@ public actual fun netRemoveServiceAccount(servername: Pcwstr, accountname: Pcwst
 public actual fun netRenameMachineInDomain(lpserver: Pcwstr, lpnewmachinename: Pcwstr, lpaccount: Pcwstr, lppassword: Pcwstr, frenameoptions: UInt): UInt =
     if (windowsWin32NetworkmanagementNetmanagementNapiAvailable) wasmWindowssysWindowsWin32NetworkmanagementNetmanagementNetRenameMachineInDomain(lpserver.rawAddress.toString(), lpnewmachinename.rawAddress.toString(), lpaccount.rawAddress.toString(), lppassword.rawAddress.toString(), frenameoptions.toInt()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun netReplExportDirAdd(servername: Pcwstr, level: UInt, buf: ConstPtr<UByte>, parmErr: MutPtr<UInt>): UInt =
+public actual fun netReplExportDirAdd(servername: Pcwstr, level: UInt, buf: ConstPtr, parmErr: MutPtr): UInt =
     if (windowsWin32NetworkmanagementNetmanagementNapiAvailable) wasmWindowssysWindowsWin32NetworkmanagementNetmanagementNetReplExportDirAdd(servername.rawAddress.toString(), level.toInt(), buf.rawAddress.toString(), parmErr.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun netReplExportDirDel(servername: Pcwstr, dirname: Pcwstr): UInt =
     if (windowsWin32NetworkmanagementNetmanagementNapiAvailable) wasmWindowssysWindowsWin32NetworkmanagementNetmanagementNetReplExportDirDel(servername.rawAddress.toString(), dirname.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun netReplExportDirEnum(servername: Pcwstr, level: UInt, bufptr: MutPtr<MutPtr<UByte>>, prefmaxlen: UInt, entriesread: MutPtr<UInt>, totalentries: MutPtr<UInt>, resumehandle: MutPtr<UInt>): UInt =
+public actual fun netReplExportDirEnum(servername: Pcwstr, level: UInt, bufptr: MutPtr, prefmaxlen: UInt, entriesread: MutPtr, totalentries: MutPtr, resumehandle: MutPtr): UInt =
     if (windowsWin32NetworkmanagementNetmanagementNapiAvailable) wasmWindowssysWindowsWin32NetworkmanagementNetmanagementNetReplExportDirEnum(servername.rawAddress.toString(), level.toInt(), bufptr.rawAddress.toString(), prefmaxlen.toInt(), entriesread.rawAddress.toString(), totalentries.rawAddress.toString(), resumehandle.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun netReplExportDirGetInfo(servername: Pcwstr, dirname: Pcwstr, level: UInt, bufptr: MutPtr<MutPtr<UByte>>): UInt =
+public actual fun netReplExportDirGetInfo(servername: Pcwstr, dirname: Pcwstr, level: UInt, bufptr: MutPtr): UInt =
     if (windowsWin32NetworkmanagementNetmanagementNapiAvailable) wasmWindowssysWindowsWin32NetworkmanagementNetmanagementNetReplExportDirGetInfo(servername.rawAddress.toString(), dirname.rawAddress.toString(), level.toInt(), bufptr.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun netReplExportDirLock(servername: Pcwstr, dirname: Pcwstr): UInt =
     if (windowsWin32NetworkmanagementNetmanagementNapiAvailable) wasmWindowssysWindowsWin32NetworkmanagementNetmanagementNetReplExportDirLock(servername.rawAddress.toString(), dirname.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun netReplExportDirSetInfo(servername: Pcwstr, dirname: Pcwstr, level: UInt, buf: ConstPtr<UByte>, parmErr: MutPtr<UInt>): UInt =
+public actual fun netReplExportDirSetInfo(servername: Pcwstr, dirname: Pcwstr, level: UInt, buf: ConstPtr, parmErr: MutPtr): UInt =
     if (windowsWin32NetworkmanagementNetmanagementNapiAvailable) wasmWindowssysWindowsWin32NetworkmanagementNetmanagementNetReplExportDirSetInfo(servername.rawAddress.toString(), dirname.rawAddress.toString(), level.toInt(), buf.rawAddress.toString(), parmErr.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun netReplExportDirUnlock(servername: Pcwstr, dirname: Pcwstr, unlockforce: UInt): UInt =
     if (windowsWin32NetworkmanagementNetmanagementNapiAvailable) wasmWindowssysWindowsWin32NetworkmanagementNetmanagementNetReplExportDirUnlock(servername.rawAddress.toString(), dirname.rawAddress.toString(), unlockforce.toInt()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun netReplGetInfo(servername: Pcwstr, level: UInt, bufptr: MutPtr<MutPtr<UByte>>): UInt =
+public actual fun netReplGetInfo(servername: Pcwstr, level: UInt, bufptr: MutPtr): UInt =
     if (windowsWin32NetworkmanagementNetmanagementNapiAvailable) wasmWindowssysWindowsWin32NetworkmanagementNetmanagementNetReplGetInfo(servername.rawAddress.toString(), level.toInt(), bufptr.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun netReplImportDirAdd(servername: Pcwstr, level: UInt, buf: ConstPtr<UByte>, parmErr: MutPtr<UInt>): UInt =
+public actual fun netReplImportDirAdd(servername: Pcwstr, level: UInt, buf: ConstPtr, parmErr: MutPtr): UInt =
     if (windowsWin32NetworkmanagementNetmanagementNapiAvailable) wasmWindowssysWindowsWin32NetworkmanagementNetmanagementNetReplImportDirAdd(servername.rawAddress.toString(), level.toInt(), buf.rawAddress.toString(), parmErr.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun netReplImportDirDel(servername: Pcwstr, dirname: Pcwstr): UInt =
     if (windowsWin32NetworkmanagementNetmanagementNapiAvailable) wasmWindowssysWindowsWin32NetworkmanagementNetmanagementNetReplImportDirDel(servername.rawAddress.toString(), dirname.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun netReplImportDirEnum(servername: Pcwstr, level: UInt, bufptr: MutPtr<MutPtr<UByte>>, prefmaxlen: UInt, entriesread: MutPtr<UInt>, totalentries: MutPtr<UInt>, resumehandle: MutPtr<UInt>): UInt =
+public actual fun netReplImportDirEnum(servername: Pcwstr, level: UInt, bufptr: MutPtr, prefmaxlen: UInt, entriesread: MutPtr, totalentries: MutPtr, resumehandle: MutPtr): UInt =
     if (windowsWin32NetworkmanagementNetmanagementNapiAvailable) wasmWindowssysWindowsWin32NetworkmanagementNetmanagementNetReplImportDirEnum(servername.rawAddress.toString(), level.toInt(), bufptr.rawAddress.toString(), prefmaxlen.toInt(), entriesread.rawAddress.toString(), totalentries.rawAddress.toString(), resumehandle.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun netReplImportDirGetInfo(servername: Pcwstr, dirname: Pcwstr, level: UInt, bufptr: MutPtr<MutPtr<UByte>>): UInt =
+public actual fun netReplImportDirGetInfo(servername: Pcwstr, dirname: Pcwstr, level: UInt, bufptr: MutPtr): UInt =
     if (windowsWin32NetworkmanagementNetmanagementNapiAvailable) wasmWindowssysWindowsWin32NetworkmanagementNetmanagementNetReplImportDirGetInfo(servername.rawAddress.toString(), dirname.rawAddress.toString(), level.toInt(), bufptr.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun netReplImportDirLock(servername: Pcwstr, dirname: Pcwstr): UInt =
@@ -840,25 +838,25 @@ public actual fun netReplImportDirLock(servername: Pcwstr, dirname: Pcwstr): UIn
 public actual fun netReplImportDirUnlock(servername: Pcwstr, dirname: Pcwstr, unlockforce: UInt): UInt =
     if (windowsWin32NetworkmanagementNetmanagementNapiAvailable) wasmWindowssysWindowsWin32NetworkmanagementNetmanagementNetReplImportDirUnlock(servername.rawAddress.toString(), dirname.rawAddress.toString(), unlockforce.toInt()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun netReplSetInfo(servername: Pcwstr, level: UInt, buf: ConstPtr<UByte>, parmErr: MutPtr<UInt>): UInt =
+public actual fun netReplSetInfo(servername: Pcwstr, level: UInt, buf: ConstPtr, parmErr: MutPtr): UInt =
     if (windowsWin32NetworkmanagementNetmanagementNapiAvailable) wasmWindowssysWindowsWin32NetworkmanagementNetmanagementNetReplSetInfo(servername.rawAddress.toString(), level.toInt(), buf.rawAddress.toString(), parmErr.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun netRequestOfflineDomainJoin(pprovisionbindata: ConstPtr<UByte>, cbprovisionbindatasize: UInt, dwoptions: NetRequestProvisionOptions, lpwindowspath: Pcwstr): UInt =
+public actual fun netRequestOfflineDomainJoin(pprovisionbindata: ConstPtr, cbprovisionbindatasize: UInt, dwoptions: NetRequestProvisionOptions, lpwindowspath: Pcwstr): UInt =
     if (windowsWin32NetworkmanagementNetmanagementNapiAvailable) wasmWindowssysWindowsWin32NetworkmanagementNetmanagementNetRequestOfflineDomainJoin(pprovisionbindata.rawAddress.toString(), cbprovisionbindatasize.toInt(), dwoptions.toInt(), lpwindowspath.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun netRequestProvisioningPackageInstall(ppackagebindata: ConstPtr<UByte>, dwpackagebindatasize: UInt, dwprovisionoptions: NetRequestProvisionOptions, lpwindowspath: Pcwstr, pvreserved: ConstPtr<CVoid>): UInt =
+public actual fun netRequestProvisioningPackageInstall(ppackagebindata: ConstPtr, dwpackagebindatasize: UInt, dwprovisionoptions: NetRequestProvisionOptions, lpwindowspath: Pcwstr, pvreserved: ConstPtr): UInt =
     if (windowsWin32NetworkmanagementNetmanagementNapiAvailable) wasmWindowssysWindowsWin32NetworkmanagementNetmanagementNetRequestProvisioningPackageInstall(ppackagebindata.rawAddress.toString(), dwpackagebindatasize.toInt(), dwprovisionoptions.toInt(), lpwindowspath.rawAddress.toString(), pvreserved.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun netScheduleJobAdd(servername: Pcwstr, buffer: MutPtr<UByte>, jobid: MutPtr<UInt>): UInt =
+public actual fun netScheduleJobAdd(servername: Pcwstr, buffer: MutPtr, jobid: MutPtr): UInt =
     if (windowsWin32NetworkmanagementNetmanagementNapiAvailable) wasmWindowssysWindowsWin32NetworkmanagementNetmanagementNetScheduleJobAdd(servername.rawAddress.toString(), buffer.rawAddress.toString(), jobid.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun netScheduleJobDel(servername: Pcwstr, minjobid: UInt, maxjobid: UInt): UInt =
     if (windowsWin32NetworkmanagementNetmanagementNapiAvailable) wasmWindowssysWindowsWin32NetworkmanagementNetmanagementNetScheduleJobDel(servername.rawAddress.toString(), minjobid.toInt(), maxjobid.toInt()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun netScheduleJobEnum(servername: Pcwstr, pointertobuffer: MutPtr<MutPtr<UByte>>, prefferedmaximumlength: UInt, entriesread: MutPtr<UInt>, totalentries: MutPtr<UInt>, resumehandle: MutPtr<UInt>): UInt =
+public actual fun netScheduleJobEnum(servername: Pcwstr, pointertobuffer: MutPtr, prefferedmaximumlength: UInt, entriesread: MutPtr, totalentries: MutPtr, resumehandle: MutPtr): UInt =
     if (windowsWin32NetworkmanagementNetmanagementNapiAvailable) wasmWindowssysWindowsWin32NetworkmanagementNetmanagementNetScheduleJobEnum(servername.rawAddress.toString(), pointertobuffer.rawAddress.toString(), prefferedmaximumlength.toInt(), entriesread.rawAddress.toString(), totalentries.rawAddress.toString(), resumehandle.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun netScheduleJobGetInfo(servername: Pcwstr, jobid: UInt, pointertobuffer: MutPtr<MutPtr<UByte>>): UInt =
+public actual fun netScheduleJobGetInfo(servername: Pcwstr, jobid: UInt, pointertobuffer: MutPtr): UInt =
     if (windowsWin32NetworkmanagementNetmanagementNapiAvailable) wasmWindowssysWindowsWin32NetworkmanagementNetmanagementNetScheduleJobGetInfo(servername.rawAddress.toString(), jobid.toInt(), pointertobuffer.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun netServerComputerNameAdd(servername: Pcwstr, emulateddomainname: Pcwstr, emulatedservername: Pcwstr): UInt =
@@ -867,40 +865,40 @@ public actual fun netServerComputerNameAdd(servername: Pcwstr, emulateddomainnam
 public actual fun netServerComputerNameDel(servername: Pcwstr, emulatedservername: Pcwstr): UInt =
     if (windowsWin32NetworkmanagementNetmanagementNapiAvailable) wasmWindowssysWindowsWin32NetworkmanagementNetmanagementNetServerComputerNameDel(servername.rawAddress.toString(), emulatedservername.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun netServerDiskEnum(servername: Pcwstr, level: UInt, bufptr: MutPtr<MutPtr<UByte>>, prefmaxlen: UInt, entriesread: MutPtr<UInt>, totalentries: MutPtr<UInt>, resumeHandle: MutPtr<UInt>): UInt =
+public actual fun netServerDiskEnum(servername: Pcwstr, level: UInt, bufptr: MutPtr, prefmaxlen: UInt, entriesread: MutPtr, totalentries: MutPtr, resumeHandle: MutPtr): UInt =
     if (windowsWin32NetworkmanagementNetmanagementNapiAvailable) wasmWindowssysWindowsWin32NetworkmanagementNetmanagementNetServerDiskEnum(servername.rawAddress.toString(), level.toInt(), bufptr.rawAddress.toString(), prefmaxlen.toInt(), entriesread.rawAddress.toString(), totalentries.rawAddress.toString(), resumeHandle.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun netServerEnum(servername: Pcwstr, level: UInt, bufptr: MutPtr<MutPtr<UByte>>, prefmaxlen: UInt, entriesread: MutPtr<UInt>, totalentries: MutPtr<UInt>, servertype: NetServerType, domain: Pcwstr, resumeHandle: MutPtr<UInt>): UInt =
+public actual fun netServerEnum(servername: Pcwstr, level: UInt, bufptr: MutPtr, prefmaxlen: UInt, entriesread: MutPtr, totalentries: MutPtr, servertype: NetServerType, domain: Pcwstr, resumeHandle: MutPtr): UInt =
     if (windowsWin32NetworkmanagementNetmanagementNapiAvailable) wasmWindowssysWindowsWin32NetworkmanagementNetmanagementNetServerEnum(servername.rawAddress.toString(), level.toInt(), bufptr.rawAddress.toString(), prefmaxlen.toInt(), entriesread.rawAddress.toString(), totalentries.rawAddress.toString(), servertype.toInt(), domain.rawAddress.toString(), resumeHandle.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun netServerGetInfo(servername: Pcwstr, level: UInt, bufptr: MutPtr<MutPtr<UByte>>): UInt =
+public actual fun netServerGetInfo(servername: Pcwstr, level: UInt, bufptr: MutPtr): UInt =
     if (windowsWin32NetworkmanagementNetmanagementNapiAvailable) wasmWindowssysWindowsWin32NetworkmanagementNetmanagementNetServerGetInfo(servername.rawAddress.toString(), level.toInt(), bufptr.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun netServerSetInfo(servername: Pcwstr, level: UInt, buf: ConstPtr<UByte>, parmerror: MutPtr<UInt>): UInt =
+public actual fun netServerSetInfo(servername: Pcwstr, level: UInt, buf: ConstPtr, parmerror: MutPtr): UInt =
     if (windowsWin32NetworkmanagementNetmanagementNapiAvailable) wasmWindowssysWindowsWin32NetworkmanagementNetmanagementNetServerSetInfo(servername.rawAddress.toString(), level.toInt(), buf.rawAddress.toString(), parmerror.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun netServerTransportAdd(servername: Pcwstr, level: UInt, bufptr: ConstPtr<UByte>): UInt =
+public actual fun netServerTransportAdd(servername: Pcwstr, level: UInt, bufptr: ConstPtr): UInt =
     if (windowsWin32NetworkmanagementNetmanagementNapiAvailable) wasmWindowssysWindowsWin32NetworkmanagementNetmanagementNetServerTransportAdd(servername.rawAddress.toString(), level.toInt(), bufptr.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun netServerTransportAddEx(servername: Pcwstr, level: UInt, bufptr: ConstPtr<UByte>): UInt =
+public actual fun netServerTransportAddEx(servername: Pcwstr, level: UInt, bufptr: ConstPtr): UInt =
     if (windowsWin32NetworkmanagementNetmanagementNapiAvailable) wasmWindowssysWindowsWin32NetworkmanagementNetmanagementNetServerTransportAddEx(servername.rawAddress.toString(), level.toInt(), bufptr.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun netServerTransportDel(servername: Pcwstr, level: UInt, bufptr: ConstPtr<UByte>): UInt =
+public actual fun netServerTransportDel(servername: Pcwstr, level: UInt, bufptr: ConstPtr): UInt =
     if (windowsWin32NetworkmanagementNetmanagementNapiAvailable) wasmWindowssysWindowsWin32NetworkmanagementNetmanagementNetServerTransportDel(servername.rawAddress.toString(), level.toInt(), bufptr.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun netServerTransportEnum(servername: Pcwstr, level: UInt, bufptr: MutPtr<MutPtr<UByte>>, prefmaxlen: UInt, entriesread: MutPtr<UInt>, totalentries: MutPtr<UInt>, resumeHandle: MutPtr<UInt>): UInt =
+public actual fun netServerTransportEnum(servername: Pcwstr, level: UInt, bufptr: MutPtr, prefmaxlen: UInt, entriesread: MutPtr, totalentries: MutPtr, resumeHandle: MutPtr): UInt =
     if (windowsWin32NetworkmanagementNetmanagementNapiAvailable) wasmWindowssysWindowsWin32NetworkmanagementNetmanagementNetServerTransportEnum(servername.rawAddress.toString(), level.toInt(), bufptr.rawAddress.toString(), prefmaxlen.toInt(), entriesread.rawAddress.toString(), totalentries.rawAddress.toString(), resumeHandle.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun netServiceControl(servername: Pcwstr, service: Pcwstr, opcode: UInt, arg: UInt, bufptr: MutPtr<MutPtr<UByte>>): UInt =
+public actual fun netServiceControl(servername: Pcwstr, service: Pcwstr, opcode: UInt, arg: UInt, bufptr: MutPtr): UInt =
     if (windowsWin32NetworkmanagementNetmanagementNapiAvailable) wasmWindowssysWindowsWin32NetworkmanagementNetmanagementNetServiceControl(servername.rawAddress.toString(), service.rawAddress.toString(), opcode.toInt(), arg.toInt(), bufptr.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun netServiceEnum(servername: Pcwstr, level: UInt, bufptr: MutPtr<MutPtr<UByte>>, prefmaxlen: UInt, entriesread: MutPtr<UInt>, totalentries: MutPtr<UInt>, resumeHandle: MutPtr<UInt>): UInt =
+public actual fun netServiceEnum(servername: Pcwstr, level: UInt, bufptr: MutPtr, prefmaxlen: UInt, entriesread: MutPtr, totalentries: MutPtr, resumeHandle: MutPtr): UInt =
     if (windowsWin32NetworkmanagementNetmanagementNapiAvailable) wasmWindowssysWindowsWin32NetworkmanagementNetmanagementNetServiceEnum(servername.rawAddress.toString(), level.toInt(), bufptr.rawAddress.toString(), prefmaxlen.toInt(), entriesread.rawAddress.toString(), totalentries.rawAddress.toString(), resumeHandle.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun netServiceGetInfo(servername: Pcwstr, service: Pcwstr, level: UInt, bufptr: MutPtr<MutPtr<UByte>>): UInt =
+public actual fun netServiceGetInfo(servername: Pcwstr, service: Pcwstr, level: UInt, bufptr: MutPtr): UInt =
     if (windowsWin32NetworkmanagementNetmanagementNapiAvailable) wasmWindowssysWindowsWin32NetworkmanagementNetmanagementNetServiceGetInfo(servername.rawAddress.toString(), service.rawAddress.toString(), level.toInt(), bufptr.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun netServiceInstall(servername: Pcwstr, service: Pcwstr, argc: UInt, argv: ConstPtr<Pcwstr>, bufptr: MutPtr<MutPtr<UByte>>): UInt =
+public actual fun netServiceInstall(servername: Pcwstr, service: Pcwstr, argc: UInt, argv: ConstPtr, bufptr: MutPtr): UInt =
     if (windowsWin32NetworkmanagementNetmanagementNapiAvailable) wasmWindowssysWindowsWin32NetworkmanagementNetmanagementNetServiceInstall(servername.rawAddress.toString(), service.rawAddress.toString(), argc.toInt(), argv.rawAddress.toString(), bufptr.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun netSetPrimaryComputerName(server: Pcwstr, primaryname: Pcwstr, domainaccount: Pcwstr, domainaccountpassword: Pcwstr, reserved: UInt): UInt =
@@ -909,19 +907,19 @@ public actual fun netSetPrimaryComputerName(server: Pcwstr, primaryname: Pcwstr,
 public actual fun netUnjoinDomain(lpserver: Pcwstr, lpaccount: Pcwstr, lppassword: Pcwstr, funjoinoptions: UInt): UInt =
     if (windowsWin32NetworkmanagementNetmanagementNapiAvailable) wasmWindowssysWindowsWin32NetworkmanagementNetmanagementNetUnjoinDomain(lpserver.rawAddress.toString(), lpaccount.rawAddress.toString(), lppassword.rawAddress.toString(), funjoinoptions.toInt()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun netUseAdd(servername: ConstPtr<Byte>, levelflags: UInt, buf: ConstPtr<UByte>, parmErr: MutPtr<UInt>): UInt =
+public actual fun netUseAdd(servername: ConstPtr, levelflags: UInt, buf: ConstPtr, parmErr: MutPtr): UInt =
     if (windowsWin32NetworkmanagementNetmanagementNapiAvailable) wasmWindowssysWindowsWin32NetworkmanagementNetmanagementNetUseAdd(servername.rawAddress.toString(), levelflags.toInt(), buf.rawAddress.toString(), parmErr.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun netUseDel(uncservername: Pcwstr, usename: Pcwstr, forcelevelflags: ForceLevelFlags): UInt =
     if (windowsWin32NetworkmanagementNetmanagementNapiAvailable) wasmWindowssysWindowsWin32NetworkmanagementNetmanagementNetUseDel(uncservername.rawAddress.toString(), usename.rawAddress.toString(), forcelevelflags.toInt()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun netUseEnum(uncservername: Pcwstr, levelflags: UInt, bufptr: MutPtr<MutPtr<UByte>>, preferedmaximumsize: UInt, entriesread: MutPtr<UInt>, totalentries: MutPtr<UInt>, resumehandle: MutPtr<UInt>): UInt =
+public actual fun netUseEnum(uncservername: Pcwstr, levelflags: UInt, bufptr: MutPtr, preferedmaximumsize: UInt, entriesread: MutPtr, totalentries: MutPtr, resumehandle: MutPtr): UInt =
     if (windowsWin32NetworkmanagementNetmanagementNapiAvailable) wasmWindowssysWindowsWin32NetworkmanagementNetmanagementNetUseEnum(uncservername.rawAddress.toString(), levelflags.toInt(), bufptr.rawAddress.toString(), preferedmaximumsize.toInt(), entriesread.rawAddress.toString(), totalentries.rawAddress.toString(), resumehandle.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun netUseGetInfo(uncservername: Pcwstr, usename: Pcwstr, levelflags: UInt, bufptr: MutPtr<MutPtr<UByte>>): UInt =
+public actual fun netUseGetInfo(uncservername: Pcwstr, usename: Pcwstr, levelflags: UInt, bufptr: MutPtr): UInt =
     if (windowsWin32NetworkmanagementNetmanagementNapiAvailable) wasmWindowssysWindowsWin32NetworkmanagementNetmanagementNetUseGetInfo(uncservername.rawAddress.toString(), usename.rawAddress.toString(), levelflags.toInt(), bufptr.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun netUserAdd(servername: Pcwstr, level: UInt, buf: ConstPtr<UByte>, parmErr: MutPtr<UInt>): UInt =
+public actual fun netUserAdd(servername: Pcwstr, level: UInt, buf: ConstPtr, parmErr: MutPtr): UInt =
     if (windowsWin32NetworkmanagementNetmanagementNapiAvailable) wasmWindowssysWindowsWin32NetworkmanagementNetmanagementNetUserAdd(servername.rawAddress.toString(), level.toInt(), buf.rawAddress.toString(), parmErr.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun netUserChangePassword(domainname: Pcwstr, username: Pcwstr, oldpassword: Pcwstr, newpassword: Pcwstr): UInt =
@@ -930,61 +928,61 @@ public actual fun netUserChangePassword(domainname: Pcwstr, username: Pcwstr, ol
 public actual fun netUserDel(servername: Pcwstr, username: Pcwstr): UInt =
     if (windowsWin32NetworkmanagementNetmanagementNapiAvailable) wasmWindowssysWindowsWin32NetworkmanagementNetmanagementNetUserDel(servername.rawAddress.toString(), username.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun netUserEnum(servername: Pcwstr, level: UInt, filter: NetUserEnumFilterFlags, bufptr: MutPtr<MutPtr<UByte>>, prefmaxlen: UInt, entriesread: MutPtr<UInt>, totalentries: MutPtr<UInt>, resumeHandle: MutPtr<UInt>): UInt =
+public actual fun netUserEnum(servername: Pcwstr, level: UInt, filter: NetUserEnumFilterFlags, bufptr: MutPtr, prefmaxlen: UInt, entriesread: MutPtr, totalentries: MutPtr, resumeHandle: MutPtr): UInt =
     if (windowsWin32NetworkmanagementNetmanagementNapiAvailable) wasmWindowssysWindowsWin32NetworkmanagementNetmanagementNetUserEnum(servername.rawAddress.toString(), level.toInt(), filter.toInt(), bufptr.rawAddress.toString(), prefmaxlen.toInt(), entriesread.rawAddress.toString(), totalentries.rawAddress.toString(), resumeHandle.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun netUserGetGroups(servername: Pcwstr, username: Pcwstr, level: UInt, bufptr: MutPtr<MutPtr<UByte>>, prefmaxlen: UInt, entriesread: MutPtr<UInt>, totalentries: MutPtr<UInt>): UInt =
+public actual fun netUserGetGroups(servername: Pcwstr, username: Pcwstr, level: UInt, bufptr: MutPtr, prefmaxlen: UInt, entriesread: MutPtr, totalentries: MutPtr): UInt =
     if (windowsWin32NetworkmanagementNetmanagementNapiAvailable) wasmWindowssysWindowsWin32NetworkmanagementNetmanagementNetUserGetGroups(servername.rawAddress.toString(), username.rawAddress.toString(), level.toInt(), bufptr.rawAddress.toString(), prefmaxlen.toInt(), entriesread.rawAddress.toString(), totalentries.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun netUserGetInfo(servername: Pcwstr, username: Pcwstr, level: UInt, bufptr: MutPtr<MutPtr<UByte>>): UInt =
+public actual fun netUserGetInfo(servername: Pcwstr, username: Pcwstr, level: UInt, bufptr: MutPtr): UInt =
     if (windowsWin32NetworkmanagementNetmanagementNapiAvailable) wasmWindowssysWindowsWin32NetworkmanagementNetmanagementNetUserGetInfo(servername.rawAddress.toString(), username.rawAddress.toString(), level.toInt(), bufptr.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun netUserGetLocalGroups(servername: Pcwstr, username: Pcwstr, level: UInt, flags: UInt, bufptr: MutPtr<MutPtr<UByte>>, prefmaxlen: UInt, entriesread: MutPtr<UInt>, totalentries: MutPtr<UInt>): UInt =
+public actual fun netUserGetLocalGroups(servername: Pcwstr, username: Pcwstr, level: UInt, flags: UInt, bufptr: MutPtr, prefmaxlen: UInt, entriesread: MutPtr, totalentries: MutPtr): UInt =
     if (windowsWin32NetworkmanagementNetmanagementNapiAvailable) wasmWindowssysWindowsWin32NetworkmanagementNetmanagementNetUserGetLocalGroups(servername.rawAddress.toString(), username.rawAddress.toString(), level.toInt(), flags.toInt(), bufptr.rawAddress.toString(), prefmaxlen.toInt(), entriesread.rawAddress.toString(), totalentries.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun netUserModalsGet(servername: Pcwstr, level: UInt, bufptr: MutPtr<MutPtr<UByte>>): UInt =
+public actual fun netUserModalsGet(servername: Pcwstr, level: UInt, bufptr: MutPtr): UInt =
     if (windowsWin32NetworkmanagementNetmanagementNapiAvailable) wasmWindowssysWindowsWin32NetworkmanagementNetmanagementNetUserModalsGet(servername.rawAddress.toString(), level.toInt(), bufptr.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun netUserModalsSet(servername: Pcwstr, level: UInt, buf: ConstPtr<UByte>, parmErr: MutPtr<UInt>): UInt =
+public actual fun netUserModalsSet(servername: Pcwstr, level: UInt, buf: ConstPtr, parmErr: MutPtr): UInt =
     if (windowsWin32NetworkmanagementNetmanagementNapiAvailable) wasmWindowssysWindowsWin32NetworkmanagementNetmanagementNetUserModalsSet(servername.rawAddress.toString(), level.toInt(), buf.rawAddress.toString(), parmErr.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun netUserSetGroups(servername: Pcwstr, username: Pcwstr, level: UInt, buf: ConstPtr<UByte>, numEntries: UInt): UInt =
+public actual fun netUserSetGroups(servername: Pcwstr, username: Pcwstr, level: UInt, buf: ConstPtr, numEntries: UInt): UInt =
     if (windowsWin32NetworkmanagementNetmanagementNapiAvailable) wasmWindowssysWindowsWin32NetworkmanagementNetmanagementNetUserSetGroups(servername.rawAddress.toString(), username.rawAddress.toString(), level.toInt(), buf.rawAddress.toString(), numEntries.toInt()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun netUserSetInfo(servername: Pcwstr, username: Pcwstr, level: UInt, buf: ConstPtr<UByte>, parmErr: MutPtr<UInt>): UInt =
+public actual fun netUserSetInfo(servername: Pcwstr, username: Pcwstr, level: UInt, buf: ConstPtr, parmErr: MutPtr): UInt =
     if (windowsWin32NetworkmanagementNetmanagementNapiAvailable) wasmWindowssysWindowsWin32NetworkmanagementNetmanagementNetUserSetInfo(servername.rawAddress.toString(), username.rawAddress.toString(), level.toInt(), buf.rawAddress.toString(), parmErr.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun netValidateName(lpserver: Pcwstr, lpname: Pcwstr, lpaccount: Pcwstr, lppassword: Pcwstr, nametype: NetsetupNameType): UInt =
     if (windowsWin32NetworkmanagementNetmanagementNapiAvailable) wasmWindowssysWindowsWin32NetworkmanagementNetmanagementNetValidateName(lpserver.rawAddress.toString(), lpname.rawAddress.toString(), lpaccount.rawAddress.toString(), lppassword.rawAddress.toString(), nametype).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun netValidatePasswordPolicy(servername: Pcwstr, qualifier: MutPtr<CVoid>, validationtype: NetValidatePasswordType, inputarg: MutPtr<CVoid>, outputarg: MutPtr<MutPtr<CVoid>>): UInt =
+public actual fun netValidatePasswordPolicy(servername: Pcwstr, qualifier: MutPtr, validationtype: NetValidatePasswordType, inputarg: MutPtr, outputarg: MutPtr): UInt =
     if (windowsWin32NetworkmanagementNetmanagementNapiAvailable) wasmWindowssysWindowsWin32NetworkmanagementNetmanagementNetValidatePasswordPolicy(servername.rawAddress.toString(), qualifier.rawAddress.toString(), validationtype, inputarg.rawAddress.toString(), outputarg.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun netValidatePasswordPolicyFree(outputarg: MutPtr<MutPtr<CVoid>>): UInt =
+public actual fun netValidatePasswordPolicyFree(outputarg: MutPtr): UInt =
     if (windowsWin32NetworkmanagementNetmanagementNapiAvailable) wasmWindowssysWindowsWin32NetworkmanagementNetmanagementNetValidatePasswordPolicyFree(outputarg.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun netWkstaGetInfo(servername: Pcwstr, level: UInt, bufptr: MutPtr<MutPtr<UByte>>): UInt =
+public actual fun netWkstaGetInfo(servername: Pcwstr, level: UInt, bufptr: MutPtr): UInt =
     if (windowsWin32NetworkmanagementNetmanagementNapiAvailable) wasmWindowssysWindowsWin32NetworkmanagementNetmanagementNetWkstaGetInfo(servername.rawAddress.toString(), level.toInt(), bufptr.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun netWkstaSetInfo(servername: Pcwstr, level: UInt, buffer: ConstPtr<UByte>, parmErr: MutPtr<UInt>): UInt =
+public actual fun netWkstaSetInfo(servername: Pcwstr, level: UInt, buffer: ConstPtr, parmErr: MutPtr): UInt =
     if (windowsWin32NetworkmanagementNetmanagementNapiAvailable) wasmWindowssysWindowsWin32NetworkmanagementNetmanagementNetWkstaSetInfo(servername.rawAddress.toString(), level.toInt(), buffer.rawAddress.toString(), parmErr.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun netWkstaTransportAdd(servername: ConstPtr<Byte>, level: UInt, buf: ConstPtr<UByte>, parmErr: MutPtr<UInt>): UInt =
+public actual fun netWkstaTransportAdd(servername: ConstPtr, level: UInt, buf: ConstPtr, parmErr: MutPtr): UInt =
     if (windowsWin32NetworkmanagementNetmanagementNapiAvailable) wasmWindowssysWindowsWin32NetworkmanagementNetmanagementNetWkstaTransportAdd(servername.rawAddress.toString(), level.toInt(), buf.rawAddress.toString(), parmErr.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun netWkstaTransportDel(servername: Pcwstr, transportname: Pcwstr, ucond: ForceLevelFlags): UInt =
     if (windowsWin32NetworkmanagementNetmanagementNapiAvailable) wasmWindowssysWindowsWin32NetworkmanagementNetmanagementNetWkstaTransportDel(servername.rawAddress.toString(), transportname.rawAddress.toString(), ucond.toInt()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun netWkstaTransportEnum(servername: ConstPtr<Byte>, level: UInt, bufptr: MutPtr<MutPtr<UByte>>, prefmaxlen: UInt, entriesread: MutPtr<UInt>, totalentries: MutPtr<UInt>, resumeHandle: MutPtr<UInt>): UInt =
+public actual fun netWkstaTransportEnum(servername: ConstPtr, level: UInt, bufptr: MutPtr, prefmaxlen: UInt, entriesread: MutPtr, totalentries: MutPtr, resumeHandle: MutPtr): UInt =
     if (windowsWin32NetworkmanagementNetmanagementNapiAvailable) wasmWindowssysWindowsWin32NetworkmanagementNetmanagementNetWkstaTransportEnum(servername.rawAddress.toString(), level.toInt(), bufptr.rawAddress.toString(), prefmaxlen.toInt(), entriesread.rawAddress.toString(), totalentries.rawAddress.toString(), resumeHandle.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun netWkstaUserEnum(servername: Pcwstr, level: UInt, bufptr: MutPtr<MutPtr<UByte>>, prefmaxlen: UInt, entriesread: MutPtr<UInt>, totalentries: MutPtr<UInt>, resumehandle: MutPtr<UInt>): UInt =
+public actual fun netWkstaUserEnum(servername: Pcwstr, level: UInt, bufptr: MutPtr, prefmaxlen: UInt, entriesread: MutPtr, totalentries: MutPtr, resumehandle: MutPtr): UInt =
     if (windowsWin32NetworkmanagementNetmanagementNapiAvailable) wasmWindowssysWindowsWin32NetworkmanagementNetmanagementNetWkstaUserEnum(servername.rawAddress.toString(), level.toInt(), bufptr.rawAddress.toString(), prefmaxlen.toInt(), entriesread.rawAddress.toString(), totalentries.rawAddress.toString(), resumehandle.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun netWkstaUserGetInfo(reserved: Pcwstr, level: UInt, bufptr: MutPtr<MutPtr<UByte>>): UInt =
+public actual fun netWkstaUserGetInfo(reserved: Pcwstr, level: UInt, bufptr: MutPtr): UInt =
     if (windowsWin32NetworkmanagementNetmanagementNapiAvailable) wasmWindowssysWindowsWin32NetworkmanagementNetmanagementNetWkstaUserGetInfo(reserved.rawAddress.toString(), level.toInt(), bufptr.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun netWkstaUserSetInfo(reserved: Pcwstr, level: UInt, buf: ConstPtr<UByte>, parmErr: MutPtr<UInt>): UInt =
+public actual fun netWkstaUserSetInfo(reserved: Pcwstr, level: UInt, buf: ConstPtr, parmErr: MutPtr): UInt =
     if (windowsWin32NetworkmanagementNetmanagementNapiAvailable) wasmWindowssysWindowsWin32NetworkmanagementNetmanagementNetWkstaUserSetInfo(reserved.rawAddress.toString(), level.toInt(), buf.rawAddress.toString(), parmErr.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun routerAssert(pszfailedassertion: Pcstr, pszfilename: Pcstr, dwlinenumber: UInt, pszmessage: Pcstr) {
@@ -995,10 +993,10 @@ public actual fun routerAssert(pszfailedassertion: Pcstr, pszfilename: Pcstr, dw
     }
 }
 
-public actual fun routerGetErrorStringA(dwerrorcode: UInt, lplpszerrorstring: MutPtr<Pstr>): UInt =
+public actual fun routerGetErrorStringA(dwerrorcode: UInt, lplpszerrorstring: MutPtr): UInt =
     if (windowsWin32NetworkmanagementNetmanagementNapiAvailable) wasmWindowssysWindowsWin32NetworkmanagementNetmanagementRouterGetErrorStringA(dwerrorcode.toInt(), lplpszerrorstring.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun routerGetErrorStringW(dwerrorcode: UInt, lplpwszerrorstring: MutPtr<Pwstr>): UInt =
+public actual fun routerGetErrorStringW(dwerrorcode: UInt, lplpwszerrorstring: MutPtr): UInt =
     if (windowsWin32NetworkmanagementNetmanagementNapiAvailable) wasmWindowssysWindowsWin32NetworkmanagementNetmanagementRouterGetErrorStringW(dwerrorcode.toInt(), lplpwszerrorstring.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun routerLogDeregisterA(hloghandle: Handle) {
@@ -1017,7 +1015,7 @@ public actual fun routerLogDeregisterW(hloghandle: Handle) {
     }
 }
 
-public actual fun routerLogEventA(hloghandle: Handle, dweventtype: UInt, dwmessageid: UInt, dwsubstringcount: UInt, plpszsubstringarray: ConstPtr<Pcstr>, dwerrorcode: UInt) {
+public actual fun routerLogEventA(hloghandle: Handle, dweventtype: UInt, dwmessageid: UInt, dwsubstringcount: UInt, plpszsubstringarray: ConstPtr, dwerrorcode: UInt) {
     if (windowsWin32NetworkmanagementNetmanagementNapiAvailable) {
         wasmWindowssysWindowsWin32NetworkmanagementNetmanagementRouterLogEventA(hloghandle.rawAddress.toString(), dweventtype.toInt(), dwmessageid.toInt(), dwsubstringcount.toInt(), plpszsubstringarray.rawAddress.toString(), dwerrorcode.toInt())
     } else {
@@ -1025,7 +1023,7 @@ public actual fun routerLogEventA(hloghandle: Handle, dweventtype: UInt, dwmessa
     }
 }
 
-public actual fun routerLogEventDataA(hloghandle: Handle, dweventtype: UInt, dwmessageid: UInt, dwsubstringcount: UInt, plpszsubstringarray: ConstPtr<Pcstr>, dwdatabytes: UInt, lpdatabytes: MutPtr<UByte>) {
+public actual fun routerLogEventDataA(hloghandle: Handle, dweventtype: UInt, dwmessageid: UInt, dwsubstringcount: UInt, plpszsubstringarray: ConstPtr, dwdatabytes: UInt, lpdatabytes: MutPtr) {
     if (windowsWin32NetworkmanagementNetmanagementNapiAvailable) {
         wasmWindowssysWindowsWin32NetworkmanagementNetmanagementRouterLogEventDataA(hloghandle.rawAddress.toString(), dweventtype.toInt(), dwmessageid.toInt(), dwsubstringcount.toInt(), plpszsubstringarray.rawAddress.toString(), dwdatabytes.toInt(), lpdatabytes.rawAddress.toString())
     } else {
@@ -1033,7 +1031,7 @@ public actual fun routerLogEventDataA(hloghandle: Handle, dweventtype: UInt, dwm
     }
 }
 
-public actual fun routerLogEventDataW(hloghandle: Handle, dweventtype: UInt, dwmessageid: UInt, dwsubstringcount: UInt, plpszsubstringarray: ConstPtr<Pcwstr>, dwdatabytes: UInt, lpdatabytes: MutPtr<UByte>) {
+public actual fun routerLogEventDataW(hloghandle: Handle, dweventtype: UInt, dwmessageid: UInt, dwsubstringcount: UInt, plpszsubstringarray: ConstPtr, dwdatabytes: UInt, lpdatabytes: MutPtr) {
     if (windowsWin32NetworkmanagementNetmanagementNapiAvailable) {
         wasmWindowssysWindowsWin32NetworkmanagementNetmanagementRouterLogEventDataW(hloghandle.rawAddress.toString(), dweventtype.toInt(), dwmessageid.toInt(), dwsubstringcount.toInt(), plpszsubstringarray.rawAddress.toString(), dwdatabytes.toInt(), lpdatabytes.rawAddress.toString())
     } else {
@@ -1057,7 +1055,7 @@ public actual fun routerLogEventExW(hloghandle: Handle, dweventtype: UInt, dwerr
     }
 }
 
-public actual fun routerLogEventStringA(hloghandle: Handle, dweventtype: UInt, dwmessageid: UInt, dwsubstringcount: UInt, plpszsubstringarray: ConstPtr<Pcstr>, dwerrorcode: UInt, dwerrorindex: UInt) {
+public actual fun routerLogEventStringA(hloghandle: Handle, dweventtype: UInt, dwmessageid: UInt, dwsubstringcount: UInt, plpszsubstringarray: ConstPtr, dwerrorcode: UInt, dwerrorindex: UInt) {
     if (windowsWin32NetworkmanagementNetmanagementNapiAvailable) {
         wasmWindowssysWindowsWin32NetworkmanagementNetmanagementRouterLogEventStringA(hloghandle.rawAddress.toString(), dweventtype.toInt(), dwmessageid.toInt(), dwsubstringcount.toInt(), plpszsubstringarray.rawAddress.toString(), dwerrorcode.toInt(), dwerrorindex.toInt())
     } else {
@@ -1065,7 +1063,7 @@ public actual fun routerLogEventStringA(hloghandle: Handle, dweventtype: UInt, d
     }
 }
 
-public actual fun routerLogEventStringW(hloghandle: Handle, dweventtype: UInt, dwmessageid: UInt, dwsubstringcount: UInt, plpszsubstringarray: ConstPtr<Pcwstr>, dwerrorcode: UInt, dwerrorindex: UInt) {
+public actual fun routerLogEventStringW(hloghandle: Handle, dweventtype: UInt, dwmessageid: UInt, dwsubstringcount: UInt, plpszsubstringarray: ConstPtr, dwerrorcode: UInt, dwerrorindex: UInt) {
     if (windowsWin32NetworkmanagementNetmanagementNapiAvailable) {
         wasmWindowssysWindowsWin32NetworkmanagementNetmanagementRouterLogEventStringW(hloghandle.rawAddress.toString(), dweventtype.toInt(), dwmessageid.toInt(), dwsubstringcount.toInt(), plpszsubstringarray.rawAddress.toString(), dwerrorcode.toInt(), dwerrorindex.toInt())
     } else {
@@ -1073,7 +1071,7 @@ public actual fun routerLogEventStringW(hloghandle: Handle, dweventtype: UInt, d
     }
 }
 
-public actual fun routerLogEventValistExA(hloghandle: Handle, dweventtype: UInt, dwerrorcode: UInt, dwmessageid: UInt, ptszformat: Pcstr, arglist: MutPtr<Byte>) {
+public actual fun routerLogEventValistExA(hloghandle: Handle, dweventtype: UInt, dwerrorcode: UInt, dwmessageid: UInt, ptszformat: Pcstr, arglist: MutPtr) {
     if (windowsWin32NetworkmanagementNetmanagementNapiAvailable) {
         wasmWindowssysWindowsWin32NetworkmanagementNetmanagementRouterLogEventValistExA(hloghandle.rawAddress.toString(), dweventtype.toInt(), dwerrorcode.toInt(), dwmessageid.toInt(), ptszformat.rawAddress.toString(), arglist.rawAddress.toString())
     } else {
@@ -1081,7 +1079,7 @@ public actual fun routerLogEventValistExA(hloghandle: Handle, dweventtype: UInt,
     }
 }
 
-public actual fun routerLogEventValistExW(hloghandle: Handle, dweventtype: UInt, dwerrorcode: UInt, dwmessageid: UInt, ptszformat: Pcwstr, arglist: MutPtr<Byte>) {
+public actual fun routerLogEventValistExW(hloghandle: Handle, dweventtype: UInt, dwerrorcode: UInt, dwmessageid: UInt, ptszformat: Pcwstr, arglist: MutPtr) {
     if (windowsWin32NetworkmanagementNetmanagementNapiAvailable) {
         wasmWindowssysWindowsWin32NetworkmanagementNetmanagementRouterLogEventValistExW(hloghandle.rawAddress.toString(), dweventtype.toInt(), dwerrorcode.toInt(), dwmessageid.toInt(), ptszformat.rawAddress.toString(), arglist.rawAddress.toString())
     } else {
@@ -1089,7 +1087,7 @@ public actual fun routerLogEventValistExW(hloghandle: Handle, dweventtype: UInt,
     }
 }
 
-public actual fun routerLogEventW(hloghandle: Handle, dweventtype: UInt, dwmessageid: UInt, dwsubstringcount: UInt, plpszsubstringarray: ConstPtr<Pcwstr>, dwerrorcode: UInt) {
+public actual fun routerLogEventW(hloghandle: Handle, dweventtype: UInt, dwmessageid: UInt, dwsubstringcount: UInt, plpszsubstringarray: ConstPtr, dwerrorcode: UInt) {
     if (windowsWin32NetworkmanagementNetmanagementNapiAvailable) {
         wasmWindowssysWindowsWin32NetworkmanagementNetmanagementRouterLogEventW(hloghandle.rawAddress.toString(), dweventtype.toInt(), dwmessageid.toInt(), dwsubstringcount.toInt(), plpszsubstringarray.rawAddress.toString(), dwerrorcode.toInt())
     } else {
@@ -1118,16 +1116,16 @@ public actual fun traceDeregisterExW(dwtraceid: UInt, dwflags: UInt): UInt =
 public actual fun traceDeregisterW(dwtraceid: UInt): UInt =
     if (windowsWin32NetworkmanagementNetmanagementNapiAvailable) wasmWindowssysWindowsWin32NetworkmanagementNetmanagementTraceDeregisterW(dwtraceid.toInt()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun traceDumpExA(dwtraceid: UInt, dwflags: UInt, lpbbytes: MutPtr<UByte>, dwbytecount: UInt, dwgroupsize: UInt, baddressprefix: Bool, lpszprefix: Pcstr): UInt =
+public actual fun traceDumpExA(dwtraceid: UInt, dwflags: UInt, lpbbytes: MutPtr, dwbytecount: UInt, dwgroupsize: UInt, baddressprefix: Bool, lpszprefix: Pcstr): UInt =
     if (windowsWin32NetworkmanagementNetmanagementNapiAvailable) wasmWindowssysWindowsWin32NetworkmanagementNetmanagementTraceDumpExA(dwtraceid.toInt(), dwflags.toInt(), lpbbytes.rawAddress.toString(), dwbytecount.toInt(), dwgroupsize.toInt(), baddressprefix, lpszprefix.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun traceDumpExW(dwtraceid: UInt, dwflags: UInt, lpbbytes: MutPtr<UByte>, dwbytecount: UInt, dwgroupsize: UInt, baddressprefix: Bool, lpszprefix: Pcwstr): UInt =
+public actual fun traceDumpExW(dwtraceid: UInt, dwflags: UInt, lpbbytes: MutPtr, dwbytecount: UInt, dwgroupsize: UInt, baddressprefix: Bool, lpszprefix: Pcwstr): UInt =
     if (windowsWin32NetworkmanagementNetmanagementNapiAvailable) wasmWindowssysWindowsWin32NetworkmanagementNetmanagementTraceDumpExW(dwtraceid.toInt(), dwflags.toInt(), lpbbytes.rawAddress.toString(), dwbytecount.toInt(), dwgroupsize.toInt(), baddressprefix, lpszprefix.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun traceGetConsoleA(dwtraceid: UInt, lphconsole: MutPtr<Handle>): UInt =
+public actual fun traceGetConsoleA(dwtraceid: UInt, lphconsole: MutPtr): UInt =
     if (windowsWin32NetworkmanagementNetmanagementNapiAvailable) wasmWindowssysWindowsWin32NetworkmanagementNetmanagementTraceGetConsoleA(dwtraceid.toInt(), lphconsole.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun traceGetConsoleW(dwtraceid: UInt, lphconsole: MutPtr<Handle>): UInt =
+public actual fun traceGetConsoleW(dwtraceid: UInt, lphconsole: MutPtr): UInt =
     if (windowsWin32NetworkmanagementNetmanagementNapiAvailable) wasmWindowssysWindowsWin32NetworkmanagementNetmanagementTraceGetConsoleW(dwtraceid.toInt(), lphconsole.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun tracePrintfA(dwtraceid: UInt, lpszformat: Pcstr, vararg variadicArgs: Long): UInt =
@@ -1154,8 +1152,8 @@ public actual fun traceRegisterExA(lpszcallername: Pcstr, dwflags: UInt): UInt =
 public actual fun traceRegisterExW(lpszcallername: Pcwstr, dwflags: UInt): UInt =
     if (windowsWin32NetworkmanagementNetmanagementNapiAvailable) wasmWindowssysWindowsWin32NetworkmanagementNetmanagementTraceRegisterExW(lpszcallername.rawAddress.toString(), dwflags.toInt()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun traceVprintfExA(dwtraceid: UInt, dwflags: UInt, lpszformat: Pcstr, arglist: MutPtr<Byte>): UInt =
+public actual fun traceVprintfExA(dwtraceid: UInt, dwflags: UInt, lpszformat: Pcstr, arglist: MutPtr): UInt =
     if (windowsWin32NetworkmanagementNetmanagementNapiAvailable) wasmWindowssysWindowsWin32NetworkmanagementNetmanagementTraceVprintfExA(dwtraceid.toInt(), dwflags.toInt(), lpszformat.rawAddress.toString(), arglist.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun traceVprintfExW(dwtraceid: UInt, dwflags: UInt, lpszformat: Pcwstr, arglist: MutPtr<Byte>): UInt =
+public actual fun traceVprintfExW(dwtraceid: UInt, dwflags: UInt, lpszformat: Pcwstr, arglist: MutPtr): UInt =
     if (windowsWin32NetworkmanagementNetmanagementNapiAvailable) wasmWindowssysWindowsWin32NetworkmanagementNetmanagementTraceVprintfExW(dwtraceid.toInt(), dwflags.toInt(), lpszformat.rawAddress.toString(), arglist.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")

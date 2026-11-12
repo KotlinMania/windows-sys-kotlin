@@ -2,12 +2,10 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.ui.accessibility
 
-import io.github.kotlinmania.rustlang.core.ffi.CVoid
 import io.github.kotlinmania.rustlang.core.ptr.ConstPtr
 import io.github.kotlinmania.rustlang.core.ptr.MutPtr
 import io.github.kotlinmania.windowssys.core.Bool
 import io.github.kotlinmania.windowssys.core.Bstr
-import io.github.kotlinmania.windowssys.core.Guid
 import io.github.kotlinmania.windowssys.core.Hresult
 import io.github.kotlinmania.windowssys.core.Pcstr
 import io.github.kotlinmania.windowssys.core.Pcwstr
@@ -20,7 +18,6 @@ import io.github.kotlinmania.windowssys.windows.win32.foundation.Lresult
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Point
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Wparam
 import io.github.kotlinmania.windowssys.windows.win32.system.Variant
-import io.github.kotlinmania.windowssys.windows.win32.system.com.Safearray
 import io.github.kotlinmania.windowssys.windows.win32.ui.accessibility.cinterop.windowssysWindowsWin32UiAccessibilityAccSetRunningUtilityState
 import io.github.kotlinmania.windowssys.windows.win32.ui.accessibility.cinterop.windowssysWindowsWin32UiAccessibilityAccessibleChildren
 import io.github.kotlinmania.windowssys.windows.win32.ui.accessibility.cinterop.windowssysWindowsWin32UiAccessibilityAccessibleObjectFromEvent
@@ -149,25 +146,25 @@ public actual fun accNotifyTouchInteraction(hwndapp: Hwnd, hwndtarget: Hwnd, ptt
 public actual fun accSetRunningUtilityState(hwndapp: Hwnd, dwutilitystatemask: UInt, dwutilitystate: AccUtilityStateFlags): Hresult =
     windowssysWindowsWin32UiAccessibilityAccSetRunningUtilityState(hwndapp.rawAddress.toCPointer<ByteVar>(), dwutilitystatemask, dwutilitystate)
 
-public actual fun accessibleChildren(pacccontainer: MutPtr<CVoid>, ichildstart: Int, cchildren: Int, rgvarchildren: MutPtr<Variant.Variant>, pcobtained: MutPtr<Int>): Hresult =
+public actual fun accessibleChildren(pacccontainer: MutPtr, ichildstart: Int, cchildren: Int, rgvarchildren: MutPtr, pcobtained: MutPtr): Hresult =
     windowssysWindowsWin32UiAccessibilityAccessibleChildren(pacccontainer.rawAddress.toCPointer<ByteVar>(), ichildstart, cchildren, rgvarchildren.rawAddress.toCPointer<ByteVar>(), pcobtained.rawAddress.toCPointer<ByteVar>())
 
-public actual fun accessibleObjectFromEvent(hwnd: Hwnd, dwid: UInt, dwchildid: UInt, ppacc: MutPtr<MutPtr<CVoid>>, pvarchild: MutPtr<Variant.Variant>): Hresult =
+public actual fun accessibleObjectFromEvent(hwnd: Hwnd, dwid: UInt, dwchildid: UInt, ppacc: MutPtr, pvarchild: MutPtr): Hresult =
     windowssysWindowsWin32UiAccessibilityAccessibleObjectFromEvent(hwnd.rawAddress.toCPointer<ByteVar>(), dwid, dwchildid, ppacc.rawAddress.toCPointer<ByteVar>(), pvarchild.rawAddress.toCPointer<ByteVar>())
 
-public actual fun accessibleObjectFromPoint(ptscreen: Point, ppacc: MutPtr<MutPtr<CVoid>>, pvarchild: MutPtr<Variant.Variant>): Hresult =
+public actual fun accessibleObjectFromPoint(ptscreen: Point, ppacc: MutPtr, pvarchild: MutPtr): Hresult =
     0
 
-public actual fun accessibleObjectFromWindow(hwnd: Hwnd, dwid: UInt, riid: ConstPtr<Guid>, ppvobject: MutPtr<MutPtr<CVoid>>): Hresult =
+public actual fun accessibleObjectFromWindow(hwnd: Hwnd, dwid: UInt, riid: ConstPtr, ppvobject: MutPtr): Hresult =
     windowssysWindowsWin32UiAccessibilityAccessibleObjectFromWindow(hwnd.rawAddress.toCPointer<ByteVar>(), dwid, riid.rawAddress.toCPointer<ByteVar>(), ppvobject.rawAddress.toCPointer<ByteVar>())
 
-public actual fun createStdAccessibleObject(hwnd: Hwnd, idobject: Int, riid: ConstPtr<Guid>, ppvobject: MutPtr<MutPtr<CVoid>>): Hresult =
+public actual fun createStdAccessibleObject(hwnd: Hwnd, idobject: Int, riid: ConstPtr, ppvobject: MutPtr): Hresult =
     windowssysWindowsWin32UiAccessibilityCreateStdAccessibleObject(hwnd.rawAddress.toCPointer<ByteVar>(), idobject, riid.rawAddress.toCPointer<ByteVar>(), ppvobject.rawAddress.toCPointer<ByteVar>())
 
-public actual fun createStdAccessibleProxyA(hwnd: Hwnd, pclassname: Pcstr, idobject: Int, riid: ConstPtr<Guid>, ppvobject: MutPtr<MutPtr<CVoid>>): Hresult =
+public actual fun createStdAccessibleProxyA(hwnd: Hwnd, pclassname: Pcstr, idobject: Int, riid: ConstPtr, ppvobject: MutPtr): Hresult =
     windowssysWindowsWin32UiAccessibilityCreateStdAccessibleProxyA(hwnd.rawAddress.toCPointer<ByteVar>(), pclassname.rawAddress.toCPointer<ByteVar>(), idobject, riid.rawAddress.toCPointer<ByteVar>(), ppvobject.rawAddress.toCPointer<ByteVar>())
 
-public actual fun createStdAccessibleProxyW(hwnd: Hwnd, pclassname: Pcwstr, idobject: Int, riid: ConstPtr<Guid>, ppvobject: MutPtr<MutPtr<CVoid>>): Hresult =
+public actual fun createStdAccessibleProxyW(hwnd: Hwnd, pclassname: Pcwstr, idobject: Int, riid: ConstPtr, ppvobject: MutPtr): Hresult =
     windowssysWindowsWin32UiAccessibilityCreateStdAccessibleProxyW(hwnd.rawAddress.toCPointer<ByteVar>(), pclassname.rawAddress.toCPointer<ByteVar>(), idobject, riid.rawAddress.toCPointer<ByteVar>(), ppvobject.rawAddress.toCPointer<ByteVar>())
 
 public actual fun dockPatternSetDockPosition(hobj: Huiapatternobject, dockposition: DockPosition): Hresult =
@@ -179,7 +176,7 @@ public actual fun expandCollapsePatternCollapse(hobj: Huiapatternobject): Hresul
 public actual fun expandCollapsePatternExpand(hobj: Huiapatternobject): Hresult =
     windowssysWindowsWin32UiAccessibilityExpandCollapsePatternExpand(hobj.rawAddress.toCPointer<ByteVar>())
 
-public actual fun getOleaccVersionInfo(pver: MutPtr<UInt>, pbuild: MutPtr<UInt>) {
+public actual fun getOleaccVersionInfo(pver: MutPtr, pbuild: MutPtr) {
     windowssysWindowsWin32UiAccessibilityGetOleaccVersionInfo(pver.rawAddress.toCPointer<ByteVar>(), pbuild.rawAddress.toCPointer<ByteVar>())
 }
 
@@ -195,7 +192,7 @@ public actual fun getStateTextA(lstatebit: UInt, lpszstate: Pstr, cchstate: UInt
 public actual fun getStateTextW(lstatebit: UInt, lpszstate: Pwstr, cchstate: UInt): UInt =
     windowssysWindowsWin32UiAccessibilityGetStateTextW(lstatebit, lpszstate.rawAddress.toCPointer<ByteVar>(), cchstate)
 
-public actual fun gridPatternGetItem(hobj: Huiapatternobject, row: Int, column: Int, presult: MutPtr<Huianode>): Hresult =
+public actual fun gridPatternGetItem(hobj: Huiapatternobject, row: Int, column: Int, presult: MutPtr): Hresult =
     windowssysWindowsWin32UiAccessibilityGridPatternGetItem(hobj.rawAddress.toCPointer<ByteVar>(), row, column, presult.rawAddress.toCPointer<ByteVar>())
 
 public actual fun invokePatternInvoke(hobj: Huiapatternobject): Hresult =
@@ -204,13 +201,13 @@ public actual fun invokePatternInvoke(hobj: Huiapatternobject): Hresult =
 public actual fun isWinEventHookInstalled(event: UInt): Bool =
     windowssysWindowsWin32UiAccessibilityIsWinEventHookInstalled(event)
 
-public actual fun itemContainerPatternFindItemByProperty(hobj: Huiapatternobject, hnodestartafter: Huianode, propertyid: Int, value: Variant.Variant, pfound: MutPtr<Huianode>): Hresult =
+public actual fun itemContainerPatternFindItemByProperty(hobj: Huiapatternobject, hnodestartafter: Huianode, propertyid: Int, value: Variant.Variant, pfound: MutPtr): Hresult =
     0
 
 public actual fun legacyIaccessiblePatternDoDefaultAction(hobj: Huiapatternobject): Hresult =
     windowssysWindowsWin32UiAccessibilityLegacyIaccessiblePatternDoDefaultAction(hobj.rawAddress.toCPointer<ByteVar>())
 
-public actual fun legacyIaccessiblePatternGetIaccessible(hobj: Huiapatternobject, paccessible: MutPtr<MutPtr<CVoid>>): Hresult =
+public actual fun legacyIaccessiblePatternGetIaccessible(hobj: Huiapatternobject, paccessible: MutPtr): Hresult =
     windowssysWindowsWin32UiAccessibilityLegacyIaccessiblePatternGetIaccessible(hobj.rawAddress.toCPointer<ByteVar>(), paccessible.rawAddress.toCPointer<ByteVar>())
 
 public actual fun legacyIaccessiblePatternSelect(hobj: Huiapatternobject, flagsselect: Int): Hresult =
@@ -219,10 +216,10 @@ public actual fun legacyIaccessiblePatternSelect(hobj: Huiapatternobject, flagss
 public actual fun legacyIaccessiblePatternSetValue(hobj: Huiapatternobject, szvalue: Pcwstr): Hresult =
     windowssysWindowsWin32UiAccessibilityLegacyIaccessiblePatternSetValue(hobj.rawAddress.toCPointer<ByteVar>(), szvalue.rawAddress.toCPointer<ByteVar>())
 
-public actual fun lresultFromObject(riid: ConstPtr<Guid>, wparam: Wparam, punk: MutPtr<CVoid>): Lresult =
+public actual fun lresultFromObject(riid: ConstPtr, wparam: Wparam, punk: MutPtr): Lresult =
     windowssysWindowsWin32UiAccessibilityLresultFromObject(riid.rawAddress.toCPointer<ByteVar>(), wparam, punk.rawAddress.toCPointer<ByteVar>())
 
-public actual fun multipleViewPatternGetViewName(hobj: Huiapatternobject, viewid: Int, ppstr: MutPtr<Bstr>): Hresult =
+public actual fun multipleViewPatternGetViewName(hobj: Huiapatternobject, viewid: Int, ppstr: MutPtr): Hresult =
     windowssysWindowsWin32UiAccessibilityMultipleViewPatternGetViewName(hobj.rawAddress.toCPointer<ByteVar>(), viewid, ppstr.rawAddress.toCPointer<ByteVar>())
 
 public actual fun multipleViewPatternSetCurrentView(hobj: Huiapatternobject, viewid: Int): Hresult =
@@ -232,7 +229,7 @@ public actual fun notifyWinEvent(event: UInt, hwnd: Hwnd, idobject: Int, idchild
     windowssysWindowsWin32UiAccessibilityNotifyWinEvent(event, hwnd.rawAddress.toCPointer<ByteVar>(), idobject, idchild)
 }
 
-public actual fun objectFromLresult(lresult: Lresult, riid: ConstPtr<Guid>, wparam: Wparam, ppvobject: MutPtr<MutPtr<CVoid>>): Hresult =
+public actual fun objectFromLresult(lresult: Lresult, riid: ConstPtr, wparam: Wparam, ppvobject: MutPtr): Hresult =
     windowssysWindowsWin32UiAccessibilityObjectFromLresult(lresult, riid.rawAddress.toCPointer<ByteVar>(), wparam, ppvobject.rawAddress.toCPointer<ByteVar>())
 
 public actual fun rangeValuePatternSetValue(hobj: Huiapatternobject, value: Double): Hresult =
@@ -271,67 +268,67 @@ public actual fun synchronizedInputPatternCancel(hobj: Huiapatternobject): Hresu
 public actual fun synchronizedInputPatternStartListening(hobj: Huiapatternobject, inputtype: SynchronizedInputType): Hresult =
     windowssysWindowsWin32UiAccessibilitySynchronizedInputPatternStartListening(hobj.rawAddress.toCPointer<ByteVar>(), inputtype)
 
-public actual fun textPatternGetSelection(hobj: Huiapatternobject, pretval: MutPtr<MutPtr<Safearray>>): Hresult =
+public actual fun textPatternGetSelection(hobj: Huiapatternobject, pretval: MutPtr): Hresult =
     windowssysWindowsWin32UiAccessibilityTextPatternGetSelection(hobj.rawAddress.toCPointer<ByteVar>(), pretval.rawAddress.toCPointer<ByteVar>())
 
-public actual fun textPatternGetVisibleRanges(hobj: Huiapatternobject, pretval: MutPtr<MutPtr<Safearray>>): Hresult =
+public actual fun textPatternGetVisibleRanges(hobj: Huiapatternobject, pretval: MutPtr): Hresult =
     windowssysWindowsWin32UiAccessibilityTextPatternGetVisibleRanges(hobj.rawAddress.toCPointer<ByteVar>(), pretval.rawAddress.toCPointer<ByteVar>())
 
-public actual fun textPatternRangeFromChild(hobj: Huiapatternobject, hnodechild: Huianode, pretval: MutPtr<Huiatextrange>): Hresult =
+public actual fun textPatternRangeFromChild(hobj: Huiapatternobject, hnodechild: Huianode, pretval: MutPtr): Hresult =
     windowssysWindowsWin32UiAccessibilityTextPatternRangeFromChild(hobj.rawAddress.toCPointer<ByteVar>(), hnodechild.rawAddress.toCPointer<ByteVar>(), pretval.rawAddress.toCPointer<ByteVar>())
 
-public actual fun textPatternRangeFromPoint(hobj: Huiapatternobject, point: UiaPoint, pretval: MutPtr<Huiatextrange>): Hresult =
+public actual fun textPatternRangeFromPoint(hobj: Huiapatternobject, point: UiaPoint, pretval: MutPtr): Hresult =
     0
 
-public actual fun textPatternGetDocumentRange(hobj: Huiapatternobject, pretval: MutPtr<Huiatextrange>): Hresult =
+public actual fun textPatternGetDocumentRange(hobj: Huiapatternobject, pretval: MutPtr): Hresult =
     windowssysWindowsWin32UiAccessibilityTextPatternGetDocumentRange(hobj.rawAddress.toCPointer<ByteVar>(), pretval.rawAddress.toCPointer<ByteVar>())
 
-public actual fun textPatternGetSupportedTextSelection(hobj: Huiapatternobject, pretval: MutPtr<SupportedTextSelection>): Hresult =
+public actual fun textPatternGetSupportedTextSelection(hobj: Huiapatternobject, pretval: MutPtr): Hresult =
     windowssysWindowsWin32UiAccessibilityTextPatternGetSupportedTextSelection(hobj.rawAddress.toCPointer<ByteVar>(), pretval.rawAddress.toCPointer<ByteVar>())
 
 public actual fun textRangeAddToSelection(hobj: Huiatextrange): Hresult =
     windowssysWindowsWin32UiAccessibilityTextRangeAddToSelection(hobj.rawAddress.toCPointer<ByteVar>())
 
-public actual fun textRangeClone(hobj: Huiatextrange, pretval: MutPtr<Huiatextrange>): Hresult =
+public actual fun textRangeClone(hobj: Huiatextrange, pretval: MutPtr): Hresult =
     windowssysWindowsWin32UiAccessibilityTextRangeClone(hobj.rawAddress.toCPointer<ByteVar>(), pretval.rawAddress.toCPointer<ByteVar>())
 
-public actual fun textRangeCompare(hobj: Huiatextrange, range: Huiatextrange, pretval: MutPtr<Bool>): Hresult =
+public actual fun textRangeCompare(hobj: Huiatextrange, range: Huiatextrange, pretval: MutPtr): Hresult =
     windowssysWindowsWin32UiAccessibilityTextRangeCompare(hobj.rawAddress.toCPointer<ByteVar>(), range.rawAddress.toCPointer<ByteVar>(), pretval.rawAddress.toCPointer<ByteVar>())
 
-public actual fun textRangeCompareEndpoints(hobj: Huiatextrange, endpoint: TextPatternRangeEndpoint, targetrange: Huiatextrange, targetendpoint: TextPatternRangeEndpoint, pretval: MutPtr<Int>): Hresult =
+public actual fun textRangeCompareEndpoints(hobj: Huiatextrange, endpoint: TextPatternRangeEndpoint, targetrange: Huiatextrange, targetendpoint: TextPatternRangeEndpoint, pretval: MutPtr): Hresult =
     windowssysWindowsWin32UiAccessibilityTextRangeCompareEndpoints(hobj.rawAddress.toCPointer<ByteVar>(), endpoint, targetrange.rawAddress.toCPointer<ByteVar>(), targetendpoint, pretval.rawAddress.toCPointer<ByteVar>())
 
 public actual fun textRangeExpandToEnclosingUnit(hobj: Huiatextrange, unit: TextUnit): Hresult =
     windowssysWindowsWin32UiAccessibilityTextRangeExpandToEnclosingUnit(hobj.rawAddress.toCPointer<ByteVar>(), unit)
 
-public actual fun textRangeFindAttribute(hobj: Huiatextrange, attributeid: Int, value: Variant.Variant, backward: Bool, pretval: MutPtr<Huiatextrange>): Hresult =
+public actual fun textRangeFindAttribute(hobj: Huiatextrange, attributeid: Int, value: Variant.Variant, backward: Bool, pretval: MutPtr): Hresult =
     0
 
-public actual fun textRangeFindText(hobj: Huiatextrange, text: Bstr, backward: Bool, ignorecase: Bool, pretval: MutPtr<Huiatextrange>): Hresult =
+public actual fun textRangeFindText(hobj: Huiatextrange, text: Bstr, backward: Bool, ignorecase: Bool, pretval: MutPtr): Hresult =
     windowssysWindowsWin32UiAccessibilityTextRangeFindText(hobj.rawAddress.toCPointer<ByteVar>(), text.rawAddress.toCPointer<ByteVar>(), backward, ignorecase, pretval.rawAddress.toCPointer<ByteVar>())
 
-public actual fun textRangeGetAttributeValue(hobj: Huiatextrange, attributeid: Int, pretval: MutPtr<Variant.Variant>): Hresult =
+public actual fun textRangeGetAttributeValue(hobj: Huiatextrange, attributeid: Int, pretval: MutPtr): Hresult =
     windowssysWindowsWin32UiAccessibilityTextRangeGetAttributeValue(hobj.rawAddress.toCPointer<ByteVar>(), attributeid, pretval.rawAddress.toCPointer<ByteVar>())
 
-public actual fun textRangeGetBoundingRectangles(hobj: Huiatextrange, pretval: MutPtr<MutPtr<Safearray>>): Hresult =
+public actual fun textRangeGetBoundingRectangles(hobj: Huiatextrange, pretval: MutPtr): Hresult =
     windowssysWindowsWin32UiAccessibilityTextRangeGetBoundingRectangles(hobj.rawAddress.toCPointer<ByteVar>(), pretval.rawAddress.toCPointer<ByteVar>())
 
-public actual fun textRangeGetChildren(hobj: Huiatextrange, pretval: MutPtr<MutPtr<Safearray>>): Hresult =
+public actual fun textRangeGetChildren(hobj: Huiatextrange, pretval: MutPtr): Hresult =
     windowssysWindowsWin32UiAccessibilityTextRangeGetChildren(hobj.rawAddress.toCPointer<ByteVar>(), pretval.rawAddress.toCPointer<ByteVar>())
 
-public actual fun textRangeGetEnclosingElement(hobj: Huiatextrange, pretval: MutPtr<Huianode>): Hresult =
+public actual fun textRangeGetEnclosingElement(hobj: Huiatextrange, pretval: MutPtr): Hresult =
     windowssysWindowsWin32UiAccessibilityTextRangeGetEnclosingElement(hobj.rawAddress.toCPointer<ByteVar>(), pretval.rawAddress.toCPointer<ByteVar>())
 
-public actual fun textRangeGetText(hobj: Huiatextrange, maxlength: Int, pretval: MutPtr<Bstr>): Hresult =
+public actual fun textRangeGetText(hobj: Huiatextrange, maxlength: Int, pretval: MutPtr): Hresult =
     windowssysWindowsWin32UiAccessibilityTextRangeGetText(hobj.rawAddress.toCPointer<ByteVar>(), maxlength, pretval.rawAddress.toCPointer<ByteVar>())
 
-public actual fun textRangeMove(hobj: Huiatextrange, unit: TextUnit, count: Int, pretval: MutPtr<Int>): Hresult =
+public actual fun textRangeMove(hobj: Huiatextrange, unit: TextUnit, count: Int, pretval: MutPtr): Hresult =
     windowssysWindowsWin32UiAccessibilityTextRangeMove(hobj.rawAddress.toCPointer<ByteVar>(), unit, count, pretval.rawAddress.toCPointer<ByteVar>())
 
 public actual fun textRangeMoveEndpointByRange(hobj: Huiatextrange, endpoint: TextPatternRangeEndpoint, targetrange: Huiatextrange, targetendpoint: TextPatternRangeEndpoint): Hresult =
     windowssysWindowsWin32UiAccessibilityTextRangeMoveEndpointByRange(hobj.rawAddress.toCPointer<ByteVar>(), endpoint, targetrange.rawAddress.toCPointer<ByteVar>(), targetendpoint)
 
-public actual fun textRangeMoveEndpointByUnit(hobj: Huiatextrange, endpoint: TextPatternRangeEndpoint, unit: TextUnit, count: Int, pretval: MutPtr<Int>): Hresult =
+public actual fun textRangeMoveEndpointByUnit(hobj: Huiatextrange, endpoint: TextPatternRangeEndpoint, unit: TextUnit, count: Int, pretval: MutPtr): Hresult =
     windowssysWindowsWin32UiAccessibilityTextRangeMoveEndpointByUnit(hobj.rawAddress.toCPointer<ByteVar>(), endpoint, unit, count, pretval.rawAddress.toCPointer<ByteVar>())
 
 public actual fun textRangeRemoveFromSelection(hobj: Huiatextrange): Hresult =
@@ -355,7 +352,7 @@ public actual fun transformPatternResize(hobj: Huiapatternobject, width: Double,
 public actual fun transformPatternRotate(hobj: Huiapatternobject, degrees: Double): Hresult =
     windowssysWindowsWin32UiAccessibilityTransformPatternRotate(hobj.rawAddress.toCPointer<ByteVar>(), degrees)
 
-public actual fun uiaAddEvent(hnode: Huianode, eventid: Int, pcallback: MutPtr<UiaEventCallback>, scope: TreeScope, pproperties: MutPtr<Int>, cproperties: Int, prequest: MutPtr<UiaCacheRequest>, phevent: MutPtr<Huiaevent>): Hresult =
+public actual fun uiaAddEvent(hnode: Huianode, eventid: Int, pcallback: MutPtr, scope: TreeScope, pproperties: MutPtr, cproperties: Int, prequest: MutPtr, phevent: MutPtr): Hresult =
     windowssysWindowsWin32UiAccessibilityUiaAddEvent(hnode.rawAddress.toCPointer<ByteVar>(), eventid, pcallback.rawAddress.toCPointer<ByteVar>(), scope, pproperties.rawAddress.toCPointer<ByteVar>(), cproperties, prequest.rawAddress.toCPointer<ByteVar>(), phevent.rawAddress.toCPointer<ByteVar>())
 
 public actual fun uiaClientsAreListening(): Bool =
@@ -364,7 +361,7 @@ public actual fun uiaClientsAreListening(): Bool =
 public actual fun uiaDisconnectAllProviders(): Hresult =
     windowssysWindowsWin32UiAccessibilityUiaDisconnectAllProviders()
 
-public actual fun uiaDisconnectProvider(pprovider: MutPtr<CVoid>): Hresult =
+public actual fun uiaDisconnectProvider(pprovider: MutPtr): Hresult =
     windowssysWindowsWin32UiAccessibilityUiaDisconnectProvider(pprovider.rawAddress.toCPointer<ByteVar>())
 
 public actual fun uiaEventAddWindow(hevent: Huiaevent, hwnd: Hwnd): Hresult =
@@ -373,67 +370,67 @@ public actual fun uiaEventAddWindow(hevent: Huiaevent, hwnd: Hwnd): Hresult =
 public actual fun uiaEventRemoveWindow(hevent: Huiaevent, hwnd: Hwnd): Hresult =
     windowssysWindowsWin32UiAccessibilityUiaEventRemoveWindow(hevent.rawAddress.toCPointer<ByteVar>(), hwnd.rawAddress.toCPointer<ByteVar>())
 
-public actual fun uiaFind(hnode: Huianode, pparams: MutPtr<UiaFindParams>, prequest: MutPtr<UiaCacheRequest>, pprequesteddata: MutPtr<MutPtr<Safearray>>, ppoffsets: MutPtr<MutPtr<Safearray>>, pptreestructures: MutPtr<MutPtr<Safearray>>): Hresult =
+public actual fun uiaFind(hnode: Huianode, pparams: MutPtr, prequest: MutPtr, pprequesteddata: MutPtr, ppoffsets: MutPtr, pptreestructures: MutPtr): Hresult =
     windowssysWindowsWin32UiAccessibilityUiaFind(hnode.rawAddress.toCPointer<ByteVar>(), pparams.rawAddress.toCPointer<ByteVar>(), prequest.rawAddress.toCPointer<ByteVar>(), pprequesteddata.rawAddress.toCPointer<ByteVar>(), ppoffsets.rawAddress.toCPointer<ByteVar>(), pptreestructures.rawAddress.toCPointer<ByteVar>())
 
-public actual fun uiaGetErrorDescription(pdescription: MutPtr<Bstr>): Bool =
+public actual fun uiaGetErrorDescription(pdescription: MutPtr): Bool =
     windowssysWindowsWin32UiAccessibilityUiaGetErrorDescription(pdescription.rawAddress.toCPointer<ByteVar>())
 
-public actual fun uiaGetPatternProvider(hnode: Huianode, patternid: Int, phobj: MutPtr<Huiapatternobject>): Hresult =
+public actual fun uiaGetPatternProvider(hnode: Huianode, patternid: Int, phobj: MutPtr): Hresult =
     windowssysWindowsWin32UiAccessibilityUiaGetPatternProvider(hnode.rawAddress.toCPointer<ByteVar>(), patternid, phobj.rawAddress.toCPointer<ByteVar>())
 
-public actual fun uiaGetPropertyValue(hnode: Huianode, propertyid: Int, pvalue: MutPtr<Variant.Variant>): Hresult =
+public actual fun uiaGetPropertyValue(hnode: Huianode, propertyid: Int, pvalue: MutPtr): Hresult =
     windowssysWindowsWin32UiAccessibilityUiaGetPropertyValue(hnode.rawAddress.toCPointer<ByteVar>(), propertyid, pvalue.rawAddress.toCPointer<ByteVar>())
 
-public actual fun uiaGetReservedMixedAttributeValue(punkmixedattributevalue: MutPtr<MutPtr<CVoid>>): Hresult =
+public actual fun uiaGetReservedMixedAttributeValue(punkmixedattributevalue: MutPtr): Hresult =
     windowssysWindowsWin32UiAccessibilityUiaGetReservedMixedAttributeValue(punkmixedattributevalue.rawAddress.toCPointer<ByteVar>())
 
-public actual fun uiaGetReservedNotSupportedValue(punknotsupportedvalue: MutPtr<MutPtr<CVoid>>): Hresult =
+public actual fun uiaGetReservedNotSupportedValue(punknotsupportedvalue: MutPtr): Hresult =
     windowssysWindowsWin32UiAccessibilityUiaGetReservedNotSupportedValue(punknotsupportedvalue.rawAddress.toCPointer<ByteVar>())
 
-public actual fun uiaGetRootNode(phnode: MutPtr<Huianode>): Hresult =
+public actual fun uiaGetRootNode(phnode: MutPtr): Hresult =
     windowssysWindowsWin32UiAccessibilityUiaGetRootNode(phnode.rawAddress.toCPointer<ByteVar>())
 
-public actual fun uiaGetRuntimeId(hnode: Huianode, pruntimeid: MutPtr<MutPtr<Safearray>>): Hresult =
+public actual fun uiaGetRuntimeId(hnode: Huianode, pruntimeid: MutPtr): Hresult =
     windowssysWindowsWin32UiAccessibilityUiaGetRuntimeId(hnode.rawAddress.toCPointer<ByteVar>(), pruntimeid.rawAddress.toCPointer<ByteVar>())
 
-public actual fun uiaGetUpdatedCache(hnode: Huianode, prequest: MutPtr<UiaCacheRequest>, normalizestate: NormalizeState, pnormalizecondition: MutPtr<UiaCondition>, pprequesteddata: MutPtr<MutPtr<Safearray>>, pptreestructure: MutPtr<Bstr>): Hresult =
+public actual fun uiaGetUpdatedCache(hnode: Huianode, prequest: MutPtr, normalizestate: NormalizeState, pnormalizecondition: MutPtr, pprequesteddata: MutPtr, pptreestructure: MutPtr): Hresult =
     windowssysWindowsWin32UiAccessibilityUiaGetUpdatedCache(hnode.rawAddress.toCPointer<ByteVar>(), prequest.rawAddress.toCPointer<ByteVar>(), normalizestate, pnormalizecondition.rawAddress.toCPointer<ByteVar>(), pprequesteddata.rawAddress.toCPointer<ByteVar>(), pptreestructure.rawAddress.toCPointer<ByteVar>())
 
-public actual fun uiaHPatternObjectFromVariant(pvar: MutPtr<Variant.Variant>, phobj: MutPtr<Huiapatternobject>): Hresult =
+public actual fun uiaHPatternObjectFromVariant(pvar: MutPtr, phobj: MutPtr): Hresult =
     windowssysWindowsWin32UiAccessibilityUiaHPatternObjectFromVariant(pvar.rawAddress.toCPointer<ByteVar>(), phobj.rawAddress.toCPointer<ByteVar>())
 
-public actual fun uiaHTextRangeFromVariant(pvar: MutPtr<Variant.Variant>, phtextrange: MutPtr<Huiatextrange>): Hresult =
+public actual fun uiaHTextRangeFromVariant(pvar: MutPtr, phtextrange: MutPtr): Hresult =
     windowssysWindowsWin32UiAccessibilityUiaHTextRangeFromVariant(pvar.rawAddress.toCPointer<ByteVar>(), phtextrange.rawAddress.toCPointer<ByteVar>())
 
-public actual fun uiaHUiaNodeFromVariant(pvar: MutPtr<Variant.Variant>, phnode: MutPtr<Huianode>): Hresult =
+public actual fun uiaHUiaNodeFromVariant(pvar: MutPtr, phnode: MutPtr): Hresult =
     windowssysWindowsWin32UiAccessibilityUiaHUiaNodeFromVariant(pvar.rawAddress.toCPointer<ByteVar>(), phnode.rawAddress.toCPointer<ByteVar>())
 
 public actual fun uiaHasServerSideProvider(hwnd: Hwnd): Bool =
     windowssysWindowsWin32UiAccessibilityUiaHasServerSideProvider(hwnd.rawAddress.toCPointer<ByteVar>())
 
-public actual fun uiaHostProviderFromHwnd(hwnd: Hwnd, ppprovider: MutPtr<MutPtr<CVoid>>): Hresult =
+public actual fun uiaHostProviderFromHwnd(hwnd: Hwnd, ppprovider: MutPtr): Hresult =
     windowssysWindowsWin32UiAccessibilityUiaHostProviderFromHwnd(hwnd.rawAddress.toCPointer<ByteVar>(), ppprovider.rawAddress.toCPointer<ByteVar>())
 
-public actual fun uiaIAccessibleFromProvider(pprovider: MutPtr<CVoid>, dwflags: UInt, ppaccessible: MutPtr<MutPtr<CVoid>>, pvarchild: MutPtr<Variant.Variant>): Hresult =
+public actual fun uiaIAccessibleFromProvider(pprovider: MutPtr, dwflags: UInt, ppaccessible: MutPtr, pvarchild: MutPtr): Hresult =
     windowssysWindowsWin32UiAccessibilityUiaIAccessibleFromProvider(pprovider.rawAddress.toCPointer<ByteVar>(), dwflags, ppaccessible.rawAddress.toCPointer<ByteVar>(), pvarchild.rawAddress.toCPointer<ByteVar>())
 
-public actual fun uiaLookupId(type: AutomationIdentifierType, pguid: ConstPtr<Guid>): Int =
+public actual fun uiaLookupId(type: AutomationIdentifierType, pguid: ConstPtr): Int =
     windowssysWindowsWin32UiAccessibilityUiaLookupId(type, pguid.rawAddress.toCPointer<ByteVar>())
 
-public actual fun uiaNavigate(hnode: Huianode, direction: NavigateDirection, pcondition: MutPtr<UiaCondition>, prequest: MutPtr<UiaCacheRequest>, pprequesteddata: MutPtr<MutPtr<Safearray>>, pptreestructure: MutPtr<Bstr>): Hresult =
+public actual fun uiaNavigate(hnode: Huianode, direction: NavigateDirection, pcondition: MutPtr, prequest: MutPtr, pprequesteddata: MutPtr, pptreestructure: MutPtr): Hresult =
     windowssysWindowsWin32UiAccessibilityUiaNavigate(hnode.rawAddress.toCPointer<ByteVar>(), direction, pcondition.rawAddress.toCPointer<ByteVar>(), prequest.rawAddress.toCPointer<ByteVar>(), pprequesteddata.rawAddress.toCPointer<ByteVar>(), pptreestructure.rawAddress.toCPointer<ByteVar>())
 
-public actual fun uiaNodeFromFocus(prequest: MutPtr<UiaCacheRequest>, pprequesteddata: MutPtr<MutPtr<Safearray>>, pptreestructure: MutPtr<Bstr>): Hresult =
+public actual fun uiaNodeFromFocus(prequest: MutPtr, pprequesteddata: MutPtr, pptreestructure: MutPtr): Hresult =
     windowssysWindowsWin32UiAccessibilityUiaNodeFromFocus(prequest.rawAddress.toCPointer<ByteVar>(), pprequesteddata.rawAddress.toCPointer<ByteVar>(), pptreestructure.rawAddress.toCPointer<ByteVar>())
 
-public actual fun uiaNodeFromHandle(hwnd: Hwnd, phnode: MutPtr<Huianode>): Hresult =
+public actual fun uiaNodeFromHandle(hwnd: Hwnd, phnode: MutPtr): Hresult =
     windowssysWindowsWin32UiAccessibilityUiaNodeFromHandle(hwnd.rawAddress.toCPointer<ByteVar>(), phnode.rawAddress.toCPointer<ByteVar>())
 
-public actual fun uiaNodeFromPoint(x: Double, y: Double, prequest: MutPtr<UiaCacheRequest>, pprequesteddata: MutPtr<MutPtr<Safearray>>, pptreestructure: MutPtr<Bstr>): Hresult =
+public actual fun uiaNodeFromPoint(x: Double, y: Double, prequest: MutPtr, pprequesteddata: MutPtr, pptreestructure: MutPtr): Hresult =
     windowssysWindowsWin32UiAccessibilityUiaNodeFromPoint(x, y, prequest.rawAddress.toCPointer<ByteVar>(), pprequesteddata.rawAddress.toCPointer<ByteVar>(), pptreestructure.rawAddress.toCPointer<ByteVar>())
 
-public actual fun uiaNodeFromProvider(pprovider: MutPtr<CVoid>, phnode: MutPtr<Huianode>): Hresult =
+public actual fun uiaNodeFromProvider(pprovider: MutPtr, phnode: MutPtr): Hresult =
     windowssysWindowsWin32UiAccessibilityUiaNodeFromProvider(pprovider.rawAddress.toCPointer<ByteVar>(), phnode.rawAddress.toCPointer<ByteVar>())
 
 public actual fun uiaNodeRelease(hnode: Huianode): Bool =
@@ -442,44 +439,44 @@ public actual fun uiaNodeRelease(hnode: Huianode): Bool =
 public actual fun uiaPatternRelease(hobj: Huiapatternobject): Bool =
     windowssysWindowsWin32UiAccessibilityUiaPatternRelease(hobj.rawAddress.toCPointer<ByteVar>())
 
-public actual fun uiaProviderForNonClient(hwnd: Hwnd, idobject: Int, idchild: Int, ppprovider: MutPtr<MutPtr<CVoid>>): Hresult =
+public actual fun uiaProviderForNonClient(hwnd: Hwnd, idobject: Int, idchild: Int, ppprovider: MutPtr): Hresult =
     windowssysWindowsWin32UiAccessibilityUiaProviderForNonClient(hwnd.rawAddress.toCPointer<ByteVar>(), idobject, idchild, ppprovider.rawAddress.toCPointer<ByteVar>())
 
-public actual fun uiaProviderFromIAccessible(paccessible: MutPtr<CVoid>, idchild: Int, dwflags: UInt, ppprovider: MutPtr<MutPtr<CVoid>>): Hresult =
+public actual fun uiaProviderFromIAccessible(paccessible: MutPtr, idchild: Int, dwflags: UInt, ppprovider: MutPtr): Hresult =
     windowssysWindowsWin32UiAccessibilityUiaProviderFromIAccessible(paccessible.rawAddress.toCPointer<ByteVar>(), idchild, dwflags, ppprovider.rawAddress.toCPointer<ByteVar>())
 
-public actual fun uiaRaiseActiveTextPositionChangedEvent(provider: MutPtr<CVoid>, textrange: MutPtr<CVoid>): Hresult =
+public actual fun uiaRaiseActiveTextPositionChangedEvent(provider: MutPtr, textrange: MutPtr): Hresult =
     windowssysWindowsWin32UiAccessibilityUiaRaiseActiveTextPositionChangedEvent(provider.rawAddress.toCPointer<ByteVar>(), textrange.rawAddress.toCPointer<ByteVar>())
 
-public actual fun uiaRaiseAsyncContentLoadedEvent(pprovider: MutPtr<CVoid>, asynccontentloadedstate: AsyncContentLoadedState, percentcomplete: Double): Hresult =
+public actual fun uiaRaiseAsyncContentLoadedEvent(pprovider: MutPtr, asynccontentloadedstate: AsyncContentLoadedState, percentcomplete: Double): Hresult =
     windowssysWindowsWin32UiAccessibilityUiaRaiseAsyncContentLoadedEvent(pprovider.rawAddress.toCPointer<ByteVar>(), asynccontentloadedstate, percentcomplete)
 
-public actual fun uiaRaiseAutomationEvent(pprovider: MutPtr<CVoid>, id: UiaEventId): Hresult =
+public actual fun uiaRaiseAutomationEvent(pprovider: MutPtr, id: UiaEventId): Hresult =
     windowssysWindowsWin32UiAccessibilityUiaRaiseAutomationEvent(pprovider.rawAddress.toCPointer<ByteVar>(), id)
 
-public actual fun uiaRaiseAutomationPropertyChangedEvent(pprovider: MutPtr<CVoid>, id: UiaPropertyId, oldvalue: Variant.Variant, newvalue: Variant.Variant): Hresult =
+public actual fun uiaRaiseAutomationPropertyChangedEvent(pprovider: MutPtr, id: UiaPropertyId, oldvalue: Variant.Variant, newvalue: Variant.Variant): Hresult =
     0
 
-public actual fun uiaRaiseChangesEvent(pprovider: MutPtr<CVoid>, eventidcount: Int, puiachanges: MutPtr<UiaChangeInfo>): Hresult =
+public actual fun uiaRaiseChangesEvent(pprovider: MutPtr, eventidcount: Int, puiachanges: MutPtr): Hresult =
     windowssysWindowsWin32UiAccessibilityUiaRaiseChangesEvent(pprovider.rawAddress.toCPointer<ByteVar>(), eventidcount, puiachanges.rawAddress.toCPointer<ByteVar>())
 
-public actual fun uiaRaiseNotificationEvent(provider: MutPtr<CVoid>, notificationkind: NotificationKind, notificationprocessing: NotificationProcessing, displaystring: Bstr, activityid: Bstr): Hresult =
+public actual fun uiaRaiseNotificationEvent(provider: MutPtr, notificationkind: NotificationKind, notificationprocessing: NotificationProcessing, displaystring: Bstr, activityid: Bstr): Hresult =
     windowssysWindowsWin32UiAccessibilityUiaRaiseNotificationEvent(provider.rawAddress.toCPointer<ByteVar>(), notificationkind, notificationprocessing, displaystring.rawAddress.toCPointer<ByteVar>(), activityid.rawAddress.toCPointer<ByteVar>())
 
-public actual fun uiaRaiseStructureChangedEvent(pprovider: MutPtr<CVoid>, structurechangetype: StructureChangeType, pruntimeid: MutPtr<Int>, cruntimeidlen: Int): Hresult =
+public actual fun uiaRaiseStructureChangedEvent(pprovider: MutPtr, structurechangetype: StructureChangeType, pruntimeid: MutPtr, cruntimeidlen: Int): Hresult =
     windowssysWindowsWin32UiAccessibilityUiaRaiseStructureChangedEvent(pprovider.rawAddress.toCPointer<ByteVar>(), structurechangetype, pruntimeid.rawAddress.toCPointer<ByteVar>(), cruntimeidlen)
 
-public actual fun uiaRaiseTextEditTextChangedEvent(pprovider: MutPtr<CVoid>, texteditchangetype: TextEditChangeType, pchangeddata: MutPtr<Safearray>): Hresult =
+public actual fun uiaRaiseTextEditTextChangedEvent(pprovider: MutPtr, texteditchangetype: TextEditChangeType, pchangeddata: MutPtr): Hresult =
     windowssysWindowsWin32UiAccessibilityUiaRaiseTextEditTextChangedEvent(pprovider.rawAddress.toCPointer<ByteVar>(), texteditchangetype, pchangeddata.rawAddress.toCPointer<ByteVar>())
 
-public actual fun uiaRegisterProviderCallback(pcallback: MutPtr<UiaProviderCallback>) {
+public actual fun uiaRegisterProviderCallback(pcallback: MutPtr) {
     windowssysWindowsWin32UiAccessibilityUiaRegisterProviderCallback(pcallback.rawAddress.toCPointer<ByteVar>())
 }
 
 public actual fun uiaRemoveEvent(hevent: Huiaevent): Hresult =
     windowssysWindowsWin32UiAccessibilityUiaRemoveEvent(hevent.rawAddress.toCPointer<ByteVar>())
 
-public actual fun uiaReturnRawElementProvider(hwnd: Hwnd, wparam: Wparam, lparam: Lparam, el: MutPtr<CVoid>): Lresult =
+public actual fun uiaReturnRawElementProvider(hwnd: Hwnd, wparam: Wparam, lparam: Lparam, el: MutPtr): Lresult =
     windowssysWindowsWin32UiAccessibilityUiaReturnRawElementProvider(hwnd.rawAddress.toCPointer<ByteVar>(), wparam, lparam, el.rawAddress.toCPointer<ByteVar>())
 
 public actual fun uiaSetFocus(hnode: Huianode): Hresult =
@@ -503,7 +500,7 @@ public actual fun valuePatternSetValue(hobj: Huiapatternobject, pval: Pcwstr): H
 public actual fun virtualizedItemPatternRealize(hobj: Huiapatternobject): Hresult =
     windowssysWindowsWin32UiAccessibilityVirtualizedItemPatternRealize(hobj.rawAddress.toCPointer<ByteVar>())
 
-public actual fun windowFromAccessibleObject(param0: MutPtr<CVoid>, phwnd: MutPtr<Hwnd>): Hresult =
+public actual fun windowFromAccessibleObject(param0: MutPtr, phwnd: MutPtr): Hresult =
     windowssysWindowsWin32UiAccessibilityWindowFromAccessibleObject(param0.rawAddress.toCPointer<ByteVar>(), phwnd.rawAddress.toCPointer<ByteVar>())
 
 public actual fun windowPatternClose(hobj: Huiapatternobject): Hresult =
@@ -512,5 +509,5 @@ public actual fun windowPatternClose(hobj: Huiapatternobject): Hresult =
 public actual fun windowPatternSetWindowVisualState(hobj: Huiapatternobject, state: WindowVisualState): Hresult =
     windowssysWindowsWin32UiAccessibilityWindowPatternSetWindowVisualState(hobj.rawAddress.toCPointer<ByteVar>(), state)
 
-public actual fun windowPatternWaitForInputIdle(hobj: Huiapatternobject, milliseconds: Int, presult: MutPtr<Bool>): Hresult =
+public actual fun windowPatternWaitForInputIdle(hobj: Huiapatternobject, milliseconds: Int, presult: MutPtr): Hresult =
     windowssysWindowsWin32UiAccessibilityWindowPatternWaitForInputIdle(hobj.rawAddress.toCPointer<ByteVar>(), milliseconds, presult.rawAddress.toCPointer<ByteVar>())

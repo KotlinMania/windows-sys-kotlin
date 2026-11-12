@@ -2,10 +2,8 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.system.securitycenter
 
-import io.github.kotlinmania.rustlang.core.ffi.CVoid
 import io.github.kotlinmania.rustlang.core.ptr.MutPtr
 import io.github.kotlinmania.windowssys.core.Hresult
-import io.github.kotlinmania.windowssys.core.Pwstr
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Handle
 import io.github.kotlinmania.windowssys.windows.win32.system.threading.LpthreadStartRoutine
 
@@ -32,16 +30,16 @@ private external fun wasmWindowssysWindowsWin32SystemSecuritycenterWscRegisterFo
 @JsFun("(p0) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemSecuritycenterWscUnRegisterChanges(p0)")
 private external fun wasmWindowssysWindowsWin32SystemSecuritycenterWscUnRegisterChanges(p0: String): Int
 
-public actual fun wscGetAntiMalwareUri(ppszuri: MutPtr<Pwstr>): Hresult =
+public actual fun wscGetAntiMalwareUri(ppszuri: MutPtr): Hresult =
     if (windowsWin32SystemSecuritycenterNapiAvailable) wasmWindowssysWindowsWin32SystemSecuritycenterWscGetAntiMalwareUri(ppszuri.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun wscGetSecurityProviderHealth(providers: UInt, phealth: MutPtr<WscSecurityProviderHealth>): Hresult =
+public actual fun wscGetSecurityProviderHealth(providers: UInt, phealth: MutPtr): Hresult =
     if (windowsWin32SystemSecuritycenterNapiAvailable) wasmWindowssysWindowsWin32SystemSecuritycenterWscGetSecurityProviderHealth(providers.toInt(), phealth.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun wscQueryAntiMalwareUri(): Hresult =
     if (windowsWin32SystemSecuritycenterNapiAvailable) wasmWindowssysWindowsWin32SystemSecuritycenterWscQueryAntiMalwareUri() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun wscRegisterForChanges(reserved: MutPtr<CVoid>, phcallbackregistration: MutPtr<Handle>, lpcallbackaddress: LpthreadStartRoutine, pcontext: MutPtr<CVoid>): Hresult =
+public actual fun wscRegisterForChanges(reserved: MutPtr, phcallbackregistration: MutPtr, lpcallbackaddress: LpthreadStartRoutine, pcontext: MutPtr): Hresult =
     if (windowsWin32SystemSecuritycenterNapiAvailable) wasmWindowssysWindowsWin32SystemSecuritycenterWscRegisterForChanges(reserved.rawAddress.toString(), phcallbackregistration.rawAddress.toString(), 0L.toString(), pcontext.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun wscRegisterForUserNotifications(): Hresult =

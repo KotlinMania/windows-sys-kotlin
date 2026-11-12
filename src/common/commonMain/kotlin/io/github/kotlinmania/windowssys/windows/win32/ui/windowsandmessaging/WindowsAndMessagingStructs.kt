@@ -2,7 +2,6 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.ui.windowsandmessaging
 
-import io.github.kotlinmania.rustlang.core.ffi.CVoid
 import io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
 import io.github.kotlinmania.rustlang.core.mem.TypeLayout
 import io.github.kotlinmania.rustlang.core.ptr.ConstPtr
@@ -21,9 +20,7 @@ import io.github.kotlinmania.windowssys.windows.win32.foundation.Lparam
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Lresult
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Point
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Rect
-import io.github.kotlinmania.windowssys.windows.win32.foundation.Size
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Wparam
-import io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.Blendfunction
 import io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.Hbitmap
 import io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.Hbrush
 import io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.Hdc
@@ -159,10 +156,10 @@ public class Cbtactivatestruct internal constructor(
 }
 
 public class CbtCreatewnda internal constructor(
-    lpcsCtorArg: MutPtr<Createstructa>,
+    lpcsCtorArg: MutPtr,
     hwndInsertAfterCtorArg: Hwnd,
 ) {
-    public var lpcs: MutPtr<Createstructa> = lpcsCtorArg
+    public var lpcs: MutPtr = lpcsCtorArg
         internal set
 
     public var hwndInsertAfter: Hwnd = hwndInsertAfterCtorArg
@@ -173,11 +170,11 @@ public class CbtCreatewnda internal constructor(
         hwndInsertAfterCtorArg = MutPtr(0L),
     )
 
-    public operator fun component1(): MutPtr<Createstructa> = this.lpcs
+    public operator fun component1(): MutPtr = this.lpcs
 
     public operator fun component2(): Hwnd = this.hwndInsertAfter
 
-    public fun copy(lpcs: MutPtr<Createstructa> = this.lpcs, hwndInsertAfter: Hwnd = this.hwndInsertAfter): CbtCreatewnda = CbtCreatewnda(lpcsCtorArg = lpcs, hwndInsertAfterCtorArg = hwndInsertAfter)
+    public fun copy(lpcs: MutPtr = this.lpcs, hwndInsertAfter: Hwnd = this.hwndInsertAfter): CbtCreatewnda = CbtCreatewnda(lpcsCtorArg = lpcs, hwndInsertAfterCtorArg = hwndInsertAfter)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -195,7 +192,7 @@ public class CbtCreatewnda internal constructor(
 
     public companion object {
         public operator fun invoke(
-            lpcs: MutPtr<Createstructa> = MutPtr(0L),
+            lpcs: MutPtr = MutPtr(0L),
             hwndInsertAfter: Hwnd = MutPtr(0L),
         ): CbtCreatewnda =
             CbtCreatewnda(
@@ -206,10 +203,10 @@ public class CbtCreatewnda internal constructor(
 }
 
 public class CbtCreatewndw internal constructor(
-    lpcsCtorArg: MutPtr<Createstructw>,
+    lpcsCtorArg: MutPtr,
     hwndInsertAfterCtorArg: Hwnd,
 ) {
-    public var lpcs: MutPtr<Createstructw> = lpcsCtorArg
+    public var lpcs: MutPtr = lpcsCtorArg
         internal set
 
     public var hwndInsertAfter: Hwnd = hwndInsertAfterCtorArg
@@ -220,11 +217,11 @@ public class CbtCreatewndw internal constructor(
         hwndInsertAfterCtorArg = MutPtr(0L),
     )
 
-    public operator fun component1(): MutPtr<Createstructw> = this.lpcs
+    public operator fun component1(): MutPtr = this.lpcs
 
     public operator fun component2(): Hwnd = this.hwndInsertAfter
 
-    public fun copy(lpcs: MutPtr<Createstructw> = this.lpcs, hwndInsertAfter: Hwnd = this.hwndInsertAfter): CbtCreatewndw = CbtCreatewndw(lpcsCtorArg = lpcs, hwndInsertAfterCtorArg = hwndInsertAfter)
+    public fun copy(lpcs: MutPtr = this.lpcs, hwndInsertAfter: Hwnd = this.hwndInsertAfter): CbtCreatewndw = CbtCreatewndw(lpcsCtorArg = lpcs, hwndInsertAfterCtorArg = hwndInsertAfter)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -242,7 +239,7 @@ public class CbtCreatewndw internal constructor(
 
     public companion object {
         public operator fun invoke(
-            lpcs: MutPtr<Createstructw> = MutPtr(0L),
+            lpcs: MutPtr = MutPtr(0L),
             hwndInsertAfter: Hwnd = MutPtr(0L),
         ): CbtCreatewndw =
             CbtCreatewndw(
@@ -319,7 +316,7 @@ public class Clientcreatestruct internal constructor(
 }
 
 public class Createstructa internal constructor(
-    lpCreateParamsCtorArg: MutPtr<CVoid>,
+    lpCreateParamsCtorArg: MutPtr,
     hInstanceCtorArg: Hinstance,
     hMenuCtorArg: Hmenu,
     hwndParentCtorArg: Hwnd,
@@ -332,7 +329,7 @@ public class Createstructa internal constructor(
     lpszClassCtorArg: Pcstr,
     public var dwExStyle: WindowExStyle,
 ) {
-    public var lpCreateParams: MutPtr<CVoid> = lpCreateParamsCtorArg
+    public var lpCreateParams: MutPtr = lpCreateParamsCtorArg
         internal set
 
     public var hInstance: Hinstance = hInstanceCtorArg
@@ -365,7 +362,7 @@ public class Createstructa internal constructor(
         dwExStyle = 0u,
     )
 
-    public operator fun component1(): MutPtr<CVoid> = this.lpCreateParams
+    public operator fun component1(): MutPtr = this.lpCreateParams
 
     public operator fun component2(): Hinstance = this.hInstance
 
@@ -389,7 +386,7 @@ public class Createstructa internal constructor(
 
     public operator fun component12(): WindowExStyle = this.dwExStyle
 
-    public fun copy(lpCreateParams: MutPtr<CVoid> = this.lpCreateParams, hInstance: Hinstance = this.hInstance, hMenu: Hmenu = this.hMenu, hwndParent: Hwnd = this.hwndParent, cy: Int = this.cy, cx: Int = this.cx, y: Int = this.y, x: Int = this.x, style: Int = this.style, lpszName: Pcstr = this.lpszName, lpszClass: Pcstr = this.lpszClass, dwExStyle: WindowExStyle = this.dwExStyle): Createstructa = Createstructa(lpCreateParamsCtorArg = lpCreateParams, hInstanceCtorArg = hInstance, hMenuCtorArg = hMenu, hwndParentCtorArg = hwndParent, cy = cy, cx = cx, y = y, x = x, style = style, lpszNameCtorArg = lpszName, lpszClassCtorArg = lpszClass, dwExStyle = dwExStyle)
+    public fun copy(lpCreateParams: MutPtr = this.lpCreateParams, hInstance: Hinstance = this.hInstance, hMenu: Hmenu = this.hMenu, hwndParent: Hwnd = this.hwndParent, cy: Int = this.cy, cx: Int = this.cx, y: Int = this.y, x: Int = this.x, style: Int = this.style, lpszName: Pcstr = this.lpszName, lpszClass: Pcstr = this.lpszClass, dwExStyle: WindowExStyle = this.dwExStyle): Createstructa = Createstructa(lpCreateParamsCtorArg = lpCreateParams, hInstanceCtorArg = hInstance, hMenuCtorArg = hMenu, hwndParentCtorArg = hwndParent, cy = cy, cx = cx, y = y, x = x, style = style, lpszNameCtorArg = lpszName, lpszClassCtorArg = lpszClass, dwExStyle = dwExStyle)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -427,7 +424,7 @@ public class Createstructa internal constructor(
 
     public companion object {
         public operator fun invoke(
-            lpCreateParams: MutPtr<CVoid> = MutPtr(0L),
+            lpCreateParams: MutPtr = MutPtr(0L),
             hInstance: Hinstance = MutPtr(0L),
             hMenu: Hmenu = MutPtr(0L),
             hwndParent: Hwnd = MutPtr(0L),
@@ -458,7 +455,7 @@ public class Createstructa internal constructor(
 }
 
 public class Createstructw internal constructor(
-    lpCreateParamsCtorArg: MutPtr<CVoid>,
+    lpCreateParamsCtorArg: MutPtr,
     hInstanceCtorArg: Hinstance,
     hMenuCtorArg: Hmenu,
     hwndParentCtorArg: Hwnd,
@@ -471,7 +468,7 @@ public class Createstructw internal constructor(
     lpszClassCtorArg: Pcwstr,
     public var dwExStyle: WindowExStyle,
 ) {
-    public var lpCreateParams: MutPtr<CVoid> = lpCreateParamsCtorArg
+    public var lpCreateParams: MutPtr = lpCreateParamsCtorArg
         internal set
 
     public var hInstance: Hinstance = hInstanceCtorArg
@@ -504,7 +501,7 @@ public class Createstructw internal constructor(
         dwExStyle = 0u,
     )
 
-    public operator fun component1(): MutPtr<CVoid> = this.lpCreateParams
+    public operator fun component1(): MutPtr = this.lpCreateParams
 
     public operator fun component2(): Hinstance = this.hInstance
 
@@ -528,7 +525,7 @@ public class Createstructw internal constructor(
 
     public operator fun component12(): WindowExStyle = this.dwExStyle
 
-    public fun copy(lpCreateParams: MutPtr<CVoid> = this.lpCreateParams, hInstance: Hinstance = this.hInstance, hMenu: Hmenu = this.hMenu, hwndParent: Hwnd = this.hwndParent, cy: Int = this.cy, cx: Int = this.cx, y: Int = this.y, x: Int = this.x, style: Int = this.style, lpszName: Pcwstr = this.lpszName, lpszClass: Pcwstr = this.lpszClass, dwExStyle: WindowExStyle = this.dwExStyle): Createstructw = Createstructw(lpCreateParamsCtorArg = lpCreateParams, hInstanceCtorArg = hInstance, hMenuCtorArg = hMenu, hwndParentCtorArg = hwndParent, cy = cy, cx = cx, y = y, x = x, style = style, lpszNameCtorArg = lpszName, lpszClassCtorArg = lpszClass, dwExStyle = dwExStyle)
+    public fun copy(lpCreateParams: MutPtr = this.lpCreateParams, hInstance: Hinstance = this.hInstance, hMenu: Hmenu = this.hMenu, hwndParent: Hwnd = this.hwndParent, cy: Int = this.cy, cx: Int = this.cx, y: Int = this.y, x: Int = this.x, style: Int = this.style, lpszName: Pcwstr = this.lpszName, lpszClass: Pcwstr = this.lpszClass, dwExStyle: WindowExStyle = this.dwExStyle): Createstructw = Createstructw(lpCreateParamsCtorArg = lpCreateParams, hInstanceCtorArg = hInstance, hMenuCtorArg = hMenu, hwndParentCtorArg = hwndParent, cy = cy, cx = cx, y = y, x = x, style = style, lpszNameCtorArg = lpszName, lpszClassCtorArg = lpszClass, dwExStyle = dwExStyle)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -566,7 +563,7 @@ public class Createstructw internal constructor(
 
     public companion object {
         public operator fun invoke(
-            lpCreateParams: MutPtr<CVoid> = MutPtr(0L),
+            lpCreateParams: MutPtr = MutPtr(0L),
             hInstance: Hinstance = MutPtr(0L),
             hMenu: Hmenu = MutPtr(0L),
             hwndParent: Hwnd = MutPtr(0L),
@@ -2774,16 +2771,16 @@ public class Menugetobjectinfo internal constructor(
     public var dwFlags: MenugetobjectinfoFlags,
     public var uPos: UInt,
     hmenuCtorArg: Hmenu,
-    riidCtorArg: MutPtr<CVoid>,
-    pvObjCtorArg: MutPtr<CVoid>,
+    riidCtorArg: MutPtr,
+    pvObjCtorArg: MutPtr,
 ) {
     public var hmenu: Hmenu = hmenuCtorArg
         internal set
 
-    public var riid: MutPtr<CVoid> = riidCtorArg
+    public var riid: MutPtr = riidCtorArg
         internal set
 
-    public var pvObj: MutPtr<CVoid> = pvObjCtorArg
+    public var pvObj: MutPtr = pvObjCtorArg
         internal set
 
     public constructor() : this(
@@ -2800,11 +2797,11 @@ public class Menugetobjectinfo internal constructor(
 
     public operator fun component3(): Hmenu = this.hmenu
 
-    public operator fun component4(): MutPtr<CVoid> = this.riid
+    public operator fun component4(): MutPtr = this.riid
 
-    public operator fun component5(): MutPtr<CVoid> = this.pvObj
+    public operator fun component5(): MutPtr = this.pvObj
 
-    public fun copy(dwFlags: MenugetobjectinfoFlags = this.dwFlags, uPos: UInt = this.uPos, hmenu: Hmenu = this.hmenu, riid: MutPtr<CVoid> = this.riid, pvObj: MutPtr<CVoid> = this.pvObj): Menugetobjectinfo = Menugetobjectinfo(dwFlags = dwFlags, uPos = uPos, hmenuCtorArg = hmenu, riidCtorArg = riid, pvObjCtorArg = pvObj)
+    public fun copy(dwFlags: MenugetobjectinfoFlags = this.dwFlags, uPos: UInt = this.uPos, hmenu: Hmenu = this.hmenu, riid: MutPtr = this.riid, pvObj: MutPtr = this.pvObj): Menugetobjectinfo = Menugetobjectinfo(dwFlags = dwFlags, uPos = uPos, hmenuCtorArg = hmenu, riidCtorArg = riid, pvObjCtorArg = pvObj)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -2837,15 +2834,15 @@ public class Menugetobjectinfo internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 4L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<CVoid>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<CVoid>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 16L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<CVoid>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 24L),
                     )
                 override fun writeNative(addr: Long, value: Menugetobjectinfo) {
@@ -2853,15 +2850,15 @@ public class Menugetobjectinfo internal constructor(
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 4L, value.uPos)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<CVoid>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.hmenu)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<CVoid>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 16L, value.riid)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<CVoid>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 24L, value.pvObj)
                 }
             }
@@ -2870,8 +2867,8 @@ public class Menugetobjectinfo internal constructor(
             dwFlags: MenugetobjectinfoFlags = 0u,
             uPos: UInt = 0u,
             hmenu: Hmenu = MutPtr(0L),
-            riid: MutPtr<CVoid> = MutPtr(0L),
-            pvObj: MutPtr<CVoid> = MutPtr(0L),
+            riid: MutPtr = MutPtr(0L),
+            pvObj: MutPtr = MutPtr(0L),
         ): Menugetobjectinfo =
             Menugetobjectinfo(
                 dwFlags = dwFlags,
@@ -3902,18 +3899,18 @@ public data class Msllhookstruct(
 )
 
 public class MrmResourceIndexerHandle internal constructor(
-    handleCtorArg: MutPtr<CVoid>,
+    handleCtorArg: MutPtr,
 ) {
-    public var handle: MutPtr<CVoid> = handleCtorArg
+    public var handle: MutPtr = handleCtorArg
         internal set
 
     public constructor() : this(
         handleCtorArg = MutPtr(0L),
     )
 
-    public operator fun component1(): MutPtr<CVoid> = this.handle
+    public operator fun component1(): MutPtr = this.handle
 
-    public fun copy(handle: MutPtr<CVoid> = this.handle): MrmResourceIndexerHandle = MrmResourceIndexerHandle(handleCtorArg = handle)
+    public fun copy(handle: MutPtr = this.handle): MrmResourceIndexerHandle = MrmResourceIndexerHandle(handleCtorArg = handle)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -3933,19 +3930,19 @@ public class MrmResourceIndexerHandle internal constructor(
                     MrmResourceIndexerHandle(
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<CVoid>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr),
                     )
                 override fun writeNative(addr: Long, value: MrmResourceIndexerHandle) {
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<CVoid>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr, value.handle)
                 }
             }
 
         public operator fun invoke(
-            handle: MutPtr<CVoid> = MutPtr(0L),
+            handle: MutPtr = MutPtr(0L),
         ): MrmResourceIndexerHandle =
             MrmResourceIndexerHandle(
                 handleCtorArg = handle,
@@ -4007,9 +4004,9 @@ public class MrmResourceIndexerMessage internal constructor(
 
 public class NccalcsizeParams internal constructor(
     public var rgrc: List<Rect>,
-    lpposCtorArg: MutPtr<Windowpos>,
+    lpposCtorArg: MutPtr,
 ) {
-    public var lppos: MutPtr<Windowpos> = lpposCtorArg
+    public var lppos: MutPtr = lpposCtorArg
         internal set
 
     public constructor() : this(
@@ -4019,9 +4016,9 @@ public class NccalcsizeParams internal constructor(
 
     public operator fun component1(): List<Rect> = this.rgrc
 
-    public operator fun component2(): MutPtr<Windowpos> = this.lppos
+    public operator fun component2(): MutPtr = this.lppos
 
-    public fun copy(rgrc: List<Rect> = this.rgrc, lppos: MutPtr<Windowpos> = this.lppos): NccalcsizeParams = NccalcsizeParams(rgrc = rgrc, lpposCtorArg = lppos)
+    public fun copy(rgrc: List<Rect> = this.rgrc, lppos: MutPtr = this.lppos): NccalcsizeParams = NccalcsizeParams(rgrc = rgrc, lpposCtorArg = lppos)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -4040,7 +4037,7 @@ public class NccalcsizeParams internal constructor(
     public companion object {
         public operator fun invoke(
             rgrc: List<Rect> = List(3) { Rect() },
-            lppos: MutPtr<Windowpos> = MutPtr(0L),
+            lppos: MutPtr = MutPtr(0L),
         ): NccalcsizeParams =
             NccalcsizeParams(
                 rgrc = rgrc,
@@ -4307,34 +4304,34 @@ public data class Tpmparams(
 public class Updatelayeredwindowinfo internal constructor(
     public var cbSize: UInt,
     hdcDstCtorArg: Hdc,
-    pptDstCtorArg: ConstPtr<Point>,
-    psizeCtorArg: ConstPtr<Size>,
+    pptDstCtorArg: ConstPtr,
+    psizeCtorArg: ConstPtr,
     hdcSrcCtorArg: Hdc,
-    pptSrcCtorArg: ConstPtr<Point>,
+    pptSrcCtorArg: ConstPtr,
     public var crKey: Colorref,
-    pblendCtorArg: ConstPtr<Blendfunction>,
+    pblendCtorArg: ConstPtr,
     public var dwFlags: UpdateLayeredWindowFlags,
-    prcDirtyCtorArg: ConstPtr<Rect>,
+    prcDirtyCtorArg: ConstPtr,
 ) {
     public var hdcDst: Hdc = hdcDstCtorArg
         internal set
 
-    public var pptDst: ConstPtr<Point> = pptDstCtorArg
+    public var pptDst: ConstPtr = pptDstCtorArg
         internal set
 
-    public var psize: ConstPtr<Size> = psizeCtorArg
+    public var psize: ConstPtr = psizeCtorArg
         internal set
 
     public var hdcSrc: Hdc = hdcSrcCtorArg
         internal set
 
-    public var pptSrc: ConstPtr<Point> = pptSrcCtorArg
+    public var pptSrc: ConstPtr = pptSrcCtorArg
         internal set
 
-    public var pblend: ConstPtr<Blendfunction> = pblendCtorArg
+    public var pblend: ConstPtr = pblendCtorArg
         internal set
 
-    public var prcDirty: ConstPtr<Rect> = prcDirtyCtorArg
+    public var prcDirty: ConstPtr = prcDirtyCtorArg
         internal set
 
     public constructor() : this(
@@ -4354,23 +4351,23 @@ public class Updatelayeredwindowinfo internal constructor(
 
     public operator fun component2(): Hdc = this.hdcDst
 
-    public operator fun component3(): ConstPtr<Point> = this.pptDst
+    public operator fun component3(): ConstPtr = this.pptDst
 
-    public operator fun component4(): ConstPtr<Size> = this.psize
+    public operator fun component4(): ConstPtr = this.psize
 
     public operator fun component5(): Hdc = this.hdcSrc
 
-    public operator fun component6(): ConstPtr<Point> = this.pptSrc
+    public operator fun component6(): ConstPtr = this.pptSrc
 
     public operator fun component7(): Colorref = this.crKey
 
-    public operator fun component8(): ConstPtr<Blendfunction> = this.pblend
+    public operator fun component8(): ConstPtr = this.pblend
 
     public operator fun component9(): UpdateLayeredWindowFlags = this.dwFlags
 
-    public operator fun component10(): ConstPtr<Rect> = this.prcDirty
+    public operator fun component10(): ConstPtr = this.prcDirty
 
-    public fun copy(cbSize: UInt = this.cbSize, hdcDst: Hdc = this.hdcDst, pptDst: ConstPtr<Point> = this.pptDst, psize: ConstPtr<Size> = this.psize, hdcSrc: Hdc = this.hdcSrc, pptSrc: ConstPtr<Point> = this.pptSrc, crKey: Colorref = this.crKey, pblend: ConstPtr<Blendfunction> = this.pblend, dwFlags: UpdateLayeredWindowFlags = this.dwFlags, prcDirty: ConstPtr<Rect> = this.prcDirty): Updatelayeredwindowinfo = Updatelayeredwindowinfo(cbSize = cbSize, hdcDstCtorArg = hdcDst, pptDstCtorArg = pptDst, psizeCtorArg = psize, hdcSrcCtorArg = hdcSrc, pptSrcCtorArg = pptSrc, crKey = crKey, pblendCtorArg = pblend, dwFlags = dwFlags, prcDirtyCtorArg = prcDirty)
+    public fun copy(cbSize: UInt = this.cbSize, hdcDst: Hdc = this.hdcDst, pptDst: ConstPtr = this.pptDst, psize: ConstPtr = this.psize, hdcSrc: Hdc = this.hdcSrc, pptSrc: ConstPtr = this.pptSrc, crKey: Colorref = this.crKey, pblend: ConstPtr = this.pblend, dwFlags: UpdateLayeredWindowFlags = this.dwFlags, prcDirty: ConstPtr = this.prcDirty): Updatelayeredwindowinfo = Updatelayeredwindowinfo(cbSize = cbSize, hdcDstCtorArg = hdcDst, pptDstCtorArg = pptDst, psizeCtorArg = psize, hdcSrcCtorArg = hdcSrc, pptSrcCtorArg = pptSrc, crKey = crKey, pblendCtorArg = pblend, dwFlags = dwFlags, prcDirtyCtorArg = prcDirty)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -4406,14 +4403,14 @@ public class Updatelayeredwindowinfo internal constructor(
         public operator fun invoke(
             cbSize: UInt = 0u,
             hdcDst: Hdc = MutPtr(0L),
-            pptDst: ConstPtr<Point> = ConstPtr(0L),
-            psize: ConstPtr<Size> = ConstPtr(0L),
+            pptDst: ConstPtr = ConstPtr(0L),
+            psize: ConstPtr = ConstPtr(0L),
             hdcSrc: Hdc = MutPtr(0L),
-            pptSrc: ConstPtr<Point> = ConstPtr(0L),
+            pptSrc: ConstPtr = ConstPtr(0L),
             crKey: Colorref = 0u,
-            pblend: ConstPtr<Blendfunction> = ConstPtr(0L),
+            pblend: ConstPtr = ConstPtr(0L),
             dwFlags: UpdateLayeredWindowFlags = 0u,
-            prcDirty: ConstPtr<Rect> = ConstPtr(0L),
+            prcDirty: ConstPtr = ConstPtr(0L),
         ): Updatelayeredwindowinfo =
             Updatelayeredwindowinfo(
                 cbSize = cbSize,

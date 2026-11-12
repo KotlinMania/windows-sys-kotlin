@@ -2,15 +2,12 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.ui.hidpi
 
-import io.github.kotlinmania.rustlang.core.ffi.CVoid
 import io.github.kotlinmania.rustlang.core.ptr.MutPtr
 import io.github.kotlinmania.windowssys.core.Bool
 import io.github.kotlinmania.windowssys.core.Hresult
 import io.github.kotlinmania.windowssys.core.Pcwstr
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Handle
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Hwnd
-import io.github.kotlinmania.windowssys.windows.win32.foundation.Point
-import io.github.kotlinmania.windowssys.windows.win32.foundation.Rect
 import io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.Hmonitor
 import io.github.kotlinmania.windowssys.windows.win32.ui.controls.Htheme
 import io.github.kotlinmania.windowssys.windows.win32.ui.windowsandmessaging.SystemMetricsIndex
@@ -18,7 +15,7 @@ import io.github.kotlinmania.windowssys.windows.win32.ui.windowsandmessaging.Win
 import io.github.kotlinmania.windowssys.windows.win32.ui.windowsandmessaging.WindowStyle
 
 // The host must provide the C companion wrapper exports in import module windowssys.
-public actual fun adjustWindowRectExForDpi(lprect: MutPtr<Rect>, dwstyle: WindowStyle, bmenu: Bool, dwexstyle: WindowExStyle, dpi: UInt): Bool =
+public actual fun adjustWindowRectExForDpi(lprect: MutPtr, dwstyle: WindowStyle, bmenu: Bool, dwexstyle: WindowExStyle, dpi: UInt): Bool =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32UiHidpiAdjustWindowRectExForDpi")
 
 public actual fun areDpiAwarenessContextsEqual(dpicontexta: DpiAwarenessContext, dpicontextb: DpiAwarenessContext): Bool =
@@ -39,7 +36,7 @@ public actual fun getDialogDpiChangeBehavior(hdlg: Hwnd): DialogDpiChangeBehavio
 public actual fun getDpiAwarenessContextForProcess(hprocess: Handle): DpiAwarenessContext =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32UiHidpiGetDpiAwarenessContextForProcess")
 
-public actual fun getDpiForMonitor(hmonitor: Hmonitor, dpitype: MonitorDpiType, dpix: MutPtr<UInt>, dpiy: MutPtr<UInt>): Hresult =
+public actual fun getDpiForMonitor(hmonitor: Hmonitor, dpitype: MonitorDpiType, dpix: MutPtr, dpiy: MutPtr): Hresult =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32UiHidpiGetDpiForMonitor")
 
 @kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32UiHidpiGetDpiForSystem")
@@ -54,7 +51,7 @@ public actual fun getDpiForWindow(hwnd: Hwnd): UInt =
 public actual fun getDpiFromDpiAwarenessContext(value: DpiAwarenessContext): UInt =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32UiHidpiGetDpiFromDpiAwarenessContext")
 
-public actual fun getProcessDpiAwareness(hprocess: Handle, value: MutPtr<ProcessDpiAwareness>): Hresult =
+public actual fun getProcessDpiAwareness(hprocess: Handle, value: MutPtr): Hresult =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32UiHidpiGetProcessDpiAwareness")
 
 public actual fun getSystemDpiForProcess(hprocess: Handle): UInt =
@@ -84,13 +81,13 @@ public actual fun getWindowDpiHostingBehavior(hwnd: Hwnd): DpiHostingBehavior =
 public actual fun isValidDpiAwarenessContext(value: DpiAwarenessContext): Bool =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32UiHidpiIsValidDpiAwarenessContext")
 
-public actual fun logicalToPhysicalPointForPerMonitorDPI(hwnd: Hwnd, lppoint: MutPtr<Point>): Bool =
+public actual fun logicalToPhysicalPointForPerMonitorDPI(hwnd: Hwnd, lppoint: MutPtr): Bool =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32UiHidpiLogicalToPhysicalPointForPerMonitorDPI")
 
 public actual fun openThemeDataForDpi(hwnd: Hwnd, pszclasslist: Pcwstr, dpi: UInt): Htheme =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32UiHidpiOpenThemeDataForDpi")
 
-public actual fun physicalToLogicalPointForPerMonitorDPI(hwnd: Hwnd, lppoint: MutPtr<Point>): Bool =
+public actual fun physicalToLogicalPointForPerMonitorDPI(hwnd: Hwnd, lppoint: MutPtr): Bool =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32UiHidpiPhysicalToLogicalPointForPerMonitorDPI")
 
 public actual fun setDialogControlDpiChangeBehavior(hwnd: Hwnd, mask: DialogControlDpiChangeBehaviors, values: DialogControlDpiChangeBehaviors): Bool =
@@ -117,5 +114,5 @@ private external fun wasiWindowssysWindowsWin32UiHidpiSetThreadDpiHostingBehavio
 public actual fun setThreadDpiHostingBehavior(value: DpiHostingBehavior): DpiHostingBehavior =
     wasiWindowssysWindowsWin32UiHidpiSetThreadDpiHostingBehavior(value)
 
-public actual fun systemParametersInfoForDpi(uiaction: UInt, uiparam: UInt, pvparam: MutPtr<CVoid>, fwinini: UInt, dpi: UInt): Bool =
+public actual fun systemParametersInfoForDpi(uiaction: UInt, uiparam: UInt, pvparam: MutPtr, fwinini: UInt, dpi: UInt): Bool =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32UiHidpiSystemParametersInfoForDpi")

@@ -1,6 +1,5 @@
 package io.github.kotlinmania.windowssys.windows.win32.graphics.gdi
 
-import io.github.kotlinmania.rustlang.core.ffi.CVoid
 import io.github.kotlinmania.rustlang.core.ptr.ConstPtr
 import io.github.kotlinmania.rustlang.core.ptr.MutPtr
 import io.github.kotlinmania.windowssys.core.Bool
@@ -8,7 +7,6 @@ import io.github.kotlinmania.windowssys.core.Pcstr
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Hmodule
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Hwnd
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Lparam
-import io.github.kotlinmania.windowssys.windows.win32.foundation.Rect
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Wparam
 
 public typealias ArcDirection = Int
@@ -22,19 +20,19 @@ public typealias BrushStyle = UInt
 public typealias CdsType = UInt
 
 public fun interface CfpAllocprocFn {
-    public operator fun invoke(param0: ULong): MutPtr<CVoid>
+    public operator fun invoke(param0: ULong): MutPtr
 }
 
 public typealias CfpAllocproc = CfpAllocprocFn?
 
 public fun interface CfpFreeprocFn {
-    public operator fun invoke(param0: MutPtr<CVoid>)
+    public operator fun invoke(param0: MutPtr)
 }
 
 public typealias CfpFreeproc = CfpFreeprocFn?
 
 public fun interface CfpReallocprocFn {
-    public operator fun invoke(param0: MutPtr<CVoid>, param1: ULong): MutPtr<CVoid>
+    public operator fun invoke(param0: MutPtr, param1: ULong): MutPtr
 }
 
 public typealias CfpReallocproc = CfpReallocprocFn?
@@ -96,7 +94,7 @@ public typealias EmbedFontCharset = UInt
 public typealias EnhancedMetafileRecordType = UInt
 
 public fun interface EnhmfenumprocFn {
-    public operator fun invoke(hdc: Hdc, lpht: ConstPtr<Handletable>, lpmr: ConstPtr<Enhmetarecord>, nhandles: Int, data: Lparam): Int
+    public operator fun invoke(hdc: Hdc, lpht: ConstPtr, lpmr: ConstPtr, nhandles: Int, data: Lparam): Int
 }
 
 public typealias Enhmfenumproc = EnhmfenumprocFn?
@@ -110,13 +108,13 @@ public typealias EtoOptions = UInt
 public typealias ExtFloodFillType = UInt
 
 public fun interface FontenumprocaFn {
-    public operator fun invoke(param0: ConstPtr<Logfonta>, param1: ConstPtr<Textmetrica>, param2: UInt, param3: Lparam): Int
+    public operator fun invoke(param0: ConstPtr, param1: ConstPtr, param2: UInt, param3: Lparam): Int
 }
 
 public typealias Fontenumproca = FontenumprocaFn?
 
 public fun interface FontenumprocwFn {
-    public operator fun invoke(param0: ConstPtr<Logfontw>, param1: ConstPtr<Textmetricw>, param2: UInt, param3: Lparam): Int
+    public operator fun invoke(param0: ConstPtr, param1: ConstPtr, param2: UInt, param3: Lparam): Int
 }
 
 public typealias Fontenumprocw = FontenumprocwFn?
@@ -152,7 +150,7 @@ public typealias GetGlyphOutlineFormat = UInt
 public typealias GetStockObjectFlags = Int
 
 public fun interface GobjenumprocFn {
-    public operator fun invoke(param0: MutPtr<CVoid>, param1: Lparam): Int
+    public operator fun invoke(param0: MutPtr, param1: Lparam): Int
 }
 
 public typealias Gobjenumproc = GobjenumprocFn?
@@ -169,29 +167,29 @@ public typealias Graystringproc = GraystringprocFn?
 
 public typealias HatchBrushStyle = Int
 
-public typealias Hbitmap = MutPtr<CVoid>
+public typealias Hbitmap = MutPtr
 
-public typealias Hbrush = MutPtr<CVoid>
+public typealias Hbrush = MutPtr
 
-public typealias Hdc = MutPtr<CVoid>
+public typealias Hdc = MutPtr
 
 public typealias HdcMapMode = Int
 
-public typealias Henhmetafile = MutPtr<CVoid>
+public typealias Henhmetafile = MutPtr
 
-public typealias Hfont = MutPtr<CVoid>
+public typealias Hfont = MutPtr
 
-public typealias Hgdiobj = MutPtr<CVoid>
+public typealias Hgdiobj = MutPtr
 
-public typealias Hmetafile = MutPtr<CVoid>
+public typealias Hmetafile = MutPtr
 
-public typealias Hmonitor = MutPtr<CVoid>
+public typealias Hmonitor = MutPtr
 
-public typealias Hpalette = MutPtr<CVoid>
+public typealias Hpalette = MutPtr
 
-public typealias Hpen = MutPtr<CVoid>
+public typealias Hpen = MutPtr
 
-public typealias Hrgn = MutPtr<CVoid>
+public typealias Hrgn = MutPtr
 
 public fun interface LineddaprocFn {
     public operator fun invoke(param0: Int, param1: Int, param2: Lparam)
@@ -200,19 +198,19 @@ public fun interface LineddaprocFn {
 public typealias Lineddaproc = LineddaprocFn?
 
 public fun interface LpfndevcapsFn {
-    public operator fun invoke(param0: Pcstr, param1: Pcstr, param2: UInt, param3: Pcstr, param4: MutPtr<Devmodea>): UInt
+    public operator fun invoke(param0: Pcstr, param1: Pcstr, param2: UInt, param3: Pcstr, param4: MutPtr): UInt
 }
 
 public typealias Lpfndevcaps = LpfndevcapsFn?
 
 public fun interface LpfndevmodeFn {
-    public operator fun invoke(param0: Hwnd, param1: Hmodule, param2: MutPtr<Devmodea>, param3: Pcstr, param4: Pcstr, param5: MutPtr<Devmodea>, param6: Pcstr, param7: UInt): UInt
+    public operator fun invoke(param0: Hwnd, param1: Hmodule, param2: MutPtr, param3: Pcstr, param4: Pcstr, param5: MutPtr, param6: Pcstr, param7: UInt): UInt
 }
 
 public typealias Lpfndevmode = LpfndevmodeFn?
 
 public fun interface MfenumprocFn {
-    public operator fun invoke(hdc: Hdc, lpht: ConstPtr<Handletable>, lpmr: ConstPtr<Metarecord>, nobj: Int, param4: Lparam): Int
+    public operator fun invoke(hdc: Hdc, lpht: ConstPtr, lpmr: ConstPtr, nobj: Int, param4: Lparam): Int
 }
 
 public typealias Mfenumproc = MfenumprocFn?
@@ -220,7 +218,7 @@ public typealias Mfenumproc = MfenumprocFn?
 public typealias ModifyWorldTransformMode = UInt
 
 public fun interface MonitorenumprocFn {
-    public operator fun invoke(param0: Hmonitor, param1: Hdc, param2: MutPtr<Rect>, param3: Lparam): Bool
+    public operator fun invoke(param0: Hmonitor, param1: Hdc, param2: MutPtr, param3: Lparam): Bool
 }
 
 public typealias Monitorenumproc = MonitorenumprocFn?
@@ -254,7 +252,7 @@ public typealias PenStyle = Int
 public typealias R2Mode = Int
 
 public fun interface ReadembedprocFn {
-    public operator fun invoke(param0: MutPtr<CVoid>, param1: MutPtr<CVoid>, param2: UInt): UInt
+    public operator fun invoke(param0: MutPtr, param1: MutPtr, param2: UInt): UInt
 }
 
 public typealias Readembedproc = ReadembedprocFn?
@@ -282,7 +280,7 @@ public typealias TtembedFlags = UInt
 public typealias TtloadEmbeddedFontStatus = UInt
 
 public fun interface WriteembedprocFn {
-    public operator fun invoke(param0: MutPtr<CVoid>, param1: ConstPtr<CVoid>, param2: UInt): UInt
+    public operator fun invoke(param0: MutPtr, param1: ConstPtr, param2: UInt): UInt
 }
 
 public typealias Writeembedproc = WriteembedprocFn?

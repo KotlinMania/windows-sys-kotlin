@@ -54,11 +54,11 @@ public data class SPropAttrArray(
 }
 
 public class TagImmpidGuidlistItem internal constructor(
-    pguidCtorArg: ConstPtr<Guid>,
+    pguidCtorArg: ConstPtr,
     public var dwStart: UInt,
     public var dwLast: UInt,
 ) {
-    public var pguid: ConstPtr<Guid> = pguidCtorArg
+    public var pguid: ConstPtr = pguidCtorArg
         internal set
 
     public constructor() : this(
@@ -67,13 +67,13 @@ public class TagImmpidGuidlistItem internal constructor(
         dwLast = 0u,
     )
 
-    public operator fun component1(): ConstPtr<Guid> = this.pguid
+    public operator fun component1(): ConstPtr = this.pguid
 
     public operator fun component2(): UInt = this.dwStart
 
     public operator fun component3(): UInt = this.dwLast
 
-    public fun copy(pguid: ConstPtr<Guid> = this.pguid, dwStart: UInt = this.dwStart, dwLast: UInt = this.dwLast): TagImmpidGuidlistItem = TagImmpidGuidlistItem(pguidCtorArg = pguid, dwStart = dwStart, dwLast = dwLast)
+    public fun copy(pguid: ConstPtr = this.pguid, dwStart: UInt = this.dwStart, dwLast: UInt = this.dwLast): TagImmpidGuidlistItem = TagImmpidGuidlistItem(pguidCtorArg = pguid, dwStart = dwStart, dwLast = dwLast)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -100,7 +100,7 @@ public class TagImmpidGuidlistItem internal constructor(
                     TagImmpidGuidlistItem(
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .constPtrLayout<Guid>(64)
+                                .constPtrLayout(64)
                         ).readNative(addr),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 8L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 12L),
@@ -108,7 +108,7 @@ public class TagImmpidGuidlistItem internal constructor(
                 override fun writeNative(addr: Long, value: TagImmpidGuidlistItem) {
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .constPtrLayout<Guid>(64)
+                            .constPtrLayout(64)
                     ).writeNative(addr, value.pguid)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 8L, value.dwStart)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 12L, value.dwLast)
@@ -116,7 +116,7 @@ public class TagImmpidGuidlistItem internal constructor(
             }
 
         public operator fun invoke(
-            pguid: ConstPtr<Guid> = ConstPtr(0L),
+            pguid: ConstPtr = ConstPtr(0L),
             dwStart: UInt = 0u,
             dwLast: UInt = 0u,
         ): TagImmpidGuidlistItem =

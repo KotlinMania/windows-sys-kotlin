@@ -195,7 +195,7 @@ public class WlxConsoleswitchCredentialsInfoV10 internal constructor(
     logonServerCtorArg: Pwstr,
     public var userFlags: UInt,
     public var privateDataLen: UInt,
-    privateDataCtorArg: MutPtr<UByte>,
+    privateDataCtorArg: MutPtr,
 ) {
     public var userToken: Handle = userTokenCtorArg
         internal set
@@ -224,7 +224,7 @@ public class WlxConsoleswitchCredentialsInfoV10 internal constructor(
     public var logonServer: Pwstr = logonServerCtorArg
         internal set
 
-    public var privateData: MutPtr<UByte> = privateDataCtorArg
+    public var privateData: MutPtr = privateDataCtorArg
         internal set
 
     public constructor() : this(
@@ -285,7 +285,7 @@ public class WlxConsoleswitchCredentialsInfoV10 internal constructor(
             logonServer: Pwstr = MutPtr(0L),
             userFlags: UInt = 0u,
             privateDataLen: UInt = 0u,
-            privateData: MutPtr<UByte> = MutPtr(0L),
+            privateData: MutPtr = MutPtr(0L),
         ): WlxConsoleswitchCredentialsInfoV10 =
             WlxConsoleswitchCredentialsInfoV10(
                 dwType = dwType,

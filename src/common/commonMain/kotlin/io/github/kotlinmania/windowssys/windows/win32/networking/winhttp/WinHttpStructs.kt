@@ -2,7 +2,6 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.networking.winhttp
 
-import io.github.kotlinmania.rustlang.core.ffi.CVoid
 import io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
 import io.github.kotlinmania.rustlang.core.mem.TypeLayout
 import io.github.kotlinmania.rustlang.core.ptr.ConstPtr
@@ -228,14 +227,14 @@ public class WinhttpAutoproxyOptions internal constructor(
     public var dwFlags: UInt,
     public var dwAutoDetectFlags: UInt,
     lpszAutoConfigUrlCtorArg: Pcwstr,
-    lpvReservedCtorArg: MutPtr<CVoid>,
+    lpvReservedCtorArg: MutPtr,
     public var dwReserved: UInt,
     public var fAutoLogonIfChallenged: Bool,
 ) {
     public var lpszAutoConfigUrl: Pcwstr = lpszAutoConfigUrlCtorArg
         internal set
 
-    public var lpvReserved: MutPtr<CVoid> = lpvReservedCtorArg
+    public var lpvReserved: MutPtr = lpvReservedCtorArg
         internal set
 
     public constructor() : this(
@@ -253,13 +252,13 @@ public class WinhttpAutoproxyOptions internal constructor(
 
     public operator fun component3(): Pcwstr = this.lpszAutoConfigUrl
 
-    public operator fun component4(): MutPtr<CVoid> = this.lpvReserved
+    public operator fun component4(): MutPtr = this.lpvReserved
 
     public operator fun component5(): UInt = this.dwReserved
 
     public operator fun component6(): Bool = this.fAutoLogonIfChallenged
 
-    public fun copy(dwFlags: UInt = this.dwFlags, dwAutoDetectFlags: UInt = this.dwAutoDetectFlags, lpszAutoConfigUrl: Pcwstr = this.lpszAutoConfigUrl, lpvReserved: MutPtr<CVoid> = this.lpvReserved, dwReserved: UInt = this.dwReserved, fAutoLogonIfChallenged: Bool = this.fAutoLogonIfChallenged): WinhttpAutoproxyOptions = WinhttpAutoproxyOptions(dwFlags = dwFlags, dwAutoDetectFlags = dwAutoDetectFlags, lpszAutoConfigUrlCtorArg = lpszAutoConfigUrl, lpvReservedCtorArg = lpvReserved, dwReserved = dwReserved, fAutoLogonIfChallenged = fAutoLogonIfChallenged)
+    public fun copy(dwFlags: UInt = this.dwFlags, dwAutoDetectFlags: UInt = this.dwAutoDetectFlags, lpszAutoConfigUrl: Pcwstr = this.lpszAutoConfigUrl, lpvReserved: MutPtr = this.lpvReserved, dwReserved: UInt = this.dwReserved, fAutoLogonIfChallenged: Bool = this.fAutoLogonIfChallenged): WinhttpAutoproxyOptions = WinhttpAutoproxyOptions(dwFlags = dwFlags, dwAutoDetectFlags = dwAutoDetectFlags, lpszAutoConfigUrlCtorArg = lpszAutoConfigUrl, lpvReservedCtorArg = lpvReserved, dwReserved = dwReserved, fAutoLogonIfChallenged = fAutoLogonIfChallenged)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -288,7 +287,7 @@ public class WinhttpAutoproxyOptions internal constructor(
             dwFlags: UInt = 0u,
             dwAutoDetectFlags: UInt = 0u,
             lpszAutoConfigUrl: Pcwstr = ConstPtr(0L),
-            lpvReserved: MutPtr<CVoid> = MutPtr(0L),
+            lpvReserved: MutPtr = MutPtr(0L),
             dwReserved: UInt = 0u,
             fAutoLogonIfChallenged: Bool = 0,
         ): WinhttpAutoproxyOptions =
@@ -836,12 +835,12 @@ public class WinhttpHeaderName internal constructor(
 public class WinhttpHostConnectionGroup internal constructor(
     pwszHostCtorArg: Pcwstr,
     public var cConnectionGroups: UInt,
-    pConnectionGroupsCtorArg: MutPtr<WinhttpConnectionGroup>,
+    pConnectionGroupsCtorArg: MutPtr,
 ) {
     public var pwszHost: Pcwstr = pwszHostCtorArg
         internal set
 
-    public var pConnectionGroups: MutPtr<WinhttpConnectionGroup> = pConnectionGroupsCtorArg
+    public var pConnectionGroups: MutPtr = pConnectionGroupsCtorArg
         internal set
 
     public constructor() : this(
@@ -854,9 +853,9 @@ public class WinhttpHostConnectionGroup internal constructor(
 
     public operator fun component2(): UInt = this.cConnectionGroups
 
-    public operator fun component3(): MutPtr<WinhttpConnectionGroup> = this.pConnectionGroups
+    public operator fun component3(): MutPtr = this.pConnectionGroups
 
-    public fun copy(pwszHost: Pcwstr = this.pwszHost, cConnectionGroups: UInt = this.cConnectionGroups, pConnectionGroups: MutPtr<WinhttpConnectionGroup> = this.pConnectionGroups): WinhttpHostConnectionGroup = WinhttpHostConnectionGroup(pwszHostCtorArg = pwszHost, cConnectionGroups = cConnectionGroups, pConnectionGroupsCtorArg = pConnectionGroups)
+    public fun copy(pwszHost: Pcwstr = this.pwszHost, cConnectionGroups: UInt = this.cConnectionGroups, pConnectionGroups: MutPtr = this.pConnectionGroups): WinhttpHostConnectionGroup = WinhttpHostConnectionGroup(pwszHostCtorArg = pwszHost, cConnectionGroups = cConnectionGroups, pConnectionGroupsCtorArg = pConnectionGroups)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -878,7 +877,7 @@ public class WinhttpHostConnectionGroup internal constructor(
         public operator fun invoke(
             pwszHost: Pcwstr = ConstPtr(0L),
             cConnectionGroups: UInt = 0u,
-            pConnectionGroups: MutPtr<WinhttpConnectionGroup> = MutPtr(0L),
+            pConnectionGroups: MutPtr = MutPtr(0L),
         ): WinhttpHostConnectionGroup =
             WinhttpHostConnectionGroup(
                 pwszHostCtorArg = pwszHost,
@@ -1006,9 +1005,9 @@ public data class WinhttpProxyNetworkingKey(
 
 public class WinhttpProxyResult internal constructor(
     public var cEntries: UInt,
-    pEntriesCtorArg: MutPtr<WinhttpProxyResultEntry>,
+    pEntriesCtorArg: MutPtr,
 ) {
-    public var pEntries: MutPtr<WinhttpProxyResultEntry> = pEntriesCtorArg
+    public var pEntries: MutPtr = pEntriesCtorArg
         internal set
 
     public constructor() : this(
@@ -1018,9 +1017,9 @@ public class WinhttpProxyResult internal constructor(
 
     public operator fun component1(): UInt = this.cEntries
 
-    public operator fun component2(): MutPtr<WinhttpProxyResultEntry> = this.pEntries
+    public operator fun component2(): MutPtr = this.pEntries
 
-    public fun copy(cEntries: UInt = this.cEntries, pEntries: MutPtr<WinhttpProxyResultEntry> = this.pEntries): WinhttpProxyResult = WinhttpProxyResult(cEntries = cEntries, pEntriesCtorArg = pEntries)
+    public fun copy(cEntries: UInt = this.cEntries, pEntries: MutPtr = this.pEntries): WinhttpProxyResult = WinhttpProxyResult(cEntries = cEntries, pEntriesCtorArg = pEntries)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -1046,21 +1045,21 @@ public class WinhttpProxyResult internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<WinhttpProxyResultEntry>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                     )
                 override fun writeNative(addr: Long, value: WinhttpProxyResult) {
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr, value.cEntries)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<WinhttpProxyResultEntry>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.pEntries)
                 }
             }
 
         public operator fun invoke(
             cEntries: UInt = 0u,
-            pEntries: MutPtr<WinhttpProxyResultEntry> = MutPtr(0L),
+            pEntries: MutPtr = MutPtr(0L),
         ): WinhttpProxyResult =
             WinhttpProxyResult(
                 cEntries = cEntries,
@@ -1139,11 +1138,11 @@ public class WinhttpProxyResultEntry internal constructor(
 
 public class WinhttpProxyResultEx internal constructor(
     public var cEntries: UInt,
-    pEntriesCtorArg: MutPtr<WinhttpProxyResultEntry>,
+    pEntriesCtorArg: MutPtr,
     hProxyDetectionHandleCtorArg: Handle,
     public var dwProxyInterfaceAffinity: UInt,
 ) {
-    public var pEntries: MutPtr<WinhttpProxyResultEntry> = pEntriesCtorArg
+    public var pEntries: MutPtr = pEntriesCtorArg
         internal set
 
     public var hProxyDetectionHandle: Handle = hProxyDetectionHandleCtorArg
@@ -1158,13 +1157,13 @@ public class WinhttpProxyResultEx internal constructor(
 
     public operator fun component1(): UInt = this.cEntries
 
-    public operator fun component2(): MutPtr<WinhttpProxyResultEntry> = this.pEntries
+    public operator fun component2(): MutPtr = this.pEntries
 
     public operator fun component3(): Handle = this.hProxyDetectionHandle
 
     public operator fun component4(): UInt = this.dwProxyInterfaceAffinity
 
-    public fun copy(cEntries: UInt = this.cEntries, pEntries: MutPtr<WinhttpProxyResultEntry> = this.pEntries, hProxyDetectionHandle: Handle = this.hProxyDetectionHandle, dwProxyInterfaceAffinity: UInt = this.dwProxyInterfaceAffinity): WinhttpProxyResultEx = WinhttpProxyResultEx(cEntries = cEntries, pEntriesCtorArg = pEntries, hProxyDetectionHandleCtorArg = hProxyDetectionHandle, dwProxyInterfaceAffinity = dwProxyInterfaceAffinity)
+    public fun copy(cEntries: UInt = this.cEntries, pEntries: MutPtr = this.pEntries, hProxyDetectionHandle: Handle = this.hProxyDetectionHandle, dwProxyInterfaceAffinity: UInt = this.dwProxyInterfaceAffinity): WinhttpProxyResultEx = WinhttpProxyResultEx(cEntries = cEntries, pEntriesCtorArg = pEntries, hProxyDetectionHandleCtorArg = hProxyDetectionHandle, dwProxyInterfaceAffinity = dwProxyInterfaceAffinity)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -1187,7 +1186,7 @@ public class WinhttpProxyResultEx internal constructor(
     public companion object {
         public operator fun invoke(
             cEntries: UInt = 0u,
-            pEntries: MutPtr<WinhttpProxyResultEntry> = MutPtr(0L),
+            pEntries: MutPtr = MutPtr(0L),
             hProxyDetectionHandle: Handle = MutPtr(0L),
             dwProxyInterfaceAffinity: UInt = 0u,
         ): WinhttpProxyResultEx =
@@ -1214,9 +1213,9 @@ public class WinhttpProxySettings internal constructor(
     public var dwAutoconfigReloadDelayMins: UInt,
     public var ftLastKnownDetectTime: Filetime,
     public var dwDetectedInterfaceIpCount: UInt,
-    pdwDetectedInterfaceIpCtorArg: MutPtr<UInt>,
+    pdwDetectedInterfaceIpCtorArg: MutPtr,
     public var cNetworkKeys: UInt,
-    pNetworkKeysCtorArg: MutPtr<WinhttpProxyNetworkingKey>,
+    pNetworkKeysCtorArg: MutPtr,
 ) {
     public var pwszConnectionName: Pwstr = pwszConnectionNameCtorArg
         internal set
@@ -1236,10 +1235,10 @@ public class WinhttpProxySettings internal constructor(
     public var pwszLastKnownGoodAutoConfigUrl: Pwstr = pwszLastKnownGoodAutoConfigUrlCtorArg
         internal set
 
-    public var pdwDetectedInterfaceIp: MutPtr<UInt> = pdwDetectedInterfaceIpCtorArg
+    public var pdwDetectedInterfaceIp: MutPtr = pdwDetectedInterfaceIpCtorArg
         internal set
 
-    public var pNetworkKeys: MutPtr<WinhttpProxyNetworkingKey> = pNetworkKeysCtorArg
+    public var pNetworkKeys: MutPtr = pNetworkKeysCtorArg
         internal set
 
     public constructor() : this(
@@ -1287,13 +1286,13 @@ public class WinhttpProxySettings internal constructor(
 
     public operator fun component13(): UInt = this.dwDetectedInterfaceIpCount
 
-    public operator fun component14(): MutPtr<UInt> = this.pdwDetectedInterfaceIp
+    public operator fun component14(): MutPtr = this.pdwDetectedInterfaceIp
 
     public operator fun component15(): UInt = this.cNetworkKeys
 
-    public operator fun component16(): MutPtr<WinhttpProxyNetworkingKey> = this.pNetworkKeys
+    public operator fun component16(): MutPtr = this.pNetworkKeys
 
-    public fun copy(dwStructSize: UInt = this.dwStructSize, dwFlags: UInt = this.dwFlags, dwCurrentSettingsVersion: UInt = this.dwCurrentSettingsVersion, pwszConnectionName: Pwstr = this.pwszConnectionName, pwszProxy: Pwstr = this.pwszProxy, pwszProxyBypass: Pwstr = this.pwszProxyBypass, pwszAutoconfigUrl: Pwstr = this.pwszAutoconfigUrl, pwszAutoconfigSecondaryUrl: Pwstr = this.pwszAutoconfigSecondaryUrl, dwAutoDiscoveryFlags: UInt = this.dwAutoDiscoveryFlags, pwszLastKnownGoodAutoConfigUrl: Pwstr = this.pwszLastKnownGoodAutoConfigUrl, dwAutoconfigReloadDelayMins: UInt = this.dwAutoconfigReloadDelayMins, ftLastKnownDetectTime: Filetime = this.ftLastKnownDetectTime, dwDetectedInterfaceIpCount: UInt = this.dwDetectedInterfaceIpCount, pdwDetectedInterfaceIp: MutPtr<UInt> = this.pdwDetectedInterfaceIp, cNetworkKeys: UInt = this.cNetworkKeys, pNetworkKeys: MutPtr<WinhttpProxyNetworkingKey> = this.pNetworkKeys): WinhttpProxySettings = WinhttpProxySettings(dwStructSize = dwStructSize, dwFlags = dwFlags, dwCurrentSettingsVersion = dwCurrentSettingsVersion, pwszConnectionNameCtorArg = pwszConnectionName, pwszProxyCtorArg = pwszProxy, pwszProxyBypassCtorArg = pwszProxyBypass, pwszAutoconfigUrlCtorArg = pwszAutoconfigUrl, pwszAutoconfigSecondaryUrlCtorArg = pwszAutoconfigSecondaryUrl, dwAutoDiscoveryFlags = dwAutoDiscoveryFlags, pwszLastKnownGoodAutoConfigUrlCtorArg = pwszLastKnownGoodAutoConfigUrl, dwAutoconfigReloadDelayMins = dwAutoconfigReloadDelayMins, ftLastKnownDetectTime = ftLastKnownDetectTime, dwDetectedInterfaceIpCount = dwDetectedInterfaceIpCount, pdwDetectedInterfaceIpCtorArg = pdwDetectedInterfaceIp, cNetworkKeys = cNetworkKeys, pNetworkKeysCtorArg = pNetworkKeys)
+    public fun copy(dwStructSize: UInt = this.dwStructSize, dwFlags: UInt = this.dwFlags, dwCurrentSettingsVersion: UInt = this.dwCurrentSettingsVersion, pwszConnectionName: Pwstr = this.pwszConnectionName, pwszProxy: Pwstr = this.pwszProxy, pwszProxyBypass: Pwstr = this.pwszProxyBypass, pwszAutoconfigUrl: Pwstr = this.pwszAutoconfigUrl, pwszAutoconfigSecondaryUrl: Pwstr = this.pwszAutoconfigSecondaryUrl, dwAutoDiscoveryFlags: UInt = this.dwAutoDiscoveryFlags, pwszLastKnownGoodAutoConfigUrl: Pwstr = this.pwszLastKnownGoodAutoConfigUrl, dwAutoconfigReloadDelayMins: UInt = this.dwAutoconfigReloadDelayMins, ftLastKnownDetectTime: Filetime = this.ftLastKnownDetectTime, dwDetectedInterfaceIpCount: UInt = this.dwDetectedInterfaceIpCount, pdwDetectedInterfaceIp: MutPtr = this.pdwDetectedInterfaceIp, cNetworkKeys: UInt = this.cNetworkKeys, pNetworkKeys: MutPtr = this.pNetworkKeys): WinhttpProxySettings = WinhttpProxySettings(dwStructSize = dwStructSize, dwFlags = dwFlags, dwCurrentSettingsVersion = dwCurrentSettingsVersion, pwszConnectionNameCtorArg = pwszConnectionName, pwszProxyCtorArg = pwszProxy, pwszProxyBypassCtorArg = pwszProxyBypass, pwszAutoconfigUrlCtorArg = pwszAutoconfigUrl, pwszAutoconfigSecondaryUrlCtorArg = pwszAutoconfigSecondaryUrl, dwAutoDiscoveryFlags = dwAutoDiscoveryFlags, pwszLastKnownGoodAutoConfigUrlCtorArg = pwszLastKnownGoodAutoConfigUrl, dwAutoconfigReloadDelayMins = dwAutoconfigReloadDelayMins, ftLastKnownDetectTime = ftLastKnownDetectTime, dwDetectedInterfaceIpCount = dwDetectedInterfaceIpCount, pdwDetectedInterfaceIpCtorArg = pdwDetectedInterfaceIp, cNetworkKeys = cNetworkKeys, pNetworkKeysCtorArg = pNetworkKeys)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -1352,9 +1351,9 @@ public class WinhttpProxySettings internal constructor(
             dwAutoconfigReloadDelayMins: UInt = 0u,
             ftLastKnownDetectTime: Filetime = Filetime(),
             dwDetectedInterfaceIpCount: UInt = 0u,
-            pdwDetectedInterfaceIp: MutPtr<UInt> = MutPtr(0L),
+            pdwDetectedInterfaceIp: MutPtr = MutPtr(0L),
             cNetworkKeys: UInt = 0u,
-            pNetworkKeys: MutPtr<WinhttpProxyNetworkingKey> = MutPtr(0L),
+            pNetworkKeys: MutPtr = MutPtr(0L),
         ): WinhttpProxySettings =
             WinhttpProxySettings(
                 dwStructSize = dwStructSize,
@@ -1384,7 +1383,7 @@ public class WinhttpProxySettingsEx internal constructor(
     pcwszProxyCtorArg: Pcwstr,
     pcwszSecureProxyCtorArg: Pcwstr,
     public var cProxyBypasses: UInt,
-    rgpcwszProxyBypassesCtorArg: ConstPtr<Pcwstr>,
+    rgpcwszProxyBypassesCtorArg: ConstPtr,
     public var dwInterfaceIndex: UInt,
     pcwszConnectionNameCtorArg: Pcwstr,
 ) {
@@ -1397,7 +1396,7 @@ public class WinhttpProxySettingsEx internal constructor(
     public var pcwszSecureProxy: Pcwstr = pcwszSecureProxyCtorArg
         internal set
 
-    public var rgpcwszProxyBypasses: ConstPtr<Pcwstr> = rgpcwszProxyBypassesCtorArg
+    public var rgpcwszProxyBypasses: ConstPtr = rgpcwszProxyBypassesCtorArg
         internal set
 
     public var pcwszConnectionName: Pcwstr = pcwszConnectionNameCtorArg
@@ -1427,13 +1426,13 @@ public class WinhttpProxySettingsEx internal constructor(
 
     public operator fun component6(): UInt = this.cProxyBypasses
 
-    public operator fun component7(): ConstPtr<Pcwstr> = this.rgpcwszProxyBypasses
+    public operator fun component7(): ConstPtr = this.rgpcwszProxyBypasses
 
     public operator fun component8(): UInt = this.dwInterfaceIndex
 
     public operator fun component9(): Pcwstr = this.pcwszConnectionName
 
-    public fun copy(ullGenerationId: ULong = this.ullGenerationId, ullFlags: ULong = this.ullFlags, pcwszAutoconfigUrl: Pcwstr = this.pcwszAutoconfigUrl, pcwszProxy: Pcwstr = this.pcwszProxy, pcwszSecureProxy: Pcwstr = this.pcwszSecureProxy, cProxyBypasses: UInt = this.cProxyBypasses, rgpcwszProxyBypasses: ConstPtr<Pcwstr> = this.rgpcwszProxyBypasses, dwInterfaceIndex: UInt = this.dwInterfaceIndex, pcwszConnectionName: Pcwstr = this.pcwszConnectionName): WinhttpProxySettingsEx = WinhttpProxySettingsEx(ullGenerationId = ullGenerationId, ullFlags = ullFlags, pcwszAutoconfigUrlCtorArg = pcwszAutoconfigUrl, pcwszProxyCtorArg = pcwszProxy, pcwszSecureProxyCtorArg = pcwszSecureProxy, cProxyBypasses = cProxyBypasses, rgpcwszProxyBypassesCtorArg = rgpcwszProxyBypasses, dwInterfaceIndex = dwInterfaceIndex, pcwszConnectionNameCtorArg = pcwszConnectionName)
+    public fun copy(ullGenerationId: ULong = this.ullGenerationId, ullFlags: ULong = this.ullFlags, pcwszAutoconfigUrl: Pcwstr = this.pcwszAutoconfigUrl, pcwszProxy: Pcwstr = this.pcwszProxy, pcwszSecureProxy: Pcwstr = this.pcwszSecureProxy, cProxyBypasses: UInt = this.cProxyBypasses, rgpcwszProxyBypasses: ConstPtr = this.rgpcwszProxyBypasses, dwInterfaceIndex: UInt = this.dwInterfaceIndex, pcwszConnectionName: Pcwstr = this.pcwszConnectionName): WinhttpProxySettingsEx = WinhttpProxySettingsEx(ullGenerationId = ullGenerationId, ullFlags = ullFlags, pcwszAutoconfigUrlCtorArg = pcwszAutoconfigUrl, pcwszProxyCtorArg = pcwszProxy, pcwszSecureProxyCtorArg = pcwszSecureProxy, cProxyBypasses = cProxyBypasses, rgpcwszProxyBypassesCtorArg = rgpcwszProxyBypasses, dwInterfaceIndex = dwInterfaceIndex, pcwszConnectionNameCtorArg = pcwszConnectionName)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -1471,7 +1470,7 @@ public class WinhttpProxySettingsEx internal constructor(
             pcwszProxy: Pcwstr = ConstPtr(0L),
             pcwszSecureProxy: Pcwstr = ConstPtr(0L),
             cProxyBypasses: UInt = 0u,
-            rgpcwszProxyBypasses: ConstPtr<Pcwstr> = ConstPtr(0L),
+            rgpcwszProxyBypasses: ConstPtr = ConstPtr(0L),
             dwInterfaceIndex: UInt = 0u,
             pcwszConnectionName: Pcwstr = ConstPtr(0L),
         ): WinhttpProxySettingsEx =
@@ -1546,9 +1545,9 @@ public class WinhttpProxySettingsParam internal constructor(
 
 public class WinhttpQueryConnectionGroupResult internal constructor(
     public var cHosts: UInt,
-    pHostConnectionGroupsCtorArg: MutPtr<WinhttpHostConnectionGroup>,
+    pHostConnectionGroupsCtorArg: MutPtr,
 ) {
-    public var pHostConnectionGroups: MutPtr<WinhttpHostConnectionGroup> = pHostConnectionGroupsCtorArg
+    public var pHostConnectionGroups: MutPtr = pHostConnectionGroupsCtorArg
         internal set
 
     public constructor() : this(
@@ -1558,9 +1557,9 @@ public class WinhttpQueryConnectionGroupResult internal constructor(
 
     public operator fun component1(): UInt = this.cHosts
 
-    public operator fun component2(): MutPtr<WinhttpHostConnectionGroup> = this.pHostConnectionGroups
+    public operator fun component2(): MutPtr = this.pHostConnectionGroups
 
-    public fun copy(cHosts: UInt = this.cHosts, pHostConnectionGroups: MutPtr<WinhttpHostConnectionGroup> = this.pHostConnectionGroups): WinhttpQueryConnectionGroupResult = WinhttpQueryConnectionGroupResult(cHosts = cHosts, pHostConnectionGroupsCtorArg = pHostConnectionGroups)
+    public fun copy(cHosts: UInt = this.cHosts, pHostConnectionGroups: MutPtr = this.pHostConnectionGroups): WinhttpQueryConnectionGroupResult = WinhttpQueryConnectionGroupResult(cHosts = cHosts, pHostConnectionGroupsCtorArg = pHostConnectionGroups)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -1586,21 +1585,21 @@ public class WinhttpQueryConnectionGroupResult internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<WinhttpHostConnectionGroup>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                     )
                 override fun writeNative(addr: Long, value: WinhttpQueryConnectionGroupResult) {
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr, value.cHosts)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<WinhttpHostConnectionGroup>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.pHostConnectionGroups)
                 }
             }
 
         public operator fun invoke(
             cHosts: UInt = 0u,
-            pHostConnectionGroups: MutPtr<WinhttpHostConnectionGroup> = MutPtr(0L),
+            pHostConnectionGroups: MutPtr = MutPtr(0L),
         ): WinhttpQueryConnectionGroupResult =
             WinhttpQueryConnectionGroupResult(
                 cHosts = cHosts,

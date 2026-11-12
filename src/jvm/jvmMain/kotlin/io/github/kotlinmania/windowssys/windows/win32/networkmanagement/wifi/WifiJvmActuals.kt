@@ -2,13 +2,10 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.networkmanagement.wifi
 
-import io.github.kotlinmania.rustlang.core.ffi.CVoid
 import io.github.kotlinmania.rustlang.core.ptr.ConstPtr
 import io.github.kotlinmania.rustlang.core.ptr.MutPtr
 import io.github.kotlinmania.windowssys.core.Bool
-import io.github.kotlinmania.windowssys.core.Guid
 import io.github.kotlinmania.windowssys.core.Pcwstr
-import io.github.kotlinmania.windowssys.core.Pwstr
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Handle
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Hwnd
 import io.github.kotlinmania.windowssys.windows.win32.security.extensibleauthenticationprotocol.EapMethodType
@@ -259,177 +256,177 @@ public actual fun wFDCloseHandle(hclienthandle: Handle): UInt =
 public actual fun wFDCloseSession(hsessionhandle: Handle): UInt =
     WindowsWin32NetworkmanagementWifiJniBridge.windowssysWindowsWin32NetworkmanagementWifiWFDCloseSession(hsessionhandle.rawAddress).toUInt()
 
-public actual fun wFDOpenHandle(dwclientversion: UInt, pdwnegotiatedversion: MutPtr<UInt>, phclienthandle: MutPtr<Handle>): UInt =
+public actual fun wFDOpenHandle(dwclientversion: UInt, pdwnegotiatedversion: MutPtr, phclienthandle: MutPtr): UInt =
     WindowsWin32NetworkmanagementWifiJniBridge.windowssysWindowsWin32NetworkmanagementWifiWFDOpenHandle(dwclientversion.toInt(), pdwnegotiatedversion.rawAddress, phclienthandle.rawAddress).toUInt()
 
-public actual fun wFDOpenLegacySession(hclienthandle: Handle, plegacymacaddress: ConstPtr<ConstPtr<UByte>>, phsessionhandle: MutPtr<Handle>, pguidsessioninterface: MutPtr<Guid>): UInt =
+public actual fun wFDOpenLegacySession(hclienthandle: Handle, plegacymacaddress: ConstPtr, phsessionhandle: MutPtr, pguidsessioninterface: MutPtr): UInt =
     WindowsWin32NetworkmanagementWifiJniBridge.windowssysWindowsWin32NetworkmanagementWifiWFDOpenLegacySession(hclienthandle.rawAddress, plegacymacaddress.rawAddress, phsessionhandle.rawAddress, pguidsessioninterface.rawAddress).toUInt()
 
-public actual fun wFDStartOpenSession(hclienthandle: Handle, pdeviceaddress: ConstPtr<ConstPtr<UByte>>, pvcontext: ConstPtr<CVoid>, pfncallback: WfdOpenSessionCompleteCallback, phsessionhandle: MutPtr<Handle>): UInt =
+public actual fun wFDStartOpenSession(hclienthandle: Handle, pdeviceaddress: ConstPtr, pvcontext: ConstPtr, pfncallback: WfdOpenSessionCompleteCallback, phsessionhandle: MutPtr): UInt =
     WindowsWin32NetworkmanagementWifiJniBridge.windowssysWindowsWin32NetworkmanagementWifiWFDStartOpenSession(hclienthandle.rawAddress, pdeviceaddress.rawAddress, pvcontext.rawAddress, 0L, phsessionhandle.rawAddress).toUInt()
 
-public actual fun wFDUpdateDeviceVisibility(pdeviceaddress: ConstPtr<ConstPtr<UByte>>): UInt =
+public actual fun wFDUpdateDeviceVisibility(pdeviceaddress: ConstPtr): UInt =
     WindowsWin32NetworkmanagementWifiJniBridge.windowssysWindowsWin32NetworkmanagementWifiWFDUpdateDeviceVisibility(pdeviceaddress.rawAddress).toUInt()
 
-public actual fun wlanAllocateMemory(dwmemorysize: UInt): MutPtr<CVoid> =
+public actual fun wlanAllocateMemory(dwmemorysize: UInt): MutPtr =
     MutPtr(WindowsWin32NetworkmanagementWifiJniBridge.windowssysWindowsWin32NetworkmanagementWifiWlanAllocateMemory(dwmemorysize.toInt()))
 
-public actual fun wlanCloseHandle(hclienthandle: Handle, preserved: ConstPtr<CVoid>): UInt =
+public actual fun wlanCloseHandle(hclienthandle: Handle, preserved: ConstPtr): UInt =
     WindowsWin32NetworkmanagementWifiJniBridge.windowssysWindowsWin32NetworkmanagementWifiWlanCloseHandle(hclienthandle.rawAddress, preserved.rawAddress).toUInt()
 
-public actual fun wlanConnect(hclienthandle: Handle, pinterfaceguid: ConstPtr<Guid>, pconnectionparameters: ConstPtr<WlanConnectionParameters>, preserved: ConstPtr<CVoid>): UInt =
+public actual fun wlanConnect(hclienthandle: Handle, pinterfaceguid: ConstPtr, pconnectionparameters: ConstPtr, preserved: ConstPtr): UInt =
     WindowsWin32NetworkmanagementWifiJniBridge.windowssysWindowsWin32NetworkmanagementWifiWlanConnect(hclienthandle.rawAddress, pinterfaceguid.rawAddress, pconnectionparameters.rawAddress, preserved.rawAddress).toUInt()
 
-public actual fun wlanConnect2(hclienthandle: Handle, pinterfaceguid: ConstPtr<Guid>, pconnectionparameters: ConstPtr<WlanConnectionParametersV2>, preserved: ConstPtr<CVoid>): UInt =
+public actual fun wlanConnect2(hclienthandle: Handle, pinterfaceguid: ConstPtr, pconnectionparameters: ConstPtr, preserved: ConstPtr): UInt =
     WindowsWin32NetworkmanagementWifiJniBridge.windowssysWindowsWin32NetworkmanagementWifiWlanConnect2(hclienthandle.rawAddress, pinterfaceguid.rawAddress, pconnectionparameters.rawAddress, preserved.rawAddress).toUInt()
 
-public actual fun wlanDeleteProfile(hclienthandle: Handle, pinterfaceguid: ConstPtr<Guid>, strprofilename: Pcwstr, preserved: ConstPtr<CVoid>): UInt =
+public actual fun wlanDeleteProfile(hclienthandle: Handle, pinterfaceguid: ConstPtr, strprofilename: Pcwstr, preserved: ConstPtr): UInt =
     WindowsWin32NetworkmanagementWifiJniBridge.windowssysWindowsWin32NetworkmanagementWifiWlanDeleteProfile(hclienthandle.rawAddress, pinterfaceguid.rawAddress, strprofilename.rawAddress, preserved.rawAddress).toUInt()
 
-public actual fun wlanDeviceServiceCommand(hclienthandle: Handle, pinterfaceguid: ConstPtr<Guid>, pdeviceserviceguid: ConstPtr<Guid>, dwopcode: UInt, dwinbuffersize: UInt, pinbuffer: ConstPtr<CVoid>, dwoutbuffersize: UInt, poutbuffer: MutPtr<CVoid>, pdwbytesreturned: MutPtr<UInt>): UInt =
+public actual fun wlanDeviceServiceCommand(hclienthandle: Handle, pinterfaceguid: ConstPtr, pdeviceserviceguid: ConstPtr, dwopcode: UInt, dwinbuffersize: UInt, pinbuffer: ConstPtr, dwoutbuffersize: UInt, poutbuffer: MutPtr, pdwbytesreturned: MutPtr): UInt =
     WindowsWin32NetworkmanagementWifiJniBridge.windowssysWindowsWin32NetworkmanagementWifiWlanDeviceServiceCommand(hclienthandle.rawAddress, pinterfaceguid.rawAddress, pdeviceserviceguid.rawAddress, dwopcode.toInt(), dwinbuffersize.toInt(), pinbuffer.rawAddress, dwoutbuffersize.toInt(), poutbuffer.rawAddress, pdwbytesreturned.rawAddress).toUInt()
 
-public actual fun wlanDisconnect(hclienthandle: Handle, pinterfaceguid: ConstPtr<Guid>, preserved: ConstPtr<CVoid>): UInt =
+public actual fun wlanDisconnect(hclienthandle: Handle, pinterfaceguid: ConstPtr, preserved: ConstPtr): UInt =
     WindowsWin32NetworkmanagementWifiJniBridge.windowssysWindowsWin32NetworkmanagementWifiWlanDisconnect(hclienthandle.rawAddress, pinterfaceguid.rawAddress, preserved.rawAddress).toUInt()
 
-public actual fun wlanEnumInterfaces(hclienthandle: Handle, preserved: ConstPtr<CVoid>, ppinterfacelist: MutPtr<MutPtr<WlanInterfaceInfoList>>): UInt =
+public actual fun wlanEnumInterfaces(hclienthandle: Handle, preserved: ConstPtr, ppinterfacelist: MutPtr): UInt =
     WindowsWin32NetworkmanagementWifiJniBridge.windowssysWindowsWin32NetworkmanagementWifiWlanEnumInterfaces(hclienthandle.rawAddress, preserved.rawAddress, ppinterfacelist.rawAddress).toUInt()
 
-public actual fun wlanExtractPsdIEDataList(hclienthandle: Handle, dwiedatasize: UInt, prawiedata: ConstPtr<UByte>, strformat: Pcwstr, preserved: ConstPtr<CVoid>, pppsdiedatalist: MutPtr<MutPtr<WlanRawDataList>>): UInt =
+public actual fun wlanExtractPsdIEDataList(hclienthandle: Handle, dwiedatasize: UInt, prawiedata: ConstPtr, strformat: Pcwstr, preserved: ConstPtr, pppsdiedatalist: MutPtr): UInt =
     WindowsWin32NetworkmanagementWifiJniBridge.windowssysWindowsWin32NetworkmanagementWifiWlanExtractPsdIEDataList(hclienthandle.rawAddress, dwiedatasize.toInt(), prawiedata.rawAddress, strformat.rawAddress, preserved.rawAddress, pppsdiedatalist.rawAddress).toUInt()
 
-public actual fun wlanFreeMemory(pmemory: ConstPtr<CVoid>) {
+public actual fun wlanFreeMemory(pmemory: ConstPtr) {
     WindowsWin32NetworkmanagementWifiJniBridge.windowssysWindowsWin32NetworkmanagementWifiWlanFreeMemory(pmemory.rawAddress)
 }
 
-public actual fun wlanGetAvailableNetworkList(hclienthandle: Handle, pinterfaceguid: ConstPtr<Guid>, dwflags: UInt, preserved: ConstPtr<CVoid>, ppavailablenetworklist: MutPtr<MutPtr<WlanAvailableNetworkList>>): UInt =
+public actual fun wlanGetAvailableNetworkList(hclienthandle: Handle, pinterfaceguid: ConstPtr, dwflags: UInt, preserved: ConstPtr, ppavailablenetworklist: MutPtr): UInt =
     WindowsWin32NetworkmanagementWifiJniBridge.windowssysWindowsWin32NetworkmanagementWifiWlanGetAvailableNetworkList(hclienthandle.rawAddress, pinterfaceguid.rawAddress, dwflags.toInt(), preserved.rawAddress, ppavailablenetworklist.rawAddress).toUInt()
 
-public actual fun wlanGetAvailableNetworkList2(hclienthandle: Handle, pinterfaceguid: ConstPtr<Guid>, dwflags: UInt, preserved: ConstPtr<CVoid>, ppavailablenetworklist: MutPtr<MutPtr<WlanAvailableNetworkListV2>>): UInt =
+public actual fun wlanGetAvailableNetworkList2(hclienthandle: Handle, pinterfaceguid: ConstPtr, dwflags: UInt, preserved: ConstPtr, ppavailablenetworklist: MutPtr): UInt =
     WindowsWin32NetworkmanagementWifiJniBridge.windowssysWindowsWin32NetworkmanagementWifiWlanGetAvailableNetworkList2(hclienthandle.rawAddress, pinterfaceguid.rawAddress, dwflags.toInt(), preserved.rawAddress, ppavailablenetworklist.rawAddress).toUInt()
 
-public actual fun wlanGetFilterList(hclienthandle: Handle, wlanfilterlisttype: WlanFilterListType, preserved: ConstPtr<CVoid>, ppnetworklist: MutPtr<MutPtr<Dot11NetworkList>>): UInt =
+public actual fun wlanGetFilterList(hclienthandle: Handle, wlanfilterlisttype: WlanFilterListType, preserved: ConstPtr, ppnetworklist: MutPtr): UInt =
     WindowsWin32NetworkmanagementWifiJniBridge.windowssysWindowsWin32NetworkmanagementWifiWlanGetFilterList(hclienthandle.rawAddress, wlanfilterlisttype, preserved.rawAddress, ppnetworklist.rawAddress).toUInt()
 
-public actual fun wlanGetInterfaceCapability(hclienthandle: Handle, pinterfaceguid: ConstPtr<Guid>, preserved: ConstPtr<CVoid>, ppcapability: MutPtr<MutPtr<WlanInterfaceCapability>>): UInt =
+public actual fun wlanGetInterfaceCapability(hclienthandle: Handle, pinterfaceguid: ConstPtr, preserved: ConstPtr, ppcapability: MutPtr): UInt =
     WindowsWin32NetworkmanagementWifiJniBridge.windowssysWindowsWin32NetworkmanagementWifiWlanGetInterfaceCapability(hclienthandle.rawAddress, pinterfaceguid.rawAddress, preserved.rawAddress, ppcapability.rawAddress).toUInt()
 
-public actual fun wlanGetNetworkBssList(hclienthandle: Handle, pinterfaceguid: ConstPtr<Guid>, pdot11ssid: ConstPtr<Dot11Ssid>, dot11bsstype: Dot11BssType, bsecurityenabled: Bool, preserved: ConstPtr<CVoid>, ppwlanbsslist: MutPtr<MutPtr<WlanBssList>>): UInt =
+public actual fun wlanGetNetworkBssList(hclienthandle: Handle, pinterfaceguid: ConstPtr, pdot11ssid: ConstPtr, dot11bsstype: Dot11BssType, bsecurityenabled: Bool, preserved: ConstPtr, ppwlanbsslist: MutPtr): UInt =
     WindowsWin32NetworkmanagementWifiJniBridge.windowssysWindowsWin32NetworkmanagementWifiWlanGetNetworkBssList(hclienthandle.rawAddress, pinterfaceguid.rawAddress, pdot11ssid.rawAddress, dot11bsstype, bsecurityenabled, preserved.rawAddress, ppwlanbsslist.rawAddress).toUInt()
 
-public actual fun wlanGetProfile(hclienthandle: Handle, pinterfaceguid: ConstPtr<Guid>, strprofilename: Pcwstr, preserved: ConstPtr<CVoid>, pstrprofilexml: MutPtr<Pwstr>, pdwflags: MutPtr<UInt>, pdwgrantedaccess: MutPtr<UInt>): UInt =
+public actual fun wlanGetProfile(hclienthandle: Handle, pinterfaceguid: ConstPtr, strprofilename: Pcwstr, preserved: ConstPtr, pstrprofilexml: MutPtr, pdwflags: MutPtr, pdwgrantedaccess: MutPtr): UInt =
     WindowsWin32NetworkmanagementWifiJniBridge.windowssysWindowsWin32NetworkmanagementWifiWlanGetProfile(hclienthandle.rawAddress, pinterfaceguid.rawAddress, strprofilename.rawAddress, preserved.rawAddress, pstrprofilexml.rawAddress, pdwflags.rawAddress, pdwgrantedaccess.rawAddress).toUInt()
 
-public actual fun wlanGetProfileCustomUserData(hclienthandle: Handle, pinterfaceguid: ConstPtr<Guid>, strprofilename: Pcwstr, preserved: ConstPtr<CVoid>, pdwdatasize: MutPtr<UInt>, ppdata: MutPtr<MutPtr<UByte>>): UInt =
+public actual fun wlanGetProfileCustomUserData(hclienthandle: Handle, pinterfaceguid: ConstPtr, strprofilename: Pcwstr, preserved: ConstPtr, pdwdatasize: MutPtr, ppdata: MutPtr): UInt =
     WindowsWin32NetworkmanagementWifiJniBridge.windowssysWindowsWin32NetworkmanagementWifiWlanGetProfileCustomUserData(hclienthandle.rawAddress, pinterfaceguid.rawAddress, strprofilename.rawAddress, preserved.rawAddress, pdwdatasize.rawAddress, ppdata.rawAddress).toUInt()
 
-public actual fun wlanGetProfileList(hclienthandle: Handle, pinterfaceguid: ConstPtr<Guid>, preserved: ConstPtr<CVoid>, ppprofilelist: MutPtr<MutPtr<WlanProfileInfoList>>): UInt =
+public actual fun wlanGetProfileList(hclienthandle: Handle, pinterfaceguid: ConstPtr, preserved: ConstPtr, ppprofilelist: MutPtr): UInt =
     WindowsWin32NetworkmanagementWifiJniBridge.windowssysWindowsWin32NetworkmanagementWifiWlanGetProfileList(hclienthandle.rawAddress, pinterfaceguid.rawAddress, preserved.rawAddress, ppprofilelist.rawAddress).toUInt()
 
-public actual fun wlanGetSecuritySettings(hclienthandle: Handle, securableobject: WlanSecurableObject, pvaluetype: MutPtr<WlanOpcodeValueType>, pstrcurrentsddl: MutPtr<Pwstr>, pdwgrantedaccess: MutPtr<UInt>): UInt =
+public actual fun wlanGetSecuritySettings(hclienthandle: Handle, securableobject: WlanSecurableObject, pvaluetype: MutPtr, pstrcurrentsddl: MutPtr, pdwgrantedaccess: MutPtr): UInt =
     WindowsWin32NetworkmanagementWifiJniBridge.windowssysWindowsWin32NetworkmanagementWifiWlanGetSecuritySettings(hclienthandle.rawAddress, securableobject, pvaluetype.rawAddress, pstrcurrentsddl.rawAddress, pdwgrantedaccess.rawAddress).toUInt()
 
-public actual fun wlanGetSupportedDeviceServices(hclienthandle: Handle, pinterfaceguid: ConstPtr<Guid>, ppdevsvcguidlist: MutPtr<MutPtr<WlanDeviceServiceGuidList>>): UInt =
+public actual fun wlanGetSupportedDeviceServices(hclienthandle: Handle, pinterfaceguid: ConstPtr, ppdevsvcguidlist: MutPtr): UInt =
     WindowsWin32NetworkmanagementWifiJniBridge.windowssysWindowsWin32NetworkmanagementWifiWlanGetSupportedDeviceServices(hclienthandle.rawAddress, pinterfaceguid.rawAddress, ppdevsvcguidlist.rawAddress).toUInt()
 
-public actual fun wlanHostedNetworkForceStart(hclienthandle: Handle, pfailreason: MutPtr<WlanHostedNetworkReason>, pvreserved: ConstPtr<CVoid>): UInt =
+public actual fun wlanHostedNetworkForceStart(hclienthandle: Handle, pfailreason: MutPtr, pvreserved: ConstPtr): UInt =
     WindowsWin32NetworkmanagementWifiJniBridge.windowssysWindowsWin32NetworkmanagementWifiWlanHostedNetworkForceStart(hclienthandle.rawAddress, pfailreason.rawAddress, pvreserved.rawAddress).toUInt()
 
-public actual fun wlanHostedNetworkForceStop(hclienthandle: Handle, pfailreason: MutPtr<WlanHostedNetworkReason>, pvreserved: ConstPtr<CVoid>): UInt =
+public actual fun wlanHostedNetworkForceStop(hclienthandle: Handle, pfailreason: MutPtr, pvreserved: ConstPtr): UInt =
     WindowsWin32NetworkmanagementWifiJniBridge.windowssysWindowsWin32NetworkmanagementWifiWlanHostedNetworkForceStop(hclienthandle.rawAddress, pfailreason.rawAddress, pvreserved.rawAddress).toUInt()
 
-public actual fun wlanHostedNetworkInitSettings(hclienthandle: Handle, pfailreason: MutPtr<WlanHostedNetworkReason>, pvreserved: ConstPtr<CVoid>): UInt =
+public actual fun wlanHostedNetworkInitSettings(hclienthandle: Handle, pfailreason: MutPtr, pvreserved: ConstPtr): UInt =
     WindowsWin32NetworkmanagementWifiJniBridge.windowssysWindowsWin32NetworkmanagementWifiWlanHostedNetworkInitSettings(hclienthandle.rawAddress, pfailreason.rawAddress, pvreserved.rawAddress).toUInt()
 
-public actual fun wlanHostedNetworkQueryProperty(hclienthandle: Handle, opcode: WlanHostedNetworkOpcode, pdwdatasize: MutPtr<UInt>, ppvdata: MutPtr<MutPtr<CVoid>>, pwlanopcodevaluetype: MutPtr<WlanOpcodeValueType>, pvreserved: ConstPtr<CVoid>): UInt =
+public actual fun wlanHostedNetworkQueryProperty(hclienthandle: Handle, opcode: WlanHostedNetworkOpcode, pdwdatasize: MutPtr, ppvdata: MutPtr, pwlanopcodevaluetype: MutPtr, pvreserved: ConstPtr): UInt =
     WindowsWin32NetworkmanagementWifiJniBridge.windowssysWindowsWin32NetworkmanagementWifiWlanHostedNetworkQueryProperty(hclienthandle.rawAddress, opcode, pdwdatasize.rawAddress, ppvdata.rawAddress, pwlanopcodevaluetype.rawAddress, pvreserved.rawAddress).toUInt()
 
-public actual fun wlanHostedNetworkQuerySecondaryKey(hclienthandle: Handle, pdwkeylength: MutPtr<UInt>, ppuckeydata: MutPtr<MutPtr<UByte>>, pbispassphrase: MutPtr<Bool>, pbpersistent: MutPtr<Bool>, pfailreason: MutPtr<WlanHostedNetworkReason>, pvreserved: ConstPtr<CVoid>): UInt =
+public actual fun wlanHostedNetworkQuerySecondaryKey(hclienthandle: Handle, pdwkeylength: MutPtr, ppuckeydata: MutPtr, pbispassphrase: MutPtr, pbpersistent: MutPtr, pfailreason: MutPtr, pvreserved: ConstPtr): UInt =
     WindowsWin32NetworkmanagementWifiJniBridge.windowssysWindowsWin32NetworkmanagementWifiWlanHostedNetworkQuerySecondaryKey(hclienthandle.rawAddress, pdwkeylength.rawAddress, ppuckeydata.rawAddress, pbispassphrase.rawAddress, pbpersistent.rawAddress, pfailreason.rawAddress, pvreserved.rawAddress).toUInt()
 
-public actual fun wlanHostedNetworkQueryStatus(hclienthandle: Handle, ppwlanhostednetworkstatus: MutPtr<MutPtr<WlanHostedNetworkStatus>>, pvreserved: ConstPtr<CVoid>): UInt =
+public actual fun wlanHostedNetworkQueryStatus(hclienthandle: Handle, ppwlanhostednetworkstatus: MutPtr, pvreserved: ConstPtr): UInt =
     WindowsWin32NetworkmanagementWifiJniBridge.windowssysWindowsWin32NetworkmanagementWifiWlanHostedNetworkQueryStatus(hclienthandle.rawAddress, ppwlanhostednetworkstatus.rawAddress, pvreserved.rawAddress).toUInt()
 
-public actual fun wlanHostedNetworkRefreshSecuritySettings(hclienthandle: Handle, pfailreason: MutPtr<WlanHostedNetworkReason>, pvreserved: ConstPtr<CVoid>): UInt =
+public actual fun wlanHostedNetworkRefreshSecuritySettings(hclienthandle: Handle, pfailreason: MutPtr, pvreserved: ConstPtr): UInt =
     WindowsWin32NetworkmanagementWifiJniBridge.windowssysWindowsWin32NetworkmanagementWifiWlanHostedNetworkRefreshSecuritySettings(hclienthandle.rawAddress, pfailreason.rawAddress, pvreserved.rawAddress).toUInt()
 
-public actual fun wlanHostedNetworkSetProperty(hclienthandle: Handle, opcode: WlanHostedNetworkOpcode, dwdatasize: UInt, pvdata: ConstPtr<CVoid>, pfailreason: MutPtr<WlanHostedNetworkReason>, pvreserved: ConstPtr<CVoid>): UInt =
+public actual fun wlanHostedNetworkSetProperty(hclienthandle: Handle, opcode: WlanHostedNetworkOpcode, dwdatasize: UInt, pvdata: ConstPtr, pfailreason: MutPtr, pvreserved: ConstPtr): UInt =
     WindowsWin32NetworkmanagementWifiJniBridge.windowssysWindowsWin32NetworkmanagementWifiWlanHostedNetworkSetProperty(hclienthandle.rawAddress, opcode, dwdatasize.toInt(), pvdata.rawAddress, pfailreason.rawAddress, pvreserved.rawAddress).toUInt()
 
-public actual fun wlanHostedNetworkSetSecondaryKey(hclienthandle: Handle, dwkeylength: UInt, puckeydata: ConstPtr<UByte>, bispassphrase: Bool, bpersistent: Bool, pfailreason: MutPtr<WlanHostedNetworkReason>, pvreserved: ConstPtr<CVoid>): UInt =
+public actual fun wlanHostedNetworkSetSecondaryKey(hclienthandle: Handle, dwkeylength: UInt, puckeydata: ConstPtr, bispassphrase: Bool, bpersistent: Bool, pfailreason: MutPtr, pvreserved: ConstPtr): UInt =
     WindowsWin32NetworkmanagementWifiJniBridge.windowssysWindowsWin32NetworkmanagementWifiWlanHostedNetworkSetSecondaryKey(hclienthandle.rawAddress, dwkeylength.toInt(), puckeydata.rawAddress, bispassphrase, bpersistent, pfailreason.rawAddress, pvreserved.rawAddress).toUInt()
 
-public actual fun wlanHostedNetworkStartUsing(hclienthandle: Handle, pfailreason: MutPtr<WlanHostedNetworkReason>, pvreserved: ConstPtr<CVoid>): UInt =
+public actual fun wlanHostedNetworkStartUsing(hclienthandle: Handle, pfailreason: MutPtr, pvreserved: ConstPtr): UInt =
     WindowsWin32NetworkmanagementWifiJniBridge.windowssysWindowsWin32NetworkmanagementWifiWlanHostedNetworkStartUsing(hclienthandle.rawAddress, pfailreason.rawAddress, pvreserved.rawAddress).toUInt()
 
-public actual fun wlanHostedNetworkStopUsing(hclienthandle: Handle, pfailreason: MutPtr<WlanHostedNetworkReason>, pvreserved: ConstPtr<CVoid>): UInt =
+public actual fun wlanHostedNetworkStopUsing(hclienthandle: Handle, pfailreason: MutPtr, pvreserved: ConstPtr): UInt =
     WindowsWin32NetworkmanagementWifiJniBridge.windowssysWindowsWin32NetworkmanagementWifiWlanHostedNetworkStopUsing(hclienthandle.rawAddress, pfailreason.rawAddress, pvreserved.rawAddress).toUInt()
 
-public actual fun wlanIhvControl(hclienthandle: Handle, pinterfaceguid: ConstPtr<Guid>, type: WlanIhvControlType, dwinbuffersize: UInt, pinbuffer: ConstPtr<CVoid>, dwoutbuffersize: UInt, poutbuffer: MutPtr<CVoid>, pdwbytesreturned: MutPtr<UInt>): UInt =
+public actual fun wlanIhvControl(hclienthandle: Handle, pinterfaceguid: ConstPtr, type: WlanIhvControlType, dwinbuffersize: UInt, pinbuffer: ConstPtr, dwoutbuffersize: UInt, poutbuffer: MutPtr, pdwbytesreturned: MutPtr): UInt =
     WindowsWin32NetworkmanagementWifiJniBridge.windowssysWindowsWin32NetworkmanagementWifiWlanIhvControl(hclienthandle.rawAddress, pinterfaceguid.rawAddress, type, dwinbuffersize.toInt(), pinbuffer.rawAddress, dwoutbuffersize.toInt(), poutbuffer.rawAddress, pdwbytesreturned.rawAddress).toUInt()
 
-public actual fun wlanOpenHandle(dwclientversion: UInt, preserved: ConstPtr<CVoid>, pdwnegotiatedversion: MutPtr<UInt>, phclienthandle: MutPtr<Handle>): UInt =
+public actual fun wlanOpenHandle(dwclientversion: UInt, preserved: ConstPtr, pdwnegotiatedversion: MutPtr, phclienthandle: MutPtr): UInt =
     WindowsWin32NetworkmanagementWifiJniBridge.windowssysWindowsWin32NetworkmanagementWifiWlanOpenHandle(dwclientversion.toInt(), preserved.rawAddress, pdwnegotiatedversion.rawAddress, phclienthandle.rawAddress).toUInt()
 
-public actual fun wlanQueryAutoConfigParameter(hclienthandle: Handle, opcode: WlanAutoconfOpcode, preserved: ConstPtr<CVoid>, pdwdatasize: MutPtr<UInt>, ppdata: MutPtr<MutPtr<CVoid>>, pwlanopcodevaluetype: MutPtr<WlanOpcodeValueType>): UInt =
+public actual fun wlanQueryAutoConfigParameter(hclienthandle: Handle, opcode: WlanAutoconfOpcode, preserved: ConstPtr, pdwdatasize: MutPtr, ppdata: MutPtr, pwlanopcodevaluetype: MutPtr): UInt =
     WindowsWin32NetworkmanagementWifiJniBridge.windowssysWindowsWin32NetworkmanagementWifiWlanQueryAutoConfigParameter(hclienthandle.rawAddress, opcode, preserved.rawAddress, pdwdatasize.rawAddress, ppdata.rawAddress, pwlanopcodevaluetype.rawAddress).toUInt()
 
-public actual fun wlanQueryInterface(hclienthandle: Handle, pinterfaceguid: ConstPtr<Guid>, opcode: WlanIntfOpcode, preserved: ConstPtr<CVoid>, pdwdatasize: MutPtr<UInt>, ppdata: MutPtr<MutPtr<CVoid>>, pwlanopcodevaluetype: MutPtr<WlanOpcodeValueType>): UInt =
+public actual fun wlanQueryInterface(hclienthandle: Handle, pinterfaceguid: ConstPtr, opcode: WlanIntfOpcode, preserved: ConstPtr, pdwdatasize: MutPtr, ppdata: MutPtr, pwlanopcodevaluetype: MutPtr): UInt =
     WindowsWin32NetworkmanagementWifiJniBridge.windowssysWindowsWin32NetworkmanagementWifiWlanQueryInterface(hclienthandle.rawAddress, pinterfaceguid.rawAddress, opcode, preserved.rawAddress, pdwdatasize.rawAddress, ppdata.rawAddress, pwlanopcodevaluetype.rawAddress).toUInt()
 
-public actual fun wlanReasonCodeToString(dwreasoncode: UInt, dwbuffersize: UInt, pstringbuffer: Pcwstr, preserved: ConstPtr<CVoid>): UInt =
+public actual fun wlanReasonCodeToString(dwreasoncode: UInt, dwbuffersize: UInt, pstringbuffer: Pcwstr, preserved: ConstPtr): UInt =
     WindowsWin32NetworkmanagementWifiJniBridge.windowssysWindowsWin32NetworkmanagementWifiWlanReasonCodeToString(dwreasoncode.toInt(), dwbuffersize.toInt(), pstringbuffer.rawAddress, preserved.rawAddress).toUInt()
 
-public actual fun wlanRegisterDeviceServiceNotification(hclienthandle: Handle, pdevsvcguidlist: ConstPtr<WlanDeviceServiceGuidList>): UInt =
+public actual fun wlanRegisterDeviceServiceNotification(hclienthandle: Handle, pdevsvcguidlist: ConstPtr): UInt =
     WindowsWin32NetworkmanagementWifiJniBridge.windowssysWindowsWin32NetworkmanagementWifiWlanRegisterDeviceServiceNotification(hclienthandle.rawAddress, pdevsvcguidlist.rawAddress).toUInt()
 
-public actual fun wlanRegisterNotification(hclienthandle: Handle, dwnotifsource: WlanNotificationSources, bignoreduplicate: Bool, funccallback: WlanNotificationCallback, pcallbackcontext: ConstPtr<CVoid>, preserved: ConstPtr<CVoid>, pdwprevnotifsource: MutPtr<UInt>): UInt =
+public actual fun wlanRegisterNotification(hclienthandle: Handle, dwnotifsource: WlanNotificationSources, bignoreduplicate: Bool, funccallback: WlanNotificationCallback, pcallbackcontext: ConstPtr, preserved: ConstPtr, pdwprevnotifsource: MutPtr): UInt =
     WindowsWin32NetworkmanagementWifiJniBridge.windowssysWindowsWin32NetworkmanagementWifiWlanRegisterNotification(hclienthandle.rawAddress, dwnotifsource.toInt(), bignoreduplicate, 0L, pcallbackcontext.rawAddress, preserved.rawAddress, pdwprevnotifsource.rawAddress).toUInt()
 
-public actual fun wlanRegisterVirtualStationNotification(hclienthandle: Handle, bregister: Bool, preserved: ConstPtr<CVoid>): UInt =
+public actual fun wlanRegisterVirtualStationNotification(hclienthandle: Handle, bregister: Bool, preserved: ConstPtr): UInt =
     WindowsWin32NetworkmanagementWifiJniBridge.windowssysWindowsWin32NetworkmanagementWifiWlanRegisterVirtualStationNotification(hclienthandle.rawAddress, bregister, preserved.rawAddress).toUInt()
 
-public actual fun wlanRenameProfile(hclienthandle: Handle, pinterfaceguid: ConstPtr<Guid>, stroldprofilename: Pcwstr, strnewprofilename: Pcwstr, preserved: ConstPtr<CVoid>): UInt =
+public actual fun wlanRenameProfile(hclienthandle: Handle, pinterfaceguid: ConstPtr, stroldprofilename: Pcwstr, strnewprofilename: Pcwstr, preserved: ConstPtr): UInt =
     WindowsWin32NetworkmanagementWifiJniBridge.windowssysWindowsWin32NetworkmanagementWifiWlanRenameProfile(hclienthandle.rawAddress, pinterfaceguid.rawAddress, stroldprofilename.rawAddress, strnewprofilename.rawAddress, preserved.rawAddress).toUInt()
 
-public actual fun wlanSaveTemporaryProfile(hclienthandle: Handle, pinterfaceguid: ConstPtr<Guid>, strprofilename: Pcwstr, stralluserprofilesecurity: Pcwstr, dwflags: UInt, boverwrite: Bool, preserved: ConstPtr<CVoid>): UInt =
+public actual fun wlanSaveTemporaryProfile(hclienthandle: Handle, pinterfaceguid: ConstPtr, strprofilename: Pcwstr, stralluserprofilesecurity: Pcwstr, dwflags: UInt, boverwrite: Bool, preserved: ConstPtr): UInt =
     WindowsWin32NetworkmanagementWifiJniBridge.windowssysWindowsWin32NetworkmanagementWifiWlanSaveTemporaryProfile(hclienthandle.rawAddress, pinterfaceguid.rawAddress, strprofilename.rawAddress, stralluserprofilesecurity.rawAddress, dwflags.toInt(), boverwrite, preserved.rawAddress).toUInt()
 
-public actual fun wlanScan(hclienthandle: Handle, pinterfaceguid: ConstPtr<Guid>, pdot11ssid: ConstPtr<Dot11Ssid>, piedata: ConstPtr<WlanRawData>, preserved: ConstPtr<CVoid>): UInt =
+public actual fun wlanScan(hclienthandle: Handle, pinterfaceguid: ConstPtr, pdot11ssid: ConstPtr, piedata: ConstPtr, preserved: ConstPtr): UInt =
     WindowsWin32NetworkmanagementWifiJniBridge.windowssysWindowsWin32NetworkmanagementWifiWlanScan(hclienthandle.rawAddress, pinterfaceguid.rawAddress, pdot11ssid.rawAddress, piedata.rawAddress, preserved.rawAddress).toUInt()
 
-public actual fun wlanSetAutoConfigParameter(hclienthandle: Handle, opcode: WlanAutoconfOpcode, dwdatasize: UInt, pdata: ConstPtr<CVoid>, preserved: ConstPtr<CVoid>): UInt =
+public actual fun wlanSetAutoConfigParameter(hclienthandle: Handle, opcode: WlanAutoconfOpcode, dwdatasize: UInt, pdata: ConstPtr, preserved: ConstPtr): UInt =
     WindowsWin32NetworkmanagementWifiJniBridge.windowssysWindowsWin32NetworkmanagementWifiWlanSetAutoConfigParameter(hclienthandle.rawAddress, opcode, dwdatasize.toInt(), pdata.rawAddress, preserved.rawAddress).toUInt()
 
-public actual fun wlanSetFilterList(hclienthandle: Handle, wlanfilterlisttype: WlanFilterListType, pnetworklist: ConstPtr<Dot11NetworkList>, preserved: ConstPtr<CVoid>): UInt =
+public actual fun wlanSetFilterList(hclienthandle: Handle, wlanfilterlisttype: WlanFilterListType, pnetworklist: ConstPtr, preserved: ConstPtr): UInt =
     WindowsWin32NetworkmanagementWifiJniBridge.windowssysWindowsWin32NetworkmanagementWifiWlanSetFilterList(hclienthandle.rawAddress, wlanfilterlisttype, pnetworklist.rawAddress, preserved.rawAddress).toUInt()
 
-public actual fun wlanSetInterface(hclienthandle: Handle, pinterfaceguid: ConstPtr<Guid>, opcode: WlanIntfOpcode, dwdatasize: UInt, pdata: ConstPtr<CVoid>, preserved: ConstPtr<CVoid>): UInt =
+public actual fun wlanSetInterface(hclienthandle: Handle, pinterfaceguid: ConstPtr, opcode: WlanIntfOpcode, dwdatasize: UInt, pdata: ConstPtr, preserved: ConstPtr): UInt =
     WindowsWin32NetworkmanagementWifiJniBridge.windowssysWindowsWin32NetworkmanagementWifiWlanSetInterface(hclienthandle.rawAddress, pinterfaceguid.rawAddress, opcode, dwdatasize.toInt(), pdata.rawAddress, preserved.rawAddress).toUInt()
 
-public actual fun wlanSetProfile(hclienthandle: Handle, pinterfaceguid: ConstPtr<Guid>, dwflags: UInt, strprofilexml: Pcwstr, stralluserprofilesecurity: Pcwstr, boverwrite: Bool, preserved: ConstPtr<CVoid>, pdwreasoncode: MutPtr<UInt>): UInt =
+public actual fun wlanSetProfile(hclienthandle: Handle, pinterfaceguid: ConstPtr, dwflags: UInt, strprofilexml: Pcwstr, stralluserprofilesecurity: Pcwstr, boverwrite: Bool, preserved: ConstPtr, pdwreasoncode: MutPtr): UInt =
     WindowsWin32NetworkmanagementWifiJniBridge.windowssysWindowsWin32NetworkmanagementWifiWlanSetProfile(hclienthandle.rawAddress, pinterfaceguid.rawAddress, dwflags.toInt(), strprofilexml.rawAddress, stralluserprofilesecurity.rawAddress, boverwrite, preserved.rawAddress, pdwreasoncode.rawAddress).toUInt()
 
-public actual fun wlanSetProfileCustomUserData(hclienthandle: Handle, pinterfaceguid: ConstPtr<Guid>, strprofilename: Pcwstr, dwdatasize: UInt, pdata: ConstPtr<UByte>, preserved: ConstPtr<CVoid>): UInt =
+public actual fun wlanSetProfileCustomUserData(hclienthandle: Handle, pinterfaceguid: ConstPtr, strprofilename: Pcwstr, dwdatasize: UInt, pdata: ConstPtr, preserved: ConstPtr): UInt =
     WindowsWin32NetworkmanagementWifiJniBridge.windowssysWindowsWin32NetworkmanagementWifiWlanSetProfileCustomUserData(hclienthandle.rawAddress, pinterfaceguid.rawAddress, strprofilename.rawAddress, dwdatasize.toInt(), pdata.rawAddress, preserved.rawAddress).toUInt()
 
-public actual fun wlanSetProfileEapUserData(hclienthandle: Handle, pinterfaceguid: ConstPtr<Guid>, strprofilename: Pcwstr, eaptype: EapMethodType, dwflags: WlanSetEaphostFlags, dweapuserdatasize: UInt, pbeapuserdata: ConstPtr<UByte>, preserved: ConstPtr<CVoid>): UInt =
+public actual fun wlanSetProfileEapUserData(hclienthandle: Handle, pinterfaceguid: ConstPtr, strprofilename: Pcwstr, eaptype: EapMethodType, dwflags: WlanSetEaphostFlags, dweapuserdatasize: UInt, pbeapuserdata: ConstPtr, preserved: ConstPtr): UInt =
     0u
 
-public actual fun wlanSetProfileEapXmlUserData(hclienthandle: Handle, pinterfaceguid: ConstPtr<Guid>, strprofilename: Pcwstr, dwflags: WlanSetEaphostFlags, streapxmluserdata: Pcwstr, preserved: ConstPtr<CVoid>): UInt =
+public actual fun wlanSetProfileEapXmlUserData(hclienthandle: Handle, pinterfaceguid: ConstPtr, strprofilename: Pcwstr, dwflags: WlanSetEaphostFlags, streapxmluserdata: Pcwstr, preserved: ConstPtr): UInt =
     WindowsWin32NetworkmanagementWifiJniBridge.windowssysWindowsWin32NetworkmanagementWifiWlanSetProfileEapXmlUserData(hclienthandle.rawAddress, pinterfaceguid.rawAddress, strprofilename.rawAddress, dwflags.toInt(), streapxmluserdata.rawAddress, preserved.rawAddress).toUInt()
 
-public actual fun wlanSetProfileList(hclienthandle: Handle, pinterfaceguid: ConstPtr<Guid>, dwitems: UInt, strprofilenames: ConstPtr<Pcwstr>, preserved: ConstPtr<CVoid>): UInt =
+public actual fun wlanSetProfileList(hclienthandle: Handle, pinterfaceguid: ConstPtr, dwitems: UInt, strprofilenames: ConstPtr, preserved: ConstPtr): UInt =
     WindowsWin32NetworkmanagementWifiJniBridge.windowssysWindowsWin32NetworkmanagementWifiWlanSetProfileList(hclienthandle.rawAddress, pinterfaceguid.rawAddress, dwitems.toInt(), strprofilenames.rawAddress, preserved.rawAddress).toUInt()
 
-public actual fun wlanSetProfilePosition(hclienthandle: Handle, pinterfaceguid: ConstPtr<Guid>, strprofilename: Pcwstr, dwposition: UInt, preserved: ConstPtr<CVoid>): UInt =
+public actual fun wlanSetProfilePosition(hclienthandle: Handle, pinterfaceguid: ConstPtr, strprofilename: Pcwstr, dwposition: UInt, preserved: ConstPtr): UInt =
     WindowsWin32NetworkmanagementWifiJniBridge.windowssysWindowsWin32NetworkmanagementWifiWlanSetProfilePosition(hclienthandle.rawAddress, pinterfaceguid.rawAddress, strprofilename.rawAddress, dwposition.toInt(), preserved.rawAddress).toUInt()
 
-public actual fun wlanSetPsdIEDataList(hclienthandle: Handle, strformat: Pcwstr, ppsdiedatalist: ConstPtr<WlanRawDataList>, preserved: ConstPtr<CVoid>): UInt =
+public actual fun wlanSetPsdIEDataList(hclienthandle: Handle, strformat: Pcwstr, ppsdiedatalist: ConstPtr, preserved: ConstPtr): UInt =
     WindowsWin32NetworkmanagementWifiJniBridge.windowssysWindowsWin32NetworkmanagementWifiWlanSetPsdIEDataList(hclienthandle.rawAddress, strformat.rawAddress, ppsdiedatalist.rawAddress, preserved.rawAddress).toUInt()
 
 public actual fun wlanSetSecuritySettings(hclienthandle: Handle, securableobject: WlanSecurableObject, strmodifiedsddl: Pcwstr): UInt =
     WindowsWin32NetworkmanagementWifiJniBridge.windowssysWindowsWin32NetworkmanagementWifiWlanSetSecuritySettings(hclienthandle.rawAddress, securableobject, strmodifiedsddl.rawAddress).toUInt()
 
-public actual fun wlanUIEditProfile(dwclientversion: UInt, wstrprofilename: Pcwstr, pinterfaceguid: ConstPtr<Guid>, hwnd: Hwnd, wlstartpage: WlDisplayPages, preserved: ConstPtr<CVoid>, pwlanreasoncode: MutPtr<UInt>): UInt =
+public actual fun wlanUIEditProfile(dwclientversion: UInt, wstrprofilename: Pcwstr, pinterfaceguid: ConstPtr, hwnd: Hwnd, wlstartpage: WlDisplayPages, preserved: ConstPtr, pwlanreasoncode: MutPtr): UInt =
     WindowsWin32NetworkmanagementWifiJniBridge.windowssysWindowsWin32NetworkmanagementWifiWlanUIEditProfile(dwclientversion.toInt(), wstrprofilename.rawAddress, pinterfaceguid.rawAddress, hwnd.rawAddress, wlstartpage, preserved.rawAddress, pwlanreasoncode.rawAddress).toUInt()

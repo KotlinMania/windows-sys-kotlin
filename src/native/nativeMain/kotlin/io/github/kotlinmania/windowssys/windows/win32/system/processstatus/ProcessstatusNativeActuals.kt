@@ -2,7 +2,6 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.system.processstatus
 
-import io.github.kotlinmania.rustlang.core.ffi.CVoid
 import io.github.kotlinmania.rustlang.core.ptr.ConstPtr
 import io.github.kotlinmania.rustlang.core.ptr.MutPtr
 import io.github.kotlinmania.windowssys.core.Bool
@@ -70,40 +69,40 @@ import kotlinx.cinterop.toCPointer
 public actual fun emptyWorkingSet(hprocess: Handle): Bool =
     windowssysWindowsWin32SystemProcessstatusEmptyWorkingSet(hprocess.rawAddress.toCPointer<ByteVar>())
 
-public actual fun enumDeviceDrivers(lpimagebase: MutPtr<MutPtr<CVoid>>, cb: UInt, lpcbneeded: MutPtr<UInt>): Bool =
+public actual fun enumDeviceDrivers(lpimagebase: MutPtr, cb: UInt, lpcbneeded: MutPtr): Bool =
     windowssysWindowsWin32SystemProcessstatusEnumDeviceDrivers(lpimagebase.rawAddress.toCPointer<ByteVar>(), cb, lpcbneeded.rawAddress.toCPointer<ByteVar>())
 
-public actual fun enumPageFilesA(pcallbackroutine: PenumPageFileCallbacka, pcontext: MutPtr<CVoid>): Bool =
+public actual fun enumPageFilesA(pcallbackroutine: PenumPageFileCallbacka, pcontext: MutPtr): Bool =
     windowssysWindowsWin32SystemProcessstatusEnumPageFilesA(0L.toCPointer<ByteVar>(), pcontext.rawAddress.toCPointer<ByteVar>())
 
-public actual fun enumPageFilesW(pcallbackroutine: PenumPageFileCallbackw, pcontext: MutPtr<CVoid>): Bool =
+public actual fun enumPageFilesW(pcallbackroutine: PenumPageFileCallbackw, pcontext: MutPtr): Bool =
     windowssysWindowsWin32SystemProcessstatusEnumPageFilesW(0L.toCPointer<ByteVar>(), pcontext.rawAddress.toCPointer<ByteVar>())
 
-public actual fun enumProcessModules(hprocess: Handle, lphmodule: MutPtr<Hmodule>, cb: UInt, lpcbneeded: MutPtr<UInt>): Bool =
+public actual fun enumProcessModules(hprocess: Handle, lphmodule: MutPtr, cb: UInt, lpcbneeded: MutPtr): Bool =
     windowssysWindowsWin32SystemProcessstatusEnumProcessModules(hprocess.rawAddress.toCPointer<ByteVar>(), lphmodule.rawAddress.toCPointer<ByteVar>(), cb, lpcbneeded.rawAddress.toCPointer<ByteVar>())
 
-public actual fun enumProcessModulesEx(hprocess: Handle, lphmodule: MutPtr<Hmodule>, cb: UInt, lpcbneeded: MutPtr<UInt>, dwfilterflag: EnumProcessModulesExFlags): Bool =
+public actual fun enumProcessModulesEx(hprocess: Handle, lphmodule: MutPtr, cb: UInt, lpcbneeded: MutPtr, dwfilterflag: EnumProcessModulesExFlags): Bool =
     windowssysWindowsWin32SystemProcessstatusEnumProcessModulesEx(hprocess.rawAddress.toCPointer<ByteVar>(), lphmodule.rawAddress.toCPointer<ByteVar>(), cb, lpcbneeded.rawAddress.toCPointer<ByteVar>(), dwfilterflag)
 
-public actual fun enumProcesses(lpidprocess: MutPtr<UInt>, cb: UInt, lpcbneeded: MutPtr<UInt>): Bool =
+public actual fun enumProcesses(lpidprocess: MutPtr, cb: UInt, lpcbneeded: MutPtr): Bool =
     windowssysWindowsWin32SystemProcessstatusEnumProcesses(lpidprocess.rawAddress.toCPointer<ByteVar>(), cb, lpcbneeded.rawAddress.toCPointer<ByteVar>())
 
-public actual fun getDeviceDriverBaseNameA(imagebase: ConstPtr<CVoid>, lpfilename: Pstr, nsize: UInt): UInt =
+public actual fun getDeviceDriverBaseNameA(imagebase: ConstPtr, lpfilename: Pstr, nsize: UInt): UInt =
     windowssysWindowsWin32SystemProcessstatusGetDeviceDriverBaseNameA(imagebase.rawAddress.toCPointer<ByteVar>(), lpfilename.rawAddress.toCPointer<ByteVar>(), nsize)
 
-public actual fun getDeviceDriverBaseNameW(imagebase: ConstPtr<CVoid>, lpbasename: Pwstr, nsize: UInt): UInt =
+public actual fun getDeviceDriverBaseNameW(imagebase: ConstPtr, lpbasename: Pwstr, nsize: UInt): UInt =
     windowssysWindowsWin32SystemProcessstatusGetDeviceDriverBaseNameW(imagebase.rawAddress.toCPointer<ByteVar>(), lpbasename.rawAddress.toCPointer<ByteVar>(), nsize)
 
-public actual fun getDeviceDriverFileNameA(imagebase: ConstPtr<CVoid>, lpfilename: Pstr, nsize: UInt): UInt =
+public actual fun getDeviceDriverFileNameA(imagebase: ConstPtr, lpfilename: Pstr, nsize: UInt): UInt =
     windowssysWindowsWin32SystemProcessstatusGetDeviceDriverFileNameA(imagebase.rawAddress.toCPointer<ByteVar>(), lpfilename.rawAddress.toCPointer<ByteVar>(), nsize)
 
-public actual fun getDeviceDriverFileNameW(imagebase: ConstPtr<CVoid>, lpfilename: Pwstr, nsize: UInt): UInt =
+public actual fun getDeviceDriverFileNameW(imagebase: ConstPtr, lpfilename: Pwstr, nsize: UInt): UInt =
     windowssysWindowsWin32SystemProcessstatusGetDeviceDriverFileNameW(imagebase.rawAddress.toCPointer<ByteVar>(), lpfilename.rawAddress.toCPointer<ByteVar>(), nsize)
 
-public actual fun getMappedFileNameA(hprocess: Handle, lpv: ConstPtr<CVoid>, lpfilename: Pstr, nsize: UInt): UInt =
+public actual fun getMappedFileNameA(hprocess: Handle, lpv: ConstPtr, lpfilename: Pstr, nsize: UInt): UInt =
     windowssysWindowsWin32SystemProcessstatusGetMappedFileNameA(hprocess.rawAddress.toCPointer<ByteVar>(), lpv.rawAddress.toCPointer<ByteVar>(), lpfilename.rawAddress.toCPointer<ByteVar>(), nsize)
 
-public actual fun getMappedFileNameW(hprocess: Handle, lpv: ConstPtr<CVoid>, lpfilename: Pwstr, nsize: UInt): UInt =
+public actual fun getMappedFileNameW(hprocess: Handle, lpv: ConstPtr, lpfilename: Pwstr, nsize: UInt): UInt =
     windowssysWindowsWin32SystemProcessstatusGetMappedFileNameW(hprocess.rawAddress.toCPointer<ByteVar>(), lpv.rawAddress.toCPointer<ByteVar>(), lpfilename.rawAddress.toCPointer<ByteVar>(), nsize)
 
 public actual fun getModuleBaseNameA(hprocess: Handle, hmodule: Hmodule, lpbasename: Pstr, nsize: UInt): UInt =
@@ -118,10 +117,10 @@ public actual fun getModuleFileNameExA(hprocess: Handle, hmodule: Hmodule, lpfil
 public actual fun getModuleFileNameExW(hprocess: Handle, hmodule: Hmodule, lpfilename: Pwstr, nsize: UInt): UInt =
     windowssysWindowsWin32SystemProcessstatusGetModuleFileNameExW(hprocess.rawAddress.toCPointer<ByteVar>(), hmodule.rawAddress.toCPointer<ByteVar>(), lpfilename.rawAddress.toCPointer<ByteVar>(), nsize)
 
-public actual fun getModuleInformation(hprocess: Handle, hmodule: Hmodule, lpmodinfo: MutPtr<Moduleinfo>, cb: UInt): Bool =
+public actual fun getModuleInformation(hprocess: Handle, hmodule: Hmodule, lpmodinfo: MutPtr, cb: UInt): Bool =
     windowssysWindowsWin32SystemProcessstatusGetModuleInformation(hprocess.rawAddress.toCPointer<ByteVar>(), hmodule.rawAddress.toCPointer<ByteVar>(), lpmodinfo.rawAddress.toCPointer<ByteVar>(), cb)
 
-public actual fun getPerformanceInfo(pperformanceinformation: MutPtr<PerformanceInformation>, cb: UInt): Bool =
+public actual fun getPerformanceInfo(pperformanceinformation: MutPtr, cb: UInt): Bool =
     windowssysWindowsWin32SystemProcessstatusGetPerformanceInfo(pperformanceinformation.rawAddress.toCPointer<ByteVar>(), cb)
 
 public actual fun getProcessImageFileNameA(hprocess: Handle, lpimagefilename: Pstr, nsize: UInt): UInt =
@@ -130,13 +129,13 @@ public actual fun getProcessImageFileNameA(hprocess: Handle, lpimagefilename: Ps
 public actual fun getProcessImageFileNameW(hprocess: Handle, lpimagefilename: Pwstr, nsize: UInt): UInt =
     windowssysWindowsWin32SystemProcessstatusGetProcessImageFileNameW(hprocess.rawAddress.toCPointer<ByteVar>(), lpimagefilename.rawAddress.toCPointer<ByteVar>(), nsize)
 
-public actual fun getProcessMemoryInfo(process: Handle, ppsmemcounters: MutPtr<ProcessMemoryCounters>, cb: UInt): Bool =
+public actual fun getProcessMemoryInfo(process: Handle, ppsmemcounters: MutPtr, cb: UInt): Bool =
     windowssysWindowsWin32SystemProcessstatusGetProcessMemoryInfo(process.rawAddress.toCPointer<ByteVar>(), ppsmemcounters.rawAddress.toCPointer<ByteVar>(), cb)
 
-public actual fun getWsChanges(hprocess: Handle, lpwatchinfo: MutPtr<PsapiWsWatchInformation>, cb: UInt): Bool =
+public actual fun getWsChanges(hprocess: Handle, lpwatchinfo: MutPtr, cb: UInt): Bool =
     windowssysWindowsWin32SystemProcessstatusGetWsChanges(hprocess.rawAddress.toCPointer<ByteVar>(), lpwatchinfo.rawAddress.toCPointer<ByteVar>(), cb)
 
-public actual fun getWsChangesEx(hprocess: Handle, lpwatchinfoex: MutPtr<PsapiWsWatchInformationEx>, cb: MutPtr<UInt>): Bool =
+public actual fun getWsChangesEx(hprocess: Handle, lpwatchinfoex: MutPtr, cb: MutPtr): Bool =
     windowssysWindowsWin32SystemProcessstatusGetWsChangesEx(hprocess.rawAddress.toCPointer<ByteVar>(), lpwatchinfoex.rawAddress.toCPointer<ByteVar>(), cb.rawAddress.toCPointer<ByteVar>())
 
 public actual fun initializeProcessForWsWatch(hprocess: Handle): Bool =
@@ -145,40 +144,40 @@ public actual fun initializeProcessForWsWatch(hprocess: Handle): Bool =
 public actual fun k32EmptyWorkingSet(hprocess: Handle): Bool =
     windowssysWindowsWin32SystemProcessstatusK32EmptyWorkingSet(hprocess.rawAddress.toCPointer<ByteVar>())
 
-public actual fun k32EnumDeviceDrivers(lpimagebase: MutPtr<MutPtr<CVoid>>, cb: UInt, lpcbneeded: MutPtr<UInt>): Bool =
+public actual fun k32EnumDeviceDrivers(lpimagebase: MutPtr, cb: UInt, lpcbneeded: MutPtr): Bool =
     windowssysWindowsWin32SystemProcessstatusK32EnumDeviceDrivers(lpimagebase.rawAddress.toCPointer<ByteVar>(), cb, lpcbneeded.rawAddress.toCPointer<ByteVar>())
 
-public actual fun k32EnumPageFilesA(pcallbackroutine: PenumPageFileCallbacka, pcontext: MutPtr<CVoid>): Bool =
+public actual fun k32EnumPageFilesA(pcallbackroutine: PenumPageFileCallbacka, pcontext: MutPtr): Bool =
     windowssysWindowsWin32SystemProcessstatusK32EnumPageFilesA(0L.toCPointer<ByteVar>(), pcontext.rawAddress.toCPointer<ByteVar>())
 
-public actual fun k32EnumPageFilesW(pcallbackroutine: PenumPageFileCallbackw, pcontext: MutPtr<CVoid>): Bool =
+public actual fun k32EnumPageFilesW(pcallbackroutine: PenumPageFileCallbackw, pcontext: MutPtr): Bool =
     windowssysWindowsWin32SystemProcessstatusK32EnumPageFilesW(0L.toCPointer<ByteVar>(), pcontext.rawAddress.toCPointer<ByteVar>())
 
-public actual fun k32EnumProcessModules(hprocess: Handle, lphmodule: MutPtr<Hmodule>, cb: UInt, lpcbneeded: MutPtr<UInt>): Bool =
+public actual fun k32EnumProcessModules(hprocess: Handle, lphmodule: MutPtr, cb: UInt, lpcbneeded: MutPtr): Bool =
     windowssysWindowsWin32SystemProcessstatusK32EnumProcessModules(hprocess.rawAddress.toCPointer<ByteVar>(), lphmodule.rawAddress.toCPointer<ByteVar>(), cb, lpcbneeded.rawAddress.toCPointer<ByteVar>())
 
-public actual fun k32EnumProcessModulesEx(hprocess: Handle, lphmodule: MutPtr<Hmodule>, cb: UInt, lpcbneeded: MutPtr<UInt>, dwfilterflag: UInt): Bool =
+public actual fun k32EnumProcessModulesEx(hprocess: Handle, lphmodule: MutPtr, cb: UInt, lpcbneeded: MutPtr, dwfilterflag: UInt): Bool =
     windowssysWindowsWin32SystemProcessstatusK32EnumProcessModulesEx(hprocess.rawAddress.toCPointer<ByteVar>(), lphmodule.rawAddress.toCPointer<ByteVar>(), cb, lpcbneeded.rawAddress.toCPointer<ByteVar>(), dwfilterflag)
 
-public actual fun k32EnumProcesses(lpidprocess: MutPtr<UInt>, cb: UInt, lpcbneeded: MutPtr<UInt>): Bool =
+public actual fun k32EnumProcesses(lpidprocess: MutPtr, cb: UInt, lpcbneeded: MutPtr): Bool =
     windowssysWindowsWin32SystemProcessstatusK32EnumProcesses(lpidprocess.rawAddress.toCPointer<ByteVar>(), cb, lpcbneeded.rawAddress.toCPointer<ByteVar>())
 
-public actual fun k32GetDeviceDriverBaseNameA(imagebase: ConstPtr<CVoid>, lpfilename: Pstr, nsize: UInt): UInt =
+public actual fun k32GetDeviceDriverBaseNameA(imagebase: ConstPtr, lpfilename: Pstr, nsize: UInt): UInt =
     windowssysWindowsWin32SystemProcessstatusK32GetDeviceDriverBaseNameA(imagebase.rawAddress.toCPointer<ByteVar>(), lpfilename.rawAddress.toCPointer<ByteVar>(), nsize)
 
-public actual fun k32GetDeviceDriverBaseNameW(imagebase: ConstPtr<CVoid>, lpbasename: Pwstr, nsize: UInt): UInt =
+public actual fun k32GetDeviceDriverBaseNameW(imagebase: ConstPtr, lpbasename: Pwstr, nsize: UInt): UInt =
     windowssysWindowsWin32SystemProcessstatusK32GetDeviceDriverBaseNameW(imagebase.rawAddress.toCPointer<ByteVar>(), lpbasename.rawAddress.toCPointer<ByteVar>(), nsize)
 
-public actual fun k32GetDeviceDriverFileNameA(imagebase: ConstPtr<CVoid>, lpfilename: Pstr, nsize: UInt): UInt =
+public actual fun k32GetDeviceDriverFileNameA(imagebase: ConstPtr, lpfilename: Pstr, nsize: UInt): UInt =
     windowssysWindowsWin32SystemProcessstatusK32GetDeviceDriverFileNameA(imagebase.rawAddress.toCPointer<ByteVar>(), lpfilename.rawAddress.toCPointer<ByteVar>(), nsize)
 
-public actual fun k32GetDeviceDriverFileNameW(imagebase: ConstPtr<CVoid>, lpfilename: Pwstr, nsize: UInt): UInt =
+public actual fun k32GetDeviceDriverFileNameW(imagebase: ConstPtr, lpfilename: Pwstr, nsize: UInt): UInt =
     windowssysWindowsWin32SystemProcessstatusK32GetDeviceDriverFileNameW(imagebase.rawAddress.toCPointer<ByteVar>(), lpfilename.rawAddress.toCPointer<ByteVar>(), nsize)
 
-public actual fun k32GetMappedFileNameA(hprocess: Handle, lpv: ConstPtr<CVoid>, lpfilename: Pstr, nsize: UInt): UInt =
+public actual fun k32GetMappedFileNameA(hprocess: Handle, lpv: ConstPtr, lpfilename: Pstr, nsize: UInt): UInt =
     windowssysWindowsWin32SystemProcessstatusK32GetMappedFileNameA(hprocess.rawAddress.toCPointer<ByteVar>(), lpv.rawAddress.toCPointer<ByteVar>(), lpfilename.rawAddress.toCPointer<ByteVar>(), nsize)
 
-public actual fun k32GetMappedFileNameW(hprocess: Handle, lpv: ConstPtr<CVoid>, lpfilename: Pwstr, nsize: UInt): UInt =
+public actual fun k32GetMappedFileNameW(hprocess: Handle, lpv: ConstPtr, lpfilename: Pwstr, nsize: UInt): UInt =
     windowssysWindowsWin32SystemProcessstatusK32GetMappedFileNameW(hprocess.rawAddress.toCPointer<ByteVar>(), lpv.rawAddress.toCPointer<ByteVar>(), lpfilename.rawAddress.toCPointer<ByteVar>(), nsize)
 
 public actual fun k32GetModuleBaseNameA(hprocess: Handle, hmodule: Hmodule, lpbasename: Pstr, nsize: UInt): UInt =
@@ -193,10 +192,10 @@ public actual fun k32GetModuleFileNameExA(hprocess: Handle, hmodule: Hmodule, lp
 public actual fun k32GetModuleFileNameExW(hprocess: Handle, hmodule: Hmodule, lpfilename: Pwstr, nsize: UInt): UInt =
     windowssysWindowsWin32SystemProcessstatusK32GetModuleFileNameExW(hprocess.rawAddress.toCPointer<ByteVar>(), hmodule.rawAddress.toCPointer<ByteVar>(), lpfilename.rawAddress.toCPointer<ByteVar>(), nsize)
 
-public actual fun k32GetModuleInformation(hprocess: Handle, hmodule: Hmodule, lpmodinfo: MutPtr<Moduleinfo>, cb: UInt): Bool =
+public actual fun k32GetModuleInformation(hprocess: Handle, hmodule: Hmodule, lpmodinfo: MutPtr, cb: UInt): Bool =
     windowssysWindowsWin32SystemProcessstatusK32GetModuleInformation(hprocess.rawAddress.toCPointer<ByteVar>(), hmodule.rawAddress.toCPointer<ByteVar>(), lpmodinfo.rawAddress.toCPointer<ByteVar>(), cb)
 
-public actual fun k32GetPerformanceInfo(pperformanceinformation: MutPtr<PerformanceInformation>, cb: UInt): Bool =
+public actual fun k32GetPerformanceInfo(pperformanceinformation: MutPtr, cb: UInt): Bool =
     windowssysWindowsWin32SystemProcessstatusK32GetPerformanceInfo(pperformanceinformation.rawAddress.toCPointer<ByteVar>(), cb)
 
 public actual fun k32GetProcessImageFileNameA(hprocess: Handle, lpimagefilename: Pstr, nsize: UInt): UInt =
@@ -205,26 +204,26 @@ public actual fun k32GetProcessImageFileNameA(hprocess: Handle, lpimagefilename:
 public actual fun k32GetProcessImageFileNameW(hprocess: Handle, lpimagefilename: Pwstr, nsize: UInt): UInt =
     windowssysWindowsWin32SystemProcessstatusK32GetProcessImageFileNameW(hprocess.rawAddress.toCPointer<ByteVar>(), lpimagefilename.rawAddress.toCPointer<ByteVar>(), nsize)
 
-public actual fun k32GetProcessMemoryInfo(process: Handle, ppsmemcounters: MutPtr<ProcessMemoryCounters>, cb: UInt): Bool =
+public actual fun k32GetProcessMemoryInfo(process: Handle, ppsmemcounters: MutPtr, cb: UInt): Bool =
     windowssysWindowsWin32SystemProcessstatusK32GetProcessMemoryInfo(process.rawAddress.toCPointer<ByteVar>(), ppsmemcounters.rawAddress.toCPointer<ByteVar>(), cb)
 
-public actual fun k32GetWsChanges(hprocess: Handle, lpwatchinfo: MutPtr<PsapiWsWatchInformation>, cb: UInt): Bool =
+public actual fun k32GetWsChanges(hprocess: Handle, lpwatchinfo: MutPtr, cb: UInt): Bool =
     windowssysWindowsWin32SystemProcessstatusK32GetWsChanges(hprocess.rawAddress.toCPointer<ByteVar>(), lpwatchinfo.rawAddress.toCPointer<ByteVar>(), cb)
 
-public actual fun k32GetWsChangesEx(hprocess: Handle, lpwatchinfoex: MutPtr<PsapiWsWatchInformationEx>, cb: MutPtr<UInt>): Bool =
+public actual fun k32GetWsChangesEx(hprocess: Handle, lpwatchinfoex: MutPtr, cb: MutPtr): Bool =
     windowssysWindowsWin32SystemProcessstatusK32GetWsChangesEx(hprocess.rawAddress.toCPointer<ByteVar>(), lpwatchinfoex.rawAddress.toCPointer<ByteVar>(), cb.rawAddress.toCPointer<ByteVar>())
 
 public actual fun k32InitializeProcessForWsWatch(hprocess: Handle): Bool =
     windowssysWindowsWin32SystemProcessstatusK32InitializeProcessForWsWatch(hprocess.rawAddress.toCPointer<ByteVar>())
 
-public actual fun k32QueryWorkingSet(hprocess: Handle, pv: MutPtr<CVoid>, cb: UInt): Bool =
+public actual fun k32QueryWorkingSet(hprocess: Handle, pv: MutPtr, cb: UInt): Bool =
     windowssysWindowsWin32SystemProcessstatusK32QueryWorkingSet(hprocess.rawAddress.toCPointer<ByteVar>(), pv.rawAddress.toCPointer<ByteVar>(), cb)
 
-public actual fun k32QueryWorkingSetEx(hprocess: Handle, pv: MutPtr<CVoid>, cb: UInt): Bool =
+public actual fun k32QueryWorkingSetEx(hprocess: Handle, pv: MutPtr, cb: UInt): Bool =
     windowssysWindowsWin32SystemProcessstatusK32QueryWorkingSetEx(hprocess.rawAddress.toCPointer<ByteVar>(), pv.rawAddress.toCPointer<ByteVar>(), cb)
 
-public actual fun queryWorkingSet(hprocess: Handle, pv: MutPtr<CVoid>, cb: UInt): Bool =
+public actual fun queryWorkingSet(hprocess: Handle, pv: MutPtr, cb: UInt): Bool =
     windowssysWindowsWin32SystemProcessstatusQueryWorkingSet(hprocess.rawAddress.toCPointer<ByteVar>(), pv.rawAddress.toCPointer<ByteVar>(), cb)
 
-public actual fun queryWorkingSetEx(hprocess: Handle, pv: MutPtr<CVoid>, cb: UInt): Bool =
+public actual fun queryWorkingSetEx(hprocess: Handle, pv: MutPtr, cb: UInt): Bool =
     windowssysWindowsWin32SystemProcessstatusQueryWorkingSetEx(hprocess.rawAddress.toCPointer<ByteVar>(), pv.rawAddress.toCPointer<ByteVar>(), cb)

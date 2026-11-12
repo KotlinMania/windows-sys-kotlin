@@ -2,7 +2,6 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.system.search
 
-import io.github.kotlinmania.rustlang.core.ffi.CVoid
 import io.github.kotlinmania.rustlang.core.ptr.ConstPtr
 import io.github.kotlinmania.rustlang.core.ptr.MutPtr
 import io.github.kotlinmania.windowssys.core.Bool
@@ -202,535 +201,535 @@ public actual fun oDBCGetTryWaitValue(): UInt =
 public actual fun oDBCSetTryWaitValue(dwvalue: UInt): Bool =
     windowssysWindowsWin32SystemSearchODBCSetTryWaitValue(dwvalue)
 
-public actual fun sQLAllocConnect(environmenthandle: MutPtr<CVoid>, connectionhandle: MutPtr<MutPtr<CVoid>>): Short =
+public actual fun sQLAllocConnect(environmenthandle: MutPtr, connectionhandle: MutPtr): Short =
     windowssysWindowsWin32SystemSearchSQLAllocConnect(environmenthandle.rawAddress.toCPointer<ByteVar>(), connectionhandle.rawAddress.toCPointer<ByteVar>())
 
-public actual fun sQLAllocEnv(environmenthandle: MutPtr<MutPtr<CVoid>>): Short =
+public actual fun sQLAllocEnv(environmenthandle: MutPtr): Short =
     windowssysWindowsWin32SystemSearchSQLAllocEnv(environmenthandle.rawAddress.toCPointer<ByteVar>())
 
-public actual fun sQLAllocHandle(handletype: Short, inputhandle: MutPtr<CVoid>, outputhandle: MutPtr<MutPtr<CVoid>>): Short =
+public actual fun sQLAllocHandle(handletype: Short, inputhandle: MutPtr, outputhandle: MutPtr): Short =
     windowssysWindowsWin32SystemSearchSQLAllocHandle(handletype, inputhandle.rawAddress.toCPointer<ByteVar>(), outputhandle.rawAddress.toCPointer<ByteVar>())
 
-public actual fun sQLAllocHandleStd(fhandletype: Short, hinput: MutPtr<CVoid>, phoutput: MutPtr<MutPtr<CVoid>>): Short =
+public actual fun sQLAllocHandleStd(fhandletype: Short, hinput: MutPtr, phoutput: MutPtr): Short =
     windowssysWindowsWin32SystemSearchSQLAllocHandleStd(fhandletype, hinput.rawAddress.toCPointer<ByteVar>(), phoutput.rawAddress.toCPointer<ByteVar>())
 
-public actual fun sQLAllocStmt(connectionhandle: MutPtr<CVoid>, statementhandle: MutPtr<MutPtr<CVoid>>): Short =
+public actual fun sQLAllocStmt(connectionhandle: MutPtr, statementhandle: MutPtr): Short =
     windowssysWindowsWin32SystemSearchSQLAllocStmt(connectionhandle.rawAddress.toCPointer<ByteVar>(), statementhandle.rawAddress.toCPointer<ByteVar>())
 
-public actual fun sQLBindCol(statementhandle: MutPtr<CVoid>, columnnumber: UShort, targettype: Short, targetvalue: MutPtr<CVoid>, bufferlength: Long, strlenOrInd: MutPtr<Long>): Short =
+public actual fun sQLBindCol(statementhandle: MutPtr, columnnumber: UShort, targettype: Short, targetvalue: MutPtr, bufferlength: Long, strlenOrInd: MutPtr): Short =
     windowssysWindowsWin32SystemSearchSQLBindCol(statementhandle.rawAddress.toCPointer<ByteVar>(), columnnumber, targettype, targetvalue.rawAddress.toCPointer<ByteVar>(), bufferlength, strlenOrInd.rawAddress.toCPointer<ByteVar>())
 
-public actual fun sQLBindParam(statementhandle: MutPtr<CVoid>, parameternumber: UShort, valuetype: Short, parametertype: Short, lengthprecision: ULong, parameterscale: Short, parametervalue: MutPtr<CVoid>, strlenOrInd: MutPtr<Long>): Short =
+public actual fun sQLBindParam(statementhandle: MutPtr, parameternumber: UShort, valuetype: Short, parametertype: Short, lengthprecision: ULong, parameterscale: Short, parametervalue: MutPtr, strlenOrInd: MutPtr): Short =
     windowssysWindowsWin32SystemSearchSQLBindParam(statementhandle.rawAddress.toCPointer<ByteVar>(), parameternumber, valuetype, parametertype, lengthprecision, parameterscale, parametervalue.rawAddress.toCPointer<ByteVar>(), strlenOrInd.rawAddress.toCPointer<ByteVar>())
 
-public actual fun sQLBindParameter(hstmt: MutPtr<CVoid>, ipar: UShort, fparamtype: Short, fctype: Short, fsqltype: Short, cbcoldef: ULong, ibscale: Short, rgbvalue: MutPtr<CVoid>, cbvaluemax: Long, pcbvalue: MutPtr<Long>): Short =
+public actual fun sQLBindParameter(hstmt: MutPtr, ipar: UShort, fparamtype: Short, fctype: Short, fsqltype: Short, cbcoldef: ULong, ibscale: Short, rgbvalue: MutPtr, cbvaluemax: Long, pcbvalue: MutPtr): Short =
     windowssysWindowsWin32SystemSearchSQLBindParameter(hstmt.rawAddress.toCPointer<ByteVar>(), ipar, fparamtype, fctype, fsqltype, cbcoldef, ibscale, rgbvalue.rawAddress.toCPointer<ByteVar>(), cbvaluemax, pcbvalue.rawAddress.toCPointer<ByteVar>())
 
-public actual fun sQLBrowseConnect(hdbc: MutPtr<CVoid>, szconnstrin: ConstPtr<UByte>, cchconnstrin: Short, szconnstrout: MutPtr<UByte>, cchconnstroutmax: Short, pcchconnstrout: MutPtr<Short>): Short =
+public actual fun sQLBrowseConnect(hdbc: MutPtr, szconnstrin: ConstPtr, cchconnstrin: Short, szconnstrout: MutPtr, cchconnstroutmax: Short, pcchconnstrout: MutPtr): Short =
     windowssysWindowsWin32SystemSearchSQLBrowseConnect(hdbc.rawAddress.toCPointer<ByteVar>(), szconnstrin.rawAddress.toCPointer<ByteVar>(), cchconnstrin, szconnstrout.rawAddress.toCPointer<ByteVar>(), cchconnstroutmax, pcchconnstrout.rawAddress.toCPointer<ByteVar>())
 
-public actual fun sQLBrowseConnectA(hdbc: MutPtr<CVoid>, szconnstrin: ConstPtr<UByte>, cbconnstrin: Short, szconnstrout: MutPtr<UByte>, cbconnstroutmax: Short, pcbconnstrout: MutPtr<Short>): Short =
+public actual fun sQLBrowseConnectA(hdbc: MutPtr, szconnstrin: ConstPtr, cbconnstrin: Short, szconnstrout: MutPtr, cbconnstroutmax: Short, pcbconnstrout: MutPtr): Short =
     windowssysWindowsWin32SystemSearchSQLBrowseConnectA(hdbc.rawAddress.toCPointer<ByteVar>(), szconnstrin.rawAddress.toCPointer<ByteVar>(), cbconnstrin, szconnstrout.rawAddress.toCPointer<ByteVar>(), cbconnstroutmax, pcbconnstrout.rawAddress.toCPointer<ByteVar>())
 
-public actual fun sQLBrowseConnectW(hdbc: MutPtr<CVoid>, szconnstrin: ConstPtr<UShort>, cchconnstrin: Short, szconnstrout: MutPtr<UShort>, cchconnstroutmax: Short, pcchconnstrout: MutPtr<Short>): Short =
+public actual fun sQLBrowseConnectW(hdbc: MutPtr, szconnstrin: ConstPtr, cchconnstrin: Short, szconnstrout: MutPtr, cchconnstroutmax: Short, pcchconnstrout: MutPtr): Short =
     windowssysWindowsWin32SystemSearchSQLBrowseConnectW(hdbc.rawAddress.toCPointer<ByteVar>(), szconnstrin.rawAddress.toCPointer<ByteVar>(), cchconnstrin, szconnstrout.rawAddress.toCPointer<ByteVar>(), cchconnstroutmax, pcchconnstrout.rawAddress.toCPointer<ByteVar>())
 
-public actual fun sQLBulkOperations(statementhandle: MutPtr<CVoid>, operation: Short): Short =
+public actual fun sQLBulkOperations(statementhandle: MutPtr, operation: Short): Short =
     windowssysWindowsWin32SystemSearchSQLBulkOperations(statementhandle.rawAddress.toCPointer<ByteVar>(), operation)
 
-public actual fun sQLCancel(statementhandle: MutPtr<CVoid>): Short =
+public actual fun sQLCancel(statementhandle: MutPtr): Short =
     windowssysWindowsWin32SystemSearchSQLCancel(statementhandle.rawAddress.toCPointer<ByteVar>())
 
-public actual fun sQLCancelHandle(handletype: Short, inputhandle: MutPtr<CVoid>): Short =
+public actual fun sQLCancelHandle(handletype: Short, inputhandle: MutPtr): Short =
     windowssysWindowsWin32SystemSearchSQLCancelHandle(handletype, inputhandle.rawAddress.toCPointer<ByteVar>())
 
-public actual fun sQLCloseCursor(statementhandle: MutPtr<CVoid>): Short =
+public actual fun sQLCloseCursor(statementhandle: MutPtr): Short =
     windowssysWindowsWin32SystemSearchSQLCloseCursor(statementhandle.rawAddress.toCPointer<ByteVar>())
 
 public actual fun sQLCloseEnumServers(henumhandle: Handle): Short =
     windowssysWindowsWin32SystemSearchSQLCloseEnumServers(henumhandle.rawAddress.toCPointer<ByteVar>())
 
-public actual fun sQLColAttribute(statementhandle: MutPtr<CVoid>, columnnumber: UShort, fieldidentifier: UShort, characterattribute: MutPtr<CVoid>, bufferlength: Short, stringlength: MutPtr<Short>, numericattribute: MutPtr<Long>): Short =
+public actual fun sQLColAttribute(statementhandle: MutPtr, columnnumber: UShort, fieldidentifier: UShort, characterattribute: MutPtr, bufferlength: Short, stringlength: MutPtr, numericattribute: MutPtr): Short =
     windowssysWindowsWin32SystemSearchSQLColAttribute(statementhandle.rawAddress.toCPointer<ByteVar>(), columnnumber, fieldidentifier, characterattribute.rawAddress.toCPointer<ByteVar>(), bufferlength, stringlength.rawAddress.toCPointer<ByteVar>(), numericattribute.rawAddress.toCPointer<ByteVar>())
 
-public actual fun sQLColAttributeA(hstmt: MutPtr<CVoid>, icol: Short, ifield: Short, pcharattr: MutPtr<CVoid>, cbcharattrmax: Short, pcbcharattr: MutPtr<Short>, pnumattr: MutPtr<Long>): Short =
+public actual fun sQLColAttributeA(hstmt: MutPtr, icol: Short, ifield: Short, pcharattr: MutPtr, cbcharattrmax: Short, pcbcharattr: MutPtr, pnumattr: MutPtr): Short =
     windowssysWindowsWin32SystemSearchSQLColAttributeA(hstmt.rawAddress.toCPointer<ByteVar>(), icol, ifield, pcharattr.rawAddress.toCPointer<ByteVar>(), cbcharattrmax, pcbcharattr.rawAddress.toCPointer<ByteVar>(), pnumattr.rawAddress.toCPointer<ByteVar>())
 
-public actual fun sQLColAttributeW(hstmt: MutPtr<CVoid>, icol: UShort, ifield: UShort, pcharattr: MutPtr<CVoid>, cbdescmax: Short, pcbcharattr: MutPtr<Short>, pnumattr: MutPtr<Long>): Short =
+public actual fun sQLColAttributeW(hstmt: MutPtr, icol: UShort, ifield: UShort, pcharattr: MutPtr, cbdescmax: Short, pcbcharattr: MutPtr, pnumattr: MutPtr): Short =
     windowssysWindowsWin32SystemSearchSQLColAttributeW(hstmt.rawAddress.toCPointer<ByteVar>(), icol, ifield, pcharattr.rawAddress.toCPointer<ByteVar>(), cbdescmax, pcbcharattr.rawAddress.toCPointer<ByteVar>(), pnumattr.rawAddress.toCPointer<ByteVar>())
 
-public actual fun sQLColAttributes(hstmt: MutPtr<CVoid>, icol: UShort, fdesctype: UShort, rgbdesc: MutPtr<CVoid>, cbdescmax: Short, pcbdesc: MutPtr<Short>, pfdesc: MutPtr<Long>): Short =
+public actual fun sQLColAttributes(hstmt: MutPtr, icol: UShort, fdesctype: UShort, rgbdesc: MutPtr, cbdescmax: Short, pcbdesc: MutPtr, pfdesc: MutPtr): Short =
     windowssysWindowsWin32SystemSearchSQLColAttributes(hstmt.rawAddress.toCPointer<ByteVar>(), icol, fdesctype, rgbdesc.rawAddress.toCPointer<ByteVar>(), cbdescmax, pcbdesc.rawAddress.toCPointer<ByteVar>(), pfdesc.rawAddress.toCPointer<ByteVar>())
 
-public actual fun sQLColAttributesA(hstmt: MutPtr<CVoid>, icol: UShort, fdesctype: UShort, rgbdesc: MutPtr<CVoid>, cbdescmax: Short, pcbdesc: MutPtr<Short>, pfdesc: MutPtr<Long>): Short =
+public actual fun sQLColAttributesA(hstmt: MutPtr, icol: UShort, fdesctype: UShort, rgbdesc: MutPtr, cbdescmax: Short, pcbdesc: MutPtr, pfdesc: MutPtr): Short =
     windowssysWindowsWin32SystemSearchSQLColAttributesA(hstmt.rawAddress.toCPointer<ByteVar>(), icol, fdesctype, rgbdesc.rawAddress.toCPointer<ByteVar>(), cbdescmax, pcbdesc.rawAddress.toCPointer<ByteVar>(), pfdesc.rawAddress.toCPointer<ByteVar>())
 
-public actual fun sQLColAttributesW(hstmt: MutPtr<CVoid>, icol: UShort, fdesctype: UShort, rgbdesc: MutPtr<CVoid>, cbdescmax: Short, pcbdesc: MutPtr<Short>, pfdesc: MutPtr<Long>): Short =
+public actual fun sQLColAttributesW(hstmt: MutPtr, icol: UShort, fdesctype: UShort, rgbdesc: MutPtr, cbdescmax: Short, pcbdesc: MutPtr, pfdesc: MutPtr): Short =
     windowssysWindowsWin32SystemSearchSQLColAttributesW(hstmt.rawAddress.toCPointer<ByteVar>(), icol, fdesctype, rgbdesc.rawAddress.toCPointer<ByteVar>(), cbdescmax, pcbdesc.rawAddress.toCPointer<ByteVar>(), pfdesc.rawAddress.toCPointer<ByteVar>())
 
-public actual fun sQLColumnPrivileges(hstmt: MutPtr<CVoid>, szcatalogname: ConstPtr<UByte>, cchcatalogname: Short, szschemaname: ConstPtr<UByte>, cchschemaname: Short, sztablename: ConstPtr<UByte>, cchtablename: Short, szcolumnname: ConstPtr<UByte>, cchcolumnname: Short): Short =
+public actual fun sQLColumnPrivileges(hstmt: MutPtr, szcatalogname: ConstPtr, cchcatalogname: Short, szschemaname: ConstPtr, cchschemaname: Short, sztablename: ConstPtr, cchtablename: Short, szcolumnname: ConstPtr, cchcolumnname: Short): Short =
     windowssysWindowsWin32SystemSearchSQLColumnPrivileges(hstmt.rawAddress.toCPointer<ByteVar>(), szcatalogname.rawAddress.toCPointer<ByteVar>(), cchcatalogname, szschemaname.rawAddress.toCPointer<ByteVar>(), cchschemaname, sztablename.rawAddress.toCPointer<ByteVar>(), cchtablename, szcolumnname.rawAddress.toCPointer<ByteVar>(), cchcolumnname)
 
-public actual fun sQLColumnPrivilegesA(hstmt: MutPtr<CVoid>, szcatalogname: ConstPtr<UByte>, cbcatalogname: Short, szschemaname: ConstPtr<UByte>, cbschemaname: Short, sztablename: ConstPtr<UByte>, cbtablename: Short, szcolumnname: ConstPtr<UByte>, cbcolumnname: Short): Short =
+public actual fun sQLColumnPrivilegesA(hstmt: MutPtr, szcatalogname: ConstPtr, cbcatalogname: Short, szschemaname: ConstPtr, cbschemaname: Short, sztablename: ConstPtr, cbtablename: Short, szcolumnname: ConstPtr, cbcolumnname: Short): Short =
     windowssysWindowsWin32SystemSearchSQLColumnPrivilegesA(hstmt.rawAddress.toCPointer<ByteVar>(), szcatalogname.rawAddress.toCPointer<ByteVar>(), cbcatalogname, szschemaname.rawAddress.toCPointer<ByteVar>(), cbschemaname, sztablename.rawAddress.toCPointer<ByteVar>(), cbtablename, szcolumnname.rawAddress.toCPointer<ByteVar>(), cbcolumnname)
 
-public actual fun sQLColumnPrivilegesW(hstmt: MutPtr<CVoid>, szcatalogname: ConstPtr<UShort>, cchcatalogname: Short, szschemaname: ConstPtr<UShort>, cchschemaname: Short, sztablename: ConstPtr<UShort>, cchtablename: Short, szcolumnname: ConstPtr<UShort>, cchcolumnname: Short): Short =
+public actual fun sQLColumnPrivilegesW(hstmt: MutPtr, szcatalogname: ConstPtr, cchcatalogname: Short, szschemaname: ConstPtr, cchschemaname: Short, sztablename: ConstPtr, cchtablename: Short, szcolumnname: ConstPtr, cchcolumnname: Short): Short =
     windowssysWindowsWin32SystemSearchSQLColumnPrivilegesW(hstmt.rawAddress.toCPointer<ByteVar>(), szcatalogname.rawAddress.toCPointer<ByteVar>(), cchcatalogname, szschemaname.rawAddress.toCPointer<ByteVar>(), cchschemaname, sztablename.rawAddress.toCPointer<ByteVar>(), cchtablename, szcolumnname.rawAddress.toCPointer<ByteVar>(), cchcolumnname)
 
-public actual fun sQLColumns(statementhandle: MutPtr<CVoid>, catalogname: ConstPtr<UByte>, namelength1: Short, schemaname: ConstPtr<UByte>, namelength2: Short, tablename: ConstPtr<UByte>, namelength3: Short, columnname: ConstPtr<UByte>, namelength4: Short): Short =
+public actual fun sQLColumns(statementhandle: MutPtr, catalogname: ConstPtr, namelength1: Short, schemaname: ConstPtr, namelength2: Short, tablename: ConstPtr, namelength3: Short, columnname: ConstPtr, namelength4: Short): Short =
     windowssysWindowsWin32SystemSearchSQLColumns(statementhandle.rawAddress.toCPointer<ByteVar>(), catalogname.rawAddress.toCPointer<ByteVar>(), namelength1, schemaname.rawAddress.toCPointer<ByteVar>(), namelength2, tablename.rawAddress.toCPointer<ByteVar>(), namelength3, columnname.rawAddress.toCPointer<ByteVar>(), namelength4)
 
-public actual fun sQLColumnsA(hstmt: MutPtr<CVoid>, szcatalogname: ConstPtr<UByte>, cbcatalogname: Short, szschemaname: ConstPtr<UByte>, cbschemaname: Short, sztablename: ConstPtr<UByte>, cbtablename: Short, szcolumnname: ConstPtr<UByte>, cbcolumnname: Short): Short =
+public actual fun sQLColumnsA(hstmt: MutPtr, szcatalogname: ConstPtr, cbcatalogname: Short, szschemaname: ConstPtr, cbschemaname: Short, sztablename: ConstPtr, cbtablename: Short, szcolumnname: ConstPtr, cbcolumnname: Short): Short =
     windowssysWindowsWin32SystemSearchSQLColumnsA(hstmt.rawAddress.toCPointer<ByteVar>(), szcatalogname.rawAddress.toCPointer<ByteVar>(), cbcatalogname, szschemaname.rawAddress.toCPointer<ByteVar>(), cbschemaname, sztablename.rawAddress.toCPointer<ByteVar>(), cbtablename, szcolumnname.rawAddress.toCPointer<ByteVar>(), cbcolumnname)
 
-public actual fun sQLColumnsW(hstmt: MutPtr<CVoid>, szcatalogname: ConstPtr<UShort>, cchcatalogname: Short, szschemaname: ConstPtr<UShort>, cchschemaname: Short, sztablename: ConstPtr<UShort>, cchtablename: Short, szcolumnname: ConstPtr<UShort>, cchcolumnname: Short): Short =
+public actual fun sQLColumnsW(hstmt: MutPtr, szcatalogname: ConstPtr, cchcatalogname: Short, szschemaname: ConstPtr, cchschemaname: Short, sztablename: ConstPtr, cchtablename: Short, szcolumnname: ConstPtr, cchcolumnname: Short): Short =
     windowssysWindowsWin32SystemSearchSQLColumnsW(hstmt.rawAddress.toCPointer<ByteVar>(), szcatalogname.rawAddress.toCPointer<ByteVar>(), cchcatalogname, szschemaname.rawAddress.toCPointer<ByteVar>(), cchschemaname, sztablename.rawAddress.toCPointer<ByteVar>(), cchtablename, szcolumnname.rawAddress.toCPointer<ByteVar>(), cchcolumnname)
 
-public actual fun sQLCompleteAsync(handletype: Short, handle: MutPtr<CVoid>, asyncretcodeptr: MutPtr<Short>): Short =
+public actual fun sQLCompleteAsync(handletype: Short, handle: MutPtr, asyncretcodeptr: MutPtr): Short =
     windowssysWindowsWin32SystemSearchSQLCompleteAsync(handletype, handle.rawAddress.toCPointer<ByteVar>(), asyncretcodeptr.rawAddress.toCPointer<ByteVar>())
 
-public actual fun sQLConnect(connectionhandle: MutPtr<CVoid>, servername: ConstPtr<UByte>, namelength1: Short, username: ConstPtr<UByte>, namelength2: Short, authentication: ConstPtr<UByte>, namelength3: Short): Short =
+public actual fun sQLConnect(connectionhandle: MutPtr, servername: ConstPtr, namelength1: Short, username: ConstPtr, namelength2: Short, authentication: ConstPtr, namelength3: Short): Short =
     windowssysWindowsWin32SystemSearchSQLConnect(connectionhandle.rawAddress.toCPointer<ByteVar>(), servername.rawAddress.toCPointer<ByteVar>(), namelength1, username.rawAddress.toCPointer<ByteVar>(), namelength2, authentication.rawAddress.toCPointer<ByteVar>(), namelength3)
 
-public actual fun sQLConnectA(hdbc: MutPtr<CVoid>, szdsn: ConstPtr<UByte>, cbdsn: Short, szuid: ConstPtr<UByte>, cbuid: Short, szauthstr: ConstPtr<UByte>, cbauthstr: Short): Short =
+public actual fun sQLConnectA(hdbc: MutPtr, szdsn: ConstPtr, cbdsn: Short, szuid: ConstPtr, cbuid: Short, szauthstr: ConstPtr, cbauthstr: Short): Short =
     windowssysWindowsWin32SystemSearchSQLConnectA(hdbc.rawAddress.toCPointer<ByteVar>(), szdsn.rawAddress.toCPointer<ByteVar>(), cbdsn, szuid.rawAddress.toCPointer<ByteVar>(), cbuid, szauthstr.rawAddress.toCPointer<ByteVar>(), cbauthstr)
 
-public actual fun sQLConnectW(hdbc: MutPtr<CVoid>, szdsn: ConstPtr<UShort>, cchdsn: Short, szuid: ConstPtr<UShort>, cchuid: Short, szauthstr: ConstPtr<UShort>, cchauthstr: Short): Short =
+public actual fun sQLConnectW(hdbc: MutPtr, szdsn: ConstPtr, cchdsn: Short, szuid: ConstPtr, cchuid: Short, szauthstr: ConstPtr, cchauthstr: Short): Short =
     windowssysWindowsWin32SystemSearchSQLConnectW(hdbc.rawAddress.toCPointer<ByteVar>(), szdsn.rawAddress.toCPointer<ByteVar>(), cchdsn, szuid.rawAddress.toCPointer<ByteVar>(), cchuid, szauthstr.rawAddress.toCPointer<ByteVar>(), cchauthstr)
 
-public actual fun sQLCopyDesc(sourcedeschandle: MutPtr<CVoid>, targetdeschandle: MutPtr<CVoid>): Short =
+public actual fun sQLCopyDesc(sourcedeschandle: MutPtr, targetdeschandle: MutPtr): Short =
     windowssysWindowsWin32SystemSearchSQLCopyDesc(sourcedeschandle.rawAddress.toCPointer<ByteVar>(), targetdeschandle.rawAddress.toCPointer<ByteVar>())
 
-public actual fun sQLDataSources(environmenthandle: MutPtr<CVoid>, direction: UShort, servername: MutPtr<UByte>, bufferlength1: Short, namelength1ptr: MutPtr<Short>, description: MutPtr<UByte>, bufferlength2: Short, namelength2ptr: MutPtr<Short>): Short =
+public actual fun sQLDataSources(environmenthandle: MutPtr, direction: UShort, servername: MutPtr, bufferlength1: Short, namelength1ptr: MutPtr, description: MutPtr, bufferlength2: Short, namelength2ptr: MutPtr): Short =
     windowssysWindowsWin32SystemSearchSQLDataSources(environmenthandle.rawAddress.toCPointer<ByteVar>(), direction, servername.rawAddress.toCPointer<ByteVar>(), bufferlength1, namelength1ptr.rawAddress.toCPointer<ByteVar>(), description.rawAddress.toCPointer<ByteVar>(), bufferlength2, namelength2ptr.rawAddress.toCPointer<ByteVar>())
 
-public actual fun sQLDataSourcesA(henv: MutPtr<CVoid>, fdirection: UShort, szdsn: MutPtr<UByte>, cbdsnmax: Short, pcbdsn: MutPtr<Short>, szdescription: MutPtr<UByte>, cbdescriptionmax: Short, pcbdescription: MutPtr<Short>): Short =
+public actual fun sQLDataSourcesA(henv: MutPtr, fdirection: UShort, szdsn: MutPtr, cbdsnmax: Short, pcbdsn: MutPtr, szdescription: MutPtr, cbdescriptionmax: Short, pcbdescription: MutPtr): Short =
     windowssysWindowsWin32SystemSearchSQLDataSourcesA(henv.rawAddress.toCPointer<ByteVar>(), fdirection, szdsn.rawAddress.toCPointer<ByteVar>(), cbdsnmax, pcbdsn.rawAddress.toCPointer<ByteVar>(), szdescription.rawAddress.toCPointer<ByteVar>(), cbdescriptionmax, pcbdescription.rawAddress.toCPointer<ByteVar>())
 
-public actual fun sQLDataSourcesW(henv: MutPtr<CVoid>, fdirection: UShort, szdsn: MutPtr<UShort>, cchdsnmax: Short, pcchdsn: MutPtr<Short>, wszdescription: MutPtr<UShort>, cchdescriptionmax: Short, pcchdescription: MutPtr<Short>): Short =
+public actual fun sQLDataSourcesW(henv: MutPtr, fdirection: UShort, szdsn: MutPtr, cchdsnmax: Short, pcchdsn: MutPtr, wszdescription: MutPtr, cchdescriptionmax: Short, pcchdescription: MutPtr): Short =
     windowssysWindowsWin32SystemSearchSQLDataSourcesW(henv.rawAddress.toCPointer<ByteVar>(), fdirection, szdsn.rawAddress.toCPointer<ByteVar>(), cchdsnmax, pcchdsn.rawAddress.toCPointer<ByteVar>(), wszdescription.rawAddress.toCPointer<ByteVar>(), cchdescriptionmax, pcchdescription.rawAddress.toCPointer<ByteVar>())
 
-public actual fun sQLDescribeCol(statementhandle: MutPtr<CVoid>, columnnumber: UShort, columnname: MutPtr<UByte>, bufferlength: Short, namelength: MutPtr<Short>, datatype: MutPtr<Short>, columnsize: MutPtr<ULong>, decimaldigits: MutPtr<Short>, nullable: MutPtr<Short>): Short =
+public actual fun sQLDescribeCol(statementhandle: MutPtr, columnnumber: UShort, columnname: MutPtr, bufferlength: Short, namelength: MutPtr, datatype: MutPtr, columnsize: MutPtr, decimaldigits: MutPtr, nullable: MutPtr): Short =
     windowssysWindowsWin32SystemSearchSQLDescribeCol(statementhandle.rawAddress.toCPointer<ByteVar>(), columnnumber, columnname.rawAddress.toCPointer<ByteVar>(), bufferlength, namelength.rawAddress.toCPointer<ByteVar>(), datatype.rawAddress.toCPointer<ByteVar>(), columnsize.rawAddress.toCPointer<ByteVar>(), decimaldigits.rawAddress.toCPointer<ByteVar>(), nullable.rawAddress.toCPointer<ByteVar>())
 
-public actual fun sQLDescribeColA(hstmt: MutPtr<CVoid>, icol: UShort, szcolname: MutPtr<UByte>, cbcolnamemax: Short, pcbcolname: MutPtr<Short>, pfsqltype: MutPtr<Short>, pcbcoldef: MutPtr<ULong>, pibscale: MutPtr<Short>, pfnullable: MutPtr<Short>): Short =
+public actual fun sQLDescribeColA(hstmt: MutPtr, icol: UShort, szcolname: MutPtr, cbcolnamemax: Short, pcbcolname: MutPtr, pfsqltype: MutPtr, pcbcoldef: MutPtr, pibscale: MutPtr, pfnullable: MutPtr): Short =
     windowssysWindowsWin32SystemSearchSQLDescribeColA(hstmt.rawAddress.toCPointer<ByteVar>(), icol, szcolname.rawAddress.toCPointer<ByteVar>(), cbcolnamemax, pcbcolname.rawAddress.toCPointer<ByteVar>(), pfsqltype.rawAddress.toCPointer<ByteVar>(), pcbcoldef.rawAddress.toCPointer<ByteVar>(), pibscale.rawAddress.toCPointer<ByteVar>(), pfnullable.rawAddress.toCPointer<ByteVar>())
 
-public actual fun sQLDescribeColW(hstmt: MutPtr<CVoid>, icol: UShort, szcolname: MutPtr<UShort>, cchcolnamemax: Short, pcchcolname: MutPtr<Short>, pfsqltype: MutPtr<Short>, pcbcoldef: MutPtr<ULong>, pibscale: MutPtr<Short>, pfnullable: MutPtr<Short>): Short =
+public actual fun sQLDescribeColW(hstmt: MutPtr, icol: UShort, szcolname: MutPtr, cchcolnamemax: Short, pcchcolname: MutPtr, pfsqltype: MutPtr, pcbcoldef: MutPtr, pibscale: MutPtr, pfnullable: MutPtr): Short =
     windowssysWindowsWin32SystemSearchSQLDescribeColW(hstmt.rawAddress.toCPointer<ByteVar>(), icol, szcolname.rawAddress.toCPointer<ByteVar>(), cchcolnamemax, pcchcolname.rawAddress.toCPointer<ByteVar>(), pfsqltype.rawAddress.toCPointer<ByteVar>(), pcbcoldef.rawAddress.toCPointer<ByteVar>(), pibscale.rawAddress.toCPointer<ByteVar>(), pfnullable.rawAddress.toCPointer<ByteVar>())
 
-public actual fun sQLDescribeParam(hstmt: MutPtr<CVoid>, ipar: UShort, pfsqltype: MutPtr<Short>, pcbparamdef: MutPtr<ULong>, pibscale: MutPtr<Short>, pfnullable: MutPtr<Short>): Short =
+public actual fun sQLDescribeParam(hstmt: MutPtr, ipar: UShort, pfsqltype: MutPtr, pcbparamdef: MutPtr, pibscale: MutPtr, pfnullable: MutPtr): Short =
     windowssysWindowsWin32SystemSearchSQLDescribeParam(hstmt.rawAddress.toCPointer<ByteVar>(), ipar, pfsqltype.rawAddress.toCPointer<ByteVar>(), pcbparamdef.rawAddress.toCPointer<ByteVar>(), pibscale.rawAddress.toCPointer<ByteVar>(), pfnullable.rawAddress.toCPointer<ByteVar>())
 
-public actual fun sQLDisconnect(connectionhandle: MutPtr<CVoid>): Short =
+public actual fun sQLDisconnect(connectionhandle: MutPtr): Short =
     windowssysWindowsWin32SystemSearchSQLDisconnect(connectionhandle.rawAddress.toCPointer<ByteVar>())
 
-public actual fun sQLDriverConnect(hdbc: MutPtr<CVoid>, hwnd: Long, szconnstrin: ConstPtr<UByte>, cchconnstrin: Short, szconnstrout: MutPtr<UByte>, cchconnstroutmax: Short, pcchconnstrout: MutPtr<Short>, fdrivercompletion: UShort): Short =
+public actual fun sQLDriverConnect(hdbc: MutPtr, hwnd: Long, szconnstrin: ConstPtr, cchconnstrin: Short, szconnstrout: MutPtr, cchconnstroutmax: Short, pcchconnstrout: MutPtr, fdrivercompletion: UShort): Short =
     windowssysWindowsWin32SystemSearchSQLDriverConnect(hdbc.rawAddress.toCPointer<ByteVar>(), hwnd, szconnstrin.rawAddress.toCPointer<ByteVar>(), cchconnstrin, szconnstrout.rawAddress.toCPointer<ByteVar>(), cchconnstroutmax, pcchconnstrout.rawAddress.toCPointer<ByteVar>(), fdrivercompletion)
 
-public actual fun sQLDriverConnectA(hdbc: MutPtr<CVoid>, hwnd: Long, szconnstrin: ConstPtr<UByte>, cbconnstrin: Short, szconnstrout: MutPtr<UByte>, cbconnstroutmax: Short, pcbconnstrout: MutPtr<Short>, fdrivercompletion: UShort): Short =
+public actual fun sQLDriverConnectA(hdbc: MutPtr, hwnd: Long, szconnstrin: ConstPtr, cbconnstrin: Short, szconnstrout: MutPtr, cbconnstroutmax: Short, pcbconnstrout: MutPtr, fdrivercompletion: UShort): Short =
     windowssysWindowsWin32SystemSearchSQLDriverConnectA(hdbc.rawAddress.toCPointer<ByteVar>(), hwnd, szconnstrin.rawAddress.toCPointer<ByteVar>(), cbconnstrin, szconnstrout.rawAddress.toCPointer<ByteVar>(), cbconnstroutmax, pcbconnstrout.rawAddress.toCPointer<ByteVar>(), fdrivercompletion)
 
-public actual fun sQLDriverConnectW(hdbc: MutPtr<CVoid>, hwnd: Long, szconnstrin: ConstPtr<UShort>, cchconnstrin: Short, szconnstrout: MutPtr<UShort>, cchconnstroutmax: Short, pcchconnstrout: MutPtr<Short>, fdrivercompletion: UShort): Short =
+public actual fun sQLDriverConnectW(hdbc: MutPtr, hwnd: Long, szconnstrin: ConstPtr, cchconnstrin: Short, szconnstrout: MutPtr, cchconnstroutmax: Short, pcchconnstrout: MutPtr, fdrivercompletion: UShort): Short =
     windowssysWindowsWin32SystemSearchSQLDriverConnectW(hdbc.rawAddress.toCPointer<ByteVar>(), hwnd, szconnstrin.rawAddress.toCPointer<ByteVar>(), cchconnstrin, szconnstrout.rawAddress.toCPointer<ByteVar>(), cchconnstroutmax, pcchconnstrout.rawAddress.toCPointer<ByteVar>(), fdrivercompletion)
 
-public actual fun sQLDrivers(henv: MutPtr<CVoid>, fdirection: UShort, szdriverdesc: MutPtr<UByte>, cchdriverdescmax: Short, pcchdriverdesc: MutPtr<Short>, szdriverattributes: MutPtr<UByte>, cchdrvrattrmax: Short, pcchdrvrattr: MutPtr<Short>): Short =
+public actual fun sQLDrivers(henv: MutPtr, fdirection: UShort, szdriverdesc: MutPtr, cchdriverdescmax: Short, pcchdriverdesc: MutPtr, szdriverattributes: MutPtr, cchdrvrattrmax: Short, pcchdrvrattr: MutPtr): Short =
     windowssysWindowsWin32SystemSearchSQLDrivers(henv.rawAddress.toCPointer<ByteVar>(), fdirection, szdriverdesc.rawAddress.toCPointer<ByteVar>(), cchdriverdescmax, pcchdriverdesc.rawAddress.toCPointer<ByteVar>(), szdriverattributes.rawAddress.toCPointer<ByteVar>(), cchdrvrattrmax, pcchdrvrattr.rawAddress.toCPointer<ByteVar>())
 
-public actual fun sQLDriversA(henv: MutPtr<CVoid>, fdirection: UShort, szdriverdesc: MutPtr<UByte>, cbdriverdescmax: Short, pcbdriverdesc: MutPtr<Short>, szdriverattributes: MutPtr<UByte>, cbdrvrattrmax: Short, pcbdrvrattr: MutPtr<Short>): Short =
+public actual fun sQLDriversA(henv: MutPtr, fdirection: UShort, szdriverdesc: MutPtr, cbdriverdescmax: Short, pcbdriverdesc: MutPtr, szdriverattributes: MutPtr, cbdrvrattrmax: Short, pcbdrvrattr: MutPtr): Short =
     windowssysWindowsWin32SystemSearchSQLDriversA(henv.rawAddress.toCPointer<ByteVar>(), fdirection, szdriverdesc.rawAddress.toCPointer<ByteVar>(), cbdriverdescmax, pcbdriverdesc.rawAddress.toCPointer<ByteVar>(), szdriverattributes.rawAddress.toCPointer<ByteVar>(), cbdrvrattrmax, pcbdrvrattr.rawAddress.toCPointer<ByteVar>())
 
-public actual fun sQLDriversW(henv: MutPtr<CVoid>, fdirection: UShort, szdriverdesc: MutPtr<UShort>, cchdriverdescmax: Short, pcchdriverdesc: MutPtr<Short>, szdriverattributes: MutPtr<UShort>, cchdrvrattrmax: Short, pcchdrvrattr: MutPtr<Short>): Short =
+public actual fun sQLDriversW(henv: MutPtr, fdirection: UShort, szdriverdesc: MutPtr, cchdriverdescmax: Short, pcchdriverdesc: MutPtr, szdriverattributes: MutPtr, cchdrvrattrmax: Short, pcchdrvrattr: MutPtr): Short =
     windowssysWindowsWin32SystemSearchSQLDriversW(henv.rawAddress.toCPointer<ByteVar>(), fdirection, szdriverdesc.rawAddress.toCPointer<ByteVar>(), cchdriverdescmax, pcchdriverdesc.rawAddress.toCPointer<ByteVar>(), szdriverattributes.rawAddress.toCPointer<ByteVar>(), cchdrvrattrmax, pcchdrvrattr.rawAddress.toCPointer<ByteVar>())
 
-public actual fun sQLEndTran(handletype: Short, handle: MutPtr<CVoid>, completiontype: Short): Short =
+public actual fun sQLEndTran(handletype: Short, handle: MutPtr, completiontype: Short): Short =
     windowssysWindowsWin32SystemSearchSQLEndTran(handletype, handle.rawAddress.toCPointer<ByteVar>(), completiontype)
 
-public actual fun sQLError(environmenthandle: MutPtr<CVoid>, connectionhandle: MutPtr<CVoid>, statementhandle: MutPtr<CVoid>, sqlstate: MutPtr<UByte>, nativeerror: MutPtr<Int>, messagetext: MutPtr<UByte>, bufferlength: Short, textlength: MutPtr<Short>): Short =
+public actual fun sQLError(environmenthandle: MutPtr, connectionhandle: MutPtr, statementhandle: MutPtr, sqlstate: MutPtr, nativeerror: MutPtr, messagetext: MutPtr, bufferlength: Short, textlength: MutPtr): Short =
     windowssysWindowsWin32SystemSearchSQLError(environmenthandle.rawAddress.toCPointer<ByteVar>(), connectionhandle.rawAddress.toCPointer<ByteVar>(), statementhandle.rawAddress.toCPointer<ByteVar>(), sqlstate.rawAddress.toCPointer<ByteVar>(), nativeerror.rawAddress.toCPointer<ByteVar>(), messagetext.rawAddress.toCPointer<ByteVar>(), bufferlength, textlength.rawAddress.toCPointer<ByteVar>())
 
-public actual fun sQLErrorA(henv: MutPtr<CVoid>, hdbc: MutPtr<CVoid>, hstmt: MutPtr<CVoid>, szsqlstate: MutPtr<UByte>, pfnativeerror: MutPtr<Int>, szerrormsg: MutPtr<UByte>, cberrormsgmax: Short, pcberrormsg: MutPtr<Short>): Short =
+public actual fun sQLErrorA(henv: MutPtr, hdbc: MutPtr, hstmt: MutPtr, szsqlstate: MutPtr, pfnativeerror: MutPtr, szerrormsg: MutPtr, cberrormsgmax: Short, pcberrormsg: MutPtr): Short =
     windowssysWindowsWin32SystemSearchSQLErrorA(henv.rawAddress.toCPointer<ByteVar>(), hdbc.rawAddress.toCPointer<ByteVar>(), hstmt.rawAddress.toCPointer<ByteVar>(), szsqlstate.rawAddress.toCPointer<ByteVar>(), pfnativeerror.rawAddress.toCPointer<ByteVar>(), szerrormsg.rawAddress.toCPointer<ByteVar>(), cberrormsgmax, pcberrormsg.rawAddress.toCPointer<ByteVar>())
 
-public actual fun sQLErrorW(henv: MutPtr<CVoid>, hdbc: MutPtr<CVoid>, hstmt: MutPtr<CVoid>, wszsqlstate: MutPtr<UShort>, pfnativeerror: MutPtr<Int>, wszerrormsg: MutPtr<UShort>, ccherrormsgmax: Short, pccherrormsg: MutPtr<Short>): Short =
+public actual fun sQLErrorW(henv: MutPtr, hdbc: MutPtr, hstmt: MutPtr, wszsqlstate: MutPtr, pfnativeerror: MutPtr, wszerrormsg: MutPtr, ccherrormsgmax: Short, pccherrormsg: MutPtr): Short =
     windowssysWindowsWin32SystemSearchSQLErrorW(henv.rawAddress.toCPointer<ByteVar>(), hdbc.rawAddress.toCPointer<ByteVar>(), hstmt.rawAddress.toCPointer<ByteVar>(), wszsqlstate.rawAddress.toCPointer<ByteVar>(), pfnativeerror.rawAddress.toCPointer<ByteVar>(), wszerrormsg.rawAddress.toCPointer<ByteVar>(), ccherrormsgmax, pccherrormsg.rawAddress.toCPointer<ByteVar>())
 
-public actual fun sQLExecDirect(statementhandle: MutPtr<CVoid>, statementtext: ConstPtr<UByte>, textlength: Int): Short =
+public actual fun sQLExecDirect(statementhandle: MutPtr, statementtext: ConstPtr, textlength: Int): Short =
     windowssysWindowsWin32SystemSearchSQLExecDirect(statementhandle.rawAddress.toCPointer<ByteVar>(), statementtext.rawAddress.toCPointer<ByteVar>(), textlength)
 
-public actual fun sQLExecDirectA(hstmt: MutPtr<CVoid>, szsqlstr: ConstPtr<UByte>, cbsqlstr: Int): Short =
+public actual fun sQLExecDirectA(hstmt: MutPtr, szsqlstr: ConstPtr, cbsqlstr: Int): Short =
     windowssysWindowsWin32SystemSearchSQLExecDirectA(hstmt.rawAddress.toCPointer<ByteVar>(), szsqlstr.rawAddress.toCPointer<ByteVar>(), cbsqlstr)
 
-public actual fun sQLExecDirectW(hstmt: MutPtr<CVoid>, szsqlstr: ConstPtr<UShort>, textlength: Int): Short =
+public actual fun sQLExecDirectW(hstmt: MutPtr, szsqlstr: ConstPtr, textlength: Int): Short =
     windowssysWindowsWin32SystemSearchSQLExecDirectW(hstmt.rawAddress.toCPointer<ByteVar>(), szsqlstr.rawAddress.toCPointer<ByteVar>(), textlength)
 
-public actual fun sQLExecute(statementhandle: MutPtr<CVoid>): Short =
+public actual fun sQLExecute(statementhandle: MutPtr): Short =
     windowssysWindowsWin32SystemSearchSQLExecute(statementhandle.rawAddress.toCPointer<ByteVar>())
 
-public actual fun sQLExtendedFetch(hstmt: MutPtr<CVoid>, ffetchtype: UShort, irow: Long, pcrow: MutPtr<ULong>, rgfrowstatus: MutPtr<UShort>): Short =
+public actual fun sQLExtendedFetch(hstmt: MutPtr, ffetchtype: UShort, irow: Long, pcrow: MutPtr, rgfrowstatus: MutPtr): Short =
     windowssysWindowsWin32SystemSearchSQLExtendedFetch(hstmt.rawAddress.toCPointer<ByteVar>(), ffetchtype, irow, pcrow.rawAddress.toCPointer<ByteVar>(), rgfrowstatus.rawAddress.toCPointer<ByteVar>())
 
-public actual fun sQLFetch(statementhandle: MutPtr<CVoid>): Short =
+public actual fun sQLFetch(statementhandle: MutPtr): Short =
     windowssysWindowsWin32SystemSearchSQLFetch(statementhandle.rawAddress.toCPointer<ByteVar>())
 
-public actual fun sQLFetchScroll(statementhandle: MutPtr<CVoid>, fetchorientation: Short, fetchoffset: Long): Short =
+public actual fun sQLFetchScroll(statementhandle: MutPtr, fetchorientation: Short, fetchoffset: Long): Short =
     windowssysWindowsWin32SystemSearchSQLFetchScroll(statementhandle.rawAddress.toCPointer<ByteVar>(), fetchorientation, fetchoffset)
 
-public actual fun sQLForeignKeys(hstmt: MutPtr<CVoid>, szpkcatalogname: ConstPtr<UByte>, cchpkcatalogname: Short, szpkschemaname: ConstPtr<UByte>, cchpkschemaname: Short, szpktablename: ConstPtr<UByte>, cchpktablename: Short, szfkcatalogname: ConstPtr<UByte>, cchfkcatalogname: Short, szfkschemaname: ConstPtr<UByte>, cchfkschemaname: Short, szfktablename: ConstPtr<UByte>, cchfktablename: Short): Short =
+public actual fun sQLForeignKeys(hstmt: MutPtr, szpkcatalogname: ConstPtr, cchpkcatalogname: Short, szpkschemaname: ConstPtr, cchpkschemaname: Short, szpktablename: ConstPtr, cchpktablename: Short, szfkcatalogname: ConstPtr, cchfkcatalogname: Short, szfkschemaname: ConstPtr, cchfkschemaname: Short, szfktablename: ConstPtr, cchfktablename: Short): Short =
     windowssysWindowsWin32SystemSearchSQLForeignKeys(hstmt.rawAddress.toCPointer<ByteVar>(), szpkcatalogname.rawAddress.toCPointer<ByteVar>(), cchpkcatalogname, szpkschemaname.rawAddress.toCPointer<ByteVar>(), cchpkschemaname, szpktablename.rawAddress.toCPointer<ByteVar>(), cchpktablename, szfkcatalogname.rawAddress.toCPointer<ByteVar>(), cchfkcatalogname, szfkschemaname.rawAddress.toCPointer<ByteVar>(), cchfkschemaname, szfktablename.rawAddress.toCPointer<ByteVar>(), cchfktablename)
 
-public actual fun sQLForeignKeysA(hstmt: MutPtr<CVoid>, szpkcatalogname: ConstPtr<UByte>, cbpkcatalogname: Short, szpkschemaname: ConstPtr<UByte>, cbpkschemaname: Short, szpktablename: ConstPtr<UByte>, cbpktablename: Short, szfkcatalogname: ConstPtr<UByte>, cbfkcatalogname: Short, szfkschemaname: ConstPtr<UByte>, cbfkschemaname: Short, szfktablename: ConstPtr<UByte>, cbfktablename: Short): Short =
+public actual fun sQLForeignKeysA(hstmt: MutPtr, szpkcatalogname: ConstPtr, cbpkcatalogname: Short, szpkschemaname: ConstPtr, cbpkschemaname: Short, szpktablename: ConstPtr, cbpktablename: Short, szfkcatalogname: ConstPtr, cbfkcatalogname: Short, szfkschemaname: ConstPtr, cbfkschemaname: Short, szfktablename: ConstPtr, cbfktablename: Short): Short =
     windowssysWindowsWin32SystemSearchSQLForeignKeysA(hstmt.rawAddress.toCPointer<ByteVar>(), szpkcatalogname.rawAddress.toCPointer<ByteVar>(), cbpkcatalogname, szpkschemaname.rawAddress.toCPointer<ByteVar>(), cbpkschemaname, szpktablename.rawAddress.toCPointer<ByteVar>(), cbpktablename, szfkcatalogname.rawAddress.toCPointer<ByteVar>(), cbfkcatalogname, szfkschemaname.rawAddress.toCPointer<ByteVar>(), cbfkschemaname, szfktablename.rawAddress.toCPointer<ByteVar>(), cbfktablename)
 
-public actual fun sQLForeignKeysW(hstmt: MutPtr<CVoid>, szpkcatalogname: ConstPtr<UShort>, cchpkcatalogname: Short, szpkschemaname: ConstPtr<UShort>, cchpkschemaname: Short, szpktablename: ConstPtr<UShort>, cchpktablename: Short, szfkcatalogname: ConstPtr<UShort>, cchfkcatalogname: Short, szfkschemaname: ConstPtr<UShort>, cchfkschemaname: Short, szfktablename: ConstPtr<UShort>, cchfktablename: Short): Short =
+public actual fun sQLForeignKeysW(hstmt: MutPtr, szpkcatalogname: ConstPtr, cchpkcatalogname: Short, szpkschemaname: ConstPtr, cchpkschemaname: Short, szpktablename: ConstPtr, cchpktablename: Short, szfkcatalogname: ConstPtr, cchfkcatalogname: Short, szfkschemaname: ConstPtr, cchfkschemaname: Short, szfktablename: ConstPtr, cchfktablename: Short): Short =
     windowssysWindowsWin32SystemSearchSQLForeignKeysW(hstmt.rawAddress.toCPointer<ByteVar>(), szpkcatalogname.rawAddress.toCPointer<ByteVar>(), cchpkcatalogname, szpkschemaname.rawAddress.toCPointer<ByteVar>(), cchpkschemaname, szpktablename.rawAddress.toCPointer<ByteVar>(), cchpktablename, szfkcatalogname.rawAddress.toCPointer<ByteVar>(), cchfkcatalogname, szfkschemaname.rawAddress.toCPointer<ByteVar>(), cchfkschemaname, szfktablename.rawAddress.toCPointer<ByteVar>(), cchfktablename)
 
-public actual fun sQLFreeConnect(connectionhandle: MutPtr<CVoid>): Short =
+public actual fun sQLFreeConnect(connectionhandle: MutPtr): Short =
     windowssysWindowsWin32SystemSearchSQLFreeConnect(connectionhandle.rawAddress.toCPointer<ByteVar>())
 
-public actual fun sQLFreeEnv(environmenthandle: MutPtr<CVoid>): Short =
+public actual fun sQLFreeEnv(environmenthandle: MutPtr): Short =
     windowssysWindowsWin32SystemSearchSQLFreeEnv(environmenthandle.rawAddress.toCPointer<ByteVar>())
 
-public actual fun sQLFreeHandle(handletype: Short, handle: MutPtr<CVoid>): Short =
+public actual fun sQLFreeHandle(handletype: Short, handle: MutPtr): Short =
     windowssysWindowsWin32SystemSearchSQLFreeHandle(handletype, handle.rawAddress.toCPointer<ByteVar>())
 
-public actual fun sQLFreeStmt(statementhandle: MutPtr<CVoid>, option: UShort): Short =
+public actual fun sQLFreeStmt(statementhandle: MutPtr, option: UShort): Short =
     windowssysWindowsWin32SystemSearchSQLFreeStmt(statementhandle.rawAddress.toCPointer<ByteVar>(), option)
 
-public actual fun sQLGetConnectAttr(connectionhandle: MutPtr<CVoid>, attribute: Int, value: MutPtr<CVoid>, bufferlength: Int, stringlengthptr: MutPtr<Int>): Short =
+public actual fun sQLGetConnectAttr(connectionhandle: MutPtr, attribute: Int, value: MutPtr, bufferlength: Int, stringlengthptr: MutPtr): Short =
     windowssysWindowsWin32SystemSearchSQLGetConnectAttr(connectionhandle.rawAddress.toCPointer<ByteVar>(), attribute, value.rawAddress.toCPointer<ByteVar>(), bufferlength, stringlengthptr.rawAddress.toCPointer<ByteVar>())
 
-public actual fun sQLGetConnectAttrA(hdbc: MutPtr<CVoid>, fattribute: Int, rgbvalue: MutPtr<CVoid>, cbvaluemax: Int, pcbvalue: MutPtr<Int>): Short =
+public actual fun sQLGetConnectAttrA(hdbc: MutPtr, fattribute: Int, rgbvalue: MutPtr, cbvaluemax: Int, pcbvalue: MutPtr): Short =
     windowssysWindowsWin32SystemSearchSQLGetConnectAttrA(hdbc.rawAddress.toCPointer<ByteVar>(), fattribute, rgbvalue.rawAddress.toCPointer<ByteVar>(), cbvaluemax, pcbvalue.rawAddress.toCPointer<ByteVar>())
 
-public actual fun sQLGetConnectAttrW(hdbc: MutPtr<CVoid>, fattribute: Int, rgbvalue: MutPtr<CVoid>, cbvaluemax: Int, pcbvalue: MutPtr<Int>): Short =
+public actual fun sQLGetConnectAttrW(hdbc: MutPtr, fattribute: Int, rgbvalue: MutPtr, cbvaluemax: Int, pcbvalue: MutPtr): Short =
     windowssysWindowsWin32SystemSearchSQLGetConnectAttrW(hdbc.rawAddress.toCPointer<ByteVar>(), fattribute, rgbvalue.rawAddress.toCPointer<ByteVar>(), cbvaluemax, pcbvalue.rawAddress.toCPointer<ByteVar>())
 
-public actual fun sQLGetConnectOption(connectionhandle: MutPtr<CVoid>, option: UShort, value: MutPtr<CVoid>): Short =
+public actual fun sQLGetConnectOption(connectionhandle: MutPtr, option: UShort, value: MutPtr): Short =
     windowssysWindowsWin32SystemSearchSQLGetConnectOption(connectionhandle.rawAddress.toCPointer<ByteVar>(), option, value.rawAddress.toCPointer<ByteVar>())
 
-public actual fun sQLGetConnectOptionA(hdbc: MutPtr<CVoid>, foption: UShort, pvparam: MutPtr<CVoid>): Short =
+public actual fun sQLGetConnectOptionA(hdbc: MutPtr, foption: UShort, pvparam: MutPtr): Short =
     windowssysWindowsWin32SystemSearchSQLGetConnectOptionA(hdbc.rawAddress.toCPointer<ByteVar>(), foption, pvparam.rawAddress.toCPointer<ByteVar>())
 
-public actual fun sQLGetConnectOptionW(hdbc: MutPtr<CVoid>, foption: UShort, pvparam: MutPtr<CVoid>): Short =
+public actual fun sQLGetConnectOptionW(hdbc: MutPtr, foption: UShort, pvparam: MutPtr): Short =
     windowssysWindowsWin32SystemSearchSQLGetConnectOptionW(hdbc.rawAddress.toCPointer<ByteVar>(), foption, pvparam.rawAddress.toCPointer<ByteVar>())
 
-public actual fun sQLGetCursorName(statementhandle: MutPtr<CVoid>, cursorname: MutPtr<UByte>, bufferlength: Short, namelengthptr: MutPtr<Short>): Short =
+public actual fun sQLGetCursorName(statementhandle: MutPtr, cursorname: MutPtr, bufferlength: Short, namelengthptr: MutPtr): Short =
     windowssysWindowsWin32SystemSearchSQLGetCursorName(statementhandle.rawAddress.toCPointer<ByteVar>(), cursorname.rawAddress.toCPointer<ByteVar>(), bufferlength, namelengthptr.rawAddress.toCPointer<ByteVar>())
 
-public actual fun sQLGetCursorNameA(hstmt: MutPtr<CVoid>, szcursor: MutPtr<UByte>, cbcursormax: Short, pcbcursor: MutPtr<Short>): Short =
+public actual fun sQLGetCursorNameA(hstmt: MutPtr, szcursor: MutPtr, cbcursormax: Short, pcbcursor: MutPtr): Short =
     windowssysWindowsWin32SystemSearchSQLGetCursorNameA(hstmt.rawAddress.toCPointer<ByteVar>(), szcursor.rawAddress.toCPointer<ByteVar>(), cbcursormax, pcbcursor.rawAddress.toCPointer<ByteVar>())
 
-public actual fun sQLGetCursorNameW(hstmt: MutPtr<CVoid>, szcursor: MutPtr<UShort>, cchcursormax: Short, pcchcursor: MutPtr<Short>): Short =
+public actual fun sQLGetCursorNameW(hstmt: MutPtr, szcursor: MutPtr, cchcursormax: Short, pcchcursor: MutPtr): Short =
     windowssysWindowsWin32SystemSearchSQLGetCursorNameW(hstmt.rawAddress.toCPointer<ByteVar>(), szcursor.rawAddress.toCPointer<ByteVar>(), cchcursormax, pcchcursor.rawAddress.toCPointer<ByteVar>())
 
-public actual fun sQLGetData(statementhandle: MutPtr<CVoid>, columnnumber: UShort, targettype: Short, targetvalue: MutPtr<CVoid>, bufferlength: Long, strlenOrIndptr: MutPtr<Long>): Short =
+public actual fun sQLGetData(statementhandle: MutPtr, columnnumber: UShort, targettype: Short, targetvalue: MutPtr, bufferlength: Long, strlenOrIndptr: MutPtr): Short =
     windowssysWindowsWin32SystemSearchSQLGetData(statementhandle.rawAddress.toCPointer<ByteVar>(), columnnumber, targettype, targetvalue.rawAddress.toCPointer<ByteVar>(), bufferlength, strlenOrIndptr.rawAddress.toCPointer<ByteVar>())
 
-public actual fun sQLGetDescField(descriptorhandle: MutPtr<CVoid>, recnumber: Short, fieldidentifier: Short, value: MutPtr<CVoid>, bufferlength: Int, stringlength: MutPtr<Int>): Short =
+public actual fun sQLGetDescField(descriptorhandle: MutPtr, recnumber: Short, fieldidentifier: Short, value: MutPtr, bufferlength: Int, stringlength: MutPtr): Short =
     windowssysWindowsWin32SystemSearchSQLGetDescField(descriptorhandle.rawAddress.toCPointer<ByteVar>(), recnumber, fieldidentifier, value.rawAddress.toCPointer<ByteVar>(), bufferlength, stringlength.rawAddress.toCPointer<ByteVar>())
 
-public actual fun sQLGetDescFieldA(hdesc: MutPtr<CVoid>, irecord: Short, ifield: Short, rgbvalue: MutPtr<CVoid>, cbbufferlength: Int, stringlength: MutPtr<Int>): Short =
+public actual fun sQLGetDescFieldA(hdesc: MutPtr, irecord: Short, ifield: Short, rgbvalue: MutPtr, cbbufferlength: Int, stringlength: MutPtr): Short =
     windowssysWindowsWin32SystemSearchSQLGetDescFieldA(hdesc.rawAddress.toCPointer<ByteVar>(), irecord, ifield, rgbvalue.rawAddress.toCPointer<ByteVar>(), cbbufferlength, stringlength.rawAddress.toCPointer<ByteVar>())
 
-public actual fun sQLGetDescFieldW(hdesc: MutPtr<CVoid>, irecord: Short, ifield: Short, rgbvalue: MutPtr<CVoid>, cbbufferlength: Int, stringlength: MutPtr<Int>): Short =
+public actual fun sQLGetDescFieldW(hdesc: MutPtr, irecord: Short, ifield: Short, rgbvalue: MutPtr, cbbufferlength: Int, stringlength: MutPtr): Short =
     windowssysWindowsWin32SystemSearchSQLGetDescFieldW(hdesc.rawAddress.toCPointer<ByteVar>(), irecord, ifield, rgbvalue.rawAddress.toCPointer<ByteVar>(), cbbufferlength, stringlength.rawAddress.toCPointer<ByteVar>())
 
-public actual fun sQLGetDescRec(descriptorhandle: MutPtr<CVoid>, recnumber: Short, name: MutPtr<UByte>, bufferlength: Short, stringlengthptr: MutPtr<Short>, typeptr: MutPtr<Short>, subtypeptr: MutPtr<Short>, lengthptr: MutPtr<Long>, precisionptr: MutPtr<Short>, scaleptr: MutPtr<Short>, nullableptr: MutPtr<Short>): Short =
+public actual fun sQLGetDescRec(descriptorhandle: MutPtr, recnumber: Short, name: MutPtr, bufferlength: Short, stringlengthptr: MutPtr, typeptr: MutPtr, subtypeptr: MutPtr, lengthptr: MutPtr, precisionptr: MutPtr, scaleptr: MutPtr, nullableptr: MutPtr): Short =
     windowssysWindowsWin32SystemSearchSQLGetDescRec(descriptorhandle.rawAddress.toCPointer<ByteVar>(), recnumber, name.rawAddress.toCPointer<ByteVar>(), bufferlength, stringlengthptr.rawAddress.toCPointer<ByteVar>(), typeptr.rawAddress.toCPointer<ByteVar>(), subtypeptr.rawAddress.toCPointer<ByteVar>(), lengthptr.rawAddress.toCPointer<ByteVar>(), precisionptr.rawAddress.toCPointer<ByteVar>(), scaleptr.rawAddress.toCPointer<ByteVar>(), nullableptr.rawAddress.toCPointer<ByteVar>())
 
-public actual fun sQLGetDescRecA(hdesc: MutPtr<CVoid>, irecord: Short, szname: MutPtr<UByte>, cbnamemax: Short, pcbname: MutPtr<Short>, pftype: MutPtr<Short>, pfsubtype: MutPtr<Short>, plength: MutPtr<Long>, pprecision: MutPtr<Short>, pscale: MutPtr<Short>, pnullable: MutPtr<Short>): Short =
+public actual fun sQLGetDescRecA(hdesc: MutPtr, irecord: Short, szname: MutPtr, cbnamemax: Short, pcbname: MutPtr, pftype: MutPtr, pfsubtype: MutPtr, plength: MutPtr, pprecision: MutPtr, pscale: MutPtr, pnullable: MutPtr): Short =
     windowssysWindowsWin32SystemSearchSQLGetDescRecA(hdesc.rawAddress.toCPointer<ByteVar>(), irecord, szname.rawAddress.toCPointer<ByteVar>(), cbnamemax, pcbname.rawAddress.toCPointer<ByteVar>(), pftype.rawAddress.toCPointer<ByteVar>(), pfsubtype.rawAddress.toCPointer<ByteVar>(), plength.rawAddress.toCPointer<ByteVar>(), pprecision.rawAddress.toCPointer<ByteVar>(), pscale.rawAddress.toCPointer<ByteVar>(), pnullable.rawAddress.toCPointer<ByteVar>())
 
-public actual fun sQLGetDescRecW(hdesc: MutPtr<CVoid>, irecord: Short, szname: MutPtr<UShort>, cchnamemax: Short, pcchname: MutPtr<Short>, pftype: MutPtr<Short>, pfsubtype: MutPtr<Short>, plength: MutPtr<Long>, pprecision: MutPtr<Short>, pscale: MutPtr<Short>, pnullable: MutPtr<Short>): Short =
+public actual fun sQLGetDescRecW(hdesc: MutPtr, irecord: Short, szname: MutPtr, cchnamemax: Short, pcchname: MutPtr, pftype: MutPtr, pfsubtype: MutPtr, plength: MutPtr, pprecision: MutPtr, pscale: MutPtr, pnullable: MutPtr): Short =
     windowssysWindowsWin32SystemSearchSQLGetDescRecW(hdesc.rawAddress.toCPointer<ByteVar>(), irecord, szname.rawAddress.toCPointer<ByteVar>(), cchnamemax, pcchname.rawAddress.toCPointer<ByteVar>(), pftype.rawAddress.toCPointer<ByteVar>(), pfsubtype.rawAddress.toCPointer<ByteVar>(), plength.rawAddress.toCPointer<ByteVar>(), pprecision.rawAddress.toCPointer<ByteVar>(), pscale.rawAddress.toCPointer<ByteVar>(), pnullable.rawAddress.toCPointer<ByteVar>())
 
-public actual fun sQLGetDiagField(handletype: Short, handle: MutPtr<CVoid>, recnumber: Short, diagidentifier: Short, diaginfo: MutPtr<CVoid>, bufferlength: Short, stringlength: MutPtr<Short>): Short =
+public actual fun sQLGetDiagField(handletype: Short, handle: MutPtr, recnumber: Short, diagidentifier: Short, diaginfo: MutPtr, bufferlength: Short, stringlength: MutPtr): Short =
     windowssysWindowsWin32SystemSearchSQLGetDiagField(handletype, handle.rawAddress.toCPointer<ByteVar>(), recnumber, diagidentifier, diaginfo.rawAddress.toCPointer<ByteVar>(), bufferlength, stringlength.rawAddress.toCPointer<ByteVar>())
 
-public actual fun sQLGetDiagFieldA(fhandletype: Short, handle: MutPtr<CVoid>, irecord: Short, fdiagfield: Short, rgbdiaginfo: MutPtr<CVoid>, cbdiaginfomax: Short, pcbdiaginfo: MutPtr<Short>): Short =
+public actual fun sQLGetDiagFieldA(fhandletype: Short, handle: MutPtr, irecord: Short, fdiagfield: Short, rgbdiaginfo: MutPtr, cbdiaginfomax: Short, pcbdiaginfo: MutPtr): Short =
     windowssysWindowsWin32SystemSearchSQLGetDiagFieldA(fhandletype, handle.rawAddress.toCPointer<ByteVar>(), irecord, fdiagfield, rgbdiaginfo.rawAddress.toCPointer<ByteVar>(), cbdiaginfomax, pcbdiaginfo.rawAddress.toCPointer<ByteVar>())
 
-public actual fun sQLGetDiagFieldW(fhandletype: Short, handle: MutPtr<CVoid>, irecord: Short, fdiagfield: Short, rgbdiaginfo: MutPtr<CVoid>, cbbufferlength: Short, pcbstringlength: MutPtr<Short>): Short =
+public actual fun sQLGetDiagFieldW(fhandletype: Short, handle: MutPtr, irecord: Short, fdiagfield: Short, rgbdiaginfo: MutPtr, cbbufferlength: Short, pcbstringlength: MutPtr): Short =
     windowssysWindowsWin32SystemSearchSQLGetDiagFieldW(fhandletype, handle.rawAddress.toCPointer<ByteVar>(), irecord, fdiagfield, rgbdiaginfo.rawAddress.toCPointer<ByteVar>(), cbbufferlength, pcbstringlength.rawAddress.toCPointer<ByteVar>())
 
-public actual fun sQLGetDiagRec(handletype: Short, handle: MutPtr<CVoid>, recnumber: Short, sqlstate: MutPtr<UByte>, nativeerror: MutPtr<Int>, messagetext: MutPtr<UByte>, bufferlength: Short, textlength: MutPtr<Short>): Short =
+public actual fun sQLGetDiagRec(handletype: Short, handle: MutPtr, recnumber: Short, sqlstate: MutPtr, nativeerror: MutPtr, messagetext: MutPtr, bufferlength: Short, textlength: MutPtr): Short =
     windowssysWindowsWin32SystemSearchSQLGetDiagRec(handletype, handle.rawAddress.toCPointer<ByteVar>(), recnumber, sqlstate.rawAddress.toCPointer<ByteVar>(), nativeerror.rawAddress.toCPointer<ByteVar>(), messagetext.rawAddress.toCPointer<ByteVar>(), bufferlength, textlength.rawAddress.toCPointer<ByteVar>())
 
-public actual fun sQLGetDiagRecA(fhandletype: Short, handle: MutPtr<CVoid>, irecord: Short, szsqlstate: MutPtr<UByte>, pfnativeerror: MutPtr<Int>, szerrormsg: MutPtr<UByte>, cberrormsgmax: Short, pcberrormsg: MutPtr<Short>): Short =
+public actual fun sQLGetDiagRecA(fhandletype: Short, handle: MutPtr, irecord: Short, szsqlstate: MutPtr, pfnativeerror: MutPtr, szerrormsg: MutPtr, cberrormsgmax: Short, pcberrormsg: MutPtr): Short =
     windowssysWindowsWin32SystemSearchSQLGetDiagRecA(fhandletype, handle.rawAddress.toCPointer<ByteVar>(), irecord, szsqlstate.rawAddress.toCPointer<ByteVar>(), pfnativeerror.rawAddress.toCPointer<ByteVar>(), szerrormsg.rawAddress.toCPointer<ByteVar>(), cberrormsgmax, pcberrormsg.rawAddress.toCPointer<ByteVar>())
 
-public actual fun sQLGetDiagRecW(fhandletype: Short, handle: MutPtr<CVoid>, irecord: Short, szsqlstate: MutPtr<UShort>, pfnativeerror: MutPtr<Int>, szerrormsg: MutPtr<UShort>, ccherrormsgmax: Short, pccherrormsg: MutPtr<Short>): Short =
+public actual fun sQLGetDiagRecW(fhandletype: Short, handle: MutPtr, irecord: Short, szsqlstate: MutPtr, pfnativeerror: MutPtr, szerrormsg: MutPtr, ccherrormsgmax: Short, pccherrormsg: MutPtr): Short =
     windowssysWindowsWin32SystemSearchSQLGetDiagRecW(fhandletype, handle.rawAddress.toCPointer<ByteVar>(), irecord, szsqlstate.rawAddress.toCPointer<ByteVar>(), pfnativeerror.rawAddress.toCPointer<ByteVar>(), szerrormsg.rawAddress.toCPointer<ByteVar>(), ccherrormsgmax, pccherrormsg.rawAddress.toCPointer<ByteVar>())
 
-public actual fun sQLGetEnvAttr(environmenthandle: MutPtr<CVoid>, attribute: Int, value: MutPtr<CVoid>, bufferlength: Int, stringlength: MutPtr<Int>): Short =
+public actual fun sQLGetEnvAttr(environmenthandle: MutPtr, attribute: Int, value: MutPtr, bufferlength: Int, stringlength: MutPtr): Short =
     windowssysWindowsWin32SystemSearchSQLGetEnvAttr(environmenthandle.rawAddress.toCPointer<ByteVar>(), attribute, value.rawAddress.toCPointer<ByteVar>(), bufferlength, stringlength.rawAddress.toCPointer<ByteVar>())
 
-public actual fun sQLGetFunctions(connectionhandle: MutPtr<CVoid>, functionid: UShort, supported: MutPtr<UShort>): Short =
+public actual fun sQLGetFunctions(connectionhandle: MutPtr, functionid: UShort, supported: MutPtr): Short =
     windowssysWindowsWin32SystemSearchSQLGetFunctions(connectionhandle.rawAddress.toCPointer<ByteVar>(), functionid, supported.rawAddress.toCPointer<ByteVar>())
 
-public actual fun sQLGetInfo(connectionhandle: MutPtr<CVoid>, infotype: UShort, infovalue: MutPtr<CVoid>, bufferlength: Short, stringlengthptr: MutPtr<Short>): Short =
+public actual fun sQLGetInfo(connectionhandle: MutPtr, infotype: UShort, infovalue: MutPtr, bufferlength: Short, stringlengthptr: MutPtr): Short =
     windowssysWindowsWin32SystemSearchSQLGetInfo(connectionhandle.rawAddress.toCPointer<ByteVar>(), infotype, infovalue.rawAddress.toCPointer<ByteVar>(), bufferlength, stringlengthptr.rawAddress.toCPointer<ByteVar>())
 
-public actual fun sQLGetInfoA(hdbc: MutPtr<CVoid>, finfotype: UShort, rgbinfovalue: MutPtr<CVoid>, cbinfovaluemax: Short, pcbinfovalue: MutPtr<Short>): Short =
+public actual fun sQLGetInfoA(hdbc: MutPtr, finfotype: UShort, rgbinfovalue: MutPtr, cbinfovaluemax: Short, pcbinfovalue: MutPtr): Short =
     windowssysWindowsWin32SystemSearchSQLGetInfoA(hdbc.rawAddress.toCPointer<ByteVar>(), finfotype, rgbinfovalue.rawAddress.toCPointer<ByteVar>(), cbinfovaluemax, pcbinfovalue.rawAddress.toCPointer<ByteVar>())
 
-public actual fun sQLGetInfoW(hdbc: MutPtr<CVoid>, finfotype: UShort, rgbinfovalue: MutPtr<CVoid>, cbinfovaluemax: Short, pcbinfovalue: MutPtr<Short>): Short =
+public actual fun sQLGetInfoW(hdbc: MutPtr, finfotype: UShort, rgbinfovalue: MutPtr, cbinfovaluemax: Short, pcbinfovalue: MutPtr): Short =
     windowssysWindowsWin32SystemSearchSQLGetInfoW(hdbc.rawAddress.toCPointer<ByteVar>(), finfotype, rgbinfovalue.rawAddress.toCPointer<ByteVar>(), cbinfovaluemax, pcbinfovalue.rawAddress.toCPointer<ByteVar>())
 
-public actual fun sQLGetNextEnumeration(henumhandle: Handle, prgenumdata: MutPtr<UByte>, pienumlength: MutPtr<Int>): Short =
+public actual fun sQLGetNextEnumeration(henumhandle: Handle, prgenumdata: MutPtr, pienumlength: MutPtr): Short =
     windowssysWindowsWin32SystemSearchSQLGetNextEnumeration(henumhandle.rawAddress.toCPointer<ByteVar>(), prgenumdata.rawAddress.toCPointer<ByteVar>(), pienumlength.rawAddress.toCPointer<ByteVar>())
 
-public actual fun sQLGetStmtAttr(statementhandle: MutPtr<CVoid>, attribute: Int, value: MutPtr<CVoid>, bufferlength: Int, stringlength: MutPtr<Int>): Short =
+public actual fun sQLGetStmtAttr(statementhandle: MutPtr, attribute: Int, value: MutPtr, bufferlength: Int, stringlength: MutPtr): Short =
     windowssysWindowsWin32SystemSearchSQLGetStmtAttr(statementhandle.rawAddress.toCPointer<ByteVar>(), attribute, value.rawAddress.toCPointer<ByteVar>(), bufferlength, stringlength.rawAddress.toCPointer<ByteVar>())
 
-public actual fun sQLGetStmtAttrA(hstmt: MutPtr<CVoid>, fattribute: Int, rgbvalue: MutPtr<CVoid>, cbvaluemax: Int, pcbvalue: MutPtr<Int>): Short =
+public actual fun sQLGetStmtAttrA(hstmt: MutPtr, fattribute: Int, rgbvalue: MutPtr, cbvaluemax: Int, pcbvalue: MutPtr): Short =
     windowssysWindowsWin32SystemSearchSQLGetStmtAttrA(hstmt.rawAddress.toCPointer<ByteVar>(), fattribute, rgbvalue.rawAddress.toCPointer<ByteVar>(), cbvaluemax, pcbvalue.rawAddress.toCPointer<ByteVar>())
 
-public actual fun sQLGetStmtAttrW(hstmt: MutPtr<CVoid>, fattribute: Int, rgbvalue: MutPtr<CVoid>, cbvaluemax: Int, pcbvalue: MutPtr<Int>): Short =
+public actual fun sQLGetStmtAttrW(hstmt: MutPtr, fattribute: Int, rgbvalue: MutPtr, cbvaluemax: Int, pcbvalue: MutPtr): Short =
     windowssysWindowsWin32SystemSearchSQLGetStmtAttrW(hstmt.rawAddress.toCPointer<ByteVar>(), fattribute, rgbvalue.rawAddress.toCPointer<ByteVar>(), cbvaluemax, pcbvalue.rawAddress.toCPointer<ByteVar>())
 
-public actual fun sQLGetStmtOption(statementhandle: MutPtr<CVoid>, option: UShort, value: MutPtr<CVoid>): Short =
+public actual fun sQLGetStmtOption(statementhandle: MutPtr, option: UShort, value: MutPtr): Short =
     windowssysWindowsWin32SystemSearchSQLGetStmtOption(statementhandle.rawAddress.toCPointer<ByteVar>(), option, value.rawAddress.toCPointer<ByteVar>())
 
-public actual fun sQLGetTypeInfo(statementhandle: MutPtr<CVoid>, datatype: Short): Short =
+public actual fun sQLGetTypeInfo(statementhandle: MutPtr, datatype: Short): Short =
     windowssysWindowsWin32SystemSearchSQLGetTypeInfo(statementhandle.rawAddress.toCPointer<ByteVar>(), datatype)
 
-public actual fun sQLGetTypeInfoA(statementhandle: MutPtr<CVoid>, datatype: Short): Short =
+public actual fun sQLGetTypeInfoA(statementhandle: MutPtr, datatype: Short): Short =
     windowssysWindowsWin32SystemSearchSQLGetTypeInfoA(statementhandle.rawAddress.toCPointer<ByteVar>(), datatype)
 
-public actual fun sQLGetTypeInfoW(statementhandle: MutPtr<CVoid>, datatype: Short): Short =
+public actual fun sQLGetTypeInfoW(statementhandle: MutPtr, datatype: Short): Short =
     windowssysWindowsWin32SystemSearchSQLGetTypeInfoW(statementhandle.rawAddress.toCPointer<ByteVar>(), datatype)
 
 public actual fun sQLInitEnumServers(pwchservername: Pcwstr, pwchinstancename: Pcwstr): Handle =
     MutPtr(windowssysWindowsWin32SystemSearchSQLInitEnumServers(pwchservername.rawAddress.toCPointer<ByteVar>(), pwchinstancename.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun sQLLinkedCatalogsA(param0: MutPtr<CVoid>, param1: Pcstr, param2: Short): Short =
+public actual fun sQLLinkedCatalogsA(param0: MutPtr, param1: Pcstr, param2: Short): Short =
     windowssysWindowsWin32SystemSearchSQLLinkedCatalogsA(param0.rawAddress.toCPointer<ByteVar>(), param1.rawAddress.toCPointer<ByteVar>(), param2)
 
-public actual fun sQLLinkedCatalogsW(param0: MutPtr<CVoid>, param1: Pcwstr, param2: Short): Short =
+public actual fun sQLLinkedCatalogsW(param0: MutPtr, param1: Pcwstr, param2: Short): Short =
     windowssysWindowsWin32SystemSearchSQLLinkedCatalogsW(param0.rawAddress.toCPointer<ByteVar>(), param1.rawAddress.toCPointer<ByteVar>(), param2)
 
-public actual fun sQLLinkedServers(param0: MutPtr<CVoid>): Short =
+public actual fun sQLLinkedServers(param0: MutPtr): Short =
     windowssysWindowsWin32SystemSearchSQLLinkedServers(param0.rawAddress.toCPointer<ByteVar>())
 
-public actual fun sQLMoreResults(hstmt: MutPtr<CVoid>): Short =
+public actual fun sQLMoreResults(hstmt: MutPtr): Short =
     windowssysWindowsWin32SystemSearchSQLMoreResults(hstmt.rawAddress.toCPointer<ByteVar>())
 
-public actual fun sQLNativeSql(hdbc: MutPtr<CVoid>, szsqlstrin: ConstPtr<UByte>, cchsqlstrin: Int, szsqlstr: MutPtr<UByte>, cchsqlstrmax: Int, pcbsqlstr: MutPtr<Int>): Short =
+public actual fun sQLNativeSql(hdbc: MutPtr, szsqlstrin: ConstPtr, cchsqlstrin: Int, szsqlstr: MutPtr, cchsqlstrmax: Int, pcbsqlstr: MutPtr): Short =
     windowssysWindowsWin32SystemSearchSQLNativeSql(hdbc.rawAddress.toCPointer<ByteVar>(), szsqlstrin.rawAddress.toCPointer<ByteVar>(), cchsqlstrin, szsqlstr.rawAddress.toCPointer<ByteVar>(), cchsqlstrmax, pcbsqlstr.rawAddress.toCPointer<ByteVar>())
 
-public actual fun sQLNativeSqlA(hdbc: MutPtr<CVoid>, szsqlstrin: ConstPtr<UByte>, cbsqlstrin: Int, szsqlstr: MutPtr<UByte>, cbsqlstrmax: Int, pcbsqlstr: MutPtr<Int>): Short =
+public actual fun sQLNativeSqlA(hdbc: MutPtr, szsqlstrin: ConstPtr, cbsqlstrin: Int, szsqlstr: MutPtr, cbsqlstrmax: Int, pcbsqlstr: MutPtr): Short =
     windowssysWindowsWin32SystemSearchSQLNativeSqlA(hdbc.rawAddress.toCPointer<ByteVar>(), szsqlstrin.rawAddress.toCPointer<ByteVar>(), cbsqlstrin, szsqlstr.rawAddress.toCPointer<ByteVar>(), cbsqlstrmax, pcbsqlstr.rawAddress.toCPointer<ByteVar>())
 
-public actual fun sQLNativeSqlW(hdbc: MutPtr<CVoid>, szsqlstrin: ConstPtr<UShort>, cchsqlstrin: Int, szsqlstr: MutPtr<UShort>, cchsqlstrmax: Int, pcchsqlstr: MutPtr<Int>): Short =
+public actual fun sQLNativeSqlW(hdbc: MutPtr, szsqlstrin: ConstPtr, cchsqlstrin: Int, szsqlstr: MutPtr, cchsqlstrmax: Int, pcchsqlstr: MutPtr): Short =
     windowssysWindowsWin32SystemSearchSQLNativeSqlW(hdbc.rawAddress.toCPointer<ByteVar>(), szsqlstrin.rawAddress.toCPointer<ByteVar>(), cchsqlstrin, szsqlstr.rawAddress.toCPointer<ByteVar>(), cchsqlstrmax, pcchsqlstr.rawAddress.toCPointer<ByteVar>())
 
-public actual fun sQLNumParams(hstmt: MutPtr<CVoid>, pcpar: MutPtr<Short>): Short =
+public actual fun sQLNumParams(hstmt: MutPtr, pcpar: MutPtr): Short =
     windowssysWindowsWin32SystemSearchSQLNumParams(hstmt.rawAddress.toCPointer<ByteVar>(), pcpar.rawAddress.toCPointer<ByteVar>())
 
-public actual fun sQLNumResultCols(statementhandle: MutPtr<CVoid>, columncount: MutPtr<Short>): Short =
+public actual fun sQLNumResultCols(statementhandle: MutPtr, columncount: MutPtr): Short =
     windowssysWindowsWin32SystemSearchSQLNumResultCols(statementhandle.rawAddress.toCPointer<ByteVar>(), columncount.rawAddress.toCPointer<ByteVar>())
 
-public actual fun sQLParamData(statementhandle: MutPtr<CVoid>, value: MutPtr<MutPtr<CVoid>>): Short =
+public actual fun sQLParamData(statementhandle: MutPtr, value: MutPtr): Short =
     windowssysWindowsWin32SystemSearchSQLParamData(statementhandle.rawAddress.toCPointer<ByteVar>(), value.rawAddress.toCPointer<ByteVar>())
 
-public actual fun sQLParamOptions(hstmt: MutPtr<CVoid>, crow: ULong, pirow: MutPtr<ULong>): Short =
+public actual fun sQLParamOptions(hstmt: MutPtr, crow: ULong, pirow: MutPtr): Short =
     windowssysWindowsWin32SystemSearchSQLParamOptions(hstmt.rawAddress.toCPointer<ByteVar>(), crow, pirow.rawAddress.toCPointer<ByteVar>())
 
-public actual fun sQLPrepare(statementhandle: MutPtr<CVoid>, statementtext: ConstPtr<UByte>, textlength: Int): Short =
+public actual fun sQLPrepare(statementhandle: MutPtr, statementtext: ConstPtr, textlength: Int): Short =
     windowssysWindowsWin32SystemSearchSQLPrepare(statementhandle.rawAddress.toCPointer<ByteVar>(), statementtext.rawAddress.toCPointer<ByteVar>(), textlength)
 
-public actual fun sQLPrepareA(hstmt: MutPtr<CVoid>, szsqlstr: ConstPtr<UByte>, cbsqlstr: Int): Short =
+public actual fun sQLPrepareA(hstmt: MutPtr, szsqlstr: ConstPtr, cbsqlstr: Int): Short =
     windowssysWindowsWin32SystemSearchSQLPrepareA(hstmt.rawAddress.toCPointer<ByteVar>(), szsqlstr.rawAddress.toCPointer<ByteVar>(), cbsqlstr)
 
-public actual fun sQLPrepareW(hstmt: MutPtr<CVoid>, szsqlstr: ConstPtr<UShort>, cchsqlstr: Int): Short =
+public actual fun sQLPrepareW(hstmt: MutPtr, szsqlstr: ConstPtr, cchsqlstr: Int): Short =
     windowssysWindowsWin32SystemSearchSQLPrepareW(hstmt.rawAddress.toCPointer<ByteVar>(), szsqlstr.rawAddress.toCPointer<ByteVar>(), cchsqlstr)
 
-public actual fun sQLPrimaryKeys(hstmt: MutPtr<CVoid>, szcatalogname: ConstPtr<UByte>, cchcatalogname: Short, szschemaname: ConstPtr<UByte>, cchschemaname: Short, sztablename: ConstPtr<UByte>, cchtablename: Short): Short =
+public actual fun sQLPrimaryKeys(hstmt: MutPtr, szcatalogname: ConstPtr, cchcatalogname: Short, szschemaname: ConstPtr, cchschemaname: Short, sztablename: ConstPtr, cchtablename: Short): Short =
     windowssysWindowsWin32SystemSearchSQLPrimaryKeys(hstmt.rawAddress.toCPointer<ByteVar>(), szcatalogname.rawAddress.toCPointer<ByteVar>(), cchcatalogname, szschemaname.rawAddress.toCPointer<ByteVar>(), cchschemaname, sztablename.rawAddress.toCPointer<ByteVar>(), cchtablename)
 
-public actual fun sQLPrimaryKeysA(hstmt: MutPtr<CVoid>, szcatalogname: ConstPtr<UByte>, cbcatalogname: Short, szschemaname: ConstPtr<UByte>, cbschemaname: Short, sztablename: ConstPtr<UByte>, cbtablename: Short): Short =
+public actual fun sQLPrimaryKeysA(hstmt: MutPtr, szcatalogname: ConstPtr, cbcatalogname: Short, szschemaname: ConstPtr, cbschemaname: Short, sztablename: ConstPtr, cbtablename: Short): Short =
     windowssysWindowsWin32SystemSearchSQLPrimaryKeysA(hstmt.rawAddress.toCPointer<ByteVar>(), szcatalogname.rawAddress.toCPointer<ByteVar>(), cbcatalogname, szschemaname.rawAddress.toCPointer<ByteVar>(), cbschemaname, sztablename.rawAddress.toCPointer<ByteVar>(), cbtablename)
 
-public actual fun sQLPrimaryKeysW(hstmt: MutPtr<CVoid>, szcatalogname: ConstPtr<UShort>, cchcatalogname: Short, szschemaname: ConstPtr<UShort>, cchschemaname: Short, sztablename: ConstPtr<UShort>, cchtablename: Short): Short =
+public actual fun sQLPrimaryKeysW(hstmt: MutPtr, szcatalogname: ConstPtr, cchcatalogname: Short, szschemaname: ConstPtr, cchschemaname: Short, sztablename: ConstPtr, cchtablename: Short): Short =
     windowssysWindowsWin32SystemSearchSQLPrimaryKeysW(hstmt.rawAddress.toCPointer<ByteVar>(), szcatalogname.rawAddress.toCPointer<ByteVar>(), cchcatalogname, szschemaname.rawAddress.toCPointer<ByteVar>(), cchschemaname, sztablename.rawAddress.toCPointer<ByteVar>(), cchtablename)
 
-public actual fun sQLProcedureColumns(hstmt: MutPtr<CVoid>, szcatalogname: ConstPtr<UByte>, cchcatalogname: Short, szschemaname: ConstPtr<UByte>, cchschemaname: Short, szprocname: ConstPtr<UByte>, cchprocname: Short, szcolumnname: ConstPtr<UByte>, cchcolumnname: Short): Short =
+public actual fun sQLProcedureColumns(hstmt: MutPtr, szcatalogname: ConstPtr, cchcatalogname: Short, szschemaname: ConstPtr, cchschemaname: Short, szprocname: ConstPtr, cchprocname: Short, szcolumnname: ConstPtr, cchcolumnname: Short): Short =
     windowssysWindowsWin32SystemSearchSQLProcedureColumns(hstmt.rawAddress.toCPointer<ByteVar>(), szcatalogname.rawAddress.toCPointer<ByteVar>(), cchcatalogname, szschemaname.rawAddress.toCPointer<ByteVar>(), cchschemaname, szprocname.rawAddress.toCPointer<ByteVar>(), cchprocname, szcolumnname.rawAddress.toCPointer<ByteVar>(), cchcolumnname)
 
-public actual fun sQLProcedureColumnsA(hstmt: MutPtr<CVoid>, szcatalogname: ConstPtr<UByte>, cbcatalogname: Short, szschemaname: ConstPtr<UByte>, cbschemaname: Short, szprocname: ConstPtr<UByte>, cbprocname: Short, szcolumnname: ConstPtr<UByte>, cbcolumnname: Short): Short =
+public actual fun sQLProcedureColumnsA(hstmt: MutPtr, szcatalogname: ConstPtr, cbcatalogname: Short, szschemaname: ConstPtr, cbschemaname: Short, szprocname: ConstPtr, cbprocname: Short, szcolumnname: ConstPtr, cbcolumnname: Short): Short =
     windowssysWindowsWin32SystemSearchSQLProcedureColumnsA(hstmt.rawAddress.toCPointer<ByteVar>(), szcatalogname.rawAddress.toCPointer<ByteVar>(), cbcatalogname, szschemaname.rawAddress.toCPointer<ByteVar>(), cbschemaname, szprocname.rawAddress.toCPointer<ByteVar>(), cbprocname, szcolumnname.rawAddress.toCPointer<ByteVar>(), cbcolumnname)
 
-public actual fun sQLProcedureColumnsW(hstmt: MutPtr<CVoid>, szcatalogname: ConstPtr<UShort>, cchcatalogname: Short, szschemaname: ConstPtr<UShort>, cchschemaname: Short, szprocname: ConstPtr<UShort>, cchprocname: Short, szcolumnname: ConstPtr<UShort>, cchcolumnname: Short): Short =
+public actual fun sQLProcedureColumnsW(hstmt: MutPtr, szcatalogname: ConstPtr, cchcatalogname: Short, szschemaname: ConstPtr, cchschemaname: Short, szprocname: ConstPtr, cchprocname: Short, szcolumnname: ConstPtr, cchcolumnname: Short): Short =
     windowssysWindowsWin32SystemSearchSQLProcedureColumnsW(hstmt.rawAddress.toCPointer<ByteVar>(), szcatalogname.rawAddress.toCPointer<ByteVar>(), cchcatalogname, szschemaname.rawAddress.toCPointer<ByteVar>(), cchschemaname, szprocname.rawAddress.toCPointer<ByteVar>(), cchprocname, szcolumnname.rawAddress.toCPointer<ByteVar>(), cchcolumnname)
 
-public actual fun sQLProcedures(hstmt: MutPtr<CVoid>, szcatalogname: ConstPtr<UByte>, cchcatalogname: Short, szschemaname: ConstPtr<UByte>, cchschemaname: Short, szprocname: ConstPtr<UByte>, cchprocname: Short): Short =
+public actual fun sQLProcedures(hstmt: MutPtr, szcatalogname: ConstPtr, cchcatalogname: Short, szschemaname: ConstPtr, cchschemaname: Short, szprocname: ConstPtr, cchprocname: Short): Short =
     windowssysWindowsWin32SystemSearchSQLProcedures(hstmt.rawAddress.toCPointer<ByteVar>(), szcatalogname.rawAddress.toCPointer<ByteVar>(), cchcatalogname, szschemaname.rawAddress.toCPointer<ByteVar>(), cchschemaname, szprocname.rawAddress.toCPointer<ByteVar>(), cchprocname)
 
-public actual fun sQLProceduresA(hstmt: MutPtr<CVoid>, szcatalogname: ConstPtr<UByte>, cbcatalogname: Short, szschemaname: ConstPtr<UByte>, cbschemaname: Short, szprocname: ConstPtr<UByte>, cbprocname: Short): Short =
+public actual fun sQLProceduresA(hstmt: MutPtr, szcatalogname: ConstPtr, cbcatalogname: Short, szschemaname: ConstPtr, cbschemaname: Short, szprocname: ConstPtr, cbprocname: Short): Short =
     windowssysWindowsWin32SystemSearchSQLProceduresA(hstmt.rawAddress.toCPointer<ByteVar>(), szcatalogname.rawAddress.toCPointer<ByteVar>(), cbcatalogname, szschemaname.rawAddress.toCPointer<ByteVar>(), cbschemaname, szprocname.rawAddress.toCPointer<ByteVar>(), cbprocname)
 
-public actual fun sQLProceduresW(hstmt: MutPtr<CVoid>, szcatalogname: ConstPtr<UShort>, cchcatalogname: Short, szschemaname: ConstPtr<UShort>, cchschemaname: Short, szprocname: ConstPtr<UShort>, cchprocname: Short): Short =
+public actual fun sQLProceduresW(hstmt: MutPtr, szcatalogname: ConstPtr, cchcatalogname: Short, szschemaname: ConstPtr, cchschemaname: Short, szprocname: ConstPtr, cchprocname: Short): Short =
     windowssysWindowsWin32SystemSearchSQLProceduresW(hstmt.rawAddress.toCPointer<ByteVar>(), szcatalogname.rawAddress.toCPointer<ByteVar>(), cchcatalogname, szschemaname.rawAddress.toCPointer<ByteVar>(), cchschemaname, szprocname.rawAddress.toCPointer<ByteVar>(), cchprocname)
 
-public actual fun sQLPutData(statementhandle: MutPtr<CVoid>, data: ConstPtr<CVoid>, strlenOrInd: Long): Short =
+public actual fun sQLPutData(statementhandle: MutPtr, data: ConstPtr, strlenOrInd: Long): Short =
     windowssysWindowsWin32SystemSearchSQLPutData(statementhandle.rawAddress.toCPointer<ByteVar>(), data.rawAddress.toCPointer<ByteVar>(), strlenOrInd)
 
-public actual fun sQLRowCount(statementhandle: ConstPtr<CVoid>, rowcount: MutPtr<Long>): Short =
+public actual fun sQLRowCount(statementhandle: ConstPtr, rowcount: MutPtr): Short =
     windowssysWindowsWin32SystemSearchSQLRowCount(statementhandle.rawAddress.toCPointer<ByteVar>(), rowcount.rawAddress.toCPointer<ByteVar>())
 
-public actual fun sQLSetConnectAttr(connectionhandle: MutPtr<CVoid>, attribute: Int, value: ConstPtr<CVoid>, stringlength: Int): Short =
+public actual fun sQLSetConnectAttr(connectionhandle: MutPtr, attribute: Int, value: ConstPtr, stringlength: Int): Short =
     windowssysWindowsWin32SystemSearchSQLSetConnectAttr(connectionhandle.rawAddress.toCPointer<ByteVar>(), attribute, value.rawAddress.toCPointer<ByteVar>(), stringlength)
 
-public actual fun sQLSetConnectAttrA(hdbc: MutPtr<CVoid>, fattribute: Int, rgbvalue: ConstPtr<CVoid>, cbvalue: Int): Short =
+public actual fun sQLSetConnectAttrA(hdbc: MutPtr, fattribute: Int, rgbvalue: ConstPtr, cbvalue: Int): Short =
     windowssysWindowsWin32SystemSearchSQLSetConnectAttrA(hdbc.rawAddress.toCPointer<ByteVar>(), fattribute, rgbvalue.rawAddress.toCPointer<ByteVar>(), cbvalue)
 
-public actual fun sQLSetConnectAttrW(hdbc: MutPtr<CVoid>, fattribute: Int, rgbvalue: ConstPtr<CVoid>, cbvalue: Int): Short =
+public actual fun sQLSetConnectAttrW(hdbc: MutPtr, fattribute: Int, rgbvalue: ConstPtr, cbvalue: Int): Short =
     windowssysWindowsWin32SystemSearchSQLSetConnectAttrW(hdbc.rawAddress.toCPointer<ByteVar>(), fattribute, rgbvalue.rawAddress.toCPointer<ByteVar>(), cbvalue)
 
-public actual fun sQLSetConnectOption(connectionhandle: MutPtr<CVoid>, option: UShort, value: ULong): Short =
+public actual fun sQLSetConnectOption(connectionhandle: MutPtr, option: UShort, value: ULong): Short =
     windowssysWindowsWin32SystemSearchSQLSetConnectOption(connectionhandle.rawAddress.toCPointer<ByteVar>(), option, value)
 
-public actual fun sQLSetConnectOptionA(hdbc: MutPtr<CVoid>, foption: UShort, vparam: ULong): Short =
+public actual fun sQLSetConnectOptionA(hdbc: MutPtr, foption: UShort, vparam: ULong): Short =
     windowssysWindowsWin32SystemSearchSQLSetConnectOptionA(hdbc.rawAddress.toCPointer<ByteVar>(), foption, vparam)
 
-public actual fun sQLSetConnectOptionW(hdbc: MutPtr<CVoid>, foption: UShort, vparam: ULong): Short =
+public actual fun sQLSetConnectOptionW(hdbc: MutPtr, foption: UShort, vparam: ULong): Short =
     windowssysWindowsWin32SystemSearchSQLSetConnectOptionW(hdbc.rawAddress.toCPointer<ByteVar>(), foption, vparam)
 
-public actual fun sQLSetCursorName(statementhandle: MutPtr<CVoid>, cursorname: ConstPtr<UByte>, namelength: Short): Short =
+public actual fun sQLSetCursorName(statementhandle: MutPtr, cursorname: ConstPtr, namelength: Short): Short =
     windowssysWindowsWin32SystemSearchSQLSetCursorName(statementhandle.rawAddress.toCPointer<ByteVar>(), cursorname.rawAddress.toCPointer<ByteVar>(), namelength)
 
-public actual fun sQLSetCursorNameA(hstmt: MutPtr<CVoid>, szcursor: ConstPtr<UByte>, cbcursor: Short): Short =
+public actual fun sQLSetCursorNameA(hstmt: MutPtr, szcursor: ConstPtr, cbcursor: Short): Short =
     windowssysWindowsWin32SystemSearchSQLSetCursorNameA(hstmt.rawAddress.toCPointer<ByteVar>(), szcursor.rawAddress.toCPointer<ByteVar>(), cbcursor)
 
-public actual fun sQLSetCursorNameW(hstmt: MutPtr<CVoid>, szcursor: ConstPtr<UShort>, cchcursor: Short): Short =
+public actual fun sQLSetCursorNameW(hstmt: MutPtr, szcursor: ConstPtr, cchcursor: Short): Short =
     windowssysWindowsWin32SystemSearchSQLSetCursorNameW(hstmt.rawAddress.toCPointer<ByteVar>(), szcursor.rawAddress.toCPointer<ByteVar>(), cchcursor)
 
-public actual fun sQLSetDescField(descriptorhandle: MutPtr<CVoid>, recnumber: Short, fieldidentifier: Short, value: ConstPtr<CVoid>, bufferlength: Int): Short =
+public actual fun sQLSetDescField(descriptorhandle: MutPtr, recnumber: Short, fieldidentifier: Short, value: ConstPtr, bufferlength: Int): Short =
     windowssysWindowsWin32SystemSearchSQLSetDescField(descriptorhandle.rawAddress.toCPointer<ByteVar>(), recnumber, fieldidentifier, value.rawAddress.toCPointer<ByteVar>(), bufferlength)
 
-public actual fun sQLSetDescFieldW(descriptorhandle: MutPtr<CVoid>, recnumber: Short, fieldidentifier: Short, value: MutPtr<CVoid>, bufferlength: Int): Short =
+public actual fun sQLSetDescFieldW(descriptorhandle: MutPtr, recnumber: Short, fieldidentifier: Short, value: MutPtr, bufferlength: Int): Short =
     windowssysWindowsWin32SystemSearchSQLSetDescFieldW(descriptorhandle.rawAddress.toCPointer<ByteVar>(), recnumber, fieldidentifier, value.rawAddress.toCPointer<ByteVar>(), bufferlength)
 
-public actual fun sQLSetDescRec(descriptorhandle: MutPtr<CVoid>, recnumber: Short, type: Short, subtype: Short, length: Long, precision: Short, scale: Short, data: MutPtr<CVoid>, stringlength: MutPtr<Long>, indicator: MutPtr<Long>): Short =
+public actual fun sQLSetDescRec(descriptorhandle: MutPtr, recnumber: Short, type: Short, subtype: Short, length: Long, precision: Short, scale: Short, data: MutPtr, stringlength: MutPtr, indicator: MutPtr): Short =
     windowssysWindowsWin32SystemSearchSQLSetDescRec(descriptorhandle.rawAddress.toCPointer<ByteVar>(), recnumber, type, subtype, length, precision, scale, data.rawAddress.toCPointer<ByteVar>(), stringlength.rawAddress.toCPointer<ByteVar>(), indicator.rawAddress.toCPointer<ByteVar>())
 
-public actual fun sQLSetEnvAttr(environmenthandle: MutPtr<CVoid>, attribute: Int, value: ConstPtr<CVoid>, stringlength: Int): Short =
+public actual fun sQLSetEnvAttr(environmenthandle: MutPtr, attribute: Int, value: ConstPtr, stringlength: Int): Short =
     windowssysWindowsWin32SystemSearchSQLSetEnvAttr(environmenthandle.rawAddress.toCPointer<ByteVar>(), attribute, value.rawAddress.toCPointer<ByteVar>(), stringlength)
 
-public actual fun sQLSetParam(statementhandle: MutPtr<CVoid>, parameternumber: UShort, valuetype: Short, parametertype: Short, lengthprecision: ULong, parameterscale: Short, parametervalue: ConstPtr<CVoid>, strlenOrInd: MutPtr<Long>): Short =
+public actual fun sQLSetParam(statementhandle: MutPtr, parameternumber: UShort, valuetype: Short, parametertype: Short, lengthprecision: ULong, parameterscale: Short, parametervalue: ConstPtr, strlenOrInd: MutPtr): Short =
     windowssysWindowsWin32SystemSearchSQLSetParam(statementhandle.rawAddress.toCPointer<ByteVar>(), parameternumber, valuetype, parametertype, lengthprecision, parameterscale, parametervalue.rawAddress.toCPointer<ByteVar>(), strlenOrInd.rawAddress.toCPointer<ByteVar>())
 
-public actual fun sQLSetPos(hstmt: MutPtr<CVoid>, irow: ULong, foption: UShort, flock: UShort): Short =
+public actual fun sQLSetPos(hstmt: MutPtr, irow: ULong, foption: UShort, flock: UShort): Short =
     windowssysWindowsWin32SystemSearchSQLSetPos(hstmt.rawAddress.toCPointer<ByteVar>(), irow, foption, flock)
 
-public actual fun sQLSetScrollOptions(hstmt: MutPtr<CVoid>, fconcurrency: UShort, crowkeyset: Long, crowrowset: UShort): Short =
+public actual fun sQLSetScrollOptions(hstmt: MutPtr, fconcurrency: UShort, crowkeyset: Long, crowrowset: UShort): Short =
     windowssysWindowsWin32SystemSearchSQLSetScrollOptions(hstmt.rawAddress.toCPointer<ByteVar>(), fconcurrency, crowkeyset, crowrowset)
 
-public actual fun sQLSetStmtAttr(statementhandle: MutPtr<CVoid>, attribute: Int, value: ConstPtr<CVoid>, stringlength: Int): Short =
+public actual fun sQLSetStmtAttr(statementhandle: MutPtr, attribute: Int, value: ConstPtr, stringlength: Int): Short =
     windowssysWindowsWin32SystemSearchSQLSetStmtAttr(statementhandle.rawAddress.toCPointer<ByteVar>(), attribute, value.rawAddress.toCPointer<ByteVar>(), stringlength)
 
-public actual fun sQLSetStmtAttrW(hstmt: MutPtr<CVoid>, fattribute: Int, rgbvalue: MutPtr<CVoid>, cbvaluemax: Int): Short =
+public actual fun sQLSetStmtAttrW(hstmt: MutPtr, fattribute: Int, rgbvalue: MutPtr, cbvaluemax: Int): Short =
     windowssysWindowsWin32SystemSearchSQLSetStmtAttrW(hstmt.rawAddress.toCPointer<ByteVar>(), fattribute, rgbvalue.rawAddress.toCPointer<ByteVar>(), cbvaluemax)
 
-public actual fun sQLSetStmtOption(statementhandle: MutPtr<CVoid>, option: UShort, value: ULong): Short =
+public actual fun sQLSetStmtOption(statementhandle: MutPtr, option: UShort, value: ULong): Short =
     windowssysWindowsWin32SystemSearchSQLSetStmtOption(statementhandle.rawAddress.toCPointer<ByteVar>(), option, value)
 
-public actual fun sQLSpecialColumns(statementhandle: MutPtr<CVoid>, identifiertype: UShort, catalogname: ConstPtr<UByte>, namelength1: Short, schemaname: ConstPtr<UByte>, namelength2: Short, tablename: ConstPtr<UByte>, namelength3: Short, scope: UShort, nullable: UShort): Short =
+public actual fun sQLSpecialColumns(statementhandle: MutPtr, identifiertype: UShort, catalogname: ConstPtr, namelength1: Short, schemaname: ConstPtr, namelength2: Short, tablename: ConstPtr, namelength3: Short, scope: UShort, nullable: UShort): Short =
     windowssysWindowsWin32SystemSearchSQLSpecialColumns(statementhandle.rawAddress.toCPointer<ByteVar>(), identifiertype, catalogname.rawAddress.toCPointer<ByteVar>(), namelength1, schemaname.rawAddress.toCPointer<ByteVar>(), namelength2, tablename.rawAddress.toCPointer<ByteVar>(), namelength3, scope, nullable)
 
-public actual fun sQLSpecialColumnsA(hstmt: MutPtr<CVoid>, fcoltype: UShort, szcatalogname: ConstPtr<UByte>, cbcatalogname: Short, szschemaname: ConstPtr<UByte>, cbschemaname: Short, sztablename: ConstPtr<UByte>, cbtablename: Short, fscope: UShort, fnullable: UShort): Short =
+public actual fun sQLSpecialColumnsA(hstmt: MutPtr, fcoltype: UShort, szcatalogname: ConstPtr, cbcatalogname: Short, szschemaname: ConstPtr, cbschemaname: Short, sztablename: ConstPtr, cbtablename: Short, fscope: UShort, fnullable: UShort): Short =
     windowssysWindowsWin32SystemSearchSQLSpecialColumnsA(hstmt.rawAddress.toCPointer<ByteVar>(), fcoltype, szcatalogname.rawAddress.toCPointer<ByteVar>(), cbcatalogname, szschemaname.rawAddress.toCPointer<ByteVar>(), cbschemaname, sztablename.rawAddress.toCPointer<ByteVar>(), cbtablename, fscope, fnullable)
 
-public actual fun sQLSpecialColumnsW(hstmt: MutPtr<CVoid>, fcoltype: UShort, szcatalogname: ConstPtr<UShort>, cchcatalogname: Short, szschemaname: ConstPtr<UShort>, cchschemaname: Short, sztablename: ConstPtr<UShort>, cchtablename: Short, fscope: UShort, fnullable: UShort): Short =
+public actual fun sQLSpecialColumnsW(hstmt: MutPtr, fcoltype: UShort, szcatalogname: ConstPtr, cchcatalogname: Short, szschemaname: ConstPtr, cchschemaname: Short, sztablename: ConstPtr, cchtablename: Short, fscope: UShort, fnullable: UShort): Short =
     windowssysWindowsWin32SystemSearchSQLSpecialColumnsW(hstmt.rawAddress.toCPointer<ByteVar>(), fcoltype, szcatalogname.rawAddress.toCPointer<ByteVar>(), cchcatalogname, szschemaname.rawAddress.toCPointer<ByteVar>(), cchschemaname, sztablename.rawAddress.toCPointer<ByteVar>(), cchtablename, fscope, fnullable)
 
-public actual fun sQLStatistics(statementhandle: MutPtr<CVoid>, catalogname: ConstPtr<UByte>, namelength1: Short, schemaname: ConstPtr<UByte>, namelength2: Short, tablename: ConstPtr<UByte>, namelength3: Short, unique: UShort, reserved: UShort): Short =
+public actual fun sQLStatistics(statementhandle: MutPtr, catalogname: ConstPtr, namelength1: Short, schemaname: ConstPtr, namelength2: Short, tablename: ConstPtr, namelength3: Short, unique: UShort, reserved: UShort): Short =
     windowssysWindowsWin32SystemSearchSQLStatistics(statementhandle.rawAddress.toCPointer<ByteVar>(), catalogname.rawAddress.toCPointer<ByteVar>(), namelength1, schemaname.rawAddress.toCPointer<ByteVar>(), namelength2, tablename.rawAddress.toCPointer<ByteVar>(), namelength3, unique, reserved)
 
-public actual fun sQLStatisticsA(hstmt: MutPtr<CVoid>, szcatalogname: ConstPtr<UByte>, cbcatalogname: Short, szschemaname: ConstPtr<UByte>, cbschemaname: Short, sztablename: ConstPtr<UByte>, cbtablename: Short, funique: UShort, faccuracy: UShort): Short =
+public actual fun sQLStatisticsA(hstmt: MutPtr, szcatalogname: ConstPtr, cbcatalogname: Short, szschemaname: ConstPtr, cbschemaname: Short, sztablename: ConstPtr, cbtablename: Short, funique: UShort, faccuracy: UShort): Short =
     windowssysWindowsWin32SystemSearchSQLStatisticsA(hstmt.rawAddress.toCPointer<ByteVar>(), szcatalogname.rawAddress.toCPointer<ByteVar>(), cbcatalogname, szschemaname.rawAddress.toCPointer<ByteVar>(), cbschemaname, sztablename.rawAddress.toCPointer<ByteVar>(), cbtablename, funique, faccuracy)
 
-public actual fun sQLStatisticsW(hstmt: MutPtr<CVoid>, szcatalogname: ConstPtr<UShort>, cchcatalogname: Short, szschemaname: ConstPtr<UShort>, cchschemaname: Short, sztablename: ConstPtr<UShort>, cchtablename: Short, funique: UShort, faccuracy: UShort): Short =
+public actual fun sQLStatisticsW(hstmt: MutPtr, szcatalogname: ConstPtr, cchcatalogname: Short, szschemaname: ConstPtr, cchschemaname: Short, sztablename: ConstPtr, cchtablename: Short, funique: UShort, faccuracy: UShort): Short =
     windowssysWindowsWin32SystemSearchSQLStatisticsW(hstmt.rawAddress.toCPointer<ByteVar>(), szcatalogname.rawAddress.toCPointer<ByteVar>(), cchcatalogname, szschemaname.rawAddress.toCPointer<ByteVar>(), cchschemaname, sztablename.rawAddress.toCPointer<ByteVar>(), cchtablename, funique, faccuracy)
 
-public actual fun sQLTablePrivileges(hstmt: MutPtr<CVoid>, szcatalogname: ConstPtr<UByte>, cchcatalogname: Short, szschemaname: ConstPtr<UByte>, cchschemaname: Short, sztablename: ConstPtr<UByte>, cchtablename: Short): Short =
+public actual fun sQLTablePrivileges(hstmt: MutPtr, szcatalogname: ConstPtr, cchcatalogname: Short, szschemaname: ConstPtr, cchschemaname: Short, sztablename: ConstPtr, cchtablename: Short): Short =
     windowssysWindowsWin32SystemSearchSQLTablePrivileges(hstmt.rawAddress.toCPointer<ByteVar>(), szcatalogname.rawAddress.toCPointer<ByteVar>(), cchcatalogname, szschemaname.rawAddress.toCPointer<ByteVar>(), cchschemaname, sztablename.rawAddress.toCPointer<ByteVar>(), cchtablename)
 
-public actual fun sQLTablePrivilegesA(hstmt: MutPtr<CVoid>, szcatalogname: ConstPtr<UByte>, cbcatalogname: Short, szschemaname: ConstPtr<UByte>, cbschemaname: Short, sztablename: ConstPtr<UByte>, cbtablename: Short): Short =
+public actual fun sQLTablePrivilegesA(hstmt: MutPtr, szcatalogname: ConstPtr, cbcatalogname: Short, szschemaname: ConstPtr, cbschemaname: Short, sztablename: ConstPtr, cbtablename: Short): Short =
     windowssysWindowsWin32SystemSearchSQLTablePrivilegesA(hstmt.rawAddress.toCPointer<ByteVar>(), szcatalogname.rawAddress.toCPointer<ByteVar>(), cbcatalogname, szschemaname.rawAddress.toCPointer<ByteVar>(), cbschemaname, sztablename.rawAddress.toCPointer<ByteVar>(), cbtablename)
 
-public actual fun sQLTablePrivilegesW(hstmt: MutPtr<CVoid>, szcatalogname: ConstPtr<UShort>, cchcatalogname: Short, szschemaname: ConstPtr<UShort>, cchschemaname: Short, sztablename: ConstPtr<UShort>, cchtablename: Short): Short =
+public actual fun sQLTablePrivilegesW(hstmt: MutPtr, szcatalogname: ConstPtr, cchcatalogname: Short, szschemaname: ConstPtr, cchschemaname: Short, sztablename: ConstPtr, cchtablename: Short): Short =
     windowssysWindowsWin32SystemSearchSQLTablePrivilegesW(hstmt.rawAddress.toCPointer<ByteVar>(), szcatalogname.rawAddress.toCPointer<ByteVar>(), cchcatalogname, szschemaname.rawAddress.toCPointer<ByteVar>(), cchschemaname, sztablename.rawAddress.toCPointer<ByteVar>(), cchtablename)
 
-public actual fun sQLTables(statementhandle: MutPtr<CVoid>, catalogname: ConstPtr<UByte>, namelength1: Short, schemaname: ConstPtr<UByte>, namelength2: Short, tablename: ConstPtr<UByte>, namelength3: Short, tabletype: ConstPtr<UByte>, namelength4: Short): Short =
+public actual fun sQLTables(statementhandle: MutPtr, catalogname: ConstPtr, namelength1: Short, schemaname: ConstPtr, namelength2: Short, tablename: ConstPtr, namelength3: Short, tabletype: ConstPtr, namelength4: Short): Short =
     windowssysWindowsWin32SystemSearchSQLTables(statementhandle.rawAddress.toCPointer<ByteVar>(), catalogname.rawAddress.toCPointer<ByteVar>(), namelength1, schemaname.rawAddress.toCPointer<ByteVar>(), namelength2, tablename.rawAddress.toCPointer<ByteVar>(), namelength3, tabletype.rawAddress.toCPointer<ByteVar>(), namelength4)
 
-public actual fun sQLTablesA(hstmt: MutPtr<CVoid>, szcatalogname: ConstPtr<UByte>, cbcatalogname: Short, szschemaname: ConstPtr<UByte>, cbschemaname: Short, sztablename: ConstPtr<UByte>, cbtablename: Short, sztabletype: ConstPtr<UByte>, cbtabletype: Short): Short =
+public actual fun sQLTablesA(hstmt: MutPtr, szcatalogname: ConstPtr, cbcatalogname: Short, szschemaname: ConstPtr, cbschemaname: Short, sztablename: ConstPtr, cbtablename: Short, sztabletype: ConstPtr, cbtabletype: Short): Short =
     windowssysWindowsWin32SystemSearchSQLTablesA(hstmt.rawAddress.toCPointer<ByteVar>(), szcatalogname.rawAddress.toCPointer<ByteVar>(), cbcatalogname, szschemaname.rawAddress.toCPointer<ByteVar>(), cbschemaname, sztablename.rawAddress.toCPointer<ByteVar>(), cbtablename, sztabletype.rawAddress.toCPointer<ByteVar>(), cbtabletype)
 
-public actual fun sQLTablesW(hstmt: MutPtr<CVoid>, szcatalogname: ConstPtr<UShort>, cchcatalogname: Short, szschemaname: ConstPtr<UShort>, cchschemaname: Short, sztablename: ConstPtr<UShort>, cchtablename: Short, sztabletype: ConstPtr<UShort>, cchtabletype: Short): Short =
+public actual fun sQLTablesW(hstmt: MutPtr, szcatalogname: ConstPtr, cchcatalogname: Short, szschemaname: ConstPtr, cchschemaname: Short, sztablename: ConstPtr, cchtablename: Short, sztabletype: ConstPtr, cchtabletype: Short): Short =
     windowssysWindowsWin32SystemSearchSQLTablesW(hstmt.rawAddress.toCPointer<ByteVar>(), szcatalogname.rawAddress.toCPointer<ByteVar>(), cchcatalogname, szschemaname.rawAddress.toCPointer<ByteVar>(), cchschemaname, sztablename.rawAddress.toCPointer<ByteVar>(), cchtablename, sztabletype.rawAddress.toCPointer<ByteVar>(), cchtabletype)
 
-public actual fun sQLTransact(environmenthandle: MutPtr<CVoid>, connectionhandle: MutPtr<CVoid>, completiontype: UShort): Short =
+public actual fun sQLTransact(environmenthandle: MutPtr, connectionhandle: MutPtr, completiontype: UShort): Short =
     windowssysWindowsWin32SystemSearchSQLTransact(environmenthandle.rawAddress.toCPointer<ByteVar>(), connectionhandle.rawAddress.toCPointer<ByteVar>(), completiontype)
 
-public actual fun bcpBatch(param0: MutPtr<CVoid>): Int =
+public actual fun bcpBatch(param0: MutPtr): Int =
     windowssysWindowsWin32SystemSearchBcpBatch(param0.rawAddress.toCPointer<ByteVar>())
 
-public actual fun bcpBind(param0: MutPtr<CVoid>, param1: MutPtr<UByte>, param2: Int, param3: Int, param4: MutPtr<UByte>, param5: Int, param6: Int, param7: Int): Short =
+public actual fun bcpBind(param0: MutPtr, param1: MutPtr, param2: Int, param3: Int, param4: MutPtr, param5: Int, param6: Int, param7: Int): Short =
     windowssysWindowsWin32SystemSearchBcpBind(param0.rawAddress.toCPointer<ByteVar>(), param1.rawAddress.toCPointer<ByteVar>(), param2, param3, param4.rawAddress.toCPointer<ByteVar>(), param5, param6, param7)
 
-public actual fun bcpColfmt(param0: MutPtr<CVoid>, param1: Int, param2: UByte, param3: Int, param4: Int, param5: MutPtr<UByte>, param6: Int, param7: Int): Short =
+public actual fun bcpColfmt(param0: MutPtr, param1: Int, param2: UByte, param3: Int, param4: Int, param5: MutPtr, param6: Int, param7: Int): Short =
     windowssysWindowsWin32SystemSearchBcpColfmt(param0.rawAddress.toCPointer<ByteVar>(), param1, param2, param3, param4, param5.rawAddress.toCPointer<ByteVar>(), param6, param7)
 
-public actual fun bcpCollen(param0: MutPtr<CVoid>, param1: Int, param2: Int): Short =
+public actual fun bcpCollen(param0: MutPtr, param1: Int, param2: Int): Short =
     windowssysWindowsWin32SystemSearchBcpCollen(param0.rawAddress.toCPointer<ByteVar>(), param1, param2)
 
-public actual fun bcpColptr(param0: MutPtr<CVoid>, param1: MutPtr<UByte>, param2: Int): Short =
+public actual fun bcpColptr(param0: MutPtr, param1: MutPtr, param2: Int): Short =
     windowssysWindowsWin32SystemSearchBcpColptr(param0.rawAddress.toCPointer<ByteVar>(), param1.rawAddress.toCPointer<ByteVar>(), param2)
 
-public actual fun bcpColumns(param0: MutPtr<CVoid>, param1: Int): Short =
+public actual fun bcpColumns(param0: MutPtr, param1: Int): Short =
     windowssysWindowsWin32SystemSearchBcpColumns(param0.rawAddress.toCPointer<ByteVar>(), param1)
 
-public actual fun bcpControl(param0: MutPtr<CVoid>, param1: Int, param2: MutPtr<CVoid>): Short =
+public actual fun bcpControl(param0: MutPtr, param1: Int, param2: MutPtr): Short =
     windowssysWindowsWin32SystemSearchBcpControl(param0.rawAddress.toCPointer<ByteVar>(), param1, param2.rawAddress.toCPointer<ByteVar>())
 
-public actual fun bcpDone(param0: MutPtr<CVoid>): Int =
+public actual fun bcpDone(param0: MutPtr): Int =
     windowssysWindowsWin32SystemSearchBcpDone(param0.rawAddress.toCPointer<ByteVar>())
 
-public actual fun bcpExec(param0: MutPtr<CVoid>, param1: MutPtr<Int>): Short =
+public actual fun bcpExec(param0: MutPtr, param1: MutPtr): Short =
     windowssysWindowsWin32SystemSearchBcpExec(param0.rawAddress.toCPointer<ByteVar>(), param1.rawAddress.toCPointer<ByteVar>())
 
-public actual fun bcpGetcolfmt(param0: MutPtr<CVoid>, param1: Int, param2: Int, param3: MutPtr<CVoid>, param4: Int, param5: MutPtr<Int>): Short =
+public actual fun bcpGetcolfmt(param0: MutPtr, param1: Int, param2: Int, param3: MutPtr, param4: Int, param5: MutPtr): Short =
     windowssysWindowsWin32SystemSearchBcpGetcolfmt(param0.rawAddress.toCPointer<ByteVar>(), param1, param2, param3.rawAddress.toCPointer<ByteVar>(), param4, param5.rawAddress.toCPointer<ByteVar>())
 
-public actual fun bcpInitA(param0: MutPtr<CVoid>, param1: Pcstr, param2: Pcstr, param3: Pcstr, param4: Int): Short =
+public actual fun bcpInitA(param0: MutPtr, param1: Pcstr, param2: Pcstr, param3: Pcstr, param4: Int): Short =
     windowssysWindowsWin32SystemSearchBcpInitA(param0.rawAddress.toCPointer<ByteVar>(), param1.rawAddress.toCPointer<ByteVar>(), param2.rawAddress.toCPointer<ByteVar>(), param3.rawAddress.toCPointer<ByteVar>(), param4)
 
-public actual fun bcpInitW(param0: MutPtr<CVoid>, param1: Pcwstr, param2: Pcwstr, param3: Pcwstr, param4: Int): Short =
+public actual fun bcpInitW(param0: MutPtr, param1: Pcwstr, param2: Pcwstr, param3: Pcwstr, param4: Int): Short =
     windowssysWindowsWin32SystemSearchBcpInitW(param0.rawAddress.toCPointer<ByteVar>(), param1.rawAddress.toCPointer<ByteVar>(), param2.rawAddress.toCPointer<ByteVar>(), param3.rawAddress.toCPointer<ByteVar>(), param4)
 
-public actual fun bcpMoretext(param0: MutPtr<CVoid>, param1: Int, param2: MutPtr<UByte>): Short =
+public actual fun bcpMoretext(param0: MutPtr, param1: Int, param2: MutPtr): Short =
     windowssysWindowsWin32SystemSearchBcpMoretext(param0.rawAddress.toCPointer<ByteVar>(), param1, param2.rawAddress.toCPointer<ByteVar>())
 
-public actual fun bcpReadfmtA(param0: MutPtr<CVoid>, param1: Pcstr): Short =
+public actual fun bcpReadfmtA(param0: MutPtr, param1: Pcstr): Short =
     windowssysWindowsWin32SystemSearchBcpReadfmtA(param0.rawAddress.toCPointer<ByteVar>(), param1.rawAddress.toCPointer<ByteVar>())
 
-public actual fun bcpReadfmtW(param0: MutPtr<CVoid>, param1: Pcwstr): Short =
+public actual fun bcpReadfmtW(param0: MutPtr, param1: Pcwstr): Short =
     windowssysWindowsWin32SystemSearchBcpReadfmtW(param0.rawAddress.toCPointer<ByteVar>(), param1.rawAddress.toCPointer<ByteVar>())
 
-public actual fun bcpSendrow(param0: MutPtr<CVoid>): Short =
+public actual fun bcpSendrow(param0: MutPtr): Short =
     windowssysWindowsWin32SystemSearchBcpSendrow(param0.rawAddress.toCPointer<ByteVar>())
 
-public actual fun bcpSetcolfmt(param0: MutPtr<CVoid>, param1: Int, param2: Int, param3: MutPtr<CVoid>, param4: Int): Short =
+public actual fun bcpSetcolfmt(param0: MutPtr, param1: Int, param2: Int, param3: MutPtr, param4: Int): Short =
     windowssysWindowsWin32SystemSearchBcpSetcolfmt(param0.rawAddress.toCPointer<ByteVar>(), param1, param2, param3.rawAddress.toCPointer<ByteVar>(), param4)
 
-public actual fun bcpWritefmtA(param0: MutPtr<CVoid>, param1: Pcstr): Short =
+public actual fun bcpWritefmtA(param0: MutPtr, param1: Pcstr): Short =
     windowssysWindowsWin32SystemSearchBcpWritefmtA(param0.rawAddress.toCPointer<ByteVar>(), param1.rawAddress.toCPointer<ByteVar>())
 
-public actual fun bcpWritefmtW(param0: MutPtr<CVoid>, param1: Pcwstr): Short =
+public actual fun bcpWritefmtW(param0: MutPtr, param1: Pcwstr): Short =
     windowssysWindowsWin32SystemSearchBcpWritefmtW(param0.rawAddress.toCPointer<ByteVar>(), param1.rawAddress.toCPointer<ByteVar>())
 
 public actual fun dbprtypeA(param0: Int): Pstr =

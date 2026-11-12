@@ -9,8 +9,8 @@ import io.github.kotlinmania.windowssys.windows.win32.storage.operationrecorder.
 import kotlinx.cinterop.ByteVar
 import kotlinx.cinterop.toCPointer
 
-public actual fun operationEnd(operationendparams: ConstPtr<OperationEndParameters>): Bool =
+public actual fun operationEnd(operationendparams: ConstPtr): Bool =
     windowssysWindowsWin32StorageOperationrecorderOperationEnd(operationendparams.rawAddress.toCPointer<ByteVar>())
 
-public actual fun operationStart(operationstartparams: ConstPtr<OperationStartParameters>): Bool =
+public actual fun operationStart(operationstartparams: ConstPtr): Bool =
     windowssysWindowsWin32StorageOperationrecorderOperationStart(operationstartparams.rawAddress.toCPointer<ByteVar>())

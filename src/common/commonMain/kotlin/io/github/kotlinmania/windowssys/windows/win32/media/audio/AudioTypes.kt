@@ -1,6 +1,5 @@
 package io.github.kotlinmania.windowssys.windows.win32.media.audio
 
-import io.github.kotlinmania.rustlang.core.ffi.CVoid
 import io.github.kotlinmania.rustlang.core.ptr.ConstPtr
 import io.github.kotlinmania.rustlang.core.ptr.MutPtr
 import io.github.kotlinmania.windowssys.core.Bool
@@ -29,25 +28,25 @@ public fun interface AcmfilterchoosehookprocwFn {
 public typealias Acmfilterchoosehookprocw = AcmfilterchoosehookprocwFn?
 
 public fun interface AcmfilterenumcbaFn {
-    public operator fun invoke(hadid: Hacmdriverid, pafd: MutPtr<Acmfilterdetailsa>, dwinstance: ULong, fdwsupport: UInt): Bool
+    public operator fun invoke(hadid: Hacmdriverid, pafd: MutPtr, dwinstance: ULong, fdwsupport: UInt): Bool
 }
 
 public typealias Acmfilterenumcba = AcmfilterenumcbaFn?
 
 public fun interface AcmfilterenumcbwFn {
-    public operator fun invoke(hadid: Hacmdriverid, pafd: MutPtr<Acmfilterdetailsw>, dwinstance: ULong, fdwsupport: UInt): Bool
+    public operator fun invoke(hadid: Hacmdriverid, pafd: MutPtr, dwinstance: ULong, fdwsupport: UInt): Bool
 }
 
 public typealias Acmfilterenumcbw = AcmfilterenumcbwFn?
 
 public fun interface AcmfiltertagenumcbaFn {
-    public operator fun invoke(hadid: Hacmdriverid, paftd: MutPtr<Acmfiltertagdetailsa>, dwinstance: ULong, fdwsupport: UInt): Bool
+    public operator fun invoke(hadid: Hacmdriverid, paftd: MutPtr, dwinstance: ULong, fdwsupport: UInt): Bool
 }
 
 public typealias Acmfiltertagenumcba = AcmfiltertagenumcbaFn?
 
 public fun interface AcmfiltertagenumcbwFn {
-    public operator fun invoke(hadid: Hacmdriverid, paftd: MutPtr<Acmfiltertagdetailsw>, dwinstance: ULong, fdwsupport: UInt): Bool
+    public operator fun invoke(hadid: Hacmdriverid, paftd: MutPtr, dwinstance: ULong, fdwsupport: UInt): Bool
 }
 
 public typealias Acmfiltertagenumcbw = AcmfiltertagenumcbwFn?
@@ -65,25 +64,25 @@ public fun interface AcmformatchoosehookprocwFn {
 public typealias Acmformatchoosehookprocw = AcmformatchoosehookprocwFn?
 
 public fun interface AcmformatenumcbaFn {
-    public operator fun invoke(hadid: Hacmdriverid, pafd: MutPtr<Acmformatdetailsa>, dwinstance: ULong, fdwsupport: UInt): Bool
+    public operator fun invoke(hadid: Hacmdriverid, pafd: MutPtr, dwinstance: ULong, fdwsupport: UInt): Bool
 }
 
 public typealias Acmformatenumcba = AcmformatenumcbaFn?
 
 public fun interface AcmformatenumcbwFn {
-    public operator fun invoke(hadid: Hacmdriverid, pafd: MutPtr<TAcmformatdetailsw>, dwinstance: ULong, fdwsupport: UInt): Bool
+    public operator fun invoke(hadid: Hacmdriverid, pafd: MutPtr, dwinstance: ULong, fdwsupport: UInt): Bool
 }
 
 public typealias Acmformatenumcbw = AcmformatenumcbwFn?
 
 public fun interface AcmformattagenumcbaFn {
-    public operator fun invoke(hadid: Hacmdriverid, paftd: MutPtr<Acmformattagdetailsa>, dwinstance: ULong, fdwsupport: UInt): Bool
+    public operator fun invoke(hadid: Hacmdriverid, paftd: MutPtr, dwinstance: ULong, fdwsupport: UInt): Bool
 }
 
 public typealias Acmformattagenumcba = AcmformattagenumcbaFn?
 
 public fun interface AcmformattagenumcbwFn {
-    public operator fun invoke(hadid: Hacmdriverid, paftd: MutPtr<Acmformattagdetailsw>, dwinstance: ULong, fdwsupport: UInt): Bool
+    public operator fun invoke(hadid: Hacmdriverid, paftd: MutPtr, dwinstance: ULong, fdwsupport: UInt): Bool
 }
 
 public typealias Acmformattagenumcbw = AcmformattagenumcbwFn?
@@ -126,31 +125,31 @@ public typealias ERole = Int
 
 public typealias EndpointFormFactor = Int
 
-public typealias Hacmdriver = MutPtr<CVoid>
+public typealias Hacmdriver = MutPtr
 
-public typealias Hacmdriverid = MutPtr<CVoid>
+public typealias Hacmdriverid = MutPtr
 
-public typealias Hacmobj = MutPtr<CVoid>
+public typealias Hacmobj = MutPtr
 
-public typealias Hacmstream = MutPtr<CVoid>
+public typealias Hacmstream = MutPtr
 
-public typealias Hmidi = MutPtr<CVoid>
+public typealias Hmidi = MutPtr
 
-public typealias Hmidiin = MutPtr<CVoid>
+public typealias Hmidiin = MutPtr
 
-public typealias Hmidiout = MutPtr<CVoid>
+public typealias Hmidiout = MutPtr
 
-public typealias Hmidistrm = MutPtr<CVoid>
+public typealias Hmidistrm = MutPtr
 
-public typealias Hmixer = MutPtr<CVoid>
+public typealias Hmixer = MutPtr
 
-public typealias Hmixerobj = MutPtr<CVoid>
+public typealias Hmixerobj = MutPtr
 
-public typealias Hwave = MutPtr<CVoid>
+public typealias Hwave = MutPtr
 
-public typealias Hwavein = MutPtr<CVoid>
+public typealias Hwavein = MutPtr
 
-public typealias Hwaveout = MutPtr<CVoid>
+public typealias Hwaveout = MutPtr
 
 public fun interface LpacmdriverprocFn {
     public operator fun invoke(param0: ULong, param1: Hacmdriverid, param2: UInt, param3: Lparam, param4: Lparam): Lresult
@@ -175,7 +174,7 @@ public typealias MidiWaveOpenType = UInt
 public typealias MixerlineComponenttype = UInt
 
 public fun interface PAudioStateMonitorCallbackFn {
-    public operator fun invoke(audiostatemonitor: MutPtr<CVoid>, context: ConstPtr<CVoid>)
+    public operator fun invoke(audiostatemonitor: MutPtr, context: ConstPtr)
 }
 
 public typealias PAudioStateMonitorCallback = PAudioStateMonitorCallbackFn?

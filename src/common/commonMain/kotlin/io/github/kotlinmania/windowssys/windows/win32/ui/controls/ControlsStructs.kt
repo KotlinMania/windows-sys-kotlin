@@ -2,13 +2,11 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.ui.controls
 
-import io.github.kotlinmania.rustlang.core.ffi.CVoid
 import io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
 import io.github.kotlinmania.rustlang.core.mem.TypeLayout
 import io.github.kotlinmania.rustlang.core.ptr.ConstPtr
 import io.github.kotlinmania.rustlang.core.ptr.MutPtr
 import io.github.kotlinmania.windowssys.core.Bool
-import io.github.kotlinmania.windowssys.core.Guid
 import io.github.kotlinmania.windowssys.core.Hresult
 import io.github.kotlinmania.windowssys.core.Pcstr
 import io.github.kotlinmania.windowssys.core.Pcwstr
@@ -23,7 +21,6 @@ import io.github.kotlinmania.windowssys.windows.win32.foundation.Point
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Rect
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Size
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Systemtime
-import io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.Blendfunction
 import io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.Hbitmap
 import io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.Hbrush
 import io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.Hdc
@@ -32,10 +29,8 @@ import io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.Hpalette
 import io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.Hpen
 import io.github.kotlinmania.windowssys.windows.win32.system.registry.Hkey
 import io.github.kotlinmania.windowssys.windows.win32.ui.windowsandmessaging.Dlgproc
-import io.github.kotlinmania.windowssys.windows.win32.ui.windowsandmessaging.Dlgtemplate
 import io.github.kotlinmania.windowssys.windows.win32.ui.windowsandmessaging.Hicon
 import io.github.kotlinmania.windowssys.windows.win32.ui.windowsandmessaging.PointerInputType
-import io.github.kotlinmania.windowssys.windows.win32.ui.windowsandmessaging.Windowpos
 
 public data class BpAnimationparams(
     public var cbSize: UInt = 0u,
@@ -68,13 +63,13 @@ public data class BpAnimationparams(
 public class BpPaintparams internal constructor(
     public var cbSize: UInt,
     public var dwFlags: BpPaintparamsFlags,
-    prcExcludeCtorArg: ConstPtr<Rect>,
-    pBlendFunctionCtorArg: ConstPtr<Blendfunction>,
+    prcExcludeCtorArg: ConstPtr,
+    pBlendFunctionCtorArg: ConstPtr,
 ) {
-    public var prcExclude: ConstPtr<Rect> = prcExcludeCtorArg
+    public var prcExclude: ConstPtr = prcExcludeCtorArg
         internal set
 
-    public var pBlendFunction: ConstPtr<Blendfunction> = pBlendFunctionCtorArg
+    public var pBlendFunction: ConstPtr = pBlendFunctionCtorArg
         internal set
 
     public constructor() : this(
@@ -88,11 +83,11 @@ public class BpPaintparams internal constructor(
 
     public operator fun component2(): BpPaintparamsFlags = this.dwFlags
 
-    public operator fun component3(): ConstPtr<Rect> = this.prcExclude
+    public operator fun component3(): ConstPtr = this.prcExclude
 
-    public operator fun component4(): ConstPtr<Blendfunction> = this.pBlendFunction
+    public operator fun component4(): ConstPtr = this.pBlendFunction
 
-    public fun copy(cbSize: UInt = this.cbSize, dwFlags: BpPaintparamsFlags = this.dwFlags, prcExclude: ConstPtr<Rect> = this.prcExclude, pBlendFunction: ConstPtr<Blendfunction> = this.pBlendFunction): BpPaintparams = BpPaintparams(cbSize = cbSize, dwFlags = dwFlags, prcExcludeCtorArg = prcExclude, pBlendFunctionCtorArg = pBlendFunction)
+    public fun copy(cbSize: UInt = this.cbSize, dwFlags: BpPaintparamsFlags = this.dwFlags, prcExclude: ConstPtr = this.prcExclude, pBlendFunction: ConstPtr = this.pBlendFunction): BpPaintparams = BpPaintparams(cbSize = cbSize, dwFlags = dwFlags, prcExcludeCtorArg = prcExclude, pBlendFunctionCtorArg = pBlendFunction)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -123,11 +118,11 @@ public class BpPaintparams internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 4L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .constPtrLayout<Rect>(64)
+                                .constPtrLayout(64)
                         ).readNative(addr + 8L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .constPtrLayout<Blendfunction>(64)
+                                .constPtrLayout(64)
                         ).readNative(addr + 16L),
                     )
                 override fun writeNative(addr: Long, value: BpPaintparams) {
@@ -135,11 +130,11 @@ public class BpPaintparams internal constructor(
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 4L, value.dwFlags)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .constPtrLayout<Rect>(64)
+                            .constPtrLayout(64)
                     ).writeNative(addr + 8L, value.prcExclude)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .constPtrLayout<Blendfunction>(64)
+                            .constPtrLayout(64)
                     ).writeNative(addr + 16L, value.pBlendFunction)
                 }
             }
@@ -147,8 +142,8 @@ public class BpPaintparams internal constructor(
         public operator fun invoke(
             cbSize: UInt = 0u,
             dwFlags: BpPaintparamsFlags = 0u,
-            prcExclude: ConstPtr<Rect> = ConstPtr(0L),
-            pBlendFunction: ConstPtr<Blendfunction> = ConstPtr(0L),
+            prcExclude: ConstPtr = ConstPtr(0L),
+            pBlendFunction: ConstPtr = ConstPtr(0L),
         ): BpPaintparams =
             BpPaintparams(
                 cbSize = cbSize,
@@ -183,13 +178,13 @@ public class Ccinfoa internal constructor(
     public var flCtrlTypeMask: UInt,
     public var szTextDefault: ByteArray,
     public var cStyleFlags: Int,
-    aStyleFlagsCtorArg: MutPtr<Ccstyleflaga>,
+    aStyleFlagsCtorArg: MutPtr,
     public var lpfnStyle: Lpfnccstylea,
     public var lpfnSizeToText: Lpfnccsizetotexta,
     public var dwReserved1: UInt,
     public var dwReserved2: UInt,
 ) {
-    public var aStyleFlags: MutPtr<Ccstyleflaga> = aStyleFlagsCtorArg
+    public var aStyleFlags: MutPtr = aStyleFlagsCtorArg
         internal set
 
     public constructor() : this(
@@ -230,7 +225,7 @@ public class Ccinfoa internal constructor(
 
     public operator fun component10(): Int = this.cStyleFlags
 
-    public operator fun component11(): MutPtr<Ccstyleflaga> = this.aStyleFlags
+    public operator fun component11(): MutPtr = this.aStyleFlags
 
     public operator fun component12(): Lpfnccstylea = this.lpfnStyle
 
@@ -240,7 +235,7 @@ public class Ccinfoa internal constructor(
 
     public operator fun component15(): UInt = this.dwReserved2
 
-    public fun copy(szClass: ByteArray = this.szClass, flOptions: UInt = this.flOptions, szDesc: ByteArray = this.szDesc, cxDefault: UInt = this.cxDefault, cyDefault: UInt = this.cyDefault, flStyleDefault: UInt = this.flStyleDefault, flExtStyleDefault: UInt = this.flExtStyleDefault, flCtrlTypeMask: UInt = this.flCtrlTypeMask, szTextDefault: ByteArray = this.szTextDefault, cStyleFlags: Int = this.cStyleFlags, aStyleFlags: MutPtr<Ccstyleflaga> = this.aStyleFlags, lpfnStyle: Lpfnccstylea = this.lpfnStyle, lpfnSizeToText: Lpfnccsizetotexta = this.lpfnSizeToText, dwReserved1: UInt = this.dwReserved1, dwReserved2: UInt = this.dwReserved2): Ccinfoa = Ccinfoa(szClass = szClass, flOptions = flOptions, szDesc = szDesc, cxDefault = cxDefault, cyDefault = cyDefault, flStyleDefault = flStyleDefault, flExtStyleDefault = flExtStyleDefault, flCtrlTypeMask = flCtrlTypeMask, szTextDefault = szTextDefault, cStyleFlags = cStyleFlags, aStyleFlagsCtorArg = aStyleFlags, lpfnStyle = lpfnStyle, lpfnSizeToText = lpfnSizeToText, dwReserved1 = dwReserved1, dwReserved2 = dwReserved2)
+    public fun copy(szClass: ByteArray = this.szClass, flOptions: UInt = this.flOptions, szDesc: ByteArray = this.szDesc, cxDefault: UInt = this.cxDefault, cyDefault: UInt = this.cyDefault, flStyleDefault: UInt = this.flStyleDefault, flExtStyleDefault: UInt = this.flExtStyleDefault, flCtrlTypeMask: UInt = this.flCtrlTypeMask, szTextDefault: ByteArray = this.szTextDefault, cStyleFlags: Int = this.cStyleFlags, aStyleFlags: MutPtr = this.aStyleFlags, lpfnStyle: Lpfnccstylea = this.lpfnStyle, lpfnSizeToText: Lpfnccsizetotexta = this.lpfnSizeToText, dwReserved1: UInt = this.dwReserved1, dwReserved2: UInt = this.dwReserved2): Ccinfoa = Ccinfoa(szClass = szClass, flOptions = flOptions, szDesc = szDesc, cxDefault = cxDefault, cyDefault = cyDefault, flStyleDefault = flStyleDefault, flExtStyleDefault = flExtStyleDefault, flCtrlTypeMask = flCtrlTypeMask, szTextDefault = szTextDefault, cStyleFlags = cStyleFlags, aStyleFlagsCtorArg = aStyleFlags, lpfnStyle = lpfnStyle, lpfnSizeToText = lpfnSizeToText, dwReserved1 = dwReserved1, dwReserved2 = dwReserved2)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -294,7 +289,7 @@ public class Ccinfoa internal constructor(
             flCtrlTypeMask: UInt = 0u,
             szTextDefault: ByteArray = ByteArray(256),
             cStyleFlags: Int = 0,
-            aStyleFlags: MutPtr<Ccstyleflaga> = MutPtr(0L),
+            aStyleFlags: MutPtr = MutPtr(0L),
             lpfnStyle: Lpfnccstylea = null,
             lpfnSizeToText: Lpfnccsizetotexta = null,
             dwReserved1: UInt = 0u,
@@ -330,14 +325,14 @@ public class Ccinfow internal constructor(
     public var flExtStyleDefault: UInt,
     public var flCtrlTypeMask: UInt,
     public var cStyleFlags: Int,
-    aStyleFlagsCtorArg: MutPtr<Ccstyleflagw>,
+    aStyleFlagsCtorArg: MutPtr,
     public var szTextDefault: UShortArray,
     public var lpfnStyle: Lpfnccstylew,
     public var lpfnSizeToText: Lpfnccsizetotextw,
     public var dwReserved1: UInt,
     public var dwReserved2: UInt,
 ) {
-    public var aStyleFlags: MutPtr<Ccstyleflagw> = aStyleFlagsCtorArg
+    public var aStyleFlags: MutPtr = aStyleFlagsCtorArg
         internal set
 
     public constructor() : this(
@@ -376,7 +371,7 @@ public class Ccinfow internal constructor(
 
     public operator fun component9(): Int = this.cStyleFlags
 
-    public operator fun component10(): MutPtr<Ccstyleflagw> = this.aStyleFlags
+    public operator fun component10(): MutPtr = this.aStyleFlags
 
     public operator fun component11(): UShortArray = this.szTextDefault
 
@@ -388,7 +383,7 @@ public class Ccinfow internal constructor(
 
     public operator fun component15(): UInt = this.dwReserved2
 
-    public fun copy(szClass: UShortArray = this.szClass, flOptions: UInt = this.flOptions, szDesc: UShortArray = this.szDesc, cxDefault: UInt = this.cxDefault, cyDefault: UInt = this.cyDefault, flStyleDefault: UInt = this.flStyleDefault, flExtStyleDefault: UInt = this.flExtStyleDefault, flCtrlTypeMask: UInt = this.flCtrlTypeMask, cStyleFlags: Int = this.cStyleFlags, aStyleFlags: MutPtr<Ccstyleflagw> = this.aStyleFlags, szTextDefault: UShortArray = this.szTextDefault, lpfnStyle: Lpfnccstylew = this.lpfnStyle, lpfnSizeToText: Lpfnccsizetotextw = this.lpfnSizeToText, dwReserved1: UInt = this.dwReserved1, dwReserved2: UInt = this.dwReserved2): Ccinfow = Ccinfow(szClass = szClass, flOptions = flOptions, szDesc = szDesc, cxDefault = cxDefault, cyDefault = cyDefault, flStyleDefault = flStyleDefault, flExtStyleDefault = flExtStyleDefault, flCtrlTypeMask = flCtrlTypeMask, cStyleFlags = cStyleFlags, aStyleFlagsCtorArg = aStyleFlags, szTextDefault = szTextDefault, lpfnStyle = lpfnStyle, lpfnSizeToText = lpfnSizeToText, dwReserved1 = dwReserved1, dwReserved2 = dwReserved2)
+    public fun copy(szClass: UShortArray = this.szClass, flOptions: UInt = this.flOptions, szDesc: UShortArray = this.szDesc, cxDefault: UInt = this.cxDefault, cyDefault: UInt = this.cyDefault, flStyleDefault: UInt = this.flStyleDefault, flExtStyleDefault: UInt = this.flExtStyleDefault, flCtrlTypeMask: UInt = this.flCtrlTypeMask, cStyleFlags: Int = this.cStyleFlags, aStyleFlags: MutPtr = this.aStyleFlags, szTextDefault: UShortArray = this.szTextDefault, lpfnStyle: Lpfnccstylew = this.lpfnStyle, lpfnSizeToText: Lpfnccsizetotextw = this.lpfnSizeToText, dwReserved1: UInt = this.dwReserved1, dwReserved2: UInt = this.dwReserved2): Ccinfow = Ccinfow(szClass = szClass, flOptions = flOptions, szDesc = szDesc, cxDefault = cxDefault, cyDefault = cyDefault, flStyleDefault = flStyleDefault, flExtStyleDefault = flExtStyleDefault, flCtrlTypeMask = flCtrlTypeMask, cStyleFlags = cStyleFlags, aStyleFlagsCtorArg = aStyleFlags, szTextDefault = szTextDefault, lpfnStyle = lpfnStyle, lpfnSizeToText = lpfnSizeToText, dwReserved1 = dwReserved1, dwReserved2 = dwReserved2)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -441,7 +436,7 @@ public class Ccinfow internal constructor(
             flExtStyleDefault: UInt = 0u,
             flCtrlTypeMask: UInt = 0u,
             cStyleFlags: Int = 0,
-            aStyleFlags: MutPtr<Ccstyleflagw> = MutPtr(0L),
+            aStyleFlags: MutPtr = MutPtr(0L),
             szTextDefault: UShortArray = UShortArray(256),
             lpfnStyle: Lpfnccstylew = null,
             lpfnSizeToText: Lpfnccsizetotextw = null,
@@ -1283,9 +1278,9 @@ public class Deleteitemstruct internal constructor(
 
 public class Dpastreaminfo internal constructor(
     public var iPos: Int,
-    pvItemCtorArg: MutPtr<CVoid>,
+    pvItemCtorArg: MutPtr,
 ) {
-    public var pvItem: MutPtr<CVoid> = pvItemCtorArg
+    public var pvItem: MutPtr = pvItemCtorArg
         internal set
 
     public constructor() : this(
@@ -1295,9 +1290,9 @@ public class Dpastreaminfo internal constructor(
 
     public operator fun component1(): Int = this.iPos
 
-    public operator fun component2(): MutPtr<CVoid> = this.pvItem
+    public operator fun component2(): MutPtr = this.pvItem
 
-    public fun copy(iPos: Int = this.iPos, pvItem: MutPtr<CVoid> = this.pvItem): Dpastreaminfo = Dpastreaminfo(iPos = iPos, pvItemCtorArg = pvItem)
+    public fun copy(iPos: Int = this.iPos, pvItem: MutPtr = this.pvItem): Dpastreaminfo = Dpastreaminfo(iPos = iPos, pvItemCtorArg = pvItem)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -1323,21 +1318,21 @@ public class Dpastreaminfo internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<CVoid>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                     )
                 override fun writeNative(addr: Long, value: Dpastreaminfo) {
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr, value.iPos)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<CVoid>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.pvItem)
                 }
             }
 
         public operator fun invoke(
             iPos: Int = 0,
-            pvItem: MutPtr<CVoid> = MutPtr(0L),
+            pvItem: MutPtr = MutPtr(0L),
         ): Dpastreaminfo =
             Dpastreaminfo(
                 iPos = iPos,
@@ -1605,7 +1600,7 @@ public class Hditema internal constructor(
     public var iImage: Int,
     public var iOrder: Int,
     public var type: HeaderControlFormatType,
-    pvFilterCtorArg: MutPtr<CVoid>,
+    pvFilterCtorArg: MutPtr,
     public var state: HeaderControlFormatState,
 ) {
     public var pszText: Pstr = pszTextCtorArg
@@ -1614,7 +1609,7 @@ public class Hditema internal constructor(
     public var hbm: Hbitmap = hbmCtorArg
         internal set
 
-    public var pvFilter: MutPtr<CVoid> = pvFilterCtorArg
+    public var pvFilter: MutPtr = pvFilterCtorArg
         internal set
 
     public constructor() : this(
@@ -1652,11 +1647,11 @@ public class Hditema internal constructor(
 
     public operator fun component10(): HeaderControlFormatType = this.type
 
-    public operator fun component11(): MutPtr<CVoid> = this.pvFilter
+    public operator fun component11(): MutPtr = this.pvFilter
 
     public operator fun component12(): HeaderControlFormatState = this.state
 
-    public fun copy(mask: HdiMask = this.mask, cxy: Int = this.cxy, pszText: Pstr = this.pszText, hbm: Hbitmap = this.hbm, cchTextMax: Int = this.cchTextMax, fmt: HeaderControlFormatFlags = this.fmt, lParam: Lparam = this.lParam, iImage: Int = this.iImage, iOrder: Int = this.iOrder, type: HeaderControlFormatType = this.type, pvFilter: MutPtr<CVoid> = this.pvFilter, state: HeaderControlFormatState = this.state): Hditema = Hditema(mask = mask, cxy = cxy, pszTextCtorArg = pszText, hbmCtorArg = hbm, cchTextMax = cchTextMax, fmt = fmt, lParam = lParam, iImage = iImage, iOrder = iOrder, type = type, pvFilterCtorArg = pvFilter, state = state)
+    public fun copy(mask: HdiMask = this.mask, cxy: Int = this.cxy, pszText: Pstr = this.pszText, hbm: Hbitmap = this.hbm, cchTextMax: Int = this.cchTextMax, fmt: HeaderControlFormatFlags = this.fmt, lParam: Lparam = this.lParam, iImage: Int = this.iImage, iOrder: Int = this.iOrder, type: HeaderControlFormatType = this.type, pvFilter: MutPtr = this.pvFilter, state: HeaderControlFormatState = this.state): Hditema = Hditema(mask = mask, cxy = cxy, pszTextCtorArg = pszText, hbmCtorArg = hbm, cchTextMax = cchTextMax, fmt = fmt, lParam = lParam, iImage = iImage, iOrder = iOrder, type = type, pvFilterCtorArg = pvFilter, state = state)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -1704,7 +1699,7 @@ public class Hditema internal constructor(
             iImage: Int = 0,
             iOrder: Int = 0,
             type: HeaderControlFormatType = 0u,
-            pvFilter: MutPtr<CVoid> = MutPtr(0L),
+            pvFilter: MutPtr = MutPtr(0L),
             state: HeaderControlFormatState = 0u,
         ): Hditema =
             Hditema(
@@ -1735,7 +1730,7 @@ public class Hditemw internal constructor(
     public var iImage: Int,
     public var iOrder: Int,
     public var type: HeaderControlFormatType,
-    pvFilterCtorArg: MutPtr<CVoid>,
+    pvFilterCtorArg: MutPtr,
     public var state: HeaderControlFormatState,
 ) {
     public var pszText: Pwstr = pszTextCtorArg
@@ -1744,7 +1739,7 @@ public class Hditemw internal constructor(
     public var hbm: Hbitmap = hbmCtorArg
         internal set
 
-    public var pvFilter: MutPtr<CVoid> = pvFilterCtorArg
+    public var pvFilter: MutPtr = pvFilterCtorArg
         internal set
 
     public constructor() : this(
@@ -1782,11 +1777,11 @@ public class Hditemw internal constructor(
 
     public operator fun component10(): HeaderControlFormatType = this.type
 
-    public operator fun component11(): MutPtr<CVoid> = this.pvFilter
+    public operator fun component11(): MutPtr = this.pvFilter
 
     public operator fun component12(): HeaderControlFormatState = this.state
 
-    public fun copy(mask: HdiMask = this.mask, cxy: Int = this.cxy, pszText: Pwstr = this.pszText, hbm: Hbitmap = this.hbm, cchTextMax: Int = this.cchTextMax, fmt: HeaderControlFormatFlags = this.fmt, lParam: Lparam = this.lParam, iImage: Int = this.iImage, iOrder: Int = this.iOrder, type: HeaderControlFormatType = this.type, pvFilter: MutPtr<CVoid> = this.pvFilter, state: HeaderControlFormatState = this.state): Hditemw = Hditemw(mask = mask, cxy = cxy, pszTextCtorArg = pszText, hbmCtorArg = hbm, cchTextMax = cchTextMax, fmt = fmt, lParam = lParam, iImage = iImage, iOrder = iOrder, type = type, pvFilterCtorArg = pvFilter, state = state)
+    public fun copy(mask: HdiMask = this.mask, cxy: Int = this.cxy, pszText: Pwstr = this.pszText, hbm: Hbitmap = this.hbm, cchTextMax: Int = this.cchTextMax, fmt: HeaderControlFormatFlags = this.fmt, lParam: Lparam = this.lParam, iImage: Int = this.iImage, iOrder: Int = this.iOrder, type: HeaderControlFormatType = this.type, pvFilter: MutPtr = this.pvFilter, state: HeaderControlFormatState = this.state): Hditemw = Hditemw(mask = mask, cxy = cxy, pszTextCtorArg = pszText, hbmCtorArg = hbm, cchTextMax = cchTextMax, fmt = fmt, lParam = lParam, iImage = iImage, iOrder = iOrder, type = type, pvFilterCtorArg = pvFilter, state = state)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -1834,7 +1829,7 @@ public class Hditemw internal constructor(
             iImage: Int = 0,
             iOrder: Int = 0,
             type: HeaderControlFormatType = 0u,
-            pvFilter: MutPtr<CVoid> = MutPtr(0L),
+            pvFilter: MutPtr = MutPtr(0L),
             state: HeaderControlFormatState = 0u,
         ): Hditemw =
             Hditemw(
@@ -1855,13 +1850,13 @@ public class Hditemw internal constructor(
 }
 
 public class Hdlayout internal constructor(
-    prcCtorArg: MutPtr<Rect>,
-    pwposCtorArg: MutPtr<Windowpos>,
+    prcCtorArg: MutPtr,
+    pwposCtorArg: MutPtr,
 ) {
-    public var prc: MutPtr<Rect> = prcCtorArg
+    public var prc: MutPtr = prcCtorArg
         internal set
 
-    public var pwpos: MutPtr<Windowpos> = pwposCtorArg
+    public var pwpos: MutPtr = pwposCtorArg
         internal set
 
     public constructor() : this(
@@ -1869,11 +1864,11 @@ public class Hdlayout internal constructor(
         pwposCtorArg = MutPtr(0L),
     )
 
-    public operator fun component1(): MutPtr<Rect> = this.prc
+    public operator fun component1(): MutPtr = this.prc
 
-    public operator fun component2(): MutPtr<Windowpos> = this.pwpos
+    public operator fun component2(): MutPtr = this.pwpos
 
-    public fun copy(prc: MutPtr<Rect> = this.prc, pwpos: MutPtr<Windowpos> = this.pwpos): Hdlayout = Hdlayout(prcCtorArg = prc, pwposCtorArg = pwpos)
+    public fun copy(prc: MutPtr = this.prc, pwpos: MutPtr = this.pwpos): Hdlayout = Hdlayout(prcCtorArg = prc, pwposCtorArg = pwpos)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -1898,28 +1893,28 @@ public class Hdlayout internal constructor(
                     Hdlayout(
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<Rect>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<Windowpos>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                     )
                 override fun writeNative(addr: Long, value: Hdlayout) {
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<Rect>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr, value.prc)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<Windowpos>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.pwpos)
                 }
             }
 
         public operator fun invoke(
-            prc: MutPtr<Rect> = MutPtr(0L),
-            pwpos: MutPtr<Windowpos> = MutPtr(0L),
+            prc: MutPtr = MutPtr(0L),
+            pwpos: MutPtr = MutPtr(0L),
         ): Hdlayout =
             Hdlayout(
                 prcCtorArg = prc,
@@ -3190,10 +3185,10 @@ public data class Lvhittestinfo(
 
 public class Lvinsertgroupsorted internal constructor(
     public var pfnGroupCompare: Pfnlvgroupcompare,
-    pvDataCtorArg: MutPtr<CVoid>,
+    pvDataCtorArg: MutPtr,
     public var lvGroup: Lvgroup,
 ) {
-    public var pvData: MutPtr<CVoid> = pvDataCtorArg
+    public var pvData: MutPtr = pvDataCtorArg
         internal set
 
     public constructor() : this(
@@ -3204,11 +3199,11 @@ public class Lvinsertgroupsorted internal constructor(
 
     public operator fun component1(): Pfnlvgroupcompare = this.pfnGroupCompare
 
-    public operator fun component2(): MutPtr<CVoid> = this.pvData
+    public operator fun component2(): MutPtr = this.pvData
 
     public operator fun component3(): Lvgroup = this.lvGroup
 
-    public fun copy(pfnGroupCompare: Pfnlvgroupcompare = this.pfnGroupCompare, pvData: MutPtr<CVoid> = this.pvData, lvGroup: Lvgroup = this.lvGroup): Lvinsertgroupsorted = Lvinsertgroupsorted(pfnGroupCompare = pfnGroupCompare, pvDataCtorArg = pvData, lvGroup = lvGroup)
+    public fun copy(pfnGroupCompare: Pfnlvgroupcompare = this.pfnGroupCompare, pvData: MutPtr = this.pvData, lvGroup: Lvgroup = this.lvGroup): Lvinsertgroupsorted = Lvinsertgroupsorted(pfnGroupCompare = pfnGroupCompare, pvDataCtorArg = pvData, lvGroup = lvGroup)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -3229,7 +3224,7 @@ public class Lvinsertgroupsorted internal constructor(
     public companion object {
         public operator fun invoke(
             pfnGroupCompare: Pfnlvgroupcompare = null,
-            pvData: MutPtr<CVoid> = MutPtr(0L),
+            pvData: MutPtr = MutPtr(0L),
             lvGroup: Lvgroup = Lvgroup(),
         ): Lvinsertgroupsorted =
             Lvinsertgroupsorted(
@@ -3281,17 +3276,17 @@ public class Lvitema internal constructor(
     public var iIndent: Int,
     public var iGroupId: Int,
     public var cColumns: UInt,
-    puColumnsCtorArg: MutPtr<UInt>,
-    piColFmtCtorArg: MutPtr<ListViewItemColumnFormatFlags>,
+    puColumnsCtorArg: MutPtr,
+    piColFmtCtorArg: MutPtr,
     public var iGroup: Int,
 ) {
     public var pszText: Pstr = pszTextCtorArg
         internal set
 
-    public var puColumns: MutPtr<UInt> = puColumnsCtorArg
+    public var puColumns: MutPtr = puColumnsCtorArg
         internal set
 
-    public var piColFmt: MutPtr<ListViewItemColumnFormatFlags> = piColFmtCtorArg
+    public var piColFmt: MutPtr = piColFmtCtorArg
         internal set
 
     public constructor() : this(
@@ -3336,13 +3331,13 @@ public class Lvitema internal constructor(
 
     public operator fun component12(): UInt = this.cColumns
 
-    public operator fun component13(): MutPtr<UInt> = this.puColumns
+    public operator fun component13(): MutPtr = this.puColumns
 
-    public operator fun component14(): MutPtr<ListViewItemColumnFormatFlags> = this.piColFmt
+    public operator fun component14(): MutPtr = this.piColFmt
 
     public operator fun component15(): Int = this.iGroup
 
-    public fun copy(mask: ListViewItemFlags = this.mask, iItem: Int = this.iItem, iSubItem: Int = this.iSubItem, state: ListViewItemStateFlags = this.state, stateMask: ListViewItemStateFlags = this.stateMask, pszText: Pstr = this.pszText, cchTextMax: Int = this.cchTextMax, iImage: Int = this.iImage, lParam: Lparam = this.lParam, iIndent: Int = this.iIndent, iGroupId: Int = this.iGroupId, cColumns: UInt = this.cColumns, puColumns: MutPtr<UInt> = this.puColumns, piColFmt: MutPtr<ListViewItemColumnFormatFlags> = this.piColFmt, iGroup: Int = this.iGroup): Lvitema = Lvitema(mask = mask, iItem = iItem, iSubItem = iSubItem, state = state, stateMask = stateMask, pszTextCtorArg = pszText, cchTextMax = cchTextMax, iImage = iImage, lParam = lParam, iIndent = iIndent, iGroupId = iGroupId, cColumns = cColumns, puColumnsCtorArg = puColumns, piColFmtCtorArg = piColFmt, iGroup = iGroup)
+    public fun copy(mask: ListViewItemFlags = this.mask, iItem: Int = this.iItem, iSubItem: Int = this.iSubItem, state: ListViewItemStateFlags = this.state, stateMask: ListViewItemStateFlags = this.stateMask, pszText: Pstr = this.pszText, cchTextMax: Int = this.cchTextMax, iImage: Int = this.iImage, lParam: Lparam = this.lParam, iIndent: Int = this.iIndent, iGroupId: Int = this.iGroupId, cColumns: UInt = this.cColumns, puColumns: MutPtr = this.puColumns, piColFmt: MutPtr = this.piColFmt, iGroup: Int = this.iGroup): Lvitema = Lvitema(mask = mask, iItem = iItem, iSubItem = iSubItem, state = state, stateMask = stateMask, pszTextCtorArg = pszText, cchTextMax = cchTextMax, iImage = iImage, lParam = lParam, iIndent = iIndent, iGroupId = iGroupId, cColumns = cColumns, puColumnsCtorArg = puColumns, piColFmtCtorArg = piColFmt, iGroup = iGroup)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -3398,8 +3393,8 @@ public class Lvitema internal constructor(
             iIndent: Int = 0,
             iGroupId: Int = 0,
             cColumns: UInt = 0u,
-            puColumns: MutPtr<UInt> = MutPtr(0L),
-            piColFmt: MutPtr<ListViewItemColumnFormatFlags> = MutPtr(0L),
+            puColumns: MutPtr = MutPtr(0L),
+            piColFmt: MutPtr = MutPtr(0L),
             iGroup: Int = 0,
         ): Lvitema =
             Lvitema(
@@ -3457,17 +3452,17 @@ public class Lvitemw internal constructor(
     public var iIndent: Int,
     public var iGroupId: Int,
     public var cColumns: UInt,
-    puColumnsCtorArg: MutPtr<UInt>,
-    piColFmtCtorArg: MutPtr<ListViewItemColumnFormatFlags>,
+    puColumnsCtorArg: MutPtr,
+    piColFmtCtorArg: MutPtr,
     public var iGroup: Int,
 ) {
     public var pszText: Pwstr = pszTextCtorArg
         internal set
 
-    public var puColumns: MutPtr<UInt> = puColumnsCtorArg
+    public var puColumns: MutPtr = puColumnsCtorArg
         internal set
 
-    public var piColFmt: MutPtr<ListViewItemColumnFormatFlags> = piColFmtCtorArg
+    public var piColFmt: MutPtr = piColFmtCtorArg
         internal set
 
     public constructor() : this(
@@ -3512,13 +3507,13 @@ public class Lvitemw internal constructor(
 
     public operator fun component12(): UInt = this.cColumns
 
-    public operator fun component13(): MutPtr<UInt> = this.puColumns
+    public operator fun component13(): MutPtr = this.puColumns
 
-    public operator fun component14(): MutPtr<ListViewItemColumnFormatFlags> = this.piColFmt
+    public operator fun component14(): MutPtr = this.piColFmt
 
     public operator fun component15(): Int = this.iGroup
 
-    public fun copy(mask: ListViewItemFlags = this.mask, iItem: Int = this.iItem, iSubItem: Int = this.iSubItem, state: ListViewItemStateFlags = this.state, stateMask: ListViewItemStateFlags = this.stateMask, pszText: Pwstr = this.pszText, cchTextMax: Int = this.cchTextMax, iImage: Int = this.iImage, lParam: Lparam = this.lParam, iIndent: Int = this.iIndent, iGroupId: Int = this.iGroupId, cColumns: UInt = this.cColumns, puColumns: MutPtr<UInt> = this.puColumns, piColFmt: MutPtr<ListViewItemColumnFormatFlags> = this.piColFmt, iGroup: Int = this.iGroup): Lvitemw = Lvitemw(mask = mask, iItem = iItem, iSubItem = iSubItem, state = state, stateMask = stateMask, pszTextCtorArg = pszText, cchTextMax = cchTextMax, iImage = iImage, lParam = lParam, iIndent = iIndent, iGroupId = iGroupId, cColumns = cColumns, puColumnsCtorArg = puColumns, piColFmtCtorArg = piColFmt, iGroup = iGroup)
+    public fun copy(mask: ListViewItemFlags = this.mask, iItem: Int = this.iItem, iSubItem: Int = this.iSubItem, state: ListViewItemStateFlags = this.state, stateMask: ListViewItemStateFlags = this.stateMask, pszText: Pwstr = this.pszText, cchTextMax: Int = this.cchTextMax, iImage: Int = this.iImage, lParam: Lparam = this.lParam, iIndent: Int = this.iIndent, iGroupId: Int = this.iGroupId, cColumns: UInt = this.cColumns, puColumns: MutPtr = this.puColumns, piColFmt: MutPtr = this.piColFmt, iGroup: Int = this.iGroup): Lvitemw = Lvitemw(mask = mask, iItem = iItem, iSubItem = iSubItem, state = state, stateMask = stateMask, pszTextCtorArg = pszText, cchTextMax = cchTextMax, iImage = iImage, lParam = lParam, iIndent = iIndent, iGroupId = iGroupId, cColumns = cColumns, puColumnsCtorArg = puColumns, piColFmtCtorArg = piColFmt, iGroup = iGroup)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -3574,8 +3569,8 @@ public class Lvitemw internal constructor(
             iIndent: Int = 0,
             iGroupId: Int = 0,
             cColumns: UInt = 0u,
-            puColumns: MutPtr<UInt> = MutPtr(0L),
-            piColFmt: MutPtr<ListViewItemColumnFormatFlags> = MutPtr(0L),
+            puColumns: MutPtr = MutPtr(0L),
+            piColFmt: MutPtr = MutPtr(0L),
             iGroup: Int = 0,
         ): Lvitemw =
             Lvitemw(
@@ -3670,13 +3665,13 @@ public class Lvtileinfo internal constructor(
     public var cbSize: UInt,
     public var iItem: Int,
     public var cColumns: UInt,
-    puColumnsCtorArg: MutPtr<UInt>,
-    piColFmtCtorArg: MutPtr<Int>,
+    puColumnsCtorArg: MutPtr,
+    piColFmtCtorArg: MutPtr,
 ) {
-    public var puColumns: MutPtr<UInt> = puColumnsCtorArg
+    public var puColumns: MutPtr = puColumnsCtorArg
         internal set
 
-    public var piColFmt: MutPtr<Int> = piColFmtCtorArg
+    public var piColFmt: MutPtr = piColFmtCtorArg
         internal set
 
     public constructor() : this(
@@ -3693,11 +3688,11 @@ public class Lvtileinfo internal constructor(
 
     public operator fun component3(): UInt = this.cColumns
 
-    public operator fun component4(): MutPtr<UInt> = this.puColumns
+    public operator fun component4(): MutPtr = this.puColumns
 
-    public operator fun component5(): MutPtr<Int> = this.piColFmt
+    public operator fun component5(): MutPtr = this.piColFmt
 
-    public fun copy(cbSize: UInt = this.cbSize, iItem: Int = this.iItem, cColumns: UInt = this.cColumns, puColumns: MutPtr<UInt> = this.puColumns, piColFmt: MutPtr<Int> = this.piColFmt): Lvtileinfo = Lvtileinfo(cbSize = cbSize, iItem = iItem, cColumns = cColumns, puColumnsCtorArg = puColumns, piColFmtCtorArg = piColFmt)
+    public fun copy(cbSize: UInt = this.cbSize, iItem: Int = this.iItem, cColumns: UInt = this.cColumns, puColumns: MutPtr = this.puColumns, piColFmt: MutPtr = this.piColFmt): Lvtileinfo = Lvtileinfo(cbSize = cbSize, iItem = iItem, cColumns = cColumns, puColumnsCtorArg = puColumns, piColFmtCtorArg = piColFmt)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -3731,11 +3726,11 @@ public class Lvtileinfo internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 8L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<UInt>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 16L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<Int>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 24L),
                     )
                 override fun writeNative(addr: Long, value: Lvtileinfo) {
@@ -3744,11 +3739,11 @@ public class Lvtileinfo internal constructor(
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 8L, value.cColumns)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<UInt>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 16L, value.puColumns)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<Int>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 24L, value.piColFmt)
                 }
             }
@@ -3757,8 +3752,8 @@ public class Lvtileinfo internal constructor(
             cbSize: UInt = 0u,
             iItem: Int = 0,
             cColumns: UInt = 0u,
-            puColumns: MutPtr<UInt> = MutPtr(0L),
-            piColFmt: MutPtr<Int> = MutPtr(0L),
+            puColumns: MutPtr = MutPtr(0L),
+            piColFmt: MutPtr = MutPtr(0L),
         ): Lvtileinfo =
             Lvtileinfo(
                 cbSize = cbSize,
@@ -4199,7 +4194,7 @@ public class Nmcustomtext internal constructor(
     hDCCtorArg: Hdc,
     lpStringCtorArg: Pcwstr,
     public var nCount: Int,
-    lpRectCtorArg: MutPtr<Rect>,
+    lpRectCtorArg: MutPtr,
     public var uFormat: UInt,
     public var fLink: Bool,
 ) {
@@ -4209,7 +4204,7 @@ public class Nmcustomtext internal constructor(
     public var lpString: Pcwstr = lpStringCtorArg
         internal set
 
-    public var lpRect: MutPtr<Rect> = lpRectCtorArg
+    public var lpRect: MutPtr = lpRectCtorArg
         internal set
 
     public constructor() : this(
@@ -4230,13 +4225,13 @@ public class Nmcustomtext internal constructor(
 
     public operator fun component4(): Int = this.nCount
 
-    public operator fun component5(): MutPtr<Rect> = this.lpRect
+    public operator fun component5(): MutPtr = this.lpRect
 
     public operator fun component6(): UInt = this.uFormat
 
     public operator fun component7(): Bool = this.fLink
 
-    public fun copy(hdr: Nmhdr = this.hdr, hDC: Hdc = this.hDC, lpString: Pcwstr = this.lpString, nCount: Int = this.nCount, lpRect: MutPtr<Rect> = this.lpRect, uFormat: UInt = this.uFormat, fLink: Bool = this.fLink): Nmcustomtext = Nmcustomtext(hdr = hdr, hDCCtorArg = hDC, lpStringCtorArg = lpString, nCount = nCount, lpRectCtorArg = lpRect, uFormat = uFormat, fLink = fLink)
+    public fun copy(hdr: Nmhdr = this.hdr, hDC: Hdc = this.hDC, lpString: Pcwstr = this.lpString, nCount: Int = this.nCount, lpRect: MutPtr = this.lpRect, uFormat: UInt = this.uFormat, fLink: Bool = this.fLink): Nmcustomtext = Nmcustomtext(hdr = hdr, hDCCtorArg = hDC, lpStringCtorArg = lpString, nCount = nCount, lpRectCtorArg = lpRect, uFormat = uFormat, fLink = fLink)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -4268,7 +4263,7 @@ public class Nmcustomtext internal constructor(
             hDC: Hdc = MutPtr(0L),
             lpString: Pcwstr = ConstPtr(0L),
             nCount: Int = 0,
-            lpRect: MutPtr<Rect> = MutPtr(0L),
+            lpRect: MutPtr = MutPtr(0L),
             uFormat: UInt = 0u,
             fLink: Bool = 0,
         ): Nmcustomtext =
@@ -4780,9 +4775,9 @@ public class Nmdaystate internal constructor(
     public var nmhdr: Nmhdr,
     public var stStart: Systemtime,
     public var cDayState: Int,
-    prgDayStateCtorArg: MutPtr<UInt>,
+    prgDayStateCtorArg: MutPtr,
 ) {
-    public var prgDayState: MutPtr<UInt> = prgDayStateCtorArg
+    public var prgDayState: MutPtr = prgDayStateCtorArg
         internal set
 
     public constructor() : this(
@@ -4798,9 +4793,9 @@ public class Nmdaystate internal constructor(
 
     public operator fun component3(): Int = this.cDayState
 
-    public operator fun component4(): MutPtr<UInt> = this.prgDayState
+    public operator fun component4(): MutPtr = this.prgDayState
 
-    public fun copy(nmhdr: Nmhdr = this.nmhdr, stStart: Systemtime = this.stStart, cDayState: Int = this.cDayState, prgDayState: MutPtr<UInt> = this.prgDayState): Nmdaystate = Nmdaystate(nmhdr = nmhdr, stStart = stStart, cDayState = cDayState, prgDayStateCtorArg = prgDayState)
+    public fun copy(nmhdr: Nmhdr = this.nmhdr, stStart: Systemtime = this.stStart, cDayState: Int = this.cDayState, prgDayState: MutPtr = this.prgDayState): Nmdaystate = Nmdaystate(nmhdr = nmhdr, stStart = stStart, cDayState = cDayState, prgDayStateCtorArg = prgDayState)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -4825,7 +4820,7 @@ public class Nmdaystate internal constructor(
             nmhdr: Nmhdr = Nmhdr(),
             stStart: Systemtime = Systemtime(),
             cDayState: Int = 0,
-            prgDayState: MutPtr<UInt> = MutPtr(0L),
+            prgDayState: MutPtr = MutPtr(0L),
         ): Nmdaystate =
             Nmdaystate(
                 nmhdr = nmhdr,
@@ -5066,9 +5061,9 @@ public class Nmheadera internal constructor(
     public var hdr: Nmhdr,
     public var iItem: Int,
     public var iButton: HeaderControlNotificationButton,
-    pitemCtorArg: MutPtr<Hditema>,
+    pitemCtorArg: MutPtr,
 ) {
-    public var pitem: MutPtr<Hditema> = pitemCtorArg
+    public var pitem: MutPtr = pitemCtorArg
         internal set
 
     public constructor() : this(
@@ -5084,9 +5079,9 @@ public class Nmheadera internal constructor(
 
     public operator fun component3(): HeaderControlNotificationButton = this.iButton
 
-    public operator fun component4(): MutPtr<Hditema> = this.pitem
+    public operator fun component4(): MutPtr = this.pitem
 
-    public fun copy(hdr: Nmhdr = this.hdr, iItem: Int = this.iItem, iButton: HeaderControlNotificationButton = this.iButton, pitem: MutPtr<Hditema> = this.pitem): Nmheadera = Nmheadera(hdr = hdr, iItem = iItem, iButton = iButton, pitemCtorArg = pitem)
+    public fun copy(hdr: Nmhdr = this.hdr, iItem: Int = this.iItem, iButton: HeaderControlNotificationButton = this.iButton, pitem: MutPtr = this.pitem): Nmheadera = Nmheadera(hdr = hdr, iItem = iItem, iButton = iButton, pitemCtorArg = pitem)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -5111,7 +5106,7 @@ public class Nmheadera internal constructor(
             hdr: Nmhdr = Nmhdr(),
             iItem: Int = 0,
             iButton: HeaderControlNotificationButton = 0,
-            pitem: MutPtr<Hditema> = MutPtr(0L),
+            pitem: MutPtr = MutPtr(0L),
         ): Nmheadera =
             Nmheadera(
                 hdr = hdr,
@@ -5126,9 +5121,9 @@ public class Nmheaderw internal constructor(
     public var hdr: Nmhdr,
     public var iItem: Int,
     public var iButton: HeaderControlNotificationButton,
-    pitemCtorArg: MutPtr<Hditemw>,
+    pitemCtorArg: MutPtr,
 ) {
-    public var pitem: MutPtr<Hditemw> = pitemCtorArg
+    public var pitem: MutPtr = pitemCtorArg
         internal set
 
     public constructor() : this(
@@ -5144,9 +5139,9 @@ public class Nmheaderw internal constructor(
 
     public operator fun component3(): HeaderControlNotificationButton = this.iButton
 
-    public operator fun component4(): MutPtr<Hditemw> = this.pitem
+    public operator fun component4(): MutPtr = this.pitem
 
-    public fun copy(hdr: Nmhdr = this.hdr, iItem: Int = this.iItem, iButton: HeaderControlNotificationButton = this.iButton, pitem: MutPtr<Hditemw> = this.pitem): Nmheaderw = Nmheaderw(hdr = hdr, iItem = iItem, iButton = iButton, pitemCtorArg = pitem)
+    public fun copy(hdr: Nmhdr = this.hdr, iItem: Int = this.iItem, iButton: HeaderControlNotificationButton = this.iButton, pitem: MutPtr = this.pitem): Nmheaderw = Nmheaderw(hdr = hdr, iItem = iItem, iButton = iButton, pitemCtorArg = pitem)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -5171,7 +5166,7 @@ public class Nmheaderw internal constructor(
             hdr: Nmhdr = Nmhdr(),
             iItem: Int = 0,
             iButton: HeaderControlNotificationButton = 0,
-            pitem: MutPtr<Hditemw> = MutPtr(0L),
+            pitem: MutPtr = MutPtr(0L),
         ): Nmheaderw =
             Nmheaderw(
                 hdr = hdr,
@@ -5493,15 +5488,15 @@ public data class Nmmouse(
 public class Nmobjectnotify internal constructor(
     public var hdr: Nmhdr,
     public var iItem: Int,
-    piidCtorArg: ConstPtr<Guid>,
-    pObjectCtorArg: MutPtr<CVoid>,
+    piidCtorArg: ConstPtr,
+    pObjectCtorArg: MutPtr,
     public var hResult: Hresult,
     public var dwFlags: UInt,
 ) {
-    public var piid: ConstPtr<Guid> = piidCtorArg
+    public var piid: ConstPtr = piidCtorArg
         internal set
 
-    public var pObject: MutPtr<CVoid> = pObjectCtorArg
+    public var pObject: MutPtr = pObjectCtorArg
         internal set
 
     public constructor() : this(
@@ -5517,15 +5512,15 @@ public class Nmobjectnotify internal constructor(
 
     public operator fun component2(): Int = this.iItem
 
-    public operator fun component3(): ConstPtr<Guid> = this.piid
+    public operator fun component3(): ConstPtr = this.piid
 
-    public operator fun component4(): MutPtr<CVoid> = this.pObject
+    public operator fun component4(): MutPtr = this.pObject
 
     public operator fun component5(): Hresult = this.hResult
 
     public operator fun component6(): UInt = this.dwFlags
 
-    public fun copy(hdr: Nmhdr = this.hdr, iItem: Int = this.iItem, piid: ConstPtr<Guid> = this.piid, pObject: MutPtr<CVoid> = this.pObject, hResult: Hresult = this.hResult, dwFlags: UInt = this.dwFlags): Nmobjectnotify = Nmobjectnotify(hdr = hdr, iItem = iItem, piidCtorArg = piid, pObjectCtorArg = pObject, hResult = hResult, dwFlags = dwFlags)
+    public fun copy(hdr: Nmhdr = this.hdr, iItem: Int = this.iItem, piid: ConstPtr = this.piid, pObject: MutPtr = this.pObject, hResult: Hresult = this.hResult, dwFlags: UInt = this.dwFlags): Nmobjectnotify = Nmobjectnotify(hdr = hdr, iItem = iItem, piidCtorArg = piid, pObjectCtorArg = pObject, hResult = hResult, dwFlags = dwFlags)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -5553,8 +5548,8 @@ public class Nmobjectnotify internal constructor(
         public operator fun invoke(
             hdr: Nmhdr = Nmhdr(),
             iItem: Int = 0,
-            piid: ConstPtr<Guid> = ConstPtr(0L),
-            pObject: MutPtr<CVoid> = MutPtr(0L),
+            piid: ConstPtr = ConstPtr(0L),
+            pObject: MutPtr = MutPtr(0L),
             hResult: Hresult = 0,
             dwFlags: UInt = 0u,
         ): Nmobjectnotify =
@@ -6113,18 +6108,18 @@ public data class Nmtbhotitem(
 
 public class Nmtbrestore internal constructor(
     public var hdr: Nmhdr,
-    pDataCtorArg: MutPtr<UInt>,
-    pCurrentCtorArg: MutPtr<UInt>,
+    pDataCtorArg: MutPtr,
+    pCurrentCtorArg: MutPtr,
     public var cbData: UInt,
     public var iItem: Int,
     public var cButtons: Int,
     public var cbBytesPerRecord: Int,
     public var tbButton: Tbbutton,
 ) {
-    public var pData: MutPtr<UInt> = pDataCtorArg
+    public var pData: MutPtr = pDataCtorArg
         internal set
 
-    public var pCurrent: MutPtr<UInt> = pCurrentCtorArg
+    public var pCurrent: MutPtr = pCurrentCtorArg
         internal set
 
     public constructor() : this(
@@ -6140,9 +6135,9 @@ public class Nmtbrestore internal constructor(
 
     public operator fun component1(): Nmhdr = this.hdr
 
-    public operator fun component2(): MutPtr<UInt> = this.pData
+    public operator fun component2(): MutPtr = this.pData
 
-    public operator fun component3(): MutPtr<UInt> = this.pCurrent
+    public operator fun component3(): MutPtr = this.pCurrent
 
     public operator fun component4(): UInt = this.cbData
 
@@ -6154,7 +6149,7 @@ public class Nmtbrestore internal constructor(
 
     public operator fun component8(): Tbbutton = this.tbButton
 
-    public fun copy(hdr: Nmhdr = this.hdr, pData: MutPtr<UInt> = this.pData, pCurrent: MutPtr<UInt> = this.pCurrent, cbData: UInt = this.cbData, iItem: Int = this.iItem, cButtons: Int = this.cButtons, cbBytesPerRecord: Int = this.cbBytesPerRecord, tbButton: Tbbutton = this.tbButton): Nmtbrestore = Nmtbrestore(hdr = hdr, pDataCtorArg = pData, pCurrentCtorArg = pCurrent, cbData = cbData, iItem = iItem, cButtons = cButtons, cbBytesPerRecord = cbBytesPerRecord, tbButton = tbButton)
+    public fun copy(hdr: Nmhdr = this.hdr, pData: MutPtr = this.pData, pCurrent: MutPtr = this.pCurrent, cbData: UInt = this.cbData, iItem: Int = this.iItem, cButtons: Int = this.cButtons, cbBytesPerRecord: Int = this.cbBytesPerRecord, tbButton: Tbbutton = this.tbButton): Nmtbrestore = Nmtbrestore(hdr = hdr, pDataCtorArg = pData, pCurrentCtorArg = pCurrent, cbData = cbData, iItem = iItem, cButtons = cButtons, cbBytesPerRecord = cbBytesPerRecord, tbButton = tbButton)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -6185,8 +6180,8 @@ public class Nmtbrestore internal constructor(
     public companion object {
         public operator fun invoke(
             hdr: Nmhdr = Nmhdr(),
-            pData: MutPtr<UInt> = MutPtr(0L),
-            pCurrent: MutPtr<UInt> = MutPtr(0L),
+            pData: MutPtr = MutPtr(0L),
+            pCurrent: MutPtr = MutPtr(0L),
             cbData: UInt = 0u,
             iItem: Int = 0,
             cButtons: Int = 0,
@@ -6208,17 +6203,17 @@ public class Nmtbrestore internal constructor(
 
 public class Nmtbsave internal constructor(
     public var hdr: Nmhdr,
-    pDataCtorArg: MutPtr<UInt>,
-    pCurrentCtorArg: MutPtr<UInt>,
+    pDataCtorArg: MutPtr,
+    pCurrentCtorArg: MutPtr,
     public var cbData: UInt,
     public var iItem: Int,
     public var cButtons: Int,
     public var tbButton: Tbbutton,
 ) {
-    public var pData: MutPtr<UInt> = pDataCtorArg
+    public var pData: MutPtr = pDataCtorArg
         internal set
 
-    public var pCurrent: MutPtr<UInt> = pCurrentCtorArg
+    public var pCurrent: MutPtr = pCurrentCtorArg
         internal set
 
     public constructor() : this(
@@ -6233,9 +6228,9 @@ public class Nmtbsave internal constructor(
 
     public operator fun component1(): Nmhdr = this.hdr
 
-    public operator fun component2(): MutPtr<UInt> = this.pData
+    public operator fun component2(): MutPtr = this.pData
 
-    public operator fun component3(): MutPtr<UInt> = this.pCurrent
+    public operator fun component3(): MutPtr = this.pCurrent
 
     public operator fun component4(): UInt = this.cbData
 
@@ -6245,7 +6240,7 @@ public class Nmtbsave internal constructor(
 
     public operator fun component7(): Tbbutton = this.tbButton
 
-    public fun copy(hdr: Nmhdr = this.hdr, pData: MutPtr<UInt> = this.pData, pCurrent: MutPtr<UInt> = this.pCurrent, cbData: UInt = this.cbData, iItem: Int = this.iItem, cButtons: Int = this.cButtons, tbButton: Tbbutton = this.tbButton): Nmtbsave = Nmtbsave(hdr = hdr, pDataCtorArg = pData, pCurrentCtorArg = pCurrent, cbData = cbData, iItem = iItem, cButtons = cButtons, tbButton = tbButton)
+    public fun copy(hdr: Nmhdr = this.hdr, pData: MutPtr = this.pData, pCurrent: MutPtr = this.pCurrent, cbData: UInt = this.cbData, iItem: Int = this.iItem, cButtons: Int = this.cButtons, tbButton: Tbbutton = this.tbButton): Nmtbsave = Nmtbsave(hdr = hdr, pDataCtorArg = pData, pCurrentCtorArg = pCurrent, cbData = cbData, iItem = iItem, cButtons = cButtons, tbButton = tbButton)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -6274,8 +6269,8 @@ public class Nmtbsave internal constructor(
     public companion object {
         public operator fun invoke(
             hdr: Nmhdr = Nmhdr(),
-            pData: MutPtr<UInt> = MutPtr(0L),
-            pCurrent: MutPtr<UInt> = MutPtr(0L),
+            pData: MutPtr = MutPtr(0L),
+            pCurrent: MutPtr = MutPtr(0L),
             cbData: UInt = 0u,
             iItem: Int = 0,
             cButtons: Int = 0,
@@ -6682,14 +6677,14 @@ public class Nmttdispinfow internal constructor(
 
 public class Nmtvasyncdraw internal constructor(
     public var hdr: Nmhdr,
-    pimldpCtorArg: MutPtr<Imagelistdrawparams>,
+    pimldpCtorArg: MutPtr,
     public var hr: Hresult,
     public var hItem: Htreeitem,
     public var lParam: Lparam,
     public var dwRetFlags: UInt,
     public var iRetImageIndex: Int,
 ) {
-    public var pimldp: MutPtr<Imagelistdrawparams> = pimldpCtorArg
+    public var pimldp: MutPtr = pimldpCtorArg
         internal set
 
     public constructor() : this(
@@ -6704,7 +6699,7 @@ public class Nmtvasyncdraw internal constructor(
 
     public operator fun component1(): Nmhdr = this.hdr
 
-    public operator fun component2(): MutPtr<Imagelistdrawparams> = this.pimldp
+    public operator fun component2(): MutPtr = this.pimldp
 
     public operator fun component3(): Hresult = this.hr
 
@@ -6716,7 +6711,7 @@ public class Nmtvasyncdraw internal constructor(
 
     public operator fun component7(): Int = this.iRetImageIndex
 
-    public fun copy(hdr: Nmhdr = this.hdr, pimldp: MutPtr<Imagelistdrawparams> = this.pimldp, hr: Hresult = this.hr, hItem: Htreeitem = this.hItem, lParam: Lparam = this.lParam, dwRetFlags: UInt = this.dwRetFlags, iRetImageIndex: Int = this.iRetImageIndex): Nmtvasyncdraw = Nmtvasyncdraw(hdr = hdr, pimldpCtorArg = pimldp, hr = hr, hItem = hItem, lParam = lParam, dwRetFlags = dwRetFlags, iRetImageIndex = iRetImageIndex)
+    public fun copy(hdr: Nmhdr = this.hdr, pimldp: MutPtr = this.pimldp, hr: Hresult = this.hr, hItem: Htreeitem = this.hItem, lParam: Lparam = this.lParam, dwRetFlags: UInt = this.dwRetFlags, iRetImageIndex: Int = this.iRetImageIndex): Nmtvasyncdraw = Nmtvasyncdraw(hdr = hdr, pimldpCtorArg = pimldp, hr = hr, hItem = hItem, lParam = lParam, dwRetFlags = dwRetFlags, iRetImageIndex = iRetImageIndex)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -6745,7 +6740,7 @@ public class Nmtvasyncdraw internal constructor(
     public companion object {
         public operator fun invoke(
             hdr: Nmhdr = Nmhdr(),
-            pimldp: MutPtr<Imagelistdrawparams> = MutPtr(0L),
+            pimldp: MutPtr = MutPtr(0L),
             hr: Hresult = 0,
             hItem: Htreeitem = 0,
             lParam: Lparam = 0L,
@@ -7348,13 +7343,13 @@ public class PropsheetheaderaV11 internal constructor(
 }
 
 public class PropsheetheaderaV12 internal constructor(
-    ppspCtorArg: MutPtr<Propsheetpagea>,
-    phpageCtorArg: MutPtr<Hpropsheetpage>,
+    ppspCtorArg: MutPtr,
+    phpageCtorArg: MutPtr,
 ) {
-    public var ppsp: MutPtr<Propsheetpagea> = ppspCtorArg
+    public var ppsp: MutPtr = ppspCtorArg
         internal set
 
-    public var phpage: MutPtr<Hpropsheetpage> = phpageCtorArg
+    public var phpage: MutPtr = phpageCtorArg
         internal set
 
     public constructor() : this(
@@ -7362,11 +7357,11 @@ public class PropsheetheaderaV12 internal constructor(
         phpageCtorArg = MutPtr(0L),
     )
 
-    public operator fun component1(): MutPtr<Propsheetpagea> = this.ppsp
+    public operator fun component1(): MutPtr = this.ppsp
 
-    public operator fun component2(): MutPtr<Hpropsheetpage> = this.phpage
+    public operator fun component2(): MutPtr = this.phpage
 
-    public fun copy(ppsp: MutPtr<Propsheetpagea> = this.ppsp, phpage: MutPtr<Hpropsheetpage> = this.phpage): PropsheetheaderaV12 = PropsheetheaderaV12(ppspCtorArg = ppsp, phpageCtorArg = phpage)
+    public fun copy(ppsp: MutPtr = this.ppsp, phpage: MutPtr = this.phpage): PropsheetheaderaV12 = PropsheetheaderaV12(ppspCtorArg = ppsp, phpageCtorArg = phpage)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -7384,8 +7379,8 @@ public class PropsheetheaderaV12 internal constructor(
 
     public companion object {
         public operator fun invoke(
-            ppsp: MutPtr<Propsheetpagea> = MutPtr(0L),
-            phpage: MutPtr<Hpropsheetpage> = MutPtr(0L),
+            ppsp: MutPtr = MutPtr(0L),
+            phpage: MutPtr = MutPtr(0L),
         ): PropsheetheaderaV12 =
             PropsheetheaderaV12(
                 ppspCtorArg = ppsp,
@@ -7627,13 +7622,13 @@ public class PropsheetheaderaV21 internal constructor(
 }
 
 public class PropsheetheaderaV22 internal constructor(
-    ppspCtorArg: MutPtr<Propsheetpagea>,
-    phpageCtorArg: MutPtr<Hpropsheetpage>,
+    ppspCtorArg: MutPtr,
+    phpageCtorArg: MutPtr,
 ) {
-    public var ppsp: MutPtr<Propsheetpagea> = ppspCtorArg
+    public var ppsp: MutPtr = ppspCtorArg
         internal set
 
-    public var phpage: MutPtr<Hpropsheetpage> = phpageCtorArg
+    public var phpage: MutPtr = phpageCtorArg
         internal set
 
     public constructor() : this(
@@ -7641,11 +7636,11 @@ public class PropsheetheaderaV22 internal constructor(
         phpageCtorArg = MutPtr(0L),
     )
 
-    public operator fun component1(): MutPtr<Propsheetpagea> = this.ppsp
+    public operator fun component1(): MutPtr = this.ppsp
 
-    public operator fun component2(): MutPtr<Hpropsheetpage> = this.phpage
+    public operator fun component2(): MutPtr = this.phpage
 
-    public fun copy(ppsp: MutPtr<Propsheetpagea> = this.ppsp, phpage: MutPtr<Hpropsheetpage> = this.phpage): PropsheetheaderaV22 = PropsheetheaderaV22(ppspCtorArg = ppsp, phpageCtorArg = phpage)
+    public fun copy(ppsp: MutPtr = this.ppsp, phpage: MutPtr = this.phpage): PropsheetheaderaV22 = PropsheetheaderaV22(ppspCtorArg = ppsp, phpageCtorArg = phpage)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -7663,8 +7658,8 @@ public class PropsheetheaderaV22 internal constructor(
 
     public companion object {
         public operator fun invoke(
-            ppsp: MutPtr<Propsheetpagea> = MutPtr(0L),
-            phpage: MutPtr<Hpropsheetpage> = MutPtr(0L),
+            ppsp: MutPtr = MutPtr(0L),
+            phpage: MutPtr = MutPtr(0L),
         ): PropsheetheaderaV22 =
             PropsheetheaderaV22(
                 ppspCtorArg = ppsp,
@@ -7973,13 +7968,13 @@ public class PropsheetheaderwV11 internal constructor(
 }
 
 public class PropsheetheaderwV12 internal constructor(
-    ppspCtorArg: MutPtr<Propsheetpagew>,
-    phpageCtorArg: MutPtr<Hpropsheetpage>,
+    ppspCtorArg: MutPtr,
+    phpageCtorArg: MutPtr,
 ) {
-    public var ppsp: MutPtr<Propsheetpagew> = ppspCtorArg
+    public var ppsp: MutPtr = ppspCtorArg
         internal set
 
-    public var phpage: MutPtr<Hpropsheetpage> = phpageCtorArg
+    public var phpage: MutPtr = phpageCtorArg
         internal set
 
     public constructor() : this(
@@ -7987,11 +7982,11 @@ public class PropsheetheaderwV12 internal constructor(
         phpageCtorArg = MutPtr(0L),
     )
 
-    public operator fun component1(): MutPtr<Propsheetpagew> = this.ppsp
+    public operator fun component1(): MutPtr = this.ppsp
 
-    public operator fun component2(): MutPtr<Hpropsheetpage> = this.phpage
+    public operator fun component2(): MutPtr = this.phpage
 
-    public fun copy(ppsp: MutPtr<Propsheetpagew> = this.ppsp, phpage: MutPtr<Hpropsheetpage> = this.phpage): PropsheetheaderwV12 = PropsheetheaderwV12(ppspCtorArg = ppsp, phpageCtorArg = phpage)
+    public fun copy(ppsp: MutPtr = this.ppsp, phpage: MutPtr = this.phpage): PropsheetheaderwV12 = PropsheetheaderwV12(ppspCtorArg = ppsp, phpageCtorArg = phpage)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -8009,8 +8004,8 @@ public class PropsheetheaderwV12 internal constructor(
 
     public companion object {
         public operator fun invoke(
-            ppsp: MutPtr<Propsheetpagew> = MutPtr(0L),
-            phpage: MutPtr<Hpropsheetpage> = MutPtr(0L),
+            ppsp: MutPtr = MutPtr(0L),
+            phpage: MutPtr = MutPtr(0L),
         ): PropsheetheaderwV12 =
             PropsheetheaderwV12(
                 ppspCtorArg = ppsp,
@@ -8252,13 +8247,13 @@ public class PropsheetheaderwV21 internal constructor(
 }
 
 public class PropsheetheaderwV22 internal constructor(
-    ppspCtorArg: MutPtr<Propsheetpagew>,
-    phpageCtorArg: MutPtr<Hpropsheetpage>,
+    ppspCtorArg: MutPtr,
+    phpageCtorArg: MutPtr,
 ) {
-    public var ppsp: MutPtr<Propsheetpagew> = ppspCtorArg
+    public var ppsp: MutPtr = ppspCtorArg
         internal set
 
-    public var phpage: MutPtr<Hpropsheetpage> = phpageCtorArg
+    public var phpage: MutPtr = phpageCtorArg
         internal set
 
     public constructor() : this(
@@ -8266,11 +8261,11 @@ public class PropsheetheaderwV22 internal constructor(
         phpageCtorArg = MutPtr(0L),
     )
 
-    public operator fun component1(): MutPtr<Propsheetpagew> = this.ppsp
+    public operator fun component1(): MutPtr = this.ppsp
 
-    public operator fun component2(): MutPtr<Hpropsheetpage> = this.phpage
+    public operator fun component2(): MutPtr = this.phpage
 
-    public fun copy(ppsp: MutPtr<Propsheetpagew> = this.ppsp, phpage: MutPtr<Hpropsheetpage> = this.phpage): PropsheetheaderwV22 = PropsheetheaderwV22(ppspCtorArg = ppsp, phpageCtorArg = phpage)
+    public fun copy(ppsp: MutPtr = this.ppsp, phpage: MutPtr = this.phpage): PropsheetheaderwV22 = PropsheetheaderwV22(ppspCtorArg = ppsp, phpageCtorArg = phpage)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -8288,8 +8283,8 @@ public class PropsheetheaderwV22 internal constructor(
 
     public companion object {
         public operator fun invoke(
-            ppsp: MutPtr<Propsheetpagew> = MutPtr(0L),
-            phpage: MutPtr<Hpropsheetpage> = MutPtr(0L),
+            ppsp: MutPtr = MutPtr(0L),
+            phpage: MutPtr = MutPtr(0L),
         ): PropsheetheaderwV22 =
             PropsheetheaderwV22(
                 ppspCtorArg = ppsp,
@@ -8402,7 +8397,7 @@ public class Propsheetpagea internal constructor(
     public var pfnDlgProc: Dlgproc,
     public var lParam: Lparam,
     public var pfnCallback: Lpfnpspcallbacka,
-    pcRefParentCtorArg: MutPtr<UInt>,
+    pcRefParentCtorArg: MutPtr,
     pszHeaderTitleCtorArg: Pcstr,
     pszHeaderSubTitleCtorArg: Pcstr,
     hActCtxCtorArg: Handle,
@@ -8414,7 +8409,7 @@ public class Propsheetpagea internal constructor(
     public var pszTitle: Pcstr = pszTitleCtorArg
         internal set
 
-    public var pcRefParent: MutPtr<UInt> = pcRefParentCtorArg
+    public var pcRefParent: MutPtr = pcRefParentCtorArg
         internal set
 
     public var pszHeaderTitle: Pcstr = pszHeaderTitleCtorArg
@@ -8461,7 +8456,7 @@ public class Propsheetpagea internal constructor(
 
     public operator fun component9(): Lpfnpspcallbacka = this.pfnCallback
 
-    public operator fun component10(): MutPtr<UInt> = this.pcRefParent
+    public operator fun component10(): MutPtr = this.pcRefParent
 
     public operator fun component11(): Pcstr = this.pszHeaderTitle
 
@@ -8471,7 +8466,7 @@ public class Propsheetpagea internal constructor(
 
     public operator fun component14(): Propsheetpagea2 = this.anonymous3
 
-    public fun copy(dwSize: UInt = this.dwSize, dwFlags: UInt = this.dwFlags, hInstance: Hinstance = this.hInstance, anonymous1: Propsheetpagea0 = this.anonymous1, anonymous2: Propsheetpagea1 = this.anonymous2, pszTitle: Pcstr = this.pszTitle, pfnDlgProc: Dlgproc = this.pfnDlgProc, lParam: Lparam = this.lParam, pfnCallback: Lpfnpspcallbacka = this.pfnCallback, pcRefParent: MutPtr<UInt> = this.pcRefParent, pszHeaderTitle: Pcstr = this.pszHeaderTitle, pszHeaderSubTitle: Pcstr = this.pszHeaderSubTitle, hActCtx: Handle = this.hActCtx, anonymous3: Propsheetpagea2 = this.anonymous3): Propsheetpagea = Propsheetpagea(dwSize = dwSize, dwFlags = dwFlags, hInstanceCtorArg = hInstance, anonymous1 = anonymous1, anonymous2 = anonymous2, pszTitleCtorArg = pszTitle, pfnDlgProc = pfnDlgProc, lParam = lParam, pfnCallback = pfnCallback, pcRefParentCtorArg = pcRefParent, pszHeaderTitleCtorArg = pszHeaderTitle, pszHeaderSubTitleCtorArg = pszHeaderSubTitle, hActCtxCtorArg = hActCtx, anonymous3 = anonymous3)
+    public fun copy(dwSize: UInt = this.dwSize, dwFlags: UInt = this.dwFlags, hInstance: Hinstance = this.hInstance, anonymous1: Propsheetpagea0 = this.anonymous1, anonymous2: Propsheetpagea1 = this.anonymous2, pszTitle: Pcstr = this.pszTitle, pfnDlgProc: Dlgproc = this.pfnDlgProc, lParam: Lparam = this.lParam, pfnCallback: Lpfnpspcallbacka = this.pfnCallback, pcRefParent: MutPtr = this.pcRefParent, pszHeaderTitle: Pcstr = this.pszHeaderTitle, pszHeaderSubTitle: Pcstr = this.pszHeaderSubTitle, hActCtx: Handle = this.hActCtx, anonymous3: Propsheetpagea2 = this.anonymous3): Propsheetpagea = Propsheetpagea(dwSize = dwSize, dwFlags = dwFlags, hInstanceCtorArg = hInstance, anonymous1 = anonymous1, anonymous2 = anonymous2, pszTitleCtorArg = pszTitle, pfnDlgProc = pfnDlgProc, lParam = lParam, pfnCallback = pfnCallback, pcRefParentCtorArg = pcRefParent, pszHeaderTitleCtorArg = pszHeaderTitle, pszHeaderSubTitleCtorArg = pszHeaderSubTitle, hActCtxCtorArg = hActCtx, anonymous3 = anonymous3)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -8522,7 +8517,7 @@ public class Propsheetpagea internal constructor(
             pfnDlgProc: Dlgproc = null,
             lParam: Lparam = 0L,
             pfnCallback: Lpfnpspcallbacka = null,
-            pcRefParent: MutPtr<UInt> = MutPtr(0L),
+            pcRefParent: MutPtr = MutPtr(0L),
             pszHeaderTitle: Pcstr = ConstPtr(0L),
             pszHeaderSubTitle: Pcstr = ConstPtr(0L),
             hActCtx: Handle = MutPtr(0L),
@@ -8549,12 +8544,12 @@ public class Propsheetpagea internal constructor(
 
 public class Propsheetpagea0 internal constructor(
     pszTemplateCtorArg: Pcstr,
-    pResourceCtorArg: MutPtr<Dlgtemplate>,
+    pResourceCtorArg: MutPtr,
 ) {
     public var pszTemplate: Pcstr = pszTemplateCtorArg
         internal set
 
-    public var pResource: MutPtr<Dlgtemplate> = pResourceCtorArg
+    public var pResource: MutPtr = pResourceCtorArg
         internal set
 
     public constructor() : this(
@@ -8564,9 +8559,9 @@ public class Propsheetpagea0 internal constructor(
 
     public operator fun component1(): Pcstr = this.pszTemplate
 
-    public operator fun component2(): MutPtr<Dlgtemplate> = this.pResource
+    public operator fun component2(): MutPtr = this.pResource
 
-    public fun copy(pszTemplate: Pcstr = this.pszTemplate, pResource: MutPtr<Dlgtemplate> = this.pResource): Propsheetpagea0 = Propsheetpagea0(pszTemplateCtorArg = pszTemplate, pResourceCtorArg = pResource)
+    public fun copy(pszTemplate: Pcstr = this.pszTemplate, pResource: MutPtr = this.pResource): Propsheetpagea0 = Propsheetpagea0(pszTemplateCtorArg = pszTemplate, pResourceCtorArg = pResource)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -8585,7 +8580,7 @@ public class Propsheetpagea0 internal constructor(
     public companion object {
         public operator fun invoke(
             pszTemplate: Pcstr = ConstPtr(0L),
-            pResource: MutPtr<Dlgtemplate> = MutPtr(0L),
+            pResource: MutPtr = MutPtr(0L),
         ): Propsheetpagea0 =
             Propsheetpagea0(
                 pszTemplateCtorArg = pszTemplate,
@@ -8698,7 +8693,7 @@ public class PropsheetpageaV1 internal constructor(
     public var pfnDlgProc: Dlgproc,
     public var lParam: Lparam,
     public var pfnCallback: Lpfnpspcallbacka,
-    pcRefParentCtorArg: MutPtr<UInt>,
+    pcRefParentCtorArg: MutPtr,
 ) {
     public var hInstance: Hinstance = hInstanceCtorArg
         internal set
@@ -8706,7 +8701,7 @@ public class PropsheetpageaV1 internal constructor(
     public var pszTitle: Pcstr = pszTitleCtorArg
         internal set
 
-    public var pcRefParent: MutPtr<UInt> = pcRefParentCtorArg
+    public var pcRefParent: MutPtr = pcRefParentCtorArg
         internal set
 
     public constructor() : this(
@@ -8740,9 +8735,9 @@ public class PropsheetpageaV1 internal constructor(
 
     public operator fun component9(): Lpfnpspcallbacka = this.pfnCallback
 
-    public operator fun component10(): MutPtr<UInt> = this.pcRefParent
+    public operator fun component10(): MutPtr = this.pcRefParent
 
-    public fun copy(dwSize: UInt = this.dwSize, dwFlags: UInt = this.dwFlags, hInstance: Hinstance = this.hInstance, anonymous1: PropsheetpageaV10 = this.anonymous1, anonymous2: PropsheetpageaV11 = this.anonymous2, pszTitle: Pcstr = this.pszTitle, pfnDlgProc: Dlgproc = this.pfnDlgProc, lParam: Lparam = this.lParam, pfnCallback: Lpfnpspcallbacka = this.pfnCallback, pcRefParent: MutPtr<UInt> = this.pcRefParent): PropsheetpageaV1 = PropsheetpageaV1(dwSize = dwSize, dwFlags = dwFlags, hInstanceCtorArg = hInstance, anonymous1 = anonymous1, anonymous2 = anonymous2, pszTitleCtorArg = pszTitle, pfnDlgProc = pfnDlgProc, lParam = lParam, pfnCallback = pfnCallback, pcRefParentCtorArg = pcRefParent)
+    public fun copy(dwSize: UInt = this.dwSize, dwFlags: UInt = this.dwFlags, hInstance: Hinstance = this.hInstance, anonymous1: PropsheetpageaV10 = this.anonymous1, anonymous2: PropsheetpageaV11 = this.anonymous2, pszTitle: Pcstr = this.pszTitle, pfnDlgProc: Dlgproc = this.pfnDlgProc, lParam: Lparam = this.lParam, pfnCallback: Lpfnpspcallbacka = this.pfnCallback, pcRefParent: MutPtr = this.pcRefParent): PropsheetpageaV1 = PropsheetpageaV1(dwSize = dwSize, dwFlags = dwFlags, hInstanceCtorArg = hInstance, anonymous1 = anonymous1, anonymous2 = anonymous2, pszTitleCtorArg = pszTitle, pfnDlgProc = pfnDlgProc, lParam = lParam, pfnCallback = pfnCallback, pcRefParentCtorArg = pcRefParent)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -8785,7 +8780,7 @@ public class PropsheetpageaV1 internal constructor(
             pfnDlgProc: Dlgproc = null,
             lParam: Lparam = 0L,
             pfnCallback: Lpfnpspcallbacka = null,
-            pcRefParent: MutPtr<UInt> = MutPtr(0L),
+            pcRefParent: MutPtr = MutPtr(0L),
         ): PropsheetpageaV1 =
             PropsheetpageaV1(
                 dwSize = dwSize,
@@ -8804,12 +8799,12 @@ public class PropsheetpageaV1 internal constructor(
 
 public class PropsheetpageaV10 internal constructor(
     pszTemplateCtorArg: Pcstr,
-    pResourceCtorArg: MutPtr<Dlgtemplate>,
+    pResourceCtorArg: MutPtr,
 ) {
     public var pszTemplate: Pcstr = pszTemplateCtorArg
         internal set
 
-    public var pResource: MutPtr<Dlgtemplate> = pResourceCtorArg
+    public var pResource: MutPtr = pResourceCtorArg
         internal set
 
     public constructor() : this(
@@ -8819,9 +8814,9 @@ public class PropsheetpageaV10 internal constructor(
 
     public operator fun component1(): Pcstr = this.pszTemplate
 
-    public operator fun component2(): MutPtr<Dlgtemplate> = this.pResource
+    public operator fun component2(): MutPtr = this.pResource
 
-    public fun copy(pszTemplate: Pcstr = this.pszTemplate, pResource: MutPtr<Dlgtemplate> = this.pResource): PropsheetpageaV10 = PropsheetpageaV10(pszTemplateCtorArg = pszTemplate, pResourceCtorArg = pResource)
+    public fun copy(pszTemplate: Pcstr = this.pszTemplate, pResource: MutPtr = this.pResource): PropsheetpageaV10 = PropsheetpageaV10(pszTemplateCtorArg = pszTemplate, pResourceCtorArg = pResource)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -8840,7 +8835,7 @@ public class PropsheetpageaV10 internal constructor(
     public companion object {
         public operator fun invoke(
             pszTemplate: Pcstr = ConstPtr(0L),
-            pResource: MutPtr<Dlgtemplate> = MutPtr(0L),
+            pResource: MutPtr = MutPtr(0L),
         ): PropsheetpageaV10 =
             PropsheetpageaV10(
                 pszTemplateCtorArg = pszTemplate,
@@ -8906,7 +8901,7 @@ public class PropsheetpageaV2 internal constructor(
     public var pfnDlgProc: Dlgproc,
     public var lParam: Lparam,
     public var pfnCallback: Lpfnpspcallbacka,
-    pcRefParentCtorArg: MutPtr<UInt>,
+    pcRefParentCtorArg: MutPtr,
     pszHeaderTitleCtorArg: Pcstr,
     pszHeaderSubTitleCtorArg: Pcstr,
 ) {
@@ -8916,7 +8911,7 @@ public class PropsheetpageaV2 internal constructor(
     public var pszTitle: Pcstr = pszTitleCtorArg
         internal set
 
-    public var pcRefParent: MutPtr<UInt> = pcRefParentCtorArg
+    public var pcRefParent: MutPtr = pcRefParentCtorArg
         internal set
 
     public var pszHeaderTitle: Pcstr = pszHeaderTitleCtorArg
@@ -8958,13 +8953,13 @@ public class PropsheetpageaV2 internal constructor(
 
     public operator fun component9(): Lpfnpspcallbacka = this.pfnCallback
 
-    public operator fun component10(): MutPtr<UInt> = this.pcRefParent
+    public operator fun component10(): MutPtr = this.pcRefParent
 
     public operator fun component11(): Pcstr = this.pszHeaderTitle
 
     public operator fun component12(): Pcstr = this.pszHeaderSubTitle
 
-    public fun copy(dwSize: UInt = this.dwSize, dwFlags: UInt = this.dwFlags, hInstance: Hinstance = this.hInstance, anonymous1: PropsheetpageaV20 = this.anonymous1, anonymous2: PropsheetpageaV21 = this.anonymous2, pszTitle: Pcstr = this.pszTitle, pfnDlgProc: Dlgproc = this.pfnDlgProc, lParam: Lparam = this.lParam, pfnCallback: Lpfnpspcallbacka = this.pfnCallback, pcRefParent: MutPtr<UInt> = this.pcRefParent, pszHeaderTitle: Pcstr = this.pszHeaderTitle, pszHeaderSubTitle: Pcstr = this.pszHeaderSubTitle): PropsheetpageaV2 = PropsheetpageaV2(dwSize = dwSize, dwFlags = dwFlags, hInstanceCtorArg = hInstance, anonymous1 = anonymous1, anonymous2 = anonymous2, pszTitleCtorArg = pszTitle, pfnDlgProc = pfnDlgProc, lParam = lParam, pfnCallback = pfnCallback, pcRefParentCtorArg = pcRefParent, pszHeaderTitleCtorArg = pszHeaderTitle, pszHeaderSubTitleCtorArg = pszHeaderSubTitle)
+    public fun copy(dwSize: UInt = this.dwSize, dwFlags: UInt = this.dwFlags, hInstance: Hinstance = this.hInstance, anonymous1: PropsheetpageaV20 = this.anonymous1, anonymous2: PropsheetpageaV21 = this.anonymous2, pszTitle: Pcstr = this.pszTitle, pfnDlgProc: Dlgproc = this.pfnDlgProc, lParam: Lparam = this.lParam, pfnCallback: Lpfnpspcallbacka = this.pfnCallback, pcRefParent: MutPtr = this.pcRefParent, pszHeaderTitle: Pcstr = this.pszHeaderTitle, pszHeaderSubTitle: Pcstr = this.pszHeaderSubTitle): PropsheetpageaV2 = PropsheetpageaV2(dwSize = dwSize, dwFlags = dwFlags, hInstanceCtorArg = hInstance, anonymous1 = anonymous1, anonymous2 = anonymous2, pszTitleCtorArg = pszTitle, pfnDlgProc = pfnDlgProc, lParam = lParam, pfnCallback = pfnCallback, pcRefParentCtorArg = pcRefParent, pszHeaderTitleCtorArg = pszHeaderTitle, pszHeaderSubTitleCtorArg = pszHeaderSubTitle)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -9011,7 +9006,7 @@ public class PropsheetpageaV2 internal constructor(
             pfnDlgProc: Dlgproc = null,
             lParam: Lparam = 0L,
             pfnCallback: Lpfnpspcallbacka = null,
-            pcRefParent: MutPtr<UInt> = MutPtr(0L),
+            pcRefParent: MutPtr = MutPtr(0L),
             pszHeaderTitle: Pcstr = ConstPtr(0L),
             pszHeaderSubTitle: Pcstr = ConstPtr(0L),
         ): PropsheetpageaV2 =
@@ -9034,12 +9029,12 @@ public class PropsheetpageaV2 internal constructor(
 
 public class PropsheetpageaV20 internal constructor(
     pszTemplateCtorArg: Pcstr,
-    pResourceCtorArg: MutPtr<Dlgtemplate>,
+    pResourceCtorArg: MutPtr,
 ) {
     public var pszTemplate: Pcstr = pszTemplateCtorArg
         internal set
 
-    public var pResource: MutPtr<Dlgtemplate> = pResourceCtorArg
+    public var pResource: MutPtr = pResourceCtorArg
         internal set
 
     public constructor() : this(
@@ -9049,9 +9044,9 @@ public class PropsheetpageaV20 internal constructor(
 
     public operator fun component1(): Pcstr = this.pszTemplate
 
-    public operator fun component2(): MutPtr<Dlgtemplate> = this.pResource
+    public operator fun component2(): MutPtr = this.pResource
 
-    public fun copy(pszTemplate: Pcstr = this.pszTemplate, pResource: MutPtr<Dlgtemplate> = this.pResource): PropsheetpageaV20 = PropsheetpageaV20(pszTemplateCtorArg = pszTemplate, pResourceCtorArg = pResource)
+    public fun copy(pszTemplate: Pcstr = this.pszTemplate, pResource: MutPtr = this.pResource): PropsheetpageaV20 = PropsheetpageaV20(pszTemplateCtorArg = pszTemplate, pResourceCtorArg = pResource)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -9070,7 +9065,7 @@ public class PropsheetpageaV20 internal constructor(
     public companion object {
         public operator fun invoke(
             pszTemplate: Pcstr = ConstPtr(0L),
-            pResource: MutPtr<Dlgtemplate> = MutPtr(0L),
+            pResource: MutPtr = MutPtr(0L),
         ): PropsheetpageaV20 =
             PropsheetpageaV20(
                 pszTemplateCtorArg = pszTemplate,
@@ -9136,7 +9131,7 @@ public class PropsheetpageaV3 internal constructor(
     public var pfnDlgProc: Dlgproc,
     public var lParam: Lparam,
     public var pfnCallback: Lpfnpspcallbacka,
-    pcRefParentCtorArg: MutPtr<UInt>,
+    pcRefParentCtorArg: MutPtr,
     pszHeaderTitleCtorArg: Pcstr,
     pszHeaderSubTitleCtorArg: Pcstr,
     hActCtxCtorArg: Handle,
@@ -9147,7 +9142,7 @@ public class PropsheetpageaV3 internal constructor(
     public var pszTitle: Pcstr = pszTitleCtorArg
         internal set
 
-    public var pcRefParent: MutPtr<UInt> = pcRefParentCtorArg
+    public var pcRefParent: MutPtr = pcRefParentCtorArg
         internal set
 
     public var pszHeaderTitle: Pcstr = pszHeaderTitleCtorArg
@@ -9193,7 +9188,7 @@ public class PropsheetpageaV3 internal constructor(
 
     public operator fun component9(): Lpfnpspcallbacka = this.pfnCallback
 
-    public operator fun component10(): MutPtr<UInt> = this.pcRefParent
+    public operator fun component10(): MutPtr = this.pcRefParent
 
     public operator fun component11(): Pcstr = this.pszHeaderTitle
 
@@ -9201,7 +9196,7 @@ public class PropsheetpageaV3 internal constructor(
 
     public operator fun component13(): Handle = this.hActCtx
 
-    public fun copy(dwSize: UInt = this.dwSize, dwFlags: UInt = this.dwFlags, hInstance: Hinstance = this.hInstance, anonymous1: PropsheetpageaV30 = this.anonymous1, anonymous2: PropsheetpageaV31 = this.anonymous2, pszTitle: Pcstr = this.pszTitle, pfnDlgProc: Dlgproc = this.pfnDlgProc, lParam: Lparam = this.lParam, pfnCallback: Lpfnpspcallbacka = this.pfnCallback, pcRefParent: MutPtr<UInt> = this.pcRefParent, pszHeaderTitle: Pcstr = this.pszHeaderTitle, pszHeaderSubTitle: Pcstr = this.pszHeaderSubTitle, hActCtx: Handle = this.hActCtx): PropsheetpageaV3 = PropsheetpageaV3(dwSize = dwSize, dwFlags = dwFlags, hInstanceCtorArg = hInstance, anonymous1 = anonymous1, anonymous2 = anonymous2, pszTitleCtorArg = pszTitle, pfnDlgProc = pfnDlgProc, lParam = lParam, pfnCallback = pfnCallback, pcRefParentCtorArg = pcRefParent, pszHeaderTitleCtorArg = pszHeaderTitle, pszHeaderSubTitleCtorArg = pszHeaderSubTitle, hActCtxCtorArg = hActCtx)
+    public fun copy(dwSize: UInt = this.dwSize, dwFlags: UInt = this.dwFlags, hInstance: Hinstance = this.hInstance, anonymous1: PropsheetpageaV30 = this.anonymous1, anonymous2: PropsheetpageaV31 = this.anonymous2, pszTitle: Pcstr = this.pszTitle, pfnDlgProc: Dlgproc = this.pfnDlgProc, lParam: Lparam = this.lParam, pfnCallback: Lpfnpspcallbacka = this.pfnCallback, pcRefParent: MutPtr = this.pcRefParent, pszHeaderTitle: Pcstr = this.pszHeaderTitle, pszHeaderSubTitle: Pcstr = this.pszHeaderSubTitle, hActCtx: Handle = this.hActCtx): PropsheetpageaV3 = PropsheetpageaV3(dwSize = dwSize, dwFlags = dwFlags, hInstanceCtorArg = hInstance, anonymous1 = anonymous1, anonymous2 = anonymous2, pszTitleCtorArg = pszTitle, pfnDlgProc = pfnDlgProc, lParam = lParam, pfnCallback = pfnCallback, pcRefParentCtorArg = pcRefParent, pszHeaderTitleCtorArg = pszHeaderTitle, pszHeaderSubTitleCtorArg = pszHeaderSubTitle, hActCtxCtorArg = hActCtx)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -9250,7 +9245,7 @@ public class PropsheetpageaV3 internal constructor(
             pfnDlgProc: Dlgproc = null,
             lParam: Lparam = 0L,
             pfnCallback: Lpfnpspcallbacka = null,
-            pcRefParent: MutPtr<UInt> = MutPtr(0L),
+            pcRefParent: MutPtr = MutPtr(0L),
             pszHeaderTitle: Pcstr = ConstPtr(0L),
             pszHeaderSubTitle: Pcstr = ConstPtr(0L),
             hActCtx: Handle = MutPtr(0L),
@@ -9275,12 +9270,12 @@ public class PropsheetpageaV3 internal constructor(
 
 public class PropsheetpageaV30 internal constructor(
     pszTemplateCtorArg: Pcstr,
-    pResourceCtorArg: MutPtr<Dlgtemplate>,
+    pResourceCtorArg: MutPtr,
 ) {
     public var pszTemplate: Pcstr = pszTemplateCtorArg
         internal set
 
-    public var pResource: MutPtr<Dlgtemplate> = pResourceCtorArg
+    public var pResource: MutPtr = pResourceCtorArg
         internal set
 
     public constructor() : this(
@@ -9290,9 +9285,9 @@ public class PropsheetpageaV30 internal constructor(
 
     public operator fun component1(): Pcstr = this.pszTemplate
 
-    public operator fun component2(): MutPtr<Dlgtemplate> = this.pResource
+    public operator fun component2(): MutPtr = this.pResource
 
-    public fun copy(pszTemplate: Pcstr = this.pszTemplate, pResource: MutPtr<Dlgtemplate> = this.pResource): PropsheetpageaV30 = PropsheetpageaV30(pszTemplateCtorArg = pszTemplate, pResourceCtorArg = pResource)
+    public fun copy(pszTemplate: Pcstr = this.pszTemplate, pResource: MutPtr = this.pResource): PropsheetpageaV30 = PropsheetpageaV30(pszTemplateCtorArg = pszTemplate, pResourceCtorArg = pResource)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -9311,7 +9306,7 @@ public class PropsheetpageaV30 internal constructor(
     public companion object {
         public operator fun invoke(
             pszTemplate: Pcstr = ConstPtr(0L),
-            pResource: MutPtr<Dlgtemplate> = MutPtr(0L),
+            pResource: MutPtr = MutPtr(0L),
         ): PropsheetpageaV30 =
             PropsheetpageaV30(
                 pszTemplateCtorArg = pszTemplate,
@@ -9377,7 +9372,7 @@ public class Propsheetpagew internal constructor(
     public var pfnDlgProc: Dlgproc,
     public var lParam: Lparam,
     public var pfnCallback: Lpfnpspcallbackw,
-    pcRefParentCtorArg: MutPtr<UInt>,
+    pcRefParentCtorArg: MutPtr,
     pszHeaderTitleCtorArg: Pcwstr,
     pszHeaderSubTitleCtorArg: Pcwstr,
     hActCtxCtorArg: Handle,
@@ -9389,7 +9384,7 @@ public class Propsheetpagew internal constructor(
     public var pszTitle: Pcwstr = pszTitleCtorArg
         internal set
 
-    public var pcRefParent: MutPtr<UInt> = pcRefParentCtorArg
+    public var pcRefParent: MutPtr = pcRefParentCtorArg
         internal set
 
     public var pszHeaderTitle: Pcwstr = pszHeaderTitleCtorArg
@@ -9436,7 +9431,7 @@ public class Propsheetpagew internal constructor(
 
     public operator fun component9(): Lpfnpspcallbackw = this.pfnCallback
 
-    public operator fun component10(): MutPtr<UInt> = this.pcRefParent
+    public operator fun component10(): MutPtr = this.pcRefParent
 
     public operator fun component11(): Pcwstr = this.pszHeaderTitle
 
@@ -9446,7 +9441,7 @@ public class Propsheetpagew internal constructor(
 
     public operator fun component14(): Propsheetpagew2 = this.anonymous3
 
-    public fun copy(dwSize: UInt = this.dwSize, dwFlags: UInt = this.dwFlags, hInstance: Hinstance = this.hInstance, anonymous1: Propsheetpagew0 = this.anonymous1, anonymous2: Propsheetpagew1 = this.anonymous2, pszTitle: Pcwstr = this.pszTitle, pfnDlgProc: Dlgproc = this.pfnDlgProc, lParam: Lparam = this.lParam, pfnCallback: Lpfnpspcallbackw = this.pfnCallback, pcRefParent: MutPtr<UInt> = this.pcRefParent, pszHeaderTitle: Pcwstr = this.pszHeaderTitle, pszHeaderSubTitle: Pcwstr = this.pszHeaderSubTitle, hActCtx: Handle = this.hActCtx, anonymous3: Propsheetpagew2 = this.anonymous3): Propsheetpagew = Propsheetpagew(dwSize = dwSize, dwFlags = dwFlags, hInstanceCtorArg = hInstance, anonymous1 = anonymous1, anonymous2 = anonymous2, pszTitleCtorArg = pszTitle, pfnDlgProc = pfnDlgProc, lParam = lParam, pfnCallback = pfnCallback, pcRefParentCtorArg = pcRefParent, pszHeaderTitleCtorArg = pszHeaderTitle, pszHeaderSubTitleCtorArg = pszHeaderSubTitle, hActCtxCtorArg = hActCtx, anonymous3 = anonymous3)
+    public fun copy(dwSize: UInt = this.dwSize, dwFlags: UInt = this.dwFlags, hInstance: Hinstance = this.hInstance, anonymous1: Propsheetpagew0 = this.anonymous1, anonymous2: Propsheetpagew1 = this.anonymous2, pszTitle: Pcwstr = this.pszTitle, pfnDlgProc: Dlgproc = this.pfnDlgProc, lParam: Lparam = this.lParam, pfnCallback: Lpfnpspcallbackw = this.pfnCallback, pcRefParent: MutPtr = this.pcRefParent, pszHeaderTitle: Pcwstr = this.pszHeaderTitle, pszHeaderSubTitle: Pcwstr = this.pszHeaderSubTitle, hActCtx: Handle = this.hActCtx, anonymous3: Propsheetpagew2 = this.anonymous3): Propsheetpagew = Propsheetpagew(dwSize = dwSize, dwFlags = dwFlags, hInstanceCtorArg = hInstance, anonymous1 = anonymous1, anonymous2 = anonymous2, pszTitleCtorArg = pszTitle, pfnDlgProc = pfnDlgProc, lParam = lParam, pfnCallback = pfnCallback, pcRefParentCtorArg = pcRefParent, pszHeaderTitleCtorArg = pszHeaderTitle, pszHeaderSubTitleCtorArg = pszHeaderSubTitle, hActCtxCtorArg = hActCtx, anonymous3 = anonymous3)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -9497,7 +9492,7 @@ public class Propsheetpagew internal constructor(
             pfnDlgProc: Dlgproc = null,
             lParam: Lparam = 0L,
             pfnCallback: Lpfnpspcallbackw = null,
-            pcRefParent: MutPtr<UInt> = MutPtr(0L),
+            pcRefParent: MutPtr = MutPtr(0L),
             pszHeaderTitle: Pcwstr = ConstPtr(0L),
             pszHeaderSubTitle: Pcwstr = ConstPtr(0L),
             hActCtx: Handle = MutPtr(0L),
@@ -9524,12 +9519,12 @@ public class Propsheetpagew internal constructor(
 
 public class Propsheetpagew0 internal constructor(
     pszTemplateCtorArg: Pcwstr,
-    pResourceCtorArg: MutPtr<Dlgtemplate>,
+    pResourceCtorArg: MutPtr,
 ) {
     public var pszTemplate: Pcwstr = pszTemplateCtorArg
         internal set
 
-    public var pResource: MutPtr<Dlgtemplate> = pResourceCtorArg
+    public var pResource: MutPtr = pResourceCtorArg
         internal set
 
     public constructor() : this(
@@ -9539,9 +9534,9 @@ public class Propsheetpagew0 internal constructor(
 
     public operator fun component1(): Pcwstr = this.pszTemplate
 
-    public operator fun component2(): MutPtr<Dlgtemplate> = this.pResource
+    public operator fun component2(): MutPtr = this.pResource
 
-    public fun copy(pszTemplate: Pcwstr = this.pszTemplate, pResource: MutPtr<Dlgtemplate> = this.pResource): Propsheetpagew0 = Propsheetpagew0(pszTemplateCtorArg = pszTemplate, pResourceCtorArg = pResource)
+    public fun copy(pszTemplate: Pcwstr = this.pszTemplate, pResource: MutPtr = this.pResource): Propsheetpagew0 = Propsheetpagew0(pszTemplateCtorArg = pszTemplate, pResourceCtorArg = pResource)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -9560,7 +9555,7 @@ public class Propsheetpagew0 internal constructor(
     public companion object {
         public operator fun invoke(
             pszTemplate: Pcwstr = ConstPtr(0L),
-            pResource: MutPtr<Dlgtemplate> = MutPtr(0L),
+            pResource: MutPtr = MutPtr(0L),
         ): Propsheetpagew0 =
             Propsheetpagew0(
                 pszTemplateCtorArg = pszTemplate,
@@ -9673,7 +9668,7 @@ public class PropsheetpagewV1 internal constructor(
     public var pfnDlgProc: Dlgproc,
     public var lParam: Lparam,
     public var pfnCallback: Lpfnpspcallbackw,
-    pcRefParentCtorArg: MutPtr<UInt>,
+    pcRefParentCtorArg: MutPtr,
 ) {
     public var hInstance: Hinstance = hInstanceCtorArg
         internal set
@@ -9681,7 +9676,7 @@ public class PropsheetpagewV1 internal constructor(
     public var pszTitle: Pcwstr = pszTitleCtorArg
         internal set
 
-    public var pcRefParent: MutPtr<UInt> = pcRefParentCtorArg
+    public var pcRefParent: MutPtr = pcRefParentCtorArg
         internal set
 
     public constructor() : this(
@@ -9715,9 +9710,9 @@ public class PropsheetpagewV1 internal constructor(
 
     public operator fun component9(): Lpfnpspcallbackw = this.pfnCallback
 
-    public operator fun component10(): MutPtr<UInt> = this.pcRefParent
+    public operator fun component10(): MutPtr = this.pcRefParent
 
-    public fun copy(dwSize: UInt = this.dwSize, dwFlags: UInt = this.dwFlags, hInstance: Hinstance = this.hInstance, anonymous1: PropsheetpagewV10 = this.anonymous1, anonymous2: PropsheetpagewV11 = this.anonymous2, pszTitle: Pcwstr = this.pszTitle, pfnDlgProc: Dlgproc = this.pfnDlgProc, lParam: Lparam = this.lParam, pfnCallback: Lpfnpspcallbackw = this.pfnCallback, pcRefParent: MutPtr<UInt> = this.pcRefParent): PropsheetpagewV1 = PropsheetpagewV1(dwSize = dwSize, dwFlags = dwFlags, hInstanceCtorArg = hInstance, anonymous1 = anonymous1, anonymous2 = anonymous2, pszTitleCtorArg = pszTitle, pfnDlgProc = pfnDlgProc, lParam = lParam, pfnCallback = pfnCallback, pcRefParentCtorArg = pcRefParent)
+    public fun copy(dwSize: UInt = this.dwSize, dwFlags: UInt = this.dwFlags, hInstance: Hinstance = this.hInstance, anonymous1: PropsheetpagewV10 = this.anonymous1, anonymous2: PropsheetpagewV11 = this.anonymous2, pszTitle: Pcwstr = this.pszTitle, pfnDlgProc: Dlgproc = this.pfnDlgProc, lParam: Lparam = this.lParam, pfnCallback: Lpfnpspcallbackw = this.pfnCallback, pcRefParent: MutPtr = this.pcRefParent): PropsheetpagewV1 = PropsheetpagewV1(dwSize = dwSize, dwFlags = dwFlags, hInstanceCtorArg = hInstance, anonymous1 = anonymous1, anonymous2 = anonymous2, pszTitleCtorArg = pszTitle, pfnDlgProc = pfnDlgProc, lParam = lParam, pfnCallback = pfnCallback, pcRefParentCtorArg = pcRefParent)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -9760,7 +9755,7 @@ public class PropsheetpagewV1 internal constructor(
             pfnDlgProc: Dlgproc = null,
             lParam: Lparam = 0L,
             pfnCallback: Lpfnpspcallbackw = null,
-            pcRefParent: MutPtr<UInt> = MutPtr(0L),
+            pcRefParent: MutPtr = MutPtr(0L),
         ): PropsheetpagewV1 =
             PropsheetpagewV1(
                 dwSize = dwSize,
@@ -9779,12 +9774,12 @@ public class PropsheetpagewV1 internal constructor(
 
 public class PropsheetpagewV10 internal constructor(
     pszTemplateCtorArg: Pcwstr,
-    pResourceCtorArg: MutPtr<Dlgtemplate>,
+    pResourceCtorArg: MutPtr,
 ) {
     public var pszTemplate: Pcwstr = pszTemplateCtorArg
         internal set
 
-    public var pResource: MutPtr<Dlgtemplate> = pResourceCtorArg
+    public var pResource: MutPtr = pResourceCtorArg
         internal set
 
     public constructor() : this(
@@ -9794,9 +9789,9 @@ public class PropsheetpagewV10 internal constructor(
 
     public operator fun component1(): Pcwstr = this.pszTemplate
 
-    public operator fun component2(): MutPtr<Dlgtemplate> = this.pResource
+    public operator fun component2(): MutPtr = this.pResource
 
-    public fun copy(pszTemplate: Pcwstr = this.pszTemplate, pResource: MutPtr<Dlgtemplate> = this.pResource): PropsheetpagewV10 = PropsheetpagewV10(pszTemplateCtorArg = pszTemplate, pResourceCtorArg = pResource)
+    public fun copy(pszTemplate: Pcwstr = this.pszTemplate, pResource: MutPtr = this.pResource): PropsheetpagewV10 = PropsheetpagewV10(pszTemplateCtorArg = pszTemplate, pResourceCtorArg = pResource)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -9815,7 +9810,7 @@ public class PropsheetpagewV10 internal constructor(
     public companion object {
         public operator fun invoke(
             pszTemplate: Pcwstr = ConstPtr(0L),
-            pResource: MutPtr<Dlgtemplate> = MutPtr(0L),
+            pResource: MutPtr = MutPtr(0L),
         ): PropsheetpagewV10 =
             PropsheetpagewV10(
                 pszTemplateCtorArg = pszTemplate,
@@ -9881,7 +9876,7 @@ public class PropsheetpagewV2 internal constructor(
     public var pfnDlgProc: Dlgproc,
     public var lParam: Lparam,
     public var pfnCallback: Lpfnpspcallbackw,
-    pcRefParentCtorArg: MutPtr<UInt>,
+    pcRefParentCtorArg: MutPtr,
     pszHeaderTitleCtorArg: Pcwstr,
     pszHeaderSubTitleCtorArg: Pcwstr,
 ) {
@@ -9891,7 +9886,7 @@ public class PropsheetpagewV2 internal constructor(
     public var pszTitle: Pcwstr = pszTitleCtorArg
         internal set
 
-    public var pcRefParent: MutPtr<UInt> = pcRefParentCtorArg
+    public var pcRefParent: MutPtr = pcRefParentCtorArg
         internal set
 
     public var pszHeaderTitle: Pcwstr = pszHeaderTitleCtorArg
@@ -9933,13 +9928,13 @@ public class PropsheetpagewV2 internal constructor(
 
     public operator fun component9(): Lpfnpspcallbackw = this.pfnCallback
 
-    public operator fun component10(): MutPtr<UInt> = this.pcRefParent
+    public operator fun component10(): MutPtr = this.pcRefParent
 
     public operator fun component11(): Pcwstr = this.pszHeaderTitle
 
     public operator fun component12(): Pcwstr = this.pszHeaderSubTitle
 
-    public fun copy(dwSize: UInt = this.dwSize, dwFlags: UInt = this.dwFlags, hInstance: Hinstance = this.hInstance, anonymous1: PropsheetpagewV20 = this.anonymous1, anonymous2: PropsheetpagewV21 = this.anonymous2, pszTitle: Pcwstr = this.pszTitle, pfnDlgProc: Dlgproc = this.pfnDlgProc, lParam: Lparam = this.lParam, pfnCallback: Lpfnpspcallbackw = this.pfnCallback, pcRefParent: MutPtr<UInt> = this.pcRefParent, pszHeaderTitle: Pcwstr = this.pszHeaderTitle, pszHeaderSubTitle: Pcwstr = this.pszHeaderSubTitle): PropsheetpagewV2 = PropsheetpagewV2(dwSize = dwSize, dwFlags = dwFlags, hInstanceCtorArg = hInstance, anonymous1 = anonymous1, anonymous2 = anonymous2, pszTitleCtorArg = pszTitle, pfnDlgProc = pfnDlgProc, lParam = lParam, pfnCallback = pfnCallback, pcRefParentCtorArg = pcRefParent, pszHeaderTitleCtorArg = pszHeaderTitle, pszHeaderSubTitleCtorArg = pszHeaderSubTitle)
+    public fun copy(dwSize: UInt = this.dwSize, dwFlags: UInt = this.dwFlags, hInstance: Hinstance = this.hInstance, anonymous1: PropsheetpagewV20 = this.anonymous1, anonymous2: PropsheetpagewV21 = this.anonymous2, pszTitle: Pcwstr = this.pszTitle, pfnDlgProc: Dlgproc = this.pfnDlgProc, lParam: Lparam = this.lParam, pfnCallback: Lpfnpspcallbackw = this.pfnCallback, pcRefParent: MutPtr = this.pcRefParent, pszHeaderTitle: Pcwstr = this.pszHeaderTitle, pszHeaderSubTitle: Pcwstr = this.pszHeaderSubTitle): PropsheetpagewV2 = PropsheetpagewV2(dwSize = dwSize, dwFlags = dwFlags, hInstanceCtorArg = hInstance, anonymous1 = anonymous1, anonymous2 = anonymous2, pszTitleCtorArg = pszTitle, pfnDlgProc = pfnDlgProc, lParam = lParam, pfnCallback = pfnCallback, pcRefParentCtorArg = pcRefParent, pszHeaderTitleCtorArg = pszHeaderTitle, pszHeaderSubTitleCtorArg = pszHeaderSubTitle)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -9986,7 +9981,7 @@ public class PropsheetpagewV2 internal constructor(
             pfnDlgProc: Dlgproc = null,
             lParam: Lparam = 0L,
             pfnCallback: Lpfnpspcallbackw = null,
-            pcRefParent: MutPtr<UInt> = MutPtr(0L),
+            pcRefParent: MutPtr = MutPtr(0L),
             pszHeaderTitle: Pcwstr = ConstPtr(0L),
             pszHeaderSubTitle: Pcwstr = ConstPtr(0L),
         ): PropsheetpagewV2 =
@@ -10009,12 +10004,12 @@ public class PropsheetpagewV2 internal constructor(
 
 public class PropsheetpagewV20 internal constructor(
     pszTemplateCtorArg: Pcwstr,
-    pResourceCtorArg: MutPtr<Dlgtemplate>,
+    pResourceCtorArg: MutPtr,
 ) {
     public var pszTemplate: Pcwstr = pszTemplateCtorArg
         internal set
 
-    public var pResource: MutPtr<Dlgtemplate> = pResourceCtorArg
+    public var pResource: MutPtr = pResourceCtorArg
         internal set
 
     public constructor() : this(
@@ -10024,9 +10019,9 @@ public class PropsheetpagewV20 internal constructor(
 
     public operator fun component1(): Pcwstr = this.pszTemplate
 
-    public operator fun component2(): MutPtr<Dlgtemplate> = this.pResource
+    public operator fun component2(): MutPtr = this.pResource
 
-    public fun copy(pszTemplate: Pcwstr = this.pszTemplate, pResource: MutPtr<Dlgtemplate> = this.pResource): PropsheetpagewV20 = PropsheetpagewV20(pszTemplateCtorArg = pszTemplate, pResourceCtorArg = pResource)
+    public fun copy(pszTemplate: Pcwstr = this.pszTemplate, pResource: MutPtr = this.pResource): PropsheetpagewV20 = PropsheetpagewV20(pszTemplateCtorArg = pszTemplate, pResourceCtorArg = pResource)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -10045,7 +10040,7 @@ public class PropsheetpagewV20 internal constructor(
     public companion object {
         public operator fun invoke(
             pszTemplate: Pcwstr = ConstPtr(0L),
-            pResource: MutPtr<Dlgtemplate> = MutPtr(0L),
+            pResource: MutPtr = MutPtr(0L),
         ): PropsheetpagewV20 =
             PropsheetpagewV20(
                 pszTemplateCtorArg = pszTemplate,
@@ -10111,7 +10106,7 @@ public class PropsheetpagewV3 internal constructor(
     public var pfnDlgProc: Dlgproc,
     public var lParam: Lparam,
     public var pfnCallback: Lpfnpspcallbackw,
-    pcRefParentCtorArg: MutPtr<UInt>,
+    pcRefParentCtorArg: MutPtr,
     pszHeaderTitleCtorArg: Pcwstr,
     pszHeaderSubTitleCtorArg: Pcwstr,
     hActCtxCtorArg: Handle,
@@ -10122,7 +10117,7 @@ public class PropsheetpagewV3 internal constructor(
     public var pszTitle: Pcwstr = pszTitleCtorArg
         internal set
 
-    public var pcRefParent: MutPtr<UInt> = pcRefParentCtorArg
+    public var pcRefParent: MutPtr = pcRefParentCtorArg
         internal set
 
     public var pszHeaderTitle: Pcwstr = pszHeaderTitleCtorArg
@@ -10168,7 +10163,7 @@ public class PropsheetpagewV3 internal constructor(
 
     public operator fun component9(): Lpfnpspcallbackw = this.pfnCallback
 
-    public operator fun component10(): MutPtr<UInt> = this.pcRefParent
+    public operator fun component10(): MutPtr = this.pcRefParent
 
     public operator fun component11(): Pcwstr = this.pszHeaderTitle
 
@@ -10176,7 +10171,7 @@ public class PropsheetpagewV3 internal constructor(
 
     public operator fun component13(): Handle = this.hActCtx
 
-    public fun copy(dwSize: UInt = this.dwSize, dwFlags: UInt = this.dwFlags, hInstance: Hinstance = this.hInstance, anonymous1: PropsheetpagewV30 = this.anonymous1, anonymous2: PropsheetpagewV31 = this.anonymous2, pszTitle: Pcwstr = this.pszTitle, pfnDlgProc: Dlgproc = this.pfnDlgProc, lParam: Lparam = this.lParam, pfnCallback: Lpfnpspcallbackw = this.pfnCallback, pcRefParent: MutPtr<UInt> = this.pcRefParent, pszHeaderTitle: Pcwstr = this.pszHeaderTitle, pszHeaderSubTitle: Pcwstr = this.pszHeaderSubTitle, hActCtx: Handle = this.hActCtx): PropsheetpagewV3 = PropsheetpagewV3(dwSize = dwSize, dwFlags = dwFlags, hInstanceCtorArg = hInstance, anonymous1 = anonymous1, anonymous2 = anonymous2, pszTitleCtorArg = pszTitle, pfnDlgProc = pfnDlgProc, lParam = lParam, pfnCallback = pfnCallback, pcRefParentCtorArg = pcRefParent, pszHeaderTitleCtorArg = pszHeaderTitle, pszHeaderSubTitleCtorArg = pszHeaderSubTitle, hActCtxCtorArg = hActCtx)
+    public fun copy(dwSize: UInt = this.dwSize, dwFlags: UInt = this.dwFlags, hInstance: Hinstance = this.hInstance, anonymous1: PropsheetpagewV30 = this.anonymous1, anonymous2: PropsheetpagewV31 = this.anonymous2, pszTitle: Pcwstr = this.pszTitle, pfnDlgProc: Dlgproc = this.pfnDlgProc, lParam: Lparam = this.lParam, pfnCallback: Lpfnpspcallbackw = this.pfnCallback, pcRefParent: MutPtr = this.pcRefParent, pszHeaderTitle: Pcwstr = this.pszHeaderTitle, pszHeaderSubTitle: Pcwstr = this.pszHeaderSubTitle, hActCtx: Handle = this.hActCtx): PropsheetpagewV3 = PropsheetpagewV3(dwSize = dwSize, dwFlags = dwFlags, hInstanceCtorArg = hInstance, anonymous1 = anonymous1, anonymous2 = anonymous2, pszTitleCtorArg = pszTitle, pfnDlgProc = pfnDlgProc, lParam = lParam, pfnCallback = pfnCallback, pcRefParentCtorArg = pcRefParent, pszHeaderTitleCtorArg = pszHeaderTitle, pszHeaderSubTitleCtorArg = pszHeaderSubTitle, hActCtxCtorArg = hActCtx)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -10225,7 +10220,7 @@ public class PropsheetpagewV3 internal constructor(
             pfnDlgProc: Dlgproc = null,
             lParam: Lparam = 0L,
             pfnCallback: Lpfnpspcallbackw = null,
-            pcRefParent: MutPtr<UInt> = MutPtr(0L),
+            pcRefParent: MutPtr = MutPtr(0L),
             pszHeaderTitle: Pcwstr = ConstPtr(0L),
             pszHeaderSubTitle: Pcwstr = ConstPtr(0L),
             hActCtx: Handle = MutPtr(0L),
@@ -10250,12 +10245,12 @@ public class PropsheetpagewV3 internal constructor(
 
 public class PropsheetpagewV30 internal constructor(
     pszTemplateCtorArg: Pcwstr,
-    pResourceCtorArg: MutPtr<Dlgtemplate>,
+    pResourceCtorArg: MutPtr,
 ) {
     public var pszTemplate: Pcwstr = pszTemplateCtorArg
         internal set
 
-    public var pResource: MutPtr<Dlgtemplate> = pResourceCtorArg
+    public var pResource: MutPtr = pResourceCtorArg
         internal set
 
     public constructor() : this(
@@ -10265,9 +10260,9 @@ public class PropsheetpagewV30 internal constructor(
 
     public operator fun component1(): Pcwstr = this.pszTemplate
 
-    public operator fun component2(): MutPtr<Dlgtemplate> = this.pResource
+    public operator fun component2(): MutPtr = this.pResource
 
-    public fun copy(pszTemplate: Pcwstr = this.pszTemplate, pResource: MutPtr<Dlgtemplate> = this.pResource): PropsheetpagewV30 = PropsheetpagewV30(pszTemplateCtorArg = pszTemplate, pResourceCtorArg = pResource)
+    public fun copy(pszTemplate: Pcwstr = this.pszTemplate, pResource: MutPtr = this.pResource): PropsheetpagewV30 = PropsheetpagewV30(pszTemplateCtorArg = pszTemplate, pResourceCtorArg = pResource)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -10286,7 +10281,7 @@ public class PropsheetpagewV30 internal constructor(
     public companion object {
         public operator fun invoke(
             pszTemplate: Pcwstr = ConstPtr(0L),
-            pResource: MutPtr<Dlgtemplate> = MutPtr(0L),
+            pResource: MutPtr = MutPtr(0L),
         ): PropsheetpagewV30 =
             PropsheetpagewV30(
                 pszTemplateCtorArg = pszTemplate,
@@ -10609,10 +10604,10 @@ public class Taskdialogconfig internal constructor(
     pszMainInstructionCtorArg: Pcwstr,
     pszContentCtorArg: Pcwstr,
     public var cButtons: UInt,
-    pButtonsCtorArg: ConstPtr<TaskdialogButton>,
+    pButtonsCtorArg: ConstPtr,
     public var nDefaultButton: Int,
     public var cRadioButtons: UInt,
-    pRadioButtonsCtorArg: ConstPtr<TaskdialogButton>,
+    pRadioButtonsCtorArg: ConstPtr,
     public var nDefaultRadioButton: Int,
     pszVerificationTextCtorArg: Pcwstr,
     pszExpandedInformationCtorArg: Pcwstr,
@@ -10639,10 +10634,10 @@ public class Taskdialogconfig internal constructor(
     public var pszContent: Pcwstr = pszContentCtorArg
         internal set
 
-    public var pButtons: ConstPtr<TaskdialogButton> = pButtonsCtorArg
+    public var pButtons: ConstPtr = pButtonsCtorArg
         internal set
 
-    public var pRadioButtons: ConstPtr<TaskdialogButton> = pRadioButtonsCtorArg
+    public var pRadioButtons: ConstPtr = pRadioButtonsCtorArg
         internal set
 
     public var pszVerificationText: Pcwstr = pszVerificationTextCtorArg
@@ -10699,10 +10694,10 @@ public class Taskdialogconfig internal constructor(
             pszMainInstruction: Pcwstr = ConstPtr(0L),
             pszContent: Pcwstr = ConstPtr(0L),
             cButtons: UInt = 0u,
-            pButtons: ConstPtr<TaskdialogButton> = ConstPtr(0L),
+            pButtons: ConstPtr = ConstPtr(0L),
             nDefaultButton: Int = 0,
             cRadioButtons: UInt = 0u,
-            pRadioButtons: ConstPtr<TaskdialogButton> = ConstPtr(0L),
+            pRadioButtons: ConstPtr = ConstPtr(0L),
             nDefaultRadioButton: Int = 0,
             pszVerificationText: Pcwstr = ConstPtr(0L),
             pszExpandedInformation: Pcwstr = ConstPtr(0L),
@@ -12154,7 +12149,7 @@ public class Tttoolinfoa internal constructor(
     hinstCtorArg: Hinstance,
     lpszTextCtorArg: Pstr,
     public var lParam: Lparam,
-    lpReservedCtorArg: MutPtr<CVoid>,
+    lpReservedCtorArg: MutPtr,
 ) {
     public var hwnd: Hwnd = hwndCtorArg
         internal set
@@ -12165,7 +12160,7 @@ public class Tttoolinfoa internal constructor(
     public var lpszText: Pstr = lpszTextCtorArg
         internal set
 
-    public var lpReserved: MutPtr<CVoid> = lpReservedCtorArg
+    public var lpReserved: MutPtr = lpReservedCtorArg
         internal set
 
     public constructor() : this(
@@ -12196,9 +12191,9 @@ public class Tttoolinfoa internal constructor(
 
     public operator fun component8(): Lparam = this.lParam
 
-    public operator fun component9(): MutPtr<CVoid> = this.lpReserved
+    public operator fun component9(): MutPtr = this.lpReserved
 
-    public fun copy(cbSize: UInt = this.cbSize, uFlags: TooltipFlags = this.uFlags, hwnd: Hwnd = this.hwnd, uId: Int = this.uId, rect: Rect = this.rect, hinst: Hinstance = this.hinst, lpszText: Pstr = this.lpszText, lParam: Lparam = this.lParam, lpReserved: MutPtr<CVoid> = this.lpReserved): Tttoolinfoa = Tttoolinfoa(cbSize = cbSize, uFlags = uFlags, hwndCtorArg = hwnd, uId = uId, rect = rect, hinstCtorArg = hinst, lpszTextCtorArg = lpszText, lParam = lParam, lpReservedCtorArg = lpReserved)
+    public fun copy(cbSize: UInt = this.cbSize, uFlags: TooltipFlags = this.uFlags, hwnd: Hwnd = this.hwnd, uId: Int = this.uId, rect: Rect = this.rect, hinst: Hinstance = this.hinst, lpszText: Pstr = this.lpszText, lParam: Lparam = this.lParam, lpReserved: MutPtr = this.lpReserved): Tttoolinfoa = Tttoolinfoa(cbSize = cbSize, uFlags = uFlags, hwndCtorArg = hwnd, uId = uId, rect = rect, hinstCtorArg = hinst, lpszTextCtorArg = lpszText, lParam = lParam, lpReservedCtorArg = lpReserved)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -12238,7 +12233,7 @@ public class Tttoolinfoa internal constructor(
             hinst: Hinstance = MutPtr(0L),
             lpszText: Pstr = MutPtr(0L),
             lParam: Lparam = 0L,
-            lpReserved: MutPtr<CVoid> = MutPtr(0L),
+            lpReserved: MutPtr = MutPtr(0L),
         ): Tttoolinfoa =
             Tttoolinfoa(
                 cbSize = cbSize,
@@ -12263,7 +12258,7 @@ public class Tttoolinfow internal constructor(
     hinstCtorArg: Hinstance,
     lpszTextCtorArg: Pwstr,
     public var lParam: Lparam,
-    lpReservedCtorArg: MutPtr<CVoid>,
+    lpReservedCtorArg: MutPtr,
 ) {
     public var hwnd: Hwnd = hwndCtorArg
         internal set
@@ -12274,7 +12269,7 @@ public class Tttoolinfow internal constructor(
     public var lpszText: Pwstr = lpszTextCtorArg
         internal set
 
-    public var lpReserved: MutPtr<CVoid> = lpReservedCtorArg
+    public var lpReserved: MutPtr = lpReservedCtorArg
         internal set
 
     public constructor() : this(
@@ -12305,9 +12300,9 @@ public class Tttoolinfow internal constructor(
 
     public operator fun component8(): Lparam = this.lParam
 
-    public operator fun component9(): MutPtr<CVoid> = this.lpReserved
+    public operator fun component9(): MutPtr = this.lpReserved
 
-    public fun copy(cbSize: UInt = this.cbSize, uFlags: TooltipFlags = this.uFlags, hwnd: Hwnd = this.hwnd, uId: Int = this.uId, rect: Rect = this.rect, hinst: Hinstance = this.hinst, lpszText: Pwstr = this.lpszText, lParam: Lparam = this.lParam, lpReserved: MutPtr<CVoid> = this.lpReserved): Tttoolinfow = Tttoolinfow(cbSize = cbSize, uFlags = uFlags, hwndCtorArg = hwnd, uId = uId, rect = rect, hinstCtorArg = hinst, lpszTextCtorArg = lpszText, lParam = lParam, lpReservedCtorArg = lpReserved)
+    public fun copy(cbSize: UInt = this.cbSize, uFlags: TooltipFlags = this.uFlags, hwnd: Hwnd = this.hwnd, uId: Int = this.uId, rect: Rect = this.rect, hinst: Hinstance = this.hinst, lpszText: Pwstr = this.lpszText, lParam: Lparam = this.lParam, lpReserved: MutPtr = this.lpReserved): Tttoolinfow = Tttoolinfow(cbSize = cbSize, uFlags = uFlags, hwndCtorArg = hwnd, uId = uId, rect = rect, hinstCtorArg = hinst, lpszTextCtorArg = lpszText, lParam = lParam, lpReservedCtorArg = lpReserved)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -12347,7 +12342,7 @@ public class Tttoolinfow internal constructor(
             hinst: Hinstance = MutPtr(0L),
             lpszText: Pwstr = MutPtr(0L),
             lParam: Lparam = 0L,
-            lpReserved: MutPtr<CVoid> = MutPtr(0L),
+            lpReserved: MutPtr = MutPtr(0L),
         ): Tttoolinfow =
             Tttoolinfow(
                 cbSize = cbSize,
@@ -12365,10 +12360,10 @@ public class Tttoolinfow internal constructor(
 
 public class Tvgetitempartrectinfo internal constructor(
     public var hti: Htreeitem,
-    prcCtorArg: MutPtr<Rect>,
+    prcCtorArg: MutPtr,
     public var partID: Tvitempart,
 ) {
-    public var prc: MutPtr<Rect> = prcCtorArg
+    public var prc: MutPtr = prcCtorArg
         internal set
 
     public constructor() : this(
@@ -12379,11 +12374,11 @@ public class Tvgetitempartrectinfo internal constructor(
 
     public operator fun component1(): Htreeitem = this.hti
 
-    public operator fun component2(): MutPtr<Rect> = this.prc
+    public operator fun component2(): MutPtr = this.prc
 
     public operator fun component3(): Tvitempart = this.partID
 
-    public fun copy(hti: Htreeitem = this.hti, prc: MutPtr<Rect> = this.prc, partID: Tvitempart = this.partID): Tvgetitempartrectinfo = Tvgetitempartrectinfo(hti = hti, prcCtorArg = prc, partID = partID)
+    public fun copy(hti: Htreeitem = this.hti, prc: MutPtr = this.prc, partID: Tvitempart = this.partID): Tvgetitempartrectinfo = Tvgetitempartrectinfo(hti = hti, prcCtorArg = prc, partID = partID)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -12411,7 +12406,7 @@ public class Tvgetitempartrectinfo internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I64).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<Rect>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr + 16L),
                     )
@@ -12419,7 +12414,7 @@ public class Tvgetitempartrectinfo internal constructor(
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I64).writeNative(addr, value.hti)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<Rect>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.prc)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr + 16L, value.partID)
                 }
@@ -12427,7 +12422,7 @@ public class Tvgetitempartrectinfo internal constructor(
 
         public operator fun invoke(
             hti: Htreeitem = 0,
-            prc: MutPtr<Rect> = MutPtr(0L),
+            prc: MutPtr = MutPtr(0L),
             partID: Tvitempart = 0,
         ): Tvgetitempartrectinfo =
             Tvgetitempartrectinfo(

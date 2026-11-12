@@ -2,7 +2,6 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.system.diagnostics.processsnapshotting
 
-import io.github.kotlinmania.rustlang.core.ffi.CVoid
 import io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
 import io.github.kotlinmania.rustlang.core.mem.TypeLayout
 import io.github.kotlinmania.rustlang.core.ptr.ConstPtr
@@ -11,15 +10,14 @@ import io.github.kotlinmania.windowssys.core.Bool
 import io.github.kotlinmania.windowssys.core.Pcwstr
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Filetime
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Handle
-import io.github.kotlinmania.windowssys.windows.win32.system.diagnostics.debug.Context
 import io.github.kotlinmania.windowssys.windows.win32.system.memory.MemoryBasicInformation
 
 public class PssAllocator internal constructor(
-    contextCtorArg: MutPtr<CVoid>,
+    contextCtorArg: MutPtr,
     public var allocRoutine: Int,
     public var freeRoutine: Int,
 ) {
-    public var context: MutPtr<CVoid> = contextCtorArg
+    public var context: MutPtr = contextCtorArg
         internal set
 
     public constructor() : this(
@@ -28,13 +26,13 @@ public class PssAllocator internal constructor(
         freeRoutine = 0,
     )
 
-    public operator fun component1(): MutPtr<CVoid> = this.context
+    public operator fun component1(): MutPtr = this.context
 
     public operator fun component2(): Int = this.allocRoutine
 
     public operator fun component3(): Int = this.freeRoutine
 
-    public fun copy(context: MutPtr<CVoid> = this.context, allocRoutine: Int = this.allocRoutine, freeRoutine: Int = this.freeRoutine): PssAllocator = PssAllocator(contextCtorArg = context, allocRoutine = allocRoutine, freeRoutine = freeRoutine)
+    public fun copy(context: MutPtr = this.context, allocRoutine: Int = this.allocRoutine, freeRoutine: Int = this.freeRoutine): PssAllocator = PssAllocator(contextCtorArg = context, allocRoutine = allocRoutine, freeRoutine = freeRoutine)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -61,7 +59,7 @@ public class PssAllocator internal constructor(
                     PssAllocator(
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<CVoid>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.ISIZE64).readNative(addr + 8L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.ISIZE64).readNative(addr + 16L),
@@ -69,7 +67,7 @@ public class PssAllocator internal constructor(
                 override fun writeNative(addr: Long, value: PssAllocator) {
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<CVoid>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr, value.context)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.ISIZE64).writeNative(addr + 8L, value.allocRoutine)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.ISIZE64).writeNative(addr + 16L, value.freeRoutine)
@@ -77,7 +75,7 @@ public class PssAllocator internal constructor(
             }
 
         public operator fun invoke(
-            context: MutPtr<CVoid> = MutPtr(0L),
+            context: MutPtr = MutPtr(0L),
             allocRoutine: Int = 0,
             freeRoutine: Int = 0,
         ): PssAllocator =
@@ -109,16 +107,16 @@ public data class PssAuxiliaryPagesInformation(
 }
 
 public class PssAuxiliaryPageEntry internal constructor(
-    addressCtorArg: MutPtr<CVoid>,
+    addressCtorArg: MutPtr,
     public var basicInformation: MemoryBasicInformation,
     public var captureTime: Filetime,
-    pageContentsCtorArg: MutPtr<CVoid>,
+    pageContentsCtorArg: MutPtr,
     public var pageSize: UInt,
 ) {
-    public var address: MutPtr<CVoid> = addressCtorArg
+    public var address: MutPtr = addressCtorArg
         internal set
 
-    public var pageContents: MutPtr<CVoid> = pageContentsCtorArg
+    public var pageContents: MutPtr = pageContentsCtorArg
         internal set
 
     public constructor() : this(
@@ -129,17 +127,17 @@ public class PssAuxiliaryPageEntry internal constructor(
         pageSize = 0u,
     )
 
-    public operator fun component1(): MutPtr<CVoid> = this.address
+    public operator fun component1(): MutPtr = this.address
 
     public operator fun component2(): MemoryBasicInformation = this.basicInformation
 
     public operator fun component3(): Filetime = this.captureTime
 
-    public operator fun component4(): MutPtr<CVoid> = this.pageContents
+    public operator fun component4(): MutPtr = this.pageContents
 
     public operator fun component5(): UInt = this.pageSize
 
-    public fun copy(address: MutPtr<CVoid> = this.address, basicInformation: MemoryBasicInformation = this.basicInformation, captureTime: Filetime = this.captureTime, pageContents: MutPtr<CVoid> = this.pageContents, pageSize: UInt = this.pageSize): PssAuxiliaryPageEntry = PssAuxiliaryPageEntry(addressCtorArg = address, basicInformation = basicInformation, captureTime = captureTime, pageContentsCtorArg = pageContents, pageSize = pageSize)
+    public fun copy(address: MutPtr = this.address, basicInformation: MemoryBasicInformation = this.basicInformation, captureTime: Filetime = this.captureTime, pageContents: MutPtr = this.pageContents, pageSize: UInt = this.pageSize): PssAuxiliaryPageEntry = PssAuxiliaryPageEntry(addressCtorArg = address, basicInformation = basicInformation, captureTime = captureTime, pageContentsCtorArg = pageContents, pageSize = pageSize)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -163,10 +161,10 @@ public class PssAuxiliaryPageEntry internal constructor(
 
     public companion object {
         public operator fun invoke(
-            address: MutPtr<CVoid> = MutPtr(0L),
+            address: MutPtr = MutPtr(0L),
             basicInformation: MemoryBasicInformation = MemoryBasicInformation(),
             captureTime: Filetime = Filetime(),
-            pageContents: MutPtr<CVoid> = MutPtr(0L),
+            pageContents: MutPtr = MutPtr(0L),
             pageSize: UInt = 0u,
         ): PssAuxiliaryPageEntry =
             PssAuxiliaryPageEntry(
@@ -402,14 +400,14 @@ public data class PssHandleEntry02(
 
 public class PssHandleEntry00 internal constructor(
     public var exitStatus: UInt,
-    pebBaseAddressCtorArg: MutPtr<CVoid>,
+    pebBaseAddressCtorArg: MutPtr,
     public var affinityMask: Int,
     public var basePriority: Int,
     public var processId: UInt,
     public var parentProcessId: UInt,
     public var flags: UInt,
 ) {
-    public var pebBaseAddress: MutPtr<CVoid> = pebBaseAddressCtorArg
+    public var pebBaseAddress: MutPtr = pebBaseAddressCtorArg
         internal set
 
     public constructor() : this(
@@ -424,7 +422,7 @@ public class PssHandleEntry00 internal constructor(
 
     public operator fun component1(): UInt = this.exitStatus
 
-    public operator fun component2(): MutPtr<CVoid> = this.pebBaseAddress
+    public operator fun component2(): MutPtr = this.pebBaseAddress
 
     public operator fun component3(): Int = this.affinityMask
 
@@ -436,7 +434,7 @@ public class PssHandleEntry00 internal constructor(
 
     public operator fun component7(): UInt = this.flags
 
-    public fun copy(exitStatus: UInt = this.exitStatus, pebBaseAddress: MutPtr<CVoid> = this.pebBaseAddress, affinityMask: Int = this.affinityMask, basePriority: Int = this.basePriority, processId: UInt = this.processId, parentProcessId: UInt = this.parentProcessId, flags: UInt = this.flags): PssHandleEntry00 = PssHandleEntry00(exitStatus = exitStatus, pebBaseAddressCtorArg = pebBaseAddress, affinityMask = affinityMask, basePriority = basePriority, processId = processId, parentProcessId = parentProcessId, flags = flags)
+    public fun copy(exitStatus: UInt = this.exitStatus, pebBaseAddress: MutPtr = this.pebBaseAddress, affinityMask: Int = this.affinityMask, basePriority: Int = this.basePriority, processId: UInt = this.processId, parentProcessId: UInt = this.parentProcessId, flags: UInt = this.flags): PssHandleEntry00 = PssHandleEntry00(exitStatus = exitStatus, pebBaseAddressCtorArg = pebBaseAddress, affinityMask = affinityMask, basePriority = basePriority, processId = processId, parentProcessId = parentProcessId, flags = flags)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -472,7 +470,7 @@ public class PssHandleEntry00 internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<CVoid>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.USIZE64).readNative(addr + 16L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr + 24L),
@@ -484,7 +482,7 @@ public class PssHandleEntry00 internal constructor(
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr, value.exitStatus)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<CVoid>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.pebBaseAddress)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.USIZE64).writeNative(addr + 16L, value.affinityMask)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr + 24L, value.basePriority)
@@ -496,7 +494,7 @@ public class PssHandleEntry00 internal constructor(
 
         public operator fun invoke(
             exitStatus: UInt = 0u,
-            pebBaseAddress: MutPtr<CVoid> = MutPtr(0L),
+            pebBaseAddress: MutPtr = MutPtr(0L),
             affinityMask: Int = 0,
             basePriority: Int = 0,
             processId: UInt = 0u,
@@ -516,11 +514,11 @@ public class PssHandleEntry00 internal constructor(
 }
 
 public class PssHandleEntry04 internal constructor(
-    baseAddressCtorArg: MutPtr<CVoid>,
+    baseAddressCtorArg: MutPtr,
     public var allocationAttributes: UInt,
     public var maximumSize: Long,
 ) {
-    public var baseAddress: MutPtr<CVoid> = baseAddressCtorArg
+    public var baseAddress: MutPtr = baseAddressCtorArg
         internal set
 
     public constructor() : this(
@@ -529,13 +527,13 @@ public class PssHandleEntry04 internal constructor(
         maximumSize = 0L,
     )
 
-    public operator fun component1(): MutPtr<CVoid> = this.baseAddress
+    public operator fun component1(): MutPtr = this.baseAddress
 
     public operator fun component2(): UInt = this.allocationAttributes
 
     public operator fun component3(): Long = this.maximumSize
 
-    public fun copy(baseAddress: MutPtr<CVoid> = this.baseAddress, allocationAttributes: UInt = this.allocationAttributes, maximumSize: Long = this.maximumSize): PssHandleEntry04 = PssHandleEntry04(baseAddressCtorArg = baseAddress, allocationAttributes = allocationAttributes, maximumSize = maximumSize)
+    public fun copy(baseAddress: MutPtr = this.baseAddress, allocationAttributes: UInt = this.allocationAttributes, maximumSize: Long = this.maximumSize): PssHandleEntry04 = PssHandleEntry04(baseAddressCtorArg = baseAddress, allocationAttributes = allocationAttributes, maximumSize = maximumSize)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -562,7 +560,7 @@ public class PssHandleEntry04 internal constructor(
                     PssHandleEntry04(
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<CVoid>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 8L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I64).readNative(addr + 16L),
@@ -570,7 +568,7 @@ public class PssHandleEntry04 internal constructor(
                 override fun writeNative(addr: Long, value: PssHandleEntry04) {
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<CVoid>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr, value.baseAddress)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 8L, value.allocationAttributes)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I64).writeNative(addr + 16L, value.maximumSize)
@@ -578,7 +576,7 @@ public class PssHandleEntry04 internal constructor(
             }
 
         public operator fun invoke(
-            baseAddress: MutPtr<CVoid> = MutPtr(0L),
+            baseAddress: MutPtr = MutPtr(0L),
             allocationAttributes: UInt = 0u,
             maximumSize: Long = 0L,
         ): PssHandleEntry04 =
@@ -614,18 +612,18 @@ public data class PssHandleEntry05(
 
 public class PssHandleEntry01 internal constructor(
     public var exitStatus: UInt,
-    tebBaseAddressCtorArg: MutPtr<CVoid>,
+    tebBaseAddressCtorArg: MutPtr,
     public var processId: UInt,
     public var threadId: UInt,
     public var affinityMask: Int,
     public var priority: Int,
     public var basePriority: Int,
-    win32StartAddressCtorArg: MutPtr<CVoid>,
+    win32StartAddressCtorArg: MutPtr,
 ) {
-    public var tebBaseAddress: MutPtr<CVoid> = tebBaseAddressCtorArg
+    public var tebBaseAddress: MutPtr = tebBaseAddressCtorArg
         internal set
 
-    public var win32StartAddress: MutPtr<CVoid> = win32StartAddressCtorArg
+    public var win32StartAddress: MutPtr = win32StartAddressCtorArg
         internal set
 
     public constructor() : this(
@@ -641,7 +639,7 @@ public class PssHandleEntry01 internal constructor(
 
     public operator fun component1(): UInt = this.exitStatus
 
-    public operator fun component2(): MutPtr<CVoid> = this.tebBaseAddress
+    public operator fun component2(): MutPtr = this.tebBaseAddress
 
     public operator fun component3(): UInt = this.processId
 
@@ -653,9 +651,9 @@ public class PssHandleEntry01 internal constructor(
 
     public operator fun component7(): Int = this.basePriority
 
-    public operator fun component8(): MutPtr<CVoid> = this.win32StartAddress
+    public operator fun component8(): MutPtr = this.win32StartAddress
 
-    public fun copy(exitStatus: UInt = this.exitStatus, tebBaseAddress: MutPtr<CVoid> = this.tebBaseAddress, processId: UInt = this.processId, threadId: UInt = this.threadId, affinityMask: Int = this.affinityMask, priority: Int = this.priority, basePriority: Int = this.basePriority, win32StartAddress: MutPtr<CVoid> = this.win32StartAddress): PssHandleEntry01 = PssHandleEntry01(exitStatus = exitStatus, tebBaseAddressCtorArg = tebBaseAddress, processId = processId, threadId = threadId, affinityMask = affinityMask, priority = priority, basePriority = basePriority, win32StartAddressCtorArg = win32StartAddress)
+    public fun copy(exitStatus: UInt = this.exitStatus, tebBaseAddress: MutPtr = this.tebBaseAddress, processId: UInt = this.processId, threadId: UInt = this.threadId, affinityMask: Int = this.affinityMask, priority: Int = this.priority, basePriority: Int = this.basePriority, win32StartAddress: MutPtr = this.win32StartAddress): PssHandleEntry01 = PssHandleEntry01(exitStatus = exitStatus, tebBaseAddressCtorArg = tebBaseAddress, processId = processId, threadId = threadId, affinityMask = affinityMask, priority = priority, basePriority = basePriority, win32StartAddressCtorArg = win32StartAddress)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -693,7 +691,7 @@ public class PssHandleEntry01 internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<CVoid>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 16L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 20L),
@@ -702,14 +700,14 @@ public class PssHandleEntry01 internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr + 36L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<CVoid>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 40L),
                     )
                 override fun writeNative(addr: Long, value: PssHandleEntry01) {
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr, value.exitStatus)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<CVoid>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.tebBaseAddress)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 16L, value.processId)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 20L, value.threadId)
@@ -718,20 +716,20 @@ public class PssHandleEntry01 internal constructor(
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr + 36L, value.basePriority)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<CVoid>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 40L, value.win32StartAddress)
                 }
             }
 
         public operator fun invoke(
             exitStatus: UInt = 0u,
-            tebBaseAddress: MutPtr<CVoid> = MutPtr(0L),
+            tebBaseAddress: MutPtr = MutPtr(0L),
             processId: UInt = 0u,
             threadId: UInt = 0u,
             affinityMask: Int = 0,
             priority: Int = 0,
             basePriority: Int = 0,
-            win32StartAddress: MutPtr<CVoid> = MutPtr(0L),
+            win32StartAddress: MutPtr = MutPtr(0L),
         ): PssHandleEntry01 =
             PssHandleEntry01(
                 exitStatus = exitStatus,
@@ -863,7 +861,7 @@ public data class PssPerformanceCounters(
 
 public class PssProcessInformation internal constructor(
     public var exitStatus: UInt,
-    pebBaseAddressCtorArg: MutPtr<CVoid>,
+    pebBaseAddressCtorArg: MutPtr,
     public var affinityMask: Int,
     public var basePriority: Int,
     public var processId: UInt,
@@ -889,7 +887,7 @@ public class PssProcessInformation internal constructor(
     public var executeFlags: UInt,
     public var imageFileName: UShortArray,
 ) {
-    public var pebBaseAddress: MutPtr<CVoid> = pebBaseAddressCtorArg
+    public var pebBaseAddress: MutPtr = pebBaseAddressCtorArg
         internal set
 
     public constructor() : this(
@@ -924,7 +922,7 @@ public class PssProcessInformation internal constructor(
     public companion object {
         public operator fun invoke(
             exitStatus: UInt = 0u,
-            pebBaseAddress: MutPtr<CVoid> = MutPtr(0L),
+            pebBaseAddress: MutPtr = MutPtr(0L),
             affinityMask: Int = 0,
             basePriority: Int = 0,
             processId: UInt = 0u,
@@ -983,35 +981,35 @@ public class PssProcessInformation internal constructor(
 
 public class PssThreadEntry internal constructor(
     public var exitStatus: UInt,
-    tebBaseAddressCtorArg: MutPtr<CVoid>,
+    tebBaseAddressCtorArg: MutPtr,
     public var processId: UInt,
     public var threadId: UInt,
     public var affinityMask: Int,
     public var priority: Int,
     public var basePriority: Int,
-    lastSyscallFirstArgumentCtorArg: MutPtr<CVoid>,
+    lastSyscallFirstArgumentCtorArg: MutPtr,
     public var lastSyscallNumber: UShort,
     public var createTime: Filetime,
     public var exitTime: Filetime,
     public var kernelTime: Filetime,
     public var userTime: Filetime,
-    win32StartAddressCtorArg: MutPtr<CVoid>,
+    win32StartAddressCtorArg: MutPtr,
     public var captureTime: Filetime,
     public var flags: PssThreadFlags,
     public var suspendCount: UShort,
     public var sizeOfContextRecord: UShort,
-    contextRecordCtorArg: MutPtr<Context>,
+    contextRecordCtorArg: MutPtr,
 ) {
-    public var tebBaseAddress: MutPtr<CVoid> = tebBaseAddressCtorArg
+    public var tebBaseAddress: MutPtr = tebBaseAddressCtorArg
         internal set
 
-    public var lastSyscallFirstArgument: MutPtr<CVoid> = lastSyscallFirstArgumentCtorArg
+    public var lastSyscallFirstArgument: MutPtr = lastSyscallFirstArgumentCtorArg
         internal set
 
-    public var win32StartAddress: MutPtr<CVoid> = win32StartAddressCtorArg
+    public var win32StartAddress: MutPtr = win32StartAddressCtorArg
         internal set
 
-    public var contextRecord: MutPtr<Context> = contextRecordCtorArg
+    public var contextRecord: MutPtr = contextRecordCtorArg
         internal set
 
     public constructor() : this(
@@ -1039,24 +1037,24 @@ public class PssThreadEntry internal constructor(
     public companion object {
         public operator fun invoke(
             exitStatus: UInt = 0u,
-            tebBaseAddress: MutPtr<CVoid> = MutPtr(0L),
+            tebBaseAddress: MutPtr = MutPtr(0L),
             processId: UInt = 0u,
             threadId: UInt = 0u,
             affinityMask: Int = 0,
             priority: Int = 0,
             basePriority: Int = 0,
-            lastSyscallFirstArgument: MutPtr<CVoid> = MutPtr(0L),
+            lastSyscallFirstArgument: MutPtr = MutPtr(0L),
             lastSyscallNumber: UShort = 0u,
             createTime: Filetime = Filetime(),
             exitTime: Filetime = Filetime(),
             kernelTime: Filetime = Filetime(),
             userTime: Filetime = Filetime(),
-            win32StartAddress: MutPtr<CVoid> = MutPtr(0L),
+            win32StartAddress: MutPtr = MutPtr(0L),
             captureTime: Filetime = Filetime(),
             flags: PssThreadFlags = 0,
             suspendCount: UShort = 0u,
             sizeOfContextRecord: UShort = 0u,
-            contextRecord: MutPtr<Context> = MutPtr(0L),
+            contextRecord: MutPtr = MutPtr(0L),
         ): PssThreadEntry =
             PssThreadEntry(
                 exitStatus = exitStatus,
@@ -1138,8 +1136,8 @@ public class PssVaCloneInformation internal constructor(
 }
 
 public class PssVaSpaceEntry internal constructor(
-    baseAddressCtorArg: MutPtr<CVoid>,
-    allocationBaseCtorArg: MutPtr<CVoid>,
+    baseAddressCtorArg: MutPtr,
+    allocationBaseCtorArg: MutPtr,
     public var allocationProtect: UInt,
     public var regionSize: Int,
     public var state: UInt,
@@ -1147,18 +1145,18 @@ public class PssVaSpaceEntry internal constructor(
     public var type: UInt,
     public var timeDateStamp: UInt,
     public var sizeOfImage: UInt,
-    imageBaseCtorArg: MutPtr<CVoid>,
+    imageBaseCtorArg: MutPtr,
     public var checkSum: UInt,
     public var mappedFileNameLength: UShort,
     mappedFileNameCtorArg: Pcwstr,
 ) {
-    public var baseAddress: MutPtr<CVoid> = baseAddressCtorArg
+    public var baseAddress: MutPtr = baseAddressCtorArg
         internal set
 
-    public var allocationBase: MutPtr<CVoid> = allocationBaseCtorArg
+    public var allocationBase: MutPtr = allocationBaseCtorArg
         internal set
 
-    public var imageBase: MutPtr<CVoid> = imageBaseCtorArg
+    public var imageBase: MutPtr = imageBaseCtorArg
         internal set
 
     public var mappedFileName: Pcwstr = mappedFileNameCtorArg
@@ -1180,9 +1178,9 @@ public class PssVaSpaceEntry internal constructor(
         mappedFileNameCtorArg = ConstPtr(0L),
     )
 
-    public operator fun component1(): MutPtr<CVoid> = this.baseAddress
+    public operator fun component1(): MutPtr = this.baseAddress
 
-    public operator fun component2(): MutPtr<CVoid> = this.allocationBase
+    public operator fun component2(): MutPtr = this.allocationBase
 
     public operator fun component3(): UInt = this.allocationProtect
 
@@ -1198,7 +1196,7 @@ public class PssVaSpaceEntry internal constructor(
 
     public operator fun component9(): UInt = this.sizeOfImage
 
-    public operator fun component10(): MutPtr<CVoid> = this.imageBase
+    public operator fun component10(): MutPtr = this.imageBase
 
     public operator fun component11(): UInt = this.checkSum
 
@@ -1206,7 +1204,7 @@ public class PssVaSpaceEntry internal constructor(
 
     public operator fun component13(): Pcwstr = this.mappedFileName
 
-    public fun copy(baseAddress: MutPtr<CVoid> = this.baseAddress, allocationBase: MutPtr<CVoid> = this.allocationBase, allocationProtect: UInt = this.allocationProtect, regionSize: Int = this.regionSize, state: UInt = this.state, protect: UInt = this.protect, type: UInt = this.type, timeDateStamp: UInt = this.timeDateStamp, sizeOfImage: UInt = this.sizeOfImage, imageBase: MutPtr<CVoid> = this.imageBase, checkSum: UInt = this.checkSum, mappedFileNameLength: UShort = this.mappedFileNameLength, mappedFileName: Pcwstr = this.mappedFileName): PssVaSpaceEntry = PssVaSpaceEntry(baseAddressCtorArg = baseAddress, allocationBaseCtorArg = allocationBase, allocationProtect = allocationProtect, regionSize = regionSize, state = state, protect = protect, type = type, timeDateStamp = timeDateStamp, sizeOfImage = sizeOfImage, imageBaseCtorArg = imageBase, checkSum = checkSum, mappedFileNameLength = mappedFileNameLength, mappedFileNameCtorArg = mappedFileName)
+    public fun copy(baseAddress: MutPtr = this.baseAddress, allocationBase: MutPtr = this.allocationBase, allocationProtect: UInt = this.allocationProtect, regionSize: Int = this.regionSize, state: UInt = this.state, protect: UInt = this.protect, type: UInt = this.type, timeDateStamp: UInt = this.timeDateStamp, sizeOfImage: UInt = this.sizeOfImage, imageBase: MutPtr = this.imageBase, checkSum: UInt = this.checkSum, mappedFileNameLength: UShort = this.mappedFileNameLength, mappedFileName: Pcwstr = this.mappedFileName): PssVaSpaceEntry = PssVaSpaceEntry(baseAddressCtorArg = baseAddress, allocationBaseCtorArg = allocationBase, allocationProtect = allocationProtect, regionSize = regionSize, state = state, protect = protect, type = type, timeDateStamp = timeDateStamp, sizeOfImage = sizeOfImage, imageBaseCtorArg = imageBase, checkSum = checkSum, mappedFileNameLength = mappedFileNameLength, mappedFileNameCtorArg = mappedFileName)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -1246,8 +1244,8 @@ public class PssVaSpaceEntry internal constructor(
 
     public companion object {
         public operator fun invoke(
-            baseAddress: MutPtr<CVoid> = MutPtr(0L),
-            allocationBase: MutPtr<CVoid> = MutPtr(0L),
+            baseAddress: MutPtr = MutPtr(0L),
+            allocationBase: MutPtr = MutPtr(0L),
             allocationProtect: UInt = 0u,
             regionSize: Int = 0,
             state: UInt = 0u,
@@ -1255,7 +1253,7 @@ public class PssVaSpaceEntry internal constructor(
             type: UInt = 0u,
             timeDateStamp: UInt = 0u,
             sizeOfImage: UInt = 0u,
-            imageBase: MutPtr<CVoid> = MutPtr(0L),
+            imageBase: MutPtr = MutPtr(0L),
             checkSum: UInt = 0u,
             mappedFileNameLength: UShort = 0u,
             mappedFileName: Pcwstr = ConstPtr(0L),

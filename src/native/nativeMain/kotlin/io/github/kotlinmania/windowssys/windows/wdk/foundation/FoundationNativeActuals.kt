@@ -2,7 +2,6 @@
 
 package io.github.kotlinmania.windowssys.windows.wdk.foundation
 
-import io.github.kotlinmania.rustlang.core.ffi.CVoid
 import io.github.kotlinmania.rustlang.core.ptr.MutPtr
 import io.github.kotlinmania.windowssys.windows.wdk.foundation.cinterop.windowssysWindowsWdkFoundationNtClose
 import io.github.kotlinmania.windowssys.windows.wdk.foundation.cinterop.windowssysWindowsWdkFoundationNtQueryObject
@@ -14,5 +13,5 @@ import kotlinx.cinterop.toCPointer
 public actual fun ntClose(handle: Handle): Ntstatus =
     windowssysWindowsWdkFoundationNtClose(handle.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ntQueryObject(handle: Handle, objectinformationclass: ObjectInformationClass, objectinformation: MutPtr<CVoid>, objectinformationlength: UInt, returnlength: MutPtr<UInt>): Ntstatus =
+public actual fun ntQueryObject(handle: Handle, objectinformationclass: ObjectInformationClass, objectinformation: MutPtr, objectinformationlength: UInt, returnlength: MutPtr): Ntstatus =
     windowssysWindowsWdkFoundationNtQueryObject(handle.rawAddress.toCPointer<ByteVar>(), objectinformationclass, objectinformation.rawAddress.toCPointer<ByteVar>(), objectinformationlength, returnlength.rawAddress.toCPointer<ByteVar>())

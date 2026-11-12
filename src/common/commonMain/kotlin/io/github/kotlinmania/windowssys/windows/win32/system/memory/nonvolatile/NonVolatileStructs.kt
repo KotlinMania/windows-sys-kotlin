@@ -1,15 +1,14 @@
 package io.github.kotlinmania.windowssys.windows.win32.system.memory.nonvolatile
 
-import io.github.kotlinmania.rustlang.core.ffi.CVoid
 import io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
 import io.github.kotlinmania.rustlang.core.mem.TypeLayout
 import io.github.kotlinmania.rustlang.core.ptr.MutPtr
 
 public class NvMemoryRange internal constructor(
-    baseAddressCtorArg: MutPtr<CVoid>,
+    baseAddressCtorArg: MutPtr,
     public var length: Int,
 ) {
-    public var baseAddress: MutPtr<CVoid> = baseAddressCtorArg
+    public var baseAddress: MutPtr = baseAddressCtorArg
         internal set
 
     public constructor() : this(
@@ -17,11 +16,11 @@ public class NvMemoryRange internal constructor(
         length = 0,
     )
 
-    public operator fun component1(): MutPtr<CVoid> = this.baseAddress
+    public operator fun component1(): MutPtr = this.baseAddress
 
     public operator fun component2(): Int = this.length
 
-    public fun copy(baseAddress: MutPtr<CVoid> = this.baseAddress, length: Int = this.length): NvMemoryRange = NvMemoryRange(baseAddressCtorArg = baseAddress, length = length)
+    public fun copy(baseAddress: MutPtr = this.baseAddress, length: Int = this.length): NvMemoryRange = NvMemoryRange(baseAddressCtorArg = baseAddress, length = length)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -46,21 +45,21 @@ public class NvMemoryRange internal constructor(
                     NvMemoryRange(
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<CVoid>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.USIZE64).readNative(addr + 8L),
                     )
                 override fun writeNative(addr: Long, value: NvMemoryRange) {
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<CVoid>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr, value.baseAddress)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.USIZE64).writeNative(addr + 8L, value.length)
                 }
             }
 
         public operator fun invoke(
-            baseAddress: MutPtr<CVoid> = MutPtr(0L),
+            baseAddress: MutPtr = MutPtr(0L),
             length: Int = 0,
         ): NvMemoryRange =
             NvMemoryRange(

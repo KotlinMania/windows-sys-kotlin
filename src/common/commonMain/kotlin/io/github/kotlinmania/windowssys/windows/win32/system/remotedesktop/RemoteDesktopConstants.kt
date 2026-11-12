@@ -1,6 +1,5 @@
 package io.github.kotlinmania.windowssys.windows.win32.system.remotedesktop
 
-import io.github.kotlinmania.rustlang.core.ffi.CVoid
 import io.github.kotlinmania.rustlang.core.ptr.MutPtr
 import io.github.kotlinmania.windowssys.U128
 import io.github.kotlinmania.windowssys.core.Guid
@@ -880,9 +879,9 @@ public val WTS_CLIENT_PRODUCT_ID_LENGTH: UInt = 32u
 
 public val WTS_COMMENT_LENGTH: UInt = 60u
 
-public val WTS_CURRENT_SERVER: Handle = MutPtr<CVoid>(0L)
+public val WTS_CURRENT_SERVER: Handle = MutPtr(0L)
 
-public val WTS_CURRENT_SERVER_HANDLE: Handle = MutPtr<CVoid>(0L)
+public val WTS_CURRENT_SERVER_HANDLE: Handle = MutPtr(0L)
 
 public val WTS_CURRENT_SERVER_NAME: Pcwstr = w("")
 

@@ -5,7 +5,6 @@ package io.github.kotlinmania.windowssys.windows.win32.security.licenseprotectio
 import io.github.kotlinmania.rustlang.core.ptr.MutPtr
 import io.github.kotlinmania.windowssys.core.Hresult
 import io.github.kotlinmania.windowssys.core.Pcwstr
-import io.github.kotlinmania.windowssys.windows.win32.foundation.Filetime
 
 private object WindowsWin32SecurityLicenseprotectionJniBridge {
     init {
@@ -70,8 +69,8 @@ private object WindowsWin32SecurityLicenseprotectionJniBridge {
     external fun windowssysWindowsWin32SecurityLicenseprotectionValidateLicenseKeyProtection(licensekey: Long, notvalidbefore: Long, notvalidafter: Long, status: Long): Int
 }
 
-public actual fun registerLicenseKeyWithExpiration(licensekey: Pcwstr, validityindays: UInt, status: MutPtr<LicenseProtectionStatus>): Hresult =
+public actual fun registerLicenseKeyWithExpiration(licensekey: Pcwstr, validityindays: UInt, status: MutPtr): Hresult =
     WindowsWin32SecurityLicenseprotectionJniBridge.windowssysWindowsWin32SecurityLicenseprotectionRegisterLicenseKeyWithExpiration(licensekey.rawAddress, validityindays.toInt(), status.rawAddress)
 
-public actual fun validateLicenseKeyProtection(licensekey: Pcwstr, notvalidbefore: MutPtr<Filetime>, notvalidafter: MutPtr<Filetime>, status: MutPtr<LicenseProtectionStatus>): Hresult =
+public actual fun validateLicenseKeyProtection(licensekey: Pcwstr, notvalidbefore: MutPtr, notvalidafter: MutPtr, status: MutPtr): Hresult =
     WindowsWin32SecurityLicenseprotectionJniBridge.windowssysWindowsWin32SecurityLicenseprotectionValidateLicenseKeyProtection(licensekey.rawAddress, notvalidbefore.rawAddress, notvalidafter.rawAddress, status.rawAddress)

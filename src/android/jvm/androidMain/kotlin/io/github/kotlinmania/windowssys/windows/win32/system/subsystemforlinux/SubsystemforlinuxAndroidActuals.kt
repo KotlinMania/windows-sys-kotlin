@@ -6,7 +6,6 @@ import io.github.kotlinmania.rustlang.core.ptr.MutPtr
 import io.github.kotlinmania.windowssys.core.Bool
 import io.github.kotlinmania.windowssys.core.Hresult
 import io.github.kotlinmania.windowssys.core.Pcwstr
-import io.github.kotlinmania.windowssys.core.Pstr
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Handle
 
 private object WindowsWin32SystemSubsystemforlinuxJniBridge {
@@ -39,16 +38,16 @@ private object WindowsWin32SystemSubsystemforlinuxJniBridge {
 public actual fun wslConfigureDistribution(distributionname: Pcwstr, defaultuid: UInt, wsldistributionflags: WslDistributionFlags): Hresult =
     WindowsWin32SystemSubsystemforlinuxJniBridge.windowssysWindowsWin32SystemSubsystemforlinuxWslConfigureDistribution(distributionname.rawAddress, defaultuid.toInt(), wsldistributionflags)
 
-public actual fun wslGetDistributionConfiguration(distributionname: Pcwstr, distributionversion: MutPtr<UInt>, defaultuid: MutPtr<UInt>, wsldistributionflags: MutPtr<WslDistributionFlags>, defaultenvironmentvariables: MutPtr<MutPtr<Pstr>>, defaultenvironmentvariablecount: MutPtr<UInt>): Hresult =
+public actual fun wslGetDistributionConfiguration(distributionname: Pcwstr, distributionversion: MutPtr, defaultuid: MutPtr, wsldistributionflags: MutPtr, defaultenvironmentvariables: MutPtr, defaultenvironmentvariablecount: MutPtr): Hresult =
     WindowsWin32SystemSubsystemforlinuxJniBridge.windowssysWindowsWin32SystemSubsystemforlinuxWslGetDistributionConfiguration(distributionname.rawAddress, distributionversion.rawAddress, defaultuid.rawAddress, wsldistributionflags.rawAddress, defaultenvironmentvariables.rawAddress, defaultenvironmentvariablecount.rawAddress)
 
 public actual fun wslIsDistributionRegistered(distributionname: Pcwstr): Bool =
     WindowsWin32SystemSubsystemforlinuxJniBridge.windowssysWindowsWin32SystemSubsystemforlinuxWslIsDistributionRegistered(distributionname.rawAddress)
 
-public actual fun wslLaunch(distributionname: Pcwstr, command: Pcwstr, usecurrentworkingdirectory: Bool, stdin: Handle, stdout: Handle, stderr: Handle, process: MutPtr<Handle>): Hresult =
+public actual fun wslLaunch(distributionname: Pcwstr, command: Pcwstr, usecurrentworkingdirectory: Bool, stdin: Handle, stdout: Handle, stderr: Handle, process: MutPtr): Hresult =
     WindowsWin32SystemSubsystemforlinuxJniBridge.windowssysWindowsWin32SystemSubsystemforlinuxWslLaunch(distributionname.rawAddress, command.rawAddress, usecurrentworkingdirectory, stdin.rawAddress, stdout.rawAddress, stderr.rawAddress, process.rawAddress)
 
-public actual fun wslLaunchInteractive(distributionname: Pcwstr, command: Pcwstr, usecurrentworkingdirectory: Bool, exitcode: MutPtr<UInt>): Hresult =
+public actual fun wslLaunchInteractive(distributionname: Pcwstr, command: Pcwstr, usecurrentworkingdirectory: Bool, exitcode: MutPtr): Hresult =
     WindowsWin32SystemSubsystemforlinuxJniBridge.windowssysWindowsWin32SystemSubsystemforlinuxWslLaunchInteractive(distributionname.rawAddress, command.rawAddress, usecurrentworkingdirectory, exitcode.rawAddress)
 
 public actual fun wslRegisterDistribution(distributionname: Pcwstr, targzfilename: Pcwstr): Hresult =

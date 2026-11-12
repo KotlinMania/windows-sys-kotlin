@@ -2,7 +2,6 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.ui.windowsandmessaging
 
-import io.github.kotlinmania.rustlang.core.ffi.CVoid
 import io.github.kotlinmania.rustlang.core.ptr.ConstPtr
 import io.github.kotlinmania.rustlang.core.ptr.MutPtr
 import io.github.kotlinmania.windowssys.core.Bool
@@ -18,11 +17,8 @@ import io.github.kotlinmania.windowssys.windows.win32.foundation.Hwnd
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Lparam
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Lresult
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Point
-import io.github.kotlinmania.windowssys.windows.win32.foundation.Rect
-import io.github.kotlinmania.windowssys.windows.win32.foundation.Size
 import io.github.kotlinmania.windowssys.windows.win32.foundation.WaitEvent
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Wparam
-import io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.Blendfunction
 import io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.Hbitmap
 import io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.Hbrush
 import io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.Hdc
@@ -1285,10 +1281,10 @@ private object WindowsWin32UiWindowsandmessagingJniBridge {
     external fun windowssysWindowsWin32UiWindowsandmessagingWvsprintfW(param0: Long, param1: Long, arglist: Long): Int
 }
 
-public actual fun adjustWindowRect(lprect: MutPtr<Rect>, dwstyle: WindowStyle, bmenu: Bool): Bool =
+public actual fun adjustWindowRect(lprect: MutPtr, dwstyle: WindowStyle, bmenu: Bool): Bool =
     WindowsWin32UiWindowsandmessagingJniBridge.windowssysWindowsWin32UiWindowsandmessagingAdjustWindowRect(lprect.rawAddress, dwstyle.toInt(), bmenu)
 
-public actual fun adjustWindowRectEx(lprect: MutPtr<Rect>, dwstyle: WindowStyle, bmenu: Bool, dwexstyle: WindowExStyle): Bool =
+public actual fun adjustWindowRectEx(lprect: MutPtr, dwstyle: WindowStyle, bmenu: Bool, dwexstyle: WindowExStyle): Bool =
     WindowsWin32UiWindowsandmessagingJniBridge.windowssysWindowsWin32UiWindowsandmessagingAdjustWindowRectEx(lprect.rawAddress, dwstyle.toInt(), bmenu, dwexstyle.toInt())
 
 public actual fun allowSetForegroundWindow(dwprocessid: UInt): Bool =
@@ -1315,13 +1311,13 @@ public actual fun beginDeferWindowPos(nnumwindows: Int): Hdwp =
 public actual fun bringWindowToTop(hwnd: Hwnd): Bool =
     WindowsWin32UiWindowsandmessagingJniBridge.windowssysWindowsWin32UiWindowsandmessagingBringWindowToTop(hwnd.rawAddress)
 
-public actual fun calculatePopupWindowPosition(anchorpoint: ConstPtr<Point>, windowsize: ConstPtr<Size>, flags: UInt, excluderect: ConstPtr<Rect>, popupwindowposition: MutPtr<Rect>): Bool =
+public actual fun calculatePopupWindowPosition(anchorpoint: ConstPtr, windowsize: ConstPtr, flags: UInt, excluderect: ConstPtr, popupwindowposition: MutPtr): Bool =
     WindowsWin32UiWindowsandmessagingJniBridge.windowssysWindowsWin32UiWindowsandmessagingCalculatePopupWindowPosition(anchorpoint.rawAddress, windowsize.rawAddress, flags.toInt(), excluderect.rawAddress, popupwindowposition.rawAddress)
 
-public actual fun callMsgFilterA(lpmsg: ConstPtr<Msg>, ncode: Int): Bool =
+public actual fun callMsgFilterA(lpmsg: ConstPtr, ncode: Int): Bool =
     WindowsWin32UiWindowsandmessagingJniBridge.windowssysWindowsWin32UiWindowsandmessagingCallMsgFilterA(lpmsg.rawAddress, ncode)
 
-public actual fun callMsgFilterW(lpmsg: ConstPtr<Msg>, ncode: Int): Bool =
+public actual fun callMsgFilterW(lpmsg: ConstPtr, ncode: Int): Bool =
     WindowsWin32UiWindowsandmessagingJniBridge.windowssysWindowsWin32UiWindowsandmessagingCallMsgFilterW(lpmsg.rawAddress, ncode)
 
 public actual fun callNextHookEx(hhk: Hhook, ncode: Int, wparam: Wparam, lparam: Lparam): Lresult =
@@ -1336,7 +1332,7 @@ public actual fun callWindowProcW(lpprevwndfunc: Wndproc, hwnd: Hwnd, msg: UInt,
 public actual fun cancelShutdown(): Bool =
     WindowsWin32UiWindowsandmessagingJniBridge.windowssysWindowsWin32UiWindowsandmessagingCancelShutdown()
 
-public actual fun cascadeWindows(hwndparent: Hwnd, whow: CascadeWindowsHow, lprect: ConstPtr<Rect>, ckids: UInt, lpkids: ConstPtr<Hwnd>): UShort =
+public actual fun cascadeWindows(hwndparent: Hwnd, whow: CascadeWindowsHow, lprect: ConstPtr, ckids: UInt, lpkids: ConstPtr): UShort =
     WindowsWin32UiWindowsandmessagingJniBridge.windowssysWindowsWin32UiWindowsandmessagingCascadeWindows(hwndparent.rawAddress, whow.toInt(), lprect.rawAddress, ckids.toInt(), lpkids.rawAddress).toUShort()
 
 public actual fun changeMenuA(hmenu: Hmenu, cmd: UInt, lpsznewitem: Pcstr, cmdinsert: UInt, flags: UInt): Bool =
@@ -1348,7 +1344,7 @@ public actual fun changeMenuW(hmenu: Hmenu, cmd: UInt, lpsznewitem: Pcwstr, cmdi
 public actual fun changeWindowMessageFilter(message: UInt, dwflag: ChangeWindowMessageFilterFlags): Bool =
     WindowsWin32UiWindowsandmessagingJniBridge.windowssysWindowsWin32UiWindowsandmessagingChangeWindowMessageFilter(message.toInt(), dwflag.toInt())
 
-public actual fun changeWindowMessageFilterEx(hwnd: Hwnd, message: UInt, action: WindowMessageFilterAction, pchangefilterstruct: MutPtr<Changefilterstruct>): Bool =
+public actual fun changeWindowMessageFilterEx(hwnd: Hwnd, message: UInt, action: WindowMessageFilterAction, pchangefilterstruct: MutPtr): Bool =
     WindowsWin32UiWindowsandmessagingJniBridge.windowssysWindowsWin32UiWindowsandmessagingChangeWindowMessageFilterEx(hwnd.rawAddress, message.toInt(), action.toInt(), pchangefilterstruct.rawAddress)
 
 public actual fun charLowerA(lpsz: Pstr): Pstr =
@@ -1417,16 +1413,16 @@ public actual fun childWindowFromPoint(hwndparent: Hwnd, point: Point): Hwnd =
 public actual fun childWindowFromPointEx(hwnd: Hwnd, pt: Point, flags: CwpFlags): Hwnd =
     MutPtr(0L)
 
-public actual fun clipCursor(lprect: ConstPtr<Rect>): Bool =
+public actual fun clipCursor(lprect: ConstPtr): Bool =
     WindowsWin32UiWindowsandmessagingJniBridge.windowssysWindowsWin32UiWindowsandmessagingClipCursor(lprect.rawAddress)
 
 public actual fun closeWindow(hwnd: Hwnd): Bool =
     WindowsWin32UiWindowsandmessagingJniBridge.windowssysWindowsWin32UiWindowsandmessagingCloseWindow(hwnd.rawAddress)
 
-public actual fun copyAcceleratorTableA(haccelsrc: Haccel, lpacceldst: MutPtr<Accel>, caccelentries: Int): Int =
+public actual fun copyAcceleratorTableA(haccelsrc: Haccel, lpacceldst: MutPtr, caccelentries: Int): Int =
     WindowsWin32UiWindowsandmessagingJniBridge.windowssysWindowsWin32UiWindowsandmessagingCopyAcceleratorTableA(haccelsrc.rawAddress, lpacceldst.rawAddress, caccelentries)
 
-public actual fun copyAcceleratorTableW(haccelsrc: Haccel, lpacceldst: MutPtr<Accel>, caccelentries: Int): Int =
+public actual fun copyAcceleratorTableW(haccelsrc: Haccel, lpacceldst: MutPtr, caccelentries: Int): Int =
     WindowsWin32UiWindowsandmessagingJniBridge.windowssysWindowsWin32UiWindowsandmessagingCopyAcceleratorTableW(haccelsrc.rawAddress, lpacceldst.rawAddress, caccelentries)
 
 public actual fun copyIcon(hicon: Hicon): Hicon =
@@ -1435,22 +1431,22 @@ public actual fun copyIcon(hicon: Hicon): Hicon =
 public actual fun copyImage(h: Handle, type: GdiImageType, cx: Int, cy: Int, flags: ImageFlags): Handle =
     MutPtr(WindowsWin32UiWindowsandmessagingJniBridge.windowssysWindowsWin32UiWindowsandmessagingCopyImage(h.rawAddress, type.toInt(), cx, cy, flags.toInt()))
 
-public actual fun createAcceleratorTableA(paccel: ConstPtr<Accel>, caccel: Int): Haccel =
+public actual fun createAcceleratorTableA(paccel: ConstPtr, caccel: Int): Haccel =
     MutPtr(WindowsWin32UiWindowsandmessagingJniBridge.windowssysWindowsWin32UiWindowsandmessagingCreateAcceleratorTableA(paccel.rawAddress, caccel))
 
-public actual fun createAcceleratorTableW(paccel: ConstPtr<Accel>, caccel: Int): Haccel =
+public actual fun createAcceleratorTableW(paccel: ConstPtr, caccel: Int): Haccel =
     MutPtr(WindowsWin32UiWindowsandmessagingJniBridge.windowssysWindowsWin32UiWindowsandmessagingCreateAcceleratorTableW(paccel.rawAddress, caccel))
 
 public actual fun createCaret(hwnd: Hwnd, hbitmap: Hbitmap, nwidth: Int, nheight: Int): Bool =
     WindowsWin32UiWindowsandmessagingJniBridge.windowssysWindowsWin32UiWindowsandmessagingCreateCaret(hwnd.rawAddress, hbitmap.rawAddress, nwidth, nheight)
 
-public actual fun createCursor(hinst: Hinstance, xhotspot: Int, yhotspot: Int, nwidth: Int, nheight: Int, pvandplane: ConstPtr<CVoid>, pvxorplane: ConstPtr<CVoid>): Hcursor =
+public actual fun createCursor(hinst: Hinstance, xhotspot: Int, yhotspot: Int, nwidth: Int, nheight: Int, pvandplane: ConstPtr, pvxorplane: ConstPtr): Hcursor =
     MutPtr(WindowsWin32UiWindowsandmessagingJniBridge.windowssysWindowsWin32UiWindowsandmessagingCreateCursor(hinst.rawAddress, xhotspot, yhotspot, nwidth, nheight, pvandplane.rawAddress, pvxorplane.rawAddress))
 
-public actual fun createDialogIndirectParamA(hinstance: Hinstance, lptemplate: ConstPtr<Dlgtemplate>, hwndparent: Hwnd, lpdialogfunc: Dlgproc, dwinitparam: Lparam): Hwnd =
+public actual fun createDialogIndirectParamA(hinstance: Hinstance, lptemplate: ConstPtr, hwndparent: Hwnd, lpdialogfunc: Dlgproc, dwinitparam: Lparam): Hwnd =
     MutPtr(WindowsWin32UiWindowsandmessagingJniBridge.windowssysWindowsWin32UiWindowsandmessagingCreateDialogIndirectParamA(hinstance.rawAddress, lptemplate.rawAddress, hwndparent.rawAddress, 0L, dwinitparam))
 
-public actual fun createDialogIndirectParamW(hinstance: Hinstance, lptemplate: ConstPtr<Dlgtemplate>, hwndparent: Hwnd, lpdialogfunc: Dlgproc, dwinitparam: Lparam): Hwnd =
+public actual fun createDialogIndirectParamW(hinstance: Hinstance, lptemplate: ConstPtr, hwndparent: Hwnd, lpdialogfunc: Dlgproc, dwinitparam: Lparam): Hwnd =
     MutPtr(WindowsWin32UiWindowsandmessagingJniBridge.windowssysWindowsWin32UiWindowsandmessagingCreateDialogIndirectParamW(hinstance.rawAddress, lptemplate.rawAddress, hwndparent.rawAddress, 0L, dwinitparam))
 
 public actual fun createDialogParamA(hinstance: Hinstance, lptemplatename: Pcstr, hwndparent: Hwnd, lpdialogfunc: Dlgproc, dwinitparam: Lparam): Hwnd =
@@ -1459,16 +1455,16 @@ public actual fun createDialogParamA(hinstance: Hinstance, lptemplatename: Pcstr
 public actual fun createDialogParamW(hinstance: Hinstance, lptemplatename: Pcwstr, hwndparent: Hwnd, lpdialogfunc: Dlgproc, dwinitparam: Lparam): Hwnd =
     MutPtr(WindowsWin32UiWindowsandmessagingJniBridge.windowssysWindowsWin32UiWindowsandmessagingCreateDialogParamW(hinstance.rawAddress, lptemplatename.rawAddress, hwndparent.rawAddress, 0L, dwinitparam))
 
-public actual fun createIcon(hinstance: Hinstance, nwidth: Int, nheight: Int, cplanes: UByte, cbitspixel: UByte, lpbandbits: ConstPtr<UByte>, lpbxorbits: ConstPtr<UByte>): Hicon =
+public actual fun createIcon(hinstance: Hinstance, nwidth: Int, nheight: Int, cplanes: UByte, cbitspixel: UByte, lpbandbits: ConstPtr, lpbxorbits: ConstPtr): Hicon =
     MutPtr(WindowsWin32UiWindowsandmessagingJniBridge.windowssysWindowsWin32UiWindowsandmessagingCreateIcon(hinstance.rawAddress, nwidth, nheight, cplanes.toByte(), cbitspixel.toByte(), lpbandbits.rawAddress, lpbxorbits.rawAddress))
 
-public actual fun createIconFromResource(presbits: ConstPtr<UByte>, dwressize: UInt, ficon: Bool, dwver: UInt): Hicon =
+public actual fun createIconFromResource(presbits: ConstPtr, dwressize: UInt, ficon: Bool, dwver: UInt): Hicon =
     MutPtr(WindowsWin32UiWindowsandmessagingJniBridge.windowssysWindowsWin32UiWindowsandmessagingCreateIconFromResource(presbits.rawAddress, dwressize.toInt(), ficon, dwver.toInt()))
 
-public actual fun createIconFromResourceEx(presbits: ConstPtr<UByte>, dwressize: UInt, ficon: Bool, dwver: UInt, cxdesired: Int, cydesired: Int, flags: ImageFlags): Hicon =
+public actual fun createIconFromResourceEx(presbits: ConstPtr, dwressize: UInt, ficon: Bool, dwver: UInt, cxdesired: Int, cydesired: Int, flags: ImageFlags): Hicon =
     MutPtr(WindowsWin32UiWindowsandmessagingJniBridge.windowssysWindowsWin32UiWindowsandmessagingCreateIconFromResourceEx(presbits.rawAddress, dwressize.toInt(), ficon, dwver.toInt(), cxdesired, cydesired, flags.toInt()))
 
-public actual fun createIconIndirect(piconinfo: ConstPtr<Iconinfo>): Hicon =
+public actual fun createIconIndirect(piconinfo: ConstPtr): Hicon =
     MutPtr(WindowsWin32UiWindowsandmessagingJniBridge.windowssysWindowsWin32UiWindowsandmessagingCreateIconIndirect(piconinfo.rawAddress))
 
 public actual fun createMDIWindowA(lpclassname: Pcstr, lpwindowname: Pcstr, dwstyle: WindowStyle, x: Int, y: Int, nwidth: Int, nheight: Int, hwndparent: Hwnd, hinstance: Hinstance, lparam: Lparam): Hwnd =
@@ -1483,13 +1479,13 @@ public actual fun createMenu(): Hmenu =
 public actual fun createPopupMenu(): Hmenu =
     MutPtr(WindowsWin32UiWindowsandmessagingJniBridge.windowssysWindowsWin32UiWindowsandmessagingCreatePopupMenu())
 
-public actual fun createResourceIndexer(projectroot: Pcwstr, extensiondllpath: Pcwstr, ppresourceindexer: MutPtr<MutPtr<CVoid>>): Hresult =
+public actual fun createResourceIndexer(projectroot: Pcwstr, extensiondllpath: Pcwstr, ppresourceindexer: MutPtr): Hresult =
     WindowsWin32UiWindowsandmessagingJniBridge.windowssysWindowsWin32UiWindowsandmessagingCreateResourceIndexer(projectroot.rawAddress, extensiondllpath.rawAddress, ppresourceindexer.rawAddress)
 
-public actual fun createWindowExA(dwexstyle: WindowExStyle, lpclassname: Pcstr, lpwindowname: Pcstr, dwstyle: WindowStyle, x: Int, y: Int, nwidth: Int, nheight: Int, hwndparent: Hwnd, hmenu: Hmenu, hinstance: Hinstance, lpparam: ConstPtr<CVoid>): Hwnd =
+public actual fun createWindowExA(dwexstyle: WindowExStyle, lpclassname: Pcstr, lpwindowname: Pcstr, dwstyle: WindowStyle, x: Int, y: Int, nwidth: Int, nheight: Int, hwndparent: Hwnd, hmenu: Hmenu, hinstance: Hinstance, lpparam: ConstPtr): Hwnd =
     MutPtr(WindowsWin32UiWindowsandmessagingJniBridge.windowssysWindowsWin32UiWindowsandmessagingCreateWindowExA(dwexstyle.toInt(), lpclassname.rawAddress, lpwindowname.rawAddress, dwstyle.toInt(), x, y, nwidth, nheight, hwndparent.rawAddress, hmenu.rawAddress, hinstance.rawAddress, lpparam.rawAddress))
 
-public actual fun createWindowExW(dwexstyle: WindowExStyle, lpclassname: Pcwstr, lpwindowname: Pcwstr, dwstyle: WindowStyle, x: Int, y: Int, nwidth: Int, nheight: Int, hwndparent: Hwnd, hmenu: Hmenu, hinstance: Hinstance, lpparam: ConstPtr<CVoid>): Hwnd =
+public actual fun createWindowExW(dwexstyle: WindowExStyle, lpclassname: Pcwstr, lpwindowname: Pcwstr, dwstyle: WindowStyle, x: Int, y: Int, nwidth: Int, nheight: Int, hwndparent: Hwnd, hmenu: Hmenu, hinstance: Hinstance, lpparam: ConstPtr): Hwnd =
     MutPtr(WindowsWin32UiWindowsandmessagingJniBridge.windowssysWindowsWin32UiWindowsandmessagingCreateWindowExW(dwexstyle.toInt(), lpclassname.rawAddress, lpwindowname.rawAddress, dwstyle.toInt(), x, y, nwidth, nheight, hwndparent.rawAddress, hmenu.rawAddress, hinstance.rawAddress, lpparam.rawAddress))
 
 public actual fun defDlgProcA(hdlg: Hwnd, msg: UInt, wparam: Wparam, lparam: Lparam): Lresult =
@@ -1537,24 +1533,24 @@ public actual fun destroyCursor(hcursor: Hcursor): Bool =
 public actual fun destroyIcon(hicon: Hicon): Bool =
     WindowsWin32UiWindowsandmessagingJniBridge.windowssysWindowsWin32UiWindowsandmessagingDestroyIcon(hicon.rawAddress)
 
-public actual fun destroyIndexedResults(resourceuri: Pcwstr, qualifiercount: UInt, qualifiers: ConstPtr<IndexedResourceQualifier>) {
+public actual fun destroyIndexedResults(resourceuri: Pcwstr, qualifiercount: UInt, qualifiers: ConstPtr) {
     WindowsWin32UiWindowsandmessagingJniBridge.windowssysWindowsWin32UiWindowsandmessagingDestroyIndexedResults(resourceuri.rawAddress, qualifiercount.toInt(), qualifiers.rawAddress)
 }
 
 public actual fun destroyMenu(hmenu: Hmenu): Bool =
     WindowsWin32UiWindowsandmessagingJniBridge.windowssysWindowsWin32UiWindowsandmessagingDestroyMenu(hmenu.rawAddress)
 
-public actual fun destroyResourceIndexer(resourceindexer: ConstPtr<CVoid>) {
+public actual fun destroyResourceIndexer(resourceindexer: ConstPtr) {
     WindowsWin32UiWindowsandmessagingJniBridge.windowssysWindowsWin32UiWindowsandmessagingDestroyResourceIndexer(resourceindexer.rawAddress)
 }
 
 public actual fun destroyWindow(hwnd: Hwnd): Bool =
     WindowsWin32UiWindowsandmessagingJniBridge.windowssysWindowsWin32UiWindowsandmessagingDestroyWindow(hwnd.rawAddress)
 
-public actual fun dialogBoxIndirectParamA(hinstance: Hinstance, hdialogtemplate: ConstPtr<Dlgtemplate>, hwndparent: Hwnd, lpdialogfunc: Dlgproc, dwinitparam: Lparam): Long =
+public actual fun dialogBoxIndirectParamA(hinstance: Hinstance, hdialogtemplate: ConstPtr, hwndparent: Hwnd, lpdialogfunc: Dlgproc, dwinitparam: Lparam): Long =
     WindowsWin32UiWindowsandmessagingJniBridge.windowssysWindowsWin32UiWindowsandmessagingDialogBoxIndirectParamA(hinstance.rawAddress, hdialogtemplate.rawAddress, hwndparent.rawAddress, 0L, dwinitparam)
 
-public actual fun dialogBoxIndirectParamW(hinstance: Hinstance, hdialogtemplate: ConstPtr<Dlgtemplate>, hwndparent: Hwnd, lpdialogfunc: Dlgproc, dwinitparam: Lparam): Long =
+public actual fun dialogBoxIndirectParamW(hinstance: Hinstance, hdialogtemplate: ConstPtr, hwndparent: Hwnd, lpdialogfunc: Dlgproc, dwinitparam: Lparam): Long =
     WindowsWin32UiWindowsandmessagingJniBridge.windowssysWindowsWin32UiWindowsandmessagingDialogBoxIndirectParamW(hinstance.rawAddress, hdialogtemplate.rawAddress, hwndparent.rawAddress, 0L, dwinitparam)
 
 public actual fun dialogBoxParamA(hinstance: Hinstance, lptemplatename: Pcstr, hwndparent: Hwnd, lpdialogfunc: Dlgproc, dwinitparam: Lparam): Long =
@@ -1567,10 +1563,10 @@ public actual fun disableProcessWindowsGhosting() {
     WindowsWin32UiWindowsandmessagingJniBridge.windowssysWindowsWin32UiWindowsandmessagingDisableProcessWindowsGhosting()
 }
 
-public actual fun dispatchMessageA(lpmsg: ConstPtr<Msg>): Lresult =
+public actual fun dispatchMessageA(lpmsg: ConstPtr): Lresult =
     WindowsWin32UiWindowsandmessagingJniBridge.windowssysWindowsWin32UiWindowsandmessagingDispatchMessageA(lpmsg.rawAddress)
 
-public actual fun dispatchMessageW(lpmsg: ConstPtr<Msg>): Lresult =
+public actual fun dispatchMessageW(lpmsg: ConstPtr): Lresult =
     WindowsWin32UiWindowsandmessagingJniBridge.windowssysWindowsWin32UiWindowsandmessagingDispatchMessageW(lpmsg.rawAddress)
 
 public actual fun dragObject(hwndparent: Hwnd, hwndfrom: Hwnd, fmt: UInt, data: ULong, hcur: Hcursor): UInt =
@@ -1633,13 +1629,13 @@ public actual fun findWindowW(lpclassname: Pcwstr, lpwindowname: Pcwstr): Hwnd =
 public actual fun flashWindow(hwnd: Hwnd, binvert: Bool): Bool =
     WindowsWin32UiWindowsandmessagingJniBridge.windowssysWindowsWin32UiWindowsandmessagingFlashWindow(hwnd.rawAddress, binvert)
 
-public actual fun flashWindowEx(pfwi: ConstPtr<Flashwinfo>): Bool =
+public actual fun flashWindowEx(pfwi: ConstPtr): Bool =
     WindowsWin32UiWindowsandmessagingJniBridge.windowssysWindowsWin32UiWindowsandmessagingFlashWindowEx(pfwi.rawAddress)
 
-public actual fun getAltTabInfoA(hwnd: Hwnd, iitem: Int, pati: MutPtr<Alttabinfo>, pszitemtext: Pstr, cchitemtext: UInt): Bool =
+public actual fun getAltTabInfoA(hwnd: Hwnd, iitem: Int, pati: MutPtr, pszitemtext: Pstr, cchitemtext: UInt): Bool =
     WindowsWin32UiWindowsandmessagingJniBridge.windowssysWindowsWin32UiWindowsandmessagingGetAltTabInfoA(hwnd.rawAddress, iitem, pati.rawAddress, pszitemtext.rawAddress, cchitemtext.toInt())
 
-public actual fun getAltTabInfoW(hwnd: Hwnd, iitem: Int, pati: MutPtr<Alttabinfo>, pszitemtext: Pwstr, cchitemtext: UInt): Bool =
+public actual fun getAltTabInfoW(hwnd: Hwnd, iitem: Int, pati: MutPtr, pszitemtext: Pwstr, cchitemtext: UInt): Bool =
     WindowsWin32UiWindowsandmessagingJniBridge.windowssysWindowsWin32UiWindowsandmessagingGetAltTabInfoW(hwnd.rawAddress, iitem, pati.rawAddress, pszitemtext.rawAddress, cchitemtext.toInt())
 
 public actual fun getAncestor(hwnd: Hwnd, gaflags: GetAncestorFlags): Hwnd =
@@ -1648,19 +1644,19 @@ public actual fun getAncestor(hwnd: Hwnd, gaflags: GetAncestorFlags): Hwnd =
 public actual fun getCaretBlinkTime(): UInt =
     WindowsWin32UiWindowsandmessagingJniBridge.windowssysWindowsWin32UiWindowsandmessagingGetCaretBlinkTime().toUInt()
 
-public actual fun getCaretPos(lppoint: MutPtr<Point>): Bool =
+public actual fun getCaretPos(lppoint: MutPtr): Bool =
     WindowsWin32UiWindowsandmessagingJniBridge.windowssysWindowsWin32UiWindowsandmessagingGetCaretPos(lppoint.rawAddress)
 
-public actual fun getClassInfoA(hinstance: Hinstance, lpclassname: Pcstr, lpwndclass: MutPtr<Wndclassa>): Bool =
+public actual fun getClassInfoA(hinstance: Hinstance, lpclassname: Pcstr, lpwndclass: MutPtr): Bool =
     WindowsWin32UiWindowsandmessagingJniBridge.windowssysWindowsWin32UiWindowsandmessagingGetClassInfoA(hinstance.rawAddress, lpclassname.rawAddress, lpwndclass.rawAddress)
 
-public actual fun getClassInfoExA(hinstance: Hinstance, lpszclass: Pcstr, lpwcx: MutPtr<Wndclassexa>): Bool =
+public actual fun getClassInfoExA(hinstance: Hinstance, lpszclass: Pcstr, lpwcx: MutPtr): Bool =
     WindowsWin32UiWindowsandmessagingJniBridge.windowssysWindowsWin32UiWindowsandmessagingGetClassInfoExA(hinstance.rawAddress, lpszclass.rawAddress, lpwcx.rawAddress)
 
-public actual fun getClassInfoExW(hinstance: Hinstance, lpszclass: Pcwstr, lpwcx: MutPtr<Wndclassexw>): Bool =
+public actual fun getClassInfoExW(hinstance: Hinstance, lpszclass: Pcwstr, lpwcx: MutPtr): Bool =
     WindowsWin32UiWindowsandmessagingJniBridge.windowssysWindowsWin32UiWindowsandmessagingGetClassInfoExW(hinstance.rawAddress, lpszclass.rawAddress, lpwcx.rawAddress)
 
-public actual fun getClassInfoW(hinstance: Hinstance, lpclassname: Pcwstr, lpwndclass: MutPtr<Wndclassw>): Bool =
+public actual fun getClassInfoW(hinstance: Hinstance, lpclassname: Pcwstr, lpwndclass: MutPtr): Bool =
     WindowsWin32UiWindowsandmessagingJniBridge.windowssysWindowsWin32UiWindowsandmessagingGetClassInfoW(hinstance.rawAddress, lpclassname.rawAddress, lpwndclass.rawAddress)
 
 public actual fun getClassLongA(hwnd: Hwnd, nindex: GetClassLongIndex): UInt =
@@ -1684,19 +1680,19 @@ public actual fun getClassNameW(hwnd: Hwnd, lpclassname: Pwstr, nmaxcount: Int):
 public actual fun getClassWord(hwnd: Hwnd, nindex: Int): UShort =
     WindowsWin32UiWindowsandmessagingJniBridge.windowssysWindowsWin32UiWindowsandmessagingGetClassWord(hwnd.rawAddress, nindex).toUShort()
 
-public actual fun getClientRect(hwnd: Hwnd, lprect: MutPtr<Rect>): Bool =
+public actual fun getClientRect(hwnd: Hwnd, lprect: MutPtr): Bool =
     WindowsWin32UiWindowsandmessagingJniBridge.windowssysWindowsWin32UiWindowsandmessagingGetClientRect(hwnd.rawAddress, lprect.rawAddress)
 
-public actual fun getClipCursor(lprect: MutPtr<Rect>): Bool =
+public actual fun getClipCursor(lprect: MutPtr): Bool =
     WindowsWin32UiWindowsandmessagingJniBridge.windowssysWindowsWin32UiWindowsandmessagingGetClipCursor(lprect.rawAddress)
 
 public actual fun getCursor(): Hcursor =
     MutPtr(WindowsWin32UiWindowsandmessagingJniBridge.windowssysWindowsWin32UiWindowsandmessagingGetCursor())
 
-public actual fun getCursorInfo(pci: MutPtr<Cursorinfo>): Bool =
+public actual fun getCursorInfo(pci: MutPtr): Bool =
     WindowsWin32UiWindowsandmessagingJniBridge.windowssysWindowsWin32UiWindowsandmessagingGetCursorInfo(pci.rawAddress)
 
-public actual fun getCursorPos(lppoint: MutPtr<Point>): Bool =
+public actual fun getCursorPos(lppoint: MutPtr): Bool =
     WindowsWin32UiWindowsandmessagingJniBridge.windowssysWindowsWin32UiWindowsandmessagingGetCursorPos(lppoint.rawAddress)
 
 public actual fun getDesktopWindow(): Hwnd =
@@ -1711,7 +1707,7 @@ public actual fun getDlgCtrlID(hwnd: Hwnd): Int =
 public actual fun getDlgItem(hdlg: Hwnd, niddlgitem: Int): Hwnd =
     MutPtr(WindowsWin32UiWindowsandmessagingJniBridge.windowssysWindowsWin32UiWindowsandmessagingGetDlgItem(hdlg.rawAddress, niddlgitem))
 
-public actual fun getDlgItemInt(hdlg: Hwnd, niddlgitem: Int, lptranslated: MutPtr<Bool>, bsigned: Bool): UInt =
+public actual fun getDlgItemInt(hdlg: Hwnd, niddlgitem: Int, lptranslated: MutPtr, bsigned: Bool): UInt =
     WindowsWin32UiWindowsandmessagingJniBridge.windowssysWindowsWin32UiWindowsandmessagingGetDlgItemInt(hdlg.rawAddress, niddlgitem, lptranslated.rawAddress, bsigned).toUInt()
 
 public actual fun getDlgItemTextA(hdlg: Hwnd, niddlgitem: Int, lpstring: Pstr, cchmax: Int): UInt =
@@ -1723,16 +1719,16 @@ public actual fun getDlgItemTextW(hdlg: Hwnd, niddlgitem: Int, lpstring: Pwstr, 
 public actual fun getForegroundWindow(): Hwnd =
     MutPtr(WindowsWin32UiWindowsandmessagingJniBridge.windowssysWindowsWin32UiWindowsandmessagingGetForegroundWindow())
 
-public actual fun getGUIThreadInfo(idthread: UInt, pgui: MutPtr<Guithreadinfo>): Bool =
+public actual fun getGUIThreadInfo(idthread: UInt, pgui: MutPtr): Bool =
     WindowsWin32UiWindowsandmessagingJniBridge.windowssysWindowsWin32UiWindowsandmessagingGetGUIThreadInfo(idthread.toInt(), pgui.rawAddress)
 
-public actual fun getIconInfo(hicon: Hicon, piconinfo: MutPtr<Iconinfo>): Bool =
+public actual fun getIconInfo(hicon: Hicon, piconinfo: MutPtr): Bool =
     WindowsWin32UiWindowsandmessagingJniBridge.windowssysWindowsWin32UiWindowsandmessagingGetIconInfo(hicon.rawAddress, piconinfo.rawAddress)
 
-public actual fun getIconInfoExA(hicon: Hicon, piconinfo: MutPtr<Iconinfoexa>): Bool =
+public actual fun getIconInfoExA(hicon: Hicon, piconinfo: MutPtr): Bool =
     WindowsWin32UiWindowsandmessagingJniBridge.windowssysWindowsWin32UiWindowsandmessagingGetIconInfoExA(hicon.rawAddress, piconinfo.rawAddress)
 
-public actual fun getIconInfoExW(hicon: Hicon, piconinfo: MutPtr<Iconinfoexw>): Bool =
+public actual fun getIconInfoExW(hicon: Hicon, piconinfo: MutPtr): Bool =
     WindowsWin32UiWindowsandmessagingJniBridge.windowssysWindowsWin32UiWindowsandmessagingGetIconInfoExW(hicon.rawAddress, piconinfo.rawAddress)
 
 public actual fun getInputState(): Bool =
@@ -1741,13 +1737,13 @@ public actual fun getInputState(): Bool =
 public actual fun getLastActivePopup(hwnd: Hwnd): Hwnd =
     MutPtr(WindowsWin32UiWindowsandmessagingJniBridge.windowssysWindowsWin32UiWindowsandmessagingGetLastActivePopup(hwnd.rawAddress))
 
-public actual fun getLayeredWindowAttributes(hwnd: Hwnd, pcrkey: MutPtr<Colorref>, pbalpha: MutPtr<UByte>, pdwflags: MutPtr<LayeredWindowAttributesFlags>): Bool =
+public actual fun getLayeredWindowAttributes(hwnd: Hwnd, pcrkey: MutPtr, pbalpha: MutPtr, pdwflags: MutPtr): Bool =
     WindowsWin32UiWindowsandmessagingJniBridge.windowssysWindowsWin32UiWindowsandmessagingGetLayeredWindowAttributes(hwnd.rawAddress, pcrkey.rawAddress, pbalpha.rawAddress, pdwflags.rawAddress)
 
 public actual fun getMenu(hwnd: Hwnd): Hmenu =
     MutPtr(WindowsWin32UiWindowsandmessagingJniBridge.windowssysWindowsWin32UiWindowsandmessagingGetMenu(hwnd.rawAddress))
 
-public actual fun getMenuBarInfo(hwnd: Hwnd, idobject: ObjectIdentifier, iditem: Int, pmbi: MutPtr<Menubarinfo>): Bool =
+public actual fun getMenuBarInfo(hwnd: Hwnd, idobject: ObjectIdentifier, iditem: Int, pmbi: MutPtr): Bool =
     WindowsWin32UiWindowsandmessagingJniBridge.windowssysWindowsWin32UiWindowsandmessagingGetMenuBarInfo(hwnd.rawAddress, idobject, iditem, pmbi.rawAddress)
 
 public actual fun getMenuCheckMarkDimensions(): Int =
@@ -1756,7 +1752,7 @@ public actual fun getMenuCheckMarkDimensions(): Int =
 public actual fun getMenuDefaultItem(hmenu: Hmenu, fbypos: UInt, gmdiflags: GetMenuDefaultItemFlags): UInt =
     WindowsWin32UiWindowsandmessagingJniBridge.windowssysWindowsWin32UiWindowsandmessagingGetMenuDefaultItem(hmenu.rawAddress, fbypos.toInt(), gmdiflags.toInt()).toUInt()
 
-public actual fun getMenuInfo(param0: Hmenu, param1: MutPtr<Menuinfo>): Bool =
+public actual fun getMenuInfo(param0: Hmenu, param1: MutPtr): Bool =
     WindowsWin32UiWindowsandmessagingJniBridge.windowssysWindowsWin32UiWindowsandmessagingGetMenuInfo(param0.rawAddress, param1.rawAddress)
 
 public actual fun getMenuItemCount(hmenu: Hmenu): Int =
@@ -1765,13 +1761,13 @@ public actual fun getMenuItemCount(hmenu: Hmenu): Int =
 public actual fun getMenuItemID(hmenu: Hmenu, npos: Int): UInt =
     WindowsWin32UiWindowsandmessagingJniBridge.windowssysWindowsWin32UiWindowsandmessagingGetMenuItemID(hmenu.rawAddress, npos).toUInt()
 
-public actual fun getMenuItemInfoA(hmenu: Hmenu, item: UInt, fbyposition: Bool, lpmii: MutPtr<Menuiteminfoa>): Bool =
+public actual fun getMenuItemInfoA(hmenu: Hmenu, item: UInt, fbyposition: Bool, lpmii: MutPtr): Bool =
     WindowsWin32UiWindowsandmessagingJniBridge.windowssysWindowsWin32UiWindowsandmessagingGetMenuItemInfoA(hmenu.rawAddress, item.toInt(), fbyposition, lpmii.rawAddress)
 
-public actual fun getMenuItemInfoW(hmenu: Hmenu, item: UInt, fbyposition: Bool, lpmii: MutPtr<Menuiteminfow>): Bool =
+public actual fun getMenuItemInfoW(hmenu: Hmenu, item: UInt, fbyposition: Bool, lpmii: MutPtr): Bool =
     WindowsWin32UiWindowsandmessagingJniBridge.windowssysWindowsWin32UiWindowsandmessagingGetMenuItemInfoW(hmenu.rawAddress, item.toInt(), fbyposition, lpmii.rawAddress)
 
-public actual fun getMenuItemRect(hwnd: Hwnd, hmenu: Hmenu, uitem: UInt, lprcitem: MutPtr<Rect>): Bool =
+public actual fun getMenuItemRect(hwnd: Hwnd, hmenu: Hmenu, uitem: UInt, lprcitem: MutPtr): Bool =
     WindowsWin32UiWindowsandmessagingJniBridge.windowssysWindowsWin32UiWindowsandmessagingGetMenuItemRect(hwnd.rawAddress, hmenu.rawAddress, uitem.toInt(), lprcitem.rawAddress)
 
 public actual fun getMenuState(hmenu: Hmenu, uid: UInt, uflags: MenuItemFlags): UInt =
@@ -1783,7 +1779,7 @@ public actual fun getMenuStringA(hmenu: Hmenu, uiditem: UInt, lpstring: Pstr, cc
 public actual fun getMenuStringW(hmenu: Hmenu, uiditem: UInt, lpstring: Pwstr, cchmax: Int, flags: MenuItemFlags): Int =
     WindowsWin32UiWindowsandmessagingJniBridge.windowssysWindowsWin32UiWindowsandmessagingGetMenuStringW(hmenu.rawAddress, uiditem.toInt(), lpstring.rawAddress, cchmax, flags.toInt())
 
-public actual fun getMessageA(lpmsg: MutPtr<Msg>, hwnd: Hwnd, wmsgfiltermin: UInt, wmsgfiltermax: UInt): Bool =
+public actual fun getMessageA(lpmsg: MutPtr, hwnd: Hwnd, wmsgfiltermin: UInt, wmsgfiltermax: UInt): Bool =
     WindowsWin32UiWindowsandmessagingJniBridge.windowssysWindowsWin32UiWindowsandmessagingGetMessageA(lpmsg.rawAddress, hwnd.rawAddress, wmsgfiltermin.toInt(), wmsgfiltermax.toInt())
 
 public actual fun getMessageExtraInfo(): Lparam =
@@ -1795,7 +1791,7 @@ public actual fun getMessagePos(): UInt =
 public actual fun getMessageTime(): Int =
     WindowsWin32UiWindowsandmessagingJniBridge.windowssysWindowsWin32UiWindowsandmessagingGetMessageTime()
 
-public actual fun getMessageW(lpmsg: MutPtr<Msg>, hwnd: Hwnd, wmsgfiltermin: UInt, wmsgfiltermax: UInt): Bool =
+public actual fun getMessageW(lpmsg: MutPtr, hwnd: Hwnd, wmsgfiltermin: UInt, wmsgfiltermax: UInt): Bool =
     WindowsWin32UiWindowsandmessagingJniBridge.windowssysWindowsWin32UiWindowsandmessagingGetMessageW(lpmsg.rawAddress, hwnd.rawAddress, wmsgfiltermin.toInt(), wmsgfiltermax.toInt())
 
 public actual fun getNextDlgGroupItem(hdlg: Hwnd, hctl: Hwnd, bprevious: Bool): Hwnd =
@@ -1807,10 +1803,10 @@ public actual fun getNextDlgTabItem(hdlg: Hwnd, hctl: Hwnd, bprevious: Bool): Hw
 public actual fun getParent(hwnd: Hwnd): Hwnd =
     MutPtr(WindowsWin32UiWindowsandmessagingJniBridge.windowssysWindowsWin32UiWindowsandmessagingGetParent(hwnd.rawAddress))
 
-public actual fun getPhysicalCursorPos(lppoint: MutPtr<Point>): Bool =
+public actual fun getPhysicalCursorPos(lppoint: MutPtr): Bool =
     WindowsWin32UiWindowsandmessagingJniBridge.windowssysWindowsWin32UiWindowsandmessagingGetPhysicalCursorPos(lppoint.rawAddress)
 
-public actual fun getProcessDefaultLayout(pdwdefaultlayout: MutPtr<UInt>): Bool =
+public actual fun getProcessDefaultLayout(pdwdefaultlayout: MutPtr): Bool =
     WindowsWin32UiWindowsandmessagingJniBridge.windowssysWindowsWin32UiWindowsandmessagingGetProcessDefaultLayout(pdwdefaultlayout.rawAddress)
 
 public actual fun getPropA(hwnd: Hwnd, lpstring: Pcstr): Handle =
@@ -1822,16 +1818,16 @@ public actual fun getPropW(hwnd: Hwnd, lpstring: Pcwstr): Handle =
 public actual fun getQueueStatus(flags: QueueStatusFlags): UInt =
     WindowsWin32UiWindowsandmessagingJniBridge.windowssysWindowsWin32UiWindowsandmessagingGetQueueStatus(flags.toInt()).toUInt()
 
-public actual fun getScrollBarInfo(hwnd: Hwnd, idobject: ObjectIdentifier, psbi: MutPtr<Scrollbarinfo>): Bool =
+public actual fun getScrollBarInfo(hwnd: Hwnd, idobject: ObjectIdentifier, psbi: MutPtr): Bool =
     WindowsWin32UiWindowsandmessagingJniBridge.windowssysWindowsWin32UiWindowsandmessagingGetScrollBarInfo(hwnd.rawAddress, idobject, psbi.rawAddress)
 
-public actual fun getScrollInfo(hwnd: Hwnd, nbar: ScrollbarConstants, lpsi: MutPtr<Scrollinfo>): Bool =
+public actual fun getScrollInfo(hwnd: Hwnd, nbar: ScrollbarConstants, lpsi: MutPtr): Bool =
     WindowsWin32UiWindowsandmessagingJniBridge.windowssysWindowsWin32UiWindowsandmessagingGetScrollInfo(hwnd.rawAddress, nbar, lpsi.rawAddress)
 
 public actual fun getScrollPos(hwnd: Hwnd, nbar: ScrollbarConstants): Int =
     WindowsWin32UiWindowsandmessagingJniBridge.windowssysWindowsWin32UiWindowsandmessagingGetScrollPos(hwnd.rawAddress, nbar)
 
-public actual fun getScrollRange(hwnd: Hwnd, nbar: ScrollbarConstants, lpminpos: MutPtr<Int>, lpmaxpos: MutPtr<Int>): Bool =
+public actual fun getScrollRange(hwnd: Hwnd, nbar: ScrollbarConstants, lpminpos: MutPtr, lpmaxpos: MutPtr): Bool =
     WindowsWin32UiWindowsandmessagingJniBridge.windowssysWindowsWin32UiWindowsandmessagingGetScrollRange(hwnd.rawAddress, nbar, lpminpos.rawAddress, lpmaxpos.rawAddress)
 
 public actual fun getShellWindow(): Hwnd =
@@ -1846,7 +1842,7 @@ public actual fun getSystemMenu(hwnd: Hwnd, brevert: Bool): Hmenu =
 public actual fun getSystemMetrics(nindex: SystemMetricsIndex): Int =
     WindowsWin32UiWindowsandmessagingJniBridge.windowssysWindowsWin32UiWindowsandmessagingGetSystemMetrics(nindex)
 
-public actual fun getTitleBarInfo(hwnd: Hwnd, pti: MutPtr<Titlebarinfo>): Bool =
+public actual fun getTitleBarInfo(hwnd: Hwnd, pti: MutPtr): Bool =
     WindowsWin32UiWindowsandmessagingJniBridge.windowssysWindowsWin32UiWindowsandmessagingGetTitleBarInfo(hwnd.rawAddress, pti.rawAddress)
 
 public actual fun getTopWindow(hwnd: Hwnd): Hwnd =
@@ -1855,10 +1851,10 @@ public actual fun getTopWindow(hwnd: Hwnd): Hwnd =
 public actual fun getWindow(hwnd: Hwnd, ucmd: GetWindowCmd): Hwnd =
     MutPtr(WindowsWin32UiWindowsandmessagingJniBridge.windowssysWindowsWin32UiWindowsandmessagingGetWindow(hwnd.rawAddress, ucmd.toInt()))
 
-public actual fun getWindowDisplayAffinity(hwnd: Hwnd, pdwaffinity: MutPtr<UInt>): Bool =
+public actual fun getWindowDisplayAffinity(hwnd: Hwnd, pdwaffinity: MutPtr): Bool =
     WindowsWin32UiWindowsandmessagingJniBridge.windowssysWindowsWin32UiWindowsandmessagingGetWindowDisplayAffinity(hwnd.rawAddress, pdwaffinity.rawAddress)
 
-public actual fun getWindowInfo(hwnd: Hwnd, pwi: MutPtr<Windowinfo>): Bool =
+public actual fun getWindowInfo(hwnd: Hwnd, pwi: MutPtr): Bool =
     WindowsWin32UiWindowsandmessagingJniBridge.windowssysWindowsWin32UiWindowsandmessagingGetWindowInfo(hwnd.rawAddress, pwi.rawAddress)
 
 public actual fun getWindowLongA(hwnd: Hwnd, nindex: WindowLongPtrIndex): Int =
@@ -1879,10 +1875,10 @@ public actual fun getWindowModuleFileNameA(hwnd: Hwnd, pszfilename: Pstr, cchfil
 public actual fun getWindowModuleFileNameW(hwnd: Hwnd, pszfilename: Pwstr, cchfilenamemax: UInt): UInt =
     WindowsWin32UiWindowsandmessagingJniBridge.windowssysWindowsWin32UiWindowsandmessagingGetWindowModuleFileNameW(hwnd.rawAddress, pszfilename.rawAddress, cchfilenamemax.toInt()).toUInt()
 
-public actual fun getWindowPlacement(hwnd: Hwnd, lpwndpl: MutPtr<Windowplacement>): Bool =
+public actual fun getWindowPlacement(hwnd: Hwnd, lpwndpl: MutPtr): Bool =
     WindowsWin32UiWindowsandmessagingJniBridge.windowssysWindowsWin32UiWindowsandmessagingGetWindowPlacement(hwnd.rawAddress, lpwndpl.rawAddress)
 
-public actual fun getWindowRect(hwnd: Hwnd, lprect: MutPtr<Rect>): Bool =
+public actual fun getWindowRect(hwnd: Hwnd, lprect: MutPtr): Bool =
     WindowsWin32UiWindowsandmessagingJniBridge.windowssysWindowsWin32UiWindowsandmessagingGetWindowRect(hwnd.rawAddress, lprect.rawAddress)
 
 public actual fun getWindowTextA(hwnd: Hwnd, lpstring: Pstr, nmaxcount: Int): Int =
@@ -1897,7 +1893,7 @@ public actual fun getWindowTextLengthW(hwnd: Hwnd): Int =
 public actual fun getWindowTextW(hwnd: Hwnd, lpstring: Pwstr, nmaxcount: Int): Int =
     WindowsWin32UiWindowsandmessagingJniBridge.windowssysWindowsWin32UiWindowsandmessagingGetWindowTextW(hwnd.rawAddress, lpstring.rawAddress, nmaxcount)
 
-public actual fun getWindowThreadProcessId(hwnd: Hwnd, lpdwprocessid: MutPtr<UInt>): UInt =
+public actual fun getWindowThreadProcessId(hwnd: Hwnd, lpdwprocessid: MutPtr): UInt =
     WindowsWin32UiWindowsandmessagingJniBridge.windowssysWindowsWin32UiWindowsandmessagingGetWindowThreadProcessId(hwnd.rawAddress, lpdwprocessid.rawAddress).toUInt()
 
 public actual fun getWindowWord(hwnd: Hwnd, nindex: Int): UShort =
@@ -1912,10 +1908,10 @@ public actual fun hiliteMenuItem(hwnd: Hwnd, hmenu: Hmenu, uidhiliteitem: UInt, 
 public actual fun inSendMessage(): Bool =
     WindowsWin32UiWindowsandmessagingJniBridge.windowssysWindowsWin32UiWindowsandmessagingInSendMessage()
 
-public actual fun inSendMessageEx(lpreserved: ConstPtr<CVoid>): UInt =
+public actual fun inSendMessageEx(lpreserved: ConstPtr): UInt =
     WindowsWin32UiWindowsandmessagingJniBridge.windowssysWindowsWin32UiWindowsandmessagingInSendMessageEx(lpreserved.rawAddress).toUInt()
 
-public actual fun indexFilePath(resourceindexer: ConstPtr<CVoid>, filepath: Pcwstr, ppresourceuri: MutPtr<Pwstr>, pqualifiercount: MutPtr<UInt>, ppqualifiers: MutPtr<MutPtr<IndexedResourceQualifier>>): Hresult =
+public actual fun indexFilePath(resourceindexer: ConstPtr, filepath: Pcwstr, ppresourceuri: MutPtr, pqualifiercount: MutPtr, ppqualifiers: MutPtr): Hresult =
     WindowsWin32UiWindowsandmessagingJniBridge.windowssysWindowsWin32UiWindowsandmessagingIndexFilePath(resourceindexer.rawAddress, filepath.rawAddress, ppresourceuri.rawAddress, pqualifiercount.rawAddress, ppqualifiers.rawAddress)
 
 public actual fun inheritWindowMonitor(hwnd: Hwnd, hwndinherit: Hwnd): Bool =
@@ -1924,10 +1920,10 @@ public actual fun inheritWindowMonitor(hwnd: Hwnd, hwndinherit: Hwnd): Bool =
 public actual fun insertMenuA(hmenu: Hmenu, uposition: UInt, uflags: MenuItemFlags, uidnewitem: ULong, lpnewitem: Pcstr): Bool =
     WindowsWin32UiWindowsandmessagingJniBridge.windowssysWindowsWin32UiWindowsandmessagingInsertMenuA(hmenu.rawAddress, uposition.toInt(), uflags.toInt(), uidnewitem.toLong(), lpnewitem.rawAddress)
 
-public actual fun insertMenuItemA(hmenu: Hmenu, item: UInt, fbyposition: Bool, lpmi: ConstPtr<Menuiteminfoa>): Bool =
+public actual fun insertMenuItemA(hmenu: Hmenu, item: UInt, fbyposition: Bool, lpmi: ConstPtr): Bool =
     WindowsWin32UiWindowsandmessagingJniBridge.windowssysWindowsWin32UiWindowsandmessagingInsertMenuItemA(hmenu.rawAddress, item.toInt(), fbyposition, lpmi.rawAddress)
 
-public actual fun insertMenuItemW(hmenu: Hmenu, item: UInt, fbyposition: Bool, lpmi: ConstPtr<Menuiteminfow>): Bool =
+public actual fun insertMenuItemW(hmenu: Hmenu, item: UInt, fbyposition: Bool, lpmi: ConstPtr): Bool =
     WindowsWin32UiWindowsandmessagingJniBridge.windowssysWindowsWin32UiWindowsandmessagingInsertMenuItemW(hmenu.rawAddress, item.toInt(), fbyposition, lpmi.rawAddress)
 
 public actual fun insertMenuW(hmenu: Hmenu, uposition: UInt, uflags: MenuItemFlags, uidnewitem: ULong, lpnewitem: Pcwstr): Bool =
@@ -1960,10 +1956,10 @@ public actual fun isCharUpperW(ch: UShort): Bool =
 public actual fun isChild(hwndparent: Hwnd, hwnd: Hwnd): Bool =
     WindowsWin32UiWindowsandmessagingJniBridge.windowssysWindowsWin32UiWindowsandmessagingIsChild(hwndparent.rawAddress, hwnd.rawAddress)
 
-public actual fun isDialogMessageA(hdlg: Hwnd, lpmsg: ConstPtr<Msg>): Bool =
+public actual fun isDialogMessageA(hdlg: Hwnd, lpmsg: ConstPtr): Bool =
     WindowsWin32UiWindowsandmessagingJniBridge.windowssysWindowsWin32UiWindowsandmessagingIsDialogMessageA(hdlg.rawAddress, lpmsg.rawAddress)
 
-public actual fun isDialogMessageW(hdlg: Hwnd, lpmsg: ConstPtr<Msg>): Bool =
+public actual fun isDialogMessageW(hdlg: Hwnd, lpmsg: ConstPtr): Bool =
     WindowsWin32UiWindowsandmessagingJniBridge.windowssysWindowsWin32UiWindowsandmessagingIsDialogMessageW(hdlg.rawAddress, lpmsg.rawAddress)
 
 public actual fun isGUIThread(bconvert: Bool): Bool =
@@ -2035,10 +2031,10 @@ public actual fun loadImageW(hinst: Hinstance, name: Pcwstr, type: GdiImageType,
 public actual fun loadMenuA(hinstance: Hinstance, lpmenuname: Pcstr): Hmenu =
     MutPtr(WindowsWin32UiWindowsandmessagingJniBridge.windowssysWindowsWin32UiWindowsandmessagingLoadMenuA(hinstance.rawAddress, lpmenuname.rawAddress))
 
-public actual fun loadMenuIndirectA(lpmenutemplate: ConstPtr<CVoid>): Hmenu =
+public actual fun loadMenuIndirectA(lpmenutemplate: ConstPtr): Hmenu =
     MutPtr(WindowsWin32UiWindowsandmessagingJniBridge.windowssysWindowsWin32UiWindowsandmessagingLoadMenuIndirectA(lpmenutemplate.rawAddress))
 
-public actual fun loadMenuIndirectW(lpmenutemplate: ConstPtr<CVoid>): Hmenu =
+public actual fun loadMenuIndirectW(lpmenutemplate: ConstPtr): Hmenu =
     MutPtr(WindowsWin32UiWindowsandmessagingJniBridge.windowssysWindowsWin32UiWindowsandmessagingLoadMenuIndirectW(lpmenutemplate.rawAddress))
 
 public actual fun loadMenuW(hinstance: Hinstance, lpmenuname: Pcwstr): Hmenu =
@@ -2053,16 +2049,16 @@ public actual fun loadStringW(hinstance: Hinstance, uid: UInt, lpbuffer: Pwstr, 
 public actual fun lockSetForegroundWindow(ulockcode: ForegroundWindowLockCode): Bool =
     WindowsWin32UiWindowsandmessagingJniBridge.windowssysWindowsWin32UiWindowsandmessagingLockSetForegroundWindow(ulockcode.toInt())
 
-public actual fun logicalToPhysicalPoint(hwnd: Hwnd, lppoint: MutPtr<Point>): Bool =
+public actual fun logicalToPhysicalPoint(hwnd: Hwnd, lppoint: MutPtr): Bool =
     WindowsWin32UiWindowsandmessagingJniBridge.windowssysWindowsWin32UiWindowsandmessagingLogicalToPhysicalPoint(hwnd.rawAddress, lppoint.rawAddress)
 
-public actual fun lookupIconIdFromDirectory(presbits: ConstPtr<UByte>, ficon: Bool): Int =
+public actual fun lookupIconIdFromDirectory(presbits: ConstPtr, ficon: Bool): Int =
     WindowsWin32UiWindowsandmessagingJniBridge.windowssysWindowsWin32UiWindowsandmessagingLookupIconIdFromDirectory(presbits.rawAddress, ficon)
 
-public actual fun lookupIconIdFromDirectoryEx(presbits: ConstPtr<UByte>, ficon: Bool, cxdesired: Int, cydesired: Int, flags: ImageFlags): Int =
+public actual fun lookupIconIdFromDirectoryEx(presbits: ConstPtr, ficon: Bool, cxdesired: Int, cydesired: Int, flags: ImageFlags): Int =
     WindowsWin32UiWindowsandmessagingJniBridge.windowssysWindowsWin32UiWindowsandmessagingLookupIconIdFromDirectoryEx(presbits.rawAddress, ficon, cxdesired, cydesired, flags.toInt())
 
-public actual fun mapDialogRect(hdlg: Hwnd, lprect: MutPtr<Rect>): Bool =
+public actual fun mapDialogRect(hdlg: Hwnd, lprect: MutPtr): Bool =
     WindowsWin32UiWindowsandmessagingJniBridge.windowssysWindowsWin32UiWindowsandmessagingMapDialogRect(hdlg.rawAddress, lprect.rawAddress)
 
 public actual fun menuItemFromPoint(hwnd: Hwnd, hmenu: Hmenu, ptscreen: Point): Int =
@@ -2077,10 +2073,10 @@ public actual fun messageBoxExA(hwnd: Hwnd, lptext: Pcstr, lpcaption: Pcstr, uty
 public actual fun messageBoxExW(hwnd: Hwnd, lptext: Pcwstr, lpcaption: Pcwstr, utype: MessageboxStyle, wlanguageid: UShort): MessageboxResult =
     WindowsWin32UiWindowsandmessagingJniBridge.windowssysWindowsWin32UiWindowsandmessagingMessageBoxExW(hwnd.rawAddress, lptext.rawAddress, lpcaption.rawAddress, utype.toInt(), wlanguageid.toShort())
 
-public actual fun messageBoxIndirectA(lpmbp: ConstPtr<Msgboxparamsa>): MessageboxResult =
+public actual fun messageBoxIndirectA(lpmbp: ConstPtr): MessageboxResult =
     WindowsWin32UiWindowsandmessagingJniBridge.windowssysWindowsWin32UiWindowsandmessagingMessageBoxIndirectA(lpmbp.rawAddress)
 
-public actual fun messageBoxIndirectW(lpmbp: ConstPtr<Msgboxparamsw>): MessageboxResult =
+public actual fun messageBoxIndirectW(lpmbp: ConstPtr): MessageboxResult =
     WindowsWin32UiWindowsandmessagingJniBridge.windowssysWindowsWin32UiWindowsandmessagingMessageBoxIndirectW(lpmbp.rawAddress)
 
 public actual fun messageBoxW(hwnd: Hwnd, lptext: Pcwstr, lpcaption: Pcwstr, utype: MessageboxStyle): MessageboxResult =
@@ -2098,55 +2094,55 @@ public actual fun moveWindow(hwnd: Hwnd, x: Int, y: Int, nwidth: Int, nheight: I
 public actual fun mrmCreateConfig(platformversion: MrmPlatformVersion, defaultqualifiers: Pcwstr, outputxmlfile: Pcwstr): Hresult =
     WindowsWin32UiWindowsandmessagingJniBridge.windowssysWindowsWin32UiWindowsandmessagingMrmCreateConfig(platformversion, defaultqualifiers.rawAddress, outputxmlfile.rawAddress)
 
-public actual fun mrmCreateConfigInMemory(platformversion: MrmPlatformVersion, defaultqualifiers: Pcwstr, outputxmldata: MutPtr<MutPtr<UByte>>, outputxmlsize: MutPtr<UInt>): Hresult =
+public actual fun mrmCreateConfigInMemory(platformversion: MrmPlatformVersion, defaultqualifiers: Pcwstr, outputxmldata: MutPtr, outputxmlsize: MutPtr): Hresult =
     WindowsWin32UiWindowsandmessagingJniBridge.windowssysWindowsWin32UiWindowsandmessagingMrmCreateConfigInMemory(platformversion, defaultqualifiers.rawAddress, outputxmldata.rawAddress, outputxmlsize.rawAddress)
 
 public actual fun mrmCreateResourceFile(indexer: MrmResourceIndexerHandle, packagingmode: MrmPackagingMode, packagingoptions: MrmPackagingOptions, outputdirectory: Pcwstr): Hresult =
     0
 
-public actual fun mrmCreateResourceFileInMemory(indexer: MrmResourceIndexerHandle, packagingmode: MrmPackagingMode, packagingoptions: MrmPackagingOptions, outputpridata: MutPtr<MutPtr<UByte>>, outputprisize: MutPtr<UInt>): Hresult =
+public actual fun mrmCreateResourceFileInMemory(indexer: MrmResourceIndexerHandle, packagingmode: MrmPackagingMode, packagingoptions: MrmPackagingOptions, outputpridata: MutPtr, outputprisize: MutPtr): Hresult =
     0
 
 public actual fun mrmCreateResourceFileWithChecksum(indexer: MrmResourceIndexerHandle, packagingmode: MrmPackagingMode, packagingoptions: MrmPackagingOptions, checksum: UInt, outputdirectory: Pcwstr): Hresult =
     0
 
-public actual fun mrmCreateResourceIndexer(packagefamilyname: Pcwstr, projectroot: Pcwstr, platformversion: MrmPlatformVersion, defaultqualifiers: Pcwstr, indexer: MutPtr<MrmResourceIndexerHandle>): Hresult =
+public actual fun mrmCreateResourceIndexer(packagefamilyname: Pcwstr, projectroot: Pcwstr, platformversion: MrmPlatformVersion, defaultqualifiers: Pcwstr, indexer: MutPtr): Hresult =
     WindowsWin32UiWindowsandmessagingJniBridge.windowssysWindowsWin32UiWindowsandmessagingMrmCreateResourceIndexer(packagefamilyname.rawAddress, projectroot.rawAddress, platformversion, defaultqualifiers.rawAddress, indexer.rawAddress)
 
-public actual fun mrmCreateResourceIndexerFromPreviousPriData(projectroot: Pcwstr, platformversion: MrmPlatformVersion, defaultqualifiers: Pcwstr, pridata: ConstPtr<UByte>, prisize: UInt, indexer: MutPtr<MrmResourceIndexerHandle>): Hresult =
+public actual fun mrmCreateResourceIndexerFromPreviousPriData(projectroot: Pcwstr, platformversion: MrmPlatformVersion, defaultqualifiers: Pcwstr, pridata: ConstPtr, prisize: UInt, indexer: MutPtr): Hresult =
     WindowsWin32UiWindowsandmessagingJniBridge.windowssysWindowsWin32UiWindowsandmessagingMrmCreateResourceIndexerFromPreviousPriData(projectroot.rawAddress, platformversion, defaultqualifiers.rawAddress, pridata.rawAddress, prisize.toInt(), indexer.rawAddress)
 
-public actual fun mrmCreateResourceIndexerFromPreviousPriFile(projectroot: Pcwstr, platformversion: MrmPlatformVersion, defaultqualifiers: Pcwstr, prifile: Pcwstr, indexer: MutPtr<MrmResourceIndexerHandle>): Hresult =
+public actual fun mrmCreateResourceIndexerFromPreviousPriFile(projectroot: Pcwstr, platformversion: MrmPlatformVersion, defaultqualifiers: Pcwstr, prifile: Pcwstr, indexer: MutPtr): Hresult =
     WindowsWin32UiWindowsandmessagingJniBridge.windowssysWindowsWin32UiWindowsandmessagingMrmCreateResourceIndexerFromPreviousPriFile(projectroot.rawAddress, platformversion, defaultqualifiers.rawAddress, prifile.rawAddress, indexer.rawAddress)
 
-public actual fun mrmCreateResourceIndexerFromPreviousSchemaData(projectroot: Pcwstr, platformversion: MrmPlatformVersion, defaultqualifiers: Pcwstr, schemaxmldata: ConstPtr<UByte>, schemaxmlsize: UInt, indexer: MutPtr<MrmResourceIndexerHandle>): Hresult =
+public actual fun mrmCreateResourceIndexerFromPreviousSchemaData(projectroot: Pcwstr, platformversion: MrmPlatformVersion, defaultqualifiers: Pcwstr, schemaxmldata: ConstPtr, schemaxmlsize: UInt, indexer: MutPtr): Hresult =
     WindowsWin32UiWindowsandmessagingJniBridge.windowssysWindowsWin32UiWindowsandmessagingMrmCreateResourceIndexerFromPreviousSchemaData(projectroot.rawAddress, platformversion, defaultqualifiers.rawAddress, schemaxmldata.rawAddress, schemaxmlsize.toInt(), indexer.rawAddress)
 
-public actual fun mrmCreateResourceIndexerFromPreviousSchemaFile(projectroot: Pcwstr, platformversion: MrmPlatformVersion, defaultqualifiers: Pcwstr, schemafile: Pcwstr, indexer: MutPtr<MrmResourceIndexerHandle>): Hresult =
+public actual fun mrmCreateResourceIndexerFromPreviousSchemaFile(projectroot: Pcwstr, platformversion: MrmPlatformVersion, defaultqualifiers: Pcwstr, schemafile: Pcwstr, indexer: MutPtr): Hresult =
     WindowsWin32UiWindowsandmessagingJniBridge.windowssysWindowsWin32UiWindowsandmessagingMrmCreateResourceIndexerFromPreviousSchemaFile(projectroot.rawAddress, platformversion, defaultqualifiers.rawAddress, schemafile.rawAddress, indexer.rawAddress)
 
-public actual fun mrmCreateResourceIndexerWithFlags(packagefamilyname: Pcwstr, projectroot: Pcwstr, platformversion: MrmPlatformVersion, defaultqualifiers: Pcwstr, flags: MrmIndexerFlags, indexer: MutPtr<MrmResourceIndexerHandle>): Hresult =
+public actual fun mrmCreateResourceIndexerWithFlags(packagefamilyname: Pcwstr, projectroot: Pcwstr, platformversion: MrmPlatformVersion, defaultqualifiers: Pcwstr, flags: MrmIndexerFlags, indexer: MutPtr): Hresult =
     WindowsWin32UiWindowsandmessagingJniBridge.windowssysWindowsWin32UiWindowsandmessagingMrmCreateResourceIndexerWithFlags(packagefamilyname.rawAddress, projectroot.rawAddress, platformversion, defaultqualifiers.rawAddress, flags, indexer.rawAddress)
 
 public actual fun mrmDestroyIndexerAndMessages(indexer: MrmResourceIndexerHandle): Hresult =
     0
 
-public actual fun mrmDumpPriDataInMemory(inputpridata: ConstPtr<UByte>, inputprisize: UInt, schemapridata: ConstPtr<UByte>, schemaprisize: UInt, dumptype: MrmDumpType, outputxmldata: MutPtr<MutPtr<UByte>>, outputxmlsize: MutPtr<UInt>): Hresult =
+public actual fun mrmDumpPriDataInMemory(inputpridata: ConstPtr, inputprisize: UInt, schemapridata: ConstPtr, schemaprisize: UInt, dumptype: MrmDumpType, outputxmldata: MutPtr, outputxmlsize: MutPtr): Hresult =
     WindowsWin32UiWindowsandmessagingJniBridge.windowssysWindowsWin32UiWindowsandmessagingMrmDumpPriDataInMemory(inputpridata.rawAddress, inputprisize.toInt(), schemapridata.rawAddress, schemaprisize.toInt(), dumptype, outputxmldata.rawAddress, outputxmlsize.rawAddress)
 
 public actual fun mrmDumpPriFile(indexfilename: Pcwstr, schemaprifile: Pcwstr, dumptype: MrmDumpType, outputxmlfile: Pcwstr): Hresult =
     WindowsWin32UiWindowsandmessagingJniBridge.windowssysWindowsWin32UiWindowsandmessagingMrmDumpPriFile(indexfilename.rawAddress, schemaprifile.rawAddress, dumptype, outputxmlfile.rawAddress)
 
-public actual fun mrmDumpPriFileInMemory(indexfilename: Pcwstr, schemaprifile: Pcwstr, dumptype: MrmDumpType, outputxmldata: MutPtr<MutPtr<UByte>>, outputxmlsize: MutPtr<UInt>): Hresult =
+public actual fun mrmDumpPriFileInMemory(indexfilename: Pcwstr, schemaprifile: Pcwstr, dumptype: MrmDumpType, outputxmldata: MutPtr, outputxmlsize: MutPtr): Hresult =
     WindowsWin32UiWindowsandmessagingJniBridge.windowssysWindowsWin32UiWindowsandmessagingMrmDumpPriFileInMemory(indexfilename.rawAddress, schemaprifile.rawAddress, dumptype, outputxmldata.rawAddress, outputxmlsize.rawAddress)
 
-public actual fun mrmFreeMemory(data: ConstPtr<UByte>): Hresult =
+public actual fun mrmFreeMemory(data: ConstPtr): Hresult =
     WindowsWin32UiWindowsandmessagingJniBridge.windowssysWindowsWin32UiWindowsandmessagingMrmFreeMemory(data.rawAddress)
 
-public actual fun mrmGetPriFileContentChecksum(prifile: Pcwstr, checksum: MutPtr<UInt>): Hresult =
+public actual fun mrmGetPriFileContentChecksum(prifile: Pcwstr, checksum: MutPtr): Hresult =
     WindowsWin32UiWindowsandmessagingJniBridge.windowssysWindowsWin32UiWindowsandmessagingMrmGetPriFileContentChecksum(prifile.rawAddress, checksum.rawAddress)
 
-public actual fun mrmIndexEmbeddedData(indexer: MrmResourceIndexerHandle, resourceuri: Pcwstr, embeddeddata: ConstPtr<UByte>, embeddeddatasize: UInt, qualifiers: Pcwstr): Hresult =
+public actual fun mrmIndexEmbeddedData(indexer: MrmResourceIndexerHandle, resourceuri: Pcwstr, embeddeddata: ConstPtr, embeddeddatasize: UInt, qualifiers: Pcwstr): Hresult =
     0
 
 public actual fun mrmIndexFile(indexer: MrmResourceIndexerHandle, resourceuri: Pcwstr, filepath: Pcwstr, qualifiers: Pcwstr): Hresult =
@@ -2161,13 +2157,13 @@ public actual fun mrmIndexResourceContainerAutoQualifiers(indexer: MrmResourceIn
 public actual fun mrmIndexString(indexer: MrmResourceIndexerHandle, resourceuri: Pcwstr, resourcestring: Pcwstr, qualifiers: Pcwstr): Hresult =
     0
 
-public actual fun mrmPeekResourceIndexerMessages(handle: MrmResourceIndexerHandle, messages: MutPtr<MutPtr<MrmResourceIndexerMessage>>, nummsgs: MutPtr<UInt>): Hresult =
+public actual fun mrmPeekResourceIndexerMessages(handle: MrmResourceIndexerHandle, messages: MutPtr, nummsgs: MutPtr): Hresult =
     0
 
-public actual fun msgWaitForMultipleObjects(ncount: UInt, phandles: ConstPtr<Handle>, fwaitall: Bool, dwmilliseconds: UInt, dwwakemask: QueueStatusFlags): WaitEvent =
+public actual fun msgWaitForMultipleObjects(ncount: UInt, phandles: ConstPtr, fwaitall: Bool, dwmilliseconds: UInt, dwwakemask: QueueStatusFlags): WaitEvent =
     WindowsWin32UiWindowsandmessagingJniBridge.windowssysWindowsWin32UiWindowsandmessagingMsgWaitForMultipleObjects(ncount.toInt(), phandles.rawAddress, fwaitall, dwmilliseconds.toInt(), dwwakemask.toInt()).toUInt()
 
-public actual fun msgWaitForMultipleObjectsEx(ncount: UInt, phandles: ConstPtr<Handle>, dwmilliseconds: UInt, dwwakemask: QueueStatusFlags, dwflags: MsgWaitForMultipleObjectsExFlags): WaitEvent =
+public actual fun msgWaitForMultipleObjectsEx(ncount: UInt, phandles: ConstPtr, dwmilliseconds: UInt, dwwakemask: QueueStatusFlags, dwflags: MsgWaitForMultipleObjectsExFlags): WaitEvent =
     WindowsWin32UiWindowsandmessagingJniBridge.windowssysWindowsWin32UiWindowsandmessagingMsgWaitForMultipleObjectsEx(ncount.toInt(), phandles.rawAddress, dwmilliseconds.toInt(), dwwakemask.toInt(), dwflags.toInt()).toUInt()
 
 public actual fun oemToCharA(psrc: Pcstr, pdst: Pstr): Bool =
@@ -2185,13 +2181,13 @@ public actual fun oemToCharW(psrc: Pcstr, pdst: Pwstr): Bool =
 public actual fun openIcon(hwnd: Hwnd): Bool =
     WindowsWin32UiWindowsandmessagingJniBridge.windowssysWindowsWin32UiWindowsandmessagingOpenIcon(hwnd.rawAddress)
 
-public actual fun peekMessageA(lpmsg: MutPtr<Msg>, hwnd: Hwnd, wmsgfiltermin: UInt, wmsgfiltermax: UInt, wremovemsg: PeekMessageRemoveType): Bool =
+public actual fun peekMessageA(lpmsg: MutPtr, hwnd: Hwnd, wmsgfiltermin: UInt, wmsgfiltermax: UInt, wremovemsg: PeekMessageRemoveType): Bool =
     WindowsWin32UiWindowsandmessagingJniBridge.windowssysWindowsWin32UiWindowsandmessagingPeekMessageA(lpmsg.rawAddress, hwnd.rawAddress, wmsgfiltermin.toInt(), wmsgfiltermax.toInt(), wremovemsg.toInt())
 
-public actual fun peekMessageW(lpmsg: MutPtr<Msg>, hwnd: Hwnd, wmsgfiltermin: UInt, wmsgfiltermax: UInt, wremovemsg: PeekMessageRemoveType): Bool =
+public actual fun peekMessageW(lpmsg: MutPtr, hwnd: Hwnd, wmsgfiltermin: UInt, wmsgfiltermax: UInt, wremovemsg: PeekMessageRemoveType): Bool =
     WindowsWin32UiWindowsandmessagingJniBridge.windowssysWindowsWin32UiWindowsandmessagingPeekMessageW(lpmsg.rawAddress, hwnd.rawAddress, wmsgfiltermin.toInt(), wmsgfiltermax.toInt(), wremovemsg.toInt())
 
-public actual fun physicalToLogicalPoint(hwnd: Hwnd, lppoint: MutPtr<Point>): Bool =
+public actual fun physicalToLogicalPoint(hwnd: Hwnd, lppoint: MutPtr): Bool =
     WindowsWin32UiWindowsandmessagingJniBridge.windowssysWindowsWin32UiWindowsandmessagingPhysicalToLogicalPoint(hwnd.rawAddress, lppoint.rawAddress)
 
 public actual fun postMessageA(hwnd: Hwnd, msg: UInt, wparam: Wparam, lparam: Lparam): Bool =
@@ -2210,10 +2206,10 @@ public actual fun postThreadMessageA(idthread: UInt, msg: UInt, wparam: Wparam, 
 public actual fun postThreadMessageW(idthread: UInt, msg: UInt, wparam: Wparam, lparam: Lparam): Bool =
     WindowsWin32UiWindowsandmessagingJniBridge.windowssysWindowsWin32UiWindowsandmessagingPostThreadMessageW(idthread.toInt(), msg.toInt(), wparam.toLong(), lparam)
 
-public actual fun privateExtractIconsA(szfilename: Pcstr, niconindex: Int, cxicon: Int, cyicon: Int, phicon: MutPtr<Hicon>, piconid: MutPtr<UInt>, nicons: UInt, flags: UInt): UInt =
+public actual fun privateExtractIconsA(szfilename: Pcstr, niconindex: Int, cxicon: Int, cyicon: Int, phicon: MutPtr, piconid: MutPtr, nicons: UInt, flags: UInt): UInt =
     WindowsWin32UiWindowsandmessagingJniBridge.windowssysWindowsWin32UiWindowsandmessagingPrivateExtractIconsA(szfilename.rawAddress, niconindex, cxicon, cyicon, phicon.rawAddress, piconid.rawAddress, nicons.toInt(), flags.toInt()).toUInt()
 
-public actual fun privateExtractIconsW(szfilename: Pcwstr, niconindex: Int, cxicon: Int, cyicon: Int, phicon: MutPtr<Hicon>, piconid: MutPtr<UInt>, nicons: UInt, flags: UInt): UInt =
+public actual fun privateExtractIconsW(szfilename: Pcwstr, niconindex: Int, cxicon: Int, cyicon: Int, phicon: MutPtr, piconid: MutPtr, nicons: UInt, flags: UInt): UInt =
     WindowsWin32UiWindowsandmessagingJniBridge.windowssysWindowsWin32UiWindowsandmessagingPrivateExtractIconsW(szfilename.rawAddress, niconindex, cxicon, cyicon, phicon.rawAddress, piconid.rawAddress, nicons.toInt(), flags.toInt()).toUInt()
 
 public actual fun realChildWindowFromPoint(hwndparent: Hwnd, ptparentclientcoords: Point): Hwnd =
@@ -2225,22 +2221,22 @@ public actual fun realGetWindowClassA(hwnd: Hwnd, ptszclassname: Pstr, cchclassn
 public actual fun realGetWindowClassW(hwnd: Hwnd, ptszclassname: Pwstr, cchclassnamemax: UInt): UInt =
     WindowsWin32UiWindowsandmessagingJniBridge.windowssysWindowsWin32UiWindowsandmessagingRealGetWindowClassW(hwnd.rawAddress, ptszclassname.rawAddress, cchclassnamemax.toInt()).toUInt()
 
-public actual fun registerClassA(lpwndclass: ConstPtr<Wndclassa>): UShort =
+public actual fun registerClassA(lpwndclass: ConstPtr): UShort =
     WindowsWin32UiWindowsandmessagingJniBridge.windowssysWindowsWin32UiWindowsandmessagingRegisterClassA(lpwndclass.rawAddress).toUShort()
 
-public actual fun registerClassExA(param0: ConstPtr<Wndclassexa>): UShort =
+public actual fun registerClassExA(param0: ConstPtr): UShort =
     WindowsWin32UiWindowsandmessagingJniBridge.windowssysWindowsWin32UiWindowsandmessagingRegisterClassExA(param0.rawAddress).toUShort()
 
-public actual fun registerClassExW(param0: ConstPtr<Wndclassexw>): UShort =
+public actual fun registerClassExW(param0: ConstPtr): UShort =
     WindowsWin32UiWindowsandmessagingJniBridge.windowssysWindowsWin32UiWindowsandmessagingRegisterClassExW(param0.rawAddress).toUShort()
 
-public actual fun registerClassW(lpwndclass: ConstPtr<Wndclassw>): UShort =
+public actual fun registerClassW(lpwndclass: ConstPtr): UShort =
     WindowsWin32UiWindowsandmessagingJniBridge.windowssysWindowsWin32UiWindowsandmessagingRegisterClassW(lpwndclass.rawAddress).toUShort()
 
-public actual fun registerDeviceNotificationA(hrecipient: Handle, notificationfilter: ConstPtr<CVoid>, flags: RegisterNotificationFlags): Hdevnotify =
+public actual fun registerDeviceNotificationA(hrecipient: Handle, notificationfilter: ConstPtr, flags: RegisterNotificationFlags): Hdevnotify =
     MutPtr(WindowsWin32UiWindowsandmessagingJniBridge.windowssysWindowsWin32UiWindowsandmessagingRegisterDeviceNotificationA(hrecipient.rawAddress, notificationfilter.rawAddress, flags.toInt()))
 
-public actual fun registerDeviceNotificationW(hrecipient: Handle, notificationfilter: ConstPtr<CVoid>, flags: RegisterNotificationFlags): Hdevnotify =
+public actual fun registerDeviceNotificationW(hrecipient: Handle, notificationfilter: ConstPtr, flags: RegisterNotificationFlags): Hdevnotify =
     MutPtr(WindowsWin32UiWindowsandmessagingJniBridge.windowssysWindowsWin32UiWindowsandmessagingRegisterDeviceNotificationW(hrecipient.rawAddress, notificationfilter.rawAddress, flags.toInt()))
 
 public actual fun registerForTooltipDismissNotification(hwnd: Hwnd, tdflags: TooltipDismissFlags): Bool =
@@ -2267,13 +2263,13 @@ public actual fun removePropW(hwnd: Hwnd, lpstring: Pcwstr): Handle =
 public actual fun replyMessage(lresult: Lresult): Bool =
     WindowsWin32UiWindowsandmessagingJniBridge.windowssysWindowsWin32UiWindowsandmessagingReplyMessage(lresult)
 
-public actual fun scrollDC(hdc: Hdc, dx: Int, dy: Int, lprcscroll: ConstPtr<Rect>, lprcclip: ConstPtr<Rect>, hrgnupdate: Hrgn, lprcupdate: MutPtr<Rect>): Bool =
+public actual fun scrollDC(hdc: Hdc, dx: Int, dy: Int, lprcscroll: ConstPtr, lprcclip: ConstPtr, hrgnupdate: Hrgn, lprcupdate: MutPtr): Bool =
     WindowsWin32UiWindowsandmessagingJniBridge.windowssysWindowsWin32UiWindowsandmessagingScrollDC(hdc.rawAddress, dx, dy, lprcscroll.rawAddress, lprcclip.rawAddress, hrgnupdate.rawAddress, lprcupdate.rawAddress)
 
-public actual fun scrollWindow(hwnd: Hwnd, xamount: Int, yamount: Int, lprect: ConstPtr<Rect>, lpcliprect: ConstPtr<Rect>): Bool =
+public actual fun scrollWindow(hwnd: Hwnd, xamount: Int, yamount: Int, lprect: ConstPtr, lpcliprect: ConstPtr): Bool =
     WindowsWin32UiWindowsandmessagingJniBridge.windowssysWindowsWin32UiWindowsandmessagingScrollWindow(hwnd.rawAddress, xamount, yamount, lprect.rawAddress, lpcliprect.rawAddress)
 
-public actual fun scrollWindowEx(hwnd: Hwnd, dx: Int, dy: Int, prcscroll: ConstPtr<Rect>, prcclip: ConstPtr<Rect>, hrgnupdate: Hrgn, prcupdate: MutPtr<Rect>, flags: ScrollWindowFlags): Int =
+public actual fun scrollWindowEx(hwnd: Hwnd, dx: Int, dy: Int, prcscroll: ConstPtr, prcclip: ConstPtr, hrgnupdate: Hrgn, prcupdate: MutPtr, flags: ScrollWindowFlags): Int =
     WindowsWin32UiWindowsandmessagingJniBridge.windowssysWindowsWin32UiWindowsandmessagingScrollWindowEx(hwnd.rawAddress, dx, dy, prcscroll.rawAddress, prcclip.rawAddress, hrgnupdate.rawAddress, prcupdate.rawAddress, flags.toInt())
 
 public actual fun sendDlgItemMessageA(hdlg: Hwnd, niddlgitem: Int, msg: UInt, wparam: Wparam, lparam: Lparam): Lresult =
@@ -2291,10 +2287,10 @@ public actual fun sendMessageCallbackA(hwnd: Hwnd, msg: UInt, wparam: Wparam, lp
 public actual fun sendMessageCallbackW(hwnd: Hwnd, msg: UInt, wparam: Wparam, lparam: Lparam, lpresultcallback: Sendasyncproc, dwdata: ULong): Bool =
     WindowsWin32UiWindowsandmessagingJniBridge.windowssysWindowsWin32UiWindowsandmessagingSendMessageCallbackW(hwnd.rawAddress, msg.toInt(), wparam.toLong(), lparam, 0L, dwdata.toLong())
 
-public actual fun sendMessageTimeoutA(hwnd: Hwnd, msg: UInt, wparam: Wparam, lparam: Lparam, fuflags: SendMessageTimeoutFlags, utimeout: UInt, lpdwresult: MutPtr<ULong>): Lresult =
+public actual fun sendMessageTimeoutA(hwnd: Hwnd, msg: UInt, wparam: Wparam, lparam: Lparam, fuflags: SendMessageTimeoutFlags, utimeout: UInt, lpdwresult: MutPtr): Lresult =
     WindowsWin32UiWindowsandmessagingJniBridge.windowssysWindowsWin32UiWindowsandmessagingSendMessageTimeoutA(hwnd.rawAddress, msg.toInt(), wparam.toLong(), lparam, fuflags.toInt(), utimeout.toInt(), lpdwresult.rawAddress)
 
-public actual fun sendMessageTimeoutW(hwnd: Hwnd, msg: UInt, wparam: Wparam, lparam: Lparam, fuflags: SendMessageTimeoutFlags, utimeout: UInt, lpdwresult: MutPtr<ULong>): Lresult =
+public actual fun sendMessageTimeoutW(hwnd: Hwnd, msg: UInt, wparam: Wparam, lparam: Lparam, fuflags: SendMessageTimeoutFlags, utimeout: UInt, lpdwresult: MutPtr): Lresult =
     WindowsWin32UiWindowsandmessagingJniBridge.windowssysWindowsWin32UiWindowsandmessagingSendMessageTimeoutW(hwnd.rawAddress, msg.toInt(), wparam.toLong(), lparam, fuflags.toInt(), utimeout.toInt(), lpdwresult.rawAddress)
 
 public actual fun sendMessageW(hwnd: Hwnd, msg: UInt, wparam: Wparam, lparam: Lparam): Lresult =
@@ -2306,7 +2302,7 @@ public actual fun sendNotifyMessageA(hwnd: Hwnd, msg: UInt, wparam: Wparam, lpar
 public actual fun sendNotifyMessageW(hwnd: Hwnd, msg: UInt, wparam: Wparam, lparam: Lparam): Bool =
     WindowsWin32UiWindowsandmessagingJniBridge.windowssysWindowsWin32UiWindowsandmessagingSendNotifyMessageW(hwnd.rawAddress, msg.toInt(), wparam.toLong(), lparam)
 
-public actual fun setAdditionalForegroundBoostProcesses(toplevelwindow: Hwnd, processhandlecount: UInt, processhandlearray: ConstPtr<Handle>): Bool =
+public actual fun setAdditionalForegroundBoostProcesses(toplevelwindow: Hwnd, processhandlecount: UInt, processhandlearray: ConstPtr): Bool =
     WindowsWin32UiWindowsandmessagingJniBridge.windowssysWindowsWin32UiWindowsandmessagingSetAdditionalForegroundBoostProcesses(toplevelwindow.rawAddress, processhandlecount.toInt(), processhandlearray.rawAddress)
 
 public actual fun setCaretBlinkTime(umseconds: UInt): Bool =
@@ -2364,16 +2360,16 @@ public actual fun setMenu(hwnd: Hwnd, hmenu: Hmenu): Bool =
 public actual fun setMenuDefaultItem(hmenu: Hmenu, uitem: UInt, fbypos: UInt): Bool =
     WindowsWin32UiWindowsandmessagingJniBridge.windowssysWindowsWin32UiWindowsandmessagingSetMenuDefaultItem(hmenu.rawAddress, uitem.toInt(), fbypos.toInt())
 
-public actual fun setMenuInfo(param0: Hmenu, param1: ConstPtr<Menuinfo>): Bool =
+public actual fun setMenuInfo(param0: Hmenu, param1: ConstPtr): Bool =
     WindowsWin32UiWindowsandmessagingJniBridge.windowssysWindowsWin32UiWindowsandmessagingSetMenuInfo(param0.rawAddress, param1.rawAddress)
 
 public actual fun setMenuItemBitmaps(hmenu: Hmenu, uposition: UInt, uflags: MenuItemFlags, hbitmapunchecked: Hbitmap, hbitmapchecked: Hbitmap): Bool =
     WindowsWin32UiWindowsandmessagingJniBridge.windowssysWindowsWin32UiWindowsandmessagingSetMenuItemBitmaps(hmenu.rawAddress, uposition.toInt(), uflags.toInt(), hbitmapunchecked.rawAddress, hbitmapchecked.rawAddress)
 
-public actual fun setMenuItemInfoA(hmenu: Hmenu, item: UInt, fbypositon: Bool, lpmii: ConstPtr<Menuiteminfoa>): Bool =
+public actual fun setMenuItemInfoA(hmenu: Hmenu, item: UInt, fbypositon: Bool, lpmii: ConstPtr): Bool =
     WindowsWin32UiWindowsandmessagingJniBridge.windowssysWindowsWin32UiWindowsandmessagingSetMenuItemInfoA(hmenu.rawAddress, item.toInt(), fbypositon, lpmii.rawAddress)
 
-public actual fun setMenuItemInfoW(hmenu: Hmenu, item: UInt, fbypositon: Bool, lpmii: ConstPtr<Menuiteminfow>): Bool =
+public actual fun setMenuItemInfoW(hmenu: Hmenu, item: UInt, fbypositon: Bool, lpmii: ConstPtr): Bool =
     WindowsWin32UiWindowsandmessagingJniBridge.windowssysWindowsWin32UiWindowsandmessagingSetMenuItemInfoW(hmenu.rawAddress, item.toInt(), fbypositon, lpmii.rawAddress)
 
 public actual fun setMessageExtraInfo(lparam: Lparam): Lparam =
@@ -2421,7 +2417,7 @@ public actual fun setWindowLongPtrW(hwnd: Hwnd, nindex: WindowLongPtrIndex, dwne
 public actual fun setWindowLongW(hwnd: Hwnd, nindex: WindowLongPtrIndex, dwnewlong: Int): Int =
     WindowsWin32UiWindowsandmessagingJniBridge.windowssysWindowsWin32UiWindowsandmessagingSetWindowLongW(hwnd.rawAddress, nindex, dwnewlong)
 
-public actual fun setWindowPlacement(hwnd: Hwnd, lpwndpl: ConstPtr<Windowplacement>): Bool =
+public actual fun setWindowPlacement(hwnd: Hwnd, lpwndpl: ConstPtr): Bool =
     WindowsWin32UiWindowsandmessagingJniBridge.windowssysWindowsWin32UiWindowsandmessagingSetWindowPlacement(hwnd.rawAddress, lpwndpl.rawAddress)
 
 public actual fun setWindowPos(hwnd: Hwnd, hwndinsertafter: Hwnd, x: Int, y: Int, cx: Int, cy: Int, uflags: SetWindowPosFlags): Bool =
@@ -2470,31 +2466,31 @@ public actual fun switchToThisWindow(hwnd: Hwnd, funknown: Bool) {
     WindowsWin32UiWindowsandmessagingJniBridge.windowssysWindowsWin32UiWindowsandmessagingSwitchToThisWindow(hwnd.rawAddress, funknown)
 }
 
-public actual fun systemParametersInfoA(uiaction: SystemParametersInfoAction, uiparam: UInt, pvparam: MutPtr<CVoid>, fwinini: SystemParametersInfoUpdateFlags): Bool =
+public actual fun systemParametersInfoA(uiaction: SystemParametersInfoAction, uiparam: UInt, pvparam: MutPtr, fwinini: SystemParametersInfoUpdateFlags): Bool =
     WindowsWin32UiWindowsandmessagingJniBridge.windowssysWindowsWin32UiWindowsandmessagingSystemParametersInfoA(uiaction.toInt(), uiparam.toInt(), pvparam.rawAddress, fwinini.toInt())
 
-public actual fun systemParametersInfoW(uiaction: SystemParametersInfoAction, uiparam: UInt, pvparam: MutPtr<CVoid>, fwinini: SystemParametersInfoUpdateFlags): Bool =
+public actual fun systemParametersInfoW(uiaction: SystemParametersInfoAction, uiparam: UInt, pvparam: MutPtr, fwinini: SystemParametersInfoUpdateFlags): Bool =
     WindowsWin32UiWindowsandmessagingJniBridge.windowssysWindowsWin32UiWindowsandmessagingSystemParametersInfoW(uiaction.toInt(), uiparam.toInt(), pvparam.rawAddress, fwinini.toInt())
 
-public actual fun tileWindows(hwndparent: Hwnd, whow: TileWindowsHow, lprect: ConstPtr<Rect>, ckids: UInt, lpkids: ConstPtr<Hwnd>): UShort =
+public actual fun tileWindows(hwndparent: Hwnd, whow: TileWindowsHow, lprect: ConstPtr, ckids: UInt, lpkids: ConstPtr): UShort =
     WindowsWin32UiWindowsandmessagingJniBridge.windowssysWindowsWin32UiWindowsandmessagingTileWindows(hwndparent.rawAddress, whow.toInt(), lprect.rawAddress, ckids.toInt(), lpkids.rawAddress).toUShort()
 
-public actual fun trackPopupMenu(hmenu: Hmenu, uflags: TrackPopupMenuFlags, x: Int, y: Int, nreserved: Int, hwnd: Hwnd, prcrect: ConstPtr<Rect>): Bool =
+public actual fun trackPopupMenu(hmenu: Hmenu, uflags: TrackPopupMenuFlags, x: Int, y: Int, nreserved: Int, hwnd: Hwnd, prcrect: ConstPtr): Bool =
     WindowsWin32UiWindowsandmessagingJniBridge.windowssysWindowsWin32UiWindowsandmessagingTrackPopupMenu(hmenu.rawAddress, uflags.toInt(), x, y, nreserved, hwnd.rawAddress, prcrect.rawAddress)
 
-public actual fun trackPopupMenuEx(hmenu: Hmenu, uflags: UInt, x: Int, y: Int, hwnd: Hwnd, lptpm: ConstPtr<Tpmparams>): Bool =
+public actual fun trackPopupMenuEx(hmenu: Hmenu, uflags: UInt, x: Int, y: Int, hwnd: Hwnd, lptpm: ConstPtr): Bool =
     WindowsWin32UiWindowsandmessagingJniBridge.windowssysWindowsWin32UiWindowsandmessagingTrackPopupMenuEx(hmenu.rawAddress, uflags.toInt(), x, y, hwnd.rawAddress, lptpm.rawAddress)
 
-public actual fun translateAcceleratorA(hwnd: Hwnd, hacctable: Haccel, lpmsg: ConstPtr<Msg>): Int =
+public actual fun translateAcceleratorA(hwnd: Hwnd, hacctable: Haccel, lpmsg: ConstPtr): Int =
     WindowsWin32UiWindowsandmessagingJniBridge.windowssysWindowsWin32UiWindowsandmessagingTranslateAcceleratorA(hwnd.rawAddress, hacctable.rawAddress, lpmsg.rawAddress)
 
-public actual fun translateAcceleratorW(hwnd: Hwnd, hacctable: Haccel, lpmsg: ConstPtr<Msg>): Int =
+public actual fun translateAcceleratorW(hwnd: Hwnd, hacctable: Haccel, lpmsg: ConstPtr): Int =
     WindowsWin32UiWindowsandmessagingJniBridge.windowssysWindowsWin32UiWindowsandmessagingTranslateAcceleratorW(hwnd.rawAddress, hacctable.rawAddress, lpmsg.rawAddress)
 
-public actual fun translateMDISysAccel(hwndclient: Hwnd, lpmsg: ConstPtr<Msg>): Bool =
+public actual fun translateMDISysAccel(hwndclient: Hwnd, lpmsg: ConstPtr): Bool =
     WindowsWin32UiWindowsandmessagingJniBridge.windowssysWindowsWin32UiWindowsandmessagingTranslateMDISysAccel(hwndclient.rawAddress, lpmsg.rawAddress)
 
-public actual fun translateMessage(lpmsg: ConstPtr<Msg>): Bool =
+public actual fun translateMessage(lpmsg: ConstPtr): Bool =
     WindowsWin32UiWindowsandmessagingJniBridge.windowssysWindowsWin32UiWindowsandmessagingTranslateMessage(lpmsg.rawAddress)
 
 public actual fun unhookWindowsHook(ncode: Int, pfnfilterproc: Hookproc): Bool =
@@ -2512,10 +2508,10 @@ public actual fun unregisterClassW(lpclassname: Pcwstr, hinstance: Hinstance): B
 public actual fun unregisterDeviceNotification(handle: Hdevnotify): Bool =
     WindowsWin32UiWindowsandmessagingJniBridge.windowssysWindowsWin32UiWindowsandmessagingUnregisterDeviceNotification(handle.rawAddress)
 
-public actual fun updateLayeredWindow(hwnd: Hwnd, hdcdst: Hdc, pptdst: ConstPtr<Point>, psize: ConstPtr<Size>, hdcsrc: Hdc, pptsrc: ConstPtr<Point>, crkey: Colorref, pblend: ConstPtr<Blendfunction>, dwflags: UpdateLayeredWindowFlags): Bool =
+public actual fun updateLayeredWindow(hwnd: Hwnd, hdcdst: Hdc, pptdst: ConstPtr, psize: ConstPtr, hdcsrc: Hdc, pptsrc: ConstPtr, crkey: Colorref, pblend: ConstPtr, dwflags: UpdateLayeredWindowFlags): Bool =
     WindowsWin32UiWindowsandmessagingJniBridge.windowssysWindowsWin32UiWindowsandmessagingUpdateLayeredWindow(hwnd.rawAddress, hdcdst.rawAddress, pptdst.rawAddress, psize.rawAddress, hdcsrc.rawAddress, pptsrc.rawAddress, crkey.toInt(), pblend.rawAddress, dwflags.toInt())
 
-public actual fun updateLayeredWindowIndirect(hwnd: Hwnd, pulwinfo: ConstPtr<Updatelayeredwindowinfo>): Bool =
+public actual fun updateLayeredWindowIndirect(hwnd: Hwnd, pulwinfo: ConstPtr): Bool =
     WindowsWin32UiWindowsandmessagingJniBridge.windowssysWindowsWin32UiWindowsandmessagingUpdateLayeredWindowIndirect(hwnd.rawAddress, pulwinfo.rawAddress)
 
 public actual fun waitMessage(): Bool =
@@ -2533,8 +2529,8 @@ public actual fun wsprintfA(param0: Pstr, param1: Pcstr, vararg variadicArgs: Lo
 public actual fun wsprintfW(param0: Pwstr, param1: Pcwstr, vararg variadicArgs: Long): Int =
     WindowsWin32UiWindowsandmessagingJniBridge.windowssysWindowsWin32UiWindowsandmessagingWsprintfW(param0.rawAddress, param1.rawAddress, variadicArgs.size.coerceAtMost(4), if (variadicArgs.size > 0) variadicArgs[0] else 0L, if (variadicArgs.size > 1) variadicArgs[1] else 0L, if (variadicArgs.size > 2) variadicArgs[2] else 0L, if (variadicArgs.size > 3) variadicArgs[3] else 0L)
 
-public actual fun wvsprintfA(param0: Pstr, param1: Pcstr, arglist: ConstPtr<Byte>): Int =
+public actual fun wvsprintfA(param0: Pstr, param1: Pcstr, arglist: ConstPtr): Int =
     WindowsWin32UiWindowsandmessagingJniBridge.windowssysWindowsWin32UiWindowsandmessagingWvsprintfA(param0.rawAddress, param1.rawAddress, arglist.rawAddress)
 
-public actual fun wvsprintfW(param0: Pwstr, param1: Pcwstr, arglist: ConstPtr<Byte>): Int =
+public actual fun wvsprintfW(param0: Pwstr, param1: Pcwstr, arglist: ConstPtr): Int =
     WindowsWin32UiWindowsandmessagingJniBridge.windowssysWindowsWin32UiWindowsandmessagingWvsprintfW(param0.rawAddress, param1.rawAddress, arglist.rawAddress)

@@ -39,63 +39,62 @@ import io.github.kotlinmania.windowssys.windows.win32.devices.communication.cint
 import io.github.kotlinmania.windowssys.windows.win32.devices.communication.cinterop.windowssysWindowsWin32DevicesCommunicationWaitCommEvent
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Handle
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Hwnd
-import io.github.kotlinmania.windowssys.windows.win32.system.io.Overlapped
 import kotlinx.cinterop.ByteVar
 import kotlinx.cinterop.toCPointer
 import kotlinx.cinterop.toLong
 
-public actual fun buildCommDCBA(lpdef: Pcstr, lpdcb: MutPtr<Dcb>): Bool =
+public actual fun buildCommDCBA(lpdef: Pcstr, lpdcb: MutPtr): Bool =
     windowssysWindowsWin32DevicesCommunicationBuildCommDCBA(lpdef.rawAddress.toCPointer<ByteVar>(), lpdcb.rawAddress.toCPointer<ByteVar>())
 
-public actual fun buildCommDCBAndTimeoutsA(lpdef: Pcstr, lpdcb: MutPtr<Dcb>, lpcommtimeouts: MutPtr<Commtimeouts>): Bool =
+public actual fun buildCommDCBAndTimeoutsA(lpdef: Pcstr, lpdcb: MutPtr, lpcommtimeouts: MutPtr): Bool =
     windowssysWindowsWin32DevicesCommunicationBuildCommDCBAndTimeoutsA(lpdef.rawAddress.toCPointer<ByteVar>(), lpdcb.rawAddress.toCPointer<ByteVar>(), lpcommtimeouts.rawAddress.toCPointer<ByteVar>())
 
-public actual fun buildCommDCBAndTimeoutsW(lpdef: Pcwstr, lpdcb: MutPtr<Dcb>, lpcommtimeouts: MutPtr<Commtimeouts>): Bool =
+public actual fun buildCommDCBAndTimeoutsW(lpdef: Pcwstr, lpdcb: MutPtr, lpcommtimeouts: MutPtr): Bool =
     windowssysWindowsWin32DevicesCommunicationBuildCommDCBAndTimeoutsW(lpdef.rawAddress.toCPointer<ByteVar>(), lpdcb.rawAddress.toCPointer<ByteVar>(), lpcommtimeouts.rawAddress.toCPointer<ByteVar>())
 
-public actual fun buildCommDCBW(lpdef: Pcwstr, lpdcb: MutPtr<Dcb>): Bool =
+public actual fun buildCommDCBW(lpdef: Pcwstr, lpdcb: MutPtr): Bool =
     windowssysWindowsWin32DevicesCommunicationBuildCommDCBW(lpdef.rawAddress.toCPointer<ByteVar>(), lpdcb.rawAddress.toCPointer<ByteVar>())
 
 public actual fun clearCommBreak(hfile: Handle): Bool =
     windowssysWindowsWin32DevicesCommunicationClearCommBreak(hfile.rawAddress.toCPointer<ByteVar>())
 
-public actual fun clearCommError(hfile: Handle, lperrors: MutPtr<ClearCommErrorFlags>, lpstat: MutPtr<Comstat>): Bool =
+public actual fun clearCommError(hfile: Handle, lperrors: MutPtr, lpstat: MutPtr): Bool =
     windowssysWindowsWin32DevicesCommunicationClearCommError(hfile.rawAddress.toCPointer<ByteVar>(), lperrors.rawAddress.toCPointer<ByteVar>(), lpstat.rawAddress.toCPointer<ByteVar>())
 
-public actual fun commConfigDialogA(lpszname: Pcstr, hwnd: Hwnd, lpcc: MutPtr<Commconfig>): Bool =
+public actual fun commConfigDialogA(lpszname: Pcstr, hwnd: Hwnd, lpcc: MutPtr): Bool =
     windowssysWindowsWin32DevicesCommunicationCommConfigDialogA(lpszname.rawAddress.toCPointer<ByteVar>(), hwnd.rawAddress.toCPointer<ByteVar>(), lpcc.rawAddress.toCPointer<ByteVar>())
 
-public actual fun commConfigDialogW(lpszname: Pcwstr, hwnd: Hwnd, lpcc: MutPtr<Commconfig>): Bool =
+public actual fun commConfigDialogW(lpszname: Pcwstr, hwnd: Hwnd, lpcc: MutPtr): Bool =
     windowssysWindowsWin32DevicesCommunicationCommConfigDialogW(lpszname.rawAddress.toCPointer<ByteVar>(), hwnd.rawAddress.toCPointer<ByteVar>(), lpcc.rawAddress.toCPointer<ByteVar>())
 
 public actual fun escapeCommFunction(hfile: Handle, dwfunc: EscapeCommFunction): Bool =
     windowssysWindowsWin32DevicesCommunicationEscapeCommFunction(hfile.rawAddress.toCPointer<ByteVar>(), dwfunc)
 
-public actual fun getCommConfig(hcommdev: Handle, lpcc: MutPtr<Commconfig>, lpdwsize: MutPtr<UInt>): Bool =
+public actual fun getCommConfig(hcommdev: Handle, lpcc: MutPtr, lpdwsize: MutPtr): Bool =
     windowssysWindowsWin32DevicesCommunicationGetCommConfig(hcommdev.rawAddress.toCPointer<ByteVar>(), lpcc.rawAddress.toCPointer<ByteVar>(), lpdwsize.rawAddress.toCPointer<ByteVar>())
 
-public actual fun getCommMask(hfile: Handle, lpevtmask: MutPtr<CommEventMask>): Bool =
+public actual fun getCommMask(hfile: Handle, lpevtmask: MutPtr): Bool =
     windowssysWindowsWin32DevicesCommunicationGetCommMask(hfile.rawAddress.toCPointer<ByteVar>(), lpevtmask.rawAddress.toCPointer<ByteVar>())
 
-public actual fun getCommModemStatus(hfile: Handle, lpmodemstat: MutPtr<ModemStatusFlags>): Bool =
+public actual fun getCommModemStatus(hfile: Handle, lpmodemstat: MutPtr): Bool =
     windowssysWindowsWin32DevicesCommunicationGetCommModemStatus(hfile.rawAddress.toCPointer<ByteVar>(), lpmodemstat.rawAddress.toCPointer<ByteVar>())
 
-public actual fun getCommPorts(lpportnumbers: MutPtr<UInt>, uportnumberscount: UInt, puportnumbersfound: MutPtr<UInt>): UInt =
+public actual fun getCommPorts(lpportnumbers: MutPtr, uportnumberscount: UInt, puportnumbersfound: MutPtr): UInt =
     windowssysWindowsWin32DevicesCommunicationGetCommPorts(lpportnumbers.rawAddress.toCPointer<ByteVar>(), uportnumberscount, puportnumbersfound.rawAddress.toCPointer<ByteVar>())
 
-public actual fun getCommProperties(hfile: Handle, lpcommprop: MutPtr<Commprop>): Bool =
+public actual fun getCommProperties(hfile: Handle, lpcommprop: MutPtr): Bool =
     windowssysWindowsWin32DevicesCommunicationGetCommProperties(hfile.rawAddress.toCPointer<ByteVar>(), lpcommprop.rawAddress.toCPointer<ByteVar>())
 
-public actual fun getCommState(hfile: Handle, lpdcb: MutPtr<Dcb>): Bool =
+public actual fun getCommState(hfile: Handle, lpdcb: MutPtr): Bool =
     windowssysWindowsWin32DevicesCommunicationGetCommState(hfile.rawAddress.toCPointer<ByteVar>(), lpdcb.rawAddress.toCPointer<ByteVar>())
 
-public actual fun getCommTimeouts(hfile: Handle, lpcommtimeouts: MutPtr<Commtimeouts>): Bool =
+public actual fun getCommTimeouts(hfile: Handle, lpcommtimeouts: MutPtr): Bool =
     windowssysWindowsWin32DevicesCommunicationGetCommTimeouts(hfile.rawAddress.toCPointer<ByteVar>(), lpcommtimeouts.rawAddress.toCPointer<ByteVar>())
 
-public actual fun getDefaultCommConfigA(lpszname: Pcstr, lpcc: MutPtr<Commconfig>, lpdwsize: MutPtr<UInt>): Bool =
+public actual fun getDefaultCommConfigA(lpszname: Pcstr, lpcc: MutPtr, lpdwsize: MutPtr): Bool =
     windowssysWindowsWin32DevicesCommunicationGetDefaultCommConfigA(lpszname.rawAddress.toCPointer<ByteVar>(), lpcc.rawAddress.toCPointer<ByteVar>(), lpdwsize.rawAddress.toCPointer<ByteVar>())
 
-public actual fun getDefaultCommConfigW(lpszname: Pcwstr, lpcc: MutPtr<Commconfig>, lpdwsize: MutPtr<UInt>): Bool =
+public actual fun getDefaultCommConfigW(lpszname: Pcwstr, lpcc: MutPtr, lpdwsize: MutPtr): Bool =
     windowssysWindowsWin32DevicesCommunicationGetDefaultCommConfigW(lpszname.rawAddress.toCPointer<ByteVar>(), lpcc.rawAddress.toCPointer<ByteVar>(), lpdwsize.rawAddress.toCPointer<ByteVar>())
 
 public actual fun openCommPort(uportnumber: UInt, dwdesiredaccess: UInt, dwflagsandattributes: UInt): Handle =
@@ -107,22 +106,22 @@ public actual fun purgeComm(hfile: Handle, dwflags: PurgeCommFlags): Bool =
 public actual fun setCommBreak(hfile: Handle): Bool =
     windowssysWindowsWin32DevicesCommunicationSetCommBreak(hfile.rawAddress.toCPointer<ByteVar>())
 
-public actual fun setCommConfig(hcommdev: Handle, lpcc: ConstPtr<Commconfig>, dwsize: UInt): Bool =
+public actual fun setCommConfig(hcommdev: Handle, lpcc: ConstPtr, dwsize: UInt): Bool =
     windowssysWindowsWin32DevicesCommunicationSetCommConfig(hcommdev.rawAddress.toCPointer<ByteVar>(), lpcc.rawAddress.toCPointer<ByteVar>(), dwsize)
 
 public actual fun setCommMask(hfile: Handle, dwevtmask: CommEventMask): Bool =
     windowssysWindowsWin32DevicesCommunicationSetCommMask(hfile.rawAddress.toCPointer<ByteVar>(), dwevtmask)
 
-public actual fun setCommState(hfile: Handle, lpdcb: ConstPtr<Dcb>): Bool =
+public actual fun setCommState(hfile: Handle, lpdcb: ConstPtr): Bool =
     windowssysWindowsWin32DevicesCommunicationSetCommState(hfile.rawAddress.toCPointer<ByteVar>(), lpdcb.rawAddress.toCPointer<ByteVar>())
 
-public actual fun setCommTimeouts(hfile: Handle, lpcommtimeouts: ConstPtr<Commtimeouts>): Bool =
+public actual fun setCommTimeouts(hfile: Handle, lpcommtimeouts: ConstPtr): Bool =
     windowssysWindowsWin32DevicesCommunicationSetCommTimeouts(hfile.rawAddress.toCPointer<ByteVar>(), lpcommtimeouts.rawAddress.toCPointer<ByteVar>())
 
-public actual fun setDefaultCommConfigA(lpszname: Pcstr, lpcc: ConstPtr<Commconfig>, dwsize: UInt): Bool =
+public actual fun setDefaultCommConfigA(lpszname: Pcstr, lpcc: ConstPtr, dwsize: UInt): Bool =
     windowssysWindowsWin32DevicesCommunicationSetDefaultCommConfigA(lpszname.rawAddress.toCPointer<ByteVar>(), lpcc.rawAddress.toCPointer<ByteVar>(), dwsize)
 
-public actual fun setDefaultCommConfigW(lpszname: Pcwstr, lpcc: ConstPtr<Commconfig>, dwsize: UInt): Bool =
+public actual fun setDefaultCommConfigW(lpszname: Pcwstr, lpcc: ConstPtr, dwsize: UInt): Bool =
     windowssysWindowsWin32DevicesCommunicationSetDefaultCommConfigW(lpszname.rawAddress.toCPointer<ByteVar>(), lpcc.rawAddress.toCPointer<ByteVar>(), dwsize)
 
 public actual fun setupComm(hfile: Handle, dwinqueue: UInt, dwoutqueue: UInt): Bool =
@@ -131,5 +130,5 @@ public actual fun setupComm(hfile: Handle, dwinqueue: UInt, dwoutqueue: UInt): B
 public actual fun transmitCommChar(hfile: Handle, cchar: Byte): Bool =
     windowssysWindowsWin32DevicesCommunicationTransmitCommChar(hfile.rawAddress.toCPointer<ByteVar>(), cchar)
 
-public actual fun waitCommEvent(hfile: Handle, lpevtmask: MutPtr<CommEventMask>, lpoverlapped: MutPtr<Overlapped>): Bool =
+public actual fun waitCommEvent(hfile: Handle, lpevtmask: MutPtr, lpoverlapped: MutPtr): Bool =
     windowssysWindowsWin32DevicesCommunicationWaitCommEvent(hfile.rawAddress.toCPointer<ByteVar>(), lpevtmask.rawAddress.toCPointer<ByteVar>(), lpoverlapped.rawAddress.toCPointer<ByteVar>())

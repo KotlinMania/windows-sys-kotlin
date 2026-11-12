@@ -1,6 +1,5 @@
 package io.github.kotlinmania.windowssys.windows.win32.system.io
 
-import io.github.kotlinmania.rustlang.core.ffi.CVoid
 import io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
 import io.github.kotlinmania.rustlang.core.mem.TypeLayout
 import io.github.kotlinmania.rustlang.core.ptr.MutPtr
@@ -14,9 +13,9 @@ public data class IoStatusBlock(
 
 public class IoStatusBlock0 internal constructor(
     public var status: Ntstatus,
-    pointerCtorArg: MutPtr<CVoid>,
+    pointerCtorArg: MutPtr,
 ) {
-    public var pointer: MutPtr<CVoid> = pointerCtorArg
+    public var pointer: MutPtr = pointerCtorArg
         internal set
 
     public constructor() : this(
@@ -26,9 +25,9 @@ public class IoStatusBlock0 internal constructor(
 
     public operator fun component1(): Ntstatus = this.status
 
-    public operator fun component2(): MutPtr<CVoid> = this.pointer
+    public operator fun component2(): MutPtr = this.pointer
 
-    public fun copy(status: Ntstatus = this.status, pointer: MutPtr<CVoid> = this.pointer): IoStatusBlock0 = IoStatusBlock0(status = status, pointerCtorArg = pointer)
+    public fun copy(status: Ntstatus = this.status, pointer: MutPtr = this.pointer): IoStatusBlock0 = IoStatusBlock0(status = status, pointerCtorArg = pointer)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -47,7 +46,7 @@ public class IoStatusBlock0 internal constructor(
     public companion object {
         public operator fun invoke(
             status: Ntstatus = 0,
-            pointer: MutPtr<CVoid> = MutPtr(0L),
+            pointer: MutPtr = MutPtr(0L),
         ): IoStatusBlock0 =
             IoStatusBlock0(
                 status = status,
@@ -118,9 +117,9 @@ public class Overlapped internal constructor(
 
 public class Overlapped0 internal constructor(
     public var anonymous: Overlapped00,
-    pointerCtorArg: MutPtr<CVoid>,
+    pointerCtorArg: MutPtr,
 ) {
-    public var pointer: MutPtr<CVoid> = pointerCtorArg
+    public var pointer: MutPtr = pointerCtorArg
         internal set
 
     public constructor() : this(
@@ -130,9 +129,9 @@ public class Overlapped0 internal constructor(
 
     public operator fun component1(): Overlapped00 = this.anonymous
 
-    public operator fun component2(): MutPtr<CVoid> = this.pointer
+    public operator fun component2(): MutPtr = this.pointer
 
-    public fun copy(anonymous: Overlapped00 = this.anonymous, pointer: MutPtr<CVoid> = this.pointer): Overlapped0 = Overlapped0(anonymous = anonymous, pointerCtorArg = pointer)
+    public fun copy(anonymous: Overlapped00 = this.anonymous, pointer: MutPtr = this.pointer): Overlapped0 = Overlapped0(anonymous = anonymous, pointerCtorArg = pointer)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -151,7 +150,7 @@ public class Overlapped0 internal constructor(
     public companion object {
         public operator fun invoke(
             anonymous: Overlapped00 = Overlapped00(),
-            pointer: MutPtr<CVoid> = MutPtr(0L),
+            pointer: MutPtr = MutPtr(0L),
         ): Overlapped0 =
             Overlapped0(
                 anonymous = anonymous,
@@ -184,11 +183,11 @@ public data class Overlapped00(
 
 public class OverlappedEntry internal constructor(
     public var lpCompletionKey: Int,
-    lpOverlappedCtorArg: MutPtr<Overlapped>,
+    lpOverlappedCtorArg: MutPtr,
     public var internal: Int,
     public var dwNumberOfBytesTransferred: UInt,
 ) {
-    public var lpOverlapped: MutPtr<Overlapped> = lpOverlappedCtorArg
+    public var lpOverlapped: MutPtr = lpOverlappedCtorArg
         internal set
 
     public constructor() : this(
@@ -200,13 +199,13 @@ public class OverlappedEntry internal constructor(
 
     public operator fun component1(): Int = this.lpCompletionKey
 
-    public operator fun component2(): MutPtr<Overlapped> = this.lpOverlapped
+    public operator fun component2(): MutPtr = this.lpOverlapped
 
     public operator fun component3(): Int = this.internal
 
     public operator fun component4(): UInt = this.dwNumberOfBytesTransferred
 
-    public fun copy(lpCompletionKey: Int = this.lpCompletionKey, lpOverlapped: MutPtr<Overlapped> = this.lpOverlapped, internal: Int = this.internal, dwNumberOfBytesTransferred: UInt = this.dwNumberOfBytesTransferred): OverlappedEntry = OverlappedEntry(lpCompletionKey = lpCompletionKey, lpOverlappedCtorArg = lpOverlapped, internal = internal, dwNumberOfBytesTransferred = dwNumberOfBytesTransferred)
+    public fun copy(lpCompletionKey: Int = this.lpCompletionKey, lpOverlapped: MutPtr = this.lpOverlapped, internal: Int = this.internal, dwNumberOfBytesTransferred: UInt = this.dwNumberOfBytesTransferred): OverlappedEntry = OverlappedEntry(lpCompletionKey = lpCompletionKey, lpOverlappedCtorArg = lpOverlapped, internal = internal, dwNumberOfBytesTransferred = dwNumberOfBytesTransferred)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -236,7 +235,7 @@ public class OverlappedEntry internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.USIZE64).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<Overlapped>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.USIZE64).readNative(addr + 16L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 24L),
@@ -245,7 +244,7 @@ public class OverlappedEntry internal constructor(
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.USIZE64).writeNative(addr, value.lpCompletionKey)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<Overlapped>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.lpOverlapped)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.USIZE64).writeNative(addr + 16L, value.internal)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 24L, value.dwNumberOfBytesTransferred)
@@ -254,7 +253,7 @@ public class OverlappedEntry internal constructor(
 
         public operator fun invoke(
             lpCompletionKey: Int = 0,
-            lpOverlapped: MutPtr<Overlapped> = MutPtr(0L),
+            lpOverlapped: MutPtr = MutPtr(0L),
             internal: Int = 0,
             dwNumberOfBytesTransferred: UInt = 0u,
         ): OverlappedEntry =

@@ -12,11 +12,11 @@ import io.github.kotlinmania.windowssys.windows.win32.system.eventnotificationse
 import kotlinx.cinterop.ByteVar
 import kotlinx.cinterop.toCPointer
 
-public actual fun isDestinationReachableA(lpszdestination: Pcstr, lpqocinfo: MutPtr<Qocinfo>): Bool =
+public actual fun isDestinationReachableA(lpszdestination: Pcstr, lpqocinfo: MutPtr): Bool =
     windowssysWindowsWin32SystemEventnotificationserviceIsDestinationReachableA(lpszdestination.rawAddress.toCPointer<ByteVar>(), lpqocinfo.rawAddress.toCPointer<ByteVar>())
 
-public actual fun isDestinationReachableW(lpszdestination: Pcwstr, lpqocinfo: MutPtr<Qocinfo>): Bool =
+public actual fun isDestinationReachableW(lpszdestination: Pcwstr, lpqocinfo: MutPtr): Bool =
     windowssysWindowsWin32SystemEventnotificationserviceIsDestinationReachableW(lpszdestination.rawAddress.toCPointer<ByteVar>(), lpqocinfo.rawAddress.toCPointer<ByteVar>())
 
-public actual fun isNetworkAlive(lpdwflags: MutPtr<UInt>): Bool =
+public actual fun isNetworkAlive(lpdwflags: MutPtr): Bool =
     windowssysWindowsWin32SystemEventnotificationserviceIsNetworkAlive(lpdwflags.rawAddress.toCPointer<ByteVar>())

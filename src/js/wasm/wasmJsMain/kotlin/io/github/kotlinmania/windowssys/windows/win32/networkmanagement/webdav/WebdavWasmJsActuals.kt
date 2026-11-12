@@ -47,7 +47,7 @@ private external fun wasmWindowssysWindowsWin32NetworkmanagementWebdavDavRegiste
 @JsFun("(p0) => globalThis.__km_napi_windowssys.windowssysWindowsWin32NetworkmanagementWebdavDavUnregisterAuthCallback(p0)")
 private external fun wasmWindowssysWindowsWin32NetworkmanagementWebdavDavUnregisterAuthCallback(p0: Int)
 
-public actual fun davAddConnection(connectionhandle: MutPtr<Handle>, remotename: Pcwstr, username: Pcwstr, password: Pcwstr, clientcert: ConstPtr<UByte>, certsize: UInt): UInt =
+public actual fun davAddConnection(connectionhandle: MutPtr, remotename: Pcwstr, username: Pcwstr, password: Pcwstr, clientcert: ConstPtr, certsize: UInt): UInt =
     if (windowsWin32NetworkmanagementWebdavNapiAvailable) wasmWindowssysWindowsWin32NetworkmanagementWebdavDavAddConnection(connectionhandle.rawAddress.toString(), remotename.rawAddress.toString(), username.rawAddress.toString(), password.rawAddress.toString(), clientcert.rawAddress.toString(), certsize.toInt()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun davCancelConnectionsToServer(lpname: Pcwstr, fforce: Bool): UInt =
@@ -59,16 +59,16 @@ public actual fun davDeleteConnection(connectionhandle: Handle): UInt =
 public actual fun davFlushFile(hfile: Handle): UInt =
     if (windowsWin32NetworkmanagementWebdavNapiAvailable) wasmWindowssysWindowsWin32NetworkmanagementWebdavDavFlushFile(hfile.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun davGetExtendedError(hfile: Handle, exterror: MutPtr<UInt>, exterrorstring: Pwstr, cchsize: MutPtr<UInt>): UInt =
+public actual fun davGetExtendedError(hfile: Handle, exterror: MutPtr, exterrorstring: Pwstr, cchsize: MutPtr): UInt =
     if (windowsWin32NetworkmanagementWebdavNapiAvailable) wasmWindowssysWindowsWin32NetworkmanagementWebdavDavGetExtendedError(hfile.rawAddress.toString(), exterror.rawAddress.toString(), exterrorstring.rawAddress.toString(), cchsize.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun davGetHTTPFromUNCPath(uncpath: Pcwstr, url: Pwstr, lpsize: MutPtr<UInt>): UInt =
+public actual fun davGetHTTPFromUNCPath(uncpath: Pcwstr, url: Pwstr, lpsize: MutPtr): UInt =
     if (windowsWin32NetworkmanagementWebdavNapiAvailable) wasmWindowssysWindowsWin32NetworkmanagementWebdavDavGetHTTPFromUNCPath(uncpath.rawAddress.toString(), url.rawAddress.toString(), lpsize.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun davGetTheLockOwnerOfTheFile(filename: Pcwstr, lockownername: Pwstr, lockownernamelengthinbytes: MutPtr<UInt>): UInt =
+public actual fun davGetTheLockOwnerOfTheFile(filename: Pcwstr, lockownername: Pwstr, lockownernamelengthinbytes: MutPtr): UInt =
     if (windowsWin32NetworkmanagementWebdavNapiAvailable) wasmWindowssysWindowsWin32NetworkmanagementWebdavDavGetTheLockOwnerOfTheFile(filename.rawAddress.toString(), lockownername.rawAddress.toString(), lockownernamelengthinbytes.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun davGetUNCFromHTTPPath(url: Pcwstr, uncpath: Pwstr, lpsize: MutPtr<UInt>): UInt =
+public actual fun davGetUNCFromHTTPPath(url: Pcwstr, uncpath: Pwstr, lpsize: MutPtr): UInt =
     if (windowsWin32NetworkmanagementWebdavNapiAvailable) wasmWindowssysWindowsWin32NetworkmanagementWebdavDavGetUNCFromHTTPPath(url.rawAddress.toString(), uncpath.rawAddress.toString(), lpsize.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun davInvalidateCache(urlname: Pcwstr): UInt =

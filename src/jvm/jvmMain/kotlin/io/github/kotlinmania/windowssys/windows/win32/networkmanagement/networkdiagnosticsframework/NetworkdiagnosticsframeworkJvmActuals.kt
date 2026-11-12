@@ -2,7 +2,6 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.networkmanagement.networkdiagnosticsframework
 
-import io.github.kotlinmania.rustlang.core.ffi.CVoid
 import io.github.kotlinmania.rustlang.core.ptr.ConstPtr
 import io.github.kotlinmania.rustlang.core.ptr.MutPtr
 import io.github.kotlinmania.windowssys.core.Bool
@@ -11,8 +10,6 @@ import io.github.kotlinmania.windowssys.core.Hresult
 import io.github.kotlinmania.windowssys.core.Pcwstr
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Hwnd
 import io.github.kotlinmania.windowssys.windows.win32.networking.winsock.Socket
-import io.github.kotlinmania.windowssys.windows.win32.networking.winsock.SocketAddressList
-import io.github.kotlinmania.windowssys.windows.win32.security.Sid
 
 private object WindowsWin32NetworkmanagementNetworkdiagnosticsframeworkJniBridge {
     init {
@@ -116,50 +113,50 @@ private object WindowsWin32NetworkmanagementNetworkdiagnosticsframeworkJniBridge
     external fun windowssysWindowsWin32NetworkmanagementNetworkdiagnosticsframeworkNdfRepairIncident(handle: Long, repairex: Long, dwwait: Int): Int
 }
 
-public actual fun ndfCancelIncident(handle: ConstPtr<CVoid>): Hresult =
+public actual fun ndfCancelIncident(handle: ConstPtr): Hresult =
     WindowsWin32NetworkmanagementNetworkdiagnosticsframeworkJniBridge.windowssysWindowsWin32NetworkmanagementNetworkdiagnosticsframeworkNdfCancelIncident(handle.rawAddress)
 
-public actual fun ndfCloseIncident(handle: MutPtr<CVoid>): Hresult =
+public actual fun ndfCloseIncident(handle: MutPtr): Hresult =
     WindowsWin32NetworkmanagementNetworkdiagnosticsframeworkJniBridge.windowssysWindowsWin32NetworkmanagementNetworkdiagnosticsframeworkNdfCloseIncident(handle.rawAddress)
 
-public actual fun ndfCreateConnectivityIncident(handle: MutPtr<MutPtr<CVoid>>): Hresult =
+public actual fun ndfCreateConnectivityIncident(handle: MutPtr): Hresult =
     WindowsWin32NetworkmanagementNetworkdiagnosticsframeworkJniBridge.windowssysWindowsWin32NetworkmanagementNetworkdiagnosticsframeworkNdfCreateConnectivityIncident(handle.rawAddress)
 
-public actual fun ndfCreateDNSIncident(hostname: Pcwstr, querytype: UShort, handle: MutPtr<MutPtr<CVoid>>): Hresult =
+public actual fun ndfCreateDNSIncident(hostname: Pcwstr, querytype: UShort, handle: MutPtr): Hresult =
     WindowsWin32NetworkmanagementNetworkdiagnosticsframeworkJniBridge.windowssysWindowsWin32NetworkmanagementNetworkdiagnosticsframeworkNdfCreateDNSIncident(hostname.rawAddress, querytype.toShort(), handle.rawAddress)
 
-public actual fun ndfCreateGroupingIncident(cloudname: Pcwstr, groupname: Pcwstr, identity: Pcwstr, invitation: Pcwstr, addresses: ConstPtr<SocketAddressList>, appid: Pcwstr, handle: MutPtr<MutPtr<CVoid>>): Hresult =
+public actual fun ndfCreateGroupingIncident(cloudname: Pcwstr, groupname: Pcwstr, identity: Pcwstr, invitation: Pcwstr, addresses: ConstPtr, appid: Pcwstr, handle: MutPtr): Hresult =
     WindowsWin32NetworkmanagementNetworkdiagnosticsframeworkJniBridge.windowssysWindowsWin32NetworkmanagementNetworkdiagnosticsframeworkNdfCreateGroupingIncident(cloudname.rawAddress, groupname.rawAddress, identity.rawAddress, invitation.rawAddress, addresses.rawAddress, appid.rawAddress, handle.rawAddress)
 
-public actual fun ndfCreateIncident(helperclassname: Pcwstr, celt: UInt, attributes: ConstPtr<HelperAttribute>, handle: MutPtr<MutPtr<CVoid>>): Hresult =
+public actual fun ndfCreateIncident(helperclassname: Pcwstr, celt: UInt, attributes: ConstPtr, handle: MutPtr): Hresult =
     WindowsWin32NetworkmanagementNetworkdiagnosticsframeworkJniBridge.windowssysWindowsWin32NetworkmanagementNetworkdiagnosticsframeworkNdfCreateIncident(helperclassname.rawAddress, celt.toInt(), attributes.rawAddress, handle.rawAddress)
 
-public actual fun ndfCreateNetConnectionIncident(handle: MutPtr<MutPtr<CVoid>>, id: Guid): Hresult =
+public actual fun ndfCreateNetConnectionIncident(handle: MutPtr, id: Guid): Hresult =
     0
 
-public actual fun ndfCreatePnrpIncident(cloudname: Pcwstr, peername: Pcwstr, diagnosepublish: Bool, appid: Pcwstr, handle: MutPtr<MutPtr<CVoid>>): Hresult =
+public actual fun ndfCreatePnrpIncident(cloudname: Pcwstr, peername: Pcwstr, diagnosepublish: Bool, appid: Pcwstr, handle: MutPtr): Hresult =
     WindowsWin32NetworkmanagementNetworkdiagnosticsframeworkJniBridge.windowssysWindowsWin32NetworkmanagementNetworkdiagnosticsframeworkNdfCreatePnrpIncident(cloudname.rawAddress, peername.rawAddress, diagnosepublish, appid.rawAddress, handle.rawAddress)
 
-public actual fun ndfCreateSharingIncident(uncpath: Pcwstr, handle: MutPtr<MutPtr<CVoid>>): Hresult =
+public actual fun ndfCreateSharingIncident(uncpath: Pcwstr, handle: MutPtr): Hresult =
     WindowsWin32NetworkmanagementNetworkdiagnosticsframeworkJniBridge.windowssysWindowsWin32NetworkmanagementNetworkdiagnosticsframeworkNdfCreateSharingIncident(uncpath.rawAddress, handle.rawAddress)
 
-public actual fun ndfCreateWebIncident(url: Pcwstr, handle: MutPtr<MutPtr<CVoid>>): Hresult =
+public actual fun ndfCreateWebIncident(url: Pcwstr, handle: MutPtr): Hresult =
     WindowsWin32NetworkmanagementNetworkdiagnosticsframeworkJniBridge.windowssysWindowsWin32NetworkmanagementNetworkdiagnosticsframeworkNdfCreateWebIncident(url.rawAddress, handle.rawAddress)
 
-public actual fun ndfCreateWebIncidentEx(url: Pcwstr, usewinhttp: Bool, modulename: Pcwstr, handle: MutPtr<MutPtr<CVoid>>): Hresult =
+public actual fun ndfCreateWebIncidentEx(url: Pcwstr, usewinhttp: Bool, modulename: Pcwstr, handle: MutPtr): Hresult =
     WindowsWin32NetworkmanagementNetworkdiagnosticsframeworkJniBridge.windowssysWindowsWin32NetworkmanagementNetworkdiagnosticsframeworkNdfCreateWebIncidentEx(url.rawAddress, usewinhttp, modulename.rawAddress, handle.rawAddress)
 
-public actual fun ndfCreateWinSockIncident(sock: Socket, host: Pcwstr, port: UShort, appid: Pcwstr, userid: ConstPtr<Sid>, handle: MutPtr<MutPtr<CVoid>>): Hresult =
+public actual fun ndfCreateWinSockIncident(sock: Socket, host: Pcwstr, port: UShort, appid: Pcwstr, userid: ConstPtr, handle: MutPtr): Hresult =
     WindowsWin32NetworkmanagementNetworkdiagnosticsframeworkJniBridge.windowssysWindowsWin32NetworkmanagementNetworkdiagnosticsframeworkNdfCreateWinSockIncident(sock.toLong(), host.rawAddress, port.toShort(), appid.rawAddress, userid.rawAddress, handle.rawAddress)
 
-public actual fun ndfDiagnoseIncident(handle: ConstPtr<CVoid>, rootcausecount: MutPtr<UInt>, rootcauses: MutPtr<MutPtr<RootCauseInfo>>, dwwait: UInt, dwflags: UInt): Hresult =
+public actual fun ndfDiagnoseIncident(handle: ConstPtr, rootcausecount: MutPtr, rootcauses: MutPtr, dwwait: UInt, dwflags: UInt): Hresult =
     WindowsWin32NetworkmanagementNetworkdiagnosticsframeworkJniBridge.windowssysWindowsWin32NetworkmanagementNetworkdiagnosticsframeworkNdfDiagnoseIncident(handle.rawAddress, rootcausecount.rawAddress, rootcauses.rawAddress, dwwait.toInt(), dwflags.toInt())
 
-public actual fun ndfExecuteDiagnosis(handle: ConstPtr<CVoid>, hwnd: Hwnd): Hresult =
+public actual fun ndfExecuteDiagnosis(handle: ConstPtr, hwnd: Hwnd): Hresult =
     WindowsWin32NetworkmanagementNetworkdiagnosticsframeworkJniBridge.windowssysWindowsWin32NetworkmanagementNetworkdiagnosticsframeworkNdfExecuteDiagnosis(handle.rawAddress, hwnd.rawAddress)
 
-public actual fun ndfGetTraceFile(handle: ConstPtr<CVoid>, tracefilelocation: MutPtr<Pcwstr>): Hresult =
+public actual fun ndfGetTraceFile(handle: ConstPtr, tracefilelocation: MutPtr): Hresult =
     WindowsWin32NetworkmanagementNetworkdiagnosticsframeworkJniBridge.windowssysWindowsWin32NetworkmanagementNetworkdiagnosticsframeworkNdfGetTraceFile(handle.rawAddress, tracefilelocation.rawAddress)
 
-public actual fun ndfRepairIncident(handle: ConstPtr<CVoid>, repairex: ConstPtr<RepairInfoEx>, dwwait: UInt): Hresult =
+public actual fun ndfRepairIncident(handle: ConstPtr, repairex: ConstPtr, dwwait: UInt): Hresult =
     WindowsWin32NetworkmanagementNetworkdiagnosticsframeworkJniBridge.windowssysWindowsWin32NetworkmanagementNetworkdiagnosticsframeworkNdfRepairIncident(handle.rawAddress, repairex.rawAddress, dwwait.toInt())

@@ -90,7 +90,7 @@ public actual fun fhServiceBlockBackup(pipe: FhServicePipeHandle): Hresult =
 public actual fun fhServiceClosePipe(pipe: FhServicePipeHandle): Hresult =
     WindowsWin32StorageFilehistoryJniBridge.windowssysWindowsWin32StorageFilehistoryFhServiceClosePipe(pipe.rawAddress)
 
-public actual fun fhServiceOpenPipe(startserviceifstopped: Bool, pipe: MutPtr<FhServicePipeHandle>): Hresult =
+public actual fun fhServiceOpenPipe(startserviceifstopped: Bool, pipe: MutPtr): Hresult =
     WindowsWin32StorageFilehistoryJniBridge.windowssysWindowsWin32StorageFilehistoryFhServiceOpenPipe(startserviceifstopped, pipe.rawAddress)
 
 public actual fun fhServiceReloadConfiguration(pipe: FhServicePipeHandle): Hresult =

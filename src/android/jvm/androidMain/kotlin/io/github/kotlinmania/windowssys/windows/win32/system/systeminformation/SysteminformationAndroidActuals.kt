@@ -2,7 +2,6 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.system.systeminformation
 
-import io.github.kotlinmania.rustlang.core.ffi.CVoid
 import io.github.kotlinmania.rustlang.core.ptr.ConstPtr
 import io.github.kotlinmania.rustlang.core.ptr.MutPtr
 import io.github.kotlinmania.windowssys.core.Bool
@@ -11,9 +10,7 @@ import io.github.kotlinmania.windowssys.core.Pcstr
 import io.github.kotlinmania.windowssys.core.Pcwstr
 import io.github.kotlinmania.windowssys.core.Pstr
 import io.github.kotlinmania.windowssys.core.Pwstr
-import io.github.kotlinmania.windowssys.windows.win32.foundation.Filetime
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Handle
-import io.github.kotlinmania.windowssys.windows.win32.foundation.Systemtime
 
 private object WindowsWin32SystemSysteminformationJniBridge {
     init {
@@ -210,57 +207,57 @@ private object WindowsWin32SystemSysteminformationJniBridge {
     external fun windowssysWindowsWin32SystemSysteminformationVerifyVersionInfoW(lpversioninformation: Long, dwtypemask: Int, dwlconditionmask: Long): Int
 }
 
-public actual fun dnsHostnameToComputerNameExW(hostname: Pcwstr, computername: Pwstr, nsize: MutPtr<UInt>): Bool =
+public actual fun dnsHostnameToComputerNameExW(hostname: Pcwstr, computername: Pwstr, nsize: MutPtr): Bool =
     WindowsWin32SystemSysteminformationJniBridge.windowssysWindowsWin32SystemSysteminformationDnsHostnameToComputerNameExW(hostname.rawAddress, computername.rawAddress, nsize.rawAddress)
 
-public actual fun enumSystemFirmwareTables(firmwaretableprovidersignature: FirmwareTableProvider, pfirmwaretableenumbuffer: MutPtr<UByte>, buffersize: UInt): UInt =
+public actual fun enumSystemFirmwareTables(firmwaretableprovidersignature: FirmwareTableProvider, pfirmwaretableenumbuffer: MutPtr, buffersize: UInt): UInt =
     WindowsWin32SystemSysteminformationJniBridge.windowssysWindowsWin32SystemSysteminformationEnumSystemFirmwareTables(firmwaretableprovidersignature.toInt(), pfirmwaretableenumbuffer.rawAddress, buffersize.toInt()).toUInt()
 
-public actual fun getComputerNameExA(nametype: ComputerNameFormat, lpbuffer: Pstr, nsize: MutPtr<UInt>): Bool =
+public actual fun getComputerNameExA(nametype: ComputerNameFormat, lpbuffer: Pstr, nsize: MutPtr): Bool =
     WindowsWin32SystemSysteminformationJniBridge.windowssysWindowsWin32SystemSysteminformationGetComputerNameExA(nametype, lpbuffer.rawAddress, nsize.rawAddress)
 
-public actual fun getComputerNameExW(nametype: ComputerNameFormat, lpbuffer: Pwstr, nsize: MutPtr<UInt>): Bool =
+public actual fun getComputerNameExW(nametype: ComputerNameFormat, lpbuffer: Pwstr, nsize: MutPtr): Bool =
     WindowsWin32SystemSysteminformationJniBridge.windowssysWindowsWin32SystemSysteminformationGetComputerNameExW(nametype, lpbuffer.rawAddress, nsize.rawAddress)
 
 public actual fun getDeveloperDriveEnablementState(): DeveloperDriveEnablementState =
     WindowsWin32SystemSysteminformationJniBridge.windowssysWindowsWin32SystemSysteminformationGetDeveloperDriveEnablementState()
 
-public actual fun getFirmwareType(firmwaretype: MutPtr<FirmwareType>): Bool =
+public actual fun getFirmwareType(firmwaretype: MutPtr): Bool =
     WindowsWin32SystemSysteminformationJniBridge.windowssysWindowsWin32SystemSysteminformationGetFirmwareType(firmwaretype.rawAddress)
 
-public actual fun getIntegratedDisplaySize(sizeininches: MutPtr<Double>): Hresult =
+public actual fun getIntegratedDisplaySize(sizeininches: MutPtr): Hresult =
     WindowsWin32SystemSysteminformationJniBridge.windowssysWindowsWin32SystemSysteminformationGetIntegratedDisplaySize(sizeininches.rawAddress)
 
-public actual fun getLocalTime(lpsystemtime: MutPtr<Systemtime>) {
+public actual fun getLocalTime(lpsystemtime: MutPtr) {
     WindowsWin32SystemSysteminformationJniBridge.windowssysWindowsWin32SystemSysteminformationGetLocalTime(lpsystemtime.rawAddress)
 }
 
-public actual fun getLogicalProcessorInformation(buffer: MutPtr<SystemLogicalProcessorInformation>, returnedlength: MutPtr<UInt>): Bool =
+public actual fun getLogicalProcessorInformation(buffer: MutPtr, returnedlength: MutPtr): Bool =
     WindowsWin32SystemSysteminformationJniBridge.windowssysWindowsWin32SystemSysteminformationGetLogicalProcessorInformation(buffer.rawAddress, returnedlength.rawAddress)
 
-public actual fun getLogicalProcessorInformationEx(relationshiptype: LogicalProcessorRelationship, buffer: MutPtr<SystemLogicalProcessorInformationEx>, returnedlength: MutPtr<UInt>): Bool =
+public actual fun getLogicalProcessorInformationEx(relationshiptype: LogicalProcessorRelationship, buffer: MutPtr, returnedlength: MutPtr): Bool =
     WindowsWin32SystemSysteminformationJniBridge.windowssysWindowsWin32SystemSysteminformationGetLogicalProcessorInformationEx(relationshiptype, buffer.rawAddress, returnedlength.rawAddress)
 
-public actual fun getNativeSystemInfo(lpsysteminfo: MutPtr<SystemInfo>) {
+public actual fun getNativeSystemInfo(lpsysteminfo: MutPtr) {
     WindowsWin32SystemSysteminformationJniBridge.windowssysWindowsWin32SystemSysteminformationGetNativeSystemInfo(lpsysteminfo.rawAddress)
 }
 
-public actual fun getOsManufacturingMode(pbenabled: MutPtr<Bool>): Bool =
+public actual fun getOsManufacturingMode(pbenabled: MutPtr): Bool =
     WindowsWin32SystemSysteminformationJniBridge.windowssysWindowsWin32SystemSysteminformationGetOsManufacturingMode(pbenabled.rawAddress)
 
-public actual fun getOsSafeBootMode(flags: MutPtr<UInt>): Bool =
+public actual fun getOsSafeBootMode(flags: MutPtr): Bool =
     WindowsWin32SystemSysteminformationJniBridge.windowssysWindowsWin32SystemSysteminformationGetOsSafeBootMode(flags.rawAddress)
 
-public actual fun getPhysicallyInstalledSystemMemory(totalmemoryinkilobytes: MutPtr<ULong>): Bool =
+public actual fun getPhysicallyInstalledSystemMemory(totalmemoryinkilobytes: MutPtr): Bool =
     WindowsWin32SystemSysteminformationJniBridge.windowssysWindowsWin32SystemSysteminformationGetPhysicallyInstalledSystemMemory(totalmemoryinkilobytes.rawAddress)
 
-public actual fun getProcessorSystemCycleTime(group: UShort, buffer: MutPtr<SystemProcessorCycleTimeInformation>, returnedlength: MutPtr<UInt>): Bool =
+public actual fun getProcessorSystemCycleTime(group: UShort, buffer: MutPtr, returnedlength: MutPtr): Bool =
     WindowsWin32SystemSysteminformationJniBridge.windowssysWindowsWin32SystemSysteminformationGetProcessorSystemCycleTime(group.toShort(), buffer.rawAddress, returnedlength.rawAddress)
 
-public actual fun getProductInfo(dwosmajorversion: UInt, dwosminorversion: UInt, dwspmajorversion: UInt, dwspminorversion: UInt, pdwreturnedproducttype: MutPtr<OsProductType>): Bool =
+public actual fun getProductInfo(dwosmajorversion: UInt, dwosminorversion: UInt, dwspmajorversion: UInt, dwspminorversion: UInt, pdwreturnedproducttype: MutPtr): Bool =
     WindowsWin32SystemSysteminformationJniBridge.windowssysWindowsWin32SystemSysteminformationGetProductInfo(dwosmajorversion.toInt(), dwosminorversion.toInt(), dwspmajorversion.toInt(), dwspminorversion.toInt(), pdwreturnedproducttype.rawAddress)
 
-public actual fun getSystemCpuSetInformation(information: MutPtr<SystemCpuSetInformation>, bufferlength: UInt, returnedlength: MutPtr<UInt>, process: Handle, flags: UInt): Bool =
+public actual fun getSystemCpuSetInformation(information: MutPtr, bufferlength: UInt, returnedlength: MutPtr, process: Handle, flags: UInt): Bool =
     WindowsWin32SystemSysteminformationJniBridge.windowssysWindowsWin32SystemSysteminformationGetSystemCpuSetInformation(information.rawAddress, bufferlength.toInt(), returnedlength.rawAddress, process.rawAddress, flags.toInt())
 
 public actual fun getSystemDEPPolicy(): DepSystemPolicyType =
@@ -272,31 +269,31 @@ public actual fun getSystemDirectoryA(lpbuffer: Pstr, usize: UInt): UInt =
 public actual fun getSystemDirectoryW(lpbuffer: Pwstr, usize: UInt): UInt =
     WindowsWin32SystemSysteminformationJniBridge.windowssysWindowsWin32SystemSysteminformationGetSystemDirectoryW(lpbuffer.rawAddress, usize.toInt()).toUInt()
 
-public actual fun getSystemFirmwareTable(firmwaretableprovidersignature: FirmwareTableProvider, firmwaretableid: UInt, pfirmwaretablebuffer: MutPtr<UByte>, buffersize: UInt): UInt =
+public actual fun getSystemFirmwareTable(firmwaretableprovidersignature: FirmwareTableProvider, firmwaretableid: UInt, pfirmwaretablebuffer: MutPtr, buffersize: UInt): UInt =
     WindowsWin32SystemSysteminformationJniBridge.windowssysWindowsWin32SystemSysteminformationGetSystemFirmwareTable(firmwaretableprovidersignature.toInt(), firmwaretableid.toInt(), pfirmwaretablebuffer.rawAddress, buffersize.toInt()).toUInt()
 
-public actual fun getSystemInfo(lpsysteminfo: MutPtr<SystemInfo>) {
+public actual fun getSystemInfo(lpsysteminfo: MutPtr) {
     WindowsWin32SystemSysteminformationJniBridge.windowssysWindowsWin32SystemSysteminformationGetSystemInfo(lpsysteminfo.rawAddress)
 }
 
-public actual fun getSystemLeapSecondInformation(enabled: MutPtr<Bool>, flags: MutPtr<UInt>): Bool =
+public actual fun getSystemLeapSecondInformation(enabled: MutPtr, flags: MutPtr): Bool =
     WindowsWin32SystemSysteminformationJniBridge.windowssysWindowsWin32SystemSysteminformationGetSystemLeapSecondInformation(enabled.rawAddress, flags.rawAddress)
 
-public actual fun getSystemTime(lpsystemtime: MutPtr<Systemtime>) {
+public actual fun getSystemTime(lpsystemtime: MutPtr) {
     WindowsWin32SystemSysteminformationJniBridge.windowssysWindowsWin32SystemSysteminformationGetSystemTime(lpsystemtime.rawAddress)
 }
 
-public actual fun getSystemTimeAdjustment(lptimeadjustment: MutPtr<UInt>, lptimeincrement: MutPtr<UInt>, lptimeadjustmentdisabled: MutPtr<Bool>): Bool =
+public actual fun getSystemTimeAdjustment(lptimeadjustment: MutPtr, lptimeincrement: MutPtr, lptimeadjustmentdisabled: MutPtr): Bool =
     WindowsWin32SystemSysteminformationJniBridge.windowssysWindowsWin32SystemSysteminformationGetSystemTimeAdjustment(lptimeadjustment.rawAddress, lptimeincrement.rawAddress, lptimeadjustmentdisabled.rawAddress)
 
-public actual fun getSystemTimeAdjustmentPrecise(lptimeadjustment: MutPtr<ULong>, lptimeincrement: MutPtr<ULong>, lptimeadjustmentdisabled: MutPtr<Bool>): Bool =
+public actual fun getSystemTimeAdjustmentPrecise(lptimeadjustment: MutPtr, lptimeincrement: MutPtr, lptimeadjustmentdisabled: MutPtr): Bool =
     WindowsWin32SystemSysteminformationJniBridge.windowssysWindowsWin32SystemSysteminformationGetSystemTimeAdjustmentPrecise(lptimeadjustment.rawAddress, lptimeincrement.rawAddress, lptimeadjustmentdisabled.rawAddress)
 
-public actual fun getSystemTimeAsFileTime(lpsystemtimeasfiletime: MutPtr<Filetime>) {
+public actual fun getSystemTimeAsFileTime(lpsystemtimeasfiletime: MutPtr) {
     WindowsWin32SystemSysteminformationJniBridge.windowssysWindowsWin32SystemSysteminformationGetSystemTimeAsFileTime(lpsystemtimeasfiletime.rawAddress)
 }
 
-public actual fun getSystemTimePreciseAsFileTime(lpsystemtimeasfiletime: MutPtr<Filetime>) {
+public actual fun getSystemTimePreciseAsFileTime(lpsystemtimeasfiletime: MutPtr) {
     WindowsWin32SystemSysteminformationJniBridge.windowssysWindowsWin32SystemSysteminformationGetSystemTimePreciseAsFileTime(lpsystemtimeasfiletime.rawAddress)
 }
 
@@ -327,10 +324,10 @@ public actual fun getTickCount64(): ULong =
 public actual fun getVersion(): UInt =
     WindowsWin32SystemSysteminformationJniBridge.windowssysWindowsWin32SystemSysteminformationGetVersion().toUInt()
 
-public actual fun getVersionExA(lpversioninformation: MutPtr<Osversioninfoa>): Bool =
+public actual fun getVersionExA(lpversioninformation: MutPtr): Bool =
     WindowsWin32SystemSysteminformationJniBridge.windowssysWindowsWin32SystemSysteminformationGetVersionExA(lpversioninformation.rawAddress)
 
-public actual fun getVersionExW(lpversioninformation: MutPtr<Osversioninfow>): Bool =
+public actual fun getVersionExW(lpversioninformation: MutPtr): Bool =
     WindowsWin32SystemSysteminformationJniBridge.windowssysWindowsWin32SystemSysteminformationGetVersionExW(lpversioninformation.rawAddress)
 
 public actual fun getWindowsDirectoryA(lpbuffer: Pstr, usize: UInt): UInt =
@@ -339,36 +336,36 @@ public actual fun getWindowsDirectoryA(lpbuffer: Pstr, usize: UInt): UInt =
 public actual fun getWindowsDirectoryW(lpbuffer: Pwstr, usize: UInt): UInt =
     WindowsWin32SystemSysteminformationJniBridge.windowssysWindowsWin32SystemSysteminformationGetWindowsDirectoryW(lpbuffer.rawAddress, usize.toInt()).toUInt()
 
-public actual fun globalMemoryStatus(lpbuffer: MutPtr<Memorystatus>) {
+public actual fun globalMemoryStatus(lpbuffer: MutPtr) {
     WindowsWin32SystemSysteminformationJniBridge.windowssysWindowsWin32SystemSysteminformationGlobalMemoryStatus(lpbuffer.rawAddress)
 }
 
-public actual fun globalMemoryStatusEx(lpbuffer: MutPtr<Memorystatusex>): Bool =
+public actual fun globalMemoryStatusEx(lpbuffer: MutPtr): Bool =
     WindowsWin32SystemSysteminformationJniBridge.windowssysWindowsWin32SystemSysteminformationGlobalMemoryStatusEx(lpbuffer.rawAddress)
 
 public actual fun isUserCetAvailableInEnvironment(usercetenvironment: UserCetEnvironment): Bool =
     WindowsWin32SystemSysteminformationJniBridge.windowssysWindowsWin32SystemSysteminformationIsUserCetAvailableInEnvironment(usercetenvironment.toInt())
 
-public actual fun isWow64GuestMachineSupported(wowguestmachine: ImageFileMachine, machineissupported: MutPtr<Bool>): Hresult =
+public actual fun isWow64GuestMachineSupported(wowguestmachine: ImageFileMachine, machineissupported: MutPtr): Hresult =
     WindowsWin32SystemSysteminformationJniBridge.windowssysWindowsWin32SystemSysteminformationIsWow64GuestMachineSupported(wowguestmachine.toShort(), machineissupported.rawAddress)
 
-public actual fun rtlConvertDeviceFamilyInfoToString(puldevicefamilybuffersize: MutPtr<UInt>, puldeviceformbuffersize: MutPtr<UInt>, devicefamily: Pwstr, deviceform: Pwstr): UInt =
+public actual fun rtlConvertDeviceFamilyInfoToString(puldevicefamilybuffersize: MutPtr, puldeviceformbuffersize: MutPtr, devicefamily: Pwstr, deviceform: Pwstr): UInt =
     WindowsWin32SystemSysteminformationJniBridge.windowssysWindowsWin32SystemSysteminformationRtlConvertDeviceFamilyInfoToString(puldevicefamilybuffersize.rawAddress, puldeviceformbuffersize.rawAddress, devicefamily.rawAddress, deviceform.rawAddress).toUInt()
 
-public actual fun rtlGetDeviceFamilyInfoEnum(pulluapinfo: MutPtr<ULong>, puldevicefamily: MutPtr<Devicefamilyinfoenum>, puldeviceform: MutPtr<Devicefamilydeviceform>) {
+public actual fun rtlGetDeviceFamilyInfoEnum(pulluapinfo: MutPtr, puldevicefamily: MutPtr, puldeviceform: MutPtr) {
     WindowsWin32SystemSysteminformationJniBridge.windowssysWindowsWin32SystemSysteminformationRtlGetDeviceFamilyInfoEnum(pulluapinfo.rawAddress, puldevicefamily.rawAddress, puldeviceform.rawAddress)
 }
 
-public actual fun rtlGetProductInfo(osmajorversion: UInt, osminorversion: UInt, spmajorversion: UInt, spminorversion: UInt, returnedproducttype: MutPtr<UInt>): Boolean =
+public actual fun rtlGetProductInfo(osmajorversion: UInt, osminorversion: UInt, spmajorversion: UInt, spminorversion: UInt, returnedproducttype: MutPtr): Boolean =
     WindowsWin32SystemSysteminformationJniBridge.windowssysWindowsWin32SystemSysteminformationRtlGetProductInfo(osmajorversion.toInt(), osminorversion.toInt(), spmajorversion.toInt(), spminorversion.toInt(), returnedproducttype.rawAddress)
 
-public actual fun rtlGetSystemGlobalData(dataid: RtlSystemGlobalDataId, buffer: MutPtr<CVoid>, size: UInt): UInt =
+public actual fun rtlGetSystemGlobalData(dataid: RtlSystemGlobalDataId, buffer: MutPtr, size: UInt): UInt =
     WindowsWin32SystemSysteminformationJniBridge.windowssysWindowsWin32SystemSysteminformationRtlGetSystemGlobalData(dataid, buffer.rawAddress, size.toInt()).toUInt()
 
 public actual fun rtlOsDeploymentState(flags: UInt): OsDeployementStateValues =
     WindowsWin32SystemSysteminformationJniBridge.windowssysWindowsWin32SystemSysteminformationRtlOsDeploymentState(flags.toInt())
 
-public actual fun rtlSwitchedVVI(versioninfo: ConstPtr<Osversioninfoexw>, typemask: UInt, conditionmask: ULong): UInt =
+public actual fun rtlSwitchedVVI(versioninfo: ConstPtr, typemask: UInt, conditionmask: ULong): UInt =
     WindowsWin32SystemSysteminformationJniBridge.windowssysWindowsWin32SystemSysteminformationRtlSwitchedVVI(versioninfo.rawAddress, typemask.toInt(), conditionmask.toLong()).toUInt()
 
 public actual fun setComputerNameA(lpcomputername: Pcstr): Bool =
@@ -386,10 +383,10 @@ public actual fun setComputerNameExW(nametype: ComputerNameFormat, lpbuffer: Pcw
 public actual fun setComputerNameW(lpcomputername: Pcwstr): Bool =
     WindowsWin32SystemSysteminformationJniBridge.windowssysWindowsWin32SystemSysteminformationSetComputerNameW(lpcomputername.rawAddress)
 
-public actual fun setLocalTime(lpsystemtime: ConstPtr<Systemtime>): Bool =
+public actual fun setLocalTime(lpsystemtime: ConstPtr): Bool =
     WindowsWin32SystemSysteminformationJniBridge.windowssysWindowsWin32SystemSysteminformationSetLocalTime(lpsystemtime.rawAddress)
 
-public actual fun setSystemTime(lpsystemtime: ConstPtr<Systemtime>): Bool =
+public actual fun setSystemTime(lpsystemtime: ConstPtr): Bool =
     WindowsWin32SystemSysteminformationJniBridge.windowssysWindowsWin32SystemSysteminformationSetSystemTime(lpsystemtime.rawAddress)
 
 public actual fun setSystemTimeAdjustment(dwtimeadjustment: UInt, btimeadjustmentdisabled: Bool): Bool =
@@ -401,8 +398,8 @@ public actual fun setSystemTimeAdjustmentPrecise(dwtimeadjustment: ULong, btimea
 public actual fun verSetConditionMask(conditionmask: ULong, typemask: VerFlags, condition: UByte): ULong =
     WindowsWin32SystemSysteminformationJniBridge.windowssysWindowsWin32SystemSysteminformationVerSetConditionMask(conditionmask.toLong(), typemask.toInt(), condition.toByte()).toULong()
 
-public actual fun verifyVersionInfoA(lpversioninformation: MutPtr<Osversioninfoexa>, dwtypemask: VerFlags, dwlconditionmask: ULong): Bool =
+public actual fun verifyVersionInfoA(lpversioninformation: MutPtr, dwtypemask: VerFlags, dwlconditionmask: ULong): Bool =
     WindowsWin32SystemSysteminformationJniBridge.windowssysWindowsWin32SystemSysteminformationVerifyVersionInfoA(lpversioninformation.rawAddress, dwtypemask.toInt(), dwlconditionmask.toLong())
 
-public actual fun verifyVersionInfoW(lpversioninformation: MutPtr<Osversioninfoexw>, dwtypemask: VerFlags, dwlconditionmask: ULong): Bool =
+public actual fun verifyVersionInfoW(lpversioninformation: MutPtr, dwtypemask: VerFlags, dwlconditionmask: ULong): Bool =
     WindowsWin32SystemSysteminformationJniBridge.windowssysWindowsWin32SystemSysteminformationVerifyVersionInfoW(lpversioninformation.rawAddress, dwtypemask.toInt(), dwlconditionmask.toLong())

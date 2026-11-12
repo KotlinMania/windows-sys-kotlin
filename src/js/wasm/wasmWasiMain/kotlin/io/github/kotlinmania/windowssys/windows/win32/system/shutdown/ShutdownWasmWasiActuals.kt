@@ -16,7 +16,7 @@ public actual fun abortSystemShutdownA(lpmachinename: Pcstr): Bool =
 public actual fun abortSystemShutdownW(lpmachinename: Pcwstr): Bool =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32SystemShutdownAbortSystemShutdownW")
 
-public actual fun checkForHiberboot(phiberboot: MutPtr<Boolean>, bclearflag: Boolean): UInt =
+public actual fun checkForHiberboot(phiberboot: MutPtr, bclearflag: Boolean): UInt =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32SystemShutdownCheckForHiberboot")
 
 @kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32SystemShutdownExitWindowsEx")
@@ -55,5 +55,5 @@ public actual fun shutdownBlockReasonCreate(hwnd: Hwnd, pwszreason: Pcwstr): Boo
 public actual fun shutdownBlockReasonDestroy(hwnd: Hwnd): Bool =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32SystemShutdownShutdownBlockReasonDestroy")
 
-public actual fun shutdownBlockReasonQuery(hwnd: Hwnd, pwszbuff: Pwstr, pcchbuff: MutPtr<UInt>): Bool =
+public actual fun shutdownBlockReasonQuery(hwnd: Hwnd, pwszbuff: Pwstr, pcchbuff: MutPtr): Bool =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32SystemShutdownShutdownBlockReasonQuery")

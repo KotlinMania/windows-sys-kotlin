@@ -90,25 +90,25 @@ public actual fun netDfsAddRootTarget(pdfspath: Pcwstr, ptargetpath: Pcwstr, maj
 public actual fun netDfsAddStdRoot(servername: Pcwstr, rootshare: Pcwstr, comment: Pcwstr, flags: UInt): UInt =
     if (windowsWin32StorageDistributedfilesystemNapiAvailable) wasmWindowssysWindowsWin32StorageDistributedfilesystemNetDfsAddStdRoot(servername.rawAddress.toString(), rootshare.rawAddress.toString(), comment.rawAddress.toString(), flags.toInt()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun netDfsEnum(dfsname: Pcwstr, level: UInt, prefmaxlen: UInt, buffer: MutPtr<MutPtr<UByte>>, entriesread: MutPtr<UInt>, resumehandle: MutPtr<UInt>): UInt =
+public actual fun netDfsEnum(dfsname: Pcwstr, level: UInt, prefmaxlen: UInt, buffer: MutPtr, entriesread: MutPtr, resumehandle: MutPtr): UInt =
     if (windowsWin32StorageDistributedfilesystemNapiAvailable) wasmWindowssysWindowsWin32StorageDistributedfilesystemNetDfsEnum(dfsname.rawAddress.toString(), level.toInt(), prefmaxlen.toInt(), buffer.rawAddress.toString(), entriesread.rawAddress.toString(), resumehandle.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun netDfsGetClientInfo(dfsentrypath: Pcwstr, servername: Pcwstr, sharename: Pcwstr, level: UInt, buffer: MutPtr<MutPtr<UByte>>): UInt =
+public actual fun netDfsGetClientInfo(dfsentrypath: Pcwstr, servername: Pcwstr, sharename: Pcwstr, level: UInt, buffer: MutPtr): UInt =
     if (windowsWin32StorageDistributedfilesystemNapiAvailable) wasmWindowssysWindowsWin32StorageDistributedfilesystemNetDfsGetClientInfo(dfsentrypath.rawAddress.toString(), servername.rawAddress.toString(), sharename.rawAddress.toString(), level.toInt(), buffer.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun netDfsGetFtContainerSecurity(domainname: Pcwstr, securityinformation: UInt, ppsecuritydescriptor: MutPtr<PsecurityDescriptor>, lpcbsecuritydescriptor: MutPtr<UInt>): UInt =
+public actual fun netDfsGetFtContainerSecurity(domainname: Pcwstr, securityinformation: UInt, ppsecuritydescriptor: MutPtr, lpcbsecuritydescriptor: MutPtr): UInt =
     if (windowsWin32StorageDistributedfilesystemNapiAvailable) wasmWindowssysWindowsWin32StorageDistributedfilesystemNetDfsGetFtContainerSecurity(domainname.rawAddress.toString(), securityinformation.toInt(), ppsecuritydescriptor.rawAddress.toString(), lpcbsecuritydescriptor.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun netDfsGetInfo(dfsentrypath: Pcwstr, servername: Pcwstr, sharename: Pcwstr, level: UInt, buffer: MutPtr<MutPtr<UByte>>): UInt =
+public actual fun netDfsGetInfo(dfsentrypath: Pcwstr, servername: Pcwstr, sharename: Pcwstr, level: UInt, buffer: MutPtr): UInt =
     if (windowsWin32StorageDistributedfilesystemNapiAvailable) wasmWindowssysWindowsWin32StorageDistributedfilesystemNetDfsGetInfo(dfsentrypath.rawAddress.toString(), servername.rawAddress.toString(), sharename.rawAddress.toString(), level.toInt(), buffer.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun netDfsGetSecurity(dfsentrypath: Pcwstr, securityinformation: UInt, ppsecuritydescriptor: MutPtr<PsecurityDescriptor>, lpcbsecuritydescriptor: MutPtr<UInt>): UInt =
+public actual fun netDfsGetSecurity(dfsentrypath: Pcwstr, securityinformation: UInt, ppsecuritydescriptor: MutPtr, lpcbsecuritydescriptor: MutPtr): UInt =
     if (windowsWin32StorageDistributedfilesystemNapiAvailable) wasmWindowssysWindowsWin32StorageDistributedfilesystemNetDfsGetSecurity(dfsentrypath.rawAddress.toString(), securityinformation.toInt(), ppsecuritydescriptor.rawAddress.toString(), lpcbsecuritydescriptor.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun netDfsGetStdContainerSecurity(machinename: Pcwstr, securityinformation: UInt, ppsecuritydescriptor: MutPtr<PsecurityDescriptor>, lpcbsecuritydescriptor: MutPtr<UInt>): UInt =
+public actual fun netDfsGetStdContainerSecurity(machinename: Pcwstr, securityinformation: UInt, ppsecuritydescriptor: MutPtr, lpcbsecuritydescriptor: MutPtr): UInt =
     if (windowsWin32StorageDistributedfilesystemNapiAvailable) wasmWindowssysWindowsWin32StorageDistributedfilesystemNetDfsGetStdContainerSecurity(machinename.rawAddress.toString(), securityinformation.toInt(), ppsecuritydescriptor.rawAddress.toString(), lpcbsecuritydescriptor.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun netDfsGetSupportedNamespaceVersion(origin: DfsNamespaceVersionOrigin, pname: Pcwstr, ppversioninfo: MutPtr<MutPtr<DfsSupportedNamespaceVersionInfo>>): UInt =
+public actual fun netDfsGetSupportedNamespaceVersion(origin: DfsNamespaceVersionOrigin, pname: Pcwstr, ppversioninfo: MutPtr): UInt =
     if (windowsWin32StorageDistributedfilesystemNapiAvailable) wasmWindowssysWindowsWin32StorageDistributedfilesystemNetDfsGetSupportedNamespaceVersion(origin, pname.rawAddress.toString(), ppversioninfo.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun netDfsMove(olddfsentrypath: Pcwstr, newdfsentrypath: Pcwstr, flags: UInt): UInt =
@@ -129,13 +129,13 @@ public actual fun netDfsRemoveRootTarget(pdfspath: Pcwstr, ptargetpath: Pcwstr, 
 public actual fun netDfsRemoveStdRoot(servername: Pcwstr, rootshare: Pcwstr, flags: UInt): UInt =
     if (windowsWin32StorageDistributedfilesystemNapiAvailable) wasmWindowssysWindowsWin32StorageDistributedfilesystemNetDfsRemoveStdRoot(servername.rawAddress.toString(), rootshare.rawAddress.toString(), flags.toInt()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun netDfsSetClientInfo(dfsentrypath: Pcwstr, servername: Pcwstr, sharename: Pcwstr, level: UInt, buffer: ConstPtr<UByte>): UInt =
+public actual fun netDfsSetClientInfo(dfsentrypath: Pcwstr, servername: Pcwstr, sharename: Pcwstr, level: UInt, buffer: ConstPtr): UInt =
     if (windowsWin32StorageDistributedfilesystemNapiAvailable) wasmWindowssysWindowsWin32StorageDistributedfilesystemNetDfsSetClientInfo(dfsentrypath.rawAddress.toString(), servername.rawAddress.toString(), sharename.rawAddress.toString(), level.toInt(), buffer.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun netDfsSetFtContainerSecurity(domainname: Pcwstr, securityinformation: UInt, psecuritydescriptor: PsecurityDescriptor): UInt =
     if (windowsWin32StorageDistributedfilesystemNapiAvailable) wasmWindowssysWindowsWin32StorageDistributedfilesystemNetDfsSetFtContainerSecurity(domainname.rawAddress.toString(), securityinformation.toInt(), psecuritydescriptor.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun netDfsSetInfo(dfsentrypath: Pcwstr, servername: Pcwstr, sharename: Pcwstr, level: UInt, buffer: ConstPtr<UByte>): UInt =
+public actual fun netDfsSetInfo(dfsentrypath: Pcwstr, servername: Pcwstr, sharename: Pcwstr, level: UInt, buffer: ConstPtr): UInt =
     if (windowsWin32StorageDistributedfilesystemNapiAvailable) wasmWindowssysWindowsWin32StorageDistributedfilesystemNetDfsSetInfo(dfsentrypath.rawAddress.toString(), servername.rawAddress.toString(), sharename.rawAddress.toString(), level.toInt(), buffer.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun netDfsSetSecurity(dfsentrypath: Pcwstr, securityinformation: UInt, psecuritydescriptor: PsecurityDescriptor): UInt =

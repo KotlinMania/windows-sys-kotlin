@@ -209,7 +209,7 @@ public actual fun getKeyState(nvirtkey: Int): Short =
 public actual fun getKeyboardLayout(idthread: UInt): Hkl =
     if (windowsWin32UiInputKeyboardandmouseNapiAvailable) MutPtr(wasmWindowssysWindowsWin32UiInputKeyboardandmouseGetKeyboardLayout(idthread.toInt()).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun getKeyboardLayoutList(nbuff: Int, lplist: MutPtr<Hkl>): Int =
+public actual fun getKeyboardLayoutList(nbuff: Int, lplist: MutPtr): Int =
     if (windowsWin32UiInputKeyboardandmouseNapiAvailable) wasmWindowssysWindowsWin32UiInputKeyboardandmouseGetKeyboardLayoutList(nbuff, lplist.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun getKeyboardLayoutNameA(pwszklid: Pstr): Bool =
@@ -218,16 +218,16 @@ public actual fun getKeyboardLayoutNameA(pwszklid: Pstr): Bool =
 public actual fun getKeyboardLayoutNameW(pwszklid: Pwstr): Bool =
     if (windowsWin32UiInputKeyboardandmouseNapiAvailable) wasmWindowssysWindowsWin32UiInputKeyboardandmouseGetKeyboardLayoutNameW(pwszklid.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun getKeyboardState(lpkeystate: MutPtr<UByte>): Bool =
+public actual fun getKeyboardState(lpkeystate: MutPtr): Bool =
     if (windowsWin32UiInputKeyboardandmouseNapiAvailable) wasmWindowssysWindowsWin32UiInputKeyboardandmouseGetKeyboardState(lpkeystate.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun getKeyboardType(ntypeflag: Int): Int =
     if (windowsWin32UiInputKeyboardandmouseNapiAvailable) wasmWindowssysWindowsWin32UiInputKeyboardandmouseGetKeyboardType(ntypeflag) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun getLastInputInfo(plii: MutPtr<Lastinputinfo>): Bool =
+public actual fun getLastInputInfo(plii: MutPtr): Bool =
     if (windowsWin32UiInputKeyboardandmouseNapiAvailable) wasmWindowssysWindowsWin32UiInputKeyboardandmouseGetLastInputInfo(plii.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun getMouseMovePointsEx(cbsize: UInt, lppt: ConstPtr<Mousemovepoint>, lpptbuf: MutPtr<Mousemovepoint>, nbufpoints: Int, resolution: GetMouseMovePointsExResolution): Int =
+public actual fun getMouseMovePointsEx(cbsize: UInt, lppt: ConstPtr, lpptbuf: MutPtr, nbufpoints: Int, resolution: GetMouseMovePointsExResolution): Int =
     if (windowsWin32UiInputKeyboardandmouseNapiAvailable) wasmWindowssysWindowsWin32UiInputKeyboardandmouseGetMouseMovePointsEx(cbsize.toInt(), lppt.rawAddress.toString(), lpptbuf.rawAddress.toString(), nbufpoints, resolution.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun isWindowEnabled(hwnd: Hwnd): Bool =
@@ -260,7 +260,7 @@ public actual fun registerHotKey(hwnd: Hwnd, id: Int, fsmodifiers: HotKeyModifie
 public actual fun releaseCapture(): Bool =
     if (windowsWin32UiInputKeyboardandmouseNapiAvailable) wasmWindowssysWindowsWin32UiInputKeyboardandmouseReleaseCapture() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun sendInput(cinputs: UInt, pinputs: ConstPtr<Input>, cbsize: Int): UInt =
+public actual fun sendInput(cinputs: UInt, pinputs: ConstPtr, cbsize: Int): UInt =
     if (windowsWin32UiInputKeyboardandmouseNapiAvailable) wasmWindowssysWindowsWin32UiInputKeyboardandmouseSendInput(cinputs.toInt(), pinputs.rawAddress.toString(), cbsize).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun setActiveWindow(hwnd: Hwnd): Hwnd =
@@ -275,25 +275,25 @@ public actual fun setDoubleClickTime(param0: UInt): Bool =
 public actual fun setFocus(hwnd: Hwnd): Hwnd =
     if (windowsWin32UiInputKeyboardandmouseNapiAvailable) MutPtr(wasmWindowssysWindowsWin32UiInputKeyboardandmouseSetFocus(hwnd.rawAddress.toString()).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun setKeyboardState(lpkeystate: ConstPtr<UByte>): Bool =
+public actual fun setKeyboardState(lpkeystate: ConstPtr): Bool =
     if (windowsWin32UiInputKeyboardandmouseNapiAvailable) wasmWindowssysWindowsWin32UiInputKeyboardandmouseSetKeyboardState(lpkeystate.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun swapMouseButton(fswap: Bool): Bool =
     if (windowsWin32UiInputKeyboardandmouseNapiAvailable) wasmWindowssysWindowsWin32UiInputKeyboardandmouseSwapMouseButton(fswap) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun toAscii(uvirtkey: UInt, uscancode: UInt, lpkeystate: ConstPtr<UByte>, lpchar: MutPtr<UShort>, uflags: UInt): Int =
+public actual fun toAscii(uvirtkey: UInt, uscancode: UInt, lpkeystate: ConstPtr, lpchar: MutPtr, uflags: UInt): Int =
     if (windowsWin32UiInputKeyboardandmouseNapiAvailable) wasmWindowssysWindowsWin32UiInputKeyboardandmouseToAscii(uvirtkey.toInt(), uscancode.toInt(), lpkeystate.rawAddress.toString(), lpchar.rawAddress.toString(), uflags.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun toAsciiEx(uvirtkey: UInt, uscancode: UInt, lpkeystate: ConstPtr<UByte>, lpchar: MutPtr<UShort>, uflags: UInt, dwhkl: Hkl): Int =
+public actual fun toAsciiEx(uvirtkey: UInt, uscancode: UInt, lpkeystate: ConstPtr, lpchar: MutPtr, uflags: UInt, dwhkl: Hkl): Int =
     if (windowsWin32UiInputKeyboardandmouseNapiAvailable) wasmWindowssysWindowsWin32UiInputKeyboardandmouseToAsciiEx(uvirtkey.toInt(), uscancode.toInt(), lpkeystate.rawAddress.toString(), lpchar.rawAddress.toString(), uflags.toInt(), dwhkl.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun toUnicode(wvirtkey: UInt, wscancode: UInt, lpkeystate: ConstPtr<UByte>, pwszbuff: Pwstr, cchbuff: Int, wflags: UInt): Int =
+public actual fun toUnicode(wvirtkey: UInt, wscancode: UInt, lpkeystate: ConstPtr, pwszbuff: Pwstr, cchbuff: Int, wflags: UInt): Int =
     if (windowsWin32UiInputKeyboardandmouseNapiAvailable) wasmWindowssysWindowsWin32UiInputKeyboardandmouseToUnicode(wvirtkey.toInt(), wscancode.toInt(), lpkeystate.rawAddress.toString(), pwszbuff.rawAddress.toString(), cchbuff, wflags.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun toUnicodeEx(wvirtkey: UInt, wscancode: UInt, lpkeystate: ConstPtr<UByte>, pwszbuff: Pwstr, cchbuff: Int, wflags: UInt, dwhkl: Hkl): Int =
+public actual fun toUnicodeEx(wvirtkey: UInt, wscancode: UInt, lpkeystate: ConstPtr, pwszbuff: Pwstr, cchbuff: Int, wflags: UInt, dwhkl: Hkl): Int =
     if (windowsWin32UiInputKeyboardandmouseNapiAvailable) wasmWindowssysWindowsWin32UiInputKeyboardandmouseToUnicodeEx(wvirtkey.toInt(), wscancode.toInt(), lpkeystate.rawAddress.toString(), pwszbuff.rawAddress.toString(), cchbuff, wflags.toInt(), dwhkl.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun trackMouseEvent(lpeventtrack: MutPtr<Trackmouseevent>): Bool =
+public actual fun trackMouseEvent(lpeventtrack: MutPtr): Bool =
     if (windowsWin32UiInputKeyboardandmouseNapiAvailable) wasmWindowssysWindowsWin32UiInputKeyboardandmouseTrackMouseEvent(lpeventtrack.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun unloadKeyboardLayout(hkl: Hkl): Bool =

@@ -2,7 +2,6 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.system.ioctl
 
-import io.github.kotlinmania.rustlang.core.ffi.CVoid
 import io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
 import io.github.kotlinmania.rustlang.core.mem.TypeLayout
 import io.github.kotlinmania.rustlang.core.ptr.MutPtr
@@ -3414,9 +3413,9 @@ public class DiskHistogram internal constructor(
     public var size: UInt,
     public var readCount: UInt,
     public var writeCount: UInt,
-    histogramCtorArg: MutPtr<HistogramBucket>,
+    histogramCtorArg: MutPtr,
 ) {
-    public var histogram: MutPtr<HistogramBucket> = histogramCtorArg
+    public var histogram: MutPtr = histogramCtorArg
         internal set
 
     public constructor() : this(
@@ -3453,9 +3452,9 @@ public class DiskHistogram internal constructor(
 
     public operator fun component10(): UInt = this.writeCount
 
-    public operator fun component11(): MutPtr<HistogramBucket> = this.histogram
+    public operator fun component11(): MutPtr = this.histogram
 
-    public fun copy(diskSize: Long = this.diskSize, start: Long = this.start, end: Long = this.end, average: Long = this.average, averageRead: Long = this.averageRead, averageWrite: Long = this.averageWrite, granularity: UInt = this.granularity, size: UInt = this.size, readCount: UInt = this.readCount, writeCount: UInt = this.writeCount, histogram: MutPtr<HistogramBucket> = this.histogram): DiskHistogram = DiskHistogram(diskSize = diskSize, start = start, end = end, average = average, averageRead = averageRead, averageWrite = averageWrite, granularity = granularity, size = size, readCount = readCount, writeCount = writeCount, histogramCtorArg = histogram)
+    public fun copy(diskSize: Long = this.diskSize, start: Long = this.start, end: Long = this.end, average: Long = this.average, averageRead: Long = this.averageRead, averageWrite: Long = this.averageWrite, granularity: UInt = this.granularity, size: UInt = this.size, readCount: UInt = this.readCount, writeCount: UInt = this.writeCount, histogram: MutPtr = this.histogram): DiskHistogram = DiskHistogram(diskSize = diskSize, start = start, end = end, average = average, averageRead = averageRead, averageWrite = averageWrite, granularity = granularity, size = size, readCount = readCount, writeCount = writeCount, histogramCtorArg = histogram)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -3508,7 +3507,7 @@ public class DiskHistogram internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 60L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<HistogramBucket>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 64L),
                     )
                 override fun writeNative(addr: Long, value: DiskHistogram) {
@@ -3524,7 +3523,7 @@ public class DiskHistogram internal constructor(
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 60L, value.writeCount)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<HistogramBucket>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 64L, value.histogram)
                 }
             }
@@ -3540,7 +3539,7 @@ public class DiskHistogram internal constructor(
             size: UInt = 0u,
             readCount: UInt = 0u,
             writeCount: UInt = 0u,
-            histogram: MutPtr<HistogramBucket> = MutPtr(0L),
+            histogram: MutPtr = MutPtr(0L),
         ): DiskHistogram =
             DiskHistogram(
                 diskSize = diskSize,
@@ -3591,10 +3590,10 @@ public data class DiskInt13Info(
 
 public class DiskLogging internal constructor(
     public var function: UByte,
-    bufferAddressCtorArg: MutPtr<CVoid>,
+    bufferAddressCtorArg: MutPtr,
     public var bufferSize: UInt,
 ) {
-    public var bufferAddress: MutPtr<CVoid> = bufferAddressCtorArg
+    public var bufferAddress: MutPtr = bufferAddressCtorArg
         internal set
 
     public constructor() : this(
@@ -3605,11 +3604,11 @@ public class DiskLogging internal constructor(
 
     public operator fun component1(): UByte = this.function
 
-    public operator fun component2(): MutPtr<CVoid> = this.bufferAddress
+    public operator fun component2(): MutPtr = this.bufferAddress
 
     public operator fun component3(): UInt = this.bufferSize
 
-    public fun copy(function: UByte = this.function, bufferAddress: MutPtr<CVoid> = this.bufferAddress, bufferSize: UInt = this.bufferSize): DiskLogging = DiskLogging(function = function, bufferAddressCtorArg = bufferAddress, bufferSize = bufferSize)
+    public fun copy(function: UByte = this.function, bufferAddress: MutPtr = this.bufferAddress, bufferSize: UInt = this.bufferSize): DiskLogging = DiskLogging(function = function, bufferAddressCtorArg = bufferAddress, bufferSize = bufferSize)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -3637,7 +3636,7 @@ public class DiskLogging internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<CVoid>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 16L),
                     )
@@ -3645,7 +3644,7 @@ public class DiskLogging internal constructor(
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8).writeNative(addr, value.function)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<CVoid>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.bufferAddress)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 16L, value.bufferSize)
                 }
@@ -3653,7 +3652,7 @@ public class DiskLogging internal constructor(
 
         public operator fun invoke(
             function: UByte = 0u,
-            bufferAddress: MutPtr<CVoid> = MutPtr(0L),
+            bufferAddress: MutPtr = MutPtr(0L),
             bufferSize: UInt = 0u,
         ): DiskLogging =
             DiskLogging(
@@ -3797,12 +3796,12 @@ public class DiskRecord internal constructor(
     public var byteOffset: Long,
     public var startTime: Long,
     public var endTime: Long,
-    virtualAddressCtorArg: MutPtr<CVoid>,
+    virtualAddressCtorArg: MutPtr,
     public var numberOfBytes: UInt,
     public var deviceNumber: UByte,
     public var readRequest: Boolean,
 ) {
-    public var virtualAddress: MutPtr<CVoid> = virtualAddressCtorArg
+    public var virtualAddress: MutPtr = virtualAddressCtorArg
         internal set
 
     public constructor() : this(
@@ -3821,7 +3820,7 @@ public class DiskRecord internal constructor(
 
     public operator fun component3(): Long = this.endTime
 
-    public operator fun component4(): MutPtr<CVoid> = this.virtualAddress
+    public operator fun component4(): MutPtr = this.virtualAddress
 
     public operator fun component5(): UInt = this.numberOfBytes
 
@@ -3829,7 +3828,7 @@ public class DiskRecord internal constructor(
 
     public operator fun component7(): Boolean = this.readRequest
 
-    public fun copy(byteOffset: Long = this.byteOffset, startTime: Long = this.startTime, endTime: Long = this.endTime, virtualAddress: MutPtr<CVoid> = this.virtualAddress, numberOfBytes: UInt = this.numberOfBytes, deviceNumber: UByte = this.deviceNumber, readRequest: Boolean = this.readRequest): DiskRecord = DiskRecord(byteOffset = byteOffset, startTime = startTime, endTime = endTime, virtualAddressCtorArg = virtualAddress, numberOfBytes = numberOfBytes, deviceNumber = deviceNumber, readRequest = readRequest)
+    public fun copy(byteOffset: Long = this.byteOffset, startTime: Long = this.startTime, endTime: Long = this.endTime, virtualAddress: MutPtr = this.virtualAddress, numberOfBytes: UInt = this.numberOfBytes, deviceNumber: UByte = this.deviceNumber, readRequest: Boolean = this.readRequest): DiskRecord = DiskRecord(byteOffset = byteOffset, startTime = startTime, endTime = endTime, virtualAddressCtorArg = virtualAddress, numberOfBytes = numberOfBytes, deviceNumber = deviceNumber, readRequest = readRequest)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -3867,7 +3866,7 @@ public class DiskRecord internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I64).readNative(addr + 16L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<CVoid>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 24L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 32L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8).readNative(addr + 36L),
@@ -3879,7 +3878,7 @@ public class DiskRecord internal constructor(
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I64).writeNative(addr + 16L, value.endTime)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<CVoid>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 24L, value.virtualAddress)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 32L, value.numberOfBytes)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8).writeNative(addr + 36L, value.deviceNumber)
@@ -3891,7 +3890,7 @@ public class DiskRecord internal constructor(
             byteOffset: Long = 0L,
             startTime: Long = 0L,
             endTime: Long = 0L,
-            virtualAddress: MutPtr<CVoid> = MutPtr(0L),
+            virtualAddress: MutPtr = MutPtr(0L),
             numberOfBytes: UInt = 0u,
             deviceNumber: UByte = 0u,
             readRequest: Boolean = false,
@@ -5143,10 +5142,10 @@ public data class FilePrefetch(
 public class FilePrefetchEx internal constructor(
     public var type: UInt,
     public var count: UInt,
-    contextCtorArg: MutPtr<CVoid>,
+    contextCtorArg: MutPtr,
     public var prefetch: ULongArray,
 ) {
-    public var context: MutPtr<CVoid> = contextCtorArg
+    public var context: MutPtr = contextCtorArg
         internal set
 
     public constructor() : this(
@@ -5160,11 +5159,11 @@ public class FilePrefetchEx internal constructor(
 
     public operator fun component2(): UInt = this.count
 
-    public operator fun component3(): MutPtr<CVoid> = this.context
+    public operator fun component3(): MutPtr = this.context
 
     public operator fun component4(): ULongArray = this.prefetch
 
-    public fun copy(type: UInt = this.type, count: UInt = this.count, context: MutPtr<CVoid> = this.context, prefetch: ULongArray = this.prefetch): FilePrefetchEx = FilePrefetchEx(type = type, count = count, contextCtorArg = context, prefetch = prefetch)
+    public fun copy(type: UInt = this.type, count: UInt = this.count, context: MutPtr = this.context, prefetch: ULongArray = this.prefetch): FilePrefetchEx = FilePrefetchEx(type = type, count = count, contextCtorArg = context, prefetch = prefetch)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -5195,7 +5194,7 @@ public class FilePrefetchEx internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 4L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<CVoid>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                         (
                             io.github.kotlinmania.rustlang.core.mem
@@ -5207,7 +5206,7 @@ public class FilePrefetchEx internal constructor(
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 4L, value.count)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<CVoid>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.context)
                     (
                         io.github.kotlinmania.rustlang.core.mem
@@ -5219,7 +5218,7 @@ public class FilePrefetchEx internal constructor(
         public operator fun invoke(
             type: UInt = 0u,
             count: UInt = 0u,
-            context: MutPtr<CVoid> = MutPtr(0L),
+            context: MutPtr = MutPtr(0L),
             prefetch: ULongArray = ULongArray(1),
         ): FilePrefetchEx =
             FilePrefetchEx(

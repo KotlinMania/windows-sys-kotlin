@@ -2,15 +2,12 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.ui.hidpi
 
-import io.github.kotlinmania.rustlang.core.ffi.CVoid
 import io.github.kotlinmania.rustlang.core.ptr.MutPtr
 import io.github.kotlinmania.windowssys.core.Bool
 import io.github.kotlinmania.windowssys.core.Hresult
 import io.github.kotlinmania.windowssys.core.Pcwstr
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Handle
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Hwnd
-import io.github.kotlinmania.windowssys.windows.win32.foundation.Point
-import io.github.kotlinmania.windowssys.windows.win32.foundation.Rect
 import io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.Hmonitor
 import io.github.kotlinmania.windowssys.windows.win32.ui.controls.Htheme
 import io.github.kotlinmania.windowssys.windows.win32.ui.windowsandmessaging.SystemMetricsIndex
@@ -109,7 +106,7 @@ private external fun wasmWindowssysWindowsWin32UiHidpiSetThreadDpiHostingBehavio
 @JsFun("(p0, p1, p2, p3, p4) => globalThis.__km_napi_windowssys.windowssysWindowsWin32UiHidpiSystemParametersInfoForDpi(p0, p1, p2, p3, p4)")
 private external fun wasmWindowssysWindowsWin32UiHidpiSystemParametersInfoForDpi(p0: Int, p1: Int, p2: String, p3: Int, p4: Int): Int
 
-public actual fun adjustWindowRectExForDpi(lprect: MutPtr<Rect>, dwstyle: WindowStyle, bmenu: Bool, dwexstyle: WindowExStyle, dpi: UInt): Bool =
+public actual fun adjustWindowRectExForDpi(lprect: MutPtr, dwstyle: WindowStyle, bmenu: Bool, dwexstyle: WindowExStyle, dpi: UInt): Bool =
     if (windowsWin32UiHidpiNapiAvailable) wasmWindowssysWindowsWin32UiHidpiAdjustWindowRectExForDpi(lprect.rawAddress.toString(), dwstyle.toInt(), bmenu, dwexstyle.toInt(), dpi.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun areDpiAwarenessContextsEqual(dpicontexta: DpiAwarenessContext, dpicontextb: DpiAwarenessContext): Bool =
@@ -130,7 +127,7 @@ public actual fun getDialogDpiChangeBehavior(hdlg: Hwnd): DialogDpiChangeBehavio
 public actual fun getDpiAwarenessContextForProcess(hprocess: Handle): DpiAwarenessContext =
     if (windowsWin32UiHidpiNapiAvailable) MutPtr(wasmWindowssysWindowsWin32UiHidpiGetDpiAwarenessContextForProcess(hprocess.rawAddress.toString()).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun getDpiForMonitor(hmonitor: Hmonitor, dpitype: MonitorDpiType, dpix: MutPtr<UInt>, dpiy: MutPtr<UInt>): Hresult =
+public actual fun getDpiForMonitor(hmonitor: Hmonitor, dpitype: MonitorDpiType, dpix: MutPtr, dpiy: MutPtr): Hresult =
     if (windowsWin32UiHidpiNapiAvailable) wasmWindowssysWindowsWin32UiHidpiGetDpiForMonitor(hmonitor.rawAddress.toString(), dpitype, dpix.rawAddress.toString(), dpiy.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun getDpiForSystem(): UInt =
@@ -142,7 +139,7 @@ public actual fun getDpiForWindow(hwnd: Hwnd): UInt =
 public actual fun getDpiFromDpiAwarenessContext(value: DpiAwarenessContext): UInt =
     if (windowsWin32UiHidpiNapiAvailable) wasmWindowssysWindowsWin32UiHidpiGetDpiFromDpiAwarenessContext(value.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun getProcessDpiAwareness(hprocess: Handle, value: MutPtr<ProcessDpiAwareness>): Hresult =
+public actual fun getProcessDpiAwareness(hprocess: Handle, value: MutPtr): Hresult =
     if (windowsWin32UiHidpiNapiAvailable) wasmWindowssysWindowsWin32UiHidpiGetProcessDpiAwareness(hprocess.rawAddress.toString(), value.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun getSystemDpiForProcess(hprocess: Handle): UInt =
@@ -166,13 +163,13 @@ public actual fun getWindowDpiHostingBehavior(hwnd: Hwnd): DpiHostingBehavior =
 public actual fun isValidDpiAwarenessContext(value: DpiAwarenessContext): Bool =
     if (windowsWin32UiHidpiNapiAvailable) wasmWindowssysWindowsWin32UiHidpiIsValidDpiAwarenessContext(value.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun logicalToPhysicalPointForPerMonitorDPI(hwnd: Hwnd, lppoint: MutPtr<Point>): Bool =
+public actual fun logicalToPhysicalPointForPerMonitorDPI(hwnd: Hwnd, lppoint: MutPtr): Bool =
     if (windowsWin32UiHidpiNapiAvailable) wasmWindowssysWindowsWin32UiHidpiLogicalToPhysicalPointForPerMonitorDPI(hwnd.rawAddress.toString(), lppoint.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun openThemeDataForDpi(hwnd: Hwnd, pszclasslist: Pcwstr, dpi: UInt): Htheme =
     if (windowsWin32UiHidpiNapiAvailable) wasmWindowssysWindowsWin32UiHidpiOpenThemeDataForDpi(hwnd.rawAddress.toString(), pszclasslist.rawAddress.toString(), dpi.toInt()).toLong() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun physicalToLogicalPointForPerMonitorDPI(hwnd: Hwnd, lppoint: MutPtr<Point>): Bool =
+public actual fun physicalToLogicalPointForPerMonitorDPI(hwnd: Hwnd, lppoint: MutPtr): Bool =
     if (windowsWin32UiHidpiNapiAvailable) wasmWindowssysWindowsWin32UiHidpiPhysicalToLogicalPointForPerMonitorDPI(hwnd.rawAddress.toString(), lppoint.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun setDialogControlDpiChangeBehavior(hwnd: Hwnd, mask: DialogControlDpiChangeBehaviors, values: DialogControlDpiChangeBehaviors): Bool =
@@ -193,5 +190,5 @@ public actual fun setThreadDpiAwarenessContext(dpicontext: DpiAwarenessContext):
 public actual fun setThreadDpiHostingBehavior(value: DpiHostingBehavior): DpiHostingBehavior =
     if (windowsWin32UiHidpiNapiAvailable) wasmWindowssysWindowsWin32UiHidpiSetThreadDpiHostingBehavior(value) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun systemParametersInfoForDpi(uiaction: UInt, uiparam: UInt, pvparam: MutPtr<CVoid>, fwinini: UInt, dpi: UInt): Bool =
+public actual fun systemParametersInfoForDpi(uiaction: UInt, uiparam: UInt, pvparam: MutPtr, fwinini: UInt, dpi: UInt): Bool =
     if (windowsWin32UiHidpiNapiAvailable) wasmWindowssysWindowsWin32UiHidpiSystemParametersInfoForDpi(uiaction.toInt(), uiparam.toInt(), pvparam.rawAddress.toString(), fwinini.toInt(), dpi.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")

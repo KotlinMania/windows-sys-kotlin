@@ -2,7 +2,6 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.security.applocker
 
-import io.github.kotlinmania.rustlang.core.ffi.CVoid
 import io.github.kotlinmania.rustlang.core.ptr.ConstPtr
 import io.github.kotlinmania.rustlang.core.ptr.MutPtr
 import io.github.kotlinmania.windowssys.core.Bool
@@ -25,28 +24,28 @@ import kotlinx.cinterop.toCPointer
 public actual fun saferCloseLevel(hlevelhandle: SaferLevelHandle): Bool =
     windowssysWindowsWin32SecurityApplockerSaferCloseLevel(hlevelhandle.rawAddress.toCPointer<ByteVar>())
 
-public actual fun saferComputeTokenFromLevel(levelhandle: SaferLevelHandle, inaccesstoken: Handle, outaccesstoken: MutPtr<Handle>, dwflags: SaferComputeTokenFromLevelFlags, lpreserved: MutPtr<CVoid>): Bool =
+public actual fun saferComputeTokenFromLevel(levelhandle: SaferLevelHandle, inaccesstoken: Handle, outaccesstoken: MutPtr, dwflags: SaferComputeTokenFromLevelFlags, lpreserved: MutPtr): Bool =
     windowssysWindowsWin32SecurityApplockerSaferComputeTokenFromLevel(levelhandle.rawAddress.toCPointer<ByteVar>(), inaccesstoken.rawAddress.toCPointer<ByteVar>(), outaccesstoken.rawAddress.toCPointer<ByteVar>(), dwflags, lpreserved.rawAddress.toCPointer<ByteVar>())
 
-public actual fun saferCreateLevel(dwscopeid: UInt, dwlevelid: UInt, openflags: UInt, plevelhandle: MutPtr<SaferLevelHandle>, lpreserved: ConstPtr<CVoid>): Bool =
+public actual fun saferCreateLevel(dwscopeid: UInt, dwlevelid: UInt, openflags: UInt, plevelhandle: MutPtr, lpreserved: ConstPtr): Bool =
     windowssysWindowsWin32SecurityApplockerSaferCreateLevel(dwscopeid, dwlevelid, openflags, plevelhandle.rawAddress.toCPointer<ByteVar>(), lpreserved.rawAddress.toCPointer<ByteVar>())
 
-public actual fun saferGetLevelInformation(levelhandle: SaferLevelHandle, dwinfotype: SaferObjectInfoClass, lpquerybuffer: MutPtr<CVoid>, dwinbuffersize: UInt, lpdwoutbuffersize: MutPtr<UInt>): Bool =
+public actual fun saferGetLevelInformation(levelhandle: SaferLevelHandle, dwinfotype: SaferObjectInfoClass, lpquerybuffer: MutPtr, dwinbuffersize: UInt, lpdwoutbuffersize: MutPtr): Bool =
     windowssysWindowsWin32SecurityApplockerSaferGetLevelInformation(levelhandle.rawAddress.toCPointer<ByteVar>(), dwinfotype, lpquerybuffer.rawAddress.toCPointer<ByteVar>(), dwinbuffersize, lpdwoutbuffersize.rawAddress.toCPointer<ByteVar>())
 
-public actual fun saferGetPolicyInformation(dwscopeid: UInt, saferpolicyinfoclass: SaferPolicyInfoClass, infobuffersize: UInt, infobuffer: MutPtr<CVoid>, infobufferretsize: MutPtr<UInt>, lpreserved: ConstPtr<CVoid>): Bool =
+public actual fun saferGetPolicyInformation(dwscopeid: UInt, saferpolicyinfoclass: SaferPolicyInfoClass, infobuffersize: UInt, infobuffer: MutPtr, infobufferretsize: MutPtr, lpreserved: ConstPtr): Bool =
     windowssysWindowsWin32SecurityApplockerSaferGetPolicyInformation(dwscopeid, saferpolicyinfoclass, infobuffersize, infobuffer.rawAddress.toCPointer<ByteVar>(), infobufferretsize.rawAddress.toCPointer<ByteVar>(), lpreserved.rawAddress.toCPointer<ByteVar>())
 
-public actual fun saferIdentifyLevel(dwnumproperties: UInt, pcodeproperties: ConstPtr<SaferCodePropertiesV2>, plevelhandle: MutPtr<SaferLevelHandle>, lpreserved: ConstPtr<CVoid>): Bool =
+public actual fun saferIdentifyLevel(dwnumproperties: UInt, pcodeproperties: ConstPtr, plevelhandle: MutPtr, lpreserved: ConstPtr): Bool =
     windowssysWindowsWin32SecurityApplockerSaferIdentifyLevel(dwnumproperties, pcodeproperties.rawAddress.toCPointer<ByteVar>(), plevelhandle.rawAddress.toCPointer<ByteVar>(), lpreserved.rawAddress.toCPointer<ByteVar>())
 
-public actual fun saferRecordEventLogEntry(hlevel: SaferLevelHandle, sztargetpath: Pcwstr, lpreserved: ConstPtr<CVoid>): Bool =
+public actual fun saferRecordEventLogEntry(hlevel: SaferLevelHandle, sztargetpath: Pcwstr, lpreserved: ConstPtr): Bool =
     windowssysWindowsWin32SecurityApplockerSaferRecordEventLogEntry(hlevel.rawAddress.toCPointer<ByteVar>(), sztargetpath.rawAddress.toCPointer<ByteVar>(), lpreserved.rawAddress.toCPointer<ByteVar>())
 
-public actual fun saferSetLevelInformation(levelhandle: SaferLevelHandle, dwinfotype: SaferObjectInfoClass, lpquerybuffer: ConstPtr<CVoid>, dwinbuffersize: UInt): Bool =
+public actual fun saferSetLevelInformation(levelhandle: SaferLevelHandle, dwinfotype: SaferObjectInfoClass, lpquerybuffer: ConstPtr, dwinbuffersize: UInt): Bool =
     windowssysWindowsWin32SecurityApplockerSaferSetLevelInformation(levelhandle.rawAddress.toCPointer<ByteVar>(), dwinfotype, lpquerybuffer.rawAddress.toCPointer<ByteVar>(), dwinbuffersize)
 
-public actual fun saferSetPolicyInformation(dwscopeid: UInt, saferpolicyinfoclass: SaferPolicyInfoClass, infobuffersize: UInt, infobuffer: ConstPtr<CVoid>, lpreserved: ConstPtr<CVoid>): Bool =
+public actual fun saferSetPolicyInformation(dwscopeid: UInt, saferpolicyinfoclass: SaferPolicyInfoClass, infobuffersize: UInt, infobuffer: ConstPtr, lpreserved: ConstPtr): Bool =
     windowssysWindowsWin32SecurityApplockerSaferSetPolicyInformation(dwscopeid, saferpolicyinfoclass, infobuffersize, infobuffer.rawAddress.toCPointer<ByteVar>(), lpreserved.rawAddress.toCPointer<ByteVar>())
 
 public actual fun saferiIsExecutableFileType(szfullpathname: Pcwstr, bfromshellexecute: Boolean): Bool =

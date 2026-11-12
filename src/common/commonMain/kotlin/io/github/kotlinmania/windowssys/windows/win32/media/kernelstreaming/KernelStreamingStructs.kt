@@ -2,7 +2,6 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.media.kernelstreaming
 
-import io.github.kotlinmania.rustlang.core.ffi.CVoid
 import io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
 import io.github.kotlinmania.rustlang.core.mem.TypeLayout
 import io.github.kotlinmania.rustlang.core.ptr.MutPtr
@@ -31,16 +30,16 @@ public class AllocatorPropertiesEx internal constructor(
     public var allocatorPlace: PipeAllocatorPlace,
     public var dimensions: PipeDimensions,
     public var physicalRange: KsFramingRange,
-    prevSegmentCtorArg: MutPtr<CVoid>,
+    prevSegmentCtorArg: MutPtr,
     public var countNextSegments: UInt,
-    nextSegmentsCtorArg: MutPtr<MutPtr<CVoid>>,
+    nextSegmentsCtorArg: MutPtr,
     public var insideFactors: UInt,
     public var numberPins: UInt,
 ) {
-    public var prevSegment: MutPtr<CVoid> = prevSegmentCtorArg
+    public var prevSegment: MutPtr = prevSegmentCtorArg
         internal set
 
-    public var nextSegments: MutPtr<MutPtr<CVoid>> = nextSegmentsCtorArg
+    public var nextSegments: MutPtr = nextSegmentsCtorArg
         internal set
 
     public constructor() : this(
@@ -85,9 +84,9 @@ public class AllocatorPropertiesEx internal constructor(
             allocatorPlace: PipeAllocatorPlace = 0,
             dimensions: PipeDimensions = PipeDimensions(),
             physicalRange: KsFramingRange = KsFramingRange(),
-            prevSegment: MutPtr<CVoid> = MutPtr(0L),
+            prevSegment: MutPtr = MutPtr(0L),
             countNextSegments: UInt = 0u,
-            nextSegments: MutPtr<MutPtr<CVoid>> = MutPtr(0L),
+            nextSegments: MutPtr = MutPtr(0L),
             insideFactors: UInt = 0u,
             numberPins: UInt = 0u,
         ): AllocatorPropertiesEx =
@@ -1757,9 +1756,9 @@ public class KscameraProfileConcurrencyinfo internal constructor(
     public var referenceGuid: Guid,
     public var reserved: UInt,
     public var profileCount: UInt,
-    profilesCtorArg: MutPtr<KscameraProfileInfo>,
+    profilesCtorArg: MutPtr,
 ) {
-    public var profiles: MutPtr<KscameraProfileInfo> = profilesCtorArg
+    public var profiles: MutPtr = profilesCtorArg
         internal set
 
     public constructor() : this(
@@ -1775,9 +1774,9 @@ public class KscameraProfileConcurrencyinfo internal constructor(
 
     public operator fun component3(): UInt = this.profileCount
 
-    public operator fun component4(): MutPtr<KscameraProfileInfo> = this.profiles
+    public operator fun component4(): MutPtr = this.profiles
 
-    public fun copy(referenceGuid: Guid = this.referenceGuid, reserved: UInt = this.reserved, profileCount: UInt = this.profileCount, profiles: MutPtr<KscameraProfileInfo> = this.profiles): KscameraProfileConcurrencyinfo = KscameraProfileConcurrencyinfo(referenceGuid = referenceGuid, reserved = reserved, profileCount = profileCount, profilesCtorArg = profiles)
+    public fun copy(referenceGuid: Guid = this.referenceGuid, reserved: UInt = this.reserved, profileCount: UInt = this.profileCount, profiles: MutPtr = this.profiles): KscameraProfileConcurrencyinfo = KscameraProfileConcurrencyinfo(referenceGuid = referenceGuid, reserved = reserved, profileCount = profileCount, profilesCtorArg = profiles)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -1802,7 +1801,7 @@ public class KscameraProfileConcurrencyinfo internal constructor(
             referenceGuid: Guid = Guid(),
             reserved: UInt = 0u,
             profileCount: UInt = 0u,
-            profiles: MutPtr<KscameraProfileInfo> = MutPtr(0L),
+            profiles: MutPtr = MutPtr(0L),
         ): KscameraProfileConcurrencyinfo =
             KscameraProfileConcurrencyinfo(
                 referenceGuid = referenceGuid,
@@ -1817,9 +1816,9 @@ public class KscameraProfileInfo internal constructor(
     public var profileId: Guid,
     public var index: UInt,
     public var pinCount: UInt,
-    pinsCtorArg: MutPtr<KscameraProfilePininfo>,
+    pinsCtorArg: MutPtr,
 ) {
-    public var pins: MutPtr<KscameraProfilePininfo> = pinsCtorArg
+    public var pins: MutPtr = pinsCtorArg
         internal set
 
     public constructor() : this(
@@ -1835,9 +1834,9 @@ public class KscameraProfileInfo internal constructor(
 
     public operator fun component3(): UInt = this.pinCount
 
-    public operator fun component4(): MutPtr<KscameraProfilePininfo> = this.pins
+    public operator fun component4(): MutPtr = this.pins
 
-    public fun copy(profileId: Guid = this.profileId, index: UInt = this.index, pinCount: UInt = this.pinCount, pins: MutPtr<KscameraProfilePininfo> = this.pins): KscameraProfileInfo = KscameraProfileInfo(profileId = profileId, index = index, pinCount = pinCount, pinsCtorArg = pins)
+    public fun copy(profileId: Guid = this.profileId, index: UInt = this.index, pinCount: UInt = this.pinCount, pins: MutPtr = this.pins): KscameraProfileInfo = KscameraProfileInfo(profileId = profileId, index = index, pinCount = pinCount, pinsCtorArg = pins)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -1862,7 +1861,7 @@ public class KscameraProfileInfo internal constructor(
             profileId: Guid = Guid(),
             index: UInt = 0u,
             pinCount: UInt = 0u,
-            pins: MutPtr<KscameraProfilePininfo> = MutPtr(0L),
+            pins: MutPtr = MutPtr(0L),
         ): KscameraProfileInfo =
             KscameraProfileInfo(
                 profileId = profileId,
@@ -1958,9 +1957,9 @@ public class KscameraProfilePininfo internal constructor(
     public var pinCategory: Guid,
     public var anonymous: KscameraProfilePininfo0,
     public var mediaInfoCount: UInt,
-    mediaInfosCtorArg: MutPtr<KscameraProfileMediainfo>,
+    mediaInfosCtorArg: MutPtr,
 ) {
-    public var mediaInfos: MutPtr<KscameraProfileMediainfo> = mediaInfosCtorArg
+    public var mediaInfos: MutPtr = mediaInfosCtorArg
         internal set
 
     public constructor() : this(
@@ -1976,9 +1975,9 @@ public class KscameraProfilePininfo internal constructor(
 
     public operator fun component3(): UInt = this.mediaInfoCount
 
-    public operator fun component4(): MutPtr<KscameraProfileMediainfo> = this.mediaInfos
+    public operator fun component4(): MutPtr = this.mediaInfos
 
-    public fun copy(pinCategory: Guid = this.pinCategory, anonymous: KscameraProfilePininfo0 = this.anonymous, mediaInfoCount: UInt = this.mediaInfoCount, mediaInfos: MutPtr<KscameraProfileMediainfo> = this.mediaInfos): KscameraProfilePininfo = KscameraProfilePininfo(pinCategory = pinCategory, anonymous = anonymous, mediaInfoCount = mediaInfoCount, mediaInfosCtorArg = mediaInfos)
+    public fun copy(pinCategory: Guid = this.pinCategory, anonymous: KscameraProfilePininfo0 = this.anonymous, mediaInfoCount: UInt = this.mediaInfoCount, mediaInfos: MutPtr = this.mediaInfos): KscameraProfilePininfo = KscameraProfilePininfo(pinCategory = pinCategory, anonymous = anonymous, mediaInfoCount = mediaInfoCount, mediaInfosCtorArg = mediaInfos)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -2003,7 +2002,7 @@ public class KscameraProfilePininfo internal constructor(
             pinCategory: Guid = Guid(),
             anonymous: KscameraProfilePininfo0 = KscameraProfilePininfo0(),
             mediaInfoCount: UInt = 0u,
-            mediaInfos: MutPtr<KscameraProfileMediainfo> = MutPtr(0L),
+            mediaInfos: MutPtr = MutPtr(0L),
         ): KscameraProfilePininfo =
             KscameraProfilePininfo(
                 pinCategory = pinCategory,
@@ -2137,9 +2136,9 @@ public class KsdeviceProfileInfo00 internal constructor(
     public var info: KscameraProfileInfo,
     public var reserved: UInt,
     public var concurrencyCount: UInt,
-    concurrencyCtorArg: MutPtr<KscameraProfileConcurrencyinfo>,
+    concurrencyCtorArg: MutPtr,
 ) {
-    public var concurrency: MutPtr<KscameraProfileConcurrencyinfo> = concurrencyCtorArg
+    public var concurrency: MutPtr = concurrencyCtorArg
         internal set
 
     public constructor() : this(
@@ -2155,9 +2154,9 @@ public class KsdeviceProfileInfo00 internal constructor(
 
     public operator fun component3(): UInt = this.concurrencyCount
 
-    public operator fun component4(): MutPtr<KscameraProfileConcurrencyinfo> = this.concurrency
+    public operator fun component4(): MutPtr = this.concurrency
 
-    public fun copy(info: KscameraProfileInfo = this.info, reserved: UInt = this.reserved, concurrencyCount: UInt = this.concurrencyCount, concurrency: MutPtr<KscameraProfileConcurrencyinfo> = this.concurrency): KsdeviceProfileInfo00 = KsdeviceProfileInfo00(info = info, reserved = reserved, concurrencyCount = concurrencyCount, concurrencyCtorArg = concurrency)
+    public fun copy(info: KscameraProfileInfo = this.info, reserved: UInt = this.reserved, concurrencyCount: UInt = this.concurrencyCount, concurrency: MutPtr = this.concurrency): KsdeviceProfileInfo00 = KsdeviceProfileInfo00(info = info, reserved = reserved, concurrencyCount = concurrencyCount, concurrencyCtorArg = concurrency)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -2182,7 +2181,7 @@ public class KsdeviceProfileInfo00 internal constructor(
             info: KscameraProfileInfo = KscameraProfileInfo(),
             reserved: UInt = 0u,
             concurrencyCount: UInt = 0u,
-            concurrency: MutPtr<KscameraProfileConcurrencyinfo> = MutPtr(0L),
+            concurrency: MutPtr = MutPtr(0L),
         ): KsdeviceProfileInfo00 =
             KsdeviceProfileInfo00(
                 info = info,
@@ -2459,10 +2458,10 @@ public data class Ksds3dListenerOrientation(
 )
 
 public class Kserror internal constructor(
-    contextCtorArg: MutPtr<CVoid>,
+    contextCtorArg: MutPtr,
     public var status: UInt,
 ) {
-    public var context: MutPtr<CVoid> = contextCtorArg
+    public var context: MutPtr = contextCtorArg
         internal set
 
     public constructor() : this(
@@ -2470,11 +2469,11 @@ public class Kserror internal constructor(
         status = 0u,
     )
 
-    public operator fun component1(): MutPtr<CVoid> = this.context
+    public operator fun component1(): MutPtr = this.context
 
     public operator fun component2(): UInt = this.status
 
-    public fun copy(context: MutPtr<CVoid> = this.context, status: UInt = this.status): Kserror = Kserror(contextCtorArg = context, status = status)
+    public fun copy(context: MutPtr = this.context, status: UInt = this.status): Kserror = Kserror(contextCtorArg = context, status = status)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -2499,21 +2498,21 @@ public class Kserror internal constructor(
                     Kserror(
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<CVoid>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 8L),
                     )
                 override fun writeNative(addr: Long, value: Kserror) {
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<CVoid>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr, value.context)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 8L, value.status)
                 }
             }
 
         public operator fun invoke(
-            context: MutPtr<CVoid> = MutPtr(0L),
+            context: MutPtr = MutPtr(0L),
             status: UInt = 0u,
         ): Kserror =
             Kserror(
@@ -2535,10 +2534,10 @@ public data class Kseventdata0(
 )
 
 public class Kseventdata02 internal constructor(
-    unusedCtorArg: MutPtr<CVoid>,
+    unusedCtorArg: MutPtr,
     public var alignment: IntArray,
 ) {
-    public var unused: MutPtr<CVoid> = unusedCtorArg
+    public var unused: MutPtr = unusedCtorArg
         internal set
 
     public constructor() : this(
@@ -2546,11 +2545,11 @@ public class Kseventdata02 internal constructor(
         alignment = IntArray(2),
     )
 
-    public operator fun component1(): MutPtr<CVoid> = this.unused
+    public operator fun component1(): MutPtr = this.unused
 
     public operator fun component2(): IntArray = this.alignment
 
-    public fun copy(unused: MutPtr<CVoid> = this.unused, alignment: IntArray = this.alignment): Kseventdata02 = Kseventdata02(unusedCtorArg = unused, alignment = alignment)
+    public fun copy(unused: MutPtr = this.unused, alignment: IntArray = this.alignment): Kseventdata02 = Kseventdata02(unusedCtorArg = unused, alignment = alignment)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -2575,7 +2574,7 @@ public class Kseventdata02 internal constructor(
                     Kseventdata02(
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<CVoid>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem
@@ -2585,7 +2584,7 @@ public class Kseventdata02 internal constructor(
                 override fun writeNative(addr: Long, value: Kseventdata02) {
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<CVoid>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr, value.unused)
                     (
                         io.github.kotlinmania.rustlang.core.mem
@@ -2595,7 +2594,7 @@ public class Kseventdata02 internal constructor(
             }
 
         public operator fun invoke(
-            unused: MutPtr<CVoid> = MutPtr(0L),
+            unused: MutPtr = MutPtr(0L),
             alignment: IntArray = IntArray(2),
         ): Kseventdata02 =
             Kseventdata02(
@@ -3053,9 +3052,9 @@ public data class Ksnodeproperty(
 
 public class KsnodepropertyAudio3dListener internal constructor(
     public var nodeProperty: Ksnodeproperty,
-    listenerIdCtorArg: MutPtr<CVoid>,
+    listenerIdCtorArg: MutPtr,
 ) {
-    public var listenerId: MutPtr<CVoid> = listenerIdCtorArg
+    public var listenerId: MutPtr = listenerIdCtorArg
         internal set
 
     public constructor() : this(
@@ -3065,9 +3064,9 @@ public class KsnodepropertyAudio3dListener internal constructor(
 
     public operator fun component1(): Ksnodeproperty = this.nodeProperty
 
-    public operator fun component2(): MutPtr<CVoid> = this.listenerId
+    public operator fun component2(): MutPtr = this.listenerId
 
-    public fun copy(nodeProperty: Ksnodeproperty = this.nodeProperty, listenerId: MutPtr<CVoid> = this.listenerId): KsnodepropertyAudio3dListener = KsnodepropertyAudio3dListener(nodeProperty = nodeProperty, listenerIdCtorArg = listenerId)
+    public fun copy(nodeProperty: Ksnodeproperty = this.nodeProperty, listenerId: MutPtr = this.listenerId): KsnodepropertyAudio3dListener = KsnodepropertyAudio3dListener(nodeProperty = nodeProperty, listenerIdCtorArg = listenerId)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -3086,7 +3085,7 @@ public class KsnodepropertyAudio3dListener internal constructor(
     public companion object {
         public operator fun invoke(
             nodeProperty: Ksnodeproperty = Ksnodeproperty(),
-            listenerId: MutPtr<CVoid> = MutPtr(0L),
+            listenerId: MutPtr = MutPtr(0L),
         ): KsnodepropertyAudio3dListener =
             KsnodepropertyAudio3dListener(
                 nodeProperty = nodeProperty,
@@ -3110,10 +3109,10 @@ public data class KsnodepropertyAudioDevSpecific(
 
 public class KsnodepropertyAudioProperty internal constructor(
     public var nodeProperty: Ksnodeproperty,
-    appContextCtorArg: MutPtr<CVoid>,
+    appContextCtorArg: MutPtr,
     public var length: UInt,
 ) {
-    public var appContext: MutPtr<CVoid> = appContextCtorArg
+    public var appContext: MutPtr = appContextCtorArg
         internal set
 
     public constructor() : this(
@@ -3124,11 +3123,11 @@ public class KsnodepropertyAudioProperty internal constructor(
 
     public operator fun component1(): Ksnodeproperty = this.nodeProperty
 
-    public operator fun component2(): MutPtr<CVoid> = this.appContext
+    public operator fun component2(): MutPtr = this.appContext
 
     public operator fun component3(): UInt = this.length
 
-    public fun copy(nodeProperty: Ksnodeproperty = this.nodeProperty, appContext: MutPtr<CVoid> = this.appContext, length: UInt = this.length): KsnodepropertyAudioProperty = KsnodepropertyAudioProperty(nodeProperty = nodeProperty, appContextCtorArg = appContext, length = length)
+    public fun copy(nodeProperty: Ksnodeproperty = this.nodeProperty, appContext: MutPtr = this.appContext, length: UInt = this.length): KsnodepropertyAudioProperty = KsnodepropertyAudioProperty(nodeProperty = nodeProperty, appContextCtorArg = appContext, length = length)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -3149,7 +3148,7 @@ public class KsnodepropertyAudioProperty internal constructor(
     public companion object {
         public operator fun invoke(
             nodeProperty: Ksnodeproperty = Ksnodeproperty(),
-            appContext: MutPtr<CVoid> = MutPtr(0L),
+            appContext: MutPtr = MutPtr(0L),
             length: UInt = 0u,
         ): KsnodepropertyAudioProperty =
             KsnodepropertyAudioProperty(
@@ -3274,9 +3273,9 @@ public class KspinConnect internal constructor(
 
 public class KspinMdlCachingNotification internal constructor(
     public var event: KspinMdlCachingEvent,
-    bufferCtorArg: MutPtr<CVoid>,
+    bufferCtorArg: MutPtr,
 ) {
-    public var buffer: MutPtr<CVoid> = bufferCtorArg
+    public var buffer: MutPtr = bufferCtorArg
         internal set
 
     public constructor() : this(
@@ -3286,9 +3285,9 @@ public class KspinMdlCachingNotification internal constructor(
 
     public operator fun component1(): KspinMdlCachingEvent = this.event
 
-    public operator fun component2(): MutPtr<CVoid> = this.buffer
+    public operator fun component2(): MutPtr = this.buffer
 
-    public fun copy(event: KspinMdlCachingEvent = this.event, buffer: MutPtr<CVoid> = this.buffer): KspinMdlCachingNotification = KspinMdlCachingNotification(event = event, bufferCtorArg = buffer)
+    public fun copy(event: KspinMdlCachingEvent = this.event, buffer: MutPtr = this.buffer): KspinMdlCachingNotification = KspinMdlCachingNotification(event = event, bufferCtorArg = buffer)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -3314,21 +3313,21 @@ public class KspinMdlCachingNotification internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<CVoid>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                     )
                 override fun writeNative(addr: Long, value: KspinMdlCachingNotification) {
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr, value.event)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<CVoid>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.buffer)
                 }
             }
 
         public operator fun invoke(
             event: KspinMdlCachingEvent = 0,
-            buffer: MutPtr<CVoid> = MutPtr(0L),
+            buffer: MutPtr = MutPtr(0L),
         ): KspinMdlCachingNotification =
             KspinMdlCachingNotification(
                 event = event,
@@ -4307,9 +4306,9 @@ public class KspropertyTunerNetworktypeScanCapsS internal constructor(
     public var property: Ksidentifier,
     public var networkType: Guid,
     public var bufferSize: UInt,
-    networkTunerCapabilitiesCtorArg: MutPtr<CVoid>,
+    networkTunerCapabilitiesCtorArg: MutPtr,
 ) {
-    public var networkTunerCapabilities: MutPtr<CVoid> = networkTunerCapabilitiesCtorArg
+    public var networkTunerCapabilities: MutPtr = networkTunerCapabilitiesCtorArg
         internal set
 
     public constructor() : this(
@@ -4325,9 +4324,9 @@ public class KspropertyTunerNetworktypeScanCapsS internal constructor(
 
     public operator fun component3(): UInt = this.bufferSize
 
-    public operator fun component4(): MutPtr<CVoid> = this.networkTunerCapabilities
+    public operator fun component4(): MutPtr = this.networkTunerCapabilities
 
-    public fun copy(property: Ksidentifier = this.property, networkType: Guid = this.networkType, bufferSize: UInt = this.bufferSize, networkTunerCapabilities: MutPtr<CVoid> = this.networkTunerCapabilities): KspropertyTunerNetworktypeScanCapsS = KspropertyTunerNetworktypeScanCapsS(property = property, networkType = networkType, bufferSize = bufferSize, networkTunerCapabilitiesCtorArg = networkTunerCapabilities)
+    public fun copy(property: Ksidentifier = this.property, networkType: Guid = this.networkType, bufferSize: UInt = this.bufferSize, networkTunerCapabilities: MutPtr = this.networkTunerCapabilities): KspropertyTunerNetworktypeScanCapsS = KspropertyTunerNetworktypeScanCapsS(property = property, networkType = networkType, bufferSize = bufferSize, networkTunerCapabilitiesCtorArg = networkTunerCapabilities)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -4352,7 +4351,7 @@ public class KspropertyTunerNetworktypeScanCapsS internal constructor(
             property: Ksidentifier = Ksidentifier(),
             networkType: Guid = Guid(),
             bufferSize: UInt = 0u,
-            networkTunerCapabilities: MutPtr<CVoid> = MutPtr(0L),
+            networkTunerCapabilities: MutPtr = MutPtr(0L),
         ): KspropertyTunerNetworktypeScanCapsS =
             KspropertyTunerNetworktypeScanCapsS(
                 property = property,
@@ -4367,10 +4366,10 @@ public class KspropertyTunerScanCapsS internal constructor(
     public var property: Ksidentifier,
     public var fSupportsHardwareAssistedScanning: Bool,
     public var supportedBroadcastStandards: UInt,
-    gUIDBucketCtorArg: MutPtr<CVoid>,
+    gUIDBucketCtorArg: MutPtr,
     public var lengthofBucket: UInt,
 ) {
-    public var gUIDBucket: MutPtr<CVoid> = gUIDBucketCtorArg
+    public var gUIDBucket: MutPtr = gUIDBucketCtorArg
         internal set
 
     public constructor() : this(
@@ -4387,11 +4386,11 @@ public class KspropertyTunerScanCapsS internal constructor(
 
     public operator fun component3(): UInt = this.supportedBroadcastStandards
 
-    public operator fun component4(): MutPtr<CVoid> = this.gUIDBucket
+    public operator fun component4(): MutPtr = this.gUIDBucket
 
     public operator fun component5(): UInt = this.lengthofBucket
 
-    public fun copy(property: Ksidentifier = this.property, fSupportsHardwareAssistedScanning: Bool = this.fSupportsHardwareAssistedScanning, supportedBroadcastStandards: UInt = this.supportedBroadcastStandards, gUIDBucket: MutPtr<CVoid> = this.gUIDBucket, lengthofBucket: UInt = this.lengthofBucket): KspropertyTunerScanCapsS = KspropertyTunerScanCapsS(property = property, fSupportsHardwareAssistedScanning = fSupportsHardwareAssistedScanning, supportedBroadcastStandards = supportedBroadcastStandards, gUIDBucketCtorArg = gUIDBucket, lengthofBucket = lengthofBucket)
+    public fun copy(property: Ksidentifier = this.property, fSupportsHardwareAssistedScanning: Bool = this.fSupportsHardwareAssistedScanning, supportedBroadcastStandards: UInt = this.supportedBroadcastStandards, gUIDBucket: MutPtr = this.gUIDBucket, lengthofBucket: UInt = this.lengthofBucket): KspropertyTunerScanCapsS = KspropertyTunerScanCapsS(property = property, fSupportsHardwareAssistedScanning = fSupportsHardwareAssistedScanning, supportedBroadcastStandards = supportedBroadcastStandards, gUIDBucketCtorArg = gUIDBucket, lengthofBucket = lengthofBucket)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -4418,7 +4417,7 @@ public class KspropertyTunerScanCapsS internal constructor(
             property: Ksidentifier = Ksidentifier(),
             fSupportsHardwareAssistedScanning: Bool = 0,
             supportedBroadcastStandards: UInt = 0u,
-            gUIDBucket: MutPtr<CVoid> = MutPtr(0L),
+            gUIDBucket: MutPtr = MutPtr(0L),
             lengthofBucket: UInt = 0u,
         ): KspropertyTunerScanCapsS =
             KspropertyTunerScanCapsS(
@@ -4651,11 +4650,11 @@ public data class KspTimeformat(
 )
 
 public class Ksquality internal constructor(
-    contextCtorArg: MutPtr<CVoid>,
+    contextCtorArg: MutPtr,
     public var proportion: UInt,
     public var deltaTime: Long,
 ) {
-    public var context: MutPtr<CVoid> = contextCtorArg
+    public var context: MutPtr = contextCtorArg
         internal set
 
     public constructor() : this(
@@ -4664,13 +4663,13 @@ public class Ksquality internal constructor(
         deltaTime = 0L,
     )
 
-    public operator fun component1(): MutPtr<CVoid> = this.context
+    public operator fun component1(): MutPtr = this.context
 
     public operator fun component2(): UInt = this.proportion
 
     public operator fun component3(): Long = this.deltaTime
 
-    public fun copy(context: MutPtr<CVoid> = this.context, proportion: UInt = this.proportion, deltaTime: Long = this.deltaTime): Ksquality = Ksquality(contextCtorArg = context, proportion = proportion, deltaTime = deltaTime)
+    public fun copy(context: MutPtr = this.context, proportion: UInt = this.proportion, deltaTime: Long = this.deltaTime): Ksquality = Ksquality(contextCtorArg = context, proportion = proportion, deltaTime = deltaTime)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -4697,7 +4696,7 @@ public class Ksquality internal constructor(
                     Ksquality(
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<CVoid>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 8L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I64).readNative(addr + 16L),
@@ -4705,7 +4704,7 @@ public class Ksquality internal constructor(
                 override fun writeNative(addr: Long, value: Ksquality) {
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<CVoid>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr, value.context)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 8L, value.proportion)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I64).writeNative(addr + 16L, value.deltaTime)
@@ -4713,7 +4712,7 @@ public class Ksquality internal constructor(
             }
 
         public operator fun invoke(
-            context: MutPtr<CVoid> = MutPtr(0L),
+            context: MutPtr = MutPtr(0L),
             proportion: UInt = 0u,
             deltaTime: Long = 0L,
         ): Ksquality =
@@ -4727,12 +4726,12 @@ public class Ksquality internal constructor(
 
 public class KsqualityManager internal constructor(
     qualityManagerCtorArg: Handle,
-    contextCtorArg: MutPtr<CVoid>,
+    contextCtorArg: MutPtr,
 ) {
     public var qualityManager: Handle = qualityManagerCtorArg
         internal set
 
-    public var context: MutPtr<CVoid> = contextCtorArg
+    public var context: MutPtr = contextCtorArg
         internal set
 
     public constructor() : this(
@@ -4742,9 +4741,9 @@ public class KsqualityManager internal constructor(
 
     public operator fun component1(): Handle = this.qualityManager
 
-    public operator fun component2(): MutPtr<CVoid> = this.context
+    public operator fun component2(): MutPtr = this.context
 
-    public fun copy(qualityManager: Handle = this.qualityManager, context: MutPtr<CVoid> = this.context): KsqualityManager = KsqualityManager(qualityManagerCtorArg = qualityManager, contextCtorArg = context)
+    public fun copy(qualityManager: Handle = this.qualityManager, context: MutPtr = this.context): KsqualityManager = KsqualityManager(qualityManagerCtorArg = qualityManager, contextCtorArg = context)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -4763,7 +4762,7 @@ public class KsqualityManager internal constructor(
     public companion object {
         public operator fun invoke(
             qualityManager: Handle = MutPtr(0L),
-            context: MutPtr<CVoid> = MutPtr(0L),
+            context: MutPtr = MutPtr(0L),
         ): KsqualityManager =
             KsqualityManager(
                 qualityManagerCtorArg = qualityManager,
@@ -4774,13 +4773,13 @@ public class KsqualityManager internal constructor(
 
 public class Ksquerybuffer internal constructor(
     public var event: Ksidentifier,
-    eventDataCtorArg: MutPtr<Kseventdata>,
-    reservedCtorArg: MutPtr<CVoid>,
+    eventDataCtorArg: MutPtr,
+    reservedCtorArg: MutPtr,
 ) {
-    public var eventData: MutPtr<Kseventdata> = eventDataCtorArg
+    public var eventData: MutPtr = eventDataCtorArg
         internal set
 
-    public var reserved: MutPtr<CVoid> = reservedCtorArg
+    public var reserved: MutPtr = reservedCtorArg
         internal set
 
     public constructor() : this(
@@ -4791,11 +4790,11 @@ public class Ksquerybuffer internal constructor(
 
     public operator fun component1(): Ksidentifier = this.event
 
-    public operator fun component2(): MutPtr<Kseventdata> = this.eventData
+    public operator fun component2(): MutPtr = this.eventData
 
-    public operator fun component3(): MutPtr<CVoid> = this.reserved
+    public operator fun component3(): MutPtr = this.reserved
 
-    public fun copy(event: Ksidentifier = this.event, eventData: MutPtr<Kseventdata> = this.eventData, reserved: MutPtr<CVoid> = this.reserved): Ksquerybuffer = Ksquerybuffer(event = event, eventDataCtorArg = eventData, reservedCtorArg = reserved)
+    public fun copy(event: Ksidentifier = this.event, eventData: MutPtr = this.eventData, reserved: MutPtr = this.reserved): Ksquerybuffer = Ksquerybuffer(event = event, eventDataCtorArg = eventData, reservedCtorArg = reserved)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -4816,8 +4815,8 @@ public class Ksquerybuffer internal constructor(
     public companion object {
         public operator fun invoke(
             event: Ksidentifier = Ksidentifier(),
-            eventData: MutPtr<Kseventdata> = MutPtr(0L),
-            reserved: MutPtr<CVoid> = MutPtr(0L),
+            eventData: MutPtr = MutPtr(0L),
+            reserved: MutPtr = MutPtr(0L),
         ): Ksquerybuffer =
             Ksquerybuffer(
                 event = event,
@@ -4844,11 +4843,11 @@ public class Ksrelativeevent internal constructor(
     public var size: UInt,
     public var flags: UInt,
     public var anonymous: Ksrelativeevent0,
-    reservedCtorArg: MutPtr<CVoid>,
+    reservedCtorArg: MutPtr,
     public var event: Ksidentifier,
     public var eventData: Kseventdata,
 ) {
-    public var reserved: MutPtr<CVoid> = reservedCtorArg
+    public var reserved: MutPtr = reservedCtorArg
         internal set
 
     public constructor() : this(
@@ -4866,13 +4865,13 @@ public class Ksrelativeevent internal constructor(
 
     public operator fun component3(): Ksrelativeevent0 = this.anonymous
 
-    public operator fun component4(): MutPtr<CVoid> = this.reserved
+    public operator fun component4(): MutPtr = this.reserved
 
     public operator fun component5(): Ksidentifier = this.event
 
     public operator fun component6(): Kseventdata = this.eventData
 
-    public fun copy(size: UInt = this.size, flags: UInt = this.flags, anonymous: Ksrelativeevent0 = this.anonymous, reserved: MutPtr<CVoid> = this.reserved, event: Ksidentifier = this.event, eventData: Kseventdata = this.eventData): Ksrelativeevent = Ksrelativeevent(size = size, flags = flags, anonymous = anonymous, reservedCtorArg = reserved, event = event, eventData = eventData)
+    public fun copy(size: UInt = this.size, flags: UInt = this.flags, anonymous: Ksrelativeevent0 = this.anonymous, reserved: MutPtr = this.reserved, event: Ksidentifier = this.event, eventData: Kseventdata = this.eventData): Ksrelativeevent = Ksrelativeevent(size = size, flags = flags, anonymous = anonymous, reservedCtorArg = reserved, event = event, eventData = eventData)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -4901,7 +4900,7 @@ public class Ksrelativeevent internal constructor(
             size: UInt = 0u,
             flags: UInt = 0u,
             anonymous: Ksrelativeevent0 = Ksrelativeevent0(),
-            reserved: MutPtr<CVoid> = MutPtr(0L),
+            reserved: MutPtr = MutPtr(0L),
             event: Ksidentifier = Ksidentifier(),
             eventData: Kseventdata = Kseventdata(),
         ): Ksrelativeevent =

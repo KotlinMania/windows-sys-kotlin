@@ -2,7 +2,6 @@
 
 package io.github.kotlinmania.windowssys.windows.wdk.graphics.direct3d
 
-import io.github.kotlinmania.rustlang.core.ffi.CVoid
 import io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
 import io.github.kotlinmania.rustlang.core.mem.TypeLayout
 import io.github.kotlinmania.rustlang.core.ptr.ConstPtr
@@ -20,7 +19,7 @@ public class D3dddiargCreateresource internal constructor(
     public var pool: D3dddiPool,
     public var multisampleType: D3dddimultisampleType,
     public var multisampleQuality: UInt,
-    pSurfListCtorArg: ConstPtr<D3dddiSurfaceinfo>,
+    pSurfListCtorArg: ConstPtr,
     public var surfCount: UInt,
     public var mipLevels: UInt,
     public var fvf: UInt,
@@ -30,7 +29,7 @@ public class D3dddiargCreateresource internal constructor(
     public var flags: D3dddiResourceflags,
     public var rotation: D3dddiRotation,
 ) {
-    public var pSurfList: ConstPtr<D3dddiSurfaceinfo> = pSurfListCtorArg
+    public var pSurfList: ConstPtr = pSurfListCtorArg
         internal set
 
     public var hResource: Handle = hResourceCtorArg
@@ -60,7 +59,7 @@ public class D3dddiargCreateresource internal constructor(
 
     public operator fun component4(): UInt = this.multisampleQuality
 
-    public operator fun component5(): ConstPtr<D3dddiSurfaceinfo> = this.pSurfList
+    public operator fun component5(): ConstPtr = this.pSurfList
 
     public operator fun component6(): UInt = this.surfCount
 
@@ -78,7 +77,7 @@ public class D3dddiargCreateresource internal constructor(
 
     public operator fun component13(): D3dddiRotation = this.rotation
 
-    public fun copy(format: D3dddiformat = this.format, pool: D3dddiPool = this.pool, multisampleType: D3dddimultisampleType = this.multisampleType, multisampleQuality: UInt = this.multisampleQuality, pSurfList: ConstPtr<D3dddiSurfaceinfo> = this.pSurfList, surfCount: UInt = this.surfCount, mipLevels: UInt = this.mipLevels, fvf: UInt = this.fvf, vidPnSourceId: UInt = this.vidPnSourceId, refreshRate: D3dddiRational = this.refreshRate, hResource: Handle = this.hResource, flags: D3dddiResourceflags = this.flags, rotation: D3dddiRotation = this.rotation): D3dddiargCreateresource = D3dddiargCreateresource(format = format, pool = pool, multisampleType = multisampleType, multisampleQuality = multisampleQuality, pSurfListCtorArg = pSurfList, surfCount = surfCount, mipLevels = mipLevels, fvf = fvf, vidPnSourceId = vidPnSourceId, refreshRate = refreshRate, hResourceCtorArg = hResource, flags = flags, rotation = rotation)
+    public fun copy(format: D3dddiformat = this.format, pool: D3dddiPool = this.pool, multisampleType: D3dddimultisampleType = this.multisampleType, multisampleQuality: UInt = this.multisampleQuality, pSurfList: ConstPtr = this.pSurfList, surfCount: UInt = this.surfCount, mipLevels: UInt = this.mipLevels, fvf: UInt = this.fvf, vidPnSourceId: UInt = this.vidPnSourceId, refreshRate: D3dddiRational = this.refreshRate, hResource: Handle = this.hResource, flags: D3dddiResourceflags = this.flags, rotation: D3dddiRotation = this.rotation): D3dddiargCreateresource = D3dddiargCreateresource(format = format, pool = pool, multisampleType = multisampleType, multisampleQuality = multisampleQuality, pSurfListCtorArg = pSurfList, surfCount = surfCount, mipLevels = mipLevels, fvf = fvf, vidPnSourceId = vidPnSourceId, refreshRate = refreshRate, hResourceCtorArg = hResource, flags = flags, rotation = rotation)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -122,7 +121,7 @@ public class D3dddiargCreateresource internal constructor(
             pool: D3dddiPool = 0,
             multisampleType: D3dddimultisampleType = 0,
             multisampleQuality: UInt = 0u,
-            pSurfList: ConstPtr<D3dddiSurfaceinfo> = ConstPtr(0L),
+            pSurfList: ConstPtr = ConstPtr(0L),
             surfCount: UInt = 0u,
             mipLevels: UInt = 0u,
             fvf: UInt = 0u,
@@ -155,7 +154,7 @@ public class D3dddiargCreateresource2 internal constructor(
     public var pool: D3dddiPool,
     public var multisampleType: D3dddimultisampleType,
     public var multisampleQuality: UInt,
-    pSurfListCtorArg: ConstPtr<D3dddiSurfaceinfo>,
+    pSurfListCtorArg: ConstPtr,
     public var surfCount: UInt,
     public var mipLevels: UInt,
     public var fvf: UInt,
@@ -166,7 +165,7 @@ public class D3dddiargCreateresource2 internal constructor(
     public var rotation: D3dddiRotation,
     public var flags2: D3dddiResourceflags2,
 ) {
-    public var pSurfList: ConstPtr<D3dddiSurfaceinfo> = pSurfListCtorArg
+    public var pSurfList: ConstPtr = pSurfListCtorArg
         internal set
 
     public var hResource: Handle = hResourceCtorArg
@@ -197,7 +196,7 @@ public class D3dddiargCreateresource2 internal constructor(
 
     public operator fun component4(): UInt = this.multisampleQuality
 
-    public operator fun component5(): ConstPtr<D3dddiSurfaceinfo> = this.pSurfList
+    public operator fun component5(): ConstPtr = this.pSurfList
 
     public operator fun component6(): UInt = this.surfCount
 
@@ -217,7 +216,7 @@ public class D3dddiargCreateresource2 internal constructor(
 
     public operator fun component14(): D3dddiResourceflags2 = this.flags2
 
-    public fun copy(format: D3dddiformat = this.format, pool: D3dddiPool = this.pool, multisampleType: D3dddimultisampleType = this.multisampleType, multisampleQuality: UInt = this.multisampleQuality, pSurfList: ConstPtr<D3dddiSurfaceinfo> = this.pSurfList, surfCount: UInt = this.surfCount, mipLevels: UInt = this.mipLevels, fvf: UInt = this.fvf, vidPnSourceId: UInt = this.vidPnSourceId, refreshRate: D3dddiRational = this.refreshRate, hResource: Handle = this.hResource, flags: D3dddiResourceflags = this.flags, rotation: D3dddiRotation = this.rotation, flags2: D3dddiResourceflags2 = this.flags2): D3dddiargCreateresource2 = D3dddiargCreateresource2(format = format, pool = pool, multisampleType = multisampleType, multisampleQuality = multisampleQuality, pSurfListCtorArg = pSurfList, surfCount = surfCount, mipLevels = mipLevels, fvf = fvf, vidPnSourceId = vidPnSourceId, refreshRate = refreshRate, hResourceCtorArg = hResource, flags = flags, rotation = rotation, flags2 = flags2)
+    public fun copy(format: D3dddiformat = this.format, pool: D3dddiPool = this.pool, multisampleType: D3dddimultisampleType = this.multisampleType, multisampleQuality: UInt = this.multisampleQuality, pSurfList: ConstPtr = this.pSurfList, surfCount: UInt = this.surfCount, mipLevels: UInt = this.mipLevels, fvf: UInt = this.fvf, vidPnSourceId: UInt = this.vidPnSourceId, refreshRate: D3dddiRational = this.refreshRate, hResource: Handle = this.hResource, flags: D3dddiResourceflags = this.flags, rotation: D3dddiRotation = this.rotation, flags2: D3dddiResourceflags2 = this.flags2): D3dddiargCreateresource2 = D3dddiargCreateresource2(format = format, pool = pool, multisampleType = multisampleType, multisampleQuality = multisampleQuality, pSurfListCtorArg = pSurfList, surfCount = surfCount, mipLevels = mipLevels, fvf = fvf, vidPnSourceId = vidPnSourceId, refreshRate = refreshRate, hResourceCtorArg = hResource, flags = flags, rotation = rotation, flags2 = flags2)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -263,7 +262,7 @@ public class D3dddiargCreateresource2 internal constructor(
             pool: D3dddiPool = 0,
             multisampleType: D3dddimultisampleType = 0,
             multisampleQuality: UInt = 0u,
-            pSurfList: ConstPtr<D3dddiSurfaceinfo> = ConstPtr(0L),
+            pSurfList: ConstPtr = ConstPtr(0L),
             surfCount: UInt = 0u,
             mipLevels: UInt = 0u,
             fvf: UInt = 0u,
@@ -463,16 +462,16 @@ public data class D3dddirect(
 
 public class D3dddiAllocationinfo internal constructor(
     public var hAllocation: UInt,
-    pSystemMemCtorArg: ConstPtr<CVoid>,
-    pPrivateDriverDataCtorArg: MutPtr<CVoid>,
+    pSystemMemCtorArg: ConstPtr,
+    pPrivateDriverDataCtorArg: MutPtr,
     public var privateDriverDataSize: UInt,
     public var vidPnSourceId: UInt,
     public var flags: D3dddiAllocationinfo0,
 ) {
-    public var pSystemMem: ConstPtr<CVoid> = pSystemMemCtorArg
+    public var pSystemMem: ConstPtr = pSystemMemCtorArg
         internal set
 
-    public var pPrivateDriverData: MutPtr<CVoid> = pPrivateDriverDataCtorArg
+    public var pPrivateDriverData: MutPtr = pPrivateDriverDataCtorArg
         internal set
 
     public constructor() : this(
@@ -486,9 +485,9 @@ public class D3dddiAllocationinfo internal constructor(
 
     public operator fun component1(): UInt = this.hAllocation
 
-    public operator fun component2(): ConstPtr<CVoid> = this.pSystemMem
+    public operator fun component2(): ConstPtr = this.pSystemMem
 
-    public operator fun component3(): MutPtr<CVoid> = this.pPrivateDriverData
+    public operator fun component3(): MutPtr = this.pPrivateDriverData
 
     public operator fun component4(): UInt = this.privateDriverDataSize
 
@@ -496,7 +495,7 @@ public class D3dddiAllocationinfo internal constructor(
 
     public operator fun component6(): D3dddiAllocationinfo0 = this.flags
 
-    public fun copy(hAllocation: UInt = this.hAllocation, pSystemMem: ConstPtr<CVoid> = this.pSystemMem, pPrivateDriverData: MutPtr<CVoid> = this.pPrivateDriverData, privateDriverDataSize: UInt = this.privateDriverDataSize, vidPnSourceId: UInt = this.vidPnSourceId, flags: D3dddiAllocationinfo0 = this.flags): D3dddiAllocationinfo = D3dddiAllocationinfo(hAllocation = hAllocation, pSystemMemCtorArg = pSystemMem, pPrivateDriverDataCtorArg = pPrivateDriverData, privateDriverDataSize = privateDriverDataSize, vidPnSourceId = vidPnSourceId, flags = flags)
+    public fun copy(hAllocation: UInt = this.hAllocation, pSystemMem: ConstPtr = this.pSystemMem, pPrivateDriverData: MutPtr = this.pPrivateDriverData, privateDriverDataSize: UInt = this.privateDriverDataSize, vidPnSourceId: UInt = this.vidPnSourceId, flags: D3dddiAllocationinfo0 = this.flags): D3dddiAllocationinfo = D3dddiAllocationinfo(hAllocation = hAllocation, pSystemMemCtorArg = pSystemMem, pPrivateDriverDataCtorArg = pPrivateDriverData, privateDriverDataSize = privateDriverDataSize, vidPnSourceId = vidPnSourceId, flags = flags)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -523,8 +522,8 @@ public class D3dddiAllocationinfo internal constructor(
     public companion object {
         public operator fun invoke(
             hAllocation: UInt = 0u,
-            pSystemMem: ConstPtr<CVoid> = ConstPtr(0L),
-            pPrivateDriverData: MutPtr<CVoid> = MutPtr(0L),
+            pSystemMem: ConstPtr = ConstPtr(0L),
+            pPrivateDriverData: MutPtr = MutPtr(0L),
             privateDriverDataSize: UInt = 0u,
             vidPnSourceId: UInt = 0u,
             flags: D3dddiAllocationinfo0 = D3dddiAllocationinfo0(),
@@ -567,7 +566,7 @@ public data class D3dddiAllocationinfo00(
 public class D3dddiAllocationinfo2 internal constructor(
     public var hAllocation: UInt,
     public var anonymous1: D3dddiAllocationinfo20,
-    pPrivateDriverDataCtorArg: MutPtr<CVoid>,
+    pPrivateDriverDataCtorArg: MutPtr,
     public var privateDriverDataSize: UInt,
     public var vidPnSourceId: UInt,
     public var flags: D3dddiAllocationinfo21,
@@ -575,7 +574,7 @@ public class D3dddiAllocationinfo2 internal constructor(
     public var anonymous2: D3dddiAllocationinfo22,
     public var reserved: IntArray,
 ) {
-    public var pPrivateDriverData: MutPtr<CVoid> = pPrivateDriverDataCtorArg
+    public var pPrivateDriverData: MutPtr = pPrivateDriverDataCtorArg
         internal set
 
     public constructor() : this(
@@ -594,7 +593,7 @@ public class D3dddiAllocationinfo2 internal constructor(
 
     public operator fun component2(): D3dddiAllocationinfo20 = this.anonymous1
 
-    public operator fun component3(): MutPtr<CVoid> = this.pPrivateDriverData
+    public operator fun component3(): MutPtr = this.pPrivateDriverData
 
     public operator fun component4(): UInt = this.privateDriverDataSize
 
@@ -608,7 +607,7 @@ public class D3dddiAllocationinfo2 internal constructor(
 
     public operator fun component9(): IntArray = this.reserved
 
-    public fun copy(hAllocation: UInt = this.hAllocation, anonymous1: D3dddiAllocationinfo20 = this.anonymous1, pPrivateDriverData: MutPtr<CVoid> = this.pPrivateDriverData, privateDriverDataSize: UInt = this.privateDriverDataSize, vidPnSourceId: UInt = this.vidPnSourceId, flags: D3dddiAllocationinfo21 = this.flags, gpuVirtualAddress: ULong = this.gpuVirtualAddress, anonymous2: D3dddiAllocationinfo22 = this.anonymous2, reserved: IntArray = this.reserved): D3dddiAllocationinfo2 = D3dddiAllocationinfo2(hAllocation = hAllocation, anonymous1 = anonymous1, pPrivateDriverDataCtorArg = pPrivateDriverData, privateDriverDataSize = privateDriverDataSize, vidPnSourceId = vidPnSourceId, flags = flags, gpuVirtualAddress = gpuVirtualAddress, anonymous2 = anonymous2, reserved = reserved)
+    public fun copy(hAllocation: UInt = this.hAllocation, anonymous1: D3dddiAllocationinfo20 = this.anonymous1, pPrivateDriverData: MutPtr = this.pPrivateDriverData, privateDriverDataSize: UInt = this.privateDriverDataSize, vidPnSourceId: UInt = this.vidPnSourceId, flags: D3dddiAllocationinfo21 = this.flags, gpuVirtualAddress: ULong = this.gpuVirtualAddress, anonymous2: D3dddiAllocationinfo22 = this.anonymous2, reserved: IntArray = this.reserved): D3dddiAllocationinfo2 = D3dddiAllocationinfo2(hAllocation = hAllocation, anonymous1 = anonymous1, pPrivateDriverDataCtorArg = pPrivateDriverData, privateDriverDataSize = privateDriverDataSize, vidPnSourceId = vidPnSourceId, flags = flags, gpuVirtualAddress = gpuVirtualAddress, anonymous2 = anonymous2, reserved = reserved)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -642,7 +641,7 @@ public class D3dddiAllocationinfo2 internal constructor(
         public operator fun invoke(
             hAllocation: UInt = 0u,
             anonymous1: D3dddiAllocationinfo20 = D3dddiAllocationinfo20(),
-            pPrivateDriverData: MutPtr<CVoid> = MutPtr(0L),
+            pPrivateDriverData: MutPtr = MutPtr(0L),
             privateDriverDataSize: UInt = 0u,
             vidPnSourceId: UInt = 0u,
             flags: D3dddiAllocationinfo21 = D3dddiAllocationinfo21(),
@@ -666,12 +665,12 @@ public class D3dddiAllocationinfo2 internal constructor(
 
 public class D3dddiAllocationinfo20 internal constructor(
     hSectionCtorArg: Handle,
-    pSystemMemCtorArg: ConstPtr<CVoid>,
+    pSystemMemCtorArg: ConstPtr,
 ) {
     public var hSection: Handle = hSectionCtorArg
         internal set
 
-    public var pSystemMem: ConstPtr<CVoid> = pSystemMemCtorArg
+    public var pSystemMem: ConstPtr = pSystemMemCtorArg
         internal set
 
     public constructor() : this(
@@ -681,9 +680,9 @@ public class D3dddiAllocationinfo20 internal constructor(
 
     public operator fun component1(): Handle = this.hSection
 
-    public operator fun component2(): ConstPtr<CVoid> = this.pSystemMem
+    public operator fun component2(): ConstPtr = this.pSystemMem
 
-    public fun copy(hSection: Handle = this.hSection, pSystemMem: ConstPtr<CVoid> = this.pSystemMem): D3dddiAllocationinfo20 = D3dddiAllocationinfo20(hSectionCtorArg = hSection, pSystemMemCtorArg = pSystemMem)
+    public fun copy(hSection: Handle = this.hSection, pSystemMem: ConstPtr = this.pSystemMem): D3dddiAllocationinfo20 = D3dddiAllocationinfo20(hSectionCtorArg = hSection, pSystemMemCtorArg = pSystemMem)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -702,7 +701,7 @@ public class D3dddiAllocationinfo20 internal constructor(
     public companion object {
         public operator fun invoke(
             hSection: Handle = MutPtr(0L),
-            pSystemMem: ConstPtr<CVoid> = ConstPtr(0L),
+            pSystemMem: ConstPtr = ConstPtr(0L),
         ): D3dddiAllocationinfo20 =
             D3dddiAllocationinfo20(
                 hSectionCtorArg = hSection,
@@ -855,14 +854,14 @@ public data class D3dddiCreatehwqueueflags00(
 
 public class D3dddiCreatenativefenceinfo internal constructor(
     public var initialFenceValue: ULong,
-    pPrivateDriverDataCtorArg: MutPtr<CVoid>,
+    pPrivateDriverDataCtorArg: MutPtr,
     public var privateDriverDataSize: UInt,
     public var engineAffinity: UInt,
     public var flags: D3dddiSynchronizationobjectFlags,
     public var hSyncObject: UInt,
     public var nativeFenceMapping: D3dddiNativefencemapping,
 ) {
-    public var pPrivateDriverData: MutPtr<CVoid> = pPrivateDriverDataCtorArg
+    public var pPrivateDriverData: MutPtr = pPrivateDriverDataCtorArg
         internal set
 
     public constructor() : this(
@@ -877,7 +876,7 @@ public class D3dddiCreatenativefenceinfo internal constructor(
 
     public operator fun component1(): ULong = this.initialFenceValue
 
-    public operator fun component2(): MutPtr<CVoid> = this.pPrivateDriverData
+    public operator fun component2(): MutPtr = this.pPrivateDriverData
 
     public operator fun component3(): UInt = this.privateDriverDataSize
 
@@ -889,7 +888,7 @@ public class D3dddiCreatenativefenceinfo internal constructor(
 
     public operator fun component7(): D3dddiNativefencemapping = this.nativeFenceMapping
 
-    public fun copy(initialFenceValue: ULong = this.initialFenceValue, pPrivateDriverData: MutPtr<CVoid> = this.pPrivateDriverData, privateDriverDataSize: UInt = this.privateDriverDataSize, engineAffinity: UInt = this.engineAffinity, flags: D3dddiSynchronizationobjectFlags = this.flags, hSyncObject: UInt = this.hSyncObject, nativeFenceMapping: D3dddiNativefencemapping = this.nativeFenceMapping): D3dddiCreatenativefenceinfo = D3dddiCreatenativefenceinfo(initialFenceValue = initialFenceValue, pPrivateDriverDataCtorArg = pPrivateDriverData, privateDriverDataSize = privateDriverDataSize, engineAffinity = engineAffinity, flags = flags, hSyncObject = hSyncObject, nativeFenceMapping = nativeFenceMapping)
+    public fun copy(initialFenceValue: ULong = this.initialFenceValue, pPrivateDriverData: MutPtr = this.pPrivateDriverData, privateDriverDataSize: UInt = this.privateDriverDataSize, engineAffinity: UInt = this.engineAffinity, flags: D3dddiSynchronizationobjectFlags = this.flags, hSyncObject: UInt = this.hSyncObject, nativeFenceMapping: D3dddiNativefencemapping = this.nativeFenceMapping): D3dddiCreatenativefenceinfo = D3dddiCreatenativefenceinfo(initialFenceValue = initialFenceValue, pPrivateDriverDataCtorArg = pPrivateDriverData, privateDriverDataSize = privateDriverDataSize, engineAffinity = engineAffinity, flags = flags, hSyncObject = hSyncObject, nativeFenceMapping = nativeFenceMapping)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -918,7 +917,7 @@ public class D3dddiCreatenativefenceinfo internal constructor(
     public companion object {
         public operator fun invoke(
             initialFenceValue: ULong = 0uL,
-            pPrivateDriverData: MutPtr<CVoid> = MutPtr(0L),
+            pPrivateDriverData: MutPtr = MutPtr(0L),
             privateDriverDataSize: UInt = 0u,
             engineAffinity: UInt = 0u,
             flags: D3dddiSynchronizationobjectFlags = D3dddiSynchronizationobjectFlags(),
@@ -1226,9 +1225,9 @@ public data class D3dddiGammaRampRgb256x3x16(
 public class D3dddiGetresourcepresentprivatedriverdata internal constructor(
     public var hResource: UInt,
     public var privateDriverDataSize: UInt,
-    pPrivateDriverDataCtorArg: MutPtr<CVoid>,
+    pPrivateDriverDataCtorArg: MutPtr,
 ) {
-    public var pPrivateDriverData: MutPtr<CVoid> = pPrivateDriverDataCtorArg
+    public var pPrivateDriverData: MutPtr = pPrivateDriverDataCtorArg
         internal set
 
     public constructor() : this(
@@ -1241,9 +1240,9 @@ public class D3dddiGetresourcepresentprivatedriverdata internal constructor(
 
     public operator fun component2(): UInt = this.privateDriverDataSize
 
-    public operator fun component3(): MutPtr<CVoid> = this.pPrivateDriverData
+    public operator fun component3(): MutPtr = this.pPrivateDriverData
 
-    public fun copy(hResource: UInt = this.hResource, privateDriverDataSize: UInt = this.privateDriverDataSize, pPrivateDriverData: MutPtr<CVoid> = this.pPrivateDriverData): D3dddiGetresourcepresentprivatedriverdata = D3dddiGetresourcepresentprivatedriverdata(hResource = hResource, privateDriverDataSize = privateDriverDataSize, pPrivateDriverDataCtorArg = pPrivateDriverData)
+    public fun copy(hResource: UInt = this.hResource, privateDriverDataSize: UInt = this.privateDriverDataSize, pPrivateDriverData: MutPtr = this.pPrivateDriverData): D3dddiGetresourcepresentprivatedriverdata = D3dddiGetresourcepresentprivatedriverdata(hResource = hResource, privateDriverDataSize = privateDriverDataSize, pPrivateDriverDataCtorArg = pPrivateDriverData)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -1272,7 +1271,7 @@ public class D3dddiGetresourcepresentprivatedriverdata internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 4L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<CVoid>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                     )
                 override fun writeNative(addr: Long, value: D3dddiGetresourcepresentprivatedriverdata) {
@@ -1280,7 +1279,7 @@ public class D3dddiGetresourcepresentprivatedriverdata internal constructor(
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 4L, value.privateDriverDataSize)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<CVoid>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.pPrivateDriverData)
                 }
             }
@@ -1288,7 +1287,7 @@ public class D3dddiGetresourcepresentprivatedriverdata internal constructor(
         public operator fun invoke(
             hResource: UInt = 0u,
             privateDriverDataSize: UInt = 0u,
-            pPrivateDriverData: MutPtr<CVoid> = MutPtr(0L),
+            pPrivateDriverData: MutPtr = MutPtr(0L),
         ): D3dddiGetresourcepresentprivatedriverdata =
             D3dddiGetresourcepresentprivatedriverdata(
                 hResource = hResource,
@@ -1426,10 +1425,10 @@ public class D3dddiKerneloverlayinfo internal constructor(
     public var hAllocation: UInt,
     public var dstRect: D3dddirect,
     public var srcRect: D3dddirect,
-    pPrivateDriverDataCtorArg: MutPtr<CVoid>,
+    pPrivateDriverDataCtorArg: MutPtr,
     public var privateDriverDataSize: UInt,
 ) {
-    public var pPrivateDriverData: MutPtr<CVoid> = pPrivateDriverDataCtorArg
+    public var pPrivateDriverData: MutPtr = pPrivateDriverDataCtorArg
         internal set
 
     public constructor() : this(
@@ -1446,11 +1445,11 @@ public class D3dddiKerneloverlayinfo internal constructor(
 
     public operator fun component3(): D3dddirect = this.srcRect
 
-    public operator fun component4(): MutPtr<CVoid> = this.pPrivateDriverData
+    public operator fun component4(): MutPtr = this.pPrivateDriverData
 
     public operator fun component5(): UInt = this.privateDriverDataSize
 
-    public fun copy(hAllocation: UInt = this.hAllocation, dstRect: D3dddirect = this.dstRect, srcRect: D3dddirect = this.srcRect, pPrivateDriverData: MutPtr<CVoid> = this.pPrivateDriverData, privateDriverDataSize: UInt = this.privateDriverDataSize): D3dddiKerneloverlayinfo = D3dddiKerneloverlayinfo(hAllocation = hAllocation, dstRect = dstRect, srcRect = srcRect, pPrivateDriverDataCtorArg = pPrivateDriverData, privateDriverDataSize = privateDriverDataSize)
+    public fun copy(hAllocation: UInt = this.hAllocation, dstRect: D3dddirect = this.dstRect, srcRect: D3dddirect = this.srcRect, pPrivateDriverData: MutPtr = this.pPrivateDriverData, privateDriverDataSize: UInt = this.privateDriverDataSize): D3dddiKerneloverlayinfo = D3dddiKerneloverlayinfo(hAllocation = hAllocation, dstRect = dstRect, srcRect = srcRect, pPrivateDriverDataCtorArg = pPrivateDriverData, privateDriverDataSize = privateDriverDataSize)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -1484,7 +1483,7 @@ public class D3dddiKerneloverlayinfo internal constructor(
                         (D3dddirect.typeLayout()).readNative(addr + 20L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<CVoid>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 40L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 48L),
                     )
@@ -1494,7 +1493,7 @@ public class D3dddiKerneloverlayinfo internal constructor(
                     (D3dddirect.typeLayout()).writeNative(addr + 20L, value.srcRect)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<CVoid>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 40L, value.pPrivateDriverData)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 48L, value.privateDriverDataSize)
                 }
@@ -1504,7 +1503,7 @@ public class D3dddiKerneloverlayinfo internal constructor(
             hAllocation: UInt = 0u,
             dstRect: D3dddirect = D3dddirect(),
             srcRect: D3dddirect = D3dddirect(),
-            pPrivateDriverData: MutPtr<CVoid> = MutPtr(0L),
+            pPrivateDriverData: MutPtr = MutPtr(0L),
             privateDriverDataSize: UInt = 0u,
         ): D3dddiKerneloverlayinfo =
             D3dddiKerneloverlayinfo(
@@ -1520,16 +1519,16 @@ public class D3dddiKerneloverlayinfo internal constructor(
 public class D3dddiMakeresident internal constructor(
     public var hPagingQueue: UInt,
     public var numAllocations: UInt,
-    allocationListCtorArg: ConstPtr<UInt>,
-    priorityListCtorArg: ConstPtr<UInt>,
+    allocationListCtorArg: ConstPtr,
+    priorityListCtorArg: ConstPtr,
     public var flags: D3dddiMakeresidentFlags,
     public var pagingFenceValue: ULong,
     public var numBytesToTrim: ULong,
 ) {
-    public var allocationList: ConstPtr<UInt> = allocationListCtorArg
+    public var allocationList: ConstPtr = allocationListCtorArg
         internal set
 
-    public var priorityList: ConstPtr<UInt> = priorityListCtorArg
+    public var priorityList: ConstPtr = priorityListCtorArg
         internal set
 
     public constructor() : this(
@@ -1546,9 +1545,9 @@ public class D3dddiMakeresident internal constructor(
 
     public operator fun component2(): UInt = this.numAllocations
 
-    public operator fun component3(): ConstPtr<UInt> = this.allocationList
+    public operator fun component3(): ConstPtr = this.allocationList
 
-    public operator fun component4(): ConstPtr<UInt> = this.priorityList
+    public operator fun component4(): ConstPtr = this.priorityList
 
     public operator fun component5(): D3dddiMakeresidentFlags = this.flags
 
@@ -1556,7 +1555,7 @@ public class D3dddiMakeresident internal constructor(
 
     public operator fun component7(): ULong = this.numBytesToTrim
 
-    public fun copy(hPagingQueue: UInt = this.hPagingQueue, numAllocations: UInt = this.numAllocations, allocationList: ConstPtr<UInt> = this.allocationList, priorityList: ConstPtr<UInt> = this.priorityList, flags: D3dddiMakeresidentFlags = this.flags, pagingFenceValue: ULong = this.pagingFenceValue, numBytesToTrim: ULong = this.numBytesToTrim): D3dddiMakeresident = D3dddiMakeresident(hPagingQueue = hPagingQueue, numAllocations = numAllocations, allocationListCtorArg = allocationList, priorityListCtorArg = priorityList, flags = flags, pagingFenceValue = pagingFenceValue, numBytesToTrim = numBytesToTrim)
+    public fun copy(hPagingQueue: UInt = this.hPagingQueue, numAllocations: UInt = this.numAllocations, allocationList: ConstPtr = this.allocationList, priorityList: ConstPtr = this.priorityList, flags: D3dddiMakeresidentFlags = this.flags, pagingFenceValue: ULong = this.pagingFenceValue, numBytesToTrim: ULong = this.numBytesToTrim): D3dddiMakeresident = D3dddiMakeresident(hPagingQueue = hPagingQueue, numAllocations = numAllocations, allocationListCtorArg = allocationList, priorityListCtorArg = priorityList, flags = flags, pagingFenceValue = pagingFenceValue, numBytesToTrim = numBytesToTrim)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -1586,8 +1585,8 @@ public class D3dddiMakeresident internal constructor(
         public operator fun invoke(
             hPagingQueue: UInt = 0u,
             numAllocations: UInt = 0u,
-            allocationList: ConstPtr<UInt> = ConstPtr(0L),
-            priorityList: ConstPtr<UInt> = ConstPtr(0L),
+            allocationList: ConstPtr = ConstPtr(0L),
+            priorityList: ConstPtr = ConstPtr(0L),
             flags: D3dddiMakeresidentFlags = D3dddiMakeresidentFlags(),
             pagingFenceValue: ULong = 0uL,
             numBytesToTrim: ULong = 0uL,
@@ -1671,11 +1670,11 @@ public data class D3dddiMultisamplingmethod(
 }
 
 public class D3dddiNativefencemapping internal constructor(
-    currentValueCpuVaCtorArg: MutPtr<CVoid>,
+    currentValueCpuVaCtorArg: MutPtr,
     public var currentValueGpuVa: ULong,
     public var monitoredValueGpuVa: ULong,
 ) {
-    public var currentValueCpuVa: MutPtr<CVoid> = currentValueCpuVaCtorArg
+    public var currentValueCpuVa: MutPtr = currentValueCpuVaCtorArg
         internal set
 
     public constructor() : this(
@@ -1684,13 +1683,13 @@ public class D3dddiNativefencemapping internal constructor(
         monitoredValueGpuVa = 0uL,
     )
 
-    public operator fun component1(): MutPtr<CVoid> = this.currentValueCpuVa
+    public operator fun component1(): MutPtr = this.currentValueCpuVa
 
     public operator fun component2(): ULong = this.currentValueGpuVa
 
     public operator fun component3(): ULong = this.monitoredValueGpuVa
 
-    public fun copy(currentValueCpuVa: MutPtr<CVoid> = this.currentValueCpuVa, currentValueGpuVa: ULong = this.currentValueGpuVa, monitoredValueGpuVa: ULong = this.monitoredValueGpuVa): D3dddiNativefencemapping = D3dddiNativefencemapping(currentValueCpuVaCtorArg = currentValueCpuVa, currentValueGpuVa = currentValueGpuVa, monitoredValueGpuVa = monitoredValueGpuVa)
+    public fun copy(currentValueCpuVa: MutPtr = this.currentValueCpuVa, currentValueGpuVa: ULong = this.currentValueGpuVa, monitoredValueGpuVa: ULong = this.monitoredValueGpuVa): D3dddiNativefencemapping = D3dddiNativefencemapping(currentValueCpuVaCtorArg = currentValueCpuVa, currentValueGpuVa = currentValueGpuVa, monitoredValueGpuVa = monitoredValueGpuVa)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -1717,7 +1716,7 @@ public class D3dddiNativefencemapping internal constructor(
                     D3dddiNativefencemapping(
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<CVoid>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U64).readNative(addr + 8L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U64).readNative(addr + 16L),
@@ -1725,7 +1724,7 @@ public class D3dddiNativefencemapping internal constructor(
                 override fun writeNative(addr: Long, value: D3dddiNativefencemapping) {
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<CVoid>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr, value.currentValueCpuVa)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U64).writeNative(addr + 8L, value.currentValueGpuVa)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U64).writeNative(addr + 16L, value.monitoredValueGpuVa)
@@ -1733,7 +1732,7 @@ public class D3dddiNativefencemapping internal constructor(
             }
 
         public operator fun invoke(
-            currentValueCpuVa: MutPtr<CVoid> = MutPtr(0L),
+            currentValueCpuVa: MutPtr = MutPtr(0L),
             currentValueGpuVa: ULong = 0uL,
             monitoredValueGpuVa: ULong = 0uL,
         ): D3dddiNativefencemapping =
@@ -1775,10 +1774,10 @@ public data class D3dddiOfferFlags00(
 
 public class D3dddiOpenallocationinfo internal constructor(
     public var hAllocation: UInt,
-    pPrivateDriverDataCtorArg: ConstPtr<CVoid>,
+    pPrivateDriverDataCtorArg: ConstPtr,
     public var privateDriverDataSize: UInt,
 ) {
-    public var pPrivateDriverData: ConstPtr<CVoid> = pPrivateDriverDataCtorArg
+    public var pPrivateDriverData: ConstPtr = pPrivateDriverDataCtorArg
         internal set
 
     public constructor() : this(
@@ -1789,11 +1788,11 @@ public class D3dddiOpenallocationinfo internal constructor(
 
     public operator fun component1(): UInt = this.hAllocation
 
-    public operator fun component2(): ConstPtr<CVoid> = this.pPrivateDriverData
+    public operator fun component2(): ConstPtr = this.pPrivateDriverData
 
     public operator fun component3(): UInt = this.privateDriverDataSize
 
-    public fun copy(hAllocation: UInt = this.hAllocation, pPrivateDriverData: ConstPtr<CVoid> = this.pPrivateDriverData, privateDriverDataSize: UInt = this.privateDriverDataSize): D3dddiOpenallocationinfo = D3dddiOpenallocationinfo(hAllocation = hAllocation, pPrivateDriverDataCtorArg = pPrivateDriverData, privateDriverDataSize = privateDriverDataSize)
+    public fun copy(hAllocation: UInt = this.hAllocation, pPrivateDriverData: ConstPtr = this.pPrivateDriverData, privateDriverDataSize: UInt = this.privateDriverDataSize): D3dddiOpenallocationinfo = D3dddiOpenallocationinfo(hAllocation = hAllocation, pPrivateDriverDataCtorArg = pPrivateDriverData, privateDriverDataSize = privateDriverDataSize)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -1821,7 +1820,7 @@ public class D3dddiOpenallocationinfo internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .constPtrLayout<CVoid>(64)
+                                .constPtrLayout(64)
                         ).readNative(addr + 8L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 16L),
                     )
@@ -1829,7 +1828,7 @@ public class D3dddiOpenallocationinfo internal constructor(
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr, value.hAllocation)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .constPtrLayout<CVoid>(64)
+                            .constPtrLayout(64)
                     ).writeNative(addr + 8L, value.pPrivateDriverData)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 16L, value.privateDriverDataSize)
                 }
@@ -1837,7 +1836,7 @@ public class D3dddiOpenallocationinfo internal constructor(
 
         public operator fun invoke(
             hAllocation: UInt = 0u,
-            pPrivateDriverData: ConstPtr<CVoid> = ConstPtr(0L),
+            pPrivateDriverData: ConstPtr = ConstPtr(0L),
             privateDriverDataSize: UInt = 0u,
         ): D3dddiOpenallocationinfo =
             D3dddiOpenallocationinfo(
@@ -1850,12 +1849,12 @@ public class D3dddiOpenallocationinfo internal constructor(
 
 public class D3dddiOpenallocationinfo2 internal constructor(
     public var hAllocation: UInt,
-    pPrivateDriverDataCtorArg: ConstPtr<CVoid>,
+    pPrivateDriverDataCtorArg: ConstPtr,
     public var privateDriverDataSize: UInt,
     public var gpuVirtualAddress: ULong,
     public var reserved: IntArray,
 ) {
-    public var pPrivateDriverData: ConstPtr<CVoid> = pPrivateDriverDataCtorArg
+    public var pPrivateDriverData: ConstPtr = pPrivateDriverDataCtorArg
         internal set
 
     public constructor() : this(
@@ -1868,7 +1867,7 @@ public class D3dddiOpenallocationinfo2 internal constructor(
 
     public operator fun component1(): UInt = this.hAllocation
 
-    public operator fun component2(): ConstPtr<CVoid> = this.pPrivateDriverData
+    public operator fun component2(): ConstPtr = this.pPrivateDriverData
 
     public operator fun component3(): UInt = this.privateDriverDataSize
 
@@ -1876,7 +1875,7 @@ public class D3dddiOpenallocationinfo2 internal constructor(
 
     public operator fun component5(): IntArray = this.reserved
 
-    public fun copy(hAllocation: UInt = this.hAllocation, pPrivateDriverData: ConstPtr<CVoid> = this.pPrivateDriverData, privateDriverDataSize: UInt = this.privateDriverDataSize, gpuVirtualAddress: ULong = this.gpuVirtualAddress, reserved: IntArray = this.reserved): D3dddiOpenallocationinfo2 = D3dddiOpenallocationinfo2(hAllocation = hAllocation, pPrivateDriverDataCtorArg = pPrivateDriverData, privateDriverDataSize = privateDriverDataSize, gpuVirtualAddress = gpuVirtualAddress, reserved = reserved)
+    public fun copy(hAllocation: UInt = this.hAllocation, pPrivateDriverData: ConstPtr = this.pPrivateDriverData, privateDriverDataSize: UInt = this.privateDriverDataSize, gpuVirtualAddress: ULong = this.gpuVirtualAddress, reserved: IntArray = this.reserved): D3dddiOpenallocationinfo2 = D3dddiOpenallocationinfo2(hAllocation = hAllocation, pPrivateDriverDataCtorArg = pPrivateDriverData, privateDriverDataSize = privateDriverDataSize, gpuVirtualAddress = gpuVirtualAddress, reserved = reserved)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -1908,7 +1907,7 @@ public class D3dddiOpenallocationinfo2 internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .constPtrLayout<CVoid>(64)
+                                .constPtrLayout(64)
                         ).readNative(addr + 8L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 16L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U64).readNative(addr + 24L),
@@ -1921,7 +1920,7 @@ public class D3dddiOpenallocationinfo2 internal constructor(
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr, value.hAllocation)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .constPtrLayout<CVoid>(64)
+                            .constPtrLayout(64)
                     ).writeNative(addr + 8L, value.pPrivateDriverData)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 16L, value.privateDriverDataSize)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U64).writeNative(addr + 24L, value.gpuVirtualAddress)
@@ -1934,7 +1933,7 @@ public class D3dddiOpenallocationinfo2 internal constructor(
 
         public operator fun invoke(
             hAllocation: UInt = 0u,
-            pPrivateDriverData: ConstPtr<CVoid> = ConstPtr(0L),
+            pPrivateDriverData: ConstPtr = ConstPtr(0L),
             privateDriverDataSize: UInt = 0u,
             gpuVirtualAddress: ULong = 0uL,
             reserved: IntArray = IntArray(6),
@@ -2214,11 +2213,11 @@ public class D3dddiSurfaceinfo internal constructor(
     public var width: UInt,
     public var height: UInt,
     public var depth: UInt,
-    pSysMemCtorArg: ConstPtr<CVoid>,
+    pSysMemCtorArg: ConstPtr,
     public var sysMemPitch: UInt,
     public var sysMemSlicePitch: UInt,
 ) {
-    public var pSysMem: ConstPtr<CVoid> = pSysMemCtorArg
+    public var pSysMem: ConstPtr = pSysMemCtorArg
         internal set
 
     public constructor() : this(
@@ -2236,13 +2235,13 @@ public class D3dddiSurfaceinfo internal constructor(
 
     public operator fun component3(): UInt = this.depth
 
-    public operator fun component4(): ConstPtr<CVoid> = this.pSysMem
+    public operator fun component4(): ConstPtr = this.pSysMem
 
     public operator fun component5(): UInt = this.sysMemPitch
 
     public operator fun component6(): UInt = this.sysMemSlicePitch
 
-    public fun copy(width: UInt = this.width, height: UInt = this.height, depth: UInt = this.depth, pSysMem: ConstPtr<CVoid> = this.pSysMem, sysMemPitch: UInt = this.sysMemPitch, sysMemSlicePitch: UInt = this.sysMemSlicePitch): D3dddiSurfaceinfo = D3dddiSurfaceinfo(width = width, height = height, depth = depth, pSysMemCtorArg = pSysMem, sysMemPitch = sysMemPitch, sysMemSlicePitch = sysMemSlicePitch)
+    public fun copy(width: UInt = this.width, height: UInt = this.height, depth: UInt = this.depth, pSysMem: ConstPtr = this.pSysMem, sysMemPitch: UInt = this.sysMemPitch, sysMemSlicePitch: UInt = this.sysMemSlicePitch): D3dddiSurfaceinfo = D3dddiSurfaceinfo(width = width, height = height, depth = depth, pSysMemCtorArg = pSysMem, sysMemPitch = sysMemPitch, sysMemSlicePitch = sysMemSlicePitch)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -2278,7 +2277,7 @@ public class D3dddiSurfaceinfo internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 8L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .constPtrLayout<CVoid>(64)
+                                .constPtrLayout(64)
                         ).readNative(addr + 16L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 24L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 28L),
@@ -2289,7 +2288,7 @@ public class D3dddiSurfaceinfo internal constructor(
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 8L, value.depth)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .constPtrLayout<CVoid>(64)
+                            .constPtrLayout(64)
                     ).writeNative(addr + 16L, value.pSysMem)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 24L, value.sysMemPitch)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 28L, value.sysMemSlicePitch)
@@ -2300,7 +2299,7 @@ public class D3dddiSurfaceinfo internal constructor(
             width: UInt = 0u,
             height: UInt = 0u,
             depth: UInt = 0u,
-            pSysMem: ConstPtr<CVoid> = ConstPtr(0L),
+            pSysMem: ConstPtr = ConstPtr(0L),
             sysMemPitch: UInt = 0u,
             sysMemSlicePitch: UInt = 0u,
         ): D3dddiSurfaceinfo =
@@ -2472,12 +2471,12 @@ public data class D3dddiSynchronizationobjectinfo202(
 
 public class D3dddiSynchronizationobjectinfo204 internal constructor(
     public var initialFenceValue: ULong,
-    fenceValueCPUVirtualAddressCtorArg: MutPtr<CVoid>,
+    fenceValueCPUVirtualAddressCtorArg: MutPtr,
     public var fenceValueGPUVirtualAddress: ULong,
     public var engineAffinity: UInt,
     public var padding: UInt,
 ) {
-    public var fenceValueCPUVirtualAddress: MutPtr<CVoid> = fenceValueCPUVirtualAddressCtorArg
+    public var fenceValueCPUVirtualAddress: MutPtr = fenceValueCPUVirtualAddressCtorArg
         internal set
 
     public constructor() : this(
@@ -2490,7 +2489,7 @@ public class D3dddiSynchronizationobjectinfo204 internal constructor(
 
     public operator fun component1(): ULong = this.initialFenceValue
 
-    public operator fun component2(): MutPtr<CVoid> = this.fenceValueCPUVirtualAddress
+    public operator fun component2(): MutPtr = this.fenceValueCPUVirtualAddress
 
     public operator fun component3(): ULong = this.fenceValueGPUVirtualAddress
 
@@ -2498,7 +2497,7 @@ public class D3dddiSynchronizationobjectinfo204 internal constructor(
 
     public operator fun component5(): UInt = this.padding
 
-    public fun copy(initialFenceValue: ULong = this.initialFenceValue, fenceValueCPUVirtualAddress: MutPtr<CVoid> = this.fenceValueCPUVirtualAddress, fenceValueGPUVirtualAddress: ULong = this.fenceValueGPUVirtualAddress, engineAffinity: UInt = this.engineAffinity, padding: UInt = this.padding): D3dddiSynchronizationobjectinfo204 = D3dddiSynchronizationobjectinfo204(initialFenceValue = initialFenceValue, fenceValueCPUVirtualAddressCtorArg = fenceValueCPUVirtualAddress, fenceValueGPUVirtualAddress = fenceValueGPUVirtualAddress, engineAffinity = engineAffinity, padding = padding)
+    public fun copy(initialFenceValue: ULong = this.initialFenceValue, fenceValueCPUVirtualAddress: MutPtr = this.fenceValueCPUVirtualAddress, fenceValueGPUVirtualAddress: ULong = this.fenceValueGPUVirtualAddress, engineAffinity: UInt = this.engineAffinity, padding: UInt = this.padding): D3dddiSynchronizationobjectinfo204 = D3dddiSynchronizationobjectinfo204(initialFenceValue = initialFenceValue, fenceValueCPUVirtualAddressCtorArg = fenceValueCPUVirtualAddress, fenceValueGPUVirtualAddress = fenceValueGPUVirtualAddress, engineAffinity = engineAffinity, padding = padding)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -2530,7 +2529,7 @@ public class D3dddiSynchronizationobjectinfo204 internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U64).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<CVoid>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U64).readNative(addr + 16L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 24L),
@@ -2540,7 +2539,7 @@ public class D3dddiSynchronizationobjectinfo204 internal constructor(
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U64).writeNative(addr, value.initialFenceValue)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<CVoid>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.fenceValueCPUVirtualAddress)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U64).writeNative(addr + 16L, value.fenceValueGPUVirtualAddress)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 24L, value.engineAffinity)
@@ -2550,7 +2549,7 @@ public class D3dddiSynchronizationobjectinfo204 internal constructor(
 
         public operator fun invoke(
             initialFenceValue: ULong = 0uL,
-            fenceValueCPUVirtualAddress: MutPtr<CVoid> = MutPtr(0L),
+            fenceValueCPUVirtualAddress: MutPtr = MutPtr(0L),
             fenceValueGPUVirtualAddress: ULong = 0uL,
             engineAffinity: UInt = 0u,
             padding: UInt = 0u,
@@ -2569,12 +2568,12 @@ public class D3dddiSynchronizationobjectinfo205 internal constructor(
     public var hAdapter: UInt,
     public var vidPnTargetId: UInt,
     public var time: ULong,
-    fenceValueCPUVirtualAddressCtorArg: MutPtr<CVoid>,
+    fenceValueCPUVirtualAddressCtorArg: MutPtr,
     public var fenceValueGPUVirtualAddress: ULong,
     public var engineAffinity: UInt,
     public var padding: UInt,
 ) {
-    public var fenceValueCPUVirtualAddress: MutPtr<CVoid> = fenceValueCPUVirtualAddressCtorArg
+    public var fenceValueCPUVirtualAddress: MutPtr = fenceValueCPUVirtualAddressCtorArg
         internal set
 
     public constructor() : this(
@@ -2593,7 +2592,7 @@ public class D3dddiSynchronizationobjectinfo205 internal constructor(
 
     public operator fun component3(): ULong = this.time
 
-    public operator fun component4(): MutPtr<CVoid> = this.fenceValueCPUVirtualAddress
+    public operator fun component4(): MutPtr = this.fenceValueCPUVirtualAddress
 
     public operator fun component5(): ULong = this.fenceValueGPUVirtualAddress
 
@@ -2601,7 +2600,7 @@ public class D3dddiSynchronizationobjectinfo205 internal constructor(
 
     public operator fun component7(): UInt = this.padding
 
-    public fun copy(hAdapter: UInt = this.hAdapter, vidPnTargetId: UInt = this.vidPnTargetId, time: ULong = this.time, fenceValueCPUVirtualAddress: MutPtr<CVoid> = this.fenceValueCPUVirtualAddress, fenceValueGPUVirtualAddress: ULong = this.fenceValueGPUVirtualAddress, engineAffinity: UInt = this.engineAffinity, padding: UInt = this.padding): D3dddiSynchronizationobjectinfo205 = D3dddiSynchronizationobjectinfo205(hAdapter = hAdapter, vidPnTargetId = vidPnTargetId, time = time, fenceValueCPUVirtualAddressCtorArg = fenceValueCPUVirtualAddress, fenceValueGPUVirtualAddress = fenceValueGPUVirtualAddress, engineAffinity = engineAffinity, padding = padding)
+    public fun copy(hAdapter: UInt = this.hAdapter, vidPnTargetId: UInt = this.vidPnTargetId, time: ULong = this.time, fenceValueCPUVirtualAddress: MutPtr = this.fenceValueCPUVirtualAddress, fenceValueGPUVirtualAddress: ULong = this.fenceValueGPUVirtualAddress, engineAffinity: UInt = this.engineAffinity, padding: UInt = this.padding): D3dddiSynchronizationobjectinfo205 = D3dddiSynchronizationobjectinfo205(hAdapter = hAdapter, vidPnTargetId = vidPnTargetId, time = time, fenceValueCPUVirtualAddressCtorArg = fenceValueCPUVirtualAddress, fenceValueGPUVirtualAddress = fenceValueGPUVirtualAddress, engineAffinity = engineAffinity, padding = padding)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -2639,7 +2638,7 @@ public class D3dddiSynchronizationobjectinfo205 internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U64).readNative(addr + 8L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<CVoid>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 16L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U64).readNative(addr + 24L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 32L),
@@ -2651,7 +2650,7 @@ public class D3dddiSynchronizationobjectinfo205 internal constructor(
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U64).writeNative(addr + 8L, value.time)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<CVoid>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 16L, value.fenceValueCPUVirtualAddress)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U64).writeNative(addr + 24L, value.fenceValueGPUVirtualAddress)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 32L, value.engineAffinity)
@@ -2663,7 +2662,7 @@ public class D3dddiSynchronizationobjectinfo205 internal constructor(
             hAdapter: UInt = 0u,
             vidPnTargetId: UInt = 0u,
             time: ULong = 0uL,
-            fenceValueCPUVirtualAddress: MutPtr<CVoid> = MutPtr(0L),
+            fenceValueCPUVirtualAddress: MutPtr = MutPtr(0L),
             fenceValueGPUVirtualAddress: ULong = 0uL,
             engineAffinity: UInt = 0u,
             padding: UInt = 0u,
@@ -4502,11 +4501,11 @@ public data class D3dhalDrawprimcounts(
 public class D3dhalDrawprimitivesdata internal constructor(
     public var dwhContext: Int,
     public var dwFlags: UInt,
-    lpvDataCtorArg: MutPtr<CVoid>,
+    lpvDataCtorArg: MutPtr,
     public var dwFVFControl: UInt,
     public var ddrval: Hresult,
 ) {
-    public var lpvData: MutPtr<CVoid> = lpvDataCtorArg
+    public var lpvData: MutPtr = lpvDataCtorArg
         internal set
 
     public constructor() : this(
@@ -4521,13 +4520,13 @@ public class D3dhalDrawprimitivesdata internal constructor(
 
     public operator fun component2(): UInt = this.dwFlags
 
-    public operator fun component3(): MutPtr<CVoid> = this.lpvData
+    public operator fun component3(): MutPtr = this.lpvData
 
     public operator fun component4(): UInt = this.dwFVFControl
 
     public operator fun component5(): Hresult = this.ddrval
 
-    public fun copy(dwhContext: Int = this.dwhContext, dwFlags: UInt = this.dwFlags, lpvData: MutPtr<CVoid> = this.lpvData, dwFVFControl: UInt = this.dwFVFControl, ddrval: Hresult = this.ddrval): D3dhalDrawprimitivesdata = D3dhalDrawprimitivesdata(dwhContext = dwhContext, dwFlags = dwFlags, lpvDataCtorArg = lpvData, dwFVFControl = dwFVFControl, ddrval = ddrval)
+    public fun copy(dwhContext: Int = this.dwhContext, dwFlags: UInt = this.dwFlags, lpvData: MutPtr = this.lpvData, dwFVFControl: UInt = this.dwFVFControl, ddrval: Hresult = this.ddrval): D3dhalDrawprimitivesdata = D3dhalDrawprimitivesdata(dwhContext = dwhContext, dwFlags = dwFlags, lpvDataCtorArg = lpvData, dwFVFControl = dwFVFControl, ddrval = ddrval)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -4560,7 +4559,7 @@ public class D3dhalDrawprimitivesdata internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 8L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<CVoid>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 16L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 24L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr + 28L),
@@ -4570,7 +4569,7 @@ public class D3dhalDrawprimitivesdata internal constructor(
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 8L, value.dwFlags)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<CVoid>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 16L, value.lpvData)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 24L, value.dwFVFControl)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr + 28L, value.ddrval)
@@ -4580,7 +4579,7 @@ public class D3dhalDrawprimitivesdata internal constructor(
         public operator fun invoke(
             dwhContext: Int = 0,
             dwFlags: UInt = 0u,
-            lpvData: MutPtr<CVoid> = MutPtr(0L),
+            lpvData: MutPtr = MutPtr(0L),
             dwFVFControl: UInt = 0u,
             ddrval: Hresult = 0,
         ): D3dhalDrawprimitivesdata =
@@ -4965,25 +4964,25 @@ public data class D3dkmdtGammaRamp(
 )
 
 public class D3dkmdtGammaRamp0 internal constructor(
-    pRgb256x3x16CtorArg: MutPtr<D3dddiGammaRampRgb256x3x16>,
-    pDxgi1CtorArg: MutPtr<D3dddiGammaRampDxgi1>,
-    p3x4CtorArg: MutPtr<D3dkmdt3x4ColorspaceTransform>,
-    pMatrixV2CtorArg: MutPtr<D3dkmdtColorspaceTransformMatrixV2>,
-    pRawCtorArg: MutPtr<CVoid>,
+    pRgb256x3x16CtorArg: MutPtr,
+    pDxgi1CtorArg: MutPtr,
+    p3x4CtorArg: MutPtr,
+    pMatrixV2CtorArg: MutPtr,
+    pRawCtorArg: MutPtr,
 ) {
-    public var pRgb256x3x16: MutPtr<D3dddiGammaRampRgb256x3x16> = pRgb256x3x16CtorArg
+    public var pRgb256x3x16: MutPtr = pRgb256x3x16CtorArg
         internal set
 
-    public var pDxgi1: MutPtr<D3dddiGammaRampDxgi1> = pDxgi1CtorArg
+    public var pDxgi1: MutPtr = pDxgi1CtorArg
         internal set
 
-    public var p3x4: MutPtr<D3dkmdt3x4ColorspaceTransform> = p3x4CtorArg
+    public var p3x4: MutPtr = p3x4CtorArg
         internal set
 
-    public var pMatrixV2: MutPtr<D3dkmdtColorspaceTransformMatrixV2> = pMatrixV2CtorArg
+    public var pMatrixV2: MutPtr = pMatrixV2CtorArg
         internal set
 
-    public var pRaw: MutPtr<CVoid> = pRawCtorArg
+    public var pRaw: MutPtr = pRawCtorArg
         internal set
 
     public constructor() : this(
@@ -4994,17 +4993,17 @@ public class D3dkmdtGammaRamp0 internal constructor(
         pRawCtorArg = MutPtr(0L),
     )
 
-    public operator fun component1(): MutPtr<D3dddiGammaRampRgb256x3x16> = this.pRgb256x3x16
+    public operator fun component1(): MutPtr = this.pRgb256x3x16
 
-    public operator fun component2(): MutPtr<D3dddiGammaRampDxgi1> = this.pDxgi1
+    public operator fun component2(): MutPtr = this.pDxgi1
 
-    public operator fun component3(): MutPtr<D3dkmdt3x4ColorspaceTransform> = this.p3x4
+    public operator fun component3(): MutPtr = this.p3x4
 
-    public operator fun component4(): MutPtr<D3dkmdtColorspaceTransformMatrixV2> = this.pMatrixV2
+    public operator fun component4(): MutPtr = this.pMatrixV2
 
-    public operator fun component5(): MutPtr<CVoid> = this.pRaw
+    public operator fun component5(): MutPtr = this.pRaw
 
-    public fun copy(pRgb256x3x16: MutPtr<D3dddiGammaRampRgb256x3x16> = this.pRgb256x3x16, pDxgi1: MutPtr<D3dddiGammaRampDxgi1> = this.pDxgi1, p3x4: MutPtr<D3dkmdt3x4ColorspaceTransform> = this.p3x4, pMatrixV2: MutPtr<D3dkmdtColorspaceTransformMatrixV2> = this.pMatrixV2, pRaw: MutPtr<CVoid> = this.pRaw): D3dkmdtGammaRamp0 = D3dkmdtGammaRamp0(pRgb256x3x16CtorArg = pRgb256x3x16, pDxgi1CtorArg = pDxgi1, p3x4CtorArg = p3x4, pMatrixV2CtorArg = pMatrixV2, pRawCtorArg = pRaw)
+    public fun copy(pRgb256x3x16: MutPtr = this.pRgb256x3x16, pDxgi1: MutPtr = this.pDxgi1, p3x4: MutPtr = this.p3x4, pMatrixV2: MutPtr = this.pMatrixV2, pRaw: MutPtr = this.pRaw): D3dkmdtGammaRamp0 = D3dkmdtGammaRamp0(pRgb256x3x16CtorArg = pRgb256x3x16, pDxgi1CtorArg = pDxgi1, p3x4CtorArg = p3x4, pMatrixV2CtorArg = pMatrixV2, pRawCtorArg = pRaw)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -5028,11 +5027,11 @@ public class D3dkmdtGammaRamp0 internal constructor(
 
     public companion object {
         public operator fun invoke(
-            pRgb256x3x16: MutPtr<D3dddiGammaRampRgb256x3x16> = MutPtr(0L),
-            pDxgi1: MutPtr<D3dddiGammaRampDxgi1> = MutPtr(0L),
-            p3x4: MutPtr<D3dkmdt3x4ColorspaceTransform> = MutPtr(0L),
-            pMatrixV2: MutPtr<D3dkmdtColorspaceTransformMatrixV2> = MutPtr(0L),
-            pRaw: MutPtr<CVoid> = MutPtr(0L),
+            pRgb256x3x16: MutPtr = MutPtr(0L),
+            pDxgi1: MutPtr = MutPtr(0L),
+            p3x4: MutPtr = MutPtr(0L),
+            pMatrixV2: MutPtr = MutPtr(0L),
+            pRaw: MutPtr = MutPtr(0L),
         ): D3dkmdtGammaRamp0 =
             D3dkmdtGammaRamp0(
                 pRgb256x3x16CtorArg = pRgb256x3x16,
@@ -5119,10 +5118,10 @@ public class D3dkmdtMonitorDescriptor internal constructor(
     public var id: UInt,
     public var type: D3dkmdtMonitorDescriptorType,
     public var dataSize: Int,
-    pDataCtorArg: MutPtr<CVoid>,
+    pDataCtorArg: MutPtr,
     public var origin: D3dkmdtMonitorCapabilitiesOrigin,
 ) {
-    public var pData: MutPtr<CVoid> = pDataCtorArg
+    public var pData: MutPtr = pDataCtorArg
         internal set
 
     public constructor() : this(
@@ -5139,11 +5138,11 @@ public class D3dkmdtMonitorDescriptor internal constructor(
 
     public operator fun component3(): Int = this.dataSize
 
-    public operator fun component4(): MutPtr<CVoid> = this.pData
+    public operator fun component4(): MutPtr = this.pData
 
     public operator fun component5(): D3dkmdtMonitorCapabilitiesOrigin = this.origin
 
-    public fun copy(id: UInt = this.id, type: D3dkmdtMonitorDescriptorType = this.type, dataSize: Int = this.dataSize, pData: MutPtr<CVoid> = this.pData, origin: D3dkmdtMonitorCapabilitiesOrigin = this.origin): D3dkmdtMonitorDescriptor = D3dkmdtMonitorDescriptor(id = id, type = type, dataSize = dataSize, pDataCtorArg = pData, origin = origin)
+    public fun copy(id: UInt = this.id, type: D3dkmdtMonitorDescriptorType = this.type, dataSize: Int = this.dataSize, pData: MutPtr = this.pData, origin: D3dkmdtMonitorCapabilitiesOrigin = this.origin): D3dkmdtMonitorDescriptor = D3dkmdtMonitorDescriptor(id = id, type = type, dataSize = dataSize, pDataCtorArg = pData, origin = origin)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -5177,7 +5176,7 @@ public class D3dkmdtMonitorDescriptor internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.USIZE64).readNative(addr + 8L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<CVoid>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 16L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr + 24L),
                     )
@@ -5187,7 +5186,7 @@ public class D3dkmdtMonitorDescriptor internal constructor(
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.USIZE64).writeNative(addr + 8L, value.dataSize)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<CVoid>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 16L, value.pData)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr + 24L, value.origin)
                 }
@@ -5197,7 +5196,7 @@ public class D3dkmdtMonitorDescriptor internal constructor(
             id: UInt = 0u,
             type: D3dkmdtMonitorDescriptorType = 0,
             dataSize: Int = 0,
-            pData: MutPtr<CVoid> = MutPtr(0L),
+            pData: MutPtr = MutPtr(0L),
             origin: D3dkmdtMonitorCapabilitiesOrigin = 0,
         ): D3dkmdtMonitorDescriptor =
             D3dkmdtMonitorDescriptor(
@@ -5719,10 +5718,10 @@ public data class D3dkmdtWireFormatAndPreference0(
 public class D3dkmtAcquirekeyedmutex internal constructor(
     public var hKeyedMutex: UInt,
     public var key: ULong,
-    pTimeoutCtorArg: MutPtr<Long>,
+    pTimeoutCtorArg: MutPtr,
     public var fenceValue: ULong,
 ) {
-    public var pTimeout: MutPtr<Long> = pTimeoutCtorArg
+    public var pTimeout: MutPtr = pTimeoutCtorArg
         internal set
 
     public constructor() : this(
@@ -5736,11 +5735,11 @@ public class D3dkmtAcquirekeyedmutex internal constructor(
 
     public operator fun component2(): ULong = this.key
 
-    public operator fun component3(): MutPtr<Long> = this.pTimeout
+    public operator fun component3(): MutPtr = this.pTimeout
 
     public operator fun component4(): ULong = this.fenceValue
 
-    public fun copy(hKeyedMutex: UInt = this.hKeyedMutex, key: ULong = this.key, pTimeout: MutPtr<Long> = this.pTimeout, fenceValue: ULong = this.fenceValue): D3dkmtAcquirekeyedmutex = D3dkmtAcquirekeyedmutex(hKeyedMutex = hKeyedMutex, key = key, pTimeoutCtorArg = pTimeout, fenceValue = fenceValue)
+    public fun copy(hKeyedMutex: UInt = this.hKeyedMutex, key: ULong = this.key, pTimeout: MutPtr = this.pTimeout, fenceValue: ULong = this.fenceValue): D3dkmtAcquirekeyedmutex = D3dkmtAcquirekeyedmutex(hKeyedMutex = hKeyedMutex, key = key, pTimeoutCtorArg = pTimeout, fenceValue = fenceValue)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -5771,7 +5770,7 @@ public class D3dkmtAcquirekeyedmutex internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U64).readNative(addr + 8L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<Long>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 16L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U64).readNative(addr + 24L),
                     )
@@ -5780,7 +5779,7 @@ public class D3dkmtAcquirekeyedmutex internal constructor(
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U64).writeNative(addr + 8L, value.key)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<Long>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 16L, value.pTimeout)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U64).writeNative(addr + 24L, value.fenceValue)
                 }
@@ -5789,7 +5788,7 @@ public class D3dkmtAcquirekeyedmutex internal constructor(
         public operator fun invoke(
             hKeyedMutex: UInt = 0u,
             key: ULong = 0uL,
-            pTimeout: MutPtr<Long> = MutPtr(0L),
+            pTimeout: MutPtr = MutPtr(0L),
             fenceValue: ULong = 0uL,
         ): D3dkmtAcquirekeyedmutex =
             D3dkmtAcquirekeyedmutex(
@@ -5804,15 +5803,15 @@ public class D3dkmtAcquirekeyedmutex internal constructor(
 public class D3dkmtAcquirekeyedmutex2 internal constructor(
     public var hKeyedMutex: UInt,
     public var key: ULong,
-    pTimeoutCtorArg: MutPtr<Long>,
+    pTimeoutCtorArg: MutPtr,
     public var fenceValue: ULong,
-    pPrivateRuntimeDataCtorArg: MutPtr<CVoid>,
+    pPrivateRuntimeDataCtorArg: MutPtr,
     public var privateRuntimeDataSize: UInt,
 ) {
-    public var pTimeout: MutPtr<Long> = pTimeoutCtorArg
+    public var pTimeout: MutPtr = pTimeoutCtorArg
         internal set
 
-    public var pPrivateRuntimeData: MutPtr<CVoid> = pPrivateRuntimeDataCtorArg
+    public var pPrivateRuntimeData: MutPtr = pPrivateRuntimeDataCtorArg
         internal set
 
     public constructor() : this(
@@ -5828,15 +5827,15 @@ public class D3dkmtAcquirekeyedmutex2 internal constructor(
 
     public operator fun component2(): ULong = this.key
 
-    public operator fun component3(): MutPtr<Long> = this.pTimeout
+    public operator fun component3(): MutPtr = this.pTimeout
 
     public operator fun component4(): ULong = this.fenceValue
 
-    public operator fun component5(): MutPtr<CVoid> = this.pPrivateRuntimeData
+    public operator fun component5(): MutPtr = this.pPrivateRuntimeData
 
     public operator fun component6(): UInt = this.privateRuntimeDataSize
 
-    public fun copy(hKeyedMutex: UInt = this.hKeyedMutex, key: ULong = this.key, pTimeout: MutPtr<Long> = this.pTimeout, fenceValue: ULong = this.fenceValue, pPrivateRuntimeData: MutPtr<CVoid> = this.pPrivateRuntimeData, privateRuntimeDataSize: UInt = this.privateRuntimeDataSize): D3dkmtAcquirekeyedmutex2 = D3dkmtAcquirekeyedmutex2(hKeyedMutex = hKeyedMutex, key = key, pTimeoutCtorArg = pTimeout, fenceValue = fenceValue, pPrivateRuntimeDataCtorArg = pPrivateRuntimeData, privateRuntimeDataSize = privateRuntimeDataSize)
+    public fun copy(hKeyedMutex: UInt = this.hKeyedMutex, key: ULong = this.key, pTimeout: MutPtr = this.pTimeout, fenceValue: ULong = this.fenceValue, pPrivateRuntimeData: MutPtr = this.pPrivateRuntimeData, privateRuntimeDataSize: UInt = this.privateRuntimeDataSize): D3dkmtAcquirekeyedmutex2 = D3dkmtAcquirekeyedmutex2(hKeyedMutex = hKeyedMutex, key = key, pTimeoutCtorArg = pTimeout, fenceValue = fenceValue, pPrivateRuntimeDataCtorArg = pPrivateRuntimeData, privateRuntimeDataSize = privateRuntimeDataSize)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -5871,12 +5870,12 @@ public class D3dkmtAcquirekeyedmutex2 internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U64).readNative(addr + 8L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<Long>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 16L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U64).readNative(addr + 24L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<CVoid>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 32L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 40L),
                     )
@@ -5885,12 +5884,12 @@ public class D3dkmtAcquirekeyedmutex2 internal constructor(
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U64).writeNative(addr + 8L, value.key)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<Long>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 16L, value.pTimeout)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U64).writeNative(addr + 24L, value.fenceValue)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<CVoid>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 32L, value.pPrivateRuntimeData)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 40L, value.privateRuntimeDataSize)
                 }
@@ -5899,9 +5898,9 @@ public class D3dkmtAcquirekeyedmutex2 internal constructor(
         public operator fun invoke(
             hKeyedMutex: UInt = 0u,
             key: ULong = 0uL,
-            pTimeout: MutPtr<Long> = MutPtr(0L),
+            pTimeout: MutPtr = MutPtr(0L),
             fenceValue: ULong = 0uL,
-            pPrivateRuntimeData: MutPtr<CVoid> = MutPtr(0L),
+            pPrivateRuntimeData: MutPtr = MutPtr(0L),
             privateRuntimeDataSize: UInt = 0u,
         ): D3dkmtAcquirekeyedmutex2 =
             D3dkmtAcquirekeyedmutex2(

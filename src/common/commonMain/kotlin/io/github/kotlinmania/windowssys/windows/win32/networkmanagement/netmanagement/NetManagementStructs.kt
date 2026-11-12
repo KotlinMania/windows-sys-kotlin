@@ -2,7 +2,6 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.networkmanagement.netmanagement
 
-import io.github.kotlinmania.rustlang.core.ffi.CVoid
 import io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
 import io.github.kotlinmania.rustlang.core.mem.TypeLayout
 import io.github.kotlinmania.rustlang.core.ptr.ConstPtr
@@ -14,7 +13,6 @@ import io.github.kotlinmania.windowssys.core.Pwstr
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Filetime
 import io.github.kotlinmania.windowssys.windows.win32.security.Psid
 import io.github.kotlinmania.windowssys.windows.win32.security.SidNameUse
-import io.github.kotlinmania.windowssys.windows.win32.security.cryptography.CertContext
 
 public class AccessInfo0 internal constructor(
     acc0ResourceNameCtorArg: Pwstr,
@@ -956,7 +954,7 @@ public class ConfigInfo0 internal constructor(
 
 public class DsregJoinInfo internal constructor(
     public var joinType: DsregJoinType,
-    pJoinCertificateCtorArg: ConstPtr<CertContext>,
+    pJoinCertificateCtorArg: ConstPtr,
     pszDeviceIdCtorArg: Pwstr,
     pszIdpDomainCtorArg: Pwstr,
     pszTenantIdCtorArg: Pwstr,
@@ -966,9 +964,9 @@ public class DsregJoinInfo internal constructor(
     pszMdmTermsOfUseUrlCtorArg: Pwstr,
     pszMdmComplianceUrlCtorArg: Pwstr,
     pszUserSettingSyncUrlCtorArg: Pwstr,
-    pUserInfoCtorArg: MutPtr<DsregUserInfo>,
+    pUserInfoCtorArg: MutPtr,
 ) {
-    public var pJoinCertificate: ConstPtr<CertContext> = pJoinCertificateCtorArg
+    public var pJoinCertificate: ConstPtr = pJoinCertificateCtorArg
         internal set
 
     public var pszDeviceId: Pwstr = pszDeviceIdCtorArg
@@ -998,7 +996,7 @@ public class DsregJoinInfo internal constructor(
     public var pszUserSettingSyncUrl: Pwstr = pszUserSettingSyncUrlCtorArg
         internal set
 
-    public var pUserInfo: MutPtr<DsregUserInfo> = pUserInfoCtorArg
+    public var pUserInfo: MutPtr = pUserInfoCtorArg
         internal set
 
     public constructor() : this(
@@ -1018,7 +1016,7 @@ public class DsregJoinInfo internal constructor(
 
     public operator fun component1(): DsregJoinType = this.joinType
 
-    public operator fun component2(): ConstPtr<CertContext> = this.pJoinCertificate
+    public operator fun component2(): ConstPtr = this.pJoinCertificate
 
     public operator fun component3(): Pwstr = this.pszDeviceId
 
@@ -1038,9 +1036,9 @@ public class DsregJoinInfo internal constructor(
 
     public operator fun component11(): Pwstr = this.pszUserSettingSyncUrl
 
-    public operator fun component12(): MutPtr<DsregUserInfo> = this.pUserInfo
+    public operator fun component12(): MutPtr = this.pUserInfo
 
-    public fun copy(joinType: DsregJoinType = this.joinType, pJoinCertificate: ConstPtr<CertContext> = this.pJoinCertificate, pszDeviceId: Pwstr = this.pszDeviceId, pszIdpDomain: Pwstr = this.pszIdpDomain, pszTenantId: Pwstr = this.pszTenantId, pszJoinUserEmail: Pwstr = this.pszJoinUserEmail, pszTenantDisplayName: Pwstr = this.pszTenantDisplayName, pszMdmEnrollmentUrl: Pwstr = this.pszMdmEnrollmentUrl, pszMdmTermsOfUseUrl: Pwstr = this.pszMdmTermsOfUseUrl, pszMdmComplianceUrl: Pwstr = this.pszMdmComplianceUrl, pszUserSettingSyncUrl: Pwstr = this.pszUserSettingSyncUrl, pUserInfo: MutPtr<DsregUserInfo> = this.pUserInfo): DsregJoinInfo = DsregJoinInfo(joinType = joinType, pJoinCertificateCtorArg = pJoinCertificate, pszDeviceIdCtorArg = pszDeviceId, pszIdpDomainCtorArg = pszIdpDomain, pszTenantIdCtorArg = pszTenantId, pszJoinUserEmailCtorArg = pszJoinUserEmail, pszTenantDisplayNameCtorArg = pszTenantDisplayName, pszMdmEnrollmentUrlCtorArg = pszMdmEnrollmentUrl, pszMdmTermsOfUseUrlCtorArg = pszMdmTermsOfUseUrl, pszMdmComplianceUrlCtorArg = pszMdmComplianceUrl, pszUserSettingSyncUrlCtorArg = pszUserSettingSyncUrl, pUserInfoCtorArg = pUserInfo)
+    public fun copy(joinType: DsregJoinType = this.joinType, pJoinCertificate: ConstPtr = this.pJoinCertificate, pszDeviceId: Pwstr = this.pszDeviceId, pszIdpDomain: Pwstr = this.pszIdpDomain, pszTenantId: Pwstr = this.pszTenantId, pszJoinUserEmail: Pwstr = this.pszJoinUserEmail, pszTenantDisplayName: Pwstr = this.pszTenantDisplayName, pszMdmEnrollmentUrl: Pwstr = this.pszMdmEnrollmentUrl, pszMdmTermsOfUseUrl: Pwstr = this.pszMdmTermsOfUseUrl, pszMdmComplianceUrl: Pwstr = this.pszMdmComplianceUrl, pszUserSettingSyncUrl: Pwstr = this.pszUserSettingSyncUrl, pUserInfo: MutPtr = this.pUserInfo): DsregJoinInfo = DsregJoinInfo(joinType = joinType, pJoinCertificateCtorArg = pJoinCertificate, pszDeviceIdCtorArg = pszDeviceId, pszIdpDomainCtorArg = pszIdpDomain, pszTenantIdCtorArg = pszTenantId, pszJoinUserEmailCtorArg = pszJoinUserEmail, pszTenantDisplayNameCtorArg = pszTenantDisplayName, pszMdmEnrollmentUrlCtorArg = pszMdmEnrollmentUrl, pszMdmTermsOfUseUrlCtorArg = pszMdmTermsOfUseUrl, pszMdmComplianceUrlCtorArg = pszMdmComplianceUrl, pszUserSettingSyncUrlCtorArg = pszUserSettingSyncUrl, pUserInfoCtorArg = pUserInfo)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -1079,7 +1077,7 @@ public class DsregJoinInfo internal constructor(
     public companion object {
         public operator fun invoke(
             joinType: DsregJoinType = 0,
-            pJoinCertificate: ConstPtr<CertContext> = ConstPtr(0L),
+            pJoinCertificate: ConstPtr = ConstPtr(0L),
             pszDeviceId: Pwstr = MutPtr(0L),
             pszIdpDomain: Pwstr = MutPtr(0L),
             pszTenantId: Pwstr = MutPtr(0L),
@@ -1089,7 +1087,7 @@ public class DsregJoinInfo internal constructor(
             pszMdmTermsOfUseUrl: Pwstr = MutPtr(0L),
             pszMdmComplianceUrl: Pwstr = MutPtr(0L),
             pszUserSettingSyncUrl: Pwstr = MutPtr(0L),
-            pUserInfo: MutPtr<DsregUserInfo> = MutPtr(0L),
+            pUserInfo: MutPtr = MutPtr(0L),
         ): DsregJoinInfo =
             DsregJoinInfo(
                 joinType = joinType,
@@ -1195,7 +1193,7 @@ public class ErrorLog internal constructor(
     public var elError: UInt,
     elNameCtorArg: Pwstr,
     elTextCtorArg: Pwstr,
-    elDataCtorArg: MutPtr<UByte>,
+    elDataCtorArg: MutPtr,
     public var elDataSize: UInt,
     public var elNstrings: UInt,
 ) {
@@ -1205,7 +1203,7 @@ public class ErrorLog internal constructor(
     public var elText: Pwstr = elTextCtorArg
         internal set
 
-    public var elData: MutPtr<UByte> = elDataCtorArg
+    public var elData: MutPtr = elDataCtorArg
         internal set
 
     public constructor() : this(
@@ -1232,13 +1230,13 @@ public class ErrorLog internal constructor(
 
     public operator fun component6(): Pwstr = this.elText
 
-    public operator fun component7(): MutPtr<UByte> = this.elData
+    public operator fun component7(): MutPtr = this.elData
 
     public operator fun component8(): UInt = this.elDataSize
 
     public operator fun component9(): UInt = this.elNstrings
 
-    public fun copy(elLen: UInt = this.elLen, elReserved: UInt = this.elReserved, elTime: UInt = this.elTime, elError: UInt = this.elError, elName: Pwstr = this.elName, elText: Pwstr = this.elText, elData: MutPtr<UByte> = this.elData, elDataSize: UInt = this.elDataSize, elNstrings: UInt = this.elNstrings): ErrorLog = ErrorLog(elLen = elLen, elReserved = elReserved, elTime = elTime, elError = elError, elNameCtorArg = elName, elTextCtorArg = elText, elDataCtorArg = elData, elDataSize = elDataSize, elNstrings = elNstrings)
+    public fun copy(elLen: UInt = this.elLen, elReserved: UInt = this.elReserved, elTime: UInt = this.elTime, elError: UInt = this.elError, elName: Pwstr = this.elName, elText: Pwstr = this.elText, elData: MutPtr = this.elData, elDataSize: UInt = this.elDataSize, elNstrings: UInt = this.elNstrings): ErrorLog = ErrorLog(elLen = elLen, elReserved = elReserved, elTime = elTime, elError = elError, elNameCtorArg = elName, elTextCtorArg = elText, elDataCtorArg = elData, elDataSize = elDataSize, elNstrings = elNstrings)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -1276,7 +1274,7 @@ public class ErrorLog internal constructor(
             elError: UInt = 0u,
             elName: Pwstr = MutPtr(0L),
             elText: Pwstr = MutPtr(0L),
-            elData: MutPtr<UByte> = MutPtr(0L),
+            elData: MutPtr = MutPtr(0L),
             elDataSize: UInt = 0u,
             elNstrings: UInt = 0u,
         ): ErrorLog =
@@ -2396,11 +2394,11 @@ public class NetsetupProvisioningParams internal constructor(
     lpMachineAccountOUCtorArg: Pcwstr,
     lpDcNameCtorArg: Pcwstr,
     public var dwProvisionOptions: NetsetupProvision,
-    aCertTemplateNamesCtorArg: ConstPtr<Pcwstr>,
+    aCertTemplateNamesCtorArg: ConstPtr,
     public var cCertTemplateNames: UInt,
-    aMachinePolicyNamesCtorArg: ConstPtr<Pcwstr>,
+    aMachinePolicyNamesCtorArg: ConstPtr,
     public var cMachinePolicyNames: UInt,
-    aMachinePolicyPathsCtorArg: ConstPtr<Pcwstr>,
+    aMachinePolicyPathsCtorArg: ConstPtr,
     public var cMachinePolicyPaths: UInt,
     lpNetbiosNameCtorArg: Pwstr,
     lpSiteNameCtorArg: Pwstr,
@@ -2418,13 +2416,13 @@ public class NetsetupProvisioningParams internal constructor(
     public var lpDcName: Pcwstr = lpDcNameCtorArg
         internal set
 
-    public var aCertTemplateNames: ConstPtr<Pcwstr> = aCertTemplateNamesCtorArg
+    public var aCertTemplateNames: ConstPtr = aCertTemplateNamesCtorArg
         internal set
 
-    public var aMachinePolicyNames: ConstPtr<Pcwstr> = aMachinePolicyNamesCtorArg
+    public var aMachinePolicyNames: ConstPtr = aMachinePolicyNamesCtorArg
         internal set
 
-    public var aMachinePolicyPaths: ConstPtr<Pcwstr> = aMachinePolicyPathsCtorArg
+    public var aMachinePolicyPaths: ConstPtr = aMachinePolicyPathsCtorArg
         internal set
 
     public var lpNetbiosName: Pwstr = lpNetbiosNameCtorArg
@@ -2466,15 +2464,15 @@ public class NetsetupProvisioningParams internal constructor(
 
     public operator fun component6(): NetsetupProvision = this.dwProvisionOptions
 
-    public operator fun component7(): ConstPtr<Pcwstr> = this.aCertTemplateNames
+    public operator fun component7(): ConstPtr = this.aCertTemplateNames
 
     public operator fun component8(): UInt = this.cCertTemplateNames
 
-    public operator fun component9(): ConstPtr<Pcwstr> = this.aMachinePolicyNames
+    public operator fun component9(): ConstPtr = this.aMachinePolicyNames
 
     public operator fun component10(): UInt = this.cMachinePolicyNames
 
-    public operator fun component11(): ConstPtr<Pcwstr> = this.aMachinePolicyPaths
+    public operator fun component11(): ConstPtr = this.aMachinePolicyPaths
 
     public operator fun component12(): UInt = this.cMachinePolicyPaths
 
@@ -2484,7 +2482,7 @@ public class NetsetupProvisioningParams internal constructor(
 
     public operator fun component15(): Pwstr = this.lpPrimaryDNSDomain
 
-    public fun copy(dwVersion: UInt = this.dwVersion, lpDomain: Pcwstr = this.lpDomain, lpHostName: Pcwstr = this.lpHostName, lpMachineAccountOU: Pcwstr = this.lpMachineAccountOU, lpDcName: Pcwstr = this.lpDcName, dwProvisionOptions: NetsetupProvision = this.dwProvisionOptions, aCertTemplateNames: ConstPtr<Pcwstr> = this.aCertTemplateNames, cCertTemplateNames: UInt = this.cCertTemplateNames, aMachinePolicyNames: ConstPtr<Pcwstr> = this.aMachinePolicyNames, cMachinePolicyNames: UInt = this.cMachinePolicyNames, aMachinePolicyPaths: ConstPtr<Pcwstr> = this.aMachinePolicyPaths, cMachinePolicyPaths: UInt = this.cMachinePolicyPaths, lpNetbiosName: Pwstr = this.lpNetbiosName, lpSiteName: Pwstr = this.lpSiteName, lpPrimaryDNSDomain: Pwstr = this.lpPrimaryDNSDomain): NetsetupProvisioningParams = NetsetupProvisioningParams(dwVersion = dwVersion, lpDomainCtorArg = lpDomain, lpHostNameCtorArg = lpHostName, lpMachineAccountOUCtorArg = lpMachineAccountOU, lpDcNameCtorArg = lpDcName, dwProvisionOptions = dwProvisionOptions, aCertTemplateNamesCtorArg = aCertTemplateNames, cCertTemplateNames = cCertTemplateNames, aMachinePolicyNamesCtorArg = aMachinePolicyNames, cMachinePolicyNames = cMachinePolicyNames, aMachinePolicyPathsCtorArg = aMachinePolicyPaths, cMachinePolicyPaths = cMachinePolicyPaths, lpNetbiosNameCtorArg = lpNetbiosName, lpSiteNameCtorArg = lpSiteName, lpPrimaryDNSDomainCtorArg = lpPrimaryDNSDomain)
+    public fun copy(dwVersion: UInt = this.dwVersion, lpDomain: Pcwstr = this.lpDomain, lpHostName: Pcwstr = this.lpHostName, lpMachineAccountOU: Pcwstr = this.lpMachineAccountOU, lpDcName: Pcwstr = this.lpDcName, dwProvisionOptions: NetsetupProvision = this.dwProvisionOptions, aCertTemplateNames: ConstPtr = this.aCertTemplateNames, cCertTemplateNames: UInt = this.cCertTemplateNames, aMachinePolicyNames: ConstPtr = this.aMachinePolicyNames, cMachinePolicyNames: UInt = this.cMachinePolicyNames, aMachinePolicyPaths: ConstPtr = this.aMachinePolicyPaths, cMachinePolicyPaths: UInt = this.cMachinePolicyPaths, lpNetbiosName: Pwstr = this.lpNetbiosName, lpSiteName: Pwstr = this.lpSiteName, lpPrimaryDNSDomain: Pwstr = this.lpPrimaryDNSDomain): NetsetupProvisioningParams = NetsetupProvisioningParams(dwVersion = dwVersion, lpDomainCtorArg = lpDomain, lpHostNameCtorArg = lpHostName, lpMachineAccountOUCtorArg = lpMachineAccountOU, lpDcNameCtorArg = lpDcName, dwProvisionOptions = dwProvisionOptions, aCertTemplateNamesCtorArg = aCertTemplateNames, cCertTemplateNames = cCertTemplateNames, aMachinePolicyNamesCtorArg = aMachinePolicyNames, cMachinePolicyNames = cMachinePolicyNames, aMachinePolicyPathsCtorArg = aMachinePolicyPaths, cMachinePolicyPaths = cMachinePolicyPaths, lpNetbiosNameCtorArg = lpNetbiosName, lpSiteNameCtorArg = lpSiteName, lpPrimaryDNSDomainCtorArg = lpPrimaryDNSDomain)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -2534,11 +2532,11 @@ public class NetsetupProvisioningParams internal constructor(
             lpMachineAccountOU: Pcwstr = ConstPtr(0L),
             lpDcName: Pcwstr = ConstPtr(0L),
             dwProvisionOptions: NetsetupProvision = 0u,
-            aCertTemplateNames: ConstPtr<Pcwstr> = ConstPtr(0L),
+            aCertTemplateNames: ConstPtr = ConstPtr(0L),
             cCertTemplateNames: UInt = 0u,
-            aMachinePolicyNames: ConstPtr<Pcwstr> = ConstPtr(0L),
+            aMachinePolicyNames: ConstPtr = ConstPtr(0L),
             cMachinePolicyNames: UInt = 0u,
-            aMachinePolicyPaths: ConstPtr<Pcwstr> = ConstPtr(0L),
+            aMachinePolicyPaths: ConstPtr = ConstPtr(0L),
             cMachinePolicyPaths: UInt = 0u,
             lpNetbiosName: Pwstr = MutPtr(0L),
             lpSiteName: Pwstr = MutPtr(0L),
@@ -2890,9 +2888,9 @@ public class NetValidatePasswordChangeInputArg internal constructor(
 
 public class NetValidatePasswordHash internal constructor(
     public var length: UInt,
-    hashCtorArg: MutPtr<UByte>,
+    hashCtorArg: MutPtr,
 ) {
-    public var hash: MutPtr<UByte> = hashCtorArg
+    public var hash: MutPtr = hashCtorArg
         internal set
 
     public constructor() : this(
@@ -2902,9 +2900,9 @@ public class NetValidatePasswordHash internal constructor(
 
     public operator fun component1(): UInt = this.length
 
-    public operator fun component2(): MutPtr<UByte> = this.hash
+    public operator fun component2(): MutPtr = this.hash
 
-    public fun copy(length: UInt = this.length, hash: MutPtr<UByte> = this.hash): NetValidatePasswordHash = NetValidatePasswordHash(length = length, hashCtorArg = hash)
+    public fun copy(length: UInt = this.length, hash: MutPtr = this.hash): NetValidatePasswordHash = NetValidatePasswordHash(length = length, hashCtorArg = hash)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -2930,21 +2928,21 @@ public class NetValidatePasswordHash internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<UByte>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                     )
                 override fun writeNative(addr: Long, value: NetValidatePasswordHash) {
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr, value.length)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<UByte>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.hash)
                 }
             }
 
         public operator fun invoke(
             length: UInt = 0u,
-            hash: MutPtr<UByte> = MutPtr(0L),
+            hash: MutPtr = MutPtr(0L),
         ): NetValidatePasswordHash =
             NetValidatePasswordHash(
                 length = length,
@@ -3039,9 +3037,9 @@ public class NetValidatePersistedFields internal constructor(
     public var lockoutTime: Filetime,
     public var badPasswordCount: UInt,
     public var passwordHistoryLength: UInt,
-    passwordHistoryCtorArg: MutPtr<NetValidatePasswordHash>,
+    passwordHistoryCtorArg: MutPtr,
 ) {
-    public var passwordHistory: MutPtr<NetValidatePasswordHash> = passwordHistoryCtorArg
+    public var passwordHistory: MutPtr = passwordHistoryCtorArg
         internal set
 
     public constructor() : this(
@@ -3066,9 +3064,9 @@ public class NetValidatePersistedFields internal constructor(
 
     public operator fun component6(): UInt = this.passwordHistoryLength
 
-    public operator fun component7(): MutPtr<NetValidatePasswordHash> = this.passwordHistory
+    public operator fun component7(): MutPtr = this.passwordHistory
 
-    public fun copy(presentFields: UInt = this.presentFields, passwordLastSet: Filetime = this.passwordLastSet, badPasswordTime: Filetime = this.badPasswordTime, lockoutTime: Filetime = this.lockoutTime, badPasswordCount: UInt = this.badPasswordCount, passwordHistoryLength: UInt = this.passwordHistoryLength, passwordHistory: MutPtr<NetValidatePasswordHash> = this.passwordHistory): NetValidatePersistedFields = NetValidatePersistedFields(presentFields = presentFields, passwordLastSet = passwordLastSet, badPasswordTime = badPasswordTime, lockoutTime = lockoutTime, badPasswordCount = badPasswordCount, passwordHistoryLength = passwordHistoryLength, passwordHistoryCtorArg = passwordHistory)
+    public fun copy(presentFields: UInt = this.presentFields, passwordLastSet: Filetime = this.passwordLastSet, badPasswordTime: Filetime = this.badPasswordTime, lockoutTime: Filetime = this.lockoutTime, badPasswordCount: UInt = this.badPasswordCount, passwordHistoryLength: UInt = this.passwordHistoryLength, passwordHistory: MutPtr = this.passwordHistory): NetValidatePersistedFields = NetValidatePersistedFields(presentFields = presentFields, passwordLastSet = passwordLastSet, badPasswordTime = badPasswordTime, lockoutTime = lockoutTime, badPasswordCount = badPasswordCount, passwordHistoryLength = passwordHistoryLength, passwordHistoryCtorArg = passwordHistory)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -3102,7 +3100,7 @@ public class NetValidatePersistedFields internal constructor(
             lockoutTime: Filetime = Filetime(),
             badPasswordCount: UInt = 0u,
             passwordHistoryLength: UInt = 0u,
-            passwordHistory: MutPtr<NetValidatePasswordHash> = MutPtr(0L),
+            passwordHistory: MutPtr = MutPtr(0L),
         ): NetValidatePersistedFields =
             NetValidatePersistedFields(
                 presentFields = presentFields,
@@ -3118,13 +3116,13 @@ public class NetValidatePersistedFields internal constructor(
 
 public class OboToken internal constructor(
     public var type: OboTokenType,
-    pnccCtorArg: MutPtr<CVoid>,
+    pnccCtorArg: MutPtr,
     pszwManufacturerCtorArg: Pcwstr,
     pszwProductCtorArg: Pcwstr,
     pszwDisplayNameCtorArg: Pcwstr,
     public var fRegistered: Bool,
 ) {
-    public var pncc: MutPtr<CVoid> = pnccCtorArg
+    public var pncc: MutPtr = pnccCtorArg
         internal set
 
     public var pszwManufacturer: Pcwstr = pszwManufacturerCtorArg
@@ -3147,7 +3145,7 @@ public class OboToken internal constructor(
 
     public operator fun component1(): OboTokenType = this.type
 
-    public operator fun component2(): MutPtr<CVoid> = this.pncc
+    public operator fun component2(): MutPtr = this.pncc
 
     public operator fun component3(): Pcwstr = this.pszwManufacturer
 
@@ -3157,7 +3155,7 @@ public class OboToken internal constructor(
 
     public operator fun component6(): Bool = this.fRegistered
 
-    public fun copy(type: OboTokenType = this.type, pncc: MutPtr<CVoid> = this.pncc, pszwManufacturer: Pcwstr = this.pszwManufacturer, pszwProduct: Pcwstr = this.pszwProduct, pszwDisplayName: Pcwstr = this.pszwDisplayName, fRegistered: Bool = this.fRegistered): OboToken = OboToken(type = type, pnccCtorArg = pncc, pszwManufacturerCtorArg = pszwManufacturer, pszwProductCtorArg = pszwProduct, pszwDisplayNameCtorArg = pszwDisplayName, fRegistered = fRegistered)
+    public fun copy(type: OboTokenType = this.type, pncc: MutPtr = this.pncc, pszwManufacturer: Pcwstr = this.pszwManufacturer, pszwProduct: Pcwstr = this.pszwProduct, pszwDisplayName: Pcwstr = this.pszwDisplayName, fRegistered: Bool = this.fRegistered): OboToken = OboToken(type = type, pnccCtorArg = pncc, pszwManufacturerCtorArg = pszwManufacturer, pszwProductCtorArg = pszwProduct, pszwDisplayNameCtorArg = pszwDisplayName, fRegistered = fRegistered)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -3184,7 +3182,7 @@ public class OboToken internal constructor(
     public companion object {
         public operator fun invoke(
             type: OboTokenType = 0,
-            pncc: MutPtr<CVoid> = MutPtr(0L),
+            pncc: MutPtr = MutPtr(0L),
             pszwManufacturer: Pcwstr = ConstPtr(0L),
             pszwProduct: Pcwstr = ConstPtr(0L),
             pszwDisplayName: Pcwstr = ConstPtr(0L),
@@ -6905,14 +6903,14 @@ public class ServerInfo599 internal constructor(
 public class ServerTransportInfo0 internal constructor(
     public var svti0Numberofvcs: UInt,
     svti0TransportnameCtorArg: Pwstr,
-    svti0TransportaddressCtorArg: MutPtr<UByte>,
+    svti0TransportaddressCtorArg: MutPtr,
     public var svti0Transportaddresslength: UInt,
     svti0NetworkaddressCtorArg: Pwstr,
 ) {
     public var svti0Transportname: Pwstr = svti0TransportnameCtorArg
         internal set
 
-    public var svti0Transportaddress: MutPtr<UByte> = svti0TransportaddressCtorArg
+    public var svti0Transportaddress: MutPtr = svti0TransportaddressCtorArg
         internal set
 
     public var svti0Networkaddress: Pwstr = svti0NetworkaddressCtorArg
@@ -6930,13 +6928,13 @@ public class ServerTransportInfo0 internal constructor(
 
     public operator fun component2(): Pwstr = this.svti0Transportname
 
-    public operator fun component3(): MutPtr<UByte> = this.svti0Transportaddress
+    public operator fun component3(): MutPtr = this.svti0Transportaddress
 
     public operator fun component4(): UInt = this.svti0Transportaddresslength
 
     public operator fun component5(): Pwstr = this.svti0Networkaddress
 
-    public fun copy(svti0Numberofvcs: UInt = this.svti0Numberofvcs, svti0Transportname: Pwstr = this.svti0Transportname, svti0Transportaddress: MutPtr<UByte> = this.svti0Transportaddress, svti0Transportaddresslength: UInt = this.svti0Transportaddresslength, svti0Networkaddress: Pwstr = this.svti0Networkaddress): ServerTransportInfo0 = ServerTransportInfo0(svti0Numberofvcs = svti0Numberofvcs, svti0TransportnameCtorArg = svti0Transportname, svti0TransportaddressCtorArg = svti0Transportaddress, svti0Transportaddresslength = svti0Transportaddresslength, svti0NetworkaddressCtorArg = svti0Networkaddress)
+    public fun copy(svti0Numberofvcs: UInt = this.svti0Numberofvcs, svti0Transportname: Pwstr = this.svti0Transportname, svti0Transportaddress: MutPtr = this.svti0Transportaddress, svti0Transportaddresslength: UInt = this.svti0Transportaddresslength, svti0Networkaddress: Pwstr = this.svti0Networkaddress): ServerTransportInfo0 = ServerTransportInfo0(svti0Numberofvcs = svti0Numberofvcs, svti0TransportnameCtorArg = svti0Transportname, svti0TransportaddressCtorArg = svti0Transportaddress, svti0Transportaddresslength = svti0Transportaddresslength, svti0NetworkaddressCtorArg = svti0Networkaddress)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -6962,7 +6960,7 @@ public class ServerTransportInfo0 internal constructor(
         public operator fun invoke(
             svti0Numberofvcs: UInt = 0u,
             svti0Transportname: Pwstr = MutPtr(0L),
-            svti0Transportaddress: MutPtr<UByte> = MutPtr(0L),
+            svti0Transportaddress: MutPtr = MutPtr(0L),
             svti0Transportaddresslength: UInt = 0u,
             svti0Networkaddress: Pwstr = MutPtr(0L),
         ): ServerTransportInfo0 =
@@ -6979,7 +6977,7 @@ public class ServerTransportInfo0 internal constructor(
 public class ServerTransportInfo1 internal constructor(
     public var svti1Numberofvcs: UInt,
     svti1TransportnameCtorArg: Pwstr,
-    svti1TransportaddressCtorArg: MutPtr<UByte>,
+    svti1TransportaddressCtorArg: MutPtr,
     public var svti1Transportaddresslength: UInt,
     svti1NetworkaddressCtorArg: Pwstr,
     svti1DomainCtorArg: Pwstr,
@@ -6987,7 +6985,7 @@ public class ServerTransportInfo1 internal constructor(
     public var svti1Transportname: Pwstr = svti1TransportnameCtorArg
         internal set
 
-    public var svti1Transportaddress: MutPtr<UByte> = svti1TransportaddressCtorArg
+    public var svti1Transportaddress: MutPtr = svti1TransportaddressCtorArg
         internal set
 
     public var svti1Networkaddress: Pwstr = svti1NetworkaddressCtorArg
@@ -7009,7 +7007,7 @@ public class ServerTransportInfo1 internal constructor(
 
     public operator fun component2(): Pwstr = this.svti1Transportname
 
-    public operator fun component3(): MutPtr<UByte> = this.svti1Transportaddress
+    public operator fun component3(): MutPtr = this.svti1Transportaddress
 
     public operator fun component4(): UInt = this.svti1Transportaddresslength
 
@@ -7017,7 +7015,7 @@ public class ServerTransportInfo1 internal constructor(
 
     public operator fun component6(): Pwstr = this.svti1Domain
 
-    public fun copy(svti1Numberofvcs: UInt = this.svti1Numberofvcs, svti1Transportname: Pwstr = this.svti1Transportname, svti1Transportaddress: MutPtr<UByte> = this.svti1Transportaddress, svti1Transportaddresslength: UInt = this.svti1Transportaddresslength, svti1Networkaddress: Pwstr = this.svti1Networkaddress, svti1Domain: Pwstr = this.svti1Domain): ServerTransportInfo1 = ServerTransportInfo1(svti1Numberofvcs = svti1Numberofvcs, svti1TransportnameCtorArg = svti1Transportname, svti1TransportaddressCtorArg = svti1Transportaddress, svti1Transportaddresslength = svti1Transportaddresslength, svti1NetworkaddressCtorArg = svti1Networkaddress, svti1DomainCtorArg = svti1Domain)
+    public fun copy(svti1Numberofvcs: UInt = this.svti1Numberofvcs, svti1Transportname: Pwstr = this.svti1Transportname, svti1Transportaddress: MutPtr = this.svti1Transportaddress, svti1Transportaddresslength: UInt = this.svti1Transportaddresslength, svti1Networkaddress: Pwstr = this.svti1Networkaddress, svti1Domain: Pwstr = this.svti1Domain): ServerTransportInfo1 = ServerTransportInfo1(svti1Numberofvcs = svti1Numberofvcs, svti1TransportnameCtorArg = svti1Transportname, svti1TransportaddressCtorArg = svti1Transportaddress, svti1Transportaddresslength = svti1Transportaddresslength, svti1NetworkaddressCtorArg = svti1Networkaddress, svti1DomainCtorArg = svti1Domain)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -7045,7 +7043,7 @@ public class ServerTransportInfo1 internal constructor(
         public operator fun invoke(
             svti1Numberofvcs: UInt = 0u,
             svti1Transportname: Pwstr = MutPtr(0L),
-            svti1Transportaddress: MutPtr<UByte> = MutPtr(0L),
+            svti1Transportaddress: MutPtr = MutPtr(0L),
             svti1Transportaddresslength: UInt = 0u,
             svti1Networkaddress: Pwstr = MutPtr(0L),
             svti1Domain: Pwstr = MutPtr(0L),
@@ -7064,7 +7062,7 @@ public class ServerTransportInfo1 internal constructor(
 public class ServerTransportInfo2 internal constructor(
     public var svti2Numberofvcs: UInt,
     svti2TransportnameCtorArg: Pwstr,
-    svti2TransportaddressCtorArg: MutPtr<UByte>,
+    svti2TransportaddressCtorArg: MutPtr,
     public var svti2Transportaddresslength: UInt,
     svti2NetworkaddressCtorArg: Pwstr,
     svti2DomainCtorArg: Pwstr,
@@ -7073,7 +7071,7 @@ public class ServerTransportInfo2 internal constructor(
     public var svti2Transportname: Pwstr = svti2TransportnameCtorArg
         internal set
 
-    public var svti2Transportaddress: MutPtr<UByte> = svti2TransportaddressCtorArg
+    public var svti2Transportaddress: MutPtr = svti2TransportaddressCtorArg
         internal set
 
     public var svti2Networkaddress: Pwstr = svti2NetworkaddressCtorArg
@@ -7096,7 +7094,7 @@ public class ServerTransportInfo2 internal constructor(
 
     public operator fun component2(): Pwstr = this.svti2Transportname
 
-    public operator fun component3(): MutPtr<UByte> = this.svti2Transportaddress
+    public operator fun component3(): MutPtr = this.svti2Transportaddress
 
     public operator fun component4(): UInt = this.svti2Transportaddresslength
 
@@ -7106,7 +7104,7 @@ public class ServerTransportInfo2 internal constructor(
 
     public operator fun component7(): UInt = this.svti2Flags
 
-    public fun copy(svti2Numberofvcs: UInt = this.svti2Numberofvcs, svti2Transportname: Pwstr = this.svti2Transportname, svti2Transportaddress: MutPtr<UByte> = this.svti2Transportaddress, svti2Transportaddresslength: UInt = this.svti2Transportaddresslength, svti2Networkaddress: Pwstr = this.svti2Networkaddress, svti2Domain: Pwstr = this.svti2Domain, svti2Flags: UInt = this.svti2Flags): ServerTransportInfo2 = ServerTransportInfo2(svti2Numberofvcs = svti2Numberofvcs, svti2TransportnameCtorArg = svti2Transportname, svti2TransportaddressCtorArg = svti2Transportaddress, svti2Transportaddresslength = svti2Transportaddresslength, svti2NetworkaddressCtorArg = svti2Networkaddress, svti2DomainCtorArg = svti2Domain, svti2Flags = svti2Flags)
+    public fun copy(svti2Numberofvcs: UInt = this.svti2Numberofvcs, svti2Transportname: Pwstr = this.svti2Transportname, svti2Transportaddress: MutPtr = this.svti2Transportaddress, svti2Transportaddresslength: UInt = this.svti2Transportaddresslength, svti2Networkaddress: Pwstr = this.svti2Networkaddress, svti2Domain: Pwstr = this.svti2Domain, svti2Flags: UInt = this.svti2Flags): ServerTransportInfo2 = ServerTransportInfo2(svti2Numberofvcs = svti2Numberofvcs, svti2TransportnameCtorArg = svti2Transportname, svti2TransportaddressCtorArg = svti2Transportaddress, svti2Transportaddresslength = svti2Transportaddresslength, svti2NetworkaddressCtorArg = svti2Networkaddress, svti2DomainCtorArg = svti2Domain, svti2Flags = svti2Flags)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -7136,7 +7134,7 @@ public class ServerTransportInfo2 internal constructor(
         public operator fun invoke(
             svti2Numberofvcs: UInt = 0u,
             svti2Transportname: Pwstr = MutPtr(0L),
-            svti2Transportaddress: MutPtr<UByte> = MutPtr(0L),
+            svti2Transportaddress: MutPtr = MutPtr(0L),
             svti2Transportaddresslength: UInt = 0u,
             svti2Networkaddress: Pwstr = MutPtr(0L),
             svti2Domain: Pwstr = MutPtr(0L),
@@ -7157,7 +7155,7 @@ public class ServerTransportInfo2 internal constructor(
 public class ServerTransportInfo3 internal constructor(
     public var svti3Numberofvcs: UInt,
     svti3TransportnameCtorArg: Pwstr,
-    svti3TransportaddressCtorArg: MutPtr<UByte>,
+    svti3TransportaddressCtorArg: MutPtr,
     public var svti3Transportaddresslength: UInt,
     svti3NetworkaddressCtorArg: Pwstr,
     svti3DomainCtorArg: Pwstr,
@@ -7168,7 +7166,7 @@ public class ServerTransportInfo3 internal constructor(
     public var svti3Transportname: Pwstr = svti3TransportnameCtorArg
         internal set
 
-    public var svti3Transportaddress: MutPtr<UByte> = svti3TransportaddressCtorArg
+    public var svti3Transportaddress: MutPtr = svti3TransportaddressCtorArg
         internal set
 
     public var svti3Networkaddress: Pwstr = svti3NetworkaddressCtorArg
@@ -7193,7 +7191,7 @@ public class ServerTransportInfo3 internal constructor(
 
     public operator fun component2(): Pwstr = this.svti3Transportname
 
-    public operator fun component3(): MutPtr<UByte> = this.svti3Transportaddress
+    public operator fun component3(): MutPtr = this.svti3Transportaddress
 
     public operator fun component4(): UInt = this.svti3Transportaddresslength
 
@@ -7207,7 +7205,7 @@ public class ServerTransportInfo3 internal constructor(
 
     public operator fun component9(): UByteArray = this.svti3Password
 
-    public fun copy(svti3Numberofvcs: UInt = this.svti3Numberofvcs, svti3Transportname: Pwstr = this.svti3Transportname, svti3Transportaddress: MutPtr<UByte> = this.svti3Transportaddress, svti3Transportaddresslength: UInt = this.svti3Transportaddresslength, svti3Networkaddress: Pwstr = this.svti3Networkaddress, svti3Domain: Pwstr = this.svti3Domain, svti3Flags: UInt = this.svti3Flags, svti3Passwordlength: UInt = this.svti3Passwordlength, svti3Password: UByteArray = this.svti3Password): ServerTransportInfo3 = ServerTransportInfo3(svti3Numberofvcs = svti3Numberofvcs, svti3TransportnameCtorArg = svti3Transportname, svti3TransportaddressCtorArg = svti3Transportaddress, svti3Transportaddresslength = svti3Transportaddresslength, svti3NetworkaddressCtorArg = svti3Networkaddress, svti3DomainCtorArg = svti3Domain, svti3Flags = svti3Flags, svti3Passwordlength = svti3Passwordlength, svti3Password = svti3Password)
+    public fun copy(svti3Numberofvcs: UInt = this.svti3Numberofvcs, svti3Transportname: Pwstr = this.svti3Transportname, svti3Transportaddress: MutPtr = this.svti3Transportaddress, svti3Transportaddresslength: UInt = this.svti3Transportaddresslength, svti3Networkaddress: Pwstr = this.svti3Networkaddress, svti3Domain: Pwstr = this.svti3Domain, svti3Flags: UInt = this.svti3Flags, svti3Passwordlength: UInt = this.svti3Passwordlength, svti3Password: UByteArray = this.svti3Password): ServerTransportInfo3 = ServerTransportInfo3(svti3Numberofvcs = svti3Numberofvcs, svti3TransportnameCtorArg = svti3Transportname, svti3TransportaddressCtorArg = svti3Transportaddress, svti3Transportaddresslength = svti3Transportaddresslength, svti3NetworkaddressCtorArg = svti3Networkaddress, svti3DomainCtorArg = svti3Domain, svti3Flags = svti3Flags, svti3Passwordlength = svti3Passwordlength, svti3Password = svti3Password)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -7241,7 +7239,7 @@ public class ServerTransportInfo3 internal constructor(
         public operator fun invoke(
             svti3Numberofvcs: UInt = 0u,
             svti3Transportname: Pwstr = MutPtr(0L),
-            svti3Transportaddress: MutPtr<UByte> = MutPtr(0L),
+            svti3Transportaddress: MutPtr = MutPtr(0L),
             svti3Transportaddresslength: UInt = 0u,
             svti3Networkaddress: Pwstr = MutPtr(0L),
             svti3Domain: Pwstr = MutPtr(0L),
@@ -8221,9 +8219,9 @@ public data class UserInfo1018(
 
 public class UserInfo1020 internal constructor(
     public var usri1020UnitsPerWeek: UInt,
-    usri1020LogonHoursCtorArg: MutPtr<UByte>,
+    usri1020LogonHoursCtorArg: MutPtr,
 ) {
-    public var usri1020LogonHours: MutPtr<UByte> = usri1020LogonHoursCtorArg
+    public var usri1020LogonHours: MutPtr = usri1020LogonHoursCtorArg
         internal set
 
     public constructor() : this(
@@ -8233,9 +8231,9 @@ public class UserInfo1020 internal constructor(
 
     public operator fun component1(): UInt = this.usri1020UnitsPerWeek
 
-    public operator fun component2(): MutPtr<UByte> = this.usri1020LogonHours
+    public operator fun component2(): MutPtr = this.usri1020LogonHours
 
-    public fun copy(usri1020UnitsPerWeek: UInt = this.usri1020UnitsPerWeek, usri1020LogonHours: MutPtr<UByte> = this.usri1020LogonHours): UserInfo1020 = UserInfo1020(usri1020UnitsPerWeek = usri1020UnitsPerWeek, usri1020LogonHoursCtorArg = usri1020LogonHours)
+    public fun copy(usri1020UnitsPerWeek: UInt = this.usri1020UnitsPerWeek, usri1020LogonHours: MutPtr = this.usri1020LogonHours): UserInfo1020 = UserInfo1020(usri1020UnitsPerWeek = usri1020UnitsPerWeek, usri1020LogonHoursCtorArg = usri1020LogonHours)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -8261,21 +8259,21 @@ public class UserInfo1020 internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<UByte>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                     )
                 override fun writeNative(addr: Long, value: UserInfo1020) {
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr, value.usri1020UnitsPerWeek)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<UByte>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.usri1020LogonHours)
                 }
             }
 
         public operator fun invoke(
             usri1020UnitsPerWeek: UInt = 0u,
-            usri1020LogonHours: MutPtr<UByte> = MutPtr(0L),
+            usri1020LogonHours: MutPtr = MutPtr(0L),
         ): UserInfo1020 =
             UserInfo1020(
                 usri1020UnitsPerWeek = usri1020UnitsPerWeek,
@@ -8459,7 +8457,7 @@ public class UserInfo11 internal constructor(
     usri11WorkstationsCtorArg: Pwstr,
     public var usri11MaxStorage: UInt,
     public var usri11UnitsPerWeek: UInt,
-    usri11LogonHoursCtorArg: MutPtr<UByte>,
+    usri11LogonHoursCtorArg: MutPtr,
     public var usri11CodePage: UInt,
 ) {
     public var usri11Name: Pwstr = usri11NameCtorArg
@@ -8486,7 +8484,7 @@ public class UserInfo11 internal constructor(
     public var usri11Workstations: Pwstr = usri11WorkstationsCtorArg
         internal set
 
-    public var usri11LogonHours: MutPtr<UByte> = usri11LogonHoursCtorArg
+    public var usri11LogonHours: MutPtr = usri11LogonHoursCtorArg
         internal set
 
     public constructor() : this(
@@ -8532,7 +8530,7 @@ public class UserInfo11 internal constructor(
             usri11Workstations: Pwstr = MutPtr(0L),
             usri11MaxStorage: UInt = 0u,
             usri11UnitsPerWeek: UInt = 0u,
-            usri11LogonHours: MutPtr<UByte> = MutPtr(0L),
+            usri11LogonHours: MutPtr = MutPtr(0L),
             usri11CodePage: UInt = 0u,
         ): UserInfo11 =
             UserInfo11(
@@ -8579,7 +8577,7 @@ public class UserInfo2 internal constructor(
     public var usri2AcctExpires: UInt,
     public var usri2MaxStorage: UInt,
     public var usri2UnitsPerWeek: UInt,
-    usri2LogonHoursCtorArg: MutPtr<UByte>,
+    usri2LogonHoursCtorArg: MutPtr,
     public var usri2BadPwCount: UInt,
     public var usri2NumLogons: UInt,
     usri2LogonServerCtorArg: Pwstr,
@@ -8613,7 +8611,7 @@ public class UserInfo2 internal constructor(
     public var usri2Workstations: Pwstr = usri2WorkstationsCtorArg
         internal set
 
-    public var usri2LogonHours: MutPtr<UByte> = usri2LogonHoursCtorArg
+    public var usri2LogonHours: MutPtr = usri2LogonHoursCtorArg
         internal set
 
     public var usri2LogonServer: Pwstr = usri2LogonServerCtorArg
@@ -8666,7 +8664,7 @@ public class UserInfo2 internal constructor(
             usri2AcctExpires: UInt = 0u,
             usri2MaxStorage: UInt = 0u,
             usri2UnitsPerWeek: UInt = 0u,
-            usri2LogonHours: MutPtr<UByte> = MutPtr(0L),
+            usri2LogonHours: MutPtr = MutPtr(0L),
             usri2BadPwCount: UInt = 0u,
             usri2NumLogons: UInt = 0u,
             usri2LogonServer: Pwstr = MutPtr(0L),
@@ -8829,7 +8827,7 @@ public class UserInfo22 internal constructor(
     public var usri22AcctExpires: UInt,
     public var usri22MaxStorage: UInt,
     public var usri22UnitsPerWeek: UInt,
-    usri22LogonHoursCtorArg: MutPtr<UByte>,
+    usri22LogonHoursCtorArg: MutPtr,
     public var usri22BadPwCount: UInt,
     public var usri22NumLogons: UInt,
     usri22LogonServerCtorArg: Pwstr,
@@ -8860,7 +8858,7 @@ public class UserInfo22 internal constructor(
     public var usri22Workstations: Pwstr = usri22WorkstationsCtorArg
         internal set
 
-    public var usri22LogonHours: MutPtr<UByte> = usri22LogonHoursCtorArg
+    public var usri22LogonHours: MutPtr = usri22LogonHoursCtorArg
         internal set
 
     public var usri22LogonServer: Pwstr = usri22LogonServerCtorArg
@@ -8913,7 +8911,7 @@ public class UserInfo22 internal constructor(
             usri22AcctExpires: UInt = 0u,
             usri22MaxStorage: UInt = 0u,
             usri22UnitsPerWeek: UInt = 0u,
-            usri22LogonHours: MutPtr<UByte> = MutPtr(0L),
+            usri22LogonHours: MutPtr = MutPtr(0L),
             usri22BadPwCount: UInt = 0u,
             usri22NumLogons: UInt = 0u,
             usri22LogonServer: Pwstr = MutPtr(0L),
@@ -9119,7 +9117,7 @@ public class UserInfo3 internal constructor(
     public var usri3AcctExpires: UInt,
     public var usri3MaxStorage: UInt,
     public var usri3UnitsPerWeek: UInt,
-    usri3LogonHoursCtorArg: MutPtr<UByte>,
+    usri3LogonHoursCtorArg: MutPtr,
     public var usri3BadPwCount: UInt,
     public var usri3NumLogons: UInt,
     usri3LogonServerCtorArg: Pwstr,
@@ -9158,7 +9156,7 @@ public class UserInfo3 internal constructor(
     public var usri3Workstations: Pwstr = usri3WorkstationsCtorArg
         internal set
 
-    public var usri3LogonHours: MutPtr<UByte> = usri3LogonHoursCtorArg
+    public var usri3LogonHours: MutPtr = usri3LogonHoursCtorArg
         internal set
 
     public var usri3LogonServer: Pwstr = usri3LogonServerCtorArg
@@ -9222,7 +9220,7 @@ public class UserInfo3 internal constructor(
             usri3AcctExpires: UInt = 0u,
             usri3MaxStorage: UInt = 0u,
             usri3UnitsPerWeek: UInt = 0u,
-            usri3LogonHours: MutPtr<UByte> = MutPtr(0L),
+            usri3LogonHours: MutPtr = MutPtr(0L),
             usri3BadPwCount: UInt = 0u,
             usri3NumLogons: UInt = 0u,
             usri3LogonServer: Pwstr = MutPtr(0L),
@@ -9287,7 +9285,7 @@ public class UserInfo4 internal constructor(
     public var usri4AcctExpires: UInt,
     public var usri4MaxStorage: UInt,
     public var usri4UnitsPerWeek: UInt,
-    usri4LogonHoursCtorArg: MutPtr<UByte>,
+    usri4LogonHoursCtorArg: MutPtr,
     public var usri4BadPwCount: UInt,
     public var usri4NumLogons: UInt,
     usri4LogonServerCtorArg: Pwstr,
@@ -9326,7 +9324,7 @@ public class UserInfo4 internal constructor(
     public var usri4Workstations: Pwstr = usri4WorkstationsCtorArg
         internal set
 
-    public var usri4LogonHours: MutPtr<UByte> = usri4LogonHoursCtorArg
+    public var usri4LogonHours: MutPtr = usri4LogonHoursCtorArg
         internal set
 
     public var usri4LogonServer: Pwstr = usri4LogonServerCtorArg
@@ -9393,7 +9391,7 @@ public class UserInfo4 internal constructor(
             usri4AcctExpires: UInt = 0u,
             usri4MaxStorage: UInt = 0u,
             usri4UnitsPerWeek: UInt = 0u,
-            usri4LogonHours: MutPtr<UByte> = MutPtr(0L),
+            usri4LogonHours: MutPtr = MutPtr(0L),
             usri4BadPwCount: UInt = 0u,
             usri4NumLogons: UInt = 0u,
             usri4LogonServer: Pwstr = MutPtr(0L),

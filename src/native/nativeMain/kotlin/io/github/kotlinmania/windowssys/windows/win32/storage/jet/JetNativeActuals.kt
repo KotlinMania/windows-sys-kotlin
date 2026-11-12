@@ -2,7 +2,6 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.storage.jet
 
-import io.github.kotlinmania.rustlang.core.ffi.CVoid
 import io.github.kotlinmania.rustlang.core.ptr.ConstPtr
 import io.github.kotlinmania.rustlang.core.ptr.MutPtr
 import io.github.kotlinmania.windowssys.core.Pcstr
@@ -242,34 +241,34 @@ import io.github.kotlinmania.windowssys.windows.win32.storage.structuredstorage.
 import kotlinx.cinterop.ByteVar
 import kotlinx.cinterop.toCPointer
 
-public actual fun jetAddColumnA(sesid: JetSesid, tableid: JetTableid, szcolumnname: ConstPtr<Byte>, pcolumndef: ConstPtr<JetColumndef>, pvdefault: ConstPtr<CVoid>, cbdefault: UInt, pcolumnid: MutPtr<UInt>): Int =
+public actual fun jetAddColumnA(sesid: JetSesid, tableid: JetTableid, szcolumnname: ConstPtr, pcolumndef: ConstPtr, pvdefault: ConstPtr, cbdefault: UInt, pcolumnid: MutPtr): Int =
     windowssysWindowsWin32StorageJetJetAddColumnA(sesid, tableid, szcolumnname.rawAddress.toCPointer<ByteVar>(), pcolumndef.rawAddress.toCPointer<ByteVar>(), pvdefault.rawAddress.toCPointer<ByteVar>(), cbdefault, pcolumnid.rawAddress.toCPointer<ByteVar>())
 
-public actual fun jetAddColumnW(sesid: JetSesid, tableid: JetTableid, szcolumnname: ConstPtr<UShort>, pcolumndef: ConstPtr<JetColumndef>, pvdefault: ConstPtr<CVoid>, cbdefault: UInt, pcolumnid: MutPtr<UInt>): Int =
+public actual fun jetAddColumnW(sesid: JetSesid, tableid: JetTableid, szcolumnname: ConstPtr, pcolumndef: ConstPtr, pvdefault: ConstPtr, cbdefault: UInt, pcolumnid: MutPtr): Int =
     windowssysWindowsWin32StorageJetJetAddColumnW(sesid, tableid, szcolumnname.rawAddress.toCPointer<ByteVar>(), pcolumndef.rawAddress.toCPointer<ByteVar>(), pvdefault.rawAddress.toCPointer<ByteVar>(), cbdefault, pcolumnid.rawAddress.toCPointer<ByteVar>())
 
-public actual fun jetAttachDatabase2A(sesid: JetSesid, szfilename: ConstPtr<Byte>, cpgdatabasesizemax: UInt, grbit: UInt): Int =
+public actual fun jetAttachDatabase2A(sesid: JetSesid, szfilename: ConstPtr, cpgdatabasesizemax: UInt, grbit: UInt): Int =
     windowssysWindowsWin32StorageJetJetAttachDatabase2A(sesid, szfilename.rawAddress.toCPointer<ByteVar>(), cpgdatabasesizemax, grbit)
 
-public actual fun jetAttachDatabase2W(sesid: JetSesid, szfilename: ConstPtr<UShort>, cpgdatabasesizemax: UInt, grbit: UInt): Int =
+public actual fun jetAttachDatabase2W(sesid: JetSesid, szfilename: ConstPtr, cpgdatabasesizemax: UInt, grbit: UInt): Int =
     windowssysWindowsWin32StorageJetJetAttachDatabase2W(sesid, szfilename.rawAddress.toCPointer<ByteVar>(), cpgdatabasesizemax, grbit)
 
-public actual fun jetAttachDatabaseA(sesid: JetSesid, szfilename: ConstPtr<Byte>, grbit: UInt): Int =
+public actual fun jetAttachDatabaseA(sesid: JetSesid, szfilename: ConstPtr, grbit: UInt): Int =
     windowssysWindowsWin32StorageJetJetAttachDatabaseA(sesid, szfilename.rawAddress.toCPointer<ByteVar>(), grbit)
 
-public actual fun jetAttachDatabaseW(sesid: JetSesid, szfilename: ConstPtr<UShort>, grbit: UInt): Int =
+public actual fun jetAttachDatabaseW(sesid: JetSesid, szfilename: ConstPtr, grbit: UInt): Int =
     windowssysWindowsWin32StorageJetJetAttachDatabaseW(sesid, szfilename.rawAddress.toCPointer<ByteVar>(), grbit)
 
-public actual fun jetBackupA(szbackuppath: ConstPtr<Byte>, grbit: UInt, pfnstatus: JetPfnstatus): Int =
+public actual fun jetBackupA(szbackuppath: ConstPtr, grbit: UInt, pfnstatus: JetPfnstatus): Int =
     windowssysWindowsWin32StorageJetJetBackupA(szbackuppath.rawAddress.toCPointer<ByteVar>(), grbit, 0L.toCPointer<ByteVar>())
 
-public actual fun jetBackupInstanceA(instance: JetInstance, szbackuppath: ConstPtr<Byte>, grbit: UInt, pfnstatus: JetPfnstatus): Int =
+public actual fun jetBackupInstanceA(instance: JetInstance, szbackuppath: ConstPtr, grbit: UInt, pfnstatus: JetPfnstatus): Int =
     windowssysWindowsWin32StorageJetJetBackupInstanceA(instance, szbackuppath.rawAddress.toCPointer<ByteVar>(), grbit, 0L.toCPointer<ByteVar>())
 
-public actual fun jetBackupInstanceW(instance: JetInstance, szbackuppath: ConstPtr<UShort>, grbit: UInt, pfnstatus: JetPfnstatus): Int =
+public actual fun jetBackupInstanceW(instance: JetInstance, szbackuppath: ConstPtr, grbit: UInt, pfnstatus: JetPfnstatus): Int =
     windowssysWindowsWin32StorageJetJetBackupInstanceW(instance, szbackuppath.rawAddress.toCPointer<ByteVar>(), grbit, 0L.toCPointer<ByteVar>())
 
-public actual fun jetBackupW(szbackuppath: ConstPtr<UShort>, grbit: UInt, pfnstatus: JetPfnstatus): Int =
+public actual fun jetBackupW(szbackuppath: ConstPtr, grbit: UInt, pfnstatus: JetPfnstatus): Int =
     windowssysWindowsWin32StorageJetJetBackupW(szbackuppath.rawAddress.toCPointer<ByteVar>(), grbit, 0L.toCPointer<ByteVar>())
 
 public actual fun jetBeginExternalBackup(grbit: UInt): Int =
@@ -278,10 +277,10 @@ public actual fun jetBeginExternalBackup(grbit: UInt): Int =
 public actual fun jetBeginExternalBackupInstance(instance: JetInstance, grbit: UInt): Int =
     windowssysWindowsWin32StorageJetJetBeginExternalBackupInstance(instance, grbit)
 
-public actual fun jetBeginSessionA(instance: JetInstance, psesid: MutPtr<JetSesid>, szusername: ConstPtr<Byte>, szpassword: ConstPtr<Byte>): Int =
+public actual fun jetBeginSessionA(instance: JetInstance, psesid: MutPtr, szusername: ConstPtr, szpassword: ConstPtr): Int =
     windowssysWindowsWin32StorageJetJetBeginSessionA(instance, psesid.rawAddress.toCPointer<ByteVar>(), szusername.rawAddress.toCPointer<ByteVar>(), szpassword.rawAddress.toCPointer<ByteVar>())
 
-public actual fun jetBeginSessionW(instance: JetInstance, psesid: MutPtr<JetSesid>, szusername: ConstPtr<UShort>, szpassword: ConstPtr<UShort>): Int =
+public actual fun jetBeginSessionW(instance: JetInstance, psesid: MutPtr, szusername: ConstPtr, szpassword: ConstPtr): Int =
     windowssysWindowsWin32StorageJetJetBeginSessionW(instance, psesid.rawAddress.toCPointer<ByteVar>(), szusername.rawAddress.toCPointer<ByteVar>(), szpassword.rawAddress.toCPointer<ByteVar>())
 
 public actual fun jetBeginTransaction(sesid: JetSesid): Int =
@@ -308,13 +307,13 @@ public actual fun jetCloseTable(sesid: JetSesid, tableid: JetTableid): Int =
 public actual fun jetCommitTransaction(sesid: JetSesid, grbit: UInt): Int =
     windowssysWindowsWin32StorageJetJetCommitTransaction(sesid, grbit)
 
-public actual fun jetCommitTransaction2(sesid: JetSesid, grbit: UInt, cmsecdurablecommit: UInt, pcommitid: MutPtr<JetCommitId>): Int =
+public actual fun jetCommitTransaction2(sesid: JetSesid, grbit: UInt, cmsecdurablecommit: UInt, pcommitid: MutPtr): Int =
     windowssysWindowsWin32StorageJetJetCommitTransaction2(sesid, grbit, cmsecdurablecommit, pcommitid.rawAddress.toCPointer<ByteVar>())
 
-public actual fun jetCompactA(sesid: JetSesid, szdatabasesrc: ConstPtr<Byte>, szdatabasedest: ConstPtr<Byte>, pfnstatus: JetPfnstatus, pconvert: ConstPtr<JetConvertA>, grbit: UInt): Int =
+public actual fun jetCompactA(sesid: JetSesid, szdatabasesrc: ConstPtr, szdatabasedest: ConstPtr, pfnstatus: JetPfnstatus, pconvert: ConstPtr, grbit: UInt): Int =
     windowssysWindowsWin32StorageJetJetCompactA(sesid, szdatabasesrc.rawAddress.toCPointer<ByteVar>(), szdatabasedest.rawAddress.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>(), pconvert.rawAddress.toCPointer<ByteVar>(), grbit)
 
-public actual fun jetCompactW(sesid: JetSesid, szdatabasesrc: ConstPtr<UShort>, szdatabasedest: ConstPtr<UShort>, pfnstatus: JetPfnstatus, pconvert: ConstPtr<JetConvertW>, grbit: UInt): Int =
+public actual fun jetCompactW(sesid: JetSesid, szdatabasesrc: ConstPtr, szdatabasedest: ConstPtr, pfnstatus: JetPfnstatus, pconvert: ConstPtr, grbit: UInt): Int =
     windowssysWindowsWin32StorageJetJetCompactW(sesid, szdatabasesrc.rawAddress.toCPointer<ByteVar>(), szdatabasedest.rawAddress.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>(), pconvert.rawAddress.toCPointer<ByteVar>(), grbit)
 
 public actual fun jetComputeStats(sesid: JetSesid, tableid: JetTableid): Int =
@@ -323,151 +322,151 @@ public actual fun jetComputeStats(sesid: JetSesid, tableid: JetTableid): Int =
 public actual fun jetConfigureProcessForCrashDump(grbit: UInt): Int =
     windowssysWindowsWin32StorageJetJetConfigureProcessForCrashDump(grbit)
 
-public actual fun jetCreateDatabase2A(sesid: JetSesid, szfilename: ConstPtr<Byte>, cpgdatabasesizemax: UInt, pdbid: MutPtr<UInt>, grbit: UInt): Int =
+public actual fun jetCreateDatabase2A(sesid: JetSesid, szfilename: ConstPtr, cpgdatabasesizemax: UInt, pdbid: MutPtr, grbit: UInt): Int =
     windowssysWindowsWin32StorageJetJetCreateDatabase2A(sesid, szfilename.rawAddress.toCPointer<ByteVar>(), cpgdatabasesizemax, pdbid.rawAddress.toCPointer<ByteVar>(), grbit)
 
-public actual fun jetCreateDatabase2W(sesid: JetSesid, szfilename: ConstPtr<UShort>, cpgdatabasesizemax: UInt, pdbid: MutPtr<UInt>, grbit: UInt): Int =
+public actual fun jetCreateDatabase2W(sesid: JetSesid, szfilename: ConstPtr, cpgdatabasesizemax: UInt, pdbid: MutPtr, grbit: UInt): Int =
     windowssysWindowsWin32StorageJetJetCreateDatabase2W(sesid, szfilename.rawAddress.toCPointer<ByteVar>(), cpgdatabasesizemax, pdbid.rawAddress.toCPointer<ByteVar>(), grbit)
 
-public actual fun jetCreateDatabaseA(sesid: JetSesid, szfilename: ConstPtr<Byte>, szconnect: ConstPtr<Byte>, pdbid: MutPtr<UInt>, grbit: UInt): Int =
+public actual fun jetCreateDatabaseA(sesid: JetSesid, szfilename: ConstPtr, szconnect: ConstPtr, pdbid: MutPtr, grbit: UInt): Int =
     windowssysWindowsWin32StorageJetJetCreateDatabaseA(sesid, szfilename.rawAddress.toCPointer<ByteVar>(), szconnect.rawAddress.toCPointer<ByteVar>(), pdbid.rawAddress.toCPointer<ByteVar>(), grbit)
 
-public actual fun jetCreateDatabaseW(sesid: JetSesid, szfilename: ConstPtr<UShort>, szconnect: ConstPtr<UShort>, pdbid: MutPtr<UInt>, grbit: UInt): Int =
+public actual fun jetCreateDatabaseW(sesid: JetSesid, szfilename: ConstPtr, szconnect: ConstPtr, pdbid: MutPtr, grbit: UInt): Int =
     windowssysWindowsWin32StorageJetJetCreateDatabaseW(sesid, szfilename.rawAddress.toCPointer<ByteVar>(), szconnect.rawAddress.toCPointer<ByteVar>(), pdbid.rawAddress.toCPointer<ByteVar>(), grbit)
 
-public actual fun jetCreateIndex2A(sesid: JetSesid, tableid: JetTableid, pindexcreate: ConstPtr<JetIndexcreateA>, cindexcreate: UInt): Int =
+public actual fun jetCreateIndex2A(sesid: JetSesid, tableid: JetTableid, pindexcreate: ConstPtr, cindexcreate: UInt): Int =
     windowssysWindowsWin32StorageJetJetCreateIndex2A(sesid, tableid, pindexcreate.rawAddress.toCPointer<ByteVar>(), cindexcreate)
 
-public actual fun jetCreateIndex2W(sesid: JetSesid, tableid: JetTableid, pindexcreate: ConstPtr<JetIndexcreateW>, cindexcreate: UInt): Int =
+public actual fun jetCreateIndex2W(sesid: JetSesid, tableid: JetTableid, pindexcreate: ConstPtr, cindexcreate: UInt): Int =
     windowssysWindowsWin32StorageJetJetCreateIndex2W(sesid, tableid, pindexcreate.rawAddress.toCPointer<ByteVar>(), cindexcreate)
 
-public actual fun jetCreateIndex3A(sesid: JetSesid, tableid: JetTableid, pindexcreate: ConstPtr<JetIndexcreate2A>, cindexcreate: UInt): Int =
+public actual fun jetCreateIndex3A(sesid: JetSesid, tableid: JetTableid, pindexcreate: ConstPtr, cindexcreate: UInt): Int =
     windowssysWindowsWin32StorageJetJetCreateIndex3A(sesid, tableid, pindexcreate.rawAddress.toCPointer<ByteVar>(), cindexcreate)
 
-public actual fun jetCreateIndex3W(sesid: JetSesid, tableid: JetTableid, pindexcreate: ConstPtr<JetIndexcreate2W>, cindexcreate: UInt): Int =
+public actual fun jetCreateIndex3W(sesid: JetSesid, tableid: JetTableid, pindexcreate: ConstPtr, cindexcreate: UInt): Int =
     windowssysWindowsWin32StorageJetJetCreateIndex3W(sesid, tableid, pindexcreate.rawAddress.toCPointer<ByteVar>(), cindexcreate)
 
-public actual fun jetCreateIndex4A(sesid: JetSesid, tableid: JetTableid, pindexcreate: ConstPtr<JetIndexcreate3A>, cindexcreate: UInt): Int =
+public actual fun jetCreateIndex4A(sesid: JetSesid, tableid: JetTableid, pindexcreate: ConstPtr, cindexcreate: UInt): Int =
     windowssysWindowsWin32StorageJetJetCreateIndex4A(sesid, tableid, pindexcreate.rawAddress.toCPointer<ByteVar>(), cindexcreate)
 
-public actual fun jetCreateIndex4W(sesid: JetSesid, tableid: JetTableid, pindexcreate: ConstPtr<JetIndexcreate3W>, cindexcreate: UInt): Int =
+public actual fun jetCreateIndex4W(sesid: JetSesid, tableid: JetTableid, pindexcreate: ConstPtr, cindexcreate: UInt): Int =
     windowssysWindowsWin32StorageJetJetCreateIndex4W(sesid, tableid, pindexcreate.rawAddress.toCPointer<ByteVar>(), cindexcreate)
 
-public actual fun jetCreateIndexA(sesid: JetSesid, tableid: JetTableid, szindexname: ConstPtr<Byte>, grbit: UInt, szkey: Pcstr, cbkey: UInt, ldensity: UInt): Int =
+public actual fun jetCreateIndexA(sesid: JetSesid, tableid: JetTableid, szindexname: ConstPtr, grbit: UInt, szkey: Pcstr, cbkey: UInt, ldensity: UInt): Int =
     windowssysWindowsWin32StorageJetJetCreateIndexA(sesid, tableid, szindexname.rawAddress.toCPointer<ByteVar>(), grbit, szkey.rawAddress.toCPointer<ByteVar>(), cbkey, ldensity)
 
-public actual fun jetCreateIndexW(sesid: JetSesid, tableid: JetTableid, szindexname: ConstPtr<UShort>, grbit: UInt, szkey: Pcwstr, cbkey: UInt, ldensity: UInt): Int =
+public actual fun jetCreateIndexW(sesid: JetSesid, tableid: JetTableid, szindexname: ConstPtr, grbit: UInt, szkey: Pcwstr, cbkey: UInt, ldensity: UInt): Int =
     windowssysWindowsWin32StorageJetJetCreateIndexW(sesid, tableid, szindexname.rawAddress.toCPointer<ByteVar>(), grbit, szkey.rawAddress.toCPointer<ByteVar>(), cbkey, ldensity)
 
-public actual fun jetCreateInstance2A(pinstance: MutPtr<JetInstance>, szinstancename: ConstPtr<Byte>, szdisplayname: ConstPtr<Byte>, grbit: UInt): Int =
+public actual fun jetCreateInstance2A(pinstance: MutPtr, szinstancename: ConstPtr, szdisplayname: ConstPtr, grbit: UInt): Int =
     windowssysWindowsWin32StorageJetJetCreateInstance2A(pinstance.rawAddress.toCPointer<ByteVar>(), szinstancename.rawAddress.toCPointer<ByteVar>(), szdisplayname.rawAddress.toCPointer<ByteVar>(), grbit)
 
-public actual fun jetCreateInstance2W(pinstance: MutPtr<JetInstance>, szinstancename: ConstPtr<UShort>, szdisplayname: ConstPtr<UShort>, grbit: UInt): Int =
+public actual fun jetCreateInstance2W(pinstance: MutPtr, szinstancename: ConstPtr, szdisplayname: ConstPtr, grbit: UInt): Int =
     windowssysWindowsWin32StorageJetJetCreateInstance2W(pinstance.rawAddress.toCPointer<ByteVar>(), szinstancename.rawAddress.toCPointer<ByteVar>(), szdisplayname.rawAddress.toCPointer<ByteVar>(), grbit)
 
-public actual fun jetCreateInstanceA(pinstance: MutPtr<JetInstance>, szinstancename: ConstPtr<Byte>): Int =
+public actual fun jetCreateInstanceA(pinstance: MutPtr, szinstancename: ConstPtr): Int =
     windowssysWindowsWin32StorageJetJetCreateInstanceA(pinstance.rawAddress.toCPointer<ByteVar>(), szinstancename.rawAddress.toCPointer<ByteVar>())
 
-public actual fun jetCreateInstanceW(pinstance: MutPtr<JetInstance>, szinstancename: ConstPtr<UShort>): Int =
+public actual fun jetCreateInstanceW(pinstance: MutPtr, szinstancename: ConstPtr): Int =
     windowssysWindowsWin32StorageJetJetCreateInstanceW(pinstance.rawAddress.toCPointer<ByteVar>(), szinstancename.rawAddress.toCPointer<ByteVar>())
 
-public actual fun jetCreateTableA(sesid: JetSesid, dbid: UInt, sztablename: ConstPtr<Byte>, lpages: UInt, ldensity: UInt, ptableid: MutPtr<JetTableid>): Int =
+public actual fun jetCreateTableA(sesid: JetSesid, dbid: UInt, sztablename: ConstPtr, lpages: UInt, ldensity: UInt, ptableid: MutPtr): Int =
     windowssysWindowsWin32StorageJetJetCreateTableA(sesid, dbid, sztablename.rawAddress.toCPointer<ByteVar>(), lpages, ldensity, ptableid.rawAddress.toCPointer<ByteVar>())
 
-public actual fun jetCreateTableColumnIndex2A(sesid: JetSesid, dbid: UInt, ptablecreate: MutPtr<JetTablecreate2A>): Int =
+public actual fun jetCreateTableColumnIndex2A(sesid: JetSesid, dbid: UInt, ptablecreate: MutPtr): Int =
     windowssysWindowsWin32StorageJetJetCreateTableColumnIndex2A(sesid, dbid, ptablecreate.rawAddress.toCPointer<ByteVar>())
 
-public actual fun jetCreateTableColumnIndex2W(sesid: JetSesid, dbid: UInt, ptablecreate: MutPtr<JetTablecreate2W>): Int =
+public actual fun jetCreateTableColumnIndex2W(sesid: JetSesid, dbid: UInt, ptablecreate: MutPtr): Int =
     windowssysWindowsWin32StorageJetJetCreateTableColumnIndex2W(sesid, dbid, ptablecreate.rawAddress.toCPointer<ByteVar>())
 
-public actual fun jetCreateTableColumnIndex3A(sesid: JetSesid, dbid: UInt, ptablecreate: MutPtr<JetTablecreate3A>): Int =
+public actual fun jetCreateTableColumnIndex3A(sesid: JetSesid, dbid: UInt, ptablecreate: MutPtr): Int =
     windowssysWindowsWin32StorageJetJetCreateTableColumnIndex3A(sesid, dbid, ptablecreate.rawAddress.toCPointer<ByteVar>())
 
-public actual fun jetCreateTableColumnIndex3W(sesid: JetSesid, dbid: UInt, ptablecreate: MutPtr<JetTablecreate3W>): Int =
+public actual fun jetCreateTableColumnIndex3W(sesid: JetSesid, dbid: UInt, ptablecreate: MutPtr): Int =
     windowssysWindowsWin32StorageJetJetCreateTableColumnIndex3W(sesid, dbid, ptablecreate.rawAddress.toCPointer<ByteVar>())
 
-public actual fun jetCreateTableColumnIndex4A(sesid: JetSesid, dbid: UInt, ptablecreate: MutPtr<JetTablecreate4A>): Int =
+public actual fun jetCreateTableColumnIndex4A(sesid: JetSesid, dbid: UInt, ptablecreate: MutPtr): Int =
     windowssysWindowsWin32StorageJetJetCreateTableColumnIndex4A(sesid, dbid, ptablecreate.rawAddress.toCPointer<ByteVar>())
 
-public actual fun jetCreateTableColumnIndex4W(sesid: JetSesid, dbid: UInt, ptablecreate: MutPtr<JetTablecreate4W>): Int =
+public actual fun jetCreateTableColumnIndex4W(sesid: JetSesid, dbid: UInt, ptablecreate: MutPtr): Int =
     windowssysWindowsWin32StorageJetJetCreateTableColumnIndex4W(sesid, dbid, ptablecreate.rawAddress.toCPointer<ByteVar>())
 
-public actual fun jetCreateTableColumnIndexA(sesid: JetSesid, dbid: UInt, ptablecreate: MutPtr<JetTablecreateA>): Int =
+public actual fun jetCreateTableColumnIndexA(sesid: JetSesid, dbid: UInt, ptablecreate: MutPtr): Int =
     windowssysWindowsWin32StorageJetJetCreateTableColumnIndexA(sesid, dbid, ptablecreate.rawAddress.toCPointer<ByteVar>())
 
-public actual fun jetCreateTableColumnIndexW(sesid: JetSesid, dbid: UInt, ptablecreate: MutPtr<JetTablecreateW>): Int =
+public actual fun jetCreateTableColumnIndexW(sesid: JetSesid, dbid: UInt, ptablecreate: MutPtr): Int =
     windowssysWindowsWin32StorageJetJetCreateTableColumnIndexW(sesid, dbid, ptablecreate.rawAddress.toCPointer<ByteVar>())
 
-public actual fun jetCreateTableW(sesid: JetSesid, dbid: UInt, sztablename: ConstPtr<UShort>, lpages: UInt, ldensity: UInt, ptableid: MutPtr<JetTableid>): Int =
+public actual fun jetCreateTableW(sesid: JetSesid, dbid: UInt, sztablename: ConstPtr, lpages: UInt, ldensity: UInt, ptableid: MutPtr): Int =
     windowssysWindowsWin32StorageJetJetCreateTableW(sesid, dbid, sztablename.rawAddress.toCPointer<ByteVar>(), lpages, ldensity, ptableid.rawAddress.toCPointer<ByteVar>())
 
-public actual fun jetDefragment2A(sesid: JetSesid, dbid: UInt, sztablename: ConstPtr<Byte>, pcpasses: MutPtr<UInt>, pcseconds: MutPtr<UInt>, callback: JetCallback, grbit: UInt): Int =
+public actual fun jetDefragment2A(sesid: JetSesid, dbid: UInt, sztablename: ConstPtr, pcpasses: MutPtr, pcseconds: MutPtr, callback: JetCallback, grbit: UInt): Int =
     windowssysWindowsWin32StorageJetJetDefragment2A(sesid, dbid, sztablename.rawAddress.toCPointer<ByteVar>(), pcpasses.rawAddress.toCPointer<ByteVar>(), pcseconds.rawAddress.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>(), grbit)
 
-public actual fun jetDefragment2W(sesid: JetSesid, dbid: UInt, sztablename: ConstPtr<UShort>, pcpasses: MutPtr<UInt>, pcseconds: MutPtr<UInt>, callback: JetCallback, grbit: UInt): Int =
+public actual fun jetDefragment2W(sesid: JetSesid, dbid: UInt, sztablename: ConstPtr, pcpasses: MutPtr, pcseconds: MutPtr, callback: JetCallback, grbit: UInt): Int =
     windowssysWindowsWin32StorageJetJetDefragment2W(sesid, dbid, sztablename.rawAddress.toCPointer<ByteVar>(), pcpasses.rawAddress.toCPointer<ByteVar>(), pcseconds.rawAddress.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>(), grbit)
 
-public actual fun jetDefragment3A(sesid: JetSesid, szdatabasename: ConstPtr<Byte>, sztablename: ConstPtr<Byte>, pcpasses: MutPtr<UInt>, pcseconds: MutPtr<UInt>, callback: JetCallback, pvcontext: ConstPtr<CVoid>, grbit: UInt): Int =
+public actual fun jetDefragment3A(sesid: JetSesid, szdatabasename: ConstPtr, sztablename: ConstPtr, pcpasses: MutPtr, pcseconds: MutPtr, callback: JetCallback, pvcontext: ConstPtr, grbit: UInt): Int =
     windowssysWindowsWin32StorageJetJetDefragment3A(sesid, szdatabasename.rawAddress.toCPointer<ByteVar>(), sztablename.rawAddress.toCPointer<ByteVar>(), pcpasses.rawAddress.toCPointer<ByteVar>(), pcseconds.rawAddress.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>(), pvcontext.rawAddress.toCPointer<ByteVar>(), grbit)
 
-public actual fun jetDefragment3W(sesid: JetSesid, szdatabasename: ConstPtr<UShort>, sztablename: ConstPtr<UShort>, pcpasses: MutPtr<UInt>, pcseconds: MutPtr<UInt>, callback: JetCallback, pvcontext: ConstPtr<CVoid>, grbit: UInt): Int =
+public actual fun jetDefragment3W(sesid: JetSesid, szdatabasename: ConstPtr, sztablename: ConstPtr, pcpasses: MutPtr, pcseconds: MutPtr, callback: JetCallback, pvcontext: ConstPtr, grbit: UInt): Int =
     windowssysWindowsWin32StorageJetJetDefragment3W(sesid, szdatabasename.rawAddress.toCPointer<ByteVar>(), sztablename.rawAddress.toCPointer<ByteVar>(), pcpasses.rawAddress.toCPointer<ByteVar>(), pcseconds.rawAddress.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>(), pvcontext.rawAddress.toCPointer<ByteVar>(), grbit)
 
-public actual fun jetDefragmentA(sesid: JetSesid, dbid: UInt, sztablename: ConstPtr<Byte>, pcpasses: MutPtr<UInt>, pcseconds: MutPtr<UInt>, grbit: UInt): Int =
+public actual fun jetDefragmentA(sesid: JetSesid, dbid: UInt, sztablename: ConstPtr, pcpasses: MutPtr, pcseconds: MutPtr, grbit: UInt): Int =
     windowssysWindowsWin32StorageJetJetDefragmentA(sesid, dbid, sztablename.rawAddress.toCPointer<ByteVar>(), pcpasses.rawAddress.toCPointer<ByteVar>(), pcseconds.rawAddress.toCPointer<ByteVar>(), grbit)
 
-public actual fun jetDefragmentW(sesid: JetSesid, dbid: UInt, sztablename: ConstPtr<UShort>, pcpasses: MutPtr<UInt>, pcseconds: MutPtr<UInt>, grbit: UInt): Int =
+public actual fun jetDefragmentW(sesid: JetSesid, dbid: UInt, sztablename: ConstPtr, pcpasses: MutPtr, pcseconds: MutPtr, grbit: UInt): Int =
     windowssysWindowsWin32StorageJetJetDefragmentW(sesid, dbid, sztablename.rawAddress.toCPointer<ByteVar>(), pcpasses.rawAddress.toCPointer<ByteVar>(), pcseconds.rawAddress.toCPointer<ByteVar>(), grbit)
 
 public actual fun jetDelete(sesid: JetSesid, tableid: JetTableid): Int =
     windowssysWindowsWin32StorageJetJetDelete(sesid, tableid)
 
-public actual fun jetDeleteColumn2A(sesid: JetSesid, tableid: JetTableid, szcolumnname: ConstPtr<Byte>, grbit: UInt): Int =
+public actual fun jetDeleteColumn2A(sesid: JetSesid, tableid: JetTableid, szcolumnname: ConstPtr, grbit: UInt): Int =
     windowssysWindowsWin32StorageJetJetDeleteColumn2A(sesid, tableid, szcolumnname.rawAddress.toCPointer<ByteVar>(), grbit)
 
-public actual fun jetDeleteColumn2W(sesid: JetSesid, tableid: JetTableid, szcolumnname: ConstPtr<UShort>, grbit: UInt): Int =
+public actual fun jetDeleteColumn2W(sesid: JetSesid, tableid: JetTableid, szcolumnname: ConstPtr, grbit: UInt): Int =
     windowssysWindowsWin32StorageJetJetDeleteColumn2W(sesid, tableid, szcolumnname.rawAddress.toCPointer<ByteVar>(), grbit)
 
-public actual fun jetDeleteColumnA(sesid: JetSesid, tableid: JetTableid, szcolumnname: ConstPtr<Byte>): Int =
+public actual fun jetDeleteColumnA(sesid: JetSesid, tableid: JetTableid, szcolumnname: ConstPtr): Int =
     windowssysWindowsWin32StorageJetJetDeleteColumnA(sesid, tableid, szcolumnname.rawAddress.toCPointer<ByteVar>())
 
-public actual fun jetDeleteColumnW(sesid: JetSesid, tableid: JetTableid, szcolumnname: ConstPtr<UShort>): Int =
+public actual fun jetDeleteColumnW(sesid: JetSesid, tableid: JetTableid, szcolumnname: ConstPtr): Int =
     windowssysWindowsWin32StorageJetJetDeleteColumnW(sesid, tableid, szcolumnname.rawAddress.toCPointer<ByteVar>())
 
-public actual fun jetDeleteIndexA(sesid: JetSesid, tableid: JetTableid, szindexname: ConstPtr<Byte>): Int =
+public actual fun jetDeleteIndexA(sesid: JetSesid, tableid: JetTableid, szindexname: ConstPtr): Int =
     windowssysWindowsWin32StorageJetJetDeleteIndexA(sesid, tableid, szindexname.rawAddress.toCPointer<ByteVar>())
 
-public actual fun jetDeleteIndexW(sesid: JetSesid, tableid: JetTableid, szindexname: ConstPtr<UShort>): Int =
+public actual fun jetDeleteIndexW(sesid: JetSesid, tableid: JetTableid, szindexname: ConstPtr): Int =
     windowssysWindowsWin32StorageJetJetDeleteIndexW(sesid, tableid, szindexname.rawAddress.toCPointer<ByteVar>())
 
-public actual fun jetDeleteTableA(sesid: JetSesid, dbid: UInt, sztablename: ConstPtr<Byte>): Int =
+public actual fun jetDeleteTableA(sesid: JetSesid, dbid: UInt, sztablename: ConstPtr): Int =
     windowssysWindowsWin32StorageJetJetDeleteTableA(sesid, dbid, sztablename.rawAddress.toCPointer<ByteVar>())
 
-public actual fun jetDeleteTableW(sesid: JetSesid, dbid: UInt, sztablename: ConstPtr<UShort>): Int =
+public actual fun jetDeleteTableW(sesid: JetSesid, dbid: UInt, sztablename: ConstPtr): Int =
     windowssysWindowsWin32StorageJetJetDeleteTableW(sesid, dbid, sztablename.rawAddress.toCPointer<ByteVar>())
 
-public actual fun jetDetachDatabase2A(sesid: JetSesid, szfilename: ConstPtr<Byte>, grbit: UInt): Int =
+public actual fun jetDetachDatabase2A(sesid: JetSesid, szfilename: ConstPtr, grbit: UInt): Int =
     windowssysWindowsWin32StorageJetJetDetachDatabase2A(sesid, szfilename.rawAddress.toCPointer<ByteVar>(), grbit)
 
-public actual fun jetDetachDatabase2W(sesid: JetSesid, szfilename: ConstPtr<UShort>, grbit: UInt): Int =
+public actual fun jetDetachDatabase2W(sesid: JetSesid, szfilename: ConstPtr, grbit: UInt): Int =
     windowssysWindowsWin32StorageJetJetDetachDatabase2W(sesid, szfilename.rawAddress.toCPointer<ByteVar>(), grbit)
 
-public actual fun jetDetachDatabaseA(sesid: JetSesid, szfilename: ConstPtr<Byte>): Int =
+public actual fun jetDetachDatabaseA(sesid: JetSesid, szfilename: ConstPtr): Int =
     windowssysWindowsWin32StorageJetJetDetachDatabaseA(sesid, szfilename.rawAddress.toCPointer<ByteVar>())
 
-public actual fun jetDetachDatabaseW(sesid: JetSesid, szfilename: ConstPtr<UShort>): Int =
+public actual fun jetDetachDatabaseW(sesid: JetSesid, szfilename: ConstPtr): Int =
     windowssysWindowsWin32StorageJetJetDetachDatabaseW(sesid, szfilename.rawAddress.toCPointer<ByteVar>())
 
-public actual fun jetDupCursor(sesid: JetSesid, tableid: JetTableid, ptableid: MutPtr<JetTableid>, grbit: UInt): Int =
+public actual fun jetDupCursor(sesid: JetSesid, tableid: JetTableid, ptableid: MutPtr, grbit: UInt): Int =
     windowssysWindowsWin32StorageJetJetDupCursor(sesid, tableid, ptableid.rawAddress.toCPointer<ByteVar>(), grbit)
 
-public actual fun jetDupSession(sesid: JetSesid, psesid: MutPtr<JetSesid>): Int =
+public actual fun jetDupSession(sesid: JetSesid, psesid: MutPtr): Int =
     windowssysWindowsWin32StorageJetJetDupSession(sesid, psesid.rawAddress.toCPointer<ByteVar>())
 
-public actual fun jetEnableMultiInstanceA(psetsysparam: ConstPtr<JetSetsysparamA>, csetsysparam: UInt, pcsetsucceed: MutPtr<UInt>): Int =
+public actual fun jetEnableMultiInstanceA(psetsysparam: ConstPtr, csetsysparam: UInt, pcsetsucceed: MutPtr): Int =
     windowssysWindowsWin32StorageJetJetEnableMultiInstanceA(psetsysparam.rawAddress.toCPointer<ByteVar>(), csetsysparam, pcsetsucceed.rawAddress.toCPointer<ByteVar>())
 
-public actual fun jetEnableMultiInstanceW(psetsysparam: ConstPtr<JetSetsysparamW>, csetsysparam: UInt, pcsetsucceed: MutPtr<UInt>): Int =
+public actual fun jetEnableMultiInstanceW(psetsysparam: ConstPtr, csetsysparam: UInt, pcsetsucceed: MutPtr): Int =
     windowssysWindowsWin32StorageJetJetEnableMultiInstanceW(psetsysparam.rawAddress.toCPointer<ByteVar>(), csetsysparam, pcsetsucceed.rawAddress.toCPointer<ByteVar>())
 
 public actual fun jetEndExternalBackup(): Int =
@@ -482,202 +481,202 @@ public actual fun jetEndExternalBackupInstance2(instance: JetInstance, grbit: UI
 public actual fun jetEndSession(sesid: JetSesid, grbit: UInt): Int =
     windowssysWindowsWin32StorageJetJetEndSession(sesid, grbit)
 
-public actual fun jetEnumerateColumns(sesid: JetSesid, tableid: JetTableid, cenumcolumnid: UInt, rgenumcolumnid: ConstPtr<JetEnumcolumnid>, pcenumcolumn: MutPtr<UInt>, prgenumcolumn: MutPtr<MutPtr<JetEnumcolumn>>, pfnrealloc: JetPfnrealloc, pvrealloccontext: ConstPtr<CVoid>, cbdatamost: UInt, grbit: UInt): Int =
+public actual fun jetEnumerateColumns(sesid: JetSesid, tableid: JetTableid, cenumcolumnid: UInt, rgenumcolumnid: ConstPtr, pcenumcolumn: MutPtr, prgenumcolumn: MutPtr, pfnrealloc: JetPfnrealloc, pvrealloccontext: ConstPtr, cbdatamost: UInt, grbit: UInt): Int =
     windowssysWindowsWin32StorageJetJetEnumerateColumns(sesid, tableid, cenumcolumnid, rgenumcolumnid.rawAddress.toCPointer<ByteVar>(), pcenumcolumn.rawAddress.toCPointer<ByteVar>(), prgenumcolumn.rawAddress.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>(), pvrealloccontext.rawAddress.toCPointer<ByteVar>(), cbdatamost, grbit)
 
-public actual fun jetEscrowUpdate(sesid: JetSesid, tableid: JetTableid, columnid: UInt, pv: ConstPtr<CVoid>, cbmax: UInt, pvold: MutPtr<CVoid>, cboldmax: UInt, pcboldactual: MutPtr<UInt>, grbit: UInt): Int =
+public actual fun jetEscrowUpdate(sesid: JetSesid, tableid: JetTableid, columnid: UInt, pv: ConstPtr, cbmax: UInt, pvold: MutPtr, cboldmax: UInt, pcboldactual: MutPtr, grbit: UInt): Int =
     windowssysWindowsWin32StorageJetJetEscrowUpdate(sesid, tableid, columnid, pv.rawAddress.toCPointer<ByteVar>(), cbmax, pvold.rawAddress.toCPointer<ByteVar>(), cboldmax, pcboldactual.rawAddress.toCPointer<ByteVar>(), grbit)
 
-public actual fun jetExternalRestore2A(szcheckpointfilepath: ConstPtr<Byte>, szlogpath: ConstPtr<Byte>, rgrstmap: ConstPtr<JetRstmapA>, crstfilemap: Int, szbackuplogpath: ConstPtr<Byte>, ploginfo: MutPtr<JetLoginfoA>, sztargetinstancename: ConstPtr<Byte>, sztargetinstancelogpath: ConstPtr<Byte>, sztargetinstancecheckpointpath: ConstPtr<Byte>, pfn: JetPfnstatus): Int =
+public actual fun jetExternalRestore2A(szcheckpointfilepath: ConstPtr, szlogpath: ConstPtr, rgrstmap: ConstPtr, crstfilemap: Int, szbackuplogpath: ConstPtr, ploginfo: MutPtr, sztargetinstancename: ConstPtr, sztargetinstancelogpath: ConstPtr, sztargetinstancecheckpointpath: ConstPtr, pfn: JetPfnstatus): Int =
     windowssysWindowsWin32StorageJetJetExternalRestore2A(szcheckpointfilepath.rawAddress.toCPointer<ByteVar>(), szlogpath.rawAddress.toCPointer<ByteVar>(), rgrstmap.rawAddress.toCPointer<ByteVar>(), crstfilemap, szbackuplogpath.rawAddress.toCPointer<ByteVar>(), ploginfo.rawAddress.toCPointer<ByteVar>(), sztargetinstancename.rawAddress.toCPointer<ByteVar>(), sztargetinstancelogpath.rawAddress.toCPointer<ByteVar>(), sztargetinstancecheckpointpath.rawAddress.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>())
 
-public actual fun jetExternalRestore2W(szcheckpointfilepath: ConstPtr<UShort>, szlogpath: ConstPtr<UShort>, rgrstmap: ConstPtr<JetRstmapW>, crstfilemap: Int, szbackuplogpath: ConstPtr<UShort>, ploginfo: MutPtr<JetLoginfoW>, sztargetinstancename: ConstPtr<UShort>, sztargetinstancelogpath: ConstPtr<UShort>, sztargetinstancecheckpointpath: ConstPtr<UShort>, pfn: JetPfnstatus): Int =
+public actual fun jetExternalRestore2W(szcheckpointfilepath: ConstPtr, szlogpath: ConstPtr, rgrstmap: ConstPtr, crstfilemap: Int, szbackuplogpath: ConstPtr, ploginfo: MutPtr, sztargetinstancename: ConstPtr, sztargetinstancelogpath: ConstPtr, sztargetinstancecheckpointpath: ConstPtr, pfn: JetPfnstatus): Int =
     windowssysWindowsWin32StorageJetJetExternalRestore2W(szcheckpointfilepath.rawAddress.toCPointer<ByteVar>(), szlogpath.rawAddress.toCPointer<ByteVar>(), rgrstmap.rawAddress.toCPointer<ByteVar>(), crstfilemap, szbackuplogpath.rawAddress.toCPointer<ByteVar>(), ploginfo.rawAddress.toCPointer<ByteVar>(), sztargetinstancename.rawAddress.toCPointer<ByteVar>(), sztargetinstancelogpath.rawAddress.toCPointer<ByteVar>(), sztargetinstancecheckpointpath.rawAddress.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>())
 
-public actual fun jetExternalRestoreA(szcheckpointfilepath: ConstPtr<Byte>, szlogpath: ConstPtr<Byte>, rgrstmap: ConstPtr<JetRstmapA>, crstfilemap: Int, szbackuplogpath: ConstPtr<Byte>, genlow: Int, genhigh: Int, pfn: JetPfnstatus): Int =
+public actual fun jetExternalRestoreA(szcheckpointfilepath: ConstPtr, szlogpath: ConstPtr, rgrstmap: ConstPtr, crstfilemap: Int, szbackuplogpath: ConstPtr, genlow: Int, genhigh: Int, pfn: JetPfnstatus): Int =
     windowssysWindowsWin32StorageJetJetExternalRestoreA(szcheckpointfilepath.rawAddress.toCPointer<ByteVar>(), szlogpath.rawAddress.toCPointer<ByteVar>(), rgrstmap.rawAddress.toCPointer<ByteVar>(), crstfilemap, szbackuplogpath.rawAddress.toCPointer<ByteVar>(), genlow, genhigh, 0L.toCPointer<ByteVar>())
 
-public actual fun jetExternalRestoreW(szcheckpointfilepath: ConstPtr<UShort>, szlogpath: ConstPtr<UShort>, rgrstmap: ConstPtr<JetRstmapW>, crstfilemap: Int, szbackuplogpath: ConstPtr<UShort>, genlow: Int, genhigh: Int, pfn: JetPfnstatus): Int =
+public actual fun jetExternalRestoreW(szcheckpointfilepath: ConstPtr, szlogpath: ConstPtr, rgrstmap: ConstPtr, crstfilemap: Int, szbackuplogpath: ConstPtr, genlow: Int, genhigh: Int, pfn: JetPfnstatus): Int =
     windowssysWindowsWin32StorageJetJetExternalRestoreW(szcheckpointfilepath.rawAddress.toCPointer<ByteVar>(), szlogpath.rawAddress.toCPointer<ByteVar>(), rgrstmap.rawAddress.toCPointer<ByteVar>(), crstfilemap, szbackuplogpath.rawAddress.toCPointer<ByteVar>(), genlow, genhigh, 0L.toCPointer<ByteVar>())
 
 public actual fun jetFreeBuffer(pbbuf: Pcstr): Int =
     windowssysWindowsWin32StorageJetJetFreeBuffer(pbbuf.rawAddress.toCPointer<ByteVar>())
 
-public actual fun jetGetAttachInfoA(szzdatabases: MutPtr<Byte>, cbmax: UInt, pcbactual: MutPtr<UInt>): Int =
+public actual fun jetGetAttachInfoA(szzdatabases: MutPtr, cbmax: UInt, pcbactual: MutPtr): Int =
     windowssysWindowsWin32StorageJetJetGetAttachInfoA(szzdatabases.rawAddress.toCPointer<ByteVar>(), cbmax, pcbactual.rawAddress.toCPointer<ByteVar>())
 
-public actual fun jetGetAttachInfoInstanceA(instance: JetInstance, szzdatabases: MutPtr<Byte>, cbmax: UInt, pcbactual: MutPtr<UInt>): Int =
+public actual fun jetGetAttachInfoInstanceA(instance: JetInstance, szzdatabases: MutPtr, cbmax: UInt, pcbactual: MutPtr): Int =
     windowssysWindowsWin32StorageJetJetGetAttachInfoInstanceA(instance, szzdatabases.rawAddress.toCPointer<ByteVar>(), cbmax, pcbactual.rawAddress.toCPointer<ByteVar>())
 
-public actual fun jetGetAttachInfoInstanceW(instance: JetInstance, szzdatabases: MutPtr<UShort>, cbmax: UInt, pcbactual: MutPtr<UInt>): Int =
+public actual fun jetGetAttachInfoInstanceW(instance: JetInstance, szzdatabases: MutPtr, cbmax: UInt, pcbactual: MutPtr): Int =
     windowssysWindowsWin32StorageJetJetGetAttachInfoInstanceW(instance, szzdatabases.rawAddress.toCPointer<ByteVar>(), cbmax, pcbactual.rawAddress.toCPointer<ByteVar>())
 
-public actual fun jetGetAttachInfoW(wszzdatabases: MutPtr<UShort>, cbmax: UInt, pcbactual: MutPtr<UInt>): Int =
+public actual fun jetGetAttachInfoW(wszzdatabases: MutPtr, cbmax: UInt, pcbactual: MutPtr): Int =
     windowssysWindowsWin32StorageJetJetGetAttachInfoW(wszzdatabases.rawAddress.toCPointer<ByteVar>(), cbmax, pcbactual.rawAddress.toCPointer<ByteVar>())
 
-public actual fun jetGetBookmark(sesid: JetSesid, tableid: JetTableid, pvbookmark: MutPtr<CVoid>, cbmax: UInt, pcbactual: MutPtr<UInt>): Int =
+public actual fun jetGetBookmark(sesid: JetSesid, tableid: JetTableid, pvbookmark: MutPtr, cbmax: UInt, pcbactual: MutPtr): Int =
     windowssysWindowsWin32StorageJetJetGetBookmark(sesid, tableid, pvbookmark.rawAddress.toCPointer<ByteVar>(), cbmax, pcbactual.rawAddress.toCPointer<ByteVar>())
 
-public actual fun jetGetColumnInfoA(sesid: JetSesid, dbid: UInt, sztablename: ConstPtr<Byte>, pcolumnnameorid: ConstPtr<Byte>, pvresult: MutPtr<CVoid>, cbmax: UInt, infolevel: UInt): Int =
+public actual fun jetGetColumnInfoA(sesid: JetSesid, dbid: UInt, sztablename: ConstPtr, pcolumnnameorid: ConstPtr, pvresult: MutPtr, cbmax: UInt, infolevel: UInt): Int =
     windowssysWindowsWin32StorageJetJetGetColumnInfoA(sesid, dbid, sztablename.rawAddress.toCPointer<ByteVar>(), pcolumnnameorid.rawAddress.toCPointer<ByteVar>(), pvresult.rawAddress.toCPointer<ByteVar>(), cbmax, infolevel)
 
-public actual fun jetGetColumnInfoW(sesid: JetSesid, dbid: UInt, sztablename: ConstPtr<UShort>, pwcolumnnameorid: ConstPtr<UShort>, pvresult: MutPtr<CVoid>, cbmax: UInt, infolevel: UInt): Int =
+public actual fun jetGetColumnInfoW(sesid: JetSesid, dbid: UInt, sztablename: ConstPtr, pwcolumnnameorid: ConstPtr, pvresult: MutPtr, cbmax: UInt, infolevel: UInt): Int =
     windowssysWindowsWin32StorageJetJetGetColumnInfoW(sesid, dbid, sztablename.rawAddress.toCPointer<ByteVar>(), pwcolumnnameorid.rawAddress.toCPointer<ByteVar>(), pvresult.rawAddress.toCPointer<ByteVar>(), cbmax, infolevel)
 
-public actual fun jetGetCurrentIndexA(sesid: JetSesid, tableid: JetTableid, szindexname: MutPtr<Byte>, cbindexname: UInt): Int =
+public actual fun jetGetCurrentIndexA(sesid: JetSesid, tableid: JetTableid, szindexname: MutPtr, cbindexname: UInt): Int =
     windowssysWindowsWin32StorageJetJetGetCurrentIndexA(sesid, tableid, szindexname.rawAddress.toCPointer<ByteVar>(), cbindexname)
 
-public actual fun jetGetCurrentIndexW(sesid: JetSesid, tableid: JetTableid, szindexname: MutPtr<UShort>, cbindexname: UInt): Int =
+public actual fun jetGetCurrentIndexW(sesid: JetSesid, tableid: JetTableid, szindexname: MutPtr, cbindexname: UInt): Int =
     windowssysWindowsWin32StorageJetJetGetCurrentIndexW(sesid, tableid, szindexname.rawAddress.toCPointer<ByteVar>(), cbindexname)
 
-public actual fun jetGetCursorInfo(sesid: JetSesid, tableid: JetTableid, pvresult: MutPtr<CVoid>, cbmax: UInt, infolevel: UInt): Int =
+public actual fun jetGetCursorInfo(sesid: JetSesid, tableid: JetTableid, pvresult: MutPtr, cbmax: UInt, infolevel: UInt): Int =
     windowssysWindowsWin32StorageJetJetGetCursorInfo(sesid, tableid, pvresult.rawAddress.toCPointer<ByteVar>(), cbmax, infolevel)
 
-public actual fun jetGetDatabaseFileInfoA(szdatabasename: ConstPtr<Byte>, pvresult: MutPtr<CVoid>, cbmax: UInt, infolevel: UInt): Int =
+public actual fun jetGetDatabaseFileInfoA(szdatabasename: ConstPtr, pvresult: MutPtr, cbmax: UInt, infolevel: UInt): Int =
     windowssysWindowsWin32StorageJetJetGetDatabaseFileInfoA(szdatabasename.rawAddress.toCPointer<ByteVar>(), pvresult.rawAddress.toCPointer<ByteVar>(), cbmax, infolevel)
 
-public actual fun jetGetDatabaseFileInfoW(szdatabasename: ConstPtr<UShort>, pvresult: MutPtr<CVoid>, cbmax: UInt, infolevel: UInt): Int =
+public actual fun jetGetDatabaseFileInfoW(szdatabasename: ConstPtr, pvresult: MutPtr, cbmax: UInt, infolevel: UInt): Int =
     windowssysWindowsWin32StorageJetJetGetDatabaseFileInfoW(szdatabasename.rawAddress.toCPointer<ByteVar>(), pvresult.rawAddress.toCPointer<ByteVar>(), cbmax, infolevel)
 
-public actual fun jetGetDatabaseInfoA(sesid: JetSesid, dbid: UInt, pvresult: MutPtr<CVoid>, cbmax: UInt, infolevel: UInt): Int =
+public actual fun jetGetDatabaseInfoA(sesid: JetSesid, dbid: UInt, pvresult: MutPtr, cbmax: UInt, infolevel: UInt): Int =
     windowssysWindowsWin32StorageJetJetGetDatabaseInfoA(sesid, dbid, pvresult.rawAddress.toCPointer<ByteVar>(), cbmax, infolevel)
 
-public actual fun jetGetDatabaseInfoW(sesid: JetSesid, dbid: UInt, pvresult: MutPtr<CVoid>, cbmax: UInt, infolevel: UInt): Int =
+public actual fun jetGetDatabaseInfoW(sesid: JetSesid, dbid: UInt, pvresult: MutPtr, cbmax: UInt, infolevel: UInt): Int =
     windowssysWindowsWin32StorageJetJetGetDatabaseInfoW(sesid, dbid, pvresult.rawAddress.toCPointer<ByteVar>(), cbmax, infolevel)
 
-public actual fun jetGetErrorInfoW(pvcontext: ConstPtr<CVoid>, pvresult: MutPtr<CVoid>, cbmax: UInt, infolevel: UInt, grbit: UInt): Int =
+public actual fun jetGetErrorInfoW(pvcontext: ConstPtr, pvresult: MutPtr, cbmax: UInt, infolevel: UInt, grbit: UInt): Int =
     windowssysWindowsWin32StorageJetJetGetErrorInfoW(pvcontext.rawAddress.toCPointer<ByteVar>(), pvresult.rawAddress.toCPointer<ByteVar>(), cbmax, infolevel, grbit)
 
-public actual fun jetGetIndexInfoA(sesid: JetSesid, dbid: UInt, sztablename: ConstPtr<Byte>, szindexname: ConstPtr<Byte>, pvresult: MutPtr<CVoid>, cbresult: UInt, infolevel: UInt): Int =
+public actual fun jetGetIndexInfoA(sesid: JetSesid, dbid: UInt, sztablename: ConstPtr, szindexname: ConstPtr, pvresult: MutPtr, cbresult: UInt, infolevel: UInt): Int =
     windowssysWindowsWin32StorageJetJetGetIndexInfoA(sesid, dbid, sztablename.rawAddress.toCPointer<ByteVar>(), szindexname.rawAddress.toCPointer<ByteVar>(), pvresult.rawAddress.toCPointer<ByteVar>(), cbresult, infolevel)
 
-public actual fun jetGetIndexInfoW(sesid: JetSesid, dbid: UInt, sztablename: ConstPtr<UShort>, szindexname: ConstPtr<UShort>, pvresult: MutPtr<CVoid>, cbresult: UInt, infolevel: UInt): Int =
+public actual fun jetGetIndexInfoW(sesid: JetSesid, dbid: UInt, sztablename: ConstPtr, szindexname: ConstPtr, pvresult: MutPtr, cbresult: UInt, infolevel: UInt): Int =
     windowssysWindowsWin32StorageJetJetGetIndexInfoW(sesid, dbid, sztablename.rawAddress.toCPointer<ByteVar>(), szindexname.rawAddress.toCPointer<ByteVar>(), pvresult.rawAddress.toCPointer<ByteVar>(), cbresult, infolevel)
 
-public actual fun jetGetInstanceInfoA(pcinstanceinfo: MutPtr<UInt>, painstanceinfo: MutPtr<MutPtr<JetInstanceInfoA>>): Int =
+public actual fun jetGetInstanceInfoA(pcinstanceinfo: MutPtr, painstanceinfo: MutPtr): Int =
     windowssysWindowsWin32StorageJetJetGetInstanceInfoA(pcinstanceinfo.rawAddress.toCPointer<ByteVar>(), painstanceinfo.rawAddress.toCPointer<ByteVar>())
 
-public actual fun jetGetInstanceInfoW(pcinstanceinfo: MutPtr<UInt>, painstanceinfo: MutPtr<MutPtr<JetInstanceInfoW>>): Int =
+public actual fun jetGetInstanceInfoW(pcinstanceinfo: MutPtr, painstanceinfo: MutPtr): Int =
     windowssysWindowsWin32StorageJetJetGetInstanceInfoW(pcinstanceinfo.rawAddress.toCPointer<ByteVar>(), painstanceinfo.rawAddress.toCPointer<ByteVar>())
 
-public actual fun jetGetInstanceMiscInfo(instance: JetInstance, pvresult: MutPtr<CVoid>, cbmax: UInt, infolevel: UInt): Int =
+public actual fun jetGetInstanceMiscInfo(instance: JetInstance, pvresult: MutPtr, cbmax: UInt, infolevel: UInt): Int =
     windowssysWindowsWin32StorageJetJetGetInstanceMiscInfo(instance, pvresult.rawAddress.toCPointer<ByteVar>(), cbmax, infolevel)
 
-public actual fun jetGetLS(sesid: JetSesid, tableid: JetTableid, pls: MutPtr<JetLs>, grbit: UInt): Int =
+public actual fun jetGetLS(sesid: JetSesid, tableid: JetTableid, pls: MutPtr, grbit: UInt): Int =
     windowssysWindowsWin32StorageJetJetGetLS(sesid, tableid, pls.rawAddress.toCPointer<ByteVar>(), grbit)
 
 public actual fun jetGetLock(sesid: JetSesid, tableid: JetTableid, grbit: UInt): Int =
     windowssysWindowsWin32StorageJetJetGetLock(sesid, tableid, grbit)
 
-public actual fun jetGetLogInfoA(szzlogs: MutPtr<Byte>, cbmax: UInt, pcbactual: MutPtr<UInt>): Int =
+public actual fun jetGetLogInfoA(szzlogs: MutPtr, cbmax: UInt, pcbactual: MutPtr): Int =
     windowssysWindowsWin32StorageJetJetGetLogInfoA(szzlogs.rawAddress.toCPointer<ByteVar>(), cbmax, pcbactual.rawAddress.toCPointer<ByteVar>())
 
-public actual fun jetGetLogInfoInstance2A(instance: JetInstance, szzlogs: MutPtr<Byte>, cbmax: UInt, pcbactual: MutPtr<UInt>, ploginfo: MutPtr<JetLoginfoA>): Int =
+public actual fun jetGetLogInfoInstance2A(instance: JetInstance, szzlogs: MutPtr, cbmax: UInt, pcbactual: MutPtr, ploginfo: MutPtr): Int =
     windowssysWindowsWin32StorageJetJetGetLogInfoInstance2A(instance, szzlogs.rawAddress.toCPointer<ByteVar>(), cbmax, pcbactual.rawAddress.toCPointer<ByteVar>(), ploginfo.rawAddress.toCPointer<ByteVar>())
 
-public actual fun jetGetLogInfoInstance2W(instance: JetInstance, wszzlogs: MutPtr<UShort>, cbmax: UInt, pcbactual: MutPtr<UInt>, ploginfo: MutPtr<JetLoginfoW>): Int =
+public actual fun jetGetLogInfoInstance2W(instance: JetInstance, wszzlogs: MutPtr, cbmax: UInt, pcbactual: MutPtr, ploginfo: MutPtr): Int =
     windowssysWindowsWin32StorageJetJetGetLogInfoInstance2W(instance, wszzlogs.rawAddress.toCPointer<ByteVar>(), cbmax, pcbactual.rawAddress.toCPointer<ByteVar>(), ploginfo.rawAddress.toCPointer<ByteVar>())
 
-public actual fun jetGetLogInfoInstanceA(instance: JetInstance, szzlogs: MutPtr<Byte>, cbmax: UInt, pcbactual: MutPtr<UInt>): Int =
+public actual fun jetGetLogInfoInstanceA(instance: JetInstance, szzlogs: MutPtr, cbmax: UInt, pcbactual: MutPtr): Int =
     windowssysWindowsWin32StorageJetJetGetLogInfoInstanceA(instance, szzlogs.rawAddress.toCPointer<ByteVar>(), cbmax, pcbactual.rawAddress.toCPointer<ByteVar>())
 
-public actual fun jetGetLogInfoInstanceW(instance: JetInstance, wszzlogs: MutPtr<UShort>, cbmax: UInt, pcbactual: MutPtr<UInt>): Int =
+public actual fun jetGetLogInfoInstanceW(instance: JetInstance, wszzlogs: MutPtr, cbmax: UInt, pcbactual: MutPtr): Int =
     windowssysWindowsWin32StorageJetJetGetLogInfoInstanceW(instance, wszzlogs.rawAddress.toCPointer<ByteVar>(), cbmax, pcbactual.rawAddress.toCPointer<ByteVar>())
 
-public actual fun jetGetLogInfoW(szzlogs: MutPtr<UShort>, cbmax: UInt, pcbactual: MutPtr<UInt>): Int =
+public actual fun jetGetLogInfoW(szzlogs: MutPtr, cbmax: UInt, pcbactual: MutPtr): Int =
     windowssysWindowsWin32StorageJetJetGetLogInfoW(szzlogs.rawAddress.toCPointer<ByteVar>(), cbmax, pcbactual.rawAddress.toCPointer<ByteVar>())
 
-public actual fun jetGetObjectInfoA(sesid: JetSesid, dbid: UInt, objtyp: UInt, szcontainername: ConstPtr<Byte>, szobjectname: ConstPtr<Byte>, pvresult: MutPtr<CVoid>, cbmax: UInt, infolevel: UInt): Int =
+public actual fun jetGetObjectInfoA(sesid: JetSesid, dbid: UInt, objtyp: UInt, szcontainername: ConstPtr, szobjectname: ConstPtr, pvresult: MutPtr, cbmax: UInt, infolevel: UInt): Int =
     windowssysWindowsWin32StorageJetJetGetObjectInfoA(sesid, dbid, objtyp, szcontainername.rawAddress.toCPointer<ByteVar>(), szobjectname.rawAddress.toCPointer<ByteVar>(), pvresult.rawAddress.toCPointer<ByteVar>(), cbmax, infolevel)
 
-public actual fun jetGetObjectInfoW(sesid: JetSesid, dbid: UInt, objtyp: UInt, szcontainername: ConstPtr<UShort>, szobjectname: ConstPtr<UShort>, pvresult: MutPtr<CVoid>, cbmax: UInt, infolevel: UInt): Int =
+public actual fun jetGetObjectInfoW(sesid: JetSesid, dbid: UInt, objtyp: UInt, szcontainername: ConstPtr, szobjectname: ConstPtr, pvresult: MutPtr, cbmax: UInt, infolevel: UInt): Int =
     windowssysWindowsWin32StorageJetJetGetObjectInfoW(sesid, dbid, objtyp, szcontainername.rawAddress.toCPointer<ByteVar>(), szobjectname.rawAddress.toCPointer<ByteVar>(), pvresult.rawAddress.toCPointer<ByteVar>(), cbmax, infolevel)
 
-public actual fun jetGetRecordPosition(sesid: JetSesid, tableid: JetTableid, precpos: MutPtr<JetRecpos>, cbrecpos: UInt): Int =
+public actual fun jetGetRecordPosition(sesid: JetSesid, tableid: JetTableid, precpos: MutPtr, cbrecpos: UInt): Int =
     windowssysWindowsWin32StorageJetJetGetRecordPosition(sesid, tableid, precpos.rawAddress.toCPointer<ByteVar>(), cbrecpos)
 
-public actual fun jetGetRecordSize(sesid: JetSesid, tableid: JetTableid, precsize: MutPtr<JetRecsize>, grbit: UInt): Int =
+public actual fun jetGetRecordSize(sesid: JetSesid, tableid: JetTableid, precsize: MutPtr, grbit: UInt): Int =
     windowssysWindowsWin32StorageJetJetGetRecordSize(sesid, tableid, precsize.rawAddress.toCPointer<ByteVar>(), grbit)
 
-public actual fun jetGetRecordSize2(sesid: JetSesid, tableid: JetTableid, precsize: MutPtr<JetRecsize2>, grbit: UInt): Int =
+public actual fun jetGetRecordSize2(sesid: JetSesid, tableid: JetTableid, precsize: MutPtr, grbit: UInt): Int =
     windowssysWindowsWin32StorageJetJetGetRecordSize2(sesid, tableid, precsize.rawAddress.toCPointer<ByteVar>(), grbit)
 
-public actual fun jetGetSecondaryIndexBookmark(sesid: JetSesid, tableid: JetTableid, pvsecondarykey: MutPtr<CVoid>, cbsecondarykeymax: UInt, pcbsecondarykeyactual: MutPtr<UInt>, pvprimarybookmark: MutPtr<CVoid>, cbprimarybookmarkmax: UInt, pcbprimarybookmarkactual: MutPtr<UInt>, grbit: UInt): Int =
+public actual fun jetGetSecondaryIndexBookmark(sesid: JetSesid, tableid: JetTableid, pvsecondarykey: MutPtr, cbsecondarykeymax: UInt, pcbsecondarykeyactual: MutPtr, pvprimarybookmark: MutPtr, cbprimarybookmarkmax: UInt, pcbprimarybookmarkactual: MutPtr, grbit: UInt): Int =
     windowssysWindowsWin32StorageJetJetGetSecondaryIndexBookmark(sesid, tableid, pvsecondarykey.rawAddress.toCPointer<ByteVar>(), cbsecondarykeymax, pcbsecondarykeyactual.rawAddress.toCPointer<ByteVar>(), pvprimarybookmark.rawAddress.toCPointer<ByteVar>(), cbprimarybookmarkmax, pcbprimarybookmarkactual.rawAddress.toCPointer<ByteVar>(), grbit)
 
-public actual fun jetGetSessionParameter(sesid: JetSesid, sesparamid: UInt, pvparam: MutPtr<CVoid>, cbparammax: UInt, pcbparamactual: MutPtr<UInt>): Int =
+public actual fun jetGetSessionParameter(sesid: JetSesid, sesparamid: UInt, pvparam: MutPtr, cbparammax: UInt, pcbparamactual: MutPtr): Int =
     windowssysWindowsWin32StorageJetJetGetSessionParameter(sesid, sesparamid, pvparam.rawAddress.toCPointer<ByteVar>(), cbparammax, pcbparamactual.rawAddress.toCPointer<ByteVar>())
 
-public actual fun jetGetSystemParameterA(instance: JetInstance, sesid: JetSesid, paramid: UInt, plparam: MutPtr<JetApiPtr>, szparam: MutPtr<Byte>, cbmax: UInt): Int =
+public actual fun jetGetSystemParameterA(instance: JetInstance, sesid: JetSesid, paramid: UInt, plparam: MutPtr, szparam: MutPtr, cbmax: UInt): Int =
     windowssysWindowsWin32StorageJetJetGetSystemParameterA(instance, sesid, paramid, plparam.rawAddress.toCPointer<ByteVar>(), szparam.rawAddress.toCPointer<ByteVar>(), cbmax)
 
-public actual fun jetGetSystemParameterW(instance: JetInstance, sesid: JetSesid, paramid: UInt, plparam: MutPtr<JetApiPtr>, szparam: MutPtr<UShort>, cbmax: UInt): Int =
+public actual fun jetGetSystemParameterW(instance: JetInstance, sesid: JetSesid, paramid: UInt, plparam: MutPtr, szparam: MutPtr, cbmax: UInt): Int =
     windowssysWindowsWin32StorageJetJetGetSystemParameterW(instance, sesid, paramid, plparam.rawAddress.toCPointer<ByteVar>(), szparam.rawAddress.toCPointer<ByteVar>(), cbmax)
 
-public actual fun jetGetTableColumnInfoA(sesid: JetSesid, tableid: JetTableid, szcolumnname: ConstPtr<Byte>, pvresult: MutPtr<CVoid>, cbmax: UInt, infolevel: UInt): Int =
+public actual fun jetGetTableColumnInfoA(sesid: JetSesid, tableid: JetTableid, szcolumnname: ConstPtr, pvresult: MutPtr, cbmax: UInt, infolevel: UInt): Int =
     windowssysWindowsWin32StorageJetJetGetTableColumnInfoA(sesid, tableid, szcolumnname.rawAddress.toCPointer<ByteVar>(), pvresult.rawAddress.toCPointer<ByteVar>(), cbmax, infolevel)
 
-public actual fun jetGetTableColumnInfoW(sesid: JetSesid, tableid: JetTableid, szcolumnname: ConstPtr<UShort>, pvresult: MutPtr<CVoid>, cbmax: UInt, infolevel: UInt): Int =
+public actual fun jetGetTableColumnInfoW(sesid: JetSesid, tableid: JetTableid, szcolumnname: ConstPtr, pvresult: MutPtr, cbmax: UInt, infolevel: UInt): Int =
     windowssysWindowsWin32StorageJetJetGetTableColumnInfoW(sesid, tableid, szcolumnname.rawAddress.toCPointer<ByteVar>(), pvresult.rawAddress.toCPointer<ByteVar>(), cbmax, infolevel)
 
-public actual fun jetGetTableIndexInfoA(sesid: JetSesid, tableid: JetTableid, szindexname: ConstPtr<Byte>, pvresult: MutPtr<CVoid>, cbresult: UInt, infolevel: UInt): Int =
+public actual fun jetGetTableIndexInfoA(sesid: JetSesid, tableid: JetTableid, szindexname: ConstPtr, pvresult: MutPtr, cbresult: UInt, infolevel: UInt): Int =
     windowssysWindowsWin32StorageJetJetGetTableIndexInfoA(sesid, tableid, szindexname.rawAddress.toCPointer<ByteVar>(), pvresult.rawAddress.toCPointer<ByteVar>(), cbresult, infolevel)
 
-public actual fun jetGetTableIndexInfoW(sesid: JetSesid, tableid: JetTableid, szindexname: ConstPtr<UShort>, pvresult: MutPtr<CVoid>, cbresult: UInt, infolevel: UInt): Int =
+public actual fun jetGetTableIndexInfoW(sesid: JetSesid, tableid: JetTableid, szindexname: ConstPtr, pvresult: MutPtr, cbresult: UInt, infolevel: UInt): Int =
     windowssysWindowsWin32StorageJetJetGetTableIndexInfoW(sesid, tableid, szindexname.rawAddress.toCPointer<ByteVar>(), pvresult.rawAddress.toCPointer<ByteVar>(), cbresult, infolevel)
 
-public actual fun jetGetTableInfoA(sesid: JetSesid, tableid: JetTableid, pvresult: MutPtr<CVoid>, cbmax: UInt, infolevel: UInt): Int =
+public actual fun jetGetTableInfoA(sesid: JetSesid, tableid: JetTableid, pvresult: MutPtr, cbmax: UInt, infolevel: UInt): Int =
     windowssysWindowsWin32StorageJetJetGetTableInfoA(sesid, tableid, pvresult.rawAddress.toCPointer<ByteVar>(), cbmax, infolevel)
 
-public actual fun jetGetTableInfoW(sesid: JetSesid, tableid: JetTableid, pvresult: MutPtr<CVoid>, cbmax: UInt, infolevel: UInt): Int =
+public actual fun jetGetTableInfoW(sesid: JetSesid, tableid: JetTableid, pvresult: MutPtr, cbmax: UInt, infolevel: UInt): Int =
     windowssysWindowsWin32StorageJetJetGetTableInfoW(sesid, tableid, pvresult.rawAddress.toCPointer<ByteVar>(), cbmax, infolevel)
 
-public actual fun jetGetThreadStats(pvresult: MutPtr<CVoid>, cbmax: UInt): Int =
+public actual fun jetGetThreadStats(pvresult: MutPtr, cbmax: UInt): Int =
     windowssysWindowsWin32StorageJetJetGetThreadStats(pvresult.rawAddress.toCPointer<ByteVar>(), cbmax)
 
-public actual fun jetGetTruncateLogInfoInstanceA(instance: JetInstance, szzlogs: MutPtr<Byte>, cbmax: UInt, pcbactual: MutPtr<UInt>): Int =
+public actual fun jetGetTruncateLogInfoInstanceA(instance: JetInstance, szzlogs: MutPtr, cbmax: UInt, pcbactual: MutPtr): Int =
     windowssysWindowsWin32StorageJetJetGetTruncateLogInfoInstanceA(instance, szzlogs.rawAddress.toCPointer<ByteVar>(), cbmax, pcbactual.rawAddress.toCPointer<ByteVar>())
 
-public actual fun jetGetTruncateLogInfoInstanceW(instance: JetInstance, wszzlogs: MutPtr<UShort>, cbmax: UInt, pcbactual: MutPtr<UInt>): Int =
+public actual fun jetGetTruncateLogInfoInstanceW(instance: JetInstance, wszzlogs: MutPtr, cbmax: UInt, pcbactual: MutPtr): Int =
     windowssysWindowsWin32StorageJetJetGetTruncateLogInfoInstanceW(instance, wszzlogs.rawAddress.toCPointer<ByteVar>(), cbmax, pcbactual.rawAddress.toCPointer<ByteVar>())
 
-public actual fun jetGetVersion(sesid: JetSesid, pwversion: MutPtr<UInt>): Int =
+public actual fun jetGetVersion(sesid: JetSesid, pwversion: MutPtr): Int =
     windowssysWindowsWin32StorageJetJetGetVersion(sesid, pwversion.rawAddress.toCPointer<ByteVar>())
 
-public actual fun jetGotoBookmark(sesid: JetSesid, tableid: JetTableid, pvbookmark: ConstPtr<CVoid>, cbbookmark: UInt): Int =
+public actual fun jetGotoBookmark(sesid: JetSesid, tableid: JetTableid, pvbookmark: ConstPtr, cbbookmark: UInt): Int =
     windowssysWindowsWin32StorageJetJetGotoBookmark(sesid, tableid, pvbookmark.rawAddress.toCPointer<ByteVar>(), cbbookmark)
 
-public actual fun jetGotoPosition(sesid: JetSesid, tableid: JetTableid, precpos: ConstPtr<JetRecpos>): Int =
+public actual fun jetGotoPosition(sesid: JetSesid, tableid: JetTableid, precpos: ConstPtr): Int =
     windowssysWindowsWin32StorageJetJetGotoPosition(sesid, tableid, precpos.rawAddress.toCPointer<ByteVar>())
 
-public actual fun jetGotoSecondaryIndexBookmark(sesid: JetSesid, tableid: JetTableid, pvsecondarykey: ConstPtr<CVoid>, cbsecondarykey: UInt, pvprimarybookmark: ConstPtr<CVoid>, cbprimarybookmark: UInt, grbit: UInt): Int =
+public actual fun jetGotoSecondaryIndexBookmark(sesid: JetSesid, tableid: JetTableid, pvsecondarykey: ConstPtr, cbsecondarykey: UInt, pvprimarybookmark: ConstPtr, cbprimarybookmark: UInt, grbit: UInt): Int =
     windowssysWindowsWin32StorageJetJetGotoSecondaryIndexBookmark(sesid, tableid, pvsecondarykey.rawAddress.toCPointer<ByteVar>(), cbsecondarykey, pvprimarybookmark.rawAddress.toCPointer<ByteVar>(), cbprimarybookmark, grbit)
 
-public actual fun jetGrowDatabase(sesid: JetSesid, dbid: UInt, cpg: UInt, pcpgreal: ConstPtr<UInt>): Int =
+public actual fun jetGrowDatabase(sesid: JetSesid, dbid: UInt, cpg: UInt, pcpgreal: ConstPtr): Int =
     windowssysWindowsWin32StorageJetJetGrowDatabase(sesid, dbid, cpg, pcpgreal.rawAddress.toCPointer<ByteVar>())
 
 public actual fun jetIdle(sesid: JetSesid, grbit: UInt): Int =
     windowssysWindowsWin32StorageJetJetIdle(sesid, grbit)
 
-public actual fun jetIndexRecordCount(sesid: JetSesid, tableid: JetTableid, pcrec: MutPtr<UInt>, crecmax: UInt): Int =
+public actual fun jetIndexRecordCount(sesid: JetSesid, tableid: JetTableid, pcrec: MutPtr, crecmax: UInt): Int =
     windowssysWindowsWin32StorageJetJetIndexRecordCount(sesid, tableid, pcrec.rawAddress.toCPointer<ByteVar>(), crecmax)
 
-public actual fun jetInit(pinstance: MutPtr<JetInstance>): Int =
+public actual fun jetInit(pinstance: MutPtr): Int =
     windowssysWindowsWin32StorageJetJetInit(pinstance.rawAddress.toCPointer<ByteVar>())
 
-public actual fun jetInit2(pinstance: MutPtr<JetInstance>, grbit: UInt): Int =
+public actual fun jetInit2(pinstance: MutPtr, grbit: UInt): Int =
     windowssysWindowsWin32StorageJetJetInit2(pinstance.rawAddress.toCPointer<ByteVar>(), grbit)
 
-public actual fun jetInit3A(pinstance: MutPtr<JetInstance>, prstinfo: ConstPtr<JetRstinfoA>, grbit: UInt): Int =
+public actual fun jetInit3A(pinstance: MutPtr, prstinfo: ConstPtr, grbit: UInt): Int =
     windowssysWindowsWin32StorageJetJetInit3A(pinstance.rawAddress.toCPointer<ByteVar>(), prstinfo.rawAddress.toCPointer<ByteVar>(), grbit)
 
-public actual fun jetInit3W(pinstance: MutPtr<JetInstance>, prstinfo: ConstPtr<JetRstinfoW>, grbit: UInt): Int =
+public actual fun jetInit3W(pinstance: MutPtr, prstinfo: ConstPtr, grbit: UInt): Int =
     windowssysWindowsWin32StorageJetJetInit3W(pinstance.rawAddress.toCPointer<ByteVar>(), prstinfo.rawAddress.toCPointer<ByteVar>(), grbit)
 
-public actual fun jetIntersectIndexes(sesid: JetSesid, rgindexrange: ConstPtr<JetIndexrange>, cindexrange: UInt, precordlist: MutPtr<JetRecordlist>, grbit: UInt): Int =
+public actual fun jetIntersectIndexes(sesid: JetSesid, rgindexrange: ConstPtr, cindexrange: UInt, precordlist: MutPtr, grbit: UInt): Int =
     windowssysWindowsWin32StorageJetJetIntersectIndexes(sesid, rgindexrange.rawAddress.toCPointer<ByteVar>(), cindexrange, precordlist.rawAddress.toCPointer<ByteVar>(), grbit)
 
-public actual fun jetMakeKey(sesid: JetSesid, tableid: JetTableid, pvdata: ConstPtr<CVoid>, cbdata: UInt, grbit: UInt): Int =
+public actual fun jetMakeKey(sesid: JetSesid, tableid: JetTableid, pvdata: ConstPtr, cbdata: UInt, grbit: UInt): Int =
     windowssysWindowsWin32StorageJetJetMakeKey(sesid, tableid, pvdata.rawAddress.toCPointer<ByteVar>(), cbdata, grbit)
 
 public actual fun jetMove(sesid: JetSesid, tableid: JetTableid, crow: Int, grbit: UInt): Int =
@@ -689,19 +688,19 @@ public actual fun jetOSSnapshotAbort(snapid: JetOssnapid, grbit: UInt): Int =
 public actual fun jetOSSnapshotEnd(snapid: JetOssnapid, grbit: UInt): Int =
     windowssysWindowsWin32StorageJetJetOSSnapshotEnd(snapid, grbit)
 
-public actual fun jetOSSnapshotFreezeA(snapid: JetOssnapid, pcinstanceinfo: MutPtr<UInt>, painstanceinfo: MutPtr<MutPtr<JetInstanceInfoA>>, grbit: UInt): Int =
+public actual fun jetOSSnapshotFreezeA(snapid: JetOssnapid, pcinstanceinfo: MutPtr, painstanceinfo: MutPtr, grbit: UInt): Int =
     windowssysWindowsWin32StorageJetJetOSSnapshotFreezeA(snapid, pcinstanceinfo.rawAddress.toCPointer<ByteVar>(), painstanceinfo.rawAddress.toCPointer<ByteVar>(), grbit)
 
-public actual fun jetOSSnapshotFreezeW(snapid: JetOssnapid, pcinstanceinfo: MutPtr<UInt>, painstanceinfo: MutPtr<MutPtr<JetInstanceInfoW>>, grbit: UInt): Int =
+public actual fun jetOSSnapshotFreezeW(snapid: JetOssnapid, pcinstanceinfo: MutPtr, painstanceinfo: MutPtr, grbit: UInt): Int =
     windowssysWindowsWin32StorageJetJetOSSnapshotFreezeW(snapid, pcinstanceinfo.rawAddress.toCPointer<ByteVar>(), painstanceinfo.rawAddress.toCPointer<ByteVar>(), grbit)
 
-public actual fun jetOSSnapshotGetFreezeInfoA(snapid: JetOssnapid, pcinstanceinfo: MutPtr<UInt>, painstanceinfo: MutPtr<MutPtr<JetInstanceInfoA>>, grbit: UInt): Int =
+public actual fun jetOSSnapshotGetFreezeInfoA(snapid: JetOssnapid, pcinstanceinfo: MutPtr, painstanceinfo: MutPtr, grbit: UInt): Int =
     windowssysWindowsWin32StorageJetJetOSSnapshotGetFreezeInfoA(snapid, pcinstanceinfo.rawAddress.toCPointer<ByteVar>(), painstanceinfo.rawAddress.toCPointer<ByteVar>(), grbit)
 
-public actual fun jetOSSnapshotGetFreezeInfoW(snapid: JetOssnapid, pcinstanceinfo: MutPtr<UInt>, painstanceinfo: MutPtr<MutPtr<JetInstanceInfoW>>, grbit: UInt): Int =
+public actual fun jetOSSnapshotGetFreezeInfoW(snapid: JetOssnapid, pcinstanceinfo: MutPtr, painstanceinfo: MutPtr, grbit: UInt): Int =
     windowssysWindowsWin32StorageJetJetOSSnapshotGetFreezeInfoW(snapid, pcinstanceinfo.rawAddress.toCPointer<ByteVar>(), painstanceinfo.rawAddress.toCPointer<ByteVar>(), grbit)
 
-public actual fun jetOSSnapshotPrepare(psnapid: MutPtr<JetOssnapid>, grbit: UInt): Int =
+public actual fun jetOSSnapshotPrepare(psnapid: MutPtr, grbit: UInt): Int =
     windowssysWindowsWin32StorageJetJetOSSnapshotPrepare(psnapid.rawAddress.toCPointer<ByteVar>(), grbit)
 
 public actual fun jetOSSnapshotPrepareInstance(snapid: JetOssnapid, instance: JetInstance, grbit: UInt): Int =
@@ -716,73 +715,73 @@ public actual fun jetOSSnapshotTruncateLog(snapid: JetOssnapid, grbit: UInt): In
 public actual fun jetOSSnapshotTruncateLogInstance(snapid: JetOssnapid, instance: JetInstance, grbit: UInt): Int =
     windowssysWindowsWin32StorageJetJetOSSnapshotTruncateLogInstance(snapid, instance, grbit)
 
-public actual fun jetOpenDatabaseA(sesid: JetSesid, szfilename: ConstPtr<Byte>, szconnect: ConstPtr<Byte>, pdbid: MutPtr<UInt>, grbit: UInt): Int =
+public actual fun jetOpenDatabaseA(sesid: JetSesid, szfilename: ConstPtr, szconnect: ConstPtr, pdbid: MutPtr, grbit: UInt): Int =
     windowssysWindowsWin32StorageJetJetOpenDatabaseA(sesid, szfilename.rawAddress.toCPointer<ByteVar>(), szconnect.rawAddress.toCPointer<ByteVar>(), pdbid.rawAddress.toCPointer<ByteVar>(), grbit)
 
-public actual fun jetOpenDatabaseW(sesid: JetSesid, szfilename: ConstPtr<UShort>, szconnect: ConstPtr<UShort>, pdbid: MutPtr<UInt>, grbit: UInt): Int =
+public actual fun jetOpenDatabaseW(sesid: JetSesid, szfilename: ConstPtr, szconnect: ConstPtr, pdbid: MutPtr, grbit: UInt): Int =
     windowssysWindowsWin32StorageJetJetOpenDatabaseW(sesid, szfilename.rawAddress.toCPointer<ByteVar>(), szconnect.rawAddress.toCPointer<ByteVar>(), pdbid.rawAddress.toCPointer<ByteVar>(), grbit)
 
-public actual fun jetOpenFileA(szfilename: ConstPtr<Byte>, phffile: MutPtr<JetHandle>, pulfilesizelow: MutPtr<UInt>, pulfilesizehigh: MutPtr<UInt>): Int =
+public actual fun jetOpenFileA(szfilename: ConstPtr, phffile: MutPtr, pulfilesizelow: MutPtr, pulfilesizehigh: MutPtr): Int =
     windowssysWindowsWin32StorageJetJetOpenFileA(szfilename.rawAddress.toCPointer<ByteVar>(), phffile.rawAddress.toCPointer<ByteVar>(), pulfilesizelow.rawAddress.toCPointer<ByteVar>(), pulfilesizehigh.rawAddress.toCPointer<ByteVar>())
 
-public actual fun jetOpenFileInstanceA(instance: JetInstance, szfilename: ConstPtr<Byte>, phffile: MutPtr<JetHandle>, pulfilesizelow: MutPtr<UInt>, pulfilesizehigh: MutPtr<UInt>): Int =
+public actual fun jetOpenFileInstanceA(instance: JetInstance, szfilename: ConstPtr, phffile: MutPtr, pulfilesizelow: MutPtr, pulfilesizehigh: MutPtr): Int =
     windowssysWindowsWin32StorageJetJetOpenFileInstanceA(instance, szfilename.rawAddress.toCPointer<ByteVar>(), phffile.rawAddress.toCPointer<ByteVar>(), pulfilesizelow.rawAddress.toCPointer<ByteVar>(), pulfilesizehigh.rawAddress.toCPointer<ByteVar>())
 
-public actual fun jetOpenFileInstanceW(instance: JetInstance, szfilename: ConstPtr<UShort>, phffile: MutPtr<JetHandle>, pulfilesizelow: MutPtr<UInt>, pulfilesizehigh: MutPtr<UInt>): Int =
+public actual fun jetOpenFileInstanceW(instance: JetInstance, szfilename: ConstPtr, phffile: MutPtr, pulfilesizelow: MutPtr, pulfilesizehigh: MutPtr): Int =
     windowssysWindowsWin32StorageJetJetOpenFileInstanceW(instance, szfilename.rawAddress.toCPointer<ByteVar>(), phffile.rawAddress.toCPointer<ByteVar>(), pulfilesizelow.rawAddress.toCPointer<ByteVar>(), pulfilesizehigh.rawAddress.toCPointer<ByteVar>())
 
-public actual fun jetOpenFileW(szfilename: ConstPtr<UShort>, phffile: MutPtr<JetHandle>, pulfilesizelow: MutPtr<UInt>, pulfilesizehigh: MutPtr<UInt>): Int =
+public actual fun jetOpenFileW(szfilename: ConstPtr, phffile: MutPtr, pulfilesizelow: MutPtr, pulfilesizehigh: MutPtr): Int =
     windowssysWindowsWin32StorageJetJetOpenFileW(szfilename.rawAddress.toCPointer<ByteVar>(), phffile.rawAddress.toCPointer<ByteVar>(), pulfilesizelow.rawAddress.toCPointer<ByteVar>(), pulfilesizehigh.rawAddress.toCPointer<ByteVar>())
 
-public actual fun jetOpenTableA(sesid: JetSesid, dbid: UInt, sztablename: ConstPtr<Byte>, pvparameters: ConstPtr<CVoid>, cbparameters: UInt, grbit: UInt, ptableid: MutPtr<JetTableid>): Int =
+public actual fun jetOpenTableA(sesid: JetSesid, dbid: UInt, sztablename: ConstPtr, pvparameters: ConstPtr, cbparameters: UInt, grbit: UInt, ptableid: MutPtr): Int =
     windowssysWindowsWin32StorageJetJetOpenTableA(sesid, dbid, sztablename.rawAddress.toCPointer<ByteVar>(), pvparameters.rawAddress.toCPointer<ByteVar>(), cbparameters, grbit, ptableid.rawAddress.toCPointer<ByteVar>())
 
-public actual fun jetOpenTableW(sesid: JetSesid, dbid: UInt, sztablename: ConstPtr<UShort>, pvparameters: ConstPtr<CVoid>, cbparameters: UInt, grbit: UInt, ptableid: MutPtr<JetTableid>): Int =
+public actual fun jetOpenTableW(sesid: JetSesid, dbid: UInt, sztablename: ConstPtr, pvparameters: ConstPtr, cbparameters: UInt, grbit: UInt, ptableid: MutPtr): Int =
     windowssysWindowsWin32StorageJetJetOpenTableW(sesid, dbid, sztablename.rawAddress.toCPointer<ByteVar>(), pvparameters.rawAddress.toCPointer<ByteVar>(), cbparameters, grbit, ptableid.rawAddress.toCPointer<ByteVar>())
 
-public actual fun jetOpenTempTable(sesid: JetSesid, prgcolumndef: ConstPtr<JetColumndef>, ccolumn: UInt, grbit: UInt, ptableid: MutPtr<JetTableid>, prgcolumnid: MutPtr<UInt>): Int =
+public actual fun jetOpenTempTable(sesid: JetSesid, prgcolumndef: ConstPtr, ccolumn: UInt, grbit: UInt, ptableid: MutPtr, prgcolumnid: MutPtr): Int =
     windowssysWindowsWin32StorageJetJetOpenTempTable(sesid, prgcolumndef.rawAddress.toCPointer<ByteVar>(), ccolumn, grbit, ptableid.rawAddress.toCPointer<ByteVar>(), prgcolumnid.rawAddress.toCPointer<ByteVar>())
 
-public actual fun jetOpenTempTable2(sesid: JetSesid, prgcolumndef: ConstPtr<JetColumndef>, ccolumn: UInt, lcid: UInt, grbit: UInt, ptableid: MutPtr<JetTableid>, prgcolumnid: MutPtr<UInt>): Int =
+public actual fun jetOpenTempTable2(sesid: JetSesid, prgcolumndef: ConstPtr, ccolumn: UInt, lcid: UInt, grbit: UInt, ptableid: MutPtr, prgcolumnid: MutPtr): Int =
     windowssysWindowsWin32StorageJetJetOpenTempTable2(sesid, prgcolumndef.rawAddress.toCPointer<ByteVar>(), ccolumn, lcid, grbit, ptableid.rawAddress.toCPointer<ByteVar>(), prgcolumnid.rawAddress.toCPointer<ByteVar>())
 
-public actual fun jetOpenTempTable3(sesid: JetSesid, prgcolumndef: ConstPtr<JetColumndef>, ccolumn: UInt, pidxunicode: ConstPtr<JetUnicodeindex>, grbit: UInt, ptableid: MutPtr<JetTableid>, prgcolumnid: MutPtr<UInt>): Int =
+public actual fun jetOpenTempTable3(sesid: JetSesid, prgcolumndef: ConstPtr, ccolumn: UInt, pidxunicode: ConstPtr, grbit: UInt, ptableid: MutPtr, prgcolumnid: MutPtr): Int =
     windowssysWindowsWin32StorageJetJetOpenTempTable3(sesid, prgcolumndef.rawAddress.toCPointer<ByteVar>(), ccolumn, pidxunicode.rawAddress.toCPointer<ByteVar>(), grbit, ptableid.rawAddress.toCPointer<ByteVar>(), prgcolumnid.rawAddress.toCPointer<ByteVar>())
 
-public actual fun jetOpenTemporaryTable(sesid: JetSesid, popentemporarytable: ConstPtr<JetOpentemporarytable>): Int =
+public actual fun jetOpenTemporaryTable(sesid: JetSesid, popentemporarytable: ConstPtr): Int =
     windowssysWindowsWin32StorageJetJetOpenTemporaryTable(sesid, popentemporarytable.rawAddress.toCPointer<ByteVar>())
 
-public actual fun jetOpenTemporaryTable2(sesid: JetSesid, popentemporarytable: ConstPtr<JetOpentemporarytable2>): Int =
+public actual fun jetOpenTemporaryTable2(sesid: JetSesid, popentemporarytable: ConstPtr): Int =
     windowssysWindowsWin32StorageJetJetOpenTemporaryTable2(sesid, popentemporarytable.rawAddress.toCPointer<ByteVar>())
 
 public actual fun jetPrepareUpdate(sesid: JetSesid, tableid: JetTableid, prep: UInt): Int =
     windowssysWindowsWin32StorageJetJetPrepareUpdate(sesid, tableid, prep)
 
-public actual fun jetPrereadIndexRanges(sesid: JetSesid, tableid: JetTableid, rgindexranges: ConstPtr<JetIndexRange>, cindexranges: UInt, pcrangespreread: MutPtr<UInt>, rgcolumnidpreread: ConstPtr<UInt>, ccolumnidpreread: UInt, grbit: UInt): Int =
+public actual fun jetPrereadIndexRanges(sesid: JetSesid, tableid: JetTableid, rgindexranges: ConstPtr, cindexranges: UInt, pcrangespreread: MutPtr, rgcolumnidpreread: ConstPtr, ccolumnidpreread: UInt, grbit: UInt): Int =
     windowssysWindowsWin32StorageJetJetPrereadIndexRanges(sesid, tableid, rgindexranges.rawAddress.toCPointer<ByteVar>(), cindexranges, pcrangespreread.rawAddress.toCPointer<ByteVar>(), rgcolumnidpreread.rawAddress.toCPointer<ByteVar>(), ccolumnidpreread, grbit)
 
-public actual fun jetPrereadKeys(sesid: JetSesid, tableid: JetTableid, rgpvkeys: ConstPtr<ConstPtr<CVoid>>, rgcbkeys: ConstPtr<UInt>, ckeys: Int, pckeyspreread: MutPtr<Int>, grbit: UInt): Int =
+public actual fun jetPrereadKeys(sesid: JetSesid, tableid: JetTableid, rgpvkeys: ConstPtr, rgcbkeys: ConstPtr, ckeys: Int, pckeyspreread: MutPtr, grbit: UInt): Int =
     windowssysWindowsWin32StorageJetJetPrereadKeys(sesid, tableid, rgpvkeys.rawAddress.toCPointer<ByteVar>(), rgcbkeys.rawAddress.toCPointer<ByteVar>(), ckeys, pckeyspreread.rawAddress.toCPointer<ByteVar>(), grbit)
 
-public actual fun jetReadFile(hffile: JetHandle, pv: MutPtr<CVoid>, cb: UInt, pcbactual: MutPtr<UInt>): Int =
+public actual fun jetReadFile(hffile: JetHandle, pv: MutPtr, cb: UInt, pcbactual: MutPtr): Int =
     windowssysWindowsWin32StorageJetJetReadFile(hffile, pv.rawAddress.toCPointer<ByteVar>(), cb, pcbactual.rawAddress.toCPointer<ByteVar>())
 
-public actual fun jetReadFileInstance(instance: JetInstance, hffile: JetHandle, pv: MutPtr<CVoid>, cb: UInt, pcbactual: MutPtr<UInt>): Int =
+public actual fun jetReadFileInstance(instance: JetInstance, hffile: JetHandle, pv: MutPtr, cb: UInt, pcbactual: MutPtr): Int =
     windowssysWindowsWin32StorageJetJetReadFileInstance(instance, hffile, pv.rawAddress.toCPointer<ByteVar>(), cb, pcbactual.rawAddress.toCPointer<ByteVar>())
 
-public actual fun jetRegisterCallback(sesid: JetSesid, tableid: JetTableid, cbtyp: UInt, pcallback: JetCallback, pvcontext: ConstPtr<CVoid>, phcallbackid: ConstPtr<JetHandle>): Int =
+public actual fun jetRegisterCallback(sesid: JetSesid, tableid: JetTableid, cbtyp: UInt, pcallback: JetCallback, pvcontext: ConstPtr, phcallbackid: ConstPtr): Int =
     windowssysWindowsWin32StorageJetJetRegisterCallback(sesid, tableid, cbtyp, 0L.toCPointer<ByteVar>(), pvcontext.rawAddress.toCPointer<ByteVar>(), phcallbackid.rawAddress.toCPointer<ByteVar>())
 
-public actual fun jetRenameColumnA(sesid: JetSesid, tableid: JetTableid, szname: ConstPtr<Byte>, sznamenew: ConstPtr<Byte>, grbit: UInt): Int =
+public actual fun jetRenameColumnA(sesid: JetSesid, tableid: JetTableid, szname: ConstPtr, sznamenew: ConstPtr, grbit: UInt): Int =
     windowssysWindowsWin32StorageJetJetRenameColumnA(sesid, tableid, szname.rawAddress.toCPointer<ByteVar>(), sznamenew.rawAddress.toCPointer<ByteVar>(), grbit)
 
-public actual fun jetRenameColumnW(sesid: JetSesid, tableid: JetTableid, szname: ConstPtr<UShort>, sznamenew: ConstPtr<UShort>, grbit: UInt): Int =
+public actual fun jetRenameColumnW(sesid: JetSesid, tableid: JetTableid, szname: ConstPtr, sznamenew: ConstPtr, grbit: UInt): Int =
     windowssysWindowsWin32StorageJetJetRenameColumnW(sesid, tableid, szname.rawAddress.toCPointer<ByteVar>(), sznamenew.rawAddress.toCPointer<ByteVar>(), grbit)
 
-public actual fun jetRenameTableA(sesid: JetSesid, dbid: UInt, szname: ConstPtr<Byte>, sznamenew: ConstPtr<Byte>): Int =
+public actual fun jetRenameTableA(sesid: JetSesid, dbid: UInt, szname: ConstPtr, sznamenew: ConstPtr): Int =
     windowssysWindowsWin32StorageJetJetRenameTableA(sesid, dbid, szname.rawAddress.toCPointer<ByteVar>(), sznamenew.rawAddress.toCPointer<ByteVar>())
 
-public actual fun jetRenameTableW(sesid: JetSesid, dbid: UInt, szname: ConstPtr<UShort>, sznamenew: ConstPtr<UShort>): Int =
+public actual fun jetRenameTableW(sesid: JetSesid, dbid: UInt, szname: ConstPtr, sznamenew: ConstPtr): Int =
     windowssysWindowsWin32StorageJetJetRenameTableW(sesid, dbid, szname.rawAddress.toCPointer<ByteVar>(), sznamenew.rawAddress.toCPointer<ByteVar>())
 
 public actual fun jetResetSessionContext(sesid: JetSesid): Int =
@@ -791,34 +790,34 @@ public actual fun jetResetSessionContext(sesid: JetSesid): Int =
 public actual fun jetResetTableSequential(sesid: JetSesid, tableid: JetTableid, grbit: UInt): Int =
     windowssysWindowsWin32StorageJetJetResetTableSequential(sesid, tableid, grbit)
 
-public actual fun jetResizeDatabase(sesid: JetSesid, dbid: UInt, cpgtarget: UInt, pcpgactual: MutPtr<UInt>, grbit: UInt): Int =
+public actual fun jetResizeDatabase(sesid: JetSesid, dbid: UInt, cpgtarget: UInt, pcpgactual: MutPtr, grbit: UInt): Int =
     windowssysWindowsWin32StorageJetJetResizeDatabase(sesid, dbid, cpgtarget, pcpgactual.rawAddress.toCPointer<ByteVar>(), grbit)
 
-public actual fun jetRestore2A(sz: ConstPtr<Byte>, szdest: ConstPtr<Byte>, pfn: JetPfnstatus): Int =
+public actual fun jetRestore2A(sz: ConstPtr, szdest: ConstPtr, pfn: JetPfnstatus): Int =
     windowssysWindowsWin32StorageJetJetRestore2A(sz.rawAddress.toCPointer<ByteVar>(), szdest.rawAddress.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>())
 
-public actual fun jetRestore2W(sz: ConstPtr<UShort>, szdest: ConstPtr<UShort>, pfn: JetPfnstatus): Int =
+public actual fun jetRestore2W(sz: ConstPtr, szdest: ConstPtr, pfn: JetPfnstatus): Int =
     windowssysWindowsWin32StorageJetJetRestore2W(sz.rawAddress.toCPointer<ByteVar>(), szdest.rawAddress.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>())
 
-public actual fun jetRestoreA(szsource: ConstPtr<Byte>, pfn: JetPfnstatus): Int =
+public actual fun jetRestoreA(szsource: ConstPtr, pfn: JetPfnstatus): Int =
     windowssysWindowsWin32StorageJetJetRestoreA(szsource.rawAddress.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>())
 
-public actual fun jetRestoreInstanceA(instance: JetInstance, sz: ConstPtr<Byte>, szdest: ConstPtr<Byte>, pfn: JetPfnstatus): Int =
+public actual fun jetRestoreInstanceA(instance: JetInstance, sz: ConstPtr, szdest: ConstPtr, pfn: JetPfnstatus): Int =
     windowssysWindowsWin32StorageJetJetRestoreInstanceA(instance, sz.rawAddress.toCPointer<ByteVar>(), szdest.rawAddress.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>())
 
-public actual fun jetRestoreInstanceW(instance: JetInstance, sz: ConstPtr<UShort>, szdest: ConstPtr<UShort>, pfn: JetPfnstatus): Int =
+public actual fun jetRestoreInstanceW(instance: JetInstance, sz: ConstPtr, szdest: ConstPtr, pfn: JetPfnstatus): Int =
     windowssysWindowsWin32StorageJetJetRestoreInstanceW(instance, sz.rawAddress.toCPointer<ByteVar>(), szdest.rawAddress.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>())
 
-public actual fun jetRestoreW(szsource: ConstPtr<UShort>, pfn: JetPfnstatus): Int =
+public actual fun jetRestoreW(szsource: ConstPtr, pfn: JetPfnstatus): Int =
     windowssysWindowsWin32StorageJetJetRestoreW(szsource.rawAddress.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>())
 
-public actual fun jetRetrieveColumn(sesid: JetSesid, tableid: JetTableid, columnid: UInt, pvdata: MutPtr<CVoid>, cbdata: UInt, pcbactual: MutPtr<UInt>, grbit: UInt, pretinfo: MutPtr<JetRetinfo>): Int =
+public actual fun jetRetrieveColumn(sesid: JetSesid, tableid: JetTableid, columnid: UInt, pvdata: MutPtr, cbdata: UInt, pcbactual: MutPtr, grbit: UInt, pretinfo: MutPtr): Int =
     windowssysWindowsWin32StorageJetJetRetrieveColumn(sesid, tableid, columnid, pvdata.rawAddress.toCPointer<ByteVar>(), cbdata, pcbactual.rawAddress.toCPointer<ByteVar>(), grbit, pretinfo.rawAddress.toCPointer<ByteVar>())
 
-public actual fun jetRetrieveColumns(sesid: JetSesid, tableid: JetTableid, pretrievecolumn: MutPtr<JetRetrievecolumn>, cretrievecolumn: UInt): Int =
+public actual fun jetRetrieveColumns(sesid: JetSesid, tableid: JetTableid, pretrievecolumn: MutPtr, cretrievecolumn: UInt): Int =
     windowssysWindowsWin32StorageJetJetRetrieveColumns(sesid, tableid, pretrievecolumn.rawAddress.toCPointer<ByteVar>(), cretrievecolumn)
 
-public actual fun jetRetrieveKey(sesid: JetSesid, tableid: JetTableid, pvkey: MutPtr<CVoid>, cbmax: UInt, pcbactual: MutPtr<UInt>, grbit: UInt): Int =
+public actual fun jetRetrieveKey(sesid: JetSesid, tableid: JetTableid, pvkey: MutPtr, cbmax: UInt, pcbactual: MutPtr, grbit: UInt): Int =
     windowssysWindowsWin32StorageJetJetRetrieveKey(sesid, tableid, pvkey.rawAddress.toCPointer<ByteVar>(), cbmax, pcbactual.rawAddress.toCPointer<ByteVar>(), grbit)
 
 public actual fun jetRollback(sesid: JetSesid, grbit: UInt): Int =
@@ -827,49 +826,49 @@ public actual fun jetRollback(sesid: JetSesid, grbit: UInt): Int =
 public actual fun jetSeek(sesid: JetSesid, tableid: JetTableid, grbit: UInt): Int =
     windowssysWindowsWin32StorageJetJetSeek(sesid, tableid, grbit)
 
-public actual fun jetSetColumn(sesid: JetSesid, tableid: JetTableid, columnid: UInt, pvdata: ConstPtr<CVoid>, cbdata: UInt, grbit: UInt, psetinfo: ConstPtr<JetSetinfo>): Int =
+public actual fun jetSetColumn(sesid: JetSesid, tableid: JetTableid, columnid: UInt, pvdata: ConstPtr, cbdata: UInt, grbit: UInt, psetinfo: ConstPtr): Int =
     windowssysWindowsWin32StorageJetJetSetColumn(sesid, tableid, columnid, pvdata.rawAddress.toCPointer<ByteVar>(), cbdata, grbit, psetinfo.rawAddress.toCPointer<ByteVar>())
 
-public actual fun jetSetColumnDefaultValueA(sesid: JetSesid, dbid: UInt, sztablename: ConstPtr<Byte>, szcolumnname: ConstPtr<Byte>, pvdata: ConstPtr<CVoid>, cbdata: UInt, grbit: UInt): Int =
+public actual fun jetSetColumnDefaultValueA(sesid: JetSesid, dbid: UInt, sztablename: ConstPtr, szcolumnname: ConstPtr, pvdata: ConstPtr, cbdata: UInt, grbit: UInt): Int =
     windowssysWindowsWin32StorageJetJetSetColumnDefaultValueA(sesid, dbid, sztablename.rawAddress.toCPointer<ByteVar>(), szcolumnname.rawAddress.toCPointer<ByteVar>(), pvdata.rawAddress.toCPointer<ByteVar>(), cbdata, grbit)
 
-public actual fun jetSetColumnDefaultValueW(sesid: JetSesid, dbid: UInt, sztablename: ConstPtr<UShort>, szcolumnname: ConstPtr<UShort>, pvdata: ConstPtr<CVoid>, cbdata: UInt, grbit: UInt): Int =
+public actual fun jetSetColumnDefaultValueW(sesid: JetSesid, dbid: UInt, sztablename: ConstPtr, szcolumnname: ConstPtr, pvdata: ConstPtr, cbdata: UInt, grbit: UInt): Int =
     windowssysWindowsWin32StorageJetJetSetColumnDefaultValueW(sesid, dbid, sztablename.rawAddress.toCPointer<ByteVar>(), szcolumnname.rawAddress.toCPointer<ByteVar>(), pvdata.rawAddress.toCPointer<ByteVar>(), cbdata, grbit)
 
-public actual fun jetSetColumns(sesid: JetSesid, tableid: JetTableid, psetcolumn: ConstPtr<JetSetcolumn>, csetcolumn: UInt): Int =
+public actual fun jetSetColumns(sesid: JetSesid, tableid: JetTableid, psetcolumn: ConstPtr, csetcolumn: UInt): Int =
     windowssysWindowsWin32StorageJetJetSetColumns(sesid, tableid, psetcolumn.rawAddress.toCPointer<ByteVar>(), csetcolumn)
 
-public actual fun jetSetCurrentIndex2A(sesid: JetSesid, tableid: JetTableid, szindexname: ConstPtr<Byte>, grbit: UInt): Int =
+public actual fun jetSetCurrentIndex2A(sesid: JetSesid, tableid: JetTableid, szindexname: ConstPtr, grbit: UInt): Int =
     windowssysWindowsWin32StorageJetJetSetCurrentIndex2A(sesid, tableid, szindexname.rawAddress.toCPointer<ByteVar>(), grbit)
 
-public actual fun jetSetCurrentIndex2W(sesid: JetSesid, tableid: JetTableid, szindexname: ConstPtr<UShort>, grbit: UInt): Int =
+public actual fun jetSetCurrentIndex2W(sesid: JetSesid, tableid: JetTableid, szindexname: ConstPtr, grbit: UInt): Int =
     windowssysWindowsWin32StorageJetJetSetCurrentIndex2W(sesid, tableid, szindexname.rawAddress.toCPointer<ByteVar>(), grbit)
 
-public actual fun jetSetCurrentIndex3A(sesid: JetSesid, tableid: JetTableid, szindexname: ConstPtr<Byte>, grbit: UInt, itagsequence: UInt): Int =
+public actual fun jetSetCurrentIndex3A(sesid: JetSesid, tableid: JetTableid, szindexname: ConstPtr, grbit: UInt, itagsequence: UInt): Int =
     windowssysWindowsWin32StorageJetJetSetCurrentIndex3A(sesid, tableid, szindexname.rawAddress.toCPointer<ByteVar>(), grbit, itagsequence)
 
-public actual fun jetSetCurrentIndex3W(sesid: JetSesid, tableid: JetTableid, szindexname: ConstPtr<UShort>, grbit: UInt, itagsequence: UInt): Int =
+public actual fun jetSetCurrentIndex3W(sesid: JetSesid, tableid: JetTableid, szindexname: ConstPtr, grbit: UInt, itagsequence: UInt): Int =
     windowssysWindowsWin32StorageJetJetSetCurrentIndex3W(sesid, tableid, szindexname.rawAddress.toCPointer<ByteVar>(), grbit, itagsequence)
 
-public actual fun jetSetCurrentIndex4A(sesid: JetSesid, tableid: JetTableid, szindexname: ConstPtr<Byte>, pindexid: ConstPtr<JetIndexid>, grbit: UInt, itagsequence: UInt): Int =
+public actual fun jetSetCurrentIndex4A(sesid: JetSesid, tableid: JetTableid, szindexname: ConstPtr, pindexid: ConstPtr, grbit: UInt, itagsequence: UInt): Int =
     windowssysWindowsWin32StorageJetJetSetCurrentIndex4A(sesid, tableid, szindexname.rawAddress.toCPointer<ByteVar>(), pindexid.rawAddress.toCPointer<ByteVar>(), grbit, itagsequence)
 
-public actual fun jetSetCurrentIndex4W(sesid: JetSesid, tableid: JetTableid, szindexname: ConstPtr<UShort>, pindexid: ConstPtr<JetIndexid>, grbit: UInt, itagsequence: UInt): Int =
+public actual fun jetSetCurrentIndex4W(sesid: JetSesid, tableid: JetTableid, szindexname: ConstPtr, pindexid: ConstPtr, grbit: UInt, itagsequence: UInt): Int =
     windowssysWindowsWin32StorageJetJetSetCurrentIndex4W(sesid, tableid, szindexname.rawAddress.toCPointer<ByteVar>(), pindexid.rawAddress.toCPointer<ByteVar>(), grbit, itagsequence)
 
-public actual fun jetSetCurrentIndexA(sesid: JetSesid, tableid: JetTableid, szindexname: ConstPtr<Byte>): Int =
+public actual fun jetSetCurrentIndexA(sesid: JetSesid, tableid: JetTableid, szindexname: ConstPtr): Int =
     windowssysWindowsWin32StorageJetJetSetCurrentIndexA(sesid, tableid, szindexname.rawAddress.toCPointer<ByteVar>())
 
-public actual fun jetSetCurrentIndexW(sesid: JetSesid, tableid: JetTableid, szindexname: ConstPtr<UShort>): Int =
+public actual fun jetSetCurrentIndexW(sesid: JetSesid, tableid: JetTableid, szindexname: ConstPtr): Int =
     windowssysWindowsWin32StorageJetJetSetCurrentIndexW(sesid, tableid, szindexname.rawAddress.toCPointer<ByteVar>())
 
-public actual fun jetSetCursorFilter(sesid: JetSesid, tableid: JetTableid, rgcolumnfilters: ConstPtr<JetIndexColumn>, ccolumnfilters: UInt, grbit: UInt): Int =
+public actual fun jetSetCursorFilter(sesid: JetSesid, tableid: JetTableid, rgcolumnfilters: ConstPtr, ccolumnfilters: UInt, grbit: UInt): Int =
     windowssysWindowsWin32StorageJetJetSetCursorFilter(sesid, tableid, rgcolumnfilters.rawAddress.toCPointer<ByteVar>(), ccolumnfilters, grbit)
 
-public actual fun jetSetDatabaseSizeA(sesid: JetSesid, szdatabasename: ConstPtr<Byte>, cpg: UInt, pcpgreal: MutPtr<UInt>): Int =
+public actual fun jetSetDatabaseSizeA(sesid: JetSesid, szdatabasename: ConstPtr, cpg: UInt, pcpgreal: MutPtr): Int =
     windowssysWindowsWin32StorageJetJetSetDatabaseSizeA(sesid, szdatabasename.rawAddress.toCPointer<ByteVar>(), cpg, pcpgreal.rawAddress.toCPointer<ByteVar>())
 
-public actual fun jetSetDatabaseSizeW(sesid: JetSesid, szdatabasename: ConstPtr<UShort>, cpg: UInt, pcpgreal: MutPtr<UInt>): Int =
+public actual fun jetSetDatabaseSizeW(sesid: JetSesid, szdatabasename: ConstPtr, cpg: UInt, pcpgreal: MutPtr): Int =
     windowssysWindowsWin32StorageJetJetSetDatabaseSizeW(sesid, szdatabasename.rawAddress.toCPointer<ByteVar>(), cpg, pcpgreal.rawAddress.toCPointer<ByteVar>())
 
 public actual fun jetSetIndexRange(sesid: JetSesid, tableidsrc: JetTableid, grbit: UInt): Int =
@@ -881,13 +880,13 @@ public actual fun jetSetLS(sesid: JetSesid, tableid: JetTableid, ls: JetLs, grbi
 public actual fun jetSetSessionContext(sesid: JetSesid, ulcontext: JetApiPtr): Int =
     windowssysWindowsWin32StorageJetJetSetSessionContext(sesid, ulcontext)
 
-public actual fun jetSetSessionParameter(sesid: JetSesid, sesparamid: UInt, pvparam: ConstPtr<CVoid>, cbparam: UInt): Int =
+public actual fun jetSetSessionParameter(sesid: JetSesid, sesparamid: UInt, pvparam: ConstPtr, cbparam: UInt): Int =
     windowssysWindowsWin32StorageJetJetSetSessionParameter(sesid, sesparamid, pvparam.rawAddress.toCPointer<ByteVar>(), cbparam)
 
-public actual fun jetSetSystemParameterA(pinstance: MutPtr<JetInstance>, sesid: JetSesid, paramid: UInt, lparam: JetApiPtr, szparam: ConstPtr<Byte>): Int =
+public actual fun jetSetSystemParameterA(pinstance: MutPtr, sesid: JetSesid, paramid: UInt, lparam: JetApiPtr, szparam: ConstPtr): Int =
     windowssysWindowsWin32StorageJetJetSetSystemParameterA(pinstance.rawAddress.toCPointer<ByteVar>(), sesid, paramid, lparam, szparam.rawAddress.toCPointer<ByteVar>())
 
-public actual fun jetSetSystemParameterW(pinstance: MutPtr<JetInstance>, sesid: JetSesid, paramid: UInt, lparam: JetApiPtr, szparam: ConstPtr<UShort>): Int =
+public actual fun jetSetSystemParameterW(pinstance: MutPtr, sesid: JetSesid, paramid: UInt, lparam: JetApiPtr, szparam: ConstPtr): Int =
     windowssysWindowsWin32StorageJetJetSetSystemParameterW(pinstance.rawAddress.toCPointer<ByteVar>(), sesid, paramid, lparam, szparam.rawAddress.toCPointer<ByteVar>())
 
 public actual fun jetSetTableSequential(sesid: JetSesid, tableid: JetTableid, grbit: UInt): Int =
@@ -923,8 +922,8 @@ public actual fun jetTruncateLogInstance(instance: JetInstance): Int =
 public actual fun jetUnregisterCallback(sesid: JetSesid, tableid: JetTableid, cbtyp: UInt, hcallbackid: JetHandle): Int =
     windowssysWindowsWin32StorageJetJetUnregisterCallback(sesid, tableid, cbtyp, hcallbackid)
 
-public actual fun jetUpdate(sesid: JetSesid, tableid: JetTableid, pvbookmark: MutPtr<CVoid>, cbbookmark: UInt, pcbactual: MutPtr<UInt>): Int =
+public actual fun jetUpdate(sesid: JetSesid, tableid: JetTableid, pvbookmark: MutPtr, cbbookmark: UInt, pcbactual: MutPtr): Int =
     windowssysWindowsWin32StorageJetJetUpdate(sesid, tableid, pvbookmark.rawAddress.toCPointer<ByteVar>(), cbbookmark, pcbactual.rawAddress.toCPointer<ByteVar>())
 
-public actual fun jetUpdate2(sesid: JetSesid, tableid: JetTableid, pvbookmark: MutPtr<CVoid>, cbbookmark: UInt, pcbactual: MutPtr<UInt>, grbit: UInt): Int =
+public actual fun jetUpdate2(sesid: JetSesid, tableid: JetTableid, pvbookmark: MutPtr, cbbookmark: UInt, pcbactual: MutPtr, grbit: UInt): Int =
     windowssysWindowsWin32StorageJetJetUpdate2(sesid, tableid, pvbookmark.rawAddress.toCPointer<ByteVar>(), cbbookmark, pcbactual.rawAddress.toCPointer<ByteVar>(), grbit)

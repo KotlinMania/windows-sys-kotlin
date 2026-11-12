@@ -2,7 +2,6 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.graphics.gdi
 
-import io.github.kotlinmania.rustlang.core.ffi.CVoid
 import io.github.kotlinmania.rustlang.core.ptr.ConstPtr
 import io.github.kotlinmania.rustlang.core.ptr.MutPtr
 import io.github.kotlinmania.windowssys.core.Bool
@@ -17,8 +16,6 @@ import io.github.kotlinmania.windowssys.windows.win32.foundation.Hinstance
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Hwnd
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Lparam
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Point
-import io.github.kotlinmania.windowssys.windows.win32.foundation.Rect
-import io.github.kotlinmania.windowssys.windows.win32.foundation.Size
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Wparam
 import io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssysWindowsWin32GraphicsGdiAbortPath
 import io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssysWindowsWin32GraphicsGdiAddFontMemResourceEx
@@ -419,16 +416,16 @@ import kotlinx.cinterop.toLong
 public actual fun abortPath(hdc: Hdc): Bool =
     windowssysWindowsWin32GraphicsGdiAbortPath(hdc.rawAddress.toCPointer<ByteVar>())
 
-public actual fun addFontMemResourceEx(pfileview: ConstPtr<CVoid>, cjsize: UInt, pvresrved: ConstPtr<CVoid>, pnumfonts: ConstPtr<UInt>): Handle =
+public actual fun addFontMemResourceEx(pfileview: ConstPtr, cjsize: UInt, pvresrved: ConstPtr, pnumfonts: ConstPtr): Handle =
     MutPtr(windowssysWindowsWin32GraphicsGdiAddFontMemResourceEx(pfileview.rawAddress.toCPointer<ByteVar>(), cjsize, pvresrved.rawAddress.toCPointer<ByteVar>(), pnumfonts.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
 public actual fun addFontResourceA(param0: Pcstr): Int =
     windowssysWindowsWin32GraphicsGdiAddFontResourceA(param0.rawAddress.toCPointer<ByteVar>())
 
-public actual fun addFontResourceExA(name: Pcstr, fl: FontResourceCharacteristics, res: ConstPtr<CVoid>): Int =
+public actual fun addFontResourceExA(name: Pcstr, fl: FontResourceCharacteristics, res: ConstPtr): Int =
     windowssysWindowsWin32GraphicsGdiAddFontResourceExA(name.rawAddress.toCPointer<ByteVar>(), fl, res.rawAddress.toCPointer<ByteVar>())
 
-public actual fun addFontResourceExW(name: Pcwstr, fl: FontResourceCharacteristics, res: ConstPtr<CVoid>): Int =
+public actual fun addFontResourceExW(name: Pcwstr, fl: FontResourceCharacteristics, res: ConstPtr): Int =
     windowssysWindowsWin32GraphicsGdiAddFontResourceExW(name.rawAddress.toCPointer<ByteVar>(), fl, res.rawAddress.toCPointer<ByteVar>())
 
 public actual fun addFontResourceW(param0: Pcwstr): Int =
@@ -440,7 +437,7 @@ public actual fun alphaBlend(hdcdest: Hdc, xorigindest: Int, yorigindest: Int, w
 public actual fun angleArc(hdc: Hdc, x: Int, y: Int, r: UInt, startangle: Float, sweepangle: Float): Bool =
     windowssysWindowsWin32GraphicsGdiAngleArc(hdc.rawAddress.toCPointer<ByteVar>(), x, y, r, startangle, sweepangle)
 
-public actual fun animatePalette(hpal: Hpalette, istartindex: UInt, centries: UInt, ppe: ConstPtr<Paletteentry>): Bool =
+public actual fun animatePalette(hpal: Hpalette, istartindex: UInt, centries: UInt, ppe: ConstPtr): Bool =
     windowssysWindowsWin32GraphicsGdiAnimatePalette(hpal.rawAddress.toCPointer<ByteVar>(), istartindex, centries, ppe.rawAddress.toCPointer<ByteVar>())
 
 public actual fun arc(hdc: Hdc, x1: Int, y1: Int, x2: Int, y2: Int, x3: Int, y3: Int, x4: Int, y4: Int): Bool =
@@ -449,7 +446,7 @@ public actual fun arc(hdc: Hdc, x1: Int, y1: Int, x2: Int, y2: Int, x3: Int, y3:
 public actual fun arcTo(hdc: Hdc, left: Int, top: Int, right: Int, bottom: Int, xr1: Int, yr1: Int, xr2: Int, yr2: Int): Bool =
     windowssysWindowsWin32GraphicsGdiArcTo(hdc.rawAddress.toCPointer<ByteVar>(), left, top, right, bottom, xr1, yr1, xr2, yr2)
 
-public actual fun beginPaint(hwnd: Hwnd, lppaint: MutPtr<Paintstruct>): Hdc =
+public actual fun beginPaint(hwnd: Hwnd, lppaint: MutPtr): Hdc =
     MutPtr(windowssysWindowsWin32GraphicsGdiBeginPaint(hwnd.rawAddress.toCPointer<ByteVar>(), lppaint.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
 public actual fun beginPath(hdc: Hdc): Bool =
@@ -461,22 +458,22 @@ public actual fun bitBlt(hdc: Hdc, x: Int, y: Int, cx: Int, cy: Int, hdcsrc: Hdc
 public actual fun cancelDC(hdc: Hdc): Bool =
     windowssysWindowsWin32GraphicsGdiCancelDC(hdc.rawAddress.toCPointer<ByteVar>())
 
-public actual fun changeDisplaySettingsA(lpdevmode: ConstPtr<Devmodea>, dwflags: CdsType): DispChange =
+public actual fun changeDisplaySettingsA(lpdevmode: ConstPtr, dwflags: CdsType): DispChange =
     windowssysWindowsWin32GraphicsGdiChangeDisplaySettingsA(lpdevmode.rawAddress.toCPointer<ByteVar>(), dwflags)
 
-public actual fun changeDisplaySettingsExA(lpszdevicename: Pcstr, lpdevmode: ConstPtr<Devmodea>, hwnd: Hwnd, dwflags: CdsType, lparam: ConstPtr<CVoid>): DispChange =
+public actual fun changeDisplaySettingsExA(lpszdevicename: Pcstr, lpdevmode: ConstPtr, hwnd: Hwnd, dwflags: CdsType, lparam: ConstPtr): DispChange =
     windowssysWindowsWin32GraphicsGdiChangeDisplaySettingsExA(lpszdevicename.rawAddress.toCPointer<ByteVar>(), lpdevmode.rawAddress.toCPointer<ByteVar>(), hwnd.rawAddress.toCPointer<ByteVar>(), dwflags, lparam.rawAddress.toCPointer<ByteVar>())
 
-public actual fun changeDisplaySettingsExW(lpszdevicename: Pcwstr, lpdevmode: ConstPtr<Devmodew>, hwnd: Hwnd, dwflags: CdsType, lparam: ConstPtr<CVoid>): DispChange =
+public actual fun changeDisplaySettingsExW(lpszdevicename: Pcwstr, lpdevmode: ConstPtr, hwnd: Hwnd, dwflags: CdsType, lparam: ConstPtr): DispChange =
     windowssysWindowsWin32GraphicsGdiChangeDisplaySettingsExW(lpszdevicename.rawAddress.toCPointer<ByteVar>(), lpdevmode.rawAddress.toCPointer<ByteVar>(), hwnd.rawAddress.toCPointer<ByteVar>(), dwflags, lparam.rawAddress.toCPointer<ByteVar>())
 
-public actual fun changeDisplaySettingsW(lpdevmode: ConstPtr<Devmodew>, dwflags: CdsType): DispChange =
+public actual fun changeDisplaySettingsW(lpdevmode: ConstPtr, dwflags: CdsType): DispChange =
     windowssysWindowsWin32GraphicsGdiChangeDisplaySettingsW(lpdevmode.rawAddress.toCPointer<ByteVar>(), dwflags)
 
 public actual fun chord(hdc: Hdc, x1: Int, y1: Int, x2: Int, y2: Int, x3: Int, y3: Int, x4: Int, y4: Int): Bool =
     windowssysWindowsWin32GraphicsGdiChord(hdc.rawAddress.toCPointer<ByteVar>(), x1, y1, x2, y2, x3, y3, x4, y4)
 
-public actual fun clientToScreen(hwnd: Hwnd, lppoint: MutPtr<Point>): Bool =
+public actual fun clientToScreen(hwnd: Hwnd, lppoint: MutPtr): Bool =
     windowssysWindowsWin32GraphicsGdiClientToScreen(hwnd.rawAddress.toCPointer<ByteVar>(), lppoint.rawAddress.toCPointer<ByteVar>())
 
 public actual fun closeEnhMetaFile(hdc: Hdc): Henhmetafile =
@@ -491,7 +488,7 @@ public actual fun closeMetaFile(hdc: Hdc): Hmetafile =
 public actual fun combineRgn(hrgndst: Hrgn, hrgnsrc1: Hrgn, hrgnsrc2: Hrgn, imode: RgnCombineMode): GdiRegionType =
     windowssysWindowsWin32GraphicsGdiCombineRgn(hrgndst.rawAddress.toCPointer<ByteVar>(), hrgnsrc1.rawAddress.toCPointer<ByteVar>(), hrgnsrc2.rawAddress.toCPointer<ByteVar>(), imode)
 
-public actual fun combineTransform(lpxfout: MutPtr<Xform>, lpxf1: ConstPtr<Xform>, lpxf2: ConstPtr<Xform>): Bool =
+public actual fun combineTransform(lpxfout: MutPtr, lpxf1: ConstPtr, lpxf2: ConstPtr): Bool =
     windowssysWindowsWin32GraphicsGdiCombineTransform(lpxfout.rawAddress.toCPointer<ByteVar>(), lpxf1.rawAddress.toCPointer<ByteVar>(), lpxf2.rawAddress.toCPointer<ByteVar>())
 
 public actual fun copyEnhMetaFileA(henh: Henhmetafile, lpfilename: Pcstr): Henhmetafile =
@@ -506,16 +503,16 @@ public actual fun copyMetaFileA(param0: Hmetafile, param1: Pcstr): Hmetafile =
 public actual fun copyMetaFileW(param0: Hmetafile, param1: Pcwstr): Hmetafile =
     MutPtr(windowssysWindowsWin32GraphicsGdiCopyMetaFileW(param0.rawAddress.toCPointer<ByteVar>(), param1.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun copyRect(lprcdst: MutPtr<Rect>, lprcsrc: ConstPtr<Rect>): Bool =
+public actual fun copyRect(lprcdst: MutPtr, lprcsrc: ConstPtr): Bool =
     windowssysWindowsWin32GraphicsGdiCopyRect(lprcdst.rawAddress.toCPointer<ByteVar>(), lprcsrc.rawAddress.toCPointer<ByteVar>())
 
-public actual fun createBitmap(nwidth: Int, nheight: Int, nplanes: UInt, nbitcount: UInt, lpbits: ConstPtr<CVoid>): Hbitmap =
+public actual fun createBitmap(nwidth: Int, nheight: Int, nplanes: UInt, nbitcount: UInt, lpbits: ConstPtr): Hbitmap =
     MutPtr(windowssysWindowsWin32GraphicsGdiCreateBitmap(nwidth, nheight, nplanes, nbitcount, lpbits.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun createBitmapIndirect(pbm: ConstPtr<Bitmap>): Hbitmap =
+public actual fun createBitmapIndirect(pbm: ConstPtr): Hbitmap =
     MutPtr(windowssysWindowsWin32GraphicsGdiCreateBitmapIndirect(pbm.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun createBrushIndirect(plbrush: ConstPtr<Logbrush>): Hbrush =
+public actual fun createBrushIndirect(plbrush: ConstPtr): Hbrush =
     MutPtr(windowssysWindowsWin32GraphicsGdiCreateBrushIndirect(plbrush.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
 public actual fun createCompatibleBitmap(hdc: Hdc, cx: Int, cy: Int): Hbitmap =
@@ -524,22 +521,22 @@ public actual fun createCompatibleBitmap(hdc: Hdc, cx: Int, cy: Int): Hbitmap =
 public actual fun createCompatibleDC(hdc: Hdc): Hdc =
     MutPtr(windowssysWindowsWin32GraphicsGdiCreateCompatibleDC(hdc.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun createDCA(pwszdriver: Pcstr, pwszdevice: Pcstr, pszport: Pcstr, pdm: ConstPtr<Devmodea>): Hdc =
+public actual fun createDCA(pwszdriver: Pcstr, pwszdevice: Pcstr, pszport: Pcstr, pdm: ConstPtr): Hdc =
     MutPtr(windowssysWindowsWin32GraphicsGdiCreateDCA(pwszdriver.rawAddress.toCPointer<ByteVar>(), pwszdevice.rawAddress.toCPointer<ByteVar>(), pszport.rawAddress.toCPointer<ByteVar>(), pdm.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun createDCW(pwszdriver: Pcwstr, pwszdevice: Pcwstr, pszport: Pcwstr, pdm: ConstPtr<Devmodew>): Hdc =
+public actual fun createDCW(pwszdriver: Pcwstr, pwszdevice: Pcwstr, pszport: Pcwstr, pdm: ConstPtr): Hdc =
     MutPtr(windowssysWindowsWin32GraphicsGdiCreateDCW(pwszdriver.rawAddress.toCPointer<ByteVar>(), pwszdevice.rawAddress.toCPointer<ByteVar>(), pszport.rawAddress.toCPointer<ByteVar>(), pdm.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
 public actual fun createDIBPatternBrush(h: Hglobal, iusage: DibUsage): Hbrush =
     MutPtr(windowssysWindowsWin32GraphicsGdiCreateDIBPatternBrush(h.rawAddress.toCPointer<ByteVar>(), iusage)?.toLong() ?: 0L)
 
-public actual fun createDIBPatternBrushPt(lppackeddib: ConstPtr<CVoid>, iusage: DibUsage): Hbrush =
+public actual fun createDIBPatternBrushPt(lppackeddib: ConstPtr, iusage: DibUsage): Hbrush =
     MutPtr(windowssysWindowsWin32GraphicsGdiCreateDIBPatternBrushPt(lppackeddib.rawAddress.toCPointer<ByteVar>(), iusage)?.toLong() ?: 0L)
 
-public actual fun createDIBSection(hdc: Hdc, pbmi: ConstPtr<Bitmapinfo>, usage: DibUsage, ppvbits: MutPtr<MutPtr<CVoid>>, hsection: Handle, offset: UInt): Hbitmap =
+public actual fun createDIBSection(hdc: Hdc, pbmi: ConstPtr, usage: DibUsage, ppvbits: MutPtr, hsection: Handle, offset: UInt): Hbitmap =
     MutPtr(windowssysWindowsWin32GraphicsGdiCreateDIBSection(hdc.rawAddress.toCPointer<ByteVar>(), pbmi.rawAddress.toCPointer<ByteVar>(), usage, ppvbits.rawAddress.toCPointer<ByteVar>(), hsection.rawAddress.toCPointer<ByteVar>(), offset)?.toLong() ?: 0L)
 
-public actual fun createDIBitmap(hdc: Hdc, pbmih: ConstPtr<Bitmapinfoheader>, flinit: UInt, pjbits: ConstPtr<CVoid>, pbmi: ConstPtr<Bitmapinfo>, iusage: DibUsage): Hbitmap =
+public actual fun createDIBitmap(hdc: Hdc, pbmih: ConstPtr, flinit: UInt, pjbits: ConstPtr, pbmi: ConstPtr, iusage: DibUsage): Hbitmap =
     MutPtr(windowssysWindowsWin32GraphicsGdiCreateDIBitmap(hdc.rawAddress.toCPointer<ByteVar>(), pbmih.rawAddress.toCPointer<ByteVar>(), flinit, pjbits.rawAddress.toCPointer<ByteVar>(), pbmi.rawAddress.toCPointer<ByteVar>(), iusage)?.toLong() ?: 0L)
 
 public actual fun createDiscardableBitmap(hdc: Hdc, cx: Int, cy: Int): Hbitmap =
@@ -548,31 +545,31 @@ public actual fun createDiscardableBitmap(hdc: Hdc, cx: Int, cy: Int): Hbitmap =
 public actual fun createEllipticRgn(x1: Int, y1: Int, x2: Int, y2: Int): Hrgn =
     MutPtr(windowssysWindowsWin32GraphicsGdiCreateEllipticRgn(x1, y1, x2, y2)?.toLong() ?: 0L)
 
-public actual fun createEllipticRgnIndirect(lprect: ConstPtr<Rect>): Hrgn =
+public actual fun createEllipticRgnIndirect(lprect: ConstPtr): Hrgn =
     MutPtr(windowssysWindowsWin32GraphicsGdiCreateEllipticRgnIndirect(lprect.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun createEnhMetaFileA(hdc: Hdc, lpfilename: Pcstr, lprc: ConstPtr<Rect>, lpdesc: Pcstr): Hdc =
+public actual fun createEnhMetaFileA(hdc: Hdc, lpfilename: Pcstr, lprc: ConstPtr, lpdesc: Pcstr): Hdc =
     MutPtr(windowssysWindowsWin32GraphicsGdiCreateEnhMetaFileA(hdc.rawAddress.toCPointer<ByteVar>(), lpfilename.rawAddress.toCPointer<ByteVar>(), lprc.rawAddress.toCPointer<ByteVar>(), lpdesc.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun createEnhMetaFileW(hdc: Hdc, lpfilename: Pcwstr, lprc: ConstPtr<Rect>, lpdesc: Pcwstr): Hdc =
+public actual fun createEnhMetaFileW(hdc: Hdc, lpfilename: Pcwstr, lprc: ConstPtr, lpdesc: Pcwstr): Hdc =
     MutPtr(windowssysWindowsWin32GraphicsGdiCreateEnhMetaFileW(hdc.rawAddress.toCPointer<ByteVar>(), lpfilename.rawAddress.toCPointer<ByteVar>(), lprc.rawAddress.toCPointer<ByteVar>(), lpdesc.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
 public actual fun createFontA(cheight: Int, cwidth: Int, cescapement: Int, corientation: Int, cweight: Int, bitalic: UInt, bunderline: UInt, bstrikeout: UInt, icharset: UInt, ioutprecision: UInt, iclipprecision: UInt, iquality: UInt, ipitchandfamily: UInt, pszfacename: Pcstr): Hfont =
     MutPtr(windowssysWindowsWin32GraphicsGdiCreateFontA(cheight, cwidth, cescapement, corientation, cweight, bitalic, bunderline, bstrikeout, icharset, ioutprecision, iclipprecision, iquality, ipitchandfamily, pszfacename.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun createFontIndirectA(lplf: ConstPtr<Logfonta>): Hfont =
+public actual fun createFontIndirectA(lplf: ConstPtr): Hfont =
     MutPtr(windowssysWindowsWin32GraphicsGdiCreateFontIndirectA(lplf.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun createFontIndirectExA(param0: ConstPtr<Enumlogfontexdva>): Hfont =
+public actual fun createFontIndirectExA(param0: ConstPtr): Hfont =
     MutPtr(windowssysWindowsWin32GraphicsGdiCreateFontIndirectExA(param0.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun createFontIndirectExW(param0: ConstPtr<Enumlogfontexdvw>): Hfont =
+public actual fun createFontIndirectExW(param0: ConstPtr): Hfont =
     MutPtr(windowssysWindowsWin32GraphicsGdiCreateFontIndirectExW(param0.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun createFontIndirectW(lplf: ConstPtr<Logfontw>): Hfont =
+public actual fun createFontIndirectW(lplf: ConstPtr): Hfont =
     MutPtr(windowssysWindowsWin32GraphicsGdiCreateFontIndirectW(lplf.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun createFontPackage(puchsrcbuffer: ConstPtr<UByte>, ulsrcbuffersize: UInt, ppuchfontpackagebuffer: MutPtr<MutPtr<UByte>>, pulfontpackagebuffersize: MutPtr<UInt>, pulbyteswritten: MutPtr<UInt>, usflag: UShort, usttcindex: UShort, ussubsetformat: UShort, ussubsetlanguage: UShort, ussubsetplatform: CreateFontPackageSubsetPlatform, ussubsetencoding: CreateFontPackageSubsetEncoding, pussubsetkeeplist: ConstPtr<UShort>, ussubsetlistcount: UShort, lpfnallocate: CfpAllocproc, lpfnreallocate: CfpReallocproc, lpfnfree: CfpFreeproc, lpvreserved: MutPtr<CVoid>): UInt =
+public actual fun createFontPackage(puchsrcbuffer: ConstPtr, ulsrcbuffersize: UInt, ppuchfontpackagebuffer: MutPtr, pulfontpackagebuffersize: MutPtr, pulbyteswritten: MutPtr, usflag: UShort, usttcindex: UShort, ussubsetformat: UShort, ussubsetlanguage: UShort, ussubsetplatform: CreateFontPackageSubsetPlatform, ussubsetencoding: CreateFontPackageSubsetEncoding, pussubsetkeeplist: ConstPtr, ussubsetlistcount: UShort, lpfnallocate: CfpAllocproc, lpfnreallocate: CfpReallocproc, lpfnfree: CfpFreeproc, lpvreserved: MutPtr): UInt =
     windowssysWindowsWin32GraphicsGdiCreateFontPackage(puchsrcbuffer.rawAddress.toCPointer<ByteVar>(), ulsrcbuffersize, ppuchfontpackagebuffer.rawAddress.toCPointer<ByteVar>(), pulfontpackagebuffersize.rawAddress.toCPointer<ByteVar>(), pulbyteswritten.rawAddress.toCPointer<ByteVar>(), usflag, usttcindex, ussubsetformat, ussubsetlanguage, ussubsetplatform, ussubsetencoding, pussubsetkeeplist.rawAddress.toCPointer<ByteVar>(), ussubsetlistcount, 0L.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>(), lpvreserved.rawAddress.toCPointer<ByteVar>())
 
 public actual fun createFontW(cheight: Int, cwidth: Int, cescapement: Int, corientation: Int, cweight: Int, bitalic: UInt, bunderline: UInt, bstrikeout: UInt, icharset: UInt, ioutprecision: UInt, iclipprecision: UInt, iquality: UInt, ipitchandfamily: UInt, pszfacename: Pcwstr): Hfont =
@@ -584,10 +581,10 @@ public actual fun createHalftonePalette(hdc: Hdc): Hpalette =
 public actual fun createHatchBrush(ihatch: HatchBrushStyle, color: Colorref): Hbrush =
     MutPtr(windowssysWindowsWin32GraphicsGdiCreateHatchBrush(ihatch, color)?.toLong() ?: 0L)
 
-public actual fun createICA(pszdriver: Pcstr, pszdevice: Pcstr, pszport: Pcstr, pdm: ConstPtr<Devmodea>): Hdc =
+public actual fun createICA(pszdriver: Pcstr, pszdevice: Pcstr, pszport: Pcstr, pdm: ConstPtr): Hdc =
     MutPtr(windowssysWindowsWin32GraphicsGdiCreateICA(pszdriver.rawAddress.toCPointer<ByteVar>(), pszdevice.rawAddress.toCPointer<ByteVar>(), pszport.rawAddress.toCPointer<ByteVar>(), pdm.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun createICW(pszdriver: Pcwstr, pszdevice: Pcwstr, pszport: Pcwstr, pdm: ConstPtr<Devmodew>): Hdc =
+public actual fun createICW(pszdriver: Pcwstr, pszdevice: Pcwstr, pszport: Pcwstr, pdm: ConstPtr): Hdc =
     MutPtr(windowssysWindowsWin32GraphicsGdiCreateICW(pszdriver.rawAddress.toCPointer<ByteVar>(), pszdevice.rawAddress.toCPointer<ByteVar>(), pszport.rawAddress.toCPointer<ByteVar>(), pdm.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
 public actual fun createMetaFileA(pszfile: Pcstr): Hdc =
@@ -596,7 +593,7 @@ public actual fun createMetaFileA(pszfile: Pcstr): Hdc =
 public actual fun createMetaFileW(pszfile: Pcwstr): Hdc =
     MutPtr(windowssysWindowsWin32GraphicsGdiCreateMetaFileW(pszfile.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun createPalette(plpal: ConstPtr<Logpalette>): Hpalette =
+public actual fun createPalette(plpal: ConstPtr): Hpalette =
     MutPtr(windowssysWindowsWin32GraphicsGdiCreatePalette(plpal.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
 public actual fun createPatternBrush(hbm: Hbitmap): Hbrush =
@@ -605,19 +602,19 @@ public actual fun createPatternBrush(hbm: Hbitmap): Hbrush =
 public actual fun createPen(istyle: PenStyle, cwidth: Int, color: Colorref): Hpen =
     MutPtr(windowssysWindowsWin32GraphicsGdiCreatePen(istyle, cwidth, color)?.toLong() ?: 0L)
 
-public actual fun createPenIndirect(plpen: ConstPtr<Logpen>): Hpen =
+public actual fun createPenIndirect(plpen: ConstPtr): Hpen =
     MutPtr(windowssysWindowsWin32GraphicsGdiCreatePenIndirect(plpen.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun createPolyPolygonRgn(pptl: ConstPtr<Point>, pc: ConstPtr<Int>, cpoly: Int, imode: CreatePolygonRgnMode): Hrgn =
+public actual fun createPolyPolygonRgn(pptl: ConstPtr, pc: ConstPtr, cpoly: Int, imode: CreatePolygonRgnMode): Hrgn =
     MutPtr(windowssysWindowsWin32GraphicsGdiCreatePolyPolygonRgn(pptl.rawAddress.toCPointer<ByteVar>(), pc.rawAddress.toCPointer<ByteVar>(), cpoly, imode)?.toLong() ?: 0L)
 
-public actual fun createPolygonRgn(pptl: ConstPtr<Point>, cpoint: Int, imode: CreatePolygonRgnMode): Hrgn =
+public actual fun createPolygonRgn(pptl: ConstPtr, cpoint: Int, imode: CreatePolygonRgnMode): Hrgn =
     MutPtr(windowssysWindowsWin32GraphicsGdiCreatePolygonRgn(pptl.rawAddress.toCPointer<ByteVar>(), cpoint, imode)?.toLong() ?: 0L)
 
 public actual fun createRectRgn(x1: Int, y1: Int, x2: Int, y2: Int): Hrgn =
     MutPtr(windowssysWindowsWin32GraphicsGdiCreateRectRgn(x1, y1, x2, y2)?.toLong() ?: 0L)
 
-public actual fun createRectRgnIndirect(lprect: ConstPtr<Rect>): Hrgn =
+public actual fun createRectRgnIndirect(lprect: ConstPtr): Hrgn =
     MutPtr(windowssysWindowsWin32GraphicsGdiCreateRectRgnIndirect(lprect.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
 public actual fun createRoundRectRgn(x1: Int, y1: Int, x2: Int, y2: Int, w: Int, h: Int): Hrgn =
@@ -632,7 +629,7 @@ public actual fun createScalableFontResourceW(fdwhidden: UInt, lpszfont: Pcwstr,
 public actual fun createSolidBrush(color: Colorref): Hbrush =
     MutPtr(windowssysWindowsWin32GraphicsGdiCreateSolidBrush(color)?.toLong() ?: 0L)
 
-public actual fun dPtoLP(hdc: Hdc, lppt: MutPtr<Point>, c: Int): Bool =
+public actual fun dPtoLP(hdc: Hdc, lppt: MutPtr, c: Int): Bool =
     windowssysWindowsWin32GraphicsGdiDPtoLP(hdc.rawAddress.toCPointer<ByteVar>(), lppt.rawAddress.toCPointer<ByteVar>(), c)
 
 public actual fun deleteDC(hdc: Hdc): Bool =
@@ -647,22 +644,22 @@ public actual fun deleteMetaFile(hmf: Hmetafile): Bool =
 public actual fun deleteObject(ho: Hgdiobj): Bool =
     windowssysWindowsWin32GraphicsGdiDeleteObject(ho.rawAddress.toCPointer<ByteVar>())
 
-public actual fun drawAnimatedRects(hwnd: Hwnd, idani: Int, lprcfrom: ConstPtr<Rect>, lprcto: ConstPtr<Rect>): Bool =
+public actual fun drawAnimatedRects(hwnd: Hwnd, idani: Int, lprcfrom: ConstPtr, lprcto: ConstPtr): Bool =
     windowssysWindowsWin32GraphicsGdiDrawAnimatedRects(hwnd.rawAddress.toCPointer<ByteVar>(), idani, lprcfrom.rawAddress.toCPointer<ByteVar>(), lprcto.rawAddress.toCPointer<ByteVar>())
 
-public actual fun drawCaption(hwnd: Hwnd, hdc: Hdc, lprect: ConstPtr<Rect>, flags: DrawCaptionFlags): Bool =
+public actual fun drawCaption(hwnd: Hwnd, hdc: Hdc, lprect: ConstPtr, flags: DrawCaptionFlags): Bool =
     windowssysWindowsWin32GraphicsGdiDrawCaption(hwnd.rawAddress.toCPointer<ByteVar>(), hdc.rawAddress.toCPointer<ByteVar>(), lprect.rawAddress.toCPointer<ByteVar>(), flags)
 
-public actual fun drawEdge(hdc: Hdc, qrc: MutPtr<Rect>, edge: DrawedgeFlags, grfflags: DrawEdgeFlags): Bool =
+public actual fun drawEdge(hdc: Hdc, qrc: MutPtr, edge: DrawedgeFlags, grfflags: DrawEdgeFlags): Bool =
     windowssysWindowsWin32GraphicsGdiDrawEdge(hdc.rawAddress.toCPointer<ByteVar>(), qrc.rawAddress.toCPointer<ByteVar>(), edge, grfflags)
 
 public actual fun drawEscape(hdc: Hdc, iescape: Int, cjin: Int, lpin: Pcstr): Int =
     windowssysWindowsWin32GraphicsGdiDrawEscape(hdc.rawAddress.toCPointer<ByteVar>(), iescape, cjin, lpin.rawAddress.toCPointer<ByteVar>())
 
-public actual fun drawFocusRect(hdc: Hdc, lprc: ConstPtr<Rect>): Bool =
+public actual fun drawFocusRect(hdc: Hdc, lprc: ConstPtr): Bool =
     windowssysWindowsWin32GraphicsGdiDrawFocusRect(hdc.rawAddress.toCPointer<ByteVar>(), lprc.rawAddress.toCPointer<ByteVar>())
 
-public actual fun drawFrameControl(param0: Hdc, param1: MutPtr<Rect>, param2: DfcType, param3: DfcsState): Bool =
+public actual fun drawFrameControl(param0: Hdc, param1: MutPtr, param2: DfcType, param3: DfcsState): Bool =
     windowssysWindowsWin32GraphicsGdiDrawFrameControl(param0.rawAddress.toCPointer<ByteVar>(), param1.rawAddress.toCPointer<ByteVar>(), param2, param3)
 
 public actual fun drawStateA(hdc: Hdc, hbrfore: Hbrush, qfncallback: Drawstateproc, ldata: Lparam, wdata: Wparam, x: Int, y: Int, cx: Int, cy: Int, uflags: DrawstateFlags): Bool =
@@ -671,58 +668,58 @@ public actual fun drawStateA(hdc: Hdc, hbrfore: Hbrush, qfncallback: Drawstatepr
 public actual fun drawStateW(hdc: Hdc, hbrfore: Hbrush, qfncallback: Drawstateproc, ldata: Lparam, wdata: Wparam, x: Int, y: Int, cx: Int, cy: Int, uflags: DrawstateFlags): Bool =
     windowssysWindowsWin32GraphicsGdiDrawStateW(hdc.rawAddress.toCPointer<ByteVar>(), hbrfore.rawAddress.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>(), ldata, wdata, x, y, cx, cy, uflags)
 
-public actual fun drawTextA(hdc: Hdc, lpchtext: Pcstr, cchtext: Int, lprc: MutPtr<Rect>, format: DrawTextFormat): Int =
+public actual fun drawTextA(hdc: Hdc, lpchtext: Pcstr, cchtext: Int, lprc: MutPtr, format: DrawTextFormat): Int =
     windowssysWindowsWin32GraphicsGdiDrawTextA(hdc.rawAddress.toCPointer<ByteVar>(), lpchtext.rawAddress.toCPointer<ByteVar>(), cchtext, lprc.rawAddress.toCPointer<ByteVar>(), format)
 
-public actual fun drawTextExA(hdc: Hdc, lpchtext: Pstr, cchtext: Int, lprc: MutPtr<Rect>, format: DrawTextFormat, lpdtp: ConstPtr<Drawtextparams>): Int =
+public actual fun drawTextExA(hdc: Hdc, lpchtext: Pstr, cchtext: Int, lprc: MutPtr, format: DrawTextFormat, lpdtp: ConstPtr): Int =
     windowssysWindowsWin32GraphicsGdiDrawTextExA(hdc.rawAddress.toCPointer<ByteVar>(), lpchtext.rawAddress.toCPointer<ByteVar>(), cchtext, lprc.rawAddress.toCPointer<ByteVar>(), format, lpdtp.rawAddress.toCPointer<ByteVar>())
 
-public actual fun drawTextExW(hdc: Hdc, lpchtext: Pwstr, cchtext: Int, lprc: MutPtr<Rect>, format: DrawTextFormat, lpdtp: ConstPtr<Drawtextparams>): Int =
+public actual fun drawTextExW(hdc: Hdc, lpchtext: Pwstr, cchtext: Int, lprc: MutPtr, format: DrawTextFormat, lpdtp: ConstPtr): Int =
     windowssysWindowsWin32GraphicsGdiDrawTextExW(hdc.rawAddress.toCPointer<ByteVar>(), lpchtext.rawAddress.toCPointer<ByteVar>(), cchtext, lprc.rawAddress.toCPointer<ByteVar>(), format, lpdtp.rawAddress.toCPointer<ByteVar>())
 
-public actual fun drawTextW(hdc: Hdc, lpchtext: Pcwstr, cchtext: Int, lprc: MutPtr<Rect>, format: DrawTextFormat): Int =
+public actual fun drawTextW(hdc: Hdc, lpchtext: Pcwstr, cchtext: Int, lprc: MutPtr, format: DrawTextFormat): Int =
     windowssysWindowsWin32GraphicsGdiDrawTextW(hdc.rawAddress.toCPointer<ByteVar>(), lpchtext.rawAddress.toCPointer<ByteVar>(), cchtext, lprc.rawAddress.toCPointer<ByteVar>(), format)
 
 public actual fun ellipse(hdc: Hdc, left: Int, top: Int, right: Int, bottom: Int): Bool =
     windowssysWindowsWin32GraphicsGdiEllipse(hdc.rawAddress.toCPointer<ByteVar>(), left, top, right, bottom)
 
-public actual fun endPaint(hwnd: Hwnd, lppaint: ConstPtr<Paintstruct>): Bool =
+public actual fun endPaint(hwnd: Hwnd, lppaint: ConstPtr): Bool =
     windowssysWindowsWin32GraphicsGdiEndPaint(hwnd.rawAddress.toCPointer<ByteVar>(), lppaint.rawAddress.toCPointer<ByteVar>())
 
 public actual fun endPath(hdc: Hdc): Bool =
     windowssysWindowsWin32GraphicsGdiEndPath(hdc.rawAddress.toCPointer<ByteVar>())
 
-public actual fun enumDisplayDevicesA(lpdevice: Pcstr, idevnum: UInt, lpdisplaydevice: MutPtr<DisplayDevicea>, dwflags: UInt): Bool =
+public actual fun enumDisplayDevicesA(lpdevice: Pcstr, idevnum: UInt, lpdisplaydevice: MutPtr, dwflags: UInt): Bool =
     windowssysWindowsWin32GraphicsGdiEnumDisplayDevicesA(lpdevice.rawAddress.toCPointer<ByteVar>(), idevnum, lpdisplaydevice.rawAddress.toCPointer<ByteVar>(), dwflags)
 
-public actual fun enumDisplayDevicesW(lpdevice: Pcwstr, idevnum: UInt, lpdisplaydevice: MutPtr<DisplayDevicew>, dwflags: UInt): Bool =
+public actual fun enumDisplayDevicesW(lpdevice: Pcwstr, idevnum: UInt, lpdisplaydevice: MutPtr, dwflags: UInt): Bool =
     windowssysWindowsWin32GraphicsGdiEnumDisplayDevicesW(lpdevice.rawAddress.toCPointer<ByteVar>(), idevnum, lpdisplaydevice.rawAddress.toCPointer<ByteVar>(), dwflags)
 
-public actual fun enumDisplayMonitors(hdc: Hdc, lprcclip: ConstPtr<Rect>, lpfnenum: Monitorenumproc, dwdata: Lparam): Bool =
+public actual fun enumDisplayMonitors(hdc: Hdc, lprcclip: ConstPtr, lpfnenum: Monitorenumproc, dwdata: Lparam): Bool =
     windowssysWindowsWin32GraphicsGdiEnumDisplayMonitors(hdc.rawAddress.toCPointer<ByteVar>(), lprcclip.rawAddress.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>(), dwdata)
 
-public actual fun enumDisplaySettingsA(lpszdevicename: Pcstr, imodenum: EnumDisplaySettingsMode, lpdevmode: MutPtr<Devmodea>): Bool =
+public actual fun enumDisplaySettingsA(lpszdevicename: Pcstr, imodenum: EnumDisplaySettingsMode, lpdevmode: MutPtr): Bool =
     windowssysWindowsWin32GraphicsGdiEnumDisplaySettingsA(lpszdevicename.rawAddress.toCPointer<ByteVar>(), imodenum, lpdevmode.rawAddress.toCPointer<ByteVar>())
 
-public actual fun enumDisplaySettingsExA(lpszdevicename: Pcstr, imodenum: EnumDisplaySettingsMode, lpdevmode: MutPtr<Devmodea>, dwflags: EnumDisplaySettingsFlags): Bool =
+public actual fun enumDisplaySettingsExA(lpszdevicename: Pcstr, imodenum: EnumDisplaySettingsMode, lpdevmode: MutPtr, dwflags: EnumDisplaySettingsFlags): Bool =
     windowssysWindowsWin32GraphicsGdiEnumDisplaySettingsExA(lpszdevicename.rawAddress.toCPointer<ByteVar>(), imodenum, lpdevmode.rawAddress.toCPointer<ByteVar>(), dwflags)
 
-public actual fun enumDisplaySettingsExW(lpszdevicename: Pcwstr, imodenum: EnumDisplaySettingsMode, lpdevmode: MutPtr<Devmodew>, dwflags: EnumDisplaySettingsFlags): Bool =
+public actual fun enumDisplaySettingsExW(lpszdevicename: Pcwstr, imodenum: EnumDisplaySettingsMode, lpdevmode: MutPtr, dwflags: EnumDisplaySettingsFlags): Bool =
     windowssysWindowsWin32GraphicsGdiEnumDisplaySettingsExW(lpszdevicename.rawAddress.toCPointer<ByteVar>(), imodenum, lpdevmode.rawAddress.toCPointer<ByteVar>(), dwflags)
 
-public actual fun enumDisplaySettingsW(lpszdevicename: Pcwstr, imodenum: EnumDisplaySettingsMode, lpdevmode: MutPtr<Devmodew>): Bool =
+public actual fun enumDisplaySettingsW(lpszdevicename: Pcwstr, imodenum: EnumDisplaySettingsMode, lpdevmode: MutPtr): Bool =
     windowssysWindowsWin32GraphicsGdiEnumDisplaySettingsW(lpszdevicename.rawAddress.toCPointer<ByteVar>(), imodenum, lpdevmode.rawAddress.toCPointer<ByteVar>())
 
-public actual fun enumEnhMetaFile(hdc: Hdc, hmf: Henhmetafile, proc: Enhmfenumproc, param3: ConstPtr<CVoid>, lprect: ConstPtr<Rect>): Bool =
+public actual fun enumEnhMetaFile(hdc: Hdc, hmf: Henhmetafile, proc: Enhmfenumproc, param3: ConstPtr, lprect: ConstPtr): Bool =
     windowssysWindowsWin32GraphicsGdiEnumEnhMetaFile(hdc.rawAddress.toCPointer<ByteVar>(), hmf.rawAddress.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>(), param3.rawAddress.toCPointer<ByteVar>(), lprect.rawAddress.toCPointer<ByteVar>())
 
 public actual fun enumFontFamiliesA(hdc: Hdc, lplogfont: Pcstr, lpproc: Fontenumproca, lparam: Lparam): Int =
     windowssysWindowsWin32GraphicsGdiEnumFontFamiliesA(hdc.rawAddress.toCPointer<ByteVar>(), lplogfont.rawAddress.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>(), lparam)
 
-public actual fun enumFontFamiliesExA(hdc: Hdc, lplogfont: ConstPtr<Logfonta>, lpproc: Fontenumproca, lparam: Lparam, dwflags: UInt): Int =
+public actual fun enumFontFamiliesExA(hdc: Hdc, lplogfont: ConstPtr, lpproc: Fontenumproca, lparam: Lparam, dwflags: UInt): Int =
     windowssysWindowsWin32GraphicsGdiEnumFontFamiliesExA(hdc.rawAddress.toCPointer<ByteVar>(), lplogfont.rawAddress.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>(), lparam, dwflags)
 
-public actual fun enumFontFamiliesExW(hdc: Hdc, lplogfont: ConstPtr<Logfontw>, lpproc: Fontenumprocw, lparam: Lparam, dwflags: UInt): Int =
+public actual fun enumFontFamiliesExW(hdc: Hdc, lplogfont: ConstPtr, lpproc: Fontenumprocw, lparam: Lparam, dwflags: UInt): Int =
     windowssysWindowsWin32GraphicsGdiEnumFontFamiliesExW(hdc.rawAddress.toCPointer<ByteVar>(), lplogfont.rawAddress.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>(), lparam, dwflags)
 
 public actual fun enumFontFamiliesW(hdc: Hdc, lplogfont: Pcwstr, lpproc: Fontenumprocw, lparam: Lparam): Int =
@@ -740,7 +737,7 @@ public actual fun enumMetaFile(hdc: Hdc, hmf: Hmetafile, proc: Mfenumproc, param
 public actual fun enumObjects(hdc: Hdc, ntype: ObjType, lpfunc: Gobjenumproc, lparam: Lparam): Int =
     windowssysWindowsWin32GraphicsGdiEnumObjects(hdc.rawAddress.toCPointer<ByteVar>(), ntype, 0L.toCPointer<ByteVar>(), lparam)
 
-public actual fun equalRect(lprc1: ConstPtr<Rect>, lprc2: ConstPtr<Rect>): Bool =
+public actual fun equalRect(lprc1: ConstPtr, lprc2: ConstPtr): Bool =
     windowssysWindowsWin32GraphicsGdiEqualRect(lprc1.rawAddress.toCPointer<ByteVar>(), lprc2.rawAddress.toCPointer<ByteVar>())
 
 public actual fun equalRgn(hrgn1: Hrgn, hrgn2: Hrgn): Bool =
@@ -752,10 +749,10 @@ public actual fun excludeClipRect(hdc: Hdc, left: Int, top: Int, right: Int, bot
 public actual fun excludeUpdateRgn(hdc: Hdc, hwnd: Hwnd): Int =
     windowssysWindowsWin32GraphicsGdiExcludeUpdateRgn(hdc.rawAddress.toCPointer<ByteVar>(), hwnd.rawAddress.toCPointer<ByteVar>())
 
-public actual fun extCreatePen(ipenstyle: UInt, cwidth: UInt, plbrush: ConstPtr<Logbrush>, cstyle: UInt, pstyle: ConstPtr<UInt>): Hpen =
+public actual fun extCreatePen(ipenstyle: UInt, cwidth: UInt, plbrush: ConstPtr, cstyle: UInt, pstyle: ConstPtr): Hpen =
     MutPtr(windowssysWindowsWin32GraphicsGdiExtCreatePen(ipenstyle, cwidth, plbrush.rawAddress.toCPointer<ByteVar>(), cstyle, pstyle.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun extCreateRegion(lpx: ConstPtr<Xform>, ncount: UInt, lpdata: ConstPtr<Rgndata>): Hrgn =
+public actual fun extCreateRegion(lpx: ConstPtr, ncount: UInt, lpdata: ConstPtr): Hrgn =
     MutPtr(windowssysWindowsWin32GraphicsGdiExtCreateRegion(lpx.rawAddress.toCPointer<ByteVar>(), ncount, lpdata.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
 public actual fun extFloodFill(hdc: Hdc, x: Int, y: Int, color: Colorref, type: ExtFloodFillType): Bool =
@@ -764,22 +761,22 @@ public actual fun extFloodFill(hdc: Hdc, x: Int, y: Int, color: Colorref, type: 
 public actual fun extSelectClipRgn(hdc: Hdc, hrgn: Hrgn, mode: RgnCombineMode): GdiRegionType =
     windowssysWindowsWin32GraphicsGdiExtSelectClipRgn(hdc.rawAddress.toCPointer<ByteVar>(), hrgn.rawAddress.toCPointer<ByteVar>(), mode)
 
-public actual fun extTextOutA(hdc: Hdc, x: Int, y: Int, options: EtoOptions, lprect: ConstPtr<Rect>, lpstring: Pcstr, c: UInt, lpdx: ConstPtr<Int>): Bool =
+public actual fun extTextOutA(hdc: Hdc, x: Int, y: Int, options: EtoOptions, lprect: ConstPtr, lpstring: Pcstr, c: UInt, lpdx: ConstPtr): Bool =
     windowssysWindowsWin32GraphicsGdiExtTextOutA(hdc.rawAddress.toCPointer<ByteVar>(), x, y, options, lprect.rawAddress.toCPointer<ByteVar>(), lpstring.rawAddress.toCPointer<ByteVar>(), c, lpdx.rawAddress.toCPointer<ByteVar>())
 
-public actual fun extTextOutW(hdc: Hdc, x: Int, y: Int, options: EtoOptions, lprect: ConstPtr<Rect>, lpstring: Pcwstr, c: UInt, lpdx: ConstPtr<Int>): Bool =
+public actual fun extTextOutW(hdc: Hdc, x: Int, y: Int, options: EtoOptions, lprect: ConstPtr, lpstring: Pcwstr, c: UInt, lpdx: ConstPtr): Bool =
     windowssysWindowsWin32GraphicsGdiExtTextOutW(hdc.rawAddress.toCPointer<ByteVar>(), x, y, options, lprect.rawAddress.toCPointer<ByteVar>(), lpstring.rawAddress.toCPointer<ByteVar>(), c, lpdx.rawAddress.toCPointer<ByteVar>())
 
 public actual fun fillPath(hdc: Hdc): Bool =
     windowssysWindowsWin32GraphicsGdiFillPath(hdc.rawAddress.toCPointer<ByteVar>())
 
-public actual fun fillRect(hdc: Hdc, lprc: ConstPtr<Rect>, hbr: Hbrush): Int =
+public actual fun fillRect(hdc: Hdc, lprc: ConstPtr, hbr: Hbrush): Int =
     windowssysWindowsWin32GraphicsGdiFillRect(hdc.rawAddress.toCPointer<ByteVar>(), lprc.rawAddress.toCPointer<ByteVar>(), hbr.rawAddress.toCPointer<ByteVar>())
 
 public actual fun fillRgn(hdc: Hdc, hrgn: Hrgn, hbr: Hbrush): Bool =
     windowssysWindowsWin32GraphicsGdiFillRgn(hdc.rawAddress.toCPointer<ByteVar>(), hrgn.rawAddress.toCPointer<ByteVar>(), hbr.rawAddress.toCPointer<ByteVar>())
 
-public actual fun fixBrushOrgEx(hdc: Hdc, x: Int, y: Int, ptl: ConstPtr<Point>): Bool =
+public actual fun fixBrushOrgEx(hdc: Hdc, x: Int, y: Int, ptl: ConstPtr): Bool =
     windowssysWindowsWin32GraphicsGdiFixBrushOrgEx(hdc.rawAddress.toCPointer<ByteVar>(), x, y, ptl.rawAddress.toCPointer<ByteVar>())
 
 public actual fun flattenPath(hdc: Hdc): Bool =
@@ -788,7 +785,7 @@ public actual fun flattenPath(hdc: Hdc): Bool =
 public actual fun floodFill(hdc: Hdc, x: Int, y: Int, color: Colorref): Bool =
     windowssysWindowsWin32GraphicsGdiFloodFill(hdc.rawAddress.toCPointer<ByteVar>(), x, y, color)
 
-public actual fun frameRect(hdc: Hdc, lprc: ConstPtr<Rect>, hbr: Hbrush): Int =
+public actual fun frameRect(hdc: Hdc, lprc: ConstPtr, hbr: Hbrush): Int =
     windowssysWindowsWin32GraphicsGdiFrameRect(hdc.rawAddress.toCPointer<ByteVar>(), lprc.rawAddress.toCPointer<ByteVar>(), hbr.rawAddress.toCPointer<ByteVar>())
 
 public actual fun frameRgn(hdc: Hdc, hrgn: Hrgn, hbr: Hbrush, w: Int, h: Int): Bool =
@@ -797,7 +794,7 @@ public actual fun frameRgn(hdc: Hdc, hrgn: Hrgn, hbr: Hbrush, w: Int, h: Int): B
 public actual fun gdiAlphaBlend(hdcdest: Hdc, xorigindest: Int, yorigindest: Int, wdest: Int, hdest: Int, hdcsrc: Hdc, xoriginsrc: Int, yoriginsrc: Int, wsrc: Int, hsrc: Int, ftn: Blendfunction): Bool =
     0
 
-public actual fun gdiComment(hdc: Hdc, nsize: UInt, lpdata: ConstPtr<UByte>): Bool =
+public actual fun gdiComment(hdc: Hdc, nsize: UInt, lpdata: ConstPtr): Bool =
     windowssysWindowsWin32GraphicsGdiGdiComment(hdc.rawAddress.toCPointer<ByteVar>(), nsize, lpdata.rawAddress.toCPointer<ByteVar>())
 
 public actual fun gdiFlush(): Bool =
@@ -806,7 +803,7 @@ public actual fun gdiFlush(): Bool =
 public actual fun gdiGetBatchLimit(): UInt =
     windowssysWindowsWin32GraphicsGdiGdiGetBatchLimit()
 
-public actual fun gdiGradientFill(hdc: Hdc, pvertex: ConstPtr<Trivertex>, nvertex: UInt, pmesh: ConstPtr<CVoid>, ncount: UInt, ulmode: GradientFill): Bool =
+public actual fun gdiGradientFill(hdc: Hdc, pvertex: ConstPtr, nvertex: UInt, pmesh: ConstPtr, ncount: UInt, ulmode: GradientFill): Bool =
     windowssysWindowsWin32GraphicsGdiGdiGradientFill(hdc.rawAddress.toCPointer<ByteVar>(), pvertex.rawAddress.toCPointer<ByteVar>(), nvertex, pmesh.rawAddress.toCPointer<ByteVar>(), ncount, ulmode)
 
 public actual fun gdiSetBatchLimit(dw: UInt): UInt =
@@ -818,13 +815,13 @@ public actual fun gdiTransparentBlt(hdcdest: Hdc, xorigindest: Int, yorigindest:
 public actual fun getArcDirection(hdc: Hdc): Int =
     windowssysWindowsWin32GraphicsGdiGetArcDirection(hdc.rawAddress.toCPointer<ByteVar>())
 
-public actual fun getAspectRatioFilterEx(hdc: Hdc, lpsize: MutPtr<Size>): Bool =
+public actual fun getAspectRatioFilterEx(hdc: Hdc, lpsize: MutPtr): Bool =
     windowssysWindowsWin32GraphicsGdiGetAspectRatioFilterEx(hdc.rawAddress.toCPointer<ByteVar>(), lpsize.rawAddress.toCPointer<ByteVar>())
 
-public actual fun getBitmapBits(hbit: Hbitmap, cb: Int, lpvbits: MutPtr<CVoid>): Int =
+public actual fun getBitmapBits(hbit: Hbitmap, cb: Int, lpvbits: MutPtr): Int =
     windowssysWindowsWin32GraphicsGdiGetBitmapBits(hbit.rawAddress.toCPointer<ByteVar>(), cb, lpvbits.rawAddress.toCPointer<ByteVar>())
 
-public actual fun getBitmapDimensionEx(hbit: Hbitmap, lpsize: MutPtr<Size>): Bool =
+public actual fun getBitmapDimensionEx(hbit: Hbitmap, lpsize: MutPtr): Bool =
     windowssysWindowsWin32GraphicsGdiGetBitmapDimensionEx(hbit.rawAddress.toCPointer<ByteVar>(), lpsize.rawAddress.toCPointer<ByteVar>())
 
 public actual fun getBkColor(hdc: Hdc): Colorref =
@@ -833,67 +830,67 @@ public actual fun getBkColor(hdc: Hdc): Colorref =
 public actual fun getBkMode(hdc: Hdc): Int =
     windowssysWindowsWin32GraphicsGdiGetBkMode(hdc.rawAddress.toCPointer<ByteVar>())
 
-public actual fun getBoundsRect(hdc: Hdc, lprect: MutPtr<Rect>, flags: UInt): UInt =
+public actual fun getBoundsRect(hdc: Hdc, lprect: MutPtr, flags: UInt): UInt =
     windowssysWindowsWin32GraphicsGdiGetBoundsRect(hdc.rawAddress.toCPointer<ByteVar>(), lprect.rawAddress.toCPointer<ByteVar>(), flags)
 
-public actual fun getBrushOrgEx(hdc: Hdc, lppt: MutPtr<Point>): Bool =
+public actual fun getBrushOrgEx(hdc: Hdc, lppt: MutPtr): Bool =
     windowssysWindowsWin32GraphicsGdiGetBrushOrgEx(hdc.rawAddress.toCPointer<ByteVar>(), lppt.rawAddress.toCPointer<ByteVar>())
 
-public actual fun getCharABCWidthsA(hdc: Hdc, wfirst: UInt, wlast: UInt, lpabc: MutPtr<Abc>): Bool =
+public actual fun getCharABCWidthsA(hdc: Hdc, wfirst: UInt, wlast: UInt, lpabc: MutPtr): Bool =
     windowssysWindowsWin32GraphicsGdiGetCharABCWidthsA(hdc.rawAddress.toCPointer<ByteVar>(), wfirst, wlast, lpabc.rawAddress.toCPointer<ByteVar>())
 
-public actual fun getCharABCWidthsFloatA(hdc: Hdc, ifirst: UInt, ilast: UInt, lpabc: MutPtr<Abcfloat>): Bool =
+public actual fun getCharABCWidthsFloatA(hdc: Hdc, ifirst: UInt, ilast: UInt, lpabc: MutPtr): Bool =
     windowssysWindowsWin32GraphicsGdiGetCharABCWidthsFloatA(hdc.rawAddress.toCPointer<ByteVar>(), ifirst, ilast, lpabc.rawAddress.toCPointer<ByteVar>())
 
-public actual fun getCharABCWidthsFloatW(hdc: Hdc, ifirst: UInt, ilast: UInt, lpabc: MutPtr<Abcfloat>): Bool =
+public actual fun getCharABCWidthsFloatW(hdc: Hdc, ifirst: UInt, ilast: UInt, lpabc: MutPtr): Bool =
     windowssysWindowsWin32GraphicsGdiGetCharABCWidthsFloatW(hdc.rawAddress.toCPointer<ByteVar>(), ifirst, ilast, lpabc.rawAddress.toCPointer<ByteVar>())
 
-public actual fun getCharABCWidthsI(hdc: Hdc, gifirst: UInt, cgi: UInt, pgi: ConstPtr<UShort>, pabc: MutPtr<Abc>): Bool =
+public actual fun getCharABCWidthsI(hdc: Hdc, gifirst: UInt, cgi: UInt, pgi: ConstPtr, pabc: MutPtr): Bool =
     windowssysWindowsWin32GraphicsGdiGetCharABCWidthsI(hdc.rawAddress.toCPointer<ByteVar>(), gifirst, cgi, pgi.rawAddress.toCPointer<ByteVar>(), pabc.rawAddress.toCPointer<ByteVar>())
 
-public actual fun getCharABCWidthsW(hdc: Hdc, wfirst: UInt, wlast: UInt, lpabc: MutPtr<Abc>): Bool =
+public actual fun getCharABCWidthsW(hdc: Hdc, wfirst: UInt, wlast: UInt, lpabc: MutPtr): Bool =
     windowssysWindowsWin32GraphicsGdiGetCharABCWidthsW(hdc.rawAddress.toCPointer<ByteVar>(), wfirst, wlast, lpabc.rawAddress.toCPointer<ByteVar>())
 
-public actual fun getCharWidth32A(hdc: Hdc, ifirst: UInt, ilast: UInt, lpbuffer: MutPtr<Int>): Bool =
+public actual fun getCharWidth32A(hdc: Hdc, ifirst: UInt, ilast: UInt, lpbuffer: MutPtr): Bool =
     windowssysWindowsWin32GraphicsGdiGetCharWidth32A(hdc.rawAddress.toCPointer<ByteVar>(), ifirst, ilast, lpbuffer.rawAddress.toCPointer<ByteVar>())
 
-public actual fun getCharWidth32W(hdc: Hdc, ifirst: UInt, ilast: UInt, lpbuffer: MutPtr<Int>): Bool =
+public actual fun getCharWidth32W(hdc: Hdc, ifirst: UInt, ilast: UInt, lpbuffer: MutPtr): Bool =
     windowssysWindowsWin32GraphicsGdiGetCharWidth32W(hdc.rawAddress.toCPointer<ByteVar>(), ifirst, ilast, lpbuffer.rawAddress.toCPointer<ByteVar>())
 
-public actual fun getCharWidthA(hdc: Hdc, ifirst: UInt, ilast: UInt, lpbuffer: MutPtr<Int>): Bool =
+public actual fun getCharWidthA(hdc: Hdc, ifirst: UInt, ilast: UInt, lpbuffer: MutPtr): Bool =
     windowssysWindowsWin32GraphicsGdiGetCharWidthA(hdc.rawAddress.toCPointer<ByteVar>(), ifirst, ilast, lpbuffer.rawAddress.toCPointer<ByteVar>())
 
-public actual fun getCharWidthFloatA(hdc: Hdc, ifirst: UInt, ilast: UInt, lpbuffer: MutPtr<Float>): Bool =
+public actual fun getCharWidthFloatA(hdc: Hdc, ifirst: UInt, ilast: UInt, lpbuffer: MutPtr): Bool =
     windowssysWindowsWin32GraphicsGdiGetCharWidthFloatA(hdc.rawAddress.toCPointer<ByteVar>(), ifirst, ilast, lpbuffer.rawAddress.toCPointer<ByteVar>())
 
-public actual fun getCharWidthFloatW(hdc: Hdc, ifirst: UInt, ilast: UInt, lpbuffer: MutPtr<Float>): Bool =
+public actual fun getCharWidthFloatW(hdc: Hdc, ifirst: UInt, ilast: UInt, lpbuffer: MutPtr): Bool =
     windowssysWindowsWin32GraphicsGdiGetCharWidthFloatW(hdc.rawAddress.toCPointer<ByteVar>(), ifirst, ilast, lpbuffer.rawAddress.toCPointer<ByteVar>())
 
-public actual fun getCharWidthI(hdc: Hdc, gifirst: UInt, cgi: UInt, pgi: ConstPtr<UShort>, piwidths: MutPtr<Int>): Bool =
+public actual fun getCharWidthI(hdc: Hdc, gifirst: UInt, cgi: UInt, pgi: ConstPtr, piwidths: MutPtr): Bool =
     windowssysWindowsWin32GraphicsGdiGetCharWidthI(hdc.rawAddress.toCPointer<ByteVar>(), gifirst, cgi, pgi.rawAddress.toCPointer<ByteVar>(), piwidths.rawAddress.toCPointer<ByteVar>())
 
-public actual fun getCharWidthW(hdc: Hdc, ifirst: UInt, ilast: UInt, lpbuffer: MutPtr<Int>): Bool =
+public actual fun getCharWidthW(hdc: Hdc, ifirst: UInt, ilast: UInt, lpbuffer: MutPtr): Bool =
     windowssysWindowsWin32GraphicsGdiGetCharWidthW(hdc.rawAddress.toCPointer<ByteVar>(), ifirst, ilast, lpbuffer.rawAddress.toCPointer<ByteVar>())
 
-public actual fun getCharacterPlacementA(hdc: Hdc, lpstring: Pcstr, ncount: Int, nmexextent: Int, lpresults: MutPtr<GcpResultsa>, dwflags: GetCharacterPlacementFlags): UInt =
+public actual fun getCharacterPlacementA(hdc: Hdc, lpstring: Pcstr, ncount: Int, nmexextent: Int, lpresults: MutPtr, dwflags: GetCharacterPlacementFlags): UInt =
     windowssysWindowsWin32GraphicsGdiGetCharacterPlacementA(hdc.rawAddress.toCPointer<ByteVar>(), lpstring.rawAddress.toCPointer<ByteVar>(), ncount, nmexextent, lpresults.rawAddress.toCPointer<ByteVar>(), dwflags)
 
-public actual fun getCharacterPlacementW(hdc: Hdc, lpstring: Pcwstr, ncount: Int, nmexextent: Int, lpresults: MutPtr<GcpResultsw>, dwflags: GetCharacterPlacementFlags): UInt =
+public actual fun getCharacterPlacementW(hdc: Hdc, lpstring: Pcwstr, ncount: Int, nmexextent: Int, lpresults: MutPtr, dwflags: GetCharacterPlacementFlags): UInt =
     windowssysWindowsWin32GraphicsGdiGetCharacterPlacementW(hdc.rawAddress.toCPointer<ByteVar>(), lpstring.rawAddress.toCPointer<ByteVar>(), ncount, nmexextent, lpresults.rawAddress.toCPointer<ByteVar>(), dwflags)
 
-public actual fun getClipBox(hdc: Hdc, lprect: MutPtr<Rect>): GdiRegionType =
+public actual fun getClipBox(hdc: Hdc, lprect: MutPtr): GdiRegionType =
     windowssysWindowsWin32GraphicsGdiGetClipBox(hdc.rawAddress.toCPointer<ByteVar>(), lprect.rawAddress.toCPointer<ByteVar>())
 
 public actual fun getClipRgn(hdc: Hdc, hrgn: Hrgn): Int =
     windowssysWindowsWin32GraphicsGdiGetClipRgn(hdc.rawAddress.toCPointer<ByteVar>(), hrgn.rawAddress.toCPointer<ByteVar>())
 
-public actual fun getColorAdjustment(hdc: Hdc, lpca: MutPtr<Coloradjustment>): Bool =
+public actual fun getColorAdjustment(hdc: Hdc, lpca: MutPtr): Bool =
     windowssysWindowsWin32GraphicsGdiGetColorAdjustment(hdc.rawAddress.toCPointer<ByteVar>(), lpca.rawAddress.toCPointer<ByteVar>())
 
 public actual fun getCurrentObject(hdc: Hdc, type: UInt): Hgdiobj =
     MutPtr(windowssysWindowsWin32GraphicsGdiGetCurrentObject(hdc.rawAddress.toCPointer<ByteVar>(), type)?.toLong() ?: 0L)
 
-public actual fun getCurrentPositionEx(hdc: Hdc, lppt: MutPtr<Point>): Bool =
+public actual fun getCurrentPositionEx(hdc: Hdc, lppt: MutPtr): Bool =
     windowssysWindowsWin32GraphicsGdiGetCurrentPositionEx(hdc.rawAddress.toCPointer<ByteVar>(), lppt.rawAddress.toCPointer<ByteVar>())
 
 public actual fun getDC(hwnd: Hwnd): Hdc =
@@ -905,16 +902,16 @@ public actual fun getDCBrushColor(hdc: Hdc): Colorref =
 public actual fun getDCEx(hwnd: Hwnd, hrgnclip: Hrgn, flags: GetDcxFlags): Hdc =
     MutPtr(windowssysWindowsWin32GraphicsGdiGetDCEx(hwnd.rawAddress.toCPointer<ByteVar>(), hrgnclip.rawAddress.toCPointer<ByteVar>(), flags)?.toLong() ?: 0L)
 
-public actual fun getDCOrgEx(hdc: Hdc, lppt: MutPtr<Point>): Bool =
+public actual fun getDCOrgEx(hdc: Hdc, lppt: MutPtr): Bool =
     windowssysWindowsWin32GraphicsGdiGetDCOrgEx(hdc.rawAddress.toCPointer<ByteVar>(), lppt.rawAddress.toCPointer<ByteVar>())
 
 public actual fun getDCPenColor(hdc: Hdc): Colorref =
     windowssysWindowsWin32GraphicsGdiGetDCPenColor(hdc.rawAddress.toCPointer<ByteVar>())
 
-public actual fun getDIBColorTable(hdc: Hdc, istart: UInt, centries: UInt, prgbq: MutPtr<Rgbquad>): UInt =
+public actual fun getDIBColorTable(hdc: Hdc, istart: UInt, centries: UInt, prgbq: MutPtr): UInt =
     windowssysWindowsWin32GraphicsGdiGetDIBColorTable(hdc.rawAddress.toCPointer<ByteVar>(), istart, centries, prgbq.rawAddress.toCPointer<ByteVar>())
 
-public actual fun getDIBits(hdc: Hdc, hbm: Hbitmap, start: UInt, clines: UInt, lpvbits: MutPtr<CVoid>, lpbmi: MutPtr<Bitmapinfo>, usage: DibUsage): Int =
+public actual fun getDIBits(hdc: Hdc, hbm: Hbitmap, start: UInt, clines: UInt, lpvbits: MutPtr, lpbmi: MutPtr, usage: DibUsage): Int =
     windowssysWindowsWin32GraphicsGdiGetDIBits(hdc.rawAddress.toCPointer<ByteVar>(), hbm.rawAddress.toCPointer<ByteVar>(), start, clines, lpvbits.rawAddress.toCPointer<ByteVar>(), lpbmi.rawAddress.toCPointer<ByteVar>(), usage)
 
 public actual fun getDeviceCaps(hdc: Hdc, index: Int): Int =
@@ -923,7 +920,7 @@ public actual fun getDeviceCaps(hdc: Hdc, index: Int): Int =
 public actual fun getEnhMetaFileA(lpname: Pcstr): Henhmetafile =
     MutPtr(windowssysWindowsWin32GraphicsGdiGetEnhMetaFileA(lpname.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun getEnhMetaFileBits(hemf: Henhmetafile, nsize: UInt, lpdata: MutPtr<UByte>): UInt =
+public actual fun getEnhMetaFileBits(hemf: Henhmetafile, nsize: UInt, lpdata: MutPtr): UInt =
     windowssysWindowsWin32GraphicsGdiGetEnhMetaFileBits(hemf.rawAddress.toCPointer<ByteVar>(), nsize, lpdata.rawAddress.toCPointer<ByteVar>())
 
 public actual fun getEnhMetaFileDescriptionA(hemf: Henhmetafile, cchbuffer: UInt, lpdescription: Pstr): UInt =
@@ -932,43 +929,43 @@ public actual fun getEnhMetaFileDescriptionA(hemf: Henhmetafile, cchbuffer: UInt
 public actual fun getEnhMetaFileDescriptionW(hemf: Henhmetafile, cchbuffer: UInt, lpdescription: Pwstr): UInt =
     windowssysWindowsWin32GraphicsGdiGetEnhMetaFileDescriptionW(hemf.rawAddress.toCPointer<ByteVar>(), cchbuffer, lpdescription.rawAddress.toCPointer<ByteVar>())
 
-public actual fun getEnhMetaFileHeader(hemf: Henhmetafile, nsize: UInt, lpenhmetaheader: MutPtr<Enhmetaheader>): UInt =
+public actual fun getEnhMetaFileHeader(hemf: Henhmetafile, nsize: UInt, lpenhmetaheader: MutPtr): UInt =
     windowssysWindowsWin32GraphicsGdiGetEnhMetaFileHeader(hemf.rawAddress.toCPointer<ByteVar>(), nsize, lpenhmetaheader.rawAddress.toCPointer<ByteVar>())
 
-public actual fun getEnhMetaFilePaletteEntries(hemf: Henhmetafile, nnumentries: UInt, lppaletteentries: MutPtr<Paletteentry>): UInt =
+public actual fun getEnhMetaFilePaletteEntries(hemf: Henhmetafile, nnumentries: UInt, lppaletteentries: MutPtr): UInt =
     windowssysWindowsWin32GraphicsGdiGetEnhMetaFilePaletteEntries(hemf.rawAddress.toCPointer<ByteVar>(), nnumentries, lppaletteentries.rawAddress.toCPointer<ByteVar>())
 
 public actual fun getEnhMetaFileW(lpname: Pcwstr): Henhmetafile =
     MutPtr(windowssysWindowsWin32GraphicsGdiGetEnhMetaFileW(lpname.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun getFontData(hdc: Hdc, dwtable: UInt, dwoffset: UInt, pvbuffer: MutPtr<CVoid>, cjbuffer: UInt): UInt =
+public actual fun getFontData(hdc: Hdc, dwtable: UInt, dwoffset: UInt, pvbuffer: MutPtr, cjbuffer: UInt): UInt =
     windowssysWindowsWin32GraphicsGdiGetFontData(hdc.rawAddress.toCPointer<ByteVar>(), dwtable, dwoffset, pvbuffer.rawAddress.toCPointer<ByteVar>(), cjbuffer)
 
 public actual fun getFontLanguageInfo(hdc: Hdc): UInt =
     windowssysWindowsWin32GraphicsGdiGetFontLanguageInfo(hdc.rawAddress.toCPointer<ByteVar>())
 
-public actual fun getFontUnicodeRanges(hdc: Hdc, lpgs: MutPtr<Glyphset>): UInt =
+public actual fun getFontUnicodeRanges(hdc: Hdc, lpgs: MutPtr): UInt =
     windowssysWindowsWin32GraphicsGdiGetFontUnicodeRanges(hdc.rawAddress.toCPointer<ByteVar>(), lpgs.rawAddress.toCPointer<ByteVar>())
 
-public actual fun getGlyphIndicesA(hdc: Hdc, lpstr: Pcstr, c: Int, pgi: MutPtr<UShort>, fl: UInt): UInt =
+public actual fun getGlyphIndicesA(hdc: Hdc, lpstr: Pcstr, c: Int, pgi: MutPtr, fl: UInt): UInt =
     windowssysWindowsWin32GraphicsGdiGetGlyphIndicesA(hdc.rawAddress.toCPointer<ByteVar>(), lpstr.rawAddress.toCPointer<ByteVar>(), c, pgi.rawAddress.toCPointer<ByteVar>(), fl)
 
-public actual fun getGlyphIndicesW(hdc: Hdc, lpstr: Pcwstr, c: Int, pgi: MutPtr<UShort>, fl: UInt): UInt =
+public actual fun getGlyphIndicesW(hdc: Hdc, lpstr: Pcwstr, c: Int, pgi: MutPtr, fl: UInt): UInt =
     windowssysWindowsWin32GraphicsGdiGetGlyphIndicesW(hdc.rawAddress.toCPointer<ByteVar>(), lpstr.rawAddress.toCPointer<ByteVar>(), c, pgi.rawAddress.toCPointer<ByteVar>(), fl)
 
-public actual fun getGlyphOutlineA(hdc: Hdc, uchar: UInt, fuformat: GetGlyphOutlineFormat, lpgm: MutPtr<Glyphmetrics>, cjbuffer: UInt, pvbuffer: MutPtr<CVoid>, lpmat2: ConstPtr<Mat2>): UInt =
+public actual fun getGlyphOutlineA(hdc: Hdc, uchar: UInt, fuformat: GetGlyphOutlineFormat, lpgm: MutPtr, cjbuffer: UInt, pvbuffer: MutPtr, lpmat2: ConstPtr): UInt =
     windowssysWindowsWin32GraphicsGdiGetGlyphOutlineA(hdc.rawAddress.toCPointer<ByteVar>(), uchar, fuformat, lpgm.rawAddress.toCPointer<ByteVar>(), cjbuffer, pvbuffer.rawAddress.toCPointer<ByteVar>(), lpmat2.rawAddress.toCPointer<ByteVar>())
 
-public actual fun getGlyphOutlineW(hdc: Hdc, uchar: UInt, fuformat: GetGlyphOutlineFormat, lpgm: MutPtr<Glyphmetrics>, cjbuffer: UInt, pvbuffer: MutPtr<CVoid>, lpmat2: ConstPtr<Mat2>): UInt =
+public actual fun getGlyphOutlineW(hdc: Hdc, uchar: UInt, fuformat: GetGlyphOutlineFormat, lpgm: MutPtr, cjbuffer: UInt, pvbuffer: MutPtr, lpmat2: ConstPtr): UInt =
     windowssysWindowsWin32GraphicsGdiGetGlyphOutlineW(hdc.rawAddress.toCPointer<ByteVar>(), uchar, fuformat, lpgm.rawAddress.toCPointer<ByteVar>(), cjbuffer, pvbuffer.rawAddress.toCPointer<ByteVar>(), lpmat2.rawAddress.toCPointer<ByteVar>())
 
 public actual fun getGraphicsMode(hdc: Hdc): Int =
     windowssysWindowsWin32GraphicsGdiGetGraphicsMode(hdc.rawAddress.toCPointer<ByteVar>())
 
-public actual fun getKerningPairsA(hdc: Hdc, npairs: UInt, lpkernpair: MutPtr<Kerningpair>): UInt =
+public actual fun getKerningPairsA(hdc: Hdc, npairs: UInt, lpkernpair: MutPtr): UInt =
     windowssysWindowsWin32GraphicsGdiGetKerningPairsA(hdc.rawAddress.toCPointer<ByteVar>(), npairs, lpkernpair.rawAddress.toCPointer<ByteVar>())
 
-public actual fun getKerningPairsW(hdc: Hdc, npairs: UInt, lpkernpair: MutPtr<Kerningpair>): UInt =
+public actual fun getKerningPairsW(hdc: Hdc, npairs: UInt, lpkernpair: MutPtr): UInt =
     windowssysWindowsWin32GraphicsGdiGetKerningPairsW(hdc.rawAddress.toCPointer<ByteVar>(), npairs, lpkernpair.rawAddress.toCPointer<ByteVar>())
 
 public actual fun getLayout(hdc: Hdc): UInt =
@@ -980,7 +977,7 @@ public actual fun getMapMode(hdc: Hdc): HdcMapMode =
 public actual fun getMetaFileA(lpname: Pcstr): Hmetafile =
     MutPtr(windowssysWindowsWin32GraphicsGdiGetMetaFileA(lpname.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun getMetaFileBitsEx(hmf: Hmetafile, cbbuffer: UInt, lpdata: MutPtr<CVoid>): UInt =
+public actual fun getMetaFileBitsEx(hmf: Hmetafile, cbbuffer: UInt, lpdata: MutPtr): UInt =
     windowssysWindowsWin32GraphicsGdiGetMetaFileBitsEx(hmf.rawAddress.toCPointer<ByteVar>(), cbbuffer, lpdata.rawAddress.toCPointer<ByteVar>())
 
 public actual fun getMetaFileW(lpname: Pcwstr): Hmetafile =
@@ -989,13 +986,13 @@ public actual fun getMetaFileW(lpname: Pcwstr): Hmetafile =
 public actual fun getMetaRgn(hdc: Hdc, hrgn: Hrgn): Int =
     windowssysWindowsWin32GraphicsGdiGetMetaRgn(hdc.rawAddress.toCPointer<ByteVar>(), hrgn.rawAddress.toCPointer<ByteVar>())
 
-public actual fun getMiterLimit(hdc: Hdc, plimit: MutPtr<Float>): Bool =
+public actual fun getMiterLimit(hdc: Hdc, plimit: MutPtr): Bool =
     windowssysWindowsWin32GraphicsGdiGetMiterLimit(hdc.rawAddress.toCPointer<ByteVar>(), plimit.rawAddress.toCPointer<ByteVar>())
 
-public actual fun getMonitorInfoA(hmonitor: Hmonitor, lpmi: MutPtr<Monitorinfo>): Bool =
+public actual fun getMonitorInfoA(hmonitor: Hmonitor, lpmi: MutPtr): Bool =
     windowssysWindowsWin32GraphicsGdiGetMonitorInfoA(hmonitor.rawAddress.toCPointer<ByteVar>(), lpmi.rawAddress.toCPointer<ByteVar>())
 
-public actual fun getMonitorInfoW(hmonitor: Hmonitor, lpmi: MutPtr<Monitorinfo>): Bool =
+public actual fun getMonitorInfoW(hmonitor: Hmonitor, lpmi: MutPtr): Bool =
     windowssysWindowsWin32GraphicsGdiGetMonitorInfoW(hmonitor.rawAddress.toCPointer<ByteVar>(), lpmi.rawAddress.toCPointer<ByteVar>())
 
 public actual fun getNearestColor(hdc: Hdc, color: Colorref): Colorref =
@@ -1004,25 +1001,25 @@ public actual fun getNearestColor(hdc: Hdc, color: Colorref): Colorref =
 public actual fun getNearestPaletteIndex(h: Hpalette, color: Colorref): UInt =
     windowssysWindowsWin32GraphicsGdiGetNearestPaletteIndex(h.rawAddress.toCPointer<ByteVar>(), color)
 
-public actual fun getObjectA(h: Hgdiobj, c: Int, pv: MutPtr<CVoid>): Int =
+public actual fun getObjectA(h: Hgdiobj, c: Int, pv: MutPtr): Int =
     windowssysWindowsWin32GraphicsGdiGetObjectA(h.rawAddress.toCPointer<ByteVar>(), c, pv.rawAddress.toCPointer<ByteVar>())
 
 public actual fun getObjectType(h: Hgdiobj): UInt =
     windowssysWindowsWin32GraphicsGdiGetObjectType(h.rawAddress.toCPointer<ByteVar>())
 
-public actual fun getObjectW(h: Hgdiobj, c: Int, pv: MutPtr<CVoid>): Int =
+public actual fun getObjectW(h: Hgdiobj, c: Int, pv: MutPtr): Int =
     windowssysWindowsWin32GraphicsGdiGetObjectW(h.rawAddress.toCPointer<ByteVar>(), c, pv.rawAddress.toCPointer<ByteVar>())
 
-public actual fun getOutlineTextMetricsA(hdc: Hdc, cjcopy: UInt, potm: MutPtr<Outlinetextmetrica>): UInt =
+public actual fun getOutlineTextMetricsA(hdc: Hdc, cjcopy: UInt, potm: MutPtr): UInt =
     windowssysWindowsWin32GraphicsGdiGetOutlineTextMetricsA(hdc.rawAddress.toCPointer<ByteVar>(), cjcopy, potm.rawAddress.toCPointer<ByteVar>())
 
-public actual fun getOutlineTextMetricsW(hdc: Hdc, cjcopy: UInt, potm: MutPtr<Outlinetextmetricw>): UInt =
+public actual fun getOutlineTextMetricsW(hdc: Hdc, cjcopy: UInt, potm: MutPtr): UInt =
     windowssysWindowsWin32GraphicsGdiGetOutlineTextMetricsW(hdc.rawAddress.toCPointer<ByteVar>(), cjcopy, potm.rawAddress.toCPointer<ByteVar>())
 
-public actual fun getPaletteEntries(hpal: Hpalette, istart: UInt, centries: UInt, ppalentries: MutPtr<Paletteentry>): UInt =
+public actual fun getPaletteEntries(hpal: Hpalette, istart: UInt, centries: UInt, ppalentries: MutPtr): UInt =
     windowssysWindowsWin32GraphicsGdiGetPaletteEntries(hpal.rawAddress.toCPointer<ByteVar>(), istart, centries, ppalentries.rawAddress.toCPointer<ByteVar>())
 
-public actual fun getPath(hdc: Hdc, apt: MutPtr<Point>, aj: MutPtr<UByte>, cpt: Int): Int =
+public actual fun getPath(hdc: Hdc, apt: MutPtr, aj: MutPtr, cpt: Int): Int =
     windowssysWindowsWin32GraphicsGdiGetPath(hdc.rawAddress.toCPointer<ByteVar>(), apt.rawAddress.toCPointer<ByteVar>(), aj.rawAddress.toCPointer<ByteVar>(), cpt)
 
 public actual fun getPixel(hdc: Hdc, x: Int, y: Int): Colorref =
@@ -1037,13 +1034,13 @@ public actual fun getROP2(hdc: Hdc): R2Mode =
 public actual fun getRandomRgn(hdc: Hdc, hrgn: Hrgn, i: Int): Int =
     windowssysWindowsWin32GraphicsGdiGetRandomRgn(hdc.rawAddress.toCPointer<ByteVar>(), hrgn.rawAddress.toCPointer<ByteVar>(), i)
 
-public actual fun getRasterizerCaps(lpraststat: MutPtr<RasterizerStatus>, cjbytes: UInt): Bool =
+public actual fun getRasterizerCaps(lpraststat: MutPtr, cjbytes: UInt): Bool =
     windowssysWindowsWin32GraphicsGdiGetRasterizerCaps(lpraststat.rawAddress.toCPointer<ByteVar>(), cjbytes)
 
-public actual fun getRegionData(hrgn: Hrgn, ncount: UInt, lprgndata: MutPtr<Rgndata>): UInt =
+public actual fun getRegionData(hrgn: Hrgn, ncount: UInt, lprgndata: MutPtr): UInt =
     windowssysWindowsWin32GraphicsGdiGetRegionData(hrgn.rawAddress.toCPointer<ByteVar>(), ncount, lprgndata.rawAddress.toCPointer<ByteVar>())
 
-public actual fun getRgnBox(hrgn: Hrgn, lprc: MutPtr<Rect>): GdiRegionType =
+public actual fun getRgnBox(hrgn: Hrgn, lprc: MutPtr): GdiRegionType =
     windowssysWindowsWin32GraphicsGdiGetRgnBox(hrgn.rawAddress.toCPointer<ByteVar>(), lprc.rawAddress.toCPointer<ByteVar>())
 
 public actual fun getStockObject(i: GetStockObjectFlags): Hgdiobj =
@@ -1058,16 +1055,16 @@ public actual fun getSysColor(nindex: SysColorIndex): UInt =
 public actual fun getSysColorBrush(nindex: SysColorIndex): Hbrush =
     MutPtr(windowssysWindowsWin32GraphicsGdiGetSysColorBrush(nindex)?.toLong() ?: 0L)
 
-public actual fun getSystemPaletteEntries(hdc: Hdc, istart: UInt, centries: UInt, ppalentries: MutPtr<Paletteentry>): UInt =
+public actual fun getSystemPaletteEntries(hdc: Hdc, istart: UInt, centries: UInt, ppalentries: MutPtr): UInt =
     windowssysWindowsWin32GraphicsGdiGetSystemPaletteEntries(hdc.rawAddress.toCPointer<ByteVar>(), istart, centries, ppalentries.rawAddress.toCPointer<ByteVar>())
 
 public actual fun getSystemPaletteUse(hdc: Hdc): UInt =
     windowssysWindowsWin32GraphicsGdiGetSystemPaletteUse(hdc.rawAddress.toCPointer<ByteVar>())
 
-public actual fun getTabbedTextExtentA(hdc: Hdc, lpstring: Pcstr, chcount: Int, ntabpositions: Int, lpntabstoppositions: ConstPtr<Int>): UInt =
+public actual fun getTabbedTextExtentA(hdc: Hdc, lpstring: Pcstr, chcount: Int, ntabpositions: Int, lpntabstoppositions: ConstPtr): UInt =
     windowssysWindowsWin32GraphicsGdiGetTabbedTextExtentA(hdc.rawAddress.toCPointer<ByteVar>(), lpstring.rawAddress.toCPointer<ByteVar>(), chcount, ntabpositions, lpntabstoppositions.rawAddress.toCPointer<ByteVar>())
 
-public actual fun getTabbedTextExtentW(hdc: Hdc, lpstring: Pcwstr, chcount: Int, ntabpositions: Int, lpntabstoppositions: ConstPtr<Int>): UInt =
+public actual fun getTabbedTextExtentW(hdc: Hdc, lpstring: Pcwstr, chcount: Int, ntabpositions: Int, lpntabstoppositions: ConstPtr): UInt =
     windowssysWindowsWin32GraphicsGdiGetTabbedTextExtentW(hdc.rawAddress.toCPointer<ByteVar>(), lpstring.rawAddress.toCPointer<ByteVar>(), chcount, ntabpositions, lpntabstoppositions.rawAddress.toCPointer<ByteVar>())
 
 public actual fun getTextAlign(hdc: Hdc): TextAlignOptions =
@@ -1079,28 +1076,28 @@ public actual fun getTextCharacterExtra(hdc: Hdc): Int =
 public actual fun getTextColor(hdc: Hdc): Colorref =
     windowssysWindowsWin32GraphicsGdiGetTextColor(hdc.rawAddress.toCPointer<ByteVar>())
 
-public actual fun getTextExtentExPointA(hdc: Hdc, lpszstring: Pcstr, cchstring: Int, nmaxextent: Int, lpnfit: MutPtr<Int>, lpndx: MutPtr<Int>, lpsize: MutPtr<Size>): Bool =
+public actual fun getTextExtentExPointA(hdc: Hdc, lpszstring: Pcstr, cchstring: Int, nmaxextent: Int, lpnfit: MutPtr, lpndx: MutPtr, lpsize: MutPtr): Bool =
     windowssysWindowsWin32GraphicsGdiGetTextExtentExPointA(hdc.rawAddress.toCPointer<ByteVar>(), lpszstring.rawAddress.toCPointer<ByteVar>(), cchstring, nmaxextent, lpnfit.rawAddress.toCPointer<ByteVar>(), lpndx.rawAddress.toCPointer<ByteVar>(), lpsize.rawAddress.toCPointer<ByteVar>())
 
-public actual fun getTextExtentExPointI(hdc: Hdc, lpwszstring: ConstPtr<UShort>, cwchstring: Int, nmaxextent: Int, lpnfit: MutPtr<Int>, lpndx: MutPtr<Int>, lpsize: MutPtr<Size>): Bool =
+public actual fun getTextExtentExPointI(hdc: Hdc, lpwszstring: ConstPtr, cwchstring: Int, nmaxextent: Int, lpnfit: MutPtr, lpndx: MutPtr, lpsize: MutPtr): Bool =
     windowssysWindowsWin32GraphicsGdiGetTextExtentExPointI(hdc.rawAddress.toCPointer<ByteVar>(), lpwszstring.rawAddress.toCPointer<ByteVar>(), cwchstring, nmaxextent, lpnfit.rawAddress.toCPointer<ByteVar>(), lpndx.rawAddress.toCPointer<ByteVar>(), lpsize.rawAddress.toCPointer<ByteVar>())
 
-public actual fun getTextExtentExPointW(hdc: Hdc, lpszstring: Pcwstr, cchstring: Int, nmaxextent: Int, lpnfit: MutPtr<Int>, lpndx: MutPtr<Int>, lpsize: MutPtr<Size>): Bool =
+public actual fun getTextExtentExPointW(hdc: Hdc, lpszstring: Pcwstr, cchstring: Int, nmaxextent: Int, lpnfit: MutPtr, lpndx: MutPtr, lpsize: MutPtr): Bool =
     windowssysWindowsWin32GraphicsGdiGetTextExtentExPointW(hdc.rawAddress.toCPointer<ByteVar>(), lpszstring.rawAddress.toCPointer<ByteVar>(), cchstring, nmaxextent, lpnfit.rawAddress.toCPointer<ByteVar>(), lpndx.rawAddress.toCPointer<ByteVar>(), lpsize.rawAddress.toCPointer<ByteVar>())
 
-public actual fun getTextExtentPoint32A(hdc: Hdc, lpstring: Pcstr, c: Int, psizl: MutPtr<Size>): Bool =
+public actual fun getTextExtentPoint32A(hdc: Hdc, lpstring: Pcstr, c: Int, psizl: MutPtr): Bool =
     windowssysWindowsWin32GraphicsGdiGetTextExtentPoint32A(hdc.rawAddress.toCPointer<ByteVar>(), lpstring.rawAddress.toCPointer<ByteVar>(), c, psizl.rawAddress.toCPointer<ByteVar>())
 
-public actual fun getTextExtentPoint32W(hdc: Hdc, lpstring: Pcwstr, c: Int, psizl: MutPtr<Size>): Bool =
+public actual fun getTextExtentPoint32W(hdc: Hdc, lpstring: Pcwstr, c: Int, psizl: MutPtr): Bool =
     windowssysWindowsWin32GraphicsGdiGetTextExtentPoint32W(hdc.rawAddress.toCPointer<ByteVar>(), lpstring.rawAddress.toCPointer<ByteVar>(), c, psizl.rawAddress.toCPointer<ByteVar>())
 
-public actual fun getTextExtentPointA(hdc: Hdc, lpstring: Pcstr, c: Int, lpsz: MutPtr<Size>): Bool =
+public actual fun getTextExtentPointA(hdc: Hdc, lpstring: Pcstr, c: Int, lpsz: MutPtr): Bool =
     windowssysWindowsWin32GraphicsGdiGetTextExtentPointA(hdc.rawAddress.toCPointer<ByteVar>(), lpstring.rawAddress.toCPointer<ByteVar>(), c, lpsz.rawAddress.toCPointer<ByteVar>())
 
-public actual fun getTextExtentPointI(hdc: Hdc, pgiin: ConstPtr<UShort>, cgi: Int, psize: MutPtr<Size>): Bool =
+public actual fun getTextExtentPointI(hdc: Hdc, pgiin: ConstPtr, cgi: Int, psize: MutPtr): Bool =
     windowssysWindowsWin32GraphicsGdiGetTextExtentPointI(hdc.rawAddress.toCPointer<ByteVar>(), pgiin.rawAddress.toCPointer<ByteVar>(), cgi, psize.rawAddress.toCPointer<ByteVar>())
 
-public actual fun getTextExtentPointW(hdc: Hdc, lpstring: Pcwstr, c: Int, lpsz: MutPtr<Size>): Bool =
+public actual fun getTextExtentPointW(hdc: Hdc, lpstring: Pcwstr, c: Int, lpsz: MutPtr): Bool =
     windowssysWindowsWin32GraphicsGdiGetTextExtentPointW(hdc.rawAddress.toCPointer<ByteVar>(), lpstring.rawAddress.toCPointer<ByteVar>(), c, lpsz.rawAddress.toCPointer<ByteVar>())
 
 public actual fun getTextFaceA(hdc: Hdc, c: Int, lpname: Pstr): Int =
@@ -1109,46 +1106,46 @@ public actual fun getTextFaceA(hdc: Hdc, c: Int, lpname: Pstr): Int =
 public actual fun getTextFaceW(hdc: Hdc, c: Int, lpname: Pwstr): Int =
     windowssysWindowsWin32GraphicsGdiGetTextFaceW(hdc.rawAddress.toCPointer<ByteVar>(), c, lpname.rawAddress.toCPointer<ByteVar>())
 
-public actual fun getTextMetricsA(hdc: Hdc, lptm: MutPtr<Textmetrica>): Bool =
+public actual fun getTextMetricsA(hdc: Hdc, lptm: MutPtr): Bool =
     windowssysWindowsWin32GraphicsGdiGetTextMetricsA(hdc.rawAddress.toCPointer<ByteVar>(), lptm.rawAddress.toCPointer<ByteVar>())
 
-public actual fun getTextMetricsW(hdc: Hdc, lptm: MutPtr<Textmetricw>): Bool =
+public actual fun getTextMetricsW(hdc: Hdc, lptm: MutPtr): Bool =
     windowssysWindowsWin32GraphicsGdiGetTextMetricsW(hdc.rawAddress.toCPointer<ByteVar>(), lptm.rawAddress.toCPointer<ByteVar>())
 
-public actual fun getUpdateRect(hwnd: Hwnd, lprect: MutPtr<Rect>, berase: Bool): Bool =
+public actual fun getUpdateRect(hwnd: Hwnd, lprect: MutPtr, berase: Bool): Bool =
     windowssysWindowsWin32GraphicsGdiGetUpdateRect(hwnd.rawAddress.toCPointer<ByteVar>(), lprect.rawAddress.toCPointer<ByteVar>(), berase)
 
 public actual fun getUpdateRgn(hwnd: Hwnd, hrgn: Hrgn, berase: Bool): GdiRegionType =
     windowssysWindowsWin32GraphicsGdiGetUpdateRgn(hwnd.rawAddress.toCPointer<ByteVar>(), hrgn.rawAddress.toCPointer<ByteVar>(), berase)
 
-public actual fun getViewportExtEx(hdc: Hdc, lpsize: MutPtr<Size>): Bool =
+public actual fun getViewportExtEx(hdc: Hdc, lpsize: MutPtr): Bool =
     windowssysWindowsWin32GraphicsGdiGetViewportExtEx(hdc.rawAddress.toCPointer<ByteVar>(), lpsize.rawAddress.toCPointer<ByteVar>())
 
-public actual fun getViewportOrgEx(hdc: Hdc, lppoint: MutPtr<Point>): Bool =
+public actual fun getViewportOrgEx(hdc: Hdc, lppoint: MutPtr): Bool =
     windowssysWindowsWin32GraphicsGdiGetViewportOrgEx(hdc.rawAddress.toCPointer<ByteVar>(), lppoint.rawAddress.toCPointer<ByteVar>())
 
-public actual fun getWinMetaFileBits(hemf: Henhmetafile, cbdata16: UInt, pdata16: MutPtr<UByte>, imapmode: Int, hdcref: Hdc): UInt =
+public actual fun getWinMetaFileBits(hemf: Henhmetafile, cbdata16: UInt, pdata16: MutPtr, imapmode: Int, hdcref: Hdc): UInt =
     windowssysWindowsWin32GraphicsGdiGetWinMetaFileBits(hemf.rawAddress.toCPointer<ByteVar>(), cbdata16, pdata16.rawAddress.toCPointer<ByteVar>(), imapmode, hdcref.rawAddress.toCPointer<ByteVar>())
 
 public actual fun getWindowDC(hwnd: Hwnd): Hdc =
     MutPtr(windowssysWindowsWin32GraphicsGdiGetWindowDC(hwnd.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun getWindowExtEx(hdc: Hdc, lpsize: MutPtr<Size>): Bool =
+public actual fun getWindowExtEx(hdc: Hdc, lpsize: MutPtr): Bool =
     windowssysWindowsWin32GraphicsGdiGetWindowExtEx(hdc.rawAddress.toCPointer<ByteVar>(), lpsize.rawAddress.toCPointer<ByteVar>())
 
-public actual fun getWindowOrgEx(hdc: Hdc, lppoint: MutPtr<Point>): Bool =
+public actual fun getWindowOrgEx(hdc: Hdc, lppoint: MutPtr): Bool =
     windowssysWindowsWin32GraphicsGdiGetWindowOrgEx(hdc.rawAddress.toCPointer<ByteVar>(), lppoint.rawAddress.toCPointer<ByteVar>())
 
 public actual fun getWindowRgn(hwnd: Hwnd, hrgn: Hrgn): GdiRegionType =
     windowssysWindowsWin32GraphicsGdiGetWindowRgn(hwnd.rawAddress.toCPointer<ByteVar>(), hrgn.rawAddress.toCPointer<ByteVar>())
 
-public actual fun getWindowRgnBox(hwnd: Hwnd, lprc: MutPtr<Rect>): GdiRegionType =
+public actual fun getWindowRgnBox(hwnd: Hwnd, lprc: MutPtr): GdiRegionType =
     windowssysWindowsWin32GraphicsGdiGetWindowRgnBox(hwnd.rawAddress.toCPointer<ByteVar>(), lprc.rawAddress.toCPointer<ByteVar>())
 
-public actual fun getWorldTransform(hdc: Hdc, lpxf: MutPtr<Xform>): Bool =
+public actual fun getWorldTransform(hdc: Hdc, lpxf: MutPtr): Bool =
     windowssysWindowsWin32GraphicsGdiGetWorldTransform(hdc.rawAddress.toCPointer<ByteVar>(), lpxf.rawAddress.toCPointer<ByteVar>())
 
-public actual fun gradientFill(hdc: Hdc, pvertex: ConstPtr<Trivertex>, nvertex: UInt, pmesh: ConstPtr<CVoid>, nmesh: UInt, ulmode: GradientFill): Bool =
+public actual fun gradientFill(hdc: Hdc, pvertex: ConstPtr, nvertex: UInt, pmesh: ConstPtr, nmesh: UInt, ulmode: GradientFill): Bool =
     windowssysWindowsWin32GraphicsGdiGradientFill(hdc.rawAddress.toCPointer<ByteVar>(), pvertex.rawAddress.toCPointer<ByteVar>(), nvertex, pmesh.rawAddress.toCPointer<ByteVar>(), nmesh, ulmode)
 
 public actual fun grayStringA(hdc: Hdc, hbrush: Hbrush, lpoutputfunc: Graystringproc, lpdata: Lparam, ncount: Int, x: Int, y: Int, nwidth: Int, nheight: Int): Bool =
@@ -1157,31 +1154,31 @@ public actual fun grayStringA(hdc: Hdc, hbrush: Hbrush, lpoutputfunc: Graystring
 public actual fun grayStringW(hdc: Hdc, hbrush: Hbrush, lpoutputfunc: Graystringproc, lpdata: Lparam, ncount: Int, x: Int, y: Int, nwidth: Int, nheight: Int): Bool =
     windowssysWindowsWin32GraphicsGdiGrayStringW(hdc.rawAddress.toCPointer<ByteVar>(), hbrush.rawAddress.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>(), lpdata, ncount, x, y, nwidth, nheight)
 
-public actual fun inflateRect(lprc: MutPtr<Rect>, dx: Int, dy: Int): Bool =
+public actual fun inflateRect(lprc: MutPtr, dx: Int, dy: Int): Bool =
     windowssysWindowsWin32GraphicsGdiInflateRect(lprc.rawAddress.toCPointer<ByteVar>(), dx, dy)
 
 public actual fun intersectClipRect(hdc: Hdc, left: Int, top: Int, right: Int, bottom: Int): GdiRegionType =
     windowssysWindowsWin32GraphicsGdiIntersectClipRect(hdc.rawAddress.toCPointer<ByteVar>(), left, top, right, bottom)
 
-public actual fun intersectRect(lprcdst: MutPtr<Rect>, lprcsrc1: ConstPtr<Rect>, lprcsrc2: ConstPtr<Rect>): Bool =
+public actual fun intersectRect(lprcdst: MutPtr, lprcsrc1: ConstPtr, lprcsrc2: ConstPtr): Bool =
     windowssysWindowsWin32GraphicsGdiIntersectRect(lprcdst.rawAddress.toCPointer<ByteVar>(), lprcsrc1.rawAddress.toCPointer<ByteVar>(), lprcsrc2.rawAddress.toCPointer<ByteVar>())
 
-public actual fun invalidateRect(hwnd: Hwnd, lprect: ConstPtr<Rect>, berase: Bool): Bool =
+public actual fun invalidateRect(hwnd: Hwnd, lprect: ConstPtr, berase: Bool): Bool =
     windowssysWindowsWin32GraphicsGdiInvalidateRect(hwnd.rawAddress.toCPointer<ByteVar>(), lprect.rawAddress.toCPointer<ByteVar>(), berase)
 
 public actual fun invalidateRgn(hwnd: Hwnd, hrgn: Hrgn, berase: Bool): Bool =
     windowssysWindowsWin32GraphicsGdiInvalidateRgn(hwnd.rawAddress.toCPointer<ByteVar>(), hrgn.rawAddress.toCPointer<ByteVar>(), berase)
 
-public actual fun invertRect(hdc: Hdc, lprc: ConstPtr<Rect>): Bool =
+public actual fun invertRect(hdc: Hdc, lprc: ConstPtr): Bool =
     windowssysWindowsWin32GraphicsGdiInvertRect(hdc.rawAddress.toCPointer<ByteVar>(), lprc.rawAddress.toCPointer<ByteVar>())
 
 public actual fun invertRgn(hdc: Hdc, hrgn: Hrgn): Bool =
     windowssysWindowsWin32GraphicsGdiInvertRgn(hdc.rawAddress.toCPointer<ByteVar>(), hrgn.rawAddress.toCPointer<ByteVar>())
 
-public actual fun isRectEmpty(lprc: ConstPtr<Rect>): Bool =
+public actual fun isRectEmpty(lprc: ConstPtr): Bool =
     windowssysWindowsWin32GraphicsGdiIsRectEmpty(lprc.rawAddress.toCPointer<ByteVar>())
 
-public actual fun lPtoDP(hdc: Hdc, lppt: MutPtr<Point>, c: Int): Bool =
+public actual fun lPtoDP(hdc: Hdc, lppt: MutPtr, c: Int): Bool =
     windowssysWindowsWin32GraphicsGdiLPtoDP(hdc.rawAddress.toCPointer<ByteVar>(), lppt.rawAddress.toCPointer<ByteVar>(), c)
 
 public actual fun lineDDA(xstart: Int, ystart: Int, xend: Int, yend: Int, lpproc: Lineddaproc, data: Lparam): Bool =
@@ -1199,43 +1196,43 @@ public actual fun loadBitmapW(hinstance: Hinstance, lpbitmapname: Pcwstr): Hbitm
 public actual fun lockWindowUpdate(hwndlock: Hwnd): Bool =
     windowssysWindowsWin32GraphicsGdiLockWindowUpdate(hwndlock.rawAddress.toCPointer<ByteVar>())
 
-public actual fun mapWindowPoints(hwndfrom: Hwnd, hwndto: Hwnd, lppoints: MutPtr<Point>, cpoints: UInt): Int =
+public actual fun mapWindowPoints(hwndfrom: Hwnd, hwndto: Hwnd, lppoints: MutPtr, cpoints: UInt): Int =
     windowssysWindowsWin32GraphicsGdiMapWindowPoints(hwndfrom.rawAddress.toCPointer<ByteVar>(), hwndto.rawAddress.toCPointer<ByteVar>(), lppoints.rawAddress.toCPointer<ByteVar>(), cpoints)
 
 public actual fun maskBlt(hdcdest: Hdc, xdest: Int, ydest: Int, width: Int, height: Int, hdcsrc: Hdc, xsrc: Int, ysrc: Int, hbmmask: Hbitmap, xmask: Int, ymask: Int, rop: UInt): Bool =
     windowssysWindowsWin32GraphicsGdiMaskBlt(hdcdest.rawAddress.toCPointer<ByteVar>(), xdest, ydest, width, height, hdcsrc.rawAddress.toCPointer<ByteVar>(), xsrc, ysrc, hbmmask.rawAddress.toCPointer<ByteVar>(), xmask, ymask, rop)
 
-public actual fun mergeFontPackage(puchmergefontbuffer: ConstPtr<UByte>, ulmergefontbuffersize: UInt, puchfontpackagebuffer: ConstPtr<UByte>, ulfontpackagebuffersize: UInt, ppuchdestbuffer: MutPtr<MutPtr<UByte>>, puldestbuffersize: MutPtr<UInt>, pulbyteswritten: MutPtr<UInt>, usmode: UShort, lpfnallocate: CfpAllocproc, lpfnreallocate: CfpReallocproc, lpfnfree: CfpFreeproc, lpvreserved: MutPtr<CVoid>): UInt =
+public actual fun mergeFontPackage(puchmergefontbuffer: ConstPtr, ulmergefontbuffersize: UInt, puchfontpackagebuffer: ConstPtr, ulfontpackagebuffersize: UInt, ppuchdestbuffer: MutPtr, puldestbuffersize: MutPtr, pulbyteswritten: MutPtr, usmode: UShort, lpfnallocate: CfpAllocproc, lpfnreallocate: CfpReallocproc, lpfnfree: CfpFreeproc, lpvreserved: MutPtr): UInt =
     windowssysWindowsWin32GraphicsGdiMergeFontPackage(puchmergefontbuffer.rawAddress.toCPointer<ByteVar>(), ulmergefontbuffersize, puchfontpackagebuffer.rawAddress.toCPointer<ByteVar>(), ulfontpackagebuffersize, ppuchdestbuffer.rawAddress.toCPointer<ByteVar>(), puldestbuffersize.rawAddress.toCPointer<ByteVar>(), pulbyteswritten.rawAddress.toCPointer<ByteVar>(), usmode, 0L.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>(), lpvreserved.rawAddress.toCPointer<ByteVar>())
 
-public actual fun modifyWorldTransform(hdc: Hdc, lpxf: ConstPtr<Xform>, mode: ModifyWorldTransformMode): Bool =
+public actual fun modifyWorldTransform(hdc: Hdc, lpxf: ConstPtr, mode: ModifyWorldTransformMode): Bool =
     windowssysWindowsWin32GraphicsGdiModifyWorldTransform(hdc.rawAddress.toCPointer<ByteVar>(), lpxf.rawAddress.toCPointer<ByteVar>(), mode)
 
 public actual fun monitorFromPoint(pt: Point, dwflags: MonitorFromFlags): Hmonitor =
     MutPtr(0L)
 
-public actual fun monitorFromRect(lprc: ConstPtr<Rect>, dwflags: MonitorFromFlags): Hmonitor =
+public actual fun monitorFromRect(lprc: ConstPtr, dwflags: MonitorFromFlags): Hmonitor =
     MutPtr(windowssysWindowsWin32GraphicsGdiMonitorFromRect(lprc.rawAddress.toCPointer<ByteVar>(), dwflags)?.toLong() ?: 0L)
 
 public actual fun monitorFromWindow(hwnd: Hwnd, dwflags: MonitorFromFlags): Hmonitor =
     MutPtr(windowssysWindowsWin32GraphicsGdiMonitorFromWindow(hwnd.rawAddress.toCPointer<ByteVar>(), dwflags)?.toLong() ?: 0L)
 
-public actual fun moveToEx(hdc: Hdc, x: Int, y: Int, lppt: MutPtr<Point>): Bool =
+public actual fun moveToEx(hdc: Hdc, x: Int, y: Int, lppt: MutPtr): Bool =
     windowssysWindowsWin32GraphicsGdiMoveToEx(hdc.rawAddress.toCPointer<ByteVar>(), x, y, lppt.rawAddress.toCPointer<ByteVar>())
 
 public actual fun offsetClipRgn(hdc: Hdc, x: Int, y: Int): GdiRegionType =
     windowssysWindowsWin32GraphicsGdiOffsetClipRgn(hdc.rawAddress.toCPointer<ByteVar>(), x, y)
 
-public actual fun offsetRect(lprc: MutPtr<Rect>, dx: Int, dy: Int): Bool =
+public actual fun offsetRect(lprc: MutPtr, dx: Int, dy: Int): Bool =
     windowssysWindowsWin32GraphicsGdiOffsetRect(lprc.rawAddress.toCPointer<ByteVar>(), dx, dy)
 
 public actual fun offsetRgn(hrgn: Hrgn, x: Int, y: Int): GdiRegionType =
     windowssysWindowsWin32GraphicsGdiOffsetRgn(hrgn.rawAddress.toCPointer<ByteVar>(), x, y)
 
-public actual fun offsetViewportOrgEx(hdc: Hdc, x: Int, y: Int, lppt: MutPtr<Point>): Bool =
+public actual fun offsetViewportOrgEx(hdc: Hdc, x: Int, y: Int, lppt: MutPtr): Bool =
     windowssysWindowsWin32GraphicsGdiOffsetViewportOrgEx(hdc.rawAddress.toCPointer<ByteVar>(), x, y, lppt.rawAddress.toCPointer<ByteVar>())
 
-public actual fun offsetWindowOrgEx(hdc: Hdc, x: Int, y: Int, lppt: MutPtr<Point>): Bool =
+public actual fun offsetWindowOrgEx(hdc: Hdc, x: Int, y: Int, lppt: MutPtr): Bool =
     windowssysWindowsWin32GraphicsGdiOffsetWindowOrgEx(hdc.rawAddress.toCPointer<ByteVar>(), x, y, lppt.rawAddress.toCPointer<ByteVar>())
 
 public actual fun paintDesktop(hdc: Hdc): Bool =
@@ -1253,52 +1250,52 @@ public actual fun pathToRegion(hdc: Hdc): Hrgn =
 public actual fun pie(hdc: Hdc, left: Int, top: Int, right: Int, bottom: Int, xr1: Int, yr1: Int, xr2: Int, yr2: Int): Bool =
     windowssysWindowsWin32GraphicsGdiPie(hdc.rawAddress.toCPointer<ByteVar>(), left, top, right, bottom, xr1, yr1, xr2, yr2)
 
-public actual fun playEnhMetaFile(hdc: Hdc, hmf: Henhmetafile, lprect: ConstPtr<Rect>): Bool =
+public actual fun playEnhMetaFile(hdc: Hdc, hmf: Henhmetafile, lprect: ConstPtr): Bool =
     windowssysWindowsWin32GraphicsGdiPlayEnhMetaFile(hdc.rawAddress.toCPointer<ByteVar>(), hmf.rawAddress.toCPointer<ByteVar>(), lprect.rawAddress.toCPointer<ByteVar>())
 
-public actual fun playEnhMetaFileRecord(hdc: Hdc, pht: ConstPtr<Handletable>, pmr: ConstPtr<Enhmetarecord>, cht: UInt): Bool =
+public actual fun playEnhMetaFileRecord(hdc: Hdc, pht: ConstPtr, pmr: ConstPtr, cht: UInt): Bool =
     windowssysWindowsWin32GraphicsGdiPlayEnhMetaFileRecord(hdc.rawAddress.toCPointer<ByteVar>(), pht.rawAddress.toCPointer<ByteVar>(), pmr.rawAddress.toCPointer<ByteVar>(), cht)
 
 public actual fun playMetaFile(hdc: Hdc, hmf: Hmetafile): Bool =
     windowssysWindowsWin32GraphicsGdiPlayMetaFile(hdc.rawAddress.toCPointer<ByteVar>(), hmf.rawAddress.toCPointer<ByteVar>())
 
-public actual fun playMetaFileRecord(hdc: Hdc, lphandletable: ConstPtr<Handletable>, lpmr: ConstPtr<Metarecord>, noobjs: UInt): Bool =
+public actual fun playMetaFileRecord(hdc: Hdc, lphandletable: ConstPtr, lpmr: ConstPtr, noobjs: UInt): Bool =
     windowssysWindowsWin32GraphicsGdiPlayMetaFileRecord(hdc.rawAddress.toCPointer<ByteVar>(), lphandletable.rawAddress.toCPointer<ByteVar>(), lpmr.rawAddress.toCPointer<ByteVar>(), noobjs)
 
-public actual fun plgBlt(hdcdest: Hdc, lppoint: ConstPtr<Point>, hdcsrc: Hdc, xsrc: Int, ysrc: Int, width: Int, height: Int, hbmmask: Hbitmap, xmask: Int, ymask: Int): Bool =
+public actual fun plgBlt(hdcdest: Hdc, lppoint: ConstPtr, hdcsrc: Hdc, xsrc: Int, ysrc: Int, width: Int, height: Int, hbmmask: Hbitmap, xmask: Int, ymask: Int): Bool =
     windowssysWindowsWin32GraphicsGdiPlgBlt(hdcdest.rawAddress.toCPointer<ByteVar>(), lppoint.rawAddress.toCPointer<ByteVar>(), hdcsrc.rawAddress.toCPointer<ByteVar>(), xsrc, ysrc, width, height, hbmmask.rawAddress.toCPointer<ByteVar>(), xmask, ymask)
 
-public actual fun polyBezier(hdc: Hdc, apt: ConstPtr<Point>, cpt: UInt): Bool =
+public actual fun polyBezier(hdc: Hdc, apt: ConstPtr, cpt: UInt): Bool =
     windowssysWindowsWin32GraphicsGdiPolyBezier(hdc.rawAddress.toCPointer<ByteVar>(), apt.rawAddress.toCPointer<ByteVar>(), cpt)
 
-public actual fun polyBezierTo(hdc: Hdc, apt: ConstPtr<Point>, cpt: UInt): Bool =
+public actual fun polyBezierTo(hdc: Hdc, apt: ConstPtr, cpt: UInt): Bool =
     windowssysWindowsWin32GraphicsGdiPolyBezierTo(hdc.rawAddress.toCPointer<ByteVar>(), apt.rawAddress.toCPointer<ByteVar>(), cpt)
 
-public actual fun polyDraw(hdc: Hdc, apt: ConstPtr<Point>, aj: ConstPtr<UByte>, cpt: Int): Bool =
+public actual fun polyDraw(hdc: Hdc, apt: ConstPtr, aj: ConstPtr, cpt: Int): Bool =
     windowssysWindowsWin32GraphicsGdiPolyDraw(hdc.rawAddress.toCPointer<ByteVar>(), apt.rawAddress.toCPointer<ByteVar>(), aj.rawAddress.toCPointer<ByteVar>(), cpt)
 
-public actual fun polyPolygon(hdc: Hdc, apt: ConstPtr<Point>, asz: ConstPtr<Int>, csz: Int): Bool =
+public actual fun polyPolygon(hdc: Hdc, apt: ConstPtr, asz: ConstPtr, csz: Int): Bool =
     windowssysWindowsWin32GraphicsGdiPolyPolygon(hdc.rawAddress.toCPointer<ByteVar>(), apt.rawAddress.toCPointer<ByteVar>(), asz.rawAddress.toCPointer<ByteVar>(), csz)
 
-public actual fun polyPolyline(hdc: Hdc, apt: ConstPtr<Point>, asz: ConstPtr<UInt>, csz: UInt): Bool =
+public actual fun polyPolyline(hdc: Hdc, apt: ConstPtr, asz: ConstPtr, csz: UInt): Bool =
     windowssysWindowsWin32GraphicsGdiPolyPolyline(hdc.rawAddress.toCPointer<ByteVar>(), apt.rawAddress.toCPointer<ByteVar>(), asz.rawAddress.toCPointer<ByteVar>(), csz)
 
-public actual fun polyTextOutA(hdc: Hdc, ppt: ConstPtr<Polytexta>, nstrings: Int): Bool =
+public actual fun polyTextOutA(hdc: Hdc, ppt: ConstPtr, nstrings: Int): Bool =
     windowssysWindowsWin32GraphicsGdiPolyTextOutA(hdc.rawAddress.toCPointer<ByteVar>(), ppt.rawAddress.toCPointer<ByteVar>(), nstrings)
 
-public actual fun polyTextOutW(hdc: Hdc, ppt: ConstPtr<Polytextw>, nstrings: Int): Bool =
+public actual fun polyTextOutW(hdc: Hdc, ppt: ConstPtr, nstrings: Int): Bool =
     windowssysWindowsWin32GraphicsGdiPolyTextOutW(hdc.rawAddress.toCPointer<ByteVar>(), ppt.rawAddress.toCPointer<ByteVar>(), nstrings)
 
-public actual fun polygon(hdc: Hdc, apt: ConstPtr<Point>, cpt: Int): Bool =
+public actual fun polygon(hdc: Hdc, apt: ConstPtr, cpt: Int): Bool =
     windowssysWindowsWin32GraphicsGdiPolygon(hdc.rawAddress.toCPointer<ByteVar>(), apt.rawAddress.toCPointer<ByteVar>(), cpt)
 
-public actual fun polyline(hdc: Hdc, apt: ConstPtr<Point>, cpt: Int): Bool =
+public actual fun polyline(hdc: Hdc, apt: ConstPtr, cpt: Int): Bool =
     windowssysWindowsWin32GraphicsGdiPolyline(hdc.rawAddress.toCPointer<ByteVar>(), apt.rawAddress.toCPointer<ByteVar>(), cpt)
 
-public actual fun polylineTo(hdc: Hdc, apt: ConstPtr<Point>, cpt: UInt): Bool =
+public actual fun polylineTo(hdc: Hdc, apt: ConstPtr, cpt: UInt): Bool =
     windowssysWindowsWin32GraphicsGdiPolylineTo(hdc.rawAddress.toCPointer<ByteVar>(), apt.rawAddress.toCPointer<ByteVar>(), cpt)
 
-public actual fun ptInRect(lprc: ConstPtr<Rect>, pt: Point): Bool =
+public actual fun ptInRect(lprc: ConstPtr, pt: Point): Bool =
     0
 
 public actual fun ptInRegion(hrgn: Hrgn, x: Int, y: Int): Bool =
@@ -1310,16 +1307,16 @@ public actual fun ptVisible(hdc: Hdc, x: Int, y: Int): Bool =
 public actual fun realizePalette(hdc: Hdc): UInt =
     windowssysWindowsWin32GraphicsGdiRealizePalette(hdc.rawAddress.toCPointer<ByteVar>())
 
-public actual fun rectInRegion(hrgn: Hrgn, lprect: ConstPtr<Rect>): Bool =
+public actual fun rectInRegion(hrgn: Hrgn, lprect: ConstPtr): Bool =
     windowssysWindowsWin32GraphicsGdiRectInRegion(hrgn.rawAddress.toCPointer<ByteVar>(), lprect.rawAddress.toCPointer<ByteVar>())
 
-public actual fun rectVisible(hdc: Hdc, lprect: ConstPtr<Rect>): Bool =
+public actual fun rectVisible(hdc: Hdc, lprect: ConstPtr): Bool =
     windowssysWindowsWin32GraphicsGdiRectVisible(hdc.rawAddress.toCPointer<ByteVar>(), lprect.rawAddress.toCPointer<ByteVar>())
 
 public actual fun rectangle(hdc: Hdc, left: Int, top: Int, right: Int, bottom: Int): Bool =
     windowssysWindowsWin32GraphicsGdiRectangle(hdc.rawAddress.toCPointer<ByteVar>(), left, top, right, bottom)
 
-public actual fun redrawWindow(hwnd: Hwnd, lprcupdate: ConstPtr<Rect>, hrgnupdate: Hrgn, flags: RedrawWindowFlags): Bool =
+public actual fun redrawWindow(hwnd: Hwnd, lprcupdate: ConstPtr, hrgnupdate: Hrgn, flags: RedrawWindowFlags): Bool =
     windowssysWindowsWin32GraphicsGdiRedrawWindow(hwnd.rawAddress.toCPointer<ByteVar>(), lprcupdate.rawAddress.toCPointer<ByteVar>(), hrgnupdate.rawAddress.toCPointer<ByteVar>(), flags)
 
 public actual fun releaseDC(hwnd: Hwnd, hdc: Hdc): Int =
@@ -1331,19 +1328,19 @@ public actual fun removeFontMemResourceEx(h: Handle): Bool =
 public actual fun removeFontResourceA(lpfilename: Pcstr): Bool =
     windowssysWindowsWin32GraphicsGdiRemoveFontResourceA(lpfilename.rawAddress.toCPointer<ByteVar>())
 
-public actual fun removeFontResourceExA(name: Pcstr, fl: UInt, pdv: ConstPtr<CVoid>): Bool =
+public actual fun removeFontResourceExA(name: Pcstr, fl: UInt, pdv: ConstPtr): Bool =
     windowssysWindowsWin32GraphicsGdiRemoveFontResourceExA(name.rawAddress.toCPointer<ByteVar>(), fl, pdv.rawAddress.toCPointer<ByteVar>())
 
-public actual fun removeFontResourceExW(name: Pcwstr, fl: UInt, pdv: ConstPtr<CVoid>): Bool =
+public actual fun removeFontResourceExW(name: Pcwstr, fl: UInt, pdv: ConstPtr): Bool =
     windowssysWindowsWin32GraphicsGdiRemoveFontResourceExW(name.rawAddress.toCPointer<ByteVar>(), fl, pdv.rawAddress.toCPointer<ByteVar>())
 
 public actual fun removeFontResourceW(lpfilename: Pcwstr): Bool =
     windowssysWindowsWin32GraphicsGdiRemoveFontResourceW(lpfilename.rawAddress.toCPointer<ByteVar>())
 
-public actual fun resetDCA(hdc: Hdc, lpdm: ConstPtr<Devmodea>): Hdc =
+public actual fun resetDCA(hdc: Hdc, lpdm: ConstPtr): Hdc =
     MutPtr(windowssysWindowsWin32GraphicsGdiResetDCA(hdc.rawAddress.toCPointer<ByteVar>(), lpdm.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun resetDCW(hdc: Hdc, lpdm: ConstPtr<Devmodew>): Hdc =
+public actual fun resetDCW(hdc: Hdc, lpdm: ConstPtr): Hdc =
     MutPtr(windowssysWindowsWin32GraphicsGdiResetDCW(hdc.rawAddress.toCPointer<ByteVar>(), lpdm.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
 public actual fun resizePalette(hpal: Hpalette, n: UInt): Bool =
@@ -1358,13 +1355,13 @@ public actual fun roundRect(hdc: Hdc, left: Int, top: Int, right: Int, bottom: I
 public actual fun saveDC(hdc: Hdc): Int =
     windowssysWindowsWin32GraphicsGdiSaveDC(hdc.rawAddress.toCPointer<ByteVar>())
 
-public actual fun scaleViewportExtEx(hdc: Hdc, xn: Int, dx: Int, yn: Int, yd: Int, lpsz: MutPtr<Size>): Bool =
+public actual fun scaleViewportExtEx(hdc: Hdc, xn: Int, dx: Int, yn: Int, yd: Int, lpsz: MutPtr): Bool =
     windowssysWindowsWin32GraphicsGdiScaleViewportExtEx(hdc.rawAddress.toCPointer<ByteVar>(), xn, dx, yn, yd, lpsz.rawAddress.toCPointer<ByteVar>())
 
-public actual fun scaleWindowExtEx(hdc: Hdc, xn: Int, xd: Int, yn: Int, yd: Int, lpsz: MutPtr<Size>): Bool =
+public actual fun scaleWindowExtEx(hdc: Hdc, xn: Int, xd: Int, yn: Int, yd: Int, lpsz: MutPtr): Bool =
     windowssysWindowsWin32GraphicsGdiScaleWindowExtEx(hdc.rawAddress.toCPointer<ByteVar>(), xn, xd, yn, yd, lpsz.rawAddress.toCPointer<ByteVar>())
 
-public actual fun screenToClient(hwnd: Hwnd, lppoint: MutPtr<Point>): Bool =
+public actual fun screenToClient(hwnd: Hwnd, lppoint: MutPtr): Bool =
     windowssysWindowsWin32GraphicsGdiScreenToClient(hwnd.rawAddress.toCPointer<ByteVar>(), lppoint.rawAddress.toCPointer<ByteVar>())
 
 public actual fun selectClipPath(hdc: Hdc, mode: RgnCombineMode): Bool =
@@ -1382,10 +1379,10 @@ public actual fun selectPalette(hdc: Hdc, hpal: Hpalette, bforcebkgd: Bool): Hpa
 public actual fun setArcDirection(hdc: Hdc, dir: ArcDirection): Int =
     windowssysWindowsWin32GraphicsGdiSetArcDirection(hdc.rawAddress.toCPointer<ByteVar>(), dir)
 
-public actual fun setBitmapBits(hbm: Hbitmap, cb: UInt, pvbits: ConstPtr<CVoid>): Int =
+public actual fun setBitmapBits(hbm: Hbitmap, cb: UInt, pvbits: ConstPtr): Int =
     windowssysWindowsWin32GraphicsGdiSetBitmapBits(hbm.rawAddress.toCPointer<ByteVar>(), cb, pvbits.rawAddress.toCPointer<ByteVar>())
 
-public actual fun setBitmapDimensionEx(hbm: Hbitmap, w: Int, h: Int, lpsz: MutPtr<Size>): Bool =
+public actual fun setBitmapDimensionEx(hbm: Hbitmap, w: Int, h: Int, lpsz: MutPtr): Bool =
     windowssysWindowsWin32GraphicsGdiSetBitmapDimensionEx(hbm.rawAddress.toCPointer<ByteVar>(), w, h, lpsz.rawAddress.toCPointer<ByteVar>())
 
 public actual fun setBkColor(hdc: Hdc, color: Colorref): Colorref =
@@ -1394,13 +1391,13 @@ public actual fun setBkColor(hdc: Hdc, color: Colorref): Colorref =
 public actual fun setBkMode(hdc: Hdc, mode: Int): Int =
     windowssysWindowsWin32GraphicsGdiSetBkMode(hdc.rawAddress.toCPointer<ByteVar>(), mode)
 
-public actual fun setBoundsRect(hdc: Hdc, lprect: ConstPtr<Rect>, flags: SetBoundsRectFlags): UInt =
+public actual fun setBoundsRect(hdc: Hdc, lprect: ConstPtr, flags: SetBoundsRectFlags): UInt =
     windowssysWindowsWin32GraphicsGdiSetBoundsRect(hdc.rawAddress.toCPointer<ByteVar>(), lprect.rawAddress.toCPointer<ByteVar>(), flags)
 
-public actual fun setBrushOrgEx(hdc: Hdc, x: Int, y: Int, lppt: MutPtr<Point>): Bool =
+public actual fun setBrushOrgEx(hdc: Hdc, x: Int, y: Int, lppt: MutPtr): Bool =
     windowssysWindowsWin32GraphicsGdiSetBrushOrgEx(hdc.rawAddress.toCPointer<ByteVar>(), x, y, lppt.rawAddress.toCPointer<ByteVar>())
 
-public actual fun setColorAdjustment(hdc: Hdc, lpca: ConstPtr<Coloradjustment>): Bool =
+public actual fun setColorAdjustment(hdc: Hdc, lpca: ConstPtr): Bool =
     windowssysWindowsWin32GraphicsGdiSetColorAdjustment(hdc.rawAddress.toCPointer<ByteVar>(), lpca.rawAddress.toCPointer<ByteVar>())
 
 public actual fun setDCBrushColor(hdc: Hdc, color: Colorref): Colorref =
@@ -1409,16 +1406,16 @@ public actual fun setDCBrushColor(hdc: Hdc, color: Colorref): Colorref =
 public actual fun setDCPenColor(hdc: Hdc, color: Colorref): Colorref =
     windowssysWindowsWin32GraphicsGdiSetDCPenColor(hdc.rawAddress.toCPointer<ByteVar>(), color)
 
-public actual fun setDIBColorTable(hdc: Hdc, istart: UInt, centries: UInt, prgbq: ConstPtr<Rgbquad>): UInt =
+public actual fun setDIBColorTable(hdc: Hdc, istart: UInt, centries: UInt, prgbq: ConstPtr): UInt =
     windowssysWindowsWin32GraphicsGdiSetDIBColorTable(hdc.rawAddress.toCPointer<ByteVar>(), istart, centries, prgbq.rawAddress.toCPointer<ByteVar>())
 
-public actual fun setDIBits(hdc: Hdc, hbm: Hbitmap, start: UInt, clines: UInt, lpbits: ConstPtr<CVoid>, lpbmi: ConstPtr<Bitmapinfo>, coloruse: DibUsage): Int =
+public actual fun setDIBits(hdc: Hdc, hbm: Hbitmap, start: UInt, clines: UInt, lpbits: ConstPtr, lpbmi: ConstPtr, coloruse: DibUsage): Int =
     windowssysWindowsWin32GraphicsGdiSetDIBits(hdc.rawAddress.toCPointer<ByteVar>(), hbm.rawAddress.toCPointer<ByteVar>(), start, clines, lpbits.rawAddress.toCPointer<ByteVar>(), lpbmi.rawAddress.toCPointer<ByteVar>(), coloruse)
 
-public actual fun setDIBitsToDevice(hdc: Hdc, xdest: Int, ydest: Int, w: UInt, h: UInt, xsrc: Int, ysrc: Int, startscan: UInt, clines: UInt, lpvbits: ConstPtr<CVoid>, lpbmi: ConstPtr<Bitmapinfo>, coloruse: DibUsage): Int =
+public actual fun setDIBitsToDevice(hdc: Hdc, xdest: Int, ydest: Int, w: UInt, h: UInt, xsrc: Int, ysrc: Int, startscan: UInt, clines: UInt, lpvbits: ConstPtr, lpbmi: ConstPtr, coloruse: DibUsage): Int =
     windowssysWindowsWin32GraphicsGdiSetDIBitsToDevice(hdc.rawAddress.toCPointer<ByteVar>(), xdest, ydest, w, h, xsrc, ysrc, startscan, clines, lpvbits.rawAddress.toCPointer<ByteVar>(), lpbmi.rawAddress.toCPointer<ByteVar>(), coloruse)
 
-public actual fun setEnhMetaFileBits(nsize: UInt, pb: ConstPtr<UByte>): Henhmetafile =
+public actual fun setEnhMetaFileBits(nsize: UInt, pb: ConstPtr): Henhmetafile =
     MutPtr(windowssysWindowsWin32GraphicsGdiSetEnhMetaFileBits(nsize, pb.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
 public actual fun setGraphicsMode(hdc: Hdc, imode: GraphicsMode): Int =
@@ -1433,16 +1430,16 @@ public actual fun setMapMode(hdc: Hdc, imode: HdcMapMode): Int =
 public actual fun setMapperFlags(hdc: Hdc, flags: UInt): UInt =
     windowssysWindowsWin32GraphicsGdiSetMapperFlags(hdc.rawAddress.toCPointer<ByteVar>(), flags)
 
-public actual fun setMetaFileBitsEx(cbbuffer: UInt, lpdata: ConstPtr<UByte>): Hmetafile =
+public actual fun setMetaFileBitsEx(cbbuffer: UInt, lpdata: ConstPtr): Hmetafile =
     MutPtr(windowssysWindowsWin32GraphicsGdiSetMetaFileBitsEx(cbbuffer, lpdata.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
 public actual fun setMetaRgn(hdc: Hdc): GdiRegionType =
     windowssysWindowsWin32GraphicsGdiSetMetaRgn(hdc.rawAddress.toCPointer<ByteVar>())
 
-public actual fun setMiterLimit(hdc: Hdc, limit: Float, old: MutPtr<Float>): Bool =
+public actual fun setMiterLimit(hdc: Hdc, limit: Float, old: MutPtr): Bool =
     windowssysWindowsWin32GraphicsGdiSetMiterLimit(hdc.rawAddress.toCPointer<ByteVar>(), limit, old.rawAddress.toCPointer<ByteVar>())
 
-public actual fun setPaletteEntries(hpal: Hpalette, istart: UInt, centries: UInt, ppalentries: ConstPtr<Paletteentry>): UInt =
+public actual fun setPaletteEntries(hpal: Hpalette, istart: UInt, centries: UInt, ppalentries: ConstPtr): UInt =
     windowssysWindowsWin32GraphicsGdiSetPaletteEntries(hpal.rawAddress.toCPointer<ByteVar>(), istart, centries, ppalentries.rawAddress.toCPointer<ByteVar>())
 
 public actual fun setPixel(hdc: Hdc, x: Int, y: Int, color: Colorref): Colorref =
@@ -1457,10 +1454,10 @@ public actual fun setPolyFillMode(hdc: Hdc, mode: CreatePolygonRgnMode): Int =
 public actual fun setROP2(hdc: Hdc, rop2: R2Mode): Int =
     windowssysWindowsWin32GraphicsGdiSetROP2(hdc.rawAddress.toCPointer<ByteVar>(), rop2)
 
-public actual fun setRect(lprc: MutPtr<Rect>, xleft: Int, ytop: Int, xright: Int, ybottom: Int): Bool =
+public actual fun setRect(lprc: MutPtr, xleft: Int, ytop: Int, xright: Int, ybottom: Int): Bool =
     windowssysWindowsWin32GraphicsGdiSetRect(lprc.rawAddress.toCPointer<ByteVar>(), xleft, ytop, xright, ybottom)
 
-public actual fun setRectEmpty(lprc: MutPtr<Rect>): Bool =
+public actual fun setRectEmpty(lprc: MutPtr): Bool =
     windowssysWindowsWin32GraphicsGdiSetRectEmpty(lprc.rawAddress.toCPointer<ByteVar>())
 
 public actual fun setRectRgn(hrgn: Hrgn, left: Int, top: Int, right: Int, bottom: Int): Bool =
@@ -1469,7 +1466,7 @@ public actual fun setRectRgn(hrgn: Hrgn, left: Int, top: Int, right: Int, bottom
 public actual fun setStretchBltMode(hdc: Hdc, mode: StretchBltMode): Int =
     windowssysWindowsWin32GraphicsGdiSetStretchBltMode(hdc.rawAddress.toCPointer<ByteVar>(), mode)
 
-public actual fun setSysColors(celements: Int, lpaelements: ConstPtr<Int>, lpargbvalues: ConstPtr<Colorref>): Bool =
+public actual fun setSysColors(celements: Int, lpaelements: ConstPtr, lpargbvalues: ConstPtr): Bool =
     windowssysWindowsWin32GraphicsGdiSetSysColors(celements, lpaelements.rawAddress.toCPointer<ByteVar>(), lpargbvalues.rawAddress.toCPointer<ByteVar>())
 
 public actual fun setSystemPaletteUse(hdc: Hdc, use: SystemPaletteUse): UInt =
@@ -1487,28 +1484,28 @@ public actual fun setTextColor(hdc: Hdc, color: Colorref): Colorref =
 public actual fun setTextJustification(hdc: Hdc, extra: Int, count: Int): Bool =
     windowssysWindowsWin32GraphicsGdiSetTextJustification(hdc.rawAddress.toCPointer<ByteVar>(), extra, count)
 
-public actual fun setViewportExtEx(hdc: Hdc, x: Int, y: Int, lpsz: MutPtr<Size>): Bool =
+public actual fun setViewportExtEx(hdc: Hdc, x: Int, y: Int, lpsz: MutPtr): Bool =
     windowssysWindowsWin32GraphicsGdiSetViewportExtEx(hdc.rawAddress.toCPointer<ByteVar>(), x, y, lpsz.rawAddress.toCPointer<ByteVar>())
 
-public actual fun setViewportOrgEx(hdc: Hdc, x: Int, y: Int, lppt: MutPtr<Point>): Bool =
+public actual fun setViewportOrgEx(hdc: Hdc, x: Int, y: Int, lppt: MutPtr): Bool =
     windowssysWindowsWin32GraphicsGdiSetViewportOrgEx(hdc.rawAddress.toCPointer<ByteVar>(), x, y, lppt.rawAddress.toCPointer<ByteVar>())
 
-public actual fun setWindowExtEx(hdc: Hdc, x: Int, y: Int, lpsz: MutPtr<Size>): Bool =
+public actual fun setWindowExtEx(hdc: Hdc, x: Int, y: Int, lpsz: MutPtr): Bool =
     windowssysWindowsWin32GraphicsGdiSetWindowExtEx(hdc.rawAddress.toCPointer<ByteVar>(), x, y, lpsz.rawAddress.toCPointer<ByteVar>())
 
-public actual fun setWindowOrgEx(hdc: Hdc, x: Int, y: Int, lppt: MutPtr<Point>): Bool =
+public actual fun setWindowOrgEx(hdc: Hdc, x: Int, y: Int, lppt: MutPtr): Bool =
     windowssysWindowsWin32GraphicsGdiSetWindowOrgEx(hdc.rawAddress.toCPointer<ByteVar>(), x, y, lppt.rawAddress.toCPointer<ByteVar>())
 
 public actual fun setWindowRgn(hwnd: Hwnd, hrgn: Hrgn, bredraw: Bool): Int =
     windowssysWindowsWin32GraphicsGdiSetWindowRgn(hwnd.rawAddress.toCPointer<ByteVar>(), hrgn.rawAddress.toCPointer<ByteVar>(), bredraw)
 
-public actual fun setWorldTransform(hdc: Hdc, lpxf: ConstPtr<Xform>): Bool =
+public actual fun setWorldTransform(hdc: Hdc, lpxf: ConstPtr): Bool =
     windowssysWindowsWin32GraphicsGdiSetWorldTransform(hdc.rawAddress.toCPointer<ByteVar>(), lpxf.rawAddress.toCPointer<ByteVar>())
 
 public actual fun stretchBlt(hdcdest: Hdc, xdest: Int, ydest: Int, wdest: Int, hdest: Int, hdcsrc: Hdc, xsrc: Int, ysrc: Int, wsrc: Int, hsrc: Int, rop: RopCode): Bool =
     windowssysWindowsWin32GraphicsGdiStretchBlt(hdcdest.rawAddress.toCPointer<ByteVar>(), xdest, ydest, wdest, hdest, hdcsrc.rawAddress.toCPointer<ByteVar>(), xsrc, ysrc, wsrc, hsrc, rop)
 
-public actual fun stretchDIBits(hdc: Hdc, xdest: Int, ydest: Int, destwidth: Int, destheight: Int, xsrc: Int, ysrc: Int, srcwidth: Int, srcheight: Int, lpbits: ConstPtr<CVoid>, lpbmi: ConstPtr<Bitmapinfo>, iusage: DibUsage, rop: RopCode): Int =
+public actual fun stretchDIBits(hdc: Hdc, xdest: Int, ydest: Int, destwidth: Int, destheight: Int, xsrc: Int, ysrc: Int, srcwidth: Int, srcheight: Int, lpbits: ConstPtr, lpbmi: ConstPtr, iusage: DibUsage, rop: RopCode): Int =
     windowssysWindowsWin32GraphicsGdiStretchDIBits(hdc.rawAddress.toCPointer<ByteVar>(), xdest, ydest, destwidth, destheight, xsrc, ysrc, srcwidth, srcheight, lpbits.rawAddress.toCPointer<ByteVar>(), lpbmi.rawAddress.toCPointer<ByteVar>(), iusage, rop)
 
 public actual fun strokeAndFillPath(hdc: Hdc): Bool =
@@ -1517,55 +1514,55 @@ public actual fun strokeAndFillPath(hdc: Hdc): Bool =
 public actual fun strokePath(hdc: Hdc): Bool =
     windowssysWindowsWin32GraphicsGdiStrokePath(hdc.rawAddress.toCPointer<ByteVar>())
 
-public actual fun subtractRect(lprcdst: MutPtr<Rect>, lprcsrc1: ConstPtr<Rect>, lprcsrc2: ConstPtr<Rect>): Bool =
+public actual fun subtractRect(lprcdst: MutPtr, lprcsrc1: ConstPtr, lprcsrc2: ConstPtr): Bool =
     windowssysWindowsWin32GraphicsGdiSubtractRect(lprcdst.rawAddress.toCPointer<ByteVar>(), lprcsrc1.rawAddress.toCPointer<ByteVar>(), lprcsrc2.rawAddress.toCPointer<ByteVar>())
 
-public actual fun tTCharToUnicode(hdc: Hdc, puccharcodes: ConstPtr<UByte>, ulcharcodesize: UInt, pusshortcodes: MutPtr<UShort>, ulshortcodesize: UInt, ulflags: UInt): Int =
+public actual fun tTCharToUnicode(hdc: Hdc, puccharcodes: ConstPtr, ulcharcodesize: UInt, pusshortcodes: MutPtr, ulshortcodesize: UInt, ulflags: UInt): Int =
     windowssysWindowsWin32GraphicsGdiTTCharToUnicode(hdc.rawAddress.toCPointer<ByteVar>(), puccharcodes.rawAddress.toCPointer<ByteVar>(), ulcharcodesize, pusshortcodes.rawAddress.toCPointer<ByteVar>(), ulshortcodesize, ulflags)
 
-public actual fun tTDeleteEmbeddedFont(hfontreference: Handle, ulflags: UInt, pulstatus: MutPtr<UInt>): Int =
+public actual fun tTDeleteEmbeddedFont(hfontreference: Handle, ulflags: UInt, pulstatus: MutPtr): Int =
     windowssysWindowsWin32GraphicsGdiTTDeleteEmbeddedFont(hfontreference.rawAddress.toCPointer<ByteVar>(), ulflags, pulstatus.rawAddress.toCPointer<ByteVar>())
 
-public actual fun tTEmbedFont(hdc: Hdc, ulflags: TtembedFlags, ulcharset: EmbedFontCharset, pulprivstatus: MutPtr<EmbeddedFontPrivStatus>, pulstatus: MutPtr<UInt>, lpfnwritetostream: Writeembedproc, lpvwritestream: ConstPtr<CVoid>, puscharcodeset: ConstPtr<UShort>, uscharcodecount: UShort, uslanguage: UShort, pttembedinfo: ConstPtr<Ttembedinfo>): Int =
+public actual fun tTEmbedFont(hdc: Hdc, ulflags: TtembedFlags, ulcharset: EmbedFontCharset, pulprivstatus: MutPtr, pulstatus: MutPtr, lpfnwritetostream: Writeembedproc, lpvwritestream: ConstPtr, puscharcodeset: ConstPtr, uscharcodecount: UShort, uslanguage: UShort, pttembedinfo: ConstPtr): Int =
     windowssysWindowsWin32GraphicsGdiTTEmbedFont(hdc.rawAddress.toCPointer<ByteVar>(), ulflags, ulcharset, pulprivstatus.rawAddress.toCPointer<ByteVar>(), pulstatus.rawAddress.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>(), lpvwritestream.rawAddress.toCPointer<ByteVar>(), puscharcodeset.rawAddress.toCPointer<ByteVar>(), uscharcodecount, uslanguage, pttembedinfo.rawAddress.toCPointer<ByteVar>())
 
-public actual fun tTEmbedFontEx(hdc: Hdc, ulflags: TtembedFlags, ulcharset: EmbedFontCharset, pulprivstatus: MutPtr<EmbeddedFontPrivStatus>, pulstatus: MutPtr<UInt>, lpfnwritetostream: Writeembedproc, lpvwritestream: ConstPtr<CVoid>, pulcharcodeset: ConstPtr<UInt>, uscharcodecount: UShort, uslanguage: UShort, pttembedinfo: ConstPtr<Ttembedinfo>): Int =
+public actual fun tTEmbedFontEx(hdc: Hdc, ulflags: TtembedFlags, ulcharset: EmbedFontCharset, pulprivstatus: MutPtr, pulstatus: MutPtr, lpfnwritetostream: Writeembedproc, lpvwritestream: ConstPtr, pulcharcodeset: ConstPtr, uscharcodecount: UShort, uslanguage: UShort, pttembedinfo: ConstPtr): Int =
     windowssysWindowsWin32GraphicsGdiTTEmbedFontEx(hdc.rawAddress.toCPointer<ByteVar>(), ulflags, ulcharset, pulprivstatus.rawAddress.toCPointer<ByteVar>(), pulstatus.rawAddress.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>(), lpvwritestream.rawAddress.toCPointer<ByteVar>(), pulcharcodeset.rawAddress.toCPointer<ByteVar>(), uscharcodecount, uslanguage, pttembedinfo.rawAddress.toCPointer<ByteVar>())
 
-public actual fun tTEmbedFontFromFileA(hdc: Hdc, szfontfilename: Pcstr, usttcindex: UShort, ulflags: TtembedFlags, ulcharset: EmbedFontCharset, pulprivstatus: MutPtr<EmbeddedFontPrivStatus>, pulstatus: MutPtr<UInt>, lpfnwritetostream: Writeembedproc, lpvwritestream: ConstPtr<CVoid>, puscharcodeset: ConstPtr<UShort>, uscharcodecount: UShort, uslanguage: UShort, pttembedinfo: ConstPtr<Ttembedinfo>): Int =
+public actual fun tTEmbedFontFromFileA(hdc: Hdc, szfontfilename: Pcstr, usttcindex: UShort, ulflags: TtembedFlags, ulcharset: EmbedFontCharset, pulprivstatus: MutPtr, pulstatus: MutPtr, lpfnwritetostream: Writeembedproc, lpvwritestream: ConstPtr, puscharcodeset: ConstPtr, uscharcodecount: UShort, uslanguage: UShort, pttembedinfo: ConstPtr): Int =
     windowssysWindowsWin32GraphicsGdiTTEmbedFontFromFileA(hdc.rawAddress.toCPointer<ByteVar>(), szfontfilename.rawAddress.toCPointer<ByteVar>(), usttcindex, ulflags, ulcharset, pulprivstatus.rawAddress.toCPointer<ByteVar>(), pulstatus.rawAddress.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>(), lpvwritestream.rawAddress.toCPointer<ByteVar>(), puscharcodeset.rawAddress.toCPointer<ByteVar>(), uscharcodecount, uslanguage, pttembedinfo.rawAddress.toCPointer<ByteVar>())
 
 public actual fun tTEnableEmbeddingForFacename(lpszfacename: Pcstr, benable: Bool): Int =
     windowssysWindowsWin32GraphicsGdiTTEnableEmbeddingForFacename(lpszfacename.rawAddress.toCPointer<ByteVar>(), benable)
 
-public actual fun tTGetEmbeddedFontInfo(ulflags: TtembedFlags, pulprivstatus: MutPtr<UInt>, ulprivs: FontLicensePrivs, pulstatus: MutPtr<UInt>, lpfnreadfromstream: Readembedproc, lpvreadstream: ConstPtr<CVoid>, pttloadinfo: ConstPtr<Ttloadinfo>): Int =
+public actual fun tTGetEmbeddedFontInfo(ulflags: TtembedFlags, pulprivstatus: MutPtr, ulprivs: FontLicensePrivs, pulstatus: MutPtr, lpfnreadfromstream: Readembedproc, lpvreadstream: ConstPtr, pttloadinfo: ConstPtr): Int =
     windowssysWindowsWin32GraphicsGdiTTGetEmbeddedFontInfo(ulflags, pulprivstatus.rawAddress.toCPointer<ByteVar>(), ulprivs, pulstatus.rawAddress.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>(), lpvreadstream.rawAddress.toCPointer<ByteVar>(), pttloadinfo.rawAddress.toCPointer<ByteVar>())
 
-public actual fun tTGetEmbeddingType(hdc: Hdc, pulembedtype: MutPtr<EmbeddedFontPrivStatus>): Int =
+public actual fun tTGetEmbeddingType(hdc: Hdc, pulembedtype: MutPtr): Int =
     windowssysWindowsWin32GraphicsGdiTTGetEmbeddingType(hdc.rawAddress.toCPointer<ByteVar>(), pulembedtype.rawAddress.toCPointer<ByteVar>())
 
-public actual fun tTGetNewFontName(phfontreference: ConstPtr<Handle>, wzwinfamilyname: Pwstr, cchmaxwinname: Int, szmacfamilyname: Pstr, cchmaxmacname: Int): Int =
+public actual fun tTGetNewFontName(phfontreference: ConstPtr, wzwinfamilyname: Pwstr, cchmaxwinname: Int, szmacfamilyname: Pstr, cchmaxmacname: Int): Int =
     windowssysWindowsWin32GraphicsGdiTTGetNewFontName(phfontreference.rawAddress.toCPointer<ByteVar>(), wzwinfamilyname.rawAddress.toCPointer<ByteVar>(), cchmaxwinname, szmacfamilyname.rawAddress.toCPointer<ByteVar>(), cchmaxmacname)
 
-public actual fun tTIsEmbeddingEnabled(hdc: Hdc, pbenabled: MutPtr<Bool>): Int =
+public actual fun tTIsEmbeddingEnabled(hdc: Hdc, pbenabled: MutPtr): Int =
     windowssysWindowsWin32GraphicsGdiTTIsEmbeddingEnabled(hdc.rawAddress.toCPointer<ByteVar>(), pbenabled.rawAddress.toCPointer<ByteVar>())
 
-public actual fun tTIsEmbeddingEnabledForFacename(lpszfacename: Pcstr, pbenabled: MutPtr<Bool>): Int =
+public actual fun tTIsEmbeddingEnabledForFacename(lpszfacename: Pcstr, pbenabled: MutPtr): Int =
     windowssysWindowsWin32GraphicsGdiTTIsEmbeddingEnabledForFacename(lpszfacename.rawAddress.toCPointer<ByteVar>(), pbenabled.rawAddress.toCPointer<ByteVar>())
 
-public actual fun tTLoadEmbeddedFont(phfontreference: MutPtr<Handle>, ulflags: UInt, pulprivstatus: MutPtr<EmbeddedFontPrivStatus>, ulprivs: FontLicensePrivs, pulstatus: MutPtr<TtloadEmbeddedFontStatus>, lpfnreadfromstream: Readembedproc, lpvreadstream: ConstPtr<CVoid>, szwinfamilyname: Pcwstr, szmacfamilyname: Pcstr, pttloadinfo: ConstPtr<Ttloadinfo>): Int =
+public actual fun tTLoadEmbeddedFont(phfontreference: MutPtr, ulflags: UInt, pulprivstatus: MutPtr, ulprivs: FontLicensePrivs, pulstatus: MutPtr, lpfnreadfromstream: Readembedproc, lpvreadstream: ConstPtr, szwinfamilyname: Pcwstr, szmacfamilyname: Pcstr, pttloadinfo: ConstPtr): Int =
     windowssysWindowsWin32GraphicsGdiTTLoadEmbeddedFont(phfontreference.rawAddress.toCPointer<ByteVar>(), ulflags, pulprivstatus.rawAddress.toCPointer<ByteVar>(), ulprivs, pulstatus.rawAddress.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>(), lpvreadstream.rawAddress.toCPointer<ByteVar>(), szwinfamilyname.rawAddress.toCPointer<ByteVar>(), szmacfamilyname.rawAddress.toCPointer<ByteVar>(), pttloadinfo.rawAddress.toCPointer<ByteVar>())
 
-public actual fun tTRunValidationTests(hdc: Hdc, ptestparam: ConstPtr<Ttvalidationtestsparams>): Int =
+public actual fun tTRunValidationTests(hdc: Hdc, ptestparam: ConstPtr): Int =
     windowssysWindowsWin32GraphicsGdiTTRunValidationTests(hdc.rawAddress.toCPointer<ByteVar>(), ptestparam.rawAddress.toCPointer<ByteVar>())
 
-public actual fun tTRunValidationTestsEx(hdc: Hdc, ptestparam: ConstPtr<Ttvalidationtestsparamsex>): Int =
+public actual fun tTRunValidationTestsEx(hdc: Hdc, ptestparam: ConstPtr): Int =
     windowssysWindowsWin32GraphicsGdiTTRunValidationTestsEx(hdc.rawAddress.toCPointer<ByteVar>(), ptestparam.rawAddress.toCPointer<ByteVar>())
 
-public actual fun tabbedTextOutA(hdc: Hdc, x: Int, y: Int, lpstring: Pcstr, chcount: Int, ntabpositions: Int, lpntabstoppositions: ConstPtr<Int>, ntaborigin: Int): Int =
+public actual fun tabbedTextOutA(hdc: Hdc, x: Int, y: Int, lpstring: Pcstr, chcount: Int, ntabpositions: Int, lpntabstoppositions: ConstPtr, ntaborigin: Int): Int =
     windowssysWindowsWin32GraphicsGdiTabbedTextOutA(hdc.rawAddress.toCPointer<ByteVar>(), x, y, lpstring.rawAddress.toCPointer<ByteVar>(), chcount, ntabpositions, lpntabstoppositions.rawAddress.toCPointer<ByteVar>(), ntaborigin)
 
-public actual fun tabbedTextOutW(hdc: Hdc, x: Int, y: Int, lpstring: Pcwstr, chcount: Int, ntabpositions: Int, lpntabstoppositions: ConstPtr<Int>, ntaborigin: Int): Int =
+public actual fun tabbedTextOutW(hdc: Hdc, x: Int, y: Int, lpstring: Pcwstr, chcount: Int, ntabpositions: Int, lpntabstoppositions: ConstPtr, ntaborigin: Int): Int =
     windowssysWindowsWin32GraphicsGdiTabbedTextOutW(hdc.rawAddress.toCPointer<ByteVar>(), x, y, lpstring.rawAddress.toCPointer<ByteVar>(), chcount, ntabpositions, lpntabstoppositions.rawAddress.toCPointer<ByteVar>(), ntaborigin)
 
 public actual fun textOutA(hdc: Hdc, x: Int, y: Int, lpstring: Pcstr, c: Int): Bool =
@@ -1577,7 +1574,7 @@ public actual fun textOutW(hdc: Hdc, x: Int, y: Int, lpstring: Pcwstr, c: Int): 
 public actual fun transparentBlt(hdcdest: Hdc, xorigindest: Int, yorigindest: Int, wdest: Int, hdest: Int, hdcsrc: Hdc, xoriginsrc: Int, yoriginsrc: Int, wsrc: Int, hsrc: Int, crtransparent: UInt): Bool =
     windowssysWindowsWin32GraphicsGdiTransparentBlt(hdcdest.rawAddress.toCPointer<ByteVar>(), xorigindest, yorigindest, wdest, hdest, hdcsrc.rawAddress.toCPointer<ByteVar>(), xoriginsrc, yoriginsrc, wsrc, hsrc, crtransparent)
 
-public actual fun unionRect(lprcdst: MutPtr<Rect>, lprcsrc1: ConstPtr<Rect>, lprcsrc2: ConstPtr<Rect>): Bool =
+public actual fun unionRect(lprcdst: MutPtr, lprcsrc1: ConstPtr, lprcsrc2: ConstPtr): Bool =
     windowssysWindowsWin32GraphicsGdiUnionRect(lprcdst.rawAddress.toCPointer<ByteVar>(), lprcsrc1.rawAddress.toCPointer<ByteVar>(), lprcsrc2.rawAddress.toCPointer<ByteVar>())
 
 public actual fun unrealizeObject(h: Hgdiobj): Bool =
@@ -1589,7 +1586,7 @@ public actual fun updateColors(hdc: Hdc): Bool =
 public actual fun updateWindow(hwnd: Hwnd): Bool =
     windowssysWindowsWin32GraphicsGdiUpdateWindow(hwnd.rawAddress.toCPointer<ByteVar>())
 
-public actual fun validateRect(hwnd: Hwnd, lprect: ConstPtr<Rect>): Bool =
+public actual fun validateRect(hwnd: Hwnd, lprect: ConstPtr): Bool =
     windowssysWindowsWin32GraphicsGdiValidateRect(hwnd.rawAddress.toCPointer<ByteVar>(), lprect.rawAddress.toCPointer<ByteVar>())
 
 public actual fun validateRgn(hwnd: Hwnd, hrgn: Hrgn): Bool =
@@ -1601,5 +1598,5 @@ public actual fun widenPath(hdc: Hdc): Bool =
 public actual fun windowFromDC(hdc: Hdc): Hwnd =
     MutPtr(windowssysWindowsWin32GraphicsGdiWindowFromDC(hdc.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun wglSwapMultipleBuffers(param0: UInt, param1: ConstPtr<Wglswap>): UInt =
+public actual fun wglSwapMultipleBuffers(param0: UInt, param1: ConstPtr): UInt =
     windowssysWindowsWin32GraphicsGdiWglSwapMultipleBuffers(param0, param1.rawAddress.toCPointer<ByteVar>())

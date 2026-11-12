@@ -2,12 +2,10 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.ui.accessibility
 
-import io.github.kotlinmania.rustlang.core.ffi.CVoid
 import io.github.kotlinmania.rustlang.core.ptr.ConstPtr
 import io.github.kotlinmania.rustlang.core.ptr.MutPtr
 import io.github.kotlinmania.windowssys.core.Bool
 import io.github.kotlinmania.windowssys.core.Bstr
-import io.github.kotlinmania.windowssys.core.Guid
 import io.github.kotlinmania.windowssys.core.Hresult
 import io.github.kotlinmania.windowssys.core.Pcstr
 import io.github.kotlinmania.windowssys.core.Pcwstr
@@ -20,7 +18,6 @@ import io.github.kotlinmania.windowssys.windows.win32.foundation.Lresult
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Point
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Wparam
 import io.github.kotlinmania.windowssys.windows.win32.system.Variant
-import io.github.kotlinmania.windowssys.windows.win32.system.com.Safearray
 import io.github.kotlinmania.windowssys.windows.win32.ui.windowsandmessaging.PointerInputType
 
 // The host must provide the C companion wrapper exports in import module windowssys.
@@ -30,25 +27,25 @@ public actual fun accNotifyTouchInteraction(hwndapp: Hwnd, hwndtarget: Hwnd, ptt
 public actual fun accSetRunningUtilityState(hwndapp: Hwnd, dwutilitystatemask: UInt, dwutilitystate: AccUtilityStateFlags): Hresult =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32UiAccessibilityAccSetRunningUtilityState")
 
-public actual fun accessibleChildren(pacccontainer: MutPtr<CVoid>, ichildstart: Int, cchildren: Int, rgvarchildren: MutPtr<Variant.Variant>, pcobtained: MutPtr<Int>): Hresult =
+public actual fun accessibleChildren(pacccontainer: MutPtr, ichildstart: Int, cchildren: Int, rgvarchildren: MutPtr, pcobtained: MutPtr): Hresult =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32UiAccessibilityAccessibleChildren")
 
-public actual fun accessibleObjectFromEvent(hwnd: Hwnd, dwid: UInt, dwchildid: UInt, ppacc: MutPtr<MutPtr<CVoid>>, pvarchild: MutPtr<Variant.Variant>): Hresult =
+public actual fun accessibleObjectFromEvent(hwnd: Hwnd, dwid: UInt, dwchildid: UInt, ppacc: MutPtr, pvarchild: MutPtr): Hresult =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32UiAccessibilityAccessibleObjectFromEvent")
 
-public actual fun accessibleObjectFromPoint(ptscreen: Point, ppacc: MutPtr<MutPtr<CVoid>>, pvarchild: MutPtr<Variant.Variant>): Hresult =
+public actual fun accessibleObjectFromPoint(ptscreen: Point, ppacc: MutPtr, pvarchild: MutPtr): Hresult =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32UiAccessibilityAccessibleObjectFromPoint")
 
-public actual fun accessibleObjectFromWindow(hwnd: Hwnd, dwid: UInt, riid: ConstPtr<Guid>, ppvobject: MutPtr<MutPtr<CVoid>>): Hresult =
+public actual fun accessibleObjectFromWindow(hwnd: Hwnd, dwid: UInt, riid: ConstPtr, ppvobject: MutPtr): Hresult =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32UiAccessibilityAccessibleObjectFromWindow")
 
-public actual fun createStdAccessibleObject(hwnd: Hwnd, idobject: Int, riid: ConstPtr<Guid>, ppvobject: MutPtr<MutPtr<CVoid>>): Hresult =
+public actual fun createStdAccessibleObject(hwnd: Hwnd, idobject: Int, riid: ConstPtr, ppvobject: MutPtr): Hresult =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32UiAccessibilityCreateStdAccessibleObject")
 
-public actual fun createStdAccessibleProxyA(hwnd: Hwnd, pclassname: Pcstr, idobject: Int, riid: ConstPtr<Guid>, ppvobject: MutPtr<MutPtr<CVoid>>): Hresult =
+public actual fun createStdAccessibleProxyA(hwnd: Hwnd, pclassname: Pcstr, idobject: Int, riid: ConstPtr, ppvobject: MutPtr): Hresult =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32UiAccessibilityCreateStdAccessibleProxyA")
 
-public actual fun createStdAccessibleProxyW(hwnd: Hwnd, pclassname: Pcwstr, idobject: Int, riid: ConstPtr<Guid>, ppvobject: MutPtr<MutPtr<CVoid>>): Hresult =
+public actual fun createStdAccessibleProxyW(hwnd: Hwnd, pclassname: Pcwstr, idobject: Int, riid: ConstPtr, ppvobject: MutPtr): Hresult =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32UiAccessibilityCreateStdAccessibleProxyW")
 
 public actual fun dockPatternSetDockPosition(hobj: Huiapatternobject, dockposition: DockPosition): Hresult =
@@ -60,7 +57,7 @@ public actual fun expandCollapsePatternCollapse(hobj: Huiapatternobject): Hresul
 public actual fun expandCollapsePatternExpand(hobj: Huiapatternobject): Hresult =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32UiAccessibilityExpandCollapsePatternExpand")
 
-public actual fun getOleaccVersionInfo(pver: MutPtr<UInt>, pbuild: MutPtr<UInt>): Unit = throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32UiAccessibilityGetOleaccVersionInfo")
+public actual fun getOleaccVersionInfo(pver: MutPtr, pbuild: MutPtr): Unit = throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32UiAccessibilityGetOleaccVersionInfo")
 
 public actual fun getRoleTextA(lrole: UInt, lpszrole: Pstr, cchrolemax: UInt): UInt =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32UiAccessibilityGetRoleTextA")
@@ -74,7 +71,7 @@ public actual fun getStateTextA(lstatebit: UInt, lpszstate: Pstr, cchstate: UInt
 public actual fun getStateTextW(lstatebit: UInt, lpszstate: Pwstr, cchstate: UInt): UInt =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32UiAccessibilityGetStateTextW")
 
-public actual fun gridPatternGetItem(hobj: Huiapatternobject, row: Int, column: Int, presult: MutPtr<Huianode>): Hresult =
+public actual fun gridPatternGetItem(hobj: Huiapatternobject, row: Int, column: Int, presult: MutPtr): Hresult =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32UiAccessibilityGridPatternGetItem")
 
 public actual fun invokePatternInvoke(hobj: Huiapatternobject): Hresult =
@@ -86,13 +83,13 @@ private external fun wasiWindowssysWindowsWin32UiAccessibilityIsWinEventHookInst
 public actual fun isWinEventHookInstalled(event: UInt): Bool =
     wasiWindowssysWindowsWin32UiAccessibilityIsWinEventHookInstalled(event.toInt())
 
-public actual fun itemContainerPatternFindItemByProperty(hobj: Huiapatternobject, hnodestartafter: Huianode, propertyid: Int, value: Variant.Variant, pfound: MutPtr<Huianode>): Hresult =
+public actual fun itemContainerPatternFindItemByProperty(hobj: Huiapatternobject, hnodestartafter: Huianode, propertyid: Int, value: Variant.Variant, pfound: MutPtr): Hresult =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32UiAccessibilityItemContainerPatternFindItemByProperty")
 
 public actual fun legacyIaccessiblePatternDoDefaultAction(hobj: Huiapatternobject): Hresult =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32UiAccessibilityLegacyIaccessiblePatternDoDefaultAction")
 
-public actual fun legacyIaccessiblePatternGetIaccessible(hobj: Huiapatternobject, paccessible: MutPtr<MutPtr<CVoid>>): Hresult =
+public actual fun legacyIaccessiblePatternGetIaccessible(hobj: Huiapatternobject, paccessible: MutPtr): Hresult =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32UiAccessibilityLegacyIaccessiblePatternGetIaccessible")
 
 public actual fun legacyIaccessiblePatternSelect(hobj: Huiapatternobject, flagsselect: Int): Hresult =
@@ -101,10 +98,10 @@ public actual fun legacyIaccessiblePatternSelect(hobj: Huiapatternobject, flagss
 public actual fun legacyIaccessiblePatternSetValue(hobj: Huiapatternobject, szvalue: Pcwstr): Hresult =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32UiAccessibilityLegacyIaccessiblePatternSetValue")
 
-public actual fun lresultFromObject(riid: ConstPtr<Guid>, wparam: Wparam, punk: MutPtr<CVoid>): Lresult =
+public actual fun lresultFromObject(riid: ConstPtr, wparam: Wparam, punk: MutPtr): Lresult =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32UiAccessibilityLresultFromObject")
 
-public actual fun multipleViewPatternGetViewName(hobj: Huiapatternobject, viewid: Int, ppstr: MutPtr<Bstr>): Hresult =
+public actual fun multipleViewPatternGetViewName(hobj: Huiapatternobject, viewid: Int, ppstr: MutPtr): Hresult =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32UiAccessibilityMultipleViewPatternGetViewName")
 
 public actual fun multipleViewPatternSetCurrentView(hobj: Huiapatternobject, viewid: Int): Hresult =
@@ -112,7 +109,7 @@ public actual fun multipleViewPatternSetCurrentView(hobj: Huiapatternobject, vie
 
 public actual fun notifyWinEvent(event: UInt, hwnd: Hwnd, idobject: Int, idchild: Int): Unit = throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32UiAccessibilityNotifyWinEvent")
 
-public actual fun objectFromLresult(lresult: Lresult, riid: ConstPtr<Guid>, wparam: Wparam, ppvobject: MutPtr<MutPtr<CVoid>>): Hresult =
+public actual fun objectFromLresult(lresult: Lresult, riid: ConstPtr, wparam: Wparam, ppvobject: MutPtr): Hresult =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32UiAccessibilityObjectFromLresult")
 
 public actual fun rangeValuePatternSetValue(hobj: Huiapatternobject, value: Double): Hresult =
@@ -151,67 +148,67 @@ public actual fun synchronizedInputPatternCancel(hobj: Huiapatternobject): Hresu
 public actual fun synchronizedInputPatternStartListening(hobj: Huiapatternobject, inputtype: SynchronizedInputType): Hresult =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32UiAccessibilitySynchronizedInputPatternStartListening")
 
-public actual fun textPatternGetSelection(hobj: Huiapatternobject, pretval: MutPtr<MutPtr<Safearray>>): Hresult =
+public actual fun textPatternGetSelection(hobj: Huiapatternobject, pretval: MutPtr): Hresult =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32UiAccessibilityTextPatternGetSelection")
 
-public actual fun textPatternGetVisibleRanges(hobj: Huiapatternobject, pretval: MutPtr<MutPtr<Safearray>>): Hresult =
+public actual fun textPatternGetVisibleRanges(hobj: Huiapatternobject, pretval: MutPtr): Hresult =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32UiAccessibilityTextPatternGetVisibleRanges")
 
-public actual fun textPatternRangeFromChild(hobj: Huiapatternobject, hnodechild: Huianode, pretval: MutPtr<Huiatextrange>): Hresult =
+public actual fun textPatternRangeFromChild(hobj: Huiapatternobject, hnodechild: Huianode, pretval: MutPtr): Hresult =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32UiAccessibilityTextPatternRangeFromChild")
 
-public actual fun textPatternRangeFromPoint(hobj: Huiapatternobject, point: UiaPoint, pretval: MutPtr<Huiatextrange>): Hresult =
+public actual fun textPatternRangeFromPoint(hobj: Huiapatternobject, point: UiaPoint, pretval: MutPtr): Hresult =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32UiAccessibilityTextPatternRangeFromPoint")
 
-public actual fun textPatternGetDocumentRange(hobj: Huiapatternobject, pretval: MutPtr<Huiatextrange>): Hresult =
+public actual fun textPatternGetDocumentRange(hobj: Huiapatternobject, pretval: MutPtr): Hresult =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32UiAccessibilityTextPatternGetDocumentRange")
 
-public actual fun textPatternGetSupportedTextSelection(hobj: Huiapatternobject, pretval: MutPtr<SupportedTextSelection>): Hresult =
+public actual fun textPatternGetSupportedTextSelection(hobj: Huiapatternobject, pretval: MutPtr): Hresult =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32UiAccessibilityTextPatternGetSupportedTextSelection")
 
 public actual fun textRangeAddToSelection(hobj: Huiatextrange): Hresult =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32UiAccessibilityTextRangeAddToSelection")
 
-public actual fun textRangeClone(hobj: Huiatextrange, pretval: MutPtr<Huiatextrange>): Hresult =
+public actual fun textRangeClone(hobj: Huiatextrange, pretval: MutPtr): Hresult =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32UiAccessibilityTextRangeClone")
 
-public actual fun textRangeCompare(hobj: Huiatextrange, range: Huiatextrange, pretval: MutPtr<Bool>): Hresult =
+public actual fun textRangeCompare(hobj: Huiatextrange, range: Huiatextrange, pretval: MutPtr): Hresult =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32UiAccessibilityTextRangeCompare")
 
-public actual fun textRangeCompareEndpoints(hobj: Huiatextrange, endpoint: TextPatternRangeEndpoint, targetrange: Huiatextrange, targetendpoint: TextPatternRangeEndpoint, pretval: MutPtr<Int>): Hresult =
+public actual fun textRangeCompareEndpoints(hobj: Huiatextrange, endpoint: TextPatternRangeEndpoint, targetrange: Huiatextrange, targetendpoint: TextPatternRangeEndpoint, pretval: MutPtr): Hresult =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32UiAccessibilityTextRangeCompareEndpoints")
 
 public actual fun textRangeExpandToEnclosingUnit(hobj: Huiatextrange, unit: TextUnit): Hresult =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32UiAccessibilityTextRangeExpandToEnclosingUnit")
 
-public actual fun textRangeFindAttribute(hobj: Huiatextrange, attributeid: Int, value: Variant.Variant, backward: Bool, pretval: MutPtr<Huiatextrange>): Hresult =
+public actual fun textRangeFindAttribute(hobj: Huiatextrange, attributeid: Int, value: Variant.Variant, backward: Bool, pretval: MutPtr): Hresult =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32UiAccessibilityTextRangeFindAttribute")
 
-public actual fun textRangeFindText(hobj: Huiatextrange, text: Bstr, backward: Bool, ignorecase: Bool, pretval: MutPtr<Huiatextrange>): Hresult =
+public actual fun textRangeFindText(hobj: Huiatextrange, text: Bstr, backward: Bool, ignorecase: Bool, pretval: MutPtr): Hresult =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32UiAccessibilityTextRangeFindText")
 
-public actual fun textRangeGetAttributeValue(hobj: Huiatextrange, attributeid: Int, pretval: MutPtr<Variant.Variant>): Hresult =
+public actual fun textRangeGetAttributeValue(hobj: Huiatextrange, attributeid: Int, pretval: MutPtr): Hresult =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32UiAccessibilityTextRangeGetAttributeValue")
 
-public actual fun textRangeGetBoundingRectangles(hobj: Huiatextrange, pretval: MutPtr<MutPtr<Safearray>>): Hresult =
+public actual fun textRangeGetBoundingRectangles(hobj: Huiatextrange, pretval: MutPtr): Hresult =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32UiAccessibilityTextRangeGetBoundingRectangles")
 
-public actual fun textRangeGetChildren(hobj: Huiatextrange, pretval: MutPtr<MutPtr<Safearray>>): Hresult =
+public actual fun textRangeGetChildren(hobj: Huiatextrange, pretval: MutPtr): Hresult =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32UiAccessibilityTextRangeGetChildren")
 
-public actual fun textRangeGetEnclosingElement(hobj: Huiatextrange, pretval: MutPtr<Huianode>): Hresult =
+public actual fun textRangeGetEnclosingElement(hobj: Huiatextrange, pretval: MutPtr): Hresult =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32UiAccessibilityTextRangeGetEnclosingElement")
 
-public actual fun textRangeGetText(hobj: Huiatextrange, maxlength: Int, pretval: MutPtr<Bstr>): Hresult =
+public actual fun textRangeGetText(hobj: Huiatextrange, maxlength: Int, pretval: MutPtr): Hresult =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32UiAccessibilityTextRangeGetText")
 
-public actual fun textRangeMove(hobj: Huiatextrange, unit: TextUnit, count: Int, pretval: MutPtr<Int>): Hresult =
+public actual fun textRangeMove(hobj: Huiatextrange, unit: TextUnit, count: Int, pretval: MutPtr): Hresult =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32UiAccessibilityTextRangeMove")
 
 public actual fun textRangeMoveEndpointByRange(hobj: Huiatextrange, endpoint: TextPatternRangeEndpoint, targetrange: Huiatextrange, targetendpoint: TextPatternRangeEndpoint): Hresult =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32UiAccessibilityTextRangeMoveEndpointByRange")
 
-public actual fun textRangeMoveEndpointByUnit(hobj: Huiatextrange, endpoint: TextPatternRangeEndpoint, unit: TextUnit, count: Int, pretval: MutPtr<Int>): Hresult =
+public actual fun textRangeMoveEndpointByUnit(hobj: Huiatextrange, endpoint: TextPatternRangeEndpoint, unit: TextUnit, count: Int, pretval: MutPtr): Hresult =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32UiAccessibilityTextRangeMoveEndpointByUnit")
 
 public actual fun textRangeRemoveFromSelection(hobj: Huiatextrange): Hresult =
@@ -235,7 +232,7 @@ public actual fun transformPatternResize(hobj: Huiapatternobject, width: Double,
 public actual fun transformPatternRotate(hobj: Huiapatternobject, degrees: Double): Hresult =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32UiAccessibilityTransformPatternRotate")
 
-public actual fun uiaAddEvent(hnode: Huianode, eventid: Int, pcallback: MutPtr<UiaEventCallback>, scope: TreeScope, pproperties: MutPtr<Int>, cproperties: Int, prequest: MutPtr<UiaCacheRequest>, phevent: MutPtr<Huiaevent>): Hresult =
+public actual fun uiaAddEvent(hnode: Huianode, eventid: Int, pcallback: MutPtr, scope: TreeScope, pproperties: MutPtr, cproperties: Int, prequest: MutPtr, phevent: MutPtr): Hresult =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32UiAccessibilityUiaAddEvent")
 
 @kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32UiAccessibilityUiaClientsAreListening")
@@ -250,7 +247,7 @@ private external fun wasiWindowssysWindowsWin32UiAccessibilityUiaDisconnectAllPr
 public actual fun uiaDisconnectAllProviders(): Hresult =
     wasiWindowssysWindowsWin32UiAccessibilityUiaDisconnectAllProviders()
 
-public actual fun uiaDisconnectProvider(pprovider: MutPtr<CVoid>): Hresult =
+public actual fun uiaDisconnectProvider(pprovider: MutPtr): Hresult =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32UiAccessibilityUiaDisconnectProvider")
 
 public actual fun uiaEventAddWindow(hevent: Huiaevent, hwnd: Hwnd): Hresult =
@@ -259,67 +256,67 @@ public actual fun uiaEventAddWindow(hevent: Huiaevent, hwnd: Hwnd): Hresult =
 public actual fun uiaEventRemoveWindow(hevent: Huiaevent, hwnd: Hwnd): Hresult =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32UiAccessibilityUiaEventRemoveWindow")
 
-public actual fun uiaFind(hnode: Huianode, pparams: MutPtr<UiaFindParams>, prequest: MutPtr<UiaCacheRequest>, pprequesteddata: MutPtr<MutPtr<Safearray>>, ppoffsets: MutPtr<MutPtr<Safearray>>, pptreestructures: MutPtr<MutPtr<Safearray>>): Hresult =
+public actual fun uiaFind(hnode: Huianode, pparams: MutPtr, prequest: MutPtr, pprequesteddata: MutPtr, ppoffsets: MutPtr, pptreestructures: MutPtr): Hresult =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32UiAccessibilityUiaFind")
 
-public actual fun uiaGetErrorDescription(pdescription: MutPtr<Bstr>): Bool =
+public actual fun uiaGetErrorDescription(pdescription: MutPtr): Bool =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32UiAccessibilityUiaGetErrorDescription")
 
-public actual fun uiaGetPatternProvider(hnode: Huianode, patternid: Int, phobj: MutPtr<Huiapatternobject>): Hresult =
+public actual fun uiaGetPatternProvider(hnode: Huianode, patternid: Int, phobj: MutPtr): Hresult =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32UiAccessibilityUiaGetPatternProvider")
 
-public actual fun uiaGetPropertyValue(hnode: Huianode, propertyid: Int, pvalue: MutPtr<Variant.Variant>): Hresult =
+public actual fun uiaGetPropertyValue(hnode: Huianode, propertyid: Int, pvalue: MutPtr): Hresult =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32UiAccessibilityUiaGetPropertyValue")
 
-public actual fun uiaGetReservedMixedAttributeValue(punkmixedattributevalue: MutPtr<MutPtr<CVoid>>): Hresult =
+public actual fun uiaGetReservedMixedAttributeValue(punkmixedattributevalue: MutPtr): Hresult =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32UiAccessibilityUiaGetReservedMixedAttributeValue")
 
-public actual fun uiaGetReservedNotSupportedValue(punknotsupportedvalue: MutPtr<MutPtr<CVoid>>): Hresult =
+public actual fun uiaGetReservedNotSupportedValue(punknotsupportedvalue: MutPtr): Hresult =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32UiAccessibilityUiaGetReservedNotSupportedValue")
 
-public actual fun uiaGetRootNode(phnode: MutPtr<Huianode>): Hresult =
+public actual fun uiaGetRootNode(phnode: MutPtr): Hresult =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32UiAccessibilityUiaGetRootNode")
 
-public actual fun uiaGetRuntimeId(hnode: Huianode, pruntimeid: MutPtr<MutPtr<Safearray>>): Hresult =
+public actual fun uiaGetRuntimeId(hnode: Huianode, pruntimeid: MutPtr): Hresult =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32UiAccessibilityUiaGetRuntimeId")
 
-public actual fun uiaGetUpdatedCache(hnode: Huianode, prequest: MutPtr<UiaCacheRequest>, normalizestate: NormalizeState, pnormalizecondition: MutPtr<UiaCondition>, pprequesteddata: MutPtr<MutPtr<Safearray>>, pptreestructure: MutPtr<Bstr>): Hresult =
+public actual fun uiaGetUpdatedCache(hnode: Huianode, prequest: MutPtr, normalizestate: NormalizeState, pnormalizecondition: MutPtr, pprequesteddata: MutPtr, pptreestructure: MutPtr): Hresult =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32UiAccessibilityUiaGetUpdatedCache")
 
-public actual fun uiaHPatternObjectFromVariant(pvar: MutPtr<Variant.Variant>, phobj: MutPtr<Huiapatternobject>): Hresult =
+public actual fun uiaHPatternObjectFromVariant(pvar: MutPtr, phobj: MutPtr): Hresult =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32UiAccessibilityUiaHPatternObjectFromVariant")
 
-public actual fun uiaHTextRangeFromVariant(pvar: MutPtr<Variant.Variant>, phtextrange: MutPtr<Huiatextrange>): Hresult =
+public actual fun uiaHTextRangeFromVariant(pvar: MutPtr, phtextrange: MutPtr): Hresult =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32UiAccessibilityUiaHTextRangeFromVariant")
 
-public actual fun uiaHUiaNodeFromVariant(pvar: MutPtr<Variant.Variant>, phnode: MutPtr<Huianode>): Hresult =
+public actual fun uiaHUiaNodeFromVariant(pvar: MutPtr, phnode: MutPtr): Hresult =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32UiAccessibilityUiaHUiaNodeFromVariant")
 
 public actual fun uiaHasServerSideProvider(hwnd: Hwnd): Bool =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32UiAccessibilityUiaHasServerSideProvider")
 
-public actual fun uiaHostProviderFromHwnd(hwnd: Hwnd, ppprovider: MutPtr<MutPtr<CVoid>>): Hresult =
+public actual fun uiaHostProviderFromHwnd(hwnd: Hwnd, ppprovider: MutPtr): Hresult =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32UiAccessibilityUiaHostProviderFromHwnd")
 
-public actual fun uiaIAccessibleFromProvider(pprovider: MutPtr<CVoid>, dwflags: UInt, ppaccessible: MutPtr<MutPtr<CVoid>>, pvarchild: MutPtr<Variant.Variant>): Hresult =
+public actual fun uiaIAccessibleFromProvider(pprovider: MutPtr, dwflags: UInt, ppaccessible: MutPtr, pvarchild: MutPtr): Hresult =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32UiAccessibilityUiaIAccessibleFromProvider")
 
-public actual fun uiaLookupId(type: AutomationIdentifierType, pguid: ConstPtr<Guid>): Int =
+public actual fun uiaLookupId(type: AutomationIdentifierType, pguid: ConstPtr): Int =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32UiAccessibilityUiaLookupId")
 
-public actual fun uiaNavigate(hnode: Huianode, direction: NavigateDirection, pcondition: MutPtr<UiaCondition>, prequest: MutPtr<UiaCacheRequest>, pprequesteddata: MutPtr<MutPtr<Safearray>>, pptreestructure: MutPtr<Bstr>): Hresult =
+public actual fun uiaNavigate(hnode: Huianode, direction: NavigateDirection, pcondition: MutPtr, prequest: MutPtr, pprequesteddata: MutPtr, pptreestructure: MutPtr): Hresult =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32UiAccessibilityUiaNavigate")
 
-public actual fun uiaNodeFromFocus(prequest: MutPtr<UiaCacheRequest>, pprequesteddata: MutPtr<MutPtr<Safearray>>, pptreestructure: MutPtr<Bstr>): Hresult =
+public actual fun uiaNodeFromFocus(prequest: MutPtr, pprequesteddata: MutPtr, pptreestructure: MutPtr): Hresult =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32UiAccessibilityUiaNodeFromFocus")
 
-public actual fun uiaNodeFromHandle(hwnd: Hwnd, phnode: MutPtr<Huianode>): Hresult =
+public actual fun uiaNodeFromHandle(hwnd: Hwnd, phnode: MutPtr): Hresult =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32UiAccessibilityUiaNodeFromHandle")
 
-public actual fun uiaNodeFromPoint(x: Double, y: Double, prequest: MutPtr<UiaCacheRequest>, pprequesteddata: MutPtr<MutPtr<Safearray>>, pptreestructure: MutPtr<Bstr>): Hresult =
+public actual fun uiaNodeFromPoint(x: Double, y: Double, prequest: MutPtr, pprequesteddata: MutPtr, pptreestructure: MutPtr): Hresult =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32UiAccessibilityUiaNodeFromPoint")
 
-public actual fun uiaNodeFromProvider(pprovider: MutPtr<CVoid>, phnode: MutPtr<Huianode>): Hresult =
+public actual fun uiaNodeFromProvider(pprovider: MutPtr, phnode: MutPtr): Hresult =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32UiAccessibilityUiaNodeFromProvider")
 
 public actual fun uiaNodeRelease(hnode: Huianode): Bool =
@@ -328,42 +325,42 @@ public actual fun uiaNodeRelease(hnode: Huianode): Bool =
 public actual fun uiaPatternRelease(hobj: Huiapatternobject): Bool =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32UiAccessibilityUiaPatternRelease")
 
-public actual fun uiaProviderForNonClient(hwnd: Hwnd, idobject: Int, idchild: Int, ppprovider: MutPtr<MutPtr<CVoid>>): Hresult =
+public actual fun uiaProviderForNonClient(hwnd: Hwnd, idobject: Int, idchild: Int, ppprovider: MutPtr): Hresult =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32UiAccessibilityUiaProviderForNonClient")
 
-public actual fun uiaProviderFromIAccessible(paccessible: MutPtr<CVoid>, idchild: Int, dwflags: UInt, ppprovider: MutPtr<MutPtr<CVoid>>): Hresult =
+public actual fun uiaProviderFromIAccessible(paccessible: MutPtr, idchild: Int, dwflags: UInt, ppprovider: MutPtr): Hresult =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32UiAccessibilityUiaProviderFromIAccessible")
 
-public actual fun uiaRaiseActiveTextPositionChangedEvent(provider: MutPtr<CVoid>, textrange: MutPtr<CVoid>): Hresult =
+public actual fun uiaRaiseActiveTextPositionChangedEvent(provider: MutPtr, textrange: MutPtr): Hresult =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32UiAccessibilityUiaRaiseActiveTextPositionChangedEvent")
 
-public actual fun uiaRaiseAsyncContentLoadedEvent(pprovider: MutPtr<CVoid>, asynccontentloadedstate: AsyncContentLoadedState, percentcomplete: Double): Hresult =
+public actual fun uiaRaiseAsyncContentLoadedEvent(pprovider: MutPtr, asynccontentloadedstate: AsyncContentLoadedState, percentcomplete: Double): Hresult =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32UiAccessibilityUiaRaiseAsyncContentLoadedEvent")
 
-public actual fun uiaRaiseAutomationEvent(pprovider: MutPtr<CVoid>, id: UiaEventId): Hresult =
+public actual fun uiaRaiseAutomationEvent(pprovider: MutPtr, id: UiaEventId): Hresult =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32UiAccessibilityUiaRaiseAutomationEvent")
 
-public actual fun uiaRaiseAutomationPropertyChangedEvent(pprovider: MutPtr<CVoid>, id: UiaPropertyId, oldvalue: Variant.Variant, newvalue: Variant.Variant): Hresult =
+public actual fun uiaRaiseAutomationPropertyChangedEvent(pprovider: MutPtr, id: UiaPropertyId, oldvalue: Variant.Variant, newvalue: Variant.Variant): Hresult =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32UiAccessibilityUiaRaiseAutomationPropertyChangedEvent")
 
-public actual fun uiaRaiseChangesEvent(pprovider: MutPtr<CVoid>, eventidcount: Int, puiachanges: MutPtr<UiaChangeInfo>): Hresult =
+public actual fun uiaRaiseChangesEvent(pprovider: MutPtr, eventidcount: Int, puiachanges: MutPtr): Hresult =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32UiAccessibilityUiaRaiseChangesEvent")
 
-public actual fun uiaRaiseNotificationEvent(provider: MutPtr<CVoid>, notificationkind: NotificationKind, notificationprocessing: NotificationProcessing, displaystring: Bstr, activityid: Bstr): Hresult =
+public actual fun uiaRaiseNotificationEvent(provider: MutPtr, notificationkind: NotificationKind, notificationprocessing: NotificationProcessing, displaystring: Bstr, activityid: Bstr): Hresult =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32UiAccessibilityUiaRaiseNotificationEvent")
 
-public actual fun uiaRaiseStructureChangedEvent(pprovider: MutPtr<CVoid>, structurechangetype: StructureChangeType, pruntimeid: MutPtr<Int>, cruntimeidlen: Int): Hresult =
+public actual fun uiaRaiseStructureChangedEvent(pprovider: MutPtr, structurechangetype: StructureChangeType, pruntimeid: MutPtr, cruntimeidlen: Int): Hresult =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32UiAccessibilityUiaRaiseStructureChangedEvent")
 
-public actual fun uiaRaiseTextEditTextChangedEvent(pprovider: MutPtr<CVoid>, texteditchangetype: TextEditChangeType, pchangeddata: MutPtr<Safearray>): Hresult =
+public actual fun uiaRaiseTextEditTextChangedEvent(pprovider: MutPtr, texteditchangetype: TextEditChangeType, pchangeddata: MutPtr): Hresult =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32UiAccessibilityUiaRaiseTextEditTextChangedEvent")
 
-public actual fun uiaRegisterProviderCallback(pcallback: MutPtr<UiaProviderCallback>): Unit = throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32UiAccessibilityUiaRegisterProviderCallback")
+public actual fun uiaRegisterProviderCallback(pcallback: MutPtr): Unit = throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32UiAccessibilityUiaRegisterProviderCallback")
 
 public actual fun uiaRemoveEvent(hevent: Huiaevent): Hresult =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32UiAccessibilityUiaRemoveEvent")
 
-public actual fun uiaReturnRawElementProvider(hwnd: Hwnd, wparam: Wparam, lparam: Lparam, el: MutPtr<CVoid>): Lresult =
+public actual fun uiaReturnRawElementProvider(hwnd: Hwnd, wparam: Wparam, lparam: Lparam, el: MutPtr): Lresult =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32UiAccessibilityUiaReturnRawElementProvider")
 
 public actual fun uiaSetFocus(hnode: Huianode): Hresult =
@@ -387,7 +384,7 @@ public actual fun valuePatternSetValue(hobj: Huiapatternobject, pval: Pcwstr): H
 public actual fun virtualizedItemPatternRealize(hobj: Huiapatternobject): Hresult =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32UiAccessibilityVirtualizedItemPatternRealize")
 
-public actual fun windowFromAccessibleObject(param0: MutPtr<CVoid>, phwnd: MutPtr<Hwnd>): Hresult =
+public actual fun windowFromAccessibleObject(param0: MutPtr, phwnd: MutPtr): Hresult =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32UiAccessibilityWindowFromAccessibleObject")
 
 public actual fun windowPatternClose(hobj: Huiapatternobject): Hresult =
@@ -396,5 +393,5 @@ public actual fun windowPatternClose(hobj: Huiapatternobject): Hresult =
 public actual fun windowPatternSetWindowVisualState(hobj: Huiapatternobject, state: WindowVisualState): Hresult =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32UiAccessibilityWindowPatternSetWindowVisualState")
 
-public actual fun windowPatternWaitForInputIdle(hobj: Huiapatternobject, milliseconds: Int, presult: MutPtr<Bool>): Hresult =
+public actual fun windowPatternWaitForInputIdle(hobj: Huiapatternobject, milliseconds: Int, presult: MutPtr): Hresult =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32UiAccessibilityWindowPatternWaitForInputIdle")

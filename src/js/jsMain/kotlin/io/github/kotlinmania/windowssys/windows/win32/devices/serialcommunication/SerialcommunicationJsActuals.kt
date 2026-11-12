@@ -8,19 +8,19 @@ import io.github.kotlinmania.windowssys.core.Bool
 private val windowsWin32DevicesSerialcommunicationNapiAddon: dynamic =
     js("(function() { if (typeof globalThis !== 'undefined' && typeof globalThis.__km_napi_windowssys !== 'undefined') return globalThis.__km_napi_windowssys; if (typeof process === 'undefined' || !process.versions || !process.versions.node) return null; var mod = process.getBuiltinModule ? process.getBuiltinModule('module') : (process.mainModule && process.mainModule.constructor); var req = (mod && mod.createRequire) ? mod.createRequire((process.cwd ? process.cwd() : '.') + '/package.json') : (process.mainModule ? process.mainModule.require : null); if (!req) return null; try { var pkg = req('@kotlinmania/windowssys-native-bindings'); if (typeof globalThis !== 'undefined') globalThis.__km_napi_windowssys = pkg; return pkg; } catch (_) {} var fs = req('fs'); var path = req('path'); var dir = process.cwd ? process.cwd() : '.'; var rels = ['windowssys_native.node', 'build/node-ffi/windowssys_native.node', 'build/node-ffi/release/windowssys_native.node', 'build/node-ffi/debug/windowssys_native.node', 'src/js/node-windowssys/build/Release/windowssys_native.node', 'src/js/node-windowssys/build/Debug/windowssys_native.node', 'src/js/node-windowssys/dist/build/Release/windowssys_native.node', 'src/js/node-windowssys/dist/build/Debug/windowssys_native.node']; for (var d = 0; d < 8; d++) { for (var i = 0; i < rels.length; i++) { var c = path.resolve(dir, rels[i]); if (fs.existsSync(c)) { var loaded = req(c); if (typeof globalThis !== 'undefined') globalThis.__km_napi_windowssys = loaded; return loaded; } } var parent = path.dirname(dir); if (parent === dir) break; dir = parent; } if (typeof globalThis !== 'undefined') globalThis.__km_napi_windowssys = null; return null; })()")
 
-public actual fun comDBClaimNextFreePort(hcomdb: Hcomdb, comnumber: MutPtr<UInt>): Int =
+public actual fun comDBClaimNextFreePort(hcomdb: Hcomdb, comnumber: MutPtr): Int =
     if (windowsWin32DevicesSerialcommunicationNapiAddon != null) (windowsWin32DevicesSerialcommunicationNapiAddon.windowssysWindowsWin32DevicesSerialcommunicationComDBClaimNextFreePort(hcomdb.rawAddress.toString(), comnumber.rawAddress.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun comDBClaimPort(hcomdb: Hcomdb, comnumber: UInt, forceclaim: Bool, forced: MutPtr<Bool>): Int =
+public actual fun comDBClaimPort(hcomdb: Hcomdb, comnumber: UInt, forceclaim: Bool, forced: MutPtr): Int =
     if (windowsWin32DevicesSerialcommunicationNapiAddon != null) (windowsWin32DevicesSerialcommunicationNapiAddon.windowssysWindowsWin32DevicesSerialcommunicationComDBClaimPort(hcomdb.rawAddress.toString(), comnumber.toInt(), forceclaim, forced.rawAddress.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun comDBClose(hcomdb: Hcomdb): Int =
     if (windowsWin32DevicesSerialcommunicationNapiAddon != null) (windowsWin32DevicesSerialcommunicationNapiAddon.windowssysWindowsWin32DevicesSerialcommunicationComDBClose(hcomdb.rawAddress.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun comDBGetCurrentPortUsage(hcomdb: Hcomdb, buffer: MutPtr<UByte>, buffersize: UInt, reporttype: UInt, maxportsreported: MutPtr<UInt>): Int =
+public actual fun comDBGetCurrentPortUsage(hcomdb: Hcomdb, buffer: MutPtr, buffersize: UInt, reporttype: UInt, maxportsreported: MutPtr): Int =
     if (windowsWin32DevicesSerialcommunicationNapiAddon != null) (windowsWin32DevicesSerialcommunicationNapiAddon.windowssysWindowsWin32DevicesSerialcommunicationComDBGetCurrentPortUsage(hcomdb.rawAddress.toString(), buffer.rawAddress.toString(), buffersize.toInt(), reporttype.toInt(), maxportsreported.rawAddress.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun comDBOpen(phcomdb: MutPtr<Hcomdb>): Int =
+public actual fun comDBOpen(phcomdb: MutPtr): Int =
     if (windowsWin32DevicesSerialcommunicationNapiAddon != null) (windowsWin32DevicesSerialcommunicationNapiAddon.windowssysWindowsWin32DevicesSerialcommunicationComDBOpen(phcomdb.rawAddress.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun comDBReleasePort(hcomdb: Hcomdb, comnumber: UInt): Int =

@@ -1,16 +1,14 @@
 package io.github.kotlinmania.windowssys.windows.win32.networkmanagement.p2p
 
-import io.github.kotlinmania.rustlang.core.ffi.CVoid
 import io.github.kotlinmania.rustlang.core.ptr.ConstPtr
 import io.github.kotlinmania.rustlang.core.ptr.MutPtr
 import io.github.kotlinmania.windowssys.core.Bool
 import io.github.kotlinmania.windowssys.core.Hresult
-import io.github.kotlinmania.windowssys.windows.win32.networking.winsock.SocketAddressList
 
 public typealias DrtAddressFlags = Int
 
 public fun interface DrtBootstrapResolveCallbackFn {
-    public operator fun invoke(hr: Hresult, pvcontext: MutPtr<CVoid>, paddresses: MutPtr<SocketAddressList>, ffatalerror: Bool)
+    public operator fun invoke(hr: Hresult, pvcontext: MutPtr, paddresses: MutPtr, ffatalerror: Bool)
 }
 
 public typealias DrtBootstrapResolveCallback = DrtBootstrapResolveCallbackFn?
@@ -84,25 +82,25 @@ public typealias PeerSigninFlags = Int
 public typealias PeerWatchPermission = Int
 
 public fun interface PfnpeerFreeSecurityDataFn {
-    public operator fun invoke(hgraph: ConstPtr<CVoid>, pvcontext: ConstPtr<CVoid>, psecuritydata: ConstPtr<PeerData>): Hresult
+    public operator fun invoke(hgraph: ConstPtr, pvcontext: ConstPtr, psecuritydata: ConstPtr): Hresult
 }
 
 public typealias PfnpeerFreeSecurityData = PfnpeerFreeSecurityDataFn?
 
 public fun interface PfnpeerOnPasswordAuthFailedFn {
-    public operator fun invoke(hgraph: ConstPtr<CVoid>, pvcontext: ConstPtr<CVoid>): Hresult
+    public operator fun invoke(hgraph: ConstPtr, pvcontext: ConstPtr): Hresult
 }
 
 public typealias PfnpeerOnPasswordAuthFailed = PfnpeerOnPasswordAuthFailedFn?
 
 public fun interface PfnpeerSecureRecordFn {
-    public operator fun invoke(hgraph: ConstPtr<CVoid>, pvcontext: ConstPtr<CVoid>, precord: ConstPtr<PeerRecord>, changetype: PeerRecordChangeType, ppsecuritydata: MutPtr<MutPtr<PeerData>>): Hresult
+    public operator fun invoke(hgraph: ConstPtr, pvcontext: ConstPtr, precord: ConstPtr, changetype: PeerRecordChangeType, ppsecuritydata: MutPtr): Hresult
 }
 
 public typealias PfnpeerSecureRecord = PfnpeerSecureRecordFn?
 
 public fun interface PfnpeerValidateRecordFn {
-    public operator fun invoke(hgraph: ConstPtr<CVoid>, pvcontext: ConstPtr<CVoid>, precord: ConstPtr<PeerRecord>, changetype: PeerRecordChangeType): Hresult
+    public operator fun invoke(hgraph: ConstPtr, pvcontext: ConstPtr, precord: ConstPtr, changetype: PeerRecordChangeType): Hresult
 }
 
 public typealias PfnpeerValidateRecord = PfnpeerValidateRecordFn?

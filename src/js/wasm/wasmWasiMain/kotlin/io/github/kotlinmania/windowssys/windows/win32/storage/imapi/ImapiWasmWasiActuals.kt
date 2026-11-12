@@ -2,14 +2,11 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.storage.imapi
 
-import io.github.kotlinmania.rustlang.core.ffi.CVoid
 import io.github.kotlinmania.rustlang.core.ptr.MutPtr
 import io.github.kotlinmania.windowssys.core.Hresult
 import io.github.kotlinmania.windowssys.windows.win32.system.addressbook.Lpallocatebuffer
 import io.github.kotlinmania.windowssys.windows.win32.system.addressbook.Lpallocatemore
 import io.github.kotlinmania.windowssys.windows.win32.system.addressbook.Lpfreebuffer
-import io.github.kotlinmania.windowssys.windows.win32.system.addressbook.SPropProblemArray
-import io.github.kotlinmania.windowssys.windows.win32.system.addressbook.SPropTagArray
 
 // The host must provide the C companion wrapper exports in import module windowssys.
 @kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32StorageImapiCloseIMsgSession")
@@ -18,7 +15,7 @@ private external fun wasiWindowssysWindowsWin32StorageImapiCloseIMsgSession(lpms
 public actual fun closeIMsgSession(lpmsgsess: Lpmsgsess): Unit =
     wasiWindowssysWindowsWin32StorageImapiCloseIMsgSession(lpmsgsess)
 
-public actual fun getAttribIMsgOnIStg(lpobject: MutPtr<CVoid>, lpproptagarray: MutPtr<SPropTagArray>, lpppropattrarray: MutPtr<MutPtr<SPropAttrArray>>): Hresult =
+public actual fun getAttribIMsgOnIStg(lpobject: MutPtr, lpproptagarray: MutPtr, lpppropattrarray: MutPtr): Hresult =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32StorageImapiGetAttribIMsgOnIStg")
 
 @kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32StorageImapiMapStorageSCode")
@@ -27,11 +24,11 @@ private external fun wasiWindowssysWindowsWin32StorageImapiMapStorageSCode(stgsc
 public actual fun mapStorageSCode(stgscode: Int): Int =
     wasiWindowssysWindowsWin32StorageImapiMapStorageSCode(stgscode)
 
-public actual fun openIMsgOnIStg(lpmsgsess: Lpmsgsess, lpallocatebuffer: Lpallocatebuffer, lpallocatemore: Lpallocatemore, lpfreebuffer: Lpfreebuffer, lpmalloc: MutPtr<CVoid>, lpmapisup: MutPtr<CVoid>, lpstg: MutPtr<CVoid>, lpfmsgcallrelease: MutPtr<Msgcallrelease>, ulcallerdata: UInt, ulflags: UInt, lppmsg: MutPtr<MutPtr<CVoid>>): Int =
+public actual fun openIMsgOnIStg(lpmsgsess: Lpmsgsess, lpallocatebuffer: Lpallocatebuffer, lpallocatemore: Lpallocatemore, lpfreebuffer: Lpfreebuffer, lpmalloc: MutPtr, lpmapisup: MutPtr, lpstg: MutPtr, lpfmsgcallrelease: MutPtr, ulcallerdata: UInt, ulflags: UInt, lppmsg: MutPtr): Int =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32StorageImapiOpenIMsgOnIStg")
 
-public actual fun openIMsgSession(lpmalloc: MutPtr<CVoid>, ulflags: UInt, lppmsgsess: MutPtr<Lpmsgsess>): Int =
+public actual fun openIMsgSession(lpmalloc: MutPtr, ulflags: UInt, lppmsgsess: MutPtr): Int =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32StorageImapiOpenIMsgSession")
 
-public actual fun setAttribIMsgOnIStg(lpobject: MutPtr<CVoid>, lpproptags: MutPtr<SPropTagArray>, lppropattrs: MutPtr<SPropAttrArray>, lpppropproblems: MutPtr<MutPtr<SPropProblemArray>>): Hresult =
+public actual fun setAttribIMsgOnIStg(lpobject: MutPtr, lpproptags: MutPtr, lppropattrs: MutPtr, lpppropproblems: MutPtr): Hresult =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32StorageImapiSetAttribIMsgOnIStg")

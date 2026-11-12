@@ -1,6 +1,5 @@
 package io.github.kotlinmania.windowssys.windows.win32.storage.iscsidisc
 
-import io.github.kotlinmania.rustlang.core.ffi.CVoid
 import io.github.kotlinmania.rustlang.core.ptr.ConstPtr
 
 public typealias IkeAuthenticationMethod = Int
@@ -20,7 +19,7 @@ public typealias NvcacheType = Int
 public typealias NvSepWriteCacheType = Int
 
 public fun interface PdumpDevicePoweronRoutineFn {
-    public operator fun invoke(context: ConstPtr<CVoid>): Int
+    public operator fun invoke(context: ConstPtr): Int
 }
 
 public typealias PdumpDevicePoweronRoutine = PdumpDevicePoweronRoutineFn?

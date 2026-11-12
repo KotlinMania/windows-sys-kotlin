@@ -2,7 +2,6 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.security.cryptography.catalog
 
-import io.github.kotlinmania.rustlang.core.ffi.CVoid
 import io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
 import io.github.kotlinmania.rustlang.core.mem.TypeLayout
 import io.github.kotlinmania.rustlang.core.ptr.MutPtr
@@ -11,7 +10,6 @@ import io.github.kotlinmania.windowssys.core.Guid
 import io.github.kotlinmania.windowssys.core.Pwstr
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Handle
 import io.github.kotlinmania.windowssys.windows.win32.security.cryptography.CryptIntegerBlob
-import io.github.kotlinmania.windowssys.windows.win32.security.cryptography.sip.SipIndirectData
 
 public data class CatalogInfo(
     public var cbStruct: UInt = 0u,
@@ -60,13 +58,13 @@ public class Cryptcatattribute internal constructor(
     pwszReferenceTagCtorArg: Pwstr,
     public var dwAttrTypeAndAction: CryptcatattributeFlags,
     public var cbValue: UInt,
-    pbValueCtorArg: MutPtr<UByte>,
+    pbValueCtorArg: MutPtr,
     public var dwReserved: UInt,
 ) {
     public var pwszReferenceTag: Pwstr = pwszReferenceTagCtorArg
         internal set
 
-    public var pbValue: MutPtr<UByte> = pbValueCtorArg
+    public var pbValue: MutPtr = pbValueCtorArg
         internal set
 
     public constructor() : this(
@@ -86,11 +84,11 @@ public class Cryptcatattribute internal constructor(
 
     public operator fun component4(): UInt = this.cbValue
 
-    public operator fun component5(): MutPtr<UByte> = this.pbValue
+    public operator fun component5(): MutPtr = this.pbValue
 
     public operator fun component6(): UInt = this.dwReserved
 
-    public fun copy(cbStruct: UInt = this.cbStruct, pwszReferenceTag: Pwstr = this.pwszReferenceTag, dwAttrTypeAndAction: CryptcatattributeFlags = this.dwAttrTypeAndAction, cbValue: UInt = this.cbValue, pbValue: MutPtr<UByte> = this.pbValue, dwReserved: UInt = this.dwReserved): Cryptcatattribute = Cryptcatattribute(cbStruct = cbStruct, pwszReferenceTagCtorArg = pwszReferenceTag, dwAttrTypeAndAction = dwAttrTypeAndAction, cbValue = cbValue, pbValueCtorArg = pbValue, dwReserved = dwReserved)
+    public fun copy(cbStruct: UInt = this.cbStruct, pwszReferenceTag: Pwstr = this.pwszReferenceTag, dwAttrTypeAndAction: CryptcatattributeFlags = this.dwAttrTypeAndAction, cbValue: UInt = this.cbValue, pbValue: MutPtr = this.pbValue, dwReserved: UInt = this.dwReserved): Cryptcatattribute = Cryptcatattribute(cbStruct = cbStruct, pwszReferenceTagCtorArg = pwszReferenceTag, dwAttrTypeAndAction = dwAttrTypeAndAction, cbValue = cbValue, pbValueCtorArg = pbValue, dwReserved = dwReserved)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -120,7 +118,7 @@ public class Cryptcatattribute internal constructor(
             pwszReferenceTag: Pwstr = MutPtr(0L),
             dwAttrTypeAndAction: CryptcatattributeFlags = 0u,
             cbValue: UInt = 0u,
-            pbValue: MutPtr<UByte> = MutPtr(0L),
+            pbValue: MutPtr = MutPtr(0L),
             dwReserved: UInt = 0u,
         ): Cryptcatattribute =
             Cryptcatattribute(
@@ -230,7 +228,7 @@ public class Cryptcatmember internal constructor(
     pwszFileNameCtorArg: Pwstr,
     public var gSubjectType: Guid,
     public var fdwMemberFlags: UInt,
-    pIndirectDataCtorArg: MutPtr<SipIndirectData>,
+    pIndirectDataCtorArg: MutPtr,
     public var dwCertVersion: UInt,
     public var dwReserved: UInt,
     hReservedCtorArg: Handle,
@@ -243,7 +241,7 @@ public class Cryptcatmember internal constructor(
     public var pwszFileName: Pwstr = pwszFileNameCtorArg
         internal set
 
-    public var pIndirectData: MutPtr<SipIndirectData> = pIndirectDataCtorArg
+    public var pIndirectData: MutPtr = pIndirectDataCtorArg
         internal set
 
     public var hReserved: Handle = hReservedCtorArg
@@ -273,7 +271,7 @@ public class Cryptcatmember internal constructor(
 
     public operator fun component5(): UInt = this.fdwMemberFlags
 
-    public operator fun component6(): MutPtr<SipIndirectData> = this.pIndirectData
+    public operator fun component6(): MutPtr = this.pIndirectData
 
     public operator fun component7(): UInt = this.dwCertVersion
 
@@ -285,7 +283,7 @@ public class Cryptcatmember internal constructor(
 
     public operator fun component11(): CryptIntegerBlob = this.sEncodedMemberInfo
 
-    public fun copy(cbStruct: UInt = this.cbStruct, pwszReferenceTag: Pwstr = this.pwszReferenceTag, pwszFileName: Pwstr = this.pwszFileName, gSubjectType: Guid = this.gSubjectType, fdwMemberFlags: UInt = this.fdwMemberFlags, pIndirectData: MutPtr<SipIndirectData> = this.pIndirectData, dwCertVersion: UInt = this.dwCertVersion, dwReserved: UInt = this.dwReserved, hReserved: Handle = this.hReserved, sEncodedIndirectData: CryptIntegerBlob = this.sEncodedIndirectData, sEncodedMemberInfo: CryptIntegerBlob = this.sEncodedMemberInfo): Cryptcatmember = Cryptcatmember(cbStruct = cbStruct, pwszReferenceTagCtorArg = pwszReferenceTag, pwszFileNameCtorArg = pwszFileName, gSubjectType = gSubjectType, fdwMemberFlags = fdwMemberFlags, pIndirectDataCtorArg = pIndirectData, dwCertVersion = dwCertVersion, dwReserved = dwReserved, hReservedCtorArg = hReserved, sEncodedIndirectData = sEncodedIndirectData, sEncodedMemberInfo = sEncodedMemberInfo)
+    public fun copy(cbStruct: UInt = this.cbStruct, pwszReferenceTag: Pwstr = this.pwszReferenceTag, pwszFileName: Pwstr = this.pwszFileName, gSubjectType: Guid = this.gSubjectType, fdwMemberFlags: UInt = this.fdwMemberFlags, pIndirectData: MutPtr = this.pIndirectData, dwCertVersion: UInt = this.dwCertVersion, dwReserved: UInt = this.dwReserved, hReserved: Handle = this.hReserved, sEncodedIndirectData: CryptIntegerBlob = this.sEncodedIndirectData, sEncodedMemberInfo: CryptIntegerBlob = this.sEncodedMemberInfo): Cryptcatmember = Cryptcatmember(cbStruct = cbStruct, pwszReferenceTagCtorArg = pwszReferenceTag, pwszFileNameCtorArg = pwszFileName, gSubjectType = gSubjectType, fdwMemberFlags = fdwMemberFlags, pIndirectDataCtorArg = pIndirectData, dwCertVersion = dwCertVersion, dwReserved = dwReserved, hReservedCtorArg = hReserved, sEncodedIndirectData = sEncodedIndirectData, sEncodedMemberInfo = sEncodedMemberInfo)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -326,7 +324,7 @@ public class Cryptcatmember internal constructor(
             pwszFileName: Pwstr = MutPtr(0L),
             gSubjectType: Guid = Guid(),
             fdwMemberFlags: UInt = 0u,
-            pIndirectData: MutPtr<SipIndirectData> = MutPtr(0L),
+            pIndirectData: MutPtr = MutPtr(0L),
             dwCertVersion: UInt = 0u,
             dwReserved: UInt = 0u,
             hReserved: Handle = MutPtr(0L),
@@ -358,7 +356,7 @@ public class Cryptcatstore internal constructor(
     public var fdwStoreFlags: CryptcatOpenFlags,
     hReservedCtorArg: Handle,
     hAttrsCtorArg: Handle,
-    hCryptMsgCtorArg: MutPtr<CVoid>,
+    hCryptMsgCtorArg: MutPtr,
     hSortedCtorArg: Handle,
 ) {
     public var pwszP7File: Pwstr = pwszP7FileCtorArg
@@ -370,7 +368,7 @@ public class Cryptcatstore internal constructor(
     public var hAttrs: Handle = hAttrsCtorArg
         internal set
 
-    public var hCryptMsg: MutPtr<CVoid> = hCryptMsgCtorArg
+    public var hCryptMsg: MutPtr = hCryptMsgCtorArg
         internal set
 
     public var hSorted: Handle = hSortedCtorArg
@@ -405,11 +403,11 @@ public class Cryptcatstore internal constructor(
 
     public operator fun component8(): Handle = this.hAttrs
 
-    public operator fun component9(): MutPtr<CVoid> = this.hCryptMsg
+    public operator fun component9(): MutPtr = this.hCryptMsg
 
     public operator fun component10(): Handle = this.hSorted
 
-    public fun copy(cbStruct: UInt = this.cbStruct, dwPublicVersion: UInt = this.dwPublicVersion, pwszP7File: Pwstr = this.pwszP7File, hProv: Int = this.hProv, dwEncodingType: UInt = this.dwEncodingType, fdwStoreFlags: CryptcatOpenFlags = this.fdwStoreFlags, hReserved: Handle = this.hReserved, hAttrs: Handle = this.hAttrs, hCryptMsg: MutPtr<CVoid> = this.hCryptMsg, hSorted: Handle = this.hSorted): Cryptcatstore = Cryptcatstore(cbStruct = cbStruct, dwPublicVersion = dwPublicVersion, pwszP7FileCtorArg = pwszP7File, hProv = hProv, dwEncodingType = dwEncodingType, fdwStoreFlags = fdwStoreFlags, hReservedCtorArg = hReserved, hAttrsCtorArg = hAttrs, hCryptMsgCtorArg = hCryptMsg, hSortedCtorArg = hSorted)
+    public fun copy(cbStruct: UInt = this.cbStruct, dwPublicVersion: UInt = this.dwPublicVersion, pwszP7File: Pwstr = this.pwszP7File, hProv: Int = this.hProv, dwEncodingType: UInt = this.dwEncodingType, fdwStoreFlags: CryptcatOpenFlags = this.fdwStoreFlags, hReserved: Handle = this.hReserved, hAttrs: Handle = this.hAttrs, hCryptMsg: MutPtr = this.hCryptMsg, hSorted: Handle = this.hSorted): Cryptcatstore = Cryptcatstore(cbStruct = cbStruct, dwPublicVersion = dwPublicVersion, pwszP7FileCtorArg = pwszP7File, hProv = hProv, dwEncodingType = dwEncodingType, fdwStoreFlags = fdwStoreFlags, hReservedCtorArg = hReserved, hAttrsCtorArg = hAttrs, hCryptMsgCtorArg = hCryptMsg, hSortedCtorArg = hSorted)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -451,7 +449,7 @@ public class Cryptcatstore internal constructor(
             fdwStoreFlags: CryptcatOpenFlags = 0u,
             hReserved: Handle = MutPtr(0L),
             hAttrs: Handle = MutPtr(0L),
-            hCryptMsg: MutPtr<CVoid> = MutPtr(0L),
+            hCryptMsg: MutPtr = MutPtr(0L),
             hSorted: Handle = MutPtr(0L),
         ): Cryptcatstore =
             Cryptcatstore(
@@ -471,13 +469,13 @@ public class Cryptcatstore internal constructor(
 
 public class MsAddinfoCatalogmember internal constructor(
     public var cbStruct: UInt,
-    pStoreCtorArg: MutPtr<Cryptcatstore>,
-    pMemberCtorArg: MutPtr<Cryptcatmember>,
+    pStoreCtorArg: MutPtr,
+    pMemberCtorArg: MutPtr,
 ) {
-    public var pStore: MutPtr<Cryptcatstore> = pStoreCtorArg
+    public var pStore: MutPtr = pStoreCtorArg
         internal set
 
-    public var pMember: MutPtr<Cryptcatmember> = pMemberCtorArg
+    public var pMember: MutPtr = pMemberCtorArg
         internal set
 
     public constructor() : this(
@@ -488,11 +486,11 @@ public class MsAddinfoCatalogmember internal constructor(
 
     public operator fun component1(): UInt = this.cbStruct
 
-    public operator fun component2(): MutPtr<Cryptcatstore> = this.pStore
+    public operator fun component2(): MutPtr = this.pStore
 
-    public operator fun component3(): MutPtr<Cryptcatmember> = this.pMember
+    public operator fun component3(): MutPtr = this.pMember
 
-    public fun copy(cbStruct: UInt = this.cbStruct, pStore: MutPtr<Cryptcatstore> = this.pStore, pMember: MutPtr<Cryptcatmember> = this.pMember): MsAddinfoCatalogmember = MsAddinfoCatalogmember(cbStruct = cbStruct, pStoreCtorArg = pStore, pMemberCtorArg = pMember)
+    public fun copy(cbStruct: UInt = this.cbStruct, pStore: MutPtr = this.pStore, pMember: MutPtr = this.pMember): MsAddinfoCatalogmember = MsAddinfoCatalogmember(cbStruct = cbStruct, pStoreCtorArg = pStore, pMemberCtorArg = pMember)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -520,30 +518,30 @@ public class MsAddinfoCatalogmember internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<Cryptcatstore>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<Cryptcatmember>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 16L),
                     )
                 override fun writeNative(addr: Long, value: MsAddinfoCatalogmember) {
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr, value.cbStruct)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<Cryptcatstore>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.pStore)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<Cryptcatmember>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 16L, value.pMember)
                 }
             }
 
         public operator fun invoke(
             cbStruct: UInt = 0u,
-            pStore: MutPtr<Cryptcatstore> = MutPtr(0L),
-            pMember: MutPtr<Cryptcatmember> = MutPtr(0L),
+            pStore: MutPtr = MutPtr(0L),
+            pMember: MutPtr = MutPtr(0L),
         ): MsAddinfoCatalogmember =
             MsAddinfoCatalogmember(
                 cbStruct = cbStruct,

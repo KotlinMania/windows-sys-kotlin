@@ -96,9 +96,9 @@ public class AvrfHeapAllocation internal constructor(
     public var userAllocationState: UInt,
     public var heapState: UInt,
     public var heapContext: ULong,
-    backTraceInformationCtorArg: MutPtr<AvrfBacktraceInformation>,
+    backTraceInformationCtorArg: MutPtr,
 ) {
-    public var backTraceInformation: MutPtr<AvrfBacktraceInformation> = backTraceInformationCtorArg
+    public var backTraceInformation: MutPtr = backTraceInformationCtorArg
         internal set
 
     public constructor() : this(
@@ -129,9 +129,9 @@ public class AvrfHeapAllocation internal constructor(
 
     public operator fun component8(): ULong = this.heapContext
 
-    public operator fun component9(): MutPtr<AvrfBacktraceInformation> = this.backTraceInformation
+    public operator fun component9(): MutPtr = this.backTraceInformation
 
-    public fun copy(heapHandle: ULong = this.heapHandle, userAllocation: ULong = this.userAllocation, userAllocationSize: ULong = this.userAllocationSize, allocation: ULong = this.allocation, allocationSize: ULong = this.allocationSize, userAllocationState: UInt = this.userAllocationState, heapState: UInt = this.heapState, heapContext: ULong = this.heapContext, backTraceInformation: MutPtr<AvrfBacktraceInformation> = this.backTraceInformation): AvrfHeapAllocation = AvrfHeapAllocation(heapHandle = heapHandle, userAllocation = userAllocation, userAllocationSize = userAllocationSize, allocation = allocation, allocationSize = allocationSize, userAllocationState = userAllocationState, heapState = heapState, heapContext = heapContext, backTraceInformationCtorArg = backTraceInformation)
+    public fun copy(heapHandle: ULong = this.heapHandle, userAllocation: ULong = this.userAllocation, userAllocationSize: ULong = this.userAllocationSize, allocation: ULong = this.allocation, allocationSize: ULong = this.allocationSize, userAllocationState: UInt = this.userAllocationState, heapState: UInt = this.heapState, heapContext: ULong = this.heapContext, backTraceInformation: MutPtr = this.backTraceInformation): AvrfHeapAllocation = AvrfHeapAllocation(heapHandle = heapHandle, userAllocation = userAllocation, userAllocationSize = userAllocationSize, allocation = allocation, allocationSize = allocationSize, userAllocationState = userAllocationState, heapState = heapState, heapContext = heapContext, backTraceInformationCtorArg = backTraceInformation)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -178,7 +178,7 @@ public class AvrfHeapAllocation internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U64).readNative(addr + 48L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<AvrfBacktraceInformation>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 56L),
                     )
                 override fun writeNative(addr: Long, value: AvrfHeapAllocation) {
@@ -192,7 +192,7 @@ public class AvrfHeapAllocation internal constructor(
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U64).writeNative(addr + 48L, value.heapContext)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<AvrfBacktraceInformation>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 56L, value.backTraceInformation)
                 }
             }
@@ -206,7 +206,7 @@ public class AvrfHeapAllocation internal constructor(
             userAllocationState: UInt = 0u,
             heapState: UInt = 0u,
             heapContext: ULong = 0uL,
-            backTraceInformation: MutPtr<AvrfBacktraceInformation> = MutPtr(0L),
+            backTraceInformation: MutPtr = MutPtr(0L),
         ): AvrfHeapAllocation =
             AvrfHeapAllocation(
                 heapHandle = heapHandle,

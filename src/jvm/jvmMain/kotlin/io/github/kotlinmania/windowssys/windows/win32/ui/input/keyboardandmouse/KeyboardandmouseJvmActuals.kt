@@ -261,7 +261,7 @@ public actual fun getKeyState(nvirtkey: Int): Short =
 public actual fun getKeyboardLayout(idthread: UInt): Hkl =
     MutPtr(WindowsWin32UiInputKeyboardandmouseJniBridge.windowssysWindowsWin32UiInputKeyboardandmouseGetKeyboardLayout(idthread.toInt()))
 
-public actual fun getKeyboardLayoutList(nbuff: Int, lplist: MutPtr<Hkl>): Int =
+public actual fun getKeyboardLayoutList(nbuff: Int, lplist: MutPtr): Int =
     WindowsWin32UiInputKeyboardandmouseJniBridge.windowssysWindowsWin32UiInputKeyboardandmouseGetKeyboardLayoutList(nbuff, lplist.rawAddress)
 
 public actual fun getKeyboardLayoutNameA(pwszklid: Pstr): Bool =
@@ -270,16 +270,16 @@ public actual fun getKeyboardLayoutNameA(pwszklid: Pstr): Bool =
 public actual fun getKeyboardLayoutNameW(pwszklid: Pwstr): Bool =
     WindowsWin32UiInputKeyboardandmouseJniBridge.windowssysWindowsWin32UiInputKeyboardandmouseGetKeyboardLayoutNameW(pwszklid.rawAddress)
 
-public actual fun getKeyboardState(lpkeystate: MutPtr<UByte>): Bool =
+public actual fun getKeyboardState(lpkeystate: MutPtr): Bool =
     WindowsWin32UiInputKeyboardandmouseJniBridge.windowssysWindowsWin32UiInputKeyboardandmouseGetKeyboardState(lpkeystate.rawAddress)
 
 public actual fun getKeyboardType(ntypeflag: Int): Int =
     WindowsWin32UiInputKeyboardandmouseJniBridge.windowssysWindowsWin32UiInputKeyboardandmouseGetKeyboardType(ntypeflag)
 
-public actual fun getLastInputInfo(plii: MutPtr<Lastinputinfo>): Bool =
+public actual fun getLastInputInfo(plii: MutPtr): Bool =
     WindowsWin32UiInputKeyboardandmouseJniBridge.windowssysWindowsWin32UiInputKeyboardandmouseGetLastInputInfo(plii.rawAddress)
 
-public actual fun getMouseMovePointsEx(cbsize: UInt, lppt: ConstPtr<Mousemovepoint>, lpptbuf: MutPtr<Mousemovepoint>, nbufpoints: Int, resolution: GetMouseMovePointsExResolution): Int =
+public actual fun getMouseMovePointsEx(cbsize: UInt, lppt: ConstPtr, lpptbuf: MutPtr, nbufpoints: Int, resolution: GetMouseMovePointsExResolution): Int =
     WindowsWin32UiInputKeyboardandmouseJniBridge.windowssysWindowsWin32UiInputKeyboardandmouseGetMouseMovePointsEx(cbsize.toInt(), lppt.rawAddress, lpptbuf.rawAddress, nbufpoints, resolution.toInt())
 
 public actual fun isWindowEnabled(hwnd: Hwnd): Bool =
@@ -312,7 +312,7 @@ public actual fun registerHotKey(hwnd: Hwnd, id: Int, fsmodifiers: HotKeyModifie
 public actual fun releaseCapture(): Bool =
     WindowsWin32UiInputKeyboardandmouseJniBridge.windowssysWindowsWin32UiInputKeyboardandmouseReleaseCapture()
 
-public actual fun sendInput(cinputs: UInt, pinputs: ConstPtr<Input>, cbsize: Int): UInt =
+public actual fun sendInput(cinputs: UInt, pinputs: ConstPtr, cbsize: Int): UInt =
     WindowsWin32UiInputKeyboardandmouseJniBridge.windowssysWindowsWin32UiInputKeyboardandmouseSendInput(cinputs.toInt(), pinputs.rawAddress, cbsize).toUInt()
 
 public actual fun setActiveWindow(hwnd: Hwnd): Hwnd =
@@ -327,25 +327,25 @@ public actual fun setDoubleClickTime(param0: UInt): Bool =
 public actual fun setFocus(hwnd: Hwnd): Hwnd =
     MutPtr(WindowsWin32UiInputKeyboardandmouseJniBridge.windowssysWindowsWin32UiInputKeyboardandmouseSetFocus(hwnd.rawAddress))
 
-public actual fun setKeyboardState(lpkeystate: ConstPtr<UByte>): Bool =
+public actual fun setKeyboardState(lpkeystate: ConstPtr): Bool =
     WindowsWin32UiInputKeyboardandmouseJniBridge.windowssysWindowsWin32UiInputKeyboardandmouseSetKeyboardState(lpkeystate.rawAddress)
 
 public actual fun swapMouseButton(fswap: Bool): Bool =
     WindowsWin32UiInputKeyboardandmouseJniBridge.windowssysWindowsWin32UiInputKeyboardandmouseSwapMouseButton(fswap)
 
-public actual fun toAscii(uvirtkey: UInt, uscancode: UInt, lpkeystate: ConstPtr<UByte>, lpchar: MutPtr<UShort>, uflags: UInt): Int =
+public actual fun toAscii(uvirtkey: UInt, uscancode: UInt, lpkeystate: ConstPtr, lpchar: MutPtr, uflags: UInt): Int =
     WindowsWin32UiInputKeyboardandmouseJniBridge.windowssysWindowsWin32UiInputKeyboardandmouseToAscii(uvirtkey.toInt(), uscancode.toInt(), lpkeystate.rawAddress, lpchar.rawAddress, uflags.toInt())
 
-public actual fun toAsciiEx(uvirtkey: UInt, uscancode: UInt, lpkeystate: ConstPtr<UByte>, lpchar: MutPtr<UShort>, uflags: UInt, dwhkl: Hkl): Int =
+public actual fun toAsciiEx(uvirtkey: UInt, uscancode: UInt, lpkeystate: ConstPtr, lpchar: MutPtr, uflags: UInt, dwhkl: Hkl): Int =
     WindowsWin32UiInputKeyboardandmouseJniBridge.windowssysWindowsWin32UiInputKeyboardandmouseToAsciiEx(uvirtkey.toInt(), uscancode.toInt(), lpkeystate.rawAddress, lpchar.rawAddress, uflags.toInt(), dwhkl.rawAddress)
 
-public actual fun toUnicode(wvirtkey: UInt, wscancode: UInt, lpkeystate: ConstPtr<UByte>, pwszbuff: Pwstr, cchbuff: Int, wflags: UInt): Int =
+public actual fun toUnicode(wvirtkey: UInt, wscancode: UInt, lpkeystate: ConstPtr, pwszbuff: Pwstr, cchbuff: Int, wflags: UInt): Int =
     WindowsWin32UiInputKeyboardandmouseJniBridge.windowssysWindowsWin32UiInputKeyboardandmouseToUnicode(wvirtkey.toInt(), wscancode.toInt(), lpkeystate.rawAddress, pwszbuff.rawAddress, cchbuff, wflags.toInt())
 
-public actual fun toUnicodeEx(wvirtkey: UInt, wscancode: UInt, lpkeystate: ConstPtr<UByte>, pwszbuff: Pwstr, cchbuff: Int, wflags: UInt, dwhkl: Hkl): Int =
+public actual fun toUnicodeEx(wvirtkey: UInt, wscancode: UInt, lpkeystate: ConstPtr, pwszbuff: Pwstr, cchbuff: Int, wflags: UInt, dwhkl: Hkl): Int =
     WindowsWin32UiInputKeyboardandmouseJniBridge.windowssysWindowsWin32UiInputKeyboardandmouseToUnicodeEx(wvirtkey.toInt(), wscancode.toInt(), lpkeystate.rawAddress, pwszbuff.rawAddress, cchbuff, wflags.toInt(), dwhkl.rawAddress)
 
-public actual fun trackMouseEvent(lpeventtrack: MutPtr<Trackmouseevent>): Bool =
+public actual fun trackMouseEvent(lpeventtrack: MutPtr): Bool =
     WindowsWin32UiInputKeyboardandmouseJniBridge.windowssysWindowsWin32UiInputKeyboardandmouseTrackMouseEvent(lpeventtrack.rawAddress)
 
 public actual fun unloadKeyboardLayout(hkl: Hkl): Bool =

@@ -1,13 +1,10 @@
 package io.github.kotlinmania.windowssys.windows.win32.system.hostcomputesystem
 
-import io.github.kotlinmania.rustlang.core.ffi.CVoid
 import io.github.kotlinmania.rustlang.core.ptr.ConstPtr
 import io.github.kotlinmania.rustlang.core.ptr.MutPtr
 import io.github.kotlinmania.windowssys.core.Hresult
 import io.github.kotlinmania.windowssys.core.Pcwstr
-import io.github.kotlinmania.windowssys.core.Pwstr
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Handle
-import io.github.kotlinmania.windowssys.windows.win32.security.SecurityDescriptor
 
 public expect fun hcsAddResourceToOperation(operation: HcsOperation, type: HcsResourceType, uri: Pcwstr, handle: Handle): Hresult
 
@@ -23,19 +20,19 @@ public expect fun hcsCloseProcess(process: HcsProcess)
 
 public expect fun hcsCrashComputeSystem(computesystem: HcsSystem, operation: HcsOperation, options: Pcwstr): Hresult
 
-public expect fun hcsCreateComputeSystem(id: Pcwstr, configuration: Pcwstr, operation: HcsOperation, securitydescriptor: ConstPtr<SecurityDescriptor>, computesystem: MutPtr<HcsSystem>): Hresult
+public expect fun hcsCreateComputeSystem(id: Pcwstr, configuration: Pcwstr, operation: HcsOperation, securitydescriptor: ConstPtr, computesystem: MutPtr): Hresult
 
-public expect fun hcsCreateComputeSystemInNamespace(idnamespace: Pcwstr, id: Pcwstr, configuration: Pcwstr, operation: HcsOperation, options: ConstPtr<HcsCreateOptions>, computesystem: MutPtr<HcsSystem>): Hresult
+public expect fun hcsCreateComputeSystemInNamespace(idnamespace: Pcwstr, id: Pcwstr, configuration: Pcwstr, operation: HcsOperation, options: ConstPtr, computesystem: MutPtr): Hresult
 
 public expect fun hcsCreateEmptyGuestStateFile(gueststatefilepath: Pcwstr): Hresult
 
 public expect fun hcsCreateEmptyRuntimeStateFile(runtimestatefilepath: Pcwstr): Hresult
 
-public expect fun hcsCreateOperation(context: ConstPtr<CVoid>, callback: HcsOperationCompletion): HcsOperation
+public expect fun hcsCreateOperation(context: ConstPtr, callback: HcsOperationCompletion): HcsOperation
 
-public expect fun hcsCreateOperationWithNotifications(eventtypes: HcsOperationOptions, context: ConstPtr<CVoid>, callback: HcsEventCallback): HcsOperation
+public expect fun hcsCreateOperationWithNotifications(eventtypes: HcsOperationOptions, context: ConstPtr, callback: HcsEventCallback): HcsOperation
 
-public expect fun hcsCreateProcess(computesystem: HcsSystem, processparameters: Pcwstr, operation: HcsOperation, securitydescriptor: ConstPtr<SecurityDescriptor>, process: MutPtr<HcsProcess>): Hresult
+public expect fun hcsCreateProcess(computesystem: HcsSystem, processparameters: Pcwstr, operation: HcsOperation, securitydescriptor: ConstPtr, process: MutPtr): Hresult
 
 public expect fun hcsDestroyLayer(layerpath: Pcwstr): Hresult
 
@@ -55,15 +52,15 @@ public expect fun hcsGetComputeSystemFromOperation(operation: HcsOperation): Hcs
 
 public expect fun hcsGetComputeSystemProperties(computesystem: HcsSystem, operation: HcsOperation, propertyquery: Pcwstr): Hresult
 
-public expect fun hcsGetLayerVhdMountPath(vhdhandle: Handle, mountpath: MutPtr<Pwstr>): Hresult
+public expect fun hcsGetLayerVhdMountPath(vhdhandle: Handle, mountpath: MutPtr): Hresult
 
-public expect fun hcsGetOperationContext(operation: HcsOperation): MutPtr<CVoid>
+public expect fun hcsGetOperationContext(operation: HcsOperation): MutPtr
 
 public expect fun hcsGetOperationId(operation: HcsOperation): ULong
 
-public expect fun hcsGetOperationResult(operation: HcsOperation, resultdocument: MutPtr<Pwstr>): Hresult
+public expect fun hcsGetOperationResult(operation: HcsOperation, resultdocument: MutPtr): Hresult
 
-public expect fun hcsGetOperationResultAndProcessInfo(operation: HcsOperation, processinformation: MutPtr<HcsProcessInformation>, resultdocument: MutPtr<Pwstr>): Hresult
+public expect fun hcsGetOperationResultAndProcessInfo(operation: HcsOperation, processinformation: MutPtr, resultdocument: MutPtr): Hresult
 
 public expect fun hcsGetOperationType(operation: HcsOperation): HcsOperationType
 
@@ -73,9 +70,9 @@ public expect fun hcsGetProcessInfo(process: HcsProcess, operation: HcsOperation
 
 public expect fun hcsGetProcessProperties(process: HcsProcess, operation: HcsOperation, propertyquery: Pcwstr): Hresult
 
-public expect fun hcsGetProcessorCompatibilityFromSavedState(runtimefilename: Pcwstr, processorfeaturesstring: MutPtr<Pcwstr>): Hresult
+public expect fun hcsGetProcessorCompatibilityFromSavedState(runtimefilename: Pcwstr, processorfeaturesstring: MutPtr): Hresult
 
-public expect fun hcsGetServiceProperties(propertyquery: Pcwstr, result: MutPtr<Pwstr>): Hresult
+public expect fun hcsGetServiceProperties(propertyquery: Pcwstr, result: MutPtr): Hresult
 
 public expect fun hcsGrantVmAccess(vmid: Pcwstr, filepath: Pcwstr): Hresult
 
@@ -91,13 +88,13 @@ public expect fun hcsModifyComputeSystem(computesystem: HcsSystem, operation: Hc
 
 public expect fun hcsModifyProcess(process: HcsProcess, operation: HcsOperation, settings: Pcwstr): Hresult
 
-public expect fun hcsModifyServiceSettings(settings: Pcwstr, result: MutPtr<Pwstr>): Hresult
+public expect fun hcsModifyServiceSettings(settings: Pcwstr, result: MutPtr): Hresult
 
-public expect fun hcsOpenComputeSystem(id: Pcwstr, requestedaccess: UInt, computesystem: MutPtr<HcsSystem>): Hresult
+public expect fun hcsOpenComputeSystem(id: Pcwstr, requestedaccess: UInt, computesystem: MutPtr): Hresult
 
-public expect fun hcsOpenComputeSystemInNamespace(idnamespace: Pcwstr, id: Pcwstr, requestedaccess: UInt, computesystem: MutPtr<HcsSystem>): Hresult
+public expect fun hcsOpenComputeSystemInNamespace(idnamespace: Pcwstr, id: Pcwstr, requestedaccess: UInt, computesystem: MutPtr): Hresult
 
-public expect fun hcsOpenProcess(computesystem: HcsSystem, processid: UInt, requestedaccess: UInt, process: MutPtr<HcsProcess>): Hresult
+public expect fun hcsOpenProcess(computesystem: HcsSystem, processid: UInt, requestedaccess: UInt, process: MutPtr): Hresult
 
 public expect fun hcsPauseComputeSystem(computesystem: HcsSystem, operation: HcsOperation, options: Pcwstr): Hresult
 
@@ -109,13 +106,13 @@ public expect fun hcsRevokeVmGroupAccess(filepath: Pcwstr): Hresult
 
 public expect fun hcsSaveComputeSystem(computesystem: HcsSystem, operation: HcsOperation, options: Pcwstr): Hresult
 
-public expect fun hcsSetComputeSystemCallback(computesystem: HcsSystem, callbackoptions: HcsEventOptions, context: ConstPtr<CVoid>, callback: HcsEventCallback): Hresult
+public expect fun hcsSetComputeSystemCallback(computesystem: HcsSystem, callbackoptions: HcsEventOptions, context: ConstPtr, callback: HcsEventCallback): Hresult
 
-public expect fun hcsSetOperationCallback(operation: HcsOperation, context: ConstPtr<CVoid>, callback: HcsOperationCompletion): Hresult
+public expect fun hcsSetOperationCallback(operation: HcsOperation, context: ConstPtr, callback: HcsOperationCompletion): Hresult
 
-public expect fun hcsSetOperationContext(operation: HcsOperation, context: ConstPtr<CVoid>): Hresult
+public expect fun hcsSetOperationContext(operation: HcsOperation, context: ConstPtr): Hresult
 
-public expect fun hcsSetProcessCallback(process: HcsProcess, callbackoptions: HcsEventOptions, context: ConstPtr<CVoid>, callback: HcsEventCallback): Hresult
+public expect fun hcsSetProcessCallback(process: HcsProcess, callbackoptions: HcsEventOptions, context: ConstPtr, callback: HcsEventCallback): Hresult
 
 public expect fun hcsSetupBaseOSLayer(layerpath: Pcwstr, vhdhandle: Handle, options: Pcwstr): Hresult
 
@@ -133,10 +130,10 @@ public expect fun hcsTerminateComputeSystem(computesystem: HcsSystem, operation:
 
 public expect fun hcsTerminateProcess(process: HcsProcess, operation: HcsOperation, options: Pcwstr): Hresult
 
-public expect fun hcsWaitForComputeSystemExit(computesystem: HcsSystem, timeoutms: UInt, result: MutPtr<Pwstr>): Hresult
+public expect fun hcsWaitForComputeSystemExit(computesystem: HcsSystem, timeoutms: UInt, result: MutPtr): Hresult
 
-public expect fun hcsWaitForOperationResult(operation: HcsOperation, timeoutms: UInt, resultdocument: MutPtr<Pwstr>): Hresult
+public expect fun hcsWaitForOperationResult(operation: HcsOperation, timeoutms: UInt, resultdocument: MutPtr): Hresult
 
-public expect fun hcsWaitForOperationResultAndProcessInfo(operation: HcsOperation, timeoutms: UInt, processinformation: MutPtr<HcsProcessInformation>, resultdocument: MutPtr<Pwstr>): Hresult
+public expect fun hcsWaitForOperationResultAndProcessInfo(operation: HcsOperation, timeoutms: UInt, processinformation: MutPtr, resultdocument: MutPtr): Hresult
 
-public expect fun hcsWaitForProcessExit(computesystem: HcsProcess, timeoutms: UInt, result: MutPtr<Pwstr>): Hresult
+public expect fun hcsWaitForProcessExit(computesystem: HcsProcess, timeoutms: UInt, result: MutPtr): Hresult

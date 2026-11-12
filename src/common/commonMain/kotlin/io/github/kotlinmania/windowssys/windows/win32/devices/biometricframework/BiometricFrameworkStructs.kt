@@ -2,7 +2,6 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.devices.biometricframework
 
-import io.github.kotlinmania.rustlang.core.ffi.CVoid
 import io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
 import io.github.kotlinmania.rustlang.core.mem.TypeLayout
 import io.github.kotlinmania.rustlang.core.ptr.MutPtr
@@ -69,10 +68,10 @@ public class WinbioAsyncResult internal constructor(
     public var timeStamp: Long,
     public var apiStatus: Hresult,
     public var unitId: UInt,
-    userDataCtorArg: MutPtr<CVoid>,
+    userDataCtorArg: MutPtr,
     public var parameters: WinbioAsyncResult0,
 ) {
-    public var userData: MutPtr<CVoid> = userDataCtorArg
+    public var userData: MutPtr = userDataCtorArg
         internal set
 
     public constructor() : this(
@@ -98,11 +97,11 @@ public class WinbioAsyncResult internal constructor(
 
     public operator fun component6(): UInt = this.unitId
 
-    public operator fun component7(): MutPtr<CVoid> = this.userData
+    public operator fun component7(): MutPtr = this.userData
 
     public operator fun component8(): WinbioAsyncResult0 = this.parameters
 
-    public fun copy(sessionHandle: UInt = this.sessionHandle, operation: UInt = this.operation, sequenceNumber: ULong = this.sequenceNumber, timeStamp: Long = this.timeStamp, apiStatus: Hresult = this.apiStatus, unitId: UInt = this.unitId, userData: MutPtr<CVoid> = this.userData, parameters: WinbioAsyncResult0 = this.parameters): WinbioAsyncResult = WinbioAsyncResult(sessionHandle = sessionHandle, operation = operation, sequenceNumber = sequenceNumber, timeStamp = timeStamp, apiStatus = apiStatus, unitId = unitId, userDataCtorArg = userData, parameters = parameters)
+    public fun copy(sessionHandle: UInt = this.sessionHandle, operation: UInt = this.operation, sequenceNumber: ULong = this.sequenceNumber, timeStamp: Long = this.timeStamp, apiStatus: Hresult = this.apiStatus, unitId: UInt = this.unitId, userData: MutPtr = this.userData, parameters: WinbioAsyncResult0 = this.parameters): WinbioAsyncResult = WinbioAsyncResult(sessionHandle = sessionHandle, operation = operation, sequenceNumber = sequenceNumber, timeStamp = timeStamp, apiStatus = apiStatus, unitId = unitId, userDataCtorArg = userData, parameters = parameters)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -138,7 +137,7 @@ public class WinbioAsyncResult internal constructor(
             timeStamp: Long = 0L,
             apiStatus: Hresult = 0,
             unitId: UInt = 0u,
-            userData: MutPtr<CVoid> = MutPtr(0L),
+            userData: MutPtr = MutPtr(0L),
             parameters: WinbioAsyncResult0 = WinbioAsyncResult0(),
         ): WinbioAsyncResult =
             WinbioAsyncResult(
@@ -179,11 +178,11 @@ public class WinbioAsyncResult0(
 )
 
 public class WinbioAsyncResult06 internal constructor(
-    sampleCtorArg: MutPtr<WinbioBir>,
+    sampleCtorArg: MutPtr,
     public var sampleSize: Int,
     public var rejectDetail: UInt,
 ) {
-    public var sample: MutPtr<WinbioBir> = sampleCtorArg
+    public var sample: MutPtr = sampleCtorArg
         internal set
 
     public constructor() : this(
@@ -192,13 +191,13 @@ public class WinbioAsyncResult06 internal constructor(
         rejectDetail = 0u,
     )
 
-    public operator fun component1(): MutPtr<WinbioBir> = this.sample
+    public operator fun component1(): MutPtr = this.sample
 
     public operator fun component2(): Int = this.sampleSize
 
     public operator fun component3(): UInt = this.rejectDetail
 
-    public fun copy(sample: MutPtr<WinbioBir> = this.sample, sampleSize: Int = this.sampleSize, rejectDetail: UInt = this.rejectDetail): WinbioAsyncResult06 = WinbioAsyncResult06(sampleCtorArg = sample, sampleSize = sampleSize, rejectDetail = rejectDetail)
+    public fun copy(sample: MutPtr = this.sample, sampleSize: Int = this.sampleSize, rejectDetail: UInt = this.rejectDetail): WinbioAsyncResult06 = WinbioAsyncResult06(sampleCtorArg = sample, sampleSize = sampleSize, rejectDetail = rejectDetail)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -225,7 +224,7 @@ public class WinbioAsyncResult06 internal constructor(
                     WinbioAsyncResult06(
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<WinbioBir>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.USIZE64).readNative(addr + 8L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 16L),
@@ -233,7 +232,7 @@ public class WinbioAsyncResult06 internal constructor(
                 override fun writeNative(addr: Long, value: WinbioAsyncResult06) {
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<WinbioBir>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr, value.sample)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.USIZE64).writeNative(addr + 8L, value.sampleSize)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 16L, value.rejectDetail)
@@ -241,7 +240,7 @@ public class WinbioAsyncResult06 internal constructor(
             }
 
         public operator fun invoke(
-            sample: MutPtr<WinbioBir> = MutPtr(0L),
+            sample: MutPtr = MutPtr(0L),
             sampleSize: Int = 0,
             rejectDetail: UInt = 0u,
         ): WinbioAsyncResult06 =
@@ -257,16 +256,16 @@ public class WinbioAsyncResult011 internal constructor(
     public var component: WinbioComponent,
     public var controlCode: UInt,
     public var operationStatus: UInt,
-    sendBufferCtorArg: MutPtr<UByte>,
+    sendBufferCtorArg: MutPtr,
     public var sendBufferSize: Int,
-    receiveBufferCtorArg: MutPtr<UByte>,
+    receiveBufferCtorArg: MutPtr,
     public var receiveBufferSize: Int,
     public var receiveDataSize: Int,
 ) {
-    public var sendBuffer: MutPtr<UByte> = sendBufferCtorArg
+    public var sendBuffer: MutPtr = sendBufferCtorArg
         internal set
 
-    public var receiveBuffer: MutPtr<UByte> = receiveBufferCtorArg
+    public var receiveBuffer: MutPtr = receiveBufferCtorArg
         internal set
 
     public constructor() : this(
@@ -286,17 +285,17 @@ public class WinbioAsyncResult011 internal constructor(
 
     public operator fun component3(): UInt = this.operationStatus
 
-    public operator fun component4(): MutPtr<UByte> = this.sendBuffer
+    public operator fun component4(): MutPtr = this.sendBuffer
 
     public operator fun component5(): Int = this.sendBufferSize
 
-    public operator fun component6(): MutPtr<UByte> = this.receiveBuffer
+    public operator fun component6(): MutPtr = this.receiveBuffer
 
     public operator fun component7(): Int = this.receiveBufferSize
 
     public operator fun component8(): Int = this.receiveDataSize
 
-    public fun copy(component: WinbioComponent = this.component, controlCode: UInt = this.controlCode, operationStatus: UInt = this.operationStatus, sendBuffer: MutPtr<UByte> = this.sendBuffer, sendBufferSize: Int = this.sendBufferSize, receiveBuffer: MutPtr<UByte> = this.receiveBuffer, receiveBufferSize: Int = this.receiveBufferSize, receiveDataSize: Int = this.receiveDataSize): WinbioAsyncResult011 = WinbioAsyncResult011(component = component, controlCode = controlCode, operationStatus = operationStatus, sendBufferCtorArg = sendBuffer, sendBufferSize = sendBufferSize, receiveBufferCtorArg = receiveBuffer, receiveBufferSize = receiveBufferSize, receiveDataSize = receiveDataSize)
+    public fun copy(component: WinbioComponent = this.component, controlCode: UInt = this.controlCode, operationStatus: UInt = this.operationStatus, sendBuffer: MutPtr = this.sendBuffer, sendBufferSize: Int = this.sendBufferSize, receiveBuffer: MutPtr = this.receiveBuffer, receiveBufferSize: Int = this.receiveBufferSize, receiveDataSize: Int = this.receiveDataSize): WinbioAsyncResult011 = WinbioAsyncResult011(component = component, controlCode = controlCode, operationStatus = operationStatus, sendBufferCtorArg = sendBuffer, sendBufferSize = sendBufferSize, receiveBufferCtorArg = receiveBuffer, receiveBufferSize = receiveBufferSize, receiveDataSize = receiveDataSize)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -336,12 +335,12 @@ public class WinbioAsyncResult011 internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 8L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<UByte>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 16L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.USIZE64).readNative(addr + 24L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<UByte>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 32L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.USIZE64).readNative(addr + 40L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.USIZE64).readNative(addr + 48L),
@@ -352,12 +351,12 @@ public class WinbioAsyncResult011 internal constructor(
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 8L, value.operationStatus)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<UByte>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 16L, value.sendBuffer)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.USIZE64).writeNative(addr + 24L, value.sendBufferSize)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<UByte>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 32L, value.receiveBuffer)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.USIZE64).writeNative(addr + 40L, value.receiveBufferSize)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.USIZE64).writeNative(addr + 48L, value.receiveDataSize)
@@ -368,9 +367,9 @@ public class WinbioAsyncResult011 internal constructor(
             component: WinbioComponent = 0u,
             controlCode: UInt = 0u,
             operationStatus: UInt = 0u,
-            sendBuffer: MutPtr<UByte> = MutPtr(0L),
+            sendBuffer: MutPtr = MutPtr(0L),
             sendBufferSize: Int = 0,
-            receiveBuffer: MutPtr<UByte> = MutPtr(0L),
+            receiveBuffer: MutPtr = MutPtr(0L),
             receiveBufferSize: Int = 0,
             receiveDataSize: Int = 0,
         ): WinbioAsyncResult011 =
@@ -456,9 +455,9 @@ public data class WinbioAsyncResult017(
 
 public class WinbioAsyncResult013 internal constructor(
     public var unitCount: Int,
-    unitSchemaArrayCtorArg: MutPtr<WinbioUnitSchema>,
+    unitSchemaArrayCtorArg: MutPtr,
 ) {
-    public var unitSchemaArray: MutPtr<WinbioUnitSchema> = unitSchemaArrayCtorArg
+    public var unitSchemaArray: MutPtr = unitSchemaArrayCtorArg
         internal set
 
     public constructor() : this(
@@ -468,9 +467,9 @@ public class WinbioAsyncResult013 internal constructor(
 
     public operator fun component1(): Int = this.unitCount
 
-    public operator fun component2(): MutPtr<WinbioUnitSchema> = this.unitSchemaArray
+    public operator fun component2(): MutPtr = this.unitSchemaArray
 
-    public fun copy(unitCount: Int = this.unitCount, unitSchemaArray: MutPtr<WinbioUnitSchema> = this.unitSchemaArray): WinbioAsyncResult013 = WinbioAsyncResult013(unitCount = unitCount, unitSchemaArrayCtorArg = unitSchemaArray)
+    public fun copy(unitCount: Int = this.unitCount, unitSchemaArray: MutPtr = this.unitSchemaArray): WinbioAsyncResult013 = WinbioAsyncResult013(unitCount = unitCount, unitSchemaArrayCtorArg = unitSchemaArray)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -496,21 +495,21 @@ public class WinbioAsyncResult013 internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.USIZE64).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<WinbioUnitSchema>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                     )
                 override fun writeNative(addr: Long, value: WinbioAsyncResult013) {
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.USIZE64).writeNative(addr, value.unitCount)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<WinbioUnitSchema>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.unitSchemaArray)
                 }
             }
 
         public operator fun invoke(
             unitCount: Int = 0,
-            unitSchemaArray: MutPtr<WinbioUnitSchema> = MutPtr(0L),
+            unitSchemaArray: MutPtr = MutPtr(0L),
         ): WinbioAsyncResult013 =
             WinbioAsyncResult013(
                 unitCount = unitCount,
@@ -521,9 +520,9 @@ public class WinbioAsyncResult013 internal constructor(
 
 public class WinbioAsyncResult014 internal constructor(
     public var storageCount: Int,
-    storageSchemaArrayCtorArg: MutPtr<WinbioStorageSchema>,
+    storageSchemaArrayCtorArg: MutPtr,
 ) {
-    public var storageSchemaArray: MutPtr<WinbioStorageSchema> = storageSchemaArrayCtorArg
+    public var storageSchemaArray: MutPtr = storageSchemaArrayCtorArg
         internal set
 
     public constructor() : this(
@@ -533,9 +532,9 @@ public class WinbioAsyncResult014 internal constructor(
 
     public operator fun component1(): Int = this.storageCount
 
-    public operator fun component2(): MutPtr<WinbioStorageSchema> = this.storageSchemaArray
+    public operator fun component2(): MutPtr = this.storageSchemaArray
 
-    public fun copy(storageCount: Int = this.storageCount, storageSchemaArray: MutPtr<WinbioStorageSchema> = this.storageSchemaArray): WinbioAsyncResult014 = WinbioAsyncResult014(storageCount = storageCount, storageSchemaArrayCtorArg = storageSchemaArray)
+    public fun copy(storageCount: Int = this.storageCount, storageSchemaArray: MutPtr = this.storageSchemaArray): WinbioAsyncResult014 = WinbioAsyncResult014(storageCount = storageCount, storageSchemaArrayCtorArg = storageSchemaArray)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -561,21 +560,21 @@ public class WinbioAsyncResult014 internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.USIZE64).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<WinbioStorageSchema>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                     )
                 override fun writeNative(addr: Long, value: WinbioAsyncResult014) {
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.USIZE64).writeNative(addr, value.storageCount)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<WinbioStorageSchema>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.storageSchemaArray)
                 }
             }
 
         public operator fun invoke(
             storageCount: Int = 0,
-            storageSchemaArray: MutPtr<WinbioStorageSchema> = MutPtr(0L),
+            storageSchemaArray: MutPtr = MutPtr(0L),
         ): WinbioAsyncResult014 =
             WinbioAsyncResult014(
                 storageCount = storageCount,
@@ -587,9 +586,9 @@ public class WinbioAsyncResult014 internal constructor(
 public class WinbioAsyncResult05 internal constructor(
     public var identity: WinbioIdentity,
     public var subFactorCount: Int,
-    subFactorArrayCtorArg: MutPtr<UByte>,
+    subFactorArrayCtorArg: MutPtr,
 ) {
-    public var subFactorArray: MutPtr<UByte> = subFactorArrayCtorArg
+    public var subFactorArray: MutPtr = subFactorArrayCtorArg
         internal set
 
     public constructor() : this(
@@ -602,9 +601,9 @@ public class WinbioAsyncResult05 internal constructor(
 
     public operator fun component2(): Int = this.subFactorCount
 
-    public operator fun component3(): MutPtr<UByte> = this.subFactorArray
+    public operator fun component3(): MutPtr = this.subFactorArray
 
-    public fun copy(identity: WinbioIdentity = this.identity, subFactorCount: Int = this.subFactorCount, subFactorArray: MutPtr<UByte> = this.subFactorArray): WinbioAsyncResult05 = WinbioAsyncResult05(identity = identity, subFactorCount = subFactorCount, subFactorArrayCtorArg = subFactorArray)
+    public fun copy(identity: WinbioIdentity = this.identity, subFactorCount: Int = this.subFactorCount, subFactorArray: MutPtr = this.subFactorArray): WinbioAsyncResult05 = WinbioAsyncResult05(identity = identity, subFactorCount = subFactorCount, subFactorArrayCtorArg = subFactorArray)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -626,7 +625,7 @@ public class WinbioAsyncResult05 internal constructor(
         public operator fun invoke(
             identity: WinbioIdentity = WinbioIdentity(),
             subFactorCount: Int = 0,
-            subFactorArray: MutPtr<UByte> = MutPtr(0L),
+            subFactorArray: MutPtr = MutPtr(0L),
         ): WinbioAsyncResult05 =
             WinbioAsyncResult05(
                 identity = identity,
@@ -638,9 +637,9 @@ public class WinbioAsyncResult05 internal constructor(
 
 public class WinbioAsyncResult012 internal constructor(
     public var bspCount: Int,
-    bspSchemaArrayCtorArg: MutPtr<WinbioBspSchema>,
+    bspSchemaArrayCtorArg: MutPtr,
 ) {
-    public var bspSchemaArray: MutPtr<WinbioBspSchema> = bspSchemaArrayCtorArg
+    public var bspSchemaArray: MutPtr = bspSchemaArrayCtorArg
         internal set
 
     public constructor() : this(
@@ -650,9 +649,9 @@ public class WinbioAsyncResult012 internal constructor(
 
     public operator fun component1(): Int = this.bspCount
 
-    public operator fun component2(): MutPtr<WinbioBspSchema> = this.bspSchemaArray
+    public operator fun component2(): MutPtr = this.bspSchemaArray
 
-    public fun copy(bspCount: Int = this.bspCount, bspSchemaArray: MutPtr<WinbioBspSchema> = this.bspSchemaArray): WinbioAsyncResult012 = WinbioAsyncResult012(bspCount = bspCount, bspSchemaArrayCtorArg = bspSchemaArray)
+    public fun copy(bspCount: Int = this.bspCount, bspSchemaArray: MutPtr = this.bspSchemaArray): WinbioAsyncResult012 = WinbioAsyncResult012(bspCount = bspCount, bspSchemaArrayCtorArg = bspSchemaArray)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -678,21 +677,21 @@ public class WinbioAsyncResult012 internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.USIZE64).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<WinbioBspSchema>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                     )
                 override fun writeNative(addr: Long, value: WinbioAsyncResult012) {
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.USIZE64).writeNative(addr, value.bspCount)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<WinbioBspSchema>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.bspSchemaArray)
                 }
             }
 
         public operator fun invoke(
             bspCount: Int = 0,
-            bspSchemaArray: MutPtr<WinbioBspSchema> = MutPtr(0L),
+            bspSchemaArray: MutPtr = MutPtr(0L),
         ): WinbioAsyncResult012 =
             WinbioAsyncResult012(
                 bspCount = bspCount,
@@ -711,9 +710,9 @@ public class WinbioAsyncResult08 internal constructor(
     public var identity: WinbioIdentity,
     public var subFactor: UByte,
     public var propertyBufferSize: Int,
-    propertyBufferCtorArg: MutPtr<CVoid>,
+    propertyBufferCtorArg: MutPtr,
 ) {
-    public var propertyBuffer: MutPtr<CVoid> = propertyBufferCtorArg
+    public var propertyBuffer: MutPtr = propertyBufferCtorArg
         internal set
 
     public constructor() : this(
@@ -735,9 +734,9 @@ public class WinbioAsyncResult08 internal constructor(
 
     public operator fun component5(): Int = this.propertyBufferSize
 
-    public operator fun component6(): MutPtr<CVoid> = this.propertyBuffer
+    public operator fun component6(): MutPtr = this.propertyBuffer
 
-    public fun copy(propertyType: UInt = this.propertyType, propertyId: UInt = this.propertyId, identity: WinbioIdentity = this.identity, subFactor: UByte = this.subFactor, propertyBufferSize: Int = this.propertyBufferSize, propertyBuffer: MutPtr<CVoid> = this.propertyBuffer): WinbioAsyncResult08 = WinbioAsyncResult08(propertyType = propertyType, propertyId = propertyId, identity = identity, subFactor = subFactor, propertyBufferSize = propertyBufferSize, propertyBufferCtorArg = propertyBuffer)
+    public fun copy(propertyType: UInt = this.propertyType, propertyId: UInt = this.propertyId, identity: WinbioIdentity = this.identity, subFactor: UByte = this.subFactor, propertyBufferSize: Int = this.propertyBufferSize, propertyBuffer: MutPtr = this.propertyBuffer): WinbioAsyncResult08 = WinbioAsyncResult08(propertyType = propertyType, propertyId = propertyId, identity = identity, subFactor = subFactor, propertyBufferSize = propertyBufferSize, propertyBufferCtorArg = propertyBuffer)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -768,7 +767,7 @@ public class WinbioAsyncResult08 internal constructor(
             identity: WinbioIdentity = WinbioIdentity(),
             subFactor: UByte = 0u,
             propertyBufferSize: Int = 0,
-            propertyBuffer: MutPtr<CVoid> = MutPtr(0L),
+            propertyBuffer: MutPtr = MutPtr(0L),
         ): WinbioAsyncResult08 =
             WinbioAsyncResult08(
                 propertyType = propertyType,
@@ -802,9 +801,9 @@ public data class WinbioAsyncResult01(
 public class WinbioAsyncResult018 internal constructor(
     public var changeType: UInt,
     public var presenceCount: Int,
-    presenceArrayCtorArg: MutPtr<WinbioPresence>,
+    presenceArrayCtorArg: MutPtr,
 ) {
-    public var presenceArray: MutPtr<WinbioPresence> = presenceArrayCtorArg
+    public var presenceArray: MutPtr = presenceArrayCtorArg
         internal set
 
     public constructor() : this(
@@ -817,9 +816,9 @@ public class WinbioAsyncResult018 internal constructor(
 
     public operator fun component2(): Int = this.presenceCount
 
-    public operator fun component3(): MutPtr<WinbioPresence> = this.presenceArray
+    public operator fun component3(): MutPtr = this.presenceArray
 
-    public fun copy(changeType: UInt = this.changeType, presenceCount: Int = this.presenceCount, presenceArray: MutPtr<WinbioPresence> = this.presenceArray): WinbioAsyncResult018 = WinbioAsyncResult018(changeType = changeType, presenceCount = presenceCount, presenceArrayCtorArg = presenceArray)
+    public fun copy(changeType: UInt = this.changeType, presenceCount: Int = this.presenceCount, presenceArray: MutPtr = this.presenceArray): WinbioAsyncResult018 = WinbioAsyncResult018(changeType = changeType, presenceCount = presenceCount, presenceArrayCtorArg = presenceArray)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -848,7 +847,7 @@ public class WinbioAsyncResult018 internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.USIZE64).readNative(addr + 8L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<WinbioPresence>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 16L),
                     )
                 override fun writeNative(addr: Long, value: WinbioAsyncResult018) {
@@ -856,7 +855,7 @@ public class WinbioAsyncResult018 internal constructor(
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.USIZE64).writeNative(addr + 8L, value.presenceCount)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<WinbioPresence>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 16L, value.presenceArray)
                 }
             }
@@ -864,7 +863,7 @@ public class WinbioAsyncResult018 internal constructor(
         public operator fun invoke(
             changeType: UInt = 0u,
             presenceCount: Int = 0,
-            presenceArray: MutPtr<WinbioPresence> = MutPtr(0L),
+            presenceArray: MutPtr = MutPtr(0L),
         ): WinbioAsyncResult018 =
             WinbioAsyncResult018(
                 changeType = changeType,
@@ -899,9 +898,9 @@ public class WinbioAsyncResult09 internal constructor(
     public var identity: WinbioIdentity,
     public var subFactor: UByte,
     public var propertyBufferSize: Int,
-    propertyBufferCtorArg: MutPtr<CVoid>,
+    propertyBufferCtorArg: MutPtr,
 ) {
-    public var propertyBuffer: MutPtr<CVoid> = propertyBufferCtorArg
+    public var propertyBuffer: MutPtr = propertyBufferCtorArg
         internal set
 
     public constructor() : this(
@@ -923,9 +922,9 @@ public class WinbioAsyncResult09 internal constructor(
 
     public operator fun component5(): Int = this.propertyBufferSize
 
-    public operator fun component6(): MutPtr<CVoid> = this.propertyBuffer
+    public operator fun component6(): MutPtr = this.propertyBuffer
 
-    public fun copy(propertyType: UInt = this.propertyType, propertyId: UInt = this.propertyId, identity: WinbioIdentity = this.identity, subFactor: UByte = this.subFactor, propertyBufferSize: Int = this.propertyBufferSize, propertyBuffer: MutPtr<CVoid> = this.propertyBuffer): WinbioAsyncResult09 = WinbioAsyncResult09(propertyType = propertyType, propertyId = propertyId, identity = identity, subFactor = subFactor, propertyBufferSize = propertyBufferSize, propertyBufferCtorArg = propertyBuffer)
+    public fun copy(propertyType: UInt = this.propertyType, propertyId: UInt = this.propertyId, identity: WinbioIdentity = this.identity, subFactor: UByte = this.subFactor, propertyBufferSize: Int = this.propertyBufferSize, propertyBuffer: MutPtr = this.propertyBuffer): WinbioAsyncResult09 = WinbioAsyncResult09(propertyType = propertyType, propertyId = propertyId, identity = identity, subFactor = subFactor, propertyBufferSize = propertyBufferSize, propertyBufferCtorArg = propertyBuffer)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -956,7 +955,7 @@ public class WinbioAsyncResult09 internal constructor(
             identity: WinbioIdentity = WinbioIdentity(),
             subFactor: UByte = 0u,
             propertyBufferSize: Int = 0,
-            propertyBuffer: MutPtr<CVoid> = MutPtr(0L),
+            propertyBuffer: MutPtr = MutPtr(0L),
         ): WinbioAsyncResult09 =
             WinbioAsyncResult09(
                 propertyType = propertyType,
@@ -2351,13 +2350,13 @@ public class WinbioPipeline internal constructor(
     sensorHandleCtorArg: Handle,
     engineHandleCtorArg: Handle,
     storageHandleCtorArg: Handle,
-    sensorInterfaceCtorArg: MutPtr<WinbioSensorInterface>,
-    engineInterfaceCtorArg: MutPtr<WinbioEngineInterface>,
-    storageInterfaceCtorArg: MutPtr<WinbioStorageInterface>,
-    sensorContextCtorArg: MutPtr<WinibioSensorContext>,
-    engineContextCtorArg: MutPtr<WinibioEngineContext>,
-    storageContextCtorArg: MutPtr<WinibioStorageContext>,
-    frameworkInterfaceCtorArg: MutPtr<WinbioFrameworkInterface>,
+    sensorInterfaceCtorArg: MutPtr,
+    engineInterfaceCtorArg: MutPtr,
+    storageInterfaceCtorArg: MutPtr,
+    sensorContextCtorArg: MutPtr,
+    engineContextCtorArg: MutPtr,
+    storageContextCtorArg: MutPtr,
+    frameworkInterfaceCtorArg: MutPtr,
 ) {
     public var sensorHandle: Handle = sensorHandleCtorArg
         internal set
@@ -2368,25 +2367,25 @@ public class WinbioPipeline internal constructor(
     public var storageHandle: Handle = storageHandleCtorArg
         internal set
 
-    public var sensorInterface: MutPtr<WinbioSensorInterface> = sensorInterfaceCtorArg
+    public var sensorInterface: MutPtr = sensorInterfaceCtorArg
         internal set
 
-    public var engineInterface: MutPtr<WinbioEngineInterface> = engineInterfaceCtorArg
+    public var engineInterface: MutPtr = engineInterfaceCtorArg
         internal set
 
-    public var storageInterface: MutPtr<WinbioStorageInterface> = storageInterfaceCtorArg
+    public var storageInterface: MutPtr = storageInterfaceCtorArg
         internal set
 
-    public var sensorContext: MutPtr<WinibioSensorContext> = sensorContextCtorArg
+    public var sensorContext: MutPtr = sensorContextCtorArg
         internal set
 
-    public var engineContext: MutPtr<WinibioEngineContext> = engineContextCtorArg
+    public var engineContext: MutPtr = engineContextCtorArg
         internal set
 
-    public var storageContext: MutPtr<WinibioStorageContext> = storageContextCtorArg
+    public var storageContext: MutPtr = storageContextCtorArg
         internal set
 
-    public var frameworkInterface: MutPtr<WinbioFrameworkInterface> = frameworkInterfaceCtorArg
+    public var frameworkInterface: MutPtr = frameworkInterfaceCtorArg
         internal set
 
     public constructor() : this(
@@ -2408,21 +2407,21 @@ public class WinbioPipeline internal constructor(
 
     public operator fun component3(): Handle = this.storageHandle
 
-    public operator fun component4(): MutPtr<WinbioSensorInterface> = this.sensorInterface
+    public operator fun component4(): MutPtr = this.sensorInterface
 
-    public operator fun component5(): MutPtr<WinbioEngineInterface> = this.engineInterface
+    public operator fun component5(): MutPtr = this.engineInterface
 
-    public operator fun component6(): MutPtr<WinbioStorageInterface> = this.storageInterface
+    public operator fun component6(): MutPtr = this.storageInterface
 
-    public operator fun component7(): MutPtr<WinibioSensorContext> = this.sensorContext
+    public operator fun component7(): MutPtr = this.sensorContext
 
-    public operator fun component8(): MutPtr<WinibioEngineContext> = this.engineContext
+    public operator fun component8(): MutPtr = this.engineContext
 
-    public operator fun component9(): MutPtr<WinibioStorageContext> = this.storageContext
+    public operator fun component9(): MutPtr = this.storageContext
 
-    public operator fun component10(): MutPtr<WinbioFrameworkInterface> = this.frameworkInterface
+    public operator fun component10(): MutPtr = this.frameworkInterface
 
-    public fun copy(sensorHandle: Handle = this.sensorHandle, engineHandle: Handle = this.engineHandle, storageHandle: Handle = this.storageHandle, sensorInterface: MutPtr<WinbioSensorInterface> = this.sensorInterface, engineInterface: MutPtr<WinbioEngineInterface> = this.engineInterface, storageInterface: MutPtr<WinbioStorageInterface> = this.storageInterface, sensorContext: MutPtr<WinibioSensorContext> = this.sensorContext, engineContext: MutPtr<WinibioEngineContext> = this.engineContext, storageContext: MutPtr<WinibioStorageContext> = this.storageContext, frameworkInterface: MutPtr<WinbioFrameworkInterface> = this.frameworkInterface): WinbioPipeline = WinbioPipeline(sensorHandleCtorArg = sensorHandle, engineHandleCtorArg = engineHandle, storageHandleCtorArg = storageHandle, sensorInterfaceCtorArg = sensorInterface, engineInterfaceCtorArg = engineInterface, storageInterfaceCtorArg = storageInterface, sensorContextCtorArg = sensorContext, engineContextCtorArg = engineContext, storageContextCtorArg = storageContext, frameworkInterfaceCtorArg = frameworkInterface)
+    public fun copy(sensorHandle: Handle = this.sensorHandle, engineHandle: Handle = this.engineHandle, storageHandle: Handle = this.storageHandle, sensorInterface: MutPtr = this.sensorInterface, engineInterface: MutPtr = this.engineInterface, storageInterface: MutPtr = this.storageInterface, sensorContext: MutPtr = this.sensorContext, engineContext: MutPtr = this.engineContext, storageContext: MutPtr = this.storageContext, frameworkInterface: MutPtr = this.frameworkInterface): WinbioPipeline = WinbioPipeline(sensorHandleCtorArg = sensorHandle, engineHandleCtorArg = engineHandle, storageHandleCtorArg = storageHandle, sensorInterfaceCtorArg = sensorInterface, engineInterfaceCtorArg = engineInterface, storageInterfaceCtorArg = storageInterface, sensorContextCtorArg = sensorContext, engineContextCtorArg = engineContext, storageContextCtorArg = storageContext, frameworkInterfaceCtorArg = frameworkInterface)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -2459,13 +2458,13 @@ public class WinbioPipeline internal constructor(
             sensorHandle: Handle = MutPtr(0L),
             engineHandle: Handle = MutPtr(0L),
             storageHandle: Handle = MutPtr(0L),
-            sensorInterface: MutPtr<WinbioSensorInterface> = MutPtr(0L),
-            engineInterface: MutPtr<WinbioEngineInterface> = MutPtr(0L),
-            storageInterface: MutPtr<WinbioStorageInterface> = MutPtr(0L),
-            sensorContext: MutPtr<WinibioSensorContext> = MutPtr(0L),
-            engineContext: MutPtr<WinibioEngineContext> = MutPtr(0L),
-            storageContext: MutPtr<WinibioStorageContext> = MutPtr(0L),
-            frameworkInterface: MutPtr<WinbioFrameworkInterface> = MutPtr(0L),
+            sensorInterface: MutPtr = MutPtr(0L),
+            engineInterface: MutPtr = MutPtr(0L),
+            storageInterface: MutPtr = MutPtr(0L),
+            sensorContext: MutPtr = MutPtr(0L),
+            engineContext: MutPtr = MutPtr(0L),
+            storageContext: MutPtr = MutPtr(0L),
+            frameworkInterface: MutPtr = MutPtr(0L),
         ): WinbioPipeline =
             WinbioPipeline(
                 sensorHandleCtorArg = sensorHandle,
@@ -2947,25 +2946,25 @@ public class WinbioStorageInterface(
 )
 
 public class WinbioStorageRecord internal constructor(
-    identityCtorArg: MutPtr<WinbioIdentity>,
+    identityCtorArg: MutPtr,
     public var subFactor: UByte,
-    indexVectorCtorArg: MutPtr<UInt>,
+    indexVectorCtorArg: MutPtr,
     public var indexElementCount: Int,
-    templateBlobCtorArg: MutPtr<UByte>,
+    templateBlobCtorArg: MutPtr,
     public var templateBlobSize: Int,
-    payloadBlobCtorArg: MutPtr<UByte>,
+    payloadBlobCtorArg: MutPtr,
     public var payloadBlobSize: Int,
 ) {
-    public var identity: MutPtr<WinbioIdentity> = identityCtorArg
+    public var identity: MutPtr = identityCtorArg
         internal set
 
-    public var indexVector: MutPtr<UInt> = indexVectorCtorArg
+    public var indexVector: MutPtr = indexVectorCtorArg
         internal set
 
-    public var templateBlob: MutPtr<UByte> = templateBlobCtorArg
+    public var templateBlob: MutPtr = templateBlobCtorArg
         internal set
 
-    public var payloadBlob: MutPtr<UByte> = payloadBlobCtorArg
+    public var payloadBlob: MutPtr = payloadBlobCtorArg
         internal set
 
     public constructor() : this(
@@ -2979,23 +2978,23 @@ public class WinbioStorageRecord internal constructor(
         payloadBlobSize = 0,
     )
 
-    public operator fun component1(): MutPtr<WinbioIdentity> = this.identity
+    public operator fun component1(): MutPtr = this.identity
 
     public operator fun component2(): UByte = this.subFactor
 
-    public operator fun component3(): MutPtr<UInt> = this.indexVector
+    public operator fun component3(): MutPtr = this.indexVector
 
     public operator fun component4(): Int = this.indexElementCount
 
-    public operator fun component5(): MutPtr<UByte> = this.templateBlob
+    public operator fun component5(): MutPtr = this.templateBlob
 
     public operator fun component6(): Int = this.templateBlobSize
 
-    public operator fun component7(): MutPtr<UByte> = this.payloadBlob
+    public operator fun component7(): MutPtr = this.payloadBlob
 
     public operator fun component8(): Int = this.payloadBlobSize
 
-    public fun copy(identity: MutPtr<WinbioIdentity> = this.identity, subFactor: UByte = this.subFactor, indexVector: MutPtr<UInt> = this.indexVector, indexElementCount: Int = this.indexElementCount, templateBlob: MutPtr<UByte> = this.templateBlob, templateBlobSize: Int = this.templateBlobSize, payloadBlob: MutPtr<UByte> = this.payloadBlob, payloadBlobSize: Int = this.payloadBlobSize): WinbioStorageRecord = WinbioStorageRecord(identityCtorArg = identity, subFactor = subFactor, indexVectorCtorArg = indexVector, indexElementCount = indexElementCount, templateBlobCtorArg = templateBlob, templateBlobSize = templateBlobSize, payloadBlobCtorArg = payloadBlob, payloadBlobSize = payloadBlobSize)
+    public fun copy(identity: MutPtr = this.identity, subFactor: UByte = this.subFactor, indexVector: MutPtr = this.indexVector, indexElementCount: Int = this.indexElementCount, templateBlob: MutPtr = this.templateBlob, templateBlobSize: Int = this.templateBlobSize, payloadBlob: MutPtr = this.payloadBlob, payloadBlobSize: Int = this.payloadBlobSize): WinbioStorageRecord = WinbioStorageRecord(identityCtorArg = identity, subFactor = subFactor, indexVectorCtorArg = indexVector, indexElementCount = indexElementCount, templateBlobCtorArg = templateBlob, templateBlobSize = templateBlobSize, payloadBlobCtorArg = payloadBlob, payloadBlobSize = payloadBlobSize)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -3032,57 +3031,57 @@ public class WinbioStorageRecord internal constructor(
                     WinbioStorageRecord(
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<WinbioIdentity>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8).readNative(addr + 8L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<UInt>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 16L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.USIZE64).readNative(addr + 24L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<UByte>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 32L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.USIZE64).readNative(addr + 40L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<UByte>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 48L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.USIZE64).readNative(addr + 56L),
                     )
                 override fun writeNative(addr: Long, value: WinbioStorageRecord) {
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<WinbioIdentity>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr, value.identity)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8).writeNative(addr + 8L, value.subFactor)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<UInt>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 16L, value.indexVector)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.USIZE64).writeNative(addr + 24L, value.indexElementCount)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<UByte>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 32L, value.templateBlob)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.USIZE64).writeNative(addr + 40L, value.templateBlobSize)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<UByte>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 48L, value.payloadBlob)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.USIZE64).writeNative(addr + 56L, value.payloadBlobSize)
                 }
             }
 
         public operator fun invoke(
-            identity: MutPtr<WinbioIdentity> = MutPtr(0L),
+            identity: MutPtr = MutPtr(0L),
             subFactor: UByte = 0u,
-            indexVector: MutPtr<UInt> = MutPtr(0L),
+            indexVector: MutPtr = MutPtr(0L),
             indexElementCount: Int = 0,
-            templateBlob: MutPtr<UByte> = MutPtr(0L),
+            templateBlob: MutPtr = MutPtr(0L),
             templateBlobSize: Int = 0,
-            payloadBlob: MutPtr<UByte> = MutPtr(0L),
+            payloadBlob: MutPtr = MutPtr(0L),
             payloadBlobSize: Int = 0,
         ): WinbioStorageRecord =
             WinbioStorageRecord(

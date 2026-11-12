@@ -26,11 +26,11 @@ private object WindowsWin32SystemPerformanceHardwarecounterprofilingJniBridge {
 public actual fun disableThreadProfiling(performancedatahandle: Handle): UInt =
     WindowsWin32SystemPerformanceHardwarecounterprofilingJniBridge.windowssysWindowsWin32SystemPerformanceHardwarecounterprofilingDisableThreadProfiling(performancedatahandle.rawAddress).toUInt()
 
-public actual fun enableThreadProfiling(threadhandle: Handle, flags: UInt, hardwarecounters: ULong, performancedatahandle: MutPtr<Handle>): UInt =
+public actual fun enableThreadProfiling(threadhandle: Handle, flags: UInt, hardwarecounters: ULong, performancedatahandle: MutPtr): UInt =
     WindowsWin32SystemPerformanceHardwarecounterprofilingJniBridge.windowssysWindowsWin32SystemPerformanceHardwarecounterprofilingEnableThreadProfiling(threadhandle.rawAddress, flags.toInt(), hardwarecounters.toLong(), performancedatahandle.rawAddress).toUInt()
 
-public actual fun queryThreadProfiling(threadhandle: Handle, enabled: MutPtr<Boolean>): UInt =
+public actual fun queryThreadProfiling(threadhandle: Handle, enabled: MutPtr): UInt =
     WindowsWin32SystemPerformanceHardwarecounterprofilingJniBridge.windowssysWindowsWin32SystemPerformanceHardwarecounterprofilingQueryThreadProfiling(threadhandle.rawAddress, enabled.rawAddress).toUInt()
 
-public actual fun readThreadProfilingData(performancedatahandle: Handle, flags: UInt, performancedata: MutPtr<PerformanceData>): UInt =
+public actual fun readThreadProfilingData(performancedatahandle: Handle, flags: UInt, performancedata: MutPtr): UInt =
     WindowsWin32SystemPerformanceHardwarecounterprofilingJniBridge.windowssysWindowsWin32SystemPerformanceHardwarecounterprofilingReadThreadProfilingData(performancedatahandle.rawAddress, flags.toInt(), performancedata.rawAddress).toUInt()

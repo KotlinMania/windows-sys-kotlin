@@ -1,6 +1,5 @@
 package io.github.kotlinmania.windowssys.windows.win32.networking.winhttp
 
-import io.github.kotlinmania.rustlang.core.ffi.CVoid
 import io.github.kotlinmania.rustlang.core.ptr.ConstPtr
 import io.github.kotlinmania.rustlang.core.ptr.MutPtr
 
@@ -13,7 +12,7 @@ public typealias WinhttpInternetScheme = Int
 public typealias WinhttpOpenRequestFlags = UInt
 
 public fun interface WinhttpProxyChangeCallbackFn {
-    public operator fun invoke(ullflags: ULong, pvcontext: ConstPtr<CVoid>)
+    public operator fun invoke(ullflags: ULong, pvcontext: ConstPtr)
 }
 
 public typealias WinhttpProxyChangeCallback = WinhttpProxyChangeCallbackFn?
@@ -27,7 +26,7 @@ public typealias WinhttpRequestTimeEntry = Int
 public typealias WinhttpSecureDnsSetting = Int
 
 public fun interface WinhttpStatusCallbackFn {
-    public operator fun invoke(hinternet: MutPtr<CVoid>, dwcontext: ULong, dwinternetstatus: UInt, lpvstatusinformation: MutPtr<CVoid>, dwstatusinformationlength: UInt)
+    public operator fun invoke(hinternet: MutPtr, dwcontext: ULong, dwinternetstatus: UInt, lpvstatusinformation: MutPtr, dwstatusinformationlength: UInt)
 }
 
 public typealias WinhttpStatusCallback = WinhttpStatusCallbackFn?

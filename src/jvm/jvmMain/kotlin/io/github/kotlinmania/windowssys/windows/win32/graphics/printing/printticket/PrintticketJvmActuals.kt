@@ -2,13 +2,10 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.graphics.printing.printticket
 
-import io.github.kotlinmania.rustlang.core.ffi.CVoid
 import io.github.kotlinmania.rustlang.core.ptr.ConstPtr
 import io.github.kotlinmania.rustlang.core.ptr.MutPtr
-import io.github.kotlinmania.windowssys.core.Bstr
 import io.github.kotlinmania.windowssys.core.Hresult
 import io.github.kotlinmania.windowssys.core.Pcwstr
-import io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.Devmodea
 
 private object WindowsWin32GraphicsPrintingPrintticketJniBridge {
     init {
@@ -103,32 +100,32 @@ private object WindowsWin32GraphicsPrintingPrintticketJniBridge {
 public actual fun pTCloseProvider(hprovider: Hptprovider): Hresult =
     WindowsWin32GraphicsPrintingPrintticketJniBridge.windowssysWindowsWin32GraphicsPrintingPrintticketPTCloseProvider(hprovider.rawAddress)
 
-public actual fun pTConvertDevModeToPrintTicket(hprovider: Hptprovider, cbdevmode: UInt, pdevmode: ConstPtr<Devmodea>, scope: EPrintTicketScope, pprintticket: MutPtr<CVoid>): Hresult =
+public actual fun pTConvertDevModeToPrintTicket(hprovider: Hptprovider, cbdevmode: UInt, pdevmode: ConstPtr, scope: EPrintTicketScope, pprintticket: MutPtr): Hresult =
     WindowsWin32GraphicsPrintingPrintticketJniBridge.windowssysWindowsWin32GraphicsPrintingPrintticketPTConvertDevModeToPrintTicket(hprovider.rawAddress, cbdevmode.toInt(), pdevmode.rawAddress, scope, pprintticket.rawAddress)
 
-public actual fun pTConvertPrintTicketToDevMode(hprovider: Hptprovider, pprintticket: MutPtr<CVoid>, basedevmodetype: EDefaultDevmodeType, scope: EPrintTicketScope, pcbdevmode: MutPtr<UInt>, ppdevmode: MutPtr<MutPtr<Devmodea>>, pbstrerrormessage: MutPtr<Bstr>): Hresult =
+public actual fun pTConvertPrintTicketToDevMode(hprovider: Hptprovider, pprintticket: MutPtr, basedevmodetype: EDefaultDevmodeType, scope: EPrintTicketScope, pcbdevmode: MutPtr, ppdevmode: MutPtr, pbstrerrormessage: MutPtr): Hresult =
     WindowsWin32GraphicsPrintingPrintticketJniBridge.windowssysWindowsWin32GraphicsPrintingPrintticketPTConvertPrintTicketToDevMode(hprovider.rawAddress, pprintticket.rawAddress, basedevmodetype, scope, pcbdevmode.rawAddress, ppdevmode.rawAddress, pbstrerrormessage.rawAddress)
 
-public actual fun pTGetPrintCapabilities(hprovider: Hptprovider, pprintticket: MutPtr<CVoid>, pcapabilities: MutPtr<CVoid>, pbstrerrormessage: MutPtr<Bstr>): Hresult =
+public actual fun pTGetPrintCapabilities(hprovider: Hptprovider, pprintticket: MutPtr, pcapabilities: MutPtr, pbstrerrormessage: MutPtr): Hresult =
     WindowsWin32GraphicsPrintingPrintticketJniBridge.windowssysWindowsWin32GraphicsPrintingPrintticketPTGetPrintCapabilities(hprovider.rawAddress, pprintticket.rawAddress, pcapabilities.rawAddress, pbstrerrormessage.rawAddress)
 
-public actual fun pTGetPrintDeviceCapabilities(hprovider: Hptprovider, pprintticket: MutPtr<CVoid>, pdevicecapabilities: MutPtr<CVoid>, pbstrerrormessage: MutPtr<Bstr>): Hresult =
+public actual fun pTGetPrintDeviceCapabilities(hprovider: Hptprovider, pprintticket: MutPtr, pdevicecapabilities: MutPtr, pbstrerrormessage: MutPtr): Hresult =
     WindowsWin32GraphicsPrintingPrintticketJniBridge.windowssysWindowsWin32GraphicsPrintingPrintticketPTGetPrintDeviceCapabilities(hprovider.rawAddress, pprintticket.rawAddress, pdevicecapabilities.rawAddress, pbstrerrormessage.rawAddress)
 
-public actual fun pTGetPrintDeviceResources(hprovider: Hptprovider, pszlocalename: Pcwstr, pprintticket: MutPtr<CVoid>, pdeviceresources: MutPtr<CVoid>, pbstrerrormessage: MutPtr<Bstr>): Hresult =
+public actual fun pTGetPrintDeviceResources(hprovider: Hptprovider, pszlocalename: Pcwstr, pprintticket: MutPtr, pdeviceresources: MutPtr, pbstrerrormessage: MutPtr): Hresult =
     WindowsWin32GraphicsPrintingPrintticketJniBridge.windowssysWindowsWin32GraphicsPrintingPrintticketPTGetPrintDeviceResources(hprovider.rawAddress, pszlocalename.rawAddress, pprintticket.rawAddress, pdeviceresources.rawAddress, pbstrerrormessage.rawAddress)
 
-public actual fun pTMergeAndValidatePrintTicket(hprovider: Hptprovider, pbaseticket: MutPtr<CVoid>, pdeltaticket: MutPtr<CVoid>, scope: EPrintTicketScope, presultticket: MutPtr<CVoid>, pbstrerrormessage: MutPtr<Bstr>): Hresult =
+public actual fun pTMergeAndValidatePrintTicket(hprovider: Hptprovider, pbaseticket: MutPtr, pdeltaticket: MutPtr, scope: EPrintTicketScope, presultticket: MutPtr, pbstrerrormessage: MutPtr): Hresult =
     WindowsWin32GraphicsPrintingPrintticketJniBridge.windowssysWindowsWin32GraphicsPrintingPrintticketPTMergeAndValidatePrintTicket(hprovider.rawAddress, pbaseticket.rawAddress, pdeltaticket.rawAddress, scope, presultticket.rawAddress, pbstrerrormessage.rawAddress)
 
-public actual fun pTOpenProvider(pszprintername: Pcwstr, dwversion: UInt, phprovider: MutPtr<Hptprovider>): Hresult =
+public actual fun pTOpenProvider(pszprintername: Pcwstr, dwversion: UInt, phprovider: MutPtr): Hresult =
     WindowsWin32GraphicsPrintingPrintticketJniBridge.windowssysWindowsWin32GraphicsPrintingPrintticketPTOpenProvider(pszprintername.rawAddress, dwversion.toInt(), phprovider.rawAddress)
 
-public actual fun pTOpenProviderEx(pszprintername: Pcwstr, dwmaxversion: UInt, dwprefversion: UInt, phprovider: MutPtr<Hptprovider>, pusedversion: MutPtr<UInt>): Hresult =
+public actual fun pTOpenProviderEx(pszprintername: Pcwstr, dwmaxversion: UInt, dwprefversion: UInt, phprovider: MutPtr, pusedversion: MutPtr): Hresult =
     WindowsWin32GraphicsPrintingPrintticketJniBridge.windowssysWindowsWin32GraphicsPrintingPrintticketPTOpenProviderEx(pszprintername.rawAddress, dwmaxversion.toInt(), dwprefversion.toInt(), phprovider.rawAddress, pusedversion.rawAddress)
 
-public actual fun pTQuerySchemaVersionSupport(pszprintername: Pcwstr, pmaxversion: MutPtr<UInt>): Hresult =
+public actual fun pTQuerySchemaVersionSupport(pszprintername: Pcwstr, pmaxversion: MutPtr): Hresult =
     WindowsWin32GraphicsPrintingPrintticketJniBridge.windowssysWindowsWin32GraphicsPrintingPrintticketPTQuerySchemaVersionSupport(pszprintername.rawAddress, pmaxversion.rawAddress)
 
-public actual fun pTReleaseMemory(pbuffer: ConstPtr<CVoid>): Hresult =
+public actual fun pTReleaseMemory(pbuffer: ConstPtr): Hresult =
     WindowsWin32GraphicsPrintingPrintticketJniBridge.windowssysWindowsWin32GraphicsPrintingPrintticketPTReleaseMemory(pbuffer.rawAddress)

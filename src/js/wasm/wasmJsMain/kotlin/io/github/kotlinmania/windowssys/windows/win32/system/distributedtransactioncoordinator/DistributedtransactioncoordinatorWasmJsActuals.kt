@@ -2,10 +2,8 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.system.distributedtransactioncoordinator
 
-import io.github.kotlinmania.rustlang.core.ffi.CVoid
 import io.github.kotlinmania.rustlang.core.ptr.ConstPtr
 import io.github.kotlinmania.rustlang.core.ptr.MutPtr
-import io.github.kotlinmania.windowssys.core.Guid
 import io.github.kotlinmania.windowssys.core.Hresult
 import io.github.kotlinmania.windowssys.core.Pcstr
 import io.github.kotlinmania.windowssys.core.Pcwstr
@@ -27,14 +25,14 @@ private external fun wasmWindowssysWindowsWin32SystemDistributedtransactioncoord
 @JsFun("(p0, p1, p2, p3, p4, p5) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemDistributedtransactioncoordinatorDtcGetTransactionManagerExW(p0, p1, p2, p3, p4, p5)")
 private external fun wasmWindowssysWindowsWin32SystemDistributedtransactioncoordinatorDtcGetTransactionManagerExW(p0: String, p1: String, p2: String, p3: Int, p4: String, p5: String): Int
 
-public actual fun dtcGetTransactionManager(iPszhost: Pcstr, iPsztmname: Pcstr, iRiid: ConstPtr<Guid>, iDwreserved1: UInt, iWcbreserved2: UShort, iPvreserved2: ConstPtr<CVoid>, oPpvobject: MutPtr<MutPtr<CVoid>>): Hresult =
+public actual fun dtcGetTransactionManager(iPszhost: Pcstr, iPsztmname: Pcstr, iRiid: ConstPtr, iDwreserved1: UInt, iWcbreserved2: UShort, iPvreserved2: ConstPtr, oPpvobject: MutPtr): Hresult =
     if (windowsWin32SystemDistributedtransactioncoordinatorNapiAvailable) wasmWindowssysWindowsWin32SystemDistributedtransactioncoordinatorDtcGetTransactionManager(iPszhost.rawAddress.toString(), iPsztmname.rawAddress.toString(), iRiid.rawAddress.toString(), iDwreserved1.toInt(), iWcbreserved2.toInt(), iPvreserved2.rawAddress.toString(), oPpvobject.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun dtcGetTransactionManagerC(iPszhost: Pcstr, iPsztmname: Pcstr, iRiid: ConstPtr<Guid>, iDwreserved1: UInt, iWcbreserved2: UShort, iPvreserved2: ConstPtr<CVoid>, oPpvobject: MutPtr<MutPtr<CVoid>>): Hresult =
+public actual fun dtcGetTransactionManagerC(iPszhost: Pcstr, iPsztmname: Pcstr, iRiid: ConstPtr, iDwreserved1: UInt, iWcbreserved2: UShort, iPvreserved2: ConstPtr, oPpvobject: MutPtr): Hresult =
     if (windowsWin32SystemDistributedtransactioncoordinatorNapiAvailable) wasmWindowssysWindowsWin32SystemDistributedtransactioncoordinatorDtcGetTransactionManagerC(iPszhost.rawAddress.toString(), iPsztmname.rawAddress.toString(), iRiid.rawAddress.toString(), iDwreserved1.toInt(), iWcbreserved2.toInt(), iPvreserved2.rawAddress.toString(), oPpvobject.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun dtcGetTransactionManagerExA(iPszhost: Pcstr, iPsztmname: Pcstr, iRiid: ConstPtr<Guid>, iGrfoptions: UInt, iPvconfigparams: MutPtr<CVoid>, oPpvobject: MutPtr<MutPtr<CVoid>>): Hresult =
+public actual fun dtcGetTransactionManagerExA(iPszhost: Pcstr, iPsztmname: Pcstr, iRiid: ConstPtr, iGrfoptions: UInt, iPvconfigparams: MutPtr, oPpvobject: MutPtr): Hresult =
     if (windowsWin32SystemDistributedtransactioncoordinatorNapiAvailable) wasmWindowssysWindowsWin32SystemDistributedtransactioncoordinatorDtcGetTransactionManagerExA(iPszhost.rawAddress.toString(), iPsztmname.rawAddress.toString(), iRiid.rawAddress.toString(), iGrfoptions.toInt(), iPvconfigparams.rawAddress.toString(), oPpvobject.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun dtcGetTransactionManagerExW(iPwszhost: Pcwstr, iPwsztmname: Pcwstr, iRiid: ConstPtr<Guid>, iGrfoptions: UInt, iPvconfigparams: MutPtr<CVoid>, oPpvobject: MutPtr<MutPtr<CVoid>>): Hresult =
+public actual fun dtcGetTransactionManagerExW(iPwszhost: Pcwstr, iPwsztmname: Pcwstr, iRiid: ConstPtr, iGrfoptions: UInt, iPvconfigparams: MutPtr, oPpvobject: MutPtr): Hresult =
     if (windowsWin32SystemDistributedtransactioncoordinatorNapiAvailable) wasmWindowssysWindowsWin32SystemDistributedtransactioncoordinatorDtcGetTransactionManagerExW(iPwszhost.rawAddress.toString(), iPwsztmname.rawAddress.toString(), iRiid.rawAddress.toString(), iGrfoptions.toInt(), iPvconfigparams.rawAddress.toString(), oPpvobject.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")

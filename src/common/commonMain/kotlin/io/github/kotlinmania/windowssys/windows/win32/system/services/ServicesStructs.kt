@@ -2,12 +2,10 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.system.services
 
-import io.github.kotlinmania.rustlang.core.ffi.CVoid
 import io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
 import io.github.kotlinmania.rustlang.core.mem.TypeLayout
 import io.github.kotlinmania.rustlang.core.ptr.MutPtr
 import io.github.kotlinmania.windowssys.core.Bool
-import io.github.kotlinmania.windowssys.core.Guid
 import io.github.kotlinmania.windowssys.core.Pstr
 import io.github.kotlinmania.windowssys.core.Pwstr
 
@@ -826,7 +824,7 @@ public class ServiceFailureActionsa internal constructor(
     lpRebootMsgCtorArg: Pstr,
     lpCommandCtorArg: Pstr,
     public var cActions: UInt,
-    lpsaActionsCtorArg: MutPtr<ScAction>,
+    lpsaActionsCtorArg: MutPtr,
 ) {
     public var lpRebootMsg: Pstr = lpRebootMsgCtorArg
         internal set
@@ -834,7 +832,7 @@ public class ServiceFailureActionsa internal constructor(
     public var lpCommand: Pstr = lpCommandCtorArg
         internal set
 
-    public var lpsaActions: MutPtr<ScAction> = lpsaActionsCtorArg
+    public var lpsaActions: MutPtr = lpsaActionsCtorArg
         internal set
 
     public constructor() : this(
@@ -853,9 +851,9 @@ public class ServiceFailureActionsa internal constructor(
 
     public operator fun component4(): UInt = this.cActions
 
-    public operator fun component5(): MutPtr<ScAction> = this.lpsaActions
+    public operator fun component5(): MutPtr = this.lpsaActions
 
-    public fun copy(dwResetPeriod: UInt = this.dwResetPeriod, lpRebootMsg: Pstr = this.lpRebootMsg, lpCommand: Pstr = this.lpCommand, cActions: UInt = this.cActions, lpsaActions: MutPtr<ScAction> = this.lpsaActions): ServiceFailureActionsa = ServiceFailureActionsa(dwResetPeriod = dwResetPeriod, lpRebootMsgCtorArg = lpRebootMsg, lpCommandCtorArg = lpCommand, cActions = cActions, lpsaActionsCtorArg = lpsaActions)
+    public fun copy(dwResetPeriod: UInt = this.dwResetPeriod, lpRebootMsg: Pstr = this.lpRebootMsg, lpCommand: Pstr = this.lpCommand, cActions: UInt = this.cActions, lpsaActions: MutPtr = this.lpsaActions): ServiceFailureActionsa = ServiceFailureActionsa(dwResetPeriod = dwResetPeriod, lpRebootMsgCtorArg = lpRebootMsg, lpCommandCtorArg = lpCommand, cActions = cActions, lpsaActionsCtorArg = lpsaActions)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -883,7 +881,7 @@ public class ServiceFailureActionsa internal constructor(
             lpRebootMsg: Pstr = MutPtr(0L),
             lpCommand: Pstr = MutPtr(0L),
             cActions: UInt = 0u,
-            lpsaActions: MutPtr<ScAction> = MutPtr(0L),
+            lpsaActions: MutPtr = MutPtr(0L),
         ): ServiceFailureActionsa =
             ServiceFailureActionsa(
                 dwResetPeriod = dwResetPeriod,
@@ -900,7 +898,7 @@ public class ServiceFailureActionsw internal constructor(
     lpRebootMsgCtorArg: Pwstr,
     lpCommandCtorArg: Pwstr,
     public var cActions: UInt,
-    lpsaActionsCtorArg: MutPtr<ScAction>,
+    lpsaActionsCtorArg: MutPtr,
 ) {
     public var lpRebootMsg: Pwstr = lpRebootMsgCtorArg
         internal set
@@ -908,7 +906,7 @@ public class ServiceFailureActionsw internal constructor(
     public var lpCommand: Pwstr = lpCommandCtorArg
         internal set
 
-    public var lpsaActions: MutPtr<ScAction> = lpsaActionsCtorArg
+    public var lpsaActions: MutPtr = lpsaActionsCtorArg
         internal set
 
     public constructor() : this(
@@ -927,9 +925,9 @@ public class ServiceFailureActionsw internal constructor(
 
     public operator fun component4(): UInt = this.cActions
 
-    public operator fun component5(): MutPtr<ScAction> = this.lpsaActions
+    public operator fun component5(): MutPtr = this.lpsaActions
 
-    public fun copy(dwResetPeriod: UInt = this.dwResetPeriod, lpRebootMsg: Pwstr = this.lpRebootMsg, lpCommand: Pwstr = this.lpCommand, cActions: UInt = this.cActions, lpsaActions: MutPtr<ScAction> = this.lpsaActions): ServiceFailureActionsw = ServiceFailureActionsw(dwResetPeriod = dwResetPeriod, lpRebootMsgCtorArg = lpRebootMsg, lpCommandCtorArg = lpCommand, cActions = cActions, lpsaActionsCtorArg = lpsaActions)
+    public fun copy(dwResetPeriod: UInt = this.dwResetPeriod, lpRebootMsg: Pwstr = this.lpRebootMsg, lpCommand: Pwstr = this.lpCommand, cActions: UInt = this.cActions, lpsaActions: MutPtr = this.lpsaActions): ServiceFailureActionsw = ServiceFailureActionsw(dwResetPeriod = dwResetPeriod, lpRebootMsgCtorArg = lpRebootMsg, lpCommandCtorArg = lpCommand, cActions = cActions, lpsaActionsCtorArg = lpsaActions)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -957,7 +955,7 @@ public class ServiceFailureActionsw internal constructor(
             lpRebootMsg: Pwstr = MutPtr(0L),
             lpCommand: Pwstr = MutPtr(0L),
             cActions: UInt = 0u,
-            lpsaActions: MutPtr<ScAction> = MutPtr(0L),
+            lpsaActions: MutPtr = MutPtr(0L),
         ): ServiceFailureActionsw =
             ServiceFailureActionsw(
                 dwResetPeriod = dwResetPeriod,
@@ -1010,11 +1008,11 @@ public data class ServiceLaunchProtectedInfo(
 public class ServiceNotify1 internal constructor(
     public var dwVersion: UInt,
     public var pfnNotifyCallback: PfnScNotifyCallback,
-    pContextCtorArg: MutPtr<CVoid>,
+    pContextCtorArg: MutPtr,
     public var dwNotificationStatus: UInt,
     public var serviceStatus: ServiceStatusProcess,
 ) {
-    public var pContext: MutPtr<CVoid> = pContextCtorArg
+    public var pContext: MutPtr = pContextCtorArg
         internal set
 
     public constructor() : this(
@@ -1029,13 +1027,13 @@ public class ServiceNotify1 internal constructor(
 
     public operator fun component2(): PfnScNotifyCallback = this.pfnNotifyCallback
 
-    public operator fun component3(): MutPtr<CVoid> = this.pContext
+    public operator fun component3(): MutPtr = this.pContext
 
     public operator fun component4(): UInt = this.dwNotificationStatus
 
     public operator fun component5(): ServiceStatusProcess = this.serviceStatus
 
-    public fun copy(dwVersion: UInt = this.dwVersion, pfnNotifyCallback: PfnScNotifyCallback = this.pfnNotifyCallback, pContext: MutPtr<CVoid> = this.pContext, dwNotificationStatus: UInt = this.dwNotificationStatus, serviceStatus: ServiceStatusProcess = this.serviceStatus): ServiceNotify1 = ServiceNotify1(dwVersion = dwVersion, pfnNotifyCallback = pfnNotifyCallback, pContextCtorArg = pContext, dwNotificationStatus = dwNotificationStatus, serviceStatus = serviceStatus)
+    public fun copy(dwVersion: UInt = this.dwVersion, pfnNotifyCallback: PfnScNotifyCallback = this.pfnNotifyCallback, pContext: MutPtr = this.pContext, dwNotificationStatus: UInt = this.dwNotificationStatus, serviceStatus: ServiceStatusProcess = this.serviceStatus): ServiceNotify1 = ServiceNotify1(dwVersion = dwVersion, pfnNotifyCallback = pfnNotifyCallback, pContextCtorArg = pContext, dwNotificationStatus = dwNotificationStatus, serviceStatus = serviceStatus)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -1061,7 +1059,7 @@ public class ServiceNotify1 internal constructor(
         public operator fun invoke(
             dwVersion: UInt = 0u,
             pfnNotifyCallback: PfnScNotifyCallback = null,
-            pContext: MutPtr<CVoid> = MutPtr(0L),
+            pContext: MutPtr = MutPtr(0L),
             dwNotificationStatus: UInt = 0u,
             serviceStatus: ServiceStatusProcess = ServiceStatusProcess(),
         ): ServiceNotify1 =
@@ -1078,13 +1076,13 @@ public class ServiceNotify1 internal constructor(
 public class ServiceNotify2a internal constructor(
     public var dwVersion: UInt,
     public var pfnNotifyCallback: PfnScNotifyCallback,
-    pContextCtorArg: MutPtr<CVoid>,
+    pContextCtorArg: MutPtr,
     public var dwNotificationStatus: UInt,
     public var serviceStatus: ServiceStatusProcess,
     public var dwNotificationTriggered: UInt,
     pszServiceNamesCtorArg: Pstr,
 ) {
-    public var pContext: MutPtr<CVoid> = pContextCtorArg
+    public var pContext: MutPtr = pContextCtorArg
         internal set
 
     public var pszServiceNames: Pstr = pszServiceNamesCtorArg
@@ -1104,7 +1102,7 @@ public class ServiceNotify2a internal constructor(
 
     public operator fun component2(): PfnScNotifyCallback = this.pfnNotifyCallback
 
-    public operator fun component3(): MutPtr<CVoid> = this.pContext
+    public operator fun component3(): MutPtr = this.pContext
 
     public operator fun component4(): UInt = this.dwNotificationStatus
 
@@ -1114,7 +1112,7 @@ public class ServiceNotify2a internal constructor(
 
     public operator fun component7(): Pstr = this.pszServiceNames
 
-    public fun copy(dwVersion: UInt = this.dwVersion, pfnNotifyCallback: PfnScNotifyCallback = this.pfnNotifyCallback, pContext: MutPtr<CVoid> = this.pContext, dwNotificationStatus: UInt = this.dwNotificationStatus, serviceStatus: ServiceStatusProcess = this.serviceStatus, dwNotificationTriggered: UInt = this.dwNotificationTriggered, pszServiceNames: Pstr = this.pszServiceNames): ServiceNotify2a = ServiceNotify2a(dwVersion = dwVersion, pfnNotifyCallback = pfnNotifyCallback, pContextCtorArg = pContext, dwNotificationStatus = dwNotificationStatus, serviceStatus = serviceStatus, dwNotificationTriggered = dwNotificationTriggered, pszServiceNamesCtorArg = pszServiceNames)
+    public fun copy(dwVersion: UInt = this.dwVersion, pfnNotifyCallback: PfnScNotifyCallback = this.pfnNotifyCallback, pContext: MutPtr = this.pContext, dwNotificationStatus: UInt = this.dwNotificationStatus, serviceStatus: ServiceStatusProcess = this.serviceStatus, dwNotificationTriggered: UInt = this.dwNotificationTriggered, pszServiceNames: Pstr = this.pszServiceNames): ServiceNotify2a = ServiceNotify2a(dwVersion = dwVersion, pfnNotifyCallback = pfnNotifyCallback, pContextCtorArg = pContext, dwNotificationStatus = dwNotificationStatus, serviceStatus = serviceStatus, dwNotificationTriggered = dwNotificationTriggered, pszServiceNamesCtorArg = pszServiceNames)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -1144,7 +1142,7 @@ public class ServiceNotify2a internal constructor(
         public operator fun invoke(
             dwVersion: UInt = 0u,
             pfnNotifyCallback: PfnScNotifyCallback = null,
-            pContext: MutPtr<CVoid> = MutPtr(0L),
+            pContext: MutPtr = MutPtr(0L),
             dwNotificationStatus: UInt = 0u,
             serviceStatus: ServiceStatusProcess = ServiceStatusProcess(),
             dwNotificationTriggered: UInt = 0u,
@@ -1165,13 +1163,13 @@ public class ServiceNotify2a internal constructor(
 public class ServiceNotify2w internal constructor(
     public var dwVersion: UInt,
     public var pfnNotifyCallback: PfnScNotifyCallback,
-    pContextCtorArg: MutPtr<CVoid>,
+    pContextCtorArg: MutPtr,
     public var dwNotificationStatus: UInt,
     public var serviceStatus: ServiceStatusProcess,
     public var dwNotificationTriggered: UInt,
     pszServiceNamesCtorArg: Pwstr,
 ) {
-    public var pContext: MutPtr<CVoid> = pContextCtorArg
+    public var pContext: MutPtr = pContextCtorArg
         internal set
 
     public var pszServiceNames: Pwstr = pszServiceNamesCtorArg
@@ -1191,7 +1189,7 @@ public class ServiceNotify2w internal constructor(
 
     public operator fun component2(): PfnScNotifyCallback = this.pfnNotifyCallback
 
-    public operator fun component3(): MutPtr<CVoid> = this.pContext
+    public operator fun component3(): MutPtr = this.pContext
 
     public operator fun component4(): UInt = this.dwNotificationStatus
 
@@ -1201,7 +1199,7 @@ public class ServiceNotify2w internal constructor(
 
     public operator fun component7(): Pwstr = this.pszServiceNames
 
-    public fun copy(dwVersion: UInt = this.dwVersion, pfnNotifyCallback: PfnScNotifyCallback = this.pfnNotifyCallback, pContext: MutPtr<CVoid> = this.pContext, dwNotificationStatus: UInt = this.dwNotificationStatus, serviceStatus: ServiceStatusProcess = this.serviceStatus, dwNotificationTriggered: UInt = this.dwNotificationTriggered, pszServiceNames: Pwstr = this.pszServiceNames): ServiceNotify2w = ServiceNotify2w(dwVersion = dwVersion, pfnNotifyCallback = pfnNotifyCallback, pContextCtorArg = pContext, dwNotificationStatus = dwNotificationStatus, serviceStatus = serviceStatus, dwNotificationTriggered = dwNotificationTriggered, pszServiceNamesCtorArg = pszServiceNames)
+    public fun copy(dwVersion: UInt = this.dwVersion, pfnNotifyCallback: PfnScNotifyCallback = this.pfnNotifyCallback, pContext: MutPtr = this.pContext, dwNotificationStatus: UInt = this.dwNotificationStatus, serviceStatus: ServiceStatusProcess = this.serviceStatus, dwNotificationTriggered: UInt = this.dwNotificationTriggered, pszServiceNames: Pwstr = this.pszServiceNames): ServiceNotify2w = ServiceNotify2w(dwVersion = dwVersion, pfnNotifyCallback = pfnNotifyCallback, pContextCtorArg = pContext, dwNotificationStatus = dwNotificationStatus, serviceStatus = serviceStatus, dwNotificationTriggered = dwNotificationTriggered, pszServiceNamesCtorArg = pszServiceNames)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -1231,7 +1229,7 @@ public class ServiceNotify2w internal constructor(
         public operator fun invoke(
             dwVersion: UInt = 0u,
             pfnNotifyCallback: PfnScNotifyCallback = null,
-            pContext: MutPtr<CVoid> = MutPtr(0L),
+            pContext: MutPtr = MutPtr(0L),
             dwNotificationStatus: UInt = 0u,
             serviceStatus: ServiceStatusProcess = ServiceStatusProcess(),
             dwNotificationTriggered: UInt = 0u,
@@ -1587,14 +1585,14 @@ public data class ServiceTimechangeInfo(
 public class ServiceTrigger internal constructor(
     public var dwTriggerType: ServiceTriggerType,
     public var dwAction: ServiceTriggerAction,
-    pTriggerSubtypeCtorArg: MutPtr<Guid>,
+    pTriggerSubtypeCtorArg: MutPtr,
     public var cDataItems: UInt,
-    pDataItemsCtorArg: MutPtr<ServiceTriggerSpecificDataItem>,
+    pDataItemsCtorArg: MutPtr,
 ) {
-    public var pTriggerSubtype: MutPtr<Guid> = pTriggerSubtypeCtorArg
+    public var pTriggerSubtype: MutPtr = pTriggerSubtypeCtorArg
         internal set
 
-    public var pDataItems: MutPtr<ServiceTriggerSpecificDataItem> = pDataItemsCtorArg
+    public var pDataItems: MutPtr = pDataItemsCtorArg
         internal set
 
     public constructor() : this(
@@ -1609,13 +1607,13 @@ public class ServiceTrigger internal constructor(
 
     public operator fun component2(): ServiceTriggerAction = this.dwAction
 
-    public operator fun component3(): MutPtr<Guid> = this.pTriggerSubtype
+    public operator fun component3(): MutPtr = this.pTriggerSubtype
 
     public operator fun component4(): UInt = this.cDataItems
 
-    public operator fun component5(): MutPtr<ServiceTriggerSpecificDataItem> = this.pDataItems
+    public operator fun component5(): MutPtr = this.pDataItems
 
-    public fun copy(dwTriggerType: ServiceTriggerType = this.dwTriggerType, dwAction: ServiceTriggerAction = this.dwAction, pTriggerSubtype: MutPtr<Guid> = this.pTriggerSubtype, cDataItems: UInt = this.cDataItems, pDataItems: MutPtr<ServiceTriggerSpecificDataItem> = this.pDataItems): ServiceTrigger = ServiceTrigger(dwTriggerType = dwTriggerType, dwAction = dwAction, pTriggerSubtypeCtorArg = pTriggerSubtype, cDataItems = cDataItems, pDataItemsCtorArg = pDataItems)
+    public fun copy(dwTriggerType: ServiceTriggerType = this.dwTriggerType, dwAction: ServiceTriggerAction = this.dwAction, pTriggerSubtype: MutPtr = this.pTriggerSubtype, cDataItems: UInt = this.cDataItems, pDataItems: MutPtr = this.pDataItems): ServiceTrigger = ServiceTrigger(dwTriggerType = dwTriggerType, dwAction = dwAction, pTriggerSubtypeCtorArg = pTriggerSubtype, cDataItems = cDataItems, pDataItemsCtorArg = pDataItems)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -1648,12 +1646,12 @@ public class ServiceTrigger internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 4L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<Guid>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 16L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<ServiceTriggerSpecificDataItem>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 24L),
                     )
                 override fun writeNative(addr: Long, value: ServiceTrigger) {
@@ -1661,12 +1659,12 @@ public class ServiceTrigger internal constructor(
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 4L, value.dwAction)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<Guid>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.pTriggerSubtype)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 16L, value.cDataItems)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<ServiceTriggerSpecificDataItem>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 24L, value.pDataItems)
                 }
             }
@@ -1674,9 +1672,9 @@ public class ServiceTrigger internal constructor(
         public operator fun invoke(
             dwTriggerType: ServiceTriggerType = 0u,
             dwAction: ServiceTriggerAction = 0u,
-            pTriggerSubtype: MutPtr<Guid> = MutPtr(0L),
+            pTriggerSubtype: MutPtr = MutPtr(0L),
             cDataItems: UInt = 0u,
-            pDataItems: MutPtr<ServiceTriggerSpecificDataItem> = MutPtr(0L),
+            pDataItems: MutPtr = MutPtr(0L),
         ): ServiceTrigger =
             ServiceTrigger(
                 dwTriggerType = dwTriggerType,
@@ -1724,13 +1722,13 @@ public data class ServiceTriggerCustomStateId(
 
 public class ServiceTriggerInfo internal constructor(
     public var cTriggers: UInt,
-    pTriggersCtorArg: MutPtr<ServiceTrigger>,
-    pReservedCtorArg: MutPtr<UByte>,
+    pTriggersCtorArg: MutPtr,
+    pReservedCtorArg: MutPtr,
 ) {
-    public var pTriggers: MutPtr<ServiceTrigger> = pTriggersCtorArg
+    public var pTriggers: MutPtr = pTriggersCtorArg
         internal set
 
-    public var pReserved: MutPtr<UByte> = pReservedCtorArg
+    public var pReserved: MutPtr = pReservedCtorArg
         internal set
 
     public constructor() : this(
@@ -1741,11 +1739,11 @@ public class ServiceTriggerInfo internal constructor(
 
     public operator fun component1(): UInt = this.cTriggers
 
-    public operator fun component2(): MutPtr<ServiceTrigger> = this.pTriggers
+    public operator fun component2(): MutPtr = this.pTriggers
 
-    public operator fun component3(): MutPtr<UByte> = this.pReserved
+    public operator fun component3(): MutPtr = this.pReserved
 
-    public fun copy(cTriggers: UInt = this.cTriggers, pTriggers: MutPtr<ServiceTrigger> = this.pTriggers, pReserved: MutPtr<UByte> = this.pReserved): ServiceTriggerInfo = ServiceTriggerInfo(cTriggers = cTriggers, pTriggersCtorArg = pTriggers, pReservedCtorArg = pReserved)
+    public fun copy(cTriggers: UInt = this.cTriggers, pTriggers: MutPtr = this.pTriggers, pReserved: MutPtr = this.pReserved): ServiceTriggerInfo = ServiceTriggerInfo(cTriggers = cTriggers, pTriggersCtorArg = pTriggers, pReservedCtorArg = pReserved)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -1773,30 +1771,30 @@ public class ServiceTriggerInfo internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<ServiceTrigger>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<UByte>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 16L),
                     )
                 override fun writeNative(addr: Long, value: ServiceTriggerInfo) {
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr, value.cTriggers)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<ServiceTrigger>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.pTriggers)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<UByte>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 16L, value.pReserved)
                 }
             }
 
         public operator fun invoke(
             cTriggers: UInt = 0u,
-            pTriggers: MutPtr<ServiceTrigger> = MutPtr(0L),
-            pReserved: MutPtr<UByte> = MutPtr(0L),
+            pTriggers: MutPtr = MutPtr(0L),
+            pReserved: MutPtr = MutPtr(0L),
         ): ServiceTriggerInfo =
             ServiceTriggerInfo(
                 cTriggers = cTriggers,
@@ -1809,9 +1807,9 @@ public class ServiceTriggerInfo internal constructor(
 public class ServiceTriggerSpecificDataItem internal constructor(
     public var dwDataType: ServiceTriggerSpecificDataItemDataType,
     public var cbData: UInt,
-    pDataCtorArg: MutPtr<UByte>,
+    pDataCtorArg: MutPtr,
 ) {
-    public var pData: MutPtr<UByte> = pDataCtorArg
+    public var pData: MutPtr = pDataCtorArg
         internal set
 
     public constructor() : this(
@@ -1824,9 +1822,9 @@ public class ServiceTriggerSpecificDataItem internal constructor(
 
     public operator fun component2(): UInt = this.cbData
 
-    public operator fun component3(): MutPtr<UByte> = this.pData
+    public operator fun component3(): MutPtr = this.pData
 
-    public fun copy(dwDataType: ServiceTriggerSpecificDataItemDataType = this.dwDataType, cbData: UInt = this.cbData, pData: MutPtr<UByte> = this.pData): ServiceTriggerSpecificDataItem = ServiceTriggerSpecificDataItem(dwDataType = dwDataType, cbData = cbData, pDataCtorArg = pData)
+    public fun copy(dwDataType: ServiceTriggerSpecificDataItemDataType = this.dwDataType, cbData: UInt = this.cbData, pData: MutPtr = this.pData): ServiceTriggerSpecificDataItem = ServiceTriggerSpecificDataItem(dwDataType = dwDataType, cbData = cbData, pDataCtorArg = pData)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -1855,7 +1853,7 @@ public class ServiceTriggerSpecificDataItem internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 4L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<UByte>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                     )
                 override fun writeNative(addr: Long, value: ServiceTriggerSpecificDataItem) {
@@ -1863,7 +1861,7 @@ public class ServiceTriggerSpecificDataItem internal constructor(
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 4L, value.cbData)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<UByte>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.pData)
                 }
             }
@@ -1871,7 +1869,7 @@ public class ServiceTriggerSpecificDataItem internal constructor(
         public operator fun invoke(
             dwDataType: ServiceTriggerSpecificDataItemDataType = 0u,
             cbData: UInt = 0u,
-            pData: MutPtr<UByte> = MutPtr(0L),
+            pData: MutPtr = MutPtr(0L),
         ): ServiceTriggerSpecificDataItem =
             ServiceTriggerSpecificDataItem(
                 dwDataType = dwDataType,

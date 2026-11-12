@@ -1,6 +1,5 @@
 package io.github.kotlinmania.windowssys.windows.win32.storage.packaging.appx
 
-import io.github.kotlinmania.rustlang.core.ffi.CVoid
 import io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
 import io.github.kotlinmania.rustlang.core.mem.TypeLayout
 import io.github.kotlinmania.rustlang.core.ptr.ConstPtr
@@ -11,9 +10,9 @@ import io.github.kotlinmania.windowssys.core.Pwstr
 
 public class AppxEncryptedExemptions internal constructor(
     public var count: UInt,
-    plainTextFilesCtorArg: ConstPtr<Pcwstr>,
+    plainTextFilesCtorArg: ConstPtr,
 ) {
-    public var plainTextFiles: ConstPtr<Pcwstr> = plainTextFilesCtorArg
+    public var plainTextFiles: ConstPtr = plainTextFilesCtorArg
         internal set
 
     public constructor() : this(
@@ -23,9 +22,9 @@ public class AppxEncryptedExemptions internal constructor(
 
     public operator fun component1(): UInt = this.count
 
-    public operator fun component2(): ConstPtr<Pcwstr> = this.plainTextFiles
+    public operator fun component2(): ConstPtr = this.plainTextFiles
 
-    public fun copy(count: UInt = this.count, plainTextFiles: ConstPtr<Pcwstr> = this.plainTextFiles): AppxEncryptedExemptions = AppxEncryptedExemptions(count = count, plainTextFilesCtorArg = plainTextFiles)
+    public fun copy(count: UInt = this.count, plainTextFiles: ConstPtr = this.plainTextFiles): AppxEncryptedExemptions = AppxEncryptedExemptions(count = count, plainTextFilesCtorArg = plainTextFiles)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -51,21 +50,21 @@ public class AppxEncryptedExemptions internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .constPtrLayout<Pcwstr>(64)
+                                .constPtrLayout(64)
                         ).readNative(addr + 8L),
                     )
                 override fun writeNative(addr: Long, value: AppxEncryptedExemptions) {
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr, value.count)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .constPtrLayout<Pcwstr>(64)
+                            .constPtrLayout(64)
                     ).writeNative(addr + 8L, value.plainTextFiles)
                 }
             }
 
         public operator fun invoke(
             count: UInt = 0u,
-            plainTextFiles: ConstPtr<Pcwstr> = ConstPtr(0L),
+            plainTextFiles: ConstPtr = ConstPtr(0L),
         ): AppxEncryptedExemptions =
             AppxEncryptedExemptions(
                 count = count,
@@ -78,12 +77,12 @@ public class AppxEncryptedPackageSettings internal constructor(
     public var keyLength: UInt,
     encryptionAlgorithmCtorArg: Pcwstr,
     public var useDiffusion: Bool,
-    blockMapHashAlgorithmCtorArg: MutPtr<CVoid>,
+    blockMapHashAlgorithmCtorArg: MutPtr,
 ) {
     public var encryptionAlgorithm: Pcwstr = encryptionAlgorithmCtorArg
         internal set
 
-    public var blockMapHashAlgorithm: MutPtr<CVoid> = blockMapHashAlgorithmCtorArg
+    public var blockMapHashAlgorithm: MutPtr = blockMapHashAlgorithmCtorArg
         internal set
 
     public constructor() : this(
@@ -99,9 +98,9 @@ public class AppxEncryptedPackageSettings internal constructor(
 
     public operator fun component3(): Bool = this.useDiffusion
 
-    public operator fun component4(): MutPtr<CVoid> = this.blockMapHashAlgorithm
+    public operator fun component4(): MutPtr = this.blockMapHashAlgorithm
 
-    public fun copy(keyLength: UInt = this.keyLength, encryptionAlgorithm: Pcwstr = this.encryptionAlgorithm, useDiffusion: Bool = this.useDiffusion, blockMapHashAlgorithm: MutPtr<CVoid> = this.blockMapHashAlgorithm): AppxEncryptedPackageSettings = AppxEncryptedPackageSettings(keyLength = keyLength, encryptionAlgorithmCtorArg = encryptionAlgorithm, useDiffusion = useDiffusion, blockMapHashAlgorithmCtorArg = blockMapHashAlgorithm)
+    public fun copy(keyLength: UInt = this.keyLength, encryptionAlgorithm: Pcwstr = this.encryptionAlgorithm, useDiffusion: Bool = this.useDiffusion, blockMapHashAlgorithm: MutPtr = this.blockMapHashAlgorithm): AppxEncryptedPackageSettings = AppxEncryptedPackageSettings(keyLength = keyLength, encryptionAlgorithmCtorArg = encryptionAlgorithm, useDiffusion = useDiffusion, blockMapHashAlgorithmCtorArg = blockMapHashAlgorithm)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -126,7 +125,7 @@ public class AppxEncryptedPackageSettings internal constructor(
             keyLength: UInt = 0u,
             encryptionAlgorithm: Pcwstr = ConstPtr(0L),
             useDiffusion: Bool = 0,
-            blockMapHashAlgorithm: MutPtr<CVoid> = MutPtr(0L),
+            blockMapHashAlgorithm: MutPtr = MutPtr(0L),
         ): AppxEncryptedPackageSettings =
             AppxEncryptedPackageSettings(
                 keyLength = keyLength,
@@ -140,13 +139,13 @@ public class AppxEncryptedPackageSettings internal constructor(
 public class AppxEncryptedPackageSettings2 internal constructor(
     public var keyLength: UInt,
     encryptionAlgorithmCtorArg: Pcwstr,
-    blockMapHashAlgorithmCtorArg: MutPtr<CVoid>,
+    blockMapHashAlgorithmCtorArg: MutPtr,
     public var options: UInt,
 ) {
     public var encryptionAlgorithm: Pcwstr = encryptionAlgorithmCtorArg
         internal set
 
-    public var blockMapHashAlgorithm: MutPtr<CVoid> = blockMapHashAlgorithmCtorArg
+    public var blockMapHashAlgorithm: MutPtr = blockMapHashAlgorithmCtorArg
         internal set
 
     public constructor() : this(
@@ -160,11 +159,11 @@ public class AppxEncryptedPackageSettings2 internal constructor(
 
     public operator fun component2(): Pcwstr = this.encryptionAlgorithm
 
-    public operator fun component3(): MutPtr<CVoid> = this.blockMapHashAlgorithm
+    public operator fun component3(): MutPtr = this.blockMapHashAlgorithm
 
     public operator fun component4(): UInt = this.options
 
-    public fun copy(keyLength: UInt = this.keyLength, encryptionAlgorithm: Pcwstr = this.encryptionAlgorithm, blockMapHashAlgorithm: MutPtr<CVoid> = this.blockMapHashAlgorithm, options: UInt = this.options): AppxEncryptedPackageSettings2 = AppxEncryptedPackageSettings2(keyLength = keyLength, encryptionAlgorithmCtorArg = encryptionAlgorithm, blockMapHashAlgorithmCtorArg = blockMapHashAlgorithm, options = options)
+    public fun copy(keyLength: UInt = this.keyLength, encryptionAlgorithm: Pcwstr = this.encryptionAlgorithm, blockMapHashAlgorithm: MutPtr = this.blockMapHashAlgorithm, options: UInt = this.options): AppxEncryptedPackageSettings2 = AppxEncryptedPackageSettings2(keyLength = keyLength, encryptionAlgorithmCtorArg = encryptionAlgorithm, blockMapHashAlgorithmCtorArg = blockMapHashAlgorithm, options = options)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -188,7 +187,7 @@ public class AppxEncryptedPackageSettings2 internal constructor(
         public operator fun invoke(
             keyLength: UInt = 0u,
             encryptionAlgorithm: Pcwstr = ConstPtr(0L),
-            blockMapHashAlgorithm: MutPtr<CVoid> = MutPtr(0L),
+            blockMapHashAlgorithm: MutPtr = MutPtr(0L),
             options: UInt = 0u,
         ): AppxEncryptedPackageSettings2 =
             AppxEncryptedPackageSettings2(
@@ -203,13 +202,13 @@ public class AppxEncryptedPackageSettings2 internal constructor(
 public class AppxKeyInfo internal constructor(
     public var keyLength: UInt,
     public var keyIdLength: UInt,
-    keyCtorArg: MutPtr<UByte>,
-    keyIdCtorArg: MutPtr<UByte>,
+    keyCtorArg: MutPtr,
+    keyIdCtorArg: MutPtr,
 ) {
-    public var key: MutPtr<UByte> = keyCtorArg
+    public var key: MutPtr = keyCtorArg
         internal set
 
-    public var keyId: MutPtr<UByte> = keyIdCtorArg
+    public var keyId: MutPtr = keyIdCtorArg
         internal set
 
     public constructor() : this(
@@ -223,11 +222,11 @@ public class AppxKeyInfo internal constructor(
 
     public operator fun component2(): UInt = this.keyIdLength
 
-    public operator fun component3(): MutPtr<UByte> = this.key
+    public operator fun component3(): MutPtr = this.key
 
-    public operator fun component4(): MutPtr<UByte> = this.keyId
+    public operator fun component4(): MutPtr = this.keyId
 
-    public fun copy(keyLength: UInt = this.keyLength, keyIdLength: UInt = this.keyIdLength, key: MutPtr<UByte> = this.key, keyId: MutPtr<UByte> = this.keyId): AppxKeyInfo = AppxKeyInfo(keyLength = keyLength, keyIdLength = keyIdLength, keyCtorArg = key, keyIdCtorArg = keyId)
+    public fun copy(keyLength: UInt = this.keyLength, keyIdLength: UInt = this.keyIdLength, key: MutPtr = this.key, keyId: MutPtr = this.keyId): AppxKeyInfo = AppxKeyInfo(keyLength = keyLength, keyIdLength = keyIdLength, keyCtorArg = key, keyIdCtorArg = keyId)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -258,11 +257,11 @@ public class AppxKeyInfo internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 4L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<UByte>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<UByte>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 16L),
                     )
                 override fun writeNative(addr: Long, value: AppxKeyInfo) {
@@ -270,11 +269,11 @@ public class AppxKeyInfo internal constructor(
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 4L, value.keyIdLength)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<UByte>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.key)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<UByte>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 16L, value.keyId)
                 }
             }
@@ -282,8 +281,8 @@ public class AppxKeyInfo internal constructor(
         public operator fun invoke(
             keyLength: UInt = 0u,
             keyIdLength: UInt = 0u,
-            key: MutPtr<UByte> = MutPtr(0L),
-            keyId: MutPtr<UByte> = MutPtr(0L),
+            key: MutPtr = MutPtr(0L),
+            keyId: MutPtr = MutPtr(0L),
         ): AppxKeyInfo =
             AppxKeyInfo(
                 keyLength = keyLength,
@@ -296,9 +295,9 @@ public class AppxKeyInfo internal constructor(
 
 public class AppxPackageSettings internal constructor(
     public var forceZip32: Bool,
-    hashMethodCtorArg: MutPtr<CVoid>,
+    hashMethodCtorArg: MutPtr,
 ) {
-    public var hashMethod: MutPtr<CVoid> = hashMethodCtorArg
+    public var hashMethod: MutPtr = hashMethodCtorArg
         internal set
 
     public constructor() : this(
@@ -308,9 +307,9 @@ public class AppxPackageSettings internal constructor(
 
     public operator fun component1(): Bool = this.forceZip32
 
-    public operator fun component2(): MutPtr<CVoid> = this.hashMethod
+    public operator fun component2(): MutPtr = this.hashMethod
 
-    public fun copy(forceZip32: Bool = this.forceZip32, hashMethod: MutPtr<CVoid> = this.hashMethod): AppxPackageSettings = AppxPackageSettings(forceZip32 = forceZip32, hashMethodCtorArg = hashMethod)
+    public fun copy(forceZip32: Bool = this.forceZip32, hashMethod: MutPtr = this.hashMethod): AppxPackageSettings = AppxPackageSettings(forceZip32 = forceZip32, hashMethodCtorArg = hashMethod)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -336,21 +335,21 @@ public class AppxPackageSettings internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<CVoid>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                     )
                 override fun writeNative(addr: Long, value: AppxPackageSettings) {
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr, value.forceZip32)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<CVoid>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.hashMethod)
                 }
             }
 
         public operator fun invoke(
             forceZip32: Bool = 0,
-            hashMethod: MutPtr<CVoid> = MutPtr(0L),
+            hashMethod: MutPtr = MutPtr(0L),
         ): AppxPackageSettings =
             AppxPackageSettings(
                 forceZip32 = forceZip32,
@@ -360,12 +359,12 @@ public class AppxPackageSettings internal constructor(
 }
 
 public class AppxPackageWriterPayloadStream internal constructor(
-    inputStreamCtorArg: MutPtr<CVoid>,
+    inputStreamCtorArg: MutPtr,
     fileNameCtorArg: Pcwstr,
     contentTypeCtorArg: Pcwstr,
     public var compressionOption: AppxCompressionOption,
 ) {
-    public var inputStream: MutPtr<CVoid> = inputStreamCtorArg
+    public var inputStream: MutPtr = inputStreamCtorArg
         internal set
 
     public var fileName: Pcwstr = fileNameCtorArg
@@ -381,7 +380,7 @@ public class AppxPackageWriterPayloadStream internal constructor(
         compressionOption = 0,
     )
 
-    public operator fun component1(): MutPtr<CVoid> = this.inputStream
+    public operator fun component1(): MutPtr = this.inputStream
 
     public operator fun component2(): Pcwstr = this.fileName
 
@@ -389,7 +388,7 @@ public class AppxPackageWriterPayloadStream internal constructor(
 
     public operator fun component4(): AppxCompressionOption = this.compressionOption
 
-    public fun copy(inputStream: MutPtr<CVoid> = this.inputStream, fileName: Pcwstr = this.fileName, contentType: Pcwstr = this.contentType, compressionOption: AppxCompressionOption = this.compressionOption): AppxPackageWriterPayloadStream = AppxPackageWriterPayloadStream(inputStreamCtorArg = inputStream, fileNameCtorArg = fileName, contentTypeCtorArg = contentType, compressionOption = compressionOption)
+    public fun copy(inputStream: MutPtr = this.inputStream, fileName: Pcwstr = this.fileName, contentType: Pcwstr = this.contentType, compressionOption: AppxCompressionOption = this.compressionOption): AppxPackageWriterPayloadStream = AppxPackageWriterPayloadStream(inputStreamCtorArg = inputStream, fileNameCtorArg = fileName, contentTypeCtorArg = contentType, compressionOption = compressionOption)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -411,7 +410,7 @@ public class AppxPackageWriterPayloadStream internal constructor(
 
     public companion object {
         public operator fun invoke(
-            inputStream: MutPtr<CVoid> = MutPtr(0L),
+            inputStream: MutPtr = MutPtr(0L),
             fileName: Pcwstr = ConstPtr(0L),
             contentType: Pcwstr = ConstPtr(0L),
             compressionOption: AppxCompressionOption = 0,
@@ -638,18 +637,18 @@ public data class PackageVersion00(
 }
 
 public class PackageInfoReference internal constructor(
-    reservedCtorArg: MutPtr<CVoid>,
+    reservedCtorArg: MutPtr,
 ) {
-    public var reserved: MutPtr<CVoid> = reservedCtorArg
+    public var reserved: MutPtr = reservedCtorArg
         internal set
 
     public constructor() : this(
         reservedCtorArg = MutPtr(0L),
     )
 
-    public operator fun component1(): MutPtr<CVoid> = this.reserved
+    public operator fun component1(): MutPtr = this.reserved
 
-    public fun copy(reserved: MutPtr<CVoid> = this.reserved): PackageInfoReference = PackageInfoReference(reservedCtorArg = reserved)
+    public fun copy(reserved: MutPtr = this.reserved): PackageInfoReference = PackageInfoReference(reservedCtorArg = reserved)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -669,19 +668,19 @@ public class PackageInfoReference internal constructor(
                     PackageInfoReference(
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<CVoid>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr),
                     )
                 override fun writeNative(addr: Long, value: PackageInfoReference) {
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<CVoid>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr, value.reserved)
                 }
             }
 
         public operator fun invoke(
-            reserved: MutPtr<CVoid> = MutPtr(0L),
+            reserved: MutPtr = MutPtr(0L),
         ): PackageInfoReference =
             PackageInfoReference(
                 reservedCtorArg = reserved,

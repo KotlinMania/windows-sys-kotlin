@@ -2,7 +2,6 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.system.search
 
-import io.github.kotlinmania.rustlang.core.ffi.CVoid
 import io.github.kotlinmania.rustlang.core.ptr.ConstPtr
 import io.github.kotlinmania.rustlang.core.ptr.MutPtr
 import io.github.kotlinmania.windowssys.core.Bool
@@ -566,535 +565,535 @@ public actual fun oDBCGetTryWaitValue(): UInt =
 public actual fun oDBCSetTryWaitValue(dwvalue: UInt): Bool =
     if (windowsWin32SystemSearchNapiAvailable) wasmWindowssysWindowsWin32SystemSearchODBCSetTryWaitValue(dwvalue.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun sQLAllocConnect(environmenthandle: MutPtr<CVoid>, connectionhandle: MutPtr<MutPtr<CVoid>>): Short =
+public actual fun sQLAllocConnect(environmenthandle: MutPtr, connectionhandle: MutPtr): Short =
     if (windowsWin32SystemSearchNapiAvailable) wasmWindowssysWindowsWin32SystemSearchSQLAllocConnect(environmenthandle.rawAddress.toString(), connectionhandle.rawAddress.toString()).toShort() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun sQLAllocEnv(environmenthandle: MutPtr<MutPtr<CVoid>>): Short =
+public actual fun sQLAllocEnv(environmenthandle: MutPtr): Short =
     if (windowsWin32SystemSearchNapiAvailable) wasmWindowssysWindowsWin32SystemSearchSQLAllocEnv(environmenthandle.rawAddress.toString()).toShort() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun sQLAllocHandle(handletype: Short, inputhandle: MutPtr<CVoid>, outputhandle: MutPtr<MutPtr<CVoid>>): Short =
+public actual fun sQLAllocHandle(handletype: Short, inputhandle: MutPtr, outputhandle: MutPtr): Short =
     if (windowsWin32SystemSearchNapiAvailable) wasmWindowssysWindowsWin32SystemSearchSQLAllocHandle(handletype.toInt(), inputhandle.rawAddress.toString(), outputhandle.rawAddress.toString()).toShort() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun sQLAllocHandleStd(fhandletype: Short, hinput: MutPtr<CVoid>, phoutput: MutPtr<MutPtr<CVoid>>): Short =
+public actual fun sQLAllocHandleStd(fhandletype: Short, hinput: MutPtr, phoutput: MutPtr): Short =
     if (windowsWin32SystemSearchNapiAvailable) wasmWindowssysWindowsWin32SystemSearchSQLAllocHandleStd(fhandletype.toInt(), hinput.rawAddress.toString(), phoutput.rawAddress.toString()).toShort() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun sQLAllocStmt(connectionhandle: MutPtr<CVoid>, statementhandle: MutPtr<MutPtr<CVoid>>): Short =
+public actual fun sQLAllocStmt(connectionhandle: MutPtr, statementhandle: MutPtr): Short =
     if (windowsWin32SystemSearchNapiAvailable) wasmWindowssysWindowsWin32SystemSearchSQLAllocStmt(connectionhandle.rawAddress.toString(), statementhandle.rawAddress.toString()).toShort() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun sQLBindCol(statementhandle: MutPtr<CVoid>, columnnumber: UShort, targettype: Short, targetvalue: MutPtr<CVoid>, bufferlength: Long, strlenOrInd: MutPtr<Long>): Short =
+public actual fun sQLBindCol(statementhandle: MutPtr, columnnumber: UShort, targettype: Short, targetvalue: MutPtr, bufferlength: Long, strlenOrInd: MutPtr): Short =
     if (windowsWin32SystemSearchNapiAvailable) wasmWindowssysWindowsWin32SystemSearchSQLBindCol(statementhandle.rawAddress.toString(), columnnumber.toInt(), targettype.toInt(), targetvalue.rawAddress.toString(), bufferlength.toString(), strlenOrInd.rawAddress.toString()).toShort() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun sQLBindParam(statementhandle: MutPtr<CVoid>, parameternumber: UShort, valuetype: Short, parametertype: Short, lengthprecision: ULong, parameterscale: Short, parametervalue: MutPtr<CVoid>, strlenOrInd: MutPtr<Long>): Short =
+public actual fun sQLBindParam(statementhandle: MutPtr, parameternumber: UShort, valuetype: Short, parametertype: Short, lengthprecision: ULong, parameterscale: Short, parametervalue: MutPtr, strlenOrInd: MutPtr): Short =
     if (windowsWin32SystemSearchNapiAvailable) wasmWindowssysWindowsWin32SystemSearchSQLBindParam(statementhandle.rawAddress.toString(), parameternumber.toInt(), valuetype.toInt(), parametertype.toInt(), lengthprecision.toString(), parameterscale.toInt(), parametervalue.rawAddress.toString(), strlenOrInd.rawAddress.toString()).toShort() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun sQLBindParameter(hstmt: MutPtr<CVoid>, ipar: UShort, fparamtype: Short, fctype: Short, fsqltype: Short, cbcoldef: ULong, ibscale: Short, rgbvalue: MutPtr<CVoid>, cbvaluemax: Long, pcbvalue: MutPtr<Long>): Short =
+public actual fun sQLBindParameter(hstmt: MutPtr, ipar: UShort, fparamtype: Short, fctype: Short, fsqltype: Short, cbcoldef: ULong, ibscale: Short, rgbvalue: MutPtr, cbvaluemax: Long, pcbvalue: MutPtr): Short =
     if (windowsWin32SystemSearchNapiAvailable) wasmWindowssysWindowsWin32SystemSearchSQLBindParameter(hstmt.rawAddress.toString(), ipar.toInt(), fparamtype.toInt(), fctype.toInt(), fsqltype.toInt(), cbcoldef.toString(), ibscale.toInt(), rgbvalue.rawAddress.toString(), cbvaluemax.toString(), pcbvalue.rawAddress.toString()).toShort() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun sQLBrowseConnect(hdbc: MutPtr<CVoid>, szconnstrin: ConstPtr<UByte>, cchconnstrin: Short, szconnstrout: MutPtr<UByte>, cchconnstroutmax: Short, pcchconnstrout: MutPtr<Short>): Short =
+public actual fun sQLBrowseConnect(hdbc: MutPtr, szconnstrin: ConstPtr, cchconnstrin: Short, szconnstrout: MutPtr, cchconnstroutmax: Short, pcchconnstrout: MutPtr): Short =
     if (windowsWin32SystemSearchNapiAvailable) wasmWindowssysWindowsWin32SystemSearchSQLBrowseConnect(hdbc.rawAddress.toString(), szconnstrin.rawAddress.toString(), cchconnstrin.toInt(), szconnstrout.rawAddress.toString(), cchconnstroutmax.toInt(), pcchconnstrout.rawAddress.toString()).toShort() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun sQLBrowseConnectA(hdbc: MutPtr<CVoid>, szconnstrin: ConstPtr<UByte>, cbconnstrin: Short, szconnstrout: MutPtr<UByte>, cbconnstroutmax: Short, pcbconnstrout: MutPtr<Short>): Short =
+public actual fun sQLBrowseConnectA(hdbc: MutPtr, szconnstrin: ConstPtr, cbconnstrin: Short, szconnstrout: MutPtr, cbconnstroutmax: Short, pcbconnstrout: MutPtr): Short =
     if (windowsWin32SystemSearchNapiAvailable) wasmWindowssysWindowsWin32SystemSearchSQLBrowseConnectA(hdbc.rawAddress.toString(), szconnstrin.rawAddress.toString(), cbconnstrin.toInt(), szconnstrout.rawAddress.toString(), cbconnstroutmax.toInt(), pcbconnstrout.rawAddress.toString()).toShort() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun sQLBrowseConnectW(hdbc: MutPtr<CVoid>, szconnstrin: ConstPtr<UShort>, cchconnstrin: Short, szconnstrout: MutPtr<UShort>, cchconnstroutmax: Short, pcchconnstrout: MutPtr<Short>): Short =
+public actual fun sQLBrowseConnectW(hdbc: MutPtr, szconnstrin: ConstPtr, cchconnstrin: Short, szconnstrout: MutPtr, cchconnstroutmax: Short, pcchconnstrout: MutPtr): Short =
     if (windowsWin32SystemSearchNapiAvailable) wasmWindowssysWindowsWin32SystemSearchSQLBrowseConnectW(hdbc.rawAddress.toString(), szconnstrin.rawAddress.toString(), cchconnstrin.toInt(), szconnstrout.rawAddress.toString(), cchconnstroutmax.toInt(), pcchconnstrout.rawAddress.toString()).toShort() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun sQLBulkOperations(statementhandle: MutPtr<CVoid>, operation: Short): Short =
+public actual fun sQLBulkOperations(statementhandle: MutPtr, operation: Short): Short =
     if (windowsWin32SystemSearchNapiAvailable) wasmWindowssysWindowsWin32SystemSearchSQLBulkOperations(statementhandle.rawAddress.toString(), operation.toInt()).toShort() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun sQLCancel(statementhandle: MutPtr<CVoid>): Short =
+public actual fun sQLCancel(statementhandle: MutPtr): Short =
     if (windowsWin32SystemSearchNapiAvailable) wasmWindowssysWindowsWin32SystemSearchSQLCancel(statementhandle.rawAddress.toString()).toShort() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun sQLCancelHandle(handletype: Short, inputhandle: MutPtr<CVoid>): Short =
+public actual fun sQLCancelHandle(handletype: Short, inputhandle: MutPtr): Short =
     if (windowsWin32SystemSearchNapiAvailable) wasmWindowssysWindowsWin32SystemSearchSQLCancelHandle(handletype.toInt(), inputhandle.rawAddress.toString()).toShort() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun sQLCloseCursor(statementhandle: MutPtr<CVoid>): Short =
+public actual fun sQLCloseCursor(statementhandle: MutPtr): Short =
     if (windowsWin32SystemSearchNapiAvailable) wasmWindowssysWindowsWin32SystemSearchSQLCloseCursor(statementhandle.rawAddress.toString()).toShort() else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun sQLCloseEnumServers(henumhandle: Handle): Short =
     if (windowsWin32SystemSearchNapiAvailable) wasmWindowssysWindowsWin32SystemSearchSQLCloseEnumServers(henumhandle.rawAddress.toString()).toShort() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun sQLColAttribute(statementhandle: MutPtr<CVoid>, columnnumber: UShort, fieldidentifier: UShort, characterattribute: MutPtr<CVoid>, bufferlength: Short, stringlength: MutPtr<Short>, numericattribute: MutPtr<Long>): Short =
+public actual fun sQLColAttribute(statementhandle: MutPtr, columnnumber: UShort, fieldidentifier: UShort, characterattribute: MutPtr, bufferlength: Short, stringlength: MutPtr, numericattribute: MutPtr): Short =
     if (windowsWin32SystemSearchNapiAvailable) wasmWindowssysWindowsWin32SystemSearchSQLColAttribute(statementhandle.rawAddress.toString(), columnnumber.toInt(), fieldidentifier.toInt(), characterattribute.rawAddress.toString(), bufferlength.toInt(), stringlength.rawAddress.toString(), numericattribute.rawAddress.toString()).toShort() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun sQLColAttributeA(hstmt: MutPtr<CVoid>, icol: Short, ifield: Short, pcharattr: MutPtr<CVoid>, cbcharattrmax: Short, pcbcharattr: MutPtr<Short>, pnumattr: MutPtr<Long>): Short =
+public actual fun sQLColAttributeA(hstmt: MutPtr, icol: Short, ifield: Short, pcharattr: MutPtr, cbcharattrmax: Short, pcbcharattr: MutPtr, pnumattr: MutPtr): Short =
     if (windowsWin32SystemSearchNapiAvailable) wasmWindowssysWindowsWin32SystemSearchSQLColAttributeA(hstmt.rawAddress.toString(), icol.toInt(), ifield.toInt(), pcharattr.rawAddress.toString(), cbcharattrmax.toInt(), pcbcharattr.rawAddress.toString(), pnumattr.rawAddress.toString()).toShort() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun sQLColAttributeW(hstmt: MutPtr<CVoid>, icol: UShort, ifield: UShort, pcharattr: MutPtr<CVoid>, cbdescmax: Short, pcbcharattr: MutPtr<Short>, pnumattr: MutPtr<Long>): Short =
+public actual fun sQLColAttributeW(hstmt: MutPtr, icol: UShort, ifield: UShort, pcharattr: MutPtr, cbdescmax: Short, pcbcharattr: MutPtr, pnumattr: MutPtr): Short =
     if (windowsWin32SystemSearchNapiAvailable) wasmWindowssysWindowsWin32SystemSearchSQLColAttributeW(hstmt.rawAddress.toString(), icol.toInt(), ifield.toInt(), pcharattr.rawAddress.toString(), cbdescmax.toInt(), pcbcharattr.rawAddress.toString(), pnumattr.rawAddress.toString()).toShort() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun sQLColAttributes(hstmt: MutPtr<CVoid>, icol: UShort, fdesctype: UShort, rgbdesc: MutPtr<CVoid>, cbdescmax: Short, pcbdesc: MutPtr<Short>, pfdesc: MutPtr<Long>): Short =
+public actual fun sQLColAttributes(hstmt: MutPtr, icol: UShort, fdesctype: UShort, rgbdesc: MutPtr, cbdescmax: Short, pcbdesc: MutPtr, pfdesc: MutPtr): Short =
     if (windowsWin32SystemSearchNapiAvailable) wasmWindowssysWindowsWin32SystemSearchSQLColAttributes(hstmt.rawAddress.toString(), icol.toInt(), fdesctype.toInt(), rgbdesc.rawAddress.toString(), cbdescmax.toInt(), pcbdesc.rawAddress.toString(), pfdesc.rawAddress.toString()).toShort() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun sQLColAttributesA(hstmt: MutPtr<CVoid>, icol: UShort, fdesctype: UShort, rgbdesc: MutPtr<CVoid>, cbdescmax: Short, pcbdesc: MutPtr<Short>, pfdesc: MutPtr<Long>): Short =
+public actual fun sQLColAttributesA(hstmt: MutPtr, icol: UShort, fdesctype: UShort, rgbdesc: MutPtr, cbdescmax: Short, pcbdesc: MutPtr, pfdesc: MutPtr): Short =
     if (windowsWin32SystemSearchNapiAvailable) wasmWindowssysWindowsWin32SystemSearchSQLColAttributesA(hstmt.rawAddress.toString(), icol.toInt(), fdesctype.toInt(), rgbdesc.rawAddress.toString(), cbdescmax.toInt(), pcbdesc.rawAddress.toString(), pfdesc.rawAddress.toString()).toShort() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun sQLColAttributesW(hstmt: MutPtr<CVoid>, icol: UShort, fdesctype: UShort, rgbdesc: MutPtr<CVoid>, cbdescmax: Short, pcbdesc: MutPtr<Short>, pfdesc: MutPtr<Long>): Short =
+public actual fun sQLColAttributesW(hstmt: MutPtr, icol: UShort, fdesctype: UShort, rgbdesc: MutPtr, cbdescmax: Short, pcbdesc: MutPtr, pfdesc: MutPtr): Short =
     if (windowsWin32SystemSearchNapiAvailable) wasmWindowssysWindowsWin32SystemSearchSQLColAttributesW(hstmt.rawAddress.toString(), icol.toInt(), fdesctype.toInt(), rgbdesc.rawAddress.toString(), cbdescmax.toInt(), pcbdesc.rawAddress.toString(), pfdesc.rawAddress.toString()).toShort() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun sQLColumnPrivileges(hstmt: MutPtr<CVoid>, szcatalogname: ConstPtr<UByte>, cchcatalogname: Short, szschemaname: ConstPtr<UByte>, cchschemaname: Short, sztablename: ConstPtr<UByte>, cchtablename: Short, szcolumnname: ConstPtr<UByte>, cchcolumnname: Short): Short =
+public actual fun sQLColumnPrivileges(hstmt: MutPtr, szcatalogname: ConstPtr, cchcatalogname: Short, szschemaname: ConstPtr, cchschemaname: Short, sztablename: ConstPtr, cchtablename: Short, szcolumnname: ConstPtr, cchcolumnname: Short): Short =
     if (windowsWin32SystemSearchNapiAvailable) wasmWindowssysWindowsWin32SystemSearchSQLColumnPrivileges(hstmt.rawAddress.toString(), szcatalogname.rawAddress.toString(), cchcatalogname.toInt(), szschemaname.rawAddress.toString(), cchschemaname.toInt(), sztablename.rawAddress.toString(), cchtablename.toInt(), szcolumnname.rawAddress.toString(), cchcolumnname.toInt()).toShort() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun sQLColumnPrivilegesA(hstmt: MutPtr<CVoid>, szcatalogname: ConstPtr<UByte>, cbcatalogname: Short, szschemaname: ConstPtr<UByte>, cbschemaname: Short, sztablename: ConstPtr<UByte>, cbtablename: Short, szcolumnname: ConstPtr<UByte>, cbcolumnname: Short): Short =
+public actual fun sQLColumnPrivilegesA(hstmt: MutPtr, szcatalogname: ConstPtr, cbcatalogname: Short, szschemaname: ConstPtr, cbschemaname: Short, sztablename: ConstPtr, cbtablename: Short, szcolumnname: ConstPtr, cbcolumnname: Short): Short =
     if (windowsWin32SystemSearchNapiAvailable) wasmWindowssysWindowsWin32SystemSearchSQLColumnPrivilegesA(hstmt.rawAddress.toString(), szcatalogname.rawAddress.toString(), cbcatalogname.toInt(), szschemaname.rawAddress.toString(), cbschemaname.toInt(), sztablename.rawAddress.toString(), cbtablename.toInt(), szcolumnname.rawAddress.toString(), cbcolumnname.toInt()).toShort() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun sQLColumnPrivilegesW(hstmt: MutPtr<CVoid>, szcatalogname: ConstPtr<UShort>, cchcatalogname: Short, szschemaname: ConstPtr<UShort>, cchschemaname: Short, sztablename: ConstPtr<UShort>, cchtablename: Short, szcolumnname: ConstPtr<UShort>, cchcolumnname: Short): Short =
+public actual fun sQLColumnPrivilegesW(hstmt: MutPtr, szcatalogname: ConstPtr, cchcatalogname: Short, szschemaname: ConstPtr, cchschemaname: Short, sztablename: ConstPtr, cchtablename: Short, szcolumnname: ConstPtr, cchcolumnname: Short): Short =
     if (windowsWin32SystemSearchNapiAvailable) wasmWindowssysWindowsWin32SystemSearchSQLColumnPrivilegesW(hstmt.rawAddress.toString(), szcatalogname.rawAddress.toString(), cchcatalogname.toInt(), szschemaname.rawAddress.toString(), cchschemaname.toInt(), sztablename.rawAddress.toString(), cchtablename.toInt(), szcolumnname.rawAddress.toString(), cchcolumnname.toInt()).toShort() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun sQLColumns(statementhandle: MutPtr<CVoid>, catalogname: ConstPtr<UByte>, namelength1: Short, schemaname: ConstPtr<UByte>, namelength2: Short, tablename: ConstPtr<UByte>, namelength3: Short, columnname: ConstPtr<UByte>, namelength4: Short): Short =
+public actual fun sQLColumns(statementhandle: MutPtr, catalogname: ConstPtr, namelength1: Short, schemaname: ConstPtr, namelength2: Short, tablename: ConstPtr, namelength3: Short, columnname: ConstPtr, namelength4: Short): Short =
     if (windowsWin32SystemSearchNapiAvailable) wasmWindowssysWindowsWin32SystemSearchSQLColumns(statementhandle.rawAddress.toString(), catalogname.rawAddress.toString(), namelength1.toInt(), schemaname.rawAddress.toString(), namelength2.toInt(), tablename.rawAddress.toString(), namelength3.toInt(), columnname.rawAddress.toString(), namelength4.toInt()).toShort() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun sQLColumnsA(hstmt: MutPtr<CVoid>, szcatalogname: ConstPtr<UByte>, cbcatalogname: Short, szschemaname: ConstPtr<UByte>, cbschemaname: Short, sztablename: ConstPtr<UByte>, cbtablename: Short, szcolumnname: ConstPtr<UByte>, cbcolumnname: Short): Short =
+public actual fun sQLColumnsA(hstmt: MutPtr, szcatalogname: ConstPtr, cbcatalogname: Short, szschemaname: ConstPtr, cbschemaname: Short, sztablename: ConstPtr, cbtablename: Short, szcolumnname: ConstPtr, cbcolumnname: Short): Short =
     if (windowsWin32SystemSearchNapiAvailable) wasmWindowssysWindowsWin32SystemSearchSQLColumnsA(hstmt.rawAddress.toString(), szcatalogname.rawAddress.toString(), cbcatalogname.toInt(), szschemaname.rawAddress.toString(), cbschemaname.toInt(), sztablename.rawAddress.toString(), cbtablename.toInt(), szcolumnname.rawAddress.toString(), cbcolumnname.toInt()).toShort() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun sQLColumnsW(hstmt: MutPtr<CVoid>, szcatalogname: ConstPtr<UShort>, cchcatalogname: Short, szschemaname: ConstPtr<UShort>, cchschemaname: Short, sztablename: ConstPtr<UShort>, cchtablename: Short, szcolumnname: ConstPtr<UShort>, cchcolumnname: Short): Short =
+public actual fun sQLColumnsW(hstmt: MutPtr, szcatalogname: ConstPtr, cchcatalogname: Short, szschemaname: ConstPtr, cchschemaname: Short, sztablename: ConstPtr, cchtablename: Short, szcolumnname: ConstPtr, cchcolumnname: Short): Short =
     if (windowsWin32SystemSearchNapiAvailable) wasmWindowssysWindowsWin32SystemSearchSQLColumnsW(hstmt.rawAddress.toString(), szcatalogname.rawAddress.toString(), cchcatalogname.toInt(), szschemaname.rawAddress.toString(), cchschemaname.toInt(), sztablename.rawAddress.toString(), cchtablename.toInt(), szcolumnname.rawAddress.toString(), cchcolumnname.toInt()).toShort() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun sQLCompleteAsync(handletype: Short, handle: MutPtr<CVoid>, asyncretcodeptr: MutPtr<Short>): Short =
+public actual fun sQLCompleteAsync(handletype: Short, handle: MutPtr, asyncretcodeptr: MutPtr): Short =
     if (windowsWin32SystemSearchNapiAvailable) wasmWindowssysWindowsWin32SystemSearchSQLCompleteAsync(handletype.toInt(), handle.rawAddress.toString(), asyncretcodeptr.rawAddress.toString()).toShort() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun sQLConnect(connectionhandle: MutPtr<CVoid>, servername: ConstPtr<UByte>, namelength1: Short, username: ConstPtr<UByte>, namelength2: Short, authentication: ConstPtr<UByte>, namelength3: Short): Short =
+public actual fun sQLConnect(connectionhandle: MutPtr, servername: ConstPtr, namelength1: Short, username: ConstPtr, namelength2: Short, authentication: ConstPtr, namelength3: Short): Short =
     if (windowsWin32SystemSearchNapiAvailable) wasmWindowssysWindowsWin32SystemSearchSQLConnect(connectionhandle.rawAddress.toString(), servername.rawAddress.toString(), namelength1.toInt(), username.rawAddress.toString(), namelength2.toInt(), authentication.rawAddress.toString(), namelength3.toInt()).toShort() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun sQLConnectA(hdbc: MutPtr<CVoid>, szdsn: ConstPtr<UByte>, cbdsn: Short, szuid: ConstPtr<UByte>, cbuid: Short, szauthstr: ConstPtr<UByte>, cbauthstr: Short): Short =
+public actual fun sQLConnectA(hdbc: MutPtr, szdsn: ConstPtr, cbdsn: Short, szuid: ConstPtr, cbuid: Short, szauthstr: ConstPtr, cbauthstr: Short): Short =
     if (windowsWin32SystemSearchNapiAvailable) wasmWindowssysWindowsWin32SystemSearchSQLConnectA(hdbc.rawAddress.toString(), szdsn.rawAddress.toString(), cbdsn.toInt(), szuid.rawAddress.toString(), cbuid.toInt(), szauthstr.rawAddress.toString(), cbauthstr.toInt()).toShort() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun sQLConnectW(hdbc: MutPtr<CVoid>, szdsn: ConstPtr<UShort>, cchdsn: Short, szuid: ConstPtr<UShort>, cchuid: Short, szauthstr: ConstPtr<UShort>, cchauthstr: Short): Short =
+public actual fun sQLConnectW(hdbc: MutPtr, szdsn: ConstPtr, cchdsn: Short, szuid: ConstPtr, cchuid: Short, szauthstr: ConstPtr, cchauthstr: Short): Short =
     if (windowsWin32SystemSearchNapiAvailable) wasmWindowssysWindowsWin32SystemSearchSQLConnectW(hdbc.rawAddress.toString(), szdsn.rawAddress.toString(), cchdsn.toInt(), szuid.rawAddress.toString(), cchuid.toInt(), szauthstr.rawAddress.toString(), cchauthstr.toInt()).toShort() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun sQLCopyDesc(sourcedeschandle: MutPtr<CVoid>, targetdeschandle: MutPtr<CVoid>): Short =
+public actual fun sQLCopyDesc(sourcedeschandle: MutPtr, targetdeschandle: MutPtr): Short =
     if (windowsWin32SystemSearchNapiAvailable) wasmWindowssysWindowsWin32SystemSearchSQLCopyDesc(sourcedeschandle.rawAddress.toString(), targetdeschandle.rawAddress.toString()).toShort() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun sQLDataSources(environmenthandle: MutPtr<CVoid>, direction: UShort, servername: MutPtr<UByte>, bufferlength1: Short, namelength1ptr: MutPtr<Short>, description: MutPtr<UByte>, bufferlength2: Short, namelength2ptr: MutPtr<Short>): Short =
+public actual fun sQLDataSources(environmenthandle: MutPtr, direction: UShort, servername: MutPtr, bufferlength1: Short, namelength1ptr: MutPtr, description: MutPtr, bufferlength2: Short, namelength2ptr: MutPtr): Short =
     if (windowsWin32SystemSearchNapiAvailable) wasmWindowssysWindowsWin32SystemSearchSQLDataSources(environmenthandle.rawAddress.toString(), direction.toInt(), servername.rawAddress.toString(), bufferlength1.toInt(), namelength1ptr.rawAddress.toString(), description.rawAddress.toString(), bufferlength2.toInt(), namelength2ptr.rawAddress.toString()).toShort() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun sQLDataSourcesA(henv: MutPtr<CVoid>, fdirection: UShort, szdsn: MutPtr<UByte>, cbdsnmax: Short, pcbdsn: MutPtr<Short>, szdescription: MutPtr<UByte>, cbdescriptionmax: Short, pcbdescription: MutPtr<Short>): Short =
+public actual fun sQLDataSourcesA(henv: MutPtr, fdirection: UShort, szdsn: MutPtr, cbdsnmax: Short, pcbdsn: MutPtr, szdescription: MutPtr, cbdescriptionmax: Short, pcbdescription: MutPtr): Short =
     if (windowsWin32SystemSearchNapiAvailable) wasmWindowssysWindowsWin32SystemSearchSQLDataSourcesA(henv.rawAddress.toString(), fdirection.toInt(), szdsn.rawAddress.toString(), cbdsnmax.toInt(), pcbdsn.rawAddress.toString(), szdescription.rawAddress.toString(), cbdescriptionmax.toInt(), pcbdescription.rawAddress.toString()).toShort() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun sQLDataSourcesW(henv: MutPtr<CVoid>, fdirection: UShort, szdsn: MutPtr<UShort>, cchdsnmax: Short, pcchdsn: MutPtr<Short>, wszdescription: MutPtr<UShort>, cchdescriptionmax: Short, pcchdescription: MutPtr<Short>): Short =
+public actual fun sQLDataSourcesW(henv: MutPtr, fdirection: UShort, szdsn: MutPtr, cchdsnmax: Short, pcchdsn: MutPtr, wszdescription: MutPtr, cchdescriptionmax: Short, pcchdescription: MutPtr): Short =
     if (windowsWin32SystemSearchNapiAvailable) wasmWindowssysWindowsWin32SystemSearchSQLDataSourcesW(henv.rawAddress.toString(), fdirection.toInt(), szdsn.rawAddress.toString(), cchdsnmax.toInt(), pcchdsn.rawAddress.toString(), wszdescription.rawAddress.toString(), cchdescriptionmax.toInt(), pcchdescription.rawAddress.toString()).toShort() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun sQLDescribeCol(statementhandle: MutPtr<CVoid>, columnnumber: UShort, columnname: MutPtr<UByte>, bufferlength: Short, namelength: MutPtr<Short>, datatype: MutPtr<Short>, columnsize: MutPtr<ULong>, decimaldigits: MutPtr<Short>, nullable: MutPtr<Short>): Short =
+public actual fun sQLDescribeCol(statementhandle: MutPtr, columnnumber: UShort, columnname: MutPtr, bufferlength: Short, namelength: MutPtr, datatype: MutPtr, columnsize: MutPtr, decimaldigits: MutPtr, nullable: MutPtr): Short =
     if (windowsWin32SystemSearchNapiAvailable) wasmWindowssysWindowsWin32SystemSearchSQLDescribeCol(statementhandle.rawAddress.toString(), columnnumber.toInt(), columnname.rawAddress.toString(), bufferlength.toInt(), namelength.rawAddress.toString(), datatype.rawAddress.toString(), columnsize.rawAddress.toString(), decimaldigits.rawAddress.toString(), nullable.rawAddress.toString()).toShort() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun sQLDescribeColA(hstmt: MutPtr<CVoid>, icol: UShort, szcolname: MutPtr<UByte>, cbcolnamemax: Short, pcbcolname: MutPtr<Short>, pfsqltype: MutPtr<Short>, pcbcoldef: MutPtr<ULong>, pibscale: MutPtr<Short>, pfnullable: MutPtr<Short>): Short =
+public actual fun sQLDescribeColA(hstmt: MutPtr, icol: UShort, szcolname: MutPtr, cbcolnamemax: Short, pcbcolname: MutPtr, pfsqltype: MutPtr, pcbcoldef: MutPtr, pibscale: MutPtr, pfnullable: MutPtr): Short =
     if (windowsWin32SystemSearchNapiAvailable) wasmWindowssysWindowsWin32SystemSearchSQLDescribeColA(hstmt.rawAddress.toString(), icol.toInt(), szcolname.rawAddress.toString(), cbcolnamemax.toInt(), pcbcolname.rawAddress.toString(), pfsqltype.rawAddress.toString(), pcbcoldef.rawAddress.toString(), pibscale.rawAddress.toString(), pfnullable.rawAddress.toString()).toShort() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun sQLDescribeColW(hstmt: MutPtr<CVoid>, icol: UShort, szcolname: MutPtr<UShort>, cchcolnamemax: Short, pcchcolname: MutPtr<Short>, pfsqltype: MutPtr<Short>, pcbcoldef: MutPtr<ULong>, pibscale: MutPtr<Short>, pfnullable: MutPtr<Short>): Short =
+public actual fun sQLDescribeColW(hstmt: MutPtr, icol: UShort, szcolname: MutPtr, cchcolnamemax: Short, pcchcolname: MutPtr, pfsqltype: MutPtr, pcbcoldef: MutPtr, pibscale: MutPtr, pfnullable: MutPtr): Short =
     if (windowsWin32SystemSearchNapiAvailable) wasmWindowssysWindowsWin32SystemSearchSQLDescribeColW(hstmt.rawAddress.toString(), icol.toInt(), szcolname.rawAddress.toString(), cchcolnamemax.toInt(), pcchcolname.rawAddress.toString(), pfsqltype.rawAddress.toString(), pcbcoldef.rawAddress.toString(), pibscale.rawAddress.toString(), pfnullable.rawAddress.toString()).toShort() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun sQLDescribeParam(hstmt: MutPtr<CVoid>, ipar: UShort, pfsqltype: MutPtr<Short>, pcbparamdef: MutPtr<ULong>, pibscale: MutPtr<Short>, pfnullable: MutPtr<Short>): Short =
+public actual fun sQLDescribeParam(hstmt: MutPtr, ipar: UShort, pfsqltype: MutPtr, pcbparamdef: MutPtr, pibscale: MutPtr, pfnullable: MutPtr): Short =
     if (windowsWin32SystemSearchNapiAvailable) wasmWindowssysWindowsWin32SystemSearchSQLDescribeParam(hstmt.rawAddress.toString(), ipar.toInt(), pfsqltype.rawAddress.toString(), pcbparamdef.rawAddress.toString(), pibscale.rawAddress.toString(), pfnullable.rawAddress.toString()).toShort() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun sQLDisconnect(connectionhandle: MutPtr<CVoid>): Short =
+public actual fun sQLDisconnect(connectionhandle: MutPtr): Short =
     if (windowsWin32SystemSearchNapiAvailable) wasmWindowssysWindowsWin32SystemSearchSQLDisconnect(connectionhandle.rawAddress.toString()).toShort() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun sQLDriverConnect(hdbc: MutPtr<CVoid>, hwnd: Long, szconnstrin: ConstPtr<UByte>, cchconnstrin: Short, szconnstrout: MutPtr<UByte>, cchconnstroutmax: Short, pcchconnstrout: MutPtr<Short>, fdrivercompletion: UShort): Short =
+public actual fun sQLDriverConnect(hdbc: MutPtr, hwnd: Long, szconnstrin: ConstPtr, cchconnstrin: Short, szconnstrout: MutPtr, cchconnstroutmax: Short, pcchconnstrout: MutPtr, fdrivercompletion: UShort): Short =
     if (windowsWin32SystemSearchNapiAvailable) wasmWindowssysWindowsWin32SystemSearchSQLDriverConnect(hdbc.rawAddress.toString(), hwnd.toString(), szconnstrin.rawAddress.toString(), cchconnstrin.toInt(), szconnstrout.rawAddress.toString(), cchconnstroutmax.toInt(), pcchconnstrout.rawAddress.toString(), fdrivercompletion.toInt()).toShort() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun sQLDriverConnectA(hdbc: MutPtr<CVoid>, hwnd: Long, szconnstrin: ConstPtr<UByte>, cbconnstrin: Short, szconnstrout: MutPtr<UByte>, cbconnstroutmax: Short, pcbconnstrout: MutPtr<Short>, fdrivercompletion: UShort): Short =
+public actual fun sQLDriverConnectA(hdbc: MutPtr, hwnd: Long, szconnstrin: ConstPtr, cbconnstrin: Short, szconnstrout: MutPtr, cbconnstroutmax: Short, pcbconnstrout: MutPtr, fdrivercompletion: UShort): Short =
     if (windowsWin32SystemSearchNapiAvailable) wasmWindowssysWindowsWin32SystemSearchSQLDriverConnectA(hdbc.rawAddress.toString(), hwnd.toString(), szconnstrin.rawAddress.toString(), cbconnstrin.toInt(), szconnstrout.rawAddress.toString(), cbconnstroutmax.toInt(), pcbconnstrout.rawAddress.toString(), fdrivercompletion.toInt()).toShort() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun sQLDriverConnectW(hdbc: MutPtr<CVoid>, hwnd: Long, szconnstrin: ConstPtr<UShort>, cchconnstrin: Short, szconnstrout: MutPtr<UShort>, cchconnstroutmax: Short, pcchconnstrout: MutPtr<Short>, fdrivercompletion: UShort): Short =
+public actual fun sQLDriverConnectW(hdbc: MutPtr, hwnd: Long, szconnstrin: ConstPtr, cchconnstrin: Short, szconnstrout: MutPtr, cchconnstroutmax: Short, pcchconnstrout: MutPtr, fdrivercompletion: UShort): Short =
     if (windowsWin32SystemSearchNapiAvailable) wasmWindowssysWindowsWin32SystemSearchSQLDriverConnectW(hdbc.rawAddress.toString(), hwnd.toString(), szconnstrin.rawAddress.toString(), cchconnstrin.toInt(), szconnstrout.rawAddress.toString(), cchconnstroutmax.toInt(), pcchconnstrout.rawAddress.toString(), fdrivercompletion.toInt()).toShort() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun sQLDrivers(henv: MutPtr<CVoid>, fdirection: UShort, szdriverdesc: MutPtr<UByte>, cchdriverdescmax: Short, pcchdriverdesc: MutPtr<Short>, szdriverattributes: MutPtr<UByte>, cchdrvrattrmax: Short, pcchdrvrattr: MutPtr<Short>): Short =
+public actual fun sQLDrivers(henv: MutPtr, fdirection: UShort, szdriverdesc: MutPtr, cchdriverdescmax: Short, pcchdriverdesc: MutPtr, szdriverattributes: MutPtr, cchdrvrattrmax: Short, pcchdrvrattr: MutPtr): Short =
     if (windowsWin32SystemSearchNapiAvailable) wasmWindowssysWindowsWin32SystemSearchSQLDrivers(henv.rawAddress.toString(), fdirection.toInt(), szdriverdesc.rawAddress.toString(), cchdriverdescmax.toInt(), pcchdriverdesc.rawAddress.toString(), szdriverattributes.rawAddress.toString(), cchdrvrattrmax.toInt(), pcchdrvrattr.rawAddress.toString()).toShort() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun sQLDriversA(henv: MutPtr<CVoid>, fdirection: UShort, szdriverdesc: MutPtr<UByte>, cbdriverdescmax: Short, pcbdriverdesc: MutPtr<Short>, szdriverattributes: MutPtr<UByte>, cbdrvrattrmax: Short, pcbdrvrattr: MutPtr<Short>): Short =
+public actual fun sQLDriversA(henv: MutPtr, fdirection: UShort, szdriverdesc: MutPtr, cbdriverdescmax: Short, pcbdriverdesc: MutPtr, szdriverattributes: MutPtr, cbdrvrattrmax: Short, pcbdrvrattr: MutPtr): Short =
     if (windowsWin32SystemSearchNapiAvailable) wasmWindowssysWindowsWin32SystemSearchSQLDriversA(henv.rawAddress.toString(), fdirection.toInt(), szdriverdesc.rawAddress.toString(), cbdriverdescmax.toInt(), pcbdriverdesc.rawAddress.toString(), szdriverattributes.rawAddress.toString(), cbdrvrattrmax.toInt(), pcbdrvrattr.rawAddress.toString()).toShort() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun sQLDriversW(henv: MutPtr<CVoid>, fdirection: UShort, szdriverdesc: MutPtr<UShort>, cchdriverdescmax: Short, pcchdriverdesc: MutPtr<Short>, szdriverattributes: MutPtr<UShort>, cchdrvrattrmax: Short, pcchdrvrattr: MutPtr<Short>): Short =
+public actual fun sQLDriversW(henv: MutPtr, fdirection: UShort, szdriverdesc: MutPtr, cchdriverdescmax: Short, pcchdriverdesc: MutPtr, szdriverattributes: MutPtr, cchdrvrattrmax: Short, pcchdrvrattr: MutPtr): Short =
     if (windowsWin32SystemSearchNapiAvailable) wasmWindowssysWindowsWin32SystemSearchSQLDriversW(henv.rawAddress.toString(), fdirection.toInt(), szdriverdesc.rawAddress.toString(), cchdriverdescmax.toInt(), pcchdriverdesc.rawAddress.toString(), szdriverattributes.rawAddress.toString(), cchdrvrattrmax.toInt(), pcchdrvrattr.rawAddress.toString()).toShort() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun sQLEndTran(handletype: Short, handle: MutPtr<CVoid>, completiontype: Short): Short =
+public actual fun sQLEndTran(handletype: Short, handle: MutPtr, completiontype: Short): Short =
     if (windowsWin32SystemSearchNapiAvailable) wasmWindowssysWindowsWin32SystemSearchSQLEndTran(handletype.toInt(), handle.rawAddress.toString(), completiontype.toInt()).toShort() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun sQLError(environmenthandle: MutPtr<CVoid>, connectionhandle: MutPtr<CVoid>, statementhandle: MutPtr<CVoid>, sqlstate: MutPtr<UByte>, nativeerror: MutPtr<Int>, messagetext: MutPtr<UByte>, bufferlength: Short, textlength: MutPtr<Short>): Short =
+public actual fun sQLError(environmenthandle: MutPtr, connectionhandle: MutPtr, statementhandle: MutPtr, sqlstate: MutPtr, nativeerror: MutPtr, messagetext: MutPtr, bufferlength: Short, textlength: MutPtr): Short =
     if (windowsWin32SystemSearchNapiAvailable) wasmWindowssysWindowsWin32SystemSearchSQLError(environmenthandle.rawAddress.toString(), connectionhandle.rawAddress.toString(), statementhandle.rawAddress.toString(), sqlstate.rawAddress.toString(), nativeerror.rawAddress.toString(), messagetext.rawAddress.toString(), bufferlength.toInt(), textlength.rawAddress.toString()).toShort() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun sQLErrorA(henv: MutPtr<CVoid>, hdbc: MutPtr<CVoid>, hstmt: MutPtr<CVoid>, szsqlstate: MutPtr<UByte>, pfnativeerror: MutPtr<Int>, szerrormsg: MutPtr<UByte>, cberrormsgmax: Short, pcberrormsg: MutPtr<Short>): Short =
+public actual fun sQLErrorA(henv: MutPtr, hdbc: MutPtr, hstmt: MutPtr, szsqlstate: MutPtr, pfnativeerror: MutPtr, szerrormsg: MutPtr, cberrormsgmax: Short, pcberrormsg: MutPtr): Short =
     if (windowsWin32SystemSearchNapiAvailable) wasmWindowssysWindowsWin32SystemSearchSQLErrorA(henv.rawAddress.toString(), hdbc.rawAddress.toString(), hstmt.rawAddress.toString(), szsqlstate.rawAddress.toString(), pfnativeerror.rawAddress.toString(), szerrormsg.rawAddress.toString(), cberrormsgmax.toInt(), pcberrormsg.rawAddress.toString()).toShort() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun sQLErrorW(henv: MutPtr<CVoid>, hdbc: MutPtr<CVoid>, hstmt: MutPtr<CVoid>, wszsqlstate: MutPtr<UShort>, pfnativeerror: MutPtr<Int>, wszerrormsg: MutPtr<UShort>, ccherrormsgmax: Short, pccherrormsg: MutPtr<Short>): Short =
+public actual fun sQLErrorW(henv: MutPtr, hdbc: MutPtr, hstmt: MutPtr, wszsqlstate: MutPtr, pfnativeerror: MutPtr, wszerrormsg: MutPtr, ccherrormsgmax: Short, pccherrormsg: MutPtr): Short =
     if (windowsWin32SystemSearchNapiAvailable) wasmWindowssysWindowsWin32SystemSearchSQLErrorW(henv.rawAddress.toString(), hdbc.rawAddress.toString(), hstmt.rawAddress.toString(), wszsqlstate.rawAddress.toString(), pfnativeerror.rawAddress.toString(), wszerrormsg.rawAddress.toString(), ccherrormsgmax.toInt(), pccherrormsg.rawAddress.toString()).toShort() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun sQLExecDirect(statementhandle: MutPtr<CVoid>, statementtext: ConstPtr<UByte>, textlength: Int): Short =
+public actual fun sQLExecDirect(statementhandle: MutPtr, statementtext: ConstPtr, textlength: Int): Short =
     if (windowsWin32SystemSearchNapiAvailable) wasmWindowssysWindowsWin32SystemSearchSQLExecDirect(statementhandle.rawAddress.toString(), statementtext.rawAddress.toString(), textlength).toShort() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun sQLExecDirectA(hstmt: MutPtr<CVoid>, szsqlstr: ConstPtr<UByte>, cbsqlstr: Int): Short =
+public actual fun sQLExecDirectA(hstmt: MutPtr, szsqlstr: ConstPtr, cbsqlstr: Int): Short =
     if (windowsWin32SystemSearchNapiAvailable) wasmWindowssysWindowsWin32SystemSearchSQLExecDirectA(hstmt.rawAddress.toString(), szsqlstr.rawAddress.toString(), cbsqlstr).toShort() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun sQLExecDirectW(hstmt: MutPtr<CVoid>, szsqlstr: ConstPtr<UShort>, textlength: Int): Short =
+public actual fun sQLExecDirectW(hstmt: MutPtr, szsqlstr: ConstPtr, textlength: Int): Short =
     if (windowsWin32SystemSearchNapiAvailable) wasmWindowssysWindowsWin32SystemSearchSQLExecDirectW(hstmt.rawAddress.toString(), szsqlstr.rawAddress.toString(), textlength).toShort() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun sQLExecute(statementhandle: MutPtr<CVoid>): Short =
+public actual fun sQLExecute(statementhandle: MutPtr): Short =
     if (windowsWin32SystemSearchNapiAvailable) wasmWindowssysWindowsWin32SystemSearchSQLExecute(statementhandle.rawAddress.toString()).toShort() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun sQLExtendedFetch(hstmt: MutPtr<CVoid>, ffetchtype: UShort, irow: Long, pcrow: MutPtr<ULong>, rgfrowstatus: MutPtr<UShort>): Short =
+public actual fun sQLExtendedFetch(hstmt: MutPtr, ffetchtype: UShort, irow: Long, pcrow: MutPtr, rgfrowstatus: MutPtr): Short =
     if (windowsWin32SystemSearchNapiAvailable) wasmWindowssysWindowsWin32SystemSearchSQLExtendedFetch(hstmt.rawAddress.toString(), ffetchtype.toInt(), irow.toString(), pcrow.rawAddress.toString(), rgfrowstatus.rawAddress.toString()).toShort() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun sQLFetch(statementhandle: MutPtr<CVoid>): Short =
+public actual fun sQLFetch(statementhandle: MutPtr): Short =
     if (windowsWin32SystemSearchNapiAvailable) wasmWindowssysWindowsWin32SystemSearchSQLFetch(statementhandle.rawAddress.toString()).toShort() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun sQLFetchScroll(statementhandle: MutPtr<CVoid>, fetchorientation: Short, fetchoffset: Long): Short =
+public actual fun sQLFetchScroll(statementhandle: MutPtr, fetchorientation: Short, fetchoffset: Long): Short =
     if (windowsWin32SystemSearchNapiAvailable) wasmWindowssysWindowsWin32SystemSearchSQLFetchScroll(statementhandle.rawAddress.toString(), fetchorientation.toInt(), fetchoffset.toString()).toShort() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun sQLForeignKeys(hstmt: MutPtr<CVoid>, szpkcatalogname: ConstPtr<UByte>, cchpkcatalogname: Short, szpkschemaname: ConstPtr<UByte>, cchpkschemaname: Short, szpktablename: ConstPtr<UByte>, cchpktablename: Short, szfkcatalogname: ConstPtr<UByte>, cchfkcatalogname: Short, szfkschemaname: ConstPtr<UByte>, cchfkschemaname: Short, szfktablename: ConstPtr<UByte>, cchfktablename: Short): Short =
+public actual fun sQLForeignKeys(hstmt: MutPtr, szpkcatalogname: ConstPtr, cchpkcatalogname: Short, szpkschemaname: ConstPtr, cchpkschemaname: Short, szpktablename: ConstPtr, cchpktablename: Short, szfkcatalogname: ConstPtr, cchfkcatalogname: Short, szfkschemaname: ConstPtr, cchfkschemaname: Short, szfktablename: ConstPtr, cchfktablename: Short): Short =
     if (windowsWin32SystemSearchNapiAvailable) wasmWindowssysWindowsWin32SystemSearchSQLForeignKeys(hstmt.rawAddress.toString(), szpkcatalogname.rawAddress.toString(), cchpkcatalogname.toInt(), szpkschemaname.rawAddress.toString(), cchpkschemaname.toInt(), szpktablename.rawAddress.toString(), cchpktablename.toInt(), szfkcatalogname.rawAddress.toString(), cchfkcatalogname.toInt(), szfkschemaname.rawAddress.toString(), cchfkschemaname.toInt(), szfktablename.rawAddress.toString(), cchfktablename.toInt()).toShort() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun sQLForeignKeysA(hstmt: MutPtr<CVoid>, szpkcatalogname: ConstPtr<UByte>, cbpkcatalogname: Short, szpkschemaname: ConstPtr<UByte>, cbpkschemaname: Short, szpktablename: ConstPtr<UByte>, cbpktablename: Short, szfkcatalogname: ConstPtr<UByte>, cbfkcatalogname: Short, szfkschemaname: ConstPtr<UByte>, cbfkschemaname: Short, szfktablename: ConstPtr<UByte>, cbfktablename: Short): Short =
+public actual fun sQLForeignKeysA(hstmt: MutPtr, szpkcatalogname: ConstPtr, cbpkcatalogname: Short, szpkschemaname: ConstPtr, cbpkschemaname: Short, szpktablename: ConstPtr, cbpktablename: Short, szfkcatalogname: ConstPtr, cbfkcatalogname: Short, szfkschemaname: ConstPtr, cbfkschemaname: Short, szfktablename: ConstPtr, cbfktablename: Short): Short =
     if (windowsWin32SystemSearchNapiAvailable) wasmWindowssysWindowsWin32SystemSearchSQLForeignKeysA(hstmt.rawAddress.toString(), szpkcatalogname.rawAddress.toString(), cbpkcatalogname.toInt(), szpkschemaname.rawAddress.toString(), cbpkschemaname.toInt(), szpktablename.rawAddress.toString(), cbpktablename.toInt(), szfkcatalogname.rawAddress.toString(), cbfkcatalogname.toInt(), szfkschemaname.rawAddress.toString(), cbfkschemaname.toInt(), szfktablename.rawAddress.toString(), cbfktablename.toInt()).toShort() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun sQLForeignKeysW(hstmt: MutPtr<CVoid>, szpkcatalogname: ConstPtr<UShort>, cchpkcatalogname: Short, szpkschemaname: ConstPtr<UShort>, cchpkschemaname: Short, szpktablename: ConstPtr<UShort>, cchpktablename: Short, szfkcatalogname: ConstPtr<UShort>, cchfkcatalogname: Short, szfkschemaname: ConstPtr<UShort>, cchfkschemaname: Short, szfktablename: ConstPtr<UShort>, cchfktablename: Short): Short =
+public actual fun sQLForeignKeysW(hstmt: MutPtr, szpkcatalogname: ConstPtr, cchpkcatalogname: Short, szpkschemaname: ConstPtr, cchpkschemaname: Short, szpktablename: ConstPtr, cchpktablename: Short, szfkcatalogname: ConstPtr, cchfkcatalogname: Short, szfkschemaname: ConstPtr, cchfkschemaname: Short, szfktablename: ConstPtr, cchfktablename: Short): Short =
     if (windowsWin32SystemSearchNapiAvailable) wasmWindowssysWindowsWin32SystemSearchSQLForeignKeysW(hstmt.rawAddress.toString(), szpkcatalogname.rawAddress.toString(), cchpkcatalogname.toInt(), szpkschemaname.rawAddress.toString(), cchpkschemaname.toInt(), szpktablename.rawAddress.toString(), cchpktablename.toInt(), szfkcatalogname.rawAddress.toString(), cchfkcatalogname.toInt(), szfkschemaname.rawAddress.toString(), cchfkschemaname.toInt(), szfktablename.rawAddress.toString(), cchfktablename.toInt()).toShort() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun sQLFreeConnect(connectionhandle: MutPtr<CVoid>): Short =
+public actual fun sQLFreeConnect(connectionhandle: MutPtr): Short =
     if (windowsWin32SystemSearchNapiAvailable) wasmWindowssysWindowsWin32SystemSearchSQLFreeConnect(connectionhandle.rawAddress.toString()).toShort() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun sQLFreeEnv(environmenthandle: MutPtr<CVoid>): Short =
+public actual fun sQLFreeEnv(environmenthandle: MutPtr): Short =
     if (windowsWin32SystemSearchNapiAvailable) wasmWindowssysWindowsWin32SystemSearchSQLFreeEnv(environmenthandle.rawAddress.toString()).toShort() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun sQLFreeHandle(handletype: Short, handle: MutPtr<CVoid>): Short =
+public actual fun sQLFreeHandle(handletype: Short, handle: MutPtr): Short =
     if (windowsWin32SystemSearchNapiAvailable) wasmWindowssysWindowsWin32SystemSearchSQLFreeHandle(handletype.toInt(), handle.rawAddress.toString()).toShort() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun sQLFreeStmt(statementhandle: MutPtr<CVoid>, option: UShort): Short =
+public actual fun sQLFreeStmt(statementhandle: MutPtr, option: UShort): Short =
     if (windowsWin32SystemSearchNapiAvailable) wasmWindowssysWindowsWin32SystemSearchSQLFreeStmt(statementhandle.rawAddress.toString(), option.toInt()).toShort() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun sQLGetConnectAttr(connectionhandle: MutPtr<CVoid>, attribute: Int, value: MutPtr<CVoid>, bufferlength: Int, stringlengthptr: MutPtr<Int>): Short =
+public actual fun sQLGetConnectAttr(connectionhandle: MutPtr, attribute: Int, value: MutPtr, bufferlength: Int, stringlengthptr: MutPtr): Short =
     if (windowsWin32SystemSearchNapiAvailable) wasmWindowssysWindowsWin32SystemSearchSQLGetConnectAttr(connectionhandle.rawAddress.toString(), attribute, value.rawAddress.toString(), bufferlength, stringlengthptr.rawAddress.toString()).toShort() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun sQLGetConnectAttrA(hdbc: MutPtr<CVoid>, fattribute: Int, rgbvalue: MutPtr<CVoid>, cbvaluemax: Int, pcbvalue: MutPtr<Int>): Short =
+public actual fun sQLGetConnectAttrA(hdbc: MutPtr, fattribute: Int, rgbvalue: MutPtr, cbvaluemax: Int, pcbvalue: MutPtr): Short =
     if (windowsWin32SystemSearchNapiAvailable) wasmWindowssysWindowsWin32SystemSearchSQLGetConnectAttrA(hdbc.rawAddress.toString(), fattribute, rgbvalue.rawAddress.toString(), cbvaluemax, pcbvalue.rawAddress.toString()).toShort() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun sQLGetConnectAttrW(hdbc: MutPtr<CVoid>, fattribute: Int, rgbvalue: MutPtr<CVoid>, cbvaluemax: Int, pcbvalue: MutPtr<Int>): Short =
+public actual fun sQLGetConnectAttrW(hdbc: MutPtr, fattribute: Int, rgbvalue: MutPtr, cbvaluemax: Int, pcbvalue: MutPtr): Short =
     if (windowsWin32SystemSearchNapiAvailable) wasmWindowssysWindowsWin32SystemSearchSQLGetConnectAttrW(hdbc.rawAddress.toString(), fattribute, rgbvalue.rawAddress.toString(), cbvaluemax, pcbvalue.rawAddress.toString()).toShort() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun sQLGetConnectOption(connectionhandle: MutPtr<CVoid>, option: UShort, value: MutPtr<CVoid>): Short =
+public actual fun sQLGetConnectOption(connectionhandle: MutPtr, option: UShort, value: MutPtr): Short =
     if (windowsWin32SystemSearchNapiAvailable) wasmWindowssysWindowsWin32SystemSearchSQLGetConnectOption(connectionhandle.rawAddress.toString(), option.toInt(), value.rawAddress.toString()).toShort() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun sQLGetConnectOptionA(hdbc: MutPtr<CVoid>, foption: UShort, pvparam: MutPtr<CVoid>): Short =
+public actual fun sQLGetConnectOptionA(hdbc: MutPtr, foption: UShort, pvparam: MutPtr): Short =
     if (windowsWin32SystemSearchNapiAvailable) wasmWindowssysWindowsWin32SystemSearchSQLGetConnectOptionA(hdbc.rawAddress.toString(), foption.toInt(), pvparam.rawAddress.toString()).toShort() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun sQLGetConnectOptionW(hdbc: MutPtr<CVoid>, foption: UShort, pvparam: MutPtr<CVoid>): Short =
+public actual fun sQLGetConnectOptionW(hdbc: MutPtr, foption: UShort, pvparam: MutPtr): Short =
     if (windowsWin32SystemSearchNapiAvailable) wasmWindowssysWindowsWin32SystemSearchSQLGetConnectOptionW(hdbc.rawAddress.toString(), foption.toInt(), pvparam.rawAddress.toString()).toShort() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun sQLGetCursorName(statementhandle: MutPtr<CVoid>, cursorname: MutPtr<UByte>, bufferlength: Short, namelengthptr: MutPtr<Short>): Short =
+public actual fun sQLGetCursorName(statementhandle: MutPtr, cursorname: MutPtr, bufferlength: Short, namelengthptr: MutPtr): Short =
     if (windowsWin32SystemSearchNapiAvailable) wasmWindowssysWindowsWin32SystemSearchSQLGetCursorName(statementhandle.rawAddress.toString(), cursorname.rawAddress.toString(), bufferlength.toInt(), namelengthptr.rawAddress.toString()).toShort() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun sQLGetCursorNameA(hstmt: MutPtr<CVoid>, szcursor: MutPtr<UByte>, cbcursormax: Short, pcbcursor: MutPtr<Short>): Short =
+public actual fun sQLGetCursorNameA(hstmt: MutPtr, szcursor: MutPtr, cbcursormax: Short, pcbcursor: MutPtr): Short =
     if (windowsWin32SystemSearchNapiAvailable) wasmWindowssysWindowsWin32SystemSearchSQLGetCursorNameA(hstmt.rawAddress.toString(), szcursor.rawAddress.toString(), cbcursormax.toInt(), pcbcursor.rawAddress.toString()).toShort() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun sQLGetCursorNameW(hstmt: MutPtr<CVoid>, szcursor: MutPtr<UShort>, cchcursormax: Short, pcchcursor: MutPtr<Short>): Short =
+public actual fun sQLGetCursorNameW(hstmt: MutPtr, szcursor: MutPtr, cchcursormax: Short, pcchcursor: MutPtr): Short =
     if (windowsWin32SystemSearchNapiAvailable) wasmWindowssysWindowsWin32SystemSearchSQLGetCursorNameW(hstmt.rawAddress.toString(), szcursor.rawAddress.toString(), cchcursormax.toInt(), pcchcursor.rawAddress.toString()).toShort() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun sQLGetData(statementhandle: MutPtr<CVoid>, columnnumber: UShort, targettype: Short, targetvalue: MutPtr<CVoid>, bufferlength: Long, strlenOrIndptr: MutPtr<Long>): Short =
+public actual fun sQLGetData(statementhandle: MutPtr, columnnumber: UShort, targettype: Short, targetvalue: MutPtr, bufferlength: Long, strlenOrIndptr: MutPtr): Short =
     if (windowsWin32SystemSearchNapiAvailable) wasmWindowssysWindowsWin32SystemSearchSQLGetData(statementhandle.rawAddress.toString(), columnnumber.toInt(), targettype.toInt(), targetvalue.rawAddress.toString(), bufferlength.toString(), strlenOrIndptr.rawAddress.toString()).toShort() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun sQLGetDescField(descriptorhandle: MutPtr<CVoid>, recnumber: Short, fieldidentifier: Short, value: MutPtr<CVoid>, bufferlength: Int, stringlength: MutPtr<Int>): Short =
+public actual fun sQLGetDescField(descriptorhandle: MutPtr, recnumber: Short, fieldidentifier: Short, value: MutPtr, bufferlength: Int, stringlength: MutPtr): Short =
     if (windowsWin32SystemSearchNapiAvailable) wasmWindowssysWindowsWin32SystemSearchSQLGetDescField(descriptorhandle.rawAddress.toString(), recnumber.toInt(), fieldidentifier.toInt(), value.rawAddress.toString(), bufferlength, stringlength.rawAddress.toString()).toShort() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun sQLGetDescFieldA(hdesc: MutPtr<CVoid>, irecord: Short, ifield: Short, rgbvalue: MutPtr<CVoid>, cbbufferlength: Int, stringlength: MutPtr<Int>): Short =
+public actual fun sQLGetDescFieldA(hdesc: MutPtr, irecord: Short, ifield: Short, rgbvalue: MutPtr, cbbufferlength: Int, stringlength: MutPtr): Short =
     if (windowsWin32SystemSearchNapiAvailable) wasmWindowssysWindowsWin32SystemSearchSQLGetDescFieldA(hdesc.rawAddress.toString(), irecord.toInt(), ifield.toInt(), rgbvalue.rawAddress.toString(), cbbufferlength, stringlength.rawAddress.toString()).toShort() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun sQLGetDescFieldW(hdesc: MutPtr<CVoid>, irecord: Short, ifield: Short, rgbvalue: MutPtr<CVoid>, cbbufferlength: Int, stringlength: MutPtr<Int>): Short =
+public actual fun sQLGetDescFieldW(hdesc: MutPtr, irecord: Short, ifield: Short, rgbvalue: MutPtr, cbbufferlength: Int, stringlength: MutPtr): Short =
     if (windowsWin32SystemSearchNapiAvailable) wasmWindowssysWindowsWin32SystemSearchSQLGetDescFieldW(hdesc.rawAddress.toString(), irecord.toInt(), ifield.toInt(), rgbvalue.rawAddress.toString(), cbbufferlength, stringlength.rawAddress.toString()).toShort() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun sQLGetDescRec(descriptorhandle: MutPtr<CVoid>, recnumber: Short, name: MutPtr<UByte>, bufferlength: Short, stringlengthptr: MutPtr<Short>, typeptr: MutPtr<Short>, subtypeptr: MutPtr<Short>, lengthptr: MutPtr<Long>, precisionptr: MutPtr<Short>, scaleptr: MutPtr<Short>, nullableptr: MutPtr<Short>): Short =
+public actual fun sQLGetDescRec(descriptorhandle: MutPtr, recnumber: Short, name: MutPtr, bufferlength: Short, stringlengthptr: MutPtr, typeptr: MutPtr, subtypeptr: MutPtr, lengthptr: MutPtr, precisionptr: MutPtr, scaleptr: MutPtr, nullableptr: MutPtr): Short =
     if (windowsWin32SystemSearchNapiAvailable) wasmWindowssysWindowsWin32SystemSearchSQLGetDescRec(descriptorhandle.rawAddress.toString(), recnumber.toInt(), name.rawAddress.toString(), bufferlength.toInt(), stringlengthptr.rawAddress.toString(), typeptr.rawAddress.toString(), subtypeptr.rawAddress.toString(), lengthptr.rawAddress.toString(), precisionptr.rawAddress.toString(), scaleptr.rawAddress.toString(), nullableptr.rawAddress.toString()).toShort() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun sQLGetDescRecA(hdesc: MutPtr<CVoid>, irecord: Short, szname: MutPtr<UByte>, cbnamemax: Short, pcbname: MutPtr<Short>, pftype: MutPtr<Short>, pfsubtype: MutPtr<Short>, plength: MutPtr<Long>, pprecision: MutPtr<Short>, pscale: MutPtr<Short>, pnullable: MutPtr<Short>): Short =
+public actual fun sQLGetDescRecA(hdesc: MutPtr, irecord: Short, szname: MutPtr, cbnamemax: Short, pcbname: MutPtr, pftype: MutPtr, pfsubtype: MutPtr, plength: MutPtr, pprecision: MutPtr, pscale: MutPtr, pnullable: MutPtr): Short =
     if (windowsWin32SystemSearchNapiAvailable) wasmWindowssysWindowsWin32SystemSearchSQLGetDescRecA(hdesc.rawAddress.toString(), irecord.toInt(), szname.rawAddress.toString(), cbnamemax.toInt(), pcbname.rawAddress.toString(), pftype.rawAddress.toString(), pfsubtype.rawAddress.toString(), plength.rawAddress.toString(), pprecision.rawAddress.toString(), pscale.rawAddress.toString(), pnullable.rawAddress.toString()).toShort() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun sQLGetDescRecW(hdesc: MutPtr<CVoid>, irecord: Short, szname: MutPtr<UShort>, cchnamemax: Short, pcchname: MutPtr<Short>, pftype: MutPtr<Short>, pfsubtype: MutPtr<Short>, plength: MutPtr<Long>, pprecision: MutPtr<Short>, pscale: MutPtr<Short>, pnullable: MutPtr<Short>): Short =
+public actual fun sQLGetDescRecW(hdesc: MutPtr, irecord: Short, szname: MutPtr, cchnamemax: Short, pcchname: MutPtr, pftype: MutPtr, pfsubtype: MutPtr, plength: MutPtr, pprecision: MutPtr, pscale: MutPtr, pnullable: MutPtr): Short =
     if (windowsWin32SystemSearchNapiAvailable) wasmWindowssysWindowsWin32SystemSearchSQLGetDescRecW(hdesc.rawAddress.toString(), irecord.toInt(), szname.rawAddress.toString(), cchnamemax.toInt(), pcchname.rawAddress.toString(), pftype.rawAddress.toString(), pfsubtype.rawAddress.toString(), plength.rawAddress.toString(), pprecision.rawAddress.toString(), pscale.rawAddress.toString(), pnullable.rawAddress.toString()).toShort() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun sQLGetDiagField(handletype: Short, handle: MutPtr<CVoid>, recnumber: Short, diagidentifier: Short, diaginfo: MutPtr<CVoid>, bufferlength: Short, stringlength: MutPtr<Short>): Short =
+public actual fun sQLGetDiagField(handletype: Short, handle: MutPtr, recnumber: Short, diagidentifier: Short, diaginfo: MutPtr, bufferlength: Short, stringlength: MutPtr): Short =
     if (windowsWin32SystemSearchNapiAvailable) wasmWindowssysWindowsWin32SystemSearchSQLGetDiagField(handletype.toInt(), handle.rawAddress.toString(), recnumber.toInt(), diagidentifier.toInt(), diaginfo.rawAddress.toString(), bufferlength.toInt(), stringlength.rawAddress.toString()).toShort() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun sQLGetDiagFieldA(fhandletype: Short, handle: MutPtr<CVoid>, irecord: Short, fdiagfield: Short, rgbdiaginfo: MutPtr<CVoid>, cbdiaginfomax: Short, pcbdiaginfo: MutPtr<Short>): Short =
+public actual fun sQLGetDiagFieldA(fhandletype: Short, handle: MutPtr, irecord: Short, fdiagfield: Short, rgbdiaginfo: MutPtr, cbdiaginfomax: Short, pcbdiaginfo: MutPtr): Short =
     if (windowsWin32SystemSearchNapiAvailable) wasmWindowssysWindowsWin32SystemSearchSQLGetDiagFieldA(fhandletype.toInt(), handle.rawAddress.toString(), irecord.toInt(), fdiagfield.toInt(), rgbdiaginfo.rawAddress.toString(), cbdiaginfomax.toInt(), pcbdiaginfo.rawAddress.toString()).toShort() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun sQLGetDiagFieldW(fhandletype: Short, handle: MutPtr<CVoid>, irecord: Short, fdiagfield: Short, rgbdiaginfo: MutPtr<CVoid>, cbbufferlength: Short, pcbstringlength: MutPtr<Short>): Short =
+public actual fun sQLGetDiagFieldW(fhandletype: Short, handle: MutPtr, irecord: Short, fdiagfield: Short, rgbdiaginfo: MutPtr, cbbufferlength: Short, pcbstringlength: MutPtr): Short =
     if (windowsWin32SystemSearchNapiAvailable) wasmWindowssysWindowsWin32SystemSearchSQLGetDiagFieldW(fhandletype.toInt(), handle.rawAddress.toString(), irecord.toInt(), fdiagfield.toInt(), rgbdiaginfo.rawAddress.toString(), cbbufferlength.toInt(), pcbstringlength.rawAddress.toString()).toShort() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun sQLGetDiagRec(handletype: Short, handle: MutPtr<CVoid>, recnumber: Short, sqlstate: MutPtr<UByte>, nativeerror: MutPtr<Int>, messagetext: MutPtr<UByte>, bufferlength: Short, textlength: MutPtr<Short>): Short =
+public actual fun sQLGetDiagRec(handletype: Short, handle: MutPtr, recnumber: Short, sqlstate: MutPtr, nativeerror: MutPtr, messagetext: MutPtr, bufferlength: Short, textlength: MutPtr): Short =
     if (windowsWin32SystemSearchNapiAvailable) wasmWindowssysWindowsWin32SystemSearchSQLGetDiagRec(handletype.toInt(), handle.rawAddress.toString(), recnumber.toInt(), sqlstate.rawAddress.toString(), nativeerror.rawAddress.toString(), messagetext.rawAddress.toString(), bufferlength.toInt(), textlength.rawAddress.toString()).toShort() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun sQLGetDiagRecA(fhandletype: Short, handle: MutPtr<CVoid>, irecord: Short, szsqlstate: MutPtr<UByte>, pfnativeerror: MutPtr<Int>, szerrormsg: MutPtr<UByte>, cberrormsgmax: Short, pcberrormsg: MutPtr<Short>): Short =
+public actual fun sQLGetDiagRecA(fhandletype: Short, handle: MutPtr, irecord: Short, szsqlstate: MutPtr, pfnativeerror: MutPtr, szerrormsg: MutPtr, cberrormsgmax: Short, pcberrormsg: MutPtr): Short =
     if (windowsWin32SystemSearchNapiAvailable) wasmWindowssysWindowsWin32SystemSearchSQLGetDiagRecA(fhandletype.toInt(), handle.rawAddress.toString(), irecord.toInt(), szsqlstate.rawAddress.toString(), pfnativeerror.rawAddress.toString(), szerrormsg.rawAddress.toString(), cberrormsgmax.toInt(), pcberrormsg.rawAddress.toString()).toShort() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun sQLGetDiagRecW(fhandletype: Short, handle: MutPtr<CVoid>, irecord: Short, szsqlstate: MutPtr<UShort>, pfnativeerror: MutPtr<Int>, szerrormsg: MutPtr<UShort>, ccherrormsgmax: Short, pccherrormsg: MutPtr<Short>): Short =
+public actual fun sQLGetDiagRecW(fhandletype: Short, handle: MutPtr, irecord: Short, szsqlstate: MutPtr, pfnativeerror: MutPtr, szerrormsg: MutPtr, ccherrormsgmax: Short, pccherrormsg: MutPtr): Short =
     if (windowsWin32SystemSearchNapiAvailable) wasmWindowssysWindowsWin32SystemSearchSQLGetDiagRecW(fhandletype.toInt(), handle.rawAddress.toString(), irecord.toInt(), szsqlstate.rawAddress.toString(), pfnativeerror.rawAddress.toString(), szerrormsg.rawAddress.toString(), ccherrormsgmax.toInt(), pccherrormsg.rawAddress.toString()).toShort() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun sQLGetEnvAttr(environmenthandle: MutPtr<CVoid>, attribute: Int, value: MutPtr<CVoid>, bufferlength: Int, stringlength: MutPtr<Int>): Short =
+public actual fun sQLGetEnvAttr(environmenthandle: MutPtr, attribute: Int, value: MutPtr, bufferlength: Int, stringlength: MutPtr): Short =
     if (windowsWin32SystemSearchNapiAvailable) wasmWindowssysWindowsWin32SystemSearchSQLGetEnvAttr(environmenthandle.rawAddress.toString(), attribute, value.rawAddress.toString(), bufferlength, stringlength.rawAddress.toString()).toShort() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun sQLGetFunctions(connectionhandle: MutPtr<CVoid>, functionid: UShort, supported: MutPtr<UShort>): Short =
+public actual fun sQLGetFunctions(connectionhandle: MutPtr, functionid: UShort, supported: MutPtr): Short =
     if (windowsWin32SystemSearchNapiAvailable) wasmWindowssysWindowsWin32SystemSearchSQLGetFunctions(connectionhandle.rawAddress.toString(), functionid.toInt(), supported.rawAddress.toString()).toShort() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun sQLGetInfo(connectionhandle: MutPtr<CVoid>, infotype: UShort, infovalue: MutPtr<CVoid>, bufferlength: Short, stringlengthptr: MutPtr<Short>): Short =
+public actual fun sQLGetInfo(connectionhandle: MutPtr, infotype: UShort, infovalue: MutPtr, bufferlength: Short, stringlengthptr: MutPtr): Short =
     if (windowsWin32SystemSearchNapiAvailable) wasmWindowssysWindowsWin32SystemSearchSQLGetInfo(connectionhandle.rawAddress.toString(), infotype.toInt(), infovalue.rawAddress.toString(), bufferlength.toInt(), stringlengthptr.rawAddress.toString()).toShort() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun sQLGetInfoA(hdbc: MutPtr<CVoid>, finfotype: UShort, rgbinfovalue: MutPtr<CVoid>, cbinfovaluemax: Short, pcbinfovalue: MutPtr<Short>): Short =
+public actual fun sQLGetInfoA(hdbc: MutPtr, finfotype: UShort, rgbinfovalue: MutPtr, cbinfovaluemax: Short, pcbinfovalue: MutPtr): Short =
     if (windowsWin32SystemSearchNapiAvailable) wasmWindowssysWindowsWin32SystemSearchSQLGetInfoA(hdbc.rawAddress.toString(), finfotype.toInt(), rgbinfovalue.rawAddress.toString(), cbinfovaluemax.toInt(), pcbinfovalue.rawAddress.toString()).toShort() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun sQLGetInfoW(hdbc: MutPtr<CVoid>, finfotype: UShort, rgbinfovalue: MutPtr<CVoid>, cbinfovaluemax: Short, pcbinfovalue: MutPtr<Short>): Short =
+public actual fun sQLGetInfoW(hdbc: MutPtr, finfotype: UShort, rgbinfovalue: MutPtr, cbinfovaluemax: Short, pcbinfovalue: MutPtr): Short =
     if (windowsWin32SystemSearchNapiAvailable) wasmWindowssysWindowsWin32SystemSearchSQLGetInfoW(hdbc.rawAddress.toString(), finfotype.toInt(), rgbinfovalue.rawAddress.toString(), cbinfovaluemax.toInt(), pcbinfovalue.rawAddress.toString()).toShort() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun sQLGetNextEnumeration(henumhandle: Handle, prgenumdata: MutPtr<UByte>, pienumlength: MutPtr<Int>): Short =
+public actual fun sQLGetNextEnumeration(henumhandle: Handle, prgenumdata: MutPtr, pienumlength: MutPtr): Short =
     if (windowsWin32SystemSearchNapiAvailable) wasmWindowssysWindowsWin32SystemSearchSQLGetNextEnumeration(henumhandle.rawAddress.toString(), prgenumdata.rawAddress.toString(), pienumlength.rawAddress.toString()).toShort() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun sQLGetStmtAttr(statementhandle: MutPtr<CVoid>, attribute: Int, value: MutPtr<CVoid>, bufferlength: Int, stringlength: MutPtr<Int>): Short =
+public actual fun sQLGetStmtAttr(statementhandle: MutPtr, attribute: Int, value: MutPtr, bufferlength: Int, stringlength: MutPtr): Short =
     if (windowsWin32SystemSearchNapiAvailable) wasmWindowssysWindowsWin32SystemSearchSQLGetStmtAttr(statementhandle.rawAddress.toString(), attribute, value.rawAddress.toString(), bufferlength, stringlength.rawAddress.toString()).toShort() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun sQLGetStmtAttrA(hstmt: MutPtr<CVoid>, fattribute: Int, rgbvalue: MutPtr<CVoid>, cbvaluemax: Int, pcbvalue: MutPtr<Int>): Short =
+public actual fun sQLGetStmtAttrA(hstmt: MutPtr, fattribute: Int, rgbvalue: MutPtr, cbvaluemax: Int, pcbvalue: MutPtr): Short =
     if (windowsWin32SystemSearchNapiAvailable) wasmWindowssysWindowsWin32SystemSearchSQLGetStmtAttrA(hstmt.rawAddress.toString(), fattribute, rgbvalue.rawAddress.toString(), cbvaluemax, pcbvalue.rawAddress.toString()).toShort() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun sQLGetStmtAttrW(hstmt: MutPtr<CVoid>, fattribute: Int, rgbvalue: MutPtr<CVoid>, cbvaluemax: Int, pcbvalue: MutPtr<Int>): Short =
+public actual fun sQLGetStmtAttrW(hstmt: MutPtr, fattribute: Int, rgbvalue: MutPtr, cbvaluemax: Int, pcbvalue: MutPtr): Short =
     if (windowsWin32SystemSearchNapiAvailable) wasmWindowssysWindowsWin32SystemSearchSQLGetStmtAttrW(hstmt.rawAddress.toString(), fattribute, rgbvalue.rawAddress.toString(), cbvaluemax, pcbvalue.rawAddress.toString()).toShort() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun sQLGetStmtOption(statementhandle: MutPtr<CVoid>, option: UShort, value: MutPtr<CVoid>): Short =
+public actual fun sQLGetStmtOption(statementhandle: MutPtr, option: UShort, value: MutPtr): Short =
     if (windowsWin32SystemSearchNapiAvailable) wasmWindowssysWindowsWin32SystemSearchSQLGetStmtOption(statementhandle.rawAddress.toString(), option.toInt(), value.rawAddress.toString()).toShort() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun sQLGetTypeInfo(statementhandle: MutPtr<CVoid>, datatype: Short): Short =
+public actual fun sQLGetTypeInfo(statementhandle: MutPtr, datatype: Short): Short =
     if (windowsWin32SystemSearchNapiAvailable) wasmWindowssysWindowsWin32SystemSearchSQLGetTypeInfo(statementhandle.rawAddress.toString(), datatype.toInt()).toShort() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun sQLGetTypeInfoA(statementhandle: MutPtr<CVoid>, datatype: Short): Short =
+public actual fun sQLGetTypeInfoA(statementhandle: MutPtr, datatype: Short): Short =
     if (windowsWin32SystemSearchNapiAvailable) wasmWindowssysWindowsWin32SystemSearchSQLGetTypeInfoA(statementhandle.rawAddress.toString(), datatype.toInt()).toShort() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun sQLGetTypeInfoW(statementhandle: MutPtr<CVoid>, datatype: Short): Short =
+public actual fun sQLGetTypeInfoW(statementhandle: MutPtr, datatype: Short): Short =
     if (windowsWin32SystemSearchNapiAvailable) wasmWindowssysWindowsWin32SystemSearchSQLGetTypeInfoW(statementhandle.rawAddress.toString(), datatype.toInt()).toShort() else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun sQLInitEnumServers(pwchservername: Pcwstr, pwchinstancename: Pcwstr): Handle =
     if (windowsWin32SystemSearchNapiAvailable) MutPtr(wasmWindowssysWindowsWin32SystemSearchSQLInitEnumServers(pwchservername.rawAddress.toString(), pwchinstancename.rawAddress.toString()).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun sQLLinkedCatalogsA(param0: MutPtr<CVoid>, param1: Pcstr, param2: Short): Short =
+public actual fun sQLLinkedCatalogsA(param0: MutPtr, param1: Pcstr, param2: Short): Short =
     if (windowsWin32SystemSearchNapiAvailable) wasmWindowssysWindowsWin32SystemSearchSQLLinkedCatalogsA(param0.rawAddress.toString(), param1.rawAddress.toString(), param2.toInt()).toShort() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun sQLLinkedCatalogsW(param0: MutPtr<CVoid>, param1: Pcwstr, param2: Short): Short =
+public actual fun sQLLinkedCatalogsW(param0: MutPtr, param1: Pcwstr, param2: Short): Short =
     if (windowsWin32SystemSearchNapiAvailable) wasmWindowssysWindowsWin32SystemSearchSQLLinkedCatalogsW(param0.rawAddress.toString(), param1.rawAddress.toString(), param2.toInt()).toShort() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun sQLLinkedServers(param0: MutPtr<CVoid>): Short =
+public actual fun sQLLinkedServers(param0: MutPtr): Short =
     if (windowsWin32SystemSearchNapiAvailable) wasmWindowssysWindowsWin32SystemSearchSQLLinkedServers(param0.rawAddress.toString()).toShort() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun sQLMoreResults(hstmt: MutPtr<CVoid>): Short =
+public actual fun sQLMoreResults(hstmt: MutPtr): Short =
     if (windowsWin32SystemSearchNapiAvailable) wasmWindowssysWindowsWin32SystemSearchSQLMoreResults(hstmt.rawAddress.toString()).toShort() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun sQLNativeSql(hdbc: MutPtr<CVoid>, szsqlstrin: ConstPtr<UByte>, cchsqlstrin: Int, szsqlstr: MutPtr<UByte>, cchsqlstrmax: Int, pcbsqlstr: MutPtr<Int>): Short =
+public actual fun sQLNativeSql(hdbc: MutPtr, szsqlstrin: ConstPtr, cchsqlstrin: Int, szsqlstr: MutPtr, cchsqlstrmax: Int, pcbsqlstr: MutPtr): Short =
     if (windowsWin32SystemSearchNapiAvailable) wasmWindowssysWindowsWin32SystemSearchSQLNativeSql(hdbc.rawAddress.toString(), szsqlstrin.rawAddress.toString(), cchsqlstrin, szsqlstr.rawAddress.toString(), cchsqlstrmax, pcbsqlstr.rawAddress.toString()).toShort() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun sQLNativeSqlA(hdbc: MutPtr<CVoid>, szsqlstrin: ConstPtr<UByte>, cbsqlstrin: Int, szsqlstr: MutPtr<UByte>, cbsqlstrmax: Int, pcbsqlstr: MutPtr<Int>): Short =
+public actual fun sQLNativeSqlA(hdbc: MutPtr, szsqlstrin: ConstPtr, cbsqlstrin: Int, szsqlstr: MutPtr, cbsqlstrmax: Int, pcbsqlstr: MutPtr): Short =
     if (windowsWin32SystemSearchNapiAvailable) wasmWindowssysWindowsWin32SystemSearchSQLNativeSqlA(hdbc.rawAddress.toString(), szsqlstrin.rawAddress.toString(), cbsqlstrin, szsqlstr.rawAddress.toString(), cbsqlstrmax, pcbsqlstr.rawAddress.toString()).toShort() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun sQLNativeSqlW(hdbc: MutPtr<CVoid>, szsqlstrin: ConstPtr<UShort>, cchsqlstrin: Int, szsqlstr: MutPtr<UShort>, cchsqlstrmax: Int, pcchsqlstr: MutPtr<Int>): Short =
+public actual fun sQLNativeSqlW(hdbc: MutPtr, szsqlstrin: ConstPtr, cchsqlstrin: Int, szsqlstr: MutPtr, cchsqlstrmax: Int, pcchsqlstr: MutPtr): Short =
     if (windowsWin32SystemSearchNapiAvailable) wasmWindowssysWindowsWin32SystemSearchSQLNativeSqlW(hdbc.rawAddress.toString(), szsqlstrin.rawAddress.toString(), cchsqlstrin, szsqlstr.rawAddress.toString(), cchsqlstrmax, pcchsqlstr.rawAddress.toString()).toShort() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun sQLNumParams(hstmt: MutPtr<CVoid>, pcpar: MutPtr<Short>): Short =
+public actual fun sQLNumParams(hstmt: MutPtr, pcpar: MutPtr): Short =
     if (windowsWin32SystemSearchNapiAvailable) wasmWindowssysWindowsWin32SystemSearchSQLNumParams(hstmt.rawAddress.toString(), pcpar.rawAddress.toString()).toShort() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun sQLNumResultCols(statementhandle: MutPtr<CVoid>, columncount: MutPtr<Short>): Short =
+public actual fun sQLNumResultCols(statementhandle: MutPtr, columncount: MutPtr): Short =
     if (windowsWin32SystemSearchNapiAvailable) wasmWindowssysWindowsWin32SystemSearchSQLNumResultCols(statementhandle.rawAddress.toString(), columncount.rawAddress.toString()).toShort() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun sQLParamData(statementhandle: MutPtr<CVoid>, value: MutPtr<MutPtr<CVoid>>): Short =
+public actual fun sQLParamData(statementhandle: MutPtr, value: MutPtr): Short =
     if (windowsWin32SystemSearchNapiAvailable) wasmWindowssysWindowsWin32SystemSearchSQLParamData(statementhandle.rawAddress.toString(), value.rawAddress.toString()).toShort() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun sQLParamOptions(hstmt: MutPtr<CVoid>, crow: ULong, pirow: MutPtr<ULong>): Short =
+public actual fun sQLParamOptions(hstmt: MutPtr, crow: ULong, pirow: MutPtr): Short =
     if (windowsWin32SystemSearchNapiAvailable) wasmWindowssysWindowsWin32SystemSearchSQLParamOptions(hstmt.rawAddress.toString(), crow.toString(), pirow.rawAddress.toString()).toShort() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun sQLPrepare(statementhandle: MutPtr<CVoid>, statementtext: ConstPtr<UByte>, textlength: Int): Short =
+public actual fun sQLPrepare(statementhandle: MutPtr, statementtext: ConstPtr, textlength: Int): Short =
     if (windowsWin32SystemSearchNapiAvailable) wasmWindowssysWindowsWin32SystemSearchSQLPrepare(statementhandle.rawAddress.toString(), statementtext.rawAddress.toString(), textlength).toShort() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun sQLPrepareA(hstmt: MutPtr<CVoid>, szsqlstr: ConstPtr<UByte>, cbsqlstr: Int): Short =
+public actual fun sQLPrepareA(hstmt: MutPtr, szsqlstr: ConstPtr, cbsqlstr: Int): Short =
     if (windowsWin32SystemSearchNapiAvailable) wasmWindowssysWindowsWin32SystemSearchSQLPrepareA(hstmt.rawAddress.toString(), szsqlstr.rawAddress.toString(), cbsqlstr).toShort() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun sQLPrepareW(hstmt: MutPtr<CVoid>, szsqlstr: ConstPtr<UShort>, cchsqlstr: Int): Short =
+public actual fun sQLPrepareW(hstmt: MutPtr, szsqlstr: ConstPtr, cchsqlstr: Int): Short =
     if (windowsWin32SystemSearchNapiAvailable) wasmWindowssysWindowsWin32SystemSearchSQLPrepareW(hstmt.rawAddress.toString(), szsqlstr.rawAddress.toString(), cchsqlstr).toShort() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun sQLPrimaryKeys(hstmt: MutPtr<CVoid>, szcatalogname: ConstPtr<UByte>, cchcatalogname: Short, szschemaname: ConstPtr<UByte>, cchschemaname: Short, sztablename: ConstPtr<UByte>, cchtablename: Short): Short =
+public actual fun sQLPrimaryKeys(hstmt: MutPtr, szcatalogname: ConstPtr, cchcatalogname: Short, szschemaname: ConstPtr, cchschemaname: Short, sztablename: ConstPtr, cchtablename: Short): Short =
     if (windowsWin32SystemSearchNapiAvailable) wasmWindowssysWindowsWin32SystemSearchSQLPrimaryKeys(hstmt.rawAddress.toString(), szcatalogname.rawAddress.toString(), cchcatalogname.toInt(), szschemaname.rawAddress.toString(), cchschemaname.toInt(), sztablename.rawAddress.toString(), cchtablename.toInt()).toShort() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun sQLPrimaryKeysA(hstmt: MutPtr<CVoid>, szcatalogname: ConstPtr<UByte>, cbcatalogname: Short, szschemaname: ConstPtr<UByte>, cbschemaname: Short, sztablename: ConstPtr<UByte>, cbtablename: Short): Short =
+public actual fun sQLPrimaryKeysA(hstmt: MutPtr, szcatalogname: ConstPtr, cbcatalogname: Short, szschemaname: ConstPtr, cbschemaname: Short, sztablename: ConstPtr, cbtablename: Short): Short =
     if (windowsWin32SystemSearchNapiAvailable) wasmWindowssysWindowsWin32SystemSearchSQLPrimaryKeysA(hstmt.rawAddress.toString(), szcatalogname.rawAddress.toString(), cbcatalogname.toInt(), szschemaname.rawAddress.toString(), cbschemaname.toInt(), sztablename.rawAddress.toString(), cbtablename.toInt()).toShort() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun sQLPrimaryKeysW(hstmt: MutPtr<CVoid>, szcatalogname: ConstPtr<UShort>, cchcatalogname: Short, szschemaname: ConstPtr<UShort>, cchschemaname: Short, sztablename: ConstPtr<UShort>, cchtablename: Short): Short =
+public actual fun sQLPrimaryKeysW(hstmt: MutPtr, szcatalogname: ConstPtr, cchcatalogname: Short, szschemaname: ConstPtr, cchschemaname: Short, sztablename: ConstPtr, cchtablename: Short): Short =
     if (windowsWin32SystemSearchNapiAvailable) wasmWindowssysWindowsWin32SystemSearchSQLPrimaryKeysW(hstmt.rawAddress.toString(), szcatalogname.rawAddress.toString(), cchcatalogname.toInt(), szschemaname.rawAddress.toString(), cchschemaname.toInt(), sztablename.rawAddress.toString(), cchtablename.toInt()).toShort() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun sQLProcedureColumns(hstmt: MutPtr<CVoid>, szcatalogname: ConstPtr<UByte>, cchcatalogname: Short, szschemaname: ConstPtr<UByte>, cchschemaname: Short, szprocname: ConstPtr<UByte>, cchprocname: Short, szcolumnname: ConstPtr<UByte>, cchcolumnname: Short): Short =
+public actual fun sQLProcedureColumns(hstmt: MutPtr, szcatalogname: ConstPtr, cchcatalogname: Short, szschemaname: ConstPtr, cchschemaname: Short, szprocname: ConstPtr, cchprocname: Short, szcolumnname: ConstPtr, cchcolumnname: Short): Short =
     if (windowsWin32SystemSearchNapiAvailable) wasmWindowssysWindowsWin32SystemSearchSQLProcedureColumns(hstmt.rawAddress.toString(), szcatalogname.rawAddress.toString(), cchcatalogname.toInt(), szschemaname.rawAddress.toString(), cchschemaname.toInt(), szprocname.rawAddress.toString(), cchprocname.toInt(), szcolumnname.rawAddress.toString(), cchcolumnname.toInt()).toShort() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun sQLProcedureColumnsA(hstmt: MutPtr<CVoid>, szcatalogname: ConstPtr<UByte>, cbcatalogname: Short, szschemaname: ConstPtr<UByte>, cbschemaname: Short, szprocname: ConstPtr<UByte>, cbprocname: Short, szcolumnname: ConstPtr<UByte>, cbcolumnname: Short): Short =
+public actual fun sQLProcedureColumnsA(hstmt: MutPtr, szcatalogname: ConstPtr, cbcatalogname: Short, szschemaname: ConstPtr, cbschemaname: Short, szprocname: ConstPtr, cbprocname: Short, szcolumnname: ConstPtr, cbcolumnname: Short): Short =
     if (windowsWin32SystemSearchNapiAvailable) wasmWindowssysWindowsWin32SystemSearchSQLProcedureColumnsA(hstmt.rawAddress.toString(), szcatalogname.rawAddress.toString(), cbcatalogname.toInt(), szschemaname.rawAddress.toString(), cbschemaname.toInt(), szprocname.rawAddress.toString(), cbprocname.toInt(), szcolumnname.rawAddress.toString(), cbcolumnname.toInt()).toShort() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun sQLProcedureColumnsW(hstmt: MutPtr<CVoid>, szcatalogname: ConstPtr<UShort>, cchcatalogname: Short, szschemaname: ConstPtr<UShort>, cchschemaname: Short, szprocname: ConstPtr<UShort>, cchprocname: Short, szcolumnname: ConstPtr<UShort>, cchcolumnname: Short): Short =
+public actual fun sQLProcedureColumnsW(hstmt: MutPtr, szcatalogname: ConstPtr, cchcatalogname: Short, szschemaname: ConstPtr, cchschemaname: Short, szprocname: ConstPtr, cchprocname: Short, szcolumnname: ConstPtr, cchcolumnname: Short): Short =
     if (windowsWin32SystemSearchNapiAvailable) wasmWindowssysWindowsWin32SystemSearchSQLProcedureColumnsW(hstmt.rawAddress.toString(), szcatalogname.rawAddress.toString(), cchcatalogname.toInt(), szschemaname.rawAddress.toString(), cchschemaname.toInt(), szprocname.rawAddress.toString(), cchprocname.toInt(), szcolumnname.rawAddress.toString(), cchcolumnname.toInt()).toShort() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun sQLProcedures(hstmt: MutPtr<CVoid>, szcatalogname: ConstPtr<UByte>, cchcatalogname: Short, szschemaname: ConstPtr<UByte>, cchschemaname: Short, szprocname: ConstPtr<UByte>, cchprocname: Short): Short =
+public actual fun sQLProcedures(hstmt: MutPtr, szcatalogname: ConstPtr, cchcatalogname: Short, szschemaname: ConstPtr, cchschemaname: Short, szprocname: ConstPtr, cchprocname: Short): Short =
     if (windowsWin32SystemSearchNapiAvailable) wasmWindowssysWindowsWin32SystemSearchSQLProcedures(hstmt.rawAddress.toString(), szcatalogname.rawAddress.toString(), cchcatalogname.toInt(), szschemaname.rawAddress.toString(), cchschemaname.toInt(), szprocname.rawAddress.toString(), cchprocname.toInt()).toShort() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun sQLProceduresA(hstmt: MutPtr<CVoid>, szcatalogname: ConstPtr<UByte>, cbcatalogname: Short, szschemaname: ConstPtr<UByte>, cbschemaname: Short, szprocname: ConstPtr<UByte>, cbprocname: Short): Short =
+public actual fun sQLProceduresA(hstmt: MutPtr, szcatalogname: ConstPtr, cbcatalogname: Short, szschemaname: ConstPtr, cbschemaname: Short, szprocname: ConstPtr, cbprocname: Short): Short =
     if (windowsWin32SystemSearchNapiAvailable) wasmWindowssysWindowsWin32SystemSearchSQLProceduresA(hstmt.rawAddress.toString(), szcatalogname.rawAddress.toString(), cbcatalogname.toInt(), szschemaname.rawAddress.toString(), cbschemaname.toInt(), szprocname.rawAddress.toString(), cbprocname.toInt()).toShort() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun sQLProceduresW(hstmt: MutPtr<CVoid>, szcatalogname: ConstPtr<UShort>, cchcatalogname: Short, szschemaname: ConstPtr<UShort>, cchschemaname: Short, szprocname: ConstPtr<UShort>, cchprocname: Short): Short =
+public actual fun sQLProceduresW(hstmt: MutPtr, szcatalogname: ConstPtr, cchcatalogname: Short, szschemaname: ConstPtr, cchschemaname: Short, szprocname: ConstPtr, cchprocname: Short): Short =
     if (windowsWin32SystemSearchNapiAvailable) wasmWindowssysWindowsWin32SystemSearchSQLProceduresW(hstmt.rawAddress.toString(), szcatalogname.rawAddress.toString(), cchcatalogname.toInt(), szschemaname.rawAddress.toString(), cchschemaname.toInt(), szprocname.rawAddress.toString(), cchprocname.toInt()).toShort() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun sQLPutData(statementhandle: MutPtr<CVoid>, data: ConstPtr<CVoid>, strlenOrInd: Long): Short =
+public actual fun sQLPutData(statementhandle: MutPtr, data: ConstPtr, strlenOrInd: Long): Short =
     if (windowsWin32SystemSearchNapiAvailable) wasmWindowssysWindowsWin32SystemSearchSQLPutData(statementhandle.rawAddress.toString(), data.rawAddress.toString(), strlenOrInd.toString()).toShort() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun sQLRowCount(statementhandle: ConstPtr<CVoid>, rowcount: MutPtr<Long>): Short =
+public actual fun sQLRowCount(statementhandle: ConstPtr, rowcount: MutPtr): Short =
     if (windowsWin32SystemSearchNapiAvailable) wasmWindowssysWindowsWin32SystemSearchSQLRowCount(statementhandle.rawAddress.toString(), rowcount.rawAddress.toString()).toShort() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun sQLSetConnectAttr(connectionhandle: MutPtr<CVoid>, attribute: Int, value: ConstPtr<CVoid>, stringlength: Int): Short =
+public actual fun sQLSetConnectAttr(connectionhandle: MutPtr, attribute: Int, value: ConstPtr, stringlength: Int): Short =
     if (windowsWin32SystemSearchNapiAvailable) wasmWindowssysWindowsWin32SystemSearchSQLSetConnectAttr(connectionhandle.rawAddress.toString(), attribute, value.rawAddress.toString(), stringlength).toShort() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun sQLSetConnectAttrA(hdbc: MutPtr<CVoid>, fattribute: Int, rgbvalue: ConstPtr<CVoid>, cbvalue: Int): Short =
+public actual fun sQLSetConnectAttrA(hdbc: MutPtr, fattribute: Int, rgbvalue: ConstPtr, cbvalue: Int): Short =
     if (windowsWin32SystemSearchNapiAvailable) wasmWindowssysWindowsWin32SystemSearchSQLSetConnectAttrA(hdbc.rawAddress.toString(), fattribute, rgbvalue.rawAddress.toString(), cbvalue).toShort() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun sQLSetConnectAttrW(hdbc: MutPtr<CVoid>, fattribute: Int, rgbvalue: ConstPtr<CVoid>, cbvalue: Int): Short =
+public actual fun sQLSetConnectAttrW(hdbc: MutPtr, fattribute: Int, rgbvalue: ConstPtr, cbvalue: Int): Short =
     if (windowsWin32SystemSearchNapiAvailable) wasmWindowssysWindowsWin32SystemSearchSQLSetConnectAttrW(hdbc.rawAddress.toString(), fattribute, rgbvalue.rawAddress.toString(), cbvalue).toShort() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun sQLSetConnectOption(connectionhandle: MutPtr<CVoid>, option: UShort, value: ULong): Short =
+public actual fun sQLSetConnectOption(connectionhandle: MutPtr, option: UShort, value: ULong): Short =
     if (windowsWin32SystemSearchNapiAvailable) wasmWindowssysWindowsWin32SystemSearchSQLSetConnectOption(connectionhandle.rawAddress.toString(), option.toInt(), value.toString()).toShort() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun sQLSetConnectOptionA(hdbc: MutPtr<CVoid>, foption: UShort, vparam: ULong): Short =
+public actual fun sQLSetConnectOptionA(hdbc: MutPtr, foption: UShort, vparam: ULong): Short =
     if (windowsWin32SystemSearchNapiAvailable) wasmWindowssysWindowsWin32SystemSearchSQLSetConnectOptionA(hdbc.rawAddress.toString(), foption.toInt(), vparam.toString()).toShort() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun sQLSetConnectOptionW(hdbc: MutPtr<CVoid>, foption: UShort, vparam: ULong): Short =
+public actual fun sQLSetConnectOptionW(hdbc: MutPtr, foption: UShort, vparam: ULong): Short =
     if (windowsWin32SystemSearchNapiAvailable) wasmWindowssysWindowsWin32SystemSearchSQLSetConnectOptionW(hdbc.rawAddress.toString(), foption.toInt(), vparam.toString()).toShort() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun sQLSetCursorName(statementhandle: MutPtr<CVoid>, cursorname: ConstPtr<UByte>, namelength: Short): Short =
+public actual fun sQLSetCursorName(statementhandle: MutPtr, cursorname: ConstPtr, namelength: Short): Short =
     if (windowsWin32SystemSearchNapiAvailable) wasmWindowssysWindowsWin32SystemSearchSQLSetCursorName(statementhandle.rawAddress.toString(), cursorname.rawAddress.toString(), namelength.toInt()).toShort() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun sQLSetCursorNameA(hstmt: MutPtr<CVoid>, szcursor: ConstPtr<UByte>, cbcursor: Short): Short =
+public actual fun sQLSetCursorNameA(hstmt: MutPtr, szcursor: ConstPtr, cbcursor: Short): Short =
     if (windowsWin32SystemSearchNapiAvailable) wasmWindowssysWindowsWin32SystemSearchSQLSetCursorNameA(hstmt.rawAddress.toString(), szcursor.rawAddress.toString(), cbcursor.toInt()).toShort() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun sQLSetCursorNameW(hstmt: MutPtr<CVoid>, szcursor: ConstPtr<UShort>, cchcursor: Short): Short =
+public actual fun sQLSetCursorNameW(hstmt: MutPtr, szcursor: ConstPtr, cchcursor: Short): Short =
     if (windowsWin32SystemSearchNapiAvailable) wasmWindowssysWindowsWin32SystemSearchSQLSetCursorNameW(hstmt.rawAddress.toString(), szcursor.rawAddress.toString(), cchcursor.toInt()).toShort() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun sQLSetDescField(descriptorhandle: MutPtr<CVoid>, recnumber: Short, fieldidentifier: Short, value: ConstPtr<CVoid>, bufferlength: Int): Short =
+public actual fun sQLSetDescField(descriptorhandle: MutPtr, recnumber: Short, fieldidentifier: Short, value: ConstPtr, bufferlength: Int): Short =
     if (windowsWin32SystemSearchNapiAvailable) wasmWindowssysWindowsWin32SystemSearchSQLSetDescField(descriptorhandle.rawAddress.toString(), recnumber.toInt(), fieldidentifier.toInt(), value.rawAddress.toString(), bufferlength).toShort() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun sQLSetDescFieldW(descriptorhandle: MutPtr<CVoid>, recnumber: Short, fieldidentifier: Short, value: MutPtr<CVoid>, bufferlength: Int): Short =
+public actual fun sQLSetDescFieldW(descriptorhandle: MutPtr, recnumber: Short, fieldidentifier: Short, value: MutPtr, bufferlength: Int): Short =
     if (windowsWin32SystemSearchNapiAvailable) wasmWindowssysWindowsWin32SystemSearchSQLSetDescFieldW(descriptorhandle.rawAddress.toString(), recnumber.toInt(), fieldidentifier.toInt(), value.rawAddress.toString(), bufferlength).toShort() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun sQLSetDescRec(descriptorhandle: MutPtr<CVoid>, recnumber: Short, type: Short, subtype: Short, length: Long, precision: Short, scale: Short, data: MutPtr<CVoid>, stringlength: MutPtr<Long>, indicator: MutPtr<Long>): Short =
+public actual fun sQLSetDescRec(descriptorhandle: MutPtr, recnumber: Short, type: Short, subtype: Short, length: Long, precision: Short, scale: Short, data: MutPtr, stringlength: MutPtr, indicator: MutPtr): Short =
     if (windowsWin32SystemSearchNapiAvailable) wasmWindowssysWindowsWin32SystemSearchSQLSetDescRec(descriptorhandle.rawAddress.toString(), recnumber.toInt(), type.toInt(), subtype.toInt(), length.toString(), precision.toInt(), scale.toInt(), data.rawAddress.toString(), stringlength.rawAddress.toString(), indicator.rawAddress.toString()).toShort() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun sQLSetEnvAttr(environmenthandle: MutPtr<CVoid>, attribute: Int, value: ConstPtr<CVoid>, stringlength: Int): Short =
+public actual fun sQLSetEnvAttr(environmenthandle: MutPtr, attribute: Int, value: ConstPtr, stringlength: Int): Short =
     if (windowsWin32SystemSearchNapiAvailable) wasmWindowssysWindowsWin32SystemSearchSQLSetEnvAttr(environmenthandle.rawAddress.toString(), attribute, value.rawAddress.toString(), stringlength).toShort() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun sQLSetParam(statementhandle: MutPtr<CVoid>, parameternumber: UShort, valuetype: Short, parametertype: Short, lengthprecision: ULong, parameterscale: Short, parametervalue: ConstPtr<CVoid>, strlenOrInd: MutPtr<Long>): Short =
+public actual fun sQLSetParam(statementhandle: MutPtr, parameternumber: UShort, valuetype: Short, parametertype: Short, lengthprecision: ULong, parameterscale: Short, parametervalue: ConstPtr, strlenOrInd: MutPtr): Short =
     if (windowsWin32SystemSearchNapiAvailable) wasmWindowssysWindowsWin32SystemSearchSQLSetParam(statementhandle.rawAddress.toString(), parameternumber.toInt(), valuetype.toInt(), parametertype.toInt(), lengthprecision.toString(), parameterscale.toInt(), parametervalue.rawAddress.toString(), strlenOrInd.rawAddress.toString()).toShort() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun sQLSetPos(hstmt: MutPtr<CVoid>, irow: ULong, foption: UShort, flock: UShort): Short =
+public actual fun sQLSetPos(hstmt: MutPtr, irow: ULong, foption: UShort, flock: UShort): Short =
     if (windowsWin32SystemSearchNapiAvailable) wasmWindowssysWindowsWin32SystemSearchSQLSetPos(hstmt.rawAddress.toString(), irow.toString(), foption.toInt(), flock.toInt()).toShort() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun sQLSetScrollOptions(hstmt: MutPtr<CVoid>, fconcurrency: UShort, crowkeyset: Long, crowrowset: UShort): Short =
+public actual fun sQLSetScrollOptions(hstmt: MutPtr, fconcurrency: UShort, crowkeyset: Long, crowrowset: UShort): Short =
     if (windowsWin32SystemSearchNapiAvailable) wasmWindowssysWindowsWin32SystemSearchSQLSetScrollOptions(hstmt.rawAddress.toString(), fconcurrency.toInt(), crowkeyset.toString(), crowrowset.toInt()).toShort() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun sQLSetStmtAttr(statementhandle: MutPtr<CVoid>, attribute: Int, value: ConstPtr<CVoid>, stringlength: Int): Short =
+public actual fun sQLSetStmtAttr(statementhandle: MutPtr, attribute: Int, value: ConstPtr, stringlength: Int): Short =
     if (windowsWin32SystemSearchNapiAvailable) wasmWindowssysWindowsWin32SystemSearchSQLSetStmtAttr(statementhandle.rawAddress.toString(), attribute, value.rawAddress.toString(), stringlength).toShort() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun sQLSetStmtAttrW(hstmt: MutPtr<CVoid>, fattribute: Int, rgbvalue: MutPtr<CVoid>, cbvaluemax: Int): Short =
+public actual fun sQLSetStmtAttrW(hstmt: MutPtr, fattribute: Int, rgbvalue: MutPtr, cbvaluemax: Int): Short =
     if (windowsWin32SystemSearchNapiAvailable) wasmWindowssysWindowsWin32SystemSearchSQLSetStmtAttrW(hstmt.rawAddress.toString(), fattribute, rgbvalue.rawAddress.toString(), cbvaluemax).toShort() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun sQLSetStmtOption(statementhandle: MutPtr<CVoid>, option: UShort, value: ULong): Short =
+public actual fun sQLSetStmtOption(statementhandle: MutPtr, option: UShort, value: ULong): Short =
     if (windowsWin32SystemSearchNapiAvailable) wasmWindowssysWindowsWin32SystemSearchSQLSetStmtOption(statementhandle.rawAddress.toString(), option.toInt(), value.toString()).toShort() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun sQLSpecialColumns(statementhandle: MutPtr<CVoid>, identifiertype: UShort, catalogname: ConstPtr<UByte>, namelength1: Short, schemaname: ConstPtr<UByte>, namelength2: Short, tablename: ConstPtr<UByte>, namelength3: Short, scope: UShort, nullable: UShort): Short =
+public actual fun sQLSpecialColumns(statementhandle: MutPtr, identifiertype: UShort, catalogname: ConstPtr, namelength1: Short, schemaname: ConstPtr, namelength2: Short, tablename: ConstPtr, namelength3: Short, scope: UShort, nullable: UShort): Short =
     if (windowsWin32SystemSearchNapiAvailable) wasmWindowssysWindowsWin32SystemSearchSQLSpecialColumns(statementhandle.rawAddress.toString(), identifiertype.toInt(), catalogname.rawAddress.toString(), namelength1.toInt(), schemaname.rawAddress.toString(), namelength2.toInt(), tablename.rawAddress.toString(), namelength3.toInt(), scope.toInt(), nullable.toInt()).toShort() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun sQLSpecialColumnsA(hstmt: MutPtr<CVoid>, fcoltype: UShort, szcatalogname: ConstPtr<UByte>, cbcatalogname: Short, szschemaname: ConstPtr<UByte>, cbschemaname: Short, sztablename: ConstPtr<UByte>, cbtablename: Short, fscope: UShort, fnullable: UShort): Short =
+public actual fun sQLSpecialColumnsA(hstmt: MutPtr, fcoltype: UShort, szcatalogname: ConstPtr, cbcatalogname: Short, szschemaname: ConstPtr, cbschemaname: Short, sztablename: ConstPtr, cbtablename: Short, fscope: UShort, fnullable: UShort): Short =
     if (windowsWin32SystemSearchNapiAvailable) wasmWindowssysWindowsWin32SystemSearchSQLSpecialColumnsA(hstmt.rawAddress.toString(), fcoltype.toInt(), szcatalogname.rawAddress.toString(), cbcatalogname.toInt(), szschemaname.rawAddress.toString(), cbschemaname.toInt(), sztablename.rawAddress.toString(), cbtablename.toInt(), fscope.toInt(), fnullable.toInt()).toShort() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun sQLSpecialColumnsW(hstmt: MutPtr<CVoid>, fcoltype: UShort, szcatalogname: ConstPtr<UShort>, cchcatalogname: Short, szschemaname: ConstPtr<UShort>, cchschemaname: Short, sztablename: ConstPtr<UShort>, cchtablename: Short, fscope: UShort, fnullable: UShort): Short =
+public actual fun sQLSpecialColumnsW(hstmt: MutPtr, fcoltype: UShort, szcatalogname: ConstPtr, cchcatalogname: Short, szschemaname: ConstPtr, cchschemaname: Short, sztablename: ConstPtr, cchtablename: Short, fscope: UShort, fnullable: UShort): Short =
     if (windowsWin32SystemSearchNapiAvailable) wasmWindowssysWindowsWin32SystemSearchSQLSpecialColumnsW(hstmt.rawAddress.toString(), fcoltype.toInt(), szcatalogname.rawAddress.toString(), cchcatalogname.toInt(), szschemaname.rawAddress.toString(), cchschemaname.toInt(), sztablename.rawAddress.toString(), cchtablename.toInt(), fscope.toInt(), fnullable.toInt()).toShort() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun sQLStatistics(statementhandle: MutPtr<CVoid>, catalogname: ConstPtr<UByte>, namelength1: Short, schemaname: ConstPtr<UByte>, namelength2: Short, tablename: ConstPtr<UByte>, namelength3: Short, unique: UShort, reserved: UShort): Short =
+public actual fun sQLStatistics(statementhandle: MutPtr, catalogname: ConstPtr, namelength1: Short, schemaname: ConstPtr, namelength2: Short, tablename: ConstPtr, namelength3: Short, unique: UShort, reserved: UShort): Short =
     if (windowsWin32SystemSearchNapiAvailable) wasmWindowssysWindowsWin32SystemSearchSQLStatistics(statementhandle.rawAddress.toString(), catalogname.rawAddress.toString(), namelength1.toInt(), schemaname.rawAddress.toString(), namelength2.toInt(), tablename.rawAddress.toString(), namelength3.toInt(), unique.toInt(), reserved.toInt()).toShort() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun sQLStatisticsA(hstmt: MutPtr<CVoid>, szcatalogname: ConstPtr<UByte>, cbcatalogname: Short, szschemaname: ConstPtr<UByte>, cbschemaname: Short, sztablename: ConstPtr<UByte>, cbtablename: Short, funique: UShort, faccuracy: UShort): Short =
+public actual fun sQLStatisticsA(hstmt: MutPtr, szcatalogname: ConstPtr, cbcatalogname: Short, szschemaname: ConstPtr, cbschemaname: Short, sztablename: ConstPtr, cbtablename: Short, funique: UShort, faccuracy: UShort): Short =
     if (windowsWin32SystemSearchNapiAvailable) wasmWindowssysWindowsWin32SystemSearchSQLStatisticsA(hstmt.rawAddress.toString(), szcatalogname.rawAddress.toString(), cbcatalogname.toInt(), szschemaname.rawAddress.toString(), cbschemaname.toInt(), sztablename.rawAddress.toString(), cbtablename.toInt(), funique.toInt(), faccuracy.toInt()).toShort() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun sQLStatisticsW(hstmt: MutPtr<CVoid>, szcatalogname: ConstPtr<UShort>, cchcatalogname: Short, szschemaname: ConstPtr<UShort>, cchschemaname: Short, sztablename: ConstPtr<UShort>, cchtablename: Short, funique: UShort, faccuracy: UShort): Short =
+public actual fun sQLStatisticsW(hstmt: MutPtr, szcatalogname: ConstPtr, cchcatalogname: Short, szschemaname: ConstPtr, cchschemaname: Short, sztablename: ConstPtr, cchtablename: Short, funique: UShort, faccuracy: UShort): Short =
     if (windowsWin32SystemSearchNapiAvailable) wasmWindowssysWindowsWin32SystemSearchSQLStatisticsW(hstmt.rawAddress.toString(), szcatalogname.rawAddress.toString(), cchcatalogname.toInt(), szschemaname.rawAddress.toString(), cchschemaname.toInt(), sztablename.rawAddress.toString(), cchtablename.toInt(), funique.toInt(), faccuracy.toInt()).toShort() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun sQLTablePrivileges(hstmt: MutPtr<CVoid>, szcatalogname: ConstPtr<UByte>, cchcatalogname: Short, szschemaname: ConstPtr<UByte>, cchschemaname: Short, sztablename: ConstPtr<UByte>, cchtablename: Short): Short =
+public actual fun sQLTablePrivileges(hstmt: MutPtr, szcatalogname: ConstPtr, cchcatalogname: Short, szschemaname: ConstPtr, cchschemaname: Short, sztablename: ConstPtr, cchtablename: Short): Short =
     if (windowsWin32SystemSearchNapiAvailable) wasmWindowssysWindowsWin32SystemSearchSQLTablePrivileges(hstmt.rawAddress.toString(), szcatalogname.rawAddress.toString(), cchcatalogname.toInt(), szschemaname.rawAddress.toString(), cchschemaname.toInt(), sztablename.rawAddress.toString(), cchtablename.toInt()).toShort() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun sQLTablePrivilegesA(hstmt: MutPtr<CVoid>, szcatalogname: ConstPtr<UByte>, cbcatalogname: Short, szschemaname: ConstPtr<UByte>, cbschemaname: Short, sztablename: ConstPtr<UByte>, cbtablename: Short): Short =
+public actual fun sQLTablePrivilegesA(hstmt: MutPtr, szcatalogname: ConstPtr, cbcatalogname: Short, szschemaname: ConstPtr, cbschemaname: Short, sztablename: ConstPtr, cbtablename: Short): Short =
     if (windowsWin32SystemSearchNapiAvailable) wasmWindowssysWindowsWin32SystemSearchSQLTablePrivilegesA(hstmt.rawAddress.toString(), szcatalogname.rawAddress.toString(), cbcatalogname.toInt(), szschemaname.rawAddress.toString(), cbschemaname.toInt(), sztablename.rawAddress.toString(), cbtablename.toInt()).toShort() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun sQLTablePrivilegesW(hstmt: MutPtr<CVoid>, szcatalogname: ConstPtr<UShort>, cchcatalogname: Short, szschemaname: ConstPtr<UShort>, cchschemaname: Short, sztablename: ConstPtr<UShort>, cchtablename: Short): Short =
+public actual fun sQLTablePrivilegesW(hstmt: MutPtr, szcatalogname: ConstPtr, cchcatalogname: Short, szschemaname: ConstPtr, cchschemaname: Short, sztablename: ConstPtr, cchtablename: Short): Short =
     if (windowsWin32SystemSearchNapiAvailable) wasmWindowssysWindowsWin32SystemSearchSQLTablePrivilegesW(hstmt.rawAddress.toString(), szcatalogname.rawAddress.toString(), cchcatalogname.toInt(), szschemaname.rawAddress.toString(), cchschemaname.toInt(), sztablename.rawAddress.toString(), cchtablename.toInt()).toShort() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun sQLTables(statementhandle: MutPtr<CVoid>, catalogname: ConstPtr<UByte>, namelength1: Short, schemaname: ConstPtr<UByte>, namelength2: Short, tablename: ConstPtr<UByte>, namelength3: Short, tabletype: ConstPtr<UByte>, namelength4: Short): Short =
+public actual fun sQLTables(statementhandle: MutPtr, catalogname: ConstPtr, namelength1: Short, schemaname: ConstPtr, namelength2: Short, tablename: ConstPtr, namelength3: Short, tabletype: ConstPtr, namelength4: Short): Short =
     if (windowsWin32SystemSearchNapiAvailable) wasmWindowssysWindowsWin32SystemSearchSQLTables(statementhandle.rawAddress.toString(), catalogname.rawAddress.toString(), namelength1.toInt(), schemaname.rawAddress.toString(), namelength2.toInt(), tablename.rawAddress.toString(), namelength3.toInt(), tabletype.rawAddress.toString(), namelength4.toInt()).toShort() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun sQLTablesA(hstmt: MutPtr<CVoid>, szcatalogname: ConstPtr<UByte>, cbcatalogname: Short, szschemaname: ConstPtr<UByte>, cbschemaname: Short, sztablename: ConstPtr<UByte>, cbtablename: Short, sztabletype: ConstPtr<UByte>, cbtabletype: Short): Short =
+public actual fun sQLTablesA(hstmt: MutPtr, szcatalogname: ConstPtr, cbcatalogname: Short, szschemaname: ConstPtr, cbschemaname: Short, sztablename: ConstPtr, cbtablename: Short, sztabletype: ConstPtr, cbtabletype: Short): Short =
     if (windowsWin32SystemSearchNapiAvailable) wasmWindowssysWindowsWin32SystemSearchSQLTablesA(hstmt.rawAddress.toString(), szcatalogname.rawAddress.toString(), cbcatalogname.toInt(), szschemaname.rawAddress.toString(), cbschemaname.toInt(), sztablename.rawAddress.toString(), cbtablename.toInt(), sztabletype.rawAddress.toString(), cbtabletype.toInt()).toShort() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun sQLTablesW(hstmt: MutPtr<CVoid>, szcatalogname: ConstPtr<UShort>, cchcatalogname: Short, szschemaname: ConstPtr<UShort>, cchschemaname: Short, sztablename: ConstPtr<UShort>, cchtablename: Short, sztabletype: ConstPtr<UShort>, cchtabletype: Short): Short =
+public actual fun sQLTablesW(hstmt: MutPtr, szcatalogname: ConstPtr, cchcatalogname: Short, szschemaname: ConstPtr, cchschemaname: Short, sztablename: ConstPtr, cchtablename: Short, sztabletype: ConstPtr, cchtabletype: Short): Short =
     if (windowsWin32SystemSearchNapiAvailable) wasmWindowssysWindowsWin32SystemSearchSQLTablesW(hstmt.rawAddress.toString(), szcatalogname.rawAddress.toString(), cchcatalogname.toInt(), szschemaname.rawAddress.toString(), cchschemaname.toInt(), sztablename.rawAddress.toString(), cchtablename.toInt(), sztabletype.rawAddress.toString(), cchtabletype.toInt()).toShort() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun sQLTransact(environmenthandle: MutPtr<CVoid>, connectionhandle: MutPtr<CVoid>, completiontype: UShort): Short =
+public actual fun sQLTransact(environmenthandle: MutPtr, connectionhandle: MutPtr, completiontype: UShort): Short =
     if (windowsWin32SystemSearchNapiAvailable) wasmWindowssysWindowsWin32SystemSearchSQLTransact(environmenthandle.rawAddress.toString(), connectionhandle.rawAddress.toString(), completiontype.toInt()).toShort() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun bcpBatch(param0: MutPtr<CVoid>): Int =
+public actual fun bcpBatch(param0: MutPtr): Int =
     if (windowsWin32SystemSearchNapiAvailable) wasmWindowssysWindowsWin32SystemSearchBcpBatch(param0.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun bcpBind(param0: MutPtr<CVoid>, param1: MutPtr<UByte>, param2: Int, param3: Int, param4: MutPtr<UByte>, param5: Int, param6: Int, param7: Int): Short =
+public actual fun bcpBind(param0: MutPtr, param1: MutPtr, param2: Int, param3: Int, param4: MutPtr, param5: Int, param6: Int, param7: Int): Short =
     if (windowsWin32SystemSearchNapiAvailable) wasmWindowssysWindowsWin32SystemSearchBcpBind(param0.rawAddress.toString(), param1.rawAddress.toString(), param2, param3, param4.rawAddress.toString(), param5, param6, param7).toShort() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun bcpColfmt(param0: MutPtr<CVoid>, param1: Int, param2: UByte, param3: Int, param4: Int, param5: MutPtr<UByte>, param6: Int, param7: Int): Short =
+public actual fun bcpColfmt(param0: MutPtr, param1: Int, param2: UByte, param3: Int, param4: Int, param5: MutPtr, param6: Int, param7: Int): Short =
     if (windowsWin32SystemSearchNapiAvailable) wasmWindowssysWindowsWin32SystemSearchBcpColfmt(param0.rawAddress.toString(), param1, param2.toInt(), param3, param4, param5.rawAddress.toString(), param6, param7).toShort() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun bcpCollen(param0: MutPtr<CVoid>, param1: Int, param2: Int): Short =
+public actual fun bcpCollen(param0: MutPtr, param1: Int, param2: Int): Short =
     if (windowsWin32SystemSearchNapiAvailable) wasmWindowssysWindowsWin32SystemSearchBcpCollen(param0.rawAddress.toString(), param1, param2).toShort() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun bcpColptr(param0: MutPtr<CVoid>, param1: MutPtr<UByte>, param2: Int): Short =
+public actual fun bcpColptr(param0: MutPtr, param1: MutPtr, param2: Int): Short =
     if (windowsWin32SystemSearchNapiAvailable) wasmWindowssysWindowsWin32SystemSearchBcpColptr(param0.rawAddress.toString(), param1.rawAddress.toString(), param2).toShort() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun bcpColumns(param0: MutPtr<CVoid>, param1: Int): Short =
+public actual fun bcpColumns(param0: MutPtr, param1: Int): Short =
     if (windowsWin32SystemSearchNapiAvailable) wasmWindowssysWindowsWin32SystemSearchBcpColumns(param0.rawAddress.toString(), param1).toShort() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun bcpControl(param0: MutPtr<CVoid>, param1: Int, param2: MutPtr<CVoid>): Short =
+public actual fun bcpControl(param0: MutPtr, param1: Int, param2: MutPtr): Short =
     if (windowsWin32SystemSearchNapiAvailable) wasmWindowssysWindowsWin32SystemSearchBcpControl(param0.rawAddress.toString(), param1, param2.rawAddress.toString()).toShort() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun bcpDone(param0: MutPtr<CVoid>): Int =
+public actual fun bcpDone(param0: MutPtr): Int =
     if (windowsWin32SystemSearchNapiAvailable) wasmWindowssysWindowsWin32SystemSearchBcpDone(param0.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun bcpExec(param0: MutPtr<CVoid>, param1: MutPtr<Int>): Short =
+public actual fun bcpExec(param0: MutPtr, param1: MutPtr): Short =
     if (windowsWin32SystemSearchNapiAvailable) wasmWindowssysWindowsWin32SystemSearchBcpExec(param0.rawAddress.toString(), param1.rawAddress.toString()).toShort() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun bcpGetcolfmt(param0: MutPtr<CVoid>, param1: Int, param2: Int, param3: MutPtr<CVoid>, param4: Int, param5: MutPtr<Int>): Short =
+public actual fun bcpGetcolfmt(param0: MutPtr, param1: Int, param2: Int, param3: MutPtr, param4: Int, param5: MutPtr): Short =
     if (windowsWin32SystemSearchNapiAvailable) wasmWindowssysWindowsWin32SystemSearchBcpGetcolfmt(param0.rawAddress.toString(), param1, param2, param3.rawAddress.toString(), param4, param5.rawAddress.toString()).toShort() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun bcpInitA(param0: MutPtr<CVoid>, param1: Pcstr, param2: Pcstr, param3: Pcstr, param4: Int): Short =
+public actual fun bcpInitA(param0: MutPtr, param1: Pcstr, param2: Pcstr, param3: Pcstr, param4: Int): Short =
     if (windowsWin32SystemSearchNapiAvailable) wasmWindowssysWindowsWin32SystemSearchBcpInitA(param0.rawAddress.toString(), param1.rawAddress.toString(), param2.rawAddress.toString(), param3.rawAddress.toString(), param4).toShort() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun bcpInitW(param0: MutPtr<CVoid>, param1: Pcwstr, param2: Pcwstr, param3: Pcwstr, param4: Int): Short =
+public actual fun bcpInitW(param0: MutPtr, param1: Pcwstr, param2: Pcwstr, param3: Pcwstr, param4: Int): Short =
     if (windowsWin32SystemSearchNapiAvailable) wasmWindowssysWindowsWin32SystemSearchBcpInitW(param0.rawAddress.toString(), param1.rawAddress.toString(), param2.rawAddress.toString(), param3.rawAddress.toString(), param4).toShort() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun bcpMoretext(param0: MutPtr<CVoid>, param1: Int, param2: MutPtr<UByte>): Short =
+public actual fun bcpMoretext(param0: MutPtr, param1: Int, param2: MutPtr): Short =
     if (windowsWin32SystemSearchNapiAvailable) wasmWindowssysWindowsWin32SystemSearchBcpMoretext(param0.rawAddress.toString(), param1, param2.rawAddress.toString()).toShort() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun bcpReadfmtA(param0: MutPtr<CVoid>, param1: Pcstr): Short =
+public actual fun bcpReadfmtA(param0: MutPtr, param1: Pcstr): Short =
     if (windowsWin32SystemSearchNapiAvailable) wasmWindowssysWindowsWin32SystemSearchBcpReadfmtA(param0.rawAddress.toString(), param1.rawAddress.toString()).toShort() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun bcpReadfmtW(param0: MutPtr<CVoid>, param1: Pcwstr): Short =
+public actual fun bcpReadfmtW(param0: MutPtr, param1: Pcwstr): Short =
     if (windowsWin32SystemSearchNapiAvailable) wasmWindowssysWindowsWin32SystemSearchBcpReadfmtW(param0.rawAddress.toString(), param1.rawAddress.toString()).toShort() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun bcpSendrow(param0: MutPtr<CVoid>): Short =
+public actual fun bcpSendrow(param0: MutPtr): Short =
     if (windowsWin32SystemSearchNapiAvailable) wasmWindowssysWindowsWin32SystemSearchBcpSendrow(param0.rawAddress.toString()).toShort() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun bcpSetcolfmt(param0: MutPtr<CVoid>, param1: Int, param2: Int, param3: MutPtr<CVoid>, param4: Int): Short =
+public actual fun bcpSetcolfmt(param0: MutPtr, param1: Int, param2: Int, param3: MutPtr, param4: Int): Short =
     if (windowsWin32SystemSearchNapiAvailable) wasmWindowssysWindowsWin32SystemSearchBcpSetcolfmt(param0.rawAddress.toString(), param1, param2, param3.rawAddress.toString(), param4).toShort() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun bcpWritefmtA(param0: MutPtr<CVoid>, param1: Pcstr): Short =
+public actual fun bcpWritefmtA(param0: MutPtr, param1: Pcstr): Short =
     if (windowsWin32SystemSearchNapiAvailable) wasmWindowssysWindowsWin32SystemSearchBcpWritefmtA(param0.rawAddress.toString(), param1.rawAddress.toString()).toShort() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun bcpWritefmtW(param0: MutPtr<CVoid>, param1: Pcwstr): Short =
+public actual fun bcpWritefmtW(param0: MutPtr, param1: Pcwstr): Short =
     if (windowsWin32SystemSearchNapiAvailable) wasmWindowssysWindowsWin32SystemSearchBcpWritefmtW(param0.rawAddress.toString(), param1.rawAddress.toString()).toShort() else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun dbprtypeA(param0: Int): Pstr =

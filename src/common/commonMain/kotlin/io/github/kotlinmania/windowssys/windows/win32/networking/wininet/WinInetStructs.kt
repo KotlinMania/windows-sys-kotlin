@@ -2,7 +2,6 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.networking.wininet
 
-import io.github.kotlinmania.rustlang.core.ffi.CVoid
 import io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
 import io.github.kotlinmania.rustlang.core.mem.TypeLayout
 import io.github.kotlinmania.rustlang.core.ptr.ConstPtr
@@ -14,12 +13,9 @@ import io.github.kotlinmania.windowssys.core.Pcwstr
 import io.github.kotlinmania.windowssys.core.Pstr
 import io.github.kotlinmania.windowssys.core.Pwstr
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Filetime
-import io.github.kotlinmania.windowssys.windows.win32.foundation.Handle
 import io.github.kotlinmania.windowssys.windows.win32.security.authentication.identity.SecPkgContextBindings
 import io.github.kotlinmania.windowssys.windows.win32.security.authentication.identity.SecPkgContextCipherInfo
 import io.github.kotlinmania.windowssys.windows.win32.security.authentication.identity.SecPkgContextConnectionInfo
-import io.github.kotlinmania.windowssys.windows.win32.security.cryptography.CertChainContext
-import io.github.kotlinmania.windowssys.windows.win32.security.cryptography.CertContext
 
 public class AppCacheDownloadEntry internal constructor(
     pwszUrlCtorArg: Pwstr,
@@ -67,9 +63,9 @@ public class AppCacheDownloadEntry internal constructor(
 
 public class AppCacheDownloadList internal constructor(
     public var dwEntryCount: UInt,
-    pEntriesCtorArg: MutPtr<AppCacheDownloadEntry>,
+    pEntriesCtorArg: MutPtr,
 ) {
-    public var pEntries: MutPtr<AppCacheDownloadEntry> = pEntriesCtorArg
+    public var pEntries: MutPtr = pEntriesCtorArg
         internal set
 
     public constructor() : this(
@@ -79,9 +75,9 @@ public class AppCacheDownloadList internal constructor(
 
     public operator fun component1(): UInt = this.dwEntryCount
 
-    public operator fun component2(): MutPtr<AppCacheDownloadEntry> = this.pEntries
+    public operator fun component2(): MutPtr = this.pEntries
 
-    public fun copy(dwEntryCount: UInt = this.dwEntryCount, pEntries: MutPtr<AppCacheDownloadEntry> = this.pEntries): AppCacheDownloadList = AppCacheDownloadList(dwEntryCount = dwEntryCount, pEntriesCtorArg = pEntries)
+    public fun copy(dwEntryCount: UInt = this.dwEntryCount, pEntries: MutPtr = this.pEntries): AppCacheDownloadList = AppCacheDownloadList(dwEntryCount = dwEntryCount, pEntriesCtorArg = pEntries)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -107,21 +103,21 @@ public class AppCacheDownloadList internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<AppCacheDownloadEntry>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                     )
                 override fun writeNative(addr: Long, value: AppCacheDownloadList) {
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr, value.dwEntryCount)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<AppCacheDownloadEntry>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.pEntries)
                 }
             }
 
         public operator fun invoke(
             dwEntryCount: UInt = 0u,
-            pEntries: MutPtr<AppCacheDownloadEntry> = MutPtr(0L),
+            pEntries: MutPtr = MutPtr(0L),
         ): AppCacheDownloadList =
             AppCacheDownloadList(
                 dwEntryCount = dwEntryCount,
@@ -184,9 +180,9 @@ public class AppCacheGroupInfo internal constructor(
 
 public class AppCacheGroupList internal constructor(
     public var dwAppCacheGroupCount: UInt,
-    pAppCacheGroupsCtorArg: MutPtr<AppCacheGroupInfo>,
+    pAppCacheGroupsCtorArg: MutPtr,
 ) {
-    public var pAppCacheGroups: MutPtr<AppCacheGroupInfo> = pAppCacheGroupsCtorArg
+    public var pAppCacheGroups: MutPtr = pAppCacheGroupsCtorArg
         internal set
 
     public constructor() : this(
@@ -196,9 +192,9 @@ public class AppCacheGroupList internal constructor(
 
     public operator fun component1(): UInt = this.dwAppCacheGroupCount
 
-    public operator fun component2(): MutPtr<AppCacheGroupInfo> = this.pAppCacheGroups
+    public operator fun component2(): MutPtr = this.pAppCacheGroups
 
-    public fun copy(dwAppCacheGroupCount: UInt = this.dwAppCacheGroupCount, pAppCacheGroups: MutPtr<AppCacheGroupInfo> = this.pAppCacheGroups): AppCacheGroupList = AppCacheGroupList(dwAppCacheGroupCount = dwAppCacheGroupCount, pAppCacheGroupsCtorArg = pAppCacheGroups)
+    public fun copy(dwAppCacheGroupCount: UInt = this.dwAppCacheGroupCount, pAppCacheGroups: MutPtr = this.pAppCacheGroups): AppCacheGroupList = AppCacheGroupList(dwAppCacheGroupCount = dwAppCacheGroupCount, pAppCacheGroupsCtorArg = pAppCacheGroups)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -224,21 +220,21 @@ public class AppCacheGroupList internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<AppCacheGroupInfo>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                     )
                 override fun writeNative(addr: Long, value: AppCacheGroupList) {
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr, value.dwAppCacheGroupCount)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<AppCacheGroupInfo>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.pAppCacheGroups)
                 }
             }
 
         public operator fun invoke(
             dwAppCacheGroupCount: UInt = 0u,
-            pAppCacheGroups: MutPtr<AppCacheGroupInfo> = MutPtr(0L),
+            pAppCacheGroups: MutPtr = MutPtr(0L),
         ): AppCacheGroupList =
             AppCacheGroupList(
                 dwAppCacheGroupCount = dwAppCacheGroupCount,
@@ -300,18 +296,18 @@ public class AutoProxyScriptBuffer internal constructor(
 }
 
 public class AutoProxyHelperFunctions internal constructor(
-    lpVtblCtorArg: ConstPtr<AutoProxyHelperVtbl>,
+    lpVtblCtorArg: ConstPtr,
 ) {
-    public var lpVtbl: ConstPtr<AutoProxyHelperVtbl> = lpVtblCtorArg
+    public var lpVtbl: ConstPtr = lpVtblCtorArg
         internal set
 
     public constructor() : this(
         lpVtblCtorArg = ConstPtr(0L),
     )
 
-    public operator fun component1(): ConstPtr<AutoProxyHelperVtbl> = this.lpVtbl
+    public operator fun component1(): ConstPtr = this.lpVtbl
 
-    public fun copy(lpVtbl: ConstPtr<AutoProxyHelperVtbl> = this.lpVtbl): AutoProxyHelperFunctions = AutoProxyHelperFunctions(lpVtblCtorArg = lpVtbl)
+    public fun copy(lpVtbl: ConstPtr = this.lpVtbl): AutoProxyHelperFunctions = AutoProxyHelperFunctions(lpVtblCtorArg = lpVtbl)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -331,19 +327,19 @@ public class AutoProxyHelperFunctions internal constructor(
                     AutoProxyHelperFunctions(
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .constPtrLayout<AutoProxyHelperVtbl>(64)
+                                .constPtrLayout(64)
                         ).readNative(addr),
                     )
                 override fun writeNative(addr: Long, value: AutoProxyHelperFunctions) {
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .constPtrLayout<AutoProxyHelperVtbl>(64)
+                            .constPtrLayout(64)
                     ).writeNative(addr, value.lpVtbl)
                 }
             }
 
         public operator fun invoke(
-            lpVtbl: ConstPtr<AutoProxyHelperVtbl> = ConstPtr(0L),
+            lpVtbl: ConstPtr = ConstPtr(0L),
         ): AutoProxyHelperFunctions =
             AutoProxyHelperFunctions(
                 lpVtblCtorArg = lpVtbl,
@@ -396,7 +392,7 @@ public data class AutoProxyHelperVtbl(
 
 public class CookieDlgInfo internal constructor(
     pszServerCtorArg: Pwstr,
-    picCtorArg: MutPtr<InternetCookie>,
+    picCtorArg: MutPtr,
     public var dwStopWarning: UInt,
     public var cx: Int,
     public var cy: Int,
@@ -406,7 +402,7 @@ public class CookieDlgInfo internal constructor(
     public var pszServer: Pwstr = pszServerCtorArg
         internal set
 
-    public var pic: MutPtr<InternetCookie> = picCtorArg
+    public var pic: MutPtr = picCtorArg
         internal set
 
     public var pszHeader: Pwstr = pszHeaderCtorArg
@@ -424,7 +420,7 @@ public class CookieDlgInfo internal constructor(
 
     public operator fun component1(): Pwstr = this.pszServer
 
-    public operator fun component2(): MutPtr<InternetCookie> = this.pic
+    public operator fun component2(): MutPtr = this.pic
 
     public operator fun component3(): UInt = this.dwStopWarning
 
@@ -436,7 +432,7 @@ public class CookieDlgInfo internal constructor(
 
     public operator fun component7(): UInt = this.dwOperation
 
-    public fun copy(pszServer: Pwstr = this.pszServer, pic: MutPtr<InternetCookie> = this.pic, dwStopWarning: UInt = this.dwStopWarning, cx: Int = this.cx, cy: Int = this.cy, pszHeader: Pwstr = this.pszHeader, dwOperation: UInt = this.dwOperation): CookieDlgInfo = CookieDlgInfo(pszServerCtorArg = pszServer, picCtorArg = pic, dwStopWarning = dwStopWarning, cx = cx, cy = cy, pszHeaderCtorArg = pszHeader, dwOperation = dwOperation)
+    public fun copy(pszServer: Pwstr = this.pszServer, pic: MutPtr = this.pic, dwStopWarning: UInt = this.dwStopWarning, cx: Int = this.cx, cy: Int = this.cy, pszHeader: Pwstr = this.pszHeader, dwOperation: UInt = this.dwOperation): CookieDlgInfo = CookieDlgInfo(pszServerCtorArg = pszServer, picCtorArg = pic, dwStopWarning = dwStopWarning, cx = cx, cy = cy, pszHeaderCtorArg = pszHeader, dwOperation = dwOperation)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -465,7 +461,7 @@ public class CookieDlgInfo internal constructor(
     public companion object {
         public operator fun invoke(
             pszServer: Pwstr = MutPtr(0L),
-            pic: MutPtr<InternetCookie> = MutPtr(0L),
+            pic: MutPtr = MutPtr(0L),
             dwStopWarning: UInt = 0u,
             cx: Int = 0,
             cy: Int = 0,
@@ -507,13 +503,13 @@ public data class CookieDecision(
 }
 
 public class GopherAbstractAttributeType internal constructor(
-    shortAbstractCtorArg: MutPtr<Byte>,
-    abstractFileCtorArg: MutPtr<Byte>,
+    shortAbstractCtorArg: MutPtr,
+    abstractFileCtorArg: MutPtr,
 ) {
-    public var shortAbstract: MutPtr<Byte> = shortAbstractCtorArg
+    public var shortAbstract: MutPtr = shortAbstractCtorArg
         internal set
 
-    public var abstractFile: MutPtr<Byte> = abstractFileCtorArg
+    public var abstractFile: MutPtr = abstractFileCtorArg
         internal set
 
     public constructor() : this(
@@ -521,11 +517,11 @@ public class GopherAbstractAttributeType internal constructor(
         abstractFileCtorArg = MutPtr(0L),
     )
 
-    public operator fun component1(): MutPtr<Byte> = this.shortAbstract
+    public operator fun component1(): MutPtr = this.shortAbstract
 
-    public operator fun component2(): MutPtr<Byte> = this.abstractFile
+    public operator fun component2(): MutPtr = this.abstractFile
 
-    public fun copy(shortAbstract: MutPtr<Byte> = this.shortAbstract, abstractFile: MutPtr<Byte> = this.abstractFile): GopherAbstractAttributeType = GopherAbstractAttributeType(shortAbstractCtorArg = shortAbstract, abstractFileCtorArg = abstractFile)
+    public fun copy(shortAbstract: MutPtr = this.shortAbstract, abstractFile: MutPtr = this.abstractFile): GopherAbstractAttributeType = GopherAbstractAttributeType(shortAbstractCtorArg = shortAbstract, abstractFileCtorArg = abstractFile)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -550,28 +546,28 @@ public class GopherAbstractAttributeType internal constructor(
                     GopherAbstractAttributeType(
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<Byte>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<Byte>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                     )
                 override fun writeNative(addr: Long, value: GopherAbstractAttributeType) {
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<Byte>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr, value.shortAbstract)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<Byte>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.abstractFile)
                 }
             }
 
         public operator fun invoke(
-            shortAbstract: MutPtr<Byte> = MutPtr(0L),
-            abstractFile: MutPtr<Byte> = MutPtr(0L),
+            shortAbstract: MutPtr = MutPtr(0L),
+            abstractFile: MutPtr = MutPtr(0L),
         ): GopherAbstractAttributeType =
             GopherAbstractAttributeType(
                 shortAbstractCtorArg = shortAbstract,
@@ -581,13 +577,13 @@ public class GopherAbstractAttributeType internal constructor(
 }
 
 public class GopherAdminAttributeType internal constructor(
-    commentCtorArg: MutPtr<Byte>,
-    emailAddressCtorArg: MutPtr<Byte>,
+    commentCtorArg: MutPtr,
+    emailAddressCtorArg: MutPtr,
 ) {
-    public var comment: MutPtr<Byte> = commentCtorArg
+    public var comment: MutPtr = commentCtorArg
         internal set
 
-    public var emailAddress: MutPtr<Byte> = emailAddressCtorArg
+    public var emailAddress: MutPtr = emailAddressCtorArg
         internal set
 
     public constructor() : this(
@@ -595,11 +591,11 @@ public class GopherAdminAttributeType internal constructor(
         emailAddressCtorArg = MutPtr(0L),
     )
 
-    public operator fun component1(): MutPtr<Byte> = this.comment
+    public operator fun component1(): MutPtr = this.comment
 
-    public operator fun component2(): MutPtr<Byte> = this.emailAddress
+    public operator fun component2(): MutPtr = this.emailAddress
 
-    public fun copy(comment: MutPtr<Byte> = this.comment, emailAddress: MutPtr<Byte> = this.emailAddress): GopherAdminAttributeType = GopherAdminAttributeType(commentCtorArg = comment, emailAddressCtorArg = emailAddress)
+    public fun copy(comment: MutPtr = this.comment, emailAddress: MutPtr = this.emailAddress): GopherAdminAttributeType = GopherAdminAttributeType(commentCtorArg = comment, emailAddressCtorArg = emailAddress)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -624,28 +620,28 @@ public class GopherAdminAttributeType internal constructor(
                     GopherAdminAttributeType(
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<Byte>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<Byte>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                     )
                 override fun writeNative(addr: Long, value: GopherAdminAttributeType) {
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<Byte>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr, value.comment)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<Byte>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.emailAddress)
                 }
             }
 
         public operator fun invoke(
-            comment: MutPtr<Byte> = MutPtr(0L),
-            emailAddress: MutPtr<Byte> = MutPtr(0L),
+            comment: MutPtr = MutPtr(0L),
+            emailAddress: MutPtr = MutPtr(0L),
         ): GopherAdminAttributeType =
             GopherAdminAttributeType(
                 commentCtorArg = comment,
@@ -655,13 +651,13 @@ public class GopherAdminAttributeType internal constructor(
 }
 
 public class GopherAskAttributeType internal constructor(
-    questionTypeCtorArg: MutPtr<Byte>,
-    questionTextCtorArg: MutPtr<Byte>,
+    questionTypeCtorArg: MutPtr,
+    questionTextCtorArg: MutPtr,
 ) {
-    public var questionType: MutPtr<Byte> = questionTypeCtorArg
+    public var questionType: MutPtr = questionTypeCtorArg
         internal set
 
-    public var questionText: MutPtr<Byte> = questionTextCtorArg
+    public var questionText: MutPtr = questionTextCtorArg
         internal set
 
     public constructor() : this(
@@ -669,11 +665,11 @@ public class GopherAskAttributeType internal constructor(
         questionTextCtorArg = MutPtr(0L),
     )
 
-    public operator fun component1(): MutPtr<Byte> = this.questionType
+    public operator fun component1(): MutPtr = this.questionType
 
-    public operator fun component2(): MutPtr<Byte> = this.questionText
+    public operator fun component2(): MutPtr = this.questionText
 
-    public fun copy(questionType: MutPtr<Byte> = this.questionType, questionText: MutPtr<Byte> = this.questionText): GopherAskAttributeType = GopherAskAttributeType(questionTypeCtorArg = questionType, questionTextCtorArg = questionText)
+    public fun copy(questionType: MutPtr = this.questionType, questionText: MutPtr = this.questionText): GopherAskAttributeType = GopherAskAttributeType(questionTypeCtorArg = questionType, questionTextCtorArg = questionText)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -698,28 +694,28 @@ public class GopherAskAttributeType internal constructor(
                     GopherAskAttributeType(
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<Byte>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<Byte>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                     )
                 override fun writeNative(addr: Long, value: GopherAskAttributeType) {
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<Byte>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr, value.questionType)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<Byte>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.questionText)
                 }
             }
 
         public operator fun invoke(
-            questionType: MutPtr<Byte> = MutPtr(0L),
-            questionText: MutPtr<Byte> = MutPtr(0L),
+            questionType: MutPtr = MutPtr(0L),
+            questionText: MutPtr = MutPtr(0L),
         ): GopherAskAttributeType =
             GopherAskAttributeType(
                 questionTypeCtorArg = questionType,
@@ -851,18 +847,18 @@ public data class GopherGeographicalLocationAttributeType(
 }
 
 public class GopherLocationAttributeType internal constructor(
-    locationCtorArg: MutPtr<Byte>,
+    locationCtorArg: MutPtr,
 ) {
-    public var location: MutPtr<Byte> = locationCtorArg
+    public var location: MutPtr = locationCtorArg
         internal set
 
     public constructor() : this(
         locationCtorArg = MutPtr(0L),
     )
 
-    public operator fun component1(): MutPtr<Byte> = this.location
+    public operator fun component1(): MutPtr = this.location
 
-    public fun copy(location: MutPtr<Byte> = this.location): GopherLocationAttributeType = GopherLocationAttributeType(locationCtorArg = location)
+    public fun copy(location: MutPtr = this.location): GopherLocationAttributeType = GopherLocationAttributeType(locationCtorArg = location)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -882,19 +878,19 @@ public class GopherLocationAttributeType internal constructor(
                     GopherLocationAttributeType(
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<Byte>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr),
                     )
                 override fun writeNative(addr: Long, value: GopherLocationAttributeType) {
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<Byte>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr, value.location)
                 }
             }
 
         public operator fun invoke(
-            location: MutPtr<Byte> = MutPtr(0L),
+            location: MutPtr = MutPtr(0L),
         ): GopherLocationAttributeType =
             GopherLocationAttributeType(
                 locationCtorArg = location,
@@ -907,18 +903,18 @@ public data class GopherModDateAttributeType(
 )
 
 public class GopherOrganizationAttributeType internal constructor(
-    organizationCtorArg: MutPtr<Byte>,
+    organizationCtorArg: MutPtr,
 ) {
-    public var organization: MutPtr<Byte> = organizationCtorArg
+    public var organization: MutPtr = organizationCtorArg
         internal set
 
     public constructor() : this(
         organizationCtorArg = MutPtr(0L),
     )
 
-    public operator fun component1(): MutPtr<Byte> = this.organization
+    public operator fun component1(): MutPtr = this.organization
 
-    public fun copy(organization: MutPtr<Byte> = this.organization): GopherOrganizationAttributeType = GopherOrganizationAttributeType(organizationCtorArg = organization)
+    public fun copy(organization: MutPtr = this.organization): GopherOrganizationAttributeType = GopherOrganizationAttributeType(organizationCtorArg = organization)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -938,19 +934,19 @@ public class GopherOrganizationAttributeType internal constructor(
                     GopherOrganizationAttributeType(
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<Byte>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr),
                     )
                 override fun writeNative(addr: Long, value: GopherOrganizationAttributeType) {
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<Byte>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr, value.organization)
                 }
             }
 
         public operator fun invoke(
-            organization: MutPtr<Byte> = MutPtr(0L),
+            organization: MutPtr = MutPtr(0L),
         ): GopherOrganizationAttributeType =
             GopherOrganizationAttributeType(
                 organizationCtorArg = organization,
@@ -959,18 +955,18 @@ public class GopherOrganizationAttributeType internal constructor(
 }
 
 public class GopherProviderAttributeType internal constructor(
-    providerCtorArg: MutPtr<Byte>,
+    providerCtorArg: MutPtr,
 ) {
-    public var provider: MutPtr<Byte> = providerCtorArg
+    public var provider: MutPtr = providerCtorArg
         internal set
 
     public constructor() : this(
         providerCtorArg = MutPtr(0L),
     )
 
-    public operator fun component1(): MutPtr<Byte> = this.provider
+    public operator fun component1(): MutPtr = this.provider
 
-    public fun copy(provider: MutPtr<Byte> = this.provider): GopherProviderAttributeType = GopherProviderAttributeType(providerCtorArg = provider)
+    public fun copy(provider: MutPtr = this.provider): GopherProviderAttributeType = GopherProviderAttributeType(providerCtorArg = provider)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -990,19 +986,19 @@ public class GopherProviderAttributeType internal constructor(
                     GopherProviderAttributeType(
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<Byte>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr),
                     )
                 override fun writeNative(addr: Long, value: GopherProviderAttributeType) {
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<Byte>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr, value.provider)
                 }
             }
 
         public operator fun invoke(
-            provider: MutPtr<Byte> = MutPtr(0L),
+            provider: MutPtr = MutPtr(0L),
         ): GopherProviderAttributeType =
             GopherProviderAttributeType(
                 providerCtorArg = provider,
@@ -1052,18 +1048,18 @@ public data class GopherScoreRangeAttributeType(
 }
 
 public class GopherSiteAttributeType internal constructor(
-    siteCtorArg: MutPtr<Byte>,
+    siteCtorArg: MutPtr,
 ) {
-    public var site: MutPtr<Byte> = siteCtorArg
+    public var site: MutPtr = siteCtorArg
         internal set
 
     public constructor() : this(
         siteCtorArg = MutPtr(0L),
     )
 
-    public operator fun component1(): MutPtr<Byte> = this.site
+    public operator fun component1(): MutPtr = this.site
 
-    public fun copy(site: MutPtr<Byte> = this.site): GopherSiteAttributeType = GopherSiteAttributeType(siteCtorArg = site)
+    public fun copy(site: MutPtr = this.site): GopherSiteAttributeType = GopherSiteAttributeType(siteCtorArg = site)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -1083,19 +1079,19 @@ public class GopherSiteAttributeType internal constructor(
                     GopherSiteAttributeType(
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<Byte>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr),
                     )
                 override fun writeNative(addr: Long, value: GopherSiteAttributeType) {
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<Byte>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr, value.site)
                 }
             }
 
         public operator fun invoke(
-            site: MutPtr<Byte> = MutPtr(0L),
+            site: MutPtr = MutPtr(0L),
         ): GopherSiteAttributeType =
             GopherSiteAttributeType(
                 siteCtorArg = site,
@@ -1142,18 +1138,18 @@ public data class GopherTtlAttributeType(
 }
 
 public class GopherUnknownAttributeType internal constructor(
-    textCtorArg: MutPtr<Byte>,
+    textCtorArg: MutPtr,
 ) {
-    public var text: MutPtr<Byte> = textCtorArg
+    public var text: MutPtr = textCtorArg
         internal set
 
     public constructor() : this(
         textCtorArg = MutPtr(0L),
     )
 
-    public operator fun component1(): MutPtr<Byte> = this.text
+    public operator fun component1(): MutPtr = this.text
 
-    public fun copy(text: MutPtr<Byte> = this.text): GopherUnknownAttributeType = GopherUnknownAttributeType(textCtorArg = text)
+    public fun copy(text: MutPtr = this.text): GopherUnknownAttributeType = GopherUnknownAttributeType(textCtorArg = text)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -1173,19 +1169,19 @@ public class GopherUnknownAttributeType internal constructor(
                     GopherUnknownAttributeType(
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<Byte>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr),
                     )
                 override fun writeNative(addr: Long, value: GopherUnknownAttributeType) {
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<Byte>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr, value.text)
                 }
             }
 
         public operator fun invoke(
-            text: MutPtr<Byte> = MutPtr(0L),
+            text: MutPtr = MutPtr(0L),
         ): GopherUnknownAttributeType =
             GopherUnknownAttributeType(
                 textCtorArg = text,
@@ -1213,18 +1209,18 @@ public data class GopherVeronicaAttributeType(
 }
 
 public class GopherVersionAttributeType internal constructor(
-    versionCtorArg: MutPtr<Byte>,
+    versionCtorArg: MutPtr,
 ) {
-    public var version: MutPtr<Byte> = versionCtorArg
+    public var version: MutPtr = versionCtorArg
         internal set
 
     public constructor() : this(
         versionCtorArg = MutPtr(0L),
     )
 
-    public operator fun component1(): MutPtr<Byte> = this.version
+    public operator fun component1(): MutPtr = this.version
 
-    public fun copy(version: MutPtr<Byte> = this.version): GopherVersionAttributeType = GopherVersionAttributeType(versionCtorArg = version)
+    public fun copy(version: MutPtr = this.version): GopherVersionAttributeType = GopherVersionAttributeType(versionCtorArg = version)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -1244,19 +1240,19 @@ public class GopherVersionAttributeType internal constructor(
                     GopherVersionAttributeType(
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<Byte>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr),
                     )
                 override fun writeNative(addr: Long, value: GopherVersionAttributeType) {
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<Byte>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr, value.version)
                 }
             }
 
         public operator fun invoke(
-            version: MutPtr<Byte> = MutPtr(0L),
+            version: MutPtr = MutPtr(0L),
         ): GopherVersionAttributeType =
             GopherVersionAttributeType(
                 versionCtorArg = version,
@@ -1265,14 +1261,14 @@ public class GopherVersionAttributeType internal constructor(
 }
 
 public class GopherViewAttributeType internal constructor(
-    contentTypeCtorArg: MutPtr<Byte>,
-    languageCtorArg: MutPtr<Byte>,
+    contentTypeCtorArg: MutPtr,
+    languageCtorArg: MutPtr,
     public var size: UInt,
 ) {
-    public var contentType: MutPtr<Byte> = contentTypeCtorArg
+    public var contentType: MutPtr = contentTypeCtorArg
         internal set
 
-    public var language: MutPtr<Byte> = languageCtorArg
+    public var language: MutPtr = languageCtorArg
         internal set
 
     public constructor() : this(
@@ -1281,13 +1277,13 @@ public class GopherViewAttributeType internal constructor(
         size = 0u,
     )
 
-    public operator fun component1(): MutPtr<Byte> = this.contentType
+    public operator fun component1(): MutPtr = this.contentType
 
-    public operator fun component2(): MutPtr<Byte> = this.language
+    public operator fun component2(): MutPtr = this.language
 
     public operator fun component3(): UInt = this.size
 
-    public fun copy(contentType: MutPtr<Byte> = this.contentType, language: MutPtr<Byte> = this.language, size: UInt = this.size): GopherViewAttributeType = GopherViewAttributeType(contentTypeCtorArg = contentType, languageCtorArg = language, size = size)
+    public fun copy(contentType: MutPtr = this.contentType, language: MutPtr = this.language, size: UInt = this.size): GopherViewAttributeType = GopherViewAttributeType(contentTypeCtorArg = contentType, languageCtorArg = language, size = size)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -1314,30 +1310,30 @@ public class GopherViewAttributeType internal constructor(
                     GopherViewAttributeType(
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<Byte>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<Byte>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 16L),
                     )
                 override fun writeNative(addr: Long, value: GopherViewAttributeType) {
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<Byte>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr, value.contentType)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<Byte>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.language)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 16L, value.size)
                 }
             }
 
         public operator fun invoke(
-            contentType: MutPtr<Byte> = MutPtr(0L),
-            language: MutPtr<Byte> = MutPtr(0L),
+            contentType: MutPtr = MutPtr(0L),
+            language: MutPtr = MutPtr(0L),
             size: UInt = 0u,
         ): GopherViewAttributeType =
             GopherViewAttributeType(
@@ -1476,23 +1472,23 @@ public data class InternetAuthNotifyData(
 
 public class InternetBuffersa internal constructor(
     public var dwStructSize: UInt,
-    nextCtorArg: MutPtr<InternetBuffersa>,
+    nextCtorArg: MutPtr,
     lpcszHeaderCtorArg: Pcstr,
     public var dwHeadersLength: UInt,
     public var dwHeadersTotal: UInt,
-    lpvBufferCtorArg: MutPtr<CVoid>,
+    lpvBufferCtorArg: MutPtr,
     public var dwBufferLength: UInt,
     public var dwBufferTotal: UInt,
     public var dwOffsetLow: UInt,
     public var dwOffsetHigh: UInt,
 ) {
-    public var next: MutPtr<InternetBuffersa> = nextCtorArg
+    public var next: MutPtr = nextCtorArg
         internal set
 
     public var lpcszHeader: Pcstr = lpcszHeaderCtorArg
         internal set
 
-    public var lpvBuffer: MutPtr<CVoid> = lpvBufferCtorArg
+    public var lpvBuffer: MutPtr = lpvBufferCtorArg
         internal set
 
     public constructor() : this(
@@ -1510,7 +1506,7 @@ public class InternetBuffersa internal constructor(
 
     public operator fun component1(): UInt = this.dwStructSize
 
-    public operator fun component2(): MutPtr<InternetBuffersa> = this.next
+    public operator fun component2(): MutPtr = this.next
 
     public operator fun component3(): Pcstr = this.lpcszHeader
 
@@ -1518,7 +1514,7 @@ public class InternetBuffersa internal constructor(
 
     public operator fun component5(): UInt = this.dwHeadersTotal
 
-    public operator fun component6(): MutPtr<CVoid> = this.lpvBuffer
+    public operator fun component6(): MutPtr = this.lpvBuffer
 
     public operator fun component7(): UInt = this.dwBufferLength
 
@@ -1528,7 +1524,7 @@ public class InternetBuffersa internal constructor(
 
     public operator fun component10(): UInt = this.dwOffsetHigh
 
-    public fun copy(dwStructSize: UInt = this.dwStructSize, next: MutPtr<InternetBuffersa> = this.next, lpcszHeader: Pcstr = this.lpcszHeader, dwHeadersLength: UInt = this.dwHeadersLength, dwHeadersTotal: UInt = this.dwHeadersTotal, lpvBuffer: MutPtr<CVoid> = this.lpvBuffer, dwBufferLength: UInt = this.dwBufferLength, dwBufferTotal: UInt = this.dwBufferTotal, dwOffsetLow: UInt = this.dwOffsetLow, dwOffsetHigh: UInt = this.dwOffsetHigh): InternetBuffersa = InternetBuffersa(dwStructSize = dwStructSize, nextCtorArg = next, lpcszHeaderCtorArg = lpcszHeader, dwHeadersLength = dwHeadersLength, dwHeadersTotal = dwHeadersTotal, lpvBufferCtorArg = lpvBuffer, dwBufferLength = dwBufferLength, dwBufferTotal = dwBufferTotal, dwOffsetLow = dwOffsetLow, dwOffsetHigh = dwOffsetHigh)
+    public fun copy(dwStructSize: UInt = this.dwStructSize, next: MutPtr = this.next, lpcszHeader: Pcstr = this.lpcszHeader, dwHeadersLength: UInt = this.dwHeadersLength, dwHeadersTotal: UInt = this.dwHeadersTotal, lpvBuffer: MutPtr = this.lpvBuffer, dwBufferLength: UInt = this.dwBufferLength, dwBufferTotal: UInt = this.dwBufferTotal, dwOffsetLow: UInt = this.dwOffsetLow, dwOffsetHigh: UInt = this.dwOffsetHigh): InternetBuffersa = InternetBuffersa(dwStructSize = dwStructSize, nextCtorArg = next, lpcszHeaderCtorArg = lpcszHeader, dwHeadersLength = dwHeadersLength, dwHeadersTotal = dwHeadersTotal, lpvBufferCtorArg = lpvBuffer, dwBufferLength = dwBufferLength, dwBufferTotal = dwBufferTotal, dwOffsetLow = dwOffsetLow, dwOffsetHigh = dwOffsetHigh)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -1563,11 +1559,11 @@ public class InternetBuffersa internal constructor(
     public companion object {
         public operator fun invoke(
             dwStructSize: UInt = 0u,
-            next: MutPtr<InternetBuffersa> = MutPtr(0L),
+            next: MutPtr = MutPtr(0L),
             lpcszHeader: Pcstr = ConstPtr(0L),
             dwHeadersLength: UInt = 0u,
             dwHeadersTotal: UInt = 0u,
-            lpvBuffer: MutPtr<CVoid> = MutPtr(0L),
+            lpvBuffer: MutPtr = MutPtr(0L),
             dwBufferLength: UInt = 0u,
             dwBufferTotal: UInt = 0u,
             dwOffsetLow: UInt = 0u,
@@ -1590,23 +1586,23 @@ public class InternetBuffersa internal constructor(
 
 public class InternetBuffersw internal constructor(
     public var dwStructSize: UInt,
-    nextCtorArg: MutPtr<InternetBuffersw>,
+    nextCtorArg: MutPtr,
     lpcszHeaderCtorArg: Pcwstr,
     public var dwHeadersLength: UInt,
     public var dwHeadersTotal: UInt,
-    lpvBufferCtorArg: MutPtr<CVoid>,
+    lpvBufferCtorArg: MutPtr,
     public var dwBufferLength: UInt,
     public var dwBufferTotal: UInt,
     public var dwOffsetLow: UInt,
     public var dwOffsetHigh: UInt,
 ) {
-    public var next: MutPtr<InternetBuffersw> = nextCtorArg
+    public var next: MutPtr = nextCtorArg
         internal set
 
     public var lpcszHeader: Pcwstr = lpcszHeaderCtorArg
         internal set
 
-    public var lpvBuffer: MutPtr<CVoid> = lpvBufferCtorArg
+    public var lpvBuffer: MutPtr = lpvBufferCtorArg
         internal set
 
     public constructor() : this(
@@ -1624,7 +1620,7 @@ public class InternetBuffersw internal constructor(
 
     public operator fun component1(): UInt = this.dwStructSize
 
-    public operator fun component2(): MutPtr<InternetBuffersw> = this.next
+    public operator fun component2(): MutPtr = this.next
 
     public operator fun component3(): Pcwstr = this.lpcszHeader
 
@@ -1632,7 +1628,7 @@ public class InternetBuffersw internal constructor(
 
     public operator fun component5(): UInt = this.dwHeadersTotal
 
-    public operator fun component6(): MutPtr<CVoid> = this.lpvBuffer
+    public operator fun component6(): MutPtr = this.lpvBuffer
 
     public operator fun component7(): UInt = this.dwBufferLength
 
@@ -1642,7 +1638,7 @@ public class InternetBuffersw internal constructor(
 
     public operator fun component10(): UInt = this.dwOffsetHigh
 
-    public fun copy(dwStructSize: UInt = this.dwStructSize, next: MutPtr<InternetBuffersw> = this.next, lpcszHeader: Pcwstr = this.lpcszHeader, dwHeadersLength: UInt = this.dwHeadersLength, dwHeadersTotal: UInt = this.dwHeadersTotal, lpvBuffer: MutPtr<CVoid> = this.lpvBuffer, dwBufferLength: UInt = this.dwBufferLength, dwBufferTotal: UInt = this.dwBufferTotal, dwOffsetLow: UInt = this.dwOffsetLow, dwOffsetHigh: UInt = this.dwOffsetHigh): InternetBuffersw = InternetBuffersw(dwStructSize = dwStructSize, nextCtorArg = next, lpcszHeaderCtorArg = lpcszHeader, dwHeadersLength = dwHeadersLength, dwHeadersTotal = dwHeadersTotal, lpvBufferCtorArg = lpvBuffer, dwBufferLength = dwBufferLength, dwBufferTotal = dwBufferTotal, dwOffsetLow = dwOffsetLow, dwOffsetHigh = dwOffsetHigh)
+    public fun copy(dwStructSize: UInt = this.dwStructSize, next: MutPtr = this.next, lpcszHeader: Pcwstr = this.lpcszHeader, dwHeadersLength: UInt = this.dwHeadersLength, dwHeadersTotal: UInt = this.dwHeadersTotal, lpvBuffer: MutPtr = this.lpvBuffer, dwBufferLength: UInt = this.dwBufferLength, dwBufferTotal: UInt = this.dwBufferTotal, dwOffsetLow: UInt = this.dwOffsetLow, dwOffsetHigh: UInt = this.dwOffsetHigh): InternetBuffersw = InternetBuffersw(dwStructSize = dwStructSize, nextCtorArg = next, lpcszHeaderCtorArg = lpcszHeader, dwHeadersLength = dwHeadersLength, dwHeadersTotal = dwHeadersTotal, lpvBufferCtorArg = lpvBuffer, dwBufferLength = dwBufferLength, dwBufferTotal = dwBufferTotal, dwOffsetLow = dwOffsetLow, dwOffsetHigh = dwOffsetHigh)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -1677,11 +1673,11 @@ public class InternetBuffersw internal constructor(
     public companion object {
         public operator fun invoke(
             dwStructSize: UInt = 0u,
-            next: MutPtr<InternetBuffersw> = MutPtr(0L),
+            next: MutPtr = MutPtr(0L),
             lpcszHeader: Pcwstr = ConstPtr(0L),
             dwHeadersLength: UInt = 0u,
             dwHeadersTotal: UInt = 0u,
-            lpvBuffer: MutPtr<CVoid> = MutPtr(0L),
+            lpvBuffer: MutPtr = MutPtr(0L),
             dwBufferLength: UInt = 0u,
             dwBufferTotal: UInt = 0u,
             dwOffsetLow: UInt = 0u,
@@ -2639,26 +2635,26 @@ public class InternetCallbackCookie internal constructor(
 public class InternetCertificateInfo internal constructor(
     public var ftExpiry: Filetime,
     public var ftStart: Filetime,
-    lpszSubjectInfoCtorArg: MutPtr<Byte>,
-    lpszIssuerInfoCtorArg: MutPtr<Byte>,
-    lpszProtocolNameCtorArg: MutPtr<Byte>,
-    lpszSignatureAlgNameCtorArg: MutPtr<Byte>,
-    lpszEncryptionAlgNameCtorArg: MutPtr<Byte>,
+    lpszSubjectInfoCtorArg: MutPtr,
+    lpszIssuerInfoCtorArg: MutPtr,
+    lpszProtocolNameCtorArg: MutPtr,
+    lpszSignatureAlgNameCtorArg: MutPtr,
+    lpszEncryptionAlgNameCtorArg: MutPtr,
     public var dwKeySize: UInt,
 ) {
-    public var lpszSubjectInfo: MutPtr<Byte> = lpszSubjectInfoCtorArg
+    public var lpszSubjectInfo: MutPtr = lpszSubjectInfoCtorArg
         internal set
 
-    public var lpszIssuerInfo: MutPtr<Byte> = lpszIssuerInfoCtorArg
+    public var lpszIssuerInfo: MutPtr = lpszIssuerInfoCtorArg
         internal set
 
-    public var lpszProtocolName: MutPtr<Byte> = lpszProtocolNameCtorArg
+    public var lpszProtocolName: MutPtr = lpszProtocolNameCtorArg
         internal set
 
-    public var lpszSignatureAlgName: MutPtr<Byte> = lpszSignatureAlgNameCtorArg
+    public var lpszSignatureAlgName: MutPtr = lpszSignatureAlgNameCtorArg
         internal set
 
-    public var lpszEncryptionAlgName: MutPtr<Byte> = lpszEncryptionAlgNameCtorArg
+    public var lpszEncryptionAlgName: MutPtr = lpszEncryptionAlgNameCtorArg
         internal set
 
     public constructor() : this(
@@ -2676,19 +2672,19 @@ public class InternetCertificateInfo internal constructor(
 
     public operator fun component2(): Filetime = this.ftStart
 
-    public operator fun component3(): MutPtr<Byte> = this.lpszSubjectInfo
+    public operator fun component3(): MutPtr = this.lpszSubjectInfo
 
-    public operator fun component4(): MutPtr<Byte> = this.lpszIssuerInfo
+    public operator fun component4(): MutPtr = this.lpszIssuerInfo
 
-    public operator fun component5(): MutPtr<Byte> = this.lpszProtocolName
+    public operator fun component5(): MutPtr = this.lpszProtocolName
 
-    public operator fun component6(): MutPtr<Byte> = this.lpszSignatureAlgName
+    public operator fun component6(): MutPtr = this.lpszSignatureAlgName
 
-    public operator fun component7(): MutPtr<Byte> = this.lpszEncryptionAlgName
+    public operator fun component7(): MutPtr = this.lpszEncryptionAlgName
 
     public operator fun component8(): UInt = this.dwKeySize
 
-    public fun copy(ftExpiry: Filetime = this.ftExpiry, ftStart: Filetime = this.ftStart, lpszSubjectInfo: MutPtr<Byte> = this.lpszSubjectInfo, lpszIssuerInfo: MutPtr<Byte> = this.lpszIssuerInfo, lpszProtocolName: MutPtr<Byte> = this.lpszProtocolName, lpszSignatureAlgName: MutPtr<Byte> = this.lpszSignatureAlgName, lpszEncryptionAlgName: MutPtr<Byte> = this.lpszEncryptionAlgName, dwKeySize: UInt = this.dwKeySize): InternetCertificateInfo = InternetCertificateInfo(ftExpiry = ftExpiry, ftStart = ftStart, lpszSubjectInfoCtorArg = lpszSubjectInfo, lpszIssuerInfoCtorArg = lpszIssuerInfo, lpszProtocolNameCtorArg = lpszProtocolName, lpszSignatureAlgNameCtorArg = lpszSignatureAlgName, lpszEncryptionAlgNameCtorArg = lpszEncryptionAlgName, dwKeySize = dwKeySize)
+    public fun copy(ftExpiry: Filetime = this.ftExpiry, ftStart: Filetime = this.ftStart, lpszSubjectInfo: MutPtr = this.lpszSubjectInfo, lpszIssuerInfo: MutPtr = this.lpszIssuerInfo, lpszProtocolName: MutPtr = this.lpszProtocolName, lpszSignatureAlgName: MutPtr = this.lpszSignatureAlgName, lpszEncryptionAlgName: MutPtr = this.lpszEncryptionAlgName, dwKeySize: UInt = this.dwKeySize): InternetCertificateInfo = InternetCertificateInfo(ftExpiry = ftExpiry, ftStart = ftStart, lpszSubjectInfoCtorArg = lpszSubjectInfo, lpszIssuerInfoCtorArg = lpszIssuerInfo, lpszProtocolNameCtorArg = lpszProtocolName, lpszSignatureAlgNameCtorArg = lpszSignatureAlgName, lpszEncryptionAlgNameCtorArg = lpszEncryptionAlgName, dwKeySize = dwKeySize)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -2720,11 +2716,11 @@ public class InternetCertificateInfo internal constructor(
         public operator fun invoke(
             ftExpiry: Filetime = Filetime(),
             ftStart: Filetime = Filetime(),
-            lpszSubjectInfo: MutPtr<Byte> = MutPtr(0L),
-            lpszIssuerInfo: MutPtr<Byte> = MutPtr(0L),
-            lpszProtocolName: MutPtr<Byte> = MutPtr(0L),
-            lpszSignatureAlgName: MutPtr<Byte> = MutPtr(0L),
-            lpszEncryptionAlgName: MutPtr<Byte> = MutPtr(0L),
+            lpszSubjectInfo: MutPtr = MutPtr(0L),
+            lpszIssuerInfo: MutPtr = MutPtr(0L),
+            lpszProtocolName: MutPtr = MutPtr(0L),
+            lpszSignatureAlgName: MutPtr = MutPtr(0L),
+            lpszEncryptionAlgName: MutPtr = MutPtr(0L),
             dwKeySize: UInt = 0u,
         ): InternetCertificateInfo =
             InternetCertificateInfo(
@@ -2768,7 +2764,7 @@ public class InternetCookie internal constructor(
     pszDataCtorArg: Pstr,
     pszDomainCtorArg: Pstr,
     pszPathCtorArg: Pstr,
-    pftExpiresCtorArg: MutPtr<Filetime>,
+    pftExpiresCtorArg: MutPtr,
     public var dwFlags: UInt,
     pszUrlCtorArg: Pstr,
     pszP3PPolicyCtorArg: Pstr,
@@ -2785,7 +2781,7 @@ public class InternetCookie internal constructor(
     public var pszPath: Pstr = pszPathCtorArg
         internal set
 
-    public var pftExpires: MutPtr<Filetime> = pftExpiresCtorArg
+    public var pftExpires: MutPtr = pftExpiresCtorArg
         internal set
 
     public var pszUrl: Pstr = pszUrlCtorArg
@@ -2816,7 +2812,7 @@ public class InternetCookie internal constructor(
 
     public operator fun component5(): Pstr = this.pszPath
 
-    public operator fun component6(): MutPtr<Filetime> = this.pftExpires
+    public operator fun component6(): MutPtr = this.pftExpires
 
     public operator fun component7(): UInt = this.dwFlags
 
@@ -2824,7 +2820,7 @@ public class InternetCookie internal constructor(
 
     public operator fun component9(): Pstr = this.pszP3PPolicy
 
-    public fun copy(cbSize: UInt = this.cbSize, pszName: Pstr = this.pszName, pszData: Pstr = this.pszData, pszDomain: Pstr = this.pszDomain, pszPath: Pstr = this.pszPath, pftExpires: MutPtr<Filetime> = this.pftExpires, dwFlags: UInt = this.dwFlags, pszUrl: Pstr = this.pszUrl, pszP3PPolicy: Pstr = this.pszP3PPolicy): InternetCookie = InternetCookie(cbSize = cbSize, pszNameCtorArg = pszName, pszDataCtorArg = pszData, pszDomainCtorArg = pszDomain, pszPathCtorArg = pszPath, pftExpiresCtorArg = pftExpires, dwFlags = dwFlags, pszUrlCtorArg = pszUrl, pszP3PPolicyCtorArg = pszP3PPolicy)
+    public fun copy(cbSize: UInt = this.cbSize, pszName: Pstr = this.pszName, pszData: Pstr = this.pszData, pszDomain: Pstr = this.pszDomain, pszPath: Pstr = this.pszPath, pftExpires: MutPtr = this.pftExpires, dwFlags: UInt = this.dwFlags, pszUrl: Pstr = this.pszUrl, pszP3PPolicy: Pstr = this.pszP3PPolicy): InternetCookie = InternetCookie(cbSize = cbSize, pszNameCtorArg = pszName, pszDataCtorArg = pszData, pszDomainCtorArg = pszDomain, pszPathCtorArg = pszPath, pftExpiresCtorArg = pftExpires, dwFlags = dwFlags, pszUrlCtorArg = pszUrl, pszP3PPolicyCtorArg = pszP3PPolicy)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -2861,7 +2857,7 @@ public class InternetCookie internal constructor(
             pszData: Pstr = MutPtr(0L),
             pszDomain: Pstr = MutPtr(0L),
             pszPath: Pstr = MutPtr(0L),
-            pftExpires: MutPtr<Filetime> = MutPtr(0L),
+            pftExpires: MutPtr = MutPtr(0L),
             dwFlags: UInt = 0u,
             pszUrl: Pstr = MutPtr(0L),
             pszP3PPolicy: Pstr = MutPtr(0L),
@@ -3065,9 +3061,9 @@ public class InternetCredentials internal constructor(
 
 public class InternetCredentials0 internal constructor(
     public var anonymous: InternetCredentials00,
-    pAuthIdentityOpaqueCtorArg: MutPtr<CVoid>,
+    pAuthIdentityOpaqueCtorArg: MutPtr,
 ) {
-    public var pAuthIdentityOpaque: MutPtr<CVoid> = pAuthIdentityOpaqueCtorArg
+    public var pAuthIdentityOpaque: MutPtr = pAuthIdentityOpaqueCtorArg
         internal set
 
     public constructor() : this(
@@ -3077,9 +3073,9 @@ public class InternetCredentials0 internal constructor(
 
     public operator fun component1(): InternetCredentials00 = this.anonymous
 
-    public operator fun component2(): MutPtr<CVoid> = this.pAuthIdentityOpaque
+    public operator fun component2(): MutPtr = this.pAuthIdentityOpaque
 
-    public fun copy(anonymous: InternetCredentials00 = this.anonymous, pAuthIdentityOpaque: MutPtr<CVoid> = this.pAuthIdentityOpaque): InternetCredentials0 = InternetCredentials0(anonymous = anonymous, pAuthIdentityOpaqueCtorArg = pAuthIdentityOpaque)
+    public fun copy(anonymous: InternetCredentials00 = this.anonymous, pAuthIdentityOpaque: MutPtr = this.pAuthIdentityOpaque): InternetCredentials0 = InternetCredentials0(anonymous = anonymous, pAuthIdentityOpaqueCtorArg = pAuthIdentityOpaque)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -3098,7 +3094,7 @@ public class InternetCredentials0 internal constructor(
     public companion object {
         public operator fun invoke(
             anonymous: InternetCredentials00 = InternetCredentials00(),
-            pAuthIdentityOpaque: MutPtr<CVoid> = MutPtr(0L),
+            pAuthIdentityOpaque: MutPtr = MutPtr(0L),
         ): InternetCredentials0 =
             InternetCredentials0(
                 anonymous = anonymous,
@@ -3184,12 +3180,12 @@ public data class InternetDiagnosticSocketInfo(
 
 public class InternetDownloadModeHandle internal constructor(
     pcwszFileNameCtorArg: Pcwstr,
-    phFileCtorArg: MutPtr<Handle>,
+    phFileCtorArg: MutPtr,
 ) {
     public var pcwszFileName: Pcwstr = pcwszFileNameCtorArg
         internal set
 
-    public var phFile: MutPtr<Handle> = phFileCtorArg
+    public var phFile: MutPtr = phFileCtorArg
         internal set
 
     public constructor() : this(
@@ -3199,9 +3195,9 @@ public class InternetDownloadModeHandle internal constructor(
 
     public operator fun component1(): Pcwstr = this.pcwszFileName
 
-    public operator fun component2(): MutPtr<Handle> = this.phFile
+    public operator fun component2(): MutPtr = this.phFile
 
-    public fun copy(pcwszFileName: Pcwstr = this.pcwszFileName, phFile: MutPtr<Handle> = this.phFile): InternetDownloadModeHandle = InternetDownloadModeHandle(pcwszFileNameCtorArg = pcwszFileName, phFileCtorArg = phFile)
+    public fun copy(pcwszFileName: Pcwstr = this.pcwszFileName, phFile: MutPtr = this.phFile): InternetDownloadModeHandle = InternetDownloadModeHandle(pcwszFileNameCtorArg = pcwszFileName, phFileCtorArg = phFile)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -3220,7 +3216,7 @@ public class InternetDownloadModeHandle internal constructor(
     public companion object {
         public operator fun invoke(
             pcwszFileName: Pcwstr = ConstPtr(0L),
-            phFile: MutPtr<Handle> = MutPtr(0L),
+            phFile: MutPtr = MutPtr(0L),
         ): InternetDownloadModeHandle =
             InternetDownloadModeHandle(
                 pcwszFileNameCtorArg = pcwszFileName,
@@ -3230,10 +3226,10 @@ public class InternetDownloadModeHandle internal constructor(
 }
 
 public class InternetEndBrowserSessionData internal constructor(
-    lpBufferCtorArg: MutPtr<CVoid>,
+    lpBufferCtorArg: MutPtr,
     public var dwBufferLength: UInt,
 ) {
-    public var lpBuffer: MutPtr<CVoid> = lpBufferCtorArg
+    public var lpBuffer: MutPtr = lpBufferCtorArg
         internal set
 
     public constructor() : this(
@@ -3241,11 +3237,11 @@ public class InternetEndBrowserSessionData internal constructor(
         dwBufferLength = 0u,
     )
 
-    public operator fun component1(): MutPtr<CVoid> = this.lpBuffer
+    public operator fun component1(): MutPtr = this.lpBuffer
 
     public operator fun component2(): UInt = this.dwBufferLength
 
-    public fun copy(lpBuffer: MutPtr<CVoid> = this.lpBuffer, dwBufferLength: UInt = this.dwBufferLength): InternetEndBrowserSessionData = InternetEndBrowserSessionData(lpBufferCtorArg = lpBuffer, dwBufferLength = dwBufferLength)
+    public fun copy(lpBuffer: MutPtr = this.lpBuffer, dwBufferLength: UInt = this.dwBufferLength): InternetEndBrowserSessionData = InternetEndBrowserSessionData(lpBufferCtorArg = lpBuffer, dwBufferLength = dwBufferLength)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -3270,21 +3266,21 @@ public class InternetEndBrowserSessionData internal constructor(
                     InternetEndBrowserSessionData(
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<CVoid>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 8L),
                     )
                 override fun writeNative(addr: Long, value: InternetEndBrowserSessionData) {
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<CVoid>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr, value.lpBuffer)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 8L, value.dwBufferLength)
                 }
             }
 
         public operator fun invoke(
-            lpBuffer: MutPtr<CVoid> = MutPtr(0L),
+            lpBuffer: MutPtr = MutPtr(0L),
             dwBufferLength: UInt = 0u,
         ): InternetEndBrowserSessionData =
             InternetEndBrowserSessionData(
@@ -3413,12 +3409,12 @@ public class InternetPerConnOptionLista internal constructor(
     pszConnectionCtorArg: Pstr,
     public var dwOptionCount: UInt,
     public var dwOptionError: UInt,
-    pOptionsCtorArg: MutPtr<InternetPerConnOptiona>,
+    pOptionsCtorArg: MutPtr,
 ) {
     public var pszConnection: Pstr = pszConnectionCtorArg
         internal set
 
-    public var pOptions: MutPtr<InternetPerConnOptiona> = pOptionsCtorArg
+    public var pOptions: MutPtr = pOptionsCtorArg
         internal set
 
     public constructor() : this(
@@ -3437,9 +3433,9 @@ public class InternetPerConnOptionLista internal constructor(
 
     public operator fun component4(): UInt = this.dwOptionError
 
-    public operator fun component5(): MutPtr<InternetPerConnOptiona> = this.pOptions
+    public operator fun component5(): MutPtr = this.pOptions
 
-    public fun copy(dwSize: UInt = this.dwSize, pszConnection: Pstr = this.pszConnection, dwOptionCount: UInt = this.dwOptionCount, dwOptionError: UInt = this.dwOptionError, pOptions: MutPtr<InternetPerConnOptiona> = this.pOptions): InternetPerConnOptionLista = InternetPerConnOptionLista(dwSize = dwSize, pszConnectionCtorArg = pszConnection, dwOptionCount = dwOptionCount, dwOptionError = dwOptionError, pOptionsCtorArg = pOptions)
+    public fun copy(dwSize: UInt = this.dwSize, pszConnection: Pstr = this.pszConnection, dwOptionCount: UInt = this.dwOptionCount, dwOptionError: UInt = this.dwOptionError, pOptions: MutPtr = this.pOptions): InternetPerConnOptionLista = InternetPerConnOptionLista(dwSize = dwSize, pszConnectionCtorArg = pszConnection, dwOptionCount = dwOptionCount, dwOptionError = dwOptionError, pOptionsCtorArg = pOptions)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -3467,7 +3463,7 @@ public class InternetPerConnOptionLista internal constructor(
             pszConnection: Pstr = MutPtr(0L),
             dwOptionCount: UInt = 0u,
             dwOptionError: UInt = 0u,
-            pOptions: MutPtr<InternetPerConnOptiona> = MutPtr(0L),
+            pOptions: MutPtr = MutPtr(0L),
         ): InternetPerConnOptionLista =
             InternetPerConnOptionLista(
                 dwSize = dwSize,
@@ -3484,12 +3480,12 @@ public class InternetPerConnOptionListw internal constructor(
     pszConnectionCtorArg: Pwstr,
     public var dwOptionCount: UInt,
     public var dwOptionError: UInt,
-    pOptionsCtorArg: MutPtr<InternetPerConnOptionw>,
+    pOptionsCtorArg: MutPtr,
 ) {
     public var pszConnection: Pwstr = pszConnectionCtorArg
         internal set
 
-    public var pOptions: MutPtr<InternetPerConnOptionw> = pOptionsCtorArg
+    public var pOptions: MutPtr = pOptionsCtorArg
         internal set
 
     public constructor() : this(
@@ -3508,9 +3504,9 @@ public class InternetPerConnOptionListw internal constructor(
 
     public operator fun component4(): UInt = this.dwOptionError
 
-    public operator fun component5(): MutPtr<InternetPerConnOptionw> = this.pOptions
+    public operator fun component5(): MutPtr = this.pOptions
 
-    public fun copy(dwSize: UInt = this.dwSize, pszConnection: Pwstr = this.pszConnection, dwOptionCount: UInt = this.dwOptionCount, dwOptionError: UInt = this.dwOptionError, pOptions: MutPtr<InternetPerConnOptionw> = this.pOptions): InternetPerConnOptionListw = InternetPerConnOptionListw(dwSize = dwSize, pszConnectionCtorArg = pszConnection, dwOptionCount = dwOptionCount, dwOptionError = dwOptionError, pOptionsCtorArg = pOptions)
+    public fun copy(dwSize: UInt = this.dwSize, pszConnection: Pwstr = this.pszConnection, dwOptionCount: UInt = this.dwOptionCount, dwOptionError: UInt = this.dwOptionError, pOptions: MutPtr = this.pOptions): InternetPerConnOptionListw = InternetPerConnOptionListw(dwSize = dwSize, pszConnectionCtorArg = pszConnection, dwOptionCount = dwOptionCount, dwOptionError = dwOptionError, pOptionsCtorArg = pOptions)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -3538,7 +3534,7 @@ public class InternetPerConnOptionListw internal constructor(
             pszConnection: Pwstr = MutPtr(0L),
             dwOptionCount: UInt = 0u,
             dwOptionError: UInt = 0u,
-            pOptions: MutPtr<InternetPerConnOptionw> = MutPtr(0L),
+            pOptions: MutPtr = MutPtr(0L),
         ): InternetPerConnOptionListw =
             InternetPerConnOptionListw(
                 dwSize = dwSize,
@@ -3574,13 +3570,13 @@ public data class InternetPrefetchStatus(
 
 public class InternetProxyInfo internal constructor(
     public var dwAccessType: InternetAccessType,
-    lpszProxyCtorArg: MutPtr<Byte>,
-    lpszProxyBypassCtorArg: MutPtr<Byte>,
+    lpszProxyCtorArg: MutPtr,
+    lpszProxyBypassCtorArg: MutPtr,
 ) {
-    public var lpszProxy: MutPtr<Byte> = lpszProxyCtorArg
+    public var lpszProxy: MutPtr = lpszProxyCtorArg
         internal set
 
-    public var lpszProxyBypass: MutPtr<Byte> = lpszProxyBypassCtorArg
+    public var lpszProxyBypass: MutPtr = lpszProxyBypassCtorArg
         internal set
 
     public constructor() : this(
@@ -3591,11 +3587,11 @@ public class InternetProxyInfo internal constructor(
 
     public operator fun component1(): InternetAccessType = this.dwAccessType
 
-    public operator fun component2(): MutPtr<Byte> = this.lpszProxy
+    public operator fun component2(): MutPtr = this.lpszProxy
 
-    public operator fun component3(): MutPtr<Byte> = this.lpszProxyBypass
+    public operator fun component3(): MutPtr = this.lpszProxyBypass
 
-    public fun copy(dwAccessType: InternetAccessType = this.dwAccessType, lpszProxy: MutPtr<Byte> = this.lpszProxy, lpszProxyBypass: MutPtr<Byte> = this.lpszProxyBypass): InternetProxyInfo = InternetProxyInfo(dwAccessType = dwAccessType, lpszProxyCtorArg = lpszProxy, lpszProxyBypassCtorArg = lpszProxyBypass)
+    public fun copy(dwAccessType: InternetAccessType = this.dwAccessType, lpszProxy: MutPtr = this.lpszProxy, lpszProxyBypass: MutPtr = this.lpszProxyBypass): InternetProxyInfo = InternetProxyInfo(dwAccessType = dwAccessType, lpszProxyCtorArg = lpszProxy, lpszProxyBypassCtorArg = lpszProxyBypass)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -3623,30 +3619,30 @@ public class InternetProxyInfo internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<Byte>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<Byte>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 16L),
                     )
                 override fun writeNative(addr: Long, value: InternetProxyInfo) {
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr, value.dwAccessType)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<Byte>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.lpszProxy)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<Byte>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 16L, value.lpszProxyBypass)
                 }
             }
 
         public operator fun invoke(
             dwAccessType: InternetAccessType = 0u,
-            lpszProxy: MutPtr<Byte> = MutPtr(0L),
-            lpszProxyBypass: MutPtr<Byte> = MutPtr(0L),
+            lpszProxy: MutPtr = MutPtr(0L),
+            lpszProxyBypass: MutPtr = MutPtr(0L),
         ): InternetProxyInfo =
             InternetProxyInfo(
                 dwAccessType = dwAccessType,
@@ -3665,20 +3661,20 @@ public data class InternetSecurityConnectionInfo(
 
 public class InternetSecurityInfo internal constructor(
     public var dwSize: UInt,
-    pCertificateCtorArg: ConstPtr<CertContext>,
-    pcCertChainCtorArg: MutPtr<CertChainContext>,
+    pCertificateCtorArg: ConstPtr,
+    pcCertChainCtorArg: MutPtr,
     public var connectionInfo: SecPkgContextConnectionInfo,
     public var cipherInfo: SecPkgContextCipherInfo,
-    pcUnverifiedCertChainCtorArg: MutPtr<CertChainContext>,
+    pcUnverifiedCertChainCtorArg: MutPtr,
     public var channelBindingToken: SecPkgContextBindings,
 ) {
-    public var pCertificate: ConstPtr<CertContext> = pCertificateCtorArg
+    public var pCertificate: ConstPtr = pCertificateCtorArg
         internal set
 
-    public var pcCertChain: MutPtr<CertChainContext> = pcCertChainCtorArg
+    public var pcCertChain: MutPtr = pcCertChainCtorArg
         internal set
 
-    public var pcUnverifiedCertChain: MutPtr<CertChainContext> = pcUnverifiedCertChainCtorArg
+    public var pcUnverifiedCertChain: MutPtr = pcUnverifiedCertChainCtorArg
         internal set
 
     public constructor() : this(
@@ -3693,19 +3689,19 @@ public class InternetSecurityInfo internal constructor(
 
     public operator fun component1(): UInt = this.dwSize
 
-    public operator fun component2(): ConstPtr<CertContext> = this.pCertificate
+    public operator fun component2(): ConstPtr = this.pCertificate
 
-    public operator fun component3(): MutPtr<CertChainContext> = this.pcCertChain
+    public operator fun component3(): MutPtr = this.pcCertChain
 
     public operator fun component4(): SecPkgContextConnectionInfo = this.connectionInfo
 
     public operator fun component5(): SecPkgContextCipherInfo = this.cipherInfo
 
-    public operator fun component6(): MutPtr<CertChainContext> = this.pcUnverifiedCertChain
+    public operator fun component6(): MutPtr = this.pcUnverifiedCertChain
 
     public operator fun component7(): SecPkgContextBindings = this.channelBindingToken
 
-    public fun copy(dwSize: UInt = this.dwSize, pCertificate: ConstPtr<CertContext> = this.pCertificate, pcCertChain: MutPtr<CertChainContext> = this.pcCertChain, connectionInfo: SecPkgContextConnectionInfo = this.connectionInfo, cipherInfo: SecPkgContextCipherInfo = this.cipherInfo, pcUnverifiedCertChain: MutPtr<CertChainContext> = this.pcUnverifiedCertChain, channelBindingToken: SecPkgContextBindings = this.channelBindingToken): InternetSecurityInfo = InternetSecurityInfo(dwSize = dwSize, pCertificateCtorArg = pCertificate, pcCertChainCtorArg = pcCertChain, connectionInfo = connectionInfo, cipherInfo = cipherInfo, pcUnverifiedCertChainCtorArg = pcUnverifiedCertChain, channelBindingToken = channelBindingToken)
+    public fun copy(dwSize: UInt = this.dwSize, pCertificate: ConstPtr = this.pCertificate, pcCertChain: MutPtr = this.pcCertChain, connectionInfo: SecPkgContextConnectionInfo = this.connectionInfo, cipherInfo: SecPkgContextCipherInfo = this.cipherInfo, pcUnverifiedCertChain: MutPtr = this.pcUnverifiedCertChain, channelBindingToken: SecPkgContextBindings = this.channelBindingToken): InternetSecurityInfo = InternetSecurityInfo(dwSize = dwSize, pCertificateCtorArg = pCertificate, pcCertChainCtorArg = pcCertChain, connectionInfo = connectionInfo, cipherInfo = cipherInfo, pcUnverifiedCertChainCtorArg = pcUnverifiedCertChain, channelBindingToken = channelBindingToken)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -3734,11 +3730,11 @@ public class InternetSecurityInfo internal constructor(
     public companion object {
         public operator fun invoke(
             dwSize: UInt = 0u,
-            pCertificate: ConstPtr<CertContext> = ConstPtr(0L),
-            pcCertChain: MutPtr<CertChainContext> = MutPtr(0L),
+            pCertificate: ConstPtr = ConstPtr(0L),
+            pcCertChain: MutPtr = MutPtr(0L),
             connectionInfo: SecPkgContextConnectionInfo = SecPkgContextConnectionInfo(),
             cipherInfo: SecPkgContextCipherInfo = SecPkgContextCipherInfo(),
-            pcUnverifiedCertChain: MutPtr<CertChainContext> = MutPtr(0L),
+            pcUnverifiedCertChain: MutPtr = MutPtr(0L),
             channelBindingToken: SecPkgContextBindings = SecPkgContextBindings(),
         ): InternetSecurityInfo =
             InternetSecurityInfo(
@@ -4109,9 +4105,9 @@ public class UrlcacheEntryInfo internal constructor(
     public var ftExpireTime: Filetime,
     public var ftLastAccessTime: Filetime,
     public var ftLastSyncTime: Filetime,
-    pbHeaderInfoCtorArg: MutPtr<UByte>,
+    pbHeaderInfoCtorArg: MutPtr,
     public var cbHeaderInfoSize: UInt,
-    pbExtraDataCtorArg: MutPtr<UByte>,
+    pbExtraDataCtorArg: MutPtr,
     public var cbExtraDataSize: UInt,
 ) {
     public var pwszSourceUrlName: Pwstr = pwszSourceUrlNameCtorArg
@@ -4120,10 +4116,10 @@ public class UrlcacheEntryInfo internal constructor(
     public var pwszLocalFileName: Pwstr = pwszLocalFileNameCtorArg
         internal set
 
-    public var pbHeaderInfo: MutPtr<UByte> = pbHeaderInfoCtorArg
+    public var pbHeaderInfo: MutPtr = pbHeaderInfoCtorArg
         internal set
 
-    public var pbExtraData: MutPtr<UByte> = pbExtraDataCtorArg
+    public var pbExtraData: MutPtr = pbExtraDataCtorArg
         internal set
 
     public constructor() : this(
@@ -4166,15 +4162,15 @@ public class UrlcacheEntryInfo internal constructor(
 
     public operator fun component11(): Filetime = this.ftLastSyncTime
 
-    public operator fun component12(): MutPtr<UByte> = this.pbHeaderInfo
+    public operator fun component12(): MutPtr = this.pbHeaderInfo
 
     public operator fun component13(): UInt = this.cbHeaderInfoSize
 
-    public operator fun component14(): MutPtr<UByte> = this.pbExtraData
+    public operator fun component14(): MutPtr = this.pbExtraData
 
     public operator fun component15(): UInt = this.cbExtraDataSize
 
-    public fun copy(pwszSourceUrlName: Pwstr = this.pwszSourceUrlName, pwszLocalFileName: Pwstr = this.pwszLocalFileName, dwCacheEntryType: UInt = this.dwCacheEntryType, dwUseCount: UInt = this.dwUseCount, dwHitRate: UInt = this.dwHitRate, dwSizeLow: UInt = this.dwSizeLow, dwSizeHigh: UInt = this.dwSizeHigh, ftLastModifiedTime: Filetime = this.ftLastModifiedTime, ftExpireTime: Filetime = this.ftExpireTime, ftLastAccessTime: Filetime = this.ftLastAccessTime, ftLastSyncTime: Filetime = this.ftLastSyncTime, pbHeaderInfo: MutPtr<UByte> = this.pbHeaderInfo, cbHeaderInfoSize: UInt = this.cbHeaderInfoSize, pbExtraData: MutPtr<UByte> = this.pbExtraData, cbExtraDataSize: UInt = this.cbExtraDataSize): UrlcacheEntryInfo = UrlcacheEntryInfo(pwszSourceUrlNameCtorArg = pwszSourceUrlName, pwszLocalFileNameCtorArg = pwszLocalFileName, dwCacheEntryType = dwCacheEntryType, dwUseCount = dwUseCount, dwHitRate = dwHitRate, dwSizeLow = dwSizeLow, dwSizeHigh = dwSizeHigh, ftLastModifiedTime = ftLastModifiedTime, ftExpireTime = ftExpireTime, ftLastAccessTime = ftLastAccessTime, ftLastSyncTime = ftLastSyncTime, pbHeaderInfoCtorArg = pbHeaderInfo, cbHeaderInfoSize = cbHeaderInfoSize, pbExtraDataCtorArg = pbExtraData, cbExtraDataSize = cbExtraDataSize)
+    public fun copy(pwszSourceUrlName: Pwstr = this.pwszSourceUrlName, pwszLocalFileName: Pwstr = this.pwszLocalFileName, dwCacheEntryType: UInt = this.dwCacheEntryType, dwUseCount: UInt = this.dwUseCount, dwHitRate: UInt = this.dwHitRate, dwSizeLow: UInt = this.dwSizeLow, dwSizeHigh: UInt = this.dwSizeHigh, ftLastModifiedTime: Filetime = this.ftLastModifiedTime, ftExpireTime: Filetime = this.ftExpireTime, ftLastAccessTime: Filetime = this.ftLastAccessTime, ftLastSyncTime: Filetime = this.ftLastSyncTime, pbHeaderInfo: MutPtr = this.pbHeaderInfo, cbHeaderInfoSize: UInt = this.cbHeaderInfoSize, pbExtraData: MutPtr = this.pbExtraData, cbExtraDataSize: UInt = this.cbExtraDataSize): UrlcacheEntryInfo = UrlcacheEntryInfo(pwszSourceUrlNameCtorArg = pwszSourceUrlName, pwszLocalFileNameCtorArg = pwszLocalFileName, dwCacheEntryType = dwCacheEntryType, dwUseCount = dwUseCount, dwHitRate = dwHitRate, dwSizeLow = dwSizeLow, dwSizeHigh = dwSizeHigh, ftLastModifiedTime = ftLastModifiedTime, ftExpireTime = ftExpireTime, ftLastAccessTime = ftLastAccessTime, ftLastSyncTime = ftLastSyncTime, pbHeaderInfoCtorArg = pbHeaderInfo, cbHeaderInfoSize = cbHeaderInfoSize, pbExtraDataCtorArg = pbExtraData, cbExtraDataSize = cbExtraDataSize)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -4229,9 +4225,9 @@ public class UrlcacheEntryInfo internal constructor(
             ftExpireTime: Filetime = Filetime(),
             ftLastAccessTime: Filetime = Filetime(),
             ftLastSyncTime: Filetime = Filetime(),
-            pbHeaderInfo: MutPtr<UByte> = MutPtr(0L),
+            pbHeaderInfo: MutPtr = MutPtr(0L),
             cbHeaderInfoSize: UInt = 0u,
-            pbExtraData: MutPtr<UByte> = MutPtr(0L),
+            pbExtraData: MutPtr = MutPtr(0L),
             cbExtraDataSize: UInt = 0u,
         ): UrlcacheEntryInfo =
             UrlcacheEntryInfo(
@@ -4650,9 +4646,9 @@ public class WininetProxyInfo internal constructor(
 
 public class WininetProxyInfoList internal constructor(
     public var dwProxyInfoCount: UInt,
-    pProxyInfoCtorArg: MutPtr<WininetProxyInfo>,
+    pProxyInfoCtorArg: MutPtr,
 ) {
-    public var pProxyInfo: MutPtr<WininetProxyInfo> = pProxyInfoCtorArg
+    public var pProxyInfo: MutPtr = pProxyInfoCtorArg
         internal set
 
     public constructor() : this(
@@ -4662,9 +4658,9 @@ public class WininetProxyInfoList internal constructor(
 
     public operator fun component1(): UInt = this.dwProxyInfoCount
 
-    public operator fun component2(): MutPtr<WininetProxyInfo> = this.pProxyInfo
+    public operator fun component2(): MutPtr = this.pProxyInfo
 
-    public fun copy(dwProxyInfoCount: UInt = this.dwProxyInfoCount, pProxyInfo: MutPtr<WininetProxyInfo> = this.pProxyInfo): WininetProxyInfoList = WininetProxyInfoList(dwProxyInfoCount = dwProxyInfoCount, pProxyInfoCtorArg = pProxyInfo)
+    public fun copy(dwProxyInfoCount: UInt = this.dwProxyInfoCount, pProxyInfo: MutPtr = this.pProxyInfo): WininetProxyInfoList = WininetProxyInfoList(dwProxyInfoCount = dwProxyInfoCount, pProxyInfoCtorArg = pProxyInfo)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -4690,21 +4686,21 @@ public class WininetProxyInfoList internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<WininetProxyInfo>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                     )
                 override fun writeNative(addr: Long, value: WininetProxyInfoList) {
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr, value.dwProxyInfoCount)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<WininetProxyInfo>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.pProxyInfo)
                 }
             }
 
         public operator fun invoke(
             dwProxyInfoCount: UInt = 0u,
-            pProxyInfo: MutPtr<WininetProxyInfo> = MutPtr(0L),
+            pProxyInfo: MutPtr = MutPtr(0L),
         ): WininetProxyInfoList =
             WininetProxyInfoList(
                 dwProxyInfoCount = dwProxyInfoCount,

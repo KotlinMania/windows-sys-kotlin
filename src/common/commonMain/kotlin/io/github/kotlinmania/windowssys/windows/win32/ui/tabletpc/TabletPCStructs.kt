@@ -2,7 +2,6 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.ui.tabletpc
 
-import io.github.kotlinmania.rustlang.core.ffi.CVoid
 import io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
 import io.github.kotlinmania.rustlang.core.mem.TypeLayout
 import io.github.kotlinmania.rustlang.core.ptr.MutPtr
@@ -38,9 +37,9 @@ public data class CharacterRange(
 
 public class DynamicRendererCachedData internal constructor(
     public var strokeId: Int,
-    dynamicRendererCtorArg: MutPtr<CVoid>,
+    dynamicRendererCtorArg: MutPtr,
 ) {
-    public var dynamicRenderer: MutPtr<CVoid> = dynamicRendererCtorArg
+    public var dynamicRenderer: MutPtr = dynamicRendererCtorArg
         internal set
 
     public constructor() : this(
@@ -50,9 +49,9 @@ public class DynamicRendererCachedData internal constructor(
 
     public operator fun component1(): Int = this.strokeId
 
-    public operator fun component2(): MutPtr<CVoid> = this.dynamicRenderer
+    public operator fun component2(): MutPtr = this.dynamicRenderer
 
-    public fun copy(strokeId: Int = this.strokeId, dynamicRenderer: MutPtr<CVoid> = this.dynamicRenderer): DynamicRendererCachedData = DynamicRendererCachedData(strokeId = strokeId, dynamicRendererCtorArg = dynamicRenderer)
+    public fun copy(strokeId: Int = this.strokeId, dynamicRenderer: MutPtr = this.dynamicRenderer): DynamicRendererCachedData = DynamicRendererCachedData(strokeId = strokeId, dynamicRendererCtorArg = dynamicRenderer)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -78,21 +77,21 @@ public class DynamicRendererCachedData internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<CVoid>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                     )
                 override fun writeNative(addr: Long, value: DynamicRendererCachedData) {
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr, value.strokeId)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<CVoid>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.dynamicRenderer)
                 }
             }
 
         public operator fun invoke(
             strokeId: Int = 0,
-            dynamicRenderer: MutPtr<CVoid> = MutPtr(0L),
+            dynamicRenderer: MutPtr = MutPtr(0L),
         ): DynamicRendererCachedData =
             DynamicRendererCachedData(
                 strokeId = strokeId,
@@ -166,14 +165,14 @@ public data class GestureData(
 
 public class IecGestureinfo internal constructor(
     public var nmhdr: Nmhdr,
-    cursorCtorArg: MutPtr<CVoid>,
-    strokesCtorArg: MutPtr<CVoid>,
+    cursorCtorArg: MutPtr,
+    strokesCtorArg: MutPtr,
     public var gestures: Variant.Variant,
 ) {
-    public var cursor: MutPtr<CVoid> = cursorCtorArg
+    public var cursor: MutPtr = cursorCtorArg
         internal set
 
-    public var strokes: MutPtr<CVoid> = strokesCtorArg
+    public var strokes: MutPtr = strokesCtorArg
         internal set
 
     public constructor() : this(
@@ -185,13 +184,13 @@ public class IecGestureinfo internal constructor(
 
     public operator fun component1(): Nmhdr = this.nmhdr
 
-    public operator fun component2(): MutPtr<CVoid> = this.cursor
+    public operator fun component2(): MutPtr = this.cursor
 
-    public operator fun component3(): MutPtr<CVoid> = this.strokes
+    public operator fun component3(): MutPtr = this.strokes
 
     public operator fun component4(): Variant.Variant = this.gestures
 
-    public fun copy(nmhdr: Nmhdr = this.nmhdr, cursor: MutPtr<CVoid> = this.cursor, strokes: MutPtr<CVoid> = this.strokes, gestures: Variant.Variant = this.gestures): IecGestureinfo = IecGestureinfo(nmhdr = nmhdr, cursorCtorArg = cursor, strokesCtorArg = strokes, gestures = gestures)
+    public fun copy(nmhdr: Nmhdr = this.nmhdr, cursor: MutPtr = this.cursor, strokes: MutPtr = this.strokes, gestures: Variant.Variant = this.gestures): IecGestureinfo = IecGestureinfo(nmhdr = nmhdr, cursorCtorArg = cursor, strokesCtorArg = strokes, gestures = gestures)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -214,8 +213,8 @@ public class IecGestureinfo internal constructor(
     public companion object {
         public operator fun invoke(
             nmhdr: Nmhdr = Nmhdr(),
-            cursor: MutPtr<CVoid> = MutPtr(0L),
-            strokes: MutPtr<CVoid> = MutPtr(0L),
+            cursor: MutPtr = MutPtr(0L),
+            strokes: MutPtr = MutPtr(0L),
             gestures: Variant.Variant = Variant.Variant(),
         ): IecGestureinfo =
             IecGestureinfo(
@@ -229,9 +228,9 @@ public class IecGestureinfo internal constructor(
 
 public class IecRecognitionresultinfo internal constructor(
     public var nmhdr: Nmhdr,
-    recognitionResultCtorArg: MutPtr<CVoid>,
+    recognitionResultCtorArg: MutPtr,
 ) {
-    public var recognitionResult: MutPtr<CVoid> = recognitionResultCtorArg
+    public var recognitionResult: MutPtr = recognitionResultCtorArg
         internal set
 
     public constructor() : this(
@@ -241,9 +240,9 @@ public class IecRecognitionresultinfo internal constructor(
 
     public operator fun component1(): Nmhdr = this.nmhdr
 
-    public operator fun component2(): MutPtr<CVoid> = this.recognitionResult
+    public operator fun component2(): MutPtr = this.recognitionResult
 
-    public fun copy(nmhdr: Nmhdr = this.nmhdr, recognitionResult: MutPtr<CVoid> = this.recognitionResult): IecRecognitionresultinfo = IecRecognitionresultinfo(nmhdr = nmhdr, recognitionResultCtorArg = recognitionResult)
+    public fun copy(nmhdr: Nmhdr = this.nmhdr, recognitionResult: MutPtr = this.recognitionResult): IecRecognitionresultinfo = IecRecognitionresultinfo(nmhdr = nmhdr, recognitionResultCtorArg = recognitionResult)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -262,7 +261,7 @@ public class IecRecognitionresultinfo internal constructor(
     public companion object {
         public operator fun invoke(
             nmhdr: Nmhdr = Nmhdr(),
-            recognitionResult: MutPtr<CVoid> = MutPtr(0L),
+            recognitionResult: MutPtr = MutPtr(0L),
         ): IecRecognitionresultinfo =
             IecRecognitionresultinfo(
                 nmhdr = nmhdr,
@@ -273,13 +272,13 @@ public class IecRecognitionresultinfo internal constructor(
 
 public class IecStrokeinfo internal constructor(
     public var nmhdr: Nmhdr,
-    cursorCtorArg: MutPtr<CVoid>,
-    strokeCtorArg: MutPtr<CVoid>,
+    cursorCtorArg: MutPtr,
+    strokeCtorArg: MutPtr,
 ) {
-    public var cursor: MutPtr<CVoid> = cursorCtorArg
+    public var cursor: MutPtr = cursorCtorArg
         internal set
 
-    public var stroke: MutPtr<CVoid> = strokeCtorArg
+    public var stroke: MutPtr = strokeCtorArg
         internal set
 
     public constructor() : this(
@@ -290,11 +289,11 @@ public class IecStrokeinfo internal constructor(
 
     public operator fun component1(): Nmhdr = this.nmhdr
 
-    public operator fun component2(): MutPtr<CVoid> = this.cursor
+    public operator fun component2(): MutPtr = this.cursor
 
-    public operator fun component3(): MutPtr<CVoid> = this.stroke
+    public operator fun component3(): MutPtr = this.stroke
 
-    public fun copy(nmhdr: Nmhdr = this.nmhdr, cursor: MutPtr<CVoid> = this.cursor, stroke: MutPtr<CVoid> = this.stroke): IecStrokeinfo = IecStrokeinfo(nmhdr = nmhdr, cursorCtorArg = cursor, strokeCtorArg = stroke)
+    public fun copy(nmhdr: Nmhdr = this.nmhdr, cursor: MutPtr = this.cursor, stroke: MutPtr = this.stroke): IecStrokeinfo = IecStrokeinfo(nmhdr = nmhdr, cursorCtorArg = cursor, strokeCtorArg = stroke)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -315,8 +314,8 @@ public class IecStrokeinfo internal constructor(
     public companion object {
         public operator fun invoke(
             nmhdr: Nmhdr = Nmhdr(),
-            cursor: MutPtr<CVoid> = MutPtr(0L),
-            stroke: MutPtr<CVoid> = MutPtr(0L),
+            cursor: MutPtr = MutPtr(0L),
+            stroke: MutPtr = MutPtr(0L),
         ): IecStrokeinfo =
             IecStrokeinfo(
                 nmhdr = nmhdr,
@@ -378,14 +377,14 @@ public data class LineSegment(
 public class PacketDescription internal constructor(
     public var cbPacketSize: UInt,
     public var cPacketProperties: UInt,
-    pPacketPropertiesCtorArg: MutPtr<PacketProperty>,
+    pPacketPropertiesCtorArg: MutPtr,
     public var cButtons: UInt,
-    pguidButtonsCtorArg: MutPtr<Guid>,
+    pguidButtonsCtorArg: MutPtr,
 ) {
-    public var pPacketProperties: MutPtr<PacketProperty> = pPacketPropertiesCtorArg
+    public var pPacketProperties: MutPtr = pPacketPropertiesCtorArg
         internal set
 
-    public var pguidButtons: MutPtr<Guid> = pguidButtonsCtorArg
+    public var pguidButtons: MutPtr = pguidButtonsCtorArg
         internal set
 
     public constructor() : this(
@@ -400,13 +399,13 @@ public class PacketDescription internal constructor(
 
     public operator fun component2(): UInt = this.cPacketProperties
 
-    public operator fun component3(): MutPtr<PacketProperty> = this.pPacketProperties
+    public operator fun component3(): MutPtr = this.pPacketProperties
 
     public operator fun component4(): UInt = this.cButtons
 
-    public operator fun component5(): MutPtr<Guid> = this.pguidButtons
+    public operator fun component5(): MutPtr = this.pguidButtons
 
-    public fun copy(cbPacketSize: UInt = this.cbPacketSize, cPacketProperties: UInt = this.cPacketProperties, pPacketProperties: MutPtr<PacketProperty> = this.pPacketProperties, cButtons: UInt = this.cButtons, pguidButtons: MutPtr<Guid> = this.pguidButtons): PacketDescription = PacketDescription(cbPacketSize = cbPacketSize, cPacketProperties = cPacketProperties, pPacketPropertiesCtorArg = pPacketProperties, cButtons = cButtons, pguidButtonsCtorArg = pguidButtons)
+    public fun copy(cbPacketSize: UInt = this.cbPacketSize, cPacketProperties: UInt = this.cPacketProperties, pPacketProperties: MutPtr = this.pPacketProperties, cButtons: UInt = this.cButtons, pguidButtons: MutPtr = this.pguidButtons): PacketDescription = PacketDescription(cbPacketSize = cbPacketSize, cPacketProperties = cPacketProperties, pPacketPropertiesCtorArg = pPacketProperties, cButtons = cButtons, pguidButtonsCtorArg = pguidButtons)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -439,12 +438,12 @@ public class PacketDescription internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 4L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<PacketProperty>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 16L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<Guid>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 24L),
                     )
                 override fun writeNative(addr: Long, value: PacketDescription) {
@@ -452,12 +451,12 @@ public class PacketDescription internal constructor(
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 4L, value.cPacketProperties)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<PacketProperty>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.pPacketProperties)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 16L, value.cButtons)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<Guid>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 24L, value.pguidButtons)
                 }
             }
@@ -465,9 +464,9 @@ public class PacketDescription internal constructor(
         public operator fun invoke(
             cbPacketSize: UInt = 0u,
             cPacketProperties: UInt = 0u,
-            pPacketProperties: MutPtr<PacketProperty> = MutPtr(0L),
+            pPacketProperties: MutPtr = MutPtr(0L),
             cButtons: UInt = 0u,
-            pguidButtons: MutPtr<Guid> = MutPtr(0L),
+            pguidButtons: MutPtr = MutPtr(0L),
         ): PacketDescription =
             PacketDescription(
                 cbPacketSize = cbPacketSize,
@@ -621,23 +620,23 @@ public data class RecoGuide(
 
 public class RecoLattice internal constructor(
     public var ulColumnCount: UInt,
-    pLatticeColumnsCtorArg: MutPtr<RecoLatticeColumn>,
+    pLatticeColumnsCtorArg: MutPtr,
     public var ulPropertyCount: UInt,
-    pGuidPropertiesCtorArg: MutPtr<Guid>,
+    pGuidPropertiesCtorArg: MutPtr,
     public var ulBestResultColumnCount: UInt,
-    pulBestResultColumnsCtorArg: MutPtr<UInt>,
-    pulBestResultIndexesCtorArg: MutPtr<UInt>,
+    pulBestResultColumnsCtorArg: MutPtr,
+    pulBestResultIndexesCtorArg: MutPtr,
 ) {
-    public var pLatticeColumns: MutPtr<RecoLatticeColumn> = pLatticeColumnsCtorArg
+    public var pLatticeColumns: MutPtr = pLatticeColumnsCtorArg
         internal set
 
-    public var pGuidProperties: MutPtr<Guid> = pGuidPropertiesCtorArg
+    public var pGuidProperties: MutPtr = pGuidPropertiesCtorArg
         internal set
 
-    public var pulBestResultColumns: MutPtr<UInt> = pulBestResultColumnsCtorArg
+    public var pulBestResultColumns: MutPtr = pulBestResultColumnsCtorArg
         internal set
 
-    public var pulBestResultIndexes: MutPtr<UInt> = pulBestResultIndexesCtorArg
+    public var pulBestResultIndexes: MutPtr = pulBestResultIndexesCtorArg
         internal set
 
     public constructor() : this(
@@ -652,19 +651,19 @@ public class RecoLattice internal constructor(
 
     public operator fun component1(): UInt = this.ulColumnCount
 
-    public operator fun component2(): MutPtr<RecoLatticeColumn> = this.pLatticeColumns
+    public operator fun component2(): MutPtr = this.pLatticeColumns
 
     public operator fun component3(): UInt = this.ulPropertyCount
 
-    public operator fun component4(): MutPtr<Guid> = this.pGuidProperties
+    public operator fun component4(): MutPtr = this.pGuidProperties
 
     public operator fun component5(): UInt = this.ulBestResultColumnCount
 
-    public operator fun component6(): MutPtr<UInt> = this.pulBestResultColumns
+    public operator fun component6(): MutPtr = this.pulBestResultColumns
 
-    public operator fun component7(): MutPtr<UInt> = this.pulBestResultIndexes
+    public operator fun component7(): MutPtr = this.pulBestResultIndexes
 
-    public fun copy(ulColumnCount: UInt = this.ulColumnCount, pLatticeColumns: MutPtr<RecoLatticeColumn> = this.pLatticeColumns, ulPropertyCount: UInt = this.ulPropertyCount, pGuidProperties: MutPtr<Guid> = this.pGuidProperties, ulBestResultColumnCount: UInt = this.ulBestResultColumnCount, pulBestResultColumns: MutPtr<UInt> = this.pulBestResultColumns, pulBestResultIndexes: MutPtr<UInt> = this.pulBestResultIndexes): RecoLattice = RecoLattice(ulColumnCount = ulColumnCount, pLatticeColumnsCtorArg = pLatticeColumns, ulPropertyCount = ulPropertyCount, pGuidPropertiesCtorArg = pGuidProperties, ulBestResultColumnCount = ulBestResultColumnCount, pulBestResultColumnsCtorArg = pulBestResultColumns, pulBestResultIndexesCtorArg = pulBestResultIndexes)
+    public fun copy(ulColumnCount: UInt = this.ulColumnCount, pLatticeColumns: MutPtr = this.pLatticeColumns, ulPropertyCount: UInt = this.ulPropertyCount, pGuidProperties: MutPtr = this.pGuidProperties, ulBestResultColumnCount: UInt = this.ulBestResultColumnCount, pulBestResultColumns: MutPtr = this.pulBestResultColumns, pulBestResultIndexes: MutPtr = this.pulBestResultIndexes): RecoLattice = RecoLattice(ulColumnCount = ulColumnCount, pLatticeColumnsCtorArg = pLatticeColumns, ulPropertyCount = ulPropertyCount, pGuidPropertiesCtorArg = pGuidProperties, ulBestResultColumnCount = ulBestResultColumnCount, pulBestResultColumnsCtorArg = pulBestResultColumns, pulBestResultIndexesCtorArg = pulBestResultIndexes)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -700,54 +699,54 @@ public class RecoLattice internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<RecoLatticeColumn>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 16L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<Guid>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 24L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 32L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<UInt>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 40L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<UInt>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 48L),
                     )
                 override fun writeNative(addr: Long, value: RecoLattice) {
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr, value.ulColumnCount)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<RecoLatticeColumn>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.pLatticeColumns)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 16L, value.ulPropertyCount)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<Guid>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 24L, value.pGuidProperties)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 32L, value.ulBestResultColumnCount)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<UInt>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 40L, value.pulBestResultColumns)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<UInt>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 48L, value.pulBestResultIndexes)
                 }
             }
 
         public operator fun invoke(
             ulColumnCount: UInt = 0u,
-            pLatticeColumns: MutPtr<RecoLatticeColumn> = MutPtr(0L),
+            pLatticeColumns: MutPtr = MutPtr(0L),
             ulPropertyCount: UInt = 0u,
-            pGuidProperties: MutPtr<Guid> = MutPtr(0L),
+            pGuidProperties: MutPtr = MutPtr(0L),
             ulBestResultColumnCount: UInt = 0u,
-            pulBestResultColumns: MutPtr<UInt> = MutPtr(0L),
-            pulBestResultIndexes: MutPtr<UInt> = MutPtr(0L),
+            pulBestResultColumns: MutPtr = MutPtr(0L),
+            pulBestResultIndexes: MutPtr = MutPtr(0L),
         ): RecoLattice =
             RecoLattice(
                 ulColumnCount = ulColumnCount,
@@ -765,14 +764,14 @@ public class RecoLatticeColumn internal constructor(
     public var key: UInt,
     public var cpProp: RecoLatticeProperties,
     public var cStrokes: UInt,
-    pStrokesCtorArg: MutPtr<UInt>,
+    pStrokesCtorArg: MutPtr,
     public var cLatticeElements: UInt,
-    pLatticeElementsCtorArg: MutPtr<RecoLatticeElement>,
+    pLatticeElementsCtorArg: MutPtr,
 ) {
-    public var pStrokes: MutPtr<UInt> = pStrokesCtorArg
+    public var pStrokes: MutPtr = pStrokesCtorArg
         internal set
 
-    public var pLatticeElements: MutPtr<RecoLatticeElement> = pLatticeElementsCtorArg
+    public var pLatticeElements: MutPtr = pLatticeElementsCtorArg
         internal set
 
     public constructor() : this(
@@ -790,13 +789,13 @@ public class RecoLatticeColumn internal constructor(
 
     public operator fun component3(): UInt = this.cStrokes
 
-    public operator fun component4(): MutPtr<UInt> = this.pStrokes
+    public operator fun component4(): MutPtr = this.pStrokes
 
     public operator fun component5(): UInt = this.cLatticeElements
 
-    public operator fun component6(): MutPtr<RecoLatticeElement> = this.pLatticeElements
+    public operator fun component6(): MutPtr = this.pLatticeElements
 
-    public fun copy(key: UInt = this.key, cpProp: RecoLatticeProperties = this.cpProp, cStrokes: UInt = this.cStrokes, pStrokes: MutPtr<UInt> = this.pStrokes, cLatticeElements: UInt = this.cLatticeElements, pLatticeElements: MutPtr<RecoLatticeElement> = this.pLatticeElements): RecoLatticeColumn = RecoLatticeColumn(key = key, cpProp = cpProp, cStrokes = cStrokes, pStrokesCtorArg = pStrokes, cLatticeElements = cLatticeElements, pLatticeElementsCtorArg = pLatticeElements)
+    public fun copy(key: UInt = this.key, cpProp: RecoLatticeProperties = this.cpProp, cStrokes: UInt = this.cStrokes, pStrokes: MutPtr = this.pStrokes, cLatticeElements: UInt = this.cLatticeElements, pLatticeElements: MutPtr = this.pLatticeElements): RecoLatticeColumn = RecoLatticeColumn(key = key, cpProp = cpProp, cStrokes = cStrokes, pStrokesCtorArg = pStrokes, cLatticeElements = cLatticeElements, pLatticeElementsCtorArg = pLatticeElements)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -832,12 +831,12 @@ public class RecoLatticeColumn internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 24L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<UInt>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 32L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 40L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<RecoLatticeElement>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 48L),
                     )
                 override fun writeNative(addr: Long, value: RecoLatticeColumn) {
@@ -846,12 +845,12 @@ public class RecoLatticeColumn internal constructor(
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 24L, value.cStrokes)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<UInt>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 32L, value.pStrokes)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 40L, value.cLatticeElements)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<RecoLatticeElement>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 48L, value.pLatticeElements)
                 }
             }
@@ -860,9 +859,9 @@ public class RecoLatticeColumn internal constructor(
             key: UInt = 0u,
             cpProp: RecoLatticeProperties = RecoLatticeProperties(),
             cStrokes: UInt = 0u,
-            pStrokes: MutPtr<UInt> = MutPtr(0L),
+            pStrokes: MutPtr = MutPtr(0L),
             cLatticeElements: UInt = 0u,
-            pLatticeElements: MutPtr<RecoLatticeElement> = MutPtr(0L),
+            pLatticeElements: MutPtr = MutPtr(0L),
         ): RecoLatticeColumn =
             RecoLatticeColumn(
                 key = key,
@@ -878,12 +877,12 @@ public class RecoLatticeColumn internal constructor(
 public class RecoLatticeElement internal constructor(
     public var score: Int,
     public var type: UShort,
-    pDataCtorArg: MutPtr<UByte>,
+    pDataCtorArg: MutPtr,
     public var ulNextColumn: UInt,
     public var ulStrokeNumber: UInt,
     public var epProp: RecoLatticeProperties,
 ) {
-    public var pData: MutPtr<UByte> = pDataCtorArg
+    public var pData: MutPtr = pDataCtorArg
         internal set
 
     public constructor() : this(
@@ -899,7 +898,7 @@ public class RecoLatticeElement internal constructor(
 
     public operator fun component2(): UShort = this.type
 
-    public operator fun component3(): MutPtr<UByte> = this.pData
+    public operator fun component3(): MutPtr = this.pData
 
     public operator fun component4(): UInt = this.ulNextColumn
 
@@ -907,7 +906,7 @@ public class RecoLatticeElement internal constructor(
 
     public operator fun component6(): RecoLatticeProperties = this.epProp
 
-    public fun copy(score: Int = this.score, type: UShort = this.type, pData: MutPtr<UByte> = this.pData, ulNextColumn: UInt = this.ulNextColumn, ulStrokeNumber: UInt = this.ulStrokeNumber, epProp: RecoLatticeProperties = this.epProp): RecoLatticeElement = RecoLatticeElement(score = score, type = type, pDataCtorArg = pData, ulNextColumn = ulNextColumn, ulStrokeNumber = ulStrokeNumber, epProp = epProp)
+    public fun copy(score: Int = this.score, type: UShort = this.type, pData: MutPtr = this.pData, ulNextColumn: UInt = this.ulNextColumn, ulStrokeNumber: UInt = this.ulStrokeNumber, epProp: RecoLatticeProperties = this.epProp): RecoLatticeElement = RecoLatticeElement(score = score, type = type, pDataCtorArg = pData, ulNextColumn = ulNextColumn, ulStrokeNumber = ulStrokeNumber, epProp = epProp)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -942,7 +941,7 @@ public class RecoLatticeElement internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16).readNative(addr + 4L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<UByte>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 16L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 20L),
@@ -953,7 +952,7 @@ public class RecoLatticeElement internal constructor(
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16).writeNative(addr + 4L, value.type)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<UByte>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.pData)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 16L, value.ulNextColumn)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 20L, value.ulStrokeNumber)
@@ -964,7 +963,7 @@ public class RecoLatticeElement internal constructor(
         public operator fun invoke(
             score: Int = 0,
             type: UShort = 0u,
-            pData: MutPtr<UByte> = MutPtr(0L),
+            pData: MutPtr = MutPtr(0L),
             ulNextColumn: UInt = 0u,
             ulStrokeNumber: UInt = 0u,
             epProp: RecoLatticeProperties = RecoLatticeProperties(),
@@ -982,9 +981,9 @@ public class RecoLatticeElement internal constructor(
 
 public class RecoLatticeProperties internal constructor(
     public var cProperties: UInt,
-    apPropsCtorArg: MutPtr<MutPtr<RecoLatticeProperty>>,
+    apPropsCtorArg: MutPtr,
 ) {
-    public var apProps: MutPtr<MutPtr<RecoLatticeProperty>> = apPropsCtorArg
+    public var apProps: MutPtr = apPropsCtorArg
         internal set
 
     public constructor() : this(
@@ -994,9 +993,9 @@ public class RecoLatticeProperties internal constructor(
 
     public operator fun component1(): UInt = this.cProperties
 
-    public operator fun component2(): MutPtr<MutPtr<RecoLatticeProperty>> = this.apProps
+    public operator fun component2(): MutPtr = this.apProps
 
-    public fun copy(cProperties: UInt = this.cProperties, apProps: MutPtr<MutPtr<RecoLatticeProperty>> = this.apProps): RecoLatticeProperties = RecoLatticeProperties(cProperties = cProperties, apPropsCtorArg = apProps)
+    public fun copy(cProperties: UInt = this.cProperties, apProps: MutPtr = this.apProps): RecoLatticeProperties = RecoLatticeProperties(cProperties = cProperties, apPropsCtorArg = apProps)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -1022,21 +1021,21 @@ public class RecoLatticeProperties internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<MutPtr<RecoLatticeProperty>>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                     )
                 override fun writeNative(addr: Long, value: RecoLatticeProperties) {
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr, value.cProperties)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<MutPtr<RecoLatticeProperty>>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.apProps)
                 }
             }
 
         public operator fun invoke(
             cProperties: UInt = 0u,
-            apProps: MutPtr<MutPtr<RecoLatticeProperty>> = MutPtr(0L),
+            apProps: MutPtr = MutPtr(0L),
         ): RecoLatticeProperties =
             RecoLatticeProperties(
                 cProperties = cProperties,
@@ -1048,9 +1047,9 @@ public class RecoLatticeProperties internal constructor(
 public class RecoLatticeProperty internal constructor(
     public var guidProperty: Guid,
     public var cbPropertyValue: UShort,
-    pPropertyValueCtorArg: MutPtr<UByte>,
+    pPropertyValueCtorArg: MutPtr,
 ) {
-    public var pPropertyValue: MutPtr<UByte> = pPropertyValueCtorArg
+    public var pPropertyValue: MutPtr = pPropertyValueCtorArg
         internal set
 
     public constructor() : this(
@@ -1063,9 +1062,9 @@ public class RecoLatticeProperty internal constructor(
 
     public operator fun component2(): UShort = this.cbPropertyValue
 
-    public operator fun component3(): MutPtr<UByte> = this.pPropertyValue
+    public operator fun component3(): MutPtr = this.pPropertyValue
 
-    public fun copy(guidProperty: Guid = this.guidProperty, cbPropertyValue: UShort = this.cbPropertyValue, pPropertyValue: MutPtr<UByte> = this.pPropertyValue): RecoLatticeProperty = RecoLatticeProperty(guidProperty = guidProperty, cbPropertyValue = cbPropertyValue, pPropertyValueCtorArg = pPropertyValue)
+    public fun copy(guidProperty: Guid = this.guidProperty, cbPropertyValue: UShort = this.cbPropertyValue, pPropertyValue: MutPtr = this.pPropertyValue): RecoLatticeProperty = RecoLatticeProperty(guidProperty = guidProperty, cbPropertyValue = cbPropertyValue, pPropertyValueCtorArg = pPropertyValue)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -1087,7 +1086,7 @@ public class RecoLatticeProperty internal constructor(
         public operator fun invoke(
             guidProperty: Guid = Guid(),
             cbPropertyValue: UShort = 0u,
-            pPropertyValue: MutPtr<UByte> = MutPtr(0L),
+            pPropertyValue: MutPtr = MutPtr(0L),
         ): RecoLatticeProperty =
             RecoLatticeProperty(
                 guidProperty = guidProperty,

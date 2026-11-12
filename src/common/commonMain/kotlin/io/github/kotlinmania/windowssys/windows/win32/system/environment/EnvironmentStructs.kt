@@ -2,7 +2,6 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.system.environment
 
-import io.github.kotlinmania.rustlang.core.ffi.CVoid
 import io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
 import io.github.kotlinmania.rustlang.core.mem.TypeLayout
 import io.github.kotlinmania.rustlang.core.ptr.MutPtr
@@ -121,11 +120,11 @@ public data class EnclaveIdentity(
 public class EnclaveInformation internal constructor(
     public var enclaveType: UInt,
     public var reserved: UInt,
-    baseAddressCtorArg: MutPtr<CVoid>,
+    baseAddressCtorArg: MutPtr,
     public var size: Int,
     public var identity: EnclaveIdentity,
 ) {
-    public var baseAddress: MutPtr<CVoid> = baseAddressCtorArg
+    public var baseAddress: MutPtr = baseAddressCtorArg
         internal set
 
     public constructor() : this(
@@ -140,13 +139,13 @@ public class EnclaveInformation internal constructor(
 
     public operator fun component2(): UInt = this.reserved
 
-    public operator fun component3(): MutPtr<CVoid> = this.baseAddress
+    public operator fun component3(): MutPtr = this.baseAddress
 
     public operator fun component4(): Int = this.size
 
     public operator fun component5(): EnclaveIdentity = this.identity
 
-    public fun copy(enclaveType: UInt = this.enclaveType, reserved: UInt = this.reserved, baseAddress: MutPtr<CVoid> = this.baseAddress, size: Int = this.size, identity: EnclaveIdentity = this.identity): EnclaveInformation = EnclaveInformation(enclaveType = enclaveType, reserved = reserved, baseAddressCtorArg = baseAddress, size = size, identity = identity)
+    public fun copy(enclaveType: UInt = this.enclaveType, reserved: UInt = this.reserved, baseAddress: MutPtr = this.baseAddress, size: Int = this.size, identity: EnclaveIdentity = this.identity): EnclaveInformation = EnclaveInformation(enclaveType = enclaveType, reserved = reserved, baseAddressCtorArg = baseAddress, size = size, identity = identity)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -179,7 +178,7 @@ public class EnclaveInformation internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 4L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<CVoid>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.USIZE64).readNative(addr + 16L),
                         (EnclaveIdentity.typeLayout()).readNative(addr + 24L),
@@ -189,7 +188,7 @@ public class EnclaveInformation internal constructor(
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 4L, value.reserved)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<CVoid>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.baseAddress)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.USIZE64).writeNative(addr + 16L, value.size)
                     (EnclaveIdentity.typeLayout()).writeNative(addr + 24L, value.identity)
@@ -199,7 +198,7 @@ public class EnclaveInformation internal constructor(
         public operator fun invoke(
             enclaveType: UInt = 0u,
             reserved: UInt = 0u,
-            baseAddress: MutPtr<CVoid> = MutPtr(0L),
+            baseAddress: MutPtr = MutPtr(0L),
             size: Int = 0,
             identity: EnclaveIdentity = EnclaveIdentity(),
         ): EnclaveInformation =

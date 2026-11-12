@@ -2,10 +2,8 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.system.componentservices
 
-import io.github.kotlinmania.rustlang.core.ffi.CVoid
 import io.github.kotlinmania.rustlang.core.ptr.ConstPtr
 import io.github.kotlinmania.rustlang.core.ptr.MutPtr
-import io.github.kotlinmania.windowssys.core.Guid
 import io.github.kotlinmania.windowssys.core.Hresult
 import io.github.kotlinmania.windowssys.windows.win32.system.com.Apttype
 
@@ -41,16 +39,16 @@ private external fun wasmWindowssysWindowsWin32SystemComponentservicesRecycleSur
 @JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemComponentservicesSafeRef(p0, p1)")
 private external fun wasmWindowssysWindowsWin32SystemComponentservicesSafeRef(p0: String, p1: String): String
 
-public actual fun coCreateActivity(piunknown: MutPtr<CVoid>, riid: ConstPtr<Guid>, ppobj: MutPtr<MutPtr<CVoid>>): Hresult =
+public actual fun coCreateActivity(piunknown: MutPtr, riid: ConstPtr, ppobj: MutPtr): Hresult =
     if (windowsWin32SystemComponentservicesNapiAvailable) wasmWindowssysWindowsWin32SystemComponentservicesCoCreateActivity(piunknown.rawAddress.toString(), riid.rawAddress.toString(), ppobj.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun coEnterServiceDomain(pconfigobject: MutPtr<CVoid>): Hresult =
+public actual fun coEnterServiceDomain(pconfigobject: MutPtr): Hresult =
     if (windowsWin32SystemComponentservicesNapiAvailable) wasmWindowssysWindowsWin32SystemComponentservicesCoEnterServiceDomain(pconfigobject.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun coGetDefaultContext(apttype: Apttype, riid: ConstPtr<Guid>, ppv: MutPtr<MutPtr<CVoid>>): Hresult =
+public actual fun coGetDefaultContext(apttype: Apttype, riid: ConstPtr, ppv: MutPtr): Hresult =
     if (windowsWin32SystemComponentservicesNapiAvailable) wasmWindowssysWindowsWin32SystemComponentservicesCoGetDefaultContext(apttype, riid.rawAddress.toString(), ppv.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun coLeaveServiceDomain(punkstatus: MutPtr<CVoid>) {
+public actual fun coLeaveServiceDomain(punkstatus: MutPtr) {
     if (windowsWin32SystemComponentservicesNapiAvailable) {
         wasmWindowssysWindowsWin32SystemComponentservicesCoLeaveServiceDomain(punkstatus.rawAddress.toString())
     } else {
@@ -58,17 +56,17 @@ public actual fun coLeaveServiceDomain(punkstatus: MutPtr<CVoid>) {
     }
 }
 
-public actual fun getDispenserManager(param0: MutPtr<MutPtr<CVoid>>): Hresult =
+public actual fun getDispenserManager(param0: MutPtr): Hresult =
     if (windowsWin32SystemComponentservicesNapiAvailable) wasmWindowssysWindowsWin32SystemComponentservicesGetDispenserManager(param0.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun getManagedExtensions(dwexts: MutPtr<UInt>): Hresult =
+public actual fun getManagedExtensions(dwexts: MutPtr): Hresult =
     if (windowsWin32SystemComponentservicesNapiAvailable) wasmWindowssysWindowsWin32SystemComponentservicesGetManagedExtensions(dwexts.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun mTSCreateActivity(riid: ConstPtr<Guid>, ppobj: MutPtr<MutPtr<CVoid>>): Hresult =
+public actual fun mTSCreateActivity(riid: ConstPtr, ppobj: MutPtr): Hresult =
     if (windowsWin32SystemComponentservicesNapiAvailable) wasmWindowssysWindowsWin32SystemComponentservicesMTSCreateActivity(riid.rawAddress.toString(), ppobj.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun recycleSurrogate(lreasoncode: Int): Hresult =
     if (windowsWin32SystemComponentservicesNapiAvailable) wasmWindowssysWindowsWin32SystemComponentservicesRecycleSurrogate(lreasoncode) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun safeRef(rid: ConstPtr<Guid>, punk: MutPtr<CVoid>): MutPtr<CVoid> =
+public actual fun safeRef(rid: ConstPtr, punk: MutPtr): MutPtr =
     if (windowsWin32SystemComponentservicesNapiAvailable) MutPtr(wasmWindowssysWindowsWin32SystemComponentservicesSafeRef(rid.rawAddress.toString(), punk.rawAddress.toString()).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")

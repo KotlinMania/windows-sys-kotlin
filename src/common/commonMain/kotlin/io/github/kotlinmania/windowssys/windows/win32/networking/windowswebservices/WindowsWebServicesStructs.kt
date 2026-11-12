@@ -1,6 +1,5 @@
 package io.github.kotlinmania.windowssys.windows.win32.networking.windowswebservices
 
-import io.github.kotlinmania.rustlang.core.ffi.CVoid
 import io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
 import io.github.kotlinmania.rustlang.core.mem.TypeLayout
 import io.github.kotlinmania.rustlang.core.ptr.ConstPtr
@@ -10,32 +9,31 @@ import io.github.kotlinmania.windowssys.core.Guid
 import io.github.kotlinmania.windowssys.core.Pcwstr
 import io.github.kotlinmania.windowssys.core.Pwstr
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Decimal
-import io.github.kotlinmania.windowssys.windows.win32.security.cryptography.CertContext
 import io.github.kotlinmania.windowssys.windows.win32.security.cryptography.NcryptKeyHandle
 
 public class CtapcborHybridStorageLinkedData internal constructor(
     public var dwVersion: UInt,
     public var cbContactId: UInt,
-    pbContactIdCtorArg: MutPtr<UByte>,
+    pbContactIdCtorArg: MutPtr,
     public var cbLinkId: UInt,
-    pbLinkIdCtorArg: MutPtr<UByte>,
+    pbLinkIdCtorArg: MutPtr,
     public var cbLinkSecret: UInt,
-    pbLinkSecretCtorArg: MutPtr<UByte>,
+    pbLinkSecretCtorArg: MutPtr,
     public var cbPublicKey: UInt,
-    pbPublicKeyCtorArg: MutPtr<UByte>,
+    pbPublicKeyCtorArg: MutPtr,
     pwszAuthenticatorNameCtorArg: Pcwstr,
     public var wEncodedTunnelServerDomain: UShort,
 ) {
-    public var pbContactId: MutPtr<UByte> = pbContactIdCtorArg
+    public var pbContactId: MutPtr = pbContactIdCtorArg
         internal set
 
-    public var pbLinkId: MutPtr<UByte> = pbLinkIdCtorArg
+    public var pbLinkId: MutPtr = pbLinkIdCtorArg
         internal set
 
-    public var pbLinkSecret: MutPtr<UByte> = pbLinkSecretCtorArg
+    public var pbLinkSecret: MutPtr = pbLinkSecretCtorArg
         internal set
 
-    public var pbPublicKey: MutPtr<UByte> = pbPublicKeyCtorArg
+    public var pbPublicKey: MutPtr = pbPublicKeyCtorArg
         internal set
 
     public var pwszAuthenticatorName: Pcwstr = pwszAuthenticatorNameCtorArg
@@ -59,25 +57,25 @@ public class CtapcborHybridStorageLinkedData internal constructor(
 
     public operator fun component2(): UInt = this.cbContactId
 
-    public operator fun component3(): MutPtr<UByte> = this.pbContactId
+    public operator fun component3(): MutPtr = this.pbContactId
 
     public operator fun component4(): UInt = this.cbLinkId
 
-    public operator fun component5(): MutPtr<UByte> = this.pbLinkId
+    public operator fun component5(): MutPtr = this.pbLinkId
 
     public operator fun component6(): UInt = this.cbLinkSecret
 
-    public operator fun component7(): MutPtr<UByte> = this.pbLinkSecret
+    public operator fun component7(): MutPtr = this.pbLinkSecret
 
     public operator fun component8(): UInt = this.cbPublicKey
 
-    public operator fun component9(): MutPtr<UByte> = this.pbPublicKey
+    public operator fun component9(): MutPtr = this.pbPublicKey
 
     public operator fun component10(): Pcwstr = this.pwszAuthenticatorName
 
     public operator fun component11(): UShort = this.wEncodedTunnelServerDomain
 
-    public fun copy(dwVersion: UInt = this.dwVersion, cbContactId: UInt = this.cbContactId, pbContactId: MutPtr<UByte> = this.pbContactId, cbLinkId: UInt = this.cbLinkId, pbLinkId: MutPtr<UByte> = this.pbLinkId, cbLinkSecret: UInt = this.cbLinkSecret, pbLinkSecret: MutPtr<UByte> = this.pbLinkSecret, cbPublicKey: UInt = this.cbPublicKey, pbPublicKey: MutPtr<UByte> = this.pbPublicKey, pwszAuthenticatorName: Pcwstr = this.pwszAuthenticatorName, wEncodedTunnelServerDomain: UShort = this.wEncodedTunnelServerDomain): CtapcborHybridStorageLinkedData = CtapcborHybridStorageLinkedData(dwVersion = dwVersion, cbContactId = cbContactId, pbContactIdCtorArg = pbContactId, cbLinkId = cbLinkId, pbLinkIdCtorArg = pbLinkId, cbLinkSecret = cbLinkSecret, pbLinkSecretCtorArg = pbLinkSecret, cbPublicKey = cbPublicKey, pbPublicKeyCtorArg = pbPublicKey, pwszAuthenticatorNameCtorArg = pwszAuthenticatorName, wEncodedTunnelServerDomain = wEncodedTunnelServerDomain)
+    public fun copy(dwVersion: UInt = this.dwVersion, cbContactId: UInt = this.cbContactId, pbContactId: MutPtr = this.pbContactId, cbLinkId: UInt = this.cbLinkId, pbLinkId: MutPtr = this.pbLinkId, cbLinkSecret: UInt = this.cbLinkSecret, pbLinkSecret: MutPtr = this.pbLinkSecret, cbPublicKey: UInt = this.cbPublicKey, pbPublicKey: MutPtr = this.pbPublicKey, pwszAuthenticatorName: Pcwstr = this.pwszAuthenticatorName, wEncodedTunnelServerDomain: UShort = this.wEncodedTunnelServerDomain): CtapcborHybridStorageLinkedData = CtapcborHybridStorageLinkedData(dwVersion = dwVersion, cbContactId = cbContactId, pbContactIdCtorArg = pbContactId, cbLinkId = cbLinkId, pbLinkIdCtorArg = pbLinkId, cbLinkSecret = cbLinkSecret, pbLinkSecretCtorArg = pbLinkSecret, cbPublicKey = cbPublicKey, pbPublicKeyCtorArg = pbPublicKey, pwszAuthenticatorNameCtorArg = pwszAuthenticatorName, wEncodedTunnelServerDomain = wEncodedTunnelServerDomain)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -115,13 +113,13 @@ public class CtapcborHybridStorageLinkedData internal constructor(
         public operator fun invoke(
             dwVersion: UInt = 0u,
             cbContactId: UInt = 0u,
-            pbContactId: MutPtr<UByte> = MutPtr(0L),
+            pbContactId: MutPtr = MutPtr(0L),
             cbLinkId: UInt = 0u,
-            pbLinkId: MutPtr<UByte> = MutPtr(0L),
+            pbLinkId: MutPtr = MutPtr(0L),
             cbLinkSecret: UInt = 0u,
-            pbLinkSecret: MutPtr<UByte> = MutPtr(0L),
+            pbLinkSecret: MutPtr = MutPtr(0L),
             cbPublicKey: UInt = 0u,
-            pbPublicKey: MutPtr<UByte> = MutPtr(0L),
+            pbPublicKey: MutPtr = MutPtr(0L),
             pwszAuthenticatorName: Pcwstr = ConstPtr(0L),
             wEncodedTunnelServerDomain: UShort = 0u,
         ): CtapcborHybridStorageLinkedData =
@@ -144,37 +142,37 @@ public class CtapcborHybridStorageLinkedData internal constructor(
 public class WebauthnAssertion internal constructor(
     public var dwVersion: UInt,
     public var cbAuthenticatorData: UInt,
-    pbAuthenticatorDataCtorArg: MutPtr<UByte>,
+    pbAuthenticatorDataCtorArg: MutPtr,
     public var cbSignature: UInt,
-    pbSignatureCtorArg: MutPtr<UByte>,
+    pbSignatureCtorArg: MutPtr,
     public var credential: WebauthnCredential,
     public var cbUserId: UInt,
-    pbUserIdCtorArg: MutPtr<UByte>,
+    pbUserIdCtorArg: MutPtr,
     public var extensions: WebauthnExtensions,
     public var cbCredLargeBlob: UInt,
-    pbCredLargeBlobCtorArg: MutPtr<UByte>,
+    pbCredLargeBlobCtorArg: MutPtr,
     public var dwCredLargeBlobStatus: UInt,
-    pHmacSecretCtorArg: MutPtr<WebauthnHmacSecretSalt>,
+    pHmacSecretCtorArg: MutPtr,
     public var dwUsedTransport: UInt,
     public var cbUnsignedExtensionOutputs: UInt,
-    pbUnsignedExtensionOutputsCtorArg: MutPtr<UByte>,
+    pbUnsignedExtensionOutputsCtorArg: MutPtr,
 ) {
-    public var pbAuthenticatorData: MutPtr<UByte> = pbAuthenticatorDataCtorArg
+    public var pbAuthenticatorData: MutPtr = pbAuthenticatorDataCtorArg
         internal set
 
-    public var pbSignature: MutPtr<UByte> = pbSignatureCtorArg
+    public var pbSignature: MutPtr = pbSignatureCtorArg
         internal set
 
-    public var pbUserId: MutPtr<UByte> = pbUserIdCtorArg
+    public var pbUserId: MutPtr = pbUserIdCtorArg
         internal set
 
-    public var pbCredLargeBlob: MutPtr<UByte> = pbCredLargeBlobCtorArg
+    public var pbCredLargeBlob: MutPtr = pbCredLargeBlobCtorArg
         internal set
 
-    public var pHmacSecret: MutPtr<WebauthnHmacSecretSalt> = pHmacSecretCtorArg
+    public var pHmacSecret: MutPtr = pHmacSecretCtorArg
         internal set
 
-    public var pbUnsignedExtensionOutputs: MutPtr<UByte> = pbUnsignedExtensionOutputsCtorArg
+    public var pbUnsignedExtensionOutputs: MutPtr = pbUnsignedExtensionOutputsCtorArg
         internal set
 
     public constructor() : this(
@@ -200,35 +198,35 @@ public class WebauthnAssertion internal constructor(
 
     public operator fun component2(): UInt = this.cbAuthenticatorData
 
-    public operator fun component3(): MutPtr<UByte> = this.pbAuthenticatorData
+    public operator fun component3(): MutPtr = this.pbAuthenticatorData
 
     public operator fun component4(): UInt = this.cbSignature
 
-    public operator fun component5(): MutPtr<UByte> = this.pbSignature
+    public operator fun component5(): MutPtr = this.pbSignature
 
     public operator fun component6(): WebauthnCredential = this.credential
 
     public operator fun component7(): UInt = this.cbUserId
 
-    public operator fun component8(): MutPtr<UByte> = this.pbUserId
+    public operator fun component8(): MutPtr = this.pbUserId
 
     public operator fun component9(): WebauthnExtensions = this.extensions
 
     public operator fun component10(): UInt = this.cbCredLargeBlob
 
-    public operator fun component11(): MutPtr<UByte> = this.pbCredLargeBlob
+    public operator fun component11(): MutPtr = this.pbCredLargeBlob
 
     public operator fun component12(): UInt = this.dwCredLargeBlobStatus
 
-    public operator fun component13(): MutPtr<WebauthnHmacSecretSalt> = this.pHmacSecret
+    public operator fun component13(): MutPtr = this.pHmacSecret
 
     public operator fun component14(): UInt = this.dwUsedTransport
 
     public operator fun component15(): UInt = this.cbUnsignedExtensionOutputs
 
-    public operator fun component16(): MutPtr<UByte> = this.pbUnsignedExtensionOutputs
+    public operator fun component16(): MutPtr = this.pbUnsignedExtensionOutputs
 
-    public fun copy(dwVersion: UInt = this.dwVersion, cbAuthenticatorData: UInt = this.cbAuthenticatorData, pbAuthenticatorData: MutPtr<UByte> = this.pbAuthenticatorData, cbSignature: UInt = this.cbSignature, pbSignature: MutPtr<UByte> = this.pbSignature, credential: WebauthnCredential = this.credential, cbUserId: UInt = this.cbUserId, pbUserId: MutPtr<UByte> = this.pbUserId, extensions: WebauthnExtensions = this.extensions, cbCredLargeBlob: UInt = this.cbCredLargeBlob, pbCredLargeBlob: MutPtr<UByte> = this.pbCredLargeBlob, dwCredLargeBlobStatus: UInt = this.dwCredLargeBlobStatus, pHmacSecret: MutPtr<WebauthnHmacSecretSalt> = this.pHmacSecret, dwUsedTransport: UInt = this.dwUsedTransport, cbUnsignedExtensionOutputs: UInt = this.cbUnsignedExtensionOutputs, pbUnsignedExtensionOutputs: MutPtr<UByte> = this.pbUnsignedExtensionOutputs): WebauthnAssertion = WebauthnAssertion(dwVersion = dwVersion, cbAuthenticatorData = cbAuthenticatorData, pbAuthenticatorDataCtorArg = pbAuthenticatorData, cbSignature = cbSignature, pbSignatureCtorArg = pbSignature, credential = credential, cbUserId = cbUserId, pbUserIdCtorArg = pbUserId, extensions = extensions, cbCredLargeBlob = cbCredLargeBlob, pbCredLargeBlobCtorArg = pbCredLargeBlob, dwCredLargeBlobStatus = dwCredLargeBlobStatus, pHmacSecretCtorArg = pHmacSecret, dwUsedTransport = dwUsedTransport, cbUnsignedExtensionOutputs = cbUnsignedExtensionOutputs, pbUnsignedExtensionOutputsCtorArg = pbUnsignedExtensionOutputs)
+    public fun copy(dwVersion: UInt = this.dwVersion, cbAuthenticatorData: UInt = this.cbAuthenticatorData, pbAuthenticatorData: MutPtr = this.pbAuthenticatorData, cbSignature: UInt = this.cbSignature, pbSignature: MutPtr = this.pbSignature, credential: WebauthnCredential = this.credential, cbUserId: UInt = this.cbUserId, pbUserId: MutPtr = this.pbUserId, extensions: WebauthnExtensions = this.extensions, cbCredLargeBlob: UInt = this.cbCredLargeBlob, pbCredLargeBlob: MutPtr = this.pbCredLargeBlob, dwCredLargeBlobStatus: UInt = this.dwCredLargeBlobStatus, pHmacSecret: MutPtr = this.pHmacSecret, dwUsedTransport: UInt = this.dwUsedTransport, cbUnsignedExtensionOutputs: UInt = this.cbUnsignedExtensionOutputs, pbUnsignedExtensionOutputs: MutPtr = this.pbUnsignedExtensionOutputs): WebauthnAssertion = WebauthnAssertion(dwVersion = dwVersion, cbAuthenticatorData = cbAuthenticatorData, pbAuthenticatorDataCtorArg = pbAuthenticatorData, cbSignature = cbSignature, pbSignatureCtorArg = pbSignature, credential = credential, cbUserId = cbUserId, pbUserIdCtorArg = pbUserId, extensions = extensions, cbCredLargeBlob = cbCredLargeBlob, pbCredLargeBlobCtorArg = pbCredLargeBlob, dwCredLargeBlobStatus = dwCredLargeBlobStatus, pHmacSecretCtorArg = pHmacSecret, dwUsedTransport = dwUsedTransport, cbUnsignedExtensionOutputs = cbUnsignedExtensionOutputs, pbUnsignedExtensionOutputsCtorArg = pbUnsignedExtensionOutputs)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -276,20 +274,20 @@ public class WebauthnAssertion internal constructor(
         public operator fun invoke(
             dwVersion: UInt = 0u,
             cbAuthenticatorData: UInt = 0u,
-            pbAuthenticatorData: MutPtr<UByte> = MutPtr(0L),
+            pbAuthenticatorData: MutPtr = MutPtr(0L),
             cbSignature: UInt = 0u,
-            pbSignature: MutPtr<UByte> = MutPtr(0L),
+            pbSignature: MutPtr = MutPtr(0L),
             credential: WebauthnCredential = WebauthnCredential(),
             cbUserId: UInt = 0u,
-            pbUserId: MutPtr<UByte> = MutPtr(0L),
+            pbUserId: MutPtr = MutPtr(0L),
             extensions: WebauthnExtensions = WebauthnExtensions(),
             cbCredLargeBlob: UInt = 0u,
-            pbCredLargeBlob: MutPtr<UByte> = MutPtr(0L),
+            pbCredLargeBlob: MutPtr = MutPtr(0L),
             dwCredLargeBlobStatus: UInt = 0u,
-            pHmacSecret: MutPtr<WebauthnHmacSecretSalt> = MutPtr(0L),
+            pHmacSecret: MutPtr = MutPtr(0L),
             dwUsedTransport: UInt = 0u,
             cbUnsignedExtensionOutputs: UInt = 0u,
-            pbUnsignedExtensionOutputs: MutPtr<UByte> = MutPtr(0L),
+            pbUnsignedExtensionOutputs: MutPtr = MutPtr(0L),
         ): WebauthnAssertion =
             WebauthnAssertion(
                 dwVersion = dwVersion,
@@ -321,41 +319,41 @@ public class WebauthnAuthenticatorGetAssertionOptions internal constructor(
     public var dwUserVerificationRequirement: UInt,
     public var dwFlags: UInt,
     pwszU2fAppIdCtorArg: Pcwstr,
-    pbU2fAppIdCtorArg: MutPtr<Bool>,
-    pCancellationIdCtorArg: MutPtr<Guid>,
-    pAllowCredentialListCtorArg: MutPtr<WebauthnCredentialList>,
+    pbU2fAppIdCtorArg: MutPtr,
+    pCancellationIdCtorArg: MutPtr,
+    pAllowCredentialListCtorArg: MutPtr,
     public var dwCredLargeBlobOperation: UInt,
     public var cbCredLargeBlob: UInt,
-    pbCredLargeBlobCtorArg: MutPtr<UByte>,
-    pHmacSecretSaltValuesCtorArg: MutPtr<WebauthnHmacSecretSaltValues>,
+    pbCredLargeBlobCtorArg: MutPtr,
+    pHmacSecretSaltValuesCtorArg: MutPtr,
     public var bBrowserInPrivateMode: Bool,
-    pLinkedDeviceCtorArg: MutPtr<CtapcborHybridStorageLinkedData>,
+    pLinkedDeviceCtorArg: MutPtr,
     public var bAutoFill: Bool,
     public var cbJsonExt: UInt,
-    pbJsonExtCtorArg: MutPtr<UByte>,
+    pbJsonExtCtorArg: MutPtr,
 ) {
     public var pwszU2fAppId: Pcwstr = pwszU2fAppIdCtorArg
         internal set
 
-    public var pbU2fAppId: MutPtr<Bool> = pbU2fAppIdCtorArg
+    public var pbU2fAppId: MutPtr = pbU2fAppIdCtorArg
         internal set
 
-    public var pCancellationId: MutPtr<Guid> = pCancellationIdCtorArg
+    public var pCancellationId: MutPtr = pCancellationIdCtorArg
         internal set
 
-    public var pAllowCredentialList: MutPtr<WebauthnCredentialList> = pAllowCredentialListCtorArg
+    public var pAllowCredentialList: MutPtr = pAllowCredentialListCtorArg
         internal set
 
-    public var pbCredLargeBlob: MutPtr<UByte> = pbCredLargeBlobCtorArg
+    public var pbCredLargeBlob: MutPtr = pbCredLargeBlobCtorArg
         internal set
 
-    public var pHmacSecretSaltValues: MutPtr<WebauthnHmacSecretSaltValues> = pHmacSecretSaltValuesCtorArg
+    public var pHmacSecretSaltValues: MutPtr = pHmacSecretSaltValuesCtorArg
         internal set
 
-    public var pLinkedDevice: MutPtr<CtapcborHybridStorageLinkedData> = pLinkedDeviceCtorArg
+    public var pLinkedDevice: MutPtr = pLinkedDeviceCtorArg
         internal set
 
-    public var pbJsonExt: MutPtr<UByte> = pbJsonExtCtorArg
+    public var pbJsonExt: MutPtr = pbJsonExtCtorArg
         internal set
 
     public constructor() : this(
@@ -391,18 +389,18 @@ public class WebauthnAuthenticatorGetAssertionOptions internal constructor(
             dwUserVerificationRequirement: UInt = 0u,
             dwFlags: UInt = 0u,
             pwszU2fAppId: Pcwstr = ConstPtr(0L),
-            pbU2fAppId: MutPtr<Bool> = MutPtr(0L),
-            pCancellationId: MutPtr<Guid> = MutPtr(0L),
-            pAllowCredentialList: MutPtr<WebauthnCredentialList> = MutPtr(0L),
+            pbU2fAppId: MutPtr = MutPtr(0L),
+            pCancellationId: MutPtr = MutPtr(0L),
+            pAllowCredentialList: MutPtr = MutPtr(0L),
             dwCredLargeBlobOperation: UInt = 0u,
             cbCredLargeBlob: UInt = 0u,
-            pbCredLargeBlob: MutPtr<UByte> = MutPtr(0L),
-            pHmacSecretSaltValues: MutPtr<WebauthnHmacSecretSaltValues> = MutPtr(0L),
+            pbCredLargeBlob: MutPtr = MutPtr(0L),
+            pHmacSecretSaltValues: MutPtr = MutPtr(0L),
             bBrowserInPrivateMode: Bool = 0,
-            pLinkedDevice: MutPtr<CtapcborHybridStorageLinkedData> = MutPtr(0L),
+            pLinkedDevice: MutPtr = MutPtr(0L),
             bAutoFill: Bool = 0,
             cbJsonExt: UInt = 0u,
-            pbJsonExt: MutPtr<UByte> = MutPtr(0L),
+            pbJsonExt: MutPtr = MutPtr(0L),
         ): WebauthnAuthenticatorGetAssertionOptions =
             WebauthnAuthenticatorGetAssertionOptions(
                 dwVersion = dwVersion,
@@ -439,27 +437,27 @@ public class WebauthnAuthenticatorMakeCredentialOptions internal constructor(
     public var dwUserVerificationRequirement: UInt,
     public var dwAttestationConveyancePreference: UInt,
     public var dwFlags: UInt,
-    pCancellationIdCtorArg: MutPtr<Guid>,
-    pExcludeCredentialListCtorArg: MutPtr<WebauthnCredentialList>,
+    pCancellationIdCtorArg: MutPtr,
+    pExcludeCredentialListCtorArg: MutPtr,
     public var dwEnterpriseAttestation: UInt,
     public var dwLargeBlobSupport: UInt,
     public var bPreferResidentKey: Bool,
     public var bBrowserInPrivateMode: Bool,
     public var bEnablePrf: Bool,
-    pLinkedDeviceCtorArg: MutPtr<CtapcborHybridStorageLinkedData>,
+    pLinkedDeviceCtorArg: MutPtr,
     public var cbJsonExt: UInt,
-    pbJsonExtCtorArg: MutPtr<UByte>,
+    pbJsonExtCtorArg: MutPtr,
 ) {
-    public var pCancellationId: MutPtr<Guid> = pCancellationIdCtorArg
+    public var pCancellationId: MutPtr = pCancellationIdCtorArg
         internal set
 
-    public var pExcludeCredentialList: MutPtr<WebauthnCredentialList> = pExcludeCredentialListCtorArg
+    public var pExcludeCredentialList: MutPtr = pExcludeCredentialListCtorArg
         internal set
 
-    public var pLinkedDevice: MutPtr<CtapcborHybridStorageLinkedData> = pLinkedDeviceCtorArg
+    public var pLinkedDevice: MutPtr = pLinkedDeviceCtorArg
         internal set
 
-    public var pbJsonExt: MutPtr<UByte> = pbJsonExtCtorArg
+    public var pbJsonExt: MutPtr = pbJsonExtCtorArg
         internal set
 
     public constructor() : this(
@@ -502,11 +500,11 @@ public class WebauthnAuthenticatorMakeCredentialOptions internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 56L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<Guid>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 64L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<WebauthnCredentialList>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 72L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 80L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 84L),
@@ -515,12 +513,12 @@ public class WebauthnAuthenticatorMakeCredentialOptions internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr + 96L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<CtapcborHybridStorageLinkedData>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 104L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 112L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<UByte>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 120L),
                     )
                 override fun writeNative(addr: Long, value: WebauthnAuthenticatorMakeCredentialOptions) {
@@ -535,11 +533,11 @@ public class WebauthnAuthenticatorMakeCredentialOptions internal constructor(
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 56L, value.dwFlags)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<Guid>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 64L, value.pCancellationId)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<WebauthnCredentialList>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 72L, value.pExcludeCredentialList)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 80L, value.dwEnterpriseAttestation)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 84L, value.dwLargeBlobSupport)
@@ -548,12 +546,12 @@ public class WebauthnAuthenticatorMakeCredentialOptions internal constructor(
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr + 96L, value.bEnablePrf)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<CtapcborHybridStorageLinkedData>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 104L, value.pLinkedDevice)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 112L, value.cbJsonExt)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<UByte>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 120L, value.pbJsonExt)
                 }
             }
@@ -568,16 +566,16 @@ public class WebauthnAuthenticatorMakeCredentialOptions internal constructor(
             dwUserVerificationRequirement: UInt = 0u,
             dwAttestationConveyancePreference: UInt = 0u,
             dwFlags: UInt = 0u,
-            pCancellationId: MutPtr<Guid> = MutPtr(0L),
-            pExcludeCredentialList: MutPtr<WebauthnCredentialList> = MutPtr(0L),
+            pCancellationId: MutPtr = MutPtr(0L),
+            pExcludeCredentialList: MutPtr = MutPtr(0L),
             dwEnterpriseAttestation: UInt = 0u,
             dwLargeBlobSupport: UInt = 0u,
             bPreferResidentKey: Bool = 0,
             bBrowserInPrivateMode: Bool = 0,
             bEnablePrf: Bool = 0,
-            pLinkedDevice: MutPtr<CtapcborHybridStorageLinkedData> = MutPtr(0L),
+            pLinkedDevice: MutPtr = MutPtr(0L),
             cbJsonExt: UInt = 0u,
-            pbJsonExt: MutPtr<UByte> = MutPtr(0L),
+            pbJsonExt: MutPtr = MutPtr(0L),
         ): WebauthnAuthenticatorMakeCredentialOptions =
             WebauthnAuthenticatorMakeCredentialOptions(
                 dwVersion = dwVersion,
@@ -606,10 +604,10 @@ public class WebauthnAuthenticatorMakeCredentialOptions internal constructor(
 public class WebauthnClientData internal constructor(
     public var dwVersion: UInt,
     public var cbClientDataJSON: UInt,
-    pbClientDataJSONCtorArg: MutPtr<UByte>,
+    pbClientDataJSONCtorArg: MutPtr,
     pwszHashAlgIdCtorArg: Pcwstr,
 ) {
-    public var pbClientDataJSON: MutPtr<UByte> = pbClientDataJSONCtorArg
+    public var pbClientDataJSON: MutPtr = pbClientDataJSONCtorArg
         internal set
 
     public var pwszHashAlgId: Pcwstr = pwszHashAlgIdCtorArg
@@ -626,11 +624,11 @@ public class WebauthnClientData internal constructor(
 
     public operator fun component2(): UInt = this.cbClientDataJSON
 
-    public operator fun component3(): MutPtr<UByte> = this.pbClientDataJSON
+    public operator fun component3(): MutPtr = this.pbClientDataJSON
 
     public operator fun component4(): Pcwstr = this.pwszHashAlgId
 
-    public fun copy(dwVersion: UInt = this.dwVersion, cbClientDataJSON: UInt = this.cbClientDataJSON, pbClientDataJSON: MutPtr<UByte> = this.pbClientDataJSON, pwszHashAlgId: Pcwstr = this.pwszHashAlgId): WebauthnClientData = WebauthnClientData(dwVersion = dwVersion, cbClientDataJSON = cbClientDataJSON, pbClientDataJSONCtorArg = pbClientDataJSON, pwszHashAlgIdCtorArg = pwszHashAlgId)
+    public fun copy(dwVersion: UInt = this.dwVersion, cbClientDataJSON: UInt = this.cbClientDataJSON, pbClientDataJSON: MutPtr = this.pbClientDataJSON, pwszHashAlgId: Pcwstr = this.pwszHashAlgId): WebauthnClientData = WebauthnClientData(dwVersion = dwVersion, cbClientDataJSON = cbClientDataJSON, pbClientDataJSONCtorArg = pbClientDataJSON, pwszHashAlgIdCtorArg = pwszHashAlgId)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -654,7 +652,7 @@ public class WebauthnClientData internal constructor(
         public operator fun invoke(
             dwVersion: UInt = 0u,
             cbClientDataJSON: UInt = 0u,
-            pbClientDataJSON: MutPtr<UByte> = MutPtr(0L),
+            pbClientDataJSON: MutPtr = MutPtr(0L),
             pwszHashAlgId: Pcwstr = ConstPtr(0L),
         ): WebauthnClientData =
             WebauthnClientData(
@@ -671,31 +669,31 @@ public class WebauthnCommonAttestation internal constructor(
     pwszAlgCtorArg: Pcwstr,
     public var lAlg: Int,
     public var cbSignature: UInt,
-    pbSignatureCtorArg: MutPtr<UByte>,
+    pbSignatureCtorArg: MutPtr,
     public var cX5c: UInt,
-    pX5cCtorArg: MutPtr<WebauthnX5c>,
+    pX5cCtorArg: MutPtr,
     pwszVerCtorArg: Pcwstr,
     public var cbCertInfo: UInt,
-    pbCertInfoCtorArg: MutPtr<UByte>,
+    pbCertInfoCtorArg: MutPtr,
     public var cbPubArea: UInt,
-    pbPubAreaCtorArg: MutPtr<UByte>,
+    pbPubAreaCtorArg: MutPtr,
 ) {
     public var pwszAlg: Pcwstr = pwszAlgCtorArg
         internal set
 
-    public var pbSignature: MutPtr<UByte> = pbSignatureCtorArg
+    public var pbSignature: MutPtr = pbSignatureCtorArg
         internal set
 
-    public var pX5c: MutPtr<WebauthnX5c> = pX5cCtorArg
+    public var pX5c: MutPtr = pX5cCtorArg
         internal set
 
     public var pwszVer: Pcwstr = pwszVerCtorArg
         internal set
 
-    public var pbCertInfo: MutPtr<UByte> = pbCertInfoCtorArg
+    public var pbCertInfo: MutPtr = pbCertInfoCtorArg
         internal set
 
-    public var pbPubArea: MutPtr<UByte> = pbPubAreaCtorArg
+    public var pbPubArea: MutPtr = pbPubAreaCtorArg
         internal set
 
     public constructor() : this(
@@ -721,23 +719,23 @@ public class WebauthnCommonAttestation internal constructor(
 
     public operator fun component4(): UInt = this.cbSignature
 
-    public operator fun component5(): MutPtr<UByte> = this.pbSignature
+    public operator fun component5(): MutPtr = this.pbSignature
 
     public operator fun component6(): UInt = this.cX5c
 
-    public operator fun component7(): MutPtr<WebauthnX5c> = this.pX5c
+    public operator fun component7(): MutPtr = this.pX5c
 
     public operator fun component8(): Pcwstr = this.pwszVer
 
     public operator fun component9(): UInt = this.cbCertInfo
 
-    public operator fun component10(): MutPtr<UByte> = this.pbCertInfo
+    public operator fun component10(): MutPtr = this.pbCertInfo
 
     public operator fun component11(): UInt = this.cbPubArea
 
-    public operator fun component12(): MutPtr<UByte> = this.pbPubArea
+    public operator fun component12(): MutPtr = this.pbPubArea
 
-    public fun copy(dwVersion: UInt = this.dwVersion, pwszAlg: Pcwstr = this.pwszAlg, lAlg: Int = this.lAlg, cbSignature: UInt = this.cbSignature, pbSignature: MutPtr<UByte> = this.pbSignature, cX5c: UInt = this.cX5c, pX5c: MutPtr<WebauthnX5c> = this.pX5c, pwszVer: Pcwstr = this.pwszVer, cbCertInfo: UInt = this.cbCertInfo, pbCertInfo: MutPtr<UByte> = this.pbCertInfo, cbPubArea: UInt = this.cbPubArea, pbPubArea: MutPtr<UByte> = this.pbPubArea): WebauthnCommonAttestation = WebauthnCommonAttestation(dwVersion = dwVersion, pwszAlgCtorArg = pwszAlg, lAlg = lAlg, cbSignature = cbSignature, pbSignatureCtorArg = pbSignature, cX5c = cX5c, pX5cCtorArg = pX5c, pwszVerCtorArg = pwszVer, cbCertInfo = cbCertInfo, pbCertInfoCtorArg = pbCertInfo, cbPubArea = cbPubArea, pbPubAreaCtorArg = pbPubArea)
+    public fun copy(dwVersion: UInt = this.dwVersion, pwszAlg: Pcwstr = this.pwszAlg, lAlg: Int = this.lAlg, cbSignature: UInt = this.cbSignature, pbSignature: MutPtr = this.pbSignature, cX5c: UInt = this.cX5c, pX5c: MutPtr = this.pX5c, pwszVer: Pcwstr = this.pwszVer, cbCertInfo: UInt = this.cbCertInfo, pbCertInfo: MutPtr = this.pbCertInfo, cbPubArea: UInt = this.cbPubArea, pbPubArea: MutPtr = this.pbPubArea): WebauthnCommonAttestation = WebauthnCommonAttestation(dwVersion = dwVersion, pwszAlgCtorArg = pwszAlg, lAlg = lAlg, cbSignature = cbSignature, pbSignatureCtorArg = pbSignature, cX5c = cX5c, pX5cCtorArg = pX5c, pwszVerCtorArg = pwszVer, cbCertInfo = cbCertInfo, pbCertInfoCtorArg = pbCertInfo, cbPubArea = cbPubArea, pbPubAreaCtorArg = pbPubArea)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -779,14 +777,14 @@ public class WebauthnCommonAttestation internal constructor(
             pwszAlg: Pcwstr = ConstPtr(0L),
             lAlg: Int = 0,
             cbSignature: UInt = 0u,
-            pbSignature: MutPtr<UByte> = MutPtr(0L),
+            pbSignature: MutPtr = MutPtr(0L),
             cX5c: UInt = 0u,
-            pX5c: MutPtr<WebauthnX5c> = MutPtr(0L),
+            pX5c: MutPtr = MutPtr(0L),
             pwszVer: Pcwstr = ConstPtr(0L),
             cbCertInfo: UInt = 0u,
-            pbCertInfo: MutPtr<UByte> = MutPtr(0L),
+            pbCertInfo: MutPtr = MutPtr(0L),
             cbPubArea: UInt = 0u,
-            pbPubArea: MutPtr<UByte> = MutPtr(0L),
+            pbPubArea: MutPtr = MutPtr(0L),
         ): WebauthnCommonAttestation =
             WebauthnCommonAttestation(
                 dwVersion = dwVersion,
@@ -859,9 +857,9 @@ public class WebauthnCoseCredentialParameter internal constructor(
 
 public class WebauthnCoseCredentialParameters internal constructor(
     public var cCredentialParameters: UInt,
-    pCredentialParametersCtorArg: MutPtr<WebauthnCoseCredentialParameter>,
+    pCredentialParametersCtorArg: MutPtr,
 ) {
-    public var pCredentialParameters: MutPtr<WebauthnCoseCredentialParameter> = pCredentialParametersCtorArg
+    public var pCredentialParameters: MutPtr = pCredentialParametersCtorArg
         internal set
 
     public constructor() : this(
@@ -871,9 +869,9 @@ public class WebauthnCoseCredentialParameters internal constructor(
 
     public operator fun component1(): UInt = this.cCredentialParameters
 
-    public operator fun component2(): MutPtr<WebauthnCoseCredentialParameter> = this.pCredentialParameters
+    public operator fun component2(): MutPtr = this.pCredentialParameters
 
-    public fun copy(cCredentialParameters: UInt = this.cCredentialParameters, pCredentialParameters: MutPtr<WebauthnCoseCredentialParameter> = this.pCredentialParameters): WebauthnCoseCredentialParameters = WebauthnCoseCredentialParameters(cCredentialParameters = cCredentialParameters, pCredentialParametersCtorArg = pCredentialParameters)
+    public fun copy(cCredentialParameters: UInt = this.cCredentialParameters, pCredentialParameters: MutPtr = this.pCredentialParameters): WebauthnCoseCredentialParameters = WebauthnCoseCredentialParameters(cCredentialParameters = cCredentialParameters, pCredentialParametersCtorArg = pCredentialParameters)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -899,21 +897,21 @@ public class WebauthnCoseCredentialParameters internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<WebauthnCoseCredentialParameter>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                     )
                 override fun writeNative(addr: Long, value: WebauthnCoseCredentialParameters) {
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr, value.cCredentialParameters)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<WebauthnCoseCredentialParameter>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.pCredentialParameters)
                 }
             }
 
         public operator fun invoke(
             cCredentialParameters: UInt = 0u,
-            pCredentialParameters: MutPtr<WebauthnCoseCredentialParameter> = MutPtr(0L),
+            pCredentialParameters: MutPtr = MutPtr(0L),
         ): WebauthnCoseCredentialParameters =
             WebauthnCoseCredentialParameters(
                 cCredentialParameters = cCredentialParameters,
@@ -925,10 +923,10 @@ public class WebauthnCoseCredentialParameters internal constructor(
 public class WebauthnCredential internal constructor(
     public var dwVersion: UInt,
     public var cbId: UInt,
-    pbIdCtorArg: MutPtr<UByte>,
+    pbIdCtorArg: MutPtr,
     pwszCredentialTypeCtorArg: Pcwstr,
 ) {
-    public var pbId: MutPtr<UByte> = pbIdCtorArg
+    public var pbId: MutPtr = pbIdCtorArg
         internal set
 
     public var pwszCredentialType: Pcwstr = pwszCredentialTypeCtorArg
@@ -945,11 +943,11 @@ public class WebauthnCredential internal constructor(
 
     public operator fun component2(): UInt = this.cbId
 
-    public operator fun component3(): MutPtr<UByte> = this.pbId
+    public operator fun component3(): MutPtr = this.pbId
 
     public operator fun component4(): Pcwstr = this.pwszCredentialType
 
-    public fun copy(dwVersion: UInt = this.dwVersion, cbId: UInt = this.cbId, pbId: MutPtr<UByte> = this.pbId, pwszCredentialType: Pcwstr = this.pwszCredentialType): WebauthnCredential = WebauthnCredential(dwVersion = dwVersion, cbId = cbId, pbIdCtorArg = pbId, pwszCredentialTypeCtorArg = pwszCredentialType)
+    public fun copy(dwVersion: UInt = this.dwVersion, cbId: UInt = this.cbId, pbId: MutPtr = this.pbId, pwszCredentialType: Pcwstr = this.pwszCredentialType): WebauthnCredential = WebauthnCredential(dwVersion = dwVersion, cbId = cbId, pbIdCtorArg = pbId, pwszCredentialTypeCtorArg = pwszCredentialType)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -973,7 +971,7 @@ public class WebauthnCredential internal constructor(
         public operator fun invoke(
             dwVersion: UInt = 0u,
             cbId: UInt = 0u,
-            pbId: MutPtr<UByte> = MutPtr(0L),
+            pbId: MutPtr = MutPtr(0L),
             pwszCredentialType: Pcwstr = ConstPtr(0L),
         ): WebauthnCredential =
             WebauthnCredential(
@@ -987,9 +985,9 @@ public class WebauthnCredential internal constructor(
 
 public class WebauthnCredentials internal constructor(
     public var cCredentials: UInt,
-    pCredentialsCtorArg: MutPtr<WebauthnCredential>,
+    pCredentialsCtorArg: MutPtr,
 ) {
-    public var pCredentials: MutPtr<WebauthnCredential> = pCredentialsCtorArg
+    public var pCredentials: MutPtr = pCredentialsCtorArg
         internal set
 
     public constructor() : this(
@@ -999,9 +997,9 @@ public class WebauthnCredentials internal constructor(
 
     public operator fun component1(): UInt = this.cCredentials
 
-    public operator fun component2(): MutPtr<WebauthnCredential> = this.pCredentials
+    public operator fun component2(): MutPtr = this.pCredentials
 
-    public fun copy(cCredentials: UInt = this.cCredentials, pCredentials: MutPtr<WebauthnCredential> = this.pCredentials): WebauthnCredentials = WebauthnCredentials(cCredentials = cCredentials, pCredentialsCtorArg = pCredentials)
+    public fun copy(cCredentials: UInt = this.cCredentials, pCredentials: MutPtr = this.pCredentials): WebauthnCredentials = WebauthnCredentials(cCredentials = cCredentials, pCredentialsCtorArg = pCredentials)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -1027,21 +1025,21 @@ public class WebauthnCredentials internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<WebauthnCredential>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                     )
                 override fun writeNative(addr: Long, value: WebauthnCredentials) {
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr, value.cCredentials)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<WebauthnCredential>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.pCredentials)
                 }
             }
 
         public operator fun invoke(
             cCredentials: UInt = 0u,
-            pCredentials: MutPtr<WebauthnCredential> = MutPtr(0L),
+            pCredentials: MutPtr = MutPtr(0L),
         ): WebauthnCredentials =
             WebauthnCredentials(
                 cCredentials = cCredentials,
@@ -1054,15 +1052,15 @@ public class WebauthnCredentialAttestation internal constructor(
     public var dwVersion: UInt,
     pwszFormatTypeCtorArg: Pcwstr,
     public var cbAuthenticatorData: UInt,
-    pbAuthenticatorDataCtorArg: MutPtr<UByte>,
+    pbAuthenticatorDataCtorArg: MutPtr,
     public var cbAttestation: UInt,
-    pbAttestationCtorArg: MutPtr<UByte>,
+    pbAttestationCtorArg: MutPtr,
     public var dwAttestationDecodeType: UInt,
-    pvAttestationDecodeCtorArg: MutPtr<CVoid>,
+    pvAttestationDecodeCtorArg: MutPtr,
     public var cbAttestationObject: UInt,
-    pbAttestationObjectCtorArg: MutPtr<UByte>,
+    pbAttestationObjectCtorArg: MutPtr,
     public var cbCredentialId: UInt,
-    pbCredentialIdCtorArg: MutPtr<UByte>,
+    pbCredentialIdCtorArg: MutPtr,
     public var extensions: WebauthnExtensions,
     public var dwUsedTransport: UInt,
     public var bEpAtt: Bool,
@@ -1070,27 +1068,27 @@ public class WebauthnCredentialAttestation internal constructor(
     public var bResidentKey: Bool,
     public var bPrfEnabled: Bool,
     public var cbUnsignedExtensionOutputs: UInt,
-    pbUnsignedExtensionOutputsCtorArg: MutPtr<UByte>,
+    pbUnsignedExtensionOutputsCtorArg: MutPtr,
 ) {
     public var pwszFormatType: Pcwstr = pwszFormatTypeCtorArg
         internal set
 
-    public var pbAuthenticatorData: MutPtr<UByte> = pbAuthenticatorDataCtorArg
+    public var pbAuthenticatorData: MutPtr = pbAuthenticatorDataCtorArg
         internal set
 
-    public var pbAttestation: MutPtr<UByte> = pbAttestationCtorArg
+    public var pbAttestation: MutPtr = pbAttestationCtorArg
         internal set
 
-    public var pvAttestationDecode: MutPtr<CVoid> = pvAttestationDecodeCtorArg
+    public var pvAttestationDecode: MutPtr = pvAttestationDecodeCtorArg
         internal set
 
-    public var pbAttestationObject: MutPtr<UByte> = pbAttestationObjectCtorArg
+    public var pbAttestationObject: MutPtr = pbAttestationObjectCtorArg
         internal set
 
-    public var pbCredentialId: MutPtr<UByte> = pbCredentialIdCtorArg
+    public var pbCredentialId: MutPtr = pbCredentialIdCtorArg
         internal set
 
-    public var pbUnsignedExtensionOutputs: MutPtr<UByte> = pbUnsignedExtensionOutputsCtorArg
+    public var pbUnsignedExtensionOutputs: MutPtr = pbUnsignedExtensionOutputsCtorArg
         internal set
 
     public constructor() : this(
@@ -1121,15 +1119,15 @@ public class WebauthnCredentialAttestation internal constructor(
             dwVersion: UInt = 0u,
             pwszFormatType: Pcwstr = ConstPtr(0L),
             cbAuthenticatorData: UInt = 0u,
-            pbAuthenticatorData: MutPtr<UByte> = MutPtr(0L),
+            pbAuthenticatorData: MutPtr = MutPtr(0L),
             cbAttestation: UInt = 0u,
-            pbAttestation: MutPtr<UByte> = MutPtr(0L),
+            pbAttestation: MutPtr = MutPtr(0L),
             dwAttestationDecodeType: UInt = 0u,
-            pvAttestationDecode: MutPtr<CVoid> = MutPtr(0L),
+            pvAttestationDecode: MutPtr = MutPtr(0L),
             cbAttestationObject: UInt = 0u,
-            pbAttestationObject: MutPtr<UByte> = MutPtr(0L),
+            pbAttestationObject: MutPtr = MutPtr(0L),
             cbCredentialId: UInt = 0u,
-            pbCredentialId: MutPtr<UByte> = MutPtr(0L),
+            pbCredentialId: MutPtr = MutPtr(0L),
             extensions: WebauthnExtensions = WebauthnExtensions(),
             dwUsedTransport: UInt = 0u,
             bEpAtt: Bool = 0,
@@ -1137,7 +1135,7 @@ public class WebauthnCredentialAttestation internal constructor(
             bResidentKey: Bool = 0,
             bPrfEnabled: Bool = 0,
             cbUnsignedExtensionOutputs: UInt = 0u,
-            pbUnsignedExtensionOutputs: MutPtr<UByte> = MutPtr(0L),
+            pbUnsignedExtensionOutputs: MutPtr = MutPtr(0L),
         ): WebauthnCredentialAttestation =
             WebauthnCredentialAttestation(
                 dwVersion = dwVersion,
@@ -1167,19 +1165,19 @@ public class WebauthnCredentialAttestation internal constructor(
 public class WebauthnCredentialDetails internal constructor(
     public var dwVersion: UInt,
     public var cbCredentialID: UInt,
-    pbCredentialIDCtorArg: MutPtr<UByte>,
-    pRpInformationCtorArg: MutPtr<WebauthnRpEntityInformation>,
-    pUserInformationCtorArg: MutPtr<WebauthnUserEntityInformation>,
+    pbCredentialIDCtorArg: MutPtr,
+    pRpInformationCtorArg: MutPtr,
+    pUserInformationCtorArg: MutPtr,
     public var bRemovable: Bool,
     public var bBackedUp: Bool,
 ) {
-    public var pbCredentialID: MutPtr<UByte> = pbCredentialIDCtorArg
+    public var pbCredentialID: MutPtr = pbCredentialIDCtorArg
         internal set
 
-    public var pRpInformation: MutPtr<WebauthnRpEntityInformation> = pRpInformationCtorArg
+    public var pRpInformation: MutPtr = pRpInformationCtorArg
         internal set
 
-    public var pUserInformation: MutPtr<WebauthnUserEntityInformation> = pUserInformationCtorArg
+    public var pUserInformation: MutPtr = pUserInformationCtorArg
         internal set
 
     public constructor() : this(
@@ -1196,17 +1194,17 @@ public class WebauthnCredentialDetails internal constructor(
 
     public operator fun component2(): UInt = this.cbCredentialID
 
-    public operator fun component3(): MutPtr<UByte> = this.pbCredentialID
+    public operator fun component3(): MutPtr = this.pbCredentialID
 
-    public operator fun component4(): MutPtr<WebauthnRpEntityInformation> = this.pRpInformation
+    public operator fun component4(): MutPtr = this.pRpInformation
 
-    public operator fun component5(): MutPtr<WebauthnUserEntityInformation> = this.pUserInformation
+    public operator fun component5(): MutPtr = this.pUserInformation
 
     public operator fun component6(): Bool = this.bRemovable
 
     public operator fun component7(): Bool = this.bBackedUp
 
-    public fun copy(dwVersion: UInt = this.dwVersion, cbCredentialID: UInt = this.cbCredentialID, pbCredentialID: MutPtr<UByte> = this.pbCredentialID, pRpInformation: MutPtr<WebauthnRpEntityInformation> = this.pRpInformation, pUserInformation: MutPtr<WebauthnUserEntityInformation> = this.pUserInformation, bRemovable: Bool = this.bRemovable, bBackedUp: Bool = this.bBackedUp): WebauthnCredentialDetails = WebauthnCredentialDetails(dwVersion = dwVersion, cbCredentialID = cbCredentialID, pbCredentialIDCtorArg = pbCredentialID, pRpInformationCtorArg = pRpInformation, pUserInformationCtorArg = pUserInformation, bRemovable = bRemovable, bBackedUp = bBackedUp)
+    public fun copy(dwVersion: UInt = this.dwVersion, cbCredentialID: UInt = this.cbCredentialID, pbCredentialID: MutPtr = this.pbCredentialID, pRpInformation: MutPtr = this.pRpInformation, pUserInformation: MutPtr = this.pUserInformation, bRemovable: Bool = this.bRemovable, bBackedUp: Bool = this.bBackedUp): WebauthnCredentialDetails = WebauthnCredentialDetails(dwVersion = dwVersion, cbCredentialID = cbCredentialID, pbCredentialIDCtorArg = pbCredentialID, pRpInformationCtorArg = pRpInformation, pUserInformationCtorArg = pUserInformation, bRemovable = bRemovable, bBackedUp = bBackedUp)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -1243,15 +1241,15 @@ public class WebauthnCredentialDetails internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 4L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<UByte>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<WebauthnRpEntityInformation>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 16L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<WebauthnUserEntityInformation>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 24L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr + 32L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr + 36L),
@@ -1261,15 +1259,15 @@ public class WebauthnCredentialDetails internal constructor(
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 4L, value.cbCredentialID)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<UByte>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.pbCredentialID)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<WebauthnRpEntityInformation>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 16L, value.pRpInformation)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<WebauthnUserEntityInformation>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 24L, value.pUserInformation)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr + 32L, value.bRemovable)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr + 36L, value.bBackedUp)
@@ -1279,9 +1277,9 @@ public class WebauthnCredentialDetails internal constructor(
         public operator fun invoke(
             dwVersion: UInt = 0u,
             cbCredentialID: UInt = 0u,
-            pbCredentialID: MutPtr<UByte> = MutPtr(0L),
-            pRpInformation: MutPtr<WebauthnRpEntityInformation> = MutPtr(0L),
-            pUserInformation: MutPtr<WebauthnUserEntityInformation> = MutPtr(0L),
+            pbCredentialID: MutPtr = MutPtr(0L),
+            pRpInformation: MutPtr = MutPtr(0L),
+            pUserInformation: MutPtr = MutPtr(0L),
             bRemovable: Bool = 0,
             bBackedUp: Bool = 0,
         ): WebauthnCredentialDetails =
@@ -1299,9 +1297,9 @@ public class WebauthnCredentialDetails internal constructor(
 
 public class WebauthnCredentialDetailsList internal constructor(
     public var cCredentialDetails: UInt,
-    ppCredentialDetailsCtorArg: MutPtr<MutPtr<WebauthnCredentialDetails>>,
+    ppCredentialDetailsCtorArg: MutPtr,
 ) {
-    public var ppCredentialDetails: MutPtr<MutPtr<WebauthnCredentialDetails>> = ppCredentialDetailsCtorArg
+    public var ppCredentialDetails: MutPtr = ppCredentialDetailsCtorArg
         internal set
 
     public constructor() : this(
@@ -1311,9 +1309,9 @@ public class WebauthnCredentialDetailsList internal constructor(
 
     public operator fun component1(): UInt = this.cCredentialDetails
 
-    public operator fun component2(): MutPtr<MutPtr<WebauthnCredentialDetails>> = this.ppCredentialDetails
+    public operator fun component2(): MutPtr = this.ppCredentialDetails
 
-    public fun copy(cCredentialDetails: UInt = this.cCredentialDetails, ppCredentialDetails: MutPtr<MutPtr<WebauthnCredentialDetails>> = this.ppCredentialDetails): WebauthnCredentialDetailsList = WebauthnCredentialDetailsList(cCredentialDetails = cCredentialDetails, ppCredentialDetailsCtorArg = ppCredentialDetails)
+    public fun copy(cCredentialDetails: UInt = this.cCredentialDetails, ppCredentialDetails: MutPtr = this.ppCredentialDetails): WebauthnCredentialDetailsList = WebauthnCredentialDetailsList(cCredentialDetails = cCredentialDetails, ppCredentialDetailsCtorArg = ppCredentialDetails)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -1339,21 +1337,21 @@ public class WebauthnCredentialDetailsList internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<MutPtr<WebauthnCredentialDetails>>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                     )
                 override fun writeNative(addr: Long, value: WebauthnCredentialDetailsList) {
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr, value.cCredentialDetails)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<MutPtr<WebauthnCredentialDetails>>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.ppCredentialDetails)
                 }
             }
 
         public operator fun invoke(
             cCredentialDetails: UInt = 0u,
-            ppCredentialDetails: MutPtr<MutPtr<WebauthnCredentialDetails>> = MutPtr(0L),
+            ppCredentialDetails: MutPtr = MutPtr(0L),
         ): WebauthnCredentialDetailsList =
             WebauthnCredentialDetailsList(
                 cCredentialDetails = cCredentialDetails,
@@ -1365,11 +1363,11 @@ public class WebauthnCredentialDetailsList internal constructor(
 public class WebauthnCredentialEx internal constructor(
     public var dwVersion: UInt,
     public var cbId: UInt,
-    pbIdCtorArg: MutPtr<UByte>,
+    pbIdCtorArg: MutPtr,
     pwszCredentialTypeCtorArg: Pcwstr,
     public var dwTransports: UInt,
 ) {
-    public var pbId: MutPtr<UByte> = pbIdCtorArg
+    public var pbId: MutPtr = pbIdCtorArg
         internal set
 
     public var pwszCredentialType: Pcwstr = pwszCredentialTypeCtorArg
@@ -1387,13 +1385,13 @@ public class WebauthnCredentialEx internal constructor(
 
     public operator fun component2(): UInt = this.cbId
 
-    public operator fun component3(): MutPtr<UByte> = this.pbId
+    public operator fun component3(): MutPtr = this.pbId
 
     public operator fun component4(): Pcwstr = this.pwszCredentialType
 
     public operator fun component5(): UInt = this.dwTransports
 
-    public fun copy(dwVersion: UInt = this.dwVersion, cbId: UInt = this.cbId, pbId: MutPtr<UByte> = this.pbId, pwszCredentialType: Pcwstr = this.pwszCredentialType, dwTransports: UInt = this.dwTransports): WebauthnCredentialEx = WebauthnCredentialEx(dwVersion = dwVersion, cbId = cbId, pbIdCtorArg = pbId, pwszCredentialTypeCtorArg = pwszCredentialType, dwTransports = dwTransports)
+    public fun copy(dwVersion: UInt = this.dwVersion, cbId: UInt = this.cbId, pbId: MutPtr = this.pbId, pwszCredentialType: Pcwstr = this.pwszCredentialType, dwTransports: UInt = this.dwTransports): WebauthnCredentialEx = WebauthnCredentialEx(dwVersion = dwVersion, cbId = cbId, pbIdCtorArg = pbId, pwszCredentialTypeCtorArg = pwszCredentialType, dwTransports = dwTransports)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -1419,7 +1417,7 @@ public class WebauthnCredentialEx internal constructor(
         public operator fun invoke(
             dwVersion: UInt = 0u,
             cbId: UInt = 0u,
-            pbId: MutPtr<UByte> = MutPtr(0L),
+            pbId: MutPtr = MutPtr(0L),
             pwszCredentialType: Pcwstr = ConstPtr(0L),
             dwTransports: UInt = 0u,
         ): WebauthnCredentialEx =
@@ -1435,9 +1433,9 @@ public class WebauthnCredentialEx internal constructor(
 
 public class WebauthnCredentialList internal constructor(
     public var cCredentials: UInt,
-    ppCredentialsCtorArg: MutPtr<MutPtr<WebauthnCredentialEx>>,
+    ppCredentialsCtorArg: MutPtr,
 ) {
-    public var ppCredentials: MutPtr<MutPtr<WebauthnCredentialEx>> = ppCredentialsCtorArg
+    public var ppCredentials: MutPtr = ppCredentialsCtorArg
         internal set
 
     public constructor() : this(
@@ -1447,9 +1445,9 @@ public class WebauthnCredentialList internal constructor(
 
     public operator fun component1(): UInt = this.cCredentials
 
-    public operator fun component2(): MutPtr<MutPtr<WebauthnCredentialEx>> = this.ppCredentials
+    public operator fun component2(): MutPtr = this.ppCredentials
 
-    public fun copy(cCredentials: UInt = this.cCredentials, ppCredentials: MutPtr<MutPtr<WebauthnCredentialEx>> = this.ppCredentials): WebauthnCredentialList = WebauthnCredentialList(cCredentials = cCredentials, ppCredentialsCtorArg = ppCredentials)
+    public fun copy(cCredentials: UInt = this.cCredentials, ppCredentials: MutPtr = this.ppCredentials): WebauthnCredentialList = WebauthnCredentialList(cCredentials = cCredentials, ppCredentialsCtorArg = ppCredentials)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -1475,21 +1473,21 @@ public class WebauthnCredentialList internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<MutPtr<WebauthnCredentialEx>>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                     )
                 override fun writeNative(addr: Long, value: WebauthnCredentialList) {
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr, value.cCredentials)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<MutPtr<WebauthnCredentialEx>>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.ppCredentials)
                 }
             }
 
         public operator fun invoke(
             cCredentials: UInt = 0u,
-            ppCredentials: MutPtr<MutPtr<WebauthnCredentialEx>> = MutPtr(0L),
+            ppCredentials: MutPtr = MutPtr(0L),
         ): WebauthnCredentialList =
             WebauthnCredentialList(
                 cCredentials = cCredentials,
@@ -1500,9 +1498,9 @@ public class WebauthnCredentialList internal constructor(
 
 public class WebauthnCredBlobExtension internal constructor(
     public var cbCredBlob: UInt,
-    pbCredBlobCtorArg: MutPtr<UByte>,
+    pbCredBlobCtorArg: MutPtr,
 ) {
-    public var pbCredBlob: MutPtr<UByte> = pbCredBlobCtorArg
+    public var pbCredBlob: MutPtr = pbCredBlobCtorArg
         internal set
 
     public constructor() : this(
@@ -1512,9 +1510,9 @@ public class WebauthnCredBlobExtension internal constructor(
 
     public operator fun component1(): UInt = this.cbCredBlob
 
-    public operator fun component2(): MutPtr<UByte> = this.pbCredBlob
+    public operator fun component2(): MutPtr = this.pbCredBlob
 
-    public fun copy(cbCredBlob: UInt = this.cbCredBlob, pbCredBlob: MutPtr<UByte> = this.pbCredBlob): WebauthnCredBlobExtension = WebauthnCredBlobExtension(cbCredBlob = cbCredBlob, pbCredBlobCtorArg = pbCredBlob)
+    public fun copy(cbCredBlob: UInt = this.cbCredBlob, pbCredBlob: MutPtr = this.pbCredBlob): WebauthnCredBlobExtension = WebauthnCredBlobExtension(cbCredBlob = cbCredBlob, pbCredBlobCtorArg = pbCredBlob)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -1540,21 +1538,21 @@ public class WebauthnCredBlobExtension internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<UByte>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                     )
                 override fun writeNative(addr: Long, value: WebauthnCredBlobExtension) {
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr, value.cbCredBlob)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<UByte>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.pbCredBlob)
                 }
             }
 
         public operator fun invoke(
             cbCredBlob: UInt = 0u,
-            pbCredBlob: MutPtr<UByte> = MutPtr(0L),
+            pbCredBlob: MutPtr = MutPtr(0L),
         ): WebauthnCredBlobExtension =
             WebauthnCredBlobExtension(
                 cbCredBlob = cbCredBlob,
@@ -1587,13 +1585,13 @@ public data class WebauthnCredProtectExtensionIn(
 
 public class WebauthnCredWithHmacSecretSalt internal constructor(
     public var cbCredID: UInt,
-    pbCredIDCtorArg: MutPtr<UByte>,
-    pHmacSecretSaltCtorArg: MutPtr<WebauthnHmacSecretSalt>,
+    pbCredIDCtorArg: MutPtr,
+    pHmacSecretSaltCtorArg: MutPtr,
 ) {
-    public var pbCredID: MutPtr<UByte> = pbCredIDCtorArg
+    public var pbCredID: MutPtr = pbCredIDCtorArg
         internal set
 
-    public var pHmacSecretSalt: MutPtr<WebauthnHmacSecretSalt> = pHmacSecretSaltCtorArg
+    public var pHmacSecretSalt: MutPtr = pHmacSecretSaltCtorArg
         internal set
 
     public constructor() : this(
@@ -1604,11 +1602,11 @@ public class WebauthnCredWithHmacSecretSalt internal constructor(
 
     public operator fun component1(): UInt = this.cbCredID
 
-    public operator fun component2(): MutPtr<UByte> = this.pbCredID
+    public operator fun component2(): MutPtr = this.pbCredID
 
-    public operator fun component3(): MutPtr<WebauthnHmacSecretSalt> = this.pHmacSecretSalt
+    public operator fun component3(): MutPtr = this.pHmacSecretSalt
 
-    public fun copy(cbCredID: UInt = this.cbCredID, pbCredID: MutPtr<UByte> = this.pbCredID, pHmacSecretSalt: MutPtr<WebauthnHmacSecretSalt> = this.pHmacSecretSalt): WebauthnCredWithHmacSecretSalt = WebauthnCredWithHmacSecretSalt(cbCredID = cbCredID, pbCredIDCtorArg = pbCredID, pHmacSecretSaltCtorArg = pHmacSecretSalt)
+    public fun copy(cbCredID: UInt = this.cbCredID, pbCredID: MutPtr = this.pbCredID, pHmacSecretSalt: MutPtr = this.pHmacSecretSalt): WebauthnCredWithHmacSecretSalt = WebauthnCredWithHmacSecretSalt(cbCredID = cbCredID, pbCredIDCtorArg = pbCredID, pHmacSecretSaltCtorArg = pHmacSecretSalt)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -1636,30 +1634,30 @@ public class WebauthnCredWithHmacSecretSalt internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<UByte>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<WebauthnHmacSecretSalt>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 16L),
                     )
                 override fun writeNative(addr: Long, value: WebauthnCredWithHmacSecretSalt) {
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr, value.cbCredID)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<UByte>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.pbCredID)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<WebauthnHmacSecretSalt>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 16L, value.pHmacSecretSalt)
                 }
             }
 
         public operator fun invoke(
             cbCredID: UInt = 0u,
-            pbCredID: MutPtr<UByte> = MutPtr(0L),
-            pHmacSecretSalt: MutPtr<WebauthnHmacSecretSalt> = MutPtr(0L),
+            pbCredID: MutPtr = MutPtr(0L),
+            pHmacSecretSalt: MutPtr = MutPtr(0L),
         ): WebauthnCredWithHmacSecretSalt =
             WebauthnCredWithHmacSecretSalt(
                 cbCredID = cbCredID,
@@ -1672,12 +1670,12 @@ public class WebauthnCredWithHmacSecretSalt internal constructor(
 public class WebauthnExtension internal constructor(
     pwszExtensionIdentifierCtorArg: Pcwstr,
     public var cbExtension: UInt,
-    pvExtensionCtorArg: MutPtr<CVoid>,
+    pvExtensionCtorArg: MutPtr,
 ) {
     public var pwszExtensionIdentifier: Pcwstr = pwszExtensionIdentifierCtorArg
         internal set
 
-    public var pvExtension: MutPtr<CVoid> = pvExtensionCtorArg
+    public var pvExtension: MutPtr = pvExtensionCtorArg
         internal set
 
     public constructor() : this(
@@ -1690,9 +1688,9 @@ public class WebauthnExtension internal constructor(
 
     public operator fun component2(): UInt = this.cbExtension
 
-    public operator fun component3(): MutPtr<CVoid> = this.pvExtension
+    public operator fun component3(): MutPtr = this.pvExtension
 
-    public fun copy(pwszExtensionIdentifier: Pcwstr = this.pwszExtensionIdentifier, cbExtension: UInt = this.cbExtension, pvExtension: MutPtr<CVoid> = this.pvExtension): WebauthnExtension = WebauthnExtension(pwszExtensionIdentifierCtorArg = pwszExtensionIdentifier, cbExtension = cbExtension, pvExtensionCtorArg = pvExtension)
+    public fun copy(pwszExtensionIdentifier: Pcwstr = this.pwszExtensionIdentifier, cbExtension: UInt = this.cbExtension, pvExtension: MutPtr = this.pvExtension): WebauthnExtension = WebauthnExtension(pwszExtensionIdentifierCtorArg = pwszExtensionIdentifier, cbExtension = cbExtension, pvExtensionCtorArg = pvExtension)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -1714,7 +1712,7 @@ public class WebauthnExtension internal constructor(
         public operator fun invoke(
             pwszExtensionIdentifier: Pcwstr = ConstPtr(0L),
             cbExtension: UInt = 0u,
-            pvExtension: MutPtr<CVoid> = MutPtr(0L),
+            pvExtension: MutPtr = MutPtr(0L),
         ): WebauthnExtension =
             WebauthnExtension(
                 pwszExtensionIdentifierCtorArg = pwszExtensionIdentifier,
@@ -1726,9 +1724,9 @@ public class WebauthnExtension internal constructor(
 
 public class WebauthnExtensions internal constructor(
     public var cExtensions: UInt,
-    pExtensionsCtorArg: MutPtr<WebauthnExtension>,
+    pExtensionsCtorArg: MutPtr,
 ) {
-    public var pExtensions: MutPtr<WebauthnExtension> = pExtensionsCtorArg
+    public var pExtensions: MutPtr = pExtensionsCtorArg
         internal set
 
     public constructor() : this(
@@ -1738,9 +1736,9 @@ public class WebauthnExtensions internal constructor(
 
     public operator fun component1(): UInt = this.cExtensions
 
-    public operator fun component2(): MutPtr<WebauthnExtension> = this.pExtensions
+    public operator fun component2(): MutPtr = this.pExtensions
 
-    public fun copy(cExtensions: UInt = this.cExtensions, pExtensions: MutPtr<WebauthnExtension> = this.pExtensions): WebauthnExtensions = WebauthnExtensions(cExtensions = cExtensions, pExtensionsCtorArg = pExtensions)
+    public fun copy(cExtensions: UInt = this.cExtensions, pExtensions: MutPtr = this.pExtensions): WebauthnExtensions = WebauthnExtensions(cExtensions = cExtensions, pExtensionsCtorArg = pExtensions)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -1766,21 +1764,21 @@ public class WebauthnExtensions internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<WebauthnExtension>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                     )
                 override fun writeNative(addr: Long, value: WebauthnExtensions) {
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr, value.cExtensions)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<WebauthnExtension>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.pExtensions)
                 }
             }
 
         public operator fun invoke(
             cExtensions: UInt = 0u,
-            pExtensions: MutPtr<WebauthnExtension> = MutPtr(0L),
+            pExtensions: MutPtr = MutPtr(0L),
         ): WebauthnExtensions =
             WebauthnExtensions(
                 cExtensions = cExtensions,
@@ -1843,14 +1841,14 @@ public class WebauthnGetCredentialsOptions internal constructor(
 
 public class WebauthnHmacSecretSalt internal constructor(
     public var cbFirst: UInt,
-    pbFirstCtorArg: MutPtr<UByte>,
+    pbFirstCtorArg: MutPtr,
     public var cbSecond: UInt,
-    pbSecondCtorArg: MutPtr<UByte>,
+    pbSecondCtorArg: MutPtr,
 ) {
-    public var pbFirst: MutPtr<UByte> = pbFirstCtorArg
+    public var pbFirst: MutPtr = pbFirstCtorArg
         internal set
 
-    public var pbSecond: MutPtr<UByte> = pbSecondCtorArg
+    public var pbSecond: MutPtr = pbSecondCtorArg
         internal set
 
     public constructor() : this(
@@ -1862,13 +1860,13 @@ public class WebauthnHmacSecretSalt internal constructor(
 
     public operator fun component1(): UInt = this.cbFirst
 
-    public operator fun component2(): MutPtr<UByte> = this.pbFirst
+    public operator fun component2(): MutPtr = this.pbFirst
 
     public operator fun component3(): UInt = this.cbSecond
 
-    public operator fun component4(): MutPtr<UByte> = this.pbSecond
+    public operator fun component4(): MutPtr = this.pbSecond
 
-    public fun copy(cbFirst: UInt = this.cbFirst, pbFirst: MutPtr<UByte> = this.pbFirst, cbSecond: UInt = this.cbSecond, pbSecond: MutPtr<UByte> = this.pbSecond): WebauthnHmacSecretSalt = WebauthnHmacSecretSalt(cbFirst = cbFirst, pbFirstCtorArg = pbFirst, cbSecond = cbSecond, pbSecondCtorArg = pbSecond)
+    public fun copy(cbFirst: UInt = this.cbFirst, pbFirst: MutPtr = this.pbFirst, cbSecond: UInt = this.cbSecond, pbSecond: MutPtr = this.pbSecond): WebauthnHmacSecretSalt = WebauthnHmacSecretSalt(cbFirst = cbFirst, pbFirstCtorArg = pbFirst, cbSecond = cbSecond, pbSecondCtorArg = pbSecond)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -1898,33 +1896,33 @@ public class WebauthnHmacSecretSalt internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<UByte>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 16L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<UByte>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 24L),
                     )
                 override fun writeNative(addr: Long, value: WebauthnHmacSecretSalt) {
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr, value.cbFirst)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<UByte>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.pbFirst)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 16L, value.cbSecond)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<UByte>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 24L, value.pbSecond)
                 }
             }
 
         public operator fun invoke(
             cbFirst: UInt = 0u,
-            pbFirst: MutPtr<UByte> = MutPtr(0L),
+            pbFirst: MutPtr = MutPtr(0L),
             cbSecond: UInt = 0u,
-            pbSecond: MutPtr<UByte> = MutPtr(0L),
+            pbSecond: MutPtr = MutPtr(0L),
         ): WebauthnHmacSecretSalt =
             WebauthnHmacSecretSalt(
                 cbFirst = cbFirst,
@@ -1936,14 +1934,14 @@ public class WebauthnHmacSecretSalt internal constructor(
 }
 
 public class WebauthnHmacSecretSaltValues internal constructor(
-    pGlobalHmacSaltCtorArg: MutPtr<WebauthnHmacSecretSalt>,
+    pGlobalHmacSaltCtorArg: MutPtr,
     public var cCredWithHmacSecretSaltList: UInt,
-    pCredWithHmacSecretSaltListCtorArg: MutPtr<WebauthnCredWithHmacSecretSalt>,
+    pCredWithHmacSecretSaltListCtorArg: MutPtr,
 ) {
-    public var pGlobalHmacSalt: MutPtr<WebauthnHmacSecretSalt> = pGlobalHmacSaltCtorArg
+    public var pGlobalHmacSalt: MutPtr = pGlobalHmacSaltCtorArg
         internal set
 
-    public var pCredWithHmacSecretSaltList: MutPtr<WebauthnCredWithHmacSecretSalt> = pCredWithHmacSecretSaltListCtorArg
+    public var pCredWithHmacSecretSaltList: MutPtr = pCredWithHmacSecretSaltListCtorArg
         internal set
 
     public constructor() : this(
@@ -1952,13 +1950,13 @@ public class WebauthnHmacSecretSaltValues internal constructor(
         pCredWithHmacSecretSaltListCtorArg = MutPtr(0L),
     )
 
-    public operator fun component1(): MutPtr<WebauthnHmacSecretSalt> = this.pGlobalHmacSalt
+    public operator fun component1(): MutPtr = this.pGlobalHmacSalt
 
     public operator fun component2(): UInt = this.cCredWithHmacSecretSaltList
 
-    public operator fun component3(): MutPtr<WebauthnCredWithHmacSecretSalt> = this.pCredWithHmacSecretSaltList
+    public operator fun component3(): MutPtr = this.pCredWithHmacSecretSaltList
 
-    public fun copy(pGlobalHmacSalt: MutPtr<WebauthnHmacSecretSalt> = this.pGlobalHmacSalt, cCredWithHmacSecretSaltList: UInt = this.cCredWithHmacSecretSaltList, pCredWithHmacSecretSaltList: MutPtr<WebauthnCredWithHmacSecretSalt> = this.pCredWithHmacSecretSaltList): WebauthnHmacSecretSaltValues = WebauthnHmacSecretSaltValues(pGlobalHmacSaltCtorArg = pGlobalHmacSalt, cCredWithHmacSecretSaltList = cCredWithHmacSecretSaltList, pCredWithHmacSecretSaltListCtorArg = pCredWithHmacSecretSaltList)
+    public fun copy(pGlobalHmacSalt: MutPtr = this.pGlobalHmacSalt, cCredWithHmacSecretSaltList: UInt = this.cCredWithHmacSecretSaltList, pCredWithHmacSecretSaltList: MutPtr = this.pCredWithHmacSecretSaltList): WebauthnHmacSecretSaltValues = WebauthnHmacSecretSaltValues(pGlobalHmacSaltCtorArg = pGlobalHmacSalt, cCredWithHmacSecretSaltList = cCredWithHmacSecretSaltList, pCredWithHmacSecretSaltListCtorArg = pCredWithHmacSecretSaltList)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -1985,31 +1983,31 @@ public class WebauthnHmacSecretSaltValues internal constructor(
                     WebauthnHmacSecretSaltValues(
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<WebauthnHmacSecretSalt>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 8L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<WebauthnCredWithHmacSecretSalt>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 16L),
                     )
                 override fun writeNative(addr: Long, value: WebauthnHmacSecretSaltValues) {
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<WebauthnHmacSecretSalt>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr, value.pGlobalHmacSalt)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 8L, value.cCredWithHmacSecretSaltList)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<WebauthnCredWithHmacSecretSalt>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 16L, value.pCredWithHmacSecretSaltList)
                 }
             }
 
         public operator fun invoke(
-            pGlobalHmacSalt: MutPtr<WebauthnHmacSecretSalt> = MutPtr(0L),
+            pGlobalHmacSalt: MutPtr = MutPtr(0L),
             cCredWithHmacSecretSaltList: UInt = 0u,
-            pCredWithHmacSecretSaltList: MutPtr<WebauthnCredWithHmacSecretSalt> = MutPtr(0L),
+            pCredWithHmacSecretSaltList: MutPtr = MutPtr(0L),
         ): WebauthnHmacSecretSaltValues =
             WebauthnHmacSecretSaltValues(
                 pGlobalHmacSaltCtorArg = pGlobalHmacSalt,
@@ -2088,12 +2086,12 @@ public class WebauthnRpEntityInformation internal constructor(
 public class WebauthnUserEntityInformation internal constructor(
     public var dwVersion: UInt,
     public var cbId: UInt,
-    pbIdCtorArg: MutPtr<UByte>,
+    pbIdCtorArg: MutPtr,
     pwszNameCtorArg: Pcwstr,
     pwszIconCtorArg: Pcwstr,
     pwszDisplayNameCtorArg: Pcwstr,
 ) {
-    public var pbId: MutPtr<UByte> = pbIdCtorArg
+    public var pbId: MutPtr = pbIdCtorArg
         internal set
 
     public var pwszName: Pcwstr = pwszNameCtorArg
@@ -2118,7 +2116,7 @@ public class WebauthnUserEntityInformation internal constructor(
 
     public operator fun component2(): UInt = this.cbId
 
-    public operator fun component3(): MutPtr<UByte> = this.pbId
+    public operator fun component3(): MutPtr = this.pbId
 
     public operator fun component4(): Pcwstr = this.pwszName
 
@@ -2126,7 +2124,7 @@ public class WebauthnUserEntityInformation internal constructor(
 
     public operator fun component6(): Pcwstr = this.pwszDisplayName
 
-    public fun copy(dwVersion: UInt = this.dwVersion, cbId: UInt = this.cbId, pbId: MutPtr<UByte> = this.pbId, pwszName: Pcwstr = this.pwszName, pwszIcon: Pcwstr = this.pwszIcon, pwszDisplayName: Pcwstr = this.pwszDisplayName): WebauthnUserEntityInformation = WebauthnUserEntityInformation(dwVersion = dwVersion, cbId = cbId, pbIdCtorArg = pbId, pwszNameCtorArg = pwszName, pwszIconCtorArg = pwszIcon, pwszDisplayNameCtorArg = pwszDisplayName)
+    public fun copy(dwVersion: UInt = this.dwVersion, cbId: UInt = this.cbId, pbId: MutPtr = this.pbId, pwszName: Pcwstr = this.pwszName, pwszIcon: Pcwstr = this.pwszIcon, pwszDisplayName: Pcwstr = this.pwszDisplayName): WebauthnUserEntityInformation = WebauthnUserEntityInformation(dwVersion = dwVersion, cbId = cbId, pbIdCtorArg = pbId, pwszNameCtorArg = pwszName, pwszIconCtorArg = pwszIcon, pwszDisplayNameCtorArg = pwszDisplayName)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -2154,7 +2152,7 @@ public class WebauthnUserEntityInformation internal constructor(
         public operator fun invoke(
             dwVersion: UInt = 0u,
             cbId: UInt = 0u,
-            pbId: MutPtr<UByte> = MutPtr(0L),
+            pbId: MutPtr = MutPtr(0L),
             pwszName: Pcwstr = ConstPtr(0L),
             pwszIcon: Pcwstr = ConstPtr(0L),
             pwszDisplayName: Pcwstr = ConstPtr(0L),
@@ -2172,9 +2170,9 @@ public class WebauthnUserEntityInformation internal constructor(
 
 public class WebauthnX5c internal constructor(
     public var cbData: UInt,
-    pbDataCtorArg: MutPtr<UByte>,
+    pbDataCtorArg: MutPtr,
 ) {
-    public var pbData: MutPtr<UByte> = pbDataCtorArg
+    public var pbData: MutPtr = pbDataCtorArg
         internal set
 
     public constructor() : this(
@@ -2184,9 +2182,9 @@ public class WebauthnX5c internal constructor(
 
     public operator fun component1(): UInt = this.cbData
 
-    public operator fun component2(): MutPtr<UByte> = this.pbData
+    public operator fun component2(): MutPtr = this.pbData
 
-    public fun copy(cbData: UInt = this.cbData, pbData: MutPtr<UByte> = this.pbData): WebauthnX5c = WebauthnX5c(cbData = cbData, pbDataCtorArg = pbData)
+    public fun copy(cbData: UInt = this.cbData, pbData: MutPtr = this.pbData): WebauthnX5c = WebauthnX5c(cbData = cbData, pbDataCtorArg = pbData)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -2212,21 +2210,21 @@ public class WebauthnX5c internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<UByte>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                     )
                 override fun writeNative(addr: Long, value: WebauthnX5c) {
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr, value.cbData)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<UByte>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.pbData)
                 }
             }
 
         public operator fun invoke(
             cbData: UInt = 0u,
-            pbData: MutPtr<UByte> = MutPtr(0L),
+            pbData: MutPtr = MutPtr(0L),
         ): WebauthnX5c =
             WebauthnX5c(
                 cbData = cbData,
@@ -2238,9 +2236,9 @@ public class WebauthnX5c internal constructor(
 public class WsAnyAttribute internal constructor(
     public var localName: WsXmlString,
     public var ns: WsXmlString,
-    valueCtorArg: MutPtr<WsXmlText>,
+    valueCtorArg: MutPtr,
 ) {
-    public var value: MutPtr<WsXmlText> = valueCtorArg
+    public var value: MutPtr = valueCtorArg
         internal set
 
     public constructor() : this(
@@ -2253,9 +2251,9 @@ public class WsAnyAttribute internal constructor(
 
     public operator fun component2(): WsXmlString = this.ns
 
-    public operator fun component3(): MutPtr<WsXmlText> = this.value
+    public operator fun component3(): MutPtr = this.value
 
-    public fun copy(localName: WsXmlString = this.localName, ns: WsXmlString = this.ns, value: MutPtr<WsXmlText> = this.value): WsAnyAttribute = WsAnyAttribute(localName = localName, ns = ns, valueCtorArg = value)
+    public fun copy(localName: WsXmlString = this.localName, ns: WsXmlString = this.ns, value: MutPtr = this.value): WsAnyAttribute = WsAnyAttribute(localName = localName, ns = ns, valueCtorArg = value)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -2284,7 +2282,7 @@ public class WsAnyAttribute internal constructor(
                         (WsXmlString.typeLayout()).readNative(addr + 32L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<WsXmlText>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 64L),
                     )
                 override fun writeNative(addr: Long, value: WsAnyAttribute) {
@@ -2292,7 +2290,7 @@ public class WsAnyAttribute internal constructor(
                     (WsXmlString.typeLayout()).writeNative(addr + 32L, value.ns)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<WsXmlText>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 64L, value.value)
                 }
             }
@@ -2300,7 +2298,7 @@ public class WsAnyAttribute internal constructor(
         public operator fun invoke(
             localName: WsXmlString = WsXmlString(),
             ns: WsXmlString = WsXmlString(),
-            value: MutPtr<WsXmlText> = MutPtr(0L),
+            value: MutPtr = MutPtr(0L),
         ): WsAnyAttribute =
             WsAnyAttribute(
                 localName = localName,
@@ -2311,10 +2309,10 @@ public class WsAnyAttribute internal constructor(
 }
 
 public class WsAnyAttributes internal constructor(
-    attributesCtorArg: MutPtr<WsAnyAttribute>,
+    attributesCtorArg: MutPtr,
     public var attributeCount: UInt,
 ) {
-    public var attributes: MutPtr<WsAnyAttribute> = attributesCtorArg
+    public var attributes: MutPtr = attributesCtorArg
         internal set
 
     public constructor() : this(
@@ -2322,11 +2320,11 @@ public class WsAnyAttributes internal constructor(
         attributeCount = 0u,
     )
 
-    public operator fun component1(): MutPtr<WsAnyAttribute> = this.attributes
+    public operator fun component1(): MutPtr = this.attributes
 
     public operator fun component2(): UInt = this.attributeCount
 
-    public fun copy(attributes: MutPtr<WsAnyAttribute> = this.attributes, attributeCount: UInt = this.attributeCount): WsAnyAttributes = WsAnyAttributes(attributesCtorArg = attributes, attributeCount = attributeCount)
+    public fun copy(attributes: MutPtr = this.attributes, attributeCount: UInt = this.attributeCount): WsAnyAttributes = WsAnyAttributes(attributesCtorArg = attributes, attributeCount = attributeCount)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -2351,21 +2349,21 @@ public class WsAnyAttributes internal constructor(
                     WsAnyAttributes(
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<WsAnyAttribute>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 8L),
                     )
                 override fun writeNative(addr: Long, value: WsAnyAttributes) {
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<WsAnyAttribute>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr, value.attributes)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 8L, value.attributeCount)
                 }
             }
 
         public operator fun invoke(
-            attributes: MutPtr<WsAnyAttribute> = MutPtr(0L),
+            attributes: MutPtr = MutPtr(0L),
             attributeCount: UInt = 0u,
         ): WsAnyAttributes =
             WsAnyAttributes(
@@ -2377,9 +2375,9 @@ public class WsAnyAttributes internal constructor(
 
 public class WsAsyncContext internal constructor(
     public var callback: WsAsyncCallback,
-    callbackStateCtorArg: MutPtr<CVoid>,
+    callbackStateCtorArg: MutPtr,
 ) {
-    public var callbackState: MutPtr<CVoid> = callbackStateCtorArg
+    public var callbackState: MutPtr = callbackStateCtorArg
         internal set
 
     public constructor() : this(
@@ -2389,9 +2387,9 @@ public class WsAsyncContext internal constructor(
 
     public operator fun component1(): WsAsyncCallback = this.callback
 
-    public operator fun component2(): MutPtr<CVoid> = this.callbackState
+    public operator fun component2(): MutPtr = this.callbackState
 
-    public fun copy(callback: WsAsyncCallback = this.callback, callbackState: MutPtr<CVoid> = this.callbackState): WsAsyncContext = WsAsyncContext(callback = callback, callbackStateCtorArg = callbackState)
+    public fun copy(callback: WsAsyncCallback = this.callback, callbackState: MutPtr = this.callbackState): WsAsyncContext = WsAsyncContext(callback = callback, callbackStateCtorArg = callbackState)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -2410,7 +2408,7 @@ public class WsAsyncContext internal constructor(
     public companion object {
         public operator fun invoke(
             callback: WsAsyncCallback = null,
-            callbackState: MutPtr<CVoid> = MutPtr(0L),
+            callbackState: MutPtr = MutPtr(0L),
         ): WsAsyncContext =
             WsAsyncContext(
                 callback = callback,
@@ -2424,25 +2422,25 @@ public data class WsAsyncOperation(
 )
 
 public class WsAsyncState internal constructor(
-    internal0CtorArg: MutPtr<CVoid>,
-    internal1CtorArg: MutPtr<CVoid>,
-    internal2CtorArg: MutPtr<CVoid>,
-    internal3CtorArg: MutPtr<CVoid>,
-    internal4CtorArg: MutPtr<CVoid>,
+    internal0CtorArg: MutPtr,
+    internal1CtorArg: MutPtr,
+    internal2CtorArg: MutPtr,
+    internal3CtorArg: MutPtr,
+    internal4CtorArg: MutPtr,
 ) {
-    public var internal0: MutPtr<CVoid> = internal0CtorArg
+    public var internal0: MutPtr = internal0CtorArg
         internal set
 
-    public var internal1: MutPtr<CVoid> = internal1CtorArg
+    public var internal1: MutPtr = internal1CtorArg
         internal set
 
-    public var internal2: MutPtr<CVoid> = internal2CtorArg
+    public var internal2: MutPtr = internal2CtorArg
         internal set
 
-    public var internal3: MutPtr<CVoid> = internal3CtorArg
+    public var internal3: MutPtr = internal3CtorArg
         internal set
 
-    public var internal4: MutPtr<CVoid> = internal4CtorArg
+    public var internal4: MutPtr = internal4CtorArg
         internal set
 
     public constructor() : this(
@@ -2453,17 +2451,17 @@ public class WsAsyncState internal constructor(
         internal4CtorArg = MutPtr(0L),
     )
 
-    public operator fun component1(): MutPtr<CVoid> = this.internal0
+    public operator fun component1(): MutPtr = this.internal0
 
-    public operator fun component2(): MutPtr<CVoid> = this.internal1
+    public operator fun component2(): MutPtr = this.internal1
 
-    public operator fun component3(): MutPtr<CVoid> = this.internal2
+    public operator fun component3(): MutPtr = this.internal2
 
-    public operator fun component4(): MutPtr<CVoid> = this.internal3
+    public operator fun component4(): MutPtr = this.internal3
 
-    public operator fun component5(): MutPtr<CVoid> = this.internal4
+    public operator fun component5(): MutPtr = this.internal4
 
-    public fun copy(internal0: MutPtr<CVoid> = this.internal0, internal1: MutPtr<CVoid> = this.internal1, internal2: MutPtr<CVoid> = this.internal2, internal3: MutPtr<CVoid> = this.internal3, internal4: MutPtr<CVoid> = this.internal4): WsAsyncState = WsAsyncState(internal0CtorArg = internal0, internal1CtorArg = internal1, internal2CtorArg = internal2, internal3CtorArg = internal3, internal4CtorArg = internal4)
+    public fun copy(internal0: MutPtr = this.internal0, internal1: MutPtr = this.internal1, internal2: MutPtr = this.internal2, internal3: MutPtr = this.internal3, internal4: MutPtr = this.internal4): WsAsyncState = WsAsyncState(internal0CtorArg = internal0, internal1CtorArg = internal1, internal2CtorArg = internal2, internal3CtorArg = internal3, internal4CtorArg = internal4)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -2494,55 +2492,55 @@ public class WsAsyncState internal constructor(
                     WsAsyncState(
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<CVoid>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<CVoid>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<CVoid>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 16L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<CVoid>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 24L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<CVoid>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 32L),
                     )
                 override fun writeNative(addr: Long, value: WsAsyncState) {
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<CVoid>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr, value.internal0)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<CVoid>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.internal1)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<CVoid>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 16L, value.internal2)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<CVoid>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 24L, value.internal3)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<CVoid>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 32L, value.internal4)
                 }
             }
 
         public operator fun invoke(
-            internal0: MutPtr<CVoid> = MutPtr(0L),
-            internal1: MutPtr<CVoid> = MutPtr(0L),
-            internal2: MutPtr<CVoid> = MutPtr(0L),
-            internal3: MutPtr<CVoid> = MutPtr(0L),
-            internal4: MutPtr<CVoid> = MutPtr(0L),
+            internal0: MutPtr = MutPtr(0L),
+            internal1: MutPtr = MutPtr(0L),
+            internal2: MutPtr = MutPtr(0L),
+            internal3: MutPtr = MutPtr(0L),
+            internal4: MutPtr = MutPtr(0L),
         ): WsAsyncState =
             WsAsyncState(
                 internal0CtorArg = internal0,
@@ -2555,18 +2553,18 @@ public class WsAsyncState internal constructor(
 }
 
 public class WsAttributeDescription internal constructor(
-    attributeLocalNameCtorArg: MutPtr<WsXmlString>,
-    attributeNsCtorArg: MutPtr<WsXmlString>,
+    attributeLocalNameCtorArg: MutPtr,
+    attributeNsCtorArg: MutPtr,
     public var type: WsType,
-    typeDescriptionCtorArg: MutPtr<CVoid>,
+    typeDescriptionCtorArg: MutPtr,
 ) {
-    public var attributeLocalName: MutPtr<WsXmlString> = attributeLocalNameCtorArg
+    public var attributeLocalName: MutPtr = attributeLocalNameCtorArg
         internal set
 
-    public var attributeNs: MutPtr<WsXmlString> = attributeNsCtorArg
+    public var attributeNs: MutPtr = attributeNsCtorArg
         internal set
 
-    public var typeDescription: MutPtr<CVoid> = typeDescriptionCtorArg
+    public var typeDescription: MutPtr = typeDescriptionCtorArg
         internal set
 
     public constructor() : this(
@@ -2576,15 +2574,15 @@ public class WsAttributeDescription internal constructor(
         typeDescriptionCtorArg = MutPtr(0L),
     )
 
-    public operator fun component1(): MutPtr<WsXmlString> = this.attributeLocalName
+    public operator fun component1(): MutPtr = this.attributeLocalName
 
-    public operator fun component2(): MutPtr<WsXmlString> = this.attributeNs
+    public operator fun component2(): MutPtr = this.attributeNs
 
     public operator fun component3(): WsType = this.type
 
-    public operator fun component4(): MutPtr<CVoid> = this.typeDescription
+    public operator fun component4(): MutPtr = this.typeDescription
 
-    public fun copy(attributeLocalName: MutPtr<WsXmlString> = this.attributeLocalName, attributeNs: MutPtr<WsXmlString> = this.attributeNs, type: WsType = this.type, typeDescription: MutPtr<CVoid> = this.typeDescription): WsAttributeDescription = WsAttributeDescription(attributeLocalNameCtorArg = attributeLocalName, attributeNsCtorArg = attributeNs, type = type, typeDescriptionCtorArg = typeDescription)
+    public fun copy(attributeLocalName: MutPtr = this.attributeLocalName, attributeNs: MutPtr = this.attributeNs, type: WsType = this.type, typeDescription: MutPtr = this.typeDescription): WsAttributeDescription = WsAttributeDescription(attributeLocalNameCtorArg = attributeLocalName, attributeNsCtorArg = attributeNs, type = type, typeDescriptionCtorArg = typeDescription)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -2613,40 +2611,40 @@ public class WsAttributeDescription internal constructor(
                     WsAttributeDescription(
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<WsXmlString>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<WsXmlString>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr + 16L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<CVoid>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 24L),
                     )
                 override fun writeNative(addr: Long, value: WsAttributeDescription) {
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<WsXmlString>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr, value.attributeLocalName)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<WsXmlString>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.attributeNs)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr + 16L, value.type)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<CVoid>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 24L, value.typeDescription)
                 }
             }
 
         public operator fun invoke(
-            attributeLocalName: MutPtr<WsXmlString> = MutPtr(0L),
-            attributeNs: MutPtr<WsXmlString> = MutPtr(0L),
+            attributeLocalName: MutPtr = MutPtr(0L),
+            attributeNs: MutPtr = MutPtr(0L),
             type: WsType = 0,
-            typeDescription: MutPtr<CVoid> = MutPtr(0L),
+            typeDescription: MutPtr = MutPtr(0L),
         ): WsAttributeDescription =
             WsAttributeDescription(
                 attributeLocalNameCtorArg = attributeLocalName,
@@ -2678,9 +2676,9 @@ public data class WsBoolDescription(
 
 public class WsBuffers internal constructor(
     public var bufferCount: UInt,
-    buffersCtorArg: MutPtr<WsBytes>,
+    buffersCtorArg: MutPtr,
 ) {
-    public var buffers: MutPtr<WsBytes> = buffersCtorArg
+    public var buffers: MutPtr = buffersCtorArg
         internal set
 
     public constructor() : this(
@@ -2690,9 +2688,9 @@ public class WsBuffers internal constructor(
 
     public operator fun component1(): UInt = this.bufferCount
 
-    public operator fun component2(): MutPtr<WsBytes> = this.buffers
+    public operator fun component2(): MutPtr = this.buffers
 
-    public fun copy(bufferCount: UInt = this.bufferCount, buffers: MutPtr<WsBytes> = this.buffers): WsBuffers = WsBuffers(bufferCount = bufferCount, buffersCtorArg = buffers)
+    public fun copy(bufferCount: UInt = this.bufferCount, buffers: MutPtr = this.buffers): WsBuffers = WsBuffers(bufferCount = bufferCount, buffersCtorArg = buffers)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -2718,21 +2716,21 @@ public class WsBuffers internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<WsBytes>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                     )
                 override fun writeNative(addr: Long, value: WsBuffers) {
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr, value.bufferCount)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<WsBytes>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.buffers)
                 }
             }
 
         public operator fun invoke(
             bufferCount: UInt = 0u,
-            buffers: MutPtr<WsBytes> = MutPtr(0L),
+            buffers: MutPtr = MutPtr(0L),
         ): WsBuffers =
             WsBuffers(
                 bufferCount = bufferCount,
@@ -2743,9 +2741,9 @@ public class WsBuffers internal constructor(
 
 public class WsBytes internal constructor(
     public var length: UInt,
-    bytesCtorArg: MutPtr<UByte>,
+    bytesCtorArg: MutPtr,
 ) {
-    public var bytes: MutPtr<UByte> = bytesCtorArg
+    public var bytes: MutPtr = bytesCtorArg
         internal set
 
     public constructor() : this(
@@ -2755,9 +2753,9 @@ public class WsBytes internal constructor(
 
     public operator fun component1(): UInt = this.length
 
-    public operator fun component2(): MutPtr<UByte> = this.bytes
+    public operator fun component2(): MutPtr = this.bytes
 
-    public fun copy(length: UInt = this.length, bytes: MutPtr<UByte> = this.bytes): WsBytes = WsBytes(length = length, bytesCtorArg = bytes)
+    public fun copy(length: UInt = this.length, bytes: MutPtr = this.bytes): WsBytes = WsBytes(length = length, bytesCtorArg = bytes)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -2783,21 +2781,21 @@ public class WsBytes internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<UByte>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                     )
                 override fun writeNative(addr: Long, value: WsBytes) {
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr, value.length)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<UByte>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.bytes)
                 }
             }
 
         public operator fun invoke(
             length: UInt = 0u,
-            bytes: MutPtr<UByte> = MutPtr(0L),
+            bytes: MutPtr = MutPtr(0L),
         ): WsBytes =
             WsBytes(
                 length = length,
@@ -2852,10 +2850,10 @@ public data class WsByteArrayDescription(
 
 public class WsCallProperty internal constructor(
     public var id: WsCallPropertyId,
-    valueCtorArg: MutPtr<CVoid>,
+    valueCtorArg: MutPtr,
     public var valueSize: UInt,
 ) {
-    public var value: MutPtr<CVoid> = valueCtorArg
+    public var value: MutPtr = valueCtorArg
         internal set
 
     public constructor() : this(
@@ -2866,11 +2864,11 @@ public class WsCallProperty internal constructor(
 
     public operator fun component1(): WsCallPropertyId = this.id
 
-    public operator fun component2(): MutPtr<CVoid> = this.value
+    public operator fun component2(): MutPtr = this.value
 
     public operator fun component3(): UInt = this.valueSize
 
-    public fun copy(id: WsCallPropertyId = this.id, value: MutPtr<CVoid> = this.value, valueSize: UInt = this.valueSize): WsCallProperty = WsCallProperty(id = id, valueCtorArg = value, valueSize = valueSize)
+    public fun copy(id: WsCallPropertyId = this.id, value: MutPtr = this.value, valueSize: UInt = this.valueSize): WsCallProperty = WsCallProperty(id = id, valueCtorArg = value, valueSize = valueSize)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -2898,7 +2896,7 @@ public class WsCallProperty internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<CVoid>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 16L),
                     )
@@ -2906,7 +2904,7 @@ public class WsCallProperty internal constructor(
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr, value.id)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<CVoid>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.value)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 16L, value.valueSize)
                 }
@@ -2914,7 +2912,7 @@ public class WsCallProperty internal constructor(
 
         public operator fun invoke(
             id: WsCallPropertyId = 0,
-            value: MutPtr<CVoid> = MutPtr(0L),
+            value: MutPtr = MutPtr(0L),
             valueSize: UInt = 0u,
         ): WsCallProperty =
             WsCallProperty(
@@ -2952,9 +2950,9 @@ public data class WsCapiAsymmetricSecurityKeyHandle(
 
 public class WsCertificateValidationCallbackContext internal constructor(
     public var callback: WsCertificateValidationCallback,
-    stateCtorArg: MutPtr<CVoid>,
+    stateCtorArg: MutPtr,
 ) {
-    public var state: MutPtr<CVoid> = stateCtorArg
+    public var state: MutPtr = stateCtorArg
         internal set
 
     public constructor() : this(
@@ -2964,9 +2962,9 @@ public class WsCertificateValidationCallbackContext internal constructor(
 
     public operator fun component1(): WsCertificateValidationCallback = this.callback
 
-    public operator fun component2(): MutPtr<CVoid> = this.state
+    public operator fun component2(): MutPtr = this.state
 
-    public fun copy(callback: WsCertificateValidationCallback = this.callback, state: MutPtr<CVoid> = this.state): WsCertificateValidationCallbackContext = WsCertificateValidationCallbackContext(callback = callback, stateCtorArg = state)
+    public fun copy(callback: WsCertificateValidationCallback = this.callback, state: MutPtr = this.state): WsCertificateValidationCallbackContext = WsCertificateValidationCallbackContext(callback = callback, stateCtorArg = state)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -2985,7 +2983,7 @@ public class WsCertificateValidationCallbackContext internal constructor(
     public companion object {
         public operator fun invoke(
             callback: WsCertificateValidationCallback = null,
-            state: MutPtr<CVoid> = MutPtr(0L),
+            state: MutPtr = MutPtr(0L),
         ): WsCertificateValidationCallbackContext =
             WsCertificateValidationCallbackContext(
                 callback = callback,
@@ -3059,19 +3057,19 @@ public data class WsCertMessageSecurityBindingConstraint(
 
 public class WsCertSignedSamlAuthenticator internal constructor(
     public var authenticator: WsSamlAuthenticator,
-    trustedIssuerCertsCtorArg: ConstPtr<ConstPtr<CertContext>>,
+    trustedIssuerCertsCtorArg: ConstPtr,
     public var trustedIssuerCertCount: UInt,
-    decryptionCertCtorArg: ConstPtr<CertContext>,
+    decryptionCertCtorArg: ConstPtr,
     public var samlValidator: WsValidateSamlCallback,
-    samlValidatorCallbackStateCtorArg: MutPtr<CVoid>,
+    samlValidatorCallbackStateCtorArg: MutPtr,
 ) {
-    public var trustedIssuerCerts: ConstPtr<ConstPtr<CertContext>> = trustedIssuerCertsCtorArg
+    public var trustedIssuerCerts: ConstPtr = trustedIssuerCertsCtorArg
         internal set
 
-    public var decryptionCert: ConstPtr<CertContext> = decryptionCertCtorArg
+    public var decryptionCert: ConstPtr = decryptionCertCtorArg
         internal set
 
-    public var samlValidatorCallbackState: MutPtr<CVoid> = samlValidatorCallbackStateCtorArg
+    public var samlValidatorCallbackState: MutPtr = samlValidatorCallbackStateCtorArg
         internal set
 
     public constructor() : this(
@@ -3085,17 +3083,17 @@ public class WsCertSignedSamlAuthenticator internal constructor(
 
     public operator fun component1(): WsSamlAuthenticator = this.authenticator
 
-    public operator fun component2(): ConstPtr<ConstPtr<CertContext>> = this.trustedIssuerCerts
+    public operator fun component2(): ConstPtr = this.trustedIssuerCerts
 
     public operator fun component3(): UInt = this.trustedIssuerCertCount
 
-    public operator fun component4(): ConstPtr<CertContext> = this.decryptionCert
+    public operator fun component4(): ConstPtr = this.decryptionCert
 
     public operator fun component5(): WsValidateSamlCallback = this.samlValidator
 
-    public operator fun component6(): MutPtr<CVoid> = this.samlValidatorCallbackState
+    public operator fun component6(): MutPtr = this.samlValidatorCallbackState
 
-    public fun copy(authenticator: WsSamlAuthenticator = this.authenticator, trustedIssuerCerts: ConstPtr<ConstPtr<CertContext>> = this.trustedIssuerCerts, trustedIssuerCertCount: UInt = this.trustedIssuerCertCount, decryptionCert: ConstPtr<CertContext> = this.decryptionCert, samlValidator: WsValidateSamlCallback = this.samlValidator, samlValidatorCallbackState: MutPtr<CVoid> = this.samlValidatorCallbackState): WsCertSignedSamlAuthenticator = WsCertSignedSamlAuthenticator(authenticator = authenticator, trustedIssuerCertsCtorArg = trustedIssuerCerts, trustedIssuerCertCount = trustedIssuerCertCount, decryptionCertCtorArg = decryptionCert, samlValidator = samlValidator, samlValidatorCallbackStateCtorArg = samlValidatorCallbackState)
+    public fun copy(authenticator: WsSamlAuthenticator = this.authenticator, trustedIssuerCerts: ConstPtr = this.trustedIssuerCerts, trustedIssuerCertCount: UInt = this.trustedIssuerCertCount, decryptionCert: ConstPtr = this.decryptionCert, samlValidator: WsValidateSamlCallback = this.samlValidator, samlValidatorCallbackState: MutPtr = this.samlValidatorCallbackState): WsCertSignedSamlAuthenticator = WsCertSignedSamlAuthenticator(authenticator = authenticator, trustedIssuerCertsCtorArg = trustedIssuerCerts, trustedIssuerCertCount = trustedIssuerCertCount, decryptionCertCtorArg = decryptionCert, samlValidator = samlValidator, samlValidatorCallbackStateCtorArg = samlValidatorCallbackState)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -3122,11 +3120,11 @@ public class WsCertSignedSamlAuthenticator internal constructor(
     public companion object {
         public operator fun invoke(
             authenticator: WsSamlAuthenticator = WsSamlAuthenticator(),
-            trustedIssuerCerts: ConstPtr<ConstPtr<CertContext>> = ConstPtr(0L),
+            trustedIssuerCerts: ConstPtr = ConstPtr(0L),
             trustedIssuerCertCount: UInt = 0u,
-            decryptionCert: ConstPtr<CertContext> = ConstPtr(0L),
+            decryptionCert: ConstPtr = ConstPtr(0L),
             samlValidator: WsValidateSamlCallback = null,
-            samlValidatorCallbackState: MutPtr<CVoid> = MutPtr(0L),
+            samlValidatorCallbackState: MutPtr = MutPtr(0L),
         ): WsCertSignedSamlAuthenticator =
             WsCertSignedSamlAuthenticator(
                 authenticator = authenticator,
@@ -3140,7 +3138,7 @@ public class WsCertSignedSamlAuthenticator internal constructor(
 }
 
 public class WsChannelDecoder internal constructor(
-    createContextCtorArg: MutPtr<CVoid>,
+    createContextCtorArg: MutPtr,
     public var createDecoderCallback: WsCreateDecoderCallback,
     public var decoderGetContentTypeCallback: WsDecoderGetContentTypeCallback,
     public var decoderStartCallback: WsDecoderStartCallback,
@@ -3148,7 +3146,7 @@ public class WsChannelDecoder internal constructor(
     public var decoderEndCallback: WsDecoderEndCallback,
     public var freeDecoderCallback: WsFreeDecoderCallback,
 ) {
-    public var createContext: MutPtr<CVoid> = createContextCtorArg
+    public var createContext: MutPtr = createContextCtorArg
         internal set
 
     public constructor() : this(
@@ -3161,7 +3159,7 @@ public class WsChannelDecoder internal constructor(
         freeDecoderCallback = null,
     )
 
-    public operator fun component1(): MutPtr<CVoid> = this.createContext
+    public operator fun component1(): MutPtr = this.createContext
 
     public operator fun component2(): WsCreateDecoderCallback = this.createDecoderCallback
 
@@ -3175,7 +3173,7 @@ public class WsChannelDecoder internal constructor(
 
     public operator fun component7(): WsFreeDecoderCallback = this.freeDecoderCallback
 
-    public fun copy(createContext: MutPtr<CVoid> = this.createContext, createDecoderCallback: WsCreateDecoderCallback = this.createDecoderCallback, decoderGetContentTypeCallback: WsDecoderGetContentTypeCallback = this.decoderGetContentTypeCallback, decoderStartCallback: WsDecoderStartCallback = this.decoderStartCallback, decoderDecodeCallback: WsDecoderDecodeCallback = this.decoderDecodeCallback, decoderEndCallback: WsDecoderEndCallback = this.decoderEndCallback, freeDecoderCallback: WsFreeDecoderCallback = this.freeDecoderCallback): WsChannelDecoder = WsChannelDecoder(createContextCtorArg = createContext, createDecoderCallback = createDecoderCallback, decoderGetContentTypeCallback = decoderGetContentTypeCallback, decoderStartCallback = decoderStartCallback, decoderDecodeCallback = decoderDecodeCallback, decoderEndCallback = decoderEndCallback, freeDecoderCallback = freeDecoderCallback)
+    public fun copy(createContext: MutPtr = this.createContext, createDecoderCallback: WsCreateDecoderCallback = this.createDecoderCallback, decoderGetContentTypeCallback: WsDecoderGetContentTypeCallback = this.decoderGetContentTypeCallback, decoderStartCallback: WsDecoderStartCallback = this.decoderStartCallback, decoderDecodeCallback: WsDecoderDecodeCallback = this.decoderDecodeCallback, decoderEndCallback: WsDecoderEndCallback = this.decoderEndCallback, freeDecoderCallback: WsFreeDecoderCallback = this.freeDecoderCallback): WsChannelDecoder = WsChannelDecoder(createContextCtorArg = createContext, createDecoderCallback = createDecoderCallback, decoderGetContentTypeCallback = decoderGetContentTypeCallback, decoderStartCallback = decoderStartCallback, decoderDecodeCallback = decoderDecodeCallback, decoderEndCallback = decoderEndCallback, freeDecoderCallback = freeDecoderCallback)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -3203,7 +3201,7 @@ public class WsChannelDecoder internal constructor(
 
     public companion object {
         public operator fun invoke(
-            createContext: MutPtr<CVoid> = MutPtr(0L),
+            createContext: MutPtr = MutPtr(0L),
             createDecoderCallback: WsCreateDecoderCallback = null,
             decoderGetContentTypeCallback: WsDecoderGetContentTypeCallback = null,
             decoderStartCallback: WsDecoderStartCallback = null,
@@ -3224,7 +3222,7 @@ public class WsChannelDecoder internal constructor(
 }
 
 public class WsChannelEncoder internal constructor(
-    createContextCtorArg: MutPtr<CVoid>,
+    createContextCtorArg: MutPtr,
     public var createEncoderCallback: WsCreateEncoderCallback,
     public var encoderGetContentTypeCallback: WsEncoderGetContentTypeCallback,
     public var encoderStartCallback: WsEncoderStartCallback,
@@ -3232,7 +3230,7 @@ public class WsChannelEncoder internal constructor(
     public var encoderEndCallback: WsEncoderEndCallback,
     public var freeEncoderCallback: WsFreeEncoderCallback,
 ) {
-    public var createContext: MutPtr<CVoid> = createContextCtorArg
+    public var createContext: MutPtr = createContextCtorArg
         internal set
 
     public constructor() : this(
@@ -3245,7 +3243,7 @@ public class WsChannelEncoder internal constructor(
         freeEncoderCallback = null,
     )
 
-    public operator fun component1(): MutPtr<CVoid> = this.createContext
+    public operator fun component1(): MutPtr = this.createContext
 
     public operator fun component2(): WsCreateEncoderCallback = this.createEncoderCallback
 
@@ -3259,7 +3257,7 @@ public class WsChannelEncoder internal constructor(
 
     public operator fun component7(): WsFreeEncoderCallback = this.freeEncoderCallback
 
-    public fun copy(createContext: MutPtr<CVoid> = this.createContext, createEncoderCallback: WsCreateEncoderCallback = this.createEncoderCallback, encoderGetContentTypeCallback: WsEncoderGetContentTypeCallback = this.encoderGetContentTypeCallback, encoderStartCallback: WsEncoderStartCallback = this.encoderStartCallback, encoderEncodeCallback: WsEncoderEncodeCallback = this.encoderEncodeCallback, encoderEndCallback: WsEncoderEndCallback = this.encoderEndCallback, freeEncoderCallback: WsFreeEncoderCallback = this.freeEncoderCallback): WsChannelEncoder = WsChannelEncoder(createContextCtorArg = createContext, createEncoderCallback = createEncoderCallback, encoderGetContentTypeCallback = encoderGetContentTypeCallback, encoderStartCallback = encoderStartCallback, encoderEncodeCallback = encoderEncodeCallback, encoderEndCallback = encoderEndCallback, freeEncoderCallback = freeEncoderCallback)
+    public fun copy(createContext: MutPtr = this.createContext, createEncoderCallback: WsCreateEncoderCallback = this.createEncoderCallback, encoderGetContentTypeCallback: WsEncoderGetContentTypeCallback = this.encoderGetContentTypeCallback, encoderStartCallback: WsEncoderStartCallback = this.encoderStartCallback, encoderEncodeCallback: WsEncoderEncodeCallback = this.encoderEncodeCallback, encoderEndCallback: WsEncoderEndCallback = this.encoderEndCallback, freeEncoderCallback: WsFreeEncoderCallback = this.freeEncoderCallback): WsChannelEncoder = WsChannelEncoder(createContextCtorArg = createContext, createEncoderCallback = createEncoderCallback, encoderGetContentTypeCallback = encoderGetContentTypeCallback, encoderStartCallback = encoderStartCallback, encoderEncodeCallback = encoderEncodeCallback, encoderEndCallback = encoderEndCallback, freeEncoderCallback = freeEncoderCallback)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -3287,7 +3285,7 @@ public class WsChannelEncoder internal constructor(
 
     public companion object {
         public operator fun invoke(
-            createContext: MutPtr<CVoid> = MutPtr(0L),
+            createContext: MutPtr = MutPtr(0L),
             createEncoderCallback: WsCreateEncoderCallback = null,
             encoderGetContentTypeCallback: WsEncoderGetContentTypeCallback = null,
             encoderStartCallback: WsEncoderStartCallback = null,
@@ -3308,10 +3306,10 @@ public class WsChannelEncoder internal constructor(
 }
 
 public class WsChannelProperties internal constructor(
-    propertiesCtorArg: MutPtr<WsChannelProperty>,
+    propertiesCtorArg: MutPtr,
     public var propertyCount: UInt,
 ) {
-    public var properties: MutPtr<WsChannelProperty> = propertiesCtorArg
+    public var properties: MutPtr = propertiesCtorArg
         internal set
 
     public constructor() : this(
@@ -3319,11 +3317,11 @@ public class WsChannelProperties internal constructor(
         propertyCount = 0u,
     )
 
-    public operator fun component1(): MutPtr<WsChannelProperty> = this.properties
+    public operator fun component1(): MutPtr = this.properties
 
     public operator fun component2(): UInt = this.propertyCount
 
-    public fun copy(properties: MutPtr<WsChannelProperty> = this.properties, propertyCount: UInt = this.propertyCount): WsChannelProperties = WsChannelProperties(propertiesCtorArg = properties, propertyCount = propertyCount)
+    public fun copy(properties: MutPtr = this.properties, propertyCount: UInt = this.propertyCount): WsChannelProperties = WsChannelProperties(propertiesCtorArg = properties, propertyCount = propertyCount)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -3348,21 +3346,21 @@ public class WsChannelProperties internal constructor(
                     WsChannelProperties(
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<WsChannelProperty>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 8L),
                     )
                 override fun writeNative(addr: Long, value: WsChannelProperties) {
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<WsChannelProperty>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr, value.properties)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 8L, value.propertyCount)
                 }
             }
 
         public operator fun invoke(
-            properties: MutPtr<WsChannelProperty> = MutPtr(0L),
+            properties: MutPtr = MutPtr(0L),
             propertyCount: UInt = 0u,
         ): WsChannelProperties =
             WsChannelProperties(
@@ -3374,10 +3372,10 @@ public class WsChannelProperties internal constructor(
 
 public class WsChannelProperty internal constructor(
     public var id: WsChannelPropertyId,
-    valueCtorArg: MutPtr<CVoid>,
+    valueCtorArg: MutPtr,
     public var valueSize: UInt,
 ) {
-    public var value: MutPtr<CVoid> = valueCtorArg
+    public var value: MutPtr = valueCtorArg
         internal set
 
     public constructor() : this(
@@ -3388,11 +3386,11 @@ public class WsChannelProperty internal constructor(
 
     public operator fun component1(): WsChannelPropertyId = this.id
 
-    public operator fun component2(): MutPtr<CVoid> = this.value
+    public operator fun component2(): MutPtr = this.value
 
     public operator fun component3(): UInt = this.valueSize
 
-    public fun copy(id: WsChannelPropertyId = this.id, value: MutPtr<CVoid> = this.value, valueSize: UInt = this.valueSize): WsChannelProperty = WsChannelProperty(id = id, valueCtorArg = value, valueSize = valueSize)
+    public fun copy(id: WsChannelPropertyId = this.id, value: MutPtr = this.value, valueSize: UInt = this.valueSize): WsChannelProperty = WsChannelProperty(id = id, valueCtorArg = value, valueSize = valueSize)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -3420,7 +3418,7 @@ public class WsChannelProperty internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<CVoid>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 16L),
                     )
@@ -3428,7 +3426,7 @@ public class WsChannelProperty internal constructor(
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr, value.id)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<CVoid>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.value)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 16L, value.valueSize)
                 }
@@ -3436,7 +3434,7 @@ public class WsChannelProperty internal constructor(
 
         public operator fun invoke(
             id: WsChannelPropertyId = 0,
-            value: MutPtr<CVoid> = MutPtr(0L),
+            value: MutPtr = MutPtr(0L),
             valueSize: UInt = 0u,
         ): WsChannelProperty =
             WsChannelProperty(
@@ -3449,11 +3447,11 @@ public class WsChannelProperty internal constructor(
 
 public class WsChannelPropertyConstraint internal constructor(
     public var id: WsChannelPropertyId,
-    allowedValuesCtorArg: MutPtr<CVoid>,
+    allowedValuesCtorArg: MutPtr,
     public var allowedValuesSize: UInt,
     public var out: WsChannelPropertyConstraint0,
 ) {
-    public var allowedValues: MutPtr<CVoid> = allowedValuesCtorArg
+    public var allowedValues: MutPtr = allowedValuesCtorArg
         internal set
 
     public constructor() : this(
@@ -3465,13 +3463,13 @@ public class WsChannelPropertyConstraint internal constructor(
 
     public operator fun component1(): WsChannelPropertyId = this.id
 
-    public operator fun component2(): MutPtr<CVoid> = this.allowedValues
+    public operator fun component2(): MutPtr = this.allowedValues
 
     public operator fun component3(): UInt = this.allowedValuesSize
 
     public operator fun component4(): WsChannelPropertyConstraint0 = this.out
 
-    public fun copy(id: WsChannelPropertyId = this.id, allowedValues: MutPtr<CVoid> = this.allowedValues, allowedValuesSize: UInt = this.allowedValuesSize, out: WsChannelPropertyConstraint0 = this.out): WsChannelPropertyConstraint = WsChannelPropertyConstraint(id = id, allowedValuesCtorArg = allowedValues, allowedValuesSize = allowedValuesSize, out = out)
+    public fun copy(id: WsChannelPropertyId = this.id, allowedValues: MutPtr = this.allowedValues, allowedValuesSize: UInt = this.allowedValuesSize, out: WsChannelPropertyConstraint0 = this.out): WsChannelPropertyConstraint = WsChannelPropertyConstraint(id = id, allowedValuesCtorArg = allowedValues, allowedValuesSize = allowedValuesSize, out = out)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -3501,7 +3499,7 @@ public class WsChannelPropertyConstraint internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<CVoid>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 16L),
                         (WsChannelPropertyConstraint0.typeLayout()).readNative(addr + 24L),
@@ -3510,7 +3508,7 @@ public class WsChannelPropertyConstraint internal constructor(
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr, value.id)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<CVoid>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.allowedValues)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 16L, value.allowedValuesSize)
                     (WsChannelPropertyConstraint0.typeLayout()).writeNative(addr + 24L, value.out)
@@ -3519,7 +3517,7 @@ public class WsChannelPropertyConstraint internal constructor(
 
         public operator fun invoke(
             id: WsChannelPropertyId = 0,
-            allowedValues: MutPtr<CVoid> = MutPtr(0L),
+            allowedValues: MutPtr = MutPtr(0L),
             allowedValuesSize: UInt = 0u,
             out: WsChannelPropertyConstraint0 = WsChannelPropertyConstraint0(),
         ): WsChannelPropertyConstraint =
@@ -3575,9 +3573,9 @@ public data class WsCharArrayDescription(
 
 public class WsContractDescription internal constructor(
     public var operationCount: UInt,
-    operationsCtorArg: MutPtr<MutPtr<WsOperationDescription>>,
+    operationsCtorArg: MutPtr,
 ) {
-    public var operations: MutPtr<MutPtr<WsOperationDescription>> = operationsCtorArg
+    public var operations: MutPtr = operationsCtorArg
         internal set
 
     public constructor() : this(
@@ -3587,9 +3585,9 @@ public class WsContractDescription internal constructor(
 
     public operator fun component1(): UInt = this.operationCount
 
-    public operator fun component2(): MutPtr<MutPtr<WsOperationDescription>> = this.operations
+    public operator fun component2(): MutPtr = this.operations
 
-    public fun copy(operationCount: UInt = this.operationCount, operations: MutPtr<MutPtr<WsOperationDescription>> = this.operations): WsContractDescription = WsContractDescription(operationCount = operationCount, operationsCtorArg = operations)
+    public fun copy(operationCount: UInt = this.operationCount, operations: MutPtr = this.operations): WsContractDescription = WsContractDescription(operationCount = operationCount, operationsCtorArg = operations)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -3615,21 +3613,21 @@ public class WsContractDescription internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<MutPtr<WsOperationDescription>>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                     )
                 override fun writeNative(addr: Long, value: WsContractDescription) {
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr, value.operationCount)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<MutPtr<WsOperationDescription>>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.operations)
                 }
             }
 
         public operator fun invoke(
             operationCount: UInt = 0u,
-            operations: MutPtr<MutPtr<WsOperationDescription>> = MutPtr(0L),
+            operations: MutPtr = MutPtr(0L),
         ): WsContractDescription =
             WsContractDescription(
                 operationCount = operationCount,
@@ -3641,14 +3639,14 @@ public class WsContractDescription internal constructor(
 public class WsCustomCertCredential internal constructor(
     public var credential: WsCertCredential,
     public var getCertCallback: WsGetCertCallback,
-    getCertCallbackStateCtorArg: MutPtr<CVoid>,
+    getCertCallbackStateCtorArg: MutPtr,
     public var certIssuerListNotificationCallback: WsCertIssuerListNotificationCallback,
-    certIssuerListNotificationCallbackStateCtorArg: MutPtr<CVoid>,
+    certIssuerListNotificationCallbackStateCtorArg: MutPtr,
 ) {
-    public var getCertCallbackState: MutPtr<CVoid> = getCertCallbackStateCtorArg
+    public var getCertCallbackState: MutPtr = getCertCallbackStateCtorArg
         internal set
 
-    public var certIssuerListNotificationCallbackState: MutPtr<CVoid> = certIssuerListNotificationCallbackStateCtorArg
+    public var certIssuerListNotificationCallbackState: MutPtr = certIssuerListNotificationCallbackStateCtorArg
         internal set
 
     public constructor() : this(
@@ -3663,13 +3661,13 @@ public class WsCustomCertCredential internal constructor(
 
     public operator fun component2(): WsGetCertCallback = this.getCertCallback
 
-    public operator fun component3(): MutPtr<CVoid> = this.getCertCallbackState
+    public operator fun component3(): MutPtr = this.getCertCallbackState
 
     public operator fun component4(): WsCertIssuerListNotificationCallback = this.certIssuerListNotificationCallback
 
-    public operator fun component5(): MutPtr<CVoid> = this.certIssuerListNotificationCallbackState
+    public operator fun component5(): MutPtr = this.certIssuerListNotificationCallbackState
 
-    public fun copy(credential: WsCertCredential = this.credential, getCertCallback: WsGetCertCallback = this.getCertCallback, getCertCallbackState: MutPtr<CVoid> = this.getCertCallbackState, certIssuerListNotificationCallback: WsCertIssuerListNotificationCallback = this.certIssuerListNotificationCallback, certIssuerListNotificationCallbackState: MutPtr<CVoid> = this.certIssuerListNotificationCallbackState): WsCustomCertCredential = WsCustomCertCredential(credential = credential, getCertCallback = getCertCallback, getCertCallbackStateCtorArg = getCertCallbackState, certIssuerListNotificationCallback = certIssuerListNotificationCallback, certIssuerListNotificationCallbackStateCtorArg = certIssuerListNotificationCallbackState)
+    public fun copy(credential: WsCertCredential = this.credential, getCertCallback: WsGetCertCallback = this.getCertCallback, getCertCallbackState: MutPtr = this.getCertCallbackState, certIssuerListNotificationCallback: WsCertIssuerListNotificationCallback = this.certIssuerListNotificationCallback, certIssuerListNotificationCallbackState: MutPtr = this.certIssuerListNotificationCallbackState): WsCustomCertCredential = WsCustomCertCredential(credential = credential, getCertCallback = getCertCallback, getCertCallbackStateCtorArg = getCertCallbackState, certIssuerListNotificationCallback = certIssuerListNotificationCallback, certIssuerListNotificationCallbackStateCtorArg = certIssuerListNotificationCallbackState)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -3695,9 +3693,9 @@ public class WsCustomCertCredential internal constructor(
         public operator fun invoke(
             credential: WsCertCredential = WsCertCredential(),
             getCertCallback: WsGetCertCallback = null,
-            getCertCallbackState: MutPtr<CVoid> = MutPtr(0L),
+            getCertCallbackState: MutPtr = MutPtr(0L),
             certIssuerListNotificationCallback: WsCertIssuerListNotificationCallback = null,
-            certIssuerListNotificationCallbackState: MutPtr<CVoid> = MutPtr(0L),
+            certIssuerListNotificationCallbackState: MutPtr = MutPtr(0L),
         ): WsCustomCertCredential =
             WsCustomCertCredential(
                 credential = credential,
@@ -3749,10 +3747,10 @@ public class WsCustomTypeDescription internal constructor(
     public var alignment: UInt,
     public var readCallback: WsReadTypeCallback,
     public var writeCallback: WsWriteTypeCallback,
-    descriptionDataCtorArg: MutPtr<CVoid>,
+    descriptionDataCtorArg: MutPtr,
     public var isDefaultValueCallback: WsIsDefaultValueCallback,
 ) {
-    public var descriptionData: MutPtr<CVoid> = descriptionDataCtorArg
+    public var descriptionData: MutPtr = descriptionDataCtorArg
         internal set
 
     public constructor() : this(
@@ -3772,11 +3770,11 @@ public class WsCustomTypeDescription internal constructor(
 
     public operator fun component4(): WsWriteTypeCallback = this.writeCallback
 
-    public operator fun component5(): MutPtr<CVoid> = this.descriptionData
+    public operator fun component5(): MutPtr = this.descriptionData
 
     public operator fun component6(): WsIsDefaultValueCallback = this.isDefaultValueCallback
 
-    public fun copy(size: UInt = this.size, alignment: UInt = this.alignment, readCallback: WsReadTypeCallback = this.readCallback, writeCallback: WsWriteTypeCallback = this.writeCallback, descriptionData: MutPtr<CVoid> = this.descriptionData, isDefaultValueCallback: WsIsDefaultValueCallback = this.isDefaultValueCallback): WsCustomTypeDescription = WsCustomTypeDescription(size = size, alignment = alignment, readCallback = readCallback, writeCallback = writeCallback, descriptionDataCtorArg = descriptionData, isDefaultValueCallback = isDefaultValueCallback)
+    public fun copy(size: UInt = this.size, alignment: UInt = this.alignment, readCallback: WsReadTypeCallback = this.readCallback, writeCallback: WsWriteTypeCallback = this.writeCallback, descriptionData: MutPtr = this.descriptionData, isDefaultValueCallback: WsIsDefaultValueCallback = this.isDefaultValueCallback): WsCustomTypeDescription = WsCustomTypeDescription(size = size, alignment = alignment, readCallback = readCallback, writeCallback = writeCallback, descriptionDataCtorArg = descriptionData, isDefaultValueCallback = isDefaultValueCallback)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -3806,7 +3804,7 @@ public class WsCustomTypeDescription internal constructor(
             alignment: UInt = 0u,
             readCallback: WsReadTypeCallback = null,
             writeCallback: WsWriteTypeCallback = null,
-            descriptionData: MutPtr<CVoid> = MutPtr(0L),
+            descriptionData: MutPtr = MutPtr(0L),
             isDefaultValueCallback: WsIsDefaultValueCallback = null,
         ): WsCustomTypeDescription =
             WsCustomTypeDescription(
@@ -3870,10 +3868,10 @@ public data class WsDecimalDescription(
 )
 
 public class WsDefaultValue internal constructor(
-    valueCtorArg: MutPtr<CVoid>,
+    valueCtorArg: MutPtr,
     public var valueSize: UInt,
 ) {
-    public var value: MutPtr<CVoid> = valueCtorArg
+    public var value: MutPtr = valueCtorArg
         internal set
 
     public constructor() : this(
@@ -3881,11 +3879,11 @@ public class WsDefaultValue internal constructor(
         valueSize = 0u,
     )
 
-    public operator fun component1(): MutPtr<CVoid> = this.value
+    public operator fun component1(): MutPtr = this.value
 
     public operator fun component2(): UInt = this.valueSize
 
-    public fun copy(value: MutPtr<CVoid> = this.value, valueSize: UInt = this.valueSize): WsDefaultValue = WsDefaultValue(valueCtorArg = value, valueSize = valueSize)
+    public fun copy(value: MutPtr = this.value, valueSize: UInt = this.valueSize): WsDefaultValue = WsDefaultValue(valueCtorArg = value, valueSize = valueSize)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -3910,21 +3908,21 @@ public class WsDefaultValue internal constructor(
                     WsDefaultValue(
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<CVoid>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 8L),
                     )
                 override fun writeNative(addr: Long, value: WsDefaultValue) {
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<CVoid>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr, value.value)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 8L, value.valueSize)
                 }
             }
 
         public operator fun invoke(
-            value: MutPtr<CVoid> = MutPtr(0L),
+            value: MutPtr = MutPtr(0L),
             valueSize: UInt = 0u,
         ): WsDefaultValue =
             WsDefaultValue(
@@ -3955,9 +3953,9 @@ public data class WsDefaultWindowsIntegratedAuthCredential(
 
 public class WsDisallowedUserAgentSubstrings internal constructor(
     public var subStringCount: UInt,
-    subStringsCtorArg: MutPtr<MutPtr<WsString>>,
+    subStringsCtorArg: MutPtr,
 ) {
-    public var subStrings: MutPtr<MutPtr<WsString>> = subStringsCtorArg
+    public var subStrings: MutPtr = subStringsCtorArg
         internal set
 
     public constructor() : this(
@@ -3967,9 +3965,9 @@ public class WsDisallowedUserAgentSubstrings internal constructor(
 
     public operator fun component1(): UInt = this.subStringCount
 
-    public operator fun component2(): MutPtr<MutPtr<WsString>> = this.subStrings
+    public operator fun component2(): MutPtr = this.subStrings
 
-    public fun copy(subStringCount: UInt = this.subStringCount, subStrings: MutPtr<MutPtr<WsString>> = this.subStrings): WsDisallowedUserAgentSubstrings = WsDisallowedUserAgentSubstrings(subStringCount = subStringCount, subStringsCtorArg = subStrings)
+    public fun copy(subStringCount: UInt = this.subStringCount, subStrings: MutPtr = this.subStrings): WsDisallowedUserAgentSubstrings = WsDisallowedUserAgentSubstrings(subStringCount = subStringCount, subStringsCtorArg = subStrings)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -3995,21 +3993,21 @@ public class WsDisallowedUserAgentSubstrings internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<MutPtr<WsString>>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                     )
                 override fun writeNative(addr: Long, value: WsDisallowedUserAgentSubstrings) {
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr, value.subStringCount)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<MutPtr<WsString>>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.subStrings)
                 }
             }
 
         public operator fun invoke(
             subStringCount: UInt = 0u,
-            subStrings: MutPtr<MutPtr<WsString>> = MutPtr(0L),
+            subStrings: MutPtr = MutPtr(0L),
         ): WsDisallowedUserAgentSubstrings =
             WsDisallowedUserAgentSubstrings(
                 subStringCount = subStringCount,
@@ -4095,18 +4093,18 @@ public data class WsDurationDescription(
 )
 
 public class WsElementDescription internal constructor(
-    elementLocalNameCtorArg: MutPtr<WsXmlString>,
-    elementNsCtorArg: MutPtr<WsXmlString>,
+    elementLocalNameCtorArg: MutPtr,
+    elementNsCtorArg: MutPtr,
     public var type: WsType,
-    typeDescriptionCtorArg: MutPtr<CVoid>,
+    typeDescriptionCtorArg: MutPtr,
 ) {
-    public var elementLocalName: MutPtr<WsXmlString> = elementLocalNameCtorArg
+    public var elementLocalName: MutPtr = elementLocalNameCtorArg
         internal set
 
-    public var elementNs: MutPtr<WsXmlString> = elementNsCtorArg
+    public var elementNs: MutPtr = elementNsCtorArg
         internal set
 
-    public var typeDescription: MutPtr<CVoid> = typeDescriptionCtorArg
+    public var typeDescription: MutPtr = typeDescriptionCtorArg
         internal set
 
     public constructor() : this(
@@ -4116,15 +4114,15 @@ public class WsElementDescription internal constructor(
         typeDescriptionCtorArg = MutPtr(0L),
     )
 
-    public operator fun component1(): MutPtr<WsXmlString> = this.elementLocalName
+    public operator fun component1(): MutPtr = this.elementLocalName
 
-    public operator fun component2(): MutPtr<WsXmlString> = this.elementNs
+    public operator fun component2(): MutPtr = this.elementNs
 
     public operator fun component3(): WsType = this.type
 
-    public operator fun component4(): MutPtr<CVoid> = this.typeDescription
+    public operator fun component4(): MutPtr = this.typeDescription
 
-    public fun copy(elementLocalName: MutPtr<WsXmlString> = this.elementLocalName, elementNs: MutPtr<WsXmlString> = this.elementNs, type: WsType = this.type, typeDescription: MutPtr<CVoid> = this.typeDescription): WsElementDescription = WsElementDescription(elementLocalNameCtorArg = elementLocalName, elementNsCtorArg = elementNs, type = type, typeDescriptionCtorArg = typeDescription)
+    public fun copy(elementLocalName: MutPtr = this.elementLocalName, elementNs: MutPtr = this.elementNs, type: WsType = this.type, typeDescription: MutPtr = this.typeDescription): WsElementDescription = WsElementDescription(elementLocalNameCtorArg = elementLocalName, elementNsCtorArg = elementNs, type = type, typeDescriptionCtorArg = typeDescription)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -4153,40 +4151,40 @@ public class WsElementDescription internal constructor(
                     WsElementDescription(
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<WsXmlString>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<WsXmlString>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr + 16L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<CVoid>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 24L),
                     )
                 override fun writeNative(addr: Long, value: WsElementDescription) {
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<WsXmlString>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr, value.elementLocalName)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<WsXmlString>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.elementNs)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr + 16L, value.type)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<CVoid>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 24L, value.typeDescription)
                 }
             }
 
         public operator fun invoke(
-            elementLocalName: MutPtr<WsXmlString> = MutPtr(0L),
-            elementNs: MutPtr<WsXmlString> = MutPtr(0L),
+            elementLocalName: MutPtr = MutPtr(0L),
+            elementNs: MutPtr = MutPtr(0L),
             type: WsType = 0,
-            typeDescription: MutPtr<CVoid> = MutPtr(0L),
+            typeDescription: MutPtr = MutPtr(0L),
         ): WsElementDescription =
             WsElementDescription(
                 elementLocalNameCtorArg = elementLocalName,
@@ -4199,17 +4197,17 @@ public class WsElementDescription internal constructor(
 
 public class WsEndpointAddress internal constructor(
     public var url: WsString,
-    headersCtorArg: MutPtr<WsXmlBuffer>,
-    extensionsCtorArg: MutPtr<WsXmlBuffer>,
-    identityCtorArg: MutPtr<WsEndpointIdentity>,
+    headersCtorArg: MutPtr,
+    extensionsCtorArg: MutPtr,
+    identityCtorArg: MutPtr,
 ) {
-    public var headers: MutPtr<WsXmlBuffer> = headersCtorArg
+    public var headers: MutPtr = headersCtorArg
         internal set
 
-    public var extensions: MutPtr<WsXmlBuffer> = extensionsCtorArg
+    public var extensions: MutPtr = extensionsCtorArg
         internal set
 
-    public var identity: MutPtr<WsEndpointIdentity> = identityCtorArg
+    public var identity: MutPtr = identityCtorArg
         internal set
 
     public constructor() : this(
@@ -4221,13 +4219,13 @@ public class WsEndpointAddress internal constructor(
 
     public operator fun component1(): WsString = this.url
 
-    public operator fun component2(): MutPtr<WsXmlBuffer> = this.headers
+    public operator fun component2(): MutPtr = this.headers
 
-    public operator fun component3(): MutPtr<WsXmlBuffer> = this.extensions
+    public operator fun component3(): MutPtr = this.extensions
 
-    public operator fun component4(): MutPtr<WsEndpointIdentity> = this.identity
+    public operator fun component4(): MutPtr = this.identity
 
-    public fun copy(url: WsString = this.url, headers: MutPtr<WsXmlBuffer> = this.headers, extensions: MutPtr<WsXmlBuffer> = this.extensions, identity: MutPtr<WsEndpointIdentity> = this.identity): WsEndpointAddress = WsEndpointAddress(url = url, headersCtorArg = headers, extensionsCtorArg = extensions, identityCtorArg = identity)
+    public fun copy(url: WsString = this.url, headers: MutPtr = this.headers, extensions: MutPtr = this.extensions, identity: MutPtr = this.identity): WsEndpointAddress = WsEndpointAddress(url = url, headersCtorArg = headers, extensionsCtorArg = extensions, identityCtorArg = identity)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -4250,9 +4248,9 @@ public class WsEndpointAddress internal constructor(
     public companion object {
         public operator fun invoke(
             url: WsString = WsString(),
-            headers: MutPtr<WsXmlBuffer> = MutPtr(0L),
-            extensions: MutPtr<WsXmlBuffer> = MutPtr(0L),
-            identity: MutPtr<WsEndpointIdentity> = MutPtr(0L),
+            headers: MutPtr = MutPtr(0L),
+            extensions: MutPtr = MutPtr(0L),
+            identity: MutPtr = MutPtr(0L),
         ): WsEndpointAddress =
             WsEndpointAddress(
                 url = url,
@@ -4303,14 +4301,14 @@ public data class WsEndpointIdentity(
 
 public class WsEndpointPolicyExtension internal constructor(
     public var policyExtension: WsPolicyExtension,
-    assertionNameCtorArg: MutPtr<WsXmlString>,
-    assertionNsCtorArg: MutPtr<WsXmlString>,
+    assertionNameCtorArg: MutPtr,
+    assertionNsCtorArg: MutPtr,
     public var out: WsEndpointPolicyExtension0,
 ) {
-    public var assertionName: MutPtr<WsXmlString> = assertionNameCtorArg
+    public var assertionName: MutPtr = assertionNameCtorArg
         internal set
 
-    public var assertionNs: MutPtr<WsXmlString> = assertionNsCtorArg
+    public var assertionNs: MutPtr = assertionNsCtorArg
         internal set
 
     public constructor() : this(
@@ -4322,13 +4320,13 @@ public class WsEndpointPolicyExtension internal constructor(
 
     public operator fun component1(): WsPolicyExtension = this.policyExtension
 
-    public operator fun component2(): MutPtr<WsXmlString> = this.assertionName
+    public operator fun component2(): MutPtr = this.assertionName
 
-    public operator fun component3(): MutPtr<WsXmlString> = this.assertionNs
+    public operator fun component3(): MutPtr = this.assertionNs
 
     public operator fun component4(): WsEndpointPolicyExtension0 = this.out
 
-    public fun copy(policyExtension: WsPolicyExtension = this.policyExtension, assertionName: MutPtr<WsXmlString> = this.assertionName, assertionNs: MutPtr<WsXmlString> = this.assertionNs, out: WsEndpointPolicyExtension0 = this.out): WsEndpointPolicyExtension = WsEndpointPolicyExtension(policyExtension = policyExtension, assertionNameCtorArg = assertionName, assertionNsCtorArg = assertionNs, out = out)
+    public fun copy(policyExtension: WsPolicyExtension = this.policyExtension, assertionName: MutPtr = this.assertionName, assertionNs: MutPtr = this.assertionNs, out: WsEndpointPolicyExtension0 = this.out): WsEndpointPolicyExtension = WsEndpointPolicyExtension(policyExtension = policyExtension, assertionNameCtorArg = assertionName, assertionNsCtorArg = assertionNs, out = out)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -4358,11 +4356,11 @@ public class WsEndpointPolicyExtension internal constructor(
                         (WsPolicyExtension.typeLayout()).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<WsXmlString>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<WsXmlString>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 16L),
                         (WsEndpointPolicyExtension0.typeLayout()).readNative(addr + 24L),
                     )
@@ -4370,11 +4368,11 @@ public class WsEndpointPolicyExtension internal constructor(
                     (WsPolicyExtension.typeLayout()).writeNative(addr, value.policyExtension)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<WsXmlString>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.assertionName)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<WsXmlString>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 16L, value.assertionNs)
                     (WsEndpointPolicyExtension0.typeLayout()).writeNative(addr + 24L, value.out)
                 }
@@ -4382,8 +4380,8 @@ public class WsEndpointPolicyExtension internal constructor(
 
         public operator fun invoke(
             policyExtension: WsPolicyExtension = WsPolicyExtension(),
-            assertionName: MutPtr<WsXmlString> = MutPtr(0L),
-            assertionNs: MutPtr<WsXmlString> = MutPtr(0L),
+            assertionName: MutPtr = MutPtr(0L),
+            assertionNs: MutPtr = MutPtr(0L),
             out: WsEndpointPolicyExtension0 = WsEndpointPolicyExtension0(),
         ): WsEndpointPolicyExtension =
             WsEndpointPolicyExtension(
@@ -4396,18 +4394,18 @@ public class WsEndpointPolicyExtension internal constructor(
 }
 
 public class WsEndpointPolicyExtension0 internal constructor(
-    assertionValueCtorArg: MutPtr<WsXmlBuffer>,
+    assertionValueCtorArg: MutPtr,
 ) {
-    public var assertionValue: MutPtr<WsXmlBuffer> = assertionValueCtorArg
+    public var assertionValue: MutPtr = assertionValueCtorArg
         internal set
 
     public constructor() : this(
         assertionValueCtorArg = MutPtr(0L),
     )
 
-    public operator fun component1(): MutPtr<WsXmlBuffer> = this.assertionValue
+    public operator fun component1(): MutPtr = this.assertionValue
 
-    public fun copy(assertionValue: MutPtr<WsXmlBuffer> = this.assertionValue): WsEndpointPolicyExtension0 = WsEndpointPolicyExtension0(assertionValueCtorArg = assertionValue)
+    public fun copy(assertionValue: MutPtr = this.assertionValue): WsEndpointPolicyExtension0 = WsEndpointPolicyExtension0(assertionValueCtorArg = assertionValue)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -4427,19 +4425,19 @@ public class WsEndpointPolicyExtension0 internal constructor(
                     WsEndpointPolicyExtension0(
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<WsXmlBuffer>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr),
                     )
                 override fun writeNative(addr: Long, value: WsEndpointPolicyExtension0) {
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<WsXmlBuffer>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr, value.assertionValue)
                 }
             }
 
         public operator fun invoke(
-            assertionValue: MutPtr<WsXmlBuffer> = MutPtr(0L),
+            assertionValue: MutPtr = MutPtr(0L),
         ): WsEndpointPolicyExtension0 =
             WsEndpointPolicyExtension0(
                 assertionValueCtorArg = assertionValue,
@@ -4448,15 +4446,15 @@ public class WsEndpointPolicyExtension0 internal constructor(
 }
 
 public class WsEnumDescription internal constructor(
-    valuesCtorArg: MutPtr<WsEnumValue>,
+    valuesCtorArg: MutPtr,
     public var valueCount: UInt,
     public var maxByteCount: UInt,
-    nameIndicesCtorArg: MutPtr<UInt>,
+    nameIndicesCtorArg: MutPtr,
 ) {
-    public var values: MutPtr<WsEnumValue> = valuesCtorArg
+    public var values: MutPtr = valuesCtorArg
         internal set
 
-    public var nameIndices: MutPtr<UInt> = nameIndicesCtorArg
+    public var nameIndices: MutPtr = nameIndicesCtorArg
         internal set
 
     public constructor() : this(
@@ -4466,15 +4464,15 @@ public class WsEnumDescription internal constructor(
         nameIndicesCtorArg = MutPtr(0L),
     )
 
-    public operator fun component1(): MutPtr<WsEnumValue> = this.values
+    public operator fun component1(): MutPtr = this.values
 
     public operator fun component2(): UInt = this.valueCount
 
     public operator fun component3(): UInt = this.maxByteCount
 
-    public operator fun component4(): MutPtr<UInt> = this.nameIndices
+    public operator fun component4(): MutPtr = this.nameIndices
 
-    public fun copy(values: MutPtr<WsEnumValue> = this.values, valueCount: UInt = this.valueCount, maxByteCount: UInt = this.maxByteCount, nameIndices: MutPtr<UInt> = this.nameIndices): WsEnumDescription = WsEnumDescription(valuesCtorArg = values, valueCount = valueCount, maxByteCount = maxByteCount, nameIndicesCtorArg = nameIndices)
+    public fun copy(values: MutPtr = this.values, valueCount: UInt = this.valueCount, maxByteCount: UInt = this.maxByteCount, nameIndices: MutPtr = this.nameIndices): WsEnumDescription = WsEnumDescription(valuesCtorArg = values, valueCount = valueCount, maxByteCount = maxByteCount, nameIndicesCtorArg = nameIndices)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -4503,34 +4501,34 @@ public class WsEnumDescription internal constructor(
                     WsEnumDescription(
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<WsEnumValue>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 8L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 12L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<UInt>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 16L),
                     )
                 override fun writeNative(addr: Long, value: WsEnumDescription) {
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<WsEnumValue>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr, value.values)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 8L, value.valueCount)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 12L, value.maxByteCount)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<UInt>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 16L, value.nameIndices)
                 }
             }
 
         public operator fun invoke(
-            values: MutPtr<WsEnumValue> = MutPtr(0L),
+            values: MutPtr = MutPtr(0L),
             valueCount: UInt = 0u,
             maxByteCount: UInt = 0u,
-            nameIndices: MutPtr<UInt> = MutPtr(0L),
+            nameIndices: MutPtr = MutPtr(0L),
         ): WsEnumDescription =
             WsEnumDescription(
                 valuesCtorArg = values,
@@ -4543,9 +4541,9 @@ public class WsEnumDescription internal constructor(
 
 public class WsEnumValue internal constructor(
     public var value: Int,
-    nameCtorArg: MutPtr<WsXmlString>,
+    nameCtorArg: MutPtr,
 ) {
-    public var name: MutPtr<WsXmlString> = nameCtorArg
+    public var name: MutPtr = nameCtorArg
         internal set
 
     public constructor() : this(
@@ -4555,9 +4553,9 @@ public class WsEnumValue internal constructor(
 
     public operator fun component1(): Int = this.value
 
-    public operator fun component2(): MutPtr<WsXmlString> = this.name
+    public operator fun component2(): MutPtr = this.name
 
-    public fun copy(value: Int = this.value, name: MutPtr<WsXmlString> = this.name): WsEnumValue = WsEnumValue(value = value, nameCtorArg = name)
+    public fun copy(value: Int = this.value, name: MutPtr = this.name): WsEnumValue = WsEnumValue(value = value, nameCtorArg = name)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -4583,21 +4581,21 @@ public class WsEnumValue internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<WsXmlString>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                     )
                 override fun writeNative(addr: Long, value: WsEnumValue) {
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr, value.value)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<WsXmlString>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.name)
                 }
             }
 
         public operator fun invoke(
             value: Int = 0,
-            name: MutPtr<WsXmlString> = MutPtr(0L),
+            name: MutPtr = MutPtr(0L),
         ): WsEnumValue =
             WsEnumValue(
                 value = value,
@@ -4608,10 +4606,10 @@ public class WsEnumValue internal constructor(
 
 public class WsErrorProperty internal constructor(
     public var id: WsErrorPropertyId,
-    valueCtorArg: MutPtr<CVoid>,
+    valueCtorArg: MutPtr,
     public var valueSize: UInt,
 ) {
-    public var value: MutPtr<CVoid> = valueCtorArg
+    public var value: MutPtr = valueCtorArg
         internal set
 
     public constructor() : this(
@@ -4622,11 +4620,11 @@ public class WsErrorProperty internal constructor(
 
     public operator fun component1(): WsErrorPropertyId = this.id
 
-    public operator fun component2(): MutPtr<CVoid> = this.value
+    public operator fun component2(): MutPtr = this.value
 
     public operator fun component3(): UInt = this.valueSize
 
-    public fun copy(id: WsErrorPropertyId = this.id, value: MutPtr<CVoid> = this.value, valueSize: UInt = this.valueSize): WsErrorProperty = WsErrorProperty(id = id, valueCtorArg = value, valueSize = valueSize)
+    public fun copy(id: WsErrorPropertyId = this.id, value: MutPtr = this.value, valueSize: UInt = this.valueSize): WsErrorProperty = WsErrorProperty(id = id, valueCtorArg = value, valueSize = valueSize)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -4654,7 +4652,7 @@ public class WsErrorProperty internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<CVoid>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 16L),
                     )
@@ -4662,7 +4660,7 @@ public class WsErrorProperty internal constructor(
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr, value.id)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<CVoid>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.value)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 16L, value.valueSize)
                 }
@@ -4670,7 +4668,7 @@ public class WsErrorProperty internal constructor(
 
         public operator fun invoke(
             id: WsErrorPropertyId = 0,
-            value: MutPtr<CVoid> = MutPtr(0L),
+            value: MutPtr = MutPtr(0L),
             valueSize: UInt = 0u,
         ): WsErrorProperty =
             WsErrorProperty(
@@ -4682,20 +4680,20 @@ public class WsErrorProperty internal constructor(
 }
 
 public class WsFault internal constructor(
-    codeCtorArg: MutPtr<WsFaultCode>,
-    reasonsCtorArg: MutPtr<WsFaultReason>,
+    codeCtorArg: MutPtr,
+    reasonsCtorArg: MutPtr,
     public var reasonCount: UInt,
     public var actor: WsString,
     public var node: WsString,
-    detailCtorArg: MutPtr<WsXmlBuffer>,
+    detailCtorArg: MutPtr,
 ) {
-    public var code: MutPtr<WsFaultCode> = codeCtorArg
+    public var code: MutPtr = codeCtorArg
         internal set
 
-    public var reasons: MutPtr<WsFaultReason> = reasonsCtorArg
+    public var reasons: MutPtr = reasonsCtorArg
         internal set
 
-    public var detail: MutPtr<WsXmlBuffer> = detailCtorArg
+    public var detail: MutPtr = detailCtorArg
         internal set
 
     public constructor() : this(
@@ -4707,9 +4705,9 @@ public class WsFault internal constructor(
         detailCtorArg = MutPtr(0L),
     )
 
-    public operator fun component1(): MutPtr<WsFaultCode> = this.code
+    public operator fun component1(): MutPtr = this.code
 
-    public operator fun component2(): MutPtr<WsFaultReason> = this.reasons
+    public operator fun component2(): MutPtr = this.reasons
 
     public operator fun component3(): UInt = this.reasonCount
 
@@ -4717,9 +4715,9 @@ public class WsFault internal constructor(
 
     public operator fun component5(): WsString = this.node
 
-    public operator fun component6(): MutPtr<WsXmlBuffer> = this.detail
+    public operator fun component6(): MutPtr = this.detail
 
-    public fun copy(code: MutPtr<WsFaultCode> = this.code, reasons: MutPtr<WsFaultReason> = this.reasons, reasonCount: UInt = this.reasonCount, actor: WsString = this.actor, node: WsString = this.node, detail: MutPtr<WsXmlBuffer> = this.detail): WsFault = WsFault(codeCtorArg = code, reasonsCtorArg = reasons, reasonCount = reasonCount, actor = actor, node = node, detailCtorArg = detail)
+    public fun copy(code: MutPtr = this.code, reasons: MutPtr = this.reasons, reasonCount: UInt = this.reasonCount, actor: WsString = this.actor, node: WsString = this.node, detail: MutPtr = this.detail): WsFault = WsFault(codeCtorArg = code, reasonsCtorArg = reasons, reasonCount = reasonCount, actor = actor, node = node, detailCtorArg = detail)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -4745,12 +4743,12 @@ public class WsFault internal constructor(
 
     public companion object {
         public operator fun invoke(
-            code: MutPtr<WsFaultCode> = MutPtr(0L),
-            reasons: MutPtr<WsFaultReason> = MutPtr(0L),
+            code: MutPtr = MutPtr(0L),
+            reasons: MutPtr = MutPtr(0L),
             reasonCount: UInt = 0u,
             actor: WsString = WsString(),
             node: WsString = WsString(),
-            detail: MutPtr<WsXmlBuffer> = MutPtr(0L),
+            detail: MutPtr = MutPtr(0L),
         ): WsFault =
             WsFault(
                 codeCtorArg = code,
@@ -4765,9 +4763,9 @@ public class WsFault internal constructor(
 
 public class WsFaultCode internal constructor(
     public var value: WsXmlQname,
-    subCodeCtorArg: MutPtr<WsFaultCode>,
+    subCodeCtorArg: MutPtr,
 ) {
-    public var subCode: MutPtr<WsFaultCode> = subCodeCtorArg
+    public var subCode: MutPtr = subCodeCtorArg
         internal set
 
     public constructor() : this(
@@ -4777,9 +4775,9 @@ public class WsFaultCode internal constructor(
 
     public operator fun component1(): WsXmlQname = this.value
 
-    public operator fun component2(): MutPtr<WsFaultCode> = this.subCode
+    public operator fun component2(): MutPtr = this.subCode
 
-    public fun copy(value: WsXmlQname = this.value, subCode: MutPtr<WsFaultCode> = this.subCode): WsFaultCode = WsFaultCode(value = value, subCodeCtorArg = subCode)
+    public fun copy(value: WsXmlQname = this.value, subCode: MutPtr = this.subCode): WsFaultCode = WsFaultCode(value = value, subCodeCtorArg = subCode)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -4805,21 +4803,21 @@ public class WsFaultCode internal constructor(
                         (WsXmlQname.typeLayout()).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<WsFaultCode>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 64L),
                     )
                 override fun writeNative(addr: Long, value: WsFaultCode) {
                     (WsXmlQname.typeLayout()).writeNative(addr, value.value)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<WsFaultCode>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 64L, value.subCode)
                 }
             }
 
         public operator fun invoke(
             value: WsXmlQname = WsXmlQname(),
-            subCode: MutPtr<WsFaultCode> = MutPtr(0L),
+            subCode: MutPtr = MutPtr(0L),
         ): WsFaultCode =
             WsFaultCode(
                 value = value,
@@ -4848,13 +4846,13 @@ public data class WsFaultDescription(
 }
 
 public class WsFaultDetailDescription internal constructor(
-    actionCtorArg: MutPtr<WsXmlString>,
-    detailElementDescriptionCtorArg: MutPtr<WsElementDescription>,
+    actionCtorArg: MutPtr,
+    detailElementDescriptionCtorArg: MutPtr,
 ) {
-    public var action: MutPtr<WsXmlString> = actionCtorArg
+    public var action: MutPtr = actionCtorArg
         internal set
 
-    public var detailElementDescription: MutPtr<WsElementDescription> = detailElementDescriptionCtorArg
+    public var detailElementDescription: MutPtr = detailElementDescriptionCtorArg
         internal set
 
     public constructor() : this(
@@ -4862,11 +4860,11 @@ public class WsFaultDetailDescription internal constructor(
         detailElementDescriptionCtorArg = MutPtr(0L),
     )
 
-    public operator fun component1(): MutPtr<WsXmlString> = this.action
+    public operator fun component1(): MutPtr = this.action
 
-    public operator fun component2(): MutPtr<WsElementDescription> = this.detailElementDescription
+    public operator fun component2(): MutPtr = this.detailElementDescription
 
-    public fun copy(action: MutPtr<WsXmlString> = this.action, detailElementDescription: MutPtr<WsElementDescription> = this.detailElementDescription): WsFaultDetailDescription = WsFaultDetailDescription(actionCtorArg = action, detailElementDescriptionCtorArg = detailElementDescription)
+    public fun copy(action: MutPtr = this.action, detailElementDescription: MutPtr = this.detailElementDescription): WsFaultDetailDescription = WsFaultDetailDescription(actionCtorArg = action, detailElementDescriptionCtorArg = detailElementDescription)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -4891,28 +4889,28 @@ public class WsFaultDetailDescription internal constructor(
                     WsFaultDetailDescription(
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<WsXmlString>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<WsElementDescription>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                     )
                 override fun writeNative(addr: Long, value: WsFaultDetailDescription) {
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<WsXmlString>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr, value.action)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<WsElementDescription>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.detailElementDescription)
                 }
             }
 
         public operator fun invoke(
-            action: MutPtr<WsXmlString> = MutPtr(0L),
-            detailElementDescription: MutPtr<WsElementDescription> = MutPtr(0L),
+            action: MutPtr = MutPtr(0L),
+            detailElementDescription: MutPtr = MutPtr(0L),
         ): WsFaultDetailDescription =
             WsFaultDetailDescription(
                 actionCtorArg = action,
@@ -4928,37 +4926,37 @@ public data class WsFaultReason(
 
 public class WsFieldDescription internal constructor(
     public var mapping: WsFieldMapping,
-    localNameCtorArg: MutPtr<WsXmlString>,
-    nsCtorArg: MutPtr<WsXmlString>,
+    localNameCtorArg: MutPtr,
+    nsCtorArg: MutPtr,
     public var type: WsType,
-    typeDescriptionCtorArg: MutPtr<CVoid>,
+    typeDescriptionCtorArg: MutPtr,
     public var offset: UInt,
     public var options: UInt,
-    defaultValueCtorArg: MutPtr<WsDefaultValue>,
+    defaultValueCtorArg: MutPtr,
     public var countOffset: UInt,
-    itemLocalNameCtorArg: MutPtr<WsXmlString>,
-    itemNsCtorArg: MutPtr<WsXmlString>,
-    itemRangeCtorArg: MutPtr<WsItemRange>,
+    itemLocalNameCtorArg: MutPtr,
+    itemNsCtorArg: MutPtr,
+    itemRangeCtorArg: MutPtr,
 ) {
-    public var localName: MutPtr<WsXmlString> = localNameCtorArg
+    public var localName: MutPtr = localNameCtorArg
         internal set
 
-    public var ns: MutPtr<WsXmlString> = nsCtorArg
+    public var ns: MutPtr = nsCtorArg
         internal set
 
-    public var typeDescription: MutPtr<CVoid> = typeDescriptionCtorArg
+    public var typeDescription: MutPtr = typeDescriptionCtorArg
         internal set
 
-    public var defaultValue: MutPtr<WsDefaultValue> = defaultValueCtorArg
+    public var defaultValue: MutPtr = defaultValueCtorArg
         internal set
 
-    public var itemLocalName: MutPtr<WsXmlString> = itemLocalNameCtorArg
+    public var itemLocalName: MutPtr = itemLocalNameCtorArg
         internal set
 
-    public var itemNs: MutPtr<WsXmlString> = itemNsCtorArg
+    public var itemNs: MutPtr = itemNsCtorArg
         internal set
 
-    public var itemRange: MutPtr<WsItemRange> = itemRangeCtorArg
+    public var itemRange: MutPtr = itemRangeCtorArg
         internal set
 
     public constructor() : this(
@@ -4978,29 +4976,29 @@ public class WsFieldDescription internal constructor(
 
     public operator fun component1(): WsFieldMapping = this.mapping
 
-    public operator fun component2(): MutPtr<WsXmlString> = this.localName
+    public operator fun component2(): MutPtr = this.localName
 
-    public operator fun component3(): MutPtr<WsXmlString> = this.ns
+    public operator fun component3(): MutPtr = this.ns
 
     public operator fun component4(): WsType = this.type
 
-    public operator fun component5(): MutPtr<CVoid> = this.typeDescription
+    public operator fun component5(): MutPtr = this.typeDescription
 
     public operator fun component6(): UInt = this.offset
 
     public operator fun component7(): UInt = this.options
 
-    public operator fun component8(): MutPtr<WsDefaultValue> = this.defaultValue
+    public operator fun component8(): MutPtr = this.defaultValue
 
     public operator fun component9(): UInt = this.countOffset
 
-    public operator fun component10(): MutPtr<WsXmlString> = this.itemLocalName
+    public operator fun component10(): MutPtr = this.itemLocalName
 
-    public operator fun component11(): MutPtr<WsXmlString> = this.itemNs
+    public operator fun component11(): MutPtr = this.itemNs
 
-    public operator fun component12(): MutPtr<WsItemRange> = this.itemRange
+    public operator fun component12(): MutPtr = this.itemRange
 
-    public fun copy(mapping: WsFieldMapping = this.mapping, localName: MutPtr<WsXmlString> = this.localName, ns: MutPtr<WsXmlString> = this.ns, type: WsType = this.type, typeDescription: MutPtr<CVoid> = this.typeDescription, offset: UInt = this.offset, options: UInt = this.options, defaultValue: MutPtr<WsDefaultValue> = this.defaultValue, countOffset: UInt = this.countOffset, itemLocalName: MutPtr<WsXmlString> = this.itemLocalName, itemNs: MutPtr<WsXmlString> = this.itemNs, itemRange: MutPtr<WsItemRange> = this.itemRange): WsFieldDescription = WsFieldDescription(mapping = mapping, localNameCtorArg = localName, nsCtorArg = ns, type = type, typeDescriptionCtorArg = typeDescription, offset = offset, options = options, defaultValueCtorArg = defaultValue, countOffset = countOffset, itemLocalNameCtorArg = itemLocalName, itemNsCtorArg = itemNs, itemRangeCtorArg = itemRange)
+    public fun copy(mapping: WsFieldMapping = this.mapping, localName: MutPtr = this.localName, ns: MutPtr = this.ns, type: WsType = this.type, typeDescription: MutPtr = this.typeDescription, offset: UInt = this.offset, options: UInt = this.options, defaultValue: MutPtr = this.defaultValue, countOffset: UInt = this.countOffset, itemLocalName: MutPtr = this.itemLocalName, itemNs: MutPtr = this.itemNs, itemRange: MutPtr = this.itemRange): WsFieldDescription = WsFieldDescription(mapping = mapping, localNameCtorArg = localName, nsCtorArg = ns, type = type, typeDescriptionCtorArg = typeDescription, offset = offset, options = options, defaultValueCtorArg = defaultValue, countOffset = countOffset, itemLocalNameCtorArg = itemLocalName, itemNsCtorArg = itemNs, itemRangeCtorArg = itemRange)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -5046,87 +5044,87 @@ public class WsFieldDescription internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<WsXmlString>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<WsXmlString>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 16L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr + 24L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<CVoid>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 32L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 40L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 44L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<WsDefaultValue>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 48L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 56L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<WsXmlString>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 64L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<WsXmlString>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 72L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<WsItemRange>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 80L),
                     )
                 override fun writeNative(addr: Long, value: WsFieldDescription) {
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr, value.mapping)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<WsXmlString>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.localName)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<WsXmlString>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 16L, value.ns)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr + 24L, value.type)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<CVoid>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 32L, value.typeDescription)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 40L, value.offset)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 44L, value.options)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<WsDefaultValue>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 48L, value.defaultValue)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 56L, value.countOffset)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<WsXmlString>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 64L, value.itemLocalName)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<WsXmlString>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 72L, value.itemNs)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<WsItemRange>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 80L, value.itemRange)
                 }
             }
 
         public operator fun invoke(
             mapping: WsFieldMapping = 0,
-            localName: MutPtr<WsXmlString> = MutPtr(0L),
-            ns: MutPtr<WsXmlString> = MutPtr(0L),
+            localName: MutPtr = MutPtr(0L),
+            ns: MutPtr = MutPtr(0L),
             type: WsType = 0,
-            typeDescription: MutPtr<CVoid> = MutPtr(0L),
+            typeDescription: MutPtr = MutPtr(0L),
             offset: UInt = 0u,
             options: UInt = 0u,
-            defaultValue: MutPtr<WsDefaultValue> = MutPtr(0L),
+            defaultValue: MutPtr = MutPtr(0L),
             countOffset: UInt = 0u,
-            itemLocalName: MutPtr<WsXmlString> = MutPtr(0L),
-            itemNs: MutPtr<WsXmlString> = MutPtr(0L),
-            itemRange: MutPtr<WsItemRange> = MutPtr(0L),
+            itemLocalName: MutPtr = MutPtr(0L),
+            itemNs: MutPtr = MutPtr(0L),
+            itemRange: MutPtr = MutPtr(0L),
         ): WsFieldDescription =
             WsFieldDescription(
                 mapping = mapping,
@@ -5172,10 +5170,10 @@ public data class WsGuidDescription(
 )
 
 public class WsHeapProperties internal constructor(
-    propertiesCtorArg: MutPtr<WsHeapProperty>,
+    propertiesCtorArg: MutPtr,
     public var propertyCount: UInt,
 ) {
-    public var properties: MutPtr<WsHeapProperty> = propertiesCtorArg
+    public var properties: MutPtr = propertiesCtorArg
         internal set
 
     public constructor() : this(
@@ -5183,11 +5181,11 @@ public class WsHeapProperties internal constructor(
         propertyCount = 0u,
     )
 
-    public operator fun component1(): MutPtr<WsHeapProperty> = this.properties
+    public operator fun component1(): MutPtr = this.properties
 
     public operator fun component2(): UInt = this.propertyCount
 
-    public fun copy(properties: MutPtr<WsHeapProperty> = this.properties, propertyCount: UInt = this.propertyCount): WsHeapProperties = WsHeapProperties(propertiesCtorArg = properties, propertyCount = propertyCount)
+    public fun copy(properties: MutPtr = this.properties, propertyCount: UInt = this.propertyCount): WsHeapProperties = WsHeapProperties(propertiesCtorArg = properties, propertyCount = propertyCount)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -5212,21 +5210,21 @@ public class WsHeapProperties internal constructor(
                     WsHeapProperties(
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<WsHeapProperty>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 8L),
                     )
                 override fun writeNative(addr: Long, value: WsHeapProperties) {
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<WsHeapProperty>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr, value.properties)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 8L, value.propertyCount)
                 }
             }
 
         public operator fun invoke(
-            properties: MutPtr<WsHeapProperty> = MutPtr(0L),
+            properties: MutPtr = MutPtr(0L),
             propertyCount: UInt = 0u,
         ): WsHeapProperties =
             WsHeapProperties(
@@ -5238,10 +5236,10 @@ public class WsHeapProperties internal constructor(
 
 public class WsHeapProperty internal constructor(
     public var id: WsHeapPropertyId,
-    valueCtorArg: MutPtr<CVoid>,
+    valueCtorArg: MutPtr,
     public var valueSize: UInt,
 ) {
-    public var value: MutPtr<CVoid> = valueCtorArg
+    public var value: MutPtr = valueCtorArg
         internal set
 
     public constructor() : this(
@@ -5252,11 +5250,11 @@ public class WsHeapProperty internal constructor(
 
     public operator fun component1(): WsHeapPropertyId = this.id
 
-    public operator fun component2(): MutPtr<CVoid> = this.value
+    public operator fun component2(): MutPtr = this.value
 
     public operator fun component3(): UInt = this.valueSize
 
-    public fun copy(id: WsHeapPropertyId = this.id, value: MutPtr<CVoid> = this.value, valueSize: UInt = this.valueSize): WsHeapProperty = WsHeapProperty(id = id, valueCtorArg = value, valueSize = valueSize)
+    public fun copy(id: WsHeapPropertyId = this.id, value: MutPtr = this.value, valueSize: UInt = this.valueSize): WsHeapProperty = WsHeapProperty(id = id, valueCtorArg = value, valueSize = valueSize)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -5284,7 +5282,7 @@ public class WsHeapProperty internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<CVoid>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 16L),
                     )
@@ -5292,7 +5290,7 @@ public class WsHeapProperty internal constructor(
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr, value.id)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<CVoid>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.value)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 16L, value.valueSize)
                 }
@@ -5300,7 +5298,7 @@ public class WsHeapProperty internal constructor(
 
         public operator fun invoke(
             id: WsHeapPropertyId = 0,
-            value: MutPtr<CVoid> = MutPtr(0L),
+            value: MutPtr = MutPtr(0L),
             valueSize: UInt = 0u,
         ): WsHeapProperty =
             WsHeapProperty(
@@ -5312,10 +5310,10 @@ public class WsHeapProperty internal constructor(
 }
 
 public class WsHostNames internal constructor(
-    hostNamesCtorArg: MutPtr<WsString>,
+    hostNamesCtorArg: MutPtr,
     public var hostNameCount: UInt,
 ) {
-    public var hostNames: MutPtr<WsString> = hostNamesCtorArg
+    public var hostNames: MutPtr = hostNamesCtorArg
         internal set
 
     public constructor() : this(
@@ -5323,11 +5321,11 @@ public class WsHostNames internal constructor(
         hostNameCount = 0u,
     )
 
-    public operator fun component1(): MutPtr<WsString> = this.hostNames
+    public operator fun component1(): MutPtr = this.hostNames
 
     public operator fun component2(): UInt = this.hostNameCount
 
-    public fun copy(hostNames: MutPtr<WsString> = this.hostNames, hostNameCount: UInt = this.hostNameCount): WsHostNames = WsHostNames(hostNamesCtorArg = hostNames, hostNameCount = hostNameCount)
+    public fun copy(hostNames: MutPtr = this.hostNames, hostNameCount: UInt = this.hostNameCount): WsHostNames = WsHostNames(hostNamesCtorArg = hostNames, hostNameCount = hostNameCount)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -5352,21 +5350,21 @@ public class WsHostNames internal constructor(
                     WsHostNames(
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<WsString>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 8L),
                     )
                 override fun writeNative(addr: Long, value: WsHostNames) {
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<WsString>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr, value.hostNames)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 8L, value.hostNameCount)
                 }
             }
 
         public operator fun invoke(
-            hostNames: MutPtr<WsString> = MutPtr(0L),
+            hostNames: MutPtr = MutPtr(0L),
             hostNameCount: UInt = 0u,
         ): WsHostNames =
             WsHostNames(
@@ -5457,9 +5455,9 @@ public data class WsHttpHeaderAuthPolicyDescription(
 
 public class WsHttpHeaderAuthSecurityBinding internal constructor(
     public var binding: WsSecurityBinding,
-    clientCredentialCtorArg: MutPtr<WsWindowsIntegratedAuthCredential>,
+    clientCredentialCtorArg: MutPtr,
 ) {
-    public var clientCredential: MutPtr<WsWindowsIntegratedAuthCredential> = clientCredentialCtorArg
+    public var clientCredential: MutPtr = clientCredentialCtorArg
         internal set
 
     public constructor() : this(
@@ -5469,9 +5467,9 @@ public class WsHttpHeaderAuthSecurityBinding internal constructor(
 
     public operator fun component1(): WsSecurityBinding = this.binding
 
-    public operator fun component2(): MutPtr<WsWindowsIntegratedAuthCredential> = this.clientCredential
+    public operator fun component2(): MutPtr = this.clientCredential
 
-    public fun copy(binding: WsSecurityBinding = this.binding, clientCredential: MutPtr<WsWindowsIntegratedAuthCredential> = this.clientCredential): WsHttpHeaderAuthSecurityBinding = WsHttpHeaderAuthSecurityBinding(binding = binding, clientCredentialCtorArg = clientCredential)
+    public fun copy(binding: WsSecurityBinding = this.binding, clientCredential: MutPtr = this.clientCredential): WsHttpHeaderAuthSecurityBinding = WsHttpHeaderAuthSecurityBinding(binding = binding, clientCredentialCtorArg = clientCredential)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -5497,21 +5495,21 @@ public class WsHttpHeaderAuthSecurityBinding internal constructor(
                         (WsSecurityBinding.typeLayout()).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<WsWindowsIntegratedAuthCredential>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 24L),
                     )
                 override fun writeNative(addr: Long, value: WsHttpHeaderAuthSecurityBinding) {
                     (WsSecurityBinding.typeLayout()).writeNative(addr, value.binding)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<WsWindowsIntegratedAuthCredential>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 24L, value.clientCredential)
                 }
             }
 
         public operator fun invoke(
             binding: WsSecurityBinding = WsSecurityBinding(),
-            clientCredential: MutPtr<WsWindowsIntegratedAuthCredential> = MutPtr(0L),
+            clientCredential: MutPtr = MutPtr(0L),
         ): WsHttpHeaderAuthSecurityBinding =
             WsHttpHeaderAuthSecurityBinding(
                 binding = binding,
@@ -5560,9 +5558,9 @@ public data class WsHttpHeaderAuthSecurityBindingPolicyDescription(
 
 public class WsHttpHeaderAuthSecurityBindingTemplate internal constructor(
     public var securityBindingProperties: WsSecurityBindingProperties,
-    clientCredentialCtorArg: MutPtr<WsWindowsIntegratedAuthCredential>,
+    clientCredentialCtorArg: MutPtr,
 ) {
-    public var clientCredential: MutPtr<WsWindowsIntegratedAuthCredential> = clientCredentialCtorArg
+    public var clientCredential: MutPtr = clientCredentialCtorArg
         internal set
 
     public constructor() : this(
@@ -5572,9 +5570,9 @@ public class WsHttpHeaderAuthSecurityBindingTemplate internal constructor(
 
     public operator fun component1(): WsSecurityBindingProperties = this.securityBindingProperties
 
-    public operator fun component2(): MutPtr<WsWindowsIntegratedAuthCredential> = this.clientCredential
+    public operator fun component2(): MutPtr = this.clientCredential
 
-    public fun copy(securityBindingProperties: WsSecurityBindingProperties = this.securityBindingProperties, clientCredential: MutPtr<WsWindowsIntegratedAuthCredential> = this.clientCredential): WsHttpHeaderAuthSecurityBindingTemplate = WsHttpHeaderAuthSecurityBindingTemplate(securityBindingProperties = securityBindingProperties, clientCredentialCtorArg = clientCredential)
+    public fun copy(securityBindingProperties: WsSecurityBindingProperties = this.securityBindingProperties, clientCredential: MutPtr = this.clientCredential): WsHttpHeaderAuthSecurityBindingTemplate = WsHttpHeaderAuthSecurityBindingTemplate(securityBindingProperties = securityBindingProperties, clientCredentialCtorArg = clientCredential)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -5600,21 +5598,21 @@ public class WsHttpHeaderAuthSecurityBindingTemplate internal constructor(
                         (WsSecurityBindingProperties.typeLayout()).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<WsWindowsIntegratedAuthCredential>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 16L),
                     )
                 override fun writeNative(addr: Long, value: WsHttpHeaderAuthSecurityBindingTemplate) {
                     (WsSecurityBindingProperties.typeLayout()).writeNative(addr, value.securityBindingProperties)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<WsWindowsIntegratedAuthCredential>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 16L, value.clientCredential)
                 }
             }
 
         public operator fun invoke(
             securityBindingProperties: WsSecurityBindingProperties = WsSecurityBindingProperties(),
-            clientCredential: MutPtr<WsWindowsIntegratedAuthCredential> = MutPtr(0L),
+            clientCredential: MutPtr = MutPtr(0L),
         ): WsHttpHeaderAuthSecurityBindingTemplate =
             WsHttpHeaderAuthSecurityBindingTemplate(
                 securityBindingProperties = securityBindingProperties,
@@ -5648,15 +5646,15 @@ public data class WsHttpHeaderMapping(
 public class WsHttpMessageMapping internal constructor(
     public var requestMappingOptions: UInt,
     public var responseMappingOptions: UInt,
-    requestHeaderMappingsCtorArg: MutPtr<MutPtr<WsHttpHeaderMapping>>,
+    requestHeaderMappingsCtorArg: MutPtr,
     public var requestHeaderMappingCount: UInt,
-    responseHeaderMappingsCtorArg: MutPtr<MutPtr<WsHttpHeaderMapping>>,
+    responseHeaderMappingsCtorArg: MutPtr,
     public var responseHeaderMappingCount: UInt,
 ) {
-    public var requestHeaderMappings: MutPtr<MutPtr<WsHttpHeaderMapping>> = requestHeaderMappingsCtorArg
+    public var requestHeaderMappings: MutPtr = requestHeaderMappingsCtorArg
         internal set
 
-    public var responseHeaderMappings: MutPtr<MutPtr<WsHttpHeaderMapping>> = responseHeaderMappingsCtorArg
+    public var responseHeaderMappings: MutPtr = responseHeaderMappingsCtorArg
         internal set
 
     public constructor() : this(
@@ -5672,15 +5670,15 @@ public class WsHttpMessageMapping internal constructor(
 
     public operator fun component2(): UInt = this.responseMappingOptions
 
-    public operator fun component3(): MutPtr<MutPtr<WsHttpHeaderMapping>> = this.requestHeaderMappings
+    public operator fun component3(): MutPtr = this.requestHeaderMappings
 
     public operator fun component4(): UInt = this.requestHeaderMappingCount
 
-    public operator fun component5(): MutPtr<MutPtr<WsHttpHeaderMapping>> = this.responseHeaderMappings
+    public operator fun component5(): MutPtr = this.responseHeaderMappings
 
     public operator fun component6(): UInt = this.responseHeaderMappingCount
 
-    public fun copy(requestMappingOptions: UInt = this.requestMappingOptions, responseMappingOptions: UInt = this.responseMappingOptions, requestHeaderMappings: MutPtr<MutPtr<WsHttpHeaderMapping>> = this.requestHeaderMappings, requestHeaderMappingCount: UInt = this.requestHeaderMappingCount, responseHeaderMappings: MutPtr<MutPtr<WsHttpHeaderMapping>> = this.responseHeaderMappings, responseHeaderMappingCount: UInt = this.responseHeaderMappingCount): WsHttpMessageMapping = WsHttpMessageMapping(requestMappingOptions = requestMappingOptions, responseMappingOptions = responseMappingOptions, requestHeaderMappingsCtorArg = requestHeaderMappings, requestHeaderMappingCount = requestHeaderMappingCount, responseHeaderMappingsCtorArg = responseHeaderMappings, responseHeaderMappingCount = responseHeaderMappingCount)
+    public fun copy(requestMappingOptions: UInt = this.requestMappingOptions, responseMappingOptions: UInt = this.responseMappingOptions, requestHeaderMappings: MutPtr = this.requestHeaderMappings, requestHeaderMappingCount: UInt = this.requestHeaderMappingCount, responseHeaderMappings: MutPtr = this.responseHeaderMappings, responseHeaderMappingCount: UInt = this.responseHeaderMappingCount): WsHttpMessageMapping = WsHttpMessageMapping(requestMappingOptions = requestMappingOptions, responseMappingOptions = responseMappingOptions, requestHeaderMappingsCtorArg = requestHeaderMappings, requestHeaderMappingCount = requestHeaderMappingCount, responseHeaderMappingsCtorArg = responseHeaderMappings, responseHeaderMappingCount = responseHeaderMappingCount)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -5715,12 +5713,12 @@ public class WsHttpMessageMapping internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 4L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<MutPtr<WsHttpHeaderMapping>>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 16L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<MutPtr<WsHttpHeaderMapping>>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 24L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 32L),
                     )
@@ -5729,12 +5727,12 @@ public class WsHttpMessageMapping internal constructor(
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 4L, value.responseMappingOptions)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<MutPtr<WsHttpHeaderMapping>>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.requestHeaderMappings)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 16L, value.requestHeaderMappingCount)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<MutPtr<WsHttpHeaderMapping>>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 24L, value.responseHeaderMappings)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 32L, value.responseHeaderMappingCount)
                 }
@@ -5743,9 +5741,9 @@ public class WsHttpMessageMapping internal constructor(
         public operator fun invoke(
             requestMappingOptions: UInt = 0u,
             responseMappingOptions: UInt = 0u,
-            requestHeaderMappings: MutPtr<MutPtr<WsHttpHeaderMapping>> = MutPtr(0L),
+            requestHeaderMappings: MutPtr = MutPtr(0L),
             requestHeaderMappingCount: UInt = 0u,
-            responseHeaderMappings: MutPtr<MutPtr<WsHttpHeaderMapping>> = MutPtr(0L),
+            responseHeaderMappings: MutPtr = MutPtr(0L),
             responseHeaderMappingCount: UInt = 0u,
         ): WsHttpMessageMapping =
             WsHttpMessageMapping(
@@ -5780,9 +5778,9 @@ public data class WsHttpPolicyDescription(
 
 public class WsHttpRedirectCallbackContext internal constructor(
     public var callback: WsHttpRedirectCallback,
-    stateCtorArg: MutPtr<CVoid>,
+    stateCtorArg: MutPtr,
 ) {
-    public var state: MutPtr<CVoid> = stateCtorArg
+    public var state: MutPtr = stateCtorArg
         internal set
 
     public constructor() : this(
@@ -5792,9 +5790,9 @@ public class WsHttpRedirectCallbackContext internal constructor(
 
     public operator fun component1(): WsHttpRedirectCallback = this.callback
 
-    public operator fun component2(): MutPtr<CVoid> = this.state
+    public operator fun component2(): MutPtr = this.state
 
-    public fun copy(callback: WsHttpRedirectCallback = this.callback, state: MutPtr<CVoid> = this.state): WsHttpRedirectCallbackContext = WsHttpRedirectCallbackContext(callback = callback, stateCtorArg = state)
+    public fun copy(callback: WsHttpRedirectCallback = this.callback, state: MutPtr = this.state): WsHttpRedirectCallbackContext = WsHttpRedirectCallbackContext(callback = callback, stateCtorArg = state)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -5813,7 +5811,7 @@ public class WsHttpRedirectCallbackContext internal constructor(
     public companion object {
         public operator fun invoke(
             callback: WsHttpRedirectCallback = null,
-            state: MutPtr<CVoid> = MutPtr(0L),
+            state: MutPtr = MutPtr(0L),
         ): WsHttpRedirectCallbackContext =
             WsHttpRedirectCallbackContext(
                 callback = callback,
@@ -6221,16 +6219,16 @@ public data class WsInt8Description(
 public class WsIssuedTokenMessageSecurityBindingConstraint internal constructor(
     public var bindingConstraint: WsSecurityBindingConstraint,
     public var bindingUsage: WsMessageSecurityUsage,
-    claimConstraintsCtorArg: MutPtr<WsXmlString>,
+    claimConstraintsCtorArg: MutPtr,
     public var claimConstraintCount: UInt,
-    requestSecurityTokenPropertyConstraintsCtorArg: MutPtr<WsRequestSecurityTokenPropertyConstraint>,
+    requestSecurityTokenPropertyConstraintsCtorArg: MutPtr,
     public var requestSecurityTokenPropertyConstraintCount: UInt,
     public var out: WsIssuedTokenMessageSecurityBindingConstraint0,
 ) {
-    public var claimConstraints: MutPtr<WsXmlString> = claimConstraintsCtorArg
+    public var claimConstraints: MutPtr = claimConstraintsCtorArg
         internal set
 
-    public var requestSecurityTokenPropertyConstraints: MutPtr<WsRequestSecurityTokenPropertyConstraint> = requestSecurityTokenPropertyConstraintsCtorArg
+    public var requestSecurityTokenPropertyConstraints: MutPtr = requestSecurityTokenPropertyConstraintsCtorArg
         internal set
 
     public constructor() : this(
@@ -6247,17 +6245,17 @@ public class WsIssuedTokenMessageSecurityBindingConstraint internal constructor(
 
     public operator fun component2(): WsMessageSecurityUsage = this.bindingUsage
 
-    public operator fun component3(): MutPtr<WsXmlString> = this.claimConstraints
+    public operator fun component3(): MutPtr = this.claimConstraints
 
     public operator fun component4(): UInt = this.claimConstraintCount
 
-    public operator fun component5(): MutPtr<WsRequestSecurityTokenPropertyConstraint> = this.requestSecurityTokenPropertyConstraints
+    public operator fun component5(): MutPtr = this.requestSecurityTokenPropertyConstraints
 
     public operator fun component6(): UInt = this.requestSecurityTokenPropertyConstraintCount
 
     public operator fun component7(): WsIssuedTokenMessageSecurityBindingConstraint0 = this.out
 
-    public fun copy(bindingConstraint: WsSecurityBindingConstraint = this.bindingConstraint, bindingUsage: WsMessageSecurityUsage = this.bindingUsage, claimConstraints: MutPtr<WsXmlString> = this.claimConstraints, claimConstraintCount: UInt = this.claimConstraintCount, requestSecurityTokenPropertyConstraints: MutPtr<WsRequestSecurityTokenPropertyConstraint> = this.requestSecurityTokenPropertyConstraints, requestSecurityTokenPropertyConstraintCount: UInt = this.requestSecurityTokenPropertyConstraintCount, out: WsIssuedTokenMessageSecurityBindingConstraint0 = this.out): WsIssuedTokenMessageSecurityBindingConstraint = WsIssuedTokenMessageSecurityBindingConstraint(bindingConstraint = bindingConstraint, bindingUsage = bindingUsage, claimConstraintsCtorArg = claimConstraints, claimConstraintCount = claimConstraintCount, requestSecurityTokenPropertyConstraintsCtorArg = requestSecurityTokenPropertyConstraints, requestSecurityTokenPropertyConstraintCount = requestSecurityTokenPropertyConstraintCount, out = out)
+    public fun copy(bindingConstraint: WsSecurityBindingConstraint = this.bindingConstraint, bindingUsage: WsMessageSecurityUsage = this.bindingUsage, claimConstraints: MutPtr = this.claimConstraints, claimConstraintCount: UInt = this.claimConstraintCount, requestSecurityTokenPropertyConstraints: MutPtr = this.requestSecurityTokenPropertyConstraints, requestSecurityTokenPropertyConstraintCount: UInt = this.requestSecurityTokenPropertyConstraintCount, out: WsIssuedTokenMessageSecurityBindingConstraint0 = this.out): WsIssuedTokenMessageSecurityBindingConstraint = WsIssuedTokenMessageSecurityBindingConstraint(bindingConstraint = bindingConstraint, bindingUsage = bindingUsage, claimConstraintsCtorArg = claimConstraints, claimConstraintCount = claimConstraintCount, requestSecurityTokenPropertyConstraintsCtorArg = requestSecurityTokenPropertyConstraints, requestSecurityTokenPropertyConstraintCount = requestSecurityTokenPropertyConstraintCount, out = out)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -6294,12 +6292,12 @@ public class WsIssuedTokenMessageSecurityBindingConstraint internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr + 24L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<WsXmlString>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 32L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 40L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<WsRequestSecurityTokenPropertyConstraint>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 48L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 56L),
                         (WsIssuedTokenMessageSecurityBindingConstraint0.typeLayout()).readNative(addr + 64L),
@@ -6309,12 +6307,12 @@ public class WsIssuedTokenMessageSecurityBindingConstraint internal constructor(
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr + 24L, value.bindingUsage)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<WsXmlString>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 32L, value.claimConstraints)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 40L, value.claimConstraintCount)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<WsRequestSecurityTokenPropertyConstraint>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 48L, value.requestSecurityTokenPropertyConstraints)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 56L, value.requestSecurityTokenPropertyConstraintCount)
                     (WsIssuedTokenMessageSecurityBindingConstraint0.typeLayout()).writeNative(addr + 64L, value.out)
@@ -6324,9 +6322,9 @@ public class WsIssuedTokenMessageSecurityBindingConstraint internal constructor(
         public operator fun invoke(
             bindingConstraint: WsSecurityBindingConstraint = WsSecurityBindingConstraint(),
             bindingUsage: WsMessageSecurityUsage = 0,
-            claimConstraints: MutPtr<WsXmlString> = MutPtr(0L),
+            claimConstraints: MutPtr = MutPtr(0L),
             claimConstraintCount: UInt = 0u,
-            requestSecurityTokenPropertyConstraints: MutPtr<WsRequestSecurityTokenPropertyConstraint> = MutPtr(0L),
+            requestSecurityTokenPropertyConstraints: MutPtr = MutPtr(0L),
             requestSecurityTokenPropertyConstraintCount: UInt = 0u,
             out: WsIssuedTokenMessageSecurityBindingConstraint0 = WsIssuedTokenMessageSecurityBindingConstraint0(),
         ): WsIssuedTokenMessageSecurityBindingConstraint =
@@ -6343,13 +6341,13 @@ public class WsIssuedTokenMessageSecurityBindingConstraint internal constructor(
 }
 
 public class WsIssuedTokenMessageSecurityBindingConstraint0 internal constructor(
-    issuerAddressCtorArg: MutPtr<WsEndpointAddress>,
-    requestSecurityTokenTemplateCtorArg: MutPtr<WsXmlBuffer>,
+    issuerAddressCtorArg: MutPtr,
+    requestSecurityTokenTemplateCtorArg: MutPtr,
 ) {
-    public var issuerAddress: MutPtr<WsEndpointAddress> = issuerAddressCtorArg
+    public var issuerAddress: MutPtr = issuerAddressCtorArg
         internal set
 
-    public var requestSecurityTokenTemplate: MutPtr<WsXmlBuffer> = requestSecurityTokenTemplateCtorArg
+    public var requestSecurityTokenTemplate: MutPtr = requestSecurityTokenTemplateCtorArg
         internal set
 
     public constructor() : this(
@@ -6357,11 +6355,11 @@ public class WsIssuedTokenMessageSecurityBindingConstraint0 internal constructor
         requestSecurityTokenTemplateCtorArg = MutPtr(0L),
     )
 
-    public operator fun component1(): MutPtr<WsEndpointAddress> = this.issuerAddress
+    public operator fun component1(): MutPtr = this.issuerAddress
 
-    public operator fun component2(): MutPtr<WsXmlBuffer> = this.requestSecurityTokenTemplate
+    public operator fun component2(): MutPtr = this.requestSecurityTokenTemplate
 
-    public fun copy(issuerAddress: MutPtr<WsEndpointAddress> = this.issuerAddress, requestSecurityTokenTemplate: MutPtr<WsXmlBuffer> = this.requestSecurityTokenTemplate): WsIssuedTokenMessageSecurityBindingConstraint0 = WsIssuedTokenMessageSecurityBindingConstraint0(issuerAddressCtorArg = issuerAddress, requestSecurityTokenTemplateCtorArg = requestSecurityTokenTemplate)
+    public fun copy(issuerAddress: MutPtr = this.issuerAddress, requestSecurityTokenTemplate: MutPtr = this.requestSecurityTokenTemplate): WsIssuedTokenMessageSecurityBindingConstraint0 = WsIssuedTokenMessageSecurityBindingConstraint0(issuerAddressCtorArg = issuerAddress, requestSecurityTokenTemplateCtorArg = requestSecurityTokenTemplate)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -6386,28 +6384,28 @@ public class WsIssuedTokenMessageSecurityBindingConstraint0 internal constructor
                     WsIssuedTokenMessageSecurityBindingConstraint0(
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<WsEndpointAddress>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<WsXmlBuffer>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                     )
                 override fun writeNative(addr: Long, value: WsIssuedTokenMessageSecurityBindingConstraint0) {
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<WsEndpointAddress>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr, value.issuerAddress)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<WsXmlBuffer>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.requestSecurityTokenTemplate)
                 }
             }
 
         public operator fun invoke(
-            issuerAddress: MutPtr<WsEndpointAddress> = MutPtr(0L),
-            requestSecurityTokenTemplate: MutPtr<WsXmlBuffer> = MutPtr(0L),
+            issuerAddress: MutPtr = MutPtr(0L),
+            requestSecurityTokenTemplate: MutPtr = MutPtr(0L),
         ): WsIssuedTokenMessageSecurityBindingConstraint0 =
             WsIssuedTokenMessageSecurityBindingConstraint0(
                 issuerAddressCtorArg = issuerAddress,
@@ -6441,9 +6439,9 @@ public data class WsItemRange(
 public class WsKerberosApreqMessageSecurityBinding internal constructor(
     public var binding: WsSecurityBinding,
     public var bindingUsage: WsMessageSecurityUsage,
-    clientCredentialCtorArg: MutPtr<WsWindowsIntegratedAuthCredential>,
+    clientCredentialCtorArg: MutPtr,
 ) {
-    public var clientCredential: MutPtr<WsWindowsIntegratedAuthCredential> = clientCredentialCtorArg
+    public var clientCredential: MutPtr = clientCredentialCtorArg
         internal set
 
     public constructor() : this(
@@ -6456,9 +6454,9 @@ public class WsKerberosApreqMessageSecurityBinding internal constructor(
 
     public operator fun component2(): WsMessageSecurityUsage = this.bindingUsage
 
-    public operator fun component3(): MutPtr<WsWindowsIntegratedAuthCredential> = this.clientCredential
+    public operator fun component3(): MutPtr = this.clientCredential
 
-    public fun copy(binding: WsSecurityBinding = this.binding, bindingUsage: WsMessageSecurityUsage = this.bindingUsage, clientCredential: MutPtr<WsWindowsIntegratedAuthCredential> = this.clientCredential): WsKerberosApreqMessageSecurityBinding = WsKerberosApreqMessageSecurityBinding(binding = binding, bindingUsage = bindingUsage, clientCredentialCtorArg = clientCredential)
+    public fun copy(binding: WsSecurityBinding = this.binding, bindingUsage: WsMessageSecurityUsage = this.bindingUsage, clientCredential: MutPtr = this.clientCredential): WsKerberosApreqMessageSecurityBinding = WsKerberosApreqMessageSecurityBinding(binding = binding, bindingUsage = bindingUsage, clientCredentialCtorArg = clientCredential)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -6487,7 +6485,7 @@ public class WsKerberosApreqMessageSecurityBinding internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr + 24L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<WsWindowsIntegratedAuthCredential>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 32L),
                     )
                 override fun writeNative(addr: Long, value: WsKerberosApreqMessageSecurityBinding) {
@@ -6495,7 +6493,7 @@ public class WsKerberosApreqMessageSecurityBinding internal constructor(
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr + 24L, value.bindingUsage)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<WsWindowsIntegratedAuthCredential>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 32L, value.clientCredential)
                 }
             }
@@ -6503,7 +6501,7 @@ public class WsKerberosApreqMessageSecurityBinding internal constructor(
         public operator fun invoke(
             binding: WsSecurityBinding = WsSecurityBinding(),
             bindingUsage: WsMessageSecurityUsage = 0,
-            clientCredential: MutPtr<WsWindowsIntegratedAuthCredential> = MutPtr(0L),
+            clientCredential: MutPtr = MutPtr(0L),
         ): WsKerberosApreqMessageSecurityBinding =
             WsKerberosApreqMessageSecurityBinding(
                 binding = binding,
@@ -6559,9 +6557,9 @@ public data class WsKerberosApreqMessageSecurityBindingPolicyDescription(
 
 public class WsKerberosApreqMessageSecurityBindingTemplate internal constructor(
     public var securityBindingProperties: WsSecurityBindingProperties,
-    clientCredentialCtorArg: MutPtr<WsWindowsIntegratedAuthCredential>,
+    clientCredentialCtorArg: MutPtr,
 ) {
-    public var clientCredential: MutPtr<WsWindowsIntegratedAuthCredential> = clientCredentialCtorArg
+    public var clientCredential: MutPtr = clientCredentialCtorArg
         internal set
 
     public constructor() : this(
@@ -6571,9 +6569,9 @@ public class WsKerberosApreqMessageSecurityBindingTemplate internal constructor(
 
     public operator fun component1(): WsSecurityBindingProperties = this.securityBindingProperties
 
-    public operator fun component2(): MutPtr<WsWindowsIntegratedAuthCredential> = this.clientCredential
+    public operator fun component2(): MutPtr = this.clientCredential
 
-    public fun copy(securityBindingProperties: WsSecurityBindingProperties = this.securityBindingProperties, clientCredential: MutPtr<WsWindowsIntegratedAuthCredential> = this.clientCredential): WsKerberosApreqMessageSecurityBindingTemplate = WsKerberosApreqMessageSecurityBindingTemplate(securityBindingProperties = securityBindingProperties, clientCredentialCtorArg = clientCredential)
+    public fun copy(securityBindingProperties: WsSecurityBindingProperties = this.securityBindingProperties, clientCredential: MutPtr = this.clientCredential): WsKerberosApreqMessageSecurityBindingTemplate = WsKerberosApreqMessageSecurityBindingTemplate(securityBindingProperties = securityBindingProperties, clientCredentialCtorArg = clientCredential)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -6599,21 +6597,21 @@ public class WsKerberosApreqMessageSecurityBindingTemplate internal constructor(
                         (WsSecurityBindingProperties.typeLayout()).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<WsWindowsIntegratedAuthCredential>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 16L),
                     )
                 override fun writeNative(addr: Long, value: WsKerberosApreqMessageSecurityBindingTemplate) {
                     (WsSecurityBindingProperties.typeLayout()).writeNative(addr, value.securityBindingProperties)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<WsWindowsIntegratedAuthCredential>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 16L, value.clientCredential)
                 }
             }
 
         public operator fun invoke(
             securityBindingProperties: WsSecurityBindingProperties = WsSecurityBindingProperties(),
-            clientCredential: MutPtr<WsWindowsIntegratedAuthCredential> = MutPtr(0L),
+            clientCredential: MutPtr = MutPtr(0L),
         ): WsKerberosApreqMessageSecurityBindingTemplate =
             WsKerberosApreqMessageSecurityBindingTemplate(
                 securityBindingProperties = securityBindingProperties,
@@ -6623,10 +6621,10 @@ public class WsKerberosApreqMessageSecurityBindingTemplate internal constructor(
 }
 
 public class WsListenerProperties internal constructor(
-    propertiesCtorArg: MutPtr<WsListenerProperty>,
+    propertiesCtorArg: MutPtr,
     public var propertyCount: UInt,
 ) {
-    public var properties: MutPtr<WsListenerProperty> = propertiesCtorArg
+    public var properties: MutPtr = propertiesCtorArg
         internal set
 
     public constructor() : this(
@@ -6634,11 +6632,11 @@ public class WsListenerProperties internal constructor(
         propertyCount = 0u,
     )
 
-    public operator fun component1(): MutPtr<WsListenerProperty> = this.properties
+    public operator fun component1(): MutPtr = this.properties
 
     public operator fun component2(): UInt = this.propertyCount
 
-    public fun copy(properties: MutPtr<WsListenerProperty> = this.properties, propertyCount: UInt = this.propertyCount): WsListenerProperties = WsListenerProperties(propertiesCtorArg = properties, propertyCount = propertyCount)
+    public fun copy(properties: MutPtr = this.properties, propertyCount: UInt = this.propertyCount): WsListenerProperties = WsListenerProperties(propertiesCtorArg = properties, propertyCount = propertyCount)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -6663,21 +6661,21 @@ public class WsListenerProperties internal constructor(
                     WsListenerProperties(
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<WsListenerProperty>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 8L),
                     )
                 override fun writeNative(addr: Long, value: WsListenerProperties) {
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<WsListenerProperty>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr, value.properties)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 8L, value.propertyCount)
                 }
             }
 
         public operator fun invoke(
-            properties: MutPtr<WsListenerProperty> = MutPtr(0L),
+            properties: MutPtr = MutPtr(0L),
             propertyCount: UInt = 0u,
         ): WsListenerProperties =
             WsListenerProperties(
@@ -6689,10 +6687,10 @@ public class WsListenerProperties internal constructor(
 
 public class WsListenerProperty internal constructor(
     public var id: WsListenerPropertyId,
-    valueCtorArg: MutPtr<CVoid>,
+    valueCtorArg: MutPtr,
     public var valueSize: UInt,
 ) {
-    public var value: MutPtr<CVoid> = valueCtorArg
+    public var value: MutPtr = valueCtorArg
         internal set
 
     public constructor() : this(
@@ -6703,11 +6701,11 @@ public class WsListenerProperty internal constructor(
 
     public operator fun component1(): WsListenerPropertyId = this.id
 
-    public operator fun component2(): MutPtr<CVoid> = this.value
+    public operator fun component2(): MutPtr = this.value
 
     public operator fun component3(): UInt = this.valueSize
 
-    public fun copy(id: WsListenerPropertyId = this.id, value: MutPtr<CVoid> = this.value, valueSize: UInt = this.valueSize): WsListenerProperty = WsListenerProperty(id = id, valueCtorArg = value, valueSize = valueSize)
+    public fun copy(id: WsListenerPropertyId = this.id, value: MutPtr = this.value, valueSize: UInt = this.valueSize): WsListenerProperty = WsListenerProperty(id = id, valueCtorArg = value, valueSize = valueSize)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -6735,7 +6733,7 @@ public class WsListenerProperty internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<CVoid>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 16L),
                     )
@@ -6743,7 +6741,7 @@ public class WsListenerProperty internal constructor(
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr, value.id)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<CVoid>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.value)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 16L, value.valueSize)
                 }
@@ -6751,7 +6749,7 @@ public class WsListenerProperty internal constructor(
 
         public operator fun invoke(
             id: WsListenerPropertyId = 0,
-            value: MutPtr<CVoid> = MutPtr(0L),
+            value: MutPtr = MutPtr(0L),
             valueSize: UInt = 0u,
         ): WsListenerProperty =
             WsListenerProperty(
@@ -6763,13 +6761,13 @@ public class WsListenerProperty internal constructor(
 }
 
 public class WsMessageDescription internal constructor(
-    actionCtorArg: MutPtr<WsXmlString>,
-    bodyElementDescriptionCtorArg: MutPtr<WsElementDescription>,
+    actionCtorArg: MutPtr,
+    bodyElementDescriptionCtorArg: MutPtr,
 ) {
-    public var action: MutPtr<WsXmlString> = actionCtorArg
+    public var action: MutPtr = actionCtorArg
         internal set
 
-    public var bodyElementDescription: MutPtr<WsElementDescription> = bodyElementDescriptionCtorArg
+    public var bodyElementDescription: MutPtr = bodyElementDescriptionCtorArg
         internal set
 
     public constructor() : this(
@@ -6777,11 +6775,11 @@ public class WsMessageDescription internal constructor(
         bodyElementDescriptionCtorArg = MutPtr(0L),
     )
 
-    public operator fun component1(): MutPtr<WsXmlString> = this.action
+    public operator fun component1(): MutPtr = this.action
 
-    public operator fun component2(): MutPtr<WsElementDescription> = this.bodyElementDescription
+    public operator fun component2(): MutPtr = this.bodyElementDescription
 
-    public fun copy(action: MutPtr<WsXmlString> = this.action, bodyElementDescription: MutPtr<WsElementDescription> = this.bodyElementDescription): WsMessageDescription = WsMessageDescription(actionCtorArg = action, bodyElementDescriptionCtorArg = bodyElementDescription)
+    public fun copy(action: MutPtr = this.action, bodyElementDescription: MutPtr = this.bodyElementDescription): WsMessageDescription = WsMessageDescription(actionCtorArg = action, bodyElementDescriptionCtorArg = bodyElementDescription)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -6806,28 +6804,28 @@ public class WsMessageDescription internal constructor(
                     WsMessageDescription(
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<WsXmlString>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<WsElementDescription>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                     )
                 override fun writeNative(addr: Long, value: WsMessageDescription) {
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<WsXmlString>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr, value.action)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<WsElementDescription>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.bodyElementDescription)
                 }
             }
 
         public operator fun invoke(
-            action: MutPtr<WsXmlString> = MutPtr(0L),
-            bodyElementDescription: MutPtr<WsElementDescription> = MutPtr(0L),
+            action: MutPtr = MutPtr(0L),
+            bodyElementDescription: MutPtr = MutPtr(0L),
         ): WsMessageDescription =
             WsMessageDescription(
                 actionCtorArg = action,
@@ -6837,10 +6835,10 @@ public class WsMessageDescription internal constructor(
 }
 
 public class WsMessageProperties internal constructor(
-    propertiesCtorArg: MutPtr<WsMessageProperty>,
+    propertiesCtorArg: MutPtr,
     public var propertyCount: UInt,
 ) {
-    public var properties: MutPtr<WsMessageProperty> = propertiesCtorArg
+    public var properties: MutPtr = propertiesCtorArg
         internal set
 
     public constructor() : this(
@@ -6848,11 +6846,11 @@ public class WsMessageProperties internal constructor(
         propertyCount = 0u,
     )
 
-    public operator fun component1(): MutPtr<WsMessageProperty> = this.properties
+    public operator fun component1(): MutPtr = this.properties
 
     public operator fun component2(): UInt = this.propertyCount
 
-    public fun copy(properties: MutPtr<WsMessageProperty> = this.properties, propertyCount: UInt = this.propertyCount): WsMessageProperties = WsMessageProperties(propertiesCtorArg = properties, propertyCount = propertyCount)
+    public fun copy(properties: MutPtr = this.properties, propertyCount: UInt = this.propertyCount): WsMessageProperties = WsMessageProperties(propertiesCtorArg = properties, propertyCount = propertyCount)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -6877,21 +6875,21 @@ public class WsMessageProperties internal constructor(
                     WsMessageProperties(
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<WsMessageProperty>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 8L),
                     )
                 override fun writeNative(addr: Long, value: WsMessageProperties) {
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<WsMessageProperty>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr, value.properties)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 8L, value.propertyCount)
                 }
             }
 
         public operator fun invoke(
-            properties: MutPtr<WsMessageProperty> = MutPtr(0L),
+            properties: MutPtr = MutPtr(0L),
             propertyCount: UInt = 0u,
         ): WsMessageProperties =
             WsMessageProperties(
@@ -6903,10 +6901,10 @@ public class WsMessageProperties internal constructor(
 
 public class WsMessageProperty internal constructor(
     public var id: WsMessagePropertyId,
-    valueCtorArg: MutPtr<CVoid>,
+    valueCtorArg: MutPtr,
     public var valueSize: UInt,
 ) {
-    public var value: MutPtr<CVoid> = valueCtorArg
+    public var value: MutPtr = valueCtorArg
         internal set
 
     public constructor() : this(
@@ -6917,11 +6915,11 @@ public class WsMessageProperty internal constructor(
 
     public operator fun component1(): WsMessagePropertyId = this.id
 
-    public operator fun component2(): MutPtr<CVoid> = this.value
+    public operator fun component2(): MutPtr = this.value
 
     public operator fun component3(): UInt = this.valueSize
 
-    public fun copy(id: WsMessagePropertyId = this.id, value: MutPtr<CVoid> = this.value, valueSize: UInt = this.valueSize): WsMessageProperty = WsMessageProperty(id = id, valueCtorArg = value, valueSize = valueSize)
+    public fun copy(id: WsMessagePropertyId = this.id, value: MutPtr = this.value, valueSize: UInt = this.valueSize): WsMessageProperty = WsMessageProperty(id = id, valueCtorArg = value, valueSize = valueSize)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -6949,7 +6947,7 @@ public class WsMessageProperty internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<CVoid>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 16L),
                     )
@@ -6957,7 +6955,7 @@ public class WsMessageProperty internal constructor(
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr, value.id)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<CVoid>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.value)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 16L, value.valueSize)
                 }
@@ -6965,7 +6963,7 @@ public class WsMessageProperty internal constructor(
 
         public operator fun invoke(
             id: WsMessagePropertyId = 0,
-            value: MutPtr<CVoid> = MutPtr(0L),
+            value: MutPtr = MutPtr(0L),
             valueSize: UInt = 0u,
         ): WsMessageProperty =
             WsMessageProperty(
@@ -6978,37 +6976,37 @@ public class WsMessageProperty internal constructor(
 
 public class WsMetadataEndpoint internal constructor(
     public var endpointAddress: WsEndpointAddress,
-    endpointPolicyCtorArg: MutPtr<WsPolicy>,
-    portNameCtorArg: MutPtr<WsXmlString>,
-    serviceNameCtorArg: MutPtr<WsXmlString>,
-    serviceNsCtorArg: MutPtr<WsXmlString>,
-    bindingNameCtorArg: MutPtr<WsXmlString>,
-    bindingNsCtorArg: MutPtr<WsXmlString>,
-    portTypeNameCtorArg: MutPtr<WsXmlString>,
-    portTypeNsCtorArg: MutPtr<WsXmlString>,
+    endpointPolicyCtorArg: MutPtr,
+    portNameCtorArg: MutPtr,
+    serviceNameCtorArg: MutPtr,
+    serviceNsCtorArg: MutPtr,
+    bindingNameCtorArg: MutPtr,
+    bindingNsCtorArg: MutPtr,
+    portTypeNameCtorArg: MutPtr,
+    portTypeNsCtorArg: MutPtr,
 ) {
-    public var endpointPolicy: MutPtr<WsPolicy> = endpointPolicyCtorArg
+    public var endpointPolicy: MutPtr = endpointPolicyCtorArg
         internal set
 
-    public var portName: MutPtr<WsXmlString> = portNameCtorArg
+    public var portName: MutPtr = portNameCtorArg
         internal set
 
-    public var serviceName: MutPtr<WsXmlString> = serviceNameCtorArg
+    public var serviceName: MutPtr = serviceNameCtorArg
         internal set
 
-    public var serviceNs: MutPtr<WsXmlString> = serviceNsCtorArg
+    public var serviceNs: MutPtr = serviceNsCtorArg
         internal set
 
-    public var bindingName: MutPtr<WsXmlString> = bindingNameCtorArg
+    public var bindingName: MutPtr = bindingNameCtorArg
         internal set
 
-    public var bindingNs: MutPtr<WsXmlString> = bindingNsCtorArg
+    public var bindingNs: MutPtr = bindingNsCtorArg
         internal set
 
-    public var portTypeName: MutPtr<WsXmlString> = portTypeNameCtorArg
+    public var portTypeName: MutPtr = portTypeNameCtorArg
         internal set
 
-    public var portTypeNs: MutPtr<WsXmlString> = portTypeNsCtorArg
+    public var portTypeNs: MutPtr = portTypeNsCtorArg
         internal set
 
     public constructor() : this(
@@ -7025,23 +7023,23 @@ public class WsMetadataEndpoint internal constructor(
 
     public operator fun component1(): WsEndpointAddress = this.endpointAddress
 
-    public operator fun component2(): MutPtr<WsPolicy> = this.endpointPolicy
+    public operator fun component2(): MutPtr = this.endpointPolicy
 
-    public operator fun component3(): MutPtr<WsXmlString> = this.portName
+    public operator fun component3(): MutPtr = this.portName
 
-    public operator fun component4(): MutPtr<WsXmlString> = this.serviceName
+    public operator fun component4(): MutPtr = this.serviceName
 
-    public operator fun component5(): MutPtr<WsXmlString> = this.serviceNs
+    public operator fun component5(): MutPtr = this.serviceNs
 
-    public operator fun component6(): MutPtr<WsXmlString> = this.bindingName
+    public operator fun component6(): MutPtr = this.bindingName
 
-    public operator fun component7(): MutPtr<WsXmlString> = this.bindingNs
+    public operator fun component7(): MutPtr = this.bindingNs
 
-    public operator fun component8(): MutPtr<WsXmlString> = this.portTypeName
+    public operator fun component8(): MutPtr = this.portTypeName
 
-    public operator fun component9(): MutPtr<WsXmlString> = this.portTypeNs
+    public operator fun component9(): MutPtr = this.portTypeNs
 
-    public fun copy(endpointAddress: WsEndpointAddress = this.endpointAddress, endpointPolicy: MutPtr<WsPolicy> = this.endpointPolicy, portName: MutPtr<WsXmlString> = this.portName, serviceName: MutPtr<WsXmlString> = this.serviceName, serviceNs: MutPtr<WsXmlString> = this.serviceNs, bindingName: MutPtr<WsXmlString> = this.bindingName, bindingNs: MutPtr<WsXmlString> = this.bindingNs, portTypeName: MutPtr<WsXmlString> = this.portTypeName, portTypeNs: MutPtr<WsXmlString> = this.portTypeNs): WsMetadataEndpoint = WsMetadataEndpoint(endpointAddress = endpointAddress, endpointPolicyCtorArg = endpointPolicy, portNameCtorArg = portName, serviceNameCtorArg = serviceName, serviceNsCtorArg = serviceNs, bindingNameCtorArg = bindingName, bindingNsCtorArg = bindingNs, portTypeNameCtorArg = portTypeName, portTypeNsCtorArg = portTypeNs)
+    public fun copy(endpointAddress: WsEndpointAddress = this.endpointAddress, endpointPolicy: MutPtr = this.endpointPolicy, portName: MutPtr = this.portName, serviceName: MutPtr = this.serviceName, serviceNs: MutPtr = this.serviceNs, bindingName: MutPtr = this.bindingName, bindingNs: MutPtr = this.bindingNs, portTypeName: MutPtr = this.portTypeName, portTypeNs: MutPtr = this.portTypeNs): WsMetadataEndpoint = WsMetadataEndpoint(endpointAddress = endpointAddress, endpointPolicyCtorArg = endpointPolicy, portNameCtorArg = portName, serviceNameCtorArg = serviceName, serviceNsCtorArg = serviceNs, bindingNameCtorArg = bindingName, bindingNsCtorArg = bindingNs, portTypeNameCtorArg = portTypeName, portTypeNsCtorArg = portTypeNs)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -7074,14 +7072,14 @@ public class WsMetadataEndpoint internal constructor(
     public companion object {
         public operator fun invoke(
             endpointAddress: WsEndpointAddress = WsEndpointAddress(),
-            endpointPolicy: MutPtr<WsPolicy> = MutPtr(0L),
-            portName: MutPtr<WsXmlString> = MutPtr(0L),
-            serviceName: MutPtr<WsXmlString> = MutPtr(0L),
-            serviceNs: MutPtr<WsXmlString> = MutPtr(0L),
-            bindingName: MutPtr<WsXmlString> = MutPtr(0L),
-            bindingNs: MutPtr<WsXmlString> = MutPtr(0L),
-            portTypeName: MutPtr<WsXmlString> = MutPtr(0L),
-            portTypeNs: MutPtr<WsXmlString> = MutPtr(0L),
+            endpointPolicy: MutPtr = MutPtr(0L),
+            portName: MutPtr = MutPtr(0L),
+            serviceName: MutPtr = MutPtr(0L),
+            serviceNs: MutPtr = MutPtr(0L),
+            bindingName: MutPtr = MutPtr(0L),
+            bindingNs: MutPtr = MutPtr(0L),
+            portTypeName: MutPtr = MutPtr(0L),
+            portTypeNs: MutPtr = MutPtr(0L),
         ): WsMetadataEndpoint =
             WsMetadataEndpoint(
                 endpointAddress = endpointAddress,
@@ -7098,10 +7096,10 @@ public class WsMetadataEndpoint internal constructor(
 }
 
 public class WsMetadataEndpoints internal constructor(
-    endpointsCtorArg: MutPtr<WsMetadataEndpoint>,
+    endpointsCtorArg: MutPtr,
     public var endpointCount: UInt,
 ) {
-    public var endpoints: MutPtr<WsMetadataEndpoint> = endpointsCtorArg
+    public var endpoints: MutPtr = endpointsCtorArg
         internal set
 
     public constructor() : this(
@@ -7109,11 +7107,11 @@ public class WsMetadataEndpoints internal constructor(
         endpointCount = 0u,
     )
 
-    public operator fun component1(): MutPtr<WsMetadataEndpoint> = this.endpoints
+    public operator fun component1(): MutPtr = this.endpoints
 
     public operator fun component2(): UInt = this.endpointCount
 
-    public fun copy(endpoints: MutPtr<WsMetadataEndpoint> = this.endpoints, endpointCount: UInt = this.endpointCount): WsMetadataEndpoints = WsMetadataEndpoints(endpointsCtorArg = endpoints, endpointCount = endpointCount)
+    public fun copy(endpoints: MutPtr = this.endpoints, endpointCount: UInt = this.endpointCount): WsMetadataEndpoints = WsMetadataEndpoints(endpointsCtorArg = endpoints, endpointCount = endpointCount)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -7138,21 +7136,21 @@ public class WsMetadataEndpoints internal constructor(
                     WsMetadataEndpoints(
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<WsMetadataEndpoint>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 8L),
                     )
                 override fun writeNative(addr: Long, value: WsMetadataEndpoints) {
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<WsMetadataEndpoint>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr, value.endpoints)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 8L, value.endpointCount)
                 }
             }
 
         public operator fun invoke(
-            endpoints: MutPtr<WsMetadataEndpoint> = MutPtr(0L),
+            endpoints: MutPtr = MutPtr(0L),
             endpointCount: UInt = 0u,
         ): WsMetadataEndpoints =
             WsMetadataEndpoints(
@@ -7164,10 +7162,10 @@ public class WsMetadataEndpoints internal constructor(
 
 public class WsMetadataProperty internal constructor(
     public var id: WsMetadataPropertyId,
-    valueCtorArg: MutPtr<CVoid>,
+    valueCtorArg: MutPtr,
     public var valueSize: UInt,
 ) {
-    public var value: MutPtr<CVoid> = valueCtorArg
+    public var value: MutPtr = valueCtorArg
         internal set
 
     public constructor() : this(
@@ -7178,11 +7176,11 @@ public class WsMetadataProperty internal constructor(
 
     public operator fun component1(): WsMetadataPropertyId = this.id
 
-    public operator fun component2(): MutPtr<CVoid> = this.value
+    public operator fun component2(): MutPtr = this.value
 
     public operator fun component3(): UInt = this.valueSize
 
-    public fun copy(id: WsMetadataPropertyId = this.id, value: MutPtr<CVoid> = this.value, valueSize: UInt = this.valueSize): WsMetadataProperty = WsMetadataProperty(id = id, valueCtorArg = value, valueSize = valueSize)
+    public fun copy(id: WsMetadataPropertyId = this.id, value: MutPtr = this.value, valueSize: UInt = this.valueSize): WsMetadataProperty = WsMetadataProperty(id = id, valueCtorArg = value, valueSize = valueSize)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -7210,7 +7208,7 @@ public class WsMetadataProperty internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<CVoid>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 16L),
                     )
@@ -7218,7 +7216,7 @@ public class WsMetadataProperty internal constructor(
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr, value.id)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<CVoid>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.value)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 16L, value.valueSize)
                 }
@@ -7226,7 +7224,7 @@ public class WsMetadataProperty internal constructor(
 
         public operator fun invoke(
             id: WsMetadataPropertyId = 0,
-            value: MutPtr<CVoid> = MutPtr(0L),
+            value: MutPtr = MutPtr(0L),
             valueSize: UInt = 0u,
         ): WsMetadataProperty =
             WsMetadataProperty(
@@ -7239,9 +7237,9 @@ public class WsMetadataProperty internal constructor(
 
 public class WsNamedpipeSspiTransportSecurityBinding internal constructor(
     public var binding: WsSecurityBinding,
-    clientCredentialCtorArg: MutPtr<WsWindowsIntegratedAuthCredential>,
+    clientCredentialCtorArg: MutPtr,
 ) {
-    public var clientCredential: MutPtr<WsWindowsIntegratedAuthCredential> = clientCredentialCtorArg
+    public var clientCredential: MutPtr = clientCredentialCtorArg
         internal set
 
     public constructor() : this(
@@ -7251,9 +7249,9 @@ public class WsNamedpipeSspiTransportSecurityBinding internal constructor(
 
     public operator fun component1(): WsSecurityBinding = this.binding
 
-    public operator fun component2(): MutPtr<WsWindowsIntegratedAuthCredential> = this.clientCredential
+    public operator fun component2(): MutPtr = this.clientCredential
 
-    public fun copy(binding: WsSecurityBinding = this.binding, clientCredential: MutPtr<WsWindowsIntegratedAuthCredential> = this.clientCredential): WsNamedpipeSspiTransportSecurityBinding = WsNamedpipeSspiTransportSecurityBinding(binding = binding, clientCredentialCtorArg = clientCredential)
+    public fun copy(binding: WsSecurityBinding = this.binding, clientCredential: MutPtr = this.clientCredential): WsNamedpipeSspiTransportSecurityBinding = WsNamedpipeSspiTransportSecurityBinding(binding = binding, clientCredentialCtorArg = clientCredential)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -7279,21 +7277,21 @@ public class WsNamedpipeSspiTransportSecurityBinding internal constructor(
                         (WsSecurityBinding.typeLayout()).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<WsWindowsIntegratedAuthCredential>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 24L),
                     )
                 override fun writeNative(addr: Long, value: WsNamedpipeSspiTransportSecurityBinding) {
                     (WsSecurityBinding.typeLayout()).writeNative(addr, value.binding)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<WsWindowsIntegratedAuthCredential>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 24L, value.clientCredential)
                 }
             }
 
         public operator fun invoke(
             binding: WsSecurityBinding = WsSecurityBinding(),
-            clientCredential: MutPtr<WsWindowsIntegratedAuthCredential> = MutPtr(0L),
+            clientCredential: MutPtr = MutPtr(0L),
         ): WsNamedpipeSspiTransportSecurityBinding =
             WsNamedpipeSspiTransportSecurityBinding(
                 binding = binding,
@@ -7346,9 +7344,9 @@ public data class WsNettcpUrl(
 
 public class WsOpaqueWindowsIntegratedAuthCredential internal constructor(
     public var credential: WsWindowsIntegratedAuthCredential,
-    opaqueAuthIdentityCtorArg: MutPtr<CVoid>,
+    opaqueAuthIdentityCtorArg: MutPtr,
 ) {
-    public var opaqueAuthIdentity: MutPtr<CVoid> = opaqueAuthIdentityCtorArg
+    public var opaqueAuthIdentity: MutPtr = opaqueAuthIdentityCtorArg
         internal set
 
     public constructor() : this(
@@ -7358,9 +7356,9 @@ public class WsOpaqueWindowsIntegratedAuthCredential internal constructor(
 
     public operator fun component1(): WsWindowsIntegratedAuthCredential = this.credential
 
-    public operator fun component2(): MutPtr<CVoid> = this.opaqueAuthIdentity
+    public operator fun component2(): MutPtr = this.opaqueAuthIdentity
 
-    public fun copy(credential: WsWindowsIntegratedAuthCredential = this.credential, opaqueAuthIdentity: MutPtr<CVoid> = this.opaqueAuthIdentity): WsOpaqueWindowsIntegratedAuthCredential = WsOpaqueWindowsIntegratedAuthCredential(credential = credential, opaqueAuthIdentityCtorArg = opaqueAuthIdentity)
+    public fun copy(credential: WsWindowsIntegratedAuthCredential = this.credential, opaqueAuthIdentity: MutPtr = this.opaqueAuthIdentity): WsOpaqueWindowsIntegratedAuthCredential = WsOpaqueWindowsIntegratedAuthCredential(credential = credential, opaqueAuthIdentityCtorArg = opaqueAuthIdentity)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -7386,21 +7384,21 @@ public class WsOpaqueWindowsIntegratedAuthCredential internal constructor(
                         (WsWindowsIntegratedAuthCredential.typeLayout()).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<CVoid>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                     )
                 override fun writeNative(addr: Long, value: WsOpaqueWindowsIntegratedAuthCredential) {
                     (WsWindowsIntegratedAuthCredential.typeLayout()).writeNative(addr, value.credential)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<CVoid>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.opaqueAuthIdentity)
                 }
             }
 
         public operator fun invoke(
             credential: WsWindowsIntegratedAuthCredential = WsWindowsIntegratedAuthCredential(),
-            opaqueAuthIdentity: MutPtr<CVoid> = MutPtr(0L),
+            opaqueAuthIdentity: MutPtr = MutPtr(0L),
         ): WsOpaqueWindowsIntegratedAuthCredential =
             WsOpaqueWindowsIntegratedAuthCredential(
                 credential = credential,
@@ -7411,22 +7409,22 @@ public class WsOpaqueWindowsIntegratedAuthCredential internal constructor(
 
 public class WsOperationDescription internal constructor(
     public var versionInfo: UInt,
-    inputMessageDescriptionCtorArg: MutPtr<WsMessageDescription>,
-    outputMessageDescriptionCtorArg: MutPtr<WsMessageDescription>,
+    inputMessageDescriptionCtorArg: MutPtr,
+    outputMessageDescriptionCtorArg: MutPtr,
     public var inputMessageOptions: UInt,
     public var outputMessageOptions: UInt,
     public var parameterCount: UShort,
-    parameterDescriptionCtorArg: MutPtr<WsParameterDescription>,
+    parameterDescriptionCtorArg: MutPtr,
     public var stubCallback: WsServiceStubCallback,
     public var style: WsOperationStyle,
 ) {
-    public var inputMessageDescription: MutPtr<WsMessageDescription> = inputMessageDescriptionCtorArg
+    public var inputMessageDescription: MutPtr = inputMessageDescriptionCtorArg
         internal set
 
-    public var outputMessageDescription: MutPtr<WsMessageDescription> = outputMessageDescriptionCtorArg
+    public var outputMessageDescription: MutPtr = outputMessageDescriptionCtorArg
         internal set
 
-    public var parameterDescription: MutPtr<WsParameterDescription> = parameterDescriptionCtorArg
+    public var parameterDescription: MutPtr = parameterDescriptionCtorArg
         internal set
 
     public constructor() : this(
@@ -7443,9 +7441,9 @@ public class WsOperationDescription internal constructor(
 
     public operator fun component1(): UInt = this.versionInfo
 
-    public operator fun component2(): MutPtr<WsMessageDescription> = this.inputMessageDescription
+    public operator fun component2(): MutPtr = this.inputMessageDescription
 
-    public operator fun component3(): MutPtr<WsMessageDescription> = this.outputMessageDescription
+    public operator fun component3(): MutPtr = this.outputMessageDescription
 
     public operator fun component4(): UInt = this.inputMessageOptions
 
@@ -7453,13 +7451,13 @@ public class WsOperationDescription internal constructor(
 
     public operator fun component6(): UShort = this.parameterCount
 
-    public operator fun component7(): MutPtr<WsParameterDescription> = this.parameterDescription
+    public operator fun component7(): MutPtr = this.parameterDescription
 
     public operator fun component8(): WsServiceStubCallback = this.stubCallback
 
     public operator fun component9(): WsOperationStyle = this.style
 
-    public fun copy(versionInfo: UInt = this.versionInfo, inputMessageDescription: MutPtr<WsMessageDescription> = this.inputMessageDescription, outputMessageDescription: MutPtr<WsMessageDescription> = this.outputMessageDescription, inputMessageOptions: UInt = this.inputMessageOptions, outputMessageOptions: UInt = this.outputMessageOptions, parameterCount: UShort = this.parameterCount, parameterDescription: MutPtr<WsParameterDescription> = this.parameterDescription, stubCallback: WsServiceStubCallback = this.stubCallback, style: WsOperationStyle = this.style): WsOperationDescription = WsOperationDescription(versionInfo = versionInfo, inputMessageDescriptionCtorArg = inputMessageDescription, outputMessageDescriptionCtorArg = outputMessageDescription, inputMessageOptions = inputMessageOptions, outputMessageOptions = outputMessageOptions, parameterCount = parameterCount, parameterDescriptionCtorArg = parameterDescription, stubCallback = stubCallback, style = style)
+    public fun copy(versionInfo: UInt = this.versionInfo, inputMessageDescription: MutPtr = this.inputMessageDescription, outputMessageDescription: MutPtr = this.outputMessageDescription, inputMessageOptions: UInt = this.inputMessageOptions, outputMessageOptions: UInt = this.outputMessageOptions, parameterCount: UShort = this.parameterCount, parameterDescription: MutPtr = this.parameterDescription, stubCallback: WsServiceStubCallback = this.stubCallback, style: WsOperationStyle = this.style): WsOperationDescription = WsOperationDescription(versionInfo = versionInfo, inputMessageDescriptionCtorArg = inputMessageDescription, outputMessageDescriptionCtorArg = outputMessageDescription, inputMessageOptions = inputMessageOptions, outputMessageOptions = outputMessageOptions, parameterCount = parameterCount, parameterDescriptionCtorArg = parameterDescription, stubCallback = stubCallback, style = style)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -7492,12 +7490,12 @@ public class WsOperationDescription internal constructor(
     public companion object {
         public operator fun invoke(
             versionInfo: UInt = 0u,
-            inputMessageDescription: MutPtr<WsMessageDescription> = MutPtr(0L),
-            outputMessageDescription: MutPtr<WsMessageDescription> = MutPtr(0L),
+            inputMessageDescription: MutPtr = MutPtr(0L),
+            outputMessageDescription: MutPtr = MutPtr(0L),
             inputMessageOptions: UInt = 0u,
             outputMessageOptions: UInt = 0u,
             parameterCount: UShort = 0u,
-            parameterDescription: MutPtr<WsParameterDescription> = MutPtr(0L),
+            parameterDescription: MutPtr = MutPtr(0L),
             stubCallback: WsServiceStubCallback = null,
             style: WsOperationStyle = 0,
         ): WsOperationDescription =
@@ -7542,19 +7540,19 @@ public data class WsParameterDescription(
 
 public class WsPolicyConstraints internal constructor(
     public var channelBinding: WsChannelBinding,
-    channelPropertyConstraintsCtorArg: MutPtr<WsChannelPropertyConstraint>,
+    channelPropertyConstraintsCtorArg: MutPtr,
     public var channelPropertyConstraintCount: UInt,
-    securityConstraintsCtorArg: MutPtr<WsSecurityConstraints>,
-    policyExtensionsCtorArg: MutPtr<MutPtr<WsPolicyExtension>>,
+    securityConstraintsCtorArg: MutPtr,
+    policyExtensionsCtorArg: MutPtr,
     public var policyExtensionCount: UInt,
 ) {
-    public var channelPropertyConstraints: MutPtr<WsChannelPropertyConstraint> = channelPropertyConstraintsCtorArg
+    public var channelPropertyConstraints: MutPtr = channelPropertyConstraintsCtorArg
         internal set
 
-    public var securityConstraints: MutPtr<WsSecurityConstraints> = securityConstraintsCtorArg
+    public var securityConstraints: MutPtr = securityConstraintsCtorArg
         internal set
 
-    public var policyExtensions: MutPtr<MutPtr<WsPolicyExtension>> = policyExtensionsCtorArg
+    public var policyExtensions: MutPtr = policyExtensionsCtorArg
         internal set
 
     public constructor() : this(
@@ -7568,17 +7566,17 @@ public class WsPolicyConstraints internal constructor(
 
     public operator fun component1(): WsChannelBinding = this.channelBinding
 
-    public operator fun component2(): MutPtr<WsChannelPropertyConstraint> = this.channelPropertyConstraints
+    public operator fun component2(): MutPtr = this.channelPropertyConstraints
 
     public operator fun component3(): UInt = this.channelPropertyConstraintCount
 
-    public operator fun component4(): MutPtr<WsSecurityConstraints> = this.securityConstraints
+    public operator fun component4(): MutPtr = this.securityConstraints
 
-    public operator fun component5(): MutPtr<MutPtr<WsPolicyExtension>> = this.policyExtensions
+    public operator fun component5(): MutPtr = this.policyExtensions
 
     public operator fun component6(): UInt = this.policyExtensionCount
 
-    public fun copy(channelBinding: WsChannelBinding = this.channelBinding, channelPropertyConstraints: MutPtr<WsChannelPropertyConstraint> = this.channelPropertyConstraints, channelPropertyConstraintCount: UInt = this.channelPropertyConstraintCount, securityConstraints: MutPtr<WsSecurityConstraints> = this.securityConstraints, policyExtensions: MutPtr<MutPtr<WsPolicyExtension>> = this.policyExtensions, policyExtensionCount: UInt = this.policyExtensionCount): WsPolicyConstraints = WsPolicyConstraints(channelBinding = channelBinding, channelPropertyConstraintsCtorArg = channelPropertyConstraints, channelPropertyConstraintCount = channelPropertyConstraintCount, securityConstraintsCtorArg = securityConstraints, policyExtensionsCtorArg = policyExtensions, policyExtensionCount = policyExtensionCount)
+    public fun copy(channelBinding: WsChannelBinding = this.channelBinding, channelPropertyConstraints: MutPtr = this.channelPropertyConstraints, channelPropertyConstraintCount: UInt = this.channelPropertyConstraintCount, securityConstraints: MutPtr = this.securityConstraints, policyExtensions: MutPtr = this.policyExtensions, policyExtensionCount: UInt = this.policyExtensionCount): WsPolicyConstraints = WsPolicyConstraints(channelBinding = channelBinding, channelPropertyConstraintsCtorArg = channelPropertyConstraints, channelPropertyConstraintCount = channelPropertyConstraintCount, securityConstraintsCtorArg = securityConstraints, policyExtensionsCtorArg = policyExtensions, policyExtensionCount = policyExtensionCount)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -7612,16 +7610,16 @@ public class WsPolicyConstraints internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<WsChannelPropertyConstraint>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 16L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<WsSecurityConstraints>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 24L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<MutPtr<WsPolicyExtension>>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 32L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 40L),
                     )
@@ -7629,16 +7627,16 @@ public class WsPolicyConstraints internal constructor(
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr, value.channelBinding)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<WsChannelPropertyConstraint>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.channelPropertyConstraints)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 16L, value.channelPropertyConstraintCount)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<WsSecurityConstraints>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 24L, value.securityConstraints)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<MutPtr<WsPolicyExtension>>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 32L, value.policyExtensions)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 40L, value.policyExtensionCount)
                 }
@@ -7646,10 +7644,10 @@ public class WsPolicyConstraints internal constructor(
 
         public operator fun invoke(
             channelBinding: WsChannelBinding = 0,
-            channelPropertyConstraints: MutPtr<WsChannelPropertyConstraint> = MutPtr(0L),
+            channelPropertyConstraints: MutPtr = MutPtr(0L),
             channelPropertyConstraintCount: UInt = 0u,
-            securityConstraints: MutPtr<WsSecurityConstraints> = MutPtr(0L),
-            policyExtensions: MutPtr<MutPtr<WsPolicyExtension>> = MutPtr(0L),
+            securityConstraints: MutPtr = MutPtr(0L),
+            policyExtensions: MutPtr = MutPtr(0L),
             policyExtensionCount: UInt = 0u,
         ): WsPolicyConstraints =
             WsPolicyConstraints(
@@ -7683,10 +7681,10 @@ public data class WsPolicyExtension(
 }
 
 public class WsPolicyProperties internal constructor(
-    propertiesCtorArg: MutPtr<WsPolicyProperty>,
+    propertiesCtorArg: MutPtr,
     public var propertyCount: UInt,
 ) {
-    public var properties: MutPtr<WsPolicyProperty> = propertiesCtorArg
+    public var properties: MutPtr = propertiesCtorArg
         internal set
 
     public constructor() : this(
@@ -7694,11 +7692,11 @@ public class WsPolicyProperties internal constructor(
         propertyCount = 0u,
     )
 
-    public operator fun component1(): MutPtr<WsPolicyProperty> = this.properties
+    public operator fun component1(): MutPtr = this.properties
 
     public operator fun component2(): UInt = this.propertyCount
 
-    public fun copy(properties: MutPtr<WsPolicyProperty> = this.properties, propertyCount: UInt = this.propertyCount): WsPolicyProperties = WsPolicyProperties(propertiesCtorArg = properties, propertyCount = propertyCount)
+    public fun copy(properties: MutPtr = this.properties, propertyCount: UInt = this.propertyCount): WsPolicyProperties = WsPolicyProperties(propertiesCtorArg = properties, propertyCount = propertyCount)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -7723,21 +7721,21 @@ public class WsPolicyProperties internal constructor(
                     WsPolicyProperties(
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<WsPolicyProperty>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 8L),
                     )
                 override fun writeNative(addr: Long, value: WsPolicyProperties) {
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<WsPolicyProperty>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr, value.properties)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 8L, value.propertyCount)
                 }
             }
 
         public operator fun invoke(
-            properties: MutPtr<WsPolicyProperty> = MutPtr(0L),
+            properties: MutPtr = MutPtr(0L),
             propertyCount: UInt = 0u,
         ): WsPolicyProperties =
             WsPolicyProperties(
@@ -7749,10 +7747,10 @@ public class WsPolicyProperties internal constructor(
 
 public class WsPolicyProperty internal constructor(
     public var id: WsPolicyPropertyId,
-    valueCtorArg: MutPtr<CVoid>,
+    valueCtorArg: MutPtr,
     public var valueSize: UInt,
 ) {
-    public var value: MutPtr<CVoid> = valueCtorArg
+    public var value: MutPtr = valueCtorArg
         internal set
 
     public constructor() : this(
@@ -7763,11 +7761,11 @@ public class WsPolicyProperty internal constructor(
 
     public operator fun component1(): WsPolicyPropertyId = this.id
 
-    public operator fun component2(): MutPtr<CVoid> = this.value
+    public operator fun component2(): MutPtr = this.value
 
     public operator fun component3(): UInt = this.valueSize
 
-    public fun copy(id: WsPolicyPropertyId = this.id, value: MutPtr<CVoid> = this.value, valueSize: UInt = this.valueSize): WsPolicyProperty = WsPolicyProperty(id = id, valueCtorArg = value, valueSize = valueSize)
+    public fun copy(id: WsPolicyPropertyId = this.id, value: MutPtr = this.value, valueSize: UInt = this.valueSize): WsPolicyProperty = WsPolicyProperty(id = id, valueCtorArg = value, valueSize = valueSize)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -7795,7 +7793,7 @@ public class WsPolicyProperty internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<CVoid>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 16L),
                     )
@@ -7803,7 +7801,7 @@ public class WsPolicyProperty internal constructor(
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr, value.id)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<CVoid>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.value)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 16L, value.valueSize)
                 }
@@ -7811,7 +7809,7 @@ public class WsPolicyProperty internal constructor(
 
         public operator fun invoke(
             id: WsPolicyPropertyId = 0,
-            value: MutPtr<CVoid> = MutPtr(0L),
+            value: MutPtr = MutPtr(0L),
             valueSize: UInt = 0u,
         ): WsPolicyProperty =
             WsPolicyProperty(
@@ -7824,9 +7822,9 @@ public class WsPolicyProperty internal constructor(
 
 public class WsProxyMessageCallbackContext internal constructor(
     public var callback: WsProxyMessageCallback,
-    stateCtorArg: MutPtr<CVoid>,
+    stateCtorArg: MutPtr,
 ) {
-    public var state: MutPtr<CVoid> = stateCtorArg
+    public var state: MutPtr = stateCtorArg
         internal set
 
     public constructor() : this(
@@ -7836,9 +7834,9 @@ public class WsProxyMessageCallbackContext internal constructor(
 
     public operator fun component1(): WsProxyMessageCallback = this.callback
 
-    public operator fun component2(): MutPtr<CVoid> = this.state
+    public operator fun component2(): MutPtr = this.state
 
-    public fun copy(callback: WsProxyMessageCallback = this.callback, state: MutPtr<CVoid> = this.state): WsProxyMessageCallbackContext = WsProxyMessageCallbackContext(callback = callback, stateCtorArg = state)
+    public fun copy(callback: WsProxyMessageCallback = this.callback, state: MutPtr = this.state): WsProxyMessageCallbackContext = WsProxyMessageCallbackContext(callback = callback, stateCtorArg = state)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -7857,7 +7855,7 @@ public class WsProxyMessageCallbackContext internal constructor(
     public companion object {
         public operator fun invoke(
             callback: WsProxyMessageCallback = null,
-            state: MutPtr<CVoid> = MutPtr(0L),
+            state: MutPtr = MutPtr(0L),
         ): WsProxyMessageCallbackContext =
             WsProxyMessageCallbackContext(
                 callback = callback,
@@ -7868,10 +7866,10 @@ public class WsProxyMessageCallbackContext internal constructor(
 
 public class WsProxyProperty internal constructor(
     public var id: WsProxyPropertyId,
-    valueCtorArg: MutPtr<CVoid>,
+    valueCtorArg: MutPtr,
     public var valueSize: UInt,
 ) {
-    public var value: MutPtr<CVoid> = valueCtorArg
+    public var value: MutPtr = valueCtorArg
         internal set
 
     public constructor() : this(
@@ -7882,11 +7880,11 @@ public class WsProxyProperty internal constructor(
 
     public operator fun component1(): WsProxyPropertyId = this.id
 
-    public operator fun component2(): MutPtr<CVoid> = this.value
+    public operator fun component2(): MutPtr = this.value
 
     public operator fun component3(): UInt = this.valueSize
 
-    public fun copy(id: WsProxyPropertyId = this.id, value: MutPtr<CVoid> = this.value, valueSize: UInt = this.valueSize): WsProxyProperty = WsProxyProperty(id = id, valueCtorArg = value, valueSize = valueSize)
+    public fun copy(id: WsProxyPropertyId = this.id, value: MutPtr = this.value, valueSize: UInt = this.valueSize): WsProxyProperty = WsProxyProperty(id = id, valueCtorArg = value, valueSize = valueSize)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -7914,7 +7912,7 @@ public class WsProxyProperty internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<CVoid>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 16L),
                     )
@@ -7922,7 +7920,7 @@ public class WsProxyProperty internal constructor(
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr, value.id)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<CVoid>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.value)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 16L, value.valueSize)
                 }
@@ -7930,7 +7928,7 @@ public class WsProxyProperty internal constructor(
 
         public operator fun invoke(
             id: WsProxyPropertyId = 0,
-            value: MutPtr<CVoid> = MutPtr(0L),
+            value: MutPtr = MutPtr(0L),
             valueSize: UInt = 0u,
         ): WsProxyProperty =
             WsProxyProperty(
@@ -7965,10 +7963,10 @@ public data class WsRawSymmetricSecurityKeyHandle(
 
 public class WsRequestSecurityTokenProperty internal constructor(
     public var id: WsRequestSecurityTokenPropertyId,
-    valueCtorArg: MutPtr<CVoid>,
+    valueCtorArg: MutPtr,
     public var valueSize: UInt,
 ) {
-    public var value: MutPtr<CVoid> = valueCtorArg
+    public var value: MutPtr = valueCtorArg
         internal set
 
     public constructor() : this(
@@ -7979,11 +7977,11 @@ public class WsRequestSecurityTokenProperty internal constructor(
 
     public operator fun component1(): WsRequestSecurityTokenPropertyId = this.id
 
-    public operator fun component2(): MutPtr<CVoid> = this.value
+    public operator fun component2(): MutPtr = this.value
 
     public operator fun component3(): UInt = this.valueSize
 
-    public fun copy(id: WsRequestSecurityTokenPropertyId = this.id, value: MutPtr<CVoid> = this.value, valueSize: UInt = this.valueSize): WsRequestSecurityTokenProperty = WsRequestSecurityTokenProperty(id = id, valueCtorArg = value, valueSize = valueSize)
+    public fun copy(id: WsRequestSecurityTokenPropertyId = this.id, value: MutPtr = this.value, valueSize: UInt = this.valueSize): WsRequestSecurityTokenProperty = WsRequestSecurityTokenProperty(id = id, valueCtorArg = value, valueSize = valueSize)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -8011,7 +8009,7 @@ public class WsRequestSecurityTokenProperty internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<CVoid>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 16L),
                     )
@@ -8019,7 +8017,7 @@ public class WsRequestSecurityTokenProperty internal constructor(
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr, value.id)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<CVoid>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.value)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 16L, value.valueSize)
                 }
@@ -8027,7 +8025,7 @@ public class WsRequestSecurityTokenProperty internal constructor(
 
         public operator fun invoke(
             id: WsRequestSecurityTokenPropertyId = 0,
-            value: MutPtr<CVoid> = MutPtr(0L),
+            value: MutPtr = MutPtr(0L),
             valueSize: UInt = 0u,
         ): WsRequestSecurityTokenProperty =
             WsRequestSecurityTokenProperty(
@@ -8040,11 +8038,11 @@ public class WsRequestSecurityTokenProperty internal constructor(
 
 public class WsRequestSecurityTokenPropertyConstraint internal constructor(
     public var id: WsRequestSecurityTokenPropertyId,
-    allowedValuesCtorArg: MutPtr<CVoid>,
+    allowedValuesCtorArg: MutPtr,
     public var allowedValuesSize: UInt,
     public var out: WsRequestSecurityTokenPropertyConstraint0,
 ) {
-    public var allowedValues: MutPtr<CVoid> = allowedValuesCtorArg
+    public var allowedValues: MutPtr = allowedValuesCtorArg
         internal set
 
     public constructor() : this(
@@ -8056,13 +8054,13 @@ public class WsRequestSecurityTokenPropertyConstraint internal constructor(
 
     public operator fun component1(): WsRequestSecurityTokenPropertyId = this.id
 
-    public operator fun component2(): MutPtr<CVoid> = this.allowedValues
+    public operator fun component2(): MutPtr = this.allowedValues
 
     public operator fun component3(): UInt = this.allowedValuesSize
 
     public operator fun component4(): WsRequestSecurityTokenPropertyConstraint0 = this.out
 
-    public fun copy(id: WsRequestSecurityTokenPropertyId = this.id, allowedValues: MutPtr<CVoid> = this.allowedValues, allowedValuesSize: UInt = this.allowedValuesSize, out: WsRequestSecurityTokenPropertyConstraint0 = this.out): WsRequestSecurityTokenPropertyConstraint = WsRequestSecurityTokenPropertyConstraint(id = id, allowedValuesCtorArg = allowedValues, allowedValuesSize = allowedValuesSize, out = out)
+    public fun copy(id: WsRequestSecurityTokenPropertyId = this.id, allowedValues: MutPtr = this.allowedValues, allowedValuesSize: UInt = this.allowedValuesSize, out: WsRequestSecurityTokenPropertyConstraint0 = this.out): WsRequestSecurityTokenPropertyConstraint = WsRequestSecurityTokenPropertyConstraint(id = id, allowedValuesCtorArg = allowedValues, allowedValuesSize = allowedValuesSize, out = out)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -8092,7 +8090,7 @@ public class WsRequestSecurityTokenPropertyConstraint internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<CVoid>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 16L),
                         (WsRequestSecurityTokenPropertyConstraint0.typeLayout()).readNative(addr + 24L),
@@ -8101,7 +8099,7 @@ public class WsRequestSecurityTokenPropertyConstraint internal constructor(
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr, value.id)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<CVoid>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.allowedValues)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 16L, value.allowedValuesSize)
                     (WsRequestSecurityTokenPropertyConstraint0.typeLayout()).writeNative(addr + 24L, value.out)
@@ -8110,7 +8108,7 @@ public class WsRequestSecurityTokenPropertyConstraint internal constructor(
 
         public operator fun invoke(
             id: WsRequestSecurityTokenPropertyId = 0,
-            allowedValues: MutPtr<CVoid> = MutPtr(0L),
+            allowedValues: MutPtr = MutPtr(0L),
             allowedValuesSize: UInt = 0u,
             out: WsRequestSecurityTokenPropertyConstraint0 = WsRequestSecurityTokenPropertyConstraint0(),
         ): WsRequestSecurityTokenPropertyConstraint =
@@ -8189,9 +8187,9 @@ public data class WsSamlAuthenticator(
 public class WsSamlMessageSecurityBinding internal constructor(
     public var binding: WsSecurityBinding,
     public var bindingUsage: WsMessageSecurityUsage,
-    authenticatorCtorArg: MutPtr<WsSamlAuthenticator>,
+    authenticatorCtorArg: MutPtr,
 ) {
-    public var authenticator: MutPtr<WsSamlAuthenticator> = authenticatorCtorArg
+    public var authenticator: MutPtr = authenticatorCtorArg
         internal set
 
     public constructor() : this(
@@ -8204,9 +8202,9 @@ public class WsSamlMessageSecurityBinding internal constructor(
 
     public operator fun component2(): WsMessageSecurityUsage = this.bindingUsage
 
-    public operator fun component3(): MutPtr<WsSamlAuthenticator> = this.authenticator
+    public operator fun component3(): MutPtr = this.authenticator
 
-    public fun copy(binding: WsSecurityBinding = this.binding, bindingUsage: WsMessageSecurityUsage = this.bindingUsage, authenticator: MutPtr<WsSamlAuthenticator> = this.authenticator): WsSamlMessageSecurityBinding = WsSamlMessageSecurityBinding(binding = binding, bindingUsage = bindingUsage, authenticatorCtorArg = authenticator)
+    public fun copy(binding: WsSecurityBinding = this.binding, bindingUsage: WsMessageSecurityUsage = this.bindingUsage, authenticator: MutPtr = this.authenticator): WsSamlMessageSecurityBinding = WsSamlMessageSecurityBinding(binding = binding, bindingUsage = bindingUsage, authenticatorCtorArg = authenticator)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -8235,7 +8233,7 @@ public class WsSamlMessageSecurityBinding internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr + 24L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<WsSamlAuthenticator>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 32L),
                     )
                 override fun writeNative(addr: Long, value: WsSamlMessageSecurityBinding) {
@@ -8243,7 +8241,7 @@ public class WsSamlMessageSecurityBinding internal constructor(
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr + 24L, value.bindingUsage)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<WsSamlAuthenticator>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 32L, value.authenticator)
                 }
             }
@@ -8251,7 +8249,7 @@ public class WsSamlMessageSecurityBinding internal constructor(
         public operator fun invoke(
             binding: WsSecurityBinding = WsSecurityBinding(),
             bindingUsage: WsMessageSecurityUsage = 0,
-            authenticator: MutPtr<WsSamlAuthenticator> = MutPtr(0L),
+            authenticator: MutPtr = MutPtr(0L),
         ): WsSamlMessageSecurityBinding =
             WsSamlMessageSecurityBinding(
                 binding = binding,
@@ -8263,10 +8261,10 @@ public class WsSamlMessageSecurityBinding internal constructor(
 
 public class WsSecurityAlgorithmProperty internal constructor(
     public var id: WsSecurityAlgorithmPropertyId,
-    valueCtorArg: MutPtr<CVoid>,
+    valueCtorArg: MutPtr,
     public var valueSize: UInt,
 ) {
-    public var value: MutPtr<CVoid> = valueCtorArg
+    public var value: MutPtr = valueCtorArg
         internal set
 
     public constructor() : this(
@@ -8277,11 +8275,11 @@ public class WsSecurityAlgorithmProperty internal constructor(
 
     public operator fun component1(): WsSecurityAlgorithmPropertyId = this.id
 
-    public operator fun component2(): MutPtr<CVoid> = this.value
+    public operator fun component2(): MutPtr = this.value
 
     public operator fun component3(): UInt = this.valueSize
 
-    public fun copy(id: WsSecurityAlgorithmPropertyId = this.id, value: MutPtr<CVoid> = this.value, valueSize: UInt = this.valueSize): WsSecurityAlgorithmProperty = WsSecurityAlgorithmProperty(id = id, valueCtorArg = value, valueSize = valueSize)
+    public fun copy(id: WsSecurityAlgorithmPropertyId = this.id, value: MutPtr = this.value, valueSize: UInt = this.valueSize): WsSecurityAlgorithmProperty = WsSecurityAlgorithmProperty(id = id, valueCtorArg = value, valueSize = valueSize)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -8309,7 +8307,7 @@ public class WsSecurityAlgorithmProperty internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<CVoid>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 16L),
                     )
@@ -8317,7 +8315,7 @@ public class WsSecurityAlgorithmProperty internal constructor(
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr, value.id)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<CVoid>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.value)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 16L, value.valueSize)
                 }
@@ -8325,7 +8323,7 @@ public class WsSecurityAlgorithmProperty internal constructor(
 
         public operator fun invoke(
             id: WsSecurityAlgorithmPropertyId = 0,
-            value: MutPtr<CVoid> = MutPtr(0L),
+            value: MutPtr = MutPtr(0L),
             valueSize: UInt = 0u,
         ): WsSecurityAlgorithmProperty =
             WsSecurityAlgorithmProperty(
@@ -8349,10 +8347,10 @@ public class WsSecurityAlgorithmSuite internal constructor(
     public var maxSymmetricKeyLength: UInt,
     public var minAsymmetricKeyLength: UInt,
     public var maxAsymmetricKeyLength: UInt,
-    propertiesCtorArg: MutPtr<WsSecurityAlgorithmProperty>,
+    propertiesCtorArg: MutPtr,
     public var propertyCount: UInt,
 ) {
-    public var properties: MutPtr<WsSecurityAlgorithmProperty> = propertiesCtorArg
+    public var properties: MutPtr = propertiesCtorArg
         internal set
 
     public constructor() : this(
@@ -8396,11 +8394,11 @@ public class WsSecurityAlgorithmSuite internal constructor(
 
     public operator fun component12(): UInt = this.maxAsymmetricKeyLength
 
-    public operator fun component13(): MutPtr<WsSecurityAlgorithmProperty> = this.properties
+    public operator fun component13(): MutPtr = this.properties
 
     public operator fun component14(): UInt = this.propertyCount
 
-    public fun copy(canonicalizationAlgorithm: WsSecurityAlgorithmId = this.canonicalizationAlgorithm, digestAlgorithm: WsSecurityAlgorithmId = this.digestAlgorithm, symmetricSignatureAlgorithm: WsSecurityAlgorithmId = this.symmetricSignatureAlgorithm, asymmetricSignatureAlgorithm: WsSecurityAlgorithmId = this.asymmetricSignatureAlgorithm, encryptionAlgorithm: WsSecurityAlgorithmId = this.encryptionAlgorithm, keyDerivationAlgorithm: WsSecurityAlgorithmId = this.keyDerivationAlgorithm, symmetricKeyWrapAlgorithm: WsSecurityAlgorithmId = this.symmetricKeyWrapAlgorithm, asymmetricKeyWrapAlgorithm: WsSecurityAlgorithmId = this.asymmetricKeyWrapAlgorithm, minSymmetricKeyLength: UInt = this.minSymmetricKeyLength, maxSymmetricKeyLength: UInt = this.maxSymmetricKeyLength, minAsymmetricKeyLength: UInt = this.minAsymmetricKeyLength, maxAsymmetricKeyLength: UInt = this.maxAsymmetricKeyLength, properties: MutPtr<WsSecurityAlgorithmProperty> = this.properties, propertyCount: UInt = this.propertyCount): WsSecurityAlgorithmSuite = WsSecurityAlgorithmSuite(canonicalizationAlgorithm = canonicalizationAlgorithm, digestAlgorithm = digestAlgorithm, symmetricSignatureAlgorithm = symmetricSignatureAlgorithm, asymmetricSignatureAlgorithm = asymmetricSignatureAlgorithm, encryptionAlgorithm = encryptionAlgorithm, keyDerivationAlgorithm = keyDerivationAlgorithm, symmetricKeyWrapAlgorithm = symmetricKeyWrapAlgorithm, asymmetricKeyWrapAlgorithm = asymmetricKeyWrapAlgorithm, minSymmetricKeyLength = minSymmetricKeyLength, maxSymmetricKeyLength = maxSymmetricKeyLength, minAsymmetricKeyLength = minAsymmetricKeyLength, maxAsymmetricKeyLength = maxAsymmetricKeyLength, propertiesCtorArg = properties, propertyCount = propertyCount)
+    public fun copy(canonicalizationAlgorithm: WsSecurityAlgorithmId = this.canonicalizationAlgorithm, digestAlgorithm: WsSecurityAlgorithmId = this.digestAlgorithm, symmetricSignatureAlgorithm: WsSecurityAlgorithmId = this.symmetricSignatureAlgorithm, asymmetricSignatureAlgorithm: WsSecurityAlgorithmId = this.asymmetricSignatureAlgorithm, encryptionAlgorithm: WsSecurityAlgorithmId = this.encryptionAlgorithm, keyDerivationAlgorithm: WsSecurityAlgorithmId = this.keyDerivationAlgorithm, symmetricKeyWrapAlgorithm: WsSecurityAlgorithmId = this.symmetricKeyWrapAlgorithm, asymmetricKeyWrapAlgorithm: WsSecurityAlgorithmId = this.asymmetricKeyWrapAlgorithm, minSymmetricKeyLength: UInt = this.minSymmetricKeyLength, maxSymmetricKeyLength: UInt = this.maxSymmetricKeyLength, minAsymmetricKeyLength: UInt = this.minAsymmetricKeyLength, maxAsymmetricKeyLength: UInt = this.maxAsymmetricKeyLength, properties: MutPtr = this.properties, propertyCount: UInt = this.propertyCount): WsSecurityAlgorithmSuite = WsSecurityAlgorithmSuite(canonicalizationAlgorithm = canonicalizationAlgorithm, digestAlgorithm = digestAlgorithm, symmetricSignatureAlgorithm = symmetricSignatureAlgorithm, asymmetricSignatureAlgorithm = asymmetricSignatureAlgorithm, encryptionAlgorithm = encryptionAlgorithm, keyDerivationAlgorithm = keyDerivationAlgorithm, symmetricKeyWrapAlgorithm = symmetricKeyWrapAlgorithm, asymmetricKeyWrapAlgorithm = asymmetricKeyWrapAlgorithm, minSymmetricKeyLength = minSymmetricKeyLength, maxSymmetricKeyLength = maxSymmetricKeyLength, minAsymmetricKeyLength = minAsymmetricKeyLength, maxAsymmetricKeyLength = maxAsymmetricKeyLength, propertiesCtorArg = properties, propertyCount = propertyCount)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -8461,7 +8459,7 @@ public class WsSecurityAlgorithmSuite internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 44L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<WsSecurityAlgorithmProperty>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 48L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 56L),
                     )
@@ -8480,7 +8478,7 @@ public class WsSecurityAlgorithmSuite internal constructor(
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 44L, value.maxAsymmetricKeyLength)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<WsSecurityAlgorithmProperty>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 48L, value.properties)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 56L, value.propertyCount)
                 }
@@ -8499,7 +8497,7 @@ public class WsSecurityAlgorithmSuite internal constructor(
             maxSymmetricKeyLength: UInt = 0u,
             minAsymmetricKeyLength: UInt = 0u,
             maxAsymmetricKeyLength: UInt = 0u,
-            properties: MutPtr<WsSecurityAlgorithmProperty> = MutPtr(0L),
+            properties: MutPtr = MutPtr(0L),
             propertyCount: UInt = 0u,
         ): WsSecurityAlgorithmSuite =
             WsSecurityAlgorithmSuite(
@@ -8523,10 +8521,10 @@ public class WsSecurityAlgorithmSuite internal constructor(
 
 public class WsSecurityBinding internal constructor(
     public var bindingType: WsSecurityBindingType,
-    propertiesCtorArg: MutPtr<WsSecurityBindingProperty>,
+    propertiesCtorArg: MutPtr,
     public var propertyCount: UInt,
 ) {
-    public var properties: MutPtr<WsSecurityBindingProperty> = propertiesCtorArg
+    public var properties: MutPtr = propertiesCtorArg
         internal set
 
     public constructor() : this(
@@ -8537,11 +8535,11 @@ public class WsSecurityBinding internal constructor(
 
     public operator fun component1(): WsSecurityBindingType = this.bindingType
 
-    public operator fun component2(): MutPtr<WsSecurityBindingProperty> = this.properties
+    public operator fun component2(): MutPtr = this.properties
 
     public operator fun component3(): UInt = this.propertyCount
 
-    public fun copy(bindingType: WsSecurityBindingType = this.bindingType, properties: MutPtr<WsSecurityBindingProperty> = this.properties, propertyCount: UInt = this.propertyCount): WsSecurityBinding = WsSecurityBinding(bindingType = bindingType, propertiesCtorArg = properties, propertyCount = propertyCount)
+    public fun copy(bindingType: WsSecurityBindingType = this.bindingType, properties: MutPtr = this.properties, propertyCount: UInt = this.propertyCount): WsSecurityBinding = WsSecurityBinding(bindingType = bindingType, propertiesCtorArg = properties, propertyCount = propertyCount)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -8569,7 +8567,7 @@ public class WsSecurityBinding internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<WsSecurityBindingProperty>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 16L),
                     )
@@ -8577,7 +8575,7 @@ public class WsSecurityBinding internal constructor(
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr, value.bindingType)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<WsSecurityBindingProperty>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.properties)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 16L, value.propertyCount)
                 }
@@ -8585,7 +8583,7 @@ public class WsSecurityBinding internal constructor(
 
         public operator fun invoke(
             bindingType: WsSecurityBindingType = 0,
-            properties: MutPtr<WsSecurityBindingProperty> = MutPtr(0L),
+            properties: MutPtr = MutPtr(0L),
             propertyCount: UInt = 0u,
         ): WsSecurityBinding =
             WsSecurityBinding(
@@ -8598,10 +8596,10 @@ public class WsSecurityBinding internal constructor(
 
 public class WsSecurityBindingConstraint internal constructor(
     public var type: WsSecurityBindingConstraintType,
-    propertyConstraintsCtorArg: MutPtr<WsSecurityBindingPropertyConstraint>,
+    propertyConstraintsCtorArg: MutPtr,
     public var propertyConstraintCount: UInt,
 ) {
-    public var propertyConstraints: MutPtr<WsSecurityBindingPropertyConstraint> = propertyConstraintsCtorArg
+    public var propertyConstraints: MutPtr = propertyConstraintsCtorArg
         internal set
 
     public constructor() : this(
@@ -8612,11 +8610,11 @@ public class WsSecurityBindingConstraint internal constructor(
 
     public operator fun component1(): WsSecurityBindingConstraintType = this.type
 
-    public operator fun component2(): MutPtr<WsSecurityBindingPropertyConstraint> = this.propertyConstraints
+    public operator fun component2(): MutPtr = this.propertyConstraints
 
     public operator fun component3(): UInt = this.propertyConstraintCount
 
-    public fun copy(type: WsSecurityBindingConstraintType = this.type, propertyConstraints: MutPtr<WsSecurityBindingPropertyConstraint> = this.propertyConstraints, propertyConstraintCount: UInt = this.propertyConstraintCount): WsSecurityBindingConstraint = WsSecurityBindingConstraint(type = type, propertyConstraintsCtorArg = propertyConstraints, propertyConstraintCount = propertyConstraintCount)
+    public fun copy(type: WsSecurityBindingConstraintType = this.type, propertyConstraints: MutPtr = this.propertyConstraints, propertyConstraintCount: UInt = this.propertyConstraintCount): WsSecurityBindingConstraint = WsSecurityBindingConstraint(type = type, propertyConstraintsCtorArg = propertyConstraints, propertyConstraintCount = propertyConstraintCount)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -8644,7 +8642,7 @@ public class WsSecurityBindingConstraint internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<WsSecurityBindingPropertyConstraint>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 16L),
                     )
@@ -8652,7 +8650,7 @@ public class WsSecurityBindingConstraint internal constructor(
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr, value.type)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<WsSecurityBindingPropertyConstraint>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.propertyConstraints)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 16L, value.propertyConstraintCount)
                 }
@@ -8660,7 +8658,7 @@ public class WsSecurityBindingConstraint internal constructor(
 
         public operator fun invoke(
             type: WsSecurityBindingConstraintType = 0,
-            propertyConstraints: MutPtr<WsSecurityBindingPropertyConstraint> = MutPtr(0L),
+            propertyConstraints: MutPtr = MutPtr(0L),
             propertyConstraintCount: UInt = 0u,
         ): WsSecurityBindingConstraint =
             WsSecurityBindingConstraint(
@@ -8672,10 +8670,10 @@ public class WsSecurityBindingConstraint internal constructor(
 }
 
 public class WsSecurityBindingProperties internal constructor(
-    propertiesCtorArg: MutPtr<WsSecurityBindingProperty>,
+    propertiesCtorArg: MutPtr,
     public var propertyCount: UInt,
 ) {
-    public var properties: MutPtr<WsSecurityBindingProperty> = propertiesCtorArg
+    public var properties: MutPtr = propertiesCtorArg
         internal set
 
     public constructor() : this(
@@ -8683,11 +8681,11 @@ public class WsSecurityBindingProperties internal constructor(
         propertyCount = 0u,
     )
 
-    public operator fun component1(): MutPtr<WsSecurityBindingProperty> = this.properties
+    public operator fun component1(): MutPtr = this.properties
 
     public operator fun component2(): UInt = this.propertyCount
 
-    public fun copy(properties: MutPtr<WsSecurityBindingProperty> = this.properties, propertyCount: UInt = this.propertyCount): WsSecurityBindingProperties = WsSecurityBindingProperties(propertiesCtorArg = properties, propertyCount = propertyCount)
+    public fun copy(properties: MutPtr = this.properties, propertyCount: UInt = this.propertyCount): WsSecurityBindingProperties = WsSecurityBindingProperties(propertiesCtorArg = properties, propertyCount = propertyCount)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -8712,21 +8710,21 @@ public class WsSecurityBindingProperties internal constructor(
                     WsSecurityBindingProperties(
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<WsSecurityBindingProperty>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 8L),
                     )
                 override fun writeNative(addr: Long, value: WsSecurityBindingProperties) {
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<WsSecurityBindingProperty>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr, value.properties)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 8L, value.propertyCount)
                 }
             }
 
         public operator fun invoke(
-            properties: MutPtr<WsSecurityBindingProperty> = MutPtr(0L),
+            properties: MutPtr = MutPtr(0L),
             propertyCount: UInt = 0u,
         ): WsSecurityBindingProperties =
             WsSecurityBindingProperties(
@@ -8738,10 +8736,10 @@ public class WsSecurityBindingProperties internal constructor(
 
 public class WsSecurityBindingProperty internal constructor(
     public var id: WsSecurityBindingPropertyId,
-    valueCtorArg: MutPtr<CVoid>,
+    valueCtorArg: MutPtr,
     public var valueSize: UInt,
 ) {
-    public var value: MutPtr<CVoid> = valueCtorArg
+    public var value: MutPtr = valueCtorArg
         internal set
 
     public constructor() : this(
@@ -8752,11 +8750,11 @@ public class WsSecurityBindingProperty internal constructor(
 
     public operator fun component1(): WsSecurityBindingPropertyId = this.id
 
-    public operator fun component2(): MutPtr<CVoid> = this.value
+    public operator fun component2(): MutPtr = this.value
 
     public operator fun component3(): UInt = this.valueSize
 
-    public fun copy(id: WsSecurityBindingPropertyId = this.id, value: MutPtr<CVoid> = this.value, valueSize: UInt = this.valueSize): WsSecurityBindingProperty = WsSecurityBindingProperty(id = id, valueCtorArg = value, valueSize = valueSize)
+    public fun copy(id: WsSecurityBindingPropertyId = this.id, value: MutPtr = this.value, valueSize: UInt = this.valueSize): WsSecurityBindingProperty = WsSecurityBindingProperty(id = id, valueCtorArg = value, valueSize = valueSize)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -8784,7 +8782,7 @@ public class WsSecurityBindingProperty internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<CVoid>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 16L),
                     )
@@ -8792,7 +8790,7 @@ public class WsSecurityBindingProperty internal constructor(
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr, value.id)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<CVoid>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.value)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 16L, value.valueSize)
                 }
@@ -8800,7 +8798,7 @@ public class WsSecurityBindingProperty internal constructor(
 
         public operator fun invoke(
             id: WsSecurityBindingPropertyId = 0,
-            value: MutPtr<CVoid> = MutPtr(0L),
+            value: MutPtr = MutPtr(0L),
             valueSize: UInt = 0u,
         ): WsSecurityBindingProperty =
             WsSecurityBindingProperty(
@@ -8813,11 +8811,11 @@ public class WsSecurityBindingProperty internal constructor(
 
 public class WsSecurityBindingPropertyConstraint internal constructor(
     public var id: WsSecurityBindingPropertyId,
-    allowedValuesCtorArg: MutPtr<CVoid>,
+    allowedValuesCtorArg: MutPtr,
     public var allowedValuesSize: UInt,
     public var out: WsSecurityBindingPropertyConstraint0,
 ) {
-    public var allowedValues: MutPtr<CVoid> = allowedValuesCtorArg
+    public var allowedValues: MutPtr = allowedValuesCtorArg
         internal set
 
     public constructor() : this(
@@ -8829,13 +8827,13 @@ public class WsSecurityBindingPropertyConstraint internal constructor(
 
     public operator fun component1(): WsSecurityBindingPropertyId = this.id
 
-    public operator fun component2(): MutPtr<CVoid> = this.allowedValues
+    public operator fun component2(): MutPtr = this.allowedValues
 
     public operator fun component3(): UInt = this.allowedValuesSize
 
     public operator fun component4(): WsSecurityBindingPropertyConstraint0 = this.out
 
-    public fun copy(id: WsSecurityBindingPropertyId = this.id, allowedValues: MutPtr<CVoid> = this.allowedValues, allowedValuesSize: UInt = this.allowedValuesSize, out: WsSecurityBindingPropertyConstraint0 = this.out): WsSecurityBindingPropertyConstraint = WsSecurityBindingPropertyConstraint(id = id, allowedValuesCtorArg = allowedValues, allowedValuesSize = allowedValuesSize, out = out)
+    public fun copy(id: WsSecurityBindingPropertyId = this.id, allowedValues: MutPtr = this.allowedValues, allowedValuesSize: UInt = this.allowedValuesSize, out: WsSecurityBindingPropertyConstraint0 = this.out): WsSecurityBindingPropertyConstraint = WsSecurityBindingPropertyConstraint(id = id, allowedValuesCtorArg = allowedValues, allowedValuesSize = allowedValuesSize, out = out)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -8865,7 +8863,7 @@ public class WsSecurityBindingPropertyConstraint internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<CVoid>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 16L),
                         (WsSecurityBindingPropertyConstraint0.typeLayout()).readNative(addr + 24L),
@@ -8874,7 +8872,7 @@ public class WsSecurityBindingPropertyConstraint internal constructor(
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr, value.id)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<CVoid>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.allowedValues)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 16L, value.allowedValuesSize)
                     (WsSecurityBindingPropertyConstraint0.typeLayout()).writeNative(addr + 24L, value.out)
@@ -8883,7 +8881,7 @@ public class WsSecurityBindingPropertyConstraint internal constructor(
 
         public operator fun invoke(
             id: WsSecurityBindingPropertyId = 0,
-            allowedValues: MutPtr<CVoid> = MutPtr(0L),
+            allowedValues: MutPtr = MutPtr(0L),
             allowedValuesSize: UInt = 0u,
             out: WsSecurityBindingPropertyConstraint0 = WsSecurityBindingPropertyConstraint0(),
         ): WsSecurityBindingPropertyConstraint =
@@ -8916,15 +8914,15 @@ public data class WsSecurityBindingPropertyConstraint0(
 }
 
 public class WsSecurityConstraints internal constructor(
-    securityPropertyConstraintsCtorArg: MutPtr<WsSecurityPropertyConstraint>,
+    securityPropertyConstraintsCtorArg: MutPtr,
     public var securityPropertyConstraintCount: UInt,
-    securityBindingConstraintsCtorArg: MutPtr<MutPtr<WsSecurityBindingConstraint>>,
+    securityBindingConstraintsCtorArg: MutPtr,
     public var securityBindingConstraintCount: UInt,
 ) {
-    public var securityPropertyConstraints: MutPtr<WsSecurityPropertyConstraint> = securityPropertyConstraintsCtorArg
+    public var securityPropertyConstraints: MutPtr = securityPropertyConstraintsCtorArg
         internal set
 
-    public var securityBindingConstraints: MutPtr<MutPtr<WsSecurityBindingConstraint>> = securityBindingConstraintsCtorArg
+    public var securityBindingConstraints: MutPtr = securityBindingConstraintsCtorArg
         internal set
 
     public constructor() : this(
@@ -8934,15 +8932,15 @@ public class WsSecurityConstraints internal constructor(
         securityBindingConstraintCount = 0u,
     )
 
-    public operator fun component1(): MutPtr<WsSecurityPropertyConstraint> = this.securityPropertyConstraints
+    public operator fun component1(): MutPtr = this.securityPropertyConstraints
 
     public operator fun component2(): UInt = this.securityPropertyConstraintCount
 
-    public operator fun component3(): MutPtr<MutPtr<WsSecurityBindingConstraint>> = this.securityBindingConstraints
+    public operator fun component3(): MutPtr = this.securityBindingConstraints
 
     public operator fun component4(): UInt = this.securityBindingConstraintCount
 
-    public fun copy(securityPropertyConstraints: MutPtr<WsSecurityPropertyConstraint> = this.securityPropertyConstraints, securityPropertyConstraintCount: UInt = this.securityPropertyConstraintCount, securityBindingConstraints: MutPtr<MutPtr<WsSecurityBindingConstraint>> = this.securityBindingConstraints, securityBindingConstraintCount: UInt = this.securityBindingConstraintCount): WsSecurityConstraints = WsSecurityConstraints(securityPropertyConstraintsCtorArg = securityPropertyConstraints, securityPropertyConstraintCount = securityPropertyConstraintCount, securityBindingConstraintsCtorArg = securityBindingConstraints, securityBindingConstraintCount = securityBindingConstraintCount)
+    public fun copy(securityPropertyConstraints: MutPtr = this.securityPropertyConstraints, securityPropertyConstraintCount: UInt = this.securityPropertyConstraintCount, securityBindingConstraints: MutPtr = this.securityBindingConstraints, securityBindingConstraintCount: UInt = this.securityBindingConstraintCount): WsSecurityConstraints = WsSecurityConstraints(securityPropertyConstraintsCtorArg = securityPropertyConstraints, securityPropertyConstraintCount = securityPropertyConstraintCount, securityBindingConstraintsCtorArg = securityBindingConstraints, securityBindingConstraintCount = securityBindingConstraintCount)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -8971,33 +8969,33 @@ public class WsSecurityConstraints internal constructor(
                     WsSecurityConstraints(
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<WsSecurityPropertyConstraint>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 8L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<MutPtr<WsSecurityBindingConstraint>>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 16L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 24L),
                     )
                 override fun writeNative(addr: Long, value: WsSecurityConstraints) {
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<WsSecurityPropertyConstraint>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr, value.securityPropertyConstraints)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 8L, value.securityPropertyConstraintCount)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<MutPtr<WsSecurityBindingConstraint>>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 16L, value.securityBindingConstraints)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 24L, value.securityBindingConstraintCount)
                 }
             }
 
         public operator fun invoke(
-            securityPropertyConstraints: MutPtr<WsSecurityPropertyConstraint> = MutPtr(0L),
+            securityPropertyConstraints: MutPtr = MutPtr(0L),
             securityPropertyConstraintCount: UInt = 0u,
-            securityBindingConstraints: MutPtr<MutPtr<WsSecurityBindingConstraint>> = MutPtr(0L),
+            securityBindingConstraints: MutPtr = MutPtr(0L),
             securityBindingConstraintCount: UInt = 0u,
         ): WsSecurityConstraints =
             WsSecurityConstraints(
@@ -9012,9 +9010,9 @@ public class WsSecurityConstraints internal constructor(
 public class WsSecurityContextMessageSecurityBinding internal constructor(
     public var binding: WsSecurityBinding,
     public var bindingUsage: WsMessageSecurityUsage,
-    bootstrapSecurityDescriptionCtorArg: MutPtr<WsSecurityDescription>,
+    bootstrapSecurityDescriptionCtorArg: MutPtr,
 ) {
-    public var bootstrapSecurityDescription: MutPtr<WsSecurityDescription> = bootstrapSecurityDescriptionCtorArg
+    public var bootstrapSecurityDescription: MutPtr = bootstrapSecurityDescriptionCtorArg
         internal set
 
     public constructor() : this(
@@ -9027,9 +9025,9 @@ public class WsSecurityContextMessageSecurityBinding internal constructor(
 
     public operator fun component2(): WsMessageSecurityUsage = this.bindingUsage
 
-    public operator fun component3(): MutPtr<WsSecurityDescription> = this.bootstrapSecurityDescription
+    public operator fun component3(): MutPtr = this.bootstrapSecurityDescription
 
-    public fun copy(binding: WsSecurityBinding = this.binding, bindingUsage: WsMessageSecurityUsage = this.bindingUsage, bootstrapSecurityDescription: MutPtr<WsSecurityDescription> = this.bootstrapSecurityDescription): WsSecurityContextMessageSecurityBinding = WsSecurityContextMessageSecurityBinding(binding = binding, bindingUsage = bindingUsage, bootstrapSecurityDescriptionCtorArg = bootstrapSecurityDescription)
+    public fun copy(binding: WsSecurityBinding = this.binding, bindingUsage: WsMessageSecurityUsage = this.bindingUsage, bootstrapSecurityDescription: MutPtr = this.bootstrapSecurityDescription): WsSecurityContextMessageSecurityBinding = WsSecurityContextMessageSecurityBinding(binding = binding, bindingUsage = bindingUsage, bootstrapSecurityDescriptionCtorArg = bootstrapSecurityDescription)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -9058,7 +9056,7 @@ public class WsSecurityContextMessageSecurityBinding internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr + 24L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<WsSecurityDescription>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 32L),
                     )
                 override fun writeNative(addr: Long, value: WsSecurityContextMessageSecurityBinding) {
@@ -9066,7 +9064,7 @@ public class WsSecurityContextMessageSecurityBinding internal constructor(
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr + 24L, value.bindingUsage)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<WsSecurityDescription>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 32L, value.bootstrapSecurityDescription)
                 }
             }
@@ -9074,7 +9072,7 @@ public class WsSecurityContextMessageSecurityBinding internal constructor(
         public operator fun invoke(
             binding: WsSecurityBinding = WsSecurityBinding(),
             bindingUsage: WsMessageSecurityUsage = 0,
-            bootstrapSecurityDescription: MutPtr<WsSecurityDescription> = MutPtr(0L),
+            bootstrapSecurityDescription: MutPtr = MutPtr(0L),
         ): WsSecurityContextMessageSecurityBinding =
             WsSecurityContextMessageSecurityBinding(
                 binding = binding,
@@ -9087,9 +9085,9 @@ public class WsSecurityContextMessageSecurityBinding internal constructor(
 public class WsSecurityContextMessageSecurityBindingConstraint internal constructor(
     public var bindingConstraint: WsSecurityBindingConstraint,
     public var bindingUsage: WsMessageSecurityUsage,
-    bootstrapSecurityConstraintCtorArg: MutPtr<WsSecurityConstraints>,
+    bootstrapSecurityConstraintCtorArg: MutPtr,
 ) {
-    public var bootstrapSecurityConstraint: MutPtr<WsSecurityConstraints> = bootstrapSecurityConstraintCtorArg
+    public var bootstrapSecurityConstraint: MutPtr = bootstrapSecurityConstraintCtorArg
         internal set
 
     public constructor() : this(
@@ -9102,9 +9100,9 @@ public class WsSecurityContextMessageSecurityBindingConstraint internal construc
 
     public operator fun component2(): WsMessageSecurityUsage = this.bindingUsage
 
-    public operator fun component3(): MutPtr<WsSecurityConstraints> = this.bootstrapSecurityConstraint
+    public operator fun component3(): MutPtr = this.bootstrapSecurityConstraint
 
-    public fun copy(bindingConstraint: WsSecurityBindingConstraint = this.bindingConstraint, bindingUsage: WsMessageSecurityUsage = this.bindingUsage, bootstrapSecurityConstraint: MutPtr<WsSecurityConstraints> = this.bootstrapSecurityConstraint): WsSecurityContextMessageSecurityBindingConstraint = WsSecurityContextMessageSecurityBindingConstraint(bindingConstraint = bindingConstraint, bindingUsage = bindingUsage, bootstrapSecurityConstraintCtorArg = bootstrapSecurityConstraint)
+    public fun copy(bindingConstraint: WsSecurityBindingConstraint = this.bindingConstraint, bindingUsage: WsMessageSecurityUsage = this.bindingUsage, bootstrapSecurityConstraint: MutPtr = this.bootstrapSecurityConstraint): WsSecurityContextMessageSecurityBindingConstraint = WsSecurityContextMessageSecurityBindingConstraint(bindingConstraint = bindingConstraint, bindingUsage = bindingUsage, bootstrapSecurityConstraintCtorArg = bootstrapSecurityConstraint)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -9133,7 +9131,7 @@ public class WsSecurityContextMessageSecurityBindingConstraint internal construc
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr + 24L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<WsSecurityConstraints>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 32L),
                     )
                 override fun writeNative(addr: Long, value: WsSecurityContextMessageSecurityBindingConstraint) {
@@ -9141,7 +9139,7 @@ public class WsSecurityContextMessageSecurityBindingConstraint internal construc
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr + 24L, value.bindingUsage)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<WsSecurityConstraints>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 32L, value.bootstrapSecurityConstraint)
                 }
             }
@@ -9149,7 +9147,7 @@ public class WsSecurityContextMessageSecurityBindingConstraint internal construc
         public operator fun invoke(
             bindingConstraint: WsSecurityBindingConstraint = WsSecurityBindingConstraint(),
             bindingUsage: WsMessageSecurityUsage = 0,
-            bootstrapSecurityConstraint: MutPtr<WsSecurityConstraints> = MutPtr(0L),
+            bootstrapSecurityConstraint: MutPtr = MutPtr(0L),
         ): WsSecurityContextMessageSecurityBindingConstraint =
             WsSecurityContextMessageSecurityBindingConstraint(
                 bindingConstraint = bindingConstraint,
@@ -9202,10 +9200,10 @@ public data class WsSecurityContextMessageSecurityBindingTemplate(
 
 public class WsSecurityContextProperty internal constructor(
     public var id: WsSecurityContextPropertyId,
-    valueCtorArg: MutPtr<CVoid>,
+    valueCtorArg: MutPtr,
     public var valueSize: UInt,
 ) {
-    public var value: MutPtr<CVoid> = valueCtorArg
+    public var value: MutPtr = valueCtorArg
         internal set
 
     public constructor() : this(
@@ -9216,11 +9214,11 @@ public class WsSecurityContextProperty internal constructor(
 
     public operator fun component1(): WsSecurityContextPropertyId = this.id
 
-    public operator fun component2(): MutPtr<CVoid> = this.value
+    public operator fun component2(): MutPtr = this.value
 
     public operator fun component3(): UInt = this.valueSize
 
-    public fun copy(id: WsSecurityContextPropertyId = this.id, value: MutPtr<CVoid> = this.value, valueSize: UInt = this.valueSize): WsSecurityContextProperty = WsSecurityContextProperty(id = id, valueCtorArg = value, valueSize = valueSize)
+    public fun copy(id: WsSecurityContextPropertyId = this.id, value: MutPtr = this.value, valueSize: UInt = this.valueSize): WsSecurityContextProperty = WsSecurityContextProperty(id = id, valueCtorArg = value, valueSize = valueSize)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -9248,7 +9246,7 @@ public class WsSecurityContextProperty internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<CVoid>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 16L),
                     )
@@ -9256,7 +9254,7 @@ public class WsSecurityContextProperty internal constructor(
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr, value.id)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<CVoid>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.value)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 16L, value.valueSize)
                 }
@@ -9264,7 +9262,7 @@ public class WsSecurityContextProperty internal constructor(
 
         public operator fun invoke(
             id: WsSecurityContextPropertyId = 0,
-            value: MutPtr<CVoid> = MutPtr(0L),
+            value: MutPtr = MutPtr(0L),
             valueSize: UInt = 0u,
         ): WsSecurityContextProperty =
             WsSecurityContextProperty(
@@ -9320,15 +9318,15 @@ public data class WsSecurityContextSecurityBindingTemplate(
 }
 
 public class WsSecurityDescription internal constructor(
-    securityBindingsCtorArg: MutPtr<MutPtr<WsSecurityBinding>>,
+    securityBindingsCtorArg: MutPtr,
     public var securityBindingCount: UInt,
-    propertiesCtorArg: MutPtr<WsSecurityProperty>,
+    propertiesCtorArg: MutPtr,
     public var propertyCount: UInt,
 ) {
-    public var securityBindings: MutPtr<MutPtr<WsSecurityBinding>> = securityBindingsCtorArg
+    public var securityBindings: MutPtr = securityBindingsCtorArg
         internal set
 
-    public var properties: MutPtr<WsSecurityProperty> = propertiesCtorArg
+    public var properties: MutPtr = propertiesCtorArg
         internal set
 
     public constructor() : this(
@@ -9338,15 +9336,15 @@ public class WsSecurityDescription internal constructor(
         propertyCount = 0u,
     )
 
-    public operator fun component1(): MutPtr<MutPtr<WsSecurityBinding>> = this.securityBindings
+    public operator fun component1(): MutPtr = this.securityBindings
 
     public operator fun component2(): UInt = this.securityBindingCount
 
-    public operator fun component3(): MutPtr<WsSecurityProperty> = this.properties
+    public operator fun component3(): MutPtr = this.properties
 
     public operator fun component4(): UInt = this.propertyCount
 
-    public fun copy(securityBindings: MutPtr<MutPtr<WsSecurityBinding>> = this.securityBindings, securityBindingCount: UInt = this.securityBindingCount, properties: MutPtr<WsSecurityProperty> = this.properties, propertyCount: UInt = this.propertyCount): WsSecurityDescription = WsSecurityDescription(securityBindingsCtorArg = securityBindings, securityBindingCount = securityBindingCount, propertiesCtorArg = properties, propertyCount = propertyCount)
+    public fun copy(securityBindings: MutPtr = this.securityBindings, securityBindingCount: UInt = this.securityBindingCount, properties: MutPtr = this.properties, propertyCount: UInt = this.propertyCount): WsSecurityDescription = WsSecurityDescription(securityBindingsCtorArg = securityBindings, securityBindingCount = securityBindingCount, propertiesCtorArg = properties, propertyCount = propertyCount)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -9375,33 +9373,33 @@ public class WsSecurityDescription internal constructor(
                     WsSecurityDescription(
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<MutPtr<WsSecurityBinding>>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 8L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<WsSecurityProperty>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 16L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 24L),
                     )
                 override fun writeNative(addr: Long, value: WsSecurityDescription) {
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<MutPtr<WsSecurityBinding>>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr, value.securityBindings)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 8L, value.securityBindingCount)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<WsSecurityProperty>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 16L, value.properties)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 24L, value.propertyCount)
                 }
             }
 
         public operator fun invoke(
-            securityBindings: MutPtr<MutPtr<WsSecurityBinding>> = MutPtr(0L),
+            securityBindings: MutPtr = MutPtr(0L),
             securityBindingCount: UInt = 0u,
-            properties: MutPtr<WsSecurityProperty> = MutPtr(0L),
+            properties: MutPtr = MutPtr(0L),
             propertyCount: UInt = 0u,
         ): WsSecurityDescription =
             WsSecurityDescription(
@@ -9433,10 +9431,10 @@ public data class WsSecurityKeyHandle(
 }
 
 public class WsSecurityProperties internal constructor(
-    propertiesCtorArg: MutPtr<WsSecurityProperty>,
+    propertiesCtorArg: MutPtr,
     public var propertyCount: UInt,
 ) {
-    public var properties: MutPtr<WsSecurityProperty> = propertiesCtorArg
+    public var properties: MutPtr = propertiesCtorArg
         internal set
 
     public constructor() : this(
@@ -9444,11 +9442,11 @@ public class WsSecurityProperties internal constructor(
         propertyCount = 0u,
     )
 
-    public operator fun component1(): MutPtr<WsSecurityProperty> = this.properties
+    public operator fun component1(): MutPtr = this.properties
 
     public operator fun component2(): UInt = this.propertyCount
 
-    public fun copy(properties: MutPtr<WsSecurityProperty> = this.properties, propertyCount: UInt = this.propertyCount): WsSecurityProperties = WsSecurityProperties(propertiesCtorArg = properties, propertyCount = propertyCount)
+    public fun copy(properties: MutPtr = this.properties, propertyCount: UInt = this.propertyCount): WsSecurityProperties = WsSecurityProperties(propertiesCtorArg = properties, propertyCount = propertyCount)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -9473,21 +9471,21 @@ public class WsSecurityProperties internal constructor(
                     WsSecurityProperties(
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<WsSecurityProperty>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 8L),
                     )
                 override fun writeNative(addr: Long, value: WsSecurityProperties) {
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<WsSecurityProperty>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr, value.properties)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 8L, value.propertyCount)
                 }
             }
 
         public operator fun invoke(
-            properties: MutPtr<WsSecurityProperty> = MutPtr(0L),
+            properties: MutPtr = MutPtr(0L),
             propertyCount: UInt = 0u,
         ): WsSecurityProperties =
             WsSecurityProperties(
@@ -9499,10 +9497,10 @@ public class WsSecurityProperties internal constructor(
 
 public class WsSecurityProperty internal constructor(
     public var id: WsSecurityPropertyId,
-    valueCtorArg: MutPtr<CVoid>,
+    valueCtorArg: MutPtr,
     public var valueSize: UInt,
 ) {
-    public var value: MutPtr<CVoid> = valueCtorArg
+    public var value: MutPtr = valueCtorArg
         internal set
 
     public constructor() : this(
@@ -9513,11 +9511,11 @@ public class WsSecurityProperty internal constructor(
 
     public operator fun component1(): WsSecurityPropertyId = this.id
 
-    public operator fun component2(): MutPtr<CVoid> = this.value
+    public operator fun component2(): MutPtr = this.value
 
     public operator fun component3(): UInt = this.valueSize
 
-    public fun copy(id: WsSecurityPropertyId = this.id, value: MutPtr<CVoid> = this.value, valueSize: UInt = this.valueSize): WsSecurityProperty = WsSecurityProperty(id = id, valueCtorArg = value, valueSize = valueSize)
+    public fun copy(id: WsSecurityPropertyId = this.id, value: MutPtr = this.value, valueSize: UInt = this.valueSize): WsSecurityProperty = WsSecurityProperty(id = id, valueCtorArg = value, valueSize = valueSize)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -9545,7 +9543,7 @@ public class WsSecurityProperty internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<CVoid>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 16L),
                     )
@@ -9553,7 +9551,7 @@ public class WsSecurityProperty internal constructor(
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr, value.id)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<CVoid>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.value)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 16L, value.valueSize)
                 }
@@ -9561,7 +9559,7 @@ public class WsSecurityProperty internal constructor(
 
         public operator fun invoke(
             id: WsSecurityPropertyId = 0,
-            value: MutPtr<CVoid> = MutPtr(0L),
+            value: MutPtr = MutPtr(0L),
             valueSize: UInt = 0u,
         ): WsSecurityProperty =
             WsSecurityProperty(
@@ -9574,11 +9572,11 @@ public class WsSecurityProperty internal constructor(
 
 public class WsSecurityPropertyConstraint internal constructor(
     public var id: WsSecurityPropertyId,
-    allowedValuesCtorArg: MutPtr<CVoid>,
+    allowedValuesCtorArg: MutPtr,
     public var allowedValuesSize: UInt,
     public var out: WsSecurityPropertyConstraint0,
 ) {
-    public var allowedValues: MutPtr<CVoid> = allowedValuesCtorArg
+    public var allowedValues: MutPtr = allowedValuesCtorArg
         internal set
 
     public constructor() : this(
@@ -9590,13 +9588,13 @@ public class WsSecurityPropertyConstraint internal constructor(
 
     public operator fun component1(): WsSecurityPropertyId = this.id
 
-    public operator fun component2(): MutPtr<CVoid> = this.allowedValues
+    public operator fun component2(): MutPtr = this.allowedValues
 
     public operator fun component3(): UInt = this.allowedValuesSize
 
     public operator fun component4(): WsSecurityPropertyConstraint0 = this.out
 
-    public fun copy(id: WsSecurityPropertyId = this.id, allowedValues: MutPtr<CVoid> = this.allowedValues, allowedValuesSize: UInt = this.allowedValuesSize, out: WsSecurityPropertyConstraint0 = this.out): WsSecurityPropertyConstraint = WsSecurityPropertyConstraint(id = id, allowedValuesCtorArg = allowedValues, allowedValuesSize = allowedValuesSize, out = out)
+    public fun copy(id: WsSecurityPropertyId = this.id, allowedValues: MutPtr = this.allowedValues, allowedValuesSize: UInt = this.allowedValuesSize, out: WsSecurityPropertyConstraint0 = this.out): WsSecurityPropertyConstraint = WsSecurityPropertyConstraint(id = id, allowedValuesCtorArg = allowedValues, allowedValuesSize = allowedValuesSize, out = out)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -9626,7 +9624,7 @@ public class WsSecurityPropertyConstraint internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<CVoid>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 16L),
                         (WsSecurityPropertyConstraint0.typeLayout()).readNative(addr + 24L),
@@ -9635,7 +9633,7 @@ public class WsSecurityPropertyConstraint internal constructor(
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr, value.id)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<CVoid>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.allowedValues)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 16L, value.allowedValuesSize)
                     (WsSecurityPropertyConstraint0.typeLayout()).writeNative(addr + 24L, value.out)
@@ -9644,7 +9642,7 @@ public class WsSecurityPropertyConstraint internal constructor(
 
         public operator fun invoke(
             id: WsSecurityPropertyId = 0,
-            allowedValues: MutPtr<CVoid> = MutPtr(0L),
+            allowedValues: MutPtr = MutPtr(0L),
             allowedValuesSize: UInt = 0u,
             out: WsSecurityPropertyConstraint0 = WsSecurityPropertyConstraint0(),
         ): WsSecurityPropertyConstraint =
@@ -9677,14 +9675,14 @@ public data class WsSecurityPropertyConstraint0(
 }
 
 public class WsServiceContract internal constructor(
-    contractDescriptionCtorArg: ConstPtr<WsContractDescription>,
+    contractDescriptionCtorArg: ConstPtr,
     public var defaultMessageHandlerCallback: WsServiceMessageReceiveCallback,
-    methodTableCtorArg: ConstPtr<CVoid>,
+    methodTableCtorArg: ConstPtr,
 ) {
-    public var contractDescription: ConstPtr<WsContractDescription> = contractDescriptionCtorArg
+    public var contractDescription: ConstPtr = contractDescriptionCtorArg
         internal set
 
-    public var methodTable: ConstPtr<CVoid> = methodTableCtorArg
+    public var methodTable: ConstPtr = methodTableCtorArg
         internal set
 
     public constructor() : this(
@@ -9693,13 +9691,13 @@ public class WsServiceContract internal constructor(
         methodTableCtorArg = ConstPtr(0L),
     )
 
-    public operator fun component1(): ConstPtr<WsContractDescription> = this.contractDescription
+    public operator fun component1(): ConstPtr = this.contractDescription
 
     public operator fun component2(): WsServiceMessageReceiveCallback = this.defaultMessageHandlerCallback
 
-    public operator fun component3(): ConstPtr<CVoid> = this.methodTable
+    public operator fun component3(): ConstPtr = this.methodTable
 
-    public fun copy(contractDescription: ConstPtr<WsContractDescription> = this.contractDescription, defaultMessageHandlerCallback: WsServiceMessageReceiveCallback = this.defaultMessageHandlerCallback, methodTable: ConstPtr<CVoid> = this.methodTable): WsServiceContract = WsServiceContract(contractDescriptionCtorArg = contractDescription, defaultMessageHandlerCallback = defaultMessageHandlerCallback, methodTableCtorArg = methodTable)
+    public fun copy(contractDescription: ConstPtr = this.contractDescription, defaultMessageHandlerCallback: WsServiceMessageReceiveCallback = this.defaultMessageHandlerCallback, methodTable: ConstPtr = this.methodTable): WsServiceContract = WsServiceContract(contractDescriptionCtorArg = contractDescription, defaultMessageHandlerCallback = defaultMessageHandlerCallback, methodTableCtorArg = methodTable)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -9719,9 +9717,9 @@ public class WsServiceContract internal constructor(
 
     public companion object {
         public operator fun invoke(
-            contractDescription: ConstPtr<WsContractDescription> = ConstPtr(0L),
+            contractDescription: ConstPtr = ConstPtr(0L),
             defaultMessageHandlerCallback: WsServiceMessageReceiveCallback = null,
-            methodTable: ConstPtr<CVoid> = ConstPtr(0L),
+            methodTable: ConstPtr = ConstPtr(0L),
         ): WsServiceContract =
             WsServiceContract(
                 contractDescriptionCtorArg = contractDescription,
@@ -9735,20 +9733,20 @@ public class WsServiceEndpoint internal constructor(
     public var address: WsEndpointAddress,
     public var channelBinding: WsChannelBinding,
     public var channelType: WsChannelType,
-    securityDescriptionCtorArg: ConstPtr<WsSecurityDescription>,
-    contractCtorArg: ConstPtr<WsServiceContract>,
+    securityDescriptionCtorArg: ConstPtr,
+    contractCtorArg: ConstPtr,
     public var authorizationCallback: WsServiceSecurityCallback,
-    propertiesCtorArg: ConstPtr<WsServiceEndpointProperty>,
+    propertiesCtorArg: ConstPtr,
     public var propertyCount: UInt,
     public var channelProperties: WsChannelProperties,
 ) {
-    public var securityDescription: ConstPtr<WsSecurityDescription> = securityDescriptionCtorArg
+    public var securityDescription: ConstPtr = securityDescriptionCtorArg
         internal set
 
-    public var contract: ConstPtr<WsServiceContract> = contractCtorArg
+    public var contract: ConstPtr = contractCtorArg
         internal set
 
-    public var properties: ConstPtr<WsServiceEndpointProperty> = propertiesCtorArg
+    public var properties: ConstPtr = propertiesCtorArg
         internal set
 
     public constructor() : this(
@@ -9769,19 +9767,19 @@ public class WsServiceEndpoint internal constructor(
 
     public operator fun component3(): WsChannelType = this.channelType
 
-    public operator fun component4(): ConstPtr<WsSecurityDescription> = this.securityDescription
+    public operator fun component4(): ConstPtr = this.securityDescription
 
-    public operator fun component5(): ConstPtr<WsServiceContract> = this.contract
+    public operator fun component5(): ConstPtr = this.contract
 
     public operator fun component6(): WsServiceSecurityCallback = this.authorizationCallback
 
-    public operator fun component7(): ConstPtr<WsServiceEndpointProperty> = this.properties
+    public operator fun component7(): ConstPtr = this.properties
 
     public operator fun component8(): UInt = this.propertyCount
 
     public operator fun component9(): WsChannelProperties = this.channelProperties
 
-    public fun copy(address: WsEndpointAddress = this.address, channelBinding: WsChannelBinding = this.channelBinding, channelType: WsChannelType = this.channelType, securityDescription: ConstPtr<WsSecurityDescription> = this.securityDescription, contract: ConstPtr<WsServiceContract> = this.contract, authorizationCallback: WsServiceSecurityCallback = this.authorizationCallback, properties: ConstPtr<WsServiceEndpointProperty> = this.properties, propertyCount: UInt = this.propertyCount, channelProperties: WsChannelProperties = this.channelProperties): WsServiceEndpoint = WsServiceEndpoint(address = address, channelBinding = channelBinding, channelType = channelType, securityDescriptionCtorArg = securityDescription, contractCtorArg = contract, authorizationCallback = authorizationCallback, propertiesCtorArg = properties, propertyCount = propertyCount, channelProperties = channelProperties)
+    public fun copy(address: WsEndpointAddress = this.address, channelBinding: WsChannelBinding = this.channelBinding, channelType: WsChannelType = this.channelType, securityDescription: ConstPtr = this.securityDescription, contract: ConstPtr = this.contract, authorizationCallback: WsServiceSecurityCallback = this.authorizationCallback, properties: ConstPtr = this.properties, propertyCount: UInt = this.propertyCount, channelProperties: WsChannelProperties = this.channelProperties): WsServiceEndpoint = WsServiceEndpoint(address = address, channelBinding = channelBinding, channelType = channelType, securityDescriptionCtorArg = securityDescription, contractCtorArg = contract, authorizationCallback = authorizationCallback, propertiesCtorArg = properties, propertyCount = propertyCount, channelProperties = channelProperties)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -9816,10 +9814,10 @@ public class WsServiceEndpoint internal constructor(
             address: WsEndpointAddress = WsEndpointAddress(),
             channelBinding: WsChannelBinding = 0,
             channelType: WsChannelType = 0,
-            securityDescription: ConstPtr<WsSecurityDescription> = ConstPtr(0L),
-            contract: ConstPtr<WsServiceContract> = ConstPtr(0L),
+            securityDescription: ConstPtr = ConstPtr(0L),
+            contract: ConstPtr = ConstPtr(0L),
             authorizationCallback: WsServiceSecurityCallback = null,
-            properties: ConstPtr<WsServiceEndpointProperty> = ConstPtr(0L),
+            properties: ConstPtr = ConstPtr(0L),
             propertyCount: UInt = 0u,
             channelProperties: WsChannelProperties = WsChannelProperties(),
         ): WsServiceEndpoint =
@@ -9838,17 +9836,17 @@ public class WsServiceEndpoint internal constructor(
 }
 
 public class WsServiceEndpointMetadata internal constructor(
-    portNameCtorArg: MutPtr<WsXmlString>,
-    bindingNameCtorArg: MutPtr<WsXmlString>,
-    bindingNsCtorArg: MutPtr<WsXmlString>,
+    portNameCtorArg: MutPtr,
+    bindingNameCtorArg: MutPtr,
+    bindingNsCtorArg: MutPtr,
 ) {
-    public var portName: MutPtr<WsXmlString> = portNameCtorArg
+    public var portName: MutPtr = portNameCtorArg
         internal set
 
-    public var bindingName: MutPtr<WsXmlString> = bindingNameCtorArg
+    public var bindingName: MutPtr = bindingNameCtorArg
         internal set
 
-    public var bindingNs: MutPtr<WsXmlString> = bindingNsCtorArg
+    public var bindingNs: MutPtr = bindingNsCtorArg
         internal set
 
     public constructor() : this(
@@ -9857,13 +9855,13 @@ public class WsServiceEndpointMetadata internal constructor(
         bindingNsCtorArg = MutPtr(0L),
     )
 
-    public operator fun component1(): MutPtr<WsXmlString> = this.portName
+    public operator fun component1(): MutPtr = this.portName
 
-    public operator fun component2(): MutPtr<WsXmlString> = this.bindingName
+    public operator fun component2(): MutPtr = this.bindingName
 
-    public operator fun component3(): MutPtr<WsXmlString> = this.bindingNs
+    public operator fun component3(): MutPtr = this.bindingNs
 
-    public fun copy(portName: MutPtr<WsXmlString> = this.portName, bindingName: MutPtr<WsXmlString> = this.bindingName, bindingNs: MutPtr<WsXmlString> = this.bindingNs): WsServiceEndpointMetadata = WsServiceEndpointMetadata(portNameCtorArg = portName, bindingNameCtorArg = bindingName, bindingNsCtorArg = bindingNs)
+    public fun copy(portName: MutPtr = this.portName, bindingName: MutPtr = this.bindingName, bindingNs: MutPtr = this.bindingNs): WsServiceEndpointMetadata = WsServiceEndpointMetadata(portNameCtorArg = portName, bindingNameCtorArg = bindingName, bindingNsCtorArg = bindingNs)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -9890,37 +9888,37 @@ public class WsServiceEndpointMetadata internal constructor(
                     WsServiceEndpointMetadata(
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<WsXmlString>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<WsXmlString>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<WsXmlString>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 16L),
                     )
                 override fun writeNative(addr: Long, value: WsServiceEndpointMetadata) {
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<WsXmlString>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr, value.portName)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<WsXmlString>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.bindingName)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<WsXmlString>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 16L, value.bindingNs)
                 }
             }
 
         public operator fun invoke(
-            portName: MutPtr<WsXmlString> = MutPtr(0L),
-            bindingName: MutPtr<WsXmlString> = MutPtr(0L),
-            bindingNs: MutPtr<WsXmlString> = MutPtr(0L),
+            portName: MutPtr = MutPtr(0L),
+            bindingName: MutPtr = MutPtr(0L),
+            bindingNs: MutPtr = MutPtr(0L),
         ): WsServiceEndpointMetadata =
             WsServiceEndpointMetadata(
                 portNameCtorArg = portName,
@@ -9932,10 +9930,10 @@ public class WsServiceEndpointMetadata internal constructor(
 
 public class WsServiceEndpointProperty internal constructor(
     public var id: WsServiceEndpointPropertyId,
-    valueCtorArg: MutPtr<CVoid>,
+    valueCtorArg: MutPtr,
     public var valueSize: UInt,
 ) {
-    public var value: MutPtr<CVoid> = valueCtorArg
+    public var value: MutPtr = valueCtorArg
         internal set
 
     public constructor() : this(
@@ -9946,11 +9944,11 @@ public class WsServiceEndpointProperty internal constructor(
 
     public operator fun component1(): WsServiceEndpointPropertyId = this.id
 
-    public operator fun component2(): MutPtr<CVoid> = this.value
+    public operator fun component2(): MutPtr = this.value
 
     public operator fun component3(): UInt = this.valueSize
 
-    public fun copy(id: WsServiceEndpointPropertyId = this.id, value: MutPtr<CVoid> = this.value, valueSize: UInt = this.valueSize): WsServiceEndpointProperty = WsServiceEndpointProperty(id = id, valueCtorArg = value, valueSize = valueSize)
+    public fun copy(id: WsServiceEndpointPropertyId = this.id, value: MutPtr = this.value, valueSize: UInt = this.valueSize): WsServiceEndpointProperty = WsServiceEndpointProperty(id = id, valueCtorArg = value, valueSize = valueSize)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -9978,7 +9976,7 @@ public class WsServiceEndpointProperty internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<CVoid>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 16L),
                     )
@@ -9986,7 +9984,7 @@ public class WsServiceEndpointProperty internal constructor(
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr, value.id)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<CVoid>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.value)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 16L, value.valueSize)
                 }
@@ -9994,7 +9992,7 @@ public class WsServiceEndpointProperty internal constructor(
 
         public operator fun invoke(
             id: WsServiceEndpointPropertyId = 0,
-            value: MutPtr<CVoid> = MutPtr(0L),
+            value: MutPtr = MutPtr(0L),
             valueSize: UInt = 0u,
         ): WsServiceEndpointProperty =
             WsServiceEndpointProperty(
@@ -10007,17 +10005,17 @@ public class WsServiceEndpointProperty internal constructor(
 
 public class WsServiceMetadata internal constructor(
     public var documentCount: UInt,
-    documentsCtorArg: MutPtr<MutPtr<WsServiceMetadataDocument>>,
-    serviceNameCtorArg: MutPtr<WsXmlString>,
-    serviceNsCtorArg: MutPtr<WsXmlString>,
+    documentsCtorArg: MutPtr,
+    serviceNameCtorArg: MutPtr,
+    serviceNsCtorArg: MutPtr,
 ) {
-    public var documents: MutPtr<MutPtr<WsServiceMetadataDocument>> = documentsCtorArg
+    public var documents: MutPtr = documentsCtorArg
         internal set
 
-    public var serviceName: MutPtr<WsXmlString> = serviceNameCtorArg
+    public var serviceName: MutPtr = serviceNameCtorArg
         internal set
 
-    public var serviceNs: MutPtr<WsXmlString> = serviceNsCtorArg
+    public var serviceNs: MutPtr = serviceNsCtorArg
         internal set
 
     public constructor() : this(
@@ -10029,13 +10027,13 @@ public class WsServiceMetadata internal constructor(
 
     public operator fun component1(): UInt = this.documentCount
 
-    public operator fun component2(): MutPtr<MutPtr<WsServiceMetadataDocument>> = this.documents
+    public operator fun component2(): MutPtr = this.documents
 
-    public operator fun component3(): MutPtr<WsXmlString> = this.serviceName
+    public operator fun component3(): MutPtr = this.serviceName
 
-    public operator fun component4(): MutPtr<WsXmlString> = this.serviceNs
+    public operator fun component4(): MutPtr = this.serviceNs
 
-    public fun copy(documentCount: UInt = this.documentCount, documents: MutPtr<MutPtr<WsServiceMetadataDocument>> = this.documents, serviceName: MutPtr<WsXmlString> = this.serviceName, serviceNs: MutPtr<WsXmlString> = this.serviceNs): WsServiceMetadata = WsServiceMetadata(documentCount = documentCount, documentsCtorArg = documents, serviceNameCtorArg = serviceName, serviceNsCtorArg = serviceNs)
+    public fun copy(documentCount: UInt = this.documentCount, documents: MutPtr = this.documents, serviceName: MutPtr = this.serviceName, serviceNs: MutPtr = this.serviceNs): WsServiceMetadata = WsServiceMetadata(documentCount = documentCount, documentsCtorArg = documents, serviceNameCtorArg = serviceName, serviceNsCtorArg = serviceNs)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -10065,39 +10063,39 @@ public class WsServiceMetadata internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<MutPtr<WsServiceMetadataDocument>>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<WsXmlString>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 16L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<WsXmlString>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 24L),
                     )
                 override fun writeNative(addr: Long, value: WsServiceMetadata) {
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr, value.documentCount)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<MutPtr<WsServiceMetadataDocument>>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.documents)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<WsXmlString>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 16L, value.serviceName)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<WsXmlString>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 24L, value.serviceNs)
                 }
             }
 
         public operator fun invoke(
             documentCount: UInt = 0u,
-            documents: MutPtr<MutPtr<WsServiceMetadataDocument>> = MutPtr(0L),
-            serviceName: MutPtr<WsXmlString> = MutPtr(0L),
-            serviceNs: MutPtr<WsXmlString> = MutPtr(0L),
+            documents: MutPtr = MutPtr(0L),
+            serviceName: MutPtr = MutPtr(0L),
+            serviceNs: MutPtr = MutPtr(0L),
         ): WsServiceMetadata =
             WsServiceMetadata(
                 documentCount = documentCount,
@@ -10109,13 +10107,13 @@ public class WsServiceMetadata internal constructor(
 }
 
 public class WsServiceMetadataDocument internal constructor(
-    contentCtorArg: MutPtr<WsXmlString>,
-    nameCtorArg: MutPtr<WsString>,
+    contentCtorArg: MutPtr,
+    nameCtorArg: MutPtr,
 ) {
-    public var content: MutPtr<WsXmlString> = contentCtorArg
+    public var content: MutPtr = contentCtorArg
         internal set
 
-    public var name: MutPtr<WsString> = nameCtorArg
+    public var name: MutPtr = nameCtorArg
         internal set
 
     public constructor() : this(
@@ -10123,11 +10121,11 @@ public class WsServiceMetadataDocument internal constructor(
         nameCtorArg = MutPtr(0L),
     )
 
-    public operator fun component1(): MutPtr<WsXmlString> = this.content
+    public operator fun component1(): MutPtr = this.content
 
-    public operator fun component2(): MutPtr<WsString> = this.name
+    public operator fun component2(): MutPtr = this.name
 
-    public fun copy(content: MutPtr<WsXmlString> = this.content, name: MutPtr<WsString> = this.name): WsServiceMetadataDocument = WsServiceMetadataDocument(contentCtorArg = content, nameCtorArg = name)
+    public fun copy(content: MutPtr = this.content, name: MutPtr = this.name): WsServiceMetadataDocument = WsServiceMetadataDocument(contentCtorArg = content, nameCtorArg = name)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -10152,28 +10150,28 @@ public class WsServiceMetadataDocument internal constructor(
                     WsServiceMetadataDocument(
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<WsXmlString>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<WsString>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                     )
                 override fun writeNative(addr: Long, value: WsServiceMetadataDocument) {
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<WsXmlString>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr, value.content)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<WsString>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.name)
                 }
             }
 
         public operator fun invoke(
-            content: MutPtr<WsXmlString> = MutPtr(0L),
-            name: MutPtr<WsString> = MutPtr(0L),
+            content: MutPtr = MutPtr(0L),
+            name: MutPtr = MutPtr(0L),
         ): WsServiceMetadataDocument =
             WsServiceMetadataDocument(
                 contentCtorArg = content,
@@ -10184,10 +10182,10 @@ public class WsServiceMetadataDocument internal constructor(
 
 public class WsServiceProperty internal constructor(
     public var id: WsServicePropertyId,
-    valueCtorArg: MutPtr<CVoid>,
+    valueCtorArg: MutPtr,
     public var valueSize: UInt,
 ) {
-    public var value: MutPtr<CVoid> = valueCtorArg
+    public var value: MutPtr = valueCtorArg
         internal set
 
     public constructor() : this(
@@ -10198,11 +10196,11 @@ public class WsServiceProperty internal constructor(
 
     public operator fun component1(): WsServicePropertyId = this.id
 
-    public operator fun component2(): MutPtr<CVoid> = this.value
+    public operator fun component2(): MutPtr = this.value
 
     public operator fun component3(): UInt = this.valueSize
 
-    public fun copy(id: WsServicePropertyId = this.id, value: MutPtr<CVoid> = this.value, valueSize: UInt = this.valueSize): WsServiceProperty = WsServiceProperty(id = id, valueCtorArg = value, valueSize = valueSize)
+    public fun copy(id: WsServicePropertyId = this.id, value: MutPtr = this.value, valueSize: UInt = this.valueSize): WsServiceProperty = WsServiceProperty(id = id, valueCtorArg = value, valueSize = valueSize)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -10230,7 +10228,7 @@ public class WsServiceProperty internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<CVoid>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 16L),
                     )
@@ -10238,7 +10236,7 @@ public class WsServiceProperty internal constructor(
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr, value.id)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<CVoid>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.value)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 16L, value.valueSize)
                 }
@@ -10246,7 +10244,7 @@ public class WsServiceProperty internal constructor(
 
         public operator fun invoke(
             id: WsServicePropertyId = 0,
-            value: MutPtr<CVoid> = MutPtr(0L),
+            value: MutPtr = MutPtr(0L),
             valueSize: UInt = 0u,
         ): WsServiceProperty =
             WsServiceProperty(
@@ -10266,10 +10264,10 @@ public data class WsServicePropertyCloseCallback(
 )
 
 public class WsServiceSecurityIdentities internal constructor(
-    serviceIdentitiesCtorArg: MutPtr<WsString>,
+    serviceIdentitiesCtorArg: MutPtr,
     public var serviceIdentityCount: UInt,
 ) {
-    public var serviceIdentities: MutPtr<WsString> = serviceIdentitiesCtorArg
+    public var serviceIdentities: MutPtr = serviceIdentitiesCtorArg
         internal set
 
     public constructor() : this(
@@ -10277,11 +10275,11 @@ public class WsServiceSecurityIdentities internal constructor(
         serviceIdentityCount = 0u,
     )
 
-    public operator fun component1(): MutPtr<WsString> = this.serviceIdentities
+    public operator fun component1(): MutPtr = this.serviceIdentities
 
     public operator fun component2(): UInt = this.serviceIdentityCount
 
-    public fun copy(serviceIdentities: MutPtr<WsString> = this.serviceIdentities, serviceIdentityCount: UInt = this.serviceIdentityCount): WsServiceSecurityIdentities = WsServiceSecurityIdentities(serviceIdentitiesCtorArg = serviceIdentities, serviceIdentityCount = serviceIdentityCount)
+    public fun copy(serviceIdentities: MutPtr = this.serviceIdentities, serviceIdentityCount: UInt = this.serviceIdentityCount): WsServiceSecurityIdentities = WsServiceSecurityIdentities(serviceIdentitiesCtorArg = serviceIdentities, serviceIdentityCount = serviceIdentityCount)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -10306,21 +10304,21 @@ public class WsServiceSecurityIdentities internal constructor(
                     WsServiceSecurityIdentities(
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<WsString>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 8L),
                     )
                 override fun writeNative(addr: Long, value: WsServiceSecurityIdentities) {
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<WsString>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr, value.serviceIdentities)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 8L, value.serviceIdentityCount)
                 }
             }
 
         public operator fun invoke(
-            serviceIdentities: MutPtr<WsString> = MutPtr(0L),
+            serviceIdentities: MutPtr = MutPtr(0L),
             serviceIdentityCount: UInt = 0u,
         ): WsServiceSecurityIdentities =
             WsServiceSecurityIdentities(
@@ -10347,9 +10345,9 @@ public data class WsSpnEndpointIdentity(
 
 public class WsSslTransportSecurityBinding internal constructor(
     public var binding: WsSecurityBinding,
-    localCertCredentialCtorArg: MutPtr<WsCertCredential>,
+    localCertCredentialCtorArg: MutPtr,
 ) {
-    public var localCertCredential: MutPtr<WsCertCredential> = localCertCredentialCtorArg
+    public var localCertCredential: MutPtr = localCertCredentialCtorArg
         internal set
 
     public constructor() : this(
@@ -10359,9 +10357,9 @@ public class WsSslTransportSecurityBinding internal constructor(
 
     public operator fun component1(): WsSecurityBinding = this.binding
 
-    public operator fun component2(): MutPtr<WsCertCredential> = this.localCertCredential
+    public operator fun component2(): MutPtr = this.localCertCredential
 
-    public fun copy(binding: WsSecurityBinding = this.binding, localCertCredential: MutPtr<WsCertCredential> = this.localCertCredential): WsSslTransportSecurityBinding = WsSslTransportSecurityBinding(binding = binding, localCertCredentialCtorArg = localCertCredential)
+    public fun copy(binding: WsSecurityBinding = this.binding, localCertCredential: MutPtr = this.localCertCredential): WsSslTransportSecurityBinding = WsSslTransportSecurityBinding(binding = binding, localCertCredentialCtorArg = localCertCredential)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -10387,21 +10385,21 @@ public class WsSslTransportSecurityBinding internal constructor(
                         (WsSecurityBinding.typeLayout()).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<WsCertCredential>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 24L),
                     )
                 override fun writeNative(addr: Long, value: WsSslTransportSecurityBinding) {
                     (WsSecurityBinding.typeLayout()).writeNative(addr, value.binding)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<WsCertCredential>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 24L, value.localCertCredential)
                 }
             }
 
         public operator fun invoke(
             binding: WsSecurityBinding = WsSecurityBinding(),
-            localCertCredential: MutPtr<WsCertCredential> = MutPtr(0L),
+            localCertCredential: MutPtr = MutPtr(0L),
         ): WsSslTransportSecurityBinding =
             WsSslTransportSecurityBinding(
                 binding = binding,
@@ -10472,9 +10470,9 @@ public data class WsSslTransportSecurityBindingPolicyDescription(
 
 public class WsSslTransportSecurityBindingTemplate internal constructor(
     public var securityBindingProperties: WsSecurityBindingProperties,
-    localCertCredentialCtorArg: MutPtr<WsCertCredential>,
+    localCertCredentialCtorArg: MutPtr,
 ) {
-    public var localCertCredential: MutPtr<WsCertCredential> = localCertCredentialCtorArg
+    public var localCertCredential: MutPtr = localCertCredentialCtorArg
         internal set
 
     public constructor() : this(
@@ -10484,9 +10482,9 @@ public class WsSslTransportSecurityBindingTemplate internal constructor(
 
     public operator fun component1(): WsSecurityBindingProperties = this.securityBindingProperties
 
-    public operator fun component2(): MutPtr<WsCertCredential> = this.localCertCredential
+    public operator fun component2(): MutPtr = this.localCertCredential
 
-    public fun copy(securityBindingProperties: WsSecurityBindingProperties = this.securityBindingProperties, localCertCredential: MutPtr<WsCertCredential> = this.localCertCredential): WsSslTransportSecurityBindingTemplate = WsSslTransportSecurityBindingTemplate(securityBindingProperties = securityBindingProperties, localCertCredentialCtorArg = localCertCredential)
+    public fun copy(securityBindingProperties: WsSecurityBindingProperties = this.securityBindingProperties, localCertCredential: MutPtr = this.localCertCredential): WsSslTransportSecurityBindingTemplate = WsSslTransportSecurityBindingTemplate(securityBindingProperties = securityBindingProperties, localCertCredentialCtorArg = localCertCredential)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -10512,21 +10510,21 @@ public class WsSslTransportSecurityBindingTemplate internal constructor(
                         (WsSecurityBindingProperties.typeLayout()).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<WsCertCredential>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 16L),
                     )
                 override fun writeNative(addr: Long, value: WsSslTransportSecurityBindingTemplate) {
                     (WsSecurityBindingProperties.typeLayout()).writeNative(addr, value.securityBindingProperties)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<WsCertCredential>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 16L, value.localCertCredential)
                 }
             }
 
         public operator fun invoke(
             securityBindingProperties: WsSecurityBindingProperties = WsSecurityBindingProperties(),
-            localCertCredential: MutPtr<WsCertCredential> = MutPtr(0L),
+            localCertCredential: MutPtr = MutPtr(0L),
         ): WsSslTransportSecurityBindingTemplate =
             WsSslTransportSecurityBindingTemplate(
                 securityBindingProperties = securityBindingProperties,
@@ -10636,28 +10634,28 @@ public data class WsStringWindowsIntegratedAuthCredential(
 public class WsStructDescription internal constructor(
     public var size: UInt,
     public var alignment: UInt,
-    fieldsCtorArg: MutPtr<MutPtr<WsFieldDescription>>,
+    fieldsCtorArg: MutPtr,
     public var fieldCount: UInt,
-    typeLocalNameCtorArg: MutPtr<WsXmlString>,
-    typeNsCtorArg: MutPtr<WsXmlString>,
-    parentTypeCtorArg: MutPtr<WsStructDescription>,
-    subTypesCtorArg: MutPtr<MutPtr<WsStructDescription>>,
+    typeLocalNameCtorArg: MutPtr,
+    typeNsCtorArg: MutPtr,
+    parentTypeCtorArg: MutPtr,
+    subTypesCtorArg: MutPtr,
     public var subTypeCount: UInt,
     public var structOptions: UInt,
 ) {
-    public var fields: MutPtr<MutPtr<WsFieldDescription>> = fieldsCtorArg
+    public var fields: MutPtr = fieldsCtorArg
         internal set
 
-    public var typeLocalName: MutPtr<WsXmlString> = typeLocalNameCtorArg
+    public var typeLocalName: MutPtr = typeLocalNameCtorArg
         internal set
 
-    public var typeNs: MutPtr<WsXmlString> = typeNsCtorArg
+    public var typeNs: MutPtr = typeNsCtorArg
         internal set
 
-    public var parentType: MutPtr<WsStructDescription> = parentTypeCtorArg
+    public var parentType: MutPtr = parentTypeCtorArg
         internal set
 
-    public var subTypes: MutPtr<MutPtr<WsStructDescription>> = subTypesCtorArg
+    public var subTypes: MutPtr = subTypesCtorArg
         internal set
 
     public constructor() : this(
@@ -10677,23 +10675,23 @@ public class WsStructDescription internal constructor(
 
     public operator fun component2(): UInt = this.alignment
 
-    public operator fun component3(): MutPtr<MutPtr<WsFieldDescription>> = this.fields
+    public operator fun component3(): MutPtr = this.fields
 
     public operator fun component4(): UInt = this.fieldCount
 
-    public operator fun component5(): MutPtr<WsXmlString> = this.typeLocalName
+    public operator fun component5(): MutPtr = this.typeLocalName
 
-    public operator fun component6(): MutPtr<WsXmlString> = this.typeNs
+    public operator fun component6(): MutPtr = this.typeNs
 
-    public operator fun component7(): MutPtr<WsStructDescription> = this.parentType
+    public operator fun component7(): MutPtr = this.parentType
 
-    public operator fun component8(): MutPtr<MutPtr<WsStructDescription>> = this.subTypes
+    public operator fun component8(): MutPtr = this.subTypes
 
     public operator fun component9(): UInt = this.subTypeCount
 
     public operator fun component10(): UInt = this.structOptions
 
-    public fun copy(size: UInt = this.size, alignment: UInt = this.alignment, fields: MutPtr<MutPtr<WsFieldDescription>> = this.fields, fieldCount: UInt = this.fieldCount, typeLocalName: MutPtr<WsXmlString> = this.typeLocalName, typeNs: MutPtr<WsXmlString> = this.typeNs, parentType: MutPtr<WsStructDescription> = this.parentType, subTypes: MutPtr<MutPtr<WsStructDescription>> = this.subTypes, subTypeCount: UInt = this.subTypeCount, structOptions: UInt = this.structOptions): WsStructDescription = WsStructDescription(size = size, alignment = alignment, fieldsCtorArg = fields, fieldCount = fieldCount, typeLocalNameCtorArg = typeLocalName, typeNsCtorArg = typeNs, parentTypeCtorArg = parentType, subTypesCtorArg = subTypes, subTypeCount = subTypeCount, structOptions = structOptions)
+    public fun copy(size: UInt = this.size, alignment: UInt = this.alignment, fields: MutPtr = this.fields, fieldCount: UInt = this.fieldCount, typeLocalName: MutPtr = this.typeLocalName, typeNs: MutPtr = this.typeNs, parentType: MutPtr = this.parentType, subTypes: MutPtr = this.subTypes, subTypeCount: UInt = this.subTypeCount, structOptions: UInt = this.structOptions): WsStructDescription = WsStructDescription(size = size, alignment = alignment, fieldsCtorArg = fields, fieldCount = fieldCount, typeLocalNameCtorArg = typeLocalName, typeNsCtorArg = typeNs, parentTypeCtorArg = parentType, subTypesCtorArg = subTypes, subTypeCount = subTypeCount, structOptions = structOptions)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -10736,24 +10734,24 @@ public class WsStructDescription internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 4L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<MutPtr<WsFieldDescription>>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 16L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<WsXmlString>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 24L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<WsXmlString>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 32L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<WsStructDescription>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 40L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<MutPtr<WsStructDescription>>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 48L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 56L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 60L),
@@ -10763,24 +10761,24 @@ public class WsStructDescription internal constructor(
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 4L, value.alignment)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<MutPtr<WsFieldDescription>>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.fields)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 16L, value.fieldCount)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<WsXmlString>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 24L, value.typeLocalName)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<WsXmlString>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 32L, value.typeNs)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<WsStructDescription>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 40L, value.parentType)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<MutPtr<WsStructDescription>>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 48L, value.subTypes)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 56L, value.subTypeCount)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 60L, value.structOptions)
@@ -10790,12 +10788,12 @@ public class WsStructDescription internal constructor(
         public operator fun invoke(
             size: UInt = 0u,
             alignment: UInt = 0u,
-            fields: MutPtr<MutPtr<WsFieldDescription>> = MutPtr(0L),
+            fields: MutPtr = MutPtr(0L),
             fieldCount: UInt = 0u,
-            typeLocalName: MutPtr<WsXmlString> = MutPtr(0L),
-            typeNs: MutPtr<WsXmlString> = MutPtr(0L),
-            parentType: MutPtr<WsStructDescription> = MutPtr(0L),
-            subTypes: MutPtr<MutPtr<WsStructDescription>> = MutPtr(0L),
+            typeLocalName: MutPtr = MutPtr(0L),
+            typeNs: MutPtr = MutPtr(0L),
+            parentType: MutPtr = MutPtr(0L),
+            subTypes: MutPtr = MutPtr(0L),
             subTypeCount: UInt = 0u,
             structOptions: UInt = 0u,
         ): WsStructDescription =
@@ -11029,9 +11027,9 @@ public data class WsTcpSspiPolicyDescription(
 
 public class WsTcpSspiTransportSecurityBinding internal constructor(
     public var binding: WsSecurityBinding,
-    clientCredentialCtorArg: MutPtr<WsWindowsIntegratedAuthCredential>,
+    clientCredentialCtorArg: MutPtr,
 ) {
-    public var clientCredential: MutPtr<WsWindowsIntegratedAuthCredential> = clientCredentialCtorArg
+    public var clientCredential: MutPtr = clientCredentialCtorArg
         internal set
 
     public constructor() : this(
@@ -11041,9 +11039,9 @@ public class WsTcpSspiTransportSecurityBinding internal constructor(
 
     public operator fun component1(): WsSecurityBinding = this.binding
 
-    public operator fun component2(): MutPtr<WsWindowsIntegratedAuthCredential> = this.clientCredential
+    public operator fun component2(): MutPtr = this.clientCredential
 
-    public fun copy(binding: WsSecurityBinding = this.binding, clientCredential: MutPtr<WsWindowsIntegratedAuthCredential> = this.clientCredential): WsTcpSspiTransportSecurityBinding = WsTcpSspiTransportSecurityBinding(binding = binding, clientCredentialCtorArg = clientCredential)
+    public fun copy(binding: WsSecurityBinding = this.binding, clientCredential: MutPtr = this.clientCredential): WsTcpSspiTransportSecurityBinding = WsTcpSspiTransportSecurityBinding(binding = binding, clientCredentialCtorArg = clientCredential)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -11069,21 +11067,21 @@ public class WsTcpSspiTransportSecurityBinding internal constructor(
                         (WsSecurityBinding.typeLayout()).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<WsWindowsIntegratedAuthCredential>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 24L),
                     )
                 override fun writeNative(addr: Long, value: WsTcpSspiTransportSecurityBinding) {
                     (WsSecurityBinding.typeLayout()).writeNative(addr, value.binding)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<WsWindowsIntegratedAuthCredential>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 24L, value.clientCredential)
                 }
             }
 
         public operator fun invoke(
             binding: WsSecurityBinding = WsSecurityBinding(),
-            clientCredential: MutPtr<WsWindowsIntegratedAuthCredential> = MutPtr(0L),
+            clientCredential: MutPtr = MutPtr(0L),
         ): WsTcpSspiTransportSecurityBinding =
             WsTcpSspiTransportSecurityBinding(
                 binding = binding,
@@ -11113,9 +11111,9 @@ public data class WsTcpSspiTransportSecurityBindingConstraint(
 
 public class WsTcpSspiTransportSecurityBindingTemplate internal constructor(
     public var securityBindingProperties: WsSecurityBindingProperties,
-    clientCredentialCtorArg: MutPtr<WsWindowsIntegratedAuthCredential>,
+    clientCredentialCtorArg: MutPtr,
 ) {
-    public var clientCredential: MutPtr<WsWindowsIntegratedAuthCredential> = clientCredentialCtorArg
+    public var clientCredential: MutPtr = clientCredentialCtorArg
         internal set
 
     public constructor() : this(
@@ -11125,9 +11123,9 @@ public class WsTcpSspiTransportSecurityBindingTemplate internal constructor(
 
     public operator fun component1(): WsSecurityBindingProperties = this.securityBindingProperties
 
-    public operator fun component2(): MutPtr<WsWindowsIntegratedAuthCredential> = this.clientCredential
+    public operator fun component2(): MutPtr = this.clientCredential
 
-    public fun copy(securityBindingProperties: WsSecurityBindingProperties = this.securityBindingProperties, clientCredential: MutPtr<WsWindowsIntegratedAuthCredential> = this.clientCredential): WsTcpSspiTransportSecurityBindingTemplate = WsTcpSspiTransportSecurityBindingTemplate(securityBindingProperties = securityBindingProperties, clientCredentialCtorArg = clientCredential)
+    public fun copy(securityBindingProperties: WsSecurityBindingProperties = this.securityBindingProperties, clientCredential: MutPtr = this.clientCredential): WsTcpSspiTransportSecurityBindingTemplate = WsTcpSspiTransportSecurityBindingTemplate(securityBindingProperties = securityBindingProperties, clientCredentialCtorArg = clientCredential)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -11153,21 +11151,21 @@ public class WsTcpSspiTransportSecurityBindingTemplate internal constructor(
                         (WsSecurityBindingProperties.typeLayout()).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<WsWindowsIntegratedAuthCredential>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 16L),
                     )
                 override fun writeNative(addr: Long, value: WsTcpSspiTransportSecurityBindingTemplate) {
                     (WsSecurityBindingProperties.typeLayout()).writeNative(addr, value.securityBindingProperties)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<WsWindowsIntegratedAuthCredential>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 16L, value.clientCredential)
                 }
             }
 
         public operator fun invoke(
             securityBindingProperties: WsSecurityBindingProperties = WsSecurityBindingProperties(),
-            clientCredential: MutPtr<WsWindowsIntegratedAuthCredential> = MutPtr(0L),
+            clientCredential: MutPtr = MutPtr(0L),
         ): WsTcpSspiTransportSecurityBindingTemplate =
             WsTcpSspiTransportSecurityBindingTemplate(
                 securityBindingProperties = securityBindingProperties,
@@ -11389,16 +11387,16 @@ public data class WsUint8Description(
 public class WsUnionDescription internal constructor(
     public var size: UInt,
     public var alignment: UInt,
-    fieldsCtorArg: MutPtr<MutPtr<WsUnionFieldDescription>>,
+    fieldsCtorArg: MutPtr,
     public var fieldCount: UInt,
     public var enumOffset: UInt,
     public var noneEnumValue: Int,
-    valueIndicesCtorArg: MutPtr<UInt>,
+    valueIndicesCtorArg: MutPtr,
 ) {
-    public var fields: MutPtr<MutPtr<WsUnionFieldDescription>> = fieldsCtorArg
+    public var fields: MutPtr = fieldsCtorArg
         internal set
 
-    public var valueIndices: MutPtr<UInt> = valueIndicesCtorArg
+    public var valueIndices: MutPtr = valueIndicesCtorArg
         internal set
 
     public constructor() : this(
@@ -11415,7 +11413,7 @@ public class WsUnionDescription internal constructor(
 
     public operator fun component2(): UInt = this.alignment
 
-    public operator fun component3(): MutPtr<MutPtr<WsUnionFieldDescription>> = this.fields
+    public operator fun component3(): MutPtr = this.fields
 
     public operator fun component4(): UInt = this.fieldCount
 
@@ -11423,9 +11421,9 @@ public class WsUnionDescription internal constructor(
 
     public operator fun component6(): Int = this.noneEnumValue
 
-    public operator fun component7(): MutPtr<UInt> = this.valueIndices
+    public operator fun component7(): MutPtr = this.valueIndices
 
-    public fun copy(size: UInt = this.size, alignment: UInt = this.alignment, fields: MutPtr<MutPtr<WsUnionFieldDescription>> = this.fields, fieldCount: UInt = this.fieldCount, enumOffset: UInt = this.enumOffset, noneEnumValue: Int = this.noneEnumValue, valueIndices: MutPtr<UInt> = this.valueIndices): WsUnionDescription = WsUnionDescription(size = size, alignment = alignment, fieldsCtorArg = fields, fieldCount = fieldCount, enumOffset = enumOffset, noneEnumValue = noneEnumValue, valueIndicesCtorArg = valueIndices)
+    public fun copy(size: UInt = this.size, alignment: UInt = this.alignment, fields: MutPtr = this.fields, fieldCount: UInt = this.fieldCount, enumOffset: UInt = this.enumOffset, noneEnumValue: Int = this.noneEnumValue, valueIndices: MutPtr = this.valueIndices): WsUnionDescription = WsUnionDescription(size = size, alignment = alignment, fieldsCtorArg = fields, fieldCount = fieldCount, enumOffset = enumOffset, noneEnumValue = noneEnumValue, valueIndicesCtorArg = valueIndices)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -11462,14 +11460,14 @@ public class WsUnionDescription internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 4L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<MutPtr<WsUnionFieldDescription>>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 16L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 20L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr + 24L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<UInt>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 32L),
                     )
                 override fun writeNative(addr: Long, value: WsUnionDescription) {
@@ -11477,14 +11475,14 @@ public class WsUnionDescription internal constructor(
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 4L, value.alignment)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<MutPtr<WsUnionFieldDescription>>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.fields)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 16L, value.fieldCount)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 20L, value.enumOffset)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr + 24L, value.noneEnumValue)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<UInt>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 32L, value.valueIndices)
                 }
             }
@@ -11492,11 +11490,11 @@ public class WsUnionDescription internal constructor(
         public operator fun invoke(
             size: UInt = 0u,
             alignment: UInt = 0u,
-            fields: MutPtr<MutPtr<WsUnionFieldDescription>> = MutPtr(0L),
+            fields: MutPtr = MutPtr(0L),
             fieldCount: UInt = 0u,
             enumOffset: UInt = 0u,
             noneEnumValue: Int = 0,
-            valueIndices: MutPtr<UInt> = MutPtr(0L),
+            valueIndices: MutPtr = MutPtr(0L),
         ): WsUnionDescription =
             WsUnionDescription(
                 size = size,
@@ -11561,9 +11559,9 @@ public data class WsUniqueIdDescription(
 
 public class WsUnknownEndpointIdentity internal constructor(
     public var identity: WsEndpointIdentity,
-    elementCtorArg: MutPtr<WsXmlBuffer>,
+    elementCtorArg: MutPtr,
 ) {
-    public var element: MutPtr<WsXmlBuffer> = elementCtorArg
+    public var element: MutPtr = elementCtorArg
         internal set
 
     public constructor() : this(
@@ -11573,9 +11571,9 @@ public class WsUnknownEndpointIdentity internal constructor(
 
     public operator fun component1(): WsEndpointIdentity = this.identity
 
-    public operator fun component2(): MutPtr<WsXmlBuffer> = this.element
+    public operator fun component2(): MutPtr = this.element
 
-    public fun copy(identity: WsEndpointIdentity = this.identity, element: MutPtr<WsXmlBuffer> = this.element): WsUnknownEndpointIdentity = WsUnknownEndpointIdentity(identity = identity, elementCtorArg = element)
+    public fun copy(identity: WsEndpointIdentity = this.identity, element: MutPtr = this.element): WsUnknownEndpointIdentity = WsUnknownEndpointIdentity(identity = identity, elementCtorArg = element)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -11601,21 +11599,21 @@ public class WsUnknownEndpointIdentity internal constructor(
                         (WsEndpointIdentity.typeLayout()).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<WsXmlBuffer>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                     )
                 override fun writeNative(addr: Long, value: WsUnknownEndpointIdentity) {
                     (WsEndpointIdentity.typeLayout()).writeNative(addr, value.identity)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<WsXmlBuffer>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.element)
                 }
             }
 
         public operator fun invoke(
             identity: WsEndpointIdentity = WsEndpointIdentity(),
-            element: MutPtr<WsXmlBuffer> = MutPtr(0L),
+            element: MutPtr = MutPtr(0L),
         ): WsUnknownEndpointIdentity =
             WsUnknownEndpointIdentity(
                 identity = identity,
@@ -11670,14 +11668,14 @@ public data class WsUsernameCredential(
 public class WsUsernameMessageSecurityBinding internal constructor(
     public var binding: WsSecurityBinding,
     public var bindingUsage: WsMessageSecurityUsage,
-    clientCredentialCtorArg: MutPtr<WsUsernameCredential>,
+    clientCredentialCtorArg: MutPtr,
     public var passwordValidator: WsValidatePasswordCallback,
-    passwordValidatorCallbackStateCtorArg: MutPtr<CVoid>,
+    passwordValidatorCallbackStateCtorArg: MutPtr,
 ) {
-    public var clientCredential: MutPtr<WsUsernameCredential> = clientCredentialCtorArg
+    public var clientCredential: MutPtr = clientCredentialCtorArg
         internal set
 
-    public var passwordValidatorCallbackState: MutPtr<CVoid> = passwordValidatorCallbackStateCtorArg
+    public var passwordValidatorCallbackState: MutPtr = passwordValidatorCallbackStateCtorArg
         internal set
 
     public constructor() : this(
@@ -11692,13 +11690,13 @@ public class WsUsernameMessageSecurityBinding internal constructor(
 
     public operator fun component2(): WsMessageSecurityUsage = this.bindingUsage
 
-    public operator fun component3(): MutPtr<WsUsernameCredential> = this.clientCredential
+    public operator fun component3(): MutPtr = this.clientCredential
 
     public operator fun component4(): WsValidatePasswordCallback = this.passwordValidator
 
-    public operator fun component5(): MutPtr<CVoid> = this.passwordValidatorCallbackState
+    public operator fun component5(): MutPtr = this.passwordValidatorCallbackState
 
-    public fun copy(binding: WsSecurityBinding = this.binding, bindingUsage: WsMessageSecurityUsage = this.bindingUsage, clientCredential: MutPtr<WsUsernameCredential> = this.clientCredential, passwordValidator: WsValidatePasswordCallback = this.passwordValidator, passwordValidatorCallbackState: MutPtr<CVoid> = this.passwordValidatorCallbackState): WsUsernameMessageSecurityBinding = WsUsernameMessageSecurityBinding(binding = binding, bindingUsage = bindingUsage, clientCredentialCtorArg = clientCredential, passwordValidator = passwordValidator, passwordValidatorCallbackStateCtorArg = passwordValidatorCallbackState)
+    public fun copy(binding: WsSecurityBinding = this.binding, bindingUsage: WsMessageSecurityUsage = this.bindingUsage, clientCredential: MutPtr = this.clientCredential, passwordValidator: WsValidatePasswordCallback = this.passwordValidator, passwordValidatorCallbackState: MutPtr = this.passwordValidatorCallbackState): WsUsernameMessageSecurityBinding = WsUsernameMessageSecurityBinding(binding = binding, bindingUsage = bindingUsage, clientCredentialCtorArg = clientCredential, passwordValidator = passwordValidator, passwordValidatorCallbackStateCtorArg = passwordValidatorCallbackState)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -11724,9 +11722,9 @@ public class WsUsernameMessageSecurityBinding internal constructor(
         public operator fun invoke(
             binding: WsSecurityBinding = WsSecurityBinding(),
             bindingUsage: WsMessageSecurityUsage = 0,
-            clientCredential: MutPtr<WsUsernameCredential> = MutPtr(0L),
+            clientCredential: MutPtr = MutPtr(0L),
             passwordValidator: WsValidatePasswordCallback = null,
-            passwordValidatorCallbackState: MutPtr<CVoid> = MutPtr(0L),
+            passwordValidatorCallbackState: MutPtr = MutPtr(0L),
         ): WsUsernameMessageSecurityBinding =
             WsUsernameMessageSecurityBinding(
                 binding = binding,
@@ -11784,14 +11782,14 @@ public data class WsUsernameMessageSecurityBindingPolicyDescription(
 
 public class WsUsernameMessageSecurityBindingTemplate internal constructor(
     public var securityBindingProperties: WsSecurityBindingProperties,
-    clientCredentialCtorArg: MutPtr<WsUsernameCredential>,
+    clientCredentialCtorArg: MutPtr,
     public var passwordValidator: WsValidatePasswordCallback,
-    passwordValidatorCallbackStateCtorArg: MutPtr<CVoid>,
+    passwordValidatorCallbackStateCtorArg: MutPtr,
 ) {
-    public var clientCredential: MutPtr<WsUsernameCredential> = clientCredentialCtorArg
+    public var clientCredential: MutPtr = clientCredentialCtorArg
         internal set
 
-    public var passwordValidatorCallbackState: MutPtr<CVoid> = passwordValidatorCallbackStateCtorArg
+    public var passwordValidatorCallbackState: MutPtr = passwordValidatorCallbackStateCtorArg
         internal set
 
     public constructor() : this(
@@ -11803,13 +11801,13 @@ public class WsUsernameMessageSecurityBindingTemplate internal constructor(
 
     public operator fun component1(): WsSecurityBindingProperties = this.securityBindingProperties
 
-    public operator fun component2(): MutPtr<WsUsernameCredential> = this.clientCredential
+    public operator fun component2(): MutPtr = this.clientCredential
 
     public operator fun component3(): WsValidatePasswordCallback = this.passwordValidator
 
-    public operator fun component4(): MutPtr<CVoid> = this.passwordValidatorCallbackState
+    public operator fun component4(): MutPtr = this.passwordValidatorCallbackState
 
-    public fun copy(securityBindingProperties: WsSecurityBindingProperties = this.securityBindingProperties, clientCredential: MutPtr<WsUsernameCredential> = this.clientCredential, passwordValidator: WsValidatePasswordCallback = this.passwordValidator, passwordValidatorCallbackState: MutPtr<CVoid> = this.passwordValidatorCallbackState): WsUsernameMessageSecurityBindingTemplate = WsUsernameMessageSecurityBindingTemplate(securityBindingProperties = securityBindingProperties, clientCredentialCtorArg = clientCredential, passwordValidator = passwordValidator, passwordValidatorCallbackStateCtorArg = passwordValidatorCallbackState)
+    public fun copy(securityBindingProperties: WsSecurityBindingProperties = this.securityBindingProperties, clientCredential: MutPtr = this.clientCredential, passwordValidator: WsValidatePasswordCallback = this.passwordValidator, passwordValidatorCallbackState: MutPtr = this.passwordValidatorCallbackState): WsUsernameMessageSecurityBindingTemplate = WsUsernameMessageSecurityBindingTemplate(securityBindingProperties = securityBindingProperties, clientCredentialCtorArg = clientCredential, passwordValidator = passwordValidator, passwordValidatorCallbackStateCtorArg = passwordValidatorCallbackState)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -11832,9 +11830,9 @@ public class WsUsernameMessageSecurityBindingTemplate internal constructor(
     public companion object {
         public operator fun invoke(
             securityBindingProperties: WsSecurityBindingProperties = WsSecurityBindingProperties(),
-            clientCredential: MutPtr<WsUsernameCredential> = MutPtr(0L),
+            clientCredential: MutPtr = MutPtr(0L),
             passwordValidator: WsValidatePasswordCallback = null,
-            passwordValidatorCallbackState: MutPtr<CVoid> = MutPtr(0L),
+            passwordValidatorCallbackState: MutPtr = MutPtr(0L),
         ): WsUsernameMessageSecurityBindingTemplate =
             WsUsernameMessageSecurityBindingTemplate(
                 securityBindingProperties = securityBindingProperties,
@@ -11930,21 +11928,21 @@ public data class WsWszDescription(
 public class WsXmlAttribute internal constructor(
     public var singleQuote: UByte,
     public var isXmlNs: UByte,
-    prefixCtorArg: MutPtr<WsXmlString>,
-    localNameCtorArg: MutPtr<WsXmlString>,
-    nsCtorArg: MutPtr<WsXmlString>,
-    valueCtorArg: MutPtr<WsXmlText>,
+    prefixCtorArg: MutPtr,
+    localNameCtorArg: MutPtr,
+    nsCtorArg: MutPtr,
+    valueCtorArg: MutPtr,
 ) {
-    public var prefix: MutPtr<WsXmlString> = prefixCtorArg
+    public var prefix: MutPtr = prefixCtorArg
         internal set
 
-    public var localName: MutPtr<WsXmlString> = localNameCtorArg
+    public var localName: MutPtr = localNameCtorArg
         internal set
 
-    public var ns: MutPtr<WsXmlString> = nsCtorArg
+    public var ns: MutPtr = nsCtorArg
         internal set
 
-    public var value: MutPtr<WsXmlText> = valueCtorArg
+    public var value: MutPtr = valueCtorArg
         internal set
 
     public constructor() : this(
@@ -11960,15 +11958,15 @@ public class WsXmlAttribute internal constructor(
 
     public operator fun component2(): UByte = this.isXmlNs
 
-    public operator fun component3(): MutPtr<WsXmlString> = this.prefix
+    public operator fun component3(): MutPtr = this.prefix
 
-    public operator fun component4(): MutPtr<WsXmlString> = this.localName
+    public operator fun component4(): MutPtr = this.localName
 
-    public operator fun component5(): MutPtr<WsXmlString> = this.ns
+    public operator fun component5(): MutPtr = this.ns
 
-    public operator fun component6(): MutPtr<WsXmlText> = this.value
+    public operator fun component6(): MutPtr = this.value
 
-    public fun copy(singleQuote: UByte = this.singleQuote, isXmlNs: UByte = this.isXmlNs, prefix: MutPtr<WsXmlString> = this.prefix, localName: MutPtr<WsXmlString> = this.localName, ns: MutPtr<WsXmlString> = this.ns, value: MutPtr<WsXmlText> = this.value): WsXmlAttribute = WsXmlAttribute(singleQuote = singleQuote, isXmlNs = isXmlNs, prefixCtorArg = prefix, localNameCtorArg = localName, nsCtorArg = ns, valueCtorArg = value)
+    public fun copy(singleQuote: UByte = this.singleQuote, isXmlNs: UByte = this.isXmlNs, prefix: MutPtr = this.prefix, localName: MutPtr = this.localName, ns: MutPtr = this.ns, value: MutPtr = this.value): WsXmlAttribute = WsXmlAttribute(singleQuote = singleQuote, isXmlNs = isXmlNs, prefixCtorArg = prefix, localNameCtorArg = localName, nsCtorArg = ns, valueCtorArg = value)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -12003,19 +12001,19 @@ public class WsXmlAttribute internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8).readNative(addr + 1L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<WsXmlString>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<WsXmlString>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 16L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<WsXmlString>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 24L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<WsXmlText>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 32L),
                     )
                 override fun writeNative(addr: Long, value: WsXmlAttribute) {
@@ -12023,19 +12021,19 @@ public class WsXmlAttribute internal constructor(
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8).writeNative(addr + 1L, value.isXmlNs)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<WsXmlString>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.prefix)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<WsXmlString>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 16L, value.localName)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<WsXmlString>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 24L, value.ns)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<WsXmlText>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 32L, value.value)
                 }
             }
@@ -12043,10 +12041,10 @@ public class WsXmlAttribute internal constructor(
         public operator fun invoke(
             singleQuote: UByte = 0u,
             isXmlNs: UByte = 0u,
-            prefix: MutPtr<WsXmlString> = MutPtr(0L),
-            localName: MutPtr<WsXmlString> = MutPtr(0L),
-            ns: MutPtr<WsXmlString> = MutPtr(0L),
-            value: MutPtr<WsXmlText> = MutPtr(0L),
+            prefix: MutPtr = MutPtr(0L),
+            localName: MutPtr = MutPtr(0L),
+            ns: MutPtr = MutPtr(0L),
+            value: MutPtr = MutPtr(0L),
         ): WsXmlAttribute =
             WsXmlAttribute(
                 singleQuote = singleQuote,
@@ -12061,10 +12059,10 @@ public class WsXmlAttribute internal constructor(
 
 public class WsXmlBase64Text internal constructor(
     public var text: WsXmlText,
-    bytesCtorArg: MutPtr<UByte>,
+    bytesCtorArg: MutPtr,
     public var length: UInt,
 ) {
-    public var bytes: MutPtr<UByte> = bytesCtorArg
+    public var bytes: MutPtr = bytesCtorArg
         internal set
 
     public constructor() : this(
@@ -12075,11 +12073,11 @@ public class WsXmlBase64Text internal constructor(
 
     public operator fun component1(): WsXmlText = this.text
 
-    public operator fun component2(): MutPtr<UByte> = this.bytes
+    public operator fun component2(): MutPtr = this.bytes
 
     public operator fun component3(): UInt = this.length
 
-    public fun copy(text: WsXmlText = this.text, bytes: MutPtr<UByte> = this.bytes, length: UInt = this.length): WsXmlBase64Text = WsXmlBase64Text(text = text, bytesCtorArg = bytes, length = length)
+    public fun copy(text: WsXmlText = this.text, bytes: MutPtr = this.bytes, length: UInt = this.length): WsXmlBase64Text = WsXmlBase64Text(text = text, bytesCtorArg = bytes, length = length)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -12107,7 +12105,7 @@ public class WsXmlBase64Text internal constructor(
                         (WsXmlText.typeLayout()).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<UByte>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 16L),
                     )
@@ -12115,7 +12113,7 @@ public class WsXmlBase64Text internal constructor(
                     (WsXmlText.typeLayout()).writeNative(addr, value.text)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<UByte>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.bytes)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 16L, value.length)
                 }
@@ -12123,7 +12121,7 @@ public class WsXmlBase64Text internal constructor(
 
         public operator fun invoke(
             text: WsXmlText = WsXmlText(),
-            bytes: MutPtr<UByte> = MutPtr(0L),
+            bytes: MutPtr = MutPtr(0L),
             length: UInt = 0u,
         ): WsXmlBase64Text =
             WsXmlBase64Text(
@@ -12158,10 +12156,10 @@ public data class WsXmlBoolText(
 
 public class WsXmlBufferProperty internal constructor(
     public var id: WsXmlBufferPropertyId,
-    valueCtorArg: MutPtr<CVoid>,
+    valueCtorArg: MutPtr,
     public var valueSize: UInt,
 ) {
-    public var value: MutPtr<CVoid> = valueCtorArg
+    public var value: MutPtr = valueCtorArg
         internal set
 
     public constructor() : this(
@@ -12172,11 +12170,11 @@ public class WsXmlBufferProperty internal constructor(
 
     public operator fun component1(): WsXmlBufferPropertyId = this.id
 
-    public operator fun component2(): MutPtr<CVoid> = this.value
+    public operator fun component2(): MutPtr = this.value
 
     public operator fun component3(): UInt = this.valueSize
 
-    public fun copy(id: WsXmlBufferPropertyId = this.id, value: MutPtr<CVoid> = this.value, valueSize: UInt = this.valueSize): WsXmlBufferProperty = WsXmlBufferProperty(id = id, valueCtorArg = value, valueSize = valueSize)
+    public fun copy(id: WsXmlBufferPropertyId = this.id, value: MutPtr = this.value, valueSize: UInt = this.valueSize): WsXmlBufferProperty = WsXmlBufferProperty(id = id, valueCtorArg = value, valueSize = valueSize)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -12204,7 +12202,7 @@ public class WsXmlBufferProperty internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<CVoid>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 16L),
                     )
@@ -12212,7 +12210,7 @@ public class WsXmlBufferProperty internal constructor(
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr, value.id)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<CVoid>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.value)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 16L, value.valueSize)
                 }
@@ -12220,7 +12218,7 @@ public class WsXmlBufferProperty internal constructor(
 
         public operator fun invoke(
             id: WsXmlBufferPropertyId = 0,
-            value: MutPtr<CVoid> = MutPtr(0L),
+            value: MutPtr = MutPtr(0L),
             valueSize: UInt = 0u,
         ): WsXmlBufferProperty =
             WsXmlBufferProperty(
@@ -12233,9 +12231,9 @@ public class WsXmlBufferProperty internal constructor(
 
 public class WsXmlCanonicalizationInclusivePrefixes internal constructor(
     public var prefixCount: UInt,
-    prefixesCtorArg: MutPtr<WsXmlString>,
+    prefixesCtorArg: MutPtr,
 ) {
-    public var prefixes: MutPtr<WsXmlString> = prefixesCtorArg
+    public var prefixes: MutPtr = prefixesCtorArg
         internal set
 
     public constructor() : this(
@@ -12245,9 +12243,9 @@ public class WsXmlCanonicalizationInclusivePrefixes internal constructor(
 
     public operator fun component1(): UInt = this.prefixCount
 
-    public operator fun component2(): MutPtr<WsXmlString> = this.prefixes
+    public operator fun component2(): MutPtr = this.prefixes
 
-    public fun copy(prefixCount: UInt = this.prefixCount, prefixes: MutPtr<WsXmlString> = this.prefixes): WsXmlCanonicalizationInclusivePrefixes = WsXmlCanonicalizationInclusivePrefixes(prefixCount = prefixCount, prefixesCtorArg = prefixes)
+    public fun copy(prefixCount: UInt = this.prefixCount, prefixes: MutPtr = this.prefixes): WsXmlCanonicalizationInclusivePrefixes = WsXmlCanonicalizationInclusivePrefixes(prefixCount = prefixCount, prefixesCtorArg = prefixes)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -12273,21 +12271,21 @@ public class WsXmlCanonicalizationInclusivePrefixes internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<WsXmlString>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                     )
                 override fun writeNative(addr: Long, value: WsXmlCanonicalizationInclusivePrefixes) {
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr, value.prefixCount)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<WsXmlString>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.prefixes)
                 }
             }
 
         public operator fun invoke(
             prefixCount: UInt = 0u,
-            prefixes: MutPtr<WsXmlString> = MutPtr(0L),
+            prefixes: MutPtr = MutPtr(0L),
         ): WsXmlCanonicalizationInclusivePrefixes =
             WsXmlCanonicalizationInclusivePrefixes(
                 prefixCount = prefixCount,
@@ -12298,10 +12296,10 @@ public class WsXmlCanonicalizationInclusivePrefixes internal constructor(
 
 public class WsXmlCanonicalizationProperty internal constructor(
     public var id: WsXmlCanonicalizationPropertyId,
-    valueCtorArg: MutPtr<CVoid>,
+    valueCtorArg: MutPtr,
     public var valueSize: UInt,
 ) {
-    public var value: MutPtr<CVoid> = valueCtorArg
+    public var value: MutPtr = valueCtorArg
         internal set
 
     public constructor() : this(
@@ -12312,11 +12310,11 @@ public class WsXmlCanonicalizationProperty internal constructor(
 
     public operator fun component1(): WsXmlCanonicalizationPropertyId = this.id
 
-    public operator fun component2(): MutPtr<CVoid> = this.value
+    public operator fun component2(): MutPtr = this.value
 
     public operator fun component3(): UInt = this.valueSize
 
-    public fun copy(id: WsXmlCanonicalizationPropertyId = this.id, value: MutPtr<CVoid> = this.value, valueSize: UInt = this.valueSize): WsXmlCanonicalizationProperty = WsXmlCanonicalizationProperty(id = id, valueCtorArg = value, valueSize = valueSize)
+    public fun copy(id: WsXmlCanonicalizationPropertyId = this.id, value: MutPtr = this.value, valueSize: UInt = this.valueSize): WsXmlCanonicalizationProperty = WsXmlCanonicalizationProperty(id = id, valueCtorArg = value, valueSize = valueSize)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -12344,7 +12342,7 @@ public class WsXmlCanonicalizationProperty internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<CVoid>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 16L),
                     )
@@ -12352,7 +12350,7 @@ public class WsXmlCanonicalizationProperty internal constructor(
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr, value.id)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<CVoid>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.value)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 16L, value.valueSize)
                 }
@@ -12360,7 +12358,7 @@ public class WsXmlCanonicalizationProperty internal constructor(
 
         public operator fun invoke(
             id: WsXmlCanonicalizationPropertyId = 0,
-            value: MutPtr<CVoid> = MutPtr(0L),
+            value: MutPtr = MutPtr(0L),
             valueSize: UInt = 0u,
         ): WsXmlCanonicalizationProperty =
             WsXmlCanonicalizationProperty(
@@ -12422,11 +12420,11 @@ public data class WsXmlDecimalText(
 
 public class WsXmlDictionary internal constructor(
     public var guid: Guid,
-    stringsCtorArg: MutPtr<WsXmlString>,
+    stringsCtorArg: MutPtr,
     public var stringCount: UInt,
     public var isConst: Bool,
 ) {
-    public var strings: MutPtr<WsXmlString> = stringsCtorArg
+    public var strings: MutPtr = stringsCtorArg
         internal set
 
     public constructor() : this(
@@ -12438,13 +12436,13 @@ public class WsXmlDictionary internal constructor(
 
     public operator fun component1(): Guid = this.guid
 
-    public operator fun component2(): MutPtr<WsXmlString> = this.strings
+    public operator fun component2(): MutPtr = this.strings
 
     public operator fun component3(): UInt = this.stringCount
 
     public operator fun component4(): Bool = this.isConst
 
-    public fun copy(guid: Guid = this.guid, strings: MutPtr<WsXmlString> = this.strings, stringCount: UInt = this.stringCount, isConst: Bool = this.isConst): WsXmlDictionary = WsXmlDictionary(guid = guid, stringsCtorArg = strings, stringCount = stringCount, isConst = isConst)
+    public fun copy(guid: Guid = this.guid, strings: MutPtr = this.strings, stringCount: UInt = this.stringCount, isConst: Bool = this.isConst): WsXmlDictionary = WsXmlDictionary(guid = guid, stringsCtorArg = strings, stringCount = stringCount, isConst = isConst)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -12467,7 +12465,7 @@ public class WsXmlDictionary internal constructor(
     public companion object {
         public operator fun invoke(
             guid: Guid = Guid(),
-            strings: MutPtr<WsXmlString> = MutPtr(0L),
+            strings: MutPtr = MutPtr(0L),
             stringCount: UInt = 0u,
             isConst: Bool = 0,
         ): WsXmlDictionary =
@@ -12504,23 +12502,23 @@ public data class WsXmlDoubleText(
 
 public class WsXmlElementNode internal constructor(
     public var node: WsXmlNode,
-    prefixCtorArg: MutPtr<WsXmlString>,
-    localNameCtorArg: MutPtr<WsXmlString>,
-    nsCtorArg: MutPtr<WsXmlString>,
+    prefixCtorArg: MutPtr,
+    localNameCtorArg: MutPtr,
+    nsCtorArg: MutPtr,
     public var attributeCount: UInt,
-    attributesCtorArg: MutPtr<MutPtr<WsXmlAttribute>>,
+    attributesCtorArg: MutPtr,
     public var isEmpty: Bool,
 ) {
-    public var prefix: MutPtr<WsXmlString> = prefixCtorArg
+    public var prefix: MutPtr = prefixCtorArg
         internal set
 
-    public var localName: MutPtr<WsXmlString> = localNameCtorArg
+    public var localName: MutPtr = localNameCtorArg
         internal set
 
-    public var ns: MutPtr<WsXmlString> = nsCtorArg
+    public var ns: MutPtr = nsCtorArg
         internal set
 
-    public var attributes: MutPtr<MutPtr<WsXmlAttribute>> = attributesCtorArg
+    public var attributes: MutPtr = attributesCtorArg
         internal set
 
     public constructor() : this(
@@ -12535,19 +12533,19 @@ public class WsXmlElementNode internal constructor(
 
     public operator fun component1(): WsXmlNode = this.node
 
-    public operator fun component2(): MutPtr<WsXmlString> = this.prefix
+    public operator fun component2(): MutPtr = this.prefix
 
-    public operator fun component3(): MutPtr<WsXmlString> = this.localName
+    public operator fun component3(): MutPtr = this.localName
 
-    public operator fun component4(): MutPtr<WsXmlString> = this.ns
+    public operator fun component4(): MutPtr = this.ns
 
     public operator fun component5(): UInt = this.attributeCount
 
-    public operator fun component6(): MutPtr<MutPtr<WsXmlAttribute>> = this.attributes
+    public operator fun component6(): MutPtr = this.attributes
 
     public operator fun component7(): Bool = this.isEmpty
 
-    public fun copy(node: WsXmlNode = this.node, prefix: MutPtr<WsXmlString> = this.prefix, localName: MutPtr<WsXmlString> = this.localName, ns: MutPtr<WsXmlString> = this.ns, attributeCount: UInt = this.attributeCount, attributes: MutPtr<MutPtr<WsXmlAttribute>> = this.attributes, isEmpty: Bool = this.isEmpty): WsXmlElementNode = WsXmlElementNode(node = node, prefixCtorArg = prefix, localNameCtorArg = localName, nsCtorArg = ns, attributeCount = attributeCount, attributesCtorArg = attributes, isEmpty = isEmpty)
+    public fun copy(node: WsXmlNode = this.node, prefix: MutPtr = this.prefix, localName: MutPtr = this.localName, ns: MutPtr = this.ns, attributeCount: UInt = this.attributeCount, attributes: MutPtr = this.attributes, isEmpty: Bool = this.isEmpty): WsXmlElementNode = WsXmlElementNode(node = node, prefixCtorArg = prefix, localNameCtorArg = localName, nsCtorArg = ns, attributeCount = attributeCount, attributesCtorArg = attributes, isEmpty = isEmpty)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -12583,20 +12581,20 @@ public class WsXmlElementNode internal constructor(
                         (WsXmlNode.typeLayout()).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<WsXmlString>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<WsXmlString>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 16L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<WsXmlString>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 24L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 32L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<MutPtr<WsXmlAttribute>>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 40L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr + 48L),
                     )
@@ -12604,20 +12602,20 @@ public class WsXmlElementNode internal constructor(
                     (WsXmlNode.typeLayout()).writeNative(addr, value.node)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<WsXmlString>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.prefix)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<WsXmlString>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 16L, value.localName)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<WsXmlString>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 24L, value.ns)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 32L, value.attributeCount)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<MutPtr<WsXmlAttribute>>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 40L, value.attributes)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr + 48L, value.isEmpty)
                 }
@@ -12625,11 +12623,11 @@ public class WsXmlElementNode internal constructor(
 
         public operator fun invoke(
             node: WsXmlNode = WsXmlNode(),
-            prefix: MutPtr<WsXmlString> = MutPtr(0L),
-            localName: MutPtr<WsXmlString> = MutPtr(0L),
-            ns: MutPtr<WsXmlString> = MutPtr(0L),
+            prefix: MutPtr = MutPtr(0L),
+            localName: MutPtr = MutPtr(0L),
+            ns: MutPtr = MutPtr(0L),
             attributeCount: UInt = 0u,
-            attributes: MutPtr<MutPtr<WsXmlAttribute>> = MutPtr(0L),
+            attributes: MutPtr = MutPtr(0L),
             isEmpty: Bool = 0,
         ): WsXmlElementNode =
             WsXmlElementNode(

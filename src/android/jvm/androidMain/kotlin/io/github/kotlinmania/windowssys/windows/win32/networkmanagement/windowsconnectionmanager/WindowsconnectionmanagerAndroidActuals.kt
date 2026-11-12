@@ -2,11 +2,9 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.networkmanagement.windowsconnectionmanager
 
-import io.github.kotlinmania.rustlang.core.ffi.CVoid
 import io.github.kotlinmania.rustlang.core.ptr.ConstPtr
 import io.github.kotlinmania.rustlang.core.ptr.MutPtr
 import io.github.kotlinmania.windowssys.core.Bool
-import io.github.kotlinmania.windowssys.core.Guid
 import io.github.kotlinmania.windowssys.core.Hresult
 import io.github.kotlinmania.windowssys.core.Pcwstr
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Handle
@@ -47,34 +45,34 @@ private object WindowsWin32NetworkmanagementWindowsconnectionmanagerJniBridge {
     external fun windowssysWindowsWin32NetworkmanagementWindowsconnectionmanagerWcmSetProperty(pinterface: Long, strprofilename: Long, property: Int, preserved: Long, dwdatasize: Int, pbdata: Long): Int
 }
 
-public actual fun freeInterfaceContextTable(interfacecontexttable: ConstPtr<NetInterfaceContextTable>) {
+public actual fun freeInterfaceContextTable(interfacecontexttable: ConstPtr) {
     WindowsWin32NetworkmanagementWindowsconnectionmanagerJniBridge.windowssysWindowsWin32NetworkmanagementWindowsconnectionmanagerFreeInterfaceContextTable(interfacecontexttable.rawAddress)
 }
 
-public actual fun getInterfaceContextTableForHostName(hostname: Pcwstr, proxyname: Pcwstr, flags: UInt, connectionprofilefilterrawdata: ConstPtr<UByte>, connectionprofilefilterrawdatasize: UInt, interfacecontexttable: MutPtr<MutPtr<NetInterfaceContextTable>>): Hresult =
+public actual fun getInterfaceContextTableForHostName(hostname: Pcwstr, proxyname: Pcwstr, flags: UInt, connectionprofilefilterrawdata: ConstPtr, connectionprofilefilterrawdatasize: UInt, interfacecontexttable: MutPtr): Hresult =
     WindowsWin32NetworkmanagementWindowsconnectionmanagerJniBridge.windowssysWindowsWin32NetworkmanagementWindowsconnectionmanagerGetInterfaceContextTableForHostName(hostname.rawAddress, proxyname.rawAddress, flags.toInt(), connectionprofilefilterrawdata.rawAddress, connectionprofilefilterrawdatasize.toInt(), interfacecontexttable.rawAddress)
 
-public actual fun onDemandGetRoutingHint(destinationhostname: Pcwstr, interfaceindex: MutPtr<UInt>): Hresult =
+public actual fun onDemandGetRoutingHint(destinationhostname: Pcwstr, interfaceindex: MutPtr): Hresult =
     WindowsWin32NetworkmanagementWindowsconnectionmanagerJniBridge.windowssysWindowsWin32NetworkmanagementWindowsconnectionmanagerOnDemandGetRoutingHint(destinationhostname.rawAddress, interfaceindex.rawAddress)
 
-public actual fun onDemandRegisterNotification(callback: OndemandNotificationCallback, callbackcontext: ConstPtr<CVoid>, registrationhandle: MutPtr<Handle>): Hresult =
+public actual fun onDemandRegisterNotification(callback: OndemandNotificationCallback, callbackcontext: ConstPtr, registrationhandle: MutPtr): Hresult =
     WindowsWin32NetworkmanagementWindowsconnectionmanagerJniBridge.windowssysWindowsWin32NetworkmanagementWindowsconnectionmanagerOnDemandRegisterNotification(0L, callbackcontext.rawAddress, registrationhandle.rawAddress)
 
 public actual fun onDemandUnRegisterNotification(registrationhandle: Handle): Hresult =
     WindowsWin32NetworkmanagementWindowsconnectionmanagerJniBridge.windowssysWindowsWin32NetworkmanagementWindowsconnectionmanagerOnDemandUnRegisterNotification(registrationhandle.rawAddress)
 
-public actual fun wcmFreeMemory(pmemory: MutPtr<CVoid>) {
+public actual fun wcmFreeMemory(pmemory: MutPtr) {
     WindowsWin32NetworkmanagementWindowsconnectionmanagerJniBridge.windowssysWindowsWin32NetworkmanagementWindowsconnectionmanagerWcmFreeMemory(pmemory.rawAddress)
 }
 
-public actual fun wcmGetProfileList(preserved: ConstPtr<CVoid>, ppprofilelist: MutPtr<MutPtr<WcmProfileInfoList>>): UInt =
+public actual fun wcmGetProfileList(preserved: ConstPtr, ppprofilelist: MutPtr): UInt =
     WindowsWin32NetworkmanagementWindowsconnectionmanagerJniBridge.windowssysWindowsWin32NetworkmanagementWindowsconnectionmanagerWcmGetProfileList(preserved.rawAddress, ppprofilelist.rawAddress).toUInt()
 
-public actual fun wcmQueryProperty(pinterface: ConstPtr<Guid>, strprofilename: Pcwstr, property: WcmProperty, preserved: ConstPtr<CVoid>, pdwdatasize: MutPtr<UInt>, ppdata: MutPtr<MutPtr<UByte>>): UInt =
+public actual fun wcmQueryProperty(pinterface: ConstPtr, strprofilename: Pcwstr, property: WcmProperty, preserved: ConstPtr, pdwdatasize: MutPtr, ppdata: MutPtr): UInt =
     WindowsWin32NetworkmanagementWindowsconnectionmanagerJniBridge.windowssysWindowsWin32NetworkmanagementWindowsconnectionmanagerWcmQueryProperty(pinterface.rawAddress, strprofilename.rawAddress, property, preserved.rawAddress, pdwdatasize.rawAddress, ppdata.rawAddress).toUInt()
 
-public actual fun wcmSetProfileList(pprofilelist: ConstPtr<WcmProfileInfoList>, dwposition: UInt, fignoreunknownprofiles: Bool, preserved: ConstPtr<CVoid>): UInt =
+public actual fun wcmSetProfileList(pprofilelist: ConstPtr, dwposition: UInt, fignoreunknownprofiles: Bool, preserved: ConstPtr): UInt =
     WindowsWin32NetworkmanagementWindowsconnectionmanagerJniBridge.windowssysWindowsWin32NetworkmanagementWindowsconnectionmanagerWcmSetProfileList(pprofilelist.rawAddress, dwposition.toInt(), fignoreunknownprofiles, preserved.rawAddress).toUInt()
 
-public actual fun wcmSetProperty(pinterface: ConstPtr<Guid>, strprofilename: Pcwstr, property: WcmProperty, preserved: ConstPtr<CVoid>, dwdatasize: UInt, pbdata: ConstPtr<UByte>): UInt =
+public actual fun wcmSetProperty(pinterface: ConstPtr, strprofilename: Pcwstr, property: WcmProperty, preserved: ConstPtr, dwdatasize: UInt, pbdata: ConstPtr): UInt =
     WindowsWin32NetworkmanagementWindowsconnectionmanagerJniBridge.windowssysWindowsWin32NetworkmanagementWindowsconnectionmanagerWcmSetProperty(pinterface.rawAddress, strprofilename.rawAddress, property, preserved.rawAddress, dwdatasize.toInt(), pbdata.rawAddress).toUInt()

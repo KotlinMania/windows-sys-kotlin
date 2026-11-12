@@ -2,21 +2,16 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing
 
-import io.github.kotlinmania.rustlang.core.ffi.CVoid
 import io.github.kotlinmania.rustlang.core.ptr.ConstPtr
 import io.github.kotlinmania.rustlang.core.ptr.MutPtr
 import io.github.kotlinmania.windowssys.core.Bool
-import io.github.kotlinmania.windowssys.core.Guid
 import io.github.kotlinmania.windowssys.core.Hresult
 import io.github.kotlinmania.windowssys.core.Pcstr
 import io.github.kotlinmania.windowssys.core.Pcwstr
 import io.github.kotlinmania.windowssys.core.Pstr
 import io.github.kotlinmania.windowssys.core.Pwstr
-import io.github.kotlinmania.windowssys.windows.win32.foundation.Filetime
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Handle
-import io.github.kotlinmania.windowssys.windows.win32.foundation.Hwnd
 import io.github.kotlinmania.windowssys.windows.win32.security.cryptography.AlgId
-import io.github.kotlinmania.windowssys.windows.win32.security.cryptography.CertContext
 import io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssysWindowsWin32SystemApplicationinstallationandservicingActivateActCtx
 import io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssysWindowsWin32SystemApplicationinstallationandservicingAddRefActCtx
 import io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing.cinterop.windowssysWindowsWin32SystemApplicationinstallationandservicingApplyDeltaA
@@ -333,7 +328,7 @@ import kotlinx.cinterop.ByteVar
 import kotlinx.cinterop.toCPointer
 import kotlinx.cinterop.toLong
 
-public actual fun activateActCtx(hactctx: Handle, lpcookie: MutPtr<ULong>): Bool =
+public actual fun activateActCtx(hactctx: Handle, lpcookie: MutPtr): Bool =
     windowssysWindowsWin32SystemApplicationinstallationandservicingActivateActCtx(hactctx.rawAddress.toCPointer<ByteVar>(), lpcookie.rawAddress.toCPointer<ByteVar>())
 
 public actual fun addRefActCtx(hactctx: Handle) {
@@ -343,13 +338,13 @@ public actual fun addRefActCtx(hactctx: Handle) {
 public actual fun applyDeltaA(applyflags: Long, lpsourcename: Pcstr, lpdeltaname: Pcstr, lptargetname: Pcstr): Bool =
     windowssysWindowsWin32SystemApplicationinstallationandservicingApplyDeltaA(applyflags, lpsourcename.rawAddress.toCPointer<ByteVar>(), lpdeltaname.rawAddress.toCPointer<ByteVar>(), lptargetname.rawAddress.toCPointer<ByteVar>())
 
-public actual fun applyDeltaB(applyflags: Long, source: DeltaInput, delta: DeltaInput, lptarget: MutPtr<DeltaOutput>): Bool =
+public actual fun applyDeltaB(applyflags: Long, source: DeltaInput, delta: DeltaInput, lptarget: MutPtr): Bool =
     0
 
-public actual fun applyDeltaGetReverseB(applyflags: Long, source: DeltaInput, delta: DeltaInput, lpreversefiletime: ConstPtr<Filetime>, lptarget: MutPtr<DeltaOutput>, lptargetreverse: MutPtr<DeltaOutput>): Bool =
+public actual fun applyDeltaGetReverseB(applyflags: Long, source: DeltaInput, delta: DeltaInput, lpreversefiletime: ConstPtr, lptarget: MutPtr, lptargetreverse: MutPtr): Bool =
     0
 
-public actual fun applyDeltaProvidedB(applyflags: Long, source: DeltaInput, delta: DeltaInput, lptarget: MutPtr<CVoid>, utargetsize: ULong): Bool =
+public actual fun applyDeltaProvidedB(applyflags: Long, source: DeltaInput, delta: DeltaInput, lptarget: MutPtr, utargetsize: ULong): Bool =
     0
 
 public actual fun applyDeltaW(applyflags: Long, lpsourcename: Pcwstr, lpdeltaname: Pcwstr, lptargetname: Pcwstr): Bool =
@@ -358,64 +353,64 @@ public actual fun applyDeltaW(applyflags: Long, lpsourcename: Pcwstr, lpdeltanam
 public actual fun applyPatchToFileA(patchfilename: Pcstr, oldfilename: Pcstr, newfilename: Pcstr, applyoptionflags: UInt): Bool =
     windowssysWindowsWin32SystemApplicationinstallationandservicingApplyPatchToFileA(patchfilename.rawAddress.toCPointer<ByteVar>(), oldfilename.rawAddress.toCPointer<ByteVar>(), newfilename.rawAddress.toCPointer<ByteVar>(), applyoptionflags)
 
-public actual fun applyPatchToFileByBuffers(patchfilemapped: ConstPtr<UByte>, patchfilesize: UInt, oldfilemapped: ConstPtr<UByte>, oldfilesize: UInt, newfilebuffer: MutPtr<MutPtr<UByte>>, newfilebuffersize: UInt, newfileactualsize: MutPtr<UInt>, newfiletime: MutPtr<Filetime>, applyoptionflags: UInt, progresscallback: PpatchProgressCallback, callbackcontext: ConstPtr<CVoid>): Bool =
+public actual fun applyPatchToFileByBuffers(patchfilemapped: ConstPtr, patchfilesize: UInt, oldfilemapped: ConstPtr, oldfilesize: UInt, newfilebuffer: MutPtr, newfilebuffersize: UInt, newfileactualsize: MutPtr, newfiletime: MutPtr, applyoptionflags: UInt, progresscallback: PpatchProgressCallback, callbackcontext: ConstPtr): Bool =
     windowssysWindowsWin32SystemApplicationinstallationandservicingApplyPatchToFileByBuffers(patchfilemapped.rawAddress.toCPointer<ByteVar>(), patchfilesize, oldfilemapped.rawAddress.toCPointer<ByteVar>(), oldfilesize, newfilebuffer.rawAddress.toCPointer<ByteVar>(), newfilebuffersize, newfileactualsize.rawAddress.toCPointer<ByteVar>(), newfiletime.rawAddress.toCPointer<ByteVar>(), applyoptionflags, 0L.toCPointer<ByteVar>(), callbackcontext.rawAddress.toCPointer<ByteVar>())
 
 public actual fun applyPatchToFileByHandles(patchfilehandle: Handle, oldfilehandle: Handle, newfilehandle: Handle, applyoptionflags: UInt): Bool =
     windowssysWindowsWin32SystemApplicationinstallationandservicingApplyPatchToFileByHandles(patchfilehandle.rawAddress.toCPointer<ByteVar>(), oldfilehandle.rawAddress.toCPointer<ByteVar>(), newfilehandle.rawAddress.toCPointer<ByteVar>(), applyoptionflags)
 
-public actual fun applyPatchToFileByHandlesEx(patchfilehandle: Handle, oldfilehandle: Handle, newfilehandle: Handle, applyoptionflags: UInt, progresscallback: PpatchProgressCallback, callbackcontext: ConstPtr<CVoid>): Bool =
+public actual fun applyPatchToFileByHandlesEx(patchfilehandle: Handle, oldfilehandle: Handle, newfilehandle: Handle, applyoptionflags: UInt, progresscallback: PpatchProgressCallback, callbackcontext: ConstPtr): Bool =
     windowssysWindowsWin32SystemApplicationinstallationandservicingApplyPatchToFileByHandlesEx(patchfilehandle.rawAddress.toCPointer<ByteVar>(), oldfilehandle.rawAddress.toCPointer<ByteVar>(), newfilehandle.rawAddress.toCPointer<ByteVar>(), applyoptionflags, 0L.toCPointer<ByteVar>(), callbackcontext.rawAddress.toCPointer<ByteVar>())
 
-public actual fun applyPatchToFileExA(patchfilename: Pcstr, oldfilename: Pcstr, newfilename: Pcstr, applyoptionflags: UInt, progresscallback: PpatchProgressCallback, callbackcontext: ConstPtr<CVoid>): Bool =
+public actual fun applyPatchToFileExA(patchfilename: Pcstr, oldfilename: Pcstr, newfilename: Pcstr, applyoptionflags: UInt, progresscallback: PpatchProgressCallback, callbackcontext: ConstPtr): Bool =
     windowssysWindowsWin32SystemApplicationinstallationandservicingApplyPatchToFileExA(patchfilename.rawAddress.toCPointer<ByteVar>(), oldfilename.rawAddress.toCPointer<ByteVar>(), newfilename.rawAddress.toCPointer<ByteVar>(), applyoptionflags, 0L.toCPointer<ByteVar>(), callbackcontext.rawAddress.toCPointer<ByteVar>())
 
-public actual fun applyPatchToFileExW(patchfilename: Pcwstr, oldfilename: Pcwstr, newfilename: Pcwstr, applyoptionflags: UInt, progresscallback: PpatchProgressCallback, callbackcontext: ConstPtr<CVoid>): Bool =
+public actual fun applyPatchToFileExW(patchfilename: Pcwstr, oldfilename: Pcwstr, newfilename: Pcwstr, applyoptionflags: UInt, progresscallback: PpatchProgressCallback, callbackcontext: ConstPtr): Bool =
     windowssysWindowsWin32SystemApplicationinstallationandservicingApplyPatchToFileExW(patchfilename.rawAddress.toCPointer<ByteVar>(), oldfilename.rawAddress.toCPointer<ByteVar>(), newfilename.rawAddress.toCPointer<ByteVar>(), applyoptionflags, 0L.toCPointer<ByteVar>(), callbackcontext.rawAddress.toCPointer<ByteVar>())
 
 public actual fun applyPatchToFileW(patchfilename: Pcwstr, oldfilename: Pcwstr, newfilename: Pcwstr, applyoptionflags: UInt): Bool =
     windowssysWindowsWin32SystemApplicationinstallationandservicingApplyPatchToFileW(patchfilename.rawAddress.toCPointer<ByteVar>(), oldfilename.rawAddress.toCPointer<ByteVar>(), newfilename.rawAddress.toCPointer<ByteVar>(), applyoptionflags)
 
-public actual fun createActCtxA(pactctx: ConstPtr<Actctxa>): Handle =
+public actual fun createActCtxA(pactctx: ConstPtr): Handle =
     MutPtr(windowssysWindowsWin32SystemApplicationinstallationandservicingCreateActCtxA(pactctx.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun createActCtxW(pactctx: ConstPtr<Actctxw>): Handle =
+public actual fun createActCtxW(pactctx: ConstPtr): Handle =
     MutPtr(windowssysWindowsWin32SystemApplicationinstallationandservicingCreateActCtxW(pactctx.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun createDeltaA(filetypeset: Long, setflags: Long, resetflags: Long, lpsourcename: Pcstr, lptargetname: Pcstr, lpsourceoptionsname: Pcstr, lptargetoptionsname: Pcstr, globaloptions: DeltaInput, lptargetfiletime: ConstPtr<Filetime>, hashalgid: AlgId, lpdeltaname: Pcstr): Bool =
+public actual fun createDeltaA(filetypeset: Long, setflags: Long, resetflags: Long, lpsourcename: Pcstr, lptargetname: Pcstr, lpsourceoptionsname: Pcstr, lptargetoptionsname: Pcstr, globaloptions: DeltaInput, lptargetfiletime: ConstPtr, hashalgid: AlgId, lpdeltaname: Pcstr): Bool =
     0
 
-public actual fun createDeltaB(filetypeset: Long, setflags: Long, resetflags: Long, source: DeltaInput, target: DeltaInput, sourceoptions: DeltaInput, targetoptions: DeltaInput, globaloptions: DeltaInput, lptargetfiletime: ConstPtr<Filetime>, hashalgid: AlgId, lpdelta: MutPtr<DeltaOutput>): Bool =
+public actual fun createDeltaB(filetypeset: Long, setflags: Long, resetflags: Long, source: DeltaInput, target: DeltaInput, sourceoptions: DeltaInput, targetoptions: DeltaInput, globaloptions: DeltaInput, lptargetfiletime: ConstPtr, hashalgid: AlgId, lpdelta: MutPtr): Bool =
     0
 
-public actual fun createDeltaW(filetypeset: Long, setflags: Long, resetflags: Long, lpsourcename: Pcwstr, lptargetname: Pcwstr, lpsourceoptionsname: Pcwstr, lptargetoptionsname: Pcwstr, globaloptions: DeltaInput, lptargetfiletime: ConstPtr<Filetime>, hashalgid: AlgId, lpdeltaname: Pcwstr): Bool =
+public actual fun createDeltaW(filetypeset: Long, setflags: Long, resetflags: Long, lpsourcename: Pcwstr, lptargetname: Pcwstr, lpsourceoptionsname: Pcwstr, lptargetoptionsname: Pcwstr, globaloptions: DeltaInput, lptargetfiletime: ConstPtr, hashalgid: AlgId, lpdeltaname: Pcwstr): Bool =
     0
 
-public actual fun createPatchFileA(oldfilename: Pcstr, newfilename: Pcstr, patchfilename: Pcstr, optionflags: UInt, optiondata: ConstPtr<PatchOptionData>): Bool =
+public actual fun createPatchFileA(oldfilename: Pcstr, newfilename: Pcstr, patchfilename: Pcstr, optionflags: UInt, optiondata: ConstPtr): Bool =
     windowssysWindowsWin32SystemApplicationinstallationandservicingCreatePatchFileA(oldfilename.rawAddress.toCPointer<ByteVar>(), newfilename.rawAddress.toCPointer<ByteVar>(), patchfilename.rawAddress.toCPointer<ByteVar>(), optionflags, optiondata.rawAddress.toCPointer<ByteVar>())
 
-public actual fun createPatchFileByHandles(oldfilehandle: Handle, newfilehandle: Handle, patchfilehandle: Handle, optionflags: UInt, optiondata: ConstPtr<PatchOptionData>): Bool =
+public actual fun createPatchFileByHandles(oldfilehandle: Handle, newfilehandle: Handle, patchfilehandle: Handle, optionflags: UInt, optiondata: ConstPtr): Bool =
     windowssysWindowsWin32SystemApplicationinstallationandservicingCreatePatchFileByHandles(oldfilehandle.rawAddress.toCPointer<ByteVar>(), newfilehandle.rawAddress.toCPointer<ByteVar>(), patchfilehandle.rawAddress.toCPointer<ByteVar>(), optionflags, optiondata.rawAddress.toCPointer<ByteVar>())
 
-public actual fun createPatchFileByHandlesEx(oldfilecount: UInt, oldfileinfoarray: ConstPtr<PatchOldFileInfoH>, newfilehandle: Handle, patchfilehandle: Handle, optionflags: UInt, optiondata: ConstPtr<PatchOptionData>, progresscallback: PpatchProgressCallback, callbackcontext: ConstPtr<CVoid>): Bool =
+public actual fun createPatchFileByHandlesEx(oldfilecount: UInt, oldfileinfoarray: ConstPtr, newfilehandle: Handle, patchfilehandle: Handle, optionflags: UInt, optiondata: ConstPtr, progresscallback: PpatchProgressCallback, callbackcontext: ConstPtr): Bool =
     windowssysWindowsWin32SystemApplicationinstallationandservicingCreatePatchFileByHandlesEx(oldfilecount, oldfileinfoarray.rawAddress.toCPointer<ByteVar>(), newfilehandle.rawAddress.toCPointer<ByteVar>(), patchfilehandle.rawAddress.toCPointer<ByteVar>(), optionflags, optiondata.rawAddress.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>(), callbackcontext.rawAddress.toCPointer<ByteVar>())
 
-public actual fun createPatchFileExA(oldfilecount: UInt, oldfileinfoarray: ConstPtr<PatchOldFileInfoA>, newfilename: Pcstr, patchfilename: Pcstr, optionflags: UInt, optiondata: ConstPtr<PatchOptionData>, progresscallback: PpatchProgressCallback, callbackcontext: ConstPtr<CVoid>): Bool =
+public actual fun createPatchFileExA(oldfilecount: UInt, oldfileinfoarray: ConstPtr, newfilename: Pcstr, patchfilename: Pcstr, optionflags: UInt, optiondata: ConstPtr, progresscallback: PpatchProgressCallback, callbackcontext: ConstPtr): Bool =
     windowssysWindowsWin32SystemApplicationinstallationandservicingCreatePatchFileExA(oldfilecount, oldfileinfoarray.rawAddress.toCPointer<ByteVar>(), newfilename.rawAddress.toCPointer<ByteVar>(), patchfilename.rawAddress.toCPointer<ByteVar>(), optionflags, optiondata.rawAddress.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>(), callbackcontext.rawAddress.toCPointer<ByteVar>())
 
-public actual fun createPatchFileExW(oldfilecount: UInt, oldfileinfoarray: ConstPtr<PatchOldFileInfoW>, newfilename: Pcwstr, patchfilename: Pcwstr, optionflags: UInt, optiondata: ConstPtr<PatchOptionData>, progresscallback: PpatchProgressCallback, callbackcontext: ConstPtr<CVoid>): Bool =
+public actual fun createPatchFileExW(oldfilecount: UInt, oldfileinfoarray: ConstPtr, newfilename: Pcwstr, patchfilename: Pcwstr, optionflags: UInt, optiondata: ConstPtr, progresscallback: PpatchProgressCallback, callbackcontext: ConstPtr): Bool =
     windowssysWindowsWin32SystemApplicationinstallationandservicingCreatePatchFileExW(oldfilecount, oldfileinfoarray.rawAddress.toCPointer<ByteVar>(), newfilename.rawAddress.toCPointer<ByteVar>(), patchfilename.rawAddress.toCPointer<ByteVar>(), optionflags, optiondata.rawAddress.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>(), callbackcontext.rawAddress.toCPointer<ByteVar>())
 
-public actual fun createPatchFileW(oldfilename: Pcwstr, newfilename: Pcwstr, patchfilename: Pcwstr, optionflags: UInt, optiondata: ConstPtr<PatchOptionData>): Bool =
+public actual fun createPatchFileW(oldfilename: Pcwstr, newfilename: Pcwstr, patchfilename: Pcwstr, optionflags: UInt, optiondata: ConstPtr): Bool =
     windowssysWindowsWin32SystemApplicationinstallationandservicingCreatePatchFileW(oldfilename.rawAddress.toCPointer<ByteVar>(), newfilename.rawAddress.toCPointer<ByteVar>(), patchfilename.rawAddress.toCPointer<ByteVar>(), optionflags, optiondata.rawAddress.toCPointer<ByteVar>())
 
 public actual fun deactivateActCtx(dwflags: UInt, ulcookie: ULong): Bool =
     windowssysWindowsWin32SystemApplicationinstallationandservicingDeactivateActCtx(dwflags, ulcookie)
 
-public actual fun deltaFree(lpmemory: ConstPtr<CVoid>): Bool =
+public actual fun deltaFree(lpmemory: ConstPtr): Bool =
     windowssysWindowsWin32SystemApplicationinstallationandservicingDeltaFree(lpmemory.rawAddress.toCPointer<ByteVar>())
 
-public actual fun deltaNormalizeProvidedB(filetypeset: Long, normalizeflags: Long, normalizeoptions: DeltaInput, lpsource: MutPtr<CVoid>, usourcesize: ULong): Bool =
+public actual fun deltaNormalizeProvidedB(filetypeset: Long, normalizeflags: Long, normalizeoptions: DeltaInput, lpsource: MutPtr, usourcesize: ULong): Bool =
     0
 
 public actual fun extractPatchHeaderToFileA(patchfilename: Pcstr, patchheaderfilename: Pcstr): Bool =
@@ -427,46 +422,46 @@ public actual fun extractPatchHeaderToFileByHandles(patchfilehandle: Handle, pat
 public actual fun extractPatchHeaderToFileW(patchfilename: Pcwstr, patchheaderfilename: Pcwstr): Bool =
     windowssysWindowsWin32SystemApplicationinstallationandservicingExtractPatchHeaderToFileW(patchfilename.rawAddress.toCPointer<ByteVar>(), patchheaderfilename.rawAddress.toCPointer<ByteVar>())
 
-public actual fun findActCtxSectionGuid(dwflags: UInt, lpextensionguid: ConstPtr<Guid>, ulsectionid: UInt, lpguidtofind: ConstPtr<Guid>, returneddata: MutPtr<ActctxSectionKeyedData>): Bool =
+public actual fun findActCtxSectionGuid(dwflags: UInt, lpextensionguid: ConstPtr, ulsectionid: UInt, lpguidtofind: ConstPtr, returneddata: MutPtr): Bool =
     windowssysWindowsWin32SystemApplicationinstallationandservicingFindActCtxSectionGuid(dwflags, lpextensionguid.rawAddress.toCPointer<ByteVar>(), ulsectionid, lpguidtofind.rawAddress.toCPointer<ByteVar>(), returneddata.rawAddress.toCPointer<ByteVar>())
 
-public actual fun findActCtxSectionStringA(dwflags: UInt, lpextensionguid: ConstPtr<Guid>, ulsectionid: UInt, lpstringtofind: Pcstr, returneddata: MutPtr<ActctxSectionKeyedData>): Bool =
+public actual fun findActCtxSectionStringA(dwflags: UInt, lpextensionguid: ConstPtr, ulsectionid: UInt, lpstringtofind: Pcstr, returneddata: MutPtr): Bool =
     windowssysWindowsWin32SystemApplicationinstallationandservicingFindActCtxSectionStringA(dwflags, lpextensionguid.rawAddress.toCPointer<ByteVar>(), ulsectionid, lpstringtofind.rawAddress.toCPointer<ByteVar>(), returneddata.rawAddress.toCPointer<ByteVar>())
 
-public actual fun findActCtxSectionStringW(dwflags: UInt, lpextensionguid: ConstPtr<Guid>, ulsectionid: UInt, lpstringtofind: Pcwstr, returneddata: MutPtr<ActctxSectionKeyedData>): Bool =
+public actual fun findActCtxSectionStringW(dwflags: UInt, lpextensionguid: ConstPtr, ulsectionid: UInt, lpstringtofind: Pcwstr, returneddata: MutPtr): Bool =
     windowssysWindowsWin32SystemApplicationinstallationandservicingFindActCtxSectionStringW(dwflags, lpextensionguid.rawAddress.toCPointer<ByteVar>(), ulsectionid, lpstringtofind.rawAddress.toCPointer<ByteVar>(), returneddata.rawAddress.toCPointer<ByteVar>())
 
-public actual fun getCurrentActCtx(lphactctx: MutPtr<Handle>): Bool =
+public actual fun getCurrentActCtx(lphactctx: MutPtr): Bool =
     windowssysWindowsWin32SystemApplicationinstallationandservicingGetCurrentActCtx(lphactctx.rawAddress.toCPointer<ByteVar>())
 
-public actual fun getDeltaInfoA(lpdeltaname: Pcstr, lpheaderinfo: MutPtr<DeltaHeaderInfo>): Bool =
+public actual fun getDeltaInfoA(lpdeltaname: Pcstr, lpheaderinfo: MutPtr): Bool =
     windowssysWindowsWin32SystemApplicationinstallationandservicingGetDeltaInfoA(lpdeltaname.rawAddress.toCPointer<ByteVar>(), lpheaderinfo.rawAddress.toCPointer<ByteVar>())
 
-public actual fun getDeltaInfoB(delta: DeltaInput, lpheaderinfo: MutPtr<DeltaHeaderInfo>): Bool =
+public actual fun getDeltaInfoB(delta: DeltaInput, lpheaderinfo: MutPtr): Bool =
     0
 
-public actual fun getDeltaInfoW(lpdeltaname: Pcwstr, lpheaderinfo: MutPtr<DeltaHeaderInfo>): Bool =
+public actual fun getDeltaInfoW(lpdeltaname: Pcwstr, lpheaderinfo: MutPtr): Bool =
     windowssysWindowsWin32SystemApplicationinstallationandservicingGetDeltaInfoW(lpdeltaname.rawAddress.toCPointer<ByteVar>(), lpheaderinfo.rawAddress.toCPointer<ByteVar>())
 
-public actual fun getDeltaSignatureA(filetypeset: Long, hashalgid: AlgId, lpsourcename: Pcstr, lphash: MutPtr<DeltaHash>): Bool =
+public actual fun getDeltaSignatureA(filetypeset: Long, hashalgid: AlgId, lpsourcename: Pcstr, lphash: MutPtr): Bool =
     windowssysWindowsWin32SystemApplicationinstallationandservicingGetDeltaSignatureA(filetypeset, hashalgid, lpsourcename.rawAddress.toCPointer<ByteVar>(), lphash.rawAddress.toCPointer<ByteVar>())
 
-public actual fun getDeltaSignatureB(filetypeset: Long, hashalgid: AlgId, source: DeltaInput, lphash: MutPtr<DeltaHash>): Bool =
+public actual fun getDeltaSignatureB(filetypeset: Long, hashalgid: AlgId, source: DeltaInput, lphash: MutPtr): Bool =
     0
 
-public actual fun getDeltaSignatureW(filetypeset: Long, hashalgid: AlgId, lpsourcename: Pcwstr, lphash: MutPtr<DeltaHash>): Bool =
+public actual fun getDeltaSignatureW(filetypeset: Long, hashalgid: AlgId, lpsourcename: Pcwstr, lphash: MutPtr): Bool =
     windowssysWindowsWin32SystemApplicationinstallationandservicingGetDeltaSignatureW(filetypeset, hashalgid, lpsourcename.rawAddress.toCPointer<ByteVar>(), lphash.rawAddress.toCPointer<ByteVar>())
 
-public actual fun getFilePatchSignatureA(filename: Pcstr, optionflags: UInt, optiondata: ConstPtr<CVoid>, ignorerangecount: UInt, ignorerangearray: ConstPtr<PatchIgnoreRange>, retainrangecount: UInt, retainrangearray: ConstPtr<PatchRetainRange>, signaturebuffersize: UInt, signaturebuffer: Pstr): Bool =
+public actual fun getFilePatchSignatureA(filename: Pcstr, optionflags: UInt, optiondata: ConstPtr, ignorerangecount: UInt, ignorerangearray: ConstPtr, retainrangecount: UInt, retainrangearray: ConstPtr, signaturebuffersize: UInt, signaturebuffer: Pstr): Bool =
     windowssysWindowsWin32SystemApplicationinstallationandservicingGetFilePatchSignatureA(filename.rawAddress.toCPointer<ByteVar>(), optionflags, optiondata.rawAddress.toCPointer<ByteVar>(), ignorerangecount, ignorerangearray.rawAddress.toCPointer<ByteVar>(), retainrangecount, retainrangearray.rawAddress.toCPointer<ByteVar>(), signaturebuffersize, signaturebuffer.rawAddress.toCPointer<ByteVar>())
 
-public actual fun getFilePatchSignatureByBuffer(filebufferwritable: MutPtr<UByte>, filesize: UInt, optionflags: UInt, optiondata: ConstPtr<CVoid>, ignorerangecount: UInt, ignorerangearray: ConstPtr<PatchIgnoreRange>, retainrangecount: UInt, retainrangearray: ConstPtr<PatchRetainRange>, signaturebuffersize: UInt, signaturebuffer: Pstr): Bool =
+public actual fun getFilePatchSignatureByBuffer(filebufferwritable: MutPtr, filesize: UInt, optionflags: UInt, optiondata: ConstPtr, ignorerangecount: UInt, ignorerangearray: ConstPtr, retainrangecount: UInt, retainrangearray: ConstPtr, signaturebuffersize: UInt, signaturebuffer: Pstr): Bool =
     windowssysWindowsWin32SystemApplicationinstallationandservicingGetFilePatchSignatureByBuffer(filebufferwritable.rawAddress.toCPointer<ByteVar>(), filesize, optionflags, optiondata.rawAddress.toCPointer<ByteVar>(), ignorerangecount, ignorerangearray.rawAddress.toCPointer<ByteVar>(), retainrangecount, retainrangearray.rawAddress.toCPointer<ByteVar>(), signaturebuffersize, signaturebuffer.rawAddress.toCPointer<ByteVar>())
 
-public actual fun getFilePatchSignatureByHandle(filehandle: Handle, optionflags: UInt, optiondata: ConstPtr<CVoid>, ignorerangecount: UInt, ignorerangearray: ConstPtr<PatchIgnoreRange>, retainrangecount: UInt, retainrangearray: ConstPtr<PatchRetainRange>, signaturebuffersize: UInt, signaturebuffer: Pstr): Bool =
+public actual fun getFilePatchSignatureByHandle(filehandle: Handle, optionflags: UInt, optiondata: ConstPtr, ignorerangecount: UInt, ignorerangearray: ConstPtr, retainrangecount: UInt, retainrangearray: ConstPtr, signaturebuffersize: UInt, signaturebuffer: Pstr): Bool =
     windowssysWindowsWin32SystemApplicationinstallationandservicingGetFilePatchSignatureByHandle(filehandle.rawAddress.toCPointer<ByteVar>(), optionflags, optiondata.rawAddress.toCPointer<ByteVar>(), ignorerangecount, ignorerangearray.rawAddress.toCPointer<ByteVar>(), retainrangecount, retainrangearray.rawAddress.toCPointer<ByteVar>(), signaturebuffersize, signaturebuffer.rawAddress.toCPointer<ByteVar>())
 
-public actual fun getFilePatchSignatureW(filename: Pcwstr, optionflags: UInt, optiondata: ConstPtr<CVoid>, ignorerangecount: UInt, ignorerangearray: ConstPtr<PatchIgnoreRange>, retainrangecount: UInt, retainrangearray: ConstPtr<PatchRetainRange>, signaturebuffersize: UInt, signaturebuffer: Pwstr): Bool =
+public actual fun getFilePatchSignatureW(filename: Pcwstr, optionflags: UInt, optiondata: ConstPtr, ignorerangecount: UInt, ignorerangearray: ConstPtr, retainrangecount: UInt, retainrangearray: ConstPtr, signaturebuffersize: UInt, signaturebuffer: Pwstr): Bool =
     windowssysWindowsWin32SystemApplicationinstallationandservicingGetFilePatchSignatureW(filename.rawAddress.toCPointer<ByteVar>(), optionflags, optiondata.rawAddress.toCPointer<ByteVar>(), ignorerangecount, ignorerangearray.rawAddress.toCPointer<ByteVar>(), retainrangecount, retainrangearray.rawAddress.toCPointer<ByteVar>(), signaturebuffersize, signaturebuffer.rawAddress.toCPointer<ByteVar>())
 
 public actual fun msiAdvertiseProductA(szpackagepath: Pcstr, szscriptfilepath: Pcstr, sztransforms: Pcstr, lgidlanguage: UShort): UInt =
@@ -481,10 +476,10 @@ public actual fun msiAdvertiseProductExW(szpackagepath: Pcwstr, szscriptfilepath
 public actual fun msiAdvertiseProductW(szpackagepath: Pcwstr, szscriptfilepath: Pcwstr, sztransforms: Pcwstr, lgidlanguage: UShort): UInt =
     windowssysWindowsWin32SystemApplicationinstallationandservicingMsiAdvertiseProductW(szpackagepath.rawAddress.toCPointer<ByteVar>(), szscriptfilepath.rawAddress.toCPointer<ByteVar>(), sztransforms.rawAddress.toCPointer<ByteVar>(), lgidlanguage)
 
-public actual fun msiAdvertiseScriptA(szscriptfile: Pcstr, dwflags: UInt, phregdata: ConstPtr<Hkey>, fremoveitems: Bool): UInt =
+public actual fun msiAdvertiseScriptA(szscriptfile: Pcstr, dwflags: UInt, phregdata: ConstPtr, fremoveitems: Bool): UInt =
     windowssysWindowsWin32SystemApplicationinstallationandservicingMsiAdvertiseScriptA(szscriptfile.rawAddress.toCPointer<ByteVar>(), dwflags, phregdata.rawAddress.toCPointer<ByteVar>(), fremoveitems)
 
-public actual fun msiAdvertiseScriptW(szscriptfile: Pcwstr, dwflags: UInt, phregdata: ConstPtr<Hkey>, fremoveitems: Bool): UInt =
+public actual fun msiAdvertiseScriptW(szscriptfile: Pcwstr, dwflags: UInt, phregdata: ConstPtr, fremoveitems: Bool): UInt =
     windowssysWindowsWin32SystemApplicationinstallationandservicingMsiAdvertiseScriptW(szscriptfile.rawAddress.toCPointer<ByteVar>(), dwflags, phregdata.rawAddress.toCPointer<ByteVar>(), fremoveitems)
 
 public actual fun msiApplyMultiplePatchesA(szpatchpackages: Pcstr, szproductcode: Pcstr, szpropertieslist: Pcstr): UInt =
@@ -499,10 +494,10 @@ public actual fun msiApplyPatchA(szpatchpackage: Pcstr, szinstallpackage: Pcstr,
 public actual fun msiApplyPatchW(szpatchpackage: Pcwstr, szinstallpackage: Pcwstr, einstalltype: Installtype, szcommandline: Pcwstr): UInt =
     windowssysWindowsWin32SystemApplicationinstallationandservicingMsiApplyPatchW(szpatchpackage.rawAddress.toCPointer<ByteVar>(), szinstallpackage.rawAddress.toCPointer<ByteVar>(), einstalltype, szcommandline.rawAddress.toCPointer<ByteVar>())
 
-public actual fun msiBeginTransactionA(szname: Pcstr, dwtransactionattributes: UInt, phtransactionhandle: MutPtr<Msihandle>, phchangeofownerevent: MutPtr<Handle>): UInt =
+public actual fun msiBeginTransactionA(szname: Pcstr, dwtransactionattributes: UInt, phtransactionhandle: MutPtr, phchangeofownerevent: MutPtr): UInt =
     windowssysWindowsWin32SystemApplicationinstallationandservicingMsiBeginTransactionA(szname.rawAddress.toCPointer<ByteVar>(), dwtransactionattributes, phtransactionhandle.rawAddress.toCPointer<ByteVar>(), phchangeofownerevent.rawAddress.toCPointer<ByteVar>())
 
-public actual fun msiBeginTransactionW(szname: Pcwstr, dwtransactionattributes: UInt, phtransactionhandle: MutPtr<Msihandle>, phchangeofownerevent: MutPtr<Handle>): UInt =
+public actual fun msiBeginTransactionW(szname: Pcwstr, dwtransactionattributes: UInt, phtransactionhandle: MutPtr, phchangeofownerevent: MutPtr): UInt =
     windowssysWindowsWin32SystemApplicationinstallationandservicingMsiBeginTransactionW(szname.rawAddress.toCPointer<ByteVar>(), dwtransactionattributes, phtransactionhandle.rawAddress.toCPointer<ByteVar>(), phchangeofownerevent.rawAddress.toCPointer<ByteVar>())
 
 public actual fun msiCloseAllHandles(): UInt =
@@ -565,10 +560,10 @@ public actual fun msiDatabaseGenerateTransformA(hdatabase: Msihandle, hdatabaser
 public actual fun msiDatabaseGenerateTransformW(hdatabase: Msihandle, hdatabasereference: Msihandle, sztransformfile: Pcwstr, ireserved1: Int, ireserved2: Int): UInt =
     windowssysWindowsWin32SystemApplicationinstallationandservicingMsiDatabaseGenerateTransformW(hdatabase, hdatabasereference, sztransformfile.rawAddress.toCPointer<ByteVar>(), ireserved1, ireserved2)
 
-public actual fun msiDatabaseGetPrimaryKeysA(hdatabase: Msihandle, sztablename: Pcstr, phrecord: MutPtr<Msihandle>): UInt =
+public actual fun msiDatabaseGetPrimaryKeysA(hdatabase: Msihandle, sztablename: Pcstr, phrecord: MutPtr): UInt =
     windowssysWindowsWin32SystemApplicationinstallationandservicingMsiDatabaseGetPrimaryKeysA(hdatabase, sztablename.rawAddress.toCPointer<ByteVar>(), phrecord.rawAddress.toCPointer<ByteVar>())
 
-public actual fun msiDatabaseGetPrimaryKeysW(hdatabase: Msihandle, sztablename: Pcwstr, phrecord: MutPtr<Msihandle>): UInt =
+public actual fun msiDatabaseGetPrimaryKeysW(hdatabase: Msihandle, sztablename: Pcwstr, phrecord: MutPtr): UInt =
     windowssysWindowsWin32SystemApplicationinstallationandservicingMsiDatabaseGetPrimaryKeysW(hdatabase, sztablename.rawAddress.toCPointer<ByteVar>(), phrecord.rawAddress.toCPointer<ByteVar>())
 
 public actual fun msiDatabaseImportA(hdatabase: Msihandle, szfolderpath: Pcstr, szfilename: Pcstr): UInt =
@@ -589,22 +584,22 @@ public actual fun msiDatabaseMergeA(hdatabase: Msihandle, hdatabasemerge: Msihan
 public actual fun msiDatabaseMergeW(hdatabase: Msihandle, hdatabasemerge: Msihandle, sztablename: Pcwstr): UInt =
     windowssysWindowsWin32SystemApplicationinstallationandservicingMsiDatabaseMergeW(hdatabase, hdatabasemerge, sztablename.rawAddress.toCPointer<ByteVar>())
 
-public actual fun msiDatabaseOpenViewA(hdatabase: Msihandle, szquery: Pcstr, phview: MutPtr<Msihandle>): UInt =
+public actual fun msiDatabaseOpenViewA(hdatabase: Msihandle, szquery: Pcstr, phview: MutPtr): UInt =
     windowssysWindowsWin32SystemApplicationinstallationandservicingMsiDatabaseOpenViewA(hdatabase, szquery.rawAddress.toCPointer<ByteVar>(), phview.rawAddress.toCPointer<ByteVar>())
 
-public actual fun msiDatabaseOpenViewW(hdatabase: Msihandle, szquery: Pcwstr, phview: MutPtr<Msihandle>): UInt =
+public actual fun msiDatabaseOpenViewW(hdatabase: Msihandle, szquery: Pcwstr, phview: MutPtr): UInt =
     windowssysWindowsWin32SystemApplicationinstallationandservicingMsiDatabaseOpenViewW(hdatabase, szquery.rawAddress.toCPointer<ByteVar>(), phview.rawAddress.toCPointer<ByteVar>())
 
-public actual fun msiDetermineApplicablePatchesA(szproductpackagepath: Pcstr, cpatchinfo: UInt, ppatchinfo: MutPtr<Msipatchsequenceinfoa>): UInt =
+public actual fun msiDetermineApplicablePatchesA(szproductpackagepath: Pcstr, cpatchinfo: UInt, ppatchinfo: MutPtr): UInt =
     windowssysWindowsWin32SystemApplicationinstallationandservicingMsiDetermineApplicablePatchesA(szproductpackagepath.rawAddress.toCPointer<ByteVar>(), cpatchinfo, ppatchinfo.rawAddress.toCPointer<ByteVar>())
 
-public actual fun msiDetermineApplicablePatchesW(szproductpackagepath: Pcwstr, cpatchinfo: UInt, ppatchinfo: MutPtr<Msipatchsequenceinfow>): UInt =
+public actual fun msiDetermineApplicablePatchesW(szproductpackagepath: Pcwstr, cpatchinfo: UInt, ppatchinfo: MutPtr): UInt =
     windowssysWindowsWin32SystemApplicationinstallationandservicingMsiDetermineApplicablePatchesW(szproductpackagepath.rawAddress.toCPointer<ByteVar>(), cpatchinfo, ppatchinfo.rawAddress.toCPointer<ByteVar>())
 
-public actual fun msiDeterminePatchSequenceA(szproductcode: Pcstr, szusersid: Pcstr, dwcontext: Msiinstallcontext, cpatchinfo: UInt, ppatchinfo: MutPtr<Msipatchsequenceinfoa>): UInt =
+public actual fun msiDeterminePatchSequenceA(szproductcode: Pcstr, szusersid: Pcstr, dwcontext: Msiinstallcontext, cpatchinfo: UInt, ppatchinfo: MutPtr): UInt =
     windowssysWindowsWin32SystemApplicationinstallationandservicingMsiDeterminePatchSequenceA(szproductcode.rawAddress.toCPointer<ByteVar>(), szusersid.rawAddress.toCPointer<ByteVar>(), dwcontext, cpatchinfo, ppatchinfo.rawAddress.toCPointer<ByteVar>())
 
-public actual fun msiDeterminePatchSequenceW(szproductcode: Pcwstr, szusersid: Pcwstr, dwcontext: Msiinstallcontext, cpatchinfo: UInt, ppatchinfo: MutPtr<Msipatchsequenceinfow>): UInt =
+public actual fun msiDeterminePatchSequenceW(szproductcode: Pcwstr, szusersid: Pcwstr, dwcontext: Msiinstallcontext, cpatchinfo: UInt, ppatchinfo: MutPtr): UInt =
     windowssysWindowsWin32SystemApplicationinstallationandservicingMsiDeterminePatchSequenceW(szproductcode.rawAddress.toCPointer<ByteVar>(), szusersid.rawAddress.toCPointer<ByteVar>(), dwcontext, cpatchinfo, ppatchinfo.rawAddress.toCPointer<ByteVar>())
 
 public actual fun msiDoActionA(hinstall: Msihandle, szaction: Pcstr): UInt =
@@ -619,7 +614,7 @@ public actual fun msiEnableLogA(dwlogmode: UInt, szlogfile: Pcstr, dwlogattribut
 public actual fun msiEnableLogW(dwlogmode: UInt, szlogfile: Pcwstr, dwlogattributes: UInt): UInt =
     windowssysWindowsWin32SystemApplicationinstallationandservicingMsiEnableLogW(dwlogmode, szlogfile.rawAddress.toCPointer<ByteVar>(), dwlogattributes)
 
-public actual fun msiEnableUIPreview(hdatabase: Msihandle, phpreview: MutPtr<Msihandle>): UInt =
+public actual fun msiEnableUIPreview(hdatabase: Msihandle, phpreview: MutPtr): UInt =
     windowssysWindowsWin32SystemApplicationinstallationandservicingMsiEnableUIPreview(hdatabase, phpreview.rawAddress.toCPointer<ByteVar>())
 
 public actual fun msiEndTransaction(dwtransactionstate: Msitransactionstate): UInt =
@@ -628,34 +623,34 @@ public actual fun msiEndTransaction(dwtransactionstate: Msitransactionstate): UI
 public actual fun msiEnumClientsA(szcomponent: Pcstr, iproductindex: UInt, lpproductbuf: Pstr): UInt =
     windowssysWindowsWin32SystemApplicationinstallationandservicingMsiEnumClientsA(szcomponent.rawAddress.toCPointer<ByteVar>(), iproductindex, lpproductbuf.rawAddress.toCPointer<ByteVar>())
 
-public actual fun msiEnumClientsExA(szcomponent: Pcstr, szusersid: Pcstr, dwcontext: UInt, dwproductindex: UInt, szproductbuf: Pstr, pdwinstalledcontext: MutPtr<Msiinstallcontext>, szsid: Pstr, pcchsid: MutPtr<UInt>): UInt =
+public actual fun msiEnumClientsExA(szcomponent: Pcstr, szusersid: Pcstr, dwcontext: UInt, dwproductindex: UInt, szproductbuf: Pstr, pdwinstalledcontext: MutPtr, szsid: Pstr, pcchsid: MutPtr): UInt =
     windowssysWindowsWin32SystemApplicationinstallationandservicingMsiEnumClientsExA(szcomponent.rawAddress.toCPointer<ByteVar>(), szusersid.rawAddress.toCPointer<ByteVar>(), dwcontext, dwproductindex, szproductbuf.rawAddress.toCPointer<ByteVar>(), pdwinstalledcontext.rawAddress.toCPointer<ByteVar>(), szsid.rawAddress.toCPointer<ByteVar>(), pcchsid.rawAddress.toCPointer<ByteVar>())
 
-public actual fun msiEnumClientsExW(szcomponent: Pcwstr, szusersid: Pcwstr, dwcontext: UInt, dwproductindex: UInt, szproductbuf: Pwstr, pdwinstalledcontext: MutPtr<Msiinstallcontext>, szsid: Pwstr, pcchsid: MutPtr<UInt>): UInt =
+public actual fun msiEnumClientsExW(szcomponent: Pcwstr, szusersid: Pcwstr, dwcontext: UInt, dwproductindex: UInt, szproductbuf: Pwstr, pdwinstalledcontext: MutPtr, szsid: Pwstr, pcchsid: MutPtr): UInt =
     windowssysWindowsWin32SystemApplicationinstallationandservicingMsiEnumClientsExW(szcomponent.rawAddress.toCPointer<ByteVar>(), szusersid.rawAddress.toCPointer<ByteVar>(), dwcontext, dwproductindex, szproductbuf.rawAddress.toCPointer<ByteVar>(), pdwinstalledcontext.rawAddress.toCPointer<ByteVar>(), szsid.rawAddress.toCPointer<ByteVar>(), pcchsid.rawAddress.toCPointer<ByteVar>())
 
 public actual fun msiEnumClientsW(szcomponent: Pcwstr, iproductindex: UInt, lpproductbuf: Pwstr): UInt =
     windowssysWindowsWin32SystemApplicationinstallationandservicingMsiEnumClientsW(szcomponent.rawAddress.toCPointer<ByteVar>(), iproductindex, lpproductbuf.rawAddress.toCPointer<ByteVar>())
 
-public actual fun msiEnumComponentCostsA(hinstall: Msihandle, szcomponent: Pcstr, dwindex: UInt, istate: Installstate, szdrivebuf: Pstr, pcchdrivebuf: MutPtr<UInt>, picost: MutPtr<Int>, pitempcost: MutPtr<Int>): UInt =
+public actual fun msiEnumComponentCostsA(hinstall: Msihandle, szcomponent: Pcstr, dwindex: UInt, istate: Installstate, szdrivebuf: Pstr, pcchdrivebuf: MutPtr, picost: MutPtr, pitempcost: MutPtr): UInt =
     windowssysWindowsWin32SystemApplicationinstallationandservicingMsiEnumComponentCostsA(hinstall, szcomponent.rawAddress.toCPointer<ByteVar>(), dwindex, istate, szdrivebuf.rawAddress.toCPointer<ByteVar>(), pcchdrivebuf.rawAddress.toCPointer<ByteVar>(), picost.rawAddress.toCPointer<ByteVar>(), pitempcost.rawAddress.toCPointer<ByteVar>())
 
-public actual fun msiEnumComponentCostsW(hinstall: Msihandle, szcomponent: Pcwstr, dwindex: UInt, istate: Installstate, szdrivebuf: Pwstr, pcchdrivebuf: MutPtr<UInt>, picost: MutPtr<Int>, pitempcost: MutPtr<Int>): UInt =
+public actual fun msiEnumComponentCostsW(hinstall: Msihandle, szcomponent: Pcwstr, dwindex: UInt, istate: Installstate, szdrivebuf: Pwstr, pcchdrivebuf: MutPtr, picost: MutPtr, pitempcost: MutPtr): UInt =
     windowssysWindowsWin32SystemApplicationinstallationandservicingMsiEnumComponentCostsW(hinstall, szcomponent.rawAddress.toCPointer<ByteVar>(), dwindex, istate, szdrivebuf.rawAddress.toCPointer<ByteVar>(), pcchdrivebuf.rawAddress.toCPointer<ByteVar>(), picost.rawAddress.toCPointer<ByteVar>(), pitempcost.rawAddress.toCPointer<ByteVar>())
 
-public actual fun msiEnumComponentQualifiersA(szcomponent: Pcstr, iindex: UInt, lpqualifierbuf: Pstr, pcchqualifierbuf: MutPtr<UInt>, lpapplicationdatabuf: Pstr, pcchapplicationdatabuf: MutPtr<UInt>): UInt =
+public actual fun msiEnumComponentQualifiersA(szcomponent: Pcstr, iindex: UInt, lpqualifierbuf: Pstr, pcchqualifierbuf: MutPtr, lpapplicationdatabuf: Pstr, pcchapplicationdatabuf: MutPtr): UInt =
     windowssysWindowsWin32SystemApplicationinstallationandservicingMsiEnumComponentQualifiersA(szcomponent.rawAddress.toCPointer<ByteVar>(), iindex, lpqualifierbuf.rawAddress.toCPointer<ByteVar>(), pcchqualifierbuf.rawAddress.toCPointer<ByteVar>(), lpapplicationdatabuf.rawAddress.toCPointer<ByteVar>(), pcchapplicationdatabuf.rawAddress.toCPointer<ByteVar>())
 
-public actual fun msiEnumComponentQualifiersW(szcomponent: Pcwstr, iindex: UInt, lpqualifierbuf: Pwstr, pcchqualifierbuf: MutPtr<UInt>, lpapplicationdatabuf: Pwstr, pcchapplicationdatabuf: MutPtr<UInt>): UInt =
+public actual fun msiEnumComponentQualifiersW(szcomponent: Pcwstr, iindex: UInt, lpqualifierbuf: Pwstr, pcchqualifierbuf: MutPtr, lpapplicationdatabuf: Pwstr, pcchapplicationdatabuf: MutPtr): UInt =
     windowssysWindowsWin32SystemApplicationinstallationandservicingMsiEnumComponentQualifiersW(szcomponent.rawAddress.toCPointer<ByteVar>(), iindex, lpqualifierbuf.rawAddress.toCPointer<ByteVar>(), pcchqualifierbuf.rawAddress.toCPointer<ByteVar>(), lpapplicationdatabuf.rawAddress.toCPointer<ByteVar>(), pcchapplicationdatabuf.rawAddress.toCPointer<ByteVar>())
 
 public actual fun msiEnumComponentsA(icomponentindex: UInt, lpcomponentbuf: Pstr): UInt =
     windowssysWindowsWin32SystemApplicationinstallationandservicingMsiEnumComponentsA(icomponentindex, lpcomponentbuf.rawAddress.toCPointer<ByteVar>())
 
-public actual fun msiEnumComponentsExA(szusersid: Pcstr, dwcontext: UInt, dwindex: UInt, szinstalledcomponentcode: Pstr, pdwinstalledcontext: MutPtr<Msiinstallcontext>, szsid: Pstr, pcchsid: MutPtr<UInt>): UInt =
+public actual fun msiEnumComponentsExA(szusersid: Pcstr, dwcontext: UInt, dwindex: UInt, szinstalledcomponentcode: Pstr, pdwinstalledcontext: MutPtr, szsid: Pstr, pcchsid: MutPtr): UInt =
     windowssysWindowsWin32SystemApplicationinstallationandservicingMsiEnumComponentsExA(szusersid.rawAddress.toCPointer<ByteVar>(), dwcontext, dwindex, szinstalledcomponentcode.rawAddress.toCPointer<ByteVar>(), pdwinstalledcontext.rawAddress.toCPointer<ByteVar>(), szsid.rawAddress.toCPointer<ByteVar>(), pcchsid.rawAddress.toCPointer<ByteVar>())
 
-public actual fun msiEnumComponentsExW(szusersid: Pcwstr, dwcontext: UInt, dwindex: UInt, szinstalledcomponentcode: Pwstr, pdwinstalledcontext: MutPtr<Msiinstallcontext>, szsid: Pwstr, pcchsid: MutPtr<UInt>): UInt =
+public actual fun msiEnumComponentsExW(szusersid: Pcwstr, dwcontext: UInt, dwindex: UInt, szinstalledcomponentcode: Pwstr, pdwinstalledcontext: MutPtr, szsid: Pwstr, pcchsid: MutPtr): UInt =
     windowssysWindowsWin32SystemApplicationinstallationandservicingMsiEnumComponentsExW(szusersid.rawAddress.toCPointer<ByteVar>(), dwcontext, dwindex, szinstalledcomponentcode.rawAddress.toCPointer<ByteVar>(), pdwinstalledcontext.rawAddress.toCPointer<ByteVar>(), szsid.rawAddress.toCPointer<ByteVar>(), pcchsid.rawAddress.toCPointer<ByteVar>())
 
 public actual fun msiEnumComponentsW(icomponentindex: UInt, lpcomponentbuf: Pwstr): UInt =
@@ -667,25 +662,25 @@ public actual fun msiEnumFeaturesA(szproduct: Pcstr, ifeatureindex: UInt, lpfeat
 public actual fun msiEnumFeaturesW(szproduct: Pcwstr, ifeatureindex: UInt, lpfeaturebuf: Pwstr, lpparentbuf: Pwstr): UInt =
     windowssysWindowsWin32SystemApplicationinstallationandservicingMsiEnumFeaturesW(szproduct.rawAddress.toCPointer<ByteVar>(), ifeatureindex, lpfeaturebuf.rawAddress.toCPointer<ByteVar>(), lpparentbuf.rawAddress.toCPointer<ByteVar>())
 
-public actual fun msiEnumPatchesA(szproduct: Pcstr, ipatchindex: UInt, lppatchbuf: Pstr, lptransformsbuf: Pstr, pcchtransformsbuf: MutPtr<UInt>): UInt =
+public actual fun msiEnumPatchesA(szproduct: Pcstr, ipatchindex: UInt, lppatchbuf: Pstr, lptransformsbuf: Pstr, pcchtransformsbuf: MutPtr): UInt =
     windowssysWindowsWin32SystemApplicationinstallationandservicingMsiEnumPatchesA(szproduct.rawAddress.toCPointer<ByteVar>(), ipatchindex, lppatchbuf.rawAddress.toCPointer<ByteVar>(), lptransformsbuf.rawAddress.toCPointer<ByteVar>(), pcchtransformsbuf.rawAddress.toCPointer<ByteVar>())
 
-public actual fun msiEnumPatchesExA(szproductcode: Pcstr, szusersid: Pcstr, dwcontext: UInt, dwfilter: UInt, dwindex: UInt, szpatchcode: Pstr, sztargetproductcode: Pstr, pdwtargetproductcontext: MutPtr<Msiinstallcontext>, sztargetusersid: Pstr, pcchtargetusersid: MutPtr<UInt>): UInt =
+public actual fun msiEnumPatchesExA(szproductcode: Pcstr, szusersid: Pcstr, dwcontext: UInt, dwfilter: UInt, dwindex: UInt, szpatchcode: Pstr, sztargetproductcode: Pstr, pdwtargetproductcontext: MutPtr, sztargetusersid: Pstr, pcchtargetusersid: MutPtr): UInt =
     windowssysWindowsWin32SystemApplicationinstallationandservicingMsiEnumPatchesExA(szproductcode.rawAddress.toCPointer<ByteVar>(), szusersid.rawAddress.toCPointer<ByteVar>(), dwcontext, dwfilter, dwindex, szpatchcode.rawAddress.toCPointer<ByteVar>(), sztargetproductcode.rawAddress.toCPointer<ByteVar>(), pdwtargetproductcontext.rawAddress.toCPointer<ByteVar>(), sztargetusersid.rawAddress.toCPointer<ByteVar>(), pcchtargetusersid.rawAddress.toCPointer<ByteVar>())
 
-public actual fun msiEnumPatchesExW(szproductcode: Pcwstr, szusersid: Pcwstr, dwcontext: UInt, dwfilter: UInt, dwindex: UInt, szpatchcode: Pwstr, sztargetproductcode: Pwstr, pdwtargetproductcontext: MutPtr<Msiinstallcontext>, sztargetusersid: Pwstr, pcchtargetusersid: MutPtr<UInt>): UInt =
+public actual fun msiEnumPatchesExW(szproductcode: Pcwstr, szusersid: Pcwstr, dwcontext: UInt, dwfilter: UInt, dwindex: UInt, szpatchcode: Pwstr, sztargetproductcode: Pwstr, pdwtargetproductcontext: MutPtr, sztargetusersid: Pwstr, pcchtargetusersid: MutPtr): UInt =
     windowssysWindowsWin32SystemApplicationinstallationandservicingMsiEnumPatchesExW(szproductcode.rawAddress.toCPointer<ByteVar>(), szusersid.rawAddress.toCPointer<ByteVar>(), dwcontext, dwfilter, dwindex, szpatchcode.rawAddress.toCPointer<ByteVar>(), sztargetproductcode.rawAddress.toCPointer<ByteVar>(), pdwtargetproductcontext.rawAddress.toCPointer<ByteVar>(), sztargetusersid.rawAddress.toCPointer<ByteVar>(), pcchtargetusersid.rawAddress.toCPointer<ByteVar>())
 
-public actual fun msiEnumPatchesW(szproduct: Pcwstr, ipatchindex: UInt, lppatchbuf: Pwstr, lptransformsbuf: Pwstr, pcchtransformsbuf: MutPtr<UInt>): UInt =
+public actual fun msiEnumPatchesW(szproduct: Pcwstr, ipatchindex: UInt, lppatchbuf: Pwstr, lptransformsbuf: Pwstr, pcchtransformsbuf: MutPtr): UInt =
     windowssysWindowsWin32SystemApplicationinstallationandservicingMsiEnumPatchesW(szproduct.rawAddress.toCPointer<ByteVar>(), ipatchindex, lppatchbuf.rawAddress.toCPointer<ByteVar>(), lptransformsbuf.rawAddress.toCPointer<ByteVar>(), pcchtransformsbuf.rawAddress.toCPointer<ByteVar>())
 
 public actual fun msiEnumProductsA(iproductindex: UInt, lpproductbuf: Pstr): UInt =
     windowssysWindowsWin32SystemApplicationinstallationandservicingMsiEnumProductsA(iproductindex, lpproductbuf.rawAddress.toCPointer<ByteVar>())
 
-public actual fun msiEnumProductsExA(szproductcode: Pcstr, szusersid: Pcstr, dwcontext: UInt, dwindex: UInt, szinstalledproductcode: Pstr, pdwinstalledcontext: MutPtr<Msiinstallcontext>, szsid: Pstr, pcchsid: MutPtr<UInt>): UInt =
+public actual fun msiEnumProductsExA(szproductcode: Pcstr, szusersid: Pcstr, dwcontext: UInt, dwindex: UInt, szinstalledproductcode: Pstr, pdwinstalledcontext: MutPtr, szsid: Pstr, pcchsid: MutPtr): UInt =
     windowssysWindowsWin32SystemApplicationinstallationandservicingMsiEnumProductsExA(szproductcode.rawAddress.toCPointer<ByteVar>(), szusersid.rawAddress.toCPointer<ByteVar>(), dwcontext, dwindex, szinstalledproductcode.rawAddress.toCPointer<ByteVar>(), pdwinstalledcontext.rawAddress.toCPointer<ByteVar>(), szsid.rawAddress.toCPointer<ByteVar>(), pcchsid.rawAddress.toCPointer<ByteVar>())
 
-public actual fun msiEnumProductsExW(szproductcode: Pcwstr, szusersid: Pcwstr, dwcontext: UInt, dwindex: UInt, szinstalledproductcode: Pwstr, pdwinstalledcontext: MutPtr<Msiinstallcontext>, szsid: Pwstr, pcchsid: MutPtr<UInt>): UInt =
+public actual fun msiEnumProductsExW(szproductcode: Pcwstr, szusersid: Pcwstr, dwcontext: UInt, dwindex: UInt, szinstalledproductcode: Pwstr, pdwinstalledcontext: MutPtr, szsid: Pwstr, pcchsid: MutPtr): UInt =
     windowssysWindowsWin32SystemApplicationinstallationandservicingMsiEnumProductsExW(szproductcode.rawAddress.toCPointer<ByteVar>(), szusersid.rawAddress.toCPointer<ByteVar>(), dwcontext, dwindex, szinstalledproductcode.rawAddress.toCPointer<ByteVar>(), pdwinstalledcontext.rawAddress.toCPointer<ByteVar>(), szsid.rawAddress.toCPointer<ByteVar>(), pcchsid.rawAddress.toCPointer<ByteVar>())
 
 public actual fun msiEnumProductsW(iproductindex: UInt, lpproductbuf: Pwstr): UInt =
@@ -703,88 +698,88 @@ public actual fun msiEvaluateConditionA(hinstall: Msihandle, szcondition: Pcstr)
 public actual fun msiEvaluateConditionW(hinstall: Msihandle, szcondition: Pcwstr): Msicondition =
     windowssysWindowsWin32SystemApplicationinstallationandservicingMsiEvaluateConditionW(hinstall, szcondition.rawAddress.toCPointer<ByteVar>())
 
-public actual fun msiExtractPatchXMLDataA(szpatchpath: Pcstr, dwreserved: UInt, szxmldata: Pstr, pcchxmldata: MutPtr<UInt>): UInt =
+public actual fun msiExtractPatchXMLDataA(szpatchpath: Pcstr, dwreserved: UInt, szxmldata: Pstr, pcchxmldata: MutPtr): UInt =
     windowssysWindowsWin32SystemApplicationinstallationandservicingMsiExtractPatchXMLDataA(szpatchpath.rawAddress.toCPointer<ByteVar>(), dwreserved, szxmldata.rawAddress.toCPointer<ByteVar>(), pcchxmldata.rawAddress.toCPointer<ByteVar>())
 
-public actual fun msiExtractPatchXMLDataW(szpatchpath: Pcwstr, dwreserved: UInt, szxmldata: Pwstr, pcchxmldata: MutPtr<UInt>): UInt =
+public actual fun msiExtractPatchXMLDataW(szpatchpath: Pcwstr, dwreserved: UInt, szxmldata: Pwstr, pcchxmldata: MutPtr): UInt =
     windowssysWindowsWin32SystemApplicationinstallationandservicingMsiExtractPatchXMLDataW(szpatchpath.rawAddress.toCPointer<ByteVar>(), dwreserved, szxmldata.rawAddress.toCPointer<ByteVar>(), pcchxmldata.rawAddress.toCPointer<ByteVar>())
 
-public actual fun msiFormatRecordA(hinstall: Msihandle, hrecord: Msihandle, szresultbuf: Pstr, pcchresultbuf: MutPtr<UInt>): UInt =
+public actual fun msiFormatRecordA(hinstall: Msihandle, hrecord: Msihandle, szresultbuf: Pstr, pcchresultbuf: MutPtr): UInt =
     windowssysWindowsWin32SystemApplicationinstallationandservicingMsiFormatRecordA(hinstall, hrecord, szresultbuf.rawAddress.toCPointer<ByteVar>(), pcchresultbuf.rawAddress.toCPointer<ByteVar>())
 
-public actual fun msiFormatRecordW(hinstall: Msihandle, hrecord: Msihandle, szresultbuf: Pwstr, pcchresultbuf: MutPtr<UInt>): UInt =
+public actual fun msiFormatRecordW(hinstall: Msihandle, hrecord: Msihandle, szresultbuf: Pwstr, pcchresultbuf: MutPtr): UInt =
     windowssysWindowsWin32SystemApplicationinstallationandservicingMsiFormatRecordW(hinstall, hrecord, szresultbuf.rawAddress.toCPointer<ByteVar>(), pcchresultbuf.rawAddress.toCPointer<ByteVar>())
 
 public actual fun msiGetActiveDatabase(hinstall: Msihandle): Msihandle =
     windowssysWindowsWin32SystemApplicationinstallationandservicingMsiGetActiveDatabase(hinstall)
 
-public actual fun msiGetComponentPathA(szproduct: Pcstr, szcomponent: Pcstr, lppathbuf: Pstr, pcchbuf: MutPtr<UInt>): Installstate =
+public actual fun msiGetComponentPathA(szproduct: Pcstr, szcomponent: Pcstr, lppathbuf: Pstr, pcchbuf: MutPtr): Installstate =
     windowssysWindowsWin32SystemApplicationinstallationandservicingMsiGetComponentPathA(szproduct.rawAddress.toCPointer<ByteVar>(), szcomponent.rawAddress.toCPointer<ByteVar>(), lppathbuf.rawAddress.toCPointer<ByteVar>(), pcchbuf.rawAddress.toCPointer<ByteVar>())
 
-public actual fun msiGetComponentPathExA(szproductcode: Pcstr, szcomponentcode: Pcstr, szusersid: Pcstr, dwcontext: Msiinstallcontext, lpoutpathbuffer: Pstr, pcchoutpathbuffer: MutPtr<UInt>): Installstate =
+public actual fun msiGetComponentPathExA(szproductcode: Pcstr, szcomponentcode: Pcstr, szusersid: Pcstr, dwcontext: Msiinstallcontext, lpoutpathbuffer: Pstr, pcchoutpathbuffer: MutPtr): Installstate =
     windowssysWindowsWin32SystemApplicationinstallationandservicingMsiGetComponentPathExA(szproductcode.rawAddress.toCPointer<ByteVar>(), szcomponentcode.rawAddress.toCPointer<ByteVar>(), szusersid.rawAddress.toCPointer<ByteVar>(), dwcontext, lpoutpathbuffer.rawAddress.toCPointer<ByteVar>(), pcchoutpathbuffer.rawAddress.toCPointer<ByteVar>())
 
-public actual fun msiGetComponentPathExW(szproductcode: Pcwstr, szcomponentcode: Pcwstr, szusersid: Pcwstr, dwcontext: Msiinstallcontext, lpoutpathbuffer: Pwstr, pcchoutpathbuffer: MutPtr<UInt>): Installstate =
+public actual fun msiGetComponentPathExW(szproductcode: Pcwstr, szcomponentcode: Pcwstr, szusersid: Pcwstr, dwcontext: Msiinstallcontext, lpoutpathbuffer: Pwstr, pcchoutpathbuffer: MutPtr): Installstate =
     windowssysWindowsWin32SystemApplicationinstallationandservicingMsiGetComponentPathExW(szproductcode.rawAddress.toCPointer<ByteVar>(), szcomponentcode.rawAddress.toCPointer<ByteVar>(), szusersid.rawAddress.toCPointer<ByteVar>(), dwcontext, lpoutpathbuffer.rawAddress.toCPointer<ByteVar>(), pcchoutpathbuffer.rawAddress.toCPointer<ByteVar>())
 
-public actual fun msiGetComponentPathW(szproduct: Pcwstr, szcomponent: Pcwstr, lppathbuf: Pwstr, pcchbuf: MutPtr<UInt>): Installstate =
+public actual fun msiGetComponentPathW(szproduct: Pcwstr, szcomponent: Pcwstr, lppathbuf: Pwstr, pcchbuf: MutPtr): Installstate =
     windowssysWindowsWin32SystemApplicationinstallationandservicingMsiGetComponentPathW(szproduct.rawAddress.toCPointer<ByteVar>(), szcomponent.rawAddress.toCPointer<ByteVar>(), lppathbuf.rawAddress.toCPointer<ByteVar>(), pcchbuf.rawAddress.toCPointer<ByteVar>())
 
-public actual fun msiGetComponentStateA(hinstall: Msihandle, szcomponent: Pcstr, piinstalled: MutPtr<Installstate>, piaction: MutPtr<Installstate>): UInt =
+public actual fun msiGetComponentStateA(hinstall: Msihandle, szcomponent: Pcstr, piinstalled: MutPtr, piaction: MutPtr): UInt =
     windowssysWindowsWin32SystemApplicationinstallationandservicingMsiGetComponentStateA(hinstall, szcomponent.rawAddress.toCPointer<ByteVar>(), piinstalled.rawAddress.toCPointer<ByteVar>(), piaction.rawAddress.toCPointer<ByteVar>())
 
-public actual fun msiGetComponentStateW(hinstall: Msihandle, szcomponent: Pcwstr, piinstalled: MutPtr<Installstate>, piaction: MutPtr<Installstate>): UInt =
+public actual fun msiGetComponentStateW(hinstall: Msihandle, szcomponent: Pcwstr, piinstalled: MutPtr, piaction: MutPtr): UInt =
     windowssysWindowsWin32SystemApplicationinstallationandservicingMsiGetComponentStateW(hinstall, szcomponent.rawAddress.toCPointer<ByteVar>(), piinstalled.rawAddress.toCPointer<ByteVar>(), piaction.rawAddress.toCPointer<ByteVar>())
 
 public actual fun msiGetDatabaseState(hdatabase: Msihandle): Msidbstate =
     windowssysWindowsWin32SystemApplicationinstallationandservicingMsiGetDatabaseState(hdatabase)
 
-public actual fun msiGetFeatureCostA(hinstall: Msihandle, szfeature: Pcstr, icosttree: Msicosttree, istate: Installstate, picost: MutPtr<Int>): UInt =
+public actual fun msiGetFeatureCostA(hinstall: Msihandle, szfeature: Pcstr, icosttree: Msicosttree, istate: Installstate, picost: MutPtr): UInt =
     windowssysWindowsWin32SystemApplicationinstallationandservicingMsiGetFeatureCostA(hinstall, szfeature.rawAddress.toCPointer<ByteVar>(), icosttree, istate, picost.rawAddress.toCPointer<ByteVar>())
 
-public actual fun msiGetFeatureCostW(hinstall: Msihandle, szfeature: Pcwstr, icosttree: Msicosttree, istate: Installstate, picost: MutPtr<Int>): UInt =
+public actual fun msiGetFeatureCostW(hinstall: Msihandle, szfeature: Pcwstr, icosttree: Msicosttree, istate: Installstate, picost: MutPtr): UInt =
     windowssysWindowsWin32SystemApplicationinstallationandservicingMsiGetFeatureCostW(hinstall, szfeature.rawAddress.toCPointer<ByteVar>(), icosttree, istate, picost.rawAddress.toCPointer<ByteVar>())
 
-public actual fun msiGetFeatureInfoA(hproduct: Msihandle, szfeature: Pcstr, lpattributes: MutPtr<UInt>, lptitlebuf: Pstr, pcchtitlebuf: MutPtr<UInt>, lphelpbuf: Pstr, pcchhelpbuf: MutPtr<UInt>): UInt =
+public actual fun msiGetFeatureInfoA(hproduct: Msihandle, szfeature: Pcstr, lpattributes: MutPtr, lptitlebuf: Pstr, pcchtitlebuf: MutPtr, lphelpbuf: Pstr, pcchhelpbuf: MutPtr): UInt =
     windowssysWindowsWin32SystemApplicationinstallationandservicingMsiGetFeatureInfoA(hproduct, szfeature.rawAddress.toCPointer<ByteVar>(), lpattributes.rawAddress.toCPointer<ByteVar>(), lptitlebuf.rawAddress.toCPointer<ByteVar>(), pcchtitlebuf.rawAddress.toCPointer<ByteVar>(), lphelpbuf.rawAddress.toCPointer<ByteVar>(), pcchhelpbuf.rawAddress.toCPointer<ByteVar>())
 
-public actual fun msiGetFeatureInfoW(hproduct: Msihandle, szfeature: Pcwstr, lpattributes: MutPtr<UInt>, lptitlebuf: Pwstr, pcchtitlebuf: MutPtr<UInt>, lphelpbuf: Pwstr, pcchhelpbuf: MutPtr<UInt>): UInt =
+public actual fun msiGetFeatureInfoW(hproduct: Msihandle, szfeature: Pcwstr, lpattributes: MutPtr, lptitlebuf: Pwstr, pcchtitlebuf: MutPtr, lphelpbuf: Pwstr, pcchhelpbuf: MutPtr): UInt =
     windowssysWindowsWin32SystemApplicationinstallationandservicingMsiGetFeatureInfoW(hproduct, szfeature.rawAddress.toCPointer<ByteVar>(), lpattributes.rawAddress.toCPointer<ByteVar>(), lptitlebuf.rawAddress.toCPointer<ByteVar>(), pcchtitlebuf.rawAddress.toCPointer<ByteVar>(), lphelpbuf.rawAddress.toCPointer<ByteVar>(), pcchhelpbuf.rawAddress.toCPointer<ByteVar>())
 
-public actual fun msiGetFeatureStateA(hinstall: Msihandle, szfeature: Pcstr, piinstalled: MutPtr<Installstate>, piaction: MutPtr<Installstate>): UInt =
+public actual fun msiGetFeatureStateA(hinstall: Msihandle, szfeature: Pcstr, piinstalled: MutPtr, piaction: MutPtr): UInt =
     windowssysWindowsWin32SystemApplicationinstallationandservicingMsiGetFeatureStateA(hinstall, szfeature.rawAddress.toCPointer<ByteVar>(), piinstalled.rawAddress.toCPointer<ByteVar>(), piaction.rawAddress.toCPointer<ByteVar>())
 
-public actual fun msiGetFeatureStateW(hinstall: Msihandle, szfeature: Pcwstr, piinstalled: MutPtr<Installstate>, piaction: MutPtr<Installstate>): UInt =
+public actual fun msiGetFeatureStateW(hinstall: Msihandle, szfeature: Pcwstr, piinstalled: MutPtr, piaction: MutPtr): UInt =
     windowssysWindowsWin32SystemApplicationinstallationandservicingMsiGetFeatureStateW(hinstall, szfeature.rawAddress.toCPointer<ByteVar>(), piinstalled.rawAddress.toCPointer<ByteVar>(), piaction.rawAddress.toCPointer<ByteVar>())
 
-public actual fun msiGetFeatureUsageA(szproduct: Pcstr, szfeature: Pcstr, pdwusecount: MutPtr<UInt>, pwdateused: MutPtr<UShort>): UInt =
+public actual fun msiGetFeatureUsageA(szproduct: Pcstr, szfeature: Pcstr, pdwusecount: MutPtr, pwdateused: MutPtr): UInt =
     windowssysWindowsWin32SystemApplicationinstallationandservicingMsiGetFeatureUsageA(szproduct.rawAddress.toCPointer<ByteVar>(), szfeature.rawAddress.toCPointer<ByteVar>(), pdwusecount.rawAddress.toCPointer<ByteVar>(), pwdateused.rawAddress.toCPointer<ByteVar>())
 
-public actual fun msiGetFeatureUsageW(szproduct: Pcwstr, szfeature: Pcwstr, pdwusecount: MutPtr<UInt>, pwdateused: MutPtr<UShort>): UInt =
+public actual fun msiGetFeatureUsageW(szproduct: Pcwstr, szfeature: Pcwstr, pdwusecount: MutPtr, pwdateused: MutPtr): UInt =
     windowssysWindowsWin32SystemApplicationinstallationandservicingMsiGetFeatureUsageW(szproduct.rawAddress.toCPointer<ByteVar>(), szfeature.rawAddress.toCPointer<ByteVar>(), pdwusecount.rawAddress.toCPointer<ByteVar>(), pwdateused.rawAddress.toCPointer<ByteVar>())
 
-public actual fun msiGetFeatureValidStatesA(hinstall: Msihandle, szfeature: Pcstr, lpinstallstates: MutPtr<UInt>): UInt =
+public actual fun msiGetFeatureValidStatesA(hinstall: Msihandle, szfeature: Pcstr, lpinstallstates: MutPtr): UInt =
     windowssysWindowsWin32SystemApplicationinstallationandservicingMsiGetFeatureValidStatesA(hinstall, szfeature.rawAddress.toCPointer<ByteVar>(), lpinstallstates.rawAddress.toCPointer<ByteVar>())
 
-public actual fun msiGetFeatureValidStatesW(hinstall: Msihandle, szfeature: Pcwstr, lpinstallstates: MutPtr<UInt>): UInt =
+public actual fun msiGetFeatureValidStatesW(hinstall: Msihandle, szfeature: Pcwstr, lpinstallstates: MutPtr): UInt =
     windowssysWindowsWin32SystemApplicationinstallationandservicingMsiGetFeatureValidStatesW(hinstall, szfeature.rawAddress.toCPointer<ByteVar>(), lpinstallstates.rawAddress.toCPointer<ByteVar>())
 
-public actual fun msiGetFileHashA(szfilepath: Pcstr, dwoptions: UInt, phash: MutPtr<Msifilehashinfo>): UInt =
+public actual fun msiGetFileHashA(szfilepath: Pcstr, dwoptions: UInt, phash: MutPtr): UInt =
     windowssysWindowsWin32SystemApplicationinstallationandservicingMsiGetFileHashA(szfilepath.rawAddress.toCPointer<ByteVar>(), dwoptions, phash.rawAddress.toCPointer<ByteVar>())
 
-public actual fun msiGetFileHashW(szfilepath: Pcwstr, dwoptions: UInt, phash: MutPtr<Msifilehashinfo>): UInt =
+public actual fun msiGetFileHashW(szfilepath: Pcwstr, dwoptions: UInt, phash: MutPtr): UInt =
     windowssysWindowsWin32SystemApplicationinstallationandservicingMsiGetFileHashW(szfilepath.rawAddress.toCPointer<ByteVar>(), dwoptions, phash.rawAddress.toCPointer<ByteVar>())
 
-public actual fun msiGetFileSignatureInformationA(szsignedobjectpath: Pcstr, dwflags: UInt, ppccertcontext: MutPtr<MutPtr<CertContext>>, pbhashdata: MutPtr<UByte>, pcbhashdata: MutPtr<UInt>): Hresult =
+public actual fun msiGetFileSignatureInformationA(szsignedobjectpath: Pcstr, dwflags: UInt, ppccertcontext: MutPtr, pbhashdata: MutPtr, pcbhashdata: MutPtr): Hresult =
     windowssysWindowsWin32SystemApplicationinstallationandservicingMsiGetFileSignatureInformationA(szsignedobjectpath.rawAddress.toCPointer<ByteVar>(), dwflags, ppccertcontext.rawAddress.toCPointer<ByteVar>(), pbhashdata.rawAddress.toCPointer<ByteVar>(), pcbhashdata.rawAddress.toCPointer<ByteVar>())
 
-public actual fun msiGetFileSignatureInformationW(szsignedobjectpath: Pcwstr, dwflags: UInt, ppccertcontext: MutPtr<MutPtr<CertContext>>, pbhashdata: MutPtr<UByte>, pcbhashdata: MutPtr<UInt>): Hresult =
+public actual fun msiGetFileSignatureInformationW(szsignedobjectpath: Pcwstr, dwflags: UInt, ppccertcontext: MutPtr, pbhashdata: MutPtr, pcbhashdata: MutPtr): Hresult =
     windowssysWindowsWin32SystemApplicationinstallationandservicingMsiGetFileSignatureInformationW(szsignedobjectpath.rawAddress.toCPointer<ByteVar>(), dwflags, ppccertcontext.rawAddress.toCPointer<ByteVar>(), pbhashdata.rawAddress.toCPointer<ByteVar>(), pcbhashdata.rawAddress.toCPointer<ByteVar>())
 
-public actual fun msiGetFileVersionA(szfilepath: Pcstr, lpversionbuf: Pstr, pcchversionbuf: MutPtr<UInt>, lplangbuf: Pstr, pcchlangbuf: MutPtr<UInt>): UInt =
+public actual fun msiGetFileVersionA(szfilepath: Pcstr, lpversionbuf: Pstr, pcchversionbuf: MutPtr, lplangbuf: Pstr, pcchlangbuf: MutPtr): UInt =
     windowssysWindowsWin32SystemApplicationinstallationandservicingMsiGetFileVersionA(szfilepath.rawAddress.toCPointer<ByteVar>(), lpversionbuf.rawAddress.toCPointer<ByteVar>(), pcchversionbuf.rawAddress.toCPointer<ByteVar>(), lplangbuf.rawAddress.toCPointer<ByteVar>(), pcchlangbuf.rawAddress.toCPointer<ByteVar>())
 
-public actual fun msiGetFileVersionW(szfilepath: Pcwstr, lpversionbuf: Pwstr, pcchversionbuf: MutPtr<UInt>, lplangbuf: Pwstr, pcchlangbuf: MutPtr<UInt>): UInt =
+public actual fun msiGetFileVersionW(szfilepath: Pcwstr, lpversionbuf: Pwstr, pcchversionbuf: MutPtr, lplangbuf: Pwstr, pcchlangbuf: MutPtr): UInt =
     windowssysWindowsWin32SystemApplicationinstallationandservicingMsiGetFileVersionW(szfilepath.rawAddress.toCPointer<ByteVar>(), lpversionbuf.rawAddress.toCPointer<ByteVar>(), pcchversionbuf.rawAddress.toCPointer<ByteVar>(), lplangbuf.rawAddress.toCPointer<ByteVar>(), pcchlangbuf.rawAddress.toCPointer<ByteVar>())
 
 public actual fun msiGetLanguage(hinstall: Msihandle): UShort =
@@ -796,22 +791,22 @@ public actual fun msiGetLastErrorRecord(): Msihandle =
 public actual fun msiGetMode(hinstall: Msihandle, erunmode: Msirunmode): Bool =
     windowssysWindowsWin32SystemApplicationinstallationandservicingMsiGetMode(hinstall, erunmode)
 
-public actual fun msiGetPatchFileListA(szproductcode: Pcstr, szpatchpackages: Pcstr, pcfiles: MutPtr<UInt>, pphfilerecords: MutPtr<MutPtr<Msihandle>>): UInt =
+public actual fun msiGetPatchFileListA(szproductcode: Pcstr, szpatchpackages: Pcstr, pcfiles: MutPtr, pphfilerecords: MutPtr): UInt =
     windowssysWindowsWin32SystemApplicationinstallationandservicingMsiGetPatchFileListA(szproductcode.rawAddress.toCPointer<ByteVar>(), szpatchpackages.rawAddress.toCPointer<ByteVar>(), pcfiles.rawAddress.toCPointer<ByteVar>(), pphfilerecords.rawAddress.toCPointer<ByteVar>())
 
-public actual fun msiGetPatchFileListW(szproductcode: Pcwstr, szpatchpackages: Pcwstr, pcfiles: MutPtr<UInt>, pphfilerecords: MutPtr<MutPtr<Msihandle>>): UInt =
+public actual fun msiGetPatchFileListW(szproductcode: Pcwstr, szpatchpackages: Pcwstr, pcfiles: MutPtr, pphfilerecords: MutPtr): UInt =
     windowssysWindowsWin32SystemApplicationinstallationandservicingMsiGetPatchFileListW(szproductcode.rawAddress.toCPointer<ByteVar>(), szpatchpackages.rawAddress.toCPointer<ByteVar>(), pcfiles.rawAddress.toCPointer<ByteVar>(), pphfilerecords.rawAddress.toCPointer<ByteVar>())
 
-public actual fun msiGetPatchInfoA(szpatch: Pcstr, szattribute: Pcstr, lpvaluebuf: Pstr, pcchvaluebuf: MutPtr<UInt>): UInt =
+public actual fun msiGetPatchInfoA(szpatch: Pcstr, szattribute: Pcstr, lpvaluebuf: Pstr, pcchvaluebuf: MutPtr): UInt =
     windowssysWindowsWin32SystemApplicationinstallationandservicingMsiGetPatchInfoA(szpatch.rawAddress.toCPointer<ByteVar>(), szattribute.rawAddress.toCPointer<ByteVar>(), lpvaluebuf.rawAddress.toCPointer<ByteVar>(), pcchvaluebuf.rawAddress.toCPointer<ByteVar>())
 
-public actual fun msiGetPatchInfoExA(szpatchcode: Pcstr, szproductcode: Pcstr, szusersid: Pcstr, dwcontext: Msiinstallcontext, szproperty: Pcstr, lpvalue: Pstr, pcchvalue: MutPtr<UInt>): UInt =
+public actual fun msiGetPatchInfoExA(szpatchcode: Pcstr, szproductcode: Pcstr, szusersid: Pcstr, dwcontext: Msiinstallcontext, szproperty: Pcstr, lpvalue: Pstr, pcchvalue: MutPtr): UInt =
     windowssysWindowsWin32SystemApplicationinstallationandservicingMsiGetPatchInfoExA(szpatchcode.rawAddress.toCPointer<ByteVar>(), szproductcode.rawAddress.toCPointer<ByteVar>(), szusersid.rawAddress.toCPointer<ByteVar>(), dwcontext, szproperty.rawAddress.toCPointer<ByteVar>(), lpvalue.rawAddress.toCPointer<ByteVar>(), pcchvalue.rawAddress.toCPointer<ByteVar>())
 
-public actual fun msiGetPatchInfoExW(szpatchcode: Pcwstr, szproductcode: Pcwstr, szusersid: Pcwstr, dwcontext: Msiinstallcontext, szproperty: Pcwstr, lpvalue: Pwstr, pcchvalue: MutPtr<UInt>): UInt =
+public actual fun msiGetPatchInfoExW(szpatchcode: Pcwstr, szproductcode: Pcwstr, szusersid: Pcwstr, dwcontext: Msiinstallcontext, szproperty: Pcwstr, lpvalue: Pwstr, pcchvalue: MutPtr): UInt =
     windowssysWindowsWin32SystemApplicationinstallationandservicingMsiGetPatchInfoExW(szpatchcode.rawAddress.toCPointer<ByteVar>(), szproductcode.rawAddress.toCPointer<ByteVar>(), szusersid.rawAddress.toCPointer<ByteVar>(), dwcontext, szproperty.rawAddress.toCPointer<ByteVar>(), lpvalue.rawAddress.toCPointer<ByteVar>(), pcchvalue.rawAddress.toCPointer<ByteVar>())
 
-public actual fun msiGetPatchInfoW(szpatch: Pcwstr, szattribute: Pcwstr, lpvaluebuf: Pwstr, pcchvaluebuf: MutPtr<UInt>): UInt =
+public actual fun msiGetPatchInfoW(szpatch: Pcwstr, szattribute: Pcwstr, lpvaluebuf: Pwstr, pcchvaluebuf: MutPtr): UInt =
     windowssysWindowsWin32SystemApplicationinstallationandservicingMsiGetPatchInfoW(szpatch.rawAddress.toCPointer<ByteVar>(), szattribute.rawAddress.toCPointer<ByteVar>(), lpvaluebuf.rawAddress.toCPointer<ByteVar>(), pcchvaluebuf.rawAddress.toCPointer<ByteVar>())
 
 public actual fun msiGetProductCodeA(szcomponent: Pcstr, lpbuf39: Pstr): UInt =
@@ -820,34 +815,34 @@ public actual fun msiGetProductCodeA(szcomponent: Pcstr, lpbuf39: Pstr): UInt =
 public actual fun msiGetProductCodeW(szcomponent: Pcwstr, lpbuf39: Pwstr): UInt =
     windowssysWindowsWin32SystemApplicationinstallationandservicingMsiGetProductCodeW(szcomponent.rawAddress.toCPointer<ByteVar>(), lpbuf39.rawAddress.toCPointer<ByteVar>())
 
-public actual fun msiGetProductInfoA(szproduct: Pcstr, szattribute: Pcstr, lpvaluebuf: Pstr, pcchvaluebuf: MutPtr<UInt>): UInt =
+public actual fun msiGetProductInfoA(szproduct: Pcstr, szattribute: Pcstr, lpvaluebuf: Pstr, pcchvaluebuf: MutPtr): UInt =
     windowssysWindowsWin32SystemApplicationinstallationandservicingMsiGetProductInfoA(szproduct.rawAddress.toCPointer<ByteVar>(), szattribute.rawAddress.toCPointer<ByteVar>(), lpvaluebuf.rawAddress.toCPointer<ByteVar>(), pcchvaluebuf.rawAddress.toCPointer<ByteVar>())
 
-public actual fun msiGetProductInfoExA(szproductcode: Pcstr, szusersid: Pcstr, dwcontext: Msiinstallcontext, szproperty: Pcstr, szvalue: Pstr, pcchvalue: MutPtr<UInt>): UInt =
+public actual fun msiGetProductInfoExA(szproductcode: Pcstr, szusersid: Pcstr, dwcontext: Msiinstallcontext, szproperty: Pcstr, szvalue: Pstr, pcchvalue: MutPtr): UInt =
     windowssysWindowsWin32SystemApplicationinstallationandservicingMsiGetProductInfoExA(szproductcode.rawAddress.toCPointer<ByteVar>(), szusersid.rawAddress.toCPointer<ByteVar>(), dwcontext, szproperty.rawAddress.toCPointer<ByteVar>(), szvalue.rawAddress.toCPointer<ByteVar>(), pcchvalue.rawAddress.toCPointer<ByteVar>())
 
-public actual fun msiGetProductInfoExW(szproductcode: Pcwstr, szusersid: Pcwstr, dwcontext: Msiinstallcontext, szproperty: Pcwstr, szvalue: Pwstr, pcchvalue: MutPtr<UInt>): UInt =
+public actual fun msiGetProductInfoExW(szproductcode: Pcwstr, szusersid: Pcwstr, dwcontext: Msiinstallcontext, szproperty: Pcwstr, szvalue: Pwstr, pcchvalue: MutPtr): UInt =
     windowssysWindowsWin32SystemApplicationinstallationandservicingMsiGetProductInfoExW(szproductcode.rawAddress.toCPointer<ByteVar>(), szusersid.rawAddress.toCPointer<ByteVar>(), dwcontext, szproperty.rawAddress.toCPointer<ByteVar>(), szvalue.rawAddress.toCPointer<ByteVar>(), pcchvalue.rawAddress.toCPointer<ByteVar>())
 
-public actual fun msiGetProductInfoFromScriptA(szscriptfile: Pcstr, lpproductbuf39: Pstr, plgidlanguage: MutPtr<UShort>, pdwversion: MutPtr<UInt>, lpnamebuf: Pstr, pcchnamebuf: MutPtr<UInt>, lppackagebuf: Pstr, pcchpackagebuf: MutPtr<UInt>): UInt =
+public actual fun msiGetProductInfoFromScriptA(szscriptfile: Pcstr, lpproductbuf39: Pstr, plgidlanguage: MutPtr, pdwversion: MutPtr, lpnamebuf: Pstr, pcchnamebuf: MutPtr, lppackagebuf: Pstr, pcchpackagebuf: MutPtr): UInt =
     windowssysWindowsWin32SystemApplicationinstallationandservicingMsiGetProductInfoFromScriptA(szscriptfile.rawAddress.toCPointer<ByteVar>(), lpproductbuf39.rawAddress.toCPointer<ByteVar>(), plgidlanguage.rawAddress.toCPointer<ByteVar>(), pdwversion.rawAddress.toCPointer<ByteVar>(), lpnamebuf.rawAddress.toCPointer<ByteVar>(), pcchnamebuf.rawAddress.toCPointer<ByteVar>(), lppackagebuf.rawAddress.toCPointer<ByteVar>(), pcchpackagebuf.rawAddress.toCPointer<ByteVar>())
 
-public actual fun msiGetProductInfoFromScriptW(szscriptfile: Pcwstr, lpproductbuf39: Pwstr, plgidlanguage: MutPtr<UShort>, pdwversion: MutPtr<UInt>, lpnamebuf: Pwstr, pcchnamebuf: MutPtr<UInt>, lppackagebuf: Pwstr, pcchpackagebuf: MutPtr<UInt>): UInt =
+public actual fun msiGetProductInfoFromScriptW(szscriptfile: Pcwstr, lpproductbuf39: Pwstr, plgidlanguage: MutPtr, pdwversion: MutPtr, lpnamebuf: Pwstr, pcchnamebuf: MutPtr, lppackagebuf: Pwstr, pcchpackagebuf: MutPtr): UInt =
     windowssysWindowsWin32SystemApplicationinstallationandservicingMsiGetProductInfoFromScriptW(szscriptfile.rawAddress.toCPointer<ByteVar>(), lpproductbuf39.rawAddress.toCPointer<ByteVar>(), plgidlanguage.rawAddress.toCPointer<ByteVar>(), pdwversion.rawAddress.toCPointer<ByteVar>(), lpnamebuf.rawAddress.toCPointer<ByteVar>(), pcchnamebuf.rawAddress.toCPointer<ByteVar>(), lppackagebuf.rawAddress.toCPointer<ByteVar>(), pcchpackagebuf.rawAddress.toCPointer<ByteVar>())
 
-public actual fun msiGetProductInfoW(szproduct: Pcwstr, szattribute: Pcwstr, lpvaluebuf: Pwstr, pcchvaluebuf: MutPtr<UInt>): UInt =
+public actual fun msiGetProductInfoW(szproduct: Pcwstr, szattribute: Pcwstr, lpvaluebuf: Pwstr, pcchvaluebuf: MutPtr): UInt =
     windowssysWindowsWin32SystemApplicationinstallationandservicingMsiGetProductInfoW(szproduct.rawAddress.toCPointer<ByteVar>(), szattribute.rawAddress.toCPointer<ByteVar>(), lpvaluebuf.rawAddress.toCPointer<ByteVar>(), pcchvaluebuf.rawAddress.toCPointer<ByteVar>())
 
-public actual fun msiGetProductPropertyA(hproduct: Msihandle, szproperty: Pcstr, lpvaluebuf: Pstr, pcchvaluebuf: MutPtr<UInt>): UInt =
+public actual fun msiGetProductPropertyA(hproduct: Msihandle, szproperty: Pcstr, lpvaluebuf: Pstr, pcchvaluebuf: MutPtr): UInt =
     windowssysWindowsWin32SystemApplicationinstallationandservicingMsiGetProductPropertyA(hproduct, szproperty.rawAddress.toCPointer<ByteVar>(), lpvaluebuf.rawAddress.toCPointer<ByteVar>(), pcchvaluebuf.rawAddress.toCPointer<ByteVar>())
 
-public actual fun msiGetProductPropertyW(hproduct: Msihandle, szproperty: Pcwstr, lpvaluebuf: Pwstr, pcchvaluebuf: MutPtr<UInt>): UInt =
+public actual fun msiGetProductPropertyW(hproduct: Msihandle, szproperty: Pcwstr, lpvaluebuf: Pwstr, pcchvaluebuf: MutPtr): UInt =
     windowssysWindowsWin32SystemApplicationinstallationandservicingMsiGetProductPropertyW(hproduct, szproperty.rawAddress.toCPointer<ByteVar>(), lpvaluebuf.rawAddress.toCPointer<ByteVar>(), pcchvaluebuf.rawAddress.toCPointer<ByteVar>())
 
-public actual fun msiGetPropertyA(hinstall: Msihandle, szname: Pcstr, szvaluebuf: Pstr, pcchvaluebuf: MutPtr<UInt>): UInt =
+public actual fun msiGetPropertyA(hinstall: Msihandle, szname: Pcstr, szvaluebuf: Pstr, pcchvaluebuf: MutPtr): UInt =
     windowssysWindowsWin32SystemApplicationinstallationandservicingMsiGetPropertyA(hinstall, szname.rawAddress.toCPointer<ByteVar>(), szvaluebuf.rawAddress.toCPointer<ByteVar>(), pcchvaluebuf.rawAddress.toCPointer<ByteVar>())
 
-public actual fun msiGetPropertyW(hinstall: Msihandle, szname: Pcwstr, szvaluebuf: Pwstr, pcchvaluebuf: MutPtr<UInt>): UInt =
+public actual fun msiGetPropertyW(hinstall: Msihandle, szname: Pcwstr, szvaluebuf: Pwstr, pcchvaluebuf: MutPtr): UInt =
     windowssysWindowsWin32SystemApplicationinstallationandservicingMsiGetPropertyW(hinstall, szname.rawAddress.toCPointer<ByteVar>(), szvaluebuf.rawAddress.toCPointer<ByteVar>(), pcchvaluebuf.rawAddress.toCPointer<ByteVar>())
 
 public actual fun msiGetShortcutTargetA(szshortcutpath: Pcstr, szproductcode: Pstr, szfeatureid: Pstr, szcomponentcode: Pstr): UInt =
@@ -856,28 +851,28 @@ public actual fun msiGetShortcutTargetA(szshortcutpath: Pcstr, szproductcode: Ps
 public actual fun msiGetShortcutTargetW(szshortcutpath: Pcwstr, szproductcode: Pwstr, szfeatureid: Pwstr, szcomponentcode: Pwstr): UInt =
     windowssysWindowsWin32SystemApplicationinstallationandservicingMsiGetShortcutTargetW(szshortcutpath.rawAddress.toCPointer<ByteVar>(), szproductcode.rawAddress.toCPointer<ByteVar>(), szfeatureid.rawAddress.toCPointer<ByteVar>(), szcomponentcode.rawAddress.toCPointer<ByteVar>())
 
-public actual fun msiGetSourcePathA(hinstall: Msihandle, szfolder: Pcstr, szpathbuf: Pstr, pcchpathbuf: MutPtr<UInt>): UInt =
+public actual fun msiGetSourcePathA(hinstall: Msihandle, szfolder: Pcstr, szpathbuf: Pstr, pcchpathbuf: MutPtr): UInt =
     windowssysWindowsWin32SystemApplicationinstallationandservicingMsiGetSourcePathA(hinstall, szfolder.rawAddress.toCPointer<ByteVar>(), szpathbuf.rawAddress.toCPointer<ByteVar>(), pcchpathbuf.rawAddress.toCPointer<ByteVar>())
 
-public actual fun msiGetSourcePathW(hinstall: Msihandle, szfolder: Pcwstr, szpathbuf: Pwstr, pcchpathbuf: MutPtr<UInt>): UInt =
+public actual fun msiGetSourcePathW(hinstall: Msihandle, szfolder: Pcwstr, szpathbuf: Pwstr, pcchpathbuf: MutPtr): UInt =
     windowssysWindowsWin32SystemApplicationinstallationandservicingMsiGetSourcePathW(hinstall, szfolder.rawAddress.toCPointer<ByteVar>(), szpathbuf.rawAddress.toCPointer<ByteVar>(), pcchpathbuf.rawAddress.toCPointer<ByteVar>())
 
-public actual fun msiGetSummaryInformationA(hdatabase: Msihandle, szdatabasepath: Pcstr, uiupdatecount: UInt, phsummaryinfo: MutPtr<Msihandle>): UInt =
+public actual fun msiGetSummaryInformationA(hdatabase: Msihandle, szdatabasepath: Pcstr, uiupdatecount: UInt, phsummaryinfo: MutPtr): UInt =
     windowssysWindowsWin32SystemApplicationinstallationandservicingMsiGetSummaryInformationA(hdatabase, szdatabasepath.rawAddress.toCPointer<ByteVar>(), uiupdatecount, phsummaryinfo.rawAddress.toCPointer<ByteVar>())
 
-public actual fun msiGetSummaryInformationW(hdatabase: Msihandle, szdatabasepath: Pcwstr, uiupdatecount: UInt, phsummaryinfo: MutPtr<Msihandle>): UInt =
+public actual fun msiGetSummaryInformationW(hdatabase: Msihandle, szdatabasepath: Pcwstr, uiupdatecount: UInt, phsummaryinfo: MutPtr): UInt =
     windowssysWindowsWin32SystemApplicationinstallationandservicingMsiGetSummaryInformationW(hdatabase, szdatabasepath.rawAddress.toCPointer<ByteVar>(), uiupdatecount, phsummaryinfo.rawAddress.toCPointer<ByteVar>())
 
-public actual fun msiGetTargetPathA(hinstall: Msihandle, szfolder: Pcstr, szpathbuf: Pstr, pcchpathbuf: MutPtr<UInt>): UInt =
+public actual fun msiGetTargetPathA(hinstall: Msihandle, szfolder: Pcstr, szpathbuf: Pstr, pcchpathbuf: MutPtr): UInt =
     windowssysWindowsWin32SystemApplicationinstallationandservicingMsiGetTargetPathA(hinstall, szfolder.rawAddress.toCPointer<ByteVar>(), szpathbuf.rawAddress.toCPointer<ByteVar>(), pcchpathbuf.rawAddress.toCPointer<ByteVar>())
 
-public actual fun msiGetTargetPathW(hinstall: Msihandle, szfolder: Pcwstr, szpathbuf: Pwstr, pcchpathbuf: MutPtr<UInt>): UInt =
+public actual fun msiGetTargetPathW(hinstall: Msihandle, szfolder: Pcwstr, szpathbuf: Pwstr, pcchpathbuf: MutPtr): UInt =
     windowssysWindowsWin32SystemApplicationinstallationandservicingMsiGetTargetPathW(hinstall, szfolder.rawAddress.toCPointer<ByteVar>(), szpathbuf.rawAddress.toCPointer<ByteVar>(), pcchpathbuf.rawAddress.toCPointer<ByteVar>())
 
-public actual fun msiGetUserInfoA(szproduct: Pcstr, lpusernamebuf: Pstr, pcchusernamebuf: MutPtr<UInt>, lporgnamebuf: Pstr, pcchorgnamebuf: MutPtr<UInt>, lpserialbuf: Pstr, pcchserialbuf: MutPtr<UInt>): Userinfostate =
+public actual fun msiGetUserInfoA(szproduct: Pcstr, lpusernamebuf: Pstr, pcchusernamebuf: MutPtr, lporgnamebuf: Pstr, pcchorgnamebuf: MutPtr, lpserialbuf: Pstr, pcchserialbuf: MutPtr): Userinfostate =
     windowssysWindowsWin32SystemApplicationinstallationandservicingMsiGetUserInfoA(szproduct.rawAddress.toCPointer<ByteVar>(), lpusernamebuf.rawAddress.toCPointer<ByteVar>(), pcchusernamebuf.rawAddress.toCPointer<ByteVar>(), lporgnamebuf.rawAddress.toCPointer<ByteVar>(), pcchorgnamebuf.rawAddress.toCPointer<ByteVar>(), lpserialbuf.rawAddress.toCPointer<ByteVar>(), pcchserialbuf.rawAddress.toCPointer<ByteVar>())
 
-public actual fun msiGetUserInfoW(szproduct: Pcwstr, lpusernamebuf: Pwstr, pcchusernamebuf: MutPtr<UInt>, lporgnamebuf: Pwstr, pcchorgnamebuf: MutPtr<UInt>, lpserialbuf: Pwstr, pcchserialbuf: MutPtr<UInt>): Userinfostate =
+public actual fun msiGetUserInfoW(szproduct: Pcwstr, lpusernamebuf: Pwstr, pcchusernamebuf: MutPtr, lporgnamebuf: Pwstr, pcchorgnamebuf: MutPtr, lpserialbuf: Pwstr, pcchserialbuf: MutPtr): Userinfostate =
     windowssysWindowsWin32SystemApplicationinstallationandservicingMsiGetUserInfoW(szproduct.rawAddress.toCPointer<ByteVar>(), lpusernamebuf.rawAddress.toCPointer<ByteVar>(), pcchusernamebuf.rawAddress.toCPointer<ByteVar>(), lporgnamebuf.rawAddress.toCPointer<ByteVar>(), pcchorgnamebuf.rawAddress.toCPointer<ByteVar>(), lpserialbuf.rawAddress.toCPointer<ByteVar>(), pcchserialbuf.rawAddress.toCPointer<ByteVar>())
 
 public actual fun msiInstallMissingComponentA(szproduct: Pcstr, szcomponent: Pcstr, einstallstate: Installstate): UInt =
@@ -898,19 +893,19 @@ public actual fun msiInstallProductA(szpackagepath: Pcstr, szcommandline: Pcstr)
 public actual fun msiInstallProductW(szpackagepath: Pcwstr, szcommandline: Pcwstr): UInt =
     windowssysWindowsWin32SystemApplicationinstallationandservicingMsiInstallProductW(szpackagepath.rawAddress.toCPointer<ByteVar>(), szcommandline.rawAddress.toCPointer<ByteVar>())
 
-public actual fun msiIsProductElevatedA(szproduct: Pcstr, pfelevated: MutPtr<Bool>): UInt =
+public actual fun msiIsProductElevatedA(szproduct: Pcstr, pfelevated: MutPtr): UInt =
     windowssysWindowsWin32SystemApplicationinstallationandservicingMsiIsProductElevatedA(szproduct.rawAddress.toCPointer<ByteVar>(), pfelevated.rawAddress.toCPointer<ByteVar>())
 
-public actual fun msiIsProductElevatedW(szproduct: Pcwstr, pfelevated: MutPtr<Bool>): UInt =
+public actual fun msiIsProductElevatedW(szproduct: Pcwstr, pfelevated: MutPtr): UInt =
     windowssysWindowsWin32SystemApplicationinstallationandservicingMsiIsProductElevatedW(szproduct.rawAddress.toCPointer<ByteVar>(), pfelevated.rawAddress.toCPointer<ByteVar>())
 
-public actual fun msiJoinTransaction(htransactionhandle: Msihandle, dwtransactionattributes: UInt, phchangeofownerevent: MutPtr<Handle>): UInt =
+public actual fun msiJoinTransaction(htransactionhandle: Msihandle, dwtransactionattributes: UInt, phchangeofownerevent: MutPtr): UInt =
     windowssysWindowsWin32SystemApplicationinstallationandservicingMsiJoinTransaction(htransactionhandle, dwtransactionattributes, phchangeofownerevent.rawAddress.toCPointer<ByteVar>())
 
-public actual fun msiLocateComponentA(szcomponent: Pcstr, lppathbuf: Pstr, pcchbuf: MutPtr<UInt>): Installstate =
+public actual fun msiLocateComponentA(szcomponent: Pcstr, lppathbuf: Pstr, pcchbuf: MutPtr): Installstate =
     windowssysWindowsWin32SystemApplicationinstallationandservicingMsiLocateComponentA(szcomponent.rawAddress.toCPointer<ByteVar>(), lppathbuf.rawAddress.toCPointer<ByteVar>(), pcchbuf.rawAddress.toCPointer<ByteVar>())
 
-public actual fun msiLocateComponentW(szcomponent: Pcwstr, lppathbuf: Pwstr, pcchbuf: MutPtr<UInt>): Installstate =
+public actual fun msiLocateComponentW(szcomponent: Pcwstr, lppathbuf: Pwstr, pcchbuf: MutPtr): Installstate =
     windowssysWindowsWin32SystemApplicationinstallationandservicingMsiLocateComponentW(szcomponent.rawAddress.toCPointer<ByteVar>(), lppathbuf.rawAddress.toCPointer<ByteVar>(), pcchbuf.rawAddress.toCPointer<ByteVar>())
 
 public actual fun msiNotifySidChangeA(poldsid: Pcstr, pnewsid: Pcstr): UInt =
@@ -919,28 +914,28 @@ public actual fun msiNotifySidChangeA(poldsid: Pcstr, pnewsid: Pcstr): UInt =
 public actual fun msiNotifySidChangeW(poldsid: Pcwstr, pnewsid: Pcwstr): UInt =
     windowssysWindowsWin32SystemApplicationinstallationandservicingMsiNotifySidChangeW(poldsid.rawAddress.toCPointer<ByteVar>(), pnewsid.rawAddress.toCPointer<ByteVar>())
 
-public actual fun msiOpenDatabaseA(szdatabasepath: Pcstr, szpersist: Pcstr, phdatabase: MutPtr<Msihandle>): UInt =
+public actual fun msiOpenDatabaseA(szdatabasepath: Pcstr, szpersist: Pcstr, phdatabase: MutPtr): UInt =
     windowssysWindowsWin32SystemApplicationinstallationandservicingMsiOpenDatabaseA(szdatabasepath.rawAddress.toCPointer<ByteVar>(), szpersist.rawAddress.toCPointer<ByteVar>(), phdatabase.rawAddress.toCPointer<ByteVar>())
 
-public actual fun msiOpenDatabaseW(szdatabasepath: Pcwstr, szpersist: Pcwstr, phdatabase: MutPtr<Msihandle>): UInt =
+public actual fun msiOpenDatabaseW(szdatabasepath: Pcwstr, szpersist: Pcwstr, phdatabase: MutPtr): UInt =
     windowssysWindowsWin32SystemApplicationinstallationandservicingMsiOpenDatabaseW(szdatabasepath.rawAddress.toCPointer<ByteVar>(), szpersist.rawAddress.toCPointer<ByteVar>(), phdatabase.rawAddress.toCPointer<ByteVar>())
 
-public actual fun msiOpenPackageA(szpackagepath: Pcstr, hproduct: MutPtr<Msihandle>): UInt =
+public actual fun msiOpenPackageA(szpackagepath: Pcstr, hproduct: MutPtr): UInt =
     windowssysWindowsWin32SystemApplicationinstallationandservicingMsiOpenPackageA(szpackagepath.rawAddress.toCPointer<ByteVar>(), hproduct.rawAddress.toCPointer<ByteVar>())
 
-public actual fun msiOpenPackageExA(szpackagepath: Pcstr, dwoptions: UInt, hproduct: MutPtr<Msihandle>): UInt =
+public actual fun msiOpenPackageExA(szpackagepath: Pcstr, dwoptions: UInt, hproduct: MutPtr): UInt =
     windowssysWindowsWin32SystemApplicationinstallationandservicingMsiOpenPackageExA(szpackagepath.rawAddress.toCPointer<ByteVar>(), dwoptions, hproduct.rawAddress.toCPointer<ByteVar>())
 
-public actual fun msiOpenPackageExW(szpackagepath: Pcwstr, dwoptions: UInt, hproduct: MutPtr<Msihandle>): UInt =
+public actual fun msiOpenPackageExW(szpackagepath: Pcwstr, dwoptions: UInt, hproduct: MutPtr): UInt =
     windowssysWindowsWin32SystemApplicationinstallationandservicingMsiOpenPackageExW(szpackagepath.rawAddress.toCPointer<ByteVar>(), dwoptions, hproduct.rawAddress.toCPointer<ByteVar>())
 
-public actual fun msiOpenPackageW(szpackagepath: Pcwstr, hproduct: MutPtr<Msihandle>): UInt =
+public actual fun msiOpenPackageW(szpackagepath: Pcwstr, hproduct: MutPtr): UInt =
     windowssysWindowsWin32SystemApplicationinstallationandservicingMsiOpenPackageW(szpackagepath.rawAddress.toCPointer<ByteVar>(), hproduct.rawAddress.toCPointer<ByteVar>())
 
-public actual fun msiOpenProductA(szproduct: Pcstr, hproduct: MutPtr<Msihandle>): UInt =
+public actual fun msiOpenProductA(szproduct: Pcstr, hproduct: MutPtr): UInt =
     windowssysWindowsWin32SystemApplicationinstallationandservicingMsiOpenProductA(szproduct.rawAddress.toCPointer<ByteVar>(), hproduct.rawAddress.toCPointer<ByteVar>())
 
-public actual fun msiOpenProductW(szproduct: Pcwstr, hproduct: MutPtr<Msihandle>): UInt =
+public actual fun msiOpenProductW(szproduct: Pcwstr, hproduct: MutPtr): UInt =
     windowssysWindowsWin32SystemApplicationinstallationandservicingMsiOpenProductW(szproduct.rawAddress.toCPointer<ByteVar>(), hproduct.rawAddress.toCPointer<ByteVar>())
 
 public actual fun msiPreviewBillboardA(hpreview: Msihandle, szcontrolname: Pcstr, szbillboard: Pcstr): UInt =
@@ -964,43 +959,43 @@ public actual fun msiProcessAdvertiseScriptW(szscriptfile: Pcwstr, sziconfolder:
 public actual fun msiProcessMessage(hinstall: Msihandle, emessagetype: Installmessage, hrecord: Msihandle): Int =
     windowssysWindowsWin32SystemApplicationinstallationandservicingMsiProcessMessage(hinstall, emessagetype, hrecord)
 
-public actual fun msiProvideAssemblyA(szassemblyname: Pcstr, szappcontext: Pcstr, dwinstallmode: UInt, dwassemblyinfo: Msiassemblyinfo, lppathbuf: Pstr, pcchpathbuf: MutPtr<UInt>): UInt =
+public actual fun msiProvideAssemblyA(szassemblyname: Pcstr, szappcontext: Pcstr, dwinstallmode: UInt, dwassemblyinfo: Msiassemblyinfo, lppathbuf: Pstr, pcchpathbuf: MutPtr): UInt =
     windowssysWindowsWin32SystemApplicationinstallationandservicingMsiProvideAssemblyA(szassemblyname.rawAddress.toCPointer<ByteVar>(), szappcontext.rawAddress.toCPointer<ByteVar>(), dwinstallmode, dwassemblyinfo, lppathbuf.rawAddress.toCPointer<ByteVar>(), pcchpathbuf.rawAddress.toCPointer<ByteVar>())
 
-public actual fun msiProvideAssemblyW(szassemblyname: Pcwstr, szappcontext: Pcwstr, dwinstallmode: UInt, dwassemblyinfo: Msiassemblyinfo, lppathbuf: Pwstr, pcchpathbuf: MutPtr<UInt>): UInt =
+public actual fun msiProvideAssemblyW(szassemblyname: Pcwstr, szappcontext: Pcwstr, dwinstallmode: UInt, dwassemblyinfo: Msiassemblyinfo, lppathbuf: Pwstr, pcchpathbuf: MutPtr): UInt =
     windowssysWindowsWin32SystemApplicationinstallationandservicingMsiProvideAssemblyW(szassemblyname.rawAddress.toCPointer<ByteVar>(), szappcontext.rawAddress.toCPointer<ByteVar>(), dwinstallmode, dwassemblyinfo, lppathbuf.rawAddress.toCPointer<ByteVar>(), pcchpathbuf.rawAddress.toCPointer<ByteVar>())
 
-public actual fun msiProvideComponentA(szproduct: Pcstr, szfeature: Pcstr, szcomponent: Pcstr, dwinstallmode: UInt, lppathbuf: Pstr, pcchpathbuf: MutPtr<UInt>): UInt =
+public actual fun msiProvideComponentA(szproduct: Pcstr, szfeature: Pcstr, szcomponent: Pcstr, dwinstallmode: UInt, lppathbuf: Pstr, pcchpathbuf: MutPtr): UInt =
     windowssysWindowsWin32SystemApplicationinstallationandservicingMsiProvideComponentA(szproduct.rawAddress.toCPointer<ByteVar>(), szfeature.rawAddress.toCPointer<ByteVar>(), szcomponent.rawAddress.toCPointer<ByteVar>(), dwinstallmode, lppathbuf.rawAddress.toCPointer<ByteVar>(), pcchpathbuf.rawAddress.toCPointer<ByteVar>())
 
-public actual fun msiProvideComponentW(szproduct: Pcwstr, szfeature: Pcwstr, szcomponent: Pcwstr, dwinstallmode: UInt, lppathbuf: Pwstr, pcchpathbuf: MutPtr<UInt>): UInt =
+public actual fun msiProvideComponentW(szproduct: Pcwstr, szfeature: Pcwstr, szcomponent: Pcwstr, dwinstallmode: UInt, lppathbuf: Pwstr, pcchpathbuf: MutPtr): UInt =
     windowssysWindowsWin32SystemApplicationinstallationandservicingMsiProvideComponentW(szproduct.rawAddress.toCPointer<ByteVar>(), szfeature.rawAddress.toCPointer<ByteVar>(), szcomponent.rawAddress.toCPointer<ByteVar>(), dwinstallmode, lppathbuf.rawAddress.toCPointer<ByteVar>(), pcchpathbuf.rawAddress.toCPointer<ByteVar>())
 
-public actual fun msiProvideQualifiedComponentA(szcategory: Pcstr, szqualifier: Pcstr, dwinstallmode: UInt, lppathbuf: Pstr, pcchpathbuf: MutPtr<UInt>): UInt =
+public actual fun msiProvideQualifiedComponentA(szcategory: Pcstr, szqualifier: Pcstr, dwinstallmode: UInt, lppathbuf: Pstr, pcchpathbuf: MutPtr): UInt =
     windowssysWindowsWin32SystemApplicationinstallationandservicingMsiProvideQualifiedComponentA(szcategory.rawAddress.toCPointer<ByteVar>(), szqualifier.rawAddress.toCPointer<ByteVar>(), dwinstallmode, lppathbuf.rawAddress.toCPointer<ByteVar>(), pcchpathbuf.rawAddress.toCPointer<ByteVar>())
 
-public actual fun msiProvideQualifiedComponentExA(szcategory: Pcstr, szqualifier: Pcstr, dwinstallmode: UInt, szproduct: Pcstr, dwunused1: UInt, dwunused2: UInt, lppathbuf: Pstr, pcchpathbuf: MutPtr<UInt>): UInt =
+public actual fun msiProvideQualifiedComponentExA(szcategory: Pcstr, szqualifier: Pcstr, dwinstallmode: UInt, szproduct: Pcstr, dwunused1: UInt, dwunused2: UInt, lppathbuf: Pstr, pcchpathbuf: MutPtr): UInt =
     windowssysWindowsWin32SystemApplicationinstallationandservicingMsiProvideQualifiedComponentExA(szcategory.rawAddress.toCPointer<ByteVar>(), szqualifier.rawAddress.toCPointer<ByteVar>(), dwinstallmode, szproduct.rawAddress.toCPointer<ByteVar>(), dwunused1, dwunused2, lppathbuf.rawAddress.toCPointer<ByteVar>(), pcchpathbuf.rawAddress.toCPointer<ByteVar>())
 
-public actual fun msiProvideQualifiedComponentExW(szcategory: Pcwstr, szqualifier: Pcwstr, dwinstallmode: UInt, szproduct: Pcwstr, dwunused1: UInt, dwunused2: UInt, lppathbuf: Pwstr, pcchpathbuf: MutPtr<UInt>): UInt =
+public actual fun msiProvideQualifiedComponentExW(szcategory: Pcwstr, szqualifier: Pcwstr, dwinstallmode: UInt, szproduct: Pcwstr, dwunused1: UInt, dwunused2: UInt, lppathbuf: Pwstr, pcchpathbuf: MutPtr): UInt =
     windowssysWindowsWin32SystemApplicationinstallationandservicingMsiProvideQualifiedComponentExW(szcategory.rawAddress.toCPointer<ByteVar>(), szqualifier.rawAddress.toCPointer<ByteVar>(), dwinstallmode, szproduct.rawAddress.toCPointer<ByteVar>(), dwunused1, dwunused2, lppathbuf.rawAddress.toCPointer<ByteVar>(), pcchpathbuf.rawAddress.toCPointer<ByteVar>())
 
-public actual fun msiProvideQualifiedComponentW(szcategory: Pcwstr, szqualifier: Pcwstr, dwinstallmode: UInt, lppathbuf: Pwstr, pcchpathbuf: MutPtr<UInt>): UInt =
+public actual fun msiProvideQualifiedComponentW(szcategory: Pcwstr, szqualifier: Pcwstr, dwinstallmode: UInt, lppathbuf: Pwstr, pcchpathbuf: MutPtr): UInt =
     windowssysWindowsWin32SystemApplicationinstallationandservicingMsiProvideQualifiedComponentW(szcategory.rawAddress.toCPointer<ByteVar>(), szqualifier.rawAddress.toCPointer<ByteVar>(), dwinstallmode, lppathbuf.rawAddress.toCPointer<ByteVar>(), pcchpathbuf.rawAddress.toCPointer<ByteVar>())
 
-public actual fun msiQueryComponentStateA(szproductcode: Pcstr, szusersid: Pcstr, dwcontext: Msiinstallcontext, szcomponentcode: Pcstr, pdwstate: MutPtr<Installstate>): UInt =
+public actual fun msiQueryComponentStateA(szproductcode: Pcstr, szusersid: Pcstr, dwcontext: Msiinstallcontext, szcomponentcode: Pcstr, pdwstate: MutPtr): UInt =
     windowssysWindowsWin32SystemApplicationinstallationandservicingMsiQueryComponentStateA(szproductcode.rawAddress.toCPointer<ByteVar>(), szusersid.rawAddress.toCPointer<ByteVar>(), dwcontext, szcomponentcode.rawAddress.toCPointer<ByteVar>(), pdwstate.rawAddress.toCPointer<ByteVar>())
 
-public actual fun msiQueryComponentStateW(szproductcode: Pcwstr, szusersid: Pcwstr, dwcontext: Msiinstallcontext, szcomponentcode: Pcwstr, pdwstate: MutPtr<Installstate>): UInt =
+public actual fun msiQueryComponentStateW(szproductcode: Pcwstr, szusersid: Pcwstr, dwcontext: Msiinstallcontext, szcomponentcode: Pcwstr, pdwstate: MutPtr): UInt =
     windowssysWindowsWin32SystemApplicationinstallationandservicingMsiQueryComponentStateW(szproductcode.rawAddress.toCPointer<ByteVar>(), szusersid.rawAddress.toCPointer<ByteVar>(), dwcontext, szcomponentcode.rawAddress.toCPointer<ByteVar>(), pdwstate.rawAddress.toCPointer<ByteVar>())
 
 public actual fun msiQueryFeatureStateA(szproduct: Pcstr, szfeature: Pcstr): Installstate =
     windowssysWindowsWin32SystemApplicationinstallationandservicingMsiQueryFeatureStateA(szproduct.rawAddress.toCPointer<ByteVar>(), szfeature.rawAddress.toCPointer<ByteVar>())
 
-public actual fun msiQueryFeatureStateExA(szproductcode: Pcstr, szusersid: Pcstr, dwcontext: Msiinstallcontext, szfeature: Pcstr, pdwstate: MutPtr<Installstate>): UInt =
+public actual fun msiQueryFeatureStateExA(szproductcode: Pcstr, szusersid: Pcstr, dwcontext: Msiinstallcontext, szfeature: Pcstr, pdwstate: MutPtr): UInt =
     windowssysWindowsWin32SystemApplicationinstallationandservicingMsiQueryFeatureStateExA(szproductcode.rawAddress.toCPointer<ByteVar>(), szusersid.rawAddress.toCPointer<ByteVar>(), dwcontext, szfeature.rawAddress.toCPointer<ByteVar>(), pdwstate.rawAddress.toCPointer<ByteVar>())
 
-public actual fun msiQueryFeatureStateExW(szproductcode: Pcwstr, szusersid: Pcwstr, dwcontext: Msiinstallcontext, szfeature: Pcwstr, pdwstate: MutPtr<Installstate>): UInt =
+public actual fun msiQueryFeatureStateExW(szproductcode: Pcwstr, szusersid: Pcwstr, dwcontext: Msiinstallcontext, szfeature: Pcwstr, pdwstate: MutPtr): UInt =
     windowssysWindowsWin32SystemApplicationinstallationandservicingMsiQueryFeatureStateExW(szproductcode.rawAddress.toCPointer<ByteVar>(), szusersid.rawAddress.toCPointer<ByteVar>(), dwcontext, szfeature.rawAddress.toCPointer<ByteVar>(), pdwstate.rawAddress.toCPointer<ByteVar>())
 
 public actual fun msiQueryFeatureStateW(szproduct: Pcwstr, szfeature: Pcwstr): Installstate =
@@ -1024,16 +1019,16 @@ public actual fun msiRecordGetFieldCount(hrecord: Msihandle): UInt =
 public actual fun msiRecordGetInteger(hrecord: Msihandle, ifield: UInt): Int =
     windowssysWindowsWin32SystemApplicationinstallationandservicingMsiRecordGetInteger(hrecord, ifield)
 
-public actual fun msiRecordGetStringA(hrecord: Msihandle, ifield: UInt, szvaluebuf: Pstr, pcchvaluebuf: MutPtr<UInt>): UInt =
+public actual fun msiRecordGetStringA(hrecord: Msihandle, ifield: UInt, szvaluebuf: Pstr, pcchvaluebuf: MutPtr): UInt =
     windowssysWindowsWin32SystemApplicationinstallationandservicingMsiRecordGetStringA(hrecord, ifield, szvaluebuf.rawAddress.toCPointer<ByteVar>(), pcchvaluebuf.rawAddress.toCPointer<ByteVar>())
 
-public actual fun msiRecordGetStringW(hrecord: Msihandle, ifield: UInt, szvaluebuf: Pwstr, pcchvaluebuf: MutPtr<UInt>): UInt =
+public actual fun msiRecordGetStringW(hrecord: Msihandle, ifield: UInt, szvaluebuf: Pwstr, pcchvaluebuf: MutPtr): UInt =
     windowssysWindowsWin32SystemApplicationinstallationandservicingMsiRecordGetStringW(hrecord, ifield, szvaluebuf.rawAddress.toCPointer<ByteVar>(), pcchvaluebuf.rawAddress.toCPointer<ByteVar>())
 
 public actual fun msiRecordIsNull(hrecord: Msihandle, ifield: UInt): Bool =
     windowssysWindowsWin32SystemApplicationinstallationandservicingMsiRecordIsNull(hrecord, ifield)
 
-public actual fun msiRecordReadStream(hrecord: Msihandle, ifield: UInt, szdatabuf: Pstr, pcbdatabuf: MutPtr<UInt>): UInt =
+public actual fun msiRecordReadStream(hrecord: Msihandle, ifield: UInt, szdatabuf: Pstr, pcbdatabuf: MutPtr): UInt =
     windowssysWindowsWin32SystemApplicationinstallationandservicingMsiRecordReadStream(hrecord, ifield, szdatabuf.rawAddress.toCPointer<ByteVar>(), pcbdatabuf.rawAddress.toCPointer<ByteVar>())
 
 public actual fun msiRecordSetInteger(hrecord: Msihandle, ifield: UInt, ivalue: Int): UInt =
@@ -1081,13 +1076,13 @@ public actual fun msiSetComponentStateA(hinstall: Msihandle, szcomponent: Pcstr,
 public actual fun msiSetComponentStateW(hinstall: Msihandle, szcomponent: Pcwstr, istate: Installstate): UInt =
     windowssysWindowsWin32SystemApplicationinstallationandservicingMsiSetComponentStateW(hinstall, szcomponent.rawAddress.toCPointer<ByteVar>(), istate)
 
-public actual fun msiSetExternalUIA(puihandler: InstalluiHandlera, dwmessagefilter: UInt, pvcontext: ConstPtr<CVoid>): InstalluiHandlera =
+public actual fun msiSetExternalUIA(puihandler: InstalluiHandlera, dwmessagefilter: UInt, pvcontext: ConstPtr): InstalluiHandlera =
     null
 
-public actual fun msiSetExternalUIRecord(puihandler: PinstalluiHandlerRecord, dwmessagefilter: UInt, pvcontext: ConstPtr<CVoid>, ppuiprevhandler: PinstalluiHandlerRecord): UInt =
+public actual fun msiSetExternalUIRecord(puihandler: PinstalluiHandlerRecord, dwmessagefilter: UInt, pvcontext: ConstPtr, ppuiprevhandler: PinstalluiHandlerRecord): UInt =
     windowssysWindowsWin32SystemApplicationinstallationandservicingMsiSetExternalUIRecord(0L.toCPointer<ByteVar>(), dwmessagefilter, pvcontext.rawAddress.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>())
 
-public actual fun msiSetExternalUIW(puihandler: InstalluiHandlerw, dwmessagefilter: UInt, pvcontext: ConstPtr<CVoid>): InstalluiHandlerw =
+public actual fun msiSetExternalUIW(puihandler: InstalluiHandlerw, dwmessagefilter: UInt, pvcontext: ConstPtr): InstalluiHandlerw =
     null
 
 public actual fun msiSetFeatureAttributesA(hinstall: Msihandle, szfeature: Pcstr, dwattributes: UInt): UInt =
@@ -1105,7 +1100,7 @@ public actual fun msiSetFeatureStateW(hinstall: Msihandle, szfeature: Pcwstr, is
 public actual fun msiSetInstallLevel(hinstall: Msihandle, iinstalllevel: Int): UInt =
     windowssysWindowsWin32SystemApplicationinstallationandservicingMsiSetInstallLevel(hinstall, iinstalllevel)
 
-public actual fun msiSetInternalUI(dwuilevel: Installuilevel, phwnd: MutPtr<Hwnd>): Installuilevel =
+public actual fun msiSetInternalUI(dwuilevel: Installuilevel, phwnd: MutPtr): Installuilevel =
     windowssysWindowsWin32SystemApplicationinstallationandservicingMsiSetInternalUI(dwuilevel, phwnd.rawAddress.toCPointer<ByteVar>())
 
 public actual fun msiSetMode(hinstall: Msihandle, erunmode: Msirunmode, fstate: Bool): UInt =
@@ -1165,16 +1160,16 @@ public actual fun msiSourceListClearSourceA(szproductcodeorpatchcode: Pcstr, szu
 public actual fun msiSourceListClearSourceW(szproductcodeorpatchcode: Pcwstr, szusersid: Pcwstr, dwcontext: Msiinstallcontext, dwoptions: UInt, szsource: Pcwstr): UInt =
     windowssysWindowsWin32SystemApplicationinstallationandservicingMsiSourceListClearSourceW(szproductcodeorpatchcode.rawAddress.toCPointer<ByteVar>(), szusersid.rawAddress.toCPointer<ByteVar>(), dwcontext, dwoptions, szsource.rawAddress.toCPointer<ByteVar>())
 
-public actual fun msiSourceListEnumMediaDisksA(szproductcodeorpatchcode: Pcstr, szusersid: Pcstr, dwcontext: Msiinstallcontext, dwoptions: UInt, dwindex: UInt, pdwdiskid: MutPtr<UInt>, szvolumelabel: Pstr, pcchvolumelabel: MutPtr<UInt>, szdiskprompt: Pstr, pcchdiskprompt: MutPtr<UInt>): UInt =
+public actual fun msiSourceListEnumMediaDisksA(szproductcodeorpatchcode: Pcstr, szusersid: Pcstr, dwcontext: Msiinstallcontext, dwoptions: UInt, dwindex: UInt, pdwdiskid: MutPtr, szvolumelabel: Pstr, pcchvolumelabel: MutPtr, szdiskprompt: Pstr, pcchdiskprompt: MutPtr): UInt =
     windowssysWindowsWin32SystemApplicationinstallationandservicingMsiSourceListEnumMediaDisksA(szproductcodeorpatchcode.rawAddress.toCPointer<ByteVar>(), szusersid.rawAddress.toCPointer<ByteVar>(), dwcontext, dwoptions, dwindex, pdwdiskid.rawAddress.toCPointer<ByteVar>(), szvolumelabel.rawAddress.toCPointer<ByteVar>(), pcchvolumelabel.rawAddress.toCPointer<ByteVar>(), szdiskprompt.rawAddress.toCPointer<ByteVar>(), pcchdiskprompt.rawAddress.toCPointer<ByteVar>())
 
-public actual fun msiSourceListEnumMediaDisksW(szproductcodeorpatchcode: Pcwstr, szusersid: Pcwstr, dwcontext: Msiinstallcontext, dwoptions: UInt, dwindex: UInt, pdwdiskid: MutPtr<UInt>, szvolumelabel: Pwstr, pcchvolumelabel: MutPtr<UInt>, szdiskprompt: Pwstr, pcchdiskprompt: MutPtr<UInt>): UInt =
+public actual fun msiSourceListEnumMediaDisksW(szproductcodeorpatchcode: Pcwstr, szusersid: Pcwstr, dwcontext: Msiinstallcontext, dwoptions: UInt, dwindex: UInt, pdwdiskid: MutPtr, szvolumelabel: Pwstr, pcchvolumelabel: MutPtr, szdiskprompt: Pwstr, pcchdiskprompt: MutPtr): UInt =
     windowssysWindowsWin32SystemApplicationinstallationandservicingMsiSourceListEnumMediaDisksW(szproductcodeorpatchcode.rawAddress.toCPointer<ByteVar>(), szusersid.rawAddress.toCPointer<ByteVar>(), dwcontext, dwoptions, dwindex, pdwdiskid.rawAddress.toCPointer<ByteVar>(), szvolumelabel.rawAddress.toCPointer<ByteVar>(), pcchvolumelabel.rawAddress.toCPointer<ByteVar>(), szdiskprompt.rawAddress.toCPointer<ByteVar>(), pcchdiskprompt.rawAddress.toCPointer<ByteVar>())
 
-public actual fun msiSourceListEnumSourcesA(szproductcodeorpatchcode: Pcstr, szusersid: Pcstr, dwcontext: Msiinstallcontext, dwoptions: UInt, dwindex: UInt, szsource: Pstr, pcchsource: MutPtr<UInt>): UInt =
+public actual fun msiSourceListEnumSourcesA(szproductcodeorpatchcode: Pcstr, szusersid: Pcstr, dwcontext: Msiinstallcontext, dwoptions: UInt, dwindex: UInt, szsource: Pstr, pcchsource: MutPtr): UInt =
     windowssysWindowsWin32SystemApplicationinstallationandservicingMsiSourceListEnumSourcesA(szproductcodeorpatchcode.rawAddress.toCPointer<ByteVar>(), szusersid.rawAddress.toCPointer<ByteVar>(), dwcontext, dwoptions, dwindex, szsource.rawAddress.toCPointer<ByteVar>(), pcchsource.rawAddress.toCPointer<ByteVar>())
 
-public actual fun msiSourceListEnumSourcesW(szproductcodeorpatchcode: Pcwstr, szusersid: Pcwstr, dwcontext: Msiinstallcontext, dwoptions: UInt, dwindex: UInt, szsource: Pwstr, pcchsource: MutPtr<UInt>): UInt =
+public actual fun msiSourceListEnumSourcesW(szproductcodeorpatchcode: Pcwstr, szusersid: Pcwstr, dwcontext: Msiinstallcontext, dwoptions: UInt, dwindex: UInt, szsource: Pwstr, pcchsource: MutPtr): UInt =
     windowssysWindowsWin32SystemApplicationinstallationandservicingMsiSourceListEnumSourcesW(szproductcodeorpatchcode.rawAddress.toCPointer<ByteVar>(), szusersid.rawAddress.toCPointer<ByteVar>(), dwcontext, dwoptions, dwindex, szsource.rawAddress.toCPointer<ByteVar>(), pcchsource.rawAddress.toCPointer<ByteVar>())
 
 public actual fun msiSourceListForceResolutionA(szproduct: Pcstr, szusername: Pcstr, dwreserved: UInt): UInt =
@@ -1189,10 +1184,10 @@ public actual fun msiSourceListForceResolutionExW(szproductcodeorpatchcode: Pcws
 public actual fun msiSourceListForceResolutionW(szproduct: Pcwstr, szusername: Pcwstr, dwreserved: UInt): UInt =
     windowssysWindowsWin32SystemApplicationinstallationandservicingMsiSourceListForceResolutionW(szproduct.rawAddress.toCPointer<ByteVar>(), szusername.rawAddress.toCPointer<ByteVar>(), dwreserved)
 
-public actual fun msiSourceListGetInfoA(szproductcodeorpatchcode: Pcstr, szusersid: Pcstr, dwcontext: Msiinstallcontext, dwoptions: UInt, szproperty: Pcstr, szvalue: Pstr, pcchvalue: MutPtr<UInt>): UInt =
+public actual fun msiSourceListGetInfoA(szproductcodeorpatchcode: Pcstr, szusersid: Pcstr, dwcontext: Msiinstallcontext, dwoptions: UInt, szproperty: Pcstr, szvalue: Pstr, pcchvalue: MutPtr): UInt =
     windowssysWindowsWin32SystemApplicationinstallationandservicingMsiSourceListGetInfoA(szproductcodeorpatchcode.rawAddress.toCPointer<ByteVar>(), szusersid.rawAddress.toCPointer<ByteVar>(), dwcontext, dwoptions, szproperty.rawAddress.toCPointer<ByteVar>(), szvalue.rawAddress.toCPointer<ByteVar>(), pcchvalue.rawAddress.toCPointer<ByteVar>())
 
-public actual fun msiSourceListGetInfoW(szproductcodeorpatchcode: Pcwstr, szusersid: Pcwstr, dwcontext: Msiinstallcontext, dwoptions: UInt, szproperty: Pcwstr, szvalue: Pwstr, pcchvalue: MutPtr<UInt>): UInt =
+public actual fun msiSourceListGetInfoW(szproductcodeorpatchcode: Pcwstr, szusersid: Pcwstr, dwcontext: Msiinstallcontext, dwoptions: UInt, szproperty: Pcwstr, szvalue: Pwstr, pcchvalue: MutPtr): UInt =
     windowssysWindowsWin32SystemApplicationinstallationandservicingMsiSourceListGetInfoW(szproductcodeorpatchcode.rawAddress.toCPointer<ByteVar>(), szusersid.rawAddress.toCPointer<ByteVar>(), dwcontext, dwoptions, szproperty.rawAddress.toCPointer<ByteVar>(), szvalue.rawAddress.toCPointer<ByteVar>(), pcchvalue.rawAddress.toCPointer<ByteVar>())
 
 public actual fun msiSourceListSetInfoA(szproductcodeorpatchcode: Pcstr, szusersid: Pcstr, dwcontext: Msiinstallcontext, dwoptions: UInt, szproperty: Pcstr, szvalue: Pcstr): UInt =
@@ -1201,22 +1196,22 @@ public actual fun msiSourceListSetInfoA(szproductcodeorpatchcode: Pcstr, szusers
 public actual fun msiSourceListSetInfoW(szproductcodeorpatchcode: Pcwstr, szusersid: Pcwstr, dwcontext: Msiinstallcontext, dwoptions: UInt, szproperty: Pcwstr, szvalue: Pcwstr): UInt =
     windowssysWindowsWin32SystemApplicationinstallationandservicingMsiSourceListSetInfoW(szproductcodeorpatchcode.rawAddress.toCPointer<ByteVar>(), szusersid.rawAddress.toCPointer<ByteVar>(), dwcontext, dwoptions, szproperty.rawAddress.toCPointer<ByteVar>(), szvalue.rawAddress.toCPointer<ByteVar>())
 
-public actual fun msiSummaryInfoGetPropertyA(hsummaryinfo: Msihandle, uiproperty: UInt, puidatatype: MutPtr<UInt>, pivalue: MutPtr<Int>, pftvalue: MutPtr<Filetime>, szvaluebuf: Pstr, pcchvaluebuf: MutPtr<UInt>): UInt =
+public actual fun msiSummaryInfoGetPropertyA(hsummaryinfo: Msihandle, uiproperty: UInt, puidatatype: MutPtr, pivalue: MutPtr, pftvalue: MutPtr, szvaluebuf: Pstr, pcchvaluebuf: MutPtr): UInt =
     windowssysWindowsWin32SystemApplicationinstallationandservicingMsiSummaryInfoGetPropertyA(hsummaryinfo, uiproperty, puidatatype.rawAddress.toCPointer<ByteVar>(), pivalue.rawAddress.toCPointer<ByteVar>(), pftvalue.rawAddress.toCPointer<ByteVar>(), szvaluebuf.rawAddress.toCPointer<ByteVar>(), pcchvaluebuf.rawAddress.toCPointer<ByteVar>())
 
-public actual fun msiSummaryInfoGetPropertyCount(hsummaryinfo: Msihandle, puipropertycount: MutPtr<UInt>): UInt =
+public actual fun msiSummaryInfoGetPropertyCount(hsummaryinfo: Msihandle, puipropertycount: MutPtr): UInt =
     windowssysWindowsWin32SystemApplicationinstallationandservicingMsiSummaryInfoGetPropertyCount(hsummaryinfo, puipropertycount.rawAddress.toCPointer<ByteVar>())
 
-public actual fun msiSummaryInfoGetPropertyW(hsummaryinfo: Msihandle, uiproperty: UInt, puidatatype: MutPtr<UInt>, pivalue: MutPtr<Int>, pftvalue: MutPtr<Filetime>, szvaluebuf: Pwstr, pcchvaluebuf: MutPtr<UInt>): UInt =
+public actual fun msiSummaryInfoGetPropertyW(hsummaryinfo: Msihandle, uiproperty: UInt, puidatatype: MutPtr, pivalue: MutPtr, pftvalue: MutPtr, szvaluebuf: Pwstr, pcchvaluebuf: MutPtr): UInt =
     windowssysWindowsWin32SystemApplicationinstallationandservicingMsiSummaryInfoGetPropertyW(hsummaryinfo, uiproperty, puidatatype.rawAddress.toCPointer<ByteVar>(), pivalue.rawAddress.toCPointer<ByteVar>(), pftvalue.rawAddress.toCPointer<ByteVar>(), szvaluebuf.rawAddress.toCPointer<ByteVar>(), pcchvaluebuf.rawAddress.toCPointer<ByteVar>())
 
 public actual fun msiSummaryInfoPersist(hsummaryinfo: Msihandle): UInt =
     windowssysWindowsWin32SystemApplicationinstallationandservicingMsiSummaryInfoPersist(hsummaryinfo)
 
-public actual fun msiSummaryInfoSetPropertyA(hsummaryinfo: Msihandle, uiproperty: UInt, uidatatype: UInt, ivalue: Int, pftvalue: MutPtr<Filetime>, szvalue: Pcstr): UInt =
+public actual fun msiSummaryInfoSetPropertyA(hsummaryinfo: Msihandle, uiproperty: UInt, uidatatype: UInt, ivalue: Int, pftvalue: MutPtr, szvalue: Pcstr): UInt =
     windowssysWindowsWin32SystemApplicationinstallationandservicingMsiSummaryInfoSetPropertyA(hsummaryinfo, uiproperty, uidatatype, ivalue, pftvalue.rawAddress.toCPointer<ByteVar>(), szvalue.rawAddress.toCPointer<ByteVar>())
 
-public actual fun msiSummaryInfoSetPropertyW(hsummaryinfo: Msihandle, uiproperty: UInt, uidatatype: UInt, ivalue: Int, pftvalue: MutPtr<Filetime>, szvalue: Pcwstr): UInt =
+public actual fun msiSummaryInfoSetPropertyW(hsummaryinfo: Msihandle, uiproperty: UInt, uidatatype: UInt, ivalue: Int, pftvalue: MutPtr, szvalue: Pcwstr): UInt =
     windowssysWindowsWin32SystemApplicationinstallationandservicingMsiSummaryInfoSetPropertyW(hsummaryinfo, uiproperty, uidatatype, ivalue, pftvalue.rawAddress.toCPointer<ByteVar>(), szvalue.rawAddress.toCPointer<ByteVar>())
 
 public actual fun msiUseFeatureA(szproduct: Pcstr, szfeature: Pcstr): Installstate =
@@ -1246,35 +1241,35 @@ public actual fun msiViewClose(hview: Msihandle): UInt =
 public actual fun msiViewExecute(hview: Msihandle, hrecord: Msihandle): UInt =
     windowssysWindowsWin32SystemApplicationinstallationandservicingMsiViewExecute(hview, hrecord)
 
-public actual fun msiViewFetch(hview: Msihandle, phrecord: MutPtr<Msihandle>): UInt =
+public actual fun msiViewFetch(hview: Msihandle, phrecord: MutPtr): UInt =
     windowssysWindowsWin32SystemApplicationinstallationandservicingMsiViewFetch(hview, phrecord.rawAddress.toCPointer<ByteVar>())
 
-public actual fun msiViewGetColumnInfo(hview: Msihandle, ecolumninfo: Msicolinfo, phrecord: MutPtr<Msihandle>): UInt =
+public actual fun msiViewGetColumnInfo(hview: Msihandle, ecolumninfo: Msicolinfo, phrecord: MutPtr): UInt =
     windowssysWindowsWin32SystemApplicationinstallationandservicingMsiViewGetColumnInfo(hview, ecolumninfo, phrecord.rawAddress.toCPointer<ByteVar>())
 
-public actual fun msiViewGetErrorA(hview: Msihandle, szcolumnnamebuffer: Pstr, pcchbuf: MutPtr<UInt>): Msidberror =
+public actual fun msiViewGetErrorA(hview: Msihandle, szcolumnnamebuffer: Pstr, pcchbuf: MutPtr): Msidberror =
     windowssysWindowsWin32SystemApplicationinstallationandservicingMsiViewGetErrorA(hview, szcolumnnamebuffer.rawAddress.toCPointer<ByteVar>(), pcchbuf.rawAddress.toCPointer<ByteVar>())
 
-public actual fun msiViewGetErrorW(hview: Msihandle, szcolumnnamebuffer: Pwstr, pcchbuf: MutPtr<UInt>): Msidberror =
+public actual fun msiViewGetErrorW(hview: Msihandle, szcolumnnamebuffer: Pwstr, pcchbuf: MutPtr): Msidberror =
     windowssysWindowsWin32SystemApplicationinstallationandservicingMsiViewGetErrorW(hview, szcolumnnamebuffer.rawAddress.toCPointer<ByteVar>(), pcchbuf.rawAddress.toCPointer<ByteVar>())
 
 public actual fun msiViewModify(hview: Msihandle, emodifymode: Msimodify, hrecord: Msihandle): UInt =
     windowssysWindowsWin32SystemApplicationinstallationandservicingMsiViewModify(hview, emodifymode, hrecord)
 
-public actual fun normalizeFileForPatchSignature(filebuffer: MutPtr<CVoid>, filesize: UInt, optionflags: UInt, optiondata: ConstPtr<PatchOptionData>, newfilecoffbase: UInt, newfilecofftime: UInt, ignorerangecount: UInt, ignorerangearray: ConstPtr<PatchIgnoreRange>, retainrangecount: UInt, retainrangearray: ConstPtr<PatchRetainRange>): Int =
+public actual fun normalizeFileForPatchSignature(filebuffer: MutPtr, filesize: UInt, optionflags: UInt, optiondata: ConstPtr, newfilecoffbase: UInt, newfilecofftime: UInt, ignorerangecount: UInt, ignorerangearray: ConstPtr, retainrangecount: UInt, retainrangearray: ConstPtr): Int =
     windowssysWindowsWin32SystemApplicationinstallationandservicingNormalizeFileForPatchSignature(filebuffer.rawAddress.toCPointer<ByteVar>(), filesize, optionflags, optiondata.rawAddress.toCPointer<ByteVar>(), newfilecoffbase, newfilecofftime, ignorerangecount, ignorerangearray.rawAddress.toCPointer<ByteVar>(), retainrangecount, retainrangearray.rawAddress.toCPointer<ByteVar>())
 
-public actual fun queryActCtxSettingsW(dwflags: UInt, hactctx: Handle, settingsnamespace: Pcwstr, settingname: Pcwstr, pvbuffer: Pwstr, dwbuffer: ULong, pdwwrittenorrequired: MutPtr<ULong>): Bool =
+public actual fun queryActCtxSettingsW(dwflags: UInt, hactctx: Handle, settingsnamespace: Pcwstr, settingname: Pcwstr, pvbuffer: Pwstr, dwbuffer: ULong, pdwwrittenorrequired: MutPtr): Bool =
     windowssysWindowsWin32SystemApplicationinstallationandservicingQueryActCtxSettingsW(dwflags, hactctx.rawAddress.toCPointer<ByteVar>(), settingsnamespace.rawAddress.toCPointer<ByteVar>(), settingname.rawAddress.toCPointer<ByteVar>(), pvbuffer.rawAddress.toCPointer<ByteVar>(), dwbuffer, pdwwrittenorrequired.rawAddress.toCPointer<ByteVar>())
 
-public actual fun queryActCtxW(dwflags: UInt, hactctx: Handle, pvsubinstance: ConstPtr<CVoid>, ulinfoclass: UInt, pvbuffer: MutPtr<CVoid>, cbbuffer: ULong, pcbwrittenorrequired: MutPtr<ULong>): Bool =
+public actual fun queryActCtxW(dwflags: UInt, hactctx: Handle, pvsubinstance: ConstPtr, ulinfoclass: UInt, pvbuffer: MutPtr, cbbuffer: ULong, pcbwrittenorrequired: MutPtr): Bool =
     windowssysWindowsWin32SystemApplicationinstallationandservicingQueryActCtxW(dwflags, hactctx.rawAddress.toCPointer<ByteVar>(), pvsubinstance.rawAddress.toCPointer<ByteVar>(), ulinfoclass, pvbuffer.rawAddress.toCPointer<ByteVar>(), cbbuffer, pcbwrittenorrequired.rawAddress.toCPointer<ByteVar>())
 
 public actual fun releaseActCtx(hactctx: Handle) {
     windowssysWindowsWin32SystemApplicationinstallationandservicingReleaseActCtx(hactctx.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun sfcGetNextProtectedFile(rpchandle: Handle, protfiledata: MutPtr<ProtectedFileData>): Bool =
+public actual fun sfcGetNextProtectedFile(rpchandle: Handle, protfiledata: MutPtr): Bool =
     windowssysWindowsWin32SystemApplicationinstallationandservicingSfcGetNextProtectedFile(rpchandle.rawAddress.toCPointer<ByteVar>(), protfiledata.rawAddress.toCPointer<ByteVar>())
 
 public actual fun sfcIsFileProtected(rpchandle: Handle, protfilename: Pcwstr): Bool =
@@ -1289,7 +1284,7 @@ public actual fun sfpVerifyFile(pszfilename: Pcstr, pszerror: Pcstr, dwerrsize: 
 public actual fun testApplyPatchToFileA(patchfilename: Pcstr, oldfilename: Pcstr, applyoptionflags: UInt): Bool =
     windowssysWindowsWin32SystemApplicationinstallationandservicingTestApplyPatchToFileA(patchfilename.rawAddress.toCPointer<ByteVar>(), oldfilename.rawAddress.toCPointer<ByteVar>(), applyoptionflags)
 
-public actual fun testApplyPatchToFileByBuffers(patchfilebuffer: ConstPtr<UByte>, patchfilesize: UInt, oldfilebuffer: ConstPtr<UByte>, oldfilesize: UInt, newfilesize: MutPtr<UInt>, applyoptionflags: UInt): Bool =
+public actual fun testApplyPatchToFileByBuffers(patchfilebuffer: ConstPtr, patchfilesize: UInt, oldfilebuffer: ConstPtr, oldfilesize: UInt, newfilesize: MutPtr, applyoptionflags: UInt): Bool =
     windowssysWindowsWin32SystemApplicationinstallationandservicingTestApplyPatchToFileByBuffers(patchfilebuffer.rawAddress.toCPointer<ByteVar>(), patchfilesize, oldfilebuffer.rawAddress.toCPointer<ByteVar>(), oldfilesize, newfilesize.rawAddress.toCPointer<ByteVar>(), applyoptionflags)
 
 public actual fun testApplyPatchToFileByHandles(patchfilehandle: Handle, oldfilehandle: Handle, applyoptionflags: UInt): Bool =

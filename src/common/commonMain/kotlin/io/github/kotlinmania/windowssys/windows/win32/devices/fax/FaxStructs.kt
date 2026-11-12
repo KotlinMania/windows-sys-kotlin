@@ -2645,7 +2645,7 @@ public class FaxRoute internal constructor(
     receiverNumberCtorArg: Pcwstr,
     deviceNameCtorArg: Pcwstr,
     public var deviceId: UInt,
-    routingInfoDataCtorArg: MutPtr<UByte>,
+    routingInfoDataCtorArg: MutPtr,
     public var routingInfoDataSize: UInt,
 ) {
     public var csid: Pcwstr = csidCtorArg
@@ -2669,7 +2669,7 @@ public class FaxRoute internal constructor(
     public var deviceName: Pcwstr = deviceNameCtorArg
         internal set
 
-    public var routingInfoData: MutPtr<UByte> = routingInfoDataCtorArg
+    public var routingInfoData: MutPtr = routingInfoDataCtorArg
         internal set
 
     public constructor() : this(
@@ -2716,11 +2716,11 @@ public class FaxRoute internal constructor(
 
     public operator fun component13(): UInt = this.deviceId
 
-    public operator fun component14(): MutPtr<UByte> = this.routingInfoData
+    public operator fun component14(): MutPtr = this.routingInfoData
 
     public operator fun component15(): UInt = this.routingInfoDataSize
 
-    public fun copy(sizeOfStruct: UInt = this.sizeOfStruct, jobId: UInt = this.jobId, elapsedTime: ULong = this.elapsedTime, receiveTime: ULong = this.receiveTime, pageCount: UInt = this.pageCount, csid: Pcwstr = this.csid, tsid: Pcwstr = this.tsid, callerId: Pcwstr = this.callerId, routingInfo: Pcwstr = this.routingInfo, receiverName: Pcwstr = this.receiverName, receiverNumber: Pcwstr = this.receiverNumber, deviceName: Pcwstr = this.deviceName, deviceId: UInt = this.deviceId, routingInfoData: MutPtr<UByte> = this.routingInfoData, routingInfoDataSize: UInt = this.routingInfoDataSize): FaxRoute = FaxRoute(sizeOfStruct = sizeOfStruct, jobId = jobId, elapsedTime = elapsedTime, receiveTime = receiveTime, pageCount = pageCount, csidCtorArg = csid, tsidCtorArg = tsid, callerIdCtorArg = callerId, routingInfoCtorArg = routingInfo, receiverNameCtorArg = receiverName, receiverNumberCtorArg = receiverNumber, deviceNameCtorArg = deviceName, deviceId = deviceId, routingInfoDataCtorArg = routingInfoData, routingInfoDataSize = routingInfoDataSize)
+    public fun copy(sizeOfStruct: UInt = this.sizeOfStruct, jobId: UInt = this.jobId, elapsedTime: ULong = this.elapsedTime, receiveTime: ULong = this.receiveTime, pageCount: UInt = this.pageCount, csid: Pcwstr = this.csid, tsid: Pcwstr = this.tsid, callerId: Pcwstr = this.callerId, routingInfo: Pcwstr = this.routingInfo, receiverName: Pcwstr = this.receiverName, receiverNumber: Pcwstr = this.receiverNumber, deviceName: Pcwstr = this.deviceName, deviceId: UInt = this.deviceId, routingInfoData: MutPtr = this.routingInfoData, routingInfoDataSize: UInt = this.routingInfoDataSize): FaxRoute = FaxRoute(sizeOfStruct = sizeOfStruct, jobId = jobId, elapsedTime = elapsedTime, receiveTime = receiveTime, pageCount = pageCount, csidCtorArg = csid, tsidCtorArg = tsid, callerIdCtorArg = callerId, routingInfoCtorArg = routingInfo, receiverNameCtorArg = receiverName, receiverNumberCtorArg = receiverNumber, deviceNameCtorArg = deviceName, deviceId = deviceId, routingInfoDataCtorArg = routingInfoData, routingInfoDataSize = routingInfoDataSize)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -2777,7 +2777,7 @@ public class FaxRoute internal constructor(
             receiverNumber: Pcwstr = ConstPtr(0L),
             deviceName: Pcwstr = ConstPtr(0L),
             deviceId: UInt = 0u,
-            routingInfoData: MutPtr<UByte> = MutPtr(0L),
+            routingInfoData: MutPtr = MutPtr(0L),
             routingInfoDataSize: UInt = 0u,
         ): FaxRoute =
             FaxRoute(

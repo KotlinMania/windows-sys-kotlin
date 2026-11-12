@@ -2,11 +2,9 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.devices.deviceanddriverinstallation
 
-import io.github.kotlinmania.rustlang.core.ffi.CVoid
 import io.github.kotlinmania.rustlang.core.ptr.ConstPtr
 import io.github.kotlinmania.rustlang.core.ptr.MutPtr
 import io.github.kotlinmania.windowssys.core.Bool
-import io.github.kotlinmania.windowssys.core.Guid
 import io.github.kotlinmania.windowssys.core.Pcstr
 import io.github.kotlinmania.windowssys.core.Pcwstr
 import io.github.kotlinmania.windowssys.core.Pstr
@@ -587,16 +585,12 @@ import io.github.kotlinmania.windowssys.windows.win32.devices.deviceanddriverins
 import io.github.kotlinmania.windowssys.windows.win32.devices.deviceanddriverinstallation.cinterop.windowssysWindowsWin32DevicesDeviceanddriverinstallationUpdateDriverForPlugAndPlayDevicesA
 import io.github.kotlinmania.windowssys.windows.win32.devices.deviceanddriverinstallation.cinterop.windowssysWindowsWin32DevicesDeviceanddriverinstallationUpdateDriverForPlugAndPlayDevicesW
 import io.github.kotlinmania.windowssys.windows.win32.devices.properties.Devproptype
-import io.github.kotlinmania.windowssys.windows.win32.foundation.Devpropkey
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Hinstance
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Hwnd
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Rect
 import io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.Hdc
 import io.github.kotlinmania.windowssys.windows.win32.system.registry.Hkey
 import io.github.kotlinmania.windowssys.windows.win32.ui.controls.Hpropsheetpage
-import io.github.kotlinmania.windowssys.windows.win32.ui.controls.PropsheetheaderaV2
-import io.github.kotlinmania.windowssys.windows.win32.ui.controls.PropsheetheaderwV2
-import io.github.kotlinmania.windowssys.windows.win32.ui.windowsandmessaging.Hicon
 import kotlinx.cinterop.ByteVar
 import kotlinx.cinterop.toCPointer
 import kotlinx.cinterop.toLong
@@ -604,10 +598,10 @@ import kotlinx.cinterop.toLong
 public actual fun cmpWaitNoPendingInstallEvents(dwtimeout: UInt): UInt =
     windowssysWindowsWin32DevicesDeviceanddriverinstallationCmpWaitNoPendingInstallEvents(dwtimeout)
 
-public actual fun cmAddEmptyLogConf(plclogconf: MutPtr<ULong>, dndevinst: UInt, priority: Priority, ulflags: UInt): Configret =
+public actual fun cmAddEmptyLogConf(plclogconf: MutPtr, dndevinst: UInt, priority: Priority, ulflags: UInt): Configret =
     windowssysWindowsWin32DevicesDeviceanddriverinstallationCmAddEmptyLogConf(plclogconf.rawAddress.toCPointer<ByteVar>(), dndevinst, priority, ulflags)
 
-public actual fun cmAddEmptyLogConfEx(plclogconf: MutPtr<ULong>, dndevinst: UInt, priority: Priority, ulflags: UInt, hmachine: Long): Configret =
+public actual fun cmAddEmptyLogConfEx(plclogconf: MutPtr, dndevinst: UInt, priority: Priority, ulflags: UInt, hmachine: Long): Configret =
     windowssysWindowsWin32DevicesDeviceanddriverinstallationCmAddEmptyLogConfEx(plclogconf.rawAddress.toCPointer<ByteVar>(), dndevinst, priority, ulflags, hmachine)
 
 public actual fun cmAddIda(dndevinst: UInt, pszid: Pcstr, ulflags: UInt): Configret =
@@ -625,37 +619,37 @@ public actual fun cmAddIdExW(dndevinst: UInt, pszid: Pcwstr, ulflags: UInt, hmac
 public actual fun cmAddRange(ullstartvalue: ULong, ullendvalue: ULong, rlh: ULong, ulflags: UInt): Configret =
     windowssysWindowsWin32DevicesDeviceanddriverinstallationCmAddRange(ullstartvalue, ullendvalue, rlh, ulflags)
 
-public actual fun cmAddResDes(prdresdes: MutPtr<ULong>, lclogconf: ULong, resourceid: UInt, resourcedata: ConstPtr<CVoid>, resourcelen: UInt, ulflags: UInt): Configret =
+public actual fun cmAddResDes(prdresdes: MutPtr, lclogconf: ULong, resourceid: UInt, resourcedata: ConstPtr, resourcelen: UInt, ulflags: UInt): Configret =
     windowssysWindowsWin32DevicesDeviceanddriverinstallationCmAddResDes(prdresdes.rawAddress.toCPointer<ByteVar>(), lclogconf, resourceid, resourcedata.rawAddress.toCPointer<ByteVar>(), resourcelen, ulflags)
 
-public actual fun cmAddResDesEx(prdresdes: MutPtr<ULong>, lclogconf: ULong, resourceid: UInt, resourcedata: ConstPtr<CVoid>, resourcelen: UInt, ulflags: UInt, hmachine: Long): Configret =
+public actual fun cmAddResDesEx(prdresdes: MutPtr, lclogconf: ULong, resourceid: UInt, resourcedata: ConstPtr, resourcelen: UInt, ulflags: UInt, hmachine: Long): Configret =
     windowssysWindowsWin32DevicesDeviceanddriverinstallationCmAddResDesEx(prdresdes.rawAddress.toCPointer<ByteVar>(), lclogconf, resourceid, resourcedata.rawAddress.toCPointer<ByteVar>(), resourcelen, ulflags, hmachine)
 
-public actual fun cmConnectMachineA(uncservername: Pcstr, phmachine: MutPtr<Long>): Configret =
+public actual fun cmConnectMachineA(uncservername: Pcstr, phmachine: MutPtr): Configret =
     windowssysWindowsWin32DevicesDeviceanddriverinstallationCmConnectMachineA(uncservername.rawAddress.toCPointer<ByteVar>(), phmachine.rawAddress.toCPointer<ByteVar>())
 
-public actual fun cmConnectMachineW(uncservername: Pcwstr, phmachine: MutPtr<Long>): Configret =
+public actual fun cmConnectMachineW(uncservername: Pcwstr, phmachine: MutPtr): Configret =
     windowssysWindowsWin32DevicesDeviceanddriverinstallationCmConnectMachineW(uncservername.rawAddress.toCPointer<ByteVar>(), phmachine.rawAddress.toCPointer<ByteVar>())
 
-public actual fun cmCreateDevNodeA(pdndevinst: MutPtr<UInt>, pdeviceid: Pcstr, dnparent: UInt, ulflags: UInt): Configret =
+public actual fun cmCreateDevNodeA(pdndevinst: MutPtr, pdeviceid: Pcstr, dnparent: UInt, ulflags: UInt): Configret =
     windowssysWindowsWin32DevicesDeviceanddriverinstallationCmCreateDevNodeA(pdndevinst.rawAddress.toCPointer<ByteVar>(), pdeviceid.rawAddress.toCPointer<ByteVar>(), dnparent, ulflags)
 
-public actual fun cmCreateDevNodeW(pdndevinst: MutPtr<UInt>, pdeviceid: Pcwstr, dnparent: UInt, ulflags: UInt): Configret =
+public actual fun cmCreateDevNodeW(pdndevinst: MutPtr, pdeviceid: Pcwstr, dnparent: UInt, ulflags: UInt): Configret =
     windowssysWindowsWin32DevicesDeviceanddriverinstallationCmCreateDevNodeW(pdndevinst.rawAddress.toCPointer<ByteVar>(), pdeviceid.rawAddress.toCPointer<ByteVar>(), dnparent, ulflags)
 
-public actual fun cmCreateDevNodeExA(pdndevinst: MutPtr<UInt>, pdeviceid: Pcstr, dnparent: UInt, ulflags: UInt, hmachine: Long): Configret =
+public actual fun cmCreateDevNodeExA(pdndevinst: MutPtr, pdeviceid: Pcstr, dnparent: UInt, ulflags: UInt, hmachine: Long): Configret =
     windowssysWindowsWin32DevicesDeviceanddriverinstallationCmCreateDevNodeExA(pdndevinst.rawAddress.toCPointer<ByteVar>(), pdeviceid.rawAddress.toCPointer<ByteVar>(), dnparent, ulflags, hmachine)
 
-public actual fun cmCreateDevNodeExW(pdndevinst: MutPtr<UInt>, pdeviceid: Pcwstr, dnparent: UInt, ulflags: UInt, hmachine: Long): Configret =
+public actual fun cmCreateDevNodeExW(pdndevinst: MutPtr, pdeviceid: Pcwstr, dnparent: UInt, ulflags: UInt, hmachine: Long): Configret =
     windowssysWindowsWin32DevicesDeviceanddriverinstallationCmCreateDevNodeExW(pdndevinst.rawAddress.toCPointer<ByteVar>(), pdeviceid.rawAddress.toCPointer<ByteVar>(), dnparent, ulflags, hmachine)
 
-public actual fun cmCreateRangeList(prlh: MutPtr<ULong>, ulflags: UInt): Configret =
+public actual fun cmCreateRangeList(prlh: MutPtr, ulflags: UInt): Configret =
     windowssysWindowsWin32DevicesDeviceanddriverinstallationCmCreateRangeList(prlh.rawAddress.toCPointer<ByteVar>(), ulflags)
 
-public actual fun cmDeleteClassKey(classguid: ConstPtr<Guid>, ulflags: UInt): Configret =
+public actual fun cmDeleteClassKey(classguid: ConstPtr, ulflags: UInt): Configret =
     windowssysWindowsWin32DevicesDeviceanddriverinstallationCmDeleteClassKey(classguid.rawAddress.toCPointer<ByteVar>(), ulflags)
 
-public actual fun cmDeleteClassKeyEx(classguid: ConstPtr<Guid>, ulflags: UInt, hmachine: Long): Configret =
+public actual fun cmDeleteClassKeyEx(classguid: ConstPtr, ulflags: UInt, hmachine: Long): Configret =
     windowssysWindowsWin32DevicesDeviceanddriverinstallationCmDeleteClassKeyEx(classguid.rawAddress.toCPointer<ByteVar>(), ulflags, hmachine)
 
 public actual fun cmDeleteDevNodeKey(dndevnode: UInt, ulhardwareprofile: UInt, ulflags: UInt): Configret =
@@ -679,10 +673,10 @@ public actual fun cmDeleteDeviceInterfaceKeyExW(pszdeviceinterface: Pcwstr, ulfl
 public actual fun cmDeleteRange(ullstartvalue: ULong, ullendvalue: ULong, rlh: ULong, ulflags: UInt): Configret =
     windowssysWindowsWin32DevicesDeviceanddriverinstallationCmDeleteRange(ullstartvalue, ullendvalue, rlh, ulflags)
 
-public actual fun cmDetectResourceConflict(dndevinst: UInt, resourceid: UInt, resourcedata: ConstPtr<CVoid>, resourcelen: UInt, pbconflictdetected: MutPtr<Bool>, ulflags: UInt): Configret =
+public actual fun cmDetectResourceConflict(dndevinst: UInt, resourceid: UInt, resourcedata: ConstPtr, resourcelen: UInt, pbconflictdetected: MutPtr, ulflags: UInt): Configret =
     windowssysWindowsWin32DevicesDeviceanddriverinstallationCmDetectResourceConflict(dndevinst, resourceid, resourcedata.rawAddress.toCPointer<ByteVar>(), resourcelen, pbconflictdetected.rawAddress.toCPointer<ByteVar>(), ulflags)
 
-public actual fun cmDetectResourceConflictEx(dndevinst: UInt, resourceid: UInt, resourcedata: ConstPtr<CVoid>, resourcelen: UInt, pbconflictdetected: MutPtr<Bool>, ulflags: UInt, hmachine: Long): Configret =
+public actual fun cmDetectResourceConflictEx(dndevinst: UInt, resourceid: UInt, resourcedata: ConstPtr, resourcelen: UInt, pbconflictdetected: MutPtr, ulflags: UInt, hmachine: Long): Configret =
     windowssysWindowsWin32DevicesDeviceanddriverinstallationCmDetectResourceConflictEx(dndevinst, resourceid, resourcedata.rawAddress.toCPointer<ByteVar>(), resourcelen, pbconflictdetected.rawAddress.toCPointer<ByteVar>(), ulflags, hmachine)
 
 public actual fun cmDisableDevNode(dndevinst: UInt, ulflags: UInt): Configret =
@@ -703,28 +697,28 @@ public actual fun cmEnableDevNode(dndevinst: UInt, ulflags: UInt): Configret =
 public actual fun cmEnableDevNodeEx(dndevinst: UInt, ulflags: UInt, hmachine: Long): Configret =
     windowssysWindowsWin32DevicesDeviceanddriverinstallationCmEnableDevNodeEx(dndevinst, ulflags, hmachine)
 
-public actual fun cmEnumerateClasses(ulclassindex: UInt, classguid: MutPtr<Guid>, ulflags: CmEnumerateFlags): Configret =
+public actual fun cmEnumerateClasses(ulclassindex: UInt, classguid: MutPtr, ulflags: CmEnumerateFlags): Configret =
     windowssysWindowsWin32DevicesDeviceanddriverinstallationCmEnumerateClasses(ulclassindex, classguid.rawAddress.toCPointer<ByteVar>(), ulflags)
 
-public actual fun cmEnumerateClassesEx(ulclassindex: UInt, classguid: MutPtr<Guid>, ulflags: CmEnumerateFlags, hmachine: Long): Configret =
+public actual fun cmEnumerateClassesEx(ulclassindex: UInt, classguid: MutPtr, ulflags: CmEnumerateFlags, hmachine: Long): Configret =
     windowssysWindowsWin32DevicesDeviceanddriverinstallationCmEnumerateClassesEx(ulclassindex, classguid.rawAddress.toCPointer<ByteVar>(), ulflags, hmachine)
 
-public actual fun cmEnumerateEnumeratorsA(ulenumindex: UInt, buffer: Pstr, pullength: MutPtr<UInt>, ulflags: UInt): Configret =
+public actual fun cmEnumerateEnumeratorsA(ulenumindex: UInt, buffer: Pstr, pullength: MutPtr, ulflags: UInt): Configret =
     windowssysWindowsWin32DevicesDeviceanddriverinstallationCmEnumerateEnumeratorsA(ulenumindex, buffer.rawAddress.toCPointer<ByteVar>(), pullength.rawAddress.toCPointer<ByteVar>(), ulflags)
 
-public actual fun cmEnumerateEnumeratorsW(ulenumindex: UInt, buffer: Pwstr, pullength: MutPtr<UInt>, ulflags: UInt): Configret =
+public actual fun cmEnumerateEnumeratorsW(ulenumindex: UInt, buffer: Pwstr, pullength: MutPtr, ulflags: UInt): Configret =
     windowssysWindowsWin32DevicesDeviceanddriverinstallationCmEnumerateEnumeratorsW(ulenumindex, buffer.rawAddress.toCPointer<ByteVar>(), pullength.rawAddress.toCPointer<ByteVar>(), ulflags)
 
-public actual fun cmEnumerateEnumeratorsExA(ulenumindex: UInt, buffer: Pstr, pullength: MutPtr<UInt>, ulflags: UInt, hmachine: Long): Configret =
+public actual fun cmEnumerateEnumeratorsExA(ulenumindex: UInt, buffer: Pstr, pullength: MutPtr, ulflags: UInt, hmachine: Long): Configret =
     windowssysWindowsWin32DevicesDeviceanddriverinstallationCmEnumerateEnumeratorsExA(ulenumindex, buffer.rawAddress.toCPointer<ByteVar>(), pullength.rawAddress.toCPointer<ByteVar>(), ulflags, hmachine)
 
-public actual fun cmEnumerateEnumeratorsExW(ulenumindex: UInt, buffer: Pwstr, pullength: MutPtr<UInt>, ulflags: UInt, hmachine: Long): Configret =
+public actual fun cmEnumerateEnumeratorsExW(ulenumindex: UInt, buffer: Pwstr, pullength: MutPtr, ulflags: UInt, hmachine: Long): Configret =
     windowssysWindowsWin32DevicesDeviceanddriverinstallationCmEnumerateEnumeratorsExW(ulenumindex, buffer.rawAddress.toCPointer<ByteVar>(), pullength.rawAddress.toCPointer<ByteVar>(), ulflags, hmachine)
 
-public actual fun cmFindRange(pullstart: MutPtr<ULong>, ullstart: ULong, ullength: UInt, ullalignment: ULong, ullend: ULong, rlh: ULong, ulflags: UInt): Configret =
+public actual fun cmFindRange(pullstart: MutPtr, ullstart: ULong, ullength: UInt, ullalignment: ULong, ullend: ULong, rlh: ULong, ulflags: UInt): Configret =
     windowssysWindowsWin32DevicesDeviceanddriverinstallationCmFindRange(pullstart.rawAddress.toCPointer<ByteVar>(), ullstart, ullength, ullalignment, ullend, rlh, ulflags)
 
-public actual fun cmFirstRange(rlh: ULong, pullstart: MutPtr<ULong>, pullend: MutPtr<ULong>, preelement: MutPtr<ULong>, ulflags: UInt): Configret =
+public actual fun cmFirstRange(rlh: ULong, pullstart: MutPtr, pullend: MutPtr, preelement: MutPtr, ulflags: UInt): Configret =
     windowssysWindowsWin32DevicesDeviceanddriverinstallationCmFirstRange(rlh, pullstart.rawAddress.toCPointer<ByteVar>(), pullend.rawAddress.toCPointer<ByteVar>(), preelement.rawAddress.toCPointer<ByteVar>(), ulflags)
 
 public actual fun cmFreeLogConf(lclogconftobefreed: ULong, ulflags: UInt): Configret =
@@ -739,10 +733,10 @@ public actual fun cmFreeLogConfHandle(lclogconf: ULong): Configret =
 public actual fun cmFreeRangeList(rlh: ULong, ulflags: UInt): Configret =
     windowssysWindowsWin32DevicesDeviceanddriverinstallationCmFreeRangeList(rlh, ulflags)
 
-public actual fun cmFreeResDes(prdresdes: MutPtr<ULong>, rdresdes: ULong, ulflags: UInt): Configret =
+public actual fun cmFreeResDes(prdresdes: MutPtr, rdresdes: ULong, ulflags: UInt): Configret =
     windowssysWindowsWin32DevicesDeviceanddriverinstallationCmFreeResDes(prdresdes.rawAddress.toCPointer<ByteVar>(), rdresdes, ulflags)
 
-public actual fun cmFreeResDesEx(prdresdes: MutPtr<ULong>, rdresdes: ULong, ulflags: UInt, hmachine: Long): Configret =
+public actual fun cmFreeResDesEx(prdresdes: MutPtr, rdresdes: ULong, ulflags: UInt, hmachine: Long): Configret =
     windowssysWindowsWin32DevicesDeviceanddriverinstallationCmFreeResDesEx(prdresdes.rawAddress.toCPointer<ByteVar>(), rdresdes, ulflags, hmachine)
 
 public actual fun cmFreeResDesHandle(rdresdes: ULong): Configret =
@@ -751,100 +745,100 @@ public actual fun cmFreeResDesHandle(rdresdes: ULong): Configret =
 public actual fun cmFreeResourceConflictHandle(clconflictlist: ULong): Configret =
     windowssysWindowsWin32DevicesDeviceanddriverinstallationCmFreeResourceConflictHandle(clconflictlist)
 
-public actual fun cmGetChild(pdndevinst: MutPtr<UInt>, dndevinst: UInt, ulflags: UInt): Configret =
+public actual fun cmGetChild(pdndevinst: MutPtr, dndevinst: UInt, ulflags: UInt): Configret =
     windowssysWindowsWin32DevicesDeviceanddriverinstallationCmGetChild(pdndevinst.rawAddress.toCPointer<ByteVar>(), dndevinst, ulflags)
 
-public actual fun cmGetChildEx(pdndevinst: MutPtr<UInt>, dndevinst: UInt, ulflags: UInt, hmachine: Long): Configret =
+public actual fun cmGetChildEx(pdndevinst: MutPtr, dndevinst: UInt, ulflags: UInt, hmachine: Long): Configret =
     windowssysWindowsWin32DevicesDeviceanddriverinstallationCmGetChildEx(pdndevinst.rawAddress.toCPointer<ByteVar>(), dndevinst, ulflags, hmachine)
 
-public actual fun cmGetClassKeyNameA(classguid: ConstPtr<Guid>, pszkeyname: Pstr, pullength: MutPtr<UInt>, ulflags: UInt): Configret =
+public actual fun cmGetClassKeyNameA(classguid: ConstPtr, pszkeyname: Pstr, pullength: MutPtr, ulflags: UInt): Configret =
     windowssysWindowsWin32DevicesDeviceanddriverinstallationCmGetClassKeyNameA(classguid.rawAddress.toCPointer<ByteVar>(), pszkeyname.rawAddress.toCPointer<ByteVar>(), pullength.rawAddress.toCPointer<ByteVar>(), ulflags)
 
-public actual fun cmGetClassKeyNameW(classguid: ConstPtr<Guid>, pszkeyname: Pwstr, pullength: MutPtr<UInt>, ulflags: UInt): Configret =
+public actual fun cmGetClassKeyNameW(classguid: ConstPtr, pszkeyname: Pwstr, pullength: MutPtr, ulflags: UInt): Configret =
     windowssysWindowsWin32DevicesDeviceanddriverinstallationCmGetClassKeyNameW(classguid.rawAddress.toCPointer<ByteVar>(), pszkeyname.rawAddress.toCPointer<ByteVar>(), pullength.rawAddress.toCPointer<ByteVar>(), ulflags)
 
-public actual fun cmGetClassKeyNameExA(classguid: ConstPtr<Guid>, pszkeyname: Pstr, pullength: MutPtr<UInt>, ulflags: UInt, hmachine: Long): Configret =
+public actual fun cmGetClassKeyNameExA(classguid: ConstPtr, pszkeyname: Pstr, pullength: MutPtr, ulflags: UInt, hmachine: Long): Configret =
     windowssysWindowsWin32DevicesDeviceanddriverinstallationCmGetClassKeyNameExA(classguid.rawAddress.toCPointer<ByteVar>(), pszkeyname.rawAddress.toCPointer<ByteVar>(), pullength.rawAddress.toCPointer<ByteVar>(), ulflags, hmachine)
 
-public actual fun cmGetClassKeyNameExW(classguid: ConstPtr<Guid>, pszkeyname: Pwstr, pullength: MutPtr<UInt>, ulflags: UInt, hmachine: Long): Configret =
+public actual fun cmGetClassKeyNameExW(classguid: ConstPtr, pszkeyname: Pwstr, pullength: MutPtr, ulflags: UInt, hmachine: Long): Configret =
     windowssysWindowsWin32DevicesDeviceanddriverinstallationCmGetClassKeyNameExW(classguid.rawAddress.toCPointer<ByteVar>(), pszkeyname.rawAddress.toCPointer<ByteVar>(), pullength.rawAddress.toCPointer<ByteVar>(), ulflags, hmachine)
 
-public actual fun cmGetClassNameA(classguid: ConstPtr<Guid>, buffer: Pstr, pullength: MutPtr<UInt>, ulflags: UInt): Configret =
+public actual fun cmGetClassNameA(classguid: ConstPtr, buffer: Pstr, pullength: MutPtr, ulflags: UInt): Configret =
     windowssysWindowsWin32DevicesDeviceanddriverinstallationCmGetClassNameA(classguid.rawAddress.toCPointer<ByteVar>(), buffer.rawAddress.toCPointer<ByteVar>(), pullength.rawAddress.toCPointer<ByteVar>(), ulflags)
 
-public actual fun cmGetClassNameW(classguid: ConstPtr<Guid>, buffer: Pwstr, pullength: MutPtr<UInt>, ulflags: UInt): Configret =
+public actual fun cmGetClassNameW(classguid: ConstPtr, buffer: Pwstr, pullength: MutPtr, ulflags: UInt): Configret =
     windowssysWindowsWin32DevicesDeviceanddriverinstallationCmGetClassNameW(classguid.rawAddress.toCPointer<ByteVar>(), buffer.rawAddress.toCPointer<ByteVar>(), pullength.rawAddress.toCPointer<ByteVar>(), ulflags)
 
-public actual fun cmGetClassNameExA(classguid: ConstPtr<Guid>, buffer: Pstr, pullength: MutPtr<UInt>, ulflags: UInt, hmachine: Long): Configret =
+public actual fun cmGetClassNameExA(classguid: ConstPtr, buffer: Pstr, pullength: MutPtr, ulflags: UInt, hmachine: Long): Configret =
     windowssysWindowsWin32DevicesDeviceanddriverinstallationCmGetClassNameExA(classguid.rawAddress.toCPointer<ByteVar>(), buffer.rawAddress.toCPointer<ByteVar>(), pullength.rawAddress.toCPointer<ByteVar>(), ulflags, hmachine)
 
-public actual fun cmGetClassNameExW(classguid: ConstPtr<Guid>, buffer: Pwstr, pullength: MutPtr<UInt>, ulflags: UInt, hmachine: Long): Configret =
+public actual fun cmGetClassNameExW(classguid: ConstPtr, buffer: Pwstr, pullength: MutPtr, ulflags: UInt, hmachine: Long): Configret =
     windowssysWindowsWin32DevicesDeviceanddriverinstallationCmGetClassNameExW(classguid.rawAddress.toCPointer<ByteVar>(), buffer.rawAddress.toCPointer<ByteVar>(), pullength.rawAddress.toCPointer<ByteVar>(), ulflags, hmachine)
 
-public actual fun cmGetClassPropertyW(classguid: ConstPtr<Guid>, propertykey: ConstPtr<Devpropkey>, propertytype: MutPtr<Devproptype>, propertybuffer: MutPtr<UByte>, propertybuffersize: MutPtr<UInt>, ulflags: UInt): Configret =
+public actual fun cmGetClassPropertyW(classguid: ConstPtr, propertykey: ConstPtr, propertytype: MutPtr, propertybuffer: MutPtr, propertybuffersize: MutPtr, ulflags: UInt): Configret =
     windowssysWindowsWin32DevicesDeviceanddriverinstallationCmGetClassPropertyW(classguid.rawAddress.toCPointer<ByteVar>(), propertykey.rawAddress.toCPointer<ByteVar>(), propertytype.rawAddress.toCPointer<ByteVar>(), propertybuffer.rawAddress.toCPointer<ByteVar>(), propertybuffersize.rawAddress.toCPointer<ByteVar>(), ulflags)
 
-public actual fun cmGetClassPropertyExW(classguid: ConstPtr<Guid>, propertykey: ConstPtr<Devpropkey>, propertytype: MutPtr<Devproptype>, propertybuffer: MutPtr<UByte>, propertybuffersize: MutPtr<UInt>, ulflags: UInt, hmachine: Long): Configret =
+public actual fun cmGetClassPropertyExW(classguid: ConstPtr, propertykey: ConstPtr, propertytype: MutPtr, propertybuffer: MutPtr, propertybuffersize: MutPtr, ulflags: UInt, hmachine: Long): Configret =
     windowssysWindowsWin32DevicesDeviceanddriverinstallationCmGetClassPropertyExW(classguid.rawAddress.toCPointer<ByteVar>(), propertykey.rawAddress.toCPointer<ByteVar>(), propertytype.rawAddress.toCPointer<ByteVar>(), propertybuffer.rawAddress.toCPointer<ByteVar>(), propertybuffersize.rawAddress.toCPointer<ByteVar>(), ulflags, hmachine)
 
-public actual fun cmGetClassPropertyKeys(classguid: ConstPtr<Guid>, propertykeyarray: MutPtr<Devpropkey>, propertykeycount: MutPtr<UInt>, ulflags: UInt): Configret =
+public actual fun cmGetClassPropertyKeys(classguid: ConstPtr, propertykeyarray: MutPtr, propertykeycount: MutPtr, ulflags: UInt): Configret =
     windowssysWindowsWin32DevicesDeviceanddriverinstallationCmGetClassPropertyKeys(classguid.rawAddress.toCPointer<ByteVar>(), propertykeyarray.rawAddress.toCPointer<ByteVar>(), propertykeycount.rawAddress.toCPointer<ByteVar>(), ulflags)
 
-public actual fun cmGetClassPropertyKeysEx(classguid: ConstPtr<Guid>, propertykeyarray: MutPtr<Devpropkey>, propertykeycount: MutPtr<UInt>, ulflags: UInt, hmachine: Long): Configret =
+public actual fun cmGetClassPropertyKeysEx(classguid: ConstPtr, propertykeyarray: MutPtr, propertykeycount: MutPtr, ulflags: UInt, hmachine: Long): Configret =
     windowssysWindowsWin32DevicesDeviceanddriverinstallationCmGetClassPropertyKeysEx(classguid.rawAddress.toCPointer<ByteVar>(), propertykeyarray.rawAddress.toCPointer<ByteVar>(), propertykeycount.rawAddress.toCPointer<ByteVar>(), ulflags, hmachine)
 
-public actual fun cmGetClassRegistryPropertyA(classguid: ConstPtr<Guid>, ulproperty: UInt, pulregdatatype: MutPtr<UInt>, buffer: MutPtr<CVoid>, pullength: MutPtr<UInt>, ulflags: UInt, hmachine: Long): Configret =
+public actual fun cmGetClassRegistryPropertyA(classguid: ConstPtr, ulproperty: UInt, pulregdatatype: MutPtr, buffer: MutPtr, pullength: MutPtr, ulflags: UInt, hmachine: Long): Configret =
     windowssysWindowsWin32DevicesDeviceanddriverinstallationCmGetClassRegistryPropertyA(classguid.rawAddress.toCPointer<ByteVar>(), ulproperty, pulregdatatype.rawAddress.toCPointer<ByteVar>(), buffer.rawAddress.toCPointer<ByteVar>(), pullength.rawAddress.toCPointer<ByteVar>(), ulflags, hmachine)
 
-public actual fun cmGetClassRegistryPropertyW(classguid: ConstPtr<Guid>, ulproperty: UInt, pulregdatatype: MutPtr<UInt>, buffer: MutPtr<CVoid>, pullength: MutPtr<UInt>, ulflags: UInt, hmachine: Long): Configret =
+public actual fun cmGetClassRegistryPropertyW(classguid: ConstPtr, ulproperty: UInt, pulregdatatype: MutPtr, buffer: MutPtr, pullength: MutPtr, ulflags: UInt, hmachine: Long): Configret =
     windowssysWindowsWin32DevicesDeviceanddriverinstallationCmGetClassRegistryPropertyW(classguid.rawAddress.toCPointer<ByteVar>(), ulproperty, pulregdatatype.rawAddress.toCPointer<ByteVar>(), buffer.rawAddress.toCPointer<ByteVar>(), pullength.rawAddress.toCPointer<ByteVar>(), ulflags, hmachine)
 
-public actual fun cmGetDepth(puldepth: MutPtr<UInt>, dndevinst: UInt, ulflags: UInt): Configret =
+public actual fun cmGetDepth(puldepth: MutPtr, dndevinst: UInt, ulflags: UInt): Configret =
     windowssysWindowsWin32DevicesDeviceanddriverinstallationCmGetDepth(puldepth.rawAddress.toCPointer<ByteVar>(), dndevinst, ulflags)
 
-public actual fun cmGetDepthEx(puldepth: MutPtr<UInt>, dndevinst: UInt, ulflags: UInt, hmachine: Long): Configret =
+public actual fun cmGetDepthEx(puldepth: MutPtr, dndevinst: UInt, ulflags: UInt, hmachine: Long): Configret =
     windowssysWindowsWin32DevicesDeviceanddriverinstallationCmGetDepthEx(puldepth.rawAddress.toCPointer<ByteVar>(), dndevinst, ulflags, hmachine)
 
-public actual fun cmGetDevNodeCustomPropertyA(dndevinst: UInt, pszcustompropertyname: Pcstr, pulregdatatype: MutPtr<UInt>, buffer: MutPtr<CVoid>, pullength: MutPtr<UInt>, ulflags: UInt): Configret =
+public actual fun cmGetDevNodeCustomPropertyA(dndevinst: UInt, pszcustompropertyname: Pcstr, pulregdatatype: MutPtr, buffer: MutPtr, pullength: MutPtr, ulflags: UInt): Configret =
     windowssysWindowsWin32DevicesDeviceanddriverinstallationCmGetDevNodeCustomPropertyA(dndevinst, pszcustompropertyname.rawAddress.toCPointer<ByteVar>(), pulregdatatype.rawAddress.toCPointer<ByteVar>(), buffer.rawAddress.toCPointer<ByteVar>(), pullength.rawAddress.toCPointer<ByteVar>(), ulflags)
 
-public actual fun cmGetDevNodeCustomPropertyW(dndevinst: UInt, pszcustompropertyname: Pcwstr, pulregdatatype: MutPtr<UInt>, buffer: MutPtr<CVoid>, pullength: MutPtr<UInt>, ulflags: UInt): Configret =
+public actual fun cmGetDevNodeCustomPropertyW(dndevinst: UInt, pszcustompropertyname: Pcwstr, pulregdatatype: MutPtr, buffer: MutPtr, pullength: MutPtr, ulflags: UInt): Configret =
     windowssysWindowsWin32DevicesDeviceanddriverinstallationCmGetDevNodeCustomPropertyW(dndevinst, pszcustompropertyname.rawAddress.toCPointer<ByteVar>(), pulregdatatype.rawAddress.toCPointer<ByteVar>(), buffer.rawAddress.toCPointer<ByteVar>(), pullength.rawAddress.toCPointer<ByteVar>(), ulflags)
 
-public actual fun cmGetDevNodeCustomPropertyExA(dndevinst: UInt, pszcustompropertyname: Pcstr, pulregdatatype: MutPtr<UInt>, buffer: MutPtr<CVoid>, pullength: MutPtr<UInt>, ulflags: UInt, hmachine: Long): Configret =
+public actual fun cmGetDevNodeCustomPropertyExA(dndevinst: UInt, pszcustompropertyname: Pcstr, pulregdatatype: MutPtr, buffer: MutPtr, pullength: MutPtr, ulflags: UInt, hmachine: Long): Configret =
     windowssysWindowsWin32DevicesDeviceanddriverinstallationCmGetDevNodeCustomPropertyExA(dndevinst, pszcustompropertyname.rawAddress.toCPointer<ByteVar>(), pulregdatatype.rawAddress.toCPointer<ByteVar>(), buffer.rawAddress.toCPointer<ByteVar>(), pullength.rawAddress.toCPointer<ByteVar>(), ulflags, hmachine)
 
-public actual fun cmGetDevNodeCustomPropertyExW(dndevinst: UInt, pszcustompropertyname: Pcwstr, pulregdatatype: MutPtr<UInt>, buffer: MutPtr<CVoid>, pullength: MutPtr<UInt>, ulflags: UInt, hmachine: Long): Configret =
+public actual fun cmGetDevNodeCustomPropertyExW(dndevinst: UInt, pszcustompropertyname: Pcwstr, pulregdatatype: MutPtr, buffer: MutPtr, pullength: MutPtr, ulflags: UInt, hmachine: Long): Configret =
     windowssysWindowsWin32DevicesDeviceanddriverinstallationCmGetDevNodeCustomPropertyExW(dndevinst, pszcustompropertyname.rawAddress.toCPointer<ByteVar>(), pulregdatatype.rawAddress.toCPointer<ByteVar>(), buffer.rawAddress.toCPointer<ByteVar>(), pullength.rawAddress.toCPointer<ByteVar>(), ulflags, hmachine)
 
-public actual fun cmGetDevNodePropertyW(dndevinst: UInt, propertykey: ConstPtr<Devpropkey>, propertytype: MutPtr<Devproptype>, propertybuffer: MutPtr<UByte>, propertybuffersize: MutPtr<UInt>, ulflags: UInt): Configret =
+public actual fun cmGetDevNodePropertyW(dndevinst: UInt, propertykey: ConstPtr, propertytype: MutPtr, propertybuffer: MutPtr, propertybuffersize: MutPtr, ulflags: UInt): Configret =
     windowssysWindowsWin32DevicesDeviceanddriverinstallationCmGetDevNodePropertyW(dndevinst, propertykey.rawAddress.toCPointer<ByteVar>(), propertytype.rawAddress.toCPointer<ByteVar>(), propertybuffer.rawAddress.toCPointer<ByteVar>(), propertybuffersize.rawAddress.toCPointer<ByteVar>(), ulflags)
 
-public actual fun cmGetDevNodePropertyExW(dndevinst: UInt, propertykey: ConstPtr<Devpropkey>, propertytype: MutPtr<Devproptype>, propertybuffer: MutPtr<UByte>, propertybuffersize: MutPtr<UInt>, ulflags: UInt, hmachine: Long): Configret =
+public actual fun cmGetDevNodePropertyExW(dndevinst: UInt, propertykey: ConstPtr, propertytype: MutPtr, propertybuffer: MutPtr, propertybuffersize: MutPtr, ulflags: UInt, hmachine: Long): Configret =
     windowssysWindowsWin32DevicesDeviceanddriverinstallationCmGetDevNodePropertyExW(dndevinst, propertykey.rawAddress.toCPointer<ByteVar>(), propertytype.rawAddress.toCPointer<ByteVar>(), propertybuffer.rawAddress.toCPointer<ByteVar>(), propertybuffersize.rawAddress.toCPointer<ByteVar>(), ulflags, hmachine)
 
-public actual fun cmGetDevNodePropertyKeys(dndevinst: UInt, propertykeyarray: MutPtr<Devpropkey>, propertykeycount: MutPtr<UInt>, ulflags: UInt): Configret =
+public actual fun cmGetDevNodePropertyKeys(dndevinst: UInt, propertykeyarray: MutPtr, propertykeycount: MutPtr, ulflags: UInt): Configret =
     windowssysWindowsWin32DevicesDeviceanddriverinstallationCmGetDevNodePropertyKeys(dndevinst, propertykeyarray.rawAddress.toCPointer<ByteVar>(), propertykeycount.rawAddress.toCPointer<ByteVar>(), ulflags)
 
-public actual fun cmGetDevNodePropertyKeysEx(dndevinst: UInt, propertykeyarray: MutPtr<Devpropkey>, propertykeycount: MutPtr<UInt>, ulflags: UInt, hmachine: Long): Configret =
+public actual fun cmGetDevNodePropertyKeysEx(dndevinst: UInt, propertykeyarray: MutPtr, propertykeycount: MutPtr, ulflags: UInt, hmachine: Long): Configret =
     windowssysWindowsWin32DevicesDeviceanddriverinstallationCmGetDevNodePropertyKeysEx(dndevinst, propertykeyarray.rawAddress.toCPointer<ByteVar>(), propertykeycount.rawAddress.toCPointer<ByteVar>(), ulflags, hmachine)
 
-public actual fun cmGetDevNodeRegistryPropertyA(dndevinst: UInt, ulproperty: UInt, pulregdatatype: MutPtr<UInt>, buffer: MutPtr<CVoid>, pullength: MutPtr<UInt>, ulflags: UInt): Configret =
+public actual fun cmGetDevNodeRegistryPropertyA(dndevinst: UInt, ulproperty: UInt, pulregdatatype: MutPtr, buffer: MutPtr, pullength: MutPtr, ulflags: UInt): Configret =
     windowssysWindowsWin32DevicesDeviceanddriverinstallationCmGetDevNodeRegistryPropertyA(dndevinst, ulproperty, pulregdatatype.rawAddress.toCPointer<ByteVar>(), buffer.rawAddress.toCPointer<ByteVar>(), pullength.rawAddress.toCPointer<ByteVar>(), ulflags)
 
-public actual fun cmGetDevNodeRegistryPropertyW(dndevinst: UInt, ulproperty: UInt, pulregdatatype: MutPtr<UInt>, buffer: MutPtr<CVoid>, pullength: MutPtr<UInt>, ulflags: UInt): Configret =
+public actual fun cmGetDevNodeRegistryPropertyW(dndevinst: UInt, ulproperty: UInt, pulregdatatype: MutPtr, buffer: MutPtr, pullength: MutPtr, ulflags: UInt): Configret =
     windowssysWindowsWin32DevicesDeviceanddriverinstallationCmGetDevNodeRegistryPropertyW(dndevinst, ulproperty, pulregdatatype.rawAddress.toCPointer<ByteVar>(), buffer.rawAddress.toCPointer<ByteVar>(), pullength.rawAddress.toCPointer<ByteVar>(), ulflags)
 
-public actual fun cmGetDevNodeRegistryPropertyExA(dndevinst: UInt, ulproperty: UInt, pulregdatatype: MutPtr<UInt>, buffer: MutPtr<CVoid>, pullength: MutPtr<UInt>, ulflags: UInt, hmachine: Long): Configret =
+public actual fun cmGetDevNodeRegistryPropertyExA(dndevinst: UInt, ulproperty: UInt, pulregdatatype: MutPtr, buffer: MutPtr, pullength: MutPtr, ulflags: UInt, hmachine: Long): Configret =
     windowssysWindowsWin32DevicesDeviceanddriverinstallationCmGetDevNodeRegistryPropertyExA(dndevinst, ulproperty, pulregdatatype.rawAddress.toCPointer<ByteVar>(), buffer.rawAddress.toCPointer<ByteVar>(), pullength.rawAddress.toCPointer<ByteVar>(), ulflags, hmachine)
 
-public actual fun cmGetDevNodeRegistryPropertyExW(dndevinst: UInt, ulproperty: UInt, pulregdatatype: MutPtr<UInt>, buffer: MutPtr<CVoid>, pullength: MutPtr<UInt>, ulflags: UInt, hmachine: Long): Configret =
+public actual fun cmGetDevNodeRegistryPropertyExW(dndevinst: UInt, ulproperty: UInt, pulregdatatype: MutPtr, buffer: MutPtr, pullength: MutPtr, ulflags: UInt, hmachine: Long): Configret =
     windowssysWindowsWin32DevicesDeviceanddriverinstallationCmGetDevNodeRegistryPropertyExW(dndevinst, ulproperty, pulregdatatype.rawAddress.toCPointer<ByteVar>(), buffer.rawAddress.toCPointer<ByteVar>(), pullength.rawAddress.toCPointer<ByteVar>(), ulflags, hmachine)
 
-public actual fun cmGetDevNodeStatus(pulstatus: MutPtr<CmDevnodeStatusFlags>, pulproblemnumber: MutPtr<CmProb>, dndevinst: UInt, ulflags: UInt): Configret =
+public actual fun cmGetDevNodeStatus(pulstatus: MutPtr, pulproblemnumber: MutPtr, dndevinst: UInt, ulflags: UInt): Configret =
     windowssysWindowsWin32DevicesDeviceanddriverinstallationCmGetDevNodeStatus(pulstatus.rawAddress.toCPointer<ByteVar>(), pulproblemnumber.rawAddress.toCPointer<ByteVar>(), dndevinst, ulflags)
 
-public actual fun cmGetDevNodeStatusEx(pulstatus: MutPtr<CmDevnodeStatusFlags>, pulproblemnumber: MutPtr<CmProb>, dndevinst: UInt, ulflags: UInt, hmachine: Long): Configret =
+public actual fun cmGetDevNodeStatusEx(pulstatus: MutPtr, pulproblemnumber: MutPtr, dndevinst: UInt, ulflags: UInt, hmachine: Long): Configret =
     windowssysWindowsWin32DevicesDeviceanddriverinstallationCmGetDevNodeStatusEx(pulstatus.rawAddress.toCPointer<ByteVar>(), pulproblemnumber.rawAddress.toCPointer<ByteVar>(), dndevinst, ulflags, hmachine)
 
 public actual fun cmGetDeviceIda(dndevinst: UInt, buffer: Pstr, bufferlen: UInt, ulflags: UInt): Configret =
@@ -871,157 +865,157 @@ public actual fun cmGetDeviceIdListExA(pszfilter: Pcstr, buffer: Pstr, bufferlen
 public actual fun cmGetDeviceIdListExW(pszfilter: Pcwstr, buffer: Pwstr, bufferlen: UInt, ulflags: UInt, hmachine: Long): Configret =
     windowssysWindowsWin32DevicesDeviceanddriverinstallationCmGetDeviceIdListExW(pszfilter.rawAddress.toCPointer<ByteVar>(), buffer.rawAddress.toCPointer<ByteVar>(), bufferlen, ulflags, hmachine)
 
-public actual fun cmGetDeviceIdListSizeA(pullen: MutPtr<UInt>, pszfilter: Pcstr, ulflags: UInt): Configret =
+public actual fun cmGetDeviceIdListSizeA(pullen: MutPtr, pszfilter: Pcstr, ulflags: UInt): Configret =
     windowssysWindowsWin32DevicesDeviceanddriverinstallationCmGetDeviceIdListSizeA(pullen.rawAddress.toCPointer<ByteVar>(), pszfilter.rawAddress.toCPointer<ByteVar>(), ulflags)
 
-public actual fun cmGetDeviceIdListSizeW(pullen: MutPtr<UInt>, pszfilter: Pcwstr, ulflags: UInt): Configret =
+public actual fun cmGetDeviceIdListSizeW(pullen: MutPtr, pszfilter: Pcwstr, ulflags: UInt): Configret =
     windowssysWindowsWin32DevicesDeviceanddriverinstallationCmGetDeviceIdListSizeW(pullen.rawAddress.toCPointer<ByteVar>(), pszfilter.rawAddress.toCPointer<ByteVar>(), ulflags)
 
-public actual fun cmGetDeviceIdListSizeExA(pullen: MutPtr<UInt>, pszfilter: Pcstr, ulflags: UInt, hmachine: Long): Configret =
+public actual fun cmGetDeviceIdListSizeExA(pullen: MutPtr, pszfilter: Pcstr, ulflags: UInt, hmachine: Long): Configret =
     windowssysWindowsWin32DevicesDeviceanddriverinstallationCmGetDeviceIdListSizeExA(pullen.rawAddress.toCPointer<ByteVar>(), pszfilter.rawAddress.toCPointer<ByteVar>(), ulflags, hmachine)
 
-public actual fun cmGetDeviceIdListSizeExW(pullen: MutPtr<UInt>, pszfilter: Pcwstr, ulflags: UInt, hmachine: Long): Configret =
+public actual fun cmGetDeviceIdListSizeExW(pullen: MutPtr, pszfilter: Pcwstr, ulflags: UInt, hmachine: Long): Configret =
     windowssysWindowsWin32DevicesDeviceanddriverinstallationCmGetDeviceIdListSizeExW(pullen.rawAddress.toCPointer<ByteVar>(), pszfilter.rawAddress.toCPointer<ByteVar>(), ulflags, hmachine)
 
-public actual fun cmGetDeviceIdSize(pullen: MutPtr<UInt>, dndevinst: UInt, ulflags: UInt): Configret =
+public actual fun cmGetDeviceIdSize(pullen: MutPtr, dndevinst: UInt, ulflags: UInt): Configret =
     windowssysWindowsWin32DevicesDeviceanddriverinstallationCmGetDeviceIdSize(pullen.rawAddress.toCPointer<ByteVar>(), dndevinst, ulflags)
 
-public actual fun cmGetDeviceIdSizeEx(pullen: MutPtr<UInt>, dndevinst: UInt, ulflags: UInt, hmachine: Long): Configret =
+public actual fun cmGetDeviceIdSizeEx(pullen: MutPtr, dndevinst: UInt, ulflags: UInt, hmachine: Long): Configret =
     windowssysWindowsWin32DevicesDeviceanddriverinstallationCmGetDeviceIdSizeEx(pullen.rawAddress.toCPointer<ByteVar>(), dndevinst, ulflags, hmachine)
 
-public actual fun cmGetDeviceInterfaceAliasA(pszdeviceinterface: Pcstr, aliasinterfaceguid: ConstPtr<Guid>, pszaliasdeviceinterface: Pstr, pullength: MutPtr<UInt>, ulflags: UInt): Configret =
+public actual fun cmGetDeviceInterfaceAliasA(pszdeviceinterface: Pcstr, aliasinterfaceguid: ConstPtr, pszaliasdeviceinterface: Pstr, pullength: MutPtr, ulflags: UInt): Configret =
     windowssysWindowsWin32DevicesDeviceanddriverinstallationCmGetDeviceInterfaceAliasA(pszdeviceinterface.rawAddress.toCPointer<ByteVar>(), aliasinterfaceguid.rawAddress.toCPointer<ByteVar>(), pszaliasdeviceinterface.rawAddress.toCPointer<ByteVar>(), pullength.rawAddress.toCPointer<ByteVar>(), ulflags)
 
-public actual fun cmGetDeviceInterfaceAliasW(pszdeviceinterface: Pcwstr, aliasinterfaceguid: ConstPtr<Guid>, pszaliasdeviceinterface: Pwstr, pullength: MutPtr<UInt>, ulflags: UInt): Configret =
+public actual fun cmGetDeviceInterfaceAliasW(pszdeviceinterface: Pcwstr, aliasinterfaceguid: ConstPtr, pszaliasdeviceinterface: Pwstr, pullength: MutPtr, ulflags: UInt): Configret =
     windowssysWindowsWin32DevicesDeviceanddriverinstallationCmGetDeviceInterfaceAliasW(pszdeviceinterface.rawAddress.toCPointer<ByteVar>(), aliasinterfaceguid.rawAddress.toCPointer<ByteVar>(), pszaliasdeviceinterface.rawAddress.toCPointer<ByteVar>(), pullength.rawAddress.toCPointer<ByteVar>(), ulflags)
 
-public actual fun cmGetDeviceInterfaceAliasExA(pszdeviceinterface: Pcstr, aliasinterfaceguid: ConstPtr<Guid>, pszaliasdeviceinterface: Pstr, pullength: MutPtr<UInt>, ulflags: UInt, hmachine: Long): Configret =
+public actual fun cmGetDeviceInterfaceAliasExA(pszdeviceinterface: Pcstr, aliasinterfaceguid: ConstPtr, pszaliasdeviceinterface: Pstr, pullength: MutPtr, ulflags: UInt, hmachine: Long): Configret =
     windowssysWindowsWin32DevicesDeviceanddriverinstallationCmGetDeviceInterfaceAliasExA(pszdeviceinterface.rawAddress.toCPointer<ByteVar>(), aliasinterfaceguid.rawAddress.toCPointer<ByteVar>(), pszaliasdeviceinterface.rawAddress.toCPointer<ByteVar>(), pullength.rawAddress.toCPointer<ByteVar>(), ulflags, hmachine)
 
-public actual fun cmGetDeviceInterfaceAliasExW(pszdeviceinterface: Pcwstr, aliasinterfaceguid: ConstPtr<Guid>, pszaliasdeviceinterface: Pwstr, pullength: MutPtr<UInt>, ulflags: UInt, hmachine: Long): Configret =
+public actual fun cmGetDeviceInterfaceAliasExW(pszdeviceinterface: Pcwstr, aliasinterfaceguid: ConstPtr, pszaliasdeviceinterface: Pwstr, pullength: MutPtr, ulflags: UInt, hmachine: Long): Configret =
     windowssysWindowsWin32DevicesDeviceanddriverinstallationCmGetDeviceInterfaceAliasExW(pszdeviceinterface.rawAddress.toCPointer<ByteVar>(), aliasinterfaceguid.rawAddress.toCPointer<ByteVar>(), pszaliasdeviceinterface.rawAddress.toCPointer<ByteVar>(), pullength.rawAddress.toCPointer<ByteVar>(), ulflags, hmachine)
 
-public actual fun cmGetDeviceInterfaceListA(interfaceclassguid: ConstPtr<Guid>, pdeviceid: Pcstr, buffer: Pstr, bufferlen: UInt, ulflags: CmGetDeviceInterfaceListFlags): Configret =
+public actual fun cmGetDeviceInterfaceListA(interfaceclassguid: ConstPtr, pdeviceid: Pcstr, buffer: Pstr, bufferlen: UInt, ulflags: CmGetDeviceInterfaceListFlags): Configret =
     windowssysWindowsWin32DevicesDeviceanddriverinstallationCmGetDeviceInterfaceListA(interfaceclassguid.rawAddress.toCPointer<ByteVar>(), pdeviceid.rawAddress.toCPointer<ByteVar>(), buffer.rawAddress.toCPointer<ByteVar>(), bufferlen, ulflags)
 
-public actual fun cmGetDeviceInterfaceListW(interfaceclassguid: ConstPtr<Guid>, pdeviceid: Pcwstr, buffer: Pwstr, bufferlen: UInt, ulflags: CmGetDeviceInterfaceListFlags): Configret =
+public actual fun cmGetDeviceInterfaceListW(interfaceclassguid: ConstPtr, pdeviceid: Pcwstr, buffer: Pwstr, bufferlen: UInt, ulflags: CmGetDeviceInterfaceListFlags): Configret =
     windowssysWindowsWin32DevicesDeviceanddriverinstallationCmGetDeviceInterfaceListW(interfaceclassguid.rawAddress.toCPointer<ByteVar>(), pdeviceid.rawAddress.toCPointer<ByteVar>(), buffer.rawAddress.toCPointer<ByteVar>(), bufferlen, ulflags)
 
-public actual fun cmGetDeviceInterfaceListExA(interfaceclassguid: ConstPtr<Guid>, pdeviceid: Pcstr, buffer: Pstr, bufferlen: UInt, ulflags: CmGetDeviceInterfaceListFlags, hmachine: Long): Configret =
+public actual fun cmGetDeviceInterfaceListExA(interfaceclassguid: ConstPtr, pdeviceid: Pcstr, buffer: Pstr, bufferlen: UInt, ulflags: CmGetDeviceInterfaceListFlags, hmachine: Long): Configret =
     windowssysWindowsWin32DevicesDeviceanddriverinstallationCmGetDeviceInterfaceListExA(interfaceclassguid.rawAddress.toCPointer<ByteVar>(), pdeviceid.rawAddress.toCPointer<ByteVar>(), buffer.rawAddress.toCPointer<ByteVar>(), bufferlen, ulflags, hmachine)
 
-public actual fun cmGetDeviceInterfaceListExW(interfaceclassguid: ConstPtr<Guid>, pdeviceid: Pcwstr, buffer: Pwstr, bufferlen: UInt, ulflags: CmGetDeviceInterfaceListFlags, hmachine: Long): Configret =
+public actual fun cmGetDeviceInterfaceListExW(interfaceclassguid: ConstPtr, pdeviceid: Pcwstr, buffer: Pwstr, bufferlen: UInt, ulflags: CmGetDeviceInterfaceListFlags, hmachine: Long): Configret =
     windowssysWindowsWin32DevicesDeviceanddriverinstallationCmGetDeviceInterfaceListExW(interfaceclassguid.rawAddress.toCPointer<ByteVar>(), pdeviceid.rawAddress.toCPointer<ByteVar>(), buffer.rawAddress.toCPointer<ByteVar>(), bufferlen, ulflags, hmachine)
 
-public actual fun cmGetDeviceInterfaceListSizeA(pullen: MutPtr<UInt>, interfaceclassguid: ConstPtr<Guid>, pdeviceid: Pcstr, ulflags: CmGetDeviceInterfaceListFlags): Configret =
+public actual fun cmGetDeviceInterfaceListSizeA(pullen: MutPtr, interfaceclassguid: ConstPtr, pdeviceid: Pcstr, ulflags: CmGetDeviceInterfaceListFlags): Configret =
     windowssysWindowsWin32DevicesDeviceanddriverinstallationCmGetDeviceInterfaceListSizeA(pullen.rawAddress.toCPointer<ByteVar>(), interfaceclassguid.rawAddress.toCPointer<ByteVar>(), pdeviceid.rawAddress.toCPointer<ByteVar>(), ulflags)
 
-public actual fun cmGetDeviceInterfaceListSizeW(pullen: MutPtr<UInt>, interfaceclassguid: ConstPtr<Guid>, pdeviceid: Pcwstr, ulflags: CmGetDeviceInterfaceListFlags): Configret =
+public actual fun cmGetDeviceInterfaceListSizeW(pullen: MutPtr, interfaceclassguid: ConstPtr, pdeviceid: Pcwstr, ulflags: CmGetDeviceInterfaceListFlags): Configret =
     windowssysWindowsWin32DevicesDeviceanddriverinstallationCmGetDeviceInterfaceListSizeW(pullen.rawAddress.toCPointer<ByteVar>(), interfaceclassguid.rawAddress.toCPointer<ByteVar>(), pdeviceid.rawAddress.toCPointer<ByteVar>(), ulflags)
 
-public actual fun cmGetDeviceInterfaceListSizeExA(pullen: MutPtr<UInt>, interfaceclassguid: ConstPtr<Guid>, pdeviceid: Pcstr, ulflags: CmGetDeviceInterfaceListFlags, hmachine: Long): Configret =
+public actual fun cmGetDeviceInterfaceListSizeExA(pullen: MutPtr, interfaceclassguid: ConstPtr, pdeviceid: Pcstr, ulflags: CmGetDeviceInterfaceListFlags, hmachine: Long): Configret =
     windowssysWindowsWin32DevicesDeviceanddriverinstallationCmGetDeviceInterfaceListSizeExA(pullen.rawAddress.toCPointer<ByteVar>(), interfaceclassguid.rawAddress.toCPointer<ByteVar>(), pdeviceid.rawAddress.toCPointer<ByteVar>(), ulflags, hmachine)
 
-public actual fun cmGetDeviceInterfaceListSizeExW(pullen: MutPtr<UInt>, interfaceclassguid: ConstPtr<Guid>, pdeviceid: Pcwstr, ulflags: CmGetDeviceInterfaceListFlags, hmachine: Long): Configret =
+public actual fun cmGetDeviceInterfaceListSizeExW(pullen: MutPtr, interfaceclassguid: ConstPtr, pdeviceid: Pcwstr, ulflags: CmGetDeviceInterfaceListFlags, hmachine: Long): Configret =
     windowssysWindowsWin32DevicesDeviceanddriverinstallationCmGetDeviceInterfaceListSizeExW(pullen.rawAddress.toCPointer<ByteVar>(), interfaceclassguid.rawAddress.toCPointer<ByteVar>(), pdeviceid.rawAddress.toCPointer<ByteVar>(), ulflags, hmachine)
 
-public actual fun cmGetDeviceInterfacePropertyW(pszdeviceinterface: Pcwstr, propertykey: ConstPtr<Devpropkey>, propertytype: MutPtr<Devproptype>, propertybuffer: MutPtr<UByte>, propertybuffersize: MutPtr<UInt>, ulflags: UInt): Configret =
+public actual fun cmGetDeviceInterfacePropertyW(pszdeviceinterface: Pcwstr, propertykey: ConstPtr, propertytype: MutPtr, propertybuffer: MutPtr, propertybuffersize: MutPtr, ulflags: UInt): Configret =
     windowssysWindowsWin32DevicesDeviceanddriverinstallationCmGetDeviceInterfacePropertyW(pszdeviceinterface.rawAddress.toCPointer<ByteVar>(), propertykey.rawAddress.toCPointer<ByteVar>(), propertytype.rawAddress.toCPointer<ByteVar>(), propertybuffer.rawAddress.toCPointer<ByteVar>(), propertybuffersize.rawAddress.toCPointer<ByteVar>(), ulflags)
 
-public actual fun cmGetDeviceInterfacePropertyExW(pszdeviceinterface: Pcwstr, propertykey: ConstPtr<Devpropkey>, propertytype: MutPtr<Devproptype>, propertybuffer: MutPtr<UByte>, propertybuffersize: MutPtr<UInt>, ulflags: UInt, hmachine: Long): Configret =
+public actual fun cmGetDeviceInterfacePropertyExW(pszdeviceinterface: Pcwstr, propertykey: ConstPtr, propertytype: MutPtr, propertybuffer: MutPtr, propertybuffersize: MutPtr, ulflags: UInt, hmachine: Long): Configret =
     windowssysWindowsWin32DevicesDeviceanddriverinstallationCmGetDeviceInterfacePropertyExW(pszdeviceinterface.rawAddress.toCPointer<ByteVar>(), propertykey.rawAddress.toCPointer<ByteVar>(), propertytype.rawAddress.toCPointer<ByteVar>(), propertybuffer.rawAddress.toCPointer<ByteVar>(), propertybuffersize.rawAddress.toCPointer<ByteVar>(), ulflags, hmachine)
 
-public actual fun cmGetDeviceInterfacePropertyKeysW(pszdeviceinterface: Pcwstr, propertykeyarray: MutPtr<Devpropkey>, propertykeycount: MutPtr<UInt>, ulflags: UInt): Configret =
+public actual fun cmGetDeviceInterfacePropertyKeysW(pszdeviceinterface: Pcwstr, propertykeyarray: MutPtr, propertykeycount: MutPtr, ulflags: UInt): Configret =
     windowssysWindowsWin32DevicesDeviceanddriverinstallationCmGetDeviceInterfacePropertyKeysW(pszdeviceinterface.rawAddress.toCPointer<ByteVar>(), propertykeyarray.rawAddress.toCPointer<ByteVar>(), propertykeycount.rawAddress.toCPointer<ByteVar>(), ulflags)
 
-public actual fun cmGetDeviceInterfacePropertyKeysExW(pszdeviceinterface: Pcwstr, propertykeyarray: MutPtr<Devpropkey>, propertykeycount: MutPtr<UInt>, ulflags: UInt, hmachine: Long): Configret =
+public actual fun cmGetDeviceInterfacePropertyKeysExW(pszdeviceinterface: Pcwstr, propertykeyarray: MutPtr, propertykeycount: MutPtr, ulflags: UInt, hmachine: Long): Configret =
     windowssysWindowsWin32DevicesDeviceanddriverinstallationCmGetDeviceInterfacePropertyKeysExW(pszdeviceinterface.rawAddress.toCPointer<ByteVar>(), propertykeyarray.rawAddress.toCPointer<ByteVar>(), propertykeycount.rawAddress.toCPointer<ByteVar>(), ulflags, hmachine)
 
-public actual fun cmGetFirstLogConf(plclogconf: MutPtr<ULong>, dndevinst: UInt, ulflags: CmLogConf): Configret =
+public actual fun cmGetFirstLogConf(plclogconf: MutPtr, dndevinst: UInt, ulflags: CmLogConf): Configret =
     windowssysWindowsWin32DevicesDeviceanddriverinstallationCmGetFirstLogConf(plclogconf.rawAddress.toCPointer<ByteVar>(), dndevinst, ulflags)
 
-public actual fun cmGetFirstLogConfEx(plclogconf: MutPtr<ULong>, dndevinst: UInt, ulflags: CmLogConf, hmachine: Long): Configret =
+public actual fun cmGetFirstLogConfEx(plclogconf: MutPtr, dndevinst: UInt, ulflags: CmLogConf, hmachine: Long): Configret =
     windowssysWindowsWin32DevicesDeviceanddriverinstallationCmGetFirstLogConfEx(plclogconf.rawAddress.toCPointer<ByteVar>(), dndevinst, ulflags, hmachine)
 
-public actual fun cmGetGlobalState(pulstate: MutPtr<UInt>, ulflags: UInt): Configret =
+public actual fun cmGetGlobalState(pulstate: MutPtr, ulflags: UInt): Configret =
     windowssysWindowsWin32DevicesDeviceanddriverinstallationCmGetGlobalState(pulstate.rawAddress.toCPointer<ByteVar>(), ulflags)
 
-public actual fun cmGetGlobalStateEx(pulstate: MutPtr<UInt>, ulflags: UInt, hmachine: Long): Configret =
+public actual fun cmGetGlobalStateEx(pulstate: MutPtr, ulflags: UInt, hmachine: Long): Configret =
     windowssysWindowsWin32DevicesDeviceanddriverinstallationCmGetGlobalStateEx(pulstate.rawAddress.toCPointer<ByteVar>(), ulflags, hmachine)
 
-public actual fun cmGetHwProfFlagsA(pdeviceid: Pcstr, ulhardwareprofile: UInt, pulvalue: MutPtr<UInt>, ulflags: UInt): Configret =
+public actual fun cmGetHwProfFlagsA(pdeviceid: Pcstr, ulhardwareprofile: UInt, pulvalue: MutPtr, ulflags: UInt): Configret =
     windowssysWindowsWin32DevicesDeviceanddriverinstallationCmGetHwProfFlagsA(pdeviceid.rawAddress.toCPointer<ByteVar>(), ulhardwareprofile, pulvalue.rawAddress.toCPointer<ByteVar>(), ulflags)
 
-public actual fun cmGetHwProfFlagsW(pdeviceid: Pcwstr, ulhardwareprofile: UInt, pulvalue: MutPtr<UInt>, ulflags: UInt): Configret =
+public actual fun cmGetHwProfFlagsW(pdeviceid: Pcwstr, ulhardwareprofile: UInt, pulvalue: MutPtr, ulflags: UInt): Configret =
     windowssysWindowsWin32DevicesDeviceanddriverinstallationCmGetHwProfFlagsW(pdeviceid.rawAddress.toCPointer<ByteVar>(), ulhardwareprofile, pulvalue.rawAddress.toCPointer<ByteVar>(), ulflags)
 
-public actual fun cmGetHwProfFlagsExA(pdeviceid: Pcstr, ulhardwareprofile: UInt, pulvalue: MutPtr<UInt>, ulflags: UInt, hmachine: Long): Configret =
+public actual fun cmGetHwProfFlagsExA(pdeviceid: Pcstr, ulhardwareprofile: UInt, pulvalue: MutPtr, ulflags: UInt, hmachine: Long): Configret =
     windowssysWindowsWin32DevicesDeviceanddriverinstallationCmGetHwProfFlagsExA(pdeviceid.rawAddress.toCPointer<ByteVar>(), ulhardwareprofile, pulvalue.rawAddress.toCPointer<ByteVar>(), ulflags, hmachine)
 
-public actual fun cmGetHwProfFlagsExW(pdeviceid: Pcwstr, ulhardwareprofile: UInt, pulvalue: MutPtr<UInt>, ulflags: UInt, hmachine: Long): Configret =
+public actual fun cmGetHwProfFlagsExW(pdeviceid: Pcwstr, ulhardwareprofile: UInt, pulvalue: MutPtr, ulflags: UInt, hmachine: Long): Configret =
     windowssysWindowsWin32DevicesDeviceanddriverinstallationCmGetHwProfFlagsExW(pdeviceid.rawAddress.toCPointer<ByteVar>(), ulhardwareprofile, pulvalue.rawAddress.toCPointer<ByteVar>(), ulflags, hmachine)
 
-public actual fun cmGetHardwareProfileInfoA(ulindex: UInt, phwprofileinfo: MutPtr<HwprofileinfoA>, ulflags: UInt): Configret =
+public actual fun cmGetHardwareProfileInfoA(ulindex: UInt, phwprofileinfo: MutPtr, ulflags: UInt): Configret =
     windowssysWindowsWin32DevicesDeviceanddriverinstallationCmGetHardwareProfileInfoA(ulindex, phwprofileinfo.rawAddress.toCPointer<ByteVar>(), ulflags)
 
-public actual fun cmGetHardwareProfileInfoW(ulindex: UInt, phwprofileinfo: MutPtr<HwprofileinfoW>, ulflags: UInt): Configret =
+public actual fun cmGetHardwareProfileInfoW(ulindex: UInt, phwprofileinfo: MutPtr, ulflags: UInt): Configret =
     windowssysWindowsWin32DevicesDeviceanddriverinstallationCmGetHardwareProfileInfoW(ulindex, phwprofileinfo.rawAddress.toCPointer<ByteVar>(), ulflags)
 
-public actual fun cmGetHardwareProfileInfoExA(ulindex: UInt, phwprofileinfo: MutPtr<HwprofileinfoA>, ulflags: UInt, hmachine: Long): Configret =
+public actual fun cmGetHardwareProfileInfoExA(ulindex: UInt, phwprofileinfo: MutPtr, ulflags: UInt, hmachine: Long): Configret =
     windowssysWindowsWin32DevicesDeviceanddriverinstallationCmGetHardwareProfileInfoExA(ulindex, phwprofileinfo.rawAddress.toCPointer<ByteVar>(), ulflags, hmachine)
 
-public actual fun cmGetHardwareProfileInfoExW(ulindex: UInt, phwprofileinfo: MutPtr<HwprofileinfoW>, ulflags: UInt, hmachine: Long): Configret =
+public actual fun cmGetHardwareProfileInfoExW(ulindex: UInt, phwprofileinfo: MutPtr, ulflags: UInt, hmachine: Long): Configret =
     windowssysWindowsWin32DevicesDeviceanddriverinstallationCmGetHardwareProfileInfoExW(ulindex, phwprofileinfo.rawAddress.toCPointer<ByteVar>(), ulflags, hmachine)
 
-public actual fun cmGetLogConfPriority(lclogconf: ULong, ppriority: MutPtr<UInt>, ulflags: UInt): Configret =
+public actual fun cmGetLogConfPriority(lclogconf: ULong, ppriority: MutPtr, ulflags: UInt): Configret =
     windowssysWindowsWin32DevicesDeviceanddriverinstallationCmGetLogConfPriority(lclogconf, ppriority.rawAddress.toCPointer<ByteVar>(), ulflags)
 
-public actual fun cmGetLogConfPriorityEx(lclogconf: ULong, ppriority: MutPtr<UInt>, ulflags: UInt, hmachine: Long): Configret =
+public actual fun cmGetLogConfPriorityEx(lclogconf: ULong, ppriority: MutPtr, ulflags: UInt, hmachine: Long): Configret =
     windowssysWindowsWin32DevicesDeviceanddriverinstallationCmGetLogConfPriorityEx(lclogconf, ppriority.rawAddress.toCPointer<ByteVar>(), ulflags, hmachine)
 
-public actual fun cmGetNextLogConf(plclogconf: MutPtr<ULong>, lclogconf: ULong, ulflags: UInt): Configret =
+public actual fun cmGetNextLogConf(plclogconf: MutPtr, lclogconf: ULong, ulflags: UInt): Configret =
     windowssysWindowsWin32DevicesDeviceanddriverinstallationCmGetNextLogConf(plclogconf.rawAddress.toCPointer<ByteVar>(), lclogconf, ulflags)
 
-public actual fun cmGetNextLogConfEx(plclogconf: MutPtr<ULong>, lclogconf: ULong, ulflags: UInt, hmachine: Long): Configret =
+public actual fun cmGetNextLogConfEx(plclogconf: MutPtr, lclogconf: ULong, ulflags: UInt, hmachine: Long): Configret =
     windowssysWindowsWin32DevicesDeviceanddriverinstallationCmGetNextLogConfEx(plclogconf.rawAddress.toCPointer<ByteVar>(), lclogconf, ulflags, hmachine)
 
-public actual fun cmGetNextResDes(prdresdes: MutPtr<ULong>, rdresdes: ULong, forresource: CmRestype, presourceid: MutPtr<CmRestype>, ulflags: UInt): Configret =
+public actual fun cmGetNextResDes(prdresdes: MutPtr, rdresdes: ULong, forresource: CmRestype, presourceid: MutPtr, ulflags: UInt): Configret =
     windowssysWindowsWin32DevicesDeviceanddriverinstallationCmGetNextResDes(prdresdes.rawAddress.toCPointer<ByteVar>(), rdresdes, forresource, presourceid.rawAddress.toCPointer<ByteVar>(), ulflags)
 
-public actual fun cmGetNextResDesEx(prdresdes: MutPtr<ULong>, rdresdes: ULong, forresource: CmRestype, presourceid: MutPtr<CmRestype>, ulflags: UInt, hmachine: Long): Configret =
+public actual fun cmGetNextResDesEx(prdresdes: MutPtr, rdresdes: ULong, forresource: CmRestype, presourceid: MutPtr, ulflags: UInt, hmachine: Long): Configret =
     windowssysWindowsWin32DevicesDeviceanddriverinstallationCmGetNextResDesEx(prdresdes.rawAddress.toCPointer<ByteVar>(), rdresdes, forresource, presourceid.rawAddress.toCPointer<ByteVar>(), ulflags, hmachine)
 
-public actual fun cmGetParent(pdndevinst: MutPtr<UInt>, dndevinst: UInt, ulflags: UInt): Configret =
+public actual fun cmGetParent(pdndevinst: MutPtr, dndevinst: UInt, ulflags: UInt): Configret =
     windowssysWindowsWin32DevicesDeviceanddriverinstallationCmGetParent(pdndevinst.rawAddress.toCPointer<ByteVar>(), dndevinst, ulflags)
 
-public actual fun cmGetParentEx(pdndevinst: MutPtr<UInt>, dndevinst: UInt, ulflags: UInt, hmachine: Long): Configret =
+public actual fun cmGetParentEx(pdndevinst: MutPtr, dndevinst: UInt, ulflags: UInt, hmachine: Long): Configret =
     windowssysWindowsWin32DevicesDeviceanddriverinstallationCmGetParentEx(pdndevinst.rawAddress.toCPointer<ByteVar>(), dndevinst, ulflags, hmachine)
 
-public actual fun cmGetResDesData(rdresdes: ULong, buffer: MutPtr<CVoid>, bufferlen: UInt, ulflags: UInt): Configret =
+public actual fun cmGetResDesData(rdresdes: ULong, buffer: MutPtr, bufferlen: UInt, ulflags: UInt): Configret =
     windowssysWindowsWin32DevicesDeviceanddriverinstallationCmGetResDesData(rdresdes, buffer.rawAddress.toCPointer<ByteVar>(), bufferlen, ulflags)
 
-public actual fun cmGetResDesDataEx(rdresdes: ULong, buffer: MutPtr<CVoid>, bufferlen: UInt, ulflags: UInt, hmachine: Long): Configret =
+public actual fun cmGetResDesDataEx(rdresdes: ULong, buffer: MutPtr, bufferlen: UInt, ulflags: UInt, hmachine: Long): Configret =
     windowssysWindowsWin32DevicesDeviceanddriverinstallationCmGetResDesDataEx(rdresdes, buffer.rawAddress.toCPointer<ByteVar>(), bufferlen, ulflags, hmachine)
 
-public actual fun cmGetResDesDataSize(pulsize: MutPtr<UInt>, rdresdes: ULong, ulflags: UInt): Configret =
+public actual fun cmGetResDesDataSize(pulsize: MutPtr, rdresdes: ULong, ulflags: UInt): Configret =
     windowssysWindowsWin32DevicesDeviceanddriverinstallationCmGetResDesDataSize(pulsize.rawAddress.toCPointer<ByteVar>(), rdresdes, ulflags)
 
-public actual fun cmGetResDesDataSizeEx(pulsize: MutPtr<UInt>, rdresdes: ULong, ulflags: UInt, hmachine: Long): Configret =
+public actual fun cmGetResDesDataSizeEx(pulsize: MutPtr, rdresdes: ULong, ulflags: UInt, hmachine: Long): Configret =
     windowssysWindowsWin32DevicesDeviceanddriverinstallationCmGetResDesDataSizeEx(pulsize.rawAddress.toCPointer<ByteVar>(), rdresdes, ulflags, hmachine)
 
-public actual fun cmGetResourceConflictCount(clconflictlist: ULong, pulcount: MutPtr<UInt>): Configret =
+public actual fun cmGetResourceConflictCount(clconflictlist: ULong, pulcount: MutPtr): Configret =
     windowssysWindowsWin32DevicesDeviceanddriverinstallationCmGetResourceConflictCount(clconflictlist, pulcount.rawAddress.toCPointer<ByteVar>())
 
-public actual fun cmGetResourceConflictDetailsA(clconflictlist: ULong, ulindex: UInt, pconflictdetails: MutPtr<ConflictDetailsA>): Configret =
+public actual fun cmGetResourceConflictDetailsA(clconflictlist: ULong, ulindex: UInt, pconflictdetails: MutPtr): Configret =
     windowssysWindowsWin32DevicesDeviceanddriverinstallationCmGetResourceConflictDetailsA(clconflictlist, ulindex, pconflictdetails.rawAddress.toCPointer<ByteVar>())
 
-public actual fun cmGetResourceConflictDetailsW(clconflictlist: ULong, ulindex: UInt, pconflictdetails: MutPtr<ConflictDetailsW>): Configret =
+public actual fun cmGetResourceConflictDetailsW(clconflictlist: ULong, ulindex: UInt, pconflictdetails: MutPtr): Configret =
     windowssysWindowsWin32DevicesDeviceanddriverinstallationCmGetResourceConflictDetailsW(clconflictlist, ulindex, pconflictdetails.rawAddress.toCPointer<ByteVar>())
 
-public actual fun cmGetSibling(pdndevinst: MutPtr<UInt>, dndevinst: UInt, ulflags: UInt): Configret =
+public actual fun cmGetSibling(pdndevinst: MutPtr, dndevinst: UInt, ulflags: UInt): Configret =
     windowssysWindowsWin32DevicesDeviceanddriverinstallationCmGetSibling(pdndevinst.rawAddress.toCPointer<ByteVar>(), dndevinst, ulflags)
 
-public actual fun cmGetSiblingEx(pdndevinst: MutPtr<UInt>, dndevinst: UInt, ulflags: UInt, hmachine: Long): Configret =
+public actual fun cmGetSiblingEx(pdndevinst: MutPtr, dndevinst: UInt, ulflags: UInt, hmachine: Long): Configret =
     windowssysWindowsWin32DevicesDeviceanddriverinstallationCmGetSiblingEx(pdndevinst.rawAddress.toCPointer<ByteVar>(), dndevinst, ulflags, hmachine)
 
 public actual fun cmGetVersion(): UShort =
@@ -1036,10 +1030,10 @@ public actual fun cmIntersectRangeList(rlhold1: ULong, rlhold2: ULong, rlhnew: U
 public actual fun cmInvertRangeList(rlhold: ULong, rlhnew: ULong, ullmaxvalue: ULong, ulflags: UInt): Configret =
     windowssysWindowsWin32DevicesDeviceanddriverinstallationCmInvertRangeList(rlhold, rlhnew, ullmaxvalue, ulflags)
 
-public actual fun cmIsDockStationPresent(pbpresent: MutPtr<Bool>): Configret =
+public actual fun cmIsDockStationPresent(pbpresent: MutPtr): Configret =
     windowssysWindowsWin32DevicesDeviceanddriverinstallationCmIsDockStationPresent(pbpresent.rawAddress.toCPointer<ByteVar>())
 
-public actual fun cmIsDockStationPresentEx(pbpresent: MutPtr<Bool>, hmachine: Long): Configret =
+public actual fun cmIsDockStationPresentEx(pbpresent: MutPtr, hmachine: Long): Configret =
     windowssysWindowsWin32DevicesDeviceanddriverinstallationCmIsDockStationPresentEx(pbpresent.rawAddress.toCPointer<ByteVar>(), hmachine)
 
 public actual fun cmIsVersionAvailable(wversion: UShort): Bool =
@@ -1048,16 +1042,16 @@ public actual fun cmIsVersionAvailable(wversion: UShort): Bool =
 public actual fun cmIsVersionAvailableEx(wversion: UShort, hmachine: Long): Bool =
     windowssysWindowsWin32DevicesDeviceanddriverinstallationCmIsVersionAvailableEx(wversion, hmachine)
 
-public actual fun cmLocateDevNodeA(pdndevinst: MutPtr<UInt>, pdeviceid: Pcstr, ulflags: CmLocateDevnodeFlags): Configret =
+public actual fun cmLocateDevNodeA(pdndevinst: MutPtr, pdeviceid: Pcstr, ulflags: CmLocateDevnodeFlags): Configret =
     windowssysWindowsWin32DevicesDeviceanddriverinstallationCmLocateDevNodeA(pdndevinst.rawAddress.toCPointer<ByteVar>(), pdeviceid.rawAddress.toCPointer<ByteVar>(), ulflags)
 
-public actual fun cmLocateDevNodeW(pdndevinst: MutPtr<UInt>, pdeviceid: Pcwstr, ulflags: CmLocateDevnodeFlags): Configret =
+public actual fun cmLocateDevNodeW(pdndevinst: MutPtr, pdeviceid: Pcwstr, ulflags: CmLocateDevnodeFlags): Configret =
     windowssysWindowsWin32DevicesDeviceanddriverinstallationCmLocateDevNodeW(pdndevinst.rawAddress.toCPointer<ByteVar>(), pdeviceid.rawAddress.toCPointer<ByteVar>(), ulflags)
 
-public actual fun cmLocateDevNodeExA(pdndevinst: MutPtr<UInt>, pdeviceid: Pcstr, ulflags: UInt, hmachine: Long): Configret =
+public actual fun cmLocateDevNodeExA(pdndevinst: MutPtr, pdeviceid: Pcstr, ulflags: UInt, hmachine: Long): Configret =
     windowssysWindowsWin32DevicesDeviceanddriverinstallationCmLocateDevNodeExA(pdndevinst.rawAddress.toCPointer<ByteVar>(), pdeviceid.rawAddress.toCPointer<ByteVar>(), ulflags, hmachine)
 
-public actual fun cmLocateDevNodeExW(pdndevinst: MutPtr<UInt>, pdeviceid: Pcwstr, ulflags: UInt, hmachine: Long): Configret =
+public actual fun cmLocateDevNodeExW(pdndevinst: MutPtr, pdeviceid: Pcwstr, ulflags: UInt, hmachine: Long): Configret =
     windowssysWindowsWin32DevicesDeviceanddriverinstallationCmLocateDevNodeExW(pdndevinst.rawAddress.toCPointer<ByteVar>(), pdeviceid.rawAddress.toCPointer<ByteVar>(), ulflags, hmachine)
 
 public actual fun cmMapCrToWin32Err(cmreturncode: Configret, defaulterr: UInt): UInt =
@@ -1066,10 +1060,10 @@ public actual fun cmMapCrToWin32Err(cmreturncode: Configret, defaulterr: UInt): 
 public actual fun cmMergeRangeList(rlhold1: ULong, rlhold2: ULong, rlhnew: ULong, ulflags: UInt): Configret =
     windowssysWindowsWin32DevicesDeviceanddriverinstallationCmMergeRangeList(rlhold1, rlhold2, rlhnew, ulflags)
 
-public actual fun cmModifyResDes(prdresdes: MutPtr<ULong>, rdresdes: ULong, resourceid: UInt, resourcedata: ConstPtr<CVoid>, resourcelen: UInt, ulflags: UInt): Configret =
+public actual fun cmModifyResDes(prdresdes: MutPtr, rdresdes: ULong, resourceid: UInt, resourcedata: ConstPtr, resourcelen: UInt, ulflags: UInt): Configret =
     windowssysWindowsWin32DevicesDeviceanddriverinstallationCmModifyResDes(prdresdes.rawAddress.toCPointer<ByteVar>(), rdresdes, resourceid, resourcedata.rawAddress.toCPointer<ByteVar>(), resourcelen, ulflags)
 
-public actual fun cmModifyResDesEx(prdresdes: MutPtr<ULong>, rdresdes: ULong, resourceid: UInt, resourcedata: ConstPtr<CVoid>, resourcelen: UInt, ulflags: UInt, hmachine: Long): Configret =
+public actual fun cmModifyResDesEx(prdresdes: MutPtr, rdresdes: ULong, resourceid: UInt, resourcedata: ConstPtr, resourcelen: UInt, ulflags: UInt, hmachine: Long): Configret =
     windowssysWindowsWin32DevicesDeviceanddriverinstallationCmModifyResDesEx(prdresdes.rawAddress.toCPointer<ByteVar>(), rdresdes, resourceid, resourcedata.rawAddress.toCPointer<ByteVar>(), resourcelen, ulflags, hmachine)
 
 public actual fun cmMoveDevNode(dnfromdevinst: UInt, dntodevinst: UInt, ulflags: UInt): Configret =
@@ -1078,61 +1072,61 @@ public actual fun cmMoveDevNode(dnfromdevinst: UInt, dntodevinst: UInt, ulflags:
 public actual fun cmMoveDevNodeEx(dnfromdevinst: UInt, dntodevinst: UInt, ulflags: UInt, hmachine: Long): Configret =
     windowssysWindowsWin32DevicesDeviceanddriverinstallationCmMoveDevNodeEx(dnfromdevinst, dntodevinst, ulflags, hmachine)
 
-public actual fun cmNextRange(preelement: MutPtr<ULong>, pullstart: MutPtr<ULong>, pullend: MutPtr<ULong>, ulflags: UInt): Configret =
+public actual fun cmNextRange(preelement: MutPtr, pullstart: MutPtr, pullend: MutPtr, ulflags: UInt): Configret =
     windowssysWindowsWin32DevicesDeviceanddriverinstallationCmNextRange(preelement.rawAddress.toCPointer<ByteVar>(), pullstart.rawAddress.toCPointer<ByteVar>(), pullend.rawAddress.toCPointer<ByteVar>(), ulflags)
 
-public actual fun cmOpenClassKeyA(classguid: ConstPtr<Guid>, pszclassname: Pcstr, samdesired: UInt, disposition: UInt, phkclass: MutPtr<Hkey>, ulflags: UInt): Configret =
+public actual fun cmOpenClassKeyA(classguid: ConstPtr, pszclassname: Pcstr, samdesired: UInt, disposition: UInt, phkclass: MutPtr, ulflags: UInt): Configret =
     windowssysWindowsWin32DevicesDeviceanddriverinstallationCmOpenClassKeyA(classguid.rawAddress.toCPointer<ByteVar>(), pszclassname.rawAddress.toCPointer<ByteVar>(), samdesired, disposition, phkclass.rawAddress.toCPointer<ByteVar>(), ulflags)
 
-public actual fun cmOpenClassKeyW(classguid: ConstPtr<Guid>, pszclassname: Pcwstr, samdesired: UInt, disposition: UInt, phkclass: MutPtr<Hkey>, ulflags: UInt): Configret =
+public actual fun cmOpenClassKeyW(classguid: ConstPtr, pszclassname: Pcwstr, samdesired: UInt, disposition: UInt, phkclass: MutPtr, ulflags: UInt): Configret =
     windowssysWindowsWin32DevicesDeviceanddriverinstallationCmOpenClassKeyW(classguid.rawAddress.toCPointer<ByteVar>(), pszclassname.rawAddress.toCPointer<ByteVar>(), samdesired, disposition, phkclass.rawAddress.toCPointer<ByteVar>(), ulflags)
 
-public actual fun cmOpenClassKeyExA(classguid: ConstPtr<Guid>, pszclassname: Pcstr, samdesired: UInt, disposition: UInt, phkclass: MutPtr<Hkey>, ulflags: UInt, hmachine: Long): Configret =
+public actual fun cmOpenClassKeyExA(classguid: ConstPtr, pszclassname: Pcstr, samdesired: UInt, disposition: UInt, phkclass: MutPtr, ulflags: UInt, hmachine: Long): Configret =
     windowssysWindowsWin32DevicesDeviceanddriverinstallationCmOpenClassKeyExA(classguid.rawAddress.toCPointer<ByteVar>(), pszclassname.rawAddress.toCPointer<ByteVar>(), samdesired, disposition, phkclass.rawAddress.toCPointer<ByteVar>(), ulflags, hmachine)
 
-public actual fun cmOpenClassKeyExW(classguid: ConstPtr<Guid>, pszclassname: Pcwstr, samdesired: UInt, disposition: UInt, phkclass: MutPtr<Hkey>, ulflags: UInt, hmachine: Long): Configret =
+public actual fun cmOpenClassKeyExW(classguid: ConstPtr, pszclassname: Pcwstr, samdesired: UInt, disposition: UInt, phkclass: MutPtr, ulflags: UInt, hmachine: Long): Configret =
     windowssysWindowsWin32DevicesDeviceanddriverinstallationCmOpenClassKeyExW(classguid.rawAddress.toCPointer<ByteVar>(), pszclassname.rawAddress.toCPointer<ByteVar>(), samdesired, disposition, phkclass.rawAddress.toCPointer<ByteVar>(), ulflags, hmachine)
 
-public actual fun cmOpenDevNodeKey(dndevnode: UInt, samdesired: UInt, ulhardwareprofile: UInt, disposition: UInt, phkdevice: MutPtr<Hkey>, ulflags: UInt): Configret =
+public actual fun cmOpenDevNodeKey(dndevnode: UInt, samdesired: UInt, ulhardwareprofile: UInt, disposition: UInt, phkdevice: MutPtr, ulflags: UInt): Configret =
     windowssysWindowsWin32DevicesDeviceanddriverinstallationCmOpenDevNodeKey(dndevnode, samdesired, ulhardwareprofile, disposition, phkdevice.rawAddress.toCPointer<ByteVar>(), ulflags)
 
-public actual fun cmOpenDevNodeKeyEx(dndevnode: UInt, samdesired: UInt, ulhardwareprofile: UInt, disposition: UInt, phkdevice: MutPtr<Hkey>, ulflags: UInt, hmachine: Long): Configret =
+public actual fun cmOpenDevNodeKeyEx(dndevnode: UInt, samdesired: UInt, ulhardwareprofile: UInt, disposition: UInt, phkdevice: MutPtr, ulflags: UInt, hmachine: Long): Configret =
     windowssysWindowsWin32DevicesDeviceanddriverinstallationCmOpenDevNodeKeyEx(dndevnode, samdesired, ulhardwareprofile, disposition, phkdevice.rawAddress.toCPointer<ByteVar>(), ulflags, hmachine)
 
-public actual fun cmOpenDeviceInterfaceKeyA(pszdeviceinterface: Pcstr, samdesired: UInt, disposition: UInt, phkdeviceinterface: MutPtr<Hkey>, ulflags: UInt): Configret =
+public actual fun cmOpenDeviceInterfaceKeyA(pszdeviceinterface: Pcstr, samdesired: UInt, disposition: UInt, phkdeviceinterface: MutPtr, ulflags: UInt): Configret =
     windowssysWindowsWin32DevicesDeviceanddriverinstallationCmOpenDeviceInterfaceKeyA(pszdeviceinterface.rawAddress.toCPointer<ByteVar>(), samdesired, disposition, phkdeviceinterface.rawAddress.toCPointer<ByteVar>(), ulflags)
 
-public actual fun cmOpenDeviceInterfaceKeyW(pszdeviceinterface: Pcwstr, samdesired: UInt, disposition: UInt, phkdeviceinterface: MutPtr<Hkey>, ulflags: UInt): Configret =
+public actual fun cmOpenDeviceInterfaceKeyW(pszdeviceinterface: Pcwstr, samdesired: UInt, disposition: UInt, phkdeviceinterface: MutPtr, ulflags: UInt): Configret =
     windowssysWindowsWin32DevicesDeviceanddriverinstallationCmOpenDeviceInterfaceKeyW(pszdeviceinterface.rawAddress.toCPointer<ByteVar>(), samdesired, disposition, phkdeviceinterface.rawAddress.toCPointer<ByteVar>(), ulflags)
 
-public actual fun cmOpenDeviceInterfaceKeyExA(pszdeviceinterface: Pcstr, samdesired: UInt, disposition: UInt, phkdeviceinterface: MutPtr<Hkey>, ulflags: UInt, hmachine: Long): Configret =
+public actual fun cmOpenDeviceInterfaceKeyExA(pszdeviceinterface: Pcstr, samdesired: UInt, disposition: UInt, phkdeviceinterface: MutPtr, ulflags: UInt, hmachine: Long): Configret =
     windowssysWindowsWin32DevicesDeviceanddriverinstallationCmOpenDeviceInterfaceKeyExA(pszdeviceinterface.rawAddress.toCPointer<ByteVar>(), samdesired, disposition, phkdeviceinterface.rawAddress.toCPointer<ByteVar>(), ulflags, hmachine)
 
-public actual fun cmOpenDeviceInterfaceKeyExW(pszdeviceinterface: Pcwstr, samdesired: UInt, disposition: UInt, phkdeviceinterface: MutPtr<Hkey>, ulflags: UInt, hmachine: Long): Configret =
+public actual fun cmOpenDeviceInterfaceKeyExW(pszdeviceinterface: Pcwstr, samdesired: UInt, disposition: UInt, phkdeviceinterface: MutPtr, ulflags: UInt, hmachine: Long): Configret =
     windowssysWindowsWin32DevicesDeviceanddriverinstallationCmOpenDeviceInterfaceKeyExW(pszdeviceinterface.rawAddress.toCPointer<ByteVar>(), samdesired, disposition, phkdeviceinterface.rawAddress.toCPointer<ByteVar>(), ulflags, hmachine)
 
-public actual fun cmQueryAndRemoveSubTreeA(dnancestor: UInt, pvetotype: MutPtr<PnpVetoType>, pszvetoname: Pstr, ulnamelength: UInt, ulflags: UInt): Configret =
+public actual fun cmQueryAndRemoveSubTreeA(dnancestor: UInt, pvetotype: MutPtr, pszvetoname: Pstr, ulnamelength: UInt, ulflags: UInt): Configret =
     windowssysWindowsWin32DevicesDeviceanddriverinstallationCmQueryAndRemoveSubTreeA(dnancestor, pvetotype.rawAddress.toCPointer<ByteVar>(), pszvetoname.rawAddress.toCPointer<ByteVar>(), ulnamelength, ulflags)
 
-public actual fun cmQueryAndRemoveSubTreeW(dnancestor: UInt, pvetotype: MutPtr<PnpVetoType>, pszvetoname: Pwstr, ulnamelength: UInt, ulflags: UInt): Configret =
+public actual fun cmQueryAndRemoveSubTreeW(dnancestor: UInt, pvetotype: MutPtr, pszvetoname: Pwstr, ulnamelength: UInt, ulflags: UInt): Configret =
     windowssysWindowsWin32DevicesDeviceanddriverinstallationCmQueryAndRemoveSubTreeW(dnancestor, pvetotype.rawAddress.toCPointer<ByteVar>(), pszvetoname.rawAddress.toCPointer<ByteVar>(), ulnamelength, ulflags)
 
-public actual fun cmQueryAndRemoveSubTreeExA(dnancestor: UInt, pvetotype: MutPtr<PnpVetoType>, pszvetoname: Pstr, ulnamelength: UInt, ulflags: UInt, hmachine: Long): Configret =
+public actual fun cmQueryAndRemoveSubTreeExA(dnancestor: UInt, pvetotype: MutPtr, pszvetoname: Pstr, ulnamelength: UInt, ulflags: UInt, hmachine: Long): Configret =
     windowssysWindowsWin32DevicesDeviceanddriverinstallationCmQueryAndRemoveSubTreeExA(dnancestor, pvetotype.rawAddress.toCPointer<ByteVar>(), pszvetoname.rawAddress.toCPointer<ByteVar>(), ulnamelength, ulflags, hmachine)
 
-public actual fun cmQueryAndRemoveSubTreeExW(dnancestor: UInt, pvetotype: MutPtr<PnpVetoType>, pszvetoname: Pwstr, ulnamelength: UInt, ulflags: UInt, hmachine: Long): Configret =
+public actual fun cmQueryAndRemoveSubTreeExW(dnancestor: UInt, pvetotype: MutPtr, pszvetoname: Pwstr, ulnamelength: UInt, ulflags: UInt, hmachine: Long): Configret =
     windowssysWindowsWin32DevicesDeviceanddriverinstallationCmQueryAndRemoveSubTreeExW(dnancestor, pvetotype.rawAddress.toCPointer<ByteVar>(), pszvetoname.rawAddress.toCPointer<ByteVar>(), ulnamelength, ulflags, hmachine)
 
-public actual fun cmQueryArbitratorFreeData(pdata: MutPtr<CVoid>, datalen: UInt, dndevinst: UInt, resourceid: UInt, ulflags: UInt): Configret =
+public actual fun cmQueryArbitratorFreeData(pdata: MutPtr, datalen: UInt, dndevinst: UInt, resourceid: UInt, ulflags: UInt): Configret =
     windowssysWindowsWin32DevicesDeviceanddriverinstallationCmQueryArbitratorFreeData(pdata.rawAddress.toCPointer<ByteVar>(), datalen, dndevinst, resourceid, ulflags)
 
-public actual fun cmQueryArbitratorFreeDataEx(pdata: MutPtr<CVoid>, datalen: UInt, dndevinst: UInt, resourceid: UInt, ulflags: UInt, hmachine: Long): Configret =
+public actual fun cmQueryArbitratorFreeDataEx(pdata: MutPtr, datalen: UInt, dndevinst: UInt, resourceid: UInt, ulflags: UInt, hmachine: Long): Configret =
     windowssysWindowsWin32DevicesDeviceanddriverinstallationCmQueryArbitratorFreeDataEx(pdata.rawAddress.toCPointer<ByteVar>(), datalen, dndevinst, resourceid, ulflags, hmachine)
 
-public actual fun cmQueryArbitratorFreeSize(pulsize: MutPtr<UInt>, dndevinst: UInt, resourceid: UInt, ulflags: UInt): Configret =
+public actual fun cmQueryArbitratorFreeSize(pulsize: MutPtr, dndevinst: UInt, resourceid: UInt, ulflags: UInt): Configret =
     windowssysWindowsWin32DevicesDeviceanddriverinstallationCmQueryArbitratorFreeSize(pulsize.rawAddress.toCPointer<ByteVar>(), dndevinst, resourceid, ulflags)
 
-public actual fun cmQueryArbitratorFreeSizeEx(pulsize: MutPtr<UInt>, dndevinst: UInt, resourceid: UInt, ulflags: UInt, hmachine: Long): Configret =
+public actual fun cmQueryArbitratorFreeSizeEx(pulsize: MutPtr, dndevinst: UInt, resourceid: UInt, ulflags: UInt, hmachine: Long): Configret =
     windowssysWindowsWin32DevicesDeviceanddriverinstallationCmQueryArbitratorFreeSizeEx(pulsize.rawAddress.toCPointer<ByteVar>(), dndevinst, resourceid, ulflags, hmachine)
 
 public actual fun cmQueryRemoveSubTree(dnancestor: UInt, ulflags: UInt): Configret =
@@ -1141,7 +1135,7 @@ public actual fun cmQueryRemoveSubTree(dnancestor: UInt, ulflags: UInt): Configr
 public actual fun cmQueryRemoveSubTreeEx(dnancestor: UInt, ulflags: UInt, hmachine: Long): Configret =
     windowssysWindowsWin32DevicesDeviceanddriverinstallationCmQueryRemoveSubTreeEx(dnancestor, ulflags, hmachine)
 
-public actual fun cmQueryResourceConflictList(pclconflictlist: MutPtr<ULong>, dndevinst: UInt, resourceid: CmRestype, resourcedata: ConstPtr<CVoid>, resourcelen: UInt, ulflags: UInt, hmachine: Long): Configret =
+public actual fun cmQueryResourceConflictList(pclconflictlist: MutPtr, dndevinst: UInt, resourceid: CmRestype, resourcedata: ConstPtr, resourcelen: UInt, ulflags: UInt, hmachine: Long): Configret =
     windowssysWindowsWin32DevicesDeviceanddriverinstallationCmQueryResourceConflictList(pclconflictlist.rawAddress.toCPointer<ByteVar>(), dndevinst, resourceid, resourcedata.rawAddress.toCPointer<ByteVar>(), resourcelen, ulflags, hmachine)
 
 public actual fun cmReenumerateDevNode(dndevinst: UInt, ulflags: CmReenumerateFlags): Configret =
@@ -1156,19 +1150,19 @@ public actual fun cmRegisterDeviceDriver(dndevinst: UInt, ulflags: UInt): Config
 public actual fun cmRegisterDeviceDriverEx(dndevinst: UInt, ulflags: UInt, hmachine: Long): Configret =
     windowssysWindowsWin32DevicesDeviceanddriverinstallationCmRegisterDeviceDriverEx(dndevinst, ulflags, hmachine)
 
-public actual fun cmRegisterDeviceInterfaceA(dndevinst: UInt, interfaceclassguid: ConstPtr<Guid>, pszreference: Pcstr, pszdeviceinterface: Pstr, pullength: MutPtr<UInt>, ulflags: UInt): Configret =
+public actual fun cmRegisterDeviceInterfaceA(dndevinst: UInt, interfaceclassguid: ConstPtr, pszreference: Pcstr, pszdeviceinterface: Pstr, pullength: MutPtr, ulflags: UInt): Configret =
     windowssysWindowsWin32DevicesDeviceanddriverinstallationCmRegisterDeviceInterfaceA(dndevinst, interfaceclassguid.rawAddress.toCPointer<ByteVar>(), pszreference.rawAddress.toCPointer<ByteVar>(), pszdeviceinterface.rawAddress.toCPointer<ByteVar>(), pullength.rawAddress.toCPointer<ByteVar>(), ulflags)
 
-public actual fun cmRegisterDeviceInterfaceW(dndevinst: UInt, interfaceclassguid: ConstPtr<Guid>, pszreference: Pcwstr, pszdeviceinterface: Pwstr, pullength: MutPtr<UInt>, ulflags: UInt): Configret =
+public actual fun cmRegisterDeviceInterfaceW(dndevinst: UInt, interfaceclassguid: ConstPtr, pszreference: Pcwstr, pszdeviceinterface: Pwstr, pullength: MutPtr, ulflags: UInt): Configret =
     windowssysWindowsWin32DevicesDeviceanddriverinstallationCmRegisterDeviceInterfaceW(dndevinst, interfaceclassguid.rawAddress.toCPointer<ByteVar>(), pszreference.rawAddress.toCPointer<ByteVar>(), pszdeviceinterface.rawAddress.toCPointer<ByteVar>(), pullength.rawAddress.toCPointer<ByteVar>(), ulflags)
 
-public actual fun cmRegisterDeviceInterfaceExA(dndevinst: UInt, interfaceclassguid: ConstPtr<Guid>, pszreference: Pcstr, pszdeviceinterface: Pstr, pullength: MutPtr<UInt>, ulflags: UInt, hmachine: Long): Configret =
+public actual fun cmRegisterDeviceInterfaceExA(dndevinst: UInt, interfaceclassguid: ConstPtr, pszreference: Pcstr, pszdeviceinterface: Pstr, pullength: MutPtr, ulflags: UInt, hmachine: Long): Configret =
     windowssysWindowsWin32DevicesDeviceanddriverinstallationCmRegisterDeviceInterfaceExA(dndevinst, interfaceclassguid.rawAddress.toCPointer<ByteVar>(), pszreference.rawAddress.toCPointer<ByteVar>(), pszdeviceinterface.rawAddress.toCPointer<ByteVar>(), pullength.rawAddress.toCPointer<ByteVar>(), ulflags, hmachine)
 
-public actual fun cmRegisterDeviceInterfaceExW(dndevinst: UInt, interfaceclassguid: ConstPtr<Guid>, pszreference: Pcwstr, pszdeviceinterface: Pwstr, pullength: MutPtr<UInt>, ulflags: UInt, hmachine: Long): Configret =
+public actual fun cmRegisterDeviceInterfaceExW(dndevinst: UInt, interfaceclassguid: ConstPtr, pszreference: Pcwstr, pszdeviceinterface: Pwstr, pullength: MutPtr, ulflags: UInt, hmachine: Long): Configret =
     windowssysWindowsWin32DevicesDeviceanddriverinstallationCmRegisterDeviceInterfaceExW(dndevinst, interfaceclassguid.rawAddress.toCPointer<ByteVar>(), pszreference.rawAddress.toCPointer<ByteVar>(), pszdeviceinterface.rawAddress.toCPointer<ByteVar>(), pullength.rawAddress.toCPointer<ByteVar>(), ulflags, hmachine)
 
-public actual fun cmRegisterNotification(pfilter: ConstPtr<CmNotifyFilter>, pcontext: ConstPtr<CVoid>, pcallback: PcmNotifyCallback, pnotifycontext: MutPtr<Hcmnotification>): Configret =
+public actual fun cmRegisterNotification(pfilter: ConstPtr, pcontext: ConstPtr, pcallback: PcmNotifyCallback, pnotifycontext: MutPtr): Configret =
     windowssysWindowsWin32DevicesDeviceanddriverinstallationCmRegisterNotification(pfilter.rawAddress.toCPointer<ByteVar>(), pcontext.rawAddress.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>(), pnotifycontext.rawAddress.toCPointer<ByteVar>())
 
 public actual fun cmRemoveSubTree(dnancestor: UInt, ulflags: UInt): Configret =
@@ -1177,16 +1171,16 @@ public actual fun cmRemoveSubTree(dnancestor: UInt, ulflags: UInt): Configret =
 public actual fun cmRemoveSubTreeEx(dnancestor: UInt, ulflags: UInt, hmachine: Long): Configret =
     windowssysWindowsWin32DevicesDeviceanddriverinstallationCmRemoveSubTreeEx(dnancestor, ulflags, hmachine)
 
-public actual fun cmRequestDeviceEjectA(dndevinst: UInt, pvetotype: MutPtr<PnpVetoType>, pszvetoname: Pstr, ulnamelength: UInt, ulflags: UInt): Configret =
+public actual fun cmRequestDeviceEjectA(dndevinst: UInt, pvetotype: MutPtr, pszvetoname: Pstr, ulnamelength: UInt, ulflags: UInt): Configret =
     windowssysWindowsWin32DevicesDeviceanddriverinstallationCmRequestDeviceEjectA(dndevinst, pvetotype.rawAddress.toCPointer<ByteVar>(), pszvetoname.rawAddress.toCPointer<ByteVar>(), ulnamelength, ulflags)
 
-public actual fun cmRequestDeviceEjectW(dndevinst: UInt, pvetotype: MutPtr<PnpVetoType>, pszvetoname: Pwstr, ulnamelength: UInt, ulflags: UInt): Configret =
+public actual fun cmRequestDeviceEjectW(dndevinst: UInt, pvetotype: MutPtr, pszvetoname: Pwstr, ulnamelength: UInt, ulflags: UInt): Configret =
     windowssysWindowsWin32DevicesDeviceanddriverinstallationCmRequestDeviceEjectW(dndevinst, pvetotype.rawAddress.toCPointer<ByteVar>(), pszvetoname.rawAddress.toCPointer<ByteVar>(), ulnamelength, ulflags)
 
-public actual fun cmRequestDeviceEjectExA(dndevinst: UInt, pvetotype: MutPtr<PnpVetoType>, pszvetoname: Pstr, ulnamelength: UInt, ulflags: UInt, hmachine: Long): Configret =
+public actual fun cmRequestDeviceEjectExA(dndevinst: UInt, pvetotype: MutPtr, pszvetoname: Pstr, ulnamelength: UInt, ulflags: UInt, hmachine: Long): Configret =
     windowssysWindowsWin32DevicesDeviceanddriverinstallationCmRequestDeviceEjectExA(dndevinst, pvetotype.rawAddress.toCPointer<ByteVar>(), pszvetoname.rawAddress.toCPointer<ByteVar>(), ulnamelength, ulflags, hmachine)
 
-public actual fun cmRequestDeviceEjectExW(dndevinst: UInt, pvetotype: MutPtr<PnpVetoType>, pszvetoname: Pwstr, ulnamelength: UInt, ulflags: UInt, hmachine: Long): Configret =
+public actual fun cmRequestDeviceEjectExW(dndevinst: UInt, pvetotype: MutPtr, pszvetoname: Pwstr, ulnamelength: UInt, ulflags: UInt, hmachine: Long): Configret =
     windowssysWindowsWin32DevicesDeviceanddriverinstallationCmRequestDeviceEjectExW(dndevinst, pvetotype.rawAddress.toCPointer<ByteVar>(), pszvetoname.rawAddress.toCPointer<ByteVar>(), ulnamelength, ulflags, hmachine)
 
 public actual fun cmRequestEjectPc(): Configret =
@@ -1201,16 +1195,16 @@ public actual fun cmRunDetection(ulflags: UInt): Configret =
 public actual fun cmRunDetectionEx(ulflags: UInt, hmachine: Long): Configret =
     windowssysWindowsWin32DevicesDeviceanddriverinstallationCmRunDetectionEx(ulflags, hmachine)
 
-public actual fun cmSetClassPropertyW(classguid: ConstPtr<Guid>, propertykey: ConstPtr<Devpropkey>, propertytype: Devproptype, propertybuffer: ConstPtr<UByte>, propertybuffersize: UInt, ulflags: UInt): Configret =
+public actual fun cmSetClassPropertyW(classguid: ConstPtr, propertykey: ConstPtr, propertytype: Devproptype, propertybuffer: ConstPtr, propertybuffersize: UInt, ulflags: UInt): Configret =
     windowssysWindowsWin32DevicesDeviceanddriverinstallationCmSetClassPropertyW(classguid.rawAddress.toCPointer<ByteVar>(), propertykey.rawAddress.toCPointer<ByteVar>(), propertytype, propertybuffer.rawAddress.toCPointer<ByteVar>(), propertybuffersize, ulflags)
 
-public actual fun cmSetClassPropertyExW(classguid: ConstPtr<Guid>, propertykey: ConstPtr<Devpropkey>, propertytype: Devproptype, propertybuffer: ConstPtr<UByte>, propertybuffersize: UInt, ulflags: UInt, hmachine: Long): Configret =
+public actual fun cmSetClassPropertyExW(classguid: ConstPtr, propertykey: ConstPtr, propertytype: Devproptype, propertybuffer: ConstPtr, propertybuffersize: UInt, ulflags: UInt, hmachine: Long): Configret =
     windowssysWindowsWin32DevicesDeviceanddriverinstallationCmSetClassPropertyExW(classguid.rawAddress.toCPointer<ByteVar>(), propertykey.rawAddress.toCPointer<ByteVar>(), propertytype, propertybuffer.rawAddress.toCPointer<ByteVar>(), propertybuffersize, ulflags, hmachine)
 
-public actual fun cmSetClassRegistryPropertyA(classguid: ConstPtr<Guid>, ulproperty: UInt, buffer: ConstPtr<CVoid>, ullength: UInt, ulflags: UInt, hmachine: Long): Configret =
+public actual fun cmSetClassRegistryPropertyA(classguid: ConstPtr, ulproperty: UInt, buffer: ConstPtr, ullength: UInt, ulflags: UInt, hmachine: Long): Configret =
     windowssysWindowsWin32DevicesDeviceanddriverinstallationCmSetClassRegistryPropertyA(classguid.rawAddress.toCPointer<ByteVar>(), ulproperty, buffer.rawAddress.toCPointer<ByteVar>(), ullength, ulflags, hmachine)
 
-public actual fun cmSetClassRegistryPropertyW(classguid: ConstPtr<Guid>, ulproperty: UInt, buffer: ConstPtr<CVoid>, ullength: UInt, ulflags: UInt, hmachine: Long): Configret =
+public actual fun cmSetClassRegistryPropertyW(classguid: ConstPtr, ulproperty: UInt, buffer: ConstPtr, ullength: UInt, ulflags: UInt, hmachine: Long): Configret =
     windowssysWindowsWin32DevicesDeviceanddriverinstallationCmSetClassRegistryPropertyW(classguid.rawAddress.toCPointer<ByteVar>(), ulproperty, buffer.rawAddress.toCPointer<ByteVar>(), ullength, ulflags, hmachine)
 
 public actual fun cmSetDevNodeProblem(dndevinst: UInt, ulproblem: UInt, ulflags: UInt): Configret =
@@ -1219,28 +1213,28 @@ public actual fun cmSetDevNodeProblem(dndevinst: UInt, ulproblem: UInt, ulflags:
 public actual fun cmSetDevNodeProblemEx(dndevinst: UInt, ulproblem: UInt, ulflags: UInt, hmachine: Long): Configret =
     windowssysWindowsWin32DevicesDeviceanddriverinstallationCmSetDevNodeProblemEx(dndevinst, ulproblem, ulflags, hmachine)
 
-public actual fun cmSetDevNodePropertyW(dndevinst: UInt, propertykey: ConstPtr<Devpropkey>, propertytype: Devproptype, propertybuffer: ConstPtr<UByte>, propertybuffersize: UInt, ulflags: UInt): Configret =
+public actual fun cmSetDevNodePropertyW(dndevinst: UInt, propertykey: ConstPtr, propertytype: Devproptype, propertybuffer: ConstPtr, propertybuffersize: UInt, ulflags: UInt): Configret =
     windowssysWindowsWin32DevicesDeviceanddriverinstallationCmSetDevNodePropertyW(dndevinst, propertykey.rawAddress.toCPointer<ByteVar>(), propertytype, propertybuffer.rawAddress.toCPointer<ByteVar>(), propertybuffersize, ulflags)
 
-public actual fun cmSetDevNodePropertyExW(dndevinst: UInt, propertykey: ConstPtr<Devpropkey>, propertytype: Devproptype, propertybuffer: ConstPtr<UByte>, propertybuffersize: UInt, ulflags: UInt, hmachine: Long): Configret =
+public actual fun cmSetDevNodePropertyExW(dndevinst: UInt, propertykey: ConstPtr, propertytype: Devproptype, propertybuffer: ConstPtr, propertybuffersize: UInt, ulflags: UInt, hmachine: Long): Configret =
     windowssysWindowsWin32DevicesDeviceanddriverinstallationCmSetDevNodePropertyExW(dndevinst, propertykey.rawAddress.toCPointer<ByteVar>(), propertytype, propertybuffer.rawAddress.toCPointer<ByteVar>(), propertybuffersize, ulflags, hmachine)
 
-public actual fun cmSetDevNodeRegistryPropertyA(dndevinst: UInt, ulproperty: UInt, buffer: ConstPtr<CVoid>, ullength: UInt, ulflags: UInt): Configret =
+public actual fun cmSetDevNodeRegistryPropertyA(dndevinst: UInt, ulproperty: UInt, buffer: ConstPtr, ullength: UInt, ulflags: UInt): Configret =
     windowssysWindowsWin32DevicesDeviceanddriverinstallationCmSetDevNodeRegistryPropertyA(dndevinst, ulproperty, buffer.rawAddress.toCPointer<ByteVar>(), ullength, ulflags)
 
-public actual fun cmSetDevNodeRegistryPropertyW(dndevinst: UInt, ulproperty: UInt, buffer: ConstPtr<CVoid>, ullength: UInt, ulflags: UInt): Configret =
+public actual fun cmSetDevNodeRegistryPropertyW(dndevinst: UInt, ulproperty: UInt, buffer: ConstPtr, ullength: UInt, ulflags: UInt): Configret =
     windowssysWindowsWin32DevicesDeviceanddriverinstallationCmSetDevNodeRegistryPropertyW(dndevinst, ulproperty, buffer.rawAddress.toCPointer<ByteVar>(), ullength, ulflags)
 
-public actual fun cmSetDevNodeRegistryPropertyExA(dndevinst: UInt, ulproperty: UInt, buffer: ConstPtr<CVoid>, ullength: UInt, ulflags: UInt, hmachine: Long): Configret =
+public actual fun cmSetDevNodeRegistryPropertyExA(dndevinst: UInt, ulproperty: UInt, buffer: ConstPtr, ullength: UInt, ulflags: UInt, hmachine: Long): Configret =
     windowssysWindowsWin32DevicesDeviceanddriverinstallationCmSetDevNodeRegistryPropertyExA(dndevinst, ulproperty, buffer.rawAddress.toCPointer<ByteVar>(), ullength, ulflags, hmachine)
 
-public actual fun cmSetDevNodeRegistryPropertyExW(dndevinst: UInt, ulproperty: UInt, buffer: ConstPtr<CVoid>, ullength: UInt, ulflags: UInt, hmachine: Long): Configret =
+public actual fun cmSetDevNodeRegistryPropertyExW(dndevinst: UInt, ulproperty: UInt, buffer: ConstPtr, ullength: UInt, ulflags: UInt, hmachine: Long): Configret =
     windowssysWindowsWin32DevicesDeviceanddriverinstallationCmSetDevNodeRegistryPropertyExW(dndevinst, ulproperty, buffer.rawAddress.toCPointer<ByteVar>(), ullength, ulflags, hmachine)
 
-public actual fun cmSetDeviceInterfacePropertyW(pszdeviceinterface: Pcwstr, propertykey: ConstPtr<Devpropkey>, propertytype: Devproptype, propertybuffer: ConstPtr<UByte>, propertybuffersize: UInt, ulflags: UInt): Configret =
+public actual fun cmSetDeviceInterfacePropertyW(pszdeviceinterface: Pcwstr, propertykey: ConstPtr, propertytype: Devproptype, propertybuffer: ConstPtr, propertybuffersize: UInt, ulflags: UInt): Configret =
     windowssysWindowsWin32DevicesDeviceanddriverinstallationCmSetDeviceInterfacePropertyW(pszdeviceinterface.rawAddress.toCPointer<ByteVar>(), propertykey.rawAddress.toCPointer<ByteVar>(), propertytype, propertybuffer.rawAddress.toCPointer<ByteVar>(), propertybuffersize, ulflags)
 
-public actual fun cmSetDeviceInterfacePropertyExW(pszdeviceinterface: Pcwstr, propertykey: ConstPtr<Devpropkey>, propertytype: Devproptype, propertybuffer: ConstPtr<UByte>, propertybuffersize: UInt, ulflags: UInt, hmachine: Long): Configret =
+public actual fun cmSetDeviceInterfacePropertyExW(pszdeviceinterface: Pcwstr, propertykey: ConstPtr, propertytype: Devproptype, propertybuffer: ConstPtr, propertybuffersize: UInt, ulflags: UInt, hmachine: Long): Configret =
     windowssysWindowsWin32DevicesDeviceanddriverinstallationCmSetDeviceInterfacePropertyExW(pszdeviceinterface.rawAddress.toCPointer<ByteVar>(), propertykey.rawAddress.toCPointer<ByteVar>(), propertytype, propertybuffer.rawAddress.toCPointer<ByteVar>(), propertybuffersize, ulflags, hmachine)
 
 public actual fun cmSetHwProf(ulhardwareprofile: UInt, ulflags: UInt): Configret =
@@ -1291,31 +1285,31 @@ public actual fun cmUnregisterDeviceInterfaceExW(pszdeviceinterface: Pcwstr, ulf
 public actual fun cmUnregisterNotification(notifycontext: Hcmnotification): Configret =
     windowssysWindowsWin32DevicesDeviceanddriverinstallationCmUnregisterNotification(notifycontext.rawAddress.toCPointer<ByteVar>())
 
-public actual fun diInstallDevice(hwndparent: Hwnd, deviceinfoset: Hdevinfo, deviceinfodata: ConstPtr<SpDevinfoData>, driverinfodata: ConstPtr<SpDrvinfoDataV2W>, flags: DiinstalldeviceFlags, needreboot: MutPtr<Bool>): Bool =
+public actual fun diInstallDevice(hwndparent: Hwnd, deviceinfoset: Hdevinfo, deviceinfodata: ConstPtr, driverinfodata: ConstPtr, flags: DiinstalldeviceFlags, needreboot: MutPtr): Bool =
     windowssysWindowsWin32DevicesDeviceanddriverinstallationDiInstallDevice(hwndparent.rawAddress.toCPointer<ByteVar>(), deviceinfoset, deviceinfodata.rawAddress.toCPointer<ByteVar>(), driverinfodata.rawAddress.toCPointer<ByteVar>(), flags, needreboot.rawAddress.toCPointer<ByteVar>())
 
-public actual fun diInstallDriverA(hwndparent: Hwnd, infpath: Pcstr, flags: DiinstalldriverFlags, needreboot: MutPtr<Bool>): Bool =
+public actual fun diInstallDriverA(hwndparent: Hwnd, infpath: Pcstr, flags: DiinstalldriverFlags, needreboot: MutPtr): Bool =
     windowssysWindowsWin32DevicesDeviceanddriverinstallationDiInstallDriverA(hwndparent.rawAddress.toCPointer<ByteVar>(), infpath.rawAddress.toCPointer<ByteVar>(), flags, needreboot.rawAddress.toCPointer<ByteVar>())
 
-public actual fun diInstallDriverW(hwndparent: Hwnd, infpath: Pcwstr, flags: DiinstalldriverFlags, needreboot: MutPtr<Bool>): Bool =
+public actual fun diInstallDriverW(hwndparent: Hwnd, infpath: Pcwstr, flags: DiinstalldriverFlags, needreboot: MutPtr): Bool =
     windowssysWindowsWin32DevicesDeviceanddriverinstallationDiInstallDriverW(hwndparent.rawAddress.toCPointer<ByteVar>(), infpath.rawAddress.toCPointer<ByteVar>(), flags, needreboot.rawAddress.toCPointer<ByteVar>())
 
-public actual fun diRollbackDriver(deviceinfoset: Hdevinfo, deviceinfodata: ConstPtr<SpDevinfoData>, hwndparent: Hwnd, flags: DirollbackdriverFlags, needreboot: MutPtr<Bool>): Bool =
+public actual fun diRollbackDriver(deviceinfoset: Hdevinfo, deviceinfodata: ConstPtr, hwndparent: Hwnd, flags: DirollbackdriverFlags, needreboot: MutPtr): Bool =
     windowssysWindowsWin32DevicesDeviceanddriverinstallationDiRollbackDriver(deviceinfoset, deviceinfodata.rawAddress.toCPointer<ByteVar>(), hwndparent.rawAddress.toCPointer<ByteVar>(), flags, needreboot.rawAddress.toCPointer<ByteVar>())
 
-public actual fun diShowUpdateDevice(hwndparent: Hwnd, deviceinfoset: Hdevinfo, deviceinfodata: ConstPtr<SpDevinfoData>, flags: UInt, needreboot: MutPtr<Bool>): Bool =
+public actual fun diShowUpdateDevice(hwndparent: Hwnd, deviceinfoset: Hdevinfo, deviceinfodata: ConstPtr, flags: UInt, needreboot: MutPtr): Bool =
     windowssysWindowsWin32DevicesDeviceanddriverinstallationDiShowUpdateDevice(hwndparent.rawAddress.toCPointer<ByteVar>(), deviceinfoset, deviceinfodata.rawAddress.toCPointer<ByteVar>(), flags, needreboot.rawAddress.toCPointer<ByteVar>())
 
-public actual fun diShowUpdateDriver(hwndparent: Hwnd, filepath: Pcwstr, flags: UInt, needreboot: MutPtr<Bool>): Bool =
+public actual fun diShowUpdateDriver(hwndparent: Hwnd, filepath: Pcwstr, flags: UInt, needreboot: MutPtr): Bool =
     windowssysWindowsWin32DevicesDeviceanddriverinstallationDiShowUpdateDriver(hwndparent.rawAddress.toCPointer<ByteVar>(), filepath.rawAddress.toCPointer<ByteVar>(), flags, needreboot.rawAddress.toCPointer<ByteVar>())
 
-public actual fun diUninstallDevice(hwndparent: Hwnd, deviceinfoset: Hdevinfo, deviceinfodata: ConstPtr<SpDevinfoData>, flags: UInt, needreboot: MutPtr<Bool>): Bool =
+public actual fun diUninstallDevice(hwndparent: Hwnd, deviceinfoset: Hdevinfo, deviceinfodata: ConstPtr, flags: UInt, needreboot: MutPtr): Bool =
     windowssysWindowsWin32DevicesDeviceanddriverinstallationDiUninstallDevice(hwndparent.rawAddress.toCPointer<ByteVar>(), deviceinfoset, deviceinfodata.rawAddress.toCPointer<ByteVar>(), flags, needreboot.rawAddress.toCPointer<ByteVar>())
 
-public actual fun diUninstallDriverA(hwndparent: Hwnd, infpath: Pcstr, flags: DiuninstalldriverFlags, needreboot: MutPtr<Bool>): Bool =
+public actual fun diUninstallDriverA(hwndparent: Hwnd, infpath: Pcstr, flags: DiuninstalldriverFlags, needreboot: MutPtr): Bool =
     windowssysWindowsWin32DevicesDeviceanddriverinstallationDiUninstallDriverA(hwndparent.rawAddress.toCPointer<ByteVar>(), infpath.rawAddress.toCPointer<ByteVar>(), flags, needreboot.rawAddress.toCPointer<ByteVar>())
 
-public actual fun diUninstallDriverW(hwndparent: Hwnd, infpath: Pcwstr, flags: DiuninstalldriverFlags, needreboot: MutPtr<Bool>): Bool =
+public actual fun diUninstallDriverW(hwndparent: Hwnd, infpath: Pcwstr, flags: DiuninstalldriverFlags, needreboot: MutPtr): Bool =
     windowssysWindowsWin32DevicesDeviceanddriverinstallationDiUninstallDriverW(hwndparent.rawAddress.toCPointer<ByteVar>(), infpath.rawAddress.toCPointer<ByteVar>(), flags, needreboot.rawAddress.toCPointer<ByteVar>())
 
 public actual fun installHinfSectionA(window: Hwnd, modulehandle: Hinstance, commandline: Pcstr, showcommand: Int) {
@@ -1326,22 +1320,22 @@ public actual fun installHinfSectionW(window: Hwnd, modulehandle: Hinstance, com
     windowssysWindowsWin32DevicesDeviceanddriverinstallationInstallHinfSectionW(window.rawAddress.toCPointer<ByteVar>(), modulehandle.rawAddress.toCPointer<ByteVar>(), commandline.rawAddress.toCPointer<ByteVar>(), showcommand)
 }
 
-public actual fun setupAddInstallSectionToDiskSpaceListA(diskspace: ConstPtr<CVoid>, infhandle: ConstPtr<CVoid>, layoutinfhandle: ConstPtr<CVoid>, sectionname: Pcstr, reserved1: ConstPtr<CVoid>, reserved2: UInt): Bool =
+public actual fun setupAddInstallSectionToDiskSpaceListA(diskspace: ConstPtr, infhandle: ConstPtr, layoutinfhandle: ConstPtr, sectionname: Pcstr, reserved1: ConstPtr, reserved2: UInt): Bool =
     windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupAddInstallSectionToDiskSpaceListA(diskspace.rawAddress.toCPointer<ByteVar>(), infhandle.rawAddress.toCPointer<ByteVar>(), layoutinfhandle.rawAddress.toCPointer<ByteVar>(), sectionname.rawAddress.toCPointer<ByteVar>(), reserved1.rawAddress.toCPointer<ByteVar>(), reserved2)
 
-public actual fun setupAddInstallSectionToDiskSpaceListW(diskspace: ConstPtr<CVoid>, infhandle: ConstPtr<CVoid>, layoutinfhandle: ConstPtr<CVoid>, sectionname: Pcwstr, reserved1: ConstPtr<CVoid>, reserved2: UInt): Bool =
+public actual fun setupAddInstallSectionToDiskSpaceListW(diskspace: ConstPtr, infhandle: ConstPtr, layoutinfhandle: ConstPtr, sectionname: Pcwstr, reserved1: ConstPtr, reserved2: UInt): Bool =
     windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupAddInstallSectionToDiskSpaceListW(diskspace.rawAddress.toCPointer<ByteVar>(), infhandle.rawAddress.toCPointer<ByteVar>(), layoutinfhandle.rawAddress.toCPointer<ByteVar>(), sectionname.rawAddress.toCPointer<ByteVar>(), reserved1.rawAddress.toCPointer<ByteVar>(), reserved2)
 
-public actual fun setupAddSectionToDiskSpaceListA(diskspace: ConstPtr<CVoid>, infhandle: ConstPtr<CVoid>, listinfhandle: ConstPtr<CVoid>, sectionname: Pcstr, operation: SetupFileOperation, reserved1: ConstPtr<CVoid>, reserved2: UInt): Bool =
+public actual fun setupAddSectionToDiskSpaceListA(diskspace: ConstPtr, infhandle: ConstPtr, listinfhandle: ConstPtr, sectionname: Pcstr, operation: SetupFileOperation, reserved1: ConstPtr, reserved2: UInt): Bool =
     windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupAddSectionToDiskSpaceListA(diskspace.rawAddress.toCPointer<ByteVar>(), infhandle.rawAddress.toCPointer<ByteVar>(), listinfhandle.rawAddress.toCPointer<ByteVar>(), sectionname.rawAddress.toCPointer<ByteVar>(), operation, reserved1.rawAddress.toCPointer<ByteVar>(), reserved2)
 
-public actual fun setupAddSectionToDiskSpaceListW(diskspace: ConstPtr<CVoid>, infhandle: ConstPtr<CVoid>, listinfhandle: ConstPtr<CVoid>, sectionname: Pcwstr, operation: SetupFileOperation, reserved1: ConstPtr<CVoid>, reserved2: UInt): Bool =
+public actual fun setupAddSectionToDiskSpaceListW(diskspace: ConstPtr, infhandle: ConstPtr, listinfhandle: ConstPtr, sectionname: Pcwstr, operation: SetupFileOperation, reserved1: ConstPtr, reserved2: UInt): Bool =
     windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupAddSectionToDiskSpaceListW(diskspace.rawAddress.toCPointer<ByteVar>(), infhandle.rawAddress.toCPointer<ByteVar>(), listinfhandle.rawAddress.toCPointer<ByteVar>(), sectionname.rawAddress.toCPointer<ByteVar>(), operation, reserved1.rawAddress.toCPointer<ByteVar>(), reserved2)
 
-public actual fun setupAddToDiskSpaceListA(diskspace: ConstPtr<CVoid>, targetfilespec: Pcstr, filesize: Long, operation: SetupFileOperation, reserved1: ConstPtr<CVoid>, reserved2: UInt): Bool =
+public actual fun setupAddToDiskSpaceListA(diskspace: ConstPtr, targetfilespec: Pcstr, filesize: Long, operation: SetupFileOperation, reserved1: ConstPtr, reserved2: UInt): Bool =
     windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupAddToDiskSpaceListA(diskspace.rawAddress.toCPointer<ByteVar>(), targetfilespec.rawAddress.toCPointer<ByteVar>(), filesize, operation, reserved1.rawAddress.toCPointer<ByteVar>(), reserved2)
 
-public actual fun setupAddToDiskSpaceListW(diskspace: ConstPtr<CVoid>, targetfilespec: Pcwstr, filesize: Long, operation: SetupFileOperation, reserved1: ConstPtr<CVoid>, reserved2: UInt): Bool =
+public actual fun setupAddToDiskSpaceListW(diskspace: ConstPtr, targetfilespec: Pcwstr, filesize: Long, operation: SetupFileOperation, reserved1: ConstPtr, reserved2: UInt): Bool =
     windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupAddToDiskSpaceListW(diskspace.rawAddress.toCPointer<ByteVar>(), targetfilespec.rawAddress.toCPointer<ByteVar>(), filesize, operation, reserved1.rawAddress.toCPointer<ByteVar>(), reserved2)
 
 public actual fun setupAddToSourceListA(flags: UInt, source: Pcstr): Bool =
@@ -1350,10 +1344,10 @@ public actual fun setupAddToSourceListA(flags: UInt, source: Pcstr): Bool =
 public actual fun setupAddToSourceListW(flags: UInt, source: Pcwstr): Bool =
     windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupAddToSourceListW(flags, source.rawAddress.toCPointer<ByteVar>())
 
-public actual fun setupAdjustDiskSpaceListA(diskspace: ConstPtr<CVoid>, driveroot: Pcstr, amount: Long, reserved1: ConstPtr<CVoid>, reserved2: UInt): Bool =
+public actual fun setupAdjustDiskSpaceListA(diskspace: ConstPtr, driveroot: Pcstr, amount: Long, reserved1: ConstPtr, reserved2: UInt): Bool =
     windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupAdjustDiskSpaceListA(diskspace.rawAddress.toCPointer<ByteVar>(), driveroot.rawAddress.toCPointer<ByteVar>(), amount, reserved1.rawAddress.toCPointer<ByteVar>(), reserved2)
 
-public actual fun setupAdjustDiskSpaceListW(diskspace: ConstPtr<CVoid>, driveroot: Pcwstr, amount: Long, reserved1: ConstPtr<CVoid>, reserved2: UInt): Bool =
+public actual fun setupAdjustDiskSpaceListW(diskspace: ConstPtr, driveroot: Pcwstr, amount: Long, reserved1: ConstPtr, reserved2: UInt): Bool =
     windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupAdjustDiskSpaceListW(diskspace.rawAddress.toCPointer<ByteVar>(), driveroot.rawAddress.toCPointer<ByteVar>(), amount, reserved1.rawAddress.toCPointer<ByteVar>(), reserved2)
 
 public actual fun setupBackupErrorA(hwndparent: Hwnd, dialogtitle: Pcstr, sourcefile: Pcstr, targetfile: Pcstr, win32errorcode: UInt, style: UInt): UInt =
@@ -1365,10 +1359,10 @@ public actual fun setupBackupErrorW(hwndparent: Hwnd, dialogtitle: Pcwstr, sourc
 public actual fun setupCancelTemporarySourceList(): Bool =
     windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupCancelTemporarySourceList()
 
-public actual fun setupCloseFileQueue(queuehandle: ConstPtr<CVoid>): Bool =
+public actual fun setupCloseFileQueue(queuehandle: ConstPtr): Bool =
     windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupCloseFileQueue(queuehandle.rawAddress.toCPointer<ByteVar>())
 
-public actual fun setupCloseInfFile(infhandle: ConstPtr<CVoid>) {
+public actual fun setupCloseInfFile(infhandle: ConstPtr) {
     windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupCloseInfFile(infhandle.rawAddress.toCPointer<ByteVar>())
 }
 
@@ -1376,46 +1370,46 @@ public actual fun setupCloseLog() {
     windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupCloseLog()
 }
 
-public actual fun setupCommitFileQueueA(owner: Hwnd, queuehandle: ConstPtr<CVoid>, msghandler: PspFileCallbackA, context: ConstPtr<CVoid>): Bool =
+public actual fun setupCommitFileQueueA(owner: Hwnd, queuehandle: ConstPtr, msghandler: PspFileCallbackA, context: ConstPtr): Bool =
     windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupCommitFileQueueA(owner.rawAddress.toCPointer<ByteVar>(), queuehandle.rawAddress.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>(), context.rawAddress.toCPointer<ByteVar>())
 
-public actual fun setupCommitFileQueueW(owner: Hwnd, queuehandle: ConstPtr<CVoid>, msghandler: PspFileCallbackW, context: ConstPtr<CVoid>): Bool =
+public actual fun setupCommitFileQueueW(owner: Hwnd, queuehandle: ConstPtr, msghandler: PspFileCallbackW, context: ConstPtr): Bool =
     windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupCommitFileQueueW(owner.rawAddress.toCPointer<ByteVar>(), queuehandle.rawAddress.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>(), context.rawAddress.toCPointer<ByteVar>())
 
-public actual fun setupConfigureWmiFromInfSectionA(infhandle: ConstPtr<CVoid>, sectionname: Pcstr, flags: UInt): Bool =
+public actual fun setupConfigureWmiFromInfSectionA(infhandle: ConstPtr, sectionname: Pcstr, flags: UInt): Bool =
     windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupConfigureWmiFromInfSectionA(infhandle.rawAddress.toCPointer<ByteVar>(), sectionname.rawAddress.toCPointer<ByteVar>(), flags)
 
-public actual fun setupConfigureWmiFromInfSectionW(infhandle: ConstPtr<CVoid>, sectionname: Pcwstr, flags: UInt): Bool =
+public actual fun setupConfigureWmiFromInfSectionW(infhandle: ConstPtr, sectionname: Pcwstr, flags: UInt): Bool =
     windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupConfigureWmiFromInfSectionW(infhandle.rawAddress.toCPointer<ByteVar>(), sectionname.rawAddress.toCPointer<ByteVar>(), flags)
 
-public actual fun setupCopyErrorA(hwndparent: Hwnd, dialogtitle: Pcstr, diskname: Pcstr, pathtosource: Pcstr, sourcefile: Pcstr, targetpathfile: Pcstr, win32errorcode: UInt, style: UInt, pathbuffer: Pstr, pathbuffersize: UInt, pathrequiredsize: MutPtr<UInt>): UInt =
+public actual fun setupCopyErrorA(hwndparent: Hwnd, dialogtitle: Pcstr, diskname: Pcstr, pathtosource: Pcstr, sourcefile: Pcstr, targetpathfile: Pcstr, win32errorcode: UInt, style: UInt, pathbuffer: Pstr, pathbuffersize: UInt, pathrequiredsize: MutPtr): UInt =
     windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupCopyErrorA(hwndparent.rawAddress.toCPointer<ByteVar>(), dialogtitle.rawAddress.toCPointer<ByteVar>(), diskname.rawAddress.toCPointer<ByteVar>(), pathtosource.rawAddress.toCPointer<ByteVar>(), sourcefile.rawAddress.toCPointer<ByteVar>(), targetpathfile.rawAddress.toCPointer<ByteVar>(), win32errorcode, style, pathbuffer.rawAddress.toCPointer<ByteVar>(), pathbuffersize, pathrequiredsize.rawAddress.toCPointer<ByteVar>())
 
-public actual fun setupCopyErrorW(hwndparent: Hwnd, dialogtitle: Pcwstr, diskname: Pcwstr, pathtosource: Pcwstr, sourcefile: Pcwstr, targetpathfile: Pcwstr, win32errorcode: UInt, style: UInt, pathbuffer: Pwstr, pathbuffersize: UInt, pathrequiredsize: MutPtr<UInt>): UInt =
+public actual fun setupCopyErrorW(hwndparent: Hwnd, dialogtitle: Pcwstr, diskname: Pcwstr, pathtosource: Pcwstr, sourcefile: Pcwstr, targetpathfile: Pcwstr, win32errorcode: UInt, style: UInt, pathbuffer: Pwstr, pathbuffersize: UInt, pathrequiredsize: MutPtr): UInt =
     windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupCopyErrorW(hwndparent.rawAddress.toCPointer<ByteVar>(), dialogtitle.rawAddress.toCPointer<ByteVar>(), diskname.rawAddress.toCPointer<ByteVar>(), pathtosource.rawAddress.toCPointer<ByteVar>(), sourcefile.rawAddress.toCPointer<ByteVar>(), targetpathfile.rawAddress.toCPointer<ByteVar>(), win32errorcode, style, pathbuffer.rawAddress.toCPointer<ByteVar>(), pathbuffersize, pathrequiredsize.rawAddress.toCPointer<ByteVar>())
 
-public actual fun setupCopyOEMInfA(sourceinffilename: Pcstr, oemsourcemedialocation: Pcstr, oemsourcemediatype: OemSourceMediaType, copystyle: SpCopyStyle, destinationinffilename: Pstr, destinationinffilenamesize: UInt, requiredsize: MutPtr<UInt>, destinationinffilenamecomponent: MutPtr<Pstr>): Bool =
+public actual fun setupCopyOEMInfA(sourceinffilename: Pcstr, oemsourcemedialocation: Pcstr, oemsourcemediatype: OemSourceMediaType, copystyle: SpCopyStyle, destinationinffilename: Pstr, destinationinffilenamesize: UInt, requiredsize: MutPtr, destinationinffilenamecomponent: MutPtr): Bool =
     windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupCopyOEMInfA(sourceinffilename.rawAddress.toCPointer<ByteVar>(), oemsourcemedialocation.rawAddress.toCPointer<ByteVar>(), oemsourcemediatype, copystyle, destinationinffilename.rawAddress.toCPointer<ByteVar>(), destinationinffilenamesize, requiredsize.rawAddress.toCPointer<ByteVar>(), destinationinffilenamecomponent.rawAddress.toCPointer<ByteVar>())
 
-public actual fun setupCopyOEMInfW(sourceinffilename: Pcwstr, oemsourcemedialocation: Pcwstr, oemsourcemediatype: OemSourceMediaType, copystyle: SpCopyStyle, destinationinffilename: Pwstr, destinationinffilenamesize: UInt, requiredsize: MutPtr<UInt>, destinationinffilenamecomponent: MutPtr<Pwstr>): Bool =
+public actual fun setupCopyOEMInfW(sourceinffilename: Pcwstr, oemsourcemedialocation: Pcwstr, oemsourcemediatype: OemSourceMediaType, copystyle: SpCopyStyle, destinationinffilename: Pwstr, destinationinffilenamesize: UInt, requiredsize: MutPtr, destinationinffilenamecomponent: MutPtr): Bool =
     windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupCopyOEMInfW(sourceinffilename.rawAddress.toCPointer<ByteVar>(), oemsourcemedialocation.rawAddress.toCPointer<ByteVar>(), oemsourcemediatype, copystyle, destinationinffilename.rawAddress.toCPointer<ByteVar>(), destinationinffilenamesize, requiredsize.rawAddress.toCPointer<ByteVar>(), destinationinffilenamecomponent.rawAddress.toCPointer<ByteVar>())
 
-public actual fun setupCreateDiskSpaceListA(reserved1: ConstPtr<CVoid>, reserved2: UInt, flags: UInt): MutPtr<CVoid> =
+public actual fun setupCreateDiskSpaceListA(reserved1: ConstPtr, reserved2: UInt, flags: UInt): MutPtr =
     MutPtr(windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupCreateDiskSpaceListA(reserved1.rawAddress.toCPointer<ByteVar>(), reserved2, flags)?.toLong() ?: 0L)
 
-public actual fun setupCreateDiskSpaceListW(reserved1: ConstPtr<CVoid>, reserved2: UInt, flags: UInt): MutPtr<CVoid> =
+public actual fun setupCreateDiskSpaceListW(reserved1: ConstPtr, reserved2: UInt, flags: UInt): MutPtr =
     MutPtr(windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupCreateDiskSpaceListW(reserved1.rawAddress.toCPointer<ByteVar>(), reserved2, flags)?.toLong() ?: 0L)
 
-public actual fun setupDecompressOrCopyFileA(sourcefilename: Pcstr, targetfilename: Pcstr, compressiontype: ConstPtr<FileCompressionType>): UInt =
+public actual fun setupDecompressOrCopyFileA(sourcefilename: Pcstr, targetfilename: Pcstr, compressiontype: ConstPtr): UInt =
     windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDecompressOrCopyFileA(sourcefilename.rawAddress.toCPointer<ByteVar>(), targetfilename.rawAddress.toCPointer<ByteVar>(), compressiontype.rawAddress.toCPointer<ByteVar>())
 
-public actual fun setupDecompressOrCopyFileW(sourcefilename: Pcwstr, targetfilename: Pcwstr, compressiontype: ConstPtr<FileCompressionType>): UInt =
+public actual fun setupDecompressOrCopyFileW(sourcefilename: Pcwstr, targetfilename: Pcwstr, compressiontype: ConstPtr): UInt =
     windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDecompressOrCopyFileW(sourcefilename.rawAddress.toCPointer<ByteVar>(), targetfilename.rawAddress.toCPointer<ByteVar>(), compressiontype.rawAddress.toCPointer<ByteVar>())
 
-public actual fun setupDefaultQueueCallbackA(context: ConstPtr<CVoid>, notification: UInt, param1: ULong, param2: ULong): UInt =
+public actual fun setupDefaultQueueCallbackA(context: ConstPtr, notification: UInt, param1: ULong, param2: ULong): UInt =
     windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDefaultQueueCallbackA(context.rawAddress.toCPointer<ByteVar>(), notification, param1, param2)
 
-public actual fun setupDefaultQueueCallbackW(context: ConstPtr<CVoid>, notification: UInt, param1: ULong, param2: ULong): UInt =
+public actual fun setupDefaultQueueCallbackW(context: ConstPtr, notification: UInt, param1: ULong, param2: ULong): UInt =
     windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDefaultQueueCallbackW(context.rawAddress.toCPointer<ByteVar>(), notification, param1, param2)
 
 public actual fun setupDeleteErrorA(hwndparent: Hwnd, dialogtitle: Pcstr, file: Pcstr, win32errorcode: UInt, style: UInt): UInt =
@@ -1424,655 +1418,655 @@ public actual fun setupDeleteErrorA(hwndparent: Hwnd, dialogtitle: Pcstr, file: 
 public actual fun setupDeleteErrorW(hwndparent: Hwnd, dialogtitle: Pcwstr, file: Pcwstr, win32errorcode: UInt, style: UInt): UInt =
     windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDeleteErrorW(hwndparent.rawAddress.toCPointer<ByteVar>(), dialogtitle.rawAddress.toCPointer<ByteVar>(), file.rawAddress.toCPointer<ByteVar>(), win32errorcode, style)
 
-public actual fun setupDestroyDiskSpaceList(diskspace: MutPtr<CVoid>): Bool =
+public actual fun setupDestroyDiskSpaceList(diskspace: MutPtr): Bool =
     windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDestroyDiskSpaceList(diskspace.rawAddress.toCPointer<ByteVar>())
 
-public actual fun setupDiAskForOEMDisk(deviceinfoset: Hdevinfo, deviceinfodata: ConstPtr<SpDevinfoData>): Bool =
+public actual fun setupDiAskForOEMDisk(deviceinfoset: Hdevinfo, deviceinfodata: ConstPtr): Bool =
     windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiAskForOEMDisk(deviceinfoset, deviceinfodata.rawAddress.toCPointer<ByteVar>())
 
-public actual fun setupDiBuildClassInfoList(flags: UInt, classguidlist: MutPtr<Guid>, classguidlistsize: UInt, requiredsize: MutPtr<UInt>): Bool =
+public actual fun setupDiBuildClassInfoList(flags: UInt, classguidlist: MutPtr, classguidlistsize: UInt, requiredsize: MutPtr): Bool =
     windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiBuildClassInfoList(flags, classguidlist.rawAddress.toCPointer<ByteVar>(), classguidlistsize, requiredsize.rawAddress.toCPointer<ByteVar>())
 
-public actual fun setupDiBuildClassInfoListExA(flags: UInt, classguidlist: MutPtr<Guid>, classguidlistsize: UInt, requiredsize: MutPtr<UInt>, machinename: Pcstr, reserved: ConstPtr<CVoid>): Bool =
+public actual fun setupDiBuildClassInfoListExA(flags: UInt, classguidlist: MutPtr, classguidlistsize: UInt, requiredsize: MutPtr, machinename: Pcstr, reserved: ConstPtr): Bool =
     windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiBuildClassInfoListExA(flags, classguidlist.rawAddress.toCPointer<ByteVar>(), classguidlistsize, requiredsize.rawAddress.toCPointer<ByteVar>(), machinename.rawAddress.toCPointer<ByteVar>(), reserved.rawAddress.toCPointer<ByteVar>())
 
-public actual fun setupDiBuildClassInfoListExW(flags: UInt, classguidlist: MutPtr<Guid>, classguidlistsize: UInt, requiredsize: MutPtr<UInt>, machinename: Pcwstr, reserved: ConstPtr<CVoid>): Bool =
+public actual fun setupDiBuildClassInfoListExW(flags: UInt, classguidlist: MutPtr, classguidlistsize: UInt, requiredsize: MutPtr, machinename: Pcwstr, reserved: ConstPtr): Bool =
     windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiBuildClassInfoListExW(flags, classguidlist.rawAddress.toCPointer<ByteVar>(), classguidlistsize, requiredsize.rawAddress.toCPointer<ByteVar>(), machinename.rawAddress.toCPointer<ByteVar>(), reserved.rawAddress.toCPointer<ByteVar>())
 
-public actual fun setupDiBuildDriverInfoList(deviceinfoset: Hdevinfo, deviceinfodata: MutPtr<SpDevinfoData>, drivertype: SetupDiDriverType): Bool =
+public actual fun setupDiBuildDriverInfoList(deviceinfoset: Hdevinfo, deviceinfodata: MutPtr, drivertype: SetupDiDriverType): Bool =
     windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiBuildDriverInfoList(deviceinfoset, deviceinfodata.rawAddress.toCPointer<ByteVar>(), drivertype)
 
-public actual fun setupDiCallClassInstaller(installfunction: DiFunction, deviceinfoset: Hdevinfo, deviceinfodata: ConstPtr<SpDevinfoData>): Bool =
+public actual fun setupDiCallClassInstaller(installfunction: DiFunction, deviceinfoset: Hdevinfo, deviceinfodata: ConstPtr): Bool =
     windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiCallClassInstaller(installfunction, deviceinfoset, deviceinfodata.rawAddress.toCPointer<ByteVar>())
 
 public actual fun setupDiCancelDriverInfoSearch(deviceinfoset: Hdevinfo): Bool =
     windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiCancelDriverInfoSearch(deviceinfoset)
 
-public actual fun setupDiChangeState(deviceinfoset: Hdevinfo, deviceinfodata: MutPtr<SpDevinfoData>): Bool =
+public actual fun setupDiChangeState(deviceinfoset: Hdevinfo, deviceinfodata: MutPtr): Bool =
     windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiChangeState(deviceinfoset, deviceinfodata.rawAddress.toCPointer<ByteVar>())
 
-public actual fun setupDiClassGuidsFromNameA(classname: Pcstr, classguidlist: MutPtr<Guid>, classguidlistsize: UInt, requiredsize: MutPtr<UInt>): Bool =
+public actual fun setupDiClassGuidsFromNameA(classname: Pcstr, classguidlist: MutPtr, classguidlistsize: UInt, requiredsize: MutPtr): Bool =
     windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiClassGuidsFromNameA(classname.rawAddress.toCPointer<ByteVar>(), classguidlist.rawAddress.toCPointer<ByteVar>(), classguidlistsize, requiredsize.rawAddress.toCPointer<ByteVar>())
 
-public actual fun setupDiClassGuidsFromNameExA(classname: Pcstr, classguidlist: MutPtr<Guid>, classguidlistsize: UInt, requiredsize: MutPtr<UInt>, machinename: Pcstr, reserved: ConstPtr<CVoid>): Bool =
+public actual fun setupDiClassGuidsFromNameExA(classname: Pcstr, classguidlist: MutPtr, classguidlistsize: UInt, requiredsize: MutPtr, machinename: Pcstr, reserved: ConstPtr): Bool =
     windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiClassGuidsFromNameExA(classname.rawAddress.toCPointer<ByteVar>(), classguidlist.rawAddress.toCPointer<ByteVar>(), classguidlistsize, requiredsize.rawAddress.toCPointer<ByteVar>(), machinename.rawAddress.toCPointer<ByteVar>(), reserved.rawAddress.toCPointer<ByteVar>())
 
-public actual fun setupDiClassGuidsFromNameExW(classname: Pcwstr, classguidlist: MutPtr<Guid>, classguidlistsize: UInt, requiredsize: MutPtr<UInt>, machinename: Pcwstr, reserved: ConstPtr<CVoid>): Bool =
+public actual fun setupDiClassGuidsFromNameExW(classname: Pcwstr, classguidlist: MutPtr, classguidlistsize: UInt, requiredsize: MutPtr, machinename: Pcwstr, reserved: ConstPtr): Bool =
     windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiClassGuidsFromNameExW(classname.rawAddress.toCPointer<ByteVar>(), classguidlist.rawAddress.toCPointer<ByteVar>(), classguidlistsize, requiredsize.rawAddress.toCPointer<ByteVar>(), machinename.rawAddress.toCPointer<ByteVar>(), reserved.rawAddress.toCPointer<ByteVar>())
 
-public actual fun setupDiClassGuidsFromNameW(classname: Pcwstr, classguidlist: MutPtr<Guid>, classguidlistsize: UInt, requiredsize: MutPtr<UInt>): Bool =
+public actual fun setupDiClassGuidsFromNameW(classname: Pcwstr, classguidlist: MutPtr, classguidlistsize: UInt, requiredsize: MutPtr): Bool =
     windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiClassGuidsFromNameW(classname.rawAddress.toCPointer<ByteVar>(), classguidlist.rawAddress.toCPointer<ByteVar>(), classguidlistsize, requiredsize.rawAddress.toCPointer<ByteVar>())
 
-public actual fun setupDiClassNameFromGuidA(classguid: ConstPtr<Guid>, classname: Pstr, classnamesize: UInt, requiredsize: MutPtr<UInt>): Bool =
+public actual fun setupDiClassNameFromGuidA(classguid: ConstPtr, classname: Pstr, classnamesize: UInt, requiredsize: MutPtr): Bool =
     windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiClassNameFromGuidA(classguid.rawAddress.toCPointer<ByteVar>(), classname.rawAddress.toCPointer<ByteVar>(), classnamesize, requiredsize.rawAddress.toCPointer<ByteVar>())
 
-public actual fun setupDiClassNameFromGuidExA(classguid: ConstPtr<Guid>, classname: Pstr, classnamesize: UInt, requiredsize: MutPtr<UInt>, machinename: Pcstr, reserved: ConstPtr<CVoid>): Bool =
+public actual fun setupDiClassNameFromGuidExA(classguid: ConstPtr, classname: Pstr, classnamesize: UInt, requiredsize: MutPtr, machinename: Pcstr, reserved: ConstPtr): Bool =
     windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiClassNameFromGuidExA(classguid.rawAddress.toCPointer<ByteVar>(), classname.rawAddress.toCPointer<ByteVar>(), classnamesize, requiredsize.rawAddress.toCPointer<ByteVar>(), machinename.rawAddress.toCPointer<ByteVar>(), reserved.rawAddress.toCPointer<ByteVar>())
 
-public actual fun setupDiClassNameFromGuidExW(classguid: ConstPtr<Guid>, classname: Pwstr, classnamesize: UInt, requiredsize: MutPtr<UInt>, machinename: Pcwstr, reserved: ConstPtr<CVoid>): Bool =
+public actual fun setupDiClassNameFromGuidExW(classguid: ConstPtr, classname: Pwstr, classnamesize: UInt, requiredsize: MutPtr, machinename: Pcwstr, reserved: ConstPtr): Bool =
     windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiClassNameFromGuidExW(classguid.rawAddress.toCPointer<ByteVar>(), classname.rawAddress.toCPointer<ByteVar>(), classnamesize, requiredsize.rawAddress.toCPointer<ByteVar>(), machinename.rawAddress.toCPointer<ByteVar>(), reserved.rawAddress.toCPointer<ByteVar>())
 
-public actual fun setupDiClassNameFromGuidW(classguid: ConstPtr<Guid>, classname: Pwstr, classnamesize: UInt, requiredsize: MutPtr<UInt>): Bool =
+public actual fun setupDiClassNameFromGuidW(classguid: ConstPtr, classname: Pwstr, classnamesize: UInt, requiredsize: MutPtr): Bool =
     windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiClassNameFromGuidW(classguid.rawAddress.toCPointer<ByteVar>(), classname.rawAddress.toCPointer<ByteVar>(), classnamesize, requiredsize.rawAddress.toCPointer<ByteVar>())
 
-public actual fun setupDiCreateDevRegKeyA(deviceinfoset: Hdevinfo, deviceinfodata: ConstPtr<SpDevinfoData>, scope: UInt, hwprofile: UInt, keytype: UInt, infhandle: ConstPtr<CVoid>, infsectionname: Pcstr): Hkey =
+public actual fun setupDiCreateDevRegKeyA(deviceinfoset: Hdevinfo, deviceinfodata: ConstPtr, scope: UInt, hwprofile: UInt, keytype: UInt, infhandle: ConstPtr, infsectionname: Pcstr): Hkey =
     MutPtr(windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiCreateDevRegKeyA(deviceinfoset, deviceinfodata.rawAddress.toCPointer<ByteVar>(), scope, hwprofile, keytype, infhandle.rawAddress.toCPointer<ByteVar>(), infsectionname.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun setupDiCreateDevRegKeyW(deviceinfoset: Hdevinfo, deviceinfodata: ConstPtr<SpDevinfoData>, scope: UInt, hwprofile: UInt, keytype: UInt, infhandle: ConstPtr<CVoid>, infsectionname: Pcwstr): Hkey =
+public actual fun setupDiCreateDevRegKeyW(deviceinfoset: Hdevinfo, deviceinfodata: ConstPtr, scope: UInt, hwprofile: UInt, keytype: UInt, infhandle: ConstPtr, infsectionname: Pcwstr): Hkey =
     MutPtr(windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiCreateDevRegKeyW(deviceinfoset, deviceinfodata.rawAddress.toCPointer<ByteVar>(), scope, hwprofile, keytype, infhandle.rawAddress.toCPointer<ByteVar>(), infsectionname.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun setupDiCreateDeviceInfoA(deviceinfoset: Hdevinfo, devicename: Pcstr, classguid: ConstPtr<Guid>, devicedescription: Pcstr, hwndparent: Hwnd, creationflags: SetupDiDeviceCreationFlags, deviceinfodata: MutPtr<SpDevinfoData>): Bool =
+public actual fun setupDiCreateDeviceInfoA(deviceinfoset: Hdevinfo, devicename: Pcstr, classguid: ConstPtr, devicedescription: Pcstr, hwndparent: Hwnd, creationflags: SetupDiDeviceCreationFlags, deviceinfodata: MutPtr): Bool =
     windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiCreateDeviceInfoA(deviceinfoset, devicename.rawAddress.toCPointer<ByteVar>(), classguid.rawAddress.toCPointer<ByteVar>(), devicedescription.rawAddress.toCPointer<ByteVar>(), hwndparent.rawAddress.toCPointer<ByteVar>(), creationflags, deviceinfodata.rawAddress.toCPointer<ByteVar>())
 
-public actual fun setupDiCreateDeviceInfoList(classguid: ConstPtr<Guid>, hwndparent: Hwnd): Hdevinfo =
+public actual fun setupDiCreateDeviceInfoList(classguid: ConstPtr, hwndparent: Hwnd): Hdevinfo =
     windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiCreateDeviceInfoList(classguid.rawAddress.toCPointer<ByteVar>(), hwndparent.rawAddress.toCPointer<ByteVar>())
 
-public actual fun setupDiCreateDeviceInfoListExA(classguid: ConstPtr<Guid>, hwndparent: Hwnd, machinename: Pcstr, reserved: ConstPtr<CVoid>): Hdevinfo =
+public actual fun setupDiCreateDeviceInfoListExA(classguid: ConstPtr, hwndparent: Hwnd, machinename: Pcstr, reserved: ConstPtr): Hdevinfo =
     windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiCreateDeviceInfoListExA(classguid.rawAddress.toCPointer<ByteVar>(), hwndparent.rawAddress.toCPointer<ByteVar>(), machinename.rawAddress.toCPointer<ByteVar>(), reserved.rawAddress.toCPointer<ByteVar>())
 
-public actual fun setupDiCreateDeviceInfoListExW(classguid: ConstPtr<Guid>, hwndparent: Hwnd, machinename: Pcwstr, reserved: ConstPtr<CVoid>): Hdevinfo =
+public actual fun setupDiCreateDeviceInfoListExW(classguid: ConstPtr, hwndparent: Hwnd, machinename: Pcwstr, reserved: ConstPtr): Hdevinfo =
     windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiCreateDeviceInfoListExW(classguid.rawAddress.toCPointer<ByteVar>(), hwndparent.rawAddress.toCPointer<ByteVar>(), machinename.rawAddress.toCPointer<ByteVar>(), reserved.rawAddress.toCPointer<ByteVar>())
 
-public actual fun setupDiCreateDeviceInfoW(deviceinfoset: Hdevinfo, devicename: Pcwstr, classguid: ConstPtr<Guid>, devicedescription: Pcwstr, hwndparent: Hwnd, creationflags: SetupDiDeviceCreationFlags, deviceinfodata: MutPtr<SpDevinfoData>): Bool =
+public actual fun setupDiCreateDeviceInfoW(deviceinfoset: Hdevinfo, devicename: Pcwstr, classguid: ConstPtr, devicedescription: Pcwstr, hwndparent: Hwnd, creationflags: SetupDiDeviceCreationFlags, deviceinfodata: MutPtr): Bool =
     windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiCreateDeviceInfoW(deviceinfoset, devicename.rawAddress.toCPointer<ByteVar>(), classguid.rawAddress.toCPointer<ByteVar>(), devicedescription.rawAddress.toCPointer<ByteVar>(), hwndparent.rawAddress.toCPointer<ByteVar>(), creationflags, deviceinfodata.rawAddress.toCPointer<ByteVar>())
 
-public actual fun setupDiCreateDeviceInterfaceA(deviceinfoset: Hdevinfo, deviceinfodata: ConstPtr<SpDevinfoData>, interfaceclassguid: ConstPtr<Guid>, referencestring: Pcstr, creationflags: UInt, deviceinterfacedata: MutPtr<SpDeviceInterfaceData>): Bool =
+public actual fun setupDiCreateDeviceInterfaceA(deviceinfoset: Hdevinfo, deviceinfodata: ConstPtr, interfaceclassguid: ConstPtr, referencestring: Pcstr, creationflags: UInt, deviceinterfacedata: MutPtr): Bool =
     windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiCreateDeviceInterfaceA(deviceinfoset, deviceinfodata.rawAddress.toCPointer<ByteVar>(), interfaceclassguid.rawAddress.toCPointer<ByteVar>(), referencestring.rawAddress.toCPointer<ByteVar>(), creationflags, deviceinterfacedata.rawAddress.toCPointer<ByteVar>())
 
-public actual fun setupDiCreateDeviceInterfaceRegKeyA(deviceinfoset: Hdevinfo, deviceinterfacedata: ConstPtr<SpDeviceInterfaceData>, reserved: UInt, samdesired: UInt, infhandle: ConstPtr<CVoid>, infsectionname: Pcstr): Hkey =
+public actual fun setupDiCreateDeviceInterfaceRegKeyA(deviceinfoset: Hdevinfo, deviceinterfacedata: ConstPtr, reserved: UInt, samdesired: UInt, infhandle: ConstPtr, infsectionname: Pcstr): Hkey =
     MutPtr(windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiCreateDeviceInterfaceRegKeyA(deviceinfoset, deviceinterfacedata.rawAddress.toCPointer<ByteVar>(), reserved, samdesired, infhandle.rawAddress.toCPointer<ByteVar>(), infsectionname.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun setupDiCreateDeviceInterfaceRegKeyW(deviceinfoset: Hdevinfo, deviceinterfacedata: ConstPtr<SpDeviceInterfaceData>, reserved: UInt, samdesired: UInt, infhandle: ConstPtr<CVoid>, infsectionname: Pcwstr): Hkey =
+public actual fun setupDiCreateDeviceInterfaceRegKeyW(deviceinfoset: Hdevinfo, deviceinterfacedata: ConstPtr, reserved: UInt, samdesired: UInt, infhandle: ConstPtr, infsectionname: Pcwstr): Hkey =
     MutPtr(windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiCreateDeviceInterfaceRegKeyW(deviceinfoset, deviceinterfacedata.rawAddress.toCPointer<ByteVar>(), reserved, samdesired, infhandle.rawAddress.toCPointer<ByteVar>(), infsectionname.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun setupDiCreateDeviceInterfaceW(deviceinfoset: Hdevinfo, deviceinfodata: ConstPtr<SpDevinfoData>, interfaceclassguid: ConstPtr<Guid>, referencestring: Pcwstr, creationflags: UInt, deviceinterfacedata: MutPtr<SpDeviceInterfaceData>): Bool =
+public actual fun setupDiCreateDeviceInterfaceW(deviceinfoset: Hdevinfo, deviceinfodata: ConstPtr, interfaceclassguid: ConstPtr, referencestring: Pcwstr, creationflags: UInt, deviceinterfacedata: MutPtr): Bool =
     windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiCreateDeviceInterfaceW(deviceinfoset, deviceinfodata.rawAddress.toCPointer<ByteVar>(), interfaceclassguid.rawAddress.toCPointer<ByteVar>(), referencestring.rawAddress.toCPointer<ByteVar>(), creationflags, deviceinterfacedata.rawAddress.toCPointer<ByteVar>())
 
-public actual fun setupDiDeleteDevRegKey(deviceinfoset: Hdevinfo, deviceinfodata: ConstPtr<SpDevinfoData>, scope: UInt, hwprofile: UInt, keytype: UInt): Bool =
+public actual fun setupDiDeleteDevRegKey(deviceinfoset: Hdevinfo, deviceinfodata: ConstPtr, scope: UInt, hwprofile: UInt, keytype: UInt): Bool =
     windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiDeleteDevRegKey(deviceinfoset, deviceinfodata.rawAddress.toCPointer<ByteVar>(), scope, hwprofile, keytype)
 
-public actual fun setupDiDeleteDeviceInfo(deviceinfoset: Hdevinfo, deviceinfodata: ConstPtr<SpDevinfoData>): Bool =
+public actual fun setupDiDeleteDeviceInfo(deviceinfoset: Hdevinfo, deviceinfodata: ConstPtr): Bool =
     windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiDeleteDeviceInfo(deviceinfoset, deviceinfodata.rawAddress.toCPointer<ByteVar>())
 
-public actual fun setupDiDeleteDeviceInterfaceData(deviceinfoset: Hdevinfo, deviceinterfacedata: ConstPtr<SpDeviceInterfaceData>): Bool =
+public actual fun setupDiDeleteDeviceInterfaceData(deviceinfoset: Hdevinfo, deviceinterfacedata: ConstPtr): Bool =
     windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiDeleteDeviceInterfaceData(deviceinfoset, deviceinterfacedata.rawAddress.toCPointer<ByteVar>())
 
-public actual fun setupDiDeleteDeviceInterfaceRegKey(deviceinfoset: Hdevinfo, deviceinterfacedata: ConstPtr<SpDeviceInterfaceData>, reserved: UInt): Bool =
+public actual fun setupDiDeleteDeviceInterfaceRegKey(deviceinfoset: Hdevinfo, deviceinterfacedata: ConstPtr, reserved: UInt): Bool =
     windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiDeleteDeviceInterfaceRegKey(deviceinfoset, deviceinterfacedata.rawAddress.toCPointer<ByteVar>(), reserved)
 
-public actual fun setupDiDestroyClassImageList(classimagelistdata: ConstPtr<SpClassimagelistData>): Bool =
+public actual fun setupDiDestroyClassImageList(classimagelistdata: ConstPtr): Bool =
     windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiDestroyClassImageList(classimagelistdata.rawAddress.toCPointer<ByteVar>())
 
 public actual fun setupDiDestroyDeviceInfoList(deviceinfoset: Hdevinfo): Bool =
     windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiDestroyDeviceInfoList(deviceinfoset)
 
-public actual fun setupDiDestroyDriverInfoList(deviceinfoset: Hdevinfo, deviceinfodata: ConstPtr<SpDevinfoData>, drivertype: SetupDiDriverType): Bool =
+public actual fun setupDiDestroyDriverInfoList(deviceinfoset: Hdevinfo, deviceinfodata: ConstPtr, drivertype: SetupDiDriverType): Bool =
     windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiDestroyDriverInfoList(deviceinfoset, deviceinfodata.rawAddress.toCPointer<ByteVar>(), drivertype)
 
 public actual fun setupDiDrawMiniIcon(hdc: Hdc, rc: Rect, miniiconindex: Int, flags: UInt): Int =
     0
 
-public actual fun setupDiEnumDeviceInfo(deviceinfoset: Hdevinfo, memberindex: UInt, deviceinfodata: MutPtr<SpDevinfoData>): Bool =
+public actual fun setupDiEnumDeviceInfo(deviceinfoset: Hdevinfo, memberindex: UInt, deviceinfodata: MutPtr): Bool =
     windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiEnumDeviceInfo(deviceinfoset, memberindex, deviceinfodata.rawAddress.toCPointer<ByteVar>())
 
-public actual fun setupDiEnumDeviceInterfaces(deviceinfoset: Hdevinfo, deviceinfodata: ConstPtr<SpDevinfoData>, interfaceclassguid: ConstPtr<Guid>, memberindex: UInt, deviceinterfacedata: MutPtr<SpDeviceInterfaceData>): Bool =
+public actual fun setupDiEnumDeviceInterfaces(deviceinfoset: Hdevinfo, deviceinfodata: ConstPtr, interfaceclassguid: ConstPtr, memberindex: UInt, deviceinterfacedata: MutPtr): Bool =
     windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiEnumDeviceInterfaces(deviceinfoset, deviceinfodata.rawAddress.toCPointer<ByteVar>(), interfaceclassguid.rawAddress.toCPointer<ByteVar>(), memberindex, deviceinterfacedata.rawAddress.toCPointer<ByteVar>())
 
-public actual fun setupDiEnumDriverInfoA(deviceinfoset: Hdevinfo, deviceinfodata: ConstPtr<SpDevinfoData>, drivertype: SetupDiDriverType, memberindex: UInt, driverinfodata: MutPtr<SpDrvinfoDataV2A>): Bool =
+public actual fun setupDiEnumDriverInfoA(deviceinfoset: Hdevinfo, deviceinfodata: ConstPtr, drivertype: SetupDiDriverType, memberindex: UInt, driverinfodata: MutPtr): Bool =
     windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiEnumDriverInfoA(deviceinfoset, deviceinfodata.rawAddress.toCPointer<ByteVar>(), drivertype, memberindex, driverinfodata.rawAddress.toCPointer<ByteVar>())
 
-public actual fun setupDiEnumDriverInfoW(deviceinfoset: Hdevinfo, deviceinfodata: ConstPtr<SpDevinfoData>, drivertype: SetupDiDriverType, memberindex: UInt, driverinfodata: MutPtr<SpDrvinfoDataV2W>): Bool =
+public actual fun setupDiEnumDriverInfoW(deviceinfoset: Hdevinfo, deviceinfodata: ConstPtr, drivertype: SetupDiDriverType, memberindex: UInt, driverinfodata: MutPtr): Bool =
     windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiEnumDriverInfoW(deviceinfoset, deviceinfodata.rawAddress.toCPointer<ByteVar>(), drivertype, memberindex, driverinfodata.rawAddress.toCPointer<ByteVar>())
 
-public actual fun setupDiGetActualModelsSectionA(context: ConstPtr<Infcontext>, alternateplatforminfo: ConstPtr<SpAltplatformInfoV2>, infsectionwithext: Pstr, infsectionwithextsize: UInt, requiredsize: MutPtr<UInt>, reserved: ConstPtr<CVoid>): Bool =
+public actual fun setupDiGetActualModelsSectionA(context: ConstPtr, alternateplatforminfo: ConstPtr, infsectionwithext: Pstr, infsectionwithextsize: UInt, requiredsize: MutPtr, reserved: ConstPtr): Bool =
     windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiGetActualModelsSectionA(context.rawAddress.toCPointer<ByteVar>(), alternateplatforminfo.rawAddress.toCPointer<ByteVar>(), infsectionwithext.rawAddress.toCPointer<ByteVar>(), infsectionwithextsize, requiredsize.rawAddress.toCPointer<ByteVar>(), reserved.rawAddress.toCPointer<ByteVar>())
 
-public actual fun setupDiGetActualModelsSectionW(context: ConstPtr<Infcontext>, alternateplatforminfo: ConstPtr<SpAltplatformInfoV2>, infsectionwithext: Pwstr, infsectionwithextsize: UInt, requiredsize: MutPtr<UInt>, reserved: ConstPtr<CVoid>): Bool =
+public actual fun setupDiGetActualModelsSectionW(context: ConstPtr, alternateplatforminfo: ConstPtr, infsectionwithext: Pwstr, infsectionwithextsize: UInt, requiredsize: MutPtr, reserved: ConstPtr): Bool =
     windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiGetActualModelsSectionW(context.rawAddress.toCPointer<ByteVar>(), alternateplatforminfo.rawAddress.toCPointer<ByteVar>(), infsectionwithext.rawAddress.toCPointer<ByteVar>(), infsectionwithextsize, requiredsize.rawAddress.toCPointer<ByteVar>(), reserved.rawAddress.toCPointer<ByteVar>())
 
-public actual fun setupDiGetActualSectionToInstallA(infhandle: ConstPtr<CVoid>, infsectionname: Pcstr, infsectionwithext: Pstr, infsectionwithextsize: UInt, requiredsize: MutPtr<UInt>, extension: MutPtr<Pstr>): Bool =
+public actual fun setupDiGetActualSectionToInstallA(infhandle: ConstPtr, infsectionname: Pcstr, infsectionwithext: Pstr, infsectionwithextsize: UInt, requiredsize: MutPtr, extension: MutPtr): Bool =
     windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiGetActualSectionToInstallA(infhandle.rawAddress.toCPointer<ByteVar>(), infsectionname.rawAddress.toCPointer<ByteVar>(), infsectionwithext.rawAddress.toCPointer<ByteVar>(), infsectionwithextsize, requiredsize.rawAddress.toCPointer<ByteVar>(), extension.rawAddress.toCPointer<ByteVar>())
 
-public actual fun setupDiGetActualSectionToInstallExA(infhandle: ConstPtr<CVoid>, infsectionname: Pcstr, alternateplatforminfo: ConstPtr<SpAltplatformInfoV2>, infsectionwithext: Pstr, infsectionwithextsize: UInt, requiredsize: MutPtr<UInt>, extension: MutPtr<Pstr>, reserved: ConstPtr<CVoid>): Bool =
+public actual fun setupDiGetActualSectionToInstallExA(infhandle: ConstPtr, infsectionname: Pcstr, alternateplatforminfo: ConstPtr, infsectionwithext: Pstr, infsectionwithextsize: UInt, requiredsize: MutPtr, extension: MutPtr, reserved: ConstPtr): Bool =
     windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiGetActualSectionToInstallExA(infhandle.rawAddress.toCPointer<ByteVar>(), infsectionname.rawAddress.toCPointer<ByteVar>(), alternateplatforminfo.rawAddress.toCPointer<ByteVar>(), infsectionwithext.rawAddress.toCPointer<ByteVar>(), infsectionwithextsize, requiredsize.rawAddress.toCPointer<ByteVar>(), extension.rawAddress.toCPointer<ByteVar>(), reserved.rawAddress.toCPointer<ByteVar>())
 
-public actual fun setupDiGetActualSectionToInstallExW(infhandle: ConstPtr<CVoid>, infsectionname: Pcwstr, alternateplatforminfo: ConstPtr<SpAltplatformInfoV2>, infsectionwithext: Pwstr, infsectionwithextsize: UInt, requiredsize: MutPtr<UInt>, extension: MutPtr<Pwstr>, reserved: ConstPtr<CVoid>): Bool =
+public actual fun setupDiGetActualSectionToInstallExW(infhandle: ConstPtr, infsectionname: Pcwstr, alternateplatforminfo: ConstPtr, infsectionwithext: Pwstr, infsectionwithextsize: UInt, requiredsize: MutPtr, extension: MutPtr, reserved: ConstPtr): Bool =
     windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiGetActualSectionToInstallExW(infhandle.rawAddress.toCPointer<ByteVar>(), infsectionname.rawAddress.toCPointer<ByteVar>(), alternateplatforminfo.rawAddress.toCPointer<ByteVar>(), infsectionwithext.rawAddress.toCPointer<ByteVar>(), infsectionwithextsize, requiredsize.rawAddress.toCPointer<ByteVar>(), extension.rawAddress.toCPointer<ByteVar>(), reserved.rawAddress.toCPointer<ByteVar>())
 
-public actual fun setupDiGetActualSectionToInstallW(infhandle: ConstPtr<CVoid>, infsectionname: Pcwstr, infsectionwithext: Pwstr, infsectionwithextsize: UInt, requiredsize: MutPtr<UInt>, extension: MutPtr<Pwstr>): Bool =
+public actual fun setupDiGetActualSectionToInstallW(infhandle: ConstPtr, infsectionname: Pcwstr, infsectionwithext: Pwstr, infsectionwithextsize: UInt, requiredsize: MutPtr, extension: MutPtr): Bool =
     windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiGetActualSectionToInstallW(infhandle.rawAddress.toCPointer<ByteVar>(), infsectionname.rawAddress.toCPointer<ByteVar>(), infsectionwithext.rawAddress.toCPointer<ByteVar>(), infsectionwithextsize, requiredsize.rawAddress.toCPointer<ByteVar>(), extension.rawAddress.toCPointer<ByteVar>())
 
-public actual fun setupDiGetClassBitmapIndex(classguid: ConstPtr<Guid>, miniiconindex: MutPtr<Int>): Bool =
+public actual fun setupDiGetClassBitmapIndex(classguid: ConstPtr, miniiconindex: MutPtr): Bool =
     windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiGetClassBitmapIndex(classguid.rawAddress.toCPointer<ByteVar>(), miniiconindex.rawAddress.toCPointer<ByteVar>())
 
-public actual fun setupDiGetClassDescriptionA(classguid: ConstPtr<Guid>, classdescription: Pstr, classdescriptionsize: UInt, requiredsize: MutPtr<UInt>): Bool =
+public actual fun setupDiGetClassDescriptionA(classguid: ConstPtr, classdescription: Pstr, classdescriptionsize: UInt, requiredsize: MutPtr): Bool =
     windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiGetClassDescriptionA(classguid.rawAddress.toCPointer<ByteVar>(), classdescription.rawAddress.toCPointer<ByteVar>(), classdescriptionsize, requiredsize.rawAddress.toCPointer<ByteVar>())
 
-public actual fun setupDiGetClassDescriptionExA(classguid: ConstPtr<Guid>, classdescription: Pstr, classdescriptionsize: UInt, requiredsize: MutPtr<UInt>, machinename: Pcstr, reserved: ConstPtr<CVoid>): Bool =
+public actual fun setupDiGetClassDescriptionExA(classguid: ConstPtr, classdescription: Pstr, classdescriptionsize: UInt, requiredsize: MutPtr, machinename: Pcstr, reserved: ConstPtr): Bool =
     windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiGetClassDescriptionExA(classguid.rawAddress.toCPointer<ByteVar>(), classdescription.rawAddress.toCPointer<ByteVar>(), classdescriptionsize, requiredsize.rawAddress.toCPointer<ByteVar>(), machinename.rawAddress.toCPointer<ByteVar>(), reserved.rawAddress.toCPointer<ByteVar>())
 
-public actual fun setupDiGetClassDescriptionExW(classguid: ConstPtr<Guid>, classdescription: Pwstr, classdescriptionsize: UInt, requiredsize: MutPtr<UInt>, machinename: Pcwstr, reserved: ConstPtr<CVoid>): Bool =
+public actual fun setupDiGetClassDescriptionExW(classguid: ConstPtr, classdescription: Pwstr, classdescriptionsize: UInt, requiredsize: MutPtr, machinename: Pcwstr, reserved: ConstPtr): Bool =
     windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiGetClassDescriptionExW(classguid.rawAddress.toCPointer<ByteVar>(), classdescription.rawAddress.toCPointer<ByteVar>(), classdescriptionsize, requiredsize.rawAddress.toCPointer<ByteVar>(), machinename.rawAddress.toCPointer<ByteVar>(), reserved.rawAddress.toCPointer<ByteVar>())
 
-public actual fun setupDiGetClassDescriptionW(classguid: ConstPtr<Guid>, classdescription: Pwstr, classdescriptionsize: UInt, requiredsize: MutPtr<UInt>): Bool =
+public actual fun setupDiGetClassDescriptionW(classguid: ConstPtr, classdescription: Pwstr, classdescriptionsize: UInt, requiredsize: MutPtr): Bool =
     windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiGetClassDescriptionW(classguid.rawAddress.toCPointer<ByteVar>(), classdescription.rawAddress.toCPointer<ByteVar>(), classdescriptionsize, requiredsize.rawAddress.toCPointer<ByteVar>())
 
-public actual fun setupDiGetClassDevPropertySheetsA(deviceinfoset: Hdevinfo, deviceinfodata: ConstPtr<SpDevinfoData>, propertysheetheader: ConstPtr<PropsheetheaderaV2>, propertysheetheaderpagelistsize: UInt, requiredsize: MutPtr<UInt>, propertysheettype: UInt): Bool =
+public actual fun setupDiGetClassDevPropertySheetsA(deviceinfoset: Hdevinfo, deviceinfodata: ConstPtr, propertysheetheader: ConstPtr, propertysheetheaderpagelistsize: UInt, requiredsize: MutPtr, propertysheettype: UInt): Bool =
     windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiGetClassDevPropertySheetsA(deviceinfoset, deviceinfodata.rawAddress.toCPointer<ByteVar>(), propertysheetheader.rawAddress.toCPointer<ByteVar>(), propertysheetheaderpagelistsize, requiredsize.rawAddress.toCPointer<ByteVar>(), propertysheettype)
 
-public actual fun setupDiGetClassDevPropertySheetsW(deviceinfoset: Hdevinfo, deviceinfodata: ConstPtr<SpDevinfoData>, propertysheetheader: ConstPtr<PropsheetheaderwV2>, propertysheetheaderpagelistsize: UInt, requiredsize: MutPtr<UInt>, propertysheettype: UInt): Bool =
+public actual fun setupDiGetClassDevPropertySheetsW(deviceinfoset: Hdevinfo, deviceinfodata: ConstPtr, propertysheetheader: ConstPtr, propertysheetheaderpagelistsize: UInt, requiredsize: MutPtr, propertysheettype: UInt): Bool =
     windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiGetClassDevPropertySheetsW(deviceinfoset, deviceinfodata.rawAddress.toCPointer<ByteVar>(), propertysheetheader.rawAddress.toCPointer<ByteVar>(), propertysheetheaderpagelistsize, requiredsize.rawAddress.toCPointer<ByteVar>(), propertysheettype)
 
-public actual fun setupDiGetClassDevsA(classguid: ConstPtr<Guid>, enumerator: Pcstr, hwndparent: Hwnd, flags: SetupDiGetClassDevsFlags): Hdevinfo =
+public actual fun setupDiGetClassDevsA(classguid: ConstPtr, enumerator: Pcstr, hwndparent: Hwnd, flags: SetupDiGetClassDevsFlags): Hdevinfo =
     windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiGetClassDevsA(classguid.rawAddress.toCPointer<ByteVar>(), enumerator.rawAddress.toCPointer<ByteVar>(), hwndparent.rawAddress.toCPointer<ByteVar>(), flags)
 
-public actual fun setupDiGetClassDevsExA(classguid: ConstPtr<Guid>, enumerator: Pcstr, hwndparent: Hwnd, flags: SetupDiGetClassDevsFlags, deviceinfoset: Hdevinfo, machinename: Pcstr, reserved: ConstPtr<CVoid>): Hdevinfo =
+public actual fun setupDiGetClassDevsExA(classguid: ConstPtr, enumerator: Pcstr, hwndparent: Hwnd, flags: SetupDiGetClassDevsFlags, deviceinfoset: Hdevinfo, machinename: Pcstr, reserved: ConstPtr): Hdevinfo =
     windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiGetClassDevsExA(classguid.rawAddress.toCPointer<ByteVar>(), enumerator.rawAddress.toCPointer<ByteVar>(), hwndparent.rawAddress.toCPointer<ByteVar>(), flags, deviceinfoset, machinename.rawAddress.toCPointer<ByteVar>(), reserved.rawAddress.toCPointer<ByteVar>())
 
-public actual fun setupDiGetClassDevsExW(classguid: ConstPtr<Guid>, enumerator: Pcwstr, hwndparent: Hwnd, flags: SetupDiGetClassDevsFlags, deviceinfoset: Hdevinfo, machinename: Pcwstr, reserved: ConstPtr<CVoid>): Hdevinfo =
+public actual fun setupDiGetClassDevsExW(classguid: ConstPtr, enumerator: Pcwstr, hwndparent: Hwnd, flags: SetupDiGetClassDevsFlags, deviceinfoset: Hdevinfo, machinename: Pcwstr, reserved: ConstPtr): Hdevinfo =
     windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiGetClassDevsExW(classguid.rawAddress.toCPointer<ByteVar>(), enumerator.rawAddress.toCPointer<ByteVar>(), hwndparent.rawAddress.toCPointer<ByteVar>(), flags, deviceinfoset, machinename.rawAddress.toCPointer<ByteVar>(), reserved.rawAddress.toCPointer<ByteVar>())
 
-public actual fun setupDiGetClassDevsW(classguid: ConstPtr<Guid>, enumerator: Pcwstr, hwndparent: Hwnd, flags: SetupDiGetClassDevsFlags): Hdevinfo =
+public actual fun setupDiGetClassDevsW(classguid: ConstPtr, enumerator: Pcwstr, hwndparent: Hwnd, flags: SetupDiGetClassDevsFlags): Hdevinfo =
     windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiGetClassDevsW(classguid.rawAddress.toCPointer<ByteVar>(), enumerator.rawAddress.toCPointer<ByteVar>(), hwndparent.rawAddress.toCPointer<ByteVar>(), flags)
 
-public actual fun setupDiGetClassImageIndex(classimagelistdata: ConstPtr<SpClassimagelistData>, classguid: ConstPtr<Guid>, imageindex: MutPtr<Int>): Bool =
+public actual fun setupDiGetClassImageIndex(classimagelistdata: ConstPtr, classguid: ConstPtr, imageindex: MutPtr): Bool =
     windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiGetClassImageIndex(classimagelistdata.rawAddress.toCPointer<ByteVar>(), classguid.rawAddress.toCPointer<ByteVar>(), imageindex.rawAddress.toCPointer<ByteVar>())
 
-public actual fun setupDiGetClassImageList(classimagelistdata: MutPtr<SpClassimagelistData>): Bool =
+public actual fun setupDiGetClassImageList(classimagelistdata: MutPtr): Bool =
     windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiGetClassImageList(classimagelistdata.rawAddress.toCPointer<ByteVar>())
 
-public actual fun setupDiGetClassImageListExA(classimagelistdata: MutPtr<SpClassimagelistData>, machinename: Pcstr, reserved: ConstPtr<CVoid>): Bool =
+public actual fun setupDiGetClassImageListExA(classimagelistdata: MutPtr, machinename: Pcstr, reserved: ConstPtr): Bool =
     windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiGetClassImageListExA(classimagelistdata.rawAddress.toCPointer<ByteVar>(), machinename.rawAddress.toCPointer<ByteVar>(), reserved.rawAddress.toCPointer<ByteVar>())
 
-public actual fun setupDiGetClassImageListExW(classimagelistdata: MutPtr<SpClassimagelistData>, machinename: Pcwstr, reserved: ConstPtr<CVoid>): Bool =
+public actual fun setupDiGetClassImageListExW(classimagelistdata: MutPtr, machinename: Pcwstr, reserved: ConstPtr): Bool =
     windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiGetClassImageListExW(classimagelistdata.rawAddress.toCPointer<ByteVar>(), machinename.rawAddress.toCPointer<ByteVar>(), reserved.rawAddress.toCPointer<ByteVar>())
 
-public actual fun setupDiGetClassInstallParamsA(deviceinfoset: Hdevinfo, deviceinfodata: ConstPtr<SpDevinfoData>, classinstallparams: MutPtr<SpClassinstallHeader>, classinstallparamssize: UInt, requiredsize: MutPtr<UInt>): Bool =
+public actual fun setupDiGetClassInstallParamsA(deviceinfoset: Hdevinfo, deviceinfodata: ConstPtr, classinstallparams: MutPtr, classinstallparamssize: UInt, requiredsize: MutPtr): Bool =
     windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiGetClassInstallParamsA(deviceinfoset, deviceinfodata.rawAddress.toCPointer<ByteVar>(), classinstallparams.rawAddress.toCPointer<ByteVar>(), classinstallparamssize, requiredsize.rawAddress.toCPointer<ByteVar>())
 
-public actual fun setupDiGetClassInstallParamsW(deviceinfoset: Hdevinfo, deviceinfodata: ConstPtr<SpDevinfoData>, classinstallparams: MutPtr<SpClassinstallHeader>, classinstallparamssize: UInt, requiredsize: MutPtr<UInt>): Bool =
+public actual fun setupDiGetClassInstallParamsW(deviceinfoset: Hdevinfo, deviceinfodata: ConstPtr, classinstallparams: MutPtr, classinstallparamssize: UInt, requiredsize: MutPtr): Bool =
     windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiGetClassInstallParamsW(deviceinfoset, deviceinfodata.rawAddress.toCPointer<ByteVar>(), classinstallparams.rawAddress.toCPointer<ByteVar>(), classinstallparamssize, requiredsize.rawAddress.toCPointer<ByteVar>())
 
-public actual fun setupDiGetClassPropertyExW(classguid: ConstPtr<Guid>, propertykey: ConstPtr<Devpropkey>, propertytype: MutPtr<Devproptype>, propertybuffer: MutPtr<UByte>, propertybuffersize: UInt, requiredsize: MutPtr<UInt>, flags: UInt, machinename: Pcwstr, reserved: ConstPtr<CVoid>): Bool =
+public actual fun setupDiGetClassPropertyExW(classguid: ConstPtr, propertykey: ConstPtr, propertytype: MutPtr, propertybuffer: MutPtr, propertybuffersize: UInt, requiredsize: MutPtr, flags: UInt, machinename: Pcwstr, reserved: ConstPtr): Bool =
     windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiGetClassPropertyExW(classguid.rawAddress.toCPointer<ByteVar>(), propertykey.rawAddress.toCPointer<ByteVar>(), propertytype.rawAddress.toCPointer<ByteVar>(), propertybuffer.rawAddress.toCPointer<ByteVar>(), propertybuffersize, requiredsize.rawAddress.toCPointer<ByteVar>(), flags, machinename.rawAddress.toCPointer<ByteVar>(), reserved.rawAddress.toCPointer<ByteVar>())
 
-public actual fun setupDiGetClassPropertyKeys(classguid: ConstPtr<Guid>, propertykeyarray: MutPtr<Devpropkey>, propertykeycount: UInt, requiredpropertykeycount: MutPtr<UInt>, flags: UInt): Bool =
+public actual fun setupDiGetClassPropertyKeys(classguid: ConstPtr, propertykeyarray: MutPtr, propertykeycount: UInt, requiredpropertykeycount: MutPtr, flags: UInt): Bool =
     windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiGetClassPropertyKeys(classguid.rawAddress.toCPointer<ByteVar>(), propertykeyarray.rawAddress.toCPointer<ByteVar>(), propertykeycount, requiredpropertykeycount.rawAddress.toCPointer<ByteVar>(), flags)
 
-public actual fun setupDiGetClassPropertyKeysExW(classguid: ConstPtr<Guid>, propertykeyarray: MutPtr<Devpropkey>, propertykeycount: UInt, requiredpropertykeycount: MutPtr<UInt>, flags: UInt, machinename: Pcwstr, reserved: ConstPtr<CVoid>): Bool =
+public actual fun setupDiGetClassPropertyKeysExW(classguid: ConstPtr, propertykeyarray: MutPtr, propertykeycount: UInt, requiredpropertykeycount: MutPtr, flags: UInt, machinename: Pcwstr, reserved: ConstPtr): Bool =
     windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiGetClassPropertyKeysExW(classguid.rawAddress.toCPointer<ByteVar>(), propertykeyarray.rawAddress.toCPointer<ByteVar>(), propertykeycount, requiredpropertykeycount.rawAddress.toCPointer<ByteVar>(), flags, machinename.rawAddress.toCPointer<ByteVar>(), reserved.rawAddress.toCPointer<ByteVar>())
 
-public actual fun setupDiGetClassPropertyW(classguid: ConstPtr<Guid>, propertykey: ConstPtr<Devpropkey>, propertytype: MutPtr<Devproptype>, propertybuffer: MutPtr<UByte>, propertybuffersize: UInt, requiredsize: MutPtr<UInt>, flags: UInt): Bool =
+public actual fun setupDiGetClassPropertyW(classguid: ConstPtr, propertykey: ConstPtr, propertytype: MutPtr, propertybuffer: MutPtr, propertybuffersize: UInt, requiredsize: MutPtr, flags: UInt): Bool =
     windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiGetClassPropertyW(classguid.rawAddress.toCPointer<ByteVar>(), propertykey.rawAddress.toCPointer<ByteVar>(), propertytype.rawAddress.toCPointer<ByteVar>(), propertybuffer.rawAddress.toCPointer<ByteVar>(), propertybuffersize, requiredsize.rawAddress.toCPointer<ByteVar>(), flags)
 
-public actual fun setupDiGetClassRegistryPropertyA(classguid: ConstPtr<Guid>, property: UInt, propertyregdatatype: MutPtr<UInt>, propertybuffer: MutPtr<UByte>, propertybuffersize: UInt, requiredsize: MutPtr<UInt>, machinename: Pcstr, reserved: ConstPtr<CVoid>): Bool =
+public actual fun setupDiGetClassRegistryPropertyA(classguid: ConstPtr, property: UInt, propertyregdatatype: MutPtr, propertybuffer: MutPtr, propertybuffersize: UInt, requiredsize: MutPtr, machinename: Pcstr, reserved: ConstPtr): Bool =
     windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiGetClassRegistryPropertyA(classguid.rawAddress.toCPointer<ByteVar>(), property, propertyregdatatype.rawAddress.toCPointer<ByteVar>(), propertybuffer.rawAddress.toCPointer<ByteVar>(), propertybuffersize, requiredsize.rawAddress.toCPointer<ByteVar>(), machinename.rawAddress.toCPointer<ByteVar>(), reserved.rawAddress.toCPointer<ByteVar>())
 
-public actual fun setupDiGetClassRegistryPropertyW(classguid: ConstPtr<Guid>, property: UInt, propertyregdatatype: MutPtr<UInt>, propertybuffer: MutPtr<UByte>, propertybuffersize: UInt, requiredsize: MutPtr<UInt>, machinename: Pcwstr, reserved: ConstPtr<CVoid>): Bool =
+public actual fun setupDiGetClassRegistryPropertyW(classguid: ConstPtr, property: UInt, propertyregdatatype: MutPtr, propertybuffer: MutPtr, propertybuffersize: UInt, requiredsize: MutPtr, machinename: Pcwstr, reserved: ConstPtr): Bool =
     windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiGetClassRegistryPropertyW(classguid.rawAddress.toCPointer<ByteVar>(), property, propertyregdatatype.rawAddress.toCPointer<ByteVar>(), propertybuffer.rawAddress.toCPointer<ByteVar>(), propertybuffersize, requiredsize.rawAddress.toCPointer<ByteVar>(), machinename.rawAddress.toCPointer<ByteVar>(), reserved.rawAddress.toCPointer<ByteVar>())
 
-public actual fun setupDiGetCustomDevicePropertyA(deviceinfoset: Hdevinfo, deviceinfodata: ConstPtr<SpDevinfoData>, custompropertyname: Pcstr, flags: UInt, propertyregdatatype: MutPtr<UInt>, propertybuffer: MutPtr<UByte>, propertybuffersize: UInt, requiredsize: MutPtr<UInt>): Bool =
+public actual fun setupDiGetCustomDevicePropertyA(deviceinfoset: Hdevinfo, deviceinfodata: ConstPtr, custompropertyname: Pcstr, flags: UInt, propertyregdatatype: MutPtr, propertybuffer: MutPtr, propertybuffersize: UInt, requiredsize: MutPtr): Bool =
     windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiGetCustomDevicePropertyA(deviceinfoset, deviceinfodata.rawAddress.toCPointer<ByteVar>(), custompropertyname.rawAddress.toCPointer<ByteVar>(), flags, propertyregdatatype.rawAddress.toCPointer<ByteVar>(), propertybuffer.rawAddress.toCPointer<ByteVar>(), propertybuffersize, requiredsize.rawAddress.toCPointer<ByteVar>())
 
-public actual fun setupDiGetCustomDevicePropertyW(deviceinfoset: Hdevinfo, deviceinfodata: ConstPtr<SpDevinfoData>, custompropertyname: Pcwstr, flags: UInt, propertyregdatatype: MutPtr<UInt>, propertybuffer: MutPtr<UByte>, propertybuffersize: UInt, requiredsize: MutPtr<UInt>): Bool =
+public actual fun setupDiGetCustomDevicePropertyW(deviceinfoset: Hdevinfo, deviceinfodata: ConstPtr, custompropertyname: Pcwstr, flags: UInt, propertyregdatatype: MutPtr, propertybuffer: MutPtr, propertybuffersize: UInt, requiredsize: MutPtr): Bool =
     windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiGetCustomDevicePropertyW(deviceinfoset, deviceinfodata.rawAddress.toCPointer<ByteVar>(), custompropertyname.rawAddress.toCPointer<ByteVar>(), flags, propertyregdatatype.rawAddress.toCPointer<ByteVar>(), propertybuffer.rawAddress.toCPointer<ByteVar>(), propertybuffersize, requiredsize.rawAddress.toCPointer<ByteVar>())
 
-public actual fun setupDiGetDeviceInfoListClass(deviceinfoset: Hdevinfo, classguid: MutPtr<Guid>): Bool =
+public actual fun setupDiGetDeviceInfoListClass(deviceinfoset: Hdevinfo, classguid: MutPtr): Bool =
     windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiGetDeviceInfoListClass(deviceinfoset, classguid.rawAddress.toCPointer<ByteVar>())
 
-public actual fun setupDiGetDeviceInfoListDetailA(deviceinfoset: Hdevinfo, deviceinfosetdetaildata: MutPtr<SpDevinfoListDetailDataA>): Bool =
+public actual fun setupDiGetDeviceInfoListDetailA(deviceinfoset: Hdevinfo, deviceinfosetdetaildata: MutPtr): Bool =
     windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiGetDeviceInfoListDetailA(deviceinfoset, deviceinfosetdetaildata.rawAddress.toCPointer<ByteVar>())
 
-public actual fun setupDiGetDeviceInfoListDetailW(deviceinfoset: Hdevinfo, deviceinfosetdetaildata: MutPtr<SpDevinfoListDetailDataW>): Bool =
+public actual fun setupDiGetDeviceInfoListDetailW(deviceinfoset: Hdevinfo, deviceinfosetdetaildata: MutPtr): Bool =
     windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiGetDeviceInfoListDetailW(deviceinfoset, deviceinfosetdetaildata.rawAddress.toCPointer<ByteVar>())
 
-public actual fun setupDiGetDeviceInstallParamsA(deviceinfoset: Hdevinfo, deviceinfodata: ConstPtr<SpDevinfoData>, deviceinstallparams: MutPtr<SpDevinstallParamsA>): Bool =
+public actual fun setupDiGetDeviceInstallParamsA(deviceinfoset: Hdevinfo, deviceinfodata: ConstPtr, deviceinstallparams: MutPtr): Bool =
     windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiGetDeviceInstallParamsA(deviceinfoset, deviceinfodata.rawAddress.toCPointer<ByteVar>(), deviceinstallparams.rawAddress.toCPointer<ByteVar>())
 
-public actual fun setupDiGetDeviceInstallParamsW(deviceinfoset: Hdevinfo, deviceinfodata: ConstPtr<SpDevinfoData>, deviceinstallparams: MutPtr<SpDevinstallParamsW>): Bool =
+public actual fun setupDiGetDeviceInstallParamsW(deviceinfoset: Hdevinfo, deviceinfodata: ConstPtr, deviceinstallparams: MutPtr): Bool =
     windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiGetDeviceInstallParamsW(deviceinfoset, deviceinfodata.rawAddress.toCPointer<ByteVar>(), deviceinstallparams.rawAddress.toCPointer<ByteVar>())
 
-public actual fun setupDiGetDeviceInstanceIdA(deviceinfoset: Hdevinfo, deviceinfodata: ConstPtr<SpDevinfoData>, deviceinstanceid: Pstr, deviceinstanceidsize: UInt, requiredsize: MutPtr<UInt>): Bool =
+public actual fun setupDiGetDeviceInstanceIdA(deviceinfoset: Hdevinfo, deviceinfodata: ConstPtr, deviceinstanceid: Pstr, deviceinstanceidsize: UInt, requiredsize: MutPtr): Bool =
     windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiGetDeviceInstanceIdA(deviceinfoset, deviceinfodata.rawAddress.toCPointer<ByteVar>(), deviceinstanceid.rawAddress.toCPointer<ByteVar>(), deviceinstanceidsize, requiredsize.rawAddress.toCPointer<ByteVar>())
 
-public actual fun setupDiGetDeviceInstanceIdW(deviceinfoset: Hdevinfo, deviceinfodata: ConstPtr<SpDevinfoData>, deviceinstanceid: Pwstr, deviceinstanceidsize: UInt, requiredsize: MutPtr<UInt>): Bool =
+public actual fun setupDiGetDeviceInstanceIdW(deviceinfoset: Hdevinfo, deviceinfodata: ConstPtr, deviceinstanceid: Pwstr, deviceinstanceidsize: UInt, requiredsize: MutPtr): Bool =
     windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiGetDeviceInstanceIdW(deviceinfoset, deviceinfodata.rawAddress.toCPointer<ByteVar>(), deviceinstanceid.rawAddress.toCPointer<ByteVar>(), deviceinstanceidsize, requiredsize.rawAddress.toCPointer<ByteVar>())
 
-public actual fun setupDiGetDeviceInterfaceAlias(deviceinfoset: Hdevinfo, deviceinterfacedata: ConstPtr<SpDeviceInterfaceData>, aliasinterfaceclassguid: ConstPtr<Guid>, aliasdeviceinterfacedata: MutPtr<SpDeviceInterfaceData>): Bool =
+public actual fun setupDiGetDeviceInterfaceAlias(deviceinfoset: Hdevinfo, deviceinterfacedata: ConstPtr, aliasinterfaceclassguid: ConstPtr, aliasdeviceinterfacedata: MutPtr): Bool =
     windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiGetDeviceInterfaceAlias(deviceinfoset, deviceinterfacedata.rawAddress.toCPointer<ByteVar>(), aliasinterfaceclassguid.rawAddress.toCPointer<ByteVar>(), aliasdeviceinterfacedata.rawAddress.toCPointer<ByteVar>())
 
-public actual fun setupDiGetDeviceInterfaceDetailA(deviceinfoset: Hdevinfo, deviceinterfacedata: ConstPtr<SpDeviceInterfaceData>, deviceinterfacedetaildata: MutPtr<SpDeviceInterfaceDetailDataA>, deviceinterfacedetaildatasize: UInt, requiredsize: MutPtr<UInt>, deviceinfodata: MutPtr<SpDevinfoData>): Bool =
+public actual fun setupDiGetDeviceInterfaceDetailA(deviceinfoset: Hdevinfo, deviceinterfacedata: ConstPtr, deviceinterfacedetaildata: MutPtr, deviceinterfacedetaildatasize: UInt, requiredsize: MutPtr, deviceinfodata: MutPtr): Bool =
     windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiGetDeviceInterfaceDetailA(deviceinfoset, deviceinterfacedata.rawAddress.toCPointer<ByteVar>(), deviceinterfacedetaildata.rawAddress.toCPointer<ByteVar>(), deviceinterfacedetaildatasize, requiredsize.rawAddress.toCPointer<ByteVar>(), deviceinfodata.rawAddress.toCPointer<ByteVar>())
 
-public actual fun setupDiGetDeviceInterfaceDetailW(deviceinfoset: Hdevinfo, deviceinterfacedata: ConstPtr<SpDeviceInterfaceData>, deviceinterfacedetaildata: MutPtr<SpDeviceInterfaceDetailDataW>, deviceinterfacedetaildatasize: UInt, requiredsize: MutPtr<UInt>, deviceinfodata: MutPtr<SpDevinfoData>): Bool =
+public actual fun setupDiGetDeviceInterfaceDetailW(deviceinfoset: Hdevinfo, deviceinterfacedata: ConstPtr, deviceinterfacedetaildata: MutPtr, deviceinterfacedetaildatasize: UInt, requiredsize: MutPtr, deviceinfodata: MutPtr): Bool =
     windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiGetDeviceInterfaceDetailW(deviceinfoset, deviceinterfacedata.rawAddress.toCPointer<ByteVar>(), deviceinterfacedetaildata.rawAddress.toCPointer<ByteVar>(), deviceinterfacedetaildatasize, requiredsize.rawAddress.toCPointer<ByteVar>(), deviceinfodata.rawAddress.toCPointer<ByteVar>())
 
-public actual fun setupDiGetDeviceInterfacePropertyKeys(deviceinfoset: Hdevinfo, deviceinterfacedata: ConstPtr<SpDeviceInterfaceData>, propertykeyarray: MutPtr<Devpropkey>, propertykeycount: UInt, requiredpropertykeycount: MutPtr<UInt>, flags: UInt): Bool =
+public actual fun setupDiGetDeviceInterfacePropertyKeys(deviceinfoset: Hdevinfo, deviceinterfacedata: ConstPtr, propertykeyarray: MutPtr, propertykeycount: UInt, requiredpropertykeycount: MutPtr, flags: UInt): Bool =
     windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiGetDeviceInterfacePropertyKeys(deviceinfoset, deviceinterfacedata.rawAddress.toCPointer<ByteVar>(), propertykeyarray.rawAddress.toCPointer<ByteVar>(), propertykeycount, requiredpropertykeycount.rawAddress.toCPointer<ByteVar>(), flags)
 
-public actual fun setupDiGetDeviceInterfacePropertyW(deviceinfoset: Hdevinfo, deviceinterfacedata: ConstPtr<SpDeviceInterfaceData>, propertykey: ConstPtr<Devpropkey>, propertytype: MutPtr<Devproptype>, propertybuffer: MutPtr<UByte>, propertybuffersize: UInt, requiredsize: MutPtr<UInt>, flags: UInt): Bool =
+public actual fun setupDiGetDeviceInterfacePropertyW(deviceinfoset: Hdevinfo, deviceinterfacedata: ConstPtr, propertykey: ConstPtr, propertytype: MutPtr, propertybuffer: MutPtr, propertybuffersize: UInt, requiredsize: MutPtr, flags: UInt): Bool =
     windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiGetDeviceInterfacePropertyW(deviceinfoset, deviceinterfacedata.rawAddress.toCPointer<ByteVar>(), propertykey.rawAddress.toCPointer<ByteVar>(), propertytype.rawAddress.toCPointer<ByteVar>(), propertybuffer.rawAddress.toCPointer<ByteVar>(), propertybuffersize, requiredsize.rawAddress.toCPointer<ByteVar>(), flags)
 
-public actual fun setupDiGetDevicePropertyKeys(deviceinfoset: Hdevinfo, deviceinfodata: ConstPtr<SpDevinfoData>, propertykeyarray: MutPtr<Devpropkey>, propertykeycount: UInt, requiredpropertykeycount: MutPtr<UInt>, flags: UInt): Bool =
+public actual fun setupDiGetDevicePropertyKeys(deviceinfoset: Hdevinfo, deviceinfodata: ConstPtr, propertykeyarray: MutPtr, propertykeycount: UInt, requiredpropertykeycount: MutPtr, flags: UInt): Bool =
     windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiGetDevicePropertyKeys(deviceinfoset, deviceinfodata.rawAddress.toCPointer<ByteVar>(), propertykeyarray.rawAddress.toCPointer<ByteVar>(), propertykeycount, requiredpropertykeycount.rawAddress.toCPointer<ByteVar>(), flags)
 
-public actual fun setupDiGetDevicePropertyW(deviceinfoset: Hdevinfo, deviceinfodata: ConstPtr<SpDevinfoData>, propertykey: ConstPtr<Devpropkey>, propertytype: MutPtr<Devproptype>, propertybuffer: MutPtr<UByte>, propertybuffersize: UInt, requiredsize: MutPtr<UInt>, flags: UInt): Bool =
+public actual fun setupDiGetDevicePropertyW(deviceinfoset: Hdevinfo, deviceinfodata: ConstPtr, propertykey: ConstPtr, propertytype: MutPtr, propertybuffer: MutPtr, propertybuffersize: UInt, requiredsize: MutPtr, flags: UInt): Bool =
     windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiGetDevicePropertyW(deviceinfoset, deviceinfodata.rawAddress.toCPointer<ByteVar>(), propertykey.rawAddress.toCPointer<ByteVar>(), propertytype.rawAddress.toCPointer<ByteVar>(), propertybuffer.rawAddress.toCPointer<ByteVar>(), propertybuffersize, requiredsize.rawAddress.toCPointer<ByteVar>(), flags)
 
-public actual fun setupDiGetDeviceRegistryPropertyA(deviceinfoset: Hdevinfo, deviceinfodata: ConstPtr<SpDevinfoData>, property: SetupDiRegistryProperty, propertyregdatatype: MutPtr<UInt>, propertybuffer: MutPtr<UByte>, propertybuffersize: UInt, requiredsize: MutPtr<UInt>): Bool =
+public actual fun setupDiGetDeviceRegistryPropertyA(deviceinfoset: Hdevinfo, deviceinfodata: ConstPtr, property: SetupDiRegistryProperty, propertyregdatatype: MutPtr, propertybuffer: MutPtr, propertybuffersize: UInt, requiredsize: MutPtr): Bool =
     windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiGetDeviceRegistryPropertyA(deviceinfoset, deviceinfodata.rawAddress.toCPointer<ByteVar>(), property, propertyregdatatype.rawAddress.toCPointer<ByteVar>(), propertybuffer.rawAddress.toCPointer<ByteVar>(), propertybuffersize, requiredsize.rawAddress.toCPointer<ByteVar>())
 
-public actual fun setupDiGetDeviceRegistryPropertyW(deviceinfoset: Hdevinfo, deviceinfodata: ConstPtr<SpDevinfoData>, property: SetupDiRegistryProperty, propertyregdatatype: MutPtr<UInt>, propertybuffer: MutPtr<UByte>, propertybuffersize: UInt, requiredsize: MutPtr<UInt>): Bool =
+public actual fun setupDiGetDeviceRegistryPropertyW(deviceinfoset: Hdevinfo, deviceinfodata: ConstPtr, property: SetupDiRegistryProperty, propertyregdatatype: MutPtr, propertybuffer: MutPtr, propertybuffersize: UInt, requiredsize: MutPtr): Bool =
     windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiGetDeviceRegistryPropertyW(deviceinfoset, deviceinfodata.rawAddress.toCPointer<ByteVar>(), property, propertyregdatatype.rawAddress.toCPointer<ByteVar>(), propertybuffer.rawAddress.toCPointer<ByteVar>(), propertybuffersize, requiredsize.rawAddress.toCPointer<ByteVar>())
 
-public actual fun setupDiGetDriverInfoDetailA(deviceinfoset: Hdevinfo, deviceinfodata: ConstPtr<SpDevinfoData>, driverinfodata: ConstPtr<SpDrvinfoDataV2A>, driverinfodetaildata: MutPtr<SpDrvinfoDetailDataA>, driverinfodetaildatasize: UInt, requiredsize: MutPtr<UInt>): Bool =
+public actual fun setupDiGetDriverInfoDetailA(deviceinfoset: Hdevinfo, deviceinfodata: ConstPtr, driverinfodata: ConstPtr, driverinfodetaildata: MutPtr, driverinfodetaildatasize: UInt, requiredsize: MutPtr): Bool =
     windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiGetDriverInfoDetailA(deviceinfoset, deviceinfodata.rawAddress.toCPointer<ByteVar>(), driverinfodata.rawAddress.toCPointer<ByteVar>(), driverinfodetaildata.rawAddress.toCPointer<ByteVar>(), driverinfodetaildatasize, requiredsize.rawAddress.toCPointer<ByteVar>())
 
-public actual fun setupDiGetDriverInfoDetailW(deviceinfoset: Hdevinfo, deviceinfodata: ConstPtr<SpDevinfoData>, driverinfodata: ConstPtr<SpDrvinfoDataV2W>, driverinfodetaildata: MutPtr<SpDrvinfoDetailDataW>, driverinfodetaildatasize: UInt, requiredsize: MutPtr<UInt>): Bool =
+public actual fun setupDiGetDriverInfoDetailW(deviceinfoset: Hdevinfo, deviceinfodata: ConstPtr, driverinfodata: ConstPtr, driverinfodetaildata: MutPtr, driverinfodetaildatasize: UInt, requiredsize: MutPtr): Bool =
     windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiGetDriverInfoDetailW(deviceinfoset, deviceinfodata.rawAddress.toCPointer<ByteVar>(), driverinfodata.rawAddress.toCPointer<ByteVar>(), driverinfodetaildata.rawAddress.toCPointer<ByteVar>(), driverinfodetaildatasize, requiredsize.rawAddress.toCPointer<ByteVar>())
 
-public actual fun setupDiGetDriverInstallParamsA(deviceinfoset: Hdevinfo, deviceinfodata: ConstPtr<SpDevinfoData>, driverinfodata: ConstPtr<SpDrvinfoDataV2A>, driverinstallparams: MutPtr<SpDrvinstallParams>): Bool =
+public actual fun setupDiGetDriverInstallParamsA(deviceinfoset: Hdevinfo, deviceinfodata: ConstPtr, driverinfodata: ConstPtr, driverinstallparams: MutPtr): Bool =
     windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiGetDriverInstallParamsA(deviceinfoset, deviceinfodata.rawAddress.toCPointer<ByteVar>(), driverinfodata.rawAddress.toCPointer<ByteVar>(), driverinstallparams.rawAddress.toCPointer<ByteVar>())
 
-public actual fun setupDiGetDriverInstallParamsW(deviceinfoset: Hdevinfo, deviceinfodata: ConstPtr<SpDevinfoData>, driverinfodata: ConstPtr<SpDrvinfoDataV2W>, driverinstallparams: MutPtr<SpDrvinstallParams>): Bool =
+public actual fun setupDiGetDriverInstallParamsW(deviceinfoset: Hdevinfo, deviceinfodata: ConstPtr, driverinfodata: ConstPtr, driverinstallparams: MutPtr): Bool =
     windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiGetDriverInstallParamsW(deviceinfoset, deviceinfodata.rawAddress.toCPointer<ByteVar>(), driverinfodata.rawAddress.toCPointer<ByteVar>(), driverinstallparams.rawAddress.toCPointer<ByteVar>())
 
-public actual fun setupDiGetHwProfileFriendlyNameA(hwprofile: UInt, friendlyname: Pstr, friendlynamesize: UInt, requiredsize: MutPtr<UInt>): Bool =
+public actual fun setupDiGetHwProfileFriendlyNameA(hwprofile: UInt, friendlyname: Pstr, friendlynamesize: UInt, requiredsize: MutPtr): Bool =
     windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiGetHwProfileFriendlyNameA(hwprofile, friendlyname.rawAddress.toCPointer<ByteVar>(), friendlynamesize, requiredsize.rawAddress.toCPointer<ByteVar>())
 
-public actual fun setupDiGetHwProfileFriendlyNameExA(hwprofile: UInt, friendlyname: Pstr, friendlynamesize: UInt, requiredsize: MutPtr<UInt>, machinename: Pcstr, reserved: ConstPtr<CVoid>): Bool =
+public actual fun setupDiGetHwProfileFriendlyNameExA(hwprofile: UInt, friendlyname: Pstr, friendlynamesize: UInt, requiredsize: MutPtr, machinename: Pcstr, reserved: ConstPtr): Bool =
     windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiGetHwProfileFriendlyNameExA(hwprofile, friendlyname.rawAddress.toCPointer<ByteVar>(), friendlynamesize, requiredsize.rawAddress.toCPointer<ByteVar>(), machinename.rawAddress.toCPointer<ByteVar>(), reserved.rawAddress.toCPointer<ByteVar>())
 
-public actual fun setupDiGetHwProfileFriendlyNameExW(hwprofile: UInt, friendlyname: Pwstr, friendlynamesize: UInt, requiredsize: MutPtr<UInt>, machinename: Pcwstr, reserved: ConstPtr<CVoid>): Bool =
+public actual fun setupDiGetHwProfileFriendlyNameExW(hwprofile: UInt, friendlyname: Pwstr, friendlynamesize: UInt, requiredsize: MutPtr, machinename: Pcwstr, reserved: ConstPtr): Bool =
     windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiGetHwProfileFriendlyNameExW(hwprofile, friendlyname.rawAddress.toCPointer<ByteVar>(), friendlynamesize, requiredsize.rawAddress.toCPointer<ByteVar>(), machinename.rawAddress.toCPointer<ByteVar>(), reserved.rawAddress.toCPointer<ByteVar>())
 
-public actual fun setupDiGetHwProfileFriendlyNameW(hwprofile: UInt, friendlyname: Pwstr, friendlynamesize: UInt, requiredsize: MutPtr<UInt>): Bool =
+public actual fun setupDiGetHwProfileFriendlyNameW(hwprofile: UInt, friendlyname: Pwstr, friendlynamesize: UInt, requiredsize: MutPtr): Bool =
     windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiGetHwProfileFriendlyNameW(hwprofile, friendlyname.rawAddress.toCPointer<ByteVar>(), friendlynamesize, requiredsize.rawAddress.toCPointer<ByteVar>())
 
-public actual fun setupDiGetHwProfileList(hwprofilelist: MutPtr<UInt>, hwprofilelistsize: UInt, requiredsize: MutPtr<UInt>, currentlyactiveindex: MutPtr<UInt>): Bool =
+public actual fun setupDiGetHwProfileList(hwprofilelist: MutPtr, hwprofilelistsize: UInt, requiredsize: MutPtr, currentlyactiveindex: MutPtr): Bool =
     windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiGetHwProfileList(hwprofilelist.rawAddress.toCPointer<ByteVar>(), hwprofilelistsize, requiredsize.rawAddress.toCPointer<ByteVar>(), currentlyactiveindex.rawAddress.toCPointer<ByteVar>())
 
-public actual fun setupDiGetHwProfileListExA(hwprofilelist: MutPtr<UInt>, hwprofilelistsize: UInt, requiredsize: MutPtr<UInt>, currentlyactiveindex: MutPtr<UInt>, machinename: Pcstr, reserved: ConstPtr<CVoid>): Bool =
+public actual fun setupDiGetHwProfileListExA(hwprofilelist: MutPtr, hwprofilelistsize: UInt, requiredsize: MutPtr, currentlyactiveindex: MutPtr, machinename: Pcstr, reserved: ConstPtr): Bool =
     windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiGetHwProfileListExA(hwprofilelist.rawAddress.toCPointer<ByteVar>(), hwprofilelistsize, requiredsize.rawAddress.toCPointer<ByteVar>(), currentlyactiveindex.rawAddress.toCPointer<ByteVar>(), machinename.rawAddress.toCPointer<ByteVar>(), reserved.rawAddress.toCPointer<ByteVar>())
 
-public actual fun setupDiGetHwProfileListExW(hwprofilelist: MutPtr<UInt>, hwprofilelistsize: UInt, requiredsize: MutPtr<UInt>, currentlyactiveindex: MutPtr<UInt>, machinename: Pcwstr, reserved: ConstPtr<CVoid>): Bool =
+public actual fun setupDiGetHwProfileListExW(hwprofilelist: MutPtr, hwprofilelistsize: UInt, requiredsize: MutPtr, currentlyactiveindex: MutPtr, machinename: Pcwstr, reserved: ConstPtr): Bool =
     windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiGetHwProfileListExW(hwprofilelist.rawAddress.toCPointer<ByteVar>(), hwprofilelistsize, requiredsize.rawAddress.toCPointer<ByteVar>(), currentlyactiveindex.rawAddress.toCPointer<ByteVar>(), machinename.rawAddress.toCPointer<ByteVar>(), reserved.rawAddress.toCPointer<ByteVar>())
 
-public actual fun setupDiGetINFClassA(infname: Pcstr, classguid: MutPtr<Guid>, classname: Pstr, classnamesize: UInt, requiredsize: MutPtr<UInt>): Bool =
+public actual fun setupDiGetINFClassA(infname: Pcstr, classguid: MutPtr, classname: Pstr, classnamesize: UInt, requiredsize: MutPtr): Bool =
     windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiGetINFClassA(infname.rawAddress.toCPointer<ByteVar>(), classguid.rawAddress.toCPointer<ByteVar>(), classname.rawAddress.toCPointer<ByteVar>(), classnamesize, requiredsize.rawAddress.toCPointer<ByteVar>())
 
-public actual fun setupDiGetINFClassW(infname: Pcwstr, classguid: MutPtr<Guid>, classname: Pwstr, classnamesize: UInt, requiredsize: MutPtr<UInt>): Bool =
+public actual fun setupDiGetINFClassW(infname: Pcwstr, classguid: MutPtr, classname: Pwstr, classnamesize: UInt, requiredsize: MutPtr): Bool =
     windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiGetINFClassW(infname.rawAddress.toCPointer<ByteVar>(), classguid.rawAddress.toCPointer<ByteVar>(), classname.rawAddress.toCPointer<ByteVar>(), classnamesize, requiredsize.rawAddress.toCPointer<ByteVar>())
 
-public actual fun setupDiGetSelectedDevice(deviceinfoset: Hdevinfo, deviceinfodata: MutPtr<SpDevinfoData>): Bool =
+public actual fun setupDiGetSelectedDevice(deviceinfoset: Hdevinfo, deviceinfodata: MutPtr): Bool =
     windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiGetSelectedDevice(deviceinfoset, deviceinfodata.rawAddress.toCPointer<ByteVar>())
 
-public actual fun setupDiGetSelectedDriverA(deviceinfoset: Hdevinfo, deviceinfodata: ConstPtr<SpDevinfoData>, driverinfodata: MutPtr<SpDrvinfoDataV2A>): Bool =
+public actual fun setupDiGetSelectedDriverA(deviceinfoset: Hdevinfo, deviceinfodata: ConstPtr, driverinfodata: MutPtr): Bool =
     windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiGetSelectedDriverA(deviceinfoset, deviceinfodata.rawAddress.toCPointer<ByteVar>(), driverinfodata.rawAddress.toCPointer<ByteVar>())
 
-public actual fun setupDiGetSelectedDriverW(deviceinfoset: Hdevinfo, deviceinfodata: ConstPtr<SpDevinfoData>, driverinfodata: MutPtr<SpDrvinfoDataV2W>): Bool =
+public actual fun setupDiGetSelectedDriverW(deviceinfoset: Hdevinfo, deviceinfodata: ConstPtr, driverinfodata: MutPtr): Bool =
     windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiGetSelectedDriverW(deviceinfoset, deviceinfodata.rawAddress.toCPointer<ByteVar>(), driverinfodata.rawAddress.toCPointer<ByteVar>())
 
-public actual fun setupDiGetWizardPage(deviceinfoset: Hdevinfo, deviceinfodata: ConstPtr<SpDevinfoData>, installwizarddata: ConstPtr<SpInstallwizardData>, pagetype: UInt, flags: UInt): Hpropsheetpage =
+public actual fun setupDiGetWizardPage(deviceinfoset: Hdevinfo, deviceinfodata: ConstPtr, installwizarddata: ConstPtr, pagetype: UInt, flags: UInt): Hpropsheetpage =
     MutPtr(windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiGetWizardPage(deviceinfoset, deviceinfodata.rawAddress.toCPointer<ByteVar>(), installwizarddata.rawAddress.toCPointer<ByteVar>(), pagetype, flags)?.toLong() ?: 0L)
 
-public actual fun setupDiInstallClassA(hwndparent: Hwnd, inffilename: Pcstr, flags: UInt, filequeue: ConstPtr<CVoid>): Bool =
+public actual fun setupDiInstallClassA(hwndparent: Hwnd, inffilename: Pcstr, flags: UInt, filequeue: ConstPtr): Bool =
     windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiInstallClassA(hwndparent.rawAddress.toCPointer<ByteVar>(), inffilename.rawAddress.toCPointer<ByteVar>(), flags, filequeue.rawAddress.toCPointer<ByteVar>())
 
-public actual fun setupDiInstallClassExA(hwndparent: Hwnd, inffilename: Pcstr, flags: UInt, filequeue: ConstPtr<CVoid>, interfaceclassguid: ConstPtr<Guid>, reserved1: ConstPtr<CVoid>, reserved2: ConstPtr<CVoid>): Bool =
+public actual fun setupDiInstallClassExA(hwndparent: Hwnd, inffilename: Pcstr, flags: UInt, filequeue: ConstPtr, interfaceclassguid: ConstPtr, reserved1: ConstPtr, reserved2: ConstPtr): Bool =
     windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiInstallClassExA(hwndparent.rawAddress.toCPointer<ByteVar>(), inffilename.rawAddress.toCPointer<ByteVar>(), flags, filequeue.rawAddress.toCPointer<ByteVar>(), interfaceclassguid.rawAddress.toCPointer<ByteVar>(), reserved1.rawAddress.toCPointer<ByteVar>(), reserved2.rawAddress.toCPointer<ByteVar>())
 
-public actual fun setupDiInstallClassExW(hwndparent: Hwnd, inffilename: Pcwstr, flags: UInt, filequeue: ConstPtr<CVoid>, interfaceclassguid: ConstPtr<Guid>, reserved1: ConstPtr<CVoid>, reserved2: ConstPtr<CVoid>): Bool =
+public actual fun setupDiInstallClassExW(hwndparent: Hwnd, inffilename: Pcwstr, flags: UInt, filequeue: ConstPtr, interfaceclassguid: ConstPtr, reserved1: ConstPtr, reserved2: ConstPtr): Bool =
     windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiInstallClassExW(hwndparent.rawAddress.toCPointer<ByteVar>(), inffilename.rawAddress.toCPointer<ByteVar>(), flags, filequeue.rawAddress.toCPointer<ByteVar>(), interfaceclassguid.rawAddress.toCPointer<ByteVar>(), reserved1.rawAddress.toCPointer<ByteVar>(), reserved2.rawAddress.toCPointer<ByteVar>())
 
-public actual fun setupDiInstallClassW(hwndparent: Hwnd, inffilename: Pcwstr, flags: UInt, filequeue: ConstPtr<CVoid>): Bool =
+public actual fun setupDiInstallClassW(hwndparent: Hwnd, inffilename: Pcwstr, flags: UInt, filequeue: ConstPtr): Bool =
     windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiInstallClassW(hwndparent.rawAddress.toCPointer<ByteVar>(), inffilename.rawAddress.toCPointer<ByteVar>(), flags, filequeue.rawAddress.toCPointer<ByteVar>())
 
-public actual fun setupDiInstallDevice(deviceinfoset: Hdevinfo, deviceinfodata: MutPtr<SpDevinfoData>): Bool =
+public actual fun setupDiInstallDevice(deviceinfoset: Hdevinfo, deviceinfodata: MutPtr): Bool =
     windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiInstallDevice(deviceinfoset, deviceinfodata.rawAddress.toCPointer<ByteVar>())
 
-public actual fun setupDiInstallDeviceInterfaces(deviceinfoset: Hdevinfo, deviceinfodata: ConstPtr<SpDevinfoData>): Bool =
+public actual fun setupDiInstallDeviceInterfaces(deviceinfoset: Hdevinfo, deviceinfodata: ConstPtr): Bool =
     windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiInstallDeviceInterfaces(deviceinfoset, deviceinfodata.rawAddress.toCPointer<ByteVar>())
 
-public actual fun setupDiInstallDriverFiles(deviceinfoset: Hdevinfo, deviceinfodata: ConstPtr<SpDevinfoData>): Bool =
+public actual fun setupDiInstallDriverFiles(deviceinfoset: Hdevinfo, deviceinfodata: ConstPtr): Bool =
     windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiInstallDriverFiles(deviceinfoset, deviceinfodata.rawAddress.toCPointer<ByteVar>())
 
-public actual fun setupDiLoadClassIcon(classguid: ConstPtr<Guid>, largeicon: MutPtr<Hicon>, miniiconindex: MutPtr<Int>): Bool =
+public actual fun setupDiLoadClassIcon(classguid: ConstPtr, largeicon: MutPtr, miniiconindex: MutPtr): Bool =
     windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiLoadClassIcon(classguid.rawAddress.toCPointer<ByteVar>(), largeicon.rawAddress.toCPointer<ByteVar>(), miniiconindex.rawAddress.toCPointer<ByteVar>())
 
-public actual fun setupDiLoadDeviceIcon(deviceinfoset: Hdevinfo, deviceinfodata: ConstPtr<SpDevinfoData>, cxicon: UInt, cyicon: UInt, flags: UInt, hicon: MutPtr<Hicon>): Bool =
+public actual fun setupDiLoadDeviceIcon(deviceinfoset: Hdevinfo, deviceinfodata: ConstPtr, cxicon: UInt, cyicon: UInt, flags: UInt, hicon: MutPtr): Bool =
     windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiLoadDeviceIcon(deviceinfoset, deviceinfodata.rawAddress.toCPointer<ByteVar>(), cxicon, cyicon, flags, hicon.rawAddress.toCPointer<ByteVar>())
 
-public actual fun setupDiOpenClassRegKey(classguid: ConstPtr<Guid>, samdesired: UInt): Hkey =
+public actual fun setupDiOpenClassRegKey(classguid: ConstPtr, samdesired: UInt): Hkey =
     MutPtr(windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiOpenClassRegKey(classguid.rawAddress.toCPointer<ByteVar>(), samdesired)?.toLong() ?: 0L)
 
-public actual fun setupDiOpenClassRegKeyExA(classguid: ConstPtr<Guid>, samdesired: UInt, flags: UInt, machinename: Pcstr, reserved: ConstPtr<CVoid>): Hkey =
+public actual fun setupDiOpenClassRegKeyExA(classguid: ConstPtr, samdesired: UInt, flags: UInt, machinename: Pcstr, reserved: ConstPtr): Hkey =
     MutPtr(windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiOpenClassRegKeyExA(classguid.rawAddress.toCPointer<ByteVar>(), samdesired, flags, machinename.rawAddress.toCPointer<ByteVar>(), reserved.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun setupDiOpenClassRegKeyExW(classguid: ConstPtr<Guid>, samdesired: UInt, flags: UInt, machinename: Pcwstr, reserved: ConstPtr<CVoid>): Hkey =
+public actual fun setupDiOpenClassRegKeyExW(classguid: ConstPtr, samdesired: UInt, flags: UInt, machinename: Pcwstr, reserved: ConstPtr): Hkey =
     MutPtr(windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiOpenClassRegKeyExW(classguid.rawAddress.toCPointer<ByteVar>(), samdesired, flags, machinename.rawAddress.toCPointer<ByteVar>(), reserved.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun setupDiOpenDevRegKey(deviceinfoset: Hdevinfo, deviceinfodata: ConstPtr<SpDevinfoData>, scope: UInt, hwprofile: UInt, keytype: UInt, samdesired: UInt): Hkey =
+public actual fun setupDiOpenDevRegKey(deviceinfoset: Hdevinfo, deviceinfodata: ConstPtr, scope: UInt, hwprofile: UInt, keytype: UInt, samdesired: UInt): Hkey =
     MutPtr(windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiOpenDevRegKey(deviceinfoset, deviceinfodata.rawAddress.toCPointer<ByteVar>(), scope, hwprofile, keytype, samdesired)?.toLong() ?: 0L)
 
-public actual fun setupDiOpenDeviceInfoA(deviceinfoset: Hdevinfo, deviceinstanceid: Pcstr, hwndparent: Hwnd, openflags: UInt, deviceinfodata: MutPtr<SpDevinfoData>): Bool =
+public actual fun setupDiOpenDeviceInfoA(deviceinfoset: Hdevinfo, deviceinstanceid: Pcstr, hwndparent: Hwnd, openflags: UInt, deviceinfodata: MutPtr): Bool =
     windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiOpenDeviceInfoA(deviceinfoset, deviceinstanceid.rawAddress.toCPointer<ByteVar>(), hwndparent.rawAddress.toCPointer<ByteVar>(), openflags, deviceinfodata.rawAddress.toCPointer<ByteVar>())
 
-public actual fun setupDiOpenDeviceInfoW(deviceinfoset: Hdevinfo, deviceinstanceid: Pcwstr, hwndparent: Hwnd, openflags: UInt, deviceinfodata: MutPtr<SpDevinfoData>): Bool =
+public actual fun setupDiOpenDeviceInfoW(deviceinfoset: Hdevinfo, deviceinstanceid: Pcwstr, hwndparent: Hwnd, openflags: UInt, deviceinfodata: MutPtr): Bool =
     windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiOpenDeviceInfoW(deviceinfoset, deviceinstanceid.rawAddress.toCPointer<ByteVar>(), hwndparent.rawAddress.toCPointer<ByteVar>(), openflags, deviceinfodata.rawAddress.toCPointer<ByteVar>())
 
-public actual fun setupDiOpenDeviceInterfaceA(deviceinfoset: Hdevinfo, devicepath: Pcstr, openflags: UInt, deviceinterfacedata: MutPtr<SpDeviceInterfaceData>): Bool =
+public actual fun setupDiOpenDeviceInterfaceA(deviceinfoset: Hdevinfo, devicepath: Pcstr, openflags: UInt, deviceinterfacedata: MutPtr): Bool =
     windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiOpenDeviceInterfaceA(deviceinfoset, devicepath.rawAddress.toCPointer<ByteVar>(), openflags, deviceinterfacedata.rawAddress.toCPointer<ByteVar>())
 
-public actual fun setupDiOpenDeviceInterfaceRegKey(deviceinfoset: Hdevinfo, deviceinterfacedata: ConstPtr<SpDeviceInterfaceData>, reserved: UInt, samdesired: UInt): Hkey =
+public actual fun setupDiOpenDeviceInterfaceRegKey(deviceinfoset: Hdevinfo, deviceinterfacedata: ConstPtr, reserved: UInt, samdesired: UInt): Hkey =
     MutPtr(windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiOpenDeviceInterfaceRegKey(deviceinfoset, deviceinterfacedata.rawAddress.toCPointer<ByteVar>(), reserved, samdesired)?.toLong() ?: 0L)
 
-public actual fun setupDiOpenDeviceInterfaceW(deviceinfoset: Hdevinfo, devicepath: Pcwstr, openflags: UInt, deviceinterfacedata: MutPtr<SpDeviceInterfaceData>): Bool =
+public actual fun setupDiOpenDeviceInterfaceW(deviceinfoset: Hdevinfo, devicepath: Pcwstr, openflags: UInt, deviceinterfacedata: MutPtr): Bool =
     windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiOpenDeviceInterfaceW(deviceinfoset, devicepath.rawAddress.toCPointer<ByteVar>(), openflags, deviceinterfacedata.rawAddress.toCPointer<ByteVar>())
 
-public actual fun setupDiRegisterCoDeviceInstallers(deviceinfoset: Hdevinfo, deviceinfodata: ConstPtr<SpDevinfoData>): Bool =
+public actual fun setupDiRegisterCoDeviceInstallers(deviceinfoset: Hdevinfo, deviceinfodata: ConstPtr): Bool =
     windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiRegisterCoDeviceInstallers(deviceinfoset, deviceinfodata.rawAddress.toCPointer<ByteVar>())
 
-public actual fun setupDiRegisterDeviceInfo(deviceinfoset: Hdevinfo, deviceinfodata: MutPtr<SpDevinfoData>, flags: UInt, compareproc: PspDetsigCmpproc, comparecontext: ConstPtr<CVoid>, dupdeviceinfodata: MutPtr<SpDevinfoData>): Bool =
+public actual fun setupDiRegisterDeviceInfo(deviceinfoset: Hdevinfo, deviceinfodata: MutPtr, flags: UInt, compareproc: PspDetsigCmpproc, comparecontext: ConstPtr, dupdeviceinfodata: MutPtr): Bool =
     windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiRegisterDeviceInfo(deviceinfoset, deviceinfodata.rawAddress.toCPointer<ByteVar>(), flags, 0L.toCPointer<ByteVar>(), comparecontext.rawAddress.toCPointer<ByteVar>(), dupdeviceinfodata.rawAddress.toCPointer<ByteVar>())
 
-public actual fun setupDiRemoveDevice(deviceinfoset: Hdevinfo, deviceinfodata: MutPtr<SpDevinfoData>): Bool =
+public actual fun setupDiRemoveDevice(deviceinfoset: Hdevinfo, deviceinfodata: MutPtr): Bool =
     windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiRemoveDevice(deviceinfoset, deviceinfodata.rawAddress.toCPointer<ByteVar>())
 
-public actual fun setupDiRemoveDeviceInterface(deviceinfoset: Hdevinfo, deviceinterfacedata: MutPtr<SpDeviceInterfaceData>): Bool =
+public actual fun setupDiRemoveDeviceInterface(deviceinfoset: Hdevinfo, deviceinterfacedata: MutPtr): Bool =
     windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiRemoveDeviceInterface(deviceinfoset, deviceinterfacedata.rawAddress.toCPointer<ByteVar>())
 
-public actual fun setupDiRestartDevices(deviceinfoset: Hdevinfo, deviceinfodata: MutPtr<SpDevinfoData>): Bool =
+public actual fun setupDiRestartDevices(deviceinfoset: Hdevinfo, deviceinfodata: MutPtr): Bool =
     windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiRestartDevices(deviceinfoset, deviceinfodata.rawAddress.toCPointer<ByteVar>())
 
-public actual fun setupDiSelectBestCompatDrv(deviceinfoset: Hdevinfo, deviceinfodata: MutPtr<SpDevinfoData>): Bool =
+public actual fun setupDiSelectBestCompatDrv(deviceinfoset: Hdevinfo, deviceinfodata: MutPtr): Bool =
     windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiSelectBestCompatDrv(deviceinfoset, deviceinfodata.rawAddress.toCPointer<ByteVar>())
 
-public actual fun setupDiSelectDevice(deviceinfoset: Hdevinfo, deviceinfodata: MutPtr<SpDevinfoData>): Bool =
+public actual fun setupDiSelectDevice(deviceinfoset: Hdevinfo, deviceinfodata: MutPtr): Bool =
     windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiSelectDevice(deviceinfoset, deviceinfodata.rawAddress.toCPointer<ByteVar>())
 
-public actual fun setupDiSelectOEMDrv(hwndparent: Hwnd, deviceinfoset: Hdevinfo, deviceinfodata: MutPtr<SpDevinfoData>): Bool =
+public actual fun setupDiSelectOEMDrv(hwndparent: Hwnd, deviceinfoset: Hdevinfo, deviceinfodata: MutPtr): Bool =
     windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiSelectOEMDrv(hwndparent.rawAddress.toCPointer<ByteVar>(), deviceinfoset, deviceinfodata.rawAddress.toCPointer<ByteVar>())
 
-public actual fun setupDiSetClassInstallParamsA(deviceinfoset: Hdevinfo, deviceinfodata: ConstPtr<SpDevinfoData>, classinstallparams: ConstPtr<SpClassinstallHeader>, classinstallparamssize: UInt): Bool =
+public actual fun setupDiSetClassInstallParamsA(deviceinfoset: Hdevinfo, deviceinfodata: ConstPtr, classinstallparams: ConstPtr, classinstallparamssize: UInt): Bool =
     windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiSetClassInstallParamsA(deviceinfoset, deviceinfodata.rawAddress.toCPointer<ByteVar>(), classinstallparams.rawAddress.toCPointer<ByteVar>(), classinstallparamssize)
 
-public actual fun setupDiSetClassInstallParamsW(deviceinfoset: Hdevinfo, deviceinfodata: ConstPtr<SpDevinfoData>, classinstallparams: ConstPtr<SpClassinstallHeader>, classinstallparamssize: UInt): Bool =
+public actual fun setupDiSetClassInstallParamsW(deviceinfoset: Hdevinfo, deviceinfodata: ConstPtr, classinstallparams: ConstPtr, classinstallparamssize: UInt): Bool =
     windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiSetClassInstallParamsW(deviceinfoset, deviceinfodata.rawAddress.toCPointer<ByteVar>(), classinstallparams.rawAddress.toCPointer<ByteVar>(), classinstallparamssize)
 
-public actual fun setupDiSetClassPropertyExW(classguid: ConstPtr<Guid>, propertykey: ConstPtr<Devpropkey>, propertytype: Devproptype, propertybuffer: ConstPtr<UByte>, propertybuffersize: UInt, flags: UInt, machinename: Pcwstr, reserved: ConstPtr<CVoid>): Bool =
+public actual fun setupDiSetClassPropertyExW(classguid: ConstPtr, propertykey: ConstPtr, propertytype: Devproptype, propertybuffer: ConstPtr, propertybuffersize: UInt, flags: UInt, machinename: Pcwstr, reserved: ConstPtr): Bool =
     windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiSetClassPropertyExW(classguid.rawAddress.toCPointer<ByteVar>(), propertykey.rawAddress.toCPointer<ByteVar>(), propertytype, propertybuffer.rawAddress.toCPointer<ByteVar>(), propertybuffersize, flags, machinename.rawAddress.toCPointer<ByteVar>(), reserved.rawAddress.toCPointer<ByteVar>())
 
-public actual fun setupDiSetClassPropertyW(classguid: ConstPtr<Guid>, propertykey: ConstPtr<Devpropkey>, propertytype: Devproptype, propertybuffer: ConstPtr<UByte>, propertybuffersize: UInt, flags: UInt): Bool =
+public actual fun setupDiSetClassPropertyW(classguid: ConstPtr, propertykey: ConstPtr, propertytype: Devproptype, propertybuffer: ConstPtr, propertybuffersize: UInt, flags: UInt): Bool =
     windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiSetClassPropertyW(classguid.rawAddress.toCPointer<ByteVar>(), propertykey.rawAddress.toCPointer<ByteVar>(), propertytype, propertybuffer.rawAddress.toCPointer<ByteVar>(), propertybuffersize, flags)
 
-public actual fun setupDiSetClassRegistryPropertyA(classguid: ConstPtr<Guid>, property: UInt, propertybuffer: ConstPtr<UByte>, propertybuffersize: UInt, machinename: Pcstr, reserved: ConstPtr<CVoid>): Bool =
+public actual fun setupDiSetClassRegistryPropertyA(classguid: ConstPtr, property: UInt, propertybuffer: ConstPtr, propertybuffersize: UInt, machinename: Pcstr, reserved: ConstPtr): Bool =
     windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiSetClassRegistryPropertyA(classguid.rawAddress.toCPointer<ByteVar>(), property, propertybuffer.rawAddress.toCPointer<ByteVar>(), propertybuffersize, machinename.rawAddress.toCPointer<ByteVar>(), reserved.rawAddress.toCPointer<ByteVar>())
 
-public actual fun setupDiSetClassRegistryPropertyW(classguid: ConstPtr<Guid>, property: UInt, propertybuffer: ConstPtr<UByte>, propertybuffersize: UInt, machinename: Pcwstr, reserved: ConstPtr<CVoid>): Bool =
+public actual fun setupDiSetClassRegistryPropertyW(classguid: ConstPtr, property: UInt, propertybuffer: ConstPtr, propertybuffersize: UInt, machinename: Pcwstr, reserved: ConstPtr): Bool =
     windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiSetClassRegistryPropertyW(classguid.rawAddress.toCPointer<ByteVar>(), property, propertybuffer.rawAddress.toCPointer<ByteVar>(), propertybuffersize, machinename.rawAddress.toCPointer<ByteVar>(), reserved.rawAddress.toCPointer<ByteVar>())
 
-public actual fun setupDiSetDeviceInstallParamsA(deviceinfoset: Hdevinfo, deviceinfodata: ConstPtr<SpDevinfoData>, deviceinstallparams: ConstPtr<SpDevinstallParamsA>): Bool =
+public actual fun setupDiSetDeviceInstallParamsA(deviceinfoset: Hdevinfo, deviceinfodata: ConstPtr, deviceinstallparams: ConstPtr): Bool =
     windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiSetDeviceInstallParamsA(deviceinfoset, deviceinfodata.rawAddress.toCPointer<ByteVar>(), deviceinstallparams.rawAddress.toCPointer<ByteVar>())
 
-public actual fun setupDiSetDeviceInstallParamsW(deviceinfoset: Hdevinfo, deviceinfodata: ConstPtr<SpDevinfoData>, deviceinstallparams: ConstPtr<SpDevinstallParamsW>): Bool =
+public actual fun setupDiSetDeviceInstallParamsW(deviceinfoset: Hdevinfo, deviceinfodata: ConstPtr, deviceinstallparams: ConstPtr): Bool =
     windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiSetDeviceInstallParamsW(deviceinfoset, deviceinfodata.rawAddress.toCPointer<ByteVar>(), deviceinstallparams.rawAddress.toCPointer<ByteVar>())
 
-public actual fun setupDiSetDeviceInterfaceDefault(deviceinfoset: Hdevinfo, deviceinterfacedata: MutPtr<SpDeviceInterfaceData>, flags: UInt, reserved: ConstPtr<CVoid>): Bool =
+public actual fun setupDiSetDeviceInterfaceDefault(deviceinfoset: Hdevinfo, deviceinterfacedata: MutPtr, flags: UInt, reserved: ConstPtr): Bool =
     windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiSetDeviceInterfaceDefault(deviceinfoset, deviceinterfacedata.rawAddress.toCPointer<ByteVar>(), flags, reserved.rawAddress.toCPointer<ByteVar>())
 
-public actual fun setupDiSetDeviceInterfacePropertyW(deviceinfoset: Hdevinfo, deviceinterfacedata: ConstPtr<SpDeviceInterfaceData>, propertykey: ConstPtr<Devpropkey>, propertytype: Devproptype, propertybuffer: ConstPtr<UByte>, propertybuffersize: UInt, flags: UInt): Bool =
+public actual fun setupDiSetDeviceInterfacePropertyW(deviceinfoset: Hdevinfo, deviceinterfacedata: ConstPtr, propertykey: ConstPtr, propertytype: Devproptype, propertybuffer: ConstPtr, propertybuffersize: UInt, flags: UInt): Bool =
     windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiSetDeviceInterfacePropertyW(deviceinfoset, deviceinterfacedata.rawAddress.toCPointer<ByteVar>(), propertykey.rawAddress.toCPointer<ByteVar>(), propertytype, propertybuffer.rawAddress.toCPointer<ByteVar>(), propertybuffersize, flags)
 
-public actual fun setupDiSetDevicePropertyW(deviceinfoset: Hdevinfo, deviceinfodata: ConstPtr<SpDevinfoData>, propertykey: ConstPtr<Devpropkey>, propertytype: Devproptype, propertybuffer: ConstPtr<UByte>, propertybuffersize: UInt, flags: UInt): Bool =
+public actual fun setupDiSetDevicePropertyW(deviceinfoset: Hdevinfo, deviceinfodata: ConstPtr, propertykey: ConstPtr, propertytype: Devproptype, propertybuffer: ConstPtr, propertybuffersize: UInt, flags: UInt): Bool =
     windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiSetDevicePropertyW(deviceinfoset, deviceinfodata.rawAddress.toCPointer<ByteVar>(), propertykey.rawAddress.toCPointer<ByteVar>(), propertytype, propertybuffer.rawAddress.toCPointer<ByteVar>(), propertybuffersize, flags)
 
-public actual fun setupDiSetDeviceRegistryPropertyA(deviceinfoset: Hdevinfo, deviceinfodata: MutPtr<SpDevinfoData>, property: SetupDiRegistryProperty, propertybuffer: ConstPtr<UByte>, propertybuffersize: UInt): Bool =
+public actual fun setupDiSetDeviceRegistryPropertyA(deviceinfoset: Hdevinfo, deviceinfodata: MutPtr, property: SetupDiRegistryProperty, propertybuffer: ConstPtr, propertybuffersize: UInt): Bool =
     windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiSetDeviceRegistryPropertyA(deviceinfoset, deviceinfodata.rawAddress.toCPointer<ByteVar>(), property, propertybuffer.rawAddress.toCPointer<ByteVar>(), propertybuffersize)
 
-public actual fun setupDiSetDeviceRegistryPropertyW(deviceinfoset: Hdevinfo, deviceinfodata: MutPtr<SpDevinfoData>, property: SetupDiRegistryProperty, propertybuffer: ConstPtr<UByte>, propertybuffersize: UInt): Bool =
+public actual fun setupDiSetDeviceRegistryPropertyW(deviceinfoset: Hdevinfo, deviceinfodata: MutPtr, property: SetupDiRegistryProperty, propertybuffer: ConstPtr, propertybuffersize: UInt): Bool =
     windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiSetDeviceRegistryPropertyW(deviceinfoset, deviceinfodata.rawAddress.toCPointer<ByteVar>(), property, propertybuffer.rawAddress.toCPointer<ByteVar>(), propertybuffersize)
 
-public actual fun setupDiSetDriverInstallParamsA(deviceinfoset: Hdevinfo, deviceinfodata: ConstPtr<SpDevinfoData>, driverinfodata: ConstPtr<SpDrvinfoDataV2A>, driverinstallparams: ConstPtr<SpDrvinstallParams>): Bool =
+public actual fun setupDiSetDriverInstallParamsA(deviceinfoset: Hdevinfo, deviceinfodata: ConstPtr, driverinfodata: ConstPtr, driverinstallparams: ConstPtr): Bool =
     windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiSetDriverInstallParamsA(deviceinfoset, deviceinfodata.rawAddress.toCPointer<ByteVar>(), driverinfodata.rawAddress.toCPointer<ByteVar>(), driverinstallparams.rawAddress.toCPointer<ByteVar>())
 
-public actual fun setupDiSetDriverInstallParamsW(deviceinfoset: Hdevinfo, deviceinfodata: ConstPtr<SpDevinfoData>, driverinfodata: ConstPtr<SpDrvinfoDataV2W>, driverinstallparams: ConstPtr<SpDrvinstallParams>): Bool =
+public actual fun setupDiSetDriverInstallParamsW(deviceinfoset: Hdevinfo, deviceinfodata: ConstPtr, driverinfodata: ConstPtr, driverinstallparams: ConstPtr): Bool =
     windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiSetDriverInstallParamsW(deviceinfoset, deviceinfodata.rawAddress.toCPointer<ByteVar>(), driverinfodata.rawAddress.toCPointer<ByteVar>(), driverinstallparams.rawAddress.toCPointer<ByteVar>())
 
-public actual fun setupDiSetSelectedDevice(deviceinfoset: Hdevinfo, deviceinfodata: ConstPtr<SpDevinfoData>): Bool =
+public actual fun setupDiSetSelectedDevice(deviceinfoset: Hdevinfo, deviceinfodata: ConstPtr): Bool =
     windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiSetSelectedDevice(deviceinfoset, deviceinfodata.rawAddress.toCPointer<ByteVar>())
 
-public actual fun setupDiSetSelectedDriverA(deviceinfoset: Hdevinfo, deviceinfodata: MutPtr<SpDevinfoData>, driverinfodata: MutPtr<SpDrvinfoDataV2A>): Bool =
+public actual fun setupDiSetSelectedDriverA(deviceinfoset: Hdevinfo, deviceinfodata: MutPtr, driverinfodata: MutPtr): Bool =
     windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiSetSelectedDriverA(deviceinfoset, deviceinfodata.rawAddress.toCPointer<ByteVar>(), driverinfodata.rawAddress.toCPointer<ByteVar>())
 
-public actual fun setupDiSetSelectedDriverW(deviceinfoset: Hdevinfo, deviceinfodata: MutPtr<SpDevinfoData>, driverinfodata: MutPtr<SpDrvinfoDataV2W>): Bool =
+public actual fun setupDiSetSelectedDriverW(deviceinfoset: Hdevinfo, deviceinfodata: MutPtr, driverinfodata: MutPtr): Bool =
     windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiSetSelectedDriverW(deviceinfoset, deviceinfodata.rawAddress.toCPointer<ByteVar>(), driverinfodata.rawAddress.toCPointer<ByteVar>())
 
-public actual fun setupDiUnremoveDevice(deviceinfoset: Hdevinfo, deviceinfodata: MutPtr<SpDevinfoData>): Bool =
+public actual fun setupDiUnremoveDevice(deviceinfoset: Hdevinfo, deviceinfodata: MutPtr): Bool =
     windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiUnremoveDevice(deviceinfoset, deviceinfodata.rawAddress.toCPointer<ByteVar>())
 
-public actual fun setupDuplicateDiskSpaceListA(diskspace: ConstPtr<CVoid>, reserved1: ConstPtr<CVoid>, reserved2: UInt, flags: UInt): MutPtr<CVoid> =
+public actual fun setupDuplicateDiskSpaceListA(diskspace: ConstPtr, reserved1: ConstPtr, reserved2: UInt, flags: UInt): MutPtr =
     MutPtr(windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDuplicateDiskSpaceListA(diskspace.rawAddress.toCPointer<ByteVar>(), reserved1.rawAddress.toCPointer<ByteVar>(), reserved2, flags)?.toLong() ?: 0L)
 
-public actual fun setupDuplicateDiskSpaceListW(diskspace: ConstPtr<CVoid>, reserved1: ConstPtr<CVoid>, reserved2: UInt, flags: UInt): MutPtr<CVoid> =
+public actual fun setupDuplicateDiskSpaceListW(diskspace: ConstPtr, reserved1: ConstPtr, reserved2: UInt, flags: UInt): MutPtr =
     MutPtr(windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDuplicateDiskSpaceListW(diskspace.rawAddress.toCPointer<ByteVar>(), reserved1.rawAddress.toCPointer<ByteVar>(), reserved2, flags)?.toLong() ?: 0L)
 
-public actual fun setupEnumInfSectionsA(infhandle: ConstPtr<CVoid>, index: UInt, buffer: Pstr, size: UInt, sizeneeded: MutPtr<UInt>): Bool =
+public actual fun setupEnumInfSectionsA(infhandle: ConstPtr, index: UInt, buffer: Pstr, size: UInt, sizeneeded: MutPtr): Bool =
     windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupEnumInfSectionsA(infhandle.rawAddress.toCPointer<ByteVar>(), index, buffer.rawAddress.toCPointer<ByteVar>(), size, sizeneeded.rawAddress.toCPointer<ByteVar>())
 
-public actual fun setupEnumInfSectionsW(infhandle: ConstPtr<CVoid>, index: UInt, buffer: Pwstr, size: UInt, sizeneeded: MutPtr<UInt>): Bool =
+public actual fun setupEnumInfSectionsW(infhandle: ConstPtr, index: UInt, buffer: Pwstr, size: UInt, sizeneeded: MutPtr): Bool =
     windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupEnumInfSectionsW(infhandle.rawAddress.toCPointer<ByteVar>(), index, buffer.rawAddress.toCPointer<ByteVar>(), size, sizeneeded.rawAddress.toCPointer<ByteVar>())
 
-public actual fun setupFindFirstLineA(infhandle: ConstPtr<CVoid>, section: Pcstr, key: Pcstr, context: MutPtr<Infcontext>): Bool =
+public actual fun setupFindFirstLineA(infhandle: ConstPtr, section: Pcstr, key: Pcstr, context: MutPtr): Bool =
     windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupFindFirstLineA(infhandle.rawAddress.toCPointer<ByteVar>(), section.rawAddress.toCPointer<ByteVar>(), key.rawAddress.toCPointer<ByteVar>(), context.rawAddress.toCPointer<ByteVar>())
 
-public actual fun setupFindFirstLineW(infhandle: ConstPtr<CVoid>, section: Pcwstr, key: Pcwstr, context: MutPtr<Infcontext>): Bool =
+public actual fun setupFindFirstLineW(infhandle: ConstPtr, section: Pcwstr, key: Pcwstr, context: MutPtr): Bool =
     windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupFindFirstLineW(infhandle.rawAddress.toCPointer<ByteVar>(), section.rawAddress.toCPointer<ByteVar>(), key.rawAddress.toCPointer<ByteVar>(), context.rawAddress.toCPointer<ByteVar>())
 
-public actual fun setupFindNextLine(contextin: ConstPtr<Infcontext>, contextout: MutPtr<Infcontext>): Bool =
+public actual fun setupFindNextLine(contextin: ConstPtr, contextout: MutPtr): Bool =
     windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupFindNextLine(contextin.rawAddress.toCPointer<ByteVar>(), contextout.rawAddress.toCPointer<ByteVar>())
 
-public actual fun setupFindNextMatchLineA(contextin: ConstPtr<Infcontext>, key: Pcstr, contextout: MutPtr<Infcontext>): Bool =
+public actual fun setupFindNextMatchLineA(contextin: ConstPtr, key: Pcstr, contextout: MutPtr): Bool =
     windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupFindNextMatchLineA(contextin.rawAddress.toCPointer<ByteVar>(), key.rawAddress.toCPointer<ByteVar>(), contextout.rawAddress.toCPointer<ByteVar>())
 
-public actual fun setupFindNextMatchLineW(contextin: ConstPtr<Infcontext>, key: Pcwstr, contextout: MutPtr<Infcontext>): Bool =
+public actual fun setupFindNextMatchLineW(contextin: ConstPtr, key: Pcwstr, contextout: MutPtr): Bool =
     windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupFindNextMatchLineW(contextin.rawAddress.toCPointer<ByteVar>(), key.rawAddress.toCPointer<ByteVar>(), contextout.rawAddress.toCPointer<ByteVar>())
 
-public actual fun setupFreeSourceListA(list: MutPtr<MutPtr<Pcstr>>, count: UInt): Bool =
+public actual fun setupFreeSourceListA(list: MutPtr, count: UInt): Bool =
     windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupFreeSourceListA(list.rawAddress.toCPointer<ByteVar>(), count)
 
-public actual fun setupFreeSourceListW(list: MutPtr<MutPtr<Pcwstr>>, count: UInt): Bool =
+public actual fun setupFreeSourceListW(list: MutPtr, count: UInt): Bool =
     windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupFreeSourceListW(list.rawAddress.toCPointer<ByteVar>(), count)
 
-public actual fun setupGetBackupInformationA(queuehandle: ConstPtr<CVoid>, backupparams: MutPtr<SpBackupQueueParamsV2A>): Bool =
+public actual fun setupGetBackupInformationA(queuehandle: ConstPtr, backupparams: MutPtr): Bool =
     windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupGetBackupInformationA(queuehandle.rawAddress.toCPointer<ByteVar>(), backupparams.rawAddress.toCPointer<ByteVar>())
 
-public actual fun setupGetBackupInformationW(queuehandle: ConstPtr<CVoid>, backupparams: MutPtr<SpBackupQueueParamsV2W>): Bool =
+public actual fun setupGetBackupInformationW(queuehandle: ConstPtr, backupparams: MutPtr): Bool =
     windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupGetBackupInformationW(queuehandle.rawAddress.toCPointer<ByteVar>(), backupparams.rawAddress.toCPointer<ByteVar>())
 
-public actual fun setupGetBinaryField(context: ConstPtr<Infcontext>, fieldindex: UInt, returnbuffer: MutPtr<UByte>, returnbuffersize: UInt, requiredsize: MutPtr<UInt>): Bool =
+public actual fun setupGetBinaryField(context: ConstPtr, fieldindex: UInt, returnbuffer: MutPtr, returnbuffersize: UInt, requiredsize: MutPtr): Bool =
     windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupGetBinaryField(context.rawAddress.toCPointer<ByteVar>(), fieldindex, returnbuffer.rawAddress.toCPointer<ByteVar>(), returnbuffersize, requiredsize.rawAddress.toCPointer<ByteVar>())
 
-public actual fun setupGetFieldCount(context: ConstPtr<Infcontext>): UInt =
+public actual fun setupGetFieldCount(context: ConstPtr): UInt =
     windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupGetFieldCount(context.rawAddress.toCPointer<ByteVar>())
 
-public actual fun setupGetFileCompressionInfoA(sourcefilename: Pcstr, actualsourcefilename: MutPtr<Pstr>, sourcefilesize: MutPtr<UInt>, targetfilesize: MutPtr<UInt>, compressiontype: MutPtr<FileCompressionType>): UInt =
+public actual fun setupGetFileCompressionInfoA(sourcefilename: Pcstr, actualsourcefilename: MutPtr, sourcefilesize: MutPtr, targetfilesize: MutPtr, compressiontype: MutPtr): UInt =
     windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupGetFileCompressionInfoA(sourcefilename.rawAddress.toCPointer<ByteVar>(), actualsourcefilename.rawAddress.toCPointer<ByteVar>(), sourcefilesize.rawAddress.toCPointer<ByteVar>(), targetfilesize.rawAddress.toCPointer<ByteVar>(), compressiontype.rawAddress.toCPointer<ByteVar>())
 
-public actual fun setupGetFileCompressionInfoExA(sourcefilename: Pcstr, actualsourcefilenamebuffer: Pcstr, actualsourcefilenamebufferlen: UInt, requiredbufferlen: MutPtr<UInt>, sourcefilesize: MutPtr<UInt>, targetfilesize: MutPtr<UInt>, compressiontype: MutPtr<FileCompressionType>): Bool =
+public actual fun setupGetFileCompressionInfoExA(sourcefilename: Pcstr, actualsourcefilenamebuffer: Pcstr, actualsourcefilenamebufferlen: UInt, requiredbufferlen: MutPtr, sourcefilesize: MutPtr, targetfilesize: MutPtr, compressiontype: MutPtr): Bool =
     windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupGetFileCompressionInfoExA(sourcefilename.rawAddress.toCPointer<ByteVar>(), actualsourcefilenamebuffer.rawAddress.toCPointer<ByteVar>(), actualsourcefilenamebufferlen, requiredbufferlen.rawAddress.toCPointer<ByteVar>(), sourcefilesize.rawAddress.toCPointer<ByteVar>(), targetfilesize.rawAddress.toCPointer<ByteVar>(), compressiontype.rawAddress.toCPointer<ByteVar>())
 
-public actual fun setupGetFileCompressionInfoExW(sourcefilename: Pcwstr, actualsourcefilenamebuffer: Pcwstr, actualsourcefilenamebufferlen: UInt, requiredbufferlen: MutPtr<UInt>, sourcefilesize: MutPtr<UInt>, targetfilesize: MutPtr<UInt>, compressiontype: MutPtr<FileCompressionType>): Bool =
+public actual fun setupGetFileCompressionInfoExW(sourcefilename: Pcwstr, actualsourcefilenamebuffer: Pcwstr, actualsourcefilenamebufferlen: UInt, requiredbufferlen: MutPtr, sourcefilesize: MutPtr, targetfilesize: MutPtr, compressiontype: MutPtr): Bool =
     windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupGetFileCompressionInfoExW(sourcefilename.rawAddress.toCPointer<ByteVar>(), actualsourcefilenamebuffer.rawAddress.toCPointer<ByteVar>(), actualsourcefilenamebufferlen, requiredbufferlen.rawAddress.toCPointer<ByteVar>(), sourcefilesize.rawAddress.toCPointer<ByteVar>(), targetfilesize.rawAddress.toCPointer<ByteVar>(), compressiontype.rawAddress.toCPointer<ByteVar>())
 
-public actual fun setupGetFileCompressionInfoW(sourcefilename: Pcwstr, actualsourcefilename: MutPtr<Pwstr>, sourcefilesize: MutPtr<UInt>, targetfilesize: MutPtr<UInt>, compressiontype: MutPtr<FileCompressionType>): UInt =
+public actual fun setupGetFileCompressionInfoW(sourcefilename: Pcwstr, actualsourcefilename: MutPtr, sourcefilesize: MutPtr, targetfilesize: MutPtr, compressiontype: MutPtr): UInt =
     windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupGetFileCompressionInfoW(sourcefilename.rawAddress.toCPointer<ByteVar>(), actualsourcefilename.rawAddress.toCPointer<ByteVar>(), sourcefilesize.rawAddress.toCPointer<ByteVar>(), targetfilesize.rawAddress.toCPointer<ByteVar>(), compressiontype.rawAddress.toCPointer<ByteVar>())
 
-public actual fun setupGetFileQueueCount(filequeue: ConstPtr<CVoid>, subqueuefileop: UInt, numoperations: MutPtr<UInt>): Bool =
+public actual fun setupGetFileQueueCount(filequeue: ConstPtr, subqueuefileop: UInt, numoperations: MutPtr): Bool =
     windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupGetFileQueueCount(filequeue.rawAddress.toCPointer<ByteVar>(), subqueuefileop, numoperations.rawAddress.toCPointer<ByteVar>())
 
-public actual fun setupGetFileQueueFlags(filequeue: ConstPtr<CVoid>, flags: MutPtr<UInt>): Bool =
+public actual fun setupGetFileQueueFlags(filequeue: ConstPtr, flags: MutPtr): Bool =
     windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupGetFileQueueFlags(filequeue.rawAddress.toCPointer<ByteVar>(), flags.rawAddress.toCPointer<ByteVar>())
 
-public actual fun setupGetInfDriverStoreLocationA(filename: Pcstr, alternateplatforminfo: ConstPtr<SpAltplatformInfoV2>, localename: Pcstr, returnbuffer: Pstr, returnbuffersize: UInt, requiredsize: MutPtr<UInt>): Bool =
+public actual fun setupGetInfDriverStoreLocationA(filename: Pcstr, alternateplatforminfo: ConstPtr, localename: Pcstr, returnbuffer: Pstr, returnbuffersize: UInt, requiredsize: MutPtr): Bool =
     windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupGetInfDriverStoreLocationA(filename.rawAddress.toCPointer<ByteVar>(), alternateplatforminfo.rawAddress.toCPointer<ByteVar>(), localename.rawAddress.toCPointer<ByteVar>(), returnbuffer.rawAddress.toCPointer<ByteVar>(), returnbuffersize, requiredsize.rawAddress.toCPointer<ByteVar>())
 
-public actual fun setupGetInfDriverStoreLocationW(filename: Pcwstr, alternateplatforminfo: ConstPtr<SpAltplatformInfoV2>, localename: Pcwstr, returnbuffer: Pwstr, returnbuffersize: UInt, requiredsize: MutPtr<UInt>): Bool =
+public actual fun setupGetInfDriverStoreLocationW(filename: Pcwstr, alternateplatforminfo: ConstPtr, localename: Pcwstr, returnbuffer: Pwstr, returnbuffersize: UInt, requiredsize: MutPtr): Bool =
     windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupGetInfDriverStoreLocationW(filename.rawAddress.toCPointer<ByteVar>(), alternateplatforminfo.rawAddress.toCPointer<ByteVar>(), localename.rawAddress.toCPointer<ByteVar>(), returnbuffer.rawAddress.toCPointer<ByteVar>(), returnbuffersize, requiredsize.rawAddress.toCPointer<ByteVar>())
 
-public actual fun setupGetInfFileListA(directorypath: Pcstr, infstyle: InfStyle, returnbuffer: Pstr, returnbuffersize: UInt, requiredsize: MutPtr<UInt>): Bool =
+public actual fun setupGetInfFileListA(directorypath: Pcstr, infstyle: InfStyle, returnbuffer: Pstr, returnbuffersize: UInt, requiredsize: MutPtr): Bool =
     windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupGetInfFileListA(directorypath.rawAddress.toCPointer<ByteVar>(), infstyle, returnbuffer.rawAddress.toCPointer<ByteVar>(), returnbuffersize, requiredsize.rawAddress.toCPointer<ByteVar>())
 
-public actual fun setupGetInfFileListW(directorypath: Pcwstr, infstyle: InfStyle, returnbuffer: Pwstr, returnbuffersize: UInt, requiredsize: MutPtr<UInt>): Bool =
+public actual fun setupGetInfFileListW(directorypath: Pcwstr, infstyle: InfStyle, returnbuffer: Pwstr, returnbuffersize: UInt, requiredsize: MutPtr): Bool =
     windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupGetInfFileListW(directorypath.rawAddress.toCPointer<ByteVar>(), infstyle, returnbuffer.rawAddress.toCPointer<ByteVar>(), returnbuffersize, requiredsize.rawAddress.toCPointer<ByteVar>())
 
-public actual fun setupGetInfInformationA(infspec: ConstPtr<CVoid>, searchcontrol: UInt, returnbuffer: MutPtr<SpInfInformation>, returnbuffersize: UInt, requiredsize: MutPtr<UInt>): Bool =
+public actual fun setupGetInfInformationA(infspec: ConstPtr, searchcontrol: UInt, returnbuffer: MutPtr, returnbuffersize: UInt, requiredsize: MutPtr): Bool =
     windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupGetInfInformationA(infspec.rawAddress.toCPointer<ByteVar>(), searchcontrol, returnbuffer.rawAddress.toCPointer<ByteVar>(), returnbuffersize, requiredsize.rawAddress.toCPointer<ByteVar>())
 
-public actual fun setupGetInfInformationW(infspec: ConstPtr<CVoid>, searchcontrol: UInt, returnbuffer: MutPtr<SpInfInformation>, returnbuffersize: UInt, requiredsize: MutPtr<UInt>): Bool =
+public actual fun setupGetInfInformationW(infspec: ConstPtr, searchcontrol: UInt, returnbuffer: MutPtr, returnbuffersize: UInt, requiredsize: MutPtr): Bool =
     windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupGetInfInformationW(infspec.rawAddress.toCPointer<ByteVar>(), searchcontrol, returnbuffer.rawAddress.toCPointer<ByteVar>(), returnbuffersize, requiredsize.rawAddress.toCPointer<ByteVar>())
 
-public actual fun setupGetInfPublishedNameA(driverstorelocation: Pcstr, returnbuffer: Pstr, returnbuffersize: UInt, requiredsize: MutPtr<UInt>): Bool =
+public actual fun setupGetInfPublishedNameA(driverstorelocation: Pcstr, returnbuffer: Pstr, returnbuffersize: UInt, requiredsize: MutPtr): Bool =
     windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupGetInfPublishedNameA(driverstorelocation.rawAddress.toCPointer<ByteVar>(), returnbuffer.rawAddress.toCPointer<ByteVar>(), returnbuffersize, requiredsize.rawAddress.toCPointer<ByteVar>())
 
-public actual fun setupGetInfPublishedNameW(driverstorelocation: Pcwstr, returnbuffer: Pwstr, returnbuffersize: UInt, requiredsize: MutPtr<UInt>): Bool =
+public actual fun setupGetInfPublishedNameW(driverstorelocation: Pcwstr, returnbuffer: Pwstr, returnbuffersize: UInt, requiredsize: MutPtr): Bool =
     windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupGetInfPublishedNameW(driverstorelocation.rawAddress.toCPointer<ByteVar>(), returnbuffer.rawAddress.toCPointer<ByteVar>(), returnbuffersize, requiredsize.rawAddress.toCPointer<ByteVar>())
 
-public actual fun setupGetIntField(context: ConstPtr<Infcontext>, fieldindex: UInt, integervalue: MutPtr<Int>): Bool =
+public actual fun setupGetIntField(context: ConstPtr, fieldindex: UInt, integervalue: MutPtr): Bool =
     windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupGetIntField(context.rawAddress.toCPointer<ByteVar>(), fieldindex, integervalue.rawAddress.toCPointer<ByteVar>())
 
-public actual fun setupGetLineByIndexA(infhandle: ConstPtr<CVoid>, section: Pcstr, index: UInt, context: MutPtr<Infcontext>): Bool =
+public actual fun setupGetLineByIndexA(infhandle: ConstPtr, section: Pcstr, index: UInt, context: MutPtr): Bool =
     windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupGetLineByIndexA(infhandle.rawAddress.toCPointer<ByteVar>(), section.rawAddress.toCPointer<ByteVar>(), index, context.rawAddress.toCPointer<ByteVar>())
 
-public actual fun setupGetLineByIndexW(infhandle: ConstPtr<CVoid>, section: Pcwstr, index: UInt, context: MutPtr<Infcontext>): Bool =
+public actual fun setupGetLineByIndexW(infhandle: ConstPtr, section: Pcwstr, index: UInt, context: MutPtr): Bool =
     windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupGetLineByIndexW(infhandle.rawAddress.toCPointer<ByteVar>(), section.rawAddress.toCPointer<ByteVar>(), index, context.rawAddress.toCPointer<ByteVar>())
 
-public actual fun setupGetLineCountA(infhandle: ConstPtr<CVoid>, section: Pcstr): Int =
+public actual fun setupGetLineCountA(infhandle: ConstPtr, section: Pcstr): Int =
     windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupGetLineCountA(infhandle.rawAddress.toCPointer<ByteVar>(), section.rawAddress.toCPointer<ByteVar>())
 
-public actual fun setupGetLineCountW(infhandle: ConstPtr<CVoid>, section: Pcwstr): Int =
+public actual fun setupGetLineCountW(infhandle: ConstPtr, section: Pcwstr): Int =
     windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupGetLineCountW(infhandle.rawAddress.toCPointer<ByteVar>(), section.rawAddress.toCPointer<ByteVar>())
 
-public actual fun setupGetLineTextA(context: ConstPtr<Infcontext>, infhandle: ConstPtr<CVoid>, section: Pcstr, key: Pcstr, returnbuffer: Pstr, returnbuffersize: UInt, requiredsize: MutPtr<UInt>): Bool =
+public actual fun setupGetLineTextA(context: ConstPtr, infhandle: ConstPtr, section: Pcstr, key: Pcstr, returnbuffer: Pstr, returnbuffersize: UInt, requiredsize: MutPtr): Bool =
     windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupGetLineTextA(context.rawAddress.toCPointer<ByteVar>(), infhandle.rawAddress.toCPointer<ByteVar>(), section.rawAddress.toCPointer<ByteVar>(), key.rawAddress.toCPointer<ByteVar>(), returnbuffer.rawAddress.toCPointer<ByteVar>(), returnbuffersize, requiredsize.rawAddress.toCPointer<ByteVar>())
 
-public actual fun setupGetLineTextW(context: ConstPtr<Infcontext>, infhandle: ConstPtr<CVoid>, section: Pcwstr, key: Pcwstr, returnbuffer: Pwstr, returnbuffersize: UInt, requiredsize: MutPtr<UInt>): Bool =
+public actual fun setupGetLineTextW(context: ConstPtr, infhandle: ConstPtr, section: Pcwstr, key: Pcwstr, returnbuffer: Pwstr, returnbuffersize: UInt, requiredsize: MutPtr): Bool =
     windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupGetLineTextW(context.rawAddress.toCPointer<ByteVar>(), infhandle.rawAddress.toCPointer<ByteVar>(), section.rawAddress.toCPointer<ByteVar>(), key.rawAddress.toCPointer<ByteVar>(), returnbuffer.rawAddress.toCPointer<ByteVar>(), returnbuffersize, requiredsize.rawAddress.toCPointer<ByteVar>())
 
-public actual fun setupGetMultiSzFieldA(context: ConstPtr<Infcontext>, fieldindex: UInt, returnbuffer: Pstr, returnbuffersize: UInt, requiredsize: MutPtr<UInt>): Bool =
+public actual fun setupGetMultiSzFieldA(context: ConstPtr, fieldindex: UInt, returnbuffer: Pstr, returnbuffersize: UInt, requiredsize: MutPtr): Bool =
     windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupGetMultiSzFieldA(context.rawAddress.toCPointer<ByteVar>(), fieldindex, returnbuffer.rawAddress.toCPointer<ByteVar>(), returnbuffersize, requiredsize.rawAddress.toCPointer<ByteVar>())
 
-public actual fun setupGetMultiSzFieldW(context: ConstPtr<Infcontext>, fieldindex: UInt, returnbuffer: Pwstr, returnbuffersize: UInt, requiredsize: MutPtr<UInt>): Bool =
+public actual fun setupGetMultiSzFieldW(context: ConstPtr, fieldindex: UInt, returnbuffer: Pwstr, returnbuffersize: UInt, requiredsize: MutPtr): Bool =
     windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupGetMultiSzFieldW(context.rawAddress.toCPointer<ByteVar>(), fieldindex, returnbuffer.rawAddress.toCPointer<ByteVar>(), returnbuffersize, requiredsize.rawAddress.toCPointer<ByteVar>())
 
 public actual fun setupGetNonInteractiveMode(): Bool =
     windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupGetNonInteractiveMode()
 
-public actual fun setupGetSourceFileLocationA(infhandle: ConstPtr<CVoid>, infcontext: ConstPtr<Infcontext>, filename: Pcstr, sourceid: MutPtr<UInt>, returnbuffer: Pstr, returnbuffersize: UInt, requiredsize: MutPtr<UInt>): Bool =
+public actual fun setupGetSourceFileLocationA(infhandle: ConstPtr, infcontext: ConstPtr, filename: Pcstr, sourceid: MutPtr, returnbuffer: Pstr, returnbuffersize: UInt, requiredsize: MutPtr): Bool =
     windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupGetSourceFileLocationA(infhandle.rawAddress.toCPointer<ByteVar>(), infcontext.rawAddress.toCPointer<ByteVar>(), filename.rawAddress.toCPointer<ByteVar>(), sourceid.rawAddress.toCPointer<ByteVar>(), returnbuffer.rawAddress.toCPointer<ByteVar>(), returnbuffersize, requiredsize.rawAddress.toCPointer<ByteVar>())
 
-public actual fun setupGetSourceFileLocationW(infhandle: ConstPtr<CVoid>, infcontext: ConstPtr<Infcontext>, filename: Pcwstr, sourceid: MutPtr<UInt>, returnbuffer: Pwstr, returnbuffersize: UInt, requiredsize: MutPtr<UInt>): Bool =
+public actual fun setupGetSourceFileLocationW(infhandle: ConstPtr, infcontext: ConstPtr, filename: Pcwstr, sourceid: MutPtr, returnbuffer: Pwstr, returnbuffersize: UInt, requiredsize: MutPtr): Bool =
     windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupGetSourceFileLocationW(infhandle.rawAddress.toCPointer<ByteVar>(), infcontext.rawAddress.toCPointer<ByteVar>(), filename.rawAddress.toCPointer<ByteVar>(), sourceid.rawAddress.toCPointer<ByteVar>(), returnbuffer.rawAddress.toCPointer<ByteVar>(), returnbuffersize, requiredsize.rawAddress.toCPointer<ByteVar>())
 
-public actual fun setupGetSourceFileSizeA(infhandle: ConstPtr<CVoid>, infcontext: ConstPtr<Infcontext>, filename: Pcstr, section: Pcstr, filesize: MutPtr<UInt>, roundingfactor: UInt): Bool =
+public actual fun setupGetSourceFileSizeA(infhandle: ConstPtr, infcontext: ConstPtr, filename: Pcstr, section: Pcstr, filesize: MutPtr, roundingfactor: UInt): Bool =
     windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupGetSourceFileSizeA(infhandle.rawAddress.toCPointer<ByteVar>(), infcontext.rawAddress.toCPointer<ByteVar>(), filename.rawAddress.toCPointer<ByteVar>(), section.rawAddress.toCPointer<ByteVar>(), filesize.rawAddress.toCPointer<ByteVar>(), roundingfactor)
 
-public actual fun setupGetSourceFileSizeW(infhandle: ConstPtr<CVoid>, infcontext: ConstPtr<Infcontext>, filename: Pcwstr, section: Pcwstr, filesize: MutPtr<UInt>, roundingfactor: UInt): Bool =
+public actual fun setupGetSourceFileSizeW(infhandle: ConstPtr, infcontext: ConstPtr, filename: Pcwstr, section: Pcwstr, filesize: MutPtr, roundingfactor: UInt): Bool =
     windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupGetSourceFileSizeW(infhandle.rawAddress.toCPointer<ByteVar>(), infcontext.rawAddress.toCPointer<ByteVar>(), filename.rawAddress.toCPointer<ByteVar>(), section.rawAddress.toCPointer<ByteVar>(), filesize.rawAddress.toCPointer<ByteVar>(), roundingfactor)
 
-public actual fun setupGetSourceInfoA(infhandle: ConstPtr<CVoid>, sourceid: UInt, infodesired: UInt, returnbuffer: Pstr, returnbuffersize: UInt, requiredsize: MutPtr<UInt>): Bool =
+public actual fun setupGetSourceInfoA(infhandle: ConstPtr, sourceid: UInt, infodesired: UInt, returnbuffer: Pstr, returnbuffersize: UInt, requiredsize: MutPtr): Bool =
     windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupGetSourceInfoA(infhandle.rawAddress.toCPointer<ByteVar>(), sourceid, infodesired, returnbuffer.rawAddress.toCPointer<ByteVar>(), returnbuffersize, requiredsize.rawAddress.toCPointer<ByteVar>())
 
-public actual fun setupGetSourceInfoW(infhandle: ConstPtr<CVoid>, sourceid: UInt, infodesired: UInt, returnbuffer: Pwstr, returnbuffersize: UInt, requiredsize: MutPtr<UInt>): Bool =
+public actual fun setupGetSourceInfoW(infhandle: ConstPtr, sourceid: UInt, infodesired: UInt, returnbuffer: Pwstr, returnbuffersize: UInt, requiredsize: MutPtr): Bool =
     windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupGetSourceInfoW(infhandle.rawAddress.toCPointer<ByteVar>(), sourceid, infodesired, returnbuffer.rawAddress.toCPointer<ByteVar>(), returnbuffersize, requiredsize.rawAddress.toCPointer<ByteVar>())
 
-public actual fun setupGetStringFieldA(context: ConstPtr<Infcontext>, fieldindex: UInt, returnbuffer: Pstr, returnbuffersize: UInt, requiredsize: MutPtr<UInt>): Bool =
+public actual fun setupGetStringFieldA(context: ConstPtr, fieldindex: UInt, returnbuffer: Pstr, returnbuffersize: UInt, requiredsize: MutPtr): Bool =
     windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupGetStringFieldA(context.rawAddress.toCPointer<ByteVar>(), fieldindex, returnbuffer.rawAddress.toCPointer<ByteVar>(), returnbuffersize, requiredsize.rawAddress.toCPointer<ByteVar>())
 
-public actual fun setupGetStringFieldW(context: ConstPtr<Infcontext>, fieldindex: UInt, returnbuffer: Pwstr, returnbuffersize: UInt, requiredsize: MutPtr<UInt>): Bool =
+public actual fun setupGetStringFieldW(context: ConstPtr, fieldindex: UInt, returnbuffer: Pwstr, returnbuffersize: UInt, requiredsize: MutPtr): Bool =
     windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupGetStringFieldW(context.rawAddress.toCPointer<ByteVar>(), fieldindex, returnbuffer.rawAddress.toCPointer<ByteVar>(), returnbuffersize, requiredsize.rawAddress.toCPointer<ByteVar>())
 
-public actual fun setupGetTargetPathA(infhandle: ConstPtr<CVoid>, infcontext: ConstPtr<Infcontext>, section: Pcstr, returnbuffer: Pstr, returnbuffersize: UInt, requiredsize: MutPtr<UInt>): Bool =
+public actual fun setupGetTargetPathA(infhandle: ConstPtr, infcontext: ConstPtr, section: Pcstr, returnbuffer: Pstr, returnbuffersize: UInt, requiredsize: MutPtr): Bool =
     windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupGetTargetPathA(infhandle.rawAddress.toCPointer<ByteVar>(), infcontext.rawAddress.toCPointer<ByteVar>(), section.rawAddress.toCPointer<ByteVar>(), returnbuffer.rawAddress.toCPointer<ByteVar>(), returnbuffersize, requiredsize.rawAddress.toCPointer<ByteVar>())
 
-public actual fun setupGetTargetPathW(infhandle: ConstPtr<CVoid>, infcontext: ConstPtr<Infcontext>, section: Pcwstr, returnbuffer: Pwstr, returnbuffersize: UInt, requiredsize: MutPtr<UInt>): Bool =
+public actual fun setupGetTargetPathW(infhandle: ConstPtr, infcontext: ConstPtr, section: Pcwstr, returnbuffer: Pwstr, returnbuffersize: UInt, requiredsize: MutPtr): Bool =
     windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupGetTargetPathW(infhandle.rawAddress.toCPointer<ByteVar>(), infcontext.rawAddress.toCPointer<ByteVar>(), section.rawAddress.toCPointer<ByteVar>(), returnbuffer.rawAddress.toCPointer<ByteVar>(), returnbuffersize, requiredsize.rawAddress.toCPointer<ByteVar>())
 
 public actual fun setupGetThreadLogToken(): ULong =
     windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupGetThreadLogToken()
 
-public actual fun setupInitDefaultQueueCallback(ownerwindow: Hwnd): MutPtr<CVoid> =
+public actual fun setupInitDefaultQueueCallback(ownerwindow: Hwnd): MutPtr =
     MutPtr(windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupInitDefaultQueueCallback(ownerwindow.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun setupInitDefaultQueueCallbackEx(ownerwindow: Hwnd, alternateprogresswindow: Hwnd, progressmessage: UInt, reserved1: UInt, reserved2: ConstPtr<CVoid>): MutPtr<CVoid> =
+public actual fun setupInitDefaultQueueCallbackEx(ownerwindow: Hwnd, alternateprogresswindow: Hwnd, progressmessage: UInt, reserved1: UInt, reserved2: ConstPtr): MutPtr =
     MutPtr(windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupInitDefaultQueueCallbackEx(ownerwindow.rawAddress.toCPointer<ByteVar>(), alternateprogresswindow.rawAddress.toCPointer<ByteVar>(), progressmessage, reserved1, reserved2.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun setupInitializeFileLogA(logfilename: Pcstr, flags: UInt): MutPtr<CVoid> =
+public actual fun setupInitializeFileLogA(logfilename: Pcstr, flags: UInt): MutPtr =
     MutPtr(windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupInitializeFileLogA(logfilename.rawAddress.toCPointer<ByteVar>(), flags)?.toLong() ?: 0L)
 
-public actual fun setupInitializeFileLogW(logfilename: Pcwstr, flags: UInt): MutPtr<CVoid> =
+public actual fun setupInitializeFileLogW(logfilename: Pcwstr, flags: UInt): MutPtr =
     MutPtr(windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupInitializeFileLogW(logfilename.rawAddress.toCPointer<ByteVar>(), flags)?.toLong() ?: 0L)
 
-public actual fun setupInstallFileA(infhandle: ConstPtr<CVoid>, infcontext: ConstPtr<Infcontext>, sourcefile: Pcstr, sourcepathroot: Pcstr, destinationname: Pcstr, copystyle: SpCopyStyle, copymsghandler: PspFileCallbackA, context: ConstPtr<CVoid>): Bool =
+public actual fun setupInstallFileA(infhandle: ConstPtr, infcontext: ConstPtr, sourcefile: Pcstr, sourcepathroot: Pcstr, destinationname: Pcstr, copystyle: SpCopyStyle, copymsghandler: PspFileCallbackA, context: ConstPtr): Bool =
     windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupInstallFileA(infhandle.rawAddress.toCPointer<ByteVar>(), infcontext.rawAddress.toCPointer<ByteVar>(), sourcefile.rawAddress.toCPointer<ByteVar>(), sourcepathroot.rawAddress.toCPointer<ByteVar>(), destinationname.rawAddress.toCPointer<ByteVar>(), copystyle, 0L.toCPointer<ByteVar>(), context.rawAddress.toCPointer<ByteVar>())
 
-public actual fun setupInstallFileExA(infhandle: ConstPtr<CVoid>, infcontext: ConstPtr<Infcontext>, sourcefile: Pcstr, sourcepathroot: Pcstr, destinationname: Pcstr, copystyle: SpCopyStyle, copymsghandler: PspFileCallbackA, context: ConstPtr<CVoid>, filewasinuse: MutPtr<Bool>): Bool =
+public actual fun setupInstallFileExA(infhandle: ConstPtr, infcontext: ConstPtr, sourcefile: Pcstr, sourcepathroot: Pcstr, destinationname: Pcstr, copystyle: SpCopyStyle, copymsghandler: PspFileCallbackA, context: ConstPtr, filewasinuse: MutPtr): Bool =
     windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupInstallFileExA(infhandle.rawAddress.toCPointer<ByteVar>(), infcontext.rawAddress.toCPointer<ByteVar>(), sourcefile.rawAddress.toCPointer<ByteVar>(), sourcepathroot.rawAddress.toCPointer<ByteVar>(), destinationname.rawAddress.toCPointer<ByteVar>(), copystyle, 0L.toCPointer<ByteVar>(), context.rawAddress.toCPointer<ByteVar>(), filewasinuse.rawAddress.toCPointer<ByteVar>())
 
-public actual fun setupInstallFileExW(infhandle: ConstPtr<CVoid>, infcontext: ConstPtr<Infcontext>, sourcefile: Pcwstr, sourcepathroot: Pcwstr, destinationname: Pcwstr, copystyle: SpCopyStyle, copymsghandler: PspFileCallbackW, context: ConstPtr<CVoid>, filewasinuse: MutPtr<Bool>): Bool =
+public actual fun setupInstallFileExW(infhandle: ConstPtr, infcontext: ConstPtr, sourcefile: Pcwstr, sourcepathroot: Pcwstr, destinationname: Pcwstr, copystyle: SpCopyStyle, copymsghandler: PspFileCallbackW, context: ConstPtr, filewasinuse: MutPtr): Bool =
     windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupInstallFileExW(infhandle.rawAddress.toCPointer<ByteVar>(), infcontext.rawAddress.toCPointer<ByteVar>(), sourcefile.rawAddress.toCPointer<ByteVar>(), sourcepathroot.rawAddress.toCPointer<ByteVar>(), destinationname.rawAddress.toCPointer<ByteVar>(), copystyle, 0L.toCPointer<ByteVar>(), context.rawAddress.toCPointer<ByteVar>(), filewasinuse.rawAddress.toCPointer<ByteVar>())
 
-public actual fun setupInstallFileW(infhandle: ConstPtr<CVoid>, infcontext: ConstPtr<Infcontext>, sourcefile: Pcwstr, sourcepathroot: Pcwstr, destinationname: Pcwstr, copystyle: SpCopyStyle, copymsghandler: PspFileCallbackW, context: ConstPtr<CVoid>): Bool =
+public actual fun setupInstallFileW(infhandle: ConstPtr, infcontext: ConstPtr, sourcefile: Pcwstr, sourcepathroot: Pcwstr, destinationname: Pcwstr, copystyle: SpCopyStyle, copymsghandler: PspFileCallbackW, context: ConstPtr): Bool =
     windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupInstallFileW(infhandle.rawAddress.toCPointer<ByteVar>(), infcontext.rawAddress.toCPointer<ByteVar>(), sourcefile.rawAddress.toCPointer<ByteVar>(), sourcepathroot.rawAddress.toCPointer<ByteVar>(), destinationname.rawAddress.toCPointer<ByteVar>(), copystyle, 0L.toCPointer<ByteVar>(), context.rawAddress.toCPointer<ByteVar>())
 
-public actual fun setupInstallFilesFromInfSectionA(infhandle: ConstPtr<CVoid>, layoutinfhandle: ConstPtr<CVoid>, filequeue: ConstPtr<CVoid>, sectionname: Pcstr, sourcerootpath: Pcstr, copyflags: UInt): Bool =
+public actual fun setupInstallFilesFromInfSectionA(infhandle: ConstPtr, layoutinfhandle: ConstPtr, filequeue: ConstPtr, sectionname: Pcstr, sourcerootpath: Pcstr, copyflags: UInt): Bool =
     windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupInstallFilesFromInfSectionA(infhandle.rawAddress.toCPointer<ByteVar>(), layoutinfhandle.rawAddress.toCPointer<ByteVar>(), filequeue.rawAddress.toCPointer<ByteVar>(), sectionname.rawAddress.toCPointer<ByteVar>(), sourcerootpath.rawAddress.toCPointer<ByteVar>(), copyflags)
 
-public actual fun setupInstallFilesFromInfSectionW(infhandle: ConstPtr<CVoid>, layoutinfhandle: ConstPtr<CVoid>, filequeue: ConstPtr<CVoid>, sectionname: Pcwstr, sourcerootpath: Pcwstr, copyflags: UInt): Bool =
+public actual fun setupInstallFilesFromInfSectionW(infhandle: ConstPtr, layoutinfhandle: ConstPtr, filequeue: ConstPtr, sectionname: Pcwstr, sourcerootpath: Pcwstr, copyflags: UInt): Bool =
     windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupInstallFilesFromInfSectionW(infhandle.rawAddress.toCPointer<ByteVar>(), layoutinfhandle.rawAddress.toCPointer<ByteVar>(), filequeue.rawAddress.toCPointer<ByteVar>(), sectionname.rawAddress.toCPointer<ByteVar>(), sourcerootpath.rawAddress.toCPointer<ByteVar>(), copyflags)
 
-public actual fun setupInstallFromInfSectionA(owner: Hwnd, infhandle: ConstPtr<CVoid>, sectionname: Pcstr, flags: UInt, relativekeyroot: Hkey, sourcerootpath: Pcstr, copyflags: UInt, msghandler: PspFileCallbackA, context: ConstPtr<CVoid>, deviceinfoset: Hdevinfo, deviceinfodata: ConstPtr<SpDevinfoData>): Bool =
+public actual fun setupInstallFromInfSectionA(owner: Hwnd, infhandle: ConstPtr, sectionname: Pcstr, flags: UInt, relativekeyroot: Hkey, sourcerootpath: Pcstr, copyflags: UInt, msghandler: PspFileCallbackA, context: ConstPtr, deviceinfoset: Hdevinfo, deviceinfodata: ConstPtr): Bool =
     windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupInstallFromInfSectionA(owner.rawAddress.toCPointer<ByteVar>(), infhandle.rawAddress.toCPointer<ByteVar>(), sectionname.rawAddress.toCPointer<ByteVar>(), flags, relativekeyroot.rawAddress.toCPointer<ByteVar>(), sourcerootpath.rawAddress.toCPointer<ByteVar>(), copyflags, 0L.toCPointer<ByteVar>(), context.rawAddress.toCPointer<ByteVar>(), deviceinfoset, deviceinfodata.rawAddress.toCPointer<ByteVar>())
 
-public actual fun setupInstallFromInfSectionW(owner: Hwnd, infhandle: ConstPtr<CVoid>, sectionname: Pcwstr, flags: UInt, relativekeyroot: Hkey, sourcerootpath: Pcwstr, copyflags: UInt, msghandler: PspFileCallbackW, context: ConstPtr<CVoid>, deviceinfoset: Hdevinfo, deviceinfodata: ConstPtr<SpDevinfoData>): Bool =
+public actual fun setupInstallFromInfSectionW(owner: Hwnd, infhandle: ConstPtr, sectionname: Pcwstr, flags: UInt, relativekeyroot: Hkey, sourcerootpath: Pcwstr, copyflags: UInt, msghandler: PspFileCallbackW, context: ConstPtr, deviceinfoset: Hdevinfo, deviceinfodata: ConstPtr): Bool =
     windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupInstallFromInfSectionW(owner.rawAddress.toCPointer<ByteVar>(), infhandle.rawAddress.toCPointer<ByteVar>(), sectionname.rawAddress.toCPointer<ByteVar>(), flags, relativekeyroot.rawAddress.toCPointer<ByteVar>(), sourcerootpath.rawAddress.toCPointer<ByteVar>(), copyflags, 0L.toCPointer<ByteVar>(), context.rawAddress.toCPointer<ByteVar>(), deviceinfoset, deviceinfodata.rawAddress.toCPointer<ByteVar>())
 
-public actual fun setupInstallServicesFromInfSectionA(infhandle: ConstPtr<CVoid>, sectionname: Pcstr, flags: SpsvcinstFlags): Bool =
+public actual fun setupInstallServicesFromInfSectionA(infhandle: ConstPtr, sectionname: Pcstr, flags: SpsvcinstFlags): Bool =
     windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupInstallServicesFromInfSectionA(infhandle.rawAddress.toCPointer<ByteVar>(), sectionname.rawAddress.toCPointer<ByteVar>(), flags)
 
-public actual fun setupInstallServicesFromInfSectionExA(infhandle: ConstPtr<CVoid>, sectionname: Pcstr, flags: SpsvcinstFlags, deviceinfoset: Hdevinfo, deviceinfodata: ConstPtr<SpDevinfoData>, reserved1: ConstPtr<CVoid>, reserved2: ConstPtr<CVoid>): Bool =
+public actual fun setupInstallServicesFromInfSectionExA(infhandle: ConstPtr, sectionname: Pcstr, flags: SpsvcinstFlags, deviceinfoset: Hdevinfo, deviceinfodata: ConstPtr, reserved1: ConstPtr, reserved2: ConstPtr): Bool =
     windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupInstallServicesFromInfSectionExA(infhandle.rawAddress.toCPointer<ByteVar>(), sectionname.rawAddress.toCPointer<ByteVar>(), flags, deviceinfoset, deviceinfodata.rawAddress.toCPointer<ByteVar>(), reserved1.rawAddress.toCPointer<ByteVar>(), reserved2.rawAddress.toCPointer<ByteVar>())
 
-public actual fun setupInstallServicesFromInfSectionExW(infhandle: ConstPtr<CVoid>, sectionname: Pcwstr, flags: SpsvcinstFlags, deviceinfoset: Hdevinfo, deviceinfodata: ConstPtr<SpDevinfoData>, reserved1: ConstPtr<CVoid>, reserved2: ConstPtr<CVoid>): Bool =
+public actual fun setupInstallServicesFromInfSectionExW(infhandle: ConstPtr, sectionname: Pcwstr, flags: SpsvcinstFlags, deviceinfoset: Hdevinfo, deviceinfodata: ConstPtr, reserved1: ConstPtr, reserved2: ConstPtr): Bool =
     windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupInstallServicesFromInfSectionExW(infhandle.rawAddress.toCPointer<ByteVar>(), sectionname.rawAddress.toCPointer<ByteVar>(), flags, deviceinfoset, deviceinfodata.rawAddress.toCPointer<ByteVar>(), reserved1.rawAddress.toCPointer<ByteVar>(), reserved2.rawAddress.toCPointer<ByteVar>())
 
-public actual fun setupInstallServicesFromInfSectionW(infhandle: ConstPtr<CVoid>, sectionname: Pcwstr, flags: SpsvcinstFlags): Bool =
+public actual fun setupInstallServicesFromInfSectionW(infhandle: ConstPtr, sectionname: Pcwstr, flags: SpsvcinstFlags): Bool =
     windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupInstallServicesFromInfSectionW(infhandle.rawAddress.toCPointer<ByteVar>(), sectionname.rawAddress.toCPointer<ByteVar>(), flags)
 
-public actual fun setupIterateCabinetA(cabinetfile: Pcstr, reserved: UInt, msghandler: PspFileCallbackA, context: ConstPtr<CVoid>): Bool =
+public actual fun setupIterateCabinetA(cabinetfile: Pcstr, reserved: UInt, msghandler: PspFileCallbackA, context: ConstPtr): Bool =
     windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupIterateCabinetA(cabinetfile.rawAddress.toCPointer<ByteVar>(), reserved, 0L.toCPointer<ByteVar>(), context.rawAddress.toCPointer<ByteVar>())
 
-public actual fun setupIterateCabinetW(cabinetfile: Pcwstr, reserved: UInt, msghandler: PspFileCallbackW, context: ConstPtr<CVoid>): Bool =
+public actual fun setupIterateCabinetW(cabinetfile: Pcwstr, reserved: UInt, msghandler: PspFileCallbackW, context: ConstPtr): Bool =
     windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupIterateCabinetW(cabinetfile.rawAddress.toCPointer<ByteVar>(), reserved, 0L.toCPointer<ByteVar>(), context.rawAddress.toCPointer<ByteVar>())
 
 public actual fun setupLogErrorA(messagestring: Pcstr, severity: UInt): Bool =
@@ -2081,148 +2075,148 @@ public actual fun setupLogErrorA(messagestring: Pcstr, severity: UInt): Bool =
 public actual fun setupLogErrorW(messagestring: Pcwstr, severity: UInt): Bool =
     windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupLogErrorW(messagestring.rawAddress.toCPointer<ByteVar>(), severity)
 
-public actual fun setupLogFileA(fileloghandle: ConstPtr<CVoid>, logsectionname: Pcstr, sourcefilename: Pcstr, targetfilename: Pcstr, checksum: UInt, disktagfile: Pcstr, diskdescription: Pcstr, otherinfo: Pcstr, flags: UInt): Bool =
+public actual fun setupLogFileA(fileloghandle: ConstPtr, logsectionname: Pcstr, sourcefilename: Pcstr, targetfilename: Pcstr, checksum: UInt, disktagfile: Pcstr, diskdescription: Pcstr, otherinfo: Pcstr, flags: UInt): Bool =
     windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupLogFileA(fileloghandle.rawAddress.toCPointer<ByteVar>(), logsectionname.rawAddress.toCPointer<ByteVar>(), sourcefilename.rawAddress.toCPointer<ByteVar>(), targetfilename.rawAddress.toCPointer<ByteVar>(), checksum, disktagfile.rawAddress.toCPointer<ByteVar>(), diskdescription.rawAddress.toCPointer<ByteVar>(), otherinfo.rawAddress.toCPointer<ByteVar>(), flags)
 
-public actual fun setupLogFileW(fileloghandle: ConstPtr<CVoid>, logsectionname: Pcwstr, sourcefilename: Pcwstr, targetfilename: Pcwstr, checksum: UInt, disktagfile: Pcwstr, diskdescription: Pcwstr, otherinfo: Pcwstr, flags: UInt): Bool =
+public actual fun setupLogFileW(fileloghandle: ConstPtr, logsectionname: Pcwstr, sourcefilename: Pcwstr, targetfilename: Pcwstr, checksum: UInt, disktagfile: Pcwstr, diskdescription: Pcwstr, otherinfo: Pcwstr, flags: UInt): Bool =
     windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupLogFileW(fileloghandle.rawAddress.toCPointer<ByteVar>(), logsectionname.rawAddress.toCPointer<ByteVar>(), sourcefilename.rawAddress.toCPointer<ByteVar>(), targetfilename.rawAddress.toCPointer<ByteVar>(), checksum, disktagfile.rawAddress.toCPointer<ByteVar>(), diskdescription.rawAddress.toCPointer<ByteVar>(), otherinfo.rawAddress.toCPointer<ByteVar>(), flags)
 
-public actual fun setupOpenAppendInfFileA(filename: Pcstr, infhandle: ConstPtr<CVoid>, errorline: MutPtr<UInt>): Bool =
+public actual fun setupOpenAppendInfFileA(filename: Pcstr, infhandle: ConstPtr, errorline: MutPtr): Bool =
     windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupOpenAppendInfFileA(filename.rawAddress.toCPointer<ByteVar>(), infhandle.rawAddress.toCPointer<ByteVar>(), errorline.rawAddress.toCPointer<ByteVar>())
 
-public actual fun setupOpenAppendInfFileW(filename: Pcwstr, infhandle: ConstPtr<CVoid>, errorline: MutPtr<UInt>): Bool =
+public actual fun setupOpenAppendInfFileW(filename: Pcwstr, infhandle: ConstPtr, errorline: MutPtr): Bool =
     windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupOpenAppendInfFileW(filename.rawAddress.toCPointer<ByteVar>(), infhandle.rawAddress.toCPointer<ByteVar>(), errorline.rawAddress.toCPointer<ByteVar>())
 
-public actual fun setupOpenFileQueue(): MutPtr<CVoid> =
+public actual fun setupOpenFileQueue(): MutPtr =
     MutPtr(windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupOpenFileQueue()?.toLong() ?: 0L)
 
-public actual fun setupOpenInfFileA(filename: Pcstr, infclass: Pcstr, infstyle: InfStyle, errorline: MutPtr<UInt>): MutPtr<CVoid> =
+public actual fun setupOpenInfFileA(filename: Pcstr, infclass: Pcstr, infstyle: InfStyle, errorline: MutPtr): MutPtr =
     MutPtr(windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupOpenInfFileA(filename.rawAddress.toCPointer<ByteVar>(), infclass.rawAddress.toCPointer<ByteVar>(), infstyle, errorline.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun setupOpenInfFileW(filename: Pcwstr, infclass: Pcwstr, infstyle: InfStyle, errorline: MutPtr<UInt>): MutPtr<CVoid> =
+public actual fun setupOpenInfFileW(filename: Pcwstr, infclass: Pcwstr, infstyle: InfStyle, errorline: MutPtr): MutPtr =
     MutPtr(windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupOpenInfFileW(filename.rawAddress.toCPointer<ByteVar>(), infclass.rawAddress.toCPointer<ByteVar>(), infstyle, errorline.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
 public actual fun setupOpenLog(erase: Bool): Bool =
     windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupOpenLog(erase)
 
-public actual fun setupOpenMasterInf(): MutPtr<CVoid> =
+public actual fun setupOpenMasterInf(): MutPtr =
     MutPtr(windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupOpenMasterInf()?.toLong() ?: 0L)
 
-public actual fun setupPrepareQueueForRestoreA(queuehandle: ConstPtr<CVoid>, backuppath: Pcstr, restoreflags: UInt): Bool =
+public actual fun setupPrepareQueueForRestoreA(queuehandle: ConstPtr, backuppath: Pcstr, restoreflags: UInt): Bool =
     windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupPrepareQueueForRestoreA(queuehandle.rawAddress.toCPointer<ByteVar>(), backuppath.rawAddress.toCPointer<ByteVar>(), restoreflags)
 
-public actual fun setupPrepareQueueForRestoreW(queuehandle: ConstPtr<CVoid>, backuppath: Pcwstr, restoreflags: UInt): Bool =
+public actual fun setupPrepareQueueForRestoreW(queuehandle: ConstPtr, backuppath: Pcwstr, restoreflags: UInt): Bool =
     windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupPrepareQueueForRestoreW(queuehandle.rawAddress.toCPointer<ByteVar>(), backuppath.rawAddress.toCPointer<ByteVar>(), restoreflags)
 
-public actual fun setupPromptForDiskA(hwndparent: Hwnd, dialogtitle: Pcstr, diskname: Pcstr, pathtosource: Pcstr, filesought: Pcstr, tagfile: Pcstr, diskpromptstyle: UInt, pathbuffer: Pstr, pathbuffersize: UInt, pathrequiredsize: MutPtr<UInt>): UInt =
+public actual fun setupPromptForDiskA(hwndparent: Hwnd, dialogtitle: Pcstr, diskname: Pcstr, pathtosource: Pcstr, filesought: Pcstr, tagfile: Pcstr, diskpromptstyle: UInt, pathbuffer: Pstr, pathbuffersize: UInt, pathrequiredsize: MutPtr): UInt =
     windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupPromptForDiskA(hwndparent.rawAddress.toCPointer<ByteVar>(), dialogtitle.rawAddress.toCPointer<ByteVar>(), diskname.rawAddress.toCPointer<ByteVar>(), pathtosource.rawAddress.toCPointer<ByteVar>(), filesought.rawAddress.toCPointer<ByteVar>(), tagfile.rawAddress.toCPointer<ByteVar>(), diskpromptstyle, pathbuffer.rawAddress.toCPointer<ByteVar>(), pathbuffersize, pathrequiredsize.rawAddress.toCPointer<ByteVar>())
 
-public actual fun setupPromptForDiskW(hwndparent: Hwnd, dialogtitle: Pcwstr, diskname: Pcwstr, pathtosource: Pcwstr, filesought: Pcwstr, tagfile: Pcwstr, diskpromptstyle: UInt, pathbuffer: Pwstr, pathbuffersize: UInt, pathrequiredsize: MutPtr<UInt>): UInt =
+public actual fun setupPromptForDiskW(hwndparent: Hwnd, dialogtitle: Pcwstr, diskname: Pcwstr, pathtosource: Pcwstr, filesought: Pcwstr, tagfile: Pcwstr, diskpromptstyle: UInt, pathbuffer: Pwstr, pathbuffersize: UInt, pathrequiredsize: MutPtr): UInt =
     windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupPromptForDiskW(hwndparent.rawAddress.toCPointer<ByteVar>(), dialogtitle.rawAddress.toCPointer<ByteVar>(), diskname.rawAddress.toCPointer<ByteVar>(), pathtosource.rawAddress.toCPointer<ByteVar>(), filesought.rawAddress.toCPointer<ByteVar>(), tagfile.rawAddress.toCPointer<ByteVar>(), diskpromptstyle, pathbuffer.rawAddress.toCPointer<ByteVar>(), pathbuffersize, pathrequiredsize.rawAddress.toCPointer<ByteVar>())
 
-public actual fun setupPromptReboot(filequeue: ConstPtr<CVoid>, owner: Hwnd, scanonly: Bool): Int =
+public actual fun setupPromptReboot(filequeue: ConstPtr, owner: Hwnd, scanonly: Bool): Int =
     windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupPromptReboot(filequeue.rawAddress.toCPointer<ByteVar>(), owner.rawAddress.toCPointer<ByteVar>(), scanonly)
 
-public actual fun setupQueryDrivesInDiskSpaceListA(diskspace: ConstPtr<CVoid>, returnbuffer: Pstr, returnbuffersize: UInt, requiredsize: MutPtr<UInt>): Bool =
+public actual fun setupQueryDrivesInDiskSpaceListA(diskspace: ConstPtr, returnbuffer: Pstr, returnbuffersize: UInt, requiredsize: MutPtr): Bool =
     windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupQueryDrivesInDiskSpaceListA(diskspace.rawAddress.toCPointer<ByteVar>(), returnbuffer.rawAddress.toCPointer<ByteVar>(), returnbuffersize, requiredsize.rawAddress.toCPointer<ByteVar>())
 
-public actual fun setupQueryDrivesInDiskSpaceListW(diskspace: ConstPtr<CVoid>, returnbuffer: Pwstr, returnbuffersize: UInt, requiredsize: MutPtr<UInt>): Bool =
+public actual fun setupQueryDrivesInDiskSpaceListW(diskspace: ConstPtr, returnbuffer: Pwstr, returnbuffersize: UInt, requiredsize: MutPtr): Bool =
     windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupQueryDrivesInDiskSpaceListW(diskspace.rawAddress.toCPointer<ByteVar>(), returnbuffer.rawAddress.toCPointer<ByteVar>(), returnbuffersize, requiredsize.rawAddress.toCPointer<ByteVar>())
 
-public actual fun setupQueryFileLogA(fileloghandle: ConstPtr<CVoid>, logsectionname: Pcstr, targetfilename: Pcstr, desiredinfo: SetupFileLogInfo, dataout: Pstr, returnbuffersize: UInt, requiredsize: MutPtr<UInt>): Bool =
+public actual fun setupQueryFileLogA(fileloghandle: ConstPtr, logsectionname: Pcstr, targetfilename: Pcstr, desiredinfo: SetupFileLogInfo, dataout: Pstr, returnbuffersize: UInt, requiredsize: MutPtr): Bool =
     windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupQueryFileLogA(fileloghandle.rawAddress.toCPointer<ByteVar>(), logsectionname.rawAddress.toCPointer<ByteVar>(), targetfilename.rawAddress.toCPointer<ByteVar>(), desiredinfo, dataout.rawAddress.toCPointer<ByteVar>(), returnbuffersize, requiredsize.rawAddress.toCPointer<ByteVar>())
 
-public actual fun setupQueryFileLogW(fileloghandle: ConstPtr<CVoid>, logsectionname: Pcwstr, targetfilename: Pcwstr, desiredinfo: SetupFileLogInfo, dataout: Pwstr, returnbuffersize: UInt, requiredsize: MutPtr<UInt>): Bool =
+public actual fun setupQueryFileLogW(fileloghandle: ConstPtr, logsectionname: Pcwstr, targetfilename: Pcwstr, desiredinfo: SetupFileLogInfo, dataout: Pwstr, returnbuffersize: UInt, requiredsize: MutPtr): Bool =
     windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupQueryFileLogW(fileloghandle.rawAddress.toCPointer<ByteVar>(), logsectionname.rawAddress.toCPointer<ByteVar>(), targetfilename.rawAddress.toCPointer<ByteVar>(), desiredinfo, dataout.rawAddress.toCPointer<ByteVar>(), returnbuffersize, requiredsize.rawAddress.toCPointer<ByteVar>())
 
-public actual fun setupQueryInfFileInformationA(infinformation: ConstPtr<SpInfInformation>, infindex: UInt, returnbuffer: Pstr, returnbuffersize: UInt, requiredsize: MutPtr<UInt>): Bool =
+public actual fun setupQueryInfFileInformationA(infinformation: ConstPtr, infindex: UInt, returnbuffer: Pstr, returnbuffersize: UInt, requiredsize: MutPtr): Bool =
     windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupQueryInfFileInformationA(infinformation.rawAddress.toCPointer<ByteVar>(), infindex, returnbuffer.rawAddress.toCPointer<ByteVar>(), returnbuffersize, requiredsize.rawAddress.toCPointer<ByteVar>())
 
-public actual fun setupQueryInfFileInformationW(infinformation: ConstPtr<SpInfInformation>, infindex: UInt, returnbuffer: Pwstr, returnbuffersize: UInt, requiredsize: MutPtr<UInt>): Bool =
+public actual fun setupQueryInfFileInformationW(infinformation: ConstPtr, infindex: UInt, returnbuffer: Pwstr, returnbuffersize: UInt, requiredsize: MutPtr): Bool =
     windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupQueryInfFileInformationW(infinformation.rawAddress.toCPointer<ByteVar>(), infindex, returnbuffer.rawAddress.toCPointer<ByteVar>(), returnbuffersize, requiredsize.rawAddress.toCPointer<ByteVar>())
 
-public actual fun setupQueryInfOriginalFileInformationA(infinformation: ConstPtr<SpInfInformation>, infindex: UInt, alternateplatforminfo: ConstPtr<SpAltplatformInfoV2>, originalfileinfo: MutPtr<SpOriginalFileInfoA>): Bool =
+public actual fun setupQueryInfOriginalFileInformationA(infinformation: ConstPtr, infindex: UInt, alternateplatforminfo: ConstPtr, originalfileinfo: MutPtr): Bool =
     windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupQueryInfOriginalFileInformationA(infinformation.rawAddress.toCPointer<ByteVar>(), infindex, alternateplatforminfo.rawAddress.toCPointer<ByteVar>(), originalfileinfo.rawAddress.toCPointer<ByteVar>())
 
-public actual fun setupQueryInfOriginalFileInformationW(infinformation: ConstPtr<SpInfInformation>, infindex: UInt, alternateplatforminfo: ConstPtr<SpAltplatformInfoV2>, originalfileinfo: MutPtr<SpOriginalFileInfoW>): Bool =
+public actual fun setupQueryInfOriginalFileInformationW(infinformation: ConstPtr, infindex: UInt, alternateplatforminfo: ConstPtr, originalfileinfo: MutPtr): Bool =
     windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupQueryInfOriginalFileInformationW(infinformation.rawAddress.toCPointer<ByteVar>(), infindex, alternateplatforminfo.rawAddress.toCPointer<ByteVar>(), originalfileinfo.rawAddress.toCPointer<ByteVar>())
 
-public actual fun setupQueryInfVersionInformationA(infinformation: ConstPtr<SpInfInformation>, infindex: UInt, key: Pcstr, returnbuffer: Pstr, returnbuffersize: UInt, requiredsize: MutPtr<UInt>): Bool =
+public actual fun setupQueryInfVersionInformationA(infinformation: ConstPtr, infindex: UInt, key: Pcstr, returnbuffer: Pstr, returnbuffersize: UInt, requiredsize: MutPtr): Bool =
     windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupQueryInfVersionInformationA(infinformation.rawAddress.toCPointer<ByteVar>(), infindex, key.rawAddress.toCPointer<ByteVar>(), returnbuffer.rawAddress.toCPointer<ByteVar>(), returnbuffersize, requiredsize.rawAddress.toCPointer<ByteVar>())
 
-public actual fun setupQueryInfVersionInformationW(infinformation: ConstPtr<SpInfInformation>, infindex: UInt, key: Pcwstr, returnbuffer: Pwstr, returnbuffersize: UInt, requiredsize: MutPtr<UInt>): Bool =
+public actual fun setupQueryInfVersionInformationW(infinformation: ConstPtr, infindex: UInt, key: Pcwstr, returnbuffer: Pwstr, returnbuffersize: UInt, requiredsize: MutPtr): Bool =
     windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupQueryInfVersionInformationW(infinformation.rawAddress.toCPointer<ByteVar>(), infindex, key.rawAddress.toCPointer<ByteVar>(), returnbuffer.rawAddress.toCPointer<ByteVar>(), returnbuffersize, requiredsize.rawAddress.toCPointer<ByteVar>())
 
-public actual fun setupQuerySourceListA(flags: UInt, list: MutPtr<MutPtr<Pcstr>>, count: MutPtr<UInt>): Bool =
+public actual fun setupQuerySourceListA(flags: UInt, list: MutPtr, count: MutPtr): Bool =
     windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupQuerySourceListA(flags, list.rawAddress.toCPointer<ByteVar>(), count.rawAddress.toCPointer<ByteVar>())
 
-public actual fun setupQuerySourceListW(flags: UInt, list: MutPtr<MutPtr<Pcwstr>>, count: MutPtr<UInt>): Bool =
+public actual fun setupQuerySourceListW(flags: UInt, list: MutPtr, count: MutPtr): Bool =
     windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupQuerySourceListW(flags, list.rawAddress.toCPointer<ByteVar>(), count.rawAddress.toCPointer<ByteVar>())
 
-public actual fun setupQuerySpaceRequiredOnDriveA(diskspace: ConstPtr<CVoid>, drivespec: Pcstr, spacerequired: MutPtr<Long>, reserved1: ConstPtr<CVoid>, reserved2: UInt): Bool =
+public actual fun setupQuerySpaceRequiredOnDriveA(diskspace: ConstPtr, drivespec: Pcstr, spacerequired: MutPtr, reserved1: ConstPtr, reserved2: UInt): Bool =
     windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupQuerySpaceRequiredOnDriveA(diskspace.rawAddress.toCPointer<ByteVar>(), drivespec.rawAddress.toCPointer<ByteVar>(), spacerequired.rawAddress.toCPointer<ByteVar>(), reserved1.rawAddress.toCPointer<ByteVar>(), reserved2)
 
-public actual fun setupQuerySpaceRequiredOnDriveW(diskspace: ConstPtr<CVoid>, drivespec: Pcwstr, spacerequired: MutPtr<Long>, reserved1: ConstPtr<CVoid>, reserved2: UInt): Bool =
+public actual fun setupQuerySpaceRequiredOnDriveW(diskspace: ConstPtr, drivespec: Pcwstr, spacerequired: MutPtr, reserved1: ConstPtr, reserved2: UInt): Bool =
     windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupQuerySpaceRequiredOnDriveW(diskspace.rawAddress.toCPointer<ByteVar>(), drivespec.rawAddress.toCPointer<ByteVar>(), spacerequired.rawAddress.toCPointer<ByteVar>(), reserved1.rawAddress.toCPointer<ByteVar>(), reserved2)
 
-public actual fun setupQueueCopyA(queuehandle: ConstPtr<CVoid>, sourcerootpath: Pcstr, sourcepath: Pcstr, sourcefilename: Pcstr, sourcedescription: Pcstr, sourcetagfile: Pcstr, targetdirectory: Pcstr, targetfilename: Pcstr, copystyle: UInt): Bool =
+public actual fun setupQueueCopyA(queuehandle: ConstPtr, sourcerootpath: Pcstr, sourcepath: Pcstr, sourcefilename: Pcstr, sourcedescription: Pcstr, sourcetagfile: Pcstr, targetdirectory: Pcstr, targetfilename: Pcstr, copystyle: UInt): Bool =
     windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupQueueCopyA(queuehandle.rawAddress.toCPointer<ByteVar>(), sourcerootpath.rawAddress.toCPointer<ByteVar>(), sourcepath.rawAddress.toCPointer<ByteVar>(), sourcefilename.rawAddress.toCPointer<ByteVar>(), sourcedescription.rawAddress.toCPointer<ByteVar>(), sourcetagfile.rawAddress.toCPointer<ByteVar>(), targetdirectory.rawAddress.toCPointer<ByteVar>(), targetfilename.rawAddress.toCPointer<ByteVar>(), copystyle)
 
-public actual fun setupQueueCopyIndirectA(copyparams: ConstPtr<SpFileCopyParamsA>): Bool =
+public actual fun setupQueueCopyIndirectA(copyparams: ConstPtr): Bool =
     windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupQueueCopyIndirectA(copyparams.rawAddress.toCPointer<ByteVar>())
 
-public actual fun setupQueueCopyIndirectW(copyparams: ConstPtr<SpFileCopyParamsW>): Bool =
+public actual fun setupQueueCopyIndirectW(copyparams: ConstPtr): Bool =
     windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupQueueCopyIndirectW(copyparams.rawAddress.toCPointer<ByteVar>())
 
-public actual fun setupQueueCopySectionA(queuehandle: ConstPtr<CVoid>, sourcerootpath: Pcstr, infhandle: ConstPtr<CVoid>, listinfhandle: ConstPtr<CVoid>, section: Pcstr, copystyle: UInt): Bool =
+public actual fun setupQueueCopySectionA(queuehandle: ConstPtr, sourcerootpath: Pcstr, infhandle: ConstPtr, listinfhandle: ConstPtr, section: Pcstr, copystyle: UInt): Bool =
     windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupQueueCopySectionA(queuehandle.rawAddress.toCPointer<ByteVar>(), sourcerootpath.rawAddress.toCPointer<ByteVar>(), infhandle.rawAddress.toCPointer<ByteVar>(), listinfhandle.rawAddress.toCPointer<ByteVar>(), section.rawAddress.toCPointer<ByteVar>(), copystyle)
 
-public actual fun setupQueueCopySectionW(queuehandle: ConstPtr<CVoid>, sourcerootpath: Pcwstr, infhandle: ConstPtr<CVoid>, listinfhandle: ConstPtr<CVoid>, section: Pcwstr, copystyle: UInt): Bool =
+public actual fun setupQueueCopySectionW(queuehandle: ConstPtr, sourcerootpath: Pcwstr, infhandle: ConstPtr, listinfhandle: ConstPtr, section: Pcwstr, copystyle: UInt): Bool =
     windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupQueueCopySectionW(queuehandle.rawAddress.toCPointer<ByteVar>(), sourcerootpath.rawAddress.toCPointer<ByteVar>(), infhandle.rawAddress.toCPointer<ByteVar>(), listinfhandle.rawAddress.toCPointer<ByteVar>(), section.rawAddress.toCPointer<ByteVar>(), copystyle)
 
-public actual fun setupQueueCopyW(queuehandle: ConstPtr<CVoid>, sourcerootpath: Pcwstr, sourcepath: Pcwstr, sourcefilename: Pcwstr, sourcedescription: Pcwstr, sourcetagfile: Pcwstr, targetdirectory: Pcwstr, targetfilename: Pcwstr, copystyle: UInt): Bool =
+public actual fun setupQueueCopyW(queuehandle: ConstPtr, sourcerootpath: Pcwstr, sourcepath: Pcwstr, sourcefilename: Pcwstr, sourcedescription: Pcwstr, sourcetagfile: Pcwstr, targetdirectory: Pcwstr, targetfilename: Pcwstr, copystyle: UInt): Bool =
     windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupQueueCopyW(queuehandle.rawAddress.toCPointer<ByteVar>(), sourcerootpath.rawAddress.toCPointer<ByteVar>(), sourcepath.rawAddress.toCPointer<ByteVar>(), sourcefilename.rawAddress.toCPointer<ByteVar>(), sourcedescription.rawAddress.toCPointer<ByteVar>(), sourcetagfile.rawAddress.toCPointer<ByteVar>(), targetdirectory.rawAddress.toCPointer<ByteVar>(), targetfilename.rawAddress.toCPointer<ByteVar>(), copystyle)
 
-public actual fun setupQueueDefaultCopyA(queuehandle: ConstPtr<CVoid>, infhandle: ConstPtr<CVoid>, sourcerootpath: Pcstr, sourcefilename: Pcstr, targetfilename: Pcstr, copystyle: UInt): Bool =
+public actual fun setupQueueDefaultCopyA(queuehandle: ConstPtr, infhandle: ConstPtr, sourcerootpath: Pcstr, sourcefilename: Pcstr, targetfilename: Pcstr, copystyle: UInt): Bool =
     windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupQueueDefaultCopyA(queuehandle.rawAddress.toCPointer<ByteVar>(), infhandle.rawAddress.toCPointer<ByteVar>(), sourcerootpath.rawAddress.toCPointer<ByteVar>(), sourcefilename.rawAddress.toCPointer<ByteVar>(), targetfilename.rawAddress.toCPointer<ByteVar>(), copystyle)
 
-public actual fun setupQueueDefaultCopyW(queuehandle: ConstPtr<CVoid>, infhandle: ConstPtr<CVoid>, sourcerootpath: Pcwstr, sourcefilename: Pcwstr, targetfilename: Pcwstr, copystyle: UInt): Bool =
+public actual fun setupQueueDefaultCopyW(queuehandle: ConstPtr, infhandle: ConstPtr, sourcerootpath: Pcwstr, sourcefilename: Pcwstr, targetfilename: Pcwstr, copystyle: UInt): Bool =
     windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupQueueDefaultCopyW(queuehandle.rawAddress.toCPointer<ByteVar>(), infhandle.rawAddress.toCPointer<ByteVar>(), sourcerootpath.rawAddress.toCPointer<ByteVar>(), sourcefilename.rawAddress.toCPointer<ByteVar>(), targetfilename.rawAddress.toCPointer<ByteVar>(), copystyle)
 
-public actual fun setupQueueDeleteA(queuehandle: ConstPtr<CVoid>, pathpart1: Pcstr, pathpart2: Pcstr): Bool =
+public actual fun setupQueueDeleteA(queuehandle: ConstPtr, pathpart1: Pcstr, pathpart2: Pcstr): Bool =
     windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupQueueDeleteA(queuehandle.rawAddress.toCPointer<ByteVar>(), pathpart1.rawAddress.toCPointer<ByteVar>(), pathpart2.rawAddress.toCPointer<ByteVar>())
 
-public actual fun setupQueueDeleteSectionA(queuehandle: ConstPtr<CVoid>, infhandle: ConstPtr<CVoid>, listinfhandle: ConstPtr<CVoid>, section: Pcstr): Bool =
+public actual fun setupQueueDeleteSectionA(queuehandle: ConstPtr, infhandle: ConstPtr, listinfhandle: ConstPtr, section: Pcstr): Bool =
     windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupQueueDeleteSectionA(queuehandle.rawAddress.toCPointer<ByteVar>(), infhandle.rawAddress.toCPointer<ByteVar>(), listinfhandle.rawAddress.toCPointer<ByteVar>(), section.rawAddress.toCPointer<ByteVar>())
 
-public actual fun setupQueueDeleteSectionW(queuehandle: ConstPtr<CVoid>, infhandle: ConstPtr<CVoid>, listinfhandle: ConstPtr<CVoid>, section: Pcwstr): Bool =
+public actual fun setupQueueDeleteSectionW(queuehandle: ConstPtr, infhandle: ConstPtr, listinfhandle: ConstPtr, section: Pcwstr): Bool =
     windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupQueueDeleteSectionW(queuehandle.rawAddress.toCPointer<ByteVar>(), infhandle.rawAddress.toCPointer<ByteVar>(), listinfhandle.rawAddress.toCPointer<ByteVar>(), section.rawAddress.toCPointer<ByteVar>())
 
-public actual fun setupQueueDeleteW(queuehandle: ConstPtr<CVoid>, pathpart1: Pcwstr, pathpart2: Pcwstr): Bool =
+public actual fun setupQueueDeleteW(queuehandle: ConstPtr, pathpart1: Pcwstr, pathpart2: Pcwstr): Bool =
     windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupQueueDeleteW(queuehandle.rawAddress.toCPointer<ByteVar>(), pathpart1.rawAddress.toCPointer<ByteVar>(), pathpart2.rawAddress.toCPointer<ByteVar>())
 
-public actual fun setupQueueRenameA(queuehandle: ConstPtr<CVoid>, sourcepath: Pcstr, sourcefilename: Pcstr, targetpath: Pcstr, targetfilename: Pcstr): Bool =
+public actual fun setupQueueRenameA(queuehandle: ConstPtr, sourcepath: Pcstr, sourcefilename: Pcstr, targetpath: Pcstr, targetfilename: Pcstr): Bool =
     windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupQueueRenameA(queuehandle.rawAddress.toCPointer<ByteVar>(), sourcepath.rawAddress.toCPointer<ByteVar>(), sourcefilename.rawAddress.toCPointer<ByteVar>(), targetpath.rawAddress.toCPointer<ByteVar>(), targetfilename.rawAddress.toCPointer<ByteVar>())
 
-public actual fun setupQueueRenameSectionA(queuehandle: ConstPtr<CVoid>, infhandle: ConstPtr<CVoid>, listinfhandle: ConstPtr<CVoid>, section: Pcstr): Bool =
+public actual fun setupQueueRenameSectionA(queuehandle: ConstPtr, infhandle: ConstPtr, listinfhandle: ConstPtr, section: Pcstr): Bool =
     windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupQueueRenameSectionA(queuehandle.rawAddress.toCPointer<ByteVar>(), infhandle.rawAddress.toCPointer<ByteVar>(), listinfhandle.rawAddress.toCPointer<ByteVar>(), section.rawAddress.toCPointer<ByteVar>())
 
-public actual fun setupQueueRenameSectionW(queuehandle: ConstPtr<CVoid>, infhandle: ConstPtr<CVoid>, listinfhandle: ConstPtr<CVoid>, section: Pcwstr): Bool =
+public actual fun setupQueueRenameSectionW(queuehandle: ConstPtr, infhandle: ConstPtr, listinfhandle: ConstPtr, section: Pcwstr): Bool =
     windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupQueueRenameSectionW(queuehandle.rawAddress.toCPointer<ByteVar>(), infhandle.rawAddress.toCPointer<ByteVar>(), listinfhandle.rawAddress.toCPointer<ByteVar>(), section.rawAddress.toCPointer<ByteVar>())
 
-public actual fun setupQueueRenameW(queuehandle: ConstPtr<CVoid>, sourcepath: Pcwstr, sourcefilename: Pcwstr, targetpath: Pcwstr, targetfilename: Pcwstr): Bool =
+public actual fun setupQueueRenameW(queuehandle: ConstPtr, sourcepath: Pcwstr, sourcefilename: Pcwstr, targetpath: Pcwstr, targetfilename: Pcwstr): Bool =
     windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupQueueRenameW(queuehandle.rawAddress.toCPointer<ByteVar>(), sourcepath.rawAddress.toCPointer<ByteVar>(), sourcefilename.rawAddress.toCPointer<ByteVar>(), targetpath.rawAddress.toCPointer<ByteVar>(), targetfilename.rawAddress.toCPointer<ByteVar>())
 
-public actual fun setupRemoveFileLogEntryA(fileloghandle: ConstPtr<CVoid>, logsectionname: Pcstr, targetfilename: Pcstr): Bool =
+public actual fun setupRemoveFileLogEntryA(fileloghandle: ConstPtr, logsectionname: Pcstr, targetfilename: Pcstr): Bool =
     windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupRemoveFileLogEntryA(fileloghandle.rawAddress.toCPointer<ByteVar>(), logsectionname.rawAddress.toCPointer<ByteVar>(), targetfilename.rawAddress.toCPointer<ByteVar>())
 
-public actual fun setupRemoveFileLogEntryW(fileloghandle: ConstPtr<CVoid>, logsectionname: Pcwstr, targetfilename: Pcwstr): Bool =
+public actual fun setupRemoveFileLogEntryW(fileloghandle: ConstPtr, logsectionname: Pcwstr, targetfilename: Pcwstr): Bool =
     windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupRemoveFileLogEntryW(fileloghandle.rawAddress.toCPointer<ByteVar>(), logsectionname.rawAddress.toCPointer<ByteVar>(), targetfilename.rawAddress.toCPointer<ByteVar>())
 
-public actual fun setupRemoveFromDiskSpaceListA(diskspace: ConstPtr<CVoid>, targetfilespec: Pcstr, operation: SetupFileOperation, reserved1: ConstPtr<CVoid>, reserved2: UInt): Bool =
+public actual fun setupRemoveFromDiskSpaceListA(diskspace: ConstPtr, targetfilespec: Pcstr, operation: SetupFileOperation, reserved1: ConstPtr, reserved2: UInt): Bool =
     windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupRemoveFromDiskSpaceListA(diskspace.rawAddress.toCPointer<ByteVar>(), targetfilespec.rawAddress.toCPointer<ByteVar>(), operation, reserved1.rawAddress.toCPointer<ByteVar>(), reserved2)
 
-public actual fun setupRemoveFromDiskSpaceListW(diskspace: ConstPtr<CVoid>, targetfilespec: Pcwstr, operation: SetupFileOperation, reserved1: ConstPtr<CVoid>, reserved2: UInt): Bool =
+public actual fun setupRemoveFromDiskSpaceListW(diskspace: ConstPtr, targetfilespec: Pcwstr, operation: SetupFileOperation, reserved1: ConstPtr, reserved2: UInt): Bool =
     windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupRemoveFromDiskSpaceListW(diskspace.rawAddress.toCPointer<ByteVar>(), targetfilespec.rawAddress.toCPointer<ByteVar>(), operation, reserved1.rawAddress.toCPointer<ByteVar>(), reserved2)
 
 public actual fun setupRemoveFromSourceListA(flags: UInt, source: Pcstr): Bool =
@@ -2231,16 +2225,16 @@ public actual fun setupRemoveFromSourceListA(flags: UInt, source: Pcstr): Bool =
 public actual fun setupRemoveFromSourceListW(flags: UInt, source: Pcwstr): Bool =
     windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupRemoveFromSourceListW(flags, source.rawAddress.toCPointer<ByteVar>())
 
-public actual fun setupRemoveInstallSectionFromDiskSpaceListA(diskspace: ConstPtr<CVoid>, infhandle: ConstPtr<CVoid>, layoutinfhandle: ConstPtr<CVoid>, sectionname: Pcstr, reserved1: ConstPtr<CVoid>, reserved2: UInt): Bool =
+public actual fun setupRemoveInstallSectionFromDiskSpaceListA(diskspace: ConstPtr, infhandle: ConstPtr, layoutinfhandle: ConstPtr, sectionname: Pcstr, reserved1: ConstPtr, reserved2: UInt): Bool =
     windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupRemoveInstallSectionFromDiskSpaceListA(diskspace.rawAddress.toCPointer<ByteVar>(), infhandle.rawAddress.toCPointer<ByteVar>(), layoutinfhandle.rawAddress.toCPointer<ByteVar>(), sectionname.rawAddress.toCPointer<ByteVar>(), reserved1.rawAddress.toCPointer<ByteVar>(), reserved2)
 
-public actual fun setupRemoveInstallSectionFromDiskSpaceListW(diskspace: ConstPtr<CVoid>, infhandle: ConstPtr<CVoid>, layoutinfhandle: ConstPtr<CVoid>, sectionname: Pcwstr, reserved1: ConstPtr<CVoid>, reserved2: UInt): Bool =
+public actual fun setupRemoveInstallSectionFromDiskSpaceListW(diskspace: ConstPtr, infhandle: ConstPtr, layoutinfhandle: ConstPtr, sectionname: Pcwstr, reserved1: ConstPtr, reserved2: UInt): Bool =
     windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupRemoveInstallSectionFromDiskSpaceListW(diskspace.rawAddress.toCPointer<ByteVar>(), infhandle.rawAddress.toCPointer<ByteVar>(), layoutinfhandle.rawAddress.toCPointer<ByteVar>(), sectionname.rawAddress.toCPointer<ByteVar>(), reserved1.rawAddress.toCPointer<ByteVar>(), reserved2)
 
-public actual fun setupRemoveSectionFromDiskSpaceListA(diskspace: ConstPtr<CVoid>, infhandle: ConstPtr<CVoid>, listinfhandle: ConstPtr<CVoid>, sectionname: Pcstr, operation: SetupFileOperation, reserved1: ConstPtr<CVoid>, reserved2: UInt): Bool =
+public actual fun setupRemoveSectionFromDiskSpaceListA(diskspace: ConstPtr, infhandle: ConstPtr, listinfhandle: ConstPtr, sectionname: Pcstr, operation: SetupFileOperation, reserved1: ConstPtr, reserved2: UInt): Bool =
     windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupRemoveSectionFromDiskSpaceListA(diskspace.rawAddress.toCPointer<ByteVar>(), infhandle.rawAddress.toCPointer<ByteVar>(), listinfhandle.rawAddress.toCPointer<ByteVar>(), sectionname.rawAddress.toCPointer<ByteVar>(), operation, reserved1.rawAddress.toCPointer<ByteVar>(), reserved2)
 
-public actual fun setupRemoveSectionFromDiskSpaceListW(diskspace: ConstPtr<CVoid>, infhandle: ConstPtr<CVoid>, listinfhandle: ConstPtr<CVoid>, sectionname: Pcwstr, operation: SetupFileOperation, reserved1: ConstPtr<CVoid>, reserved2: UInt): Bool =
+public actual fun setupRemoveSectionFromDiskSpaceListW(diskspace: ConstPtr, infhandle: ConstPtr, listinfhandle: ConstPtr, sectionname: Pcwstr, operation: SetupFileOperation, reserved1: ConstPtr, reserved2: UInt): Bool =
     windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupRemoveSectionFromDiskSpaceListW(diskspace.rawAddress.toCPointer<ByteVar>(), infhandle.rawAddress.toCPointer<ByteVar>(), listinfhandle.rawAddress.toCPointer<ByteVar>(), sectionname.rawAddress.toCPointer<ByteVar>(), operation, reserved1.rawAddress.toCPointer<ByteVar>(), reserved2)
 
 public actual fun setupRenameErrorA(hwndparent: Hwnd, dialogtitle: Pcstr, sourcefile: Pcstr, targetfile: Pcstr, win32errorcode: UInt, style: UInt): UInt =
@@ -2249,31 +2243,31 @@ public actual fun setupRenameErrorA(hwndparent: Hwnd, dialogtitle: Pcstr, source
 public actual fun setupRenameErrorW(hwndparent: Hwnd, dialogtitle: Pcwstr, sourcefile: Pcwstr, targetfile: Pcwstr, win32errorcode: UInt, style: UInt): UInt =
     windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupRenameErrorW(hwndparent.rawAddress.toCPointer<ByteVar>(), dialogtitle.rawAddress.toCPointer<ByteVar>(), sourcefile.rawAddress.toCPointer<ByteVar>(), targetfile.rawAddress.toCPointer<ByteVar>(), win32errorcode, style)
 
-public actual fun setupScanFileQueueA(filequeue: ConstPtr<CVoid>, flags: SetupscanfilequeueFlags, window: Hwnd, callbackroutine: PspFileCallbackA, callbackcontext: ConstPtr<CVoid>, result: MutPtr<UInt>): Bool =
+public actual fun setupScanFileQueueA(filequeue: ConstPtr, flags: SetupscanfilequeueFlags, window: Hwnd, callbackroutine: PspFileCallbackA, callbackcontext: ConstPtr, result: MutPtr): Bool =
     windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupScanFileQueueA(filequeue.rawAddress.toCPointer<ByteVar>(), flags, window.rawAddress.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>(), callbackcontext.rawAddress.toCPointer<ByteVar>(), result.rawAddress.toCPointer<ByteVar>())
 
-public actual fun setupScanFileQueueW(filequeue: ConstPtr<CVoid>, flags: SetupscanfilequeueFlags, window: Hwnd, callbackroutine: PspFileCallbackW, callbackcontext: ConstPtr<CVoid>, result: MutPtr<UInt>): Bool =
+public actual fun setupScanFileQueueW(filequeue: ConstPtr, flags: SetupscanfilequeueFlags, window: Hwnd, callbackroutine: PspFileCallbackW, callbackcontext: ConstPtr, result: MutPtr): Bool =
     windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupScanFileQueueW(filequeue.rawAddress.toCPointer<ByteVar>(), flags, window.rawAddress.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>(), callbackcontext.rawAddress.toCPointer<ByteVar>(), result.rawAddress.toCPointer<ByteVar>())
 
-public actual fun setupSetDirectoryIdA(infhandle: ConstPtr<CVoid>, id: UInt, directory: Pcstr): Bool =
+public actual fun setupSetDirectoryIdA(infhandle: ConstPtr, id: UInt, directory: Pcstr): Bool =
     windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupSetDirectoryIdA(infhandle.rawAddress.toCPointer<ByteVar>(), id, directory.rawAddress.toCPointer<ByteVar>())
 
-public actual fun setupSetDirectoryIdExA(infhandle: ConstPtr<CVoid>, id: UInt, directory: Pcstr, flags: UInt, reserved1: UInt, reserved2: ConstPtr<CVoid>): Bool =
+public actual fun setupSetDirectoryIdExA(infhandle: ConstPtr, id: UInt, directory: Pcstr, flags: UInt, reserved1: UInt, reserved2: ConstPtr): Bool =
     windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupSetDirectoryIdExA(infhandle.rawAddress.toCPointer<ByteVar>(), id, directory.rawAddress.toCPointer<ByteVar>(), flags, reserved1, reserved2.rawAddress.toCPointer<ByteVar>())
 
-public actual fun setupSetDirectoryIdExW(infhandle: ConstPtr<CVoid>, id: UInt, directory: Pcwstr, flags: UInt, reserved1: UInt, reserved2: ConstPtr<CVoid>): Bool =
+public actual fun setupSetDirectoryIdExW(infhandle: ConstPtr, id: UInt, directory: Pcwstr, flags: UInt, reserved1: UInt, reserved2: ConstPtr): Bool =
     windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupSetDirectoryIdExW(infhandle.rawAddress.toCPointer<ByteVar>(), id, directory.rawAddress.toCPointer<ByteVar>(), flags, reserved1, reserved2.rawAddress.toCPointer<ByteVar>())
 
-public actual fun setupSetDirectoryIdW(infhandle: ConstPtr<CVoid>, id: UInt, directory: Pcwstr): Bool =
+public actual fun setupSetDirectoryIdW(infhandle: ConstPtr, id: UInt, directory: Pcwstr): Bool =
     windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupSetDirectoryIdW(infhandle.rawAddress.toCPointer<ByteVar>(), id, directory.rawAddress.toCPointer<ByteVar>())
 
-public actual fun setupSetFileQueueAlternatePlatformA(queuehandle: ConstPtr<CVoid>, alternateplatforminfo: ConstPtr<SpAltplatformInfoV2>, alternatedefaultcatalogfile: Pcstr): Bool =
+public actual fun setupSetFileQueueAlternatePlatformA(queuehandle: ConstPtr, alternateplatforminfo: ConstPtr, alternatedefaultcatalogfile: Pcstr): Bool =
     windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupSetFileQueueAlternatePlatformA(queuehandle.rawAddress.toCPointer<ByteVar>(), alternateplatforminfo.rawAddress.toCPointer<ByteVar>(), alternatedefaultcatalogfile.rawAddress.toCPointer<ByteVar>())
 
-public actual fun setupSetFileQueueAlternatePlatformW(queuehandle: ConstPtr<CVoid>, alternateplatforminfo: ConstPtr<SpAltplatformInfoV2>, alternatedefaultcatalogfile: Pcwstr): Bool =
+public actual fun setupSetFileQueueAlternatePlatformW(queuehandle: ConstPtr, alternateplatforminfo: ConstPtr, alternatedefaultcatalogfile: Pcwstr): Bool =
     windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupSetFileQueueAlternatePlatformW(queuehandle.rawAddress.toCPointer<ByteVar>(), alternateplatforminfo.rawAddress.toCPointer<ByteVar>(), alternatedefaultcatalogfile.rawAddress.toCPointer<ByteVar>())
 
-public actual fun setupSetFileQueueFlags(filequeue: ConstPtr<CVoid>, flagmask: UInt, flags: UInt): Bool =
+public actual fun setupSetFileQueueFlags(filequeue: ConstPtr, flagmask: UInt, flags: UInt): Bool =
     windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupSetFileQueueFlags(filequeue.rawAddress.toCPointer<ByteVar>(), flagmask, flags)
 
 public actual fun setupSetNonInteractiveMode(noninteractiveflag: Bool): Bool =
@@ -2285,36 +2279,36 @@ public actual fun setupSetPlatformPathOverrideA(override: Pcstr): Bool =
 public actual fun setupSetPlatformPathOverrideW(override: Pcwstr): Bool =
     windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupSetPlatformPathOverrideW(override.rawAddress.toCPointer<ByteVar>())
 
-public actual fun setupSetSourceListA(flags: UInt, sourcelist: ConstPtr<Pcstr>, sourcecount: UInt): Bool =
+public actual fun setupSetSourceListA(flags: UInt, sourcelist: ConstPtr, sourcecount: UInt): Bool =
     windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupSetSourceListA(flags, sourcelist.rawAddress.toCPointer<ByteVar>(), sourcecount)
 
-public actual fun setupSetSourceListW(flags: UInt, sourcelist: ConstPtr<Pcwstr>, sourcecount: UInt): Bool =
+public actual fun setupSetSourceListW(flags: UInt, sourcelist: ConstPtr, sourcecount: UInt): Bool =
     windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupSetSourceListW(flags, sourcelist.rawAddress.toCPointer<ByteVar>(), sourcecount)
 
 public actual fun setupSetThreadLogToken(logtoken: ULong) {
     windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupSetThreadLogToken(logtoken)
 }
 
-public actual fun setupTermDefaultQueueCallback(context: ConstPtr<CVoid>) {
+public actual fun setupTermDefaultQueueCallback(context: ConstPtr) {
     windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupTermDefaultQueueCallback(context.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun setupTerminateFileLog(fileloghandle: ConstPtr<CVoid>): Bool =
+public actual fun setupTerminateFileLog(fileloghandle: ConstPtr): Bool =
     windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupTerminateFileLog(fileloghandle.rawAddress.toCPointer<ByteVar>())
 
-public actual fun setupUninstallNewlyCopiedInfs(filequeue: ConstPtr<CVoid>, flags: UInt, reserved: ConstPtr<CVoid>): Bool =
+public actual fun setupUninstallNewlyCopiedInfs(filequeue: ConstPtr, flags: UInt, reserved: ConstPtr): Bool =
     windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupUninstallNewlyCopiedInfs(filequeue.rawAddress.toCPointer<ByteVar>(), flags, reserved.rawAddress.toCPointer<ByteVar>())
 
-public actual fun setupUninstallOEMInfA(inffilename: Pcstr, flags: UInt, reserved: ConstPtr<CVoid>): Bool =
+public actual fun setupUninstallOEMInfA(inffilename: Pcstr, flags: UInt, reserved: ConstPtr): Bool =
     windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupUninstallOEMInfA(inffilename.rawAddress.toCPointer<ByteVar>(), flags, reserved.rawAddress.toCPointer<ByteVar>())
 
-public actual fun setupUninstallOEMInfW(inffilename: Pcwstr, flags: UInt, reserved: ConstPtr<CVoid>): Bool =
+public actual fun setupUninstallOEMInfW(inffilename: Pcwstr, flags: UInt, reserved: ConstPtr): Bool =
     windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupUninstallOEMInfW(inffilename.rawAddress.toCPointer<ByteVar>(), flags, reserved.rawAddress.toCPointer<ByteVar>())
 
-public actual fun setupVerifyInfFileA(infname: Pcstr, altplatforminfo: ConstPtr<SpAltplatformInfoV2>, infsignerinfo: MutPtr<SpInfSignerInfoV2A>): Bool =
+public actual fun setupVerifyInfFileA(infname: Pcstr, altplatforminfo: ConstPtr, infsignerinfo: MutPtr): Bool =
     windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupVerifyInfFileA(infname.rawAddress.toCPointer<ByteVar>(), altplatforminfo.rawAddress.toCPointer<ByteVar>(), infsignerinfo.rawAddress.toCPointer<ByteVar>())
 
-public actual fun setupVerifyInfFileW(infname: Pcwstr, altplatforminfo: ConstPtr<SpAltplatformInfoV2>, infsignerinfo: MutPtr<SpInfSignerInfoV2W>): Bool =
+public actual fun setupVerifyInfFileW(infname: Pcwstr, altplatforminfo: ConstPtr, infsignerinfo: MutPtr): Bool =
     windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupVerifyInfFileW(infname.rawAddress.toCPointer<ByteVar>(), altplatforminfo.rawAddress.toCPointer<ByteVar>(), infsignerinfo.rawAddress.toCPointer<ByteVar>())
 
 public actual fun setupWriteTextLog(logtoken: ULong, category: UInt, flags: UInt, messagestr: Pcstr, vararg variadicArgs: Long) {
@@ -2325,12 +2319,12 @@ public actual fun setupWriteTextLogError(logtoken: ULong, category: UInt, logfla
     windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupWriteTextLogError(logtoken, category, logflags, error, messagestr.rawAddress.toCPointer<ByteVar>(), variadicArgs.size.coerceAtMost(4), if (variadicArgs.size > 0) variadicArgs[0] else 0L, if (variadicArgs.size > 1) variadicArgs[1] else 0L, if (variadicArgs.size > 2) variadicArgs[2] else 0L, if (variadicArgs.size > 3) variadicArgs[3] else 0L)
 }
 
-public actual fun setupWriteTextLogInfLine(logtoken: ULong, flags: UInt, infhandle: ConstPtr<CVoid>, context: ConstPtr<Infcontext>) {
+public actual fun setupWriteTextLogInfLine(logtoken: ULong, flags: UInt, infhandle: ConstPtr, context: ConstPtr) {
     windowssysWindowsWin32DevicesDeviceanddriverinstallationSetupWriteTextLogInfLine(logtoken, flags, infhandle.rawAddress.toCPointer<ByteVar>(), context.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun updateDriverForPlugAndPlayDevicesA(hwndparent: Hwnd, hardwareid: Pcstr, fullinfpath: Pcstr, installflags: UpdatedriverforplugandplaydevicesFlags, brebootrequired: MutPtr<Bool>): Bool =
+public actual fun updateDriverForPlugAndPlayDevicesA(hwndparent: Hwnd, hardwareid: Pcstr, fullinfpath: Pcstr, installflags: UpdatedriverforplugandplaydevicesFlags, brebootrequired: MutPtr): Bool =
     windowssysWindowsWin32DevicesDeviceanddriverinstallationUpdateDriverForPlugAndPlayDevicesA(hwndparent.rawAddress.toCPointer<ByteVar>(), hardwareid.rawAddress.toCPointer<ByteVar>(), fullinfpath.rawAddress.toCPointer<ByteVar>(), installflags, brebootrequired.rawAddress.toCPointer<ByteVar>())
 
-public actual fun updateDriverForPlugAndPlayDevicesW(hwndparent: Hwnd, hardwareid: Pcwstr, fullinfpath: Pcwstr, installflags: UpdatedriverforplugandplaydevicesFlags, brebootrequired: MutPtr<Bool>): Bool =
+public actual fun updateDriverForPlugAndPlayDevicesW(hwndparent: Hwnd, hardwareid: Pcwstr, fullinfpath: Pcwstr, installflags: UpdatedriverforplugandplaydevicesFlags, brebootrequired: MutPtr): Bool =
     windowssysWindowsWin32DevicesDeviceanddriverinstallationUpdateDriverForPlugAndPlayDevicesW(hwndparent.rawAddress.toCPointer<ByteVar>(), hardwareid.rawAddress.toCPointer<ByteVar>(), fullinfpath.rawAddress.toCPointer<ByteVar>(), installflags, brebootrequired.rawAddress.toCPointer<ByteVar>())

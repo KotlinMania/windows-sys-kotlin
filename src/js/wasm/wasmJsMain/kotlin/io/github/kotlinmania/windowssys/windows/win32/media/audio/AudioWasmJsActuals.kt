@@ -2,11 +2,9 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.media.audio
 
-import io.github.kotlinmania.rustlang.core.ffi.CVoid
 import io.github.kotlinmania.rustlang.core.ptr.ConstPtr
 import io.github.kotlinmania.rustlang.core.ptr.MutPtr
 import io.github.kotlinmania.windowssys.core.Bool
-import io.github.kotlinmania.windowssys.core.Guid
 import io.github.kotlinmania.windowssys.core.Hresult
 import io.github.kotlinmania.windowssys.core.Pcstr
 import io.github.kotlinmania.windowssys.core.Pcwstr
@@ -16,8 +14,6 @@ import io.github.kotlinmania.windowssys.windows.win32.foundation.Hinstance
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Hmodule
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Lparam
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Lresult
-import io.github.kotlinmania.windowssys.windows.win32.media.Mmtime
-import io.github.kotlinmania.windowssys.windows.win32.system.com.structuredstorage.Propvariant
 
 @JsFun("() => { if (typeof globalThis.__km_napi_windowssys !== 'undefined') return globalThis.__km_napi_windowssys !== null; if (typeof process === 'undefined' || !process.versions || !process.versions.node) { globalThis.__km_napi_windowssys = null; return false; } var mod = process.getBuiltinModule ? process.getBuiltinModule('module') : (process.mainModule && process.mainModule.constructor); var req = (mod && mod.createRequire) ? mod.createRequire((process.cwd ? process.cwd() : '.') + '/package.json') : (process.mainModule ? process.mainModule.require : null); if (!req) { globalThis.__km_napi_windowssys = null; return false; } try { globalThis.__km_napi_windowssys = req('@kotlinmania/windowssys-native-bindings'); return true; } catch (_) {} var fs = req('fs'); var path = req('path'); var dir = process.cwd ? process.cwd() : '.'; var rels = ['windowssys_native.node', 'build/node-ffi/windowssys_native.node', 'build/node-ffi/release/windowssys_native.node', 'build/node-ffi/debug/windowssys_native.node', 'src/js/node-windowssys/build/Release/windowssys_native.node', 'src/js/node-windowssys/build/Debug/windowssys_native.node', 'src/js/node-windowssys/dist/build/Release/windowssys_native.node', 'src/js/node-windowssys/dist/build/Debug/windowssys_native.node']; for (var d = 0; d < 8; d++) { for (var i = 0; i < rels.length; i++) { var c = path.resolve(dir, rels[i]); if (fs.existsSync(c)) { globalThis.__km_napi_windowssys = req(c); return true; } } var parent = path.dirname(dir); if (parent === dir) break; dir = parent; } globalThis.__km_napi_windowssys = null; return false; }")
 private external fun initWindowsWin32MediaAudioNapiAddon(): Boolean
@@ -498,34 +494,34 @@ private external fun wasmWindowssysWindowsWin32MediaAudioWaveOutUnprepareHeader(
 @JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssysWindowsWin32MediaAudioWaveOutWrite(p0, p1, p2)")
 private external fun wasmWindowssysWindowsWin32MediaAudioWaveOutWrite(p0: String, p1: String, p2: Int): Int
 
-public actual fun activateAudioInterfaceAsync(deviceinterfacepath: Pcwstr, riid: ConstPtr<Guid>, activationparams: ConstPtr<Propvariant>, completionhandler: MutPtr<CVoid>, activationoperation: MutPtr<MutPtr<CVoid>>): Hresult =
+public actual fun activateAudioInterfaceAsync(deviceinterfacepath: Pcwstr, riid: ConstPtr, activationparams: ConstPtr, completionhandler: MutPtr, activationoperation: MutPtr): Hresult =
     if (windowsWin32MediaAudioNapiAvailable) wasmWindowssysWindowsWin32MediaAudioActivateAudioInterfaceAsync(deviceinterfacepath.rawAddress.toString(), riid.rawAddress.toString(), activationparams.rawAddress.toString(), completionhandler.rawAddress.toString(), activationoperation.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun coRegisterMessageFilter(lpmessagefilter: MutPtr<CVoid>, lplpmessagefilter: MutPtr<MutPtr<CVoid>>): Hresult =
+public actual fun coRegisterMessageFilter(lpmessagefilter: MutPtr, lplpmessagefilter: MutPtr): Hresult =
     if (windowsWin32MediaAudioNapiAvailable) wasmWindowssysWindowsWin32MediaAudioCoRegisterMessageFilter(lpmessagefilter.rawAddress.toString(), lplpmessagefilter.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun createCaptureAudioStateMonitor(audiostatemonitor: MutPtr<MutPtr<CVoid>>): Hresult =
+public actual fun createCaptureAudioStateMonitor(audiostatemonitor: MutPtr): Hresult =
     if (windowsWin32MediaAudioNapiAvailable) wasmWindowssysWindowsWin32MediaAudioCreateCaptureAudioStateMonitor(audiostatemonitor.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun createCaptureAudioStateMonitorForCategory(category: AudioStreamCategory, audiostatemonitor: MutPtr<MutPtr<CVoid>>): Hresult =
+public actual fun createCaptureAudioStateMonitorForCategory(category: AudioStreamCategory, audiostatemonitor: MutPtr): Hresult =
     if (windowsWin32MediaAudioNapiAvailable) wasmWindowssysWindowsWin32MediaAudioCreateCaptureAudioStateMonitorForCategory(category, audiostatemonitor.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun createCaptureAudioStateMonitorForCategoryAndDeviceId(category: AudioStreamCategory, deviceid: Pcwstr, audiostatemonitor: MutPtr<MutPtr<CVoid>>): Hresult =
+public actual fun createCaptureAudioStateMonitorForCategoryAndDeviceId(category: AudioStreamCategory, deviceid: Pcwstr, audiostatemonitor: MutPtr): Hresult =
     if (windowsWin32MediaAudioNapiAvailable) wasmWindowssysWindowsWin32MediaAudioCreateCaptureAudioStateMonitorForCategoryAndDeviceId(category, deviceid.rawAddress.toString(), audiostatemonitor.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun createCaptureAudioStateMonitorForCategoryAndDeviceRole(category: AudioStreamCategory, role: ERole, audiostatemonitor: MutPtr<MutPtr<CVoid>>): Hresult =
+public actual fun createCaptureAudioStateMonitorForCategoryAndDeviceRole(category: AudioStreamCategory, role: ERole, audiostatemonitor: MutPtr): Hresult =
     if (windowsWin32MediaAudioNapiAvailable) wasmWindowssysWindowsWin32MediaAudioCreateCaptureAudioStateMonitorForCategoryAndDeviceRole(category, role, audiostatemonitor.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun createRenderAudioStateMonitor(audiostatemonitor: MutPtr<MutPtr<CVoid>>): Hresult =
+public actual fun createRenderAudioStateMonitor(audiostatemonitor: MutPtr): Hresult =
     if (windowsWin32MediaAudioNapiAvailable) wasmWindowssysWindowsWin32MediaAudioCreateRenderAudioStateMonitor(audiostatemonitor.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun createRenderAudioStateMonitorForCategory(category: AudioStreamCategory, audiostatemonitor: MutPtr<MutPtr<CVoid>>): Hresult =
+public actual fun createRenderAudioStateMonitorForCategory(category: AudioStreamCategory, audiostatemonitor: MutPtr): Hresult =
     if (windowsWin32MediaAudioNapiAvailable) wasmWindowssysWindowsWin32MediaAudioCreateRenderAudioStateMonitorForCategory(category, audiostatemonitor.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun createRenderAudioStateMonitorForCategoryAndDeviceId(category: AudioStreamCategory, deviceid: Pcwstr, audiostatemonitor: MutPtr<MutPtr<CVoid>>): Hresult =
+public actual fun createRenderAudioStateMonitorForCategoryAndDeviceId(category: AudioStreamCategory, deviceid: Pcwstr, audiostatemonitor: MutPtr): Hresult =
     if (windowsWin32MediaAudioNapiAvailable) wasmWindowssysWindowsWin32MediaAudioCreateRenderAudioStateMonitorForCategoryAndDeviceId(category, deviceid.rawAddress.toString(), audiostatemonitor.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun createRenderAudioStateMonitorForCategoryAndDeviceRole(category: AudioStreamCategory, role: ERole, audiostatemonitor: MutPtr<MutPtr<CVoid>>): Hresult =
+public actual fun createRenderAudioStateMonitorForCategoryAndDeviceRole(category: AudioStreamCategory, role: ERole, audiostatemonitor: MutPtr): Hresult =
     if (windowsWin32MediaAudioNapiAvailable) wasmWindowssysWindowsWin32MediaAudioCreateRenderAudioStateMonitorForCategoryAndDeviceRole(category, role, audiostatemonitor.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun playSoundA(pszsound: Pcstr, hmod: Hmodule, fdwsound: SndFlags): Bool =
@@ -534,31 +530,31 @@ public actual fun playSoundA(pszsound: Pcstr, hmod: Hmodule, fdwsound: SndFlags)
 public actual fun playSoundW(pszsound: Pcwstr, hmod: Hmodule, fdwsound: SndFlags): Bool =
     if (windowsWin32MediaAudioNapiAvailable) wasmWindowssysWindowsWin32MediaAudioPlaySoundW(pszsound.rawAddress.toString(), hmod.rawAddress.toString(), fdwsound.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun acmDriverAddA(phadid: MutPtr<Hacmdriverid>, hinstmodule: Hinstance, lparam: Lparam, dwpriority: UInt, fdwadd: UInt): UInt =
+public actual fun acmDriverAddA(phadid: MutPtr, hinstmodule: Hinstance, lparam: Lparam, dwpriority: UInt, fdwadd: UInt): UInt =
     if (windowsWin32MediaAudioNapiAvailable) wasmWindowssysWindowsWin32MediaAudioAcmDriverAddA(phadid.rawAddress.toString(), hinstmodule.rawAddress.toString(), lparam.toString(), dwpriority.toInt(), fdwadd.toInt()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun acmDriverAddW(phadid: MutPtr<Hacmdriverid>, hinstmodule: Hinstance, lparam: Lparam, dwpriority: UInt, fdwadd: UInt): UInt =
+public actual fun acmDriverAddW(phadid: MutPtr, hinstmodule: Hinstance, lparam: Lparam, dwpriority: UInt, fdwadd: UInt): UInt =
     if (windowsWin32MediaAudioNapiAvailable) wasmWindowssysWindowsWin32MediaAudioAcmDriverAddW(phadid.rawAddress.toString(), hinstmodule.rawAddress.toString(), lparam.toString(), dwpriority.toInt(), fdwadd.toInt()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun acmDriverClose(had: Hacmdriver, fdwclose: UInt): UInt =
     if (windowsWin32MediaAudioNapiAvailable) wasmWindowssysWindowsWin32MediaAudioAcmDriverClose(had.rawAddress.toString(), fdwclose.toInt()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun acmDriverDetailsA(hadid: Hacmdriverid, padd: MutPtr<Acmdriverdetailsa>, fdwdetails: UInt): UInt =
+public actual fun acmDriverDetailsA(hadid: Hacmdriverid, padd: MutPtr, fdwdetails: UInt): UInt =
     if (windowsWin32MediaAudioNapiAvailable) wasmWindowssysWindowsWin32MediaAudioAcmDriverDetailsA(hadid.rawAddress.toString(), padd.rawAddress.toString(), fdwdetails.toInt()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun acmDriverDetailsW(hadid: Hacmdriverid, padd: MutPtr<Acmdriverdetailsw>, fdwdetails: UInt): UInt =
+public actual fun acmDriverDetailsW(hadid: Hacmdriverid, padd: MutPtr, fdwdetails: UInt): UInt =
     if (windowsWin32MediaAudioNapiAvailable) wasmWindowssysWindowsWin32MediaAudioAcmDriverDetailsW(hadid.rawAddress.toString(), padd.rawAddress.toString(), fdwdetails.toInt()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun acmDriverEnum(fncallback: Acmdriverenumcb, dwinstance: ULong, fdwenum: UInt): UInt =
     if (windowsWin32MediaAudioNapiAvailable) wasmWindowssysWindowsWin32MediaAudioAcmDriverEnum(0L.toString(), dwinstance.toString(), fdwenum.toInt()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun acmDriverID(hao: Hacmobj, phadid: MutPtr<Hacmdriverid>, fdwdriverid: UInt): UInt =
+public actual fun acmDriverID(hao: Hacmobj, phadid: MutPtr, fdwdriverid: UInt): UInt =
     if (windowsWin32MediaAudioNapiAvailable) wasmWindowssysWindowsWin32MediaAudioAcmDriverID(hao.rawAddress.toString(), phadid.rawAddress.toString(), fdwdriverid.toInt()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun acmDriverMessage(had: Hacmdriver, umsg: UInt, lparam1: Lparam, lparam2: Lparam): Lresult =
     if (windowsWin32MediaAudioNapiAvailable) wasmWindowssysWindowsWin32MediaAudioAcmDriverMessage(had.rawAddress.toString(), umsg.toInt(), lparam1.toString(), lparam2.toString()).toLong() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun acmDriverOpen(phad: MutPtr<Hacmdriver>, hadid: Hacmdriverid, fdwopen: UInt): UInt =
+public actual fun acmDriverOpen(phad: MutPtr, hadid: Hacmdriverid, fdwopen: UInt): UInt =
     if (windowsWin32MediaAudioNapiAvailable) wasmWindowssysWindowsWin32MediaAudioAcmDriverOpen(phad.rawAddress.toString(), hadid.rawAddress.toString(), fdwopen.toInt()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun acmDriverPriority(hadid: Hacmdriverid, dwpriority: UInt, fdwpriority: UInt): UInt =
@@ -567,109 +563,109 @@ public actual fun acmDriverPriority(hadid: Hacmdriverid, dwpriority: UInt, fdwpr
 public actual fun acmDriverRemove(hadid: Hacmdriverid, fdwremove: UInt): UInt =
     if (windowsWin32MediaAudioNapiAvailable) wasmWindowssysWindowsWin32MediaAudioAcmDriverRemove(hadid.rawAddress.toString(), fdwremove.toInt()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun acmFilterChooseA(pafltrc: MutPtr<Acmfilterchoosea>): UInt =
+public actual fun acmFilterChooseA(pafltrc: MutPtr): UInt =
     if (windowsWin32MediaAudioNapiAvailable) wasmWindowssysWindowsWin32MediaAudioAcmFilterChooseA(pafltrc.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun acmFilterChooseW(pafltrc: MutPtr<Acmfilterchoosew>): UInt =
+public actual fun acmFilterChooseW(pafltrc: MutPtr): UInt =
     if (windowsWin32MediaAudioNapiAvailable) wasmWindowssysWindowsWin32MediaAudioAcmFilterChooseW(pafltrc.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun acmFilterDetailsA(had: Hacmdriver, pafd: MutPtr<Acmfilterdetailsa>, fdwdetails: UInt): UInt =
+public actual fun acmFilterDetailsA(had: Hacmdriver, pafd: MutPtr, fdwdetails: UInt): UInt =
     if (windowsWin32MediaAudioNapiAvailable) wasmWindowssysWindowsWin32MediaAudioAcmFilterDetailsA(had.rawAddress.toString(), pafd.rawAddress.toString(), fdwdetails.toInt()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun acmFilterDetailsW(had: Hacmdriver, pafd: MutPtr<Acmfilterdetailsw>, fdwdetails: UInt): UInt =
+public actual fun acmFilterDetailsW(had: Hacmdriver, pafd: MutPtr, fdwdetails: UInt): UInt =
     if (windowsWin32MediaAudioNapiAvailable) wasmWindowssysWindowsWin32MediaAudioAcmFilterDetailsW(had.rawAddress.toString(), pafd.rawAddress.toString(), fdwdetails.toInt()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun acmFilterEnumA(had: Hacmdriver, pafd: MutPtr<Acmfilterdetailsa>, fncallback: Acmfilterenumcba, dwinstance: ULong, fdwenum: UInt): UInt =
+public actual fun acmFilterEnumA(had: Hacmdriver, pafd: MutPtr, fncallback: Acmfilterenumcba, dwinstance: ULong, fdwenum: UInt): UInt =
     if (windowsWin32MediaAudioNapiAvailable) wasmWindowssysWindowsWin32MediaAudioAcmFilterEnumA(had.rawAddress.toString(), pafd.rawAddress.toString(), 0L.toString(), dwinstance.toString(), fdwenum.toInt()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun acmFilterEnumW(had: Hacmdriver, pafd: MutPtr<Acmfilterdetailsw>, fncallback: Acmfilterenumcbw, dwinstance: ULong, fdwenum: UInt): UInt =
+public actual fun acmFilterEnumW(had: Hacmdriver, pafd: MutPtr, fncallback: Acmfilterenumcbw, dwinstance: ULong, fdwenum: UInt): UInt =
     if (windowsWin32MediaAudioNapiAvailable) wasmWindowssysWindowsWin32MediaAudioAcmFilterEnumW(had.rawAddress.toString(), pafd.rawAddress.toString(), 0L.toString(), dwinstance.toString(), fdwenum.toInt()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun acmFilterTagDetailsA(had: Hacmdriver, paftd: MutPtr<Acmfiltertagdetailsa>, fdwdetails: UInt): UInt =
+public actual fun acmFilterTagDetailsA(had: Hacmdriver, paftd: MutPtr, fdwdetails: UInt): UInt =
     if (windowsWin32MediaAudioNapiAvailable) wasmWindowssysWindowsWin32MediaAudioAcmFilterTagDetailsA(had.rawAddress.toString(), paftd.rawAddress.toString(), fdwdetails.toInt()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun acmFilterTagDetailsW(had: Hacmdriver, paftd: MutPtr<Acmfiltertagdetailsw>, fdwdetails: UInt): UInt =
+public actual fun acmFilterTagDetailsW(had: Hacmdriver, paftd: MutPtr, fdwdetails: UInt): UInt =
     if (windowsWin32MediaAudioNapiAvailable) wasmWindowssysWindowsWin32MediaAudioAcmFilterTagDetailsW(had.rawAddress.toString(), paftd.rawAddress.toString(), fdwdetails.toInt()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun acmFilterTagEnumA(had: Hacmdriver, paftd: MutPtr<Acmfiltertagdetailsa>, fncallback: Acmfiltertagenumcba, dwinstance: ULong, fdwenum: UInt): UInt =
+public actual fun acmFilterTagEnumA(had: Hacmdriver, paftd: MutPtr, fncallback: Acmfiltertagenumcba, dwinstance: ULong, fdwenum: UInt): UInt =
     if (windowsWin32MediaAudioNapiAvailable) wasmWindowssysWindowsWin32MediaAudioAcmFilterTagEnumA(had.rawAddress.toString(), paftd.rawAddress.toString(), 0L.toString(), dwinstance.toString(), fdwenum.toInt()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun acmFilterTagEnumW(had: Hacmdriver, paftd: MutPtr<Acmfiltertagdetailsw>, fncallback: Acmfiltertagenumcbw, dwinstance: ULong, fdwenum: UInt): UInt =
+public actual fun acmFilterTagEnumW(had: Hacmdriver, paftd: MutPtr, fncallback: Acmfiltertagenumcbw, dwinstance: ULong, fdwenum: UInt): UInt =
     if (windowsWin32MediaAudioNapiAvailable) wasmWindowssysWindowsWin32MediaAudioAcmFilterTagEnumW(had.rawAddress.toString(), paftd.rawAddress.toString(), 0L.toString(), dwinstance.toString(), fdwenum.toInt()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun acmFormatChooseA(pafmtc: MutPtr<Acmformatchoosea>): UInt =
+public actual fun acmFormatChooseA(pafmtc: MutPtr): UInt =
     if (windowsWin32MediaAudioNapiAvailable) wasmWindowssysWindowsWin32MediaAudioAcmFormatChooseA(pafmtc.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun acmFormatChooseW(pafmtc: MutPtr<Acmformatchoosew>): UInt =
+public actual fun acmFormatChooseW(pafmtc: MutPtr): UInt =
     if (windowsWin32MediaAudioNapiAvailable) wasmWindowssysWindowsWin32MediaAudioAcmFormatChooseW(pafmtc.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun acmFormatDetailsA(had: Hacmdriver, pafd: MutPtr<Acmformatdetailsa>, fdwdetails: UInt): UInt =
+public actual fun acmFormatDetailsA(had: Hacmdriver, pafd: MutPtr, fdwdetails: UInt): UInt =
     if (windowsWin32MediaAudioNapiAvailable) wasmWindowssysWindowsWin32MediaAudioAcmFormatDetailsA(had.rawAddress.toString(), pafd.rawAddress.toString(), fdwdetails.toInt()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun acmFormatDetailsW(had: Hacmdriver, pafd: MutPtr<TAcmformatdetailsw>, fdwdetails: UInt): UInt =
+public actual fun acmFormatDetailsW(had: Hacmdriver, pafd: MutPtr, fdwdetails: UInt): UInt =
     if (windowsWin32MediaAudioNapiAvailable) wasmWindowssysWindowsWin32MediaAudioAcmFormatDetailsW(had.rawAddress.toString(), pafd.rawAddress.toString(), fdwdetails.toInt()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun acmFormatEnumA(had: Hacmdriver, pafd: MutPtr<Acmformatdetailsa>, fncallback: Acmformatenumcba, dwinstance: ULong, fdwenum: UInt): UInt =
+public actual fun acmFormatEnumA(had: Hacmdriver, pafd: MutPtr, fncallback: Acmformatenumcba, dwinstance: ULong, fdwenum: UInt): UInt =
     if (windowsWin32MediaAudioNapiAvailable) wasmWindowssysWindowsWin32MediaAudioAcmFormatEnumA(had.rawAddress.toString(), pafd.rawAddress.toString(), 0L.toString(), dwinstance.toString(), fdwenum.toInt()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun acmFormatEnumW(had: Hacmdriver, pafd: MutPtr<TAcmformatdetailsw>, fncallback: Acmformatenumcbw, dwinstance: ULong, fdwenum: UInt): UInt =
+public actual fun acmFormatEnumW(had: Hacmdriver, pafd: MutPtr, fncallback: Acmformatenumcbw, dwinstance: ULong, fdwenum: UInt): UInt =
     if (windowsWin32MediaAudioNapiAvailable) wasmWindowssysWindowsWin32MediaAudioAcmFormatEnumW(had.rawAddress.toString(), pafd.rawAddress.toString(), 0L.toString(), dwinstance.toString(), fdwenum.toInt()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun acmFormatSuggest(had: Hacmdriver, pwfxsrc: MutPtr<Waveformatex>, pwfxdst: MutPtr<Waveformatex>, cbwfxdst: UInt, fdwsuggest: UInt): UInt =
+public actual fun acmFormatSuggest(had: Hacmdriver, pwfxsrc: MutPtr, pwfxdst: MutPtr, cbwfxdst: UInt, fdwsuggest: UInt): UInt =
     if (windowsWin32MediaAudioNapiAvailable) wasmWindowssysWindowsWin32MediaAudioAcmFormatSuggest(had.rawAddress.toString(), pwfxsrc.rawAddress.toString(), pwfxdst.rawAddress.toString(), cbwfxdst.toInt(), fdwsuggest.toInt()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun acmFormatTagDetailsA(had: Hacmdriver, paftd: MutPtr<Acmformattagdetailsa>, fdwdetails: UInt): UInt =
+public actual fun acmFormatTagDetailsA(had: Hacmdriver, paftd: MutPtr, fdwdetails: UInt): UInt =
     if (windowsWin32MediaAudioNapiAvailable) wasmWindowssysWindowsWin32MediaAudioAcmFormatTagDetailsA(had.rawAddress.toString(), paftd.rawAddress.toString(), fdwdetails.toInt()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun acmFormatTagDetailsW(had: Hacmdriver, paftd: MutPtr<Acmformattagdetailsw>, fdwdetails: UInt): UInt =
+public actual fun acmFormatTagDetailsW(had: Hacmdriver, paftd: MutPtr, fdwdetails: UInt): UInt =
     if (windowsWin32MediaAudioNapiAvailable) wasmWindowssysWindowsWin32MediaAudioAcmFormatTagDetailsW(had.rawAddress.toString(), paftd.rawAddress.toString(), fdwdetails.toInt()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun acmFormatTagEnumA(had: Hacmdriver, paftd: MutPtr<Acmformattagdetailsa>, fncallback: Acmformattagenumcba, dwinstance: ULong, fdwenum: UInt): UInt =
+public actual fun acmFormatTagEnumA(had: Hacmdriver, paftd: MutPtr, fncallback: Acmformattagenumcba, dwinstance: ULong, fdwenum: UInt): UInt =
     if (windowsWin32MediaAudioNapiAvailable) wasmWindowssysWindowsWin32MediaAudioAcmFormatTagEnumA(had.rawAddress.toString(), paftd.rawAddress.toString(), 0L.toString(), dwinstance.toString(), fdwenum.toInt()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun acmFormatTagEnumW(had: Hacmdriver, paftd: MutPtr<Acmformattagdetailsw>, fncallback: Acmformattagenumcbw, dwinstance: ULong, fdwenum: UInt): UInt =
+public actual fun acmFormatTagEnumW(had: Hacmdriver, paftd: MutPtr, fncallback: Acmformattagenumcbw, dwinstance: ULong, fdwenum: UInt): UInt =
     if (windowsWin32MediaAudioNapiAvailable) wasmWindowssysWindowsWin32MediaAudioAcmFormatTagEnumW(had.rawAddress.toString(), paftd.rawAddress.toString(), 0L.toString(), dwinstance.toString(), fdwenum.toInt()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun acmGetVersion(): UInt =
     if (windowsWin32MediaAudioNapiAvailable) wasmWindowssysWindowsWin32MediaAudioAcmGetVersion().toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun acmMetrics(hao: Hacmobj, umetric: UInt, pmetric: MutPtr<CVoid>): UInt =
+public actual fun acmMetrics(hao: Hacmobj, umetric: UInt, pmetric: MutPtr): UInt =
     if (windowsWin32MediaAudioNapiAvailable) wasmWindowssysWindowsWin32MediaAudioAcmMetrics(hao.rawAddress.toString(), umetric.toInt(), pmetric.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun acmStreamClose(has: Hacmstream, fdwclose: UInt): UInt =
     if (windowsWin32MediaAudioNapiAvailable) wasmWindowssysWindowsWin32MediaAudioAcmStreamClose(has.rawAddress.toString(), fdwclose.toInt()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun acmStreamConvert(has: Hacmstream, pash: MutPtr<Acmstreamheader>, fdwconvert: UInt): UInt =
+public actual fun acmStreamConvert(has: Hacmstream, pash: MutPtr, fdwconvert: UInt): UInt =
     if (windowsWin32MediaAudioNapiAvailable) wasmWindowssysWindowsWin32MediaAudioAcmStreamConvert(has.rawAddress.toString(), pash.rawAddress.toString(), fdwconvert.toInt()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun acmStreamMessage(has: Hacmstream, umsg: UInt, lparam1: Lparam, lparam2: Lparam): UInt =
     if (windowsWin32MediaAudioNapiAvailable) wasmWindowssysWindowsWin32MediaAudioAcmStreamMessage(has.rawAddress.toString(), umsg.toInt(), lparam1.toString(), lparam2.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun acmStreamOpen(phas: MutPtr<Hacmstream>, had: Hacmdriver, pwfxsrc: MutPtr<Waveformatex>, pwfxdst: MutPtr<Waveformatex>, pwfltr: MutPtr<Wavefilter>, dwcallback: ULong, dwinstance: ULong, fdwopen: UInt): UInt =
+public actual fun acmStreamOpen(phas: MutPtr, had: Hacmdriver, pwfxsrc: MutPtr, pwfxdst: MutPtr, pwfltr: MutPtr, dwcallback: ULong, dwinstance: ULong, fdwopen: UInt): UInt =
     if (windowsWin32MediaAudioNapiAvailable) wasmWindowssysWindowsWin32MediaAudioAcmStreamOpen(phas.rawAddress.toString(), had.rawAddress.toString(), pwfxsrc.rawAddress.toString(), pwfxdst.rawAddress.toString(), pwfltr.rawAddress.toString(), dwcallback.toString(), dwinstance.toString(), fdwopen.toInt()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun acmStreamPrepareHeader(has: Hacmstream, pash: MutPtr<Acmstreamheader>, fdwprepare: UInt): UInt =
+public actual fun acmStreamPrepareHeader(has: Hacmstream, pash: MutPtr, fdwprepare: UInt): UInt =
     if (windowsWin32MediaAudioNapiAvailable) wasmWindowssysWindowsWin32MediaAudioAcmStreamPrepareHeader(has.rawAddress.toString(), pash.rawAddress.toString(), fdwprepare.toInt()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun acmStreamReset(has: Hacmstream, fdwreset: UInt): UInt =
     if (windowsWin32MediaAudioNapiAvailable) wasmWindowssysWindowsWin32MediaAudioAcmStreamReset(has.rawAddress.toString(), fdwreset.toInt()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun acmStreamSize(has: Hacmstream, cbinput: UInt, pdwoutputbytes: MutPtr<UInt>, fdwsize: UInt): UInt =
+public actual fun acmStreamSize(has: Hacmstream, cbinput: UInt, pdwoutputbytes: MutPtr, fdwsize: UInt): UInt =
     if (windowsWin32MediaAudioNapiAvailable) wasmWindowssysWindowsWin32MediaAudioAcmStreamSize(has.rawAddress.toString(), cbinput.toInt(), pdwoutputbytes.rawAddress.toString(), fdwsize.toInt()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun acmStreamUnprepareHeader(has: Hacmstream, pash: MutPtr<Acmstreamheader>, fdwunprepare: UInt): UInt =
+public actual fun acmStreamUnprepareHeader(has: Hacmstream, pash: MutPtr, fdwunprepare: UInt): UInt =
     if (windowsWin32MediaAudioNapiAvailable) wasmWindowssysWindowsWin32MediaAudioAcmStreamUnprepareHeader(has.rawAddress.toString(), pash.rawAddress.toString(), fdwunprepare.toInt()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun auxGetDevCapsA(udeviceid: ULong, pac: MutPtr<Auxcapsa>, cbac: UInt): UInt =
+public actual fun auxGetDevCapsA(udeviceid: ULong, pac: MutPtr, cbac: UInt): UInt =
     if (windowsWin32MediaAudioNapiAvailable) wasmWindowssysWindowsWin32MediaAudioAuxGetDevCapsA(udeviceid.toString(), pac.rawAddress.toString(), cbac.toInt()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun auxGetDevCapsW(udeviceid: ULong, pac: MutPtr<Auxcapsw>, cbac: UInt): UInt =
+public actual fun auxGetDevCapsW(udeviceid: ULong, pac: MutPtr, cbac: UInt): UInt =
     if (windowsWin32MediaAudioNapiAvailable) wasmWindowssysWindowsWin32MediaAudioAuxGetDevCapsW(udeviceid.toString(), pac.rawAddress.toString(), cbac.toInt()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun auxGetNumDevs(): UInt =
     if (windowsWin32MediaAudioNapiAvailable) wasmWindowssysWindowsWin32MediaAudioAuxGetNumDevs().toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun auxGetVolume(udeviceid: UInt, pdwvolume: MutPtr<UInt>): UInt =
+public actual fun auxGetVolume(udeviceid: UInt, pdwvolume: MutPtr): UInt =
     if (windowsWin32MediaAudioNapiAvailable) wasmWindowssysWindowsWin32MediaAudioAuxGetVolume(udeviceid.toInt(), pdwvolume.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun auxOutMessage(udeviceid: UInt, umsg: UInt, dw1: ULong, dw2: ULong): UInt =
@@ -678,22 +674,22 @@ public actual fun auxOutMessage(udeviceid: UInt, umsg: UInt, dw1: ULong, dw2: UL
 public actual fun auxSetVolume(udeviceid: UInt, dwvolume: UInt): UInt =
     if (windowsWin32MediaAudioNapiAvailable) wasmWindowssysWindowsWin32MediaAudioAuxSetVolume(udeviceid.toInt(), dwvolume.toInt()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun midiConnect(hmi: Hmidi, hmo: Hmidiout, preserved: ConstPtr<CVoid>): UInt =
+public actual fun midiConnect(hmi: Hmidi, hmo: Hmidiout, preserved: ConstPtr): UInt =
     if (windowsWin32MediaAudioNapiAvailable) wasmWindowssysWindowsWin32MediaAudioMidiConnect(hmi.rawAddress.toString(), hmo.rawAddress.toString(), preserved.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun midiDisconnect(hmi: Hmidi, hmo: Hmidiout, preserved: ConstPtr<CVoid>): UInt =
+public actual fun midiDisconnect(hmi: Hmidi, hmo: Hmidiout, preserved: ConstPtr): UInt =
     if (windowsWin32MediaAudioNapiAvailable) wasmWindowssysWindowsWin32MediaAudioMidiDisconnect(hmi.rawAddress.toString(), hmo.rawAddress.toString(), preserved.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun midiInAddBuffer(hmi: Hmidiin, pmh: MutPtr<Midihdr>, cbmh: UInt): UInt =
+public actual fun midiInAddBuffer(hmi: Hmidiin, pmh: MutPtr, cbmh: UInt): UInt =
     if (windowsWin32MediaAudioNapiAvailable) wasmWindowssysWindowsWin32MediaAudioMidiInAddBuffer(hmi.rawAddress.toString(), pmh.rawAddress.toString(), cbmh.toInt()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun midiInClose(hmi: Hmidiin): UInt =
     if (windowsWin32MediaAudioNapiAvailable) wasmWindowssysWindowsWin32MediaAudioMidiInClose(hmi.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun midiInGetDevCapsA(udeviceid: ULong, pmic: MutPtr<Midiincapsa>, cbmic: UInt): UInt =
+public actual fun midiInGetDevCapsA(udeviceid: ULong, pmic: MutPtr, cbmic: UInt): UInt =
     if (windowsWin32MediaAudioNapiAvailable) wasmWindowssysWindowsWin32MediaAudioMidiInGetDevCapsA(udeviceid.toString(), pmic.rawAddress.toString(), cbmic.toInt()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun midiInGetDevCapsW(udeviceid: ULong, pmic: MutPtr<Midiincapsw>, cbmic: UInt): UInt =
+public actual fun midiInGetDevCapsW(udeviceid: ULong, pmic: MutPtr, cbmic: UInt): UInt =
     if (windowsWin32MediaAudioNapiAvailable) wasmWindowssysWindowsWin32MediaAudioMidiInGetDevCapsW(udeviceid.toString(), pmic.rawAddress.toString(), cbmic.toInt()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun midiInGetErrorTextA(mmrerror: UInt, psztext: Pstr, cchtext: UInt): UInt =
@@ -702,7 +698,7 @@ public actual fun midiInGetErrorTextA(mmrerror: UInt, psztext: Pstr, cchtext: UI
 public actual fun midiInGetErrorTextW(mmrerror: UInt, psztext: Pwstr, cchtext: UInt): UInt =
     if (windowsWin32MediaAudioNapiAvailable) wasmWindowssysWindowsWin32MediaAudioMidiInGetErrorTextW(mmrerror.toInt(), psztext.rawAddress.toString(), cchtext.toInt()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun midiInGetID(hmi: Hmidiin, pudeviceid: MutPtr<UInt>): UInt =
+public actual fun midiInGetID(hmi: Hmidiin, pudeviceid: MutPtr): UInt =
     if (windowsWin32MediaAudioNapiAvailable) wasmWindowssysWindowsWin32MediaAudioMidiInGetID(hmi.rawAddress.toString(), pudeviceid.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun midiInGetNumDevs(): UInt =
@@ -711,10 +707,10 @@ public actual fun midiInGetNumDevs(): UInt =
 public actual fun midiInMessage(hmi: Hmidiin, umsg: UInt, dw1: ULong, dw2: ULong): UInt =
     if (windowsWin32MediaAudioNapiAvailable) wasmWindowssysWindowsWin32MediaAudioMidiInMessage(hmi.rawAddress.toString(), umsg.toInt(), dw1.toString(), dw2.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun midiInOpen(phmi: MutPtr<Hmidiin>, udeviceid: UInt, dwcallback: ULong, dwinstance: ULong, fdwopen: MidiWaveOpenType): UInt =
+public actual fun midiInOpen(phmi: MutPtr, udeviceid: UInt, dwcallback: ULong, dwinstance: ULong, fdwopen: MidiWaveOpenType): UInt =
     if (windowsWin32MediaAudioNapiAvailable) wasmWindowssysWindowsWin32MediaAudioMidiInOpen(phmi.rawAddress.toString(), udeviceid.toInt(), dwcallback.toString(), dwinstance.toString(), fdwopen.toInt()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun midiInPrepareHeader(hmi: Hmidiin, pmh: MutPtr<Midihdr>, cbmh: UInt): UInt =
+public actual fun midiInPrepareHeader(hmi: Hmidiin, pmh: MutPtr, cbmh: UInt): UInt =
     if (windowsWin32MediaAudioNapiAvailable) wasmWindowssysWindowsWin32MediaAudioMidiInPrepareHeader(hmi.rawAddress.toString(), pmh.rawAddress.toString(), cbmh.toInt()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun midiInReset(hmi: Hmidiin): UInt =
@@ -726,22 +722,22 @@ public actual fun midiInStart(hmi: Hmidiin): UInt =
 public actual fun midiInStop(hmi: Hmidiin): UInt =
     if (windowsWin32MediaAudioNapiAvailable) wasmWindowssysWindowsWin32MediaAudioMidiInStop(hmi.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun midiInUnprepareHeader(hmi: Hmidiin, pmh: MutPtr<Midihdr>, cbmh: UInt): UInt =
+public actual fun midiInUnprepareHeader(hmi: Hmidiin, pmh: MutPtr, cbmh: UInt): UInt =
     if (windowsWin32MediaAudioNapiAvailable) wasmWindowssysWindowsWin32MediaAudioMidiInUnprepareHeader(hmi.rawAddress.toString(), pmh.rawAddress.toString(), cbmh.toInt()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun midiOutCacheDrumPatches(hmo: Hmidiout, upatch: UInt, pwkya: ConstPtr<UShort>, fucache: UInt): UInt =
+public actual fun midiOutCacheDrumPatches(hmo: Hmidiout, upatch: UInt, pwkya: ConstPtr, fucache: UInt): UInt =
     if (windowsWin32MediaAudioNapiAvailable) wasmWindowssysWindowsWin32MediaAudioMidiOutCacheDrumPatches(hmo.rawAddress.toString(), upatch.toInt(), pwkya.rawAddress.toString(), fucache.toInt()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun midiOutCachePatches(hmo: Hmidiout, ubank: UInt, pwpa: ConstPtr<UShort>, fucache: UInt): UInt =
+public actual fun midiOutCachePatches(hmo: Hmidiout, ubank: UInt, pwpa: ConstPtr, fucache: UInt): UInt =
     if (windowsWin32MediaAudioNapiAvailable) wasmWindowssysWindowsWin32MediaAudioMidiOutCachePatches(hmo.rawAddress.toString(), ubank.toInt(), pwpa.rawAddress.toString(), fucache.toInt()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun midiOutClose(hmo: Hmidiout): UInt =
     if (windowsWin32MediaAudioNapiAvailable) wasmWindowssysWindowsWin32MediaAudioMidiOutClose(hmo.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun midiOutGetDevCapsA(udeviceid: ULong, pmoc: MutPtr<Midioutcapsa>, cbmoc: UInt): UInt =
+public actual fun midiOutGetDevCapsA(udeviceid: ULong, pmoc: MutPtr, cbmoc: UInt): UInt =
     if (windowsWin32MediaAudioNapiAvailable) wasmWindowssysWindowsWin32MediaAudioMidiOutGetDevCapsA(udeviceid.toString(), pmoc.rawAddress.toString(), cbmoc.toInt()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun midiOutGetDevCapsW(udeviceid: ULong, pmoc: MutPtr<Midioutcapsw>, cbmoc: UInt): UInt =
+public actual fun midiOutGetDevCapsW(udeviceid: ULong, pmoc: MutPtr, cbmoc: UInt): UInt =
     if (windowsWin32MediaAudioNapiAvailable) wasmWindowssysWindowsWin32MediaAudioMidiOutGetDevCapsW(udeviceid.toString(), pmoc.rawAddress.toString(), cbmoc.toInt()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun midiOutGetErrorTextA(mmrerror: UInt, psztext: Pstr, cchtext: UInt): UInt =
@@ -750,25 +746,25 @@ public actual fun midiOutGetErrorTextA(mmrerror: UInt, psztext: Pstr, cchtext: U
 public actual fun midiOutGetErrorTextW(mmrerror: UInt, psztext: Pwstr, cchtext: UInt): UInt =
     if (windowsWin32MediaAudioNapiAvailable) wasmWindowssysWindowsWin32MediaAudioMidiOutGetErrorTextW(mmrerror.toInt(), psztext.rawAddress.toString(), cchtext.toInt()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun midiOutGetID(hmo: Hmidiout, pudeviceid: MutPtr<UInt>): UInt =
+public actual fun midiOutGetID(hmo: Hmidiout, pudeviceid: MutPtr): UInt =
     if (windowsWin32MediaAudioNapiAvailable) wasmWindowssysWindowsWin32MediaAudioMidiOutGetID(hmo.rawAddress.toString(), pudeviceid.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun midiOutGetNumDevs(): UInt =
     if (windowsWin32MediaAudioNapiAvailable) wasmWindowssysWindowsWin32MediaAudioMidiOutGetNumDevs().toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun midiOutGetVolume(hmo: Hmidiout, pdwvolume: MutPtr<UInt>): UInt =
+public actual fun midiOutGetVolume(hmo: Hmidiout, pdwvolume: MutPtr): UInt =
     if (windowsWin32MediaAudioNapiAvailable) wasmWindowssysWindowsWin32MediaAudioMidiOutGetVolume(hmo.rawAddress.toString(), pdwvolume.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun midiOutLongMsg(hmo: Hmidiout, pmh: ConstPtr<Midihdr>, cbmh: UInt): UInt =
+public actual fun midiOutLongMsg(hmo: Hmidiout, pmh: ConstPtr, cbmh: UInt): UInt =
     if (windowsWin32MediaAudioNapiAvailable) wasmWindowssysWindowsWin32MediaAudioMidiOutLongMsg(hmo.rawAddress.toString(), pmh.rawAddress.toString(), cbmh.toInt()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun midiOutMessage(hmo: Hmidiout, umsg: UInt, dw1: ULong, dw2: ULong): UInt =
     if (windowsWin32MediaAudioNapiAvailable) wasmWindowssysWindowsWin32MediaAudioMidiOutMessage(hmo.rawAddress.toString(), umsg.toInt(), dw1.toString(), dw2.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun midiOutOpen(phmo: MutPtr<Hmidiout>, udeviceid: UInt, dwcallback: ULong, dwinstance: ULong, fdwopen: MidiWaveOpenType): UInt =
+public actual fun midiOutOpen(phmo: MutPtr, udeviceid: UInt, dwcallback: ULong, dwinstance: ULong, fdwopen: MidiWaveOpenType): UInt =
     if (windowsWin32MediaAudioNapiAvailable) wasmWindowssysWindowsWin32MediaAudioMidiOutOpen(phmo.rawAddress.toString(), udeviceid.toInt(), dwcallback.toString(), dwinstance.toString(), fdwopen.toInt()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun midiOutPrepareHeader(hmo: Hmidiout, pmh: MutPtr<Midihdr>, cbmh: UInt): UInt =
+public actual fun midiOutPrepareHeader(hmo: Hmidiout, pmh: MutPtr, cbmh: UInt): UInt =
     if (windowsWin32MediaAudioNapiAvailable) wasmWindowssysWindowsWin32MediaAudioMidiOutPrepareHeader(hmo.rawAddress.toString(), pmh.rawAddress.toString(), cbmh.toInt()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun midiOutReset(hmo: Hmidiout): UInt =
@@ -780,25 +776,25 @@ public actual fun midiOutSetVolume(hmo: Hmidiout, dwvolume: UInt): UInt =
 public actual fun midiOutShortMsg(hmo: Hmidiout, dwmsg: UInt): UInt =
     if (windowsWin32MediaAudioNapiAvailable) wasmWindowssysWindowsWin32MediaAudioMidiOutShortMsg(hmo.rawAddress.toString(), dwmsg.toInt()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun midiOutUnprepareHeader(hmo: Hmidiout, pmh: MutPtr<Midihdr>, cbmh: UInt): UInt =
+public actual fun midiOutUnprepareHeader(hmo: Hmidiout, pmh: MutPtr, cbmh: UInt): UInt =
     if (windowsWin32MediaAudioNapiAvailable) wasmWindowssysWindowsWin32MediaAudioMidiOutUnprepareHeader(hmo.rawAddress.toString(), pmh.rawAddress.toString(), cbmh.toInt()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun midiStreamClose(hms: Hmidistrm): UInt =
     if (windowsWin32MediaAudioNapiAvailable) wasmWindowssysWindowsWin32MediaAudioMidiStreamClose(hms.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun midiStreamOpen(phms: MutPtr<Hmidistrm>, pudeviceid: MutPtr<UInt>, cmidi: UInt, dwcallback: ULong, dwinstance: ULong, fdwopen: UInt): UInt =
+public actual fun midiStreamOpen(phms: MutPtr, pudeviceid: MutPtr, cmidi: UInt, dwcallback: ULong, dwinstance: ULong, fdwopen: UInt): UInt =
     if (windowsWin32MediaAudioNapiAvailable) wasmWindowssysWindowsWin32MediaAudioMidiStreamOpen(phms.rawAddress.toString(), pudeviceid.rawAddress.toString(), cmidi.toInt(), dwcallback.toString(), dwinstance.toString(), fdwopen.toInt()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun midiStreamOut(hms: Hmidistrm, pmh: MutPtr<Midihdr>, cbmh: UInt): UInt =
+public actual fun midiStreamOut(hms: Hmidistrm, pmh: MutPtr, cbmh: UInt): UInt =
     if (windowsWin32MediaAudioNapiAvailable) wasmWindowssysWindowsWin32MediaAudioMidiStreamOut(hms.rawAddress.toString(), pmh.rawAddress.toString(), cbmh.toInt()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun midiStreamPause(hms: Hmidistrm): UInt =
     if (windowsWin32MediaAudioNapiAvailable) wasmWindowssysWindowsWin32MediaAudioMidiStreamPause(hms.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun midiStreamPosition(hms: Hmidistrm, lpmmt: MutPtr<Mmtime>, cbmmt: UInt): UInt =
+public actual fun midiStreamPosition(hms: Hmidistrm, lpmmt: MutPtr, cbmmt: UInt): UInt =
     if (windowsWin32MediaAudioNapiAvailable) wasmWindowssysWindowsWin32MediaAudioMidiStreamPosition(hms.rawAddress.toString(), lpmmt.rawAddress.toString(), cbmmt.toInt()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun midiStreamProperty(hms: Hmidistrm, lppropdata: MutPtr<UByte>, dwproperty: UInt): UInt =
+public actual fun midiStreamProperty(hms: Hmidistrm, lppropdata: MutPtr, dwproperty: UInt): UInt =
     if (windowsWin32MediaAudioNapiAvailable) wasmWindowssysWindowsWin32MediaAudioMidiStreamProperty(hms.rawAddress.toString(), lppropdata.rawAddress.toString(), dwproperty.toInt()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun midiStreamRestart(hms: Hmidistrm): UInt =
@@ -810,31 +806,31 @@ public actual fun midiStreamStop(hms: Hmidistrm): UInt =
 public actual fun mixerClose(hmx: Hmixer): UInt =
     if (windowsWin32MediaAudioNapiAvailable) wasmWindowssysWindowsWin32MediaAudioMixerClose(hmx.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun mixerGetControlDetailsA(hmxobj: Hmixerobj, pmxcd: MutPtr<Mixercontroldetails>, fdwdetails: UInt): UInt =
+public actual fun mixerGetControlDetailsA(hmxobj: Hmixerobj, pmxcd: MutPtr, fdwdetails: UInt): UInt =
     if (windowsWin32MediaAudioNapiAvailable) wasmWindowssysWindowsWin32MediaAudioMixerGetControlDetailsA(hmxobj.rawAddress.toString(), pmxcd.rawAddress.toString(), fdwdetails.toInt()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun mixerGetControlDetailsW(hmxobj: Hmixerobj, pmxcd: MutPtr<Mixercontroldetails>, fdwdetails: UInt): UInt =
+public actual fun mixerGetControlDetailsW(hmxobj: Hmixerobj, pmxcd: MutPtr, fdwdetails: UInt): UInt =
     if (windowsWin32MediaAudioNapiAvailable) wasmWindowssysWindowsWin32MediaAudioMixerGetControlDetailsW(hmxobj.rawAddress.toString(), pmxcd.rawAddress.toString(), fdwdetails.toInt()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun mixerGetDevCapsA(umxid: ULong, pmxcaps: MutPtr<Mixercapsa>, cbmxcaps: UInt): UInt =
+public actual fun mixerGetDevCapsA(umxid: ULong, pmxcaps: MutPtr, cbmxcaps: UInt): UInt =
     if (windowsWin32MediaAudioNapiAvailable) wasmWindowssysWindowsWin32MediaAudioMixerGetDevCapsA(umxid.toString(), pmxcaps.rawAddress.toString(), cbmxcaps.toInt()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun mixerGetDevCapsW(umxid: ULong, pmxcaps: MutPtr<Mixercapsw>, cbmxcaps: UInt): UInt =
+public actual fun mixerGetDevCapsW(umxid: ULong, pmxcaps: MutPtr, cbmxcaps: UInt): UInt =
     if (windowsWin32MediaAudioNapiAvailable) wasmWindowssysWindowsWin32MediaAudioMixerGetDevCapsW(umxid.toString(), pmxcaps.rawAddress.toString(), cbmxcaps.toInt()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun mixerGetID(hmxobj: Hmixerobj, pumxid: MutPtr<UInt>, fdwid: UInt): UInt =
+public actual fun mixerGetID(hmxobj: Hmixerobj, pumxid: MutPtr, fdwid: UInt): UInt =
     if (windowsWin32MediaAudioNapiAvailable) wasmWindowssysWindowsWin32MediaAudioMixerGetID(hmxobj.rawAddress.toString(), pumxid.rawAddress.toString(), fdwid.toInt()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun mixerGetLineControlsA(hmxobj: Hmixerobj, pmxlc: MutPtr<Mixerlinecontrolsa>, fdwcontrols: UInt): UInt =
+public actual fun mixerGetLineControlsA(hmxobj: Hmixerobj, pmxlc: MutPtr, fdwcontrols: UInt): UInt =
     if (windowsWin32MediaAudioNapiAvailable) wasmWindowssysWindowsWin32MediaAudioMixerGetLineControlsA(hmxobj.rawAddress.toString(), pmxlc.rawAddress.toString(), fdwcontrols.toInt()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun mixerGetLineControlsW(hmxobj: Hmixerobj, pmxlc: MutPtr<Mixerlinecontrolsw>, fdwcontrols: UInt): UInt =
+public actual fun mixerGetLineControlsW(hmxobj: Hmixerobj, pmxlc: MutPtr, fdwcontrols: UInt): UInt =
     if (windowsWin32MediaAudioNapiAvailable) wasmWindowssysWindowsWin32MediaAudioMixerGetLineControlsW(hmxobj.rawAddress.toString(), pmxlc.rawAddress.toString(), fdwcontrols.toInt()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun mixerGetLineInfoA(hmxobj: Hmixerobj, pmxl: MutPtr<Mixerlinea>, fdwinfo: UInt): UInt =
+public actual fun mixerGetLineInfoA(hmxobj: Hmixerobj, pmxl: MutPtr, fdwinfo: UInt): UInt =
     if (windowsWin32MediaAudioNapiAvailable) wasmWindowssysWindowsWin32MediaAudioMixerGetLineInfoA(hmxobj.rawAddress.toString(), pmxl.rawAddress.toString(), fdwinfo.toInt()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun mixerGetLineInfoW(hmxobj: Hmixerobj, pmxl: MutPtr<Mixerlinew>, fdwinfo: UInt): UInt =
+public actual fun mixerGetLineInfoW(hmxobj: Hmixerobj, pmxl: MutPtr, fdwinfo: UInt): UInt =
     if (windowsWin32MediaAudioNapiAvailable) wasmWindowssysWindowsWin32MediaAudioMixerGetLineInfoW(hmxobj.rawAddress.toString(), pmxl.rawAddress.toString(), fdwinfo.toInt()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun mixerGetNumDevs(): UInt =
@@ -843,10 +839,10 @@ public actual fun mixerGetNumDevs(): UInt =
 public actual fun mixerMessage(hmx: Hmixer, umsg: UInt, dwparam1: ULong, dwparam2: ULong): UInt =
     if (windowsWin32MediaAudioNapiAvailable) wasmWindowssysWindowsWin32MediaAudioMixerMessage(hmx.rawAddress.toString(), umsg.toInt(), dwparam1.toString(), dwparam2.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun mixerOpen(phmx: MutPtr<Hmixer>, umxid: UInt, dwcallback: ULong, dwinstance: ULong, fdwopen: UInt): UInt =
+public actual fun mixerOpen(phmx: MutPtr, umxid: UInt, dwcallback: ULong, dwinstance: ULong, fdwopen: UInt): UInt =
     if (windowsWin32MediaAudioNapiAvailable) wasmWindowssysWindowsWin32MediaAudioMixerOpen(phmx.rawAddress.toString(), umxid.toInt(), dwcallback.toString(), dwinstance.toString(), fdwopen.toInt()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun mixerSetControlDetails(hmxobj: Hmixerobj, pmxcd: ConstPtr<Mixercontroldetails>, fdwdetails: UInt): UInt =
+public actual fun mixerSetControlDetails(hmxobj: Hmixerobj, pmxcd: ConstPtr, fdwdetails: UInt): UInt =
     if (windowsWin32MediaAudioNapiAvailable) wasmWindowssysWindowsWin32MediaAudioMixerSetControlDetails(hmxobj.rawAddress.toString(), pmxcd.rawAddress.toString(), fdwdetails.toInt()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun sndPlaySoundA(pszsound: Pcstr, fusound: UInt): Bool =
@@ -855,16 +851,16 @@ public actual fun sndPlaySoundA(pszsound: Pcstr, fusound: UInt): Bool =
 public actual fun sndPlaySoundW(pszsound: Pcwstr, fusound: UInt): Bool =
     if (windowsWin32MediaAudioNapiAvailable) wasmWindowssysWindowsWin32MediaAudioSndPlaySoundW(pszsound.rawAddress.toString(), fusound.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun waveInAddBuffer(hwi: Hwavein, pwh: MutPtr<Wavehdr>, cbwh: UInt): UInt =
+public actual fun waveInAddBuffer(hwi: Hwavein, pwh: MutPtr, cbwh: UInt): UInt =
     if (windowsWin32MediaAudioNapiAvailable) wasmWindowssysWindowsWin32MediaAudioWaveInAddBuffer(hwi.rawAddress.toString(), pwh.rawAddress.toString(), cbwh.toInt()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun waveInClose(hwi: Hwavein): UInt =
     if (windowsWin32MediaAudioNapiAvailable) wasmWindowssysWindowsWin32MediaAudioWaveInClose(hwi.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun waveInGetDevCapsA(udeviceid: ULong, pwic: MutPtr<Waveincapsa>, cbwic: UInt): UInt =
+public actual fun waveInGetDevCapsA(udeviceid: ULong, pwic: MutPtr, cbwic: UInt): UInt =
     if (windowsWin32MediaAudioNapiAvailable) wasmWindowssysWindowsWin32MediaAudioWaveInGetDevCapsA(udeviceid.toString(), pwic.rawAddress.toString(), cbwic.toInt()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun waveInGetDevCapsW(udeviceid: ULong, pwic: MutPtr<Waveincapsw>, cbwic: UInt): UInt =
+public actual fun waveInGetDevCapsW(udeviceid: ULong, pwic: MutPtr, cbwic: UInt): UInt =
     if (windowsWin32MediaAudioNapiAvailable) wasmWindowssysWindowsWin32MediaAudioWaveInGetDevCapsW(udeviceid.toString(), pwic.rawAddress.toString(), cbwic.toInt()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun waveInGetErrorTextA(mmrerror: UInt, psztext: Pstr, cchtext: UInt): UInt =
@@ -873,22 +869,22 @@ public actual fun waveInGetErrorTextA(mmrerror: UInt, psztext: Pstr, cchtext: UI
 public actual fun waveInGetErrorTextW(mmrerror: UInt, psztext: Pwstr, cchtext: UInt): UInt =
     if (windowsWin32MediaAudioNapiAvailable) wasmWindowssysWindowsWin32MediaAudioWaveInGetErrorTextW(mmrerror.toInt(), psztext.rawAddress.toString(), cchtext.toInt()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun waveInGetID(hwi: Hwavein, pudeviceid: ConstPtr<UInt>): UInt =
+public actual fun waveInGetID(hwi: Hwavein, pudeviceid: ConstPtr): UInt =
     if (windowsWin32MediaAudioNapiAvailable) wasmWindowssysWindowsWin32MediaAudioWaveInGetID(hwi.rawAddress.toString(), pudeviceid.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun waveInGetNumDevs(): UInt =
     if (windowsWin32MediaAudioNapiAvailable) wasmWindowssysWindowsWin32MediaAudioWaveInGetNumDevs().toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun waveInGetPosition(hwi: Hwavein, pmmt: MutPtr<Mmtime>, cbmmt: UInt): UInt =
+public actual fun waveInGetPosition(hwi: Hwavein, pmmt: MutPtr, cbmmt: UInt): UInt =
     if (windowsWin32MediaAudioNapiAvailable) wasmWindowssysWindowsWin32MediaAudioWaveInGetPosition(hwi.rawAddress.toString(), pmmt.rawAddress.toString(), cbmmt.toInt()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun waveInMessage(hwi: Hwavein, umsg: UInt, dw1: ULong, dw2: ULong): UInt =
     if (windowsWin32MediaAudioNapiAvailable) wasmWindowssysWindowsWin32MediaAudioWaveInMessage(hwi.rawAddress.toString(), umsg.toInt(), dw1.toString(), dw2.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun waveInOpen(phwi: MutPtr<Hwavein>, udeviceid: UInt, pwfx: ConstPtr<Waveformatex>, dwcallback: ULong, dwinstance: ULong, fdwopen: MidiWaveOpenType): UInt =
+public actual fun waveInOpen(phwi: MutPtr, udeviceid: UInt, pwfx: ConstPtr, dwcallback: ULong, dwinstance: ULong, fdwopen: MidiWaveOpenType): UInt =
     if (windowsWin32MediaAudioNapiAvailable) wasmWindowssysWindowsWin32MediaAudioWaveInOpen(phwi.rawAddress.toString(), udeviceid.toInt(), pwfx.rawAddress.toString(), dwcallback.toString(), dwinstance.toString(), fdwopen.toInt()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun waveInPrepareHeader(hwi: Hwavein, pwh: MutPtr<Wavehdr>, cbwh: UInt): UInt =
+public actual fun waveInPrepareHeader(hwi: Hwavein, pwh: MutPtr, cbwh: UInt): UInt =
     if (windowsWin32MediaAudioNapiAvailable) wasmWindowssysWindowsWin32MediaAudioWaveInPrepareHeader(hwi.rawAddress.toString(), pwh.rawAddress.toString(), cbwh.toInt()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun waveInReset(hwi: Hwavein): UInt =
@@ -900,7 +896,7 @@ public actual fun waveInStart(hwi: Hwavein): UInt =
 public actual fun waveInStop(hwi: Hwavein): UInt =
     if (windowsWin32MediaAudioNapiAvailable) wasmWindowssysWindowsWin32MediaAudioWaveInStop(hwi.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun waveInUnprepareHeader(hwi: Hwavein, pwh: MutPtr<Wavehdr>, cbwh: UInt): UInt =
+public actual fun waveInUnprepareHeader(hwi: Hwavein, pwh: MutPtr, cbwh: UInt): UInt =
     if (windowsWin32MediaAudioNapiAvailable) wasmWindowssysWindowsWin32MediaAudioWaveInUnprepareHeader(hwi.rawAddress.toString(), pwh.rawAddress.toString(), cbwh.toInt()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun waveOutBreakLoop(hwo: Hwaveout): UInt =
@@ -909,10 +905,10 @@ public actual fun waveOutBreakLoop(hwo: Hwaveout): UInt =
 public actual fun waveOutClose(hwo: Hwaveout): UInt =
     if (windowsWin32MediaAudioNapiAvailable) wasmWindowssysWindowsWin32MediaAudioWaveOutClose(hwo.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun waveOutGetDevCapsA(udeviceid: ULong, pwoc: MutPtr<Waveoutcapsa>, cbwoc: UInt): UInt =
+public actual fun waveOutGetDevCapsA(udeviceid: ULong, pwoc: MutPtr, cbwoc: UInt): UInt =
     if (windowsWin32MediaAudioNapiAvailable) wasmWindowssysWindowsWin32MediaAudioWaveOutGetDevCapsA(udeviceid.toString(), pwoc.rawAddress.toString(), cbwoc.toInt()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun waveOutGetDevCapsW(udeviceid: ULong, pwoc: MutPtr<Waveoutcapsw>, cbwoc: UInt): UInt =
+public actual fun waveOutGetDevCapsW(udeviceid: ULong, pwoc: MutPtr, cbwoc: UInt): UInt =
     if (windowsWin32MediaAudioNapiAvailable) wasmWindowssysWindowsWin32MediaAudioWaveOutGetDevCapsW(udeviceid.toString(), pwoc.rawAddress.toString(), cbwoc.toInt()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun waveOutGetErrorTextA(mmrerror: UInt, psztext: Pstr, cchtext: UInt): UInt =
@@ -921,34 +917,34 @@ public actual fun waveOutGetErrorTextA(mmrerror: UInt, psztext: Pstr, cchtext: U
 public actual fun waveOutGetErrorTextW(mmrerror: UInt, psztext: Pwstr, cchtext: UInt): UInt =
     if (windowsWin32MediaAudioNapiAvailable) wasmWindowssysWindowsWin32MediaAudioWaveOutGetErrorTextW(mmrerror.toInt(), psztext.rawAddress.toString(), cchtext.toInt()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun waveOutGetID(hwo: Hwaveout, pudeviceid: MutPtr<UInt>): UInt =
+public actual fun waveOutGetID(hwo: Hwaveout, pudeviceid: MutPtr): UInt =
     if (windowsWin32MediaAudioNapiAvailable) wasmWindowssysWindowsWin32MediaAudioWaveOutGetID(hwo.rawAddress.toString(), pudeviceid.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun waveOutGetNumDevs(): UInt =
     if (windowsWin32MediaAudioNapiAvailable) wasmWindowssysWindowsWin32MediaAudioWaveOutGetNumDevs().toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun waveOutGetPitch(hwo: Hwaveout, pdwpitch: MutPtr<UInt>): UInt =
+public actual fun waveOutGetPitch(hwo: Hwaveout, pdwpitch: MutPtr): UInt =
     if (windowsWin32MediaAudioNapiAvailable) wasmWindowssysWindowsWin32MediaAudioWaveOutGetPitch(hwo.rawAddress.toString(), pdwpitch.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun waveOutGetPlaybackRate(hwo: Hwaveout, pdwrate: MutPtr<UInt>): UInt =
+public actual fun waveOutGetPlaybackRate(hwo: Hwaveout, pdwrate: MutPtr): UInt =
     if (windowsWin32MediaAudioNapiAvailable) wasmWindowssysWindowsWin32MediaAudioWaveOutGetPlaybackRate(hwo.rawAddress.toString(), pdwrate.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun waveOutGetPosition(hwo: Hwaveout, pmmt: MutPtr<Mmtime>, cbmmt: UInt): UInt =
+public actual fun waveOutGetPosition(hwo: Hwaveout, pmmt: MutPtr, cbmmt: UInt): UInt =
     if (windowsWin32MediaAudioNapiAvailable) wasmWindowssysWindowsWin32MediaAudioWaveOutGetPosition(hwo.rawAddress.toString(), pmmt.rawAddress.toString(), cbmmt.toInt()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun waveOutGetVolume(hwo: Hwaveout, pdwvolume: MutPtr<UInt>): UInt =
+public actual fun waveOutGetVolume(hwo: Hwaveout, pdwvolume: MutPtr): UInt =
     if (windowsWin32MediaAudioNapiAvailable) wasmWindowssysWindowsWin32MediaAudioWaveOutGetVolume(hwo.rawAddress.toString(), pdwvolume.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun waveOutMessage(hwo: Hwaveout, umsg: UInt, dw1: ULong, dw2: ULong): UInt =
     if (windowsWin32MediaAudioNapiAvailable) wasmWindowssysWindowsWin32MediaAudioWaveOutMessage(hwo.rawAddress.toString(), umsg.toInt(), dw1.toString(), dw2.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun waveOutOpen(phwo: MutPtr<Hwaveout>, udeviceid: UInt, pwfx: ConstPtr<Waveformatex>, dwcallback: ULong, dwinstance: ULong, fdwopen: MidiWaveOpenType): UInt =
+public actual fun waveOutOpen(phwo: MutPtr, udeviceid: UInt, pwfx: ConstPtr, dwcallback: ULong, dwinstance: ULong, fdwopen: MidiWaveOpenType): UInt =
     if (windowsWin32MediaAudioNapiAvailable) wasmWindowssysWindowsWin32MediaAudioWaveOutOpen(phwo.rawAddress.toString(), udeviceid.toInt(), pwfx.rawAddress.toString(), dwcallback.toString(), dwinstance.toString(), fdwopen.toInt()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun waveOutPause(hwo: Hwaveout): UInt =
     if (windowsWin32MediaAudioNapiAvailable) wasmWindowssysWindowsWin32MediaAudioWaveOutPause(hwo.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun waveOutPrepareHeader(hwo: Hwaveout, pwh: MutPtr<Wavehdr>, cbwh: UInt): UInt =
+public actual fun waveOutPrepareHeader(hwo: Hwaveout, pwh: MutPtr, cbwh: UInt): UInt =
     if (windowsWin32MediaAudioNapiAvailable) wasmWindowssysWindowsWin32MediaAudioWaveOutPrepareHeader(hwo.rawAddress.toString(), pwh.rawAddress.toString(), cbwh.toInt()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun waveOutReset(hwo: Hwaveout): UInt =
@@ -966,8 +962,8 @@ public actual fun waveOutSetPlaybackRate(hwo: Hwaveout, dwrate: UInt): UInt =
 public actual fun waveOutSetVolume(hwo: Hwaveout, dwvolume: UInt): UInt =
     if (windowsWin32MediaAudioNapiAvailable) wasmWindowssysWindowsWin32MediaAudioWaveOutSetVolume(hwo.rawAddress.toString(), dwvolume.toInt()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun waveOutUnprepareHeader(hwo: Hwaveout, pwh: MutPtr<Wavehdr>, cbwh: UInt): UInt =
+public actual fun waveOutUnprepareHeader(hwo: Hwaveout, pwh: MutPtr, cbwh: UInt): UInt =
     if (windowsWin32MediaAudioNapiAvailable) wasmWindowssysWindowsWin32MediaAudioWaveOutUnprepareHeader(hwo.rawAddress.toString(), pwh.rawAddress.toString(), cbwh.toInt()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun waveOutWrite(hwo: Hwaveout, pwh: MutPtr<Wavehdr>, cbwh: UInt): UInt =
+public actual fun waveOutWrite(hwo: Hwaveout, pwh: MutPtr, cbwh: UInt): UInt =
     if (windowsWin32MediaAudioNapiAvailable) wasmWindowssysWindowsWin32MediaAudioWaveOutWrite(hwo.rawAddress.toString(), pwh.rawAddress.toString(), cbwh.toInt()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")

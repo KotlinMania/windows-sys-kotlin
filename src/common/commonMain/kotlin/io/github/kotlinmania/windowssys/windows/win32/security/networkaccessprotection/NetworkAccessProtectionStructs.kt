@@ -6,7 +6,6 @@ import io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
 import io.github.kotlinmania.rustlang.core.mem.TypeLayout
 import io.github.kotlinmania.rustlang.core.ptr.MutPtr
 import io.github.kotlinmania.windowssys.core.Guid
-import io.github.kotlinmania.windowssys.core.Hresult
 import io.github.kotlinmania.windowssys.core.Pwstr
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Filetime
 
@@ -216,9 +215,9 @@ public data class NapComponentRegistrationInfo(
 
 public class NetworkSoH internal constructor(
     public var size: UShort,
-    dataCtorArg: MutPtr<UByte>,
+    dataCtorArg: MutPtr,
 ) {
-    public var data: MutPtr<UByte> = dataCtorArg
+    public var data: MutPtr = dataCtorArg
         internal set
 
     public constructor() : this(
@@ -228,9 +227,9 @@ public class NetworkSoH internal constructor(
 
     public operator fun component1(): UShort = this.size
 
-    public operator fun component2(): MutPtr<UByte> = this.data
+    public operator fun component2(): MutPtr = this.data
 
-    public fun copy(size: UShort = this.size, data: MutPtr<UByte> = this.data): NetworkSoH = NetworkSoH(size = size, dataCtorArg = data)
+    public fun copy(size: UShort = this.size, data: MutPtr = this.data): NetworkSoH = NetworkSoH(size = size, dataCtorArg = data)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -256,21 +255,21 @@ public class NetworkSoH internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<UByte>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                     )
                 override fun writeNative(addr: Long, value: NetworkSoH) {
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16).writeNative(addr, value.size)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<UByte>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.data)
                 }
             }
 
         public operator fun invoke(
             size: UShort = 0u,
-            data: MutPtr<UByte> = MutPtr(0L),
+            data: MutPtr = MutPtr(0L),
         ): NetworkSoH =
             NetworkSoH(
                 size = size,
@@ -281,9 +280,9 @@ public class NetworkSoH internal constructor(
 
 public class PrivateData internal constructor(
     public var size: UShort,
-    dataCtorArg: MutPtr<UByte>,
+    dataCtorArg: MutPtr,
 ) {
-    public var data: MutPtr<UByte> = dataCtorArg
+    public var data: MutPtr = dataCtorArg
         internal set
 
     public constructor() : this(
@@ -293,9 +292,9 @@ public class PrivateData internal constructor(
 
     public operator fun component1(): UShort = this.size
 
-    public operator fun component2(): MutPtr<UByte> = this.data
+    public operator fun component2(): MutPtr = this.data
 
-    public fun copy(size: UShort = this.size, data: MutPtr<UByte> = this.data): PrivateData = PrivateData(size = size, dataCtorArg = data)
+    public fun copy(size: UShort = this.size, data: MutPtr = this.data): PrivateData = PrivateData(size = size, dataCtorArg = data)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -321,21 +320,21 @@ public class PrivateData internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<UByte>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                     )
                 override fun writeNative(addr: Long, value: PrivateData) {
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16).writeNative(addr, value.size)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<UByte>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.data)
                 }
             }
 
         public operator fun invoke(
             size: UShort = 0u,
-            data: MutPtr<UByte> = MutPtr(0L),
+            data: MutPtr = MutPtr(0L),
         ): PrivateData =
             PrivateData(
                 size = size,
@@ -346,9 +345,9 @@ public class PrivateData internal constructor(
 
 public class ResultCodes internal constructor(
     public var count: UShort,
-    resultsCtorArg: MutPtr<Hresult>,
+    resultsCtorArg: MutPtr,
 ) {
-    public var results: MutPtr<Hresult> = resultsCtorArg
+    public var results: MutPtr = resultsCtorArg
         internal set
 
     public constructor() : this(
@@ -358,9 +357,9 @@ public class ResultCodes internal constructor(
 
     public operator fun component1(): UShort = this.count
 
-    public operator fun component2(): MutPtr<Hresult> = this.results
+    public operator fun component2(): MutPtr = this.results
 
-    public fun copy(count: UShort = this.count, results: MutPtr<Hresult> = this.results): ResultCodes = ResultCodes(count = count, resultsCtorArg = results)
+    public fun copy(count: UShort = this.count, results: MutPtr = this.results): ResultCodes = ResultCodes(count = count, resultsCtorArg = results)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -386,21 +385,21 @@ public class ResultCodes internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<Hresult>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                     )
                 override fun writeNative(addr: Long, value: ResultCodes) {
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16).writeNative(addr, value.count)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<Hresult>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.results)
                 }
             }
 
         public operator fun invoke(
             count: UShort = 0u,
-            results: MutPtr<Hresult> = MutPtr(0L),
+            results: MutPtr = MutPtr(0L),
         ): ResultCodes =
             ResultCodes(
                 count = count,
@@ -411,9 +410,9 @@ public class ResultCodes internal constructor(
 
 public class SoH internal constructor(
     public var count: UShort,
-    attributesCtorArg: MutPtr<SoHAttribute>,
+    attributesCtorArg: MutPtr,
 ) {
-    public var attributes: MutPtr<SoHAttribute> = attributesCtorArg
+    public var attributes: MutPtr = attributesCtorArg
         internal set
 
     public constructor() : this(
@@ -423,9 +422,9 @@ public class SoH internal constructor(
 
     public operator fun component1(): UShort = this.count
 
-    public operator fun component2(): MutPtr<SoHAttribute> = this.attributes
+    public operator fun component2(): MutPtr = this.attributes
 
-    public fun copy(count: UShort = this.count, attributes: MutPtr<SoHAttribute> = this.attributes): SoH = SoH(count = count, attributesCtorArg = attributes)
+    public fun copy(count: UShort = this.count, attributes: MutPtr = this.attributes): SoH = SoH(count = count, attributesCtorArg = attributes)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -451,21 +450,21 @@ public class SoH internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<SoHAttribute>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                     )
                 override fun writeNative(addr: Long, value: SoH) {
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16).writeNative(addr, value.count)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<SoHAttribute>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.attributes)
                 }
             }
 
         public operator fun invoke(
             count: UShort = 0u,
-            attributes: MutPtr<SoHAttribute> = MutPtr(0L),
+            attributes: MutPtr = MutPtr(0L),
         ): SoH =
             SoH(
                 count = count,
@@ -477,9 +476,9 @@ public class SoH internal constructor(
 public class SoHAttribute internal constructor(
     public var type: UShort,
     public var size: UShort,
-    valueCtorArg: MutPtr<UByte>,
+    valueCtorArg: MutPtr,
 ) {
-    public var value: MutPtr<UByte> = valueCtorArg
+    public var value: MutPtr = valueCtorArg
         internal set
 
     public constructor() : this(
@@ -492,9 +491,9 @@ public class SoHAttribute internal constructor(
 
     public operator fun component2(): UShort = this.size
 
-    public operator fun component3(): MutPtr<UByte> = this.value
+    public operator fun component3(): MutPtr = this.value
 
-    public fun copy(type: UShort = this.type, size: UShort = this.size, value: MutPtr<UByte> = this.value): SoHAttribute = SoHAttribute(type = type, size = size, valueCtorArg = value)
+    public fun copy(type: UShort = this.type, size: UShort = this.size, value: MutPtr = this.value): SoHAttribute = SoHAttribute(type = type, size = size, valueCtorArg = value)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -523,7 +522,7 @@ public class SoHAttribute internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16).readNative(addr + 2L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<UByte>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                     )
                 override fun writeNative(addr: Long, value: SoHAttribute) {
@@ -531,7 +530,7 @@ public class SoHAttribute internal constructor(
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16).writeNative(addr + 2L, value.size)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<UByte>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.value)
                 }
             }
@@ -539,7 +538,7 @@ public class SoHAttribute internal constructor(
         public operator fun invoke(
             type: UShort = 0u,
             size: UShort = 0u,
-            value: MutPtr<UByte> = MutPtr(0L),
+            value: MutPtr = MutPtr(0L),
         ): SoHAttribute =
             SoHAttribute(
                 type = type,

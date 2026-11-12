@@ -1,6 +1,5 @@
 package io.github.kotlinmania.windowssys.windows.win32.system.registry
 
-import io.github.kotlinmania.rustlang.core.ffi.CVoid
 import io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
 import io.github.kotlinmania.rustlang.core.mem.TypeLayout
 import io.github.kotlinmania.rustlang.core.ptr.MutPtr
@@ -53,13 +52,13 @@ public data class Dsktlsystemtime(
 public class Pvaluea internal constructor(
     pvValuenameCtorArg: Pstr,
     public var pvValuelen: Int,
-    pvValueContextCtorArg: MutPtr<CVoid>,
+    pvValueContextCtorArg: MutPtr,
     public var pvType: UInt,
 ) {
     public var pvValuename: Pstr = pvValuenameCtorArg
         internal set
 
-    public var pvValueContext: MutPtr<CVoid> = pvValueContextCtorArg
+    public var pvValueContext: MutPtr = pvValueContextCtorArg
         internal set
 
     public constructor() : this(
@@ -73,11 +72,11 @@ public class Pvaluea internal constructor(
 
     public operator fun component2(): Int = this.pvValuelen
 
-    public operator fun component3(): MutPtr<CVoid> = this.pvValueContext
+    public operator fun component3(): MutPtr = this.pvValueContext
 
     public operator fun component4(): UInt = this.pvType
 
-    public fun copy(pvValuename: Pstr = this.pvValuename, pvValuelen: Int = this.pvValuelen, pvValueContext: MutPtr<CVoid> = this.pvValueContext, pvType: UInt = this.pvType): Pvaluea = Pvaluea(pvValuenameCtorArg = pvValuename, pvValuelen = pvValuelen, pvValueContextCtorArg = pvValueContext, pvType = pvType)
+    public fun copy(pvValuename: Pstr = this.pvValuename, pvValuelen: Int = this.pvValuelen, pvValueContext: MutPtr = this.pvValueContext, pvType: UInt = this.pvType): Pvaluea = Pvaluea(pvValuenameCtorArg = pvValuename, pvValuelen = pvValuelen, pvValueContextCtorArg = pvValueContext, pvType = pvType)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -101,7 +100,7 @@ public class Pvaluea internal constructor(
         public operator fun invoke(
             pvValuename: Pstr = MutPtr(0L),
             pvValuelen: Int = 0,
-            pvValueContext: MutPtr<CVoid> = MutPtr(0L),
+            pvValueContext: MutPtr = MutPtr(0L),
             pvType: UInt = 0u,
         ): Pvaluea =
             Pvaluea(
@@ -116,13 +115,13 @@ public class Pvaluea internal constructor(
 public class Pvaluew internal constructor(
     pvValuenameCtorArg: Pwstr,
     public var pvValuelen: Int,
-    pvValueContextCtorArg: MutPtr<CVoid>,
+    pvValueContextCtorArg: MutPtr,
     public var pvType: UInt,
 ) {
     public var pvValuename: Pwstr = pvValuenameCtorArg
         internal set
 
-    public var pvValueContext: MutPtr<CVoid> = pvValueContextCtorArg
+    public var pvValueContext: MutPtr = pvValueContextCtorArg
         internal set
 
     public constructor() : this(
@@ -136,11 +135,11 @@ public class Pvaluew internal constructor(
 
     public operator fun component2(): Int = this.pvValuelen
 
-    public operator fun component3(): MutPtr<CVoid> = this.pvValueContext
+    public operator fun component3(): MutPtr = this.pvValueContext
 
     public operator fun component4(): UInt = this.pvType
 
-    public fun copy(pvValuename: Pwstr = this.pvValuename, pvValuelen: Int = this.pvValuelen, pvValueContext: MutPtr<CVoid> = this.pvValueContext, pvType: UInt = this.pvType): Pvaluew = Pvaluew(pvValuenameCtorArg = pvValuename, pvValuelen = pvValuelen, pvValueContextCtorArg = pvValueContext, pvType = pvType)
+    public fun copy(pvValuename: Pwstr = this.pvValuename, pvValuelen: Int = this.pvValuelen, pvValueContext: MutPtr = this.pvValueContext, pvType: UInt = this.pvType): Pvaluew = Pvaluew(pvValuenameCtorArg = pvValuename, pvValuelen = pvValuelen, pvValueContextCtorArg = pvValueContext, pvType = pvType)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -164,7 +163,7 @@ public class Pvaluew internal constructor(
         public operator fun invoke(
             pvValuename: Pwstr = MutPtr(0L),
             pvValuelen: Int = 0,
-            pvValueContext: MutPtr<CVoid> = MutPtr(0L),
+            pvValueContext: MutPtr = MutPtr(0L),
             pvType: UInt = 0u,
         ): Pvaluew =
             Pvaluew(
@@ -182,9 +181,9 @@ public class RegProvider internal constructor(
     public var piR31val: Pqueryhandler,
     public var piR3Allvals: Pqueryhandler,
     public var piFlags: UInt,
-    piKeyContextCtorArg: MutPtr<CVoid>,
+    piKeyContextCtorArg: MutPtr,
 ) {
-    public var piKeyContext: MutPtr<CVoid> = piKeyContextCtorArg
+    public var piKeyContext: MutPtr = piKeyContextCtorArg
         internal set
 
     public constructor() : this(
@@ -206,9 +205,9 @@ public class RegProvider internal constructor(
 
     public operator fun component5(): UInt = this.piFlags
 
-    public operator fun component6(): MutPtr<CVoid> = this.piKeyContext
+    public operator fun component6(): MutPtr = this.piKeyContext
 
-    public fun copy(piR01val: Pqueryhandler = this.piR01val, piR0Allvals: Pqueryhandler = this.piR0Allvals, piR31val: Pqueryhandler = this.piR31val, piR3Allvals: Pqueryhandler = this.piR3Allvals, piFlags: UInt = this.piFlags, piKeyContext: MutPtr<CVoid> = this.piKeyContext): RegProvider = RegProvider(piR01val = piR01val, piR0Allvals = piR0Allvals, piR31val = piR31val, piR3Allvals = piR3Allvals, piFlags = piFlags, piKeyContextCtorArg = piKeyContext)
+    public fun copy(piR01val: Pqueryhandler = this.piR01val, piR0Allvals: Pqueryhandler = this.piR0Allvals, piR31val: Pqueryhandler = this.piR31val, piR3Allvals: Pqueryhandler = this.piR3Allvals, piFlags: UInt = this.piFlags, piKeyContext: MutPtr = this.piKeyContext): RegProvider = RegProvider(piR01val = piR01val, piR0Allvals = piR0Allvals, piR31val = piR31val, piR3Allvals = piR3Allvals, piFlags = piFlags, piKeyContextCtorArg = piKeyContext)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -239,7 +238,7 @@ public class RegProvider internal constructor(
             piR31val: Pqueryhandler = null,
             piR3Allvals: Pqueryhandler = null,
             piFlags: UInt = 0u,
-            piKeyContext: MutPtr<CVoid> = MutPtr(0L),
+            piKeyContext: MutPtr = MutPtr(0L),
         ): RegProvider =
             RegProvider(
                 piR01val = piR01val,
@@ -374,13 +373,13 @@ public class Valentw internal constructor(
 
 public class ValContext internal constructor(
     public var valuelen: Int,
-    valueContextCtorArg: MutPtr<CVoid>,
-    valBuffPtrCtorArg: MutPtr<CVoid>,
+    valueContextCtorArg: MutPtr,
+    valBuffPtrCtorArg: MutPtr,
 ) {
-    public var valueContext: MutPtr<CVoid> = valueContextCtorArg
+    public var valueContext: MutPtr = valueContextCtorArg
         internal set
 
-    public var valBuffPtr: MutPtr<CVoid> = valBuffPtrCtorArg
+    public var valBuffPtr: MutPtr = valBuffPtrCtorArg
         internal set
 
     public constructor() : this(
@@ -391,11 +390,11 @@ public class ValContext internal constructor(
 
     public operator fun component1(): Int = this.valuelen
 
-    public operator fun component2(): MutPtr<CVoid> = this.valueContext
+    public operator fun component2(): MutPtr = this.valueContext
 
-    public operator fun component3(): MutPtr<CVoid> = this.valBuffPtr
+    public operator fun component3(): MutPtr = this.valBuffPtr
 
-    public fun copy(valuelen: Int = this.valuelen, valueContext: MutPtr<CVoid> = this.valueContext, valBuffPtr: MutPtr<CVoid> = this.valBuffPtr): ValContext = ValContext(valuelen = valuelen, valueContextCtorArg = valueContext, valBuffPtrCtorArg = valBuffPtr)
+    public fun copy(valuelen: Int = this.valuelen, valueContext: MutPtr = this.valueContext, valBuffPtr: MutPtr = this.valBuffPtr): ValContext = ValContext(valuelen = valuelen, valueContextCtorArg = valueContext, valBuffPtrCtorArg = valBuffPtr)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -423,30 +422,30 @@ public class ValContext internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<CVoid>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<CVoid>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 16L),
                     )
                 override fun writeNative(addr: Long, value: ValContext) {
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr, value.valuelen)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<CVoid>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.valueContext)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<CVoid>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 16L, value.valBuffPtr)
                 }
             }
 
         public operator fun invoke(
             valuelen: Int = 0,
-            valueContext: MutPtr<CVoid> = MutPtr(0L),
-            valBuffPtr: MutPtr<CVoid> = MutPtr(0L),
+            valueContext: MutPtr = MutPtr(0L),
+            valBuffPtr: MutPtr = MutPtr(0L),
         ): ValContext =
             ValContext(
                 valuelen = valuelen,

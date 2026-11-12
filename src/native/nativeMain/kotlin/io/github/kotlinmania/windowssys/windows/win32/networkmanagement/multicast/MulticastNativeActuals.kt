@@ -18,20 +18,20 @@ public actual fun mcastApiCleanup() {
     windowssysWindowsWin32NetworkmanagementMulticastMcastApiCleanup()
 }
 
-public actual fun mcastApiStartup(version: MutPtr<UInt>): UInt =
+public actual fun mcastApiStartup(version: MutPtr): UInt =
     windowssysWindowsWin32NetworkmanagementMulticastMcastApiStartup(version.rawAddress.toCPointer<ByteVar>())
 
-public actual fun mcastEnumerateScopes(addrfamily: UShort, requery: Bool, pscopelist: MutPtr<McastScopeEntry>, pscopelen: MutPtr<UInt>, pscopecount: MutPtr<UInt>): UInt =
+public actual fun mcastEnumerateScopes(addrfamily: UShort, requery: Bool, pscopelist: MutPtr, pscopelen: MutPtr, pscopecount: MutPtr): UInt =
     windowssysWindowsWin32NetworkmanagementMulticastMcastEnumerateScopes(addrfamily, requery, pscopelist.rawAddress.toCPointer<ByteVar>(), pscopelen.rawAddress.toCPointer<ByteVar>(), pscopecount.rawAddress.toCPointer<ByteVar>())
 
-public actual fun mcastGenUID(prequestid: MutPtr<McastClientUid>): UInt =
+public actual fun mcastGenUID(prequestid: MutPtr): UInt =
     windowssysWindowsWin32NetworkmanagementMulticastMcastGenUID(prequestid.rawAddress.toCPointer<ByteVar>())
 
-public actual fun mcastReleaseAddress(addrfamily: UShort, prequestid: MutPtr<McastClientUid>, preleaserequest: MutPtr<McastLeaseRequest>): UInt =
+public actual fun mcastReleaseAddress(addrfamily: UShort, prequestid: MutPtr, preleaserequest: MutPtr): UInt =
     windowssysWindowsWin32NetworkmanagementMulticastMcastReleaseAddress(addrfamily, prequestid.rawAddress.toCPointer<ByteVar>(), preleaserequest.rawAddress.toCPointer<ByteVar>())
 
-public actual fun mcastRenewAddress(addrfamily: UShort, prequestid: MutPtr<McastClientUid>, prenewrequest: MutPtr<McastLeaseRequest>, prenewresponse: MutPtr<McastLeaseResponse>): UInt =
+public actual fun mcastRenewAddress(addrfamily: UShort, prequestid: MutPtr, prenewrequest: MutPtr, prenewresponse: MutPtr): UInt =
     windowssysWindowsWin32NetworkmanagementMulticastMcastRenewAddress(addrfamily, prequestid.rawAddress.toCPointer<ByteVar>(), prenewrequest.rawAddress.toCPointer<ByteVar>(), prenewresponse.rawAddress.toCPointer<ByteVar>())
 
-public actual fun mcastRequestAddress(addrfamily: UShort, prequestid: MutPtr<McastClientUid>, pscopectx: MutPtr<McastScopeCtx>, paddrrequest: MutPtr<McastLeaseRequest>, paddrresponse: MutPtr<McastLeaseResponse>): UInt =
+public actual fun mcastRequestAddress(addrfamily: UShort, prequestid: MutPtr, pscopectx: MutPtr, paddrrequest: MutPtr, paddrresponse: MutPtr): UInt =
     windowssysWindowsWin32NetworkmanagementMulticastMcastRequestAddress(addrfamily, prequestid.rawAddress.toCPointer<ByteVar>(), pscopectx.rawAddress.toCPointer<ByteVar>(), paddrrequest.rawAddress.toCPointer<ByteVar>(), paddrresponse.rawAddress.toCPointer<ByteVar>())

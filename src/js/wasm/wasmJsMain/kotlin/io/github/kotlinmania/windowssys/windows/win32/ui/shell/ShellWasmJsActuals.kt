@@ -2,11 +2,9 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.ui.shell
 
-import io.github.kotlinmania.rustlang.core.ffi.CVoid
 import io.github.kotlinmania.rustlang.core.ptr.ConstPtr
 import io.github.kotlinmania.rustlang.core.ptr.MutPtr
 import io.github.kotlinmania.windowssys.core.Bool
-import io.github.kotlinmania.windowssys.core.Bstr
 import io.github.kotlinmania.windowssys.core.Guid
 import io.github.kotlinmania.windowssys.core.Hresult
 import io.github.kotlinmania.windowssys.core.Pcstr
@@ -14,36 +12,24 @@ import io.github.kotlinmania.windowssys.core.Pcwstr
 import io.github.kotlinmania.windowssys.core.Pstr
 import io.github.kotlinmania.windowssys.core.Pwstr
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Colorref
-import io.github.kotlinmania.windowssys.windows.win32.foundation.Filetime
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Handle
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Hinstance
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Hwnd
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Lparam
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Lresult
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Point
-import io.github.kotlinmania.windowssys.windows.win32.foundation.Propertykey
-import io.github.kotlinmania.windowssys.windows.win32.foundation.Rect
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Win32Error
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Wparam
 import io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.Hdc
 import io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.Hmonitor
 import io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.Hpalette
-import io.github.kotlinmania.windowssys.windows.win32.security.SecurityAttributes
 import io.github.kotlinmania.windowssys.windows.win32.storage.filesystem.FileFlagsAndAttributes
-import io.github.kotlinmania.windowssys.windows.win32.system.Variant
-import io.github.kotlinmania.windowssys.windows.win32.system.com.Formatetc
-import io.github.kotlinmania.windowssys.windows.win32.system.com.structuredstorage.Propvariant
-import io.github.kotlinmania.windowssys.windows.win32.system.com.urlmon.Softdistinfo
 import io.github.kotlinmania.windowssys.windows.win32.system.ole.Dropeffect
 import io.github.kotlinmania.windowssys.windows.win32.system.registry.Hkey
 import io.github.kotlinmania.windowssys.windows.win32.system.threading.LpthreadStartRoutine
 import io.github.kotlinmania.windowssys.windows.win32.ui.controls.Himagelist
 import io.github.kotlinmania.windowssys.windows.win32.ui.controls.Lpfnsvaddpropsheetpage
 import io.github.kotlinmania.windowssys.windows.win32.ui.shell.common.DeviceScaleFactor
-import io.github.kotlinmania.windowssys.windows.win32.ui.shell.common.Itemidlist
-import io.github.kotlinmania.windowssys.windows.win32.ui.shell.common.Perceived
-import io.github.kotlinmania.windowssys.windows.win32.ui.shell.common.Shitemid
-import io.github.kotlinmania.windowssys.windows.win32.ui.shell.common.Strret
 import io.github.kotlinmania.windowssys.windows.win32.ui.windowsandmessaging.Hicon
 import io.github.kotlinmania.windowssys.windows.win32.ui.windowsandmessaging.Hmenu
 import io.github.kotlinmania.windowssys.windows.win32.ui.windowsandmessaging.MessageboxStyle
@@ -2112,43 +2098,43 @@ private external fun wasmWindowssysWindowsWin32UiShellWvnsprintfA(p0: String, p1
 @JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssysWindowsWin32UiShellWvnsprintfW(p0, p1, p2, p3)")
 private external fun wasmWindowssysWindowsWin32UiShellWvnsprintfW(p0: String, p1: Int, p2: String, p3: String): Int
 
-public actual fun assocCreate(clsid: Guid, riid: ConstPtr<Guid>, ppv: MutPtr<MutPtr<CVoid>>): Hresult =
+public actual fun assocCreate(clsid: Guid, riid: ConstPtr, ppv: MutPtr): Hresult =
     throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun assocCreateForClasses(rgclasses: ConstPtr<Associationelement>, cclasses: UInt, riid: ConstPtr<Guid>, ppv: MutPtr<MutPtr<CVoid>>): Hresult =
+public actual fun assocCreateForClasses(rgclasses: ConstPtr, cclasses: UInt, riid: ConstPtr, ppv: MutPtr): Hresult =
     if (windowsWin32UiShellNapiAvailable) wasmWindowssysWindowsWin32UiShellAssocCreateForClasses(rgclasses.rawAddress.toString(), cclasses.toInt(), riid.rawAddress.toString(), ppv.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun assocGetDetailsOfPropKey(psf: MutPtr<CVoid>, pidl: ConstPtr<Itemidlist>, pkey: ConstPtr<Propertykey>, pv: MutPtr<Variant.Variant>, pffoundpropkey: MutPtr<Bool>): Hresult =
+public actual fun assocGetDetailsOfPropKey(psf: MutPtr, pidl: ConstPtr, pkey: ConstPtr, pv: MutPtr, pffoundpropkey: MutPtr): Hresult =
     if (windowsWin32UiShellNapiAvailable) wasmWindowssysWindowsWin32UiShellAssocGetDetailsOfPropKey(psf.rawAddress.toString(), pidl.rawAddress.toString(), pkey.rawAddress.toString(), pv.rawAddress.toString(), pffoundpropkey.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun assocGetPerceivedType(pszext: Pcwstr, ptype: MutPtr<Perceived>, pflag: MutPtr<UInt>, ppsztype: MutPtr<Pwstr>): Hresult =
+public actual fun assocGetPerceivedType(pszext: Pcwstr, ptype: MutPtr, pflag: MutPtr, ppsztype: MutPtr): Hresult =
     if (windowsWin32UiShellNapiAvailable) wasmWindowssysWindowsWin32UiShellAssocGetPerceivedType(pszext.rawAddress.toString(), ptype.rawAddress.toString(), pflag.rawAddress.toString(), ppsztype.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun assocIsDangerous(pszassoc: Pcwstr): Bool =
     if (windowsWin32UiShellNapiAvailable) wasmWindowssysWindowsWin32UiShellAssocIsDangerous(pszassoc.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun assocQueryKeyA(flags: Assocf, key: Assockey, pszassoc: Pcstr, pszextra: Pcstr, phkeyout: MutPtr<Hkey>): Hresult =
+public actual fun assocQueryKeyA(flags: Assocf, key: Assockey, pszassoc: Pcstr, pszextra: Pcstr, phkeyout: MutPtr): Hresult =
     if (windowsWin32UiShellNapiAvailable) wasmWindowssysWindowsWin32UiShellAssocQueryKeyA(flags.toInt(), key, pszassoc.rawAddress.toString(), pszextra.rawAddress.toString(), phkeyout.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun assocQueryKeyW(flags: Assocf, key: Assockey, pszassoc: Pcwstr, pszextra: Pcwstr, phkeyout: MutPtr<Hkey>): Hresult =
+public actual fun assocQueryKeyW(flags: Assocf, key: Assockey, pszassoc: Pcwstr, pszextra: Pcwstr, phkeyout: MutPtr): Hresult =
     if (windowsWin32UiShellNapiAvailable) wasmWindowssysWindowsWin32UiShellAssocQueryKeyW(flags.toInt(), key, pszassoc.rawAddress.toString(), pszextra.rawAddress.toString(), phkeyout.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun assocQueryStringA(flags: Assocf, str: Assocstr, pszassoc: Pcstr, pszextra: Pcstr, pszout: Pstr, pcchout: MutPtr<UInt>): Hresult =
+public actual fun assocQueryStringA(flags: Assocf, str: Assocstr, pszassoc: Pcstr, pszextra: Pcstr, pszout: Pstr, pcchout: MutPtr): Hresult =
     if (windowsWin32UiShellNapiAvailable) wasmWindowssysWindowsWin32UiShellAssocQueryStringA(flags.toInt(), str, pszassoc.rawAddress.toString(), pszextra.rawAddress.toString(), pszout.rawAddress.toString(), pcchout.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun assocQueryStringByKeyA(flags: Assocf, str: Assocstr, hkassoc: Hkey, pszextra: Pcstr, pszout: Pstr, pcchout: MutPtr<UInt>): Hresult =
+public actual fun assocQueryStringByKeyA(flags: Assocf, str: Assocstr, hkassoc: Hkey, pszextra: Pcstr, pszout: Pstr, pcchout: MutPtr): Hresult =
     if (windowsWin32UiShellNapiAvailable) wasmWindowssysWindowsWin32UiShellAssocQueryStringByKeyA(flags.toInt(), str, hkassoc.rawAddress.toString(), pszextra.rawAddress.toString(), pszout.rawAddress.toString(), pcchout.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun assocQueryStringByKeyW(flags: Assocf, str: Assocstr, hkassoc: Hkey, pszextra: Pcwstr, pszout: Pwstr, pcchout: MutPtr<UInt>): Hresult =
+public actual fun assocQueryStringByKeyW(flags: Assocf, str: Assocstr, hkassoc: Hkey, pszextra: Pcwstr, pszout: Pwstr, pcchout: MutPtr): Hresult =
     if (windowsWin32UiShellNapiAvailable) wasmWindowssysWindowsWin32UiShellAssocQueryStringByKeyW(flags.toInt(), str, hkassoc.rawAddress.toString(), pszextra.rawAddress.toString(), pszout.rawAddress.toString(), pcchout.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun assocQueryStringW(flags: Assocf, str: Assocstr, pszassoc: Pcwstr, pszextra: Pcwstr, pszout: Pwstr, pcchout: MutPtr<UInt>): Hresult =
+public actual fun assocQueryStringW(flags: Assocf, str: Assocstr, pszassoc: Pcwstr, pszextra: Pcwstr, pszout: Pwstr, pcchout: MutPtr): Hresult =
     if (windowsWin32UiShellNapiAvailable) wasmWindowssysWindowsWin32UiShellAssocQueryStringW(flags.toInt(), str, pszassoc.rawAddress.toString(), pszextra.rawAddress.toString(), pszout.rawAddress.toString(), pcchout.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun cdefFolderMenuCreate2(pidlfolder: ConstPtr<Itemidlist>, hwnd: Hwnd, cidl: UInt, apidl: ConstPtr<ConstPtr<Itemidlist>>, psf: MutPtr<CVoid>, pfn: Lpfndfmcallback, nkeys: UInt, ahkeys: ConstPtr<Hkey>, ppcm: MutPtr<MutPtr<CVoid>>): Hresult =
+public actual fun cdefFolderMenuCreate2(pidlfolder: ConstPtr, hwnd: Hwnd, cidl: UInt, apidl: ConstPtr, psf: MutPtr, pfn: Lpfndfmcallback, nkeys: UInt, ahkeys: ConstPtr, ppcm: MutPtr): Hresult =
     if (windowsWin32UiShellNapiAvailable) wasmWindowssysWindowsWin32UiShellCdefFolderMenuCreate2(pidlfolder.rawAddress.toString(), hwnd.rawAddress.toString(), cidl.toInt(), apidl.rawAddress.toString(), psf.rawAddress.toString(), 0L.toString(), nkeys.toInt(), ahkeys.rawAddress.toString(), ppcm.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun cidldataCreateFromIdarray(pidlfolder: ConstPtr<Itemidlist>, cidl: UInt, apidl: ConstPtr<ConstPtr<Itemidlist>>, ppdtobj: MutPtr<MutPtr<CVoid>>): Hresult =
+public actual fun cidldataCreateFromIdarray(pidlfolder: ConstPtr, cidl: UInt, apidl: ConstPtr, ppdtobj: MutPtr): Hresult =
     if (windowsWin32UiShellNapiAvailable) wasmWindowssysWindowsWin32UiShellCidldataCreateFromIdarray(pidlfolder.rawAddress.toString(), cidl.toInt(), apidl.rawAddress.toString(), ppdtobj.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun chrCmpIA(w1: UShort, w2: UShort): Bool =
@@ -2163,7 +2149,7 @@ public actual fun colorAdjustLuma(clrrgb: Colorref, n: Int, fscale: Bool): Color
 public actual fun colorHLSToRGB(whue: UShort, wluminance: UShort, wsaturation: UShort): Colorref =
     if (windowsWin32UiShellNapiAvailable) wasmWindowssysWindowsWin32UiShellColorHLSToRGB(whue.toInt(), wluminance.toInt(), wsaturation.toInt()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun colorRGBToHLS(clrrgb: Colorref, pwhue: MutPtr<UShort>, pwluminance: MutPtr<UShort>, pwsaturation: MutPtr<UShort>) {
+public actual fun colorRGBToHLS(clrrgb: Colorref, pwhue: MutPtr, pwluminance: MutPtr, pwsaturation: MutPtr) {
     if (windowsWin32UiShellNapiAvailable) {
         wasmWindowssysWindowsWin32UiShellColorRGBToHLS(clrrgb.toInt(), pwhue.rawAddress.toString(), pwluminance.rawAddress.toString(), pwsaturation.rawAddress.toString())
     } else {
@@ -2171,22 +2157,22 @@ public actual fun colorRGBToHLS(clrrgb: Colorref, pwhue: MutPtr<UShort>, pwlumin
     }
 }
 
-public actual fun commandLineToArgvW(lpcmdline: Pcwstr, pnumargs: MutPtr<Int>): MutPtr<Pwstr> =
+public actual fun commandLineToArgvW(lpcmdline: Pcwstr, pnumargs: MutPtr): MutPtr =
     if (windowsWin32UiShellNapiAvailable) MutPtr(wasmWindowssysWindowsWin32UiShellCommandLineToArgvW(lpcmdline.rawAddress.toString(), pnumargs.rawAddress.toString()).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun connectToConnectionPoint(punk: MutPtr<CVoid>, riidevent: ConstPtr<Guid>, fconnect: Bool, punktarget: MutPtr<CVoid>, pdwcookie: MutPtr<UInt>, ppcpout: MutPtr<MutPtr<CVoid>>): Hresult =
+public actual fun connectToConnectionPoint(punk: MutPtr, riidevent: ConstPtr, fconnect: Bool, punktarget: MutPtr, pdwcookie: MutPtr, ppcpout: MutPtr): Hresult =
     if (windowsWin32UiShellNapiAvailable) wasmWindowssysWindowsWin32UiShellConnectToConnectionPoint(punk.rawAddress.toString(), riidevent.rawAddress.toString(), fconnect, punktarget.rawAddress.toString(), pdwcookie.rawAddress.toString(), ppcpout.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun createProfile(pszusersid: Pcwstr, pszusername: Pcwstr, pszprofilepath: Pwstr, cchprofilepath: UInt): Hresult =
     if (windowsWin32UiShellNapiAvailable) wasmWindowssysWindowsWin32UiShellCreateProfile(pszusersid.rawAddress.toString(), pszusername.rawAddress.toString(), pszprofilepath.rawAddress.toString(), cchprofilepath.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun dadAutoScroll(hwnd: Hwnd, pad: MutPtr<AutoScrollData>, pptnow: ConstPtr<Point>): Bool =
+public actual fun dadAutoScroll(hwnd: Hwnd, pad: MutPtr, pptnow: ConstPtr): Bool =
     if (windowsWin32UiShellNapiAvailable) wasmWindowssysWindowsWin32UiShellDadAutoScroll(hwnd.rawAddress.toString(), pad.rawAddress.toString(), pptnow.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun dadDragEnterEx(hwndtarget: Hwnd, ptstart: Point): Bool =
     throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun dadDragEnterEx2(hwndtarget: Hwnd, ptstart: Point, pdtobject: MutPtr<CVoid>): Bool =
+public actual fun dadDragEnterEx2(hwndtarget: Hwnd, ptstart: Point, pdtobject: MutPtr): Bool =
     throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun dadDragLeave(): Bool =
@@ -2195,7 +2181,7 @@ public actual fun dadDragLeave(): Bool =
 public actual fun dadDragMove(pt: Point): Bool =
     throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun dadSetDragImage(him: Himagelist, pptoffset: MutPtr<Point>): Bool =
+public actual fun dadSetDragImage(him: Himagelist, pptoffset: MutPtr): Bool =
     if (windowsWin32UiShellNapiAvailable) wasmWindowssysWindowsWin32UiShellDadSetDragImage(him.toString(), pptoffset.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun dadShowDragImage(fshow: Bool): Bool =
@@ -2238,7 +2224,7 @@ public actual fun dragQueryFileA(hdrop: Hdrop, ifile: UInt, lpszfile: Pstr, cch:
 public actual fun dragQueryFileW(hdrop: Hdrop, ifile: UInt, lpszfile: Pwstr, cch: UInt): UInt =
     if (windowsWin32UiShellNapiAvailable) wasmWindowssysWindowsWin32UiShellDragQueryFileW(hdrop.rawAddress.toString(), ifile.toInt(), lpszfile.rawAddress.toString(), cch.toInt()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun dragQueryPoint(hdrop: Hdrop, ppt: MutPtr<Point>): Bool =
+public actual fun dragQueryPoint(hdrop: Hdrop, ppt: MutPtr): Bool =
     if (windowsWin32UiShellNapiAvailable) wasmWindowssysWindowsWin32UiShellDragQueryPoint(hdrop.rawAddress.toString(), ppt.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun driveType(idrive: Int): Int =
@@ -2247,25 +2233,25 @@ public actual fun driveType(idrive: Int): Int =
 public actual fun duplicateIcon(hinst: Hinstance, hicon: Hicon): Hicon =
     if (windowsWin32UiShellNapiAvailable) MutPtr(wasmWindowssysWindowsWin32UiShellDuplicateIcon(hinst.rawAddress.toString(), hicon.rawAddress.toString()).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun extractAssociatedIconA(hinst: Hinstance, psziconpath: Pstr, piicon: MutPtr<UShort>): Hicon =
+public actual fun extractAssociatedIconA(hinst: Hinstance, psziconpath: Pstr, piicon: MutPtr): Hicon =
     if (windowsWin32UiShellNapiAvailable) MutPtr(wasmWindowssysWindowsWin32UiShellExtractAssociatedIconA(hinst.rawAddress.toString(), psziconpath.rawAddress.toString(), piicon.rawAddress.toString()).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun extractAssociatedIconExA(hinst: Hinstance, psziconpath: Pstr, piiconindex: MutPtr<UShort>, piiconid: MutPtr<UShort>): Hicon =
+public actual fun extractAssociatedIconExA(hinst: Hinstance, psziconpath: Pstr, piiconindex: MutPtr, piiconid: MutPtr): Hicon =
     if (windowsWin32UiShellNapiAvailable) MutPtr(wasmWindowssysWindowsWin32UiShellExtractAssociatedIconExA(hinst.rawAddress.toString(), psziconpath.rawAddress.toString(), piiconindex.rawAddress.toString(), piiconid.rawAddress.toString()).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun extractAssociatedIconExW(hinst: Hinstance, psziconpath: Pwstr, piiconindex: MutPtr<UShort>, piiconid: MutPtr<UShort>): Hicon =
+public actual fun extractAssociatedIconExW(hinst: Hinstance, psziconpath: Pwstr, piiconindex: MutPtr, piiconid: MutPtr): Hicon =
     if (windowsWin32UiShellNapiAvailable) MutPtr(wasmWindowssysWindowsWin32UiShellExtractAssociatedIconExW(hinst.rawAddress.toString(), psziconpath.rawAddress.toString(), piiconindex.rawAddress.toString(), piiconid.rawAddress.toString()).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun extractAssociatedIconW(hinst: Hinstance, psziconpath: Pwstr, piicon: MutPtr<UShort>): Hicon =
+public actual fun extractAssociatedIconW(hinst: Hinstance, psziconpath: Pwstr, piicon: MutPtr): Hicon =
     if (windowsWin32UiShellNapiAvailable) MutPtr(wasmWindowssysWindowsWin32UiShellExtractAssociatedIconW(hinst.rawAddress.toString(), psziconpath.rawAddress.toString(), piicon.rawAddress.toString()).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun extractIconA(hinst: Hinstance, pszexefilename: Pcstr, niconindex: UInt): Hicon =
     if (windowsWin32UiShellNapiAvailable) MutPtr(wasmWindowssysWindowsWin32UiShellExtractIconA(hinst.rawAddress.toString(), pszexefilename.rawAddress.toString(), niconindex.toInt()).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun extractIconExA(lpszfile: Pcstr, niconindex: Int, phiconlarge: MutPtr<Hicon>, phiconsmall: MutPtr<Hicon>, nicons: UInt): UInt =
+public actual fun extractIconExA(lpszfile: Pcstr, niconindex: Int, phiconlarge: MutPtr, phiconsmall: MutPtr, nicons: UInt): UInt =
     if (windowsWin32UiShellNapiAvailable) wasmWindowssysWindowsWin32UiShellExtractIconExA(lpszfile.rawAddress.toString(), niconindex, phiconlarge.rawAddress.toString(), phiconsmall.rawAddress.toString(), nicons.toInt()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun extractIconExW(lpszfile: Pcwstr, niconindex: Int, phiconlarge: MutPtr<Hicon>, phiconsmall: MutPtr<Hicon>, nicons: UInt): UInt =
+public actual fun extractIconExW(lpszfile: Pcwstr, niconindex: Int, phiconlarge: MutPtr, phiconsmall: MutPtr, nicons: UInt): UInt =
     if (windowsWin32UiShellNapiAvailable) wasmWindowssysWindowsWin32UiShellExtractIconExW(lpszfile.rawAddress.toString(), niconindex, phiconlarge.rawAddress.toString(), phiconsmall.rawAddress.toString(), nicons.toInt()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun extractIconW(hinst: Hinstance, pszexefilename: Pcwstr, niconindex: UInt): Hicon =
@@ -2277,25 +2263,25 @@ public actual fun findExecutableA(lpfile: Pcstr, lpdirectory: Pcstr, lpresult: P
 public actual fun findExecutableW(lpfile: Pcwstr, lpdirectory: Pcwstr, lpresult: Pwstr): Hinstance =
     if (windowsWin32UiShellNapiAvailable) MutPtr(wasmWindowssysWindowsWin32UiShellFindExecutableW(lpfile.rawAddress.toString(), lpdirectory.rawAddress.toString(), lpresult.rawAddress.toString()).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun getAcceptLanguagesA(pszlanguages: Pstr, pcchlanguages: MutPtr<UInt>): Hresult =
+public actual fun getAcceptLanguagesA(pszlanguages: Pstr, pcchlanguages: MutPtr): Hresult =
     if (windowsWin32UiShellNapiAvailable) wasmWindowssysWindowsWin32UiShellGetAcceptLanguagesA(pszlanguages.rawAddress.toString(), pcchlanguages.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun getAcceptLanguagesW(pszlanguages: Pwstr, pcchlanguages: MutPtr<UInt>): Hresult =
+public actual fun getAcceptLanguagesW(pszlanguages: Pwstr, pcchlanguages: MutPtr): Hresult =
     if (windowsWin32UiShellNapiAvailable) wasmWindowssysWindowsWin32UiShellGetAcceptLanguagesW(pszlanguages.rawAddress.toString(), pcchlanguages.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun getAllUsersProfileDirectoryA(lpprofiledir: Pstr, lpcchsize: MutPtr<UInt>): Bool =
+public actual fun getAllUsersProfileDirectoryA(lpprofiledir: Pstr, lpcchsize: MutPtr): Bool =
     if (windowsWin32UiShellNapiAvailable) wasmWindowssysWindowsWin32UiShellGetAllUsersProfileDirectoryA(lpprofiledir.rawAddress.toString(), lpcchsize.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun getAllUsersProfileDirectoryW(lpprofiledir: Pwstr, lpcchsize: MutPtr<UInt>): Bool =
+public actual fun getAllUsersProfileDirectoryW(lpprofiledir: Pwstr, lpcchsize: MutPtr): Bool =
     if (windowsWin32UiShellNapiAvailable) wasmWindowssysWindowsWin32UiShellGetAllUsersProfileDirectoryW(lpprofiledir.rawAddress.toString(), lpcchsize.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun getCurrentProcessExplicitAppUserModelID(appid: MutPtr<Pwstr>): Hresult =
+public actual fun getCurrentProcessExplicitAppUserModelID(appid: MutPtr): Hresult =
     if (windowsWin32UiShellNapiAvailable) wasmWindowssysWindowsWin32UiShellGetCurrentProcessExplicitAppUserModelID(appid.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun getDefaultUserProfileDirectoryA(lpprofiledir: Pstr, lpcchsize: MutPtr<UInt>): Bool =
+public actual fun getDefaultUserProfileDirectoryA(lpprofiledir: Pstr, lpcchsize: MutPtr): Bool =
     if (windowsWin32UiShellNapiAvailable) wasmWindowssysWindowsWin32UiShellGetDefaultUserProfileDirectoryA(lpprofiledir.rawAddress.toString(), lpcchsize.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun getDefaultUserProfileDirectoryW(lpprofiledir: Pwstr, lpcchsize: MutPtr<UInt>): Bool =
+public actual fun getDefaultUserProfileDirectoryW(lpprofiledir: Pwstr, lpcchsize: MutPtr): Bool =
     if (windowsWin32UiShellNapiAvailable) wasmWindowssysWindowsWin32UiShellGetDefaultUserProfileDirectoryW(lpprofiledir.rawAddress.toString(), lpcchsize.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun getDpiForShellUIComponent(param0: ShellUiComponent): UInt =
@@ -2310,34 +2296,34 @@ public actual fun getMenuContextHelpId(param0: Hmenu): UInt =
 public actual fun getMenuPosFromID(hmenu: Hmenu, id: UInt): Int =
     if (windowsWin32UiShellNapiAvailable) wasmWindowssysWindowsWin32UiShellGetMenuPosFromID(hmenu.rawAddress.toString(), id.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun getProfileType(dwflags: MutPtr<UInt>): Bool =
+public actual fun getProfileType(dwflags: MutPtr): Bool =
     if (windowsWin32UiShellNapiAvailable) wasmWindowssysWindowsWin32UiShellGetProfileType(dwflags.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun getProfilesDirectoryA(lpprofiledir: Pstr, lpcchsize: MutPtr<UInt>): Bool =
+public actual fun getProfilesDirectoryA(lpprofiledir: Pstr, lpcchsize: MutPtr): Bool =
     if (windowsWin32UiShellNapiAvailable) wasmWindowssysWindowsWin32UiShellGetProfilesDirectoryA(lpprofiledir.rawAddress.toString(), lpcchsize.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun getProfilesDirectoryW(lpprofiledir: Pwstr, lpcchsize: MutPtr<UInt>): Bool =
+public actual fun getProfilesDirectoryW(lpprofiledir: Pwstr, lpcchsize: MutPtr): Bool =
     if (windowsWin32UiShellNapiAvailable) wasmWindowssysWindowsWin32UiShellGetProfilesDirectoryW(lpprofiledir.rawAddress.toString(), lpcchsize.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun getScaleFactorForDevice(devicetype: DisplayDeviceType): DeviceScaleFactor =
     if (windowsWin32UiShellNapiAvailable) wasmWindowssysWindowsWin32UiShellGetScaleFactorForDevice(devicetype) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun getScaleFactorForMonitor(hmon: Hmonitor, pscale: MutPtr<DeviceScaleFactor>): Hresult =
+public actual fun getScaleFactorForMonitor(hmon: Hmonitor, pscale: MutPtr): Hresult =
     if (windowsWin32UiShellNapiAvailable) wasmWindowssysWindowsWin32UiShellGetScaleFactorForMonitor(hmon.rawAddress.toString(), pscale.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun getUserProfileDirectoryA(htoken: Handle, lpprofiledir: Pstr, lpcchsize: MutPtr<UInt>): Bool =
+public actual fun getUserProfileDirectoryA(htoken: Handle, lpprofiledir: Pstr, lpcchsize: MutPtr): Bool =
     if (windowsWin32UiShellNapiAvailable) wasmWindowssysWindowsWin32UiShellGetUserProfileDirectoryA(htoken.rawAddress.toString(), lpprofiledir.rawAddress.toString(), lpcchsize.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun getUserProfileDirectoryW(htoken: Handle, lpprofiledir: Pwstr, lpcchsize: MutPtr<UInt>): Bool =
+public actual fun getUserProfileDirectoryW(htoken: Handle, lpprofiledir: Pwstr, lpcchsize: MutPtr): Bool =
     if (windowsWin32UiShellNapiAvailable) wasmWindowssysWindowsWin32UiShellGetUserProfileDirectoryW(htoken.rawAddress.toString(), lpprofiledir.rawAddress.toString(), lpcchsize.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun getWindowContextHelpId(param0: Hwnd): UInt =
     if (windowsWin32UiShellNapiAvailable) wasmWindowssysWindowsWin32UiShellGetWindowContextHelpId(param0.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun getWindowSubclass(hwnd: Hwnd, pfnsubclass: Subclassproc, uidsubclass: ULong, pdwrefdata: MutPtr<ULong>): Bool =
+public actual fun getWindowSubclass(hwnd: Hwnd, pfnsubclass: Subclassproc, uidsubclass: ULong, pdwrefdata: MutPtr): Bool =
     if (windowsWin32UiShellNapiAvailable) wasmWindowssysWindowsWin32UiShellGetWindowSubclass(hwnd.rawAddress.toString(), 0L.toString(), uidsubclass.toString(), pdwrefdata.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun hmonitorUserFree(param0: ConstPtr<UInt>, param1: ConstPtr<Hmonitor>) {
+public actual fun hmonitorUserFree(param0: ConstPtr, param1: ConstPtr) {
     if (windowsWin32UiShellNapiAvailable) {
         wasmWindowssysWindowsWin32UiShellHmonitorUserFree(param0.rawAddress.toString(), param1.rawAddress.toString())
     } else {
@@ -2345,7 +2331,7 @@ public actual fun hmonitorUserFree(param0: ConstPtr<UInt>, param1: ConstPtr<Hmon
     }
 }
 
-public actual fun hmonitorUserFree64(param0: ConstPtr<UInt>, param1: ConstPtr<Hmonitor>) {
+public actual fun hmonitorUserFree64(param0: ConstPtr, param1: ConstPtr) {
     if (windowsWin32UiShellNapiAvailable) {
         wasmWindowssysWindowsWin32UiShellHmonitorUserFree64(param0.rawAddress.toString(), param1.rawAddress.toString())
     } else {
@@ -2353,133 +2339,133 @@ public actual fun hmonitorUserFree64(param0: ConstPtr<UInt>, param1: ConstPtr<Hm
     }
 }
 
-public actual fun hmonitorUserMarshal(param0: ConstPtr<UInt>, param1: MutPtr<UByte>, param2: ConstPtr<Hmonitor>): MutPtr<UByte> =
+public actual fun hmonitorUserMarshal(param0: ConstPtr, param1: MutPtr, param2: ConstPtr): MutPtr =
     if (windowsWin32UiShellNapiAvailable) MutPtr(wasmWindowssysWindowsWin32UiShellHmonitorUserMarshal(param0.rawAddress.toString(), param1.rawAddress.toString(), param2.rawAddress.toString()).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun hmonitorUserMarshal64(param0: ConstPtr<UInt>, param1: MutPtr<UByte>, param2: ConstPtr<Hmonitor>): MutPtr<UByte> =
+public actual fun hmonitorUserMarshal64(param0: ConstPtr, param1: MutPtr, param2: ConstPtr): MutPtr =
     if (windowsWin32UiShellNapiAvailable) MutPtr(wasmWindowssysWindowsWin32UiShellHmonitorUserMarshal64(param0.rawAddress.toString(), param1.rawAddress.toString(), param2.rawAddress.toString()).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun hmonitorUserSize(param0: ConstPtr<UInt>, param1: UInt, param2: ConstPtr<Hmonitor>): UInt =
+public actual fun hmonitorUserSize(param0: ConstPtr, param1: UInt, param2: ConstPtr): UInt =
     if (windowsWin32UiShellNapiAvailable) wasmWindowssysWindowsWin32UiShellHmonitorUserSize(param0.rawAddress.toString(), param1.toInt(), param2.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun hmonitorUserSize64(param0: ConstPtr<UInt>, param1: UInt, param2: ConstPtr<Hmonitor>): UInt =
+public actual fun hmonitorUserSize64(param0: ConstPtr, param1: UInt, param2: ConstPtr): UInt =
     if (windowsWin32UiShellNapiAvailable) wasmWindowssysWindowsWin32UiShellHmonitorUserSize64(param0.rawAddress.toString(), param1.toInt(), param2.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun hmonitorUserUnmarshal(param0: ConstPtr<UInt>, param1: ConstPtr<UByte>, param2: MutPtr<Hmonitor>): MutPtr<UByte> =
+public actual fun hmonitorUserUnmarshal(param0: ConstPtr, param1: ConstPtr, param2: MutPtr): MutPtr =
     if (windowsWin32UiShellNapiAvailable) MutPtr(wasmWindowssysWindowsWin32UiShellHmonitorUserUnmarshal(param0.rawAddress.toString(), param1.rawAddress.toString(), param2.rawAddress.toString()).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun hmonitorUserUnmarshal64(param0: ConstPtr<UInt>, param1: ConstPtr<UByte>, param2: MutPtr<Hmonitor>): MutPtr<UByte> =
+public actual fun hmonitorUserUnmarshal64(param0: ConstPtr, param1: ConstPtr, param2: MutPtr): MutPtr =
     if (windowsWin32UiShellNapiAvailable) MutPtr(wasmWindowssysWindowsWin32UiShellHmonitorUserUnmarshal64(param0.rawAddress.toString(), param1.rawAddress.toString(), param2.rawAddress.toString()).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun hashData(pbdata: ConstPtr<UByte>, cbdata: UInt, pbhash: MutPtr<UByte>, cbhash: UInt): Hresult =
+public actual fun hashData(pbdata: ConstPtr, cbdata: UInt, pbhash: MutPtr, cbhash: UInt): Hresult =
     if (windowsWin32UiShellNapiAvailable) wasmWindowssysWindowsWin32UiShellHashData(pbdata.rawAddress.toString(), cbdata.toInt(), pbhash.rawAddress.toString(), cbhash.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun hlinkClone(pihl: MutPtr<CVoid>, riid: ConstPtr<Guid>, pihlsiteforclone: MutPtr<CVoid>, dwsitedata: UInt, ppvobj: MutPtr<MutPtr<CVoid>>): Hresult =
+public actual fun hlinkClone(pihl: MutPtr, riid: ConstPtr, pihlsiteforclone: MutPtr, dwsitedata: UInt, ppvobj: MutPtr): Hresult =
     if (windowsWin32UiShellNapiAvailable) wasmWindowssysWindowsWin32UiShellHlinkClone(pihl.rawAddress.toString(), riid.rawAddress.toString(), pihlsiteforclone.rawAddress.toString(), dwsitedata.toInt(), ppvobj.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun hlinkCreateBrowseContext(piunkouter: MutPtr<CVoid>, riid: ConstPtr<Guid>, ppvobj: MutPtr<MutPtr<CVoid>>): Hresult =
+public actual fun hlinkCreateBrowseContext(piunkouter: MutPtr, riid: ConstPtr, ppvobj: MutPtr): Hresult =
     if (windowsWin32UiShellNapiAvailable) wasmWindowssysWindowsWin32UiShellHlinkCreateBrowseContext(piunkouter.rawAddress.toString(), riid.rawAddress.toString(), ppvobj.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun hlinkCreateExtensionServices(pwzadditionalheaders: Pcwstr, phwnd: Hwnd, pszusername: Pcwstr, pszpassword: Pcwstr, piunkouter: MutPtr<CVoid>, riid: ConstPtr<Guid>, ppvobj: MutPtr<MutPtr<CVoid>>): Hresult =
+public actual fun hlinkCreateExtensionServices(pwzadditionalheaders: Pcwstr, phwnd: Hwnd, pszusername: Pcwstr, pszpassword: Pcwstr, piunkouter: MutPtr, riid: ConstPtr, ppvobj: MutPtr): Hresult =
     if (windowsWin32UiShellNapiAvailable) wasmWindowssysWindowsWin32UiShellHlinkCreateExtensionServices(pwzadditionalheaders.rawAddress.toString(), phwnd.rawAddress.toString(), pszusername.rawAddress.toString(), pszpassword.rawAddress.toString(), piunkouter.rawAddress.toString(), riid.rawAddress.toString(), ppvobj.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun hlinkCreateFromData(pidataobj: MutPtr<CVoid>, pihlsite: MutPtr<CVoid>, dwsitedata: UInt, piunkouter: MutPtr<CVoid>, riid: ConstPtr<Guid>, ppvobj: MutPtr<MutPtr<CVoid>>): Hresult =
+public actual fun hlinkCreateFromData(pidataobj: MutPtr, pihlsite: MutPtr, dwsitedata: UInt, piunkouter: MutPtr, riid: ConstPtr, ppvobj: MutPtr): Hresult =
     if (windowsWin32UiShellNapiAvailable) wasmWindowssysWindowsWin32UiShellHlinkCreateFromData(pidataobj.rawAddress.toString(), pihlsite.rawAddress.toString(), dwsitedata.toInt(), piunkouter.rawAddress.toString(), riid.rawAddress.toString(), ppvobj.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun hlinkCreateFromMoniker(pimktrgt: MutPtr<CVoid>, pwzlocation: Pcwstr, pwzfriendlyname: Pcwstr, pihlsite: MutPtr<CVoid>, dwsitedata: UInt, piunkouter: MutPtr<CVoid>, riid: ConstPtr<Guid>, ppvobj: MutPtr<MutPtr<CVoid>>): Hresult =
+public actual fun hlinkCreateFromMoniker(pimktrgt: MutPtr, pwzlocation: Pcwstr, pwzfriendlyname: Pcwstr, pihlsite: MutPtr, dwsitedata: UInt, piunkouter: MutPtr, riid: ConstPtr, ppvobj: MutPtr): Hresult =
     if (windowsWin32UiShellNapiAvailable) wasmWindowssysWindowsWin32UiShellHlinkCreateFromMoniker(pimktrgt.rawAddress.toString(), pwzlocation.rawAddress.toString(), pwzfriendlyname.rawAddress.toString(), pihlsite.rawAddress.toString(), dwsitedata.toInt(), piunkouter.rawAddress.toString(), riid.rawAddress.toString(), ppvobj.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun hlinkCreateFromString(pwztarget: Pcwstr, pwzlocation: Pcwstr, pwzfriendlyname: Pcwstr, pihlsite: MutPtr<CVoid>, dwsitedata: UInt, piunkouter: MutPtr<CVoid>, riid: ConstPtr<Guid>, ppvobj: MutPtr<MutPtr<CVoid>>): Hresult =
+public actual fun hlinkCreateFromString(pwztarget: Pcwstr, pwzlocation: Pcwstr, pwzfriendlyname: Pcwstr, pihlsite: MutPtr, dwsitedata: UInt, piunkouter: MutPtr, riid: ConstPtr, ppvobj: MutPtr): Hresult =
     if (windowsWin32UiShellNapiAvailable) wasmWindowssysWindowsWin32UiShellHlinkCreateFromString(pwztarget.rawAddress.toString(), pwzlocation.rawAddress.toString(), pwzfriendlyname.rawAddress.toString(), pihlsite.rawAddress.toString(), dwsitedata.toInt(), piunkouter.rawAddress.toString(), riid.rawAddress.toString(), ppvobj.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun hlinkCreateShortcut(grfhlshortcutf: UInt, pihl: MutPtr<CVoid>, pwzdir: Pcwstr, pwzfilename: Pcwstr, ppwzshortcutfile: MutPtr<Pwstr>, dwreserved: UInt): Hresult =
+public actual fun hlinkCreateShortcut(grfhlshortcutf: UInt, pihl: MutPtr, pwzdir: Pcwstr, pwzfilename: Pcwstr, ppwzshortcutfile: MutPtr, dwreserved: UInt): Hresult =
     if (windowsWin32UiShellNapiAvailable) wasmWindowssysWindowsWin32UiShellHlinkCreateShortcut(grfhlshortcutf.toInt(), pihl.rawAddress.toString(), pwzdir.rawAddress.toString(), pwzfilename.rawAddress.toString(), ppwzshortcutfile.rawAddress.toString(), dwreserved.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun hlinkCreateShortcutFromMoniker(grfhlshortcutf: UInt, pimktarget: MutPtr<CVoid>, pwzlocation: Pcwstr, pwzdir: Pcwstr, pwzfilename: Pcwstr, ppwzshortcutfile: MutPtr<Pwstr>, dwreserved: UInt): Hresult =
+public actual fun hlinkCreateShortcutFromMoniker(grfhlshortcutf: UInt, pimktarget: MutPtr, pwzlocation: Pcwstr, pwzdir: Pcwstr, pwzfilename: Pcwstr, ppwzshortcutfile: MutPtr, dwreserved: UInt): Hresult =
     if (windowsWin32UiShellNapiAvailable) wasmWindowssysWindowsWin32UiShellHlinkCreateShortcutFromMoniker(grfhlshortcutf.toInt(), pimktarget.rawAddress.toString(), pwzlocation.rawAddress.toString(), pwzdir.rawAddress.toString(), pwzfilename.rawAddress.toString(), ppwzshortcutfile.rawAddress.toString(), dwreserved.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun hlinkCreateShortcutFromString(grfhlshortcutf: UInt, pwztarget: Pcwstr, pwzlocation: Pcwstr, pwzdir: Pcwstr, pwzfilename: Pcwstr, ppwzshortcutfile: MutPtr<Pwstr>, dwreserved: UInt): Hresult =
+public actual fun hlinkCreateShortcutFromString(grfhlshortcutf: UInt, pwztarget: Pcwstr, pwzlocation: Pcwstr, pwzdir: Pcwstr, pwzfilename: Pcwstr, ppwzshortcutfile: MutPtr, dwreserved: UInt): Hresult =
     if (windowsWin32UiShellNapiAvailable) wasmWindowssysWindowsWin32UiShellHlinkCreateShortcutFromString(grfhlshortcutf.toInt(), pwztarget.rawAddress.toString(), pwzlocation.rawAddress.toString(), pwzdir.rawAddress.toString(), pwzfilename.rawAddress.toString(), ppwzshortcutfile.rawAddress.toString(), dwreserved.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun hlinkGetSpecialReference(ureference: UInt, ppwzreference: MutPtr<Pwstr>): Hresult =
+public actual fun hlinkGetSpecialReference(ureference: UInt, ppwzreference: MutPtr): Hresult =
     if (windowsWin32UiShellNapiAvailable) wasmWindowssysWindowsWin32UiShellHlinkGetSpecialReference(ureference.toInt(), ppwzreference.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun hlinkGetValueFromParams(pwzparams: Pcwstr, pwzname: Pcwstr, ppwzvalue: MutPtr<Pwstr>): Hresult =
+public actual fun hlinkGetValueFromParams(pwzparams: Pcwstr, pwzname: Pcwstr, ppwzvalue: MutPtr): Hresult =
     if (windowsWin32UiShellNapiAvailable) wasmWindowssysWindowsWin32UiShellHlinkGetValueFromParams(pwzparams.rawAddress.toString(), pwzname.rawAddress.toString(), ppwzvalue.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun hlinkIsShortcut(pwzfilename: Pcwstr): Hresult =
     if (windowsWin32UiShellNapiAvailable) wasmWindowssysWindowsWin32UiShellHlinkIsShortcut(pwzfilename.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun hlinkNavigate(pihl: MutPtr<CVoid>, pihlframe: MutPtr<CVoid>, grfhlnf: UInt, pbc: MutPtr<CVoid>, pibsc: MutPtr<CVoid>, pihlbc: MutPtr<CVoid>): Hresult =
+public actual fun hlinkNavigate(pihl: MutPtr, pihlframe: MutPtr, grfhlnf: UInt, pbc: MutPtr, pibsc: MutPtr, pihlbc: MutPtr): Hresult =
     if (windowsWin32UiShellNapiAvailable) wasmWindowssysWindowsWin32UiShellHlinkNavigate(pihl.rawAddress.toString(), pihlframe.rawAddress.toString(), grfhlnf.toInt(), pbc.rawAddress.toString(), pibsc.rawAddress.toString(), pihlbc.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun hlinkNavigateToStringReference(pwztarget: Pcwstr, pwzlocation: Pcwstr, pihlsite: MutPtr<CVoid>, dwsitedata: UInt, pihlframe: MutPtr<CVoid>, grfhlnf: UInt, pibc: MutPtr<CVoid>, pibsc: MutPtr<CVoid>, pihlbc: MutPtr<CVoid>): Hresult =
+public actual fun hlinkNavigateToStringReference(pwztarget: Pcwstr, pwzlocation: Pcwstr, pihlsite: MutPtr, dwsitedata: UInt, pihlframe: MutPtr, grfhlnf: UInt, pibc: MutPtr, pibsc: MutPtr, pihlbc: MutPtr): Hresult =
     if (windowsWin32UiShellNapiAvailable) wasmWindowssysWindowsWin32UiShellHlinkNavigateToStringReference(pwztarget.rawAddress.toString(), pwzlocation.rawAddress.toString(), pihlsite.rawAddress.toString(), dwsitedata.toInt(), pihlframe.rawAddress.toString(), grfhlnf.toInt(), pibc.rawAddress.toString(), pibsc.rawAddress.toString(), pihlbc.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun hlinkOnNavigate(pihlframe: MutPtr<CVoid>, pihlbc: MutPtr<CVoid>, grfhlnf: UInt, pimktarget: MutPtr<CVoid>, pwzlocation: Pcwstr, pwzfriendlyname: Pcwstr, puhlid: MutPtr<UInt>): Hresult =
+public actual fun hlinkOnNavigate(pihlframe: MutPtr, pihlbc: MutPtr, grfhlnf: UInt, pimktarget: MutPtr, pwzlocation: Pcwstr, pwzfriendlyname: Pcwstr, puhlid: MutPtr): Hresult =
     if (windowsWin32UiShellNapiAvailable) wasmWindowssysWindowsWin32UiShellHlinkOnNavigate(pihlframe.rawAddress.toString(), pihlbc.rawAddress.toString(), grfhlnf.toInt(), pimktarget.rawAddress.toString(), pwzlocation.rawAddress.toString(), pwzfriendlyname.rawAddress.toString(), puhlid.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun hlinkOnRenameDocument(dwreserved: UInt, pihlbc: MutPtr<CVoid>, pimkold: MutPtr<CVoid>, pimknew: MutPtr<CVoid>): Hresult =
+public actual fun hlinkOnRenameDocument(dwreserved: UInt, pihlbc: MutPtr, pimkold: MutPtr, pimknew: MutPtr): Hresult =
     if (windowsWin32UiShellNapiAvailable) wasmWindowssysWindowsWin32UiShellHlinkOnRenameDocument(dwreserved.toInt(), pihlbc.rawAddress.toString(), pimkold.rawAddress.toString(), pimknew.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun hlinkParseDisplayName(pibc: MutPtr<CVoid>, pwzdisplayname: Pcwstr, fnoforceabs: Bool, pccheaten: MutPtr<UInt>, ppimk: MutPtr<MutPtr<CVoid>>): Hresult =
+public actual fun hlinkParseDisplayName(pibc: MutPtr, pwzdisplayname: Pcwstr, fnoforceabs: Bool, pccheaten: MutPtr, ppimk: MutPtr): Hresult =
     if (windowsWin32UiShellNapiAvailable) wasmWindowssysWindowsWin32UiShellHlinkParseDisplayName(pibc.rawAddress.toString(), pwzdisplayname.rawAddress.toString(), fnoforceabs, pccheaten.rawAddress.toString(), ppimk.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun hlinkPreprocessMoniker(pibc: MutPtr<CVoid>, pimkin: MutPtr<CVoid>, ppimkout: MutPtr<MutPtr<CVoid>>): Hresult =
+public actual fun hlinkPreprocessMoniker(pibc: MutPtr, pimkin: MutPtr, ppimkout: MutPtr): Hresult =
     if (windowsWin32UiShellNapiAvailable) wasmWindowssysWindowsWin32UiShellHlinkPreprocessMoniker(pibc.rawAddress.toString(), pimkin.rawAddress.toString(), ppimkout.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun hlinkQueryCreateFromData(pidataobj: MutPtr<CVoid>): Hresult =
+public actual fun hlinkQueryCreateFromData(pidataobj: MutPtr): Hresult =
     if (windowsWin32UiShellNapiAvailable) wasmWindowssysWindowsWin32UiShellHlinkQueryCreateFromData(pidataobj.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun hlinkResolveMonikerForData(pimkreference: MutPtr<CVoid>, reserved: UInt, pibc: MutPtr<CVoid>, cfmtetc: UInt, rgfmtetc: MutPtr<Formatetc>, pibsc: MutPtr<CVoid>, pimkbase: MutPtr<CVoid>): Hresult =
+public actual fun hlinkResolveMonikerForData(pimkreference: MutPtr, reserved: UInt, pibc: MutPtr, cfmtetc: UInt, rgfmtetc: MutPtr, pibsc: MutPtr, pimkbase: MutPtr): Hresult =
     if (windowsWin32UiShellNapiAvailable) wasmWindowssysWindowsWin32UiShellHlinkResolveMonikerForData(pimkreference.rawAddress.toString(), reserved.toInt(), pibc.rawAddress.toString(), cfmtetc.toInt(), rgfmtetc.rawAddress.toString(), pibsc.rawAddress.toString(), pimkbase.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun hlinkResolveShortcut(pwzshortcutfilename: Pcwstr, pihlsite: MutPtr<CVoid>, dwsitedata: UInt, piunkouter: MutPtr<CVoid>, riid: ConstPtr<Guid>, ppvobj: MutPtr<MutPtr<CVoid>>): Hresult =
+public actual fun hlinkResolveShortcut(pwzshortcutfilename: Pcwstr, pihlsite: MutPtr, dwsitedata: UInt, piunkouter: MutPtr, riid: ConstPtr, ppvobj: MutPtr): Hresult =
     if (windowsWin32UiShellNapiAvailable) wasmWindowssysWindowsWin32UiShellHlinkResolveShortcut(pwzshortcutfilename.rawAddress.toString(), pihlsite.rawAddress.toString(), dwsitedata.toInt(), piunkouter.rawAddress.toString(), riid.rawAddress.toString(), ppvobj.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun hlinkResolveShortcutToMoniker(pwzshortcutfilename: Pcwstr, ppimktarget: MutPtr<MutPtr<CVoid>>, ppwzlocation: MutPtr<Pwstr>): Hresult =
+public actual fun hlinkResolveShortcutToMoniker(pwzshortcutfilename: Pcwstr, ppimktarget: MutPtr, ppwzlocation: MutPtr): Hresult =
     if (windowsWin32UiShellNapiAvailable) wasmWindowssysWindowsWin32UiShellHlinkResolveShortcutToMoniker(pwzshortcutfilename.rawAddress.toString(), ppimktarget.rawAddress.toString(), ppwzlocation.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun hlinkResolveShortcutToString(pwzshortcutfilename: Pcwstr, ppwztarget: MutPtr<Pwstr>, ppwzlocation: MutPtr<Pwstr>): Hresult =
+public actual fun hlinkResolveShortcutToString(pwzshortcutfilename: Pcwstr, ppwztarget: MutPtr, ppwzlocation: MutPtr): Hresult =
     if (windowsWin32UiShellNapiAvailable) wasmWindowssysWindowsWin32UiShellHlinkResolveShortcutToString(pwzshortcutfilename.rawAddress.toString(), ppwztarget.rawAddress.toString(), ppwzlocation.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun hlinkResolveStringForData(pwzreference: Pcwstr, reserved: UInt, pibc: MutPtr<CVoid>, cfmtetc: UInt, rgfmtetc: MutPtr<Formatetc>, pibsc: MutPtr<CVoid>, pimkbase: MutPtr<CVoid>): Hresult =
+public actual fun hlinkResolveStringForData(pwzreference: Pcwstr, reserved: UInt, pibc: MutPtr, cfmtetc: UInt, rgfmtetc: MutPtr, pibsc: MutPtr, pimkbase: MutPtr): Hresult =
     if (windowsWin32UiShellNapiAvailable) wasmWindowssysWindowsWin32UiShellHlinkResolveStringForData(pwzreference.rawAddress.toString(), reserved.toInt(), pibc.rawAddress.toString(), cfmtetc.toInt(), rgfmtetc.rawAddress.toString(), pibsc.rawAddress.toString(), pimkbase.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun hlinkSetSpecialReference(ureference: UInt, pwzreference: Pcwstr): Hresult =
     if (windowsWin32UiShellNapiAvailable) wasmWindowssysWindowsWin32UiShellHlinkSetSpecialReference(ureference.toInt(), pwzreference.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun hlinkTranslateURL(pwzurl: Pcwstr, grfflags: UInt, ppwztranslatedurl: MutPtr<Pwstr>): Hresult =
+public actual fun hlinkTranslateURL(pwzurl: Pcwstr, grfflags: UInt, ppwztranslatedurl: MutPtr): Hresult =
     if (windowsWin32UiShellNapiAvailable) wasmWindowssysWindowsWin32UiShellHlinkTranslateURL(pwzurl.rawAddress.toString(), grfflags.toInt(), ppwztranslatedurl.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun hlinkUpdateStackItem(pihlframe: MutPtr<CVoid>, pihlbc: MutPtr<CVoid>, uhlid: UInt, pimktrgt: MutPtr<CVoid>, pwzlocation: Pcwstr, pwzfriendlyname: Pcwstr): Hresult =
+public actual fun hlinkUpdateStackItem(pihlframe: MutPtr, pihlbc: MutPtr, uhlid: UInt, pimktrgt: MutPtr, pwzlocation: Pcwstr, pwzfriendlyname: Pcwstr): Hresult =
     if (windowsWin32UiShellNapiAvailable) wasmWindowssysWindowsWin32UiShellHlinkUpdateStackItem(pihlframe.rawAddress.toString(), pihlbc.rawAddress.toString(), uhlid.toInt(), pimktrgt.rawAddress.toString(), pwzlocation.rawAddress.toString(), pwzfriendlyname.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun iLAppendID(pidl: ConstPtr<Itemidlist>, pmkid: ConstPtr<Shitemid>, fappend: Bool): MutPtr<Itemidlist> =
+public actual fun iLAppendID(pidl: ConstPtr, pmkid: ConstPtr, fappend: Bool): MutPtr =
     if (windowsWin32UiShellNapiAvailable) MutPtr(wasmWindowssysWindowsWin32UiShellILAppendID(pidl.rawAddress.toString(), pmkid.rawAddress.toString(), fappend).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun iLClone(pidl: ConstPtr<Itemidlist>): MutPtr<Itemidlist> =
+public actual fun iLClone(pidl: ConstPtr): MutPtr =
     if (windowsWin32UiShellNapiAvailable) MutPtr(wasmWindowssysWindowsWin32UiShellILClone(pidl.rawAddress.toString()).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun iLCloneFirst(pidl: ConstPtr<Itemidlist>): MutPtr<Itemidlist> =
+public actual fun iLCloneFirst(pidl: ConstPtr): MutPtr =
     if (windowsWin32UiShellNapiAvailable) MutPtr(wasmWindowssysWindowsWin32UiShellILCloneFirst(pidl.rawAddress.toString()).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun iLCombine(pidl1: ConstPtr<Itemidlist>, pidl2: ConstPtr<Itemidlist>): MutPtr<Itemidlist> =
+public actual fun iLCombine(pidl1: ConstPtr, pidl2: ConstPtr): MutPtr =
     if (windowsWin32UiShellNapiAvailable) MutPtr(wasmWindowssysWindowsWin32UiShellILCombine(pidl1.rawAddress.toString(), pidl2.rawAddress.toString()).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun iLCreateFromPathA(pszpath: Pcstr): MutPtr<Itemidlist> =
+public actual fun iLCreateFromPathA(pszpath: Pcstr): MutPtr =
     if (windowsWin32UiShellNapiAvailable) MutPtr(wasmWindowssysWindowsWin32UiShellILCreateFromPathA(pszpath.rawAddress.toString()).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun iLCreateFromPathW(pszpath: Pcwstr): MutPtr<Itemidlist> =
+public actual fun iLCreateFromPathW(pszpath: Pcwstr): MutPtr =
     if (windowsWin32UiShellNapiAvailable) MutPtr(wasmWindowssysWindowsWin32UiShellILCreateFromPathW(pszpath.rawAddress.toString()).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun iLFindChild(pidlparent: ConstPtr<Itemidlist>, pidlchild: ConstPtr<Itemidlist>): MutPtr<Itemidlist> =
+public actual fun iLFindChild(pidlparent: ConstPtr, pidlchild: ConstPtr): MutPtr =
     if (windowsWin32UiShellNapiAvailable) MutPtr(wasmWindowssysWindowsWin32UiShellILFindChild(pidlparent.rawAddress.toString(), pidlchild.rawAddress.toString()).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun iLFindLastID(pidl: ConstPtr<Itemidlist>): MutPtr<Itemidlist> =
+public actual fun iLFindLastID(pidl: ConstPtr): MutPtr =
     if (windowsWin32UiShellNapiAvailable) MutPtr(wasmWindowssysWindowsWin32UiShellILFindLastID(pidl.rawAddress.toString()).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun iLFree(pidl: ConstPtr<Itemidlist>) {
+public actual fun iLFree(pidl: ConstPtr) {
     if (windowsWin32UiShellNapiAvailable) {
         wasmWindowssysWindowsWin32UiShellILFree(pidl.rawAddress.toString())
     } else {
@@ -2487,55 +2473,55 @@ public actual fun iLFree(pidl: ConstPtr<Itemidlist>) {
     }
 }
 
-public actual fun iLGetNext(pidl: ConstPtr<Itemidlist>): MutPtr<Itemidlist> =
+public actual fun iLGetNext(pidl: ConstPtr): MutPtr =
     if (windowsWin32UiShellNapiAvailable) MutPtr(wasmWindowssysWindowsWin32UiShellILGetNext(pidl.rawAddress.toString()).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun iLGetSize(pidl: ConstPtr<Itemidlist>): UInt =
+public actual fun iLGetSize(pidl: ConstPtr): UInt =
     if (windowsWin32UiShellNapiAvailable) wasmWindowssysWindowsWin32UiShellILGetSize(pidl.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun iLIsEqual(pidl1: ConstPtr<Itemidlist>, pidl2: ConstPtr<Itemidlist>): Bool =
+public actual fun iLIsEqual(pidl1: ConstPtr, pidl2: ConstPtr): Bool =
     if (windowsWin32UiShellNapiAvailable) wasmWindowssysWindowsWin32UiShellILIsEqual(pidl1.rawAddress.toString(), pidl2.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun iLIsParent(pidl1: ConstPtr<Itemidlist>, pidl2: ConstPtr<Itemidlist>, fimmediate: Bool): Bool =
+public actual fun iLIsParent(pidl1: ConstPtr, pidl2: ConstPtr, fimmediate: Bool): Bool =
     if (windowsWin32UiShellNapiAvailable) wasmWindowssysWindowsWin32UiShellILIsParent(pidl1.rawAddress.toString(), pidl2.rawAddress.toString(), fimmediate) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun iLLoadFromStreamEx(pstm: MutPtr<CVoid>, pidl: MutPtr<MutPtr<Itemidlist>>): Hresult =
+public actual fun iLLoadFromStreamEx(pstm: MutPtr, pidl: MutPtr): Hresult =
     if (windowsWin32UiShellNapiAvailable) wasmWindowssysWindowsWin32UiShellILLoadFromStreamEx(pstm.rawAddress.toString(), pidl.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun iLRemoveLastID(pidl: MutPtr<Itemidlist>): Bool =
+public actual fun iLRemoveLastID(pidl: MutPtr): Bool =
     if (windowsWin32UiShellNapiAvailable) wasmWindowssysWindowsWin32UiShellILRemoveLastID(pidl.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun iLSaveToStream(pstm: MutPtr<CVoid>, pidl: ConstPtr<Itemidlist>): Hresult =
+public actual fun iLSaveToStream(pstm: MutPtr, pidl: ConstPtr): Hresult =
     if (windowsWin32UiShellNapiAvailable) wasmWindowssysWindowsWin32UiShellILSaveToStream(pstm.rawAddress.toString(), pidl.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun istreamCopy(pstmfrom: MutPtr<CVoid>, pstmto: MutPtr<CVoid>, cb: UInt): Hresult =
+public actual fun istreamCopy(pstmfrom: MutPtr, pstmto: MutPtr, cb: UInt): Hresult =
     if (windowsWin32UiShellNapiAvailable) wasmWindowssysWindowsWin32UiShellIstreamCopy(pstmfrom.rawAddress.toString(), pstmto.rawAddress.toString(), cb.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun istreamRead(pstm: MutPtr<CVoid>, pv: MutPtr<CVoid>, cb: UInt): Hresult =
+public actual fun istreamRead(pstm: MutPtr, pv: MutPtr, cb: UInt): Hresult =
     if (windowsWin32UiShellNapiAvailable) wasmWindowssysWindowsWin32UiShellIstreamRead(pstm.rawAddress.toString(), pv.rawAddress.toString(), cb.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun istreamReadPidl(pstm: MutPtr<CVoid>, ppidlout: MutPtr<MutPtr<Itemidlist>>): Hresult =
+public actual fun istreamReadPidl(pstm: MutPtr, ppidlout: MutPtr): Hresult =
     if (windowsWin32UiShellNapiAvailable) wasmWindowssysWindowsWin32UiShellIstreamReadPidl(pstm.rawAddress.toString(), ppidlout.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun istreamReadStr(pstm: MutPtr<CVoid>, ppsz: MutPtr<Pwstr>): Hresult =
+public actual fun istreamReadStr(pstm: MutPtr, ppsz: MutPtr): Hresult =
     if (windowsWin32UiShellNapiAvailable) wasmWindowssysWindowsWin32UiShellIstreamReadStr(pstm.rawAddress.toString(), ppsz.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun istreamReset(pstm: MutPtr<CVoid>): Hresult =
+public actual fun istreamReset(pstm: MutPtr): Hresult =
     if (windowsWin32UiShellNapiAvailable) wasmWindowssysWindowsWin32UiShellIstreamReset(pstm.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun istreamSize(pstm: MutPtr<CVoid>, pui: MutPtr<ULong>): Hresult =
+public actual fun istreamSize(pstm: MutPtr, pui: MutPtr): Hresult =
     if (windowsWin32UiShellNapiAvailable) wasmWindowssysWindowsWin32UiShellIstreamSize(pstm.rawAddress.toString(), pui.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun istreamWrite(pstm: MutPtr<CVoid>, pv: ConstPtr<CVoid>, cb: UInt): Hresult =
+public actual fun istreamWrite(pstm: MutPtr, pv: ConstPtr, cb: UInt): Hresult =
     if (windowsWin32UiShellNapiAvailable) wasmWindowssysWindowsWin32UiShellIstreamWrite(pstm.rawAddress.toString(), pv.rawAddress.toString(), cb.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun istreamWritePidl(pstm: MutPtr<CVoid>, pidlwrite: ConstPtr<Itemidlist>): Hresult =
+public actual fun istreamWritePidl(pstm: MutPtr, pidlwrite: ConstPtr): Hresult =
     if (windowsWin32UiShellNapiAvailable) wasmWindowssysWindowsWin32UiShellIstreamWritePidl(pstm.rawAddress.toString(), pidlwrite.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun istreamWriteStr(pstm: MutPtr<CVoid>, psz: Pcwstr): Hresult =
+public actual fun istreamWriteStr(pstm: MutPtr, psz: Pcwstr): Hresult =
     if (windowsWin32UiShellNapiAvailable) wasmWindowssysWindowsWin32UiShellIstreamWriteStr(pstm.rawAddress.toString(), psz.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun iunknownAtomicRelease(ppunk: MutPtr<MutPtr<CVoid>>) {
+public actual fun iunknownAtomicRelease(ppunk: MutPtr) {
     if (windowsWin32UiShellNapiAvailable) {
         wasmWindowssysWindowsWin32UiShellIunknownAtomicRelease(ppunk.rawAddress.toString())
     } else {
@@ -2543,16 +2529,16 @@ public actual fun iunknownAtomicRelease(ppunk: MutPtr<MutPtr<CVoid>>) {
     }
 }
 
-public actual fun iunknownGetSite(punk: MutPtr<CVoid>, riid: ConstPtr<Guid>, ppv: MutPtr<MutPtr<CVoid>>): Hresult =
+public actual fun iunknownGetSite(punk: MutPtr, riid: ConstPtr, ppv: MutPtr): Hresult =
     if (windowsWin32UiShellNapiAvailable) wasmWindowssysWindowsWin32UiShellIunknownGetSite(punk.rawAddress.toString(), riid.rawAddress.toString(), ppv.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun iunknownGetWindow(punk: MutPtr<CVoid>, phwnd: MutPtr<Hwnd>): Hresult =
+public actual fun iunknownGetWindow(punk: MutPtr, phwnd: MutPtr): Hresult =
     if (windowsWin32UiShellNapiAvailable) wasmWindowssysWindowsWin32UiShellIunknownGetWindow(punk.rawAddress.toString(), phwnd.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun iunknownQueryService(punk: MutPtr<CVoid>, guidservice: ConstPtr<Guid>, riid: ConstPtr<Guid>, ppvout: MutPtr<MutPtr<CVoid>>): Hresult =
+public actual fun iunknownQueryService(punk: MutPtr, guidservice: ConstPtr, riid: ConstPtr, ppvout: MutPtr): Hresult =
     if (windowsWin32UiShellNapiAvailable) wasmWindowssysWindowsWin32UiShellIunknownQueryService(punk.rawAddress.toString(), guidservice.rawAddress.toString(), riid.rawAddress.toString(), ppvout.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun iunknownSet(ppunk: MutPtr<MutPtr<CVoid>>, punk: MutPtr<CVoid>) {
+public actual fun iunknownSet(ppunk: MutPtr, punk: MutPtr) {
     if (windowsWin32UiShellNapiAvailable) {
         wasmWindowssysWindowsWin32UiShellIunknownSet(ppunk.rawAddress.toString(), punk.rawAddress.toString())
     } else {
@@ -2560,19 +2546,19 @@ public actual fun iunknownSet(ppunk: MutPtr<MutPtr<CVoid>>, punk: MutPtr<CVoid>)
     }
 }
 
-public actual fun iunknownSetSite(punk: MutPtr<CVoid>, punksite: MutPtr<CVoid>): Hresult =
+public actual fun iunknownSetSite(punk: MutPtr, punksite: MutPtr): Hresult =
     if (windowsWin32UiShellNapiAvailable) wasmWindowssysWindowsWin32UiShellIunknownSetSite(punk.rawAddress.toString(), punksite.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun importPrivacySettings(pszfilename: Pcwstr, pfparseprivacypreferences: MutPtr<Bool>, pfparsepersiterules: MutPtr<Bool>): Bool =
+public actual fun importPrivacySettings(pszfilename: Pcwstr, pfparseprivacypreferences: MutPtr, pfparsepersiterules: MutPtr): Bool =
     if (windowsWin32UiShellNapiAvailable) wasmWindowssysWindowsWin32UiShellImportPrivacySettings(pszfilename.rawAddress.toString(), pfparseprivacypreferences.rawAddress.toString(), pfparsepersiterules.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun initNetworkAddressControl(): Bool =
     if (windowsWin32UiShellNapiAvailable) wasmWindowssysWindowsWin32UiShellInitNetworkAddressControl() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun initPropVariantFromStrRet(pstrret: MutPtr<Strret>, pidl: ConstPtr<Itemidlist>, ppropvar: MutPtr<Propvariant>): Hresult =
+public actual fun initPropVariantFromStrRet(pstrret: MutPtr, pidl: ConstPtr, ppropvar: MutPtr): Hresult =
     if (windowsWin32UiShellNapiAvailable) wasmWindowssysWindowsWin32UiShellInitPropVariantFromStrRet(pstrret.rawAddress.toString(), pidl.rawAddress.toString(), ppropvar.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun initVariantFromStrRet(pstrret: ConstPtr<Strret>, pidl: ConstPtr<Itemidlist>, pvar: MutPtr<Variant.Variant>): Hresult =
+public actual fun initVariantFromStrRet(pstrret: ConstPtr, pidl: ConstPtr, pvar: MutPtr): Hresult =
     if (windowsWin32UiShellNapiAvailable) wasmWindowssysWindowsWin32UiShellInitVariantFromStrRet(pstrret.rawAddress.toString(), pidl.rawAddress.toString(), pvar.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun intlStrEqWorkerA(fcasesens: Bool, lpstring1: Pcstr, lpstring2: Pcstr, nchar: Int): Bool =
@@ -2605,22 +2591,22 @@ public actual fun isOS(dwos: OS): Bool =
 public actual fun isUserAnAdmin(): Bool =
     if (windowsWin32UiShellNapiAvailable) wasmWindowssysWindowsWin32UiShellIsUserAnAdmin() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun loadUserProfileA(htoken: Handle, lpprofileinfo: MutPtr<Profileinfoa>): Bool =
+public actual fun loadUserProfileA(htoken: Handle, lpprofileinfo: MutPtr): Bool =
     if (windowsWin32UiShellNapiAvailable) wasmWindowssysWindowsWin32UiShellLoadUserProfileA(htoken.rawAddress.toString(), lpprofileinfo.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun loadUserProfileW(htoken: Handle, lpprofileinfo: MutPtr<Profileinfow>): Bool =
+public actual fun loadUserProfileW(htoken: Handle, lpprofileinfo: MutPtr): Bool =
     if (windowsWin32UiShellNapiAvailable) wasmWindowssysWindowsWin32UiShellLoadUserProfileW(htoken.rawAddress.toString(), lpprofileinfo.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun oleSaveToStreamEx(piunk: MutPtr<CVoid>, pistm: MutPtr<CVoid>, fcleardirty: Bool): Hresult =
+public actual fun oleSaveToStreamEx(piunk: MutPtr, pistm: MutPtr, fcleardirty: Bool): Hresult =
     if (windowsWin32UiShellNapiAvailable) wasmWindowssysWindowsWin32UiShellOleSaveToStreamEx(piunk.rawAddress.toString(), pistm.rawAddress.toString(), fcleardirty) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun openRegStream(hkey: Hkey, pszsubkey: Pcwstr, pszvalue: Pcwstr, grfmode: UInt): MutPtr<CVoid> =
+public actual fun openRegStream(hkey: Hkey, pszsubkey: Pcwstr, pszvalue: Pcwstr, grfmode: UInt): MutPtr =
     if (windowsWin32UiShellNapiAvailable) MutPtr(wasmWindowssysWindowsWin32UiShellOpenRegStream(hkey.rawAddress.toString(), pszsubkey.rawAddress.toString(), pszvalue.rawAddress.toString(), grfmode.toInt()).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun parseURLA(pcszurl: Pcstr, ppu: MutPtr<Parsedurla>): Hresult =
+public actual fun parseURLA(pcszurl: Pcstr, ppu: MutPtr): Hresult =
     if (windowsWin32UiShellNapiAvailable) wasmWindowssysWindowsWin32UiShellParseURLA(pcszurl.rawAddress.toString(), ppu.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun parseURLW(pcszurl: Pcwstr, ppu: MutPtr<Parsedurlw>): Hresult =
+public actual fun parseURLW(pcszurl: Pcwstr, ppu: MutPtr): Hresult =
     if (windowsWin32UiShellNapiAvailable) wasmWindowssysWindowsWin32UiShellParseURLW(pcszurl.rawAddress.toString(), ppu.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun pathAddBackslashA(pszpath: Pstr): Pstr =
@@ -2635,10 +2621,10 @@ public actual fun pathAddExtensionA(pszpath: Pstr, pszext: Pcstr): Bool =
 public actual fun pathAddExtensionW(pszpath: Pwstr, pszext: Pcwstr): Bool =
     if (windowsWin32UiShellNapiAvailable) wasmWindowssysWindowsWin32UiShellPathAddExtensionW(pszpath.rawAddress.toString(), pszext.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun pathAllocCanonicalize(pszpathin: Pcwstr, dwflags: PathcchOptions, ppszpathout: MutPtr<Pwstr>): Hresult =
+public actual fun pathAllocCanonicalize(pszpathin: Pcwstr, dwflags: PathcchOptions, ppszpathout: MutPtr): Hresult =
     if (windowsWin32UiShellNapiAvailable) wasmWindowssysWindowsWin32UiShellPathAllocCanonicalize(pszpathin.rawAddress.toString(), dwflags.toInt(), ppszpathout.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun pathAllocCombine(pszpathin: Pcwstr, pszmore: Pcwstr, dwflags: PathcchOptions, ppszpathout: MutPtr<Pwstr>): Hresult =
+public actual fun pathAllocCombine(pszpathin: Pcwstr, pszmore: Pcwstr, dwflags: PathcchOptions, ppszpathout: MutPtr): Hresult =
     if (windowsWin32UiShellNapiAvailable) wasmWindowssysWindowsWin32UiShellPathAllocCombine(pszpathin.rawAddress.toString(), pszmore.rawAddress.toString(), dwflags.toInt(), ppszpathout.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun pathAppendA(pszpath: Pstr, pszmore: Pcstr): Bool =
@@ -2662,7 +2648,7 @@ public actual fun pathCanonicalizeW(pszbuf: Pwstr, pszpath: Pcwstr): Bool =
 public actual fun pathCchAddBackslash(pszpath: Pwstr, cchpath: ULong): Hresult =
     if (windowsWin32UiShellNapiAvailable) wasmWindowssysWindowsWin32UiShellPathCchAddBackslash(pszpath.rawAddress.toString(), cchpath.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun pathCchAddBackslashEx(pszpath: Pwstr, cchpath: ULong, ppszend: MutPtr<Pwstr>, pcchremaining: MutPtr<ULong>): Hresult =
+public actual fun pathCchAddBackslashEx(pszpath: Pwstr, cchpath: ULong, ppszend: MutPtr, pcchremaining: MutPtr): Hresult =
     if (windowsWin32UiShellNapiAvailable) wasmWindowssysWindowsWin32UiShellPathCchAddBackslashEx(pszpath.rawAddress.toString(), cchpath.toString(), ppszend.rawAddress.toString(), pcchremaining.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun pathCchAddExtension(pszpath: Pwstr, cchpath: ULong, pszext: Pcwstr): Hresult =
@@ -2686,7 +2672,7 @@ public actual fun pathCchCombine(pszpathout: Pwstr, cchpathout: ULong, pszpathin
 public actual fun pathCchCombineEx(pszpathout: Pwstr, cchpathout: ULong, pszpathin: Pcwstr, pszmore: Pcwstr, dwflags: PathcchOptions): Hresult =
     if (windowsWin32UiShellNapiAvailable) wasmWindowssysWindowsWin32UiShellPathCchCombineEx(pszpathout.rawAddress.toString(), cchpathout.toString(), pszpathin.rawAddress.toString(), pszmore.rawAddress.toString(), dwflags.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun pathCchFindExtension(pszpath: Pcwstr, cchpath: ULong, ppszext: MutPtr<Pcwstr>): Hresult =
+public actual fun pathCchFindExtension(pszpath: Pcwstr, cchpath: ULong, ppszext: MutPtr): Hresult =
     if (windowsWin32UiShellNapiAvailable) wasmWindowssysWindowsWin32UiShellPathCchFindExtension(pszpath.rawAddress.toString(), cchpath.toString(), ppszext.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun pathCchIsRoot(pszpath: Pcwstr): Bool =
@@ -2695,7 +2681,7 @@ public actual fun pathCchIsRoot(pszpath: Pcwstr): Bool =
 public actual fun pathCchRemoveBackslash(pszpath: Pwstr, cchpath: ULong): Hresult =
     if (windowsWin32UiShellNapiAvailable) wasmWindowssysWindowsWin32UiShellPathCchRemoveBackslash(pszpath.rawAddress.toString(), cchpath.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun pathCchRemoveBackslashEx(pszpath: Pwstr, cchpath: ULong, ppszend: MutPtr<Pwstr>, pcchremaining: MutPtr<ULong>): Hresult =
+public actual fun pathCchRemoveBackslashEx(pszpath: Pwstr, cchpath: ULong, ppszend: MutPtr, pcchremaining: MutPtr): Hresult =
     if (windowsWin32UiShellNapiAvailable) wasmWindowssysWindowsWin32UiShellPathCchRemoveBackslashEx(pszpath.rawAddress.toString(), cchpath.toString(), ppszend.rawAddress.toString(), pcchremaining.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun pathCchRemoveExtension(pszpath: Pwstr, cchpath: ULong): Hresult =
@@ -2707,7 +2693,7 @@ public actual fun pathCchRemoveFileSpec(pszpath: Pwstr, cchpath: ULong): Hresult
 public actual fun pathCchRenameExtension(pszpath: Pwstr, cchpath: ULong, pszext: Pcwstr): Hresult =
     if (windowsWin32UiShellNapiAvailable) wasmWindowssysWindowsWin32UiShellPathCchRenameExtension(pszpath.rawAddress.toString(), cchpath.toString(), pszext.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun pathCchSkipRoot(pszpath: Pcwstr, ppszrootend: MutPtr<Pcwstr>): Hresult =
+public actual fun pathCchSkipRoot(pszpath: Pcwstr, ppszrootend: MutPtr): Hresult =
     if (windowsWin32UiShellNapiAvailable) wasmWindowssysWindowsWin32UiShellPathCchSkipRoot(pszpath.rawAddress.toString(), ppszrootend.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun pathCchStripPrefix(pszpath: Pwstr, cchpath: ULong): Hresult =
@@ -2743,13 +2729,13 @@ public actual fun pathCompactPathExW(pszout: Pwstr, pszsrc: Pcwstr, cchmax: UInt
 public actual fun pathCompactPathW(hdc: Hdc, pszpath: Pwstr, dx: UInt): Bool =
     if (windowsWin32UiShellNapiAvailable) wasmWindowssysWindowsWin32UiShellPathCompactPathW(hdc.rawAddress.toString(), pszpath.rawAddress.toString(), dx.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun pathCreateFromUrlA(pszurl: Pcstr, pszpath: Pstr, pcchpath: MutPtr<UInt>, dwflags: UInt): Hresult =
+public actual fun pathCreateFromUrlA(pszurl: Pcstr, pszpath: Pstr, pcchpath: MutPtr, dwflags: UInt): Hresult =
     if (windowsWin32UiShellNapiAvailable) wasmWindowssysWindowsWin32UiShellPathCreateFromUrlA(pszurl.rawAddress.toString(), pszpath.rawAddress.toString(), pcchpath.rawAddress.toString(), dwflags.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun pathCreateFromUrlAlloc(pszin: Pcwstr, ppszout: MutPtr<Pwstr>, dwflags: UInt): Hresult =
+public actual fun pathCreateFromUrlAlloc(pszin: Pcwstr, ppszout: MutPtr, dwflags: UInt): Hresult =
     if (windowsWin32UiShellNapiAvailable) wasmWindowssysWindowsWin32UiShellPathCreateFromUrlAlloc(pszin.rawAddress.toString(), ppszout.rawAddress.toString(), dwflags.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun pathCreateFromUrlW(pszurl: Pcwstr, pszpath: Pwstr, pcchpath: MutPtr<UInt>, dwflags: UInt): Hresult =
+public actual fun pathCreateFromUrlW(pszurl: Pcwstr, pszpath: Pwstr, pcchpath: MutPtr, dwflags: UInt): Hresult =
     if (windowsWin32UiShellNapiAvailable) wasmWindowssysWindowsWin32UiShellPathCreateFromUrlW(pszurl.rawAddress.toString(), pszpath.rawAddress.toString(), pcchpath.rawAddress.toString(), dwflags.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun pathFileExistsA(pszpath: Pcstr): Bool =
@@ -2776,16 +2762,16 @@ public actual fun pathFindNextComponentA(pszpath: Pcstr): Pstr =
 public actual fun pathFindNextComponentW(pszpath: Pcwstr): Pwstr =
     if (windowsWin32UiShellNapiAvailable) MutPtr(wasmWindowssysWindowsWin32UiShellPathFindNextComponentW(pszpath.rawAddress.toString()).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun pathFindOnPathA(pszpath: Pstr, ppszotherdirs: ConstPtr<ConstPtr<Byte>>): Bool =
+public actual fun pathFindOnPathA(pszpath: Pstr, ppszotherdirs: ConstPtr): Bool =
     if (windowsWin32UiShellNapiAvailable) wasmWindowssysWindowsWin32UiShellPathFindOnPathA(pszpath.rawAddress.toString(), ppszotherdirs.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun pathFindOnPathW(pszpath: Pwstr, ppszotherdirs: ConstPtr<ConstPtr<UShort>>): Bool =
+public actual fun pathFindOnPathW(pszpath: Pwstr, ppszotherdirs: ConstPtr): Bool =
     if (windowsWin32UiShellNapiAvailable) wasmWindowssysWindowsWin32UiShellPathFindOnPathW(pszpath.rawAddress.toString(), ppszotherdirs.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun pathFindSuffixArrayA(pszpath: Pcstr, apszsuffix: ConstPtr<Pcstr>, iarraysize: Int): Pcstr =
+public actual fun pathFindSuffixArrayA(pszpath: Pcstr, apszsuffix: ConstPtr, iarraysize: Int): Pcstr =
     if (windowsWin32UiShellNapiAvailable) ConstPtr(wasmWindowssysWindowsWin32UiShellPathFindSuffixArrayA(pszpath.rawAddress.toString(), apszsuffix.rawAddress.toString(), iarraysize).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun pathFindSuffixArrayW(pszpath: Pcwstr, apszsuffix: ConstPtr<Pcwstr>, iarraysize: Int): Pcwstr =
+public actual fun pathFindSuffixArrayW(pszpath: Pcwstr, apszsuffix: ConstPtr, iarraysize: Int): Pcwstr =
     if (windowsWin32UiShellNapiAvailable) ConstPtr(wasmWindowssysWindowsWin32UiShellPathFindSuffixArrayW(pszpath.rawAddress.toString(), apszsuffix.rawAddress.toString(), iarraysize).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun pathGetArgsA(pszpath: Pcstr): Pstr =
@@ -2892,7 +2878,7 @@ public actual fun pathIsSystemFolderW(pszpath: Pcwstr, dwattrb: UInt): Bool =
 public actual fun pathIsUNCA(pszpath: Pcstr): Bool =
     if (windowsWin32UiShellNapiAvailable) wasmWindowssysWindowsWin32UiShellPathIsUNCA(pszpath.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun pathIsUNCEx(pszpath: Pcwstr, ppszserver: MutPtr<Pcwstr>): Bool =
+public actual fun pathIsUNCEx(pszpath: Pcwstr, ppszserver: MutPtr): Bool =
     if (windowsWin32UiShellNapiAvailable) wasmWindowssysWindowsWin32UiShellPathIsUNCEx(pszpath.rawAddress.toString(), ppszserver.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun pathIsUNCServerA(pszpath: Pcstr): Bool =
@@ -3035,7 +3021,7 @@ public actual fun pathRenameExtensionA(pszpath: Pstr, pszext: Pcstr): Bool =
 public actual fun pathRenameExtensionW(pszpath: Pwstr, pszext: Pcwstr): Bool =
     if (windowsWin32UiShellNapiAvailable) wasmWindowssysWindowsWin32UiShellPathRenameExtensionW(pszpath.rawAddress.toString(), pszext.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun pathResolve(pszpath: Pwstr, dirs: ConstPtr<ConstPtr<UShort>>, fflags: UInt): Int =
+public actual fun pathResolve(pszpath: Pwstr, dirs: ConstPtr, fflags: UInt): Int =
     if (windowsWin32UiShellNapiAvailable) wasmWindowssysWindowsWin32UiShellPathResolve(pszpath.rawAddress.toString(), dirs.rawAddress.toString(), fflags.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun pathSearchAndQualifyA(pszpath: Pcstr, pszbuf: Pstr, cchbuf: UInt): Bool =
@@ -3125,31 +3111,31 @@ public actual fun pathUnquoteSpacesW(lpsz: Pwstr): Bool =
 public actual fun pathYetAnotherMakeUniqueName(pszuniquename: Pwstr, pszpath: Pcwstr, pszshort: Pcwstr, pszfilespec: Pcwstr): Bool =
     if (windowsWin32UiShellNapiAvailable) wasmWindowssysWindowsWin32UiShellPathYetAnotherMakeUniqueName(pszuniquename.rawAddress.toString(), pszpath.rawAddress.toString(), pszshort.rawAddress.toString(), pszfilespec.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun pickIconDlg(hwnd: Hwnd, psziconpath: Pwstr, cchiconpath: UInt, piiconindex: MutPtr<Int>): Int =
+public actual fun pickIconDlg(hwnd: Hwnd, psziconpath: Pwstr, cchiconpath: UInt, piiconindex: MutPtr): Int =
     if (windowsWin32UiShellNapiAvailable) wasmWindowssysWindowsWin32UiShellPickIconDlg(hwnd.rawAddress.toString(), psziconpath.rawAddress.toString(), cchiconpath.toInt(), piiconindex.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun propVariantToStrRet(propvar: ConstPtr<Propvariant>, pstrret: MutPtr<Strret>): Hresult =
+public actual fun propVariantToStrRet(propvar: ConstPtr, pstrret: MutPtr): Hresult =
     if (windowsWin32UiShellNapiAvailable) wasmWindowssysWindowsWin32UiShellPropVariantToStrRet(propvar.rawAddress.toString(), pstrret.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun qISearch(that: MutPtr<CVoid>, pqit: ConstPtr<Qitab>, riid: ConstPtr<Guid>, ppv: MutPtr<MutPtr<CVoid>>): Hresult =
+public actual fun qISearch(that: MutPtr, pqit: ConstPtr, riid: ConstPtr, ppv: MutPtr): Hresult =
     if (windowsWin32UiShellNapiAvailable) wasmWindowssysWindowsWin32UiShellQISearch(that.rawAddress.toString(), pqit.rawAddress.toString(), riid.rawAddress.toString(), ppv.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun readCabinetState(pcs: MutPtr<Cabinetstate>, clength: Int): Bool =
+public actual fun readCabinetState(pcs: MutPtr, clength: Int): Bool =
     if (windowsWin32UiShellNapiAvailable) wasmWindowssysWindowsWin32UiShellReadCabinetState(pcs.rawAddress.toString(), clength) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun realDriveType(idrive: Int, foktohitnet: Bool): Int =
     if (windowsWin32UiShellNapiAvailable) wasmWindowssysWindowsWin32UiShellRealDriveType(idrive, foktohitnet) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun registerAppConstrainedChangeNotification(routine: PappconstrainChangeRoutine, context: ConstPtr<CVoid>, registration: MutPtr<PappconstrainRegistration>): UInt =
+public actual fun registerAppConstrainedChangeNotification(routine: PappconstrainChangeRoutine, context: ConstPtr, registration: MutPtr): UInt =
     if (windowsWin32UiShellNapiAvailable) wasmWindowssysWindowsWin32UiShellRegisterAppConstrainedChangeNotification(0L.toString(), context.rawAddress.toString(), registration.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun registerAppStateChangeNotification(routine: PappstateChangeRoutine, context: ConstPtr<CVoid>, registration: MutPtr<PappstateRegistration>): UInt =
+public actual fun registerAppStateChangeNotification(routine: PappstateChangeRoutine, context: ConstPtr, registration: MutPtr): UInt =
     if (windowsWin32UiShellNapiAvailable) wasmWindowssysWindowsWin32UiShellRegisterAppStateChangeNotification(0L.toString(), context.rawAddress.toString(), registration.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun registerScaleChangeEvent(hevent: Handle, pdwcookie: MutPtr<ULong>): Hresult =
+public actual fun registerScaleChangeEvent(hevent: Handle, pdwcookie: MutPtr): Hresult =
     if (windowsWin32UiShellNapiAvailable) wasmWindowssysWindowsWin32UiShellRegisterScaleChangeEvent(hevent.rawAddress.toString(), pdwcookie.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun registerScaleChangeNotifications(displaydevice: DisplayDeviceType, hwndnotify: Hwnd, umsgnotify: UInt, pdwcookie: MutPtr<UInt>): Hresult =
+public actual fun registerScaleChangeNotifications(displaydevice: DisplayDeviceType, hwndnotify: Hwnd, umsgnotify: UInt, pdwcookie: MutPtr): Hresult =
     if (windowsWin32UiShellNapiAvailable) wasmWindowssysWindowsWin32UiShellRegisterScaleChangeNotifications(displaydevice, hwndnotify.rawAddress.toString(), umsgnotify.toInt(), pdwcookie.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun removeWindowSubclass(hwnd: Hwnd, pfnsubclass: Subclassproc, uidsubclass: ULong): Bool =
@@ -3167,7 +3153,7 @@ public actual fun revokeScaleChangeNotifications(displaydevice: DisplayDeviceTyp
 public actual fun sHAddFromPropSheetExtArray(hpsxa: Hpsxa, lpfnaddpage: Lpfnsvaddpropsheetpage, lparam: Lparam): UInt =
     throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun sHAddToRecentDocs(uflags: UInt, pv: ConstPtr<CVoid>) {
+public actual fun sHAddToRecentDocs(uflags: UInt, pv: ConstPtr) {
     if (windowsWin32UiShellNapiAvailable) {
         wasmWindowssysWindowsWin32UiShellSHAddToRecentDocs(uflags.toInt(), pv.rawAddress.toString())
     } else {
@@ -3175,10 +3161,10 @@ public actual fun sHAddToRecentDocs(uflags: UInt, pv: ConstPtr<CVoid>) {
     }
 }
 
-public actual fun sHAlloc(cb: ULong): MutPtr<CVoid> =
+public actual fun sHAlloc(cb: ULong): MutPtr =
     if (windowsWin32UiShellNapiAvailable) MutPtr(wasmWindowssysWindowsWin32UiShellSHAlloc(cb.toString()).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun sHAllocShared(pvdata: ConstPtr<CVoid>, dwsize: UInt, dwprocessid: UInt): Handle =
+public actual fun sHAllocShared(pvdata: ConstPtr, dwsize: UInt, dwprocessid: UInt): Handle =
     if (windowsWin32UiShellNapiAvailable) MutPtr(wasmWindowssysWindowsWin32UiShellSHAllocShared(pvdata.rawAddress.toString(), dwsize.toInt(), dwprocessid.toInt()).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun sHAnsiToAnsi(pszsrc: Pcstr, pszdst: Pstr, cchbuf: Int): Int =
@@ -3187,46 +3173,46 @@ public actual fun sHAnsiToAnsi(pszsrc: Pcstr, pszdst: Pstr, cchbuf: Int): Int =
 public actual fun sHAnsiToUnicode(pszsrc: Pcstr, pwszdst: Pwstr, cwchbuf: Int): Int =
     if (windowsWin32UiShellNapiAvailable) wasmWindowssysWindowsWin32UiShellSHAnsiToUnicode(pszsrc.rawAddress.toString(), pwszdst.rawAddress.toString(), cwchbuf) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun sHAppBarMessage(dwmessage: UInt, pdata: MutPtr<Appbardata>): ULong =
+public actual fun sHAppBarMessage(dwmessage: UInt, pdata: MutPtr): ULong =
     if (windowsWin32UiShellNapiAvailable) wasmWindowssysWindowsWin32UiShellSHAppBarMessage(dwmessage.toInt(), pdata.rawAddress.toString()).toULong() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun sHAssocEnumHandlers(pszextra: Pcwstr, affilter: AssocFilter, ppenumhandler: MutPtr<MutPtr<CVoid>>): Hresult =
+public actual fun sHAssocEnumHandlers(pszextra: Pcwstr, affilter: AssocFilter, ppenumhandler: MutPtr): Hresult =
     if (windowsWin32UiShellNapiAvailable) wasmWindowssysWindowsWin32UiShellSHAssocEnumHandlers(pszextra.rawAddress.toString(), affilter, ppenumhandler.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun sHAssocEnumHandlersForProtocolByApplication(protocol: Pcwstr, riid: ConstPtr<Guid>, enumhandlers: MutPtr<MutPtr<CVoid>>): Hresult =
+public actual fun sHAssocEnumHandlersForProtocolByApplication(protocol: Pcwstr, riid: ConstPtr, enumhandlers: MutPtr): Hresult =
     if (windowsWin32UiShellNapiAvailable) wasmWindowssysWindowsWin32UiShellSHAssocEnumHandlersForProtocolByApplication(protocol.rawAddress.toString(), riid.rawAddress.toString(), enumhandlers.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun sHAutoComplete(hwndedit: Hwnd, dwflags: ShellAutocompleteFlags): Hresult =
     if (windowsWin32UiShellNapiAvailable) wasmWindowssysWindowsWin32UiShellSHAutoComplete(hwndedit.rawAddress.toString(), dwflags.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun sHBindToFolderIDListParent(psfroot: MutPtr<CVoid>, pidl: ConstPtr<Itemidlist>, riid: ConstPtr<Guid>, ppv: MutPtr<MutPtr<CVoid>>, ppidllast: MutPtr<MutPtr<Itemidlist>>): Hresult =
+public actual fun sHBindToFolderIDListParent(psfroot: MutPtr, pidl: ConstPtr, riid: ConstPtr, ppv: MutPtr, ppidllast: MutPtr): Hresult =
     if (windowsWin32UiShellNapiAvailable) wasmWindowssysWindowsWin32UiShellSHBindToFolderIDListParent(psfroot.rawAddress.toString(), pidl.rawAddress.toString(), riid.rawAddress.toString(), ppv.rawAddress.toString(), ppidllast.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun sHBindToFolderIDListParentEx(psfroot: MutPtr<CVoid>, pidl: ConstPtr<Itemidlist>, ppbc: MutPtr<CVoid>, riid: ConstPtr<Guid>, ppv: MutPtr<MutPtr<CVoid>>, ppidllast: MutPtr<MutPtr<Itemidlist>>): Hresult =
+public actual fun sHBindToFolderIDListParentEx(psfroot: MutPtr, pidl: ConstPtr, ppbc: MutPtr, riid: ConstPtr, ppv: MutPtr, ppidllast: MutPtr): Hresult =
     if (windowsWin32UiShellNapiAvailable) wasmWindowssysWindowsWin32UiShellSHBindToFolderIDListParentEx(psfroot.rawAddress.toString(), pidl.rawAddress.toString(), ppbc.rawAddress.toString(), riid.rawAddress.toString(), ppv.rawAddress.toString(), ppidllast.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun sHBindToObject(psf: MutPtr<CVoid>, pidl: ConstPtr<Itemidlist>, pbc: MutPtr<CVoid>, riid: ConstPtr<Guid>, ppv: MutPtr<MutPtr<CVoid>>): Hresult =
+public actual fun sHBindToObject(psf: MutPtr, pidl: ConstPtr, pbc: MutPtr, riid: ConstPtr, ppv: MutPtr): Hresult =
     if (windowsWin32UiShellNapiAvailable) wasmWindowssysWindowsWin32UiShellSHBindToObject(psf.rawAddress.toString(), pidl.rawAddress.toString(), pbc.rawAddress.toString(), riid.rawAddress.toString(), ppv.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun sHBindToParent(pidl: ConstPtr<Itemidlist>, riid: ConstPtr<Guid>, ppv: MutPtr<MutPtr<CVoid>>, ppidllast: MutPtr<MutPtr<Itemidlist>>): Hresult =
+public actual fun sHBindToParent(pidl: ConstPtr, riid: ConstPtr, ppv: MutPtr, ppidllast: MutPtr): Hresult =
     if (windowsWin32UiShellNapiAvailable) wasmWindowssysWindowsWin32UiShellSHBindToParent(pidl.rawAddress.toString(), riid.rawAddress.toString(), ppv.rawAddress.toString(), ppidllast.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun sHBrowseForFolderA(lpbi: ConstPtr<Browseinfoa>): MutPtr<Itemidlist> =
+public actual fun sHBrowseForFolderA(lpbi: ConstPtr): MutPtr =
     if (windowsWin32UiShellNapiAvailable) MutPtr(wasmWindowssysWindowsWin32UiShellSHBrowseForFolderA(lpbi.rawAddress.toString()).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun sHBrowseForFolderW(lpbi: ConstPtr<Browseinfow>): MutPtr<Itemidlist> =
+public actual fun sHBrowseForFolderW(lpbi: ConstPtr): MutPtr =
     if (windowsWin32UiShellNapiAvailable) MutPtr(wasmWindowssysWindowsWin32UiShellSHBrowseForFolderW(lpbi.rawAddress.toString()).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun sHCLSIDFromString(psz: Pcwstr, pclsid: MutPtr<Guid>): Hresult =
+public actual fun sHCLSIDFromString(psz: Pcwstr, pclsid: MutPtr): Hresult =
     if (windowsWin32UiShellNapiAvailable) wasmWindowssysWindowsWin32UiShellSHCLSIDFromString(psz.rawAddress.toString(), pclsid.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun shchangeNotificationLock(hchange: Handle, dwprocid: UInt, pppidl: MutPtr<MutPtr<MutPtr<Itemidlist>>>, plevent: MutPtr<Int>): Handle =
+public actual fun shchangeNotificationLock(hchange: Handle, dwprocid: UInt, pppidl: MutPtr, plevent: MutPtr): Handle =
     if (windowsWin32UiShellNapiAvailable) MutPtr(wasmWindowssysWindowsWin32UiShellShchangeNotificationLock(hchange.rawAddress.toString(), dwprocid.toInt(), pppidl.rawAddress.toString(), plevent.rawAddress.toString()).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun shchangeNotificationUnlock(hlock: Handle): Bool =
     if (windowsWin32UiShellNapiAvailable) wasmWindowssysWindowsWin32UiShellShchangeNotificationUnlock(hlock.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun sHChangeNotify(weventid: Int, uflags: ShcnfFlags, dwitem1: ConstPtr<CVoid>, dwitem2: ConstPtr<CVoid>) {
+public actual fun sHChangeNotify(weventid: Int, uflags: ShcnfFlags, dwitem1: ConstPtr, dwitem2: ConstPtr) {
     if (windowsWin32UiShellNapiAvailable) {
         wasmWindowssysWindowsWin32UiShellSHChangeNotify(weventid, uflags.toInt(), dwitem1.rawAddress.toString(), dwitem2.rawAddress.toString())
     } else {
@@ -3237,7 +3223,7 @@ public actual fun sHChangeNotify(weventid: Int, uflags: ShcnfFlags, dwitem1: Con
 public actual fun sHChangeNotifyDeregister(ulid: UInt): Bool =
     if (windowsWin32UiShellNapiAvailable) wasmWindowssysWindowsWin32UiShellSHChangeNotifyDeregister(ulid.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun sHChangeNotifyRegister(hwnd: Hwnd, fsources: ShcnrfSource, fevents: Int, wmsg: UInt, centries: Int, pshcne: ConstPtr<SHChangeNotifyEntry>): UInt =
+public actual fun sHChangeNotifyRegister(hwnd: Hwnd, fsources: ShcnrfSource, fevents: Int, wmsg: UInt, centries: Int, pshcne: ConstPtr): UInt =
     if (windowsWin32UiShellNapiAvailable) wasmWindowssysWindowsWin32UiShellSHChangeNotifyRegister(hwnd.rawAddress.toString(), fsources, fevents, wmsg.toInt(), centries, pshcne.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun sHChangeNotifyRegisterThread(status: ScnrtStatus) {
@@ -3248,10 +3234,10 @@ public actual fun sHChangeNotifyRegisterThread(status: ScnrtStatus) {
     }
 }
 
-public actual fun sHCloneSpecialIDList(hwnd: Hwnd, csidl: Int, fcreate: Bool): MutPtr<Itemidlist> =
+public actual fun sHCloneSpecialIDList(hwnd: Hwnd, csidl: Int, fcreate: Bool): MutPtr =
     if (windowsWin32UiShellNapiAvailable) MutPtr(wasmWindowssysWindowsWin32UiShellSHCloneSpecialIDList(hwnd.rawAddress.toString(), csidl, fcreate).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun sHCoCreateInstance(pszclsid: Pcwstr, pclsid: ConstPtr<Guid>, punkouter: MutPtr<CVoid>, riid: ConstPtr<Guid>, ppv: MutPtr<MutPtr<CVoid>>): Hresult =
+public actual fun sHCoCreateInstance(pszclsid: Pcwstr, pclsid: ConstPtr, punkouter: MutPtr, riid: ConstPtr, ppv: MutPtr): Hresult =
     if (windowsWin32UiShellNapiAvailable) wasmWindowssysWindowsWin32UiShellSHCoCreateInstance(pszclsid.rawAddress.toString(), pclsid.rawAddress.toString(), punkouter.rawAddress.toString(), riid.rawAddress.toString(), ppv.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun sHCopyKeyA(hkeysrc: Hkey, pszsrcsubkey: Pcstr, hkeydest: Hkey, freserved: UInt): Win32Error =
@@ -3260,109 +3246,109 @@ public actual fun sHCopyKeyA(hkeysrc: Hkey, pszsrcsubkey: Pcstr, hkeydest: Hkey,
 public actual fun sHCopyKeyW(hkeysrc: Hkey, pszsrcsubkey: Pcwstr, hkeydest: Hkey, freserved: UInt): Win32Error =
     if (windowsWin32UiShellNapiAvailable) wasmWindowssysWindowsWin32UiShellSHCopyKeyW(hkeysrc.rawAddress.toString(), pszsrcsubkey.rawAddress.toString(), hkeydest.rawAddress.toString(), freserved.toInt()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun sHCreateAssociationRegistration(riid: ConstPtr<Guid>, ppv: MutPtr<MutPtr<CVoid>>): Hresult =
+public actual fun sHCreateAssociationRegistration(riid: ConstPtr, ppv: MutPtr): Hresult =
     if (windowsWin32UiShellNapiAvailable) wasmWindowssysWindowsWin32UiShellSHCreateAssociationRegistration(riid.rawAddress.toString(), ppv.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun sHCreateDataObject(pidlfolder: ConstPtr<Itemidlist>, cidl: UInt, apidl: ConstPtr<ConstPtr<Itemidlist>>, pdtinner: MutPtr<CVoid>, riid: ConstPtr<Guid>, ppv: MutPtr<MutPtr<CVoid>>): Hresult =
+public actual fun sHCreateDataObject(pidlfolder: ConstPtr, cidl: UInt, apidl: ConstPtr, pdtinner: MutPtr, riid: ConstPtr, ppv: MutPtr): Hresult =
     if (windowsWin32UiShellNapiAvailable) wasmWindowssysWindowsWin32UiShellSHCreateDataObject(pidlfolder.rawAddress.toString(), cidl.toInt(), apidl.rawAddress.toString(), pdtinner.rawAddress.toString(), riid.rawAddress.toString(), ppv.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun sHCreateDefaultContextMenu(pdcm: ConstPtr<Defcontextmenu>, riid: ConstPtr<Guid>, ppv: MutPtr<MutPtr<CVoid>>): Hresult =
+public actual fun sHCreateDefaultContextMenu(pdcm: ConstPtr, riid: ConstPtr, ppv: MutPtr): Hresult =
     if (windowsWin32UiShellNapiAvailable) wasmWindowssysWindowsWin32UiShellSHCreateDefaultContextMenu(pdcm.rawAddress.toString(), riid.rawAddress.toString(), ppv.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun sHCreateDefaultExtractIcon(riid: ConstPtr<Guid>, ppv: MutPtr<MutPtr<CVoid>>): Hresult =
+public actual fun sHCreateDefaultExtractIcon(riid: ConstPtr, ppv: MutPtr): Hresult =
     if (windowsWin32UiShellNapiAvailable) wasmWindowssysWindowsWin32UiShellSHCreateDefaultExtractIcon(riid.rawAddress.toString(), ppv.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun sHCreateDefaultPropertiesOp(psi: MutPtr<CVoid>, ppfileop: MutPtr<MutPtr<CVoid>>): Hresult =
+public actual fun sHCreateDefaultPropertiesOp(psi: MutPtr, ppfileop: MutPtr): Hresult =
     if (windowsWin32UiShellNapiAvailable) wasmWindowssysWindowsWin32UiShellSHCreateDefaultPropertiesOp(psi.rawAddress.toString(), ppfileop.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun sHCreateDirectory(hwnd: Hwnd, pszpath: Pcwstr): Int =
     if (windowsWin32UiShellNapiAvailable) wasmWindowssysWindowsWin32UiShellSHCreateDirectory(hwnd.rawAddress.toString(), pszpath.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun sHCreateDirectoryExA(hwnd: Hwnd, pszpath: Pcstr, psa: ConstPtr<SecurityAttributes>): Int =
+public actual fun sHCreateDirectoryExA(hwnd: Hwnd, pszpath: Pcstr, psa: ConstPtr): Int =
     if (windowsWin32UiShellNapiAvailable) wasmWindowssysWindowsWin32UiShellSHCreateDirectoryExA(hwnd.rawAddress.toString(), pszpath.rawAddress.toString(), psa.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun sHCreateDirectoryExW(hwnd: Hwnd, pszpath: Pcwstr, psa: ConstPtr<SecurityAttributes>): Int =
+public actual fun sHCreateDirectoryExW(hwnd: Hwnd, pszpath: Pcwstr, psa: ConstPtr): Int =
     if (windowsWin32UiShellNapiAvailable) wasmWindowssysWindowsWin32UiShellSHCreateDirectoryExW(hwnd.rawAddress.toString(), pszpath.rawAddress.toString(), psa.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun sHCreateFileExtractIconW(pszfile: Pcwstr, dwfileattributes: UInt, riid: ConstPtr<Guid>, ppv: MutPtr<MutPtr<CVoid>>): Hresult =
+public actual fun sHCreateFileExtractIconW(pszfile: Pcwstr, dwfileattributes: UInt, riid: ConstPtr, ppv: MutPtr): Hresult =
     if (windowsWin32UiShellNapiAvailable) wasmWindowssysWindowsWin32UiShellSHCreateFileExtractIconW(pszfile.rawAddress.toString(), dwfileattributes.toInt(), riid.rawAddress.toString(), ppv.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun sHCreateItemFromIDList(pidl: ConstPtr<Itemidlist>, riid: ConstPtr<Guid>, ppv: MutPtr<MutPtr<CVoid>>): Hresult =
+public actual fun sHCreateItemFromIDList(pidl: ConstPtr, riid: ConstPtr, ppv: MutPtr): Hresult =
     if (windowsWin32UiShellNapiAvailable) wasmWindowssysWindowsWin32UiShellSHCreateItemFromIDList(pidl.rawAddress.toString(), riid.rawAddress.toString(), ppv.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun sHCreateItemFromParsingName(pszpath: Pcwstr, pbc: MutPtr<CVoid>, riid: ConstPtr<Guid>, ppv: MutPtr<MutPtr<CVoid>>): Hresult =
+public actual fun sHCreateItemFromParsingName(pszpath: Pcwstr, pbc: MutPtr, riid: ConstPtr, ppv: MutPtr): Hresult =
     if (windowsWin32UiShellNapiAvailable) wasmWindowssysWindowsWin32UiShellSHCreateItemFromParsingName(pszpath.rawAddress.toString(), pbc.rawAddress.toString(), riid.rawAddress.toString(), ppv.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun sHCreateItemFromRelativeName(psiparent: MutPtr<CVoid>, pszname: Pcwstr, pbc: MutPtr<CVoid>, riid: ConstPtr<Guid>, ppv: MutPtr<MutPtr<CVoid>>): Hresult =
+public actual fun sHCreateItemFromRelativeName(psiparent: MutPtr, pszname: Pcwstr, pbc: MutPtr, riid: ConstPtr, ppv: MutPtr): Hresult =
     if (windowsWin32UiShellNapiAvailable) wasmWindowssysWindowsWin32UiShellSHCreateItemFromRelativeName(psiparent.rawAddress.toString(), pszname.rawAddress.toString(), pbc.rawAddress.toString(), riid.rawAddress.toString(), ppv.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun sHCreateItemInKnownFolder(kfid: ConstPtr<Guid>, dwkfflags: UInt, pszitem: Pcwstr, riid: ConstPtr<Guid>, ppv: MutPtr<MutPtr<CVoid>>): Hresult =
+public actual fun sHCreateItemInKnownFolder(kfid: ConstPtr, dwkfflags: UInt, pszitem: Pcwstr, riid: ConstPtr, ppv: MutPtr): Hresult =
     if (windowsWin32UiShellNapiAvailable) wasmWindowssysWindowsWin32UiShellSHCreateItemInKnownFolder(kfid.rawAddress.toString(), dwkfflags.toInt(), pszitem.rawAddress.toString(), riid.rawAddress.toString(), ppv.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun sHCreateItemWithParent(pidlparent: ConstPtr<Itemidlist>, psfparent: MutPtr<CVoid>, pidl: ConstPtr<Itemidlist>, riid: ConstPtr<Guid>, ppvitem: MutPtr<MutPtr<CVoid>>): Hresult =
+public actual fun sHCreateItemWithParent(pidlparent: ConstPtr, psfparent: MutPtr, pidl: ConstPtr, riid: ConstPtr, ppvitem: MutPtr): Hresult =
     if (windowsWin32UiShellNapiAvailable) wasmWindowssysWindowsWin32UiShellSHCreateItemWithParent(pidlparent.rawAddress.toString(), psfparent.rawAddress.toString(), pidl.rawAddress.toString(), riid.rawAddress.toString(), ppvitem.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun sHCreateMemStream(pinit: ConstPtr<UByte>, cbinit: UInt): MutPtr<CVoid> =
+public actual fun sHCreateMemStream(pinit: ConstPtr, cbinit: UInt): MutPtr =
     if (windowsWin32UiShellNapiAvailable) MutPtr(wasmWindowssysWindowsWin32UiShellSHCreateMemStream(pinit.rawAddress.toString(), cbinit.toInt()).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun sHCreateProcessAsUserW(pscpi: MutPtr<Shcreateprocessinfow>): Bool =
+public actual fun sHCreateProcessAsUserW(pscpi: MutPtr): Bool =
     if (windowsWin32UiShellNapiAvailable) wasmWindowssysWindowsWin32UiShellSHCreateProcessAsUserW(pscpi.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun sHCreatePropSheetExtArray(hkey: Hkey, pszsubkey: Pcwstr, maxIface: UInt): Hpsxa =
     if (windowsWin32UiShellNapiAvailable) MutPtr(wasmWindowssysWindowsWin32UiShellSHCreatePropSheetExtArray(hkey.rawAddress.toString(), pszsubkey.rawAddress.toString(), maxIface.toInt()).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun sHCreateQueryCancelAutoPlayMoniker(ppmoniker: MutPtr<MutPtr<CVoid>>): Hresult =
+public actual fun sHCreateQueryCancelAutoPlayMoniker(ppmoniker: MutPtr): Hresult =
     if (windowsWin32UiShellNapiAvailable) wasmWindowssysWindowsWin32UiShellSHCreateQueryCancelAutoPlayMoniker(ppmoniker.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun sHCreateShellFolderView(pcsfv: ConstPtr<SfvCreate>, ppsv: MutPtr<MutPtr<CVoid>>): Hresult =
+public actual fun sHCreateShellFolderView(pcsfv: ConstPtr, ppsv: MutPtr): Hresult =
     if (windowsWin32UiShellNapiAvailable) wasmWindowssysWindowsWin32UiShellSHCreateShellFolderView(pcsfv.rawAddress.toString(), ppsv.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun sHCreateShellFolderViewEx(pcsfv: ConstPtr<Csfv>, ppsv: MutPtr<MutPtr<CVoid>>): Hresult =
+public actual fun sHCreateShellFolderViewEx(pcsfv: ConstPtr, ppsv: MutPtr): Hresult =
     if (windowsWin32UiShellNapiAvailable) wasmWindowssysWindowsWin32UiShellSHCreateShellFolderViewEx(pcsfv.rawAddress.toString(), ppsv.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun sHCreateShellItem(pidlparent: ConstPtr<Itemidlist>, psfparent: MutPtr<CVoid>, pidl: ConstPtr<Itemidlist>, ppsi: MutPtr<MutPtr<CVoid>>): Hresult =
+public actual fun sHCreateShellItem(pidlparent: ConstPtr, psfparent: MutPtr, pidl: ConstPtr, ppsi: MutPtr): Hresult =
     if (windowsWin32UiShellNapiAvailable) wasmWindowssysWindowsWin32UiShellSHCreateShellItem(pidlparent.rawAddress.toString(), psfparent.rawAddress.toString(), pidl.rawAddress.toString(), ppsi.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun sHCreateShellItemArray(pidlparent: ConstPtr<Itemidlist>, psf: MutPtr<CVoid>, cidl: UInt, ppidl: ConstPtr<ConstPtr<Itemidlist>>, ppsiitemarray: MutPtr<MutPtr<CVoid>>): Hresult =
+public actual fun sHCreateShellItemArray(pidlparent: ConstPtr, psf: MutPtr, cidl: UInt, ppidl: ConstPtr, ppsiitemarray: MutPtr): Hresult =
     if (windowsWin32UiShellNapiAvailable) wasmWindowssysWindowsWin32UiShellSHCreateShellItemArray(pidlparent.rawAddress.toString(), psf.rawAddress.toString(), cidl.toInt(), ppidl.rawAddress.toString(), ppsiitemarray.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun sHCreateShellItemArrayFromDataObject(pdo: MutPtr<CVoid>, riid: ConstPtr<Guid>, ppv: MutPtr<MutPtr<CVoid>>): Hresult =
+public actual fun sHCreateShellItemArrayFromDataObject(pdo: MutPtr, riid: ConstPtr, ppv: MutPtr): Hresult =
     if (windowsWin32UiShellNapiAvailable) wasmWindowssysWindowsWin32UiShellSHCreateShellItemArrayFromDataObject(pdo.rawAddress.toString(), riid.rawAddress.toString(), ppv.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun sHCreateShellItemArrayFromIDLists(cidl: UInt, rgpidl: ConstPtr<ConstPtr<Itemidlist>>, ppsiitemarray: MutPtr<MutPtr<CVoid>>): Hresult =
+public actual fun sHCreateShellItemArrayFromIDLists(cidl: UInt, rgpidl: ConstPtr, ppsiitemarray: MutPtr): Hresult =
     if (windowsWin32UiShellNapiAvailable) wasmWindowssysWindowsWin32UiShellSHCreateShellItemArrayFromIDLists(cidl.toInt(), rgpidl.rawAddress.toString(), ppsiitemarray.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun sHCreateShellItemArrayFromShellItem(psi: MutPtr<CVoid>, riid: ConstPtr<Guid>, ppv: MutPtr<MutPtr<CVoid>>): Hresult =
+public actual fun sHCreateShellItemArrayFromShellItem(psi: MutPtr, riid: ConstPtr, ppv: MutPtr): Hresult =
     if (windowsWin32UiShellNapiAvailable) wasmWindowssysWindowsWin32UiShellSHCreateShellItemArrayFromShellItem(psi.rawAddress.toString(), riid.rawAddress.toString(), ppv.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun sHCreateShellPalette(hdc: Hdc): Hpalette =
     if (windowsWin32UiShellNapiAvailable) MutPtr(wasmWindowssysWindowsWin32UiShellSHCreateShellPalette(hdc.rawAddress.toString()).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun sHCreateStdEnumFmtEtc(cfmt: UInt, afmt: ConstPtr<Formatetc>, ppenumformatetc: MutPtr<MutPtr<CVoid>>): Hresult =
+public actual fun sHCreateStdEnumFmtEtc(cfmt: UInt, afmt: ConstPtr, ppenumformatetc: MutPtr): Hresult =
     if (windowsWin32UiShellNapiAvailable) wasmWindowssysWindowsWin32UiShellSHCreateStdEnumFmtEtc(cfmt.toInt(), afmt.rawAddress.toString(), ppenumformatetc.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun sHCreateStreamOnFileA(pszfile: Pcstr, grfmode: UInt, ppstm: MutPtr<MutPtr<CVoid>>): Hresult =
+public actual fun sHCreateStreamOnFileA(pszfile: Pcstr, grfmode: UInt, ppstm: MutPtr): Hresult =
     if (windowsWin32UiShellNapiAvailable) wasmWindowssysWindowsWin32UiShellSHCreateStreamOnFileA(pszfile.rawAddress.toString(), grfmode.toInt(), ppstm.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun sHCreateStreamOnFileEx(pszfile: Pcwstr, grfmode: UInt, dwattributes: UInt, fcreate: Bool, pstmtemplate: MutPtr<CVoid>, ppstm: MutPtr<MutPtr<CVoid>>): Hresult =
+public actual fun sHCreateStreamOnFileEx(pszfile: Pcwstr, grfmode: UInt, dwattributes: UInt, fcreate: Bool, pstmtemplate: MutPtr, ppstm: MutPtr): Hresult =
     if (windowsWin32UiShellNapiAvailable) wasmWindowssysWindowsWin32UiShellSHCreateStreamOnFileEx(pszfile.rawAddress.toString(), grfmode.toInt(), dwattributes.toInt(), fcreate, pstmtemplate.rawAddress.toString(), ppstm.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun sHCreateStreamOnFileW(pszfile: Pcwstr, grfmode: UInt, ppstm: MutPtr<MutPtr<CVoid>>): Hresult =
+public actual fun sHCreateStreamOnFileW(pszfile: Pcwstr, grfmode: UInt, ppstm: MutPtr): Hresult =
     if (windowsWin32UiShellNapiAvailable) wasmWindowssysWindowsWin32UiShellSHCreateStreamOnFileW(pszfile.rawAddress.toString(), grfmode.toInt(), ppstm.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun sHCreateThread(pfnthreadproc: LpthreadStartRoutine, pdata: ConstPtr<CVoid>, flags: UInt, pfncallback: LpthreadStartRoutine): Bool =
+public actual fun sHCreateThread(pfnthreadproc: LpthreadStartRoutine, pdata: ConstPtr, flags: UInt, pfncallback: LpthreadStartRoutine): Bool =
     if (windowsWin32UiShellNapiAvailable) wasmWindowssysWindowsWin32UiShellSHCreateThread(0L.toString(), pdata.rawAddress.toString(), flags.toInt(), 0L.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun sHCreateThreadRef(pcref: MutPtr<Int>, ppunk: MutPtr<MutPtr<CVoid>>): Hresult =
+public actual fun sHCreateThreadRef(pcref: MutPtr, ppunk: MutPtr): Hresult =
     if (windowsWin32UiShellNapiAvailable) wasmWindowssysWindowsWin32UiShellSHCreateThreadRef(pcref.rawAddress.toString(), ppunk.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun sHCreateThreadWithHandle(pfnthreadproc: LpthreadStartRoutine, pdata: ConstPtr<CVoid>, flags: UInt, pfncallback: LpthreadStartRoutine, phandle: MutPtr<Handle>): Bool =
+public actual fun sHCreateThreadWithHandle(pfnthreadproc: LpthreadStartRoutine, pdata: ConstPtr, flags: UInt, pfncallback: LpthreadStartRoutine, phandle: MutPtr): Bool =
     if (windowsWin32UiShellNapiAvailable) wasmWindowssysWindowsWin32UiShellSHCreateThreadWithHandle(0L.toString(), pdata.rawAddress.toString(), flags.toInt(), 0L.toString(), phandle.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun sHDefExtractIconA(psziconfile: Pcstr, iindex: Int, uflags: UInt, phiconlarge: MutPtr<Hicon>, phiconsmall: MutPtr<Hicon>, niconsize: UInt): Hresult =
+public actual fun sHDefExtractIconA(psziconfile: Pcstr, iindex: Int, uflags: UInt, phiconlarge: MutPtr, phiconsmall: MutPtr, niconsize: UInt): Hresult =
     if (windowsWin32UiShellNapiAvailable) wasmWindowssysWindowsWin32UiShellSHDefExtractIconA(psziconfile.rawAddress.toString(), iindex, uflags.toInt(), phiconlarge.rawAddress.toString(), phiconsmall.rawAddress.toString(), niconsize.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun sHDefExtractIconW(psziconfile: Pcwstr, iindex: Int, uflags: UInt, phiconlarge: MutPtr<Hicon>, phiconsmall: MutPtr<Hicon>, niconsize: UInt): Hresult =
+public actual fun sHDefExtractIconW(psziconfile: Pcwstr, iindex: Int, uflags: UInt, phiconlarge: MutPtr, phiconsmall: MutPtr, niconsize: UInt): Hresult =
     if (windowsWin32UiShellNapiAvailable) wasmWindowssysWindowsWin32UiShellSHDefExtractIconW(psziconfile.rawAddress.toString(), iindex, uflags.toInt(), phiconlarge.rawAddress.toString(), phiconsmall.rawAddress.toString(), niconsize.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun sHDeleteEmptyKeyA(hkey: Hkey, pszsubkey: Pcstr): Win32Error =
@@ -3391,7 +3377,7 @@ public actual fun sHDestroyPropSheetExtArray(hpsxa: Hpsxa) {
     }
 }
 
-public actual fun sHDoDragDrop(hwnd: Hwnd, pdata: MutPtr<CVoid>, pdsrc: MutPtr<CVoid>, dweffect: Dropeffect, pdweffect: MutPtr<Dropeffect>): Hresult =
+public actual fun sHDoDragDrop(hwnd: Hwnd, pdata: MutPtr, pdsrc: MutPtr, dweffect: Dropeffect, pdweffect: MutPtr): Hresult =
     if (windowsWin32UiShellNapiAvailable) wasmWindowssysWindowsWin32UiShellSHDoDragDrop(hwnd.rawAddress.toString(), pdata.rawAddress.toString(), pdsrc.rawAddress.toString(), dweffect.toInt(), pdweffect.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun sHEmptyRecycleBinA(hwnd: Hwnd, pszrootpath: Pcstr, dwflags: UInt): Hresult =
@@ -3400,34 +3386,34 @@ public actual fun sHEmptyRecycleBinA(hwnd: Hwnd, pszrootpath: Pcstr, dwflags: UI
 public actual fun sHEmptyRecycleBinW(hwnd: Hwnd, pszrootpath: Pcwstr, dwflags: UInt): Hresult =
     if (windowsWin32UiShellNapiAvailable) wasmWindowssysWindowsWin32UiShellSHEmptyRecycleBinW(hwnd.rawAddress.toString(), pszrootpath.rawAddress.toString(), dwflags.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun sHEnumKeyExA(hkey: Hkey, dwindex: UInt, pszname: Pstr, pcchname: MutPtr<UInt>): Win32Error =
+public actual fun sHEnumKeyExA(hkey: Hkey, dwindex: UInt, pszname: Pstr, pcchname: MutPtr): Win32Error =
     if (windowsWin32UiShellNapiAvailable) wasmWindowssysWindowsWin32UiShellSHEnumKeyExA(hkey.rawAddress.toString(), dwindex.toInt(), pszname.rawAddress.toString(), pcchname.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun sHEnumKeyExW(hkey: Hkey, dwindex: UInt, pszname: Pwstr, pcchname: MutPtr<UInt>): Win32Error =
+public actual fun sHEnumKeyExW(hkey: Hkey, dwindex: UInt, pszname: Pwstr, pcchname: MutPtr): Win32Error =
     if (windowsWin32UiShellNapiAvailable) wasmWindowssysWindowsWin32UiShellSHEnumKeyExW(hkey.rawAddress.toString(), dwindex.toInt(), pszname.rawAddress.toString(), pcchname.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun sHEnumValueA(hkey: Hkey, dwindex: UInt, pszvaluename: Pstr, pcchvaluename: MutPtr<UInt>, pdwtype: MutPtr<UInt>, pvdata: MutPtr<CVoid>, pcbdata: MutPtr<UInt>): Win32Error =
+public actual fun sHEnumValueA(hkey: Hkey, dwindex: UInt, pszvaluename: Pstr, pcchvaluename: MutPtr, pdwtype: MutPtr, pvdata: MutPtr, pcbdata: MutPtr): Win32Error =
     if (windowsWin32UiShellNapiAvailable) wasmWindowssysWindowsWin32UiShellSHEnumValueA(hkey.rawAddress.toString(), dwindex.toInt(), pszvaluename.rawAddress.toString(), pcchvaluename.rawAddress.toString(), pdwtype.rawAddress.toString(), pvdata.rawAddress.toString(), pcbdata.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun sHEnumValueW(hkey: Hkey, dwindex: UInt, pszvaluename: Pwstr, pcchvaluename: MutPtr<UInt>, pdwtype: MutPtr<UInt>, pvdata: MutPtr<CVoid>, pcbdata: MutPtr<UInt>): Win32Error =
+public actual fun sHEnumValueW(hkey: Hkey, dwindex: UInt, pszvaluename: Pwstr, pcchvaluename: MutPtr, pdwtype: MutPtr, pvdata: MutPtr, pcbdata: MutPtr): Win32Error =
     if (windowsWin32UiShellNapiAvailable) wasmWindowssysWindowsWin32UiShellSHEnumValueW(hkey.rawAddress.toString(), dwindex.toInt(), pszvaluename.rawAddress.toString(), pcchvaluename.rawAddress.toString(), pdwtype.rawAddress.toString(), pvdata.rawAddress.toString(), pcbdata.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun sHEnumerateUnreadMailAccountsW(hkeyuser: Hkey, dwindex: UInt, pszmailaddress: Pwstr, cchmailaddress: Int): Hresult =
     if (windowsWin32UiShellNapiAvailable) wasmWindowssysWindowsWin32UiShellSHEnumerateUnreadMailAccountsW(hkeyuser.rawAddress.toString(), dwindex.toInt(), pszmailaddress.rawAddress.toString(), cchmailaddress) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun sHEvaluateSystemCommandTemplate(pszcmdtemplate: Pcwstr, ppszapplication: MutPtr<Pwstr>, ppszcommandline: MutPtr<Pwstr>, ppszparameters: MutPtr<Pwstr>): Hresult =
+public actual fun sHEvaluateSystemCommandTemplate(pszcmdtemplate: Pcwstr, ppszapplication: MutPtr, ppszcommandline: MutPtr, ppszparameters: MutPtr): Hresult =
     if (windowsWin32UiShellNapiAvailable) wasmWindowssysWindowsWin32UiShellSHEvaluateSystemCommandTemplate(pszcmdtemplate.rawAddress.toString(), ppszapplication.rawAddress.toString(), ppszcommandline.rawAddress.toString(), ppszparameters.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun sHFileOperationA(lpfileop: MutPtr<Shfileopstructa>): Int =
+public actual fun sHFileOperationA(lpfileop: MutPtr): Int =
     if (windowsWin32UiShellNapiAvailable) wasmWindowssysWindowsWin32UiShellSHFileOperationA(lpfileop.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun sHFileOperationW(lpfileop: MutPtr<Shfileopstructw>): Int =
+public actual fun sHFileOperationW(lpfileop: MutPtr): Int =
     if (windowsWin32UiShellNapiAvailable) wasmWindowssysWindowsWin32UiShellSHFileOperationW(lpfileop.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun sHFindFiles(pidlfolder: ConstPtr<Itemidlist>, pidlsavefile: ConstPtr<Itemidlist>): Bool =
+public actual fun sHFindFiles(pidlfolder: ConstPtr, pidlsavefile: ConstPtr): Bool =
     if (windowsWin32UiShellNapiAvailable) wasmWindowssysWindowsWin32UiShellSHFindFiles(pidlfolder.rawAddress.toString(), pidlsavefile.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun shfindInitMenuPopup(hmenu: Hmenu, hwndowner: Hwnd, idcmdfirst: UInt, idcmdlast: UInt): MutPtr<CVoid> =
+public actual fun shfindInitMenuPopup(hmenu: Hmenu, hwndowner: Hwnd, idcmdfirst: UInt, idcmdlast: UInt): MutPtr =
     if (windowsWin32UiShellNapiAvailable) MutPtr(wasmWindowssysWindowsWin32UiShellShfindInitMenuPopup(hmenu.rawAddress.toString(), hwndowner.rawAddress.toString(), idcmdfirst.toInt(), idcmdlast.toInt()).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun sHFlushSFCache() {
@@ -3438,16 +3424,16 @@ public actual fun sHFlushSFCache() {
     }
 }
 
-public actual fun sHFormatDateTimeA(pft: ConstPtr<Filetime>, pdwflags: MutPtr<UInt>, pszbuf: Pstr, cchbuf: UInt): Int =
+public actual fun sHFormatDateTimeA(pft: ConstPtr, pdwflags: MutPtr, pszbuf: Pstr, cchbuf: UInt): Int =
     if (windowsWin32UiShellNapiAvailable) wasmWindowssysWindowsWin32UiShellSHFormatDateTimeA(pft.rawAddress.toString(), pdwflags.rawAddress.toString(), pszbuf.rawAddress.toString(), cchbuf.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun sHFormatDateTimeW(pft: ConstPtr<Filetime>, pdwflags: MutPtr<UInt>, pszbuf: Pwstr, cchbuf: UInt): Int =
+public actual fun sHFormatDateTimeW(pft: ConstPtr, pdwflags: MutPtr, pszbuf: Pwstr, cchbuf: UInt): Int =
     if (windowsWin32UiShellNapiAvailable) wasmWindowssysWindowsWin32UiShellSHFormatDateTimeW(pft.rawAddress.toString(), pdwflags.rawAddress.toString(), pszbuf.rawAddress.toString(), cchbuf.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun sHFormatDrive(hwnd: Hwnd, drive: UInt, fmtid: ShfmtId, options: UInt): UInt =
     if (windowsWin32UiShellNapiAvailable) wasmWindowssysWindowsWin32UiShellSHFormatDrive(hwnd.rawAddress.toString(), drive.toInt(), fmtid.toInt(), options.toInt()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun sHFree(pv: ConstPtr<CVoid>) {
+public actual fun sHFree(pv: ConstPtr) {
     if (windowsWin32UiShellNapiAvailable) {
         wasmWindowssysWindowsWin32UiShellSHFree(pv.rawAddress.toString())
     } else {
@@ -3466,34 +3452,34 @@ public actual fun sHFreeNameMappings(hnamemappings: Handle) {
 public actual fun sHFreeShared(hdata: Handle, dwprocessid: UInt): Bool =
     if (windowsWin32UiShellNapiAvailable) wasmWindowssysWindowsWin32UiShellSHFreeShared(hdata.rawAddress.toString(), dwprocessid.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun sHGetAttributesFromDataObject(pdo: MutPtr<CVoid>, dwattributemask: UInt, pdwattributes: MutPtr<UInt>, pcitems: MutPtr<UInt>): Hresult =
+public actual fun sHGetAttributesFromDataObject(pdo: MutPtr, dwattributemask: UInt, pdwattributes: MutPtr, pcitems: MutPtr): Hresult =
     if (windowsWin32UiShellNapiAvailable) wasmWindowssysWindowsWin32UiShellSHGetAttributesFromDataObject(pdo.rawAddress.toString(), dwattributemask.toInt(), pdwattributes.rawAddress.toString(), pcitems.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun sHGetDataFromIDListA(psf: MutPtr<CVoid>, pidl: ConstPtr<Itemidlist>, nformat: ShgdfilFormat, pv: MutPtr<CVoid>, cb: Int): Hresult =
+public actual fun sHGetDataFromIDListA(psf: MutPtr, pidl: ConstPtr, nformat: ShgdfilFormat, pv: MutPtr, cb: Int): Hresult =
     if (windowsWin32UiShellNapiAvailable) wasmWindowssysWindowsWin32UiShellSHGetDataFromIDListA(psf.rawAddress.toString(), pidl.rawAddress.toString(), nformat, pv.rawAddress.toString(), cb) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun sHGetDataFromIDListW(psf: MutPtr<CVoid>, pidl: ConstPtr<Itemidlist>, nformat: ShgdfilFormat, pv: MutPtr<CVoid>, cb: Int): Hresult =
+public actual fun sHGetDataFromIDListW(psf: MutPtr, pidl: ConstPtr, nformat: ShgdfilFormat, pv: MutPtr, cb: Int): Hresult =
     if (windowsWin32UiShellNapiAvailable) wasmWindowssysWindowsWin32UiShellSHGetDataFromIDListW(psf.rawAddress.toString(), pidl.rawAddress.toString(), nformat, pv.rawAddress.toString(), cb) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun sHGetDesktopFolder(ppshf: MutPtr<MutPtr<CVoid>>): Hresult =
+public actual fun sHGetDesktopFolder(ppshf: MutPtr): Hresult =
     if (windowsWin32UiShellNapiAvailable) wasmWindowssysWindowsWin32UiShellSHGetDesktopFolder(ppshf.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun sHGetDiskFreeSpaceExA(pszdirectoryname: Pcstr, pulfreebytesavailabletocaller: MutPtr<ULong>, pultotalnumberofbytes: MutPtr<ULong>, pultotalnumberoffreebytes: MutPtr<ULong>): Bool =
+public actual fun sHGetDiskFreeSpaceExA(pszdirectoryname: Pcstr, pulfreebytesavailabletocaller: MutPtr, pultotalnumberofbytes: MutPtr, pultotalnumberoffreebytes: MutPtr): Bool =
     if (windowsWin32UiShellNapiAvailable) wasmWindowssysWindowsWin32UiShellSHGetDiskFreeSpaceExA(pszdirectoryname.rawAddress.toString(), pulfreebytesavailabletocaller.rawAddress.toString(), pultotalnumberofbytes.rawAddress.toString(), pultotalnumberoffreebytes.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun sHGetDiskFreeSpaceExW(pszdirectoryname: Pcwstr, pulfreebytesavailabletocaller: MutPtr<ULong>, pultotalnumberofbytes: MutPtr<ULong>, pultotalnumberoffreebytes: MutPtr<ULong>): Bool =
+public actual fun sHGetDiskFreeSpaceExW(pszdirectoryname: Pcwstr, pulfreebytesavailabletocaller: MutPtr, pultotalnumberofbytes: MutPtr, pultotalnumberoffreebytes: MutPtr): Bool =
     if (windowsWin32UiShellNapiAvailable) wasmWindowssysWindowsWin32UiShellSHGetDiskFreeSpaceExW(pszdirectoryname.rawAddress.toString(), pulfreebytesavailabletocaller.rawAddress.toString(), pultotalnumberofbytes.rawAddress.toString(), pultotalnumberoffreebytes.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun sHGetDriveMedia(pszdrive: Pcwstr, pdwmediacontent: MutPtr<UInt>): Hresult =
+public actual fun sHGetDriveMedia(pszdrive: Pcwstr, pdwmediacontent: MutPtr): Hresult =
     if (windowsWin32UiShellNapiAvailable) wasmWindowssysWindowsWin32UiShellSHGetDriveMedia(pszdrive.rawAddress.toString(), pdwmediacontent.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun sHGetFileInfoA(pszpath: Pcstr, dwfileattributes: FileFlagsAndAttributes, psfi: MutPtr<Shfileinfoa>, cbfileinfo: UInt, uflags: ShgfiFlags): ULong =
+public actual fun sHGetFileInfoA(pszpath: Pcstr, dwfileattributes: FileFlagsAndAttributes, psfi: MutPtr, cbfileinfo: UInt, uflags: ShgfiFlags): ULong =
     if (windowsWin32UiShellNapiAvailable) wasmWindowssysWindowsWin32UiShellSHGetFileInfoA(pszpath.rawAddress.toString(), dwfileattributes.toInt(), psfi.rawAddress.toString(), cbfileinfo.toInt(), uflags.toInt()).toULong() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun sHGetFileInfoW(pszpath: Pcwstr, dwfileattributes: FileFlagsAndAttributes, psfi: MutPtr<Shfileinfow>, cbfileinfo: UInt, uflags: ShgfiFlags): ULong =
+public actual fun sHGetFileInfoW(pszpath: Pcwstr, dwfileattributes: FileFlagsAndAttributes, psfi: MutPtr, cbfileinfo: UInt, uflags: ShgfiFlags): ULong =
     if (windowsWin32UiShellNapiAvailable) wasmWindowssysWindowsWin32UiShellSHGetFileInfoW(pszpath.rawAddress.toString(), dwfileattributes.toInt(), psfi.rawAddress.toString(), cbfileinfo.toInt(), uflags.toInt()).toULong() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun sHGetFolderLocation(hwnd: Hwnd, csidl: Int, htoken: Handle, dwflags: UInt, ppidl: MutPtr<MutPtr<Itemidlist>>): Hresult =
+public actual fun sHGetFolderLocation(hwnd: Hwnd, csidl: Int, htoken: Handle, dwflags: UInt, ppidl: MutPtr): Hresult =
     if (windowsWin32UiShellNapiAvailable) wasmWindowssysWindowsWin32UiShellSHGetFolderLocation(hwnd.rawAddress.toString(), csidl, htoken.rawAddress.toString(), dwflags.toInt(), ppidl.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun sHGetFolderPathA(hwnd: Hwnd, csidl: Int, htoken: Handle, dwflags: UInt, pszpath: Pstr): Hresult =
@@ -3508,7 +3494,7 @@ public actual fun sHGetFolderPathAndSubDirW(hwnd: Hwnd, csidl: Int, htoken: Hand
 public actual fun sHGetFolderPathW(hwnd: Hwnd, csidl: Int, htoken: Handle, dwflags: UInt, pszpath: Pwstr): Hresult =
     if (windowsWin32UiShellNapiAvailable) wasmWindowssysWindowsWin32UiShellSHGetFolderPathW(hwnd.rawAddress.toString(), csidl, htoken.rawAddress.toString(), dwflags.toInt(), pszpath.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun sHGetIDListFromObject(punk: MutPtr<CVoid>, ppidl: MutPtr<MutPtr<Itemidlist>>): Hresult =
+public actual fun sHGetIDListFromObject(punk: MutPtr, ppidl: MutPtr): Hresult =
     if (windowsWin32UiShellNapiAvailable) wasmWindowssysWindowsWin32UiShellSHGetIDListFromObject(punk.rawAddress.toString(), ppidl.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun sHGetIconOverlayIndexA(psziconpath: Pcstr, iiconindex: Int): Int =
@@ -3517,61 +3503,61 @@ public actual fun sHGetIconOverlayIndexA(psziconpath: Pcstr, iiconindex: Int): I
 public actual fun sHGetIconOverlayIndexW(psziconpath: Pcwstr, iiconindex: Int): Int =
     if (windowsWin32UiShellNapiAvailable) wasmWindowssysWindowsWin32UiShellSHGetIconOverlayIndexW(psziconpath.rawAddress.toString(), iiconindex) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun sHGetImageList(iimagelist: Int, riid: ConstPtr<Guid>, ppvobj: MutPtr<MutPtr<CVoid>>): Hresult =
+public actual fun sHGetImageList(iimagelist: Int, riid: ConstPtr, ppvobj: MutPtr): Hresult =
     if (windowsWin32UiShellNapiAvailable) wasmWindowssysWindowsWin32UiShellSHGetImageList(iimagelist, riid.rawAddress.toString(), ppvobj.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun sHGetInstanceExplorer(ppunk: MutPtr<MutPtr<CVoid>>): Hresult =
+public actual fun sHGetInstanceExplorer(ppunk: MutPtr): Hresult =
     if (windowsWin32UiShellNapiAvailable) wasmWindowssysWindowsWin32UiShellSHGetInstanceExplorer(ppunk.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun sHGetInverseCMAP(pbmap: MutPtr<UByte>, cbmap: UInt): Hresult =
+public actual fun sHGetInverseCMAP(pbmap: MutPtr, cbmap: UInt): Hresult =
     if (windowsWin32UiShellNapiAvailable) wasmWindowssysWindowsWin32UiShellSHGetInverseCMAP(pbmap.rawAddress.toString(), cbmap.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun sHGetItemFromDataObject(pdtobj: MutPtr<CVoid>, dwflags: DataobjGetItemFlags, riid: ConstPtr<Guid>, ppv: MutPtr<MutPtr<CVoid>>): Hresult =
+public actual fun sHGetItemFromDataObject(pdtobj: MutPtr, dwflags: DataobjGetItemFlags, riid: ConstPtr, ppv: MutPtr): Hresult =
     if (windowsWin32UiShellNapiAvailable) wasmWindowssysWindowsWin32UiShellSHGetItemFromDataObject(pdtobj.rawAddress.toString(), dwflags, riid.rawAddress.toString(), ppv.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun sHGetItemFromObject(punk: MutPtr<CVoid>, riid: ConstPtr<Guid>, ppv: MutPtr<MutPtr<CVoid>>): Hresult =
+public actual fun sHGetItemFromObject(punk: MutPtr, riid: ConstPtr, ppv: MutPtr): Hresult =
     if (windowsWin32UiShellNapiAvailable) wasmWindowssysWindowsWin32UiShellSHGetItemFromObject(punk.rawAddress.toString(), riid.rawAddress.toString(), ppv.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun sHGetKnownFolderIDList(rfid: ConstPtr<Guid>, dwflags: UInt, htoken: Handle, ppidl: MutPtr<MutPtr<Itemidlist>>): Hresult =
+public actual fun sHGetKnownFolderIDList(rfid: ConstPtr, dwflags: UInt, htoken: Handle, ppidl: MutPtr): Hresult =
     if (windowsWin32UiShellNapiAvailable) wasmWindowssysWindowsWin32UiShellSHGetKnownFolderIDList(rfid.rawAddress.toString(), dwflags.toInt(), htoken.rawAddress.toString(), ppidl.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun sHGetKnownFolderItem(rfid: ConstPtr<Guid>, flags: KnownFolderFlag, htoken: Handle, riid: ConstPtr<Guid>, ppv: MutPtr<MutPtr<CVoid>>): Hresult =
+public actual fun sHGetKnownFolderItem(rfid: ConstPtr, flags: KnownFolderFlag, htoken: Handle, riid: ConstPtr, ppv: MutPtr): Hresult =
     if (windowsWin32UiShellNapiAvailable) wasmWindowssysWindowsWin32UiShellSHGetKnownFolderItem(rfid.rawAddress.toString(), flags, htoken.rawAddress.toString(), riid.rawAddress.toString(), ppv.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun sHGetKnownFolderPath(rfid: ConstPtr<Guid>, dwflags: UInt, htoken: Handle, ppszpath: MutPtr<Pwstr>): Hresult =
+public actual fun sHGetKnownFolderPath(rfid: ConstPtr, dwflags: UInt, htoken: Handle, ppszpath: MutPtr): Hresult =
     if (windowsWin32UiShellNapiAvailable) wasmWindowssysWindowsWin32UiShellSHGetKnownFolderPath(rfid.rawAddress.toString(), dwflags.toInt(), htoken.rawAddress.toString(), ppszpath.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun sHGetLocalizedName(pszpath: Pcwstr, pszresmodule: Pwstr, cch: UInt, pidsres: MutPtr<Int>): Hresult =
+public actual fun sHGetLocalizedName(pszpath: Pcwstr, pszresmodule: Pwstr, cch: UInt, pidsres: MutPtr): Hresult =
     if (windowsWin32UiShellNapiAvailable) wasmWindowssysWindowsWin32UiShellSHGetLocalizedName(pszpath.rawAddress.toString(), pszresmodule.rawAddress.toString(), cch.toInt(), pidsres.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun sHGetMalloc(ppmalloc: MutPtr<MutPtr<CVoid>>): Hresult =
+public actual fun sHGetMalloc(ppmalloc: MutPtr): Hresult =
     if (windowsWin32UiShellNapiAvailable) wasmWindowssysWindowsWin32UiShellSHGetMalloc(ppmalloc.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun sHGetNameFromIDList(pidl: ConstPtr<Itemidlist>, sigdnname: Sigdn, ppszname: MutPtr<Pwstr>): Hresult =
+public actual fun sHGetNameFromIDList(pidl: ConstPtr, sigdnname: Sigdn, ppszname: MutPtr): Hresult =
     if (windowsWin32UiShellNapiAvailable) wasmWindowssysWindowsWin32UiShellSHGetNameFromIDList(pidl.rawAddress.toString(), sigdnname, ppszname.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun sHGetNewLinkInfoA(pszlinkto: Pcstr, pszdir: Pcstr, pszname: Pstr, pfmustcopy: MutPtr<Bool>, uflags: UInt): Bool =
+public actual fun sHGetNewLinkInfoA(pszlinkto: Pcstr, pszdir: Pcstr, pszname: Pstr, pfmustcopy: MutPtr, uflags: UInt): Bool =
     if (windowsWin32UiShellNapiAvailable) wasmWindowssysWindowsWin32UiShellSHGetNewLinkInfoA(pszlinkto.rawAddress.toString(), pszdir.rawAddress.toString(), pszname.rawAddress.toString(), pfmustcopy.rawAddress.toString(), uflags.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun sHGetNewLinkInfoW(pszlinkto: Pcwstr, pszdir: Pcwstr, pszname: Pwstr, pfmustcopy: MutPtr<Bool>, uflags: UInt): Bool =
+public actual fun sHGetNewLinkInfoW(pszlinkto: Pcwstr, pszdir: Pcwstr, pszname: Pwstr, pfmustcopy: MutPtr, uflags: UInt): Bool =
     if (windowsWin32UiShellNapiAvailable) wasmWindowssysWindowsWin32UiShellSHGetNewLinkInfoW(pszlinkto.rawAddress.toString(), pszdir.rawAddress.toString(), pszname.rawAddress.toString(), pfmustcopy.rawAddress.toString(), uflags.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun sHGetPathFromIDListA(pidl: ConstPtr<Itemidlist>, pszpath: Pstr): Bool =
+public actual fun sHGetPathFromIDListA(pidl: ConstPtr, pszpath: Pstr): Bool =
     if (windowsWin32UiShellNapiAvailable) wasmWindowssysWindowsWin32UiShellSHGetPathFromIDListA(pidl.rawAddress.toString(), pszpath.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun sHGetPathFromIDListEx(pidl: ConstPtr<Itemidlist>, pszpath: Pwstr, cchpath: UInt, uopts: GpfidlFlags): Bool =
+public actual fun sHGetPathFromIDListEx(pidl: ConstPtr, pszpath: Pwstr, cchpath: UInt, uopts: GpfidlFlags): Bool =
     if (windowsWin32UiShellNapiAvailable) wasmWindowssysWindowsWin32UiShellSHGetPathFromIDListEx(pidl.rawAddress.toString(), pszpath.rawAddress.toString(), cchpath.toInt(), uopts.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun sHGetPathFromIDListW(pidl: ConstPtr<Itemidlist>, pszpath: Pwstr): Bool =
+public actual fun sHGetPathFromIDListW(pidl: ConstPtr, pszpath: Pwstr): Bool =
     if (windowsWin32UiShellNapiAvailable) wasmWindowssysWindowsWin32UiShellSHGetPathFromIDListW(pidl.rawAddress.toString(), pszpath.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun sHGetRealIDL(psf: MutPtr<CVoid>, pidlsimple: ConstPtr<Itemidlist>, ppidlreal: MutPtr<MutPtr<Itemidlist>>): Hresult =
+public actual fun sHGetRealIDL(psf: MutPtr, pidlsimple: ConstPtr, ppidlreal: MutPtr): Hresult =
     if (windowsWin32UiShellNapiAvailable) wasmWindowssysWindowsWin32UiShellSHGetRealIDL(psf.rawAddress.toString(), pidlsimple.rawAddress.toString(), ppidlreal.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun sHGetSetFolderCustomSettings(pfcs: MutPtr<Shfoldercustomsettings>, pszpath: Pcwstr, dwreadwrite: UInt): Hresult =
+public actual fun sHGetSetFolderCustomSettings(pfcs: MutPtr, pszpath: Pcwstr, dwreadwrite: UInt): Hresult =
     if (windowsWin32UiShellNapiAvailable) wasmWindowssysWindowsWin32UiShellSHGetSetFolderCustomSettings(pfcs.rawAddress.toString(), pszpath.rawAddress.toString(), dwreadwrite.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun sHGetSetSettings(lpss: MutPtr<Shellstatea>, dwmask: SsfMask, bset: Bool) {
+public actual fun sHGetSetSettings(lpss: MutPtr, dwmask: SsfMask, bset: Bool) {
     if (windowsWin32UiShellNapiAvailable) {
         wasmWindowssysWindowsWin32UiShellSHGetSetSettings(lpss.rawAddress.toString(), dwmask.toInt(), bset)
     } else {
@@ -3579,7 +3565,7 @@ public actual fun sHGetSetSettings(lpss: MutPtr<Shellstatea>, dwmask: SsfMask, b
     }
 }
 
-public actual fun sHGetSettings(psfs: MutPtr<Shellflagstate>, dwmask: UInt) {
+public actual fun sHGetSettings(psfs: MutPtr, dwmask: UInt) {
     if (windowsWin32UiShellNapiAvailable) {
         wasmWindowssysWindowsWin32UiShellSHGetSettings(psfs.rawAddress.toString(), dwmask.toInt())
     } else {
@@ -3587,7 +3573,7 @@ public actual fun sHGetSettings(psfs: MutPtr<Shellflagstate>, dwmask: UInt) {
     }
 }
 
-public actual fun sHGetSpecialFolderLocation(hwnd: Hwnd, csidl: Int, ppidl: MutPtr<MutPtr<Itemidlist>>): Hresult =
+public actual fun sHGetSpecialFolderLocation(hwnd: Hwnd, csidl: Int, ppidl: MutPtr): Hresult =
     if (windowsWin32UiShellNapiAvailable) wasmWindowssysWindowsWin32UiShellSHGetSpecialFolderLocation(hwnd.rawAddress.toString(), csidl, ppidl.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun sHGetSpecialFolderPathA(hwnd: Hwnd, pszpath: Pstr, csidl: Int, fcreate: Bool): Bool =
@@ -3596,25 +3582,25 @@ public actual fun sHGetSpecialFolderPathA(hwnd: Hwnd, pszpath: Pstr, csidl: Int,
 public actual fun sHGetSpecialFolderPathW(hwnd: Hwnd, pszpath: Pwstr, csidl: Int, fcreate: Bool): Bool =
     if (windowsWin32UiShellNapiAvailable) wasmWindowssysWindowsWin32UiShellSHGetSpecialFolderPathW(hwnd.rawAddress.toString(), pszpath.rawAddress.toString(), csidl, fcreate) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun sHGetStockIconInfo(siid: Shstockiconid, uflags: ShgsiFlags, psii: MutPtr<Shstockiconinfo>): Hresult =
+public actual fun sHGetStockIconInfo(siid: Shstockiconid, uflags: ShgsiFlags, psii: MutPtr): Hresult =
     if (windowsWin32UiShellNapiAvailable) wasmWindowssysWindowsWin32UiShellSHGetStockIconInfo(siid, uflags.toInt(), psii.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun sHGetTemporaryPropertyForItem(psi: MutPtr<CVoid>, propkey: ConstPtr<Propertykey>, ppropvar: MutPtr<Propvariant>): Hresult =
+public actual fun sHGetTemporaryPropertyForItem(psi: MutPtr, propkey: ConstPtr, ppropvar: MutPtr): Hresult =
     if (windowsWin32UiShellNapiAvailable) wasmWindowssysWindowsWin32UiShellSHGetTemporaryPropertyForItem(psi.rawAddress.toString(), propkey.rawAddress.toString(), ppropvar.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun sHGetThreadRef(ppunk: MutPtr<MutPtr<CVoid>>): Hresult =
+public actual fun sHGetThreadRef(ppunk: MutPtr): Hresult =
     if (windowsWin32UiShellNapiAvailable) wasmWindowssysWindowsWin32UiShellSHGetThreadRef(ppunk.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun sHGetUnreadMailCountW(hkeyuser: Hkey, pszmailaddress: Pcwstr, pdwcount: MutPtr<UInt>, pfiletime: MutPtr<Filetime>, pszshellexecutecommand: Pwstr, cchshellexecutecommand: Int): Hresult =
+public actual fun sHGetUnreadMailCountW(hkeyuser: Hkey, pszmailaddress: Pcwstr, pdwcount: MutPtr, pfiletime: MutPtr, pszshellexecutecommand: Pwstr, cchshellexecutecommand: Int): Hresult =
     if (windowsWin32UiShellNapiAvailable) wasmWindowssysWindowsWin32UiShellSHGetUnreadMailCountW(hkeyuser.rawAddress.toString(), pszmailaddress.rawAddress.toString(), pdwcount.rawAddress.toString(), pfiletime.rawAddress.toString(), pszshellexecutecommand.rawAddress.toString(), cchshellexecutecommand) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun sHGetValueA(hkey: Hkey, pszsubkey: Pcstr, pszvalue: Pcstr, pdwtype: MutPtr<UInt>, pvdata: MutPtr<CVoid>, pcbdata: MutPtr<UInt>): Win32Error =
+public actual fun sHGetValueA(hkey: Hkey, pszsubkey: Pcstr, pszvalue: Pcstr, pdwtype: MutPtr, pvdata: MutPtr, pcbdata: MutPtr): Win32Error =
     if (windowsWin32UiShellNapiAvailable) wasmWindowssysWindowsWin32UiShellSHGetValueA(hkey.rawAddress.toString(), pszsubkey.rawAddress.toString(), pszvalue.rawAddress.toString(), pdwtype.rawAddress.toString(), pvdata.rawAddress.toString(), pcbdata.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun sHGetValueW(hkey: Hkey, pszsubkey: Pcwstr, pszvalue: Pcwstr, pdwtype: MutPtr<UInt>, pvdata: MutPtr<CVoid>, pcbdata: MutPtr<UInt>): Win32Error =
+public actual fun sHGetValueW(hkey: Hkey, pszsubkey: Pcwstr, pszvalue: Pcwstr, pdwtype: MutPtr, pvdata: MutPtr, pcbdata: MutPtr): Win32Error =
     if (windowsWin32UiShellNapiAvailable) wasmWindowssysWindowsWin32UiShellSHGetValueW(hkey.rawAddress.toString(), pszsubkey.rawAddress.toString(), pszvalue.rawAddress.toString(), pdwtype.rawAddress.toString(), pvdata.rawAddress.toString(), pcbdata.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun sHGetViewStatePropertyBag(pidl: ConstPtr<Itemidlist>, pszbagname: Pcwstr, dwflags: UInt, riid: ConstPtr<Guid>, ppv: MutPtr<MutPtr<CVoid>>): Hresult =
+public actual fun sHGetViewStatePropertyBag(pidl: ConstPtr, pszbagname: Pcwstr, dwflags: UInt, riid: ConstPtr, ppv: MutPtr): Hresult =
     if (windowsWin32UiShellNapiAvailable) wasmWindowssysWindowsWin32UiShellSHGetViewStatePropertyBag(pidl.rawAddress.toString(), pszbagname.rawAddress.toString(), dwflags.toInt(), riid.rawAddress.toString(), ppv.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun sHGlobalCounterDecrement(id: Shglobalcounter): Int =
@@ -3626,10 +3612,10 @@ public actual fun sHGlobalCounterGetValue(id: Shglobalcounter): Int =
 public actual fun sHGlobalCounterIncrement(id: Shglobalcounter): Int =
     if (windowsWin32UiShellNapiAvailable) wasmWindowssysWindowsWin32UiShellSHGlobalCounterIncrement(id) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun sHHandleUpdateImage(pidlextra: ConstPtr<Itemidlist>): Int =
+public actual fun sHHandleUpdateImage(pidlextra: ConstPtr): Int =
     if (windowsWin32UiShellNapiAvailable) wasmWindowssysWindowsWin32UiShellSHHandleUpdateImage(pidlextra.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun sHILCreateFromPath(pszpath: Pcwstr, ppidl: MutPtr<MutPtr<Itemidlist>>, rgfinout: MutPtr<UInt>): Hresult =
+public actual fun sHILCreateFromPath(pszpath: Pcwstr, ppidl: MutPtr, rgfinout: MutPtr): Hresult =
     if (windowsWin32UiShellNapiAvailable) wasmWindowssysWindowsWin32UiShellSHILCreateFromPath(pszpath.rawAddress.toString(), ppidl.rawAddress.toString(), rgfinout.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun sHInvokePrinterCommandA(hwnd: Hwnd, uaction: UInt, lpbuf1: Pcstr, lpbuf2: Pcstr, fmodal: Bool): Bool =
@@ -3638,28 +3624,28 @@ public actual fun sHInvokePrinterCommandA(hwnd: Hwnd, uaction: UInt, lpbuf1: Pcs
 public actual fun sHInvokePrinterCommandW(hwnd: Hwnd, uaction: UInt, lpbuf1: Pcwstr, lpbuf2: Pcwstr, fmodal: Bool): Bool =
     if (windowsWin32UiShellNapiAvailable) wasmWindowssysWindowsWin32UiShellSHInvokePrinterCommandW(hwnd.rawAddress.toString(), uaction.toInt(), lpbuf1.rawAddress.toString(), lpbuf2.rawAddress.toString(), fmodal) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun sHIsFileAvailableOffline(pwszpath: Pcwstr, pdwstatus: MutPtr<UInt>): Hresult =
+public actual fun sHIsFileAvailableOffline(pwszpath: Pcwstr, pdwstatus: MutPtr): Hresult =
     if (windowsWin32UiShellNapiAvailable) wasmWindowssysWindowsWin32UiShellSHIsFileAvailableOffline(pwszpath.rawAddress.toString(), pdwstatus.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun sHIsLowMemoryMachine(dwtype: UInt): Bool =
     if (windowsWin32UiShellNapiAvailable) wasmWindowssysWindowsWin32UiShellSHIsLowMemoryMachine(dwtype.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun sHLimitInputEdit(hwndedit: Hwnd, psf: MutPtr<CVoid>): Hresult =
+public actual fun sHLimitInputEdit(hwndedit: Hwnd, psf: MutPtr): Hresult =
     if (windowsWin32UiShellNapiAvailable) wasmWindowssysWindowsWin32UiShellSHLimitInputEdit(hwndedit.rawAddress.toString(), psf.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun sHLoadInProc(rclsid: ConstPtr<Guid>): Hresult =
+public actual fun sHLoadInProc(rclsid: ConstPtr): Hresult =
     if (windowsWin32UiShellNapiAvailable) wasmWindowssysWindowsWin32UiShellSHLoadInProc(rclsid.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun sHLoadIndirectString(pszsource: Pcwstr, pszoutbuf: Pwstr, cchoutbuf: UInt, ppvreserved: ConstPtr<ConstPtr<CVoid>>): Hresult =
+public actual fun sHLoadIndirectString(pszsource: Pcwstr, pszoutbuf: Pwstr, cchoutbuf: UInt, ppvreserved: ConstPtr): Hresult =
     if (windowsWin32UiShellNapiAvailable) wasmWindowssysWindowsWin32UiShellSHLoadIndirectString(pszsource.rawAddress.toString(), pszoutbuf.rawAddress.toString(), cchoutbuf.toInt(), ppvreserved.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun sHLoadNonloadedIconOverlayIdentifiers(): Hresult =
     if (windowsWin32UiShellNapiAvailable) wasmWindowssysWindowsWin32UiShellSHLoadNonloadedIconOverlayIdentifiers() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun sHLockShared(hdata: Handle, dwprocessid: UInt): MutPtr<CVoid> =
+public actual fun sHLockShared(hdata: Handle, dwprocessid: UInt): MutPtr =
     if (windowsWin32UiShellNapiAvailable) MutPtr(wasmWindowssysWindowsWin32UiShellSHLockShared(hdata.rawAddress.toString(), dwprocessid.toInt()).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun sHMapPIDLToSystemImageListIndex(pshf: MutPtr<CVoid>, pidl: ConstPtr<Itemidlist>, piindexsel: MutPtr<Int>): Int =
+public actual fun sHMapPIDLToSystemImageListIndex(pshf: MutPtr, pidl: ConstPtr, piindexsel: MutPtr): Int =
     if (windowsWin32UiShellNapiAvailable) wasmWindowssysWindowsWin32UiShellSHMapPIDLToSystemImageListIndex(pshf.rawAddress.toString(), pidl.rawAddress.toString(), piindexsel.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun sHMessageBoxCheckA(hwnd: Hwnd, psztext: Pcstr, pszcaption: Pcstr, utype: UInt, idefault: Int, pszregval: Pcstr): Int =
@@ -3668,70 +3654,70 @@ public actual fun sHMessageBoxCheckA(hwnd: Hwnd, psztext: Pcstr, pszcaption: Pcs
 public actual fun sHMessageBoxCheckW(hwnd: Hwnd, psztext: Pcwstr, pszcaption: Pcwstr, utype: UInt, idefault: Int, pszregval: Pcwstr): Int =
     if (windowsWin32UiShellNapiAvailable) wasmWindowssysWindowsWin32UiShellSHMessageBoxCheckW(hwnd.rawAddress.toString(), psztext.rawAddress.toString(), pszcaption.rawAddress.toString(), utype.toInt(), idefault, pszregval.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun sHMultiFileProperties(pdtobj: MutPtr<CVoid>, dwflags: UInt): Hresult =
+public actual fun sHMultiFileProperties(pdtobj: MutPtr, dwflags: UInt): Hresult =
     if (windowsWin32UiShellNapiAvailable) wasmWindowssysWindowsWin32UiShellSHMultiFileProperties(pdtobj.rawAddress.toString(), dwflags.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun sHObjectProperties(hwnd: Hwnd, shopobjecttype: UInt, pszobjectname: Pcwstr, pszpropertypage: Pcwstr): Bool =
     if (windowsWin32UiShellNapiAvailable) wasmWindowssysWindowsWin32UiShellSHObjectProperties(hwnd.rawAddress.toString(), shopobjecttype.toInt(), pszobjectname.rawAddress.toString(), pszpropertypage.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun sHOpenFolderAndSelectItems(pidlfolder: ConstPtr<Itemidlist>, cidl: UInt, apidl: ConstPtr<ConstPtr<Itemidlist>>, dwflags: UInt): Hresult =
+public actual fun sHOpenFolderAndSelectItems(pidlfolder: ConstPtr, cidl: UInt, apidl: ConstPtr, dwflags: UInt): Hresult =
     if (windowsWin32UiShellNapiAvailable) wasmWindowssysWindowsWin32UiShellSHOpenFolderAndSelectItems(pidlfolder.rawAddress.toString(), cidl.toInt(), apidl.rawAddress.toString(), dwflags.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun sHOpenPropSheetW(pszcaption: Pcwstr, ahkeys: ConstPtr<Hkey>, ckeys: UInt, pclsiddefault: ConstPtr<Guid>, pdtobj: MutPtr<CVoid>, psb: MutPtr<CVoid>, pstartpage: Pcwstr): Bool =
+public actual fun sHOpenPropSheetW(pszcaption: Pcwstr, ahkeys: ConstPtr, ckeys: UInt, pclsiddefault: ConstPtr, pdtobj: MutPtr, psb: MutPtr, pstartpage: Pcwstr): Bool =
     if (windowsWin32UiShellNapiAvailable) wasmWindowssysWindowsWin32UiShellSHOpenPropSheetW(pszcaption.rawAddress.toString(), ahkeys.rawAddress.toString(), ckeys.toInt(), pclsiddefault.rawAddress.toString(), pdtobj.rawAddress.toString(), psb.rawAddress.toString(), pstartpage.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun sHOpenRegStream2A(hkey: Hkey, pszsubkey: Pcstr, pszvalue: Pcstr, grfmode: UInt): MutPtr<CVoid> =
+public actual fun sHOpenRegStream2A(hkey: Hkey, pszsubkey: Pcstr, pszvalue: Pcstr, grfmode: UInt): MutPtr =
     if (windowsWin32UiShellNapiAvailable) MutPtr(wasmWindowssysWindowsWin32UiShellSHOpenRegStream2A(hkey.rawAddress.toString(), pszsubkey.rawAddress.toString(), pszvalue.rawAddress.toString(), grfmode.toInt()).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun sHOpenRegStream2W(hkey: Hkey, pszsubkey: Pcwstr, pszvalue: Pcwstr, grfmode: UInt): MutPtr<CVoid> =
+public actual fun sHOpenRegStream2W(hkey: Hkey, pszsubkey: Pcwstr, pszvalue: Pcwstr, grfmode: UInt): MutPtr =
     if (windowsWin32UiShellNapiAvailable) MutPtr(wasmWindowssysWindowsWin32UiShellSHOpenRegStream2W(hkey.rawAddress.toString(), pszsubkey.rawAddress.toString(), pszvalue.rawAddress.toString(), grfmode.toInt()).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun sHOpenRegStreamA(hkey: Hkey, pszsubkey: Pcstr, pszvalue: Pcstr, grfmode: UInt): MutPtr<CVoid> =
+public actual fun sHOpenRegStreamA(hkey: Hkey, pszsubkey: Pcstr, pszvalue: Pcstr, grfmode: UInt): MutPtr =
     if (windowsWin32UiShellNapiAvailable) MutPtr(wasmWindowssysWindowsWin32UiShellSHOpenRegStreamA(hkey.rawAddress.toString(), pszsubkey.rawAddress.toString(), pszvalue.rawAddress.toString(), grfmode.toInt()).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun sHOpenRegStreamW(hkey: Hkey, pszsubkey: Pcwstr, pszvalue: Pcwstr, grfmode: UInt): MutPtr<CVoid> =
+public actual fun sHOpenRegStreamW(hkey: Hkey, pszsubkey: Pcwstr, pszvalue: Pcwstr, grfmode: UInt): MutPtr =
     if (windowsWin32UiShellNapiAvailable) MutPtr(wasmWindowssysWindowsWin32UiShellSHOpenRegStreamW(hkey.rawAddress.toString(), pszsubkey.rawAddress.toString(), pszvalue.rawAddress.toString(), grfmode.toInt()).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun sHOpenWithDialog(hwndparent: Hwnd, poainfo: ConstPtr<Openasinfo>): Hresult =
+public actual fun sHOpenWithDialog(hwndparent: Hwnd, poainfo: ConstPtr): Hresult =
     if (windowsWin32UiShellNapiAvailable) wasmWindowssysWindowsWin32UiShellSHOpenWithDialog(hwndparent.rawAddress.toString(), poainfo.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun sHParseDisplayName(pszname: Pcwstr, pbc: MutPtr<CVoid>, ppidl: MutPtr<MutPtr<Itemidlist>>, sfgaoin: UInt, psfgaoout: MutPtr<UInt>): Hresult =
+public actual fun sHParseDisplayName(pszname: Pcwstr, pbc: MutPtr, ppidl: MutPtr, sfgaoin: UInt, psfgaoout: MutPtr): Hresult =
     if (windowsWin32UiShellNapiAvailable) wasmWindowssysWindowsWin32UiShellSHParseDisplayName(pszname.rawAddress.toString(), pbc.rawAddress.toString(), ppidl.rawAddress.toString(), sfgaoin.toInt(), psfgaoout.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun sHPathPrepareForWriteA(hwnd: Hwnd, punkenablemodless: MutPtr<CVoid>, pszpath: Pcstr, dwflags: UInt): Hresult =
+public actual fun sHPathPrepareForWriteA(hwnd: Hwnd, punkenablemodless: MutPtr, pszpath: Pcstr, dwflags: UInt): Hresult =
     if (windowsWin32UiShellNapiAvailable) wasmWindowssysWindowsWin32UiShellSHPathPrepareForWriteA(hwnd.rawAddress.toString(), punkenablemodless.rawAddress.toString(), pszpath.rawAddress.toString(), dwflags.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun sHPathPrepareForWriteW(hwnd: Hwnd, punkenablemodless: MutPtr<CVoid>, pszpath: Pcwstr, dwflags: UInt): Hresult =
+public actual fun sHPathPrepareForWriteW(hwnd: Hwnd, punkenablemodless: MutPtr, pszpath: Pcwstr, dwflags: UInt): Hresult =
     if (windowsWin32UiShellNapiAvailable) wasmWindowssysWindowsWin32UiShellSHPathPrepareForWriteW(hwnd.rawAddress.toString(), punkenablemodless.rawAddress.toString(), pszpath.rawAddress.toString(), dwflags.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun sHQueryInfoKeyA(hkey: Hkey, pcsubkeys: MutPtr<UInt>, pcchmaxsubkeylen: MutPtr<UInt>, pcvalues: MutPtr<UInt>, pcchmaxvaluenamelen: MutPtr<UInt>): Win32Error =
+public actual fun sHQueryInfoKeyA(hkey: Hkey, pcsubkeys: MutPtr, pcchmaxsubkeylen: MutPtr, pcvalues: MutPtr, pcchmaxvaluenamelen: MutPtr): Win32Error =
     if (windowsWin32UiShellNapiAvailable) wasmWindowssysWindowsWin32UiShellSHQueryInfoKeyA(hkey.rawAddress.toString(), pcsubkeys.rawAddress.toString(), pcchmaxsubkeylen.rawAddress.toString(), pcvalues.rawAddress.toString(), pcchmaxvaluenamelen.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun sHQueryInfoKeyW(hkey: Hkey, pcsubkeys: MutPtr<UInt>, pcchmaxsubkeylen: MutPtr<UInt>, pcvalues: MutPtr<UInt>, pcchmaxvaluenamelen: MutPtr<UInt>): Win32Error =
+public actual fun sHQueryInfoKeyW(hkey: Hkey, pcsubkeys: MutPtr, pcchmaxsubkeylen: MutPtr, pcvalues: MutPtr, pcchmaxvaluenamelen: MutPtr): Win32Error =
     if (windowsWin32UiShellNapiAvailable) wasmWindowssysWindowsWin32UiShellSHQueryInfoKeyW(hkey.rawAddress.toString(), pcsubkeys.rawAddress.toString(), pcchmaxsubkeylen.rawAddress.toString(), pcvalues.rawAddress.toString(), pcchmaxvaluenamelen.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun sHQueryRecycleBinA(pszrootpath: Pcstr, pshqueryrbinfo: MutPtr<Shqueryrbinfo>): Hresult =
+public actual fun sHQueryRecycleBinA(pszrootpath: Pcstr, pshqueryrbinfo: MutPtr): Hresult =
     if (windowsWin32UiShellNapiAvailable) wasmWindowssysWindowsWin32UiShellSHQueryRecycleBinA(pszrootpath.rawAddress.toString(), pshqueryrbinfo.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun sHQueryRecycleBinW(pszrootpath: Pcwstr, pshqueryrbinfo: MutPtr<Shqueryrbinfo>): Hresult =
+public actual fun sHQueryRecycleBinW(pszrootpath: Pcwstr, pshqueryrbinfo: MutPtr): Hresult =
     if (windowsWin32UiShellNapiAvailable) wasmWindowssysWindowsWin32UiShellSHQueryRecycleBinW(pszrootpath.rawAddress.toString(), pshqueryrbinfo.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun sHQueryUserNotificationState(pquns: MutPtr<QueryUserNotificationState>): Hresult =
+public actual fun sHQueryUserNotificationState(pquns: MutPtr): Hresult =
     if (windowsWin32UiShellNapiAvailable) wasmWindowssysWindowsWin32UiShellSHQueryUserNotificationState(pquns.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun sHQueryValueExA(hkey: Hkey, pszvalue: Pcstr, pdwreserved: ConstPtr<UInt>, pdwtype: MutPtr<UInt>, pvdata: MutPtr<CVoid>, pcbdata: MutPtr<UInt>): Win32Error =
+public actual fun sHQueryValueExA(hkey: Hkey, pszvalue: Pcstr, pdwreserved: ConstPtr, pdwtype: MutPtr, pvdata: MutPtr, pcbdata: MutPtr): Win32Error =
     if (windowsWin32UiShellNapiAvailable) wasmWindowssysWindowsWin32UiShellSHQueryValueExA(hkey.rawAddress.toString(), pszvalue.rawAddress.toString(), pdwreserved.rawAddress.toString(), pdwtype.rawAddress.toString(), pvdata.rawAddress.toString(), pcbdata.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun sHQueryValueExW(hkey: Hkey, pszvalue: Pcwstr, pdwreserved: ConstPtr<UInt>, pdwtype: MutPtr<UInt>, pvdata: MutPtr<CVoid>, pcbdata: MutPtr<UInt>): Win32Error =
+public actual fun sHQueryValueExW(hkey: Hkey, pszvalue: Pcwstr, pdwreserved: ConstPtr, pdwtype: MutPtr, pvdata: MutPtr, pcbdata: MutPtr): Win32Error =
     if (windowsWin32UiShellNapiAvailable) wasmWindowssysWindowsWin32UiShellSHQueryValueExW(hkey.rawAddress.toString(), pszvalue.rawAddress.toString(), pdwreserved.rawAddress.toString(), pdwtype.rawAddress.toString(), pvdata.rawAddress.toString(), pcbdata.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun sHRegCloseUSKey(huskey: Long): Win32Error =
     if (windowsWin32UiShellNapiAvailable) wasmWindowssysWindowsWin32UiShellSHRegCloseUSKey(huskey.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun sHRegCreateUSKeyA(pszpath: Pcstr, samdesired: UInt, hrelativeuskey: Long, phnewuskey: MutPtr<Long>, dwflags: UInt): Win32Error =
+public actual fun sHRegCreateUSKeyA(pszpath: Pcstr, samdesired: UInt, hrelativeuskey: Long, phnewuskey: MutPtr, dwflags: UInt): Win32Error =
     if (windowsWin32UiShellNapiAvailable) wasmWindowssysWindowsWin32UiShellSHRegCreateUSKeyA(pszpath.rawAddress.toString(), samdesired.toInt(), hrelativeuskey.toString(), phnewuskey.rawAddress.toString(), dwflags.toInt()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun sHRegCreateUSKeyW(pwzpath: Pcwstr, samdesired: UInt, hrelativeuskey: Long, phnewuskey: MutPtr<Long>, dwflags: UInt): Win32Error =
+public actual fun sHRegCreateUSKeyW(pwzpath: Pcwstr, samdesired: UInt, hrelativeuskey: Long, phnewuskey: MutPtr, dwflags: UInt): Win32Error =
     if (windowsWin32UiShellNapiAvailable) wasmWindowssysWindowsWin32UiShellSHRegCreateUSKeyW(pwzpath.rawAddress.toString(), samdesired.toInt(), hrelativeuskey.toString(), phnewuskey.rawAddress.toString(), dwflags.toInt()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun sHRegDeleteEmptyUSKeyA(huskey: Long, pszsubkey: Pcstr, delregflags: ShregdelFlags): Win32Error =
@@ -3749,16 +3735,16 @@ public actual fun sHRegDeleteUSValueW(huskey: Long, pwzvalue: Pcwstr, delregflag
 public actual fun sHRegDuplicateHKey(hkey: Hkey): Hkey =
     if (windowsWin32UiShellNapiAvailable) MutPtr(wasmWindowssysWindowsWin32UiShellSHRegDuplicateHKey(hkey.rawAddress.toString()).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun sHRegEnumUSKeyA(huskey: Long, dwindex: UInt, pszname: Pstr, pcchname: MutPtr<UInt>, enumregflags: ShregenumFlags): Win32Error =
+public actual fun sHRegEnumUSKeyA(huskey: Long, dwindex: UInt, pszname: Pstr, pcchname: MutPtr, enumregflags: ShregenumFlags): Win32Error =
     if (windowsWin32UiShellNapiAvailable) wasmWindowssysWindowsWin32UiShellSHRegEnumUSKeyA(huskey.toString(), dwindex.toInt(), pszname.rawAddress.toString(), pcchname.rawAddress.toString(), enumregflags).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun sHRegEnumUSKeyW(huskey: Long, dwindex: UInt, pwzname: Pwstr, pcchname: MutPtr<UInt>, enumregflags: ShregenumFlags): Win32Error =
+public actual fun sHRegEnumUSKeyW(huskey: Long, dwindex: UInt, pwzname: Pwstr, pcchname: MutPtr, enumregflags: ShregenumFlags): Win32Error =
     if (windowsWin32UiShellNapiAvailable) wasmWindowssysWindowsWin32UiShellSHRegEnumUSKeyW(huskey.toString(), dwindex.toInt(), pwzname.rawAddress.toString(), pcchname.rawAddress.toString(), enumregflags).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun sHRegEnumUSValueA(huskey: Long, dwindex: UInt, pszvaluename: Pstr, pcchvaluename: MutPtr<UInt>, pdwtype: MutPtr<UInt>, pvdata: MutPtr<CVoid>, pcbdata: MutPtr<UInt>, enumregflags: ShregenumFlags): Win32Error =
+public actual fun sHRegEnumUSValueA(huskey: Long, dwindex: UInt, pszvaluename: Pstr, pcchvaluename: MutPtr, pdwtype: MutPtr, pvdata: MutPtr, pcbdata: MutPtr, enumregflags: ShregenumFlags): Win32Error =
     if (windowsWin32UiShellNapiAvailable) wasmWindowssysWindowsWin32UiShellSHRegEnumUSValueA(huskey.toString(), dwindex.toInt(), pszvaluename.rawAddress.toString(), pcchvaluename.rawAddress.toString(), pdwtype.rawAddress.toString(), pvdata.rawAddress.toString(), pcbdata.rawAddress.toString(), enumregflags).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun sHRegEnumUSValueW(huskey: Long, dwindex: UInt, pszvaluename: Pwstr, pcchvaluename: MutPtr<UInt>, pdwtype: MutPtr<UInt>, pvdata: MutPtr<CVoid>, pcbdata: MutPtr<UInt>, enumregflags: ShregenumFlags): Win32Error =
+public actual fun sHRegEnumUSValueW(huskey: Long, dwindex: UInt, pszvaluename: Pwstr, pcchvaluename: MutPtr, pdwtype: MutPtr, pvdata: MutPtr, pcbdata: MutPtr, enumregflags: ShregenumFlags): Win32Error =
     if (windowsWin32UiShellNapiAvailable) wasmWindowssysWindowsWin32UiShellSHRegEnumUSValueW(huskey.toString(), dwindex.toInt(), pszvaluename.rawAddress.toString(), pcchvaluename.rawAddress.toString(), pdwtype.rawAddress.toString(), pvdata.rawAddress.toString(), pcbdata.rawAddress.toString(), enumregflags).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun sHRegGetBoolUSValueA(pszsubkey: Pcstr, pszvalue: Pcstr, fignorehkcu: Bool, fdefault: Bool): Bool =
@@ -3776,37 +3762,37 @@ public actual fun sHRegGetPathA(hkey: Hkey, pcszsubkey: Pcstr, pcszvalue: Pcstr,
 public actual fun sHRegGetPathW(hkey: Hkey, pcszsubkey: Pcwstr, pcszvalue: Pcwstr, pszpath: Pwstr, dwflags: UInt): Win32Error =
     if (windowsWin32UiShellNapiAvailable) wasmWindowssysWindowsWin32UiShellSHRegGetPathW(hkey.rawAddress.toString(), pcszsubkey.rawAddress.toString(), pcszvalue.rawAddress.toString(), pszpath.rawAddress.toString(), dwflags.toInt()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun sHRegGetUSValueA(pszsubkey: Pcstr, pszvalue: Pcstr, pdwtype: MutPtr<UInt>, pvdata: MutPtr<CVoid>, pcbdata: MutPtr<UInt>, fignorehkcu: Bool, pvdefaultdata: ConstPtr<CVoid>, dwdefaultdatasize: UInt): Win32Error =
+public actual fun sHRegGetUSValueA(pszsubkey: Pcstr, pszvalue: Pcstr, pdwtype: MutPtr, pvdata: MutPtr, pcbdata: MutPtr, fignorehkcu: Bool, pvdefaultdata: ConstPtr, dwdefaultdatasize: UInt): Win32Error =
     if (windowsWin32UiShellNapiAvailable) wasmWindowssysWindowsWin32UiShellSHRegGetUSValueA(pszsubkey.rawAddress.toString(), pszvalue.rawAddress.toString(), pdwtype.rawAddress.toString(), pvdata.rawAddress.toString(), pcbdata.rawAddress.toString(), fignorehkcu, pvdefaultdata.rawAddress.toString(), dwdefaultdatasize.toInt()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun sHRegGetUSValueW(pszsubkey: Pcwstr, pszvalue: Pcwstr, pdwtype: MutPtr<UInt>, pvdata: MutPtr<CVoid>, pcbdata: MutPtr<UInt>, fignorehkcu: Bool, pvdefaultdata: ConstPtr<CVoid>, dwdefaultdatasize: UInt): Win32Error =
+public actual fun sHRegGetUSValueW(pszsubkey: Pcwstr, pszvalue: Pcwstr, pdwtype: MutPtr, pvdata: MutPtr, pcbdata: MutPtr, fignorehkcu: Bool, pvdefaultdata: ConstPtr, dwdefaultdatasize: UInt): Win32Error =
     if (windowsWin32UiShellNapiAvailable) wasmWindowssysWindowsWin32UiShellSHRegGetUSValueW(pszsubkey.rawAddress.toString(), pszvalue.rawAddress.toString(), pdwtype.rawAddress.toString(), pvdata.rawAddress.toString(), pcbdata.rawAddress.toString(), fignorehkcu, pvdefaultdata.rawAddress.toString(), dwdefaultdatasize.toInt()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun sHRegGetValueA(hkey: Hkey, pszsubkey: Pcstr, pszvalue: Pcstr, srrfflags: Int, pdwtype: MutPtr<UInt>, pvdata: MutPtr<CVoid>, pcbdata: MutPtr<UInt>): Win32Error =
+public actual fun sHRegGetValueA(hkey: Hkey, pszsubkey: Pcstr, pszvalue: Pcstr, srrfflags: Int, pdwtype: MutPtr, pvdata: MutPtr, pcbdata: MutPtr): Win32Error =
     if (windowsWin32UiShellNapiAvailable) wasmWindowssysWindowsWin32UiShellSHRegGetValueA(hkey.rawAddress.toString(), pszsubkey.rawAddress.toString(), pszvalue.rawAddress.toString(), srrfflags, pdwtype.rawAddress.toString(), pvdata.rawAddress.toString(), pcbdata.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun sHRegGetValueFromHKCUHKLM(pwszkey: Pcwstr, pwszvalue: Pcwstr, srrfflags: Int, pdwtype: MutPtr<UInt>, pvdata: MutPtr<CVoid>, pcbdata: MutPtr<UInt>): Win32Error =
+public actual fun sHRegGetValueFromHKCUHKLM(pwszkey: Pcwstr, pwszvalue: Pcwstr, srrfflags: Int, pdwtype: MutPtr, pvdata: MutPtr, pcbdata: MutPtr): Win32Error =
     if (windowsWin32UiShellNapiAvailable) wasmWindowssysWindowsWin32UiShellSHRegGetValueFromHKCUHKLM(pwszkey.rawAddress.toString(), pwszvalue.rawAddress.toString(), srrfflags, pdwtype.rawAddress.toString(), pvdata.rawAddress.toString(), pcbdata.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun sHRegGetValueW(hkey: Hkey, pszsubkey: Pcwstr, pszvalue: Pcwstr, srrfflags: Int, pdwtype: MutPtr<UInt>, pvdata: MutPtr<CVoid>, pcbdata: MutPtr<UInt>): Win32Error =
+public actual fun sHRegGetValueW(hkey: Hkey, pszsubkey: Pcwstr, pszvalue: Pcwstr, srrfflags: Int, pdwtype: MutPtr, pvdata: MutPtr, pcbdata: MutPtr): Win32Error =
     if (windowsWin32UiShellNapiAvailable) wasmWindowssysWindowsWin32UiShellSHRegGetValueW(hkey.rawAddress.toString(), pszsubkey.rawAddress.toString(), pszvalue.rawAddress.toString(), srrfflags, pdwtype.rawAddress.toString(), pvdata.rawAddress.toString(), pcbdata.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun sHRegOpenUSKeyA(pszpath: Pcstr, samdesired: UInt, hrelativeuskey: Long, phnewuskey: MutPtr<Long>, fignorehkcu: Bool): Win32Error =
+public actual fun sHRegOpenUSKeyA(pszpath: Pcstr, samdesired: UInt, hrelativeuskey: Long, phnewuskey: MutPtr, fignorehkcu: Bool): Win32Error =
     if (windowsWin32UiShellNapiAvailable) wasmWindowssysWindowsWin32UiShellSHRegOpenUSKeyA(pszpath.rawAddress.toString(), samdesired.toInt(), hrelativeuskey.toString(), phnewuskey.rawAddress.toString(), fignorehkcu).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun sHRegOpenUSKeyW(pwzpath: Pcwstr, samdesired: UInt, hrelativeuskey: Long, phnewuskey: MutPtr<Long>, fignorehkcu: Bool): Win32Error =
+public actual fun sHRegOpenUSKeyW(pwzpath: Pcwstr, samdesired: UInt, hrelativeuskey: Long, phnewuskey: MutPtr, fignorehkcu: Bool): Win32Error =
     if (windowsWin32UiShellNapiAvailable) wasmWindowssysWindowsWin32UiShellSHRegOpenUSKeyW(pwzpath.rawAddress.toString(), samdesired.toInt(), hrelativeuskey.toString(), phnewuskey.rawAddress.toString(), fignorehkcu).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun sHRegQueryInfoUSKeyA(huskey: Long, pcsubkeys: MutPtr<UInt>, pcchmaxsubkeylen: MutPtr<UInt>, pcvalues: MutPtr<UInt>, pcchmaxvaluenamelen: MutPtr<UInt>, enumregflags: ShregenumFlags): Win32Error =
+public actual fun sHRegQueryInfoUSKeyA(huskey: Long, pcsubkeys: MutPtr, pcchmaxsubkeylen: MutPtr, pcvalues: MutPtr, pcchmaxvaluenamelen: MutPtr, enumregflags: ShregenumFlags): Win32Error =
     if (windowsWin32UiShellNapiAvailable) wasmWindowssysWindowsWin32UiShellSHRegQueryInfoUSKeyA(huskey.toString(), pcsubkeys.rawAddress.toString(), pcchmaxsubkeylen.rawAddress.toString(), pcvalues.rawAddress.toString(), pcchmaxvaluenamelen.rawAddress.toString(), enumregflags).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun sHRegQueryInfoUSKeyW(huskey: Long, pcsubkeys: MutPtr<UInt>, pcchmaxsubkeylen: MutPtr<UInt>, pcvalues: MutPtr<UInt>, pcchmaxvaluenamelen: MutPtr<UInt>, enumregflags: ShregenumFlags): Win32Error =
+public actual fun sHRegQueryInfoUSKeyW(huskey: Long, pcsubkeys: MutPtr, pcchmaxsubkeylen: MutPtr, pcvalues: MutPtr, pcchmaxvaluenamelen: MutPtr, enumregflags: ShregenumFlags): Win32Error =
     if (windowsWin32UiShellNapiAvailable) wasmWindowssysWindowsWin32UiShellSHRegQueryInfoUSKeyW(huskey.toString(), pcsubkeys.rawAddress.toString(), pcchmaxsubkeylen.rawAddress.toString(), pcvalues.rawAddress.toString(), pcchmaxvaluenamelen.rawAddress.toString(), enumregflags).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun sHRegQueryUSValueA(huskey: Long, pszvalue: Pcstr, pdwtype: MutPtr<UInt>, pvdata: MutPtr<CVoid>, pcbdata: MutPtr<UInt>, fignorehkcu: Bool, pvdefaultdata: ConstPtr<CVoid>, dwdefaultdatasize: UInt): Win32Error =
+public actual fun sHRegQueryUSValueA(huskey: Long, pszvalue: Pcstr, pdwtype: MutPtr, pvdata: MutPtr, pcbdata: MutPtr, fignorehkcu: Bool, pvdefaultdata: ConstPtr, dwdefaultdatasize: UInt): Win32Error =
     if (windowsWin32UiShellNapiAvailable) wasmWindowssysWindowsWin32UiShellSHRegQueryUSValueA(huskey.toString(), pszvalue.rawAddress.toString(), pdwtype.rawAddress.toString(), pvdata.rawAddress.toString(), pcbdata.rawAddress.toString(), fignorehkcu, pvdefaultdata.rawAddress.toString(), dwdefaultdatasize.toInt()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun sHRegQueryUSValueW(huskey: Long, pszvalue: Pcwstr, pdwtype: MutPtr<UInt>, pvdata: MutPtr<CVoid>, pcbdata: MutPtr<UInt>, fignorehkcu: Bool, pvdefaultdata: ConstPtr<CVoid>, dwdefaultdatasize: UInt): Win32Error =
+public actual fun sHRegQueryUSValueW(huskey: Long, pszvalue: Pcwstr, pdwtype: MutPtr, pvdata: MutPtr, pcbdata: MutPtr, fignorehkcu: Bool, pvdefaultdata: ConstPtr, dwdefaultdatasize: UInt): Win32Error =
     if (windowsWin32UiShellNapiAvailable) wasmWindowssysWindowsWin32UiShellSHRegQueryUSValueW(huskey.toString(), pszvalue.rawAddress.toString(), pdwtype.rawAddress.toString(), pvdata.rawAddress.toString(), pcbdata.rawAddress.toString(), fignorehkcu, pvdefaultdata.rawAddress.toString(), dwdefaultdatasize.toInt()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun sHRegSetPathA(hkey: Hkey, pcszsubkey: Pcstr, pcszvalue: Pcstr, pcszpath: Pcstr, dwflags: UInt): Win32Error =
@@ -3815,16 +3801,16 @@ public actual fun sHRegSetPathA(hkey: Hkey, pcszsubkey: Pcstr, pcszvalue: Pcstr,
 public actual fun sHRegSetPathW(hkey: Hkey, pcszsubkey: Pcwstr, pcszvalue: Pcwstr, pcszpath: Pcwstr, dwflags: UInt): Win32Error =
     if (windowsWin32UiShellNapiAvailable) wasmWindowssysWindowsWin32UiShellSHRegSetPathW(hkey.rawAddress.toString(), pcszsubkey.rawAddress.toString(), pcszvalue.rawAddress.toString(), pcszpath.rawAddress.toString(), dwflags.toInt()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun sHRegSetUSValueA(pszsubkey: Pcstr, pszvalue: Pcstr, dwtype: UInt, pvdata: ConstPtr<CVoid>, cbdata: UInt, dwflags: UInt): Win32Error =
+public actual fun sHRegSetUSValueA(pszsubkey: Pcstr, pszvalue: Pcstr, dwtype: UInt, pvdata: ConstPtr, cbdata: UInt, dwflags: UInt): Win32Error =
     if (windowsWin32UiShellNapiAvailable) wasmWindowssysWindowsWin32UiShellSHRegSetUSValueA(pszsubkey.rawAddress.toString(), pszvalue.rawAddress.toString(), dwtype.toInt(), pvdata.rawAddress.toString(), cbdata.toInt(), dwflags.toInt()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun sHRegSetUSValueW(pwzsubkey: Pcwstr, pwzvalue: Pcwstr, dwtype: UInt, pvdata: ConstPtr<CVoid>, cbdata: UInt, dwflags: UInt): Win32Error =
+public actual fun sHRegSetUSValueW(pwzsubkey: Pcwstr, pwzvalue: Pcwstr, dwtype: UInt, pvdata: ConstPtr, cbdata: UInt, dwflags: UInt): Win32Error =
     if (windowsWin32UiShellNapiAvailable) wasmWindowssysWindowsWin32UiShellSHRegSetUSValueW(pwzsubkey.rawAddress.toString(), pwzvalue.rawAddress.toString(), dwtype.toInt(), pvdata.rawAddress.toString(), cbdata.toInt(), dwflags.toInt()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun sHRegWriteUSValueA(huskey: Long, pszvalue: Pcstr, dwtype: UInt, pvdata: ConstPtr<CVoid>, cbdata: UInt, dwflags: UInt): Win32Error =
+public actual fun sHRegWriteUSValueA(huskey: Long, pszvalue: Pcstr, dwtype: UInt, pvdata: ConstPtr, cbdata: UInt, dwflags: UInt): Win32Error =
     if (windowsWin32UiShellNapiAvailable) wasmWindowssysWindowsWin32UiShellSHRegWriteUSValueA(huskey.toString(), pszvalue.rawAddress.toString(), dwtype.toInt(), pvdata.rawAddress.toString(), cbdata.toInt(), dwflags.toInt()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun sHRegWriteUSValueW(huskey: Long, pwzvalue: Pcwstr, dwtype: UInt, pvdata: ConstPtr<CVoid>, cbdata: UInt, dwflags: UInt): Win32Error =
+public actual fun sHRegWriteUSValueW(huskey: Long, pwzvalue: Pcwstr, dwtype: UInt, pvdata: ConstPtr, cbdata: UInt, dwflags: UInt): Win32Error =
     if (windowsWin32UiShellNapiAvailable) wasmWindowssysWindowsWin32UiShellSHRegWriteUSValueW(huskey.toString(), pwzvalue.rawAddress.toString(), dwtype.toInt(), pvdata.rawAddress.toString(), cbdata.toInt(), dwflags.toInt()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun sHReleaseThreadRef(): Hresult =
@@ -3836,7 +3822,7 @@ public actual fun sHRemoveLocalizedName(pszpath: Pcwstr): Hresult =
 public actual fun sHReplaceFromPropSheetExtArray(hpsxa: Hpsxa, upageid: UInt, lpfnreplacewith: Lpfnsvaddpropsheetpage, lparam: Lparam): UInt =
     throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun sHResolveLibrary(psilibrary: MutPtr<CVoid>): Hresult =
+public actual fun sHResolveLibrary(psilibrary: MutPtr): Hresult =
     if (windowsWin32UiShellNapiAvailable) wasmWindowssysWindowsWin32UiShellSHResolveLibrary(psilibrary.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun sHRestricted(rest: Restrictions): UInt =
@@ -3848,7 +3834,7 @@ public actual fun sHSendMessageBroadcastA(umsg: UInt, wparam: Wparam, lparam: Lp
 public actual fun sHSendMessageBroadcastW(umsg: UInt, wparam: Wparam, lparam: Lparam): Lresult =
     if (windowsWin32UiShellNapiAvailable) wasmWindowssysWindowsWin32UiShellSHSendMessageBroadcastW(umsg.toInt(), wparam.toString(), lparam.toString()).toLong() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun sHSetDefaultProperties(hwnd: Hwnd, psi: MutPtr<CVoid>, dwfileopflags: UInt, pfops: MutPtr<CVoid>): Hresult =
+public actual fun sHSetDefaultProperties(hwnd: Hwnd, psi: MutPtr, dwfileopflags: UInt, pfops: MutPtr): Hresult =
     if (windowsWin32UiShellNapiAvailable) wasmWindowssysWindowsWin32UiShellSHSetDefaultProperties(hwnd.rawAddress.toString(), psi.rawAddress.toString(), dwfileopflags.toInt(), pfops.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun sHSetFolderPathA(csidl: Int, htoken: Handle, dwflags: UInt, pszpath: Pcstr): Hresult =
@@ -3857,7 +3843,7 @@ public actual fun sHSetFolderPathA(csidl: Int, htoken: Handle, dwflags: UInt, ps
 public actual fun sHSetFolderPathW(csidl: Int, htoken: Handle, dwflags: UInt, pszpath: Pcwstr): Hresult =
     if (windowsWin32UiShellNapiAvailable) wasmWindowssysWindowsWin32UiShellSHSetFolderPathW(csidl, htoken.rawAddress.toString(), dwflags.toInt(), pszpath.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun sHSetInstanceExplorer(punk: MutPtr<CVoid>) {
+public actual fun sHSetInstanceExplorer(punk: MutPtr) {
     if (windowsWin32UiShellNapiAvailable) {
         wasmWindowssysWindowsWin32UiShellSHSetInstanceExplorer(punk.rawAddress.toString())
     } else {
@@ -3865,46 +3851,46 @@ public actual fun sHSetInstanceExplorer(punk: MutPtr<CVoid>) {
     }
 }
 
-public actual fun sHSetKnownFolderPath(rfid: ConstPtr<Guid>, dwflags: UInt, htoken: Handle, pszpath: Pcwstr): Hresult =
+public actual fun sHSetKnownFolderPath(rfid: ConstPtr, dwflags: UInt, htoken: Handle, pszpath: Pcwstr): Hresult =
     if (windowsWin32UiShellNapiAvailable) wasmWindowssysWindowsWin32UiShellSHSetKnownFolderPath(rfid.rawAddress.toString(), dwflags.toInt(), htoken.rawAddress.toString(), pszpath.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun sHSetLocalizedName(pszpath: Pcwstr, pszresmodule: Pcwstr, idsres: Int): Hresult =
     if (windowsWin32UiShellNapiAvailable) wasmWindowssysWindowsWin32UiShellSHSetLocalizedName(pszpath.rawAddress.toString(), pszresmodule.rawAddress.toString(), idsres) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun sHSetTemporaryPropertyForItem(psi: MutPtr<CVoid>, propkey: ConstPtr<Propertykey>, propvar: ConstPtr<Propvariant>): Hresult =
+public actual fun sHSetTemporaryPropertyForItem(psi: MutPtr, propkey: ConstPtr, propvar: ConstPtr): Hresult =
     if (windowsWin32UiShellNapiAvailable) wasmWindowssysWindowsWin32UiShellSHSetTemporaryPropertyForItem(psi.rawAddress.toString(), propkey.rawAddress.toString(), propvar.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun sHSetThreadRef(punk: MutPtr<CVoid>): Hresult =
+public actual fun sHSetThreadRef(punk: MutPtr): Hresult =
     if (windowsWin32UiShellNapiAvailable) wasmWindowssysWindowsWin32UiShellSHSetThreadRef(punk.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun sHSetUnreadMailCountW(pszmailaddress: Pcwstr, dwcount: UInt, pszshellexecutecommand: Pcwstr): Hresult =
     if (windowsWin32UiShellNapiAvailable) wasmWindowssysWindowsWin32UiShellSHSetUnreadMailCountW(pszmailaddress.rawAddress.toString(), dwcount.toInt(), pszshellexecutecommand.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun sHSetValueA(hkey: Hkey, pszsubkey: Pcstr, pszvalue: Pcstr, dwtype: UInt, pvdata: ConstPtr<CVoid>, cbdata: UInt): Int =
+public actual fun sHSetValueA(hkey: Hkey, pszsubkey: Pcstr, pszvalue: Pcstr, dwtype: UInt, pvdata: ConstPtr, cbdata: UInt): Int =
     if (windowsWin32UiShellNapiAvailable) wasmWindowssysWindowsWin32UiShellSHSetValueA(hkey.rawAddress.toString(), pszsubkey.rawAddress.toString(), pszvalue.rawAddress.toString(), dwtype.toInt(), pvdata.rawAddress.toString(), cbdata.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun sHSetValueW(hkey: Hkey, pszsubkey: Pcwstr, pszvalue: Pcwstr, dwtype: UInt, pvdata: ConstPtr<CVoid>, cbdata: UInt): Int =
+public actual fun sHSetValueW(hkey: Hkey, pszsubkey: Pcwstr, pszvalue: Pcwstr, dwtype: UInt, pvdata: ConstPtr, cbdata: UInt): Int =
     if (windowsWin32UiShellNapiAvailable) wasmWindowssysWindowsWin32UiShellSHSetValueW(hkey.rawAddress.toString(), pszsubkey.rawAddress.toString(), pszvalue.rawAddress.toString(), dwtype.toInt(), pvdata.rawAddress.toString(), cbdata.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun shshellFolderViewMessage(hwndmain: Hwnd, umsg: UInt, lparam: Lparam): Lresult =
     if (windowsWin32UiShellNapiAvailable) wasmWindowssysWindowsWin32UiShellShshellFolderViewMessage(hwndmain.rawAddress.toString(), umsg.toInt(), lparam.toString()).toLong() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun sHShowManageLibraryUI(psilibrary: MutPtr<CVoid>, hwndowner: Hwnd, psztitle: Pcwstr, pszinstruction: Pcwstr, lmdoptions: Librarymanagedialogoptions): Hresult =
+public actual fun sHShowManageLibraryUI(psilibrary: MutPtr, hwndowner: Hwnd, psztitle: Pcwstr, pszinstruction: Pcwstr, lmdoptions: Librarymanagedialogoptions): Hresult =
     if (windowsWin32UiShellNapiAvailable) wasmWindowssysWindowsWin32UiShellSHShowManageLibraryUI(psilibrary.rawAddress.toString(), hwndowner.rawAddress.toString(), psztitle.rawAddress.toString(), pszinstruction.rawAddress.toString(), lmdoptions) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun sHSimpleIDListFromPath(pszpath: Pcwstr): MutPtr<Itemidlist> =
+public actual fun sHSimpleIDListFromPath(pszpath: Pcwstr): MutPtr =
     if (windowsWin32UiShellNapiAvailable) MutPtr(wasmWindowssysWindowsWin32UiShellSHSimpleIDListFromPath(pszpath.rawAddress.toString()).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun sHSkipJunction(pbc: MutPtr<CVoid>, pclsid: ConstPtr<Guid>): Bool =
+public actual fun sHSkipJunction(pbc: MutPtr, pclsid: ConstPtr): Bool =
     if (windowsWin32UiShellNapiAvailable) wasmWindowssysWindowsWin32UiShellSHSkipJunction(pbc.rawAddress.toString(), pclsid.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun sHStartNetConnectionDialogW(hwnd: Hwnd, pszremotename: Pcwstr, dwtype: UInt): Hresult =
     if (windowsWin32UiShellNapiAvailable) wasmWindowssysWindowsWin32UiShellSHStartNetConnectionDialogW(hwnd.rawAddress.toString(), pszremotename.rawAddress.toString(), dwtype.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun sHStrDupA(psz: Pcstr, ppwsz: MutPtr<Pwstr>): Hresult =
+public actual fun sHStrDupA(psz: Pcstr, ppwsz: MutPtr): Hresult =
     if (windowsWin32UiShellNapiAvailable) wasmWindowssysWindowsWin32UiShellSHStrDupA(psz.rawAddress.toString(), ppwsz.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun sHStrDupW(psz: Pcwstr, ppwsz: MutPtr<Pwstr>): Hresult =
+public actual fun sHStrDupW(psz: Pcwstr, ppwsz: MutPtr): Hresult =
     if (windowsWin32UiShellNapiAvailable) wasmWindowssysWindowsWin32UiShellSHStrDupW(psz.rawAddress.toString(), ppwsz.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun sHStripMneumonicA(pszmenu: Pstr): Byte =
@@ -3922,7 +3908,7 @@ public actual fun sHUnicodeToAnsi(pwszsrc: Pcwstr, pszdst: Pstr, cchbuf: Int): I
 public actual fun sHUnicodeToUnicode(pwzsrc: Pcwstr, pwzdst: Pwstr, cwchbuf: Int): Int =
     if (windowsWin32UiShellNapiAvailable) wasmWindowssysWindowsWin32UiShellSHUnicodeToUnicode(pwzsrc.rawAddress.toString(), pwzdst.rawAddress.toString(), cwchbuf) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun sHUnlockShared(pvdata: ConstPtr<CVoid>): Bool =
+public actual fun sHUnlockShared(pvdata: ConstPtr): Bool =
     if (windowsWin32UiShellNapiAvailable) wasmWindowssysWindowsWin32UiShellSHUnlockShared(pvdata.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun sHUpdateImageA(pszhashitem: Pcstr, iindex: Int, uflags: UInt, iimageindex: Int) {
@@ -3965,10 +3951,10 @@ public actual fun shellAboutW(hwnd: Hwnd, szapp: Pcwstr, szotherstuff: Pcwstr, h
 public actual fun shellExecuteA(hwnd: Hwnd, lpoperation: Pcstr, lpfile: Pcstr, lpparameters: Pcstr, lpdirectory: Pcstr, nshowcmd: ShowWindowCmd): Hinstance =
     if (windowsWin32UiShellNapiAvailable) MutPtr(wasmWindowssysWindowsWin32UiShellShellExecuteA(hwnd.rawAddress.toString(), lpoperation.rawAddress.toString(), lpfile.rawAddress.toString(), lpparameters.rawAddress.toString(), lpdirectory.rawAddress.toString(), nshowcmd).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun shellExecuteExA(pexecinfo: MutPtr<Shellexecuteinfoa>): Bool =
+public actual fun shellExecuteExA(pexecinfo: MutPtr): Bool =
     if (windowsWin32UiShellNapiAvailable) wasmWindowssysWindowsWin32UiShellShellExecuteExA(pexecinfo.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun shellExecuteExW(pexecinfo: MutPtr<Shellexecuteinfow>): Bool =
+public actual fun shellExecuteExW(pexecinfo: MutPtr): Bool =
     if (windowsWin32UiShellNapiAvailable) wasmWindowssysWindowsWin32UiShellShellExecuteExW(pexecinfo.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun shellExecuteW(hwnd: Hwnd, lpoperation: Pcwstr, lpfile: Pcwstr, lpparameters: Pcwstr, lpdirectory: Pcwstr, nshowcmd: ShowWindowCmd): Hinstance =
@@ -3989,28 +3975,28 @@ public actual fun shellGetCachedImageIndexA(psziconpath: Pcstr, iiconindex: Int,
 public actual fun shellGetCachedImageIndexW(psziconpath: Pcwstr, iiconindex: Int, uiconflags: UInt): Int =
     if (windowsWin32UiShellNapiAvailable) wasmWindowssysWindowsWin32UiShellShellGetCachedImageIndexW(psziconpath.rawAddress.toString(), iiconindex, uiconflags.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun shellGetImageLists(phiml: MutPtr<Himagelist>, phimlsmall: MutPtr<Himagelist>): Bool =
+public actual fun shellGetImageLists(phiml: MutPtr, phimlsmall: MutPtr): Bool =
     if (windowsWin32UiShellNapiAvailable) wasmWindowssysWindowsWin32UiShellShellGetImageLists(phiml.rawAddress.toString(), phimlsmall.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun shellMergeMenus(hmdst: Hmenu, hmsrc: Hmenu, uinsert: UInt, uidadjust: UInt, uidadjustmax: UInt, uflags: MmFlags): UInt =
     if (windowsWin32UiShellNapiAvailable) wasmWindowssysWindowsWin32UiShellShellMergeMenus(hmdst.rawAddress.toString(), hmsrc.rawAddress.toString(), uinsert.toInt(), uidadjust.toInt(), uidadjustmax.toInt(), uflags.toInt()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun shellNotifyIconA(dwmessage: NotifyIconMessage, lpdata: ConstPtr<Notifyicondataa>): Bool =
+public actual fun shellNotifyIconA(dwmessage: NotifyIconMessage, lpdata: ConstPtr): Bool =
     if (windowsWin32UiShellNapiAvailable) wasmWindowssysWindowsWin32UiShellShellNotifyIconA(dwmessage.toInt(), lpdata.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun shellNotifyIconGetRect(identifier: ConstPtr<Notifyiconidentifier>, iconlocation: MutPtr<Rect>): Hresult =
+public actual fun shellNotifyIconGetRect(identifier: ConstPtr, iconlocation: MutPtr): Hresult =
     if (windowsWin32UiShellNapiAvailable) wasmWindowssysWindowsWin32UiShellShellNotifyIconGetRect(identifier.rawAddress.toString(), iconlocation.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun shellNotifyIconW(dwmessage: NotifyIconMessage, lpdata: ConstPtr<Notifyicondataw>): Bool =
+public actual fun shellNotifyIconW(dwmessage: NotifyIconMessage, lpdata: ConstPtr): Bool =
     if (windowsWin32UiShellNapiAvailable) wasmWindowssysWindowsWin32UiShellShellNotifyIconW(dwmessage.toInt(), lpdata.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun signalFileOpen(pidl: ConstPtr<Itemidlist>): Bool =
+public actual fun signalFileOpen(pidl: ConstPtr): Bool =
     if (windowsWin32UiShellNapiAvailable) wasmWindowssysWindowsWin32UiShellSignalFileOpen(pidl.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun softwareUpdateMessageBox(hwnd: Hwnd, pszdistunit: Pcwstr, dwflags: UInt, psdi: MutPtr<Softdistinfo>): UInt =
+public actual fun softwareUpdateMessageBox(hwnd: Hwnd, pszdistunit: Pcwstr, dwflags: UInt, psdi: MutPtr): UInt =
     if (windowsWin32UiShellNapiAvailable) wasmWindowssysWindowsWin32UiShellSoftwareUpdateMessageBox(hwnd.rawAddress.toString(), pszdistunit.rawAddress.toString(), dwflags.toInt(), psdi.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun stgMakeUniqueName(pstgparent: MutPtr<CVoid>, pszfilespec: Pcwstr, grfmode: UInt, riid: ConstPtr<Guid>, ppv: MutPtr<MutPtr<CVoid>>): Hresult =
+public actual fun stgMakeUniqueName(pstgparent: MutPtr, pszfilespec: Pcwstr, grfmode: UInt, riid: ConstPtr, ppv: MutPtr): Hresult =
     if (windowsWin32UiShellNapiAvailable) wasmWindowssysWindowsWin32UiShellStgMakeUniqueName(pstgparent.rawAddress.toString(), pszfilespec.rawAddress.toString(), grfmode.toInt(), riid.rawAddress.toString(), ppv.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun strCSpnA(pszstr: Pcstr, pszset: Pcstr): Int =
@@ -4172,19 +4158,19 @@ public actual fun strRStrIA(pszsource: Pcstr, pszlast: Pcstr, pszsrch: Pcstr): P
 public actual fun strRStrIW(pszsource: Pcwstr, pszlast: Pcwstr, pszsrch: Pcwstr): Pwstr =
     if (windowsWin32UiShellNapiAvailable) MutPtr(wasmWindowssysWindowsWin32UiShellStrRStrIW(pszsource.rawAddress.toString(), pszlast.rawAddress.toString(), pszsrch.rawAddress.toString()).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun strRetToBSTR(pstr: MutPtr<Strret>, pidl: ConstPtr<Itemidlist>, pbstr: MutPtr<Bstr>): Hresult =
+public actual fun strRetToBSTR(pstr: MutPtr, pidl: ConstPtr, pbstr: MutPtr): Hresult =
     if (windowsWin32UiShellNapiAvailable) wasmWindowssysWindowsWin32UiShellStrRetToBSTR(pstr.rawAddress.toString(), pidl.rawAddress.toString(), pbstr.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun strRetToBufA(pstr: MutPtr<Strret>, pidl: ConstPtr<Itemidlist>, pszbuf: Pstr, cchbuf: UInt): Hresult =
+public actual fun strRetToBufA(pstr: MutPtr, pidl: ConstPtr, pszbuf: Pstr, cchbuf: UInt): Hresult =
     if (windowsWin32UiShellNapiAvailable) wasmWindowssysWindowsWin32UiShellStrRetToBufA(pstr.rawAddress.toString(), pidl.rawAddress.toString(), pszbuf.rawAddress.toString(), cchbuf.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun strRetToBufW(pstr: MutPtr<Strret>, pidl: ConstPtr<Itemidlist>, pszbuf: Pwstr, cchbuf: UInt): Hresult =
+public actual fun strRetToBufW(pstr: MutPtr, pidl: ConstPtr, pszbuf: Pwstr, cchbuf: UInt): Hresult =
     if (windowsWin32UiShellNapiAvailable) wasmWindowssysWindowsWin32UiShellStrRetToBufW(pstr.rawAddress.toString(), pidl.rawAddress.toString(), pszbuf.rawAddress.toString(), cchbuf.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun strRetToStrA(pstr: MutPtr<Strret>, pidl: ConstPtr<Itemidlist>, ppsz: MutPtr<Pstr>): Hresult =
+public actual fun strRetToStrA(pstr: MutPtr, pidl: ConstPtr, ppsz: MutPtr): Hresult =
     if (windowsWin32UiShellNapiAvailable) wasmWindowssysWindowsWin32UiShellStrRetToStrA(pstr.rawAddress.toString(), pidl.rawAddress.toString(), ppsz.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun strRetToStrW(pstr: MutPtr<Strret>, pidl: ConstPtr<Itemidlist>, ppsz: MutPtr<Pwstr>): Hresult =
+public actual fun strRetToStrW(pstr: MutPtr, pidl: ConstPtr, ppsz: MutPtr): Hresult =
     if (windowsWin32UiShellNapiAvailable) wasmWindowssysWindowsWin32UiShellStrRetToStrW(pstr.rawAddress.toString(), pidl.rawAddress.toString(), ppsz.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun strSpnA(psz: Pcstr, pszset: Pcstr): Int =
@@ -4211,19 +4197,19 @@ public actual fun strStrNW(pszfirst: Pcwstr, pszsrch: Pcwstr, cchmax: UInt): Pws
 public actual fun strStrW(pszfirst: Pcwstr, pszsrch: Pcwstr): Pwstr =
     if (windowsWin32UiShellNapiAvailable) MutPtr(wasmWindowssysWindowsWin32UiShellStrStrW(pszfirst.rawAddress.toString(), pszsrch.rawAddress.toString()).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun strToInt64ExA(pszstring: Pcstr, dwflags: Int, pllret: MutPtr<Long>): Bool =
+public actual fun strToInt64ExA(pszstring: Pcstr, dwflags: Int, pllret: MutPtr): Bool =
     if (windowsWin32UiShellNapiAvailable) wasmWindowssysWindowsWin32UiShellStrToInt64ExA(pszstring.rawAddress.toString(), dwflags, pllret.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun strToInt64ExW(pszstring: Pcwstr, dwflags: Int, pllret: MutPtr<Long>): Bool =
+public actual fun strToInt64ExW(pszstring: Pcwstr, dwflags: Int, pllret: MutPtr): Bool =
     if (windowsWin32UiShellNapiAvailable) wasmWindowssysWindowsWin32UiShellStrToInt64ExW(pszstring.rawAddress.toString(), dwflags, pllret.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun strToIntA(pszsrc: Pcstr): Int =
     if (windowsWin32UiShellNapiAvailable) wasmWindowssysWindowsWin32UiShellStrToIntA(pszsrc.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun strToIntExA(pszstring: Pcstr, dwflags: Int, piret: MutPtr<Int>): Bool =
+public actual fun strToIntExA(pszstring: Pcstr, dwflags: Int, piret: MutPtr): Bool =
     if (windowsWin32UiShellNapiAvailable) wasmWindowssysWindowsWin32UiShellStrToIntExA(pszstring.rawAddress.toString(), dwflags, piret.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun strToIntExW(pszstring: Pcwstr, dwflags: Int, piret: MutPtr<Int>): Bool =
+public actual fun strToIntExW(pszstring: Pcwstr, dwflags: Int, piret: MutPtr): Bool =
     if (windowsWin32UiShellNapiAvailable) wasmWindowssysWindowsWin32UiShellStrToIntExW(pszstring.rawAddress.toString(), dwflags, piret.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun strToIntW(pszsrc: Pcwstr): Int =
@@ -4257,22 +4243,22 @@ public actual fun unregisterAppStateChangeNotification(registration: PappstateRe
 public actual fun unregisterScaleChangeEvent(dwcookie: ULong): Hresult =
     if (windowsWin32UiShellNapiAvailable) wasmWindowssysWindowsWin32UiShellUnregisterScaleChangeEvent(dwcookie.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun urlApplySchemeA(pszin: Pcstr, pszout: Pstr, pcchout: MutPtr<UInt>, dwflags: UInt): Hresult =
+public actual fun urlApplySchemeA(pszin: Pcstr, pszout: Pstr, pcchout: MutPtr, dwflags: UInt): Hresult =
     if (windowsWin32UiShellNapiAvailable) wasmWindowssysWindowsWin32UiShellUrlApplySchemeA(pszin.rawAddress.toString(), pszout.rawAddress.toString(), pcchout.rawAddress.toString(), dwflags.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun urlApplySchemeW(pszin: Pcwstr, pszout: Pwstr, pcchout: MutPtr<UInt>, dwflags: UInt): Hresult =
+public actual fun urlApplySchemeW(pszin: Pcwstr, pszout: Pwstr, pcchout: MutPtr, dwflags: UInt): Hresult =
     if (windowsWin32UiShellNapiAvailable) wasmWindowssysWindowsWin32UiShellUrlApplySchemeW(pszin.rawAddress.toString(), pszout.rawAddress.toString(), pcchout.rawAddress.toString(), dwflags.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun urlCanonicalizeA(pszurl: Pcstr, pszcanonicalized: Pstr, pcchcanonicalized: MutPtr<UInt>, dwflags: UInt): Hresult =
+public actual fun urlCanonicalizeA(pszurl: Pcstr, pszcanonicalized: Pstr, pcchcanonicalized: MutPtr, dwflags: UInt): Hresult =
     if (windowsWin32UiShellNapiAvailable) wasmWindowssysWindowsWin32UiShellUrlCanonicalizeA(pszurl.rawAddress.toString(), pszcanonicalized.rawAddress.toString(), pcchcanonicalized.rawAddress.toString(), dwflags.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun urlCanonicalizeW(pszurl: Pcwstr, pszcanonicalized: Pwstr, pcchcanonicalized: MutPtr<UInt>, dwflags: UInt): Hresult =
+public actual fun urlCanonicalizeW(pszurl: Pcwstr, pszcanonicalized: Pwstr, pcchcanonicalized: MutPtr, dwflags: UInt): Hresult =
     if (windowsWin32UiShellNapiAvailable) wasmWindowssysWindowsWin32UiShellUrlCanonicalizeW(pszurl.rawAddress.toString(), pszcanonicalized.rawAddress.toString(), pcchcanonicalized.rawAddress.toString(), dwflags.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun urlCombineA(pszbase: Pcstr, pszrelative: Pcstr, pszcombined: Pstr, pcchcombined: MutPtr<UInt>, dwflags: UInt): Hresult =
+public actual fun urlCombineA(pszbase: Pcstr, pszrelative: Pcstr, pszcombined: Pstr, pcchcombined: MutPtr, dwflags: UInt): Hresult =
     if (windowsWin32UiShellNapiAvailable) wasmWindowssysWindowsWin32UiShellUrlCombineA(pszbase.rawAddress.toString(), pszrelative.rawAddress.toString(), pszcombined.rawAddress.toString(), pcchcombined.rawAddress.toString(), dwflags.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun urlCombineW(pszbase: Pcwstr, pszrelative: Pcwstr, pszcombined: Pwstr, pcchcombined: MutPtr<UInt>, dwflags: UInt): Hresult =
+public actual fun urlCombineW(pszbase: Pcwstr, pszrelative: Pcwstr, pszcombined: Pwstr, pcchcombined: MutPtr, dwflags: UInt): Hresult =
     if (windowsWin32UiShellNapiAvailable) wasmWindowssysWindowsWin32UiShellUrlCombineW(pszbase.rawAddress.toString(), pszrelative.rawAddress.toString(), pszcombined.rawAddress.toString(), pcchcombined.rawAddress.toString(), dwflags.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun urlCompareA(psz1: Pcstr, psz2: Pcstr, fignoreslash: Bool): Int =
@@ -4281,16 +4267,16 @@ public actual fun urlCompareA(psz1: Pcstr, psz2: Pcstr, fignoreslash: Bool): Int
 public actual fun urlCompareW(psz1: Pcwstr, psz2: Pcwstr, fignoreslash: Bool): Int =
     if (windowsWin32UiShellNapiAvailable) wasmWindowssysWindowsWin32UiShellUrlCompareW(psz1.rawAddress.toString(), psz2.rawAddress.toString(), fignoreslash) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun urlCreateFromPathA(pszpath: Pcstr, pszurl: Pstr, pcchurl: MutPtr<UInt>, dwflags: UInt): Hresult =
+public actual fun urlCreateFromPathA(pszpath: Pcstr, pszurl: Pstr, pcchurl: MutPtr, dwflags: UInt): Hresult =
     if (windowsWin32UiShellNapiAvailable) wasmWindowssysWindowsWin32UiShellUrlCreateFromPathA(pszpath.rawAddress.toString(), pszurl.rawAddress.toString(), pcchurl.rawAddress.toString(), dwflags.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun urlCreateFromPathW(pszpath: Pcwstr, pszurl: Pwstr, pcchurl: MutPtr<UInt>, dwflags: UInt): Hresult =
+public actual fun urlCreateFromPathW(pszpath: Pcwstr, pszurl: Pwstr, pcchurl: MutPtr, dwflags: UInt): Hresult =
     if (windowsWin32UiShellNapiAvailable) wasmWindowssysWindowsWin32UiShellUrlCreateFromPathW(pszpath.rawAddress.toString(), pszurl.rawAddress.toString(), pcchurl.rawAddress.toString(), dwflags.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun urlEscapeA(pszurl: Pcstr, pszescaped: Pstr, pcchescaped: MutPtr<UInt>, dwflags: UInt): Hresult =
+public actual fun urlEscapeA(pszurl: Pcstr, pszescaped: Pstr, pcchescaped: MutPtr, dwflags: UInt): Hresult =
     if (windowsWin32UiShellNapiAvailable) wasmWindowssysWindowsWin32UiShellUrlEscapeA(pszurl.rawAddress.toString(), pszescaped.rawAddress.toString(), pcchescaped.rawAddress.toString(), dwflags.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun urlEscapeW(pszurl: Pcwstr, pszescaped: Pwstr, pcchescaped: MutPtr<UInt>, dwflags: UInt): Hresult =
+public actual fun urlEscapeW(pszurl: Pcwstr, pszescaped: Pwstr, pcchescaped: MutPtr, dwflags: UInt): Hresult =
     if (windowsWin32UiShellNapiAvailable) wasmWindowssysWindowsWin32UiShellUrlEscapeW(pszurl.rawAddress.toString(), pszescaped.rawAddress.toString(), pcchescaped.rawAddress.toString(), dwflags.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun urlFixupW(pcszurl: Pcwstr, psztranslatedurl: Pwstr, cchmax: UInt): Hresult =
@@ -4302,16 +4288,16 @@ public actual fun urlGetLocationA(pszurl: Pcstr): Pcstr =
 public actual fun urlGetLocationW(pszurl: Pcwstr): Pcwstr =
     if (windowsWin32UiShellNapiAvailable) ConstPtr(wasmWindowssysWindowsWin32UiShellUrlGetLocationW(pszurl.rawAddress.toString()).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun urlGetPartA(pszin: Pcstr, pszout: Pstr, pcchout: MutPtr<UInt>, dwpart: UInt, dwflags: UInt): Hresult =
+public actual fun urlGetPartA(pszin: Pcstr, pszout: Pstr, pcchout: MutPtr, dwpart: UInt, dwflags: UInt): Hresult =
     if (windowsWin32UiShellNapiAvailable) wasmWindowssysWindowsWin32UiShellUrlGetPartA(pszin.rawAddress.toString(), pszout.rawAddress.toString(), pcchout.rawAddress.toString(), dwpart.toInt(), dwflags.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun urlGetPartW(pszin: Pcwstr, pszout: Pwstr, pcchout: MutPtr<UInt>, dwpart: UInt, dwflags: UInt): Hresult =
+public actual fun urlGetPartW(pszin: Pcwstr, pszout: Pwstr, pcchout: MutPtr, dwpart: UInt, dwflags: UInt): Hresult =
     if (windowsWin32UiShellNapiAvailable) wasmWindowssysWindowsWin32UiShellUrlGetPartW(pszin.rawAddress.toString(), pszout.rawAddress.toString(), pcchout.rawAddress.toString(), dwpart.toInt(), dwflags.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun urlHashA(pszurl: Pcstr, pbhash: MutPtr<UByte>, cbhash: UInt): Hresult =
+public actual fun urlHashA(pszurl: Pcstr, pbhash: MutPtr, cbhash: UInt): Hresult =
     if (windowsWin32UiShellNapiAvailable) wasmWindowssysWindowsWin32UiShellUrlHashA(pszurl.rawAddress.toString(), pbhash.rawAddress.toString(), cbhash.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun urlHashW(pszurl: Pcwstr, pbhash: MutPtr<UByte>, cbhash: UInt): Hresult =
+public actual fun urlHashW(pszurl: Pcwstr, pbhash: MutPtr, cbhash: UInt): Hresult =
     if (windowsWin32UiShellNapiAvailable) wasmWindowssysWindowsWin32UiShellUrlHashW(pszurl.rawAddress.toString(), pbhash.rawAddress.toString(), cbhash.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun urlIsA(pszurl: Pcstr, urlis: Urlis): Bool =
@@ -4332,13 +4318,13 @@ public actual fun urlIsOpaqueW(pszurl: Pcwstr): Bool =
 public actual fun urlIsW(pszurl: Pcwstr, urlis: Urlis): Bool =
     if (windowsWin32UiShellNapiAvailable) wasmWindowssysWindowsWin32UiShellUrlIsW(pszurl.rawAddress.toString(), urlis) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun urlUnescapeA(pszurl: Pstr, pszunescaped: Pstr, pcchunescaped: MutPtr<UInt>, dwflags: UInt): Hresult =
+public actual fun urlUnescapeA(pszurl: Pstr, pszunescaped: Pstr, pcchunescaped: MutPtr, dwflags: UInt): Hresult =
     if (windowsWin32UiShellNapiAvailable) wasmWindowssysWindowsWin32UiShellUrlUnescapeA(pszurl.rawAddress.toString(), pszunescaped.rawAddress.toString(), pcchunescaped.rawAddress.toString(), dwflags.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun urlUnescapeW(pszurl: Pwstr, pszunescaped: Pwstr, pcchunescaped: MutPtr<UInt>, dwflags: UInt): Hresult =
+public actual fun urlUnescapeW(pszurl: Pwstr, pszunescaped: Pwstr, pcchunescaped: MutPtr, dwflags: UInt): Hresult =
     if (windowsWin32UiShellNapiAvailable) wasmWindowssysWindowsWin32UiShellUrlUnescapeW(pszurl.rawAddress.toString(), pszunescaped.rawAddress.toString(), pcchunescaped.rawAddress.toString(), dwflags.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun variantToStrRet(varin: ConstPtr<Variant.Variant>, pstrret: MutPtr<Strret>): Hresult =
+public actual fun variantToStrRet(varin: ConstPtr, pstrret: MutPtr): Hresult =
     if (windowsWin32UiShellNapiAvailable) wasmWindowssysWindowsWin32UiShellVariantToStrRet(varin.rawAddress.toString(), pstrret.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun whichPlatform(): UInt =
@@ -4353,7 +4339,7 @@ public actual fun winHelpA(hwndmain: Hwnd, lpszhelp: Pcstr, ucommand: UInt, dwda
 public actual fun winHelpW(hwndmain: Hwnd, lpszhelp: Pcwstr, ucommand: UInt, dwdata: ULong): Bool =
     if (windowsWin32UiShellNapiAvailable) wasmWindowssysWindowsWin32UiShellWinHelpW(hwndmain.rawAddress.toString(), lpszhelp.rawAddress.toString(), ucommand.toInt(), dwdata.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun writeCabinetState(pcs: ConstPtr<Cabinetstate>): Bool =
+public actual fun writeCabinetState(pcs: ConstPtr): Bool =
     if (windowsWin32UiShellNapiAvailable) wasmWindowssysWindowsWin32UiShellWriteCabinetState(pcs.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun wnsprintfA(pszdest: Pstr, cchdest: Int, pszfmt: Pcstr, vararg variadicArgs: Long): Int =
@@ -4362,8 +4348,8 @@ public actual fun wnsprintfA(pszdest: Pstr, cchdest: Int, pszfmt: Pcstr, vararg 
 public actual fun wnsprintfW(pszdest: Pwstr, cchdest: Int, pszfmt: Pcwstr, vararg variadicArgs: Long): Int =
     if (windowsWin32UiShellNapiAvailable) wasmWindowssysWindowsWin32UiShellWnsprintfW(pszdest.rawAddress.toString(), cchdest, pszfmt.rawAddress.toString(), variadicArgs.size.coerceAtMost(4), (if (variadicArgs.size > 0) variadicArgs[0] else 0L).toString(), (if (variadicArgs.size > 1) variadicArgs[1] else 0L).toString(), (if (variadicArgs.size > 2) variadicArgs[2] else 0L).toString(), (if (variadicArgs.size > 3) variadicArgs[3] else 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun wvnsprintfA(pszdest: Pstr, cchdest: Int, pszfmt: Pcstr, arglist: ConstPtr<Byte>): Int =
+public actual fun wvnsprintfA(pszdest: Pstr, cchdest: Int, pszfmt: Pcstr, arglist: ConstPtr): Int =
     if (windowsWin32UiShellNapiAvailable) wasmWindowssysWindowsWin32UiShellWvnsprintfA(pszdest.rawAddress.toString(), cchdest, pszfmt.rawAddress.toString(), arglist.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun wvnsprintfW(pszdest: Pwstr, cchdest: Int, pszfmt: Pcwstr, arglist: ConstPtr<Byte>): Int =
+public actual fun wvnsprintfW(pszdest: Pwstr, cchdest: Int, pszfmt: Pcwstr, arglist: ConstPtr): Int =
     if (windowsWin32UiShellNapiAvailable) wasmWindowssysWindowsWin32UiShellWvnsprintfW(pszdest.rawAddress.toString(), cchdest, pszfmt.rawAddress.toString(), arglist.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")

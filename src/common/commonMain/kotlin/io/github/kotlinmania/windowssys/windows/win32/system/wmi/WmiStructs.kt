@@ -1,6 +1,5 @@
 package io.github.kotlinmania.windowssys.windows.win32.system.wmi
 
-import io.github.kotlinmania.rustlang.core.ffi.CVoid
 import io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
 import io.github.kotlinmania.rustlang.core.mem.TypeLayout
 import io.github.kotlinmania.rustlang.core.ptr.ConstPtr
@@ -13,9 +12,9 @@ import io.github.kotlinmania.windowssys.core.Pwstr
 public class MiApplication internal constructor(
     public var reserved1: ULong,
     public var reserved2: Int,
-    ftCtorArg: ConstPtr<MiApplicationFt>,
+    ftCtorArg: ConstPtr,
 ) {
-    public var ft: ConstPtr<MiApplicationFt> = ftCtorArg
+    public var ft: ConstPtr = ftCtorArg
         internal set
 
     public constructor() : this(
@@ -28,9 +27,9 @@ public class MiApplication internal constructor(
 
     public operator fun component2(): Int = this.reserved2
 
-    public operator fun component3(): ConstPtr<MiApplicationFt> = this.ft
+    public operator fun component3(): ConstPtr = this.ft
 
-    public fun copy(reserved1: ULong = this.reserved1, reserved2: Int = this.reserved2, ft: ConstPtr<MiApplicationFt> = this.ft): MiApplication = MiApplication(reserved1 = reserved1, reserved2 = reserved2, ftCtorArg = ft)
+    public fun copy(reserved1: ULong = this.reserved1, reserved2: Int = this.reserved2, ft: ConstPtr = this.ft): MiApplication = MiApplication(reserved1 = reserved1, reserved2 = reserved2, ftCtorArg = ft)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -59,7 +58,7 @@ public class MiApplication internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.ISIZE64).readNative(addr + 8L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .constPtrLayout<MiApplicationFt>(64)
+                                .constPtrLayout(64)
                         ).readNative(addr + 16L),
                     )
                 override fun writeNative(addr: Long, value: MiApplication) {
@@ -67,7 +66,7 @@ public class MiApplication internal constructor(
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.ISIZE64).writeNative(addr + 8L, value.reserved2)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .constPtrLayout<MiApplicationFt>(64)
+                            .constPtrLayout(64)
                     ).writeNative(addr + 16L, value.ft)
                 }
             }
@@ -75,7 +74,7 @@ public class MiApplication internal constructor(
         public operator fun invoke(
             reserved1: ULong = 0uL,
             reserved2: Int = 0,
-            ft: ConstPtr<MiApplicationFt> = ConstPtr(0L),
+            ft: ConstPtr = ConstPtr(0L),
         ): MiApplication =
             MiApplication(
                 reserved1 = reserved1,
@@ -135,10 +134,10 @@ public data class MiApplicationFt(
 }
 
 public class MiArray internal constructor(
-    dataCtorArg: MutPtr<CVoid>,
+    dataCtorArg: MutPtr,
     public var size: UInt,
 ) {
-    public var data: MutPtr<CVoid> = dataCtorArg
+    public var data: MutPtr = dataCtorArg
         internal set
 
     public constructor() : this(
@@ -146,11 +145,11 @@ public class MiArray internal constructor(
         size = 0u,
     )
 
-    public operator fun component1(): MutPtr<CVoid> = this.data
+    public operator fun component1(): MutPtr = this.data
 
     public operator fun component2(): UInt = this.size
 
-    public fun copy(data: MutPtr<CVoid> = this.data, size: UInt = this.size): MiArray = MiArray(dataCtorArg = data, size = size)
+    public fun copy(data: MutPtr = this.data, size: UInt = this.size): MiArray = MiArray(dataCtorArg = data, size = size)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -175,21 +174,21 @@ public class MiArray internal constructor(
                     MiArray(
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<CVoid>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 8L),
                     )
                 override fun writeNative(addr: Long, value: MiArray) {
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<CVoid>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr, value.data)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 8L, value.size)
                 }
             }
 
         public operator fun invoke(
-            data: MutPtr<CVoid> = MutPtr(0L),
+            data: MutPtr = MutPtr(0L),
             size: UInt = 0u,
         ): MiArray =
             MiArray(
@@ -225,10 +224,10 @@ public data class MiArrayField(
 }
 
 public class MiBooleanA internal constructor(
-    dataCtorArg: MutPtr<UByte>,
+    dataCtorArg: MutPtr,
     public var size: UInt,
 ) {
-    public var data: MutPtr<UByte> = dataCtorArg
+    public var data: MutPtr = dataCtorArg
         internal set
 
     public constructor() : this(
@@ -236,11 +235,11 @@ public class MiBooleanA internal constructor(
         size = 0u,
     )
 
-    public operator fun component1(): MutPtr<UByte> = this.data
+    public operator fun component1(): MutPtr = this.data
 
     public operator fun component2(): UInt = this.size
 
-    public fun copy(data: MutPtr<UByte> = this.data, size: UInt = this.size): MiBooleanA = MiBooleanA(dataCtorArg = data, size = size)
+    public fun copy(data: MutPtr = this.data, size: UInt = this.size): MiBooleanA = MiBooleanA(dataCtorArg = data, size = size)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -265,21 +264,21 @@ public class MiBooleanA internal constructor(
                     MiBooleanA(
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<UByte>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 8L),
                     )
                 override fun writeNative(addr: Long, value: MiBooleanA) {
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<UByte>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr, value.data)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 8L, value.size)
                 }
             }
 
         public operator fun invoke(
-            data: MutPtr<UByte> = MutPtr(0L),
+            data: MutPtr = MutPtr(0L),
             size: UInt = 0u,
         ): MiBooleanA =
             MiBooleanA(
@@ -340,10 +339,10 @@ public data class MiBooleanField(
 }
 
 public class MiChar16A internal constructor(
-    dataCtorArg: MutPtr<UShort>,
+    dataCtorArg: MutPtr,
     public var size: UInt,
 ) {
-    public var data: MutPtr<UShort> = dataCtorArg
+    public var data: MutPtr = dataCtorArg
         internal set
 
     public constructor() : this(
@@ -351,11 +350,11 @@ public class MiChar16A internal constructor(
         size = 0u,
     )
 
-    public operator fun component1(): MutPtr<UShort> = this.data
+    public operator fun component1(): MutPtr = this.data
 
     public operator fun component2(): UInt = this.size
 
-    public fun copy(data: MutPtr<UShort> = this.data, size: UInt = this.size): MiChar16A = MiChar16A(dataCtorArg = data, size = size)
+    public fun copy(data: MutPtr = this.data, size: UInt = this.size): MiChar16A = MiChar16A(dataCtorArg = data, size = size)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -380,21 +379,21 @@ public class MiChar16A internal constructor(
                     MiChar16A(
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<UShort>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 8L),
                     )
                 override fun writeNative(addr: Long, value: MiChar16A) {
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<UShort>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr, value.data)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 8L, value.size)
                 }
             }
 
         public operator fun invoke(
-            data: MutPtr<UShort> = MutPtr(0L),
+            data: MutPtr = MutPtr(0L),
             size: UInt = 0u,
         ): MiChar16A =
             MiChar16A(
@@ -455,22 +454,22 @@ public data class MiChar16Field(
 }
 
 public class MiClass internal constructor(
-    ftCtorArg: ConstPtr<MiClassFt>,
-    classDeclCtorArg: ConstPtr<MiClassDecl>,
-    namespaceNameCtorArg: ConstPtr<UShort>,
-    serverNameCtorArg: ConstPtr<UShort>,
+    ftCtorArg: ConstPtr,
+    classDeclCtorArg: ConstPtr,
+    namespaceNameCtorArg: ConstPtr,
+    serverNameCtorArg: ConstPtr,
     public var reserved: IntArray,
 ) {
-    public var ft: ConstPtr<MiClassFt> = ftCtorArg
+    public var ft: ConstPtr = ftCtorArg
         internal set
 
-    public var classDecl: ConstPtr<MiClassDecl> = classDeclCtorArg
+    public var classDecl: ConstPtr = classDeclCtorArg
         internal set
 
-    public var namespaceName: ConstPtr<UShort> = namespaceNameCtorArg
+    public var namespaceName: ConstPtr = namespaceNameCtorArg
         internal set
 
-    public var serverName: ConstPtr<UShort> = serverNameCtorArg
+    public var serverName: ConstPtr = serverNameCtorArg
         internal set
 
     public constructor() : this(
@@ -481,17 +480,17 @@ public class MiClass internal constructor(
         reserved = IntArray(4),
     )
 
-    public operator fun component1(): ConstPtr<MiClassFt> = this.ft
+    public operator fun component1(): ConstPtr = this.ft
 
-    public operator fun component2(): ConstPtr<MiClassDecl> = this.classDecl
+    public operator fun component2(): ConstPtr = this.classDecl
 
-    public operator fun component3(): ConstPtr<UShort> = this.namespaceName
+    public operator fun component3(): ConstPtr = this.namespaceName
 
-    public operator fun component4(): ConstPtr<UShort> = this.serverName
+    public operator fun component4(): ConstPtr = this.serverName
 
     public operator fun component5(): IntArray = this.reserved
 
-    public fun copy(ft: ConstPtr<MiClassFt> = this.ft, classDecl: ConstPtr<MiClassDecl> = this.classDecl, namespaceName: ConstPtr<UShort> = this.namespaceName, serverName: ConstPtr<UShort> = this.serverName, reserved: IntArray = this.reserved): MiClass = MiClass(ftCtorArg = ft, classDeclCtorArg = classDecl, namespaceNameCtorArg = namespaceName, serverNameCtorArg = serverName, reserved = reserved)
+    public fun copy(ft: ConstPtr = this.ft, classDecl: ConstPtr = this.classDecl, namespaceName: ConstPtr = this.namespaceName, serverName: ConstPtr = this.serverName, reserved: IntArray = this.reserved): MiClass = MiClass(ftCtorArg = ft, classDeclCtorArg = classDecl, namespaceNameCtorArg = namespaceName, serverNameCtorArg = serverName, reserved = reserved)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -522,19 +521,19 @@ public class MiClass internal constructor(
                     MiClass(
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .constPtrLayout<MiClassFt>(64)
+                                .constPtrLayout(64)
                         ).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .constPtrLayout<MiClassDecl>(64)
+                                .constPtrLayout(64)
                         ).readNative(addr + 8L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .constPtrLayout<UShort>(64)
+                                .constPtrLayout(64)
                         ).readNative(addr + 16L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .constPtrLayout<UShort>(64)
+                                .constPtrLayout(64)
                         ).readNative(addr + 24L),
                         (
                             io.github.kotlinmania.rustlang.core.mem
@@ -544,19 +543,19 @@ public class MiClass internal constructor(
                 override fun writeNative(addr: Long, value: MiClass) {
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .constPtrLayout<MiClassFt>(64)
+                            .constPtrLayout(64)
                     ).writeNative(addr, value.ft)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .constPtrLayout<MiClassDecl>(64)
+                            .constPtrLayout(64)
                     ).writeNative(addr + 8L, value.classDecl)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .constPtrLayout<UShort>(64)
+                            .constPtrLayout(64)
                     ).writeNative(addr + 16L, value.namespaceName)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .constPtrLayout<UShort>(64)
+                            .constPtrLayout(64)
                     ).writeNative(addr + 24L, value.serverName)
                     (
                         io.github.kotlinmania.rustlang.core.mem
@@ -566,10 +565,10 @@ public class MiClass internal constructor(
             }
 
         public operator fun invoke(
-            ft: ConstPtr<MiClassFt> = ConstPtr(0L),
-            classDecl: ConstPtr<MiClassDecl> = ConstPtr(0L),
-            namespaceName: ConstPtr<UShort> = ConstPtr(0L),
-            serverName: ConstPtr<UShort> = ConstPtr(0L),
+            ft: ConstPtr = ConstPtr(0L),
+            classDecl: ConstPtr = ConstPtr(0L),
+            namespaceName: ConstPtr = ConstPtr(0L),
+            serverName: ConstPtr = ConstPtr(0L),
             reserved: IntArray = IntArray(4),
         ): MiClass =
             MiClass(
@@ -585,45 +584,45 @@ public class MiClass internal constructor(
 public class MiClassDecl internal constructor(
     public var flags: UInt,
     public var code: UInt,
-    nameCtorArg: ConstPtr<UShort>,
-    qualifiersCtorArg: ConstPtr<ConstPtr<MiQualifier>>,
+    nameCtorArg: ConstPtr,
+    qualifiersCtorArg: ConstPtr,
     public var numQualifiers: UInt,
-    propertiesCtorArg: ConstPtr<ConstPtr<MiPropertyDecl>>,
+    propertiesCtorArg: ConstPtr,
     public var numProperties: UInt,
     public var size: UInt,
-    superClassCtorArg: ConstPtr<UShort>,
-    superClassDeclCtorArg: ConstPtr<MiClassDecl>,
-    methodsCtorArg: ConstPtr<ConstPtr<MiMethodDecl>>,
+    superClassCtorArg: ConstPtr,
+    superClassDeclCtorArg: ConstPtr,
+    methodsCtorArg: ConstPtr,
     public var numMethods: UInt,
-    schemaCtorArg: ConstPtr<MiSchemaDecl>,
-    providerFTCtorArg: ConstPtr<MiProviderFt>,
-    owningClassCtorArg: MutPtr<MiClass>,
+    schemaCtorArg: ConstPtr,
+    providerFTCtorArg: ConstPtr,
+    owningClassCtorArg: MutPtr,
 ) {
-    public var name: ConstPtr<UShort> = nameCtorArg
+    public var name: ConstPtr = nameCtorArg
         internal set
 
-    public var qualifiers: ConstPtr<ConstPtr<MiQualifier>> = qualifiersCtorArg
+    public var qualifiers: ConstPtr = qualifiersCtorArg
         internal set
 
-    public var properties: ConstPtr<ConstPtr<MiPropertyDecl>> = propertiesCtorArg
+    public var properties: ConstPtr = propertiesCtorArg
         internal set
 
-    public var superClass: ConstPtr<UShort> = superClassCtorArg
+    public var superClass: ConstPtr = superClassCtorArg
         internal set
 
-    public var superClassDecl: ConstPtr<MiClassDecl> = superClassDeclCtorArg
+    public var superClassDecl: ConstPtr = superClassDeclCtorArg
         internal set
 
-    public var methods: ConstPtr<ConstPtr<MiMethodDecl>> = methodsCtorArg
+    public var methods: ConstPtr = methodsCtorArg
         internal set
 
-    public var schema: ConstPtr<MiSchemaDecl> = schemaCtorArg
+    public var schema: ConstPtr = schemaCtorArg
         internal set
 
-    public var providerFT: ConstPtr<MiProviderFt> = providerFTCtorArg
+    public var providerFT: ConstPtr = providerFTCtorArg
         internal set
 
-    public var owningClass: MutPtr<MiClass> = owningClassCtorArg
+    public var owningClass: MutPtr = owningClassCtorArg
         internal set
 
     public constructor() : this(
@@ -648,33 +647,33 @@ public class MiClassDecl internal constructor(
 
     public operator fun component2(): UInt = this.code
 
-    public operator fun component3(): ConstPtr<UShort> = this.name
+    public operator fun component3(): ConstPtr = this.name
 
-    public operator fun component4(): ConstPtr<ConstPtr<MiQualifier>> = this.qualifiers
+    public operator fun component4(): ConstPtr = this.qualifiers
 
     public operator fun component5(): UInt = this.numQualifiers
 
-    public operator fun component6(): ConstPtr<ConstPtr<MiPropertyDecl>> = this.properties
+    public operator fun component6(): ConstPtr = this.properties
 
     public operator fun component7(): UInt = this.numProperties
 
     public operator fun component8(): UInt = this.size
 
-    public operator fun component9(): ConstPtr<UShort> = this.superClass
+    public operator fun component9(): ConstPtr = this.superClass
 
-    public operator fun component10(): ConstPtr<MiClassDecl> = this.superClassDecl
+    public operator fun component10(): ConstPtr = this.superClassDecl
 
-    public operator fun component11(): ConstPtr<ConstPtr<MiMethodDecl>> = this.methods
+    public operator fun component11(): ConstPtr = this.methods
 
     public operator fun component12(): UInt = this.numMethods
 
-    public operator fun component13(): ConstPtr<MiSchemaDecl> = this.schema
+    public operator fun component13(): ConstPtr = this.schema
 
-    public operator fun component14(): ConstPtr<MiProviderFt> = this.providerFT
+    public operator fun component14(): ConstPtr = this.providerFT
 
-    public operator fun component15(): MutPtr<MiClass> = this.owningClass
+    public operator fun component15(): MutPtr = this.owningClass
 
-    public fun copy(flags: UInt = this.flags, code: UInt = this.code, name: ConstPtr<UShort> = this.name, qualifiers: ConstPtr<ConstPtr<MiQualifier>> = this.qualifiers, numQualifiers: UInt = this.numQualifiers, properties: ConstPtr<ConstPtr<MiPropertyDecl>> = this.properties, numProperties: UInt = this.numProperties, size: UInt = this.size, superClass: ConstPtr<UShort> = this.superClass, superClassDecl: ConstPtr<MiClassDecl> = this.superClassDecl, methods: ConstPtr<ConstPtr<MiMethodDecl>> = this.methods, numMethods: UInt = this.numMethods, schema: ConstPtr<MiSchemaDecl> = this.schema, providerFT: ConstPtr<MiProviderFt> = this.providerFT, owningClass: MutPtr<MiClass> = this.owningClass): MiClassDecl = MiClassDecl(flags = flags, code = code, nameCtorArg = name, qualifiersCtorArg = qualifiers, numQualifiers = numQualifiers, propertiesCtorArg = properties, numProperties = numProperties, size = size, superClassCtorArg = superClass, superClassDeclCtorArg = superClassDecl, methodsCtorArg = methods, numMethods = numMethods, schemaCtorArg = schema, providerFTCtorArg = providerFT, owningClassCtorArg = owningClass)
+    public fun copy(flags: UInt = this.flags, code: UInt = this.code, name: ConstPtr = this.name, qualifiers: ConstPtr = this.qualifiers, numQualifiers: UInt = this.numQualifiers, properties: ConstPtr = this.properties, numProperties: UInt = this.numProperties, size: UInt = this.size, superClass: ConstPtr = this.superClass, superClassDecl: ConstPtr = this.superClassDecl, methods: ConstPtr = this.methods, numMethods: UInt = this.numMethods, schema: ConstPtr = this.schema, providerFT: ConstPtr = this.providerFT, owningClass: MutPtr = this.owningClass): MiClassDecl = MiClassDecl(flags = flags, code = code, nameCtorArg = name, qualifiersCtorArg = qualifiers, numQualifiers = numQualifiers, propertiesCtorArg = properties, numProperties = numProperties, size = size, superClassCtorArg = superClass, superClassDeclCtorArg = superClassDecl, methodsCtorArg = methods, numMethods = numMethods, schemaCtorArg = schema, providerFTCtorArg = providerFT, owningClassCtorArg = owningClass)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -727,43 +726,43 @@ public class MiClassDecl internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 4L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .constPtrLayout<UShort>(64)
+                                .constPtrLayout(64)
                         ).readNative(addr + 8L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .constPtrLayout<ConstPtr<MiQualifier>>(64)
+                                .constPtrLayout(64)
                         ).readNative(addr + 16L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 24L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .constPtrLayout<ConstPtr<MiPropertyDecl>>(64)
+                                .constPtrLayout(64)
                         ).readNative(addr + 32L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 40L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 44L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .constPtrLayout<UShort>(64)
+                                .constPtrLayout(64)
                         ).readNative(addr + 48L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .constPtrLayout<MiClassDecl>(64)
+                                .constPtrLayout(64)
                         ).readNative(addr + 56L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .constPtrLayout<ConstPtr<MiMethodDecl>>(64)
+                                .constPtrLayout(64)
                         ).readNative(addr + 64L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 72L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .constPtrLayout<MiSchemaDecl>(64)
+                                .constPtrLayout(64)
                         ).readNative(addr + 80L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .constPtrLayout<MiProviderFt>(64)
+                                .constPtrLayout(64)
                         ).readNative(addr + 88L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<MiClass>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 96L),
                     )
                 override fun writeNative(addr: Long, value: MiClassDecl) {
@@ -771,43 +770,43 @@ public class MiClassDecl internal constructor(
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 4L, value.code)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .constPtrLayout<UShort>(64)
+                            .constPtrLayout(64)
                     ).writeNative(addr + 8L, value.name)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .constPtrLayout<ConstPtr<MiQualifier>>(64)
+                            .constPtrLayout(64)
                     ).writeNative(addr + 16L, value.qualifiers)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 24L, value.numQualifiers)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .constPtrLayout<ConstPtr<MiPropertyDecl>>(64)
+                            .constPtrLayout(64)
                     ).writeNative(addr + 32L, value.properties)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 40L, value.numProperties)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 44L, value.size)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .constPtrLayout<UShort>(64)
+                            .constPtrLayout(64)
                     ).writeNative(addr + 48L, value.superClass)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .constPtrLayout<MiClassDecl>(64)
+                            .constPtrLayout(64)
                     ).writeNative(addr + 56L, value.superClassDecl)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .constPtrLayout<ConstPtr<MiMethodDecl>>(64)
+                            .constPtrLayout(64)
                     ).writeNative(addr + 64L, value.methods)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 72L, value.numMethods)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .constPtrLayout<MiSchemaDecl>(64)
+                            .constPtrLayout(64)
                     ).writeNative(addr + 80L, value.schema)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .constPtrLayout<MiProviderFt>(64)
+                            .constPtrLayout(64)
                     ).writeNative(addr + 88L, value.providerFT)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<MiClass>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 96L, value.owningClass)
                 }
             }
@@ -815,19 +814,19 @@ public class MiClassDecl internal constructor(
         public operator fun invoke(
             flags: UInt = 0u,
             code: UInt = 0u,
-            name: ConstPtr<UShort> = ConstPtr(0L),
-            qualifiers: ConstPtr<ConstPtr<MiQualifier>> = ConstPtr(0L),
+            name: ConstPtr = ConstPtr(0L),
+            qualifiers: ConstPtr = ConstPtr(0L),
             numQualifiers: UInt = 0u,
-            properties: ConstPtr<ConstPtr<MiPropertyDecl>> = ConstPtr(0L),
+            properties: ConstPtr = ConstPtr(0L),
             numProperties: UInt = 0u,
             size: UInt = 0u,
-            superClass: ConstPtr<UShort> = ConstPtr(0L),
-            superClassDecl: ConstPtr<MiClassDecl> = ConstPtr(0L),
-            methods: ConstPtr<ConstPtr<MiMethodDecl>> = ConstPtr(0L),
+            superClass: ConstPtr = ConstPtr(0L),
+            superClassDecl: ConstPtr = ConstPtr(0L),
+            methods: ConstPtr = ConstPtr(0L),
             numMethods: UInt = 0u,
-            schema: ConstPtr<MiSchemaDecl> = ConstPtr(0L),
-            providerFT: ConstPtr<MiProviderFt> = ConstPtr(0L),
-            owningClass: MutPtr<MiClass> = MutPtr(0L),
+            schema: ConstPtr = ConstPtr(0L),
+            providerFT: ConstPtr = ConstPtr(0L),
+            owningClass: MutPtr = MutPtr(0L),
         ): MiClassDecl =
             MiClassDecl(
                 flags = flags,
@@ -908,45 +907,45 @@ public data class MiClassFt(
 }
 
 public class MiClientFtV1 internal constructor(
-    applicationFTCtorArg: ConstPtr<MiApplicationFt>,
-    sessionFTCtorArg: ConstPtr<MiSessionFt>,
-    operationFTCtorArg: ConstPtr<MiOperationFt>,
-    hostedProviderFTCtorArg: ConstPtr<MiHostedProviderFt>,
-    serializerFTCtorArg: ConstPtr<MiSerializerFt>,
-    deserializerFTCtorArg: ConstPtr<MiDeserializerFt>,
-    subscribeDeliveryOptionsFTCtorArg: ConstPtr<MiSubscriptionDeliveryOptionsFt>,
-    destinationOptionsFTCtorArg: ConstPtr<MiDestinationOptionsFt>,
-    operationOptionsFTCtorArg: ConstPtr<MiOperationOptionsFt>,
-    utilitiesFTCtorArg: ConstPtr<MiUtilitiesFt>,
+    applicationFTCtorArg: ConstPtr,
+    sessionFTCtorArg: ConstPtr,
+    operationFTCtorArg: ConstPtr,
+    hostedProviderFTCtorArg: ConstPtr,
+    serializerFTCtorArg: ConstPtr,
+    deserializerFTCtorArg: ConstPtr,
+    subscribeDeliveryOptionsFTCtorArg: ConstPtr,
+    destinationOptionsFTCtorArg: ConstPtr,
+    operationOptionsFTCtorArg: ConstPtr,
+    utilitiesFTCtorArg: ConstPtr,
 ) {
-    public var applicationFT: ConstPtr<MiApplicationFt> = applicationFTCtorArg
+    public var applicationFT: ConstPtr = applicationFTCtorArg
         internal set
 
-    public var sessionFT: ConstPtr<MiSessionFt> = sessionFTCtorArg
+    public var sessionFT: ConstPtr = sessionFTCtorArg
         internal set
 
-    public var operationFT: ConstPtr<MiOperationFt> = operationFTCtorArg
+    public var operationFT: ConstPtr = operationFTCtorArg
         internal set
 
-    public var hostedProviderFT: ConstPtr<MiHostedProviderFt> = hostedProviderFTCtorArg
+    public var hostedProviderFT: ConstPtr = hostedProviderFTCtorArg
         internal set
 
-    public var serializerFT: ConstPtr<MiSerializerFt> = serializerFTCtorArg
+    public var serializerFT: ConstPtr = serializerFTCtorArg
         internal set
 
-    public var deserializerFT: ConstPtr<MiDeserializerFt> = deserializerFTCtorArg
+    public var deserializerFT: ConstPtr = deserializerFTCtorArg
         internal set
 
-    public var subscribeDeliveryOptionsFT: ConstPtr<MiSubscriptionDeliveryOptionsFt> = subscribeDeliveryOptionsFTCtorArg
+    public var subscribeDeliveryOptionsFT: ConstPtr = subscribeDeliveryOptionsFTCtorArg
         internal set
 
-    public var destinationOptionsFT: ConstPtr<MiDestinationOptionsFt> = destinationOptionsFTCtorArg
+    public var destinationOptionsFT: ConstPtr = destinationOptionsFTCtorArg
         internal set
 
-    public var operationOptionsFT: ConstPtr<MiOperationOptionsFt> = operationOptionsFTCtorArg
+    public var operationOptionsFT: ConstPtr = operationOptionsFTCtorArg
         internal set
 
-    public var utilitiesFT: ConstPtr<MiUtilitiesFt> = utilitiesFTCtorArg
+    public var utilitiesFT: ConstPtr = utilitiesFTCtorArg
         internal set
 
     public constructor() : this(
@@ -962,27 +961,27 @@ public class MiClientFtV1 internal constructor(
         utilitiesFTCtorArg = ConstPtr(0L),
     )
 
-    public operator fun component1(): ConstPtr<MiApplicationFt> = this.applicationFT
+    public operator fun component1(): ConstPtr = this.applicationFT
 
-    public operator fun component2(): ConstPtr<MiSessionFt> = this.sessionFT
+    public operator fun component2(): ConstPtr = this.sessionFT
 
-    public operator fun component3(): ConstPtr<MiOperationFt> = this.operationFT
+    public operator fun component3(): ConstPtr = this.operationFT
 
-    public operator fun component4(): ConstPtr<MiHostedProviderFt> = this.hostedProviderFT
+    public operator fun component4(): ConstPtr = this.hostedProviderFT
 
-    public operator fun component5(): ConstPtr<MiSerializerFt> = this.serializerFT
+    public operator fun component5(): ConstPtr = this.serializerFT
 
-    public operator fun component6(): ConstPtr<MiDeserializerFt> = this.deserializerFT
+    public operator fun component6(): ConstPtr = this.deserializerFT
 
-    public operator fun component7(): ConstPtr<MiSubscriptionDeliveryOptionsFt> = this.subscribeDeliveryOptionsFT
+    public operator fun component7(): ConstPtr = this.subscribeDeliveryOptionsFT
 
-    public operator fun component8(): ConstPtr<MiDestinationOptionsFt> = this.destinationOptionsFT
+    public operator fun component8(): ConstPtr = this.destinationOptionsFT
 
-    public operator fun component9(): ConstPtr<MiOperationOptionsFt> = this.operationOptionsFT
+    public operator fun component9(): ConstPtr = this.operationOptionsFT
 
-    public operator fun component10(): ConstPtr<MiUtilitiesFt> = this.utilitiesFT
+    public operator fun component10(): ConstPtr = this.utilitiesFT
 
-    public fun copy(applicationFT: ConstPtr<MiApplicationFt> = this.applicationFT, sessionFT: ConstPtr<MiSessionFt> = this.sessionFT, operationFT: ConstPtr<MiOperationFt> = this.operationFT, hostedProviderFT: ConstPtr<MiHostedProviderFt> = this.hostedProviderFT, serializerFT: ConstPtr<MiSerializerFt> = this.serializerFT, deserializerFT: ConstPtr<MiDeserializerFt> = this.deserializerFT, subscribeDeliveryOptionsFT: ConstPtr<MiSubscriptionDeliveryOptionsFt> = this.subscribeDeliveryOptionsFT, destinationOptionsFT: ConstPtr<MiDestinationOptionsFt> = this.destinationOptionsFT, operationOptionsFT: ConstPtr<MiOperationOptionsFt> = this.operationOptionsFT, utilitiesFT: ConstPtr<MiUtilitiesFt> = this.utilitiesFT): MiClientFtV1 = MiClientFtV1(applicationFTCtorArg = applicationFT, sessionFTCtorArg = sessionFT, operationFTCtorArg = operationFT, hostedProviderFTCtorArg = hostedProviderFT, serializerFTCtorArg = serializerFT, deserializerFTCtorArg = deserializerFT, subscribeDeliveryOptionsFTCtorArg = subscribeDeliveryOptionsFT, destinationOptionsFTCtorArg = destinationOptionsFT, operationOptionsFTCtorArg = operationOptionsFT, utilitiesFTCtorArg = utilitiesFT)
+    public fun copy(applicationFT: ConstPtr = this.applicationFT, sessionFT: ConstPtr = this.sessionFT, operationFT: ConstPtr = this.operationFT, hostedProviderFT: ConstPtr = this.hostedProviderFT, serializerFT: ConstPtr = this.serializerFT, deserializerFT: ConstPtr = this.deserializerFT, subscribeDeliveryOptionsFT: ConstPtr = this.subscribeDeliveryOptionsFT, destinationOptionsFT: ConstPtr = this.destinationOptionsFT, operationOptionsFT: ConstPtr = this.operationOptionsFT, utilitiesFT: ConstPtr = this.utilitiesFT): MiClientFtV1 = MiClientFtV1(applicationFTCtorArg = applicationFT, sessionFTCtorArg = sessionFT, operationFTCtorArg = operationFT, hostedProviderFTCtorArg = hostedProviderFT, serializerFTCtorArg = serializerFT, deserializerFTCtorArg = deserializerFT, subscribeDeliveryOptionsFTCtorArg = subscribeDeliveryOptionsFT, destinationOptionsFTCtorArg = destinationOptionsFT, operationOptionsFTCtorArg = operationOptionsFT, utilitiesFTCtorArg = utilitiesFT)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -1023,100 +1022,100 @@ public class MiClientFtV1 internal constructor(
                     MiClientFtV1(
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .constPtrLayout<MiApplicationFt>(64)
+                                .constPtrLayout(64)
                         ).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .constPtrLayout<MiSessionFt>(64)
+                                .constPtrLayout(64)
                         ).readNative(addr + 8L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .constPtrLayout<MiOperationFt>(64)
+                                .constPtrLayout(64)
                         ).readNative(addr + 16L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .constPtrLayout<MiHostedProviderFt>(64)
+                                .constPtrLayout(64)
                         ).readNative(addr + 24L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .constPtrLayout<MiSerializerFt>(64)
+                                .constPtrLayout(64)
                         ).readNative(addr + 32L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .constPtrLayout<MiDeserializerFt>(64)
+                                .constPtrLayout(64)
                         ).readNative(addr + 40L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .constPtrLayout<MiSubscriptionDeliveryOptionsFt>(64)
+                                .constPtrLayout(64)
                         ).readNative(addr + 48L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .constPtrLayout<MiDestinationOptionsFt>(64)
+                                .constPtrLayout(64)
                         ).readNative(addr + 56L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .constPtrLayout<MiOperationOptionsFt>(64)
+                                .constPtrLayout(64)
                         ).readNative(addr + 64L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .constPtrLayout<MiUtilitiesFt>(64)
+                                .constPtrLayout(64)
                         ).readNative(addr + 72L),
                     )
                 override fun writeNative(addr: Long, value: MiClientFtV1) {
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .constPtrLayout<MiApplicationFt>(64)
+                            .constPtrLayout(64)
                     ).writeNative(addr, value.applicationFT)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .constPtrLayout<MiSessionFt>(64)
+                            .constPtrLayout(64)
                     ).writeNative(addr + 8L, value.sessionFT)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .constPtrLayout<MiOperationFt>(64)
+                            .constPtrLayout(64)
                     ).writeNative(addr + 16L, value.operationFT)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .constPtrLayout<MiHostedProviderFt>(64)
+                            .constPtrLayout(64)
                     ).writeNative(addr + 24L, value.hostedProviderFT)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .constPtrLayout<MiSerializerFt>(64)
+                            .constPtrLayout(64)
                     ).writeNative(addr + 32L, value.serializerFT)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .constPtrLayout<MiDeserializerFt>(64)
+                            .constPtrLayout(64)
                     ).writeNative(addr + 40L, value.deserializerFT)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .constPtrLayout<MiSubscriptionDeliveryOptionsFt>(64)
+                            .constPtrLayout(64)
                     ).writeNative(addr + 48L, value.subscribeDeliveryOptionsFT)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .constPtrLayout<MiDestinationOptionsFt>(64)
+                            .constPtrLayout(64)
                     ).writeNative(addr + 56L, value.destinationOptionsFT)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .constPtrLayout<MiOperationOptionsFt>(64)
+                            .constPtrLayout(64)
                     ).writeNative(addr + 64L, value.operationOptionsFT)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .constPtrLayout<MiUtilitiesFt>(64)
+                            .constPtrLayout(64)
                     ).writeNative(addr + 72L, value.utilitiesFT)
                 }
             }
 
         public operator fun invoke(
-            applicationFT: ConstPtr<MiApplicationFt> = ConstPtr(0L),
-            sessionFT: ConstPtr<MiSessionFt> = ConstPtr(0L),
-            operationFT: ConstPtr<MiOperationFt> = ConstPtr(0L),
-            hostedProviderFT: ConstPtr<MiHostedProviderFt> = ConstPtr(0L),
-            serializerFT: ConstPtr<MiSerializerFt> = ConstPtr(0L),
-            deserializerFT: ConstPtr<MiDeserializerFt> = ConstPtr(0L),
-            subscribeDeliveryOptionsFT: ConstPtr<MiSubscriptionDeliveryOptionsFt> = ConstPtr(0L),
-            destinationOptionsFT: ConstPtr<MiDestinationOptionsFt> = ConstPtr(0L),
-            operationOptionsFT: ConstPtr<MiOperationOptionsFt> = ConstPtr(0L),
-            utilitiesFT: ConstPtr<MiUtilitiesFt> = ConstPtr(0L),
+            applicationFT: ConstPtr = ConstPtr(0L),
+            sessionFT: ConstPtr = ConstPtr(0L),
+            operationFT: ConstPtr = ConstPtr(0L),
+            hostedProviderFT: ConstPtr = ConstPtr(0L),
+            serializerFT: ConstPtr = ConstPtr(0L),
+            deserializerFT: ConstPtr = ConstPtr(0L),
+            subscribeDeliveryOptionsFT: ConstPtr = ConstPtr(0L),
+            destinationOptionsFT: ConstPtr = ConstPtr(0L),
+            operationOptionsFT: ConstPtr = ConstPtr(0L),
+            utilitiesFT: ConstPtr = ConstPtr(0L),
         ): MiClientFtV1 =
             MiClientFtV1(
                 applicationFTCtorArg = applicationFT,
@@ -1134,10 +1133,10 @@ public class MiClientFtV1 internal constructor(
 }
 
 public class MiConstBooleanA internal constructor(
-    dataCtorArg: ConstPtr<UByte>,
+    dataCtorArg: ConstPtr,
     public var size: UInt,
 ) {
-    public var data: ConstPtr<UByte> = dataCtorArg
+    public var data: ConstPtr = dataCtorArg
         internal set
 
     public constructor() : this(
@@ -1145,11 +1144,11 @@ public class MiConstBooleanA internal constructor(
         size = 0u,
     )
 
-    public operator fun component1(): ConstPtr<UByte> = this.data
+    public operator fun component1(): ConstPtr = this.data
 
     public operator fun component2(): UInt = this.size
 
-    public fun copy(data: ConstPtr<UByte> = this.data, size: UInt = this.size): MiConstBooleanA = MiConstBooleanA(dataCtorArg = data, size = size)
+    public fun copy(data: ConstPtr = this.data, size: UInt = this.size): MiConstBooleanA = MiConstBooleanA(dataCtorArg = data, size = size)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -1174,21 +1173,21 @@ public class MiConstBooleanA internal constructor(
                     MiConstBooleanA(
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .constPtrLayout<UByte>(64)
+                                .constPtrLayout(64)
                         ).readNative(addr),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 8L),
                     )
                 override fun writeNative(addr: Long, value: MiConstBooleanA) {
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .constPtrLayout<UByte>(64)
+                            .constPtrLayout(64)
                     ).writeNative(addr, value.data)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 8L, value.size)
                 }
             }
 
         public operator fun invoke(
-            data: ConstPtr<UByte> = ConstPtr(0L),
+            data: ConstPtr = ConstPtr(0L),
             size: UInt = 0u,
         ): MiConstBooleanA =
             MiConstBooleanA(
@@ -1249,10 +1248,10 @@ public data class MiConstBooleanField(
 }
 
 public class MiConstChar16A internal constructor(
-    dataCtorArg: ConstPtr<UShort>,
+    dataCtorArg: ConstPtr,
     public var size: UInt,
 ) {
-    public var data: ConstPtr<UShort> = dataCtorArg
+    public var data: ConstPtr = dataCtorArg
         internal set
 
     public constructor() : this(
@@ -1260,11 +1259,11 @@ public class MiConstChar16A internal constructor(
         size = 0u,
     )
 
-    public operator fun component1(): ConstPtr<UShort> = this.data
+    public operator fun component1(): ConstPtr = this.data
 
     public operator fun component2(): UInt = this.size
 
-    public fun copy(data: ConstPtr<UShort> = this.data, size: UInt = this.size): MiConstChar16A = MiConstChar16A(dataCtorArg = data, size = size)
+    public fun copy(data: ConstPtr = this.data, size: UInt = this.size): MiConstChar16A = MiConstChar16A(dataCtorArg = data, size = size)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -1289,21 +1288,21 @@ public class MiConstChar16A internal constructor(
                     MiConstChar16A(
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .constPtrLayout<UShort>(64)
+                                .constPtrLayout(64)
                         ).readNative(addr),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 8L),
                     )
                 override fun writeNative(addr: Long, value: MiConstChar16A) {
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .constPtrLayout<UShort>(64)
+                            .constPtrLayout(64)
                     ).writeNative(addr, value.data)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 8L, value.size)
                 }
             }
 
         public operator fun invoke(
-            data: ConstPtr<UShort> = ConstPtr(0L),
+            data: ConstPtr = ConstPtr(0L),
             size: UInt = 0u,
         ): MiConstChar16A =
             MiConstChar16A(
@@ -1364,10 +1363,10 @@ public data class MiConstChar16Field(
 }
 
 public class MiConstDatetimeA internal constructor(
-    dataCtorArg: ConstPtr<MiDatetime>,
+    dataCtorArg: ConstPtr,
     public var size: UInt,
 ) {
-    public var data: ConstPtr<MiDatetime> = dataCtorArg
+    public var data: ConstPtr = dataCtorArg
         internal set
 
     public constructor() : this(
@@ -1375,11 +1374,11 @@ public class MiConstDatetimeA internal constructor(
         size = 0u,
     )
 
-    public operator fun component1(): ConstPtr<MiDatetime> = this.data
+    public operator fun component1(): ConstPtr = this.data
 
     public operator fun component2(): UInt = this.size
 
-    public fun copy(data: ConstPtr<MiDatetime> = this.data, size: UInt = this.size): MiConstDatetimeA = MiConstDatetimeA(dataCtorArg = data, size = size)
+    public fun copy(data: ConstPtr = this.data, size: UInt = this.size): MiConstDatetimeA = MiConstDatetimeA(dataCtorArg = data, size = size)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -1404,21 +1403,21 @@ public class MiConstDatetimeA internal constructor(
                     MiConstDatetimeA(
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .constPtrLayout<MiDatetime>(64)
+                                .constPtrLayout(64)
                         ).readNative(addr),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 8L),
                     )
                 override fun writeNative(addr: Long, value: MiConstDatetimeA) {
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .constPtrLayout<MiDatetime>(64)
+                            .constPtrLayout(64)
                     ).writeNative(addr, value.data)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 8L, value.size)
                 }
             }
 
         public operator fun invoke(
-            data: ConstPtr<MiDatetime> = ConstPtr(0L),
+            data: ConstPtr = ConstPtr(0L),
             size: UInt = 0u,
         ): MiConstDatetimeA =
             MiConstDatetimeA(
@@ -1460,10 +1459,10 @@ public data class MiConstDatetimeField(
 )
 
 public class MiConstInstanceA internal constructor(
-    dataCtorArg: ConstPtr<ConstPtr<MiInstance>>,
+    dataCtorArg: ConstPtr,
     public var size: UInt,
 ) {
-    public var data: ConstPtr<ConstPtr<MiInstance>> = dataCtorArg
+    public var data: ConstPtr = dataCtorArg
         internal set
 
     public constructor() : this(
@@ -1471,11 +1470,11 @@ public class MiConstInstanceA internal constructor(
         size = 0u,
     )
 
-    public operator fun component1(): ConstPtr<ConstPtr<MiInstance>> = this.data
+    public operator fun component1(): ConstPtr = this.data
 
     public operator fun component2(): UInt = this.size
 
-    public fun copy(data: ConstPtr<ConstPtr<MiInstance>> = this.data, size: UInt = this.size): MiConstInstanceA = MiConstInstanceA(dataCtorArg = data, size = size)
+    public fun copy(data: ConstPtr = this.data, size: UInt = this.size): MiConstInstanceA = MiConstInstanceA(dataCtorArg = data, size = size)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -1500,21 +1499,21 @@ public class MiConstInstanceA internal constructor(
                     MiConstInstanceA(
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .constPtrLayout<ConstPtr<MiInstance>>(64)
+                                .constPtrLayout(64)
                         ).readNative(addr),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 8L),
                     )
                 override fun writeNative(addr: Long, value: MiConstInstanceA) {
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .constPtrLayout<ConstPtr<MiInstance>>(64)
+                            .constPtrLayout(64)
                     ).writeNative(addr, value.data)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 8L, value.size)
                 }
             }
 
         public operator fun invoke(
-            data: ConstPtr<ConstPtr<MiInstance>> = ConstPtr(0L),
+            data: ConstPtr = ConstPtr(0L),
             size: UInt = 0u,
         ): MiConstInstanceA =
             MiConstInstanceA(
@@ -1550,11 +1549,11 @@ public data class MiConstInstanceAfield(
 }
 
 public class MiConstInstanceField internal constructor(
-    valueCtorArg: ConstPtr<MiInstance>,
+    valueCtorArg: ConstPtr,
     public var exists: UByte,
     public var flags: UByte,
 ) {
-    public var value: ConstPtr<MiInstance> = valueCtorArg
+    public var value: ConstPtr = valueCtorArg
         internal set
 
     public constructor() : this(
@@ -1563,13 +1562,13 @@ public class MiConstInstanceField internal constructor(
         flags = 0u,
     )
 
-    public operator fun component1(): ConstPtr<MiInstance> = this.value
+    public operator fun component1(): ConstPtr = this.value
 
     public operator fun component2(): UByte = this.exists
 
     public operator fun component3(): UByte = this.flags
 
-    public fun copy(value: ConstPtr<MiInstance> = this.value, exists: UByte = this.exists, flags: UByte = this.flags): MiConstInstanceField = MiConstInstanceField(valueCtorArg = value, exists = exists, flags = flags)
+    public fun copy(value: ConstPtr = this.value, exists: UByte = this.exists, flags: UByte = this.flags): MiConstInstanceField = MiConstInstanceField(valueCtorArg = value, exists = exists, flags = flags)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -1596,7 +1595,7 @@ public class MiConstInstanceField internal constructor(
                     MiConstInstanceField(
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .constPtrLayout<MiInstance>(64)
+                                .constPtrLayout(64)
                         ).readNative(addr),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8).readNative(addr + 8L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8).readNative(addr + 9L),
@@ -1604,7 +1603,7 @@ public class MiConstInstanceField internal constructor(
                 override fun writeNative(addr: Long, value: MiConstInstanceField) {
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .constPtrLayout<MiInstance>(64)
+                            .constPtrLayout(64)
                     ).writeNative(addr, value.value)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8).writeNative(addr + 8L, value.exists)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8).writeNative(addr + 9L, value.flags)
@@ -1612,7 +1611,7 @@ public class MiConstInstanceField internal constructor(
             }
 
         public operator fun invoke(
-            value: ConstPtr<MiInstance> = ConstPtr(0L),
+            value: ConstPtr = ConstPtr(0L),
             exists: UByte = 0u,
             flags: UByte = 0u,
         ): MiConstInstanceField =
@@ -1625,10 +1624,10 @@ public class MiConstInstanceField internal constructor(
 }
 
 public class MiConstReal32A internal constructor(
-    dataCtorArg: ConstPtr<Float>,
+    dataCtorArg: ConstPtr,
     public var size: UInt,
 ) {
-    public var data: ConstPtr<Float> = dataCtorArg
+    public var data: ConstPtr = dataCtorArg
         internal set
 
     public constructor() : this(
@@ -1636,11 +1635,11 @@ public class MiConstReal32A internal constructor(
         size = 0u,
     )
 
-    public operator fun component1(): ConstPtr<Float> = this.data
+    public operator fun component1(): ConstPtr = this.data
 
     public operator fun component2(): UInt = this.size
 
-    public fun copy(data: ConstPtr<Float> = this.data, size: UInt = this.size): MiConstReal32A = MiConstReal32A(dataCtorArg = data, size = size)
+    public fun copy(data: ConstPtr = this.data, size: UInt = this.size): MiConstReal32A = MiConstReal32A(dataCtorArg = data, size = size)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -1665,21 +1664,21 @@ public class MiConstReal32A internal constructor(
                     MiConstReal32A(
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .constPtrLayout<Float>(64)
+                                .constPtrLayout(64)
                         ).readNative(addr),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 8L),
                     )
                 override fun writeNative(addr: Long, value: MiConstReal32A) {
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .constPtrLayout<Float>(64)
+                            .constPtrLayout(64)
                     ).writeNative(addr, value.data)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 8L, value.size)
                 }
             }
 
         public operator fun invoke(
-            data: ConstPtr<Float> = ConstPtr(0L),
+            data: ConstPtr = ConstPtr(0L),
             size: UInt = 0u,
         ): MiConstReal32A =
             MiConstReal32A(
@@ -1740,10 +1739,10 @@ public data class MiConstReal32Field(
 }
 
 public class MiConstReal64A internal constructor(
-    dataCtorArg: ConstPtr<Double>,
+    dataCtorArg: ConstPtr,
     public var size: UInt,
 ) {
-    public var data: ConstPtr<Double> = dataCtorArg
+    public var data: ConstPtr = dataCtorArg
         internal set
 
     public constructor() : this(
@@ -1751,11 +1750,11 @@ public class MiConstReal64A internal constructor(
         size = 0u,
     )
 
-    public operator fun component1(): ConstPtr<Double> = this.data
+    public operator fun component1(): ConstPtr = this.data
 
     public operator fun component2(): UInt = this.size
 
-    public fun copy(data: ConstPtr<Double> = this.data, size: UInt = this.size): MiConstReal64A = MiConstReal64A(dataCtorArg = data, size = size)
+    public fun copy(data: ConstPtr = this.data, size: UInt = this.size): MiConstReal64A = MiConstReal64A(dataCtorArg = data, size = size)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -1780,21 +1779,21 @@ public class MiConstReal64A internal constructor(
                     MiConstReal64A(
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .constPtrLayout<Double>(64)
+                                .constPtrLayout(64)
                         ).readNative(addr),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 8L),
                     )
                 override fun writeNative(addr: Long, value: MiConstReal64A) {
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .constPtrLayout<Double>(64)
+                            .constPtrLayout(64)
                     ).writeNative(addr, value.data)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 8L, value.size)
                 }
             }
 
         public operator fun invoke(
-            data: ConstPtr<Double> = ConstPtr(0L),
+            data: ConstPtr = ConstPtr(0L),
             size: UInt = 0u,
         ): MiConstReal64A =
             MiConstReal64A(
@@ -1855,10 +1854,10 @@ public data class MiConstReal64Field(
 }
 
 public class MiConstReferenceA internal constructor(
-    dataCtorArg: ConstPtr<ConstPtr<MiInstance>>,
+    dataCtorArg: ConstPtr,
     public var size: UInt,
 ) {
-    public var data: ConstPtr<ConstPtr<MiInstance>> = dataCtorArg
+    public var data: ConstPtr = dataCtorArg
         internal set
 
     public constructor() : this(
@@ -1866,11 +1865,11 @@ public class MiConstReferenceA internal constructor(
         size = 0u,
     )
 
-    public operator fun component1(): ConstPtr<ConstPtr<MiInstance>> = this.data
+    public operator fun component1(): ConstPtr = this.data
 
     public operator fun component2(): UInt = this.size
 
-    public fun copy(data: ConstPtr<ConstPtr<MiInstance>> = this.data, size: UInt = this.size): MiConstReferenceA = MiConstReferenceA(dataCtorArg = data, size = size)
+    public fun copy(data: ConstPtr = this.data, size: UInt = this.size): MiConstReferenceA = MiConstReferenceA(dataCtorArg = data, size = size)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -1895,21 +1894,21 @@ public class MiConstReferenceA internal constructor(
                     MiConstReferenceA(
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .constPtrLayout<ConstPtr<MiInstance>>(64)
+                                .constPtrLayout(64)
                         ).readNative(addr),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 8L),
                     )
                 override fun writeNative(addr: Long, value: MiConstReferenceA) {
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .constPtrLayout<ConstPtr<MiInstance>>(64)
+                            .constPtrLayout(64)
                     ).writeNative(addr, value.data)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 8L, value.size)
                 }
             }
 
         public operator fun invoke(
-            data: ConstPtr<ConstPtr<MiInstance>> = ConstPtr(0L),
+            data: ConstPtr = ConstPtr(0L),
             size: UInt = 0u,
         ): MiConstReferenceA =
             MiConstReferenceA(
@@ -1945,11 +1944,11 @@ public data class MiConstReferenceAfield(
 }
 
 public class MiConstReferenceField internal constructor(
-    valueCtorArg: ConstPtr<MiInstance>,
+    valueCtorArg: ConstPtr,
     public var exists: UByte,
     public var flags: UByte,
 ) {
-    public var value: ConstPtr<MiInstance> = valueCtorArg
+    public var value: ConstPtr = valueCtorArg
         internal set
 
     public constructor() : this(
@@ -1958,13 +1957,13 @@ public class MiConstReferenceField internal constructor(
         flags = 0u,
     )
 
-    public operator fun component1(): ConstPtr<MiInstance> = this.value
+    public operator fun component1(): ConstPtr = this.value
 
     public operator fun component2(): UByte = this.exists
 
     public operator fun component3(): UByte = this.flags
 
-    public fun copy(value: ConstPtr<MiInstance> = this.value, exists: UByte = this.exists, flags: UByte = this.flags): MiConstReferenceField = MiConstReferenceField(valueCtorArg = value, exists = exists, flags = flags)
+    public fun copy(value: ConstPtr = this.value, exists: UByte = this.exists, flags: UByte = this.flags): MiConstReferenceField = MiConstReferenceField(valueCtorArg = value, exists = exists, flags = flags)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -1991,7 +1990,7 @@ public class MiConstReferenceField internal constructor(
                     MiConstReferenceField(
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .constPtrLayout<MiInstance>(64)
+                                .constPtrLayout(64)
                         ).readNative(addr),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8).readNative(addr + 8L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8).readNative(addr + 9L),
@@ -1999,7 +1998,7 @@ public class MiConstReferenceField internal constructor(
                 override fun writeNative(addr: Long, value: MiConstReferenceField) {
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .constPtrLayout<MiInstance>(64)
+                            .constPtrLayout(64)
                     ).writeNative(addr, value.value)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8).writeNative(addr + 8L, value.exists)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8).writeNative(addr + 9L, value.flags)
@@ -2007,7 +2006,7 @@ public class MiConstReferenceField internal constructor(
             }
 
         public operator fun invoke(
-            value: ConstPtr<MiInstance> = ConstPtr(0L),
+            value: ConstPtr = ConstPtr(0L),
             exists: UByte = 0u,
             flags: UByte = 0u,
         ): MiConstReferenceField =
@@ -2020,10 +2019,10 @@ public class MiConstReferenceField internal constructor(
 }
 
 public class MiConstSint16A internal constructor(
-    dataCtorArg: ConstPtr<Short>,
+    dataCtorArg: ConstPtr,
     public var size: UInt,
 ) {
-    public var data: ConstPtr<Short> = dataCtorArg
+    public var data: ConstPtr = dataCtorArg
         internal set
 
     public constructor() : this(
@@ -2031,11 +2030,11 @@ public class MiConstSint16A internal constructor(
         size = 0u,
     )
 
-    public operator fun component1(): ConstPtr<Short> = this.data
+    public operator fun component1(): ConstPtr = this.data
 
     public operator fun component2(): UInt = this.size
 
-    public fun copy(data: ConstPtr<Short> = this.data, size: UInt = this.size): MiConstSint16A = MiConstSint16A(dataCtorArg = data, size = size)
+    public fun copy(data: ConstPtr = this.data, size: UInt = this.size): MiConstSint16A = MiConstSint16A(dataCtorArg = data, size = size)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -2060,21 +2059,21 @@ public class MiConstSint16A internal constructor(
                     MiConstSint16A(
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .constPtrLayout<Short>(64)
+                                .constPtrLayout(64)
                         ).readNative(addr),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 8L),
                     )
                 override fun writeNative(addr: Long, value: MiConstSint16A) {
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .constPtrLayout<Short>(64)
+                            .constPtrLayout(64)
                     ).writeNative(addr, value.data)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 8L, value.size)
                 }
             }
 
         public operator fun invoke(
-            data: ConstPtr<Short> = ConstPtr(0L),
+            data: ConstPtr = ConstPtr(0L),
             size: UInt = 0u,
         ): MiConstSint16A =
             MiConstSint16A(
@@ -2135,10 +2134,10 @@ public data class MiConstSint16Field(
 }
 
 public class MiConstSint32A internal constructor(
-    dataCtorArg: ConstPtr<Int>,
+    dataCtorArg: ConstPtr,
     public var size: UInt,
 ) {
-    public var data: ConstPtr<Int> = dataCtorArg
+    public var data: ConstPtr = dataCtorArg
         internal set
 
     public constructor() : this(
@@ -2146,11 +2145,11 @@ public class MiConstSint32A internal constructor(
         size = 0u,
     )
 
-    public operator fun component1(): ConstPtr<Int> = this.data
+    public operator fun component1(): ConstPtr = this.data
 
     public operator fun component2(): UInt = this.size
 
-    public fun copy(data: ConstPtr<Int> = this.data, size: UInt = this.size): MiConstSint32A = MiConstSint32A(dataCtorArg = data, size = size)
+    public fun copy(data: ConstPtr = this.data, size: UInt = this.size): MiConstSint32A = MiConstSint32A(dataCtorArg = data, size = size)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -2175,21 +2174,21 @@ public class MiConstSint32A internal constructor(
                     MiConstSint32A(
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .constPtrLayout<Int>(64)
+                                .constPtrLayout(64)
                         ).readNative(addr),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 8L),
                     )
                 override fun writeNative(addr: Long, value: MiConstSint32A) {
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .constPtrLayout<Int>(64)
+                            .constPtrLayout(64)
                     ).writeNative(addr, value.data)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 8L, value.size)
                 }
             }
 
         public operator fun invoke(
-            data: ConstPtr<Int> = ConstPtr(0L),
+            data: ConstPtr = ConstPtr(0L),
             size: UInt = 0u,
         ): MiConstSint32A =
             MiConstSint32A(
@@ -2250,10 +2249,10 @@ public data class MiConstSint32Field(
 }
 
 public class MiConstSint64A internal constructor(
-    dataCtorArg: ConstPtr<Long>,
+    dataCtorArg: ConstPtr,
     public var size: UInt,
 ) {
-    public var data: ConstPtr<Long> = dataCtorArg
+    public var data: ConstPtr = dataCtorArg
         internal set
 
     public constructor() : this(
@@ -2261,11 +2260,11 @@ public class MiConstSint64A internal constructor(
         size = 0u,
     )
 
-    public operator fun component1(): ConstPtr<Long> = this.data
+    public operator fun component1(): ConstPtr = this.data
 
     public operator fun component2(): UInt = this.size
 
-    public fun copy(data: ConstPtr<Long> = this.data, size: UInt = this.size): MiConstSint64A = MiConstSint64A(dataCtorArg = data, size = size)
+    public fun copy(data: ConstPtr = this.data, size: UInt = this.size): MiConstSint64A = MiConstSint64A(dataCtorArg = data, size = size)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -2290,21 +2289,21 @@ public class MiConstSint64A internal constructor(
                     MiConstSint64A(
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .constPtrLayout<Long>(64)
+                                .constPtrLayout(64)
                         ).readNative(addr),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 8L),
                     )
                 override fun writeNative(addr: Long, value: MiConstSint64A) {
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .constPtrLayout<Long>(64)
+                            .constPtrLayout(64)
                     ).writeNative(addr, value.data)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 8L, value.size)
                 }
             }
 
         public operator fun invoke(
-            data: ConstPtr<Long> = ConstPtr(0L),
+            data: ConstPtr = ConstPtr(0L),
             size: UInt = 0u,
         ): MiConstSint64A =
             MiConstSint64A(
@@ -2365,10 +2364,10 @@ public data class MiConstSint64Field(
 }
 
 public class MiConstSint8A internal constructor(
-    dataCtorArg: ConstPtr<Byte>,
+    dataCtorArg: ConstPtr,
     public var size: UInt,
 ) {
-    public var data: ConstPtr<Byte> = dataCtorArg
+    public var data: ConstPtr = dataCtorArg
         internal set
 
     public constructor() : this(
@@ -2376,11 +2375,11 @@ public class MiConstSint8A internal constructor(
         size = 0u,
     )
 
-    public operator fun component1(): ConstPtr<Byte> = this.data
+    public operator fun component1(): ConstPtr = this.data
 
     public operator fun component2(): UInt = this.size
 
-    public fun copy(data: ConstPtr<Byte> = this.data, size: UInt = this.size): MiConstSint8A = MiConstSint8A(dataCtorArg = data, size = size)
+    public fun copy(data: ConstPtr = this.data, size: UInt = this.size): MiConstSint8A = MiConstSint8A(dataCtorArg = data, size = size)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -2405,21 +2404,21 @@ public class MiConstSint8A internal constructor(
                     MiConstSint8A(
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .constPtrLayout<Byte>(64)
+                                .constPtrLayout(64)
                         ).readNative(addr),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 8L),
                     )
                 override fun writeNative(addr: Long, value: MiConstSint8A) {
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .constPtrLayout<Byte>(64)
+                            .constPtrLayout(64)
                     ).writeNative(addr, value.data)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 8L, value.size)
                 }
             }
 
         public operator fun invoke(
-            data: ConstPtr<Byte> = ConstPtr(0L),
+            data: ConstPtr = ConstPtr(0L),
             size: UInt = 0u,
         ): MiConstSint8A =
             MiConstSint8A(
@@ -2480,10 +2479,10 @@ public data class MiConstSint8Field(
 }
 
 public class MiConstStringA internal constructor(
-    dataCtorArg: ConstPtr<ConstPtr<UShort>>,
+    dataCtorArg: ConstPtr,
     public var size: UInt,
 ) {
-    public var data: ConstPtr<ConstPtr<UShort>> = dataCtorArg
+    public var data: ConstPtr = dataCtorArg
         internal set
 
     public constructor() : this(
@@ -2491,11 +2490,11 @@ public class MiConstStringA internal constructor(
         size = 0u,
     )
 
-    public operator fun component1(): ConstPtr<ConstPtr<UShort>> = this.data
+    public operator fun component1(): ConstPtr = this.data
 
     public operator fun component2(): UInt = this.size
 
-    public fun copy(data: ConstPtr<ConstPtr<UShort>> = this.data, size: UInt = this.size): MiConstStringA = MiConstStringA(dataCtorArg = data, size = size)
+    public fun copy(data: ConstPtr = this.data, size: UInt = this.size): MiConstStringA = MiConstStringA(dataCtorArg = data, size = size)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -2520,21 +2519,21 @@ public class MiConstStringA internal constructor(
                     MiConstStringA(
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .constPtrLayout<ConstPtr<UShort>>(64)
+                                .constPtrLayout(64)
                         ).readNative(addr),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 8L),
                     )
                 override fun writeNative(addr: Long, value: MiConstStringA) {
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .constPtrLayout<ConstPtr<UShort>>(64)
+                            .constPtrLayout(64)
                     ).writeNative(addr, value.data)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 8L, value.size)
                 }
             }
 
         public operator fun invoke(
-            data: ConstPtr<ConstPtr<UShort>> = ConstPtr(0L),
+            data: ConstPtr = ConstPtr(0L),
             size: UInt = 0u,
         ): MiConstStringA =
             MiConstStringA(
@@ -2570,11 +2569,11 @@ public data class MiConstStringAfield(
 }
 
 public class MiConstStringField internal constructor(
-    valueCtorArg: ConstPtr<UShort>,
+    valueCtorArg: ConstPtr,
     public var exists: UByte,
     public var flags: UByte,
 ) {
-    public var value: ConstPtr<UShort> = valueCtorArg
+    public var value: ConstPtr = valueCtorArg
         internal set
 
     public constructor() : this(
@@ -2583,13 +2582,13 @@ public class MiConstStringField internal constructor(
         flags = 0u,
     )
 
-    public operator fun component1(): ConstPtr<UShort> = this.value
+    public operator fun component1(): ConstPtr = this.value
 
     public operator fun component2(): UByte = this.exists
 
     public operator fun component3(): UByte = this.flags
 
-    public fun copy(value: ConstPtr<UShort> = this.value, exists: UByte = this.exists, flags: UByte = this.flags): MiConstStringField = MiConstStringField(valueCtorArg = value, exists = exists, flags = flags)
+    public fun copy(value: ConstPtr = this.value, exists: UByte = this.exists, flags: UByte = this.flags): MiConstStringField = MiConstStringField(valueCtorArg = value, exists = exists, flags = flags)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -2616,7 +2615,7 @@ public class MiConstStringField internal constructor(
                     MiConstStringField(
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .constPtrLayout<UShort>(64)
+                                .constPtrLayout(64)
                         ).readNative(addr),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8).readNative(addr + 8L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8).readNative(addr + 9L),
@@ -2624,7 +2623,7 @@ public class MiConstStringField internal constructor(
                 override fun writeNative(addr: Long, value: MiConstStringField) {
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .constPtrLayout<UShort>(64)
+                            .constPtrLayout(64)
                     ).writeNative(addr, value.value)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8).writeNative(addr + 8L, value.exists)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8).writeNative(addr + 9L, value.flags)
@@ -2632,7 +2631,7 @@ public class MiConstStringField internal constructor(
             }
 
         public operator fun invoke(
-            value: ConstPtr<UShort> = ConstPtr(0L),
+            value: ConstPtr = ConstPtr(0L),
             exists: UByte = 0u,
             flags: UByte = 0u,
         ): MiConstStringField =
@@ -2645,10 +2644,10 @@ public class MiConstStringField internal constructor(
 }
 
 public class MiConstUint16A internal constructor(
-    dataCtorArg: ConstPtr<UShort>,
+    dataCtorArg: ConstPtr,
     public var size: UInt,
 ) {
-    public var data: ConstPtr<UShort> = dataCtorArg
+    public var data: ConstPtr = dataCtorArg
         internal set
 
     public constructor() : this(
@@ -2656,11 +2655,11 @@ public class MiConstUint16A internal constructor(
         size = 0u,
     )
 
-    public operator fun component1(): ConstPtr<UShort> = this.data
+    public operator fun component1(): ConstPtr = this.data
 
     public operator fun component2(): UInt = this.size
 
-    public fun copy(data: ConstPtr<UShort> = this.data, size: UInt = this.size): MiConstUint16A = MiConstUint16A(dataCtorArg = data, size = size)
+    public fun copy(data: ConstPtr = this.data, size: UInt = this.size): MiConstUint16A = MiConstUint16A(dataCtorArg = data, size = size)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -2685,21 +2684,21 @@ public class MiConstUint16A internal constructor(
                     MiConstUint16A(
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .constPtrLayout<UShort>(64)
+                                .constPtrLayout(64)
                         ).readNative(addr),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 8L),
                     )
                 override fun writeNative(addr: Long, value: MiConstUint16A) {
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .constPtrLayout<UShort>(64)
+                            .constPtrLayout(64)
                     ).writeNative(addr, value.data)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 8L, value.size)
                 }
             }
 
         public operator fun invoke(
-            data: ConstPtr<UShort> = ConstPtr(0L),
+            data: ConstPtr = ConstPtr(0L),
             size: UInt = 0u,
         ): MiConstUint16A =
             MiConstUint16A(
@@ -2760,10 +2759,10 @@ public data class MiConstUint16Field(
 }
 
 public class MiConstUint32A internal constructor(
-    dataCtorArg: ConstPtr<UInt>,
+    dataCtorArg: ConstPtr,
     public var size: UInt,
 ) {
-    public var data: ConstPtr<UInt> = dataCtorArg
+    public var data: ConstPtr = dataCtorArg
         internal set
 
     public constructor() : this(
@@ -2771,11 +2770,11 @@ public class MiConstUint32A internal constructor(
         size = 0u,
     )
 
-    public operator fun component1(): ConstPtr<UInt> = this.data
+    public operator fun component1(): ConstPtr = this.data
 
     public operator fun component2(): UInt = this.size
 
-    public fun copy(data: ConstPtr<UInt> = this.data, size: UInt = this.size): MiConstUint32A = MiConstUint32A(dataCtorArg = data, size = size)
+    public fun copy(data: ConstPtr = this.data, size: UInt = this.size): MiConstUint32A = MiConstUint32A(dataCtorArg = data, size = size)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -2800,21 +2799,21 @@ public class MiConstUint32A internal constructor(
                     MiConstUint32A(
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .constPtrLayout<UInt>(64)
+                                .constPtrLayout(64)
                         ).readNative(addr),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 8L),
                     )
                 override fun writeNative(addr: Long, value: MiConstUint32A) {
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .constPtrLayout<UInt>(64)
+                            .constPtrLayout(64)
                     ).writeNative(addr, value.data)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 8L, value.size)
                 }
             }
 
         public operator fun invoke(
-            data: ConstPtr<UInt> = ConstPtr(0L),
+            data: ConstPtr = ConstPtr(0L),
             size: UInt = 0u,
         ): MiConstUint32A =
             MiConstUint32A(
@@ -2875,10 +2874,10 @@ public data class MiConstUint32Field(
 }
 
 public class MiConstUint64A internal constructor(
-    dataCtorArg: ConstPtr<ULong>,
+    dataCtorArg: ConstPtr,
     public var size: UInt,
 ) {
-    public var data: ConstPtr<ULong> = dataCtorArg
+    public var data: ConstPtr = dataCtorArg
         internal set
 
     public constructor() : this(
@@ -2886,11 +2885,11 @@ public class MiConstUint64A internal constructor(
         size = 0u,
     )
 
-    public operator fun component1(): ConstPtr<ULong> = this.data
+    public operator fun component1(): ConstPtr = this.data
 
     public operator fun component2(): UInt = this.size
 
-    public fun copy(data: ConstPtr<ULong> = this.data, size: UInt = this.size): MiConstUint64A = MiConstUint64A(dataCtorArg = data, size = size)
+    public fun copy(data: ConstPtr = this.data, size: UInt = this.size): MiConstUint64A = MiConstUint64A(dataCtorArg = data, size = size)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -2915,21 +2914,21 @@ public class MiConstUint64A internal constructor(
                     MiConstUint64A(
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .constPtrLayout<ULong>(64)
+                                .constPtrLayout(64)
                         ).readNative(addr),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 8L),
                     )
                 override fun writeNative(addr: Long, value: MiConstUint64A) {
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .constPtrLayout<ULong>(64)
+                            .constPtrLayout(64)
                     ).writeNative(addr, value.data)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 8L, value.size)
                 }
             }
 
         public operator fun invoke(
-            data: ConstPtr<ULong> = ConstPtr(0L),
+            data: ConstPtr = ConstPtr(0L),
             size: UInt = 0u,
         ): MiConstUint64A =
             MiConstUint64A(
@@ -2990,10 +2989,10 @@ public data class MiConstUint64Field(
 }
 
 public class MiConstUint8A internal constructor(
-    dataCtorArg: ConstPtr<UByte>,
+    dataCtorArg: ConstPtr,
     public var size: UInt,
 ) {
-    public var data: ConstPtr<UByte> = dataCtorArg
+    public var data: ConstPtr = dataCtorArg
         internal set
 
     public constructor() : this(
@@ -3001,11 +3000,11 @@ public class MiConstUint8A internal constructor(
         size = 0u,
     )
 
-    public operator fun component1(): ConstPtr<UByte> = this.data
+    public operator fun component1(): ConstPtr = this.data
 
     public operator fun component2(): UInt = this.size
 
-    public fun copy(data: ConstPtr<UByte> = this.data, size: UInt = this.size): MiConstUint8A = MiConstUint8A(dataCtorArg = data, size = size)
+    public fun copy(data: ConstPtr = this.data, size: UInt = this.size): MiConstUint8A = MiConstUint8A(dataCtorArg = data, size = size)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -3030,21 +3029,21 @@ public class MiConstUint8A internal constructor(
                     MiConstUint8A(
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .constPtrLayout<UByte>(64)
+                                .constPtrLayout(64)
                         ).readNative(addr),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 8L),
                     )
                 override fun writeNative(addr: Long, value: MiConstUint8A) {
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .constPtrLayout<UByte>(64)
+                            .constPtrLayout(64)
                     ).writeNative(addr, value.data)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 8L, value.size)
                 }
             }
 
         public operator fun invoke(
-            data: ConstPtr<UByte> = ConstPtr(0L),
+            data: ConstPtr = ConstPtr(0L),
             size: UInt = 0u,
         ): MiConstUint8A =
             MiConstUint8A(
@@ -3105,10 +3104,10 @@ public data class MiConstUint8Field(
 }
 
 public class MiContext internal constructor(
-    ftCtorArg: ConstPtr<MiContextFt>,
+    ftCtorArg: ConstPtr,
     public var reserved: IntArray,
 ) {
-    public var ft: ConstPtr<MiContextFt> = ftCtorArg
+    public var ft: ConstPtr = ftCtorArg
         internal set
 
     public constructor() : this(
@@ -3116,11 +3115,11 @@ public class MiContext internal constructor(
         reserved = IntArray(3),
     )
 
-    public operator fun component1(): ConstPtr<MiContextFt> = this.ft
+    public operator fun component1(): ConstPtr = this.ft
 
     public operator fun component2(): IntArray = this.reserved
 
-    public fun copy(ft: ConstPtr<MiContextFt> = this.ft, reserved: IntArray = this.reserved): MiContext = MiContext(ftCtorArg = ft, reserved = reserved)
+    public fun copy(ft: ConstPtr = this.ft, reserved: IntArray = this.reserved): MiContext = MiContext(ftCtorArg = ft, reserved = reserved)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -3145,7 +3144,7 @@ public class MiContext internal constructor(
                     MiContext(
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .constPtrLayout<MiContextFt>(64)
+                                .constPtrLayout(64)
                         ).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem
@@ -3155,7 +3154,7 @@ public class MiContext internal constructor(
                 override fun writeNative(addr: Long, value: MiContext) {
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .constPtrLayout<MiContextFt>(64)
+                            .constPtrLayout(64)
                     ).writeNative(addr, value.ft)
                     (
                         io.github.kotlinmania.rustlang.core.mem
@@ -3165,7 +3164,7 @@ public class MiContext internal constructor(
             }
 
         public operator fun invoke(
-            ft: ConstPtr<MiContextFt> = ConstPtr(0L),
+            ft: ConstPtr = ConstPtr(0L),
             reserved: IntArray = IntArray(3),
         ): MiContext =
             MiContext(
@@ -3292,10 +3291,10 @@ public data class MiDatetime0(
 )
 
 public class MiDatetimeA internal constructor(
-    dataCtorArg: MutPtr<MiDatetime>,
+    dataCtorArg: MutPtr,
     public var size: UInt,
 ) {
-    public var data: MutPtr<MiDatetime> = dataCtorArg
+    public var data: MutPtr = dataCtorArg
         internal set
 
     public constructor() : this(
@@ -3303,11 +3302,11 @@ public class MiDatetimeA internal constructor(
         size = 0u,
     )
 
-    public operator fun component1(): MutPtr<MiDatetime> = this.data
+    public operator fun component1(): MutPtr = this.data
 
     public operator fun component2(): UInt = this.size
 
-    public fun copy(data: MutPtr<MiDatetime> = this.data, size: UInt = this.size): MiDatetimeA = MiDatetimeA(dataCtorArg = data, size = size)
+    public fun copy(data: MutPtr = this.data, size: UInt = this.size): MiDatetimeA = MiDatetimeA(dataCtorArg = data, size = size)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -3332,21 +3331,21 @@ public class MiDatetimeA internal constructor(
                     MiDatetimeA(
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<MiDatetime>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 8L),
                     )
                 override fun writeNative(addr: Long, value: MiDatetimeA) {
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<MiDatetime>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr, value.data)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 8L, value.size)
                 }
             }
 
         public operator fun invoke(
-            data: MutPtr<MiDatetime> = MutPtr(0L),
+            data: MutPtr = MutPtr(0L),
             size: UInt = 0u,
         ): MiDatetimeA =
             MiDatetimeA(
@@ -3446,9 +3445,9 @@ public data class MiDeserializerFt(
 public class MiDestinationOptions internal constructor(
     public var reserved1: ULong,
     public var reserved2: Int,
-    ftCtorArg: ConstPtr<MiDestinationOptionsFt>,
+    ftCtorArg: ConstPtr,
 ) {
-    public var ft: ConstPtr<MiDestinationOptionsFt> = ftCtorArg
+    public var ft: ConstPtr = ftCtorArg
         internal set
 
     public constructor() : this(
@@ -3461,9 +3460,9 @@ public class MiDestinationOptions internal constructor(
 
     public operator fun component2(): Int = this.reserved2
 
-    public operator fun component3(): ConstPtr<MiDestinationOptionsFt> = this.ft
+    public operator fun component3(): ConstPtr = this.ft
 
-    public fun copy(reserved1: ULong = this.reserved1, reserved2: Int = this.reserved2, ft: ConstPtr<MiDestinationOptionsFt> = this.ft): MiDestinationOptions = MiDestinationOptions(reserved1 = reserved1, reserved2 = reserved2, ftCtorArg = ft)
+    public fun copy(reserved1: ULong = this.reserved1, reserved2: Int = this.reserved2, ft: ConstPtr = this.ft): MiDestinationOptions = MiDestinationOptions(reserved1 = reserved1, reserved2 = reserved2, ftCtorArg = ft)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -3492,7 +3491,7 @@ public class MiDestinationOptions internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.ISIZE64).readNative(addr + 8L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .constPtrLayout<MiDestinationOptionsFt>(64)
+                                .constPtrLayout(64)
                         ).readNative(addr + 16L),
                     )
                 override fun writeNative(addr: Long, value: MiDestinationOptions) {
@@ -3500,7 +3499,7 @@ public class MiDestinationOptions internal constructor(
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.ISIZE64).writeNative(addr + 8L, value.reserved2)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .constPtrLayout<MiDestinationOptionsFt>(64)
+                            .constPtrLayout(64)
                     ).writeNative(addr + 16L, value.ft)
                 }
             }
@@ -3508,7 +3507,7 @@ public class MiDestinationOptions internal constructor(
         public operator fun invoke(
             reserved1: ULong = 0uL,
             reserved2: Int = 0,
-            ft: ConstPtr<MiDestinationOptionsFt> = ConstPtr(0L),
+            ft: ConstPtr = ConstPtr(0L),
         ): MiDestinationOptions =
             MiDestinationOptions(
                 reserved1 = reserved1,
@@ -3582,14 +3581,14 @@ public data class MiDestinationOptionsFt(
 public class MiFeatureDecl internal constructor(
     public var flags: UInt,
     public var code: UInt,
-    nameCtorArg: ConstPtr<UShort>,
-    qualifiersCtorArg: ConstPtr<ConstPtr<MiQualifier>>,
+    nameCtorArg: ConstPtr,
+    qualifiersCtorArg: ConstPtr,
     public var numQualifiers: UInt,
 ) {
-    public var name: ConstPtr<UShort> = nameCtorArg
+    public var name: ConstPtr = nameCtorArg
         internal set
 
-    public var qualifiers: ConstPtr<ConstPtr<MiQualifier>> = qualifiersCtorArg
+    public var qualifiers: ConstPtr = qualifiersCtorArg
         internal set
 
     public constructor() : this(
@@ -3604,13 +3603,13 @@ public class MiFeatureDecl internal constructor(
 
     public operator fun component2(): UInt = this.code
 
-    public operator fun component3(): ConstPtr<UShort> = this.name
+    public operator fun component3(): ConstPtr = this.name
 
-    public operator fun component4(): ConstPtr<ConstPtr<MiQualifier>> = this.qualifiers
+    public operator fun component4(): ConstPtr = this.qualifiers
 
     public operator fun component5(): UInt = this.numQualifiers
 
-    public fun copy(flags: UInt = this.flags, code: UInt = this.code, name: ConstPtr<UShort> = this.name, qualifiers: ConstPtr<ConstPtr<MiQualifier>> = this.qualifiers, numQualifiers: UInt = this.numQualifiers): MiFeatureDecl = MiFeatureDecl(flags = flags, code = code, nameCtorArg = name, qualifiersCtorArg = qualifiers, numQualifiers = numQualifiers)
+    public fun copy(flags: UInt = this.flags, code: UInt = this.code, name: ConstPtr = this.name, qualifiers: ConstPtr = this.qualifiers, numQualifiers: UInt = this.numQualifiers): MiFeatureDecl = MiFeatureDecl(flags = flags, code = code, nameCtorArg = name, qualifiersCtorArg = qualifiers, numQualifiers = numQualifiers)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -3643,11 +3642,11 @@ public class MiFeatureDecl internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 4L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .constPtrLayout<UShort>(64)
+                                .constPtrLayout(64)
                         ).readNative(addr + 8L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .constPtrLayout<ConstPtr<MiQualifier>>(64)
+                                .constPtrLayout(64)
                         ).readNative(addr + 16L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 24L),
                     )
@@ -3656,11 +3655,11 @@ public class MiFeatureDecl internal constructor(
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 4L, value.code)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .constPtrLayout<UShort>(64)
+                            .constPtrLayout(64)
                     ).writeNative(addr + 8L, value.name)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .constPtrLayout<ConstPtr<MiQualifier>>(64)
+                            .constPtrLayout(64)
                     ).writeNative(addr + 16L, value.qualifiers)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 24L, value.numQualifiers)
                 }
@@ -3669,8 +3668,8 @@ public class MiFeatureDecl internal constructor(
         public operator fun invoke(
             flags: UInt = 0u,
             code: UInt = 0u,
-            name: ConstPtr<UShort> = ConstPtr(0L),
-            qualifiers: ConstPtr<ConstPtr<MiQualifier>> = ConstPtr(0L),
+            name: ConstPtr = ConstPtr(0L),
+            qualifiers: ConstPtr = ConstPtr(0L),
             numQualifiers: UInt = 0u,
         ): MiFeatureDecl =
             MiFeatureDecl(
@@ -3684,10 +3683,10 @@ public class MiFeatureDecl internal constructor(
 }
 
 public class MiFilter internal constructor(
-    ftCtorArg: ConstPtr<MiFilterFt>,
+    ftCtorArg: ConstPtr,
     public var reserved: IntArray,
 ) {
-    public var ft: ConstPtr<MiFilterFt> = ftCtorArg
+    public var ft: ConstPtr = ftCtorArg
         internal set
 
     public constructor() : this(
@@ -3695,11 +3694,11 @@ public class MiFilter internal constructor(
         reserved = IntArray(3),
     )
 
-    public operator fun component1(): ConstPtr<MiFilterFt> = this.ft
+    public operator fun component1(): ConstPtr = this.ft
 
     public operator fun component2(): IntArray = this.reserved
 
-    public fun copy(ft: ConstPtr<MiFilterFt> = this.ft, reserved: IntArray = this.reserved): MiFilter = MiFilter(ftCtorArg = ft, reserved = reserved)
+    public fun copy(ft: ConstPtr = this.ft, reserved: IntArray = this.reserved): MiFilter = MiFilter(ftCtorArg = ft, reserved = reserved)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -3724,7 +3723,7 @@ public class MiFilter internal constructor(
                     MiFilter(
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .constPtrLayout<MiFilterFt>(64)
+                                .constPtrLayout(64)
                         ).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem
@@ -3734,7 +3733,7 @@ public class MiFilter internal constructor(
                 override fun writeNative(addr: Long, value: MiFilter) {
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .constPtrLayout<MiFilterFt>(64)
+                            .constPtrLayout(64)
                     ).writeNative(addr, value.ft)
                     (
                         io.github.kotlinmania.rustlang.core.mem
@@ -3744,7 +3743,7 @@ public class MiFilter internal constructor(
             }
 
         public operator fun invoke(
-            ft: ConstPtr<MiFilterFt> = ConstPtr(0L),
+            ft: ConstPtr = ConstPtr(0L),
             reserved: IntArray = IntArray(3),
         ): MiFilter =
             MiFilter(
@@ -3779,9 +3778,9 @@ public data class MiFilterFt(
 public class MiHostedProvider internal constructor(
     public var reserved1: ULong,
     public var reserved2: Int,
-    ftCtorArg: ConstPtr<MiHostedProviderFt>,
+    ftCtorArg: ConstPtr,
 ) {
-    public var ft: ConstPtr<MiHostedProviderFt> = ftCtorArg
+    public var ft: ConstPtr = ftCtorArg
         internal set
 
     public constructor() : this(
@@ -3794,9 +3793,9 @@ public class MiHostedProvider internal constructor(
 
     public operator fun component2(): Int = this.reserved2
 
-    public operator fun component3(): ConstPtr<MiHostedProviderFt> = this.ft
+    public operator fun component3(): ConstPtr = this.ft
 
-    public fun copy(reserved1: ULong = this.reserved1, reserved2: Int = this.reserved2, ft: ConstPtr<MiHostedProviderFt> = this.ft): MiHostedProvider = MiHostedProvider(reserved1 = reserved1, reserved2 = reserved2, ftCtorArg = ft)
+    public fun copy(reserved1: ULong = this.reserved1, reserved2: Int = this.reserved2, ft: ConstPtr = this.ft): MiHostedProvider = MiHostedProvider(reserved1 = reserved1, reserved2 = reserved2, ftCtorArg = ft)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -3825,7 +3824,7 @@ public class MiHostedProvider internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.ISIZE64).readNative(addr + 8L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .constPtrLayout<MiHostedProviderFt>(64)
+                                .constPtrLayout(64)
                         ).readNative(addr + 16L),
                     )
                 override fun writeNative(addr: Long, value: MiHostedProvider) {
@@ -3833,7 +3832,7 @@ public class MiHostedProvider internal constructor(
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.ISIZE64).writeNative(addr + 8L, value.reserved2)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .constPtrLayout<MiHostedProviderFt>(64)
+                            .constPtrLayout(64)
                     ).writeNative(addr + 16L, value.ft)
                 }
             }
@@ -3841,7 +3840,7 @@ public class MiHostedProvider internal constructor(
         public operator fun invoke(
             reserved1: ULong = 0uL,
             reserved2: Int = 0,
-            ft: ConstPtr<MiHostedProviderFt> = ConstPtr(0L),
+            ft: ConstPtr = ConstPtr(0L),
         ): MiHostedProvider =
             MiHostedProvider(
                 reserved1 = reserved1,
@@ -3874,22 +3873,22 @@ public data class MiHostedProviderFt(
 }
 
 public class MiInstance internal constructor(
-    ftCtorArg: ConstPtr<MiInstanceFt>,
-    classDeclCtorArg: ConstPtr<MiClassDecl>,
-    serverNameCtorArg: ConstPtr<UShort>,
-    nameSpaceCtorArg: ConstPtr<UShort>,
+    ftCtorArg: ConstPtr,
+    classDeclCtorArg: ConstPtr,
+    serverNameCtorArg: ConstPtr,
+    nameSpaceCtorArg: ConstPtr,
     public var reserved: IntArray,
 ) {
-    public var ft: ConstPtr<MiInstanceFt> = ftCtorArg
+    public var ft: ConstPtr = ftCtorArg
         internal set
 
-    public var classDecl: ConstPtr<MiClassDecl> = classDeclCtorArg
+    public var classDecl: ConstPtr = classDeclCtorArg
         internal set
 
-    public var serverName: ConstPtr<UShort> = serverNameCtorArg
+    public var serverName: ConstPtr = serverNameCtorArg
         internal set
 
-    public var nameSpace: ConstPtr<UShort> = nameSpaceCtorArg
+    public var nameSpace: ConstPtr = nameSpaceCtorArg
         internal set
 
     public constructor() : this(
@@ -3900,17 +3899,17 @@ public class MiInstance internal constructor(
         reserved = IntArray(4),
     )
 
-    public operator fun component1(): ConstPtr<MiInstanceFt> = this.ft
+    public operator fun component1(): ConstPtr = this.ft
 
-    public operator fun component2(): ConstPtr<MiClassDecl> = this.classDecl
+    public operator fun component2(): ConstPtr = this.classDecl
 
-    public operator fun component3(): ConstPtr<UShort> = this.serverName
+    public operator fun component3(): ConstPtr = this.serverName
 
-    public operator fun component4(): ConstPtr<UShort> = this.nameSpace
+    public operator fun component4(): ConstPtr = this.nameSpace
 
     public operator fun component5(): IntArray = this.reserved
 
-    public fun copy(ft: ConstPtr<MiInstanceFt> = this.ft, classDecl: ConstPtr<MiClassDecl> = this.classDecl, serverName: ConstPtr<UShort> = this.serverName, nameSpace: ConstPtr<UShort> = this.nameSpace, reserved: IntArray = this.reserved): MiInstance = MiInstance(ftCtorArg = ft, classDeclCtorArg = classDecl, serverNameCtorArg = serverName, nameSpaceCtorArg = nameSpace, reserved = reserved)
+    public fun copy(ft: ConstPtr = this.ft, classDecl: ConstPtr = this.classDecl, serverName: ConstPtr = this.serverName, nameSpace: ConstPtr = this.nameSpace, reserved: IntArray = this.reserved): MiInstance = MiInstance(ftCtorArg = ft, classDeclCtorArg = classDecl, serverNameCtorArg = serverName, nameSpaceCtorArg = nameSpace, reserved = reserved)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -3941,19 +3940,19 @@ public class MiInstance internal constructor(
                     MiInstance(
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .constPtrLayout<MiInstanceFt>(64)
+                                .constPtrLayout(64)
                         ).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .constPtrLayout<MiClassDecl>(64)
+                                .constPtrLayout(64)
                         ).readNative(addr + 8L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .constPtrLayout<UShort>(64)
+                                .constPtrLayout(64)
                         ).readNative(addr + 16L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .constPtrLayout<UShort>(64)
+                                .constPtrLayout(64)
                         ).readNative(addr + 24L),
                         (
                             io.github.kotlinmania.rustlang.core.mem
@@ -3963,19 +3962,19 @@ public class MiInstance internal constructor(
                 override fun writeNative(addr: Long, value: MiInstance) {
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .constPtrLayout<MiInstanceFt>(64)
+                            .constPtrLayout(64)
                     ).writeNative(addr, value.ft)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .constPtrLayout<MiClassDecl>(64)
+                            .constPtrLayout(64)
                     ).writeNative(addr + 8L, value.classDecl)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .constPtrLayout<UShort>(64)
+                            .constPtrLayout(64)
                     ).writeNative(addr + 16L, value.serverName)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .constPtrLayout<UShort>(64)
+                            .constPtrLayout(64)
                     ).writeNative(addr + 24L, value.nameSpace)
                     (
                         io.github.kotlinmania.rustlang.core.mem
@@ -3985,10 +3984,10 @@ public class MiInstance internal constructor(
             }
 
         public operator fun invoke(
-            ft: ConstPtr<MiInstanceFt> = ConstPtr(0L),
-            classDecl: ConstPtr<MiClassDecl> = ConstPtr(0L),
-            serverName: ConstPtr<UShort> = ConstPtr(0L),
-            nameSpace: ConstPtr<UShort> = ConstPtr(0L),
+            ft: ConstPtr = ConstPtr(0L),
+            classDecl: ConstPtr = ConstPtr(0L),
+            serverName: ConstPtr = ConstPtr(0L),
+            nameSpace: ConstPtr = ConstPtr(0L),
             reserved: IntArray = IntArray(4),
         ): MiInstance =
             MiInstance(
@@ -4002,10 +4001,10 @@ public class MiInstance internal constructor(
 }
 
 public class MiInstanceA internal constructor(
-    dataCtorArg: MutPtr<MutPtr<MiInstance>>,
+    dataCtorArg: MutPtr,
     public var size: UInt,
 ) {
-    public var data: MutPtr<MutPtr<MiInstance>> = dataCtorArg
+    public var data: MutPtr = dataCtorArg
         internal set
 
     public constructor() : this(
@@ -4013,11 +4012,11 @@ public class MiInstanceA internal constructor(
         size = 0u,
     )
 
-    public operator fun component1(): MutPtr<MutPtr<MiInstance>> = this.data
+    public operator fun component1(): MutPtr = this.data
 
     public operator fun component2(): UInt = this.size
 
-    public fun copy(data: MutPtr<MutPtr<MiInstance>> = this.data, size: UInt = this.size): MiInstanceA = MiInstanceA(dataCtorArg = data, size = size)
+    public fun copy(data: MutPtr = this.data, size: UInt = this.size): MiInstanceA = MiInstanceA(dataCtorArg = data, size = size)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -4042,21 +4041,21 @@ public class MiInstanceA internal constructor(
                     MiInstanceA(
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<MutPtr<MiInstance>>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 8L),
                     )
                 override fun writeNative(addr: Long, value: MiInstanceA) {
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<MutPtr<MiInstance>>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr, value.data)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 8L, value.size)
                 }
             }
 
         public operator fun invoke(
-            data: MutPtr<MutPtr<MiInstance>> = MutPtr(0L),
+            data: MutPtr = MutPtr(0L),
             size: UInt = 0u,
         ): MiInstanceA =
             MiInstanceA(
@@ -4184,11 +4183,11 @@ public class MiInstanceFt(
 }
 
 public class MiInstanceField internal constructor(
-    valueCtorArg: MutPtr<MiInstance>,
+    valueCtorArg: MutPtr,
     public var exists: UByte,
     public var flags: UByte,
 ) {
-    public var value: MutPtr<MiInstance> = valueCtorArg
+    public var value: MutPtr = valueCtorArg
         internal set
 
     public constructor() : this(
@@ -4197,13 +4196,13 @@ public class MiInstanceField internal constructor(
         flags = 0u,
     )
 
-    public operator fun component1(): MutPtr<MiInstance> = this.value
+    public operator fun component1(): MutPtr = this.value
 
     public operator fun component2(): UByte = this.exists
 
     public operator fun component3(): UByte = this.flags
 
-    public fun copy(value: MutPtr<MiInstance> = this.value, exists: UByte = this.exists, flags: UByte = this.flags): MiInstanceField = MiInstanceField(valueCtorArg = value, exists = exists, flags = flags)
+    public fun copy(value: MutPtr = this.value, exists: UByte = this.exists, flags: UByte = this.flags): MiInstanceField = MiInstanceField(valueCtorArg = value, exists = exists, flags = flags)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -4230,7 +4229,7 @@ public class MiInstanceField internal constructor(
                     MiInstanceField(
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<MiInstance>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8).readNative(addr + 8L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8).readNative(addr + 9L),
@@ -4238,7 +4237,7 @@ public class MiInstanceField internal constructor(
                 override fun writeNative(addr: Long, value: MiInstanceField) {
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<MiInstance>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr, value.value)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8).writeNative(addr + 8L, value.exists)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8).writeNative(addr + 9L, value.flags)
@@ -4246,7 +4245,7 @@ public class MiInstanceField internal constructor(
             }
 
         public operator fun invoke(
-            value: MutPtr<MiInstance> = MutPtr(0L),
+            value: MutPtr = MutPtr(0L),
             exists: UByte = 0u,
             flags: UByte = 0u,
         ): MiInstanceField =
@@ -4301,34 +4300,34 @@ public data class MiInterval(
 public class MiMethodDecl internal constructor(
     public var flags: UInt,
     public var code: UInt,
-    nameCtorArg: ConstPtr<UShort>,
-    qualifiersCtorArg: ConstPtr<ConstPtr<MiQualifier>>,
+    nameCtorArg: ConstPtr,
+    qualifiersCtorArg: ConstPtr,
     public var numQualifiers: UInt,
-    parametersCtorArg: ConstPtr<ConstPtr<MiParameterDecl>>,
+    parametersCtorArg: ConstPtr,
     public var numParameters: UInt,
     public var size: UInt,
     public var returnType: UInt,
-    originCtorArg: ConstPtr<UShort>,
-    propagatorCtorArg: ConstPtr<UShort>,
-    schemaCtorArg: ConstPtr<MiSchemaDecl>,
+    originCtorArg: ConstPtr,
+    propagatorCtorArg: ConstPtr,
+    schemaCtorArg: ConstPtr,
     public var function: MiMethodDeclInvoke,
 ) {
-    public var name: ConstPtr<UShort> = nameCtorArg
+    public var name: ConstPtr = nameCtorArg
         internal set
 
-    public var qualifiers: ConstPtr<ConstPtr<MiQualifier>> = qualifiersCtorArg
+    public var qualifiers: ConstPtr = qualifiersCtorArg
         internal set
 
-    public var parameters: ConstPtr<ConstPtr<MiParameterDecl>> = parametersCtorArg
+    public var parameters: ConstPtr = parametersCtorArg
         internal set
 
-    public var origin: ConstPtr<UShort> = originCtorArg
+    public var origin: ConstPtr = originCtorArg
         internal set
 
-    public var propagator: ConstPtr<UShort> = propagatorCtorArg
+    public var propagator: ConstPtr = propagatorCtorArg
         internal set
 
-    public var schema: ConstPtr<MiSchemaDecl> = schemaCtorArg
+    public var schema: ConstPtr = schemaCtorArg
         internal set
 
     public constructor() : this(
@@ -4351,13 +4350,13 @@ public class MiMethodDecl internal constructor(
 
     public operator fun component2(): UInt = this.code
 
-    public operator fun component3(): ConstPtr<UShort> = this.name
+    public operator fun component3(): ConstPtr = this.name
 
-    public operator fun component4(): ConstPtr<ConstPtr<MiQualifier>> = this.qualifiers
+    public operator fun component4(): ConstPtr = this.qualifiers
 
     public operator fun component5(): UInt = this.numQualifiers
 
-    public operator fun component6(): ConstPtr<ConstPtr<MiParameterDecl>> = this.parameters
+    public operator fun component6(): ConstPtr = this.parameters
 
     public operator fun component7(): UInt = this.numParameters
 
@@ -4365,15 +4364,15 @@ public class MiMethodDecl internal constructor(
 
     public operator fun component9(): UInt = this.returnType
 
-    public operator fun component10(): ConstPtr<UShort> = this.origin
+    public operator fun component10(): ConstPtr = this.origin
 
-    public operator fun component11(): ConstPtr<UShort> = this.propagator
+    public operator fun component11(): ConstPtr = this.propagator
 
-    public operator fun component12(): ConstPtr<MiSchemaDecl> = this.schema
+    public operator fun component12(): ConstPtr = this.schema
 
     public operator fun component13(): MiMethodDeclInvoke = this.function
 
-    public fun copy(flags: UInt = this.flags, code: UInt = this.code, name: ConstPtr<UShort> = this.name, qualifiers: ConstPtr<ConstPtr<MiQualifier>> = this.qualifiers, numQualifiers: UInt = this.numQualifiers, parameters: ConstPtr<ConstPtr<MiParameterDecl>> = this.parameters, numParameters: UInt = this.numParameters, size: UInt = this.size, returnType: UInt = this.returnType, origin: ConstPtr<UShort> = this.origin, propagator: ConstPtr<UShort> = this.propagator, schema: ConstPtr<MiSchemaDecl> = this.schema, function: MiMethodDeclInvoke = this.function): MiMethodDecl = MiMethodDecl(flags = flags, code = code, nameCtorArg = name, qualifiersCtorArg = qualifiers, numQualifiers = numQualifiers, parametersCtorArg = parameters, numParameters = numParameters, size = size, returnType = returnType, originCtorArg = origin, propagatorCtorArg = propagator, schemaCtorArg = schema, function = function)
+    public fun copy(flags: UInt = this.flags, code: UInt = this.code, name: ConstPtr = this.name, qualifiers: ConstPtr = this.qualifiers, numQualifiers: UInt = this.numQualifiers, parameters: ConstPtr = this.parameters, numParameters: UInt = this.numParameters, size: UInt = this.size, returnType: UInt = this.returnType, origin: ConstPtr = this.origin, propagator: ConstPtr = this.propagator, schema: ConstPtr = this.schema, function: MiMethodDeclInvoke = this.function): MiMethodDecl = MiMethodDecl(flags = flags, code = code, nameCtorArg = name, qualifiersCtorArg = qualifiers, numQualifiers = numQualifiers, parametersCtorArg = parameters, numParameters = numParameters, size = size, returnType = returnType, originCtorArg = origin, propagatorCtorArg = propagator, schemaCtorArg = schema, function = function)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -4415,16 +4414,16 @@ public class MiMethodDecl internal constructor(
         public operator fun invoke(
             flags: UInt = 0u,
             code: UInt = 0u,
-            name: ConstPtr<UShort> = ConstPtr(0L),
-            qualifiers: ConstPtr<ConstPtr<MiQualifier>> = ConstPtr(0L),
+            name: ConstPtr = ConstPtr(0L),
+            qualifiers: ConstPtr = ConstPtr(0L),
             numQualifiers: UInt = 0u,
-            parameters: ConstPtr<ConstPtr<MiParameterDecl>> = ConstPtr(0L),
+            parameters: ConstPtr = ConstPtr(0L),
             numParameters: UInt = 0u,
             size: UInt = 0u,
             returnType: UInt = 0u,
-            origin: ConstPtr<UShort> = ConstPtr(0L),
-            propagator: ConstPtr<UShort> = ConstPtr(0L),
-            schema: ConstPtr<MiSchemaDecl> = ConstPtr(0L),
+            origin: ConstPtr = ConstPtr(0L),
+            propagator: ConstPtr = ConstPtr(0L),
+            schema: ConstPtr = ConstPtr(0L),
             function: MiMethodDeclInvoke = null,
         ): MiMethodDecl =
             MiMethodDecl(
@@ -4450,15 +4449,15 @@ public class MiModule internal constructor(
     public var generatorVersion: UInt,
     public var flags: UInt,
     public var charSize: UInt,
-    schemaDeclCtorArg: MutPtr<MiSchemaDecl>,
+    schemaDeclCtorArg: MutPtr,
     public var load: MiModuleLoad,
     public var unload: MiModuleUnload,
-    dynamicProviderFTCtorArg: ConstPtr<MiProviderFt>,
+    dynamicProviderFTCtorArg: ConstPtr,
 ) {
-    public var schemaDecl: MutPtr<MiSchemaDecl> = schemaDeclCtorArg
+    public var schemaDecl: MutPtr = schemaDeclCtorArg
         internal set
 
-    public var dynamicProviderFT: ConstPtr<MiProviderFt> = dynamicProviderFTCtorArg
+    public var dynamicProviderFT: ConstPtr = dynamicProviderFTCtorArg
         internal set
 
     public constructor() : this(
@@ -4480,15 +4479,15 @@ public class MiModule internal constructor(
 
     public operator fun component4(): UInt = this.charSize
 
-    public operator fun component5(): MutPtr<MiSchemaDecl> = this.schemaDecl
+    public operator fun component5(): MutPtr = this.schemaDecl
 
     public operator fun component6(): MiModuleLoad = this.load
 
     public operator fun component7(): MiModuleUnload = this.unload
 
-    public operator fun component8(): ConstPtr<MiProviderFt> = this.dynamicProviderFT
+    public operator fun component8(): ConstPtr = this.dynamicProviderFT
 
-    public fun copy(version: UInt = this.version, generatorVersion: UInt = this.generatorVersion, flags: UInt = this.flags, charSize: UInt = this.charSize, schemaDecl: MutPtr<MiSchemaDecl> = this.schemaDecl, load: MiModuleLoad = this.load, unload: MiModuleUnload = this.unload, dynamicProviderFT: ConstPtr<MiProviderFt> = this.dynamicProviderFT): MiModule = MiModule(version = version, generatorVersion = generatorVersion, flags = flags, charSize = charSize, schemaDeclCtorArg = schemaDecl, load = load, unload = unload, dynamicProviderFTCtorArg = dynamicProviderFT)
+    public fun copy(version: UInt = this.version, generatorVersion: UInt = this.generatorVersion, flags: UInt = this.flags, charSize: UInt = this.charSize, schemaDecl: MutPtr = this.schemaDecl, load: MiModuleLoad = this.load, unload: MiModuleUnload = this.unload, dynamicProviderFT: ConstPtr = this.dynamicProviderFT): MiModule = MiModule(version = version, generatorVersion = generatorVersion, flags = flags, charSize = charSize, schemaDeclCtorArg = schemaDecl, load = load, unload = unload, dynamicProviderFTCtorArg = dynamicProviderFT)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -4522,10 +4521,10 @@ public class MiModule internal constructor(
             generatorVersion: UInt = 0u,
             flags: UInt = 0u,
             charSize: UInt = 0u,
-            schemaDecl: MutPtr<MiSchemaDecl> = MutPtr(0L),
+            schemaDecl: MutPtr = MutPtr(0L),
             load: MiModuleLoad = null,
             unload: MiModuleUnload = null,
-            dynamicProviderFT: ConstPtr<MiProviderFt> = ConstPtr(0L),
+            dynamicProviderFT: ConstPtr = ConstPtr(0L),
         ): MiModule =
             MiModule(
                 version = version,
@@ -4543,20 +4542,20 @@ public class MiModule internal constructor(
 public class MiObjectDecl internal constructor(
     public var flags: UInt,
     public var code: UInt,
-    nameCtorArg: ConstPtr<UShort>,
-    qualifiersCtorArg: ConstPtr<ConstPtr<MiQualifier>>,
+    nameCtorArg: ConstPtr,
+    qualifiersCtorArg: ConstPtr,
     public var numQualifiers: UInt,
-    propertiesCtorArg: ConstPtr<ConstPtr<MiPropertyDecl>>,
+    propertiesCtorArg: ConstPtr,
     public var numProperties: UInt,
     public var size: UInt,
 ) {
-    public var name: ConstPtr<UShort> = nameCtorArg
+    public var name: ConstPtr = nameCtorArg
         internal set
 
-    public var qualifiers: ConstPtr<ConstPtr<MiQualifier>> = qualifiersCtorArg
+    public var qualifiers: ConstPtr = qualifiersCtorArg
         internal set
 
-    public var properties: ConstPtr<ConstPtr<MiPropertyDecl>> = propertiesCtorArg
+    public var properties: ConstPtr = propertiesCtorArg
         internal set
 
     public constructor() : this(
@@ -4574,19 +4573,19 @@ public class MiObjectDecl internal constructor(
 
     public operator fun component2(): UInt = this.code
 
-    public operator fun component3(): ConstPtr<UShort> = this.name
+    public operator fun component3(): ConstPtr = this.name
 
-    public operator fun component4(): ConstPtr<ConstPtr<MiQualifier>> = this.qualifiers
+    public operator fun component4(): ConstPtr = this.qualifiers
 
     public operator fun component5(): UInt = this.numQualifiers
 
-    public operator fun component6(): ConstPtr<ConstPtr<MiPropertyDecl>> = this.properties
+    public operator fun component6(): ConstPtr = this.properties
 
     public operator fun component7(): UInt = this.numProperties
 
     public operator fun component8(): UInt = this.size
 
-    public fun copy(flags: UInt = this.flags, code: UInt = this.code, name: ConstPtr<UShort> = this.name, qualifiers: ConstPtr<ConstPtr<MiQualifier>> = this.qualifiers, numQualifiers: UInt = this.numQualifiers, properties: ConstPtr<ConstPtr<MiPropertyDecl>> = this.properties, numProperties: UInt = this.numProperties, size: UInt = this.size): MiObjectDecl = MiObjectDecl(flags = flags, code = code, nameCtorArg = name, qualifiersCtorArg = qualifiers, numQualifiers = numQualifiers, propertiesCtorArg = properties, numProperties = numProperties, size = size)
+    public fun copy(flags: UInt = this.flags, code: UInt = this.code, name: ConstPtr = this.name, qualifiers: ConstPtr = this.qualifiers, numQualifiers: UInt = this.numQualifiers, properties: ConstPtr = this.properties, numProperties: UInt = this.numProperties, size: UInt = this.size): MiObjectDecl = MiObjectDecl(flags = flags, code = code, nameCtorArg = name, qualifiersCtorArg = qualifiers, numQualifiers = numQualifiers, propertiesCtorArg = properties, numProperties = numProperties, size = size)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -4625,16 +4624,16 @@ public class MiObjectDecl internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 4L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .constPtrLayout<UShort>(64)
+                                .constPtrLayout(64)
                         ).readNative(addr + 8L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .constPtrLayout<ConstPtr<MiQualifier>>(64)
+                                .constPtrLayout(64)
                         ).readNative(addr + 16L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 24L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .constPtrLayout<ConstPtr<MiPropertyDecl>>(64)
+                                .constPtrLayout(64)
                         ).readNative(addr + 32L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 40L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 44L),
@@ -4644,16 +4643,16 @@ public class MiObjectDecl internal constructor(
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 4L, value.code)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .constPtrLayout<UShort>(64)
+                            .constPtrLayout(64)
                     ).writeNative(addr + 8L, value.name)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .constPtrLayout<ConstPtr<MiQualifier>>(64)
+                            .constPtrLayout(64)
                     ).writeNative(addr + 16L, value.qualifiers)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 24L, value.numQualifiers)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .constPtrLayout<ConstPtr<MiPropertyDecl>>(64)
+                            .constPtrLayout(64)
                     ).writeNative(addr + 32L, value.properties)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 40L, value.numProperties)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 44L, value.size)
@@ -4663,10 +4662,10 @@ public class MiObjectDecl internal constructor(
         public operator fun invoke(
             flags: UInt = 0u,
             code: UInt = 0u,
-            name: ConstPtr<UShort> = ConstPtr(0L),
-            qualifiers: ConstPtr<ConstPtr<MiQualifier>> = ConstPtr(0L),
+            name: ConstPtr = ConstPtr(0L),
+            qualifiers: ConstPtr = ConstPtr(0L),
             numQualifiers: UInt = 0u,
-            properties: ConstPtr<ConstPtr<MiPropertyDecl>> = ConstPtr(0L),
+            properties: ConstPtr = ConstPtr(0L),
             numProperties: UInt = 0u,
             size: UInt = 0u,
         ): MiObjectDecl =
@@ -4686,9 +4685,9 @@ public class MiObjectDecl internal constructor(
 public class MiOperation internal constructor(
     public var reserved1: ULong,
     public var reserved2: Int,
-    ftCtorArg: ConstPtr<MiOperationFt>,
+    ftCtorArg: ConstPtr,
 ) {
-    public var ft: ConstPtr<MiOperationFt> = ftCtorArg
+    public var ft: ConstPtr = ftCtorArg
         internal set
 
     public constructor() : this(
@@ -4701,9 +4700,9 @@ public class MiOperation internal constructor(
 
     public operator fun component2(): Int = this.reserved2
 
-    public operator fun component3(): ConstPtr<MiOperationFt> = this.ft
+    public operator fun component3(): ConstPtr = this.ft
 
-    public fun copy(reserved1: ULong = this.reserved1, reserved2: Int = this.reserved2, ft: ConstPtr<MiOperationFt> = this.ft): MiOperation = MiOperation(reserved1 = reserved1, reserved2 = reserved2, ftCtorArg = ft)
+    public fun copy(reserved1: ULong = this.reserved1, reserved2: Int = this.reserved2, ft: ConstPtr = this.ft): MiOperation = MiOperation(reserved1 = reserved1, reserved2 = reserved2, ftCtorArg = ft)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -4732,7 +4731,7 @@ public class MiOperation internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.ISIZE64).readNative(addr + 8L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .constPtrLayout<MiOperationFt>(64)
+                                .constPtrLayout(64)
                         ).readNative(addr + 16L),
                     )
                 override fun writeNative(addr: Long, value: MiOperation) {
@@ -4740,7 +4739,7 @@ public class MiOperation internal constructor(
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.ISIZE64).writeNative(addr + 8L, value.reserved2)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .constPtrLayout<MiOperationFt>(64)
+                            .constPtrLayout(64)
                     ).writeNative(addr + 16L, value.ft)
                 }
             }
@@ -4748,7 +4747,7 @@ public class MiOperation internal constructor(
         public operator fun invoke(
             reserved1: ULong = 0uL,
             reserved2: Int = 0,
-            ft: ConstPtr<MiOperationFt> = ConstPtr(0L),
+            ft: ConstPtr = ConstPtr(0L),
         ): MiOperation =
             MiOperation(
                 reserved1 = reserved1,
@@ -4759,7 +4758,7 @@ public class MiOperation internal constructor(
 }
 
 public class MiOperationCallbacks internal constructor(
-    callbackContextCtorArg: MutPtr<CVoid>,
+    callbackContextCtorArg: MutPtr,
     public var promptUser: MiOperationCallbackPromptUser,
     public var writeError: MiOperationCallbackWriteError,
     public var writeMessage: MiOperationCallbackWriteMessage,
@@ -4769,7 +4768,7 @@ public class MiOperationCallbacks internal constructor(
     public var classResult: MiOperationCallbackClass,
     public var streamedParameterResult: MiOperationCallbackStreamedParameter,
 ) {
-    public var callbackContext: MutPtr<CVoid> = callbackContextCtorArg
+    public var callbackContext: MutPtr = callbackContextCtorArg
         internal set
 
     public constructor() : this(
@@ -4784,7 +4783,7 @@ public class MiOperationCallbacks internal constructor(
         streamedParameterResult = null,
     )
 
-    public operator fun component1(): MutPtr<CVoid> = this.callbackContext
+    public operator fun component1(): MutPtr = this.callbackContext
 
     public operator fun component2(): MiOperationCallbackPromptUser = this.promptUser
 
@@ -4802,7 +4801,7 @@ public class MiOperationCallbacks internal constructor(
 
     public operator fun component9(): MiOperationCallbackStreamedParameter = this.streamedParameterResult
 
-    public fun copy(callbackContext: MutPtr<CVoid> = this.callbackContext, promptUser: MiOperationCallbackPromptUser = this.promptUser, writeError: MiOperationCallbackWriteError = this.writeError, writeMessage: MiOperationCallbackWriteMessage = this.writeMessage, writeProgress: MiOperationCallbackWriteProgress = this.writeProgress, instanceResult: MiOperationCallbackInstance = this.instanceResult, indicationResult: MiOperationCallbackIndication = this.indicationResult, classResult: MiOperationCallbackClass = this.classResult, streamedParameterResult: MiOperationCallbackStreamedParameter = this.streamedParameterResult): MiOperationCallbacks = MiOperationCallbacks(callbackContextCtorArg = callbackContext, promptUser = promptUser, writeError = writeError, writeMessage = writeMessage, writeProgress = writeProgress, instanceResult = instanceResult, indicationResult = indicationResult, classResult = classResult, streamedParameterResult = streamedParameterResult)
+    public fun copy(callbackContext: MutPtr = this.callbackContext, promptUser: MiOperationCallbackPromptUser = this.promptUser, writeError: MiOperationCallbackWriteError = this.writeError, writeMessage: MiOperationCallbackWriteMessage = this.writeMessage, writeProgress: MiOperationCallbackWriteProgress = this.writeProgress, instanceResult: MiOperationCallbackInstance = this.instanceResult, indicationResult: MiOperationCallbackIndication = this.indicationResult, classResult: MiOperationCallbackClass = this.classResult, streamedParameterResult: MiOperationCallbackStreamedParameter = this.streamedParameterResult): MiOperationCallbacks = MiOperationCallbacks(callbackContextCtorArg = callbackContext, promptUser = promptUser, writeError = writeError, writeMessage = writeMessage, writeProgress = writeProgress, instanceResult = instanceResult, indicationResult = indicationResult, classResult = classResult, streamedParameterResult = streamedParameterResult)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -4834,7 +4833,7 @@ public class MiOperationCallbacks internal constructor(
 
     public companion object {
         public operator fun invoke(
-            callbackContext: MutPtr<CVoid> = MutPtr(0L),
+            callbackContext: MutPtr = MutPtr(0L),
             promptUser: MiOperationCallbackPromptUser = null,
             writeError: MiOperationCallbackWriteError = null,
             writeMessage: MiOperationCallbackWriteMessage = null,
@@ -4895,9 +4894,9 @@ public data class MiOperationFt(
 public class MiOperationOptions internal constructor(
     public var reserved1: ULong,
     public var reserved2: Int,
-    ftCtorArg: ConstPtr<MiOperationOptionsFt>,
+    ftCtorArg: ConstPtr,
 ) {
-    public var ft: ConstPtr<MiOperationOptionsFt> = ftCtorArg
+    public var ft: ConstPtr = ftCtorArg
         internal set
 
     public constructor() : this(
@@ -4910,9 +4909,9 @@ public class MiOperationOptions internal constructor(
 
     public operator fun component2(): Int = this.reserved2
 
-    public operator fun component3(): ConstPtr<MiOperationOptionsFt> = this.ft
+    public operator fun component3(): ConstPtr = this.ft
 
-    public fun copy(reserved1: ULong = this.reserved1, reserved2: Int = this.reserved2, ft: ConstPtr<MiOperationOptionsFt> = this.ft): MiOperationOptions = MiOperationOptions(reserved1 = reserved1, reserved2 = reserved2, ftCtorArg = ft)
+    public fun copy(reserved1: ULong = this.reserved1, reserved2: Int = this.reserved2, ft: ConstPtr = this.ft): MiOperationOptions = MiOperationOptions(reserved1 = reserved1, reserved2 = reserved2, ftCtorArg = ft)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -4941,7 +4940,7 @@ public class MiOperationOptions internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.ISIZE64).readNative(addr + 8L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .constPtrLayout<MiOperationOptionsFt>(64)
+                                .constPtrLayout(64)
                         ).readNative(addr + 16L),
                     )
                 override fun writeNative(addr: Long, value: MiOperationOptions) {
@@ -4949,7 +4948,7 @@ public class MiOperationOptions internal constructor(
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.ISIZE64).writeNative(addr + 8L, value.reserved2)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .constPtrLayout<MiOperationOptionsFt>(64)
+                            .constPtrLayout(64)
                     ).writeNative(addr + 16L, value.ft)
                 }
             }
@@ -4957,7 +4956,7 @@ public class MiOperationOptions internal constructor(
         public operator fun invoke(
             reserved1: ULong = 0uL,
             reserved2: Int = 0,
-            ft: ConstPtr<MiOperationOptionsFt> = ConstPtr(0L),
+            ft: ConstPtr = ConstPtr(0L),
         ): MiOperationOptions =
             MiOperationOptions(
                 reserved1 = reserved1,
@@ -5025,21 +5024,21 @@ public data class MiOperationOptionsFt(
 public class MiParameterDecl internal constructor(
     public var flags: UInt,
     public var code: UInt,
-    nameCtorArg: ConstPtr<UShort>,
-    qualifiersCtorArg: ConstPtr<ConstPtr<MiQualifier>>,
+    nameCtorArg: ConstPtr,
+    qualifiersCtorArg: ConstPtr,
     public var numQualifiers: UInt,
     public var type: UInt,
-    clsNameCtorArg: ConstPtr<UShort>,
+    clsNameCtorArg: ConstPtr,
     public var subscript: UInt,
     public var offset: UInt,
 ) {
-    public var name: ConstPtr<UShort> = nameCtorArg
+    public var name: ConstPtr = nameCtorArg
         internal set
 
-    public var qualifiers: ConstPtr<ConstPtr<MiQualifier>> = qualifiersCtorArg
+    public var qualifiers: ConstPtr = qualifiersCtorArg
         internal set
 
-    public var clsName: ConstPtr<UShort> = clsNameCtorArg
+    public var clsName: ConstPtr = clsNameCtorArg
         internal set
 
     public constructor() : this(
@@ -5058,21 +5057,21 @@ public class MiParameterDecl internal constructor(
 
     public operator fun component2(): UInt = this.code
 
-    public operator fun component3(): ConstPtr<UShort> = this.name
+    public operator fun component3(): ConstPtr = this.name
 
-    public operator fun component4(): ConstPtr<ConstPtr<MiQualifier>> = this.qualifiers
+    public operator fun component4(): ConstPtr = this.qualifiers
 
     public operator fun component5(): UInt = this.numQualifiers
 
     public operator fun component6(): UInt = this.type
 
-    public operator fun component7(): ConstPtr<UShort> = this.clsName
+    public operator fun component7(): ConstPtr = this.clsName
 
     public operator fun component8(): UInt = this.subscript
 
     public operator fun component9(): UInt = this.offset
 
-    public fun copy(flags: UInt = this.flags, code: UInt = this.code, name: ConstPtr<UShort> = this.name, qualifiers: ConstPtr<ConstPtr<MiQualifier>> = this.qualifiers, numQualifiers: UInt = this.numQualifiers, type: UInt = this.type, clsName: ConstPtr<UShort> = this.clsName, subscript: UInt = this.subscript, offset: UInt = this.offset): MiParameterDecl = MiParameterDecl(flags = flags, code = code, nameCtorArg = name, qualifiersCtorArg = qualifiers, numQualifiers = numQualifiers, type = type, clsNameCtorArg = clsName, subscript = subscript, offset = offset)
+    public fun copy(flags: UInt = this.flags, code: UInt = this.code, name: ConstPtr = this.name, qualifiers: ConstPtr = this.qualifiers, numQualifiers: UInt = this.numQualifiers, type: UInt = this.type, clsName: ConstPtr = this.clsName, subscript: UInt = this.subscript, offset: UInt = this.offset): MiParameterDecl = MiParameterDecl(flags = flags, code = code, nameCtorArg = name, qualifiersCtorArg = qualifiers, numQualifiers = numQualifiers, type = type, clsNameCtorArg = clsName, subscript = subscript, offset = offset)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -5113,17 +5112,17 @@ public class MiParameterDecl internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 4L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .constPtrLayout<UShort>(64)
+                                .constPtrLayout(64)
                         ).readNative(addr + 8L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .constPtrLayout<ConstPtr<MiQualifier>>(64)
+                                .constPtrLayout(64)
                         ).readNative(addr + 16L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 24L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 28L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .constPtrLayout<UShort>(64)
+                                .constPtrLayout(64)
                         ).readNative(addr + 32L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 40L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 44L),
@@ -5133,17 +5132,17 @@ public class MiParameterDecl internal constructor(
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 4L, value.code)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .constPtrLayout<UShort>(64)
+                            .constPtrLayout(64)
                     ).writeNative(addr + 8L, value.name)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .constPtrLayout<ConstPtr<MiQualifier>>(64)
+                            .constPtrLayout(64)
                     ).writeNative(addr + 16L, value.qualifiers)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 24L, value.numQualifiers)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 28L, value.type)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .constPtrLayout<UShort>(64)
+                            .constPtrLayout(64)
                     ).writeNative(addr + 32L, value.clsName)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 40L, value.subscript)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 44L, value.offset)
@@ -5153,11 +5152,11 @@ public class MiParameterDecl internal constructor(
         public operator fun invoke(
             flags: UInt = 0u,
             code: UInt = 0u,
-            name: ConstPtr<UShort> = ConstPtr(0L),
-            qualifiers: ConstPtr<ConstPtr<MiQualifier>> = ConstPtr(0L),
+            name: ConstPtr = ConstPtr(0L),
+            qualifiers: ConstPtr = ConstPtr(0L),
             numQualifiers: UInt = 0u,
             type: UInt = 0u,
-            clsName: ConstPtr<UShort> = ConstPtr(0L),
+            clsName: ConstPtr = ConstPtr(0L),
             subscript: UInt = 0u,
             offset: UInt = 0u,
         ): MiParameterDecl =
@@ -5178,9 +5177,9 @@ public class MiParameterDecl internal constructor(
 public class MiParameterSet internal constructor(
     public var reserved1: ULong,
     public var reserved2: Int,
-    ftCtorArg: ConstPtr<MiParameterSetFt>,
+    ftCtorArg: ConstPtr,
 ) {
-    public var ft: ConstPtr<MiParameterSetFt> = ftCtorArg
+    public var ft: ConstPtr = ftCtorArg
         internal set
 
     public constructor() : this(
@@ -5193,9 +5192,9 @@ public class MiParameterSet internal constructor(
 
     public operator fun component2(): Int = this.reserved2
 
-    public operator fun component3(): ConstPtr<MiParameterSetFt> = this.ft
+    public operator fun component3(): ConstPtr = this.ft
 
-    public fun copy(reserved1: ULong = this.reserved1, reserved2: Int = this.reserved2, ft: ConstPtr<MiParameterSetFt> = this.ft): MiParameterSet = MiParameterSet(reserved1 = reserved1, reserved2 = reserved2, ftCtorArg = ft)
+    public fun copy(reserved1: ULong = this.reserved1, reserved2: Int = this.reserved2, ft: ConstPtr = this.ft): MiParameterSet = MiParameterSet(reserved1 = reserved1, reserved2 = reserved2, ftCtorArg = ft)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -5224,7 +5223,7 @@ public class MiParameterSet internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.ISIZE64).readNative(addr + 8L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .constPtrLayout<MiParameterSetFt>(64)
+                                .constPtrLayout(64)
                         ).readNative(addr + 16L),
                     )
                 override fun writeNative(addr: Long, value: MiParameterSet) {
@@ -5232,7 +5231,7 @@ public class MiParameterSet internal constructor(
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.ISIZE64).writeNative(addr + 8L, value.reserved2)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .constPtrLayout<MiParameterSetFt>(64)
+                            .constPtrLayout(64)
                     ).writeNative(addr + 16L, value.ft)
                 }
             }
@@ -5240,7 +5239,7 @@ public class MiParameterSet internal constructor(
         public operator fun invoke(
             reserved1: ULong = 0uL,
             reserved2: Int = 0,
-            ft: ConstPtr<MiParameterSetFt> = ConstPtr(0L),
+            ft: ConstPtr = ConstPtr(0L),
         ): MiParameterSet =
             MiParameterSet(
                 reserved1 = reserved1,
@@ -5281,33 +5280,33 @@ public data class MiParameterSetFt(
 public class MiPropertyDecl internal constructor(
     public var flags: UInt,
     public var code: UInt,
-    nameCtorArg: ConstPtr<UShort>,
-    qualifiersCtorArg: ConstPtr<ConstPtr<MiQualifier>>,
+    nameCtorArg: ConstPtr,
+    qualifiersCtorArg: ConstPtr,
     public var numQualifiers: UInt,
     public var type: UInt,
-    clsNameCtorArg: ConstPtr<UShort>,
+    clsNameCtorArg: ConstPtr,
     public var subscript: UInt,
     public var offset: UInt,
-    originCtorArg: ConstPtr<UShort>,
-    propagatorCtorArg: ConstPtr<UShort>,
-    valueCtorArg: ConstPtr<CVoid>,
+    originCtorArg: ConstPtr,
+    propagatorCtorArg: ConstPtr,
+    valueCtorArg: ConstPtr,
 ) {
-    public var name: ConstPtr<UShort> = nameCtorArg
+    public var name: ConstPtr = nameCtorArg
         internal set
 
-    public var qualifiers: ConstPtr<ConstPtr<MiQualifier>> = qualifiersCtorArg
+    public var qualifiers: ConstPtr = qualifiersCtorArg
         internal set
 
-    public var clsName: ConstPtr<UShort> = clsNameCtorArg
+    public var clsName: ConstPtr = clsNameCtorArg
         internal set
 
-    public var origin: ConstPtr<UShort> = originCtorArg
+    public var origin: ConstPtr = originCtorArg
         internal set
 
-    public var propagator: ConstPtr<UShort> = propagatorCtorArg
+    public var propagator: ConstPtr = propagatorCtorArg
         internal set
 
-    public var value: ConstPtr<CVoid> = valueCtorArg
+    public var value: ConstPtr = valueCtorArg
         internal set
 
     public constructor() : this(
@@ -5329,27 +5328,27 @@ public class MiPropertyDecl internal constructor(
 
     public operator fun component2(): UInt = this.code
 
-    public operator fun component3(): ConstPtr<UShort> = this.name
+    public operator fun component3(): ConstPtr = this.name
 
-    public operator fun component4(): ConstPtr<ConstPtr<MiQualifier>> = this.qualifiers
+    public operator fun component4(): ConstPtr = this.qualifiers
 
     public operator fun component5(): UInt = this.numQualifiers
 
     public operator fun component6(): UInt = this.type
 
-    public operator fun component7(): ConstPtr<UShort> = this.clsName
+    public operator fun component7(): ConstPtr = this.clsName
 
     public operator fun component8(): UInt = this.subscript
 
     public operator fun component9(): UInt = this.offset
 
-    public operator fun component10(): ConstPtr<UShort> = this.origin
+    public operator fun component10(): ConstPtr = this.origin
 
-    public operator fun component11(): ConstPtr<UShort> = this.propagator
+    public operator fun component11(): ConstPtr = this.propagator
 
-    public operator fun component12(): ConstPtr<CVoid> = this.value
+    public operator fun component12(): ConstPtr = this.value
 
-    public fun copy(flags: UInt = this.flags, code: UInt = this.code, name: ConstPtr<UShort> = this.name, qualifiers: ConstPtr<ConstPtr<MiQualifier>> = this.qualifiers, numQualifiers: UInt = this.numQualifiers, type: UInt = this.type, clsName: ConstPtr<UShort> = this.clsName, subscript: UInt = this.subscript, offset: UInt = this.offset, origin: ConstPtr<UShort> = this.origin, propagator: ConstPtr<UShort> = this.propagator, value: ConstPtr<CVoid> = this.value): MiPropertyDecl = MiPropertyDecl(flags = flags, code = code, nameCtorArg = name, qualifiersCtorArg = qualifiers, numQualifiers = numQualifiers, type = type, clsNameCtorArg = clsName, subscript = subscript, offset = offset, originCtorArg = origin, propagatorCtorArg = propagator, valueCtorArg = value)
+    public fun copy(flags: UInt = this.flags, code: UInt = this.code, name: ConstPtr = this.name, qualifiers: ConstPtr = this.qualifiers, numQualifiers: UInt = this.numQualifiers, type: UInt = this.type, clsName: ConstPtr = this.clsName, subscript: UInt = this.subscript, offset: UInt = this.offset, origin: ConstPtr = this.origin, propagator: ConstPtr = this.propagator, value: ConstPtr = this.value): MiPropertyDecl = MiPropertyDecl(flags = flags, code = code, nameCtorArg = name, qualifiersCtorArg = qualifiers, numQualifiers = numQualifiers, type = type, clsNameCtorArg = clsName, subscript = subscript, offset = offset, originCtorArg = origin, propagatorCtorArg = propagator, valueCtorArg = value)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -5396,31 +5395,31 @@ public class MiPropertyDecl internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 4L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .constPtrLayout<UShort>(64)
+                                .constPtrLayout(64)
                         ).readNative(addr + 8L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .constPtrLayout<ConstPtr<MiQualifier>>(64)
+                                .constPtrLayout(64)
                         ).readNative(addr + 16L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 24L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 28L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .constPtrLayout<UShort>(64)
+                                .constPtrLayout(64)
                         ).readNative(addr + 32L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 40L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 44L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .constPtrLayout<UShort>(64)
+                                .constPtrLayout(64)
                         ).readNative(addr + 48L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .constPtrLayout<UShort>(64)
+                                .constPtrLayout(64)
                         ).readNative(addr + 56L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .constPtrLayout<CVoid>(64)
+                                .constPtrLayout(64)
                         ).readNative(addr + 64L),
                     )
                 override fun writeNative(addr: Long, value: MiPropertyDecl) {
@@ -5428,31 +5427,31 @@ public class MiPropertyDecl internal constructor(
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 4L, value.code)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .constPtrLayout<UShort>(64)
+                            .constPtrLayout(64)
                     ).writeNative(addr + 8L, value.name)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .constPtrLayout<ConstPtr<MiQualifier>>(64)
+                            .constPtrLayout(64)
                     ).writeNative(addr + 16L, value.qualifiers)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 24L, value.numQualifiers)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 28L, value.type)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .constPtrLayout<UShort>(64)
+                            .constPtrLayout(64)
                     ).writeNative(addr + 32L, value.clsName)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 40L, value.subscript)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 44L, value.offset)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .constPtrLayout<UShort>(64)
+                            .constPtrLayout(64)
                     ).writeNative(addr + 48L, value.origin)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .constPtrLayout<UShort>(64)
+                            .constPtrLayout(64)
                     ).writeNative(addr + 56L, value.propagator)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .constPtrLayout<CVoid>(64)
+                            .constPtrLayout(64)
                     ).writeNative(addr + 64L, value.value)
                 }
             }
@@ -5460,16 +5459,16 @@ public class MiPropertyDecl internal constructor(
         public operator fun invoke(
             flags: UInt = 0u,
             code: UInt = 0u,
-            name: ConstPtr<UShort> = ConstPtr(0L),
-            qualifiers: ConstPtr<ConstPtr<MiQualifier>> = ConstPtr(0L),
+            name: ConstPtr = ConstPtr(0L),
+            qualifiers: ConstPtr = ConstPtr(0L),
             numQualifiers: UInt = 0u,
             type: UInt = 0u,
-            clsName: ConstPtr<UShort> = ConstPtr(0L),
+            clsName: ConstPtr = ConstPtr(0L),
             subscript: UInt = 0u,
             offset: UInt = 0u,
-            origin: ConstPtr<UShort> = ConstPtr(0L),
-            propagator: ConstPtr<UShort> = ConstPtr(0L),
-            value: ConstPtr<CVoid> = ConstPtr(0L),
+            origin: ConstPtr = ConstPtr(0L),
+            propagator: ConstPtr = ConstPtr(0L),
+            value: ConstPtr = ConstPtr(0L),
         ): MiPropertyDecl =
             MiPropertyDecl(
                 flags = flags,
@@ -5489,10 +5488,10 @@ public class MiPropertyDecl internal constructor(
 }
 
 public class MiPropertySet internal constructor(
-    ftCtorArg: ConstPtr<MiPropertySetFt>,
+    ftCtorArg: ConstPtr,
     public var reserved: IntArray,
 ) {
-    public var ft: ConstPtr<MiPropertySetFt> = ftCtorArg
+    public var ft: ConstPtr = ftCtorArg
         internal set
 
     public constructor() : this(
@@ -5500,11 +5499,11 @@ public class MiPropertySet internal constructor(
         reserved = IntArray(3),
     )
 
-    public operator fun component1(): ConstPtr<MiPropertySetFt> = this.ft
+    public operator fun component1(): ConstPtr = this.ft
 
     public operator fun component2(): IntArray = this.reserved
 
-    public fun copy(ft: ConstPtr<MiPropertySetFt> = this.ft, reserved: IntArray = this.reserved): MiPropertySet = MiPropertySet(ftCtorArg = ft, reserved = reserved)
+    public fun copy(ft: ConstPtr = this.ft, reserved: IntArray = this.reserved): MiPropertySet = MiPropertySet(ftCtorArg = ft, reserved = reserved)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -5529,7 +5528,7 @@ public class MiPropertySet internal constructor(
                     MiPropertySet(
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .constPtrLayout<MiPropertySetFt>(64)
+                                .constPtrLayout(64)
                         ).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem
@@ -5539,7 +5538,7 @@ public class MiPropertySet internal constructor(
                 override fun writeNative(addr: Long, value: MiPropertySet) {
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .constPtrLayout<MiPropertySetFt>(64)
+                            .constPtrLayout(64)
                     ).writeNative(addr, value.ft)
                     (
                         io.github.kotlinmania.rustlang.core.mem
@@ -5549,7 +5548,7 @@ public class MiPropertySet internal constructor(
             }
 
         public operator fun invoke(
-            ft: ConstPtr<MiPropertySetFt> = ConstPtr(0L),
+            ft: ConstPtr = ConstPtr(0L),
             reserved: IntArray = IntArray(3),
         ): MiPropertySet =
             MiPropertySet(
@@ -5617,15 +5616,15 @@ public data class MiProviderFt(
 )
 
 public class MiQualifier internal constructor(
-    nameCtorArg: ConstPtr<UShort>,
+    nameCtorArg: ConstPtr,
     public var type: UInt,
     public var flavor: UInt,
-    valueCtorArg: ConstPtr<CVoid>,
+    valueCtorArg: ConstPtr,
 ) {
-    public var name: ConstPtr<UShort> = nameCtorArg
+    public var name: ConstPtr = nameCtorArg
         internal set
 
-    public var value: ConstPtr<CVoid> = valueCtorArg
+    public var value: ConstPtr = valueCtorArg
         internal set
 
     public constructor() : this(
@@ -5635,15 +5634,15 @@ public class MiQualifier internal constructor(
         valueCtorArg = ConstPtr(0L),
     )
 
-    public operator fun component1(): ConstPtr<UShort> = this.name
+    public operator fun component1(): ConstPtr = this.name
 
     public operator fun component2(): UInt = this.type
 
     public operator fun component3(): UInt = this.flavor
 
-    public operator fun component4(): ConstPtr<CVoid> = this.value
+    public operator fun component4(): ConstPtr = this.value
 
-    public fun copy(name: ConstPtr<UShort> = this.name, type: UInt = this.type, flavor: UInt = this.flavor, value: ConstPtr<CVoid> = this.value): MiQualifier = MiQualifier(nameCtorArg = name, type = type, flavor = flavor, valueCtorArg = value)
+    public fun copy(name: ConstPtr = this.name, type: UInt = this.type, flavor: UInt = this.flavor, value: ConstPtr = this.value): MiQualifier = MiQualifier(nameCtorArg = name, type = type, flavor = flavor, valueCtorArg = value)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -5672,34 +5671,34 @@ public class MiQualifier internal constructor(
                     MiQualifier(
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .constPtrLayout<UShort>(64)
+                                .constPtrLayout(64)
                         ).readNative(addr),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 8L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 12L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .constPtrLayout<CVoid>(64)
+                                .constPtrLayout(64)
                         ).readNative(addr + 16L),
                     )
                 override fun writeNative(addr: Long, value: MiQualifier) {
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .constPtrLayout<UShort>(64)
+                            .constPtrLayout(64)
                     ).writeNative(addr, value.name)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 8L, value.type)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 12L, value.flavor)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .constPtrLayout<CVoid>(64)
+                            .constPtrLayout(64)
                     ).writeNative(addr + 16L, value.value)
                 }
             }
 
         public operator fun invoke(
-            name: ConstPtr<UShort> = ConstPtr(0L),
+            name: ConstPtr = ConstPtr(0L),
             type: UInt = 0u,
             flavor: UInt = 0u,
-            value: ConstPtr<CVoid> = ConstPtr(0L),
+            value: ConstPtr = ConstPtr(0L),
         ): MiQualifier =
             MiQualifier(
                 nameCtorArg = name,
@@ -5711,17 +5710,17 @@ public class MiQualifier internal constructor(
 }
 
 public class MiQualifierDecl internal constructor(
-    nameCtorArg: ConstPtr<UShort>,
+    nameCtorArg: ConstPtr,
     public var type: UInt,
     public var scope: UInt,
     public var flavor: UInt,
     public var subscript: UInt,
-    valueCtorArg: ConstPtr<CVoid>,
+    valueCtorArg: ConstPtr,
 ) {
-    public var name: ConstPtr<UShort> = nameCtorArg
+    public var name: ConstPtr = nameCtorArg
         internal set
 
-    public var value: ConstPtr<CVoid> = valueCtorArg
+    public var value: ConstPtr = valueCtorArg
         internal set
 
     public constructor() : this(
@@ -5733,7 +5732,7 @@ public class MiQualifierDecl internal constructor(
         valueCtorArg = ConstPtr(0L),
     )
 
-    public operator fun component1(): ConstPtr<UShort> = this.name
+    public operator fun component1(): ConstPtr = this.name
 
     public operator fun component2(): UInt = this.type
 
@@ -5743,9 +5742,9 @@ public class MiQualifierDecl internal constructor(
 
     public operator fun component5(): UInt = this.subscript
 
-    public operator fun component6(): ConstPtr<CVoid> = this.value
+    public operator fun component6(): ConstPtr = this.value
 
-    public fun copy(name: ConstPtr<UShort> = this.name, type: UInt = this.type, scope: UInt = this.scope, flavor: UInt = this.flavor, subscript: UInt = this.subscript, value: ConstPtr<CVoid> = this.value): MiQualifierDecl = MiQualifierDecl(nameCtorArg = name, type = type, scope = scope, flavor = flavor, subscript = subscript, valueCtorArg = value)
+    public fun copy(name: ConstPtr = this.name, type: UInt = this.type, scope: UInt = this.scope, flavor: UInt = this.flavor, subscript: UInt = this.subscript, value: ConstPtr = this.value): MiQualifierDecl = MiQualifierDecl(nameCtorArg = name, type = type, scope = scope, flavor = flavor, subscript = subscript, valueCtorArg = value)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -5778,7 +5777,7 @@ public class MiQualifierDecl internal constructor(
                     MiQualifierDecl(
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .constPtrLayout<UShort>(64)
+                                .constPtrLayout(64)
                         ).readNative(addr),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 8L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 12L),
@@ -5786,13 +5785,13 @@ public class MiQualifierDecl internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 20L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .constPtrLayout<CVoid>(64)
+                                .constPtrLayout(64)
                         ).readNative(addr + 24L),
                     )
                 override fun writeNative(addr: Long, value: MiQualifierDecl) {
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .constPtrLayout<UShort>(64)
+                            .constPtrLayout(64)
                     ).writeNative(addr, value.name)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 8L, value.type)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 12L, value.scope)
@@ -5800,18 +5799,18 @@ public class MiQualifierDecl internal constructor(
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 20L, value.subscript)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .constPtrLayout<CVoid>(64)
+                            .constPtrLayout(64)
                     ).writeNative(addr + 24L, value.value)
                 }
             }
 
         public operator fun invoke(
-            name: ConstPtr<UShort> = ConstPtr(0L),
+            name: ConstPtr = ConstPtr(0L),
             type: UInt = 0u,
             scope: UInt = 0u,
             flavor: UInt = 0u,
             subscript: UInt = 0u,
-            value: ConstPtr<CVoid> = ConstPtr(0L),
+            value: ConstPtr = ConstPtr(0L),
         ): MiQualifierDecl =
             MiQualifierDecl(
                 nameCtorArg = name,
@@ -5827,9 +5826,9 @@ public class MiQualifierDecl internal constructor(
 public class MiQualifierSet internal constructor(
     public var reserved1: ULong,
     public var reserved2: Int,
-    ftCtorArg: ConstPtr<MiQualifierSetFt>,
+    ftCtorArg: ConstPtr,
 ) {
-    public var ft: ConstPtr<MiQualifierSetFt> = ftCtorArg
+    public var ft: ConstPtr = ftCtorArg
         internal set
 
     public constructor() : this(
@@ -5842,9 +5841,9 @@ public class MiQualifierSet internal constructor(
 
     public operator fun component2(): Int = this.reserved2
 
-    public operator fun component3(): ConstPtr<MiQualifierSetFt> = this.ft
+    public operator fun component3(): ConstPtr = this.ft
 
-    public fun copy(reserved1: ULong = this.reserved1, reserved2: Int = this.reserved2, ft: ConstPtr<MiQualifierSetFt> = this.ft): MiQualifierSet = MiQualifierSet(reserved1 = reserved1, reserved2 = reserved2, ftCtorArg = ft)
+    public fun copy(reserved1: ULong = this.reserved1, reserved2: Int = this.reserved2, ft: ConstPtr = this.ft): MiQualifierSet = MiQualifierSet(reserved1 = reserved1, reserved2 = reserved2, ftCtorArg = ft)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -5873,7 +5872,7 @@ public class MiQualifierSet internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.ISIZE64).readNative(addr + 8L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .constPtrLayout<MiQualifierSetFt>(64)
+                                .constPtrLayout(64)
                         ).readNative(addr + 16L),
                     )
                 override fun writeNative(addr: Long, value: MiQualifierSet) {
@@ -5881,7 +5880,7 @@ public class MiQualifierSet internal constructor(
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.ISIZE64).writeNative(addr + 8L, value.reserved2)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .constPtrLayout<MiQualifierSetFt>(64)
+                            .constPtrLayout(64)
                     ).writeNative(addr + 16L, value.ft)
                 }
             }
@@ -5889,7 +5888,7 @@ public class MiQualifierSet internal constructor(
         public operator fun invoke(
             reserved1: ULong = 0uL,
             reserved2: Int = 0,
-            ft: ConstPtr<MiQualifierSetFt> = ConstPtr(0L),
+            ft: ConstPtr = ConstPtr(0L),
         ): MiQualifierSet =
             MiQualifierSet(
                 reserved1 = reserved1,
@@ -5925,10 +5924,10 @@ public data class MiQualifierSetFt(
 }
 
 public class MiReal32A internal constructor(
-    dataCtorArg: MutPtr<Float>,
+    dataCtorArg: MutPtr,
     public var size: UInt,
 ) {
-    public var data: MutPtr<Float> = dataCtorArg
+    public var data: MutPtr = dataCtorArg
         internal set
 
     public constructor() : this(
@@ -5936,11 +5935,11 @@ public class MiReal32A internal constructor(
         size = 0u,
     )
 
-    public operator fun component1(): MutPtr<Float> = this.data
+    public operator fun component1(): MutPtr = this.data
 
     public operator fun component2(): UInt = this.size
 
-    public fun copy(data: MutPtr<Float> = this.data, size: UInt = this.size): MiReal32A = MiReal32A(dataCtorArg = data, size = size)
+    public fun copy(data: MutPtr = this.data, size: UInt = this.size): MiReal32A = MiReal32A(dataCtorArg = data, size = size)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -5965,21 +5964,21 @@ public class MiReal32A internal constructor(
                     MiReal32A(
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<Float>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 8L),
                     )
                 override fun writeNative(addr: Long, value: MiReal32A) {
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<Float>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr, value.data)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 8L, value.size)
                 }
             }
 
         public operator fun invoke(
-            data: MutPtr<Float> = MutPtr(0L),
+            data: MutPtr = MutPtr(0L),
             size: UInt = 0u,
         ): MiReal32A =
             MiReal32A(
@@ -6040,10 +6039,10 @@ public data class MiReal32Field(
 }
 
 public class MiReal64A internal constructor(
-    dataCtorArg: MutPtr<Double>,
+    dataCtorArg: MutPtr,
     public var size: UInt,
 ) {
-    public var data: MutPtr<Double> = dataCtorArg
+    public var data: MutPtr = dataCtorArg
         internal set
 
     public constructor() : this(
@@ -6051,11 +6050,11 @@ public class MiReal64A internal constructor(
         size = 0u,
     )
 
-    public operator fun component1(): MutPtr<Double> = this.data
+    public operator fun component1(): MutPtr = this.data
 
     public operator fun component2(): UInt = this.size
 
-    public fun copy(data: MutPtr<Double> = this.data, size: UInt = this.size): MiReal64A = MiReal64A(dataCtorArg = data, size = size)
+    public fun copy(data: MutPtr = this.data, size: UInt = this.size): MiReal64A = MiReal64A(dataCtorArg = data, size = size)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -6080,21 +6079,21 @@ public class MiReal64A internal constructor(
                     MiReal64A(
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<Double>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 8L),
                     )
                 override fun writeNative(addr: Long, value: MiReal64A) {
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<Double>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr, value.data)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 8L, value.size)
                 }
             }
 
         public operator fun invoke(
-            data: MutPtr<Double> = MutPtr(0L),
+            data: MutPtr = MutPtr(0L),
             size: UInt = 0u,
         ): MiReal64A =
             MiReal64A(
@@ -6155,10 +6154,10 @@ public data class MiReal64Field(
 }
 
 public class MiReferenceA internal constructor(
-    dataCtorArg: MutPtr<MutPtr<MiInstance>>,
+    dataCtorArg: MutPtr,
     public var size: UInt,
 ) {
-    public var data: MutPtr<MutPtr<MiInstance>> = dataCtorArg
+    public var data: MutPtr = dataCtorArg
         internal set
 
     public constructor() : this(
@@ -6166,11 +6165,11 @@ public class MiReferenceA internal constructor(
         size = 0u,
     )
 
-    public operator fun component1(): MutPtr<MutPtr<MiInstance>> = this.data
+    public operator fun component1(): MutPtr = this.data
 
     public operator fun component2(): UInt = this.size
 
-    public fun copy(data: MutPtr<MutPtr<MiInstance>> = this.data, size: UInt = this.size): MiReferenceA = MiReferenceA(dataCtorArg = data, size = size)
+    public fun copy(data: MutPtr = this.data, size: UInt = this.size): MiReferenceA = MiReferenceA(dataCtorArg = data, size = size)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -6195,21 +6194,21 @@ public class MiReferenceA internal constructor(
                     MiReferenceA(
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<MutPtr<MiInstance>>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 8L),
                     )
                 override fun writeNative(addr: Long, value: MiReferenceA) {
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<MutPtr<MiInstance>>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr, value.data)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 8L, value.size)
                 }
             }
 
         public operator fun invoke(
-            data: MutPtr<MutPtr<MiInstance>> = MutPtr(0L),
+            data: MutPtr = MutPtr(0L),
             size: UInt = 0u,
         ): MiReferenceA =
             MiReferenceA(
@@ -6245,11 +6244,11 @@ public data class MiReferenceAfield(
 }
 
 public class MiReferenceField internal constructor(
-    valueCtorArg: MutPtr<MiInstance>,
+    valueCtorArg: MutPtr,
     public var exists: UByte,
     public var flags: UByte,
 ) {
-    public var value: MutPtr<MiInstance> = valueCtorArg
+    public var value: MutPtr = valueCtorArg
         internal set
 
     public constructor() : this(
@@ -6258,13 +6257,13 @@ public class MiReferenceField internal constructor(
         flags = 0u,
     )
 
-    public operator fun component1(): MutPtr<MiInstance> = this.value
+    public operator fun component1(): MutPtr = this.value
 
     public operator fun component2(): UByte = this.exists
 
     public operator fun component3(): UByte = this.flags
 
-    public fun copy(value: MutPtr<MiInstance> = this.value, exists: UByte = this.exists, flags: UByte = this.flags): MiReferenceField = MiReferenceField(valueCtorArg = value, exists = exists, flags = flags)
+    public fun copy(value: MutPtr = this.value, exists: UByte = this.exists, flags: UByte = this.flags): MiReferenceField = MiReferenceField(valueCtorArg = value, exists = exists, flags = flags)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -6291,7 +6290,7 @@ public class MiReferenceField internal constructor(
                     MiReferenceField(
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<MiInstance>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8).readNative(addr + 8L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8).readNative(addr + 9L),
@@ -6299,7 +6298,7 @@ public class MiReferenceField internal constructor(
                 override fun writeNative(addr: Long, value: MiReferenceField) {
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<MiInstance>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr, value.value)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8).writeNative(addr + 8L, value.exists)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8).writeNative(addr + 9L, value.flags)
@@ -6307,7 +6306,7 @@ public class MiReferenceField internal constructor(
             }
 
         public operator fun invoke(
-            value: MutPtr<MiInstance> = MutPtr(0L),
+            value: MutPtr = MutPtr(0L),
             exists: UByte = 0u,
             flags: UByte = 0u,
         ): MiReferenceField =
@@ -6320,15 +6319,15 @@ public class MiReferenceField internal constructor(
 }
 
 public class MiSchemaDecl internal constructor(
-    qualifierDeclsCtorArg: ConstPtr<ConstPtr<MiQualifierDecl>>,
+    qualifierDeclsCtorArg: ConstPtr,
     public var numQualifierDecls: UInt,
-    classDeclsCtorArg: ConstPtr<ConstPtr<MiClassDecl>>,
+    classDeclsCtorArg: ConstPtr,
     public var numClassDecls: UInt,
 ) {
-    public var qualifierDecls: ConstPtr<ConstPtr<MiQualifierDecl>> = qualifierDeclsCtorArg
+    public var qualifierDecls: ConstPtr = qualifierDeclsCtorArg
         internal set
 
-    public var classDecls: ConstPtr<ConstPtr<MiClassDecl>> = classDeclsCtorArg
+    public var classDecls: ConstPtr = classDeclsCtorArg
         internal set
 
     public constructor() : this(
@@ -6338,15 +6337,15 @@ public class MiSchemaDecl internal constructor(
         numClassDecls = 0u,
     )
 
-    public operator fun component1(): ConstPtr<ConstPtr<MiQualifierDecl>> = this.qualifierDecls
+    public operator fun component1(): ConstPtr = this.qualifierDecls
 
     public operator fun component2(): UInt = this.numQualifierDecls
 
-    public operator fun component3(): ConstPtr<ConstPtr<MiClassDecl>> = this.classDecls
+    public operator fun component3(): ConstPtr = this.classDecls
 
     public operator fun component4(): UInt = this.numClassDecls
 
-    public fun copy(qualifierDecls: ConstPtr<ConstPtr<MiQualifierDecl>> = this.qualifierDecls, numQualifierDecls: UInt = this.numQualifierDecls, classDecls: ConstPtr<ConstPtr<MiClassDecl>> = this.classDecls, numClassDecls: UInt = this.numClassDecls): MiSchemaDecl = MiSchemaDecl(qualifierDeclsCtorArg = qualifierDecls, numQualifierDecls = numQualifierDecls, classDeclsCtorArg = classDecls, numClassDecls = numClassDecls)
+    public fun copy(qualifierDecls: ConstPtr = this.qualifierDecls, numQualifierDecls: UInt = this.numQualifierDecls, classDecls: ConstPtr = this.classDecls, numClassDecls: UInt = this.numClassDecls): MiSchemaDecl = MiSchemaDecl(qualifierDeclsCtorArg = qualifierDecls, numQualifierDecls = numQualifierDecls, classDeclsCtorArg = classDecls, numClassDecls = numClassDecls)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -6375,33 +6374,33 @@ public class MiSchemaDecl internal constructor(
                     MiSchemaDecl(
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .constPtrLayout<ConstPtr<MiQualifierDecl>>(64)
+                                .constPtrLayout(64)
                         ).readNative(addr),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 8L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .constPtrLayout<ConstPtr<MiClassDecl>>(64)
+                                .constPtrLayout(64)
                         ).readNative(addr + 16L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 24L),
                     )
                 override fun writeNative(addr: Long, value: MiSchemaDecl) {
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .constPtrLayout<ConstPtr<MiQualifierDecl>>(64)
+                            .constPtrLayout(64)
                     ).writeNative(addr, value.qualifierDecls)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 8L, value.numQualifierDecls)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .constPtrLayout<ConstPtr<MiClassDecl>>(64)
+                            .constPtrLayout(64)
                     ).writeNative(addr + 16L, value.classDecls)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 24L, value.numClassDecls)
                 }
             }
 
         public operator fun invoke(
-            qualifierDecls: ConstPtr<ConstPtr<MiQualifierDecl>> = ConstPtr(0L),
+            qualifierDecls: ConstPtr = ConstPtr(0L),
             numQualifierDecls: UInt = 0u,
-            classDecls: ConstPtr<ConstPtr<MiClassDecl>> = ConstPtr(0L),
+            classDecls: ConstPtr = ConstPtr(0L),
             numClassDecls: UInt = 0u,
         ): MiSchemaDecl =
             MiSchemaDecl(
@@ -6461,25 +6460,25 @@ public data class MiSerializerFt(
 }
 
 public class MiServer internal constructor(
-    serverFTCtorArg: ConstPtr<MiServerFt>,
-    contextFTCtorArg: ConstPtr<MiContextFt>,
-    instanceFTCtorArg: ConstPtr<MiInstanceFt>,
-    propertySetFTCtorArg: ConstPtr<MiPropertySetFt>,
-    filterFTCtorArg: ConstPtr<MiFilterFt>,
+    serverFTCtorArg: ConstPtr,
+    contextFTCtorArg: ConstPtr,
+    instanceFTCtorArg: ConstPtr,
+    propertySetFTCtorArg: ConstPtr,
+    filterFTCtorArg: ConstPtr,
 ) {
-    public var serverFT: ConstPtr<MiServerFt> = serverFTCtorArg
+    public var serverFT: ConstPtr = serverFTCtorArg
         internal set
 
-    public var contextFT: ConstPtr<MiContextFt> = contextFTCtorArg
+    public var contextFT: ConstPtr = contextFTCtorArg
         internal set
 
-    public var instanceFT: ConstPtr<MiInstanceFt> = instanceFTCtorArg
+    public var instanceFT: ConstPtr = instanceFTCtorArg
         internal set
 
-    public var propertySetFT: ConstPtr<MiPropertySetFt> = propertySetFTCtorArg
+    public var propertySetFT: ConstPtr = propertySetFTCtorArg
         internal set
 
-    public var filterFT: ConstPtr<MiFilterFt> = filterFTCtorArg
+    public var filterFT: ConstPtr = filterFTCtorArg
         internal set
 
     public constructor() : this(
@@ -6490,17 +6489,17 @@ public class MiServer internal constructor(
         filterFTCtorArg = ConstPtr(0L),
     )
 
-    public operator fun component1(): ConstPtr<MiServerFt> = this.serverFT
+    public operator fun component1(): ConstPtr = this.serverFT
 
-    public operator fun component2(): ConstPtr<MiContextFt> = this.contextFT
+    public operator fun component2(): ConstPtr = this.contextFT
 
-    public operator fun component3(): ConstPtr<MiInstanceFt> = this.instanceFT
+    public operator fun component3(): ConstPtr = this.instanceFT
 
-    public operator fun component4(): ConstPtr<MiPropertySetFt> = this.propertySetFT
+    public operator fun component4(): ConstPtr = this.propertySetFT
 
-    public operator fun component5(): ConstPtr<MiFilterFt> = this.filterFT
+    public operator fun component5(): ConstPtr = this.filterFT
 
-    public fun copy(serverFT: ConstPtr<MiServerFt> = this.serverFT, contextFT: ConstPtr<MiContextFt> = this.contextFT, instanceFT: ConstPtr<MiInstanceFt> = this.instanceFT, propertySetFT: ConstPtr<MiPropertySetFt> = this.propertySetFT, filterFT: ConstPtr<MiFilterFt> = this.filterFT): MiServer = MiServer(serverFTCtorArg = serverFT, contextFTCtorArg = contextFT, instanceFTCtorArg = instanceFT, propertySetFTCtorArg = propertySetFT, filterFTCtorArg = filterFT)
+    public fun copy(serverFT: ConstPtr = this.serverFT, contextFT: ConstPtr = this.contextFT, instanceFT: ConstPtr = this.instanceFT, propertySetFT: ConstPtr = this.propertySetFT, filterFT: ConstPtr = this.filterFT): MiServer = MiServer(serverFTCtorArg = serverFT, contextFTCtorArg = contextFT, instanceFTCtorArg = instanceFT, propertySetFTCtorArg = propertySetFT, filterFTCtorArg = filterFT)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -6531,55 +6530,55 @@ public class MiServer internal constructor(
                     MiServer(
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .constPtrLayout<MiServerFt>(64)
+                                .constPtrLayout(64)
                         ).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .constPtrLayout<MiContextFt>(64)
+                                .constPtrLayout(64)
                         ).readNative(addr + 8L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .constPtrLayout<MiInstanceFt>(64)
+                                .constPtrLayout(64)
                         ).readNative(addr + 16L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .constPtrLayout<MiPropertySetFt>(64)
+                                .constPtrLayout(64)
                         ).readNative(addr + 24L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .constPtrLayout<MiFilterFt>(64)
+                                .constPtrLayout(64)
                         ).readNative(addr + 32L),
                     )
                 override fun writeNative(addr: Long, value: MiServer) {
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .constPtrLayout<MiServerFt>(64)
+                            .constPtrLayout(64)
                     ).writeNative(addr, value.serverFT)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .constPtrLayout<MiContextFt>(64)
+                            .constPtrLayout(64)
                     ).writeNative(addr + 8L, value.contextFT)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .constPtrLayout<MiInstanceFt>(64)
+                            .constPtrLayout(64)
                     ).writeNative(addr + 16L, value.instanceFT)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .constPtrLayout<MiPropertySetFt>(64)
+                            .constPtrLayout(64)
                     ).writeNative(addr + 24L, value.propertySetFT)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .constPtrLayout<MiFilterFt>(64)
+                            .constPtrLayout(64)
                     ).writeNative(addr + 32L, value.filterFT)
                 }
             }
 
         public operator fun invoke(
-            serverFT: ConstPtr<MiServerFt> = ConstPtr(0L),
-            contextFT: ConstPtr<MiContextFt> = ConstPtr(0L),
-            instanceFT: ConstPtr<MiInstanceFt> = ConstPtr(0L),
-            propertySetFT: ConstPtr<MiPropertySetFt> = ConstPtr(0L),
-            filterFT: ConstPtr<MiFilterFt> = ConstPtr(0L),
+            serverFT: ConstPtr = ConstPtr(0L),
+            contextFT: ConstPtr = ConstPtr(0L),
+            instanceFT: ConstPtr = ConstPtr(0L),
+            propertySetFT: ConstPtr = ConstPtr(0L),
+            filterFT: ConstPtr = ConstPtr(0L),
         ): MiServer =
             MiServer(
                 serverFTCtorArg = serverFT,
@@ -6616,9 +6615,9 @@ public data class MiServerFt(
 public class MiSession internal constructor(
     public var reserved1: ULong,
     public var reserved2: Int,
-    ftCtorArg: ConstPtr<MiSessionFt>,
+    ftCtorArg: ConstPtr,
 ) {
-    public var ft: ConstPtr<MiSessionFt> = ftCtorArg
+    public var ft: ConstPtr = ftCtorArg
         internal set
 
     public constructor() : this(
@@ -6631,9 +6630,9 @@ public class MiSession internal constructor(
 
     public operator fun component2(): Int = this.reserved2
 
-    public operator fun component3(): ConstPtr<MiSessionFt> = this.ft
+    public operator fun component3(): ConstPtr = this.ft
 
-    public fun copy(reserved1: ULong = this.reserved1, reserved2: Int = this.reserved2, ft: ConstPtr<MiSessionFt> = this.ft): MiSession = MiSession(reserved1 = reserved1, reserved2 = reserved2, ftCtorArg = ft)
+    public fun copy(reserved1: ULong = this.reserved1, reserved2: Int = this.reserved2, ft: ConstPtr = this.ft): MiSession = MiSession(reserved1 = reserved1, reserved2 = reserved2, ftCtorArg = ft)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -6662,7 +6661,7 @@ public class MiSession internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.ISIZE64).readNative(addr + 8L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .constPtrLayout<MiSessionFt>(64)
+                                .constPtrLayout(64)
                         ).readNative(addr + 16L),
                     )
                 override fun writeNative(addr: Long, value: MiSession) {
@@ -6670,7 +6669,7 @@ public class MiSession internal constructor(
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.ISIZE64).writeNative(addr + 8L, value.reserved2)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .constPtrLayout<MiSessionFt>(64)
+                            .constPtrLayout(64)
                     ).writeNative(addr + 16L, value.ft)
                 }
             }
@@ -6678,7 +6677,7 @@ public class MiSession internal constructor(
         public operator fun invoke(
             reserved1: ULong = 0uL,
             reserved2: Int = 0,
-            ft: ConstPtr<MiSessionFt> = ConstPtr(0L),
+            ft: ConstPtr = ConstPtr(0L),
         ): MiSession =
             MiSession(
                 reserved1 = reserved1,
@@ -6689,11 +6688,11 @@ public class MiSession internal constructor(
 }
 
 public class MiSessionCallbacks internal constructor(
-    callbackContextCtorArg: MutPtr<CVoid>,
+    callbackContextCtorArg: MutPtr,
     public var writeMessage: Int,
     public var writeError: Int,
 ) {
-    public var callbackContext: MutPtr<CVoid> = callbackContextCtorArg
+    public var callbackContext: MutPtr = callbackContextCtorArg
         internal set
 
     public constructor() : this(
@@ -6702,13 +6701,13 @@ public class MiSessionCallbacks internal constructor(
         writeError = 0,
     )
 
-    public operator fun component1(): MutPtr<CVoid> = this.callbackContext
+    public operator fun component1(): MutPtr = this.callbackContext
 
     public operator fun component2(): Int = this.writeMessage
 
     public operator fun component3(): Int = this.writeError
 
-    public fun copy(callbackContext: MutPtr<CVoid> = this.callbackContext, writeMessage: Int = this.writeMessage, writeError: Int = this.writeError): MiSessionCallbacks = MiSessionCallbacks(callbackContextCtorArg = callbackContext, writeMessage = writeMessage, writeError = writeError)
+    public fun copy(callbackContext: MutPtr = this.callbackContext, writeMessage: Int = this.writeMessage, writeError: Int = this.writeError): MiSessionCallbacks = MiSessionCallbacks(callbackContextCtorArg = callbackContext, writeMessage = writeMessage, writeError = writeError)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -6735,7 +6734,7 @@ public class MiSessionCallbacks internal constructor(
                     MiSessionCallbacks(
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<CVoid>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.ISIZE64).readNative(addr + 8L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.ISIZE64).readNative(addr + 16L),
@@ -6743,7 +6742,7 @@ public class MiSessionCallbacks internal constructor(
                 override fun writeNative(addr: Long, value: MiSessionCallbacks) {
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<CVoid>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr, value.callbackContext)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.ISIZE64).writeNative(addr + 8L, value.writeMessage)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.ISIZE64).writeNative(addr + 16L, value.writeError)
@@ -6751,7 +6750,7 @@ public class MiSessionCallbacks internal constructor(
             }
 
         public operator fun invoke(
-            callbackContext: MutPtr<CVoid> = MutPtr(0L),
+            callbackContext: MutPtr = MutPtr(0L),
             writeMessage: Int = 0,
             writeError: Int = 0,
         ): MiSessionCallbacks =
@@ -6825,10 +6824,10 @@ public data class MiSessionFt(
 }
 
 public class MiSint16A internal constructor(
-    dataCtorArg: MutPtr<Short>,
+    dataCtorArg: MutPtr,
     public var size: UInt,
 ) {
-    public var data: MutPtr<Short> = dataCtorArg
+    public var data: MutPtr = dataCtorArg
         internal set
 
     public constructor() : this(
@@ -6836,11 +6835,11 @@ public class MiSint16A internal constructor(
         size = 0u,
     )
 
-    public operator fun component1(): MutPtr<Short> = this.data
+    public operator fun component1(): MutPtr = this.data
 
     public operator fun component2(): UInt = this.size
 
-    public fun copy(data: MutPtr<Short> = this.data, size: UInt = this.size): MiSint16A = MiSint16A(dataCtorArg = data, size = size)
+    public fun copy(data: MutPtr = this.data, size: UInt = this.size): MiSint16A = MiSint16A(dataCtorArg = data, size = size)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -6865,21 +6864,21 @@ public class MiSint16A internal constructor(
                     MiSint16A(
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<Short>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 8L),
                     )
                 override fun writeNative(addr: Long, value: MiSint16A) {
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<Short>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr, value.data)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 8L, value.size)
                 }
             }
 
         public operator fun invoke(
-            data: MutPtr<Short> = MutPtr(0L),
+            data: MutPtr = MutPtr(0L),
             size: UInt = 0u,
         ): MiSint16A =
             MiSint16A(
@@ -6940,10 +6939,10 @@ public data class MiSint16Field(
 }
 
 public class MiSint32A internal constructor(
-    dataCtorArg: MutPtr<Int>,
+    dataCtorArg: MutPtr,
     public var size: UInt,
 ) {
-    public var data: MutPtr<Int> = dataCtorArg
+    public var data: MutPtr = dataCtorArg
         internal set
 
     public constructor() : this(
@@ -6951,11 +6950,11 @@ public class MiSint32A internal constructor(
         size = 0u,
     )
 
-    public operator fun component1(): MutPtr<Int> = this.data
+    public operator fun component1(): MutPtr = this.data
 
     public operator fun component2(): UInt = this.size
 
-    public fun copy(data: MutPtr<Int> = this.data, size: UInt = this.size): MiSint32A = MiSint32A(dataCtorArg = data, size = size)
+    public fun copy(data: MutPtr = this.data, size: UInt = this.size): MiSint32A = MiSint32A(dataCtorArg = data, size = size)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -6980,21 +6979,21 @@ public class MiSint32A internal constructor(
                     MiSint32A(
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<Int>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 8L),
                     )
                 override fun writeNative(addr: Long, value: MiSint32A) {
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<Int>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr, value.data)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 8L, value.size)
                 }
             }
 
         public operator fun invoke(
-            data: MutPtr<Int> = MutPtr(0L),
+            data: MutPtr = MutPtr(0L),
             size: UInt = 0u,
         ): MiSint32A =
             MiSint32A(
@@ -7055,10 +7054,10 @@ public data class MiSint32Field(
 }
 
 public class MiSint64A internal constructor(
-    dataCtorArg: MutPtr<Long>,
+    dataCtorArg: MutPtr,
     public var size: UInt,
 ) {
-    public var data: MutPtr<Long> = dataCtorArg
+    public var data: MutPtr = dataCtorArg
         internal set
 
     public constructor() : this(
@@ -7066,11 +7065,11 @@ public class MiSint64A internal constructor(
         size = 0u,
     )
 
-    public operator fun component1(): MutPtr<Long> = this.data
+    public operator fun component1(): MutPtr = this.data
 
     public operator fun component2(): UInt = this.size
 
-    public fun copy(data: MutPtr<Long> = this.data, size: UInt = this.size): MiSint64A = MiSint64A(dataCtorArg = data, size = size)
+    public fun copy(data: MutPtr = this.data, size: UInt = this.size): MiSint64A = MiSint64A(dataCtorArg = data, size = size)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -7095,21 +7094,21 @@ public class MiSint64A internal constructor(
                     MiSint64A(
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<Long>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 8L),
                     )
                 override fun writeNative(addr: Long, value: MiSint64A) {
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<Long>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr, value.data)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 8L, value.size)
                 }
             }
 
         public operator fun invoke(
-            data: MutPtr<Long> = MutPtr(0L),
+            data: MutPtr = MutPtr(0L),
             size: UInt = 0u,
         ): MiSint64A =
             MiSint64A(
@@ -7170,10 +7169,10 @@ public data class MiSint64Field(
 }
 
 public class MiSint8A internal constructor(
-    dataCtorArg: MutPtr<Byte>,
+    dataCtorArg: MutPtr,
     public var size: UInt,
 ) {
-    public var data: MutPtr<Byte> = dataCtorArg
+    public var data: MutPtr = dataCtorArg
         internal set
 
     public constructor() : this(
@@ -7181,11 +7180,11 @@ public class MiSint8A internal constructor(
         size = 0u,
     )
 
-    public operator fun component1(): MutPtr<Byte> = this.data
+    public operator fun component1(): MutPtr = this.data
 
     public operator fun component2(): UInt = this.size
 
-    public fun copy(data: MutPtr<Byte> = this.data, size: UInt = this.size): MiSint8A = MiSint8A(dataCtorArg = data, size = size)
+    public fun copy(data: MutPtr = this.data, size: UInt = this.size): MiSint8A = MiSint8A(dataCtorArg = data, size = size)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -7210,21 +7209,21 @@ public class MiSint8A internal constructor(
                     MiSint8A(
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<Byte>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 8L),
                     )
                 override fun writeNative(addr: Long, value: MiSint8A) {
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<Byte>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr, value.data)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 8L, value.size)
                 }
             }
 
         public operator fun invoke(
-            data: MutPtr<Byte> = MutPtr(0L),
+            data: MutPtr = MutPtr(0L),
             size: UInt = 0u,
         ): MiSint8A =
             MiSint8A(
@@ -7285,10 +7284,10 @@ public data class MiSint8Field(
 }
 
 public class MiStringA internal constructor(
-    dataCtorArg: MutPtr<MutPtr<UShort>>,
+    dataCtorArg: MutPtr,
     public var size: UInt,
 ) {
-    public var data: MutPtr<MutPtr<UShort>> = dataCtorArg
+    public var data: MutPtr = dataCtorArg
         internal set
 
     public constructor() : this(
@@ -7296,11 +7295,11 @@ public class MiStringA internal constructor(
         size = 0u,
     )
 
-    public operator fun component1(): MutPtr<MutPtr<UShort>> = this.data
+    public operator fun component1(): MutPtr = this.data
 
     public operator fun component2(): UInt = this.size
 
-    public fun copy(data: MutPtr<MutPtr<UShort>> = this.data, size: UInt = this.size): MiStringA = MiStringA(dataCtorArg = data, size = size)
+    public fun copy(data: MutPtr = this.data, size: UInt = this.size): MiStringA = MiStringA(dataCtorArg = data, size = size)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -7325,21 +7324,21 @@ public class MiStringA internal constructor(
                     MiStringA(
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<MutPtr<UShort>>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 8L),
                     )
                 override fun writeNative(addr: Long, value: MiStringA) {
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<MutPtr<UShort>>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr, value.data)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 8L, value.size)
                 }
             }
 
         public operator fun invoke(
-            data: MutPtr<MutPtr<UShort>> = MutPtr(0L),
+            data: MutPtr = MutPtr(0L),
             size: UInt = 0u,
         ): MiStringA =
             MiStringA(
@@ -7375,11 +7374,11 @@ public data class MiStringAfield(
 }
 
 public class MiStringField internal constructor(
-    valueCtorArg: MutPtr<UShort>,
+    valueCtorArg: MutPtr,
     public var exists: UByte,
     public var flags: UByte,
 ) {
-    public var value: MutPtr<UShort> = valueCtorArg
+    public var value: MutPtr = valueCtorArg
         internal set
 
     public constructor() : this(
@@ -7388,13 +7387,13 @@ public class MiStringField internal constructor(
         flags = 0u,
     )
 
-    public operator fun component1(): MutPtr<UShort> = this.value
+    public operator fun component1(): MutPtr = this.value
 
     public operator fun component2(): UByte = this.exists
 
     public operator fun component3(): UByte = this.flags
 
-    public fun copy(value: MutPtr<UShort> = this.value, exists: UByte = this.exists, flags: UByte = this.flags): MiStringField = MiStringField(valueCtorArg = value, exists = exists, flags = flags)
+    public fun copy(value: MutPtr = this.value, exists: UByte = this.exists, flags: UByte = this.flags): MiStringField = MiStringField(valueCtorArg = value, exists = exists, flags = flags)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -7421,7 +7420,7 @@ public class MiStringField internal constructor(
                     MiStringField(
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<UShort>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8).readNative(addr + 8L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8).readNative(addr + 9L),
@@ -7429,7 +7428,7 @@ public class MiStringField internal constructor(
                 override fun writeNative(addr: Long, value: MiStringField) {
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<UShort>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr, value.value)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8).writeNative(addr + 8L, value.exists)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8).writeNative(addr + 9L, value.flags)
@@ -7437,7 +7436,7 @@ public class MiStringField internal constructor(
             }
 
         public operator fun invoke(
-            value: MutPtr<UShort> = MutPtr(0L),
+            value: MutPtr = MutPtr(0L),
             exists: UByte = 0u,
             flags: UByte = 0u,
         ): MiStringField =
@@ -7452,9 +7451,9 @@ public class MiStringField internal constructor(
 public class MiSubscriptionDeliveryOptions internal constructor(
     public var reserved1: ULong,
     public var reserved2: Int,
-    ftCtorArg: ConstPtr<MiSubscriptionDeliveryOptionsFt>,
+    ftCtorArg: ConstPtr,
 ) {
-    public var ft: ConstPtr<MiSubscriptionDeliveryOptionsFt> = ftCtorArg
+    public var ft: ConstPtr = ftCtorArg
         internal set
 
     public constructor() : this(
@@ -7467,9 +7466,9 @@ public class MiSubscriptionDeliveryOptions internal constructor(
 
     public operator fun component2(): Int = this.reserved2
 
-    public operator fun component3(): ConstPtr<MiSubscriptionDeliveryOptionsFt> = this.ft
+    public operator fun component3(): ConstPtr = this.ft
 
-    public fun copy(reserved1: ULong = this.reserved1, reserved2: Int = this.reserved2, ft: ConstPtr<MiSubscriptionDeliveryOptionsFt> = this.ft): MiSubscriptionDeliveryOptions = MiSubscriptionDeliveryOptions(reserved1 = reserved1, reserved2 = reserved2, ftCtorArg = ft)
+    public fun copy(reserved1: ULong = this.reserved1, reserved2: Int = this.reserved2, ft: ConstPtr = this.ft): MiSubscriptionDeliveryOptions = MiSubscriptionDeliveryOptions(reserved1 = reserved1, reserved2 = reserved2, ftCtorArg = ft)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -7498,7 +7497,7 @@ public class MiSubscriptionDeliveryOptions internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.ISIZE64).readNative(addr + 8L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .constPtrLayout<MiSubscriptionDeliveryOptionsFt>(64)
+                                .constPtrLayout(64)
                         ).readNative(addr + 16L),
                     )
                 override fun writeNative(addr: Long, value: MiSubscriptionDeliveryOptions) {
@@ -7506,7 +7505,7 @@ public class MiSubscriptionDeliveryOptions internal constructor(
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.ISIZE64).writeNative(addr + 8L, value.reserved2)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .constPtrLayout<MiSubscriptionDeliveryOptionsFt>(64)
+                            .constPtrLayout(64)
                     ).writeNative(addr + 16L, value.ft)
                 }
             }
@@ -7514,7 +7513,7 @@ public class MiSubscriptionDeliveryOptions internal constructor(
         public operator fun invoke(
             reserved1: ULong = 0uL,
             reserved2: Int = 0,
-            ft: ConstPtr<MiSubscriptionDeliveryOptionsFt> = ConstPtr(0L),
+            ft: ConstPtr = ConstPtr(0L),
         ): MiSubscriptionDeliveryOptions =
             MiSubscriptionDeliveryOptions(
                 reserved1 = reserved1,
@@ -7632,10 +7631,10 @@ public data class MiTimestamp(
 }
 
 public class MiUint16A internal constructor(
-    dataCtorArg: MutPtr<UShort>,
+    dataCtorArg: MutPtr,
     public var size: UInt,
 ) {
-    public var data: MutPtr<UShort> = dataCtorArg
+    public var data: MutPtr = dataCtorArg
         internal set
 
     public constructor() : this(
@@ -7643,11 +7642,11 @@ public class MiUint16A internal constructor(
         size = 0u,
     )
 
-    public operator fun component1(): MutPtr<UShort> = this.data
+    public operator fun component1(): MutPtr = this.data
 
     public operator fun component2(): UInt = this.size
 
-    public fun copy(data: MutPtr<UShort> = this.data, size: UInt = this.size): MiUint16A = MiUint16A(dataCtorArg = data, size = size)
+    public fun copy(data: MutPtr = this.data, size: UInt = this.size): MiUint16A = MiUint16A(dataCtorArg = data, size = size)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -7672,21 +7671,21 @@ public class MiUint16A internal constructor(
                     MiUint16A(
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<UShort>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 8L),
                     )
                 override fun writeNative(addr: Long, value: MiUint16A) {
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<UShort>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr, value.data)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 8L, value.size)
                 }
             }
 
         public operator fun invoke(
-            data: MutPtr<UShort> = MutPtr(0L),
+            data: MutPtr = MutPtr(0L),
             size: UInt = 0u,
         ): MiUint16A =
             MiUint16A(
@@ -7747,10 +7746,10 @@ public data class MiUint16Field(
 }
 
 public class MiUint32A internal constructor(
-    dataCtorArg: MutPtr<UInt>,
+    dataCtorArg: MutPtr,
     public var size: UInt,
 ) {
-    public var data: MutPtr<UInt> = dataCtorArg
+    public var data: MutPtr = dataCtorArg
         internal set
 
     public constructor() : this(
@@ -7758,11 +7757,11 @@ public class MiUint32A internal constructor(
         size = 0u,
     )
 
-    public operator fun component1(): MutPtr<UInt> = this.data
+    public operator fun component1(): MutPtr = this.data
 
     public operator fun component2(): UInt = this.size
 
-    public fun copy(data: MutPtr<UInt> = this.data, size: UInt = this.size): MiUint32A = MiUint32A(dataCtorArg = data, size = size)
+    public fun copy(data: MutPtr = this.data, size: UInt = this.size): MiUint32A = MiUint32A(dataCtorArg = data, size = size)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -7787,21 +7786,21 @@ public class MiUint32A internal constructor(
                     MiUint32A(
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<UInt>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 8L),
                     )
                 override fun writeNative(addr: Long, value: MiUint32A) {
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<UInt>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr, value.data)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 8L, value.size)
                 }
             }
 
         public operator fun invoke(
-            data: MutPtr<UInt> = MutPtr(0L),
+            data: MutPtr = MutPtr(0L),
             size: UInt = 0u,
         ): MiUint32A =
             MiUint32A(
@@ -7862,10 +7861,10 @@ public data class MiUint32Field(
 }
 
 public class MiUint64A internal constructor(
-    dataCtorArg: MutPtr<ULong>,
+    dataCtorArg: MutPtr,
     public var size: UInt,
 ) {
-    public var data: MutPtr<ULong> = dataCtorArg
+    public var data: MutPtr = dataCtorArg
         internal set
 
     public constructor() : this(
@@ -7873,11 +7872,11 @@ public class MiUint64A internal constructor(
         size = 0u,
     )
 
-    public operator fun component1(): MutPtr<ULong> = this.data
+    public operator fun component1(): MutPtr = this.data
 
     public operator fun component2(): UInt = this.size
 
-    public fun copy(data: MutPtr<ULong> = this.data, size: UInt = this.size): MiUint64A = MiUint64A(dataCtorArg = data, size = size)
+    public fun copy(data: MutPtr = this.data, size: UInt = this.size): MiUint64A = MiUint64A(dataCtorArg = data, size = size)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -7902,21 +7901,21 @@ public class MiUint64A internal constructor(
                     MiUint64A(
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<ULong>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 8L),
                     )
                 override fun writeNative(addr: Long, value: MiUint64A) {
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<ULong>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr, value.data)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 8L, value.size)
                 }
             }
 
         public operator fun invoke(
-            data: MutPtr<ULong> = MutPtr(0L),
+            data: MutPtr = MutPtr(0L),
             size: UInt = 0u,
         ): MiUint64A =
             MiUint64A(
@@ -7977,10 +7976,10 @@ public data class MiUint64Field(
 }
 
 public class MiUint8A internal constructor(
-    dataCtorArg: MutPtr<UByte>,
+    dataCtorArg: MutPtr,
     public var size: UInt,
 ) {
-    public var data: MutPtr<UByte> = dataCtorArg
+    public var data: MutPtr = dataCtorArg
         internal set
 
     public constructor() : this(
@@ -7988,11 +7987,11 @@ public class MiUint8A internal constructor(
         size = 0u,
     )
 
-    public operator fun component1(): MutPtr<UByte> = this.data
+    public operator fun component1(): MutPtr = this.data
 
     public operator fun component2(): UInt = this.size
 
-    public fun copy(data: MutPtr<UByte> = this.data, size: UInt = this.size): MiUint8A = MiUint8A(dataCtorArg = data, size = size)
+    public fun copy(data: MutPtr = this.data, size: UInt = this.size): MiUint8A = MiUint8A(dataCtorArg = data, size = size)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -8017,21 +8016,21 @@ public class MiUint8A internal constructor(
                     MiUint8A(
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<UByte>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 8L),
                     )
                 override fun writeNative(addr: Long, value: MiUint8A) {
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<UByte>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr, value.data)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 8L, value.size)
                 }
             }
 
         public operator fun invoke(
-            data: MutPtr<UByte> = MutPtr(0L),
+            data: MutPtr = MutPtr(0L),
             size: UInt = 0u,
         ): MiUint8A =
             MiUint8A(
@@ -8092,10 +8091,10 @@ public data class MiUint8Field(
 }
 
 public class MiUserCredentials internal constructor(
-    authenticationTypeCtorArg: ConstPtr<UShort>,
+    authenticationTypeCtorArg: ConstPtr,
     public var credentials: MiUserCredentials0,
 ) {
-    public var authenticationType: ConstPtr<UShort> = authenticationTypeCtorArg
+    public var authenticationType: ConstPtr = authenticationTypeCtorArg
         internal set
 
     public constructor() : this(
@@ -8103,11 +8102,11 @@ public class MiUserCredentials internal constructor(
         credentials = MiUserCredentials0(),
     )
 
-    public operator fun component1(): ConstPtr<UShort> = this.authenticationType
+    public operator fun component1(): ConstPtr = this.authenticationType
 
     public operator fun component2(): MiUserCredentials0 = this.credentials
 
-    public fun copy(authenticationType: ConstPtr<UShort> = this.authenticationType, credentials: MiUserCredentials0 = this.credentials): MiUserCredentials = MiUserCredentials(authenticationTypeCtorArg = authenticationType, credentials = credentials)
+    public fun copy(authenticationType: ConstPtr = this.authenticationType, credentials: MiUserCredentials0 = this.credentials): MiUserCredentials = MiUserCredentials(authenticationTypeCtorArg = authenticationType, credentials = credentials)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -8125,7 +8124,7 @@ public class MiUserCredentials internal constructor(
 
     public companion object {
         public operator fun invoke(
-            authenticationType: ConstPtr<UShort> = ConstPtr(0L),
+            authenticationType: ConstPtr = ConstPtr(0L),
             credentials: MiUserCredentials0 = MiUserCredentials0(),
         ): MiUserCredentials =
             MiUserCredentials(
@@ -8137,9 +8136,9 @@ public class MiUserCredentials internal constructor(
 
 public class MiUserCredentials0 internal constructor(
     public var usernamePassword: MiUsernamePasswordCreds,
-    certificateThumbprintCtorArg: ConstPtr<UShort>,
+    certificateThumbprintCtorArg: ConstPtr,
 ) {
-    public var certificateThumbprint: ConstPtr<UShort> = certificateThumbprintCtorArg
+    public var certificateThumbprint: ConstPtr = certificateThumbprintCtorArg
         internal set
 
     public constructor() : this(
@@ -8149,9 +8148,9 @@ public class MiUserCredentials0 internal constructor(
 
     public operator fun component1(): MiUsernamePasswordCreds = this.usernamePassword
 
-    public operator fun component2(): ConstPtr<UShort> = this.certificateThumbprint
+    public operator fun component2(): ConstPtr = this.certificateThumbprint
 
-    public fun copy(usernamePassword: MiUsernamePasswordCreds = this.usernamePassword, certificateThumbprint: ConstPtr<UShort> = this.certificateThumbprint): MiUserCredentials0 = MiUserCredentials0(usernamePassword = usernamePassword, certificateThumbprintCtorArg = certificateThumbprint)
+    public fun copy(usernamePassword: MiUsernamePasswordCreds = this.usernamePassword, certificateThumbprint: ConstPtr = this.certificateThumbprint): MiUserCredentials0 = MiUserCredentials0(usernamePassword = usernamePassword, certificateThumbprintCtorArg = certificateThumbprint)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -8170,7 +8169,7 @@ public class MiUserCredentials0 internal constructor(
     public companion object {
         public operator fun invoke(
             usernamePassword: MiUsernamePasswordCreds = MiUsernamePasswordCreds(),
-            certificateThumbprint: ConstPtr<UShort> = ConstPtr(0L),
+            certificateThumbprint: ConstPtr = ConstPtr(0L),
         ): MiUserCredentials0 =
             MiUserCredentials0(
                 usernamePassword = usernamePassword,
@@ -8180,17 +8179,17 @@ public class MiUserCredentials0 internal constructor(
 }
 
 public class MiUsernamePasswordCreds internal constructor(
-    domainCtorArg: ConstPtr<UShort>,
-    usernameCtorArg: ConstPtr<UShort>,
-    passwordCtorArg: ConstPtr<UShort>,
+    domainCtorArg: ConstPtr,
+    usernameCtorArg: ConstPtr,
+    passwordCtorArg: ConstPtr,
 ) {
-    public var domain: ConstPtr<UShort> = domainCtorArg
+    public var domain: ConstPtr = domainCtorArg
         internal set
 
-    public var username: ConstPtr<UShort> = usernameCtorArg
+    public var username: ConstPtr = usernameCtorArg
         internal set
 
-    public var password: ConstPtr<UShort> = passwordCtorArg
+    public var password: ConstPtr = passwordCtorArg
         internal set
 
     public constructor() : this(
@@ -8199,13 +8198,13 @@ public class MiUsernamePasswordCreds internal constructor(
         passwordCtorArg = ConstPtr(0L),
     )
 
-    public operator fun component1(): ConstPtr<UShort> = this.domain
+    public operator fun component1(): ConstPtr = this.domain
 
-    public operator fun component2(): ConstPtr<UShort> = this.username
+    public operator fun component2(): ConstPtr = this.username
 
-    public operator fun component3(): ConstPtr<UShort> = this.password
+    public operator fun component3(): ConstPtr = this.password
 
-    public fun copy(domain: ConstPtr<UShort> = this.domain, username: ConstPtr<UShort> = this.username, password: ConstPtr<UShort> = this.password): MiUsernamePasswordCreds = MiUsernamePasswordCreds(domainCtorArg = domain, usernameCtorArg = username, passwordCtorArg = password)
+    public fun copy(domain: ConstPtr = this.domain, username: ConstPtr = this.username, password: ConstPtr = this.password): MiUsernamePasswordCreds = MiUsernamePasswordCreds(domainCtorArg = domain, usernameCtorArg = username, passwordCtorArg = password)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -8232,37 +8231,37 @@ public class MiUsernamePasswordCreds internal constructor(
                     MiUsernamePasswordCreds(
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .constPtrLayout<UShort>(64)
+                                .constPtrLayout(64)
                         ).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .constPtrLayout<UShort>(64)
+                                .constPtrLayout(64)
                         ).readNative(addr + 8L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .constPtrLayout<UShort>(64)
+                                .constPtrLayout(64)
                         ).readNative(addr + 16L),
                     )
                 override fun writeNative(addr: Long, value: MiUsernamePasswordCreds) {
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .constPtrLayout<UShort>(64)
+                            .constPtrLayout(64)
                     ).writeNative(addr, value.domain)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .constPtrLayout<UShort>(64)
+                            .constPtrLayout(64)
                     ).writeNative(addr + 8L, value.username)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .constPtrLayout<UShort>(64)
+                            .constPtrLayout(64)
                     ).writeNative(addr + 16L, value.password)
                 }
             }
 
         public operator fun invoke(
-            domain: ConstPtr<UShort> = ConstPtr(0L),
-            username: ConstPtr<UShort> = ConstPtr(0L),
-            password: ConstPtr<UShort> = ConstPtr(0L),
+            domain: ConstPtr = ConstPtr(0L),
+            username: ConstPtr = ConstPtr(0L),
+            password: ConstPtr = ConstPtr(0L),
         ): MiUsernamePasswordCreds =
             MiUsernamePasswordCreds(
                 domainCtorArg = domain,
@@ -8308,9 +8307,9 @@ public class MiValue internal constructor(
     public var real64: Double,
     public var char16: UShort,
     public var datetime: MiDatetime,
-    stringCtorArg: MutPtr<UShort>,
-    instanceCtorArg: MutPtr<MiInstance>,
-    referenceCtorArg: MutPtr<MiInstance>,
+    stringCtorArg: MutPtr,
+    instanceCtorArg: MutPtr,
+    referenceCtorArg: MutPtr,
     public var booleana: MiBooleanA,
     public var uint8a: MiUint8A,
     public var sint8a: MiSint8A,
@@ -8329,13 +8328,13 @@ public class MiValue internal constructor(
     public var instancea: MiInstanceA,
     public var array: MiArray,
 ) {
-    public var string: MutPtr<UShort> = stringCtorArg
+    public var string: MutPtr = stringCtorArg
         internal set
 
-    public var instance: MutPtr<MiInstance> = instanceCtorArg
+    public var instance: MutPtr = instanceCtorArg
         internal set
 
-    public var reference: MutPtr<MiInstance> = referenceCtorArg
+    public var reference: MutPtr = referenceCtorArg
         internal set
 
     public constructor() : this(
@@ -8389,9 +8388,9 @@ public class MiValue internal constructor(
             real64: Double = 0.0,
             char16: UShort = 0u,
             datetime: MiDatetime = MiDatetime(),
-            string: MutPtr<UShort> = MutPtr(0L),
-            instance: MutPtr<MiInstance> = MutPtr(0L),
-            reference: MutPtr<MiInstance> = MutPtr(0L),
+            string: MutPtr = MutPtr(0L),
+            instance: MutPtr = MutPtr(0L),
+            reference: MutPtr = MutPtr(0L),
             booleana: MiBooleanA = MiBooleanA(),
             uint8a: MiUint8A = MiUint8A(),
             sint8a: MiSint8A = MiSint8A(),
@@ -8454,16 +8453,16 @@ public class SWbemAnalysisMatrix internal constructor(
     mPszPropertyCtorArg: Pcwstr,
     public var mUPropertyType: UInt,
     public var mUEntries: UInt,
-    mPValuesCtorArg: MutPtr<MutPtr<CVoid>>,
-    mPbTruthTableCtorArg: MutPtr<Bool>,
+    mPValuesCtorArg: MutPtr,
+    mPbTruthTableCtorArg: MutPtr,
 ) {
     public var mPszProperty: Pcwstr = mPszPropertyCtorArg
         internal set
 
-    public var mPValues: MutPtr<MutPtr<CVoid>> = mPValuesCtorArg
+    public var mPValues: MutPtr = mPValuesCtorArg
         internal set
 
-    public var mPbTruthTable: MutPtr<Bool> = mPbTruthTableCtorArg
+    public var mPbTruthTable: MutPtr = mPbTruthTableCtorArg
         internal set
 
     public constructor() : this(
@@ -8486,11 +8485,11 @@ public class SWbemAnalysisMatrix internal constructor(
 
     public operator fun component5(): UInt = this.mUEntries
 
-    public operator fun component6(): MutPtr<MutPtr<CVoid>> = this.mPValues
+    public operator fun component6(): MutPtr = this.mPValues
 
-    public operator fun component7(): MutPtr<Bool> = this.mPbTruthTable
+    public operator fun component7(): MutPtr = this.mPbTruthTable
 
-    public fun copy(mUVersion: UInt = this.mUVersion, mUMatrixType: UInt = this.mUMatrixType, mPszProperty: Pcwstr = this.mPszProperty, mUPropertyType: UInt = this.mUPropertyType, mUEntries: UInt = this.mUEntries, mPValues: MutPtr<MutPtr<CVoid>> = this.mPValues, mPbTruthTable: MutPtr<Bool> = this.mPbTruthTable): SWbemAnalysisMatrix = SWbemAnalysisMatrix(mUVersion = mUVersion, mUMatrixType = mUMatrixType, mPszPropertyCtorArg = mPszProperty, mUPropertyType = mUPropertyType, mUEntries = mUEntries, mPValuesCtorArg = mPValues, mPbTruthTableCtorArg = mPbTruthTable)
+    public fun copy(mUVersion: UInt = this.mUVersion, mUMatrixType: UInt = this.mUMatrixType, mPszProperty: Pcwstr = this.mPszProperty, mUPropertyType: UInt = this.mUPropertyType, mUEntries: UInt = this.mUEntries, mPValues: MutPtr = this.mPValues, mPbTruthTable: MutPtr = this.mPbTruthTable): SWbemAnalysisMatrix = SWbemAnalysisMatrix(mUVersion = mUVersion, mUMatrixType = mUMatrixType, mPszPropertyCtorArg = mPszProperty, mUPropertyType = mUPropertyType, mUEntries = mUEntries, mPValuesCtorArg = mPValues, mPbTruthTableCtorArg = mPbTruthTable)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -8523,8 +8522,8 @@ public class SWbemAnalysisMatrix internal constructor(
             mPszProperty: Pcwstr = ConstPtr(0L),
             mUPropertyType: UInt = 0u,
             mUEntries: UInt = 0u,
-            mPValues: MutPtr<MutPtr<CVoid>> = MutPtr(0L),
-            mPbTruthTable: MutPtr<Bool> = MutPtr(0L),
+            mPValues: MutPtr = MutPtr(0L),
+            mPbTruthTable: MutPtr = MutPtr(0L),
         ): SWbemAnalysisMatrix =
             SWbemAnalysisMatrix(
                 mUVersion = mUVersion,
@@ -8542,9 +8541,9 @@ public class SWbemAnalysisMatrixList internal constructor(
     public var mUVersion: UInt,
     public var mUMatrixType: UInt,
     public var mUNumMatrices: UInt,
-    mPMatricesCtorArg: MutPtr<SWbemAnalysisMatrix>,
+    mPMatricesCtorArg: MutPtr,
 ) {
-    public var mPMatrices: MutPtr<SWbemAnalysisMatrix> = mPMatricesCtorArg
+    public var mPMatrices: MutPtr = mPMatricesCtorArg
         internal set
 
     public constructor() : this(
@@ -8560,9 +8559,9 @@ public class SWbemAnalysisMatrixList internal constructor(
 
     public operator fun component3(): UInt = this.mUNumMatrices
 
-    public operator fun component4(): MutPtr<SWbemAnalysisMatrix> = this.mPMatrices
+    public operator fun component4(): MutPtr = this.mPMatrices
 
-    public fun copy(mUVersion: UInt = this.mUVersion, mUMatrixType: UInt = this.mUMatrixType, mUNumMatrices: UInt = this.mUNumMatrices, mPMatrices: MutPtr<SWbemAnalysisMatrix> = this.mPMatrices): SWbemAnalysisMatrixList = SWbemAnalysisMatrixList(mUVersion = mUVersion, mUMatrixType = mUMatrixType, mUNumMatrices = mUNumMatrices, mPMatricesCtorArg = mPMatrices)
+    public fun copy(mUVersion: UInt = this.mUVersion, mUMatrixType: UInt = this.mUMatrixType, mUNumMatrices: UInt = this.mUNumMatrices, mPMatrices: MutPtr = this.mPMatrices): SWbemAnalysisMatrixList = SWbemAnalysisMatrixList(mUVersion = mUVersion, mUMatrixType = mUMatrixType, mUNumMatrices = mUNumMatrices, mPMatricesCtorArg = mPMatrices)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -8594,7 +8593,7 @@ public class SWbemAnalysisMatrixList internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 8L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<SWbemAnalysisMatrix>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 16L),
                     )
                 override fun writeNative(addr: Long, value: SWbemAnalysisMatrixList) {
@@ -8603,7 +8602,7 @@ public class SWbemAnalysisMatrixList internal constructor(
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 8L, value.mUNumMatrices)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<SWbemAnalysisMatrix>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 16L, value.mPMatrices)
                 }
             }
@@ -8612,7 +8611,7 @@ public class SWbemAnalysisMatrixList internal constructor(
             mUVersion: UInt = 0u,
             mUMatrixType: UInt = 0u,
             mUNumMatrices: UInt = 0u,
-            mPMatrices: MutPtr<SWbemAnalysisMatrix> = MutPtr(0L),
+            mPMatrices: MutPtr = MutPtr(0L),
         ): SWbemAnalysisMatrixList =
             SWbemAnalysisMatrixList(
                 mUVersion = mUVersion,
@@ -8627,7 +8626,7 @@ public class SWbemAssocQueryInf internal constructor(
     public var mUVersion: UInt,
     public var mUAnalysisType: UInt,
     public var mUFeatureMask: UInt,
-    mPPathCtorArg: MutPtr<CVoid>,
+    mPPathCtorArg: MutPtr,
     mPszPathCtorArg: Pwstr,
     mPszQueryTextCtorArg: Pwstr,
     mPszResultClassCtorArg: Pwstr,
@@ -8637,7 +8636,7 @@ public class SWbemAssocQueryInf internal constructor(
     mPszRequiredQualifierCtorArg: Pwstr,
     mPszRequiredAssocQualifierCtorArg: Pwstr,
 ) {
-    public var mPPath: MutPtr<CVoid> = mPPathCtorArg
+    public var mPPath: MutPtr = mPPathCtorArg
         internal set
 
     public var mPszPath: Pwstr = mPszPathCtorArg
@@ -8685,7 +8684,7 @@ public class SWbemAssocQueryInf internal constructor(
 
     public operator fun component3(): UInt = this.mUFeatureMask
 
-    public operator fun component4(): MutPtr<CVoid> = this.mPPath
+    public operator fun component4(): MutPtr = this.mPPath
 
     public operator fun component5(): Pwstr = this.mPszPath
 
@@ -8703,7 +8702,7 @@ public class SWbemAssocQueryInf internal constructor(
 
     public operator fun component12(): Pwstr = this.mPszRequiredAssocQualifier
 
-    public fun copy(mUVersion: UInt = this.mUVersion, mUAnalysisType: UInt = this.mUAnalysisType, mUFeatureMask: UInt = this.mUFeatureMask, mPPath: MutPtr<CVoid> = this.mPPath, mPszPath: Pwstr = this.mPszPath, mPszQueryText: Pwstr = this.mPszQueryText, mPszResultClass: Pwstr = this.mPszResultClass, mPszAssocClass: Pwstr = this.mPszAssocClass, mPszRole: Pwstr = this.mPszRole, mPszResultRole: Pwstr = this.mPszResultRole, mPszRequiredQualifier: Pwstr = this.mPszRequiredQualifier, mPszRequiredAssocQualifier: Pwstr = this.mPszRequiredAssocQualifier): SWbemAssocQueryInf = SWbemAssocQueryInf(mUVersion = mUVersion, mUAnalysisType = mUAnalysisType, mUFeatureMask = mUFeatureMask, mPPathCtorArg = mPPath, mPszPathCtorArg = mPszPath, mPszQueryTextCtorArg = mPszQueryText, mPszResultClassCtorArg = mPszResultClass, mPszAssocClassCtorArg = mPszAssocClass, mPszRoleCtorArg = mPszRole, mPszResultRoleCtorArg = mPszResultRole, mPszRequiredQualifierCtorArg = mPszRequiredQualifier, mPszRequiredAssocQualifierCtorArg = mPszRequiredAssocQualifier)
+    public fun copy(mUVersion: UInt = this.mUVersion, mUAnalysisType: UInt = this.mUAnalysisType, mUFeatureMask: UInt = this.mUFeatureMask, mPPath: MutPtr = this.mPPath, mPszPath: Pwstr = this.mPszPath, mPszQueryText: Pwstr = this.mPszQueryText, mPszResultClass: Pwstr = this.mPszResultClass, mPszAssocClass: Pwstr = this.mPszAssocClass, mPszRole: Pwstr = this.mPszRole, mPszResultRole: Pwstr = this.mPszResultRole, mPszRequiredQualifier: Pwstr = this.mPszRequiredQualifier, mPszRequiredAssocQualifier: Pwstr = this.mPszRequiredAssocQualifier): SWbemAssocQueryInf = SWbemAssocQueryInf(mUVersion = mUVersion, mUAnalysisType = mUAnalysisType, mUFeatureMask = mUFeatureMask, mPPathCtorArg = mPPath, mPszPathCtorArg = mPszPath, mPszQueryTextCtorArg = mPszQueryText, mPszResultClassCtorArg = mPszResultClass, mPszAssocClassCtorArg = mPszAssocClass, mPszRoleCtorArg = mPszRole, mPszResultRoleCtorArg = mPszResultRole, mPszRequiredQualifierCtorArg = mPszRequiredQualifier, mPszRequiredAssocQualifierCtorArg = mPszRequiredAssocQualifier)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -8744,7 +8743,7 @@ public class SWbemAssocQueryInf internal constructor(
             mUVersion: UInt = 0u,
             mUAnalysisType: UInt = 0u,
             mUFeatureMask: UInt = 0u,
-            mPPath: MutPtr<CVoid> = MutPtr(0L),
+            mPPath: MutPtr = MutPtr(0L),
             mPszPath: Pwstr = MutPtr(0L),
             mPszQueryText: Pwstr = MutPtr(0L),
             mPszResultClass: Pwstr = MutPtr(0L),
@@ -8775,18 +8774,18 @@ public class SWbemQueryQualifiedName internal constructor(
     public var mUVersion: UInt,
     public var mUTokenType: UInt,
     public var mUNameListSize: UInt,
-    mPpszNameListCtorArg: ConstPtr<Pcwstr>,
+    mPpszNameListCtorArg: ConstPtr,
     public var mBArraysUsed: Bool,
-    mPbArrayElUsedCtorArg: MutPtr<Bool>,
-    mPuArrayIndexCtorArg: MutPtr<UInt>,
+    mPbArrayElUsedCtorArg: MutPtr,
+    mPuArrayIndexCtorArg: MutPtr,
 ) {
-    public var mPpszNameList: ConstPtr<Pcwstr> = mPpszNameListCtorArg
+    public var mPpszNameList: ConstPtr = mPpszNameListCtorArg
         internal set
 
-    public var mPbArrayElUsed: MutPtr<Bool> = mPbArrayElUsedCtorArg
+    public var mPbArrayElUsed: MutPtr = mPbArrayElUsedCtorArg
         internal set
 
-    public var mPuArrayIndex: MutPtr<UInt> = mPuArrayIndexCtorArg
+    public var mPuArrayIndex: MutPtr = mPuArrayIndexCtorArg
         internal set
 
     public constructor() : this(
@@ -8805,15 +8804,15 @@ public class SWbemQueryQualifiedName internal constructor(
 
     public operator fun component3(): UInt = this.mUNameListSize
 
-    public operator fun component4(): ConstPtr<Pcwstr> = this.mPpszNameList
+    public operator fun component4(): ConstPtr = this.mPpszNameList
 
     public operator fun component5(): Bool = this.mBArraysUsed
 
-    public operator fun component6(): MutPtr<Bool> = this.mPbArrayElUsed
+    public operator fun component6(): MutPtr = this.mPbArrayElUsed
 
-    public operator fun component7(): MutPtr<UInt> = this.mPuArrayIndex
+    public operator fun component7(): MutPtr = this.mPuArrayIndex
 
-    public fun copy(mUVersion: UInt = this.mUVersion, mUTokenType: UInt = this.mUTokenType, mUNameListSize: UInt = this.mUNameListSize, mPpszNameList: ConstPtr<Pcwstr> = this.mPpszNameList, mBArraysUsed: Bool = this.mBArraysUsed, mPbArrayElUsed: MutPtr<Bool> = this.mPbArrayElUsed, mPuArrayIndex: MutPtr<UInt> = this.mPuArrayIndex): SWbemQueryQualifiedName = SWbemQueryQualifiedName(mUVersion = mUVersion, mUTokenType = mUTokenType, mUNameListSize = mUNameListSize, mPpszNameListCtorArg = mPpszNameList, mBArraysUsed = mBArraysUsed, mPbArrayElUsedCtorArg = mPbArrayElUsed, mPuArrayIndexCtorArg = mPuArrayIndex)
+    public fun copy(mUVersion: UInt = this.mUVersion, mUTokenType: UInt = this.mUTokenType, mUNameListSize: UInt = this.mUNameListSize, mPpszNameList: ConstPtr = this.mPpszNameList, mBArraysUsed: Bool = this.mBArraysUsed, mPbArrayElUsed: MutPtr = this.mPbArrayElUsed, mPuArrayIndex: MutPtr = this.mPuArrayIndex): SWbemQueryQualifiedName = SWbemQueryQualifiedName(mUVersion = mUVersion, mUTokenType = mUTokenType, mUNameListSize = mUNameListSize, mPpszNameListCtorArg = mPpszNameList, mBArraysUsed = mBArraysUsed, mPbArrayElUsedCtorArg = mPbArrayElUsed, mPuArrayIndexCtorArg = mPuArrayIndex)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -8851,16 +8850,16 @@ public class SWbemQueryQualifiedName internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 8L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .constPtrLayout<Pcwstr>(64)
+                                .constPtrLayout(64)
                         ).readNative(addr + 16L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr + 24L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<Bool>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 32L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<UInt>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 40L),
                     )
                 override fun writeNative(addr: Long, value: SWbemQueryQualifiedName) {
@@ -8869,16 +8868,16 @@ public class SWbemQueryQualifiedName internal constructor(
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 8L, value.mUNameListSize)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .constPtrLayout<Pcwstr>(64)
+                            .constPtrLayout(64)
                     ).writeNative(addr + 16L, value.mPpszNameList)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr + 24L, value.mBArraysUsed)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<Bool>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 32L, value.mPbArrayElUsed)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<UInt>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 40L, value.mPuArrayIndex)
                 }
             }
@@ -8887,10 +8886,10 @@ public class SWbemQueryQualifiedName internal constructor(
             mUVersion: UInt = 0u,
             mUTokenType: UInt = 0u,
             mUNameListSize: UInt = 0u,
-            mPpszNameList: ConstPtr<Pcwstr> = ConstPtr(0L),
+            mPpszNameList: ConstPtr = ConstPtr(0L),
             mBArraysUsed: Bool = 0,
-            mPbArrayElUsed: MutPtr<Bool> = MutPtr(0L),
-            mPuArrayIndex: MutPtr<UInt> = MutPtr(0L),
+            mPbArrayElUsed: MutPtr = MutPtr(0L),
+            mPuArrayIndex: MutPtr = MutPtr(0L),
         ): SWbemQueryQualifiedName =
             SWbemQueryQualifiedName(
                 mUVersion = mUVersion,
@@ -8993,40 +8992,40 @@ public class SWbemRpnEncodedQuery internal constructor(
     public var mUTokenType: UInt,
     public var mUParsedFeatureMask: ULong,
     public var mUDetectedArraySize: UInt,
-    mPuDetectedFeaturesCtorArg: MutPtr<UInt>,
+    mPuDetectedFeaturesCtorArg: MutPtr,
     public var mUSelectListSize: UInt,
-    mPpSelectListCtorArg: MutPtr<MutPtr<SWbemQueryQualifiedName>>,
+    mPpSelectListCtorArg: MutPtr,
     public var mUFromTargetType: UInt,
     mPszOptionalFromPathCtorArg: Pcwstr,
     public var mUFromListSize: UInt,
-    mPpszFromListCtorArg: ConstPtr<Pcwstr>,
+    mPpszFromListCtorArg: ConstPtr,
     public var mUWhereClauseSize: UInt,
-    mPpRpnWhereClauseCtorArg: MutPtr<MutPtr<SWbemRpnQueryToken>>,
+    mPpRpnWhereClauseCtorArg: MutPtr,
     public var mDblWithinPolling: Double,
     public var mDblWithinWindow: Double,
     public var mUOrderByListSize: UInt,
-    mPpszOrderByListCtorArg: ConstPtr<Pcwstr>,
-    mUOrderDirectionElCtorArg: MutPtr<UInt>,
+    mPpszOrderByListCtorArg: ConstPtr,
+    mUOrderDirectionElCtorArg: MutPtr,
 ) {
-    public var mPuDetectedFeatures: MutPtr<UInt> = mPuDetectedFeaturesCtorArg
+    public var mPuDetectedFeatures: MutPtr = mPuDetectedFeaturesCtorArg
         internal set
 
-    public var mPpSelectList: MutPtr<MutPtr<SWbemQueryQualifiedName>> = mPpSelectListCtorArg
+    public var mPpSelectList: MutPtr = mPpSelectListCtorArg
         internal set
 
     public var mPszOptionalFromPath: Pcwstr = mPszOptionalFromPathCtorArg
         internal set
 
-    public var mPpszFromList: ConstPtr<Pcwstr> = mPpszFromListCtorArg
+    public var mPpszFromList: ConstPtr = mPpszFromListCtorArg
         internal set
 
-    public var mPpRpnWhereClause: MutPtr<MutPtr<SWbemRpnQueryToken>> = mPpRpnWhereClauseCtorArg
+    public var mPpRpnWhereClause: MutPtr = mPpRpnWhereClauseCtorArg
         internal set
 
-    public var mPpszOrderByList: ConstPtr<Pcwstr> = mPpszOrderByListCtorArg
+    public var mPpszOrderByList: ConstPtr = mPpszOrderByListCtorArg
         internal set
 
-    public var mUOrderDirectionEl: MutPtr<UInt> = mUOrderDirectionElCtorArg
+    public var mUOrderDirectionEl: MutPtr = mUOrderDirectionElCtorArg
         internal set
 
     public constructor() : this(
@@ -9056,20 +9055,20 @@ public class SWbemRpnEncodedQuery internal constructor(
             mUTokenType: UInt = 0u,
             mUParsedFeatureMask: ULong = 0uL,
             mUDetectedArraySize: UInt = 0u,
-            mPuDetectedFeatures: MutPtr<UInt> = MutPtr(0L),
+            mPuDetectedFeatures: MutPtr = MutPtr(0L),
             mUSelectListSize: UInt = 0u,
-            mPpSelectList: MutPtr<MutPtr<SWbemQueryQualifiedName>> = MutPtr(0L),
+            mPpSelectList: MutPtr = MutPtr(0L),
             mUFromTargetType: UInt = 0u,
             mPszOptionalFromPath: Pcwstr = ConstPtr(0L),
             mUFromListSize: UInt = 0u,
-            mPpszFromList: ConstPtr<Pcwstr> = ConstPtr(0L),
+            mPpszFromList: ConstPtr = ConstPtr(0L),
             mUWhereClauseSize: UInt = 0u,
-            mPpRpnWhereClause: MutPtr<MutPtr<SWbemRpnQueryToken>> = MutPtr(0L),
+            mPpRpnWhereClause: MutPtr = MutPtr(0L),
             mDblWithinPolling: Double = 0.0,
             mDblWithinWindow: Double = 0.0,
             mUOrderByListSize: UInt = 0u,
-            mPpszOrderByList: ConstPtr<Pcwstr> = ConstPtr(0L),
-            mUOrderDirectionEl: MutPtr<UInt> = MutPtr(0L),
+            mPpszOrderByList: ConstPtr = ConstPtr(0L),
+            mUOrderDirectionEl: MutPtr = MutPtr(0L),
         ): SWbemRpnEncodedQuery =
             SWbemRpnEncodedQuery(
                 mUVersion = mUVersion,
@@ -9099,8 +9098,8 @@ public class SWbemRpnQueryToken internal constructor(
     public var mUTokenType: UInt,
     public var mUSubexpressionShape: UInt,
     public var mUOperator: UInt,
-    mPRightIdentCtorArg: MutPtr<SWbemQueryQualifiedName>,
-    mPLeftIdentCtorArg: MutPtr<SWbemQueryQualifiedName>,
+    mPRightIdentCtorArg: MutPtr,
+    mPLeftIdentCtorArg: MutPtr,
     public var mUConstApparentType: UInt,
     public var mConst: SWbemRpnConst,
     public var mUConst2ApparentType: UInt,
@@ -9108,10 +9107,10 @@ public class SWbemRpnQueryToken internal constructor(
     mPszRightFuncCtorArg: Pcwstr,
     mPszLeftFuncCtorArg: Pcwstr,
 ) {
-    public var mPRightIdent: MutPtr<SWbemQueryQualifiedName> = mPRightIdentCtorArg
+    public var mPRightIdent: MutPtr = mPRightIdentCtorArg
         internal set
 
-    public var mPLeftIdent: MutPtr<SWbemQueryQualifiedName> = mPLeftIdentCtorArg
+    public var mPLeftIdent: MutPtr = mPLeftIdentCtorArg
         internal set
 
     public var mPszRightFunc: Pcwstr = mPszRightFuncCtorArg
@@ -9143,9 +9142,9 @@ public class SWbemRpnQueryToken internal constructor(
 
     public operator fun component4(): UInt = this.mUOperator
 
-    public operator fun component5(): MutPtr<SWbemQueryQualifiedName> = this.mPRightIdent
+    public operator fun component5(): MutPtr = this.mPRightIdent
 
-    public operator fun component6(): MutPtr<SWbemQueryQualifiedName> = this.mPLeftIdent
+    public operator fun component6(): MutPtr = this.mPLeftIdent
 
     public operator fun component7(): UInt = this.mUConstApparentType
 
@@ -9159,7 +9158,7 @@ public class SWbemRpnQueryToken internal constructor(
 
     public operator fun component12(): Pcwstr = this.mPszLeftFunc
 
-    public fun copy(mUVersion: UInt = this.mUVersion, mUTokenType: UInt = this.mUTokenType, mUSubexpressionShape: UInt = this.mUSubexpressionShape, mUOperator: UInt = this.mUOperator, mPRightIdent: MutPtr<SWbemQueryQualifiedName> = this.mPRightIdent, mPLeftIdent: MutPtr<SWbemQueryQualifiedName> = this.mPLeftIdent, mUConstApparentType: UInt = this.mUConstApparentType, mConst: SWbemRpnConst = this.mConst, mUConst2ApparentType: UInt = this.mUConst2ApparentType, mConst2: SWbemRpnConst = this.mConst2, mPszRightFunc: Pcwstr = this.mPszRightFunc, mPszLeftFunc: Pcwstr = this.mPszLeftFunc): SWbemRpnQueryToken = SWbemRpnQueryToken(mUVersion = mUVersion, mUTokenType = mUTokenType, mUSubexpressionShape = mUSubexpressionShape, mUOperator = mUOperator, mPRightIdentCtorArg = mPRightIdent, mPLeftIdentCtorArg = mPLeftIdent, mUConstApparentType = mUConstApparentType, mConst = mConst, mUConst2ApparentType = mUConst2ApparentType, mConst2 = mConst2, mPszRightFuncCtorArg = mPszRightFunc, mPszLeftFuncCtorArg = mPszLeftFunc)
+    public fun copy(mUVersion: UInt = this.mUVersion, mUTokenType: UInt = this.mUTokenType, mUSubexpressionShape: UInt = this.mUSubexpressionShape, mUOperator: UInt = this.mUOperator, mPRightIdent: MutPtr = this.mPRightIdent, mPLeftIdent: MutPtr = this.mPLeftIdent, mUConstApparentType: UInt = this.mUConstApparentType, mConst: SWbemRpnConst = this.mConst, mUConst2ApparentType: UInt = this.mUConst2ApparentType, mConst2: SWbemRpnConst = this.mConst2, mPszRightFunc: Pcwstr = this.mPszRightFunc, mPszLeftFunc: Pcwstr = this.mPszLeftFunc): SWbemRpnQueryToken = SWbemRpnQueryToken(mUVersion = mUVersion, mUTokenType = mUTokenType, mUSubexpressionShape = mUSubexpressionShape, mUOperator = mUOperator, mPRightIdentCtorArg = mPRightIdent, mPLeftIdentCtorArg = mPLeftIdent, mUConstApparentType = mUConstApparentType, mConst = mConst, mUConst2ApparentType = mUConst2ApparentType, mConst2 = mConst2, mPszRightFuncCtorArg = mPszRightFunc, mPszLeftFuncCtorArg = mPszLeftFunc)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -9201,8 +9200,8 @@ public class SWbemRpnQueryToken internal constructor(
             mUTokenType: UInt = 0u,
             mUSubexpressionShape: UInt = 0u,
             mUOperator: UInt = 0u,
-            mPRightIdent: MutPtr<SWbemQueryQualifiedName> = MutPtr(0L),
-            mPLeftIdent: MutPtr<SWbemQueryQualifiedName> = MutPtr(0L),
+            mPRightIdent: MutPtr = MutPtr(0L),
+            mPLeftIdent: MutPtr = MutPtr(0L),
             mUConstApparentType: UInt = 0u,
             mConst: SWbemRpnConst = SWbemRpnConst(),
             mUConst2ApparentType: UInt = 0u,

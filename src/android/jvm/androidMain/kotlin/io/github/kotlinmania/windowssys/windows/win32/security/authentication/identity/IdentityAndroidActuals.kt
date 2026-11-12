@@ -2,29 +2,19 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.security.authentication.identity
 
-import io.github.kotlinmania.rustlang.core.ffi.CVoid
 import io.github.kotlinmania.rustlang.core.ptr.ConstPtr
 import io.github.kotlinmania.rustlang.core.ptr.MutPtr
 import io.github.kotlinmania.windowssys.core.Bool
-import io.github.kotlinmania.windowssys.core.Guid
 import io.github.kotlinmania.windowssys.core.Hresult
 import io.github.kotlinmania.windowssys.core.Pcstr
 import io.github.kotlinmania.windowssys.core.Pcwstr
 import io.github.kotlinmania.windowssys.core.Pstr
 import io.github.kotlinmania.windowssys.core.Pwstr
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Handle
-import io.github.kotlinmania.windowssys.windows.win32.foundation.Luid
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Ntstatus
-import io.github.kotlinmania.windowssys.windows.win32.security.Acl
 import io.github.kotlinmania.windowssys.windows.win32.security.ObjectSecurityInformation
 import io.github.kotlinmania.windowssys.windows.win32.security.PsecurityDescriptor
 import io.github.kotlinmania.windowssys.windows.win32.security.Psid
-import io.github.kotlinmania.windowssys.windows.win32.security.QuotaLimits
-import io.github.kotlinmania.windowssys.windows.win32.security.TokenGroups
-import io.github.kotlinmania.windowssys.windows.win32.security.TokenSource
-import io.github.kotlinmania.windowssys.windows.win32.security.credentials.CredentialTargetInformationw
-import io.github.kotlinmania.windowssys.windows.win32.security.credentials.SecHandle
-import io.github.kotlinmania.windowssys.windows.win32.security.cryptography.CertContext
 import io.github.kotlinmania.windowssys.windows.win32.security.cryptography.CryptIntegerBlob
 
 private object WindowsWin32SecurityAuthenticationIdentityJniBridge {
@@ -675,116 +665,116 @@ private object WindowsWin32SecurityAuthenticationIdentityJniBridge {
     external fun windowssysWindowsWin32SecurityAuthenticationIdentityVerifySignature(phcontext: Long, pmessage: Long, messageseqno: Int, pfqop: Long): Int
 }
 
-public actual fun acceptSecurityContext(phcredential: ConstPtr<SecHandle>, phcontext: ConstPtr<SecHandle>, pinput: ConstPtr<SecBufferDesc>, fcontextreq: AscReqFlags, targetdatarep: UInt, phnewcontext: MutPtr<SecHandle>, poutput: MutPtr<SecBufferDesc>, pfcontextattr: MutPtr<UInt>, ptsexpiry: MutPtr<Long>): Hresult =
+public actual fun acceptSecurityContext(phcredential: ConstPtr, phcontext: ConstPtr, pinput: ConstPtr, fcontextreq: AscReqFlags, targetdatarep: UInt, phnewcontext: MutPtr, poutput: MutPtr, pfcontextattr: MutPtr, ptsexpiry: MutPtr): Hresult =
     WindowsWin32SecurityAuthenticationIdentityJniBridge.windowssysWindowsWin32SecurityAuthenticationIdentityAcceptSecurityContext(phcredential.rawAddress, phcontext.rawAddress, pinput.rawAddress, fcontextreq.toInt(), targetdatarep.toInt(), phnewcontext.rawAddress, poutput.rawAddress, pfcontextattr.rawAddress, ptsexpiry.rawAddress)
 
-public actual fun acquireCredentialsHandleA(pszprincipal: Pcstr, pszpackage: Pcstr, fcredentialuse: SecpkgCred, pvlogonid: ConstPtr<CVoid>, pauthdata: ConstPtr<CVoid>, pgetkeyfn: SecGetKeyFn, pvgetkeyargument: ConstPtr<CVoid>, phcredential: MutPtr<SecHandle>, ptsexpiry: MutPtr<Long>): Hresult =
+public actual fun acquireCredentialsHandleA(pszprincipal: Pcstr, pszpackage: Pcstr, fcredentialuse: SecpkgCred, pvlogonid: ConstPtr, pauthdata: ConstPtr, pgetkeyfn: SecGetKeyFn, pvgetkeyargument: ConstPtr, phcredential: MutPtr, ptsexpiry: MutPtr): Hresult =
     WindowsWin32SecurityAuthenticationIdentityJniBridge.windowssysWindowsWin32SecurityAuthenticationIdentityAcquireCredentialsHandleA(pszprincipal.rawAddress, pszpackage.rawAddress, fcredentialuse.toInt(), pvlogonid.rawAddress, pauthdata.rawAddress, 0L, pvgetkeyargument.rawAddress, phcredential.rawAddress, ptsexpiry.rawAddress)
 
-public actual fun acquireCredentialsHandleW(pszprincipal: Pcwstr, pszpackage: Pcwstr, fcredentialuse: SecpkgCred, pvlogonid: ConstPtr<CVoid>, pauthdata: ConstPtr<CVoid>, pgetkeyfn: SecGetKeyFn, pvgetkeyargument: ConstPtr<CVoid>, phcredential: MutPtr<SecHandle>, ptsexpiry: MutPtr<Long>): Hresult =
+public actual fun acquireCredentialsHandleW(pszprincipal: Pcwstr, pszpackage: Pcwstr, fcredentialuse: SecpkgCred, pvlogonid: ConstPtr, pauthdata: ConstPtr, pgetkeyfn: SecGetKeyFn, pvgetkeyargument: ConstPtr, phcredential: MutPtr, ptsexpiry: MutPtr): Hresult =
     WindowsWin32SecurityAuthenticationIdentityJniBridge.windowssysWindowsWin32SecurityAuthenticationIdentityAcquireCredentialsHandleW(pszprincipal.rawAddress, pszpackage.rawAddress, fcredentialuse.toInt(), pvlogonid.rawAddress, pauthdata.rawAddress, 0L, pvgetkeyargument.rawAddress, phcredential.rawAddress, ptsexpiry.rawAddress)
 
-public actual fun addCredentialsA(hcredentials: ConstPtr<SecHandle>, pszprincipal: Pcstr, pszpackage: Pcstr, fcredentialuse: UInt, pauthdata: ConstPtr<CVoid>, pgetkeyfn: SecGetKeyFn, pvgetkeyargument: ConstPtr<CVoid>, ptsexpiry: MutPtr<Long>): Hresult =
+public actual fun addCredentialsA(hcredentials: ConstPtr, pszprincipal: Pcstr, pszpackage: Pcstr, fcredentialuse: UInt, pauthdata: ConstPtr, pgetkeyfn: SecGetKeyFn, pvgetkeyargument: ConstPtr, ptsexpiry: MutPtr): Hresult =
     WindowsWin32SecurityAuthenticationIdentityJniBridge.windowssysWindowsWin32SecurityAuthenticationIdentityAddCredentialsA(hcredentials.rawAddress, pszprincipal.rawAddress, pszpackage.rawAddress, fcredentialuse.toInt(), pauthdata.rawAddress, 0L, pvgetkeyargument.rawAddress, ptsexpiry.rawAddress)
 
-public actual fun addCredentialsW(hcredentials: ConstPtr<SecHandle>, pszprincipal: Pcwstr, pszpackage: Pcwstr, fcredentialuse: UInt, pauthdata: ConstPtr<CVoid>, pgetkeyfn: SecGetKeyFn, pvgetkeyargument: ConstPtr<CVoid>, ptsexpiry: MutPtr<Long>): Hresult =
+public actual fun addCredentialsW(hcredentials: ConstPtr, pszprincipal: Pcwstr, pszpackage: Pcwstr, fcredentialuse: UInt, pauthdata: ConstPtr, pgetkeyfn: SecGetKeyFn, pvgetkeyargument: ConstPtr, ptsexpiry: MutPtr): Hresult =
     WindowsWin32SecurityAuthenticationIdentityJniBridge.windowssysWindowsWin32SecurityAuthenticationIdentityAddCredentialsW(hcredentials.rawAddress, pszprincipal.rawAddress, pszpackage.rawAddress, fcredentialuse.toInt(), pauthdata.rawAddress, 0L, pvgetkeyargument.rawAddress, ptsexpiry.rawAddress)
 
-public actual fun addSecurityPackageA(pszpackagename: Pcstr, poptions: ConstPtr<SecurityPackageOptions>): Hresult =
+public actual fun addSecurityPackageA(pszpackagename: Pcstr, poptions: ConstPtr): Hresult =
     WindowsWin32SecurityAuthenticationIdentityJniBridge.windowssysWindowsWin32SecurityAuthenticationIdentityAddSecurityPackageA(pszpackagename.rawAddress, poptions.rawAddress)
 
-public actual fun addSecurityPackageW(pszpackagename: Pcwstr, poptions: ConstPtr<SecurityPackageOptions>): Hresult =
+public actual fun addSecurityPackageW(pszpackagename: Pcwstr, poptions: ConstPtr): Hresult =
     WindowsWin32SecurityAuthenticationIdentityJniBridge.windowssysWindowsWin32SecurityAuthenticationIdentityAddSecurityPackageW(pszpackagename.rawAddress, poptions.rawAddress)
 
-public actual fun applyControlToken(phcontext: ConstPtr<SecHandle>, pinput: ConstPtr<SecBufferDesc>): Hresult =
+public actual fun applyControlToken(phcontext: ConstPtr, pinput: ConstPtr): Hresult =
     WindowsWin32SecurityAuthenticationIdentityJniBridge.windowssysWindowsWin32SecurityAuthenticationIdentityApplyControlToken(phcontext.rawAddress, pinput.rawAddress)
 
-public actual fun auditComputeEffectivePolicyBySid(psid: Psid, psubcategoryguids: ConstPtr<Guid>, dwpolicycount: UInt, ppauditpolicy: MutPtr<MutPtr<AuditPolicyInformation>>): Boolean =
+public actual fun auditComputeEffectivePolicyBySid(psid: Psid, psubcategoryguids: ConstPtr, dwpolicycount: UInt, ppauditpolicy: MutPtr): Boolean =
     WindowsWin32SecurityAuthenticationIdentityJniBridge.windowssysWindowsWin32SecurityAuthenticationIdentityAuditComputeEffectivePolicyBySid(psid.rawAddress, psubcategoryguids.rawAddress, dwpolicycount.toInt(), ppauditpolicy.rawAddress)
 
-public actual fun auditComputeEffectivePolicyByToken(htokenhandle: Handle, psubcategoryguids: ConstPtr<Guid>, dwpolicycount: UInt, ppauditpolicy: MutPtr<MutPtr<AuditPolicyInformation>>): Boolean =
+public actual fun auditComputeEffectivePolicyByToken(htokenhandle: Handle, psubcategoryguids: ConstPtr, dwpolicycount: UInt, ppauditpolicy: MutPtr): Boolean =
     WindowsWin32SecurityAuthenticationIdentityJniBridge.windowssysWindowsWin32SecurityAuthenticationIdentityAuditComputeEffectivePolicyByToken(htokenhandle.rawAddress, psubcategoryguids.rawAddress, dwpolicycount.toInt(), ppauditpolicy.rawAddress)
 
-public actual fun auditEnumerateCategories(ppauditcategoriesarray: MutPtr<MutPtr<Guid>>, pdwcountreturned: MutPtr<UInt>): Boolean =
+public actual fun auditEnumerateCategories(ppauditcategoriesarray: MutPtr, pdwcountreturned: MutPtr): Boolean =
     WindowsWin32SecurityAuthenticationIdentityJniBridge.windowssysWindowsWin32SecurityAuthenticationIdentityAuditEnumerateCategories(ppauditcategoriesarray.rawAddress, pdwcountreturned.rawAddress)
 
-public actual fun auditEnumeratePerUserPolicy(ppauditsidarray: MutPtr<MutPtr<PolicyAuditSidArray>>): Boolean =
+public actual fun auditEnumeratePerUserPolicy(ppauditsidarray: MutPtr): Boolean =
     WindowsWin32SecurityAuthenticationIdentityJniBridge.windowssysWindowsWin32SecurityAuthenticationIdentityAuditEnumeratePerUserPolicy(ppauditsidarray.rawAddress)
 
-public actual fun auditEnumerateSubCategories(pauditcategoryguid: ConstPtr<Guid>, bretrieveallsubcategories: Boolean, ppauditsubcategoriesarray: MutPtr<MutPtr<Guid>>, pdwcountreturned: MutPtr<UInt>): Boolean =
+public actual fun auditEnumerateSubCategories(pauditcategoryguid: ConstPtr, bretrieveallsubcategories: Boolean, ppauditsubcategoriesarray: MutPtr, pdwcountreturned: MutPtr): Boolean =
     WindowsWin32SecurityAuthenticationIdentityJniBridge.windowssysWindowsWin32SecurityAuthenticationIdentityAuditEnumerateSubCategories(pauditcategoryguid.rawAddress, bretrieveallsubcategories, ppauditsubcategoriesarray.rawAddress, pdwcountreturned.rawAddress)
 
-public actual fun auditFree(buffer: ConstPtr<CVoid>) {
+public actual fun auditFree(buffer: ConstPtr) {
     WindowsWin32SecurityAuthenticationIdentityJniBridge.windowssysWindowsWin32SecurityAuthenticationIdentityAuditFree(buffer.rawAddress)
 }
 
-public actual fun auditLookupCategoryGuidFromCategoryId(auditcategoryid: PolicyAuditEventType, pauditcategoryguid: MutPtr<Guid>): Boolean =
+public actual fun auditLookupCategoryGuidFromCategoryId(auditcategoryid: PolicyAuditEventType, pauditcategoryguid: MutPtr): Boolean =
     WindowsWin32SecurityAuthenticationIdentityJniBridge.windowssysWindowsWin32SecurityAuthenticationIdentityAuditLookupCategoryGuidFromCategoryId(auditcategoryid, pauditcategoryguid.rawAddress)
 
-public actual fun auditLookupCategoryIdFromCategoryGuid(pauditcategoryguid: ConstPtr<Guid>, pauditcategoryid: MutPtr<PolicyAuditEventType>): Boolean =
+public actual fun auditLookupCategoryIdFromCategoryGuid(pauditcategoryguid: ConstPtr, pauditcategoryid: MutPtr): Boolean =
     WindowsWin32SecurityAuthenticationIdentityJniBridge.windowssysWindowsWin32SecurityAuthenticationIdentityAuditLookupCategoryIdFromCategoryGuid(pauditcategoryguid.rawAddress, pauditcategoryid.rawAddress)
 
-public actual fun auditLookupCategoryNameA(pauditcategoryguid: ConstPtr<Guid>, ppszcategoryname: MutPtr<Pstr>): Boolean =
+public actual fun auditLookupCategoryNameA(pauditcategoryguid: ConstPtr, ppszcategoryname: MutPtr): Boolean =
     WindowsWin32SecurityAuthenticationIdentityJniBridge.windowssysWindowsWin32SecurityAuthenticationIdentityAuditLookupCategoryNameA(pauditcategoryguid.rawAddress, ppszcategoryname.rawAddress)
 
-public actual fun auditLookupCategoryNameW(pauditcategoryguid: ConstPtr<Guid>, ppszcategoryname: MutPtr<Pwstr>): Boolean =
+public actual fun auditLookupCategoryNameW(pauditcategoryguid: ConstPtr, ppszcategoryname: MutPtr): Boolean =
     WindowsWin32SecurityAuthenticationIdentityJniBridge.windowssysWindowsWin32SecurityAuthenticationIdentityAuditLookupCategoryNameW(pauditcategoryguid.rawAddress, ppszcategoryname.rawAddress)
 
-public actual fun auditLookupSubCategoryNameA(pauditsubcategoryguid: ConstPtr<Guid>, ppszsubcategoryname: MutPtr<Pstr>): Boolean =
+public actual fun auditLookupSubCategoryNameA(pauditsubcategoryguid: ConstPtr, ppszsubcategoryname: MutPtr): Boolean =
     WindowsWin32SecurityAuthenticationIdentityJniBridge.windowssysWindowsWin32SecurityAuthenticationIdentityAuditLookupSubCategoryNameA(pauditsubcategoryguid.rawAddress, ppszsubcategoryname.rawAddress)
 
-public actual fun auditLookupSubCategoryNameW(pauditsubcategoryguid: ConstPtr<Guid>, ppszsubcategoryname: MutPtr<Pwstr>): Boolean =
+public actual fun auditLookupSubCategoryNameW(pauditsubcategoryguid: ConstPtr, ppszsubcategoryname: MutPtr): Boolean =
     WindowsWin32SecurityAuthenticationIdentityJniBridge.windowssysWindowsWin32SecurityAuthenticationIdentityAuditLookupSubCategoryNameW(pauditsubcategoryguid.rawAddress, ppszsubcategoryname.rawAddress)
 
-public actual fun auditQueryGlobalSaclA(objecttypename: Pcstr, acl: MutPtr<MutPtr<Acl>>): Boolean =
+public actual fun auditQueryGlobalSaclA(objecttypename: Pcstr, acl: MutPtr): Boolean =
     WindowsWin32SecurityAuthenticationIdentityJniBridge.windowssysWindowsWin32SecurityAuthenticationIdentityAuditQueryGlobalSaclA(objecttypename.rawAddress, acl.rawAddress)
 
-public actual fun auditQueryGlobalSaclW(objecttypename: Pcwstr, acl: MutPtr<MutPtr<Acl>>): Boolean =
+public actual fun auditQueryGlobalSaclW(objecttypename: Pcwstr, acl: MutPtr): Boolean =
     WindowsWin32SecurityAuthenticationIdentityJniBridge.windowssysWindowsWin32SecurityAuthenticationIdentityAuditQueryGlobalSaclW(objecttypename.rawAddress, acl.rawAddress)
 
-public actual fun auditQueryPerUserPolicy(psid: Psid, psubcategoryguids: ConstPtr<Guid>, dwpolicycount: UInt, ppauditpolicy: MutPtr<MutPtr<AuditPolicyInformation>>): Boolean =
+public actual fun auditQueryPerUserPolicy(psid: Psid, psubcategoryguids: ConstPtr, dwpolicycount: UInt, ppauditpolicy: MutPtr): Boolean =
     WindowsWin32SecurityAuthenticationIdentityJniBridge.windowssysWindowsWin32SecurityAuthenticationIdentityAuditQueryPerUserPolicy(psid.rawAddress, psubcategoryguids.rawAddress, dwpolicycount.toInt(), ppauditpolicy.rawAddress)
 
-public actual fun auditQuerySecurity(securityinformation: ObjectSecurityInformation, ppsecuritydescriptor: MutPtr<PsecurityDescriptor>): Boolean =
+public actual fun auditQuerySecurity(securityinformation: ObjectSecurityInformation, ppsecuritydescriptor: MutPtr): Boolean =
     WindowsWin32SecurityAuthenticationIdentityJniBridge.windowssysWindowsWin32SecurityAuthenticationIdentityAuditQuerySecurity(securityinformation.toInt(), ppsecuritydescriptor.rawAddress)
 
-public actual fun auditQuerySystemPolicy(psubcategoryguids: ConstPtr<Guid>, dwpolicycount: UInt, ppauditpolicy: MutPtr<MutPtr<AuditPolicyInformation>>): Boolean =
+public actual fun auditQuerySystemPolicy(psubcategoryguids: ConstPtr, dwpolicycount: UInt, ppauditpolicy: MutPtr): Boolean =
     WindowsWin32SecurityAuthenticationIdentityJniBridge.windowssysWindowsWin32SecurityAuthenticationIdentityAuditQuerySystemPolicy(psubcategoryguids.rawAddress, dwpolicycount.toInt(), ppauditpolicy.rawAddress)
 
-public actual fun auditSetGlobalSaclA(objecttypename: Pcstr, acl: ConstPtr<Acl>): Boolean =
+public actual fun auditSetGlobalSaclA(objecttypename: Pcstr, acl: ConstPtr): Boolean =
     WindowsWin32SecurityAuthenticationIdentityJniBridge.windowssysWindowsWin32SecurityAuthenticationIdentityAuditSetGlobalSaclA(objecttypename.rawAddress, acl.rawAddress)
 
-public actual fun auditSetGlobalSaclW(objecttypename: Pcwstr, acl: ConstPtr<Acl>): Boolean =
+public actual fun auditSetGlobalSaclW(objecttypename: Pcwstr, acl: ConstPtr): Boolean =
     WindowsWin32SecurityAuthenticationIdentityJniBridge.windowssysWindowsWin32SecurityAuthenticationIdentityAuditSetGlobalSaclW(objecttypename.rawAddress, acl.rawAddress)
 
-public actual fun auditSetPerUserPolicy(psid: Psid, pauditpolicy: ConstPtr<AuditPolicyInformation>, dwpolicycount: UInt): Boolean =
+public actual fun auditSetPerUserPolicy(psid: Psid, pauditpolicy: ConstPtr, dwpolicycount: UInt): Boolean =
     WindowsWin32SecurityAuthenticationIdentityJniBridge.windowssysWindowsWin32SecurityAuthenticationIdentityAuditSetPerUserPolicy(psid.rawAddress, pauditpolicy.rawAddress, dwpolicycount.toInt())
 
 public actual fun auditSetSecurity(securityinformation: ObjectSecurityInformation, psecuritydescriptor: PsecurityDescriptor): Boolean =
     WindowsWin32SecurityAuthenticationIdentityJniBridge.windowssysWindowsWin32SecurityAuthenticationIdentityAuditSetSecurity(securityinformation.toInt(), psecuritydescriptor.rawAddress)
 
-public actual fun auditSetSystemPolicy(pauditpolicy: ConstPtr<AuditPolicyInformation>, dwpolicycount: UInt): Boolean =
+public actual fun auditSetSystemPolicy(pauditpolicy: ConstPtr, dwpolicycount: UInt): Boolean =
     WindowsWin32SecurityAuthenticationIdentityJniBridge.windowssysWindowsWin32SecurityAuthenticationIdentityAuditSetSystemPolicy(pauditpolicy.rawAddress, dwpolicycount.toInt())
 
-public actual fun changeAccountPasswordA(pszpackagename: ConstPtr<Byte>, pszdomainname: ConstPtr<Byte>, pszaccountname: ConstPtr<Byte>, pszoldpassword: ConstPtr<Byte>, psznewpassword: ConstPtr<Byte>, bimpersonating: Boolean, dwreserved: UInt, poutput: MutPtr<SecBufferDesc>): Hresult =
+public actual fun changeAccountPasswordA(pszpackagename: ConstPtr, pszdomainname: ConstPtr, pszaccountname: ConstPtr, pszoldpassword: ConstPtr, psznewpassword: ConstPtr, bimpersonating: Boolean, dwreserved: UInt, poutput: MutPtr): Hresult =
     WindowsWin32SecurityAuthenticationIdentityJniBridge.windowssysWindowsWin32SecurityAuthenticationIdentityChangeAccountPasswordA(pszpackagename.rawAddress, pszdomainname.rawAddress, pszaccountname.rawAddress, pszoldpassword.rawAddress, psznewpassword.rawAddress, bimpersonating, dwreserved.toInt(), poutput.rawAddress)
 
-public actual fun changeAccountPasswordW(pszpackagename: ConstPtr<UShort>, pszdomainname: ConstPtr<UShort>, pszaccountname: ConstPtr<UShort>, pszoldpassword: ConstPtr<UShort>, psznewpassword: ConstPtr<UShort>, bimpersonating: Boolean, dwreserved: UInt, poutput: MutPtr<SecBufferDesc>): Hresult =
+public actual fun changeAccountPasswordW(pszpackagename: ConstPtr, pszdomainname: ConstPtr, pszaccountname: ConstPtr, pszoldpassword: ConstPtr, psznewpassword: ConstPtr, bimpersonating: Boolean, dwreserved: UInt, poutput: MutPtr): Hresult =
     WindowsWin32SecurityAuthenticationIdentityJniBridge.windowssysWindowsWin32SecurityAuthenticationIdentityChangeAccountPasswordW(pszpackagename.rawAddress, pszdomainname.rawAddress, pszaccountname.rawAddress, pszoldpassword.rawAddress, psznewpassword.rawAddress, bimpersonating, dwreserved.toInt(), poutput.rawAddress)
 
-public actual fun completeAuthToken(phcontext: ConstPtr<SecHandle>, ptoken: ConstPtr<SecBufferDesc>): Hresult =
+public actual fun completeAuthToken(phcontext: ConstPtr, ptoken: ConstPtr): Hresult =
     WindowsWin32SecurityAuthenticationIdentityJniBridge.windowssysWindowsWin32SecurityAuthenticationIdentityCompleteAuthToken(phcontext.rawAddress, ptoken.rawAddress)
 
-public actual fun credMarshalTargetInfo(intargetinfo: ConstPtr<CredentialTargetInformationw>, buffer: MutPtr<MutPtr<UShort>>, buffersize: MutPtr<UInt>): Ntstatus =
+public actual fun credMarshalTargetInfo(intargetinfo: ConstPtr, buffer: MutPtr, buffersize: MutPtr): Ntstatus =
     WindowsWin32SecurityAuthenticationIdentityJniBridge.windowssysWindowsWin32SecurityAuthenticationIdentityCredMarshalTargetInfo(intargetinfo.rawAddress, buffer.rawAddress, buffersize.rawAddress)
 
-public actual fun credUnmarshalTargetInfo(buffer: ConstPtr<UShort>, buffersize: UInt, rettargetinfo: MutPtr<MutPtr<CredentialTargetInformationw>>, retactualsize: MutPtr<UInt>): Ntstatus =
+public actual fun credUnmarshalTargetInfo(buffer: ConstPtr, buffersize: UInt, rettargetinfo: MutPtr, retactualsize: MutPtr): Ntstatus =
     WindowsWin32SecurityAuthenticationIdentityJniBridge.windowssysWindowsWin32SecurityAuthenticationIdentityCredUnmarshalTargetInfo(buffer.rawAddress, buffersize.toInt(), rettargetinfo.rawAddress, retactualsize.rawAddress)
 
-public actual fun decryptMessage(phcontext: ConstPtr<SecHandle>, pmessage: ConstPtr<SecBufferDesc>, messageseqno: UInt, pfqop: MutPtr<UInt>): Hresult =
+public actual fun decryptMessage(phcontext: ConstPtr, pmessage: ConstPtr, messageseqno: UInt, pfqop: MutPtr): Hresult =
     WindowsWin32SecurityAuthenticationIdentityJniBridge.windowssysWindowsWin32SecurityAuthenticationIdentityDecryptMessage(phcontext.rawAddress, pmessage.rawAddress, messageseqno.toInt(), pfqop.rawAddress)
 
-public actual fun deleteSecurityContext(phcontext: ConstPtr<SecHandle>): Hresult =
+public actual fun deleteSecurityContext(phcontext: ConstPtr): Hresult =
     WindowsWin32SecurityAuthenticationIdentityJniBridge.windowssysWindowsWin32SecurityAuthenticationIdentityDeleteSecurityContext(phcontext.rawAddress)
 
 public actual fun deleteSecurityPackageA(pszpackagename: Pcstr): Hresult =
@@ -793,70 +783,70 @@ public actual fun deleteSecurityPackageA(pszpackagename: Pcstr): Hresult =
 public actual fun deleteSecurityPackageW(pszpackagename: Pcwstr): Hresult =
     WindowsWin32SecurityAuthenticationIdentityJniBridge.windowssysWindowsWin32SecurityAuthenticationIdentityDeleteSecurityPackageW(pszpackagename.rawAddress)
 
-public actual fun encryptMessage(phcontext: ConstPtr<SecHandle>, fqop: UInt, pmessage: ConstPtr<SecBufferDesc>, messageseqno: UInt): Hresult =
+public actual fun encryptMessage(phcontext: ConstPtr, fqop: UInt, pmessage: ConstPtr, messageseqno: UInt): Hresult =
     WindowsWin32SecurityAuthenticationIdentityJniBridge.windowssysWindowsWin32SecurityAuthenticationIdentityEncryptMessage(phcontext.rawAddress, fqop.toInt(), pmessage.rawAddress, messageseqno.toInt())
 
-public actual fun enumerateSecurityPackagesA(pcpackages: MutPtr<UInt>, pppackageinfo: MutPtr<MutPtr<SecPkgInfoA>>): Hresult =
+public actual fun enumerateSecurityPackagesA(pcpackages: MutPtr, pppackageinfo: MutPtr): Hresult =
     WindowsWin32SecurityAuthenticationIdentityJniBridge.windowssysWindowsWin32SecurityAuthenticationIdentityEnumerateSecurityPackagesA(pcpackages.rawAddress, pppackageinfo.rawAddress)
 
-public actual fun enumerateSecurityPackagesW(pcpackages: MutPtr<UInt>, pppackageinfo: MutPtr<MutPtr<SecPkgInfoW>>): Hresult =
+public actual fun enumerateSecurityPackagesW(pcpackages: MutPtr, pppackageinfo: MutPtr): Hresult =
     WindowsWin32SecurityAuthenticationIdentityJniBridge.windowssysWindowsWin32SecurityAuthenticationIdentityEnumerateSecurityPackagesW(pcpackages.rawAddress, pppackageinfo.rawAddress)
 
-public actual fun exportSecurityContext(phcontext: ConstPtr<SecHandle>, fflags: ExportSecurityContextFlags, ppackedcontext: MutPtr<SecBuffer>, ptoken: MutPtr<MutPtr<CVoid>>): Hresult =
+public actual fun exportSecurityContext(phcontext: ConstPtr, fflags: ExportSecurityContextFlags, ppackedcontext: MutPtr, ptoken: MutPtr): Hresult =
     WindowsWin32SecurityAuthenticationIdentityJniBridge.windowssysWindowsWin32SecurityAuthenticationIdentityExportSecurityContext(phcontext.rawAddress, fflags.toInt(), ppackedcontext.rawAddress, ptoken.rawAddress)
 
-public actual fun freeContextBuffer(pvcontextbuffer: MutPtr<CVoid>): Hresult =
+public actual fun freeContextBuffer(pvcontextbuffer: MutPtr): Hresult =
     WindowsWin32SecurityAuthenticationIdentityJniBridge.windowssysWindowsWin32SecurityAuthenticationIdentityFreeContextBuffer(pvcontextbuffer.rawAddress)
 
-public actual fun freeCredentialsHandle(phcredential: ConstPtr<SecHandle>): Hresult =
+public actual fun freeCredentialsHandle(phcredential: ConstPtr): Hresult =
     WindowsWin32SecurityAuthenticationIdentityJniBridge.windowssysWindowsWin32SecurityAuthenticationIdentityFreeCredentialsHandle(phcredential.rawAddress)
 
-public actual fun getComputerObjectNameA(nameformat: ExtendedNameFormat, lpnamebuffer: Pstr, nsize: MutPtr<UInt>): Boolean =
+public actual fun getComputerObjectNameA(nameformat: ExtendedNameFormat, lpnamebuffer: Pstr, nsize: MutPtr): Boolean =
     WindowsWin32SecurityAuthenticationIdentityJniBridge.windowssysWindowsWin32SecurityAuthenticationIdentityGetComputerObjectNameA(nameformat, lpnamebuffer.rawAddress, nsize.rawAddress)
 
-public actual fun getComputerObjectNameW(nameformat: ExtendedNameFormat, lpnamebuffer: Pwstr, nsize: MutPtr<UInt>): Boolean =
+public actual fun getComputerObjectNameW(nameformat: ExtendedNameFormat, lpnamebuffer: Pwstr, nsize: MutPtr): Boolean =
     WindowsWin32SecurityAuthenticationIdentityJniBridge.windowssysWindowsWin32SecurityAuthenticationIdentityGetComputerObjectNameW(nameformat, lpnamebuffer.rawAddress, nsize.rawAddress)
 
-public actual fun getUserNameExA(nameformat: ExtendedNameFormat, lpnamebuffer: Pstr, nsize: MutPtr<UInt>): Boolean =
+public actual fun getUserNameExA(nameformat: ExtendedNameFormat, lpnamebuffer: Pstr, nsize: MutPtr): Boolean =
     WindowsWin32SecurityAuthenticationIdentityJniBridge.windowssysWindowsWin32SecurityAuthenticationIdentityGetUserNameExA(nameformat, lpnamebuffer.rawAddress, nsize.rawAddress)
 
-public actual fun getUserNameExW(nameformat: ExtendedNameFormat, lpnamebuffer: Pwstr, nsize: MutPtr<UInt>): Boolean =
+public actual fun getUserNameExW(nameformat: ExtendedNameFormat, lpnamebuffer: Pwstr, nsize: MutPtr): Boolean =
     WindowsWin32SecurityAuthenticationIdentityJniBridge.windowssysWindowsWin32SecurityAuthenticationIdentityGetUserNameExW(nameformat, lpnamebuffer.rawAddress, nsize.rawAddress)
 
-public actual fun impersonateSecurityContext(phcontext: ConstPtr<SecHandle>): Hresult =
+public actual fun impersonateSecurityContext(phcontext: ConstPtr): Hresult =
     WindowsWin32SecurityAuthenticationIdentityJniBridge.windowssysWindowsWin32SecurityAuthenticationIdentityImpersonateSecurityContext(phcontext.rawAddress)
 
-public actual fun importSecurityContextA(pszpackage: Pcstr, ppackedcontext: ConstPtr<SecBuffer>, token: ConstPtr<CVoid>, phcontext: MutPtr<SecHandle>): Hresult =
+public actual fun importSecurityContextA(pszpackage: Pcstr, ppackedcontext: ConstPtr, token: ConstPtr, phcontext: MutPtr): Hresult =
     WindowsWin32SecurityAuthenticationIdentityJniBridge.windowssysWindowsWin32SecurityAuthenticationIdentityImportSecurityContextA(pszpackage.rawAddress, ppackedcontext.rawAddress, token.rawAddress, phcontext.rawAddress)
 
-public actual fun importSecurityContextW(pszpackage: Pcwstr, ppackedcontext: ConstPtr<SecBuffer>, token: ConstPtr<CVoid>, phcontext: MutPtr<SecHandle>): Hresult =
+public actual fun importSecurityContextW(pszpackage: Pcwstr, ppackedcontext: ConstPtr, token: ConstPtr, phcontext: MutPtr): Hresult =
     WindowsWin32SecurityAuthenticationIdentityJniBridge.windowssysWindowsWin32SecurityAuthenticationIdentityImportSecurityContextW(pszpackage.rawAddress, ppackedcontext.rawAddress, token.rawAddress, phcontext.rawAddress)
 
-public actual fun initSecurityInterfaceA(): MutPtr<SecurityFunctionTableA> =
+public actual fun initSecurityInterfaceA(): MutPtr =
     MutPtr(WindowsWin32SecurityAuthenticationIdentityJniBridge.windowssysWindowsWin32SecurityAuthenticationIdentityInitSecurityInterfaceA())
 
-public actual fun initSecurityInterfaceW(): MutPtr<SecurityFunctionTableW> =
+public actual fun initSecurityInterfaceW(): MutPtr =
     MutPtr(WindowsWin32SecurityAuthenticationIdentityJniBridge.windowssysWindowsWin32SecurityAuthenticationIdentityInitSecurityInterfaceW())
 
-public actual fun initializeSecurityContextA(phcredential: ConstPtr<SecHandle>, phcontext: ConstPtr<SecHandle>, psztargetname: ConstPtr<Byte>, fcontextreq: IscReqFlags, reserved1: UInt, targetdatarep: UInt, pinput: ConstPtr<SecBufferDesc>, reserved2: UInt, phnewcontext: MutPtr<SecHandle>, poutput: MutPtr<SecBufferDesc>, pfcontextattr: MutPtr<UInt>, ptsexpiry: MutPtr<Long>): Hresult =
+public actual fun initializeSecurityContextA(phcredential: ConstPtr, phcontext: ConstPtr, psztargetname: ConstPtr, fcontextreq: IscReqFlags, reserved1: UInt, targetdatarep: UInt, pinput: ConstPtr, reserved2: UInt, phnewcontext: MutPtr, poutput: MutPtr, pfcontextattr: MutPtr, ptsexpiry: MutPtr): Hresult =
     WindowsWin32SecurityAuthenticationIdentityJniBridge.windowssysWindowsWin32SecurityAuthenticationIdentityInitializeSecurityContextA(phcredential.rawAddress, phcontext.rawAddress, psztargetname.rawAddress, fcontextreq.toInt(), reserved1.toInt(), targetdatarep.toInt(), pinput.rawAddress, reserved2.toInt(), phnewcontext.rawAddress, poutput.rawAddress, pfcontextattr.rawAddress, ptsexpiry.rawAddress)
 
-public actual fun initializeSecurityContextW(phcredential: ConstPtr<SecHandle>, phcontext: ConstPtr<SecHandle>, psztargetname: ConstPtr<UShort>, fcontextreq: IscReqFlags, reserved1: UInt, targetdatarep: UInt, pinput: ConstPtr<SecBufferDesc>, reserved2: UInt, phnewcontext: MutPtr<SecHandle>, poutput: MutPtr<SecBufferDesc>, pfcontextattr: MutPtr<UInt>, ptsexpiry: MutPtr<Long>): Hresult =
+public actual fun initializeSecurityContextW(phcredential: ConstPtr, phcontext: ConstPtr, psztargetname: ConstPtr, fcontextreq: IscReqFlags, reserved1: UInt, targetdatarep: UInt, pinput: ConstPtr, reserved2: UInt, phnewcontext: MutPtr, poutput: MutPtr, pfcontextattr: MutPtr, ptsexpiry: MutPtr): Hresult =
     WindowsWin32SecurityAuthenticationIdentityJniBridge.windowssysWindowsWin32SecurityAuthenticationIdentityInitializeSecurityContextW(phcredential.rawAddress, phcontext.rawAddress, psztargetname.rawAddress, fcontextreq.toInt(), reserved1.toInt(), targetdatarep.toInt(), pinput.rawAddress, reserved2.toInt(), phnewcontext.rawAddress, poutput.rawAddress, pfcontextattr.rawAddress, ptsexpiry.rawAddress)
 
-public actual fun lsaAddAccountRights(policyhandle: LsaHandle, accountsid: Psid, userrights: ConstPtr<LsaUnicodeString>, countofrights: UInt): Ntstatus =
+public actual fun lsaAddAccountRights(policyhandle: LsaHandle, accountsid: Psid, userrights: ConstPtr, countofrights: UInt): Ntstatus =
     WindowsWin32SecurityAuthenticationIdentityJniBridge.windowssysWindowsWin32SecurityAuthenticationIdentityLsaAddAccountRights(policyhandle, accountsid.rawAddress, userrights.rawAddress, countofrights.toInt())
 
-public actual fun lsaCallAuthenticationPackage(lsahandle: Handle, authenticationpackage: UInt, protocolsubmitbuffer: ConstPtr<CVoid>, submitbufferlength: UInt, protocolreturnbuffer: MutPtr<MutPtr<CVoid>>, returnbufferlength: MutPtr<UInt>, protocolstatus: MutPtr<Int>): Ntstatus =
+public actual fun lsaCallAuthenticationPackage(lsahandle: Handle, authenticationpackage: UInt, protocolsubmitbuffer: ConstPtr, submitbufferlength: UInt, protocolreturnbuffer: MutPtr, returnbufferlength: MutPtr, protocolstatus: MutPtr): Ntstatus =
     WindowsWin32SecurityAuthenticationIdentityJniBridge.windowssysWindowsWin32SecurityAuthenticationIdentityLsaCallAuthenticationPackage(lsahandle.rawAddress, authenticationpackage.toInt(), protocolsubmitbuffer.rawAddress, submitbufferlength.toInt(), protocolreturnbuffer.rawAddress, returnbufferlength.rawAddress, protocolstatus.rawAddress)
 
 public actual fun lsaClose(objecthandle: LsaHandle): Ntstatus =
     WindowsWin32SecurityAuthenticationIdentityJniBridge.windowssysWindowsWin32SecurityAuthenticationIdentityLsaClose(objecthandle)
 
-public actual fun lsaConnectUntrusted(lsahandle: MutPtr<Handle>): Ntstatus =
+public actual fun lsaConnectUntrusted(lsahandle: MutPtr): Ntstatus =
     WindowsWin32SecurityAuthenticationIdentityJniBridge.windowssysWindowsWin32SecurityAuthenticationIdentityLsaConnectUntrusted(lsahandle.rawAddress)
 
-public actual fun lsaCreateTrustedDomainEx(policyhandle: LsaHandle, trusteddomaininformation: ConstPtr<TrustedDomainInformationEx>, authenticationinformation: ConstPtr<TrustedDomainAuthInformation>, desiredaccess: UInt, trusteddomainhandle: MutPtr<LsaHandle>): Ntstatus =
+public actual fun lsaCreateTrustedDomainEx(policyhandle: LsaHandle, trusteddomaininformation: ConstPtr, authenticationinformation: ConstPtr, desiredaccess: UInt, trusteddomainhandle: MutPtr): Ntstatus =
     WindowsWin32SecurityAuthenticationIdentityJniBridge.windowssysWindowsWin32SecurityAuthenticationIdentityLsaCreateTrustedDomainEx(policyhandle, trusteddomaininformation.rawAddress, authenticationinformation.rawAddress, desiredaccess.toInt(), trusteddomainhandle.rawAddress)
 
 public actual fun lsaDeleteTrustedDomain(policyhandle: LsaHandle, trusteddomainsid: Psid): Ntstatus =
@@ -865,335 +855,335 @@ public actual fun lsaDeleteTrustedDomain(policyhandle: LsaHandle, trusteddomains
 public actual fun lsaDeregisterLogonProcess(lsahandle: Handle): Ntstatus =
     WindowsWin32SecurityAuthenticationIdentityJniBridge.windowssysWindowsWin32SecurityAuthenticationIdentityLsaDeregisterLogonProcess(lsahandle.rawAddress)
 
-public actual fun lsaEnumerateAccountRights(policyhandle: LsaHandle, accountsid: Psid, userrights: MutPtr<MutPtr<LsaUnicodeString>>, countofrights: MutPtr<UInt>): Ntstatus =
+public actual fun lsaEnumerateAccountRights(policyhandle: LsaHandle, accountsid: Psid, userrights: MutPtr, countofrights: MutPtr): Ntstatus =
     WindowsWin32SecurityAuthenticationIdentityJniBridge.windowssysWindowsWin32SecurityAuthenticationIdentityLsaEnumerateAccountRights(policyhandle, accountsid.rawAddress, userrights.rawAddress, countofrights.rawAddress)
 
-public actual fun lsaEnumerateAccountsWithUserRight(policyhandle: LsaHandle, userright: ConstPtr<LsaUnicodeString>, buffer: MutPtr<MutPtr<CVoid>>, countreturned: MutPtr<UInt>): Ntstatus =
+public actual fun lsaEnumerateAccountsWithUserRight(policyhandle: LsaHandle, userright: ConstPtr, buffer: MutPtr, countreturned: MutPtr): Ntstatus =
     WindowsWin32SecurityAuthenticationIdentityJniBridge.windowssysWindowsWin32SecurityAuthenticationIdentityLsaEnumerateAccountsWithUserRight(policyhandle, userright.rawAddress, buffer.rawAddress, countreturned.rawAddress)
 
-public actual fun lsaEnumerateLogonSessions(logonsessioncount: MutPtr<UInt>, logonsessionlist: MutPtr<MutPtr<Luid>>): Ntstatus =
+public actual fun lsaEnumerateLogonSessions(logonsessioncount: MutPtr, logonsessionlist: MutPtr): Ntstatus =
     WindowsWin32SecurityAuthenticationIdentityJniBridge.windowssysWindowsWin32SecurityAuthenticationIdentityLsaEnumerateLogonSessions(logonsessioncount.rawAddress, logonsessionlist.rawAddress)
 
-public actual fun lsaEnumerateTrustedDomains(policyhandle: LsaHandle, enumerationcontext: MutPtr<UInt>, buffer: MutPtr<MutPtr<CVoid>>, preferedmaximumlength: UInt, countreturned: MutPtr<UInt>): Ntstatus =
+public actual fun lsaEnumerateTrustedDomains(policyhandle: LsaHandle, enumerationcontext: MutPtr, buffer: MutPtr, preferedmaximumlength: UInt, countreturned: MutPtr): Ntstatus =
     WindowsWin32SecurityAuthenticationIdentityJniBridge.windowssysWindowsWin32SecurityAuthenticationIdentityLsaEnumerateTrustedDomains(policyhandle, enumerationcontext.rawAddress, buffer.rawAddress, preferedmaximumlength.toInt(), countreturned.rawAddress)
 
-public actual fun lsaEnumerateTrustedDomainsEx(policyhandle: LsaHandle, enumerationcontext: MutPtr<UInt>, buffer: MutPtr<MutPtr<CVoid>>, preferedmaximumlength: UInt, countreturned: MutPtr<UInt>): Ntstatus =
+public actual fun lsaEnumerateTrustedDomainsEx(policyhandle: LsaHandle, enumerationcontext: MutPtr, buffer: MutPtr, preferedmaximumlength: UInt, countreturned: MutPtr): Ntstatus =
     WindowsWin32SecurityAuthenticationIdentityJniBridge.windowssysWindowsWin32SecurityAuthenticationIdentityLsaEnumerateTrustedDomainsEx(policyhandle, enumerationcontext.rawAddress, buffer.rawAddress, preferedmaximumlength.toInt(), countreturned.rawAddress)
 
-public actual fun lsaFreeMemory(buffer: ConstPtr<CVoid>): Ntstatus =
+public actual fun lsaFreeMemory(buffer: ConstPtr): Ntstatus =
     WindowsWin32SecurityAuthenticationIdentityJniBridge.windowssysWindowsWin32SecurityAuthenticationIdentityLsaFreeMemory(buffer.rawAddress)
 
-public actual fun lsaFreeReturnBuffer(buffer: ConstPtr<CVoid>): Ntstatus =
+public actual fun lsaFreeReturnBuffer(buffer: ConstPtr): Ntstatus =
     WindowsWin32SecurityAuthenticationIdentityJniBridge.windowssysWindowsWin32SecurityAuthenticationIdentityLsaFreeReturnBuffer(buffer.rawAddress)
 
-public actual fun lsaGetAppliedCAPIDs(systemname: ConstPtr<LsaUnicodeString>, capids: MutPtr<MutPtr<Psid>>, capidcount: MutPtr<UInt>): Ntstatus =
+public actual fun lsaGetAppliedCAPIDs(systemname: ConstPtr, capids: MutPtr, capidcount: MutPtr): Ntstatus =
     WindowsWin32SecurityAuthenticationIdentityJniBridge.windowssysWindowsWin32SecurityAuthenticationIdentityLsaGetAppliedCAPIDs(systemname.rawAddress, capids.rawAddress, capidcount.rawAddress)
 
-public actual fun lsaGetLogonSessionData(logonid: ConstPtr<Luid>, pplogonsessiondata: MutPtr<MutPtr<SecurityLogonSessionData>>): Ntstatus =
+public actual fun lsaGetLogonSessionData(logonid: ConstPtr, pplogonsessiondata: MutPtr): Ntstatus =
     WindowsWin32SecurityAuthenticationIdentityJniBridge.windowssysWindowsWin32SecurityAuthenticationIdentityLsaGetLogonSessionData(logonid.rawAddress, pplogonsessiondata.rawAddress)
 
-public actual fun lsaLogonUser(lsahandle: Handle, originname: ConstPtr<LsaString>, logontype: SecurityLogonType, authenticationpackage: UInt, authenticationinformation: ConstPtr<CVoid>, authenticationinformationlength: UInt, localgroups: ConstPtr<TokenGroups>, sourcecontext: ConstPtr<TokenSource>, profilebuffer: MutPtr<MutPtr<CVoid>>, profilebufferlength: MutPtr<UInt>, logonid: MutPtr<Luid>, token: MutPtr<Handle>, quotas: MutPtr<QuotaLimits>, substatus: MutPtr<Int>): Ntstatus =
+public actual fun lsaLogonUser(lsahandle: Handle, originname: ConstPtr, logontype: SecurityLogonType, authenticationpackage: UInt, authenticationinformation: ConstPtr, authenticationinformationlength: UInt, localgroups: ConstPtr, sourcecontext: ConstPtr, profilebuffer: MutPtr, profilebufferlength: MutPtr, logonid: MutPtr, token: MutPtr, quotas: MutPtr, substatus: MutPtr): Ntstatus =
     0
 
-public actual fun lsaLookupAuthenticationPackage(lsahandle: Handle, packagename: ConstPtr<LsaString>, authenticationpackage: MutPtr<UInt>): Ntstatus =
+public actual fun lsaLookupAuthenticationPackage(lsahandle: Handle, packagename: ConstPtr, authenticationpackage: MutPtr): Ntstatus =
     WindowsWin32SecurityAuthenticationIdentityJniBridge.windowssysWindowsWin32SecurityAuthenticationIdentityLsaLookupAuthenticationPackage(lsahandle.rawAddress, packagename.rawAddress, authenticationpackage.rawAddress)
 
-public actual fun lsaLookupNames(policyhandle: LsaHandle, count: UInt, names: ConstPtr<LsaUnicodeString>, referenceddomains: MutPtr<MutPtr<LsaReferencedDomainList>>, sids: MutPtr<MutPtr<LsaTranslatedSid>>): Ntstatus =
+public actual fun lsaLookupNames(policyhandle: LsaHandle, count: UInt, names: ConstPtr, referenceddomains: MutPtr, sids: MutPtr): Ntstatus =
     WindowsWin32SecurityAuthenticationIdentityJniBridge.windowssysWindowsWin32SecurityAuthenticationIdentityLsaLookupNames(policyhandle, count.toInt(), names.rawAddress, referenceddomains.rawAddress, sids.rawAddress)
 
-public actual fun lsaLookupNames2(policyhandle: LsaHandle, flags: UInt, count: UInt, names: ConstPtr<LsaUnicodeString>, referenceddomains: MutPtr<MutPtr<LsaReferencedDomainList>>, sids: MutPtr<MutPtr<LsaTranslatedSid2>>): Ntstatus =
+public actual fun lsaLookupNames2(policyhandle: LsaHandle, flags: UInt, count: UInt, names: ConstPtr, referenceddomains: MutPtr, sids: MutPtr): Ntstatus =
     WindowsWin32SecurityAuthenticationIdentityJniBridge.windowssysWindowsWin32SecurityAuthenticationIdentityLsaLookupNames2(policyhandle, flags.toInt(), count.toInt(), names.rawAddress, referenceddomains.rawAddress, sids.rawAddress)
 
-public actual fun lsaLookupSids(policyhandle: LsaHandle, count: UInt, sids: ConstPtr<Psid>, referenceddomains: MutPtr<MutPtr<LsaReferencedDomainList>>, names: MutPtr<MutPtr<LsaTranslatedName>>): Ntstatus =
+public actual fun lsaLookupSids(policyhandle: LsaHandle, count: UInt, sids: ConstPtr, referenceddomains: MutPtr, names: MutPtr): Ntstatus =
     WindowsWin32SecurityAuthenticationIdentityJniBridge.windowssysWindowsWin32SecurityAuthenticationIdentityLsaLookupSids(policyhandle, count.toInt(), sids.rawAddress, referenceddomains.rawAddress, names.rawAddress)
 
-public actual fun lsaLookupSids2(policyhandle: LsaHandle, lookupoptions: UInt, count: UInt, sids: ConstPtr<Psid>, referenceddomains: MutPtr<MutPtr<LsaReferencedDomainList>>, names: MutPtr<MutPtr<LsaTranslatedName>>): Ntstatus =
+public actual fun lsaLookupSids2(policyhandle: LsaHandle, lookupoptions: UInt, count: UInt, sids: ConstPtr, referenceddomains: MutPtr, names: MutPtr): Ntstatus =
     WindowsWin32SecurityAuthenticationIdentityJniBridge.windowssysWindowsWin32SecurityAuthenticationIdentityLsaLookupSids2(policyhandle, lookupoptions.toInt(), count.toInt(), sids.rawAddress, referenceddomains.rawAddress, names.rawAddress)
 
 public actual fun lsaNtStatusToWinError(status: Ntstatus): UInt =
     WindowsWin32SecurityAuthenticationIdentityJniBridge.windowssysWindowsWin32SecurityAuthenticationIdentityLsaNtStatusToWinError(status).toUInt()
 
-public actual fun lsaOpenPolicy(systemname: ConstPtr<LsaUnicodeString>, objectattributes: ConstPtr<LsaObjectAttributes>, desiredaccess: UInt, policyhandle: MutPtr<LsaHandle>): Ntstatus =
+public actual fun lsaOpenPolicy(systemname: ConstPtr, objectattributes: ConstPtr, desiredaccess: UInt, policyhandle: MutPtr): Ntstatus =
     WindowsWin32SecurityAuthenticationIdentityJniBridge.windowssysWindowsWin32SecurityAuthenticationIdentityLsaOpenPolicy(systemname.rawAddress, objectattributes.rawAddress, desiredaccess.toInt(), policyhandle.rawAddress)
 
-public actual fun lsaOpenTrustedDomainByName(policyhandle: LsaHandle, trusteddomainname: ConstPtr<LsaUnicodeString>, desiredaccess: UInt, trusteddomainhandle: MutPtr<LsaHandle>): Ntstatus =
+public actual fun lsaOpenTrustedDomainByName(policyhandle: LsaHandle, trusteddomainname: ConstPtr, desiredaccess: UInt, trusteddomainhandle: MutPtr): Ntstatus =
     WindowsWin32SecurityAuthenticationIdentityJniBridge.windowssysWindowsWin32SecurityAuthenticationIdentityLsaOpenTrustedDomainByName(policyhandle, trusteddomainname.rawAddress, desiredaccess.toInt(), trusteddomainhandle.rawAddress)
 
-public actual fun lsaQueryCAPs(capids: ConstPtr<Psid>, capidcount: UInt, caps: MutPtr<MutPtr<CentralAccessPolicy>>, capcount: MutPtr<UInt>): Ntstatus =
+public actual fun lsaQueryCAPs(capids: ConstPtr, capidcount: UInt, caps: MutPtr, capcount: MutPtr): Ntstatus =
     WindowsWin32SecurityAuthenticationIdentityJniBridge.windowssysWindowsWin32SecurityAuthenticationIdentityLsaQueryCAPs(capids.rawAddress, capidcount.toInt(), caps.rawAddress, capcount.rawAddress)
 
-public actual fun lsaQueryDomainInformationPolicy(policyhandle: LsaHandle, informationclass: PolicyDomainInformationClass, buffer: MutPtr<MutPtr<CVoid>>): Ntstatus =
+public actual fun lsaQueryDomainInformationPolicy(policyhandle: LsaHandle, informationclass: PolicyDomainInformationClass, buffer: MutPtr): Ntstatus =
     WindowsWin32SecurityAuthenticationIdentityJniBridge.windowssysWindowsWin32SecurityAuthenticationIdentityLsaQueryDomainInformationPolicy(policyhandle, informationclass, buffer.rawAddress)
 
-public actual fun lsaQueryForestTrustInformation(policyhandle: LsaHandle, trusteddomainname: ConstPtr<LsaUnicodeString>, foresttrustinfo: MutPtr<MutPtr<LsaForestTrustInformation>>): Ntstatus =
+public actual fun lsaQueryForestTrustInformation(policyhandle: LsaHandle, trusteddomainname: ConstPtr, foresttrustinfo: MutPtr): Ntstatus =
     WindowsWin32SecurityAuthenticationIdentityJniBridge.windowssysWindowsWin32SecurityAuthenticationIdentityLsaQueryForestTrustInformation(policyhandle, trusteddomainname.rawAddress, foresttrustinfo.rawAddress)
 
-public actual fun lsaQueryForestTrustInformation2(policyhandle: LsaHandle, trusteddomainname: ConstPtr<LsaUnicodeString>, highestrecordtype: LsaForestTrustRecordType, foresttrustinfo: MutPtr<MutPtr<LsaForestTrustInformation2>>): Ntstatus =
+public actual fun lsaQueryForestTrustInformation2(policyhandle: LsaHandle, trusteddomainname: ConstPtr, highestrecordtype: LsaForestTrustRecordType, foresttrustinfo: MutPtr): Ntstatus =
     WindowsWin32SecurityAuthenticationIdentityJniBridge.windowssysWindowsWin32SecurityAuthenticationIdentityLsaQueryForestTrustInformation2(policyhandle, trusteddomainname.rawAddress, highestrecordtype, foresttrustinfo.rawAddress)
 
-public actual fun lsaQueryInformationPolicy(policyhandle: LsaHandle, informationclass: PolicyInformationClass, buffer: MutPtr<MutPtr<CVoid>>): Ntstatus =
+public actual fun lsaQueryInformationPolicy(policyhandle: LsaHandle, informationclass: PolicyInformationClass, buffer: MutPtr): Ntstatus =
     WindowsWin32SecurityAuthenticationIdentityJniBridge.windowssysWindowsWin32SecurityAuthenticationIdentityLsaQueryInformationPolicy(policyhandle, informationclass, buffer.rawAddress)
 
-public actual fun lsaQueryTrustedDomainInfo(policyhandle: LsaHandle, trusteddomainsid: Psid, informationclass: TrustedInformationClass, buffer: MutPtr<MutPtr<CVoid>>): Ntstatus =
+public actual fun lsaQueryTrustedDomainInfo(policyhandle: LsaHandle, trusteddomainsid: Psid, informationclass: TrustedInformationClass, buffer: MutPtr): Ntstatus =
     WindowsWin32SecurityAuthenticationIdentityJniBridge.windowssysWindowsWin32SecurityAuthenticationIdentityLsaQueryTrustedDomainInfo(policyhandle, trusteddomainsid.rawAddress, informationclass, buffer.rawAddress)
 
-public actual fun lsaQueryTrustedDomainInfoByName(policyhandle: LsaHandle, trusteddomainname: ConstPtr<LsaUnicodeString>, informationclass: TrustedInformationClass, buffer: MutPtr<MutPtr<CVoid>>): Ntstatus =
+public actual fun lsaQueryTrustedDomainInfoByName(policyhandle: LsaHandle, trusteddomainname: ConstPtr, informationclass: TrustedInformationClass, buffer: MutPtr): Ntstatus =
     WindowsWin32SecurityAuthenticationIdentityJniBridge.windowssysWindowsWin32SecurityAuthenticationIdentityLsaQueryTrustedDomainInfoByName(policyhandle, trusteddomainname.rawAddress, informationclass, buffer.rawAddress)
 
-public actual fun lsaRegisterLogonProcess(logonprocessname: ConstPtr<LsaString>, lsahandle: MutPtr<Handle>, securitymode: MutPtr<UInt>): Ntstatus =
+public actual fun lsaRegisterLogonProcess(logonprocessname: ConstPtr, lsahandle: MutPtr, securitymode: MutPtr): Ntstatus =
     WindowsWin32SecurityAuthenticationIdentityJniBridge.windowssysWindowsWin32SecurityAuthenticationIdentityLsaRegisterLogonProcess(logonprocessname.rawAddress, lsahandle.rawAddress, securitymode.rawAddress)
 
 public actual fun lsaRegisterPolicyChangeNotification(informationclass: PolicyNotificationInformationClass, notificationeventhandle: Handle): Ntstatus =
     WindowsWin32SecurityAuthenticationIdentityJniBridge.windowssysWindowsWin32SecurityAuthenticationIdentityLsaRegisterPolicyChangeNotification(informationclass, notificationeventhandle.rawAddress)
 
-public actual fun lsaRemoveAccountRights(policyhandle: LsaHandle, accountsid: Psid, allrights: Boolean, userrights: ConstPtr<LsaUnicodeString>, countofrights: UInt): Ntstatus =
+public actual fun lsaRemoveAccountRights(policyhandle: LsaHandle, accountsid: Psid, allrights: Boolean, userrights: ConstPtr, countofrights: UInt): Ntstatus =
     WindowsWin32SecurityAuthenticationIdentityJniBridge.windowssysWindowsWin32SecurityAuthenticationIdentityLsaRemoveAccountRights(policyhandle, accountsid.rawAddress, allrights, userrights.rawAddress, countofrights.toInt())
 
-public actual fun lsaRetrievePrivateData(policyhandle: LsaHandle, keyname: ConstPtr<LsaUnicodeString>, privatedata: MutPtr<MutPtr<LsaUnicodeString>>): Ntstatus =
+public actual fun lsaRetrievePrivateData(policyhandle: LsaHandle, keyname: ConstPtr, privatedata: MutPtr): Ntstatus =
     WindowsWin32SecurityAuthenticationIdentityJniBridge.windowssysWindowsWin32SecurityAuthenticationIdentityLsaRetrievePrivateData(policyhandle, keyname.rawAddress, privatedata.rawAddress)
 
-public actual fun lsaSetCAPs(capdns: ConstPtr<LsaUnicodeString>, capdncount: UInt, flags: UInt): Ntstatus =
+public actual fun lsaSetCAPs(capdns: ConstPtr, capdncount: UInt, flags: UInt): Ntstatus =
     WindowsWin32SecurityAuthenticationIdentityJniBridge.windowssysWindowsWin32SecurityAuthenticationIdentityLsaSetCAPs(capdns.rawAddress, capdncount.toInt(), flags.toInt())
 
-public actual fun lsaSetDomainInformationPolicy(policyhandle: LsaHandle, informationclass: PolicyDomainInformationClass, buffer: ConstPtr<CVoid>): Ntstatus =
+public actual fun lsaSetDomainInformationPolicy(policyhandle: LsaHandle, informationclass: PolicyDomainInformationClass, buffer: ConstPtr): Ntstatus =
     WindowsWin32SecurityAuthenticationIdentityJniBridge.windowssysWindowsWin32SecurityAuthenticationIdentityLsaSetDomainInformationPolicy(policyhandle, informationclass, buffer.rawAddress)
 
-public actual fun lsaSetForestTrustInformation(policyhandle: LsaHandle, trusteddomainname: ConstPtr<LsaUnicodeString>, foresttrustinfo: ConstPtr<LsaForestTrustInformation>, checkonly: Boolean, collisioninfo: MutPtr<MutPtr<LsaForestTrustCollisionInformation>>): Ntstatus =
+public actual fun lsaSetForestTrustInformation(policyhandle: LsaHandle, trusteddomainname: ConstPtr, foresttrustinfo: ConstPtr, checkonly: Boolean, collisioninfo: MutPtr): Ntstatus =
     WindowsWin32SecurityAuthenticationIdentityJniBridge.windowssysWindowsWin32SecurityAuthenticationIdentityLsaSetForestTrustInformation(policyhandle, trusteddomainname.rawAddress, foresttrustinfo.rawAddress, checkonly, collisioninfo.rawAddress)
 
-public actual fun lsaSetForestTrustInformation2(policyhandle: LsaHandle, trusteddomainname: ConstPtr<LsaUnicodeString>, highestrecordtype: LsaForestTrustRecordType, foresttrustinfo: ConstPtr<LsaForestTrustInformation2>, checkonly: Boolean, collisioninfo: MutPtr<MutPtr<LsaForestTrustCollisionInformation>>): Ntstatus =
+public actual fun lsaSetForestTrustInformation2(policyhandle: LsaHandle, trusteddomainname: ConstPtr, highestrecordtype: LsaForestTrustRecordType, foresttrustinfo: ConstPtr, checkonly: Boolean, collisioninfo: MutPtr): Ntstatus =
     WindowsWin32SecurityAuthenticationIdentityJniBridge.windowssysWindowsWin32SecurityAuthenticationIdentityLsaSetForestTrustInformation2(policyhandle, trusteddomainname.rawAddress, highestrecordtype, foresttrustinfo.rawAddress, checkonly, collisioninfo.rawAddress)
 
-public actual fun lsaSetInformationPolicy(policyhandle: LsaHandle, informationclass: PolicyInformationClass, buffer: ConstPtr<CVoid>): Ntstatus =
+public actual fun lsaSetInformationPolicy(policyhandle: LsaHandle, informationclass: PolicyInformationClass, buffer: ConstPtr): Ntstatus =
     WindowsWin32SecurityAuthenticationIdentityJniBridge.windowssysWindowsWin32SecurityAuthenticationIdentityLsaSetInformationPolicy(policyhandle, informationclass, buffer.rawAddress)
 
-public actual fun lsaSetTrustedDomainInfoByName(policyhandle: LsaHandle, trusteddomainname: ConstPtr<LsaUnicodeString>, informationclass: TrustedInformationClass, buffer: ConstPtr<CVoid>): Ntstatus =
+public actual fun lsaSetTrustedDomainInfoByName(policyhandle: LsaHandle, trusteddomainname: ConstPtr, informationclass: TrustedInformationClass, buffer: ConstPtr): Ntstatus =
     WindowsWin32SecurityAuthenticationIdentityJniBridge.windowssysWindowsWin32SecurityAuthenticationIdentityLsaSetTrustedDomainInfoByName(policyhandle, trusteddomainname.rawAddress, informationclass, buffer.rawAddress)
 
-public actual fun lsaSetTrustedDomainInformation(policyhandle: LsaHandle, trusteddomainsid: Psid, informationclass: TrustedInformationClass, buffer: ConstPtr<CVoid>): Ntstatus =
+public actual fun lsaSetTrustedDomainInformation(policyhandle: LsaHandle, trusteddomainsid: Psid, informationclass: TrustedInformationClass, buffer: ConstPtr): Ntstatus =
     WindowsWin32SecurityAuthenticationIdentityJniBridge.windowssysWindowsWin32SecurityAuthenticationIdentityLsaSetTrustedDomainInformation(policyhandle, trusteddomainsid.rawAddress, informationclass, buffer.rawAddress)
 
-public actual fun lsaStorePrivateData(policyhandle: LsaHandle, keyname: ConstPtr<LsaUnicodeString>, privatedata: ConstPtr<LsaUnicodeString>): Ntstatus =
+public actual fun lsaStorePrivateData(policyhandle: LsaHandle, keyname: ConstPtr, privatedata: ConstPtr): Ntstatus =
     WindowsWin32SecurityAuthenticationIdentityJniBridge.windowssysWindowsWin32SecurityAuthenticationIdentityLsaStorePrivateData(policyhandle, keyname.rawAddress, privatedata.rawAddress)
 
 public actual fun lsaUnregisterPolicyChangeNotification(informationclass: PolicyNotificationInformationClass, notificationeventhandle: Handle): Ntstatus =
     WindowsWin32SecurityAuthenticationIdentityJniBridge.windowssysWindowsWin32SecurityAuthenticationIdentityLsaUnregisterPolicyChangeNotification(informationclass, notificationeventhandle.rawAddress)
 
-public actual fun makeSignature(phcontext: ConstPtr<SecHandle>, fqop: UInt, pmessage: ConstPtr<SecBufferDesc>, messageseqno: UInt): Hresult =
+public actual fun makeSignature(phcontext: ConstPtr, fqop: UInt, pmessage: ConstPtr, messageseqno: UInt): Hresult =
     WindowsWin32SecurityAuthenticationIdentityJniBridge.windowssysWindowsWin32SecurityAuthenticationIdentityMakeSignature(phcontext.rawAddress, fqop.toInt(), pmessage.rawAddress, messageseqno.toInt())
 
-public actual fun queryContextAttributesA(phcontext: ConstPtr<SecHandle>, ulattribute: SecpkgAttr, pbuffer: MutPtr<CVoid>): Hresult =
+public actual fun queryContextAttributesA(phcontext: ConstPtr, ulattribute: SecpkgAttr, pbuffer: MutPtr): Hresult =
     WindowsWin32SecurityAuthenticationIdentityJniBridge.windowssysWindowsWin32SecurityAuthenticationIdentityQueryContextAttributesA(phcontext.rawAddress, ulattribute.toInt(), pbuffer.rawAddress)
 
-public actual fun queryContextAttributesExA(phcontext: ConstPtr<SecHandle>, ulattribute: SecpkgAttr, pbuffer: MutPtr<CVoid>, cbbuffer: UInt): Hresult =
+public actual fun queryContextAttributesExA(phcontext: ConstPtr, ulattribute: SecpkgAttr, pbuffer: MutPtr, cbbuffer: UInt): Hresult =
     WindowsWin32SecurityAuthenticationIdentityJniBridge.windowssysWindowsWin32SecurityAuthenticationIdentityQueryContextAttributesExA(phcontext.rawAddress, ulattribute.toInt(), pbuffer.rawAddress, cbbuffer.toInt())
 
-public actual fun queryContextAttributesExW(phcontext: ConstPtr<SecHandle>, ulattribute: SecpkgAttr, pbuffer: MutPtr<CVoid>, cbbuffer: UInt): Hresult =
+public actual fun queryContextAttributesExW(phcontext: ConstPtr, ulattribute: SecpkgAttr, pbuffer: MutPtr, cbbuffer: UInt): Hresult =
     WindowsWin32SecurityAuthenticationIdentityJniBridge.windowssysWindowsWin32SecurityAuthenticationIdentityQueryContextAttributesExW(phcontext.rawAddress, ulattribute.toInt(), pbuffer.rawAddress, cbbuffer.toInt())
 
-public actual fun queryContextAttributesW(phcontext: ConstPtr<SecHandle>, ulattribute: SecpkgAttr, pbuffer: MutPtr<CVoid>): Hresult =
+public actual fun queryContextAttributesW(phcontext: ConstPtr, ulattribute: SecpkgAttr, pbuffer: MutPtr): Hresult =
     WindowsWin32SecurityAuthenticationIdentityJniBridge.windowssysWindowsWin32SecurityAuthenticationIdentityQueryContextAttributesW(phcontext.rawAddress, ulattribute.toInt(), pbuffer.rawAddress)
 
-public actual fun queryCredentialsAttributesA(phcredential: ConstPtr<SecHandle>, ulattribute: UInt, pbuffer: MutPtr<CVoid>): Hresult =
+public actual fun queryCredentialsAttributesA(phcredential: ConstPtr, ulattribute: UInt, pbuffer: MutPtr): Hresult =
     WindowsWin32SecurityAuthenticationIdentityJniBridge.windowssysWindowsWin32SecurityAuthenticationIdentityQueryCredentialsAttributesA(phcredential.rawAddress, ulattribute.toInt(), pbuffer.rawAddress)
 
-public actual fun queryCredentialsAttributesExA(phcredential: ConstPtr<SecHandle>, ulattribute: UInt, pbuffer: MutPtr<CVoid>, cbbuffer: UInt): Hresult =
+public actual fun queryCredentialsAttributesExA(phcredential: ConstPtr, ulattribute: UInt, pbuffer: MutPtr, cbbuffer: UInt): Hresult =
     WindowsWin32SecurityAuthenticationIdentityJniBridge.windowssysWindowsWin32SecurityAuthenticationIdentityQueryCredentialsAttributesExA(phcredential.rawAddress, ulattribute.toInt(), pbuffer.rawAddress, cbbuffer.toInt())
 
-public actual fun queryCredentialsAttributesExW(phcredential: ConstPtr<SecHandle>, ulattribute: UInt, pbuffer: MutPtr<CVoid>, cbbuffer: UInt): Hresult =
+public actual fun queryCredentialsAttributesExW(phcredential: ConstPtr, ulattribute: UInt, pbuffer: MutPtr, cbbuffer: UInt): Hresult =
     WindowsWin32SecurityAuthenticationIdentityJniBridge.windowssysWindowsWin32SecurityAuthenticationIdentityQueryCredentialsAttributesExW(phcredential.rawAddress, ulattribute.toInt(), pbuffer.rawAddress, cbbuffer.toInt())
 
-public actual fun queryCredentialsAttributesW(phcredential: ConstPtr<SecHandle>, ulattribute: UInt, pbuffer: MutPtr<CVoid>): Hresult =
+public actual fun queryCredentialsAttributesW(phcredential: ConstPtr, ulattribute: UInt, pbuffer: MutPtr): Hresult =
     WindowsWin32SecurityAuthenticationIdentityJniBridge.windowssysWindowsWin32SecurityAuthenticationIdentityQueryCredentialsAttributesW(phcredential.rawAddress, ulattribute.toInt(), pbuffer.rawAddress)
 
-public actual fun querySecurityContextToken(phcontext: ConstPtr<SecHandle>, token: MutPtr<MutPtr<CVoid>>): Hresult =
+public actual fun querySecurityContextToken(phcontext: ConstPtr, token: MutPtr): Hresult =
     WindowsWin32SecurityAuthenticationIdentityJniBridge.windowssysWindowsWin32SecurityAuthenticationIdentityQuerySecurityContextToken(phcontext.rawAddress, token.rawAddress)
 
-public actual fun querySecurityPackageInfoA(pszpackagename: Pcstr, pppackageinfo: MutPtr<MutPtr<SecPkgInfoA>>): Hresult =
+public actual fun querySecurityPackageInfoA(pszpackagename: Pcstr, pppackageinfo: MutPtr): Hresult =
     WindowsWin32SecurityAuthenticationIdentityJniBridge.windowssysWindowsWin32SecurityAuthenticationIdentityQuerySecurityPackageInfoA(pszpackagename.rawAddress, pppackageinfo.rawAddress)
 
-public actual fun querySecurityPackageInfoW(pszpackagename: Pcwstr, pppackageinfo: MutPtr<MutPtr<SecPkgInfoW>>): Hresult =
+public actual fun querySecurityPackageInfoW(pszpackagename: Pcwstr, pppackageinfo: MutPtr): Hresult =
     WindowsWin32SecurityAuthenticationIdentityJniBridge.windowssysWindowsWin32SecurityAuthenticationIdentityQuerySecurityPackageInfoW(pszpackagename.rawAddress, pppackageinfo.rawAddress)
 
-public actual fun revertSecurityContext(phcontext: ConstPtr<SecHandle>): Hresult =
+public actual fun revertSecurityContext(phcontext: ConstPtr): Hresult =
     WindowsWin32SecurityAuthenticationIdentityJniBridge.windowssysWindowsWin32SecurityAuthenticationIdentityRevertSecurityContext(phcontext.rawAddress)
 
-public actual fun rtlDecryptMemory(memory: MutPtr<CVoid>, memorysize: UInt, optionflags: UInt): Ntstatus =
+public actual fun rtlDecryptMemory(memory: MutPtr, memorysize: UInt, optionflags: UInt): Ntstatus =
     WindowsWin32SecurityAuthenticationIdentityJniBridge.windowssysWindowsWin32SecurityAuthenticationIdentityRtlDecryptMemory(memory.rawAddress, memorysize.toInt(), optionflags.toInt())
 
-public actual fun rtlEncryptMemory(memory: MutPtr<CVoid>, memorysize: UInt, optionflags: UInt): Ntstatus =
+public actual fun rtlEncryptMemory(memory: MutPtr, memorysize: UInt, optionflags: UInt): Ntstatus =
     WindowsWin32SecurityAuthenticationIdentityJniBridge.windowssysWindowsWin32SecurityAuthenticationIdentityRtlEncryptMemory(memory.rawAddress, memorysize.toInt(), optionflags.toInt())
 
-public actual fun rtlGenRandom(randombuffer: MutPtr<CVoid>, randombufferlength: UInt): Boolean =
+public actual fun rtlGenRandom(randombuffer: MutPtr, randombufferlength: UInt): Boolean =
     WindowsWin32SecurityAuthenticationIdentityJniBridge.windowssysWindowsWin32SecurityAuthenticationIdentityRtlGenRandom(randombuffer.rawAddress, randombufferlength.toInt())
 
-public actual fun sLAcquireGenuineTicket(ppticketblob: MutPtr<MutPtr<CVoid>>, pcbticketblob: MutPtr<UInt>, pwsztemplateid: Pcwstr, pwszserverurl: Pcwstr, pwszclienttoken: Pcwstr): Hresult =
+public actual fun sLAcquireGenuineTicket(ppticketblob: MutPtr, pcbticketblob: MutPtr, pwsztemplateid: Pcwstr, pwszserverurl: Pcwstr, pwszclienttoken: Pcwstr): Hresult =
     WindowsWin32SecurityAuthenticationIdentityJniBridge.windowssysWindowsWin32SecurityAuthenticationIdentitySLAcquireGenuineTicket(ppticketblob.rawAddress, pcbticketblob.rawAddress, pwsztemplateid.rawAddress, pwszserverurl.rawAddress, pwszclienttoken.rawAddress)
 
-public actual fun sLActivateProduct(hslc: ConstPtr<CVoid>, pproductskuid: ConstPtr<Guid>, cbappspecificdata: UInt, pvappspecificdata: ConstPtr<CVoid>, pactivationinfo: ConstPtr<SlActivationInfoHeader>, pwszproxyserver: Pcwstr, wproxyport: UShort): Hresult =
+public actual fun sLActivateProduct(hslc: ConstPtr, pproductskuid: ConstPtr, cbappspecificdata: UInt, pvappspecificdata: ConstPtr, pactivationinfo: ConstPtr, pwszproxyserver: Pcwstr, wproxyport: UShort): Hresult =
     WindowsWin32SecurityAuthenticationIdentityJniBridge.windowssysWindowsWin32SecurityAuthenticationIdentitySLActivateProduct(hslc.rawAddress, pproductskuid.rawAddress, cbappspecificdata.toInt(), pvappspecificdata.rawAddress, pactivationinfo.rawAddress, pwszproxyserver.rawAddress, wproxyport.toShort())
 
-public actual fun sLClose(hslc: ConstPtr<CVoid>): Hresult =
+public actual fun sLClose(hslc: ConstPtr): Hresult =
     WindowsWin32SecurityAuthenticationIdentityJniBridge.windowssysWindowsWin32SecurityAuthenticationIdentitySLClose(hslc.rawAddress)
 
-public actual fun sLConsumeRight(hslc: ConstPtr<CVoid>, pappid: ConstPtr<Guid>, pproductskuid: ConstPtr<Guid>, pwszrightname: Pcwstr, pvreserved: ConstPtr<CVoid>): Hresult =
+public actual fun sLConsumeRight(hslc: ConstPtr, pappid: ConstPtr, pproductskuid: ConstPtr, pwszrightname: Pcwstr, pvreserved: ConstPtr): Hresult =
     WindowsWin32SecurityAuthenticationIdentityJniBridge.windowssysWindowsWin32SecurityAuthenticationIdentitySLConsumeRight(hslc.rawAddress, pappid.rawAddress, pproductskuid.rawAddress, pwszrightname.rawAddress, pvreserved.rawAddress)
 
-public actual fun sLDepositOfflineConfirmationId(hslc: ConstPtr<CVoid>, pproductskuid: ConstPtr<Guid>, pwszinstallationid: Pcwstr, pwszconfirmationid: Pcwstr): Hresult =
+public actual fun sLDepositOfflineConfirmationId(hslc: ConstPtr, pproductskuid: ConstPtr, pwszinstallationid: Pcwstr, pwszconfirmationid: Pcwstr): Hresult =
     WindowsWin32SecurityAuthenticationIdentityJniBridge.windowssysWindowsWin32SecurityAuthenticationIdentitySLDepositOfflineConfirmationId(hslc.rawAddress, pproductskuid.rawAddress, pwszinstallationid.rawAddress, pwszconfirmationid.rawAddress)
 
-public actual fun sLDepositOfflineConfirmationIdEx(hslc: ConstPtr<CVoid>, pproductskuid: ConstPtr<Guid>, pactivationinfo: ConstPtr<SlActivationInfoHeader>, pwszinstallationid: Pcwstr, pwszconfirmationid: Pcwstr): Hresult =
+public actual fun sLDepositOfflineConfirmationIdEx(hslc: ConstPtr, pproductskuid: ConstPtr, pactivationinfo: ConstPtr, pwszinstallationid: Pcwstr, pwszconfirmationid: Pcwstr): Hresult =
     WindowsWin32SecurityAuthenticationIdentityJniBridge.windowssysWindowsWin32SecurityAuthenticationIdentitySLDepositOfflineConfirmationIdEx(hslc.rawAddress, pproductskuid.rawAddress, pactivationinfo.rawAddress, pwszinstallationid.rawAddress, pwszconfirmationid.rawAddress)
 
-public actual fun sLFireEvent(hslc: ConstPtr<CVoid>, pwszeventid: Pcwstr, papplicationid: ConstPtr<Guid>): Hresult =
+public actual fun sLFireEvent(hslc: ConstPtr, pwszeventid: Pcwstr, papplicationid: ConstPtr): Hresult =
     WindowsWin32SecurityAuthenticationIdentityJniBridge.windowssysWindowsWin32SecurityAuthenticationIdentitySLFireEvent(hslc.rawAddress, pwszeventid.rawAddress, papplicationid.rawAddress)
 
-public actual fun sLGenerateOfflineInstallationId(hslc: ConstPtr<CVoid>, pproductskuid: ConstPtr<Guid>, ppwszinstallationid: MutPtr<Pwstr>): Hresult =
+public actual fun sLGenerateOfflineInstallationId(hslc: ConstPtr, pproductskuid: ConstPtr, ppwszinstallationid: MutPtr): Hresult =
     WindowsWin32SecurityAuthenticationIdentityJniBridge.windowssysWindowsWin32SecurityAuthenticationIdentitySLGenerateOfflineInstallationId(hslc.rawAddress, pproductskuid.rawAddress, ppwszinstallationid.rawAddress)
 
-public actual fun sLGenerateOfflineInstallationIdEx(hslc: ConstPtr<CVoid>, pproductskuid: ConstPtr<Guid>, pactivationinfo: ConstPtr<SlActivationInfoHeader>, ppwszinstallationid: MutPtr<Pwstr>): Hresult =
+public actual fun sLGenerateOfflineInstallationIdEx(hslc: ConstPtr, pproductskuid: ConstPtr, pactivationinfo: ConstPtr, ppwszinstallationid: MutPtr): Hresult =
     WindowsWin32SecurityAuthenticationIdentityJniBridge.windowssysWindowsWin32SecurityAuthenticationIdentitySLGenerateOfflineInstallationIdEx(hslc.rawAddress, pproductskuid.rawAddress, pactivationinfo.rawAddress, ppwszinstallationid.rawAddress)
 
-public actual fun sLGetApplicationInformation(hslc: ConstPtr<CVoid>, papplicationid: ConstPtr<Guid>, pwszvaluename: Pcwstr, pedatatype: MutPtr<Sldatatype>, pcbvalue: MutPtr<UInt>, ppbvalue: MutPtr<MutPtr<UByte>>): Hresult =
+public actual fun sLGetApplicationInformation(hslc: ConstPtr, papplicationid: ConstPtr, pwszvaluename: Pcwstr, pedatatype: MutPtr, pcbvalue: MutPtr, ppbvalue: MutPtr): Hresult =
     WindowsWin32SecurityAuthenticationIdentityJniBridge.windowssysWindowsWin32SecurityAuthenticationIdentitySLGetApplicationInformation(hslc.rawAddress, papplicationid.rawAddress, pwszvaluename.rawAddress, pedatatype.rawAddress, pcbvalue.rawAddress, ppbvalue.rawAddress)
 
-public actual fun sLGetGenuineInformation(pqueryid: ConstPtr<Guid>, pwszvaluename: Pcwstr, pedatatype: MutPtr<Sldatatype>, pcbvalue: MutPtr<UInt>, ppbvalue: MutPtr<MutPtr<UByte>>): Hresult =
+public actual fun sLGetGenuineInformation(pqueryid: ConstPtr, pwszvaluename: Pcwstr, pedatatype: MutPtr, pcbvalue: MutPtr, ppbvalue: MutPtr): Hresult =
     WindowsWin32SecurityAuthenticationIdentityJniBridge.windowssysWindowsWin32SecurityAuthenticationIdentitySLGetGenuineInformation(pqueryid.rawAddress, pwszvaluename.rawAddress, pedatatype.rawAddress, pcbvalue.rawAddress, ppbvalue.rawAddress)
 
-public actual fun sLGetInstalledProductKeyIds(hslc: ConstPtr<CVoid>, pproductskuid: ConstPtr<Guid>, pnproductkeyids: MutPtr<UInt>, ppproductkeyids: MutPtr<MutPtr<Guid>>): Hresult =
+public actual fun sLGetInstalledProductKeyIds(hslc: ConstPtr, pproductskuid: ConstPtr, pnproductkeyids: MutPtr, ppproductkeyids: MutPtr): Hresult =
     WindowsWin32SecurityAuthenticationIdentityJniBridge.windowssysWindowsWin32SecurityAuthenticationIdentitySLGetInstalledProductKeyIds(hslc.rawAddress, pproductskuid.rawAddress, pnproductkeyids.rawAddress, ppproductkeyids.rawAddress)
 
-public actual fun sLGetLicense(hslc: ConstPtr<CVoid>, plicensefileid: ConstPtr<Guid>, pcblicensefile: MutPtr<UInt>, ppblicensefile: MutPtr<MutPtr<UByte>>): Hresult =
+public actual fun sLGetLicense(hslc: ConstPtr, plicensefileid: ConstPtr, pcblicensefile: MutPtr, ppblicensefile: MutPtr): Hresult =
     WindowsWin32SecurityAuthenticationIdentityJniBridge.windowssysWindowsWin32SecurityAuthenticationIdentitySLGetLicense(hslc.rawAddress, plicensefileid.rawAddress, pcblicensefile.rawAddress, ppblicensefile.rawAddress)
 
-public actual fun sLGetLicenseFileId(hslc: ConstPtr<CVoid>, cblicenseblob: UInt, pblicenseblob: ConstPtr<UByte>, plicensefileid: MutPtr<Guid>): Hresult =
+public actual fun sLGetLicenseFileId(hslc: ConstPtr, cblicenseblob: UInt, pblicenseblob: ConstPtr, plicensefileid: MutPtr): Hresult =
     WindowsWin32SecurityAuthenticationIdentityJniBridge.windowssysWindowsWin32SecurityAuthenticationIdentitySLGetLicenseFileId(hslc.rawAddress, cblicenseblob.toInt(), pblicenseblob.rawAddress, plicensefileid.rawAddress)
 
-public actual fun sLGetLicenseInformation(hslc: ConstPtr<CVoid>, psllicenseid: ConstPtr<Guid>, pwszvaluename: Pcwstr, pedatatype: MutPtr<Sldatatype>, pcbvalue: MutPtr<UInt>, ppbvalue: MutPtr<MutPtr<UByte>>): Hresult =
+public actual fun sLGetLicenseInformation(hslc: ConstPtr, psllicenseid: ConstPtr, pwszvaluename: Pcwstr, pedatatype: MutPtr, pcbvalue: MutPtr, ppbvalue: MutPtr): Hresult =
     WindowsWin32SecurityAuthenticationIdentityJniBridge.windowssysWindowsWin32SecurityAuthenticationIdentitySLGetLicenseInformation(hslc.rawAddress, psllicenseid.rawAddress, pwszvaluename.rawAddress, pedatatype.rawAddress, pcbvalue.rawAddress, ppbvalue.rawAddress)
 
-public actual fun sLGetLicensingStatusInformation(hslc: ConstPtr<CVoid>, pappid: ConstPtr<Guid>, pproductskuid: ConstPtr<Guid>, pwszrightname: Pcwstr, pnstatuscount: MutPtr<UInt>, pplicensingstatus: MutPtr<MutPtr<SlLicensingStatus>>): Hresult =
+public actual fun sLGetLicensingStatusInformation(hslc: ConstPtr, pappid: ConstPtr, pproductskuid: ConstPtr, pwszrightname: Pcwstr, pnstatuscount: MutPtr, pplicensingstatus: MutPtr): Hresult =
     WindowsWin32SecurityAuthenticationIdentityJniBridge.windowssysWindowsWin32SecurityAuthenticationIdentitySLGetLicensingStatusInformation(hslc.rawAddress, pappid.rawAddress, pproductskuid.rawAddress, pwszrightname.rawAddress, pnstatuscount.rawAddress, pplicensingstatus.rawAddress)
 
-public actual fun sLGetPKeyId(hslc: ConstPtr<CVoid>, pwszpkeyalgorithm: Pcwstr, pwszpkeystring: Pcwstr, cbpkeyspecificdata: UInt, pbpkeyspecificdata: ConstPtr<UByte>, ppkeyid: MutPtr<Guid>): Hresult =
+public actual fun sLGetPKeyId(hslc: ConstPtr, pwszpkeyalgorithm: Pcwstr, pwszpkeystring: Pcwstr, cbpkeyspecificdata: UInt, pbpkeyspecificdata: ConstPtr, ppkeyid: MutPtr): Hresult =
     WindowsWin32SecurityAuthenticationIdentityJniBridge.windowssysWindowsWin32SecurityAuthenticationIdentitySLGetPKeyId(hslc.rawAddress, pwszpkeyalgorithm.rawAddress, pwszpkeystring.rawAddress, cbpkeyspecificdata.toInt(), pbpkeyspecificdata.rawAddress, ppkeyid.rawAddress)
 
-public actual fun sLGetPKeyInformation(hslc: ConstPtr<CVoid>, ppkeyid: ConstPtr<Guid>, pwszvaluename: Pcwstr, pedatatype: MutPtr<Sldatatype>, pcbvalue: MutPtr<UInt>, ppbvalue: MutPtr<MutPtr<UByte>>): Hresult =
+public actual fun sLGetPKeyInformation(hslc: ConstPtr, ppkeyid: ConstPtr, pwszvaluename: Pcwstr, pedatatype: MutPtr, pcbvalue: MutPtr, ppbvalue: MutPtr): Hresult =
     WindowsWin32SecurityAuthenticationIdentityJniBridge.windowssysWindowsWin32SecurityAuthenticationIdentitySLGetPKeyInformation(hslc.rawAddress, ppkeyid.rawAddress, pwszvaluename.rawAddress, pedatatype.rawAddress, pcbvalue.rawAddress, ppbvalue.rawAddress)
 
-public actual fun sLGetPolicyInformation(hslc: ConstPtr<CVoid>, pwszvaluename: Pcwstr, pedatatype: MutPtr<Sldatatype>, pcbvalue: MutPtr<UInt>, ppbvalue: MutPtr<MutPtr<UByte>>): Hresult =
+public actual fun sLGetPolicyInformation(hslc: ConstPtr, pwszvaluename: Pcwstr, pedatatype: MutPtr, pcbvalue: MutPtr, ppbvalue: MutPtr): Hresult =
     WindowsWin32SecurityAuthenticationIdentityJniBridge.windowssysWindowsWin32SecurityAuthenticationIdentitySLGetPolicyInformation(hslc.rawAddress, pwszvaluename.rawAddress, pedatatype.rawAddress, pcbvalue.rawAddress, ppbvalue.rawAddress)
 
-public actual fun sLGetPolicyInformationDWORD(hslc: ConstPtr<CVoid>, pwszvaluename: Pcwstr, pdwvalue: MutPtr<UInt>): Hresult =
+public actual fun sLGetPolicyInformationDWORD(hslc: ConstPtr, pwszvaluename: Pcwstr, pdwvalue: MutPtr): Hresult =
     WindowsWin32SecurityAuthenticationIdentityJniBridge.windowssysWindowsWin32SecurityAuthenticationIdentitySLGetPolicyInformationDWORD(hslc.rawAddress, pwszvaluename.rawAddress, pdwvalue.rawAddress)
 
-public actual fun sLGetProductSkuInformation(hslc: ConstPtr<CVoid>, pproductskuid: ConstPtr<Guid>, pwszvaluename: Pcwstr, pedatatype: MutPtr<Sldatatype>, pcbvalue: MutPtr<UInt>, ppbvalue: MutPtr<MutPtr<UByte>>): Hresult =
+public actual fun sLGetProductSkuInformation(hslc: ConstPtr, pproductskuid: ConstPtr, pwszvaluename: Pcwstr, pedatatype: MutPtr, pcbvalue: MutPtr, ppbvalue: MutPtr): Hresult =
     WindowsWin32SecurityAuthenticationIdentityJniBridge.windowssysWindowsWin32SecurityAuthenticationIdentitySLGetProductSkuInformation(hslc.rawAddress, pproductskuid.rawAddress, pwszvaluename.rawAddress, pedatatype.rawAddress, pcbvalue.rawAddress, ppbvalue.rawAddress)
 
-public actual fun sLGetReferralInformation(hslc: ConstPtr<CVoid>, ereferraltype: Slreferraltype, pskuorappid: ConstPtr<Guid>, pwszvaluename: Pcwstr, ppwszvalue: MutPtr<Pwstr>): Hresult =
+public actual fun sLGetReferralInformation(hslc: ConstPtr, ereferraltype: Slreferraltype, pskuorappid: ConstPtr, pwszvaluename: Pcwstr, ppwszvalue: MutPtr): Hresult =
     WindowsWin32SecurityAuthenticationIdentityJniBridge.windowssysWindowsWin32SecurityAuthenticationIdentitySLGetReferralInformation(hslc.rawAddress, ereferraltype, pskuorappid.rawAddress, pwszvaluename.rawAddress, ppwszvalue.rawAddress)
 
-public actual fun sLGetSLIDList(hslc: ConstPtr<CVoid>, equeryidtype: Slidtype, pqueryid: ConstPtr<Guid>, ereturnidtype: Slidtype, pnreturnids: MutPtr<UInt>, ppreturnids: MutPtr<MutPtr<Guid>>): Hresult =
+public actual fun sLGetSLIDList(hslc: ConstPtr, equeryidtype: Slidtype, pqueryid: ConstPtr, ereturnidtype: Slidtype, pnreturnids: MutPtr, ppreturnids: MutPtr): Hresult =
     WindowsWin32SecurityAuthenticationIdentityJniBridge.windowssysWindowsWin32SecurityAuthenticationIdentitySLGetSLIDList(hslc.rawAddress, equeryidtype, pqueryid.rawAddress, ereturnidtype, pnreturnids.rawAddress, ppreturnids.rawAddress)
 
-public actual fun sLGetServerStatus(pwszserverurl: Pcwstr, pwszacquisitiontype: Pcwstr, pwszproxyserver: Pcwstr, wproxyport: UShort, phrstatus: MutPtr<Hresult>): Hresult =
+public actual fun sLGetServerStatus(pwszserverurl: Pcwstr, pwszacquisitiontype: Pcwstr, pwszproxyserver: Pcwstr, wproxyport: UShort, phrstatus: MutPtr): Hresult =
     WindowsWin32SecurityAuthenticationIdentityJniBridge.windowssysWindowsWin32SecurityAuthenticationIdentitySLGetServerStatus(pwszserverurl.rawAddress, pwszacquisitiontype.rawAddress, pwszproxyserver.rawAddress, wproxyport.toShort(), phrstatus.rawAddress)
 
-public actual fun sLGetServiceInformation(hslc: ConstPtr<CVoid>, pwszvaluename: Pcwstr, pedatatype: MutPtr<Sldatatype>, pcbvalue: MutPtr<UInt>, ppbvalue: MutPtr<MutPtr<UByte>>): Hresult =
+public actual fun sLGetServiceInformation(hslc: ConstPtr, pwszvaluename: Pcwstr, pedatatype: MutPtr, pcbvalue: MutPtr, ppbvalue: MutPtr): Hresult =
     WindowsWin32SecurityAuthenticationIdentityJniBridge.windowssysWindowsWin32SecurityAuthenticationIdentitySLGetServiceInformation(hslc.rawAddress, pwszvaluename.rawAddress, pedatatype.rawAddress, pcbvalue.rawAddress, ppbvalue.rawAddress)
 
-public actual fun sLGetWindowsInformation(pwszvaluename: Pcwstr, pedatatype: MutPtr<Sldatatype>, pcbvalue: MutPtr<UInt>, ppbvalue: MutPtr<MutPtr<UByte>>): Hresult =
+public actual fun sLGetWindowsInformation(pwszvaluename: Pcwstr, pedatatype: MutPtr, pcbvalue: MutPtr, ppbvalue: MutPtr): Hresult =
     WindowsWin32SecurityAuthenticationIdentityJniBridge.windowssysWindowsWin32SecurityAuthenticationIdentitySLGetWindowsInformation(pwszvaluename.rawAddress, pedatatype.rawAddress, pcbvalue.rawAddress, ppbvalue.rawAddress)
 
-public actual fun sLGetWindowsInformationDWORD(pwszvaluename: Pcwstr, pdwvalue: MutPtr<UInt>): Hresult =
+public actual fun sLGetWindowsInformationDWORD(pwszvaluename: Pcwstr, pdwvalue: MutPtr): Hresult =
     WindowsWin32SecurityAuthenticationIdentityJniBridge.windowssysWindowsWin32SecurityAuthenticationIdentitySLGetWindowsInformationDWORD(pwszvaluename.rawAddress, pdwvalue.rawAddress)
 
-public actual fun sLInstallLicense(hslc: ConstPtr<CVoid>, cblicenseblob: UInt, pblicenseblob: ConstPtr<UByte>, plicensefileid: MutPtr<Guid>): Hresult =
+public actual fun sLInstallLicense(hslc: ConstPtr, cblicenseblob: UInt, pblicenseblob: ConstPtr, plicensefileid: MutPtr): Hresult =
     WindowsWin32SecurityAuthenticationIdentityJniBridge.windowssysWindowsWin32SecurityAuthenticationIdentitySLInstallLicense(hslc.rawAddress, cblicenseblob.toInt(), pblicenseblob.rawAddress, plicensefileid.rawAddress)
 
-public actual fun sLInstallProofOfPurchase(hslc: ConstPtr<CVoid>, pwszpkeyalgorithm: Pcwstr, pwszpkeystring: Pcwstr, cbpkeyspecificdata: UInt, pbpkeyspecificdata: ConstPtr<UByte>, ppkeyid: MutPtr<Guid>): Hresult =
+public actual fun sLInstallProofOfPurchase(hslc: ConstPtr, pwszpkeyalgorithm: Pcwstr, pwszpkeystring: Pcwstr, cbpkeyspecificdata: UInt, pbpkeyspecificdata: ConstPtr, ppkeyid: MutPtr): Hresult =
     WindowsWin32SecurityAuthenticationIdentityJniBridge.windowssysWindowsWin32SecurityAuthenticationIdentitySLInstallProofOfPurchase(hslc.rawAddress, pwszpkeyalgorithm.rawAddress, pwszpkeystring.rawAddress, cbpkeyspecificdata.toInt(), pbpkeyspecificdata.rawAddress, ppkeyid.rawAddress)
 
-public actual fun sLIsGenuineLocal(pappid: ConstPtr<Guid>, pgenuinestate: MutPtr<SlGenuineState>, puioptions: MutPtr<SlNongenuineUiOptions>): Hresult =
+public actual fun sLIsGenuineLocal(pappid: ConstPtr, pgenuinestate: MutPtr, puioptions: MutPtr): Hresult =
     WindowsWin32SecurityAuthenticationIdentityJniBridge.windowssysWindowsWin32SecurityAuthenticationIdentitySLIsGenuineLocal(pappid.rawAddress, pgenuinestate.rawAddress, puioptions.rawAddress)
 
-public actual fun sLOpen(phslc: MutPtr<MutPtr<CVoid>>): Hresult =
+public actual fun sLOpen(phslc: MutPtr): Hresult =
     WindowsWin32SecurityAuthenticationIdentityJniBridge.windowssysWindowsWin32SecurityAuthenticationIdentitySLOpen(phslc.rawAddress)
 
-public actual fun sLQueryLicenseValueFromApp(valuename: Pcwstr, valuetype: MutPtr<UInt>, databuffer: MutPtr<CVoid>, datasize: UInt, resultdatasize: MutPtr<UInt>): Hresult =
+public actual fun sLQueryLicenseValueFromApp(valuename: Pcwstr, valuetype: MutPtr, databuffer: MutPtr, datasize: UInt, resultdatasize: MutPtr): Hresult =
     WindowsWin32SecurityAuthenticationIdentityJniBridge.windowssysWindowsWin32SecurityAuthenticationIdentitySLQueryLicenseValueFromApp(valuename.rawAddress, valuetype.rawAddress, databuffer.rawAddress, datasize.toInt(), resultdatasize.rawAddress)
 
-public actual fun sLRegisterEvent(hslc: ConstPtr<CVoid>, pwszeventid: Pcwstr, papplicationid: ConstPtr<Guid>, hevent: Handle): Hresult =
+public actual fun sLRegisterEvent(hslc: ConstPtr, pwszeventid: Pcwstr, papplicationid: ConstPtr, hevent: Handle): Hresult =
     WindowsWin32SecurityAuthenticationIdentityJniBridge.windowssysWindowsWin32SecurityAuthenticationIdentitySLRegisterEvent(hslc.rawAddress, pwszeventid.rawAddress, papplicationid.rawAddress, hevent.rawAddress)
 
-public actual fun sLSetCurrentProductKey(hslc: ConstPtr<CVoid>, pproductskuid: ConstPtr<Guid>, pproductkeyid: ConstPtr<Guid>): Hresult =
+public actual fun sLSetCurrentProductKey(hslc: ConstPtr, pproductskuid: ConstPtr, pproductkeyid: ConstPtr): Hresult =
     WindowsWin32SecurityAuthenticationIdentityJniBridge.windowssysWindowsWin32SecurityAuthenticationIdentitySLSetCurrentProductKey(hslc.rawAddress, pproductskuid.rawAddress, pproductkeyid.rawAddress)
 
-public actual fun sLSetGenuineInformation(pqueryid: ConstPtr<Guid>, pwszvaluename: Pcwstr, edatatype: Sldatatype, cbvalue: UInt, pbvalue: ConstPtr<UByte>): Hresult =
+public actual fun sLSetGenuineInformation(pqueryid: ConstPtr, pwszvaluename: Pcwstr, edatatype: Sldatatype, cbvalue: UInt, pbvalue: ConstPtr): Hresult =
     WindowsWin32SecurityAuthenticationIdentityJniBridge.windowssysWindowsWin32SecurityAuthenticationIdentitySLSetGenuineInformation(pqueryid.rawAddress, pwszvaluename.rawAddress, edatatype.toInt(), cbvalue.toInt(), pbvalue.rawAddress)
 
-public actual fun sLUninstallLicense(hslc: ConstPtr<CVoid>, plicensefileid: ConstPtr<Guid>): Hresult =
+public actual fun sLUninstallLicense(hslc: ConstPtr, plicensefileid: ConstPtr): Hresult =
     WindowsWin32SecurityAuthenticationIdentityJniBridge.windowssysWindowsWin32SecurityAuthenticationIdentitySLUninstallLicense(hslc.rawAddress, plicensefileid.rawAddress)
 
-public actual fun sLUninstallProofOfPurchase(hslc: ConstPtr<CVoid>, ppkeyid: ConstPtr<Guid>): Hresult =
+public actual fun sLUninstallProofOfPurchase(hslc: ConstPtr, ppkeyid: ConstPtr): Hresult =
     WindowsWin32SecurityAuthenticationIdentityJniBridge.windowssysWindowsWin32SecurityAuthenticationIdentitySLUninstallProofOfPurchase(hslc.rawAddress, ppkeyid.rawAddress)
 
-public actual fun sLUnregisterEvent(hslc: ConstPtr<CVoid>, pwszeventid: Pcwstr, papplicationid: ConstPtr<Guid>, hevent: Handle): Hresult =
+public actual fun sLUnregisterEvent(hslc: ConstPtr, pwszeventid: Pcwstr, papplicationid: ConstPtr, hevent: Handle): Hresult =
     WindowsWin32SecurityAuthenticationIdentityJniBridge.windowssysWindowsWin32SecurityAuthenticationIdentitySLUnregisterEvent(hslc.rawAddress, pwszeventid.rawAddress, papplicationid.rawAddress, hevent.rawAddress)
 
-public actual fun saslAcceptSecurityContext(phcredential: ConstPtr<SecHandle>, phcontext: ConstPtr<SecHandle>, pinput: ConstPtr<SecBufferDesc>, fcontextreq: AscReqFlags, targetdatarep: UInt, phnewcontext: MutPtr<SecHandle>, poutput: MutPtr<SecBufferDesc>, pfcontextattr: MutPtr<UInt>, ptsexpiry: MutPtr<Long>): Hresult =
+public actual fun saslAcceptSecurityContext(phcredential: ConstPtr, phcontext: ConstPtr, pinput: ConstPtr, fcontextreq: AscReqFlags, targetdatarep: UInt, phnewcontext: MutPtr, poutput: MutPtr, pfcontextattr: MutPtr, ptsexpiry: MutPtr): Hresult =
     WindowsWin32SecurityAuthenticationIdentityJniBridge.windowssysWindowsWin32SecurityAuthenticationIdentitySaslAcceptSecurityContext(phcredential.rawAddress, phcontext.rawAddress, pinput.rawAddress, fcontextreq.toInt(), targetdatarep.toInt(), phnewcontext.rawAddress, poutput.rawAddress, pfcontextattr.rawAddress, ptsexpiry.rawAddress)
 
-public actual fun saslEnumerateProfilesA(profilelist: MutPtr<Pstr>, profilecount: MutPtr<UInt>): Hresult =
+public actual fun saslEnumerateProfilesA(profilelist: MutPtr, profilecount: MutPtr): Hresult =
     WindowsWin32SecurityAuthenticationIdentityJniBridge.windowssysWindowsWin32SecurityAuthenticationIdentitySaslEnumerateProfilesA(profilelist.rawAddress, profilecount.rawAddress)
 
-public actual fun saslEnumerateProfilesW(profilelist: MutPtr<Pwstr>, profilecount: MutPtr<UInt>): Hresult =
+public actual fun saslEnumerateProfilesW(profilelist: MutPtr, profilecount: MutPtr): Hresult =
     WindowsWin32SecurityAuthenticationIdentityJniBridge.windowssysWindowsWin32SecurityAuthenticationIdentitySaslEnumerateProfilesW(profilelist.rawAddress, profilecount.rawAddress)
 
-public actual fun saslGetContextOption(contexthandle: ConstPtr<SecHandle>, option: UInt, value: MutPtr<CVoid>, size: UInt, needed: MutPtr<UInt>): Hresult =
+public actual fun saslGetContextOption(contexthandle: ConstPtr, option: UInt, value: MutPtr, size: UInt, needed: MutPtr): Hresult =
     WindowsWin32SecurityAuthenticationIdentityJniBridge.windowssysWindowsWin32SecurityAuthenticationIdentitySaslGetContextOption(contexthandle.rawAddress, option.toInt(), value.rawAddress, size.toInt(), needed.rawAddress)
 
-public actual fun saslGetProfilePackageA(profilename: Pcstr, packageinfo: MutPtr<MutPtr<SecPkgInfoA>>): Hresult =
+public actual fun saslGetProfilePackageA(profilename: Pcstr, packageinfo: MutPtr): Hresult =
     WindowsWin32SecurityAuthenticationIdentityJniBridge.windowssysWindowsWin32SecurityAuthenticationIdentitySaslGetProfilePackageA(profilename.rawAddress, packageinfo.rawAddress)
 
-public actual fun saslGetProfilePackageW(profilename: Pcwstr, packageinfo: MutPtr<MutPtr<SecPkgInfoW>>): Hresult =
+public actual fun saslGetProfilePackageW(profilename: Pcwstr, packageinfo: MutPtr): Hresult =
     WindowsWin32SecurityAuthenticationIdentityJniBridge.windowssysWindowsWin32SecurityAuthenticationIdentitySaslGetProfilePackageW(profilename.rawAddress, packageinfo.rawAddress)
 
-public actual fun saslIdentifyPackageA(pinput: ConstPtr<SecBufferDesc>, packageinfo: MutPtr<MutPtr<SecPkgInfoA>>): Hresult =
+public actual fun saslIdentifyPackageA(pinput: ConstPtr, packageinfo: MutPtr): Hresult =
     WindowsWin32SecurityAuthenticationIdentityJniBridge.windowssysWindowsWin32SecurityAuthenticationIdentitySaslIdentifyPackageA(pinput.rawAddress, packageinfo.rawAddress)
 
-public actual fun saslIdentifyPackageW(pinput: ConstPtr<SecBufferDesc>, packageinfo: MutPtr<MutPtr<SecPkgInfoW>>): Hresult =
+public actual fun saslIdentifyPackageW(pinput: ConstPtr, packageinfo: MutPtr): Hresult =
     WindowsWin32SecurityAuthenticationIdentityJniBridge.windowssysWindowsWin32SecurityAuthenticationIdentitySaslIdentifyPackageW(pinput.rawAddress, packageinfo.rawAddress)
 
-public actual fun saslInitializeSecurityContextA(phcredential: ConstPtr<SecHandle>, phcontext: ConstPtr<SecHandle>, psztargetname: Pcstr, fcontextreq: IscReqFlags, reserved1: UInt, targetdatarep: UInt, pinput: ConstPtr<SecBufferDesc>, reserved2: UInt, phnewcontext: MutPtr<SecHandle>, poutput: MutPtr<SecBufferDesc>, pfcontextattr: MutPtr<UInt>, ptsexpiry: MutPtr<Long>): Hresult =
+public actual fun saslInitializeSecurityContextA(phcredential: ConstPtr, phcontext: ConstPtr, psztargetname: Pcstr, fcontextreq: IscReqFlags, reserved1: UInt, targetdatarep: UInt, pinput: ConstPtr, reserved2: UInt, phnewcontext: MutPtr, poutput: MutPtr, pfcontextattr: MutPtr, ptsexpiry: MutPtr): Hresult =
     WindowsWin32SecurityAuthenticationIdentityJniBridge.windowssysWindowsWin32SecurityAuthenticationIdentitySaslInitializeSecurityContextA(phcredential.rawAddress, phcontext.rawAddress, psztargetname.rawAddress, fcontextreq.toInt(), reserved1.toInt(), targetdatarep.toInt(), pinput.rawAddress, reserved2.toInt(), phnewcontext.rawAddress, poutput.rawAddress, pfcontextattr.rawAddress, ptsexpiry.rawAddress)
 
-public actual fun saslInitializeSecurityContextW(phcredential: ConstPtr<SecHandle>, phcontext: ConstPtr<SecHandle>, psztargetname: Pcwstr, fcontextreq: IscReqFlags, reserved1: UInt, targetdatarep: UInt, pinput: ConstPtr<SecBufferDesc>, reserved2: UInt, phnewcontext: MutPtr<SecHandle>, poutput: MutPtr<SecBufferDesc>, pfcontextattr: MutPtr<UInt>, ptsexpiry: MutPtr<Long>): Hresult =
+public actual fun saslInitializeSecurityContextW(phcredential: ConstPtr, phcontext: ConstPtr, psztargetname: Pcwstr, fcontextreq: IscReqFlags, reserved1: UInt, targetdatarep: UInt, pinput: ConstPtr, reserved2: UInt, phnewcontext: MutPtr, poutput: MutPtr, pfcontextattr: MutPtr, ptsexpiry: MutPtr): Hresult =
     WindowsWin32SecurityAuthenticationIdentityJniBridge.windowssysWindowsWin32SecurityAuthenticationIdentitySaslInitializeSecurityContextW(phcredential.rawAddress, phcontext.rawAddress, psztargetname.rawAddress, fcontextreq.toInt(), reserved1.toInt(), targetdatarep.toInt(), pinput.rawAddress, reserved2.toInt(), phnewcontext.rawAddress, poutput.rawAddress, pfcontextattr.rawAddress, ptsexpiry.rawAddress)
 
-public actual fun saslSetContextOption(contexthandle: ConstPtr<SecHandle>, option: UInt, value: ConstPtr<CVoid>, size: UInt): Hresult =
+public actual fun saslSetContextOption(contexthandle: ConstPtr, option: UInt, value: ConstPtr, size: UInt): Hresult =
     WindowsWin32SecurityAuthenticationIdentityJniBridge.windowssysWindowsWin32SecurityAuthenticationIdentitySaslSetContextOption(contexthandle.rawAddress, option.toInt(), value.rawAddress, size.toInt())
 
 public actual fun sendSAS(asuser: Bool) {
     WindowsWin32SecurityAuthenticationIdentityJniBridge.windowssysWindowsWin32SecurityAuthenticationIdentitySendSAS(asuser)
 }
 
-public actual fun setContextAttributesA(phcontext: ConstPtr<SecHandle>, ulattribute: SecpkgAttr, pbuffer: ConstPtr<CVoid>, cbbuffer: UInt): Hresult =
+public actual fun setContextAttributesA(phcontext: ConstPtr, ulattribute: SecpkgAttr, pbuffer: ConstPtr, cbbuffer: UInt): Hresult =
     WindowsWin32SecurityAuthenticationIdentityJniBridge.windowssysWindowsWin32SecurityAuthenticationIdentitySetContextAttributesA(phcontext.rawAddress, ulattribute.toInt(), pbuffer.rawAddress, cbbuffer.toInt())
 
-public actual fun setContextAttributesW(phcontext: ConstPtr<SecHandle>, ulattribute: SecpkgAttr, pbuffer: ConstPtr<CVoid>, cbbuffer: UInt): Hresult =
+public actual fun setContextAttributesW(phcontext: ConstPtr, ulattribute: SecpkgAttr, pbuffer: ConstPtr, cbbuffer: UInt): Hresult =
     WindowsWin32SecurityAuthenticationIdentityJniBridge.windowssysWindowsWin32SecurityAuthenticationIdentitySetContextAttributesW(phcontext.rawAddress, ulattribute.toInt(), pbuffer.rawAddress, cbbuffer.toInt())
 
-public actual fun setCredentialsAttributesA(phcredential: ConstPtr<SecHandle>, ulattribute: UInt, pbuffer: ConstPtr<CVoid>, cbbuffer: UInt): Hresult =
+public actual fun setCredentialsAttributesA(phcredential: ConstPtr, ulattribute: UInt, pbuffer: ConstPtr, cbbuffer: UInt): Hresult =
     WindowsWin32SecurityAuthenticationIdentityJniBridge.windowssysWindowsWin32SecurityAuthenticationIdentitySetCredentialsAttributesA(phcredential.rawAddress, ulattribute.toInt(), pbuffer.rawAddress, cbbuffer.toInt())
 
-public actual fun setCredentialsAttributesW(phcredential: ConstPtr<SecHandle>, ulattribute: UInt, pbuffer: ConstPtr<CVoid>, cbbuffer: UInt): Hresult =
+public actual fun setCredentialsAttributesW(phcredential: ConstPtr, ulattribute: UInt, pbuffer: ConstPtr, cbbuffer: UInt): Hresult =
     WindowsWin32SecurityAuthenticationIdentityJniBridge.windowssysWindowsWin32SecurityAuthenticationIdentitySetCredentialsAttributesW(phcredential.rawAddress, ulattribute.toInt(), pbuffer.rawAddress, cbbuffer.toInt())
 
-public actual fun sslCrackCertificate(pbcertificate: MutPtr<UByte>, cbcertificate: UInt, dwflags: UInt, ppcertificate: MutPtr<MutPtr<X509Certificate>>): Bool =
+public actual fun sslCrackCertificate(pbcertificate: MutPtr, cbcertificate: UInt, dwflags: UInt, ppcertificate: MutPtr): Bool =
     WindowsWin32SecurityAuthenticationIdentityJniBridge.windowssysWindowsWin32SecurityAuthenticationIdentitySslCrackCertificate(pbcertificate.rawAddress, cbcertificate.toInt(), dwflags.toInt(), ppcertificate.rawAddress)
 
-public actual fun sslDeserializeCertificateStore(serializedcertificatestore: CryptIntegerBlob, ppcertcontext: MutPtr<MutPtr<CertContext>>): Hresult =
+public actual fun sslDeserializeCertificateStore(serializedcertificatestore: CryptIntegerBlob, ppcertcontext: MutPtr): Hresult =
     0
 
 public actual fun sslEmptyCacheA(psztargetname: Pcstr, dwflags: UInt): Bool =
@@ -1202,92 +1192,92 @@ public actual fun sslEmptyCacheA(psztargetname: Pcstr, dwflags: UInt): Bool =
 public actual fun sslEmptyCacheW(psztargetname: Pcwstr, dwflags: UInt): Bool =
     WindowsWin32SecurityAuthenticationIdentityJniBridge.windowssysWindowsWin32SecurityAuthenticationIdentitySslEmptyCacheW(psztargetname.rawAddress, dwflags.toInt())
 
-public actual fun sslFreeCertificate(pcertificate: MutPtr<X509Certificate>) {
+public actual fun sslFreeCertificate(pcertificate: MutPtr) {
     WindowsWin32SecurityAuthenticationIdentityJniBridge.windowssysWindowsWin32SecurityAuthenticationIdentitySslFreeCertificate(pcertificate.rawAddress)
 }
 
-public actual fun sslGenerateRandomBits(prandomdata: MutPtr<UByte>, crandomdata: Int) {
+public actual fun sslGenerateRandomBits(prandomdata: MutPtr, crandomdata: Int) {
     WindowsWin32SecurityAuthenticationIdentityJniBridge.windowssysWindowsWin32SecurityAuthenticationIdentitySslGenerateRandomBits(prandomdata.rawAddress, crandomdata)
 }
 
-public actual fun sslGetExtensions(clienthello: ConstPtr<UByte>, clienthellobytesize: UInt, genericextensions: MutPtr<SchExtensionData>, genericextensionscount: UByte, bytestoread: MutPtr<UInt>, flags: SchGetExtensionsOptions): Hresult =
+public actual fun sslGetExtensions(clienthello: ConstPtr, clienthellobytesize: UInt, genericextensions: MutPtr, genericextensionscount: UByte, bytestoread: MutPtr, flags: SchGetExtensionsOptions): Hresult =
     WindowsWin32SecurityAuthenticationIdentityJniBridge.windowssysWindowsWin32SecurityAuthenticationIdentitySslGetExtensions(clienthello.rawAddress, clienthellobytesize.toInt(), genericextensions.rawAddress, genericextensionscount.toByte(), bytestoread.rawAddress, flags)
 
 public actual fun sslGetMaximumKeySize(reserved: UInt): UInt =
     WindowsWin32SecurityAuthenticationIdentityJniBridge.windowssysWindowsWin32SecurityAuthenticationIdentitySslGetMaximumKeySize(reserved.toInt()).toUInt()
 
-public actual fun sslGetServerIdentity(clienthello: ConstPtr<UByte>, clienthellosize: UInt, serveridentity: MutPtr<MutPtr<UByte>>, serveridentitysize: MutPtr<UInt>, flags: UInt): Hresult =
+public actual fun sslGetServerIdentity(clienthello: ConstPtr, clienthellosize: UInt, serveridentity: MutPtr, serveridentitysize: MutPtr, flags: UInt): Hresult =
     WindowsWin32SecurityAuthenticationIdentityJniBridge.windowssysWindowsWin32SecurityAuthenticationIdentitySslGetServerIdentity(clienthello.rawAddress, clienthellosize.toInt(), serveridentity.rawAddress, serveridentitysize.rawAddress, flags.toInt())
 
-public actual fun sspiCompareAuthIdentities(authidentity1: ConstPtr<CVoid>, authidentity2: ConstPtr<CVoid>, samesupplieduser: MutPtr<Boolean>, samesuppliedidentity: MutPtr<Boolean>): Hresult =
+public actual fun sspiCompareAuthIdentities(authidentity1: ConstPtr, authidentity2: ConstPtr, samesupplieduser: MutPtr, samesuppliedidentity: MutPtr): Hresult =
     WindowsWin32SecurityAuthenticationIdentityJniBridge.windowssysWindowsWin32SecurityAuthenticationIdentitySspiCompareAuthIdentities(authidentity1.rawAddress, authidentity2.rawAddress, samesupplieduser.rawAddress, samesuppliedidentity.rawAddress)
 
-public actual fun sspiCopyAuthIdentity(authdata: ConstPtr<CVoid>, authdatacopy: MutPtr<MutPtr<CVoid>>): Hresult =
+public actual fun sspiCopyAuthIdentity(authdata: ConstPtr, authdatacopy: MutPtr): Hresult =
     WindowsWin32SecurityAuthenticationIdentityJniBridge.windowssysWindowsWin32SecurityAuthenticationIdentitySspiCopyAuthIdentity(authdata.rawAddress, authdatacopy.rawAddress)
 
-public actual fun sspiDecryptAuthIdentity(encryptedauthdata: MutPtr<CVoid>): Hresult =
+public actual fun sspiDecryptAuthIdentity(encryptedauthdata: MutPtr): Hresult =
     WindowsWin32SecurityAuthenticationIdentityJniBridge.windowssysWindowsWin32SecurityAuthenticationIdentitySspiDecryptAuthIdentity(encryptedauthdata.rawAddress)
 
-public actual fun sspiDecryptAuthIdentityEx(options: UInt, encryptedauthdata: MutPtr<CVoid>): Hresult =
+public actual fun sspiDecryptAuthIdentityEx(options: UInt, encryptedauthdata: MutPtr): Hresult =
     WindowsWin32SecurityAuthenticationIdentityJniBridge.windowssysWindowsWin32SecurityAuthenticationIdentitySspiDecryptAuthIdentityEx(options.toInt(), encryptedauthdata.rawAddress)
 
-public actual fun sspiEncodeAuthIdentityAsStrings(pauthidentity: ConstPtr<CVoid>, ppszusername: MutPtr<Pcwstr>, ppszdomainname: MutPtr<Pcwstr>, ppszpackedcredentialsstring: MutPtr<Pcwstr>): Hresult =
+public actual fun sspiEncodeAuthIdentityAsStrings(pauthidentity: ConstPtr, ppszusername: MutPtr, ppszdomainname: MutPtr, ppszpackedcredentialsstring: MutPtr): Hresult =
     WindowsWin32SecurityAuthenticationIdentityJniBridge.windowssysWindowsWin32SecurityAuthenticationIdentitySspiEncodeAuthIdentityAsStrings(pauthidentity.rawAddress, ppszusername.rawAddress, ppszdomainname.rawAddress, ppszpackedcredentialsstring.rawAddress)
 
-public actual fun sspiEncodeStringsAsAuthIdentity(pszusername: Pcwstr, pszdomainname: Pcwstr, pszpackedcredentialsstring: Pcwstr, ppauthidentity: MutPtr<MutPtr<CVoid>>): Hresult =
+public actual fun sspiEncodeStringsAsAuthIdentity(pszusername: Pcwstr, pszdomainname: Pcwstr, pszpackedcredentialsstring: Pcwstr, ppauthidentity: MutPtr): Hresult =
     WindowsWin32SecurityAuthenticationIdentityJniBridge.windowssysWindowsWin32SecurityAuthenticationIdentitySspiEncodeStringsAsAuthIdentity(pszusername.rawAddress, pszdomainname.rawAddress, pszpackedcredentialsstring.rawAddress, ppauthidentity.rawAddress)
 
-public actual fun sspiEncryptAuthIdentity(authdata: MutPtr<CVoid>): Hresult =
+public actual fun sspiEncryptAuthIdentity(authdata: MutPtr): Hresult =
     WindowsWin32SecurityAuthenticationIdentityJniBridge.windowssysWindowsWin32SecurityAuthenticationIdentitySspiEncryptAuthIdentity(authdata.rawAddress)
 
-public actual fun sspiEncryptAuthIdentityEx(options: UInt, authdata: MutPtr<CVoid>): Hresult =
+public actual fun sspiEncryptAuthIdentityEx(options: UInt, authdata: MutPtr): Hresult =
     WindowsWin32SecurityAuthenticationIdentityJniBridge.windowssysWindowsWin32SecurityAuthenticationIdentitySspiEncryptAuthIdentityEx(options.toInt(), authdata.rawAddress)
 
-public actual fun sspiExcludePackage(authidentity: ConstPtr<CVoid>, pszpackagename: Pcwstr, ppnewauthidentity: MutPtr<MutPtr<CVoid>>): Hresult =
+public actual fun sspiExcludePackage(authidentity: ConstPtr, pszpackagename: Pcwstr, ppnewauthidentity: MutPtr): Hresult =
     WindowsWin32SecurityAuthenticationIdentityJniBridge.windowssysWindowsWin32SecurityAuthenticationIdentitySspiExcludePackage(authidentity.rawAddress, pszpackagename.rawAddress, ppnewauthidentity.rawAddress)
 
-public actual fun sspiFreeAuthIdentity(authdata: ConstPtr<CVoid>) {
+public actual fun sspiFreeAuthIdentity(authdata: ConstPtr) {
     WindowsWin32SecurityAuthenticationIdentityJniBridge.windowssysWindowsWin32SecurityAuthenticationIdentitySspiFreeAuthIdentity(authdata.rawAddress)
 }
 
-public actual fun sspiGetTargetHostName(psztargetname: Pcwstr, pszhostname: MutPtr<Pwstr>): Hresult =
+public actual fun sspiGetTargetHostName(psztargetname: Pcwstr, pszhostname: MutPtr): Hresult =
     WindowsWin32SecurityAuthenticationIdentityJniBridge.windowssysWindowsWin32SecurityAuthenticationIdentitySspiGetTargetHostName(psztargetname.rawAddress, pszhostname.rawAddress)
 
-public actual fun sspiIsAuthIdentityEncrypted(encryptedauthdata: ConstPtr<CVoid>): Boolean =
+public actual fun sspiIsAuthIdentityEncrypted(encryptedauthdata: ConstPtr): Boolean =
     WindowsWin32SecurityAuthenticationIdentityJniBridge.windowssysWindowsWin32SecurityAuthenticationIdentitySspiIsAuthIdentityEncrypted(encryptedauthdata.rawAddress)
 
 public actual fun sspiIsPromptingNeeded(errororntstatus: UInt): Boolean =
     WindowsWin32SecurityAuthenticationIdentityJniBridge.windowssysWindowsWin32SecurityAuthenticationIdentitySspiIsPromptingNeeded(errororntstatus.toInt())
 
-public actual fun sspiLocalFree(databuffer: ConstPtr<CVoid>) {
+public actual fun sspiLocalFree(databuffer: ConstPtr) {
     WindowsWin32SecurityAuthenticationIdentityJniBridge.windowssysWindowsWin32SecurityAuthenticationIdentitySspiLocalFree(databuffer.rawAddress)
 }
 
-public actual fun sspiMarshalAuthIdentity(authidentity: ConstPtr<CVoid>, authidentitylength: MutPtr<UInt>, authidentitybytearray: MutPtr<MutPtr<Byte>>): Hresult =
+public actual fun sspiMarshalAuthIdentity(authidentity: ConstPtr, authidentitylength: MutPtr, authidentitybytearray: MutPtr): Hresult =
     WindowsWin32SecurityAuthenticationIdentityJniBridge.windowssysWindowsWin32SecurityAuthenticationIdentitySspiMarshalAuthIdentity(authidentity.rawAddress, authidentitylength.rawAddress, authidentitybytearray.rawAddress)
 
-public actual fun sspiPrepareForCredRead(authidentity: ConstPtr<CVoid>, psztargetname: Pcwstr, pcredmancredentialtype: MutPtr<UInt>, ppszcredmantargetname: MutPtr<Pcwstr>): Hresult =
+public actual fun sspiPrepareForCredRead(authidentity: ConstPtr, psztargetname: Pcwstr, pcredmancredentialtype: MutPtr, ppszcredmantargetname: MutPtr): Hresult =
     WindowsWin32SecurityAuthenticationIdentityJniBridge.windowssysWindowsWin32SecurityAuthenticationIdentitySspiPrepareForCredRead(authidentity.rawAddress, psztargetname.rawAddress, pcredmancredentialtype.rawAddress, ppszcredmantargetname.rawAddress)
 
-public actual fun sspiPrepareForCredWrite(authidentity: ConstPtr<CVoid>, psztargetname: Pcwstr, pcredmancredentialtype: MutPtr<UInt>, ppszcredmantargetname: MutPtr<Pcwstr>, ppszcredmanusername: MutPtr<Pcwstr>, ppcredentialblob: MutPtr<MutPtr<UByte>>, pcredentialblobsize: MutPtr<UInt>): Hresult =
+public actual fun sspiPrepareForCredWrite(authidentity: ConstPtr, psztargetname: Pcwstr, pcredmancredentialtype: MutPtr, ppszcredmantargetname: MutPtr, ppszcredmanusername: MutPtr, ppcredentialblob: MutPtr, pcredentialblobsize: MutPtr): Hresult =
     WindowsWin32SecurityAuthenticationIdentityJniBridge.windowssysWindowsWin32SecurityAuthenticationIdentitySspiPrepareForCredWrite(authidentity.rawAddress, psztargetname.rawAddress, pcredmancredentialtype.rawAddress, ppszcredmantargetname.rawAddress, ppszcredmanusername.rawAddress, ppcredentialblob.rawAddress, pcredentialblobsize.rawAddress)
 
-public actual fun sspiPromptForCredentialsA(psztargetname: Pcstr, puiinfo: ConstPtr<CVoid>, dwautherror: UInt, pszpackage: Pcstr, pinputauthidentity: ConstPtr<CVoid>, ppauthidentity: MutPtr<MutPtr<CVoid>>, pfsave: MutPtr<Int>, dwflags: UInt): UInt =
+public actual fun sspiPromptForCredentialsA(psztargetname: Pcstr, puiinfo: ConstPtr, dwautherror: UInt, pszpackage: Pcstr, pinputauthidentity: ConstPtr, ppauthidentity: MutPtr, pfsave: MutPtr, dwflags: UInt): UInt =
     WindowsWin32SecurityAuthenticationIdentityJniBridge.windowssysWindowsWin32SecurityAuthenticationIdentitySspiPromptForCredentialsA(psztargetname.rawAddress, puiinfo.rawAddress, dwautherror.toInt(), pszpackage.rawAddress, pinputauthidentity.rawAddress, ppauthidentity.rawAddress, pfsave.rawAddress, dwflags.toInt()).toUInt()
 
-public actual fun sspiPromptForCredentialsW(psztargetname: Pcwstr, puiinfo: ConstPtr<CVoid>, dwautherror: UInt, pszpackage: Pcwstr, pinputauthidentity: ConstPtr<CVoid>, ppauthidentity: MutPtr<MutPtr<CVoid>>, pfsave: MutPtr<Int>, dwflags: UInt): UInt =
+public actual fun sspiPromptForCredentialsW(psztargetname: Pcwstr, puiinfo: ConstPtr, dwautherror: UInt, pszpackage: Pcwstr, pinputauthidentity: ConstPtr, ppauthidentity: MutPtr, pfsave: MutPtr, dwflags: UInt): UInt =
     WindowsWin32SecurityAuthenticationIdentityJniBridge.windowssysWindowsWin32SecurityAuthenticationIdentitySspiPromptForCredentialsW(psztargetname.rawAddress, puiinfo.rawAddress, dwautherror.toInt(), pszpackage.rawAddress, pinputauthidentity.rawAddress, ppauthidentity.rawAddress, pfsave.rawAddress, dwflags.toInt()).toUInt()
 
-public actual fun sspiSetChannelBindingFlags(pbindings: MutPtr<SecPkgContextBindings>, flags: UInt): Hresult =
+public actual fun sspiSetChannelBindingFlags(pbindings: MutPtr, flags: UInt): Hresult =
     WindowsWin32SecurityAuthenticationIdentityJniBridge.windowssysWindowsWin32SecurityAuthenticationIdentitySspiSetChannelBindingFlags(pbindings.rawAddress, flags.toInt())
 
-public actual fun sspiUnmarshalAuthIdentity(authidentitylength: UInt, authidentitybytearray: Pcstr, ppauthidentity: MutPtr<MutPtr<CVoid>>): Hresult =
+public actual fun sspiUnmarshalAuthIdentity(authidentitylength: UInt, authidentitybytearray: Pcstr, ppauthidentity: MutPtr): Hresult =
     WindowsWin32SecurityAuthenticationIdentityJniBridge.windowssysWindowsWin32SecurityAuthenticationIdentitySspiUnmarshalAuthIdentity(authidentitylength.toInt(), authidentitybytearray.rawAddress, ppauthidentity.rawAddress)
 
-public actual fun sspiValidateAuthIdentity(authdata: ConstPtr<CVoid>): Hresult =
+public actual fun sspiValidateAuthIdentity(authdata: ConstPtr): Hresult =
     WindowsWin32SecurityAuthenticationIdentityJniBridge.windowssysWindowsWin32SecurityAuthenticationIdentitySspiValidateAuthIdentity(authdata.rawAddress)
 
-public actual fun sspiZeroAuthIdentity(authdata: ConstPtr<CVoid>) {
+public actual fun sspiZeroAuthIdentity(authdata: ConstPtr) {
     WindowsWin32SecurityAuthenticationIdentityJniBridge.windowssysWindowsWin32SecurityAuthenticationIdentitySspiZeroAuthIdentity(authdata.rawAddress)
 }
 
@@ -1297,35 +1287,35 @@ public actual fun tokenBindingDeleteAllBindings(): Hresult =
 public actual fun tokenBindingDeleteBinding(targeturl: Pcwstr): Hresult =
     WindowsWin32SecurityAuthenticationIdentityJniBridge.windowssysWindowsWin32SecurityAuthenticationIdentityTokenBindingDeleteBinding(targeturl.rawAddress)
 
-public actual fun tokenBindingGenerateBinding(keytype: TokenbindingKeyParametersType, targeturl: Pcwstr, bindingtype: TokenbindingType, tlsekm: ConstPtr<CVoid>, tlsekmsize: UInt, extensionformat: TokenbindingExtensionFormat, extensiondata: ConstPtr<CVoid>, tokenbinding: MutPtr<MutPtr<CVoid>>, tokenbindingsize: MutPtr<UInt>, resultdata: MutPtr<MutPtr<TokenbindingResultData>>): Hresult =
+public actual fun tokenBindingGenerateBinding(keytype: TokenbindingKeyParametersType, targeturl: Pcwstr, bindingtype: TokenbindingType, tlsekm: ConstPtr, tlsekmsize: UInt, extensionformat: TokenbindingExtensionFormat, extensiondata: ConstPtr, tokenbinding: MutPtr, tokenbindingsize: MutPtr, resultdata: MutPtr): Hresult =
     WindowsWin32SecurityAuthenticationIdentityJniBridge.windowssysWindowsWin32SecurityAuthenticationIdentityTokenBindingGenerateBinding(keytype, targeturl.rawAddress, bindingtype, tlsekm.rawAddress, tlsekmsize.toInt(), extensionformat, extensiondata.rawAddress, tokenbinding.rawAddress, tokenbindingsize.rawAddress, resultdata.rawAddress)
 
-public actual fun tokenBindingGenerateID(keytype: TokenbindingKeyParametersType, publickey: ConstPtr<CVoid>, publickeysize: UInt, resultdata: MutPtr<MutPtr<TokenbindingResultData>>): Hresult =
+public actual fun tokenBindingGenerateID(keytype: TokenbindingKeyParametersType, publickey: ConstPtr, publickeysize: UInt, resultdata: MutPtr): Hresult =
     WindowsWin32SecurityAuthenticationIdentityJniBridge.windowssysWindowsWin32SecurityAuthenticationIdentityTokenBindingGenerateID(keytype, publickey.rawAddress, publickeysize.toInt(), resultdata.rawAddress)
 
-public actual fun tokenBindingGenerateIDForUri(keytype: TokenbindingKeyParametersType, targeturi: Pcwstr, resultdata: MutPtr<MutPtr<TokenbindingResultData>>): Hresult =
+public actual fun tokenBindingGenerateIDForUri(keytype: TokenbindingKeyParametersType, targeturi: Pcwstr, resultdata: MutPtr): Hresult =
     WindowsWin32SecurityAuthenticationIdentityJniBridge.windowssysWindowsWin32SecurityAuthenticationIdentityTokenBindingGenerateIDForUri(keytype, targeturi.rawAddress, resultdata.rawAddress)
 
-public actual fun tokenBindingGenerateMessage(tokenbindings: ConstPtr<ConstPtr<CVoid>>, tokenbindingssize: ConstPtr<UInt>, tokenbindingscount: UInt, tokenbindingmessage: MutPtr<MutPtr<CVoid>>, tokenbindingmessagesize: MutPtr<UInt>): Hresult =
+public actual fun tokenBindingGenerateMessage(tokenbindings: ConstPtr, tokenbindingssize: ConstPtr, tokenbindingscount: UInt, tokenbindingmessage: MutPtr, tokenbindingmessagesize: MutPtr): Hresult =
     WindowsWin32SecurityAuthenticationIdentityJniBridge.windowssysWindowsWin32SecurityAuthenticationIdentityTokenBindingGenerateMessage(tokenbindings.rawAddress, tokenbindingssize.rawAddress, tokenbindingscount.toInt(), tokenbindingmessage.rawAddress, tokenbindingmessagesize.rawAddress)
 
-public actual fun tokenBindingGetHighestSupportedVersion(majorversion: MutPtr<UByte>, minorversion: MutPtr<UByte>): Hresult =
+public actual fun tokenBindingGetHighestSupportedVersion(majorversion: MutPtr, minorversion: MutPtr): Hresult =
     WindowsWin32SecurityAuthenticationIdentityJniBridge.windowssysWindowsWin32SecurityAuthenticationIdentityTokenBindingGetHighestSupportedVersion(majorversion.rawAddress, minorversion.rawAddress)
 
-public actual fun tokenBindingGetKeyTypesClient(keytypes: MutPtr<MutPtr<TokenbindingKeyTypes>>): Hresult =
+public actual fun tokenBindingGetKeyTypesClient(keytypes: MutPtr): Hresult =
     WindowsWin32SecurityAuthenticationIdentityJniBridge.windowssysWindowsWin32SecurityAuthenticationIdentityTokenBindingGetKeyTypesClient(keytypes.rawAddress)
 
-public actual fun tokenBindingGetKeyTypesServer(keytypes: MutPtr<MutPtr<TokenbindingKeyTypes>>): Hresult =
+public actual fun tokenBindingGetKeyTypesServer(keytypes: MutPtr): Hresult =
     WindowsWin32SecurityAuthenticationIdentityJniBridge.windowssysWindowsWin32SecurityAuthenticationIdentityTokenBindingGetKeyTypesServer(keytypes.rawAddress)
 
-public actual fun tokenBindingVerifyMessage(tokenbindingmessage: ConstPtr<CVoid>, tokenbindingmessagesize: UInt, keytype: TokenbindingKeyParametersType, tlsekm: ConstPtr<CVoid>, tlsekmsize: UInt, resultlist: MutPtr<MutPtr<TokenbindingResultList>>): Hresult =
+public actual fun tokenBindingVerifyMessage(tokenbindingmessage: ConstPtr, tokenbindingmessagesize: UInt, keytype: TokenbindingKeyParametersType, tlsekm: ConstPtr, tlsekmsize: UInt, resultlist: MutPtr): Hresult =
     WindowsWin32SecurityAuthenticationIdentityJniBridge.windowssysWindowsWin32SecurityAuthenticationIdentityTokenBindingVerifyMessage(tokenbindingmessage.rawAddress, tokenbindingmessagesize.toInt(), keytype, tlsekm.rawAddress, tlsekmsize.toInt(), resultlist.rawAddress)
 
-public actual fun translateNameA(lpaccountname: Pcstr, accountnameformat: ExtendedNameFormat, desirednameformat: ExtendedNameFormat, lptranslatedname: Pstr, nsize: MutPtr<UInt>): Boolean =
+public actual fun translateNameA(lpaccountname: Pcstr, accountnameformat: ExtendedNameFormat, desirednameformat: ExtendedNameFormat, lptranslatedname: Pstr, nsize: MutPtr): Boolean =
     WindowsWin32SecurityAuthenticationIdentityJniBridge.windowssysWindowsWin32SecurityAuthenticationIdentityTranslateNameA(lpaccountname.rawAddress, accountnameformat, desirednameformat, lptranslatedname.rawAddress, nsize.rawAddress)
 
-public actual fun translateNameW(lpaccountname: Pcwstr, accountnameformat: ExtendedNameFormat, desirednameformat: ExtendedNameFormat, lptranslatedname: Pwstr, nsize: MutPtr<UInt>): Boolean =
+public actual fun translateNameW(lpaccountname: Pcwstr, accountnameformat: ExtendedNameFormat, desirednameformat: ExtendedNameFormat, lptranslatedname: Pwstr, nsize: MutPtr): Boolean =
     WindowsWin32SecurityAuthenticationIdentityJniBridge.windowssysWindowsWin32SecurityAuthenticationIdentityTranslateNameW(lpaccountname.rawAddress, accountnameformat, desirednameformat, lptranslatedname.rawAddress, nsize.rawAddress)
 
-public actual fun verifySignature(phcontext: ConstPtr<SecHandle>, pmessage: ConstPtr<SecBufferDesc>, messageseqno: UInt, pfqop: MutPtr<UInt>): Hresult =
+public actual fun verifySignature(phcontext: ConstPtr, pmessage: ConstPtr, messageseqno: UInt, pfqop: MutPtr): Hresult =
     WindowsWin32SecurityAuthenticationIdentityJniBridge.windowssysWindowsWin32SecurityAuthenticationIdentityVerifySignature(phcontext.rawAddress, pmessage.rawAddress, messageseqno.toInt(), pfqop.rawAddress)

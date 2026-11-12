@@ -2,21 +2,16 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.storage.filesystem
 
-import io.github.kotlinmania.rustlang.core.ffi.CVoid
 import io.github.kotlinmania.rustlang.core.ptr.ConstPtr
 import io.github.kotlinmania.rustlang.core.ptr.MutPtr
 import io.github.kotlinmania.windowssys.core.Bool
-import io.github.kotlinmania.windowssys.core.Guid
 import io.github.kotlinmania.windowssys.core.Hresult
 import io.github.kotlinmania.windowssys.core.Pcstr
 import io.github.kotlinmania.windowssys.core.Pcwstr
 import io.github.kotlinmania.windowssys.core.Pstr
 import io.github.kotlinmania.windowssys.core.Pwstr
-import io.github.kotlinmania.windowssys.windows.win32.foundation.Filetime
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Handle
-import io.github.kotlinmania.windowssys.windows.win32.security.SecurityAttributes
 import io.github.kotlinmania.windowssys.windows.win32.system.io.LpoverlappedCompletionRoutine
-import io.github.kotlinmania.windowssys.windows.win32.system.io.Overlapped
 
 private object WindowsWin32StorageFilesystemJniBridge {
     init {
@@ -1284,37 +1279,37 @@ private object WindowsWin32StorageFilesystemJniBridge {
     external fun windowssysWindowsWin32StorageFilesystemWriteTapemark(hdevice: Long, dwtapemarktype: Int, dwtapemarkcount: Int, bimmediate: Int): Int
 }
 
-public actual fun addLogContainer(hlog: Handle, pcbcontainer: ConstPtr<ULong>, pwszcontainerpath: Pcwstr, preserved: MutPtr<CVoid>): Bool =
+public actual fun addLogContainer(hlog: Handle, pcbcontainer: ConstPtr, pwszcontainerpath: Pcwstr, preserved: MutPtr): Bool =
     WindowsWin32StorageFilesystemJniBridge.windowssysWindowsWin32StorageFilesystemAddLogContainer(hlog.rawAddress, pcbcontainer.rawAddress, pwszcontainerpath.rawAddress, preserved.rawAddress)
 
-public actual fun addLogContainerSet(hlog: Handle, ccontainer: UShort, pcbcontainer: ConstPtr<ULong>, rgwszcontainerpath: ConstPtr<Pcwstr>, preserved: MutPtr<CVoid>): Bool =
+public actual fun addLogContainerSet(hlog: Handle, ccontainer: UShort, pcbcontainer: ConstPtr, rgwszcontainerpath: ConstPtr, preserved: MutPtr): Bool =
     WindowsWin32StorageFilesystemJniBridge.windowssysWindowsWin32StorageFilesystemAddLogContainerSet(hlog.rawAddress, ccontainer.toShort(), pcbcontainer.rawAddress, rgwszcontainerpath.rawAddress, preserved.rawAddress)
 
-public actual fun addUsersToEncryptedFile(lpfilename: Pcwstr, pencryptioncertificates: ConstPtr<EncryptionCertificateList>): UInt =
+public actual fun addUsersToEncryptedFile(lpfilename: Pcwstr, pencryptioncertificates: ConstPtr): UInt =
     WindowsWin32StorageFilesystemJniBridge.windowssysWindowsWin32StorageFilesystemAddUsersToEncryptedFile(lpfilename.rawAddress, pencryptioncertificates.rawAddress).toUInt()
 
-public actual fun advanceLogBase(pvmarshal: MutPtr<CVoid>, plsnbase: MutPtr<ClsLsn>, fflags: UInt, poverlapped: MutPtr<Overlapped>): Bool =
+public actual fun advanceLogBase(pvmarshal: MutPtr, plsnbase: MutPtr, fflags: UInt, poverlapped: MutPtr): Bool =
     WindowsWin32StorageFilesystemJniBridge.windowssysWindowsWin32StorageFilesystemAdvanceLogBase(pvmarshal.rawAddress, plsnbase.rawAddress, fflags.toInt(), poverlapped.rawAddress)
 
-public actual fun alignReservedLog(pvmarshal: MutPtr<CVoid>, creservedrecords: UInt, rgcbreservation: MutPtr<Long>, pcbalignreservation: MutPtr<Long>): Bool =
+public actual fun alignReservedLog(pvmarshal: MutPtr, creservedrecords: UInt, rgcbreservation: MutPtr, pcbalignreservation: MutPtr): Bool =
     WindowsWin32StorageFilesystemJniBridge.windowssysWindowsWin32StorageFilesystemAlignReservedLog(pvmarshal.rawAddress, creservedrecords.toInt(), rgcbreservation.rawAddress, pcbalignreservation.rawAddress)
 
-public actual fun allocReservedLog(pvmarshal: MutPtr<CVoid>, creservedrecords: UInt, pcbadjustment: MutPtr<Long>): Bool =
+public actual fun allocReservedLog(pvmarshal: MutPtr, creservedrecords: UInt, pcbadjustment: MutPtr): Bool =
     WindowsWin32StorageFilesystemJniBridge.windowssysWindowsWin32StorageFilesystemAllocReservedLog(pvmarshal.rawAddress, creservedrecords.toInt(), pcbadjustment.rawAddress)
 
 public actual fun areFileApisANSI(): Bool =
     WindowsWin32StorageFilesystemJniBridge.windowssysWindowsWin32StorageFilesystemAreFileApisANSI()
 
-public actual fun areShortNamesEnabled(handle: Handle, enabled: MutPtr<Bool>): Bool =
+public actual fun areShortNamesEnabled(handle: Handle, enabled: MutPtr): Bool =
     WindowsWin32StorageFilesystemJniBridge.windowssysWindowsWin32StorageFilesystemAreShortNamesEnabled(handle.rawAddress, enabled.rawAddress)
 
-public actual fun backupRead(hfile: Handle, lpbuffer: MutPtr<UByte>, nnumberofbytestoread: UInt, lpnumberofbytesread: MutPtr<UInt>, babort: Bool, bprocesssecurity: Bool, lpcontext: MutPtr<MutPtr<CVoid>>): Bool =
+public actual fun backupRead(hfile: Handle, lpbuffer: MutPtr, nnumberofbytestoread: UInt, lpnumberofbytesread: MutPtr, babort: Bool, bprocesssecurity: Bool, lpcontext: MutPtr): Bool =
     WindowsWin32StorageFilesystemJniBridge.windowssysWindowsWin32StorageFilesystemBackupRead(hfile.rawAddress, lpbuffer.rawAddress, nnumberofbytestoread.toInt(), lpnumberofbytesread.rawAddress, babort, bprocesssecurity, lpcontext.rawAddress)
 
-public actual fun backupSeek(hfile: Handle, dwlowbytestoseek: UInt, dwhighbytestoseek: UInt, lpdwlowbyteseeked: MutPtr<UInt>, lpdwhighbyteseeked: MutPtr<UInt>, lpcontext: MutPtr<MutPtr<CVoid>>): Bool =
+public actual fun backupSeek(hfile: Handle, dwlowbytestoseek: UInt, dwhighbytestoseek: UInt, lpdwlowbyteseeked: MutPtr, lpdwhighbyteseeked: MutPtr, lpcontext: MutPtr): Bool =
     WindowsWin32StorageFilesystemJniBridge.windowssysWindowsWin32StorageFilesystemBackupSeek(hfile.rawAddress, dwlowbytestoseek.toInt(), dwhighbytestoseek.toInt(), lpdwlowbyteseeked.rawAddress, lpdwhighbyteseeked.rawAddress, lpcontext.rawAddress)
 
-public actual fun backupWrite(hfile: Handle, lpbuffer: ConstPtr<UByte>, nnumberofbytestowrite: UInt, lpnumberofbyteswritten: MutPtr<UInt>, babort: Bool, bprocesssecurity: Bool, lpcontext: MutPtr<MutPtr<CVoid>>): Bool =
+public actual fun backupWrite(hfile: Handle, lpbuffer: ConstPtr, nnumberofbytestowrite: UInt, lpnumberofbyteswritten: MutPtr, babort: Bool, bprocesssecurity: Bool, lpcontext: MutPtr): Bool =
     WindowsWin32StorageFilesystemJniBridge.windowssysWindowsWin32StorageFilesystemBackupWrite(hfile.rawAddress, lpbuffer.rawAddress, nnumberofbytestowrite.toInt(), lpnumberofbyteswritten.rawAddress, babort, bprocesssecurity, lpcontext.rawAddress)
 
 public actual fun buildIoRingCancelRequest(ioring: Hioring, file: IoringHandleRef, optocancel: ULong, userdata: ULong): Hresult =
@@ -1326,35 +1321,35 @@ public actual fun buildIoRingFlushFile(ioring: Hioring, fileref: IoringHandleRef
 public actual fun buildIoRingReadFile(ioring: Hioring, fileref: IoringHandleRef, dataref: IoringBufferRef, numberofbytestoread: UInt, fileoffset: ULong, userdata: ULong, sqeflags: IoringSqeFlags): Hresult =
     0
 
-public actual fun buildIoRingRegisterBuffers(ioring: Hioring, count: UInt, buffers: ConstPtr<IoringBufferInfo>, userdata: ULong): Hresult =
+public actual fun buildIoRingRegisterBuffers(ioring: Hioring, count: UInt, buffers: ConstPtr, userdata: ULong): Hresult =
     WindowsWin32StorageFilesystemJniBridge.windowssysWindowsWin32StorageFilesystemBuildIoRingRegisterBuffers(ioring.rawAddress, count.toInt(), buffers.rawAddress, userdata.toLong())
 
-public actual fun buildIoRingRegisterFileHandles(ioring: Hioring, count: UInt, handles: ConstPtr<Handle>, userdata: ULong): Hresult =
+public actual fun buildIoRingRegisterFileHandles(ioring: Hioring, count: UInt, handles: ConstPtr, userdata: ULong): Hresult =
     WindowsWin32StorageFilesystemJniBridge.windowssysWindowsWin32StorageFilesystemBuildIoRingRegisterFileHandles(ioring.rawAddress, count.toInt(), handles.rawAddress, userdata.toLong())
 
 public actual fun buildIoRingWriteFile(ioring: Hioring, fileref: IoringHandleRef, bufferref: IoringBufferRef, numberofbytestowrite: UInt, fileoffset: ULong, writeflags: FileWriteFlags, userdata: ULong, sqeflags: IoringSqeFlags): Hresult =
     0
 
-public actual fun checkNameLegalDOS8Dot3A(lpname: Pcstr, lpoemname: Pstr, oemnamesize: UInt, pbnamecontainsspaces: MutPtr<Bool>, pbnamelegal: MutPtr<Bool>): Bool =
+public actual fun checkNameLegalDOS8Dot3A(lpname: Pcstr, lpoemname: Pstr, oemnamesize: UInt, pbnamecontainsspaces: MutPtr, pbnamelegal: MutPtr): Bool =
     WindowsWin32StorageFilesystemJniBridge.windowssysWindowsWin32StorageFilesystemCheckNameLegalDOS8Dot3A(lpname.rawAddress, lpoemname.rawAddress, oemnamesize.toInt(), pbnamecontainsspaces.rawAddress, pbnamelegal.rawAddress)
 
-public actual fun checkNameLegalDOS8Dot3W(lpname: Pcwstr, lpoemname: Pstr, oemnamesize: UInt, pbnamecontainsspaces: MutPtr<Bool>, pbnamelegal: MutPtr<Bool>): Bool =
+public actual fun checkNameLegalDOS8Dot3W(lpname: Pcwstr, lpoemname: Pstr, oemnamesize: UInt, pbnamecontainsspaces: MutPtr, pbnamelegal: MutPtr): Bool =
     WindowsWin32StorageFilesystemJniBridge.windowssysWindowsWin32StorageFilesystemCheckNameLegalDOS8Dot3W(lpname.rawAddress, lpoemname.rawAddress, oemnamesize.toInt(), pbnamecontainsspaces.rawAddress, pbnamelegal.rawAddress)
 
 public actual fun closeAndResetLogFile(hlog: Handle): Bool =
     WindowsWin32StorageFilesystemJniBridge.windowssysWindowsWin32StorageFilesystemCloseAndResetLogFile(hlog.rawAddress)
 
-public actual fun closeEncryptedFileRaw(pvcontext: ConstPtr<CVoid>) {
+public actual fun closeEncryptedFileRaw(pvcontext: ConstPtr) {
     WindowsWin32StorageFilesystemJniBridge.windowssysWindowsWin32StorageFilesystemCloseEncryptedFileRaw(pvcontext.rawAddress)
 }
 
 public actual fun closeIoRing(ioring: Hioring): Hresult =
     WindowsWin32StorageFilesystemJniBridge.windowssysWindowsWin32StorageFilesystemCloseIoRing(ioring.rawAddress)
 
-public actual fun commitComplete(enlistmenthandle: Handle, tmvirtualclock: MutPtr<Long>): Bool =
+public actual fun commitComplete(enlistmenthandle: Handle, tmvirtualclock: MutPtr): Bool =
     WindowsWin32StorageFilesystemJniBridge.windowssysWindowsWin32StorageFilesystemCommitComplete(enlistmenthandle.rawAddress, tmvirtualclock.rawAddress)
 
-public actual fun commitEnlistment(enlistmenthandle: Handle, tmvirtualclock: MutPtr<Long>): Bool =
+public actual fun commitEnlistment(enlistmenthandle: Handle, tmvirtualclock: MutPtr): Bool =
     WindowsWin32StorageFilesystemJniBridge.windowssysWindowsWin32StorageFilesystemCommitEnlistment(enlistmenthandle.rawAddress, tmvirtualclock.rawAddress)
 
 public actual fun commitTransaction(transactionhandle: Handle): Bool =
@@ -1363,28 +1358,28 @@ public actual fun commitTransaction(transactionhandle: Handle): Bool =
 public actual fun commitTransactionAsync(transactionhandle: Handle): Bool =
     WindowsWin32StorageFilesystemJniBridge.windowssysWindowsWin32StorageFilesystemCommitTransactionAsync(transactionhandle.rawAddress)
 
-public actual fun compareFileTime(lpfiletime1: ConstPtr<Filetime>, lpfiletime2: ConstPtr<Filetime>): Int =
+public actual fun compareFileTime(lpfiletime1: ConstPtr, lpfiletime2: ConstPtr): Int =
     WindowsWin32StorageFilesystemJniBridge.windowssysWindowsWin32StorageFilesystemCompareFileTime(lpfiletime1.rawAddress, lpfiletime2.rawAddress)
 
-public actual fun copyFile2(pwszexistingfilename: Pcwstr, pwsznewfilename: Pcwstr, pextendedparameters: ConstPtr<Copyfile2ExtendedParameters>): Hresult =
+public actual fun copyFile2(pwszexistingfilename: Pcwstr, pwsznewfilename: Pcwstr, pextendedparameters: ConstPtr): Hresult =
     WindowsWin32StorageFilesystemJniBridge.windowssysWindowsWin32StorageFilesystemCopyFile2(pwszexistingfilename.rawAddress, pwsznewfilename.rawAddress, pextendedparameters.rawAddress)
 
 public actual fun copyFileA(lpexistingfilename: Pcstr, lpnewfilename: Pcstr, bfailifexists: Bool): Bool =
     WindowsWin32StorageFilesystemJniBridge.windowssysWindowsWin32StorageFilesystemCopyFileA(lpexistingfilename.rawAddress, lpnewfilename.rawAddress, bfailifexists)
 
-public actual fun copyFileExA(lpexistingfilename: Pcstr, lpnewfilename: Pcstr, lpprogressroutine: LpprogressRoutine, lpdata: ConstPtr<CVoid>, pbcancel: MutPtr<Bool>, dwcopyflags: CopyfileFlags): Bool =
+public actual fun copyFileExA(lpexistingfilename: Pcstr, lpnewfilename: Pcstr, lpprogressroutine: LpprogressRoutine, lpdata: ConstPtr, pbcancel: MutPtr, dwcopyflags: CopyfileFlags): Bool =
     WindowsWin32StorageFilesystemJniBridge.windowssysWindowsWin32StorageFilesystemCopyFileExA(lpexistingfilename.rawAddress, lpnewfilename.rawAddress, 0L, lpdata.rawAddress, pbcancel.rawAddress, dwcopyflags.toInt())
 
-public actual fun copyFileExW(lpexistingfilename: Pcwstr, lpnewfilename: Pcwstr, lpprogressroutine: LpprogressRoutine, lpdata: ConstPtr<CVoid>, pbcancel: MutPtr<Bool>, dwcopyflags: CopyfileFlags): Bool =
+public actual fun copyFileExW(lpexistingfilename: Pcwstr, lpnewfilename: Pcwstr, lpprogressroutine: LpprogressRoutine, lpdata: ConstPtr, pbcancel: MutPtr, dwcopyflags: CopyfileFlags): Bool =
     WindowsWin32StorageFilesystemJniBridge.windowssysWindowsWin32StorageFilesystemCopyFileExW(lpexistingfilename.rawAddress, lpnewfilename.rawAddress, 0L, lpdata.rawAddress, pbcancel.rawAddress, dwcopyflags.toInt())
 
 public actual fun copyFileFromAppW(lpexistingfilename: Pcwstr, lpnewfilename: Pcwstr, bfailifexists: Bool): Bool =
     WindowsWin32StorageFilesystemJniBridge.windowssysWindowsWin32StorageFilesystemCopyFileFromAppW(lpexistingfilename.rawAddress, lpnewfilename.rawAddress, bfailifexists)
 
-public actual fun copyFileTransactedA(lpexistingfilename: Pcstr, lpnewfilename: Pcstr, lpprogressroutine: LpprogressRoutine, lpdata: ConstPtr<CVoid>, pbcancel: ConstPtr<Bool>, dwcopyflags: UInt, htransaction: Handle): Bool =
+public actual fun copyFileTransactedA(lpexistingfilename: Pcstr, lpnewfilename: Pcstr, lpprogressroutine: LpprogressRoutine, lpdata: ConstPtr, pbcancel: ConstPtr, dwcopyflags: UInt, htransaction: Handle): Bool =
     WindowsWin32StorageFilesystemJniBridge.windowssysWindowsWin32StorageFilesystemCopyFileTransactedA(lpexistingfilename.rawAddress, lpnewfilename.rawAddress, 0L, lpdata.rawAddress, pbcancel.rawAddress, dwcopyflags.toInt(), htransaction.rawAddress)
 
-public actual fun copyFileTransactedW(lpexistingfilename: Pcwstr, lpnewfilename: Pcwstr, lpprogressroutine: LpprogressRoutine, lpdata: ConstPtr<CVoid>, pbcancel: ConstPtr<Bool>, dwcopyflags: UInt, htransaction: Handle): Bool =
+public actual fun copyFileTransactedW(lpexistingfilename: Pcwstr, lpnewfilename: Pcwstr, lpprogressroutine: LpprogressRoutine, lpdata: ConstPtr, pbcancel: ConstPtr, dwcopyflags: UInt, htransaction: Handle): Bool =
     WindowsWin32StorageFilesystemJniBridge.windowssysWindowsWin32StorageFilesystemCopyFileTransactedW(lpexistingfilename.rawAddress, lpnewfilename.rawAddress, 0L, lpdata.rawAddress, pbcancel.rawAddress, dwcopyflags.toInt(), htransaction.rawAddress)
 
 public actual fun copyFileW(lpexistingfilename: Pcwstr, lpnewfilename: Pcwstr, bfailifexists: Bool): Bool =
@@ -1393,76 +1388,76 @@ public actual fun copyFileW(lpexistingfilename: Pcwstr, lpnewfilename: Pcwstr, b
 public actual fun copyLZFile(hfsource: Int, hfdest: Int): Int =
     WindowsWin32StorageFilesystemJniBridge.windowssysWindowsWin32StorageFilesystemCopyLZFile(hfsource, hfdest)
 
-public actual fun createDirectoryA(lppathname: Pcstr, lpsecurityattributes: ConstPtr<SecurityAttributes>): Bool =
+public actual fun createDirectoryA(lppathname: Pcstr, lpsecurityattributes: ConstPtr): Bool =
     WindowsWin32StorageFilesystemJniBridge.windowssysWindowsWin32StorageFilesystemCreateDirectoryA(lppathname.rawAddress, lpsecurityattributes.rawAddress)
 
-public actual fun createDirectoryExA(lptemplatedirectory: Pcstr, lpnewdirectory: Pcstr, lpsecurityattributes: ConstPtr<SecurityAttributes>): Bool =
+public actual fun createDirectoryExA(lptemplatedirectory: Pcstr, lpnewdirectory: Pcstr, lpsecurityattributes: ConstPtr): Bool =
     WindowsWin32StorageFilesystemJniBridge.windowssysWindowsWin32StorageFilesystemCreateDirectoryExA(lptemplatedirectory.rawAddress, lpnewdirectory.rawAddress, lpsecurityattributes.rawAddress)
 
-public actual fun createDirectoryExW(lptemplatedirectory: Pcwstr, lpnewdirectory: Pcwstr, lpsecurityattributes: ConstPtr<SecurityAttributes>): Bool =
+public actual fun createDirectoryExW(lptemplatedirectory: Pcwstr, lpnewdirectory: Pcwstr, lpsecurityattributes: ConstPtr): Bool =
     WindowsWin32StorageFilesystemJniBridge.windowssysWindowsWin32StorageFilesystemCreateDirectoryExW(lptemplatedirectory.rawAddress, lpnewdirectory.rawAddress, lpsecurityattributes.rawAddress)
 
-public actual fun createDirectoryFromAppW(lppathname: Pcwstr, lpsecurityattributes: ConstPtr<SecurityAttributes>): Bool =
+public actual fun createDirectoryFromAppW(lppathname: Pcwstr, lpsecurityattributes: ConstPtr): Bool =
     WindowsWin32StorageFilesystemJniBridge.windowssysWindowsWin32StorageFilesystemCreateDirectoryFromAppW(lppathname.rawAddress, lpsecurityattributes.rawAddress)
 
-public actual fun createDirectoryTransactedA(lptemplatedirectory: Pcstr, lpnewdirectory: Pcstr, lpsecurityattributes: ConstPtr<SecurityAttributes>, htransaction: Handle): Bool =
+public actual fun createDirectoryTransactedA(lptemplatedirectory: Pcstr, lpnewdirectory: Pcstr, lpsecurityattributes: ConstPtr, htransaction: Handle): Bool =
     WindowsWin32StorageFilesystemJniBridge.windowssysWindowsWin32StorageFilesystemCreateDirectoryTransactedA(lptemplatedirectory.rawAddress, lpnewdirectory.rawAddress, lpsecurityattributes.rawAddress, htransaction.rawAddress)
 
-public actual fun createDirectoryTransactedW(lptemplatedirectory: Pcwstr, lpnewdirectory: Pcwstr, lpsecurityattributes: ConstPtr<SecurityAttributes>, htransaction: Handle): Bool =
+public actual fun createDirectoryTransactedW(lptemplatedirectory: Pcwstr, lpnewdirectory: Pcwstr, lpsecurityattributes: ConstPtr, htransaction: Handle): Bool =
     WindowsWin32StorageFilesystemJniBridge.windowssysWindowsWin32StorageFilesystemCreateDirectoryTransactedW(lptemplatedirectory.rawAddress, lpnewdirectory.rawAddress, lpsecurityattributes.rawAddress, htransaction.rawAddress)
 
-public actual fun createDirectoryW(lppathname: Pcwstr, lpsecurityattributes: ConstPtr<SecurityAttributes>): Bool =
+public actual fun createDirectoryW(lppathname: Pcwstr, lpsecurityattributes: ConstPtr): Bool =
     WindowsWin32StorageFilesystemJniBridge.windowssysWindowsWin32StorageFilesystemCreateDirectoryW(lppathname.rawAddress, lpsecurityattributes.rawAddress)
 
-public actual fun createEnlistment(lpenlistmentattributes: MutPtr<SecurityAttributes>, resourcemanagerhandle: Handle, transactionhandle: Handle, notificationmask: UInt, createoptions: UInt, enlistmentkey: MutPtr<CVoid>): Handle =
+public actual fun createEnlistment(lpenlistmentattributes: MutPtr, resourcemanagerhandle: Handle, transactionhandle: Handle, notificationmask: UInt, createoptions: UInt, enlistmentkey: MutPtr): Handle =
     MutPtr(WindowsWin32StorageFilesystemJniBridge.windowssysWindowsWin32StorageFilesystemCreateEnlistment(lpenlistmentattributes.rawAddress, resourcemanagerhandle.rawAddress, transactionhandle.rawAddress, notificationmask.toInt(), createoptions.toInt(), enlistmentkey.rawAddress))
 
-public actual fun createFile2(lpfilename: Pcwstr, dwdesiredaccess: UInt, dwsharemode: FileShareMode, dwcreationdisposition: FileCreationDisposition, pcreateexparams: ConstPtr<Createfile2ExtendedParameters>): Handle =
+public actual fun createFile2(lpfilename: Pcwstr, dwdesiredaccess: UInt, dwsharemode: FileShareMode, dwcreationdisposition: FileCreationDisposition, pcreateexparams: ConstPtr): Handle =
     MutPtr(WindowsWin32StorageFilesystemJniBridge.windowssysWindowsWin32StorageFilesystemCreateFile2(lpfilename.rawAddress, dwdesiredaccess.toInt(), dwsharemode.toInt(), dwcreationdisposition.toInt(), pcreateexparams.rawAddress))
 
-public actual fun createFile2FromAppW(lpfilename: Pcwstr, dwdesiredaccess: UInt, dwsharemode: UInt, dwcreationdisposition: UInt, pcreateexparams: ConstPtr<Createfile2ExtendedParameters>): Handle =
+public actual fun createFile2FromAppW(lpfilename: Pcwstr, dwdesiredaccess: UInt, dwsharemode: UInt, dwcreationdisposition: UInt, pcreateexparams: ConstPtr): Handle =
     MutPtr(WindowsWin32StorageFilesystemJniBridge.windowssysWindowsWin32StorageFilesystemCreateFile2FromAppW(lpfilename.rawAddress, dwdesiredaccess.toInt(), dwsharemode.toInt(), dwcreationdisposition.toInt(), pcreateexparams.rawAddress))
 
-public actual fun createFileA(lpfilename: Pcstr, dwdesiredaccess: UInt, dwsharemode: FileShareMode, lpsecurityattributes: ConstPtr<SecurityAttributes>, dwcreationdisposition: FileCreationDisposition, dwflagsandattributes: FileFlagsAndAttributes, htemplatefile: Handle): Handle =
+public actual fun createFileA(lpfilename: Pcstr, dwdesiredaccess: UInt, dwsharemode: FileShareMode, lpsecurityattributes: ConstPtr, dwcreationdisposition: FileCreationDisposition, dwflagsandattributes: FileFlagsAndAttributes, htemplatefile: Handle): Handle =
     MutPtr(WindowsWin32StorageFilesystemJniBridge.windowssysWindowsWin32StorageFilesystemCreateFileA(lpfilename.rawAddress, dwdesiredaccess.toInt(), dwsharemode.toInt(), lpsecurityattributes.rawAddress, dwcreationdisposition.toInt(), dwflagsandattributes.toInt(), htemplatefile.rawAddress))
 
-public actual fun createFileFromAppW(lpfilename: Pcwstr, dwdesiredaccess: UInt, dwsharemode: UInt, lpsecurityattributes: ConstPtr<SecurityAttributes>, dwcreationdisposition: UInt, dwflagsandattributes: UInt, htemplatefile: Handle): Handle =
+public actual fun createFileFromAppW(lpfilename: Pcwstr, dwdesiredaccess: UInt, dwsharemode: UInt, lpsecurityattributes: ConstPtr, dwcreationdisposition: UInt, dwflagsandattributes: UInt, htemplatefile: Handle): Handle =
     MutPtr(WindowsWin32StorageFilesystemJniBridge.windowssysWindowsWin32StorageFilesystemCreateFileFromAppW(lpfilename.rawAddress, dwdesiredaccess.toInt(), dwsharemode.toInt(), lpsecurityattributes.rawAddress, dwcreationdisposition.toInt(), dwflagsandattributes.toInt(), htemplatefile.rawAddress))
 
-public actual fun createFileTransactedA(lpfilename: Pcstr, dwdesiredaccess: UInt, dwsharemode: FileShareMode, lpsecurityattributes: ConstPtr<SecurityAttributes>, dwcreationdisposition: FileCreationDisposition, dwflagsandattributes: FileFlagsAndAttributes, htemplatefile: Handle, htransaction: Handle, pusminiversion: ConstPtr<TxfsMiniversion>, lpextendedparameter: ConstPtr<CVoid>): Handle =
+public actual fun createFileTransactedA(lpfilename: Pcstr, dwdesiredaccess: UInt, dwsharemode: FileShareMode, lpsecurityattributes: ConstPtr, dwcreationdisposition: FileCreationDisposition, dwflagsandattributes: FileFlagsAndAttributes, htemplatefile: Handle, htransaction: Handle, pusminiversion: ConstPtr, lpextendedparameter: ConstPtr): Handle =
     MutPtr(WindowsWin32StorageFilesystemJniBridge.windowssysWindowsWin32StorageFilesystemCreateFileTransactedA(lpfilename.rawAddress, dwdesiredaccess.toInt(), dwsharemode.toInt(), lpsecurityattributes.rawAddress, dwcreationdisposition.toInt(), dwflagsandattributes.toInt(), htemplatefile.rawAddress, htransaction.rawAddress, pusminiversion.rawAddress, lpextendedparameter.rawAddress))
 
-public actual fun createFileTransactedW(lpfilename: Pcwstr, dwdesiredaccess: UInt, dwsharemode: FileShareMode, lpsecurityattributes: ConstPtr<SecurityAttributes>, dwcreationdisposition: FileCreationDisposition, dwflagsandattributes: FileFlagsAndAttributes, htemplatefile: Handle, htransaction: Handle, pusminiversion: ConstPtr<TxfsMiniversion>, lpextendedparameter: ConstPtr<CVoid>): Handle =
+public actual fun createFileTransactedW(lpfilename: Pcwstr, dwdesiredaccess: UInt, dwsharemode: FileShareMode, lpsecurityattributes: ConstPtr, dwcreationdisposition: FileCreationDisposition, dwflagsandattributes: FileFlagsAndAttributes, htemplatefile: Handle, htransaction: Handle, pusminiversion: ConstPtr, lpextendedparameter: ConstPtr): Handle =
     MutPtr(WindowsWin32StorageFilesystemJniBridge.windowssysWindowsWin32StorageFilesystemCreateFileTransactedW(lpfilename.rawAddress, dwdesiredaccess.toInt(), dwsharemode.toInt(), lpsecurityattributes.rawAddress, dwcreationdisposition.toInt(), dwflagsandattributes.toInt(), htemplatefile.rawAddress, htransaction.rawAddress, pusminiversion.rawAddress, lpextendedparameter.rawAddress))
 
-public actual fun createFileW(lpfilename: Pcwstr, dwdesiredaccess: UInt, dwsharemode: FileShareMode, lpsecurityattributes: ConstPtr<SecurityAttributes>, dwcreationdisposition: FileCreationDisposition, dwflagsandattributes: FileFlagsAndAttributes, htemplatefile: Handle): Handle =
+public actual fun createFileW(lpfilename: Pcwstr, dwdesiredaccess: UInt, dwsharemode: FileShareMode, lpsecurityattributes: ConstPtr, dwcreationdisposition: FileCreationDisposition, dwflagsandattributes: FileFlagsAndAttributes, htemplatefile: Handle): Handle =
     MutPtr(WindowsWin32StorageFilesystemJniBridge.windowssysWindowsWin32StorageFilesystemCreateFileW(lpfilename.rawAddress, dwdesiredaccess.toInt(), dwsharemode.toInt(), lpsecurityattributes.rawAddress, dwcreationdisposition.toInt(), dwflagsandattributes.toInt(), htemplatefile.rawAddress))
 
-public actual fun createHardLinkA(lpfilename: Pcstr, lpexistingfilename: Pcstr, lpsecurityattributes: ConstPtr<SecurityAttributes>): Bool =
+public actual fun createHardLinkA(lpfilename: Pcstr, lpexistingfilename: Pcstr, lpsecurityattributes: ConstPtr): Bool =
     WindowsWin32StorageFilesystemJniBridge.windowssysWindowsWin32StorageFilesystemCreateHardLinkA(lpfilename.rawAddress, lpexistingfilename.rawAddress, lpsecurityattributes.rawAddress)
 
-public actual fun createHardLinkTransactedA(lpfilename: Pcstr, lpexistingfilename: Pcstr, lpsecurityattributes: ConstPtr<SecurityAttributes>, htransaction: Handle): Bool =
+public actual fun createHardLinkTransactedA(lpfilename: Pcstr, lpexistingfilename: Pcstr, lpsecurityattributes: ConstPtr, htransaction: Handle): Bool =
     WindowsWin32StorageFilesystemJniBridge.windowssysWindowsWin32StorageFilesystemCreateHardLinkTransactedA(lpfilename.rawAddress, lpexistingfilename.rawAddress, lpsecurityattributes.rawAddress, htransaction.rawAddress)
 
-public actual fun createHardLinkTransactedW(lpfilename: Pcwstr, lpexistingfilename: Pcwstr, lpsecurityattributes: ConstPtr<SecurityAttributes>, htransaction: Handle): Bool =
+public actual fun createHardLinkTransactedW(lpfilename: Pcwstr, lpexistingfilename: Pcwstr, lpsecurityattributes: ConstPtr, htransaction: Handle): Bool =
     WindowsWin32StorageFilesystemJniBridge.windowssysWindowsWin32StorageFilesystemCreateHardLinkTransactedW(lpfilename.rawAddress, lpexistingfilename.rawAddress, lpsecurityattributes.rawAddress, htransaction.rawAddress)
 
-public actual fun createHardLinkW(lpfilename: Pcwstr, lpexistingfilename: Pcwstr, lpsecurityattributes: ConstPtr<SecurityAttributes>): Bool =
+public actual fun createHardLinkW(lpfilename: Pcwstr, lpexistingfilename: Pcwstr, lpsecurityattributes: ConstPtr): Bool =
     WindowsWin32StorageFilesystemJniBridge.windowssysWindowsWin32StorageFilesystemCreateHardLinkW(lpfilename.rawAddress, lpexistingfilename.rawAddress, lpsecurityattributes.rawAddress)
 
-public actual fun createIoRing(ioringversion: IoringVersion, flags: IoringCreateFlags, submissionqueuesize: UInt, completionqueuesize: UInt, h: MutPtr<Hioring>): Hresult =
+public actual fun createIoRing(ioringversion: IoringVersion, flags: IoringCreateFlags, submissionqueuesize: UInt, completionqueuesize: UInt, h: MutPtr): Hresult =
     0
 
-public actual fun createLogContainerScanContext(hlog: Handle, cfromcontainer: UInt, ccontainers: UInt, escanmode: UByte, pcxscan: MutPtr<ClsScanContext>, poverlapped: MutPtr<Overlapped>): Bool =
+public actual fun createLogContainerScanContext(hlog: Handle, cfromcontainer: UInt, ccontainers: UInt, escanmode: UByte, pcxscan: MutPtr, poverlapped: MutPtr): Bool =
     WindowsWin32StorageFilesystemJniBridge.windowssysWindowsWin32StorageFilesystemCreateLogContainerScanContext(hlog.rawAddress, cfromcontainer.toInt(), ccontainers.toInt(), escanmode.toByte(), pcxscan.rawAddress, poverlapped.rawAddress)
 
-public actual fun createLogFile(pszlogfilename: Pcwstr, fdesiredaccess: UInt, dwsharemode: FileShareMode, psalogfile: MutPtr<SecurityAttributes>, fcreatedisposition: FileCreationDisposition, fflagsandattributes: FileFlagsAndAttributes): Handle =
+public actual fun createLogFile(pszlogfilename: Pcwstr, fdesiredaccess: UInt, dwsharemode: FileShareMode, psalogfile: MutPtr, fcreatedisposition: FileCreationDisposition, fflagsandattributes: FileFlagsAndAttributes): Handle =
     MutPtr(WindowsWin32StorageFilesystemJniBridge.windowssysWindowsWin32StorageFilesystemCreateLogFile(pszlogfilename.rawAddress, fdesiredaccess.toInt(), dwsharemode.toInt(), psalogfile.rawAddress, fcreatedisposition.toInt(), fflagsandattributes.toInt()))
 
-public actual fun createLogMarshallingArea(hlog: Handle, pfnallocbuffer: ClfsBlockAllocation, pfnfreebuffer: ClfsBlockDeallocation, pvblockalloccontext: MutPtr<CVoid>, cbmarshallingbuffer: UInt, cmaxwritebuffers: UInt, cmaxreadbuffers: UInt, ppvmarshal: MutPtr<MutPtr<CVoid>>): Bool =
+public actual fun createLogMarshallingArea(hlog: Handle, pfnallocbuffer: ClfsBlockAllocation, pfnfreebuffer: ClfsBlockDeallocation, pvblockalloccontext: MutPtr, cbmarshallingbuffer: UInt, cmaxwritebuffers: UInt, cmaxreadbuffers: UInt, ppvmarshal: MutPtr): Bool =
     WindowsWin32StorageFilesystemJniBridge.windowssysWindowsWin32StorageFilesystemCreateLogMarshallingArea(hlog.rawAddress, 0L, 0L, pvblockalloccontext.rawAddress, cbmarshallingbuffer.toInt(), cmaxwritebuffers.toInt(), cmaxreadbuffers.toInt(), ppvmarshal.rawAddress)
 
-public actual fun createResourceManager(lpresourcemanagerattributes: MutPtr<SecurityAttributes>, resourcemanagerid: MutPtr<Guid>, createoptions: UInt, tmhandle: Handle, description: Pcwstr): Handle =
+public actual fun createResourceManager(lpresourcemanagerattributes: MutPtr, resourcemanagerid: MutPtr, createoptions: UInt, tmhandle: Handle, description: Pcwstr): Handle =
     MutPtr(WindowsWin32StorageFilesystemJniBridge.windowssysWindowsWin32StorageFilesystemCreateResourceManager(lpresourcemanagerattributes.rawAddress, resourcemanagerid.rawAddress, createoptions.toInt(), tmhandle.rawAddress, description.rawAddress))
 
 public actual fun createSymbolicLinkA(lpsymlinkfilename: Pcstr, lptargetfilename: Pcstr, dwflags: SymbolicLinkFlags): Boolean =
@@ -1480,10 +1475,10 @@ public actual fun createSymbolicLinkW(lpsymlinkfilename: Pcwstr, lptargetfilenam
 public actual fun createTapePartition(hdevice: Handle, dwpartitionmethod: CreateTapePartitionMethod, dwcount: UInt, dwsize: UInt): UInt =
     WindowsWin32StorageFilesystemJniBridge.windowssysWindowsWin32StorageFilesystemCreateTapePartition(hdevice.rawAddress, dwpartitionmethod.toInt(), dwcount.toInt(), dwsize.toInt()).toUInt()
 
-public actual fun createTransaction(lptransactionattributes: MutPtr<SecurityAttributes>, uow: MutPtr<Guid>, createoptions: UInt, isolationlevel: UInt, isolationflags: UInt, timeout: UInt, description: Pcwstr): Handle =
+public actual fun createTransaction(lptransactionattributes: MutPtr, uow: MutPtr, createoptions: UInt, isolationlevel: UInt, isolationflags: UInt, timeout: UInt, description: Pcwstr): Handle =
     MutPtr(WindowsWin32StorageFilesystemJniBridge.windowssysWindowsWin32StorageFilesystemCreateTransaction(lptransactionattributes.rawAddress, uow.rawAddress, createoptions.toInt(), isolationlevel.toInt(), isolationflags.toInt(), timeout.toInt(), description.rawAddress))
 
-public actual fun createTransactionManager(lptransactionattributes: MutPtr<SecurityAttributes>, logfilename: Pcwstr, createoptions: UInt, commitstrength: UInt): Handle =
+public actual fun createTransactionManager(lptransactionattributes: MutPtr, logfilename: Pcwstr, createoptions: UInt, commitstrength: UInt): Handle =
     MutPtr(WindowsWin32StorageFilesystemJniBridge.windowssysWindowsWin32StorageFilesystemCreateTransactionManager(lptransactionattributes.rawAddress, logfilename.rawAddress, createoptions.toInt(), commitstrength.toInt()))
 
 public actual fun decryptFileA(lpfilename: Pcstr, dwreserved: UInt): Bool =
@@ -1516,10 +1511,10 @@ public actual fun deleteFileW(lpfilename: Pcwstr): Bool =
 public actual fun deleteLogByHandle(hlog: Handle): Bool =
     WindowsWin32StorageFilesystemJniBridge.windowssysWindowsWin32StorageFilesystemDeleteLogByHandle(hlog.rawAddress)
 
-public actual fun deleteLogFile(pszlogfilename: Pcwstr, pvreserved: MutPtr<CVoid>): Bool =
+public actual fun deleteLogFile(pszlogfilename: Pcwstr, pvreserved: MutPtr): Bool =
     WindowsWin32StorageFilesystemJniBridge.windowssysWindowsWin32StorageFilesystemDeleteLogFile(pszlogfilename.rawAddress, pvreserved.rawAddress)
 
-public actual fun deleteLogMarshallingArea(pvmarshal: MutPtr<CVoid>): Bool =
+public actual fun deleteLogMarshallingArea(pvmarshal: MutPtr): Bool =
     WindowsWin32StorageFilesystemJniBridge.windowssysWindowsWin32StorageFilesystemDeleteLogMarshallingArea(pvmarshal.rawAddress)
 
 public actual fun deleteVolumeMountPointA(lpszvolumemountpoint: Pcstr): Bool =
@@ -1531,7 +1526,7 @@ public actual fun deleteVolumeMountPointW(lpszvolumemountpoint: Pcwstr): Bool =
 public actual fun deregisterManageableLogClient(hlog: Handle): Bool =
     WindowsWin32StorageFilesystemJniBridge.windowssysWindowsWin32StorageFilesystemDeregisterManageableLogClient(hlog.rawAddress)
 
-public actual fun duplicateEncryptionInfoFile(srcfilename: Pcwstr, dstfilename: Pcwstr, dwcreationdistribution: UInt, dwattributes: UInt, lpsecurityattributes: ConstPtr<SecurityAttributes>): UInt =
+public actual fun duplicateEncryptionInfoFile(srcfilename: Pcwstr, dstfilename: Pcwstr, dwcreationdistribution: UInt, dwattributes: UInt, lpsecurityattributes: ConstPtr): UInt =
     WindowsWin32StorageFilesystemJniBridge.windowssysWindowsWin32StorageFilesystemDuplicateEncryptionInfoFile(srcfilename.rawAddress, dstfilename.rawAddress, dwcreationdistribution.toInt(), dwattributes.toInt(), lpsecurityattributes.rawAddress).toUInt()
 
 public actual fun encryptFileA(lpfilename: Pcstr): Bool =
@@ -1546,13 +1541,13 @@ public actual fun encryptionDisable(dirpath: Pcwstr, disable: Bool): Bool =
 public actual fun eraseTape(hdevice: Handle, dwerasetype: EraseTapeType, bimmediate: Bool): UInt =
     WindowsWin32StorageFilesystemJniBridge.windowssysWindowsWin32StorageFilesystemEraseTape(hdevice.rawAddress, dwerasetype.toInt(), bimmediate).toUInt()
 
-public actual fun fileEncryptionStatusA(lpfilename: Pcstr, lpstatus: MutPtr<UInt>): Bool =
+public actual fun fileEncryptionStatusA(lpfilename: Pcstr, lpstatus: MutPtr): Bool =
     WindowsWin32StorageFilesystemJniBridge.windowssysWindowsWin32StorageFilesystemFileEncryptionStatusA(lpfilename.rawAddress, lpstatus.rawAddress)
 
-public actual fun fileEncryptionStatusW(lpfilename: Pcwstr, lpstatus: MutPtr<UInt>): Bool =
+public actual fun fileEncryptionStatusW(lpfilename: Pcwstr, lpstatus: MutPtr): Bool =
     WindowsWin32StorageFilesystemJniBridge.windowssysWindowsWin32StorageFilesystemFileEncryptionStatusW(lpfilename.rawAddress, lpstatus.rawAddress)
 
-public actual fun fileTimeToLocalFileTime(lpfiletime: ConstPtr<Filetime>, lplocalfiletime: MutPtr<Filetime>): Bool =
+public actual fun fileTimeToLocalFileTime(lpfiletime: ConstPtr, lplocalfiletime: MutPtr): Bool =
     WindowsWin32StorageFilesystemJniBridge.windowssysWindowsWin32StorageFilesystemFileTimeToLocalFileTime(lpfiletime.rawAddress, lplocalfiletime.rawAddress)
 
 public actual fun findClose(hfindfile: Handle): Bool =
@@ -1567,37 +1562,37 @@ public actual fun findFirstChangeNotificationA(lppathname: Pcstr, bwatchsubtree:
 public actual fun findFirstChangeNotificationW(lppathname: Pcwstr, bwatchsubtree: Bool, dwnotifyfilter: FileNotifyChange): Handle =
     MutPtr(WindowsWin32StorageFilesystemJniBridge.windowssysWindowsWin32StorageFilesystemFindFirstChangeNotificationW(lppathname.rawAddress, bwatchsubtree, dwnotifyfilter.toInt()))
 
-public actual fun findFirstFileA(lpfilename: Pcstr, lpfindfiledata: MutPtr<Win32FindDataa>): Handle =
+public actual fun findFirstFileA(lpfilename: Pcstr, lpfindfiledata: MutPtr): Handle =
     MutPtr(WindowsWin32StorageFilesystemJniBridge.windowssysWindowsWin32StorageFilesystemFindFirstFileA(lpfilename.rawAddress, lpfindfiledata.rawAddress))
 
-public actual fun findFirstFileExA(lpfilename: Pcstr, finfolevelid: FindexInfoLevels, lpfindfiledata: MutPtr<CVoid>, fsearchop: FindexSearchOps, lpsearchfilter: ConstPtr<CVoid>, dwadditionalflags: FindFirstExFlags): Handle =
+public actual fun findFirstFileExA(lpfilename: Pcstr, finfolevelid: FindexInfoLevels, lpfindfiledata: MutPtr, fsearchop: FindexSearchOps, lpsearchfilter: ConstPtr, dwadditionalflags: FindFirstExFlags): Handle =
     MutPtr(WindowsWin32StorageFilesystemJniBridge.windowssysWindowsWin32StorageFilesystemFindFirstFileExA(lpfilename.rawAddress, finfolevelid, lpfindfiledata.rawAddress, fsearchop, lpsearchfilter.rawAddress, dwadditionalflags.toInt()))
 
-public actual fun findFirstFileExFromAppW(lpfilename: Pcwstr, finfolevelid: FindexInfoLevels, lpfindfiledata: MutPtr<CVoid>, fsearchop: FindexSearchOps, lpsearchfilter: ConstPtr<CVoid>, dwadditionalflags: UInt): Handle =
+public actual fun findFirstFileExFromAppW(lpfilename: Pcwstr, finfolevelid: FindexInfoLevels, lpfindfiledata: MutPtr, fsearchop: FindexSearchOps, lpsearchfilter: ConstPtr, dwadditionalflags: UInt): Handle =
     MutPtr(WindowsWin32StorageFilesystemJniBridge.windowssysWindowsWin32StorageFilesystemFindFirstFileExFromAppW(lpfilename.rawAddress, finfolevelid, lpfindfiledata.rawAddress, fsearchop, lpsearchfilter.rawAddress, dwadditionalflags.toInt()))
 
-public actual fun findFirstFileExW(lpfilename: Pcwstr, finfolevelid: FindexInfoLevels, lpfindfiledata: MutPtr<CVoid>, fsearchop: FindexSearchOps, lpsearchfilter: ConstPtr<CVoid>, dwadditionalflags: FindFirstExFlags): Handle =
+public actual fun findFirstFileExW(lpfilename: Pcwstr, finfolevelid: FindexInfoLevels, lpfindfiledata: MutPtr, fsearchop: FindexSearchOps, lpsearchfilter: ConstPtr, dwadditionalflags: FindFirstExFlags): Handle =
     MutPtr(WindowsWin32StorageFilesystemJniBridge.windowssysWindowsWin32StorageFilesystemFindFirstFileExW(lpfilename.rawAddress, finfolevelid, lpfindfiledata.rawAddress, fsearchop, lpsearchfilter.rawAddress, dwadditionalflags.toInt()))
 
-public actual fun findFirstFileNameTransactedW(lpfilename: Pcwstr, dwflags: UInt, stringlength: MutPtr<UInt>, linkname: Pwstr, htransaction: Handle): Handle =
+public actual fun findFirstFileNameTransactedW(lpfilename: Pcwstr, dwflags: UInt, stringlength: MutPtr, linkname: Pwstr, htransaction: Handle): Handle =
     MutPtr(WindowsWin32StorageFilesystemJniBridge.windowssysWindowsWin32StorageFilesystemFindFirstFileNameTransactedW(lpfilename.rawAddress, dwflags.toInt(), stringlength.rawAddress, linkname.rawAddress, htransaction.rawAddress))
 
-public actual fun findFirstFileNameW(lpfilename: Pcwstr, dwflags: UInt, stringlength: MutPtr<UInt>, linkname: Pwstr): Handle =
+public actual fun findFirstFileNameW(lpfilename: Pcwstr, dwflags: UInt, stringlength: MutPtr, linkname: Pwstr): Handle =
     MutPtr(WindowsWin32StorageFilesystemJniBridge.windowssysWindowsWin32StorageFilesystemFindFirstFileNameW(lpfilename.rawAddress, dwflags.toInt(), stringlength.rawAddress, linkname.rawAddress))
 
-public actual fun findFirstFileTransactedA(lpfilename: Pcstr, finfolevelid: FindexInfoLevels, lpfindfiledata: MutPtr<CVoid>, fsearchop: FindexSearchOps, lpsearchfilter: ConstPtr<CVoid>, dwadditionalflags: UInt, htransaction: Handle): Handle =
+public actual fun findFirstFileTransactedA(lpfilename: Pcstr, finfolevelid: FindexInfoLevels, lpfindfiledata: MutPtr, fsearchop: FindexSearchOps, lpsearchfilter: ConstPtr, dwadditionalflags: UInt, htransaction: Handle): Handle =
     MutPtr(WindowsWin32StorageFilesystemJniBridge.windowssysWindowsWin32StorageFilesystemFindFirstFileTransactedA(lpfilename.rawAddress, finfolevelid, lpfindfiledata.rawAddress, fsearchop, lpsearchfilter.rawAddress, dwadditionalflags.toInt(), htransaction.rawAddress))
 
-public actual fun findFirstFileTransactedW(lpfilename: Pcwstr, finfolevelid: FindexInfoLevels, lpfindfiledata: MutPtr<CVoid>, fsearchop: FindexSearchOps, lpsearchfilter: ConstPtr<CVoid>, dwadditionalflags: UInt, htransaction: Handle): Handle =
+public actual fun findFirstFileTransactedW(lpfilename: Pcwstr, finfolevelid: FindexInfoLevels, lpfindfiledata: MutPtr, fsearchop: FindexSearchOps, lpsearchfilter: ConstPtr, dwadditionalflags: UInt, htransaction: Handle): Handle =
     MutPtr(WindowsWin32StorageFilesystemJniBridge.windowssysWindowsWin32StorageFilesystemFindFirstFileTransactedW(lpfilename.rawAddress, finfolevelid, lpfindfiledata.rawAddress, fsearchop, lpsearchfilter.rawAddress, dwadditionalflags.toInt(), htransaction.rawAddress))
 
-public actual fun findFirstFileW(lpfilename: Pcwstr, lpfindfiledata: MutPtr<Win32FindDataw>): Handle =
+public actual fun findFirstFileW(lpfilename: Pcwstr, lpfindfiledata: MutPtr): Handle =
     MutPtr(WindowsWin32StorageFilesystemJniBridge.windowssysWindowsWin32StorageFilesystemFindFirstFileW(lpfilename.rawAddress, lpfindfiledata.rawAddress))
 
-public actual fun findFirstStreamTransactedW(lpfilename: Pcwstr, infolevel: StreamInfoLevels, lpfindstreamdata: MutPtr<CVoid>, dwflags: UInt, htransaction: Handle): Handle =
+public actual fun findFirstStreamTransactedW(lpfilename: Pcwstr, infolevel: StreamInfoLevels, lpfindstreamdata: MutPtr, dwflags: UInt, htransaction: Handle): Handle =
     MutPtr(WindowsWin32StorageFilesystemJniBridge.windowssysWindowsWin32StorageFilesystemFindFirstStreamTransactedW(lpfilename.rawAddress, infolevel, lpfindstreamdata.rawAddress, dwflags.toInt(), htransaction.rawAddress))
 
-public actual fun findFirstStreamW(lpfilename: Pcwstr, infolevel: StreamInfoLevels, lpfindstreamdata: MutPtr<CVoid>, dwflags: UInt): Handle =
+public actual fun findFirstStreamW(lpfilename: Pcwstr, infolevel: StreamInfoLevels, lpfindstreamdata: MutPtr, dwflags: UInt): Handle =
     MutPtr(WindowsWin32StorageFilesystemJniBridge.windowssysWindowsWin32StorageFilesystemFindFirstStreamW(lpfilename.rawAddress, infolevel, lpfindstreamdata.rawAddress, dwflags.toInt()))
 
 public actual fun findFirstVolumeA(lpszvolumename: Pstr, cchbufferlength: UInt): Handle =
@@ -1615,16 +1610,16 @@ public actual fun findFirstVolumeW(lpszvolumename: Pwstr, cchbufferlength: UInt)
 public actual fun findNextChangeNotification(hchangehandle: Handle): Bool =
     WindowsWin32StorageFilesystemJniBridge.windowssysWindowsWin32StorageFilesystemFindNextChangeNotification(hchangehandle.rawAddress)
 
-public actual fun findNextFileA(hfindfile: Handle, lpfindfiledata: MutPtr<Win32FindDataa>): Bool =
+public actual fun findNextFileA(hfindfile: Handle, lpfindfiledata: MutPtr): Bool =
     WindowsWin32StorageFilesystemJniBridge.windowssysWindowsWin32StorageFilesystemFindNextFileA(hfindfile.rawAddress, lpfindfiledata.rawAddress)
 
-public actual fun findNextFileNameW(hfindstream: Handle, stringlength: MutPtr<UInt>, linkname: Pwstr): Bool =
+public actual fun findNextFileNameW(hfindstream: Handle, stringlength: MutPtr, linkname: Pwstr): Bool =
     WindowsWin32StorageFilesystemJniBridge.windowssysWindowsWin32StorageFilesystemFindNextFileNameW(hfindstream.rawAddress, stringlength.rawAddress, linkname.rawAddress)
 
-public actual fun findNextFileW(hfindfile: Handle, lpfindfiledata: MutPtr<Win32FindDataw>): Bool =
+public actual fun findNextFileW(hfindfile: Handle, lpfindfiledata: MutPtr): Bool =
     WindowsWin32StorageFilesystemJniBridge.windowssysWindowsWin32StorageFilesystemFindNextFileW(hfindfile.rawAddress, lpfindfiledata.rawAddress)
 
-public actual fun findNextStreamW(hfindstream: Handle, lpfindstreamdata: MutPtr<CVoid>): Bool =
+public actual fun findNextStreamW(hfindstream: Handle, lpfindstreamdata: MutPtr): Bool =
     WindowsWin32StorageFilesystemJniBridge.windowssysWindowsWin32StorageFilesystemFindNextStreamW(hfindstream.rawAddress, lpfindstreamdata.rawAddress)
 
 public actual fun findNextVolumeA(hfindvolume: Handle, lpszvolumename: Pstr, cchbufferlength: UInt): Bool =
@@ -1648,60 +1643,60 @@ public actual fun findVolumeMountPointClose(hfindvolumemountpoint: Handle): Bool
 public actual fun flushFileBuffers(hfile: Handle): Bool =
     WindowsWin32StorageFilesystemJniBridge.windowssysWindowsWin32StorageFilesystemFlushFileBuffers(hfile.rawAddress)
 
-public actual fun flushLogBuffers(pvmarshal: ConstPtr<CVoid>, poverlapped: MutPtr<Overlapped>): Bool =
+public actual fun flushLogBuffers(pvmarshal: ConstPtr, poverlapped: MutPtr): Bool =
     WindowsWin32StorageFilesystemJniBridge.windowssysWindowsWin32StorageFilesystemFlushLogBuffers(pvmarshal.rawAddress, poverlapped.rawAddress)
 
-public actual fun flushLogToLsn(pvmarshalcontext: MutPtr<CVoid>, plsnflush: MutPtr<ClsLsn>, plsnlastflushed: MutPtr<ClsLsn>, poverlapped: MutPtr<Overlapped>): Bool =
+public actual fun flushLogToLsn(pvmarshalcontext: MutPtr, plsnflush: MutPtr, plsnlastflushed: MutPtr, poverlapped: MutPtr): Bool =
     WindowsWin32StorageFilesystemJniBridge.windowssysWindowsWin32StorageFilesystemFlushLogToLsn(pvmarshalcontext.rawAddress, plsnflush.rawAddress, plsnlastflushed.rawAddress, poverlapped.rawAddress)
 
-public actual fun freeEncryptedFileMetadata(pbmetadata: ConstPtr<UByte>) {
+public actual fun freeEncryptedFileMetadata(pbmetadata: ConstPtr) {
     WindowsWin32StorageFilesystemJniBridge.windowssysWindowsWin32StorageFilesystemFreeEncryptedFileMetadata(pbmetadata.rawAddress)
 }
 
-public actual fun freeEncryptionCertificateHashList(pusers: ConstPtr<EncryptionCertificateHashList>) {
+public actual fun freeEncryptionCertificateHashList(pusers: ConstPtr) {
     WindowsWin32StorageFilesystemJniBridge.windowssysWindowsWin32StorageFilesystemFreeEncryptionCertificateHashList(pusers.rawAddress)
 }
 
-public actual fun freeReservedLog(pvmarshal: MutPtr<CVoid>, creservedrecords: UInt, pcbadjustment: MutPtr<Long>): Bool =
+public actual fun freeReservedLog(pvmarshal: MutPtr, creservedrecords: UInt, pcbadjustment: MutPtr): Bool =
     WindowsWin32StorageFilesystemJniBridge.windowssysWindowsWin32StorageFilesystemFreeReservedLog(pvmarshal.rawAddress, creservedrecords.toInt(), pcbadjustment.rawAddress)
 
-public actual fun getBinaryTypeA(lpapplicationname: Pcstr, lpbinarytype: MutPtr<UInt>): Bool =
+public actual fun getBinaryTypeA(lpapplicationname: Pcstr, lpbinarytype: MutPtr): Bool =
     WindowsWin32StorageFilesystemJniBridge.windowssysWindowsWin32StorageFilesystemGetBinaryTypeA(lpapplicationname.rawAddress, lpbinarytype.rawAddress)
 
-public actual fun getBinaryTypeW(lpapplicationname: Pcwstr, lpbinarytype: MutPtr<UInt>): Bool =
+public actual fun getBinaryTypeW(lpapplicationname: Pcwstr, lpbinarytype: MutPtr): Bool =
     WindowsWin32StorageFilesystemJniBridge.windowssysWindowsWin32StorageFilesystemGetBinaryTypeW(lpapplicationname.rawAddress, lpbinarytype.rawAddress)
 
-public actual fun getCompressedFileSizeA(lpfilename: Pcstr, lpfilesizehigh: MutPtr<UInt>): UInt =
+public actual fun getCompressedFileSizeA(lpfilename: Pcstr, lpfilesizehigh: MutPtr): UInt =
     WindowsWin32StorageFilesystemJniBridge.windowssysWindowsWin32StorageFilesystemGetCompressedFileSizeA(lpfilename.rawAddress, lpfilesizehigh.rawAddress).toUInt()
 
-public actual fun getCompressedFileSizeTransactedA(lpfilename: Pcstr, lpfilesizehigh: MutPtr<UInt>, htransaction: Handle): UInt =
+public actual fun getCompressedFileSizeTransactedA(lpfilename: Pcstr, lpfilesizehigh: MutPtr, htransaction: Handle): UInt =
     WindowsWin32StorageFilesystemJniBridge.windowssysWindowsWin32StorageFilesystemGetCompressedFileSizeTransactedA(lpfilename.rawAddress, lpfilesizehigh.rawAddress, htransaction.rawAddress).toUInt()
 
-public actual fun getCompressedFileSizeTransactedW(lpfilename: Pcwstr, lpfilesizehigh: MutPtr<UInt>, htransaction: Handle): UInt =
+public actual fun getCompressedFileSizeTransactedW(lpfilename: Pcwstr, lpfilesizehigh: MutPtr, htransaction: Handle): UInt =
     WindowsWin32StorageFilesystemJniBridge.windowssysWindowsWin32StorageFilesystemGetCompressedFileSizeTransactedW(lpfilename.rawAddress, lpfilesizehigh.rawAddress, htransaction.rawAddress).toUInt()
 
-public actual fun getCompressedFileSizeW(lpfilename: Pcwstr, lpfilesizehigh: MutPtr<UInt>): UInt =
+public actual fun getCompressedFileSizeW(lpfilename: Pcwstr, lpfilesizehigh: MutPtr): UInt =
     WindowsWin32StorageFilesystemJniBridge.windowssysWindowsWin32StorageFilesystemGetCompressedFileSizeW(lpfilename.rawAddress, lpfilesizehigh.rawAddress).toUInt()
 
-public actual fun getCurrentClockTransactionManager(transactionmanagerhandle: Handle, tmvirtualclock: MutPtr<Long>): Bool =
+public actual fun getCurrentClockTransactionManager(transactionmanagerhandle: Handle, tmvirtualclock: MutPtr): Bool =
     WindowsWin32StorageFilesystemJniBridge.windowssysWindowsWin32StorageFilesystemGetCurrentClockTransactionManager(transactionmanagerhandle.rawAddress, tmvirtualclock.rawAddress)
 
-public actual fun getDiskFreeSpaceA(lprootpathname: Pcstr, lpsectorspercluster: MutPtr<UInt>, lpbytespersector: MutPtr<UInt>, lpnumberoffreeclusters: MutPtr<UInt>, lptotalnumberofclusters: MutPtr<UInt>): Bool =
+public actual fun getDiskFreeSpaceA(lprootpathname: Pcstr, lpsectorspercluster: MutPtr, lpbytespersector: MutPtr, lpnumberoffreeclusters: MutPtr, lptotalnumberofclusters: MutPtr): Bool =
     WindowsWin32StorageFilesystemJniBridge.windowssysWindowsWin32StorageFilesystemGetDiskFreeSpaceA(lprootpathname.rawAddress, lpsectorspercluster.rawAddress, lpbytespersector.rawAddress, lpnumberoffreeclusters.rawAddress, lptotalnumberofclusters.rawAddress)
 
-public actual fun getDiskFreeSpaceExA(lpdirectoryname: Pcstr, lpfreebytesavailabletocaller: MutPtr<ULong>, lptotalnumberofbytes: MutPtr<ULong>, lptotalnumberoffreebytes: MutPtr<ULong>): Bool =
+public actual fun getDiskFreeSpaceExA(lpdirectoryname: Pcstr, lpfreebytesavailabletocaller: MutPtr, lptotalnumberofbytes: MutPtr, lptotalnumberoffreebytes: MutPtr): Bool =
     WindowsWin32StorageFilesystemJniBridge.windowssysWindowsWin32StorageFilesystemGetDiskFreeSpaceExA(lpdirectoryname.rawAddress, lpfreebytesavailabletocaller.rawAddress, lptotalnumberofbytes.rawAddress, lptotalnumberoffreebytes.rawAddress)
 
-public actual fun getDiskFreeSpaceExW(lpdirectoryname: Pcwstr, lpfreebytesavailabletocaller: MutPtr<ULong>, lptotalnumberofbytes: MutPtr<ULong>, lptotalnumberoffreebytes: MutPtr<ULong>): Bool =
+public actual fun getDiskFreeSpaceExW(lpdirectoryname: Pcwstr, lpfreebytesavailabletocaller: MutPtr, lptotalnumberofbytes: MutPtr, lptotalnumberoffreebytes: MutPtr): Bool =
     WindowsWin32StorageFilesystemJniBridge.windowssysWindowsWin32StorageFilesystemGetDiskFreeSpaceExW(lpdirectoryname.rawAddress, lpfreebytesavailabletocaller.rawAddress, lptotalnumberofbytes.rawAddress, lptotalnumberoffreebytes.rawAddress)
 
-public actual fun getDiskFreeSpaceW(lprootpathname: Pcwstr, lpsectorspercluster: MutPtr<UInt>, lpbytespersector: MutPtr<UInt>, lpnumberoffreeclusters: MutPtr<UInt>, lptotalnumberofclusters: MutPtr<UInt>): Bool =
+public actual fun getDiskFreeSpaceW(lprootpathname: Pcwstr, lpsectorspercluster: MutPtr, lpbytespersector: MutPtr, lpnumberoffreeclusters: MutPtr, lptotalnumberofclusters: MutPtr): Bool =
     WindowsWin32StorageFilesystemJniBridge.windowssysWindowsWin32StorageFilesystemGetDiskFreeSpaceW(lprootpathname.rawAddress, lpsectorspercluster.rawAddress, lpbytespersector.rawAddress, lpnumberoffreeclusters.rawAddress, lptotalnumberofclusters.rawAddress)
 
-public actual fun getDiskSpaceInformationA(rootpath: Pcstr, diskspaceinfo: MutPtr<DiskSpaceInformation>): Hresult =
+public actual fun getDiskSpaceInformationA(rootpath: Pcstr, diskspaceinfo: MutPtr): Hresult =
     WindowsWin32StorageFilesystemJniBridge.windowssysWindowsWin32StorageFilesystemGetDiskSpaceInformationA(rootpath.rawAddress, diskspaceinfo.rawAddress)
 
-public actual fun getDiskSpaceInformationW(rootpath: Pcwstr, diskspaceinfo: MutPtr<DiskSpaceInformation>): Hresult =
+public actual fun getDiskSpaceInformationW(rootpath: Pcwstr, diskspaceinfo: MutPtr): Hresult =
     WindowsWin32StorageFilesystemJniBridge.windowssysWindowsWin32StorageFilesystemGetDiskSpaceInformationW(rootpath.rawAddress, diskspaceinfo.rawAddress)
 
 public actual fun getDriveTypeA(lprootpathname: Pcstr): UInt =
@@ -1710,13 +1705,13 @@ public actual fun getDriveTypeA(lprootpathname: Pcstr): UInt =
 public actual fun getDriveTypeW(lprootpathname: Pcwstr): UInt =
     WindowsWin32StorageFilesystemJniBridge.windowssysWindowsWin32StorageFilesystemGetDriveTypeW(lprootpathname.rawAddress).toUInt()
 
-public actual fun getEncryptedFileMetadata(lpfilename: Pcwstr, pcbmetadata: MutPtr<UInt>, ppbmetadata: MutPtr<MutPtr<UByte>>): UInt =
+public actual fun getEncryptedFileMetadata(lpfilename: Pcwstr, pcbmetadata: MutPtr, ppbmetadata: MutPtr): UInt =
     WindowsWin32StorageFilesystemJniBridge.windowssysWindowsWin32StorageFilesystemGetEncryptedFileMetadata(lpfilename.rawAddress, pcbmetadata.rawAddress, ppbmetadata.rawAddress).toUInt()
 
-public actual fun getEnlistmentId(enlistmenthandle: Handle, enlistmentid: MutPtr<Guid>): Bool =
+public actual fun getEnlistmentId(enlistmenthandle: Handle, enlistmentid: MutPtr): Bool =
     WindowsWin32StorageFilesystemJniBridge.windowssysWindowsWin32StorageFilesystemGetEnlistmentId(enlistmenthandle.rawAddress, enlistmentid.rawAddress)
 
-public actual fun getEnlistmentRecoveryInformation(enlistmenthandle: Handle, buffersize: UInt, buffer: MutPtr<CVoid>, bufferused: MutPtr<UInt>): Bool =
+public actual fun getEnlistmentRecoveryInformation(enlistmenthandle: Handle, buffersize: UInt, buffer: MutPtr, bufferused: MutPtr): Bool =
     WindowsWin32StorageFilesystemJniBridge.windowssysWindowsWin32StorageFilesystemGetEnlistmentRecoveryInformation(enlistmenthandle.rawAddress, buffersize.toInt(), buffer.rawAddress, bufferused.rawAddress)
 
 public actual fun getExpandedNameA(lpszsource: Pcstr, lpszbuffer: Pstr): Int =
@@ -1728,67 +1723,67 @@ public actual fun getExpandedNameW(lpszsource: Pcwstr, lpszbuffer: Pwstr): Int =
 public actual fun getFileAttributesA(lpfilename: Pcstr): UInt =
     WindowsWin32StorageFilesystemJniBridge.windowssysWindowsWin32StorageFilesystemGetFileAttributesA(lpfilename.rawAddress).toUInt()
 
-public actual fun getFileAttributesExA(lpfilename: Pcstr, finfolevelid: GetFileexInfoLevels, lpfileinformation: MutPtr<CVoid>): Bool =
+public actual fun getFileAttributesExA(lpfilename: Pcstr, finfolevelid: GetFileexInfoLevels, lpfileinformation: MutPtr): Bool =
     WindowsWin32StorageFilesystemJniBridge.windowssysWindowsWin32StorageFilesystemGetFileAttributesExA(lpfilename.rawAddress, finfolevelid, lpfileinformation.rawAddress)
 
-public actual fun getFileAttributesExFromAppW(lpfilename: Pcwstr, finfolevelid: GetFileexInfoLevels, lpfileinformation: MutPtr<CVoid>): Bool =
+public actual fun getFileAttributesExFromAppW(lpfilename: Pcwstr, finfolevelid: GetFileexInfoLevels, lpfileinformation: MutPtr): Bool =
     WindowsWin32StorageFilesystemJniBridge.windowssysWindowsWin32StorageFilesystemGetFileAttributesExFromAppW(lpfilename.rawAddress, finfolevelid, lpfileinformation.rawAddress)
 
-public actual fun getFileAttributesExW(lpfilename: Pcwstr, finfolevelid: GetFileexInfoLevels, lpfileinformation: MutPtr<CVoid>): Bool =
+public actual fun getFileAttributesExW(lpfilename: Pcwstr, finfolevelid: GetFileexInfoLevels, lpfileinformation: MutPtr): Bool =
     WindowsWin32StorageFilesystemJniBridge.windowssysWindowsWin32StorageFilesystemGetFileAttributesExW(lpfilename.rawAddress, finfolevelid, lpfileinformation.rawAddress)
 
-public actual fun getFileAttributesTransactedA(lpfilename: Pcstr, finfolevelid: GetFileexInfoLevels, lpfileinformation: MutPtr<CVoid>, htransaction: Handle): Bool =
+public actual fun getFileAttributesTransactedA(lpfilename: Pcstr, finfolevelid: GetFileexInfoLevels, lpfileinformation: MutPtr, htransaction: Handle): Bool =
     WindowsWin32StorageFilesystemJniBridge.windowssysWindowsWin32StorageFilesystemGetFileAttributesTransactedA(lpfilename.rawAddress, finfolevelid, lpfileinformation.rawAddress, htransaction.rawAddress)
 
-public actual fun getFileAttributesTransactedW(lpfilename: Pcwstr, finfolevelid: GetFileexInfoLevels, lpfileinformation: MutPtr<CVoid>, htransaction: Handle): Bool =
+public actual fun getFileAttributesTransactedW(lpfilename: Pcwstr, finfolevelid: GetFileexInfoLevels, lpfileinformation: MutPtr, htransaction: Handle): Bool =
     WindowsWin32StorageFilesystemJniBridge.windowssysWindowsWin32StorageFilesystemGetFileAttributesTransactedW(lpfilename.rawAddress, finfolevelid, lpfileinformation.rawAddress, htransaction.rawAddress)
 
 public actual fun getFileAttributesW(lpfilename: Pcwstr): UInt =
     WindowsWin32StorageFilesystemJniBridge.windowssysWindowsWin32StorageFilesystemGetFileAttributesW(lpfilename.rawAddress).toUInt()
 
-public actual fun getFileBandwidthReservation(hfile: Handle, lpperiodmilliseconds: MutPtr<UInt>, lpbytesperperiod: MutPtr<UInt>, pdiscardable: MutPtr<Bool>, lptransfersize: MutPtr<UInt>, lpnumoutstandingrequests: MutPtr<UInt>): Bool =
+public actual fun getFileBandwidthReservation(hfile: Handle, lpperiodmilliseconds: MutPtr, lpbytesperperiod: MutPtr, pdiscardable: MutPtr, lptransfersize: MutPtr, lpnumoutstandingrequests: MutPtr): Bool =
     WindowsWin32StorageFilesystemJniBridge.windowssysWindowsWin32StorageFilesystemGetFileBandwidthReservation(hfile.rawAddress, lpperiodmilliseconds.rawAddress, lpbytesperperiod.rawAddress, pdiscardable.rawAddress, lptransfersize.rawAddress, lpnumoutstandingrequests.rawAddress)
 
-public actual fun getFileInformationByHandle(hfile: Handle, lpfileinformation: MutPtr<ByHandleFileInformation>): Bool =
+public actual fun getFileInformationByHandle(hfile: Handle, lpfileinformation: MutPtr): Bool =
     WindowsWin32StorageFilesystemJniBridge.windowssysWindowsWin32StorageFilesystemGetFileInformationByHandle(hfile.rawAddress, lpfileinformation.rawAddress)
 
-public actual fun getFileInformationByHandleEx(hfile: Handle, fileinformationclass: FileInfoByHandleClass, lpfileinformation: MutPtr<CVoid>, dwbuffersize: UInt): Bool =
+public actual fun getFileInformationByHandleEx(hfile: Handle, fileinformationclass: FileInfoByHandleClass, lpfileinformation: MutPtr, dwbuffersize: UInt): Bool =
     WindowsWin32StorageFilesystemJniBridge.windowssysWindowsWin32StorageFilesystemGetFileInformationByHandleEx(hfile.rawAddress, fileinformationclass, lpfileinformation.rawAddress, dwbuffersize.toInt())
 
-public actual fun getFileSize(hfile: Handle, lpfilesizehigh: MutPtr<UInt>): UInt =
+public actual fun getFileSize(hfile: Handle, lpfilesizehigh: MutPtr): UInt =
     WindowsWin32StorageFilesystemJniBridge.windowssysWindowsWin32StorageFilesystemGetFileSize(hfile.rawAddress, lpfilesizehigh.rawAddress).toUInt()
 
-public actual fun getFileSizeEx(hfile: Handle, lpfilesize: MutPtr<Long>): Bool =
+public actual fun getFileSizeEx(hfile: Handle, lpfilesize: MutPtr): Bool =
     WindowsWin32StorageFilesystemJniBridge.windowssysWindowsWin32StorageFilesystemGetFileSizeEx(hfile.rawAddress, lpfilesize.rawAddress)
 
-public actual fun getFileTime(hfile: Handle, lpcreationtime: MutPtr<Filetime>, lplastaccesstime: MutPtr<Filetime>, lplastwritetime: MutPtr<Filetime>): Bool =
+public actual fun getFileTime(hfile: Handle, lpcreationtime: MutPtr, lplastaccesstime: MutPtr, lplastwritetime: MutPtr): Bool =
     WindowsWin32StorageFilesystemJniBridge.windowssysWindowsWin32StorageFilesystemGetFileTime(hfile.rawAddress, lpcreationtime.rawAddress, lplastaccesstime.rawAddress, lplastwritetime.rawAddress)
 
 public actual fun getFileType(hfile: Handle): FileType =
     WindowsWin32StorageFilesystemJniBridge.windowssysWindowsWin32StorageFilesystemGetFileType(hfile.rawAddress).toUInt()
 
-public actual fun getFileVersionInfoA(lptstrfilename: Pcstr, dwhandle: UInt, dwlen: UInt, lpdata: MutPtr<CVoid>): Bool =
+public actual fun getFileVersionInfoA(lptstrfilename: Pcstr, dwhandle: UInt, dwlen: UInt, lpdata: MutPtr): Bool =
     WindowsWin32StorageFilesystemJniBridge.windowssysWindowsWin32StorageFilesystemGetFileVersionInfoA(lptstrfilename.rawAddress, dwhandle.toInt(), dwlen.toInt(), lpdata.rawAddress)
 
-public actual fun getFileVersionInfoExA(dwflags: GetFileVersionInfoFlags, lpwstrfilename: Pcstr, dwhandle: UInt, dwlen: UInt, lpdata: MutPtr<CVoid>): Bool =
+public actual fun getFileVersionInfoExA(dwflags: GetFileVersionInfoFlags, lpwstrfilename: Pcstr, dwhandle: UInt, dwlen: UInt, lpdata: MutPtr): Bool =
     WindowsWin32StorageFilesystemJniBridge.windowssysWindowsWin32StorageFilesystemGetFileVersionInfoExA(dwflags.toInt(), lpwstrfilename.rawAddress, dwhandle.toInt(), dwlen.toInt(), lpdata.rawAddress)
 
-public actual fun getFileVersionInfoExW(dwflags: GetFileVersionInfoFlags, lpwstrfilename: Pcwstr, dwhandle: UInt, dwlen: UInt, lpdata: MutPtr<CVoid>): Bool =
+public actual fun getFileVersionInfoExW(dwflags: GetFileVersionInfoFlags, lpwstrfilename: Pcwstr, dwhandle: UInt, dwlen: UInt, lpdata: MutPtr): Bool =
     WindowsWin32StorageFilesystemJniBridge.windowssysWindowsWin32StorageFilesystemGetFileVersionInfoExW(dwflags.toInt(), lpwstrfilename.rawAddress, dwhandle.toInt(), dwlen.toInt(), lpdata.rawAddress)
 
-public actual fun getFileVersionInfoSizeA(lptstrfilename: Pcstr, lpdwhandle: MutPtr<UInt>): UInt =
+public actual fun getFileVersionInfoSizeA(lptstrfilename: Pcstr, lpdwhandle: MutPtr): UInt =
     WindowsWin32StorageFilesystemJniBridge.windowssysWindowsWin32StorageFilesystemGetFileVersionInfoSizeA(lptstrfilename.rawAddress, lpdwhandle.rawAddress).toUInt()
 
-public actual fun getFileVersionInfoSizeExA(dwflags: GetFileVersionInfoFlags, lpwstrfilename: Pcstr, lpdwhandle: MutPtr<UInt>): UInt =
+public actual fun getFileVersionInfoSizeExA(dwflags: GetFileVersionInfoFlags, lpwstrfilename: Pcstr, lpdwhandle: MutPtr): UInt =
     WindowsWin32StorageFilesystemJniBridge.windowssysWindowsWin32StorageFilesystemGetFileVersionInfoSizeExA(dwflags.toInt(), lpwstrfilename.rawAddress, lpdwhandle.rawAddress).toUInt()
 
-public actual fun getFileVersionInfoSizeExW(dwflags: GetFileVersionInfoFlags, lpwstrfilename: Pcwstr, lpdwhandle: MutPtr<UInt>): UInt =
+public actual fun getFileVersionInfoSizeExW(dwflags: GetFileVersionInfoFlags, lpwstrfilename: Pcwstr, lpdwhandle: MutPtr): UInt =
     WindowsWin32StorageFilesystemJniBridge.windowssysWindowsWin32StorageFilesystemGetFileVersionInfoSizeExW(dwflags.toInt(), lpwstrfilename.rawAddress, lpdwhandle.rawAddress).toUInt()
 
-public actual fun getFileVersionInfoSizeW(lptstrfilename: Pcwstr, lpdwhandle: MutPtr<UInt>): UInt =
+public actual fun getFileVersionInfoSizeW(lptstrfilename: Pcwstr, lpdwhandle: MutPtr): UInt =
     WindowsWin32StorageFilesystemJniBridge.windowssysWindowsWin32StorageFilesystemGetFileVersionInfoSizeW(lptstrfilename.rawAddress, lpdwhandle.rawAddress).toUInt()
 
-public actual fun getFileVersionInfoW(lptstrfilename: Pcwstr, dwhandle: UInt, dwlen: UInt, lpdata: MutPtr<CVoid>): Bool =
+public actual fun getFileVersionInfoW(lptstrfilename: Pcwstr, dwhandle: UInt, dwlen: UInt, lpdata: MutPtr): Bool =
     WindowsWin32StorageFilesystemJniBridge.windowssysWindowsWin32StorageFilesystemGetFileVersionInfoW(lptstrfilename.rawAddress, dwhandle.toInt(), dwlen.toInt(), lpdata.rawAddress)
 
 public actual fun getFinalPathNameByHandleA(hfile: Handle, lpszfilepath: Pstr, cchfilepath: UInt, dwflags: GetfinalpathnamebyhandleFlags): UInt =
@@ -1797,31 +1792,31 @@ public actual fun getFinalPathNameByHandleA(hfile: Handle, lpszfilepath: Pstr, c
 public actual fun getFinalPathNameByHandleW(hfile: Handle, lpszfilepath: Pwstr, cchfilepath: UInt, dwflags: GetfinalpathnamebyhandleFlags): UInt =
     WindowsWin32StorageFilesystemJniBridge.windowssysWindowsWin32StorageFilesystemGetFinalPathNameByHandleW(hfile.rawAddress, lpszfilepath.rawAddress, cchfilepath.toInt(), dwflags.toInt()).toUInt()
 
-public actual fun getFullPathNameA(lpfilename: Pcstr, nbufferlength: UInt, lpbuffer: Pstr, lpfilepart: MutPtr<Pstr>): UInt =
+public actual fun getFullPathNameA(lpfilename: Pcstr, nbufferlength: UInt, lpbuffer: Pstr, lpfilepart: MutPtr): UInt =
     WindowsWin32StorageFilesystemJniBridge.windowssysWindowsWin32StorageFilesystemGetFullPathNameA(lpfilename.rawAddress, nbufferlength.toInt(), lpbuffer.rawAddress, lpfilepart.rawAddress).toUInt()
 
-public actual fun getFullPathNameTransactedA(lpfilename: Pcstr, nbufferlength: UInt, lpbuffer: Pstr, lpfilepart: MutPtr<Pstr>, htransaction: Handle): UInt =
+public actual fun getFullPathNameTransactedA(lpfilename: Pcstr, nbufferlength: UInt, lpbuffer: Pstr, lpfilepart: MutPtr, htransaction: Handle): UInt =
     WindowsWin32StorageFilesystemJniBridge.windowssysWindowsWin32StorageFilesystemGetFullPathNameTransactedA(lpfilename.rawAddress, nbufferlength.toInt(), lpbuffer.rawAddress, lpfilepart.rawAddress, htransaction.rawAddress).toUInt()
 
-public actual fun getFullPathNameTransactedW(lpfilename: Pcwstr, nbufferlength: UInt, lpbuffer: Pwstr, lpfilepart: MutPtr<Pwstr>, htransaction: Handle): UInt =
+public actual fun getFullPathNameTransactedW(lpfilename: Pcwstr, nbufferlength: UInt, lpbuffer: Pwstr, lpfilepart: MutPtr, htransaction: Handle): UInt =
     WindowsWin32StorageFilesystemJniBridge.windowssysWindowsWin32StorageFilesystemGetFullPathNameTransactedW(lpfilename.rawAddress, nbufferlength.toInt(), lpbuffer.rawAddress, lpfilepart.rawAddress, htransaction.rawAddress).toUInt()
 
-public actual fun getFullPathNameW(lpfilename: Pcwstr, nbufferlength: UInt, lpbuffer: Pwstr, lpfilepart: MutPtr<Pwstr>): UInt =
+public actual fun getFullPathNameW(lpfilename: Pcwstr, nbufferlength: UInt, lpbuffer: Pwstr, lpfilepart: MutPtr): UInt =
     WindowsWin32StorageFilesystemJniBridge.windowssysWindowsWin32StorageFilesystemGetFullPathNameW(lpfilename.rawAddress, nbufferlength.toInt(), lpbuffer.rawAddress, lpfilepart.rawAddress).toUInt()
 
-public actual fun getIoRingInfo(ioring: Hioring, info: MutPtr<IoringInfo>): Hresult =
+public actual fun getIoRingInfo(ioring: Hioring, info: MutPtr): Hresult =
     WindowsWin32StorageFilesystemJniBridge.windowssysWindowsWin32StorageFilesystemGetIoRingInfo(ioring.rawAddress, info.rawAddress)
 
-public actual fun getLogContainerName(hlog: Handle, cidlogicalcontainer: UInt, pwstrcontainername: Pcwstr, clencontainername: UInt, pcactuallencontainername: MutPtr<UInt>): Bool =
+public actual fun getLogContainerName(hlog: Handle, cidlogicalcontainer: UInt, pwstrcontainername: Pcwstr, clencontainername: UInt, pcactuallencontainername: MutPtr): Bool =
     WindowsWin32StorageFilesystemJniBridge.windowssysWindowsWin32StorageFilesystemGetLogContainerName(hlog.rawAddress, cidlogicalcontainer.toInt(), pwstrcontainername.rawAddress, clencontainername.toInt(), pcactuallencontainername.rawAddress)
 
-public actual fun getLogFileInformation(hlog: Handle, pinfobuffer: MutPtr<ClsInformation>, cbbuffer: MutPtr<UInt>): Bool =
+public actual fun getLogFileInformation(hlog: Handle, pinfobuffer: MutPtr, cbbuffer: MutPtr): Bool =
     WindowsWin32StorageFilesystemJniBridge.windowssysWindowsWin32StorageFilesystemGetLogFileInformation(hlog.rawAddress, pinfobuffer.rawAddress, cbbuffer.rawAddress)
 
-public actual fun getLogIoStatistics(hlog: Handle, pvstatsbuffer: MutPtr<CVoid>, cbstatsbuffer: UInt, estatsclass: ClfsIostatsClass, pcbstatswritten: MutPtr<UInt>): Bool =
+public actual fun getLogIoStatistics(hlog: Handle, pvstatsbuffer: MutPtr, cbstatsbuffer: UInt, estatsclass: ClfsIostatsClass, pcbstatswritten: MutPtr): Bool =
     WindowsWin32StorageFilesystemJniBridge.windowssysWindowsWin32StorageFilesystemGetLogIoStatistics(hlog.rawAddress, pvstatsbuffer.rawAddress, cbstatsbuffer.toInt(), estatsclass, pcbstatswritten.rawAddress)
 
-public actual fun getLogReservationInfo(pvmarshal: ConstPtr<CVoid>, pcbrecordnumber: MutPtr<UInt>, pcbuserreservation: MutPtr<Long>, pcbcommitreservation: MutPtr<Long>): Bool =
+public actual fun getLogReservationInfo(pvmarshal: ConstPtr, pcbrecordnumber: MutPtr, pcbuserreservation: MutPtr, pcbcommitreservation: MutPtr): Bool =
     WindowsWin32StorageFilesystemJniBridge.windowssysWindowsWin32StorageFilesystemGetLogReservationInfo(pvmarshal.rawAddress, pcbrecordnumber.rawAddress, pcbuserreservation.rawAddress, pcbcommitreservation.rawAddress)
 
 public actual fun getLogicalDriveStringsA(nbufferlength: UInt, lpbuffer: Pstr): UInt =
@@ -1845,13 +1840,13 @@ public actual fun getLongPathNameTransactedW(lpszshortpath: Pcwstr, lpszlongpath
 public actual fun getLongPathNameW(lpszshortpath: Pcwstr, lpszlongpath: Pwstr, cchbuffer: UInt): UInt =
     WindowsWin32StorageFilesystemJniBridge.windowssysWindowsWin32StorageFilesystemGetLongPathNameW(lpszshortpath.rawAddress, lpszlongpath.rawAddress, cchbuffer.toInt()).toUInt()
 
-public actual fun getNextLogArchiveExtent(pvarchivecontext: MutPtr<CVoid>, rgadextent: MutPtr<ClsArchiveDescriptor>, cdescriptors: UInt, pcdescriptorsreturned: MutPtr<UInt>): Bool =
+public actual fun getNextLogArchiveExtent(pvarchivecontext: MutPtr, rgadextent: MutPtr, cdescriptors: UInt, pcdescriptorsreturned: MutPtr): Bool =
     WindowsWin32StorageFilesystemJniBridge.windowssysWindowsWin32StorageFilesystemGetNextLogArchiveExtent(pvarchivecontext.rawAddress, rgadextent.rawAddress, cdescriptors.toInt(), pcdescriptorsreturned.rawAddress)
 
-public actual fun getNotificationResourceManager(resourcemanagerhandle: Handle, transactionnotification: MutPtr<TransactionNotification>, notificationlength: UInt, dwmilliseconds: UInt, returnlength: MutPtr<UInt>): Bool =
+public actual fun getNotificationResourceManager(resourcemanagerhandle: Handle, transactionnotification: MutPtr, notificationlength: UInt, dwmilliseconds: UInt, returnlength: MutPtr): Bool =
     WindowsWin32StorageFilesystemJniBridge.windowssysWindowsWin32StorageFilesystemGetNotificationResourceManager(resourcemanagerhandle.rawAddress, transactionnotification.rawAddress, notificationlength.toInt(), dwmilliseconds.toInt(), returnlength.rawAddress)
 
-public actual fun getNotificationResourceManagerAsync(resourcemanagerhandle: Handle, transactionnotification: MutPtr<TransactionNotification>, transactionnotificationlength: UInt, returnlength: MutPtr<UInt>, lpoverlapped: MutPtr<Overlapped>): Bool =
+public actual fun getNotificationResourceManagerAsync(resourcemanagerhandle: Handle, transactionnotification: MutPtr, transactionnotificationlength: UInt, returnlength: MutPtr, lpoverlapped: MutPtr): Bool =
     WindowsWin32StorageFilesystemJniBridge.windowssysWindowsWin32StorageFilesystemGetNotificationResourceManagerAsync(resourcemanagerhandle.rawAddress, transactionnotification.rawAddress, transactionnotificationlength.toInt(), returnlength.rawAddress, lpoverlapped.rawAddress)
 
 public actual fun getShortPathNameA(lpszlongpath: Pcstr, lpszshortpath: Pstr, cchbuffer: UInt): UInt =
@@ -1860,10 +1855,10 @@ public actual fun getShortPathNameA(lpszlongpath: Pcstr, lpszshortpath: Pstr, cc
 public actual fun getShortPathNameW(lpszlongpath: Pcwstr, lpszshortpath: Pwstr, cchbuffer: UInt): UInt =
     WindowsWin32StorageFilesystemJniBridge.windowssysWindowsWin32StorageFilesystemGetShortPathNameW(lpszlongpath.rawAddress, lpszshortpath.rawAddress, cchbuffer.toInt()).toUInt()
 
-public actual fun getTapeParameters(hdevice: Handle, dwoperation: GetTapeDriveParametersOperation, lpdwsize: MutPtr<UInt>, lptapeinformation: MutPtr<CVoid>): UInt =
+public actual fun getTapeParameters(hdevice: Handle, dwoperation: GetTapeDriveParametersOperation, lpdwsize: MutPtr, lptapeinformation: MutPtr): UInt =
     WindowsWin32StorageFilesystemJniBridge.windowssysWindowsWin32StorageFilesystemGetTapeParameters(hdevice.rawAddress, dwoperation.toInt(), lpdwsize.rawAddress, lptapeinformation.rawAddress).toUInt()
 
-public actual fun getTapePosition(hdevice: Handle, dwpositiontype: TapePositionType, lpdwpartition: MutPtr<UInt>, lpdwoffsetlow: MutPtr<UInt>, lpdwoffsethigh: MutPtr<UInt>): UInt =
+public actual fun getTapePosition(hdevice: Handle, dwpositiontype: TapePositionType, lpdwpartition: MutPtr, lpdwoffsetlow: MutPtr, lpdwoffsethigh: MutPtr): UInt =
     WindowsWin32StorageFilesystemJniBridge.windowssysWindowsWin32StorageFilesystemGetTapePosition(hdevice.rawAddress, dwpositiontype.toInt(), lpdwpartition.rawAddress, lpdwoffsetlow.rawAddress, lpdwoffsethigh.rawAddress).toUInt()
 
 public actual fun getTapeStatus(hdevice: Handle): UInt =
@@ -1887,22 +1882,22 @@ public actual fun getTempPathA(nbufferlength: UInt, lpbuffer: Pstr): UInt =
 public actual fun getTempPathW(nbufferlength: UInt, lpbuffer: Pwstr): UInt =
     WindowsWin32StorageFilesystemJniBridge.windowssysWindowsWin32StorageFilesystemGetTempPathW(nbufferlength.toInt(), lpbuffer.rawAddress).toUInt()
 
-public actual fun getTransactionId(transactionhandle: Handle, transactionid: MutPtr<Guid>): Bool =
+public actual fun getTransactionId(transactionhandle: Handle, transactionid: MutPtr): Bool =
     WindowsWin32StorageFilesystemJniBridge.windowssysWindowsWin32StorageFilesystemGetTransactionId(transactionhandle.rawAddress, transactionid.rawAddress)
 
-public actual fun getTransactionInformation(transactionhandle: Handle, outcome: MutPtr<UInt>, isolationlevel: MutPtr<UInt>, isolationflags: MutPtr<UInt>, timeout: MutPtr<UInt>, bufferlength: UInt, description: Pwstr): Bool =
+public actual fun getTransactionInformation(transactionhandle: Handle, outcome: MutPtr, isolationlevel: MutPtr, isolationflags: MutPtr, timeout: MutPtr, bufferlength: UInt, description: Pwstr): Bool =
     WindowsWin32StorageFilesystemJniBridge.windowssysWindowsWin32StorageFilesystemGetTransactionInformation(transactionhandle.rawAddress, outcome.rawAddress, isolationlevel.rawAddress, isolationflags.rawAddress, timeout.rawAddress, bufferlength.toInt(), description.rawAddress)
 
-public actual fun getTransactionManagerId(transactionmanagerhandle: Handle, transactionmanagerid: MutPtr<Guid>): Bool =
+public actual fun getTransactionManagerId(transactionmanagerhandle: Handle, transactionmanagerid: MutPtr): Bool =
     WindowsWin32StorageFilesystemJniBridge.windowssysWindowsWin32StorageFilesystemGetTransactionManagerId(transactionmanagerhandle.rawAddress, transactionmanagerid.rawAddress)
 
-public actual fun getVolumeInformationA(lprootpathname: Pcstr, lpvolumenamebuffer: Pstr, nvolumenamesize: UInt, lpvolumeserialnumber: MutPtr<UInt>, lpmaximumcomponentlength: MutPtr<UInt>, lpfilesystemflags: MutPtr<UInt>, lpfilesystemnamebuffer: Pstr, nfilesystemnamesize: UInt): Bool =
+public actual fun getVolumeInformationA(lprootpathname: Pcstr, lpvolumenamebuffer: Pstr, nvolumenamesize: UInt, lpvolumeserialnumber: MutPtr, lpmaximumcomponentlength: MutPtr, lpfilesystemflags: MutPtr, lpfilesystemnamebuffer: Pstr, nfilesystemnamesize: UInt): Bool =
     WindowsWin32StorageFilesystemJniBridge.windowssysWindowsWin32StorageFilesystemGetVolumeInformationA(lprootpathname.rawAddress, lpvolumenamebuffer.rawAddress, nvolumenamesize.toInt(), lpvolumeserialnumber.rawAddress, lpmaximumcomponentlength.rawAddress, lpfilesystemflags.rawAddress, lpfilesystemnamebuffer.rawAddress, nfilesystemnamesize.toInt())
 
-public actual fun getVolumeInformationByHandleW(hfile: Handle, lpvolumenamebuffer: Pwstr, nvolumenamesize: UInt, lpvolumeserialnumber: MutPtr<UInt>, lpmaximumcomponentlength: MutPtr<UInt>, lpfilesystemflags: MutPtr<UInt>, lpfilesystemnamebuffer: Pwstr, nfilesystemnamesize: UInt): Bool =
+public actual fun getVolumeInformationByHandleW(hfile: Handle, lpvolumenamebuffer: Pwstr, nvolumenamesize: UInt, lpvolumeserialnumber: MutPtr, lpmaximumcomponentlength: MutPtr, lpfilesystemflags: MutPtr, lpfilesystemnamebuffer: Pwstr, nfilesystemnamesize: UInt): Bool =
     WindowsWin32StorageFilesystemJniBridge.windowssysWindowsWin32StorageFilesystemGetVolumeInformationByHandleW(hfile.rawAddress, lpvolumenamebuffer.rawAddress, nvolumenamesize.toInt(), lpvolumeserialnumber.rawAddress, lpmaximumcomponentlength.rawAddress, lpfilesystemflags.rawAddress, lpfilesystemnamebuffer.rawAddress, nfilesystemnamesize.toInt())
 
-public actual fun getVolumeInformationW(lprootpathname: Pcwstr, lpvolumenamebuffer: Pwstr, nvolumenamesize: UInt, lpvolumeserialnumber: MutPtr<UInt>, lpmaximumcomponentlength: MutPtr<UInt>, lpfilesystemflags: MutPtr<UInt>, lpfilesystemnamebuffer: Pwstr, nfilesystemnamesize: UInt): Bool =
+public actual fun getVolumeInformationW(lprootpathname: Pcwstr, lpvolumenamebuffer: Pwstr, nvolumenamesize: UInt, lpvolumeserialnumber: MutPtr, lpmaximumcomponentlength: MutPtr, lpfilesystemflags: MutPtr, lpfilesystemnamebuffer: Pwstr, nfilesystemnamesize: UInt): Bool =
     WindowsWin32StorageFilesystemJniBridge.windowssysWindowsWin32StorageFilesystemGetVolumeInformationW(lprootpathname.rawAddress, lpvolumenamebuffer.rawAddress, nvolumenamesize.toInt(), lpvolumeserialnumber.rawAddress, lpmaximumcomponentlength.rawAddress, lpfilesystemflags.rawAddress, lpfilesystemnamebuffer.rawAddress, nfilesystemnamesize.toInt())
 
 public actual fun getVolumeNameForVolumeMountPointA(lpszvolumemountpoint: Pcstr, lpszvolumename: Pstr, cchbufferlength: UInt): Bool =
@@ -1917,16 +1912,16 @@ public actual fun getVolumePathNameA(lpszfilename: Pcstr, lpszvolumepathname: Ps
 public actual fun getVolumePathNameW(lpszfilename: Pcwstr, lpszvolumepathname: Pwstr, cchbufferlength: UInt): Bool =
     WindowsWin32StorageFilesystemJniBridge.windowssysWindowsWin32StorageFilesystemGetVolumePathNameW(lpszfilename.rawAddress, lpszvolumepathname.rawAddress, cchbufferlength.toInt())
 
-public actual fun getVolumePathNamesForVolumeNameA(lpszvolumename: Pcstr, lpszvolumepathnames: Pstr, cchbufferlength: UInt, lpcchreturnlength: MutPtr<UInt>): Bool =
+public actual fun getVolumePathNamesForVolumeNameA(lpszvolumename: Pcstr, lpszvolumepathnames: Pstr, cchbufferlength: UInt, lpcchreturnlength: MutPtr): Bool =
     WindowsWin32StorageFilesystemJniBridge.windowssysWindowsWin32StorageFilesystemGetVolumePathNamesForVolumeNameA(lpszvolumename.rawAddress, lpszvolumepathnames.rawAddress, cchbufferlength.toInt(), lpcchreturnlength.rawAddress)
 
-public actual fun getVolumePathNamesForVolumeNameW(lpszvolumename: Pcwstr, lpszvolumepathnames: Pwstr, cchbufferlength: UInt, lpcchreturnlength: MutPtr<UInt>): Bool =
+public actual fun getVolumePathNamesForVolumeNameW(lpszvolumename: Pcwstr, lpszvolumepathnames: Pwstr, cchbufferlength: UInt, lpcchreturnlength: MutPtr): Bool =
     WindowsWin32StorageFilesystemJniBridge.windowssysWindowsWin32StorageFilesystemGetVolumePathNamesForVolumeNameW(lpszvolumename.rawAddress, lpszvolumepathnames.rawAddress, cchbufferlength.toInt(), lpcchreturnlength.rawAddress)
 
 public actual fun handleLogFull(hlog: Handle): Bool =
     WindowsWin32StorageFilesystemJniBridge.windowssysWindowsWin32StorageFilesystemHandleLogFull(hlog.rawAddress)
 
-public actual fun installLogPolicy(hlog: Handle, ppolicy: MutPtr<ClfsMgmtPolicy>): Bool =
+public actual fun installLogPolicy(hlog: Handle, ppolicy: MutPtr): Bool =
     WindowsWin32StorageFilesystemJniBridge.windowssysWindowsWin32StorageFilesystemInstallLogPolicy(hlog.rawAddress, ppolicy.rawAddress)
 
 public actual fun isIoRingOpSupported(ioring: Hioring, op: IoringOpCode): Bool =
@@ -1946,10 +1941,10 @@ public actual fun lZDone() {
 public actual fun lZInit(hfsource: Int): Int =
     WindowsWin32StorageFilesystemJniBridge.windowssysWindowsWin32StorageFilesystemLZInit(hfsource)
 
-public actual fun lZOpenFileA(lpfilename: Pcstr, lpreopenbuf: MutPtr<Ofstruct>, wstyle: LzopenfileStyle): Int =
+public actual fun lZOpenFileA(lpfilename: Pcstr, lpreopenbuf: MutPtr, wstyle: LzopenfileStyle): Int =
     WindowsWin32StorageFilesystemJniBridge.windowssysWindowsWin32StorageFilesystemLZOpenFileA(lpfilename.rawAddress, lpreopenbuf.rawAddress, wstyle.toShort())
 
-public actual fun lZOpenFileW(lpfilename: Pcwstr, lpreopenbuf: MutPtr<Ofstruct>, wstyle: LzopenfileStyle): Int =
+public actual fun lZOpenFileW(lpfilename: Pcwstr, lpreopenbuf: MutPtr, wstyle: LzopenfileStyle): Int =
     WindowsWin32StorageFilesystemJniBridge.windowssysWindowsWin32StorageFilesystemLZOpenFileW(lpfilename.rawAddress, lpreopenbuf.rawAddress, wstyle.toShort())
 
 public actual fun lZRead(hfile: Int, lpbuffer: Pstr, cbread: Int): Int =
@@ -1961,46 +1956,46 @@ public actual fun lZSeek(hfile: Int, loffset: Int, iorigin: Int): Int =
 public actual fun lZStart(): Int =
     WindowsWin32StorageFilesystemJniBridge.windowssysWindowsWin32StorageFilesystemLZStart()
 
-public actual fun localFileTimeToFileTime(lplocalfiletime: ConstPtr<Filetime>, lpfiletime: MutPtr<Filetime>): Bool =
+public actual fun localFileTimeToFileTime(lplocalfiletime: ConstPtr, lpfiletime: MutPtr): Bool =
     WindowsWin32StorageFilesystemJniBridge.windowssysWindowsWin32StorageFilesystemLocalFileTimeToFileTime(lplocalfiletime.rawAddress, lpfiletime.rawAddress)
 
 public actual fun lockFile(hfile: Handle, dwfileoffsetlow: UInt, dwfileoffsethigh: UInt, nnumberofbytestolocklow: UInt, nnumberofbytestolockhigh: UInt): Bool =
     WindowsWin32StorageFilesystemJniBridge.windowssysWindowsWin32StorageFilesystemLockFile(hfile.rawAddress, dwfileoffsetlow.toInt(), dwfileoffsethigh.toInt(), nnumberofbytestolocklow.toInt(), nnumberofbytestolockhigh.toInt())
 
-public actual fun lockFileEx(hfile: Handle, dwflags: LockFileFlags, dwreserved: UInt, nnumberofbytestolocklow: UInt, nnumberofbytestolockhigh: UInt, lpoverlapped: MutPtr<Overlapped>): Bool =
+public actual fun lockFileEx(hfile: Handle, dwflags: LockFileFlags, dwreserved: UInt, nnumberofbytestolocklow: UInt, nnumberofbytestolockhigh: UInt, lpoverlapped: MutPtr): Bool =
     WindowsWin32StorageFilesystemJniBridge.windowssysWindowsWin32StorageFilesystemLockFileEx(hfile.rawAddress, dwflags.toInt(), dwreserved.toInt(), nnumberofbytestolocklow.toInt(), nnumberofbytestolockhigh.toInt(), lpoverlapped.rawAddress)
 
 public actual fun logTailAdvanceFailure(hlog: Handle, dwreason: UInt): Bool =
     WindowsWin32StorageFilesystemJniBridge.windowssysWindowsWin32StorageFilesystemLogTailAdvanceFailure(hlog.rawAddress, dwreason.toInt())
 
-public actual fun lsnBlockOffset(plsn: ConstPtr<ClsLsn>): UInt =
+public actual fun lsnBlockOffset(plsn: ConstPtr): UInt =
     WindowsWin32StorageFilesystemJniBridge.windowssysWindowsWin32StorageFilesystemLsnBlockOffset(plsn.rawAddress).toUInt()
 
-public actual fun lsnContainer(plsn: ConstPtr<ClsLsn>): UInt =
+public actual fun lsnContainer(plsn: ConstPtr): UInt =
     WindowsWin32StorageFilesystemJniBridge.windowssysWindowsWin32StorageFilesystemLsnContainer(plsn.rawAddress).toUInt()
 
 public actual fun lsnCreate(cidcontainer: UInt, offblock: UInt, crecord: UInt): ClsLsn =
     ClsLsn()
 
-public actual fun lsnEqual(plsn1: ConstPtr<ClsLsn>, plsn2: ConstPtr<ClsLsn>): Boolean =
+public actual fun lsnEqual(plsn1: ConstPtr, plsn2: ConstPtr): Boolean =
     WindowsWin32StorageFilesystemJniBridge.windowssysWindowsWin32StorageFilesystemLsnEqual(plsn1.rawAddress, plsn2.rawAddress)
 
-public actual fun lsnGreater(plsn1: ConstPtr<ClsLsn>, plsn2: ConstPtr<ClsLsn>): Boolean =
+public actual fun lsnGreater(plsn1: ConstPtr, plsn2: ConstPtr): Boolean =
     WindowsWin32StorageFilesystemJniBridge.windowssysWindowsWin32StorageFilesystemLsnGreater(plsn1.rawAddress, plsn2.rawAddress)
 
-public actual fun lsnIncrement(plsn: ConstPtr<ClsLsn>): ClsLsn =
+public actual fun lsnIncrement(plsn: ConstPtr): ClsLsn =
     ClsLsn()
 
-public actual fun lsnInvalid(plsn: ConstPtr<ClsLsn>): Boolean =
+public actual fun lsnInvalid(plsn: ConstPtr): Boolean =
     WindowsWin32StorageFilesystemJniBridge.windowssysWindowsWin32StorageFilesystemLsnInvalid(plsn.rawAddress)
 
-public actual fun lsnLess(plsn1: ConstPtr<ClsLsn>, plsn2: ConstPtr<ClsLsn>): Boolean =
+public actual fun lsnLess(plsn1: ConstPtr, plsn2: ConstPtr): Boolean =
     WindowsWin32StorageFilesystemJniBridge.windowssysWindowsWin32StorageFilesystemLsnLess(plsn1.rawAddress, plsn2.rawAddress)
 
-public actual fun lsnNull(plsn: ConstPtr<ClsLsn>): Boolean =
+public actual fun lsnNull(plsn: ConstPtr): Boolean =
     WindowsWin32StorageFilesystemJniBridge.windowssysWindowsWin32StorageFilesystemLsnNull(plsn.rawAddress)
 
-public actual fun lsnRecordSequence(plsn: ConstPtr<ClsLsn>): UInt =
+public actual fun lsnRecordSequence(plsn: ConstPtr): UInt =
     WindowsWin32StorageFilesystemJniBridge.windowssysWindowsWin32StorageFilesystemLsnRecordSequence(plsn.rawAddress).toUInt()
 
 public actual fun moveFileA(lpexistingfilename: Pcstr, lpnewfilename: Pcstr): Bool =
@@ -2015,124 +2010,124 @@ public actual fun moveFileExW(lpexistingfilename: Pcwstr, lpnewfilename: Pcwstr,
 public actual fun moveFileFromAppW(lpexistingfilename: Pcwstr, lpnewfilename: Pcwstr): Bool =
     WindowsWin32StorageFilesystemJniBridge.windowssysWindowsWin32StorageFilesystemMoveFileFromAppW(lpexistingfilename.rawAddress, lpnewfilename.rawAddress)
 
-public actual fun moveFileTransactedA(lpexistingfilename: Pcstr, lpnewfilename: Pcstr, lpprogressroutine: LpprogressRoutine, lpdata: ConstPtr<CVoid>, dwflags: MoveFileFlags, htransaction: Handle): Bool =
+public actual fun moveFileTransactedA(lpexistingfilename: Pcstr, lpnewfilename: Pcstr, lpprogressroutine: LpprogressRoutine, lpdata: ConstPtr, dwflags: MoveFileFlags, htransaction: Handle): Bool =
     WindowsWin32StorageFilesystemJniBridge.windowssysWindowsWin32StorageFilesystemMoveFileTransactedA(lpexistingfilename.rawAddress, lpnewfilename.rawAddress, 0L, lpdata.rawAddress, dwflags.toInt(), htransaction.rawAddress)
 
-public actual fun moveFileTransactedW(lpexistingfilename: Pcwstr, lpnewfilename: Pcwstr, lpprogressroutine: LpprogressRoutine, lpdata: ConstPtr<CVoid>, dwflags: MoveFileFlags, htransaction: Handle): Bool =
+public actual fun moveFileTransactedW(lpexistingfilename: Pcwstr, lpnewfilename: Pcwstr, lpprogressroutine: LpprogressRoutine, lpdata: ConstPtr, dwflags: MoveFileFlags, htransaction: Handle): Bool =
     WindowsWin32StorageFilesystemJniBridge.windowssysWindowsWin32StorageFilesystemMoveFileTransactedW(lpexistingfilename.rawAddress, lpnewfilename.rawAddress, 0L, lpdata.rawAddress, dwflags.toInt(), htransaction.rawAddress)
 
 public actual fun moveFileW(lpexistingfilename: Pcwstr, lpnewfilename: Pcwstr): Bool =
     WindowsWin32StorageFilesystemJniBridge.windowssysWindowsWin32StorageFilesystemMoveFileW(lpexistingfilename.rawAddress, lpnewfilename.rawAddress)
 
-public actual fun moveFileWithProgressA(lpexistingfilename: Pcstr, lpnewfilename: Pcstr, lpprogressroutine: LpprogressRoutine, lpdata: ConstPtr<CVoid>, dwflags: MoveFileFlags): Bool =
+public actual fun moveFileWithProgressA(lpexistingfilename: Pcstr, lpnewfilename: Pcstr, lpprogressroutine: LpprogressRoutine, lpdata: ConstPtr, dwflags: MoveFileFlags): Bool =
     WindowsWin32StorageFilesystemJniBridge.windowssysWindowsWin32StorageFilesystemMoveFileWithProgressA(lpexistingfilename.rawAddress, lpnewfilename.rawAddress, 0L, lpdata.rawAddress, dwflags.toInt())
 
-public actual fun moveFileWithProgressW(lpexistingfilename: Pcwstr, lpnewfilename: Pcwstr, lpprogressroutine: LpprogressRoutine, lpdata: ConstPtr<CVoid>, dwflags: MoveFileFlags): Bool =
+public actual fun moveFileWithProgressW(lpexistingfilename: Pcwstr, lpnewfilename: Pcwstr, lpprogressroutine: LpprogressRoutine, lpdata: ConstPtr, dwflags: MoveFileFlags): Bool =
     WindowsWin32StorageFilesystemJniBridge.windowssysWindowsWin32StorageFilesystemMoveFileWithProgressW(lpexistingfilename.rawAddress, lpnewfilename.rawAddress, 0L, lpdata.rawAddress, dwflags.toInt())
 
-public actual fun netConnectionEnum(servername: Pcwstr, qualifier: Pcwstr, level: UInt, bufptr: MutPtr<MutPtr<UByte>>, prefmaxlen: UInt, entriesread: MutPtr<UInt>, totalentries: MutPtr<UInt>, resumeHandle: MutPtr<UInt>): UInt =
+public actual fun netConnectionEnum(servername: Pcwstr, qualifier: Pcwstr, level: UInt, bufptr: MutPtr, prefmaxlen: UInt, entriesread: MutPtr, totalentries: MutPtr, resumeHandle: MutPtr): UInt =
     WindowsWin32StorageFilesystemJniBridge.windowssysWindowsWin32StorageFilesystemNetConnectionEnum(servername.rawAddress, qualifier.rawAddress, level.toInt(), bufptr.rawAddress, prefmaxlen.toInt(), entriesread.rawAddress, totalentries.rawAddress, resumeHandle.rawAddress).toUInt()
 
 public actual fun netFileClose(servername: Pcwstr, fileid: UInt): UInt =
     WindowsWin32StorageFilesystemJniBridge.windowssysWindowsWin32StorageFilesystemNetFileClose(servername.rawAddress, fileid.toInt()).toUInt()
 
-public actual fun netFileEnum(servername: Pcwstr, basepath: Pcwstr, username: Pcwstr, level: UInt, bufptr: MutPtr<MutPtr<UByte>>, prefmaxlen: UInt, entriesread: MutPtr<UInt>, totalentries: MutPtr<UInt>, resumeHandle: MutPtr<ULong>): UInt =
+public actual fun netFileEnum(servername: Pcwstr, basepath: Pcwstr, username: Pcwstr, level: UInt, bufptr: MutPtr, prefmaxlen: UInt, entriesread: MutPtr, totalentries: MutPtr, resumeHandle: MutPtr): UInt =
     WindowsWin32StorageFilesystemJniBridge.windowssysWindowsWin32StorageFilesystemNetFileEnum(servername.rawAddress, basepath.rawAddress, username.rawAddress, level.toInt(), bufptr.rawAddress, prefmaxlen.toInt(), entriesread.rawAddress, totalentries.rawAddress, resumeHandle.rawAddress).toUInt()
 
-public actual fun netFileGetInfo(servername: Pcwstr, fileid: UInt, level: UInt, bufptr: MutPtr<MutPtr<UByte>>): UInt =
+public actual fun netFileGetInfo(servername: Pcwstr, fileid: UInt, level: UInt, bufptr: MutPtr): UInt =
     WindowsWin32StorageFilesystemJniBridge.windowssysWindowsWin32StorageFilesystemNetFileGetInfo(servername.rawAddress, fileid.toInt(), level.toInt(), bufptr.rawAddress).toUInt()
 
-public actual fun netServerAliasAdd(servername: Pcwstr, level: UInt, buf: ConstPtr<UByte>): UInt =
+public actual fun netServerAliasAdd(servername: Pcwstr, level: UInt, buf: ConstPtr): UInt =
     WindowsWin32StorageFilesystemJniBridge.windowssysWindowsWin32StorageFilesystemNetServerAliasAdd(servername.rawAddress, level.toInt(), buf.rawAddress).toUInt()
 
-public actual fun netServerAliasDel(servername: Pcwstr, level: UInt, buf: ConstPtr<UByte>): UInt =
+public actual fun netServerAliasDel(servername: Pcwstr, level: UInt, buf: ConstPtr): UInt =
     WindowsWin32StorageFilesystemJniBridge.windowssysWindowsWin32StorageFilesystemNetServerAliasDel(servername.rawAddress, level.toInt(), buf.rawAddress).toUInt()
 
-public actual fun netServerAliasEnum(servername: Pcwstr, level: UInt, bufptr: MutPtr<MutPtr<UByte>>, prefmaxlen: UInt, entriesread: MutPtr<UInt>, totalentries: MutPtr<UInt>, resumehandle: MutPtr<UInt>): UInt =
+public actual fun netServerAliasEnum(servername: Pcwstr, level: UInt, bufptr: MutPtr, prefmaxlen: UInt, entriesread: MutPtr, totalentries: MutPtr, resumehandle: MutPtr): UInt =
     WindowsWin32StorageFilesystemJniBridge.windowssysWindowsWin32StorageFilesystemNetServerAliasEnum(servername.rawAddress, level.toInt(), bufptr.rawAddress, prefmaxlen.toInt(), entriesread.rawAddress, totalentries.rawAddress, resumehandle.rawAddress).toUInt()
 
 public actual fun netSessionDel(servername: Pcwstr, uncclientname: Pcwstr, username: Pcwstr): UInt =
     WindowsWin32StorageFilesystemJniBridge.windowssysWindowsWin32StorageFilesystemNetSessionDel(servername.rawAddress, uncclientname.rawAddress, username.rawAddress).toUInt()
 
-public actual fun netSessionEnum(servername: Pcwstr, uncclientname: Pcwstr, username: Pcwstr, level: UInt, bufptr: MutPtr<MutPtr<UByte>>, prefmaxlen: UInt, entriesread: MutPtr<UInt>, totalentries: MutPtr<UInt>, resumeHandle: MutPtr<UInt>): UInt =
+public actual fun netSessionEnum(servername: Pcwstr, uncclientname: Pcwstr, username: Pcwstr, level: UInt, bufptr: MutPtr, prefmaxlen: UInt, entriesread: MutPtr, totalentries: MutPtr, resumeHandle: MutPtr): UInt =
     WindowsWin32StorageFilesystemJniBridge.windowssysWindowsWin32StorageFilesystemNetSessionEnum(servername.rawAddress, uncclientname.rawAddress, username.rawAddress, level.toInt(), bufptr.rawAddress, prefmaxlen.toInt(), entriesread.rawAddress, totalentries.rawAddress, resumeHandle.rawAddress).toUInt()
 
-public actual fun netSessionGetInfo(servername: Pcwstr, uncclientname: Pcwstr, username: Pcwstr, level: UInt, bufptr: MutPtr<MutPtr<UByte>>): UInt =
+public actual fun netSessionGetInfo(servername: Pcwstr, uncclientname: Pcwstr, username: Pcwstr, level: UInt, bufptr: MutPtr): UInt =
     WindowsWin32StorageFilesystemJniBridge.windowssysWindowsWin32StorageFilesystemNetSessionGetInfo(servername.rawAddress, uncclientname.rawAddress, username.rawAddress, level.toInt(), bufptr.rawAddress).toUInt()
 
-public actual fun netShareAdd(servername: Pcwstr, level: UInt, buf: ConstPtr<UByte>, parmErr: MutPtr<UInt>): UInt =
+public actual fun netShareAdd(servername: Pcwstr, level: UInt, buf: ConstPtr, parmErr: MutPtr): UInt =
     WindowsWin32StorageFilesystemJniBridge.windowssysWindowsWin32StorageFilesystemNetShareAdd(servername.rawAddress, level.toInt(), buf.rawAddress, parmErr.rawAddress).toUInt()
 
-public actual fun netShareCheck(servername: Pcwstr, device: Pcwstr, type: MutPtr<UInt>): UInt =
+public actual fun netShareCheck(servername: Pcwstr, device: Pcwstr, type: MutPtr): UInt =
     WindowsWin32StorageFilesystemJniBridge.windowssysWindowsWin32StorageFilesystemNetShareCheck(servername.rawAddress, device.rawAddress, type.rawAddress).toUInt()
 
 public actual fun netShareDel(servername: Pcwstr, netname: Pcwstr, reserved: UInt): UInt =
     WindowsWin32StorageFilesystemJniBridge.windowssysWindowsWin32StorageFilesystemNetShareDel(servername.rawAddress, netname.rawAddress, reserved.toInt()).toUInt()
 
-public actual fun netShareDelEx(servername: Pcwstr, level: UInt, buf: ConstPtr<UByte>): UInt =
+public actual fun netShareDelEx(servername: Pcwstr, level: UInt, buf: ConstPtr): UInt =
     WindowsWin32StorageFilesystemJniBridge.windowssysWindowsWin32StorageFilesystemNetShareDelEx(servername.rawAddress, level.toInt(), buf.rawAddress).toUInt()
 
 public actual fun netShareDelSticky(servername: Pcwstr, netname: Pcwstr, reserved: UInt): UInt =
     WindowsWin32StorageFilesystemJniBridge.windowssysWindowsWin32StorageFilesystemNetShareDelSticky(servername.rawAddress, netname.rawAddress, reserved.toInt()).toUInt()
 
-public actual fun netShareEnum(servername: Pcwstr, level: UInt, bufptr: MutPtr<MutPtr<UByte>>, prefmaxlen: UInt, entriesread: MutPtr<UInt>, totalentries: MutPtr<UInt>, resumeHandle: MutPtr<UInt>): UInt =
+public actual fun netShareEnum(servername: Pcwstr, level: UInt, bufptr: MutPtr, prefmaxlen: UInt, entriesread: MutPtr, totalentries: MutPtr, resumeHandle: MutPtr): UInt =
     WindowsWin32StorageFilesystemJniBridge.windowssysWindowsWin32StorageFilesystemNetShareEnum(servername.rawAddress, level.toInt(), bufptr.rawAddress, prefmaxlen.toInt(), entriesread.rawAddress, totalentries.rawAddress, resumeHandle.rawAddress).toUInt()
 
-public actual fun netShareEnumSticky(servername: Pcwstr, level: UInt, bufptr: MutPtr<MutPtr<UByte>>, prefmaxlen: UInt, entriesread: MutPtr<UInt>, totalentries: MutPtr<UInt>, resumeHandle: MutPtr<UInt>): UInt =
+public actual fun netShareEnumSticky(servername: Pcwstr, level: UInt, bufptr: MutPtr, prefmaxlen: UInt, entriesread: MutPtr, totalentries: MutPtr, resumeHandle: MutPtr): UInt =
     WindowsWin32StorageFilesystemJniBridge.windowssysWindowsWin32StorageFilesystemNetShareEnumSticky(servername.rawAddress, level.toInt(), bufptr.rawAddress, prefmaxlen.toInt(), entriesread.rawAddress, totalentries.rawAddress, resumeHandle.rawAddress).toUInt()
 
-public actual fun netShareGetInfo(servername: Pcwstr, netname: Pcwstr, level: UInt, bufptr: MutPtr<MutPtr<UByte>>): UInt =
+public actual fun netShareGetInfo(servername: Pcwstr, netname: Pcwstr, level: UInt, bufptr: MutPtr): UInt =
     WindowsWin32StorageFilesystemJniBridge.windowssysWindowsWin32StorageFilesystemNetShareGetInfo(servername.rawAddress, netname.rawAddress, level.toInt(), bufptr.rawAddress).toUInt()
 
-public actual fun netShareSetInfo(servername: Pcwstr, netname: Pcwstr, level: UInt, buf: ConstPtr<UByte>, parmErr: MutPtr<UInt>): UInt =
+public actual fun netShareSetInfo(servername: Pcwstr, netname: Pcwstr, level: UInt, buf: ConstPtr, parmErr: MutPtr): UInt =
     WindowsWin32StorageFilesystemJniBridge.windowssysWindowsWin32StorageFilesystemNetShareSetInfo(servername.rawAddress, netname.rawAddress, level.toInt(), buf.rawAddress, parmErr.rawAddress).toUInt()
 
-public actual fun netStatisticsGet(servername: ConstPtr<Byte>, service: ConstPtr<Byte>, level: UInt, options: UInt, buffer: MutPtr<MutPtr<UByte>>): UInt =
+public actual fun netStatisticsGet(servername: ConstPtr, service: ConstPtr, level: UInt, options: UInt, buffer: MutPtr): UInt =
     WindowsWin32StorageFilesystemJniBridge.windowssysWindowsWin32StorageFilesystemNetStatisticsGet(servername.rawAddress, service.rawAddress, level.toInt(), options.toInt(), buffer.rawAddress).toUInt()
 
-public actual fun openEncryptedFileRawA(lpfilename: Pcstr, ulflags: UInt, pvcontext: MutPtr<MutPtr<CVoid>>): UInt =
+public actual fun openEncryptedFileRawA(lpfilename: Pcstr, ulflags: UInt, pvcontext: MutPtr): UInt =
     WindowsWin32StorageFilesystemJniBridge.windowssysWindowsWin32StorageFilesystemOpenEncryptedFileRawA(lpfilename.rawAddress, ulflags.toInt(), pvcontext.rawAddress).toUInt()
 
-public actual fun openEncryptedFileRawW(lpfilename: Pcwstr, ulflags: UInt, pvcontext: MutPtr<MutPtr<CVoid>>): UInt =
+public actual fun openEncryptedFileRawW(lpfilename: Pcwstr, ulflags: UInt, pvcontext: MutPtr): UInt =
     WindowsWin32StorageFilesystemJniBridge.windowssysWindowsWin32StorageFilesystemOpenEncryptedFileRawW(lpfilename.rawAddress, ulflags.toInt(), pvcontext.rawAddress).toUInt()
 
-public actual fun openEnlistment(dwdesiredaccess: UInt, resourcemanagerhandle: Handle, enlistmentid: MutPtr<Guid>): Handle =
+public actual fun openEnlistment(dwdesiredaccess: UInt, resourcemanagerhandle: Handle, enlistmentid: MutPtr): Handle =
     MutPtr(WindowsWin32StorageFilesystemJniBridge.windowssysWindowsWin32StorageFilesystemOpenEnlistment(dwdesiredaccess.toInt(), resourcemanagerhandle.rawAddress, enlistmentid.rawAddress))
 
-public actual fun openFile(lpfilename: Pcstr, lpreopenbuff: MutPtr<Ofstruct>, ustyle: UInt): Int =
+public actual fun openFile(lpfilename: Pcstr, lpreopenbuff: MutPtr, ustyle: UInt): Int =
     WindowsWin32StorageFilesystemJniBridge.windowssysWindowsWin32StorageFilesystemOpenFile(lpfilename.rawAddress, lpreopenbuff.rawAddress, ustyle.toInt())
 
-public actual fun openFileById(hvolumehint: Handle, lpfileid: ConstPtr<FileIdDescriptor>, dwdesiredaccess: UInt, dwsharemode: FileShareMode, lpsecurityattributes: ConstPtr<SecurityAttributes>, dwflagsandattributes: FileFlagsAndAttributes): Handle =
+public actual fun openFileById(hvolumehint: Handle, lpfileid: ConstPtr, dwdesiredaccess: UInt, dwsharemode: FileShareMode, lpsecurityattributes: ConstPtr, dwflagsandattributes: FileFlagsAndAttributes): Handle =
     MutPtr(WindowsWin32StorageFilesystemJniBridge.windowssysWindowsWin32StorageFilesystemOpenFileById(hvolumehint.rawAddress, lpfileid.rawAddress, dwdesiredaccess.toInt(), dwsharemode.toInt(), lpsecurityattributes.rawAddress, dwflagsandattributes.toInt()))
 
-public actual fun openResourceManager(dwdesiredaccess: UInt, tmhandle: Handle, resourcemanagerid: MutPtr<Guid>): Handle =
+public actual fun openResourceManager(dwdesiredaccess: UInt, tmhandle: Handle, resourcemanagerid: MutPtr): Handle =
     MutPtr(WindowsWin32StorageFilesystemJniBridge.windowssysWindowsWin32StorageFilesystemOpenResourceManager(dwdesiredaccess.toInt(), tmhandle.rawAddress, resourcemanagerid.rawAddress))
 
-public actual fun openTransaction(dwdesiredaccess: UInt, transactionid: MutPtr<Guid>): Handle =
+public actual fun openTransaction(dwdesiredaccess: UInt, transactionid: MutPtr): Handle =
     MutPtr(WindowsWin32StorageFilesystemJniBridge.windowssysWindowsWin32StorageFilesystemOpenTransaction(dwdesiredaccess.toInt(), transactionid.rawAddress))
 
 public actual fun openTransactionManager(logfilename: Pcwstr, desiredaccess: UInt, openoptions: UInt): Handle =
     MutPtr(WindowsWin32StorageFilesystemJniBridge.windowssysWindowsWin32StorageFilesystemOpenTransactionManager(logfilename.rawAddress, desiredaccess.toInt(), openoptions.toInt()))
 
-public actual fun openTransactionManagerById(transactionmanagerid: ConstPtr<Guid>, desiredaccess: UInt, openoptions: UInt): Handle =
+public actual fun openTransactionManagerById(transactionmanagerid: ConstPtr, desiredaccess: UInt, openoptions: UInt): Handle =
     MutPtr(WindowsWin32StorageFilesystemJniBridge.windowssysWindowsWin32StorageFilesystemOpenTransactionManagerById(transactionmanagerid.rawAddress, desiredaccess.toInt(), openoptions.toInt()))
 
-public actual fun popIoRingCompletion(ioring: Hioring, cqe: MutPtr<IoringCqe>): Hresult =
+public actual fun popIoRingCompletion(ioring: Hioring, cqe: MutPtr): Hresult =
     WindowsWin32StorageFilesystemJniBridge.windowssysWindowsWin32StorageFilesystemPopIoRingCompletion(ioring.rawAddress, cqe.rawAddress)
 
-public actual fun prePrepareComplete(enlistmenthandle: Handle, tmvirtualclock: MutPtr<Long>): Bool =
+public actual fun prePrepareComplete(enlistmenthandle: Handle, tmvirtualclock: MutPtr): Bool =
     WindowsWin32StorageFilesystemJniBridge.windowssysWindowsWin32StorageFilesystemPrePrepareComplete(enlistmenthandle.rawAddress, tmvirtualclock.rawAddress)
 
-public actual fun prePrepareEnlistment(enlistmenthandle: Handle, tmvirtualclock: MutPtr<Long>): Bool =
+public actual fun prePrepareEnlistment(enlistmenthandle: Handle, tmvirtualclock: MutPtr): Bool =
     WindowsWin32StorageFilesystemJniBridge.windowssysWindowsWin32StorageFilesystemPrePrepareEnlistment(enlistmenthandle.rawAddress, tmvirtualclock.rawAddress)
 
-public actual fun prepareComplete(enlistmenthandle: Handle, tmvirtualclock: MutPtr<Long>): Bool =
+public actual fun prepareComplete(enlistmenthandle: Handle, tmvirtualclock: MutPtr): Bool =
     WindowsWin32StorageFilesystemJniBridge.windowssysWindowsWin32StorageFilesystemPrepareComplete(enlistmenthandle.rawAddress, tmvirtualclock.rawAddress)
 
-public actual fun prepareEnlistment(enlistmenthandle: Handle, tmvirtualclock: MutPtr<Long>): Bool =
+public actual fun prepareEnlistment(enlistmenthandle: Handle, tmvirtualclock: MutPtr): Bool =
     WindowsWin32StorageFilesystemJniBridge.windowssysWindowsWin32StorageFilesystemPrepareEnlistment(enlistmenthandle.rawAddress, tmvirtualclock.rawAddress)
 
-public actual fun prepareLogArchive(hlog: Handle, pszbaselogfilename: Pwstr, clen: UInt, plsnlow: ConstPtr<ClsLsn>, plsnhigh: ConstPtr<ClsLsn>, pcactuallength: MutPtr<UInt>, poffbaselogfiledata: MutPtr<ULong>, pcbbaselogfilelength: MutPtr<ULong>, plsnbase: MutPtr<ClsLsn>, plsnlast: MutPtr<ClsLsn>, plsncurrentarchivetail: MutPtr<ClsLsn>, ppvarchivecontext: MutPtr<MutPtr<CVoid>>): Bool =
+public actual fun prepareLogArchive(hlog: Handle, pszbaselogfilename: Pwstr, clen: UInt, plsnlow: ConstPtr, plsnhigh: ConstPtr, pcactuallength: MutPtr, poffbaselogfiledata: MutPtr, pcbbaselogfilelength: MutPtr, plsnbase: MutPtr, plsnlast: MutPtr, plsncurrentarchivetail: MutPtr, ppvarchivecontext: MutPtr): Bool =
     WindowsWin32StorageFilesystemJniBridge.windowssysWindowsWin32StorageFilesystemPrepareLogArchive(hlog.rawAddress, pszbaselogfilename.rawAddress, clen.toInt(), plsnlow.rawAddress, plsnhigh.rawAddress, pcactuallength.rawAddress, poffbaselogfiledata.rawAddress, pcbbaselogfilelength.rawAddress, plsnbase.rawAddress, plsnlast.rawAddress, plsncurrentarchivetail.rawAddress, ppvarchivecontext.rawAddress)
 
 public actual fun prepareTape(hdevice: Handle, dwoperation: PrepareTapeOperation, bimmediate: Bool): UInt =
@@ -2144,61 +2139,61 @@ public actual fun queryDosDeviceA(lpdevicename: Pcstr, lptargetpath: Pstr, ucchm
 public actual fun queryDosDeviceW(lpdevicename: Pcwstr, lptargetpath: Pwstr, ucchmax: UInt): UInt =
     WindowsWin32StorageFilesystemJniBridge.windowssysWindowsWin32StorageFilesystemQueryDosDeviceW(lpdevicename.rawAddress, lptargetpath.rawAddress, ucchmax.toInt()).toUInt()
 
-public actual fun queryIoRingCapabilities(capabilities: MutPtr<IoringCapabilities>): Hresult =
+public actual fun queryIoRingCapabilities(capabilities: MutPtr): Hresult =
     WindowsWin32StorageFilesystemJniBridge.windowssysWindowsWin32StorageFilesystemQueryIoRingCapabilities(capabilities.rawAddress)
 
-public actual fun queryLogPolicy(hlog: Handle, epolicytype: ClfsMgmtPolicyType, ppolicybuffer: MutPtr<ClfsMgmtPolicy>, pcbpolicybuffer: MutPtr<UInt>): Bool =
+public actual fun queryLogPolicy(hlog: Handle, epolicytype: ClfsMgmtPolicyType, ppolicybuffer: MutPtr, pcbpolicybuffer: MutPtr): Bool =
     WindowsWin32StorageFilesystemJniBridge.windowssysWindowsWin32StorageFilesystemQueryLogPolicy(hlog.rawAddress, epolicytype, ppolicybuffer.rawAddress, pcbpolicybuffer.rawAddress)
 
-public actual fun queryRecoveryAgentsOnEncryptedFile(lpfilename: Pcwstr, precoveryagents: MutPtr<MutPtr<EncryptionCertificateHashList>>): UInt =
+public actual fun queryRecoveryAgentsOnEncryptedFile(lpfilename: Pcwstr, precoveryagents: MutPtr): UInt =
     WindowsWin32StorageFilesystemJniBridge.windowssysWindowsWin32StorageFilesystemQueryRecoveryAgentsOnEncryptedFile(lpfilename.rawAddress, precoveryagents.rawAddress).toUInt()
 
-public actual fun queryUsersOnEncryptedFile(lpfilename: Pcwstr, pusers: MutPtr<MutPtr<EncryptionCertificateHashList>>): UInt =
+public actual fun queryUsersOnEncryptedFile(lpfilename: Pcwstr, pusers: MutPtr): UInt =
     WindowsWin32StorageFilesystemJniBridge.windowssysWindowsWin32StorageFilesystemQueryUsersOnEncryptedFile(lpfilename.rawAddress, pusers.rawAddress).toUInt()
 
 public actual fun reOpenFile(horiginalfile: Handle, dwdesiredaccess: UInt, dwsharemode: FileShareMode, dwflagsandattributes: FileFlagsAndAttributes): Handle =
     MutPtr(WindowsWin32StorageFilesystemJniBridge.windowssysWindowsWin32StorageFilesystemReOpenFile(horiginalfile.rawAddress, dwdesiredaccess.toInt(), dwsharemode.toInt(), dwflagsandattributes.toInt()))
 
-public actual fun readDirectoryChangesExW(hdirectory: Handle, lpbuffer: MutPtr<CVoid>, nbufferlength: UInt, bwatchsubtree: Bool, dwnotifyfilter: FileNotifyChange, lpbytesreturned: MutPtr<UInt>, lpoverlapped: MutPtr<Overlapped>, lpcompletionroutine: LpoverlappedCompletionRoutine, readdirectorynotifyinformationclass: ReadDirectoryNotifyInformationClass): Bool =
+public actual fun readDirectoryChangesExW(hdirectory: Handle, lpbuffer: MutPtr, nbufferlength: UInt, bwatchsubtree: Bool, dwnotifyfilter: FileNotifyChange, lpbytesreturned: MutPtr, lpoverlapped: MutPtr, lpcompletionroutine: LpoverlappedCompletionRoutine, readdirectorynotifyinformationclass: ReadDirectoryNotifyInformationClass): Bool =
     WindowsWin32StorageFilesystemJniBridge.windowssysWindowsWin32StorageFilesystemReadDirectoryChangesExW(hdirectory.rawAddress, lpbuffer.rawAddress, nbufferlength.toInt(), bwatchsubtree, dwnotifyfilter.toInt(), lpbytesreturned.rawAddress, lpoverlapped.rawAddress, 0L, readdirectorynotifyinformationclass)
 
-public actual fun readDirectoryChangesW(hdirectory: Handle, lpbuffer: MutPtr<CVoid>, nbufferlength: UInt, bwatchsubtree: Bool, dwnotifyfilter: FileNotifyChange, lpbytesreturned: MutPtr<UInt>, lpoverlapped: MutPtr<Overlapped>, lpcompletionroutine: LpoverlappedCompletionRoutine): Bool =
+public actual fun readDirectoryChangesW(hdirectory: Handle, lpbuffer: MutPtr, nbufferlength: UInt, bwatchsubtree: Bool, dwnotifyfilter: FileNotifyChange, lpbytesreturned: MutPtr, lpoverlapped: MutPtr, lpcompletionroutine: LpoverlappedCompletionRoutine): Bool =
     WindowsWin32StorageFilesystemJniBridge.windowssysWindowsWin32StorageFilesystemReadDirectoryChangesW(hdirectory.rawAddress, lpbuffer.rawAddress, nbufferlength.toInt(), bwatchsubtree, dwnotifyfilter.toInt(), lpbytesreturned.rawAddress, lpoverlapped.rawAddress, 0L)
 
-public actual fun readEncryptedFileRaw(pfexportcallback: PfeExportFunc, pvcallbackcontext: ConstPtr<CVoid>, pvcontext: ConstPtr<CVoid>): UInt =
+public actual fun readEncryptedFileRaw(pfexportcallback: PfeExportFunc, pvcallbackcontext: ConstPtr, pvcontext: ConstPtr): UInt =
     WindowsWin32StorageFilesystemJniBridge.windowssysWindowsWin32StorageFilesystemReadEncryptedFileRaw(0L, pvcallbackcontext.rawAddress, pvcontext.rawAddress).toUInt()
 
-public actual fun readFile(hfile: Handle, lpbuffer: MutPtr<UByte>, nnumberofbytestoread: UInt, lpnumberofbytesread: MutPtr<UInt>, lpoverlapped: MutPtr<Overlapped>): Bool =
+public actual fun readFile(hfile: Handle, lpbuffer: MutPtr, nnumberofbytestoread: UInt, lpnumberofbytesread: MutPtr, lpoverlapped: MutPtr): Bool =
     WindowsWin32StorageFilesystemJniBridge.windowssysWindowsWin32StorageFilesystemReadFile(hfile.rawAddress, lpbuffer.rawAddress, nnumberofbytestoread.toInt(), lpnumberofbytesread.rawAddress, lpoverlapped.rawAddress)
 
-public actual fun readFileEx(hfile: Handle, lpbuffer: MutPtr<UByte>, nnumberofbytestoread: UInt, lpoverlapped: MutPtr<Overlapped>, lpcompletionroutine: LpoverlappedCompletionRoutine): Bool =
+public actual fun readFileEx(hfile: Handle, lpbuffer: MutPtr, nnumberofbytestoread: UInt, lpoverlapped: MutPtr, lpcompletionroutine: LpoverlappedCompletionRoutine): Bool =
     WindowsWin32StorageFilesystemJniBridge.windowssysWindowsWin32StorageFilesystemReadFileEx(hfile.rawAddress, lpbuffer.rawAddress, nnumberofbytestoread.toInt(), lpoverlapped.rawAddress, 0L)
 
-public actual fun readFileScatter(hfile: Handle, asegmentarray: ConstPtr<FileSegmentElement>, nnumberofbytestoread: UInt, lpreserved: ConstPtr<UInt>, lpoverlapped: MutPtr<Overlapped>): Bool =
+public actual fun readFileScatter(hfile: Handle, asegmentarray: ConstPtr, nnumberofbytestoread: UInt, lpreserved: ConstPtr, lpoverlapped: MutPtr): Bool =
     WindowsWin32StorageFilesystemJniBridge.windowssysWindowsWin32StorageFilesystemReadFileScatter(hfile.rawAddress, asegmentarray.rawAddress, nnumberofbytestoread.toInt(), lpreserved.rawAddress, lpoverlapped.rawAddress)
 
-public actual fun readLogArchiveMetadata(pvarchivecontext: MutPtr<CVoid>, cboffset: UInt, cbbytestoread: UInt, pbreadbuffer: MutPtr<UByte>, pcbbytesread: MutPtr<UInt>): Bool =
+public actual fun readLogArchiveMetadata(pvarchivecontext: MutPtr, cboffset: UInt, cbbytestoread: UInt, pbreadbuffer: MutPtr, pcbbytesread: MutPtr): Bool =
     WindowsWin32StorageFilesystemJniBridge.windowssysWindowsWin32StorageFilesystemReadLogArchiveMetadata(pvarchivecontext.rawAddress, cboffset.toInt(), cbbytestoread.toInt(), pbreadbuffer.rawAddress, pcbbytesread.rawAddress)
 
-public actual fun readLogNotification(hlog: Handle, pnotification: MutPtr<ClfsMgmtNotification>, lpoverlapped: MutPtr<Overlapped>): Bool =
+public actual fun readLogNotification(hlog: Handle, pnotification: MutPtr, lpoverlapped: MutPtr): Bool =
     WindowsWin32StorageFilesystemJniBridge.windowssysWindowsWin32StorageFilesystemReadLogNotification(hlog.rawAddress, pnotification.rawAddress, lpoverlapped.rawAddress)
 
-public actual fun readLogRecord(pvmarshal: MutPtr<CVoid>, plsnfirst: MutPtr<ClsLsn>, econtextmode: ClfsContextMode, ppvreadbuffer: MutPtr<MutPtr<CVoid>>, pcbreadbuffer: MutPtr<UInt>, perecordtype: MutPtr<UByte>, plsnundonext: MutPtr<ClsLsn>, plsnprevious: MutPtr<ClsLsn>, ppvreadcontext: MutPtr<MutPtr<CVoid>>, poverlapped: MutPtr<Overlapped>): Bool =
+public actual fun readLogRecord(pvmarshal: MutPtr, plsnfirst: MutPtr, econtextmode: ClfsContextMode, ppvreadbuffer: MutPtr, pcbreadbuffer: MutPtr, perecordtype: MutPtr, plsnundonext: MutPtr, plsnprevious: MutPtr, ppvreadcontext: MutPtr, poverlapped: MutPtr): Bool =
     WindowsWin32StorageFilesystemJniBridge.windowssysWindowsWin32StorageFilesystemReadLogRecord(pvmarshal.rawAddress, plsnfirst.rawAddress, econtextmode, ppvreadbuffer.rawAddress, pcbreadbuffer.rawAddress, perecordtype.rawAddress, plsnundonext.rawAddress, plsnprevious.rawAddress, ppvreadcontext.rawAddress, poverlapped.rawAddress)
 
-public actual fun readLogRestartArea(pvmarshal: MutPtr<CVoid>, ppvrestartbuffer: MutPtr<MutPtr<CVoid>>, pcbrestartbuffer: MutPtr<UInt>, plsn: MutPtr<ClsLsn>, ppvcontext: MutPtr<MutPtr<CVoid>>, poverlapped: MutPtr<Overlapped>): Bool =
+public actual fun readLogRestartArea(pvmarshal: MutPtr, ppvrestartbuffer: MutPtr, pcbrestartbuffer: MutPtr, plsn: MutPtr, ppvcontext: MutPtr, poverlapped: MutPtr): Bool =
     WindowsWin32StorageFilesystemJniBridge.windowssysWindowsWin32StorageFilesystemReadLogRestartArea(pvmarshal.rawAddress, ppvrestartbuffer.rawAddress, pcbrestartbuffer.rawAddress, plsn.rawAddress, ppvcontext.rawAddress, poverlapped.rawAddress)
 
-public actual fun readNextLogRecord(pvreadcontext: MutPtr<CVoid>, ppvbuffer: MutPtr<MutPtr<CVoid>>, pcbbuffer: MutPtr<UInt>, perecordtype: MutPtr<UByte>, plsnuser: MutPtr<ClsLsn>, plsnundonext: MutPtr<ClsLsn>, plsnprevious: MutPtr<ClsLsn>, plsnrecord: MutPtr<ClsLsn>, poverlapped: MutPtr<Overlapped>): Bool =
+public actual fun readNextLogRecord(pvreadcontext: MutPtr, ppvbuffer: MutPtr, pcbbuffer: MutPtr, perecordtype: MutPtr, plsnuser: MutPtr, plsnundonext: MutPtr, plsnprevious: MutPtr, plsnrecord: MutPtr, poverlapped: MutPtr): Bool =
     WindowsWin32StorageFilesystemJniBridge.windowssysWindowsWin32StorageFilesystemReadNextLogRecord(pvreadcontext.rawAddress, ppvbuffer.rawAddress, pcbbuffer.rawAddress, perecordtype.rawAddress, plsnuser.rawAddress, plsnundonext.rawAddress, plsnprevious.rawAddress, plsnrecord.rawAddress, poverlapped.rawAddress)
 
-public actual fun readOnlyEnlistment(enlistmenthandle: Handle, tmvirtualclock: MutPtr<Long>): Bool =
+public actual fun readOnlyEnlistment(enlistmenthandle: Handle, tmvirtualclock: MutPtr): Bool =
     WindowsWin32StorageFilesystemJniBridge.windowssysWindowsWin32StorageFilesystemReadOnlyEnlistment(enlistmenthandle.rawAddress, tmvirtualclock.rawAddress)
 
-public actual fun readPreviousLogRestartArea(pvreadcontext: MutPtr<CVoid>, ppvrestartbuffer: MutPtr<MutPtr<CVoid>>, pcbrestartbuffer: MutPtr<UInt>, plsnrestart: MutPtr<ClsLsn>, poverlapped: MutPtr<Overlapped>): Bool =
+public actual fun readPreviousLogRestartArea(pvreadcontext: MutPtr, ppvrestartbuffer: MutPtr, pcbrestartbuffer: MutPtr, plsnrestart: MutPtr, poverlapped: MutPtr): Bool =
     WindowsWin32StorageFilesystemJniBridge.windowssysWindowsWin32StorageFilesystemReadPreviousLogRestartArea(pvreadcontext.rawAddress, ppvrestartbuffer.rawAddress, pcbrestartbuffer.rawAddress, plsnrestart.rawAddress, poverlapped.rawAddress)
 
-public actual fun recoverEnlistment(enlistmenthandle: Handle, enlistmentkey: MutPtr<CVoid>): Bool =
+public actual fun recoverEnlistment(enlistmenthandle: Handle, enlistmentkey: MutPtr): Bool =
     WindowsWin32StorageFilesystemJniBridge.windowssysWindowsWin32StorageFilesystemRecoverEnlistment(enlistmenthandle.rawAddress, enlistmentkey.rawAddress)
 
 public actual fun recoverResourceManager(resourcemanagerhandle: Handle): Bool =
@@ -2210,7 +2205,7 @@ public actual fun recoverTransactionManager(transactionmanagerhandle: Handle): B
 public actual fun registerForLogWriteNotification(hlog: Handle, cbthreshold: UInt, fenable: Bool): Bool =
     WindowsWin32StorageFilesystemJniBridge.windowssysWindowsWin32StorageFilesystemRegisterForLogWriteNotification(hlog.rawAddress, cbthreshold.toInt(), fenable)
 
-public actual fun registerManageableLogClient(hlog: Handle, pcallbacks: MutPtr<LogManagementCallbacks>): Bool =
+public actual fun registerManageableLogClient(hlog: Handle, pcallbacks: MutPtr): Bool =
     WindowsWin32StorageFilesystemJniBridge.windowssysWindowsWin32StorageFilesystemRegisterManageableLogClient(hlog.rawAddress, pcallbacks.rawAddress)
 
 public actual fun removeDirectoryA(lppathname: Pcstr): Bool =
@@ -2228,40 +2223,40 @@ public actual fun removeDirectoryTransactedW(lppathname: Pcwstr, htransaction: H
 public actual fun removeDirectoryW(lppathname: Pcwstr): Bool =
     WindowsWin32StorageFilesystemJniBridge.windowssysWindowsWin32StorageFilesystemRemoveDirectoryW(lppathname.rawAddress)
 
-public actual fun removeLogContainer(hlog: Handle, pwszcontainerpath: Pcwstr, fforce: Bool, preserved: MutPtr<CVoid>): Bool =
+public actual fun removeLogContainer(hlog: Handle, pwszcontainerpath: Pcwstr, fforce: Bool, preserved: MutPtr): Bool =
     WindowsWin32StorageFilesystemJniBridge.windowssysWindowsWin32StorageFilesystemRemoveLogContainer(hlog.rawAddress, pwszcontainerpath.rawAddress, fforce, preserved.rawAddress)
 
-public actual fun removeLogContainerSet(hlog: Handle, ccontainer: UShort, rgwszcontainerpath: ConstPtr<Pcwstr>, fforce: Bool, preserved: MutPtr<CVoid>): Bool =
+public actual fun removeLogContainerSet(hlog: Handle, ccontainer: UShort, rgwszcontainerpath: ConstPtr, fforce: Bool, preserved: MutPtr): Bool =
     WindowsWin32StorageFilesystemJniBridge.windowssysWindowsWin32StorageFilesystemRemoveLogContainerSet(hlog.rawAddress, ccontainer.toShort(), rgwszcontainerpath.rawAddress, fforce, preserved.rawAddress)
 
 public actual fun removeLogPolicy(hlog: Handle, epolicytype: ClfsMgmtPolicyType): Bool =
     WindowsWin32StorageFilesystemJniBridge.windowssysWindowsWin32StorageFilesystemRemoveLogPolicy(hlog.rawAddress, epolicytype)
 
-public actual fun removeUsersFromEncryptedFile(lpfilename: Pcwstr, phashes: ConstPtr<EncryptionCertificateHashList>): UInt =
+public actual fun removeUsersFromEncryptedFile(lpfilename: Pcwstr, phashes: ConstPtr): UInt =
     WindowsWin32StorageFilesystemJniBridge.windowssysWindowsWin32StorageFilesystemRemoveUsersFromEncryptedFile(lpfilename.rawAddress, phashes.rawAddress).toUInt()
 
-public actual fun renameTransactionManager(logfilename: Pcwstr, existingtransactionmanagerguid: MutPtr<Guid>): Bool =
+public actual fun renameTransactionManager(logfilename: Pcwstr, existingtransactionmanagerguid: MutPtr): Bool =
     WindowsWin32StorageFilesystemJniBridge.windowssysWindowsWin32StorageFilesystemRenameTransactionManager(logfilename.rawAddress, existingtransactionmanagerguid.rawAddress)
 
-public actual fun replaceFileA(lpreplacedfilename: Pcstr, lpreplacementfilename: Pcstr, lpbackupfilename: Pcstr, dwreplaceflags: ReplaceFileFlags, lpexclude: ConstPtr<CVoid>, lpreserved: ConstPtr<CVoid>): Bool =
+public actual fun replaceFileA(lpreplacedfilename: Pcstr, lpreplacementfilename: Pcstr, lpbackupfilename: Pcstr, dwreplaceflags: ReplaceFileFlags, lpexclude: ConstPtr, lpreserved: ConstPtr): Bool =
     WindowsWin32StorageFilesystemJniBridge.windowssysWindowsWin32StorageFilesystemReplaceFileA(lpreplacedfilename.rawAddress, lpreplacementfilename.rawAddress, lpbackupfilename.rawAddress, dwreplaceflags.toInt(), lpexclude.rawAddress, lpreserved.rawAddress)
 
-public actual fun replaceFileFromAppW(lpreplacedfilename: Pcwstr, lpreplacementfilename: Pcwstr, lpbackupfilename: Pcwstr, dwreplaceflags: UInt, lpexclude: ConstPtr<CVoid>, lpreserved: ConstPtr<CVoid>): Bool =
+public actual fun replaceFileFromAppW(lpreplacedfilename: Pcwstr, lpreplacementfilename: Pcwstr, lpbackupfilename: Pcwstr, dwreplaceflags: UInt, lpexclude: ConstPtr, lpreserved: ConstPtr): Bool =
     WindowsWin32StorageFilesystemJniBridge.windowssysWindowsWin32StorageFilesystemReplaceFileFromAppW(lpreplacedfilename.rawAddress, lpreplacementfilename.rawAddress, lpbackupfilename.rawAddress, dwreplaceflags.toInt(), lpexclude.rawAddress, lpreserved.rawAddress)
 
-public actual fun replaceFileW(lpreplacedfilename: Pcwstr, lpreplacementfilename: Pcwstr, lpbackupfilename: Pcwstr, dwreplaceflags: ReplaceFileFlags, lpexclude: ConstPtr<CVoid>, lpreserved: ConstPtr<CVoid>): Bool =
+public actual fun replaceFileW(lpreplacedfilename: Pcwstr, lpreplacementfilename: Pcwstr, lpbackupfilename: Pcwstr, dwreplaceflags: ReplaceFileFlags, lpexclude: ConstPtr, lpreserved: ConstPtr): Bool =
     WindowsWin32StorageFilesystemJniBridge.windowssysWindowsWin32StorageFilesystemReplaceFileW(lpreplacedfilename.rawAddress, lpreplacementfilename.rawAddress, lpbackupfilename.rawAddress, dwreplaceflags.toInt(), lpexclude.rawAddress, lpreserved.rawAddress)
 
-public actual fun reserveAndAppendLog(pvmarshal: MutPtr<CVoid>, rgwriteentries: MutPtr<ClsWriteEntry>, cwriteentries: UInt, plsnundonext: MutPtr<ClsLsn>, plsnprevious: MutPtr<ClsLsn>, creserverecords: UInt, rgcbreservation: MutPtr<Long>, fflags: ClfsFlag, plsn: MutPtr<ClsLsn>, poverlapped: MutPtr<Overlapped>): Bool =
+public actual fun reserveAndAppendLog(pvmarshal: MutPtr, rgwriteentries: MutPtr, cwriteentries: UInt, plsnundonext: MutPtr, plsnprevious: MutPtr, creserverecords: UInt, rgcbreservation: MutPtr, fflags: ClfsFlag, plsn: MutPtr, poverlapped: MutPtr): Bool =
     WindowsWin32StorageFilesystemJniBridge.windowssysWindowsWin32StorageFilesystemReserveAndAppendLog(pvmarshal.rawAddress, rgwriteentries.rawAddress, cwriteentries.toInt(), plsnundonext.rawAddress, plsnprevious.rawAddress, creserverecords.toInt(), rgcbreservation.rawAddress, fflags.toInt(), plsn.rawAddress, poverlapped.rawAddress)
 
-public actual fun reserveAndAppendLogAligned(pvmarshal: MutPtr<CVoid>, rgwriteentries: MutPtr<ClsWriteEntry>, cwriteentries: UInt, cbentryalignment: UInt, plsnundonext: MutPtr<ClsLsn>, plsnprevious: MutPtr<ClsLsn>, creserverecords: UInt, rgcbreservation: MutPtr<Long>, fflags: ClfsFlag, plsn: MutPtr<ClsLsn>, poverlapped: MutPtr<Overlapped>): Bool =
+public actual fun reserveAndAppendLogAligned(pvmarshal: MutPtr, rgwriteentries: MutPtr, cwriteentries: UInt, cbentryalignment: UInt, plsnundonext: MutPtr, plsnprevious: MutPtr, creserverecords: UInt, rgcbreservation: MutPtr, fflags: ClfsFlag, plsn: MutPtr, poverlapped: MutPtr): Bool =
     WindowsWin32StorageFilesystemJniBridge.windowssysWindowsWin32StorageFilesystemReserveAndAppendLogAligned(pvmarshal.rawAddress, rgwriteentries.rawAddress, cwriteentries.toInt(), cbentryalignment.toInt(), plsnundonext.rawAddress, plsnprevious.rawAddress, creserverecords.toInt(), rgcbreservation.rawAddress, fflags.toInt(), plsn.rawAddress, poverlapped.rawAddress)
 
-public actual fun rollbackComplete(enlistmenthandle: Handle, tmvirtualclock: MutPtr<Long>): Bool =
+public actual fun rollbackComplete(enlistmenthandle: Handle, tmvirtualclock: MutPtr): Bool =
     WindowsWin32StorageFilesystemJniBridge.windowssysWindowsWin32StorageFilesystemRollbackComplete(enlistmenthandle.rawAddress, tmvirtualclock.rawAddress)
 
-public actual fun rollbackEnlistment(enlistmenthandle: Handle, tmvirtualclock: MutPtr<Long>): Bool =
+public actual fun rollbackEnlistment(enlistmenthandle: Handle, tmvirtualclock: MutPtr): Bool =
     WindowsWin32StorageFilesystemJniBridge.windowssysWindowsWin32StorageFilesystemRollbackEnlistment(enlistmenthandle.rawAddress, tmvirtualclock.rawAddress)
 
 public actual fun rollbackTransaction(transactionhandle: Handle): Bool =
@@ -2270,28 +2265,28 @@ public actual fun rollbackTransaction(transactionhandle: Handle): Bool =
 public actual fun rollbackTransactionAsync(transactionhandle: Handle): Bool =
     WindowsWin32StorageFilesystemJniBridge.windowssysWindowsWin32StorageFilesystemRollbackTransactionAsync(transactionhandle.rawAddress)
 
-public actual fun rollforwardTransactionManager(transactionmanagerhandle: Handle, tmvirtualclock: MutPtr<Long>): Bool =
+public actual fun rollforwardTransactionManager(transactionmanagerhandle: Handle, tmvirtualclock: MutPtr): Bool =
     WindowsWin32StorageFilesystemJniBridge.windowssysWindowsWin32StorageFilesystemRollforwardTransactionManager(transactionmanagerhandle.rawAddress, tmvirtualclock.rawAddress)
 
-public actual fun scanLogContainers(pcxscan: MutPtr<ClsScanContext>, escanmode: UByte, preserved: MutPtr<CVoid>): Bool =
+public actual fun scanLogContainers(pcxscan: MutPtr, escanmode: UByte, preserved: MutPtr): Bool =
     WindowsWin32StorageFilesystemJniBridge.windowssysWindowsWin32StorageFilesystemScanLogContainers(pcxscan.rawAddress, escanmode.toByte(), preserved.rawAddress)
 
-public actual fun searchPathA(lppath: Pcstr, lpfilename: Pcstr, lpextension: Pcstr, nbufferlength: UInt, lpbuffer: Pstr, lpfilepart: MutPtr<Pstr>): UInt =
+public actual fun searchPathA(lppath: Pcstr, lpfilename: Pcstr, lpextension: Pcstr, nbufferlength: UInt, lpbuffer: Pstr, lpfilepart: MutPtr): UInt =
     WindowsWin32StorageFilesystemJniBridge.windowssysWindowsWin32StorageFilesystemSearchPathA(lppath.rawAddress, lpfilename.rawAddress, lpextension.rawAddress, nbufferlength.toInt(), lpbuffer.rawAddress, lpfilepart.rawAddress).toUInt()
 
-public actual fun searchPathW(lppath: Pcwstr, lpfilename: Pcwstr, lpextension: Pcwstr, nbufferlength: UInt, lpbuffer: Pwstr, lpfilepart: MutPtr<Pwstr>): UInt =
+public actual fun searchPathW(lppath: Pcwstr, lpfilename: Pcwstr, lpextension: Pcwstr, nbufferlength: UInt, lpbuffer: Pwstr, lpfilepart: MutPtr): UInt =
     WindowsWin32StorageFilesystemJniBridge.windowssysWindowsWin32StorageFilesystemSearchPathW(lppath.rawAddress, lpfilename.rawAddress, lpextension.rawAddress, nbufferlength.toInt(), lpbuffer.rawAddress, lpfilepart.rawAddress).toUInt()
 
-public actual fun setEncryptedFileMetadata(lpfilename: Pcwstr, pboldmetadata: ConstPtr<UByte>, pbnewmetadata: ConstPtr<UByte>, pownerhash: ConstPtr<EncryptionCertificateHash>, dwoperation: UInt, pcertificatesadded: ConstPtr<EncryptionCertificateHashList>): UInt =
+public actual fun setEncryptedFileMetadata(lpfilename: Pcwstr, pboldmetadata: ConstPtr, pbnewmetadata: ConstPtr, pownerhash: ConstPtr, dwoperation: UInt, pcertificatesadded: ConstPtr): UInt =
     WindowsWin32StorageFilesystemJniBridge.windowssysWindowsWin32StorageFilesystemSetEncryptedFileMetadata(lpfilename.rawAddress, pboldmetadata.rawAddress, pbnewmetadata.rawAddress, pownerhash.rawAddress, dwoperation.toInt(), pcertificatesadded.rawAddress).toUInt()
 
 public actual fun setEndOfFile(hfile: Handle): Bool =
     WindowsWin32StorageFilesystemJniBridge.windowssysWindowsWin32StorageFilesystemSetEndOfFile(hfile.rawAddress)
 
-public actual fun setEndOfLog(hlog: Handle, plsnend: MutPtr<ClsLsn>, lpoverlapped: MutPtr<Overlapped>): Bool =
+public actual fun setEndOfLog(hlog: Handle, plsnend: MutPtr, lpoverlapped: MutPtr): Bool =
     WindowsWin32StorageFilesystemJniBridge.windowssysWindowsWin32StorageFilesystemSetEndOfLog(hlog.rawAddress, plsnend.rawAddress, lpoverlapped.rawAddress)
 
-public actual fun setEnlistmentRecoveryInformation(enlistmenthandle: Handle, buffersize: UInt, buffer: MutPtr<CVoid>): Bool =
+public actual fun setEnlistmentRecoveryInformation(enlistmenthandle: Handle, buffersize: UInt, buffer: MutPtr): Bool =
     WindowsWin32StorageFilesystemJniBridge.windowssysWindowsWin32StorageFilesystemSetEnlistmentRecoveryInformation(enlistmenthandle.rawAddress, buffersize.toInt(), buffer.rawAddress)
 
 public actual fun setFileApisToANSI() {
@@ -2317,22 +2312,22 @@ public actual fun setFileAttributesTransactedW(lpfilename: Pcwstr, dwfileattribu
 public actual fun setFileAttributesW(lpfilename: Pcwstr, dwfileattributes: FileFlagsAndAttributes): Bool =
     WindowsWin32StorageFilesystemJniBridge.windowssysWindowsWin32StorageFilesystemSetFileAttributesW(lpfilename.rawAddress, dwfileattributes.toInt())
 
-public actual fun setFileBandwidthReservation(hfile: Handle, nperiodmilliseconds: UInt, nbytesperperiod: UInt, bdiscardable: Bool, lptransfersize: MutPtr<UInt>, lpnumoutstandingrequests: MutPtr<UInt>): Bool =
+public actual fun setFileBandwidthReservation(hfile: Handle, nperiodmilliseconds: UInt, nbytesperperiod: UInt, bdiscardable: Bool, lptransfersize: MutPtr, lpnumoutstandingrequests: MutPtr): Bool =
     WindowsWin32StorageFilesystemJniBridge.windowssysWindowsWin32StorageFilesystemSetFileBandwidthReservation(hfile.rawAddress, nperiodmilliseconds.toInt(), nbytesperperiod.toInt(), bdiscardable, lptransfersize.rawAddress, lpnumoutstandingrequests.rawAddress)
 
 public actual fun setFileCompletionNotificationModes(filehandle: Handle, flags: UByte): Bool =
     WindowsWin32StorageFilesystemJniBridge.windowssysWindowsWin32StorageFilesystemSetFileCompletionNotificationModes(filehandle.rawAddress, flags.toByte())
 
-public actual fun setFileInformationByHandle(hfile: Handle, fileinformationclass: FileInfoByHandleClass, lpfileinformation: ConstPtr<CVoid>, dwbuffersize: UInt): Bool =
+public actual fun setFileInformationByHandle(hfile: Handle, fileinformationclass: FileInfoByHandleClass, lpfileinformation: ConstPtr, dwbuffersize: UInt): Bool =
     WindowsWin32StorageFilesystemJniBridge.windowssysWindowsWin32StorageFilesystemSetFileInformationByHandle(hfile.rawAddress, fileinformationclass, lpfileinformation.rawAddress, dwbuffersize.toInt())
 
-public actual fun setFileIoOverlappedRange(filehandle: Handle, overlappedrangestart: ConstPtr<UByte>, length: UInt): Bool =
+public actual fun setFileIoOverlappedRange(filehandle: Handle, overlappedrangestart: ConstPtr, length: UInt): Bool =
     WindowsWin32StorageFilesystemJniBridge.windowssysWindowsWin32StorageFilesystemSetFileIoOverlappedRange(filehandle.rawAddress, overlappedrangestart.rawAddress, length.toInt())
 
-public actual fun setFilePointer(hfile: Handle, ldistancetomove: Int, lpdistancetomovehigh: MutPtr<Int>, dwmovemethod: SetFilePointerMoveMethod): UInt =
+public actual fun setFilePointer(hfile: Handle, ldistancetomove: Int, lpdistancetomovehigh: MutPtr, dwmovemethod: SetFilePointerMoveMethod): UInt =
     WindowsWin32StorageFilesystemJniBridge.windowssysWindowsWin32StorageFilesystemSetFilePointer(hfile.rawAddress, ldistancetomove, lpdistancetomovehigh.rawAddress, dwmovemethod.toInt()).toUInt()
 
-public actual fun setFilePointerEx(hfile: Handle, lidistancetomove: Long, lpnewfilepointer: MutPtr<Long>, dwmovemethod: SetFilePointerMoveMethod): Bool =
+public actual fun setFilePointerEx(hfile: Handle, lidistancetomove: Long, lpnewfilepointer: MutPtr, dwmovemethod: SetFilePointerMoveMethod): Bool =
     WindowsWin32StorageFilesystemJniBridge.windowssysWindowsWin32StorageFilesystemSetFilePointerEx(hfile.rawAddress, lidistancetomove, lpnewfilepointer.rawAddress, dwmovemethod.toInt())
 
 public actual fun setFileShortNameA(hfile: Handle, lpshortname: Pcstr): Bool =
@@ -2341,7 +2336,7 @@ public actual fun setFileShortNameA(hfile: Handle, lpshortname: Pcstr): Bool =
 public actual fun setFileShortNameW(hfile: Handle, lpshortname: Pcwstr): Bool =
     WindowsWin32StorageFilesystemJniBridge.windowssysWindowsWin32StorageFilesystemSetFileShortNameW(hfile.rawAddress, lpshortname.rawAddress)
 
-public actual fun setFileTime(hfile: Handle, lpcreationtime: ConstPtr<Filetime>, lplastaccesstime: ConstPtr<Filetime>, lplastwritetime: ConstPtr<Filetime>): Bool =
+public actual fun setFileTime(hfile: Handle, lpcreationtime: ConstPtr, lplastaccesstime: ConstPtr, lplastwritetime: ConstPtr): Bool =
     WindowsWin32StorageFilesystemJniBridge.windowssysWindowsWin32StorageFilesystemSetFileTime(hfile.rawAddress, lpcreationtime.rawAddress, lplastaccesstime.rawAddress, lplastwritetime.rawAddress)
 
 public actual fun setFileValidData(hfile: Handle, validdatalength: Long): Bool =
@@ -2353,10 +2348,10 @@ public actual fun setIoRingCompletionEvent(ioring: Hioring, hevent: Handle): Hre
 public actual fun setLogArchiveMode(hlog: Handle, emode: ClfsLogArchiveMode): Bool =
     WindowsWin32StorageFilesystemJniBridge.windowssysWindowsWin32StorageFilesystemSetLogArchiveMode(hlog.rawAddress, emode)
 
-public actual fun setLogArchiveTail(hlog: Handle, plsnarchivetail: MutPtr<ClsLsn>, preserved: MutPtr<CVoid>): Bool =
+public actual fun setLogArchiveTail(hlog: Handle, plsnarchivetail: MutPtr, preserved: MutPtr): Bool =
     WindowsWin32StorageFilesystemJniBridge.windowssysWindowsWin32StorageFilesystemSetLogArchiveTail(hlog.rawAddress, plsnarchivetail.rawAddress, preserved.rawAddress)
 
-public actual fun setLogFileSizeWithPolicy(hlog: Handle, pdesiredsize: ConstPtr<ULong>, presultingsize: MutPtr<ULong>): Bool =
+public actual fun setLogFileSizeWithPolicy(hlog: Handle, pdesiredsize: ConstPtr, presultingsize: MutPtr): Bool =
     WindowsWin32StorageFilesystemJniBridge.windowssysWindowsWin32StorageFilesystemSetLogFileSizeWithPolicy(hlog.rawAddress, pdesiredsize.rawAddress, presultingsize.rawAddress)
 
 public actual fun setResourceManagerCompletionPort(resourcemanagerhandle: Handle, iocompletionporthandle: Handle, completionkey: ULong): Bool =
@@ -2365,7 +2360,7 @@ public actual fun setResourceManagerCompletionPort(resourcemanagerhandle: Handle
 public actual fun setSearchPathMode(flags: UInt): Bool =
     WindowsWin32StorageFilesystemJniBridge.windowssysWindowsWin32StorageFilesystemSetSearchPathMode(flags.toInt())
 
-public actual fun setTapeParameters(hdevice: Handle, dwoperation: TapeInformationType, lptapeinformation: ConstPtr<CVoid>): UInt =
+public actual fun setTapeParameters(hdevice: Handle, dwoperation: TapeInformationType, lptapeinformation: ConstPtr): UInt =
     WindowsWin32StorageFilesystemJniBridge.windowssysWindowsWin32StorageFilesystemSetTapeParameters(hdevice.rawAddress, dwoperation.toInt(), lptapeinformation.rawAddress).toUInt()
 
 public actual fun setTapePosition(hdevice: Handle, dwpositionmethod: TapePositionMethod, dwpartition: UInt, dwoffsetlow: UInt, dwoffsethigh: UInt, bimmediate: Bool): UInt =
@@ -2374,10 +2369,10 @@ public actual fun setTapePosition(hdevice: Handle, dwpositionmethod: TapePositio
 public actual fun setTransactionInformation(transactionhandle: Handle, isolationlevel: UInt, isolationflags: UInt, timeout: UInt, description: Pcwstr): Bool =
     WindowsWin32StorageFilesystemJniBridge.windowssysWindowsWin32StorageFilesystemSetTransactionInformation(transactionhandle.rawAddress, isolationlevel.toInt(), isolationflags.toInt(), timeout.toInt(), description.rawAddress)
 
-public actual fun setUserFileEncryptionKey(pencryptioncertificate: ConstPtr<EncryptionCertificate>): UInt =
+public actual fun setUserFileEncryptionKey(pencryptioncertificate: ConstPtr): UInt =
     WindowsWin32StorageFilesystemJniBridge.windowssysWindowsWin32StorageFilesystemSetUserFileEncryptionKey(pencryptioncertificate.rawAddress).toUInt()
 
-public actual fun setUserFileEncryptionKeyEx(pencryptioncertificate: ConstPtr<EncryptionCertificate>, dwcapabilities: UInt, dwflags: UInt, pvreserved: ConstPtr<CVoid>): UInt =
+public actual fun setUserFileEncryptionKeyEx(pencryptioncertificate: ConstPtr, dwcapabilities: UInt, dwflags: UInt, pvreserved: ConstPtr): UInt =
     WindowsWin32StorageFilesystemJniBridge.windowssysWindowsWin32StorageFilesystemSetUserFileEncryptionKeyEx(pencryptioncertificate.rawAddress, dwcapabilities.toInt(), dwflags.toInt(), pvreserved.rawAddress).toUInt()
 
 public actual fun setVolumeLabelA(lprootpathname: Pcstr, lpvolumename: Pcstr): Bool =
@@ -2392,44 +2387,44 @@ public actual fun setVolumeMountPointA(lpszvolumemountpoint: Pcstr, lpszvolumena
 public actual fun setVolumeMountPointW(lpszvolumemountpoint: Pcwstr, lpszvolumename: Pcwstr): Bool =
     WindowsWin32StorageFilesystemJniBridge.windowssysWindowsWin32StorageFilesystemSetVolumeMountPointW(lpszvolumemountpoint.rawAddress, lpszvolumename.rawAddress)
 
-public actual fun singlePhaseReject(enlistmenthandle: Handle, tmvirtualclock: MutPtr<Long>): Bool =
+public actual fun singlePhaseReject(enlistmenthandle: Handle, tmvirtualclock: MutPtr): Bool =
     WindowsWin32StorageFilesystemJniBridge.windowssysWindowsWin32StorageFilesystemSinglePhaseReject(enlistmenthandle.rawAddress, tmvirtualclock.rawAddress)
 
-public actual fun submitIoRing(ioring: Hioring, waitoperations: UInt, milliseconds: UInt, submittedentries: MutPtr<UInt>): Hresult =
+public actual fun submitIoRing(ioring: Hioring, waitoperations: UInt, milliseconds: UInt, submittedentries: MutPtr): Hresult =
     WindowsWin32StorageFilesystemJniBridge.windowssysWindowsWin32StorageFilesystemSubmitIoRing(ioring.rawAddress, waitoperations.toInt(), milliseconds.toInt(), submittedentries.rawAddress)
 
-public actual fun terminateLogArchive(pvarchivecontext: MutPtr<CVoid>): Bool =
+public actual fun terminateLogArchive(pvarchivecontext: MutPtr): Bool =
     WindowsWin32StorageFilesystemJniBridge.windowssysWindowsWin32StorageFilesystemTerminateLogArchive(pvarchivecontext.rawAddress)
 
-public actual fun terminateReadLog(pvcursorcontext: MutPtr<CVoid>): Bool =
+public actual fun terminateReadLog(pvcursorcontext: MutPtr): Bool =
     WindowsWin32StorageFilesystemJniBridge.windowssysWindowsWin32StorageFilesystemTerminateReadLog(pvcursorcontext.rawAddress)
 
-public actual fun truncateLog(pvmarshal: ConstPtr<CVoid>, plsnend: ConstPtr<ClsLsn>, lpoverlapped: MutPtr<Overlapped>): Bool =
+public actual fun truncateLog(pvmarshal: ConstPtr, plsnend: ConstPtr, lpoverlapped: MutPtr): Bool =
     WindowsWin32StorageFilesystemJniBridge.windowssysWindowsWin32StorageFilesystemTruncateLog(pvmarshal.rawAddress, plsnend.rawAddress, lpoverlapped.rawAddress)
 
-public actual fun txfGetThreadMiniVersionForCreate(miniversion: MutPtr<UShort>) {
+public actual fun txfGetThreadMiniVersionForCreate(miniversion: MutPtr) {
     WindowsWin32StorageFilesystemJniBridge.windowssysWindowsWin32StorageFilesystemTxfGetThreadMiniVersionForCreate(miniversion.rawAddress)
 }
 
-public actual fun txfLogCreateFileReadContext(logpath: Pcwstr, beginninglsn: ClsLsn, endinglsn: ClsLsn, txffileid: ConstPtr<TxfId>, txflogcontext: MutPtr<MutPtr<CVoid>>): Bool =
+public actual fun txfLogCreateFileReadContext(logpath: Pcwstr, beginninglsn: ClsLsn, endinglsn: ClsLsn, txffileid: ConstPtr, txflogcontext: MutPtr): Bool =
     0
 
-public actual fun txfLogCreateRangeReadContext(logpath: Pcwstr, beginninglsn: ClsLsn, endinglsn: ClsLsn, beginningvirtualclock: ConstPtr<Long>, endingvirtualclock: ConstPtr<Long>, recordtypemask: UInt, txflogcontext: MutPtr<MutPtr<CVoid>>): Bool =
+public actual fun txfLogCreateRangeReadContext(logpath: Pcwstr, beginninglsn: ClsLsn, endinglsn: ClsLsn, beginningvirtualclock: ConstPtr, endingvirtualclock: ConstPtr, recordtypemask: UInt, txflogcontext: MutPtr): Bool =
     0
 
-public actual fun txfLogDestroyReadContext(txflogcontext: ConstPtr<CVoid>): Bool =
+public actual fun txfLogDestroyReadContext(txflogcontext: ConstPtr): Bool =
     WindowsWin32StorageFilesystemJniBridge.windowssysWindowsWin32StorageFilesystemTxfLogDestroyReadContext(txflogcontext.rawAddress)
 
-public actual fun txfLogReadRecords(txflogcontext: ConstPtr<CVoid>, bufferlength: UInt, buffer: MutPtr<CVoid>, bytesused: MutPtr<UInt>, recordcount: MutPtr<UInt>): Bool =
+public actual fun txfLogReadRecords(txflogcontext: ConstPtr, bufferlength: UInt, buffer: MutPtr, bytesused: MutPtr, recordcount: MutPtr): Bool =
     WindowsWin32StorageFilesystemJniBridge.windowssysWindowsWin32StorageFilesystemTxfLogReadRecords(txflogcontext.rawAddress, bufferlength.toInt(), buffer.rawAddress, bytesused.rawAddress, recordcount.rawAddress)
 
-public actual fun txfLogRecordGetFileName(recordbuffer: ConstPtr<CVoid>, recordbufferlengthinbytes: UInt, namebuffer: Pwstr, namebufferlengthinbytes: MutPtr<UInt>, txfid: MutPtr<TxfId>): Bool =
+public actual fun txfLogRecordGetFileName(recordbuffer: ConstPtr, recordbufferlengthinbytes: UInt, namebuffer: Pwstr, namebufferlengthinbytes: MutPtr, txfid: MutPtr): Bool =
     WindowsWin32StorageFilesystemJniBridge.windowssysWindowsWin32StorageFilesystemTxfLogRecordGetFileName(recordbuffer.rawAddress, recordbufferlengthinbytes.toInt(), namebuffer.rawAddress, namebufferlengthinbytes.rawAddress, txfid.rawAddress)
 
-public actual fun txfLogRecordGetGenericType(recordbuffer: ConstPtr<CVoid>, recordbufferlengthinbytes: UInt, generictype: MutPtr<UInt>, virtualclock: MutPtr<Long>): Bool =
+public actual fun txfLogRecordGetGenericType(recordbuffer: ConstPtr, recordbufferlengthinbytes: UInt, generictype: MutPtr, virtualclock: MutPtr): Bool =
     WindowsWin32StorageFilesystemJniBridge.windowssysWindowsWin32StorageFilesystemTxfLogRecordGetGenericType(recordbuffer.rawAddress, recordbufferlengthinbytes.toInt(), generictype.rawAddress, virtualclock.rawAddress)
 
-public actual fun txfReadMetadataInfo(filehandle: Handle, txffileid: MutPtr<TxfId>, lastlsn: MutPtr<ClsLsn>, transactionstate: MutPtr<UInt>, lockingtransaction: MutPtr<Guid>): Bool =
+public actual fun txfReadMetadataInfo(filehandle: Handle, txffileid: MutPtr, lastlsn: MutPtr, transactionstate: MutPtr, lockingtransaction: MutPtr): Bool =
     WindowsWin32StorageFilesystemJniBridge.windowssysWindowsWin32StorageFilesystemTxfReadMetadataInfo(filehandle.rawAddress, txffileid.rawAddress, lastlsn.rawAddress, transactionstate.rawAddress, lockingtransaction.rawAddress)
 
 public actual fun txfSetThreadMiniVersionForCreate(miniversion: UShort) {
@@ -2439,22 +2434,22 @@ public actual fun txfSetThreadMiniVersionForCreate(miniversion: UShort) {
 public actual fun unlockFile(hfile: Handle, dwfileoffsetlow: UInt, dwfileoffsethigh: UInt, nnumberofbytestounlocklow: UInt, nnumberofbytestounlockhigh: UInt): Bool =
     WindowsWin32StorageFilesystemJniBridge.windowssysWindowsWin32StorageFilesystemUnlockFile(hfile.rawAddress, dwfileoffsetlow.toInt(), dwfileoffsethigh.toInt(), nnumberofbytestounlocklow.toInt(), nnumberofbytestounlockhigh.toInt())
 
-public actual fun unlockFileEx(hfile: Handle, dwreserved: UInt, nnumberofbytestounlocklow: UInt, nnumberofbytestounlockhigh: UInt, lpoverlapped: MutPtr<Overlapped>): Bool =
+public actual fun unlockFileEx(hfile: Handle, dwreserved: UInt, nnumberofbytestounlocklow: UInt, nnumberofbytestounlockhigh: UInt, lpoverlapped: MutPtr): Bool =
     WindowsWin32StorageFilesystemJniBridge.windowssysWindowsWin32StorageFilesystemUnlockFileEx(hfile.rawAddress, dwreserved.toInt(), nnumberofbytestounlocklow.toInt(), nnumberofbytestounlockhigh.toInt(), lpoverlapped.rawAddress)
 
-public actual fun validateLog(pszlogfilename: Pcwstr, psalogfile: MutPtr<SecurityAttributes>, pinfobuffer: MutPtr<ClsInformation>, pcbbuffer: MutPtr<UInt>): Bool =
+public actual fun validateLog(pszlogfilename: Pcwstr, psalogfile: MutPtr, pinfobuffer: MutPtr, pcbbuffer: MutPtr): Bool =
     WindowsWin32StorageFilesystemJniBridge.windowssysWindowsWin32StorageFilesystemValidateLog(pszlogfilename.rawAddress, psalogfile.rawAddress, pinfobuffer.rawAddress, pcbbuffer.rawAddress)
 
-public actual fun verFindFileA(uflags: VerFindFileFlags, szfilename: Pcstr, szwindir: Pcstr, szappdir: Pcstr, szcurdir: Pstr, pucurdirlen: MutPtr<UInt>, szdestdir: Pstr, pudestdirlen: MutPtr<UInt>): VerFindFileStatus =
+public actual fun verFindFileA(uflags: VerFindFileFlags, szfilename: Pcstr, szwindir: Pcstr, szappdir: Pcstr, szcurdir: Pstr, pucurdirlen: MutPtr, szdestdir: Pstr, pudestdirlen: MutPtr): VerFindFileStatus =
     WindowsWin32StorageFilesystemJniBridge.windowssysWindowsWin32StorageFilesystemVerFindFileA(uflags.toInt(), szfilename.rawAddress, szwindir.rawAddress, szappdir.rawAddress, szcurdir.rawAddress, pucurdirlen.rawAddress, szdestdir.rawAddress, pudestdirlen.rawAddress).toUInt()
 
-public actual fun verFindFileW(uflags: VerFindFileFlags, szfilename: Pcwstr, szwindir: Pcwstr, szappdir: Pcwstr, szcurdir: Pwstr, pucurdirlen: MutPtr<UInt>, szdestdir: Pwstr, pudestdirlen: MutPtr<UInt>): VerFindFileStatus =
+public actual fun verFindFileW(uflags: VerFindFileFlags, szfilename: Pcwstr, szwindir: Pcwstr, szappdir: Pcwstr, szcurdir: Pwstr, pucurdirlen: MutPtr, szdestdir: Pwstr, pudestdirlen: MutPtr): VerFindFileStatus =
     WindowsWin32StorageFilesystemJniBridge.windowssysWindowsWin32StorageFilesystemVerFindFileW(uflags.toInt(), szfilename.rawAddress, szwindir.rawAddress, szappdir.rawAddress, szcurdir.rawAddress, pucurdirlen.rawAddress, szdestdir.rawAddress, pudestdirlen.rawAddress).toUInt()
 
-public actual fun verInstallFileA(uflags: VerInstallFileFlags, szsrcfilename: Pcstr, szdestfilename: Pcstr, szsrcdir: Pcstr, szdestdir: Pcstr, szcurdir: Pcstr, sztmpfile: Pstr, putmpfilelen: MutPtr<UInt>): VerInstallFileStatus =
+public actual fun verInstallFileA(uflags: VerInstallFileFlags, szsrcfilename: Pcstr, szdestfilename: Pcstr, szsrcdir: Pcstr, szdestdir: Pcstr, szcurdir: Pcstr, sztmpfile: Pstr, putmpfilelen: MutPtr): VerInstallFileStatus =
     WindowsWin32StorageFilesystemJniBridge.windowssysWindowsWin32StorageFilesystemVerInstallFileA(uflags.toInt(), szsrcfilename.rawAddress, szdestfilename.rawAddress, szsrcdir.rawAddress, szdestdir.rawAddress, szcurdir.rawAddress, sztmpfile.rawAddress, putmpfilelen.rawAddress).toUInt()
 
-public actual fun verInstallFileW(uflags: VerInstallFileFlags, szsrcfilename: Pcwstr, szdestfilename: Pcwstr, szsrcdir: Pcwstr, szdestdir: Pcwstr, szcurdir: Pcwstr, sztmpfile: Pwstr, putmpfilelen: MutPtr<UInt>): VerInstallFileStatus =
+public actual fun verInstallFileW(uflags: VerInstallFileFlags, szsrcfilename: Pcwstr, szdestfilename: Pcwstr, szsrcdir: Pcwstr, szdestdir: Pcwstr, szcurdir: Pcwstr, sztmpfile: Pwstr, putmpfilelen: MutPtr): VerInstallFileStatus =
     WindowsWin32StorageFilesystemJniBridge.windowssysWindowsWin32StorageFilesystemVerInstallFileW(uflags.toInt(), szsrcfilename.rawAddress, szdestfilename.rawAddress, szsrcdir.rawAddress, szdestdir.rawAddress, szcurdir.rawAddress, sztmpfile.rawAddress, putmpfilelen.rawAddress).toUInt()
 
 public actual fun verLanguageNameA(wlang: UInt, szlang: Pstr, cchlang: UInt): UInt =
@@ -2463,34 +2458,34 @@ public actual fun verLanguageNameA(wlang: UInt, szlang: Pstr, cchlang: UInt): UI
 public actual fun verLanguageNameW(wlang: UInt, szlang: Pwstr, cchlang: UInt): UInt =
     WindowsWin32StorageFilesystemJniBridge.windowssysWindowsWin32StorageFilesystemVerLanguageNameW(wlang.toInt(), szlang.rawAddress, cchlang.toInt()).toUInt()
 
-public actual fun verQueryValueA(pblock: ConstPtr<CVoid>, lpsubblock: Pcstr, lplpbuffer: MutPtr<MutPtr<CVoid>>, pulen: MutPtr<UInt>): Bool =
+public actual fun verQueryValueA(pblock: ConstPtr, lpsubblock: Pcstr, lplpbuffer: MutPtr, pulen: MutPtr): Bool =
     WindowsWin32StorageFilesystemJniBridge.windowssysWindowsWin32StorageFilesystemVerQueryValueA(pblock.rawAddress, lpsubblock.rawAddress, lplpbuffer.rawAddress, pulen.rawAddress)
 
-public actual fun verQueryValueW(pblock: ConstPtr<CVoid>, lpsubblock: Pcwstr, lplpbuffer: MutPtr<MutPtr<CVoid>>, pulen: MutPtr<UInt>): Bool =
+public actual fun verQueryValueW(pblock: ConstPtr, lpsubblock: Pcwstr, lplpbuffer: MutPtr, pulen: MutPtr): Bool =
     WindowsWin32StorageFilesystemJniBridge.windowssysWindowsWin32StorageFilesystemVerQueryValueW(pblock.rawAddress, lpsubblock.rawAddress, lplpbuffer.rawAddress, pulen.rawAddress)
 
-public actual fun wofEnumEntries(volumename: Pcwstr, provider: UInt, enumproc: WofEnumEntryProc, userdata: ConstPtr<CVoid>): Hresult =
+public actual fun wofEnumEntries(volumename: Pcwstr, provider: UInt, enumproc: WofEnumEntryProc, userdata: ConstPtr): Hresult =
     WindowsWin32StorageFilesystemJniBridge.windowssysWindowsWin32StorageFilesystemWofEnumEntries(volumename.rawAddress, provider.toInt(), 0L, userdata.rawAddress)
 
-public actual fun wofFileEnumFiles(volumename: Pcwstr, algorithm: UInt, enumproc: WofEnumFilesProc, userdata: ConstPtr<CVoid>): Hresult =
+public actual fun wofFileEnumFiles(volumename: Pcwstr, algorithm: UInt, enumproc: WofEnumFilesProc, userdata: ConstPtr): Hresult =
     WindowsWin32StorageFilesystemJniBridge.windowssysWindowsWin32StorageFilesystemWofFileEnumFiles(volumename.rawAddress, algorithm.toInt(), 0L, userdata.rawAddress)
 
-public actual fun wofGetDriverVersion(fileorvolumehandle: Handle, provider: UInt, wofversion: MutPtr<UInt>): Hresult =
+public actual fun wofGetDriverVersion(fileorvolumehandle: Handle, provider: UInt, wofversion: MutPtr): Hresult =
     WindowsWin32StorageFilesystemJniBridge.windowssysWindowsWin32StorageFilesystemWofGetDriverVersion(fileorvolumehandle.rawAddress, provider.toInt(), wofversion.rawAddress)
 
-public actual fun wofIsExternalFile(filepath: Pcwstr, isexternalfile: MutPtr<Bool>, provider: MutPtr<UInt>, externalfileinfo: MutPtr<CVoid>, bufferlength: MutPtr<UInt>): Hresult =
+public actual fun wofIsExternalFile(filepath: Pcwstr, isexternalfile: MutPtr, provider: MutPtr, externalfileinfo: MutPtr, bufferlength: MutPtr): Hresult =
     WindowsWin32StorageFilesystemJniBridge.windowssysWindowsWin32StorageFilesystemWofIsExternalFile(filepath.rawAddress, isexternalfile.rawAddress, provider.rawAddress, externalfileinfo.rawAddress, bufferlength.rawAddress)
 
-public actual fun wofSetFileDataLocation(filehandle: Handle, provider: UInt, externalfileinfo: ConstPtr<CVoid>, length: UInt): Hresult =
+public actual fun wofSetFileDataLocation(filehandle: Handle, provider: UInt, externalfileinfo: ConstPtr, length: UInt): Hresult =
     WindowsWin32StorageFilesystemJniBridge.windowssysWindowsWin32StorageFilesystemWofSetFileDataLocation(filehandle.rawAddress, provider.toInt(), externalfileinfo.rawAddress, length.toInt())
 
-public actual fun wofShouldCompressBinaries(volume: Pcwstr, algorithm: MutPtr<UInt>): Bool =
+public actual fun wofShouldCompressBinaries(volume: Pcwstr, algorithm: MutPtr): Bool =
     WindowsWin32StorageFilesystemJniBridge.windowssysWindowsWin32StorageFilesystemWofShouldCompressBinaries(volume.rawAddress, algorithm.rawAddress)
 
-public actual fun wofWimAddEntry(volumename: Pcwstr, wimpath: Pcwstr, wimtype: UInt, wimindex: UInt, datasourceid: MutPtr<Long>): Hresult =
+public actual fun wofWimAddEntry(volumename: Pcwstr, wimpath: Pcwstr, wimtype: UInt, wimindex: UInt, datasourceid: MutPtr): Hresult =
     WindowsWin32StorageFilesystemJniBridge.windowssysWindowsWin32StorageFilesystemWofWimAddEntry(volumename.rawAddress, wimpath.rawAddress, wimtype.toInt(), wimindex.toInt(), datasourceid.rawAddress)
 
-public actual fun wofWimEnumFiles(volumename: Pcwstr, datasourceid: Long, enumproc: WofEnumFilesProc, userdata: ConstPtr<CVoid>): Hresult =
+public actual fun wofWimEnumFiles(volumename: Pcwstr, datasourceid: Long, enumproc: WofEnumFilesProc, userdata: ConstPtr): Hresult =
     WindowsWin32StorageFilesystemJniBridge.windowssysWindowsWin32StorageFilesystemWofWimEnumFiles(volumename.rawAddress, datasourceid, 0L, userdata.rawAddress)
 
 public actual fun wofWimRemoveEntry(volumename: Pcwstr, datasourceid: Long): Hresult =
@@ -2502,28 +2497,28 @@ public actual fun wofWimSuspendEntry(volumename: Pcwstr, datasourceid: Long): Hr
 public actual fun wofWimUpdateEntry(volumename: Pcwstr, datasourceid: Long, newwimpath: Pcwstr): Hresult =
     WindowsWin32StorageFilesystemJniBridge.windowssysWindowsWin32StorageFilesystemWofWimUpdateEntry(volumename.rawAddress, datasourceid, newwimpath.rawAddress)
 
-public actual fun wow64DisableWow64FsRedirection(oldvalue: MutPtr<MutPtr<CVoid>>): Bool =
+public actual fun wow64DisableWow64FsRedirection(oldvalue: MutPtr): Bool =
     WindowsWin32StorageFilesystemJniBridge.windowssysWindowsWin32StorageFilesystemWow64DisableWow64FsRedirection(oldvalue.rawAddress)
 
 public actual fun wow64EnableWow64FsRedirection(wow64fsenableredirection: Boolean): Boolean =
     WindowsWin32StorageFilesystemJniBridge.windowssysWindowsWin32StorageFilesystemWow64EnableWow64FsRedirection(wow64fsenableredirection)
 
-public actual fun wow64RevertWow64FsRedirection(olvalue: ConstPtr<CVoid>): Bool =
+public actual fun wow64RevertWow64FsRedirection(olvalue: ConstPtr): Bool =
     WindowsWin32StorageFilesystemJniBridge.windowssysWindowsWin32StorageFilesystemWow64RevertWow64FsRedirection(olvalue.rawAddress)
 
-public actual fun writeEncryptedFileRaw(pfimportcallback: PfeImportFunc, pvcallbackcontext: ConstPtr<CVoid>, pvcontext: ConstPtr<CVoid>): UInt =
+public actual fun writeEncryptedFileRaw(pfimportcallback: PfeImportFunc, pvcallbackcontext: ConstPtr, pvcontext: ConstPtr): UInt =
     WindowsWin32StorageFilesystemJniBridge.windowssysWindowsWin32StorageFilesystemWriteEncryptedFileRaw(0L, pvcallbackcontext.rawAddress, pvcontext.rawAddress).toUInt()
 
-public actual fun writeFile(hfile: Handle, lpbuffer: ConstPtr<UByte>, nnumberofbytestowrite: UInt, lpnumberofbyteswritten: MutPtr<UInt>, lpoverlapped: MutPtr<Overlapped>): Bool =
+public actual fun writeFile(hfile: Handle, lpbuffer: ConstPtr, nnumberofbytestowrite: UInt, lpnumberofbyteswritten: MutPtr, lpoverlapped: MutPtr): Bool =
     WindowsWin32StorageFilesystemJniBridge.windowssysWindowsWin32StorageFilesystemWriteFile(hfile.rawAddress, lpbuffer.rawAddress, nnumberofbytestowrite.toInt(), lpnumberofbyteswritten.rawAddress, lpoverlapped.rawAddress)
 
-public actual fun writeFileEx(hfile: Handle, lpbuffer: ConstPtr<UByte>, nnumberofbytestowrite: UInt, lpoverlapped: MutPtr<Overlapped>, lpcompletionroutine: LpoverlappedCompletionRoutine): Bool =
+public actual fun writeFileEx(hfile: Handle, lpbuffer: ConstPtr, nnumberofbytestowrite: UInt, lpoverlapped: MutPtr, lpcompletionroutine: LpoverlappedCompletionRoutine): Bool =
     WindowsWin32StorageFilesystemJniBridge.windowssysWindowsWin32StorageFilesystemWriteFileEx(hfile.rawAddress, lpbuffer.rawAddress, nnumberofbytestowrite.toInt(), lpoverlapped.rawAddress, 0L)
 
-public actual fun writeFileGather(hfile: Handle, asegmentarray: ConstPtr<FileSegmentElement>, nnumberofbytestowrite: UInt, lpreserved: ConstPtr<UInt>, lpoverlapped: MutPtr<Overlapped>): Bool =
+public actual fun writeFileGather(hfile: Handle, asegmentarray: ConstPtr, nnumberofbytestowrite: UInt, lpreserved: ConstPtr, lpoverlapped: MutPtr): Bool =
     WindowsWin32StorageFilesystemJniBridge.windowssysWindowsWin32StorageFilesystemWriteFileGather(hfile.rawAddress, asegmentarray.rawAddress, nnumberofbytestowrite.toInt(), lpreserved.rawAddress, lpoverlapped.rawAddress)
 
-public actual fun writeLogRestartArea(pvmarshal: MutPtr<CVoid>, pvrestartbuffer: MutPtr<CVoid>, cbrestartbuffer: UInt, plsnbase: MutPtr<ClsLsn>, fflags: ClfsFlag, pcbwritten: MutPtr<UInt>, plsnnext: MutPtr<ClsLsn>, poverlapped: MutPtr<Overlapped>): Bool =
+public actual fun writeLogRestartArea(pvmarshal: MutPtr, pvrestartbuffer: MutPtr, cbrestartbuffer: UInt, plsnbase: MutPtr, fflags: ClfsFlag, pcbwritten: MutPtr, plsnnext: MutPtr, poverlapped: MutPtr): Bool =
     WindowsWin32StorageFilesystemJniBridge.windowssysWindowsWin32StorageFilesystemWriteLogRestartArea(pvmarshal.rawAddress, pvrestartbuffer.rawAddress, cbrestartbuffer.toInt(), plsnbase.rawAddress, fflags.toInt(), pcbwritten.rawAddress, plsnnext.rawAddress, poverlapped.rawAddress)
 
 public actual fun writeTapemark(hdevice: Handle, dwtapemarktype: TapemarkType, dwtapemarkcount: UInt, bimmediate: Bool): UInt =

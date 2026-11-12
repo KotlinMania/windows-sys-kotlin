@@ -2,7 +2,6 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.system.memory
 
-import io.github.kotlinmania.rustlang.core.ffi.CVoid
 import io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
 import io.github.kotlinmania.rustlang.core.mem.TypeLayout
 import io.github.kotlinmania.rustlang.core.ptr.MutPtr
@@ -62,8 +61,8 @@ public data class HeapSummary(
 }
 
 public class MemoryBasicInformation internal constructor(
-    baseAddressCtorArg: MutPtr<CVoid>,
-    allocationBaseCtorArg: MutPtr<CVoid>,
+    baseAddressCtorArg: MutPtr,
+    allocationBaseCtorArg: MutPtr,
     public var allocationProtect: PageProtectionFlags,
     public var partitionId: UShort,
     public var regionSize: Int,
@@ -71,10 +70,10 @@ public class MemoryBasicInformation internal constructor(
     public var protect: PageProtectionFlags,
     public var type: PageType,
 ) {
-    public var baseAddress: MutPtr<CVoid> = baseAddressCtorArg
+    public var baseAddress: MutPtr = baseAddressCtorArg
         internal set
 
-    public var allocationBase: MutPtr<CVoid> = allocationBaseCtorArg
+    public var allocationBase: MutPtr = allocationBaseCtorArg
         internal set
 
     public constructor() : this(
@@ -88,9 +87,9 @@ public class MemoryBasicInformation internal constructor(
         type = 0u,
     )
 
-    public operator fun component1(): MutPtr<CVoid> = this.baseAddress
+    public operator fun component1(): MutPtr = this.baseAddress
 
-    public operator fun component2(): MutPtr<CVoid> = this.allocationBase
+    public operator fun component2(): MutPtr = this.allocationBase
 
     public operator fun component3(): PageProtectionFlags = this.allocationProtect
 
@@ -104,7 +103,7 @@ public class MemoryBasicInformation internal constructor(
 
     public operator fun component8(): PageType = this.type
 
-    public fun copy(baseAddress: MutPtr<CVoid> = this.baseAddress, allocationBase: MutPtr<CVoid> = this.allocationBase, allocationProtect: PageProtectionFlags = this.allocationProtect, partitionId: UShort = this.partitionId, regionSize: Int = this.regionSize, state: VirtualAllocationType = this.state, protect: PageProtectionFlags = this.protect, type: PageType = this.type): MemoryBasicInformation = MemoryBasicInformation(baseAddressCtorArg = baseAddress, allocationBaseCtorArg = allocationBase, allocationProtect = allocationProtect, partitionId = partitionId, regionSize = regionSize, state = state, protect = protect, type = type)
+    public fun copy(baseAddress: MutPtr = this.baseAddress, allocationBase: MutPtr = this.allocationBase, allocationProtect: PageProtectionFlags = this.allocationProtect, partitionId: UShort = this.partitionId, regionSize: Int = this.regionSize, state: VirtualAllocationType = this.state, protect: PageProtectionFlags = this.protect, type: PageType = this.type): MemoryBasicInformation = MemoryBasicInformation(baseAddressCtorArg = baseAddress, allocationBaseCtorArg = allocationBase, allocationProtect = allocationProtect, partitionId = partitionId, regionSize = regionSize, state = state, protect = protect, type = type)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -141,11 +140,11 @@ public class MemoryBasicInformation internal constructor(
                     MemoryBasicInformation(
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<CVoid>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<CVoid>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 16L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16).readNative(addr + 20L),
@@ -157,11 +156,11 @@ public class MemoryBasicInformation internal constructor(
                 override fun writeNative(addr: Long, value: MemoryBasicInformation) {
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<CVoid>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr, value.baseAddress)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<CVoid>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.allocationBase)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 16L, value.allocationProtect)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16).writeNative(addr + 20L, value.partitionId)
@@ -173,8 +172,8 @@ public class MemoryBasicInformation internal constructor(
             }
 
         public operator fun invoke(
-            baseAddress: MutPtr<CVoid> = MutPtr(0L),
-            allocationBase: MutPtr<CVoid> = MutPtr(0L),
+            baseAddress: MutPtr = MutPtr(0L),
+            allocationBase: MutPtr = MutPtr(0L),
             allocationProtect: PageProtectionFlags = 0u,
             partitionId: UShort = 0u,
             regionSize: Int = 0,
@@ -276,18 +275,18 @@ public data class MemoryBasicInformation64(
 }
 
 public class MemoryMappedViewAddress internal constructor(
-    valueCtorArg: MutPtr<CVoid>,
+    valueCtorArg: MutPtr,
 ) {
-    public var value: MutPtr<CVoid> = valueCtorArg
+    public var value: MutPtr = valueCtorArg
         internal set
 
     public constructor() : this(
         valueCtorArg = MutPtr(0L),
     )
 
-    public operator fun component1(): MutPtr<CVoid> = this.value
+    public operator fun component1(): MutPtr = this.value
 
-    public fun copy(value: MutPtr<CVoid> = this.value): MemoryMappedViewAddress = MemoryMappedViewAddress(valueCtorArg = value)
+    public fun copy(value: MutPtr = this.value): MemoryMappedViewAddress = MemoryMappedViewAddress(valueCtorArg = value)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -307,19 +306,19 @@ public class MemoryMappedViewAddress internal constructor(
                     MemoryMappedViewAddress(
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<CVoid>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr),
                     )
                 override fun writeNative(addr: Long, value: MemoryMappedViewAddress) {
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<CVoid>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr, value.value)
                 }
             }
 
         public operator fun invoke(
-            value: MutPtr<CVoid> = MutPtr(0L),
+            value: MutPtr = MutPtr(0L),
         ): MemoryMappedViewAddress =
             MemoryMappedViewAddress(
                 valueCtorArg = value,
@@ -390,14 +389,14 @@ public data class MemoryPartitionDedicatedMemoryInformation(
 }
 
 public class MemAddressRequirements internal constructor(
-    lowestStartingAddressCtorArg: MutPtr<CVoid>,
-    highestEndingAddressCtorArg: MutPtr<CVoid>,
+    lowestStartingAddressCtorArg: MutPtr,
+    highestEndingAddressCtorArg: MutPtr,
     public var alignment: Int,
 ) {
-    public var lowestStartingAddress: MutPtr<CVoid> = lowestStartingAddressCtorArg
+    public var lowestStartingAddress: MutPtr = lowestStartingAddressCtorArg
         internal set
 
-    public var highestEndingAddress: MutPtr<CVoid> = highestEndingAddressCtorArg
+    public var highestEndingAddress: MutPtr = highestEndingAddressCtorArg
         internal set
 
     public constructor() : this(
@@ -406,13 +405,13 @@ public class MemAddressRequirements internal constructor(
         alignment = 0,
     )
 
-    public operator fun component1(): MutPtr<CVoid> = this.lowestStartingAddress
+    public operator fun component1(): MutPtr = this.lowestStartingAddress
 
-    public operator fun component2(): MutPtr<CVoid> = this.highestEndingAddress
+    public operator fun component2(): MutPtr = this.highestEndingAddress
 
     public operator fun component3(): Int = this.alignment
 
-    public fun copy(lowestStartingAddress: MutPtr<CVoid> = this.lowestStartingAddress, highestEndingAddress: MutPtr<CVoid> = this.highestEndingAddress, alignment: Int = this.alignment): MemAddressRequirements = MemAddressRequirements(lowestStartingAddressCtorArg = lowestStartingAddress, highestEndingAddressCtorArg = highestEndingAddress, alignment = alignment)
+    public fun copy(lowestStartingAddress: MutPtr = this.lowestStartingAddress, highestEndingAddress: MutPtr = this.highestEndingAddress, alignment: Int = this.alignment): MemAddressRequirements = MemAddressRequirements(lowestStartingAddressCtorArg = lowestStartingAddress, highestEndingAddressCtorArg = highestEndingAddress, alignment = alignment)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -439,30 +438,30 @@ public class MemAddressRequirements internal constructor(
                     MemAddressRequirements(
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<CVoid>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<CVoid>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.USIZE64).readNative(addr + 16L),
                     )
                 override fun writeNative(addr: Long, value: MemAddressRequirements) {
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<CVoid>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr, value.lowestStartingAddress)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<CVoid>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.highestEndingAddress)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.USIZE64).writeNative(addr + 16L, value.alignment)
                 }
             }
 
         public operator fun invoke(
-            lowestStartingAddress: MutPtr<CVoid> = MutPtr(0L),
-            highestEndingAddress: MutPtr<CVoid> = MutPtr(0L),
+            lowestStartingAddress: MutPtr = MutPtr(0L),
+            highestEndingAddress: MutPtr = MutPtr(0L),
             alignment: Int = 0,
         ): MemAddressRequirements =
             MemAddressRequirements(
@@ -499,12 +498,12 @@ public data class MemExtendedParameter0(
 
 public class MemExtendedParameter1 internal constructor(
     public var uLong64: ULong,
-    pointerCtorArg: MutPtr<CVoid>,
+    pointerCtorArg: MutPtr,
     public var size: Int,
     handleCtorArg: Handle,
     public var uLong: UInt,
 ) {
-    public var pointer: MutPtr<CVoid> = pointerCtorArg
+    public var pointer: MutPtr = pointerCtorArg
         internal set
 
     public var handle: Handle = handleCtorArg
@@ -520,7 +519,7 @@ public class MemExtendedParameter1 internal constructor(
 
     public operator fun component1(): ULong = this.uLong64
 
-    public operator fun component2(): MutPtr<CVoid> = this.pointer
+    public operator fun component2(): MutPtr = this.pointer
 
     public operator fun component3(): Int = this.size
 
@@ -528,7 +527,7 @@ public class MemExtendedParameter1 internal constructor(
 
     public operator fun component5(): UInt = this.uLong
 
-    public fun copy(uLong64: ULong = this.uLong64, pointer: MutPtr<CVoid> = this.pointer, size: Int = this.size, handle: Handle = this.handle, uLong: UInt = this.uLong): MemExtendedParameter1 = MemExtendedParameter1(uLong64 = uLong64, pointerCtorArg = pointer, size = size, handleCtorArg = handle, uLong = uLong)
+    public fun copy(uLong64: ULong = this.uLong64, pointer: MutPtr = this.pointer, size: Int = this.size, handle: Handle = this.handle, uLong: UInt = this.uLong): MemExtendedParameter1 = MemExtendedParameter1(uLong64 = uLong64, pointerCtorArg = pointer, size = size, handleCtorArg = handle, uLong = uLong)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -553,7 +552,7 @@ public class MemExtendedParameter1 internal constructor(
     public companion object {
         public operator fun invoke(
             uLong64: ULong = 0uL,
-            pointer: MutPtr<CVoid> = MutPtr(0L),
+            pointer: MutPtr = MutPtr(0L),
             size: Int = 0,
             handle: Handle = MutPtr(0L),
             uLong: UInt = 0u,
@@ -569,14 +568,14 @@ public class MemExtendedParameter1 internal constructor(
 }
 
 public class ProcessHeapEntry internal constructor(
-    lpDataCtorArg: MutPtr<CVoid>,
+    lpDataCtorArg: MutPtr,
     public var cbData: UInt,
     public var cbOverhead: UByte,
     public var iRegionIndex: UByte,
     public var wFlags: UShort,
     public var anonymous: ProcessHeapEntry0,
 ) {
-    public var lpData: MutPtr<CVoid> = lpDataCtorArg
+    public var lpData: MutPtr = lpDataCtorArg
         internal set
 
     public constructor() : this(
@@ -588,7 +587,7 @@ public class ProcessHeapEntry internal constructor(
         anonymous = ProcessHeapEntry0(),
     )
 
-    public operator fun component1(): MutPtr<CVoid> = this.lpData
+    public operator fun component1(): MutPtr = this.lpData
 
     public operator fun component2(): UInt = this.cbData
 
@@ -600,7 +599,7 @@ public class ProcessHeapEntry internal constructor(
 
     public operator fun component6(): ProcessHeapEntry0 = this.anonymous
 
-    public fun copy(lpData: MutPtr<CVoid> = this.lpData, cbData: UInt = this.cbData, cbOverhead: UByte = this.cbOverhead, iRegionIndex: UByte = this.iRegionIndex, wFlags: UShort = this.wFlags, anonymous: ProcessHeapEntry0 = this.anonymous): ProcessHeapEntry = ProcessHeapEntry(lpDataCtorArg = lpData, cbData = cbData, cbOverhead = cbOverhead, iRegionIndex = iRegionIndex, wFlags = wFlags, anonymous = anonymous)
+    public fun copy(lpData: MutPtr = this.lpData, cbData: UInt = this.cbData, cbOverhead: UByte = this.cbOverhead, iRegionIndex: UByte = this.iRegionIndex, wFlags: UShort = this.wFlags, anonymous: ProcessHeapEntry0 = this.anonymous): ProcessHeapEntry = ProcessHeapEntry(lpDataCtorArg = lpData, cbData = cbData, cbOverhead = cbOverhead, iRegionIndex = iRegionIndex, wFlags = wFlags, anonymous = anonymous)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -626,7 +625,7 @@ public class ProcessHeapEntry internal constructor(
 
     public companion object {
         public operator fun invoke(
-            lpData: MutPtr<CVoid> = MutPtr(0L),
+            lpData: MutPtr = MutPtr(0L),
             cbData: UInt = 0u,
             cbOverhead: UByte = 0u,
             iRegionIndex: UByte = 0u,
@@ -696,13 +695,13 @@ public class ProcessHeapEntry00 internal constructor(
 public class ProcessHeapEntry01 internal constructor(
     public var dwCommittedSize: UInt,
     public var dwUnCommittedSize: UInt,
-    lpFirstBlockCtorArg: MutPtr<CVoid>,
-    lpLastBlockCtorArg: MutPtr<CVoid>,
+    lpFirstBlockCtorArg: MutPtr,
+    lpLastBlockCtorArg: MutPtr,
 ) {
-    public var lpFirstBlock: MutPtr<CVoid> = lpFirstBlockCtorArg
+    public var lpFirstBlock: MutPtr = lpFirstBlockCtorArg
         internal set
 
-    public var lpLastBlock: MutPtr<CVoid> = lpLastBlockCtorArg
+    public var lpLastBlock: MutPtr = lpLastBlockCtorArg
         internal set
 
     public constructor() : this(
@@ -716,11 +715,11 @@ public class ProcessHeapEntry01 internal constructor(
 
     public operator fun component2(): UInt = this.dwUnCommittedSize
 
-    public operator fun component3(): MutPtr<CVoid> = this.lpFirstBlock
+    public operator fun component3(): MutPtr = this.lpFirstBlock
 
-    public operator fun component4(): MutPtr<CVoid> = this.lpLastBlock
+    public operator fun component4(): MutPtr = this.lpLastBlock
 
-    public fun copy(dwCommittedSize: UInt = this.dwCommittedSize, dwUnCommittedSize: UInt = this.dwUnCommittedSize, lpFirstBlock: MutPtr<CVoid> = this.lpFirstBlock, lpLastBlock: MutPtr<CVoid> = this.lpLastBlock): ProcessHeapEntry01 = ProcessHeapEntry01(dwCommittedSize = dwCommittedSize, dwUnCommittedSize = dwUnCommittedSize, lpFirstBlockCtorArg = lpFirstBlock, lpLastBlockCtorArg = lpLastBlock)
+    public fun copy(dwCommittedSize: UInt = this.dwCommittedSize, dwUnCommittedSize: UInt = this.dwUnCommittedSize, lpFirstBlock: MutPtr = this.lpFirstBlock, lpLastBlock: MutPtr = this.lpLastBlock): ProcessHeapEntry01 = ProcessHeapEntry01(dwCommittedSize = dwCommittedSize, dwUnCommittedSize = dwUnCommittedSize, lpFirstBlockCtorArg = lpFirstBlock, lpLastBlockCtorArg = lpLastBlock)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -751,11 +750,11 @@ public class ProcessHeapEntry01 internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 4L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<CVoid>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<CVoid>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 16L),
                     )
                 override fun writeNative(addr: Long, value: ProcessHeapEntry01) {
@@ -763,11 +762,11 @@ public class ProcessHeapEntry01 internal constructor(
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 4L, value.dwUnCommittedSize)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<CVoid>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.lpFirstBlock)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<CVoid>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 16L, value.lpLastBlock)
                 }
             }
@@ -775,8 +774,8 @@ public class ProcessHeapEntry01 internal constructor(
         public operator fun invoke(
             dwCommittedSize: UInt = 0u,
             dwUnCommittedSize: UInt = 0u,
-            lpFirstBlock: MutPtr<CVoid> = MutPtr(0L),
-            lpLastBlock: MutPtr<CVoid> = MutPtr(0L),
+            lpFirstBlock: MutPtr = MutPtr(0L),
+            lpLastBlock: MutPtr = MutPtr(0L),
         ): ProcessHeapEntry01 =
             ProcessHeapEntry01(
                 dwCommittedSize = dwCommittedSize,
@@ -861,10 +860,10 @@ public class Win32MemoryPartitionInformation(
 }
 
 public class Win32MemoryRangeEntry internal constructor(
-    virtualAddressCtorArg: MutPtr<CVoid>,
+    virtualAddressCtorArg: MutPtr,
     public var numberOfBytes: Int,
 ) {
-    public var virtualAddress: MutPtr<CVoid> = virtualAddressCtorArg
+    public var virtualAddress: MutPtr = virtualAddressCtorArg
         internal set
 
     public constructor() : this(
@@ -872,11 +871,11 @@ public class Win32MemoryRangeEntry internal constructor(
         numberOfBytes = 0,
     )
 
-    public operator fun component1(): MutPtr<CVoid> = this.virtualAddress
+    public operator fun component1(): MutPtr = this.virtualAddress
 
     public operator fun component2(): Int = this.numberOfBytes
 
-    public fun copy(virtualAddress: MutPtr<CVoid> = this.virtualAddress, numberOfBytes: Int = this.numberOfBytes): Win32MemoryRangeEntry = Win32MemoryRangeEntry(virtualAddressCtorArg = virtualAddress, numberOfBytes = numberOfBytes)
+    public fun copy(virtualAddress: MutPtr = this.virtualAddress, numberOfBytes: Int = this.numberOfBytes): Win32MemoryRangeEntry = Win32MemoryRangeEntry(virtualAddressCtorArg = virtualAddress, numberOfBytes = numberOfBytes)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -901,21 +900,21 @@ public class Win32MemoryRangeEntry internal constructor(
                     Win32MemoryRangeEntry(
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<CVoid>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.USIZE64).readNative(addr + 8L),
                     )
                 override fun writeNative(addr: Long, value: Win32MemoryRangeEntry) {
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<CVoid>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr, value.virtualAddress)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.USIZE64).writeNative(addr + 8L, value.numberOfBytes)
                 }
             }
 
         public operator fun invoke(
-            virtualAddress: MutPtr<CVoid> = MutPtr(0L),
+            virtualAddress: MutPtr = MutPtr(0L),
             numberOfBytes: Int = 0,
         ): Win32MemoryRangeEntry =
             Win32MemoryRangeEntry(
@@ -926,13 +925,13 @@ public class Win32MemoryRangeEntry internal constructor(
 }
 
 public class Win32MemoryRegionInformation internal constructor(
-    allocationBaseCtorArg: MutPtr<CVoid>,
+    allocationBaseCtorArg: MutPtr,
     public var allocationProtect: UInt,
     public var anonymous: Win32MemoryRegionInformation0,
     public var regionSize: Int,
     public var commitSize: Int,
 ) {
-    public var allocationBase: MutPtr<CVoid> = allocationBaseCtorArg
+    public var allocationBase: MutPtr = allocationBaseCtorArg
         internal set
 
     public constructor() : this(
@@ -943,7 +942,7 @@ public class Win32MemoryRegionInformation internal constructor(
         commitSize = 0,
     )
 
-    public operator fun component1(): MutPtr<CVoid> = this.allocationBase
+    public operator fun component1(): MutPtr = this.allocationBase
 
     public operator fun component2(): UInt = this.allocationProtect
 
@@ -953,7 +952,7 @@ public class Win32MemoryRegionInformation internal constructor(
 
     public operator fun component5(): Int = this.commitSize
 
-    public fun copy(allocationBase: MutPtr<CVoid> = this.allocationBase, allocationProtect: UInt = this.allocationProtect, anonymous: Win32MemoryRegionInformation0 = this.anonymous, regionSize: Int = this.regionSize, commitSize: Int = this.commitSize): Win32MemoryRegionInformation = Win32MemoryRegionInformation(allocationBaseCtorArg = allocationBase, allocationProtect = allocationProtect, anonymous = anonymous, regionSize = regionSize, commitSize = commitSize)
+    public fun copy(allocationBase: MutPtr = this.allocationBase, allocationProtect: UInt = this.allocationProtect, anonymous: Win32MemoryRegionInformation0 = this.anonymous, regionSize: Int = this.regionSize, commitSize: Int = this.commitSize): Win32MemoryRegionInformation = Win32MemoryRegionInformation(allocationBaseCtorArg = allocationBase, allocationProtect = allocationProtect, anonymous = anonymous, regionSize = regionSize, commitSize = commitSize)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -977,7 +976,7 @@ public class Win32MemoryRegionInformation internal constructor(
 
     public companion object {
         public operator fun invoke(
-            allocationBase: MutPtr<CVoid> = MutPtr(0L),
+            allocationBase: MutPtr = MutPtr(0L),
             allocationProtect: UInt = 0u,
             anonymous: Win32MemoryRegionInformation0 = Win32MemoryRegionInformation0(),
             regionSize: Int = 0,

@@ -2,7 +2,6 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.security.authentication.identity
 
-import io.github.kotlinmania.rustlang.core.ffi.CVoid
 import io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
 import io.github.kotlinmania.rustlang.core.mem.TypeLayout
 import io.github.kotlinmania.rustlang.core.ptr.ConstPtr
@@ -23,16 +22,13 @@ import io.github.kotlinmania.windowssys.windows.win32.security.SecurityImpersona
 import io.github.kotlinmania.windowssys.windows.win32.security.SidNameUse
 import io.github.kotlinmania.windowssys.windows.win32.security.TokenDefaultDacl
 import io.github.kotlinmania.windowssys.windows.win32.security.TokenDeviceClaims
-import io.github.kotlinmania.windowssys.windows.win32.security.TokenGroups
 import io.github.kotlinmania.windowssys.windows.win32.security.TokenOwner
 import io.github.kotlinmania.windowssys.windows.win32.security.TokenPrimaryGroup
-import io.github.kotlinmania.windowssys.windows.win32.security.TokenPrivileges
 import io.github.kotlinmania.windowssys.windows.win32.security.TokenUser
 import io.github.kotlinmania.windowssys.windows.win32.security.TokenUserClaims
 import io.github.kotlinmania.windowssys.windows.win32.security.credentials.Credentialw
 import io.github.kotlinmania.windowssys.windows.win32.security.credentials.SecHandle
 import io.github.kotlinmania.windowssys.windows.win32.security.cryptography.AlgId
-import io.github.kotlinmania.windowssys.windows.win32.security.cryptography.CertContext
 import io.github.kotlinmania.windowssys.windows.win32.security.cryptography.Hcertstore
 import io.github.kotlinmania.windowssys.windows.win32.system.kernel.ListEntry
 import io.github.kotlinmania.windowssys.windows.win32.system.passwordmanagement.LmOwfPassword
@@ -52,12 +48,12 @@ public class CentralAccessPolicy internal constructor(
     public var changeId: LsaUnicodeString,
     public var flags: UInt,
     public var cAPECount: UInt,
-    cAPEsCtorArg: MutPtr<MutPtr<CentralAccessPolicyEntry>>,
+    cAPEsCtorArg: MutPtr,
 ) {
     public var capid: Psid = capidCtorArg
         internal set
 
-    public var cAPEs: MutPtr<MutPtr<CentralAccessPolicyEntry>> = cAPEsCtorArg
+    public var cAPEs: MutPtr = cAPEsCtorArg
         internal set
 
     public constructor() : this(
@@ -82,9 +78,9 @@ public class CentralAccessPolicy internal constructor(
 
     public operator fun component6(): UInt = this.cAPECount
 
-    public operator fun component7(): MutPtr<MutPtr<CentralAccessPolicyEntry>> = this.cAPEs
+    public operator fun component7(): MutPtr = this.cAPEs
 
-    public fun copy(capid: Psid = this.capid, name: LsaUnicodeString = this.name, description: LsaUnicodeString = this.description, changeId: LsaUnicodeString = this.changeId, flags: UInt = this.flags, cAPECount: UInt = this.cAPECount, cAPEs: MutPtr<MutPtr<CentralAccessPolicyEntry>> = this.cAPEs): CentralAccessPolicy = CentralAccessPolicy(capidCtorArg = capid, name = name, description = description, changeId = changeId, flags = flags, cAPECount = cAPECount, cAPEsCtorArg = cAPEs)
+    public fun copy(capid: Psid = this.capid, name: LsaUnicodeString = this.name, description: LsaUnicodeString = this.description, changeId: LsaUnicodeString = this.changeId, flags: UInt = this.flags, cAPECount: UInt = this.cAPECount, cAPEs: MutPtr = this.cAPEs): CentralAccessPolicy = CentralAccessPolicy(capidCtorArg = capid, name = name, description = description, changeId = changeId, flags = flags, cAPECount = cAPECount, cAPEsCtorArg = cAPEs)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -118,7 +114,7 @@ public class CentralAccessPolicy internal constructor(
             changeId: LsaUnicodeString = LsaUnicodeString(),
             flags: UInt = 0u,
             cAPECount: UInt = 0u,
-            cAPEs: MutPtr<MutPtr<CentralAccessPolicyEntry>> = MutPtr(0L),
+            cAPEs: MutPtr = MutPtr(0L),
         ): CentralAccessPolicy =
             CentralAccessPolicy(
                 capidCtorArg = capid,
@@ -137,14 +133,14 @@ public class CentralAccessPolicyEntry internal constructor(
     public var description: LsaUnicodeString,
     public var changeId: LsaUnicodeString,
     public var lengthAppliesTo: UInt,
-    appliesToCtorArg: MutPtr<UByte>,
+    appliesToCtorArg: MutPtr,
     public var lengthSD: UInt,
     sdCtorArg: PsecurityDescriptor,
     public var lengthStagedSD: UInt,
     stagedSDCtorArg: PsecurityDescriptor,
     public var flags: UInt,
 ) {
-    public var appliesTo: MutPtr<UByte> = appliesToCtorArg
+    public var appliesTo: MutPtr = appliesToCtorArg
         internal set
 
     public var sd: PsecurityDescriptor = sdCtorArg
@@ -174,7 +170,7 @@ public class CentralAccessPolicyEntry internal constructor(
 
     public operator fun component4(): UInt = this.lengthAppliesTo
 
-    public operator fun component5(): MutPtr<UByte> = this.appliesTo
+    public operator fun component5(): MutPtr = this.appliesTo
 
     public operator fun component6(): UInt = this.lengthSD
 
@@ -186,7 +182,7 @@ public class CentralAccessPolicyEntry internal constructor(
 
     public operator fun component10(): UInt = this.flags
 
-    public fun copy(name: LsaUnicodeString = this.name, description: LsaUnicodeString = this.description, changeId: LsaUnicodeString = this.changeId, lengthAppliesTo: UInt = this.lengthAppliesTo, appliesTo: MutPtr<UByte> = this.appliesTo, lengthSD: UInt = this.lengthSD, sd: PsecurityDescriptor = this.sd, lengthStagedSD: UInt = this.lengthStagedSD, stagedSD: PsecurityDescriptor = this.stagedSD, flags: UInt = this.flags): CentralAccessPolicyEntry = CentralAccessPolicyEntry(name = name, description = description, changeId = changeId, lengthAppliesTo = lengthAppliesTo, appliesToCtorArg = appliesTo, lengthSD = lengthSD, sdCtorArg = sd, lengthStagedSD = lengthStagedSD, stagedSDCtorArg = stagedSD, flags = flags)
+    public fun copy(name: LsaUnicodeString = this.name, description: LsaUnicodeString = this.description, changeId: LsaUnicodeString = this.changeId, lengthAppliesTo: UInt = this.lengthAppliesTo, appliesTo: MutPtr = this.appliesTo, lengthSD: UInt = this.lengthSD, sd: PsecurityDescriptor = this.sd, lengthStagedSD: UInt = this.lengthStagedSD, stagedSD: PsecurityDescriptor = this.stagedSD, flags: UInt = this.flags): CentralAccessPolicyEntry = CentralAccessPolicyEntry(name = name, description = description, changeId = changeId, lengthAppliesTo = lengthAppliesTo, appliesToCtorArg = appliesTo, lengthSD = lengthSD, sdCtorArg = sd, lengthStagedSD = lengthStagedSD, stagedSDCtorArg = stagedSD, flags = flags)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -224,7 +220,7 @@ public class CentralAccessPolicyEntry internal constructor(
             description: LsaUnicodeString = LsaUnicodeString(),
             changeId: LsaUnicodeString = LsaUnicodeString(),
             lengthAppliesTo: UInt = 0u,
-            appliesTo: MutPtr<UByte> = MutPtr(0L),
+            appliesTo: MutPtr = MutPtr(0L),
             lengthSD: UInt = 0u,
             sd: PsecurityDescriptor = MutPtr(0L),
             lengthStagedSD: UInt = 0u,
@@ -284,11 +280,11 @@ public class CryptoSettings internal constructor(
     public var eAlgorithmUsage: ETlsAlgorithmUsage,
     public var strCngAlgId: LsaUnicodeString,
     public var cChainingModes: UInt,
-    rgstrChainingModesCtorArg: MutPtr<LsaUnicodeString>,
+    rgstrChainingModesCtorArg: MutPtr,
     public var dwMinBitLength: UInt,
     public var dwMaxBitLength: UInt,
 ) {
-    public var rgstrChainingModes: MutPtr<LsaUnicodeString> = rgstrChainingModesCtorArg
+    public var rgstrChainingModes: MutPtr = rgstrChainingModesCtorArg
         internal set
 
     public constructor() : this(
@@ -306,13 +302,13 @@ public class CryptoSettings internal constructor(
 
     public operator fun component3(): UInt = this.cChainingModes
 
-    public operator fun component4(): MutPtr<LsaUnicodeString> = this.rgstrChainingModes
+    public operator fun component4(): MutPtr = this.rgstrChainingModes
 
     public operator fun component5(): UInt = this.dwMinBitLength
 
     public operator fun component6(): UInt = this.dwMaxBitLength
 
-    public fun copy(eAlgorithmUsage: ETlsAlgorithmUsage = this.eAlgorithmUsage, strCngAlgId: LsaUnicodeString = this.strCngAlgId, cChainingModes: UInt = this.cChainingModes, rgstrChainingModes: MutPtr<LsaUnicodeString> = this.rgstrChainingModes, dwMinBitLength: UInt = this.dwMinBitLength, dwMaxBitLength: UInt = this.dwMaxBitLength): CryptoSettings = CryptoSettings(eAlgorithmUsage = eAlgorithmUsage, strCngAlgId = strCngAlgId, cChainingModes = cChainingModes, rgstrChainingModesCtorArg = rgstrChainingModes, dwMinBitLength = dwMinBitLength, dwMaxBitLength = dwMaxBitLength)
+    public fun copy(eAlgorithmUsage: ETlsAlgorithmUsage = this.eAlgorithmUsage, strCngAlgId: LsaUnicodeString = this.strCngAlgId, cChainingModes: UInt = this.cChainingModes, rgstrChainingModes: MutPtr = this.rgstrChainingModes, dwMinBitLength: UInt = this.dwMinBitLength, dwMaxBitLength: UInt = this.dwMaxBitLength): CryptoSettings = CryptoSettings(eAlgorithmUsage = eAlgorithmUsage, strCngAlgId = strCngAlgId, cChainingModes = cChainingModes, rgstrChainingModesCtorArg = rgstrChainingModes, dwMinBitLength = dwMinBitLength, dwMaxBitLength = dwMaxBitLength)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -341,7 +337,7 @@ public class CryptoSettings internal constructor(
             eAlgorithmUsage: ETlsAlgorithmUsage = 0,
             strCngAlgId: LsaUnicodeString = LsaUnicodeString(),
             cChainingModes: UInt = 0u,
-            rgstrChainingModes: MutPtr<LsaUnicodeString> = MutPtr(0L),
+            rgstrChainingModes: MutPtr = MutPtr(0L),
             dwMinBitLength: UInt = 0u,
             dwMaxBitLength: UInt = 0u,
         ): CryptoSettings =
@@ -437,9 +433,9 @@ public data class KerbAddCredentialsRequestEx(
 public class KerbAuthData internal constructor(
     public var type: UInt,
     public var length: UInt,
-    dataCtorArg: MutPtr<UByte>,
+    dataCtorArg: MutPtr,
 ) {
-    public var data: MutPtr<UByte> = dataCtorArg
+    public var data: MutPtr = dataCtorArg
         internal set
 
     public constructor() : this(
@@ -452,9 +448,9 @@ public class KerbAuthData internal constructor(
 
     public operator fun component2(): UInt = this.length
 
-    public operator fun component3(): MutPtr<UByte> = this.data
+    public operator fun component3(): MutPtr = this.data
 
-    public fun copy(type: UInt = this.type, length: UInt = this.length, data: MutPtr<UByte> = this.data): KerbAuthData = KerbAuthData(type = type, length = length, dataCtorArg = data)
+    public fun copy(type: UInt = this.type, length: UInt = this.length, data: MutPtr = this.data): KerbAuthData = KerbAuthData(type = type, length = length, dataCtorArg = data)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -483,7 +479,7 @@ public class KerbAuthData internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 4L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<UByte>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                     )
                 override fun writeNative(addr: Long, value: KerbAuthData) {
@@ -491,7 +487,7 @@ public class KerbAuthData internal constructor(
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 4L, value.length)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<UByte>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.data)
                 }
             }
@@ -499,7 +495,7 @@ public class KerbAuthData internal constructor(
         public operator fun invoke(
             type: UInt = 0u,
             length: UInt = 0u,
-            data: MutPtr<UByte> = MutPtr(0L),
+            data: MutPtr = MutPtr(0L),
         ): KerbAuthData =
             KerbAuthData(
                 type = type,
@@ -571,9 +567,9 @@ public class KerbCertificateLogon internal constructor(
     public var pin: LsaUnicodeString,
     public var flags: UInt,
     public var cspDataLength: UInt,
-    cspDataCtorArg: MutPtr<UByte>,
+    cspDataCtorArg: MutPtr,
 ) {
-    public var cspData: MutPtr<UByte> = cspDataCtorArg
+    public var cspData: MutPtr = cspDataCtorArg
         internal set
 
     public constructor() : this(
@@ -598,9 +594,9 @@ public class KerbCertificateLogon internal constructor(
 
     public operator fun component6(): UInt = this.cspDataLength
 
-    public operator fun component7(): MutPtr<UByte> = this.cspData
+    public operator fun component7(): MutPtr = this.cspData
 
-    public fun copy(messageType: KerbLogonSubmitType = this.messageType, domainName: LsaUnicodeString = this.domainName, userName: LsaUnicodeString = this.userName, pin: LsaUnicodeString = this.pin, flags: UInt = this.flags, cspDataLength: UInt = this.cspDataLength, cspData: MutPtr<UByte> = this.cspData): KerbCertificateLogon = KerbCertificateLogon(messageType = messageType, domainName = domainName, userName = userName, pin = pin, flags = flags, cspDataLength = cspDataLength, cspDataCtorArg = cspData)
+    public fun copy(messageType: KerbLogonSubmitType = this.messageType, domainName: LsaUnicodeString = this.domainName, userName: LsaUnicodeString = this.userName, pin: LsaUnicodeString = this.pin, flags: UInt = this.flags, cspDataLength: UInt = this.cspDataLength, cspData: MutPtr = this.cspData): KerbCertificateLogon = KerbCertificateLogon(messageType = messageType, domainName = domainName, userName = userName, pin = pin, flags = flags, cspDataLength = cspDataLength, cspDataCtorArg = cspData)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -634,7 +630,7 @@ public class KerbCertificateLogon internal constructor(
             pin: LsaUnicodeString = LsaUnicodeString(),
             flags: UInt = 0u,
             cspDataLength: UInt = 0u,
-            cspData: MutPtr<UByte> = MutPtr(0L),
+            cspData: MutPtr = MutPtr(0L),
         ): KerbCertificateLogon =
             KerbCertificateLogon(
                 messageType = messageType,
@@ -654,9 +650,9 @@ public class KerbCertificateS4uLogon internal constructor(
     public var userPrincipalName: LsaUnicodeString,
     public var domainName: LsaUnicodeString,
     public var certificateLength: UInt,
-    certificateCtorArg: MutPtr<UByte>,
+    certificateCtorArg: MutPtr,
 ) {
-    public var certificate: MutPtr<UByte> = certificateCtorArg
+    public var certificate: MutPtr = certificateCtorArg
         internal set
 
     public constructor() : this(
@@ -678,9 +674,9 @@ public class KerbCertificateS4uLogon internal constructor(
 
     public operator fun component5(): UInt = this.certificateLength
 
-    public operator fun component6(): MutPtr<UByte> = this.certificate
+    public operator fun component6(): MutPtr = this.certificate
 
-    public fun copy(messageType: KerbLogonSubmitType = this.messageType, flags: UInt = this.flags, userPrincipalName: LsaUnicodeString = this.userPrincipalName, domainName: LsaUnicodeString = this.domainName, certificateLength: UInt = this.certificateLength, certificate: MutPtr<UByte> = this.certificate): KerbCertificateS4uLogon = KerbCertificateS4uLogon(messageType = messageType, flags = flags, userPrincipalName = userPrincipalName, domainName = domainName, certificateLength = certificateLength, certificateCtorArg = certificate)
+    public fun copy(messageType: KerbLogonSubmitType = this.messageType, flags: UInt = this.flags, userPrincipalName: LsaUnicodeString = this.userPrincipalName, domainName: LsaUnicodeString = this.domainName, certificateLength: UInt = this.certificateLength, certificate: MutPtr = this.certificate): KerbCertificateS4uLogon = KerbCertificateS4uLogon(messageType = messageType, flags = flags, userPrincipalName = userPrincipalName, domainName = domainName, certificateLength = certificateLength, certificateCtorArg = certificate)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -711,7 +707,7 @@ public class KerbCertificateS4uLogon internal constructor(
             userPrincipalName: LsaUnicodeString = LsaUnicodeString(),
             domainName: LsaUnicodeString = LsaUnicodeString(),
             certificateLength: UInt = 0u,
-            certificate: MutPtr<UByte> = MutPtr(0L),
+            certificate: MutPtr = MutPtr(0L),
         ): KerbCertificateS4uLogon =
             KerbCertificateS4uLogon(
                 messageType = messageType,
@@ -841,9 +837,9 @@ public data class KerbCloudKerberosDebugResponse(
 public class KerbCryptoKey internal constructor(
     public var keyType: KerbCryptoKeyType,
     public var length: UInt,
-    valueCtorArg: MutPtr<UByte>,
+    valueCtorArg: MutPtr,
 ) {
-    public var value: MutPtr<UByte> = valueCtorArg
+    public var value: MutPtr = valueCtorArg
         internal set
 
     public constructor() : this(
@@ -856,9 +852,9 @@ public class KerbCryptoKey internal constructor(
 
     public operator fun component2(): UInt = this.length
 
-    public operator fun component3(): MutPtr<UByte> = this.value
+    public operator fun component3(): MutPtr = this.value
 
-    public fun copy(keyType: KerbCryptoKeyType = this.keyType, length: UInt = this.length, value: MutPtr<UByte> = this.value): KerbCryptoKey = KerbCryptoKey(keyType = keyType, length = length, valueCtorArg = value)
+    public fun copy(keyType: KerbCryptoKeyType = this.keyType, length: UInt = this.length, value: MutPtr = this.value): KerbCryptoKey = KerbCryptoKey(keyType = keyType, length = length, valueCtorArg = value)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -887,7 +883,7 @@ public class KerbCryptoKey internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 4L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<UByte>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                     )
                 override fun writeNative(addr: Long, value: KerbCryptoKey) {
@@ -895,7 +891,7 @@ public class KerbCryptoKey internal constructor(
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 4L, value.length)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<UByte>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.value)
                 }
             }
@@ -903,7 +899,7 @@ public class KerbCryptoKey internal constructor(
         public operator fun invoke(
             keyType: KerbCryptoKeyType = 0,
             length: UInt = 0u,
-            value: MutPtr<UByte> = MutPtr(0L),
+            value: MutPtr = MutPtr(0L),
         ): KerbCryptoKey =
             KerbCryptoKey(
                 keyType = keyType,
@@ -947,13 +943,13 @@ public class KerbDecryptRequest internal constructor(
     public var key: KerbCryptoKey,
     public var encryptedDataSize: UInt,
     public var initialVectorSize: UInt,
-    initialVectorCtorArg: MutPtr<UByte>,
-    encryptedDataCtorArg: MutPtr<UByte>,
+    initialVectorCtorArg: MutPtr,
+    encryptedDataCtorArg: MutPtr,
 ) {
-    public var initialVector: MutPtr<UByte> = initialVectorCtorArg
+    public var initialVector: MutPtr = initialVectorCtorArg
         internal set
 
-    public var encryptedData: MutPtr<UByte> = encryptedDataCtorArg
+    public var encryptedData: MutPtr = encryptedDataCtorArg
         internal set
 
     public constructor() : this(
@@ -985,11 +981,11 @@ public class KerbDecryptRequest internal constructor(
 
     public operator fun component8(): UInt = this.initialVectorSize
 
-    public operator fun component9(): MutPtr<UByte> = this.initialVector
+    public operator fun component9(): MutPtr = this.initialVector
 
-    public operator fun component10(): MutPtr<UByte> = this.encryptedData
+    public operator fun component10(): MutPtr = this.encryptedData
 
-    public fun copy(messageType: KerbProtocolMessageType = this.messageType, logonId: Luid = this.logonId, flags: UInt = this.flags, cryptoType: Int = this.cryptoType, keyUsage: Int = this.keyUsage, key: KerbCryptoKey = this.key, encryptedDataSize: UInt = this.encryptedDataSize, initialVectorSize: UInt = this.initialVectorSize, initialVector: MutPtr<UByte> = this.initialVector, encryptedData: MutPtr<UByte> = this.encryptedData): KerbDecryptRequest = KerbDecryptRequest(messageType = messageType, logonId = logonId, flags = flags, cryptoType = cryptoType, keyUsage = keyUsage, key = key, encryptedDataSize = encryptedDataSize, initialVectorSize = initialVectorSize, initialVectorCtorArg = initialVector, encryptedDataCtorArg = encryptedData)
+    public fun copy(messageType: KerbProtocolMessageType = this.messageType, logonId: Luid = this.logonId, flags: UInt = this.flags, cryptoType: Int = this.cryptoType, keyUsage: Int = this.keyUsage, key: KerbCryptoKey = this.key, encryptedDataSize: UInt = this.encryptedDataSize, initialVectorSize: UInt = this.initialVectorSize, initialVector: MutPtr = this.initialVector, encryptedData: MutPtr = this.encryptedData): KerbDecryptRequest = KerbDecryptRequest(messageType = messageType, logonId = logonId, flags = flags, cryptoType = cryptoType, keyUsage = keyUsage, key = key, encryptedDataSize = encryptedDataSize, initialVectorSize = initialVectorSize, initialVectorCtorArg = initialVector, encryptedDataCtorArg = encryptedData)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -1031,8 +1027,8 @@ public class KerbDecryptRequest internal constructor(
             key: KerbCryptoKey = KerbCryptoKey(),
             encryptedDataSize: UInt = 0u,
             initialVectorSize: UInt = 0u,
-            initialVector: MutPtr<UByte> = MutPtr(0L),
-            encryptedData: MutPtr<UByte> = MutPtr(0L),
+            initialVector: MutPtr = MutPtr(0L),
+            encryptedData: MutPtr = MutPtr(0L),
         ): KerbDecryptRequest =
             KerbDecryptRequest(
                 messageType = messageType,
@@ -1090,9 +1086,9 @@ public data class KerbExternalName(
 )
 
 public class KerbExternalTicket internal constructor(
-    serviceNameCtorArg: MutPtr<KerbExternalName>,
-    targetNameCtorArg: MutPtr<KerbExternalName>,
-    clientNameCtorArg: MutPtr<KerbExternalName>,
+    serviceNameCtorArg: MutPtr,
+    targetNameCtorArg: MutPtr,
+    clientNameCtorArg: MutPtr,
     public var domainName: LsaUnicodeString,
     public var targetDomainName: LsaUnicodeString,
     public var altTargetDomainName: LsaUnicodeString,
@@ -1105,18 +1101,18 @@ public class KerbExternalTicket internal constructor(
     public var renewUntil: Long,
     public var timeSkew: Long,
     public var encodedTicketSize: UInt,
-    encodedTicketCtorArg: MutPtr<UByte>,
+    encodedTicketCtorArg: MutPtr,
 ) {
-    public var serviceName: MutPtr<KerbExternalName> = serviceNameCtorArg
+    public var serviceName: MutPtr = serviceNameCtorArg
         internal set
 
-    public var targetName: MutPtr<KerbExternalName> = targetNameCtorArg
+    public var targetName: MutPtr = targetNameCtorArg
         internal set
 
-    public var clientName: MutPtr<KerbExternalName> = clientNameCtorArg
+    public var clientName: MutPtr = clientNameCtorArg
         internal set
 
-    public var encodedTicket: MutPtr<UByte> = encodedTicketCtorArg
+    public var encodedTicket: MutPtr = encodedTicketCtorArg
         internal set
 
     public constructor() : this(
@@ -1138,11 +1134,11 @@ public class KerbExternalTicket internal constructor(
         encodedTicketCtorArg = MutPtr(0L),
     )
 
-    public operator fun component1(): MutPtr<KerbExternalName> = this.serviceName
+    public operator fun component1(): MutPtr = this.serviceName
 
-    public operator fun component2(): MutPtr<KerbExternalName> = this.targetName
+    public operator fun component2(): MutPtr = this.targetName
 
-    public operator fun component3(): MutPtr<KerbExternalName> = this.clientName
+    public operator fun component3(): MutPtr = this.clientName
 
     public operator fun component4(): LsaUnicodeString = this.domainName
 
@@ -1168,9 +1164,9 @@ public class KerbExternalTicket internal constructor(
 
     public operator fun component15(): UInt = this.encodedTicketSize
 
-    public operator fun component16(): MutPtr<UByte> = this.encodedTicket
+    public operator fun component16(): MutPtr = this.encodedTicket
 
-    public fun copy(serviceName: MutPtr<KerbExternalName> = this.serviceName, targetName: MutPtr<KerbExternalName> = this.targetName, clientName: MutPtr<KerbExternalName> = this.clientName, domainName: LsaUnicodeString = this.domainName, targetDomainName: LsaUnicodeString = this.targetDomainName, altTargetDomainName: LsaUnicodeString = this.altTargetDomainName, sessionKey: KerbCryptoKey = this.sessionKey, ticketFlags: KerbTicketFlags = this.ticketFlags, flags: UInt = this.flags, keyExpirationTime: Long = this.keyExpirationTime, startTime: Long = this.startTime, endTime: Long = this.endTime, renewUntil: Long = this.renewUntil, timeSkew: Long = this.timeSkew, encodedTicketSize: UInt = this.encodedTicketSize, encodedTicket: MutPtr<UByte> = this.encodedTicket): KerbExternalTicket = KerbExternalTicket(serviceNameCtorArg = serviceName, targetNameCtorArg = targetName, clientNameCtorArg = clientName, domainName = domainName, targetDomainName = targetDomainName, altTargetDomainName = altTargetDomainName, sessionKey = sessionKey, ticketFlags = ticketFlags, flags = flags, keyExpirationTime = keyExpirationTime, startTime = startTime, endTime = endTime, renewUntil = renewUntil, timeSkew = timeSkew, encodedTicketSize = encodedTicketSize, encodedTicketCtorArg = encodedTicket)
+    public fun copy(serviceName: MutPtr = this.serviceName, targetName: MutPtr = this.targetName, clientName: MutPtr = this.clientName, domainName: LsaUnicodeString = this.domainName, targetDomainName: LsaUnicodeString = this.targetDomainName, altTargetDomainName: LsaUnicodeString = this.altTargetDomainName, sessionKey: KerbCryptoKey = this.sessionKey, ticketFlags: KerbTicketFlags = this.ticketFlags, flags: UInt = this.flags, keyExpirationTime: Long = this.keyExpirationTime, startTime: Long = this.startTime, endTime: Long = this.endTime, renewUntil: Long = this.renewUntil, timeSkew: Long = this.timeSkew, encodedTicketSize: UInt = this.encodedTicketSize, encodedTicket: MutPtr = this.encodedTicket): KerbExternalTicket = KerbExternalTicket(serviceNameCtorArg = serviceName, targetNameCtorArg = targetName, clientNameCtorArg = clientName, domainName = domainName, targetDomainName = targetDomainName, altTargetDomainName = altTargetDomainName, sessionKey = sessionKey, ticketFlags = ticketFlags, flags = flags, keyExpirationTime = keyExpirationTime, startTime = startTime, endTime = endTime, renewUntil = renewUntil, timeSkew = timeSkew, encodedTicketSize = encodedTicketSize, encodedTicketCtorArg = encodedTicket)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -1216,9 +1212,9 @@ public class KerbExternalTicket internal constructor(
 
     public companion object {
         public operator fun invoke(
-            serviceName: MutPtr<KerbExternalName> = MutPtr(0L),
-            targetName: MutPtr<KerbExternalName> = MutPtr(0L),
-            clientName: MutPtr<KerbExternalName> = MutPtr(0L),
+            serviceName: MutPtr = MutPtr(0L),
+            targetName: MutPtr = MutPtr(0L),
+            clientName: MutPtr = MutPtr(0L),
             domainName: LsaUnicodeString = LsaUnicodeString(),
             targetDomainName: LsaUnicodeString = LsaUnicodeString(),
             altTargetDomainName: LsaUnicodeString = LsaUnicodeString(),
@@ -1231,7 +1227,7 @@ public class KerbExternalTicket internal constructor(
             renewUntil: Long = 0L,
             timeSkew: Long = 0L,
             encodedTicketSize: UInt = 0u,
-            encodedTicket: MutPtr<UByte> = MutPtr(0L),
+            encodedTicket: MutPtr = MutPtr(0L),
         ): KerbExternalTicket =
             KerbExternalTicket(
                 serviceNameCtorArg = serviceName,
@@ -1425,9 +1421,9 @@ public data class KerbQueryBindingCacheRequest(
 public class KerbQueryBindingCacheResponse internal constructor(
     public var messageType: KerbProtocolMessageType,
     public var countOfEntries: UInt,
-    entriesCtorArg: MutPtr<KerbBindingCacheEntryData>,
+    entriesCtorArg: MutPtr,
 ) {
-    public var entries: MutPtr<KerbBindingCacheEntryData> = entriesCtorArg
+    public var entries: MutPtr = entriesCtorArg
         internal set
 
     public constructor() : this(
@@ -1440,9 +1436,9 @@ public class KerbQueryBindingCacheResponse internal constructor(
 
     public operator fun component2(): UInt = this.countOfEntries
 
-    public operator fun component3(): MutPtr<KerbBindingCacheEntryData> = this.entries
+    public operator fun component3(): MutPtr = this.entries
 
-    public fun copy(messageType: KerbProtocolMessageType = this.messageType, countOfEntries: UInt = this.countOfEntries, entries: MutPtr<KerbBindingCacheEntryData> = this.entries): KerbQueryBindingCacheResponse = KerbQueryBindingCacheResponse(messageType = messageType, countOfEntries = countOfEntries, entriesCtorArg = entries)
+    public fun copy(messageType: KerbProtocolMessageType = this.messageType, countOfEntries: UInt = this.countOfEntries, entries: MutPtr = this.entries): KerbQueryBindingCacheResponse = KerbQueryBindingCacheResponse(messageType = messageType, countOfEntries = countOfEntries, entriesCtorArg = entries)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -1471,7 +1467,7 @@ public class KerbQueryBindingCacheResponse internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 4L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<KerbBindingCacheEntryData>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                     )
                 override fun writeNative(addr: Long, value: KerbQueryBindingCacheResponse) {
@@ -1479,7 +1475,7 @@ public class KerbQueryBindingCacheResponse internal constructor(
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 4L, value.countOfEntries)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<KerbBindingCacheEntryData>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.entries)
                 }
             }
@@ -1487,7 +1483,7 @@ public class KerbQueryBindingCacheResponse internal constructor(
         public operator fun invoke(
             messageType: KerbProtocolMessageType = 0,
             countOfEntries: UInt = 0u,
-            entries: MutPtr<KerbBindingCacheEntryData> = MutPtr(0L),
+            entries: MutPtr = MutPtr(0L),
         ): KerbQueryBindingCacheResponse =
             KerbQueryBindingCacheResponse(
                 messageType = messageType,
@@ -1540,9 +1536,9 @@ public data class KerbQueryKdcProxyCacheRequest(
 public class KerbQueryKdcProxyCacheResponse internal constructor(
     public var messageType: KerbProtocolMessageType,
     public var countOfEntries: UInt,
-    entriesCtorArg: MutPtr<KdcProxyCacheEntryData>,
+    entriesCtorArg: MutPtr,
 ) {
-    public var entries: MutPtr<KdcProxyCacheEntryData> = entriesCtorArg
+    public var entries: MutPtr = entriesCtorArg
         internal set
 
     public constructor() : this(
@@ -1555,9 +1551,9 @@ public class KerbQueryKdcProxyCacheResponse internal constructor(
 
     public operator fun component2(): UInt = this.countOfEntries
 
-    public operator fun component3(): MutPtr<KdcProxyCacheEntryData> = this.entries
+    public operator fun component3(): MutPtr = this.entries
 
-    public fun copy(messageType: KerbProtocolMessageType = this.messageType, countOfEntries: UInt = this.countOfEntries, entries: MutPtr<KdcProxyCacheEntryData> = this.entries): KerbQueryKdcProxyCacheResponse = KerbQueryKdcProxyCacheResponse(messageType = messageType, countOfEntries = countOfEntries, entriesCtorArg = entries)
+    public fun copy(messageType: KerbProtocolMessageType = this.messageType, countOfEntries: UInt = this.countOfEntries, entries: MutPtr = this.entries): KerbQueryKdcProxyCacheResponse = KerbQueryKdcProxyCacheResponse(messageType = messageType, countOfEntries = countOfEntries, entriesCtorArg = entries)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -1586,7 +1582,7 @@ public class KerbQueryKdcProxyCacheResponse internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 4L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<KdcProxyCacheEntryData>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                     )
                 override fun writeNative(addr: Long, value: KerbQueryKdcProxyCacheResponse) {
@@ -1594,7 +1590,7 @@ public class KerbQueryKdcProxyCacheResponse internal constructor(
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 4L, value.countOfEntries)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<KdcProxyCacheEntryData>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.entries)
                 }
             }
@@ -1602,7 +1598,7 @@ public class KerbQueryKdcProxyCacheResponse internal constructor(
         public operator fun invoke(
             messageType: KerbProtocolMessageType = 0,
             countOfEntries: UInt = 0u,
-            entries: MutPtr<KdcProxyCacheEntryData> = MutPtr(0L),
+            entries: MutPtr = MutPtr(0L),
         ): KerbQueryKdcProxyCacheResponse =
             KerbQueryKdcProxyCacheResponse(
                 messageType = messageType,
@@ -1621,9 +1617,9 @@ public data class KerbQueryS4u2proxyCacheRequest(
 public class KerbQueryS4u2proxyCacheResponse internal constructor(
     public var messageType: KerbProtocolMessageType,
     public var countOfCreds: UInt,
-    credsCtorArg: MutPtr<KerbS4u2proxyCred>,
+    credsCtorArg: MutPtr,
 ) {
-    public var creds: MutPtr<KerbS4u2proxyCred> = credsCtorArg
+    public var creds: MutPtr = credsCtorArg
         internal set
 
     public constructor() : this(
@@ -1636,9 +1632,9 @@ public class KerbQueryS4u2proxyCacheResponse internal constructor(
 
     public operator fun component2(): UInt = this.countOfCreds
 
-    public operator fun component3(): MutPtr<KerbS4u2proxyCred> = this.creds
+    public operator fun component3(): MutPtr = this.creds
 
-    public fun copy(messageType: KerbProtocolMessageType = this.messageType, countOfCreds: UInt = this.countOfCreds, creds: MutPtr<KerbS4u2proxyCred> = this.creds): KerbQueryS4u2proxyCacheResponse = KerbQueryS4u2proxyCacheResponse(messageType = messageType, countOfCreds = countOfCreds, credsCtorArg = creds)
+    public fun copy(messageType: KerbProtocolMessageType = this.messageType, countOfCreds: UInt = this.countOfCreds, creds: MutPtr = this.creds): KerbQueryS4u2proxyCacheResponse = KerbQueryS4u2proxyCacheResponse(messageType = messageType, countOfCreds = countOfCreds, credsCtorArg = creds)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -1667,7 +1663,7 @@ public class KerbQueryS4u2proxyCacheResponse internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 4L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<KerbS4u2proxyCred>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                     )
                 override fun writeNative(addr: Long, value: KerbQueryS4u2proxyCacheResponse) {
@@ -1675,7 +1671,7 @@ public class KerbQueryS4u2proxyCacheResponse internal constructor(
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 4L, value.countOfCreds)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<KerbS4u2proxyCred>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.creds)
                 }
             }
@@ -1683,7 +1679,7 @@ public class KerbQueryS4u2proxyCacheResponse internal constructor(
         public operator fun invoke(
             messageType: KerbProtocolMessageType = 0,
             countOfCreds: UInt = 0u,
-            creds: MutPtr<KerbS4u2proxyCred> = MutPtr(0L),
+            creds: MutPtr = MutPtr(0L),
         ): KerbQueryS4u2proxyCacheResponse =
             KerbQueryS4u2proxyCacheResponse(
                 messageType = messageType,
@@ -1784,9 +1780,9 @@ public data class KerbRetrieveKeyTabRequest(
 public class KerbRetrieveKeyTabResponse internal constructor(
     public var messageType: KerbProtocolMessageType,
     public var keyTabLength: UInt,
-    keyTabCtorArg: MutPtr<UByte>,
+    keyTabCtorArg: MutPtr,
 ) {
-    public var keyTab: MutPtr<UByte> = keyTabCtorArg
+    public var keyTab: MutPtr = keyTabCtorArg
         internal set
 
     public constructor() : this(
@@ -1799,9 +1795,9 @@ public class KerbRetrieveKeyTabResponse internal constructor(
 
     public operator fun component2(): UInt = this.keyTabLength
 
-    public operator fun component3(): MutPtr<UByte> = this.keyTab
+    public operator fun component3(): MutPtr = this.keyTab
 
-    public fun copy(messageType: KerbProtocolMessageType = this.messageType, keyTabLength: UInt = this.keyTabLength, keyTab: MutPtr<UByte> = this.keyTab): KerbRetrieveKeyTabResponse = KerbRetrieveKeyTabResponse(messageType = messageType, keyTabLength = keyTabLength, keyTabCtorArg = keyTab)
+    public fun copy(messageType: KerbProtocolMessageType = this.messageType, keyTabLength: UInt = this.keyTabLength, keyTab: MutPtr = this.keyTab): KerbRetrieveKeyTabResponse = KerbRetrieveKeyTabResponse(messageType = messageType, keyTabLength = keyTabLength, keyTabCtorArg = keyTab)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -1830,7 +1826,7 @@ public class KerbRetrieveKeyTabResponse internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 4L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<UByte>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                     )
                 override fun writeNative(addr: Long, value: KerbRetrieveKeyTabResponse) {
@@ -1838,7 +1834,7 @@ public class KerbRetrieveKeyTabResponse internal constructor(
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 4L, value.keyTabLength)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<UByte>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.keyTab)
                 }
             }
@@ -1846,7 +1842,7 @@ public class KerbRetrieveKeyTabResponse internal constructor(
         public operator fun invoke(
             messageType: KerbProtocolMessageType = 0,
             keyTabLength: UInt = 0u,
-            keyTab: MutPtr<UByte> = MutPtr(0L),
+            keyTab: MutPtr = MutPtr(0L),
         ): KerbRetrieveKeyTabResponse =
             KerbRetrieveKeyTabResponse(
                 messageType = messageType,
@@ -1884,9 +1880,9 @@ public class KerbS4u2proxyCred internal constructor(
     public var lastStatus: Ntstatus,
     public var expiry: Long,
     public var countOfEntries: UInt,
-    entriesCtorArg: MutPtr<KerbS4u2proxyCacheEntryInfo>,
+    entriesCtorArg: MutPtr,
 ) {
-    public var entries: MutPtr<KerbS4u2proxyCacheEntryInfo> = entriesCtorArg
+    public var entries: MutPtr = entriesCtorArg
         internal set
 
     public constructor() : this(
@@ -1911,9 +1907,9 @@ public class KerbS4u2proxyCred internal constructor(
 
     public operator fun component6(): UInt = this.countOfEntries
 
-    public operator fun component7(): MutPtr<KerbS4u2proxyCacheEntryInfo> = this.entries
+    public operator fun component7(): MutPtr = this.entries
 
-    public fun copy(userName: LsaUnicodeString = this.userName, domainName: LsaUnicodeString = this.domainName, flags: UInt = this.flags, lastStatus: Ntstatus = this.lastStatus, expiry: Long = this.expiry, countOfEntries: UInt = this.countOfEntries, entries: MutPtr<KerbS4u2proxyCacheEntryInfo> = this.entries): KerbS4u2proxyCred = KerbS4u2proxyCred(userName = userName, domainName = domainName, flags = flags, lastStatus = lastStatus, expiry = expiry, countOfEntries = countOfEntries, entriesCtorArg = entries)
+    public fun copy(userName: LsaUnicodeString = this.userName, domainName: LsaUnicodeString = this.domainName, flags: UInt = this.flags, lastStatus: Ntstatus = this.lastStatus, expiry: Long = this.expiry, countOfEntries: UInt = this.countOfEntries, entries: MutPtr = this.entries): KerbS4u2proxyCred = KerbS4u2proxyCred(userName = userName, domainName = domainName, flags = flags, lastStatus = lastStatus, expiry = expiry, countOfEntries = countOfEntries, entriesCtorArg = entries)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -1947,7 +1943,7 @@ public class KerbS4u2proxyCred internal constructor(
             lastStatus: Ntstatus = 0,
             expiry: Long = 0L,
             countOfEntries: UInt = 0u,
-            entries: MutPtr<KerbS4u2proxyCacheEntryInfo> = MutPtr(0L),
+            entries: MutPtr = MutPtr(0L),
         ): KerbS4u2proxyCred =
             KerbS4u2proxyCred(
                 userName = userName,
@@ -1997,9 +1993,9 @@ public class KerbSmartCardLogon internal constructor(
     public var messageType: KerbLogonSubmitType,
     public var pin: LsaUnicodeString,
     public var cspDataLength: UInt,
-    cspDataCtorArg: MutPtr<UByte>,
+    cspDataCtorArg: MutPtr,
 ) {
-    public var cspData: MutPtr<UByte> = cspDataCtorArg
+    public var cspData: MutPtr = cspDataCtorArg
         internal set
 
     public constructor() : this(
@@ -2015,9 +2011,9 @@ public class KerbSmartCardLogon internal constructor(
 
     public operator fun component3(): UInt = this.cspDataLength
 
-    public operator fun component4(): MutPtr<UByte> = this.cspData
+    public operator fun component4(): MutPtr = this.cspData
 
-    public fun copy(messageType: KerbLogonSubmitType = this.messageType, pin: LsaUnicodeString = this.pin, cspDataLength: UInt = this.cspDataLength, cspData: MutPtr<UByte> = this.cspData): KerbSmartCardLogon = KerbSmartCardLogon(messageType = messageType, pin = pin, cspDataLength = cspDataLength, cspDataCtorArg = cspData)
+    public fun copy(messageType: KerbLogonSubmitType = this.messageType, pin: LsaUnicodeString = this.pin, cspDataLength: UInt = this.cspDataLength, cspData: MutPtr = this.cspData): KerbSmartCardLogon = KerbSmartCardLogon(messageType = messageType, pin = pin, cspDataLength = cspDataLength, cspDataCtorArg = cspData)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -2042,7 +2038,7 @@ public class KerbSmartCardLogon internal constructor(
             messageType: KerbLogonSubmitType = 0,
             pin: LsaUnicodeString = LsaUnicodeString(),
             cspDataLength: UInt = 0u,
-            cspData: MutPtr<UByte> = MutPtr(0L),
+            cspData: MutPtr = MutPtr(0L),
         ): KerbSmartCardLogon =
             KerbSmartCardLogon(
                 messageType = messageType,
@@ -2056,9 +2052,9 @@ public class KerbSmartCardLogon internal constructor(
 public class KerbSmartCardProfile internal constructor(
     public var profile: KerbInteractiveProfile,
     public var certificateSize: UInt,
-    certificateDataCtorArg: MutPtr<UByte>,
+    certificateDataCtorArg: MutPtr,
 ) {
-    public var certificateData: MutPtr<UByte> = certificateDataCtorArg
+    public var certificateData: MutPtr = certificateDataCtorArg
         internal set
 
     public constructor() : this(
@@ -2071,9 +2067,9 @@ public class KerbSmartCardProfile internal constructor(
 
     public operator fun component2(): UInt = this.certificateSize
 
-    public operator fun component3(): MutPtr<UByte> = this.certificateData
+    public operator fun component3(): MutPtr = this.certificateData
 
-    public fun copy(profile: KerbInteractiveProfile = this.profile, certificateSize: UInt = this.certificateSize, certificateData: MutPtr<UByte> = this.certificateData): KerbSmartCardProfile = KerbSmartCardProfile(profile = profile, certificateSize = certificateSize, certificateDataCtorArg = certificateData)
+    public fun copy(profile: KerbInteractiveProfile = this.profile, certificateSize: UInt = this.certificateSize, certificateData: MutPtr = this.certificateData): KerbSmartCardProfile = KerbSmartCardProfile(profile = profile, certificateSize = certificateSize, certificateDataCtorArg = certificateData)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -2095,7 +2091,7 @@ public class KerbSmartCardProfile internal constructor(
         public operator fun invoke(
             profile: KerbInteractiveProfile = KerbInteractiveProfile(),
             certificateSize: UInt = 0u,
-            certificateData: MutPtr<UByte> = MutPtr(0L),
+            certificateData: MutPtr = MutPtr(0L),
         ): KerbSmartCardProfile =
             KerbSmartCardProfile(
                 profile = profile,
@@ -2176,13 +2172,13 @@ public class KerbTicketLogon internal constructor(
     public var flags: UInt,
     public var serviceTicketLength: UInt,
     public var ticketGrantingTicketLength: UInt,
-    serviceTicketCtorArg: MutPtr<UByte>,
-    ticketGrantingTicketCtorArg: MutPtr<UByte>,
+    serviceTicketCtorArg: MutPtr,
+    ticketGrantingTicketCtorArg: MutPtr,
 ) {
-    public var serviceTicket: MutPtr<UByte> = serviceTicketCtorArg
+    public var serviceTicket: MutPtr = serviceTicketCtorArg
         internal set
 
-    public var ticketGrantingTicket: MutPtr<UByte> = ticketGrantingTicketCtorArg
+    public var ticketGrantingTicket: MutPtr = ticketGrantingTicketCtorArg
         internal set
 
     public constructor() : this(
@@ -2202,11 +2198,11 @@ public class KerbTicketLogon internal constructor(
 
     public operator fun component4(): UInt = this.ticketGrantingTicketLength
 
-    public operator fun component5(): MutPtr<UByte> = this.serviceTicket
+    public operator fun component5(): MutPtr = this.serviceTicket
 
-    public operator fun component6(): MutPtr<UByte> = this.ticketGrantingTicket
+    public operator fun component6(): MutPtr = this.ticketGrantingTicket
 
-    public fun copy(messageType: KerbLogonSubmitType = this.messageType, flags: UInt = this.flags, serviceTicketLength: UInt = this.serviceTicketLength, ticketGrantingTicketLength: UInt = this.ticketGrantingTicketLength, serviceTicket: MutPtr<UByte> = this.serviceTicket, ticketGrantingTicket: MutPtr<UByte> = this.ticketGrantingTicket): KerbTicketLogon = KerbTicketLogon(messageType = messageType, flags = flags, serviceTicketLength = serviceTicketLength, ticketGrantingTicketLength = ticketGrantingTicketLength, serviceTicketCtorArg = serviceTicket, ticketGrantingTicketCtorArg = ticketGrantingTicket)
+    public fun copy(messageType: KerbLogonSubmitType = this.messageType, flags: UInt = this.flags, serviceTicketLength: UInt = this.serviceTicketLength, ticketGrantingTicketLength: UInt = this.ticketGrantingTicketLength, serviceTicket: MutPtr = this.serviceTicket, ticketGrantingTicket: MutPtr = this.ticketGrantingTicket): KerbTicketLogon = KerbTicketLogon(messageType = messageType, flags = flags, serviceTicketLength = serviceTicketLength, ticketGrantingTicketLength = ticketGrantingTicketLength, serviceTicketCtorArg = serviceTicket, ticketGrantingTicketCtorArg = ticketGrantingTicket)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -2243,11 +2239,11 @@ public class KerbTicketLogon internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 12L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<UByte>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 16L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<UByte>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 24L),
                     )
                 override fun writeNative(addr: Long, value: KerbTicketLogon) {
@@ -2257,11 +2253,11 @@ public class KerbTicketLogon internal constructor(
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 12L, value.ticketGrantingTicketLength)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<UByte>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 16L, value.serviceTicket)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<UByte>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 24L, value.ticketGrantingTicket)
                 }
             }
@@ -2271,8 +2267,8 @@ public class KerbTicketLogon internal constructor(
             flags: UInt = 0u,
             serviceTicketLength: UInt = 0u,
             ticketGrantingTicketLength: UInt = 0u,
-            serviceTicket: MutPtr<UByte> = MutPtr(0L),
-            ticketGrantingTicket: MutPtr<UByte> = MutPtr(0L),
+            serviceTicket: MutPtr = MutPtr(0L),
+            ticketGrantingTicket: MutPtr = MutPtr(0L),
         ): KerbTicketLogon =
             KerbTicketLogon(
                 messageType = messageType,
@@ -2306,13 +2302,13 @@ public class KsecListEntry internal constructor(
     public var list: ListEntry,
     public var refCount: Int,
     public var signature: UInt,
-    owningListCtorArg: MutPtr<CVoid>,
-    reservedCtorArg: MutPtr<CVoid>,
+    owningListCtorArg: MutPtr,
+    reservedCtorArg: MutPtr,
 ) {
-    public var owningList: MutPtr<CVoid> = owningListCtorArg
+    public var owningList: MutPtr = owningListCtorArg
         internal set
 
-    public var reserved: MutPtr<CVoid> = reservedCtorArg
+    public var reserved: MutPtr = reservedCtorArg
         internal set
 
     public constructor() : this(
@@ -2329,11 +2325,11 @@ public class KsecListEntry internal constructor(
 
     public operator fun component3(): UInt = this.signature
 
-    public operator fun component4(): MutPtr<CVoid> = this.owningList
+    public operator fun component4(): MutPtr = this.owningList
 
-    public operator fun component5(): MutPtr<CVoid> = this.reserved
+    public operator fun component5(): MutPtr = this.reserved
 
-    public fun copy(list: ListEntry = this.list, refCount: Int = this.refCount, signature: UInt = this.signature, owningList: MutPtr<CVoid> = this.owningList, reserved: MutPtr<CVoid> = this.reserved): KsecListEntry = KsecListEntry(list = list, refCount = refCount, signature = signature, owningListCtorArg = owningList, reservedCtorArg = reserved)
+    public fun copy(list: ListEntry = this.list, refCount: Int = this.refCount, signature: UInt = this.signature, owningList: MutPtr = this.owningList, reserved: MutPtr = this.reserved): KsecListEntry = KsecListEntry(list = list, refCount = refCount, signature = signature, owningListCtorArg = owningList, reservedCtorArg = reserved)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -2360,8 +2356,8 @@ public class KsecListEntry internal constructor(
             list: ListEntry = ListEntry(),
             refCount: Int = 0,
             signature: UInt = 0u,
-            owningList: MutPtr<CVoid> = MutPtr(0L),
-            reserved: MutPtr<CVoid> = MutPtr(0L),
+            owningList: MutPtr = MutPtr(0L),
+            reserved: MutPtr = MutPtr(0L),
         ): KsecListEntry =
             KsecListEntry(
                 list = list,
@@ -2375,9 +2371,9 @@ public class KsecListEntry internal constructor(
 
 public class LogonHours internal constructor(
     public var unitsPerWeek: UShort,
-    logonHoursCtorArg: MutPtr<UByte>,
+    logonHoursCtorArg: MutPtr,
 ) {
-    public var logonHours: MutPtr<UByte> = logonHoursCtorArg
+    public var logonHours: MutPtr = logonHoursCtorArg
         internal set
 
     public constructor() : this(
@@ -2387,9 +2383,9 @@ public class LogonHours internal constructor(
 
     public operator fun component1(): UShort = this.unitsPerWeek
 
-    public operator fun component2(): MutPtr<UByte> = this.logonHours
+    public operator fun component2(): MutPtr = this.logonHours
 
-    public fun copy(unitsPerWeek: UShort = this.unitsPerWeek, logonHours: MutPtr<UByte> = this.logonHours): LogonHours = LogonHours(unitsPerWeek = unitsPerWeek, logonHoursCtorArg = logonHours)
+    public fun copy(unitsPerWeek: UShort = this.unitsPerWeek, logonHours: MutPtr = this.logonHours): LogonHours = LogonHours(unitsPerWeek = unitsPerWeek, logonHoursCtorArg = logonHours)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -2415,21 +2411,21 @@ public class LogonHours internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<UByte>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                     )
                 override fun writeNative(addr: Long, value: LogonHours) {
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16).writeNative(addr, value.unitsPerWeek)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<UByte>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.logonHours)
                 }
             }
 
         public operator fun invoke(
             unitsPerWeek: UShort = 0u,
-            logonHours: MutPtr<UByte> = MutPtr(0L),
+            logonHours: MutPtr = MutPtr(0L),
         ): LogonHours =
             LogonHours(
                 unitsPerWeek = unitsPerWeek,
@@ -2442,9 +2438,9 @@ public class LsaAuthInformation internal constructor(
     public var lastUpdateTime: Long,
     public var authType: LsaAuthInformationAuthType,
     public var authInfoLength: UInt,
-    authInfoCtorArg: MutPtr<UByte>,
+    authInfoCtorArg: MutPtr,
 ) {
-    public var authInfo: MutPtr<UByte> = authInfoCtorArg
+    public var authInfo: MutPtr = authInfoCtorArg
         internal set
 
     public constructor() : this(
@@ -2460,9 +2456,9 @@ public class LsaAuthInformation internal constructor(
 
     public operator fun component3(): UInt = this.authInfoLength
 
-    public operator fun component4(): MutPtr<UByte> = this.authInfo
+    public operator fun component4(): MutPtr = this.authInfo
 
-    public fun copy(lastUpdateTime: Long = this.lastUpdateTime, authType: LsaAuthInformationAuthType = this.authType, authInfoLength: UInt = this.authInfoLength, authInfo: MutPtr<UByte> = this.authInfo): LsaAuthInformation = LsaAuthInformation(lastUpdateTime = lastUpdateTime, authType = authType, authInfoLength = authInfoLength, authInfoCtorArg = authInfo)
+    public fun copy(lastUpdateTime: Long = this.lastUpdateTime, authType: LsaAuthInformationAuthType = this.authType, authInfoLength: UInt = this.authInfoLength, authInfo: MutPtr = this.authInfo): LsaAuthInformation = LsaAuthInformation(lastUpdateTime = lastUpdateTime, authType = authType, authInfoLength = authInfoLength, authInfoCtorArg = authInfo)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -2494,7 +2490,7 @@ public class LsaAuthInformation internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 12L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<UByte>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 16L),
                     )
                 override fun writeNative(addr: Long, value: LsaAuthInformation) {
@@ -2503,7 +2499,7 @@ public class LsaAuthInformation internal constructor(
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 12L, value.authInfoLength)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<UByte>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 16L, value.authInfo)
                 }
             }
@@ -2512,7 +2508,7 @@ public class LsaAuthInformation internal constructor(
             lastUpdateTime: Long = 0L,
             authType: LsaAuthInformationAuthType = 0u,
             authInfoLength: UInt = 0u,
-            authInfo: MutPtr<UByte> = MutPtr(0L),
+            authInfo: MutPtr = MutPtr(0L),
         ): LsaAuthInformation =
             LsaAuthInformation(
                 lastUpdateTime = lastUpdateTime,
@@ -2572,9 +2568,9 @@ public class LsaEnumerationInformation internal constructor(
 
 public class LsaForestTrustBinaryData internal constructor(
     public var length: UInt,
-    bufferCtorArg: MutPtr<UByte>,
+    bufferCtorArg: MutPtr,
 ) {
-    public var buffer: MutPtr<UByte> = bufferCtorArg
+    public var buffer: MutPtr = bufferCtorArg
         internal set
 
     public constructor() : this(
@@ -2584,9 +2580,9 @@ public class LsaForestTrustBinaryData internal constructor(
 
     public operator fun component1(): UInt = this.length
 
-    public operator fun component2(): MutPtr<UByte> = this.buffer
+    public operator fun component2(): MutPtr = this.buffer
 
-    public fun copy(length: UInt = this.length, buffer: MutPtr<UByte> = this.buffer): LsaForestTrustBinaryData = LsaForestTrustBinaryData(length = length, bufferCtorArg = buffer)
+    public fun copy(length: UInt = this.length, buffer: MutPtr = this.buffer): LsaForestTrustBinaryData = LsaForestTrustBinaryData(length = length, bufferCtorArg = buffer)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -2612,21 +2608,21 @@ public class LsaForestTrustBinaryData internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<UByte>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                     )
                 override fun writeNative(addr: Long, value: LsaForestTrustBinaryData) {
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr, value.length)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<UByte>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.buffer)
                 }
             }
 
         public operator fun invoke(
             length: UInt = 0u,
-            buffer: MutPtr<UByte> = MutPtr(0L),
+            buffer: MutPtr = MutPtr(0L),
         ): LsaForestTrustBinaryData =
             LsaForestTrustBinaryData(
                 length = length,
@@ -2637,9 +2633,9 @@ public class LsaForestTrustBinaryData internal constructor(
 
 public class LsaForestTrustCollisionInformation internal constructor(
     public var recordCount: UInt,
-    entriesCtorArg: MutPtr<MutPtr<LsaForestTrustCollisionRecord>>,
+    entriesCtorArg: MutPtr,
 ) {
-    public var entries: MutPtr<MutPtr<LsaForestTrustCollisionRecord>> = entriesCtorArg
+    public var entries: MutPtr = entriesCtorArg
         internal set
 
     public constructor() : this(
@@ -2649,9 +2645,9 @@ public class LsaForestTrustCollisionInformation internal constructor(
 
     public operator fun component1(): UInt = this.recordCount
 
-    public operator fun component2(): MutPtr<MutPtr<LsaForestTrustCollisionRecord>> = this.entries
+    public operator fun component2(): MutPtr = this.entries
 
-    public fun copy(recordCount: UInt = this.recordCount, entries: MutPtr<MutPtr<LsaForestTrustCollisionRecord>> = this.entries): LsaForestTrustCollisionInformation = LsaForestTrustCollisionInformation(recordCount = recordCount, entriesCtorArg = entries)
+    public fun copy(recordCount: UInt = this.recordCount, entries: MutPtr = this.entries): LsaForestTrustCollisionInformation = LsaForestTrustCollisionInformation(recordCount = recordCount, entriesCtorArg = entries)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -2677,21 +2673,21 @@ public class LsaForestTrustCollisionInformation internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<MutPtr<LsaForestTrustCollisionRecord>>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                     )
                 override fun writeNative(addr: Long, value: LsaForestTrustCollisionInformation) {
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr, value.recordCount)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<MutPtr<LsaForestTrustCollisionRecord>>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.entries)
                 }
             }
 
         public operator fun invoke(
             recordCount: UInt = 0u,
-            entries: MutPtr<MutPtr<LsaForestTrustCollisionRecord>> = MutPtr(0L),
+            entries: MutPtr = MutPtr(0L),
         ): LsaForestTrustCollisionInformation =
             LsaForestTrustCollisionInformation(
                 recordCount = recordCount,
@@ -2761,9 +2757,9 @@ public class LsaForestTrustDomainInfo internal constructor(
 
 public class LsaForestTrustInformation internal constructor(
     public var recordCount: UInt,
-    entriesCtorArg: MutPtr<MutPtr<LsaForestTrustRecord>>,
+    entriesCtorArg: MutPtr,
 ) {
-    public var entries: MutPtr<MutPtr<LsaForestTrustRecord>> = entriesCtorArg
+    public var entries: MutPtr = entriesCtorArg
         internal set
 
     public constructor() : this(
@@ -2773,9 +2769,9 @@ public class LsaForestTrustInformation internal constructor(
 
     public operator fun component1(): UInt = this.recordCount
 
-    public operator fun component2(): MutPtr<MutPtr<LsaForestTrustRecord>> = this.entries
+    public operator fun component2(): MutPtr = this.entries
 
-    public fun copy(recordCount: UInt = this.recordCount, entries: MutPtr<MutPtr<LsaForestTrustRecord>> = this.entries): LsaForestTrustInformation = LsaForestTrustInformation(recordCount = recordCount, entriesCtorArg = entries)
+    public fun copy(recordCount: UInt = this.recordCount, entries: MutPtr = this.entries): LsaForestTrustInformation = LsaForestTrustInformation(recordCount = recordCount, entriesCtorArg = entries)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -2801,21 +2797,21 @@ public class LsaForestTrustInformation internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<MutPtr<LsaForestTrustRecord>>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                     )
                 override fun writeNative(addr: Long, value: LsaForestTrustInformation) {
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr, value.recordCount)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<MutPtr<LsaForestTrustRecord>>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.entries)
                 }
             }
 
         public operator fun invoke(
             recordCount: UInt = 0u,
-            entries: MutPtr<MutPtr<LsaForestTrustRecord>> = MutPtr(0L),
+            entries: MutPtr = MutPtr(0L),
         ): LsaForestTrustInformation =
             LsaForestTrustInformation(
                 recordCount = recordCount,
@@ -2826,9 +2822,9 @@ public class LsaForestTrustInformation internal constructor(
 
 public class LsaForestTrustInformation2 internal constructor(
     public var recordCount: UInt,
-    entriesCtorArg: MutPtr<MutPtr<LsaForestTrustRecord2>>,
+    entriesCtorArg: MutPtr,
 ) {
-    public var entries: MutPtr<MutPtr<LsaForestTrustRecord2>> = entriesCtorArg
+    public var entries: MutPtr = entriesCtorArg
         internal set
 
     public constructor() : this(
@@ -2838,9 +2834,9 @@ public class LsaForestTrustInformation2 internal constructor(
 
     public operator fun component1(): UInt = this.recordCount
 
-    public operator fun component2(): MutPtr<MutPtr<LsaForestTrustRecord2>> = this.entries
+    public operator fun component2(): MutPtr = this.entries
 
-    public fun copy(recordCount: UInt = this.recordCount, entries: MutPtr<MutPtr<LsaForestTrustRecord2>> = this.entries): LsaForestTrustInformation2 = LsaForestTrustInformation2(recordCount = recordCount, entriesCtorArg = entries)
+    public fun copy(recordCount: UInt = this.recordCount, entries: MutPtr = this.entries): LsaForestTrustInformation2 = LsaForestTrustInformation2(recordCount = recordCount, entriesCtorArg = entries)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -2866,21 +2862,21 @@ public class LsaForestTrustInformation2 internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<MutPtr<LsaForestTrustRecord2>>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                     )
                 override fun writeNative(addr: Long, value: LsaForestTrustInformation2) {
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr, value.recordCount)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<MutPtr<LsaForestTrustRecord2>>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.entries)
                 }
             }
 
         public operator fun invoke(
             recordCount: UInt = 0u,
-            entries: MutPtr<MutPtr<LsaForestTrustRecord2>> = MutPtr(0L),
+            entries: MutPtr = MutPtr(0L),
         ): LsaForestTrustInformation2 =
             LsaForestTrustInformation2(
                 recordCount = recordCount,
@@ -2996,21 +2992,21 @@ public data class LsaLastInterLogonInfo(
 public class LsaObjectAttributes internal constructor(
     public var length: UInt,
     rootDirectoryCtorArg: Handle,
-    objectNameCtorArg: MutPtr<LsaUnicodeString>,
+    objectNameCtorArg: MutPtr,
     public var attributes: UInt,
-    securityDescriptorCtorArg: MutPtr<CVoid>,
-    securityQualityOfServiceCtorArg: MutPtr<CVoid>,
+    securityDescriptorCtorArg: MutPtr,
+    securityQualityOfServiceCtorArg: MutPtr,
 ) {
     public var rootDirectory: Handle = rootDirectoryCtorArg
         internal set
 
-    public var objectName: MutPtr<LsaUnicodeString> = objectNameCtorArg
+    public var objectName: MutPtr = objectNameCtorArg
         internal set
 
-    public var securityDescriptor: MutPtr<CVoid> = securityDescriptorCtorArg
+    public var securityDescriptor: MutPtr = securityDescriptorCtorArg
         internal set
 
-    public var securityQualityOfService: MutPtr<CVoid> = securityQualityOfServiceCtorArg
+    public var securityQualityOfService: MutPtr = securityQualityOfServiceCtorArg
         internal set
 
     public constructor() : this(
@@ -3026,15 +3022,15 @@ public class LsaObjectAttributes internal constructor(
 
     public operator fun component2(): Handle = this.rootDirectory
 
-    public operator fun component3(): MutPtr<LsaUnicodeString> = this.objectName
+    public operator fun component3(): MutPtr = this.objectName
 
     public operator fun component4(): UInt = this.attributes
 
-    public operator fun component5(): MutPtr<CVoid> = this.securityDescriptor
+    public operator fun component5(): MutPtr = this.securityDescriptor
 
-    public operator fun component6(): MutPtr<CVoid> = this.securityQualityOfService
+    public operator fun component6(): MutPtr = this.securityQualityOfService
 
-    public fun copy(length: UInt = this.length, rootDirectory: Handle = this.rootDirectory, objectName: MutPtr<LsaUnicodeString> = this.objectName, attributes: UInt = this.attributes, securityDescriptor: MutPtr<CVoid> = this.securityDescriptor, securityQualityOfService: MutPtr<CVoid> = this.securityQualityOfService): LsaObjectAttributes = LsaObjectAttributes(length = length, rootDirectoryCtorArg = rootDirectory, objectNameCtorArg = objectName, attributes = attributes, securityDescriptorCtorArg = securityDescriptor, securityQualityOfServiceCtorArg = securityQualityOfService)
+    public fun copy(length: UInt = this.length, rootDirectory: Handle = this.rootDirectory, objectName: MutPtr = this.objectName, attributes: UInt = this.attributes, securityDescriptor: MutPtr = this.securityDescriptor, securityQualityOfService: MutPtr = this.securityQualityOfService): LsaObjectAttributes = LsaObjectAttributes(length = length, rootDirectoryCtorArg = rootDirectory, objectNameCtorArg = objectName, attributes = attributes, securityDescriptorCtorArg = securityDescriptor, securityQualityOfServiceCtorArg = securityQualityOfService)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -3062,10 +3058,10 @@ public class LsaObjectAttributes internal constructor(
         public operator fun invoke(
             length: UInt = 0u,
             rootDirectory: Handle = MutPtr(0L),
-            objectName: MutPtr<LsaUnicodeString> = MutPtr(0L),
+            objectName: MutPtr = MutPtr(0L),
             attributes: UInt = 0u,
-            securityDescriptor: MutPtr<CVoid> = MutPtr(0L),
-            securityQualityOfService: MutPtr<CVoid> = MutPtr(0L),
+            securityDescriptor: MutPtr = MutPtr(0L),
+            securityQualityOfService: MutPtr = MutPtr(0L),
         ): LsaObjectAttributes =
             LsaObjectAttributes(
                 length = length,
@@ -3080,9 +3076,9 @@ public class LsaObjectAttributes internal constructor(
 
 public class LsaReferencedDomainList internal constructor(
     public var entries: UInt,
-    domainsCtorArg: MutPtr<LsaTrustInformation>,
+    domainsCtorArg: MutPtr,
 ) {
-    public var domains: MutPtr<LsaTrustInformation> = domainsCtorArg
+    public var domains: MutPtr = domainsCtorArg
         internal set
 
     public constructor() : this(
@@ -3092,9 +3088,9 @@ public class LsaReferencedDomainList internal constructor(
 
     public operator fun component1(): UInt = this.entries
 
-    public operator fun component2(): MutPtr<LsaTrustInformation> = this.domains
+    public operator fun component2(): MutPtr = this.domains
 
-    public fun copy(entries: UInt = this.entries, domains: MutPtr<LsaTrustInformation> = this.domains): LsaReferencedDomainList = LsaReferencedDomainList(entries = entries, domainsCtorArg = domains)
+    public fun copy(entries: UInt = this.entries, domains: MutPtr = this.domains): LsaReferencedDomainList = LsaReferencedDomainList(entries = entries, domainsCtorArg = domains)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -3120,21 +3116,21 @@ public class LsaReferencedDomainList internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<LsaTrustInformation>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                     )
                 override fun writeNative(addr: Long, value: LsaReferencedDomainList) {
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr, value.entries)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<LsaTrustInformation>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.domains)
                 }
             }
 
         public operator fun invoke(
             entries: UInt = 0u,
-            domains: MutPtr<LsaTrustInformation> = MutPtr(0L),
+            domains: MutPtr = MutPtr(0L),
         ): LsaReferencedDomainList =
             LsaReferencedDomainList(
                 entries = entries,
@@ -3264,9 +3260,9 @@ public class LsaString internal constructor(
 
 public class LsaTokenInformationNull internal constructor(
     public var expirationTime: Long,
-    groupsCtorArg: MutPtr<TokenGroups>,
+    groupsCtorArg: MutPtr,
 ) {
-    public var groups: MutPtr<TokenGroups> = groupsCtorArg
+    public var groups: MutPtr = groupsCtorArg
         internal set
 
     public constructor() : this(
@@ -3276,9 +3272,9 @@ public class LsaTokenInformationNull internal constructor(
 
     public operator fun component1(): Long = this.expirationTime
 
-    public operator fun component2(): MutPtr<TokenGroups> = this.groups
+    public operator fun component2(): MutPtr = this.groups
 
-    public fun copy(expirationTime: Long = this.expirationTime, groups: MutPtr<TokenGroups> = this.groups): LsaTokenInformationNull = LsaTokenInformationNull(expirationTime = expirationTime, groupsCtorArg = groups)
+    public fun copy(expirationTime: Long = this.expirationTime, groups: MutPtr = this.groups): LsaTokenInformationNull = LsaTokenInformationNull(expirationTime = expirationTime, groupsCtorArg = groups)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -3304,21 +3300,21 @@ public class LsaTokenInformationNull internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I64).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<TokenGroups>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                     )
                 override fun writeNative(addr: Long, value: LsaTokenInformationNull) {
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I64).writeNative(addr, value.expirationTime)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<TokenGroups>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.groups)
                 }
             }
 
         public operator fun invoke(
             expirationTime: Long = 0L,
-            groups: MutPtr<TokenGroups> = MutPtr(0L),
+            groups: MutPtr = MutPtr(0L),
         ): LsaTokenInformationNull =
             LsaTokenInformationNull(
                 expirationTime = expirationTime,
@@ -3330,16 +3326,16 @@ public class LsaTokenInformationNull internal constructor(
 public class LsaTokenInformationV1 internal constructor(
     public var expirationTime: Long,
     public var user: TokenUser,
-    groupsCtorArg: MutPtr<TokenGroups>,
+    groupsCtorArg: MutPtr,
     public var primaryGroup: TokenPrimaryGroup,
-    privilegesCtorArg: MutPtr<TokenPrivileges>,
+    privilegesCtorArg: MutPtr,
     public var owner: TokenOwner,
     public var defaultDacl: TokenDefaultDacl,
 ) {
-    public var groups: MutPtr<TokenGroups> = groupsCtorArg
+    public var groups: MutPtr = groupsCtorArg
         internal set
 
-    public var privileges: MutPtr<TokenPrivileges> = privilegesCtorArg
+    public var privileges: MutPtr = privilegesCtorArg
         internal set
 
     public constructor() : this(
@@ -3356,17 +3352,17 @@ public class LsaTokenInformationV1 internal constructor(
 
     public operator fun component2(): TokenUser = this.user
 
-    public operator fun component3(): MutPtr<TokenGroups> = this.groups
+    public operator fun component3(): MutPtr = this.groups
 
     public operator fun component4(): TokenPrimaryGroup = this.primaryGroup
 
-    public operator fun component5(): MutPtr<TokenPrivileges> = this.privileges
+    public operator fun component5(): MutPtr = this.privileges
 
     public operator fun component6(): TokenOwner = this.owner
 
     public operator fun component7(): TokenDefaultDacl = this.defaultDacl
 
-    public fun copy(expirationTime: Long = this.expirationTime, user: TokenUser = this.user, groups: MutPtr<TokenGroups> = this.groups, primaryGroup: TokenPrimaryGroup = this.primaryGroup, privileges: MutPtr<TokenPrivileges> = this.privileges, owner: TokenOwner = this.owner, defaultDacl: TokenDefaultDacl = this.defaultDacl): LsaTokenInformationV1 = LsaTokenInformationV1(expirationTime = expirationTime, user = user, groupsCtorArg = groups, primaryGroup = primaryGroup, privilegesCtorArg = privileges, owner = owner, defaultDacl = defaultDacl)
+    public fun copy(expirationTime: Long = this.expirationTime, user: TokenUser = this.user, groups: MutPtr = this.groups, primaryGroup: TokenPrimaryGroup = this.primaryGroup, privileges: MutPtr = this.privileges, owner: TokenOwner = this.owner, defaultDacl: TokenDefaultDacl = this.defaultDacl): LsaTokenInformationV1 = LsaTokenInformationV1(expirationTime = expirationTime, user = user, groupsCtorArg = groups, primaryGroup = primaryGroup, privilegesCtorArg = privileges, owner = owner, defaultDacl = defaultDacl)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -3396,9 +3392,9 @@ public class LsaTokenInformationV1 internal constructor(
         public operator fun invoke(
             expirationTime: Long = 0L,
             user: TokenUser = TokenUser(),
-            groups: MutPtr<TokenGroups> = MutPtr(0L),
+            groups: MutPtr = MutPtr(0L),
             primaryGroup: TokenPrimaryGroup = TokenPrimaryGroup(),
-            privileges: MutPtr<TokenPrivileges> = MutPtr(0L),
+            privileges: MutPtr = MutPtr(0L),
             owner: TokenOwner = TokenOwner(),
             defaultDacl: TokenDefaultDacl = TokenDefaultDacl(),
         ): LsaTokenInformationV1 =
@@ -3417,22 +3413,22 @@ public class LsaTokenInformationV1 internal constructor(
 public class LsaTokenInformationV3 internal constructor(
     public var expirationTime: Long,
     public var user: TokenUser,
-    groupsCtorArg: MutPtr<TokenGroups>,
+    groupsCtorArg: MutPtr,
     public var primaryGroup: TokenPrimaryGroup,
-    privilegesCtorArg: MutPtr<TokenPrivileges>,
+    privilegesCtorArg: MutPtr,
     public var owner: TokenOwner,
     public var defaultDacl: TokenDefaultDacl,
     public var userClaims: TokenUserClaims,
     public var deviceClaims: TokenDeviceClaims,
-    deviceGroupsCtorArg: MutPtr<TokenGroups>,
+    deviceGroupsCtorArg: MutPtr,
 ) {
-    public var groups: MutPtr<TokenGroups> = groupsCtorArg
+    public var groups: MutPtr = groupsCtorArg
         internal set
 
-    public var privileges: MutPtr<TokenPrivileges> = privilegesCtorArg
+    public var privileges: MutPtr = privilegesCtorArg
         internal set
 
-    public var deviceGroups: MutPtr<TokenGroups> = deviceGroupsCtorArg
+    public var deviceGroups: MutPtr = deviceGroupsCtorArg
         internal set
 
     public constructor() : this(
@@ -3452,11 +3448,11 @@ public class LsaTokenInformationV3 internal constructor(
 
     public operator fun component2(): TokenUser = this.user
 
-    public operator fun component3(): MutPtr<TokenGroups> = this.groups
+    public operator fun component3(): MutPtr = this.groups
 
     public operator fun component4(): TokenPrimaryGroup = this.primaryGroup
 
-    public operator fun component5(): MutPtr<TokenPrivileges> = this.privileges
+    public operator fun component5(): MutPtr = this.privileges
 
     public operator fun component6(): TokenOwner = this.owner
 
@@ -3466,9 +3462,9 @@ public class LsaTokenInformationV3 internal constructor(
 
     public operator fun component9(): TokenDeviceClaims = this.deviceClaims
 
-    public operator fun component10(): MutPtr<TokenGroups> = this.deviceGroups
+    public operator fun component10(): MutPtr = this.deviceGroups
 
-    public fun copy(expirationTime: Long = this.expirationTime, user: TokenUser = this.user, groups: MutPtr<TokenGroups> = this.groups, primaryGroup: TokenPrimaryGroup = this.primaryGroup, privileges: MutPtr<TokenPrivileges> = this.privileges, owner: TokenOwner = this.owner, defaultDacl: TokenDefaultDacl = this.defaultDacl, userClaims: TokenUserClaims = this.userClaims, deviceClaims: TokenDeviceClaims = this.deviceClaims, deviceGroups: MutPtr<TokenGroups> = this.deviceGroups): LsaTokenInformationV3 = LsaTokenInformationV3(expirationTime = expirationTime, user = user, groupsCtorArg = groups, primaryGroup = primaryGroup, privilegesCtorArg = privileges, owner = owner, defaultDacl = defaultDacl, userClaims = userClaims, deviceClaims = deviceClaims, deviceGroupsCtorArg = deviceGroups)
+    public fun copy(expirationTime: Long = this.expirationTime, user: TokenUser = this.user, groups: MutPtr = this.groups, primaryGroup: TokenPrimaryGroup = this.primaryGroup, privileges: MutPtr = this.privileges, owner: TokenOwner = this.owner, defaultDacl: TokenDefaultDacl = this.defaultDacl, userClaims: TokenUserClaims = this.userClaims, deviceClaims: TokenDeviceClaims = this.deviceClaims, deviceGroups: MutPtr = this.deviceGroups): LsaTokenInformationV3 = LsaTokenInformationV3(expirationTime = expirationTime, user = user, groupsCtorArg = groups, primaryGroup = primaryGroup, privilegesCtorArg = privileges, owner = owner, defaultDacl = defaultDacl, userClaims = userClaims, deviceClaims = deviceClaims, deviceGroupsCtorArg = deviceGroups)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -3504,14 +3500,14 @@ public class LsaTokenInformationV3 internal constructor(
         public operator fun invoke(
             expirationTime: Long = 0L,
             user: TokenUser = TokenUser(),
-            groups: MutPtr<TokenGroups> = MutPtr(0L),
+            groups: MutPtr = MutPtr(0L),
             primaryGroup: TokenPrimaryGroup = TokenPrimaryGroup(),
-            privileges: MutPtr<TokenPrivileges> = MutPtr(0L),
+            privileges: MutPtr = MutPtr(0L),
             owner: TokenOwner = TokenOwner(),
             defaultDacl: TokenDefaultDacl = TokenDefaultDacl(),
             userClaims: TokenUserClaims = TokenUserClaims(),
             deviceClaims: TokenDeviceClaims = TokenDeviceClaims(),
-            deviceGroups: MutPtr<TokenGroups> = MutPtr(0L),
+            deviceGroups: MutPtr = MutPtr(0L),
         ): LsaTokenInformationV3 =
             LsaTokenInformationV3(
                 expirationTime = expirationTime,
@@ -4049,10 +4045,10 @@ public class Msv10PassthroughRequest internal constructor(
     public var domainName: LsaUnicodeString,
     public var packageName: LsaUnicodeString,
     public var dataLength: UInt,
-    logonDataCtorArg: MutPtr<UByte>,
+    logonDataCtorArg: MutPtr,
     public var pad: UInt,
 ) {
-    public var logonData: MutPtr<UByte> = logonDataCtorArg
+    public var logonData: MutPtr = logonDataCtorArg
         internal set
 
     public constructor() : this(
@@ -4072,11 +4068,11 @@ public class Msv10PassthroughRequest internal constructor(
 
     public operator fun component4(): UInt = this.dataLength
 
-    public operator fun component5(): MutPtr<UByte> = this.logonData
+    public operator fun component5(): MutPtr = this.logonData
 
     public operator fun component6(): UInt = this.pad
 
-    public fun copy(messageType: Msv10ProtocolMessageType = this.messageType, domainName: LsaUnicodeString = this.domainName, packageName: LsaUnicodeString = this.packageName, dataLength: UInt = this.dataLength, logonData: MutPtr<UByte> = this.logonData, pad: UInt = this.pad): Msv10PassthroughRequest = Msv10PassthroughRequest(messageType = messageType, domainName = domainName, packageName = packageName, dataLength = dataLength, logonDataCtorArg = logonData, pad = pad)
+    public fun copy(messageType: Msv10ProtocolMessageType = this.messageType, domainName: LsaUnicodeString = this.domainName, packageName: LsaUnicodeString = this.packageName, dataLength: UInt = this.dataLength, logonData: MutPtr = this.logonData, pad: UInt = this.pad): Msv10PassthroughRequest = Msv10PassthroughRequest(messageType = messageType, domainName = domainName, packageName = packageName, dataLength = dataLength, logonDataCtorArg = logonData, pad = pad)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -4106,7 +4102,7 @@ public class Msv10PassthroughRequest internal constructor(
             domainName: LsaUnicodeString = LsaUnicodeString(),
             packageName: LsaUnicodeString = LsaUnicodeString(),
             dataLength: UInt = 0u,
-            logonData: MutPtr<UByte> = MutPtr(0L),
+            logonData: MutPtr = MutPtr(0L),
             pad: UInt = 0u,
         ): Msv10PassthroughRequest =
             Msv10PassthroughRequest(
@@ -4124,9 +4120,9 @@ public class Msv10PassthroughResponse internal constructor(
     public var messageType: Msv10ProtocolMessageType,
     public var pad: UInt,
     public var dataLength: UInt,
-    validationDataCtorArg: MutPtr<UByte>,
+    validationDataCtorArg: MutPtr,
 ) {
-    public var validationData: MutPtr<UByte> = validationDataCtorArg
+    public var validationData: MutPtr = validationDataCtorArg
         internal set
 
     public constructor() : this(
@@ -4142,9 +4138,9 @@ public class Msv10PassthroughResponse internal constructor(
 
     public operator fun component3(): UInt = this.dataLength
 
-    public operator fun component4(): MutPtr<UByte> = this.validationData
+    public operator fun component4(): MutPtr = this.validationData
 
-    public fun copy(messageType: Msv10ProtocolMessageType = this.messageType, pad: UInt = this.pad, dataLength: UInt = this.dataLength, validationData: MutPtr<UByte> = this.validationData): Msv10PassthroughResponse = Msv10PassthroughResponse(messageType = messageType, pad = pad, dataLength = dataLength, validationDataCtorArg = validationData)
+    public fun copy(messageType: Msv10ProtocolMessageType = this.messageType, pad: UInt = this.pad, dataLength: UInt = this.dataLength, validationData: MutPtr = this.validationData): Msv10PassthroughResponse = Msv10PassthroughResponse(messageType = messageType, pad = pad, dataLength = dataLength, validationDataCtorArg = validationData)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -4176,7 +4172,7 @@ public class Msv10PassthroughResponse internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 8L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<UByte>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 16L),
                     )
                 override fun writeNative(addr: Long, value: Msv10PassthroughResponse) {
@@ -4185,7 +4181,7 @@ public class Msv10PassthroughResponse internal constructor(
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 8L, value.dataLength)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<UByte>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 16L, value.validationData)
                 }
             }
@@ -4194,7 +4190,7 @@ public class Msv10PassthroughResponse internal constructor(
             messageType: Msv10ProtocolMessageType = 0,
             pad: UInt = 0u,
             dataLength: UInt = 0u,
-            validationData: MutPtr<UByte> = MutPtr(0L),
+            validationData: MutPtr = MutPtr(0L),
         ): Msv10PassthroughResponse =
             Msv10PassthroughResponse(
                 messageType = messageType,
@@ -4318,9 +4314,9 @@ public class Msv10SubauthRequest internal constructor(
     public var messageType: Msv10ProtocolMessageType,
     public var subAuthPackageId: UInt,
     public var subAuthInfoLength: UInt,
-    subAuthSubmitBufferCtorArg: MutPtr<UByte>,
+    subAuthSubmitBufferCtorArg: MutPtr,
 ) {
-    public var subAuthSubmitBuffer: MutPtr<UByte> = subAuthSubmitBufferCtorArg
+    public var subAuthSubmitBuffer: MutPtr = subAuthSubmitBufferCtorArg
         internal set
 
     public constructor() : this(
@@ -4336,9 +4332,9 @@ public class Msv10SubauthRequest internal constructor(
 
     public operator fun component3(): UInt = this.subAuthInfoLength
 
-    public operator fun component4(): MutPtr<UByte> = this.subAuthSubmitBuffer
+    public operator fun component4(): MutPtr = this.subAuthSubmitBuffer
 
-    public fun copy(messageType: Msv10ProtocolMessageType = this.messageType, subAuthPackageId: UInt = this.subAuthPackageId, subAuthInfoLength: UInt = this.subAuthInfoLength, subAuthSubmitBuffer: MutPtr<UByte> = this.subAuthSubmitBuffer): Msv10SubauthRequest = Msv10SubauthRequest(messageType = messageType, subAuthPackageId = subAuthPackageId, subAuthInfoLength = subAuthInfoLength, subAuthSubmitBufferCtorArg = subAuthSubmitBuffer)
+    public fun copy(messageType: Msv10ProtocolMessageType = this.messageType, subAuthPackageId: UInt = this.subAuthPackageId, subAuthInfoLength: UInt = this.subAuthInfoLength, subAuthSubmitBuffer: MutPtr = this.subAuthSubmitBuffer): Msv10SubauthRequest = Msv10SubauthRequest(messageType = messageType, subAuthPackageId = subAuthPackageId, subAuthInfoLength = subAuthInfoLength, subAuthSubmitBufferCtorArg = subAuthSubmitBuffer)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -4370,7 +4366,7 @@ public class Msv10SubauthRequest internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 8L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<UByte>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 16L),
                     )
                 override fun writeNative(addr: Long, value: Msv10SubauthRequest) {
@@ -4379,7 +4375,7 @@ public class Msv10SubauthRequest internal constructor(
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 8L, value.subAuthInfoLength)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<UByte>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 16L, value.subAuthSubmitBuffer)
                 }
             }
@@ -4388,7 +4384,7 @@ public class Msv10SubauthRequest internal constructor(
             messageType: Msv10ProtocolMessageType = 0,
             subAuthPackageId: UInt = 0u,
             subAuthInfoLength: UInt = 0u,
-            subAuthSubmitBuffer: MutPtr<UByte> = MutPtr(0L),
+            subAuthSubmitBuffer: MutPtr = MutPtr(0L),
         ): Msv10SubauthRequest =
             Msv10SubauthRequest(
                 messageType = messageType,
@@ -4402,9 +4398,9 @@ public class Msv10SubauthRequest internal constructor(
 public class Msv10SubauthResponse internal constructor(
     public var messageType: Msv10ProtocolMessageType,
     public var subAuthInfoLength: UInt,
-    subAuthReturnBufferCtorArg: MutPtr<UByte>,
+    subAuthReturnBufferCtorArg: MutPtr,
 ) {
-    public var subAuthReturnBuffer: MutPtr<UByte> = subAuthReturnBufferCtorArg
+    public var subAuthReturnBuffer: MutPtr = subAuthReturnBufferCtorArg
         internal set
 
     public constructor() : this(
@@ -4417,9 +4413,9 @@ public class Msv10SubauthResponse internal constructor(
 
     public operator fun component2(): UInt = this.subAuthInfoLength
 
-    public operator fun component3(): MutPtr<UByte> = this.subAuthReturnBuffer
+    public operator fun component3(): MutPtr = this.subAuthReturnBuffer
 
-    public fun copy(messageType: Msv10ProtocolMessageType = this.messageType, subAuthInfoLength: UInt = this.subAuthInfoLength, subAuthReturnBuffer: MutPtr<UByte> = this.subAuthReturnBuffer): Msv10SubauthResponse = Msv10SubauthResponse(messageType = messageType, subAuthInfoLength = subAuthInfoLength, subAuthReturnBufferCtorArg = subAuthReturnBuffer)
+    public fun copy(messageType: Msv10ProtocolMessageType = this.messageType, subAuthInfoLength: UInt = this.subAuthInfoLength, subAuthReturnBuffer: MutPtr = this.subAuthReturnBuffer): Msv10SubauthResponse = Msv10SubauthResponse(messageType = messageType, subAuthInfoLength = subAuthInfoLength, subAuthReturnBufferCtorArg = subAuthReturnBuffer)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -4448,7 +4444,7 @@ public class Msv10SubauthResponse internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 4L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<UByte>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                     )
                 override fun writeNative(addr: Long, value: Msv10SubauthResponse) {
@@ -4456,7 +4452,7 @@ public class Msv10SubauthResponse internal constructor(
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 4L, value.subAuthInfoLength)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<UByte>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.subAuthReturnBuffer)
                 }
             }
@@ -4464,7 +4460,7 @@ public class Msv10SubauthResponse internal constructor(
         public operator fun invoke(
             messageType: Msv10ProtocolMessageType = 0,
             subAuthInfoLength: UInt = 0u,
-            subAuthReturnBuffer: MutPtr<UByte> = MutPtr(0L),
+            subAuthReturnBuffer: MutPtr = MutPtr(0L),
         ): Msv10SubauthResponse =
             Msv10SubauthResponse(
                 messageType = messageType,
@@ -4715,15 +4711,15 @@ public class NegotiateCallerNameResponse internal constructor(
 
 public class NegotiatePackagePrefix internal constructor(
     public var packageId: Int,
-    packageDataACtorArg: MutPtr<CVoid>,
-    packageDataWCtorArg: MutPtr<CVoid>,
+    packageDataACtorArg: MutPtr,
+    packageDataWCtorArg: MutPtr,
     public var prefixLen: Int,
     public var prefix: UByteArray,
 ) {
-    public var packageDataA: MutPtr<CVoid> = packageDataACtorArg
+    public var packageDataA: MutPtr = packageDataACtorArg
         internal set
 
-    public var packageDataW: MutPtr<CVoid> = packageDataWCtorArg
+    public var packageDataW: MutPtr = packageDataWCtorArg
         internal set
 
     public constructor() : this(
@@ -4736,15 +4732,15 @@ public class NegotiatePackagePrefix internal constructor(
 
     public operator fun component1(): Int = this.packageId
 
-    public operator fun component2(): MutPtr<CVoid> = this.packageDataA
+    public operator fun component2(): MutPtr = this.packageDataA
 
-    public operator fun component3(): MutPtr<CVoid> = this.packageDataW
+    public operator fun component3(): MutPtr = this.packageDataW
 
     public operator fun component4(): Int = this.prefixLen
 
     public operator fun component5(): UByteArray = this.prefix
 
-    public fun copy(packageId: Int = this.packageId, packageDataA: MutPtr<CVoid> = this.packageDataA, packageDataW: MutPtr<CVoid> = this.packageDataW, prefixLen: Int = this.prefixLen, prefix: UByteArray = this.prefix): NegotiatePackagePrefix = NegotiatePackagePrefix(packageId = packageId, packageDataACtorArg = packageDataA, packageDataWCtorArg = packageDataW, prefixLen = prefixLen, prefix = prefix)
+    public fun copy(packageId: Int = this.packageId, packageDataA: MutPtr = this.packageDataA, packageDataW: MutPtr = this.packageDataW, prefixLen: Int = this.prefixLen, prefix: UByteArray = this.prefix): NegotiatePackagePrefix = NegotiatePackagePrefix(packageId = packageId, packageDataACtorArg = packageDataA, packageDataWCtorArg = packageDataW, prefixLen = prefixLen, prefix = prefix)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -4776,11 +4772,11 @@ public class NegotiatePackagePrefix internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.USIZE64).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<CVoid>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<CVoid>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 16L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.USIZE64).readNative(addr + 24L),
                         (
@@ -4792,11 +4788,11 @@ public class NegotiatePackagePrefix internal constructor(
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.USIZE64).writeNative(addr, value.packageId)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<CVoid>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.packageDataA)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<CVoid>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 16L, value.packageDataW)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.USIZE64).writeNative(addr + 24L, value.prefixLen)
                     (
@@ -4808,8 +4804,8 @@ public class NegotiatePackagePrefix internal constructor(
 
         public operator fun invoke(
             packageId: Int = 0,
-            packageDataA: MutPtr<CVoid> = MutPtr(0L),
-            packageDataW: MutPtr<CVoid> = MutPtr(0L),
+            packageDataA: MutPtr = MutPtr(0L),
+            packageDataW: MutPtr = MutPtr(0L),
             prefixLen: Int = 0,
             prefix: UByteArray = UByteArray(32),
         ): NegotiatePackagePrefix =
@@ -4855,9 +4851,9 @@ public class NetlogonGenericInfo internal constructor(
     public var identity: NetlogonLogonIdentityInfo,
     public var packageName: LsaUnicodeString,
     public var dataLength: UInt,
-    logonDataCtorArg: MutPtr<UByte>,
+    logonDataCtorArg: MutPtr,
 ) {
-    public var logonData: MutPtr<UByte> = logonDataCtorArg
+    public var logonData: MutPtr = logonDataCtorArg
         internal set
 
     public constructor() : this(
@@ -4873,9 +4869,9 @@ public class NetlogonGenericInfo internal constructor(
 
     public operator fun component3(): UInt = this.dataLength
 
-    public operator fun component4(): MutPtr<UByte> = this.logonData
+    public operator fun component4(): MutPtr = this.logonData
 
-    public fun copy(identity: NetlogonLogonIdentityInfo = this.identity, packageName: LsaUnicodeString = this.packageName, dataLength: UInt = this.dataLength, logonData: MutPtr<UByte> = this.logonData): NetlogonGenericInfo = NetlogonGenericInfo(identity = identity, packageName = packageName, dataLength = dataLength, logonDataCtorArg = logonData)
+    public fun copy(identity: NetlogonLogonIdentityInfo = this.identity, packageName: LsaUnicodeString = this.packageName, dataLength: UInt = this.dataLength, logonData: MutPtr = this.logonData): NetlogonGenericInfo = NetlogonGenericInfo(identity = identity, packageName = packageName, dataLength = dataLength, logonDataCtorArg = logonData)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -4900,7 +4896,7 @@ public class NetlogonGenericInfo internal constructor(
             identity: NetlogonLogonIdentityInfo = NetlogonLogonIdentityInfo(),
             packageName: LsaUnicodeString = LsaUnicodeString(),
             dataLength: UInt = 0u,
-            logonData: MutPtr<UByte> = MutPtr(0L),
+            logonData: MutPtr = MutPtr(0L),
         ): NetlogonGenericInfo =
             NetlogonGenericInfo(
                 identity = identity,
@@ -4944,9 +4940,9 @@ public class Pku2uCertificateS4uLogon internal constructor(
     public var userPrincipalName: LsaUnicodeString,
     public var domainName: LsaUnicodeString,
     public var certificateLength: UInt,
-    certificateCtorArg: MutPtr<UByte>,
+    certificateCtorArg: MutPtr,
 ) {
-    public var certificate: MutPtr<UByte> = certificateCtorArg
+    public var certificate: MutPtr = certificateCtorArg
         internal set
 
     public constructor() : this(
@@ -4968,9 +4964,9 @@ public class Pku2uCertificateS4uLogon internal constructor(
 
     public operator fun component5(): UInt = this.certificateLength
 
-    public operator fun component6(): MutPtr<UByte> = this.certificate
+    public operator fun component6(): MutPtr = this.certificate
 
-    public fun copy(messageType: Pku2uLogonSubmitType = this.messageType, flags: UInt = this.flags, userPrincipalName: LsaUnicodeString = this.userPrincipalName, domainName: LsaUnicodeString = this.domainName, certificateLength: UInt = this.certificateLength, certificate: MutPtr<UByte> = this.certificate): Pku2uCertificateS4uLogon = Pku2uCertificateS4uLogon(messageType = messageType, flags = flags, userPrincipalName = userPrincipalName, domainName = domainName, certificateLength = certificateLength, certificateCtorArg = certificate)
+    public fun copy(messageType: Pku2uLogonSubmitType = this.messageType, flags: UInt = this.flags, userPrincipalName: LsaUnicodeString = this.userPrincipalName, domainName: LsaUnicodeString = this.domainName, certificateLength: UInt = this.certificateLength, certificate: MutPtr = this.certificate): Pku2uCertificateS4uLogon = Pku2uCertificateS4uLogon(messageType = messageType, flags = flags, userPrincipalName = userPrincipalName, domainName = domainName, certificateLength = certificateLength, certificateCtorArg = certificate)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -5001,7 +4997,7 @@ public class Pku2uCertificateS4uLogon internal constructor(
             userPrincipalName: LsaUnicodeString = LsaUnicodeString(),
             domainName: LsaUnicodeString = LsaUnicodeString(),
             certificateLength: UInt = 0u,
-            certificate: MutPtr<UByte> = MutPtr(0L),
+            certificate: MutPtr = MutPtr(0L),
         ): Pku2uCertificateS4uLogon =
             Pku2uCertificateS4uLogon(
                 messageType = messageType,
@@ -5113,9 +5109,9 @@ public class PolicyAccountDomainInfo internal constructor(
 
 public class PolicyAuditCategoriesInfo internal constructor(
     public var maximumCategoryCount: UInt,
-    subCategoriesInfoCtorArg: MutPtr<PolicyAuditSubcategoriesInfo>,
+    subCategoriesInfoCtorArg: MutPtr,
 ) {
-    public var subCategoriesInfo: MutPtr<PolicyAuditSubcategoriesInfo> = subCategoriesInfoCtorArg
+    public var subCategoriesInfo: MutPtr = subCategoriesInfoCtorArg
         internal set
 
     public constructor() : this(
@@ -5125,9 +5121,9 @@ public class PolicyAuditCategoriesInfo internal constructor(
 
     public operator fun component1(): UInt = this.maximumCategoryCount
 
-    public operator fun component2(): MutPtr<PolicyAuditSubcategoriesInfo> = this.subCategoriesInfo
+    public operator fun component2(): MutPtr = this.subCategoriesInfo
 
-    public fun copy(maximumCategoryCount: UInt = this.maximumCategoryCount, subCategoriesInfo: MutPtr<PolicyAuditSubcategoriesInfo> = this.subCategoriesInfo): PolicyAuditCategoriesInfo = PolicyAuditCategoriesInfo(maximumCategoryCount = maximumCategoryCount, subCategoriesInfoCtorArg = subCategoriesInfo)
+    public fun copy(maximumCategoryCount: UInt = this.maximumCategoryCount, subCategoriesInfo: MutPtr = this.subCategoriesInfo): PolicyAuditCategoriesInfo = PolicyAuditCategoriesInfo(maximumCategoryCount = maximumCategoryCount, subCategoriesInfoCtorArg = subCategoriesInfo)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -5153,21 +5149,21 @@ public class PolicyAuditCategoriesInfo internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<PolicyAuditSubcategoriesInfo>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                     )
                 override fun writeNative(addr: Long, value: PolicyAuditCategoriesInfo) {
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr, value.maximumCategoryCount)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<PolicyAuditSubcategoriesInfo>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.subCategoriesInfo)
                 }
             }
 
         public operator fun invoke(
             maximumCategoryCount: UInt = 0u,
-            subCategoriesInfo: MutPtr<PolicyAuditSubcategoriesInfo> = MutPtr(0L),
+            subCategoriesInfo: MutPtr = MutPtr(0L),
         ): PolicyAuditCategoriesInfo =
             PolicyAuditCategoriesInfo(
                 maximumCategoryCount = maximumCategoryCount,
@@ -5178,10 +5174,10 @@ public class PolicyAuditCategoriesInfo internal constructor(
 
 public class PolicyAuditEventsInfo internal constructor(
     public var auditingMode: Boolean,
-    eventAuditingOptionsCtorArg: MutPtr<UInt>,
+    eventAuditingOptionsCtorArg: MutPtr,
     public var maximumAuditEventCount: UInt,
 ) {
-    public var eventAuditingOptions: MutPtr<UInt> = eventAuditingOptionsCtorArg
+    public var eventAuditingOptions: MutPtr = eventAuditingOptionsCtorArg
         internal set
 
     public constructor() : this(
@@ -5192,11 +5188,11 @@ public class PolicyAuditEventsInfo internal constructor(
 
     public operator fun component1(): Boolean = this.auditingMode
 
-    public operator fun component2(): MutPtr<UInt> = this.eventAuditingOptions
+    public operator fun component2(): MutPtr = this.eventAuditingOptions
 
     public operator fun component3(): UInt = this.maximumAuditEventCount
 
-    public fun copy(auditingMode: Boolean = this.auditingMode, eventAuditingOptions: MutPtr<UInt> = this.eventAuditingOptions, maximumAuditEventCount: UInt = this.maximumAuditEventCount): PolicyAuditEventsInfo = PolicyAuditEventsInfo(auditingMode = auditingMode, eventAuditingOptionsCtorArg = eventAuditingOptions, maximumAuditEventCount = maximumAuditEventCount)
+    public fun copy(auditingMode: Boolean = this.auditingMode, eventAuditingOptions: MutPtr = this.eventAuditingOptions, maximumAuditEventCount: UInt = this.maximumAuditEventCount): PolicyAuditEventsInfo = PolicyAuditEventsInfo(auditingMode = auditingMode, eventAuditingOptionsCtorArg = eventAuditingOptions, maximumAuditEventCount = maximumAuditEventCount)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -5224,7 +5220,7 @@ public class PolicyAuditEventsInfo internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.BOOL).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<UInt>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 16L),
                     )
@@ -5232,7 +5228,7 @@ public class PolicyAuditEventsInfo internal constructor(
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.BOOL).writeNative(addr, value.auditingMode)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<UInt>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.eventAuditingOptions)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 16L, value.maximumAuditEventCount)
                 }
@@ -5240,7 +5236,7 @@ public class PolicyAuditEventsInfo internal constructor(
 
         public operator fun invoke(
             auditingMode: Boolean = false,
-            eventAuditingOptions: MutPtr<UInt> = MutPtr(0L),
+            eventAuditingOptions: MutPtr = MutPtr(0L),
             maximumAuditEventCount: UInt = 0u,
         ): PolicyAuditEventsInfo =
             PolicyAuditEventsInfo(
@@ -5328,9 +5324,9 @@ public data class PolicyAuditLogInfo(
 
 public class PolicyAuditSidArray internal constructor(
     public var usersCount: UInt,
-    userSidArrayCtorArg: MutPtr<Psid>,
+    userSidArrayCtorArg: MutPtr,
 ) {
-    public var userSidArray: MutPtr<Psid> = userSidArrayCtorArg
+    public var userSidArray: MutPtr = userSidArrayCtorArg
         internal set
 
     public constructor() : this(
@@ -5340,9 +5336,9 @@ public class PolicyAuditSidArray internal constructor(
 
     public operator fun component1(): UInt = this.usersCount
 
-    public operator fun component2(): MutPtr<Psid> = this.userSidArray
+    public operator fun component2(): MutPtr = this.userSidArray
 
-    public fun copy(usersCount: UInt = this.usersCount, userSidArray: MutPtr<Psid> = this.userSidArray): PolicyAuditSidArray = PolicyAuditSidArray(usersCount = usersCount, userSidArrayCtorArg = userSidArray)
+    public fun copy(usersCount: UInt = this.usersCount, userSidArray: MutPtr = this.userSidArray): PolicyAuditSidArray = PolicyAuditSidArray(usersCount = usersCount, userSidArrayCtorArg = userSidArray)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -5368,21 +5364,21 @@ public class PolicyAuditSidArray internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<Psid>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                     )
                 override fun writeNative(addr: Long, value: PolicyAuditSidArray) {
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr, value.usersCount)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<Psid>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.userSidArray)
                 }
             }
 
         public operator fun invoke(
             usersCount: UInt = 0u,
-            userSidArray: MutPtr<Psid> = MutPtr(0L),
+            userSidArray: MutPtr = MutPtr(0L),
         ): PolicyAuditSidArray =
             PolicyAuditSidArray(
                 usersCount = usersCount,
@@ -5393,9 +5389,9 @@ public class PolicyAuditSidArray internal constructor(
 
 public class PolicyAuditSubcategoriesInfo internal constructor(
     public var maximumSubCategoryCount: UInt,
-    eventAuditingOptionsCtorArg: MutPtr<UInt>,
+    eventAuditingOptionsCtorArg: MutPtr,
 ) {
-    public var eventAuditingOptions: MutPtr<UInt> = eventAuditingOptionsCtorArg
+    public var eventAuditingOptions: MutPtr = eventAuditingOptionsCtorArg
         internal set
 
     public constructor() : this(
@@ -5405,9 +5401,9 @@ public class PolicyAuditSubcategoriesInfo internal constructor(
 
     public operator fun component1(): UInt = this.maximumSubCategoryCount
 
-    public operator fun component2(): MutPtr<UInt> = this.eventAuditingOptions
+    public operator fun component2(): MutPtr = this.eventAuditingOptions
 
-    public fun copy(maximumSubCategoryCount: UInt = this.maximumSubCategoryCount, eventAuditingOptions: MutPtr<UInt> = this.eventAuditingOptions): PolicyAuditSubcategoriesInfo = PolicyAuditSubcategoriesInfo(maximumSubCategoryCount = maximumSubCategoryCount, eventAuditingOptionsCtorArg = eventAuditingOptions)
+    public fun copy(maximumSubCategoryCount: UInt = this.maximumSubCategoryCount, eventAuditingOptions: MutPtr = this.eventAuditingOptions): PolicyAuditSubcategoriesInfo = PolicyAuditSubcategoriesInfo(maximumSubCategoryCount = maximumSubCategoryCount, eventAuditingOptionsCtorArg = eventAuditingOptions)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -5433,21 +5429,21 @@ public class PolicyAuditSubcategoriesInfo internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<UInt>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                     )
                 override fun writeNative(addr: Long, value: PolicyAuditSubcategoriesInfo) {
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr, value.maximumSubCategoryCount)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<UInt>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.eventAuditingOptions)
                 }
             }
 
         public operator fun invoke(
             maximumSubCategoryCount: UInt = 0u,
-            eventAuditingOptions: MutPtr<UInt> = MutPtr(0L),
+            eventAuditingOptions: MutPtr = MutPtr(0L),
         ): PolicyAuditSubcategoriesInfo =
             PolicyAuditSubcategoriesInfo(
                 maximumSubCategoryCount = maximumSubCategoryCount,
@@ -5530,9 +5526,9 @@ public class PolicyDnsDomainInfo internal constructor(
 
 public class PolicyDomainEfsInfo internal constructor(
     public var infoLength: UInt,
-    efsBlobCtorArg: MutPtr<UByte>,
+    efsBlobCtorArg: MutPtr,
 ) {
-    public var efsBlob: MutPtr<UByte> = efsBlobCtorArg
+    public var efsBlob: MutPtr = efsBlobCtorArg
         internal set
 
     public constructor() : this(
@@ -5542,9 +5538,9 @@ public class PolicyDomainEfsInfo internal constructor(
 
     public operator fun component1(): UInt = this.infoLength
 
-    public operator fun component2(): MutPtr<UByte> = this.efsBlob
+    public operator fun component2(): MutPtr = this.efsBlob
 
-    public fun copy(infoLength: UInt = this.infoLength, efsBlob: MutPtr<UByte> = this.efsBlob): PolicyDomainEfsInfo = PolicyDomainEfsInfo(infoLength = infoLength, efsBlobCtorArg = efsBlob)
+    public fun copy(infoLength: UInt = this.infoLength, efsBlob: MutPtr = this.efsBlob): PolicyDomainEfsInfo = PolicyDomainEfsInfo(infoLength = infoLength, efsBlobCtorArg = efsBlob)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -5570,21 +5566,21 @@ public class PolicyDomainEfsInfo internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<UByte>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                     )
                 override fun writeNative(addr: Long, value: PolicyDomainEfsInfo) {
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr, value.infoLength)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<UByte>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.efsBlob)
                 }
             }
 
         public operator fun invoke(
             infoLength: UInt = 0u,
-            efsBlob: MutPtr<UByte> = MutPtr(0L),
+            efsBlob: MutPtr = MutPtr(0L),
         ): PolicyDomainEfsInfo =
             PolicyDomainEfsInfo(
                 infoLength = infoLength,
@@ -5921,9 +5917,9 @@ public class SamRegisterMappingElement internal constructor(
 
 public class SamRegisterMappingList internal constructor(
     public var count: UInt,
-    elementsCtorArg: MutPtr<SamRegisterMappingElement>,
+    elementsCtorArg: MutPtr,
 ) {
-    public var elements: MutPtr<SamRegisterMappingElement> = elementsCtorArg
+    public var elements: MutPtr = elementsCtorArg
         internal set
 
     public constructor() : this(
@@ -5933,9 +5929,9 @@ public class SamRegisterMappingList internal constructor(
 
     public operator fun component1(): UInt = this.count
 
-    public operator fun component2(): MutPtr<SamRegisterMappingElement> = this.elements
+    public operator fun component2(): MutPtr = this.elements
 
-    public fun copy(count: UInt = this.count, elements: MutPtr<SamRegisterMappingElement> = this.elements): SamRegisterMappingList = SamRegisterMappingList(count = count, elementsCtorArg = elements)
+    public fun copy(count: UInt = this.count, elements: MutPtr = this.elements): SamRegisterMappingList = SamRegisterMappingList(count = count, elementsCtorArg = elements)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -5961,21 +5957,21 @@ public class SamRegisterMappingList internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<SamRegisterMappingElement>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                     )
                 override fun writeNative(addr: Long, value: SamRegisterMappingList) {
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr, value.count)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<SamRegisterMappingElement>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.elements)
                 }
             }
 
         public operator fun invoke(
             count: UInt = 0u,
-            elements: MutPtr<SamRegisterMappingElement> = MutPtr(0L),
+            elements: MutPtr = MutPtr(0L),
         ): SamRegisterMappingList =
             SamRegisterMappingList(
                 count = count,
@@ -5986,9 +5982,9 @@ public class SamRegisterMappingList internal constructor(
 
 public class SamRegisterMappingTable internal constructor(
     public var count: UInt,
-    listsCtorArg: MutPtr<SamRegisterMappingList>,
+    listsCtorArg: MutPtr,
 ) {
-    public var lists: MutPtr<SamRegisterMappingList> = listsCtorArg
+    public var lists: MutPtr = listsCtorArg
         internal set
 
     public constructor() : this(
@@ -5998,9 +5994,9 @@ public class SamRegisterMappingTable internal constructor(
 
     public operator fun component1(): UInt = this.count
 
-    public operator fun component2(): MutPtr<SamRegisterMappingList> = this.lists
+    public operator fun component2(): MutPtr = this.lists
 
-    public fun copy(count: UInt = this.count, lists: MutPtr<SamRegisterMappingList> = this.lists): SamRegisterMappingTable = SamRegisterMappingTable(count = count, listsCtorArg = lists)
+    public fun copy(count: UInt = this.count, lists: MutPtr = this.lists): SamRegisterMappingTable = SamRegisterMappingTable(count = count, listsCtorArg = lists)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -6026,21 +6022,21 @@ public class SamRegisterMappingTable internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<SamRegisterMappingList>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                     )
                 override fun writeNative(addr: Long, value: SamRegisterMappingTable) {
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr, value.count)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<SamRegisterMappingList>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.lists)
                 }
             }
 
         public operator fun invoke(
             count: UInt = 0u,
-            lists: MutPtr<SamRegisterMappingList> = MutPtr(0L),
+            lists: MutPtr = MutPtr(0L),
         ): SamRegisterMappingTable =
             SamRegisterMappingTable(
                 count = count,
@@ -6255,12 +6251,12 @@ public data class SchannelClientSignature(
 public class SchannelCred internal constructor(
     public var dwVersion: UInt,
     public var cCreds: UInt,
-    paCredCtorArg: MutPtr<MutPtr<CertContext>>,
+    paCredCtorArg: MutPtr,
     hRootStoreCtorArg: Hcertstore,
     public var cMappers: UInt,
-    aphMappersCtorArg: MutPtr<MutPtr<Hmapper>>,
+    aphMappersCtorArg: MutPtr,
     public var cSupportedAlgs: UInt,
-    palgSupportedAlgsCtorArg: MutPtr<AlgId>,
+    palgSupportedAlgsCtorArg: MutPtr,
     public var grbitEnabledProtocols: UInt,
     public var dwMinimumCipherStrength: UInt,
     public var dwMaximumCipherStrength: UInt,
@@ -6268,16 +6264,16 @@ public class SchannelCred internal constructor(
     public var dwFlags: SchannelCredFlags,
     public var dwCredFormat: UInt,
 ) {
-    public var paCred: MutPtr<MutPtr<CertContext>> = paCredCtorArg
+    public var paCred: MutPtr = paCredCtorArg
         internal set
 
     public var hRootStore: Hcertstore = hRootStoreCtorArg
         internal set
 
-    public var aphMappers: MutPtr<MutPtr<Hmapper>> = aphMappersCtorArg
+    public var aphMappers: MutPtr = aphMappersCtorArg
         internal set
 
-    public var palgSupportedAlgs: MutPtr<AlgId> = palgSupportedAlgsCtorArg
+    public var palgSupportedAlgs: MutPtr = palgSupportedAlgsCtorArg
         internal set
 
     public constructor() : this(
@@ -6301,17 +6297,17 @@ public class SchannelCred internal constructor(
 
     public operator fun component2(): UInt = this.cCreds
 
-    public operator fun component3(): MutPtr<MutPtr<CertContext>> = this.paCred
+    public operator fun component3(): MutPtr = this.paCred
 
     public operator fun component4(): Hcertstore = this.hRootStore
 
     public operator fun component5(): UInt = this.cMappers
 
-    public operator fun component6(): MutPtr<MutPtr<Hmapper>> = this.aphMappers
+    public operator fun component6(): MutPtr = this.aphMappers
 
     public operator fun component7(): UInt = this.cSupportedAlgs
 
-    public operator fun component8(): MutPtr<AlgId> = this.palgSupportedAlgs
+    public operator fun component8(): MutPtr = this.palgSupportedAlgs
 
     public operator fun component9(): UInt = this.grbitEnabledProtocols
 
@@ -6325,7 +6321,7 @@ public class SchannelCred internal constructor(
 
     public operator fun component14(): UInt = this.dwCredFormat
 
-    public fun copy(dwVersion: UInt = this.dwVersion, cCreds: UInt = this.cCreds, paCred: MutPtr<MutPtr<CertContext>> = this.paCred, hRootStore: Hcertstore = this.hRootStore, cMappers: UInt = this.cMappers, aphMappers: MutPtr<MutPtr<Hmapper>> = this.aphMappers, cSupportedAlgs: UInt = this.cSupportedAlgs, palgSupportedAlgs: MutPtr<AlgId> = this.palgSupportedAlgs, grbitEnabledProtocols: UInt = this.grbitEnabledProtocols, dwMinimumCipherStrength: UInt = this.dwMinimumCipherStrength, dwMaximumCipherStrength: UInt = this.dwMaximumCipherStrength, dwSessionLifespan: UInt = this.dwSessionLifespan, dwFlags: SchannelCredFlags = this.dwFlags, dwCredFormat: UInt = this.dwCredFormat): SchannelCred = SchannelCred(dwVersion = dwVersion, cCreds = cCreds, paCredCtorArg = paCred, hRootStoreCtorArg = hRootStore, cMappers = cMappers, aphMappersCtorArg = aphMappers, cSupportedAlgs = cSupportedAlgs, palgSupportedAlgsCtorArg = palgSupportedAlgs, grbitEnabledProtocols = grbitEnabledProtocols, dwMinimumCipherStrength = dwMinimumCipherStrength, dwMaximumCipherStrength = dwMaximumCipherStrength, dwSessionLifespan = dwSessionLifespan, dwFlags = dwFlags, dwCredFormat = dwCredFormat)
+    public fun copy(dwVersion: UInt = this.dwVersion, cCreds: UInt = this.cCreds, paCred: MutPtr = this.paCred, hRootStore: Hcertstore = this.hRootStore, cMappers: UInt = this.cMappers, aphMappers: MutPtr = this.aphMappers, cSupportedAlgs: UInt = this.cSupportedAlgs, palgSupportedAlgs: MutPtr = this.palgSupportedAlgs, grbitEnabledProtocols: UInt = this.grbitEnabledProtocols, dwMinimumCipherStrength: UInt = this.dwMinimumCipherStrength, dwMaximumCipherStrength: UInt = this.dwMaximumCipherStrength, dwSessionLifespan: UInt = this.dwSessionLifespan, dwFlags: SchannelCredFlags = this.dwFlags, dwCredFormat: UInt = this.dwCredFormat): SchannelCred = SchannelCred(dwVersion = dwVersion, cCreds = cCreds, paCredCtorArg = paCred, hRootStoreCtorArg = hRootStore, cMappers = cMappers, aphMappersCtorArg = aphMappers, cSupportedAlgs = cSupportedAlgs, palgSupportedAlgsCtorArg = palgSupportedAlgs, grbitEnabledProtocols = grbitEnabledProtocols, dwMinimumCipherStrength = dwMinimumCipherStrength, dwMaximumCipherStrength = dwMaximumCipherStrength, dwSessionLifespan = dwSessionLifespan, dwFlags = dwFlags, dwCredFormat = dwCredFormat)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -6369,12 +6365,12 @@ public class SchannelCred internal constructor(
         public operator fun invoke(
             dwVersion: UInt = 0u,
             cCreds: UInt = 0u,
-            paCred: MutPtr<MutPtr<CertContext>> = MutPtr(0L),
+            paCred: MutPtr = MutPtr(0L),
             hRootStore: Hcertstore = MutPtr(0L),
             cMappers: UInt = 0u,
-            aphMappers: MutPtr<MutPtr<Hmapper>> = MutPtr(0L),
+            aphMappers: MutPtr = MutPtr(0L),
             cSupportedAlgs: UInt = 0u,
-            palgSupportedAlgs: MutPtr<AlgId> = MutPtr(0L),
+            palgSupportedAlgs: MutPtr = MutPtr(0L),
             grbitEnabledProtocols: UInt = 0u,
             dwMinimumCipherStrength: UInt = 0u,
             dwMaximumCipherStrength: UInt = 0u,
@@ -6426,18 +6422,18 @@ public data class SchannelSessionToken(
 public class SchCred internal constructor(
     public var dwVersion: UInt,
     public var cCreds: UInt,
-    paSecretCtorArg: MutPtr<MutPtr<CVoid>>,
-    paPublicCtorArg: MutPtr<MutPtr<CVoid>>,
+    paSecretCtorArg: MutPtr,
+    paPublicCtorArg: MutPtr,
     public var cMappers: UInt,
-    aphMappersCtorArg: MutPtr<MutPtr<Hmapper>>,
+    aphMappersCtorArg: MutPtr,
 ) {
-    public var paSecret: MutPtr<MutPtr<CVoid>> = paSecretCtorArg
+    public var paSecret: MutPtr = paSecretCtorArg
         internal set
 
-    public var paPublic: MutPtr<MutPtr<CVoid>> = paPublicCtorArg
+    public var paPublic: MutPtr = paPublicCtorArg
         internal set
 
-    public var aphMappers: MutPtr<MutPtr<Hmapper>> = aphMappersCtorArg
+    public var aphMappers: MutPtr = aphMappersCtorArg
         internal set
 
     public constructor() : this(
@@ -6453,15 +6449,15 @@ public class SchCred internal constructor(
 
     public operator fun component2(): UInt = this.cCreds
 
-    public operator fun component3(): MutPtr<MutPtr<CVoid>> = this.paSecret
+    public operator fun component3(): MutPtr = this.paSecret
 
-    public operator fun component4(): MutPtr<MutPtr<CVoid>> = this.paPublic
+    public operator fun component4(): MutPtr = this.paPublic
 
     public operator fun component5(): UInt = this.cMappers
 
-    public operator fun component6(): MutPtr<MutPtr<Hmapper>> = this.aphMappers
+    public operator fun component6(): MutPtr = this.aphMappers
 
-    public fun copy(dwVersion: UInt = this.dwVersion, cCreds: UInt = this.cCreds, paSecret: MutPtr<MutPtr<CVoid>> = this.paSecret, paPublic: MutPtr<MutPtr<CVoid>> = this.paPublic, cMappers: UInt = this.cMappers, aphMappers: MutPtr<MutPtr<Hmapper>> = this.aphMappers): SchCred = SchCred(dwVersion = dwVersion, cCreds = cCreds, paSecretCtorArg = paSecret, paPublicCtorArg = paPublic, cMappers = cMappers, aphMappersCtorArg = aphMappers)
+    public fun copy(dwVersion: UInt = this.dwVersion, cCreds: UInt = this.cCreds, paSecret: MutPtr = this.paSecret, paPublic: MutPtr = this.paPublic, cMappers: UInt = this.cMappers, aphMappers: MutPtr = this.aphMappers): SchCred = SchCred(dwVersion = dwVersion, cCreds = cCreds, paSecretCtorArg = paSecret, paPublicCtorArg = paPublic, cMappers = cMappers, aphMappersCtorArg = aphMappers)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -6496,16 +6492,16 @@ public class SchCred internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 4L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<MutPtr<CVoid>>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<MutPtr<CVoid>>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 16L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 24L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<MutPtr<Hmapper>>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 32L),
                     )
                 override fun writeNative(addr: Long, value: SchCred) {
@@ -6513,16 +6509,16 @@ public class SchCred internal constructor(
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 4L, value.cCreds)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<MutPtr<CVoid>>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.paSecret)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<MutPtr<CVoid>>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 16L, value.paPublic)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 24L, value.cMappers)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<MutPtr<Hmapper>>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 32L, value.aphMappers)
                 }
             }
@@ -6530,10 +6526,10 @@ public class SchCred internal constructor(
         public operator fun invoke(
             dwVersion: UInt = 0u,
             cCreds: UInt = 0u,
-            paSecret: MutPtr<MutPtr<CVoid>> = MutPtr(0L),
-            paPublic: MutPtr<MutPtr<CVoid>> = MutPtr(0L),
+            paSecret: MutPtr = MutPtr(0L),
+            paPublic: MutPtr = MutPtr(0L),
             cMappers: UInt = 0u,
-            aphMappers: MutPtr<MutPtr<Hmapper>> = MutPtr(0L),
+            aphMappers: MutPtr = MutPtr(0L),
         ): SchCred =
             SchCred(
                 dwVersion = dwVersion,
@@ -6550,25 +6546,25 @@ public class SchCredentials internal constructor(
     public var dwVersion: UInt,
     public var dwCredFormat: UInt,
     public var cCreds: UInt,
-    paCredCtorArg: MutPtr<MutPtr<CertContext>>,
+    paCredCtorArg: MutPtr,
     hRootStoreCtorArg: Hcertstore,
     public var cMappers: UInt,
-    aphMappersCtorArg: MutPtr<MutPtr<Hmapper>>,
+    aphMappersCtorArg: MutPtr,
     public var dwSessionLifespan: UInt,
     public var dwFlags: UInt,
     public var cTlsParameters: UInt,
-    pTlsParametersCtorArg: MutPtr<TlsParameters>,
+    pTlsParametersCtorArg: MutPtr,
 ) {
-    public var paCred: MutPtr<MutPtr<CertContext>> = paCredCtorArg
+    public var paCred: MutPtr = paCredCtorArg
         internal set
 
     public var hRootStore: Hcertstore = hRootStoreCtorArg
         internal set
 
-    public var aphMappers: MutPtr<MutPtr<Hmapper>> = aphMappersCtorArg
+    public var aphMappers: MutPtr = aphMappersCtorArg
         internal set
 
-    public var pTlsParameters: MutPtr<TlsParameters> = pTlsParametersCtorArg
+    public var pTlsParameters: MutPtr = pTlsParametersCtorArg
         internal set
 
     public constructor() : this(
@@ -6591,13 +6587,13 @@ public class SchCredentials internal constructor(
 
     public operator fun component3(): UInt = this.cCreds
 
-    public operator fun component4(): MutPtr<MutPtr<CertContext>> = this.paCred
+    public operator fun component4(): MutPtr = this.paCred
 
     public operator fun component5(): Hcertstore = this.hRootStore
 
     public operator fun component6(): UInt = this.cMappers
 
-    public operator fun component7(): MutPtr<MutPtr<Hmapper>> = this.aphMappers
+    public operator fun component7(): MutPtr = this.aphMappers
 
     public operator fun component8(): UInt = this.dwSessionLifespan
 
@@ -6605,9 +6601,9 @@ public class SchCredentials internal constructor(
 
     public operator fun component10(): UInt = this.cTlsParameters
 
-    public operator fun component11(): MutPtr<TlsParameters> = this.pTlsParameters
+    public operator fun component11(): MutPtr = this.pTlsParameters
 
-    public fun copy(dwVersion: UInt = this.dwVersion, dwCredFormat: UInt = this.dwCredFormat, cCreds: UInt = this.cCreds, paCred: MutPtr<MutPtr<CertContext>> = this.paCred, hRootStore: Hcertstore = this.hRootStore, cMappers: UInt = this.cMappers, aphMappers: MutPtr<MutPtr<Hmapper>> = this.aphMappers, dwSessionLifespan: UInt = this.dwSessionLifespan, dwFlags: UInt = this.dwFlags, cTlsParameters: UInt = this.cTlsParameters, pTlsParameters: MutPtr<TlsParameters> = this.pTlsParameters): SchCredentials = SchCredentials(dwVersion = dwVersion, dwCredFormat = dwCredFormat, cCreds = cCreds, paCredCtorArg = paCred, hRootStoreCtorArg = hRootStore, cMappers = cMappers, aphMappersCtorArg = aphMappers, dwSessionLifespan = dwSessionLifespan, dwFlags = dwFlags, cTlsParameters = cTlsParameters, pTlsParametersCtorArg = pTlsParameters)
+    public fun copy(dwVersion: UInt = this.dwVersion, dwCredFormat: UInt = this.dwCredFormat, cCreds: UInt = this.cCreds, paCred: MutPtr = this.paCred, hRootStore: Hcertstore = this.hRootStore, cMappers: UInt = this.cMappers, aphMappers: MutPtr = this.aphMappers, dwSessionLifespan: UInt = this.dwSessionLifespan, dwFlags: UInt = this.dwFlags, cTlsParameters: UInt = this.cTlsParameters, pTlsParameters: MutPtr = this.pTlsParameters): SchCredentials = SchCredentials(dwVersion = dwVersion, dwCredFormat = dwCredFormat, cCreds = cCreds, paCredCtorArg = paCred, hRootStoreCtorArg = hRootStore, cMappers = cMappers, aphMappersCtorArg = aphMappers, dwSessionLifespan = dwSessionLifespan, dwFlags = dwFlags, cTlsParameters = cTlsParameters, pTlsParametersCtorArg = pTlsParameters)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -6646,14 +6642,14 @@ public class SchCredentials internal constructor(
             dwVersion: UInt = 0u,
             dwCredFormat: UInt = 0u,
             cCreds: UInt = 0u,
-            paCred: MutPtr<MutPtr<CertContext>> = MutPtr(0L),
+            paCred: MutPtr = MutPtr(0L),
             hRootStore: Hcertstore = MutPtr(0L),
             cMappers: UInt = 0u,
-            aphMappers: MutPtr<MutPtr<Hmapper>> = MutPtr(0L),
+            aphMappers: MutPtr = MutPtr(0L),
             dwSessionLifespan: UInt = 0u,
             dwFlags: UInt = 0u,
             cTlsParameters: UInt = 0u,
-            pTlsParameters: MutPtr<TlsParameters> = MutPtr(0L),
+            pTlsParameters: MutPtr = MutPtr(0L),
         ): SchCredentials =
             SchCredentials(
                 dwVersion = dwVersion,
@@ -6674,9 +6670,9 @@ public class SchCredentials internal constructor(
 public class SchCredPublicCertchain internal constructor(
     public var dwType: UInt,
     public var cbCertChain: UInt,
-    pCertChainCtorArg: MutPtr<UByte>,
+    pCertChainCtorArg: MutPtr,
 ) {
-    public var pCertChain: MutPtr<UByte> = pCertChainCtorArg
+    public var pCertChain: MutPtr = pCertChainCtorArg
         internal set
 
     public constructor() : this(
@@ -6689,9 +6685,9 @@ public class SchCredPublicCertchain internal constructor(
 
     public operator fun component2(): UInt = this.cbCertChain
 
-    public operator fun component3(): MutPtr<UByte> = this.pCertChain
+    public operator fun component3(): MutPtr = this.pCertChain
 
-    public fun copy(dwType: UInt = this.dwType, cbCertChain: UInt = this.cbCertChain, pCertChain: MutPtr<UByte> = this.pCertChain): SchCredPublicCertchain = SchCredPublicCertchain(dwType = dwType, cbCertChain = cbCertChain, pCertChainCtorArg = pCertChain)
+    public fun copy(dwType: UInt = this.dwType, cbCertChain: UInt = this.cbCertChain, pCertChain: MutPtr = this.pCertChain): SchCredPublicCertchain = SchCredPublicCertchain(dwType = dwType, cbCertChain = cbCertChain, pCertChainCtorArg = pCertChain)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -6720,7 +6716,7 @@ public class SchCredPublicCertchain internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 4L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<UByte>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                     )
                 override fun writeNative(addr: Long, value: SchCredPublicCertchain) {
@@ -6728,7 +6724,7 @@ public class SchCredPublicCertchain internal constructor(
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 4L, value.cbCertChain)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<UByte>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.pCertChain)
                 }
             }
@@ -6736,7 +6732,7 @@ public class SchCredPublicCertchain internal constructor(
         public operator fun invoke(
             dwType: UInt = 0u,
             cbCertChain: UInt = 0u,
-            pCertChain: MutPtr<UByte> = MutPtr(0L),
+            pCertChain: MutPtr = MutPtr(0L),
         ): SchCredPublicCertchain =
             SchCredPublicCertchain(
                 dwType = dwType,
@@ -6770,11 +6766,11 @@ public data class SchCredSecretCapi(
 
 public class SchCredSecretPrivkey internal constructor(
     public var dwType: UInt,
-    pPrivateKeyCtorArg: MutPtr<UByte>,
+    pPrivateKeyCtorArg: MutPtr,
     public var cbPrivateKey: UInt,
     pszPasswordCtorArg: Pstr,
 ) {
-    public var pPrivateKey: MutPtr<UByte> = pPrivateKeyCtorArg
+    public var pPrivateKey: MutPtr = pPrivateKeyCtorArg
         internal set
 
     public var pszPassword: Pstr = pszPasswordCtorArg
@@ -6789,13 +6785,13 @@ public class SchCredSecretPrivkey internal constructor(
 
     public operator fun component1(): UInt = this.dwType
 
-    public operator fun component2(): MutPtr<UByte> = this.pPrivateKey
+    public operator fun component2(): MutPtr = this.pPrivateKey
 
     public operator fun component3(): UInt = this.cbPrivateKey
 
     public operator fun component4(): Pstr = this.pszPassword
 
-    public fun copy(dwType: UInt = this.dwType, pPrivateKey: MutPtr<UByte> = this.pPrivateKey, cbPrivateKey: UInt = this.cbPrivateKey, pszPassword: Pstr = this.pszPassword): SchCredSecretPrivkey = SchCredSecretPrivkey(dwType = dwType, pPrivateKeyCtorArg = pPrivateKey, cbPrivateKey = cbPrivateKey, pszPasswordCtorArg = pszPassword)
+    public fun copy(dwType: UInt = this.dwType, pPrivateKey: MutPtr = this.pPrivateKey, cbPrivateKey: UInt = this.cbPrivateKey, pszPassword: Pstr = this.pszPassword): SchCredSecretPrivkey = SchCredSecretPrivkey(dwType = dwType, pPrivateKeyCtorArg = pPrivateKey, cbPrivateKey = cbPrivateKey, pszPasswordCtorArg = pszPassword)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -6818,7 +6814,7 @@ public class SchCredSecretPrivkey internal constructor(
     public companion object {
         public operator fun invoke(
             dwType: UInt = 0u,
-            pPrivateKey: MutPtr<UByte> = MutPtr(0L),
+            pPrivateKey: MutPtr = MutPtr(0L),
             cbPrivateKey: UInt = 0u,
             pszPassword: Pstr = MutPtr(0L),
         ): SchCredSecretPrivkey =
@@ -6833,10 +6829,10 @@ public class SchCredSecretPrivkey internal constructor(
 
 public class SchExtensionData internal constructor(
     public var extensionType: UShort,
-    pExtDataCtorArg: ConstPtr<UByte>,
+    pExtDataCtorArg: ConstPtr,
     public var cbExtData: UInt,
 ) {
-    public var pExtData: ConstPtr<UByte> = pExtDataCtorArg
+    public var pExtData: ConstPtr = pExtDataCtorArg
         internal set
 
     public constructor() : this(
@@ -6847,11 +6843,11 @@ public class SchExtensionData internal constructor(
 
     public operator fun component1(): UShort = this.extensionType
 
-    public operator fun component2(): ConstPtr<UByte> = this.pExtData
+    public operator fun component2(): ConstPtr = this.pExtData
 
     public operator fun component3(): UInt = this.cbExtData
 
-    public fun copy(extensionType: UShort = this.extensionType, pExtData: ConstPtr<UByte> = this.pExtData, cbExtData: UInt = this.cbExtData): SchExtensionData = SchExtensionData(extensionType = extensionType, pExtDataCtorArg = pExtData, cbExtData = cbExtData)
+    public fun copy(extensionType: UShort = this.extensionType, pExtData: ConstPtr = this.pExtData, cbExtData: UInt = this.cbExtData): SchExtensionData = SchExtensionData(extensionType = extensionType, pExtDataCtorArg = pExtData, cbExtData = cbExtData)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -6879,7 +6875,7 @@ public class SchExtensionData internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .constPtrLayout<UByte>(64)
+                                .constPtrLayout(64)
                         ).readNative(addr + 8L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 16L),
                     )
@@ -6887,7 +6883,7 @@ public class SchExtensionData internal constructor(
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16).writeNative(addr, value.extensionType)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .constPtrLayout<UByte>(64)
+                            .constPtrLayout(64)
                     ).writeNative(addr + 8L, value.pExtData)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 16L, value.cbExtData)
                 }
@@ -6895,7 +6891,7 @@ public class SchExtensionData internal constructor(
 
         public operator fun invoke(
             extensionType: UShort = 0u,
-            pExtData: ConstPtr<UByte> = ConstPtr(0L),
+            pExtData: ConstPtr = ConstPtr(0L),
             cbExtData: UInt = 0u,
         ): SchExtensionData =
             SchExtensionData(
@@ -6964,9 +6960,9 @@ public class SecpkgCallInfo internal constructor(
     public var threadId: UInt,
     public var attributes: UInt,
     public var callCount: UInt,
-    mechOidCtorArg: MutPtr<CVoid>,
+    mechOidCtorArg: MutPtr,
 ) {
-    public var mechOid: MutPtr<CVoid> = mechOidCtorArg
+    public var mechOid: MutPtr = mechOidCtorArg
         internal set
 
     public constructor() : this(
@@ -6985,9 +6981,9 @@ public class SecpkgCallInfo internal constructor(
 
     public operator fun component4(): UInt = this.callCount
 
-    public operator fun component5(): MutPtr<CVoid> = this.mechOid
+    public operator fun component5(): MutPtr = this.mechOid
 
-    public fun copy(processId: UInt = this.processId, threadId: UInt = this.threadId, attributes: UInt = this.attributes, callCount: UInt = this.callCount, mechOid: MutPtr<CVoid> = this.mechOid): SecpkgCallInfo = SecpkgCallInfo(processId = processId, threadId = threadId, attributes = attributes, callCount = callCount, mechOidCtorArg = mechOid)
+    public fun copy(processId: UInt = this.processId, threadId: UInt = this.threadId, attributes: UInt = this.attributes, callCount: UInt = this.callCount, mechOid: MutPtr = this.mechOid): SecpkgCallInfo = SecpkgCallInfo(processId = processId, threadId = threadId, attributes = attributes, callCount = callCount, mechOidCtorArg = mechOid)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -7022,7 +7018,7 @@ public class SecpkgCallInfo internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 12L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<CVoid>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 16L),
                     )
                 override fun writeNative(addr: Long, value: SecpkgCallInfo) {
@@ -7032,7 +7028,7 @@ public class SecpkgCallInfo internal constructor(
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 12L, value.callCount)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<CVoid>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 16L, value.mechOid)
                 }
             }
@@ -7042,7 +7038,7 @@ public class SecpkgCallInfo internal constructor(
             threadId: UInt = 0u,
             attributes: UInt = 0u,
             callCount: UInt = 0u,
-            mechOid: MutPtr<CVoid> = MutPtr(0L),
+            mechOid: MutPtr = MutPtr(0L),
         ): SecpkgCallInfo =
             SecpkgCallInfo(
                 processId = processId,
@@ -7503,13 +7499,13 @@ public class SecpkgEventNotify internal constructor(
     public var eventClass: UInt,
     public var reserved: UInt,
     public var eventDataSize: UInt,
-    eventDataCtorArg: MutPtr<CVoid>,
-    packageParameterCtorArg: MutPtr<CVoid>,
+    eventDataCtorArg: MutPtr,
+    packageParameterCtorArg: MutPtr,
 ) {
-    public var eventData: MutPtr<CVoid> = eventDataCtorArg
+    public var eventData: MutPtr = eventDataCtorArg
         internal set
 
-    public var packageParameter: MutPtr<CVoid> = packageParameterCtorArg
+    public var packageParameter: MutPtr = packageParameterCtorArg
         internal set
 
     public constructor() : this(
@@ -7526,11 +7522,11 @@ public class SecpkgEventNotify internal constructor(
 
     public operator fun component3(): UInt = this.eventDataSize
 
-    public operator fun component4(): MutPtr<CVoid> = this.eventData
+    public operator fun component4(): MutPtr = this.eventData
 
-    public operator fun component5(): MutPtr<CVoid> = this.packageParameter
+    public operator fun component5(): MutPtr = this.packageParameter
 
-    public fun copy(eventClass: UInt = this.eventClass, reserved: UInt = this.reserved, eventDataSize: UInt = this.eventDataSize, eventData: MutPtr<CVoid> = this.eventData, packageParameter: MutPtr<CVoid> = this.packageParameter): SecpkgEventNotify = SecpkgEventNotify(eventClass = eventClass, reserved = reserved, eventDataSize = eventDataSize, eventDataCtorArg = eventData, packageParameterCtorArg = packageParameter)
+    public fun copy(eventClass: UInt = this.eventClass, reserved: UInt = this.reserved, eventDataSize: UInt = this.eventDataSize, eventData: MutPtr = this.eventData, packageParameter: MutPtr = this.packageParameter): SecpkgEventNotify = SecpkgEventNotify(eventClass = eventClass, reserved = reserved, eventDataSize = eventDataSize, eventDataCtorArg = eventData, packageParameterCtorArg = packageParameter)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -7564,11 +7560,11 @@ public class SecpkgEventNotify internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 8L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<CVoid>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 16L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<CVoid>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 24L),
                     )
                 override fun writeNative(addr: Long, value: SecpkgEventNotify) {
@@ -7577,11 +7573,11 @@ public class SecpkgEventNotify internal constructor(
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 8L, value.eventDataSize)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<CVoid>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 16L, value.eventData)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<CVoid>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 24L, value.packageParameter)
                 }
             }
@@ -7590,8 +7586,8 @@ public class SecpkgEventNotify internal constructor(
             eventClass: UInt = 0u,
             reserved: UInt = 0u,
             eventDataSize: UInt = 0u,
-            eventData: MutPtr<CVoid> = MutPtr(0L),
-            packageParameter: MutPtr<CVoid> = MutPtr(0L),
+            eventData: MutPtr = MutPtr(0L),
+            packageParameter: MutPtr = MutPtr(0L),
         ): SecpkgEventNotify =
             SecpkgEventNotify(
                 eventClass = eventClass,
@@ -8464,9 +8460,9 @@ public data class SecpkgShortVector(
 public class SecpkgSupplementalCred internal constructor(
     public var packageName: LsaUnicodeString,
     public var credentialSize: UInt,
-    credentialsCtorArg: MutPtr<UByte>,
+    credentialsCtorArg: MutPtr,
 ) {
-    public var credentials: MutPtr<UByte> = credentialsCtorArg
+    public var credentials: MutPtr = credentialsCtorArg
         internal set
 
     public constructor() : this(
@@ -8479,9 +8475,9 @@ public class SecpkgSupplementalCred internal constructor(
 
     public operator fun component2(): UInt = this.credentialSize
 
-    public operator fun component3(): MutPtr<UByte> = this.credentials
+    public operator fun component3(): MutPtr = this.credentials
 
-    public fun copy(packageName: LsaUnicodeString = this.packageName, credentialSize: UInt = this.credentialSize, credentials: MutPtr<UByte> = this.credentials): SecpkgSupplementalCred = SecpkgSupplementalCred(packageName = packageName, credentialSize = credentialSize, credentialsCtorArg = credentials)
+    public fun copy(packageName: LsaUnicodeString = this.packageName, credentialSize: UInt = this.credentialSize, credentials: MutPtr = this.credentials): SecpkgSupplementalCred = SecpkgSupplementalCred(packageName = packageName, credentialSize = credentialSize, credentialsCtorArg = credentials)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -8503,7 +8499,7 @@ public class SecpkgSupplementalCred internal constructor(
         public operator fun invoke(
             packageName: LsaUnicodeString = LsaUnicodeString(),
             credentialSize: UInt = 0u,
-            credentials: MutPtr<UByte> = MutPtr(0L),
+            credentials: MutPtr = MutPtr(0L),
         ): SecpkgSupplementalCred =
             SecpkgSupplementalCred(
                 packageName = packageName,
@@ -8556,9 +8552,9 @@ public class SecpkgSurrogateLogon internal constructor(
     public var version: UInt,
     public var surrogateLogonID: Luid,
     public var entryCount: UInt,
-    entriesCtorArg: MutPtr<SecpkgSurrogateLogonEntry>,
+    entriesCtorArg: MutPtr,
 ) {
-    public var entries: MutPtr<SecpkgSurrogateLogonEntry> = entriesCtorArg
+    public var entries: MutPtr = entriesCtorArg
         internal set
 
     public constructor() : this(
@@ -8574,9 +8570,9 @@ public class SecpkgSurrogateLogon internal constructor(
 
     public operator fun component3(): UInt = this.entryCount
 
-    public operator fun component4(): MutPtr<SecpkgSurrogateLogonEntry> = this.entries
+    public operator fun component4(): MutPtr = this.entries
 
-    public fun copy(version: UInt = this.version, surrogateLogonID: Luid = this.surrogateLogonID, entryCount: UInt = this.entryCount, entries: MutPtr<SecpkgSurrogateLogonEntry> = this.entries): SecpkgSurrogateLogon = SecpkgSurrogateLogon(version = version, surrogateLogonID = surrogateLogonID, entryCount = entryCount, entriesCtorArg = entries)
+    public fun copy(version: UInt = this.version, surrogateLogonID: Luid = this.surrogateLogonID, entryCount: UInt = this.entryCount, entries: MutPtr = this.entries): SecpkgSurrogateLogon = SecpkgSurrogateLogon(version = version, surrogateLogonID = surrogateLogonID, entryCount = entryCount, entriesCtorArg = entries)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -8601,7 +8597,7 @@ public class SecpkgSurrogateLogon internal constructor(
             version: UInt = 0u,
             surrogateLogonID: Luid = Luid(),
             entryCount: UInt = 0u,
-            entries: MutPtr<SecpkgSurrogateLogonEntry> = MutPtr(0L),
+            entries: MutPtr = MutPtr(0L),
         ): SecpkgSurrogateLogon =
             SecpkgSurrogateLogon(
                 version = version,
@@ -8614,9 +8610,9 @@ public class SecpkgSurrogateLogon internal constructor(
 
 public class SecpkgSurrogateLogonEntry internal constructor(
     public var type: Guid,
-    dataCtorArg: MutPtr<CVoid>,
+    dataCtorArg: MutPtr,
 ) {
-    public var data: MutPtr<CVoid> = dataCtorArg
+    public var data: MutPtr = dataCtorArg
         internal set
 
     public constructor() : this(
@@ -8626,9 +8622,9 @@ public class SecpkgSurrogateLogonEntry internal constructor(
 
     public operator fun component1(): Guid = this.type
 
-    public operator fun component2(): MutPtr<CVoid> = this.data
+    public operator fun component2(): MutPtr = this.data
 
-    public fun copy(type: Guid = this.type, data: MutPtr<CVoid> = this.data): SecpkgSurrogateLogonEntry = SecpkgSurrogateLogonEntry(type = type, dataCtorArg = data)
+    public fun copy(type: Guid = this.type, data: MutPtr = this.data): SecpkgSurrogateLogonEntry = SecpkgSurrogateLogonEntry(type = type, dataCtorArg = data)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -8647,7 +8643,7 @@ public class SecpkgSurrogateLogonEntry internal constructor(
     public companion object {
         public operator fun invoke(
             type: Guid = Guid(),
-            data: MutPtr<CVoid> = MutPtr(0L),
+            data: MutPtr = MutPtr(0L),
         ): SecpkgSurrogateLogonEntry =
             SecpkgSurrogateLogonEntry(
                 type = type,
@@ -8904,9 +8900,9 @@ public class SecurityPackageOptions internal constructor(
     public var type: SecurityPackageOptionsType,
     public var flags: UInt,
     public var signatureSize: UInt,
-    signatureCtorArg: MutPtr<CVoid>,
+    signatureCtorArg: MutPtr,
 ) {
-    public var signature: MutPtr<CVoid> = signatureCtorArg
+    public var signature: MutPtr = signatureCtorArg
         internal set
 
     public constructor() : this(
@@ -8925,9 +8921,9 @@ public class SecurityPackageOptions internal constructor(
 
     public operator fun component4(): UInt = this.signatureSize
 
-    public operator fun component5(): MutPtr<CVoid> = this.signature
+    public operator fun component5(): MutPtr = this.signature
 
-    public fun copy(size: UInt = this.size, type: SecurityPackageOptionsType = this.type, flags: UInt = this.flags, signatureSize: UInt = this.signatureSize, signature: MutPtr<CVoid> = this.signature): SecurityPackageOptions = SecurityPackageOptions(size = size, type = type, flags = flags, signatureSize = signatureSize, signatureCtorArg = signature)
+    public fun copy(size: UInt = this.size, type: SecurityPackageOptionsType = this.type, flags: UInt = this.flags, signatureSize: UInt = this.signatureSize, signature: MutPtr = this.signature): SecurityPackageOptions = SecurityPackageOptions(size = size, type = type, flags = flags, signatureSize = signatureSize, signatureCtorArg = signature)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -8962,7 +8958,7 @@ public class SecurityPackageOptions internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 12L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<CVoid>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 16L),
                     )
                 override fun writeNative(addr: Long, value: SecurityPackageOptions) {
@@ -8972,7 +8968,7 @@ public class SecurityPackageOptions internal constructor(
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 12L, value.signatureSize)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<CVoid>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 16L, value.signature)
                 }
             }
@@ -8982,7 +8978,7 @@ public class SecurityPackageOptions internal constructor(
             type: SecurityPackageOptionsType = 0u,
             flags: UInt = 0u,
             signatureSize: UInt = 0u,
-            signature: MutPtr<CVoid> = MutPtr(0L),
+            signature: MutPtr = MutPtr(0L),
         ): SecurityPackageOptions =
             SecurityPackageOptions(
                 size = size,
@@ -8997,9 +8993,9 @@ public class SecurityPackageOptions internal constructor(
 public class SecurityString internal constructor(
     public var length: UShort,
     public var maximumLength: UShort,
-    bufferCtorArg: MutPtr<UShort>,
+    bufferCtorArg: MutPtr,
 ) {
-    public var buffer: MutPtr<UShort> = bufferCtorArg
+    public var buffer: MutPtr = bufferCtorArg
         internal set
 
     public constructor() : this(
@@ -9012,9 +9008,9 @@ public class SecurityString internal constructor(
 
     public operator fun component2(): UShort = this.maximumLength
 
-    public operator fun component3(): MutPtr<UShort> = this.buffer
+    public operator fun component3(): MutPtr = this.buffer
 
-    public fun copy(length: UShort = this.length, maximumLength: UShort = this.maximumLength, buffer: MutPtr<UShort> = this.buffer): SecurityString = SecurityString(length = length, maximumLength = maximumLength, bufferCtorArg = buffer)
+    public fun copy(length: UShort = this.length, maximumLength: UShort = this.maximumLength, buffer: MutPtr = this.buffer): SecurityString = SecurityString(length = length, maximumLength = maximumLength, bufferCtorArg = buffer)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -9043,7 +9039,7 @@ public class SecurityString internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16).readNative(addr + 2L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<UShort>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                     )
                 override fun writeNative(addr: Long, value: SecurityString) {
@@ -9051,7 +9047,7 @@ public class SecurityString internal constructor(
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16).writeNative(addr + 2L, value.maximumLength)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<UShort>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.buffer)
                 }
             }
@@ -9059,7 +9055,7 @@ public class SecurityString internal constructor(
         public operator fun invoke(
             length: UShort = 0u,
             maximumLength: UShort = 0u,
-            buffer: MutPtr<UShort> = MutPtr(0L),
+            buffer: MutPtr = MutPtr(0L),
         ): SecurityString =
             SecurityString(
                 length = length,
@@ -9398,13 +9394,13 @@ public data class SecFlags(
 public class SecNegotiationInfo internal constructor(
     public var size: UInt,
     public var nameLength: UInt,
-    nameCtorArg: MutPtr<UShort>,
-    reservedCtorArg: MutPtr<CVoid>,
+    nameCtorArg: MutPtr,
+    reservedCtorArg: MutPtr,
 ) {
-    public var name: MutPtr<UShort> = nameCtorArg
+    public var name: MutPtr = nameCtorArg
         internal set
 
-    public var reserved: MutPtr<CVoid> = reservedCtorArg
+    public var reserved: MutPtr = reservedCtorArg
         internal set
 
     public constructor() : this(
@@ -9418,11 +9414,11 @@ public class SecNegotiationInfo internal constructor(
 
     public operator fun component2(): UInt = this.nameLength
 
-    public operator fun component3(): MutPtr<UShort> = this.name
+    public operator fun component3(): MutPtr = this.name
 
-    public operator fun component4(): MutPtr<CVoid> = this.reserved
+    public operator fun component4(): MutPtr = this.reserved
 
-    public fun copy(size: UInt = this.size, nameLength: UInt = this.nameLength, name: MutPtr<UShort> = this.name, reserved: MutPtr<CVoid> = this.reserved): SecNegotiationInfo = SecNegotiationInfo(size = size, nameLength = nameLength, nameCtorArg = name, reservedCtorArg = reserved)
+    public fun copy(size: UInt = this.size, nameLength: UInt = this.nameLength, name: MutPtr = this.name, reserved: MutPtr = this.reserved): SecNegotiationInfo = SecNegotiationInfo(size = size, nameLength = nameLength, nameCtorArg = name, reservedCtorArg = reserved)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -9453,11 +9449,11 @@ public class SecNegotiationInfo internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 4L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<UShort>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<CVoid>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 16L),
                     )
                 override fun writeNative(addr: Long, value: SecNegotiationInfo) {
@@ -9465,11 +9461,11 @@ public class SecNegotiationInfo internal constructor(
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 4L, value.nameLength)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<UShort>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.name)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<CVoid>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 16L, value.reserved)
                 }
             }
@@ -9477,8 +9473,8 @@ public class SecNegotiationInfo internal constructor(
         public operator fun invoke(
             size: UInt = 0u,
             nameLength: UInt = 0u,
-            name: MutPtr<UShort> = MutPtr(0L),
-            reserved: MutPtr<CVoid> = MutPtr(0L),
+            name: MutPtr = MutPtr(0L),
+            reserved: MutPtr = MutPtr(0L),
         ): SecNegotiationInfo =
             SecNegotiationInfo(
                 size = size,
@@ -9950,26 +9946,26 @@ public data class SecWinntAuthIdentityEx32(
 public class SecWinntAuthIdentityExa internal constructor(
     public var version: UInt,
     public var length: UInt,
-    userCtorArg: MutPtr<UByte>,
+    userCtorArg: MutPtr,
     public var userLength: UInt,
-    domainCtorArg: MutPtr<UByte>,
+    domainCtorArg: MutPtr,
     public var domainLength: UInt,
-    passwordCtorArg: MutPtr<UByte>,
+    passwordCtorArg: MutPtr,
     public var passwordLength: UInt,
     public var flags: UInt,
-    packageListCtorArg: MutPtr<UByte>,
+    packageListCtorArg: MutPtr,
     public var packageListLength: UInt,
 ) {
-    public var user: MutPtr<UByte> = userCtorArg
+    public var user: MutPtr = userCtorArg
         internal set
 
-    public var domain: MutPtr<UByte> = domainCtorArg
+    public var domain: MutPtr = domainCtorArg
         internal set
 
-    public var password: MutPtr<UByte> = passwordCtorArg
+    public var password: MutPtr = passwordCtorArg
         internal set
 
-    public var packageList: MutPtr<UByte> = packageListCtorArg
+    public var packageList: MutPtr = packageListCtorArg
         internal set
 
     public constructor() : this(
@@ -9990,25 +9986,25 @@ public class SecWinntAuthIdentityExa internal constructor(
 
     public operator fun component2(): UInt = this.length
 
-    public operator fun component3(): MutPtr<UByte> = this.user
+    public operator fun component3(): MutPtr = this.user
 
     public operator fun component4(): UInt = this.userLength
 
-    public operator fun component5(): MutPtr<UByte> = this.domain
+    public operator fun component5(): MutPtr = this.domain
 
     public operator fun component6(): UInt = this.domainLength
 
-    public operator fun component7(): MutPtr<UByte> = this.password
+    public operator fun component7(): MutPtr = this.password
 
     public operator fun component8(): UInt = this.passwordLength
 
     public operator fun component9(): UInt = this.flags
 
-    public operator fun component10(): MutPtr<UByte> = this.packageList
+    public operator fun component10(): MutPtr = this.packageList
 
     public operator fun component11(): UInt = this.packageListLength
 
-    public fun copy(version: UInt = this.version, length: UInt = this.length, user: MutPtr<UByte> = this.user, userLength: UInt = this.userLength, domain: MutPtr<UByte> = this.domain, domainLength: UInt = this.domainLength, password: MutPtr<UByte> = this.password, passwordLength: UInt = this.passwordLength, flags: UInt = this.flags, packageList: MutPtr<UByte> = this.packageList, packageListLength: UInt = this.packageListLength): SecWinntAuthIdentityExa = SecWinntAuthIdentityExa(version = version, length = length, userCtorArg = user, userLength = userLength, domainCtorArg = domain, domainLength = domainLength, passwordCtorArg = password, passwordLength = passwordLength, flags = flags, packageListCtorArg = packageList, packageListLength = packageListLength)
+    public fun copy(version: UInt = this.version, length: UInt = this.length, user: MutPtr = this.user, userLength: UInt = this.userLength, domain: MutPtr = this.domain, domainLength: UInt = this.domainLength, password: MutPtr = this.password, passwordLength: UInt = this.passwordLength, flags: UInt = this.flags, packageList: MutPtr = this.packageList, packageListLength: UInt = this.packageListLength): SecWinntAuthIdentityExa = SecWinntAuthIdentityExa(version = version, length = length, userCtorArg = user, userLength = userLength, domainCtorArg = domain, domainLength = domainLength, passwordCtorArg = password, passwordLength = passwordLength, flags = flags, packageListCtorArg = packageList, packageListLength = packageListLength)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -10053,23 +10049,23 @@ public class SecWinntAuthIdentityExa internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 4L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<UByte>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 16L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<UByte>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 24L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 32L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<UByte>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 40L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 48L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 52L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<UByte>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 56L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 64L),
                     )
@@ -10078,23 +10074,23 @@ public class SecWinntAuthIdentityExa internal constructor(
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 4L, value.length)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<UByte>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.user)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 16L, value.userLength)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<UByte>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 24L, value.domain)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 32L, value.domainLength)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<UByte>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 40L, value.password)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 48L, value.passwordLength)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 52L, value.flags)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<UByte>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 56L, value.packageList)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 64L, value.packageListLength)
                 }
@@ -10103,14 +10099,14 @@ public class SecWinntAuthIdentityExa internal constructor(
         public operator fun invoke(
             version: UInt = 0u,
             length: UInt = 0u,
-            user: MutPtr<UByte> = MutPtr(0L),
+            user: MutPtr = MutPtr(0L),
             userLength: UInt = 0u,
-            domain: MutPtr<UByte> = MutPtr(0L),
+            domain: MutPtr = MutPtr(0L),
             domainLength: UInt = 0u,
-            password: MutPtr<UByte> = MutPtr(0L),
+            password: MutPtr = MutPtr(0L),
             passwordLength: UInt = 0u,
             flags: UInt = 0u,
-            packageList: MutPtr<UByte> = MutPtr(0L),
+            packageList: MutPtr = MutPtr(0L),
             packageListLength: UInt = 0u,
         ): SecWinntAuthIdentityExa =
             SecWinntAuthIdentityExa(
@@ -10132,26 +10128,26 @@ public class SecWinntAuthIdentityExa internal constructor(
 public class SecWinntAuthIdentityExw internal constructor(
     public var version: UInt,
     public var length: UInt,
-    userCtorArg: MutPtr<UShort>,
+    userCtorArg: MutPtr,
     public var userLength: UInt,
-    domainCtorArg: MutPtr<UShort>,
+    domainCtorArg: MutPtr,
     public var domainLength: UInt,
-    passwordCtorArg: MutPtr<UShort>,
+    passwordCtorArg: MutPtr,
     public var passwordLength: UInt,
     public var flags: UInt,
-    packageListCtorArg: MutPtr<UShort>,
+    packageListCtorArg: MutPtr,
     public var packageListLength: UInt,
 ) {
-    public var user: MutPtr<UShort> = userCtorArg
+    public var user: MutPtr = userCtorArg
         internal set
 
-    public var domain: MutPtr<UShort> = domainCtorArg
+    public var domain: MutPtr = domainCtorArg
         internal set
 
-    public var password: MutPtr<UShort> = passwordCtorArg
+    public var password: MutPtr = passwordCtorArg
         internal set
 
-    public var packageList: MutPtr<UShort> = packageListCtorArg
+    public var packageList: MutPtr = packageListCtorArg
         internal set
 
     public constructor() : this(
@@ -10172,25 +10168,25 @@ public class SecWinntAuthIdentityExw internal constructor(
 
     public operator fun component2(): UInt = this.length
 
-    public operator fun component3(): MutPtr<UShort> = this.user
+    public operator fun component3(): MutPtr = this.user
 
     public operator fun component4(): UInt = this.userLength
 
-    public operator fun component5(): MutPtr<UShort> = this.domain
+    public operator fun component5(): MutPtr = this.domain
 
     public operator fun component6(): UInt = this.domainLength
 
-    public operator fun component7(): MutPtr<UShort> = this.password
+    public operator fun component7(): MutPtr = this.password
 
     public operator fun component8(): UInt = this.passwordLength
 
     public operator fun component9(): UInt = this.flags
 
-    public operator fun component10(): MutPtr<UShort> = this.packageList
+    public operator fun component10(): MutPtr = this.packageList
 
     public operator fun component11(): UInt = this.packageListLength
 
-    public fun copy(version: UInt = this.version, length: UInt = this.length, user: MutPtr<UShort> = this.user, userLength: UInt = this.userLength, domain: MutPtr<UShort> = this.domain, domainLength: UInt = this.domainLength, password: MutPtr<UShort> = this.password, passwordLength: UInt = this.passwordLength, flags: UInt = this.flags, packageList: MutPtr<UShort> = this.packageList, packageListLength: UInt = this.packageListLength): SecWinntAuthIdentityExw = SecWinntAuthIdentityExw(version = version, length = length, userCtorArg = user, userLength = userLength, domainCtorArg = domain, domainLength = domainLength, passwordCtorArg = password, passwordLength = passwordLength, flags = flags, packageListCtorArg = packageList, packageListLength = packageListLength)
+    public fun copy(version: UInt = this.version, length: UInt = this.length, user: MutPtr = this.user, userLength: UInt = this.userLength, domain: MutPtr = this.domain, domainLength: UInt = this.domainLength, password: MutPtr = this.password, passwordLength: UInt = this.passwordLength, flags: UInt = this.flags, packageList: MutPtr = this.packageList, packageListLength: UInt = this.packageListLength): SecWinntAuthIdentityExw = SecWinntAuthIdentityExw(version = version, length = length, userCtorArg = user, userLength = userLength, domainCtorArg = domain, domainLength = domainLength, passwordCtorArg = password, passwordLength = passwordLength, flags = flags, packageListCtorArg = packageList, packageListLength = packageListLength)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -10235,23 +10231,23 @@ public class SecWinntAuthIdentityExw internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 4L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<UShort>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 16L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<UShort>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 24L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 32L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<UShort>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 40L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 48L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 52L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<UShort>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 56L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 64L),
                     )
@@ -10260,23 +10256,23 @@ public class SecWinntAuthIdentityExw internal constructor(
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 4L, value.length)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<UShort>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.user)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 16L, value.userLength)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<UShort>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 24L, value.domain)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 32L, value.domainLength)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<UShort>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 40L, value.password)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 48L, value.passwordLength)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 52L, value.flags)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<UShort>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 56L, value.packageList)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 64L, value.packageListLength)
                 }
@@ -10285,14 +10281,14 @@ public class SecWinntAuthIdentityExw internal constructor(
         public operator fun invoke(
             version: UInt = 0u,
             length: UInt = 0u,
-            user: MutPtr<UShort> = MutPtr(0L),
+            user: MutPtr = MutPtr(0L),
             userLength: UInt = 0u,
-            domain: MutPtr<UShort> = MutPtr(0L),
+            domain: MutPtr = MutPtr(0L),
             domainLength: UInt = 0u,
-            password: MutPtr<UShort> = MutPtr(0L),
+            password: MutPtr = MutPtr(0L),
             passwordLength: UInt = 0u,
             flags: UInt = 0u,
-            packageList: MutPtr<UShort> = MutPtr(0L),
+            packageList: MutPtr = MutPtr(0L),
             packageListLength: UInt = 0u,
         ): SecWinntAuthIdentityExw =
             SecWinntAuthIdentityExw(
@@ -10446,9 +10442,9 @@ public class SeAdtAccessReason internal constructor(
 
 public class SeAdtClaims internal constructor(
     public var length: UInt,
-    claimsCtorArg: MutPtr<CVoid>,
+    claimsCtorArg: MutPtr,
 ) {
-    public var claims: MutPtr<CVoid> = claimsCtorArg
+    public var claims: MutPtr = claimsCtorArg
         internal set
 
     public constructor() : this(
@@ -10458,9 +10454,9 @@ public class SeAdtClaims internal constructor(
 
     public operator fun component1(): UInt = this.length
 
-    public operator fun component2(): MutPtr<CVoid> = this.claims
+    public operator fun component2(): MutPtr = this.claims
 
-    public fun copy(length: UInt = this.length, claims: MutPtr<CVoid> = this.claims): SeAdtClaims = SeAdtClaims(length = length, claimsCtorArg = claims)
+    public fun copy(length: UInt = this.length, claims: MutPtr = this.claims): SeAdtClaims = SeAdtClaims(length = length, claimsCtorArg = claims)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -10486,21 +10482,21 @@ public class SeAdtClaims internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<CVoid>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                     )
                 override fun writeNative(addr: Long, value: SeAdtClaims) {
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr, value.length)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<CVoid>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.claims)
                 }
             }
 
         public operator fun invoke(
             length: UInt = 0u,
-            claims: MutPtr<CVoid> = MutPtr(0L),
+            claims: MutPtr = MutPtr(0L),
         ): SeAdtClaims =
             SeAdtClaims(
                 length = length,
@@ -10566,9 +10562,9 @@ public class SeAdtParameterArrayEntry internal constructor(
     public var type: SeAdtParameterType,
     public var length: UInt,
     public var data: IntArray,
-    addressCtorArg: MutPtr<CVoid>,
+    addressCtorArg: MutPtr,
 ) {
-    public var address: MutPtr<CVoid> = addressCtorArg
+    public var address: MutPtr = addressCtorArg
         internal set
 
     public constructor() : this(
@@ -10584,9 +10580,9 @@ public class SeAdtParameterArrayEntry internal constructor(
 
     public operator fun component3(): IntArray = this.data
 
-    public operator fun component4(): MutPtr<CVoid> = this.address
+    public operator fun component4(): MutPtr = this.address
 
-    public fun copy(type: SeAdtParameterType = this.type, length: UInt = this.length, data: IntArray = this.data, address: MutPtr<CVoid> = this.address): SeAdtParameterArrayEntry = SeAdtParameterArrayEntry(type = type, length = length, data = data, addressCtorArg = address)
+    public fun copy(type: SeAdtParameterType = this.type, length: UInt = this.length, data: IntArray = this.data, address: MutPtr = this.address): SeAdtParameterArrayEntry = SeAdtParameterArrayEntry(type = type, length = length, data = data, addressCtorArg = address)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -10621,7 +10617,7 @@ public class SeAdtParameterArrayEntry internal constructor(
                         ).readNative(addr + 8L).toIntArray(),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<CVoid>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 24L),
                     )
                 override fun writeNative(addr: Long, value: SeAdtParameterArrayEntry) {
@@ -10633,7 +10629,7 @@ public class SeAdtParameterArrayEntry internal constructor(
                     ).writeNative(addr + 8L, value.data.toList())
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<CVoid>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 24L, value.address)
                 }
             }
@@ -10642,7 +10638,7 @@ public class SeAdtParameterArrayEntry internal constructor(
             type: SeAdtParameterType = 0,
             length: UInt = 0u,
             data: IntArray = IntArray(2),
-            address: MutPtr<CVoid> = MutPtr(0L),
+            address: MutPtr = MutPtr(0L),
         ): SeAdtParameterArrayEntry =
             SeAdtParameterArrayEntry(
                 type = type,

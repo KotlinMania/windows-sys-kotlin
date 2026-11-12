@@ -2,11 +2,9 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.networkmanagement.windowsconnectionmanager
 
-import io.github.kotlinmania.rustlang.core.ffi.CVoid
 import io.github.kotlinmania.rustlang.core.ptr.ConstPtr
 import io.github.kotlinmania.rustlang.core.ptr.MutPtr
 import io.github.kotlinmania.windowssys.core.Bool
-import io.github.kotlinmania.windowssys.core.Guid
 import io.github.kotlinmania.windowssys.core.Hresult
 import io.github.kotlinmania.windowssys.core.Pcwstr
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Handle
@@ -46,7 +44,7 @@ private external fun wasmWindowssysWindowsWin32NetworkmanagementWindowsconnectio
 @JsFun("(p0, p1, p2, p3, p4, p5) => globalThis.__km_napi_windowssys.windowssysWindowsWin32NetworkmanagementWindowsconnectionmanagerWcmSetProperty(p0, p1, p2, p3, p4, p5)")
 private external fun wasmWindowssysWindowsWin32NetworkmanagementWindowsconnectionmanagerWcmSetProperty(p0: String, p1: String, p2: Int, p3: String, p4: Int, p5: String): Int
 
-public actual fun freeInterfaceContextTable(interfacecontexttable: ConstPtr<NetInterfaceContextTable>) {
+public actual fun freeInterfaceContextTable(interfacecontexttable: ConstPtr) {
     if (windowsWin32NetworkmanagementWindowsconnectionmanagerNapiAvailable) {
         wasmWindowssysWindowsWin32NetworkmanagementWindowsconnectionmanagerFreeInterfaceContextTable(interfacecontexttable.rawAddress.toString())
     } else {
@@ -54,19 +52,19 @@ public actual fun freeInterfaceContextTable(interfacecontexttable: ConstPtr<NetI
     }
 }
 
-public actual fun getInterfaceContextTableForHostName(hostname: Pcwstr, proxyname: Pcwstr, flags: UInt, connectionprofilefilterrawdata: ConstPtr<UByte>, connectionprofilefilterrawdatasize: UInt, interfacecontexttable: MutPtr<MutPtr<NetInterfaceContextTable>>): Hresult =
+public actual fun getInterfaceContextTableForHostName(hostname: Pcwstr, proxyname: Pcwstr, flags: UInt, connectionprofilefilterrawdata: ConstPtr, connectionprofilefilterrawdatasize: UInt, interfacecontexttable: MutPtr): Hresult =
     if (windowsWin32NetworkmanagementWindowsconnectionmanagerNapiAvailable) wasmWindowssysWindowsWin32NetworkmanagementWindowsconnectionmanagerGetInterfaceContextTableForHostName(hostname.rawAddress.toString(), proxyname.rawAddress.toString(), flags.toInt(), connectionprofilefilterrawdata.rawAddress.toString(), connectionprofilefilterrawdatasize.toInt(), interfacecontexttable.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun onDemandGetRoutingHint(destinationhostname: Pcwstr, interfaceindex: MutPtr<UInt>): Hresult =
+public actual fun onDemandGetRoutingHint(destinationhostname: Pcwstr, interfaceindex: MutPtr): Hresult =
     if (windowsWin32NetworkmanagementWindowsconnectionmanagerNapiAvailable) wasmWindowssysWindowsWin32NetworkmanagementWindowsconnectionmanagerOnDemandGetRoutingHint(destinationhostname.rawAddress.toString(), interfaceindex.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun onDemandRegisterNotification(callback: OndemandNotificationCallback, callbackcontext: ConstPtr<CVoid>, registrationhandle: MutPtr<Handle>): Hresult =
+public actual fun onDemandRegisterNotification(callback: OndemandNotificationCallback, callbackcontext: ConstPtr, registrationhandle: MutPtr): Hresult =
     if (windowsWin32NetworkmanagementWindowsconnectionmanagerNapiAvailable) wasmWindowssysWindowsWin32NetworkmanagementWindowsconnectionmanagerOnDemandRegisterNotification(0L.toString(), callbackcontext.rawAddress.toString(), registrationhandle.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun onDemandUnRegisterNotification(registrationhandle: Handle): Hresult =
     if (windowsWin32NetworkmanagementWindowsconnectionmanagerNapiAvailable) wasmWindowssysWindowsWin32NetworkmanagementWindowsconnectionmanagerOnDemandUnRegisterNotification(registrationhandle.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun wcmFreeMemory(pmemory: MutPtr<CVoid>) {
+public actual fun wcmFreeMemory(pmemory: MutPtr) {
     if (windowsWin32NetworkmanagementWindowsconnectionmanagerNapiAvailable) {
         wasmWindowssysWindowsWin32NetworkmanagementWindowsconnectionmanagerWcmFreeMemory(pmemory.rawAddress.toString())
     } else {
@@ -74,14 +72,14 @@ public actual fun wcmFreeMemory(pmemory: MutPtr<CVoid>) {
     }
 }
 
-public actual fun wcmGetProfileList(preserved: ConstPtr<CVoid>, ppprofilelist: MutPtr<MutPtr<WcmProfileInfoList>>): UInt =
+public actual fun wcmGetProfileList(preserved: ConstPtr, ppprofilelist: MutPtr): UInt =
     if (windowsWin32NetworkmanagementWindowsconnectionmanagerNapiAvailable) wasmWindowssysWindowsWin32NetworkmanagementWindowsconnectionmanagerWcmGetProfileList(preserved.rawAddress.toString(), ppprofilelist.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun wcmQueryProperty(pinterface: ConstPtr<Guid>, strprofilename: Pcwstr, property: WcmProperty, preserved: ConstPtr<CVoid>, pdwdatasize: MutPtr<UInt>, ppdata: MutPtr<MutPtr<UByte>>): UInt =
+public actual fun wcmQueryProperty(pinterface: ConstPtr, strprofilename: Pcwstr, property: WcmProperty, preserved: ConstPtr, pdwdatasize: MutPtr, ppdata: MutPtr): UInt =
     if (windowsWin32NetworkmanagementWindowsconnectionmanagerNapiAvailable) wasmWindowssysWindowsWin32NetworkmanagementWindowsconnectionmanagerWcmQueryProperty(pinterface.rawAddress.toString(), strprofilename.rawAddress.toString(), property, preserved.rawAddress.toString(), pdwdatasize.rawAddress.toString(), ppdata.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun wcmSetProfileList(pprofilelist: ConstPtr<WcmProfileInfoList>, dwposition: UInt, fignoreunknownprofiles: Bool, preserved: ConstPtr<CVoid>): UInt =
+public actual fun wcmSetProfileList(pprofilelist: ConstPtr, dwposition: UInt, fignoreunknownprofiles: Bool, preserved: ConstPtr): UInt =
     if (windowsWin32NetworkmanagementWindowsconnectionmanagerNapiAvailable) wasmWindowssysWindowsWin32NetworkmanagementWindowsconnectionmanagerWcmSetProfileList(pprofilelist.rawAddress.toString(), dwposition.toInt(), fignoreunknownprofiles, preserved.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun wcmSetProperty(pinterface: ConstPtr<Guid>, strprofilename: Pcwstr, property: WcmProperty, preserved: ConstPtr<CVoid>, dwdatasize: UInt, pbdata: ConstPtr<UByte>): UInt =
+public actual fun wcmSetProperty(pinterface: ConstPtr, strprofilename: Pcwstr, property: WcmProperty, preserved: ConstPtr, dwdatasize: UInt, pbdata: ConstPtr): UInt =
     if (windowsWin32NetworkmanagementWindowsconnectionmanagerNapiAvailable) wasmWindowssysWindowsWin32NetworkmanagementWindowsconnectionmanagerWcmSetProperty(pinterface.rawAddress.toString(), strprofilename.rawAddress.toString(), property, preserved.rawAddress.toString(), dwdatasize.toInt(), pbdata.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")

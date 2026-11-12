@@ -2,10 +2,8 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.devices.tapi
 
-import io.github.kotlinmania.rustlang.core.ffi.CVoid
 import io.github.kotlinmania.rustlang.core.ptr.ConstPtr
 import io.github.kotlinmania.rustlang.core.ptr.MutPtr
-import io.github.kotlinmania.windowssys.core.Guid
 import io.github.kotlinmania.windowssys.core.Hresult
 import io.github.kotlinmania.windowssys.core.Pcstr
 import io.github.kotlinmania.windowssys.core.Pcwstr
@@ -266,35 +264,34 @@ import io.github.kotlinmania.windowssys.windows.win32.devices.tapi.cinterop.wind
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Hinstance
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Hwnd
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Wparam
-import io.github.kotlinmania.windowssys.windows.win32.ui.windowsandmessaging.Hicon
 import kotlinx.cinterop.ByteVar
 import kotlinx.cinterop.toCPointer
 
-public actual fun getTnefStreamCodepage(lpstream: MutPtr<CVoid>, lpulcodepage: MutPtr<UInt>, lpulsubcodepage: MutPtr<UInt>): Hresult =
+public actual fun getTnefStreamCodepage(lpstream: MutPtr, lpulcodepage: MutPtr, lpulsubcodepage: MutPtr): Hresult =
     windowssysWindowsWin32DevicesTapiGetTnefStreamCodepage(lpstream.rawAddress.toCPointer<ByteVar>(), lpulcodepage.rawAddress.toCPointer<ByteVar>(), lpulsubcodepage.rawAddress.toCPointer<ByteVar>())
 
-public actual fun openTnefStream(lpvsupport: MutPtr<CVoid>, lpstream: MutPtr<CVoid>, lpszstreamname: ConstPtr<Byte>, ulflags: UInt, lpmessage: MutPtr<CVoid>, wkeyval: UShort, lpptnef: MutPtr<MutPtr<CVoid>>): Hresult =
+public actual fun openTnefStream(lpvsupport: MutPtr, lpstream: MutPtr, lpszstreamname: ConstPtr, ulflags: UInt, lpmessage: MutPtr, wkeyval: UShort, lpptnef: MutPtr): Hresult =
     windowssysWindowsWin32DevicesTapiOpenTnefStream(lpvsupport.rawAddress.toCPointer<ByteVar>(), lpstream.rawAddress.toCPointer<ByteVar>(), lpszstreamname.rawAddress.toCPointer<ByteVar>(), ulflags, lpmessage.rawAddress.toCPointer<ByteVar>(), wkeyval, lpptnef.rawAddress.toCPointer<ByteVar>())
 
-public actual fun openTnefStreamEx(lpvsupport: MutPtr<CVoid>, lpstream: MutPtr<CVoid>, lpszstreamname: ConstPtr<Byte>, ulflags: UInt, lpmessage: MutPtr<CVoid>, wkeyval: UShort, lpadressbook: MutPtr<CVoid>, lpptnef: MutPtr<MutPtr<CVoid>>): Hresult =
+public actual fun openTnefStreamEx(lpvsupport: MutPtr, lpstream: MutPtr, lpszstreamname: ConstPtr, ulflags: UInt, lpmessage: MutPtr, wkeyval: UShort, lpadressbook: MutPtr, lpptnef: MutPtr): Hresult =
     windowssysWindowsWin32DevicesTapiOpenTnefStreamEx(lpvsupport.rawAddress.toCPointer<ByteVar>(), lpstream.rawAddress.toCPointer<ByteVar>(), lpszstreamname.rawAddress.toCPointer<ByteVar>(), ulflags, lpmessage.rawAddress.toCPointer<ByteVar>(), wkeyval, lpadressbook.rawAddress.toCPointer<ByteVar>(), lpptnef.rawAddress.toCPointer<ByteVar>())
 
 public actual fun lineAccept(hcall: UInt, lpsuseruserinfo: Pcstr, dwsize: UInt): Int =
     windowssysWindowsWin32DevicesTapiLineAccept(hcall, lpsuseruserinfo.rawAddress.toCPointer<ByteVar>(), dwsize)
 
-public actual fun lineAddProvider(lpszproviderfilename: Pcstr, hwndowner: Hwnd, lpdwpermanentproviderid: MutPtr<UInt>): Int =
+public actual fun lineAddProvider(lpszproviderfilename: Pcstr, hwndowner: Hwnd, lpdwpermanentproviderid: MutPtr): Int =
     windowssysWindowsWin32DevicesTapiLineAddProvider(lpszproviderfilename.rawAddress.toCPointer<ByteVar>(), hwndowner.rawAddress.toCPointer<ByteVar>(), lpdwpermanentproviderid.rawAddress.toCPointer<ByteVar>())
 
-public actual fun lineAddProviderA(lpszproviderfilename: Pcstr, hwndowner: Hwnd, lpdwpermanentproviderid: MutPtr<UInt>): Int =
+public actual fun lineAddProviderA(lpszproviderfilename: Pcstr, hwndowner: Hwnd, lpdwpermanentproviderid: MutPtr): Int =
     windowssysWindowsWin32DevicesTapiLineAddProviderA(lpszproviderfilename.rawAddress.toCPointer<ByteVar>(), hwndowner.rawAddress.toCPointer<ByteVar>(), lpdwpermanentproviderid.rawAddress.toCPointer<ByteVar>())
 
-public actual fun lineAddProviderW(lpszproviderfilename: Pcwstr, hwndowner: Hwnd, lpdwpermanentproviderid: MutPtr<UInt>): Int =
+public actual fun lineAddProviderW(lpszproviderfilename: Pcwstr, hwndowner: Hwnd, lpdwpermanentproviderid: MutPtr): Int =
     windowssysWindowsWin32DevicesTapiLineAddProviderW(lpszproviderfilename.rawAddress.toCPointer<ByteVar>(), hwndowner.rawAddress.toCPointer<ByteVar>(), lpdwpermanentproviderid.rawAddress.toCPointer<ByteVar>())
 
 public actual fun lineAddToConference(hconfcall: UInt, hconsultcall: UInt): Int =
     windowssysWindowsWin32DevicesTapiLineAddToConference(hconfcall, hconsultcall)
 
-public actual fun lineAgentSpecific(hline: UInt, dwaddressid: UInt, dwagentextensionidindex: UInt, lpparams: MutPtr<CVoid>, dwsize: UInt): Int =
+public actual fun lineAgentSpecific(hline: UInt, dwaddressid: UInt, dwagentextensionidindex: UInt, lpparams: MutPtr, dwsize: UInt): Int =
     windowssysWindowsWin32DevicesTapiLineAgentSpecific(hline, dwaddressid, dwagentextensionidindex, lpparams.rawAddress.toCPointer<ByteVar>(), dwsize)
 
 public actual fun lineAnswer(hcall: UInt, lpsuseruserinfo: Pcstr, dwsize: UInt): Int =
@@ -312,10 +309,10 @@ public actual fun lineBlindTransferW(hcall: UInt, lpszdestaddressw: Pcwstr, dwco
 public actual fun lineClose(hline: UInt): Int =
     windowssysWindowsWin32DevicesTapiLineClose(hline)
 
-public actual fun lineCompleteCall(hcall: UInt, lpdwcompletionid: MutPtr<UInt>, dwcompletionmode: UInt, dwmessageid: UInt): Int =
+public actual fun lineCompleteCall(hcall: UInt, lpdwcompletionid: MutPtr, dwcompletionmode: UInt, dwmessageid: UInt): Int =
     windowssysWindowsWin32DevicesTapiLineCompleteCall(hcall, lpdwcompletionid.rawAddress.toCPointer<ByteVar>(), dwcompletionmode, dwmessageid)
 
-public actual fun lineCompleteTransfer(hcall: UInt, hconsultcall: UInt, lphconfcall: MutPtr<UInt>, dwtransfermode: UInt): Int =
+public actual fun lineCompleteTransfer(hcall: UInt, hconsultcall: UInt, lphconfcall: MutPtr, dwtransfermode: UInt): Int =
     windowssysWindowsWin32DevicesTapiLineCompleteTransfer(hcall, hconsultcall, lphconfcall.rawAddress.toCPointer<ByteVar>(), dwtransfermode)
 
 public actual fun lineConfigDialog(dwdeviceid: UInt, hwndowner: Hwnd, lpszdeviceclass: Pcstr): Int =
@@ -324,13 +321,13 @@ public actual fun lineConfigDialog(dwdeviceid: UInt, hwndowner: Hwnd, lpszdevice
 public actual fun lineConfigDialogA(dwdeviceid: UInt, hwndowner: Hwnd, lpszdeviceclass: Pcstr): Int =
     windowssysWindowsWin32DevicesTapiLineConfigDialogA(dwdeviceid, hwndowner.rawAddress.toCPointer<ByteVar>(), lpszdeviceclass.rawAddress.toCPointer<ByteVar>())
 
-public actual fun lineConfigDialogEdit(dwdeviceid: UInt, hwndowner: Hwnd, lpszdeviceclass: Pcstr, lpdeviceconfigin: ConstPtr<CVoid>, dwsize: UInt, lpdeviceconfigout: MutPtr<Varstring>): Int =
+public actual fun lineConfigDialogEdit(dwdeviceid: UInt, hwndowner: Hwnd, lpszdeviceclass: Pcstr, lpdeviceconfigin: ConstPtr, dwsize: UInt, lpdeviceconfigout: MutPtr): Int =
     windowssysWindowsWin32DevicesTapiLineConfigDialogEdit(dwdeviceid, hwndowner.rawAddress.toCPointer<ByteVar>(), lpszdeviceclass.rawAddress.toCPointer<ByteVar>(), lpdeviceconfigin.rawAddress.toCPointer<ByteVar>(), dwsize, lpdeviceconfigout.rawAddress.toCPointer<ByteVar>())
 
-public actual fun lineConfigDialogEditA(dwdeviceid: UInt, hwndowner: Hwnd, lpszdeviceclass: Pcstr, lpdeviceconfigin: ConstPtr<CVoid>, dwsize: UInt, lpdeviceconfigout: MutPtr<Varstring>): Int =
+public actual fun lineConfigDialogEditA(dwdeviceid: UInt, hwndowner: Hwnd, lpszdeviceclass: Pcstr, lpdeviceconfigin: ConstPtr, dwsize: UInt, lpdeviceconfigout: MutPtr): Int =
     windowssysWindowsWin32DevicesTapiLineConfigDialogEditA(dwdeviceid, hwndowner.rawAddress.toCPointer<ByteVar>(), lpszdeviceclass.rawAddress.toCPointer<ByteVar>(), lpdeviceconfigin.rawAddress.toCPointer<ByteVar>(), dwsize, lpdeviceconfigout.rawAddress.toCPointer<ByteVar>())
 
-public actual fun lineConfigDialogEditW(dwdeviceid: UInt, hwndowner: Hwnd, lpszdeviceclass: Pcwstr, lpdeviceconfigin: ConstPtr<CVoid>, dwsize: UInt, lpdeviceconfigout: MutPtr<Varstring>): Int =
+public actual fun lineConfigDialogEditW(dwdeviceid: UInt, hwndowner: Hwnd, lpszdeviceclass: Pcwstr, lpdeviceconfigin: ConstPtr, dwsize: UInt, lpdeviceconfigout: MutPtr): Int =
     windowssysWindowsWin32DevicesTapiLineConfigDialogEditW(dwdeviceid, hwndowner.rawAddress.toCPointer<ByteVar>(), lpszdeviceclass.rawAddress.toCPointer<ByteVar>(), lpdeviceconfigin.rawAddress.toCPointer<ByteVar>(), dwsize, lpdeviceconfigout.rawAddress.toCPointer<ByteVar>())
 
 public actual fun lineConfigDialogW(dwdeviceid: UInt, hwndowner: Hwnd, lpszdeviceclass: Pcwstr): Int =
@@ -339,25 +336,25 @@ public actual fun lineConfigDialogW(dwdeviceid: UInt, hwndowner: Hwnd, lpszdevic
 public actual fun lineConfigProvider(hwndowner: Hwnd, dwpermanentproviderid: UInt): Int =
     windowssysWindowsWin32DevicesTapiLineConfigProvider(hwndowner.rawAddress.toCPointer<ByteVar>(), dwpermanentproviderid)
 
-public actual fun lineCreateAgentA(hline: UInt, lpszagentid: Pcstr, lpszagentpin: Pcstr, lphagent: MutPtr<UInt>): Int =
+public actual fun lineCreateAgentA(hline: UInt, lpszagentid: Pcstr, lpszagentpin: Pcstr, lphagent: MutPtr): Int =
     windowssysWindowsWin32DevicesTapiLineCreateAgentA(hline, lpszagentid.rawAddress.toCPointer<ByteVar>(), lpszagentpin.rawAddress.toCPointer<ByteVar>(), lphagent.rawAddress.toCPointer<ByteVar>())
 
-public actual fun lineCreateAgentSessionA(hline: UInt, hagent: UInt, lpszagentpin: Pcstr, dwworkingaddressid: UInt, lpgroupid: MutPtr<Guid>, lphagentsession: MutPtr<UInt>): Int =
+public actual fun lineCreateAgentSessionA(hline: UInt, hagent: UInt, lpszagentpin: Pcstr, dwworkingaddressid: UInt, lpgroupid: MutPtr, lphagentsession: MutPtr): Int =
     windowssysWindowsWin32DevicesTapiLineCreateAgentSessionA(hline, hagent, lpszagentpin.rawAddress.toCPointer<ByteVar>(), dwworkingaddressid, lpgroupid.rawAddress.toCPointer<ByteVar>(), lphagentsession.rawAddress.toCPointer<ByteVar>())
 
-public actual fun lineCreateAgentSessionW(hline: UInt, hagent: UInt, lpszagentpin: Pcwstr, dwworkingaddressid: UInt, lpgroupid: MutPtr<Guid>, lphagentsession: MutPtr<UInt>): Int =
+public actual fun lineCreateAgentSessionW(hline: UInt, hagent: UInt, lpszagentpin: Pcwstr, dwworkingaddressid: UInt, lpgroupid: MutPtr, lphagentsession: MutPtr): Int =
     windowssysWindowsWin32DevicesTapiLineCreateAgentSessionW(hline, hagent, lpszagentpin.rawAddress.toCPointer<ByteVar>(), dwworkingaddressid, lpgroupid.rawAddress.toCPointer<ByteVar>(), lphagentsession.rawAddress.toCPointer<ByteVar>())
 
-public actual fun lineCreateAgentW(hline: UInt, lpszagentid: Pcwstr, lpszagentpin: Pcwstr, lphagent: MutPtr<UInt>): Int =
+public actual fun lineCreateAgentW(hline: UInt, lpszagentid: Pcwstr, lpszagentpin: Pcwstr, lphagent: MutPtr): Int =
     windowssysWindowsWin32DevicesTapiLineCreateAgentW(hline, lpszagentid.rawAddress.toCPointer<ByteVar>(), lpszagentpin.rawAddress.toCPointer<ByteVar>(), lphagent.rawAddress.toCPointer<ByteVar>())
 
 public actual fun lineDeallocateCall(hcall: UInt): Int =
     windowssysWindowsWin32DevicesTapiLineDeallocateCall(hcall)
 
-public actual fun lineDevSpecific(hline: UInt, dwaddressid: UInt, hcall: UInt, lpparams: MutPtr<CVoid>, dwsize: UInt): Int =
+public actual fun lineDevSpecific(hline: UInt, dwaddressid: UInt, hcall: UInt, lpparams: MutPtr, dwsize: UInt): Int =
     windowssysWindowsWin32DevicesTapiLineDevSpecific(hline, dwaddressid, hcall, lpparams.rawAddress.toCPointer<ByteVar>(), dwsize)
 
-public actual fun lineDevSpecificFeature(hline: UInt, dwfeature: UInt, lpparams: MutPtr<CVoid>, dwsize: UInt): Int =
+public actual fun lineDevSpecificFeature(hline: UInt, dwfeature: UInt, lpparams: MutPtr, dwsize: UInt): Int =
     windowssysWindowsWin32DevicesTapiLineDevSpecificFeature(hline, dwfeature, lpparams.rawAddress.toCPointer<ByteVar>(), dwsize)
 
 public actual fun lineDial(hcall: UInt, lpszdestaddress: Pcstr, dwcountrycode: UInt): Int =
@@ -372,13 +369,13 @@ public actual fun lineDialW(hcall: UInt, lpszdestaddress: Pcwstr, dwcountrycode:
 public actual fun lineDrop(hcall: UInt, lpsuseruserinfo: Pcstr, dwsize: UInt): Int =
     windowssysWindowsWin32DevicesTapiLineDrop(hcall, lpsuseruserinfo.rawAddress.toCPointer<ByteVar>(), dwsize)
 
-public actual fun lineForward(hline: UInt, balladdresses: UInt, dwaddressid: UInt, lpforwardlist: ConstPtr<Lineforwardlist>, dwnumringsnoanswer: UInt, lphconsultcall: MutPtr<UInt>, lpcallparams: ConstPtr<Linecallparams>): Int =
+public actual fun lineForward(hline: UInt, balladdresses: UInt, dwaddressid: UInt, lpforwardlist: ConstPtr, dwnumringsnoanswer: UInt, lphconsultcall: MutPtr, lpcallparams: ConstPtr): Int =
     windowssysWindowsWin32DevicesTapiLineForward(hline, balladdresses, dwaddressid, lpforwardlist.rawAddress.toCPointer<ByteVar>(), dwnumringsnoanswer, lphconsultcall.rawAddress.toCPointer<ByteVar>(), lpcallparams.rawAddress.toCPointer<ByteVar>())
 
-public actual fun lineForwardA(hline: UInt, balladdresses: UInt, dwaddressid: UInt, lpforwardlist: ConstPtr<Lineforwardlist>, dwnumringsnoanswer: UInt, lphconsultcall: MutPtr<UInt>, lpcallparams: ConstPtr<Linecallparams>): Int =
+public actual fun lineForwardA(hline: UInt, balladdresses: UInt, dwaddressid: UInt, lpforwardlist: ConstPtr, dwnumringsnoanswer: UInt, lphconsultcall: MutPtr, lpcallparams: ConstPtr): Int =
     windowssysWindowsWin32DevicesTapiLineForwardA(hline, balladdresses, dwaddressid, lpforwardlist.rawAddress.toCPointer<ByteVar>(), dwnumringsnoanswer, lphconsultcall.rawAddress.toCPointer<ByteVar>(), lpcallparams.rawAddress.toCPointer<ByteVar>())
 
-public actual fun lineForwardW(hline: UInt, balladdresses: UInt, dwaddressid: UInt, lpforwardlist: ConstPtr<Lineforwardlist>, dwnumringsnoanswer: UInt, lphconsultcall: MutPtr<UInt>, lpcallparams: ConstPtr<Linecallparams>): Int =
+public actual fun lineForwardW(hline: UInt, balladdresses: UInt, dwaddressid: UInt, lpforwardlist: ConstPtr, dwnumringsnoanswer: UInt, lphconsultcall: MutPtr, lpcallparams: ConstPtr): Int =
     windowssysWindowsWin32DevicesTapiLineForwardW(hline, balladdresses, dwaddressid, lpforwardlist.rawAddress.toCPointer<ByteVar>(), dwnumringsnoanswer, lphconsultcall.rawAddress.toCPointer<ByteVar>(), lpcallparams.rawAddress.toCPointer<ByteVar>())
 
 public actual fun lineGatherDigits(hcall: UInt, dwdigitmodes: UInt, lpsdigits: Pstr, dwnumdigits: UInt, lpszterminationdigits: Pcstr, dwfirstdigittimeout: UInt, dwinterdigittimeout: UInt): Int =
@@ -399,202 +396,202 @@ public actual fun lineGenerateDigitsA(hcall: UInt, dwdigitmode: UInt, lpszdigits
 public actual fun lineGenerateDigitsW(hcall: UInt, dwdigitmode: UInt, lpszdigits: Pcwstr, dwduration: UInt): Int =
     windowssysWindowsWin32DevicesTapiLineGenerateDigitsW(hcall, dwdigitmode, lpszdigits.rawAddress.toCPointer<ByteVar>(), dwduration)
 
-public actual fun lineGenerateTone(hcall: UInt, dwtonemode: UInt, dwduration: UInt, dwnumtones: UInt, lptones: ConstPtr<Linegeneratetone>): Int =
+public actual fun lineGenerateTone(hcall: UInt, dwtonemode: UInt, dwduration: UInt, dwnumtones: UInt, lptones: ConstPtr): Int =
     windowssysWindowsWin32DevicesTapiLineGenerateTone(hcall, dwtonemode, dwduration, dwnumtones, lptones.rawAddress.toCPointer<ByteVar>())
 
-public actual fun lineGetAddressCaps(hlineapp: UInt, dwdeviceid: UInt, dwaddressid: UInt, dwapiversion: UInt, dwextversion: UInt, lpaddresscaps: MutPtr<Lineaddresscaps>): Int =
+public actual fun lineGetAddressCaps(hlineapp: UInt, dwdeviceid: UInt, dwaddressid: UInt, dwapiversion: UInt, dwextversion: UInt, lpaddresscaps: MutPtr): Int =
     windowssysWindowsWin32DevicesTapiLineGetAddressCaps(hlineapp, dwdeviceid, dwaddressid, dwapiversion, dwextversion, lpaddresscaps.rawAddress.toCPointer<ByteVar>())
 
-public actual fun lineGetAddressCapsA(hlineapp: UInt, dwdeviceid: UInt, dwaddressid: UInt, dwapiversion: UInt, dwextversion: UInt, lpaddresscaps: MutPtr<Lineaddresscaps>): Int =
+public actual fun lineGetAddressCapsA(hlineapp: UInt, dwdeviceid: UInt, dwaddressid: UInt, dwapiversion: UInt, dwextversion: UInt, lpaddresscaps: MutPtr): Int =
     windowssysWindowsWin32DevicesTapiLineGetAddressCapsA(hlineapp, dwdeviceid, dwaddressid, dwapiversion, dwextversion, lpaddresscaps.rawAddress.toCPointer<ByteVar>())
 
-public actual fun lineGetAddressCapsW(hlineapp: UInt, dwdeviceid: UInt, dwaddressid: UInt, dwapiversion: UInt, dwextversion: UInt, lpaddresscaps: MutPtr<Lineaddresscaps>): Int =
+public actual fun lineGetAddressCapsW(hlineapp: UInt, dwdeviceid: UInt, dwaddressid: UInt, dwapiversion: UInt, dwextversion: UInt, lpaddresscaps: MutPtr): Int =
     windowssysWindowsWin32DevicesTapiLineGetAddressCapsW(hlineapp, dwdeviceid, dwaddressid, dwapiversion, dwextversion, lpaddresscaps.rawAddress.toCPointer<ByteVar>())
 
-public actual fun lineGetAddressID(hline: UInt, lpdwaddressid: MutPtr<UInt>, dwaddressmode: UInt, lpsaddress: Pcstr, dwsize: UInt): Int =
+public actual fun lineGetAddressID(hline: UInt, lpdwaddressid: MutPtr, dwaddressmode: UInt, lpsaddress: Pcstr, dwsize: UInt): Int =
     windowssysWindowsWin32DevicesTapiLineGetAddressID(hline, lpdwaddressid.rawAddress.toCPointer<ByteVar>(), dwaddressmode, lpsaddress.rawAddress.toCPointer<ByteVar>(), dwsize)
 
-public actual fun lineGetAddressIDA(hline: UInt, lpdwaddressid: MutPtr<UInt>, dwaddressmode: UInt, lpsaddress: Pcstr, dwsize: UInt): Int =
+public actual fun lineGetAddressIDA(hline: UInt, lpdwaddressid: MutPtr, dwaddressmode: UInt, lpsaddress: Pcstr, dwsize: UInt): Int =
     windowssysWindowsWin32DevicesTapiLineGetAddressIDA(hline, lpdwaddressid.rawAddress.toCPointer<ByteVar>(), dwaddressmode, lpsaddress.rawAddress.toCPointer<ByteVar>(), dwsize)
 
-public actual fun lineGetAddressIDW(hline: UInt, lpdwaddressid: MutPtr<UInt>, dwaddressmode: UInt, lpsaddress: Pcwstr, dwsize: UInt): Int =
+public actual fun lineGetAddressIDW(hline: UInt, lpdwaddressid: MutPtr, dwaddressmode: UInt, lpsaddress: Pcwstr, dwsize: UInt): Int =
     windowssysWindowsWin32DevicesTapiLineGetAddressIDW(hline, lpdwaddressid.rawAddress.toCPointer<ByteVar>(), dwaddressmode, lpsaddress.rawAddress.toCPointer<ByteVar>(), dwsize)
 
-public actual fun lineGetAddressStatus(hline: UInt, dwaddressid: UInt, lpaddressstatus: MutPtr<Lineaddressstatus>): Int =
+public actual fun lineGetAddressStatus(hline: UInt, dwaddressid: UInt, lpaddressstatus: MutPtr): Int =
     windowssysWindowsWin32DevicesTapiLineGetAddressStatus(hline, dwaddressid, lpaddressstatus.rawAddress.toCPointer<ByteVar>())
 
-public actual fun lineGetAddressStatusA(hline: UInt, dwaddressid: UInt, lpaddressstatus: MutPtr<Lineaddressstatus>): Int =
+public actual fun lineGetAddressStatusA(hline: UInt, dwaddressid: UInt, lpaddressstatus: MutPtr): Int =
     windowssysWindowsWin32DevicesTapiLineGetAddressStatusA(hline, dwaddressid, lpaddressstatus.rawAddress.toCPointer<ByteVar>())
 
-public actual fun lineGetAddressStatusW(hline: UInt, dwaddressid: UInt, lpaddressstatus: MutPtr<Lineaddressstatus>): Int =
+public actual fun lineGetAddressStatusW(hline: UInt, dwaddressid: UInt, lpaddressstatus: MutPtr): Int =
     windowssysWindowsWin32DevicesTapiLineGetAddressStatusW(hline, dwaddressid, lpaddressstatus.rawAddress.toCPointer<ByteVar>())
 
-public actual fun lineGetAgentActivityListA(hline: UInt, dwaddressid: UInt, lpagentactivitylist: MutPtr<Lineagentactivitylist>): Int =
+public actual fun lineGetAgentActivityListA(hline: UInt, dwaddressid: UInt, lpagentactivitylist: MutPtr): Int =
     windowssysWindowsWin32DevicesTapiLineGetAgentActivityListA(hline, dwaddressid, lpagentactivitylist.rawAddress.toCPointer<ByteVar>())
 
-public actual fun lineGetAgentActivityListW(hline: UInt, dwaddressid: UInt, lpagentactivitylist: MutPtr<Lineagentactivitylist>): Int =
+public actual fun lineGetAgentActivityListW(hline: UInt, dwaddressid: UInt, lpagentactivitylist: MutPtr): Int =
     windowssysWindowsWin32DevicesTapiLineGetAgentActivityListW(hline, dwaddressid, lpagentactivitylist.rawAddress.toCPointer<ByteVar>())
 
-public actual fun lineGetAgentCapsA(hlineapp: UInt, dwdeviceid: UInt, dwaddressid: UInt, dwappapiversion: UInt, lpagentcaps: MutPtr<Lineagentcaps>): Int =
+public actual fun lineGetAgentCapsA(hlineapp: UInt, dwdeviceid: UInt, dwaddressid: UInt, dwappapiversion: UInt, lpagentcaps: MutPtr): Int =
     windowssysWindowsWin32DevicesTapiLineGetAgentCapsA(hlineapp, dwdeviceid, dwaddressid, dwappapiversion, lpagentcaps.rawAddress.toCPointer<ByteVar>())
 
-public actual fun lineGetAgentCapsW(hlineapp: UInt, dwdeviceid: UInt, dwaddressid: UInt, dwappapiversion: UInt, lpagentcaps: MutPtr<Lineagentcaps>): Int =
+public actual fun lineGetAgentCapsW(hlineapp: UInt, dwdeviceid: UInt, dwaddressid: UInt, dwappapiversion: UInt, lpagentcaps: MutPtr): Int =
     windowssysWindowsWin32DevicesTapiLineGetAgentCapsW(hlineapp, dwdeviceid, dwaddressid, dwappapiversion, lpagentcaps.rawAddress.toCPointer<ByteVar>())
 
-public actual fun lineGetAgentGroupListA(hline: UInt, dwaddressid: UInt, lpagentgrouplist: MutPtr<Lineagentgrouplist>): Int =
+public actual fun lineGetAgentGroupListA(hline: UInt, dwaddressid: UInt, lpagentgrouplist: MutPtr): Int =
     windowssysWindowsWin32DevicesTapiLineGetAgentGroupListA(hline, dwaddressid, lpagentgrouplist.rawAddress.toCPointer<ByteVar>())
 
-public actual fun lineGetAgentGroupListW(hline: UInt, dwaddressid: UInt, lpagentgrouplist: MutPtr<Lineagentgrouplist>): Int =
+public actual fun lineGetAgentGroupListW(hline: UInt, dwaddressid: UInt, lpagentgrouplist: MutPtr): Int =
     windowssysWindowsWin32DevicesTapiLineGetAgentGroupListW(hline, dwaddressid, lpagentgrouplist.rawAddress.toCPointer<ByteVar>())
 
-public actual fun lineGetAgentInfo(hline: UInt, hagent: UInt, lpagentinfo: MutPtr<Lineagentinfo>): Int =
+public actual fun lineGetAgentInfo(hline: UInt, hagent: UInt, lpagentinfo: MutPtr): Int =
     windowssysWindowsWin32DevicesTapiLineGetAgentInfo(hline, hagent, lpagentinfo.rawAddress.toCPointer<ByteVar>())
 
-public actual fun lineGetAgentSessionInfo(hline: UInt, hagentsession: UInt, lpagentsessioninfo: MutPtr<Lineagentsessioninfo>): Int =
+public actual fun lineGetAgentSessionInfo(hline: UInt, hagentsession: UInt, lpagentsessioninfo: MutPtr): Int =
     windowssysWindowsWin32DevicesTapiLineGetAgentSessionInfo(hline, hagentsession, lpagentsessioninfo.rawAddress.toCPointer<ByteVar>())
 
-public actual fun lineGetAgentSessionList(hline: UInt, hagent: UInt, lpagentsessionlist: MutPtr<Lineagentsessionlist>): Int =
+public actual fun lineGetAgentSessionList(hline: UInt, hagent: UInt, lpagentsessionlist: MutPtr): Int =
     windowssysWindowsWin32DevicesTapiLineGetAgentSessionList(hline, hagent, lpagentsessionlist.rawAddress.toCPointer<ByteVar>())
 
-public actual fun lineGetAgentStatusA(hline: UInt, dwaddressid: UInt, lpagentstatus: MutPtr<Lineagentstatus>): Int =
+public actual fun lineGetAgentStatusA(hline: UInt, dwaddressid: UInt, lpagentstatus: MutPtr): Int =
     windowssysWindowsWin32DevicesTapiLineGetAgentStatusA(hline, dwaddressid, lpagentstatus.rawAddress.toCPointer<ByteVar>())
 
-public actual fun lineGetAgentStatusW(hline: UInt, dwaddressid: UInt, lpagentstatus: MutPtr<Lineagentstatus>): Int =
+public actual fun lineGetAgentStatusW(hline: UInt, dwaddressid: UInt, lpagentstatus: MutPtr): Int =
     windowssysWindowsWin32DevicesTapiLineGetAgentStatusW(hline, dwaddressid, lpagentstatus.rawAddress.toCPointer<ByteVar>())
 
-public actual fun lineGetAppPriority(lpszappfilename: Pcstr, dwmediamode: UInt, lpextensionid: MutPtr<Lineextensionid>, dwrequestmode: UInt, lpextensionname: MutPtr<Varstring>, lpdwpriority: MutPtr<UInt>): Int =
+public actual fun lineGetAppPriority(lpszappfilename: Pcstr, dwmediamode: UInt, lpextensionid: MutPtr, dwrequestmode: UInt, lpextensionname: MutPtr, lpdwpriority: MutPtr): Int =
     windowssysWindowsWin32DevicesTapiLineGetAppPriority(lpszappfilename.rawAddress.toCPointer<ByteVar>(), dwmediamode, lpextensionid.rawAddress.toCPointer<ByteVar>(), dwrequestmode, lpextensionname.rawAddress.toCPointer<ByteVar>(), lpdwpriority.rawAddress.toCPointer<ByteVar>())
 
-public actual fun lineGetAppPriorityA(lpszappfilename: Pcstr, dwmediamode: UInt, lpextensionid: MutPtr<Lineextensionid>, dwrequestmode: UInt, lpextensionname: MutPtr<Varstring>, lpdwpriority: MutPtr<UInt>): Int =
+public actual fun lineGetAppPriorityA(lpszappfilename: Pcstr, dwmediamode: UInt, lpextensionid: MutPtr, dwrequestmode: UInt, lpextensionname: MutPtr, lpdwpriority: MutPtr): Int =
     windowssysWindowsWin32DevicesTapiLineGetAppPriorityA(lpszappfilename.rawAddress.toCPointer<ByteVar>(), dwmediamode, lpextensionid.rawAddress.toCPointer<ByteVar>(), dwrequestmode, lpextensionname.rawAddress.toCPointer<ByteVar>(), lpdwpriority.rawAddress.toCPointer<ByteVar>())
 
-public actual fun lineGetAppPriorityW(lpszappfilename: Pcwstr, dwmediamode: UInt, lpextensionid: MutPtr<Lineextensionid>, dwrequestmode: UInt, lpextensionname: MutPtr<Varstring>, lpdwpriority: MutPtr<UInt>): Int =
+public actual fun lineGetAppPriorityW(lpszappfilename: Pcwstr, dwmediamode: UInt, lpextensionid: MutPtr, dwrequestmode: UInt, lpextensionname: MutPtr, lpdwpriority: MutPtr): Int =
     windowssysWindowsWin32DevicesTapiLineGetAppPriorityW(lpszappfilename.rawAddress.toCPointer<ByteVar>(), dwmediamode, lpextensionid.rawAddress.toCPointer<ByteVar>(), dwrequestmode, lpextensionname.rawAddress.toCPointer<ByteVar>(), lpdwpriority.rawAddress.toCPointer<ByteVar>())
 
-public actual fun lineGetCallInfo(hcall: UInt, lpcallinfo: MutPtr<Linecallinfo>): Int =
+public actual fun lineGetCallInfo(hcall: UInt, lpcallinfo: MutPtr): Int =
     windowssysWindowsWin32DevicesTapiLineGetCallInfo(hcall, lpcallinfo.rawAddress.toCPointer<ByteVar>())
 
-public actual fun lineGetCallInfoA(hcall: UInt, lpcallinfo: MutPtr<Linecallinfo>): Int =
+public actual fun lineGetCallInfoA(hcall: UInt, lpcallinfo: MutPtr): Int =
     windowssysWindowsWin32DevicesTapiLineGetCallInfoA(hcall, lpcallinfo.rawAddress.toCPointer<ByteVar>())
 
-public actual fun lineGetCallInfoW(hcall: UInt, lpcallinfo: MutPtr<Linecallinfo>): Int =
+public actual fun lineGetCallInfoW(hcall: UInt, lpcallinfo: MutPtr): Int =
     windowssysWindowsWin32DevicesTapiLineGetCallInfoW(hcall, lpcallinfo.rawAddress.toCPointer<ByteVar>())
 
-public actual fun lineGetCallStatus(hcall: UInt, lpcallstatus: MutPtr<Linecallstatus>): Int =
+public actual fun lineGetCallStatus(hcall: UInt, lpcallstatus: MutPtr): Int =
     windowssysWindowsWin32DevicesTapiLineGetCallStatus(hcall, lpcallstatus.rawAddress.toCPointer<ByteVar>())
 
-public actual fun lineGetConfRelatedCalls(hcall: UInt, lpcalllist: MutPtr<Linecalllist>): Int =
+public actual fun lineGetConfRelatedCalls(hcall: UInt, lpcalllist: MutPtr): Int =
     windowssysWindowsWin32DevicesTapiLineGetConfRelatedCalls(hcall, lpcalllist.rawAddress.toCPointer<ByteVar>())
 
-public actual fun lineGetCountry(dwcountryid: UInt, dwapiversion: UInt, lplinecountrylist: MutPtr<Linecountrylist>): Int =
+public actual fun lineGetCountry(dwcountryid: UInt, dwapiversion: UInt, lplinecountrylist: MutPtr): Int =
     windowssysWindowsWin32DevicesTapiLineGetCountry(dwcountryid, dwapiversion, lplinecountrylist.rawAddress.toCPointer<ByteVar>())
 
-public actual fun lineGetCountryA(dwcountryid: UInt, dwapiversion: UInt, lplinecountrylist: MutPtr<Linecountrylist>): Int =
+public actual fun lineGetCountryA(dwcountryid: UInt, dwapiversion: UInt, lplinecountrylist: MutPtr): Int =
     windowssysWindowsWin32DevicesTapiLineGetCountryA(dwcountryid, dwapiversion, lplinecountrylist.rawAddress.toCPointer<ByteVar>())
 
-public actual fun lineGetCountryW(dwcountryid: UInt, dwapiversion: UInt, lplinecountrylist: MutPtr<Linecountrylist>): Int =
+public actual fun lineGetCountryW(dwcountryid: UInt, dwapiversion: UInt, lplinecountrylist: MutPtr): Int =
     windowssysWindowsWin32DevicesTapiLineGetCountryW(dwcountryid, dwapiversion, lplinecountrylist.rawAddress.toCPointer<ByteVar>())
 
-public actual fun lineGetDevCaps(hlineapp: UInt, dwdeviceid: UInt, dwapiversion: UInt, dwextversion: UInt, lplinedevcaps: MutPtr<Linedevcaps>): Int =
+public actual fun lineGetDevCaps(hlineapp: UInt, dwdeviceid: UInt, dwapiversion: UInt, dwextversion: UInt, lplinedevcaps: MutPtr): Int =
     windowssysWindowsWin32DevicesTapiLineGetDevCaps(hlineapp, dwdeviceid, dwapiversion, dwextversion, lplinedevcaps.rawAddress.toCPointer<ByteVar>())
 
-public actual fun lineGetDevCapsA(hlineapp: UInt, dwdeviceid: UInt, dwapiversion: UInt, dwextversion: UInt, lplinedevcaps: MutPtr<Linedevcaps>): Int =
+public actual fun lineGetDevCapsA(hlineapp: UInt, dwdeviceid: UInt, dwapiversion: UInt, dwextversion: UInt, lplinedevcaps: MutPtr): Int =
     windowssysWindowsWin32DevicesTapiLineGetDevCapsA(hlineapp, dwdeviceid, dwapiversion, dwextversion, lplinedevcaps.rawAddress.toCPointer<ByteVar>())
 
-public actual fun lineGetDevCapsW(hlineapp: UInt, dwdeviceid: UInt, dwapiversion: UInt, dwextversion: UInt, lplinedevcaps: MutPtr<Linedevcaps>): Int =
+public actual fun lineGetDevCapsW(hlineapp: UInt, dwdeviceid: UInt, dwapiversion: UInt, dwextversion: UInt, lplinedevcaps: MutPtr): Int =
     windowssysWindowsWin32DevicesTapiLineGetDevCapsW(hlineapp, dwdeviceid, dwapiversion, dwextversion, lplinedevcaps.rawAddress.toCPointer<ByteVar>())
 
-public actual fun lineGetDevConfig(dwdeviceid: UInt, lpdeviceconfig: MutPtr<Varstring>, lpszdeviceclass: Pcstr): Int =
+public actual fun lineGetDevConfig(dwdeviceid: UInt, lpdeviceconfig: MutPtr, lpszdeviceclass: Pcstr): Int =
     windowssysWindowsWin32DevicesTapiLineGetDevConfig(dwdeviceid, lpdeviceconfig.rawAddress.toCPointer<ByteVar>(), lpszdeviceclass.rawAddress.toCPointer<ByteVar>())
 
-public actual fun lineGetDevConfigA(dwdeviceid: UInt, lpdeviceconfig: MutPtr<Varstring>, lpszdeviceclass: Pcstr): Int =
+public actual fun lineGetDevConfigA(dwdeviceid: UInt, lpdeviceconfig: MutPtr, lpszdeviceclass: Pcstr): Int =
     windowssysWindowsWin32DevicesTapiLineGetDevConfigA(dwdeviceid, lpdeviceconfig.rawAddress.toCPointer<ByteVar>(), lpszdeviceclass.rawAddress.toCPointer<ByteVar>())
 
-public actual fun lineGetDevConfigW(dwdeviceid: UInt, lpdeviceconfig: MutPtr<Varstring>, lpszdeviceclass: Pcwstr): Int =
+public actual fun lineGetDevConfigW(dwdeviceid: UInt, lpdeviceconfig: MutPtr, lpszdeviceclass: Pcwstr): Int =
     windowssysWindowsWin32DevicesTapiLineGetDevConfigW(dwdeviceid, lpdeviceconfig.rawAddress.toCPointer<ByteVar>(), lpszdeviceclass.rawAddress.toCPointer<ByteVar>())
 
-public actual fun lineGetGroupListA(hline: UInt, lpgrouplist: MutPtr<Lineagentgrouplist>): Int =
+public actual fun lineGetGroupListA(hline: UInt, lpgrouplist: MutPtr): Int =
     windowssysWindowsWin32DevicesTapiLineGetGroupListA(hline, lpgrouplist.rawAddress.toCPointer<ByteVar>())
 
-public actual fun lineGetGroupListW(hline: UInt, lpgrouplist: MutPtr<Lineagentgrouplist>): Int =
+public actual fun lineGetGroupListW(hline: UInt, lpgrouplist: MutPtr): Int =
     windowssysWindowsWin32DevicesTapiLineGetGroupListW(hline, lpgrouplist.rawAddress.toCPointer<ByteVar>())
 
-public actual fun lineGetID(hline: UInt, dwaddressid: UInt, hcall: UInt, dwselect: UInt, lpdeviceid: MutPtr<Varstring>, lpszdeviceclass: Pcstr): Int =
+public actual fun lineGetID(hline: UInt, dwaddressid: UInt, hcall: UInt, dwselect: UInt, lpdeviceid: MutPtr, lpszdeviceclass: Pcstr): Int =
     windowssysWindowsWin32DevicesTapiLineGetID(hline, dwaddressid, hcall, dwselect, lpdeviceid.rawAddress.toCPointer<ByteVar>(), lpszdeviceclass.rawAddress.toCPointer<ByteVar>())
 
-public actual fun lineGetIDA(hline: UInt, dwaddressid: UInt, hcall: UInt, dwselect: UInt, lpdeviceid: MutPtr<Varstring>, lpszdeviceclass: Pcstr): Int =
+public actual fun lineGetIDA(hline: UInt, dwaddressid: UInt, hcall: UInt, dwselect: UInt, lpdeviceid: MutPtr, lpszdeviceclass: Pcstr): Int =
     windowssysWindowsWin32DevicesTapiLineGetIDA(hline, dwaddressid, hcall, dwselect, lpdeviceid.rawAddress.toCPointer<ByteVar>(), lpszdeviceclass.rawAddress.toCPointer<ByteVar>())
 
-public actual fun lineGetIDW(hline: UInt, dwaddressid: UInt, hcall: UInt, dwselect: UInt, lpdeviceid: MutPtr<Varstring>, lpszdeviceclass: Pcwstr): Int =
+public actual fun lineGetIDW(hline: UInt, dwaddressid: UInt, hcall: UInt, dwselect: UInt, lpdeviceid: MutPtr, lpszdeviceclass: Pcwstr): Int =
     windowssysWindowsWin32DevicesTapiLineGetIDW(hline, dwaddressid, hcall, dwselect, lpdeviceid.rawAddress.toCPointer<ByteVar>(), lpszdeviceclass.rawAddress.toCPointer<ByteVar>())
 
-public actual fun lineGetIcon(dwdeviceid: UInt, lpszdeviceclass: Pcstr, lphicon: MutPtr<Hicon>): Int =
+public actual fun lineGetIcon(dwdeviceid: UInt, lpszdeviceclass: Pcstr, lphicon: MutPtr): Int =
     windowssysWindowsWin32DevicesTapiLineGetIcon(dwdeviceid, lpszdeviceclass.rawAddress.toCPointer<ByteVar>(), lphicon.rawAddress.toCPointer<ByteVar>())
 
-public actual fun lineGetIconA(dwdeviceid: UInt, lpszdeviceclass: Pcstr, lphicon: MutPtr<Hicon>): Int =
+public actual fun lineGetIconA(dwdeviceid: UInt, lpszdeviceclass: Pcstr, lphicon: MutPtr): Int =
     windowssysWindowsWin32DevicesTapiLineGetIconA(dwdeviceid, lpszdeviceclass.rawAddress.toCPointer<ByteVar>(), lphicon.rawAddress.toCPointer<ByteVar>())
 
-public actual fun lineGetIconW(dwdeviceid: UInt, lpszdeviceclass: Pcwstr, lphicon: MutPtr<Hicon>): Int =
+public actual fun lineGetIconW(dwdeviceid: UInt, lpszdeviceclass: Pcwstr, lphicon: MutPtr): Int =
     windowssysWindowsWin32DevicesTapiLineGetIconW(dwdeviceid, lpszdeviceclass.rawAddress.toCPointer<ByteVar>(), lphicon.rawAddress.toCPointer<ByteVar>())
 
-public actual fun lineGetLineDevStatus(hline: UInt, lplinedevstatus: MutPtr<Linedevstatus>): Int =
+public actual fun lineGetLineDevStatus(hline: UInt, lplinedevstatus: MutPtr): Int =
     windowssysWindowsWin32DevicesTapiLineGetLineDevStatus(hline, lplinedevstatus.rawAddress.toCPointer<ByteVar>())
 
-public actual fun lineGetLineDevStatusA(hline: UInt, lplinedevstatus: MutPtr<Linedevstatus>): Int =
+public actual fun lineGetLineDevStatusA(hline: UInt, lplinedevstatus: MutPtr): Int =
     windowssysWindowsWin32DevicesTapiLineGetLineDevStatusA(hline, lplinedevstatus.rawAddress.toCPointer<ByteVar>())
 
-public actual fun lineGetLineDevStatusW(hline: UInt, lplinedevstatus: MutPtr<Linedevstatus>): Int =
+public actual fun lineGetLineDevStatusW(hline: UInt, lplinedevstatus: MutPtr): Int =
     windowssysWindowsWin32DevicesTapiLineGetLineDevStatusW(hline, lplinedevstatus.rawAddress.toCPointer<ByteVar>())
 
-public actual fun lineGetMessage(hlineapp: UInt, lpmessage: MutPtr<Linemessage>, dwtimeout: UInt): Int =
+public actual fun lineGetMessage(hlineapp: UInt, lpmessage: MutPtr, dwtimeout: UInt): Int =
     windowssysWindowsWin32DevicesTapiLineGetMessage(hlineapp, lpmessage.rawAddress.toCPointer<ByteVar>(), dwtimeout)
 
-public actual fun lineGetNewCalls(hline: UInt, dwaddressid: UInt, dwselect: UInt, lpcalllist: MutPtr<Linecalllist>): Int =
+public actual fun lineGetNewCalls(hline: UInt, dwaddressid: UInt, dwselect: UInt, lpcalllist: MutPtr): Int =
     windowssysWindowsWin32DevicesTapiLineGetNewCalls(hline, dwaddressid, dwselect, lpcalllist.rawAddress.toCPointer<ByteVar>())
 
-public actual fun lineGetNumRings(hline: UInt, dwaddressid: UInt, lpdwnumrings: MutPtr<UInt>): Int =
+public actual fun lineGetNumRings(hline: UInt, dwaddressid: UInt, lpdwnumrings: MutPtr): Int =
     windowssysWindowsWin32DevicesTapiLineGetNumRings(hline, dwaddressid, lpdwnumrings.rawAddress.toCPointer<ByteVar>())
 
-public actual fun lineGetProviderList(dwapiversion: UInt, lpproviderlist: MutPtr<Lineproviderlist>): Int =
+public actual fun lineGetProviderList(dwapiversion: UInt, lpproviderlist: MutPtr): Int =
     windowssysWindowsWin32DevicesTapiLineGetProviderList(dwapiversion, lpproviderlist.rawAddress.toCPointer<ByteVar>())
 
-public actual fun lineGetProviderListA(dwapiversion: UInt, lpproviderlist: MutPtr<Lineproviderlist>): Int =
+public actual fun lineGetProviderListA(dwapiversion: UInt, lpproviderlist: MutPtr): Int =
     windowssysWindowsWin32DevicesTapiLineGetProviderListA(dwapiversion, lpproviderlist.rawAddress.toCPointer<ByteVar>())
 
-public actual fun lineGetProviderListW(dwapiversion: UInt, lpproviderlist: MutPtr<Lineproviderlist>): Int =
+public actual fun lineGetProviderListW(dwapiversion: UInt, lpproviderlist: MutPtr): Int =
     windowssysWindowsWin32DevicesTapiLineGetProviderListW(dwapiversion, lpproviderlist.rawAddress.toCPointer<ByteVar>())
 
-public actual fun lineGetProxyStatus(hlineapp: UInt, dwdeviceid: UInt, dwappapiversion: UInt, lplineproxyreqestlist: MutPtr<Lineproxyrequestlist>): Int =
+public actual fun lineGetProxyStatus(hlineapp: UInt, dwdeviceid: UInt, dwappapiversion: UInt, lplineproxyreqestlist: MutPtr): Int =
     windowssysWindowsWin32DevicesTapiLineGetProxyStatus(hlineapp, dwdeviceid, dwappapiversion, lplineproxyreqestlist.rawAddress.toCPointer<ByteVar>())
 
-public actual fun lineGetQueueInfo(hline: UInt, dwqueueid: UInt, lplinequeueinfo: MutPtr<Linequeueinfo>): Int =
+public actual fun lineGetQueueInfo(hline: UInt, dwqueueid: UInt, lplinequeueinfo: MutPtr): Int =
     windowssysWindowsWin32DevicesTapiLineGetQueueInfo(hline, dwqueueid, lplinequeueinfo.rawAddress.toCPointer<ByteVar>())
 
-public actual fun lineGetQueueListA(hline: UInt, lpgroupid: MutPtr<Guid>, lpqueuelist: MutPtr<Linequeuelist>): Int =
+public actual fun lineGetQueueListA(hline: UInt, lpgroupid: MutPtr, lpqueuelist: MutPtr): Int =
     windowssysWindowsWin32DevicesTapiLineGetQueueListA(hline, lpgroupid.rawAddress.toCPointer<ByteVar>(), lpqueuelist.rawAddress.toCPointer<ByteVar>())
 
-public actual fun lineGetQueueListW(hline: UInt, lpgroupid: MutPtr<Guid>, lpqueuelist: MutPtr<Linequeuelist>): Int =
+public actual fun lineGetQueueListW(hline: UInt, lpgroupid: MutPtr, lpqueuelist: MutPtr): Int =
     windowssysWindowsWin32DevicesTapiLineGetQueueListW(hline, lpgroupid.rawAddress.toCPointer<ByteVar>(), lpqueuelist.rawAddress.toCPointer<ByteVar>())
 
-public actual fun lineGetRequest(hlineapp: UInt, dwrequestmode: UInt, lprequestbuffer: MutPtr<CVoid>): Int =
+public actual fun lineGetRequest(hlineapp: UInt, dwrequestmode: UInt, lprequestbuffer: MutPtr): Int =
     windowssysWindowsWin32DevicesTapiLineGetRequest(hlineapp, dwrequestmode, lprequestbuffer.rawAddress.toCPointer<ByteVar>())
 
-public actual fun lineGetRequestA(hlineapp: UInt, dwrequestmode: UInt, lprequestbuffer: MutPtr<CVoid>): Int =
+public actual fun lineGetRequestA(hlineapp: UInt, dwrequestmode: UInt, lprequestbuffer: MutPtr): Int =
     windowssysWindowsWin32DevicesTapiLineGetRequestA(hlineapp, dwrequestmode, lprequestbuffer.rawAddress.toCPointer<ByteVar>())
 
-public actual fun lineGetRequestW(hlineapp: UInt, dwrequestmode: UInt, lprequestbuffer: MutPtr<CVoid>): Int =
+public actual fun lineGetRequestW(hlineapp: UInt, dwrequestmode: UInt, lprequestbuffer: MutPtr): Int =
     windowssysWindowsWin32DevicesTapiLineGetRequestW(hlineapp, dwrequestmode, lprequestbuffer.rawAddress.toCPointer<ByteVar>())
 
-public actual fun lineGetStatusMessages(hline: UInt, lpdwlinestates: MutPtr<UInt>, lpdwaddressstates: MutPtr<UInt>): Int =
+public actual fun lineGetStatusMessages(hline: UInt, lpdwlinestates: MutPtr, lpdwaddressstates: MutPtr): Int =
     windowssysWindowsWin32DevicesTapiLineGetStatusMessages(hline, lpdwlinestates.rawAddress.toCPointer<ByteVar>(), lpdwaddressstates.rawAddress.toCPointer<ByteVar>())
 
-public actual fun lineGetTranslateCaps(hlineapp: UInt, dwapiversion: UInt, lptranslatecaps: MutPtr<Linetranslatecaps>): Int =
+public actual fun lineGetTranslateCaps(hlineapp: UInt, dwapiversion: UInt, lptranslatecaps: MutPtr): Int =
     windowssysWindowsWin32DevicesTapiLineGetTranslateCaps(hlineapp, dwapiversion, lptranslatecaps.rawAddress.toCPointer<ByteVar>())
 
-public actual fun lineGetTranslateCapsA(hlineapp: UInt, dwapiversion: UInt, lptranslatecaps: MutPtr<Linetranslatecaps>): Int =
+public actual fun lineGetTranslateCapsA(hlineapp: UInt, dwapiversion: UInt, lptranslatecaps: MutPtr): Int =
     windowssysWindowsWin32DevicesTapiLineGetTranslateCapsA(hlineapp, dwapiversion, lptranslatecaps.rawAddress.toCPointer<ByteVar>())
 
-public actual fun lineGetTranslateCapsW(hlineapp: UInt, dwapiversion: UInt, lptranslatecaps: MutPtr<Linetranslatecaps>): Int =
+public actual fun lineGetTranslateCapsW(hlineapp: UInt, dwapiversion: UInt, lptranslatecaps: MutPtr): Int =
     windowssysWindowsWin32DevicesTapiLineGetTranslateCapsW(hlineapp, dwapiversion, lptranslatecaps.rawAddress.toCPointer<ByteVar>())
 
 public actual fun lineHandoff(hcall: UInt, lpszfilename: Pcstr, dwmediamode: UInt): Int =
@@ -609,22 +606,22 @@ public actual fun lineHandoffW(hcall: UInt, lpszfilename: Pcwstr, dwmediamode: U
 public actual fun lineHold(hcall: UInt): Int =
     windowssysWindowsWin32DevicesTapiLineHold(hcall)
 
-public actual fun lineInitialize(lphlineapp: MutPtr<UInt>, hinstance: Hinstance, lpfncallback: Linecallback, lpszappname: Pcstr, lpdwnumdevs: MutPtr<UInt>): Int =
+public actual fun lineInitialize(lphlineapp: MutPtr, hinstance: Hinstance, lpfncallback: Linecallback, lpszappname: Pcstr, lpdwnumdevs: MutPtr): Int =
     windowssysWindowsWin32DevicesTapiLineInitialize(lphlineapp.rawAddress.toCPointer<ByteVar>(), hinstance.rawAddress.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>(), lpszappname.rawAddress.toCPointer<ByteVar>(), lpdwnumdevs.rawAddress.toCPointer<ByteVar>())
 
-public actual fun lineInitializeExA(lphlineapp: MutPtr<UInt>, hinstance: Hinstance, lpfncallback: Linecallback, lpszfriendlyappname: Pcstr, lpdwnumdevs: MutPtr<UInt>, lpdwapiversion: MutPtr<UInt>, lplineinitializeexparams: MutPtr<Lineinitializeexparams>): Int =
+public actual fun lineInitializeExA(lphlineapp: MutPtr, hinstance: Hinstance, lpfncallback: Linecallback, lpszfriendlyappname: Pcstr, lpdwnumdevs: MutPtr, lpdwapiversion: MutPtr, lplineinitializeexparams: MutPtr): Int =
     windowssysWindowsWin32DevicesTapiLineInitializeExA(lphlineapp.rawAddress.toCPointer<ByteVar>(), hinstance.rawAddress.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>(), lpszfriendlyappname.rawAddress.toCPointer<ByteVar>(), lpdwnumdevs.rawAddress.toCPointer<ByteVar>(), lpdwapiversion.rawAddress.toCPointer<ByteVar>(), lplineinitializeexparams.rawAddress.toCPointer<ByteVar>())
 
-public actual fun lineInitializeExW(lphlineapp: MutPtr<UInt>, hinstance: Hinstance, lpfncallback: Linecallback, lpszfriendlyappname: Pcwstr, lpdwnumdevs: MutPtr<UInt>, lpdwapiversion: MutPtr<UInt>, lplineinitializeexparams: MutPtr<Lineinitializeexparams>): Int =
+public actual fun lineInitializeExW(lphlineapp: MutPtr, hinstance: Hinstance, lpfncallback: Linecallback, lpszfriendlyappname: Pcwstr, lpdwnumdevs: MutPtr, lpdwapiversion: MutPtr, lplineinitializeexparams: MutPtr): Int =
     windowssysWindowsWin32DevicesTapiLineInitializeExW(lphlineapp.rawAddress.toCPointer<ByteVar>(), hinstance.rawAddress.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>(), lpszfriendlyappname.rawAddress.toCPointer<ByteVar>(), lpdwnumdevs.rawAddress.toCPointer<ByteVar>(), lpdwapiversion.rawAddress.toCPointer<ByteVar>(), lplineinitializeexparams.rawAddress.toCPointer<ByteVar>())
 
-public actual fun lineMakeCall(hline: UInt, lphcall: MutPtr<UInt>, lpszdestaddress: Pcstr, dwcountrycode: UInt, lpcallparams: ConstPtr<Linecallparams>): Int =
+public actual fun lineMakeCall(hline: UInt, lphcall: MutPtr, lpszdestaddress: Pcstr, dwcountrycode: UInt, lpcallparams: ConstPtr): Int =
     windowssysWindowsWin32DevicesTapiLineMakeCall(hline, lphcall.rawAddress.toCPointer<ByteVar>(), lpszdestaddress.rawAddress.toCPointer<ByteVar>(), dwcountrycode, lpcallparams.rawAddress.toCPointer<ByteVar>())
 
-public actual fun lineMakeCallA(hline: UInt, lphcall: MutPtr<UInt>, lpszdestaddress: Pcstr, dwcountrycode: UInt, lpcallparams: ConstPtr<Linecallparams>): Int =
+public actual fun lineMakeCallA(hline: UInt, lphcall: MutPtr, lpszdestaddress: Pcstr, dwcountrycode: UInt, lpcallparams: ConstPtr): Int =
     windowssysWindowsWin32DevicesTapiLineMakeCallA(hline, lphcall.rawAddress.toCPointer<ByteVar>(), lpszdestaddress.rawAddress.toCPointer<ByteVar>(), dwcountrycode, lpcallparams.rawAddress.toCPointer<ByteVar>())
 
-public actual fun lineMakeCallW(hline: UInt, lphcall: MutPtr<UInt>, lpszdestaddress: Pcwstr, dwcountrycode: UInt, lpcallparams: ConstPtr<Linecallparams>): Int =
+public actual fun lineMakeCallW(hline: UInt, lphcall: MutPtr, lpszdestaddress: Pcwstr, dwcountrycode: UInt, lpcallparams: ConstPtr): Int =
     windowssysWindowsWin32DevicesTapiLineMakeCallW(hline, lphcall.rawAddress.toCPointer<ByteVar>(), lpszdestaddress.rawAddress.toCPointer<ByteVar>(), dwcountrycode, lpcallparams.rawAddress.toCPointer<ByteVar>())
 
 public actual fun lineMonitorDigits(hcall: UInt, dwdigitmodes: UInt): Int =
@@ -633,55 +630,55 @@ public actual fun lineMonitorDigits(hcall: UInt, dwdigitmodes: UInt): Int =
 public actual fun lineMonitorMedia(hcall: UInt, dwmediamodes: UInt): Int =
     windowssysWindowsWin32DevicesTapiLineMonitorMedia(hcall, dwmediamodes)
 
-public actual fun lineMonitorTones(hcall: UInt, lptonelist: ConstPtr<Linemonitortone>, dwnumentries: UInt): Int =
+public actual fun lineMonitorTones(hcall: UInt, lptonelist: ConstPtr, dwnumentries: UInt): Int =
     windowssysWindowsWin32DevicesTapiLineMonitorTones(hcall, lptonelist.rawAddress.toCPointer<ByteVar>(), dwnumentries)
 
-public actual fun lineNegotiateAPIVersion(hlineapp: UInt, dwdeviceid: UInt, dwapilowversion: UInt, dwapihighversion: UInt, lpdwapiversion: MutPtr<UInt>, lpextensionid: MutPtr<Lineextensionid>): Int =
+public actual fun lineNegotiateAPIVersion(hlineapp: UInt, dwdeviceid: UInt, dwapilowversion: UInt, dwapihighversion: UInt, lpdwapiversion: MutPtr, lpextensionid: MutPtr): Int =
     windowssysWindowsWin32DevicesTapiLineNegotiateAPIVersion(hlineapp, dwdeviceid, dwapilowversion, dwapihighversion, lpdwapiversion.rawAddress.toCPointer<ByteVar>(), lpextensionid.rawAddress.toCPointer<ByteVar>())
 
-public actual fun lineNegotiateExtVersion(hlineapp: UInt, dwdeviceid: UInt, dwapiversion: UInt, dwextlowversion: UInt, dwexthighversion: UInt, lpdwextversion: MutPtr<UInt>): Int =
+public actual fun lineNegotiateExtVersion(hlineapp: UInt, dwdeviceid: UInt, dwapiversion: UInt, dwextlowversion: UInt, dwexthighversion: UInt, lpdwextversion: MutPtr): Int =
     windowssysWindowsWin32DevicesTapiLineNegotiateExtVersion(hlineapp, dwdeviceid, dwapiversion, dwextlowversion, dwexthighversion, lpdwextversion.rawAddress.toCPointer<ByteVar>())
 
-public actual fun lineOpen(hlineapp: UInt, dwdeviceid: UInt, lphline: MutPtr<UInt>, dwapiversion: UInt, dwextversion: UInt, dwcallbackinstance: ULong, dwprivileges: UInt, dwmediamodes: UInt, lpcallparams: ConstPtr<Linecallparams>): Int =
+public actual fun lineOpen(hlineapp: UInt, dwdeviceid: UInt, lphline: MutPtr, dwapiversion: UInt, dwextversion: UInt, dwcallbackinstance: ULong, dwprivileges: UInt, dwmediamodes: UInt, lpcallparams: ConstPtr): Int =
     windowssysWindowsWin32DevicesTapiLineOpen(hlineapp, dwdeviceid, lphline.rawAddress.toCPointer<ByteVar>(), dwapiversion, dwextversion, dwcallbackinstance, dwprivileges, dwmediamodes, lpcallparams.rawAddress.toCPointer<ByteVar>())
 
-public actual fun lineOpenA(hlineapp: UInt, dwdeviceid: UInt, lphline: MutPtr<UInt>, dwapiversion: UInt, dwextversion: UInt, dwcallbackinstance: ULong, dwprivileges: UInt, dwmediamodes: UInt, lpcallparams: ConstPtr<Linecallparams>): Int =
+public actual fun lineOpenA(hlineapp: UInt, dwdeviceid: UInt, lphline: MutPtr, dwapiversion: UInt, dwextversion: UInt, dwcallbackinstance: ULong, dwprivileges: UInt, dwmediamodes: UInt, lpcallparams: ConstPtr): Int =
     windowssysWindowsWin32DevicesTapiLineOpenA(hlineapp, dwdeviceid, lphline.rawAddress.toCPointer<ByteVar>(), dwapiversion, dwextversion, dwcallbackinstance, dwprivileges, dwmediamodes, lpcallparams.rawAddress.toCPointer<ByteVar>())
 
-public actual fun lineOpenW(hlineapp: UInt, dwdeviceid: UInt, lphline: MutPtr<UInt>, dwapiversion: UInt, dwextversion: UInt, dwcallbackinstance: ULong, dwprivileges: UInt, dwmediamodes: UInt, lpcallparams: ConstPtr<Linecallparams>): Int =
+public actual fun lineOpenW(hlineapp: UInt, dwdeviceid: UInt, lphline: MutPtr, dwapiversion: UInt, dwextversion: UInt, dwcallbackinstance: ULong, dwprivileges: UInt, dwmediamodes: UInt, lpcallparams: ConstPtr): Int =
     windowssysWindowsWin32DevicesTapiLineOpenW(hlineapp, dwdeviceid, lphline.rawAddress.toCPointer<ByteVar>(), dwapiversion, dwextversion, dwcallbackinstance, dwprivileges, dwmediamodes, lpcallparams.rawAddress.toCPointer<ByteVar>())
 
-public actual fun linePark(hcall: UInt, dwparkmode: UInt, lpszdiraddress: Pcstr, lpnondiraddress: MutPtr<Varstring>): Int =
+public actual fun linePark(hcall: UInt, dwparkmode: UInt, lpszdiraddress: Pcstr, lpnondiraddress: MutPtr): Int =
     windowssysWindowsWin32DevicesTapiLinePark(hcall, dwparkmode, lpszdiraddress.rawAddress.toCPointer<ByteVar>(), lpnondiraddress.rawAddress.toCPointer<ByteVar>())
 
-public actual fun lineParkA(hcall: UInt, dwparkmode: UInt, lpszdiraddress: Pcstr, lpnondiraddress: MutPtr<Varstring>): Int =
+public actual fun lineParkA(hcall: UInt, dwparkmode: UInt, lpszdiraddress: Pcstr, lpnondiraddress: MutPtr): Int =
     windowssysWindowsWin32DevicesTapiLineParkA(hcall, dwparkmode, lpszdiraddress.rawAddress.toCPointer<ByteVar>(), lpnondiraddress.rawAddress.toCPointer<ByteVar>())
 
-public actual fun lineParkW(hcall: UInt, dwparkmode: UInt, lpszdiraddress: Pcwstr, lpnondiraddress: MutPtr<Varstring>): Int =
+public actual fun lineParkW(hcall: UInt, dwparkmode: UInt, lpszdiraddress: Pcwstr, lpnondiraddress: MutPtr): Int =
     windowssysWindowsWin32DevicesTapiLineParkW(hcall, dwparkmode, lpszdiraddress.rawAddress.toCPointer<ByteVar>(), lpnondiraddress.rawAddress.toCPointer<ByteVar>())
 
-public actual fun linePickup(hline: UInt, dwaddressid: UInt, lphcall: MutPtr<UInt>, lpszdestaddress: Pcstr, lpszgroupid: Pcstr): Int =
+public actual fun linePickup(hline: UInt, dwaddressid: UInt, lphcall: MutPtr, lpszdestaddress: Pcstr, lpszgroupid: Pcstr): Int =
     windowssysWindowsWin32DevicesTapiLinePickup(hline, dwaddressid, lphcall.rawAddress.toCPointer<ByteVar>(), lpszdestaddress.rawAddress.toCPointer<ByteVar>(), lpszgroupid.rawAddress.toCPointer<ByteVar>())
 
-public actual fun linePickupA(hline: UInt, dwaddressid: UInt, lphcall: MutPtr<UInt>, lpszdestaddress: Pcstr, lpszgroupid: Pcstr): Int =
+public actual fun linePickupA(hline: UInt, dwaddressid: UInt, lphcall: MutPtr, lpszdestaddress: Pcstr, lpszgroupid: Pcstr): Int =
     windowssysWindowsWin32DevicesTapiLinePickupA(hline, dwaddressid, lphcall.rawAddress.toCPointer<ByteVar>(), lpszdestaddress.rawAddress.toCPointer<ByteVar>(), lpszgroupid.rawAddress.toCPointer<ByteVar>())
 
-public actual fun linePickupW(hline: UInt, dwaddressid: UInt, lphcall: MutPtr<UInt>, lpszdestaddress: Pcwstr, lpszgroupid: Pcwstr): Int =
+public actual fun linePickupW(hline: UInt, dwaddressid: UInt, lphcall: MutPtr, lpszdestaddress: Pcwstr, lpszgroupid: Pcwstr): Int =
     windowssysWindowsWin32DevicesTapiLinePickupW(hline, dwaddressid, lphcall.rawAddress.toCPointer<ByteVar>(), lpszdestaddress.rawAddress.toCPointer<ByteVar>(), lpszgroupid.rawAddress.toCPointer<ByteVar>())
 
-public actual fun linePrepareAddToConference(hconfcall: UInt, lphconsultcall: MutPtr<UInt>, lpcallparams: ConstPtr<Linecallparams>): Int =
+public actual fun linePrepareAddToConference(hconfcall: UInt, lphconsultcall: MutPtr, lpcallparams: ConstPtr): Int =
     windowssysWindowsWin32DevicesTapiLinePrepareAddToConference(hconfcall, lphconsultcall.rawAddress.toCPointer<ByteVar>(), lpcallparams.rawAddress.toCPointer<ByteVar>())
 
-public actual fun linePrepareAddToConferenceA(hconfcall: UInt, lphconsultcall: MutPtr<UInt>, lpcallparams: ConstPtr<Linecallparams>): Int =
+public actual fun linePrepareAddToConferenceA(hconfcall: UInt, lphconsultcall: MutPtr, lpcallparams: ConstPtr): Int =
     windowssysWindowsWin32DevicesTapiLinePrepareAddToConferenceA(hconfcall, lphconsultcall.rawAddress.toCPointer<ByteVar>(), lpcallparams.rawAddress.toCPointer<ByteVar>())
 
-public actual fun linePrepareAddToConferenceW(hconfcall: UInt, lphconsultcall: MutPtr<UInt>, lpcallparams: ConstPtr<Linecallparams>): Int =
+public actual fun linePrepareAddToConferenceW(hconfcall: UInt, lphconsultcall: MutPtr, lpcallparams: ConstPtr): Int =
     windowssysWindowsWin32DevicesTapiLinePrepareAddToConferenceW(hconfcall, lphconsultcall.rawAddress.toCPointer<ByteVar>(), lpcallparams.rawAddress.toCPointer<ByteVar>())
 
 public actual fun lineProxyMessage(hline: UInt, hcall: UInt, dwmsg: UInt, dwparam1: UInt, dwparam2: UInt, dwparam3: UInt): Int =
     windowssysWindowsWin32DevicesTapiLineProxyMessage(hline, hcall, dwmsg, dwparam1, dwparam2, dwparam3)
 
-public actual fun lineProxyResponse(hline: UInt, lpproxyrequest: MutPtr<Lineproxyrequest>, dwresult: UInt): Int =
+public actual fun lineProxyResponse(hline: UInt, lpproxyrequest: MutPtr, dwresult: UInt): Int =
     windowssysWindowsWin32DevicesTapiLineProxyResponse(hline, lpproxyrequest.rawAddress.toCPointer<ByteVar>(), dwresult)
 
 public actual fun lineRedirect(hcall: UInt, lpszdestaddress: Pcstr, dwcountrycode: UInt): Int =
@@ -714,7 +711,7 @@ public actual fun lineSendUserUserInfo(hcall: UInt, lpsuseruserinfo: Pcstr, dwsi
 public actual fun lineSetAgentActivity(hline: UInt, dwaddressid: UInt, dwactivityid: UInt): Int =
     windowssysWindowsWin32DevicesTapiLineSetAgentActivity(hline, dwaddressid, dwactivityid)
 
-public actual fun lineSetAgentGroup(hline: UInt, dwaddressid: UInt, lpagentgrouplist: MutPtr<Lineagentgrouplist>): Int =
+public actual fun lineSetAgentGroup(hline: UInt, dwaddressid: UInt, lpagentgrouplist: MutPtr): Int =
     windowssysWindowsWin32DevicesTapiLineSetAgentGroup(hline, dwaddressid, lpagentgrouplist.rawAddress.toCPointer<ByteVar>())
 
 public actual fun lineSetAgentMeasurementPeriod(hline: UInt, hagent: UInt, dwmeasurementperiod: UInt): Int =
@@ -729,28 +726,28 @@ public actual fun lineSetAgentState(hline: UInt, dwaddressid: UInt, dwagentstate
 public actual fun lineSetAgentStateEx(hline: UInt, hagent: UInt, dwagentstate: UInt, dwnextagentstate: UInt): Int =
     windowssysWindowsWin32DevicesTapiLineSetAgentStateEx(hline, hagent, dwagentstate, dwnextagentstate)
 
-public actual fun lineSetAppPriority(lpszappfilename: Pcstr, dwmediamode: UInt, lpextensionid: MutPtr<Lineextensionid>, dwrequestmode: UInt, lpszextensionname: Pcstr, dwpriority: UInt): Int =
+public actual fun lineSetAppPriority(lpszappfilename: Pcstr, dwmediamode: UInt, lpextensionid: MutPtr, dwrequestmode: UInt, lpszextensionname: Pcstr, dwpriority: UInt): Int =
     windowssysWindowsWin32DevicesTapiLineSetAppPriority(lpszappfilename.rawAddress.toCPointer<ByteVar>(), dwmediamode, lpextensionid.rawAddress.toCPointer<ByteVar>(), dwrequestmode, lpszextensionname.rawAddress.toCPointer<ByteVar>(), dwpriority)
 
-public actual fun lineSetAppPriorityA(lpszappfilename: Pcstr, dwmediamode: UInt, lpextensionid: MutPtr<Lineextensionid>, dwrequestmode: UInt, lpszextensionname: Pcstr, dwpriority: UInt): Int =
+public actual fun lineSetAppPriorityA(lpszappfilename: Pcstr, dwmediamode: UInt, lpextensionid: MutPtr, dwrequestmode: UInt, lpszextensionname: Pcstr, dwpriority: UInt): Int =
     windowssysWindowsWin32DevicesTapiLineSetAppPriorityA(lpszappfilename.rawAddress.toCPointer<ByteVar>(), dwmediamode, lpextensionid.rawAddress.toCPointer<ByteVar>(), dwrequestmode, lpszextensionname.rawAddress.toCPointer<ByteVar>(), dwpriority)
 
-public actual fun lineSetAppPriorityW(lpszappfilename: Pcwstr, dwmediamode: UInt, lpextensionid: MutPtr<Lineextensionid>, dwrequestmode: UInt, lpszextensionname: Pcwstr, dwpriority: UInt): Int =
+public actual fun lineSetAppPriorityW(lpszappfilename: Pcwstr, dwmediamode: UInt, lpextensionid: MutPtr, dwrequestmode: UInt, lpszextensionname: Pcwstr, dwpriority: UInt): Int =
     windowssysWindowsWin32DevicesTapiLineSetAppPriorityW(lpszappfilename.rawAddress.toCPointer<ByteVar>(), dwmediamode, lpextensionid.rawAddress.toCPointer<ByteVar>(), dwrequestmode, lpszextensionname.rawAddress.toCPointer<ByteVar>(), dwpriority)
 
 public actual fun lineSetAppSpecific(hcall: UInt, dwappspecific: UInt): Int =
     windowssysWindowsWin32DevicesTapiLineSetAppSpecific(hcall, dwappspecific)
 
-public actual fun lineSetCallData(hcall: UInt, lpcalldata: MutPtr<CVoid>, dwsize: UInt): Int =
+public actual fun lineSetCallData(hcall: UInt, lpcalldata: MutPtr, dwsize: UInt): Int =
     windowssysWindowsWin32DevicesTapiLineSetCallData(hcall, lpcalldata.rawAddress.toCPointer<ByteVar>(), dwsize)
 
-public actual fun lineSetCallParams(hcall: UInt, dwbearermode: UInt, dwminrate: UInt, dwmaxrate: UInt, lpdialparams: ConstPtr<Linedialparams>): Int =
+public actual fun lineSetCallParams(hcall: UInt, dwbearermode: UInt, dwminrate: UInt, dwmaxrate: UInt, lpdialparams: ConstPtr): Int =
     windowssysWindowsWin32DevicesTapiLineSetCallParams(hcall, dwbearermode, dwminrate, dwmaxrate, lpdialparams.rawAddress.toCPointer<ByteVar>())
 
 public actual fun lineSetCallPrivilege(hcall: UInt, dwcallprivilege: UInt): Int =
     windowssysWindowsWin32DevicesTapiLineSetCallPrivilege(hcall, dwcallprivilege)
 
-public actual fun lineSetCallQualityOfService(hcall: UInt, lpsendingflowspec: MutPtr<CVoid>, dwsendingflowspecsize: UInt, lpreceivingflowspec: MutPtr<CVoid>, dwreceivingflowspecsize: UInt): Int =
+public actual fun lineSetCallQualityOfService(hcall: UInt, lpsendingflowspec: MutPtr, dwsendingflowspecsize: UInt, lpreceivingflowspec: MutPtr, dwreceivingflowspecsize: UInt): Int =
     windowssysWindowsWin32DevicesTapiLineSetCallQualityOfService(hcall, lpsendingflowspec.rawAddress.toCPointer<ByteVar>(), dwsendingflowspecsize, lpreceivingflowspec.rawAddress.toCPointer<ByteVar>(), dwreceivingflowspecsize)
 
 public actual fun lineSetCallTreatment(hcall: UInt, dwtreatment: UInt): Int =
@@ -759,19 +756,19 @@ public actual fun lineSetCallTreatment(hcall: UInt, dwtreatment: UInt): Int =
 public actual fun lineSetCurrentLocation(hlineapp: UInt, dwlocation: UInt): Int =
     windowssysWindowsWin32DevicesTapiLineSetCurrentLocation(hlineapp, dwlocation)
 
-public actual fun lineSetDevConfig(dwdeviceid: UInt, lpdeviceconfig: ConstPtr<CVoid>, dwsize: UInt, lpszdeviceclass: Pcstr): Int =
+public actual fun lineSetDevConfig(dwdeviceid: UInt, lpdeviceconfig: ConstPtr, dwsize: UInt, lpszdeviceclass: Pcstr): Int =
     windowssysWindowsWin32DevicesTapiLineSetDevConfig(dwdeviceid, lpdeviceconfig.rawAddress.toCPointer<ByteVar>(), dwsize, lpszdeviceclass.rawAddress.toCPointer<ByteVar>())
 
-public actual fun lineSetDevConfigA(dwdeviceid: UInt, lpdeviceconfig: ConstPtr<CVoid>, dwsize: UInt, lpszdeviceclass: Pcstr): Int =
+public actual fun lineSetDevConfigA(dwdeviceid: UInt, lpdeviceconfig: ConstPtr, dwsize: UInt, lpszdeviceclass: Pcstr): Int =
     windowssysWindowsWin32DevicesTapiLineSetDevConfigA(dwdeviceid, lpdeviceconfig.rawAddress.toCPointer<ByteVar>(), dwsize, lpszdeviceclass.rawAddress.toCPointer<ByteVar>())
 
-public actual fun lineSetDevConfigW(dwdeviceid: UInt, lpdeviceconfig: ConstPtr<CVoid>, dwsize: UInt, lpszdeviceclass: Pcwstr): Int =
+public actual fun lineSetDevConfigW(dwdeviceid: UInt, lpdeviceconfig: ConstPtr, dwsize: UInt, lpszdeviceclass: Pcwstr): Int =
     windowssysWindowsWin32DevicesTapiLineSetDevConfigW(dwdeviceid, lpdeviceconfig.rawAddress.toCPointer<ByteVar>(), dwsize, lpszdeviceclass.rawAddress.toCPointer<ByteVar>())
 
 public actual fun lineSetLineDevStatus(hline: UInt, dwstatustochange: UInt, fstatus: UInt): Int =
     windowssysWindowsWin32DevicesTapiLineSetLineDevStatus(hline, dwstatustochange, fstatus)
 
-public actual fun lineSetMediaControl(hline: UInt, dwaddressid: UInt, hcall: UInt, dwselect: UInt, lpdigitlist: ConstPtr<Linemediacontroldigit>, dwdigitnumentries: UInt, lpmedialist: ConstPtr<Linemediacontrolmedia>, dwmedianumentries: UInt, lptonelist: ConstPtr<Linemediacontroltone>, dwtonenumentries: UInt, lpcallstatelist: ConstPtr<Linemediacontrolcallstate>, dwcallstatenumentries: UInt): Int =
+public actual fun lineSetMediaControl(hline: UInt, dwaddressid: UInt, hcall: UInt, dwselect: UInt, lpdigitlist: ConstPtr, dwdigitnumentries: UInt, lpmedialist: ConstPtr, dwmedianumentries: UInt, lptonelist: ConstPtr, dwtonenumentries: UInt, lpcallstatelist: ConstPtr, dwcallstatenumentries: UInt): Int =
     windowssysWindowsWin32DevicesTapiLineSetMediaControl(hline, dwaddressid, hcall, dwselect, lpdigitlist.rawAddress.toCPointer<ByteVar>(), dwdigitnumentries, lpmedialist.rawAddress.toCPointer<ByteVar>(), dwmedianumentries, lptonelist.rawAddress.toCPointer<ByteVar>(), dwtonenumentries, lpcallstatelist.rawAddress.toCPointer<ByteVar>(), dwcallstatenumentries)
 
 public actual fun lineSetMediaMode(hcall: UInt, dwmediamodes: UInt): Int =
@@ -798,22 +795,22 @@ public actual fun lineSetTollListA(hlineapp: UInt, dwdeviceid: UInt, lpszaddress
 public actual fun lineSetTollListW(hlineapp: UInt, dwdeviceid: UInt, lpszaddressinw: Pcwstr, dwtolllistoption: UInt): Int =
     windowssysWindowsWin32DevicesTapiLineSetTollListW(hlineapp, dwdeviceid, lpszaddressinw.rawAddress.toCPointer<ByteVar>(), dwtolllistoption)
 
-public actual fun lineSetupConference(hcall: UInt, hline: UInt, lphconfcall: MutPtr<UInt>, lphconsultcall: MutPtr<UInt>, dwnumparties: UInt, lpcallparams: ConstPtr<Linecallparams>): Int =
+public actual fun lineSetupConference(hcall: UInt, hline: UInt, lphconfcall: MutPtr, lphconsultcall: MutPtr, dwnumparties: UInt, lpcallparams: ConstPtr): Int =
     windowssysWindowsWin32DevicesTapiLineSetupConference(hcall, hline, lphconfcall.rawAddress.toCPointer<ByteVar>(), lphconsultcall.rawAddress.toCPointer<ByteVar>(), dwnumparties, lpcallparams.rawAddress.toCPointer<ByteVar>())
 
-public actual fun lineSetupConferenceA(hcall: UInt, hline: UInt, lphconfcall: MutPtr<UInt>, lphconsultcall: MutPtr<UInt>, dwnumparties: UInt, lpcallparams: ConstPtr<Linecallparams>): Int =
+public actual fun lineSetupConferenceA(hcall: UInt, hline: UInt, lphconfcall: MutPtr, lphconsultcall: MutPtr, dwnumparties: UInt, lpcallparams: ConstPtr): Int =
     windowssysWindowsWin32DevicesTapiLineSetupConferenceA(hcall, hline, lphconfcall.rawAddress.toCPointer<ByteVar>(), lphconsultcall.rawAddress.toCPointer<ByteVar>(), dwnumparties, lpcallparams.rawAddress.toCPointer<ByteVar>())
 
-public actual fun lineSetupConferenceW(hcall: UInt, hline: UInt, lphconfcall: MutPtr<UInt>, lphconsultcall: MutPtr<UInt>, dwnumparties: UInt, lpcallparams: ConstPtr<Linecallparams>): Int =
+public actual fun lineSetupConferenceW(hcall: UInt, hline: UInt, lphconfcall: MutPtr, lphconsultcall: MutPtr, dwnumparties: UInt, lpcallparams: ConstPtr): Int =
     windowssysWindowsWin32DevicesTapiLineSetupConferenceW(hcall, hline, lphconfcall.rawAddress.toCPointer<ByteVar>(), lphconsultcall.rawAddress.toCPointer<ByteVar>(), dwnumparties, lpcallparams.rawAddress.toCPointer<ByteVar>())
 
-public actual fun lineSetupTransfer(hcall: UInt, lphconsultcall: MutPtr<UInt>, lpcallparams: ConstPtr<Linecallparams>): Int =
+public actual fun lineSetupTransfer(hcall: UInt, lphconsultcall: MutPtr, lpcallparams: ConstPtr): Int =
     windowssysWindowsWin32DevicesTapiLineSetupTransfer(hcall, lphconsultcall.rawAddress.toCPointer<ByteVar>(), lpcallparams.rawAddress.toCPointer<ByteVar>())
 
-public actual fun lineSetupTransferA(hcall: UInt, lphconsultcall: MutPtr<UInt>, lpcallparams: ConstPtr<Linecallparams>): Int =
+public actual fun lineSetupTransferA(hcall: UInt, lphconsultcall: MutPtr, lpcallparams: ConstPtr): Int =
     windowssysWindowsWin32DevicesTapiLineSetupTransferA(hcall, lphconsultcall.rawAddress.toCPointer<ByteVar>(), lpcallparams.rawAddress.toCPointer<ByteVar>())
 
-public actual fun lineSetupTransferW(hcall: UInt, lphconsultcall: MutPtr<UInt>, lpcallparams: ConstPtr<Linecallparams>): Int =
+public actual fun lineSetupTransferW(hcall: UInt, lphconsultcall: MutPtr, lpcallparams: ConstPtr): Int =
     windowssysWindowsWin32DevicesTapiLineSetupTransferW(hcall, lphconsultcall.rawAddress.toCPointer<ByteVar>(), lpcallparams.rawAddress.toCPointer<ByteVar>())
 
 public actual fun lineShutdown(hlineapp: UInt): Int =
@@ -822,13 +819,13 @@ public actual fun lineShutdown(hlineapp: UInt): Int =
 public actual fun lineSwapHold(hactivecall: UInt, hheldcall: UInt): Int =
     windowssysWindowsWin32DevicesTapiLineSwapHold(hactivecall, hheldcall)
 
-public actual fun lineTranslateAddress(hlineapp: UInt, dwdeviceid: UInt, dwapiversion: UInt, lpszaddressin: Pcstr, dwcard: UInt, dwtranslateoptions: UInt, lptranslateoutput: MutPtr<Linetranslateoutput>): Int =
+public actual fun lineTranslateAddress(hlineapp: UInt, dwdeviceid: UInt, dwapiversion: UInt, lpszaddressin: Pcstr, dwcard: UInt, dwtranslateoptions: UInt, lptranslateoutput: MutPtr): Int =
     windowssysWindowsWin32DevicesTapiLineTranslateAddress(hlineapp, dwdeviceid, dwapiversion, lpszaddressin.rawAddress.toCPointer<ByteVar>(), dwcard, dwtranslateoptions, lptranslateoutput.rawAddress.toCPointer<ByteVar>())
 
-public actual fun lineTranslateAddressA(hlineapp: UInt, dwdeviceid: UInt, dwapiversion: UInt, lpszaddressin: Pcstr, dwcard: UInt, dwtranslateoptions: UInt, lptranslateoutput: MutPtr<Linetranslateoutput>): Int =
+public actual fun lineTranslateAddressA(hlineapp: UInt, dwdeviceid: UInt, dwapiversion: UInt, lpszaddressin: Pcstr, dwcard: UInt, dwtranslateoptions: UInt, lptranslateoutput: MutPtr): Int =
     windowssysWindowsWin32DevicesTapiLineTranslateAddressA(hlineapp, dwdeviceid, dwapiversion, lpszaddressin.rawAddress.toCPointer<ByteVar>(), dwcard, dwtranslateoptions, lptranslateoutput.rawAddress.toCPointer<ByteVar>())
 
-public actual fun lineTranslateAddressW(hlineapp: UInt, dwdeviceid: UInt, dwapiversion: UInt, lpszaddressin: Pcwstr, dwcard: UInt, dwtranslateoptions: UInt, lptranslateoutput: MutPtr<Linetranslateoutput>): Int =
+public actual fun lineTranslateAddressW(hlineapp: UInt, dwdeviceid: UInt, dwapiversion: UInt, lpszaddressin: Pcwstr, dwcard: UInt, dwtranslateoptions: UInt, lptranslateoutput: MutPtr): Int =
     windowssysWindowsWin32DevicesTapiLineTranslateAddressW(hlineapp, dwdeviceid, dwapiversion, lpszaddressin.rawAddress.toCPointer<ByteVar>(), dwcard, dwtranslateoptions, lptranslateoutput.rawAddress.toCPointer<ByteVar>())
 
 public actual fun lineTranslateDialog(hlineapp: UInt, dwdeviceid: UInt, dwapiversion: UInt, hwndowner: Hwnd, lpszaddressin: Pcstr): Int =
@@ -846,13 +843,13 @@ public actual fun lineUncompleteCall(hline: UInt, dwcompletionid: UInt): Int =
 public actual fun lineUnhold(hcall: UInt): Int =
     windowssysWindowsWin32DevicesTapiLineUnhold(hcall)
 
-public actual fun lineUnpark(hline: UInt, dwaddressid: UInt, lphcall: MutPtr<UInt>, lpszdestaddress: Pcstr): Int =
+public actual fun lineUnpark(hline: UInt, dwaddressid: UInt, lphcall: MutPtr, lpszdestaddress: Pcstr): Int =
     windowssysWindowsWin32DevicesTapiLineUnpark(hline, dwaddressid, lphcall.rawAddress.toCPointer<ByteVar>(), lpszdestaddress.rawAddress.toCPointer<ByteVar>())
 
-public actual fun lineUnparkA(hline: UInt, dwaddressid: UInt, lphcall: MutPtr<UInt>, lpszdestaddress: Pcstr): Int =
+public actual fun lineUnparkA(hline: UInt, dwaddressid: UInt, lphcall: MutPtr, lpszdestaddress: Pcstr): Int =
     windowssysWindowsWin32DevicesTapiLineUnparkA(hline, dwaddressid, lphcall.rawAddress.toCPointer<ByteVar>(), lpszdestaddress.rawAddress.toCPointer<ByteVar>())
 
-public actual fun lineUnparkW(hline: UInt, dwaddressid: UInt, lphcall: MutPtr<UInt>, lpszdestaddress: Pcwstr): Int =
+public actual fun lineUnparkW(hline: UInt, dwaddressid: UInt, lphcall: MutPtr, lpszdestaddress: Pcwstr): Int =
     windowssysWindowsWin32DevicesTapiLineUnparkW(hline, dwaddressid, lphcall.rawAddress.toCPointer<ByteVar>(), lpszdestaddress.rawAddress.toCPointer<ByteVar>())
 
 public actual fun phoneClose(hphone: UInt): Int =
@@ -867,109 +864,109 @@ public actual fun phoneConfigDialogA(dwdeviceid: UInt, hwndowner: Hwnd, lpszdevi
 public actual fun phoneConfigDialogW(dwdeviceid: UInt, hwndowner: Hwnd, lpszdeviceclass: Pcwstr): Int =
     windowssysWindowsWin32DevicesTapiPhoneConfigDialogW(dwdeviceid, hwndowner.rawAddress.toCPointer<ByteVar>(), lpszdeviceclass.rawAddress.toCPointer<ByteVar>())
 
-public actual fun phoneDevSpecific(hphone: UInt, lpparams: MutPtr<CVoid>, dwsize: UInt): Int =
+public actual fun phoneDevSpecific(hphone: UInt, lpparams: MutPtr, dwsize: UInt): Int =
     windowssysWindowsWin32DevicesTapiPhoneDevSpecific(hphone, lpparams.rawAddress.toCPointer<ByteVar>(), dwsize)
 
-public actual fun phoneGetButtonInfo(hphone: UInt, dwbuttonlampid: UInt, lpbuttoninfo: MutPtr<Phonebuttoninfo>): Int =
+public actual fun phoneGetButtonInfo(hphone: UInt, dwbuttonlampid: UInt, lpbuttoninfo: MutPtr): Int =
     windowssysWindowsWin32DevicesTapiPhoneGetButtonInfo(hphone, dwbuttonlampid, lpbuttoninfo.rawAddress.toCPointer<ByteVar>())
 
-public actual fun phoneGetButtonInfoA(hphone: UInt, dwbuttonlampid: UInt, lpbuttoninfo: MutPtr<Phonebuttoninfo>): Int =
+public actual fun phoneGetButtonInfoA(hphone: UInt, dwbuttonlampid: UInt, lpbuttoninfo: MutPtr): Int =
     windowssysWindowsWin32DevicesTapiPhoneGetButtonInfoA(hphone, dwbuttonlampid, lpbuttoninfo.rawAddress.toCPointer<ByteVar>())
 
-public actual fun phoneGetButtonInfoW(hphone: UInt, dwbuttonlampid: UInt, lpbuttoninfo: MutPtr<Phonebuttoninfo>): Int =
+public actual fun phoneGetButtonInfoW(hphone: UInt, dwbuttonlampid: UInt, lpbuttoninfo: MutPtr): Int =
     windowssysWindowsWin32DevicesTapiPhoneGetButtonInfoW(hphone, dwbuttonlampid, lpbuttoninfo.rawAddress.toCPointer<ByteVar>())
 
-public actual fun phoneGetData(hphone: UInt, dwdataid: UInt, lpdata: MutPtr<CVoid>, dwsize: UInt): Int =
+public actual fun phoneGetData(hphone: UInt, dwdataid: UInt, lpdata: MutPtr, dwsize: UInt): Int =
     windowssysWindowsWin32DevicesTapiPhoneGetData(hphone, dwdataid, lpdata.rawAddress.toCPointer<ByteVar>(), dwsize)
 
-public actual fun phoneGetDevCaps(hphoneapp: UInt, dwdeviceid: UInt, dwapiversion: UInt, dwextversion: UInt, lpphonecaps: MutPtr<Phonecaps>): Int =
+public actual fun phoneGetDevCaps(hphoneapp: UInt, dwdeviceid: UInt, dwapiversion: UInt, dwextversion: UInt, lpphonecaps: MutPtr): Int =
     windowssysWindowsWin32DevicesTapiPhoneGetDevCaps(hphoneapp, dwdeviceid, dwapiversion, dwextversion, lpphonecaps.rawAddress.toCPointer<ByteVar>())
 
-public actual fun phoneGetDevCapsA(hphoneapp: UInt, dwdeviceid: UInt, dwapiversion: UInt, dwextversion: UInt, lpphonecaps: MutPtr<Phonecaps>): Int =
+public actual fun phoneGetDevCapsA(hphoneapp: UInt, dwdeviceid: UInt, dwapiversion: UInt, dwextversion: UInt, lpphonecaps: MutPtr): Int =
     windowssysWindowsWin32DevicesTapiPhoneGetDevCapsA(hphoneapp, dwdeviceid, dwapiversion, dwextversion, lpphonecaps.rawAddress.toCPointer<ByteVar>())
 
-public actual fun phoneGetDevCapsW(hphoneapp: UInt, dwdeviceid: UInt, dwapiversion: UInt, dwextversion: UInt, lpphonecaps: MutPtr<Phonecaps>): Int =
+public actual fun phoneGetDevCapsW(hphoneapp: UInt, dwdeviceid: UInt, dwapiversion: UInt, dwextversion: UInt, lpphonecaps: MutPtr): Int =
     windowssysWindowsWin32DevicesTapiPhoneGetDevCapsW(hphoneapp, dwdeviceid, dwapiversion, dwextversion, lpphonecaps.rawAddress.toCPointer<ByteVar>())
 
-public actual fun phoneGetDisplay(hphone: UInt, lpdisplay: MutPtr<Varstring>): Int =
+public actual fun phoneGetDisplay(hphone: UInt, lpdisplay: MutPtr): Int =
     windowssysWindowsWin32DevicesTapiPhoneGetDisplay(hphone, lpdisplay.rawAddress.toCPointer<ByteVar>())
 
-public actual fun phoneGetGain(hphone: UInt, dwhookswitchdev: UInt, lpdwgain: MutPtr<UInt>): Int =
+public actual fun phoneGetGain(hphone: UInt, dwhookswitchdev: UInt, lpdwgain: MutPtr): Int =
     windowssysWindowsWin32DevicesTapiPhoneGetGain(hphone, dwhookswitchdev, lpdwgain.rawAddress.toCPointer<ByteVar>())
 
-public actual fun phoneGetHookSwitch(hphone: UInt, lpdwhookswitchdevs: MutPtr<UInt>): Int =
+public actual fun phoneGetHookSwitch(hphone: UInt, lpdwhookswitchdevs: MutPtr): Int =
     windowssysWindowsWin32DevicesTapiPhoneGetHookSwitch(hphone, lpdwhookswitchdevs.rawAddress.toCPointer<ByteVar>())
 
-public actual fun phoneGetID(hphone: UInt, lpdeviceid: MutPtr<Varstring>, lpszdeviceclass: Pcstr): Int =
+public actual fun phoneGetID(hphone: UInt, lpdeviceid: MutPtr, lpszdeviceclass: Pcstr): Int =
     windowssysWindowsWin32DevicesTapiPhoneGetID(hphone, lpdeviceid.rawAddress.toCPointer<ByteVar>(), lpszdeviceclass.rawAddress.toCPointer<ByteVar>())
 
-public actual fun phoneGetIDA(hphone: UInt, lpdeviceid: MutPtr<Varstring>, lpszdeviceclass: Pcstr): Int =
+public actual fun phoneGetIDA(hphone: UInt, lpdeviceid: MutPtr, lpszdeviceclass: Pcstr): Int =
     windowssysWindowsWin32DevicesTapiPhoneGetIDA(hphone, lpdeviceid.rawAddress.toCPointer<ByteVar>(), lpszdeviceclass.rawAddress.toCPointer<ByteVar>())
 
-public actual fun phoneGetIDW(hphone: UInt, lpdeviceid: MutPtr<Varstring>, lpszdeviceclass: Pcwstr): Int =
+public actual fun phoneGetIDW(hphone: UInt, lpdeviceid: MutPtr, lpszdeviceclass: Pcwstr): Int =
     windowssysWindowsWin32DevicesTapiPhoneGetIDW(hphone, lpdeviceid.rawAddress.toCPointer<ByteVar>(), lpszdeviceclass.rawAddress.toCPointer<ByteVar>())
 
-public actual fun phoneGetIcon(dwdeviceid: UInt, lpszdeviceclass: Pcstr, lphicon: MutPtr<Hicon>): Int =
+public actual fun phoneGetIcon(dwdeviceid: UInt, lpszdeviceclass: Pcstr, lphicon: MutPtr): Int =
     windowssysWindowsWin32DevicesTapiPhoneGetIcon(dwdeviceid, lpszdeviceclass.rawAddress.toCPointer<ByteVar>(), lphicon.rawAddress.toCPointer<ByteVar>())
 
-public actual fun phoneGetIconA(dwdeviceid: UInt, lpszdeviceclass: Pcstr, lphicon: MutPtr<Hicon>): Int =
+public actual fun phoneGetIconA(dwdeviceid: UInt, lpszdeviceclass: Pcstr, lphicon: MutPtr): Int =
     windowssysWindowsWin32DevicesTapiPhoneGetIconA(dwdeviceid, lpszdeviceclass.rawAddress.toCPointer<ByteVar>(), lphicon.rawAddress.toCPointer<ByteVar>())
 
-public actual fun phoneGetIconW(dwdeviceid: UInt, lpszdeviceclass: Pcwstr, lphicon: MutPtr<Hicon>): Int =
+public actual fun phoneGetIconW(dwdeviceid: UInt, lpszdeviceclass: Pcwstr, lphicon: MutPtr): Int =
     windowssysWindowsWin32DevicesTapiPhoneGetIconW(dwdeviceid, lpszdeviceclass.rawAddress.toCPointer<ByteVar>(), lphicon.rawAddress.toCPointer<ByteVar>())
 
-public actual fun phoneGetLamp(hphone: UInt, dwbuttonlampid: UInt, lpdwlampmode: MutPtr<UInt>): Int =
+public actual fun phoneGetLamp(hphone: UInt, dwbuttonlampid: UInt, lpdwlampmode: MutPtr): Int =
     windowssysWindowsWin32DevicesTapiPhoneGetLamp(hphone, dwbuttonlampid, lpdwlampmode.rawAddress.toCPointer<ByteVar>())
 
-public actual fun phoneGetMessage(hphoneapp: UInt, lpmessage: MutPtr<Phonemessage>, dwtimeout: UInt): Int =
+public actual fun phoneGetMessage(hphoneapp: UInt, lpmessage: MutPtr, dwtimeout: UInt): Int =
     windowssysWindowsWin32DevicesTapiPhoneGetMessage(hphoneapp, lpmessage.rawAddress.toCPointer<ByteVar>(), dwtimeout)
 
-public actual fun phoneGetRing(hphone: UInt, lpdwringmode: MutPtr<UInt>, lpdwvolume: MutPtr<UInt>): Int =
+public actual fun phoneGetRing(hphone: UInt, lpdwringmode: MutPtr, lpdwvolume: MutPtr): Int =
     windowssysWindowsWin32DevicesTapiPhoneGetRing(hphone, lpdwringmode.rawAddress.toCPointer<ByteVar>(), lpdwvolume.rawAddress.toCPointer<ByteVar>())
 
-public actual fun phoneGetStatus(hphone: UInt, lpphonestatus: MutPtr<Phonestatus>): Int =
+public actual fun phoneGetStatus(hphone: UInt, lpphonestatus: MutPtr): Int =
     windowssysWindowsWin32DevicesTapiPhoneGetStatus(hphone, lpphonestatus.rawAddress.toCPointer<ByteVar>())
 
-public actual fun phoneGetStatusA(hphone: UInt, lpphonestatus: MutPtr<Phonestatus>): Int =
+public actual fun phoneGetStatusA(hphone: UInt, lpphonestatus: MutPtr): Int =
     windowssysWindowsWin32DevicesTapiPhoneGetStatusA(hphone, lpphonestatus.rawAddress.toCPointer<ByteVar>())
 
-public actual fun phoneGetStatusMessages(hphone: UInt, lpdwphonestates: MutPtr<UInt>, lpdwbuttonmodes: MutPtr<UInt>, lpdwbuttonstates: MutPtr<UInt>): Int =
+public actual fun phoneGetStatusMessages(hphone: UInt, lpdwphonestates: MutPtr, lpdwbuttonmodes: MutPtr, lpdwbuttonstates: MutPtr): Int =
     windowssysWindowsWin32DevicesTapiPhoneGetStatusMessages(hphone, lpdwphonestates.rawAddress.toCPointer<ByteVar>(), lpdwbuttonmodes.rawAddress.toCPointer<ByteVar>(), lpdwbuttonstates.rawAddress.toCPointer<ByteVar>())
 
-public actual fun phoneGetStatusW(hphone: UInt, lpphonestatus: MutPtr<Phonestatus>): Int =
+public actual fun phoneGetStatusW(hphone: UInt, lpphonestatus: MutPtr): Int =
     windowssysWindowsWin32DevicesTapiPhoneGetStatusW(hphone, lpphonestatus.rawAddress.toCPointer<ByteVar>())
 
-public actual fun phoneGetVolume(hphone: UInt, dwhookswitchdev: UInt, lpdwvolume: MutPtr<UInt>): Int =
+public actual fun phoneGetVolume(hphone: UInt, dwhookswitchdev: UInt, lpdwvolume: MutPtr): Int =
     windowssysWindowsWin32DevicesTapiPhoneGetVolume(hphone, dwhookswitchdev, lpdwvolume.rawAddress.toCPointer<ByteVar>())
 
-public actual fun phoneInitialize(lphphoneapp: MutPtr<UInt>, hinstance: Hinstance, lpfncallback: Phonecallback, lpszappname: Pcstr, lpdwnumdevs: MutPtr<UInt>): Int =
+public actual fun phoneInitialize(lphphoneapp: MutPtr, hinstance: Hinstance, lpfncallback: Phonecallback, lpszappname: Pcstr, lpdwnumdevs: MutPtr): Int =
     windowssysWindowsWin32DevicesTapiPhoneInitialize(lphphoneapp.rawAddress.toCPointer<ByteVar>(), hinstance.rawAddress.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>(), lpszappname.rawAddress.toCPointer<ByteVar>(), lpdwnumdevs.rawAddress.toCPointer<ByteVar>())
 
-public actual fun phoneInitializeExA(lphphoneapp: MutPtr<UInt>, hinstance: Hinstance, lpfncallback: Phonecallback, lpszfriendlyappname: Pcstr, lpdwnumdevs: MutPtr<UInt>, lpdwapiversion: MutPtr<UInt>, lpphoneinitializeexparams: MutPtr<Phoneinitializeexparams>): Int =
+public actual fun phoneInitializeExA(lphphoneapp: MutPtr, hinstance: Hinstance, lpfncallback: Phonecallback, lpszfriendlyappname: Pcstr, lpdwnumdevs: MutPtr, lpdwapiversion: MutPtr, lpphoneinitializeexparams: MutPtr): Int =
     windowssysWindowsWin32DevicesTapiPhoneInitializeExA(lphphoneapp.rawAddress.toCPointer<ByteVar>(), hinstance.rawAddress.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>(), lpszfriendlyappname.rawAddress.toCPointer<ByteVar>(), lpdwnumdevs.rawAddress.toCPointer<ByteVar>(), lpdwapiversion.rawAddress.toCPointer<ByteVar>(), lpphoneinitializeexparams.rawAddress.toCPointer<ByteVar>())
 
-public actual fun phoneInitializeExW(lphphoneapp: MutPtr<UInt>, hinstance: Hinstance, lpfncallback: Phonecallback, lpszfriendlyappname: Pcwstr, lpdwnumdevs: MutPtr<UInt>, lpdwapiversion: MutPtr<UInt>, lpphoneinitializeexparams: MutPtr<Phoneinitializeexparams>): Int =
+public actual fun phoneInitializeExW(lphphoneapp: MutPtr, hinstance: Hinstance, lpfncallback: Phonecallback, lpszfriendlyappname: Pcwstr, lpdwnumdevs: MutPtr, lpdwapiversion: MutPtr, lpphoneinitializeexparams: MutPtr): Int =
     windowssysWindowsWin32DevicesTapiPhoneInitializeExW(lphphoneapp.rawAddress.toCPointer<ByteVar>(), hinstance.rawAddress.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>(), lpszfriendlyappname.rawAddress.toCPointer<ByteVar>(), lpdwnumdevs.rawAddress.toCPointer<ByteVar>(), lpdwapiversion.rawAddress.toCPointer<ByteVar>(), lpphoneinitializeexparams.rawAddress.toCPointer<ByteVar>())
 
-public actual fun phoneNegotiateAPIVersion(hphoneapp: UInt, dwdeviceid: UInt, dwapilowversion: UInt, dwapihighversion: UInt, lpdwapiversion: MutPtr<UInt>, lpextensionid: MutPtr<Phoneextensionid>): Int =
+public actual fun phoneNegotiateAPIVersion(hphoneapp: UInt, dwdeviceid: UInt, dwapilowversion: UInt, dwapihighversion: UInt, lpdwapiversion: MutPtr, lpextensionid: MutPtr): Int =
     windowssysWindowsWin32DevicesTapiPhoneNegotiateAPIVersion(hphoneapp, dwdeviceid, dwapilowversion, dwapihighversion, lpdwapiversion.rawAddress.toCPointer<ByteVar>(), lpextensionid.rawAddress.toCPointer<ByteVar>())
 
-public actual fun phoneNegotiateExtVersion(hphoneapp: UInt, dwdeviceid: UInt, dwapiversion: UInt, dwextlowversion: UInt, dwexthighversion: UInt, lpdwextversion: MutPtr<UInt>): Int =
+public actual fun phoneNegotiateExtVersion(hphoneapp: UInt, dwdeviceid: UInt, dwapiversion: UInt, dwextlowversion: UInt, dwexthighversion: UInt, lpdwextversion: MutPtr): Int =
     windowssysWindowsWin32DevicesTapiPhoneNegotiateExtVersion(hphoneapp, dwdeviceid, dwapiversion, dwextlowversion, dwexthighversion, lpdwextversion.rawAddress.toCPointer<ByteVar>())
 
-public actual fun phoneOpen(hphoneapp: UInt, dwdeviceid: UInt, lphphone: MutPtr<UInt>, dwapiversion: UInt, dwextversion: UInt, dwcallbackinstance: ULong, dwprivilege: UInt): Int =
+public actual fun phoneOpen(hphoneapp: UInt, dwdeviceid: UInt, lphphone: MutPtr, dwapiversion: UInt, dwextversion: UInt, dwcallbackinstance: ULong, dwprivilege: UInt): Int =
     windowssysWindowsWin32DevicesTapiPhoneOpen(hphoneapp, dwdeviceid, lphphone.rawAddress.toCPointer<ByteVar>(), dwapiversion, dwextversion, dwcallbackinstance, dwprivilege)
 
-public actual fun phoneSetButtonInfo(hphone: UInt, dwbuttonlampid: UInt, lpbuttoninfo: ConstPtr<Phonebuttoninfo>): Int =
+public actual fun phoneSetButtonInfo(hphone: UInt, dwbuttonlampid: UInt, lpbuttoninfo: ConstPtr): Int =
     windowssysWindowsWin32DevicesTapiPhoneSetButtonInfo(hphone, dwbuttonlampid, lpbuttoninfo.rawAddress.toCPointer<ByteVar>())
 
-public actual fun phoneSetButtonInfoA(hphone: UInt, dwbuttonlampid: UInt, lpbuttoninfo: ConstPtr<Phonebuttoninfo>): Int =
+public actual fun phoneSetButtonInfoA(hphone: UInt, dwbuttonlampid: UInt, lpbuttoninfo: ConstPtr): Int =
     windowssysWindowsWin32DevicesTapiPhoneSetButtonInfoA(hphone, dwbuttonlampid, lpbuttoninfo.rawAddress.toCPointer<ByteVar>())
 
-public actual fun phoneSetButtonInfoW(hphone: UInt, dwbuttonlampid: UInt, lpbuttoninfo: ConstPtr<Phonebuttoninfo>): Int =
+public actual fun phoneSetButtonInfoW(hphone: UInt, dwbuttonlampid: UInt, lpbuttoninfo: ConstPtr): Int =
     windowssysWindowsWin32DevicesTapiPhoneSetButtonInfoW(hphone, dwbuttonlampid, lpbuttoninfo.rawAddress.toCPointer<ByteVar>())
 
-public actual fun phoneSetData(hphone: UInt, dwdataid: UInt, lpdata: ConstPtr<CVoid>, dwsize: UInt): Int =
+public actual fun phoneSetData(hphone: UInt, dwdataid: UInt, lpdata: ConstPtr, dwsize: UInt): Int =
     windowssysWindowsWin32DevicesTapiPhoneSetData(hphone, dwdataid, lpdata.rawAddress.toCPointer<ByteVar>(), dwsize)
 
 public actual fun phoneSetDisplay(hphone: UInt, dwrow: UInt, dwcolumn: UInt, lpsdisplay: Pcstr, dwsize: UInt): Int =

@@ -2,19 +2,15 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.storage.filesystem
 
-import io.github.kotlinmania.rustlang.core.ffi.CVoid
 import io.github.kotlinmania.rustlang.core.ptr.ConstPtr
 import io.github.kotlinmania.rustlang.core.ptr.MutPtr
 import io.github.kotlinmania.windowssys.core.Bool
-import io.github.kotlinmania.windowssys.core.Guid
 import io.github.kotlinmania.windowssys.core.Hresult
 import io.github.kotlinmania.windowssys.core.Pcstr
 import io.github.kotlinmania.windowssys.core.Pcwstr
 import io.github.kotlinmania.windowssys.core.Pstr
 import io.github.kotlinmania.windowssys.core.Pwstr
-import io.github.kotlinmania.windowssys.windows.win32.foundation.Filetime
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Handle
-import io.github.kotlinmania.windowssys.windows.win32.security.SecurityAttributes
 import io.github.kotlinmania.windowssys.windows.win32.storage.filesystem.cinterop.windowssysWindowsWin32StorageFilesystemAddLogContainer
 import io.github.kotlinmania.windowssys.windows.win32.storage.filesystem.cinterop.windowssysWindowsWin32StorageFilesystemAddLogContainerSet
 import io.github.kotlinmania.windowssys.windows.win32.storage.filesystem.cinterop.windowssysWindowsWin32StorageFilesystemAddUsersToEncryptedFile
@@ -419,42 +415,41 @@ import io.github.kotlinmania.windowssys.windows.win32.storage.filesystem.cintero
 import io.github.kotlinmania.windowssys.windows.win32.storage.filesystem.cinterop.windowssysWindowsWin32StorageFilesystemWriteLogRestartArea
 import io.github.kotlinmania.windowssys.windows.win32.storage.filesystem.cinterop.windowssysWindowsWin32StorageFilesystemWriteTapemark
 import io.github.kotlinmania.windowssys.windows.win32.system.io.LpoverlappedCompletionRoutine
-import io.github.kotlinmania.windowssys.windows.win32.system.io.Overlapped
 import kotlinx.cinterop.ByteVar
 import kotlinx.cinterop.toCPointer
 import kotlinx.cinterop.toLong
 
-public actual fun addLogContainer(hlog: Handle, pcbcontainer: ConstPtr<ULong>, pwszcontainerpath: Pcwstr, preserved: MutPtr<CVoid>): Bool =
+public actual fun addLogContainer(hlog: Handle, pcbcontainer: ConstPtr, pwszcontainerpath: Pcwstr, preserved: MutPtr): Bool =
     windowssysWindowsWin32StorageFilesystemAddLogContainer(hlog.rawAddress.toCPointer<ByteVar>(), pcbcontainer.rawAddress.toCPointer<ByteVar>(), pwszcontainerpath.rawAddress.toCPointer<ByteVar>(), preserved.rawAddress.toCPointer<ByteVar>())
 
-public actual fun addLogContainerSet(hlog: Handle, ccontainer: UShort, pcbcontainer: ConstPtr<ULong>, rgwszcontainerpath: ConstPtr<Pcwstr>, preserved: MutPtr<CVoid>): Bool =
+public actual fun addLogContainerSet(hlog: Handle, ccontainer: UShort, pcbcontainer: ConstPtr, rgwszcontainerpath: ConstPtr, preserved: MutPtr): Bool =
     windowssysWindowsWin32StorageFilesystemAddLogContainerSet(hlog.rawAddress.toCPointer<ByteVar>(), ccontainer, pcbcontainer.rawAddress.toCPointer<ByteVar>(), rgwszcontainerpath.rawAddress.toCPointer<ByteVar>(), preserved.rawAddress.toCPointer<ByteVar>())
 
-public actual fun addUsersToEncryptedFile(lpfilename: Pcwstr, pencryptioncertificates: ConstPtr<EncryptionCertificateList>): UInt =
+public actual fun addUsersToEncryptedFile(lpfilename: Pcwstr, pencryptioncertificates: ConstPtr): UInt =
     windowssysWindowsWin32StorageFilesystemAddUsersToEncryptedFile(lpfilename.rawAddress.toCPointer<ByteVar>(), pencryptioncertificates.rawAddress.toCPointer<ByteVar>())
 
-public actual fun advanceLogBase(pvmarshal: MutPtr<CVoid>, plsnbase: MutPtr<ClsLsn>, fflags: UInt, poverlapped: MutPtr<Overlapped>): Bool =
+public actual fun advanceLogBase(pvmarshal: MutPtr, plsnbase: MutPtr, fflags: UInt, poverlapped: MutPtr): Bool =
     windowssysWindowsWin32StorageFilesystemAdvanceLogBase(pvmarshal.rawAddress.toCPointer<ByteVar>(), plsnbase.rawAddress.toCPointer<ByteVar>(), fflags, poverlapped.rawAddress.toCPointer<ByteVar>())
 
-public actual fun alignReservedLog(pvmarshal: MutPtr<CVoid>, creservedrecords: UInt, rgcbreservation: MutPtr<Long>, pcbalignreservation: MutPtr<Long>): Bool =
+public actual fun alignReservedLog(pvmarshal: MutPtr, creservedrecords: UInt, rgcbreservation: MutPtr, pcbalignreservation: MutPtr): Bool =
     windowssysWindowsWin32StorageFilesystemAlignReservedLog(pvmarshal.rawAddress.toCPointer<ByteVar>(), creservedrecords, rgcbreservation.rawAddress.toCPointer<ByteVar>(), pcbalignreservation.rawAddress.toCPointer<ByteVar>())
 
-public actual fun allocReservedLog(pvmarshal: MutPtr<CVoid>, creservedrecords: UInt, pcbadjustment: MutPtr<Long>): Bool =
+public actual fun allocReservedLog(pvmarshal: MutPtr, creservedrecords: UInt, pcbadjustment: MutPtr): Bool =
     windowssysWindowsWin32StorageFilesystemAllocReservedLog(pvmarshal.rawAddress.toCPointer<ByteVar>(), creservedrecords, pcbadjustment.rawAddress.toCPointer<ByteVar>())
 
 public actual fun areFileApisANSI(): Bool =
     windowssysWindowsWin32StorageFilesystemAreFileApisANSI()
 
-public actual fun areShortNamesEnabled(handle: Handle, enabled: MutPtr<Bool>): Bool =
+public actual fun areShortNamesEnabled(handle: Handle, enabled: MutPtr): Bool =
     windowssysWindowsWin32StorageFilesystemAreShortNamesEnabled(handle.rawAddress.toCPointer<ByteVar>(), enabled.rawAddress.toCPointer<ByteVar>())
 
-public actual fun backupRead(hfile: Handle, lpbuffer: MutPtr<UByte>, nnumberofbytestoread: UInt, lpnumberofbytesread: MutPtr<UInt>, babort: Bool, bprocesssecurity: Bool, lpcontext: MutPtr<MutPtr<CVoid>>): Bool =
+public actual fun backupRead(hfile: Handle, lpbuffer: MutPtr, nnumberofbytestoread: UInt, lpnumberofbytesread: MutPtr, babort: Bool, bprocesssecurity: Bool, lpcontext: MutPtr): Bool =
     windowssysWindowsWin32StorageFilesystemBackupRead(hfile.rawAddress.toCPointer<ByteVar>(), lpbuffer.rawAddress.toCPointer<ByteVar>(), nnumberofbytestoread, lpnumberofbytesread.rawAddress.toCPointer<ByteVar>(), babort, bprocesssecurity, lpcontext.rawAddress.toCPointer<ByteVar>())
 
-public actual fun backupSeek(hfile: Handle, dwlowbytestoseek: UInt, dwhighbytestoseek: UInt, lpdwlowbyteseeked: MutPtr<UInt>, lpdwhighbyteseeked: MutPtr<UInt>, lpcontext: MutPtr<MutPtr<CVoid>>): Bool =
+public actual fun backupSeek(hfile: Handle, dwlowbytestoseek: UInt, dwhighbytestoseek: UInt, lpdwlowbyteseeked: MutPtr, lpdwhighbyteseeked: MutPtr, lpcontext: MutPtr): Bool =
     windowssysWindowsWin32StorageFilesystemBackupSeek(hfile.rawAddress.toCPointer<ByteVar>(), dwlowbytestoseek, dwhighbytestoseek, lpdwlowbyteseeked.rawAddress.toCPointer<ByteVar>(), lpdwhighbyteseeked.rawAddress.toCPointer<ByteVar>(), lpcontext.rawAddress.toCPointer<ByteVar>())
 
-public actual fun backupWrite(hfile: Handle, lpbuffer: ConstPtr<UByte>, nnumberofbytestowrite: UInt, lpnumberofbyteswritten: MutPtr<UInt>, babort: Bool, bprocesssecurity: Bool, lpcontext: MutPtr<MutPtr<CVoid>>): Bool =
+public actual fun backupWrite(hfile: Handle, lpbuffer: ConstPtr, nnumberofbytestowrite: UInt, lpnumberofbyteswritten: MutPtr, babort: Bool, bprocesssecurity: Bool, lpcontext: MutPtr): Bool =
     windowssysWindowsWin32StorageFilesystemBackupWrite(hfile.rawAddress.toCPointer<ByteVar>(), lpbuffer.rawAddress.toCPointer<ByteVar>(), nnumberofbytestowrite, lpnumberofbyteswritten.rawAddress.toCPointer<ByteVar>(), babort, bprocesssecurity, lpcontext.rawAddress.toCPointer<ByteVar>())
 
 public actual fun buildIoRingCancelRequest(ioring: Hioring, file: IoringHandleRef, optocancel: ULong, userdata: ULong): Hresult =
@@ -466,35 +461,35 @@ public actual fun buildIoRingFlushFile(ioring: Hioring, fileref: IoringHandleRef
 public actual fun buildIoRingReadFile(ioring: Hioring, fileref: IoringHandleRef, dataref: IoringBufferRef, numberofbytestoread: UInt, fileoffset: ULong, userdata: ULong, sqeflags: IoringSqeFlags): Hresult =
     0
 
-public actual fun buildIoRingRegisterBuffers(ioring: Hioring, count: UInt, buffers: ConstPtr<IoringBufferInfo>, userdata: ULong): Hresult =
+public actual fun buildIoRingRegisterBuffers(ioring: Hioring, count: UInt, buffers: ConstPtr, userdata: ULong): Hresult =
     windowssysWindowsWin32StorageFilesystemBuildIoRingRegisterBuffers(ioring.rawAddress.toCPointer<ByteVar>(), count, buffers.rawAddress.toCPointer<ByteVar>(), userdata)
 
-public actual fun buildIoRingRegisterFileHandles(ioring: Hioring, count: UInt, handles: ConstPtr<Handle>, userdata: ULong): Hresult =
+public actual fun buildIoRingRegisterFileHandles(ioring: Hioring, count: UInt, handles: ConstPtr, userdata: ULong): Hresult =
     windowssysWindowsWin32StorageFilesystemBuildIoRingRegisterFileHandles(ioring.rawAddress.toCPointer<ByteVar>(), count, handles.rawAddress.toCPointer<ByteVar>(), userdata)
 
 public actual fun buildIoRingWriteFile(ioring: Hioring, fileref: IoringHandleRef, bufferref: IoringBufferRef, numberofbytestowrite: UInt, fileoffset: ULong, writeflags: FileWriteFlags, userdata: ULong, sqeflags: IoringSqeFlags): Hresult =
     0
 
-public actual fun checkNameLegalDOS8Dot3A(lpname: Pcstr, lpoemname: Pstr, oemnamesize: UInt, pbnamecontainsspaces: MutPtr<Bool>, pbnamelegal: MutPtr<Bool>): Bool =
+public actual fun checkNameLegalDOS8Dot3A(lpname: Pcstr, lpoemname: Pstr, oemnamesize: UInt, pbnamecontainsspaces: MutPtr, pbnamelegal: MutPtr): Bool =
     windowssysWindowsWin32StorageFilesystemCheckNameLegalDOS8Dot3A(lpname.rawAddress.toCPointer<ByteVar>(), lpoemname.rawAddress.toCPointer<ByteVar>(), oemnamesize, pbnamecontainsspaces.rawAddress.toCPointer<ByteVar>(), pbnamelegal.rawAddress.toCPointer<ByteVar>())
 
-public actual fun checkNameLegalDOS8Dot3W(lpname: Pcwstr, lpoemname: Pstr, oemnamesize: UInt, pbnamecontainsspaces: MutPtr<Bool>, pbnamelegal: MutPtr<Bool>): Bool =
+public actual fun checkNameLegalDOS8Dot3W(lpname: Pcwstr, lpoemname: Pstr, oemnamesize: UInt, pbnamecontainsspaces: MutPtr, pbnamelegal: MutPtr): Bool =
     windowssysWindowsWin32StorageFilesystemCheckNameLegalDOS8Dot3W(lpname.rawAddress.toCPointer<ByteVar>(), lpoemname.rawAddress.toCPointer<ByteVar>(), oemnamesize, pbnamecontainsspaces.rawAddress.toCPointer<ByteVar>(), pbnamelegal.rawAddress.toCPointer<ByteVar>())
 
 public actual fun closeAndResetLogFile(hlog: Handle): Bool =
     windowssysWindowsWin32StorageFilesystemCloseAndResetLogFile(hlog.rawAddress.toCPointer<ByteVar>())
 
-public actual fun closeEncryptedFileRaw(pvcontext: ConstPtr<CVoid>) {
+public actual fun closeEncryptedFileRaw(pvcontext: ConstPtr) {
     windowssysWindowsWin32StorageFilesystemCloseEncryptedFileRaw(pvcontext.rawAddress.toCPointer<ByteVar>())
 }
 
 public actual fun closeIoRing(ioring: Hioring): Hresult =
     windowssysWindowsWin32StorageFilesystemCloseIoRing(ioring.rawAddress.toCPointer<ByteVar>())
 
-public actual fun commitComplete(enlistmenthandle: Handle, tmvirtualclock: MutPtr<Long>): Bool =
+public actual fun commitComplete(enlistmenthandle: Handle, tmvirtualclock: MutPtr): Bool =
     windowssysWindowsWin32StorageFilesystemCommitComplete(enlistmenthandle.rawAddress.toCPointer<ByteVar>(), tmvirtualclock.rawAddress.toCPointer<ByteVar>())
 
-public actual fun commitEnlistment(enlistmenthandle: Handle, tmvirtualclock: MutPtr<Long>): Bool =
+public actual fun commitEnlistment(enlistmenthandle: Handle, tmvirtualclock: MutPtr): Bool =
     windowssysWindowsWin32StorageFilesystemCommitEnlistment(enlistmenthandle.rawAddress.toCPointer<ByteVar>(), tmvirtualclock.rawAddress.toCPointer<ByteVar>())
 
 public actual fun commitTransaction(transactionhandle: Handle): Bool =
@@ -503,28 +498,28 @@ public actual fun commitTransaction(transactionhandle: Handle): Bool =
 public actual fun commitTransactionAsync(transactionhandle: Handle): Bool =
     windowssysWindowsWin32StorageFilesystemCommitTransactionAsync(transactionhandle.rawAddress.toCPointer<ByteVar>())
 
-public actual fun compareFileTime(lpfiletime1: ConstPtr<Filetime>, lpfiletime2: ConstPtr<Filetime>): Int =
+public actual fun compareFileTime(lpfiletime1: ConstPtr, lpfiletime2: ConstPtr): Int =
     windowssysWindowsWin32StorageFilesystemCompareFileTime(lpfiletime1.rawAddress.toCPointer<ByteVar>(), lpfiletime2.rawAddress.toCPointer<ByteVar>())
 
-public actual fun copyFile2(pwszexistingfilename: Pcwstr, pwsznewfilename: Pcwstr, pextendedparameters: ConstPtr<Copyfile2ExtendedParameters>): Hresult =
+public actual fun copyFile2(pwszexistingfilename: Pcwstr, pwsznewfilename: Pcwstr, pextendedparameters: ConstPtr): Hresult =
     windowssysWindowsWin32StorageFilesystemCopyFile2(pwszexistingfilename.rawAddress.toCPointer<ByteVar>(), pwsznewfilename.rawAddress.toCPointer<ByteVar>(), pextendedparameters.rawAddress.toCPointer<ByteVar>())
 
 public actual fun copyFileA(lpexistingfilename: Pcstr, lpnewfilename: Pcstr, bfailifexists: Bool): Bool =
     windowssysWindowsWin32StorageFilesystemCopyFileA(lpexistingfilename.rawAddress.toCPointer<ByteVar>(), lpnewfilename.rawAddress.toCPointer<ByteVar>(), bfailifexists)
 
-public actual fun copyFileExA(lpexistingfilename: Pcstr, lpnewfilename: Pcstr, lpprogressroutine: LpprogressRoutine, lpdata: ConstPtr<CVoid>, pbcancel: MutPtr<Bool>, dwcopyflags: CopyfileFlags): Bool =
+public actual fun copyFileExA(lpexistingfilename: Pcstr, lpnewfilename: Pcstr, lpprogressroutine: LpprogressRoutine, lpdata: ConstPtr, pbcancel: MutPtr, dwcopyflags: CopyfileFlags): Bool =
     windowssysWindowsWin32StorageFilesystemCopyFileExA(lpexistingfilename.rawAddress.toCPointer<ByteVar>(), lpnewfilename.rawAddress.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>(), lpdata.rawAddress.toCPointer<ByteVar>(), pbcancel.rawAddress.toCPointer<ByteVar>(), dwcopyflags)
 
-public actual fun copyFileExW(lpexistingfilename: Pcwstr, lpnewfilename: Pcwstr, lpprogressroutine: LpprogressRoutine, lpdata: ConstPtr<CVoid>, pbcancel: MutPtr<Bool>, dwcopyflags: CopyfileFlags): Bool =
+public actual fun copyFileExW(lpexistingfilename: Pcwstr, lpnewfilename: Pcwstr, lpprogressroutine: LpprogressRoutine, lpdata: ConstPtr, pbcancel: MutPtr, dwcopyflags: CopyfileFlags): Bool =
     windowssysWindowsWin32StorageFilesystemCopyFileExW(lpexistingfilename.rawAddress.toCPointer<ByteVar>(), lpnewfilename.rawAddress.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>(), lpdata.rawAddress.toCPointer<ByteVar>(), pbcancel.rawAddress.toCPointer<ByteVar>(), dwcopyflags)
 
 public actual fun copyFileFromAppW(lpexistingfilename: Pcwstr, lpnewfilename: Pcwstr, bfailifexists: Bool): Bool =
     windowssysWindowsWin32StorageFilesystemCopyFileFromAppW(lpexistingfilename.rawAddress.toCPointer<ByteVar>(), lpnewfilename.rawAddress.toCPointer<ByteVar>(), bfailifexists)
 
-public actual fun copyFileTransactedA(lpexistingfilename: Pcstr, lpnewfilename: Pcstr, lpprogressroutine: LpprogressRoutine, lpdata: ConstPtr<CVoid>, pbcancel: ConstPtr<Bool>, dwcopyflags: UInt, htransaction: Handle): Bool =
+public actual fun copyFileTransactedA(lpexistingfilename: Pcstr, lpnewfilename: Pcstr, lpprogressroutine: LpprogressRoutine, lpdata: ConstPtr, pbcancel: ConstPtr, dwcopyflags: UInt, htransaction: Handle): Bool =
     windowssysWindowsWin32StorageFilesystemCopyFileTransactedA(lpexistingfilename.rawAddress.toCPointer<ByteVar>(), lpnewfilename.rawAddress.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>(), lpdata.rawAddress.toCPointer<ByteVar>(), pbcancel.rawAddress.toCPointer<ByteVar>(), dwcopyflags, htransaction.rawAddress.toCPointer<ByteVar>())
 
-public actual fun copyFileTransactedW(lpexistingfilename: Pcwstr, lpnewfilename: Pcwstr, lpprogressroutine: LpprogressRoutine, lpdata: ConstPtr<CVoid>, pbcancel: ConstPtr<Bool>, dwcopyflags: UInt, htransaction: Handle): Bool =
+public actual fun copyFileTransactedW(lpexistingfilename: Pcwstr, lpnewfilename: Pcwstr, lpprogressroutine: LpprogressRoutine, lpdata: ConstPtr, pbcancel: ConstPtr, dwcopyflags: UInt, htransaction: Handle): Bool =
     windowssysWindowsWin32StorageFilesystemCopyFileTransactedW(lpexistingfilename.rawAddress.toCPointer<ByteVar>(), lpnewfilename.rawAddress.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>(), lpdata.rawAddress.toCPointer<ByteVar>(), pbcancel.rawAddress.toCPointer<ByteVar>(), dwcopyflags, htransaction.rawAddress.toCPointer<ByteVar>())
 
 public actual fun copyFileW(lpexistingfilename: Pcwstr, lpnewfilename: Pcwstr, bfailifexists: Bool): Bool =
@@ -533,76 +528,76 @@ public actual fun copyFileW(lpexistingfilename: Pcwstr, lpnewfilename: Pcwstr, b
 public actual fun copyLZFile(hfsource: Int, hfdest: Int): Int =
     windowssysWindowsWin32StorageFilesystemCopyLZFile(hfsource, hfdest)
 
-public actual fun createDirectoryA(lppathname: Pcstr, lpsecurityattributes: ConstPtr<SecurityAttributes>): Bool =
+public actual fun createDirectoryA(lppathname: Pcstr, lpsecurityattributes: ConstPtr): Bool =
     windowssysWindowsWin32StorageFilesystemCreateDirectoryA(lppathname.rawAddress.toCPointer<ByteVar>(), lpsecurityattributes.rawAddress.toCPointer<ByteVar>())
 
-public actual fun createDirectoryExA(lptemplatedirectory: Pcstr, lpnewdirectory: Pcstr, lpsecurityattributes: ConstPtr<SecurityAttributes>): Bool =
+public actual fun createDirectoryExA(lptemplatedirectory: Pcstr, lpnewdirectory: Pcstr, lpsecurityattributes: ConstPtr): Bool =
     windowssysWindowsWin32StorageFilesystemCreateDirectoryExA(lptemplatedirectory.rawAddress.toCPointer<ByteVar>(), lpnewdirectory.rawAddress.toCPointer<ByteVar>(), lpsecurityattributes.rawAddress.toCPointer<ByteVar>())
 
-public actual fun createDirectoryExW(lptemplatedirectory: Pcwstr, lpnewdirectory: Pcwstr, lpsecurityattributes: ConstPtr<SecurityAttributes>): Bool =
+public actual fun createDirectoryExW(lptemplatedirectory: Pcwstr, lpnewdirectory: Pcwstr, lpsecurityattributes: ConstPtr): Bool =
     windowssysWindowsWin32StorageFilesystemCreateDirectoryExW(lptemplatedirectory.rawAddress.toCPointer<ByteVar>(), lpnewdirectory.rawAddress.toCPointer<ByteVar>(), lpsecurityattributes.rawAddress.toCPointer<ByteVar>())
 
-public actual fun createDirectoryFromAppW(lppathname: Pcwstr, lpsecurityattributes: ConstPtr<SecurityAttributes>): Bool =
+public actual fun createDirectoryFromAppW(lppathname: Pcwstr, lpsecurityattributes: ConstPtr): Bool =
     windowssysWindowsWin32StorageFilesystemCreateDirectoryFromAppW(lppathname.rawAddress.toCPointer<ByteVar>(), lpsecurityattributes.rawAddress.toCPointer<ByteVar>())
 
-public actual fun createDirectoryTransactedA(lptemplatedirectory: Pcstr, lpnewdirectory: Pcstr, lpsecurityattributes: ConstPtr<SecurityAttributes>, htransaction: Handle): Bool =
+public actual fun createDirectoryTransactedA(lptemplatedirectory: Pcstr, lpnewdirectory: Pcstr, lpsecurityattributes: ConstPtr, htransaction: Handle): Bool =
     windowssysWindowsWin32StorageFilesystemCreateDirectoryTransactedA(lptemplatedirectory.rawAddress.toCPointer<ByteVar>(), lpnewdirectory.rawAddress.toCPointer<ByteVar>(), lpsecurityattributes.rawAddress.toCPointer<ByteVar>(), htransaction.rawAddress.toCPointer<ByteVar>())
 
-public actual fun createDirectoryTransactedW(lptemplatedirectory: Pcwstr, lpnewdirectory: Pcwstr, lpsecurityattributes: ConstPtr<SecurityAttributes>, htransaction: Handle): Bool =
+public actual fun createDirectoryTransactedW(lptemplatedirectory: Pcwstr, lpnewdirectory: Pcwstr, lpsecurityattributes: ConstPtr, htransaction: Handle): Bool =
     windowssysWindowsWin32StorageFilesystemCreateDirectoryTransactedW(lptemplatedirectory.rawAddress.toCPointer<ByteVar>(), lpnewdirectory.rawAddress.toCPointer<ByteVar>(), lpsecurityattributes.rawAddress.toCPointer<ByteVar>(), htransaction.rawAddress.toCPointer<ByteVar>())
 
-public actual fun createDirectoryW(lppathname: Pcwstr, lpsecurityattributes: ConstPtr<SecurityAttributes>): Bool =
+public actual fun createDirectoryW(lppathname: Pcwstr, lpsecurityattributes: ConstPtr): Bool =
     windowssysWindowsWin32StorageFilesystemCreateDirectoryW(lppathname.rawAddress.toCPointer<ByteVar>(), lpsecurityattributes.rawAddress.toCPointer<ByteVar>())
 
-public actual fun createEnlistment(lpenlistmentattributes: MutPtr<SecurityAttributes>, resourcemanagerhandle: Handle, transactionhandle: Handle, notificationmask: UInt, createoptions: UInt, enlistmentkey: MutPtr<CVoid>): Handle =
+public actual fun createEnlistment(lpenlistmentattributes: MutPtr, resourcemanagerhandle: Handle, transactionhandle: Handle, notificationmask: UInt, createoptions: UInt, enlistmentkey: MutPtr): Handle =
     MutPtr(windowssysWindowsWin32StorageFilesystemCreateEnlistment(lpenlistmentattributes.rawAddress.toCPointer<ByteVar>(), resourcemanagerhandle.rawAddress.toCPointer<ByteVar>(), transactionhandle.rawAddress.toCPointer<ByteVar>(), notificationmask, createoptions, enlistmentkey.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun createFile2(lpfilename: Pcwstr, dwdesiredaccess: UInt, dwsharemode: FileShareMode, dwcreationdisposition: FileCreationDisposition, pcreateexparams: ConstPtr<Createfile2ExtendedParameters>): Handle =
+public actual fun createFile2(lpfilename: Pcwstr, dwdesiredaccess: UInt, dwsharemode: FileShareMode, dwcreationdisposition: FileCreationDisposition, pcreateexparams: ConstPtr): Handle =
     MutPtr(windowssysWindowsWin32StorageFilesystemCreateFile2(lpfilename.rawAddress.toCPointer<ByteVar>(), dwdesiredaccess, dwsharemode, dwcreationdisposition, pcreateexparams.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun createFile2FromAppW(lpfilename: Pcwstr, dwdesiredaccess: UInt, dwsharemode: UInt, dwcreationdisposition: UInt, pcreateexparams: ConstPtr<Createfile2ExtendedParameters>): Handle =
+public actual fun createFile2FromAppW(lpfilename: Pcwstr, dwdesiredaccess: UInt, dwsharemode: UInt, dwcreationdisposition: UInt, pcreateexparams: ConstPtr): Handle =
     MutPtr(windowssysWindowsWin32StorageFilesystemCreateFile2FromAppW(lpfilename.rawAddress.toCPointer<ByteVar>(), dwdesiredaccess, dwsharemode, dwcreationdisposition, pcreateexparams.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun createFileA(lpfilename: Pcstr, dwdesiredaccess: UInt, dwsharemode: FileShareMode, lpsecurityattributes: ConstPtr<SecurityAttributes>, dwcreationdisposition: FileCreationDisposition, dwflagsandattributes: FileFlagsAndAttributes, htemplatefile: Handle): Handle =
+public actual fun createFileA(lpfilename: Pcstr, dwdesiredaccess: UInt, dwsharemode: FileShareMode, lpsecurityattributes: ConstPtr, dwcreationdisposition: FileCreationDisposition, dwflagsandattributes: FileFlagsAndAttributes, htemplatefile: Handle): Handle =
     MutPtr(windowssysWindowsWin32StorageFilesystemCreateFileA(lpfilename.rawAddress.toCPointer<ByteVar>(), dwdesiredaccess, dwsharemode, lpsecurityattributes.rawAddress.toCPointer<ByteVar>(), dwcreationdisposition, dwflagsandattributes, htemplatefile.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun createFileFromAppW(lpfilename: Pcwstr, dwdesiredaccess: UInt, dwsharemode: UInt, lpsecurityattributes: ConstPtr<SecurityAttributes>, dwcreationdisposition: UInt, dwflagsandattributes: UInt, htemplatefile: Handle): Handle =
+public actual fun createFileFromAppW(lpfilename: Pcwstr, dwdesiredaccess: UInt, dwsharemode: UInt, lpsecurityattributes: ConstPtr, dwcreationdisposition: UInt, dwflagsandattributes: UInt, htemplatefile: Handle): Handle =
     MutPtr(windowssysWindowsWin32StorageFilesystemCreateFileFromAppW(lpfilename.rawAddress.toCPointer<ByteVar>(), dwdesiredaccess, dwsharemode, lpsecurityattributes.rawAddress.toCPointer<ByteVar>(), dwcreationdisposition, dwflagsandattributes, htemplatefile.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun createFileTransactedA(lpfilename: Pcstr, dwdesiredaccess: UInt, dwsharemode: FileShareMode, lpsecurityattributes: ConstPtr<SecurityAttributes>, dwcreationdisposition: FileCreationDisposition, dwflagsandattributes: FileFlagsAndAttributes, htemplatefile: Handle, htransaction: Handle, pusminiversion: ConstPtr<TxfsMiniversion>, lpextendedparameter: ConstPtr<CVoid>): Handle =
+public actual fun createFileTransactedA(lpfilename: Pcstr, dwdesiredaccess: UInt, dwsharemode: FileShareMode, lpsecurityattributes: ConstPtr, dwcreationdisposition: FileCreationDisposition, dwflagsandattributes: FileFlagsAndAttributes, htemplatefile: Handle, htransaction: Handle, pusminiversion: ConstPtr, lpextendedparameter: ConstPtr): Handle =
     MutPtr(windowssysWindowsWin32StorageFilesystemCreateFileTransactedA(lpfilename.rawAddress.toCPointer<ByteVar>(), dwdesiredaccess, dwsharemode, lpsecurityattributes.rawAddress.toCPointer<ByteVar>(), dwcreationdisposition, dwflagsandattributes, htemplatefile.rawAddress.toCPointer<ByteVar>(), htransaction.rawAddress.toCPointer<ByteVar>(), pusminiversion.rawAddress.toCPointer<ByteVar>(), lpextendedparameter.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun createFileTransactedW(lpfilename: Pcwstr, dwdesiredaccess: UInt, dwsharemode: FileShareMode, lpsecurityattributes: ConstPtr<SecurityAttributes>, dwcreationdisposition: FileCreationDisposition, dwflagsandattributes: FileFlagsAndAttributes, htemplatefile: Handle, htransaction: Handle, pusminiversion: ConstPtr<TxfsMiniversion>, lpextendedparameter: ConstPtr<CVoid>): Handle =
+public actual fun createFileTransactedW(lpfilename: Pcwstr, dwdesiredaccess: UInt, dwsharemode: FileShareMode, lpsecurityattributes: ConstPtr, dwcreationdisposition: FileCreationDisposition, dwflagsandattributes: FileFlagsAndAttributes, htemplatefile: Handle, htransaction: Handle, pusminiversion: ConstPtr, lpextendedparameter: ConstPtr): Handle =
     MutPtr(windowssysWindowsWin32StorageFilesystemCreateFileTransactedW(lpfilename.rawAddress.toCPointer<ByteVar>(), dwdesiredaccess, dwsharemode, lpsecurityattributes.rawAddress.toCPointer<ByteVar>(), dwcreationdisposition, dwflagsandattributes, htemplatefile.rawAddress.toCPointer<ByteVar>(), htransaction.rawAddress.toCPointer<ByteVar>(), pusminiversion.rawAddress.toCPointer<ByteVar>(), lpextendedparameter.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun createFileW(lpfilename: Pcwstr, dwdesiredaccess: UInt, dwsharemode: FileShareMode, lpsecurityattributes: ConstPtr<SecurityAttributes>, dwcreationdisposition: FileCreationDisposition, dwflagsandattributes: FileFlagsAndAttributes, htemplatefile: Handle): Handle =
+public actual fun createFileW(lpfilename: Pcwstr, dwdesiredaccess: UInt, dwsharemode: FileShareMode, lpsecurityattributes: ConstPtr, dwcreationdisposition: FileCreationDisposition, dwflagsandattributes: FileFlagsAndAttributes, htemplatefile: Handle): Handle =
     MutPtr(windowssysWindowsWin32StorageFilesystemCreateFileW(lpfilename.rawAddress.toCPointer<ByteVar>(), dwdesiredaccess, dwsharemode, lpsecurityattributes.rawAddress.toCPointer<ByteVar>(), dwcreationdisposition, dwflagsandattributes, htemplatefile.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun createHardLinkA(lpfilename: Pcstr, lpexistingfilename: Pcstr, lpsecurityattributes: ConstPtr<SecurityAttributes>): Bool =
+public actual fun createHardLinkA(lpfilename: Pcstr, lpexistingfilename: Pcstr, lpsecurityattributes: ConstPtr): Bool =
     windowssysWindowsWin32StorageFilesystemCreateHardLinkA(lpfilename.rawAddress.toCPointer<ByteVar>(), lpexistingfilename.rawAddress.toCPointer<ByteVar>(), lpsecurityattributes.rawAddress.toCPointer<ByteVar>())
 
-public actual fun createHardLinkTransactedA(lpfilename: Pcstr, lpexistingfilename: Pcstr, lpsecurityattributes: ConstPtr<SecurityAttributes>, htransaction: Handle): Bool =
+public actual fun createHardLinkTransactedA(lpfilename: Pcstr, lpexistingfilename: Pcstr, lpsecurityattributes: ConstPtr, htransaction: Handle): Bool =
     windowssysWindowsWin32StorageFilesystemCreateHardLinkTransactedA(lpfilename.rawAddress.toCPointer<ByteVar>(), lpexistingfilename.rawAddress.toCPointer<ByteVar>(), lpsecurityattributes.rawAddress.toCPointer<ByteVar>(), htransaction.rawAddress.toCPointer<ByteVar>())
 
-public actual fun createHardLinkTransactedW(lpfilename: Pcwstr, lpexistingfilename: Pcwstr, lpsecurityattributes: ConstPtr<SecurityAttributes>, htransaction: Handle): Bool =
+public actual fun createHardLinkTransactedW(lpfilename: Pcwstr, lpexistingfilename: Pcwstr, lpsecurityattributes: ConstPtr, htransaction: Handle): Bool =
     windowssysWindowsWin32StorageFilesystemCreateHardLinkTransactedW(lpfilename.rawAddress.toCPointer<ByteVar>(), lpexistingfilename.rawAddress.toCPointer<ByteVar>(), lpsecurityattributes.rawAddress.toCPointer<ByteVar>(), htransaction.rawAddress.toCPointer<ByteVar>())
 
-public actual fun createHardLinkW(lpfilename: Pcwstr, lpexistingfilename: Pcwstr, lpsecurityattributes: ConstPtr<SecurityAttributes>): Bool =
+public actual fun createHardLinkW(lpfilename: Pcwstr, lpexistingfilename: Pcwstr, lpsecurityattributes: ConstPtr): Bool =
     windowssysWindowsWin32StorageFilesystemCreateHardLinkW(lpfilename.rawAddress.toCPointer<ByteVar>(), lpexistingfilename.rawAddress.toCPointer<ByteVar>(), lpsecurityattributes.rawAddress.toCPointer<ByteVar>())
 
-public actual fun createIoRing(ioringversion: IoringVersion, flags: IoringCreateFlags, submissionqueuesize: UInt, completionqueuesize: UInt, h: MutPtr<Hioring>): Hresult =
+public actual fun createIoRing(ioringversion: IoringVersion, flags: IoringCreateFlags, submissionqueuesize: UInt, completionqueuesize: UInt, h: MutPtr): Hresult =
     0
 
-public actual fun createLogContainerScanContext(hlog: Handle, cfromcontainer: UInt, ccontainers: UInt, escanmode: UByte, pcxscan: MutPtr<ClsScanContext>, poverlapped: MutPtr<Overlapped>): Bool =
+public actual fun createLogContainerScanContext(hlog: Handle, cfromcontainer: UInt, ccontainers: UInt, escanmode: UByte, pcxscan: MutPtr, poverlapped: MutPtr): Bool =
     windowssysWindowsWin32StorageFilesystemCreateLogContainerScanContext(hlog.rawAddress.toCPointer<ByteVar>(), cfromcontainer, ccontainers, escanmode, pcxscan.rawAddress.toCPointer<ByteVar>(), poverlapped.rawAddress.toCPointer<ByteVar>())
 
-public actual fun createLogFile(pszlogfilename: Pcwstr, fdesiredaccess: UInt, dwsharemode: FileShareMode, psalogfile: MutPtr<SecurityAttributes>, fcreatedisposition: FileCreationDisposition, fflagsandattributes: FileFlagsAndAttributes): Handle =
+public actual fun createLogFile(pszlogfilename: Pcwstr, fdesiredaccess: UInt, dwsharemode: FileShareMode, psalogfile: MutPtr, fcreatedisposition: FileCreationDisposition, fflagsandattributes: FileFlagsAndAttributes): Handle =
     MutPtr(windowssysWindowsWin32StorageFilesystemCreateLogFile(pszlogfilename.rawAddress.toCPointer<ByteVar>(), fdesiredaccess, dwsharemode, psalogfile.rawAddress.toCPointer<ByteVar>(), fcreatedisposition, fflagsandattributes)?.toLong() ?: 0L)
 
-public actual fun createLogMarshallingArea(hlog: Handle, pfnallocbuffer: ClfsBlockAllocation, pfnfreebuffer: ClfsBlockDeallocation, pvblockalloccontext: MutPtr<CVoid>, cbmarshallingbuffer: UInt, cmaxwritebuffers: UInt, cmaxreadbuffers: UInt, ppvmarshal: MutPtr<MutPtr<CVoid>>): Bool =
+public actual fun createLogMarshallingArea(hlog: Handle, pfnallocbuffer: ClfsBlockAllocation, pfnfreebuffer: ClfsBlockDeallocation, pvblockalloccontext: MutPtr, cbmarshallingbuffer: UInt, cmaxwritebuffers: UInt, cmaxreadbuffers: UInt, ppvmarshal: MutPtr): Bool =
     windowssysWindowsWin32StorageFilesystemCreateLogMarshallingArea(hlog.rawAddress.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>(), pvblockalloccontext.rawAddress.toCPointer<ByteVar>(), cbmarshallingbuffer, cmaxwritebuffers, cmaxreadbuffers, ppvmarshal.rawAddress.toCPointer<ByteVar>())
 
-public actual fun createResourceManager(lpresourcemanagerattributes: MutPtr<SecurityAttributes>, resourcemanagerid: MutPtr<Guid>, createoptions: UInt, tmhandle: Handle, description: Pcwstr): Handle =
+public actual fun createResourceManager(lpresourcemanagerattributes: MutPtr, resourcemanagerid: MutPtr, createoptions: UInt, tmhandle: Handle, description: Pcwstr): Handle =
     MutPtr(windowssysWindowsWin32StorageFilesystemCreateResourceManager(lpresourcemanagerattributes.rawAddress.toCPointer<ByteVar>(), resourcemanagerid.rawAddress.toCPointer<ByteVar>(), createoptions, tmhandle.rawAddress.toCPointer<ByteVar>(), description.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
 public actual fun createSymbolicLinkA(lpsymlinkfilename: Pcstr, lptargetfilename: Pcstr, dwflags: SymbolicLinkFlags): Boolean =
@@ -620,10 +615,10 @@ public actual fun createSymbolicLinkW(lpsymlinkfilename: Pcwstr, lptargetfilenam
 public actual fun createTapePartition(hdevice: Handle, dwpartitionmethod: CreateTapePartitionMethod, dwcount: UInt, dwsize: UInt): UInt =
     windowssysWindowsWin32StorageFilesystemCreateTapePartition(hdevice.rawAddress.toCPointer<ByteVar>(), dwpartitionmethod, dwcount, dwsize)
 
-public actual fun createTransaction(lptransactionattributes: MutPtr<SecurityAttributes>, uow: MutPtr<Guid>, createoptions: UInt, isolationlevel: UInt, isolationflags: UInt, timeout: UInt, description: Pcwstr): Handle =
+public actual fun createTransaction(lptransactionattributes: MutPtr, uow: MutPtr, createoptions: UInt, isolationlevel: UInt, isolationflags: UInt, timeout: UInt, description: Pcwstr): Handle =
     MutPtr(windowssysWindowsWin32StorageFilesystemCreateTransaction(lptransactionattributes.rawAddress.toCPointer<ByteVar>(), uow.rawAddress.toCPointer<ByteVar>(), createoptions, isolationlevel, isolationflags, timeout, description.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun createTransactionManager(lptransactionattributes: MutPtr<SecurityAttributes>, logfilename: Pcwstr, createoptions: UInt, commitstrength: UInt): Handle =
+public actual fun createTransactionManager(lptransactionattributes: MutPtr, logfilename: Pcwstr, createoptions: UInt, commitstrength: UInt): Handle =
     MutPtr(windowssysWindowsWin32StorageFilesystemCreateTransactionManager(lptransactionattributes.rawAddress.toCPointer<ByteVar>(), logfilename.rawAddress.toCPointer<ByteVar>(), createoptions, commitstrength)?.toLong() ?: 0L)
 
 public actual fun decryptFileA(lpfilename: Pcstr, dwreserved: UInt): Bool =
@@ -656,10 +651,10 @@ public actual fun deleteFileW(lpfilename: Pcwstr): Bool =
 public actual fun deleteLogByHandle(hlog: Handle): Bool =
     windowssysWindowsWin32StorageFilesystemDeleteLogByHandle(hlog.rawAddress.toCPointer<ByteVar>())
 
-public actual fun deleteLogFile(pszlogfilename: Pcwstr, pvreserved: MutPtr<CVoid>): Bool =
+public actual fun deleteLogFile(pszlogfilename: Pcwstr, pvreserved: MutPtr): Bool =
     windowssysWindowsWin32StorageFilesystemDeleteLogFile(pszlogfilename.rawAddress.toCPointer<ByteVar>(), pvreserved.rawAddress.toCPointer<ByteVar>())
 
-public actual fun deleteLogMarshallingArea(pvmarshal: MutPtr<CVoid>): Bool =
+public actual fun deleteLogMarshallingArea(pvmarshal: MutPtr): Bool =
     windowssysWindowsWin32StorageFilesystemDeleteLogMarshallingArea(pvmarshal.rawAddress.toCPointer<ByteVar>())
 
 public actual fun deleteVolumeMountPointA(lpszvolumemountpoint: Pcstr): Bool =
@@ -671,7 +666,7 @@ public actual fun deleteVolumeMountPointW(lpszvolumemountpoint: Pcwstr): Bool =
 public actual fun deregisterManageableLogClient(hlog: Handle): Bool =
     windowssysWindowsWin32StorageFilesystemDeregisterManageableLogClient(hlog.rawAddress.toCPointer<ByteVar>())
 
-public actual fun duplicateEncryptionInfoFile(srcfilename: Pcwstr, dstfilename: Pcwstr, dwcreationdistribution: UInt, dwattributes: UInt, lpsecurityattributes: ConstPtr<SecurityAttributes>): UInt =
+public actual fun duplicateEncryptionInfoFile(srcfilename: Pcwstr, dstfilename: Pcwstr, dwcreationdistribution: UInt, dwattributes: UInt, lpsecurityattributes: ConstPtr): UInt =
     windowssysWindowsWin32StorageFilesystemDuplicateEncryptionInfoFile(srcfilename.rawAddress.toCPointer<ByteVar>(), dstfilename.rawAddress.toCPointer<ByteVar>(), dwcreationdistribution, dwattributes, lpsecurityattributes.rawAddress.toCPointer<ByteVar>())
 
 public actual fun encryptFileA(lpfilename: Pcstr): Bool =
@@ -686,13 +681,13 @@ public actual fun encryptionDisable(dirpath: Pcwstr, disable: Bool): Bool =
 public actual fun eraseTape(hdevice: Handle, dwerasetype: EraseTapeType, bimmediate: Bool): UInt =
     windowssysWindowsWin32StorageFilesystemEraseTape(hdevice.rawAddress.toCPointer<ByteVar>(), dwerasetype, bimmediate)
 
-public actual fun fileEncryptionStatusA(lpfilename: Pcstr, lpstatus: MutPtr<UInt>): Bool =
+public actual fun fileEncryptionStatusA(lpfilename: Pcstr, lpstatus: MutPtr): Bool =
     windowssysWindowsWin32StorageFilesystemFileEncryptionStatusA(lpfilename.rawAddress.toCPointer<ByteVar>(), lpstatus.rawAddress.toCPointer<ByteVar>())
 
-public actual fun fileEncryptionStatusW(lpfilename: Pcwstr, lpstatus: MutPtr<UInt>): Bool =
+public actual fun fileEncryptionStatusW(lpfilename: Pcwstr, lpstatus: MutPtr): Bool =
     windowssysWindowsWin32StorageFilesystemFileEncryptionStatusW(lpfilename.rawAddress.toCPointer<ByteVar>(), lpstatus.rawAddress.toCPointer<ByteVar>())
 
-public actual fun fileTimeToLocalFileTime(lpfiletime: ConstPtr<Filetime>, lplocalfiletime: MutPtr<Filetime>): Bool =
+public actual fun fileTimeToLocalFileTime(lpfiletime: ConstPtr, lplocalfiletime: MutPtr): Bool =
     windowssysWindowsWin32StorageFilesystemFileTimeToLocalFileTime(lpfiletime.rawAddress.toCPointer<ByteVar>(), lplocalfiletime.rawAddress.toCPointer<ByteVar>())
 
 public actual fun findClose(hfindfile: Handle): Bool =
@@ -707,37 +702,37 @@ public actual fun findFirstChangeNotificationA(lppathname: Pcstr, bwatchsubtree:
 public actual fun findFirstChangeNotificationW(lppathname: Pcwstr, bwatchsubtree: Bool, dwnotifyfilter: FileNotifyChange): Handle =
     MutPtr(windowssysWindowsWin32StorageFilesystemFindFirstChangeNotificationW(lppathname.rawAddress.toCPointer<ByteVar>(), bwatchsubtree, dwnotifyfilter)?.toLong() ?: 0L)
 
-public actual fun findFirstFileA(lpfilename: Pcstr, lpfindfiledata: MutPtr<Win32FindDataa>): Handle =
+public actual fun findFirstFileA(lpfilename: Pcstr, lpfindfiledata: MutPtr): Handle =
     MutPtr(windowssysWindowsWin32StorageFilesystemFindFirstFileA(lpfilename.rawAddress.toCPointer<ByteVar>(), lpfindfiledata.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun findFirstFileExA(lpfilename: Pcstr, finfolevelid: FindexInfoLevels, lpfindfiledata: MutPtr<CVoid>, fsearchop: FindexSearchOps, lpsearchfilter: ConstPtr<CVoid>, dwadditionalflags: FindFirstExFlags): Handle =
+public actual fun findFirstFileExA(lpfilename: Pcstr, finfolevelid: FindexInfoLevels, lpfindfiledata: MutPtr, fsearchop: FindexSearchOps, lpsearchfilter: ConstPtr, dwadditionalflags: FindFirstExFlags): Handle =
     MutPtr(windowssysWindowsWin32StorageFilesystemFindFirstFileExA(lpfilename.rawAddress.toCPointer<ByteVar>(), finfolevelid, lpfindfiledata.rawAddress.toCPointer<ByteVar>(), fsearchop, lpsearchfilter.rawAddress.toCPointer<ByteVar>(), dwadditionalflags)?.toLong() ?: 0L)
 
-public actual fun findFirstFileExFromAppW(lpfilename: Pcwstr, finfolevelid: FindexInfoLevels, lpfindfiledata: MutPtr<CVoid>, fsearchop: FindexSearchOps, lpsearchfilter: ConstPtr<CVoid>, dwadditionalflags: UInt): Handle =
+public actual fun findFirstFileExFromAppW(lpfilename: Pcwstr, finfolevelid: FindexInfoLevels, lpfindfiledata: MutPtr, fsearchop: FindexSearchOps, lpsearchfilter: ConstPtr, dwadditionalflags: UInt): Handle =
     MutPtr(windowssysWindowsWin32StorageFilesystemFindFirstFileExFromAppW(lpfilename.rawAddress.toCPointer<ByteVar>(), finfolevelid, lpfindfiledata.rawAddress.toCPointer<ByteVar>(), fsearchop, lpsearchfilter.rawAddress.toCPointer<ByteVar>(), dwadditionalflags)?.toLong() ?: 0L)
 
-public actual fun findFirstFileExW(lpfilename: Pcwstr, finfolevelid: FindexInfoLevels, lpfindfiledata: MutPtr<CVoid>, fsearchop: FindexSearchOps, lpsearchfilter: ConstPtr<CVoid>, dwadditionalflags: FindFirstExFlags): Handle =
+public actual fun findFirstFileExW(lpfilename: Pcwstr, finfolevelid: FindexInfoLevels, lpfindfiledata: MutPtr, fsearchop: FindexSearchOps, lpsearchfilter: ConstPtr, dwadditionalflags: FindFirstExFlags): Handle =
     MutPtr(windowssysWindowsWin32StorageFilesystemFindFirstFileExW(lpfilename.rawAddress.toCPointer<ByteVar>(), finfolevelid, lpfindfiledata.rawAddress.toCPointer<ByteVar>(), fsearchop, lpsearchfilter.rawAddress.toCPointer<ByteVar>(), dwadditionalflags)?.toLong() ?: 0L)
 
-public actual fun findFirstFileNameTransactedW(lpfilename: Pcwstr, dwflags: UInt, stringlength: MutPtr<UInt>, linkname: Pwstr, htransaction: Handle): Handle =
+public actual fun findFirstFileNameTransactedW(lpfilename: Pcwstr, dwflags: UInt, stringlength: MutPtr, linkname: Pwstr, htransaction: Handle): Handle =
     MutPtr(windowssysWindowsWin32StorageFilesystemFindFirstFileNameTransactedW(lpfilename.rawAddress.toCPointer<ByteVar>(), dwflags, stringlength.rawAddress.toCPointer<ByteVar>(), linkname.rawAddress.toCPointer<ByteVar>(), htransaction.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun findFirstFileNameW(lpfilename: Pcwstr, dwflags: UInt, stringlength: MutPtr<UInt>, linkname: Pwstr): Handle =
+public actual fun findFirstFileNameW(lpfilename: Pcwstr, dwflags: UInt, stringlength: MutPtr, linkname: Pwstr): Handle =
     MutPtr(windowssysWindowsWin32StorageFilesystemFindFirstFileNameW(lpfilename.rawAddress.toCPointer<ByteVar>(), dwflags, stringlength.rawAddress.toCPointer<ByteVar>(), linkname.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun findFirstFileTransactedA(lpfilename: Pcstr, finfolevelid: FindexInfoLevels, lpfindfiledata: MutPtr<CVoid>, fsearchop: FindexSearchOps, lpsearchfilter: ConstPtr<CVoid>, dwadditionalflags: UInt, htransaction: Handle): Handle =
+public actual fun findFirstFileTransactedA(lpfilename: Pcstr, finfolevelid: FindexInfoLevels, lpfindfiledata: MutPtr, fsearchop: FindexSearchOps, lpsearchfilter: ConstPtr, dwadditionalflags: UInt, htransaction: Handle): Handle =
     MutPtr(windowssysWindowsWin32StorageFilesystemFindFirstFileTransactedA(lpfilename.rawAddress.toCPointer<ByteVar>(), finfolevelid, lpfindfiledata.rawAddress.toCPointer<ByteVar>(), fsearchop, lpsearchfilter.rawAddress.toCPointer<ByteVar>(), dwadditionalflags, htransaction.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun findFirstFileTransactedW(lpfilename: Pcwstr, finfolevelid: FindexInfoLevels, lpfindfiledata: MutPtr<CVoid>, fsearchop: FindexSearchOps, lpsearchfilter: ConstPtr<CVoid>, dwadditionalflags: UInt, htransaction: Handle): Handle =
+public actual fun findFirstFileTransactedW(lpfilename: Pcwstr, finfolevelid: FindexInfoLevels, lpfindfiledata: MutPtr, fsearchop: FindexSearchOps, lpsearchfilter: ConstPtr, dwadditionalflags: UInt, htransaction: Handle): Handle =
     MutPtr(windowssysWindowsWin32StorageFilesystemFindFirstFileTransactedW(lpfilename.rawAddress.toCPointer<ByteVar>(), finfolevelid, lpfindfiledata.rawAddress.toCPointer<ByteVar>(), fsearchop, lpsearchfilter.rawAddress.toCPointer<ByteVar>(), dwadditionalflags, htransaction.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun findFirstFileW(lpfilename: Pcwstr, lpfindfiledata: MutPtr<Win32FindDataw>): Handle =
+public actual fun findFirstFileW(lpfilename: Pcwstr, lpfindfiledata: MutPtr): Handle =
     MutPtr(windowssysWindowsWin32StorageFilesystemFindFirstFileW(lpfilename.rawAddress.toCPointer<ByteVar>(), lpfindfiledata.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun findFirstStreamTransactedW(lpfilename: Pcwstr, infolevel: StreamInfoLevels, lpfindstreamdata: MutPtr<CVoid>, dwflags: UInt, htransaction: Handle): Handle =
+public actual fun findFirstStreamTransactedW(lpfilename: Pcwstr, infolevel: StreamInfoLevels, lpfindstreamdata: MutPtr, dwflags: UInt, htransaction: Handle): Handle =
     MutPtr(windowssysWindowsWin32StorageFilesystemFindFirstStreamTransactedW(lpfilename.rawAddress.toCPointer<ByteVar>(), infolevel, lpfindstreamdata.rawAddress.toCPointer<ByteVar>(), dwflags, htransaction.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun findFirstStreamW(lpfilename: Pcwstr, infolevel: StreamInfoLevels, lpfindstreamdata: MutPtr<CVoid>, dwflags: UInt): Handle =
+public actual fun findFirstStreamW(lpfilename: Pcwstr, infolevel: StreamInfoLevels, lpfindstreamdata: MutPtr, dwflags: UInt): Handle =
     MutPtr(windowssysWindowsWin32StorageFilesystemFindFirstStreamW(lpfilename.rawAddress.toCPointer<ByteVar>(), infolevel, lpfindstreamdata.rawAddress.toCPointer<ByteVar>(), dwflags)?.toLong() ?: 0L)
 
 public actual fun findFirstVolumeA(lpszvolumename: Pstr, cchbufferlength: UInt): Handle =
@@ -755,16 +750,16 @@ public actual fun findFirstVolumeW(lpszvolumename: Pwstr, cchbufferlength: UInt)
 public actual fun findNextChangeNotification(hchangehandle: Handle): Bool =
     windowssysWindowsWin32StorageFilesystemFindNextChangeNotification(hchangehandle.rawAddress.toCPointer<ByteVar>())
 
-public actual fun findNextFileA(hfindfile: Handle, lpfindfiledata: MutPtr<Win32FindDataa>): Bool =
+public actual fun findNextFileA(hfindfile: Handle, lpfindfiledata: MutPtr): Bool =
     windowssysWindowsWin32StorageFilesystemFindNextFileA(hfindfile.rawAddress.toCPointer<ByteVar>(), lpfindfiledata.rawAddress.toCPointer<ByteVar>())
 
-public actual fun findNextFileNameW(hfindstream: Handle, stringlength: MutPtr<UInt>, linkname: Pwstr): Bool =
+public actual fun findNextFileNameW(hfindstream: Handle, stringlength: MutPtr, linkname: Pwstr): Bool =
     windowssysWindowsWin32StorageFilesystemFindNextFileNameW(hfindstream.rawAddress.toCPointer<ByteVar>(), stringlength.rawAddress.toCPointer<ByteVar>(), linkname.rawAddress.toCPointer<ByteVar>())
 
-public actual fun findNextFileW(hfindfile: Handle, lpfindfiledata: MutPtr<Win32FindDataw>): Bool =
+public actual fun findNextFileW(hfindfile: Handle, lpfindfiledata: MutPtr): Bool =
     windowssysWindowsWin32StorageFilesystemFindNextFileW(hfindfile.rawAddress.toCPointer<ByteVar>(), lpfindfiledata.rawAddress.toCPointer<ByteVar>())
 
-public actual fun findNextStreamW(hfindstream: Handle, lpfindstreamdata: MutPtr<CVoid>): Bool =
+public actual fun findNextStreamW(hfindstream: Handle, lpfindstreamdata: MutPtr): Bool =
     windowssysWindowsWin32StorageFilesystemFindNextStreamW(hfindstream.rawAddress.toCPointer<ByteVar>(), lpfindstreamdata.rawAddress.toCPointer<ByteVar>())
 
 public actual fun findNextVolumeA(hfindvolume: Handle, lpszvolumename: Pstr, cchbufferlength: UInt): Bool =
@@ -788,60 +783,60 @@ public actual fun findVolumeMountPointClose(hfindvolumemountpoint: Handle): Bool
 public actual fun flushFileBuffers(hfile: Handle): Bool =
     windowssysWindowsWin32StorageFilesystemFlushFileBuffers(hfile.rawAddress.toCPointer<ByteVar>())
 
-public actual fun flushLogBuffers(pvmarshal: ConstPtr<CVoid>, poverlapped: MutPtr<Overlapped>): Bool =
+public actual fun flushLogBuffers(pvmarshal: ConstPtr, poverlapped: MutPtr): Bool =
     windowssysWindowsWin32StorageFilesystemFlushLogBuffers(pvmarshal.rawAddress.toCPointer<ByteVar>(), poverlapped.rawAddress.toCPointer<ByteVar>())
 
-public actual fun flushLogToLsn(pvmarshalcontext: MutPtr<CVoid>, plsnflush: MutPtr<ClsLsn>, plsnlastflushed: MutPtr<ClsLsn>, poverlapped: MutPtr<Overlapped>): Bool =
+public actual fun flushLogToLsn(pvmarshalcontext: MutPtr, plsnflush: MutPtr, plsnlastflushed: MutPtr, poverlapped: MutPtr): Bool =
     windowssysWindowsWin32StorageFilesystemFlushLogToLsn(pvmarshalcontext.rawAddress.toCPointer<ByteVar>(), plsnflush.rawAddress.toCPointer<ByteVar>(), plsnlastflushed.rawAddress.toCPointer<ByteVar>(), poverlapped.rawAddress.toCPointer<ByteVar>())
 
-public actual fun freeEncryptedFileMetadata(pbmetadata: ConstPtr<UByte>) {
+public actual fun freeEncryptedFileMetadata(pbmetadata: ConstPtr) {
     windowssysWindowsWin32StorageFilesystemFreeEncryptedFileMetadata(pbmetadata.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun freeEncryptionCertificateHashList(pusers: ConstPtr<EncryptionCertificateHashList>) {
+public actual fun freeEncryptionCertificateHashList(pusers: ConstPtr) {
     windowssysWindowsWin32StorageFilesystemFreeEncryptionCertificateHashList(pusers.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun freeReservedLog(pvmarshal: MutPtr<CVoid>, creservedrecords: UInt, pcbadjustment: MutPtr<Long>): Bool =
+public actual fun freeReservedLog(pvmarshal: MutPtr, creservedrecords: UInt, pcbadjustment: MutPtr): Bool =
     windowssysWindowsWin32StorageFilesystemFreeReservedLog(pvmarshal.rawAddress.toCPointer<ByteVar>(), creservedrecords, pcbadjustment.rawAddress.toCPointer<ByteVar>())
 
-public actual fun getBinaryTypeA(lpapplicationname: Pcstr, lpbinarytype: MutPtr<UInt>): Bool =
+public actual fun getBinaryTypeA(lpapplicationname: Pcstr, lpbinarytype: MutPtr): Bool =
     windowssysWindowsWin32StorageFilesystemGetBinaryTypeA(lpapplicationname.rawAddress.toCPointer<ByteVar>(), lpbinarytype.rawAddress.toCPointer<ByteVar>())
 
-public actual fun getBinaryTypeW(lpapplicationname: Pcwstr, lpbinarytype: MutPtr<UInt>): Bool =
+public actual fun getBinaryTypeW(lpapplicationname: Pcwstr, lpbinarytype: MutPtr): Bool =
     windowssysWindowsWin32StorageFilesystemGetBinaryTypeW(lpapplicationname.rawAddress.toCPointer<ByteVar>(), lpbinarytype.rawAddress.toCPointer<ByteVar>())
 
-public actual fun getCompressedFileSizeA(lpfilename: Pcstr, lpfilesizehigh: MutPtr<UInt>): UInt =
+public actual fun getCompressedFileSizeA(lpfilename: Pcstr, lpfilesizehigh: MutPtr): UInt =
     windowssysWindowsWin32StorageFilesystemGetCompressedFileSizeA(lpfilename.rawAddress.toCPointer<ByteVar>(), lpfilesizehigh.rawAddress.toCPointer<ByteVar>())
 
-public actual fun getCompressedFileSizeTransactedA(lpfilename: Pcstr, lpfilesizehigh: MutPtr<UInt>, htransaction: Handle): UInt =
+public actual fun getCompressedFileSizeTransactedA(lpfilename: Pcstr, lpfilesizehigh: MutPtr, htransaction: Handle): UInt =
     windowssysWindowsWin32StorageFilesystemGetCompressedFileSizeTransactedA(lpfilename.rawAddress.toCPointer<ByteVar>(), lpfilesizehigh.rawAddress.toCPointer<ByteVar>(), htransaction.rawAddress.toCPointer<ByteVar>())
 
-public actual fun getCompressedFileSizeTransactedW(lpfilename: Pcwstr, lpfilesizehigh: MutPtr<UInt>, htransaction: Handle): UInt =
+public actual fun getCompressedFileSizeTransactedW(lpfilename: Pcwstr, lpfilesizehigh: MutPtr, htransaction: Handle): UInt =
     windowssysWindowsWin32StorageFilesystemGetCompressedFileSizeTransactedW(lpfilename.rawAddress.toCPointer<ByteVar>(), lpfilesizehigh.rawAddress.toCPointer<ByteVar>(), htransaction.rawAddress.toCPointer<ByteVar>())
 
-public actual fun getCompressedFileSizeW(lpfilename: Pcwstr, lpfilesizehigh: MutPtr<UInt>): UInt =
+public actual fun getCompressedFileSizeW(lpfilename: Pcwstr, lpfilesizehigh: MutPtr): UInt =
     windowssysWindowsWin32StorageFilesystemGetCompressedFileSizeW(lpfilename.rawAddress.toCPointer<ByteVar>(), lpfilesizehigh.rawAddress.toCPointer<ByteVar>())
 
-public actual fun getCurrentClockTransactionManager(transactionmanagerhandle: Handle, tmvirtualclock: MutPtr<Long>): Bool =
+public actual fun getCurrentClockTransactionManager(transactionmanagerhandle: Handle, tmvirtualclock: MutPtr): Bool =
     windowssysWindowsWin32StorageFilesystemGetCurrentClockTransactionManager(transactionmanagerhandle.rawAddress.toCPointer<ByteVar>(), tmvirtualclock.rawAddress.toCPointer<ByteVar>())
 
-public actual fun getDiskFreeSpaceA(lprootpathname: Pcstr, lpsectorspercluster: MutPtr<UInt>, lpbytespersector: MutPtr<UInt>, lpnumberoffreeclusters: MutPtr<UInt>, lptotalnumberofclusters: MutPtr<UInt>): Bool =
+public actual fun getDiskFreeSpaceA(lprootpathname: Pcstr, lpsectorspercluster: MutPtr, lpbytespersector: MutPtr, lpnumberoffreeclusters: MutPtr, lptotalnumberofclusters: MutPtr): Bool =
     windowssysWindowsWin32StorageFilesystemGetDiskFreeSpaceA(lprootpathname.rawAddress.toCPointer<ByteVar>(), lpsectorspercluster.rawAddress.toCPointer<ByteVar>(), lpbytespersector.rawAddress.toCPointer<ByteVar>(), lpnumberoffreeclusters.rawAddress.toCPointer<ByteVar>(), lptotalnumberofclusters.rawAddress.toCPointer<ByteVar>())
 
-public actual fun getDiskFreeSpaceExA(lpdirectoryname: Pcstr, lpfreebytesavailabletocaller: MutPtr<ULong>, lptotalnumberofbytes: MutPtr<ULong>, lptotalnumberoffreebytes: MutPtr<ULong>): Bool =
+public actual fun getDiskFreeSpaceExA(lpdirectoryname: Pcstr, lpfreebytesavailabletocaller: MutPtr, lptotalnumberofbytes: MutPtr, lptotalnumberoffreebytes: MutPtr): Bool =
     windowssysWindowsWin32StorageFilesystemGetDiskFreeSpaceExA(lpdirectoryname.rawAddress.toCPointer<ByteVar>(), lpfreebytesavailabletocaller.rawAddress.toCPointer<ByteVar>(), lptotalnumberofbytes.rawAddress.toCPointer<ByteVar>(), lptotalnumberoffreebytes.rawAddress.toCPointer<ByteVar>())
 
-public actual fun getDiskFreeSpaceExW(lpdirectoryname: Pcwstr, lpfreebytesavailabletocaller: MutPtr<ULong>, lptotalnumberofbytes: MutPtr<ULong>, lptotalnumberoffreebytes: MutPtr<ULong>): Bool =
+public actual fun getDiskFreeSpaceExW(lpdirectoryname: Pcwstr, lpfreebytesavailabletocaller: MutPtr, lptotalnumberofbytes: MutPtr, lptotalnumberoffreebytes: MutPtr): Bool =
     windowssysWindowsWin32StorageFilesystemGetDiskFreeSpaceExW(lpdirectoryname.rawAddress.toCPointer<ByteVar>(), lpfreebytesavailabletocaller.rawAddress.toCPointer<ByteVar>(), lptotalnumberofbytes.rawAddress.toCPointer<ByteVar>(), lptotalnumberoffreebytes.rawAddress.toCPointer<ByteVar>())
 
-public actual fun getDiskFreeSpaceW(lprootpathname: Pcwstr, lpsectorspercluster: MutPtr<UInt>, lpbytespersector: MutPtr<UInt>, lpnumberoffreeclusters: MutPtr<UInt>, lptotalnumberofclusters: MutPtr<UInt>): Bool =
+public actual fun getDiskFreeSpaceW(lprootpathname: Pcwstr, lpsectorspercluster: MutPtr, lpbytespersector: MutPtr, lpnumberoffreeclusters: MutPtr, lptotalnumberofclusters: MutPtr): Bool =
     windowssysWindowsWin32StorageFilesystemGetDiskFreeSpaceW(lprootpathname.rawAddress.toCPointer<ByteVar>(), lpsectorspercluster.rawAddress.toCPointer<ByteVar>(), lpbytespersector.rawAddress.toCPointer<ByteVar>(), lpnumberoffreeclusters.rawAddress.toCPointer<ByteVar>(), lptotalnumberofclusters.rawAddress.toCPointer<ByteVar>())
 
-public actual fun getDiskSpaceInformationA(rootpath: Pcstr, diskspaceinfo: MutPtr<DiskSpaceInformation>): Hresult =
+public actual fun getDiskSpaceInformationA(rootpath: Pcstr, diskspaceinfo: MutPtr): Hresult =
     windowssysWindowsWin32StorageFilesystemGetDiskSpaceInformationA(rootpath.rawAddress.toCPointer<ByteVar>(), diskspaceinfo.rawAddress.toCPointer<ByteVar>())
 
-public actual fun getDiskSpaceInformationW(rootpath: Pcwstr, diskspaceinfo: MutPtr<DiskSpaceInformation>): Hresult =
+public actual fun getDiskSpaceInformationW(rootpath: Pcwstr, diskspaceinfo: MutPtr): Hresult =
     windowssysWindowsWin32StorageFilesystemGetDiskSpaceInformationW(rootpath.rawAddress.toCPointer<ByteVar>(), diskspaceinfo.rawAddress.toCPointer<ByteVar>())
 
 public actual fun getDriveTypeA(lprootpathname: Pcstr): UInt =
@@ -850,13 +845,13 @@ public actual fun getDriveTypeA(lprootpathname: Pcstr): UInt =
 public actual fun getDriveTypeW(lprootpathname: Pcwstr): UInt =
     windowssysWindowsWin32StorageFilesystemGetDriveTypeW(lprootpathname.rawAddress.toCPointer<ByteVar>())
 
-public actual fun getEncryptedFileMetadata(lpfilename: Pcwstr, pcbmetadata: MutPtr<UInt>, ppbmetadata: MutPtr<MutPtr<UByte>>): UInt =
+public actual fun getEncryptedFileMetadata(lpfilename: Pcwstr, pcbmetadata: MutPtr, ppbmetadata: MutPtr): UInt =
     windowssysWindowsWin32StorageFilesystemGetEncryptedFileMetadata(lpfilename.rawAddress.toCPointer<ByteVar>(), pcbmetadata.rawAddress.toCPointer<ByteVar>(), ppbmetadata.rawAddress.toCPointer<ByteVar>())
 
-public actual fun getEnlistmentId(enlistmenthandle: Handle, enlistmentid: MutPtr<Guid>): Bool =
+public actual fun getEnlistmentId(enlistmenthandle: Handle, enlistmentid: MutPtr): Bool =
     windowssysWindowsWin32StorageFilesystemGetEnlistmentId(enlistmenthandle.rawAddress.toCPointer<ByteVar>(), enlistmentid.rawAddress.toCPointer<ByteVar>())
 
-public actual fun getEnlistmentRecoveryInformation(enlistmenthandle: Handle, buffersize: UInt, buffer: MutPtr<CVoid>, bufferused: MutPtr<UInt>): Bool =
+public actual fun getEnlistmentRecoveryInformation(enlistmenthandle: Handle, buffersize: UInt, buffer: MutPtr, bufferused: MutPtr): Bool =
     windowssysWindowsWin32StorageFilesystemGetEnlistmentRecoveryInformation(enlistmenthandle.rawAddress.toCPointer<ByteVar>(), buffersize, buffer.rawAddress.toCPointer<ByteVar>(), bufferused.rawAddress.toCPointer<ByteVar>())
 
 public actual fun getExpandedNameA(lpszsource: Pcstr, lpszbuffer: Pstr): Int =
@@ -868,67 +863,67 @@ public actual fun getExpandedNameW(lpszsource: Pcwstr, lpszbuffer: Pwstr): Int =
 public actual fun getFileAttributesA(lpfilename: Pcstr): UInt =
     windowssysWindowsWin32StorageFilesystemGetFileAttributesA(lpfilename.rawAddress.toCPointer<ByteVar>())
 
-public actual fun getFileAttributesExA(lpfilename: Pcstr, finfolevelid: GetFileexInfoLevels, lpfileinformation: MutPtr<CVoid>): Bool =
+public actual fun getFileAttributesExA(lpfilename: Pcstr, finfolevelid: GetFileexInfoLevels, lpfileinformation: MutPtr): Bool =
     windowssysWindowsWin32StorageFilesystemGetFileAttributesExA(lpfilename.rawAddress.toCPointer<ByteVar>(), finfolevelid, lpfileinformation.rawAddress.toCPointer<ByteVar>())
 
-public actual fun getFileAttributesExFromAppW(lpfilename: Pcwstr, finfolevelid: GetFileexInfoLevels, lpfileinformation: MutPtr<CVoid>): Bool =
+public actual fun getFileAttributesExFromAppW(lpfilename: Pcwstr, finfolevelid: GetFileexInfoLevels, lpfileinformation: MutPtr): Bool =
     windowssysWindowsWin32StorageFilesystemGetFileAttributesExFromAppW(lpfilename.rawAddress.toCPointer<ByteVar>(), finfolevelid, lpfileinformation.rawAddress.toCPointer<ByteVar>())
 
-public actual fun getFileAttributesExW(lpfilename: Pcwstr, finfolevelid: GetFileexInfoLevels, lpfileinformation: MutPtr<CVoid>): Bool =
+public actual fun getFileAttributesExW(lpfilename: Pcwstr, finfolevelid: GetFileexInfoLevels, lpfileinformation: MutPtr): Bool =
     windowssysWindowsWin32StorageFilesystemGetFileAttributesExW(lpfilename.rawAddress.toCPointer<ByteVar>(), finfolevelid, lpfileinformation.rawAddress.toCPointer<ByteVar>())
 
-public actual fun getFileAttributesTransactedA(lpfilename: Pcstr, finfolevelid: GetFileexInfoLevels, lpfileinformation: MutPtr<CVoid>, htransaction: Handle): Bool =
+public actual fun getFileAttributesTransactedA(lpfilename: Pcstr, finfolevelid: GetFileexInfoLevels, lpfileinformation: MutPtr, htransaction: Handle): Bool =
     windowssysWindowsWin32StorageFilesystemGetFileAttributesTransactedA(lpfilename.rawAddress.toCPointer<ByteVar>(), finfolevelid, lpfileinformation.rawAddress.toCPointer<ByteVar>(), htransaction.rawAddress.toCPointer<ByteVar>())
 
-public actual fun getFileAttributesTransactedW(lpfilename: Pcwstr, finfolevelid: GetFileexInfoLevels, lpfileinformation: MutPtr<CVoid>, htransaction: Handle): Bool =
+public actual fun getFileAttributesTransactedW(lpfilename: Pcwstr, finfolevelid: GetFileexInfoLevels, lpfileinformation: MutPtr, htransaction: Handle): Bool =
     windowssysWindowsWin32StorageFilesystemGetFileAttributesTransactedW(lpfilename.rawAddress.toCPointer<ByteVar>(), finfolevelid, lpfileinformation.rawAddress.toCPointer<ByteVar>(), htransaction.rawAddress.toCPointer<ByteVar>())
 
 public actual fun getFileAttributesW(lpfilename: Pcwstr): UInt =
     windowssysWindowsWin32StorageFilesystemGetFileAttributesW(lpfilename.rawAddress.toCPointer<ByteVar>())
 
-public actual fun getFileBandwidthReservation(hfile: Handle, lpperiodmilliseconds: MutPtr<UInt>, lpbytesperperiod: MutPtr<UInt>, pdiscardable: MutPtr<Bool>, lptransfersize: MutPtr<UInt>, lpnumoutstandingrequests: MutPtr<UInt>): Bool =
+public actual fun getFileBandwidthReservation(hfile: Handle, lpperiodmilliseconds: MutPtr, lpbytesperperiod: MutPtr, pdiscardable: MutPtr, lptransfersize: MutPtr, lpnumoutstandingrequests: MutPtr): Bool =
     windowssysWindowsWin32StorageFilesystemGetFileBandwidthReservation(hfile.rawAddress.toCPointer<ByteVar>(), lpperiodmilliseconds.rawAddress.toCPointer<ByteVar>(), lpbytesperperiod.rawAddress.toCPointer<ByteVar>(), pdiscardable.rawAddress.toCPointer<ByteVar>(), lptransfersize.rawAddress.toCPointer<ByteVar>(), lpnumoutstandingrequests.rawAddress.toCPointer<ByteVar>())
 
-public actual fun getFileInformationByHandle(hfile: Handle, lpfileinformation: MutPtr<ByHandleFileInformation>): Bool =
+public actual fun getFileInformationByHandle(hfile: Handle, lpfileinformation: MutPtr): Bool =
     windowssysWindowsWin32StorageFilesystemGetFileInformationByHandle(hfile.rawAddress.toCPointer<ByteVar>(), lpfileinformation.rawAddress.toCPointer<ByteVar>())
 
-public actual fun getFileInformationByHandleEx(hfile: Handle, fileinformationclass: FileInfoByHandleClass, lpfileinformation: MutPtr<CVoid>, dwbuffersize: UInt): Bool =
+public actual fun getFileInformationByHandleEx(hfile: Handle, fileinformationclass: FileInfoByHandleClass, lpfileinformation: MutPtr, dwbuffersize: UInt): Bool =
     windowssysWindowsWin32StorageFilesystemGetFileInformationByHandleEx(hfile.rawAddress.toCPointer<ByteVar>(), fileinformationclass, lpfileinformation.rawAddress.toCPointer<ByteVar>(), dwbuffersize)
 
-public actual fun getFileSize(hfile: Handle, lpfilesizehigh: MutPtr<UInt>): UInt =
+public actual fun getFileSize(hfile: Handle, lpfilesizehigh: MutPtr): UInt =
     windowssysWindowsWin32StorageFilesystemGetFileSize(hfile.rawAddress.toCPointer<ByteVar>(), lpfilesizehigh.rawAddress.toCPointer<ByteVar>())
 
-public actual fun getFileSizeEx(hfile: Handle, lpfilesize: MutPtr<Long>): Bool =
+public actual fun getFileSizeEx(hfile: Handle, lpfilesize: MutPtr): Bool =
     windowssysWindowsWin32StorageFilesystemGetFileSizeEx(hfile.rawAddress.toCPointer<ByteVar>(), lpfilesize.rawAddress.toCPointer<ByteVar>())
 
-public actual fun getFileTime(hfile: Handle, lpcreationtime: MutPtr<Filetime>, lplastaccesstime: MutPtr<Filetime>, lplastwritetime: MutPtr<Filetime>): Bool =
+public actual fun getFileTime(hfile: Handle, lpcreationtime: MutPtr, lplastaccesstime: MutPtr, lplastwritetime: MutPtr): Bool =
     windowssysWindowsWin32StorageFilesystemGetFileTime(hfile.rawAddress.toCPointer<ByteVar>(), lpcreationtime.rawAddress.toCPointer<ByteVar>(), lplastaccesstime.rawAddress.toCPointer<ByteVar>(), lplastwritetime.rawAddress.toCPointer<ByteVar>())
 
 public actual fun getFileType(hfile: Handle): FileType =
     windowssysWindowsWin32StorageFilesystemGetFileType(hfile.rawAddress.toCPointer<ByteVar>())
 
-public actual fun getFileVersionInfoA(lptstrfilename: Pcstr, dwhandle: UInt, dwlen: UInt, lpdata: MutPtr<CVoid>): Bool =
+public actual fun getFileVersionInfoA(lptstrfilename: Pcstr, dwhandle: UInt, dwlen: UInt, lpdata: MutPtr): Bool =
     windowssysWindowsWin32StorageFilesystemGetFileVersionInfoA(lptstrfilename.rawAddress.toCPointer<ByteVar>(), dwhandle, dwlen, lpdata.rawAddress.toCPointer<ByteVar>())
 
-public actual fun getFileVersionInfoExA(dwflags: GetFileVersionInfoFlags, lpwstrfilename: Pcstr, dwhandle: UInt, dwlen: UInt, lpdata: MutPtr<CVoid>): Bool =
+public actual fun getFileVersionInfoExA(dwflags: GetFileVersionInfoFlags, lpwstrfilename: Pcstr, dwhandle: UInt, dwlen: UInt, lpdata: MutPtr): Bool =
     windowssysWindowsWin32StorageFilesystemGetFileVersionInfoExA(dwflags, lpwstrfilename.rawAddress.toCPointer<ByteVar>(), dwhandle, dwlen, lpdata.rawAddress.toCPointer<ByteVar>())
 
-public actual fun getFileVersionInfoExW(dwflags: GetFileVersionInfoFlags, lpwstrfilename: Pcwstr, dwhandle: UInt, dwlen: UInt, lpdata: MutPtr<CVoid>): Bool =
+public actual fun getFileVersionInfoExW(dwflags: GetFileVersionInfoFlags, lpwstrfilename: Pcwstr, dwhandle: UInt, dwlen: UInt, lpdata: MutPtr): Bool =
     windowssysWindowsWin32StorageFilesystemGetFileVersionInfoExW(dwflags, lpwstrfilename.rawAddress.toCPointer<ByteVar>(), dwhandle, dwlen, lpdata.rawAddress.toCPointer<ByteVar>())
 
-public actual fun getFileVersionInfoSizeA(lptstrfilename: Pcstr, lpdwhandle: MutPtr<UInt>): UInt =
+public actual fun getFileVersionInfoSizeA(lptstrfilename: Pcstr, lpdwhandle: MutPtr): UInt =
     windowssysWindowsWin32StorageFilesystemGetFileVersionInfoSizeA(lptstrfilename.rawAddress.toCPointer<ByteVar>(), lpdwhandle.rawAddress.toCPointer<ByteVar>())
 
-public actual fun getFileVersionInfoSizeExA(dwflags: GetFileVersionInfoFlags, lpwstrfilename: Pcstr, lpdwhandle: MutPtr<UInt>): UInt =
+public actual fun getFileVersionInfoSizeExA(dwflags: GetFileVersionInfoFlags, lpwstrfilename: Pcstr, lpdwhandle: MutPtr): UInt =
     windowssysWindowsWin32StorageFilesystemGetFileVersionInfoSizeExA(dwflags, lpwstrfilename.rawAddress.toCPointer<ByteVar>(), lpdwhandle.rawAddress.toCPointer<ByteVar>())
 
-public actual fun getFileVersionInfoSizeExW(dwflags: GetFileVersionInfoFlags, lpwstrfilename: Pcwstr, lpdwhandle: MutPtr<UInt>): UInt =
+public actual fun getFileVersionInfoSizeExW(dwflags: GetFileVersionInfoFlags, lpwstrfilename: Pcwstr, lpdwhandle: MutPtr): UInt =
     windowssysWindowsWin32StorageFilesystemGetFileVersionInfoSizeExW(dwflags, lpwstrfilename.rawAddress.toCPointer<ByteVar>(), lpdwhandle.rawAddress.toCPointer<ByteVar>())
 
-public actual fun getFileVersionInfoSizeW(lptstrfilename: Pcwstr, lpdwhandle: MutPtr<UInt>): UInt =
+public actual fun getFileVersionInfoSizeW(lptstrfilename: Pcwstr, lpdwhandle: MutPtr): UInt =
     windowssysWindowsWin32StorageFilesystemGetFileVersionInfoSizeW(lptstrfilename.rawAddress.toCPointer<ByteVar>(), lpdwhandle.rawAddress.toCPointer<ByteVar>())
 
-public actual fun getFileVersionInfoW(lptstrfilename: Pcwstr, dwhandle: UInt, dwlen: UInt, lpdata: MutPtr<CVoid>): Bool =
+public actual fun getFileVersionInfoW(lptstrfilename: Pcwstr, dwhandle: UInt, dwlen: UInt, lpdata: MutPtr): Bool =
     windowssysWindowsWin32StorageFilesystemGetFileVersionInfoW(lptstrfilename.rawAddress.toCPointer<ByteVar>(), dwhandle, dwlen, lpdata.rawAddress.toCPointer<ByteVar>())
 
 public actual fun getFinalPathNameByHandleA(hfile: Handle, lpszfilepath: Pstr, cchfilepath: UInt, dwflags: GetfinalpathnamebyhandleFlags): UInt =
@@ -937,31 +932,31 @@ public actual fun getFinalPathNameByHandleA(hfile: Handle, lpszfilepath: Pstr, c
 public actual fun getFinalPathNameByHandleW(hfile: Handle, lpszfilepath: Pwstr, cchfilepath: UInt, dwflags: GetfinalpathnamebyhandleFlags): UInt =
     windowssysWindowsWin32StorageFilesystemGetFinalPathNameByHandleW(hfile.rawAddress.toCPointer<ByteVar>(), lpszfilepath.rawAddress.toCPointer<ByteVar>(), cchfilepath, dwflags)
 
-public actual fun getFullPathNameA(lpfilename: Pcstr, nbufferlength: UInt, lpbuffer: Pstr, lpfilepart: MutPtr<Pstr>): UInt =
+public actual fun getFullPathNameA(lpfilename: Pcstr, nbufferlength: UInt, lpbuffer: Pstr, lpfilepart: MutPtr): UInt =
     windowssysWindowsWin32StorageFilesystemGetFullPathNameA(lpfilename.rawAddress.toCPointer<ByteVar>(), nbufferlength, lpbuffer.rawAddress.toCPointer<ByteVar>(), lpfilepart.rawAddress.toCPointer<ByteVar>())
 
-public actual fun getFullPathNameTransactedA(lpfilename: Pcstr, nbufferlength: UInt, lpbuffer: Pstr, lpfilepart: MutPtr<Pstr>, htransaction: Handle): UInt =
+public actual fun getFullPathNameTransactedA(lpfilename: Pcstr, nbufferlength: UInt, lpbuffer: Pstr, lpfilepart: MutPtr, htransaction: Handle): UInt =
     windowssysWindowsWin32StorageFilesystemGetFullPathNameTransactedA(lpfilename.rawAddress.toCPointer<ByteVar>(), nbufferlength, lpbuffer.rawAddress.toCPointer<ByteVar>(), lpfilepart.rawAddress.toCPointer<ByteVar>(), htransaction.rawAddress.toCPointer<ByteVar>())
 
-public actual fun getFullPathNameTransactedW(lpfilename: Pcwstr, nbufferlength: UInt, lpbuffer: Pwstr, lpfilepart: MutPtr<Pwstr>, htransaction: Handle): UInt =
+public actual fun getFullPathNameTransactedW(lpfilename: Pcwstr, nbufferlength: UInt, lpbuffer: Pwstr, lpfilepart: MutPtr, htransaction: Handle): UInt =
     windowssysWindowsWin32StorageFilesystemGetFullPathNameTransactedW(lpfilename.rawAddress.toCPointer<ByteVar>(), nbufferlength, lpbuffer.rawAddress.toCPointer<ByteVar>(), lpfilepart.rawAddress.toCPointer<ByteVar>(), htransaction.rawAddress.toCPointer<ByteVar>())
 
-public actual fun getFullPathNameW(lpfilename: Pcwstr, nbufferlength: UInt, lpbuffer: Pwstr, lpfilepart: MutPtr<Pwstr>): UInt =
+public actual fun getFullPathNameW(lpfilename: Pcwstr, nbufferlength: UInt, lpbuffer: Pwstr, lpfilepart: MutPtr): UInt =
     windowssysWindowsWin32StorageFilesystemGetFullPathNameW(lpfilename.rawAddress.toCPointer<ByteVar>(), nbufferlength, lpbuffer.rawAddress.toCPointer<ByteVar>(), lpfilepart.rawAddress.toCPointer<ByteVar>())
 
-public actual fun getIoRingInfo(ioring: Hioring, info: MutPtr<IoringInfo>): Hresult =
+public actual fun getIoRingInfo(ioring: Hioring, info: MutPtr): Hresult =
     windowssysWindowsWin32StorageFilesystemGetIoRingInfo(ioring.rawAddress.toCPointer<ByteVar>(), info.rawAddress.toCPointer<ByteVar>())
 
-public actual fun getLogContainerName(hlog: Handle, cidlogicalcontainer: UInt, pwstrcontainername: Pcwstr, clencontainername: UInt, pcactuallencontainername: MutPtr<UInt>): Bool =
+public actual fun getLogContainerName(hlog: Handle, cidlogicalcontainer: UInt, pwstrcontainername: Pcwstr, clencontainername: UInt, pcactuallencontainername: MutPtr): Bool =
     windowssysWindowsWin32StorageFilesystemGetLogContainerName(hlog.rawAddress.toCPointer<ByteVar>(), cidlogicalcontainer, pwstrcontainername.rawAddress.toCPointer<ByteVar>(), clencontainername, pcactuallencontainername.rawAddress.toCPointer<ByteVar>())
 
-public actual fun getLogFileInformation(hlog: Handle, pinfobuffer: MutPtr<ClsInformation>, cbbuffer: MutPtr<UInt>): Bool =
+public actual fun getLogFileInformation(hlog: Handle, pinfobuffer: MutPtr, cbbuffer: MutPtr): Bool =
     windowssysWindowsWin32StorageFilesystemGetLogFileInformation(hlog.rawAddress.toCPointer<ByteVar>(), pinfobuffer.rawAddress.toCPointer<ByteVar>(), cbbuffer.rawAddress.toCPointer<ByteVar>())
 
-public actual fun getLogIoStatistics(hlog: Handle, pvstatsbuffer: MutPtr<CVoid>, cbstatsbuffer: UInt, estatsclass: ClfsIostatsClass, pcbstatswritten: MutPtr<UInt>): Bool =
+public actual fun getLogIoStatistics(hlog: Handle, pvstatsbuffer: MutPtr, cbstatsbuffer: UInt, estatsclass: ClfsIostatsClass, pcbstatswritten: MutPtr): Bool =
     windowssysWindowsWin32StorageFilesystemGetLogIoStatistics(hlog.rawAddress.toCPointer<ByteVar>(), pvstatsbuffer.rawAddress.toCPointer<ByteVar>(), cbstatsbuffer, estatsclass, pcbstatswritten.rawAddress.toCPointer<ByteVar>())
 
-public actual fun getLogReservationInfo(pvmarshal: ConstPtr<CVoid>, pcbrecordnumber: MutPtr<UInt>, pcbuserreservation: MutPtr<Long>, pcbcommitreservation: MutPtr<Long>): Bool =
+public actual fun getLogReservationInfo(pvmarshal: ConstPtr, pcbrecordnumber: MutPtr, pcbuserreservation: MutPtr, pcbcommitreservation: MutPtr): Bool =
     windowssysWindowsWin32StorageFilesystemGetLogReservationInfo(pvmarshal.rawAddress.toCPointer<ByteVar>(), pcbrecordnumber.rawAddress.toCPointer<ByteVar>(), pcbuserreservation.rawAddress.toCPointer<ByteVar>(), pcbcommitreservation.rawAddress.toCPointer<ByteVar>())
 
 public actual fun getLogicalDriveStringsA(nbufferlength: UInt, lpbuffer: Pstr): UInt =
@@ -985,13 +980,13 @@ public actual fun getLongPathNameTransactedW(lpszshortpath: Pcwstr, lpszlongpath
 public actual fun getLongPathNameW(lpszshortpath: Pcwstr, lpszlongpath: Pwstr, cchbuffer: UInt): UInt =
     windowssysWindowsWin32StorageFilesystemGetLongPathNameW(lpszshortpath.rawAddress.toCPointer<ByteVar>(), lpszlongpath.rawAddress.toCPointer<ByteVar>(), cchbuffer)
 
-public actual fun getNextLogArchiveExtent(pvarchivecontext: MutPtr<CVoid>, rgadextent: MutPtr<ClsArchiveDescriptor>, cdescriptors: UInt, pcdescriptorsreturned: MutPtr<UInt>): Bool =
+public actual fun getNextLogArchiveExtent(pvarchivecontext: MutPtr, rgadextent: MutPtr, cdescriptors: UInt, pcdescriptorsreturned: MutPtr): Bool =
     windowssysWindowsWin32StorageFilesystemGetNextLogArchiveExtent(pvarchivecontext.rawAddress.toCPointer<ByteVar>(), rgadextent.rawAddress.toCPointer<ByteVar>(), cdescriptors, pcdescriptorsreturned.rawAddress.toCPointer<ByteVar>())
 
-public actual fun getNotificationResourceManager(resourcemanagerhandle: Handle, transactionnotification: MutPtr<TransactionNotification>, notificationlength: UInt, dwmilliseconds: UInt, returnlength: MutPtr<UInt>): Bool =
+public actual fun getNotificationResourceManager(resourcemanagerhandle: Handle, transactionnotification: MutPtr, notificationlength: UInt, dwmilliseconds: UInt, returnlength: MutPtr): Bool =
     windowssysWindowsWin32StorageFilesystemGetNotificationResourceManager(resourcemanagerhandle.rawAddress.toCPointer<ByteVar>(), transactionnotification.rawAddress.toCPointer<ByteVar>(), notificationlength, dwmilliseconds, returnlength.rawAddress.toCPointer<ByteVar>())
 
-public actual fun getNotificationResourceManagerAsync(resourcemanagerhandle: Handle, transactionnotification: MutPtr<TransactionNotification>, transactionnotificationlength: UInt, returnlength: MutPtr<UInt>, lpoverlapped: MutPtr<Overlapped>): Bool =
+public actual fun getNotificationResourceManagerAsync(resourcemanagerhandle: Handle, transactionnotification: MutPtr, transactionnotificationlength: UInt, returnlength: MutPtr, lpoverlapped: MutPtr): Bool =
     windowssysWindowsWin32StorageFilesystemGetNotificationResourceManagerAsync(resourcemanagerhandle.rawAddress.toCPointer<ByteVar>(), transactionnotification.rawAddress.toCPointer<ByteVar>(), transactionnotificationlength, returnlength.rawAddress.toCPointer<ByteVar>(), lpoverlapped.rawAddress.toCPointer<ByteVar>())
 
 public actual fun getShortPathNameA(lpszlongpath: Pcstr, lpszshortpath: Pstr, cchbuffer: UInt): UInt =
@@ -1000,10 +995,10 @@ public actual fun getShortPathNameA(lpszlongpath: Pcstr, lpszshortpath: Pstr, cc
 public actual fun getShortPathNameW(lpszlongpath: Pcwstr, lpszshortpath: Pwstr, cchbuffer: UInt): UInt =
     windowssysWindowsWin32StorageFilesystemGetShortPathNameW(lpszlongpath.rawAddress.toCPointer<ByteVar>(), lpszshortpath.rawAddress.toCPointer<ByteVar>(), cchbuffer)
 
-public actual fun getTapeParameters(hdevice: Handle, dwoperation: GetTapeDriveParametersOperation, lpdwsize: MutPtr<UInt>, lptapeinformation: MutPtr<CVoid>): UInt =
+public actual fun getTapeParameters(hdevice: Handle, dwoperation: GetTapeDriveParametersOperation, lpdwsize: MutPtr, lptapeinformation: MutPtr): UInt =
     windowssysWindowsWin32StorageFilesystemGetTapeParameters(hdevice.rawAddress.toCPointer<ByteVar>(), dwoperation, lpdwsize.rawAddress.toCPointer<ByteVar>(), lptapeinformation.rawAddress.toCPointer<ByteVar>())
 
-public actual fun getTapePosition(hdevice: Handle, dwpositiontype: TapePositionType, lpdwpartition: MutPtr<UInt>, lpdwoffsetlow: MutPtr<UInt>, lpdwoffsethigh: MutPtr<UInt>): UInt =
+public actual fun getTapePosition(hdevice: Handle, dwpositiontype: TapePositionType, lpdwpartition: MutPtr, lpdwoffsetlow: MutPtr, lpdwoffsethigh: MutPtr): UInt =
     windowssysWindowsWin32StorageFilesystemGetTapePosition(hdevice.rawAddress.toCPointer<ByteVar>(), dwpositiontype, lpdwpartition.rawAddress.toCPointer<ByteVar>(), lpdwoffsetlow.rawAddress.toCPointer<ByteVar>(), lpdwoffsethigh.rawAddress.toCPointer<ByteVar>())
 
 public actual fun getTapeStatus(hdevice: Handle): UInt =
@@ -1027,22 +1022,22 @@ public actual fun getTempPathA(nbufferlength: UInt, lpbuffer: Pstr): UInt =
 public actual fun getTempPathW(nbufferlength: UInt, lpbuffer: Pwstr): UInt =
     windowssysWindowsWin32StorageFilesystemGetTempPathW(nbufferlength, lpbuffer.rawAddress.toCPointer<ByteVar>())
 
-public actual fun getTransactionId(transactionhandle: Handle, transactionid: MutPtr<Guid>): Bool =
+public actual fun getTransactionId(transactionhandle: Handle, transactionid: MutPtr): Bool =
     windowssysWindowsWin32StorageFilesystemGetTransactionId(transactionhandle.rawAddress.toCPointer<ByteVar>(), transactionid.rawAddress.toCPointer<ByteVar>())
 
-public actual fun getTransactionInformation(transactionhandle: Handle, outcome: MutPtr<UInt>, isolationlevel: MutPtr<UInt>, isolationflags: MutPtr<UInt>, timeout: MutPtr<UInt>, bufferlength: UInt, description: Pwstr): Bool =
+public actual fun getTransactionInformation(transactionhandle: Handle, outcome: MutPtr, isolationlevel: MutPtr, isolationflags: MutPtr, timeout: MutPtr, bufferlength: UInt, description: Pwstr): Bool =
     windowssysWindowsWin32StorageFilesystemGetTransactionInformation(transactionhandle.rawAddress.toCPointer<ByteVar>(), outcome.rawAddress.toCPointer<ByteVar>(), isolationlevel.rawAddress.toCPointer<ByteVar>(), isolationflags.rawAddress.toCPointer<ByteVar>(), timeout.rawAddress.toCPointer<ByteVar>(), bufferlength, description.rawAddress.toCPointer<ByteVar>())
 
-public actual fun getTransactionManagerId(transactionmanagerhandle: Handle, transactionmanagerid: MutPtr<Guid>): Bool =
+public actual fun getTransactionManagerId(transactionmanagerhandle: Handle, transactionmanagerid: MutPtr): Bool =
     windowssysWindowsWin32StorageFilesystemGetTransactionManagerId(transactionmanagerhandle.rawAddress.toCPointer<ByteVar>(), transactionmanagerid.rawAddress.toCPointer<ByteVar>())
 
-public actual fun getVolumeInformationA(lprootpathname: Pcstr, lpvolumenamebuffer: Pstr, nvolumenamesize: UInt, lpvolumeserialnumber: MutPtr<UInt>, lpmaximumcomponentlength: MutPtr<UInt>, lpfilesystemflags: MutPtr<UInt>, lpfilesystemnamebuffer: Pstr, nfilesystemnamesize: UInt): Bool =
+public actual fun getVolumeInformationA(lprootpathname: Pcstr, lpvolumenamebuffer: Pstr, nvolumenamesize: UInt, lpvolumeserialnumber: MutPtr, lpmaximumcomponentlength: MutPtr, lpfilesystemflags: MutPtr, lpfilesystemnamebuffer: Pstr, nfilesystemnamesize: UInt): Bool =
     windowssysWindowsWin32StorageFilesystemGetVolumeInformationA(lprootpathname.rawAddress.toCPointer<ByteVar>(), lpvolumenamebuffer.rawAddress.toCPointer<ByteVar>(), nvolumenamesize, lpvolumeserialnumber.rawAddress.toCPointer<ByteVar>(), lpmaximumcomponentlength.rawAddress.toCPointer<ByteVar>(), lpfilesystemflags.rawAddress.toCPointer<ByteVar>(), lpfilesystemnamebuffer.rawAddress.toCPointer<ByteVar>(), nfilesystemnamesize)
 
-public actual fun getVolumeInformationByHandleW(hfile: Handle, lpvolumenamebuffer: Pwstr, nvolumenamesize: UInt, lpvolumeserialnumber: MutPtr<UInt>, lpmaximumcomponentlength: MutPtr<UInt>, lpfilesystemflags: MutPtr<UInt>, lpfilesystemnamebuffer: Pwstr, nfilesystemnamesize: UInt): Bool =
+public actual fun getVolumeInformationByHandleW(hfile: Handle, lpvolumenamebuffer: Pwstr, nvolumenamesize: UInt, lpvolumeserialnumber: MutPtr, lpmaximumcomponentlength: MutPtr, lpfilesystemflags: MutPtr, lpfilesystemnamebuffer: Pwstr, nfilesystemnamesize: UInt): Bool =
     windowssysWindowsWin32StorageFilesystemGetVolumeInformationByHandleW(hfile.rawAddress.toCPointer<ByteVar>(), lpvolumenamebuffer.rawAddress.toCPointer<ByteVar>(), nvolumenamesize, lpvolumeserialnumber.rawAddress.toCPointer<ByteVar>(), lpmaximumcomponentlength.rawAddress.toCPointer<ByteVar>(), lpfilesystemflags.rawAddress.toCPointer<ByteVar>(), lpfilesystemnamebuffer.rawAddress.toCPointer<ByteVar>(), nfilesystemnamesize)
 
-public actual fun getVolumeInformationW(lprootpathname: Pcwstr, lpvolumenamebuffer: Pwstr, nvolumenamesize: UInt, lpvolumeserialnumber: MutPtr<UInt>, lpmaximumcomponentlength: MutPtr<UInt>, lpfilesystemflags: MutPtr<UInt>, lpfilesystemnamebuffer: Pwstr, nfilesystemnamesize: UInt): Bool =
+public actual fun getVolumeInformationW(lprootpathname: Pcwstr, lpvolumenamebuffer: Pwstr, nvolumenamesize: UInt, lpvolumeserialnumber: MutPtr, lpmaximumcomponentlength: MutPtr, lpfilesystemflags: MutPtr, lpfilesystemnamebuffer: Pwstr, nfilesystemnamesize: UInt): Bool =
     windowssysWindowsWin32StorageFilesystemGetVolumeInformationW(lprootpathname.rawAddress.toCPointer<ByteVar>(), lpvolumenamebuffer.rawAddress.toCPointer<ByteVar>(), nvolumenamesize, lpvolumeserialnumber.rawAddress.toCPointer<ByteVar>(), lpmaximumcomponentlength.rawAddress.toCPointer<ByteVar>(), lpfilesystemflags.rawAddress.toCPointer<ByteVar>(), lpfilesystemnamebuffer.rawAddress.toCPointer<ByteVar>(), nfilesystemnamesize)
 
 public actual fun getVolumeNameForVolumeMountPointA(lpszvolumemountpoint: Pcstr, lpszvolumename: Pstr, cchbufferlength: UInt): Bool =
@@ -1057,16 +1052,16 @@ public actual fun getVolumePathNameA(lpszfilename: Pcstr, lpszvolumepathname: Ps
 public actual fun getVolumePathNameW(lpszfilename: Pcwstr, lpszvolumepathname: Pwstr, cchbufferlength: UInt): Bool =
     windowssysWindowsWin32StorageFilesystemGetVolumePathNameW(lpszfilename.rawAddress.toCPointer<ByteVar>(), lpszvolumepathname.rawAddress.toCPointer<ByteVar>(), cchbufferlength)
 
-public actual fun getVolumePathNamesForVolumeNameA(lpszvolumename: Pcstr, lpszvolumepathnames: Pstr, cchbufferlength: UInt, lpcchreturnlength: MutPtr<UInt>): Bool =
+public actual fun getVolumePathNamesForVolumeNameA(lpszvolumename: Pcstr, lpszvolumepathnames: Pstr, cchbufferlength: UInt, lpcchreturnlength: MutPtr): Bool =
     windowssysWindowsWin32StorageFilesystemGetVolumePathNamesForVolumeNameA(lpszvolumename.rawAddress.toCPointer<ByteVar>(), lpszvolumepathnames.rawAddress.toCPointer<ByteVar>(), cchbufferlength, lpcchreturnlength.rawAddress.toCPointer<ByteVar>())
 
-public actual fun getVolumePathNamesForVolumeNameW(lpszvolumename: Pcwstr, lpszvolumepathnames: Pwstr, cchbufferlength: UInt, lpcchreturnlength: MutPtr<UInt>): Bool =
+public actual fun getVolumePathNamesForVolumeNameW(lpszvolumename: Pcwstr, lpszvolumepathnames: Pwstr, cchbufferlength: UInt, lpcchreturnlength: MutPtr): Bool =
     windowssysWindowsWin32StorageFilesystemGetVolumePathNamesForVolumeNameW(lpszvolumename.rawAddress.toCPointer<ByteVar>(), lpszvolumepathnames.rawAddress.toCPointer<ByteVar>(), cchbufferlength, lpcchreturnlength.rawAddress.toCPointer<ByteVar>())
 
 public actual fun handleLogFull(hlog: Handle): Bool =
     windowssysWindowsWin32StorageFilesystemHandleLogFull(hlog.rawAddress.toCPointer<ByteVar>())
 
-public actual fun installLogPolicy(hlog: Handle, ppolicy: MutPtr<ClfsMgmtPolicy>): Bool =
+public actual fun installLogPolicy(hlog: Handle, ppolicy: MutPtr): Bool =
     windowssysWindowsWin32StorageFilesystemInstallLogPolicy(hlog.rawAddress.toCPointer<ByteVar>(), ppolicy.rawAddress.toCPointer<ByteVar>())
 
 public actual fun isIoRingOpSupported(ioring: Hioring, op: IoringOpCode): Bool =
@@ -1086,10 +1081,10 @@ public actual fun lZDone() {
 public actual fun lZInit(hfsource: Int): Int =
     windowssysWindowsWin32StorageFilesystemLZInit(hfsource)
 
-public actual fun lZOpenFileA(lpfilename: Pcstr, lpreopenbuf: MutPtr<Ofstruct>, wstyle: LzopenfileStyle): Int =
+public actual fun lZOpenFileA(lpfilename: Pcstr, lpreopenbuf: MutPtr, wstyle: LzopenfileStyle): Int =
     windowssysWindowsWin32StorageFilesystemLZOpenFileA(lpfilename.rawAddress.toCPointer<ByteVar>(), lpreopenbuf.rawAddress.toCPointer<ByteVar>(), wstyle)
 
-public actual fun lZOpenFileW(lpfilename: Pcwstr, lpreopenbuf: MutPtr<Ofstruct>, wstyle: LzopenfileStyle): Int =
+public actual fun lZOpenFileW(lpfilename: Pcwstr, lpreopenbuf: MutPtr, wstyle: LzopenfileStyle): Int =
     windowssysWindowsWin32StorageFilesystemLZOpenFileW(lpfilename.rawAddress.toCPointer<ByteVar>(), lpreopenbuf.rawAddress.toCPointer<ByteVar>(), wstyle)
 
 public actual fun lZRead(hfile: Int, lpbuffer: Pstr, cbread: Int): Int =
@@ -1101,46 +1096,46 @@ public actual fun lZSeek(hfile: Int, loffset: Int, iorigin: Int): Int =
 public actual fun lZStart(): Int =
     windowssysWindowsWin32StorageFilesystemLZStart()
 
-public actual fun localFileTimeToFileTime(lplocalfiletime: ConstPtr<Filetime>, lpfiletime: MutPtr<Filetime>): Bool =
+public actual fun localFileTimeToFileTime(lplocalfiletime: ConstPtr, lpfiletime: MutPtr): Bool =
     windowssysWindowsWin32StorageFilesystemLocalFileTimeToFileTime(lplocalfiletime.rawAddress.toCPointer<ByteVar>(), lpfiletime.rawAddress.toCPointer<ByteVar>())
 
 public actual fun lockFile(hfile: Handle, dwfileoffsetlow: UInt, dwfileoffsethigh: UInt, nnumberofbytestolocklow: UInt, nnumberofbytestolockhigh: UInt): Bool =
     windowssysWindowsWin32StorageFilesystemLockFile(hfile.rawAddress.toCPointer<ByteVar>(), dwfileoffsetlow, dwfileoffsethigh, nnumberofbytestolocklow, nnumberofbytestolockhigh)
 
-public actual fun lockFileEx(hfile: Handle, dwflags: LockFileFlags, dwreserved: UInt, nnumberofbytestolocklow: UInt, nnumberofbytestolockhigh: UInt, lpoverlapped: MutPtr<Overlapped>): Bool =
+public actual fun lockFileEx(hfile: Handle, dwflags: LockFileFlags, dwreserved: UInt, nnumberofbytestolocklow: UInt, nnumberofbytestolockhigh: UInt, lpoverlapped: MutPtr): Bool =
     windowssysWindowsWin32StorageFilesystemLockFileEx(hfile.rawAddress.toCPointer<ByteVar>(), dwflags, dwreserved, nnumberofbytestolocklow, nnumberofbytestolockhigh, lpoverlapped.rawAddress.toCPointer<ByteVar>())
 
 public actual fun logTailAdvanceFailure(hlog: Handle, dwreason: UInt): Bool =
     windowssysWindowsWin32StorageFilesystemLogTailAdvanceFailure(hlog.rawAddress.toCPointer<ByteVar>(), dwreason)
 
-public actual fun lsnBlockOffset(plsn: ConstPtr<ClsLsn>): UInt =
+public actual fun lsnBlockOffset(plsn: ConstPtr): UInt =
     windowssysWindowsWin32StorageFilesystemLsnBlockOffset(plsn.rawAddress.toCPointer<ByteVar>())
 
-public actual fun lsnContainer(plsn: ConstPtr<ClsLsn>): UInt =
+public actual fun lsnContainer(plsn: ConstPtr): UInt =
     windowssysWindowsWin32StorageFilesystemLsnContainer(plsn.rawAddress.toCPointer<ByteVar>())
 
 public actual fun lsnCreate(cidcontainer: UInt, offblock: UInt, crecord: UInt): ClsLsn =
     ClsLsn()
 
-public actual fun lsnEqual(plsn1: ConstPtr<ClsLsn>, plsn2: ConstPtr<ClsLsn>): Boolean =
+public actual fun lsnEqual(plsn1: ConstPtr, plsn2: ConstPtr): Boolean =
     windowssysWindowsWin32StorageFilesystemLsnEqual(plsn1.rawAddress.toCPointer<ByteVar>(), plsn2.rawAddress.toCPointer<ByteVar>())
 
-public actual fun lsnGreater(plsn1: ConstPtr<ClsLsn>, plsn2: ConstPtr<ClsLsn>): Boolean =
+public actual fun lsnGreater(plsn1: ConstPtr, plsn2: ConstPtr): Boolean =
     windowssysWindowsWin32StorageFilesystemLsnGreater(plsn1.rawAddress.toCPointer<ByteVar>(), plsn2.rawAddress.toCPointer<ByteVar>())
 
-public actual fun lsnIncrement(plsn: ConstPtr<ClsLsn>): ClsLsn =
+public actual fun lsnIncrement(plsn: ConstPtr): ClsLsn =
     ClsLsn()
 
-public actual fun lsnInvalid(plsn: ConstPtr<ClsLsn>): Boolean =
+public actual fun lsnInvalid(plsn: ConstPtr): Boolean =
     windowssysWindowsWin32StorageFilesystemLsnInvalid(plsn.rawAddress.toCPointer<ByteVar>())
 
-public actual fun lsnLess(plsn1: ConstPtr<ClsLsn>, plsn2: ConstPtr<ClsLsn>): Boolean =
+public actual fun lsnLess(plsn1: ConstPtr, plsn2: ConstPtr): Boolean =
     windowssysWindowsWin32StorageFilesystemLsnLess(plsn1.rawAddress.toCPointer<ByteVar>(), plsn2.rawAddress.toCPointer<ByteVar>())
 
-public actual fun lsnNull(plsn: ConstPtr<ClsLsn>): Boolean =
+public actual fun lsnNull(plsn: ConstPtr): Boolean =
     windowssysWindowsWin32StorageFilesystemLsnNull(plsn.rawAddress.toCPointer<ByteVar>())
 
-public actual fun lsnRecordSequence(plsn: ConstPtr<ClsLsn>): UInt =
+public actual fun lsnRecordSequence(plsn: ConstPtr): UInt =
     windowssysWindowsWin32StorageFilesystemLsnRecordSequence(plsn.rawAddress.toCPointer<ByteVar>())
 
 public actual fun moveFileA(lpexistingfilename: Pcstr, lpnewfilename: Pcstr): Bool =
@@ -1155,124 +1150,124 @@ public actual fun moveFileExW(lpexistingfilename: Pcwstr, lpnewfilename: Pcwstr,
 public actual fun moveFileFromAppW(lpexistingfilename: Pcwstr, lpnewfilename: Pcwstr): Bool =
     windowssysWindowsWin32StorageFilesystemMoveFileFromAppW(lpexistingfilename.rawAddress.toCPointer<ByteVar>(), lpnewfilename.rawAddress.toCPointer<ByteVar>())
 
-public actual fun moveFileTransactedA(lpexistingfilename: Pcstr, lpnewfilename: Pcstr, lpprogressroutine: LpprogressRoutine, lpdata: ConstPtr<CVoid>, dwflags: MoveFileFlags, htransaction: Handle): Bool =
+public actual fun moveFileTransactedA(lpexistingfilename: Pcstr, lpnewfilename: Pcstr, lpprogressroutine: LpprogressRoutine, lpdata: ConstPtr, dwflags: MoveFileFlags, htransaction: Handle): Bool =
     windowssysWindowsWin32StorageFilesystemMoveFileTransactedA(lpexistingfilename.rawAddress.toCPointer<ByteVar>(), lpnewfilename.rawAddress.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>(), lpdata.rawAddress.toCPointer<ByteVar>(), dwflags, htransaction.rawAddress.toCPointer<ByteVar>())
 
-public actual fun moveFileTransactedW(lpexistingfilename: Pcwstr, lpnewfilename: Pcwstr, lpprogressroutine: LpprogressRoutine, lpdata: ConstPtr<CVoid>, dwflags: MoveFileFlags, htransaction: Handle): Bool =
+public actual fun moveFileTransactedW(lpexistingfilename: Pcwstr, lpnewfilename: Pcwstr, lpprogressroutine: LpprogressRoutine, lpdata: ConstPtr, dwflags: MoveFileFlags, htransaction: Handle): Bool =
     windowssysWindowsWin32StorageFilesystemMoveFileTransactedW(lpexistingfilename.rawAddress.toCPointer<ByteVar>(), lpnewfilename.rawAddress.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>(), lpdata.rawAddress.toCPointer<ByteVar>(), dwflags, htransaction.rawAddress.toCPointer<ByteVar>())
 
 public actual fun moveFileW(lpexistingfilename: Pcwstr, lpnewfilename: Pcwstr): Bool =
     windowssysWindowsWin32StorageFilesystemMoveFileW(lpexistingfilename.rawAddress.toCPointer<ByteVar>(), lpnewfilename.rawAddress.toCPointer<ByteVar>())
 
-public actual fun moveFileWithProgressA(lpexistingfilename: Pcstr, lpnewfilename: Pcstr, lpprogressroutine: LpprogressRoutine, lpdata: ConstPtr<CVoid>, dwflags: MoveFileFlags): Bool =
+public actual fun moveFileWithProgressA(lpexistingfilename: Pcstr, lpnewfilename: Pcstr, lpprogressroutine: LpprogressRoutine, lpdata: ConstPtr, dwflags: MoveFileFlags): Bool =
     windowssysWindowsWin32StorageFilesystemMoveFileWithProgressA(lpexistingfilename.rawAddress.toCPointer<ByteVar>(), lpnewfilename.rawAddress.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>(), lpdata.rawAddress.toCPointer<ByteVar>(), dwflags)
 
-public actual fun moveFileWithProgressW(lpexistingfilename: Pcwstr, lpnewfilename: Pcwstr, lpprogressroutine: LpprogressRoutine, lpdata: ConstPtr<CVoid>, dwflags: MoveFileFlags): Bool =
+public actual fun moveFileWithProgressW(lpexistingfilename: Pcwstr, lpnewfilename: Pcwstr, lpprogressroutine: LpprogressRoutine, lpdata: ConstPtr, dwflags: MoveFileFlags): Bool =
     windowssysWindowsWin32StorageFilesystemMoveFileWithProgressW(lpexistingfilename.rawAddress.toCPointer<ByteVar>(), lpnewfilename.rawAddress.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>(), lpdata.rawAddress.toCPointer<ByteVar>(), dwflags)
 
-public actual fun netConnectionEnum(servername: Pcwstr, qualifier: Pcwstr, level: UInt, bufptr: MutPtr<MutPtr<UByte>>, prefmaxlen: UInt, entriesread: MutPtr<UInt>, totalentries: MutPtr<UInt>, resumeHandle: MutPtr<UInt>): UInt =
+public actual fun netConnectionEnum(servername: Pcwstr, qualifier: Pcwstr, level: UInt, bufptr: MutPtr, prefmaxlen: UInt, entriesread: MutPtr, totalentries: MutPtr, resumeHandle: MutPtr): UInt =
     windowssysWindowsWin32StorageFilesystemNetConnectionEnum(servername.rawAddress.toCPointer<ByteVar>(), qualifier.rawAddress.toCPointer<ByteVar>(), level, bufptr.rawAddress.toCPointer<ByteVar>(), prefmaxlen, entriesread.rawAddress.toCPointer<ByteVar>(), totalentries.rawAddress.toCPointer<ByteVar>(), resumeHandle.rawAddress.toCPointer<ByteVar>())
 
 public actual fun netFileClose(servername: Pcwstr, fileid: UInt): UInt =
     windowssysWindowsWin32StorageFilesystemNetFileClose(servername.rawAddress.toCPointer<ByteVar>(), fileid)
 
-public actual fun netFileEnum(servername: Pcwstr, basepath: Pcwstr, username: Pcwstr, level: UInt, bufptr: MutPtr<MutPtr<UByte>>, prefmaxlen: UInt, entriesread: MutPtr<UInt>, totalentries: MutPtr<UInt>, resumeHandle: MutPtr<ULong>): UInt =
+public actual fun netFileEnum(servername: Pcwstr, basepath: Pcwstr, username: Pcwstr, level: UInt, bufptr: MutPtr, prefmaxlen: UInt, entriesread: MutPtr, totalentries: MutPtr, resumeHandle: MutPtr): UInt =
     windowssysWindowsWin32StorageFilesystemNetFileEnum(servername.rawAddress.toCPointer<ByteVar>(), basepath.rawAddress.toCPointer<ByteVar>(), username.rawAddress.toCPointer<ByteVar>(), level, bufptr.rawAddress.toCPointer<ByteVar>(), prefmaxlen, entriesread.rawAddress.toCPointer<ByteVar>(), totalentries.rawAddress.toCPointer<ByteVar>(), resumeHandle.rawAddress.toCPointer<ByteVar>())
 
-public actual fun netFileGetInfo(servername: Pcwstr, fileid: UInt, level: UInt, bufptr: MutPtr<MutPtr<UByte>>): UInt =
+public actual fun netFileGetInfo(servername: Pcwstr, fileid: UInt, level: UInt, bufptr: MutPtr): UInt =
     windowssysWindowsWin32StorageFilesystemNetFileGetInfo(servername.rawAddress.toCPointer<ByteVar>(), fileid, level, bufptr.rawAddress.toCPointer<ByteVar>())
 
-public actual fun netServerAliasAdd(servername: Pcwstr, level: UInt, buf: ConstPtr<UByte>): UInt =
+public actual fun netServerAliasAdd(servername: Pcwstr, level: UInt, buf: ConstPtr): UInt =
     windowssysWindowsWin32StorageFilesystemNetServerAliasAdd(servername.rawAddress.toCPointer<ByteVar>(), level, buf.rawAddress.toCPointer<ByteVar>())
 
-public actual fun netServerAliasDel(servername: Pcwstr, level: UInt, buf: ConstPtr<UByte>): UInt =
+public actual fun netServerAliasDel(servername: Pcwstr, level: UInt, buf: ConstPtr): UInt =
     windowssysWindowsWin32StorageFilesystemNetServerAliasDel(servername.rawAddress.toCPointer<ByteVar>(), level, buf.rawAddress.toCPointer<ByteVar>())
 
-public actual fun netServerAliasEnum(servername: Pcwstr, level: UInt, bufptr: MutPtr<MutPtr<UByte>>, prefmaxlen: UInt, entriesread: MutPtr<UInt>, totalentries: MutPtr<UInt>, resumehandle: MutPtr<UInt>): UInt =
+public actual fun netServerAliasEnum(servername: Pcwstr, level: UInt, bufptr: MutPtr, prefmaxlen: UInt, entriesread: MutPtr, totalentries: MutPtr, resumehandle: MutPtr): UInt =
     windowssysWindowsWin32StorageFilesystemNetServerAliasEnum(servername.rawAddress.toCPointer<ByteVar>(), level, bufptr.rawAddress.toCPointer<ByteVar>(), prefmaxlen, entriesread.rawAddress.toCPointer<ByteVar>(), totalentries.rawAddress.toCPointer<ByteVar>(), resumehandle.rawAddress.toCPointer<ByteVar>())
 
 public actual fun netSessionDel(servername: Pcwstr, uncclientname: Pcwstr, username: Pcwstr): UInt =
     windowssysWindowsWin32StorageFilesystemNetSessionDel(servername.rawAddress.toCPointer<ByteVar>(), uncclientname.rawAddress.toCPointer<ByteVar>(), username.rawAddress.toCPointer<ByteVar>())
 
-public actual fun netSessionEnum(servername: Pcwstr, uncclientname: Pcwstr, username: Pcwstr, level: UInt, bufptr: MutPtr<MutPtr<UByte>>, prefmaxlen: UInt, entriesread: MutPtr<UInt>, totalentries: MutPtr<UInt>, resumeHandle: MutPtr<UInt>): UInt =
+public actual fun netSessionEnum(servername: Pcwstr, uncclientname: Pcwstr, username: Pcwstr, level: UInt, bufptr: MutPtr, prefmaxlen: UInt, entriesread: MutPtr, totalentries: MutPtr, resumeHandle: MutPtr): UInt =
     windowssysWindowsWin32StorageFilesystemNetSessionEnum(servername.rawAddress.toCPointer<ByteVar>(), uncclientname.rawAddress.toCPointer<ByteVar>(), username.rawAddress.toCPointer<ByteVar>(), level, bufptr.rawAddress.toCPointer<ByteVar>(), prefmaxlen, entriesread.rawAddress.toCPointer<ByteVar>(), totalentries.rawAddress.toCPointer<ByteVar>(), resumeHandle.rawAddress.toCPointer<ByteVar>())
 
-public actual fun netSessionGetInfo(servername: Pcwstr, uncclientname: Pcwstr, username: Pcwstr, level: UInt, bufptr: MutPtr<MutPtr<UByte>>): UInt =
+public actual fun netSessionGetInfo(servername: Pcwstr, uncclientname: Pcwstr, username: Pcwstr, level: UInt, bufptr: MutPtr): UInt =
     windowssysWindowsWin32StorageFilesystemNetSessionGetInfo(servername.rawAddress.toCPointer<ByteVar>(), uncclientname.rawAddress.toCPointer<ByteVar>(), username.rawAddress.toCPointer<ByteVar>(), level, bufptr.rawAddress.toCPointer<ByteVar>())
 
-public actual fun netShareAdd(servername: Pcwstr, level: UInt, buf: ConstPtr<UByte>, parmErr: MutPtr<UInt>): UInt =
+public actual fun netShareAdd(servername: Pcwstr, level: UInt, buf: ConstPtr, parmErr: MutPtr): UInt =
     windowssysWindowsWin32StorageFilesystemNetShareAdd(servername.rawAddress.toCPointer<ByteVar>(), level, buf.rawAddress.toCPointer<ByteVar>(), parmErr.rawAddress.toCPointer<ByteVar>())
 
-public actual fun netShareCheck(servername: Pcwstr, device: Pcwstr, type: MutPtr<UInt>): UInt =
+public actual fun netShareCheck(servername: Pcwstr, device: Pcwstr, type: MutPtr): UInt =
     windowssysWindowsWin32StorageFilesystemNetShareCheck(servername.rawAddress.toCPointer<ByteVar>(), device.rawAddress.toCPointer<ByteVar>(), type.rawAddress.toCPointer<ByteVar>())
 
 public actual fun netShareDel(servername: Pcwstr, netname: Pcwstr, reserved: UInt): UInt =
     windowssysWindowsWin32StorageFilesystemNetShareDel(servername.rawAddress.toCPointer<ByteVar>(), netname.rawAddress.toCPointer<ByteVar>(), reserved)
 
-public actual fun netShareDelEx(servername: Pcwstr, level: UInt, buf: ConstPtr<UByte>): UInt =
+public actual fun netShareDelEx(servername: Pcwstr, level: UInt, buf: ConstPtr): UInt =
     windowssysWindowsWin32StorageFilesystemNetShareDelEx(servername.rawAddress.toCPointer<ByteVar>(), level, buf.rawAddress.toCPointer<ByteVar>())
 
 public actual fun netShareDelSticky(servername: Pcwstr, netname: Pcwstr, reserved: UInt): UInt =
     windowssysWindowsWin32StorageFilesystemNetShareDelSticky(servername.rawAddress.toCPointer<ByteVar>(), netname.rawAddress.toCPointer<ByteVar>(), reserved)
 
-public actual fun netShareEnum(servername: Pcwstr, level: UInt, bufptr: MutPtr<MutPtr<UByte>>, prefmaxlen: UInt, entriesread: MutPtr<UInt>, totalentries: MutPtr<UInt>, resumeHandle: MutPtr<UInt>): UInt =
+public actual fun netShareEnum(servername: Pcwstr, level: UInt, bufptr: MutPtr, prefmaxlen: UInt, entriesread: MutPtr, totalentries: MutPtr, resumeHandle: MutPtr): UInt =
     windowssysWindowsWin32StorageFilesystemNetShareEnum(servername.rawAddress.toCPointer<ByteVar>(), level, bufptr.rawAddress.toCPointer<ByteVar>(), prefmaxlen, entriesread.rawAddress.toCPointer<ByteVar>(), totalentries.rawAddress.toCPointer<ByteVar>(), resumeHandle.rawAddress.toCPointer<ByteVar>())
 
-public actual fun netShareEnumSticky(servername: Pcwstr, level: UInt, bufptr: MutPtr<MutPtr<UByte>>, prefmaxlen: UInt, entriesread: MutPtr<UInt>, totalentries: MutPtr<UInt>, resumeHandle: MutPtr<UInt>): UInt =
+public actual fun netShareEnumSticky(servername: Pcwstr, level: UInt, bufptr: MutPtr, prefmaxlen: UInt, entriesread: MutPtr, totalentries: MutPtr, resumeHandle: MutPtr): UInt =
     windowssysWindowsWin32StorageFilesystemNetShareEnumSticky(servername.rawAddress.toCPointer<ByteVar>(), level, bufptr.rawAddress.toCPointer<ByteVar>(), prefmaxlen, entriesread.rawAddress.toCPointer<ByteVar>(), totalentries.rawAddress.toCPointer<ByteVar>(), resumeHandle.rawAddress.toCPointer<ByteVar>())
 
-public actual fun netShareGetInfo(servername: Pcwstr, netname: Pcwstr, level: UInt, bufptr: MutPtr<MutPtr<UByte>>): UInt =
+public actual fun netShareGetInfo(servername: Pcwstr, netname: Pcwstr, level: UInt, bufptr: MutPtr): UInt =
     windowssysWindowsWin32StorageFilesystemNetShareGetInfo(servername.rawAddress.toCPointer<ByteVar>(), netname.rawAddress.toCPointer<ByteVar>(), level, bufptr.rawAddress.toCPointer<ByteVar>())
 
-public actual fun netShareSetInfo(servername: Pcwstr, netname: Pcwstr, level: UInt, buf: ConstPtr<UByte>, parmErr: MutPtr<UInt>): UInt =
+public actual fun netShareSetInfo(servername: Pcwstr, netname: Pcwstr, level: UInt, buf: ConstPtr, parmErr: MutPtr): UInt =
     windowssysWindowsWin32StorageFilesystemNetShareSetInfo(servername.rawAddress.toCPointer<ByteVar>(), netname.rawAddress.toCPointer<ByteVar>(), level, buf.rawAddress.toCPointer<ByteVar>(), parmErr.rawAddress.toCPointer<ByteVar>())
 
-public actual fun netStatisticsGet(servername: ConstPtr<Byte>, service: ConstPtr<Byte>, level: UInt, options: UInt, buffer: MutPtr<MutPtr<UByte>>): UInt =
+public actual fun netStatisticsGet(servername: ConstPtr, service: ConstPtr, level: UInt, options: UInt, buffer: MutPtr): UInt =
     windowssysWindowsWin32StorageFilesystemNetStatisticsGet(servername.rawAddress.toCPointer<ByteVar>(), service.rawAddress.toCPointer<ByteVar>(), level, options, buffer.rawAddress.toCPointer<ByteVar>())
 
-public actual fun openEncryptedFileRawA(lpfilename: Pcstr, ulflags: UInt, pvcontext: MutPtr<MutPtr<CVoid>>): UInt =
+public actual fun openEncryptedFileRawA(lpfilename: Pcstr, ulflags: UInt, pvcontext: MutPtr): UInt =
     windowssysWindowsWin32StorageFilesystemOpenEncryptedFileRawA(lpfilename.rawAddress.toCPointer<ByteVar>(), ulflags, pvcontext.rawAddress.toCPointer<ByteVar>())
 
-public actual fun openEncryptedFileRawW(lpfilename: Pcwstr, ulflags: UInt, pvcontext: MutPtr<MutPtr<CVoid>>): UInt =
+public actual fun openEncryptedFileRawW(lpfilename: Pcwstr, ulflags: UInt, pvcontext: MutPtr): UInt =
     windowssysWindowsWin32StorageFilesystemOpenEncryptedFileRawW(lpfilename.rawAddress.toCPointer<ByteVar>(), ulflags, pvcontext.rawAddress.toCPointer<ByteVar>())
 
-public actual fun openEnlistment(dwdesiredaccess: UInt, resourcemanagerhandle: Handle, enlistmentid: MutPtr<Guid>): Handle =
+public actual fun openEnlistment(dwdesiredaccess: UInt, resourcemanagerhandle: Handle, enlistmentid: MutPtr): Handle =
     MutPtr(windowssysWindowsWin32StorageFilesystemOpenEnlistment(dwdesiredaccess, resourcemanagerhandle.rawAddress.toCPointer<ByteVar>(), enlistmentid.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun openFile(lpfilename: Pcstr, lpreopenbuff: MutPtr<Ofstruct>, ustyle: UInt): Int =
+public actual fun openFile(lpfilename: Pcstr, lpreopenbuff: MutPtr, ustyle: UInt): Int =
     windowssysWindowsWin32StorageFilesystemOpenFile(lpfilename.rawAddress.toCPointer<ByteVar>(), lpreopenbuff.rawAddress.toCPointer<ByteVar>(), ustyle)
 
-public actual fun openFileById(hvolumehint: Handle, lpfileid: ConstPtr<FileIdDescriptor>, dwdesiredaccess: UInt, dwsharemode: FileShareMode, lpsecurityattributes: ConstPtr<SecurityAttributes>, dwflagsandattributes: FileFlagsAndAttributes): Handle =
+public actual fun openFileById(hvolumehint: Handle, lpfileid: ConstPtr, dwdesiredaccess: UInt, dwsharemode: FileShareMode, lpsecurityattributes: ConstPtr, dwflagsandattributes: FileFlagsAndAttributes): Handle =
     MutPtr(windowssysWindowsWin32StorageFilesystemOpenFileById(hvolumehint.rawAddress.toCPointer<ByteVar>(), lpfileid.rawAddress.toCPointer<ByteVar>(), dwdesiredaccess, dwsharemode, lpsecurityattributes.rawAddress.toCPointer<ByteVar>(), dwflagsandattributes)?.toLong() ?: 0L)
 
-public actual fun openResourceManager(dwdesiredaccess: UInt, tmhandle: Handle, resourcemanagerid: MutPtr<Guid>): Handle =
+public actual fun openResourceManager(dwdesiredaccess: UInt, tmhandle: Handle, resourcemanagerid: MutPtr): Handle =
     MutPtr(windowssysWindowsWin32StorageFilesystemOpenResourceManager(dwdesiredaccess, tmhandle.rawAddress.toCPointer<ByteVar>(), resourcemanagerid.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun openTransaction(dwdesiredaccess: UInt, transactionid: MutPtr<Guid>): Handle =
+public actual fun openTransaction(dwdesiredaccess: UInt, transactionid: MutPtr): Handle =
     MutPtr(windowssysWindowsWin32StorageFilesystemOpenTransaction(dwdesiredaccess, transactionid.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
 public actual fun openTransactionManager(logfilename: Pcwstr, desiredaccess: UInt, openoptions: UInt): Handle =
     MutPtr(windowssysWindowsWin32StorageFilesystemOpenTransactionManager(logfilename.rawAddress.toCPointer<ByteVar>(), desiredaccess, openoptions)?.toLong() ?: 0L)
 
-public actual fun openTransactionManagerById(transactionmanagerid: ConstPtr<Guid>, desiredaccess: UInt, openoptions: UInt): Handle =
+public actual fun openTransactionManagerById(transactionmanagerid: ConstPtr, desiredaccess: UInt, openoptions: UInt): Handle =
     MutPtr(windowssysWindowsWin32StorageFilesystemOpenTransactionManagerById(transactionmanagerid.rawAddress.toCPointer<ByteVar>(), desiredaccess, openoptions)?.toLong() ?: 0L)
 
-public actual fun popIoRingCompletion(ioring: Hioring, cqe: MutPtr<IoringCqe>): Hresult =
+public actual fun popIoRingCompletion(ioring: Hioring, cqe: MutPtr): Hresult =
     windowssysWindowsWin32StorageFilesystemPopIoRingCompletion(ioring.rawAddress.toCPointer<ByteVar>(), cqe.rawAddress.toCPointer<ByteVar>())
 
-public actual fun prePrepareComplete(enlistmenthandle: Handle, tmvirtualclock: MutPtr<Long>): Bool =
+public actual fun prePrepareComplete(enlistmenthandle: Handle, tmvirtualclock: MutPtr): Bool =
     windowssysWindowsWin32StorageFilesystemPrePrepareComplete(enlistmenthandle.rawAddress.toCPointer<ByteVar>(), tmvirtualclock.rawAddress.toCPointer<ByteVar>())
 
-public actual fun prePrepareEnlistment(enlistmenthandle: Handle, tmvirtualclock: MutPtr<Long>): Bool =
+public actual fun prePrepareEnlistment(enlistmenthandle: Handle, tmvirtualclock: MutPtr): Bool =
     windowssysWindowsWin32StorageFilesystemPrePrepareEnlistment(enlistmenthandle.rawAddress.toCPointer<ByteVar>(), tmvirtualclock.rawAddress.toCPointer<ByteVar>())
 
-public actual fun prepareComplete(enlistmenthandle: Handle, tmvirtualclock: MutPtr<Long>): Bool =
+public actual fun prepareComplete(enlistmenthandle: Handle, tmvirtualclock: MutPtr): Bool =
     windowssysWindowsWin32StorageFilesystemPrepareComplete(enlistmenthandle.rawAddress.toCPointer<ByteVar>(), tmvirtualclock.rawAddress.toCPointer<ByteVar>())
 
-public actual fun prepareEnlistment(enlistmenthandle: Handle, tmvirtualclock: MutPtr<Long>): Bool =
+public actual fun prepareEnlistment(enlistmenthandle: Handle, tmvirtualclock: MutPtr): Bool =
     windowssysWindowsWin32StorageFilesystemPrepareEnlistment(enlistmenthandle.rawAddress.toCPointer<ByteVar>(), tmvirtualclock.rawAddress.toCPointer<ByteVar>())
 
-public actual fun prepareLogArchive(hlog: Handle, pszbaselogfilename: Pwstr, clen: UInt, plsnlow: ConstPtr<ClsLsn>, plsnhigh: ConstPtr<ClsLsn>, pcactuallength: MutPtr<UInt>, poffbaselogfiledata: MutPtr<ULong>, pcbbaselogfilelength: MutPtr<ULong>, plsnbase: MutPtr<ClsLsn>, plsnlast: MutPtr<ClsLsn>, plsncurrentarchivetail: MutPtr<ClsLsn>, ppvarchivecontext: MutPtr<MutPtr<CVoid>>): Bool =
+public actual fun prepareLogArchive(hlog: Handle, pszbaselogfilename: Pwstr, clen: UInt, plsnlow: ConstPtr, plsnhigh: ConstPtr, pcactuallength: MutPtr, poffbaselogfiledata: MutPtr, pcbbaselogfilelength: MutPtr, plsnbase: MutPtr, plsnlast: MutPtr, plsncurrentarchivetail: MutPtr, ppvarchivecontext: MutPtr): Bool =
     windowssysWindowsWin32StorageFilesystemPrepareLogArchive(hlog.rawAddress.toCPointer<ByteVar>(), pszbaselogfilename.rawAddress.toCPointer<ByteVar>(), clen, plsnlow.rawAddress.toCPointer<ByteVar>(), plsnhigh.rawAddress.toCPointer<ByteVar>(), pcactuallength.rawAddress.toCPointer<ByteVar>(), poffbaselogfiledata.rawAddress.toCPointer<ByteVar>(), pcbbaselogfilelength.rawAddress.toCPointer<ByteVar>(), plsnbase.rawAddress.toCPointer<ByteVar>(), plsnlast.rawAddress.toCPointer<ByteVar>(), plsncurrentarchivetail.rawAddress.toCPointer<ByteVar>(), ppvarchivecontext.rawAddress.toCPointer<ByteVar>())
 
 public actual fun prepareTape(hdevice: Handle, dwoperation: PrepareTapeOperation, bimmediate: Bool): UInt =
@@ -1284,61 +1279,61 @@ public actual fun queryDosDeviceA(lpdevicename: Pcstr, lptargetpath: Pstr, ucchm
 public actual fun queryDosDeviceW(lpdevicename: Pcwstr, lptargetpath: Pwstr, ucchmax: UInt): UInt =
     windowssysWindowsWin32StorageFilesystemQueryDosDeviceW(lpdevicename.rawAddress.toCPointer<ByteVar>(), lptargetpath.rawAddress.toCPointer<ByteVar>(), ucchmax)
 
-public actual fun queryIoRingCapabilities(capabilities: MutPtr<IoringCapabilities>): Hresult =
+public actual fun queryIoRingCapabilities(capabilities: MutPtr): Hresult =
     windowssysWindowsWin32StorageFilesystemQueryIoRingCapabilities(capabilities.rawAddress.toCPointer<ByteVar>())
 
-public actual fun queryLogPolicy(hlog: Handle, epolicytype: ClfsMgmtPolicyType, ppolicybuffer: MutPtr<ClfsMgmtPolicy>, pcbpolicybuffer: MutPtr<UInt>): Bool =
+public actual fun queryLogPolicy(hlog: Handle, epolicytype: ClfsMgmtPolicyType, ppolicybuffer: MutPtr, pcbpolicybuffer: MutPtr): Bool =
     windowssysWindowsWin32StorageFilesystemQueryLogPolicy(hlog.rawAddress.toCPointer<ByteVar>(), epolicytype, ppolicybuffer.rawAddress.toCPointer<ByteVar>(), pcbpolicybuffer.rawAddress.toCPointer<ByteVar>())
 
-public actual fun queryRecoveryAgentsOnEncryptedFile(lpfilename: Pcwstr, precoveryagents: MutPtr<MutPtr<EncryptionCertificateHashList>>): UInt =
+public actual fun queryRecoveryAgentsOnEncryptedFile(lpfilename: Pcwstr, precoveryagents: MutPtr): UInt =
     windowssysWindowsWin32StorageFilesystemQueryRecoveryAgentsOnEncryptedFile(lpfilename.rawAddress.toCPointer<ByteVar>(), precoveryagents.rawAddress.toCPointer<ByteVar>())
 
-public actual fun queryUsersOnEncryptedFile(lpfilename: Pcwstr, pusers: MutPtr<MutPtr<EncryptionCertificateHashList>>): UInt =
+public actual fun queryUsersOnEncryptedFile(lpfilename: Pcwstr, pusers: MutPtr): UInt =
     windowssysWindowsWin32StorageFilesystemQueryUsersOnEncryptedFile(lpfilename.rawAddress.toCPointer<ByteVar>(), pusers.rawAddress.toCPointer<ByteVar>())
 
 public actual fun reOpenFile(horiginalfile: Handle, dwdesiredaccess: UInt, dwsharemode: FileShareMode, dwflagsandattributes: FileFlagsAndAttributes): Handle =
     MutPtr(windowssysWindowsWin32StorageFilesystemReOpenFile(horiginalfile.rawAddress.toCPointer<ByteVar>(), dwdesiredaccess, dwsharemode, dwflagsandattributes)?.toLong() ?: 0L)
 
-public actual fun readDirectoryChangesExW(hdirectory: Handle, lpbuffer: MutPtr<CVoid>, nbufferlength: UInt, bwatchsubtree: Bool, dwnotifyfilter: FileNotifyChange, lpbytesreturned: MutPtr<UInt>, lpoverlapped: MutPtr<Overlapped>, lpcompletionroutine: LpoverlappedCompletionRoutine, readdirectorynotifyinformationclass: ReadDirectoryNotifyInformationClass): Bool =
+public actual fun readDirectoryChangesExW(hdirectory: Handle, lpbuffer: MutPtr, nbufferlength: UInt, bwatchsubtree: Bool, dwnotifyfilter: FileNotifyChange, lpbytesreturned: MutPtr, lpoverlapped: MutPtr, lpcompletionroutine: LpoverlappedCompletionRoutine, readdirectorynotifyinformationclass: ReadDirectoryNotifyInformationClass): Bool =
     windowssysWindowsWin32StorageFilesystemReadDirectoryChangesExW(hdirectory.rawAddress.toCPointer<ByteVar>(), lpbuffer.rawAddress.toCPointer<ByteVar>(), nbufferlength, bwatchsubtree, dwnotifyfilter, lpbytesreturned.rawAddress.toCPointer<ByteVar>(), lpoverlapped.rawAddress.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>(), readdirectorynotifyinformationclass)
 
-public actual fun readDirectoryChangesW(hdirectory: Handle, lpbuffer: MutPtr<CVoid>, nbufferlength: UInt, bwatchsubtree: Bool, dwnotifyfilter: FileNotifyChange, lpbytesreturned: MutPtr<UInt>, lpoverlapped: MutPtr<Overlapped>, lpcompletionroutine: LpoverlappedCompletionRoutine): Bool =
+public actual fun readDirectoryChangesW(hdirectory: Handle, lpbuffer: MutPtr, nbufferlength: UInt, bwatchsubtree: Bool, dwnotifyfilter: FileNotifyChange, lpbytesreturned: MutPtr, lpoverlapped: MutPtr, lpcompletionroutine: LpoverlappedCompletionRoutine): Bool =
     windowssysWindowsWin32StorageFilesystemReadDirectoryChangesW(hdirectory.rawAddress.toCPointer<ByteVar>(), lpbuffer.rawAddress.toCPointer<ByteVar>(), nbufferlength, bwatchsubtree, dwnotifyfilter, lpbytesreturned.rawAddress.toCPointer<ByteVar>(), lpoverlapped.rawAddress.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>())
 
-public actual fun readEncryptedFileRaw(pfexportcallback: PfeExportFunc, pvcallbackcontext: ConstPtr<CVoid>, pvcontext: ConstPtr<CVoid>): UInt =
+public actual fun readEncryptedFileRaw(pfexportcallback: PfeExportFunc, pvcallbackcontext: ConstPtr, pvcontext: ConstPtr): UInt =
     windowssysWindowsWin32StorageFilesystemReadEncryptedFileRaw(0L.toCPointer<ByteVar>(), pvcallbackcontext.rawAddress.toCPointer<ByteVar>(), pvcontext.rawAddress.toCPointer<ByteVar>())
 
-public actual fun readFile(hfile: Handle, lpbuffer: MutPtr<UByte>, nnumberofbytestoread: UInt, lpnumberofbytesread: MutPtr<UInt>, lpoverlapped: MutPtr<Overlapped>): Bool =
+public actual fun readFile(hfile: Handle, lpbuffer: MutPtr, nnumberofbytestoread: UInt, lpnumberofbytesread: MutPtr, lpoverlapped: MutPtr): Bool =
     windowssysWindowsWin32StorageFilesystemReadFile(hfile.rawAddress.toCPointer<ByteVar>(), lpbuffer.rawAddress.toCPointer<ByteVar>(), nnumberofbytestoread, lpnumberofbytesread.rawAddress.toCPointer<ByteVar>(), lpoverlapped.rawAddress.toCPointer<ByteVar>())
 
-public actual fun readFileEx(hfile: Handle, lpbuffer: MutPtr<UByte>, nnumberofbytestoread: UInt, lpoverlapped: MutPtr<Overlapped>, lpcompletionroutine: LpoverlappedCompletionRoutine): Bool =
+public actual fun readFileEx(hfile: Handle, lpbuffer: MutPtr, nnumberofbytestoread: UInt, lpoverlapped: MutPtr, lpcompletionroutine: LpoverlappedCompletionRoutine): Bool =
     windowssysWindowsWin32StorageFilesystemReadFileEx(hfile.rawAddress.toCPointer<ByteVar>(), lpbuffer.rawAddress.toCPointer<ByteVar>(), nnumberofbytestoread, lpoverlapped.rawAddress.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>())
 
-public actual fun readFileScatter(hfile: Handle, asegmentarray: ConstPtr<FileSegmentElement>, nnumberofbytestoread: UInt, lpreserved: ConstPtr<UInt>, lpoverlapped: MutPtr<Overlapped>): Bool =
+public actual fun readFileScatter(hfile: Handle, asegmentarray: ConstPtr, nnumberofbytestoread: UInt, lpreserved: ConstPtr, lpoverlapped: MutPtr): Bool =
     windowssysWindowsWin32StorageFilesystemReadFileScatter(hfile.rawAddress.toCPointer<ByteVar>(), asegmentarray.rawAddress.toCPointer<ByteVar>(), nnumberofbytestoread, lpreserved.rawAddress.toCPointer<ByteVar>(), lpoverlapped.rawAddress.toCPointer<ByteVar>())
 
-public actual fun readLogArchiveMetadata(pvarchivecontext: MutPtr<CVoid>, cboffset: UInt, cbbytestoread: UInt, pbreadbuffer: MutPtr<UByte>, pcbbytesread: MutPtr<UInt>): Bool =
+public actual fun readLogArchiveMetadata(pvarchivecontext: MutPtr, cboffset: UInt, cbbytestoread: UInt, pbreadbuffer: MutPtr, pcbbytesread: MutPtr): Bool =
     windowssysWindowsWin32StorageFilesystemReadLogArchiveMetadata(pvarchivecontext.rawAddress.toCPointer<ByteVar>(), cboffset, cbbytestoread, pbreadbuffer.rawAddress.toCPointer<ByteVar>(), pcbbytesread.rawAddress.toCPointer<ByteVar>())
 
-public actual fun readLogNotification(hlog: Handle, pnotification: MutPtr<ClfsMgmtNotification>, lpoverlapped: MutPtr<Overlapped>): Bool =
+public actual fun readLogNotification(hlog: Handle, pnotification: MutPtr, lpoverlapped: MutPtr): Bool =
     windowssysWindowsWin32StorageFilesystemReadLogNotification(hlog.rawAddress.toCPointer<ByteVar>(), pnotification.rawAddress.toCPointer<ByteVar>(), lpoverlapped.rawAddress.toCPointer<ByteVar>())
 
-public actual fun readLogRecord(pvmarshal: MutPtr<CVoid>, plsnfirst: MutPtr<ClsLsn>, econtextmode: ClfsContextMode, ppvreadbuffer: MutPtr<MutPtr<CVoid>>, pcbreadbuffer: MutPtr<UInt>, perecordtype: MutPtr<UByte>, plsnundonext: MutPtr<ClsLsn>, plsnprevious: MutPtr<ClsLsn>, ppvreadcontext: MutPtr<MutPtr<CVoid>>, poverlapped: MutPtr<Overlapped>): Bool =
+public actual fun readLogRecord(pvmarshal: MutPtr, plsnfirst: MutPtr, econtextmode: ClfsContextMode, ppvreadbuffer: MutPtr, pcbreadbuffer: MutPtr, perecordtype: MutPtr, plsnundonext: MutPtr, plsnprevious: MutPtr, ppvreadcontext: MutPtr, poverlapped: MutPtr): Bool =
     windowssysWindowsWin32StorageFilesystemReadLogRecord(pvmarshal.rawAddress.toCPointer<ByteVar>(), plsnfirst.rawAddress.toCPointer<ByteVar>(), econtextmode, ppvreadbuffer.rawAddress.toCPointer<ByteVar>(), pcbreadbuffer.rawAddress.toCPointer<ByteVar>(), perecordtype.rawAddress.toCPointer<ByteVar>(), plsnundonext.rawAddress.toCPointer<ByteVar>(), plsnprevious.rawAddress.toCPointer<ByteVar>(), ppvreadcontext.rawAddress.toCPointer<ByteVar>(), poverlapped.rawAddress.toCPointer<ByteVar>())
 
-public actual fun readLogRestartArea(pvmarshal: MutPtr<CVoid>, ppvrestartbuffer: MutPtr<MutPtr<CVoid>>, pcbrestartbuffer: MutPtr<UInt>, plsn: MutPtr<ClsLsn>, ppvcontext: MutPtr<MutPtr<CVoid>>, poverlapped: MutPtr<Overlapped>): Bool =
+public actual fun readLogRestartArea(pvmarshal: MutPtr, ppvrestartbuffer: MutPtr, pcbrestartbuffer: MutPtr, plsn: MutPtr, ppvcontext: MutPtr, poverlapped: MutPtr): Bool =
     windowssysWindowsWin32StorageFilesystemReadLogRestartArea(pvmarshal.rawAddress.toCPointer<ByteVar>(), ppvrestartbuffer.rawAddress.toCPointer<ByteVar>(), pcbrestartbuffer.rawAddress.toCPointer<ByteVar>(), plsn.rawAddress.toCPointer<ByteVar>(), ppvcontext.rawAddress.toCPointer<ByteVar>(), poverlapped.rawAddress.toCPointer<ByteVar>())
 
-public actual fun readNextLogRecord(pvreadcontext: MutPtr<CVoid>, ppvbuffer: MutPtr<MutPtr<CVoid>>, pcbbuffer: MutPtr<UInt>, perecordtype: MutPtr<UByte>, plsnuser: MutPtr<ClsLsn>, plsnundonext: MutPtr<ClsLsn>, plsnprevious: MutPtr<ClsLsn>, plsnrecord: MutPtr<ClsLsn>, poverlapped: MutPtr<Overlapped>): Bool =
+public actual fun readNextLogRecord(pvreadcontext: MutPtr, ppvbuffer: MutPtr, pcbbuffer: MutPtr, perecordtype: MutPtr, plsnuser: MutPtr, plsnundonext: MutPtr, plsnprevious: MutPtr, plsnrecord: MutPtr, poverlapped: MutPtr): Bool =
     windowssysWindowsWin32StorageFilesystemReadNextLogRecord(pvreadcontext.rawAddress.toCPointer<ByteVar>(), ppvbuffer.rawAddress.toCPointer<ByteVar>(), pcbbuffer.rawAddress.toCPointer<ByteVar>(), perecordtype.rawAddress.toCPointer<ByteVar>(), plsnuser.rawAddress.toCPointer<ByteVar>(), plsnundonext.rawAddress.toCPointer<ByteVar>(), plsnprevious.rawAddress.toCPointer<ByteVar>(), plsnrecord.rawAddress.toCPointer<ByteVar>(), poverlapped.rawAddress.toCPointer<ByteVar>())
 
-public actual fun readOnlyEnlistment(enlistmenthandle: Handle, tmvirtualclock: MutPtr<Long>): Bool =
+public actual fun readOnlyEnlistment(enlistmenthandle: Handle, tmvirtualclock: MutPtr): Bool =
     windowssysWindowsWin32StorageFilesystemReadOnlyEnlistment(enlistmenthandle.rawAddress.toCPointer<ByteVar>(), tmvirtualclock.rawAddress.toCPointer<ByteVar>())
 
-public actual fun readPreviousLogRestartArea(pvreadcontext: MutPtr<CVoid>, ppvrestartbuffer: MutPtr<MutPtr<CVoid>>, pcbrestartbuffer: MutPtr<UInt>, plsnrestart: MutPtr<ClsLsn>, poverlapped: MutPtr<Overlapped>): Bool =
+public actual fun readPreviousLogRestartArea(pvreadcontext: MutPtr, ppvrestartbuffer: MutPtr, pcbrestartbuffer: MutPtr, plsnrestart: MutPtr, poverlapped: MutPtr): Bool =
     windowssysWindowsWin32StorageFilesystemReadPreviousLogRestartArea(pvreadcontext.rawAddress.toCPointer<ByteVar>(), ppvrestartbuffer.rawAddress.toCPointer<ByteVar>(), pcbrestartbuffer.rawAddress.toCPointer<ByteVar>(), plsnrestart.rawAddress.toCPointer<ByteVar>(), poverlapped.rawAddress.toCPointer<ByteVar>())
 
-public actual fun recoverEnlistment(enlistmenthandle: Handle, enlistmentkey: MutPtr<CVoid>): Bool =
+public actual fun recoverEnlistment(enlistmenthandle: Handle, enlistmentkey: MutPtr): Bool =
     windowssysWindowsWin32StorageFilesystemRecoverEnlistment(enlistmenthandle.rawAddress.toCPointer<ByteVar>(), enlistmentkey.rawAddress.toCPointer<ByteVar>())
 
 public actual fun recoverResourceManager(resourcemanagerhandle: Handle): Bool =
@@ -1350,7 +1345,7 @@ public actual fun recoverTransactionManager(transactionmanagerhandle: Handle): B
 public actual fun registerForLogWriteNotification(hlog: Handle, cbthreshold: UInt, fenable: Bool): Bool =
     windowssysWindowsWin32StorageFilesystemRegisterForLogWriteNotification(hlog.rawAddress.toCPointer<ByteVar>(), cbthreshold, fenable)
 
-public actual fun registerManageableLogClient(hlog: Handle, pcallbacks: MutPtr<LogManagementCallbacks>): Bool =
+public actual fun registerManageableLogClient(hlog: Handle, pcallbacks: MutPtr): Bool =
     windowssysWindowsWin32StorageFilesystemRegisterManageableLogClient(hlog.rawAddress.toCPointer<ByteVar>(), pcallbacks.rawAddress.toCPointer<ByteVar>())
 
 public actual fun removeDirectoryA(lppathname: Pcstr): Bool =
@@ -1368,40 +1363,40 @@ public actual fun removeDirectoryTransactedW(lppathname: Pcwstr, htransaction: H
 public actual fun removeDirectoryW(lppathname: Pcwstr): Bool =
     windowssysWindowsWin32StorageFilesystemRemoveDirectoryW(lppathname.rawAddress.toCPointer<ByteVar>())
 
-public actual fun removeLogContainer(hlog: Handle, pwszcontainerpath: Pcwstr, fforce: Bool, preserved: MutPtr<CVoid>): Bool =
+public actual fun removeLogContainer(hlog: Handle, pwszcontainerpath: Pcwstr, fforce: Bool, preserved: MutPtr): Bool =
     windowssysWindowsWin32StorageFilesystemRemoveLogContainer(hlog.rawAddress.toCPointer<ByteVar>(), pwszcontainerpath.rawAddress.toCPointer<ByteVar>(), fforce, preserved.rawAddress.toCPointer<ByteVar>())
 
-public actual fun removeLogContainerSet(hlog: Handle, ccontainer: UShort, rgwszcontainerpath: ConstPtr<Pcwstr>, fforce: Bool, preserved: MutPtr<CVoid>): Bool =
+public actual fun removeLogContainerSet(hlog: Handle, ccontainer: UShort, rgwszcontainerpath: ConstPtr, fforce: Bool, preserved: MutPtr): Bool =
     windowssysWindowsWin32StorageFilesystemRemoveLogContainerSet(hlog.rawAddress.toCPointer<ByteVar>(), ccontainer, rgwszcontainerpath.rawAddress.toCPointer<ByteVar>(), fforce, preserved.rawAddress.toCPointer<ByteVar>())
 
 public actual fun removeLogPolicy(hlog: Handle, epolicytype: ClfsMgmtPolicyType): Bool =
     windowssysWindowsWin32StorageFilesystemRemoveLogPolicy(hlog.rawAddress.toCPointer<ByteVar>(), epolicytype)
 
-public actual fun removeUsersFromEncryptedFile(lpfilename: Pcwstr, phashes: ConstPtr<EncryptionCertificateHashList>): UInt =
+public actual fun removeUsersFromEncryptedFile(lpfilename: Pcwstr, phashes: ConstPtr): UInt =
     windowssysWindowsWin32StorageFilesystemRemoveUsersFromEncryptedFile(lpfilename.rawAddress.toCPointer<ByteVar>(), phashes.rawAddress.toCPointer<ByteVar>())
 
-public actual fun renameTransactionManager(logfilename: Pcwstr, existingtransactionmanagerguid: MutPtr<Guid>): Bool =
+public actual fun renameTransactionManager(logfilename: Pcwstr, existingtransactionmanagerguid: MutPtr): Bool =
     windowssysWindowsWin32StorageFilesystemRenameTransactionManager(logfilename.rawAddress.toCPointer<ByteVar>(), existingtransactionmanagerguid.rawAddress.toCPointer<ByteVar>())
 
-public actual fun replaceFileA(lpreplacedfilename: Pcstr, lpreplacementfilename: Pcstr, lpbackupfilename: Pcstr, dwreplaceflags: ReplaceFileFlags, lpexclude: ConstPtr<CVoid>, lpreserved: ConstPtr<CVoid>): Bool =
+public actual fun replaceFileA(lpreplacedfilename: Pcstr, lpreplacementfilename: Pcstr, lpbackupfilename: Pcstr, dwreplaceflags: ReplaceFileFlags, lpexclude: ConstPtr, lpreserved: ConstPtr): Bool =
     windowssysWindowsWin32StorageFilesystemReplaceFileA(lpreplacedfilename.rawAddress.toCPointer<ByteVar>(), lpreplacementfilename.rawAddress.toCPointer<ByteVar>(), lpbackupfilename.rawAddress.toCPointer<ByteVar>(), dwreplaceflags, lpexclude.rawAddress.toCPointer<ByteVar>(), lpreserved.rawAddress.toCPointer<ByteVar>())
 
-public actual fun replaceFileFromAppW(lpreplacedfilename: Pcwstr, lpreplacementfilename: Pcwstr, lpbackupfilename: Pcwstr, dwreplaceflags: UInt, lpexclude: ConstPtr<CVoid>, lpreserved: ConstPtr<CVoid>): Bool =
+public actual fun replaceFileFromAppW(lpreplacedfilename: Pcwstr, lpreplacementfilename: Pcwstr, lpbackupfilename: Pcwstr, dwreplaceflags: UInt, lpexclude: ConstPtr, lpreserved: ConstPtr): Bool =
     windowssysWindowsWin32StorageFilesystemReplaceFileFromAppW(lpreplacedfilename.rawAddress.toCPointer<ByteVar>(), lpreplacementfilename.rawAddress.toCPointer<ByteVar>(), lpbackupfilename.rawAddress.toCPointer<ByteVar>(), dwreplaceflags, lpexclude.rawAddress.toCPointer<ByteVar>(), lpreserved.rawAddress.toCPointer<ByteVar>())
 
-public actual fun replaceFileW(lpreplacedfilename: Pcwstr, lpreplacementfilename: Pcwstr, lpbackupfilename: Pcwstr, dwreplaceflags: ReplaceFileFlags, lpexclude: ConstPtr<CVoid>, lpreserved: ConstPtr<CVoid>): Bool =
+public actual fun replaceFileW(lpreplacedfilename: Pcwstr, lpreplacementfilename: Pcwstr, lpbackupfilename: Pcwstr, dwreplaceflags: ReplaceFileFlags, lpexclude: ConstPtr, lpreserved: ConstPtr): Bool =
     windowssysWindowsWin32StorageFilesystemReplaceFileW(lpreplacedfilename.rawAddress.toCPointer<ByteVar>(), lpreplacementfilename.rawAddress.toCPointer<ByteVar>(), lpbackupfilename.rawAddress.toCPointer<ByteVar>(), dwreplaceflags, lpexclude.rawAddress.toCPointer<ByteVar>(), lpreserved.rawAddress.toCPointer<ByteVar>())
 
-public actual fun reserveAndAppendLog(pvmarshal: MutPtr<CVoid>, rgwriteentries: MutPtr<ClsWriteEntry>, cwriteentries: UInt, plsnundonext: MutPtr<ClsLsn>, plsnprevious: MutPtr<ClsLsn>, creserverecords: UInt, rgcbreservation: MutPtr<Long>, fflags: ClfsFlag, plsn: MutPtr<ClsLsn>, poverlapped: MutPtr<Overlapped>): Bool =
+public actual fun reserveAndAppendLog(pvmarshal: MutPtr, rgwriteentries: MutPtr, cwriteentries: UInt, plsnundonext: MutPtr, plsnprevious: MutPtr, creserverecords: UInt, rgcbreservation: MutPtr, fflags: ClfsFlag, plsn: MutPtr, poverlapped: MutPtr): Bool =
     windowssysWindowsWin32StorageFilesystemReserveAndAppendLog(pvmarshal.rawAddress.toCPointer<ByteVar>(), rgwriteentries.rawAddress.toCPointer<ByteVar>(), cwriteentries, plsnundonext.rawAddress.toCPointer<ByteVar>(), plsnprevious.rawAddress.toCPointer<ByteVar>(), creserverecords, rgcbreservation.rawAddress.toCPointer<ByteVar>(), fflags, plsn.rawAddress.toCPointer<ByteVar>(), poverlapped.rawAddress.toCPointer<ByteVar>())
 
-public actual fun reserveAndAppendLogAligned(pvmarshal: MutPtr<CVoid>, rgwriteentries: MutPtr<ClsWriteEntry>, cwriteentries: UInt, cbentryalignment: UInt, plsnundonext: MutPtr<ClsLsn>, plsnprevious: MutPtr<ClsLsn>, creserverecords: UInt, rgcbreservation: MutPtr<Long>, fflags: ClfsFlag, plsn: MutPtr<ClsLsn>, poverlapped: MutPtr<Overlapped>): Bool =
+public actual fun reserveAndAppendLogAligned(pvmarshal: MutPtr, rgwriteentries: MutPtr, cwriteentries: UInt, cbentryalignment: UInt, plsnundonext: MutPtr, plsnprevious: MutPtr, creserverecords: UInt, rgcbreservation: MutPtr, fflags: ClfsFlag, plsn: MutPtr, poverlapped: MutPtr): Bool =
     windowssysWindowsWin32StorageFilesystemReserveAndAppendLogAligned(pvmarshal.rawAddress.toCPointer<ByteVar>(), rgwriteentries.rawAddress.toCPointer<ByteVar>(), cwriteentries, cbentryalignment, plsnundonext.rawAddress.toCPointer<ByteVar>(), plsnprevious.rawAddress.toCPointer<ByteVar>(), creserverecords, rgcbreservation.rawAddress.toCPointer<ByteVar>(), fflags, plsn.rawAddress.toCPointer<ByteVar>(), poverlapped.rawAddress.toCPointer<ByteVar>())
 
-public actual fun rollbackComplete(enlistmenthandle: Handle, tmvirtualclock: MutPtr<Long>): Bool =
+public actual fun rollbackComplete(enlistmenthandle: Handle, tmvirtualclock: MutPtr): Bool =
     windowssysWindowsWin32StorageFilesystemRollbackComplete(enlistmenthandle.rawAddress.toCPointer<ByteVar>(), tmvirtualclock.rawAddress.toCPointer<ByteVar>())
 
-public actual fun rollbackEnlistment(enlistmenthandle: Handle, tmvirtualclock: MutPtr<Long>): Bool =
+public actual fun rollbackEnlistment(enlistmenthandle: Handle, tmvirtualclock: MutPtr): Bool =
     windowssysWindowsWin32StorageFilesystemRollbackEnlistment(enlistmenthandle.rawAddress.toCPointer<ByteVar>(), tmvirtualclock.rawAddress.toCPointer<ByteVar>())
 
 public actual fun rollbackTransaction(transactionhandle: Handle): Bool =
@@ -1410,28 +1405,28 @@ public actual fun rollbackTransaction(transactionhandle: Handle): Bool =
 public actual fun rollbackTransactionAsync(transactionhandle: Handle): Bool =
     windowssysWindowsWin32StorageFilesystemRollbackTransactionAsync(transactionhandle.rawAddress.toCPointer<ByteVar>())
 
-public actual fun rollforwardTransactionManager(transactionmanagerhandle: Handle, tmvirtualclock: MutPtr<Long>): Bool =
+public actual fun rollforwardTransactionManager(transactionmanagerhandle: Handle, tmvirtualclock: MutPtr): Bool =
     windowssysWindowsWin32StorageFilesystemRollforwardTransactionManager(transactionmanagerhandle.rawAddress.toCPointer<ByteVar>(), tmvirtualclock.rawAddress.toCPointer<ByteVar>())
 
-public actual fun scanLogContainers(pcxscan: MutPtr<ClsScanContext>, escanmode: UByte, preserved: MutPtr<CVoid>): Bool =
+public actual fun scanLogContainers(pcxscan: MutPtr, escanmode: UByte, preserved: MutPtr): Bool =
     windowssysWindowsWin32StorageFilesystemScanLogContainers(pcxscan.rawAddress.toCPointer<ByteVar>(), escanmode, preserved.rawAddress.toCPointer<ByteVar>())
 
-public actual fun searchPathA(lppath: Pcstr, lpfilename: Pcstr, lpextension: Pcstr, nbufferlength: UInt, lpbuffer: Pstr, lpfilepart: MutPtr<Pstr>): UInt =
+public actual fun searchPathA(lppath: Pcstr, lpfilename: Pcstr, lpextension: Pcstr, nbufferlength: UInt, lpbuffer: Pstr, lpfilepart: MutPtr): UInt =
     windowssysWindowsWin32StorageFilesystemSearchPathA(lppath.rawAddress.toCPointer<ByteVar>(), lpfilename.rawAddress.toCPointer<ByteVar>(), lpextension.rawAddress.toCPointer<ByteVar>(), nbufferlength, lpbuffer.rawAddress.toCPointer<ByteVar>(), lpfilepart.rawAddress.toCPointer<ByteVar>())
 
-public actual fun searchPathW(lppath: Pcwstr, lpfilename: Pcwstr, lpextension: Pcwstr, nbufferlength: UInt, lpbuffer: Pwstr, lpfilepart: MutPtr<Pwstr>): UInt =
+public actual fun searchPathW(lppath: Pcwstr, lpfilename: Pcwstr, lpextension: Pcwstr, nbufferlength: UInt, lpbuffer: Pwstr, lpfilepart: MutPtr): UInt =
     windowssysWindowsWin32StorageFilesystemSearchPathW(lppath.rawAddress.toCPointer<ByteVar>(), lpfilename.rawAddress.toCPointer<ByteVar>(), lpextension.rawAddress.toCPointer<ByteVar>(), nbufferlength, lpbuffer.rawAddress.toCPointer<ByteVar>(), lpfilepart.rawAddress.toCPointer<ByteVar>())
 
-public actual fun setEncryptedFileMetadata(lpfilename: Pcwstr, pboldmetadata: ConstPtr<UByte>, pbnewmetadata: ConstPtr<UByte>, pownerhash: ConstPtr<EncryptionCertificateHash>, dwoperation: UInt, pcertificatesadded: ConstPtr<EncryptionCertificateHashList>): UInt =
+public actual fun setEncryptedFileMetadata(lpfilename: Pcwstr, pboldmetadata: ConstPtr, pbnewmetadata: ConstPtr, pownerhash: ConstPtr, dwoperation: UInt, pcertificatesadded: ConstPtr): UInt =
     windowssysWindowsWin32StorageFilesystemSetEncryptedFileMetadata(lpfilename.rawAddress.toCPointer<ByteVar>(), pboldmetadata.rawAddress.toCPointer<ByteVar>(), pbnewmetadata.rawAddress.toCPointer<ByteVar>(), pownerhash.rawAddress.toCPointer<ByteVar>(), dwoperation, pcertificatesadded.rawAddress.toCPointer<ByteVar>())
 
 public actual fun setEndOfFile(hfile: Handle): Bool =
     windowssysWindowsWin32StorageFilesystemSetEndOfFile(hfile.rawAddress.toCPointer<ByteVar>())
 
-public actual fun setEndOfLog(hlog: Handle, plsnend: MutPtr<ClsLsn>, lpoverlapped: MutPtr<Overlapped>): Bool =
+public actual fun setEndOfLog(hlog: Handle, plsnend: MutPtr, lpoverlapped: MutPtr): Bool =
     windowssysWindowsWin32StorageFilesystemSetEndOfLog(hlog.rawAddress.toCPointer<ByteVar>(), plsnend.rawAddress.toCPointer<ByteVar>(), lpoverlapped.rawAddress.toCPointer<ByteVar>())
 
-public actual fun setEnlistmentRecoveryInformation(enlistmenthandle: Handle, buffersize: UInt, buffer: MutPtr<CVoid>): Bool =
+public actual fun setEnlistmentRecoveryInformation(enlistmenthandle: Handle, buffersize: UInt, buffer: MutPtr): Bool =
     windowssysWindowsWin32StorageFilesystemSetEnlistmentRecoveryInformation(enlistmenthandle.rawAddress.toCPointer<ByteVar>(), buffersize, buffer.rawAddress.toCPointer<ByteVar>())
 
 public actual fun setFileApisToANSI() {
@@ -1457,22 +1452,22 @@ public actual fun setFileAttributesTransactedW(lpfilename: Pcwstr, dwfileattribu
 public actual fun setFileAttributesW(lpfilename: Pcwstr, dwfileattributes: FileFlagsAndAttributes): Bool =
     windowssysWindowsWin32StorageFilesystemSetFileAttributesW(lpfilename.rawAddress.toCPointer<ByteVar>(), dwfileattributes)
 
-public actual fun setFileBandwidthReservation(hfile: Handle, nperiodmilliseconds: UInt, nbytesperperiod: UInt, bdiscardable: Bool, lptransfersize: MutPtr<UInt>, lpnumoutstandingrequests: MutPtr<UInt>): Bool =
+public actual fun setFileBandwidthReservation(hfile: Handle, nperiodmilliseconds: UInt, nbytesperperiod: UInt, bdiscardable: Bool, lptransfersize: MutPtr, lpnumoutstandingrequests: MutPtr): Bool =
     windowssysWindowsWin32StorageFilesystemSetFileBandwidthReservation(hfile.rawAddress.toCPointer<ByteVar>(), nperiodmilliseconds, nbytesperperiod, bdiscardable, lptransfersize.rawAddress.toCPointer<ByteVar>(), lpnumoutstandingrequests.rawAddress.toCPointer<ByteVar>())
 
 public actual fun setFileCompletionNotificationModes(filehandle: Handle, flags: UByte): Bool =
     windowssysWindowsWin32StorageFilesystemSetFileCompletionNotificationModes(filehandle.rawAddress.toCPointer<ByteVar>(), flags)
 
-public actual fun setFileInformationByHandle(hfile: Handle, fileinformationclass: FileInfoByHandleClass, lpfileinformation: ConstPtr<CVoid>, dwbuffersize: UInt): Bool =
+public actual fun setFileInformationByHandle(hfile: Handle, fileinformationclass: FileInfoByHandleClass, lpfileinformation: ConstPtr, dwbuffersize: UInt): Bool =
     windowssysWindowsWin32StorageFilesystemSetFileInformationByHandle(hfile.rawAddress.toCPointer<ByteVar>(), fileinformationclass, lpfileinformation.rawAddress.toCPointer<ByteVar>(), dwbuffersize)
 
-public actual fun setFileIoOverlappedRange(filehandle: Handle, overlappedrangestart: ConstPtr<UByte>, length: UInt): Bool =
+public actual fun setFileIoOverlappedRange(filehandle: Handle, overlappedrangestart: ConstPtr, length: UInt): Bool =
     windowssysWindowsWin32StorageFilesystemSetFileIoOverlappedRange(filehandle.rawAddress.toCPointer<ByteVar>(), overlappedrangestart.rawAddress.toCPointer<ByteVar>(), length)
 
-public actual fun setFilePointer(hfile: Handle, ldistancetomove: Int, lpdistancetomovehigh: MutPtr<Int>, dwmovemethod: SetFilePointerMoveMethod): UInt =
+public actual fun setFilePointer(hfile: Handle, ldistancetomove: Int, lpdistancetomovehigh: MutPtr, dwmovemethod: SetFilePointerMoveMethod): UInt =
     windowssysWindowsWin32StorageFilesystemSetFilePointer(hfile.rawAddress.toCPointer<ByteVar>(), ldistancetomove, lpdistancetomovehigh.rawAddress.toCPointer<ByteVar>(), dwmovemethod)
 
-public actual fun setFilePointerEx(hfile: Handle, lidistancetomove: Long, lpnewfilepointer: MutPtr<Long>, dwmovemethod: SetFilePointerMoveMethod): Bool =
+public actual fun setFilePointerEx(hfile: Handle, lidistancetomove: Long, lpnewfilepointer: MutPtr, dwmovemethod: SetFilePointerMoveMethod): Bool =
     windowssysWindowsWin32StorageFilesystemSetFilePointerEx(hfile.rawAddress.toCPointer<ByteVar>(), lidistancetomove, lpnewfilepointer.rawAddress.toCPointer<ByteVar>(), dwmovemethod)
 
 public actual fun setFileShortNameA(hfile: Handle, lpshortname: Pcstr): Bool =
@@ -1481,7 +1476,7 @@ public actual fun setFileShortNameA(hfile: Handle, lpshortname: Pcstr): Bool =
 public actual fun setFileShortNameW(hfile: Handle, lpshortname: Pcwstr): Bool =
     windowssysWindowsWin32StorageFilesystemSetFileShortNameW(hfile.rawAddress.toCPointer<ByteVar>(), lpshortname.rawAddress.toCPointer<ByteVar>())
 
-public actual fun setFileTime(hfile: Handle, lpcreationtime: ConstPtr<Filetime>, lplastaccesstime: ConstPtr<Filetime>, lplastwritetime: ConstPtr<Filetime>): Bool =
+public actual fun setFileTime(hfile: Handle, lpcreationtime: ConstPtr, lplastaccesstime: ConstPtr, lplastwritetime: ConstPtr): Bool =
     windowssysWindowsWin32StorageFilesystemSetFileTime(hfile.rawAddress.toCPointer<ByteVar>(), lpcreationtime.rawAddress.toCPointer<ByteVar>(), lplastaccesstime.rawAddress.toCPointer<ByteVar>(), lplastwritetime.rawAddress.toCPointer<ByteVar>())
 
 public actual fun setFileValidData(hfile: Handle, validdatalength: Long): Bool =
@@ -1493,10 +1488,10 @@ public actual fun setIoRingCompletionEvent(ioring: Hioring, hevent: Handle): Hre
 public actual fun setLogArchiveMode(hlog: Handle, emode: ClfsLogArchiveMode): Bool =
     windowssysWindowsWin32StorageFilesystemSetLogArchiveMode(hlog.rawAddress.toCPointer<ByteVar>(), emode)
 
-public actual fun setLogArchiveTail(hlog: Handle, plsnarchivetail: MutPtr<ClsLsn>, preserved: MutPtr<CVoid>): Bool =
+public actual fun setLogArchiveTail(hlog: Handle, plsnarchivetail: MutPtr, preserved: MutPtr): Bool =
     windowssysWindowsWin32StorageFilesystemSetLogArchiveTail(hlog.rawAddress.toCPointer<ByteVar>(), plsnarchivetail.rawAddress.toCPointer<ByteVar>(), preserved.rawAddress.toCPointer<ByteVar>())
 
-public actual fun setLogFileSizeWithPolicy(hlog: Handle, pdesiredsize: ConstPtr<ULong>, presultingsize: MutPtr<ULong>): Bool =
+public actual fun setLogFileSizeWithPolicy(hlog: Handle, pdesiredsize: ConstPtr, presultingsize: MutPtr): Bool =
     windowssysWindowsWin32StorageFilesystemSetLogFileSizeWithPolicy(hlog.rawAddress.toCPointer<ByteVar>(), pdesiredsize.rawAddress.toCPointer<ByteVar>(), presultingsize.rawAddress.toCPointer<ByteVar>())
 
 public actual fun setResourceManagerCompletionPort(resourcemanagerhandle: Handle, iocompletionporthandle: Handle, completionkey: ULong): Bool =
@@ -1505,7 +1500,7 @@ public actual fun setResourceManagerCompletionPort(resourcemanagerhandle: Handle
 public actual fun setSearchPathMode(flags: UInt): Bool =
     windowssysWindowsWin32StorageFilesystemSetSearchPathMode(flags)
 
-public actual fun setTapeParameters(hdevice: Handle, dwoperation: TapeInformationType, lptapeinformation: ConstPtr<CVoid>): UInt =
+public actual fun setTapeParameters(hdevice: Handle, dwoperation: TapeInformationType, lptapeinformation: ConstPtr): UInt =
     windowssysWindowsWin32StorageFilesystemSetTapeParameters(hdevice.rawAddress.toCPointer<ByteVar>(), dwoperation, lptapeinformation.rawAddress.toCPointer<ByteVar>())
 
 public actual fun setTapePosition(hdevice: Handle, dwpositionmethod: TapePositionMethod, dwpartition: UInt, dwoffsetlow: UInt, dwoffsethigh: UInt, bimmediate: Bool): UInt =
@@ -1514,10 +1509,10 @@ public actual fun setTapePosition(hdevice: Handle, dwpositionmethod: TapePositio
 public actual fun setTransactionInformation(transactionhandle: Handle, isolationlevel: UInt, isolationflags: UInt, timeout: UInt, description: Pcwstr): Bool =
     windowssysWindowsWin32StorageFilesystemSetTransactionInformation(transactionhandle.rawAddress.toCPointer<ByteVar>(), isolationlevel, isolationflags, timeout, description.rawAddress.toCPointer<ByteVar>())
 
-public actual fun setUserFileEncryptionKey(pencryptioncertificate: ConstPtr<EncryptionCertificate>): UInt =
+public actual fun setUserFileEncryptionKey(pencryptioncertificate: ConstPtr): UInt =
     windowssysWindowsWin32StorageFilesystemSetUserFileEncryptionKey(pencryptioncertificate.rawAddress.toCPointer<ByteVar>())
 
-public actual fun setUserFileEncryptionKeyEx(pencryptioncertificate: ConstPtr<EncryptionCertificate>, dwcapabilities: UInt, dwflags: UInt, pvreserved: ConstPtr<CVoid>): UInt =
+public actual fun setUserFileEncryptionKeyEx(pencryptioncertificate: ConstPtr, dwcapabilities: UInt, dwflags: UInt, pvreserved: ConstPtr): UInt =
     windowssysWindowsWin32StorageFilesystemSetUserFileEncryptionKeyEx(pencryptioncertificate.rawAddress.toCPointer<ByteVar>(), dwcapabilities, dwflags, pvreserved.rawAddress.toCPointer<ByteVar>())
 
 public actual fun setVolumeLabelA(lprootpathname: Pcstr, lpvolumename: Pcstr): Bool =
@@ -1532,44 +1527,44 @@ public actual fun setVolumeMountPointA(lpszvolumemountpoint: Pcstr, lpszvolumena
 public actual fun setVolumeMountPointW(lpszvolumemountpoint: Pcwstr, lpszvolumename: Pcwstr): Bool =
     windowssysWindowsWin32StorageFilesystemSetVolumeMountPointW(lpszvolumemountpoint.rawAddress.toCPointer<ByteVar>(), lpszvolumename.rawAddress.toCPointer<ByteVar>())
 
-public actual fun singlePhaseReject(enlistmenthandle: Handle, tmvirtualclock: MutPtr<Long>): Bool =
+public actual fun singlePhaseReject(enlistmenthandle: Handle, tmvirtualclock: MutPtr): Bool =
     windowssysWindowsWin32StorageFilesystemSinglePhaseReject(enlistmenthandle.rawAddress.toCPointer<ByteVar>(), tmvirtualclock.rawAddress.toCPointer<ByteVar>())
 
-public actual fun submitIoRing(ioring: Hioring, waitoperations: UInt, milliseconds: UInt, submittedentries: MutPtr<UInt>): Hresult =
+public actual fun submitIoRing(ioring: Hioring, waitoperations: UInt, milliseconds: UInt, submittedentries: MutPtr): Hresult =
     windowssysWindowsWin32StorageFilesystemSubmitIoRing(ioring.rawAddress.toCPointer<ByteVar>(), waitoperations, milliseconds, submittedentries.rawAddress.toCPointer<ByteVar>())
 
-public actual fun terminateLogArchive(pvarchivecontext: MutPtr<CVoid>): Bool =
+public actual fun terminateLogArchive(pvarchivecontext: MutPtr): Bool =
     windowssysWindowsWin32StorageFilesystemTerminateLogArchive(pvarchivecontext.rawAddress.toCPointer<ByteVar>())
 
-public actual fun terminateReadLog(pvcursorcontext: MutPtr<CVoid>): Bool =
+public actual fun terminateReadLog(pvcursorcontext: MutPtr): Bool =
     windowssysWindowsWin32StorageFilesystemTerminateReadLog(pvcursorcontext.rawAddress.toCPointer<ByteVar>())
 
-public actual fun truncateLog(pvmarshal: ConstPtr<CVoid>, plsnend: ConstPtr<ClsLsn>, lpoverlapped: MutPtr<Overlapped>): Bool =
+public actual fun truncateLog(pvmarshal: ConstPtr, plsnend: ConstPtr, lpoverlapped: MutPtr): Bool =
     windowssysWindowsWin32StorageFilesystemTruncateLog(pvmarshal.rawAddress.toCPointer<ByteVar>(), plsnend.rawAddress.toCPointer<ByteVar>(), lpoverlapped.rawAddress.toCPointer<ByteVar>())
 
-public actual fun txfGetThreadMiniVersionForCreate(miniversion: MutPtr<UShort>) {
+public actual fun txfGetThreadMiniVersionForCreate(miniversion: MutPtr) {
     windowssysWindowsWin32StorageFilesystemTxfGetThreadMiniVersionForCreate(miniversion.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun txfLogCreateFileReadContext(logpath: Pcwstr, beginninglsn: ClsLsn, endinglsn: ClsLsn, txffileid: ConstPtr<TxfId>, txflogcontext: MutPtr<MutPtr<CVoid>>): Bool =
+public actual fun txfLogCreateFileReadContext(logpath: Pcwstr, beginninglsn: ClsLsn, endinglsn: ClsLsn, txffileid: ConstPtr, txflogcontext: MutPtr): Bool =
     0
 
-public actual fun txfLogCreateRangeReadContext(logpath: Pcwstr, beginninglsn: ClsLsn, endinglsn: ClsLsn, beginningvirtualclock: ConstPtr<Long>, endingvirtualclock: ConstPtr<Long>, recordtypemask: UInt, txflogcontext: MutPtr<MutPtr<CVoid>>): Bool =
+public actual fun txfLogCreateRangeReadContext(logpath: Pcwstr, beginninglsn: ClsLsn, endinglsn: ClsLsn, beginningvirtualclock: ConstPtr, endingvirtualclock: ConstPtr, recordtypemask: UInt, txflogcontext: MutPtr): Bool =
     0
 
-public actual fun txfLogDestroyReadContext(txflogcontext: ConstPtr<CVoid>): Bool =
+public actual fun txfLogDestroyReadContext(txflogcontext: ConstPtr): Bool =
     windowssysWindowsWin32StorageFilesystemTxfLogDestroyReadContext(txflogcontext.rawAddress.toCPointer<ByteVar>())
 
-public actual fun txfLogReadRecords(txflogcontext: ConstPtr<CVoid>, bufferlength: UInt, buffer: MutPtr<CVoid>, bytesused: MutPtr<UInt>, recordcount: MutPtr<UInt>): Bool =
+public actual fun txfLogReadRecords(txflogcontext: ConstPtr, bufferlength: UInt, buffer: MutPtr, bytesused: MutPtr, recordcount: MutPtr): Bool =
     windowssysWindowsWin32StorageFilesystemTxfLogReadRecords(txflogcontext.rawAddress.toCPointer<ByteVar>(), bufferlength, buffer.rawAddress.toCPointer<ByteVar>(), bytesused.rawAddress.toCPointer<ByteVar>(), recordcount.rawAddress.toCPointer<ByteVar>())
 
-public actual fun txfLogRecordGetFileName(recordbuffer: ConstPtr<CVoid>, recordbufferlengthinbytes: UInt, namebuffer: Pwstr, namebufferlengthinbytes: MutPtr<UInt>, txfid: MutPtr<TxfId>): Bool =
+public actual fun txfLogRecordGetFileName(recordbuffer: ConstPtr, recordbufferlengthinbytes: UInt, namebuffer: Pwstr, namebufferlengthinbytes: MutPtr, txfid: MutPtr): Bool =
     windowssysWindowsWin32StorageFilesystemTxfLogRecordGetFileName(recordbuffer.rawAddress.toCPointer<ByteVar>(), recordbufferlengthinbytes, namebuffer.rawAddress.toCPointer<ByteVar>(), namebufferlengthinbytes.rawAddress.toCPointer<ByteVar>(), txfid.rawAddress.toCPointer<ByteVar>())
 
-public actual fun txfLogRecordGetGenericType(recordbuffer: ConstPtr<CVoid>, recordbufferlengthinbytes: UInt, generictype: MutPtr<UInt>, virtualclock: MutPtr<Long>): Bool =
+public actual fun txfLogRecordGetGenericType(recordbuffer: ConstPtr, recordbufferlengthinbytes: UInt, generictype: MutPtr, virtualclock: MutPtr): Bool =
     windowssysWindowsWin32StorageFilesystemTxfLogRecordGetGenericType(recordbuffer.rawAddress.toCPointer<ByteVar>(), recordbufferlengthinbytes, generictype.rawAddress.toCPointer<ByteVar>(), virtualclock.rawAddress.toCPointer<ByteVar>())
 
-public actual fun txfReadMetadataInfo(filehandle: Handle, txffileid: MutPtr<TxfId>, lastlsn: MutPtr<ClsLsn>, transactionstate: MutPtr<UInt>, lockingtransaction: MutPtr<Guid>): Bool =
+public actual fun txfReadMetadataInfo(filehandle: Handle, txffileid: MutPtr, lastlsn: MutPtr, transactionstate: MutPtr, lockingtransaction: MutPtr): Bool =
     windowssysWindowsWin32StorageFilesystemTxfReadMetadataInfo(filehandle.rawAddress.toCPointer<ByteVar>(), txffileid.rawAddress.toCPointer<ByteVar>(), lastlsn.rawAddress.toCPointer<ByteVar>(), transactionstate.rawAddress.toCPointer<ByteVar>(), lockingtransaction.rawAddress.toCPointer<ByteVar>())
 
 public actual fun txfSetThreadMiniVersionForCreate(miniversion: UShort) {
@@ -1579,22 +1574,22 @@ public actual fun txfSetThreadMiniVersionForCreate(miniversion: UShort) {
 public actual fun unlockFile(hfile: Handle, dwfileoffsetlow: UInt, dwfileoffsethigh: UInt, nnumberofbytestounlocklow: UInt, nnumberofbytestounlockhigh: UInt): Bool =
     windowssysWindowsWin32StorageFilesystemUnlockFile(hfile.rawAddress.toCPointer<ByteVar>(), dwfileoffsetlow, dwfileoffsethigh, nnumberofbytestounlocklow, nnumberofbytestounlockhigh)
 
-public actual fun unlockFileEx(hfile: Handle, dwreserved: UInt, nnumberofbytestounlocklow: UInt, nnumberofbytestounlockhigh: UInt, lpoverlapped: MutPtr<Overlapped>): Bool =
+public actual fun unlockFileEx(hfile: Handle, dwreserved: UInt, nnumberofbytestounlocklow: UInt, nnumberofbytestounlockhigh: UInt, lpoverlapped: MutPtr): Bool =
     windowssysWindowsWin32StorageFilesystemUnlockFileEx(hfile.rawAddress.toCPointer<ByteVar>(), dwreserved, nnumberofbytestounlocklow, nnumberofbytestounlockhigh, lpoverlapped.rawAddress.toCPointer<ByteVar>())
 
-public actual fun validateLog(pszlogfilename: Pcwstr, psalogfile: MutPtr<SecurityAttributes>, pinfobuffer: MutPtr<ClsInformation>, pcbbuffer: MutPtr<UInt>): Bool =
+public actual fun validateLog(pszlogfilename: Pcwstr, psalogfile: MutPtr, pinfobuffer: MutPtr, pcbbuffer: MutPtr): Bool =
     windowssysWindowsWin32StorageFilesystemValidateLog(pszlogfilename.rawAddress.toCPointer<ByteVar>(), psalogfile.rawAddress.toCPointer<ByteVar>(), pinfobuffer.rawAddress.toCPointer<ByteVar>(), pcbbuffer.rawAddress.toCPointer<ByteVar>())
 
-public actual fun verFindFileA(uflags: VerFindFileFlags, szfilename: Pcstr, szwindir: Pcstr, szappdir: Pcstr, szcurdir: Pstr, pucurdirlen: MutPtr<UInt>, szdestdir: Pstr, pudestdirlen: MutPtr<UInt>): VerFindFileStatus =
+public actual fun verFindFileA(uflags: VerFindFileFlags, szfilename: Pcstr, szwindir: Pcstr, szappdir: Pcstr, szcurdir: Pstr, pucurdirlen: MutPtr, szdestdir: Pstr, pudestdirlen: MutPtr): VerFindFileStatus =
     windowssysWindowsWin32StorageFilesystemVerFindFileA(uflags, szfilename.rawAddress.toCPointer<ByteVar>(), szwindir.rawAddress.toCPointer<ByteVar>(), szappdir.rawAddress.toCPointer<ByteVar>(), szcurdir.rawAddress.toCPointer<ByteVar>(), pucurdirlen.rawAddress.toCPointer<ByteVar>(), szdestdir.rawAddress.toCPointer<ByteVar>(), pudestdirlen.rawAddress.toCPointer<ByteVar>())
 
-public actual fun verFindFileW(uflags: VerFindFileFlags, szfilename: Pcwstr, szwindir: Pcwstr, szappdir: Pcwstr, szcurdir: Pwstr, pucurdirlen: MutPtr<UInt>, szdestdir: Pwstr, pudestdirlen: MutPtr<UInt>): VerFindFileStatus =
+public actual fun verFindFileW(uflags: VerFindFileFlags, szfilename: Pcwstr, szwindir: Pcwstr, szappdir: Pcwstr, szcurdir: Pwstr, pucurdirlen: MutPtr, szdestdir: Pwstr, pudestdirlen: MutPtr): VerFindFileStatus =
     windowssysWindowsWin32StorageFilesystemVerFindFileW(uflags, szfilename.rawAddress.toCPointer<ByteVar>(), szwindir.rawAddress.toCPointer<ByteVar>(), szappdir.rawAddress.toCPointer<ByteVar>(), szcurdir.rawAddress.toCPointer<ByteVar>(), pucurdirlen.rawAddress.toCPointer<ByteVar>(), szdestdir.rawAddress.toCPointer<ByteVar>(), pudestdirlen.rawAddress.toCPointer<ByteVar>())
 
-public actual fun verInstallFileA(uflags: VerInstallFileFlags, szsrcfilename: Pcstr, szdestfilename: Pcstr, szsrcdir: Pcstr, szdestdir: Pcstr, szcurdir: Pcstr, sztmpfile: Pstr, putmpfilelen: MutPtr<UInt>): VerInstallFileStatus =
+public actual fun verInstallFileA(uflags: VerInstallFileFlags, szsrcfilename: Pcstr, szdestfilename: Pcstr, szsrcdir: Pcstr, szdestdir: Pcstr, szcurdir: Pcstr, sztmpfile: Pstr, putmpfilelen: MutPtr): VerInstallFileStatus =
     windowssysWindowsWin32StorageFilesystemVerInstallFileA(uflags, szsrcfilename.rawAddress.toCPointer<ByteVar>(), szdestfilename.rawAddress.toCPointer<ByteVar>(), szsrcdir.rawAddress.toCPointer<ByteVar>(), szdestdir.rawAddress.toCPointer<ByteVar>(), szcurdir.rawAddress.toCPointer<ByteVar>(), sztmpfile.rawAddress.toCPointer<ByteVar>(), putmpfilelen.rawAddress.toCPointer<ByteVar>())
 
-public actual fun verInstallFileW(uflags: VerInstallFileFlags, szsrcfilename: Pcwstr, szdestfilename: Pcwstr, szsrcdir: Pcwstr, szdestdir: Pcwstr, szcurdir: Pcwstr, sztmpfile: Pwstr, putmpfilelen: MutPtr<UInt>): VerInstallFileStatus =
+public actual fun verInstallFileW(uflags: VerInstallFileFlags, szsrcfilename: Pcwstr, szdestfilename: Pcwstr, szsrcdir: Pcwstr, szdestdir: Pcwstr, szcurdir: Pcwstr, sztmpfile: Pwstr, putmpfilelen: MutPtr): VerInstallFileStatus =
     windowssysWindowsWin32StorageFilesystemVerInstallFileW(uflags, szsrcfilename.rawAddress.toCPointer<ByteVar>(), szdestfilename.rawAddress.toCPointer<ByteVar>(), szsrcdir.rawAddress.toCPointer<ByteVar>(), szdestdir.rawAddress.toCPointer<ByteVar>(), szcurdir.rawAddress.toCPointer<ByteVar>(), sztmpfile.rawAddress.toCPointer<ByteVar>(), putmpfilelen.rawAddress.toCPointer<ByteVar>())
 
 public actual fun verLanguageNameA(wlang: UInt, szlang: Pstr, cchlang: UInt): UInt =
@@ -1603,34 +1598,34 @@ public actual fun verLanguageNameA(wlang: UInt, szlang: Pstr, cchlang: UInt): UI
 public actual fun verLanguageNameW(wlang: UInt, szlang: Pwstr, cchlang: UInt): UInt =
     windowssysWindowsWin32StorageFilesystemVerLanguageNameW(wlang, szlang.rawAddress.toCPointer<ByteVar>(), cchlang)
 
-public actual fun verQueryValueA(pblock: ConstPtr<CVoid>, lpsubblock: Pcstr, lplpbuffer: MutPtr<MutPtr<CVoid>>, pulen: MutPtr<UInt>): Bool =
+public actual fun verQueryValueA(pblock: ConstPtr, lpsubblock: Pcstr, lplpbuffer: MutPtr, pulen: MutPtr): Bool =
     windowssysWindowsWin32StorageFilesystemVerQueryValueA(pblock.rawAddress.toCPointer<ByteVar>(), lpsubblock.rawAddress.toCPointer<ByteVar>(), lplpbuffer.rawAddress.toCPointer<ByteVar>(), pulen.rawAddress.toCPointer<ByteVar>())
 
-public actual fun verQueryValueW(pblock: ConstPtr<CVoid>, lpsubblock: Pcwstr, lplpbuffer: MutPtr<MutPtr<CVoid>>, pulen: MutPtr<UInt>): Bool =
+public actual fun verQueryValueW(pblock: ConstPtr, lpsubblock: Pcwstr, lplpbuffer: MutPtr, pulen: MutPtr): Bool =
     windowssysWindowsWin32StorageFilesystemVerQueryValueW(pblock.rawAddress.toCPointer<ByteVar>(), lpsubblock.rawAddress.toCPointer<ByteVar>(), lplpbuffer.rawAddress.toCPointer<ByteVar>(), pulen.rawAddress.toCPointer<ByteVar>())
 
-public actual fun wofEnumEntries(volumename: Pcwstr, provider: UInt, enumproc: WofEnumEntryProc, userdata: ConstPtr<CVoid>): Hresult =
+public actual fun wofEnumEntries(volumename: Pcwstr, provider: UInt, enumproc: WofEnumEntryProc, userdata: ConstPtr): Hresult =
     windowssysWindowsWin32StorageFilesystemWofEnumEntries(volumename.rawAddress.toCPointer<ByteVar>(), provider, 0L.toCPointer<ByteVar>(), userdata.rawAddress.toCPointer<ByteVar>())
 
-public actual fun wofFileEnumFiles(volumename: Pcwstr, algorithm: UInt, enumproc: WofEnumFilesProc, userdata: ConstPtr<CVoid>): Hresult =
+public actual fun wofFileEnumFiles(volumename: Pcwstr, algorithm: UInt, enumproc: WofEnumFilesProc, userdata: ConstPtr): Hresult =
     windowssysWindowsWin32StorageFilesystemWofFileEnumFiles(volumename.rawAddress.toCPointer<ByteVar>(), algorithm, 0L.toCPointer<ByteVar>(), userdata.rawAddress.toCPointer<ByteVar>())
 
-public actual fun wofGetDriverVersion(fileorvolumehandle: Handle, provider: UInt, wofversion: MutPtr<UInt>): Hresult =
+public actual fun wofGetDriverVersion(fileorvolumehandle: Handle, provider: UInt, wofversion: MutPtr): Hresult =
     windowssysWindowsWin32StorageFilesystemWofGetDriverVersion(fileorvolumehandle.rawAddress.toCPointer<ByteVar>(), provider, wofversion.rawAddress.toCPointer<ByteVar>())
 
-public actual fun wofIsExternalFile(filepath: Pcwstr, isexternalfile: MutPtr<Bool>, provider: MutPtr<UInt>, externalfileinfo: MutPtr<CVoid>, bufferlength: MutPtr<UInt>): Hresult =
+public actual fun wofIsExternalFile(filepath: Pcwstr, isexternalfile: MutPtr, provider: MutPtr, externalfileinfo: MutPtr, bufferlength: MutPtr): Hresult =
     windowssysWindowsWin32StorageFilesystemWofIsExternalFile(filepath.rawAddress.toCPointer<ByteVar>(), isexternalfile.rawAddress.toCPointer<ByteVar>(), provider.rawAddress.toCPointer<ByteVar>(), externalfileinfo.rawAddress.toCPointer<ByteVar>(), bufferlength.rawAddress.toCPointer<ByteVar>())
 
-public actual fun wofSetFileDataLocation(filehandle: Handle, provider: UInt, externalfileinfo: ConstPtr<CVoid>, length: UInt): Hresult =
+public actual fun wofSetFileDataLocation(filehandle: Handle, provider: UInt, externalfileinfo: ConstPtr, length: UInt): Hresult =
     windowssysWindowsWin32StorageFilesystemWofSetFileDataLocation(filehandle.rawAddress.toCPointer<ByteVar>(), provider, externalfileinfo.rawAddress.toCPointer<ByteVar>(), length)
 
-public actual fun wofShouldCompressBinaries(volume: Pcwstr, algorithm: MutPtr<UInt>): Bool =
+public actual fun wofShouldCompressBinaries(volume: Pcwstr, algorithm: MutPtr): Bool =
     windowssysWindowsWin32StorageFilesystemWofShouldCompressBinaries(volume.rawAddress.toCPointer<ByteVar>(), algorithm.rawAddress.toCPointer<ByteVar>())
 
-public actual fun wofWimAddEntry(volumename: Pcwstr, wimpath: Pcwstr, wimtype: UInt, wimindex: UInt, datasourceid: MutPtr<Long>): Hresult =
+public actual fun wofWimAddEntry(volumename: Pcwstr, wimpath: Pcwstr, wimtype: UInt, wimindex: UInt, datasourceid: MutPtr): Hresult =
     windowssysWindowsWin32StorageFilesystemWofWimAddEntry(volumename.rawAddress.toCPointer<ByteVar>(), wimpath.rawAddress.toCPointer<ByteVar>(), wimtype, wimindex, datasourceid.rawAddress.toCPointer<ByteVar>())
 
-public actual fun wofWimEnumFiles(volumename: Pcwstr, datasourceid: Long, enumproc: WofEnumFilesProc, userdata: ConstPtr<CVoid>): Hresult =
+public actual fun wofWimEnumFiles(volumename: Pcwstr, datasourceid: Long, enumproc: WofEnumFilesProc, userdata: ConstPtr): Hresult =
     windowssysWindowsWin32StorageFilesystemWofWimEnumFiles(volumename.rawAddress.toCPointer<ByteVar>(), datasourceid, 0L.toCPointer<ByteVar>(), userdata.rawAddress.toCPointer<ByteVar>())
 
 public actual fun wofWimRemoveEntry(volumename: Pcwstr, datasourceid: Long): Hresult =
@@ -1642,28 +1637,28 @@ public actual fun wofWimSuspendEntry(volumename: Pcwstr, datasourceid: Long): Hr
 public actual fun wofWimUpdateEntry(volumename: Pcwstr, datasourceid: Long, newwimpath: Pcwstr): Hresult =
     windowssysWindowsWin32StorageFilesystemWofWimUpdateEntry(volumename.rawAddress.toCPointer<ByteVar>(), datasourceid, newwimpath.rawAddress.toCPointer<ByteVar>())
 
-public actual fun wow64DisableWow64FsRedirection(oldvalue: MutPtr<MutPtr<CVoid>>): Bool =
+public actual fun wow64DisableWow64FsRedirection(oldvalue: MutPtr): Bool =
     windowssysWindowsWin32StorageFilesystemWow64DisableWow64FsRedirection(oldvalue.rawAddress.toCPointer<ByteVar>())
 
 public actual fun wow64EnableWow64FsRedirection(wow64fsenableredirection: Boolean): Boolean =
     windowssysWindowsWin32StorageFilesystemWow64EnableWow64FsRedirection(wow64fsenableredirection)
 
-public actual fun wow64RevertWow64FsRedirection(olvalue: ConstPtr<CVoid>): Bool =
+public actual fun wow64RevertWow64FsRedirection(olvalue: ConstPtr): Bool =
     windowssysWindowsWin32StorageFilesystemWow64RevertWow64FsRedirection(olvalue.rawAddress.toCPointer<ByteVar>())
 
-public actual fun writeEncryptedFileRaw(pfimportcallback: PfeImportFunc, pvcallbackcontext: ConstPtr<CVoid>, pvcontext: ConstPtr<CVoid>): UInt =
+public actual fun writeEncryptedFileRaw(pfimportcallback: PfeImportFunc, pvcallbackcontext: ConstPtr, pvcontext: ConstPtr): UInt =
     windowssysWindowsWin32StorageFilesystemWriteEncryptedFileRaw(0L.toCPointer<ByteVar>(), pvcallbackcontext.rawAddress.toCPointer<ByteVar>(), pvcontext.rawAddress.toCPointer<ByteVar>())
 
-public actual fun writeFile(hfile: Handle, lpbuffer: ConstPtr<UByte>, nnumberofbytestowrite: UInt, lpnumberofbyteswritten: MutPtr<UInt>, lpoverlapped: MutPtr<Overlapped>): Bool =
+public actual fun writeFile(hfile: Handle, lpbuffer: ConstPtr, nnumberofbytestowrite: UInt, lpnumberofbyteswritten: MutPtr, lpoverlapped: MutPtr): Bool =
     windowssysWindowsWin32StorageFilesystemWriteFile(hfile.rawAddress.toCPointer<ByteVar>(), lpbuffer.rawAddress.toCPointer<ByteVar>(), nnumberofbytestowrite, lpnumberofbyteswritten.rawAddress.toCPointer<ByteVar>(), lpoverlapped.rawAddress.toCPointer<ByteVar>())
 
-public actual fun writeFileEx(hfile: Handle, lpbuffer: ConstPtr<UByte>, nnumberofbytestowrite: UInt, lpoverlapped: MutPtr<Overlapped>, lpcompletionroutine: LpoverlappedCompletionRoutine): Bool =
+public actual fun writeFileEx(hfile: Handle, lpbuffer: ConstPtr, nnumberofbytestowrite: UInt, lpoverlapped: MutPtr, lpcompletionroutine: LpoverlappedCompletionRoutine): Bool =
     windowssysWindowsWin32StorageFilesystemWriteFileEx(hfile.rawAddress.toCPointer<ByteVar>(), lpbuffer.rawAddress.toCPointer<ByteVar>(), nnumberofbytestowrite, lpoverlapped.rawAddress.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>())
 
-public actual fun writeFileGather(hfile: Handle, asegmentarray: ConstPtr<FileSegmentElement>, nnumberofbytestowrite: UInt, lpreserved: ConstPtr<UInt>, lpoverlapped: MutPtr<Overlapped>): Bool =
+public actual fun writeFileGather(hfile: Handle, asegmentarray: ConstPtr, nnumberofbytestowrite: UInt, lpreserved: ConstPtr, lpoverlapped: MutPtr): Bool =
     windowssysWindowsWin32StorageFilesystemWriteFileGather(hfile.rawAddress.toCPointer<ByteVar>(), asegmentarray.rawAddress.toCPointer<ByteVar>(), nnumberofbytestowrite, lpreserved.rawAddress.toCPointer<ByteVar>(), lpoverlapped.rawAddress.toCPointer<ByteVar>())
 
-public actual fun writeLogRestartArea(pvmarshal: MutPtr<CVoid>, pvrestartbuffer: MutPtr<CVoid>, cbrestartbuffer: UInt, plsnbase: MutPtr<ClsLsn>, fflags: ClfsFlag, pcbwritten: MutPtr<UInt>, plsnnext: MutPtr<ClsLsn>, poverlapped: MutPtr<Overlapped>): Bool =
+public actual fun writeLogRestartArea(pvmarshal: MutPtr, pvrestartbuffer: MutPtr, cbrestartbuffer: UInt, plsnbase: MutPtr, fflags: ClfsFlag, pcbwritten: MutPtr, plsnnext: MutPtr, poverlapped: MutPtr): Bool =
     windowssysWindowsWin32StorageFilesystemWriteLogRestartArea(pvmarshal.rawAddress.toCPointer<ByteVar>(), pvrestartbuffer.rawAddress.toCPointer<ByteVar>(), cbrestartbuffer, plsnbase.rawAddress.toCPointer<ByteVar>(), fflags, pcbwritten.rawAddress.toCPointer<ByteVar>(), plsnnext.rawAddress.toCPointer<ByteVar>(), poverlapped.rawAddress.toCPointer<ByteVar>())
 
 public actual fun writeTapemark(hdevice: Handle, dwtapemarktype: TapemarkType, dwtapemarkcount: UInt, bimmediate: Bool): UInt =

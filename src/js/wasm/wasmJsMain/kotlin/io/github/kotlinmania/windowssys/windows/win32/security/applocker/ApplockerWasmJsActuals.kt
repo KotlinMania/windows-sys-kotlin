@@ -2,7 +2,6 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.security.applocker
 
-import io.github.kotlinmania.rustlang.core.ffi.CVoid
 import io.github.kotlinmania.rustlang.core.ptr.ConstPtr
 import io.github.kotlinmania.rustlang.core.ptr.MutPtr
 import io.github.kotlinmania.windowssys.core.Bool
@@ -48,28 +47,28 @@ private external fun wasmWindowssysWindowsWin32SecurityApplockerSaferiIsExecutab
 public actual fun saferCloseLevel(hlevelhandle: SaferLevelHandle): Bool =
     if (windowsWin32SecurityApplockerNapiAvailable) wasmWindowssysWindowsWin32SecurityApplockerSaferCloseLevel(hlevelhandle.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun saferComputeTokenFromLevel(levelhandle: SaferLevelHandle, inaccesstoken: Handle, outaccesstoken: MutPtr<Handle>, dwflags: SaferComputeTokenFromLevelFlags, lpreserved: MutPtr<CVoid>): Bool =
+public actual fun saferComputeTokenFromLevel(levelhandle: SaferLevelHandle, inaccesstoken: Handle, outaccesstoken: MutPtr, dwflags: SaferComputeTokenFromLevelFlags, lpreserved: MutPtr): Bool =
     if (windowsWin32SecurityApplockerNapiAvailable) wasmWindowssysWindowsWin32SecurityApplockerSaferComputeTokenFromLevel(levelhandle.rawAddress.toString(), inaccesstoken.rawAddress.toString(), outaccesstoken.rawAddress.toString(), dwflags.toInt(), lpreserved.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun saferCreateLevel(dwscopeid: UInt, dwlevelid: UInt, openflags: UInt, plevelhandle: MutPtr<SaferLevelHandle>, lpreserved: ConstPtr<CVoid>): Bool =
+public actual fun saferCreateLevel(dwscopeid: UInt, dwlevelid: UInt, openflags: UInt, plevelhandle: MutPtr, lpreserved: ConstPtr): Bool =
     if (windowsWin32SecurityApplockerNapiAvailable) wasmWindowssysWindowsWin32SecurityApplockerSaferCreateLevel(dwscopeid.toInt(), dwlevelid.toInt(), openflags.toInt(), plevelhandle.rawAddress.toString(), lpreserved.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun saferGetLevelInformation(levelhandle: SaferLevelHandle, dwinfotype: SaferObjectInfoClass, lpquerybuffer: MutPtr<CVoid>, dwinbuffersize: UInt, lpdwoutbuffersize: MutPtr<UInt>): Bool =
+public actual fun saferGetLevelInformation(levelhandle: SaferLevelHandle, dwinfotype: SaferObjectInfoClass, lpquerybuffer: MutPtr, dwinbuffersize: UInt, lpdwoutbuffersize: MutPtr): Bool =
     if (windowsWin32SecurityApplockerNapiAvailable) wasmWindowssysWindowsWin32SecurityApplockerSaferGetLevelInformation(levelhandle.rawAddress.toString(), dwinfotype, lpquerybuffer.rawAddress.toString(), dwinbuffersize.toInt(), lpdwoutbuffersize.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun saferGetPolicyInformation(dwscopeid: UInt, saferpolicyinfoclass: SaferPolicyInfoClass, infobuffersize: UInt, infobuffer: MutPtr<CVoid>, infobufferretsize: MutPtr<UInt>, lpreserved: ConstPtr<CVoid>): Bool =
+public actual fun saferGetPolicyInformation(dwscopeid: UInt, saferpolicyinfoclass: SaferPolicyInfoClass, infobuffersize: UInt, infobuffer: MutPtr, infobufferretsize: MutPtr, lpreserved: ConstPtr): Bool =
     if (windowsWin32SecurityApplockerNapiAvailable) wasmWindowssysWindowsWin32SecurityApplockerSaferGetPolicyInformation(dwscopeid.toInt(), saferpolicyinfoclass, infobuffersize.toInt(), infobuffer.rawAddress.toString(), infobufferretsize.rawAddress.toString(), lpreserved.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun saferIdentifyLevel(dwnumproperties: UInt, pcodeproperties: ConstPtr<SaferCodePropertiesV2>, plevelhandle: MutPtr<SaferLevelHandle>, lpreserved: ConstPtr<CVoid>): Bool =
+public actual fun saferIdentifyLevel(dwnumproperties: UInt, pcodeproperties: ConstPtr, plevelhandle: MutPtr, lpreserved: ConstPtr): Bool =
     if (windowsWin32SecurityApplockerNapiAvailable) wasmWindowssysWindowsWin32SecurityApplockerSaferIdentifyLevel(dwnumproperties.toInt(), pcodeproperties.rawAddress.toString(), plevelhandle.rawAddress.toString(), lpreserved.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun saferRecordEventLogEntry(hlevel: SaferLevelHandle, sztargetpath: Pcwstr, lpreserved: ConstPtr<CVoid>): Bool =
+public actual fun saferRecordEventLogEntry(hlevel: SaferLevelHandle, sztargetpath: Pcwstr, lpreserved: ConstPtr): Bool =
     if (windowsWin32SecurityApplockerNapiAvailable) wasmWindowssysWindowsWin32SecurityApplockerSaferRecordEventLogEntry(hlevel.rawAddress.toString(), sztargetpath.rawAddress.toString(), lpreserved.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun saferSetLevelInformation(levelhandle: SaferLevelHandle, dwinfotype: SaferObjectInfoClass, lpquerybuffer: ConstPtr<CVoid>, dwinbuffersize: UInt): Bool =
+public actual fun saferSetLevelInformation(levelhandle: SaferLevelHandle, dwinfotype: SaferObjectInfoClass, lpquerybuffer: ConstPtr, dwinbuffersize: UInt): Bool =
     if (windowsWin32SecurityApplockerNapiAvailable) wasmWindowssysWindowsWin32SecurityApplockerSaferSetLevelInformation(levelhandle.rawAddress.toString(), dwinfotype, lpquerybuffer.rawAddress.toString(), dwinbuffersize.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun saferSetPolicyInformation(dwscopeid: UInt, saferpolicyinfoclass: SaferPolicyInfoClass, infobuffersize: UInt, infobuffer: ConstPtr<CVoid>, lpreserved: ConstPtr<CVoid>): Bool =
+public actual fun saferSetPolicyInformation(dwscopeid: UInt, saferpolicyinfoclass: SaferPolicyInfoClass, infobuffersize: UInt, infobuffer: ConstPtr, lpreserved: ConstPtr): Bool =
     if (windowsWin32SecurityApplockerNapiAvailable) wasmWindowssysWindowsWin32SecurityApplockerSaferSetPolicyInformation(dwscopeid.toInt(), saferpolicyinfoclass, infobuffersize.toInt(), infobuffer.rawAddress.toString(), lpreserved.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun saferiIsExecutableFileType(szfullpathname: Pcwstr, bfromshellexecute: Boolean): Bool =

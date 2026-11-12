@@ -2,7 +2,6 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.globalization
 
-import io.github.kotlinmania.rustlang.core.ffi.CVoid
 import io.github.kotlinmania.rustlang.core.ptr.ConstPtr
 import io.github.kotlinmania.rustlang.core.ptr.MutPtr
 import io.github.kotlinmania.windowssys.core.Bool
@@ -13,10 +12,6 @@ import io.github.kotlinmania.windowssys.core.Pstr
 import io.github.kotlinmania.windowssys.core.Pwstr
 import io.github.kotlinmania.windowssys.core.s
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Lparam
-import io.github.kotlinmania.windowssys.windows.win32.foundation.Rect
-import io.github.kotlinmania.windowssys.windows.win32.foundation.Size
-import io.github.kotlinmania.windowssys.windows.win32.foundation.Systemtime
-import io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.Abc
 import io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.EtoOptions
 import io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.Hdc
 
@@ -3734,13 +3729,13 @@ private object WindowsWin32GlobalizationJniBridge {
     external fun windowssysWindowsWin32GlobalizationUtransUnregisterId(id: Long, idlength: Int)
 }
 
-public actual fun adjustCalendarDate(lpcaldatetime: MutPtr<Caldatetime>, calunit: CaldatetimeDateunit, amount: Int): Bool =
+public actual fun adjustCalendarDate(lpcaldatetime: MutPtr, calunit: CaldatetimeDateunit, amount: Int): Bool =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationAdjustCalendarDate(lpcaldatetime.rawAddress, calunit, amount)
 
-public actual fun compareStringA(locale: UInt, dwcmpflags: UInt, lpstring1: ConstPtr<Byte>, cchcount1: Int, lpstring2: ConstPtr<Byte>, cchcount2: Int): ComparestringResult =
+public actual fun compareStringA(locale: UInt, dwcmpflags: UInt, lpstring1: ConstPtr, cchcount1: Int, lpstring2: ConstPtr, cchcount2: Int): ComparestringResult =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationCompareStringA(locale.toInt(), dwcmpflags.toInt(), lpstring1.rawAddress, cchcount1, lpstring2.rawAddress, cchcount2)
 
-public actual fun compareStringEx(lplocalename: Pcwstr, dwcmpflags: CompareStringFlags, lpstring1: Pcwstr, cchcount1: Int, lpstring2: Pcwstr, cchcount2: Int, lpversioninformation: ConstPtr<Nlsversioninfo>, lpreserved: ConstPtr<CVoid>, lparam: Lparam): ComparestringResult =
+public actual fun compareStringEx(lplocalename: Pcwstr, dwcmpflags: CompareStringFlags, lpstring1: Pcwstr, cchcount1: Int, lpstring2: Pcwstr, cchcount2: Int, lpversioninformation: ConstPtr, lpreserved: ConstPtr, lparam: Lparam): ComparestringResult =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationCompareStringEx(lplocalename.rawAddress, dwcmpflags.toInt(), lpstring1.rawAddress, cchcount1, lpstring2.rawAddress, cchcount2, lpversioninformation.rawAddress, lpreserved.rawAddress, lparam)
 
 public actual fun compareStringOrdinal(lpstring1: Pcwstr, cchcount1: Int, lpstring2: Pcwstr, cchcount2: Int, bignorecase: Bool): ComparestringResult =
@@ -3749,13 +3744,13 @@ public actual fun compareStringOrdinal(lpstring1: Pcwstr, cchcount1: Int, lpstri
 public actual fun compareStringW(locale: UInt, dwcmpflags: UInt, lpstring1: Pcwstr, cchcount1: Int, lpstring2: Pcwstr, cchcount2: Int): ComparestringResult =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationCompareStringW(locale.toInt(), dwcmpflags.toInt(), lpstring1.rawAddress, cchcount1, lpstring2.rawAddress, cchcount2)
 
-public actual fun convertCalDateTimeToSystemTime(lpcaldatetime: ConstPtr<Caldatetime>, lpsystime: MutPtr<Systemtime>): Bool =
+public actual fun convertCalDateTimeToSystemTime(lpcaldatetime: ConstPtr, lpsystime: MutPtr): Bool =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationConvertCalDateTimeToSystemTime(lpcaldatetime.rawAddress, lpsystime.rawAddress)
 
 public actual fun convertDefaultLocale(locale: UInt): UInt =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationConvertDefaultLocale(locale.toInt()).toUInt()
 
-public actual fun convertSystemTimeToCalDateTime(lpsystime: ConstPtr<Systemtime>, calid: UInt, lpcaldatetime: MutPtr<Caldatetime>): Bool =
+public actual fun convertSystemTimeToCalDateTime(lpsystime: ConstPtr, calid: UInt, lpcaldatetime: MutPtr): Bool =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationConvertSystemTimeToCalDateTime(lpsystime.rawAddress, calid.toInt(), lpcaldatetime.rawAddress)
 
 public actual fun enumCalendarInfoA(lpcalinfoenumproc: CalinfoEnumproca, locale: UInt, calendar: UInt, caltype: UInt): Bool =
@@ -3815,7 +3810,7 @@ public actual fun enumSystemLanguageGroupsW(lplanguagegroupenumproc: Languagegro
 public actual fun enumSystemLocalesA(lplocaleenumproc: LocaleEnumproca, dwflags: UInt): Bool =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationEnumSystemLocalesA(0L, dwflags.toInt())
 
-public actual fun enumSystemLocalesEx(lplocaleenumprocex: LocaleEnumprocex, dwflags: UInt, lparam: Lparam, lpreserved: ConstPtr<CVoid>): Bool =
+public actual fun enumSystemLocalesEx(lplocaleenumprocex: LocaleEnumprocex, dwflags: UInt, lparam: Lparam, lpreserved: ConstPtr): Bool =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationEnumSystemLocalesEx(0L, dwflags.toInt(), lparam, lpreserved.rawAddress)
 
 public actual fun enumSystemLocalesW(lplocaleenumproc: LocaleEnumprocw, dwflags: UInt): Bool =
@@ -3836,10 +3831,10 @@ public actual fun enumUILanguagesA(lpuilanguageenumproc: UilanguageEnumproca, dw
 public actual fun enumUILanguagesW(lpuilanguageenumproc: UilanguageEnumprocw, dwflags: UInt, lparam: Long): Bool =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationEnumUILanguagesW(0L, dwflags.toInt(), lparam)
 
-public actual fun findNLSString(locale: UInt, dwfindnlsstringflags: UInt, lpstringsource: Pcwstr, cchsource: Int, lpstringvalue: Pcwstr, cchvalue: Int, pcchfound: MutPtr<Int>): Int =
+public actual fun findNLSString(locale: UInt, dwfindnlsstringflags: UInt, lpstringsource: Pcwstr, cchsource: Int, lpstringvalue: Pcwstr, cchvalue: Int, pcchfound: MutPtr): Int =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationFindNLSString(locale.toInt(), dwfindnlsstringflags.toInt(), lpstringsource.rawAddress, cchsource, lpstringvalue.rawAddress, cchvalue, pcchfound.rawAddress)
 
-public actual fun findNLSStringEx(lplocalename: Pcwstr, dwfindnlsstringflags: UInt, lpstringsource: Pcwstr, cchsource: Int, lpstringvalue: Pcwstr, cchvalue: Int, pcchfound: MutPtr<Int>, lpversioninformation: ConstPtr<Nlsversioninfo>, lpreserved: ConstPtr<CVoid>, sorthandle: Lparam): Int =
+public actual fun findNLSStringEx(lplocalename: Pcwstr, dwfindnlsstringflags: UInt, lpstringsource: Pcwstr, cchsource: Int, lpstringvalue: Pcwstr, cchvalue: Int, pcchfound: MutPtr, lpversioninformation: ConstPtr, lpreserved: ConstPtr, sorthandle: Lparam): Int =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationFindNLSStringEx(lplocalename.rawAddress, dwfindnlsstringflags.toInt(), lpstringsource.rawAddress, cchsource, lpstringvalue.rawAddress, cchvalue, pcchfound.rawAddress, lpversioninformation.rawAddress, lpreserved.rawAddress, sorthandle)
 
 public actual fun findStringOrdinal(dwfindstringordinalflags: UInt, lpstringsource: Pcwstr, cchsource: Int, lpstringvalue: Pcwstr, cchvalue: Int, bignorecase: Bool): Int =
@@ -3854,61 +3849,61 @@ public actual fun foldStringW(dwmapflags: FoldStringMapFlags, lpsrcstr: Pcwstr, 
 public actual fun getACP(): UInt =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationGetACP().toUInt()
 
-public actual fun getCPInfo(codepage: UInt, lpcpinfo: MutPtr<Cpinfo>): Bool =
+public actual fun getCPInfo(codepage: UInt, lpcpinfo: MutPtr): Bool =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationGetCPInfo(codepage.toInt(), lpcpinfo.rawAddress)
 
-public actual fun getCPInfoExA(codepage: UInt, dwflags: UInt, lpcpinfoex: MutPtr<Cpinfoexa>): Bool =
+public actual fun getCPInfoExA(codepage: UInt, dwflags: UInt, lpcpinfoex: MutPtr): Bool =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationGetCPInfoExA(codepage.toInt(), dwflags.toInt(), lpcpinfoex.rawAddress)
 
-public actual fun getCPInfoExW(codepage: UInt, dwflags: UInt, lpcpinfoex: MutPtr<Cpinfoexw>): Bool =
+public actual fun getCPInfoExW(codepage: UInt, dwflags: UInt, lpcpinfoex: MutPtr): Bool =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationGetCPInfoExW(codepage.toInt(), dwflags.toInt(), lpcpinfoex.rawAddress)
 
-public actual fun getCalendarDateFormatEx(lpszlocale: Pcwstr, dwflags: UInt, lpcaldatetime: ConstPtr<Caldatetime>, lpformat: Pcwstr, lpdatestr: Pwstr, cchdate: Int): Bool =
+public actual fun getCalendarDateFormatEx(lpszlocale: Pcwstr, dwflags: UInt, lpcaldatetime: ConstPtr, lpformat: Pcwstr, lpdatestr: Pwstr, cchdate: Int): Bool =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationGetCalendarDateFormatEx(lpszlocale.rawAddress, dwflags.toInt(), lpcaldatetime.rawAddress, lpformat.rawAddress, lpdatestr.rawAddress, cchdate)
 
-public actual fun getCalendarInfoA(locale: UInt, calendar: UInt, caltype: UInt, lpcaldata: Pstr, cchdata: Int, lpvalue: MutPtr<UInt>): Int =
+public actual fun getCalendarInfoA(locale: UInt, calendar: UInt, caltype: UInt, lpcaldata: Pstr, cchdata: Int, lpvalue: MutPtr): Int =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationGetCalendarInfoA(locale.toInt(), calendar.toInt(), caltype.toInt(), lpcaldata.rawAddress, cchdata, lpvalue.rawAddress)
 
-public actual fun getCalendarInfoEx(lplocalename: Pcwstr, calendar: UInt, lpreserved: Pcwstr, caltype: UInt, lpcaldata: Pwstr, cchdata: Int, lpvalue: MutPtr<UInt>): Int =
+public actual fun getCalendarInfoEx(lplocalename: Pcwstr, calendar: UInt, lpreserved: Pcwstr, caltype: UInt, lpcaldata: Pwstr, cchdata: Int, lpvalue: MutPtr): Int =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationGetCalendarInfoEx(lplocalename.rawAddress, calendar.toInt(), lpreserved.rawAddress, caltype.toInt(), lpcaldata.rawAddress, cchdata, lpvalue.rawAddress)
 
-public actual fun getCalendarInfoW(locale: UInt, calendar: UInt, caltype: UInt, lpcaldata: Pwstr, cchdata: Int, lpvalue: MutPtr<UInt>): Int =
+public actual fun getCalendarInfoW(locale: UInt, calendar: UInt, caltype: UInt, lpcaldata: Pwstr, cchdata: Int, lpvalue: MutPtr): Int =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationGetCalendarInfoW(locale.toInt(), calendar.toInt(), caltype.toInt(), lpcaldata.rawAddress, cchdata, lpvalue.rawAddress)
 
-public actual fun getCalendarSupportedDateRange(calendar: UInt, lpcalmindatetime: MutPtr<Caldatetime>, lpcalmaxdatetime: MutPtr<Caldatetime>): Bool =
+public actual fun getCalendarSupportedDateRange(calendar: UInt, lpcalmindatetime: MutPtr, lpcalmaxdatetime: MutPtr): Bool =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationGetCalendarSupportedDateRange(calendar.toInt(), lpcalmindatetime.rawAddress, lpcalmaxdatetime.rawAddress)
 
-public actual fun getCurrencyFormatA(locale: UInt, dwflags: UInt, lpvalue: Pcstr, lpformat: ConstPtr<Currencyfmta>, lpcurrencystr: Pstr, cchcurrency: Int): Int =
+public actual fun getCurrencyFormatA(locale: UInt, dwflags: UInt, lpvalue: Pcstr, lpformat: ConstPtr, lpcurrencystr: Pstr, cchcurrency: Int): Int =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationGetCurrencyFormatA(locale.toInt(), dwflags.toInt(), lpvalue.rawAddress, lpformat.rawAddress, lpcurrencystr.rawAddress, cchcurrency)
 
-public actual fun getCurrencyFormatEx(lplocalename: Pcwstr, dwflags: UInt, lpvalue: Pcwstr, lpformat: ConstPtr<Currencyfmtw>, lpcurrencystr: Pwstr, cchcurrency: Int): Int =
+public actual fun getCurrencyFormatEx(lplocalename: Pcwstr, dwflags: UInt, lpvalue: Pcwstr, lpformat: ConstPtr, lpcurrencystr: Pwstr, cchcurrency: Int): Int =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationGetCurrencyFormatEx(lplocalename.rawAddress, dwflags.toInt(), lpvalue.rawAddress, lpformat.rawAddress, lpcurrencystr.rawAddress, cchcurrency)
 
-public actual fun getCurrencyFormatW(locale: UInt, dwflags: UInt, lpvalue: Pcwstr, lpformat: ConstPtr<Currencyfmtw>, lpcurrencystr: Pwstr, cchcurrency: Int): Int =
+public actual fun getCurrencyFormatW(locale: UInt, dwflags: UInt, lpvalue: Pcwstr, lpformat: ConstPtr, lpcurrencystr: Pwstr, cchcurrency: Int): Int =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationGetCurrencyFormatW(locale.toInt(), dwflags.toInt(), lpvalue.rawAddress, lpformat.rawAddress, lpcurrencystr.rawAddress, cchcurrency)
 
-public actual fun getDateFormatA(locale: UInt, dwflags: UInt, lpdate: ConstPtr<Systemtime>, lpformat: Pcstr, lpdatestr: Pstr, cchdate: Int): Int =
+public actual fun getDateFormatA(locale: UInt, dwflags: UInt, lpdate: ConstPtr, lpformat: Pcstr, lpdatestr: Pstr, cchdate: Int): Int =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationGetDateFormatA(locale.toInt(), dwflags.toInt(), lpdate.rawAddress, lpformat.rawAddress, lpdatestr.rawAddress, cchdate)
 
-public actual fun getDateFormatEx(lplocalename: Pcwstr, dwflags: EnumDateFormatsFlags, lpdate: ConstPtr<Systemtime>, lpformat: Pcwstr, lpdatestr: Pwstr, cchdate: Int, lpcalendar: Pcwstr): Int =
+public actual fun getDateFormatEx(lplocalename: Pcwstr, dwflags: EnumDateFormatsFlags, lpdate: ConstPtr, lpformat: Pcwstr, lpdatestr: Pwstr, cchdate: Int, lpcalendar: Pcwstr): Int =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationGetDateFormatEx(lplocalename.rawAddress, dwflags.toInt(), lpdate.rawAddress, lpformat.rawAddress, lpdatestr.rawAddress, cchdate, lpcalendar.rawAddress)
 
-public actual fun getDateFormatW(locale: UInt, dwflags: UInt, lpdate: ConstPtr<Systemtime>, lpformat: Pcwstr, lpdatestr: Pwstr, cchdate: Int): Int =
+public actual fun getDateFormatW(locale: UInt, dwflags: UInt, lpdate: ConstPtr, lpformat: Pcwstr, lpdatestr: Pwstr, cchdate: Int): Int =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationGetDateFormatW(locale.toInt(), dwflags.toInt(), lpdate.rawAddress, lpformat.rawAddress, lpdatestr.rawAddress, cchdate)
 
-public actual fun getDistanceOfClosestLanguageInList(pszlanguage: Pcwstr, pszlanguageslist: Pcwstr, wchlistdelimiter: UShort, pclosestdistance: MutPtr<Double>): Hresult =
+public actual fun getDistanceOfClosestLanguageInList(pszlanguage: Pcwstr, pszlanguageslist: Pcwstr, wchlistdelimiter: UShort, pclosestdistance: MutPtr): Hresult =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationGetDistanceOfClosestLanguageInList(pszlanguage.rawAddress, pszlanguageslist.rawAddress, wchlistdelimiter.toShort(), pclosestdistance.rawAddress)
 
-public actual fun getDurationFormat(locale: UInt, dwflags: UInt, lpduration: ConstPtr<Systemtime>, ullduration: ULong, lpformat: Pcwstr, lpdurationstr: Pwstr, cchduration: Int): Int =
+public actual fun getDurationFormat(locale: UInt, dwflags: UInt, lpduration: ConstPtr, ullduration: ULong, lpformat: Pcwstr, lpdurationstr: Pwstr, cchduration: Int): Int =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationGetDurationFormat(locale.toInt(), dwflags.toInt(), lpduration.rawAddress, ullduration.toLong(), lpformat.rawAddress, lpdurationstr.rawAddress, cchduration)
 
-public actual fun getDurationFormatEx(lplocalename: Pcwstr, dwflags: UInt, lpduration: ConstPtr<Systemtime>, ullduration: ULong, lpformat: Pcwstr, lpdurationstr: Pwstr, cchduration: Int): Int =
+public actual fun getDurationFormatEx(lplocalename: Pcwstr, dwflags: UInt, lpduration: ConstPtr, ullduration: ULong, lpformat: Pcwstr, lpdurationstr: Pwstr, cchduration: Int): Int =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationGetDurationFormatEx(lplocalename.rawAddress, dwflags.toInt(), lpduration.rawAddress, ullduration.toLong(), lpformat.rawAddress, lpdurationstr.rawAddress, cchduration)
 
-public actual fun getFileMUIInfo(dwflags: UInt, pcwszfilepath: Pcwstr, pfilemuiinfo: MutPtr<Filemuiinfo>, pcbfilemuiinfo: MutPtr<UInt>): Bool =
+public actual fun getFileMUIInfo(dwflags: UInt, pcwszfilepath: Pcwstr, pfilemuiinfo: MutPtr, pcbfilemuiinfo: MutPtr): Bool =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationGetFileMUIInfo(dwflags.toInt(), pcwszfilepath.rawAddress, pfilemuiinfo.rawAddress, pcbfilemuiinfo.rawAddress)
 
-public actual fun getFileMUIPath(dwflags: UInt, pcwszfilepath: Pcwstr, pwszlanguage: Pwstr, pcchlanguage: MutPtr<UInt>, pwszfilemuipath: Pwstr, pcchfilemuipath: MutPtr<UInt>, pululenumerator: MutPtr<ULong>): Bool =
+public actual fun getFileMUIPath(dwflags: UInt, pcwszfilepath: Pcwstr, pwszlanguage: Pwstr, pcchlanguage: MutPtr, pwszfilemuipath: Pwstr, pcchfilemuipath: MutPtr, pululenumerator: MutPtr): Bool =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationGetFileMUIPath(dwflags.toInt(), pcwszfilepath.rawAddress, pwszlanguage.rawAddress, pcchlanguage.rawAddress, pwszfilemuipath.rawAddress, pcchfilemuipath.rawAddress, pululenumerator.rawAddress)
 
 public actual fun getGeoInfoA(location: Int, geotype: Sysgeotype, lpgeodata: Pstr, cchdata: Int, langid: UShort): Int =
@@ -3929,40 +3924,40 @@ public actual fun getLocaleInfoEx(lplocalename: Pcwstr, lctype: UInt, lplcdata: 
 public actual fun getLocaleInfoW(locale: UInt, lctype: UInt, lplcdata: Pwstr, cchdata: Int): Int =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationGetLocaleInfoW(locale.toInt(), lctype.toInt(), lplcdata.rawAddress, cchdata)
 
-public actual fun getNLSVersion(function: UInt, locale: UInt, lpversioninformation: MutPtr<Nlsversioninfo>): Bool =
+public actual fun getNLSVersion(function: UInt, locale: UInt, lpversioninformation: MutPtr): Bool =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationGetNLSVersion(function.toInt(), locale.toInt(), lpversioninformation.rawAddress)
 
-public actual fun getNLSVersionEx(function: UInt, lplocalename: Pcwstr, lpversioninformation: MutPtr<Nlsversioninfoex>): Bool =
+public actual fun getNLSVersionEx(function: UInt, lplocalename: Pcwstr, lpversioninformation: MutPtr): Bool =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationGetNLSVersionEx(function.toInt(), lplocalename.rawAddress, lpversioninformation.rawAddress)
 
-public actual fun getNumberFormatA(locale: UInt, dwflags: UInt, lpvalue: Pcstr, lpformat: ConstPtr<Numberfmta>, lpnumberstr: Pstr, cchnumber: Int): Int =
+public actual fun getNumberFormatA(locale: UInt, dwflags: UInt, lpvalue: Pcstr, lpformat: ConstPtr, lpnumberstr: Pstr, cchnumber: Int): Int =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationGetNumberFormatA(locale.toInt(), dwflags.toInt(), lpvalue.rawAddress, lpformat.rawAddress, lpnumberstr.rawAddress, cchnumber)
 
-public actual fun getNumberFormatEx(lplocalename: Pcwstr, dwflags: UInt, lpvalue: Pcwstr, lpformat: ConstPtr<Numberfmtw>, lpnumberstr: Pwstr, cchnumber: Int): Int =
+public actual fun getNumberFormatEx(lplocalename: Pcwstr, dwflags: UInt, lpvalue: Pcwstr, lpformat: ConstPtr, lpnumberstr: Pwstr, cchnumber: Int): Int =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationGetNumberFormatEx(lplocalename.rawAddress, dwflags.toInt(), lpvalue.rawAddress, lpformat.rawAddress, lpnumberstr.rawAddress, cchnumber)
 
-public actual fun getNumberFormatW(locale: UInt, dwflags: UInt, lpvalue: Pcwstr, lpformat: ConstPtr<Numberfmtw>, lpnumberstr: Pwstr, cchnumber: Int): Int =
+public actual fun getNumberFormatW(locale: UInt, dwflags: UInt, lpvalue: Pcwstr, lpformat: ConstPtr, lpnumberstr: Pwstr, cchnumber: Int): Int =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationGetNumberFormatW(locale.toInt(), dwflags.toInt(), lpvalue.rawAddress, lpformat.rawAddress, lpnumberstr.rawAddress, cchnumber)
 
 public actual fun getOEMCP(): UInt =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationGetOEMCP().toUInt()
 
-public actual fun getProcessPreferredUILanguages(dwflags: UInt, pulnumlanguages: MutPtr<UInt>, pwszlanguagesbuffer: Pwstr, pcchlanguagesbuffer: MutPtr<UInt>): Bool =
+public actual fun getProcessPreferredUILanguages(dwflags: UInt, pulnumlanguages: MutPtr, pwszlanguagesbuffer: Pwstr, pcchlanguagesbuffer: MutPtr): Bool =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationGetProcessPreferredUILanguages(dwflags.toInt(), pulnumlanguages.rawAddress, pwszlanguagesbuffer.rawAddress, pcchlanguagesbuffer.rawAddress)
 
 public actual fun getStringScripts(dwflags: UInt, lpstring: Pcwstr, cchstring: Int, lpscripts: Pwstr, cchscripts: Int): Int =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationGetStringScripts(dwflags.toInt(), lpstring.rawAddress, cchstring, lpscripts.rawAddress, cchscripts)
 
-public actual fun getStringTypeA(locale: UInt, dwinfotype: UInt, lpsrcstr: Pcstr, cchsrc: Int, lpchartype: MutPtr<UShort>): Bool =
+public actual fun getStringTypeA(locale: UInt, dwinfotype: UInt, lpsrcstr: Pcstr, cchsrc: Int, lpchartype: MutPtr): Bool =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationGetStringTypeA(locale.toInt(), dwinfotype.toInt(), lpsrcstr.rawAddress, cchsrc, lpchartype.rawAddress)
 
-public actual fun getStringTypeExA(locale: UInt, dwinfotype: UInt, lpsrcstr: Pcstr, cchsrc: Int, lpchartype: MutPtr<UShort>): Bool =
+public actual fun getStringTypeExA(locale: UInt, dwinfotype: UInt, lpsrcstr: Pcstr, cchsrc: Int, lpchartype: MutPtr): Bool =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationGetStringTypeExA(locale.toInt(), dwinfotype.toInt(), lpsrcstr.rawAddress, cchsrc, lpchartype.rawAddress)
 
-public actual fun getStringTypeExW(locale: UInt, dwinfotype: UInt, lpsrcstr: Pcwstr, cchsrc: Int, lpchartype: MutPtr<UShort>): Bool =
+public actual fun getStringTypeExW(locale: UInt, dwinfotype: UInt, lpsrcstr: Pcwstr, cchsrc: Int, lpchartype: MutPtr): Bool =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationGetStringTypeExW(locale.toInt(), dwinfotype.toInt(), lpsrcstr.rawAddress, cchsrc, lpchartype.rawAddress)
 
-public actual fun getStringTypeW(dwinfotype: UInt, lpsrcstr: Pcwstr, cchsrc: Int, lpchartype: MutPtr<UShort>): Bool =
+public actual fun getStringTypeW(dwinfotype: UInt, lpsrcstr: Pcwstr, cchsrc: Int, lpchartype: MutPtr): Bool =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationGetStringTypeW(dwinfotype.toInt(), lpsrcstr.rawAddress, cchsrc, lpchartype.rawAddress)
 
 public actual fun getSystemDefaultLCID(): UInt =
@@ -3977,34 +3972,34 @@ public actual fun getSystemDefaultLocaleName(lplocalename: Pwstr, cchlocalename:
 public actual fun getSystemDefaultUILanguage(): UShort =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationGetSystemDefaultUILanguage().toUShort()
 
-public actual fun getSystemPreferredUILanguages(dwflags: UInt, pulnumlanguages: MutPtr<UInt>, pwszlanguagesbuffer: Pwstr, pcchlanguagesbuffer: MutPtr<UInt>): Bool =
+public actual fun getSystemPreferredUILanguages(dwflags: UInt, pulnumlanguages: MutPtr, pwszlanguagesbuffer: Pwstr, pcchlanguagesbuffer: MutPtr): Bool =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationGetSystemPreferredUILanguages(dwflags.toInt(), pulnumlanguages.rawAddress, pwszlanguagesbuffer.rawAddress, pcchlanguagesbuffer.rawAddress)
 
 public actual fun getTextCharset(hdc: Hdc): Int =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationGetTextCharset(hdc.rawAddress)
 
-public actual fun getTextCharsetInfo(hdc: Hdc, lpsig: MutPtr<Fontsignature>, dwflags: UInt): Int =
+public actual fun getTextCharsetInfo(hdc: Hdc, lpsig: MutPtr, dwflags: UInt): Int =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationGetTextCharsetInfo(hdc.rawAddress, lpsig.rawAddress, dwflags.toInt())
 
 public actual fun getThreadLocale(): UInt =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationGetThreadLocale().toUInt()
 
-public actual fun getThreadPreferredUILanguages(dwflags: UInt, pulnumlanguages: MutPtr<UInt>, pwszlanguagesbuffer: Pwstr, pcchlanguagesbuffer: MutPtr<UInt>): Bool =
+public actual fun getThreadPreferredUILanguages(dwflags: UInt, pulnumlanguages: MutPtr, pwszlanguagesbuffer: Pwstr, pcchlanguagesbuffer: MutPtr): Bool =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationGetThreadPreferredUILanguages(dwflags.toInt(), pulnumlanguages.rawAddress, pwszlanguagesbuffer.rawAddress, pcchlanguagesbuffer.rawAddress)
 
 public actual fun getThreadUILanguage(): UShort =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationGetThreadUILanguage().toUShort()
 
-public actual fun getTimeFormatA(locale: UInt, dwflags: UInt, lptime: ConstPtr<Systemtime>, lpformat: Pcstr, lptimestr: Pstr, cchtime: Int): Int =
+public actual fun getTimeFormatA(locale: UInt, dwflags: UInt, lptime: ConstPtr, lpformat: Pcstr, lptimestr: Pstr, cchtime: Int): Int =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationGetTimeFormatA(locale.toInt(), dwflags.toInt(), lptime.rawAddress, lpformat.rawAddress, lptimestr.rawAddress, cchtime)
 
-public actual fun getTimeFormatEx(lplocalename: Pcwstr, dwflags: TimeFormatFlags, lptime: ConstPtr<Systemtime>, lpformat: Pcwstr, lptimestr: Pwstr, cchtime: Int): Int =
+public actual fun getTimeFormatEx(lplocalename: Pcwstr, dwflags: TimeFormatFlags, lptime: ConstPtr, lpformat: Pcwstr, lptimestr: Pwstr, cchtime: Int): Int =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationGetTimeFormatEx(lplocalename.rawAddress, dwflags.toInt(), lptime.rawAddress, lpformat.rawAddress, lptimestr.rawAddress, cchtime)
 
-public actual fun getTimeFormatW(locale: UInt, dwflags: UInt, lptime: ConstPtr<Systemtime>, lpformat: Pcwstr, lptimestr: Pwstr, cchtime: Int): Int =
+public actual fun getTimeFormatW(locale: UInt, dwflags: UInt, lptime: ConstPtr, lpformat: Pcwstr, lptimestr: Pwstr, cchtime: Int): Int =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationGetTimeFormatW(locale.toInt(), dwflags.toInt(), lptime.rawAddress, lpformat.rawAddress, lptimestr.rawAddress, cchtime)
 
-public actual fun getUILanguageInfo(dwflags: UInt, pwmszlanguage: Pcwstr, pwszfallbacklanguages: Pwstr, pcchfallbacklanguages: MutPtr<UInt>, pattributes: MutPtr<UInt>): Bool =
+public actual fun getUILanguageInfo(dwflags: UInt, pwmszlanguage: Pcwstr, pwszfallbacklanguages: Pwstr, pcchfallbacklanguages: MutPtr, pattributes: MutPtr): Bool =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationGetUILanguageInfo(dwflags.toInt(), pwmszlanguage.rawAddress, pwszfallbacklanguages.rawAddress, pcchfallbacklanguages.rawAddress, pattributes.rawAddress)
 
 public actual fun getUserDefaultGeoName(geoname: Pwstr, geonamecount: Int): Int =
@@ -4025,7 +4020,7 @@ public actual fun getUserDefaultUILanguage(): UShort =
 public actual fun getUserGeoID(geoclass: Sysgeoclass): Int =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationGetUserGeoID(geoclass)
 
-public actual fun getUserPreferredUILanguages(dwflags: UInt, pulnumlanguages: MutPtr<UInt>, pwszlanguagesbuffer: Pwstr, pcchlanguagesbuffer: MutPtr<UInt>): Bool =
+public actual fun getUserPreferredUILanguages(dwflags: UInt, pulnumlanguages: MutPtr, pwszlanguagesbuffer: Pwstr, pcchlanguagesbuffer: MutPtr): Bool =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationGetUserPreferredUILanguages(dwflags.toInt(), pulnumlanguages.rawAddress, pwszlanguagesbuffer.rawAddress, pcchlanguagesbuffer.rawAddress)
 
 public actual fun idnToAscii(dwflags: UInt, lpunicodecharstr: Pcwstr, cchunicodechar: Int, lpasciicharstr: Pwstr, cchasciichar: Int): Int =
@@ -4046,13 +4041,13 @@ public actual fun isDBCSLeadByte(testchar: UByte): Bool =
 public actual fun isDBCSLeadByteEx(codepage: UInt, testchar: UByte): Bool =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationIsDBCSLeadByteEx(codepage.toInt(), testchar.toByte())
 
-public actual fun isNLSDefinedString(function: UInt, dwflags: UInt, lpversioninformation: ConstPtr<Nlsversioninfo>, lpstring: Pcwstr, cchstr: Int): Bool =
+public actual fun isNLSDefinedString(function: UInt, dwflags: UInt, lpversioninformation: ConstPtr, lpstring: Pcwstr, cchstr: Int): Bool =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationIsNLSDefinedString(function.toInt(), dwflags.toInt(), lpversioninformation.rawAddress, lpstring.rawAddress, cchstr)
 
 public actual fun isNormalizedString(normform: NormForm, lpstring: Pcwstr, cwlength: Int): Bool =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationIsNormalizedString(normform, lpstring.rawAddress, cwlength)
 
-public actual fun isTextUnicode(lpv: ConstPtr<CVoid>, isize: Int, lpiresult: MutPtr<IsTextUnicodeResult>): Bool =
+public actual fun isTextUnicode(lpv: ConstPtr, isize: Int, lpiresult: MutPtr): Bool =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationIsTextUnicode(lpv.rawAddress, isize, lpiresult.rawAddress)
 
 public actual fun isValidCodePage(codepage: UInt): Bool =
@@ -4067,7 +4062,7 @@ public actual fun isValidLocale(locale: UInt, dwflags: IsValidLocaleFlags): Bool
 public actual fun isValidLocaleName(lplocalename: Pcwstr): Bool =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationIsValidLocaleName(lplocalename.rawAddress)
 
-public actual fun isValidNLSVersion(function: UInt, lplocalename: Pcwstr, lpversioninformation: ConstPtr<Nlsversioninfoex>): UInt =
+public actual fun isValidNLSVersion(function: UInt, lplocalename: Pcwstr, lpversioninformation: ConstPtr): UInt =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationIsValidNLSVersion(function.toInt(), lplocalename.rawAddress, lpversioninformation.rawAddress).toUInt()
 
 public actual fun isWellFormedTag(psztag: Pcwstr): UByte =
@@ -4079,7 +4074,7 @@ public actual fun lCIDToLocaleName(locale: UInt, lpname: Pwstr, cchname: Int, dw
 public actual fun lCMapStringA(locale: UInt, dwmapflags: UInt, lpsrcstr: Pcstr, cchsrc: Int, lpdeststr: Pstr, cchdest: Int): Int =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationLCMapStringA(locale.toInt(), dwmapflags.toInt(), lpsrcstr.rawAddress, cchsrc, lpdeststr.rawAddress, cchdest)
 
-public actual fun lCMapStringEx(lplocalename: Pcwstr, dwmapflags: UInt, lpsrcstr: Pcwstr, cchsrc: Int, lpdeststr: Pwstr, cchdest: Int, lpversioninformation: ConstPtr<Nlsversioninfo>, lpreserved: ConstPtr<CVoid>, sorthandle: Lparam): Int =
+public actual fun lCMapStringEx(lplocalename: Pcwstr, dwmapflags: UInt, lpsrcstr: Pcwstr, cchsrc: Int, lpdeststr: Pwstr, cchdest: Int, lpversioninformation: ConstPtr, lpreserved: ConstPtr, sorthandle: Lparam): Int =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationLCMapStringEx(lplocalename.rawAddress, dwmapflags.toInt(), lpsrcstr.rawAddress, cchsrc, lpdeststr.rawAddress, cchdest, lpversioninformation.rawAddress, lpreserved.rawAddress, sorthandle)
 
 public actual fun lCMapStringW(locale: UInt, dwmapflags: UInt, lpsrcstr: Pcwstr, cchsrc: Int, lpdeststr: Pwstr, cchdest: Int): Int =
@@ -4088,19 +4083,19 @@ public actual fun lCMapStringW(locale: UInt, dwmapflags: UInt, lpsrcstr: Pcwstr,
 public actual fun localeNameToLCID(lpname: Pcwstr, dwflags: UInt): UInt =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationLocaleNameToLCID(lpname.rawAddress, dwflags.toInt()).toUInt()
 
-public actual fun mappingDoAction(pbag: MutPtr<MappingPropertyBag>, dwrangeindex: UInt, pszactionid: Pcwstr): Hresult =
+public actual fun mappingDoAction(pbag: MutPtr, dwrangeindex: UInt, pszactionid: Pcwstr): Hresult =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationMappingDoAction(pbag.rawAddress, dwrangeindex.toInt(), pszactionid.rawAddress)
 
-public actual fun mappingFreePropertyBag(pbag: ConstPtr<MappingPropertyBag>): Hresult =
+public actual fun mappingFreePropertyBag(pbag: ConstPtr): Hresult =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationMappingFreePropertyBag(pbag.rawAddress)
 
-public actual fun mappingFreeServices(pserviceinfo: ConstPtr<MappingServiceInfo>): Hresult =
+public actual fun mappingFreeServices(pserviceinfo: ConstPtr): Hresult =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationMappingFreeServices(pserviceinfo.rawAddress)
 
-public actual fun mappingGetServices(poptions: ConstPtr<MappingEnumOptions>, prgservices: MutPtr<MutPtr<MappingServiceInfo>>, pdwservicescount: MutPtr<UInt>): Hresult =
+public actual fun mappingGetServices(poptions: ConstPtr, prgservices: MutPtr, pdwservicescount: MutPtr): Hresult =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationMappingGetServices(poptions.rawAddress, prgservices.rawAddress, pdwservicescount.rawAddress)
 
-public actual fun mappingRecognizeText(pserviceinfo: ConstPtr<MappingServiceInfo>, psztext: Pcwstr, dwlength: UInt, dwindex: UInt, poptions: ConstPtr<MappingOptions>, pbag: MutPtr<MappingPropertyBag>): Hresult =
+public actual fun mappingRecognizeText(pserviceinfo: ConstPtr, psztext: Pcwstr, dwlength: UInt, dwindex: UInt, poptions: ConstPtr, pbag: MutPtr): Hresult =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationMappingRecognizeText(pserviceinfo.rawAddress, psztext.rawAddress, dwlength.toInt(), dwindex.toInt(), poptions.rawAddress, pbag.rawAddress)
 
 public actual fun multiByteToWideChar(codepage: UInt, dwflags: MultiByteToWideCharFlags, lpmultibytestr: Pcstr, cbmultibyte: Int, lpwidecharstr: Pwstr, cchwidechar: Int): Int =
@@ -4109,7 +4104,7 @@ public actual fun multiByteToWideChar(codepage: UInt, dwflags: MultiByteToWideCh
 public actual fun normalizeString(normform: NormForm, lpsrcstring: Pcwstr, cwsrclength: Int, lpdststring: Pwstr, cwdstlength: Int): Int =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationNormalizeString(normform, lpsrcstring.rawAddress, cwsrclength, lpdststring.rawAddress, cwdstlength)
 
-public actual fun notifyUILanguageChange(dwflags: UInt, pcwstrnewlanguage: Pcwstr, pcwstrpreviouslanguage: Pcwstr, dwreserved: UInt, pdwstatusrtrn: MutPtr<UInt>): Bool =
+public actual fun notifyUILanguageChange(dwflags: UInt, pcwstrnewlanguage: Pcwstr, pcwstrpreviouslanguage: Pcwstr, dwreserved: UInt, pdwstatusrtrn: MutPtr): Bool =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationNotifyUILanguageChange(dwflags.toInt(), pcwstrnewlanguage.rawAddress, pcwstrpreviouslanguage.rawAddress, dwreserved.toInt(), pdwstatusrtrn.rawAddress)
 
 public actual fun resolveLocaleName(lpnametoresolve: Pcwstr, lplocalename: Pwstr, cchlocalename: Int): Int =
@@ -4119,124 +4114,124 @@ public actual fun restoreThreadPreferredUILanguages(snapshot: Hsaveduilanguages)
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationRestoreThreadPreferredUILanguages(snapshot.rawAddress)
 }
 
-public actual fun scriptApplyDigitSubstitution(psds: ConstPtr<ScriptDigitsubstitute>, psc: MutPtr<ScriptControl>, pss: MutPtr<ScriptState>): Hresult =
+public actual fun scriptApplyDigitSubstitution(psds: ConstPtr, psc: MutPtr, pss: MutPtr): Hresult =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationScriptApplyDigitSubstitution(psds.rawAddress, psc.rawAddress, pss.rawAddress)
 
-public actual fun scriptApplyLogicalWidth(pidx: ConstPtr<Int>, cchars: Int, cglyphs: Int, pwlogclust: ConstPtr<UShort>, psva: ConstPtr<ScriptVisattr>, piadvance: ConstPtr<Int>, psa: ConstPtr<ScriptAnalysis>, pabc: MutPtr<Abc>, pijustify: MutPtr<Int>): Hresult =
+public actual fun scriptApplyLogicalWidth(pidx: ConstPtr, cchars: Int, cglyphs: Int, pwlogclust: ConstPtr, psva: ConstPtr, piadvance: ConstPtr, psa: ConstPtr, pabc: MutPtr, pijustify: MutPtr): Hresult =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationScriptApplyLogicalWidth(pidx.rawAddress, cchars, cglyphs, pwlogclust.rawAddress, psva.rawAddress, piadvance.rawAddress, psa.rawAddress, pabc.rawAddress, pijustify.rawAddress)
 
-public actual fun scriptBreak(pwcchars: Pcwstr, cchars: Int, psa: ConstPtr<ScriptAnalysis>, psla: MutPtr<ScriptLogattr>): Hresult =
+public actual fun scriptBreak(pwcchars: Pcwstr, cchars: Int, psa: ConstPtr, psla: MutPtr): Hresult =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationScriptBreak(pwcchars.rawAddress, cchars, psa.rawAddress, psla.rawAddress)
 
-public actual fun scriptCPtoX(icp: Int, ftrailing: Bool, cchars: Int, cglyphs: Int, pwlogclust: ConstPtr<UShort>, psva: ConstPtr<ScriptVisattr>, piadvance: ConstPtr<Int>, psa: ConstPtr<ScriptAnalysis>, pix: MutPtr<Int>): Hresult =
+public actual fun scriptCPtoX(icp: Int, ftrailing: Bool, cchars: Int, cglyphs: Int, pwlogclust: ConstPtr, psva: ConstPtr, piadvance: ConstPtr, psa: ConstPtr, pix: MutPtr): Hresult =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationScriptCPtoX(icp, ftrailing, cchars, cglyphs, pwlogclust.rawAddress, psva.rawAddress, piadvance.rawAddress, psa.rawAddress, pix.rawAddress)
 
-public actual fun scriptCacheGetHeight(hdc: Hdc, psc: MutPtr<MutPtr<CVoid>>, tmheight: MutPtr<Int>): Hresult =
+public actual fun scriptCacheGetHeight(hdc: Hdc, psc: MutPtr, tmheight: MutPtr): Hresult =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationScriptCacheGetHeight(hdc.rawAddress, psc.rawAddress, tmheight.rawAddress)
 
-public actual fun scriptFreeCache(psc: MutPtr<MutPtr<CVoid>>): Hresult =
+public actual fun scriptFreeCache(psc: MutPtr): Hresult =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationScriptFreeCache(psc.rawAddress)
 
-public actual fun scriptGetCMap(hdc: Hdc, psc: MutPtr<MutPtr<CVoid>>, pwcinchars: Pcwstr, cchars: Int, dwflags: UInt, pwoutglyphs: MutPtr<UShort>): Hresult =
+public actual fun scriptGetCMap(hdc: Hdc, psc: MutPtr, pwcinchars: Pcwstr, cchars: Int, dwflags: UInt, pwoutglyphs: MutPtr): Hresult =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationScriptGetCMap(hdc.rawAddress, psc.rawAddress, pwcinchars.rawAddress, cchars, dwflags.toInt(), pwoutglyphs.rawAddress)
 
-public actual fun scriptGetFontAlternateGlyphs(hdc: Hdc, psc: MutPtr<MutPtr<CVoid>>, psa: ConstPtr<ScriptAnalysis>, tagscript: UInt, taglangsys: UInt, tagfeature: UInt, wglyphid: UShort, cmaxalternates: Int, palternateglyphs: MutPtr<UShort>, pcalternates: MutPtr<Int>): Hresult =
+public actual fun scriptGetFontAlternateGlyphs(hdc: Hdc, psc: MutPtr, psa: ConstPtr, tagscript: UInt, taglangsys: UInt, tagfeature: UInt, wglyphid: UShort, cmaxalternates: Int, palternateglyphs: MutPtr, pcalternates: MutPtr): Hresult =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationScriptGetFontAlternateGlyphs(hdc.rawAddress, psc.rawAddress, psa.rawAddress, tagscript.toInt(), taglangsys.toInt(), tagfeature.toInt(), wglyphid.toShort(), cmaxalternates, palternateglyphs.rawAddress, pcalternates.rawAddress)
 
-public actual fun scriptGetFontFeatureTags(hdc: Hdc, psc: MutPtr<MutPtr<CVoid>>, psa: ConstPtr<ScriptAnalysis>, tagscript: UInt, taglangsys: UInt, cmaxtags: Int, pfeaturetags: MutPtr<UInt>, pctags: MutPtr<Int>): Hresult =
+public actual fun scriptGetFontFeatureTags(hdc: Hdc, psc: MutPtr, psa: ConstPtr, tagscript: UInt, taglangsys: UInt, cmaxtags: Int, pfeaturetags: MutPtr, pctags: MutPtr): Hresult =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationScriptGetFontFeatureTags(hdc.rawAddress, psc.rawAddress, psa.rawAddress, tagscript.toInt(), taglangsys.toInt(), cmaxtags, pfeaturetags.rawAddress, pctags.rawAddress)
 
-public actual fun scriptGetFontLanguageTags(hdc: Hdc, psc: MutPtr<MutPtr<CVoid>>, psa: ConstPtr<ScriptAnalysis>, tagscript: UInt, cmaxtags: Int, plangsystags: MutPtr<UInt>, pctags: MutPtr<Int>): Hresult =
+public actual fun scriptGetFontLanguageTags(hdc: Hdc, psc: MutPtr, psa: ConstPtr, tagscript: UInt, cmaxtags: Int, plangsystags: MutPtr, pctags: MutPtr): Hresult =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationScriptGetFontLanguageTags(hdc.rawAddress, psc.rawAddress, psa.rawAddress, tagscript.toInt(), cmaxtags, plangsystags.rawAddress, pctags.rawAddress)
 
-public actual fun scriptGetFontProperties(hdc: Hdc, psc: MutPtr<MutPtr<CVoid>>, sfp: MutPtr<ScriptFontproperties>): Hresult =
+public actual fun scriptGetFontProperties(hdc: Hdc, psc: MutPtr, sfp: MutPtr): Hresult =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationScriptGetFontProperties(hdc.rawAddress, psc.rawAddress, sfp.rawAddress)
 
-public actual fun scriptGetFontScriptTags(hdc: Hdc, psc: MutPtr<MutPtr<CVoid>>, psa: ConstPtr<ScriptAnalysis>, cmaxtags: Int, pscripttags: MutPtr<UInt>, pctags: MutPtr<Int>): Hresult =
+public actual fun scriptGetFontScriptTags(hdc: Hdc, psc: MutPtr, psa: ConstPtr, cmaxtags: Int, pscripttags: MutPtr, pctags: MutPtr): Hresult =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationScriptGetFontScriptTags(hdc.rawAddress, psc.rawAddress, psa.rawAddress, cmaxtags, pscripttags.rawAddress, pctags.rawAddress)
 
-public actual fun scriptGetGlyphABCWidth(hdc: Hdc, psc: MutPtr<MutPtr<CVoid>>, wglyph: UShort, pabc: MutPtr<Abc>): Hresult =
+public actual fun scriptGetGlyphABCWidth(hdc: Hdc, psc: MutPtr, wglyph: UShort, pabc: MutPtr): Hresult =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationScriptGetGlyphABCWidth(hdc.rawAddress, psc.rawAddress, wglyph.toShort(), pabc.rawAddress)
 
-public actual fun scriptGetLogicalWidths(psa: ConstPtr<ScriptAnalysis>, cchars: Int, cglyphs: Int, piglyphwidth: ConstPtr<Int>, pwlogclust: ConstPtr<UShort>, psva: ConstPtr<ScriptVisattr>, pidx: ConstPtr<Int>): Hresult =
+public actual fun scriptGetLogicalWidths(psa: ConstPtr, cchars: Int, cglyphs: Int, piglyphwidth: ConstPtr, pwlogclust: ConstPtr, psva: ConstPtr, pidx: ConstPtr): Hresult =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationScriptGetLogicalWidths(psa.rawAddress, cchars, cglyphs, piglyphwidth.rawAddress, pwlogclust.rawAddress, psva.rawAddress, pidx.rawAddress)
 
-public actual fun scriptGetProperties(ppsp: MutPtr<MutPtr<MutPtr<ScriptProperties>>>, pinumscripts: MutPtr<Int>): Hresult =
+public actual fun scriptGetProperties(ppsp: MutPtr, pinumscripts: MutPtr): Hresult =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationScriptGetProperties(ppsp.rawAddress, pinumscripts.rawAddress)
 
 public actual fun scriptIsComplex(pwcinchars: Pcwstr, cinchars: Int, dwflags: ScriptIsComplexFlags): Hresult =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationScriptIsComplex(pwcinchars.rawAddress, cinchars, dwflags.toInt())
 
-public actual fun scriptItemize(pwcinchars: Pcwstr, cinchars: Int, cmaxitems: Int, pscontrol: ConstPtr<ScriptControl>, psstate: ConstPtr<ScriptState>, pitems: MutPtr<ScriptItem>, pcitems: MutPtr<Int>): Hresult =
+public actual fun scriptItemize(pwcinchars: Pcwstr, cinchars: Int, cmaxitems: Int, pscontrol: ConstPtr, psstate: ConstPtr, pitems: MutPtr, pcitems: MutPtr): Hresult =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationScriptItemize(pwcinchars.rawAddress, cinchars, cmaxitems, pscontrol.rawAddress, psstate.rawAddress, pitems.rawAddress, pcitems.rawAddress)
 
-public actual fun scriptItemizeOpenType(pwcinchars: Pcwstr, cinchars: Int, cmaxitems: Int, pscontrol: ConstPtr<ScriptControl>, psstate: ConstPtr<ScriptState>, pitems: MutPtr<ScriptItem>, pscripttags: MutPtr<UInt>, pcitems: MutPtr<Int>): Hresult =
+public actual fun scriptItemizeOpenType(pwcinchars: Pcwstr, cinchars: Int, cmaxitems: Int, pscontrol: ConstPtr, psstate: ConstPtr, pitems: MutPtr, pscripttags: MutPtr, pcitems: MutPtr): Hresult =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationScriptItemizeOpenType(pwcinchars.rawAddress, cinchars, cmaxitems, pscontrol.rawAddress, psstate.rawAddress, pitems.rawAddress, pscripttags.rawAddress, pcitems.rawAddress)
 
-public actual fun scriptJustify(psva: ConstPtr<ScriptVisattr>, piadvance: ConstPtr<Int>, cglyphs: Int, idx: Int, iminkashida: Int, pijustify: MutPtr<Int>): Hresult =
+public actual fun scriptJustify(psva: ConstPtr, piadvance: ConstPtr, cglyphs: Int, idx: Int, iminkashida: Int, pijustify: MutPtr): Hresult =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationScriptJustify(psva.rawAddress, piadvance.rawAddress, cglyphs, idx, iminkashida, pijustify.rawAddress)
 
-public actual fun scriptLayout(cruns: Int, pblevel: ConstPtr<UByte>, pivisualtological: MutPtr<Int>, pilogicaltovisual: MutPtr<Int>): Hresult =
+public actual fun scriptLayout(cruns: Int, pblevel: ConstPtr, pivisualtological: MutPtr, pilogicaltovisual: MutPtr): Hresult =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationScriptLayout(cruns, pblevel.rawAddress, pivisualtological.rawAddress, pilogicaltovisual.rawAddress)
 
-public actual fun scriptPlace(hdc: Hdc, psc: MutPtr<MutPtr<CVoid>>, pwglyphs: ConstPtr<UShort>, cglyphs: Int, psva: ConstPtr<ScriptVisattr>, psa: MutPtr<ScriptAnalysis>, piadvance: MutPtr<Int>, pgoffset: MutPtr<Goffset>, pabc: MutPtr<Abc>): Hresult =
+public actual fun scriptPlace(hdc: Hdc, psc: MutPtr, pwglyphs: ConstPtr, cglyphs: Int, psva: ConstPtr, psa: MutPtr, piadvance: MutPtr, pgoffset: MutPtr, pabc: MutPtr): Hresult =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationScriptPlace(hdc.rawAddress, psc.rawAddress, pwglyphs.rawAddress, cglyphs, psva.rawAddress, psa.rawAddress, piadvance.rawAddress, pgoffset.rawAddress, pabc.rawAddress)
 
-public actual fun scriptPlaceOpenType(hdc: Hdc, psc: MutPtr<MutPtr<CVoid>>, psa: MutPtr<ScriptAnalysis>, tagscript: UInt, taglangsys: UInt, rcrangechars: ConstPtr<Int>, rprangeproperties: ConstPtr<ConstPtr<TextrangeProperties>>, cranges: Int, pwcchars: Pcwstr, pwlogclust: ConstPtr<UShort>, pcharprops: ConstPtr<ScriptCharprop>, cchars: Int, pwglyphs: ConstPtr<UShort>, pglyphprops: ConstPtr<ScriptGlyphprop>, cglyphs: Int, piadvance: MutPtr<Int>, pgoffset: MutPtr<Goffset>, pabc: MutPtr<Abc>): Hresult =
+public actual fun scriptPlaceOpenType(hdc: Hdc, psc: MutPtr, psa: MutPtr, tagscript: UInt, taglangsys: UInt, rcrangechars: ConstPtr, rprangeproperties: ConstPtr, cranges: Int, pwcchars: Pcwstr, pwlogclust: ConstPtr, pcharprops: ConstPtr, cchars: Int, pwglyphs: ConstPtr, pglyphprops: ConstPtr, cglyphs: Int, piadvance: MutPtr, pgoffset: MutPtr, pabc: MutPtr): Hresult =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationScriptPlaceOpenType(hdc.rawAddress, psc.rawAddress, psa.rawAddress, tagscript.toInt(), taglangsys.toInt(), rcrangechars.rawAddress, rprangeproperties.rawAddress, cranges, pwcchars.rawAddress, pwlogclust.rawAddress, pcharprops.rawAddress, cchars, pwglyphs.rawAddress, pglyphprops.rawAddress, cglyphs, piadvance.rawAddress, pgoffset.rawAddress, pabc.rawAddress)
 
-public actual fun scriptPositionSingleGlyph(hdc: Hdc, psc: MutPtr<MutPtr<CVoid>>, psa: ConstPtr<ScriptAnalysis>, tagscript: UInt, taglangsys: UInt, tagfeature: UInt, lparameter: Int, wglyphid: UShort, iadvance: Int, goffset: Goffset, pioutadvance: MutPtr<Int>, poutgoffset: MutPtr<Goffset>): Hresult =
+public actual fun scriptPositionSingleGlyph(hdc: Hdc, psc: MutPtr, psa: ConstPtr, tagscript: UInt, taglangsys: UInt, tagfeature: UInt, lparameter: Int, wglyphid: UShort, iadvance: Int, goffset: Goffset, pioutadvance: MutPtr, poutgoffset: MutPtr): Hresult =
     0
 
-public actual fun scriptRecordDigitSubstitution(locale: UInt, psds: MutPtr<ScriptDigitsubstitute>): Hresult =
+public actual fun scriptRecordDigitSubstitution(locale: UInt, psds: MutPtr): Hresult =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationScriptRecordDigitSubstitution(locale.toInt(), psds.rawAddress)
 
-public actual fun scriptShape(hdc: Hdc, psc: MutPtr<MutPtr<CVoid>>, pwcchars: Pcwstr, cchars: Int, cmaxglyphs: Int, psa: MutPtr<ScriptAnalysis>, pwoutglyphs: MutPtr<UShort>, pwlogclust: MutPtr<UShort>, psva: MutPtr<ScriptVisattr>, pcglyphs: MutPtr<Int>): Hresult =
+public actual fun scriptShape(hdc: Hdc, psc: MutPtr, pwcchars: Pcwstr, cchars: Int, cmaxglyphs: Int, psa: MutPtr, pwoutglyphs: MutPtr, pwlogclust: MutPtr, psva: MutPtr, pcglyphs: MutPtr): Hresult =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationScriptShape(hdc.rawAddress, psc.rawAddress, pwcchars.rawAddress, cchars, cmaxglyphs, psa.rawAddress, pwoutglyphs.rawAddress, pwlogclust.rawAddress, psva.rawAddress, pcglyphs.rawAddress)
 
-public actual fun scriptShapeOpenType(hdc: Hdc, psc: MutPtr<MutPtr<CVoid>>, psa: MutPtr<ScriptAnalysis>, tagscript: UInt, taglangsys: UInt, rcrangechars: ConstPtr<Int>, rprangeproperties: ConstPtr<ConstPtr<TextrangeProperties>>, cranges: Int, pwcchars: Pcwstr, cchars: Int, cmaxglyphs: Int, pwlogclust: MutPtr<UShort>, pcharprops: MutPtr<ScriptCharprop>, pwoutglyphs: MutPtr<UShort>, poutglyphprops: MutPtr<ScriptGlyphprop>, pcglyphs: MutPtr<Int>): Hresult =
+public actual fun scriptShapeOpenType(hdc: Hdc, psc: MutPtr, psa: MutPtr, tagscript: UInt, taglangsys: UInt, rcrangechars: ConstPtr, rprangeproperties: ConstPtr, cranges: Int, pwcchars: Pcwstr, cchars: Int, cmaxglyphs: Int, pwlogclust: MutPtr, pcharprops: MutPtr, pwoutglyphs: MutPtr, poutglyphprops: MutPtr, pcglyphs: MutPtr): Hresult =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationScriptShapeOpenType(hdc.rawAddress, psc.rawAddress, psa.rawAddress, tagscript.toInt(), taglangsys.toInt(), rcrangechars.rawAddress, rprangeproperties.rawAddress, cranges, pwcchars.rawAddress, cchars, cmaxglyphs, pwlogclust.rawAddress, pcharprops.rawAddress, pwoutglyphs.rawAddress, poutglyphprops.rawAddress, pcglyphs.rawAddress)
 
-public actual fun scriptStringAnalyse(hdc: Hdc, pstring: ConstPtr<CVoid>, cstring: Int, cglyphs: Int, icharset: Int, dwflags: UInt, ireqwidth: Int, pscontrol: ConstPtr<ScriptControl>, psstate: ConstPtr<ScriptState>, pidx: ConstPtr<Int>, ptabdef: ConstPtr<ScriptTabdef>, pbinclass: ConstPtr<UByte>, pssa: MutPtr<MutPtr<CVoid>>): Hresult =
+public actual fun scriptStringAnalyse(hdc: Hdc, pstring: ConstPtr, cstring: Int, cglyphs: Int, icharset: Int, dwflags: UInt, ireqwidth: Int, pscontrol: ConstPtr, psstate: ConstPtr, pidx: ConstPtr, ptabdef: ConstPtr, pbinclass: ConstPtr, pssa: MutPtr): Hresult =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationScriptStringAnalyse(hdc.rawAddress, pstring.rawAddress, cstring, cglyphs, icharset, dwflags.toInt(), ireqwidth, pscontrol.rawAddress, psstate.rawAddress, pidx.rawAddress, ptabdef.rawAddress, pbinclass.rawAddress, pssa.rawAddress)
 
-public actual fun scriptStringCPtoX(ssa: ConstPtr<CVoid>, icp: Int, ftrailing: Bool, px: MutPtr<Int>): Hresult =
+public actual fun scriptStringCPtoX(ssa: ConstPtr, icp: Int, ftrailing: Bool, px: MutPtr): Hresult =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationScriptStringCPtoX(ssa.rawAddress, icp, ftrailing, px.rawAddress)
 
-public actual fun scriptStringFree(pssa: MutPtr<MutPtr<CVoid>>): Hresult =
+public actual fun scriptStringFree(pssa: MutPtr): Hresult =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationScriptStringFree(pssa.rawAddress)
 
-public actual fun scriptStringGetLogicalWidths(ssa: ConstPtr<CVoid>, pidx: MutPtr<Int>): Hresult =
+public actual fun scriptStringGetLogicalWidths(ssa: ConstPtr, pidx: MutPtr): Hresult =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationScriptStringGetLogicalWidths(ssa.rawAddress, pidx.rawAddress)
 
-public actual fun scriptStringGetOrder(ssa: ConstPtr<CVoid>, puorder: MutPtr<UInt>): Hresult =
+public actual fun scriptStringGetOrder(ssa: ConstPtr, puorder: MutPtr): Hresult =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationScriptStringGetOrder(ssa.rawAddress, puorder.rawAddress)
 
-public actual fun scriptStringOut(ssa: ConstPtr<CVoid>, ix: Int, iy: Int, uoptions: EtoOptions, prc: ConstPtr<Rect>, iminsel: Int, imaxsel: Int, fdisabled: Bool): Hresult =
+public actual fun scriptStringOut(ssa: ConstPtr, ix: Int, iy: Int, uoptions: EtoOptions, prc: ConstPtr, iminsel: Int, imaxsel: Int, fdisabled: Bool): Hresult =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationScriptStringOut(ssa.rawAddress, ix, iy, uoptions.toInt(), prc.rawAddress, iminsel, imaxsel, fdisabled)
 
-public actual fun scriptStringValidate(ssa: ConstPtr<CVoid>): Hresult =
+public actual fun scriptStringValidate(ssa: ConstPtr): Hresult =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationScriptStringValidate(ssa.rawAddress)
 
-public actual fun scriptStringXtoCP(ssa: ConstPtr<CVoid>, ix: Int, pich: MutPtr<Int>, pitrailing: MutPtr<Int>): Hresult =
+public actual fun scriptStringXtoCP(ssa: ConstPtr, ix: Int, pich: MutPtr, pitrailing: MutPtr): Hresult =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationScriptStringXtoCP(ssa.rawAddress, ix, pich.rawAddress, pitrailing.rawAddress)
 
-public actual fun scriptStringPLogAttr(ssa: ConstPtr<CVoid>): MutPtr<ScriptLogattr> =
+public actual fun scriptStringPLogAttr(ssa: ConstPtr): MutPtr =
     MutPtr(WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationScriptStringPLogAttr(ssa.rawAddress))
 
-public actual fun scriptStringPSize(ssa: ConstPtr<CVoid>): MutPtr<Size> =
+public actual fun scriptStringPSize(ssa: ConstPtr): MutPtr =
     MutPtr(WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationScriptStringPSize(ssa.rawAddress))
 
-public actual fun scriptStringPcOutChars(ssa: ConstPtr<CVoid>): MutPtr<Int> =
+public actual fun scriptStringPcOutChars(ssa: ConstPtr): MutPtr =
     MutPtr(WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationScriptStringPcOutChars(ssa.rawAddress))
 
-public actual fun scriptSubstituteSingleGlyph(hdc: Hdc, psc: MutPtr<MutPtr<CVoid>>, psa: ConstPtr<ScriptAnalysis>, tagscript: UInt, taglangsys: UInt, tagfeature: UInt, lparameter: Int, wglyphid: UShort, pwoutglyphid: MutPtr<UShort>): Hresult =
+public actual fun scriptSubstituteSingleGlyph(hdc: Hdc, psc: MutPtr, psa: ConstPtr, tagscript: UInt, taglangsys: UInt, tagfeature: UInt, lparameter: Int, wglyphid: UShort, pwoutglyphid: MutPtr): Hresult =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationScriptSubstituteSingleGlyph(hdc.rawAddress, psc.rawAddress, psa.rawAddress, tagscript.toInt(), taglangsys.toInt(), tagfeature.toInt(), lparameter, wglyphid.toShort(), pwoutglyphid.rawAddress)
 
-public actual fun scriptTextOut(hdc: Hdc, psc: MutPtr<MutPtr<CVoid>>, x: Int, y: Int, fuoptions: UInt, lprc: ConstPtr<Rect>, psa: ConstPtr<ScriptAnalysis>, pwcreserved: Pcwstr, ireserved: Int, pwglyphs: ConstPtr<UShort>, cglyphs: Int, piadvance: ConstPtr<Int>, pijustify: ConstPtr<Int>, pgoffset: ConstPtr<Goffset>): Hresult =
+public actual fun scriptTextOut(hdc: Hdc, psc: MutPtr, x: Int, y: Int, fuoptions: UInt, lprc: ConstPtr, psa: ConstPtr, pwcreserved: Pcwstr, ireserved: Int, pwglyphs: ConstPtr, cglyphs: Int, piadvance: ConstPtr, pijustify: ConstPtr, pgoffset: ConstPtr): Hresult =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationScriptTextOut(hdc.rawAddress, psc.rawAddress, x, y, fuoptions.toInt(), lprc.rawAddress, psa.rawAddress, pwcreserved.rawAddress, ireserved, pwglyphs.rawAddress, cglyphs, piadvance.rawAddress, pijustify.rawAddress, pgoffset.rawAddress)
 
-public actual fun scriptXtoCP(ix: Int, cchars: Int, cglyphs: Int, pwlogclust: ConstPtr<UShort>, psva: ConstPtr<ScriptVisattr>, piadvance: ConstPtr<Int>, psa: ConstPtr<ScriptAnalysis>, picp: MutPtr<Int>, pitrailing: MutPtr<Int>): Hresult =
+public actual fun scriptXtoCP(ix: Int, cchars: Int, cglyphs: Int, pwlogclust: ConstPtr, psva: ConstPtr, piadvance: ConstPtr, psa: ConstPtr, picp: MutPtr, pitrailing: MutPtr): Hresult =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationScriptXtoCP(ix, cchars, cglyphs, pwlogclust.rawAddress, psva.rawAddress, piadvance.rawAddress, psa.rawAddress, picp.rawAddress, pitrailing.rawAddress)
 
 public actual fun setCalendarInfoA(locale: UInt, calendar: UInt, caltype: UInt, lpcaldata: Pcstr): Bool =
@@ -4251,16 +4246,16 @@ public actual fun setLocaleInfoA(locale: UInt, lctype: UInt, lplcdata: Pcstr): B
 public actual fun setLocaleInfoW(locale: UInt, lctype: UInt, lplcdata: Pcwstr): Bool =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationSetLocaleInfoW(locale.toInt(), lctype.toInt(), lplcdata.rawAddress)
 
-public actual fun setProcessPreferredUILanguages(dwflags: UInt, pwszlanguagesbuffer: Pcwstr, pulnumlanguages: MutPtr<UInt>): Bool =
+public actual fun setProcessPreferredUILanguages(dwflags: UInt, pwszlanguagesbuffer: Pcwstr, pulnumlanguages: MutPtr): Bool =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationSetProcessPreferredUILanguages(dwflags.toInt(), pwszlanguagesbuffer.rawAddress, pulnumlanguages.rawAddress)
 
 public actual fun setThreadLocale(locale: UInt): Bool =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationSetThreadLocale(locale.toInt())
 
-public actual fun setThreadPreferredUILanguages(dwflags: UInt, pwszlanguagesbuffer: Pcwstr, pulnumlanguages: MutPtr<UInt>): Bool =
+public actual fun setThreadPreferredUILanguages(dwflags: UInt, pwszlanguagesbuffer: Pcwstr, pulnumlanguages: MutPtr): Bool =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationSetThreadPreferredUILanguages(dwflags.toInt(), pwszlanguagesbuffer.rawAddress, pulnumlanguages.rawAddress)
 
-public actual fun setThreadPreferredUILanguages2(flags: UInt, languages: Pcwstr, numlanguagesset: MutPtr<UInt>, snapshot: MutPtr<Hsaveduilanguages>): Bool =
+public actual fun setThreadPreferredUILanguages2(flags: UInt, languages: Pcwstr, numlanguagesset: MutPtr, snapshot: MutPtr): Bool =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationSetThreadPreferredUILanguages2(flags.toInt(), languages.rawAddress, numlanguagesset.rawAddress, snapshot.rawAddress)
 
 public actual fun setThreadUILanguage(langid: UShort): UShort =
@@ -4272,48 +4267,48 @@ public actual fun setUserGeoID(geoid: Int): Bool =
 public actual fun setUserGeoName(geoname: Pcwstr): Bool =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationSetUserGeoName(geoname.rawAddress)
 
-public actual fun translateCharsetInfo(lpsrc: MutPtr<UInt>, lpcs: MutPtr<Charsetinfo>, dwflags: TranslateCharsetInfoFlags): Bool =
+public actual fun translateCharsetInfo(lpsrc: MutPtr, lpcs: MutPtr, dwflags: TranslateCharsetInfoFlags): Bool =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationTranslateCharsetInfo(lpsrc.rawAddress, lpcs.rawAddress, dwflags.toInt())
 
-public actual fun ucnvFromUCallbackEscape(context: ConstPtr<CVoid>, fromuargs: MutPtr<UConverterFromUnicodeArgs>, codeunits: ConstPtr<UShort>, length: Int, codepoint: Int, reason: UConverterCallbackReason, err: MutPtr<UErrorCode>) {
+public actual fun ucnvFromUCallbackEscape(context: ConstPtr, fromuargs: MutPtr, codeunits: ConstPtr, length: Int, codepoint: Int, reason: UConverterCallbackReason, err: MutPtr) {
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUcnvFromUCallbackEscape(context.rawAddress, fromuargs.rawAddress, codeunits.rawAddress, length, codepoint, reason, err.rawAddress)
 }
 
-public actual fun ucnvFromUCallbackSkip(context: ConstPtr<CVoid>, fromuargs: MutPtr<UConverterFromUnicodeArgs>, codeunits: ConstPtr<UShort>, length: Int, codepoint: Int, reason: UConverterCallbackReason, err: MutPtr<UErrorCode>) {
+public actual fun ucnvFromUCallbackSkip(context: ConstPtr, fromuargs: MutPtr, codeunits: ConstPtr, length: Int, codepoint: Int, reason: UConverterCallbackReason, err: MutPtr) {
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUcnvFromUCallbackSkip(context.rawAddress, fromuargs.rawAddress, codeunits.rawAddress, length, codepoint, reason, err.rawAddress)
 }
 
-public actual fun ucnvFromUCallbackStop(context: ConstPtr<CVoid>, fromuargs: MutPtr<UConverterFromUnicodeArgs>, codeunits: ConstPtr<UShort>, length: Int, codepoint: Int, reason: UConverterCallbackReason, err: MutPtr<UErrorCode>) {
+public actual fun ucnvFromUCallbackStop(context: ConstPtr, fromuargs: MutPtr, codeunits: ConstPtr, length: Int, codepoint: Int, reason: UConverterCallbackReason, err: MutPtr) {
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUcnvFromUCallbackStop(context.rawAddress, fromuargs.rawAddress, codeunits.rawAddress, length, codepoint, reason, err.rawAddress)
 }
 
-public actual fun ucnvFromUCallbackSubstitute(context: ConstPtr<CVoid>, fromuargs: MutPtr<UConverterFromUnicodeArgs>, codeunits: ConstPtr<UShort>, length: Int, codepoint: Int, reason: UConverterCallbackReason, err: MutPtr<UErrorCode>) {
+public actual fun ucnvFromUCallbackSubstitute(context: ConstPtr, fromuargs: MutPtr, codeunits: ConstPtr, length: Int, codepoint: Int, reason: UConverterCallbackReason, err: MutPtr) {
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUcnvFromUCallbackSubstitute(context.rawAddress, fromuargs.rawAddress, codeunits.rawAddress, length, codepoint, reason, err.rawAddress)
 }
 
-public actual fun ucnvToUCallbackEscape(context: ConstPtr<CVoid>, touargs: MutPtr<UConverterToUnicodeArgs>, codeunits: Pcstr, length: Int, reason: UConverterCallbackReason, err: MutPtr<UErrorCode>) {
+public actual fun ucnvToUCallbackEscape(context: ConstPtr, touargs: MutPtr, codeunits: Pcstr, length: Int, reason: UConverterCallbackReason, err: MutPtr) {
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUcnvToUCallbackEscape(context.rawAddress, touargs.rawAddress, codeunits.rawAddress, length, reason, err.rawAddress)
 }
 
-public actual fun ucnvToUCallbackSkip(context: ConstPtr<CVoid>, touargs: MutPtr<UConverterToUnicodeArgs>, codeunits: Pcstr, length: Int, reason: UConverterCallbackReason, err: MutPtr<UErrorCode>) {
+public actual fun ucnvToUCallbackSkip(context: ConstPtr, touargs: MutPtr, codeunits: Pcstr, length: Int, reason: UConverterCallbackReason, err: MutPtr) {
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUcnvToUCallbackSkip(context.rawAddress, touargs.rawAddress, codeunits.rawAddress, length, reason, err.rawAddress)
 }
 
-public actual fun ucnvToUCallbackStop(context: ConstPtr<CVoid>, touargs: MutPtr<UConverterToUnicodeArgs>, codeunits: Pcstr, length: Int, reason: UConverterCallbackReason, err: MutPtr<UErrorCode>) {
+public actual fun ucnvToUCallbackStop(context: ConstPtr, touargs: MutPtr, codeunits: Pcstr, length: Int, reason: UConverterCallbackReason, err: MutPtr) {
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUcnvToUCallbackStop(context.rawAddress, touargs.rawAddress, codeunits.rawAddress, length, reason, err.rawAddress)
 }
 
-public actual fun ucnvToUCallbackSubstitute(context: ConstPtr<CVoid>, touargs: MutPtr<UConverterToUnicodeArgs>, codeunits: Pcstr, length: Int, reason: UConverterCallbackReason, err: MutPtr<UErrorCode>) {
+public actual fun ucnvToUCallbackSubstitute(context: ConstPtr, touargs: MutPtr, codeunits: Pcstr, length: Int, reason: UConverterCallbackReason, err: MutPtr) {
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUcnvToUCallbackSubstitute(context.rawAddress, touargs.rawAddress, codeunits.rawAddress, length, reason, err.rawAddress)
 }
 
-public actual fun updateCalendarDayOfWeek(lpcaldatetime: MutPtr<Caldatetime>): Bool =
+public actual fun updateCalendarDayOfWeek(lpcaldatetime: MutPtr): Bool =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUpdateCalendarDayOfWeek(lpcaldatetime.rawAddress)
 
 public actual fun verifyScripts(dwflags: UInt, lplocalescripts: Pcwstr, cchlocalescripts: Int, lptestscripts: Pcwstr, cchtestscripts: Int): Bool =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationVerifyScripts(dwflags.toInt(), lplocalescripts.rawAddress, cchlocalescripts, lptestscripts.rawAddress, cchtestscripts)
 
-public actual fun wideCharToMultiByte(codepage: UInt, dwflags: UInt, lpwidecharstr: Pcwstr, cchwidechar: Int, lpmultibytestr: Pstr, cbmultibyte: Int, lpdefaultchar: Pcstr, lpuseddefaultchar: MutPtr<Bool>): Int =
+public actual fun wideCharToMultiByte(codepage: UInt, dwflags: UInt, lpwidecharstr: Pcwstr, cchwidechar: Int, lpmultibytestr: Pstr, cbmultibyte: Int, lpdefaultchar: Pcstr, lpuseddefaultchar: MutPtr): Int =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationWideCharToMultiByte(codepage.toInt(), dwflags.toInt(), lpwidecharstr.rawAddress, cchwidechar, lpmultibytestr.rawAddress, cbmultibyte, lpdefaultchar.rawAddress, lpuseddefaultchar.rawAddress)
 
 public actual fun lstrcatA(lpstring1: Pstr, lpstring2: Pcstr): Pstr =
@@ -4352,27 +4347,27 @@ public actual fun lstrlenA(lpstring: Pcstr): Int =
 public actual fun lstrlenW(lpstring: Pcwstr): Int =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationLstrlenW(lpstring.rawAddress)
 
-public actual fun uUcharsToChars(us: ConstPtr<UShort>, cs: Pcstr, length: Int) {
+public actual fun uUcharsToChars(us: ConstPtr, cs: Pcstr, length: Int) {
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUUcharsToChars(us.rawAddress, cs.rawAddress, length)
 }
 
-public actual fun uAustrcpy(dst: Pcstr, src: ConstPtr<UShort>): Pstr =
+public actual fun uAustrcpy(dst: Pcstr, src: ConstPtr): Pstr =
     MutPtr(WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUAustrcpy(dst.rawAddress, src.rawAddress))
 
-public actual fun uAustrncpy(dst: Pcstr, src: ConstPtr<UShort>, n: Int): Pstr =
+public actual fun uAustrncpy(dst: Pcstr, src: ConstPtr, n: Int): Pstr =
     MutPtr(WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUAustrncpy(dst.rawAddress, src.rawAddress, n))
 
-public actual fun uCatclose(catd: MutPtr<UResourceBundle>) {
+public actual fun uCatclose(catd: MutPtr) {
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUCatclose(catd.rawAddress)
 }
 
-public actual fun uCatgets(catd: MutPtr<UResourceBundle>, setNum: Int, msgNum: Int, s: ConstPtr<UShort>, len: MutPtr<Int>, ec: MutPtr<UErrorCode>): MutPtr<UShort> =
+public actual fun uCatgets(catd: MutPtr, setNum: Int, msgNum: Int, s: ConstPtr, len: MutPtr, ec: MutPtr): MutPtr =
     MutPtr(WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUCatgets(catd.rawAddress, setNum, msgNum, s.rawAddress, len.rawAddress, ec.rawAddress))
 
-public actual fun uCatopen(name: Pcstr, locale: Pcstr, ec: MutPtr<UErrorCode>): MutPtr<UResourceBundle> =
+public actual fun uCatopen(name: Pcstr, locale: Pcstr, ec: MutPtr): MutPtr =
     MutPtr(WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUCatopen(name.rawAddress, locale.rawAddress, ec.rawAddress))
 
-public actual fun uCharAge(c: Int, versionarray: MutPtr<UByte>) {
+public actual fun uCharAge(c: Int, versionarray: MutPtr) {
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUCharAge(c, versionarray.rawAddress)
 }
 
@@ -4382,19 +4377,19 @@ public actual fun uCharDigitValue(c: Int): Int =
 public actual fun uCharDirection(c: Int): UCharDirection =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUCharDirection(c)
 
-public actual fun uCharFromName(namechoice: UCharNameChoice, name: Pcstr, perrorcode: MutPtr<UErrorCode>): Int =
+public actual fun uCharFromName(namechoice: UCharNameChoice, name: Pcstr, perrorcode: MutPtr): Int =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUCharFromName(namechoice, name.rawAddress, perrorcode.rawAddress)
 
 public actual fun uCharMirror(c: Int): Int =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUCharMirror(c)
 
-public actual fun uCharName(code: Int, namechoice: UCharNameChoice, buffer: Pcstr, bufferlength: Int, perrorcode: MutPtr<UErrorCode>): Int =
+public actual fun uCharName(code: Int, namechoice: UCharNameChoice, buffer: Pcstr, bufferlength: Int, perrorcode: MutPtr): Int =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUCharName(code, namechoice, buffer.rawAddress, bufferlength, perrorcode.rawAddress)
 
 public actual fun uCharType(c: Int): Byte =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUCharType(c)
 
-public actual fun uCharsToUchars(cs: Pcstr, us: MutPtr<UShort>, length: Int) {
+public actual fun uCharsToUchars(cs: Pcstr, us: MutPtr, length: Int) {
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUCharsToUchars(cs.rawAddress, us.rawAddress, length)
 }
 
@@ -4402,17 +4397,17 @@ public actual fun uCleanup() {
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUCleanup()
 }
 
-public actual fun uCountChar32(s: ConstPtr<UShort>, length: Int): Int =
+public actual fun uCountChar32(s: ConstPtr, length: Int): Int =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUCountChar32(s.rawAddress, length)
 
 public actual fun uDigit(ch: Int, radix: Byte): Int =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUDigit(ch, radix)
 
-public actual fun uEnumCharNames(start: Int, limit: Int, fn: MutPtr<UEnumCharNamesFn>, context: MutPtr<CVoid>, namechoice: UCharNameChoice, perrorcode: MutPtr<UErrorCode>) {
+public actual fun uEnumCharNames(start: Int, limit: Int, fn: MutPtr, context: MutPtr, namechoice: UCharNameChoice, perrorcode: MutPtr) {
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUEnumCharNames(start, limit, fn.rawAddress, context.rawAddress, namechoice, perrorcode.rawAddress)
 }
 
-public actual fun uEnumCharTypes(enumrange: MutPtr<UCharEnumTypeRange>, context: ConstPtr<CVoid>) {
+public actual fun uEnumCharTypes(enumrange: MutPtr, context: ConstPtr) {
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUEnumCharTypes(enumrange.rawAddress, context.rawAddress)
 }
 
@@ -4425,29 +4420,29 @@ public actual fun uFoldCase(c: Int, options: UInt): Int =
 public actual fun uForDigit(digit: Int, radix: Byte): Int =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUForDigit(digit, radix)
 
-public actual fun uFormatMessage(locale: Pcstr, pattern: ConstPtr<UShort>, patternlength: Int, result: MutPtr<UShort>, resultlength: Int, status: MutPtr<UErrorCode>, vararg variadicArgs: Long): Int =
+public actual fun uFormatMessage(locale: Pcstr, pattern: ConstPtr, patternlength: Int, result: MutPtr, resultlength: Int, status: MutPtr, vararg variadicArgs: Long): Int =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUFormatMessage(locale.rawAddress, pattern.rawAddress, patternlength, result.rawAddress, resultlength, status.rawAddress, variadicArgs.size.coerceAtMost(4), if (variadicArgs.size > 0) variadicArgs[0] else 0L, if (variadicArgs.size > 1) variadicArgs[1] else 0L, if (variadicArgs.size > 2) variadicArgs[2] else 0L, if (variadicArgs.size > 3) variadicArgs[3] else 0L)
 
-public actual fun uFormatMessageWithError(locale: Pcstr, pattern: ConstPtr<UShort>, patternlength: Int, result: MutPtr<UShort>, resultlength: Int, parseerror: MutPtr<UParseError>, status: MutPtr<UErrorCode>, vararg variadicArgs: Long): Int =
+public actual fun uFormatMessageWithError(locale: Pcstr, pattern: ConstPtr, patternlength: Int, result: MutPtr, resultlength: Int, parseerror: MutPtr, status: MutPtr, vararg variadicArgs: Long): Int =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUFormatMessageWithError(locale.rawAddress, pattern.rawAddress, patternlength, result.rawAddress, resultlength, parseerror.rawAddress, status.rawAddress, variadicArgs.size.coerceAtMost(4), if (variadicArgs.size > 0) variadicArgs[0] else 0L, if (variadicArgs.size > 1) variadicArgs[1] else 0L, if (variadicArgs.size > 2) variadicArgs[2] else 0L, if (variadicArgs.size > 3) variadicArgs[3] else 0L)
 
 public actual fun uGetBidiPairedBracket(c: Int): Int =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUGetBidiPairedBracket(c)
 
-public actual fun uGetBinaryPropertySet(property: UProperty, perrorcode: MutPtr<UErrorCode>): MutPtr<USet> =
+public actual fun uGetBinaryPropertySet(property: UProperty, perrorcode: MutPtr): MutPtr =
     MutPtr(WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUGetBinaryPropertySet(property, perrorcode.rawAddress))
 
 public actual fun uGetCombiningClass(c: Int): UByte =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUGetCombiningClass(c).toUByte()
 
-public actual fun uGetDataVersion(dataversionfillin: MutPtr<UByte>, status: MutPtr<UErrorCode>) {
+public actual fun uGetDataVersion(dataversionfillin: MutPtr, status: MutPtr) {
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUGetDataVersion(dataversionfillin.rawAddress, status.rawAddress)
 }
 
-public actual fun uGetFcNfkcClosure(c: Int, dest: MutPtr<UShort>, destcapacity: Int, perrorcode: MutPtr<UErrorCode>): Int =
+public actual fun uGetFcNfkcClosure(c: Int, dest: MutPtr, destcapacity: Int, perrorcode: MutPtr): Int =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUGetFcNfkcClosure(c, dest.rawAddress, destcapacity, perrorcode.rawAddress)
 
-public actual fun uGetIntPropertyMap(property: UProperty, perrorcode: MutPtr<UErrorCode>): MutPtr<UCPMap> =
+public actual fun uGetIntPropertyMap(property: UProperty, perrorcode: MutPtr): MutPtr =
     MutPtr(WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUGetIntPropertyMap(property, perrorcode.rawAddress))
 
 public actual fun uGetIntPropertyMaxValue(which: UProperty): Int =
@@ -4474,18 +4469,18 @@ public actual fun uGetPropertyValueEnum(property: UProperty, alias: Pcstr): Int 
 public actual fun uGetPropertyValueName(property: UProperty, value: Int, namechoice: UPropertyNameChoice): Pcstr =
     ConstPtr(WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUGetPropertyValueName(property, value, namechoice))
 
-public actual fun uGetUnicodeVersion(versionarray: MutPtr<UByte>) {
+public actual fun uGetUnicodeVersion(versionarray: MutPtr) {
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUGetUnicodeVersion(versionarray.rawAddress)
 }
 
-public actual fun uGetVersion(versionarray: MutPtr<UByte>) {
+public actual fun uGetVersion(versionarray: MutPtr) {
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUGetVersion(versionarray.rawAddress)
 }
 
 public actual fun uHasBinaryProperty(c: Int, which: UProperty): Byte =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUHasBinaryProperty(c, which)
 
-public actual fun uInit(status: MutPtr<UErrorCode>) {
+public actual fun uInit(status: MutPtr) {
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUInit(status.rawAddress)
 }
 
@@ -4573,181 +4568,181 @@ public actual fun uIsupper(c: Int): Byte =
 public actual fun uIsxdigit(c: Int): Byte =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUIsxdigit(c)
 
-public actual fun uMemcasecmp(s1: ConstPtr<UShort>, s2: ConstPtr<UShort>, length: Int, options: UInt): Int =
+public actual fun uMemcasecmp(s1: ConstPtr, s2: ConstPtr, length: Int, options: UInt): Int =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUMemcasecmp(s1.rawAddress, s2.rawAddress, length, options.toInt())
 
-public actual fun uMemchr(s: ConstPtr<UShort>, c: UShort, count: Int): MutPtr<UShort> =
+public actual fun uMemchr(s: ConstPtr, c: UShort, count: Int): MutPtr =
     MutPtr(WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUMemchr(s.rawAddress, c.toShort(), count))
 
-public actual fun uMemchr32(s: ConstPtr<UShort>, c: Int, count: Int): MutPtr<UShort> =
+public actual fun uMemchr32(s: ConstPtr, c: Int, count: Int): MutPtr =
     MutPtr(WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUMemchr32(s.rawAddress, c, count))
 
-public actual fun uMemcmp(buf1: ConstPtr<UShort>, buf2: ConstPtr<UShort>, count: Int): Int =
+public actual fun uMemcmp(buf1: ConstPtr, buf2: ConstPtr, count: Int): Int =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUMemcmp(buf1.rawAddress, buf2.rawAddress, count)
 
-public actual fun uMemcmpCodePointOrder(s1: ConstPtr<UShort>, s2: ConstPtr<UShort>, count: Int): Int =
+public actual fun uMemcmpCodePointOrder(s1: ConstPtr, s2: ConstPtr, count: Int): Int =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUMemcmpCodePointOrder(s1.rawAddress, s2.rawAddress, count)
 
-public actual fun uMemcpy(dest: MutPtr<UShort>, src: ConstPtr<UShort>, count: Int): MutPtr<UShort> =
+public actual fun uMemcpy(dest: MutPtr, src: ConstPtr, count: Int): MutPtr =
     MutPtr(WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUMemcpy(dest.rawAddress, src.rawAddress, count))
 
-public actual fun uMemmove(dest: MutPtr<UShort>, src: ConstPtr<UShort>, count: Int): MutPtr<UShort> =
+public actual fun uMemmove(dest: MutPtr, src: ConstPtr, count: Int): MutPtr =
     MutPtr(WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUMemmove(dest.rawAddress, src.rawAddress, count))
 
-public actual fun uMemrchr(s: ConstPtr<UShort>, c: UShort, count: Int): MutPtr<UShort> =
+public actual fun uMemrchr(s: ConstPtr, c: UShort, count: Int): MutPtr =
     MutPtr(WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUMemrchr(s.rawAddress, c.toShort(), count))
 
-public actual fun uMemrchr32(s: ConstPtr<UShort>, c: Int, count: Int): MutPtr<UShort> =
+public actual fun uMemrchr32(s: ConstPtr, c: Int, count: Int): MutPtr =
     MutPtr(WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUMemrchr32(s.rawAddress, c, count))
 
-public actual fun uMemset(dest: MutPtr<UShort>, c: UShort, count: Int): MutPtr<UShort> =
+public actual fun uMemset(dest: MutPtr, c: UShort, count: Int): MutPtr =
     MutPtr(WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUMemset(dest.rawAddress, c.toShort(), count))
 
-public actual fun uParseMessage(locale: Pcstr, pattern: ConstPtr<UShort>, patternlength: Int, source: ConstPtr<UShort>, sourcelength: Int, status: MutPtr<UErrorCode>, vararg variadicArgs: Long) {
+public actual fun uParseMessage(locale: Pcstr, pattern: ConstPtr, patternlength: Int, source: ConstPtr, sourcelength: Int, status: MutPtr, vararg variadicArgs: Long) {
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUParseMessage(locale.rawAddress, pattern.rawAddress, patternlength, source.rawAddress, sourcelength, status.rawAddress, variadicArgs.size.coerceAtMost(4), if (variadicArgs.size > 0) variadicArgs[0] else 0L, if (variadicArgs.size > 1) variadicArgs[1] else 0L, if (variadicArgs.size > 2) variadicArgs[2] else 0L, if (variadicArgs.size > 3) variadicArgs[3] else 0L)
 }
 
-public actual fun uParseMessageWithError(locale: Pcstr, pattern: ConstPtr<UShort>, patternlength: Int, source: ConstPtr<UShort>, sourcelength: Int, parseerror: MutPtr<UParseError>, status: MutPtr<UErrorCode>, vararg variadicArgs: Long) {
+public actual fun uParseMessageWithError(locale: Pcstr, pattern: ConstPtr, patternlength: Int, source: ConstPtr, sourcelength: Int, parseerror: MutPtr, status: MutPtr, vararg variadicArgs: Long) {
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUParseMessageWithError(locale.rawAddress, pattern.rawAddress, patternlength, source.rawAddress, sourcelength, parseerror.rawAddress, status.rawAddress, variadicArgs.size.coerceAtMost(4), if (variadicArgs.size > 0) variadicArgs[0] else 0L, if (variadicArgs.size > 1) variadicArgs[1] else 0L, if (variadicArgs.size > 2) variadicArgs[2] else 0L, if (variadicArgs.size > 3) variadicArgs[3] else 0L)
 }
 
-public actual fun uSetMemoryFunctions(context: ConstPtr<CVoid>, a: MutPtr<UMemAllocFn>, r: MutPtr<UMemReallocFn>, f: MutPtr<UMemFreeFn>, status: MutPtr<UErrorCode>) {
+public actual fun uSetMemoryFunctions(context: ConstPtr, a: MutPtr, r: MutPtr, f: MutPtr, status: MutPtr) {
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUSetMemoryFunctions(context.rawAddress, a.rawAddress, r.rawAddress, f.rawAddress, status.rawAddress)
 }
 
-public actual fun uShapeArabic(source: ConstPtr<UShort>, sourcelength: Int, dest: MutPtr<UShort>, destsize: Int, options: UInt, perrorcode: MutPtr<UErrorCode>): Int =
+public actual fun uShapeArabic(source: ConstPtr, sourcelength: Int, dest: MutPtr, destsize: Int, options: UInt, perrorcode: MutPtr): Int =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUShapeArabic(source.rawAddress, sourcelength, dest.rawAddress, destsize, options.toInt(), perrorcode.rawAddress)
 
-public actual fun uStrCaseCompare(s1: ConstPtr<UShort>, length1: Int, s2: ConstPtr<UShort>, length2: Int, options: UInt, perrorcode: MutPtr<UErrorCode>): Int =
+public actual fun uStrCaseCompare(s1: ConstPtr, length1: Int, s2: ConstPtr, length2: Int, options: UInt, perrorcode: MutPtr): Int =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUStrCaseCompare(s1.rawAddress, length1, s2.rawAddress, length2, options.toInt(), perrorcode.rawAddress)
 
-public actual fun uStrCompare(s1: ConstPtr<UShort>, length1: Int, s2: ConstPtr<UShort>, length2: Int, codepointorder: Byte): Int =
+public actual fun uStrCompare(s1: ConstPtr, length1: Int, s2: ConstPtr, length2: Int, codepointorder: Byte): Int =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUStrCompare(s1.rawAddress, length1, s2.rawAddress, length2, codepointorder)
 
-public actual fun uStrCompareIter(iter1: MutPtr<UCharIterator>, iter2: MutPtr<UCharIterator>, codepointorder: Byte): Int =
+public actual fun uStrCompareIter(iter1: MutPtr, iter2: MutPtr, codepointorder: Byte): Int =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUStrCompareIter(iter1.rawAddress, iter2.rawAddress, codepointorder)
 
-public actual fun uStrFindFirst(s: ConstPtr<UShort>, length: Int, substring: ConstPtr<UShort>, sublength: Int): MutPtr<UShort> =
+public actual fun uStrFindFirst(s: ConstPtr, length: Int, substring: ConstPtr, sublength: Int): MutPtr =
     MutPtr(WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUStrFindFirst(s.rawAddress, length, substring.rawAddress, sublength))
 
-public actual fun uStrFindLast(s: ConstPtr<UShort>, length: Int, substring: ConstPtr<UShort>, sublength: Int): MutPtr<UShort> =
+public actual fun uStrFindLast(s: ConstPtr, length: Int, substring: ConstPtr, sublength: Int): MutPtr =
     MutPtr(WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUStrFindLast(s.rawAddress, length, substring.rawAddress, sublength))
 
-public actual fun uStrFoldCase(dest: MutPtr<UShort>, destcapacity: Int, src: ConstPtr<UShort>, srclength: Int, options: UInt, perrorcode: MutPtr<UErrorCode>): Int =
+public actual fun uStrFoldCase(dest: MutPtr, destcapacity: Int, src: ConstPtr, srclength: Int, options: UInt, perrorcode: MutPtr): Int =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUStrFoldCase(dest.rawAddress, destcapacity, src.rawAddress, srclength, options.toInt(), perrorcode.rawAddress)
 
-public actual fun uStrFromJavaModifiedUtf8WithSub(dest: MutPtr<UShort>, destcapacity: Int, pdestlength: MutPtr<Int>, src: Pcstr, srclength: Int, subchar: Int, pnumsubstitutions: MutPtr<Int>, perrorcode: MutPtr<UErrorCode>): MutPtr<UShort> =
+public actual fun uStrFromJavaModifiedUtf8WithSub(dest: MutPtr, destcapacity: Int, pdestlength: MutPtr, src: Pcstr, srclength: Int, subchar: Int, pnumsubstitutions: MutPtr, perrorcode: MutPtr): MutPtr =
     MutPtr(WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUStrFromJavaModifiedUtf8WithSub(dest.rawAddress, destcapacity, pdestlength.rawAddress, src.rawAddress, srclength, subchar, pnumsubstitutions.rawAddress, perrorcode.rawAddress))
 
-public actual fun uStrFromUtf32(dest: MutPtr<UShort>, destcapacity: Int, pdestlength: MutPtr<Int>, src: ConstPtr<Int>, srclength: Int, perrorcode: MutPtr<UErrorCode>): MutPtr<UShort> =
+public actual fun uStrFromUtf32(dest: MutPtr, destcapacity: Int, pdestlength: MutPtr, src: ConstPtr, srclength: Int, perrorcode: MutPtr): MutPtr =
     MutPtr(WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUStrFromUtf32(dest.rawAddress, destcapacity, pdestlength.rawAddress, src.rawAddress, srclength, perrorcode.rawAddress))
 
-public actual fun uStrFromUtf32WithSub(dest: MutPtr<UShort>, destcapacity: Int, pdestlength: MutPtr<Int>, src: ConstPtr<Int>, srclength: Int, subchar: Int, pnumsubstitutions: MutPtr<Int>, perrorcode: MutPtr<UErrorCode>): MutPtr<UShort> =
+public actual fun uStrFromUtf32WithSub(dest: MutPtr, destcapacity: Int, pdestlength: MutPtr, src: ConstPtr, srclength: Int, subchar: Int, pnumsubstitutions: MutPtr, perrorcode: MutPtr): MutPtr =
     MutPtr(WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUStrFromUtf32WithSub(dest.rawAddress, destcapacity, pdestlength.rawAddress, src.rawAddress, srclength, subchar, pnumsubstitutions.rawAddress, perrorcode.rawAddress))
 
-public actual fun uStrFromUtf8(dest: MutPtr<UShort>, destcapacity: Int, pdestlength: MutPtr<Int>, src: Pcstr, srclength: Int, perrorcode: MutPtr<UErrorCode>): MutPtr<UShort> =
+public actual fun uStrFromUtf8(dest: MutPtr, destcapacity: Int, pdestlength: MutPtr, src: Pcstr, srclength: Int, perrorcode: MutPtr): MutPtr =
     MutPtr(WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUStrFromUtf8(dest.rawAddress, destcapacity, pdestlength.rawAddress, src.rawAddress, srclength, perrorcode.rawAddress))
 
-public actual fun uStrFromUtf8Lenient(dest: MutPtr<UShort>, destcapacity: Int, pdestlength: MutPtr<Int>, src: Pcstr, srclength: Int, perrorcode: MutPtr<UErrorCode>): MutPtr<UShort> =
+public actual fun uStrFromUtf8Lenient(dest: MutPtr, destcapacity: Int, pdestlength: MutPtr, src: Pcstr, srclength: Int, perrorcode: MutPtr): MutPtr =
     MutPtr(WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUStrFromUtf8Lenient(dest.rawAddress, destcapacity, pdestlength.rawAddress, src.rawAddress, srclength, perrorcode.rawAddress))
 
-public actual fun uStrFromUtf8WithSub(dest: MutPtr<UShort>, destcapacity: Int, pdestlength: MutPtr<Int>, src: Pcstr, srclength: Int, subchar: Int, pnumsubstitutions: MutPtr<Int>, perrorcode: MutPtr<UErrorCode>): MutPtr<UShort> =
+public actual fun uStrFromUtf8WithSub(dest: MutPtr, destcapacity: Int, pdestlength: MutPtr, src: Pcstr, srclength: Int, subchar: Int, pnumsubstitutions: MutPtr, perrorcode: MutPtr): MutPtr =
     MutPtr(WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUStrFromUtf8WithSub(dest.rawAddress, destcapacity, pdestlength.rawAddress, src.rawAddress, srclength, subchar, pnumsubstitutions.rawAddress, perrorcode.rawAddress))
 
-public actual fun uStrFromWcs(dest: MutPtr<UShort>, destcapacity: Int, pdestlength: MutPtr<Int>, src: Pcwstr, srclength: Int, perrorcode: MutPtr<UErrorCode>): MutPtr<UShort> =
+public actual fun uStrFromWcs(dest: MutPtr, destcapacity: Int, pdestlength: MutPtr, src: Pcwstr, srclength: Int, perrorcode: MutPtr): MutPtr =
     MutPtr(WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUStrFromWcs(dest.rawAddress, destcapacity, pdestlength.rawAddress, src.rawAddress, srclength, perrorcode.rawAddress))
 
-public actual fun uStrHasMoreChar32Than(s: ConstPtr<UShort>, length: Int, number: Int): Byte =
+public actual fun uStrHasMoreChar32Than(s: ConstPtr, length: Int, number: Int): Byte =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUStrHasMoreChar32Than(s.rawAddress, length, number)
 
-public actual fun uStrToJavaModifiedUtf8(dest: Pcstr, destcapacity: Int, pdestlength: MutPtr<Int>, src: ConstPtr<UShort>, srclength: Int, perrorcode: MutPtr<UErrorCode>): Pstr =
+public actual fun uStrToJavaModifiedUtf8(dest: Pcstr, destcapacity: Int, pdestlength: MutPtr, src: ConstPtr, srclength: Int, perrorcode: MutPtr): Pstr =
     MutPtr(WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUStrToJavaModifiedUtf8(dest.rawAddress, destcapacity, pdestlength.rawAddress, src.rawAddress, srclength, perrorcode.rawAddress))
 
-public actual fun uStrToLower(dest: MutPtr<UShort>, destcapacity: Int, src: ConstPtr<UShort>, srclength: Int, locale: Pcstr, perrorcode: MutPtr<UErrorCode>): Int =
+public actual fun uStrToLower(dest: MutPtr, destcapacity: Int, src: ConstPtr, srclength: Int, locale: Pcstr, perrorcode: MutPtr): Int =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUStrToLower(dest.rawAddress, destcapacity, src.rawAddress, srclength, locale.rawAddress, perrorcode.rawAddress)
 
-public actual fun uStrToTitle(dest: MutPtr<UShort>, destcapacity: Int, src: ConstPtr<UShort>, srclength: Int, titleiter: MutPtr<UBreakIterator>, locale: Pcstr, perrorcode: MutPtr<UErrorCode>): Int =
+public actual fun uStrToTitle(dest: MutPtr, destcapacity: Int, src: ConstPtr, srclength: Int, titleiter: MutPtr, locale: Pcstr, perrorcode: MutPtr): Int =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUStrToTitle(dest.rawAddress, destcapacity, src.rawAddress, srclength, titleiter.rawAddress, locale.rawAddress, perrorcode.rawAddress)
 
-public actual fun uStrToUtf32(dest: MutPtr<Int>, destcapacity: Int, pdestlength: MutPtr<Int>, src: ConstPtr<UShort>, srclength: Int, perrorcode: MutPtr<UErrorCode>): MutPtr<Int> =
+public actual fun uStrToUtf32(dest: MutPtr, destcapacity: Int, pdestlength: MutPtr, src: ConstPtr, srclength: Int, perrorcode: MutPtr): MutPtr =
     MutPtr(WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUStrToUtf32(dest.rawAddress, destcapacity, pdestlength.rawAddress, src.rawAddress, srclength, perrorcode.rawAddress))
 
-public actual fun uStrToUtf32WithSub(dest: MutPtr<Int>, destcapacity: Int, pdestlength: MutPtr<Int>, src: ConstPtr<UShort>, srclength: Int, subchar: Int, pnumsubstitutions: MutPtr<Int>, perrorcode: MutPtr<UErrorCode>): MutPtr<Int> =
+public actual fun uStrToUtf32WithSub(dest: MutPtr, destcapacity: Int, pdestlength: MutPtr, src: ConstPtr, srclength: Int, subchar: Int, pnumsubstitutions: MutPtr, perrorcode: MutPtr): MutPtr =
     MutPtr(WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUStrToUtf32WithSub(dest.rawAddress, destcapacity, pdestlength.rawAddress, src.rawAddress, srclength, subchar, pnumsubstitutions.rawAddress, perrorcode.rawAddress))
 
-public actual fun uStrToUtf8(dest: Pcstr, destcapacity: Int, pdestlength: MutPtr<Int>, src: ConstPtr<UShort>, srclength: Int, perrorcode: MutPtr<UErrorCode>): Pstr =
+public actual fun uStrToUtf8(dest: Pcstr, destcapacity: Int, pdestlength: MutPtr, src: ConstPtr, srclength: Int, perrorcode: MutPtr): Pstr =
     MutPtr(WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUStrToUtf8(dest.rawAddress, destcapacity, pdestlength.rawAddress, src.rawAddress, srclength, perrorcode.rawAddress))
 
-public actual fun uStrToUtf8WithSub(dest: Pcstr, destcapacity: Int, pdestlength: MutPtr<Int>, src: ConstPtr<UShort>, srclength: Int, subchar: Int, pnumsubstitutions: MutPtr<Int>, perrorcode: MutPtr<UErrorCode>): Pstr =
+public actual fun uStrToUtf8WithSub(dest: Pcstr, destcapacity: Int, pdestlength: MutPtr, src: ConstPtr, srclength: Int, subchar: Int, pnumsubstitutions: MutPtr, perrorcode: MutPtr): Pstr =
     MutPtr(WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUStrToUtf8WithSub(dest.rawAddress, destcapacity, pdestlength.rawAddress, src.rawAddress, srclength, subchar, pnumsubstitutions.rawAddress, perrorcode.rawAddress))
 
-public actual fun uStrToUpper(dest: MutPtr<UShort>, destcapacity: Int, src: ConstPtr<UShort>, srclength: Int, locale: Pcstr, perrorcode: MutPtr<UErrorCode>): Int =
+public actual fun uStrToUpper(dest: MutPtr, destcapacity: Int, src: ConstPtr, srclength: Int, locale: Pcstr, perrorcode: MutPtr): Int =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUStrToUpper(dest.rawAddress, destcapacity, src.rawAddress, srclength, locale.rawAddress, perrorcode.rawAddress)
 
-public actual fun uStrToWcs(dest: Pcwstr, destcapacity: Int, pdestlength: MutPtr<Int>, src: ConstPtr<UShort>, srclength: Int, perrorcode: MutPtr<UErrorCode>): Pwstr =
+public actual fun uStrToWcs(dest: Pcwstr, destcapacity: Int, pdestlength: MutPtr, src: ConstPtr, srclength: Int, perrorcode: MutPtr): Pwstr =
     MutPtr(WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUStrToWcs(dest.rawAddress, destcapacity, pdestlength.rawAddress, src.rawAddress, srclength, perrorcode.rawAddress))
 
-public actual fun uStrcasecmp(s1: ConstPtr<UShort>, s2: ConstPtr<UShort>, options: UInt): Int =
+public actual fun uStrcasecmp(s1: ConstPtr, s2: ConstPtr, options: UInt): Int =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUStrcasecmp(s1.rawAddress, s2.rawAddress, options.toInt())
 
-public actual fun uStrcat(dst: MutPtr<UShort>, src: ConstPtr<UShort>): MutPtr<UShort> =
+public actual fun uStrcat(dst: MutPtr, src: ConstPtr): MutPtr =
     MutPtr(WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUStrcat(dst.rawAddress, src.rawAddress))
 
-public actual fun uStrchr(s: ConstPtr<UShort>, c: UShort): MutPtr<UShort> =
+public actual fun uStrchr(s: ConstPtr, c: UShort): MutPtr =
     MutPtr(WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUStrchr(s.rawAddress, c.toShort()))
 
-public actual fun uStrchr32(s: ConstPtr<UShort>, c: Int): MutPtr<UShort> =
+public actual fun uStrchr32(s: ConstPtr, c: Int): MutPtr =
     MutPtr(WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUStrchr32(s.rawAddress, c))
 
-public actual fun uStrcmp(s1: ConstPtr<UShort>, s2: ConstPtr<UShort>): Int =
+public actual fun uStrcmp(s1: ConstPtr, s2: ConstPtr): Int =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUStrcmp(s1.rawAddress, s2.rawAddress)
 
-public actual fun uStrcmpCodePointOrder(s1: ConstPtr<UShort>, s2: ConstPtr<UShort>): Int =
+public actual fun uStrcmpCodePointOrder(s1: ConstPtr, s2: ConstPtr): Int =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUStrcmpCodePointOrder(s1.rawAddress, s2.rawAddress)
 
-public actual fun uStrcpy(dst: MutPtr<UShort>, src: ConstPtr<UShort>): MutPtr<UShort> =
+public actual fun uStrcpy(dst: MutPtr, src: ConstPtr): MutPtr =
     MutPtr(WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUStrcpy(dst.rawAddress, src.rawAddress))
 
-public actual fun uStrcspn(string: ConstPtr<UShort>, matchset: ConstPtr<UShort>): Int =
+public actual fun uStrcspn(string: ConstPtr, matchset: ConstPtr): Int =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUStrcspn(string.rawAddress, matchset.rawAddress)
 
-public actual fun uStrlen(s: ConstPtr<UShort>): Int =
+public actual fun uStrlen(s: ConstPtr): Int =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUStrlen(s.rawAddress)
 
-public actual fun uStrncasecmp(s1: ConstPtr<UShort>, s2: ConstPtr<UShort>, n: Int, options: UInt): Int =
+public actual fun uStrncasecmp(s1: ConstPtr, s2: ConstPtr, n: Int, options: UInt): Int =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUStrncasecmp(s1.rawAddress, s2.rawAddress, n, options.toInt())
 
-public actual fun uStrncat(dst: MutPtr<UShort>, src: ConstPtr<UShort>, n: Int): MutPtr<UShort> =
+public actual fun uStrncat(dst: MutPtr, src: ConstPtr, n: Int): MutPtr =
     MutPtr(WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUStrncat(dst.rawAddress, src.rawAddress, n))
 
-public actual fun uStrncmp(ucs1: ConstPtr<UShort>, ucs2: ConstPtr<UShort>, n: Int): Int =
+public actual fun uStrncmp(ucs1: ConstPtr, ucs2: ConstPtr, n: Int): Int =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUStrncmp(ucs1.rawAddress, ucs2.rawAddress, n)
 
-public actual fun uStrncmpCodePointOrder(s1: ConstPtr<UShort>, s2: ConstPtr<UShort>, n: Int): Int =
+public actual fun uStrncmpCodePointOrder(s1: ConstPtr, s2: ConstPtr, n: Int): Int =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUStrncmpCodePointOrder(s1.rawAddress, s2.rawAddress, n)
 
-public actual fun uStrncpy(dst: MutPtr<UShort>, src: ConstPtr<UShort>, n: Int): MutPtr<UShort> =
+public actual fun uStrncpy(dst: MutPtr, src: ConstPtr, n: Int): MutPtr =
     MutPtr(WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUStrncpy(dst.rawAddress, src.rawAddress, n))
 
-public actual fun uStrpbrk(string: ConstPtr<UShort>, matchset: ConstPtr<UShort>): MutPtr<UShort> =
+public actual fun uStrpbrk(string: ConstPtr, matchset: ConstPtr): MutPtr =
     MutPtr(WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUStrpbrk(string.rawAddress, matchset.rawAddress))
 
-public actual fun uStrrchr(s: ConstPtr<UShort>, c: UShort): MutPtr<UShort> =
+public actual fun uStrrchr(s: ConstPtr, c: UShort): MutPtr =
     MutPtr(WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUStrrchr(s.rawAddress, c.toShort()))
 
-public actual fun uStrrchr32(s: ConstPtr<UShort>, c: Int): MutPtr<UShort> =
+public actual fun uStrrchr32(s: ConstPtr, c: Int): MutPtr =
     MutPtr(WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUStrrchr32(s.rawAddress, c))
 
-public actual fun uStrrstr(s: ConstPtr<UShort>, substring: ConstPtr<UShort>): MutPtr<UShort> =
+public actual fun uStrrstr(s: ConstPtr, substring: ConstPtr): MutPtr =
     MutPtr(WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUStrrstr(s.rawAddress, substring.rawAddress))
 
-public actual fun uStrspn(string: ConstPtr<UShort>, matchset: ConstPtr<UShort>): Int =
+public actual fun uStrspn(string: ConstPtr, matchset: ConstPtr): Int =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUStrspn(string.rawAddress, matchset.rawAddress)
 
-public actual fun uStrstr(s: ConstPtr<UShort>, substring: ConstPtr<UShort>): MutPtr<UShort> =
+public actual fun uStrstr(s: ConstPtr, substring: ConstPtr): MutPtr =
     MutPtr(WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUStrstr(s.rawAddress, substring.rawAddress))
 
-public actual fun uStrtokR(src: MutPtr<UShort>, delim: ConstPtr<UShort>, savestate: MutPtr<MutPtr<UShort>>): MutPtr<UShort> =
+public actual fun uStrtokR(src: MutPtr, delim: ConstPtr, savestate: MutPtr): MutPtr =
     MutPtr(WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUStrtokR(src.rawAddress, delim.rawAddress, savestate.rawAddress))
 
 public actual fun uTolower(c: Int): Int =
@@ -4759,539 +4754,539 @@ public actual fun uTotitle(c: Int): Int =
 public actual fun uToupper(c: Int): Int =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUToupper(c)
 
-public actual fun uUastrcpy(dst: MutPtr<UShort>, src: Pcstr): MutPtr<UShort> =
+public actual fun uUastrcpy(dst: MutPtr, src: Pcstr): MutPtr =
     MutPtr(WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUUastrcpy(dst.rawAddress, src.rawAddress))
 
-public actual fun uUastrncpy(dst: MutPtr<UShort>, src: Pcstr, n: Int): MutPtr<UShort> =
+public actual fun uUastrncpy(dst: MutPtr, src: Pcstr, n: Int): MutPtr =
     MutPtr(WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUUastrncpy(dst.rawAddress, src.rawAddress, n))
 
-public actual fun uUnescape(src: Pcstr, dest: MutPtr<UShort>, destcapacity: Int): Int =
+public actual fun uUnescape(src: Pcstr, dest: MutPtr, destcapacity: Int): Int =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUUnescape(src.rawAddress, dest.rawAddress, destcapacity)
 
-public actual fun uUnescapeAt(charat: UnescapeCharAt, offset: MutPtr<Int>, length: Int, context: MutPtr<CVoid>): Int =
+public actual fun uUnescapeAt(charat: UnescapeCharAt, offset: MutPtr, length: Int, context: MutPtr): Int =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUUnescapeAt(0L, offset.rawAddress, length, context.rawAddress)
 
-public actual fun uVersionFromString(versionarray: MutPtr<UByte>, versionstring: Pcstr) {
+public actual fun uVersionFromString(versionarray: MutPtr, versionstring: Pcstr) {
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUVersionFromString(versionarray.rawAddress, versionstring.rawAddress)
 }
 
-public actual fun uVersionFromUstring(versionarray: MutPtr<UByte>, versionstring: ConstPtr<UShort>) {
+public actual fun uVersionFromUstring(versionarray: MutPtr, versionstring: ConstPtr) {
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUVersionFromUstring(versionarray.rawAddress, versionstring.rawAddress)
 }
 
-public actual fun uVersionToString(versionarray: ConstPtr<UByte>, versionstring: Pcstr) {
+public actual fun uVersionToString(versionarray: ConstPtr, versionstring: Pcstr) {
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUVersionToString(versionarray.rawAddress, versionstring.rawAddress)
 }
 
-public actual fun uVformatMessage(locale: Pcstr, pattern: ConstPtr<UShort>, patternlength: Int, result: MutPtr<UShort>, resultlength: Int, ap: MutPtr<Byte>, status: MutPtr<UErrorCode>): Int =
+public actual fun uVformatMessage(locale: Pcstr, pattern: ConstPtr, patternlength: Int, result: MutPtr, resultlength: Int, ap: MutPtr, status: MutPtr): Int =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUVformatMessage(locale.rawAddress, pattern.rawAddress, patternlength, result.rawAddress, resultlength, ap.rawAddress, status.rawAddress)
 
-public actual fun uVformatMessageWithError(locale: Pcstr, pattern: ConstPtr<UShort>, patternlength: Int, result: MutPtr<UShort>, resultlength: Int, parseerror: MutPtr<UParseError>, ap: MutPtr<Byte>, status: MutPtr<UErrorCode>): Int =
+public actual fun uVformatMessageWithError(locale: Pcstr, pattern: ConstPtr, patternlength: Int, result: MutPtr, resultlength: Int, parseerror: MutPtr, ap: MutPtr, status: MutPtr): Int =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUVformatMessageWithError(locale.rawAddress, pattern.rawAddress, patternlength, result.rawAddress, resultlength, parseerror.rawAddress, ap.rawAddress, status.rawAddress)
 
-public actual fun uVparseMessage(locale: Pcstr, pattern: ConstPtr<UShort>, patternlength: Int, source: ConstPtr<UShort>, sourcelength: Int, ap: MutPtr<Byte>, status: MutPtr<UErrorCode>) {
+public actual fun uVparseMessage(locale: Pcstr, pattern: ConstPtr, patternlength: Int, source: ConstPtr, sourcelength: Int, ap: MutPtr, status: MutPtr) {
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUVparseMessage(locale.rawAddress, pattern.rawAddress, patternlength, source.rawAddress, sourcelength, ap.rawAddress, status.rawAddress)
 }
 
-public actual fun uVparseMessageWithError(locale: Pcstr, pattern: ConstPtr<UShort>, patternlength: Int, source: ConstPtr<UShort>, sourcelength: Int, ap: MutPtr<Byte>, parseerror: MutPtr<UParseError>, status: MutPtr<UErrorCode>) {
+public actual fun uVparseMessageWithError(locale: Pcstr, pattern: ConstPtr, patternlength: Int, source: ConstPtr, sourcelength: Int, ap: MutPtr, parseerror: MutPtr, status: MutPtr) {
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUVparseMessageWithError(locale.rawAddress, pattern.rawAddress, patternlength, source.rawAddress, sourcelength, ap.rawAddress, parseerror.rawAddress, status.rawAddress)
 }
 
-public actual fun ubidiClose(pbidi: MutPtr<UBiDi>) {
+public actual fun ubidiClose(pbidi: MutPtr) {
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUbidiClose(pbidi.rawAddress)
 }
 
-public actual fun ubidiCountParagraphs(pbidi: MutPtr<UBiDi>): Int =
+public actual fun ubidiCountParagraphs(pbidi: MutPtr): Int =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUbidiCountParagraphs(pbidi.rawAddress)
 
-public actual fun ubidiCountRuns(pbidi: MutPtr<UBiDi>, perrorcode: MutPtr<UErrorCode>): Int =
+public actual fun ubidiCountRuns(pbidi: MutPtr, perrorcode: MutPtr): Int =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUbidiCountRuns(pbidi.rawAddress, perrorcode.rawAddress)
 
-public actual fun ubidiGetBaseDirection(text: ConstPtr<UShort>, length: Int): UBiDiDirection =
+public actual fun ubidiGetBaseDirection(text: ConstPtr, length: Int): UBiDiDirection =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUbidiGetBaseDirection(text.rawAddress, length)
 
-public actual fun ubidiGetClassCallback(pbidi: MutPtr<UBiDi>, fn: MutPtr<UBiDiClassCallback>, context: ConstPtr<ConstPtr<CVoid>>) {
+public actual fun ubidiGetClassCallback(pbidi: MutPtr, fn: MutPtr, context: ConstPtr) {
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUbidiGetClassCallback(pbidi.rawAddress, fn.rawAddress, context.rawAddress)
 }
 
-public actual fun ubidiGetCustomizedClass(pbidi: MutPtr<UBiDi>, c: Int): UCharDirection =
+public actual fun ubidiGetCustomizedClass(pbidi: MutPtr, c: Int): UCharDirection =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUbidiGetCustomizedClass(pbidi.rawAddress, c)
 
-public actual fun ubidiGetDirection(pbidi: ConstPtr<UBiDi>): UBiDiDirection =
+public actual fun ubidiGetDirection(pbidi: ConstPtr): UBiDiDirection =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUbidiGetDirection(pbidi.rawAddress)
 
-public actual fun ubidiGetLength(pbidi: ConstPtr<UBiDi>): Int =
+public actual fun ubidiGetLength(pbidi: ConstPtr): Int =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUbidiGetLength(pbidi.rawAddress)
 
-public actual fun ubidiGetLevelAt(pbidi: ConstPtr<UBiDi>, charindex: Int): UByte =
+public actual fun ubidiGetLevelAt(pbidi: ConstPtr, charindex: Int): UByte =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUbidiGetLevelAt(pbidi.rawAddress, charindex).toUByte()
 
-public actual fun ubidiGetLevels(pbidi: MutPtr<UBiDi>, perrorcode: MutPtr<UErrorCode>): MutPtr<UByte> =
+public actual fun ubidiGetLevels(pbidi: MutPtr, perrorcode: MutPtr): MutPtr =
     MutPtr(WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUbidiGetLevels(pbidi.rawAddress, perrorcode.rawAddress))
 
-public actual fun ubidiGetLogicalIndex(pbidi: MutPtr<UBiDi>, visualindex: Int, perrorcode: MutPtr<UErrorCode>): Int =
+public actual fun ubidiGetLogicalIndex(pbidi: MutPtr, visualindex: Int, perrorcode: MutPtr): Int =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUbidiGetLogicalIndex(pbidi.rawAddress, visualindex, perrorcode.rawAddress)
 
-public actual fun ubidiGetLogicalMap(pbidi: MutPtr<UBiDi>, indexmap: MutPtr<Int>, perrorcode: MutPtr<UErrorCode>) {
+public actual fun ubidiGetLogicalMap(pbidi: MutPtr, indexmap: MutPtr, perrorcode: MutPtr) {
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUbidiGetLogicalMap(pbidi.rawAddress, indexmap.rawAddress, perrorcode.rawAddress)
 }
 
-public actual fun ubidiGetLogicalRun(pbidi: ConstPtr<UBiDi>, logicalposition: Int, plogicallimit: MutPtr<Int>, plevel: MutPtr<UByte>) {
+public actual fun ubidiGetLogicalRun(pbidi: ConstPtr, logicalposition: Int, plogicallimit: MutPtr, plevel: MutPtr) {
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUbidiGetLogicalRun(pbidi.rawAddress, logicalposition, plogicallimit.rawAddress, plevel.rawAddress)
 }
 
-public actual fun ubidiGetParaLevel(pbidi: ConstPtr<UBiDi>): UByte =
+public actual fun ubidiGetParaLevel(pbidi: ConstPtr): UByte =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUbidiGetParaLevel(pbidi.rawAddress).toUByte()
 
-public actual fun ubidiGetParagraph(pbidi: ConstPtr<UBiDi>, charindex: Int, pparastart: MutPtr<Int>, pparalimit: MutPtr<Int>, pparalevel: MutPtr<UByte>, perrorcode: MutPtr<UErrorCode>): Int =
+public actual fun ubidiGetParagraph(pbidi: ConstPtr, charindex: Int, pparastart: MutPtr, pparalimit: MutPtr, pparalevel: MutPtr, perrorcode: MutPtr): Int =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUbidiGetParagraph(pbidi.rawAddress, charindex, pparastart.rawAddress, pparalimit.rawAddress, pparalevel.rawAddress, perrorcode.rawAddress)
 
-public actual fun ubidiGetParagraphByIndex(pbidi: ConstPtr<UBiDi>, paraindex: Int, pparastart: MutPtr<Int>, pparalimit: MutPtr<Int>, pparalevel: MutPtr<UByte>, perrorcode: MutPtr<UErrorCode>) {
+public actual fun ubidiGetParagraphByIndex(pbidi: ConstPtr, paraindex: Int, pparastart: MutPtr, pparalimit: MutPtr, pparalevel: MutPtr, perrorcode: MutPtr) {
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUbidiGetParagraphByIndex(pbidi.rawAddress, paraindex, pparastart.rawAddress, pparalimit.rawAddress, pparalevel.rawAddress, perrorcode.rawAddress)
 }
 
-public actual fun ubidiGetProcessedLength(pbidi: ConstPtr<UBiDi>): Int =
+public actual fun ubidiGetProcessedLength(pbidi: ConstPtr): Int =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUbidiGetProcessedLength(pbidi.rawAddress)
 
-public actual fun ubidiGetReorderingMode(pbidi: MutPtr<UBiDi>): UBiDiReorderingMode =
+public actual fun ubidiGetReorderingMode(pbidi: MutPtr): UBiDiReorderingMode =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUbidiGetReorderingMode(pbidi.rawAddress)
 
-public actual fun ubidiGetReorderingOptions(pbidi: MutPtr<UBiDi>): UInt =
+public actual fun ubidiGetReorderingOptions(pbidi: MutPtr): UInt =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUbidiGetReorderingOptions(pbidi.rawAddress).toUInt()
 
-public actual fun ubidiGetResultLength(pbidi: ConstPtr<UBiDi>): Int =
+public actual fun ubidiGetResultLength(pbidi: ConstPtr): Int =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUbidiGetResultLength(pbidi.rawAddress)
 
-public actual fun ubidiGetText(pbidi: ConstPtr<UBiDi>): MutPtr<UShort> =
+public actual fun ubidiGetText(pbidi: ConstPtr): MutPtr =
     MutPtr(WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUbidiGetText(pbidi.rawAddress))
 
-public actual fun ubidiGetVisualIndex(pbidi: MutPtr<UBiDi>, logicalindex: Int, perrorcode: MutPtr<UErrorCode>): Int =
+public actual fun ubidiGetVisualIndex(pbidi: MutPtr, logicalindex: Int, perrorcode: MutPtr): Int =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUbidiGetVisualIndex(pbidi.rawAddress, logicalindex, perrorcode.rawAddress)
 
-public actual fun ubidiGetVisualMap(pbidi: MutPtr<UBiDi>, indexmap: MutPtr<Int>, perrorcode: MutPtr<UErrorCode>) {
+public actual fun ubidiGetVisualMap(pbidi: MutPtr, indexmap: MutPtr, perrorcode: MutPtr) {
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUbidiGetVisualMap(pbidi.rawAddress, indexmap.rawAddress, perrorcode.rawAddress)
 }
 
-public actual fun ubidiGetVisualRun(pbidi: MutPtr<UBiDi>, runindex: Int, plogicalstart: MutPtr<Int>, plength: MutPtr<Int>): UBiDiDirection =
+public actual fun ubidiGetVisualRun(pbidi: MutPtr, runindex: Int, plogicalstart: MutPtr, plength: MutPtr): UBiDiDirection =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUbidiGetVisualRun(pbidi.rawAddress, runindex, plogicalstart.rawAddress, plength.rawAddress)
 
-public actual fun ubidiInvertMap(srcmap: ConstPtr<Int>, destmap: MutPtr<Int>, length: Int) {
+public actual fun ubidiInvertMap(srcmap: ConstPtr, destmap: MutPtr, length: Int) {
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUbidiInvertMap(srcmap.rawAddress, destmap.rawAddress, length)
 }
 
-public actual fun ubidiIsInverse(pbidi: MutPtr<UBiDi>): Byte =
+public actual fun ubidiIsInverse(pbidi: MutPtr): Byte =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUbidiIsInverse(pbidi.rawAddress)
 
-public actual fun ubidiIsOrderParagraphsLtr(pbidi: MutPtr<UBiDi>): Byte =
+public actual fun ubidiIsOrderParagraphsLtr(pbidi: MutPtr): Byte =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUbidiIsOrderParagraphsLtr(pbidi.rawAddress)
 
-public actual fun ubidiOpen(): MutPtr<UBiDi> =
+public actual fun ubidiOpen(): MutPtr =
     MutPtr(WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUbidiOpen())
 
-public actual fun ubidiOpenSized(maxlength: Int, maxruncount: Int, perrorcode: MutPtr<UErrorCode>): MutPtr<UBiDi> =
+public actual fun ubidiOpenSized(maxlength: Int, maxruncount: Int, perrorcode: MutPtr): MutPtr =
     MutPtr(WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUbidiOpenSized(maxlength, maxruncount, perrorcode.rawAddress))
 
-public actual fun ubidiOrderParagraphsLtr(pbidi: MutPtr<UBiDi>, orderparagraphsltr: Byte) {
+public actual fun ubidiOrderParagraphsLtr(pbidi: MutPtr, orderparagraphsltr: Byte) {
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUbidiOrderParagraphsLtr(pbidi.rawAddress, orderparagraphsltr)
 }
 
-public actual fun ubidiReorderLogical(levels: ConstPtr<UByte>, length: Int, indexmap: MutPtr<Int>) {
+public actual fun ubidiReorderLogical(levels: ConstPtr, length: Int, indexmap: MutPtr) {
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUbidiReorderLogical(levels.rawAddress, length, indexmap.rawAddress)
 }
 
-public actual fun ubidiReorderVisual(levels: ConstPtr<UByte>, length: Int, indexmap: MutPtr<Int>) {
+public actual fun ubidiReorderVisual(levels: ConstPtr, length: Int, indexmap: MutPtr) {
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUbidiReorderVisual(levels.rawAddress, length, indexmap.rawAddress)
 }
 
-public actual fun ubidiSetClassCallback(pbidi: MutPtr<UBiDi>, newfn: UBiDiClassCallback, newcontext: ConstPtr<CVoid>, oldfn: MutPtr<UBiDiClassCallback>, oldcontext: ConstPtr<ConstPtr<CVoid>>, perrorcode: MutPtr<UErrorCode>) {
+public actual fun ubidiSetClassCallback(pbidi: MutPtr, newfn: UBiDiClassCallback, newcontext: ConstPtr, oldfn: MutPtr, oldcontext: ConstPtr, perrorcode: MutPtr) {
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUbidiSetClassCallback(pbidi.rawAddress, 0L, newcontext.rawAddress, oldfn.rawAddress, oldcontext.rawAddress, perrorcode.rawAddress)
 }
 
-public actual fun ubidiSetContext(pbidi: MutPtr<UBiDi>, prologue: ConstPtr<UShort>, prolength: Int, epilogue: ConstPtr<UShort>, epilength: Int, perrorcode: MutPtr<UErrorCode>) {
+public actual fun ubidiSetContext(pbidi: MutPtr, prologue: ConstPtr, prolength: Int, epilogue: ConstPtr, epilength: Int, perrorcode: MutPtr) {
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUbidiSetContext(pbidi.rawAddress, prologue.rawAddress, prolength, epilogue.rawAddress, epilength, perrorcode.rawAddress)
 }
 
-public actual fun ubidiSetInverse(pbidi: MutPtr<UBiDi>, isinverse: Byte) {
+public actual fun ubidiSetInverse(pbidi: MutPtr, isinverse: Byte) {
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUbidiSetInverse(pbidi.rawAddress, isinverse)
 }
 
-public actual fun ubidiSetLine(pparabidi: ConstPtr<UBiDi>, start: Int, limit: Int, plinebidi: MutPtr<UBiDi>, perrorcode: MutPtr<UErrorCode>) {
+public actual fun ubidiSetLine(pparabidi: ConstPtr, start: Int, limit: Int, plinebidi: MutPtr, perrorcode: MutPtr) {
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUbidiSetLine(pparabidi.rawAddress, start, limit, plinebidi.rawAddress, perrorcode.rawAddress)
 }
 
-public actual fun ubidiSetPara(pbidi: MutPtr<UBiDi>, text: ConstPtr<UShort>, length: Int, paralevel: UByte, embeddinglevels: MutPtr<UByte>, perrorcode: MutPtr<UErrorCode>) {
+public actual fun ubidiSetPara(pbidi: MutPtr, text: ConstPtr, length: Int, paralevel: UByte, embeddinglevels: MutPtr, perrorcode: MutPtr) {
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUbidiSetPara(pbidi.rawAddress, text.rawAddress, length, paralevel.toByte(), embeddinglevels.rawAddress, perrorcode.rawAddress)
 }
 
-public actual fun ubidiSetReorderingMode(pbidi: MutPtr<UBiDi>, reorderingmode: UBiDiReorderingMode) {
+public actual fun ubidiSetReorderingMode(pbidi: MutPtr, reorderingmode: UBiDiReorderingMode) {
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUbidiSetReorderingMode(pbidi.rawAddress, reorderingmode)
 }
 
-public actual fun ubidiSetReorderingOptions(pbidi: MutPtr<UBiDi>, reorderingoptions: UInt) {
+public actual fun ubidiSetReorderingOptions(pbidi: MutPtr, reorderingoptions: UInt) {
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUbidiSetReorderingOptions(pbidi.rawAddress, reorderingoptions.toInt())
 }
 
-public actual fun ubidiWriteReordered(pbidi: MutPtr<UBiDi>, dest: MutPtr<UShort>, destsize: Int, options: UShort, perrorcode: MutPtr<UErrorCode>): Int =
+public actual fun ubidiWriteReordered(pbidi: MutPtr, dest: MutPtr, destsize: Int, options: UShort, perrorcode: MutPtr): Int =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUbidiWriteReordered(pbidi.rawAddress, dest.rawAddress, destsize, options.toShort(), perrorcode.rawAddress)
 
-public actual fun ubidiWriteReverse(src: ConstPtr<UShort>, srclength: Int, dest: MutPtr<UShort>, destsize: Int, options: UShort, perrorcode: MutPtr<UErrorCode>): Int =
+public actual fun ubidiWriteReverse(src: ConstPtr, srclength: Int, dest: MutPtr, destsize: Int, options: UShort, perrorcode: MutPtr): Int =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUbidiWriteReverse(src.rawAddress, srclength, dest.rawAddress, destsize, options.toShort(), perrorcode.rawAddress)
 
-public actual fun ubiditransformClose(pbiditransform: MutPtr<UBiDiTransform>) {
+public actual fun ubiditransformClose(pbiditransform: MutPtr) {
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUbiditransformClose(pbiditransform.rawAddress)
 }
 
-public actual fun ubiditransformOpen(perrorcode: MutPtr<UErrorCode>): MutPtr<UBiDiTransform> =
+public actual fun ubiditransformOpen(perrorcode: MutPtr): MutPtr =
     MutPtr(WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUbiditransformOpen(perrorcode.rawAddress))
 
-public actual fun ubiditransformTransform(pbiditransform: MutPtr<UBiDiTransform>, src: ConstPtr<UShort>, srclength: Int, dest: MutPtr<UShort>, destsize: Int, inparalevel: UByte, inorder: UBiDiOrder, outparalevel: UByte, outorder: UBiDiOrder, domirroring: UBiDiMirroring, shapingoptions: UInt, perrorcode: MutPtr<UErrorCode>): UInt =
+public actual fun ubiditransformTransform(pbiditransform: MutPtr, src: ConstPtr, srclength: Int, dest: MutPtr, destsize: Int, inparalevel: UByte, inorder: UBiDiOrder, outparalevel: UByte, outorder: UBiDiOrder, domirroring: UBiDiMirroring, shapingoptions: UInt, perrorcode: MutPtr): UInt =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUbiditransformTransform(pbiditransform.rawAddress, src.rawAddress, srclength, dest.rawAddress, destsize, inparalevel.toByte(), inorder, outparalevel.toByte(), outorder, domirroring, shapingoptions.toInt(), perrorcode.rawAddress).toUInt()
 
 public actual fun ublockGetCode(c: Int): UBlockCode =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUblockGetCode(c)
 
-public actual fun ubrkClose(bi: MutPtr<UBreakIterator>) {
+public actual fun ubrkClose(bi: MutPtr) {
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUbrkClose(bi.rawAddress)
 }
 
 public actual fun ubrkCountAvailable(): Int =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUbrkCountAvailable()
 
-public actual fun ubrkCurrent(bi: ConstPtr<UBreakIterator>): Int =
+public actual fun ubrkCurrent(bi: ConstPtr): Int =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUbrkCurrent(bi.rawAddress)
 
-public actual fun ubrkFirst(bi: MutPtr<UBreakIterator>): Int =
+public actual fun ubrkFirst(bi: MutPtr): Int =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUbrkFirst(bi.rawAddress)
 
-public actual fun ubrkFollowing(bi: MutPtr<UBreakIterator>, offset: Int): Int =
+public actual fun ubrkFollowing(bi: MutPtr, offset: Int): Int =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUbrkFollowing(bi.rawAddress, offset)
 
 public actual fun ubrkGetAvailable(index: Int): Pcstr =
     ConstPtr(WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUbrkGetAvailable(index))
 
-public actual fun ubrkGetBinaryRules(bi: MutPtr<UBreakIterator>, binaryrules: MutPtr<UByte>, rulescapacity: Int, status: MutPtr<UErrorCode>): Int =
+public actual fun ubrkGetBinaryRules(bi: MutPtr, binaryrules: MutPtr, rulescapacity: Int, status: MutPtr): Int =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUbrkGetBinaryRules(bi.rawAddress, binaryrules.rawAddress, rulescapacity, status.rawAddress)
 
-public actual fun ubrkGetLocaleByType(bi: ConstPtr<UBreakIterator>, type: ULocDataLocaleType, status: MutPtr<UErrorCode>): Pcstr =
+public actual fun ubrkGetLocaleByType(bi: ConstPtr, type: ULocDataLocaleType, status: MutPtr): Pcstr =
     ConstPtr(WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUbrkGetLocaleByType(bi.rawAddress, type, status.rawAddress))
 
-public actual fun ubrkGetRuleStatus(bi: MutPtr<UBreakIterator>): Int =
+public actual fun ubrkGetRuleStatus(bi: MutPtr): Int =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUbrkGetRuleStatus(bi.rawAddress)
 
-public actual fun ubrkGetRuleStatusVec(bi: MutPtr<UBreakIterator>, fillinvec: MutPtr<Int>, capacity: Int, status: MutPtr<UErrorCode>): Int =
+public actual fun ubrkGetRuleStatusVec(bi: MutPtr, fillinvec: MutPtr, capacity: Int, status: MutPtr): Int =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUbrkGetRuleStatusVec(bi.rawAddress, fillinvec.rawAddress, capacity, status.rawAddress)
 
-public actual fun ubrkIsBoundary(bi: MutPtr<UBreakIterator>, offset: Int): Byte =
+public actual fun ubrkIsBoundary(bi: MutPtr, offset: Int): Byte =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUbrkIsBoundary(bi.rawAddress, offset)
 
-public actual fun ubrkLast(bi: MutPtr<UBreakIterator>): Int =
+public actual fun ubrkLast(bi: MutPtr): Int =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUbrkLast(bi.rawAddress)
 
-public actual fun ubrkNext(bi: MutPtr<UBreakIterator>): Int =
+public actual fun ubrkNext(bi: MutPtr): Int =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUbrkNext(bi.rawAddress)
 
-public actual fun ubrkOpen(type: UBreakIteratorType, locale: Pcstr, text: ConstPtr<UShort>, textlength: Int, status: MutPtr<UErrorCode>): MutPtr<UBreakIterator> =
+public actual fun ubrkOpen(type: UBreakIteratorType, locale: Pcstr, text: ConstPtr, textlength: Int, status: MutPtr): MutPtr =
     MutPtr(WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUbrkOpen(type, locale.rawAddress, text.rawAddress, textlength, status.rawAddress))
 
-public actual fun ubrkOpenBinaryRules(binaryrules: ConstPtr<UByte>, ruleslength: Int, text: ConstPtr<UShort>, textlength: Int, status: MutPtr<UErrorCode>): MutPtr<UBreakIterator> =
+public actual fun ubrkOpenBinaryRules(binaryrules: ConstPtr, ruleslength: Int, text: ConstPtr, textlength: Int, status: MutPtr): MutPtr =
     MutPtr(WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUbrkOpenBinaryRules(binaryrules.rawAddress, ruleslength, text.rawAddress, textlength, status.rawAddress))
 
-public actual fun ubrkOpenRules(rules: ConstPtr<UShort>, ruleslength: Int, text: ConstPtr<UShort>, textlength: Int, parseerr: MutPtr<UParseError>, status: MutPtr<UErrorCode>): MutPtr<UBreakIterator> =
+public actual fun ubrkOpenRules(rules: ConstPtr, ruleslength: Int, text: ConstPtr, textlength: Int, parseerr: MutPtr, status: MutPtr): MutPtr =
     MutPtr(WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUbrkOpenRules(rules.rawAddress, ruleslength, text.rawAddress, textlength, parseerr.rawAddress, status.rawAddress))
 
-public actual fun ubrkPreceding(bi: MutPtr<UBreakIterator>, offset: Int): Int =
+public actual fun ubrkPreceding(bi: MutPtr, offset: Int): Int =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUbrkPreceding(bi.rawAddress, offset)
 
-public actual fun ubrkPrevious(bi: MutPtr<UBreakIterator>): Int =
+public actual fun ubrkPrevious(bi: MutPtr): Int =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUbrkPrevious(bi.rawAddress)
 
-public actual fun ubrkRefreshUtext(bi: MutPtr<UBreakIterator>, text: MutPtr<UText>, status: MutPtr<UErrorCode>) {
+public actual fun ubrkRefreshUtext(bi: MutPtr, text: MutPtr, status: MutPtr) {
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUbrkRefreshUtext(bi.rawAddress, text.rawAddress, status.rawAddress)
 }
 
-public actual fun ubrkSafeClone(bi: ConstPtr<UBreakIterator>, stackbuffer: MutPtr<CVoid>, pbuffersize: MutPtr<Int>, status: MutPtr<UErrorCode>): MutPtr<UBreakIterator> =
+public actual fun ubrkSafeClone(bi: ConstPtr, stackbuffer: MutPtr, pbuffersize: MutPtr, status: MutPtr): MutPtr =
     MutPtr(WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUbrkSafeClone(bi.rawAddress, stackbuffer.rawAddress, pbuffersize.rawAddress, status.rawAddress))
 
-public actual fun ubrkSetText(bi: MutPtr<UBreakIterator>, text: ConstPtr<UShort>, textlength: Int, status: MutPtr<UErrorCode>) {
+public actual fun ubrkSetText(bi: MutPtr, text: ConstPtr, textlength: Int, status: MutPtr) {
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUbrkSetText(bi.rawAddress, text.rawAddress, textlength, status.rawAddress)
 }
 
-public actual fun ubrkSetUtext(bi: MutPtr<UBreakIterator>, text: MutPtr<UText>, status: MutPtr<UErrorCode>) {
+public actual fun ubrkSetUtext(bi: MutPtr, text: MutPtr, status: MutPtr) {
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUbrkSetUtext(bi.rawAddress, text.rawAddress, status.rawAddress)
 }
 
-public actual fun ucalAdd(cal: MutPtr<MutPtr<CVoid>>, field: UCalendarDateFields, amount: Int, status: MutPtr<UErrorCode>) {
+public actual fun ucalAdd(cal: MutPtr, field: UCalendarDateFields, amount: Int, status: MutPtr) {
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUcalAdd(cal.rawAddress, field, amount, status.rawAddress)
 }
 
-public actual fun ucalClear(calendar: MutPtr<MutPtr<CVoid>>) {
+public actual fun ucalClear(calendar: MutPtr) {
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUcalClear(calendar.rawAddress)
 }
 
-public actual fun ucalClearField(cal: MutPtr<MutPtr<CVoid>>, field: UCalendarDateFields) {
+public actual fun ucalClearField(cal: MutPtr, field: UCalendarDateFields) {
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUcalClearField(cal.rawAddress, field)
 }
 
-public actual fun ucalClone(cal: ConstPtr<ConstPtr<CVoid>>, status: MutPtr<UErrorCode>): MutPtr<MutPtr<CVoid>> =
+public actual fun ucalClone(cal: ConstPtr, status: MutPtr): MutPtr =
     MutPtr(WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUcalClone(cal.rawAddress, status.rawAddress))
 
-public actual fun ucalClose(cal: MutPtr<MutPtr<CVoid>>) {
+public actual fun ucalClose(cal: MutPtr) {
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUcalClose(cal.rawAddress)
 }
 
 public actual fun ucalCountAvailable(): Int =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUcalCountAvailable()
 
-public actual fun ucalEquivalentTo(cal1: ConstPtr<ConstPtr<CVoid>>, cal2: ConstPtr<ConstPtr<CVoid>>): Byte =
+public actual fun ucalEquivalentTo(cal1: ConstPtr, cal2: ConstPtr): Byte =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUcalEquivalentTo(cal1.rawAddress, cal2.rawAddress)
 
-public actual fun ucalGet(cal: ConstPtr<ConstPtr<CVoid>>, field: UCalendarDateFields, status: MutPtr<UErrorCode>): Int =
+public actual fun ucalGet(cal: ConstPtr, field: UCalendarDateFields, status: MutPtr): Int =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUcalGet(cal.rawAddress, field, status.rawAddress)
 
-public actual fun ucalGetAttribute(cal: ConstPtr<ConstPtr<CVoid>>, attr: UCalendarAttribute): Int =
+public actual fun ucalGetAttribute(cal: ConstPtr, attr: UCalendarAttribute): Int =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUcalGetAttribute(cal.rawAddress, attr)
 
 public actual fun ucalGetAvailable(localeindex: Int): Pcstr =
     ConstPtr(WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUcalGetAvailable(localeindex))
 
-public actual fun ucalGetCanonicalTimeZoneId(id: ConstPtr<UShort>, len: Int, result: MutPtr<UShort>, resultcapacity: Int, issystemid: MutPtr<Byte>, status: MutPtr<UErrorCode>): Int =
+public actual fun ucalGetCanonicalTimeZoneId(id: ConstPtr, len: Int, result: MutPtr, resultcapacity: Int, issystemid: MutPtr, status: MutPtr): Int =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUcalGetCanonicalTimeZoneId(id.rawAddress, len, result.rawAddress, resultcapacity, issystemid.rawAddress, status.rawAddress)
 
-public actual fun ucalGetDstsavings(zoneid: ConstPtr<UShort>, ec: MutPtr<UErrorCode>): Int =
+public actual fun ucalGetDstsavings(zoneid: ConstPtr, ec: MutPtr): Int =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUcalGetDstsavings(zoneid.rawAddress, ec.rawAddress)
 
-public actual fun ucalGetDayOfWeekType(cal: ConstPtr<ConstPtr<CVoid>>, dayofweek: UCalendarDaysOfWeek, status: MutPtr<UErrorCode>): UCalendarWeekdayType =
+public actual fun ucalGetDayOfWeekType(cal: ConstPtr, dayofweek: UCalendarDaysOfWeek, status: MutPtr): UCalendarWeekdayType =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUcalGetDayOfWeekType(cal.rawAddress, dayofweek, status.rawAddress)
 
-public actual fun ucalGetDefaultTimeZone(result: MutPtr<UShort>, resultcapacity: Int, ec: MutPtr<UErrorCode>): Int =
+public actual fun ucalGetDefaultTimeZone(result: MutPtr, resultcapacity: Int, ec: MutPtr): Int =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUcalGetDefaultTimeZone(result.rawAddress, resultcapacity, ec.rawAddress)
 
-public actual fun ucalGetFieldDifference(cal: MutPtr<MutPtr<CVoid>>, target: Double, field: UCalendarDateFields, status: MutPtr<UErrorCode>): Int =
+public actual fun ucalGetFieldDifference(cal: MutPtr, target: Double, field: UCalendarDateFields, status: MutPtr): Int =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUcalGetFieldDifference(cal.rawAddress, target, field, status.rawAddress)
 
-public actual fun ucalGetGregorianChange(cal: ConstPtr<ConstPtr<CVoid>>, perrorcode: MutPtr<UErrorCode>): Double =
+public actual fun ucalGetGregorianChange(cal: ConstPtr, perrorcode: MutPtr): Double =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUcalGetGregorianChange(cal.rawAddress, perrorcode.rawAddress)
 
-public actual fun ucalGetHostTimeZone(result: MutPtr<UShort>, resultcapacity: Int, ec: MutPtr<UErrorCode>): Int =
+public actual fun ucalGetHostTimeZone(result: MutPtr, resultcapacity: Int, ec: MutPtr): Int =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUcalGetHostTimeZone(result.rawAddress, resultcapacity, ec.rawAddress)
 
-public actual fun ucalGetKeywordValuesForLocale(key: Pcstr, locale: Pcstr, commonlyused: Byte, status: MutPtr<UErrorCode>): MutPtr<UEnumeration> =
+public actual fun ucalGetKeywordValuesForLocale(key: Pcstr, locale: Pcstr, commonlyused: Byte, status: MutPtr): MutPtr =
     MutPtr(WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUcalGetKeywordValuesForLocale(key.rawAddress, locale.rawAddress, commonlyused, status.rawAddress))
 
-public actual fun ucalGetLimit(cal: ConstPtr<ConstPtr<CVoid>>, field: UCalendarDateFields, type: UCalendarLimitType, status: MutPtr<UErrorCode>): Int =
+public actual fun ucalGetLimit(cal: ConstPtr, field: UCalendarDateFields, type: UCalendarLimitType, status: MutPtr): Int =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUcalGetLimit(cal.rawAddress, field, type, status.rawAddress)
 
-public actual fun ucalGetLocaleByType(cal: ConstPtr<ConstPtr<CVoid>>, type: ULocDataLocaleType, status: MutPtr<UErrorCode>): Pcstr =
+public actual fun ucalGetLocaleByType(cal: ConstPtr, type: ULocDataLocaleType, status: MutPtr): Pcstr =
     ConstPtr(WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUcalGetLocaleByType(cal.rawAddress, type, status.rawAddress))
 
-public actual fun ucalGetMillis(cal: ConstPtr<ConstPtr<CVoid>>, status: MutPtr<UErrorCode>): Double =
+public actual fun ucalGetMillis(cal: ConstPtr, status: MutPtr): Double =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUcalGetMillis(cal.rawAddress, status.rawAddress)
 
 public actual fun ucalGetNow(): Double =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUcalGetNow()
 
-public actual fun ucalGetTzdataVersion(status: MutPtr<UErrorCode>): Pcstr =
+public actual fun ucalGetTzdataVersion(status: MutPtr): Pcstr =
     ConstPtr(WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUcalGetTzdataVersion(status.rawAddress))
 
-public actual fun ucalGetTimeZoneDisplayName(cal: ConstPtr<ConstPtr<CVoid>>, type: UCalendarDisplayNameType, locale: Pcstr, result: MutPtr<UShort>, resultlength: Int, status: MutPtr<UErrorCode>): Int =
+public actual fun ucalGetTimeZoneDisplayName(cal: ConstPtr, type: UCalendarDisplayNameType, locale: Pcstr, result: MutPtr, resultlength: Int, status: MutPtr): Int =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUcalGetTimeZoneDisplayName(cal.rawAddress, type, locale.rawAddress, result.rawAddress, resultlength, status.rawAddress)
 
-public actual fun ucalGetTimeZoneId(cal: ConstPtr<ConstPtr<CVoid>>, result: MutPtr<UShort>, resultlength: Int, status: MutPtr<UErrorCode>): Int =
+public actual fun ucalGetTimeZoneId(cal: ConstPtr, result: MutPtr, resultlength: Int, status: MutPtr): Int =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUcalGetTimeZoneId(cal.rawAddress, result.rawAddress, resultlength, status.rawAddress)
 
-public actual fun ucalGetTimeZoneIdforWindowsId(winid: ConstPtr<UShort>, len: Int, region: Pcstr, id: MutPtr<UShort>, idcapacity: Int, status: MutPtr<UErrorCode>): Int =
+public actual fun ucalGetTimeZoneIdforWindowsId(winid: ConstPtr, len: Int, region: Pcstr, id: MutPtr, idcapacity: Int, status: MutPtr): Int =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUcalGetTimeZoneIdforWindowsId(winid.rawAddress, len, region.rawAddress, id.rawAddress, idcapacity, status.rawAddress)
 
-public actual fun ucalGetTimeZoneTransitionDate(cal: ConstPtr<ConstPtr<CVoid>>, type: UTimeZoneTransitionType, transition: MutPtr<Double>, status: MutPtr<UErrorCode>): Byte =
+public actual fun ucalGetTimeZoneTransitionDate(cal: ConstPtr, type: UTimeZoneTransitionType, transition: MutPtr, status: MutPtr): Byte =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUcalGetTimeZoneTransitionDate(cal.rawAddress, type, transition.rawAddress, status.rawAddress)
 
-public actual fun ucalGetType(cal: ConstPtr<ConstPtr<CVoid>>, status: MutPtr<UErrorCode>): Pcstr =
+public actual fun ucalGetType(cal: ConstPtr, status: MutPtr): Pcstr =
     ConstPtr(WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUcalGetType(cal.rawAddress, status.rawAddress))
 
-public actual fun ucalGetWeekendTransition(cal: ConstPtr<ConstPtr<CVoid>>, dayofweek: UCalendarDaysOfWeek, status: MutPtr<UErrorCode>): Int =
+public actual fun ucalGetWeekendTransition(cal: ConstPtr, dayofweek: UCalendarDaysOfWeek, status: MutPtr): Int =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUcalGetWeekendTransition(cal.rawAddress, dayofweek, status.rawAddress)
 
-public actual fun ucalGetWindowsTimeZoneId(id: ConstPtr<UShort>, len: Int, winid: MutPtr<UShort>, winidcapacity: Int, status: MutPtr<UErrorCode>): Int =
+public actual fun ucalGetWindowsTimeZoneId(id: ConstPtr, len: Int, winid: MutPtr, winidcapacity: Int, status: MutPtr): Int =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUcalGetWindowsTimeZoneId(id.rawAddress, len, winid.rawAddress, winidcapacity, status.rawAddress)
 
-public actual fun ucalInDaylightTime(cal: ConstPtr<ConstPtr<CVoid>>, status: MutPtr<UErrorCode>): Byte =
+public actual fun ucalInDaylightTime(cal: ConstPtr, status: MutPtr): Byte =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUcalInDaylightTime(cal.rawAddress, status.rawAddress)
 
-public actual fun ucalIsSet(cal: ConstPtr<ConstPtr<CVoid>>, field: UCalendarDateFields): Byte =
+public actual fun ucalIsSet(cal: ConstPtr, field: UCalendarDateFields): Byte =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUcalIsSet(cal.rawAddress, field)
 
-public actual fun ucalIsWeekend(cal: ConstPtr<ConstPtr<CVoid>>, date: Double, status: MutPtr<UErrorCode>): Byte =
+public actual fun ucalIsWeekend(cal: ConstPtr, date: Double, status: MutPtr): Byte =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUcalIsWeekend(cal.rawAddress, date, status.rawAddress)
 
-public actual fun ucalOpen(zoneid: ConstPtr<UShort>, len: Int, locale: Pcstr, type: UCalendarType, status: MutPtr<UErrorCode>): MutPtr<MutPtr<CVoid>> =
+public actual fun ucalOpen(zoneid: ConstPtr, len: Int, locale: Pcstr, type: UCalendarType, status: MutPtr): MutPtr =
     MutPtr(WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUcalOpen(zoneid.rawAddress, len, locale.rawAddress, type, status.rawAddress))
 
-public actual fun ucalOpenCountryTimeZones(country: Pcstr, ec: MutPtr<UErrorCode>): MutPtr<UEnumeration> =
+public actual fun ucalOpenCountryTimeZones(country: Pcstr, ec: MutPtr): MutPtr =
     MutPtr(WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUcalOpenCountryTimeZones(country.rawAddress, ec.rawAddress))
 
-public actual fun ucalOpenTimeZoneIdenumeration(zonetype: USystemTimeZoneType, region: Pcstr, rawoffset: ConstPtr<Int>, ec: MutPtr<UErrorCode>): MutPtr<UEnumeration> =
+public actual fun ucalOpenTimeZoneIdenumeration(zonetype: USystemTimeZoneType, region: Pcstr, rawoffset: ConstPtr, ec: MutPtr): MutPtr =
     MutPtr(WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUcalOpenTimeZoneIdenumeration(zonetype, region.rawAddress, rawoffset.rawAddress, ec.rawAddress))
 
-public actual fun ucalOpenTimeZones(ec: MutPtr<UErrorCode>): MutPtr<UEnumeration> =
+public actual fun ucalOpenTimeZones(ec: MutPtr): MutPtr =
     MutPtr(WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUcalOpenTimeZones(ec.rawAddress))
 
-public actual fun ucalRoll(cal: MutPtr<MutPtr<CVoid>>, field: UCalendarDateFields, amount: Int, status: MutPtr<UErrorCode>) {
+public actual fun ucalRoll(cal: MutPtr, field: UCalendarDateFields, amount: Int, status: MutPtr) {
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUcalRoll(cal.rawAddress, field, amount, status.rawAddress)
 }
 
-public actual fun ucalSet(cal: MutPtr<MutPtr<CVoid>>, field: UCalendarDateFields, value: Int) {
+public actual fun ucalSet(cal: MutPtr, field: UCalendarDateFields, value: Int) {
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUcalSet(cal.rawAddress, field, value)
 }
 
-public actual fun ucalSetAttribute(cal: MutPtr<MutPtr<CVoid>>, attr: UCalendarAttribute, newvalue: Int) {
+public actual fun ucalSetAttribute(cal: MutPtr, attr: UCalendarAttribute, newvalue: Int) {
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUcalSetAttribute(cal.rawAddress, attr, newvalue)
 }
 
-public actual fun ucalSetDate(cal: MutPtr<MutPtr<CVoid>>, year: Int, month: Int, date: Int, status: MutPtr<UErrorCode>) {
+public actual fun ucalSetDate(cal: MutPtr, year: Int, month: Int, date: Int, status: MutPtr) {
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUcalSetDate(cal.rawAddress, year, month, date, status.rawAddress)
 }
 
-public actual fun ucalSetDateTime(cal: MutPtr<MutPtr<CVoid>>, year: Int, month: Int, date: Int, hour: Int, minute: Int, second: Int, status: MutPtr<UErrorCode>) {
+public actual fun ucalSetDateTime(cal: MutPtr, year: Int, month: Int, date: Int, hour: Int, minute: Int, second: Int, status: MutPtr) {
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUcalSetDateTime(cal.rawAddress, year, month, date, hour, minute, second, status.rawAddress)
 }
 
-public actual fun ucalSetDefaultTimeZone(zoneid: ConstPtr<UShort>, ec: MutPtr<UErrorCode>) {
+public actual fun ucalSetDefaultTimeZone(zoneid: ConstPtr, ec: MutPtr) {
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUcalSetDefaultTimeZone(zoneid.rawAddress, ec.rawAddress)
 }
 
-public actual fun ucalSetGregorianChange(cal: MutPtr<MutPtr<CVoid>>, date: Double, perrorcode: MutPtr<UErrorCode>) {
+public actual fun ucalSetGregorianChange(cal: MutPtr, date: Double, perrorcode: MutPtr) {
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUcalSetGregorianChange(cal.rawAddress, date, perrorcode.rawAddress)
 }
 
-public actual fun ucalSetMillis(cal: MutPtr<MutPtr<CVoid>>, datetime: Double, status: MutPtr<UErrorCode>) {
+public actual fun ucalSetMillis(cal: MutPtr, datetime: Double, status: MutPtr) {
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUcalSetMillis(cal.rawAddress, datetime, status.rawAddress)
 }
 
-public actual fun ucalSetTimeZone(cal: MutPtr<MutPtr<CVoid>>, zoneid: ConstPtr<UShort>, len: Int, status: MutPtr<UErrorCode>) {
+public actual fun ucalSetTimeZone(cal: MutPtr, zoneid: ConstPtr, len: Int, status: MutPtr) {
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUcalSetTimeZone(cal.rawAddress, zoneid.rawAddress, len, status.rawAddress)
 }
 
-public actual fun ucasemapClose(csm: MutPtr<UCaseMap>) {
+public actual fun ucasemapClose(csm: MutPtr) {
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUcasemapClose(csm.rawAddress)
 }
 
-public actual fun ucasemapGetBreakIterator(csm: ConstPtr<UCaseMap>): MutPtr<UBreakIterator> =
+public actual fun ucasemapGetBreakIterator(csm: ConstPtr): MutPtr =
     MutPtr(WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUcasemapGetBreakIterator(csm.rawAddress))
 
-public actual fun ucasemapGetLocale(csm: ConstPtr<UCaseMap>): Pcstr =
+public actual fun ucasemapGetLocale(csm: ConstPtr): Pcstr =
     ConstPtr(WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUcasemapGetLocale(csm.rawAddress))
 
-public actual fun ucasemapGetOptions(csm: ConstPtr<UCaseMap>): UInt =
+public actual fun ucasemapGetOptions(csm: ConstPtr): UInt =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUcasemapGetOptions(csm.rawAddress).toUInt()
 
-public actual fun ucasemapOpen(locale: Pcstr, options: UInt, perrorcode: MutPtr<UErrorCode>): MutPtr<UCaseMap> =
+public actual fun ucasemapOpen(locale: Pcstr, options: UInt, perrorcode: MutPtr): MutPtr =
     MutPtr(WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUcasemapOpen(locale.rawAddress, options.toInt(), perrorcode.rawAddress))
 
-public actual fun ucasemapSetBreakIterator(csm: MutPtr<UCaseMap>, itertoadopt: MutPtr<UBreakIterator>, perrorcode: MutPtr<UErrorCode>) {
+public actual fun ucasemapSetBreakIterator(csm: MutPtr, itertoadopt: MutPtr, perrorcode: MutPtr) {
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUcasemapSetBreakIterator(csm.rawAddress, itertoadopt.rawAddress, perrorcode.rawAddress)
 }
 
-public actual fun ucasemapSetLocale(csm: MutPtr<UCaseMap>, locale: Pcstr, perrorcode: MutPtr<UErrorCode>) {
+public actual fun ucasemapSetLocale(csm: MutPtr, locale: Pcstr, perrorcode: MutPtr) {
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUcasemapSetLocale(csm.rawAddress, locale.rawAddress, perrorcode.rawAddress)
 }
 
-public actual fun ucasemapSetOptions(csm: MutPtr<UCaseMap>, options: UInt, perrorcode: MutPtr<UErrorCode>) {
+public actual fun ucasemapSetOptions(csm: MutPtr, options: UInt, perrorcode: MutPtr) {
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUcasemapSetOptions(csm.rawAddress, options.toInt(), perrorcode.rawAddress)
 }
 
-public actual fun ucasemapToTitle(csm: MutPtr<UCaseMap>, dest: MutPtr<UShort>, destcapacity: Int, src: ConstPtr<UShort>, srclength: Int, perrorcode: MutPtr<UErrorCode>): Int =
+public actual fun ucasemapToTitle(csm: MutPtr, dest: MutPtr, destcapacity: Int, src: ConstPtr, srclength: Int, perrorcode: MutPtr): Int =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUcasemapToTitle(csm.rawAddress, dest.rawAddress, destcapacity, src.rawAddress, srclength, perrorcode.rawAddress)
 
-public actual fun ucasemapUtf8FoldCase(csm: ConstPtr<UCaseMap>, dest: Pcstr, destcapacity: Int, src: Pcstr, srclength: Int, perrorcode: MutPtr<UErrorCode>): Int =
+public actual fun ucasemapUtf8FoldCase(csm: ConstPtr, dest: Pcstr, destcapacity: Int, src: Pcstr, srclength: Int, perrorcode: MutPtr): Int =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUcasemapUtf8FoldCase(csm.rawAddress, dest.rawAddress, destcapacity, src.rawAddress, srclength, perrorcode.rawAddress)
 
-public actual fun ucasemapUtf8ToLower(csm: ConstPtr<UCaseMap>, dest: Pcstr, destcapacity: Int, src: Pcstr, srclength: Int, perrorcode: MutPtr<UErrorCode>): Int =
+public actual fun ucasemapUtf8ToLower(csm: ConstPtr, dest: Pcstr, destcapacity: Int, src: Pcstr, srclength: Int, perrorcode: MutPtr): Int =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUcasemapUtf8ToLower(csm.rawAddress, dest.rawAddress, destcapacity, src.rawAddress, srclength, perrorcode.rawAddress)
 
-public actual fun ucasemapUtf8ToTitle(csm: MutPtr<UCaseMap>, dest: Pcstr, destcapacity: Int, src: Pcstr, srclength: Int, perrorcode: MutPtr<UErrorCode>): Int =
+public actual fun ucasemapUtf8ToTitle(csm: MutPtr, dest: Pcstr, destcapacity: Int, src: Pcstr, srclength: Int, perrorcode: MutPtr): Int =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUcasemapUtf8ToTitle(csm.rawAddress, dest.rawAddress, destcapacity, src.rawAddress, srclength, perrorcode.rawAddress)
 
-public actual fun ucasemapUtf8ToUpper(csm: ConstPtr<UCaseMap>, dest: Pcstr, destcapacity: Int, src: Pcstr, srclength: Int, perrorcode: MutPtr<UErrorCode>): Int =
+public actual fun ucasemapUtf8ToUpper(csm: ConstPtr, dest: Pcstr, destcapacity: Int, src: Pcstr, srclength: Int, perrorcode: MutPtr): Int =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUcasemapUtf8ToUpper(csm.rawAddress, dest.rawAddress, destcapacity, src.rawAddress, srclength, perrorcode.rawAddress)
 
-public actual fun ucfposClose(ucfpos: MutPtr<UConstrainedFieldPosition>) {
+public actual fun ucfposClose(ucfpos: MutPtr) {
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUcfposClose(ucfpos.rawAddress)
 }
 
-public actual fun ucfposConstrainCategory(ucfpos: MutPtr<UConstrainedFieldPosition>, category: Int, ec: MutPtr<UErrorCode>) {
+public actual fun ucfposConstrainCategory(ucfpos: MutPtr, category: Int, ec: MutPtr) {
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUcfposConstrainCategory(ucfpos.rawAddress, category, ec.rawAddress)
 }
 
-public actual fun ucfposConstrainField(ucfpos: MutPtr<UConstrainedFieldPosition>, category: Int, field: Int, ec: MutPtr<UErrorCode>) {
+public actual fun ucfposConstrainField(ucfpos: MutPtr, category: Int, field: Int, ec: MutPtr) {
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUcfposConstrainField(ucfpos.rawAddress, category, field, ec.rawAddress)
 }
 
-public actual fun ucfposGetCategory(ucfpos: ConstPtr<UConstrainedFieldPosition>, ec: MutPtr<UErrorCode>): Int =
+public actual fun ucfposGetCategory(ucfpos: ConstPtr, ec: MutPtr): Int =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUcfposGetCategory(ucfpos.rawAddress, ec.rawAddress)
 
-public actual fun ucfposGetField(ucfpos: ConstPtr<UConstrainedFieldPosition>, ec: MutPtr<UErrorCode>): Int =
+public actual fun ucfposGetField(ucfpos: ConstPtr, ec: MutPtr): Int =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUcfposGetField(ucfpos.rawAddress, ec.rawAddress)
 
-public actual fun ucfposGetIndexes(ucfpos: ConstPtr<UConstrainedFieldPosition>, pstart: MutPtr<Int>, plimit: MutPtr<Int>, ec: MutPtr<UErrorCode>) {
+public actual fun ucfposGetIndexes(ucfpos: ConstPtr, pstart: MutPtr, plimit: MutPtr, ec: MutPtr) {
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUcfposGetIndexes(ucfpos.rawAddress, pstart.rawAddress, plimit.rawAddress, ec.rawAddress)
 }
 
-public actual fun ucfposGetInt64IterationContext(ucfpos: ConstPtr<UConstrainedFieldPosition>, ec: MutPtr<UErrorCode>): Long =
+public actual fun ucfposGetInt64IterationContext(ucfpos: ConstPtr, ec: MutPtr): Long =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUcfposGetInt64IterationContext(ucfpos.rawAddress, ec.rawAddress)
 
-public actual fun ucfposMatchesField(ucfpos: ConstPtr<UConstrainedFieldPosition>, category: Int, field: Int, ec: MutPtr<UErrorCode>): Byte =
+public actual fun ucfposMatchesField(ucfpos: ConstPtr, category: Int, field: Int, ec: MutPtr): Byte =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUcfposMatchesField(ucfpos.rawAddress, category, field, ec.rawAddress)
 
-public actual fun ucfposOpen(ec: MutPtr<UErrorCode>): MutPtr<UConstrainedFieldPosition> =
+public actual fun ucfposOpen(ec: MutPtr): MutPtr =
     MutPtr(WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUcfposOpen(ec.rawAddress))
 
-public actual fun ucfposReset(ucfpos: MutPtr<UConstrainedFieldPosition>, ec: MutPtr<UErrorCode>) {
+public actual fun ucfposReset(ucfpos: MutPtr, ec: MutPtr) {
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUcfposReset(ucfpos.rawAddress, ec.rawAddress)
 }
 
-public actual fun ucfposSetInt64IterationContext(ucfpos: MutPtr<UConstrainedFieldPosition>, context: Long, ec: MutPtr<UErrorCode>) {
+public actual fun ucfposSetInt64IterationContext(ucfpos: MutPtr, context: Long, ec: MutPtr) {
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUcfposSetInt64IterationContext(ucfpos.rawAddress, context, ec.rawAddress)
 }
 
-public actual fun ucfposSetState(ucfpos: MutPtr<UConstrainedFieldPosition>, category: Int, field: Int, start: Int, limit: Int, ec: MutPtr<UErrorCode>) {
+public actual fun ucfposSetState(ucfpos: MutPtr, category: Int, field: Int, start: Int, limit: Int, ec: MutPtr) {
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUcfposSetState(ucfpos.rawAddress, category, field, start, limit, ec.rawAddress)
 }
 
-public actual fun ucnvCbFromUwriteBytes(args: MutPtr<UConverterFromUnicodeArgs>, source: Pcstr, length: Int, offsetindex: Int, err: MutPtr<UErrorCode>) {
+public actual fun ucnvCbFromUwriteBytes(args: MutPtr, source: Pcstr, length: Int, offsetindex: Int, err: MutPtr) {
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUcnvCbFromUwriteBytes(args.rawAddress, source.rawAddress, length, offsetindex, err.rawAddress)
 }
 
-public actual fun ucnvCbFromUwriteSub(args: MutPtr<UConverterFromUnicodeArgs>, offsetindex: Int, err: MutPtr<UErrorCode>) {
+public actual fun ucnvCbFromUwriteSub(args: MutPtr, offsetindex: Int, err: MutPtr) {
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUcnvCbFromUwriteSub(args.rawAddress, offsetindex, err.rawAddress)
 }
 
-public actual fun ucnvCbFromUwriteUchars(args: MutPtr<UConverterFromUnicodeArgs>, source: ConstPtr<ConstPtr<UShort>>, sourcelimit: ConstPtr<UShort>, offsetindex: Int, err: MutPtr<UErrorCode>) {
+public actual fun ucnvCbFromUwriteUchars(args: MutPtr, source: ConstPtr, sourcelimit: ConstPtr, offsetindex: Int, err: MutPtr) {
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUcnvCbFromUwriteUchars(args.rawAddress, source.rawAddress, sourcelimit.rawAddress, offsetindex, err.rawAddress)
 }
 
-public actual fun ucnvCbToUwriteSub(args: MutPtr<UConverterToUnicodeArgs>, offsetindex: Int, err: MutPtr<UErrorCode>) {
+public actual fun ucnvCbToUwriteSub(args: MutPtr, offsetindex: Int, err: MutPtr) {
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUcnvCbToUwriteSub(args.rawAddress, offsetindex, err.rawAddress)
 }
 
-public actual fun ucnvCbToUwriteUchars(args: MutPtr<UConverterToUnicodeArgs>, source: ConstPtr<UShort>, length: Int, offsetindex: Int, err: MutPtr<UErrorCode>) {
+public actual fun ucnvCbToUwriteUchars(args: MutPtr, source: ConstPtr, length: Int, offsetindex: Int, err: MutPtr) {
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUcnvCbToUwriteUchars(args.rawAddress, source.rawAddress, length, offsetindex, err.rawAddress)
 }
 
-public actual fun ucnvClose(converter: MutPtr<UConverter>) {
+public actual fun ucnvClose(converter: MutPtr) {
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUcnvClose(converter.rawAddress)
 }
 
 public actual fun ucnvCompareNames(name1: Pcstr, name2: Pcstr): Int =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUcnvCompareNames(name1.rawAddress, name2.rawAddress)
 
-public actual fun ucnvConvert(toconvertername: Pcstr, fromconvertername: Pcstr, target: Pcstr, targetcapacity: Int, source: Pcstr, sourcelength: Int, perrorcode: MutPtr<UErrorCode>): Int =
+public actual fun ucnvConvert(toconvertername: Pcstr, fromconvertername: Pcstr, target: Pcstr, targetcapacity: Int, source: Pcstr, sourcelength: Int, perrorcode: MutPtr): Int =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUcnvConvert(toconvertername.rawAddress, fromconvertername.rawAddress, target.rawAddress, targetcapacity, source.rawAddress, sourcelength, perrorcode.rawAddress)
 
-public actual fun ucnvConvertEx(targetcnv: MutPtr<UConverter>, sourcecnv: MutPtr<UConverter>, target: MutPtr<MutPtr<Byte>>, targetlimit: Pcstr, source: ConstPtr<ConstPtr<Byte>>, sourcelimit: Pcstr, pivotstart: MutPtr<UShort>, pivotsource: MutPtr<MutPtr<UShort>>, pivottarget: MutPtr<MutPtr<UShort>>, pivotlimit: ConstPtr<UShort>, reset: Byte, flush: Byte, perrorcode: MutPtr<UErrorCode>) {
+public actual fun ucnvConvertEx(targetcnv: MutPtr, sourcecnv: MutPtr, target: MutPtr, targetlimit: Pcstr, source: ConstPtr, sourcelimit: Pcstr, pivotstart: MutPtr, pivotsource: MutPtr, pivottarget: MutPtr, pivotlimit: ConstPtr, reset: Byte, flush: Byte, perrorcode: MutPtr) {
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUcnvConvertEx(targetcnv.rawAddress, sourcecnv.rawAddress, target.rawAddress, targetlimit.rawAddress, source.rawAddress, sourcelimit.rawAddress, pivotstart.rawAddress, pivotsource.rawAddress, pivottarget.rawAddress, pivotlimit.rawAddress, reset, flush, perrorcode.rawAddress)
 }
 
-public actual fun ucnvCountAliases(alias: Pcstr, perrorcode: MutPtr<UErrorCode>): UShort =
+public actual fun ucnvCountAliases(alias: Pcstr, perrorcode: MutPtr): UShort =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUcnvCountAliases(alias.rawAddress, perrorcode.rawAddress).toUShort()
 
 public actual fun ucnvCountAvailable(): Int =
@@ -5300,970 +5295,970 @@ public actual fun ucnvCountAvailable(): Int =
 public actual fun ucnvCountStandards(): UShort =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUcnvCountStandards().toUShort()
 
-public actual fun ucnvDetectUnicodeSignature(source: Pcstr, sourcelength: Int, signaturelength: MutPtr<Int>, perrorcode: MutPtr<UErrorCode>): Pcstr =
+public actual fun ucnvDetectUnicodeSignature(source: Pcstr, sourcelength: Int, signaturelength: MutPtr, perrorcode: MutPtr): Pcstr =
     ConstPtr(WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUcnvDetectUnicodeSignature(source.rawAddress, sourcelength, signaturelength.rawAddress, perrorcode.rawAddress))
 
-public actual fun ucnvFixFileSeparator(cnv: ConstPtr<UConverter>, source: MutPtr<UShort>, sourcelen: Int) {
+public actual fun ucnvFixFileSeparator(cnv: ConstPtr, source: MutPtr, sourcelen: Int) {
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUcnvFixFileSeparator(cnv.rawAddress, source.rawAddress, sourcelen)
 }
 
 public actual fun ucnvFlushCache(): Int =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUcnvFlushCache()
 
-public actual fun ucnvFromAlgorithmic(cnv: MutPtr<UConverter>, algorithmictype: UConverterType, target: Pcstr, targetcapacity: Int, source: Pcstr, sourcelength: Int, perrorcode: MutPtr<UErrorCode>): Int =
+public actual fun ucnvFromAlgorithmic(cnv: MutPtr, algorithmictype: UConverterType, target: Pcstr, targetcapacity: Int, source: Pcstr, sourcelength: Int, perrorcode: MutPtr): Int =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUcnvFromAlgorithmic(cnv.rawAddress, algorithmictype, target.rawAddress, targetcapacity, source.rawAddress, sourcelength, perrorcode.rawAddress)
 
-public actual fun ucnvFromUchars(cnv: MutPtr<UConverter>, dest: Pcstr, destcapacity: Int, src: ConstPtr<UShort>, srclength: Int, perrorcode: MutPtr<UErrorCode>): Int =
+public actual fun ucnvFromUchars(cnv: MutPtr, dest: Pcstr, destcapacity: Int, src: ConstPtr, srclength: Int, perrorcode: MutPtr): Int =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUcnvFromUchars(cnv.rawAddress, dest.rawAddress, destcapacity, src.rawAddress, srclength, perrorcode.rawAddress)
 
-public actual fun ucnvFromUcountPending(cnv: ConstPtr<UConverter>, status: MutPtr<UErrorCode>): Int =
+public actual fun ucnvFromUcountPending(cnv: ConstPtr, status: MutPtr): Int =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUcnvFromUcountPending(cnv.rawAddress, status.rawAddress)
 
-public actual fun ucnvFromUnicode(converter: MutPtr<UConverter>, target: MutPtr<MutPtr<Byte>>, targetlimit: Pcstr, source: ConstPtr<ConstPtr<UShort>>, sourcelimit: ConstPtr<UShort>, offsets: MutPtr<Int>, flush: Byte, err: MutPtr<UErrorCode>) {
+public actual fun ucnvFromUnicode(converter: MutPtr, target: MutPtr, targetlimit: Pcstr, source: ConstPtr, sourcelimit: ConstPtr, offsets: MutPtr, flush: Byte, err: MutPtr) {
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUcnvFromUnicode(converter.rawAddress, target.rawAddress, targetlimit.rawAddress, source.rawAddress, sourcelimit.rawAddress, offsets.rawAddress, flush, err.rawAddress)
 }
 
-public actual fun ucnvGetAlias(alias: Pcstr, n: UShort, perrorcode: MutPtr<UErrorCode>): Pcstr =
+public actual fun ucnvGetAlias(alias: Pcstr, n: UShort, perrorcode: MutPtr): Pcstr =
     ConstPtr(WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUcnvGetAlias(alias.rawAddress, n.toShort(), perrorcode.rawAddress))
 
-public actual fun ucnvGetAliases(alias: Pcstr, aliases: ConstPtr<ConstPtr<Byte>>, perrorcode: MutPtr<UErrorCode>) {
+public actual fun ucnvGetAliases(alias: Pcstr, aliases: ConstPtr, perrorcode: MutPtr) {
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUcnvGetAliases(alias.rawAddress, aliases.rawAddress, perrorcode.rawAddress)
 }
 
 public actual fun ucnvGetAvailableName(n: Int): Pcstr =
     ConstPtr(WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUcnvGetAvailableName(n))
 
-public actual fun ucnvGetCcsid(converter: ConstPtr<UConverter>, err: MutPtr<UErrorCode>): Int =
+public actual fun ucnvGetCcsid(converter: ConstPtr, err: MutPtr): Int =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUcnvGetCcsid(converter.rawAddress, err.rawAddress)
 
-public actual fun ucnvGetCanonicalName(alias: Pcstr, standard: Pcstr, perrorcode: MutPtr<UErrorCode>): Pcstr =
+public actual fun ucnvGetCanonicalName(alias: Pcstr, standard: Pcstr, perrorcode: MutPtr): Pcstr =
     ConstPtr(WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUcnvGetCanonicalName(alias.rawAddress, standard.rawAddress, perrorcode.rawAddress))
 
 public actual fun ucnvGetDefaultName(): Pcstr =
     ConstPtr(WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUcnvGetDefaultName())
 
-public actual fun ucnvGetDisplayName(converter: ConstPtr<UConverter>, displaylocale: Pcstr, displayname: MutPtr<UShort>, displaynamecapacity: Int, err: MutPtr<UErrorCode>): Int =
+public actual fun ucnvGetDisplayName(converter: ConstPtr, displaylocale: Pcstr, displayname: MutPtr, displaynamecapacity: Int, err: MutPtr): Int =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUcnvGetDisplayName(converter.rawAddress, displaylocale.rawAddress, displayname.rawAddress, displaynamecapacity, err.rawAddress)
 
-public actual fun ucnvGetFromUcallBack(converter: ConstPtr<UConverter>, action: MutPtr<UConverterFromUCallback>, context: ConstPtr<ConstPtr<CVoid>>) {
+public actual fun ucnvGetFromUcallBack(converter: ConstPtr, action: MutPtr, context: ConstPtr) {
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUcnvGetFromUcallBack(converter.rawAddress, action.rawAddress, context.rawAddress)
 }
 
-public actual fun ucnvGetInvalidChars(converter: ConstPtr<UConverter>, errbytes: Pcstr, len: MutPtr<Byte>, err: MutPtr<UErrorCode>) {
+public actual fun ucnvGetInvalidChars(converter: ConstPtr, errbytes: Pcstr, len: MutPtr, err: MutPtr) {
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUcnvGetInvalidChars(converter.rawAddress, errbytes.rawAddress, len.rawAddress, err.rawAddress)
 }
 
-public actual fun ucnvGetInvalidUchars(converter: ConstPtr<UConverter>, erruchars: MutPtr<UShort>, len: MutPtr<Byte>, err: MutPtr<UErrorCode>) {
+public actual fun ucnvGetInvalidUchars(converter: ConstPtr, erruchars: MutPtr, len: MutPtr, err: MutPtr) {
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUcnvGetInvalidUchars(converter.rawAddress, erruchars.rawAddress, len.rawAddress, err.rawAddress)
 }
 
-public actual fun ucnvGetMaxCharSize(converter: ConstPtr<UConverter>): Byte =
+public actual fun ucnvGetMaxCharSize(converter: ConstPtr): Byte =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUcnvGetMaxCharSize(converter.rawAddress)
 
-public actual fun ucnvGetMinCharSize(converter: ConstPtr<UConverter>): Byte =
+public actual fun ucnvGetMinCharSize(converter: ConstPtr): Byte =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUcnvGetMinCharSize(converter.rawAddress)
 
-public actual fun ucnvGetName(converter: ConstPtr<UConverter>, err: MutPtr<UErrorCode>): Pcstr =
+public actual fun ucnvGetName(converter: ConstPtr, err: MutPtr): Pcstr =
     ConstPtr(WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUcnvGetName(converter.rawAddress, err.rawAddress))
 
-public actual fun ucnvGetNextUchar(converter: MutPtr<UConverter>, source: ConstPtr<ConstPtr<Byte>>, sourcelimit: Pcstr, err: MutPtr<UErrorCode>): Int =
+public actual fun ucnvGetNextUchar(converter: MutPtr, source: ConstPtr, sourcelimit: Pcstr, err: MutPtr): Int =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUcnvGetNextUchar(converter.rawAddress, source.rawAddress, sourcelimit.rawAddress, err.rawAddress)
 
-public actual fun ucnvGetPlatform(converter: ConstPtr<UConverter>, err: MutPtr<UErrorCode>): UConverterPlatform =
+public actual fun ucnvGetPlatform(converter: ConstPtr, err: MutPtr): UConverterPlatform =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUcnvGetPlatform(converter.rawAddress, err.rawAddress)
 
-public actual fun ucnvGetStandard(n: UShort, perrorcode: MutPtr<UErrorCode>): Pcstr =
+public actual fun ucnvGetStandard(n: UShort, perrorcode: MutPtr): Pcstr =
     ConstPtr(WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUcnvGetStandard(n.toShort(), perrorcode.rawAddress))
 
-public actual fun ucnvGetStandardName(name: Pcstr, standard: Pcstr, perrorcode: MutPtr<UErrorCode>): Pcstr =
+public actual fun ucnvGetStandardName(name: Pcstr, standard: Pcstr, perrorcode: MutPtr): Pcstr =
     ConstPtr(WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUcnvGetStandardName(name.rawAddress, standard.rawAddress, perrorcode.rawAddress))
 
-public actual fun ucnvGetStarters(converter: ConstPtr<UConverter>, starters: MutPtr<Byte>, err: MutPtr<UErrorCode>) {
+public actual fun ucnvGetStarters(converter: ConstPtr, starters: MutPtr, err: MutPtr) {
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUcnvGetStarters(converter.rawAddress, starters.rawAddress, err.rawAddress)
 }
 
-public actual fun ucnvGetSubstChars(converter: ConstPtr<UConverter>, subchars: Pcstr, len: MutPtr<Byte>, err: MutPtr<UErrorCode>) {
+public actual fun ucnvGetSubstChars(converter: ConstPtr, subchars: Pcstr, len: MutPtr, err: MutPtr) {
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUcnvGetSubstChars(converter.rawAddress, subchars.rawAddress, len.rawAddress, err.rawAddress)
 }
 
-public actual fun ucnvGetToUcallBack(converter: ConstPtr<UConverter>, action: MutPtr<UConverterToUCallback>, context: ConstPtr<ConstPtr<CVoid>>) {
+public actual fun ucnvGetToUcallBack(converter: ConstPtr, action: MutPtr, context: ConstPtr) {
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUcnvGetToUcallBack(converter.rawAddress, action.rawAddress, context.rawAddress)
 }
 
-public actual fun ucnvGetType(converter: ConstPtr<UConverter>): UConverterType =
+public actual fun ucnvGetType(converter: ConstPtr): UConverterType =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUcnvGetType(converter.rawAddress)
 
-public actual fun ucnvGetUnicodeSet(cnv: ConstPtr<UConverter>, setfillin: MutPtr<USet>, whichset: UConverterUnicodeSet, perrorcode: MutPtr<UErrorCode>) {
+public actual fun ucnvGetUnicodeSet(cnv: ConstPtr, setfillin: MutPtr, whichset: UConverterUnicodeSet, perrorcode: MutPtr) {
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUcnvGetUnicodeSet(cnv.rawAddress, setfillin.rawAddress, whichset, perrorcode.rawAddress)
 }
 
-public actual fun ucnvIsAmbiguous(cnv: ConstPtr<UConverter>): Byte =
+public actual fun ucnvIsAmbiguous(cnv: ConstPtr): Byte =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUcnvIsAmbiguous(cnv.rawAddress)
 
-public actual fun ucnvIsFixedWidth(cnv: MutPtr<UConverter>, status: MutPtr<UErrorCode>): Byte =
+public actual fun ucnvIsFixedWidth(cnv: MutPtr, status: MutPtr): Byte =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUcnvIsFixedWidth(cnv.rawAddress, status.rawAddress)
 
-public actual fun ucnvOpen(convertername: Pcstr, err: MutPtr<UErrorCode>): MutPtr<UConverter> =
+public actual fun ucnvOpen(convertername: Pcstr, err: MutPtr): MutPtr =
     MutPtr(WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUcnvOpen(convertername.rawAddress, err.rawAddress))
 
-public actual fun ucnvOpenAllNames(perrorcode: MutPtr<UErrorCode>): MutPtr<UEnumeration> =
+public actual fun ucnvOpenAllNames(perrorcode: MutPtr): MutPtr =
     MutPtr(WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUcnvOpenAllNames(perrorcode.rawAddress))
 
-public actual fun ucnvOpenCcsid(codepage: Int, platform: UConverterPlatform, err: MutPtr<UErrorCode>): MutPtr<UConverter> =
+public actual fun ucnvOpenCcsid(codepage: Int, platform: UConverterPlatform, err: MutPtr): MutPtr =
     MutPtr(WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUcnvOpenCcsid(codepage, platform, err.rawAddress))
 
-public actual fun ucnvOpenPackage(packagename: Pcstr, convertername: Pcstr, err: MutPtr<UErrorCode>): MutPtr<UConverter> =
+public actual fun ucnvOpenPackage(packagename: Pcstr, convertername: Pcstr, err: MutPtr): MutPtr =
     MutPtr(WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUcnvOpenPackage(packagename.rawAddress, convertername.rawAddress, err.rawAddress))
 
-public actual fun ucnvOpenStandardNames(convname: Pcstr, standard: Pcstr, perrorcode: MutPtr<UErrorCode>): MutPtr<UEnumeration> =
+public actual fun ucnvOpenStandardNames(convname: Pcstr, standard: Pcstr, perrorcode: MutPtr): MutPtr =
     MutPtr(WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUcnvOpenStandardNames(convname.rawAddress, standard.rawAddress, perrorcode.rawAddress))
 
-public actual fun ucnvOpenU(name: ConstPtr<UShort>, err: MutPtr<UErrorCode>): MutPtr<UConverter> =
+public actual fun ucnvOpenU(name: ConstPtr, err: MutPtr): MutPtr =
     MutPtr(WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUcnvOpenU(name.rawAddress, err.rawAddress))
 
-public actual fun ucnvReset(converter: MutPtr<UConverter>) {
+public actual fun ucnvReset(converter: MutPtr) {
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUcnvReset(converter.rawAddress)
 }
 
-public actual fun ucnvResetFromUnicode(converter: MutPtr<UConverter>) {
+public actual fun ucnvResetFromUnicode(converter: MutPtr) {
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUcnvResetFromUnicode(converter.rawAddress)
 }
 
-public actual fun ucnvResetToUnicode(converter: MutPtr<UConverter>) {
+public actual fun ucnvResetToUnicode(converter: MutPtr) {
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUcnvResetToUnicode(converter.rawAddress)
 }
 
-public actual fun ucnvSafeClone(cnv: ConstPtr<UConverter>, stackbuffer: MutPtr<CVoid>, pbuffersize: MutPtr<Int>, status: MutPtr<UErrorCode>): MutPtr<UConverter> =
+public actual fun ucnvSafeClone(cnv: ConstPtr, stackbuffer: MutPtr, pbuffersize: MutPtr, status: MutPtr): MutPtr =
     MutPtr(WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUcnvSafeClone(cnv.rawAddress, stackbuffer.rawAddress, pbuffersize.rawAddress, status.rawAddress))
 
 public actual fun ucnvSetDefaultName(name: Pcstr) {
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUcnvSetDefaultName(name.rawAddress)
 }
 
-public actual fun ucnvSetFallback(cnv: MutPtr<UConverter>, usesfallback: Byte) {
+public actual fun ucnvSetFallback(cnv: MutPtr, usesfallback: Byte) {
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUcnvSetFallback(cnv.rawAddress, usesfallback)
 }
 
-public actual fun ucnvSetFromUcallBack(converter: MutPtr<UConverter>, newaction: UConverterFromUCallback, newcontext: ConstPtr<CVoid>, oldaction: MutPtr<UConverterFromUCallback>, oldcontext: ConstPtr<ConstPtr<CVoid>>, err: MutPtr<UErrorCode>) {
+public actual fun ucnvSetFromUcallBack(converter: MutPtr, newaction: UConverterFromUCallback, newcontext: ConstPtr, oldaction: MutPtr, oldcontext: ConstPtr, err: MutPtr) {
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUcnvSetFromUcallBack(converter.rawAddress, 0L, newcontext.rawAddress, oldaction.rawAddress, oldcontext.rawAddress, err.rawAddress)
 }
 
-public actual fun ucnvSetSubstChars(converter: MutPtr<UConverter>, subchars: Pcstr, len: Byte, err: MutPtr<UErrorCode>) {
+public actual fun ucnvSetSubstChars(converter: MutPtr, subchars: Pcstr, len: Byte, err: MutPtr) {
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUcnvSetSubstChars(converter.rawAddress, subchars.rawAddress, len, err.rawAddress)
 }
 
-public actual fun ucnvSetSubstString(cnv: MutPtr<UConverter>, s: ConstPtr<UShort>, length: Int, err: MutPtr<UErrorCode>) {
+public actual fun ucnvSetSubstString(cnv: MutPtr, s: ConstPtr, length: Int, err: MutPtr) {
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUcnvSetSubstString(cnv.rawAddress, s.rawAddress, length, err.rawAddress)
 }
 
-public actual fun ucnvSetToUcallBack(converter: MutPtr<UConverter>, newaction: UConverterToUCallback, newcontext: ConstPtr<CVoid>, oldaction: MutPtr<UConverterToUCallback>, oldcontext: ConstPtr<ConstPtr<CVoid>>, err: MutPtr<UErrorCode>) {
+public actual fun ucnvSetToUcallBack(converter: MutPtr, newaction: UConverterToUCallback, newcontext: ConstPtr, oldaction: MutPtr, oldcontext: ConstPtr, err: MutPtr) {
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUcnvSetToUcallBack(converter.rawAddress, 0L, newcontext.rawAddress, oldaction.rawAddress, oldcontext.rawAddress, err.rawAddress)
 }
 
-public actual fun ucnvToAlgorithmic(algorithmictype: UConverterType, cnv: MutPtr<UConverter>, target: Pcstr, targetcapacity: Int, source: Pcstr, sourcelength: Int, perrorcode: MutPtr<UErrorCode>): Int =
+public actual fun ucnvToAlgorithmic(algorithmictype: UConverterType, cnv: MutPtr, target: Pcstr, targetcapacity: Int, source: Pcstr, sourcelength: Int, perrorcode: MutPtr): Int =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUcnvToAlgorithmic(algorithmictype, cnv.rawAddress, target.rawAddress, targetcapacity, source.rawAddress, sourcelength, perrorcode.rawAddress)
 
-public actual fun ucnvToUchars(cnv: MutPtr<UConverter>, dest: MutPtr<UShort>, destcapacity: Int, src: Pcstr, srclength: Int, perrorcode: MutPtr<UErrorCode>): Int =
+public actual fun ucnvToUchars(cnv: MutPtr, dest: MutPtr, destcapacity: Int, src: Pcstr, srclength: Int, perrorcode: MutPtr): Int =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUcnvToUchars(cnv.rawAddress, dest.rawAddress, destcapacity, src.rawAddress, srclength, perrorcode.rawAddress)
 
-public actual fun ucnvToUcountPending(cnv: ConstPtr<UConverter>, status: MutPtr<UErrorCode>): Int =
+public actual fun ucnvToUcountPending(cnv: ConstPtr, status: MutPtr): Int =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUcnvToUcountPending(cnv.rawAddress, status.rawAddress)
 
-public actual fun ucnvToUnicode(converter: MutPtr<UConverter>, target: MutPtr<MutPtr<UShort>>, targetlimit: ConstPtr<UShort>, source: ConstPtr<ConstPtr<Byte>>, sourcelimit: Pcstr, offsets: MutPtr<Int>, flush: Byte, err: MutPtr<UErrorCode>) {
+public actual fun ucnvToUnicode(converter: MutPtr, target: MutPtr, targetlimit: ConstPtr, source: ConstPtr, sourcelimit: Pcstr, offsets: MutPtr, flush: Byte, err: MutPtr) {
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUcnvToUnicode(converter.rawAddress, target.rawAddress, targetlimit.rawAddress, source.rawAddress, sourcelimit.rawAddress, offsets.rawAddress, flush, err.rawAddress)
 }
 
-public actual fun ucnvUsesFallback(cnv: ConstPtr<UConverter>): Byte =
+public actual fun ucnvUsesFallback(cnv: ConstPtr): Byte =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUcnvUsesFallback(cnv.rawAddress)
 
-public actual fun ucnvselClose(sel: MutPtr<UConverterSelector>) {
+public actual fun ucnvselClose(sel: MutPtr) {
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUcnvselClose(sel.rawAddress)
 }
 
-public actual fun ucnvselOpen(converterlist: ConstPtr<ConstPtr<Byte>>, converterlistsize: Int, excludedcodepoints: ConstPtr<USet>, whichset: UConverterUnicodeSet, status: MutPtr<UErrorCode>): MutPtr<UConverterSelector> =
+public actual fun ucnvselOpen(converterlist: ConstPtr, converterlistsize: Int, excludedcodepoints: ConstPtr, whichset: UConverterUnicodeSet, status: MutPtr): MutPtr =
     MutPtr(WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUcnvselOpen(converterlist.rawAddress, converterlistsize, excludedcodepoints.rawAddress, whichset, status.rawAddress))
 
-public actual fun ucnvselOpenFromSerialized(buffer: ConstPtr<CVoid>, length: Int, status: MutPtr<UErrorCode>): MutPtr<UConverterSelector> =
+public actual fun ucnvselOpenFromSerialized(buffer: ConstPtr, length: Int, status: MutPtr): MutPtr =
     MutPtr(WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUcnvselOpenFromSerialized(buffer.rawAddress, length, status.rawAddress))
 
-public actual fun ucnvselSelectForString(sel: ConstPtr<UConverterSelector>, s: ConstPtr<UShort>, length: Int, status: MutPtr<UErrorCode>): MutPtr<UEnumeration> =
+public actual fun ucnvselSelectForString(sel: ConstPtr, s: ConstPtr, length: Int, status: MutPtr): MutPtr =
     MutPtr(WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUcnvselSelectForString(sel.rawAddress, s.rawAddress, length, status.rawAddress))
 
-public actual fun ucnvselSelectForUtf8(sel: ConstPtr<UConverterSelector>, s: Pcstr, length: Int, status: MutPtr<UErrorCode>): MutPtr<UEnumeration> =
+public actual fun ucnvselSelectForUtf8(sel: ConstPtr, s: Pcstr, length: Int, status: MutPtr): MutPtr =
     MutPtr(WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUcnvselSelectForUtf8(sel.rawAddress, s.rawAddress, length, status.rawAddress))
 
-public actual fun ucnvselSerialize(sel: ConstPtr<UConverterSelector>, buffer: MutPtr<CVoid>, buffercapacity: Int, status: MutPtr<UErrorCode>): Int =
+public actual fun ucnvselSerialize(sel: ConstPtr, buffer: MutPtr, buffercapacity: Int, status: MutPtr): Int =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUcnvselSerialize(sel.rawAddress, buffer.rawAddress, buffercapacity, status.rawAddress)
 
-public actual fun ucolCloneBinary(coll: ConstPtr<UCollator>, buffer: MutPtr<UByte>, capacity: Int, status: MutPtr<UErrorCode>): Int =
+public actual fun ucolCloneBinary(coll: ConstPtr, buffer: MutPtr, capacity: Int, status: MutPtr): Int =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUcolCloneBinary(coll.rawAddress, buffer.rawAddress, capacity, status.rawAddress)
 
-public actual fun ucolClose(coll: MutPtr<UCollator>) {
+public actual fun ucolClose(coll: MutPtr) {
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUcolClose(coll.rawAddress)
 }
 
-public actual fun ucolCloseElements(elems: MutPtr<UCollationElements>) {
+public actual fun ucolCloseElements(elems: MutPtr) {
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUcolCloseElements(elems.rawAddress)
 }
 
 public actual fun ucolCountAvailable(): Int =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUcolCountAvailable()
 
-public actual fun ucolEqual(coll: ConstPtr<UCollator>, source: ConstPtr<UShort>, sourcelength: Int, target: ConstPtr<UShort>, targetlength: Int): Byte =
+public actual fun ucolEqual(coll: ConstPtr, source: ConstPtr, sourcelength: Int, target: ConstPtr, targetlength: Int): Byte =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUcolEqual(coll.rawAddress, source.rawAddress, sourcelength, target.rawAddress, targetlength)
 
-public actual fun ucolGetAttribute(coll: ConstPtr<UCollator>, attr: UColAttribute, status: MutPtr<UErrorCode>): UColAttributeValue =
+public actual fun ucolGetAttribute(coll: ConstPtr, attr: UColAttribute, status: MutPtr): UColAttributeValue =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUcolGetAttribute(coll.rawAddress, attr, status.rawAddress)
 
 public actual fun ucolGetAvailable(localeindex: Int): Pcstr =
     ConstPtr(WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUcolGetAvailable(localeindex))
 
-public actual fun ucolGetBound(source: ConstPtr<UByte>, sourcelength: Int, boundtype: UColBoundMode, nooflevels: UInt, result: MutPtr<UByte>, resultlength: Int, status: MutPtr<UErrorCode>): Int =
+public actual fun ucolGetBound(source: ConstPtr, sourcelength: Int, boundtype: UColBoundMode, nooflevels: UInt, result: MutPtr, resultlength: Int, status: MutPtr): Int =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUcolGetBound(source.rawAddress, sourcelength, boundtype, nooflevels.toInt(), result.rawAddress, resultlength, status.rawAddress)
 
-public actual fun ucolGetContractionsAndExpansions(coll: ConstPtr<UCollator>, contractions: MutPtr<USet>, expansions: MutPtr<USet>, addprefixes: Byte, status: MutPtr<UErrorCode>) {
+public actual fun ucolGetContractionsAndExpansions(coll: ConstPtr, contractions: MutPtr, expansions: MutPtr, addprefixes: Byte, status: MutPtr) {
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUcolGetContractionsAndExpansions(coll.rawAddress, contractions.rawAddress, expansions.rawAddress, addprefixes, status.rawAddress)
 }
 
-public actual fun ucolGetDisplayName(objloc: Pcstr, disploc: Pcstr, result: MutPtr<UShort>, resultlength: Int, status: MutPtr<UErrorCode>): Int =
+public actual fun ucolGetDisplayName(objloc: Pcstr, disploc: Pcstr, result: MutPtr, resultlength: Int, status: MutPtr): Int =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUcolGetDisplayName(objloc.rawAddress, disploc.rawAddress, result.rawAddress, resultlength, status.rawAddress)
 
-public actual fun ucolGetEquivalentReorderCodes(reordercode: Int, dest: MutPtr<Int>, destcapacity: Int, perrorcode: MutPtr<UErrorCode>): Int =
+public actual fun ucolGetEquivalentReorderCodes(reordercode: Int, dest: MutPtr, destcapacity: Int, perrorcode: MutPtr): Int =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUcolGetEquivalentReorderCodes(reordercode, dest.rawAddress, destcapacity, perrorcode.rawAddress)
 
-public actual fun ucolGetFunctionalEquivalent(result: Pcstr, resultcapacity: Int, keyword: Pcstr, locale: Pcstr, isavailable: MutPtr<Byte>, status: MutPtr<UErrorCode>): Int =
+public actual fun ucolGetFunctionalEquivalent(result: Pcstr, resultcapacity: Int, keyword: Pcstr, locale: Pcstr, isavailable: MutPtr, status: MutPtr): Int =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUcolGetFunctionalEquivalent(result.rawAddress, resultcapacity, keyword.rawAddress, locale.rawAddress, isavailable.rawAddress, status.rawAddress)
 
-public actual fun ucolGetKeywordValues(keyword: Pcstr, status: MutPtr<UErrorCode>): MutPtr<UEnumeration> =
+public actual fun ucolGetKeywordValues(keyword: Pcstr, status: MutPtr): MutPtr =
     MutPtr(WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUcolGetKeywordValues(keyword.rawAddress, status.rawAddress))
 
-public actual fun ucolGetKeywordValuesForLocale(key: Pcstr, locale: Pcstr, commonlyused: Byte, status: MutPtr<UErrorCode>): MutPtr<UEnumeration> =
+public actual fun ucolGetKeywordValuesForLocale(key: Pcstr, locale: Pcstr, commonlyused: Byte, status: MutPtr): MutPtr =
     MutPtr(WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUcolGetKeywordValuesForLocale(key.rawAddress, locale.rawAddress, commonlyused, status.rawAddress))
 
-public actual fun ucolGetKeywords(status: MutPtr<UErrorCode>): MutPtr<UEnumeration> =
+public actual fun ucolGetKeywords(status: MutPtr): MutPtr =
     MutPtr(WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUcolGetKeywords(status.rawAddress))
 
-public actual fun ucolGetLocaleByType(coll: ConstPtr<UCollator>, type: ULocDataLocaleType, status: MutPtr<UErrorCode>): Pcstr =
+public actual fun ucolGetLocaleByType(coll: ConstPtr, type: ULocDataLocaleType, status: MutPtr): Pcstr =
     ConstPtr(WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUcolGetLocaleByType(coll.rawAddress, type, status.rawAddress))
 
-public actual fun ucolGetMaxExpansion(elems: ConstPtr<UCollationElements>, order: Int): Int =
+public actual fun ucolGetMaxExpansion(elems: ConstPtr, order: Int): Int =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUcolGetMaxExpansion(elems.rawAddress, order)
 
-public actual fun ucolGetMaxVariable(coll: ConstPtr<UCollator>): UColReorderCode =
+public actual fun ucolGetMaxVariable(coll: ConstPtr): UColReorderCode =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUcolGetMaxVariable(coll.rawAddress)
 
-public actual fun ucolGetOffset(elems: ConstPtr<UCollationElements>): Int =
+public actual fun ucolGetOffset(elems: ConstPtr): Int =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUcolGetOffset(elems.rawAddress)
 
-public actual fun ucolGetReorderCodes(coll: ConstPtr<UCollator>, dest: MutPtr<Int>, destcapacity: Int, perrorcode: MutPtr<UErrorCode>): Int =
+public actual fun ucolGetReorderCodes(coll: ConstPtr, dest: MutPtr, destcapacity: Int, perrorcode: MutPtr): Int =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUcolGetReorderCodes(coll.rawAddress, dest.rawAddress, destcapacity, perrorcode.rawAddress)
 
-public actual fun ucolGetRules(coll: ConstPtr<UCollator>, length: MutPtr<Int>): MutPtr<UShort> =
+public actual fun ucolGetRules(coll: ConstPtr, length: MutPtr): MutPtr =
     MutPtr(WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUcolGetRules(coll.rawAddress, length.rawAddress))
 
-public actual fun ucolGetRulesEx(coll: ConstPtr<UCollator>, delta: UColRuleOption, buffer: MutPtr<UShort>, bufferlen: Int): Int =
+public actual fun ucolGetRulesEx(coll: ConstPtr, delta: UColRuleOption, buffer: MutPtr, bufferlen: Int): Int =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUcolGetRulesEx(coll.rawAddress, delta, buffer.rawAddress, bufferlen)
 
-public actual fun ucolGetSortKey(coll: ConstPtr<UCollator>, source: ConstPtr<UShort>, sourcelength: Int, result: MutPtr<UByte>, resultlength: Int): Int =
+public actual fun ucolGetSortKey(coll: ConstPtr, source: ConstPtr, sourcelength: Int, result: MutPtr, resultlength: Int): Int =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUcolGetSortKey(coll.rawAddress, source.rawAddress, sourcelength, result.rawAddress, resultlength)
 
-public actual fun ucolGetStrength(coll: ConstPtr<UCollator>): UColAttributeValue =
+public actual fun ucolGetStrength(coll: ConstPtr): UColAttributeValue =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUcolGetStrength(coll.rawAddress)
 
-public actual fun ucolGetTailoredSet(coll: ConstPtr<UCollator>, status: MutPtr<UErrorCode>): MutPtr<USet> =
+public actual fun ucolGetTailoredSet(coll: ConstPtr, status: MutPtr): MutPtr =
     MutPtr(WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUcolGetTailoredSet(coll.rawAddress, status.rawAddress))
 
-public actual fun ucolGetUcaversion(coll: ConstPtr<UCollator>, info: MutPtr<UByte>) {
+public actual fun ucolGetUcaversion(coll: ConstPtr, info: MutPtr) {
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUcolGetUcaversion(coll.rawAddress, info.rawAddress)
 }
 
-public actual fun ucolGetVariableTop(coll: ConstPtr<UCollator>, status: MutPtr<UErrorCode>): UInt =
+public actual fun ucolGetVariableTop(coll: ConstPtr, status: MutPtr): UInt =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUcolGetVariableTop(coll.rawAddress, status.rawAddress).toUInt()
 
-public actual fun ucolGetVersion(coll: ConstPtr<UCollator>, info: MutPtr<UByte>) {
+public actual fun ucolGetVersion(coll: ConstPtr, info: MutPtr) {
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUcolGetVersion(coll.rawAddress, info.rawAddress)
 }
 
-public actual fun ucolGreater(coll: ConstPtr<UCollator>, source: ConstPtr<UShort>, sourcelength: Int, target: ConstPtr<UShort>, targetlength: Int): Byte =
+public actual fun ucolGreater(coll: ConstPtr, source: ConstPtr, sourcelength: Int, target: ConstPtr, targetlength: Int): Byte =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUcolGreater(coll.rawAddress, source.rawAddress, sourcelength, target.rawAddress, targetlength)
 
-public actual fun ucolGreaterOrEqual(coll: ConstPtr<UCollator>, source: ConstPtr<UShort>, sourcelength: Int, target: ConstPtr<UShort>, targetlength: Int): Byte =
+public actual fun ucolGreaterOrEqual(coll: ConstPtr, source: ConstPtr, sourcelength: Int, target: ConstPtr, targetlength: Int): Byte =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUcolGreaterOrEqual(coll.rawAddress, source.rawAddress, sourcelength, target.rawAddress, targetlength)
 
-public actual fun ucolKeyHashCode(key: ConstPtr<UByte>, length: Int): Int =
+public actual fun ucolKeyHashCode(key: ConstPtr, length: Int): Int =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUcolKeyHashCode(key.rawAddress, length)
 
-public actual fun ucolMergeSortkeys(src1: ConstPtr<UByte>, src1length: Int, src2: ConstPtr<UByte>, src2length: Int, dest: MutPtr<UByte>, destcapacity: Int): Int =
+public actual fun ucolMergeSortkeys(src1: ConstPtr, src1length: Int, src2: ConstPtr, src2length: Int, dest: MutPtr, destcapacity: Int): Int =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUcolMergeSortkeys(src1.rawAddress, src1length, src2.rawAddress, src2length, dest.rawAddress, destcapacity)
 
-public actual fun ucolNext(elems: MutPtr<UCollationElements>, status: MutPtr<UErrorCode>): Int =
+public actual fun ucolNext(elems: MutPtr, status: MutPtr): Int =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUcolNext(elems.rawAddress, status.rawAddress)
 
-public actual fun ucolNextSortKeyPart(coll: ConstPtr<UCollator>, iter: MutPtr<UCharIterator>, state: MutPtr<UInt>, dest: MutPtr<UByte>, count: Int, status: MutPtr<UErrorCode>): Int =
+public actual fun ucolNextSortKeyPart(coll: ConstPtr, iter: MutPtr, state: MutPtr, dest: MutPtr, count: Int, status: MutPtr): Int =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUcolNextSortKeyPart(coll.rawAddress, iter.rawAddress, state.rawAddress, dest.rawAddress, count, status.rawAddress)
 
-public actual fun ucolOpen(loc: Pcstr, status: MutPtr<UErrorCode>): MutPtr<UCollator> =
+public actual fun ucolOpen(loc: Pcstr, status: MutPtr): MutPtr =
     MutPtr(WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUcolOpen(loc.rawAddress, status.rawAddress))
 
-public actual fun ucolOpenAvailableLocales(status: MutPtr<UErrorCode>): MutPtr<UEnumeration> =
+public actual fun ucolOpenAvailableLocales(status: MutPtr): MutPtr =
     MutPtr(WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUcolOpenAvailableLocales(status.rawAddress))
 
-public actual fun ucolOpenBinary(bin: ConstPtr<UByte>, length: Int, base: ConstPtr<UCollator>, status: MutPtr<UErrorCode>): MutPtr<UCollator> =
+public actual fun ucolOpenBinary(bin: ConstPtr, length: Int, base: ConstPtr, status: MutPtr): MutPtr =
     MutPtr(WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUcolOpenBinary(bin.rawAddress, length, base.rawAddress, status.rawAddress))
 
-public actual fun ucolOpenElements(coll: ConstPtr<UCollator>, text: ConstPtr<UShort>, textlength: Int, status: MutPtr<UErrorCode>): MutPtr<UCollationElements> =
+public actual fun ucolOpenElements(coll: ConstPtr, text: ConstPtr, textlength: Int, status: MutPtr): MutPtr =
     MutPtr(WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUcolOpenElements(coll.rawAddress, text.rawAddress, textlength, status.rawAddress))
 
-public actual fun ucolOpenRules(rules: ConstPtr<UShort>, ruleslength: Int, normalizationmode: UColAttributeValue, strength: UColAttributeValue, parseerror: MutPtr<UParseError>, status: MutPtr<UErrorCode>): MutPtr<UCollator> =
+public actual fun ucolOpenRules(rules: ConstPtr, ruleslength: Int, normalizationmode: UColAttributeValue, strength: UColAttributeValue, parseerror: MutPtr, status: MutPtr): MutPtr =
     MutPtr(WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUcolOpenRules(rules.rawAddress, ruleslength, normalizationmode, strength, parseerror.rawAddress, status.rawAddress))
 
-public actual fun ucolPrevious(elems: MutPtr<UCollationElements>, status: MutPtr<UErrorCode>): Int =
+public actual fun ucolPrevious(elems: MutPtr, status: MutPtr): Int =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUcolPrevious(elems.rawAddress, status.rawAddress)
 
 public actual fun ucolPrimaryOrder(order: Int): Int =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUcolPrimaryOrder(order)
 
-public actual fun ucolReset(elems: MutPtr<UCollationElements>) {
+public actual fun ucolReset(elems: MutPtr) {
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUcolReset(elems.rawAddress)
 }
 
-public actual fun ucolSafeClone(coll: ConstPtr<UCollator>, stackbuffer: MutPtr<CVoid>, pbuffersize: MutPtr<Int>, status: MutPtr<UErrorCode>): MutPtr<UCollator> =
+public actual fun ucolSafeClone(coll: ConstPtr, stackbuffer: MutPtr, pbuffersize: MutPtr, status: MutPtr): MutPtr =
     MutPtr(WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUcolSafeClone(coll.rawAddress, stackbuffer.rawAddress, pbuffersize.rawAddress, status.rawAddress))
 
 public actual fun ucolSecondaryOrder(order: Int): Int =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUcolSecondaryOrder(order)
 
-public actual fun ucolSetAttribute(coll: MutPtr<UCollator>, attr: UColAttribute, value: UColAttributeValue, status: MutPtr<UErrorCode>) {
+public actual fun ucolSetAttribute(coll: MutPtr, attr: UColAttribute, value: UColAttributeValue, status: MutPtr) {
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUcolSetAttribute(coll.rawAddress, attr, value, status.rawAddress)
 }
 
-public actual fun ucolSetMaxVariable(coll: MutPtr<UCollator>, group: UColReorderCode, perrorcode: MutPtr<UErrorCode>) {
+public actual fun ucolSetMaxVariable(coll: MutPtr, group: UColReorderCode, perrorcode: MutPtr) {
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUcolSetMaxVariable(coll.rawAddress, group, perrorcode.rawAddress)
 }
 
-public actual fun ucolSetOffset(elems: MutPtr<UCollationElements>, offset: Int, status: MutPtr<UErrorCode>) {
+public actual fun ucolSetOffset(elems: MutPtr, offset: Int, status: MutPtr) {
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUcolSetOffset(elems.rawAddress, offset, status.rawAddress)
 }
 
-public actual fun ucolSetReorderCodes(coll: MutPtr<UCollator>, reordercodes: ConstPtr<Int>, reordercodeslength: Int, perrorcode: MutPtr<UErrorCode>) {
+public actual fun ucolSetReorderCodes(coll: MutPtr, reordercodes: ConstPtr, reordercodeslength: Int, perrorcode: MutPtr) {
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUcolSetReorderCodes(coll.rawAddress, reordercodes.rawAddress, reordercodeslength, perrorcode.rawAddress)
 }
 
-public actual fun ucolSetStrength(coll: MutPtr<UCollator>, strength: UColAttributeValue) {
+public actual fun ucolSetStrength(coll: MutPtr, strength: UColAttributeValue) {
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUcolSetStrength(coll.rawAddress, strength)
 }
 
-public actual fun ucolSetText(elems: MutPtr<UCollationElements>, text: ConstPtr<UShort>, textlength: Int, status: MutPtr<UErrorCode>) {
+public actual fun ucolSetText(elems: MutPtr, text: ConstPtr, textlength: Int, status: MutPtr) {
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUcolSetText(elems.rawAddress, text.rawAddress, textlength, status.rawAddress)
 }
 
-public actual fun ucolStrcoll(coll: ConstPtr<UCollator>, source: ConstPtr<UShort>, sourcelength: Int, target: ConstPtr<UShort>, targetlength: Int): UCollationResult =
+public actual fun ucolStrcoll(coll: ConstPtr, source: ConstPtr, sourcelength: Int, target: ConstPtr, targetlength: Int): UCollationResult =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUcolStrcoll(coll.rawAddress, source.rawAddress, sourcelength, target.rawAddress, targetlength)
 
-public actual fun ucolStrcollIter(coll: ConstPtr<UCollator>, siter: MutPtr<UCharIterator>, titer: MutPtr<UCharIterator>, status: MutPtr<UErrorCode>): UCollationResult =
+public actual fun ucolStrcollIter(coll: ConstPtr, siter: MutPtr, titer: MutPtr, status: MutPtr): UCollationResult =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUcolStrcollIter(coll.rawAddress, siter.rawAddress, titer.rawAddress, status.rawAddress)
 
-public actual fun ucolStrcollUtf8(coll: ConstPtr<UCollator>, source: Pcstr, sourcelength: Int, target: Pcstr, targetlength: Int, status: MutPtr<UErrorCode>): UCollationResult =
+public actual fun ucolStrcollUtf8(coll: ConstPtr, source: Pcstr, sourcelength: Int, target: Pcstr, targetlength: Int, status: MutPtr): UCollationResult =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUcolStrcollUtf8(coll.rawAddress, source.rawAddress, sourcelength, target.rawAddress, targetlength, status.rawAddress)
 
 public actual fun ucolTertiaryOrder(order: Int): Int =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUcolTertiaryOrder(order)
 
-public actual fun ucpmapGet(map: ConstPtr<UCPMap>, c: Int): UInt =
+public actual fun ucpmapGet(map: ConstPtr, c: Int): UInt =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUcpmapGet(map.rawAddress, c).toUInt()
 
-public actual fun ucpmapGetRange(map: ConstPtr<UCPMap>, start: Int, option: UCPMapRangeOption, surrogatevalue: UInt, filter: MutPtr<UCPMapValueFilter>, context: ConstPtr<CVoid>, pvalue: MutPtr<UInt>): Int =
+public actual fun ucpmapGetRange(map: ConstPtr, start: Int, option: UCPMapRangeOption, surrogatevalue: UInt, filter: MutPtr, context: ConstPtr, pvalue: MutPtr): Int =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUcpmapGetRange(map.rawAddress, start, option, surrogatevalue.toInt(), filter.rawAddress, context.rawAddress, pvalue.rawAddress)
 
-public actual fun ucptrieClose(trie: MutPtr<UCPTrie>) {
+public actual fun ucptrieClose(trie: MutPtr) {
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUcptrieClose(trie.rawAddress)
 }
 
-public actual fun ucptrieGet(trie: ConstPtr<UCPTrie>, c: Int): UInt =
+public actual fun ucptrieGet(trie: ConstPtr, c: Int): UInt =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUcptrieGet(trie.rawAddress, c).toUInt()
 
-public actual fun ucptrieGetRange(trie: ConstPtr<UCPTrie>, start: Int, option: UCPMapRangeOption, surrogatevalue: UInt, filter: MutPtr<UCPMapValueFilter>, context: ConstPtr<CVoid>, pvalue: MutPtr<UInt>): Int =
+public actual fun ucptrieGetRange(trie: ConstPtr, start: Int, option: UCPMapRangeOption, surrogatevalue: UInt, filter: MutPtr, context: ConstPtr, pvalue: MutPtr): Int =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUcptrieGetRange(trie.rawAddress, start, option, surrogatevalue.toInt(), filter.rawAddress, context.rawAddress, pvalue.rawAddress)
 
-public actual fun ucptrieGetType(trie: ConstPtr<UCPTrie>): UCPTrieType =
+public actual fun ucptrieGetType(trie: ConstPtr): UCPTrieType =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUcptrieGetType(trie.rawAddress)
 
-public actual fun ucptrieGetValueWidth(trie: ConstPtr<UCPTrie>): UCPTrieValueWidth =
+public actual fun ucptrieGetValueWidth(trie: ConstPtr): UCPTrieValueWidth =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUcptrieGetValueWidth(trie.rawAddress)
 
-public actual fun ucptrieInternalSmallIndex(trie: ConstPtr<UCPTrie>, c: Int): Int =
+public actual fun ucptrieInternalSmallIndex(trie: ConstPtr, c: Int): Int =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUcptrieInternalSmallIndex(trie.rawAddress, c)
 
-public actual fun ucptrieInternalSmallU8Index(trie: ConstPtr<UCPTrie>, lt1: Int, t2: UByte, t3: UByte): Int =
+public actual fun ucptrieInternalSmallU8Index(trie: ConstPtr, lt1: Int, t2: UByte, t3: UByte): Int =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUcptrieInternalSmallU8Index(trie.rawAddress, lt1, t2.toByte(), t3.toByte())
 
-public actual fun ucptrieInternalU8PrevIndex(trie: ConstPtr<UCPTrie>, c: Int, start: ConstPtr<UByte>, src: ConstPtr<UByte>): Int =
+public actual fun ucptrieInternalU8PrevIndex(trie: ConstPtr, c: Int, start: ConstPtr, src: ConstPtr): Int =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUcptrieInternalU8PrevIndex(trie.rawAddress, c, start.rawAddress, src.rawAddress)
 
-public actual fun ucptrieOpenFromBinary(type: UCPTrieType, valuewidth: UCPTrieValueWidth, data: ConstPtr<CVoid>, length: Int, pactuallength: MutPtr<Int>, perrorcode: MutPtr<UErrorCode>): MutPtr<UCPTrie> =
+public actual fun ucptrieOpenFromBinary(type: UCPTrieType, valuewidth: UCPTrieValueWidth, data: ConstPtr, length: Int, pactuallength: MutPtr, perrorcode: MutPtr): MutPtr =
     MutPtr(WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUcptrieOpenFromBinary(type, valuewidth, data.rawAddress, length, pactuallength.rawAddress, perrorcode.rawAddress))
 
-public actual fun ucptrieToBinary(trie: ConstPtr<UCPTrie>, data: MutPtr<CVoid>, capacity: Int, perrorcode: MutPtr<UErrorCode>): Int =
+public actual fun ucptrieToBinary(trie: ConstPtr, data: MutPtr, capacity: Int, perrorcode: MutPtr): Int =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUcptrieToBinary(trie.rawAddress, data.rawAddress, capacity, perrorcode.rawAddress)
 
-public actual fun ucsdetClose(ucsd: MutPtr<UCharsetDetector>) {
+public actual fun ucsdetClose(ucsd: MutPtr) {
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUcsdetClose(ucsd.rawAddress)
 }
 
-public actual fun ucsdetDetect(ucsd: MutPtr<UCharsetDetector>, status: MutPtr<UErrorCode>): MutPtr<UCharsetMatch> =
+public actual fun ucsdetDetect(ucsd: MutPtr, status: MutPtr): MutPtr =
     MutPtr(WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUcsdetDetect(ucsd.rawAddress, status.rawAddress))
 
-public actual fun ucsdetDetectAll(ucsd: MutPtr<UCharsetDetector>, matchesfound: MutPtr<Int>, status: MutPtr<UErrorCode>): MutPtr<MutPtr<UCharsetMatch>> =
+public actual fun ucsdetDetectAll(ucsd: MutPtr, matchesfound: MutPtr, status: MutPtr): MutPtr =
     MutPtr(WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUcsdetDetectAll(ucsd.rawAddress, matchesfound.rawAddress, status.rawAddress))
 
-public actual fun ucsdetEnableInputFilter(ucsd: MutPtr<UCharsetDetector>, filter: Byte): Byte =
+public actual fun ucsdetEnableInputFilter(ucsd: MutPtr, filter: Byte): Byte =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUcsdetEnableInputFilter(ucsd.rawAddress, filter)
 
-public actual fun ucsdetGetAllDetectableCharsets(ucsd: ConstPtr<UCharsetDetector>, status: MutPtr<UErrorCode>): MutPtr<UEnumeration> =
+public actual fun ucsdetGetAllDetectableCharsets(ucsd: ConstPtr, status: MutPtr): MutPtr =
     MutPtr(WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUcsdetGetAllDetectableCharsets(ucsd.rawAddress, status.rawAddress))
 
-public actual fun ucsdetGetConfidence(ucsm: ConstPtr<UCharsetMatch>, status: MutPtr<UErrorCode>): Int =
+public actual fun ucsdetGetConfidence(ucsm: ConstPtr, status: MutPtr): Int =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUcsdetGetConfidence(ucsm.rawAddress, status.rawAddress)
 
-public actual fun ucsdetGetLanguage(ucsm: ConstPtr<UCharsetMatch>, status: MutPtr<UErrorCode>): Pcstr =
+public actual fun ucsdetGetLanguage(ucsm: ConstPtr, status: MutPtr): Pcstr =
     ConstPtr(WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUcsdetGetLanguage(ucsm.rawAddress, status.rawAddress))
 
-public actual fun ucsdetGetName(ucsm: ConstPtr<UCharsetMatch>, status: MutPtr<UErrorCode>): Pcstr =
+public actual fun ucsdetGetName(ucsm: ConstPtr, status: MutPtr): Pcstr =
     ConstPtr(WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUcsdetGetName(ucsm.rawAddress, status.rawAddress))
 
-public actual fun ucsdetGetUchars(ucsm: ConstPtr<UCharsetMatch>, buf: MutPtr<UShort>, cap: Int, status: MutPtr<UErrorCode>): Int =
+public actual fun ucsdetGetUchars(ucsm: ConstPtr, buf: MutPtr, cap: Int, status: MutPtr): Int =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUcsdetGetUchars(ucsm.rawAddress, buf.rawAddress, cap, status.rawAddress)
 
-public actual fun ucsdetIsInputFilterEnabled(ucsd: ConstPtr<UCharsetDetector>): Byte =
+public actual fun ucsdetIsInputFilterEnabled(ucsd: ConstPtr): Byte =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUcsdetIsInputFilterEnabled(ucsd.rawAddress)
 
-public actual fun ucsdetOpen(status: MutPtr<UErrorCode>): MutPtr<UCharsetDetector> =
+public actual fun ucsdetOpen(status: MutPtr): MutPtr =
     MutPtr(WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUcsdetOpen(status.rawAddress))
 
-public actual fun ucsdetSetDeclaredEncoding(ucsd: MutPtr<UCharsetDetector>, encoding: Pcstr, length: Int, status: MutPtr<UErrorCode>) {
+public actual fun ucsdetSetDeclaredEncoding(ucsd: MutPtr, encoding: Pcstr, length: Int, status: MutPtr) {
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUcsdetSetDeclaredEncoding(ucsd.rawAddress, encoding.rawAddress, length, status.rawAddress)
 }
 
-public actual fun ucsdetSetText(ucsd: MutPtr<UCharsetDetector>, textin: Pcstr, len: Int, status: MutPtr<UErrorCode>) {
+public actual fun ucsdetSetText(ucsd: MutPtr, textin: Pcstr, len: Int, status: MutPtr) {
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUcsdetSetText(ucsd.rawAddress, textin.rawAddress, len, status.rawAddress)
 }
 
-public actual fun ucurrCountCurrencies(locale: Pcstr, date: Double, ec: MutPtr<UErrorCode>): Int =
+public actual fun ucurrCountCurrencies(locale: Pcstr, date: Double, ec: MutPtr): Int =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUcurrCountCurrencies(locale.rawAddress, date, ec.rawAddress)
 
-public actual fun ucurrForLocale(locale: Pcstr, buff: MutPtr<UShort>, buffcapacity: Int, ec: MutPtr<UErrorCode>): Int =
+public actual fun ucurrForLocale(locale: Pcstr, buff: MutPtr, buffcapacity: Int, ec: MutPtr): Int =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUcurrForLocale(locale.rawAddress, buff.rawAddress, buffcapacity, ec.rawAddress)
 
-public actual fun ucurrForLocaleAndDate(locale: Pcstr, date: Double, index: Int, buff: MutPtr<UShort>, buffcapacity: Int, ec: MutPtr<UErrorCode>): Int =
+public actual fun ucurrForLocaleAndDate(locale: Pcstr, date: Double, index: Int, buff: MutPtr, buffcapacity: Int, ec: MutPtr): Int =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUcurrForLocaleAndDate(locale.rawAddress, date, index, buff.rawAddress, buffcapacity, ec.rawAddress)
 
-public actual fun ucurrGetDefaultFractionDigits(currency: ConstPtr<UShort>, ec: MutPtr<UErrorCode>): Int =
+public actual fun ucurrGetDefaultFractionDigits(currency: ConstPtr, ec: MutPtr): Int =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUcurrGetDefaultFractionDigits(currency.rawAddress, ec.rawAddress)
 
-public actual fun ucurrGetDefaultFractionDigitsForUsage(currency: ConstPtr<UShort>, usage: UCurrencyUsage, ec: MutPtr<UErrorCode>): Int =
+public actual fun ucurrGetDefaultFractionDigitsForUsage(currency: ConstPtr, usage: UCurrencyUsage, ec: MutPtr): Int =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUcurrGetDefaultFractionDigitsForUsage(currency.rawAddress, usage, ec.rawAddress)
 
-public actual fun ucurrGetKeywordValuesForLocale(key: Pcstr, locale: Pcstr, commonlyused: Byte, status: MutPtr<UErrorCode>): MutPtr<UEnumeration> =
+public actual fun ucurrGetKeywordValuesForLocale(key: Pcstr, locale: Pcstr, commonlyused: Byte, status: MutPtr): MutPtr =
     MutPtr(WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUcurrGetKeywordValuesForLocale(key.rawAddress, locale.rawAddress, commonlyused, status.rawAddress))
 
-public actual fun ucurrGetName(currency: ConstPtr<UShort>, locale: Pcstr, namestyle: UCurrNameStyle, ischoiceformat: MutPtr<Byte>, len: MutPtr<Int>, ec: MutPtr<UErrorCode>): MutPtr<UShort> =
+public actual fun ucurrGetName(currency: ConstPtr, locale: Pcstr, namestyle: UCurrNameStyle, ischoiceformat: MutPtr, len: MutPtr, ec: MutPtr): MutPtr =
     MutPtr(WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUcurrGetName(currency.rawAddress, locale.rawAddress, namestyle, ischoiceformat.rawAddress, len.rawAddress, ec.rawAddress))
 
-public actual fun ucurrGetNumericCode(currency: ConstPtr<UShort>): Int =
+public actual fun ucurrGetNumericCode(currency: ConstPtr): Int =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUcurrGetNumericCode(currency.rawAddress)
 
-public actual fun ucurrGetPluralName(currency: ConstPtr<UShort>, locale: Pcstr, ischoiceformat: MutPtr<Byte>, pluralcount: Pcstr, len: MutPtr<Int>, ec: MutPtr<UErrorCode>): MutPtr<UShort> =
+public actual fun ucurrGetPluralName(currency: ConstPtr, locale: Pcstr, ischoiceformat: MutPtr, pluralcount: Pcstr, len: MutPtr, ec: MutPtr): MutPtr =
     MutPtr(WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUcurrGetPluralName(currency.rawAddress, locale.rawAddress, ischoiceformat.rawAddress, pluralcount.rawAddress, len.rawAddress, ec.rawAddress))
 
-public actual fun ucurrGetRoundingIncrement(currency: ConstPtr<UShort>, ec: MutPtr<UErrorCode>): Double =
+public actual fun ucurrGetRoundingIncrement(currency: ConstPtr, ec: MutPtr): Double =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUcurrGetRoundingIncrement(currency.rawAddress, ec.rawAddress)
 
-public actual fun ucurrGetRoundingIncrementForUsage(currency: ConstPtr<UShort>, usage: UCurrencyUsage, ec: MutPtr<UErrorCode>): Double =
+public actual fun ucurrGetRoundingIncrementForUsage(currency: ConstPtr, usage: UCurrencyUsage, ec: MutPtr): Double =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUcurrGetRoundingIncrementForUsage(currency.rawAddress, usage, ec.rawAddress)
 
-public actual fun ucurrIsAvailable(isocode: ConstPtr<UShort>, from: Double, to: Double, errorcode: MutPtr<UErrorCode>): Byte =
+public actual fun ucurrIsAvailable(isocode: ConstPtr, from: Double, to: Double, errorcode: MutPtr): Byte =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUcurrIsAvailable(isocode.rawAddress, from, to, errorcode.rawAddress)
 
-public actual fun ucurrOpenIsocurrencies(currtype: UInt, perrorcode: MutPtr<UErrorCode>): MutPtr<UEnumeration> =
+public actual fun ucurrOpenIsocurrencies(currtype: UInt, perrorcode: MutPtr): MutPtr =
     MutPtr(WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUcurrOpenIsocurrencies(currtype.toInt(), perrorcode.rawAddress))
 
-public actual fun ucurrRegister(isocode: ConstPtr<UShort>, locale: Pcstr, status: MutPtr<UErrorCode>): MutPtr<CVoid> =
+public actual fun ucurrRegister(isocode: ConstPtr, locale: Pcstr, status: MutPtr): MutPtr =
     MutPtr(WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUcurrRegister(isocode.rawAddress, locale.rawAddress, status.rawAddress))
 
-public actual fun ucurrUnregister(key: MutPtr<CVoid>, status: MutPtr<UErrorCode>): Byte =
+public actual fun ucurrUnregister(key: MutPtr, status: MutPtr): Byte =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUcurrUnregister(key.rawAddress, status.rawAddress)
 
-public actual fun udatAdoptNumberFormat(fmt: MutPtr<MutPtr<CVoid>>, numberformattoadopt: MutPtr<MutPtr<CVoid>>) {
+public actual fun udatAdoptNumberFormat(fmt: MutPtr, numberformattoadopt: MutPtr) {
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUdatAdoptNumberFormat(fmt.rawAddress, numberformattoadopt.rawAddress)
 }
 
-public actual fun udatAdoptNumberFormatForFields(fmt: MutPtr<MutPtr<CVoid>>, fields: ConstPtr<UShort>, numberformattoset: MutPtr<MutPtr<CVoid>>, status: MutPtr<UErrorCode>) {
+public actual fun udatAdoptNumberFormatForFields(fmt: MutPtr, fields: ConstPtr, numberformattoset: MutPtr, status: MutPtr) {
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUdatAdoptNumberFormatForFields(fmt.rawAddress, fields.rawAddress, numberformattoset.rawAddress, status.rawAddress)
 }
 
-public actual fun udatApplyPattern(format: MutPtr<MutPtr<CVoid>>, localized: Byte, pattern: ConstPtr<UShort>, patternlength: Int) {
+public actual fun udatApplyPattern(format: MutPtr, localized: Byte, pattern: ConstPtr, patternlength: Int) {
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUdatApplyPattern(format.rawAddress, localized, pattern.rawAddress, patternlength)
 }
 
-public actual fun udatClone(fmt: ConstPtr<ConstPtr<CVoid>>, status: MutPtr<UErrorCode>): MutPtr<MutPtr<CVoid>> =
+public actual fun udatClone(fmt: ConstPtr, status: MutPtr): MutPtr =
     MutPtr(WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUdatClone(fmt.rawAddress, status.rawAddress))
 
-public actual fun udatClose(format: MutPtr<MutPtr<CVoid>>) {
+public actual fun udatClose(format: MutPtr) {
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUdatClose(format.rawAddress)
 }
 
 public actual fun udatCountAvailable(): Int =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUdatCountAvailable()
 
-public actual fun udatCountSymbols(fmt: ConstPtr<ConstPtr<CVoid>>, type: UDateFormatSymbolType): Int =
+public actual fun udatCountSymbols(fmt: ConstPtr, type: UDateFormatSymbolType): Int =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUdatCountSymbols(fmt.rawAddress, type)
 
-public actual fun udatFormat(format: ConstPtr<ConstPtr<CVoid>>, datetoformat: Double, result: MutPtr<UShort>, resultlength: Int, position: MutPtr<UFieldPosition>, status: MutPtr<UErrorCode>): Int =
+public actual fun udatFormat(format: ConstPtr, datetoformat: Double, result: MutPtr, resultlength: Int, position: MutPtr, status: MutPtr): Int =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUdatFormat(format.rawAddress, datetoformat, result.rawAddress, resultlength, position.rawAddress, status.rawAddress)
 
-public actual fun udatFormatCalendar(format: ConstPtr<ConstPtr<CVoid>>, calendar: MutPtr<MutPtr<CVoid>>, result: MutPtr<UShort>, capacity: Int, position: MutPtr<UFieldPosition>, status: MutPtr<UErrorCode>): Int =
+public actual fun udatFormatCalendar(format: ConstPtr, calendar: MutPtr, result: MutPtr, capacity: Int, position: MutPtr, status: MutPtr): Int =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUdatFormatCalendar(format.rawAddress, calendar.rawAddress, result.rawAddress, capacity, position.rawAddress, status.rawAddress)
 
-public actual fun udatFormatCalendarForFields(format: ConstPtr<ConstPtr<CVoid>>, calendar: MutPtr<MutPtr<CVoid>>, result: MutPtr<UShort>, capacity: Int, fpositer: MutPtr<UFieldPositionIterator>, status: MutPtr<UErrorCode>): Int =
+public actual fun udatFormatCalendarForFields(format: ConstPtr, calendar: MutPtr, result: MutPtr, capacity: Int, fpositer: MutPtr, status: MutPtr): Int =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUdatFormatCalendarForFields(format.rawAddress, calendar.rawAddress, result.rawAddress, capacity, fpositer.rawAddress, status.rawAddress)
 
-public actual fun udatFormatForFields(format: ConstPtr<ConstPtr<CVoid>>, datetoformat: Double, result: MutPtr<UShort>, resultlength: Int, fpositer: MutPtr<UFieldPositionIterator>, status: MutPtr<UErrorCode>): Int =
+public actual fun udatFormatForFields(format: ConstPtr, datetoformat: Double, result: MutPtr, resultlength: Int, fpositer: MutPtr, status: MutPtr): Int =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUdatFormatForFields(format.rawAddress, datetoformat, result.rawAddress, resultlength, fpositer.rawAddress, status.rawAddress)
 
-public actual fun udatGet2DigitYearStart(fmt: ConstPtr<ConstPtr<CVoid>>, status: MutPtr<UErrorCode>): Double =
+public actual fun udatGet2DigitYearStart(fmt: ConstPtr, status: MutPtr): Double =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUdatGet2DigitYearStart(fmt.rawAddress, status.rawAddress)
 
 public actual fun udatGetAvailable(localeindex: Int): Pcstr =
     ConstPtr(WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUdatGetAvailable(localeindex))
 
-public actual fun udatGetBooleanAttribute(fmt: ConstPtr<ConstPtr<CVoid>>, attr: UDateFormatBooleanAttribute, status: MutPtr<UErrorCode>): Byte =
+public actual fun udatGetBooleanAttribute(fmt: ConstPtr, attr: UDateFormatBooleanAttribute, status: MutPtr): Byte =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUdatGetBooleanAttribute(fmt.rawAddress, attr, status.rawAddress)
 
-public actual fun udatGetCalendar(fmt: ConstPtr<ConstPtr<CVoid>>): MutPtr<MutPtr<CVoid>> =
+public actual fun udatGetCalendar(fmt: ConstPtr): MutPtr =
     MutPtr(WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUdatGetCalendar(fmt.rawAddress))
 
-public actual fun udatGetContext(fmt: ConstPtr<ConstPtr<CVoid>>, type: UDisplayContextType, status: MutPtr<UErrorCode>): UDisplayContext =
+public actual fun udatGetContext(fmt: ConstPtr, type: UDisplayContextType, status: MutPtr): UDisplayContext =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUdatGetContext(fmt.rawAddress, type, status.rawAddress)
 
-public actual fun udatGetLocaleByType(fmt: ConstPtr<ConstPtr<CVoid>>, type: ULocDataLocaleType, status: MutPtr<UErrorCode>): Pcstr =
+public actual fun udatGetLocaleByType(fmt: ConstPtr, type: ULocDataLocaleType, status: MutPtr): Pcstr =
     ConstPtr(WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUdatGetLocaleByType(fmt.rawAddress, type, status.rawAddress))
 
-public actual fun udatGetNumberFormat(fmt: ConstPtr<ConstPtr<CVoid>>): MutPtr<MutPtr<CVoid>> =
+public actual fun udatGetNumberFormat(fmt: ConstPtr): MutPtr =
     MutPtr(WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUdatGetNumberFormat(fmt.rawAddress))
 
-public actual fun udatGetNumberFormatForField(fmt: ConstPtr<ConstPtr<CVoid>>, field: UShort): MutPtr<MutPtr<CVoid>> =
+public actual fun udatGetNumberFormatForField(fmt: ConstPtr, field: UShort): MutPtr =
     MutPtr(WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUdatGetNumberFormatForField(fmt.rawAddress, field.toShort()))
 
-public actual fun udatGetSymbols(fmt: ConstPtr<ConstPtr<CVoid>>, type: UDateFormatSymbolType, symbolindex: Int, result: MutPtr<UShort>, resultlength: Int, status: MutPtr<UErrorCode>): Int =
+public actual fun udatGetSymbols(fmt: ConstPtr, type: UDateFormatSymbolType, symbolindex: Int, result: MutPtr, resultlength: Int, status: MutPtr): Int =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUdatGetSymbols(fmt.rawAddress, type, symbolindex, result.rawAddress, resultlength, status.rawAddress)
 
-public actual fun udatIsLenient(fmt: ConstPtr<ConstPtr<CVoid>>): Byte =
+public actual fun udatIsLenient(fmt: ConstPtr): Byte =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUdatIsLenient(fmt.rawAddress)
 
-public actual fun udatOpen(timestyle: UDateFormatStyle, datestyle: UDateFormatStyle, locale: Pcstr, tzid: ConstPtr<UShort>, tzidlength: Int, pattern: ConstPtr<UShort>, patternlength: Int, status: MutPtr<UErrorCode>): MutPtr<MutPtr<CVoid>> =
+public actual fun udatOpen(timestyle: UDateFormatStyle, datestyle: UDateFormatStyle, locale: Pcstr, tzid: ConstPtr, tzidlength: Int, pattern: ConstPtr, patternlength: Int, status: MutPtr): MutPtr =
     MutPtr(WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUdatOpen(timestyle, datestyle, locale.rawAddress, tzid.rawAddress, tzidlength, pattern.rawAddress, patternlength, status.rawAddress))
 
-public actual fun udatParse(format: ConstPtr<ConstPtr<CVoid>>, text: ConstPtr<UShort>, textlength: Int, parsepos: MutPtr<Int>, status: MutPtr<UErrorCode>): Double =
+public actual fun udatParse(format: ConstPtr, text: ConstPtr, textlength: Int, parsepos: MutPtr, status: MutPtr): Double =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUdatParse(format.rawAddress, text.rawAddress, textlength, parsepos.rawAddress, status.rawAddress)
 
-public actual fun udatParseCalendar(format: ConstPtr<ConstPtr<CVoid>>, calendar: MutPtr<MutPtr<CVoid>>, text: ConstPtr<UShort>, textlength: Int, parsepos: MutPtr<Int>, status: MutPtr<UErrorCode>) {
+public actual fun udatParseCalendar(format: ConstPtr, calendar: MutPtr, text: ConstPtr, textlength: Int, parsepos: MutPtr, status: MutPtr) {
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUdatParseCalendar(format.rawAddress, calendar.rawAddress, text.rawAddress, textlength, parsepos.rawAddress, status.rawAddress)
 }
 
-public actual fun udatSet2DigitYearStart(fmt: MutPtr<MutPtr<CVoid>>, d: Double, status: MutPtr<UErrorCode>) {
+public actual fun udatSet2DigitYearStart(fmt: MutPtr, d: Double, status: MutPtr) {
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUdatSet2DigitYearStart(fmt.rawAddress, d, status.rawAddress)
 }
 
-public actual fun udatSetBooleanAttribute(fmt: MutPtr<MutPtr<CVoid>>, attr: UDateFormatBooleanAttribute, newvalue: Byte, status: MutPtr<UErrorCode>) {
+public actual fun udatSetBooleanAttribute(fmt: MutPtr, attr: UDateFormatBooleanAttribute, newvalue: Byte, status: MutPtr) {
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUdatSetBooleanAttribute(fmt.rawAddress, attr, newvalue, status.rawAddress)
 }
 
-public actual fun udatSetCalendar(fmt: MutPtr<MutPtr<CVoid>>, calendartoset: ConstPtr<ConstPtr<CVoid>>) {
+public actual fun udatSetCalendar(fmt: MutPtr, calendartoset: ConstPtr) {
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUdatSetCalendar(fmt.rawAddress, calendartoset.rawAddress)
 }
 
-public actual fun udatSetContext(fmt: MutPtr<MutPtr<CVoid>>, value: UDisplayContext, status: MutPtr<UErrorCode>) {
+public actual fun udatSetContext(fmt: MutPtr, value: UDisplayContext, status: MutPtr) {
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUdatSetContext(fmt.rawAddress, value, status.rawAddress)
 }
 
-public actual fun udatSetLenient(fmt: MutPtr<MutPtr<CVoid>>, islenient: Byte) {
+public actual fun udatSetLenient(fmt: MutPtr, islenient: Byte) {
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUdatSetLenient(fmt.rawAddress, islenient)
 }
 
-public actual fun udatSetNumberFormat(fmt: MutPtr<MutPtr<CVoid>>, numberformattoset: ConstPtr<ConstPtr<CVoid>>) {
+public actual fun udatSetNumberFormat(fmt: MutPtr, numberformattoset: ConstPtr) {
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUdatSetNumberFormat(fmt.rawAddress, numberformattoset.rawAddress)
 }
 
-public actual fun udatSetSymbols(format: MutPtr<MutPtr<CVoid>>, type: UDateFormatSymbolType, symbolindex: Int, value: MutPtr<UShort>, valuelength: Int, status: MutPtr<UErrorCode>) {
+public actual fun udatSetSymbols(format: MutPtr, type: UDateFormatSymbolType, symbolindex: Int, value: MutPtr, valuelength: Int, status: MutPtr) {
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUdatSetSymbols(format.rawAddress, type, symbolindex, value.rawAddress, valuelength, status.rawAddress)
 }
 
 public actual fun udatToCalendarDateField(field: UDateFormatField): UCalendarDateFields =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUdatToCalendarDateField(field)
 
-public actual fun udatToPattern(fmt: ConstPtr<ConstPtr<CVoid>>, localized: Byte, result: MutPtr<UShort>, resultlength: Int, status: MutPtr<UErrorCode>): Int =
+public actual fun udatToPattern(fmt: ConstPtr, localized: Byte, result: MutPtr, resultlength: Int, status: MutPtr): Int =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUdatToPattern(fmt.rawAddress, localized, result.rawAddress, resultlength, status.rawAddress)
 
-public actual fun udatpgAddPattern(dtpg: MutPtr<MutPtr<CVoid>>, pattern: ConstPtr<UShort>, patternlength: Int, override: Byte, conflictingpattern: MutPtr<UShort>, capacity: Int, plength: MutPtr<Int>, perrorcode: MutPtr<UErrorCode>): UDateTimePatternConflict =
+public actual fun udatpgAddPattern(dtpg: MutPtr, pattern: ConstPtr, patternlength: Int, override: Byte, conflictingpattern: MutPtr, capacity: Int, plength: MutPtr, perrorcode: MutPtr): UDateTimePatternConflict =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUdatpgAddPattern(dtpg.rawAddress, pattern.rawAddress, patternlength, override, conflictingpattern.rawAddress, capacity, plength.rawAddress, perrorcode.rawAddress)
 
-public actual fun udatpgClone(dtpg: ConstPtr<ConstPtr<CVoid>>, perrorcode: MutPtr<UErrorCode>): MutPtr<MutPtr<CVoid>> =
+public actual fun udatpgClone(dtpg: ConstPtr, perrorcode: MutPtr): MutPtr =
     MutPtr(WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUdatpgClone(dtpg.rawAddress, perrorcode.rawAddress))
 
-public actual fun udatpgClose(dtpg: MutPtr<MutPtr<CVoid>>) {
+public actual fun udatpgClose(dtpg: MutPtr) {
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUdatpgClose(dtpg.rawAddress)
 }
 
-public actual fun udatpgGetAppendItemFormat(dtpg: ConstPtr<ConstPtr<CVoid>>, field: UDateTimePatternField, plength: MutPtr<Int>): MutPtr<UShort> =
+public actual fun udatpgGetAppendItemFormat(dtpg: ConstPtr, field: UDateTimePatternField, plength: MutPtr): MutPtr =
     MutPtr(WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUdatpgGetAppendItemFormat(dtpg.rawAddress, field, plength.rawAddress))
 
-public actual fun udatpgGetAppendItemName(dtpg: ConstPtr<ConstPtr<CVoid>>, field: UDateTimePatternField, plength: MutPtr<Int>): MutPtr<UShort> =
+public actual fun udatpgGetAppendItemName(dtpg: ConstPtr, field: UDateTimePatternField, plength: MutPtr): MutPtr =
     MutPtr(WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUdatpgGetAppendItemName(dtpg.rawAddress, field, plength.rawAddress))
 
-public actual fun udatpgGetBaseSkeleton(unuseddtpg: MutPtr<MutPtr<CVoid>>, pattern: ConstPtr<UShort>, length: Int, baseskeleton: MutPtr<UShort>, capacity: Int, perrorcode: MutPtr<UErrorCode>): Int =
+public actual fun udatpgGetBaseSkeleton(unuseddtpg: MutPtr, pattern: ConstPtr, length: Int, baseskeleton: MutPtr, capacity: Int, perrorcode: MutPtr): Int =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUdatpgGetBaseSkeleton(unuseddtpg.rawAddress, pattern.rawAddress, length, baseskeleton.rawAddress, capacity, perrorcode.rawAddress)
 
-public actual fun udatpgGetBestPattern(dtpg: MutPtr<MutPtr<CVoid>>, skeleton: ConstPtr<UShort>, length: Int, bestpattern: MutPtr<UShort>, capacity: Int, perrorcode: MutPtr<UErrorCode>): Int =
+public actual fun udatpgGetBestPattern(dtpg: MutPtr, skeleton: ConstPtr, length: Int, bestpattern: MutPtr, capacity: Int, perrorcode: MutPtr): Int =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUdatpgGetBestPattern(dtpg.rawAddress, skeleton.rawAddress, length, bestpattern.rawAddress, capacity, perrorcode.rawAddress)
 
-public actual fun udatpgGetBestPatternWithOptions(dtpg: MutPtr<MutPtr<CVoid>>, skeleton: ConstPtr<UShort>, length: Int, options: UDateTimePatternMatchOptions, bestpattern: MutPtr<UShort>, capacity: Int, perrorcode: MutPtr<UErrorCode>): Int =
+public actual fun udatpgGetBestPatternWithOptions(dtpg: MutPtr, skeleton: ConstPtr, length: Int, options: UDateTimePatternMatchOptions, bestpattern: MutPtr, capacity: Int, perrorcode: MutPtr): Int =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUdatpgGetBestPatternWithOptions(dtpg.rawAddress, skeleton.rawAddress, length, options, bestpattern.rawAddress, capacity, perrorcode.rawAddress)
 
-public actual fun udatpgGetDateTimeFormat(dtpg: ConstPtr<ConstPtr<CVoid>>, plength: MutPtr<Int>): MutPtr<UShort> =
+public actual fun udatpgGetDateTimeFormat(dtpg: ConstPtr, plength: MutPtr): MutPtr =
     MutPtr(WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUdatpgGetDateTimeFormat(dtpg.rawAddress, plength.rawAddress))
 
-public actual fun udatpgGetDecimal(dtpg: ConstPtr<ConstPtr<CVoid>>, plength: MutPtr<Int>): MutPtr<UShort> =
+public actual fun udatpgGetDecimal(dtpg: ConstPtr, plength: MutPtr): MutPtr =
     MutPtr(WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUdatpgGetDecimal(dtpg.rawAddress, plength.rawAddress))
 
-public actual fun udatpgGetFieldDisplayName(dtpg: ConstPtr<ConstPtr<CVoid>>, field: UDateTimePatternField, width: UDateTimePGDisplayWidth, fieldname: MutPtr<UShort>, capacity: Int, perrorcode: MutPtr<UErrorCode>): Int =
+public actual fun udatpgGetFieldDisplayName(dtpg: ConstPtr, field: UDateTimePatternField, width: UDateTimePGDisplayWidth, fieldname: MutPtr, capacity: Int, perrorcode: MutPtr): Int =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUdatpgGetFieldDisplayName(dtpg.rawAddress, field, width, fieldname.rawAddress, capacity, perrorcode.rawAddress)
 
-public actual fun udatpgGetPatternForSkeleton(dtpg: ConstPtr<ConstPtr<CVoid>>, skeleton: ConstPtr<UShort>, skeletonlength: Int, plength: MutPtr<Int>): MutPtr<UShort> =
+public actual fun udatpgGetPatternForSkeleton(dtpg: ConstPtr, skeleton: ConstPtr, skeletonlength: Int, plength: MutPtr): MutPtr =
     MutPtr(WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUdatpgGetPatternForSkeleton(dtpg.rawAddress, skeleton.rawAddress, skeletonlength, plength.rawAddress))
 
-public actual fun udatpgGetSkeleton(unuseddtpg: MutPtr<MutPtr<CVoid>>, pattern: ConstPtr<UShort>, length: Int, skeleton: MutPtr<UShort>, capacity: Int, perrorcode: MutPtr<UErrorCode>): Int =
+public actual fun udatpgGetSkeleton(unuseddtpg: MutPtr, pattern: ConstPtr, length: Int, skeleton: MutPtr, capacity: Int, perrorcode: MutPtr): Int =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUdatpgGetSkeleton(unuseddtpg.rawAddress, pattern.rawAddress, length, skeleton.rawAddress, capacity, perrorcode.rawAddress)
 
-public actual fun udatpgOpen(locale: Pcstr, perrorcode: MutPtr<UErrorCode>): MutPtr<MutPtr<CVoid>> =
+public actual fun udatpgOpen(locale: Pcstr, perrorcode: MutPtr): MutPtr =
     MutPtr(WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUdatpgOpen(locale.rawAddress, perrorcode.rawAddress))
 
-public actual fun udatpgOpenBaseSkeletons(dtpg: ConstPtr<ConstPtr<CVoid>>, perrorcode: MutPtr<UErrorCode>): MutPtr<UEnumeration> =
+public actual fun udatpgOpenBaseSkeletons(dtpg: ConstPtr, perrorcode: MutPtr): MutPtr =
     MutPtr(WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUdatpgOpenBaseSkeletons(dtpg.rawAddress, perrorcode.rawAddress))
 
-public actual fun udatpgOpenEmpty(perrorcode: MutPtr<UErrorCode>): MutPtr<MutPtr<CVoid>> =
+public actual fun udatpgOpenEmpty(perrorcode: MutPtr): MutPtr =
     MutPtr(WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUdatpgOpenEmpty(perrorcode.rawAddress))
 
-public actual fun udatpgOpenSkeletons(dtpg: ConstPtr<ConstPtr<CVoid>>, perrorcode: MutPtr<UErrorCode>): MutPtr<UEnumeration> =
+public actual fun udatpgOpenSkeletons(dtpg: ConstPtr, perrorcode: MutPtr): MutPtr =
     MutPtr(WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUdatpgOpenSkeletons(dtpg.rawAddress, perrorcode.rawAddress))
 
-public actual fun udatpgReplaceFieldTypes(dtpg: MutPtr<MutPtr<CVoid>>, pattern: ConstPtr<UShort>, patternlength: Int, skeleton: ConstPtr<UShort>, skeletonlength: Int, dest: MutPtr<UShort>, destcapacity: Int, perrorcode: MutPtr<UErrorCode>): Int =
+public actual fun udatpgReplaceFieldTypes(dtpg: MutPtr, pattern: ConstPtr, patternlength: Int, skeleton: ConstPtr, skeletonlength: Int, dest: MutPtr, destcapacity: Int, perrorcode: MutPtr): Int =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUdatpgReplaceFieldTypes(dtpg.rawAddress, pattern.rawAddress, patternlength, skeleton.rawAddress, skeletonlength, dest.rawAddress, destcapacity, perrorcode.rawAddress)
 
-public actual fun udatpgReplaceFieldTypesWithOptions(dtpg: MutPtr<MutPtr<CVoid>>, pattern: ConstPtr<UShort>, patternlength: Int, skeleton: ConstPtr<UShort>, skeletonlength: Int, options: UDateTimePatternMatchOptions, dest: MutPtr<UShort>, destcapacity: Int, perrorcode: MutPtr<UErrorCode>): Int =
+public actual fun udatpgReplaceFieldTypesWithOptions(dtpg: MutPtr, pattern: ConstPtr, patternlength: Int, skeleton: ConstPtr, skeletonlength: Int, options: UDateTimePatternMatchOptions, dest: MutPtr, destcapacity: Int, perrorcode: MutPtr): Int =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUdatpgReplaceFieldTypesWithOptions(dtpg.rawAddress, pattern.rawAddress, patternlength, skeleton.rawAddress, skeletonlength, options, dest.rawAddress, destcapacity, perrorcode.rawAddress)
 
-public actual fun udatpgSetAppendItemFormat(dtpg: MutPtr<MutPtr<CVoid>>, field: UDateTimePatternField, value: ConstPtr<UShort>, length: Int) {
+public actual fun udatpgSetAppendItemFormat(dtpg: MutPtr, field: UDateTimePatternField, value: ConstPtr, length: Int) {
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUdatpgSetAppendItemFormat(dtpg.rawAddress, field, value.rawAddress, length)
 }
 
-public actual fun udatpgSetAppendItemName(dtpg: MutPtr<MutPtr<CVoid>>, field: UDateTimePatternField, value: ConstPtr<UShort>, length: Int) {
+public actual fun udatpgSetAppendItemName(dtpg: MutPtr, field: UDateTimePatternField, value: ConstPtr, length: Int) {
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUdatpgSetAppendItemName(dtpg.rawAddress, field, value.rawAddress, length)
 }
 
-public actual fun udatpgSetDateTimeFormat(dtpg: ConstPtr<ConstPtr<CVoid>>, dtformat: ConstPtr<UShort>, length: Int) {
+public actual fun udatpgSetDateTimeFormat(dtpg: ConstPtr, dtformat: ConstPtr, length: Int) {
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUdatpgSetDateTimeFormat(dtpg.rawAddress, dtformat.rawAddress, length)
 }
 
-public actual fun udatpgSetDecimal(dtpg: MutPtr<MutPtr<CVoid>>, decimal: ConstPtr<UShort>, length: Int) {
+public actual fun udatpgSetDecimal(dtpg: MutPtr, decimal: ConstPtr, length: Int) {
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUdatpgSetDecimal(dtpg.rawAddress, decimal.rawAddress, length)
 }
 
-public actual fun udtitvfmtClose(formatter: MutPtr<UDateIntervalFormat>) {
+public actual fun udtitvfmtClose(formatter: MutPtr) {
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUdtitvfmtClose(formatter.rawAddress)
 }
 
-public actual fun udtitvfmtCloseResult(uresult: MutPtr<UFormattedDateInterval>) {
+public actual fun udtitvfmtCloseResult(uresult: MutPtr) {
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUdtitvfmtCloseResult(uresult.rawAddress)
 }
 
-public actual fun udtitvfmtFormat(formatter: ConstPtr<UDateIntervalFormat>, fromdate: Double, todate: Double, result: MutPtr<UShort>, resultcapacity: Int, position: MutPtr<UFieldPosition>, status: MutPtr<UErrorCode>): Int =
+public actual fun udtitvfmtFormat(formatter: ConstPtr, fromdate: Double, todate: Double, result: MutPtr, resultcapacity: Int, position: MutPtr, status: MutPtr): Int =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUdtitvfmtFormat(formatter.rawAddress, fromdate, todate, result.rawAddress, resultcapacity, position.rawAddress, status.rawAddress)
 
-public actual fun udtitvfmtOpen(locale: Pcstr, skeleton: ConstPtr<UShort>, skeletonlength: Int, tzid: ConstPtr<UShort>, tzidlength: Int, status: MutPtr<UErrorCode>): MutPtr<UDateIntervalFormat> =
+public actual fun udtitvfmtOpen(locale: Pcstr, skeleton: ConstPtr, skeletonlength: Int, tzid: ConstPtr, tzidlength: Int, status: MutPtr): MutPtr =
     MutPtr(WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUdtitvfmtOpen(locale.rawAddress, skeleton.rawAddress, skeletonlength, tzid.rawAddress, tzidlength, status.rawAddress))
 
-public actual fun udtitvfmtOpenResult(ec: MutPtr<UErrorCode>): MutPtr<UFormattedDateInterval> =
+public actual fun udtitvfmtOpenResult(ec: MutPtr): MutPtr =
     MutPtr(WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUdtitvfmtOpenResult(ec.rawAddress))
 
-public actual fun udtitvfmtResultAsValue(uresult: ConstPtr<UFormattedDateInterval>, ec: MutPtr<UErrorCode>): MutPtr<UFormattedValue> =
+public actual fun udtitvfmtResultAsValue(uresult: ConstPtr, ec: MutPtr): MutPtr =
     MutPtr(WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUdtitvfmtResultAsValue(uresult.rawAddress, ec.rawAddress))
 
-public actual fun uenumClose(en: MutPtr<UEnumeration>) {
+public actual fun uenumClose(en: MutPtr) {
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUenumClose(en.rawAddress)
 }
 
-public actual fun uenumCount(en: MutPtr<UEnumeration>, status: MutPtr<UErrorCode>): Int =
+public actual fun uenumCount(en: MutPtr, status: MutPtr): Int =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUenumCount(en.rawAddress, status.rawAddress)
 
-public actual fun uenumNext(en: MutPtr<UEnumeration>, resultlength: MutPtr<Int>, status: MutPtr<UErrorCode>): Pcstr =
+public actual fun uenumNext(en: MutPtr, resultlength: MutPtr, status: MutPtr): Pcstr =
     ConstPtr(WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUenumNext(en.rawAddress, resultlength.rawAddress, status.rawAddress))
 
-public actual fun uenumOpenCharStringsEnumeration(strings: ConstPtr<ConstPtr<Byte>>, count: Int, ec: MutPtr<UErrorCode>): MutPtr<UEnumeration> =
+public actual fun uenumOpenCharStringsEnumeration(strings: ConstPtr, count: Int, ec: MutPtr): MutPtr =
     MutPtr(WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUenumOpenCharStringsEnumeration(strings.rawAddress, count, ec.rawAddress))
 
-public actual fun uenumOpenUcharStringsEnumeration(strings: ConstPtr<ConstPtr<UShort>>, count: Int, ec: MutPtr<UErrorCode>): MutPtr<UEnumeration> =
+public actual fun uenumOpenUcharStringsEnumeration(strings: ConstPtr, count: Int, ec: MutPtr): MutPtr =
     MutPtr(WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUenumOpenUcharStringsEnumeration(strings.rawAddress, count, ec.rawAddress))
 
-public actual fun uenumReset(en: MutPtr<UEnumeration>, status: MutPtr<UErrorCode>) {
+public actual fun uenumReset(en: MutPtr, status: MutPtr) {
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUenumReset(en.rawAddress, status.rawAddress)
 }
 
-public actual fun uenumUnext(en: MutPtr<UEnumeration>, resultlength: MutPtr<Int>, status: MutPtr<UErrorCode>): MutPtr<UShort> =
+public actual fun uenumUnext(en: MutPtr, resultlength: MutPtr, status: MutPtr): MutPtr =
     MutPtr(WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUenumUnext(en.rawAddress, resultlength.rawAddress, status.rawAddress))
 
-public actual fun ufieldpositerClose(fpositer: MutPtr<UFieldPositionIterator>) {
+public actual fun ufieldpositerClose(fpositer: MutPtr) {
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUfieldpositerClose(fpositer.rawAddress)
 }
 
-public actual fun ufieldpositerNext(fpositer: MutPtr<UFieldPositionIterator>, beginindex: MutPtr<Int>, endindex: MutPtr<Int>): Int =
+public actual fun ufieldpositerNext(fpositer: MutPtr, beginindex: MutPtr, endindex: MutPtr): Int =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUfieldpositerNext(fpositer.rawAddress, beginindex.rawAddress, endindex.rawAddress)
 
-public actual fun ufieldpositerOpen(status: MutPtr<UErrorCode>): MutPtr<UFieldPositionIterator> =
+public actual fun ufieldpositerOpen(status: MutPtr): MutPtr =
     MutPtr(WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUfieldpositerOpen(status.rawAddress))
 
-public actual fun ufmtClose(fmt: MutPtr<MutPtr<CVoid>>) {
+public actual fun ufmtClose(fmt: MutPtr) {
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUfmtClose(fmt.rawAddress)
 }
 
-public actual fun ufmtGetArrayItemByIndex(fmt: MutPtr<MutPtr<CVoid>>, n: Int, status: MutPtr<UErrorCode>): MutPtr<MutPtr<CVoid>> =
+public actual fun ufmtGetArrayItemByIndex(fmt: MutPtr, n: Int, status: MutPtr): MutPtr =
     MutPtr(WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUfmtGetArrayItemByIndex(fmt.rawAddress, n, status.rawAddress))
 
-public actual fun ufmtGetArrayLength(fmt: ConstPtr<ConstPtr<CVoid>>, status: MutPtr<UErrorCode>): Int =
+public actual fun ufmtGetArrayLength(fmt: ConstPtr, status: MutPtr): Int =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUfmtGetArrayLength(fmt.rawAddress, status.rawAddress)
 
-public actual fun ufmtGetDate(fmt: ConstPtr<ConstPtr<CVoid>>, status: MutPtr<UErrorCode>): Double =
+public actual fun ufmtGetDate(fmt: ConstPtr, status: MutPtr): Double =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUfmtGetDate(fmt.rawAddress, status.rawAddress)
 
-public actual fun ufmtGetDecNumChars(fmt: MutPtr<MutPtr<CVoid>>, len: MutPtr<Int>, status: MutPtr<UErrorCode>): Pcstr =
+public actual fun ufmtGetDecNumChars(fmt: MutPtr, len: MutPtr, status: MutPtr): Pcstr =
     ConstPtr(WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUfmtGetDecNumChars(fmt.rawAddress, len.rawAddress, status.rawAddress))
 
-public actual fun ufmtGetDouble(fmt: MutPtr<MutPtr<CVoid>>, status: MutPtr<UErrorCode>): Double =
+public actual fun ufmtGetDouble(fmt: MutPtr, status: MutPtr): Double =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUfmtGetDouble(fmt.rawAddress, status.rawAddress)
 
-public actual fun ufmtGetInt64(fmt: MutPtr<MutPtr<CVoid>>, status: MutPtr<UErrorCode>): Long =
+public actual fun ufmtGetInt64(fmt: MutPtr, status: MutPtr): Long =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUfmtGetInt64(fmt.rawAddress, status.rawAddress)
 
-public actual fun ufmtGetLong(fmt: MutPtr<MutPtr<CVoid>>, status: MutPtr<UErrorCode>): Int =
+public actual fun ufmtGetLong(fmt: MutPtr, status: MutPtr): Int =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUfmtGetLong(fmt.rawAddress, status.rawAddress)
 
-public actual fun ufmtGetObject(fmt: ConstPtr<ConstPtr<CVoid>>, status: MutPtr<UErrorCode>): MutPtr<CVoid> =
+public actual fun ufmtGetObject(fmt: ConstPtr, status: MutPtr): MutPtr =
     MutPtr(WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUfmtGetObject(fmt.rawAddress, status.rawAddress))
 
-public actual fun ufmtGetType(fmt: ConstPtr<ConstPtr<CVoid>>, status: MutPtr<UErrorCode>): UFormattableType =
+public actual fun ufmtGetType(fmt: ConstPtr, status: MutPtr): UFormattableType =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUfmtGetType(fmt.rawAddress, status.rawAddress)
 
-public actual fun ufmtGetUchars(fmt: MutPtr<MutPtr<CVoid>>, len: MutPtr<Int>, status: MutPtr<UErrorCode>): MutPtr<UShort> =
+public actual fun ufmtGetUchars(fmt: MutPtr, len: MutPtr, status: MutPtr): MutPtr =
     MutPtr(WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUfmtGetUchars(fmt.rawAddress, len.rawAddress, status.rawAddress))
 
-public actual fun ufmtIsNumeric(fmt: ConstPtr<ConstPtr<CVoid>>): Byte =
+public actual fun ufmtIsNumeric(fmt: ConstPtr): Byte =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUfmtIsNumeric(fmt.rawAddress)
 
-public actual fun ufmtOpen(status: MutPtr<UErrorCode>): MutPtr<MutPtr<CVoid>> =
+public actual fun ufmtOpen(status: MutPtr): MutPtr =
     MutPtr(WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUfmtOpen(status.rawAddress))
 
-public actual fun ufmtvalGetString(ufmtval: ConstPtr<UFormattedValue>, plength: MutPtr<Int>, ec: MutPtr<UErrorCode>): MutPtr<UShort> =
+public actual fun ufmtvalGetString(ufmtval: ConstPtr, plength: MutPtr, ec: MutPtr): MutPtr =
     MutPtr(WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUfmtvalGetString(ufmtval.rawAddress, plength.rawAddress, ec.rawAddress))
 
-public actual fun ufmtvalNextPosition(ufmtval: ConstPtr<UFormattedValue>, ucfpos: MutPtr<UConstrainedFieldPosition>, ec: MutPtr<UErrorCode>): Byte =
+public actual fun ufmtvalNextPosition(ufmtval: ConstPtr, ucfpos: MutPtr, ec: MutPtr): Byte =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUfmtvalNextPosition(ufmtval.rawAddress, ucfpos.rawAddress, ec.rawAddress)
 
-public actual fun ugenderGetInstance(locale: Pcstr, status: MutPtr<UErrorCode>): MutPtr<UGenderInfo> =
+public actual fun ugenderGetInstance(locale: Pcstr, status: MutPtr): MutPtr =
     MutPtr(WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUgenderGetInstance(locale.rawAddress, status.rawAddress))
 
-public actual fun ugenderGetListGender(genderinfo: ConstPtr<UGenderInfo>, genders: ConstPtr<UGender>, size: Int, status: MutPtr<UErrorCode>): UGender =
+public actual fun ugenderGetListGender(genderinfo: ConstPtr, genders: ConstPtr, size: Int, status: MutPtr): UGender =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUgenderGetListGender(genderinfo.rawAddress, genders.rawAddress, size, status.rawAddress)
 
-public actual fun uidnaClose(idna: MutPtr<Uidna>) {
+public actual fun uidnaClose(idna: MutPtr) {
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUidnaClose(idna.rawAddress)
 }
 
-public actual fun uidnaLabelToAscii(idna: ConstPtr<Uidna>, label: ConstPtr<UShort>, length: Int, dest: MutPtr<UShort>, capacity: Int, pinfo: MutPtr<UIDNAInfo>, perrorcode: MutPtr<UErrorCode>): Int =
+public actual fun uidnaLabelToAscii(idna: ConstPtr, label: ConstPtr, length: Int, dest: MutPtr, capacity: Int, pinfo: MutPtr, perrorcode: MutPtr): Int =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUidnaLabelToAscii(idna.rawAddress, label.rawAddress, length, dest.rawAddress, capacity, pinfo.rawAddress, perrorcode.rawAddress)
 
-public actual fun uidnaLabelToAsciiUtf8(idna: ConstPtr<Uidna>, label: Pcstr, length: Int, dest: Pcstr, capacity: Int, pinfo: MutPtr<UIDNAInfo>, perrorcode: MutPtr<UErrorCode>): Int =
+public actual fun uidnaLabelToAsciiUtf8(idna: ConstPtr, label: Pcstr, length: Int, dest: Pcstr, capacity: Int, pinfo: MutPtr, perrorcode: MutPtr): Int =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUidnaLabelToAsciiUtf8(idna.rawAddress, label.rawAddress, length, dest.rawAddress, capacity, pinfo.rawAddress, perrorcode.rawAddress)
 
-public actual fun uidnaLabelToUnicode(idna: ConstPtr<Uidna>, label: ConstPtr<UShort>, length: Int, dest: MutPtr<UShort>, capacity: Int, pinfo: MutPtr<UIDNAInfo>, perrorcode: MutPtr<UErrorCode>): Int =
+public actual fun uidnaLabelToUnicode(idna: ConstPtr, label: ConstPtr, length: Int, dest: MutPtr, capacity: Int, pinfo: MutPtr, perrorcode: MutPtr): Int =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUidnaLabelToUnicode(idna.rawAddress, label.rawAddress, length, dest.rawAddress, capacity, pinfo.rawAddress, perrorcode.rawAddress)
 
-public actual fun uidnaLabelToUnicodeUtf8(idna: ConstPtr<Uidna>, label: Pcstr, length: Int, dest: Pcstr, capacity: Int, pinfo: MutPtr<UIDNAInfo>, perrorcode: MutPtr<UErrorCode>): Int =
+public actual fun uidnaLabelToUnicodeUtf8(idna: ConstPtr, label: Pcstr, length: Int, dest: Pcstr, capacity: Int, pinfo: MutPtr, perrorcode: MutPtr): Int =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUidnaLabelToUnicodeUtf8(idna.rawAddress, label.rawAddress, length, dest.rawAddress, capacity, pinfo.rawAddress, perrorcode.rawAddress)
 
-public actual fun uidnaNameToAscii(idna: ConstPtr<Uidna>, name: ConstPtr<UShort>, length: Int, dest: MutPtr<UShort>, capacity: Int, pinfo: MutPtr<UIDNAInfo>, perrorcode: MutPtr<UErrorCode>): Int =
+public actual fun uidnaNameToAscii(idna: ConstPtr, name: ConstPtr, length: Int, dest: MutPtr, capacity: Int, pinfo: MutPtr, perrorcode: MutPtr): Int =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUidnaNameToAscii(idna.rawAddress, name.rawAddress, length, dest.rawAddress, capacity, pinfo.rawAddress, perrorcode.rawAddress)
 
-public actual fun uidnaNameToAsciiUtf8(idna: ConstPtr<Uidna>, name: Pcstr, length: Int, dest: Pcstr, capacity: Int, pinfo: MutPtr<UIDNAInfo>, perrorcode: MutPtr<UErrorCode>): Int =
+public actual fun uidnaNameToAsciiUtf8(idna: ConstPtr, name: Pcstr, length: Int, dest: Pcstr, capacity: Int, pinfo: MutPtr, perrorcode: MutPtr): Int =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUidnaNameToAsciiUtf8(idna.rawAddress, name.rawAddress, length, dest.rawAddress, capacity, pinfo.rawAddress, perrorcode.rawAddress)
 
-public actual fun uidnaNameToUnicode(idna: ConstPtr<Uidna>, name: ConstPtr<UShort>, length: Int, dest: MutPtr<UShort>, capacity: Int, pinfo: MutPtr<UIDNAInfo>, perrorcode: MutPtr<UErrorCode>): Int =
+public actual fun uidnaNameToUnicode(idna: ConstPtr, name: ConstPtr, length: Int, dest: MutPtr, capacity: Int, pinfo: MutPtr, perrorcode: MutPtr): Int =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUidnaNameToUnicode(idna.rawAddress, name.rawAddress, length, dest.rawAddress, capacity, pinfo.rawAddress, perrorcode.rawAddress)
 
-public actual fun uidnaNameToUnicodeUtf8(idna: ConstPtr<Uidna>, name: Pcstr, length: Int, dest: Pcstr, capacity: Int, pinfo: MutPtr<UIDNAInfo>, perrorcode: MutPtr<UErrorCode>): Int =
+public actual fun uidnaNameToUnicodeUtf8(idna: ConstPtr, name: Pcstr, length: Int, dest: Pcstr, capacity: Int, pinfo: MutPtr, perrorcode: MutPtr): Int =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUidnaNameToUnicodeUtf8(idna.rawAddress, name.rawAddress, length, dest.rawAddress, capacity, pinfo.rawAddress, perrorcode.rawAddress)
 
-public actual fun uidnaOpenUts46(options: UInt, perrorcode: MutPtr<UErrorCode>): MutPtr<Uidna> =
+public actual fun uidnaOpenUts46(options: UInt, perrorcode: MutPtr): MutPtr =
     MutPtr(WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUidnaOpenUts46(options.toInt(), perrorcode.rawAddress))
 
-public actual fun uiterCurrent32(iter: MutPtr<UCharIterator>): Int =
+public actual fun uiterCurrent32(iter: MutPtr): Int =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUiterCurrent32(iter.rawAddress)
 
-public actual fun uiterGetState(iter: ConstPtr<UCharIterator>): UInt =
+public actual fun uiterGetState(iter: ConstPtr): UInt =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUiterGetState(iter.rawAddress).toUInt()
 
-public actual fun uiterNext32(iter: MutPtr<UCharIterator>): Int =
+public actual fun uiterNext32(iter: MutPtr): Int =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUiterNext32(iter.rawAddress)
 
-public actual fun uiterPrevious32(iter: MutPtr<UCharIterator>): Int =
+public actual fun uiterPrevious32(iter: MutPtr): Int =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUiterPrevious32(iter.rawAddress)
 
-public actual fun uiterSetState(iter: MutPtr<UCharIterator>, state: UInt, perrorcode: MutPtr<UErrorCode>) {
+public actual fun uiterSetState(iter: MutPtr, state: UInt, perrorcode: MutPtr) {
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUiterSetState(iter.rawAddress, state.toInt(), perrorcode.rawAddress)
 }
 
-public actual fun uiterSetString(iter: MutPtr<UCharIterator>, s: ConstPtr<UShort>, length: Int) {
+public actual fun uiterSetString(iter: MutPtr, s: ConstPtr, length: Int) {
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUiterSetString(iter.rawAddress, s.rawAddress, length)
 }
 
-public actual fun uiterSetUtf16Be(iter: MutPtr<UCharIterator>, s: Pcstr, length: Int) {
+public actual fun uiterSetUtf16Be(iter: MutPtr, s: Pcstr, length: Int) {
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUiterSetUtf16Be(iter.rawAddress, s.rawAddress, length)
 }
 
-public actual fun uiterSetUtf8(iter: MutPtr<UCharIterator>, s: Pcstr, length: Int) {
+public actual fun uiterSetUtf8(iter: MutPtr, s: Pcstr, length: Int) {
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUiterSetUtf8(iter.rawAddress, s.rawAddress, length)
 }
 
-public actual fun uldnClose(ldn: MutPtr<ULocaleDisplayNames>) {
+public actual fun uldnClose(ldn: MutPtr) {
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUldnClose(ldn.rawAddress)
 }
 
-public actual fun uldnGetContext(ldn: ConstPtr<ULocaleDisplayNames>, type: UDisplayContextType, perrorcode: MutPtr<UErrorCode>): UDisplayContext =
+public actual fun uldnGetContext(ldn: ConstPtr, type: UDisplayContextType, perrorcode: MutPtr): UDisplayContext =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUldnGetContext(ldn.rawAddress, type, perrorcode.rawAddress)
 
-public actual fun uldnGetDialectHandling(ldn: ConstPtr<ULocaleDisplayNames>): UDialectHandling =
+public actual fun uldnGetDialectHandling(ldn: ConstPtr): UDialectHandling =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUldnGetDialectHandling(ldn.rawAddress)
 
-public actual fun uldnGetLocale(ldn: ConstPtr<ULocaleDisplayNames>): Pcstr =
+public actual fun uldnGetLocale(ldn: ConstPtr): Pcstr =
     ConstPtr(WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUldnGetLocale(ldn.rawAddress))
 
-public actual fun uldnKeyDisplayName(ldn: ConstPtr<ULocaleDisplayNames>, key: Pcstr, result: MutPtr<UShort>, maxresultsize: Int, perrorcode: MutPtr<UErrorCode>): Int =
+public actual fun uldnKeyDisplayName(ldn: ConstPtr, key: Pcstr, result: MutPtr, maxresultsize: Int, perrorcode: MutPtr): Int =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUldnKeyDisplayName(ldn.rawAddress, key.rawAddress, result.rawAddress, maxresultsize, perrorcode.rawAddress)
 
-public actual fun uldnKeyValueDisplayName(ldn: ConstPtr<ULocaleDisplayNames>, key: Pcstr, value: Pcstr, result: MutPtr<UShort>, maxresultsize: Int, perrorcode: MutPtr<UErrorCode>): Int =
+public actual fun uldnKeyValueDisplayName(ldn: ConstPtr, key: Pcstr, value: Pcstr, result: MutPtr, maxresultsize: Int, perrorcode: MutPtr): Int =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUldnKeyValueDisplayName(ldn.rawAddress, key.rawAddress, value.rawAddress, result.rawAddress, maxresultsize, perrorcode.rawAddress)
 
-public actual fun uldnLanguageDisplayName(ldn: ConstPtr<ULocaleDisplayNames>, lang: Pcstr, result: MutPtr<UShort>, maxresultsize: Int, perrorcode: MutPtr<UErrorCode>): Int =
+public actual fun uldnLanguageDisplayName(ldn: ConstPtr, lang: Pcstr, result: MutPtr, maxresultsize: Int, perrorcode: MutPtr): Int =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUldnLanguageDisplayName(ldn.rawAddress, lang.rawAddress, result.rawAddress, maxresultsize, perrorcode.rawAddress)
 
-public actual fun uldnLocaleDisplayName(ldn: ConstPtr<ULocaleDisplayNames>, locale: Pcstr, result: MutPtr<UShort>, maxresultsize: Int, perrorcode: MutPtr<UErrorCode>): Int =
+public actual fun uldnLocaleDisplayName(ldn: ConstPtr, locale: Pcstr, result: MutPtr, maxresultsize: Int, perrorcode: MutPtr): Int =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUldnLocaleDisplayName(ldn.rawAddress, locale.rawAddress, result.rawAddress, maxresultsize, perrorcode.rawAddress)
 
-public actual fun uldnOpen(locale: Pcstr, dialecthandling: UDialectHandling, perrorcode: MutPtr<UErrorCode>): MutPtr<ULocaleDisplayNames> =
+public actual fun uldnOpen(locale: Pcstr, dialecthandling: UDialectHandling, perrorcode: MutPtr): MutPtr =
     MutPtr(WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUldnOpen(locale.rawAddress, dialecthandling, perrorcode.rawAddress))
 
-public actual fun uldnOpenForContext(locale: Pcstr, contexts: MutPtr<UDisplayContext>, length: Int, perrorcode: MutPtr<UErrorCode>): MutPtr<ULocaleDisplayNames> =
+public actual fun uldnOpenForContext(locale: Pcstr, contexts: MutPtr, length: Int, perrorcode: MutPtr): MutPtr =
     MutPtr(WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUldnOpenForContext(locale.rawAddress, contexts.rawAddress, length, perrorcode.rawAddress))
 
-public actual fun uldnRegionDisplayName(ldn: ConstPtr<ULocaleDisplayNames>, region: Pcstr, result: MutPtr<UShort>, maxresultsize: Int, perrorcode: MutPtr<UErrorCode>): Int =
+public actual fun uldnRegionDisplayName(ldn: ConstPtr, region: Pcstr, result: MutPtr, maxresultsize: Int, perrorcode: MutPtr): Int =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUldnRegionDisplayName(ldn.rawAddress, region.rawAddress, result.rawAddress, maxresultsize, perrorcode.rawAddress)
 
-public actual fun uldnScriptCodeDisplayName(ldn: ConstPtr<ULocaleDisplayNames>, scriptcode: UScriptCode, result: MutPtr<UShort>, maxresultsize: Int, perrorcode: MutPtr<UErrorCode>): Int =
+public actual fun uldnScriptCodeDisplayName(ldn: ConstPtr, scriptcode: UScriptCode, result: MutPtr, maxresultsize: Int, perrorcode: MutPtr): Int =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUldnScriptCodeDisplayName(ldn.rawAddress, scriptcode, result.rawAddress, maxresultsize, perrorcode.rawAddress)
 
-public actual fun uldnScriptDisplayName(ldn: ConstPtr<ULocaleDisplayNames>, script: Pcstr, result: MutPtr<UShort>, maxresultsize: Int, perrorcode: MutPtr<UErrorCode>): Int =
+public actual fun uldnScriptDisplayName(ldn: ConstPtr, script: Pcstr, result: MutPtr, maxresultsize: Int, perrorcode: MutPtr): Int =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUldnScriptDisplayName(ldn.rawAddress, script.rawAddress, result.rawAddress, maxresultsize, perrorcode.rawAddress)
 
-public actual fun uldnVariantDisplayName(ldn: ConstPtr<ULocaleDisplayNames>, variant: Pcstr, result: MutPtr<UShort>, maxresultsize: Int, perrorcode: MutPtr<UErrorCode>): Int =
+public actual fun uldnVariantDisplayName(ldn: ConstPtr, variant: Pcstr, result: MutPtr, maxresultsize: Int, perrorcode: MutPtr): Int =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUldnVariantDisplayName(ldn.rawAddress, variant.rawAddress, result.rawAddress, maxresultsize, perrorcode.rawAddress)
 
-public actual fun ulistfmtClose(listfmt: MutPtr<UListFormatter>) {
+public actual fun ulistfmtClose(listfmt: MutPtr) {
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUlistfmtClose(listfmt.rawAddress)
 }
 
-public actual fun ulistfmtCloseResult(uresult: MutPtr<UFormattedList>) {
+public actual fun ulistfmtCloseResult(uresult: MutPtr) {
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUlistfmtCloseResult(uresult.rawAddress)
 }
 
-public actual fun ulistfmtFormat(listfmt: ConstPtr<UListFormatter>, strings: ConstPtr<ConstPtr<UShort>>, stringlengths: ConstPtr<Int>, stringcount: Int, result: MutPtr<UShort>, resultcapacity: Int, status: MutPtr<UErrorCode>): Int =
+public actual fun ulistfmtFormat(listfmt: ConstPtr, strings: ConstPtr, stringlengths: ConstPtr, stringcount: Int, result: MutPtr, resultcapacity: Int, status: MutPtr): Int =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUlistfmtFormat(listfmt.rawAddress, strings.rawAddress, stringlengths.rawAddress, stringcount, result.rawAddress, resultcapacity, status.rawAddress)
 
-public actual fun ulistfmtFormatStringsToResult(listfmt: ConstPtr<UListFormatter>, strings: ConstPtr<ConstPtr<UShort>>, stringlengths: ConstPtr<Int>, stringcount: Int, uresult: MutPtr<UFormattedList>, status: MutPtr<UErrorCode>) {
+public actual fun ulistfmtFormatStringsToResult(listfmt: ConstPtr, strings: ConstPtr, stringlengths: ConstPtr, stringcount: Int, uresult: MutPtr, status: MutPtr) {
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUlistfmtFormatStringsToResult(listfmt.rawAddress, strings.rawAddress, stringlengths.rawAddress, stringcount, uresult.rawAddress, status.rawAddress)
 }
 
-public actual fun ulistfmtOpen(locale: Pcstr, status: MutPtr<UErrorCode>): MutPtr<UListFormatter> =
+public actual fun ulistfmtOpen(locale: Pcstr, status: MutPtr): MutPtr =
     MutPtr(WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUlistfmtOpen(locale.rawAddress, status.rawAddress))
 
-public actual fun ulistfmtOpenForType(locale: Pcstr, type: UListFormatterType, width: UListFormatterWidth, status: MutPtr<UErrorCode>): MutPtr<UListFormatter> =
+public actual fun ulistfmtOpenForType(locale: Pcstr, type: UListFormatterType, width: UListFormatterWidth, status: MutPtr): MutPtr =
     MutPtr(WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUlistfmtOpenForType(locale.rawAddress, type, width, status.rawAddress))
 
-public actual fun ulistfmtOpenResult(ec: MutPtr<UErrorCode>): MutPtr<UFormattedList> =
+public actual fun ulistfmtOpenResult(ec: MutPtr): MutPtr =
     MutPtr(WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUlistfmtOpenResult(ec.rawAddress))
 
-public actual fun ulistfmtResultAsValue(uresult: ConstPtr<UFormattedList>, ec: MutPtr<UErrorCode>): MutPtr<UFormattedValue> =
+public actual fun ulistfmtResultAsValue(uresult: ConstPtr, ec: MutPtr): MutPtr =
     MutPtr(WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUlistfmtResultAsValue(uresult.rawAddress, ec.rawAddress))
 
-public actual fun ulocAcceptLanguage(result: Pcstr, resultavailable: Int, outresult: MutPtr<UAcceptResult>, acceptlist: ConstPtr<ConstPtr<Byte>>, acceptlistcount: Int, availablelocales: MutPtr<UEnumeration>, status: MutPtr<UErrorCode>): Int =
+public actual fun ulocAcceptLanguage(result: Pcstr, resultavailable: Int, outresult: MutPtr, acceptlist: ConstPtr, acceptlistcount: Int, availablelocales: MutPtr, status: MutPtr): Int =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUlocAcceptLanguage(result.rawAddress, resultavailable, outresult.rawAddress, acceptlist.rawAddress, acceptlistcount, availablelocales.rawAddress, status.rawAddress)
 
-public actual fun ulocAcceptLanguageFromHttp(result: Pcstr, resultavailable: Int, outresult: MutPtr<UAcceptResult>, httpacceptlanguage: Pcstr, availablelocales: MutPtr<UEnumeration>, status: MutPtr<UErrorCode>): Int =
+public actual fun ulocAcceptLanguageFromHttp(result: Pcstr, resultavailable: Int, outresult: MutPtr, httpacceptlanguage: Pcstr, availablelocales: MutPtr, status: MutPtr): Int =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUlocAcceptLanguageFromHttp(result.rawAddress, resultavailable, outresult.rawAddress, httpacceptlanguage.rawAddress, availablelocales.rawAddress, status.rawAddress)
 
-public actual fun ulocAddLikelySubtags(localeid: Pcstr, maximizedlocaleid: Pcstr, maximizedlocaleidcapacity: Int, err: MutPtr<UErrorCode>): Int =
+public actual fun ulocAddLikelySubtags(localeid: Pcstr, maximizedlocaleid: Pcstr, maximizedlocaleidcapacity: Int, err: MutPtr): Int =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUlocAddLikelySubtags(localeid.rawAddress, maximizedlocaleid.rawAddress, maximizedlocaleidcapacity, err.rawAddress)
 
-public actual fun ulocCanonicalize(localeid: Pcstr, name: Pcstr, namecapacity: Int, err: MutPtr<UErrorCode>): Int =
+public actual fun ulocCanonicalize(localeid: Pcstr, name: Pcstr, namecapacity: Int, err: MutPtr): Int =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUlocCanonicalize(localeid.rawAddress, name.rawAddress, namecapacity, err.rawAddress)
 
 public actual fun ulocCountAvailable(): Int =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUlocCountAvailable()
 
-public actual fun ulocForLanguageTag(langtag: Pcstr, localeid: Pcstr, localeidcapacity: Int, parsedlength: MutPtr<Int>, err: MutPtr<UErrorCode>): Int =
+public actual fun ulocForLanguageTag(langtag: Pcstr, localeid: Pcstr, localeidcapacity: Int, parsedlength: MutPtr, err: MutPtr): Int =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUlocForLanguageTag(langtag.rawAddress, localeid.rawAddress, localeidcapacity, parsedlength.rawAddress, err.rawAddress)
 
 public actual fun ulocGetAvailable(n: Int): Pcstr =
     ConstPtr(WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUlocGetAvailable(n))
 
-public actual fun ulocGetBaseName(localeid: Pcstr, name: Pcstr, namecapacity: Int, err: MutPtr<UErrorCode>): Int =
+public actual fun ulocGetBaseName(localeid: Pcstr, name: Pcstr, namecapacity: Int, err: MutPtr): Int =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUlocGetBaseName(localeid.rawAddress, name.rawAddress, namecapacity, err.rawAddress)
 
-public actual fun ulocGetCharacterOrientation(localeid: Pcstr, status: MutPtr<UErrorCode>): ULayoutType =
+public actual fun ulocGetCharacterOrientation(localeid: Pcstr, status: MutPtr): ULayoutType =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUlocGetCharacterOrientation(localeid.rawAddress, status.rawAddress)
 
-public actual fun ulocGetCountry(localeid: Pcstr, country: Pcstr, countrycapacity: Int, err: MutPtr<UErrorCode>): Int =
+public actual fun ulocGetCountry(localeid: Pcstr, country: Pcstr, countrycapacity: Int, err: MutPtr): Int =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUlocGetCountry(localeid.rawAddress, country.rawAddress, countrycapacity, err.rawAddress)
 
 public actual fun ulocGetDefault(): Pcstr =
     ConstPtr(WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUlocGetDefault())
 
-public actual fun ulocGetDisplayCountry(locale: Pcstr, displaylocale: Pcstr, country: MutPtr<UShort>, countrycapacity: Int, status: MutPtr<UErrorCode>): Int =
+public actual fun ulocGetDisplayCountry(locale: Pcstr, displaylocale: Pcstr, country: MutPtr, countrycapacity: Int, status: MutPtr): Int =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUlocGetDisplayCountry(locale.rawAddress, displaylocale.rawAddress, country.rawAddress, countrycapacity, status.rawAddress)
 
-public actual fun ulocGetDisplayKeyword(keyword: Pcstr, displaylocale: Pcstr, dest: MutPtr<UShort>, destcapacity: Int, status: MutPtr<UErrorCode>): Int =
+public actual fun ulocGetDisplayKeyword(keyword: Pcstr, displaylocale: Pcstr, dest: MutPtr, destcapacity: Int, status: MutPtr): Int =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUlocGetDisplayKeyword(keyword.rawAddress, displaylocale.rawAddress, dest.rawAddress, destcapacity, status.rawAddress)
 
-public actual fun ulocGetDisplayKeywordValue(locale: Pcstr, keyword: Pcstr, displaylocale: Pcstr, dest: MutPtr<UShort>, destcapacity: Int, status: MutPtr<UErrorCode>): Int =
+public actual fun ulocGetDisplayKeywordValue(locale: Pcstr, keyword: Pcstr, displaylocale: Pcstr, dest: MutPtr, destcapacity: Int, status: MutPtr): Int =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUlocGetDisplayKeywordValue(locale.rawAddress, keyword.rawAddress, displaylocale.rawAddress, dest.rawAddress, destcapacity, status.rawAddress)
 
-public actual fun ulocGetDisplayLanguage(locale: Pcstr, displaylocale: Pcstr, language: MutPtr<UShort>, languagecapacity: Int, status: MutPtr<UErrorCode>): Int =
+public actual fun ulocGetDisplayLanguage(locale: Pcstr, displaylocale: Pcstr, language: MutPtr, languagecapacity: Int, status: MutPtr): Int =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUlocGetDisplayLanguage(locale.rawAddress, displaylocale.rawAddress, language.rawAddress, languagecapacity, status.rawAddress)
 
-public actual fun ulocGetDisplayName(localeid: Pcstr, inlocaleid: Pcstr, result: MutPtr<UShort>, maxresultsize: Int, err: MutPtr<UErrorCode>): Int =
+public actual fun ulocGetDisplayName(localeid: Pcstr, inlocaleid: Pcstr, result: MutPtr, maxresultsize: Int, err: MutPtr): Int =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUlocGetDisplayName(localeid.rawAddress, inlocaleid.rawAddress, result.rawAddress, maxresultsize, err.rawAddress)
 
-public actual fun ulocGetDisplayScript(locale: Pcstr, displaylocale: Pcstr, script: MutPtr<UShort>, scriptcapacity: Int, status: MutPtr<UErrorCode>): Int =
+public actual fun ulocGetDisplayScript(locale: Pcstr, displaylocale: Pcstr, script: MutPtr, scriptcapacity: Int, status: MutPtr): Int =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUlocGetDisplayScript(locale.rawAddress, displaylocale.rawAddress, script.rawAddress, scriptcapacity, status.rawAddress)
 
-public actual fun ulocGetDisplayVariant(locale: Pcstr, displaylocale: Pcstr, variant: MutPtr<UShort>, variantcapacity: Int, status: MutPtr<UErrorCode>): Int =
+public actual fun ulocGetDisplayVariant(locale: Pcstr, displaylocale: Pcstr, variant: MutPtr, variantcapacity: Int, status: MutPtr): Int =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUlocGetDisplayVariant(locale.rawAddress, displaylocale.rawAddress, variant.rawAddress, variantcapacity, status.rawAddress)
 
 public actual fun ulocGetIso3Country(localeid: Pcstr): Pcstr =
@@ -6272,59 +6267,59 @@ public actual fun ulocGetIso3Country(localeid: Pcstr): Pcstr =
 public actual fun ulocGetIso3Language(localeid: Pcstr): Pcstr =
     ConstPtr(WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUlocGetIso3Language(localeid.rawAddress))
 
-public actual fun ulocGetIsocountries(): MutPtr<MutPtr<Byte>> =
+public actual fun ulocGetIsocountries(): MutPtr =
     MutPtr(WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUlocGetIsocountries())
 
-public actual fun ulocGetIsolanguages(): MutPtr<MutPtr<Byte>> =
+public actual fun ulocGetIsolanguages(): MutPtr =
     MutPtr(WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUlocGetIsolanguages())
 
-public actual fun ulocGetKeywordValue(localeid: Pcstr, keywordname: Pcstr, buffer: Pcstr, buffercapacity: Int, status: MutPtr<UErrorCode>): Int =
+public actual fun ulocGetKeywordValue(localeid: Pcstr, keywordname: Pcstr, buffer: Pcstr, buffercapacity: Int, status: MutPtr): Int =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUlocGetKeywordValue(localeid.rawAddress, keywordname.rawAddress, buffer.rawAddress, buffercapacity, status.rawAddress)
 
 public actual fun ulocGetLcid(localeid: Pcstr): UInt =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUlocGetLcid(localeid.rawAddress).toUInt()
 
-public actual fun ulocGetLanguage(localeid: Pcstr, language: Pcstr, languagecapacity: Int, err: MutPtr<UErrorCode>): Int =
+public actual fun ulocGetLanguage(localeid: Pcstr, language: Pcstr, languagecapacity: Int, err: MutPtr): Int =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUlocGetLanguage(localeid.rawAddress, language.rawAddress, languagecapacity, err.rawAddress)
 
-public actual fun ulocGetLineOrientation(localeid: Pcstr, status: MutPtr<UErrorCode>): ULayoutType =
+public actual fun ulocGetLineOrientation(localeid: Pcstr, status: MutPtr): ULayoutType =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUlocGetLineOrientation(localeid.rawAddress, status.rawAddress)
 
-public actual fun ulocGetLocaleForLcid(hostid: UInt, locale: Pcstr, localecapacity: Int, status: MutPtr<UErrorCode>): Int =
+public actual fun ulocGetLocaleForLcid(hostid: UInt, locale: Pcstr, localecapacity: Int, status: MutPtr): Int =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUlocGetLocaleForLcid(hostid.toInt(), locale.rawAddress, localecapacity, status.rawAddress)
 
-public actual fun ulocGetName(localeid: Pcstr, name: Pcstr, namecapacity: Int, err: MutPtr<UErrorCode>): Int =
+public actual fun ulocGetName(localeid: Pcstr, name: Pcstr, namecapacity: Int, err: MutPtr): Int =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUlocGetName(localeid.rawAddress, name.rawAddress, namecapacity, err.rawAddress)
 
-public actual fun ulocGetParent(localeid: Pcstr, parent: Pcstr, parentcapacity: Int, err: MutPtr<UErrorCode>): Int =
+public actual fun ulocGetParent(localeid: Pcstr, parent: Pcstr, parentcapacity: Int, err: MutPtr): Int =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUlocGetParent(localeid.rawAddress, parent.rawAddress, parentcapacity, err.rawAddress)
 
-public actual fun ulocGetScript(localeid: Pcstr, script: Pcstr, scriptcapacity: Int, err: MutPtr<UErrorCode>): Int =
+public actual fun ulocGetScript(localeid: Pcstr, script: Pcstr, scriptcapacity: Int, err: MutPtr): Int =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUlocGetScript(localeid.rawAddress, script.rawAddress, scriptcapacity, err.rawAddress)
 
-public actual fun ulocGetVariant(localeid: Pcstr, variant: Pcstr, variantcapacity: Int, err: MutPtr<UErrorCode>): Int =
+public actual fun ulocGetVariant(localeid: Pcstr, variant: Pcstr, variantcapacity: Int, err: MutPtr): Int =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUlocGetVariant(localeid.rawAddress, variant.rawAddress, variantcapacity, err.rawAddress)
 
 public actual fun ulocIsRightToLeft(locale: Pcstr): Byte =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUlocIsRightToLeft(locale.rawAddress)
 
-public actual fun ulocMinimizeSubtags(localeid: Pcstr, minimizedlocaleid: Pcstr, minimizedlocaleidcapacity: Int, err: MutPtr<UErrorCode>): Int =
+public actual fun ulocMinimizeSubtags(localeid: Pcstr, minimizedlocaleid: Pcstr, minimizedlocaleidcapacity: Int, err: MutPtr): Int =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUlocMinimizeSubtags(localeid.rawAddress, minimizedlocaleid.rawAddress, minimizedlocaleidcapacity, err.rawAddress)
 
-public actual fun ulocOpenAvailableByType(type: ULocAvailableType, status: MutPtr<UErrorCode>): MutPtr<UEnumeration> =
+public actual fun ulocOpenAvailableByType(type: ULocAvailableType, status: MutPtr): MutPtr =
     MutPtr(WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUlocOpenAvailableByType(type, status.rawAddress))
 
-public actual fun ulocOpenKeywords(localeid: Pcstr, status: MutPtr<UErrorCode>): MutPtr<UEnumeration> =
+public actual fun ulocOpenKeywords(localeid: Pcstr, status: MutPtr): MutPtr =
     MutPtr(WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUlocOpenKeywords(localeid.rawAddress, status.rawAddress))
 
-public actual fun ulocSetDefault(localeid: Pcstr, status: MutPtr<UErrorCode>) {
+public actual fun ulocSetDefault(localeid: Pcstr, status: MutPtr) {
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUlocSetDefault(localeid.rawAddress, status.rawAddress)
 }
 
-public actual fun ulocSetKeywordValue(keywordname: Pcstr, keywordvalue: Pcstr, buffer: Pcstr, buffercapacity: Int, status: MutPtr<UErrorCode>): Int =
+public actual fun ulocSetKeywordValue(keywordname: Pcstr, keywordvalue: Pcstr, buffer: Pcstr, buffercapacity: Int, status: MutPtr): Int =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUlocSetKeywordValue(keywordname.rawAddress, keywordvalue.rawAddress, buffer.rawAddress, buffercapacity, status.rawAddress)
 
-public actual fun ulocToLanguageTag(localeid: Pcstr, langtag: Pcstr, langtagcapacity: Int, strict: Byte, err: MutPtr<UErrorCode>): Int =
+public actual fun ulocToLanguageTag(localeid: Pcstr, langtag: Pcstr, langtagcapacity: Int, strict: Byte, err: MutPtr): Int =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUlocToLanguageTag(localeid.rawAddress, langtag.rawAddress, langtagcapacity, strict, err.rawAddress)
 
 public actual fun ulocToLegacyKey(keyword: Pcstr): Pcstr =
@@ -6339,744 +6334,744 @@ public actual fun ulocToUnicodeLocaleKey(keyword: Pcstr): Pcstr =
 public actual fun ulocToUnicodeLocaleType(keyword: Pcstr, value: Pcstr): Pcstr =
     ConstPtr(WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUlocToUnicodeLocaleType(keyword.rawAddress, value.rawAddress))
 
-public actual fun ulocdataClose(uld: MutPtr<ULocaleData>) {
+public actual fun ulocdataClose(uld: MutPtr) {
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUlocdataClose(uld.rawAddress)
 }
 
-public actual fun ulocdataGetCldrversion(versionarray: MutPtr<UByte>, status: MutPtr<UErrorCode>) {
+public actual fun ulocdataGetCldrversion(versionarray: MutPtr, status: MutPtr) {
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUlocdataGetCldrversion(versionarray.rawAddress, status.rawAddress)
 }
 
-public actual fun ulocdataGetDelimiter(uld: MutPtr<ULocaleData>, type: ULocaleDataDelimiterType, result: MutPtr<UShort>, resultlength: Int, status: MutPtr<UErrorCode>): Int =
+public actual fun ulocdataGetDelimiter(uld: MutPtr, type: ULocaleDataDelimiterType, result: MutPtr, resultlength: Int, status: MutPtr): Int =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUlocdataGetDelimiter(uld.rawAddress, type, result.rawAddress, resultlength, status.rawAddress)
 
-public actual fun ulocdataGetExemplarSet(uld: MutPtr<ULocaleData>, fillin: MutPtr<USet>, options: UInt, extype: ULocaleDataExemplarSetType, status: MutPtr<UErrorCode>): MutPtr<USet> =
+public actual fun ulocdataGetExemplarSet(uld: MutPtr, fillin: MutPtr, options: UInt, extype: ULocaleDataExemplarSetType, status: MutPtr): MutPtr =
     MutPtr(WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUlocdataGetExemplarSet(uld.rawAddress, fillin.rawAddress, options.toInt(), extype, status.rawAddress))
 
-public actual fun ulocdataGetLocaleDisplayPattern(uld: MutPtr<ULocaleData>, pattern: MutPtr<UShort>, patterncapacity: Int, status: MutPtr<UErrorCode>): Int =
+public actual fun ulocdataGetLocaleDisplayPattern(uld: MutPtr, pattern: MutPtr, patterncapacity: Int, status: MutPtr): Int =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUlocdataGetLocaleDisplayPattern(uld.rawAddress, pattern.rawAddress, patterncapacity, status.rawAddress)
 
-public actual fun ulocdataGetLocaleSeparator(uld: MutPtr<ULocaleData>, separator: MutPtr<UShort>, separatorcapacity: Int, status: MutPtr<UErrorCode>): Int =
+public actual fun ulocdataGetLocaleSeparator(uld: MutPtr, separator: MutPtr, separatorcapacity: Int, status: MutPtr): Int =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUlocdataGetLocaleSeparator(uld.rawAddress, separator.rawAddress, separatorcapacity, status.rawAddress)
 
-public actual fun ulocdataGetMeasurementSystem(localeid: Pcstr, status: MutPtr<UErrorCode>): UMeasurementSystem =
+public actual fun ulocdataGetMeasurementSystem(localeid: Pcstr, status: MutPtr): UMeasurementSystem =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUlocdataGetMeasurementSystem(localeid.rawAddress, status.rawAddress)
 
-public actual fun ulocdataGetNoSubstitute(uld: MutPtr<ULocaleData>): Byte =
+public actual fun ulocdataGetNoSubstitute(uld: MutPtr): Byte =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUlocdataGetNoSubstitute(uld.rawAddress)
 
-public actual fun ulocdataGetPaperSize(localeid: Pcstr, height: MutPtr<Int>, width: MutPtr<Int>, status: MutPtr<UErrorCode>) {
+public actual fun ulocdataGetPaperSize(localeid: Pcstr, height: MutPtr, width: MutPtr, status: MutPtr) {
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUlocdataGetPaperSize(localeid.rawAddress, height.rawAddress, width.rawAddress, status.rawAddress)
 }
 
-public actual fun ulocdataOpen(localeid: Pcstr, status: MutPtr<UErrorCode>): MutPtr<ULocaleData> =
+public actual fun ulocdataOpen(localeid: Pcstr, status: MutPtr): MutPtr =
     MutPtr(WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUlocdataOpen(localeid.rawAddress, status.rawAddress))
 
-public actual fun ulocdataSetNoSubstitute(uld: MutPtr<ULocaleData>, setting: Byte) {
+public actual fun ulocdataSetNoSubstitute(uld: MutPtr, setting: Byte) {
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUlocdataSetNoSubstitute(uld.rawAddress, setting)
 }
 
-public actual fun umsgApplyPattern(fmt: MutPtr<MutPtr<CVoid>>, pattern: ConstPtr<UShort>, patternlength: Int, parseerror: MutPtr<UParseError>, status: MutPtr<UErrorCode>) {
+public actual fun umsgApplyPattern(fmt: MutPtr, pattern: ConstPtr, patternlength: Int, parseerror: MutPtr, status: MutPtr) {
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUmsgApplyPattern(fmt.rawAddress, pattern.rawAddress, patternlength, parseerror.rawAddress, status.rawAddress)
 }
 
-public actual fun umsgAutoQuoteApostrophe(pattern: ConstPtr<UShort>, patternlength: Int, dest: MutPtr<UShort>, destcapacity: Int, ec: MutPtr<UErrorCode>): Int =
+public actual fun umsgAutoQuoteApostrophe(pattern: ConstPtr, patternlength: Int, dest: MutPtr, destcapacity: Int, ec: MutPtr): Int =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUmsgAutoQuoteApostrophe(pattern.rawAddress, patternlength, dest.rawAddress, destcapacity, ec.rawAddress)
 
-public actual fun umsgClone(fmt: ConstPtr<ConstPtr<CVoid>>, status: MutPtr<UErrorCode>): MutPtr<CVoid> =
+public actual fun umsgClone(fmt: ConstPtr, status: MutPtr): MutPtr =
     MutPtr(WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUmsgClone(fmt.rawAddress, status.rawAddress))
 
-public actual fun umsgClose(format: MutPtr<MutPtr<CVoid>>) {
+public actual fun umsgClose(format: MutPtr) {
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUmsgClose(format.rawAddress)
 }
 
-public actual fun umsgFormat(fmt: ConstPtr<ConstPtr<CVoid>>, result: MutPtr<UShort>, resultlength: Int, status: MutPtr<UErrorCode>, vararg variadicArgs: Long): Int =
+public actual fun umsgFormat(fmt: ConstPtr, result: MutPtr, resultlength: Int, status: MutPtr, vararg variadicArgs: Long): Int =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUmsgFormat(fmt.rawAddress, result.rawAddress, resultlength, status.rawAddress, variadicArgs.size.coerceAtMost(4), if (variadicArgs.size > 0) variadicArgs[0] else 0L, if (variadicArgs.size > 1) variadicArgs[1] else 0L, if (variadicArgs.size > 2) variadicArgs[2] else 0L, if (variadicArgs.size > 3) variadicArgs[3] else 0L)
 
-public actual fun umsgGetLocale(fmt: ConstPtr<ConstPtr<CVoid>>): Pcstr =
+public actual fun umsgGetLocale(fmt: ConstPtr): Pcstr =
     ConstPtr(WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUmsgGetLocale(fmt.rawAddress))
 
-public actual fun umsgOpen(pattern: ConstPtr<UShort>, patternlength: Int, locale: Pcstr, parseerror: MutPtr<UParseError>, status: MutPtr<UErrorCode>): MutPtr<MutPtr<CVoid>> =
+public actual fun umsgOpen(pattern: ConstPtr, patternlength: Int, locale: Pcstr, parseerror: MutPtr, status: MutPtr): MutPtr =
     MutPtr(WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUmsgOpen(pattern.rawAddress, patternlength, locale.rawAddress, parseerror.rawAddress, status.rawAddress))
 
-public actual fun umsgParse(fmt: ConstPtr<ConstPtr<CVoid>>, source: ConstPtr<UShort>, sourcelength: Int, count: MutPtr<Int>, status: MutPtr<UErrorCode>, vararg variadicArgs: Long) {
+public actual fun umsgParse(fmt: ConstPtr, source: ConstPtr, sourcelength: Int, count: MutPtr, status: MutPtr, vararg variadicArgs: Long) {
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUmsgParse(fmt.rawAddress, source.rawAddress, sourcelength, count.rawAddress, status.rawAddress, variadicArgs.size.coerceAtMost(4), if (variadicArgs.size > 0) variadicArgs[0] else 0L, if (variadicArgs.size > 1) variadicArgs[1] else 0L, if (variadicArgs.size > 2) variadicArgs[2] else 0L, if (variadicArgs.size > 3) variadicArgs[3] else 0L)
 }
 
-public actual fun umsgSetLocale(fmt: MutPtr<MutPtr<CVoid>>, locale: Pcstr) {
+public actual fun umsgSetLocale(fmt: MutPtr, locale: Pcstr) {
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUmsgSetLocale(fmt.rawAddress, locale.rawAddress)
 }
 
-public actual fun umsgToPattern(fmt: ConstPtr<ConstPtr<CVoid>>, result: MutPtr<UShort>, resultlength: Int, status: MutPtr<UErrorCode>): Int =
+public actual fun umsgToPattern(fmt: ConstPtr, result: MutPtr, resultlength: Int, status: MutPtr): Int =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUmsgToPattern(fmt.rawAddress, result.rawAddress, resultlength, status.rawAddress)
 
-public actual fun umsgVformat(fmt: ConstPtr<ConstPtr<CVoid>>, result: MutPtr<UShort>, resultlength: Int, ap: MutPtr<Byte>, status: MutPtr<UErrorCode>): Int =
+public actual fun umsgVformat(fmt: ConstPtr, result: MutPtr, resultlength: Int, ap: MutPtr, status: MutPtr): Int =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUmsgVformat(fmt.rawAddress, result.rawAddress, resultlength, ap.rawAddress, status.rawAddress)
 
-public actual fun umsgVparse(fmt: ConstPtr<ConstPtr<CVoid>>, source: ConstPtr<UShort>, sourcelength: Int, count: MutPtr<Int>, ap: MutPtr<Byte>, status: MutPtr<UErrorCode>) {
+public actual fun umsgVparse(fmt: ConstPtr, source: ConstPtr, sourcelength: Int, count: MutPtr, ap: MutPtr, status: MutPtr) {
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUmsgVparse(fmt.rawAddress, source.rawAddress, sourcelength, count.rawAddress, ap.rawAddress, status.rawAddress)
 }
 
-public actual fun umutablecptrieBuildImmutable(trie: MutPtr<UMutableCPTrie>, type: UCPTrieType, valuewidth: UCPTrieValueWidth, perrorcode: MutPtr<UErrorCode>): MutPtr<UCPTrie> =
+public actual fun umutablecptrieBuildImmutable(trie: MutPtr, type: UCPTrieType, valuewidth: UCPTrieValueWidth, perrorcode: MutPtr): MutPtr =
     MutPtr(WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUmutablecptrieBuildImmutable(trie.rawAddress, type, valuewidth, perrorcode.rawAddress))
 
-public actual fun umutablecptrieClone(other: ConstPtr<UMutableCPTrie>, perrorcode: MutPtr<UErrorCode>): MutPtr<UMutableCPTrie> =
+public actual fun umutablecptrieClone(other: ConstPtr, perrorcode: MutPtr): MutPtr =
     MutPtr(WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUmutablecptrieClone(other.rawAddress, perrorcode.rawAddress))
 
-public actual fun umutablecptrieClose(trie: MutPtr<UMutableCPTrie>) {
+public actual fun umutablecptrieClose(trie: MutPtr) {
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUmutablecptrieClose(trie.rawAddress)
 }
 
-public actual fun umutablecptrieFromUcpmap(map: ConstPtr<UCPMap>, perrorcode: MutPtr<UErrorCode>): MutPtr<UMutableCPTrie> =
+public actual fun umutablecptrieFromUcpmap(map: ConstPtr, perrorcode: MutPtr): MutPtr =
     MutPtr(WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUmutablecptrieFromUcpmap(map.rawAddress, perrorcode.rawAddress))
 
-public actual fun umutablecptrieFromUcptrie(trie: ConstPtr<UCPTrie>, perrorcode: MutPtr<UErrorCode>): MutPtr<UMutableCPTrie> =
+public actual fun umutablecptrieFromUcptrie(trie: ConstPtr, perrorcode: MutPtr): MutPtr =
     MutPtr(WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUmutablecptrieFromUcptrie(trie.rawAddress, perrorcode.rawAddress))
 
-public actual fun umutablecptrieGet(trie: ConstPtr<UMutableCPTrie>, c: Int): UInt =
+public actual fun umutablecptrieGet(trie: ConstPtr, c: Int): UInt =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUmutablecptrieGet(trie.rawAddress, c).toUInt()
 
-public actual fun umutablecptrieGetRange(trie: ConstPtr<UMutableCPTrie>, start: Int, option: UCPMapRangeOption, surrogatevalue: UInt, filter: MutPtr<UCPMapValueFilter>, context: ConstPtr<CVoid>, pvalue: MutPtr<UInt>): Int =
+public actual fun umutablecptrieGetRange(trie: ConstPtr, start: Int, option: UCPMapRangeOption, surrogatevalue: UInt, filter: MutPtr, context: ConstPtr, pvalue: MutPtr): Int =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUmutablecptrieGetRange(trie.rawAddress, start, option, surrogatevalue.toInt(), filter.rawAddress, context.rawAddress, pvalue.rawAddress)
 
-public actual fun umutablecptrieOpen(initialvalue: UInt, errorvalue: UInt, perrorcode: MutPtr<UErrorCode>): MutPtr<UMutableCPTrie> =
+public actual fun umutablecptrieOpen(initialvalue: UInt, errorvalue: UInt, perrorcode: MutPtr): MutPtr =
     MutPtr(WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUmutablecptrieOpen(initialvalue.toInt(), errorvalue.toInt(), perrorcode.rawAddress))
 
-public actual fun umutablecptrieSet(trie: MutPtr<UMutableCPTrie>, c: Int, value: UInt, perrorcode: MutPtr<UErrorCode>) {
+public actual fun umutablecptrieSet(trie: MutPtr, c: Int, value: UInt, perrorcode: MutPtr) {
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUmutablecptrieSet(trie.rawAddress, c, value.toInt(), perrorcode.rawAddress)
 }
 
-public actual fun umutablecptrieSetRange(trie: MutPtr<UMutableCPTrie>, start: Int, end: Int, value: UInt, perrorcode: MutPtr<UErrorCode>) {
+public actual fun umutablecptrieSetRange(trie: MutPtr, start: Int, end: Int, value: UInt, perrorcode: MutPtr) {
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUmutablecptrieSetRange(trie.rawAddress, start, end, value.toInt(), perrorcode.rawAddress)
 }
 
-public actual fun unorm2Append(norm2: ConstPtr<UNormalizer2>, first: MutPtr<UShort>, firstlength: Int, firstcapacity: Int, second: ConstPtr<UShort>, secondlength: Int, perrorcode: MutPtr<UErrorCode>): Int =
+public actual fun unorm2Append(norm2: ConstPtr, first: MutPtr, firstlength: Int, firstcapacity: Int, second: ConstPtr, secondlength: Int, perrorcode: MutPtr): Int =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUnorm2Append(norm2.rawAddress, first.rawAddress, firstlength, firstcapacity, second.rawAddress, secondlength, perrorcode.rawAddress)
 
-public actual fun unorm2Close(norm2: MutPtr<UNormalizer2>) {
+public actual fun unorm2Close(norm2: MutPtr) {
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUnorm2Close(norm2.rawAddress)
 }
 
-public actual fun unorm2ComposePair(norm2: ConstPtr<UNormalizer2>, a: Int, b: Int): Int =
+public actual fun unorm2ComposePair(norm2: ConstPtr, a: Int, b: Int): Int =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUnorm2ComposePair(norm2.rawAddress, a, b)
 
-public actual fun unorm2GetCombiningClass(norm2: ConstPtr<UNormalizer2>, c: Int): UByte =
+public actual fun unorm2GetCombiningClass(norm2: ConstPtr, c: Int): UByte =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUnorm2GetCombiningClass(norm2.rawAddress, c).toUByte()
 
-public actual fun unorm2GetDecomposition(norm2: ConstPtr<UNormalizer2>, c: Int, decomposition: MutPtr<UShort>, capacity: Int, perrorcode: MutPtr<UErrorCode>): Int =
+public actual fun unorm2GetDecomposition(norm2: ConstPtr, c: Int, decomposition: MutPtr, capacity: Int, perrorcode: MutPtr): Int =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUnorm2GetDecomposition(norm2.rawAddress, c, decomposition.rawAddress, capacity, perrorcode.rawAddress)
 
-public actual fun unorm2GetInstance(packagename: Pcstr, name: Pcstr, mode: UNormalization2Mode, perrorcode: MutPtr<UErrorCode>): MutPtr<UNormalizer2> =
+public actual fun unorm2GetInstance(packagename: Pcstr, name: Pcstr, mode: UNormalization2Mode, perrorcode: MutPtr): MutPtr =
     MutPtr(WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUnorm2GetInstance(packagename.rawAddress, name.rawAddress, mode, perrorcode.rawAddress))
 
-public actual fun unorm2GetNfcinstance(perrorcode: MutPtr<UErrorCode>): MutPtr<UNormalizer2> =
+public actual fun unorm2GetNfcinstance(perrorcode: MutPtr): MutPtr =
     MutPtr(WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUnorm2GetNfcinstance(perrorcode.rawAddress))
 
-public actual fun unorm2GetNfdinstance(perrorcode: MutPtr<UErrorCode>): MutPtr<UNormalizer2> =
+public actual fun unorm2GetNfdinstance(perrorcode: MutPtr): MutPtr =
     MutPtr(WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUnorm2GetNfdinstance(perrorcode.rawAddress))
 
-public actual fun unorm2GetNfkccasefoldInstance(perrorcode: MutPtr<UErrorCode>): MutPtr<UNormalizer2> =
+public actual fun unorm2GetNfkccasefoldInstance(perrorcode: MutPtr): MutPtr =
     MutPtr(WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUnorm2GetNfkccasefoldInstance(perrorcode.rawAddress))
 
-public actual fun unorm2GetNfkcinstance(perrorcode: MutPtr<UErrorCode>): MutPtr<UNormalizer2> =
+public actual fun unorm2GetNfkcinstance(perrorcode: MutPtr): MutPtr =
     MutPtr(WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUnorm2GetNfkcinstance(perrorcode.rawAddress))
 
-public actual fun unorm2GetNfkdinstance(perrorcode: MutPtr<UErrorCode>): MutPtr<UNormalizer2> =
+public actual fun unorm2GetNfkdinstance(perrorcode: MutPtr): MutPtr =
     MutPtr(WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUnorm2GetNfkdinstance(perrorcode.rawAddress))
 
-public actual fun unorm2GetRawDecomposition(norm2: ConstPtr<UNormalizer2>, c: Int, decomposition: MutPtr<UShort>, capacity: Int, perrorcode: MutPtr<UErrorCode>): Int =
+public actual fun unorm2GetRawDecomposition(norm2: ConstPtr, c: Int, decomposition: MutPtr, capacity: Int, perrorcode: MutPtr): Int =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUnorm2GetRawDecomposition(norm2.rawAddress, c, decomposition.rawAddress, capacity, perrorcode.rawAddress)
 
-public actual fun unorm2HasBoundaryAfter(norm2: ConstPtr<UNormalizer2>, c: Int): Byte =
+public actual fun unorm2HasBoundaryAfter(norm2: ConstPtr, c: Int): Byte =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUnorm2HasBoundaryAfter(norm2.rawAddress, c)
 
-public actual fun unorm2HasBoundaryBefore(norm2: ConstPtr<UNormalizer2>, c: Int): Byte =
+public actual fun unorm2HasBoundaryBefore(norm2: ConstPtr, c: Int): Byte =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUnorm2HasBoundaryBefore(norm2.rawAddress, c)
 
-public actual fun unorm2IsInert(norm2: ConstPtr<UNormalizer2>, c: Int): Byte =
+public actual fun unorm2IsInert(norm2: ConstPtr, c: Int): Byte =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUnorm2IsInert(norm2.rawAddress, c)
 
-public actual fun unorm2IsNormalized(norm2: ConstPtr<UNormalizer2>, s: ConstPtr<UShort>, length: Int, perrorcode: MutPtr<UErrorCode>): Byte =
+public actual fun unorm2IsNormalized(norm2: ConstPtr, s: ConstPtr, length: Int, perrorcode: MutPtr): Byte =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUnorm2IsNormalized(norm2.rawAddress, s.rawAddress, length, perrorcode.rawAddress)
 
-public actual fun unorm2Normalize(norm2: ConstPtr<UNormalizer2>, src: ConstPtr<UShort>, length: Int, dest: MutPtr<UShort>, capacity: Int, perrorcode: MutPtr<UErrorCode>): Int =
+public actual fun unorm2Normalize(norm2: ConstPtr, src: ConstPtr, length: Int, dest: MutPtr, capacity: Int, perrorcode: MutPtr): Int =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUnorm2Normalize(norm2.rawAddress, src.rawAddress, length, dest.rawAddress, capacity, perrorcode.rawAddress)
 
-public actual fun unorm2NormalizeSecondAndAppend(norm2: ConstPtr<UNormalizer2>, first: MutPtr<UShort>, firstlength: Int, firstcapacity: Int, second: ConstPtr<UShort>, secondlength: Int, perrorcode: MutPtr<UErrorCode>): Int =
+public actual fun unorm2NormalizeSecondAndAppend(norm2: ConstPtr, first: MutPtr, firstlength: Int, firstcapacity: Int, second: ConstPtr, secondlength: Int, perrorcode: MutPtr): Int =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUnorm2NormalizeSecondAndAppend(norm2.rawAddress, first.rawAddress, firstlength, firstcapacity, second.rawAddress, secondlength, perrorcode.rawAddress)
 
-public actual fun unorm2OpenFiltered(norm2: ConstPtr<UNormalizer2>, filterset: ConstPtr<USet>, perrorcode: MutPtr<UErrorCode>): MutPtr<UNormalizer2> =
+public actual fun unorm2OpenFiltered(norm2: ConstPtr, filterset: ConstPtr, perrorcode: MutPtr): MutPtr =
     MutPtr(WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUnorm2OpenFiltered(norm2.rawAddress, filterset.rawAddress, perrorcode.rawAddress))
 
-public actual fun unorm2QuickCheck(norm2: ConstPtr<UNormalizer2>, s: ConstPtr<UShort>, length: Int, perrorcode: MutPtr<UErrorCode>): UNormalizationCheckResult =
+public actual fun unorm2QuickCheck(norm2: ConstPtr, s: ConstPtr, length: Int, perrorcode: MutPtr): UNormalizationCheckResult =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUnorm2QuickCheck(norm2.rawAddress, s.rawAddress, length, perrorcode.rawAddress)
 
-public actual fun unorm2SpanQuickCheckYes(norm2: ConstPtr<UNormalizer2>, s: ConstPtr<UShort>, length: Int, perrorcode: MutPtr<UErrorCode>): Int =
+public actual fun unorm2SpanQuickCheckYes(norm2: ConstPtr, s: ConstPtr, length: Int, perrorcode: MutPtr): Int =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUnorm2SpanQuickCheckYes(norm2.rawAddress, s.rawAddress, length, perrorcode.rawAddress)
 
-public actual fun unormCompare(s1: ConstPtr<UShort>, length1: Int, s2: ConstPtr<UShort>, length2: Int, options: UInt, perrorcode: MutPtr<UErrorCode>): Int =
+public actual fun unormCompare(s1: ConstPtr, length1: Int, s2: ConstPtr, length2: Int, options: UInt, perrorcode: MutPtr): Int =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUnormCompare(s1.rawAddress, length1, s2.rawAddress, length2, options.toInt(), perrorcode.rawAddress)
 
-public actual fun unumApplyPattern(format: MutPtr<MutPtr<CVoid>>, localized: Byte, pattern: ConstPtr<UShort>, patternlength: Int, parseerror: MutPtr<UParseError>, status: MutPtr<UErrorCode>) {
+public actual fun unumApplyPattern(format: MutPtr, localized: Byte, pattern: ConstPtr, patternlength: Int, parseerror: MutPtr, status: MutPtr) {
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUnumApplyPattern(format.rawAddress, localized, pattern.rawAddress, patternlength, parseerror.rawAddress, status.rawAddress)
 }
 
-public actual fun unumClone(fmt: ConstPtr<ConstPtr<CVoid>>, status: MutPtr<UErrorCode>): MutPtr<MutPtr<CVoid>> =
+public actual fun unumClone(fmt: ConstPtr, status: MutPtr): MutPtr =
     MutPtr(WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUnumClone(fmt.rawAddress, status.rawAddress))
 
-public actual fun unumClose(fmt: MutPtr<MutPtr<CVoid>>) {
+public actual fun unumClose(fmt: MutPtr) {
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUnumClose(fmt.rawAddress)
 }
 
 public actual fun unumCountAvailable(): Int =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUnumCountAvailable()
 
-public actual fun unumFormat(fmt: ConstPtr<ConstPtr<CVoid>>, number: Int, result: MutPtr<UShort>, resultlength: Int, pos: MutPtr<UFieldPosition>, status: MutPtr<UErrorCode>): Int =
+public actual fun unumFormat(fmt: ConstPtr, number: Int, result: MutPtr, resultlength: Int, pos: MutPtr, status: MutPtr): Int =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUnumFormat(fmt.rawAddress, number, result.rawAddress, resultlength, pos.rawAddress, status.rawAddress)
 
-public actual fun unumFormatDecimal(fmt: ConstPtr<ConstPtr<CVoid>>, number: Pcstr, length: Int, result: MutPtr<UShort>, resultlength: Int, pos: MutPtr<UFieldPosition>, status: MutPtr<UErrorCode>): Int =
+public actual fun unumFormatDecimal(fmt: ConstPtr, number: Pcstr, length: Int, result: MutPtr, resultlength: Int, pos: MutPtr, status: MutPtr): Int =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUnumFormatDecimal(fmt.rawAddress, number.rawAddress, length, result.rawAddress, resultlength, pos.rawAddress, status.rawAddress)
 
-public actual fun unumFormatDouble(fmt: ConstPtr<ConstPtr<CVoid>>, number: Double, result: MutPtr<UShort>, resultlength: Int, pos: MutPtr<UFieldPosition>, status: MutPtr<UErrorCode>): Int =
+public actual fun unumFormatDouble(fmt: ConstPtr, number: Double, result: MutPtr, resultlength: Int, pos: MutPtr, status: MutPtr): Int =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUnumFormatDouble(fmt.rawAddress, number, result.rawAddress, resultlength, pos.rawAddress, status.rawAddress)
 
-public actual fun unumFormatDoubleCurrency(fmt: ConstPtr<ConstPtr<CVoid>>, number: Double, currency: MutPtr<UShort>, result: MutPtr<UShort>, resultlength: Int, pos: MutPtr<UFieldPosition>, status: MutPtr<UErrorCode>): Int =
+public actual fun unumFormatDoubleCurrency(fmt: ConstPtr, number: Double, currency: MutPtr, result: MutPtr, resultlength: Int, pos: MutPtr, status: MutPtr): Int =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUnumFormatDoubleCurrency(fmt.rawAddress, number, currency.rawAddress, result.rawAddress, resultlength, pos.rawAddress, status.rawAddress)
 
-public actual fun unumFormatDoubleForFields(format: ConstPtr<ConstPtr<CVoid>>, number: Double, result: MutPtr<UShort>, resultlength: Int, fpositer: MutPtr<UFieldPositionIterator>, status: MutPtr<UErrorCode>): Int =
+public actual fun unumFormatDoubleForFields(format: ConstPtr, number: Double, result: MutPtr, resultlength: Int, fpositer: MutPtr, status: MutPtr): Int =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUnumFormatDoubleForFields(format.rawAddress, number, result.rawAddress, resultlength, fpositer.rawAddress, status.rawAddress)
 
-public actual fun unumFormatInt64(fmt: ConstPtr<ConstPtr<CVoid>>, number: Long, result: MutPtr<UShort>, resultlength: Int, pos: MutPtr<UFieldPosition>, status: MutPtr<UErrorCode>): Int =
+public actual fun unumFormatInt64(fmt: ConstPtr, number: Long, result: MutPtr, resultlength: Int, pos: MutPtr, status: MutPtr): Int =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUnumFormatInt64(fmt.rawAddress, number, result.rawAddress, resultlength, pos.rawAddress, status.rawAddress)
 
-public actual fun unumFormatUformattable(fmt: ConstPtr<ConstPtr<CVoid>>, number: ConstPtr<ConstPtr<CVoid>>, result: MutPtr<UShort>, resultlength: Int, pos: MutPtr<UFieldPosition>, status: MutPtr<UErrorCode>): Int =
+public actual fun unumFormatUformattable(fmt: ConstPtr, number: ConstPtr, result: MutPtr, resultlength: Int, pos: MutPtr, status: MutPtr): Int =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUnumFormatUformattable(fmt.rawAddress, number.rawAddress, result.rawAddress, resultlength, pos.rawAddress, status.rawAddress)
 
-public actual fun unumGetAttribute(fmt: ConstPtr<ConstPtr<CVoid>>, attr: UNumberFormatAttribute): Int =
+public actual fun unumGetAttribute(fmt: ConstPtr, attr: UNumberFormatAttribute): Int =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUnumGetAttribute(fmt.rawAddress, attr)
 
 public actual fun unumGetAvailable(localeindex: Int): Pcstr =
     ConstPtr(WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUnumGetAvailable(localeindex))
 
-public actual fun unumGetContext(fmt: ConstPtr<ConstPtr<CVoid>>, type: UDisplayContextType, status: MutPtr<UErrorCode>): UDisplayContext =
+public actual fun unumGetContext(fmt: ConstPtr, type: UDisplayContextType, status: MutPtr): UDisplayContext =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUnumGetContext(fmt.rawAddress, type, status.rawAddress)
 
-public actual fun unumGetDoubleAttribute(fmt: ConstPtr<ConstPtr<CVoid>>, attr: UNumberFormatAttribute): Double =
+public actual fun unumGetDoubleAttribute(fmt: ConstPtr, attr: UNumberFormatAttribute): Double =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUnumGetDoubleAttribute(fmt.rawAddress, attr)
 
-public actual fun unumGetLocaleByType(fmt: ConstPtr<ConstPtr<CVoid>>, type: ULocDataLocaleType, status: MutPtr<UErrorCode>): Pcstr =
+public actual fun unumGetLocaleByType(fmt: ConstPtr, type: ULocDataLocaleType, status: MutPtr): Pcstr =
     ConstPtr(WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUnumGetLocaleByType(fmt.rawAddress, type, status.rawAddress))
 
-public actual fun unumGetSymbol(fmt: ConstPtr<ConstPtr<CVoid>>, symbol: UNumberFormatSymbol, buffer: MutPtr<UShort>, size: Int, status: MutPtr<UErrorCode>): Int =
+public actual fun unumGetSymbol(fmt: ConstPtr, symbol: UNumberFormatSymbol, buffer: MutPtr, size: Int, status: MutPtr): Int =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUnumGetSymbol(fmt.rawAddress, symbol, buffer.rawAddress, size, status.rawAddress)
 
-public actual fun unumGetTextAttribute(fmt: ConstPtr<ConstPtr<CVoid>>, tag: UNumberFormatTextAttribute, result: MutPtr<UShort>, resultlength: Int, status: MutPtr<UErrorCode>): Int =
+public actual fun unumGetTextAttribute(fmt: ConstPtr, tag: UNumberFormatTextAttribute, result: MutPtr, resultlength: Int, status: MutPtr): Int =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUnumGetTextAttribute(fmt.rawAddress, tag, result.rawAddress, resultlength, status.rawAddress)
 
-public actual fun unumOpen(style: UNumberFormatStyle, pattern: ConstPtr<UShort>, patternlength: Int, locale: Pcstr, parseerr: MutPtr<UParseError>, status: MutPtr<UErrorCode>): MutPtr<MutPtr<CVoid>> =
+public actual fun unumOpen(style: UNumberFormatStyle, pattern: ConstPtr, patternlength: Int, locale: Pcstr, parseerr: MutPtr, status: MutPtr): MutPtr =
     MutPtr(WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUnumOpen(style, pattern.rawAddress, patternlength, locale.rawAddress, parseerr.rawAddress, status.rawAddress))
 
-public actual fun unumParse(fmt: ConstPtr<ConstPtr<CVoid>>, text: ConstPtr<UShort>, textlength: Int, parsepos: MutPtr<Int>, status: MutPtr<UErrorCode>): Int =
+public actual fun unumParse(fmt: ConstPtr, text: ConstPtr, textlength: Int, parsepos: MutPtr, status: MutPtr): Int =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUnumParse(fmt.rawAddress, text.rawAddress, textlength, parsepos.rawAddress, status.rawAddress)
 
-public actual fun unumParseDecimal(fmt: ConstPtr<ConstPtr<CVoid>>, text: ConstPtr<UShort>, textlength: Int, parsepos: MutPtr<Int>, outbuf: Pcstr, outbuflength: Int, status: MutPtr<UErrorCode>): Int =
+public actual fun unumParseDecimal(fmt: ConstPtr, text: ConstPtr, textlength: Int, parsepos: MutPtr, outbuf: Pcstr, outbuflength: Int, status: MutPtr): Int =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUnumParseDecimal(fmt.rawAddress, text.rawAddress, textlength, parsepos.rawAddress, outbuf.rawAddress, outbuflength, status.rawAddress)
 
-public actual fun unumParseDouble(fmt: ConstPtr<ConstPtr<CVoid>>, text: ConstPtr<UShort>, textlength: Int, parsepos: MutPtr<Int>, status: MutPtr<UErrorCode>): Double =
+public actual fun unumParseDouble(fmt: ConstPtr, text: ConstPtr, textlength: Int, parsepos: MutPtr, status: MutPtr): Double =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUnumParseDouble(fmt.rawAddress, text.rawAddress, textlength, parsepos.rawAddress, status.rawAddress)
 
-public actual fun unumParseDoubleCurrency(fmt: ConstPtr<ConstPtr<CVoid>>, text: ConstPtr<UShort>, textlength: Int, parsepos: MutPtr<Int>, currency: MutPtr<UShort>, status: MutPtr<UErrorCode>): Double =
+public actual fun unumParseDoubleCurrency(fmt: ConstPtr, text: ConstPtr, textlength: Int, parsepos: MutPtr, currency: MutPtr, status: MutPtr): Double =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUnumParseDoubleCurrency(fmt.rawAddress, text.rawAddress, textlength, parsepos.rawAddress, currency.rawAddress, status.rawAddress)
 
-public actual fun unumParseInt64(fmt: ConstPtr<ConstPtr<CVoid>>, text: ConstPtr<UShort>, textlength: Int, parsepos: MutPtr<Int>, status: MutPtr<UErrorCode>): Long =
+public actual fun unumParseInt64(fmt: ConstPtr, text: ConstPtr, textlength: Int, parsepos: MutPtr, status: MutPtr): Long =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUnumParseInt64(fmt.rawAddress, text.rawAddress, textlength, parsepos.rawAddress, status.rawAddress)
 
-public actual fun unumParseToUformattable(fmt: ConstPtr<ConstPtr<CVoid>>, result: MutPtr<MutPtr<CVoid>>, text: ConstPtr<UShort>, textlength: Int, parsepos: MutPtr<Int>, status: MutPtr<UErrorCode>): MutPtr<MutPtr<CVoid>> =
+public actual fun unumParseToUformattable(fmt: ConstPtr, result: MutPtr, text: ConstPtr, textlength: Int, parsepos: MutPtr, status: MutPtr): MutPtr =
     MutPtr(WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUnumParseToUformattable(fmt.rawAddress, result.rawAddress, text.rawAddress, textlength, parsepos.rawAddress, status.rawAddress))
 
-public actual fun unumSetAttribute(fmt: MutPtr<MutPtr<CVoid>>, attr: UNumberFormatAttribute, newvalue: Int) {
+public actual fun unumSetAttribute(fmt: MutPtr, attr: UNumberFormatAttribute, newvalue: Int) {
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUnumSetAttribute(fmt.rawAddress, attr, newvalue)
 }
 
-public actual fun unumSetContext(fmt: MutPtr<MutPtr<CVoid>>, value: UDisplayContext, status: MutPtr<UErrorCode>) {
+public actual fun unumSetContext(fmt: MutPtr, value: UDisplayContext, status: MutPtr) {
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUnumSetContext(fmt.rawAddress, value, status.rawAddress)
 }
 
-public actual fun unumSetDoubleAttribute(fmt: MutPtr<MutPtr<CVoid>>, attr: UNumberFormatAttribute, newvalue: Double) {
+public actual fun unumSetDoubleAttribute(fmt: MutPtr, attr: UNumberFormatAttribute, newvalue: Double) {
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUnumSetDoubleAttribute(fmt.rawAddress, attr, newvalue)
 }
 
-public actual fun unumSetSymbol(fmt: MutPtr<MutPtr<CVoid>>, symbol: UNumberFormatSymbol, value: ConstPtr<UShort>, length: Int, status: MutPtr<UErrorCode>) {
+public actual fun unumSetSymbol(fmt: MutPtr, symbol: UNumberFormatSymbol, value: ConstPtr, length: Int, status: MutPtr) {
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUnumSetSymbol(fmt.rawAddress, symbol, value.rawAddress, length, status.rawAddress)
 }
 
-public actual fun unumSetTextAttribute(fmt: MutPtr<MutPtr<CVoid>>, tag: UNumberFormatTextAttribute, newvalue: ConstPtr<UShort>, newvaluelength: Int, status: MutPtr<UErrorCode>) {
+public actual fun unumSetTextAttribute(fmt: MutPtr, tag: UNumberFormatTextAttribute, newvalue: ConstPtr, newvaluelength: Int, status: MutPtr) {
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUnumSetTextAttribute(fmt.rawAddress, tag, newvalue.rawAddress, newvaluelength, status.rawAddress)
 }
 
-public actual fun unumToPattern(fmt: ConstPtr<ConstPtr<CVoid>>, ispatternlocalized: Byte, result: MutPtr<UShort>, resultlength: Int, status: MutPtr<UErrorCode>): Int =
+public actual fun unumToPattern(fmt: ConstPtr, ispatternlocalized: Byte, result: MutPtr, resultlength: Int, status: MutPtr): Int =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUnumToPattern(fmt.rawAddress, ispatternlocalized, result.rawAddress, resultlength, status.rawAddress)
 
-public actual fun unumfClose(uformatter: MutPtr<UNumberFormatter>) {
+public actual fun unumfClose(uformatter: MutPtr) {
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUnumfClose(uformatter.rawAddress)
 }
 
-public actual fun unumfCloseResult(uresult: MutPtr<UFormattedNumber>) {
+public actual fun unumfCloseResult(uresult: MutPtr) {
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUnumfCloseResult(uresult.rawAddress)
 }
 
-public actual fun unumfFormatDecimal(uformatter: ConstPtr<UNumberFormatter>, value: Pcstr, valuelen: Int, uresult: MutPtr<UFormattedNumber>, ec: MutPtr<UErrorCode>) {
+public actual fun unumfFormatDecimal(uformatter: ConstPtr, value: Pcstr, valuelen: Int, uresult: MutPtr, ec: MutPtr) {
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUnumfFormatDecimal(uformatter.rawAddress, value.rawAddress, valuelen, uresult.rawAddress, ec.rawAddress)
 }
 
-public actual fun unumfFormatDouble(uformatter: ConstPtr<UNumberFormatter>, value: Double, uresult: MutPtr<UFormattedNumber>, ec: MutPtr<UErrorCode>) {
+public actual fun unumfFormatDouble(uformatter: ConstPtr, value: Double, uresult: MutPtr, ec: MutPtr) {
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUnumfFormatDouble(uformatter.rawAddress, value, uresult.rawAddress, ec.rawAddress)
 }
 
-public actual fun unumfFormatInt(uformatter: ConstPtr<UNumberFormatter>, value: Long, uresult: MutPtr<UFormattedNumber>, ec: MutPtr<UErrorCode>) {
+public actual fun unumfFormatInt(uformatter: ConstPtr, value: Long, uresult: MutPtr, ec: MutPtr) {
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUnumfFormatInt(uformatter.rawAddress, value, uresult.rawAddress, ec.rawAddress)
 }
 
-public actual fun unumfOpenForSkeletonAndLocale(skeleton: ConstPtr<UShort>, skeletonlen: Int, locale: Pcstr, ec: MutPtr<UErrorCode>): MutPtr<UNumberFormatter> =
+public actual fun unumfOpenForSkeletonAndLocale(skeleton: ConstPtr, skeletonlen: Int, locale: Pcstr, ec: MutPtr): MutPtr =
     MutPtr(WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUnumfOpenForSkeletonAndLocale(skeleton.rawAddress, skeletonlen, locale.rawAddress, ec.rawAddress))
 
-public actual fun unumfOpenForSkeletonAndLocaleWithError(skeleton: ConstPtr<UShort>, skeletonlen: Int, locale: Pcstr, perror: MutPtr<UParseError>, ec: MutPtr<UErrorCode>): MutPtr<UNumberFormatter> =
+public actual fun unumfOpenForSkeletonAndLocaleWithError(skeleton: ConstPtr, skeletonlen: Int, locale: Pcstr, perror: MutPtr, ec: MutPtr): MutPtr =
     MutPtr(WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUnumfOpenForSkeletonAndLocaleWithError(skeleton.rawAddress, skeletonlen, locale.rawAddress, perror.rawAddress, ec.rawAddress))
 
-public actual fun unumfOpenResult(ec: MutPtr<UErrorCode>): MutPtr<UFormattedNumber> =
+public actual fun unumfOpenResult(ec: MutPtr): MutPtr =
     MutPtr(WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUnumfOpenResult(ec.rawAddress))
 
-public actual fun unumfResultAsValue(uresult: ConstPtr<UFormattedNumber>, ec: MutPtr<UErrorCode>): MutPtr<UFormattedValue> =
+public actual fun unumfResultAsValue(uresult: ConstPtr, ec: MutPtr): MutPtr =
     MutPtr(WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUnumfResultAsValue(uresult.rawAddress, ec.rawAddress))
 
-public actual fun unumfResultGetAllFieldPositions(uresult: ConstPtr<UFormattedNumber>, ufpositer: MutPtr<UFieldPositionIterator>, ec: MutPtr<UErrorCode>) {
+public actual fun unumfResultGetAllFieldPositions(uresult: ConstPtr, ufpositer: MutPtr, ec: MutPtr) {
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUnumfResultGetAllFieldPositions(uresult.rawAddress, ufpositer.rawAddress, ec.rawAddress)
 }
 
-public actual fun unumfResultNextFieldPosition(uresult: ConstPtr<UFormattedNumber>, ufpos: MutPtr<UFieldPosition>, ec: MutPtr<UErrorCode>): Byte =
+public actual fun unumfResultNextFieldPosition(uresult: ConstPtr, ufpos: MutPtr, ec: MutPtr): Byte =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUnumfResultNextFieldPosition(uresult.rawAddress, ufpos.rawAddress, ec.rawAddress)
 
-public actual fun unumfResultToString(uresult: ConstPtr<UFormattedNumber>, buffer: MutPtr<UShort>, buffercapacity: Int, ec: MutPtr<UErrorCode>): Int =
+public actual fun unumfResultToString(uresult: ConstPtr, buffer: MutPtr, buffercapacity: Int, ec: MutPtr): Int =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUnumfResultToString(uresult.rawAddress, buffer.rawAddress, buffercapacity, ec.rawAddress)
 
-public actual fun unumsysClose(unumsys: MutPtr<UNumberingSystem>) {
+public actual fun unumsysClose(unumsys: MutPtr) {
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUnumsysClose(unumsys.rawAddress)
 }
 
-public actual fun unumsysGetDescription(unumsys: ConstPtr<UNumberingSystem>, result: MutPtr<UShort>, resultlength: Int, status: MutPtr<UErrorCode>): Int =
+public actual fun unumsysGetDescription(unumsys: ConstPtr, result: MutPtr, resultlength: Int, status: MutPtr): Int =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUnumsysGetDescription(unumsys.rawAddress, result.rawAddress, resultlength, status.rawAddress)
 
-public actual fun unumsysGetName(unumsys: ConstPtr<UNumberingSystem>): Pcstr =
+public actual fun unumsysGetName(unumsys: ConstPtr): Pcstr =
     ConstPtr(WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUnumsysGetName(unumsys.rawAddress))
 
-public actual fun unumsysGetRadix(unumsys: ConstPtr<UNumberingSystem>): Int =
+public actual fun unumsysGetRadix(unumsys: ConstPtr): Int =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUnumsysGetRadix(unumsys.rawAddress)
 
-public actual fun unumsysIsAlgorithmic(unumsys: ConstPtr<UNumberingSystem>): Byte =
+public actual fun unumsysIsAlgorithmic(unumsys: ConstPtr): Byte =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUnumsysIsAlgorithmic(unumsys.rawAddress)
 
-public actual fun unumsysOpen(locale: Pcstr, status: MutPtr<UErrorCode>): MutPtr<UNumberingSystem> =
+public actual fun unumsysOpen(locale: Pcstr, status: MutPtr): MutPtr =
     MutPtr(WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUnumsysOpen(locale.rawAddress, status.rawAddress))
 
-public actual fun unumsysOpenAvailableNames(status: MutPtr<UErrorCode>): MutPtr<UEnumeration> =
+public actual fun unumsysOpenAvailableNames(status: MutPtr): MutPtr =
     MutPtr(WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUnumsysOpenAvailableNames(status.rawAddress))
 
-public actual fun unumsysOpenByName(name: Pcstr, status: MutPtr<UErrorCode>): MutPtr<UNumberingSystem> =
+public actual fun unumsysOpenByName(name: Pcstr, status: MutPtr): MutPtr =
     MutPtr(WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUnumsysOpenByName(name.rawAddress, status.rawAddress))
 
-public actual fun uplrulesClose(uplrules: MutPtr<UPluralRules>) {
+public actual fun uplrulesClose(uplrules: MutPtr) {
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUplrulesClose(uplrules.rawAddress)
 }
 
-public actual fun uplrulesGetKeywords(uplrules: ConstPtr<UPluralRules>, status: MutPtr<UErrorCode>): MutPtr<UEnumeration> =
+public actual fun uplrulesGetKeywords(uplrules: ConstPtr, status: MutPtr): MutPtr =
     MutPtr(WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUplrulesGetKeywords(uplrules.rawAddress, status.rawAddress))
 
-public actual fun uplrulesOpen(locale: Pcstr, status: MutPtr<UErrorCode>): MutPtr<UPluralRules> =
+public actual fun uplrulesOpen(locale: Pcstr, status: MutPtr): MutPtr =
     MutPtr(WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUplrulesOpen(locale.rawAddress, status.rawAddress))
 
-public actual fun uplrulesOpenForType(locale: Pcstr, type: UPluralType, status: MutPtr<UErrorCode>): MutPtr<UPluralRules> =
+public actual fun uplrulesOpenForType(locale: Pcstr, type: UPluralType, status: MutPtr): MutPtr =
     MutPtr(WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUplrulesOpenForType(locale.rawAddress, type, status.rawAddress))
 
-public actual fun uplrulesSelect(uplrules: ConstPtr<UPluralRules>, number: Double, keyword: MutPtr<UShort>, capacity: Int, status: MutPtr<UErrorCode>): Int =
+public actual fun uplrulesSelect(uplrules: ConstPtr, number: Double, keyword: MutPtr, capacity: Int, status: MutPtr): Int =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUplrulesSelect(uplrules.rawAddress, number, keyword.rawAddress, capacity, status.rawAddress)
 
-public actual fun uplrulesSelectFormatted(uplrules: ConstPtr<UPluralRules>, number: ConstPtr<UFormattedNumber>, keyword: MutPtr<UShort>, capacity: Int, status: MutPtr<UErrorCode>): Int =
+public actual fun uplrulesSelectFormatted(uplrules: ConstPtr, number: ConstPtr, keyword: MutPtr, capacity: Int, status: MutPtr): Int =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUplrulesSelectFormatted(uplrules.rawAddress, number.rawAddress, keyword.rawAddress, capacity, status.rawAddress)
 
-public actual fun uregexAppendReplacement(regexp: MutPtr<URegularExpression>, replacementtext: ConstPtr<UShort>, replacementlength: Int, destbuf: MutPtr<MutPtr<UShort>>, destcapacity: MutPtr<Int>, status: MutPtr<UErrorCode>): Int =
+public actual fun uregexAppendReplacement(regexp: MutPtr, replacementtext: ConstPtr, replacementlength: Int, destbuf: MutPtr, destcapacity: MutPtr, status: MutPtr): Int =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUregexAppendReplacement(regexp.rawAddress, replacementtext.rawAddress, replacementlength, destbuf.rawAddress, destcapacity.rawAddress, status.rawAddress)
 
-public actual fun uregexAppendReplacementUtext(regexp: MutPtr<URegularExpression>, replacementtext: MutPtr<UText>, dest: MutPtr<UText>, status: MutPtr<UErrorCode>) {
+public actual fun uregexAppendReplacementUtext(regexp: MutPtr, replacementtext: MutPtr, dest: MutPtr, status: MutPtr) {
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUregexAppendReplacementUtext(regexp.rawAddress, replacementtext.rawAddress, dest.rawAddress, status.rawAddress)
 }
 
-public actual fun uregexAppendTail(regexp: MutPtr<URegularExpression>, destbuf: MutPtr<MutPtr<UShort>>, destcapacity: MutPtr<Int>, status: MutPtr<UErrorCode>): Int =
+public actual fun uregexAppendTail(regexp: MutPtr, destbuf: MutPtr, destcapacity: MutPtr, status: MutPtr): Int =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUregexAppendTail(regexp.rawAddress, destbuf.rawAddress, destcapacity.rawAddress, status.rawAddress)
 
-public actual fun uregexAppendTailUtext(regexp: MutPtr<URegularExpression>, dest: MutPtr<UText>, status: MutPtr<UErrorCode>): MutPtr<UText> =
+public actual fun uregexAppendTailUtext(regexp: MutPtr, dest: MutPtr, status: MutPtr): MutPtr =
     MutPtr(WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUregexAppendTailUtext(regexp.rawAddress, dest.rawAddress, status.rawAddress))
 
-public actual fun uregexClone(regexp: ConstPtr<URegularExpression>, status: MutPtr<UErrorCode>): MutPtr<URegularExpression> =
+public actual fun uregexClone(regexp: ConstPtr, status: MutPtr): MutPtr =
     MutPtr(WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUregexClone(regexp.rawAddress, status.rawAddress))
 
-public actual fun uregexClose(regexp: MutPtr<URegularExpression>) {
+public actual fun uregexClose(regexp: MutPtr) {
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUregexClose(regexp.rawAddress)
 }
 
-public actual fun uregexEnd(regexp: MutPtr<URegularExpression>, groupnum: Int, status: MutPtr<UErrorCode>): Int =
+public actual fun uregexEnd(regexp: MutPtr, groupnum: Int, status: MutPtr): Int =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUregexEnd(regexp.rawAddress, groupnum, status.rawAddress)
 
-public actual fun uregexEnd64(regexp: MutPtr<URegularExpression>, groupnum: Int, status: MutPtr<UErrorCode>): Long =
+public actual fun uregexEnd64(regexp: MutPtr, groupnum: Int, status: MutPtr): Long =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUregexEnd64(regexp.rawAddress, groupnum, status.rawAddress)
 
-public actual fun uregexFind(regexp: MutPtr<URegularExpression>, startindex: Int, status: MutPtr<UErrorCode>): Byte =
+public actual fun uregexFind(regexp: MutPtr, startindex: Int, status: MutPtr): Byte =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUregexFind(regexp.rawAddress, startindex, status.rawAddress)
 
-public actual fun uregexFind64(regexp: MutPtr<URegularExpression>, startindex: Long, status: MutPtr<UErrorCode>): Byte =
+public actual fun uregexFind64(regexp: MutPtr, startindex: Long, status: MutPtr): Byte =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUregexFind64(regexp.rawAddress, startindex, status.rawAddress)
 
-public actual fun uregexFindNext(regexp: MutPtr<URegularExpression>, status: MutPtr<UErrorCode>): Byte =
+public actual fun uregexFindNext(regexp: MutPtr, status: MutPtr): Byte =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUregexFindNext(regexp.rawAddress, status.rawAddress)
 
-public actual fun uregexFlags(regexp: ConstPtr<URegularExpression>, status: MutPtr<UErrorCode>): Int =
+public actual fun uregexFlags(regexp: ConstPtr, status: MutPtr): Int =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUregexFlags(regexp.rawAddress, status.rawAddress)
 
-public actual fun uregexGetFindProgressCallback(regexp: ConstPtr<URegularExpression>, callback: MutPtr<URegexFindProgressCallback>, context: ConstPtr<ConstPtr<CVoid>>, status: MutPtr<UErrorCode>) {
+public actual fun uregexGetFindProgressCallback(regexp: ConstPtr, callback: MutPtr, context: ConstPtr, status: MutPtr) {
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUregexGetFindProgressCallback(regexp.rawAddress, callback.rawAddress, context.rawAddress, status.rawAddress)
 }
 
-public actual fun uregexGetMatchCallback(regexp: ConstPtr<URegularExpression>, callback: MutPtr<URegexMatchCallback>, context: ConstPtr<ConstPtr<CVoid>>, status: MutPtr<UErrorCode>) {
+public actual fun uregexGetMatchCallback(regexp: ConstPtr, callback: MutPtr, context: ConstPtr, status: MutPtr) {
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUregexGetMatchCallback(regexp.rawAddress, callback.rawAddress, context.rawAddress, status.rawAddress)
 }
 
-public actual fun uregexGetStackLimit(regexp: ConstPtr<URegularExpression>, status: MutPtr<UErrorCode>): Int =
+public actual fun uregexGetStackLimit(regexp: ConstPtr, status: MutPtr): Int =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUregexGetStackLimit(regexp.rawAddress, status.rawAddress)
 
-public actual fun uregexGetText(regexp: MutPtr<URegularExpression>, textlength: MutPtr<Int>, status: MutPtr<UErrorCode>): MutPtr<UShort> =
+public actual fun uregexGetText(regexp: MutPtr, textlength: MutPtr, status: MutPtr): MutPtr =
     MutPtr(WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUregexGetText(regexp.rawAddress, textlength.rawAddress, status.rawAddress))
 
-public actual fun uregexGetTimeLimit(regexp: ConstPtr<URegularExpression>, status: MutPtr<UErrorCode>): Int =
+public actual fun uregexGetTimeLimit(regexp: ConstPtr, status: MutPtr): Int =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUregexGetTimeLimit(regexp.rawAddress, status.rawAddress)
 
-public actual fun uregexGetUtext(regexp: MutPtr<URegularExpression>, dest: MutPtr<UText>, status: MutPtr<UErrorCode>): MutPtr<UText> =
+public actual fun uregexGetUtext(regexp: MutPtr, dest: MutPtr, status: MutPtr): MutPtr =
     MutPtr(WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUregexGetUtext(regexp.rawAddress, dest.rawAddress, status.rawAddress))
 
-public actual fun uregexGroup(regexp: MutPtr<URegularExpression>, groupnum: Int, dest: MutPtr<UShort>, destcapacity: Int, status: MutPtr<UErrorCode>): Int =
+public actual fun uregexGroup(regexp: MutPtr, groupnum: Int, dest: MutPtr, destcapacity: Int, status: MutPtr): Int =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUregexGroup(regexp.rawAddress, groupnum, dest.rawAddress, destcapacity, status.rawAddress)
 
-public actual fun uregexGroupCount(regexp: MutPtr<URegularExpression>, status: MutPtr<UErrorCode>): Int =
+public actual fun uregexGroupCount(regexp: MutPtr, status: MutPtr): Int =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUregexGroupCount(regexp.rawAddress, status.rawAddress)
 
-public actual fun uregexGroupNumberFromCname(regexp: MutPtr<URegularExpression>, groupname: Pcstr, namelength: Int, status: MutPtr<UErrorCode>): Int =
+public actual fun uregexGroupNumberFromCname(regexp: MutPtr, groupname: Pcstr, namelength: Int, status: MutPtr): Int =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUregexGroupNumberFromCname(regexp.rawAddress, groupname.rawAddress, namelength, status.rawAddress)
 
-public actual fun uregexGroupNumberFromName(regexp: MutPtr<URegularExpression>, groupname: ConstPtr<UShort>, namelength: Int, status: MutPtr<UErrorCode>): Int =
+public actual fun uregexGroupNumberFromName(regexp: MutPtr, groupname: ConstPtr, namelength: Int, status: MutPtr): Int =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUregexGroupNumberFromName(regexp.rawAddress, groupname.rawAddress, namelength, status.rawAddress)
 
-public actual fun uregexGroupUtext(regexp: MutPtr<URegularExpression>, groupnum: Int, dest: MutPtr<UText>, grouplength: MutPtr<Long>, status: MutPtr<UErrorCode>): MutPtr<UText> =
+public actual fun uregexGroupUtext(regexp: MutPtr, groupnum: Int, dest: MutPtr, grouplength: MutPtr, status: MutPtr): MutPtr =
     MutPtr(WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUregexGroupUtext(regexp.rawAddress, groupnum, dest.rawAddress, grouplength.rawAddress, status.rawAddress))
 
-public actual fun uregexHasAnchoringBounds(regexp: ConstPtr<URegularExpression>, status: MutPtr<UErrorCode>): Byte =
+public actual fun uregexHasAnchoringBounds(regexp: ConstPtr, status: MutPtr): Byte =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUregexHasAnchoringBounds(regexp.rawAddress, status.rawAddress)
 
-public actual fun uregexHasTransparentBounds(regexp: ConstPtr<URegularExpression>, status: MutPtr<UErrorCode>): Byte =
+public actual fun uregexHasTransparentBounds(regexp: ConstPtr, status: MutPtr): Byte =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUregexHasTransparentBounds(regexp.rawAddress, status.rawAddress)
 
-public actual fun uregexHitEnd(regexp: ConstPtr<URegularExpression>, status: MutPtr<UErrorCode>): Byte =
+public actual fun uregexHitEnd(regexp: ConstPtr, status: MutPtr): Byte =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUregexHitEnd(regexp.rawAddress, status.rawAddress)
 
-public actual fun uregexLookingAt(regexp: MutPtr<URegularExpression>, startindex: Int, status: MutPtr<UErrorCode>): Byte =
+public actual fun uregexLookingAt(regexp: MutPtr, startindex: Int, status: MutPtr): Byte =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUregexLookingAt(regexp.rawAddress, startindex, status.rawAddress)
 
-public actual fun uregexLookingAt64(regexp: MutPtr<URegularExpression>, startindex: Long, status: MutPtr<UErrorCode>): Byte =
+public actual fun uregexLookingAt64(regexp: MutPtr, startindex: Long, status: MutPtr): Byte =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUregexLookingAt64(regexp.rawAddress, startindex, status.rawAddress)
 
-public actual fun uregexMatches(regexp: MutPtr<URegularExpression>, startindex: Int, status: MutPtr<UErrorCode>): Byte =
+public actual fun uregexMatches(regexp: MutPtr, startindex: Int, status: MutPtr): Byte =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUregexMatches(regexp.rawAddress, startindex, status.rawAddress)
 
-public actual fun uregexMatches64(regexp: MutPtr<URegularExpression>, startindex: Long, status: MutPtr<UErrorCode>): Byte =
+public actual fun uregexMatches64(regexp: MutPtr, startindex: Long, status: MutPtr): Byte =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUregexMatches64(regexp.rawAddress, startindex, status.rawAddress)
 
-public actual fun uregexOpen(pattern: ConstPtr<UShort>, patternlength: Int, flags: UInt, pe: MutPtr<UParseError>, status: MutPtr<UErrorCode>): MutPtr<URegularExpression> =
+public actual fun uregexOpen(pattern: ConstPtr, patternlength: Int, flags: UInt, pe: MutPtr, status: MutPtr): MutPtr =
     MutPtr(WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUregexOpen(pattern.rawAddress, patternlength, flags.toInt(), pe.rawAddress, status.rawAddress))
 
-public actual fun uregexOpenC(pattern: Pcstr, flags: UInt, pe: MutPtr<UParseError>, status: MutPtr<UErrorCode>): MutPtr<URegularExpression> =
+public actual fun uregexOpenC(pattern: Pcstr, flags: UInt, pe: MutPtr, status: MutPtr): MutPtr =
     MutPtr(WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUregexOpenC(pattern.rawAddress, flags.toInt(), pe.rawAddress, status.rawAddress))
 
-public actual fun uregexOpenUtext(pattern: MutPtr<UText>, flags: UInt, pe: MutPtr<UParseError>, status: MutPtr<UErrorCode>): MutPtr<URegularExpression> =
+public actual fun uregexOpenUtext(pattern: MutPtr, flags: UInt, pe: MutPtr, status: MutPtr): MutPtr =
     MutPtr(WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUregexOpenUtext(pattern.rawAddress, flags.toInt(), pe.rawAddress, status.rawAddress))
 
-public actual fun uregexPattern(regexp: ConstPtr<URegularExpression>, patlength: MutPtr<Int>, status: MutPtr<UErrorCode>): MutPtr<UShort> =
+public actual fun uregexPattern(regexp: ConstPtr, patlength: MutPtr, status: MutPtr): MutPtr =
     MutPtr(WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUregexPattern(regexp.rawAddress, patlength.rawAddress, status.rawAddress))
 
-public actual fun uregexPatternUtext(regexp: ConstPtr<URegularExpression>, status: MutPtr<UErrorCode>): MutPtr<UText> =
+public actual fun uregexPatternUtext(regexp: ConstPtr, status: MutPtr): MutPtr =
     MutPtr(WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUregexPatternUtext(regexp.rawAddress, status.rawAddress))
 
-public actual fun uregexRefreshUtext(regexp: MutPtr<URegularExpression>, text: MutPtr<UText>, status: MutPtr<UErrorCode>) {
+public actual fun uregexRefreshUtext(regexp: MutPtr, text: MutPtr, status: MutPtr) {
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUregexRefreshUtext(regexp.rawAddress, text.rawAddress, status.rawAddress)
 }
 
-public actual fun uregexRegionEnd(regexp: ConstPtr<URegularExpression>, status: MutPtr<UErrorCode>): Int =
+public actual fun uregexRegionEnd(regexp: ConstPtr, status: MutPtr): Int =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUregexRegionEnd(regexp.rawAddress, status.rawAddress)
 
-public actual fun uregexRegionEnd64(regexp: ConstPtr<URegularExpression>, status: MutPtr<UErrorCode>): Long =
+public actual fun uregexRegionEnd64(regexp: ConstPtr, status: MutPtr): Long =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUregexRegionEnd64(regexp.rawAddress, status.rawAddress)
 
-public actual fun uregexRegionStart(regexp: ConstPtr<URegularExpression>, status: MutPtr<UErrorCode>): Int =
+public actual fun uregexRegionStart(regexp: ConstPtr, status: MutPtr): Int =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUregexRegionStart(regexp.rawAddress, status.rawAddress)
 
-public actual fun uregexRegionStart64(regexp: ConstPtr<URegularExpression>, status: MutPtr<UErrorCode>): Long =
+public actual fun uregexRegionStart64(regexp: ConstPtr, status: MutPtr): Long =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUregexRegionStart64(regexp.rawAddress, status.rawAddress)
 
-public actual fun uregexReplaceAll(regexp: MutPtr<URegularExpression>, replacementtext: ConstPtr<UShort>, replacementlength: Int, destbuf: MutPtr<UShort>, destcapacity: Int, status: MutPtr<UErrorCode>): Int =
+public actual fun uregexReplaceAll(regexp: MutPtr, replacementtext: ConstPtr, replacementlength: Int, destbuf: MutPtr, destcapacity: Int, status: MutPtr): Int =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUregexReplaceAll(regexp.rawAddress, replacementtext.rawAddress, replacementlength, destbuf.rawAddress, destcapacity, status.rawAddress)
 
-public actual fun uregexReplaceAllUtext(regexp: MutPtr<URegularExpression>, replacement: MutPtr<UText>, dest: MutPtr<UText>, status: MutPtr<UErrorCode>): MutPtr<UText> =
+public actual fun uregexReplaceAllUtext(regexp: MutPtr, replacement: MutPtr, dest: MutPtr, status: MutPtr): MutPtr =
     MutPtr(WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUregexReplaceAllUtext(regexp.rawAddress, replacement.rawAddress, dest.rawAddress, status.rawAddress))
 
-public actual fun uregexReplaceFirst(regexp: MutPtr<URegularExpression>, replacementtext: ConstPtr<UShort>, replacementlength: Int, destbuf: MutPtr<UShort>, destcapacity: Int, status: MutPtr<UErrorCode>): Int =
+public actual fun uregexReplaceFirst(regexp: MutPtr, replacementtext: ConstPtr, replacementlength: Int, destbuf: MutPtr, destcapacity: Int, status: MutPtr): Int =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUregexReplaceFirst(regexp.rawAddress, replacementtext.rawAddress, replacementlength, destbuf.rawAddress, destcapacity, status.rawAddress)
 
-public actual fun uregexReplaceFirstUtext(regexp: MutPtr<URegularExpression>, replacement: MutPtr<UText>, dest: MutPtr<UText>, status: MutPtr<UErrorCode>): MutPtr<UText> =
+public actual fun uregexReplaceFirstUtext(regexp: MutPtr, replacement: MutPtr, dest: MutPtr, status: MutPtr): MutPtr =
     MutPtr(WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUregexReplaceFirstUtext(regexp.rawAddress, replacement.rawAddress, dest.rawAddress, status.rawAddress))
 
-public actual fun uregexRequireEnd(regexp: ConstPtr<URegularExpression>, status: MutPtr<UErrorCode>): Byte =
+public actual fun uregexRequireEnd(regexp: ConstPtr, status: MutPtr): Byte =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUregexRequireEnd(regexp.rawAddress, status.rawAddress)
 
-public actual fun uregexReset(regexp: MutPtr<URegularExpression>, index: Int, status: MutPtr<UErrorCode>) {
+public actual fun uregexReset(regexp: MutPtr, index: Int, status: MutPtr) {
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUregexReset(regexp.rawAddress, index, status.rawAddress)
 }
 
-public actual fun uregexReset64(regexp: MutPtr<URegularExpression>, index: Long, status: MutPtr<UErrorCode>) {
+public actual fun uregexReset64(regexp: MutPtr, index: Long, status: MutPtr) {
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUregexReset64(regexp.rawAddress, index, status.rawAddress)
 }
 
-public actual fun uregexSetFindProgressCallback(regexp: MutPtr<URegularExpression>, callback: URegexFindProgressCallback, context: ConstPtr<CVoid>, status: MutPtr<UErrorCode>) {
+public actual fun uregexSetFindProgressCallback(regexp: MutPtr, callback: URegexFindProgressCallback, context: ConstPtr, status: MutPtr) {
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUregexSetFindProgressCallback(regexp.rawAddress, 0L, context.rawAddress, status.rawAddress)
 }
 
-public actual fun uregexSetMatchCallback(regexp: MutPtr<URegularExpression>, callback: URegexMatchCallback, context: ConstPtr<CVoid>, status: MutPtr<UErrorCode>) {
+public actual fun uregexSetMatchCallback(regexp: MutPtr, callback: URegexMatchCallback, context: ConstPtr, status: MutPtr) {
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUregexSetMatchCallback(regexp.rawAddress, 0L, context.rawAddress, status.rawAddress)
 }
 
-public actual fun uregexSetRegion(regexp: MutPtr<URegularExpression>, regionstart: Int, regionlimit: Int, status: MutPtr<UErrorCode>) {
+public actual fun uregexSetRegion(regexp: MutPtr, regionstart: Int, regionlimit: Int, status: MutPtr) {
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUregexSetRegion(regexp.rawAddress, regionstart, regionlimit, status.rawAddress)
 }
 
-public actual fun uregexSetRegion64(regexp: MutPtr<URegularExpression>, regionstart: Long, regionlimit: Long, status: MutPtr<UErrorCode>) {
+public actual fun uregexSetRegion64(regexp: MutPtr, regionstart: Long, regionlimit: Long, status: MutPtr) {
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUregexSetRegion64(regexp.rawAddress, regionstart, regionlimit, status.rawAddress)
 }
 
-public actual fun uregexSetRegionAndStart(regexp: MutPtr<URegularExpression>, regionstart: Long, regionlimit: Long, startindex: Long, status: MutPtr<UErrorCode>) {
+public actual fun uregexSetRegionAndStart(regexp: MutPtr, regionstart: Long, regionlimit: Long, startindex: Long, status: MutPtr) {
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUregexSetRegionAndStart(regexp.rawAddress, regionstart, regionlimit, startindex, status.rawAddress)
 }
 
-public actual fun uregexSetStackLimit(regexp: MutPtr<URegularExpression>, limit: Int, status: MutPtr<UErrorCode>) {
+public actual fun uregexSetStackLimit(regexp: MutPtr, limit: Int, status: MutPtr) {
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUregexSetStackLimit(regexp.rawAddress, limit, status.rawAddress)
 }
 
-public actual fun uregexSetText(regexp: MutPtr<URegularExpression>, text: ConstPtr<UShort>, textlength: Int, status: MutPtr<UErrorCode>) {
+public actual fun uregexSetText(regexp: MutPtr, text: ConstPtr, textlength: Int, status: MutPtr) {
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUregexSetText(regexp.rawAddress, text.rawAddress, textlength, status.rawAddress)
 }
 
-public actual fun uregexSetTimeLimit(regexp: MutPtr<URegularExpression>, limit: Int, status: MutPtr<UErrorCode>) {
+public actual fun uregexSetTimeLimit(regexp: MutPtr, limit: Int, status: MutPtr) {
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUregexSetTimeLimit(regexp.rawAddress, limit, status.rawAddress)
 }
 
-public actual fun uregexSetUtext(regexp: MutPtr<URegularExpression>, text: MutPtr<UText>, status: MutPtr<UErrorCode>) {
+public actual fun uregexSetUtext(regexp: MutPtr, text: MutPtr, status: MutPtr) {
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUregexSetUtext(regexp.rawAddress, text.rawAddress, status.rawAddress)
 }
 
-public actual fun uregexSplit(regexp: MutPtr<URegularExpression>, destbuf: MutPtr<UShort>, destcapacity: Int, requiredcapacity: MutPtr<Int>, destfields: MutPtr<MutPtr<UShort>>, destfieldscapacity: Int, status: MutPtr<UErrorCode>): Int =
+public actual fun uregexSplit(regexp: MutPtr, destbuf: MutPtr, destcapacity: Int, requiredcapacity: MutPtr, destfields: MutPtr, destfieldscapacity: Int, status: MutPtr): Int =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUregexSplit(regexp.rawAddress, destbuf.rawAddress, destcapacity, requiredcapacity.rawAddress, destfields.rawAddress, destfieldscapacity, status.rawAddress)
 
-public actual fun uregexSplitUtext(regexp: MutPtr<URegularExpression>, destfields: MutPtr<MutPtr<UText>>, destfieldscapacity: Int, status: MutPtr<UErrorCode>): Int =
+public actual fun uregexSplitUtext(regexp: MutPtr, destfields: MutPtr, destfieldscapacity: Int, status: MutPtr): Int =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUregexSplitUtext(regexp.rawAddress, destfields.rawAddress, destfieldscapacity, status.rawAddress)
 
-public actual fun uregexStart(regexp: MutPtr<URegularExpression>, groupnum: Int, status: MutPtr<UErrorCode>): Int =
+public actual fun uregexStart(regexp: MutPtr, groupnum: Int, status: MutPtr): Int =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUregexStart(regexp.rawAddress, groupnum, status.rawAddress)
 
-public actual fun uregexStart64(regexp: MutPtr<URegularExpression>, groupnum: Int, status: MutPtr<UErrorCode>): Long =
+public actual fun uregexStart64(regexp: MutPtr, groupnum: Int, status: MutPtr): Long =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUregexStart64(regexp.rawAddress, groupnum, status.rawAddress)
 
-public actual fun uregexUseAnchoringBounds(regexp: MutPtr<URegularExpression>, b: Byte, status: MutPtr<UErrorCode>) {
+public actual fun uregexUseAnchoringBounds(regexp: MutPtr, b: Byte, status: MutPtr) {
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUregexUseAnchoringBounds(regexp.rawAddress, b, status.rawAddress)
 }
 
-public actual fun uregexUseTransparentBounds(regexp: MutPtr<URegularExpression>, b: Byte, status: MutPtr<UErrorCode>) {
+public actual fun uregexUseTransparentBounds(regexp: MutPtr, b: Byte, status: MutPtr) {
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUregexUseTransparentBounds(regexp.rawAddress, b, status.rawAddress)
 }
 
-public actual fun uregionAreEqual(uregion: ConstPtr<URegion>, otherregion: ConstPtr<URegion>): Byte =
+public actual fun uregionAreEqual(uregion: ConstPtr, otherregion: ConstPtr): Byte =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUregionAreEqual(uregion.rawAddress, otherregion.rawAddress)
 
-public actual fun uregionContains(uregion: ConstPtr<URegion>, otherregion: ConstPtr<URegion>): Byte =
+public actual fun uregionContains(uregion: ConstPtr, otherregion: ConstPtr): Byte =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUregionContains(uregion.rawAddress, otherregion.rawAddress)
 
-public actual fun uregionGetAvailable(type: URegionType, status: MutPtr<UErrorCode>): MutPtr<UEnumeration> =
+public actual fun uregionGetAvailable(type: URegionType, status: MutPtr): MutPtr =
     MutPtr(WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUregionGetAvailable(type, status.rawAddress))
 
-public actual fun uregionGetContainedRegions(uregion: ConstPtr<URegion>, status: MutPtr<UErrorCode>): MutPtr<UEnumeration> =
+public actual fun uregionGetContainedRegions(uregion: ConstPtr, status: MutPtr): MutPtr =
     MutPtr(WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUregionGetContainedRegions(uregion.rawAddress, status.rawAddress))
 
-public actual fun uregionGetContainedRegionsOfType(uregion: ConstPtr<URegion>, type: URegionType, status: MutPtr<UErrorCode>): MutPtr<UEnumeration> =
+public actual fun uregionGetContainedRegionsOfType(uregion: ConstPtr, type: URegionType, status: MutPtr): MutPtr =
     MutPtr(WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUregionGetContainedRegionsOfType(uregion.rawAddress, type, status.rawAddress))
 
-public actual fun uregionGetContainingRegion(uregion: ConstPtr<URegion>): MutPtr<URegion> =
+public actual fun uregionGetContainingRegion(uregion: ConstPtr): MutPtr =
     MutPtr(WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUregionGetContainingRegion(uregion.rawAddress))
 
-public actual fun uregionGetContainingRegionOfType(uregion: ConstPtr<URegion>, type: URegionType): MutPtr<URegion> =
+public actual fun uregionGetContainingRegionOfType(uregion: ConstPtr, type: URegionType): MutPtr =
     MutPtr(WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUregionGetContainingRegionOfType(uregion.rawAddress, type))
 
-public actual fun uregionGetNumericCode(uregion: ConstPtr<URegion>): Int =
+public actual fun uregionGetNumericCode(uregion: ConstPtr): Int =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUregionGetNumericCode(uregion.rawAddress)
 
-public actual fun uregionGetPreferredValues(uregion: ConstPtr<URegion>, status: MutPtr<UErrorCode>): MutPtr<UEnumeration> =
+public actual fun uregionGetPreferredValues(uregion: ConstPtr, status: MutPtr): MutPtr =
     MutPtr(WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUregionGetPreferredValues(uregion.rawAddress, status.rawAddress))
 
-public actual fun uregionGetRegionCode(uregion: ConstPtr<URegion>): Pcstr =
+public actual fun uregionGetRegionCode(uregion: ConstPtr): Pcstr =
     ConstPtr(WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUregionGetRegionCode(uregion.rawAddress))
 
-public actual fun uregionGetRegionFromCode(regioncode: Pcstr, status: MutPtr<UErrorCode>): MutPtr<URegion> =
+public actual fun uregionGetRegionFromCode(regioncode: Pcstr, status: MutPtr): MutPtr =
     MutPtr(WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUregionGetRegionFromCode(regioncode.rawAddress, status.rawAddress))
 
-public actual fun uregionGetRegionFromNumericCode(code: Int, status: MutPtr<UErrorCode>): MutPtr<URegion> =
+public actual fun uregionGetRegionFromNumericCode(code: Int, status: MutPtr): MutPtr =
     MutPtr(WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUregionGetRegionFromNumericCode(code, status.rawAddress))
 
-public actual fun uregionGetType(uregion: ConstPtr<URegion>): URegionType =
+public actual fun uregionGetType(uregion: ConstPtr): URegionType =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUregionGetType(uregion.rawAddress)
 
-public actual fun ureldatefmtClose(reldatefmt: MutPtr<URelativeDateTimeFormatter>) {
+public actual fun ureldatefmtClose(reldatefmt: MutPtr) {
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUreldatefmtClose(reldatefmt.rawAddress)
 }
 
-public actual fun ureldatefmtCloseResult(ufrdt: MutPtr<UFormattedRelativeDateTime>) {
+public actual fun ureldatefmtCloseResult(ufrdt: MutPtr) {
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUreldatefmtCloseResult(ufrdt.rawAddress)
 }
 
-public actual fun ureldatefmtCombineDateAndTime(reldatefmt: ConstPtr<URelativeDateTimeFormatter>, relativedatestring: ConstPtr<UShort>, relativedatestringlen: Int, timestring: ConstPtr<UShort>, timestringlen: Int, result: MutPtr<UShort>, resultcapacity: Int, status: MutPtr<UErrorCode>): Int =
+public actual fun ureldatefmtCombineDateAndTime(reldatefmt: ConstPtr, relativedatestring: ConstPtr, relativedatestringlen: Int, timestring: ConstPtr, timestringlen: Int, result: MutPtr, resultcapacity: Int, status: MutPtr): Int =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUreldatefmtCombineDateAndTime(reldatefmt.rawAddress, relativedatestring.rawAddress, relativedatestringlen, timestring.rawAddress, timestringlen, result.rawAddress, resultcapacity, status.rawAddress)
 
-public actual fun ureldatefmtFormat(reldatefmt: ConstPtr<URelativeDateTimeFormatter>, offset: Double, unit: URelativeDateTimeUnit, result: MutPtr<UShort>, resultcapacity: Int, status: MutPtr<UErrorCode>): Int =
+public actual fun ureldatefmtFormat(reldatefmt: ConstPtr, offset: Double, unit: URelativeDateTimeUnit, result: MutPtr, resultcapacity: Int, status: MutPtr): Int =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUreldatefmtFormat(reldatefmt.rawAddress, offset, unit, result.rawAddress, resultcapacity, status.rawAddress)
 
-public actual fun ureldatefmtFormatNumeric(reldatefmt: ConstPtr<URelativeDateTimeFormatter>, offset: Double, unit: URelativeDateTimeUnit, result: MutPtr<UShort>, resultcapacity: Int, status: MutPtr<UErrorCode>): Int =
+public actual fun ureldatefmtFormatNumeric(reldatefmt: ConstPtr, offset: Double, unit: URelativeDateTimeUnit, result: MutPtr, resultcapacity: Int, status: MutPtr): Int =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUreldatefmtFormatNumeric(reldatefmt.rawAddress, offset, unit, result.rawAddress, resultcapacity, status.rawAddress)
 
-public actual fun ureldatefmtFormatNumericToResult(reldatefmt: ConstPtr<URelativeDateTimeFormatter>, offset: Double, unit: URelativeDateTimeUnit, result: MutPtr<UFormattedRelativeDateTime>, status: MutPtr<UErrorCode>) {
+public actual fun ureldatefmtFormatNumericToResult(reldatefmt: ConstPtr, offset: Double, unit: URelativeDateTimeUnit, result: MutPtr, status: MutPtr) {
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUreldatefmtFormatNumericToResult(reldatefmt.rawAddress, offset, unit, result.rawAddress, status.rawAddress)
 }
 
-public actual fun ureldatefmtFormatToResult(reldatefmt: ConstPtr<URelativeDateTimeFormatter>, offset: Double, unit: URelativeDateTimeUnit, result: MutPtr<UFormattedRelativeDateTime>, status: MutPtr<UErrorCode>) {
+public actual fun ureldatefmtFormatToResult(reldatefmt: ConstPtr, offset: Double, unit: URelativeDateTimeUnit, result: MutPtr, status: MutPtr) {
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUreldatefmtFormatToResult(reldatefmt.rawAddress, offset, unit, result.rawAddress, status.rawAddress)
 }
 
-public actual fun ureldatefmtOpen(locale: Pcstr, nftoadopt: MutPtr<MutPtr<CVoid>>, width: UDateRelativeDateTimeFormatterStyle, capitalizationcontext: UDisplayContext, status: MutPtr<UErrorCode>): MutPtr<URelativeDateTimeFormatter> =
+public actual fun ureldatefmtOpen(locale: Pcstr, nftoadopt: MutPtr, width: UDateRelativeDateTimeFormatterStyle, capitalizationcontext: UDisplayContext, status: MutPtr): MutPtr =
     MutPtr(WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUreldatefmtOpen(locale.rawAddress, nftoadopt.rawAddress, width, capitalizationcontext, status.rawAddress))
 
-public actual fun ureldatefmtOpenResult(ec: MutPtr<UErrorCode>): MutPtr<UFormattedRelativeDateTime> =
+public actual fun ureldatefmtOpenResult(ec: MutPtr): MutPtr =
     MutPtr(WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUreldatefmtOpenResult(ec.rawAddress))
 
-public actual fun ureldatefmtResultAsValue(ufrdt: ConstPtr<UFormattedRelativeDateTime>, ec: MutPtr<UErrorCode>): MutPtr<UFormattedValue> =
+public actual fun ureldatefmtResultAsValue(ufrdt: ConstPtr, ec: MutPtr): MutPtr =
     MutPtr(WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUreldatefmtResultAsValue(ufrdt.rawAddress, ec.rawAddress))
 
-public actual fun uresClose(resourcebundle: MutPtr<UResourceBundle>) {
+public actual fun uresClose(resourcebundle: MutPtr) {
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUresClose(resourcebundle.rawAddress)
 }
 
-public actual fun uresGetBinary(resourcebundle: ConstPtr<UResourceBundle>, len: MutPtr<Int>, status: MutPtr<UErrorCode>): MutPtr<UByte> =
+public actual fun uresGetBinary(resourcebundle: ConstPtr, len: MutPtr, status: MutPtr): MutPtr =
     MutPtr(WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUresGetBinary(resourcebundle.rawAddress, len.rawAddress, status.rawAddress))
 
-public actual fun uresGetByIndex(resourcebundle: ConstPtr<UResourceBundle>, indexr: Int, fillin: MutPtr<UResourceBundle>, status: MutPtr<UErrorCode>): MutPtr<UResourceBundle> =
+public actual fun uresGetByIndex(resourcebundle: ConstPtr, indexr: Int, fillin: MutPtr, status: MutPtr): MutPtr =
     MutPtr(WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUresGetByIndex(resourcebundle.rawAddress, indexr, fillin.rawAddress, status.rawAddress))
 
-public actual fun uresGetByKey(resourcebundle: ConstPtr<UResourceBundle>, key: Pcstr, fillin: MutPtr<UResourceBundle>, status: MutPtr<UErrorCode>): MutPtr<UResourceBundle> =
+public actual fun uresGetByKey(resourcebundle: ConstPtr, key: Pcstr, fillin: MutPtr, status: MutPtr): MutPtr =
     MutPtr(WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUresGetByKey(resourcebundle.rawAddress, key.rawAddress, fillin.rawAddress, status.rawAddress))
 
-public actual fun uresGetInt(resourcebundle: ConstPtr<UResourceBundle>, status: MutPtr<UErrorCode>): Int =
+public actual fun uresGetInt(resourcebundle: ConstPtr, status: MutPtr): Int =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUresGetInt(resourcebundle.rawAddress, status.rawAddress)
 
-public actual fun uresGetIntVector(resourcebundle: ConstPtr<UResourceBundle>, len: MutPtr<Int>, status: MutPtr<UErrorCode>): MutPtr<Int> =
+public actual fun uresGetIntVector(resourcebundle: ConstPtr, len: MutPtr, status: MutPtr): MutPtr =
     MutPtr(WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUresGetIntVector(resourcebundle.rawAddress, len.rawAddress, status.rawAddress))
 
-public actual fun uresGetKey(resourcebundle: ConstPtr<UResourceBundle>): Pcstr =
+public actual fun uresGetKey(resourcebundle: ConstPtr): Pcstr =
     ConstPtr(WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUresGetKey(resourcebundle.rawAddress))
 
-public actual fun uresGetLocaleByType(resourcebundle: ConstPtr<UResourceBundle>, type: ULocDataLocaleType, status: MutPtr<UErrorCode>): Pcstr =
+public actual fun uresGetLocaleByType(resourcebundle: ConstPtr, type: ULocDataLocaleType, status: MutPtr): Pcstr =
     ConstPtr(WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUresGetLocaleByType(resourcebundle.rawAddress, type, status.rawAddress))
 
-public actual fun uresGetNextResource(resourcebundle: MutPtr<UResourceBundle>, fillin: MutPtr<UResourceBundle>, status: MutPtr<UErrorCode>): MutPtr<UResourceBundle> =
+public actual fun uresGetNextResource(resourcebundle: MutPtr, fillin: MutPtr, status: MutPtr): MutPtr =
     MutPtr(WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUresGetNextResource(resourcebundle.rawAddress, fillin.rawAddress, status.rawAddress))
 
-public actual fun uresGetNextString(resourcebundle: MutPtr<UResourceBundle>, len: MutPtr<Int>, key: ConstPtr<ConstPtr<Byte>>, status: MutPtr<UErrorCode>): MutPtr<UShort> =
+public actual fun uresGetNextString(resourcebundle: MutPtr, len: MutPtr, key: ConstPtr, status: MutPtr): MutPtr =
     MutPtr(WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUresGetNextString(resourcebundle.rawAddress, len.rawAddress, key.rawAddress, status.rawAddress))
 
-public actual fun uresGetSize(resourcebundle: ConstPtr<UResourceBundle>): Int =
+public actual fun uresGetSize(resourcebundle: ConstPtr): Int =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUresGetSize(resourcebundle.rawAddress)
 
-public actual fun uresGetString(resourcebundle: ConstPtr<UResourceBundle>, len: MutPtr<Int>, status: MutPtr<UErrorCode>): MutPtr<UShort> =
+public actual fun uresGetString(resourcebundle: ConstPtr, len: MutPtr, status: MutPtr): MutPtr =
     MutPtr(WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUresGetString(resourcebundle.rawAddress, len.rawAddress, status.rawAddress))
 
-public actual fun uresGetStringByIndex(resourcebundle: ConstPtr<UResourceBundle>, indexs: Int, len: MutPtr<Int>, status: MutPtr<UErrorCode>): MutPtr<UShort> =
+public actual fun uresGetStringByIndex(resourcebundle: ConstPtr, indexs: Int, len: MutPtr, status: MutPtr): MutPtr =
     MutPtr(WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUresGetStringByIndex(resourcebundle.rawAddress, indexs, len.rawAddress, status.rawAddress))
 
-public actual fun uresGetStringByKey(resb: ConstPtr<UResourceBundle>, key: Pcstr, len: MutPtr<Int>, status: MutPtr<UErrorCode>): MutPtr<UShort> =
+public actual fun uresGetStringByKey(resb: ConstPtr, key: Pcstr, len: MutPtr, status: MutPtr): MutPtr =
     MutPtr(WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUresGetStringByKey(resb.rawAddress, key.rawAddress, len.rawAddress, status.rawAddress))
 
-public actual fun uresGetType(resourcebundle: ConstPtr<UResourceBundle>): UResType =
+public actual fun uresGetType(resourcebundle: ConstPtr): UResType =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUresGetType(resourcebundle.rawAddress)
 
-public actual fun uresGetUint(resourcebundle: ConstPtr<UResourceBundle>, status: MutPtr<UErrorCode>): UInt =
+public actual fun uresGetUint(resourcebundle: ConstPtr, status: MutPtr): UInt =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUresGetUint(resourcebundle.rawAddress, status.rawAddress).toUInt()
 
-public actual fun uresGetUtf8String(resb: ConstPtr<UResourceBundle>, dest: Pcstr, length: MutPtr<Int>, forcecopy: Byte, status: MutPtr<UErrorCode>): Pcstr =
+public actual fun uresGetUtf8String(resb: ConstPtr, dest: Pcstr, length: MutPtr, forcecopy: Byte, status: MutPtr): Pcstr =
     ConstPtr(WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUresGetUtf8String(resb.rawAddress, dest.rawAddress, length.rawAddress, forcecopy, status.rawAddress))
 
-public actual fun uresGetUtf8StringByIndex(resb: ConstPtr<UResourceBundle>, stringindex: Int, dest: Pcstr, plength: MutPtr<Int>, forcecopy: Byte, status: MutPtr<UErrorCode>): Pcstr =
+public actual fun uresGetUtf8StringByIndex(resb: ConstPtr, stringindex: Int, dest: Pcstr, plength: MutPtr, forcecopy: Byte, status: MutPtr): Pcstr =
     ConstPtr(WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUresGetUtf8StringByIndex(resb.rawAddress, stringindex, dest.rawAddress, plength.rawAddress, forcecopy, status.rawAddress))
 
-public actual fun uresGetUtf8StringByKey(resb: ConstPtr<UResourceBundle>, key: Pcstr, dest: Pcstr, plength: MutPtr<Int>, forcecopy: Byte, status: MutPtr<UErrorCode>): Pcstr =
+public actual fun uresGetUtf8StringByKey(resb: ConstPtr, key: Pcstr, dest: Pcstr, plength: MutPtr, forcecopy: Byte, status: MutPtr): Pcstr =
     ConstPtr(WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUresGetUtf8StringByKey(resb.rawAddress, key.rawAddress, dest.rawAddress, plength.rawAddress, forcecopy, status.rawAddress))
 
-public actual fun uresGetVersion(resb: ConstPtr<UResourceBundle>, versioninfo: MutPtr<UByte>) {
+public actual fun uresGetVersion(resb: ConstPtr, versioninfo: MutPtr) {
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUresGetVersion(resb.rawAddress, versioninfo.rawAddress)
 }
 
-public actual fun uresHasNext(resourcebundle: ConstPtr<UResourceBundle>): Byte =
+public actual fun uresHasNext(resourcebundle: ConstPtr): Byte =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUresHasNext(resourcebundle.rawAddress)
 
-public actual fun uresOpen(packagename: Pcstr, locale: Pcstr, status: MutPtr<UErrorCode>): MutPtr<UResourceBundle> =
+public actual fun uresOpen(packagename: Pcstr, locale: Pcstr, status: MutPtr): MutPtr =
     MutPtr(WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUresOpen(packagename.rawAddress, locale.rawAddress, status.rawAddress))
 
-public actual fun uresOpenAvailableLocales(packagename: Pcstr, status: MutPtr<UErrorCode>): MutPtr<UEnumeration> =
+public actual fun uresOpenAvailableLocales(packagename: Pcstr, status: MutPtr): MutPtr =
     MutPtr(WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUresOpenAvailableLocales(packagename.rawAddress, status.rawAddress))
 
-public actual fun uresOpenDirect(packagename: Pcstr, locale: Pcstr, status: MutPtr<UErrorCode>): MutPtr<UResourceBundle> =
+public actual fun uresOpenDirect(packagename: Pcstr, locale: Pcstr, status: MutPtr): MutPtr =
     MutPtr(WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUresOpenDirect(packagename.rawAddress, locale.rawAddress, status.rawAddress))
 
-public actual fun uresOpenU(packagename: ConstPtr<UShort>, locale: Pcstr, status: MutPtr<UErrorCode>): MutPtr<UResourceBundle> =
+public actual fun uresOpenU(packagename: ConstPtr, locale: Pcstr, status: MutPtr): MutPtr =
     MutPtr(WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUresOpenU(packagename.rawAddress, locale.rawAddress, status.rawAddress))
 
-public actual fun uresResetIterator(resourcebundle: MutPtr<UResourceBundle>) {
+public actual fun uresResetIterator(resourcebundle: MutPtr) {
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUresResetIterator(resourcebundle.rawAddress)
 }
 
 public actual fun uscriptBreaksBetweenLetters(script: UScriptCode): Byte =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUscriptBreaksBetweenLetters(script)
 
-public actual fun uscriptGetCode(nameorabbrorlocale: Pcstr, fillin: MutPtr<UScriptCode>, capacity: Int, err: MutPtr<UErrorCode>): Int =
+public actual fun uscriptGetCode(nameorabbrorlocale: Pcstr, fillin: MutPtr, capacity: Int, err: MutPtr): Int =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUscriptGetCode(nameorabbrorlocale.rawAddress, fillin.rawAddress, capacity, err.rawAddress)
 
 public actual fun uscriptGetName(scriptcode: UScriptCode): Pcstr =
     ConstPtr(WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUscriptGetName(scriptcode))
 
-public actual fun uscriptGetSampleString(script: UScriptCode, dest: MutPtr<UShort>, capacity: Int, perrorcode: MutPtr<UErrorCode>): Int =
+public actual fun uscriptGetSampleString(script: UScriptCode, dest: MutPtr, capacity: Int, perrorcode: MutPtr): Int =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUscriptGetSampleString(script, dest.rawAddress, capacity, perrorcode.rawAddress)
 
-public actual fun uscriptGetScript(codepoint: Int, err: MutPtr<UErrorCode>): UScriptCode =
+public actual fun uscriptGetScript(codepoint: Int, err: MutPtr): UScriptCode =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUscriptGetScript(codepoint, err.rawAddress)
 
-public actual fun uscriptGetScriptExtensions(c: Int, scripts: MutPtr<UScriptCode>, capacity: Int, errorcode: MutPtr<UErrorCode>): Int =
+public actual fun uscriptGetScriptExtensions(c: Int, scripts: MutPtr, capacity: Int, errorcode: MutPtr): Int =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUscriptGetScriptExtensions(c, scripts.rawAddress, capacity, errorcode.rawAddress)
 
 public actual fun uscriptGetShortName(scriptcode: UScriptCode): Pcstr =
@@ -7094,480 +7089,480 @@ public actual fun uscriptIsCased(script: UScriptCode): Byte =
 public actual fun uscriptIsRightToLeft(script: UScriptCode): Byte =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUscriptIsRightToLeft(script)
 
-public actual fun usearchClose(searchiter: MutPtr<UStringSearch>) {
+public actual fun usearchClose(searchiter: MutPtr) {
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUsearchClose(searchiter.rawAddress)
 }
 
-public actual fun usearchFirst(strsrch: MutPtr<UStringSearch>, status: MutPtr<UErrorCode>): Int =
+public actual fun usearchFirst(strsrch: MutPtr, status: MutPtr): Int =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUsearchFirst(strsrch.rawAddress, status.rawAddress)
 
-public actual fun usearchFollowing(strsrch: MutPtr<UStringSearch>, position: Int, status: MutPtr<UErrorCode>): Int =
+public actual fun usearchFollowing(strsrch: MutPtr, position: Int, status: MutPtr): Int =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUsearchFollowing(strsrch.rawAddress, position, status.rawAddress)
 
-public actual fun usearchGetAttribute(strsrch: ConstPtr<UStringSearch>, attribute: USearchAttribute): USearchAttributeValue =
+public actual fun usearchGetAttribute(strsrch: ConstPtr, attribute: USearchAttribute): USearchAttributeValue =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUsearchGetAttribute(strsrch.rawAddress, attribute)
 
-public actual fun usearchGetBreakIterator(strsrch: ConstPtr<UStringSearch>): MutPtr<UBreakIterator> =
+public actual fun usearchGetBreakIterator(strsrch: ConstPtr): MutPtr =
     MutPtr(WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUsearchGetBreakIterator(strsrch.rawAddress))
 
-public actual fun usearchGetCollator(strsrch: ConstPtr<UStringSearch>): MutPtr<UCollator> =
+public actual fun usearchGetCollator(strsrch: ConstPtr): MutPtr =
     MutPtr(WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUsearchGetCollator(strsrch.rawAddress))
 
-public actual fun usearchGetMatchedLength(strsrch: ConstPtr<UStringSearch>): Int =
+public actual fun usearchGetMatchedLength(strsrch: ConstPtr): Int =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUsearchGetMatchedLength(strsrch.rawAddress)
 
-public actual fun usearchGetMatchedStart(strsrch: ConstPtr<UStringSearch>): Int =
+public actual fun usearchGetMatchedStart(strsrch: ConstPtr): Int =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUsearchGetMatchedStart(strsrch.rawAddress)
 
-public actual fun usearchGetMatchedText(strsrch: ConstPtr<UStringSearch>, result: MutPtr<UShort>, resultcapacity: Int, status: MutPtr<UErrorCode>): Int =
+public actual fun usearchGetMatchedText(strsrch: ConstPtr, result: MutPtr, resultcapacity: Int, status: MutPtr): Int =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUsearchGetMatchedText(strsrch.rawAddress, result.rawAddress, resultcapacity, status.rawAddress)
 
-public actual fun usearchGetOffset(strsrch: ConstPtr<UStringSearch>): Int =
+public actual fun usearchGetOffset(strsrch: ConstPtr): Int =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUsearchGetOffset(strsrch.rawAddress)
 
-public actual fun usearchGetPattern(strsrch: ConstPtr<UStringSearch>, length: MutPtr<Int>): MutPtr<UShort> =
+public actual fun usearchGetPattern(strsrch: ConstPtr, length: MutPtr): MutPtr =
     MutPtr(WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUsearchGetPattern(strsrch.rawAddress, length.rawAddress))
 
-public actual fun usearchGetText(strsrch: ConstPtr<UStringSearch>, length: MutPtr<Int>): MutPtr<UShort> =
+public actual fun usearchGetText(strsrch: ConstPtr, length: MutPtr): MutPtr =
     MutPtr(WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUsearchGetText(strsrch.rawAddress, length.rawAddress))
 
-public actual fun usearchLast(strsrch: MutPtr<UStringSearch>, status: MutPtr<UErrorCode>): Int =
+public actual fun usearchLast(strsrch: MutPtr, status: MutPtr): Int =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUsearchLast(strsrch.rawAddress, status.rawAddress)
 
-public actual fun usearchNext(strsrch: MutPtr<UStringSearch>, status: MutPtr<UErrorCode>): Int =
+public actual fun usearchNext(strsrch: MutPtr, status: MutPtr): Int =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUsearchNext(strsrch.rawAddress, status.rawAddress)
 
-public actual fun usearchOpen(pattern: ConstPtr<UShort>, patternlength: Int, text: ConstPtr<UShort>, textlength: Int, locale: Pcstr, breakiter: MutPtr<UBreakIterator>, status: MutPtr<UErrorCode>): MutPtr<UStringSearch> =
+public actual fun usearchOpen(pattern: ConstPtr, patternlength: Int, text: ConstPtr, textlength: Int, locale: Pcstr, breakiter: MutPtr, status: MutPtr): MutPtr =
     MutPtr(WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUsearchOpen(pattern.rawAddress, patternlength, text.rawAddress, textlength, locale.rawAddress, breakiter.rawAddress, status.rawAddress))
 
-public actual fun usearchOpenFromCollator(pattern: ConstPtr<UShort>, patternlength: Int, text: ConstPtr<UShort>, textlength: Int, collator: ConstPtr<UCollator>, breakiter: MutPtr<UBreakIterator>, status: MutPtr<UErrorCode>): MutPtr<UStringSearch> =
+public actual fun usearchOpenFromCollator(pattern: ConstPtr, patternlength: Int, text: ConstPtr, textlength: Int, collator: ConstPtr, breakiter: MutPtr, status: MutPtr): MutPtr =
     MutPtr(WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUsearchOpenFromCollator(pattern.rawAddress, patternlength, text.rawAddress, textlength, collator.rawAddress, breakiter.rawAddress, status.rawAddress))
 
-public actual fun usearchPreceding(strsrch: MutPtr<UStringSearch>, position: Int, status: MutPtr<UErrorCode>): Int =
+public actual fun usearchPreceding(strsrch: MutPtr, position: Int, status: MutPtr): Int =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUsearchPreceding(strsrch.rawAddress, position, status.rawAddress)
 
-public actual fun usearchPrevious(strsrch: MutPtr<UStringSearch>, status: MutPtr<UErrorCode>): Int =
+public actual fun usearchPrevious(strsrch: MutPtr, status: MutPtr): Int =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUsearchPrevious(strsrch.rawAddress, status.rawAddress)
 
-public actual fun usearchReset(strsrch: MutPtr<UStringSearch>) {
+public actual fun usearchReset(strsrch: MutPtr) {
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUsearchReset(strsrch.rawAddress)
 }
 
-public actual fun usearchSetAttribute(strsrch: MutPtr<UStringSearch>, attribute: USearchAttribute, value: USearchAttributeValue, status: MutPtr<UErrorCode>) {
+public actual fun usearchSetAttribute(strsrch: MutPtr, attribute: USearchAttribute, value: USearchAttributeValue, status: MutPtr) {
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUsearchSetAttribute(strsrch.rawAddress, attribute, value, status.rawAddress)
 }
 
-public actual fun usearchSetBreakIterator(strsrch: MutPtr<UStringSearch>, breakiter: MutPtr<UBreakIterator>, status: MutPtr<UErrorCode>) {
+public actual fun usearchSetBreakIterator(strsrch: MutPtr, breakiter: MutPtr, status: MutPtr) {
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUsearchSetBreakIterator(strsrch.rawAddress, breakiter.rawAddress, status.rawAddress)
 }
 
-public actual fun usearchSetCollator(strsrch: MutPtr<UStringSearch>, collator: ConstPtr<UCollator>, status: MutPtr<UErrorCode>) {
+public actual fun usearchSetCollator(strsrch: MutPtr, collator: ConstPtr, status: MutPtr) {
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUsearchSetCollator(strsrch.rawAddress, collator.rawAddress, status.rawAddress)
 }
 
-public actual fun usearchSetOffset(strsrch: MutPtr<UStringSearch>, position: Int, status: MutPtr<UErrorCode>) {
+public actual fun usearchSetOffset(strsrch: MutPtr, position: Int, status: MutPtr) {
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUsearchSetOffset(strsrch.rawAddress, position, status.rawAddress)
 }
 
-public actual fun usearchSetPattern(strsrch: MutPtr<UStringSearch>, pattern: ConstPtr<UShort>, patternlength: Int, status: MutPtr<UErrorCode>) {
+public actual fun usearchSetPattern(strsrch: MutPtr, pattern: ConstPtr, patternlength: Int, status: MutPtr) {
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUsearchSetPattern(strsrch.rawAddress, pattern.rawAddress, patternlength, status.rawAddress)
 }
 
-public actual fun usearchSetText(strsrch: MutPtr<UStringSearch>, text: ConstPtr<UShort>, textlength: Int, status: MutPtr<UErrorCode>) {
+public actual fun usearchSetText(strsrch: MutPtr, text: ConstPtr, textlength: Int, status: MutPtr) {
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUsearchSetText(strsrch.rawAddress, text.rawAddress, textlength, status.rawAddress)
 }
 
-public actual fun usetAdd(set: MutPtr<USet>, c: Int) {
+public actual fun usetAdd(set: MutPtr, c: Int) {
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUsetAdd(set.rawAddress, c)
 }
 
-public actual fun usetAddAll(set: MutPtr<USet>, additionalset: ConstPtr<USet>) {
+public actual fun usetAddAll(set: MutPtr, additionalset: ConstPtr) {
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUsetAddAll(set.rawAddress, additionalset.rawAddress)
 }
 
-public actual fun usetAddAllCodePoints(set: MutPtr<USet>, str: ConstPtr<UShort>, strlen: Int) {
+public actual fun usetAddAllCodePoints(set: MutPtr, str: ConstPtr, strlen: Int) {
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUsetAddAllCodePoints(set.rawAddress, str.rawAddress, strlen)
 }
 
-public actual fun usetAddRange(set: MutPtr<USet>, start: Int, end: Int) {
+public actual fun usetAddRange(set: MutPtr, start: Int, end: Int) {
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUsetAddRange(set.rawAddress, start, end)
 }
 
-public actual fun usetAddString(set: MutPtr<USet>, str: ConstPtr<UShort>, strlen: Int) {
+public actual fun usetAddString(set: MutPtr, str: ConstPtr, strlen: Int) {
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUsetAddString(set.rawAddress, str.rawAddress, strlen)
 }
 
-public actual fun usetApplyIntPropertyValue(set: MutPtr<USet>, prop: UProperty, value: Int, ec: MutPtr<UErrorCode>) {
+public actual fun usetApplyIntPropertyValue(set: MutPtr, prop: UProperty, value: Int, ec: MutPtr) {
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUsetApplyIntPropertyValue(set.rawAddress, prop, value, ec.rawAddress)
 }
 
-public actual fun usetApplyPattern(set: MutPtr<USet>, pattern: ConstPtr<UShort>, patternlength: Int, options: UInt, status: MutPtr<UErrorCode>): Int =
+public actual fun usetApplyPattern(set: MutPtr, pattern: ConstPtr, patternlength: Int, options: UInt, status: MutPtr): Int =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUsetApplyPattern(set.rawAddress, pattern.rawAddress, patternlength, options.toInt(), status.rawAddress)
 
-public actual fun usetApplyPropertyAlias(set: MutPtr<USet>, prop: ConstPtr<UShort>, proplength: Int, value: ConstPtr<UShort>, valuelength: Int, ec: MutPtr<UErrorCode>) {
+public actual fun usetApplyPropertyAlias(set: MutPtr, prop: ConstPtr, proplength: Int, value: ConstPtr, valuelength: Int, ec: MutPtr) {
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUsetApplyPropertyAlias(set.rawAddress, prop.rawAddress, proplength, value.rawAddress, valuelength, ec.rawAddress)
 }
 
-public actual fun usetCharAt(set: ConstPtr<USet>, charindex: Int): Int =
+public actual fun usetCharAt(set: ConstPtr, charindex: Int): Int =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUsetCharAt(set.rawAddress, charindex)
 
-public actual fun usetClear(set: MutPtr<USet>) {
+public actual fun usetClear(set: MutPtr) {
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUsetClear(set.rawAddress)
 }
 
-public actual fun usetClone(set: ConstPtr<USet>): MutPtr<USet> =
+public actual fun usetClone(set: ConstPtr): MutPtr =
     MutPtr(WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUsetClone(set.rawAddress))
 
-public actual fun usetCloneAsThawed(set: ConstPtr<USet>): MutPtr<USet> =
+public actual fun usetCloneAsThawed(set: ConstPtr): MutPtr =
     MutPtr(WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUsetCloneAsThawed(set.rawAddress))
 
-public actual fun usetClose(set: MutPtr<USet>) {
+public actual fun usetClose(set: MutPtr) {
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUsetClose(set.rawAddress)
 }
 
-public actual fun usetCloseOver(set: MutPtr<USet>, attributes: Int) {
+public actual fun usetCloseOver(set: MutPtr, attributes: Int) {
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUsetCloseOver(set.rawAddress, attributes)
 }
 
-public actual fun usetCompact(set: MutPtr<USet>) {
+public actual fun usetCompact(set: MutPtr) {
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUsetCompact(set.rawAddress)
 }
 
-public actual fun usetComplement(set: MutPtr<USet>) {
+public actual fun usetComplement(set: MutPtr) {
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUsetComplement(set.rawAddress)
 }
 
-public actual fun usetComplementAll(set: MutPtr<USet>, complement: ConstPtr<USet>) {
+public actual fun usetComplementAll(set: MutPtr, complement: ConstPtr) {
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUsetComplementAll(set.rawAddress, complement.rawAddress)
 }
 
-public actual fun usetContains(set: ConstPtr<USet>, c: Int): Byte =
+public actual fun usetContains(set: ConstPtr, c: Int): Byte =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUsetContains(set.rawAddress, c)
 
-public actual fun usetContainsAll(set1: ConstPtr<USet>, set2: ConstPtr<USet>): Byte =
+public actual fun usetContainsAll(set1: ConstPtr, set2: ConstPtr): Byte =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUsetContainsAll(set1.rawAddress, set2.rawAddress)
 
-public actual fun usetContainsAllCodePoints(set: ConstPtr<USet>, str: ConstPtr<UShort>, strlen: Int): Byte =
+public actual fun usetContainsAllCodePoints(set: ConstPtr, str: ConstPtr, strlen: Int): Byte =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUsetContainsAllCodePoints(set.rawAddress, str.rawAddress, strlen)
 
-public actual fun usetContainsNone(set1: ConstPtr<USet>, set2: ConstPtr<USet>): Byte =
+public actual fun usetContainsNone(set1: ConstPtr, set2: ConstPtr): Byte =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUsetContainsNone(set1.rawAddress, set2.rawAddress)
 
-public actual fun usetContainsRange(set: ConstPtr<USet>, start: Int, end: Int): Byte =
+public actual fun usetContainsRange(set: ConstPtr, start: Int, end: Int): Byte =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUsetContainsRange(set.rawAddress, start, end)
 
-public actual fun usetContainsSome(set1: ConstPtr<USet>, set2: ConstPtr<USet>): Byte =
+public actual fun usetContainsSome(set1: ConstPtr, set2: ConstPtr): Byte =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUsetContainsSome(set1.rawAddress, set2.rawAddress)
 
-public actual fun usetContainsString(set: ConstPtr<USet>, str: ConstPtr<UShort>, strlen: Int): Byte =
+public actual fun usetContainsString(set: ConstPtr, str: ConstPtr, strlen: Int): Byte =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUsetContainsString(set.rawAddress, str.rawAddress, strlen)
 
-public actual fun usetEquals(set1: ConstPtr<USet>, set2: ConstPtr<USet>): Byte =
+public actual fun usetEquals(set1: ConstPtr, set2: ConstPtr): Byte =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUsetEquals(set1.rawAddress, set2.rawAddress)
 
-public actual fun usetFreeze(set: MutPtr<USet>) {
+public actual fun usetFreeze(set: MutPtr) {
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUsetFreeze(set.rawAddress)
 }
 
-public actual fun usetGetItem(set: ConstPtr<USet>, itemindex: Int, start: MutPtr<Int>, end: MutPtr<Int>, str: MutPtr<UShort>, strcapacity: Int, ec: MutPtr<UErrorCode>): Int =
+public actual fun usetGetItem(set: ConstPtr, itemindex: Int, start: MutPtr, end: MutPtr, str: MutPtr, strcapacity: Int, ec: MutPtr): Int =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUsetGetItem(set.rawAddress, itemindex, start.rawAddress, end.rawAddress, str.rawAddress, strcapacity, ec.rawAddress)
 
-public actual fun usetGetItemCount(set: ConstPtr<USet>): Int =
+public actual fun usetGetItemCount(set: ConstPtr): Int =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUsetGetItemCount(set.rawAddress)
 
-public actual fun usetGetSerializedRange(set: ConstPtr<USerializedSet>, rangeindex: Int, pstart: MutPtr<Int>, pend: MutPtr<Int>): Byte =
+public actual fun usetGetSerializedRange(set: ConstPtr, rangeindex: Int, pstart: MutPtr, pend: MutPtr): Byte =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUsetGetSerializedRange(set.rawAddress, rangeindex, pstart.rawAddress, pend.rawAddress)
 
-public actual fun usetGetSerializedRangeCount(set: ConstPtr<USerializedSet>): Int =
+public actual fun usetGetSerializedRangeCount(set: ConstPtr): Int =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUsetGetSerializedRangeCount(set.rawAddress)
 
-public actual fun usetGetSerializedSet(fillset: MutPtr<USerializedSet>, src: ConstPtr<UShort>, srclength: Int): Byte =
+public actual fun usetGetSerializedSet(fillset: MutPtr, src: ConstPtr, srclength: Int): Byte =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUsetGetSerializedSet(fillset.rawAddress, src.rawAddress, srclength)
 
-public actual fun usetIndexOf(set: ConstPtr<USet>, c: Int): Int =
+public actual fun usetIndexOf(set: ConstPtr, c: Int): Int =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUsetIndexOf(set.rawAddress, c)
 
-public actual fun usetIsEmpty(set: ConstPtr<USet>): Byte =
+public actual fun usetIsEmpty(set: ConstPtr): Byte =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUsetIsEmpty(set.rawAddress)
 
-public actual fun usetIsFrozen(set: ConstPtr<USet>): Byte =
+public actual fun usetIsFrozen(set: ConstPtr): Byte =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUsetIsFrozen(set.rawAddress)
 
-public actual fun usetOpen(start: Int, end: Int): MutPtr<USet> =
+public actual fun usetOpen(start: Int, end: Int): MutPtr =
     MutPtr(WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUsetOpen(start, end))
 
-public actual fun usetOpenEmpty(): MutPtr<USet> =
+public actual fun usetOpenEmpty(): MutPtr =
     MutPtr(WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUsetOpenEmpty())
 
-public actual fun usetOpenPattern(pattern: ConstPtr<UShort>, patternlength: Int, ec: MutPtr<UErrorCode>): MutPtr<USet> =
+public actual fun usetOpenPattern(pattern: ConstPtr, patternlength: Int, ec: MutPtr): MutPtr =
     MutPtr(WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUsetOpenPattern(pattern.rawAddress, patternlength, ec.rawAddress))
 
-public actual fun usetOpenPatternOptions(pattern: ConstPtr<UShort>, patternlength: Int, options: UInt, ec: MutPtr<UErrorCode>): MutPtr<USet> =
+public actual fun usetOpenPatternOptions(pattern: ConstPtr, patternlength: Int, options: UInt, ec: MutPtr): MutPtr =
     MutPtr(WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUsetOpenPatternOptions(pattern.rawAddress, patternlength, options.toInt(), ec.rawAddress))
 
-public actual fun usetRemove(set: MutPtr<USet>, c: Int) {
+public actual fun usetRemove(set: MutPtr, c: Int) {
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUsetRemove(set.rawAddress, c)
 }
 
-public actual fun usetRemoveAll(set: MutPtr<USet>, removeset: ConstPtr<USet>) {
+public actual fun usetRemoveAll(set: MutPtr, removeset: ConstPtr) {
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUsetRemoveAll(set.rawAddress, removeset.rawAddress)
 }
 
-public actual fun usetRemoveAllStrings(set: MutPtr<USet>) {
+public actual fun usetRemoveAllStrings(set: MutPtr) {
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUsetRemoveAllStrings(set.rawAddress)
 }
 
-public actual fun usetRemoveRange(set: MutPtr<USet>, start: Int, end: Int) {
+public actual fun usetRemoveRange(set: MutPtr, start: Int, end: Int) {
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUsetRemoveRange(set.rawAddress, start, end)
 }
 
-public actual fun usetRemoveString(set: MutPtr<USet>, str: ConstPtr<UShort>, strlen: Int) {
+public actual fun usetRemoveString(set: MutPtr, str: ConstPtr, strlen: Int) {
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUsetRemoveString(set.rawAddress, str.rawAddress, strlen)
 }
 
-public actual fun usetResemblesPattern(pattern: ConstPtr<UShort>, patternlength: Int, pos: Int): Byte =
+public actual fun usetResemblesPattern(pattern: ConstPtr, patternlength: Int, pos: Int): Byte =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUsetResemblesPattern(pattern.rawAddress, patternlength, pos)
 
-public actual fun usetRetain(set: MutPtr<USet>, start: Int, end: Int) {
+public actual fun usetRetain(set: MutPtr, start: Int, end: Int) {
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUsetRetain(set.rawAddress, start, end)
 }
 
-public actual fun usetRetainAll(set: MutPtr<USet>, retain: ConstPtr<USet>) {
+public actual fun usetRetainAll(set: MutPtr, retain: ConstPtr) {
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUsetRetainAll(set.rawAddress, retain.rawAddress)
 }
 
-public actual fun usetSerialize(set: ConstPtr<USet>, dest: MutPtr<UShort>, destcapacity: Int, perrorcode: MutPtr<UErrorCode>): Int =
+public actual fun usetSerialize(set: ConstPtr, dest: MutPtr, destcapacity: Int, perrorcode: MutPtr): Int =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUsetSerialize(set.rawAddress, dest.rawAddress, destcapacity, perrorcode.rawAddress)
 
-public actual fun usetSerializedContains(set: ConstPtr<USerializedSet>, c: Int): Byte =
+public actual fun usetSerializedContains(set: ConstPtr, c: Int): Byte =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUsetSerializedContains(set.rawAddress, c)
 
-public actual fun usetSet(set: MutPtr<USet>, start: Int, end: Int) {
+public actual fun usetSet(set: MutPtr, start: Int, end: Int) {
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUsetSet(set.rawAddress, start, end)
 }
 
-public actual fun usetSetSerializedToOne(fillset: MutPtr<USerializedSet>, c: Int) {
+public actual fun usetSetSerializedToOne(fillset: MutPtr, c: Int) {
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUsetSetSerializedToOne(fillset.rawAddress, c)
 }
 
-public actual fun usetSize(set: ConstPtr<USet>): Int =
+public actual fun usetSize(set: ConstPtr): Int =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUsetSize(set.rawAddress)
 
-public actual fun usetSpan(set: ConstPtr<USet>, s: ConstPtr<UShort>, length: Int, spancondition: USetSpanCondition): Int =
+public actual fun usetSpan(set: ConstPtr, s: ConstPtr, length: Int, spancondition: USetSpanCondition): Int =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUsetSpan(set.rawAddress, s.rawAddress, length, spancondition)
 
-public actual fun usetSpanBack(set: ConstPtr<USet>, s: ConstPtr<UShort>, length: Int, spancondition: USetSpanCondition): Int =
+public actual fun usetSpanBack(set: ConstPtr, s: ConstPtr, length: Int, spancondition: USetSpanCondition): Int =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUsetSpanBack(set.rawAddress, s.rawAddress, length, spancondition)
 
-public actual fun usetSpanBackUtf8(set: ConstPtr<USet>, s: Pcstr, length: Int, spancondition: USetSpanCondition): Int =
+public actual fun usetSpanBackUtf8(set: ConstPtr, s: Pcstr, length: Int, spancondition: USetSpanCondition): Int =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUsetSpanBackUtf8(set.rawAddress, s.rawAddress, length, spancondition)
 
-public actual fun usetSpanUtf8(set: ConstPtr<USet>, s: Pcstr, length: Int, spancondition: USetSpanCondition): Int =
+public actual fun usetSpanUtf8(set: ConstPtr, s: Pcstr, length: Int, spancondition: USetSpanCondition): Int =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUsetSpanUtf8(set.rawAddress, s.rawAddress, length, spancondition)
 
-public actual fun usetToPattern(set: ConstPtr<USet>, result: MutPtr<UShort>, resultcapacity: Int, escapeunprintable: Byte, ec: MutPtr<UErrorCode>): Int =
+public actual fun usetToPattern(set: ConstPtr, result: MutPtr, resultcapacity: Int, escapeunprintable: Byte, ec: MutPtr): Int =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUsetToPattern(set.rawAddress, result.rawAddress, resultcapacity, escapeunprintable, ec.rawAddress)
 
-public actual fun uspoofAreConfusable(sc: ConstPtr<USpoofChecker>, id1: ConstPtr<UShort>, length1: Int, id2: ConstPtr<UShort>, length2: Int, status: MutPtr<UErrorCode>): Int =
+public actual fun uspoofAreConfusable(sc: ConstPtr, id1: ConstPtr, length1: Int, id2: ConstPtr, length2: Int, status: MutPtr): Int =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUspoofAreConfusable(sc.rawAddress, id1.rawAddress, length1, id2.rawAddress, length2, status.rawAddress)
 
-public actual fun uspoofAreConfusableUtf8(sc: ConstPtr<USpoofChecker>, id1: Pcstr, length1: Int, id2: Pcstr, length2: Int, status: MutPtr<UErrorCode>): Int =
+public actual fun uspoofAreConfusableUtf8(sc: ConstPtr, id1: Pcstr, length1: Int, id2: Pcstr, length2: Int, status: MutPtr): Int =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUspoofAreConfusableUtf8(sc.rawAddress, id1.rawAddress, length1, id2.rawAddress, length2, status.rawAddress)
 
-public actual fun uspoofCheck(sc: ConstPtr<USpoofChecker>, id: ConstPtr<UShort>, length: Int, position: MutPtr<Int>, status: MutPtr<UErrorCode>): Int =
+public actual fun uspoofCheck(sc: ConstPtr, id: ConstPtr, length: Int, position: MutPtr, status: MutPtr): Int =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUspoofCheck(sc.rawAddress, id.rawAddress, length, position.rawAddress, status.rawAddress)
 
-public actual fun uspoofCheck2(sc: ConstPtr<USpoofChecker>, id: ConstPtr<UShort>, length: Int, checkresult: MutPtr<USpoofCheckResult>, status: MutPtr<UErrorCode>): Int =
+public actual fun uspoofCheck2(sc: ConstPtr, id: ConstPtr, length: Int, checkresult: MutPtr, status: MutPtr): Int =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUspoofCheck2(sc.rawAddress, id.rawAddress, length, checkresult.rawAddress, status.rawAddress)
 
-public actual fun uspoofCheck2Utf8(sc: ConstPtr<USpoofChecker>, id: Pcstr, length: Int, checkresult: MutPtr<USpoofCheckResult>, status: MutPtr<UErrorCode>): Int =
+public actual fun uspoofCheck2Utf8(sc: ConstPtr, id: Pcstr, length: Int, checkresult: MutPtr, status: MutPtr): Int =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUspoofCheck2Utf8(sc.rawAddress, id.rawAddress, length, checkresult.rawAddress, status.rawAddress)
 
-public actual fun uspoofCheckUtf8(sc: ConstPtr<USpoofChecker>, id: Pcstr, length: Int, position: MutPtr<Int>, status: MutPtr<UErrorCode>): Int =
+public actual fun uspoofCheckUtf8(sc: ConstPtr, id: Pcstr, length: Int, position: MutPtr, status: MutPtr): Int =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUspoofCheckUtf8(sc.rawAddress, id.rawAddress, length, position.rawAddress, status.rawAddress)
 
-public actual fun uspoofClone(sc: ConstPtr<USpoofChecker>, status: MutPtr<UErrorCode>): MutPtr<USpoofChecker> =
+public actual fun uspoofClone(sc: ConstPtr, status: MutPtr): MutPtr =
     MutPtr(WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUspoofClone(sc.rawAddress, status.rawAddress))
 
-public actual fun uspoofClose(sc: MutPtr<USpoofChecker>) {
+public actual fun uspoofClose(sc: MutPtr) {
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUspoofClose(sc.rawAddress)
 }
 
-public actual fun uspoofCloseCheckResult(checkresult: MutPtr<USpoofCheckResult>) {
+public actual fun uspoofCloseCheckResult(checkresult: MutPtr) {
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUspoofCloseCheckResult(checkresult.rawAddress)
 }
 
-public actual fun uspoofGetAllowedChars(sc: ConstPtr<USpoofChecker>, status: MutPtr<UErrorCode>): MutPtr<USet> =
+public actual fun uspoofGetAllowedChars(sc: ConstPtr, status: MutPtr): MutPtr =
     MutPtr(WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUspoofGetAllowedChars(sc.rawAddress, status.rawAddress))
 
-public actual fun uspoofGetAllowedLocales(sc: MutPtr<USpoofChecker>, status: MutPtr<UErrorCode>): Pcstr =
+public actual fun uspoofGetAllowedLocales(sc: MutPtr, status: MutPtr): Pcstr =
     ConstPtr(WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUspoofGetAllowedLocales(sc.rawAddress, status.rawAddress))
 
-public actual fun uspoofGetCheckResultChecks(checkresult: ConstPtr<USpoofCheckResult>, status: MutPtr<UErrorCode>): Int =
+public actual fun uspoofGetCheckResultChecks(checkresult: ConstPtr, status: MutPtr): Int =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUspoofGetCheckResultChecks(checkresult.rawAddress, status.rawAddress)
 
-public actual fun uspoofGetCheckResultNumerics(checkresult: ConstPtr<USpoofCheckResult>, status: MutPtr<UErrorCode>): MutPtr<USet> =
+public actual fun uspoofGetCheckResultNumerics(checkresult: ConstPtr, status: MutPtr): MutPtr =
     MutPtr(WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUspoofGetCheckResultNumerics(checkresult.rawAddress, status.rawAddress))
 
-public actual fun uspoofGetCheckResultRestrictionLevel(checkresult: ConstPtr<USpoofCheckResult>, status: MutPtr<UErrorCode>): URestrictionLevel =
+public actual fun uspoofGetCheckResultRestrictionLevel(checkresult: ConstPtr, status: MutPtr): URestrictionLevel =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUspoofGetCheckResultRestrictionLevel(checkresult.rawAddress, status.rawAddress)
 
-public actual fun uspoofGetChecks(sc: ConstPtr<USpoofChecker>, status: MutPtr<UErrorCode>): Int =
+public actual fun uspoofGetChecks(sc: ConstPtr, status: MutPtr): Int =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUspoofGetChecks(sc.rawAddress, status.rawAddress)
 
-public actual fun uspoofGetInclusionSet(status: MutPtr<UErrorCode>): MutPtr<USet> =
+public actual fun uspoofGetInclusionSet(status: MutPtr): MutPtr =
     MutPtr(WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUspoofGetInclusionSet(status.rawAddress))
 
-public actual fun uspoofGetRecommendedSet(status: MutPtr<UErrorCode>): MutPtr<USet> =
+public actual fun uspoofGetRecommendedSet(status: MutPtr): MutPtr =
     MutPtr(WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUspoofGetRecommendedSet(status.rawAddress))
 
-public actual fun uspoofGetRestrictionLevel(sc: ConstPtr<USpoofChecker>): URestrictionLevel =
+public actual fun uspoofGetRestrictionLevel(sc: ConstPtr): URestrictionLevel =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUspoofGetRestrictionLevel(sc.rawAddress)
 
-public actual fun uspoofGetSkeleton(sc: ConstPtr<USpoofChecker>, type: UInt, id: ConstPtr<UShort>, length: Int, dest: MutPtr<UShort>, destcapacity: Int, status: MutPtr<UErrorCode>): Int =
+public actual fun uspoofGetSkeleton(sc: ConstPtr, type: UInt, id: ConstPtr, length: Int, dest: MutPtr, destcapacity: Int, status: MutPtr): Int =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUspoofGetSkeleton(sc.rawAddress, type.toInt(), id.rawAddress, length, dest.rawAddress, destcapacity, status.rawAddress)
 
-public actual fun uspoofGetSkeletonUtf8(sc: ConstPtr<USpoofChecker>, type: UInt, id: Pcstr, length: Int, dest: Pcstr, destcapacity: Int, status: MutPtr<UErrorCode>): Int =
+public actual fun uspoofGetSkeletonUtf8(sc: ConstPtr, type: UInt, id: Pcstr, length: Int, dest: Pcstr, destcapacity: Int, status: MutPtr): Int =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUspoofGetSkeletonUtf8(sc.rawAddress, type.toInt(), id.rawAddress, length, dest.rawAddress, destcapacity, status.rawAddress)
 
-public actual fun uspoofOpen(status: MutPtr<UErrorCode>): MutPtr<USpoofChecker> =
+public actual fun uspoofOpen(status: MutPtr): MutPtr =
     MutPtr(WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUspoofOpen(status.rawAddress))
 
-public actual fun uspoofOpenCheckResult(status: MutPtr<UErrorCode>): MutPtr<USpoofCheckResult> =
+public actual fun uspoofOpenCheckResult(status: MutPtr): MutPtr =
     MutPtr(WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUspoofOpenCheckResult(status.rawAddress))
 
-public actual fun uspoofOpenFromSerialized(data: ConstPtr<CVoid>, length: Int, pactuallength: MutPtr<Int>, perrorcode: MutPtr<UErrorCode>): MutPtr<USpoofChecker> =
+public actual fun uspoofOpenFromSerialized(data: ConstPtr, length: Int, pactuallength: MutPtr, perrorcode: MutPtr): MutPtr =
     MutPtr(WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUspoofOpenFromSerialized(data.rawAddress, length, pactuallength.rawAddress, perrorcode.rawAddress))
 
-public actual fun uspoofOpenFromSource(confusables: Pcstr, confusableslen: Int, confusableswholescript: Pcstr, confusableswholescriptlen: Int, errtype: MutPtr<Int>, pe: MutPtr<UParseError>, status: MutPtr<UErrorCode>): MutPtr<USpoofChecker> =
+public actual fun uspoofOpenFromSource(confusables: Pcstr, confusableslen: Int, confusableswholescript: Pcstr, confusableswholescriptlen: Int, errtype: MutPtr, pe: MutPtr, status: MutPtr): MutPtr =
     MutPtr(WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUspoofOpenFromSource(confusables.rawAddress, confusableslen, confusableswholescript.rawAddress, confusableswholescriptlen, errtype.rawAddress, pe.rawAddress, status.rawAddress))
 
-public actual fun uspoofSerialize(sc: MutPtr<USpoofChecker>, data: MutPtr<CVoid>, capacity: Int, status: MutPtr<UErrorCode>): Int =
+public actual fun uspoofSerialize(sc: MutPtr, data: MutPtr, capacity: Int, status: MutPtr): Int =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUspoofSerialize(sc.rawAddress, data.rawAddress, capacity, status.rawAddress)
 
-public actual fun uspoofSetAllowedChars(sc: MutPtr<USpoofChecker>, chars: ConstPtr<USet>, status: MutPtr<UErrorCode>) {
+public actual fun uspoofSetAllowedChars(sc: MutPtr, chars: ConstPtr, status: MutPtr) {
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUspoofSetAllowedChars(sc.rawAddress, chars.rawAddress, status.rawAddress)
 }
 
-public actual fun uspoofSetAllowedLocales(sc: MutPtr<USpoofChecker>, localeslist: Pcstr, status: MutPtr<UErrorCode>) {
+public actual fun uspoofSetAllowedLocales(sc: MutPtr, localeslist: Pcstr, status: MutPtr) {
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUspoofSetAllowedLocales(sc.rawAddress, localeslist.rawAddress, status.rawAddress)
 }
 
-public actual fun uspoofSetChecks(sc: MutPtr<USpoofChecker>, checks: Int, status: MutPtr<UErrorCode>) {
+public actual fun uspoofSetChecks(sc: MutPtr, checks: Int, status: MutPtr) {
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUspoofSetChecks(sc.rawAddress, checks, status.rawAddress)
 }
 
-public actual fun uspoofSetRestrictionLevel(sc: MutPtr<USpoofChecker>, restrictionlevel: URestrictionLevel) {
+public actual fun uspoofSetRestrictionLevel(sc: MutPtr, restrictionlevel: URestrictionLevel) {
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUspoofSetRestrictionLevel(sc.rawAddress, restrictionlevel)
 }
 
-public actual fun usprepClose(profile: MutPtr<UStringPrepProfile>) {
+public actual fun usprepClose(profile: MutPtr) {
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUsprepClose(profile.rawAddress)
 }
 
-public actual fun usprepOpen(path: Pcstr, filename: Pcstr, status: MutPtr<UErrorCode>): MutPtr<UStringPrepProfile> =
+public actual fun usprepOpen(path: Pcstr, filename: Pcstr, status: MutPtr): MutPtr =
     MutPtr(WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUsprepOpen(path.rawAddress, filename.rawAddress, status.rawAddress))
 
-public actual fun usprepOpenByType(type: UStringPrepProfileType, status: MutPtr<UErrorCode>): MutPtr<UStringPrepProfile> =
+public actual fun usprepOpenByType(type: UStringPrepProfileType, status: MutPtr): MutPtr =
     MutPtr(WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUsprepOpenByType(type, status.rawAddress))
 
-public actual fun usprepPrepare(prep: ConstPtr<UStringPrepProfile>, src: ConstPtr<UShort>, srclength: Int, dest: MutPtr<UShort>, destcapacity: Int, options: Int, parseerror: MutPtr<UParseError>, status: MutPtr<UErrorCode>): Int =
+public actual fun usprepPrepare(prep: ConstPtr, src: ConstPtr, srclength: Int, dest: MutPtr, destcapacity: Int, options: Int, parseerror: MutPtr, status: MutPtr): Int =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUsprepPrepare(prep.rawAddress, src.rawAddress, srclength, dest.rawAddress, destcapacity, options, parseerror.rawAddress, status.rawAddress)
 
-public actual fun utextChar32At(ut: MutPtr<UText>, nativeindex: Long): Int =
+public actual fun utextChar32At(ut: MutPtr, nativeindex: Long): Int =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUtextChar32At(ut.rawAddress, nativeindex)
 
-public actual fun utextClone(dest: MutPtr<UText>, src: ConstPtr<UText>, deep: Byte, readonly: Byte, status: MutPtr<UErrorCode>): MutPtr<UText> =
+public actual fun utextClone(dest: MutPtr, src: ConstPtr, deep: Byte, readonly: Byte, status: MutPtr): MutPtr =
     MutPtr(WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUtextClone(dest.rawAddress, src.rawAddress, deep, readonly, status.rawAddress))
 
-public actual fun utextClose(ut: MutPtr<UText>): MutPtr<UText> =
+public actual fun utextClose(ut: MutPtr): MutPtr =
     MutPtr(WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUtextClose(ut.rawAddress))
 
-public actual fun utextCopy(ut: MutPtr<UText>, nativestart: Long, nativelimit: Long, destindex: Long, move: Byte, status: MutPtr<UErrorCode>) {
+public actual fun utextCopy(ut: MutPtr, nativestart: Long, nativelimit: Long, destindex: Long, move: Byte, status: MutPtr) {
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUtextCopy(ut.rawAddress, nativestart, nativelimit, destindex, move, status.rawAddress)
 }
 
-public actual fun utextCurrent32(ut: MutPtr<UText>): Int =
+public actual fun utextCurrent32(ut: MutPtr): Int =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUtextCurrent32(ut.rawAddress)
 
-public actual fun utextEquals(a: ConstPtr<UText>, b: ConstPtr<UText>): Byte =
+public actual fun utextEquals(a: ConstPtr, b: ConstPtr): Byte =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUtextEquals(a.rawAddress, b.rawAddress)
 
-public actual fun utextExtract(ut: MutPtr<UText>, nativestart: Long, nativelimit: Long, dest: MutPtr<UShort>, destcapacity: Int, status: MutPtr<UErrorCode>): Int =
+public actual fun utextExtract(ut: MutPtr, nativestart: Long, nativelimit: Long, dest: MutPtr, destcapacity: Int, status: MutPtr): Int =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUtextExtract(ut.rawAddress, nativestart, nativelimit, dest.rawAddress, destcapacity, status.rawAddress)
 
-public actual fun utextFreeze(ut: MutPtr<UText>) {
+public actual fun utextFreeze(ut: MutPtr) {
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUtextFreeze(ut.rawAddress)
 }
 
-public actual fun utextGetNativeIndex(ut: ConstPtr<UText>): Long =
+public actual fun utextGetNativeIndex(ut: ConstPtr): Long =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUtextGetNativeIndex(ut.rawAddress)
 
-public actual fun utextGetPreviousNativeIndex(ut: MutPtr<UText>): Long =
+public actual fun utextGetPreviousNativeIndex(ut: MutPtr): Long =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUtextGetPreviousNativeIndex(ut.rawAddress)
 
-public actual fun utextHasMetaData(ut: ConstPtr<UText>): Byte =
+public actual fun utextHasMetaData(ut: ConstPtr): Byte =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUtextHasMetaData(ut.rawAddress)
 
-public actual fun utextIsLengthExpensive(ut: ConstPtr<UText>): Byte =
+public actual fun utextIsLengthExpensive(ut: ConstPtr): Byte =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUtextIsLengthExpensive(ut.rawAddress)
 
-public actual fun utextIsWritable(ut: ConstPtr<UText>): Byte =
+public actual fun utextIsWritable(ut: ConstPtr): Byte =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUtextIsWritable(ut.rawAddress)
 
-public actual fun utextMoveIndex32(ut: MutPtr<UText>, delta: Int): Byte =
+public actual fun utextMoveIndex32(ut: MutPtr, delta: Int): Byte =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUtextMoveIndex32(ut.rawAddress, delta)
 
-public actual fun utextNativeLength(ut: MutPtr<UText>): Long =
+public actual fun utextNativeLength(ut: MutPtr): Long =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUtextNativeLength(ut.rawAddress)
 
-public actual fun utextNext32(ut: MutPtr<UText>): Int =
+public actual fun utextNext32(ut: MutPtr): Int =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUtextNext32(ut.rawAddress)
 
-public actual fun utextNext32From(ut: MutPtr<UText>, nativeindex: Long): Int =
+public actual fun utextNext32From(ut: MutPtr, nativeindex: Long): Int =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUtextNext32From(ut.rawAddress, nativeindex)
 
-public actual fun utextOpenUchars(ut: MutPtr<UText>, s: ConstPtr<UShort>, length: Long, status: MutPtr<UErrorCode>): MutPtr<UText> =
+public actual fun utextOpenUchars(ut: MutPtr, s: ConstPtr, length: Long, status: MutPtr): MutPtr =
     MutPtr(WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUtextOpenUchars(ut.rawAddress, s.rawAddress, length, status.rawAddress))
 
-public actual fun utextOpenUtf8(ut: MutPtr<UText>, s: Pcstr, length: Long, status: MutPtr<UErrorCode>): MutPtr<UText> =
+public actual fun utextOpenUtf8(ut: MutPtr, s: Pcstr, length: Long, status: MutPtr): MutPtr =
     MutPtr(WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUtextOpenUtf8(ut.rawAddress, s.rawAddress, length, status.rawAddress))
 
-public actual fun utextPrevious32(ut: MutPtr<UText>): Int =
+public actual fun utextPrevious32(ut: MutPtr): Int =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUtextPrevious32(ut.rawAddress)
 
-public actual fun utextPrevious32From(ut: MutPtr<UText>, nativeindex: Long): Int =
+public actual fun utextPrevious32From(ut: MutPtr, nativeindex: Long): Int =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUtextPrevious32From(ut.rawAddress, nativeindex)
 
-public actual fun utextReplace(ut: MutPtr<UText>, nativestart: Long, nativelimit: Long, replacementtext: ConstPtr<UShort>, replacementlength: Int, status: MutPtr<UErrorCode>): Int =
+public actual fun utextReplace(ut: MutPtr, nativestart: Long, nativelimit: Long, replacementtext: ConstPtr, replacementlength: Int, status: MutPtr): Int =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUtextReplace(ut.rawAddress, nativestart, nativelimit, replacementtext.rawAddress, replacementlength, status.rawAddress)
 
-public actual fun utextSetNativeIndex(ut: MutPtr<UText>, nativeindex: Long) {
+public actual fun utextSetNativeIndex(ut: MutPtr, nativeindex: Long) {
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUtextSetNativeIndex(ut.rawAddress, nativeindex)
 }
 
-public actual fun utextSetup(ut: MutPtr<UText>, extraspace: Int, status: MutPtr<UErrorCode>): MutPtr<UText> =
+public actual fun utextSetup(ut: MutPtr, extraspace: Int, status: MutPtr): MutPtr =
     MutPtr(WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUtextSetup(ut.rawAddress, extraspace, status.rawAddress))
 
-public actual fun utf8AppendCharSafeBody(s: MutPtr<UByte>, i: Int, length: Int, c: Int, piserror: MutPtr<Byte>): Int =
+public actual fun utf8AppendCharSafeBody(s: MutPtr, i: Int, length: Int, c: Int, piserror: MutPtr): Int =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUtf8AppendCharSafeBody(s.rawAddress, i, length, c, piserror.rawAddress)
 
-public actual fun utf8Back1SafeBody(s: ConstPtr<UByte>, start: Int, i: Int): Int =
+public actual fun utf8Back1SafeBody(s: ConstPtr, start: Int, i: Int): Int =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUtf8Back1SafeBody(s.rawAddress, start, i)
 
-public actual fun utf8NextCharSafeBody(s: ConstPtr<UByte>, pi: MutPtr<Int>, length: Int, c: Int, strict: Byte): Int =
+public actual fun utf8NextCharSafeBody(s: ConstPtr, pi: MutPtr, length: Int, c: Int, strict: Byte): Int =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUtf8NextCharSafeBody(s.rawAddress, pi.rawAddress, length, c, strict)
 
-public actual fun utf8PrevCharSafeBody(s: ConstPtr<UByte>, start: Int, pi: MutPtr<Int>, c: Int, strict: Byte): Int =
+public actual fun utf8PrevCharSafeBody(s: ConstPtr, start: Int, pi: MutPtr, c: Int, strict: Byte): Int =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUtf8PrevCharSafeBody(s.rawAddress, start, pi.rawAddress, c, strict)
 
-public actual fun utmscaleFromInt64(othertime: Long, timescale: UDateTimeScale, status: MutPtr<UErrorCode>): Long =
+public actual fun utmscaleFromInt64(othertime: Long, timescale: UDateTimeScale, status: MutPtr): Long =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUtmscaleFromInt64(othertime, timescale, status.rawAddress)
 
-public actual fun utmscaleGetTimeScaleValue(timescale: UDateTimeScale, value: UTimeScaleValue, status: MutPtr<UErrorCode>): Long =
+public actual fun utmscaleGetTimeScaleValue(timescale: UDateTimeScale, value: UTimeScaleValue, status: MutPtr): Long =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUtmscaleGetTimeScaleValue(timescale, value, status.rawAddress)
 
-public actual fun utmscaleToInt64(universaltime: Long, timescale: UDateTimeScale, status: MutPtr<UErrorCode>): Long =
+public actual fun utmscaleToInt64(universaltime: Long, timescale: UDateTimeScale, status: MutPtr): Long =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUtmscaleToInt64(universaltime, timescale, status.rawAddress)
 
 public actual fun utraceFormat(outbuf: Pcstr, capacity: Int, indent: Int, fmt: Pcstr, vararg variadicArgs: Long): Int =
@@ -7576,14 +7571,14 @@ public actual fun utraceFormat(outbuf: Pcstr, capacity: Int, indent: Int, fmt: P
 public actual fun utraceFunctionName(fnnumber: Int): Pcstr =
     ConstPtr(WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUtraceFunctionName(fnnumber))
 
-public actual fun utraceGetFunctions(context: ConstPtr<ConstPtr<CVoid>>, e: MutPtr<UTraceEntry>, x: MutPtr<UTraceExit>, d: MutPtr<UTraceData>) {
+public actual fun utraceGetFunctions(context: ConstPtr, e: MutPtr, x: MutPtr, d: MutPtr) {
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUtraceGetFunctions(context.rawAddress, e.rawAddress, x.rawAddress, d.rawAddress)
 }
 
 public actual fun utraceGetLevel(): Int =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUtraceGetLevel()
 
-public actual fun utraceSetFunctions(context: ConstPtr<CVoid>, e: UTraceEntry, x: UTraceExit, d: UTraceData) {
+public actual fun utraceSetFunctions(context: ConstPtr, e: UTraceEntry, x: UTraceExit, d: UTraceData) {
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUtraceSetFunctions(context.rawAddress, 0L, 0L, 0L)
 }
 
@@ -7591,61 +7586,61 @@ public actual fun utraceSetLevel(tracelevel: Int) {
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUtraceSetLevel(tracelevel)
 }
 
-public actual fun utraceVformat(outbuf: Pcstr, capacity: Int, indent: Int, fmt: Pcstr, args: MutPtr<Byte>): Int =
+public actual fun utraceVformat(outbuf: Pcstr, capacity: Int, indent: Int, fmt: Pcstr, args: MutPtr): Int =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUtraceVformat(outbuf.rawAddress, capacity, indent, fmt.rawAddress, args.rawAddress)
 
-public actual fun utransClone(trans: ConstPtr<ConstPtr<CVoid>>, status: MutPtr<UErrorCode>): MutPtr<MutPtr<CVoid>> =
+public actual fun utransClone(trans: ConstPtr, status: MutPtr): MutPtr =
     MutPtr(WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUtransClone(trans.rawAddress, status.rawAddress))
 
-public actual fun utransClose(trans: MutPtr<MutPtr<CVoid>>) {
+public actual fun utransClose(trans: MutPtr) {
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUtransClose(trans.rawAddress)
 }
 
 public actual fun utransCountAvailableIds(): Int =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUtransCountAvailableIds()
 
-public actual fun utransGetSourceSet(trans: ConstPtr<ConstPtr<CVoid>>, ignorefilter: Byte, fillin: MutPtr<USet>, status: MutPtr<UErrorCode>): MutPtr<USet> =
+public actual fun utransGetSourceSet(trans: ConstPtr, ignorefilter: Byte, fillin: MutPtr, status: MutPtr): MutPtr =
     MutPtr(WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUtransGetSourceSet(trans.rawAddress, ignorefilter, fillin.rawAddress, status.rawAddress))
 
-public actual fun utransGetUnicodeId(trans: ConstPtr<ConstPtr<CVoid>>, resultlength: MutPtr<Int>): MutPtr<UShort> =
+public actual fun utransGetUnicodeId(trans: ConstPtr, resultlength: MutPtr): MutPtr =
     MutPtr(WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUtransGetUnicodeId(trans.rawAddress, resultlength.rawAddress))
 
-public actual fun utransOpenIds(perrorcode: MutPtr<UErrorCode>): MutPtr<UEnumeration> =
+public actual fun utransOpenIds(perrorcode: MutPtr): MutPtr =
     MutPtr(WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUtransOpenIds(perrorcode.rawAddress))
 
-public actual fun utransOpenInverse(trans: ConstPtr<ConstPtr<CVoid>>, status: MutPtr<UErrorCode>): MutPtr<MutPtr<CVoid>> =
+public actual fun utransOpenInverse(trans: ConstPtr, status: MutPtr): MutPtr =
     MutPtr(WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUtransOpenInverse(trans.rawAddress, status.rawAddress))
 
-public actual fun utransOpenU(id: ConstPtr<UShort>, idlength: Int, dir: UTransDirection, rules: ConstPtr<UShort>, ruleslength: Int, parseerror: MutPtr<UParseError>, perrorcode: MutPtr<UErrorCode>): MutPtr<MutPtr<CVoid>> =
+public actual fun utransOpenU(id: ConstPtr, idlength: Int, dir: UTransDirection, rules: ConstPtr, ruleslength: Int, parseerror: MutPtr, perrorcode: MutPtr): MutPtr =
     MutPtr(WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUtransOpenU(id.rawAddress, idlength, dir, rules.rawAddress, ruleslength, parseerror.rawAddress, perrorcode.rawAddress))
 
-public actual fun utransRegister(adoptedtrans: MutPtr<MutPtr<CVoid>>, status: MutPtr<UErrorCode>) {
+public actual fun utransRegister(adoptedtrans: MutPtr, status: MutPtr) {
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUtransRegister(adoptedtrans.rawAddress, status.rawAddress)
 }
 
-public actual fun utransSetFilter(trans: MutPtr<MutPtr<CVoid>>, filterpattern: ConstPtr<UShort>, filterpatternlen: Int, status: MutPtr<UErrorCode>) {
+public actual fun utransSetFilter(trans: MutPtr, filterpattern: ConstPtr, filterpatternlen: Int, status: MutPtr) {
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUtransSetFilter(trans.rawAddress, filterpattern.rawAddress, filterpatternlen, status.rawAddress)
 }
 
-public actual fun utransToRules(trans: ConstPtr<ConstPtr<CVoid>>, escapeunprintable: Byte, result: MutPtr<UShort>, resultlength: Int, status: MutPtr<UErrorCode>): Int =
+public actual fun utransToRules(trans: ConstPtr, escapeunprintable: Byte, result: MutPtr, resultlength: Int, status: MutPtr): Int =
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUtransToRules(trans.rawAddress, escapeunprintable, result.rawAddress, resultlength, status.rawAddress)
 
-public actual fun utransTrans(trans: ConstPtr<ConstPtr<CVoid>>, rep: MutPtr<MutPtr<CVoid>>, repfunc: ConstPtr<UReplaceableCallbacks>, start: Int, limit: MutPtr<Int>, status: MutPtr<UErrorCode>) {
+public actual fun utransTrans(trans: ConstPtr, rep: MutPtr, repfunc: ConstPtr, start: Int, limit: MutPtr, status: MutPtr) {
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUtransTrans(trans.rawAddress, rep.rawAddress, repfunc.rawAddress, start, limit.rawAddress, status.rawAddress)
 }
 
-public actual fun utransTransIncremental(trans: ConstPtr<ConstPtr<CVoid>>, rep: MutPtr<MutPtr<CVoid>>, repfunc: ConstPtr<UReplaceableCallbacks>, pos: MutPtr<UTransPosition>, status: MutPtr<UErrorCode>) {
+public actual fun utransTransIncremental(trans: ConstPtr, rep: MutPtr, repfunc: ConstPtr, pos: MutPtr, status: MutPtr) {
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUtransTransIncremental(trans.rawAddress, rep.rawAddress, repfunc.rawAddress, pos.rawAddress, status.rawAddress)
 }
 
-public actual fun utransTransIncrementalUchars(trans: ConstPtr<ConstPtr<CVoid>>, text: MutPtr<UShort>, textlength: MutPtr<Int>, textcapacity: Int, pos: MutPtr<UTransPosition>, status: MutPtr<UErrorCode>) {
+public actual fun utransTransIncrementalUchars(trans: ConstPtr, text: MutPtr, textlength: MutPtr, textcapacity: Int, pos: MutPtr, status: MutPtr) {
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUtransTransIncrementalUchars(trans.rawAddress, text.rawAddress, textlength.rawAddress, textcapacity, pos.rawAddress, status.rawAddress)
 }
 
-public actual fun utransTransUchars(trans: ConstPtr<ConstPtr<CVoid>>, text: MutPtr<UShort>, textlength: MutPtr<Int>, textcapacity: Int, start: Int, limit: MutPtr<Int>, status: MutPtr<UErrorCode>) {
+public actual fun utransTransUchars(trans: ConstPtr, text: MutPtr, textlength: MutPtr, textcapacity: Int, start: Int, limit: MutPtr, status: MutPtr) {
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUtransTransUchars(trans.rawAddress, text.rawAddress, textlength.rawAddress, textcapacity, start, limit.rawAddress, status.rawAddress)
 }
 
-public actual fun utransUnregisterId(id: ConstPtr<UShort>, idlength: Int) {
+public actual fun utransUnregisterId(id: ConstPtr, idlength: Int) {
     WindowsWin32GlobalizationJniBridge.windowssysWindowsWin32GlobalizationUtransUnregisterId(id.rawAddress, idlength)
 }

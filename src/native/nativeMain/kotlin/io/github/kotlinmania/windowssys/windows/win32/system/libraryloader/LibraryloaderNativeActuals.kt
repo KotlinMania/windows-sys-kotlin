@@ -2,7 +2,6 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.system.libraryloader
 
-import io.github.kotlinmania.rustlang.core.ffi.CVoid
 import io.github.kotlinmania.rustlang.core.ptr.ConstPtr
 import io.github.kotlinmania.rustlang.core.ptr.MutPtr
 import io.github.kotlinmania.windowssys.core.Bool
@@ -67,7 +66,7 @@ import kotlinx.cinterop.ByteVar
 import kotlinx.cinterop.toCPointer
 import kotlinx.cinterop.toLong
 
-public actual fun addDllDirectory(newdirectory: Pcwstr): MutPtr<CVoid> =
+public actual fun addDllDirectory(newdirectory: Pcwstr): MutPtr =
     MutPtr(windowssysWindowsWin32SystemLibraryloaderAddDllDirectory(newdirectory.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
 public actual fun beginUpdateResourceA(pfilename: Pcstr, bdeleteexistingresources: Bool): Handle =
@@ -156,10 +155,10 @@ public actual fun getModuleFileNameW(hmodule: Hmodule, lpfilename: Pwstr, nsize:
 public actual fun getModuleHandleA(lpmodulename: Pcstr): Hmodule =
     MutPtr(windowssysWindowsWin32SystemLibraryloaderGetModuleHandleA(lpmodulename.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun getModuleHandleExA(dwflags: UInt, lpmodulename: Pcstr, phmodule: MutPtr<Hmodule>): Bool =
+public actual fun getModuleHandleExA(dwflags: UInt, lpmodulename: Pcstr, phmodule: MutPtr): Bool =
     windowssysWindowsWin32SystemLibraryloaderGetModuleHandleExA(dwflags, lpmodulename.rawAddress.toCPointer<ByteVar>(), phmodule.rawAddress.toCPointer<ByteVar>())
 
-public actual fun getModuleHandleExW(dwflags: UInt, lpmodulename: Pcwstr, phmodule: MutPtr<Hmodule>): Bool =
+public actual fun getModuleHandleExW(dwflags: UInt, lpmodulename: Pcwstr, phmodule: MutPtr): Bool =
     windowssysWindowsWin32SystemLibraryloaderGetModuleHandleExW(dwflags, lpmodulename.rawAddress.toCPointer<ByteVar>(), phmodule.rawAddress.toCPointer<ByteVar>())
 
 public actual fun getModuleHandleW(lpmodulename: Pcwstr): Hmodule =
@@ -180,7 +179,7 @@ public actual fun loadLibraryExW(lplibfilename: Pcwstr, hfile: Handle, dwflags: 
 public actual fun loadLibraryW(lplibfilename: Pcwstr): Hmodule =
     MutPtr(windowssysWindowsWin32SystemLibraryloaderLoadLibraryW(lplibfilename.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun loadModule(lpmodulename: Pcstr, lpparameterblock: ConstPtr<CVoid>): UInt =
+public actual fun loadModule(lpmodulename: Pcstr, lpparameterblock: ConstPtr): UInt =
     windowssysWindowsWin32SystemLibraryloaderLoadModule(lpmodulename.rawAddress.toCPointer<ByteVar>(), lpparameterblock.rawAddress.toCPointer<ByteVar>())
 
 public actual fun loadPackagedLibrary(lpwlibfilename: Pcwstr, reserved: UInt): Hmodule =
@@ -189,13 +188,13 @@ public actual fun loadPackagedLibrary(lpwlibfilename: Pcwstr, reserved: UInt): H
 public actual fun loadResource(hmodule: Hmodule, hresinfo: Hrsrc): Hglobal =
     MutPtr(windowssysWindowsWin32SystemLibraryloaderLoadResource(hmodule.rawAddress.toCPointer<ByteVar>(), hresinfo.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun lockResource(hresdata: Hglobal): MutPtr<CVoid> =
+public actual fun lockResource(hresdata: Hglobal): MutPtr =
     MutPtr(windowssysWindowsWin32SystemLibraryloaderLockResource(hresdata.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
 public actual fun queryOptionalDelayLoadedAPI(hparentmodule: Hmodule, lpdllname: Pcstr, lpprocname: Pcstr, reserved: UInt): Bool =
     windowssysWindowsWin32SystemLibraryloaderQueryOptionalDelayLoadedAPI(hparentmodule.rawAddress.toCPointer<ByteVar>(), lpdllname.rawAddress.toCPointer<ByteVar>(), lpprocname.rawAddress.toCPointer<ByteVar>(), reserved)
 
-public actual fun removeDllDirectory(cookie: ConstPtr<CVoid>): Bool =
+public actual fun removeDllDirectory(cookie: ConstPtr): Bool =
     windowssysWindowsWin32SystemLibraryloaderRemoveDllDirectory(cookie.rawAddress.toCPointer<ByteVar>())
 
 public actual fun setDefaultDllDirectories(directoryflags: LoadLibraryFlags): Bool =
@@ -210,8 +209,8 @@ public actual fun setDllDirectoryW(lppathname: Pcwstr): Bool =
 public actual fun sizeofResource(hmodule: Hmodule, hresinfo: Hrsrc): UInt =
     windowssysWindowsWin32SystemLibraryloaderSizeofResource(hmodule.rawAddress.toCPointer<ByteVar>(), hresinfo.rawAddress.toCPointer<ByteVar>())
 
-public actual fun updateResourceA(hupdate: Handle, lptype: Pcstr, lpname: Pcstr, wlanguage: UShort, lpdata: ConstPtr<CVoid>, cb: UInt): Bool =
+public actual fun updateResourceA(hupdate: Handle, lptype: Pcstr, lpname: Pcstr, wlanguage: UShort, lpdata: ConstPtr, cb: UInt): Bool =
     windowssysWindowsWin32SystemLibraryloaderUpdateResourceA(hupdate.rawAddress.toCPointer<ByteVar>(), lptype.rawAddress.toCPointer<ByteVar>(), lpname.rawAddress.toCPointer<ByteVar>(), wlanguage, lpdata.rawAddress.toCPointer<ByteVar>(), cb)
 
-public actual fun updateResourceW(hupdate: Handle, lptype: Pcwstr, lpname: Pcwstr, wlanguage: UShort, lpdata: ConstPtr<CVoid>, cb: UInt): Bool =
+public actual fun updateResourceW(hupdate: Handle, lptype: Pcwstr, lpname: Pcwstr, wlanguage: UShort, lpdata: ConstPtr, cb: UInt): Bool =
     windowssysWindowsWin32SystemLibraryloaderUpdateResourceW(hupdate.rawAddress.toCPointer<ByteVar>(), lptype.rawAddress.toCPointer<ByteVar>(), lpname.rawAddress.toCPointer<ByteVar>(), wlanguage, lpdata.rawAddress.toCPointer<ByteVar>(), cb)

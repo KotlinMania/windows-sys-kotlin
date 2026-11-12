@@ -2,7 +2,6 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.ui.input
 
-import io.github.kotlinmania.rustlang.core.ffi.CVoid
 import io.github.kotlinmania.rustlang.core.ptr.ConstPtr
 import io.github.kotlinmania.rustlang.core.ptr.MutPtr
 import io.github.kotlinmania.windowssys.core.Bool
@@ -44,32 +43,32 @@ private external fun wasmWindowssysWindowsWin32UiInputGetRegisteredRawInputDevic
 @JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssysWindowsWin32UiInputRegisterRawInputDevices(p0, p1, p2)")
 private external fun wasmWindowssysWindowsWin32UiInputRegisterRawInputDevices(p0: String, p1: Int, p2: Int): Int
 
-public actual fun defRawInputProc(parawinput: ConstPtr<ConstPtr<Rawinput>>, ninput: Int, cbsizeheader: UInt): Lresult =
+public actual fun defRawInputProc(parawinput: ConstPtr, ninput: Int, cbsizeheader: UInt): Lresult =
     if (windowsWin32UiInputNapiAvailable) wasmWindowssysWindowsWin32UiInputDefRawInputProc(parawinput.rawAddress.toString(), ninput, cbsizeheader.toInt()).toLong() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun getCIMSSM(inputmessagesource: MutPtr<InputMessageSource>): Bool =
+public actual fun getCIMSSM(inputmessagesource: MutPtr): Bool =
     if (windowsWin32UiInputNapiAvailable) wasmWindowssysWindowsWin32UiInputGetCIMSSM(inputmessagesource.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun getCurrentInputMessageSource(inputmessagesource: MutPtr<InputMessageSource>): Bool =
+public actual fun getCurrentInputMessageSource(inputmessagesource: MutPtr): Bool =
     if (windowsWin32UiInputNapiAvailable) wasmWindowssysWindowsWin32UiInputGetCurrentInputMessageSource(inputmessagesource.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun getRawInputBuffer(pdata: MutPtr<Rawinput>, pcbsize: MutPtr<UInt>, cbsizeheader: UInt): UInt =
+public actual fun getRawInputBuffer(pdata: MutPtr, pcbsize: MutPtr, cbsizeheader: UInt): UInt =
     if (windowsWin32UiInputNapiAvailable) wasmWindowssysWindowsWin32UiInputGetRawInputBuffer(pdata.rawAddress.toString(), pcbsize.rawAddress.toString(), cbsizeheader.toInt()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun getRawInputData(hrawinput: Hrawinput, uicommand: RawInputDataCommandFlags, pdata: MutPtr<CVoid>, pcbsize: MutPtr<UInt>, cbsizeheader: UInt): UInt =
+public actual fun getRawInputData(hrawinput: Hrawinput, uicommand: RawInputDataCommandFlags, pdata: MutPtr, pcbsize: MutPtr, cbsizeheader: UInt): UInt =
     if (windowsWin32UiInputNapiAvailable) wasmWindowssysWindowsWin32UiInputGetRawInputData(hrawinput.rawAddress.toString(), uicommand.toInt(), pdata.rawAddress.toString(), pcbsize.rawAddress.toString(), cbsizeheader.toInt()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun getRawInputDeviceInfoA(hdevice: Handle, uicommand: RawInputDeviceInfoCommand, pdata: MutPtr<CVoid>, pcbsize: MutPtr<UInt>): UInt =
+public actual fun getRawInputDeviceInfoA(hdevice: Handle, uicommand: RawInputDeviceInfoCommand, pdata: MutPtr, pcbsize: MutPtr): UInt =
     if (windowsWin32UiInputNapiAvailable) wasmWindowssysWindowsWin32UiInputGetRawInputDeviceInfoA(hdevice.rawAddress.toString(), uicommand.toInt(), pdata.rawAddress.toString(), pcbsize.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun getRawInputDeviceInfoW(hdevice: Handle, uicommand: RawInputDeviceInfoCommand, pdata: MutPtr<CVoid>, pcbsize: MutPtr<UInt>): UInt =
+public actual fun getRawInputDeviceInfoW(hdevice: Handle, uicommand: RawInputDeviceInfoCommand, pdata: MutPtr, pcbsize: MutPtr): UInt =
     if (windowsWin32UiInputNapiAvailable) wasmWindowssysWindowsWin32UiInputGetRawInputDeviceInfoW(hdevice.rawAddress.toString(), uicommand.toInt(), pdata.rawAddress.toString(), pcbsize.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun getRawInputDeviceList(prawinputdevicelist: MutPtr<Rawinputdevicelist>, puinumdevices: MutPtr<UInt>, cbsize: UInt): UInt =
+public actual fun getRawInputDeviceList(prawinputdevicelist: MutPtr, puinumdevices: MutPtr, cbsize: UInt): UInt =
     if (windowsWin32UiInputNapiAvailable) wasmWindowssysWindowsWin32UiInputGetRawInputDeviceList(prawinputdevicelist.rawAddress.toString(), puinumdevices.rawAddress.toString(), cbsize.toInt()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun getRegisteredRawInputDevices(prawinputdevices: MutPtr<Rawinputdevice>, puinumdevices: MutPtr<UInt>, cbsize: UInt): UInt =
+public actual fun getRegisteredRawInputDevices(prawinputdevices: MutPtr, puinumdevices: MutPtr, cbsize: UInt): UInt =
     if (windowsWin32UiInputNapiAvailable) wasmWindowssysWindowsWin32UiInputGetRegisteredRawInputDevices(prawinputdevices.rawAddress.toString(), puinumdevices.rawAddress.toString(), cbsize.toInt()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun registerRawInputDevices(prawinputdevices: ConstPtr<Rawinputdevice>, uinumdevices: UInt, cbsize: UInt): Bool =
+public actual fun registerRawInputDevices(prawinputdevices: ConstPtr, uinumdevices: UInt, cbsize: UInt): Bool =
     if (windowsWin32UiInputNapiAvailable) wasmWindowssysWindowsWin32UiInputRegisterRawInputDevices(prawinputdevices.rawAddress.toString(), uinumdevices.toInt(), cbsize.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")

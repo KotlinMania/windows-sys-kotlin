@@ -2,7 +2,6 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.system.setupandmigration
 
-import io.github.kotlinmania.rustlang.core.ffi.CVoid
 import io.github.kotlinmania.rustlang.core.ptr.ConstPtr
 import io.github.kotlinmania.rustlang.core.ptr.MutPtr
 import io.github.kotlinmania.windowssys.core.Bool
@@ -21,11 +20,11 @@ private external fun wasmWindowssysWindowsWin32SystemSetupandmigrationRegisterWa
 @JsFun("(p0) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemSetupandmigrationUnregisterWaitUntilOOBECompleted(p0)")
 private external fun wasmWindowssysWindowsWin32SystemSetupandmigrationUnregisterWaitUntilOOBECompleted(p0: String): Int
 
-public actual fun oOBEComplete(isoobecomplete: MutPtr<Bool>): Bool =
+public actual fun oOBEComplete(isoobecomplete: MutPtr): Bool =
     if (windowsWin32SystemSetupandmigrationNapiAvailable) wasmWindowssysWindowsWin32SystemSetupandmigrationOOBEComplete(isoobecomplete.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun registerWaitUntilOOBECompleted(oobecompletedcallback: OobeCompletedCallback, callbackcontext: ConstPtr<CVoid>, waithandle: MutPtr<MutPtr<CVoid>>): Bool =
+public actual fun registerWaitUntilOOBECompleted(oobecompletedcallback: OobeCompletedCallback, callbackcontext: ConstPtr, waithandle: MutPtr): Bool =
     if (windowsWin32SystemSetupandmigrationNapiAvailable) wasmWindowssysWindowsWin32SystemSetupandmigrationRegisterWaitUntilOOBECompleted(0L.toString(), callbackcontext.rawAddress.toString(), waithandle.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun unregisterWaitUntilOOBECompleted(waithandle: ConstPtr<CVoid>): Bool =
+public actual fun unregisterWaitUntilOOBECompleted(waithandle: ConstPtr): Bool =
     if (windowsWin32SystemSetupandmigrationNapiAvailable) wasmWindowssysWindowsWin32SystemSetupandmigrationUnregisterWaitUntilOOBECompleted(waithandle.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")

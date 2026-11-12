@@ -87,13 +87,13 @@ public actual fun closeHandle(hobject: Handle): Bool =
 public actual fun compareObjectHandles(hfirstobjecthandle: Handle, hsecondobjecthandle: Handle): Bool =
     if (windowsWin32FoundationNapiAvailable) wasmWindowssysWindowsWin32FoundationCompareObjectHandles(hfirstobjecthandle.rawAddress.toString(), hsecondobjecthandle.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun duplicateHandle(hsourceprocesshandle: Handle, hsourcehandle: Handle, htargetprocesshandle: Handle, lptargethandle: MutPtr<Handle>, dwdesiredaccess: UInt, binherithandle: Bool, dwoptions: DuplicateHandleOptions): Bool =
+public actual fun duplicateHandle(hsourceprocesshandle: Handle, hsourcehandle: Handle, htargetprocesshandle: Handle, lptargethandle: MutPtr, dwdesiredaccess: UInt, binherithandle: Bool, dwoptions: DuplicateHandleOptions): Bool =
     if (windowsWin32FoundationNapiAvailable) wasmWindowssysWindowsWin32FoundationDuplicateHandle(hsourceprocesshandle.rawAddress.toString(), hsourcehandle.rawAddress.toString(), htargetprocesshandle.rawAddress.toString(), lptargethandle.rawAddress.toString(), dwdesiredaccess.toInt(), binherithandle, dwoptions.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun freeLibrary(hlibmodule: Hmodule): Bool =
     if (windowsWin32FoundationNapiAvailable) wasmWindowssysWindowsWin32FoundationFreeLibrary(hlibmodule.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun getHandleInformation(hobject: Handle, lpdwflags: MutPtr<UInt>): Bool =
+public actual fun getHandleInformation(hobject: Handle, lpdwflags: MutPtr): Bool =
     if (windowsWin32FoundationNapiAvailable) wasmWindowssysWindowsWin32FoundationGetHandleInformation(hobject.rawAddress.toString(), lpdwflags.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun getLastError(): Win32Error =
@@ -147,10 +147,10 @@ public actual fun sysFreeString(bstrstring: Bstr) {
     }
 }
 
-public actual fun sysReAllocString(pbstr: MutPtr<Bstr>, psz: Pcwstr): Int =
+public actual fun sysReAllocString(pbstr: MutPtr, psz: Pcwstr): Int =
     if (windowsWin32FoundationNapiAvailable) wasmWindowssysWindowsWin32FoundationSysReAllocString(pbstr.rawAddress.toString(), psz.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun sysReAllocStringLen(pbstr: MutPtr<Bstr>, psz: Pcwstr, len: UInt): Int =
+public actual fun sysReAllocStringLen(pbstr: MutPtr, psz: Pcwstr, len: UInt): Int =
     if (windowsWin32FoundationNapiAvailable) wasmWindowssysWindowsWin32FoundationSysReAllocStringLen(pbstr.rawAddress.toString(), psz.rawAddress.toString(), len.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun sysReleaseString(bstrstring: Bstr) {

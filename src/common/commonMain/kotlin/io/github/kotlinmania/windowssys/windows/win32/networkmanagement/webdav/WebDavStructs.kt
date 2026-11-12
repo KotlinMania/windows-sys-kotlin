@@ -1,6 +1,5 @@
 package io.github.kotlinmania.windowssys.windows.win32.networkmanagement.webdav
 
-import io.github.kotlinmania.rustlang.core.ffi.CVoid
 import io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
 import io.github.kotlinmania.rustlang.core.mem.TypeLayout
 import io.github.kotlinmania.rustlang.core.ptr.MutPtr
@@ -8,11 +7,11 @@ import io.github.kotlinmania.windowssys.core.Bool
 import io.github.kotlinmania.windowssys.core.Pwstr
 
 public class DavCallbackAuthBlob internal constructor(
-    pBufferCtorArg: MutPtr<CVoid>,
+    pBufferCtorArg: MutPtr,
     public var ulSize: UInt,
     public var ulType: UInt,
 ) {
-    public var pBuffer: MutPtr<CVoid> = pBufferCtorArg
+    public var pBuffer: MutPtr = pBufferCtorArg
         internal set
 
     public constructor() : this(
@@ -21,13 +20,13 @@ public class DavCallbackAuthBlob internal constructor(
         ulType = 0u,
     )
 
-    public operator fun component1(): MutPtr<CVoid> = this.pBuffer
+    public operator fun component1(): MutPtr = this.pBuffer
 
     public operator fun component2(): UInt = this.ulSize
 
     public operator fun component3(): UInt = this.ulType
 
-    public fun copy(pBuffer: MutPtr<CVoid> = this.pBuffer, ulSize: UInt = this.ulSize, ulType: UInt = this.ulType): DavCallbackAuthBlob = DavCallbackAuthBlob(pBufferCtorArg = pBuffer, ulSize = ulSize, ulType = ulType)
+    public fun copy(pBuffer: MutPtr = this.pBuffer, ulSize: UInt = this.ulSize, ulType: UInt = this.ulType): DavCallbackAuthBlob = DavCallbackAuthBlob(pBufferCtorArg = pBuffer, ulSize = ulSize, ulType = ulType)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -54,7 +53,7 @@ public class DavCallbackAuthBlob internal constructor(
                     DavCallbackAuthBlob(
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<CVoid>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 8L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 12L),
@@ -62,7 +61,7 @@ public class DavCallbackAuthBlob internal constructor(
                 override fun writeNative(addr: Long, value: DavCallbackAuthBlob) {
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<CVoid>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr, value.pBuffer)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 8L, value.ulSize)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 12L, value.ulType)
@@ -70,7 +69,7 @@ public class DavCallbackAuthBlob internal constructor(
             }
 
         public operator fun invoke(
-            pBuffer: MutPtr<CVoid> = MutPtr(0L),
+            pBuffer: MutPtr = MutPtr(0L),
             ulSize: UInt = 0u,
             ulType: UInt = 0u,
         ): DavCallbackAuthBlob =

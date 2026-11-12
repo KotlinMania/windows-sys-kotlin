@@ -2,7 +2,6 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.system.diagnostics.debug
 
-import io.github.kotlinmania.rustlang.core.ffi.CVoid
 import io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
 import io.github.kotlinmania.rustlang.core.mem.TypeLayout
 import io.github.kotlinmania.rustlang.core.ptr.MutPtr
@@ -633,13 +632,13 @@ public class XstateContext internal constructor(
     public var mask: ULong,
     public var length: UInt,
     public var reserved1: UInt,
-    areaCtorArg: MutPtr<XsaveArea>,
-    bufferCtorArg: MutPtr<CVoid>,
+    areaCtorArg: MutPtr,
+    bufferCtorArg: MutPtr,
 ) {
-    public var area: MutPtr<XsaveArea> = areaCtorArg
+    public var area: MutPtr = areaCtorArg
         internal set
 
-    public var buffer: MutPtr<CVoid> = bufferCtorArg
+    public var buffer: MutPtr = bufferCtorArg
         internal set
 
     public constructor() : this(
@@ -656,11 +655,11 @@ public class XstateContext internal constructor(
 
     public operator fun component3(): UInt = this.reserved1
 
-    public operator fun component4(): MutPtr<XsaveArea> = this.area
+    public operator fun component4(): MutPtr = this.area
 
-    public operator fun component5(): MutPtr<CVoid> = this.buffer
+    public operator fun component5(): MutPtr = this.buffer
 
-    public fun copy(mask: ULong = this.mask, length: UInt = this.length, reserved1: UInt = this.reserved1, area: MutPtr<XsaveArea> = this.area, buffer: MutPtr<CVoid> = this.buffer): XstateContext = XstateContext(mask = mask, length = length, reserved1 = reserved1, areaCtorArg = area, bufferCtorArg = buffer)
+    public fun copy(mask: ULong = this.mask, length: UInt = this.length, reserved1: UInt = this.reserved1, area: MutPtr = this.area, buffer: MutPtr = this.buffer): XstateContext = XstateContext(mask = mask, length = length, reserved1 = reserved1, areaCtorArg = area, bufferCtorArg = buffer)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -694,11 +693,11 @@ public class XstateContext internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 12L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<XsaveArea>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 16L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<CVoid>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 24L),
                     )
                 override fun writeNative(addr: Long, value: XstateContext) {
@@ -707,11 +706,11 @@ public class XstateContext internal constructor(
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 12L, value.reserved1)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<XsaveArea>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 16L, value.area)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<CVoid>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 24L, value.buffer)
                 }
             }
@@ -720,8 +719,8 @@ public class XstateContext internal constructor(
             mask: ULong = 0uL,
             length: UInt = 0u,
             reserved1: UInt = 0u,
-            area: MutPtr<XsaveArea> = MutPtr(0L),
-            buffer: MutPtr<CVoid> = MutPtr(0L),
+            area: MutPtr = MutPtr(0L),
+            buffer: MutPtr = MutPtr(0L),
         ): XstateContext =
             XstateContext(
                 mask = mask,

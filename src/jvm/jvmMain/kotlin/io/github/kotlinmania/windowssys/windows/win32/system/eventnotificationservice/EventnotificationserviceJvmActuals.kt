@@ -73,11 +73,11 @@ private object WindowsWin32SystemEventnotificationserviceJniBridge {
     external fun windowssysWindowsWin32SystemEventnotificationserviceIsNetworkAlive(lpdwflags: Long): Int
 }
 
-public actual fun isDestinationReachableA(lpszdestination: Pcstr, lpqocinfo: MutPtr<Qocinfo>): Bool =
+public actual fun isDestinationReachableA(lpszdestination: Pcstr, lpqocinfo: MutPtr): Bool =
     WindowsWin32SystemEventnotificationserviceJniBridge.windowssysWindowsWin32SystemEventnotificationserviceIsDestinationReachableA(lpszdestination.rawAddress, lpqocinfo.rawAddress)
 
-public actual fun isDestinationReachableW(lpszdestination: Pcwstr, lpqocinfo: MutPtr<Qocinfo>): Bool =
+public actual fun isDestinationReachableW(lpszdestination: Pcwstr, lpqocinfo: MutPtr): Bool =
     WindowsWin32SystemEventnotificationserviceJniBridge.windowssysWindowsWin32SystemEventnotificationserviceIsDestinationReachableW(lpszdestination.rawAddress, lpqocinfo.rawAddress)
 
-public actual fun isNetworkAlive(lpdwflags: MutPtr<UInt>): Bool =
+public actual fun isNetworkAlive(lpdwflags: MutPtr): Bool =
     WindowsWin32SystemEventnotificationserviceJniBridge.windowssysWindowsWin32SystemEventnotificationserviceIsNetworkAlive(lpdwflags.rawAddress)

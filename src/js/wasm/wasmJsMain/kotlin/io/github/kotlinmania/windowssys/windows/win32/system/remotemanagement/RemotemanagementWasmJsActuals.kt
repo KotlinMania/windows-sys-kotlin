@@ -2,7 +2,6 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.system.remotemanagement
 
-import io.github.kotlinmania.rustlang.core.ffi.CVoid
 import io.github.kotlinmania.rustlang.core.ptr.ConstPtr
 import io.github.kotlinmania.rustlang.core.ptr.MutPtr
 import io.github.kotlinmania.windowssys.core.Bool
@@ -114,7 +113,7 @@ private external fun wasmWindowssysWindowsWin32SystemRemotemanagementWSManSetSes
 @JsFun("(p0, p1, p2, p3, p4, p5) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemRemotemanagementWSManSignalShell(p0, p1, p2, p3, p4, p5)")
 private external fun wasmWindowssysWindowsWin32SystemRemotemanagementWSManSignalShell(p0: String, p1: String, p2: Int, p3: String, p4: String, p5: String)
 
-public actual fun wSManCloseCommand(commandhandle: WsmanCommandHandle, flags: UInt, async: ConstPtr<WsmanShellAsync>) {
+public actual fun wSManCloseCommand(commandhandle: WsmanCommandHandle, flags: UInt, async: ConstPtr) {
     if (windowsWin32SystemRemotemanagementNapiAvailable) {
         wasmWindowssysWindowsWin32SystemRemotemanagementWSManCloseCommand(commandhandle.toString(), flags.toInt(), async.rawAddress.toString())
     } else {
@@ -128,7 +127,7 @@ public actual fun wSManCloseOperation(operationhandle: WsmanOperationHandle, fla
 public actual fun wSManCloseSession(session: WsmanSessionHandle, flags: UInt): UInt =
     if (windowsWin32SystemRemotemanagementNapiAvailable) wasmWindowssysWindowsWin32SystemRemotemanagementWSManCloseSession(session.toString(), flags.toInt()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun wSManCloseShell(shellhandle: WsmanShellHandle, flags: UInt, async: ConstPtr<WsmanShellAsync>) {
+public actual fun wSManCloseShell(shellhandle: WsmanShellHandle, flags: UInt, async: ConstPtr) {
     if (windowsWin32SystemRemotemanagementNapiAvailable) {
         wasmWindowssysWindowsWin32SystemRemotemanagementWSManCloseShell(shellhandle.toString(), flags.toInt(), async.rawAddress.toString())
     } else {
@@ -136,7 +135,7 @@ public actual fun wSManCloseShell(shellhandle: WsmanShellHandle, flags: UInt, as
     }
 }
 
-public actual fun wSManConnectShell(session: WsmanSessionHandle, flags: UInt, resourceuri: Pcwstr, shellid: Pcwstr, options: ConstPtr<WsmanOptionSet>, connectxml: ConstPtr<WsmanData>, async: ConstPtr<WsmanShellAsync>, shell: MutPtr<WsmanShellHandle>) {
+public actual fun wSManConnectShell(session: WsmanSessionHandle, flags: UInt, resourceuri: Pcwstr, shellid: Pcwstr, options: ConstPtr, connectxml: ConstPtr, async: ConstPtr, shell: MutPtr) {
     if (windowsWin32SystemRemotemanagementNapiAvailable) {
         wasmWindowssysWindowsWin32SystemRemotemanagementWSManConnectShell(session.toString(), flags.toInt(), resourceuri.rawAddress.toString(), shellid.rawAddress.toString(), options.rawAddress.toString(), connectxml.rawAddress.toString(), async.rawAddress.toString(), shell.rawAddress.toString())
     } else {
@@ -144,7 +143,7 @@ public actual fun wSManConnectShell(session: WsmanSessionHandle, flags: UInt, re
     }
 }
 
-public actual fun wSManConnectShellCommand(shell: WsmanShellHandle, flags: UInt, commandid: Pcwstr, options: ConstPtr<WsmanOptionSet>, connectxml: ConstPtr<WsmanData>, async: ConstPtr<WsmanShellAsync>, command: MutPtr<WsmanCommandHandle>) {
+public actual fun wSManConnectShellCommand(shell: WsmanShellHandle, flags: UInt, commandid: Pcwstr, options: ConstPtr, connectxml: ConstPtr, async: ConstPtr, command: MutPtr) {
     if (windowsWin32SystemRemotemanagementNapiAvailable) {
         wasmWindowssysWindowsWin32SystemRemotemanagementWSManConnectShellCommand(shell.toString(), flags.toInt(), commandid.rawAddress.toString(), options.rawAddress.toString(), connectxml.rawAddress.toString(), async.rawAddress.toString(), command.rawAddress.toString())
     } else {
@@ -152,10 +151,10 @@ public actual fun wSManConnectShellCommand(shell: WsmanShellHandle, flags: UInt,
     }
 }
 
-public actual fun wSManCreateSession(apihandle: WsmanApiHandle, connection: Pcwstr, flags: UInt, serverauthenticationcredentials: ConstPtr<WsmanAuthenticationCredentials>, proxyinfo: ConstPtr<WsmanProxyInfo>, session: MutPtr<WsmanSessionHandle>): UInt =
+public actual fun wSManCreateSession(apihandle: WsmanApiHandle, connection: Pcwstr, flags: UInt, serverauthenticationcredentials: ConstPtr, proxyinfo: ConstPtr, session: MutPtr): UInt =
     if (windowsWin32SystemRemotemanagementNapiAvailable) wasmWindowssysWindowsWin32SystemRemotemanagementWSManCreateSession(apihandle.toString(), connection.rawAddress.toString(), flags.toInt(), serverauthenticationcredentials.rawAddress.toString(), proxyinfo.rawAddress.toString(), session.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun wSManCreateShell(session: WsmanSessionHandle, flags: UInt, resourceuri: Pcwstr, startupinfo: ConstPtr<WsmanShellStartupInfoV11>, options: ConstPtr<WsmanOptionSet>, createxml: ConstPtr<WsmanData>, async: ConstPtr<WsmanShellAsync>, shell: MutPtr<WsmanShellHandle>) {
+public actual fun wSManCreateShell(session: WsmanSessionHandle, flags: UInt, resourceuri: Pcwstr, startupinfo: ConstPtr, options: ConstPtr, createxml: ConstPtr, async: ConstPtr, shell: MutPtr) {
     if (windowsWin32SystemRemotemanagementNapiAvailable) {
         wasmWindowssysWindowsWin32SystemRemotemanagementWSManCreateShell(session.toString(), flags.toInt(), resourceuri.rawAddress.toString(), startupinfo.rawAddress.toString(), options.rawAddress.toString(), createxml.rawAddress.toString(), async.rawAddress.toString(), shell.rawAddress.toString())
     } else {
@@ -163,7 +162,7 @@ public actual fun wSManCreateShell(session: WsmanSessionHandle, flags: UInt, res
     }
 }
 
-public actual fun wSManCreateShellEx(session: WsmanSessionHandle, flags: UInt, resourceuri: Pcwstr, shellid: Pcwstr, startupinfo: ConstPtr<WsmanShellStartupInfoV11>, options: ConstPtr<WsmanOptionSet>, createxml: ConstPtr<WsmanData>, async: ConstPtr<WsmanShellAsync>, shell: MutPtr<WsmanShellHandle>) {
+public actual fun wSManCreateShellEx(session: WsmanSessionHandle, flags: UInt, resourceuri: Pcwstr, shellid: Pcwstr, startupinfo: ConstPtr, options: ConstPtr, createxml: ConstPtr, async: ConstPtr, shell: MutPtr) {
     if (windowsWin32SystemRemotemanagementNapiAvailable) {
         wasmWindowssysWindowsWin32SystemRemotemanagementWSManCreateShellEx(session.toString(), flags.toInt(), resourceuri.rawAddress.toString(), shellid.rawAddress.toString(), startupinfo.rawAddress.toString(), options.rawAddress.toString(), createxml.rawAddress.toString(), async.rawAddress.toString(), shell.rawAddress.toString())
     } else {
@@ -174,7 +173,7 @@ public actual fun wSManCreateShellEx(session: WsmanSessionHandle, flags: UInt, r
 public actual fun wSManDeinitialize(apihandle: WsmanApiHandle, flags: UInt): UInt =
     if (windowsWin32SystemRemotemanagementNapiAvailable) wasmWindowssysWindowsWin32SystemRemotemanagementWSManDeinitialize(apihandle.toString(), flags.toInt()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun wSManDisconnectShell(shell: WsmanShellHandle, flags: UInt, disconnectinfo: ConstPtr<WsmanShellDisconnectInfo>, async: ConstPtr<WsmanShellAsync>) {
+public actual fun wSManDisconnectShell(shell: WsmanShellHandle, flags: UInt, disconnectinfo: ConstPtr, async: ConstPtr) {
     if (windowsWin32SystemRemotemanagementNapiAvailable) {
         wasmWindowssysWindowsWin32SystemRemotemanagementWSManDisconnectShell(shell.toString(), flags.toInt(), disconnectinfo.rawAddress.toString(), async.rawAddress.toString())
     } else {
@@ -182,49 +181,49 @@ public actual fun wSManDisconnectShell(shell: WsmanShellHandle, flags: UInt, dis
     }
 }
 
-public actual fun wSManGetErrorMessage(apihandle: WsmanApiHandle, flags: UInt, languagecode: Pcwstr, errorcode: UInt, messagelength: UInt, message: Pwstr, messagelengthused: MutPtr<UInt>): UInt =
+public actual fun wSManGetErrorMessage(apihandle: WsmanApiHandle, flags: UInt, languagecode: Pcwstr, errorcode: UInt, messagelength: UInt, message: Pwstr, messagelengthused: MutPtr): UInt =
     if (windowsWin32SystemRemotemanagementNapiAvailable) wasmWindowssysWindowsWin32SystemRemotemanagementWSManGetErrorMessage(apihandle.toString(), flags.toInt(), languagecode.rawAddress.toString(), errorcode.toInt(), messagelength.toInt(), message.rawAddress.toString(), messagelengthused.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun wSManGetSessionOptionAsDword(session: WsmanSessionHandle, option: WSManSessionOption, value: MutPtr<UInt>): UInt =
+public actual fun wSManGetSessionOptionAsDword(session: WsmanSessionHandle, option: WSManSessionOption, value: MutPtr): UInt =
     if (windowsWin32SystemRemotemanagementNapiAvailable) wasmWindowssysWindowsWin32SystemRemotemanagementWSManGetSessionOptionAsDword(session.toString(), option, value.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun wSManGetSessionOptionAsString(session: WsmanSessionHandle, option: WSManSessionOption, stringlength: UInt, string: Pwstr, stringlengthused: MutPtr<UInt>): UInt =
+public actual fun wSManGetSessionOptionAsString(session: WsmanSessionHandle, option: WSManSessionOption, stringlength: UInt, string: Pwstr, stringlengthused: MutPtr): UInt =
     if (windowsWin32SystemRemotemanagementNapiAvailable) wasmWindowssysWindowsWin32SystemRemotemanagementWSManGetSessionOptionAsString(session.toString(), option, stringlength.toInt(), string.rawAddress.toString(), stringlengthused.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun wSManInitialize(flags: UInt, apihandle: MutPtr<WsmanApiHandle>): UInt =
+public actual fun wSManInitialize(flags: UInt, apihandle: MutPtr): UInt =
     if (windowsWin32SystemRemotemanagementNapiAvailable) wasmWindowssysWindowsWin32SystemRemotemanagementWSManInitialize(flags.toInt(), apihandle.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun wSManPluginAuthzOperationComplete(senderdetails: ConstPtr<WsmanSenderDetails>, flags: UInt, userauthorizationcontext: ConstPtr<CVoid>, errorcode: UInt, extendederrorinformation: Pcwstr): UInt =
+public actual fun wSManPluginAuthzOperationComplete(senderdetails: ConstPtr, flags: UInt, userauthorizationcontext: ConstPtr, errorcode: UInt, extendederrorinformation: Pcwstr): UInt =
     if (windowsWin32SystemRemotemanagementNapiAvailable) wasmWindowssysWindowsWin32SystemRemotemanagementWSManPluginAuthzOperationComplete(senderdetails.rawAddress.toString(), flags.toInt(), userauthorizationcontext.rawAddress.toString(), errorcode.toInt(), extendederrorinformation.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun wSManPluginAuthzQueryQuotaComplete(senderdetails: ConstPtr<WsmanSenderDetails>, flags: UInt, quota: ConstPtr<WsmanAuthzQuota>, errorcode: UInt, extendederrorinformation: Pcwstr): UInt =
+public actual fun wSManPluginAuthzQueryQuotaComplete(senderdetails: ConstPtr, flags: UInt, quota: ConstPtr, errorcode: UInt, extendederrorinformation: Pcwstr): UInt =
     if (windowsWin32SystemRemotemanagementNapiAvailable) wasmWindowssysWindowsWin32SystemRemotemanagementWSManPluginAuthzQueryQuotaComplete(senderdetails.rawAddress.toString(), flags.toInt(), quota.rawAddress.toString(), errorcode.toInt(), extendederrorinformation.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun wSManPluginAuthzUserComplete(senderdetails: ConstPtr<WsmanSenderDetails>, flags: UInt, userauthorizationcontext: ConstPtr<CVoid>, impersonationtoken: Handle, userisadministrator: Bool, errorcode: UInt, extendederrorinformation: Pcwstr): UInt =
+public actual fun wSManPluginAuthzUserComplete(senderdetails: ConstPtr, flags: UInt, userauthorizationcontext: ConstPtr, impersonationtoken: Handle, userisadministrator: Bool, errorcode: UInt, extendederrorinformation: Pcwstr): UInt =
     if (windowsWin32SystemRemotemanagementNapiAvailable) wasmWindowssysWindowsWin32SystemRemotemanagementWSManPluginAuthzUserComplete(senderdetails.rawAddress.toString(), flags.toInt(), userauthorizationcontext.rawAddress.toString(), impersonationtoken.rawAddress.toString(), userisadministrator, errorcode.toInt(), extendederrorinformation.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun wSManPluginFreeRequestDetails(requestdetails: ConstPtr<WsmanPluginRequest>): UInt =
+public actual fun wSManPluginFreeRequestDetails(requestdetails: ConstPtr): UInt =
     if (windowsWin32SystemRemotemanagementNapiAvailable) wasmWindowssysWindowsWin32SystemRemotemanagementWSManPluginFreeRequestDetails(requestdetails.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun wSManPluginGetConfiguration(plugincontext: ConstPtr<CVoid>, flags: UInt, data: MutPtr<WsmanData>): UInt =
+public actual fun wSManPluginGetConfiguration(plugincontext: ConstPtr, flags: UInt, data: MutPtr): UInt =
     if (windowsWin32SystemRemotemanagementNapiAvailable) wasmWindowssysWindowsWin32SystemRemotemanagementWSManPluginGetConfiguration(plugincontext.rawAddress.toString(), flags.toInt(), data.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun wSManPluginGetOperationParameters(requestdetails: ConstPtr<WsmanPluginRequest>, flags: UInt, data: MutPtr<WsmanData>): UInt =
+public actual fun wSManPluginGetOperationParameters(requestdetails: ConstPtr, flags: UInt, data: MutPtr): UInt =
     if (windowsWin32SystemRemotemanagementNapiAvailable) wasmWindowssysWindowsWin32SystemRemotemanagementWSManPluginGetOperationParameters(requestdetails.rawAddress.toString(), flags.toInt(), data.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun wSManPluginOperationComplete(requestdetails: ConstPtr<WsmanPluginRequest>, flags: UInt, errorcode: UInt, extendedinformation: Pcwstr): UInt =
+public actual fun wSManPluginOperationComplete(requestdetails: ConstPtr, flags: UInt, errorcode: UInt, extendedinformation: Pcwstr): UInt =
     if (windowsWin32SystemRemotemanagementNapiAvailable) wasmWindowssysWindowsWin32SystemRemotemanagementWSManPluginOperationComplete(requestdetails.rawAddress.toString(), flags.toInt(), errorcode.toInt(), extendedinformation.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun wSManPluginReceiveResult(requestdetails: ConstPtr<WsmanPluginRequest>, flags: UInt, stream: Pcwstr, streamresult: ConstPtr<WsmanData>, commandstate: Pcwstr, exitcode: UInt): UInt =
+public actual fun wSManPluginReceiveResult(requestdetails: ConstPtr, flags: UInt, stream: Pcwstr, streamresult: ConstPtr, commandstate: Pcwstr, exitcode: UInt): UInt =
     if (windowsWin32SystemRemotemanagementNapiAvailable) wasmWindowssysWindowsWin32SystemRemotemanagementWSManPluginReceiveResult(requestdetails.rawAddress.toString(), flags.toInt(), stream.rawAddress.toString(), streamresult.rawAddress.toString(), commandstate.rawAddress.toString(), exitcode.toInt()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun wSManPluginReportCompletion(plugincontext: ConstPtr<CVoid>, flags: UInt): UInt =
+public actual fun wSManPluginReportCompletion(plugincontext: ConstPtr, flags: UInt): UInt =
     if (windowsWin32SystemRemotemanagementNapiAvailable) wasmWindowssysWindowsWin32SystemRemotemanagementWSManPluginReportCompletion(plugincontext.rawAddress.toString(), flags.toInt()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun wSManPluginReportContext(requestdetails: ConstPtr<WsmanPluginRequest>, flags: UInt, context: ConstPtr<CVoid>): UInt =
+public actual fun wSManPluginReportContext(requestdetails: ConstPtr, flags: UInt, context: ConstPtr): UInt =
     if (windowsWin32SystemRemotemanagementNapiAvailable) wasmWindowssysWindowsWin32SystemRemotemanagementWSManPluginReportContext(requestdetails.rawAddress.toString(), flags.toInt(), context.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun wSManReceiveShellOutput(shell: WsmanShellHandle, command: WsmanCommandHandle, flags: UInt, desiredstreamset: ConstPtr<WsmanStreamIdSet>, async: ConstPtr<WsmanShellAsync>, receiveoperation: MutPtr<WsmanOperationHandle>) {
+public actual fun wSManReceiveShellOutput(shell: WsmanShellHandle, command: WsmanCommandHandle, flags: UInt, desiredstreamset: ConstPtr, async: ConstPtr, receiveoperation: MutPtr) {
     if (windowsWin32SystemRemotemanagementNapiAvailable) {
         wasmWindowssysWindowsWin32SystemRemotemanagementWSManReceiveShellOutput(shell.toString(), command.toString(), flags.toInt(), desiredstreamset.rawAddress.toString(), async.rawAddress.toString(), receiveoperation.rawAddress.toString())
     } else {
@@ -232,7 +231,7 @@ public actual fun wSManReceiveShellOutput(shell: WsmanShellHandle, command: Wsma
     }
 }
 
-public actual fun wSManReconnectShell(shell: WsmanShellHandle, flags: UInt, async: ConstPtr<WsmanShellAsync>) {
+public actual fun wSManReconnectShell(shell: WsmanShellHandle, flags: UInt, async: ConstPtr) {
     if (windowsWin32SystemRemotemanagementNapiAvailable) {
         wasmWindowssysWindowsWin32SystemRemotemanagementWSManReconnectShell(shell.toString(), flags.toInt(), async.rawAddress.toString())
     } else {
@@ -240,7 +239,7 @@ public actual fun wSManReconnectShell(shell: WsmanShellHandle, flags: UInt, asyn
     }
 }
 
-public actual fun wSManReconnectShellCommand(commandhandle: WsmanCommandHandle, flags: UInt, async: ConstPtr<WsmanShellAsync>) {
+public actual fun wSManReconnectShellCommand(commandhandle: WsmanCommandHandle, flags: UInt, async: ConstPtr) {
     if (windowsWin32SystemRemotemanagementNapiAvailable) {
         wasmWindowssysWindowsWin32SystemRemotemanagementWSManReconnectShellCommand(commandhandle.toString(), flags.toInt(), async.rawAddress.toString())
     } else {
@@ -248,7 +247,7 @@ public actual fun wSManReconnectShellCommand(commandhandle: WsmanCommandHandle, 
     }
 }
 
-public actual fun wSManRunShellCommand(shell: WsmanShellHandle, flags: UInt, commandline: Pcwstr, args: ConstPtr<WsmanCommandArgSet>, options: ConstPtr<WsmanOptionSet>, async: ConstPtr<WsmanShellAsync>, command: MutPtr<WsmanCommandHandle>) {
+public actual fun wSManRunShellCommand(shell: WsmanShellHandle, flags: UInt, commandline: Pcwstr, args: ConstPtr, options: ConstPtr, async: ConstPtr, command: MutPtr) {
     if (windowsWin32SystemRemotemanagementNapiAvailable) {
         wasmWindowssysWindowsWin32SystemRemotemanagementWSManRunShellCommand(shell.toString(), flags.toInt(), commandline.rawAddress.toString(), args.rawAddress.toString(), options.rawAddress.toString(), async.rawAddress.toString(), command.rawAddress.toString())
     } else {
@@ -256,7 +255,7 @@ public actual fun wSManRunShellCommand(shell: WsmanShellHandle, flags: UInt, com
     }
 }
 
-public actual fun wSManRunShellCommandEx(shell: WsmanShellHandle, flags: UInt, commandid: Pcwstr, commandline: Pcwstr, args: ConstPtr<WsmanCommandArgSet>, options: ConstPtr<WsmanOptionSet>, async: ConstPtr<WsmanShellAsync>, command: MutPtr<WsmanCommandHandle>) {
+public actual fun wSManRunShellCommandEx(shell: WsmanShellHandle, flags: UInt, commandid: Pcwstr, commandline: Pcwstr, args: ConstPtr, options: ConstPtr, async: ConstPtr, command: MutPtr) {
     if (windowsWin32SystemRemotemanagementNapiAvailable) {
         wasmWindowssysWindowsWin32SystemRemotemanagementWSManRunShellCommandEx(shell.toString(), flags.toInt(), commandid.rawAddress.toString(), commandline.rawAddress.toString(), args.rawAddress.toString(), options.rawAddress.toString(), async.rawAddress.toString(), command.rawAddress.toString())
     } else {
@@ -264,7 +263,7 @@ public actual fun wSManRunShellCommandEx(shell: WsmanShellHandle, flags: UInt, c
     }
 }
 
-public actual fun wSManSendShellInput(shell: WsmanShellHandle, command: WsmanCommandHandle, flags: UInt, streamid: Pcwstr, streamdata: ConstPtr<WsmanData>, endofstream: Bool, async: ConstPtr<WsmanShellAsync>, sendoperation: MutPtr<WsmanOperationHandle>) {
+public actual fun wSManSendShellInput(shell: WsmanShellHandle, command: WsmanCommandHandle, flags: UInt, streamid: Pcwstr, streamdata: ConstPtr, endofstream: Bool, async: ConstPtr, sendoperation: MutPtr) {
     if (windowsWin32SystemRemotemanagementNapiAvailable) {
         wasmWindowssysWindowsWin32SystemRemotemanagementWSManSendShellInput(shell.toString(), command.toString(), flags.toInt(), streamid.rawAddress.toString(), streamdata.rawAddress.toString(), endofstream, async.rawAddress.toString(), sendoperation.rawAddress.toString())
     } else {
@@ -272,10 +271,10 @@ public actual fun wSManSendShellInput(shell: WsmanShellHandle, command: WsmanCom
     }
 }
 
-public actual fun wSManSetSessionOption(session: WsmanSessionHandle, option: WSManSessionOption, data: ConstPtr<WsmanData>): UInt =
+public actual fun wSManSetSessionOption(session: WsmanSessionHandle, option: WSManSessionOption, data: ConstPtr): UInt =
     if (windowsWin32SystemRemotemanagementNapiAvailable) wasmWindowssysWindowsWin32SystemRemotemanagementWSManSetSessionOption(session.toString(), option, data.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun wSManSignalShell(shell: WsmanShellHandle, command: WsmanCommandHandle, flags: UInt, code: Pcwstr, async: ConstPtr<WsmanShellAsync>, signaloperation: MutPtr<WsmanOperationHandle>) {
+public actual fun wSManSignalShell(shell: WsmanShellHandle, command: WsmanCommandHandle, flags: UInt, code: Pcwstr, async: ConstPtr, signaloperation: MutPtr) {
     if (windowsWin32SystemRemotemanagementNapiAvailable) {
         wasmWindowssysWindowsWin32SystemRemotemanagementWSManSignalShell(shell.toString(), command.toString(), flags.toInt(), code.rawAddress.toString(), async.rawAddress.toString(), signaloperation.rawAddress.toString())
     } else {

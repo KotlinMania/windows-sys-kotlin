@@ -64,5 +64,5 @@ private object WindowsWin32NetworkmanagementNetbiosJniBridge {
     external fun windowssysWindowsWin32NetworkmanagementNetbiosNetbios(pncb: Long): Byte
 }
 
-public actual fun netbios(pncb: MutPtr<Ncb>): UByte =
+public actual fun netbios(pncb: MutPtr): UByte =
     WindowsWin32NetworkmanagementNetbiosJniBridge.windowssysWindowsWin32NetworkmanagementNetbiosNetbios(pncb.rawAddress).toUByte()

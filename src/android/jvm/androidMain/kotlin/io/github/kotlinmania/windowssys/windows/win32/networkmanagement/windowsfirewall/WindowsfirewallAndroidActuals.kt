@@ -2,7 +2,6 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.networkmanagement.windowsfirewall
 
-import io.github.kotlinmania.rustlang.core.ffi.CVoid
 import io.github.kotlinmania.rustlang.core.ptr.ConstPtr
 import io.github.kotlinmania.rustlang.core.ptr.MutPtr
 import io.github.kotlinmania.windowssys.core.Bool
@@ -10,7 +9,6 @@ import io.github.kotlinmania.windowssys.core.Hresult
 import io.github.kotlinmania.windowssys.core.Pcwstr
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Handle
 import io.github.kotlinmania.windowssys.windows.win32.security.Psid
-import io.github.kotlinmania.windowssys.windows.win32.security.SidAndAttributes
 
 private object WindowsWin32NetworkmanagementWindowsfirewallJniBridge {
     init {
@@ -57,41 +55,41 @@ private object WindowsWin32NetworkmanagementWindowsfirewallJniBridge {
     external fun windowssysWindowsWin32NetworkmanagementWindowsfirewallNetworkIsolationUnregisterForAppContainerChanges(registrationobject: Long): Int
 }
 
-public actual fun ncFreeNetconProperties(pprops: MutPtr<NetconProperties>) {
+public actual fun ncFreeNetconProperties(pprops: MutPtr) {
     WindowsWin32NetworkmanagementWindowsfirewallJniBridge.windowssysWindowsWin32NetworkmanagementWindowsfirewallNcFreeNetconProperties(pprops.rawAddress)
 }
 
 public actual fun ncIsValidConnectionName(pszwname: Pcwstr): Bool =
     WindowsWin32NetworkmanagementWindowsfirewallJniBridge.windowssysWindowsWin32NetworkmanagementWindowsfirewallNcIsValidConnectionName(pszwname.rawAddress)
 
-public actual fun networkIsolationDiagnoseConnectFailureAndGetInfo(wszservername: Pcwstr, netisoerror: MutPtr<NetisoErrorType>): UInt =
+public actual fun networkIsolationDiagnoseConnectFailureAndGetInfo(wszservername: Pcwstr, netisoerror: MutPtr): UInt =
     WindowsWin32NetworkmanagementWindowsfirewallJniBridge.windowssysWindowsWin32NetworkmanagementWindowsfirewallNetworkIsolationDiagnoseConnectFailureAndGetInfo(wszservername.rawAddress, netisoerror.rawAddress).toUInt()
 
-public actual fun networkIsolationEnumAppContainers(flags: UInt, pdwnumpublicappcs: MutPtr<UInt>, pppublicappcs: MutPtr<MutPtr<InetFirewallAppContainer>>): UInt =
+public actual fun networkIsolationEnumAppContainers(flags: UInt, pdwnumpublicappcs: MutPtr, pppublicappcs: MutPtr): UInt =
     WindowsWin32NetworkmanagementWindowsfirewallJniBridge.windowssysWindowsWin32NetworkmanagementWindowsfirewallNetworkIsolationEnumAppContainers(flags.toInt(), pdwnumpublicappcs.rawAddress, pppublicappcs.rawAddress).toUInt()
 
-public actual fun networkIsolationEnumerateAppContainerRules(newenum: MutPtr<MutPtr<CVoid>>): Hresult =
+public actual fun networkIsolationEnumerateAppContainerRules(newenum: MutPtr): Hresult =
     WindowsWin32NetworkmanagementWindowsfirewallJniBridge.windowssysWindowsWin32NetworkmanagementWindowsfirewallNetworkIsolationEnumerateAppContainerRules(newenum.rawAddress)
 
-public actual fun networkIsolationFreeAppContainers(ppublicappcs: ConstPtr<InetFirewallAppContainer>): UInt =
+public actual fun networkIsolationFreeAppContainers(ppublicappcs: ConstPtr): UInt =
     WindowsWin32NetworkmanagementWindowsfirewallJniBridge.windowssysWindowsWin32NetworkmanagementWindowsfirewallNetworkIsolationFreeAppContainers(ppublicappcs.rawAddress).toUInt()
 
-public actual fun networkIsolationGetAppContainerConfig(pdwnumpublicappcs: MutPtr<UInt>, appcontainersids: MutPtr<MutPtr<SidAndAttributes>>): UInt =
+public actual fun networkIsolationGetAppContainerConfig(pdwnumpublicappcs: MutPtr, appcontainersids: MutPtr): UInt =
     WindowsWin32NetworkmanagementWindowsfirewallJniBridge.windowssysWindowsWin32NetworkmanagementWindowsfirewallNetworkIsolationGetAppContainerConfig(pdwnumpublicappcs.rawAddress, appcontainersids.rawAddress).toUInt()
 
-public actual fun networkIsolationGetEnterpriseIdAsync(wszservername: Pcwstr, dwflags: UInt, context: ConstPtr<CVoid>, callback: PnetisoEdpIdCallbackFn, hoperation: MutPtr<Handle>): UInt =
+public actual fun networkIsolationGetEnterpriseIdAsync(wszservername: Pcwstr, dwflags: UInt, context: ConstPtr, callback: PnetisoEdpIdCallbackFn, hoperation: MutPtr): UInt =
     WindowsWin32NetworkmanagementWindowsfirewallJniBridge.windowssysWindowsWin32NetworkmanagementWindowsfirewallNetworkIsolationGetEnterpriseIdAsync(wszservername.rawAddress, dwflags.toInt(), context.rawAddress, 0L, hoperation.rawAddress).toUInt()
 
 public actual fun networkIsolationGetEnterpriseIdClose(hoperation: Handle, bwaitforoperation: Bool): UInt =
     WindowsWin32NetworkmanagementWindowsfirewallJniBridge.windowssysWindowsWin32NetworkmanagementWindowsfirewallNetworkIsolationGetEnterpriseIdClose(hoperation.rawAddress, bwaitforoperation).toUInt()
 
-public actual fun networkIsolationRegisterForAppContainerChanges(flags: UInt, callback: PacChangesCallbackFn, context: ConstPtr<CVoid>, registrationobject: MutPtr<Handle>): UInt =
+public actual fun networkIsolationRegisterForAppContainerChanges(flags: UInt, callback: PacChangesCallbackFn, context: ConstPtr, registrationobject: MutPtr): UInt =
     WindowsWin32NetworkmanagementWindowsfirewallJniBridge.windowssysWindowsWin32NetworkmanagementWindowsfirewallNetworkIsolationRegisterForAppContainerChanges(flags.toInt(), 0L, context.rawAddress, registrationobject.rawAddress).toUInt()
 
-public actual fun networkIsolationSetAppContainerConfig(dwnumpublicappcs: UInt, appcontainersids: ConstPtr<SidAndAttributes>): UInt =
+public actual fun networkIsolationSetAppContainerConfig(dwnumpublicappcs: UInt, appcontainersids: ConstPtr): UInt =
     WindowsWin32NetworkmanagementWindowsfirewallJniBridge.windowssysWindowsWin32NetworkmanagementWindowsfirewallNetworkIsolationSetAppContainerConfig(dwnumpublicappcs.toInt(), appcontainersids.rawAddress).toUInt()
 
-public actual fun networkIsolationSetupAppContainerBinaries(applicationcontainersid: Psid, packagefullname: Pcwstr, packagefolder: Pcwstr, displayname: Pcwstr, bbinariesfullycomputed: Bool, binaries: ConstPtr<Pcwstr>, binariescount: UInt): Hresult =
+public actual fun networkIsolationSetupAppContainerBinaries(applicationcontainersid: Psid, packagefullname: Pcwstr, packagefolder: Pcwstr, displayname: Pcwstr, bbinariesfullycomputed: Bool, binaries: ConstPtr, binariescount: UInt): Hresult =
     WindowsWin32NetworkmanagementWindowsfirewallJniBridge.windowssysWindowsWin32NetworkmanagementWindowsfirewallNetworkIsolationSetupAppContainerBinaries(applicationcontainersid.rawAddress, packagefullname.rawAddress, packagefolder.rawAddress, displayname.rawAddress, bbinariesfullycomputed, binaries.rawAddress, binariescount.toInt())
 
 public actual fun networkIsolationUnregisterForAppContainerChanges(registrationobject: Handle): UInt =

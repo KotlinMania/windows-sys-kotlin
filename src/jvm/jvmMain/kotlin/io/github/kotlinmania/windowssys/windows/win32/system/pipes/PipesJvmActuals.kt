@@ -2,7 +2,6 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.system.pipes
 
-import io.github.kotlinmania.rustlang.core.ffi.CVoid
 import io.github.kotlinmania.rustlang.core.ptr.ConstPtr
 import io.github.kotlinmania.rustlang.core.ptr.MutPtr
 import io.github.kotlinmania.windowssys.core.Bool
@@ -11,9 +10,7 @@ import io.github.kotlinmania.windowssys.core.Pcwstr
 import io.github.kotlinmania.windowssys.core.Pstr
 import io.github.kotlinmania.windowssys.core.Pwstr
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Handle
-import io.github.kotlinmania.windowssys.windows.win32.security.SecurityAttributes
 import io.github.kotlinmania.windowssys.windows.win32.storage.filesystem.FileFlagsAndAttributes
-import io.github.kotlinmania.windowssys.windows.win32.system.io.Overlapped
 
 private object WindowsWin32SystemPipesJniBridge {
     init {
@@ -138,22 +135,22 @@ private object WindowsWin32SystemPipesJniBridge {
     external fun windowssysWindowsWin32SystemPipesWaitNamedPipeW(lpnamedpipename: Long, ntimeout: Int): Int
 }
 
-public actual fun callNamedPipeA(lpnamedpipename: Pcstr, lpinbuffer: ConstPtr<CVoid>, ninbuffersize: UInt, lpoutbuffer: MutPtr<CVoid>, noutbuffersize: UInt, lpbytesread: MutPtr<UInt>, ntimeout: UInt): Bool =
+public actual fun callNamedPipeA(lpnamedpipename: Pcstr, lpinbuffer: ConstPtr, ninbuffersize: UInt, lpoutbuffer: MutPtr, noutbuffersize: UInt, lpbytesread: MutPtr, ntimeout: UInt): Bool =
     WindowsWin32SystemPipesJniBridge.windowssysWindowsWin32SystemPipesCallNamedPipeA(lpnamedpipename.rawAddress, lpinbuffer.rawAddress, ninbuffersize.toInt(), lpoutbuffer.rawAddress, noutbuffersize.toInt(), lpbytesread.rawAddress, ntimeout.toInt())
 
-public actual fun callNamedPipeW(lpnamedpipename: Pcwstr, lpinbuffer: ConstPtr<CVoid>, ninbuffersize: UInt, lpoutbuffer: MutPtr<CVoid>, noutbuffersize: UInt, lpbytesread: MutPtr<UInt>, ntimeout: UInt): Bool =
+public actual fun callNamedPipeW(lpnamedpipename: Pcwstr, lpinbuffer: ConstPtr, ninbuffersize: UInt, lpoutbuffer: MutPtr, noutbuffersize: UInt, lpbytesread: MutPtr, ntimeout: UInt): Bool =
     WindowsWin32SystemPipesJniBridge.windowssysWindowsWin32SystemPipesCallNamedPipeW(lpnamedpipename.rawAddress, lpinbuffer.rawAddress, ninbuffersize.toInt(), lpoutbuffer.rawAddress, noutbuffersize.toInt(), lpbytesread.rawAddress, ntimeout.toInt())
 
-public actual fun connectNamedPipe(hnamedpipe: Handle, lpoverlapped: MutPtr<Overlapped>): Bool =
+public actual fun connectNamedPipe(hnamedpipe: Handle, lpoverlapped: MutPtr): Bool =
     WindowsWin32SystemPipesJniBridge.windowssysWindowsWin32SystemPipesConnectNamedPipe(hnamedpipe.rawAddress, lpoverlapped.rawAddress)
 
-public actual fun createNamedPipeA(lpname: Pcstr, dwopenmode: FileFlagsAndAttributes, dwpipemode: NamedPipeMode, nmaxinstances: UInt, noutbuffersize: UInt, ninbuffersize: UInt, ndefaulttimeout: UInt, lpsecurityattributes: ConstPtr<SecurityAttributes>): Handle =
+public actual fun createNamedPipeA(lpname: Pcstr, dwopenmode: FileFlagsAndAttributes, dwpipemode: NamedPipeMode, nmaxinstances: UInt, noutbuffersize: UInt, ninbuffersize: UInt, ndefaulttimeout: UInt, lpsecurityattributes: ConstPtr): Handle =
     MutPtr(WindowsWin32SystemPipesJniBridge.windowssysWindowsWin32SystemPipesCreateNamedPipeA(lpname.rawAddress, dwopenmode.toInt(), dwpipemode.toInt(), nmaxinstances.toInt(), noutbuffersize.toInt(), ninbuffersize.toInt(), ndefaulttimeout.toInt(), lpsecurityattributes.rawAddress))
 
-public actual fun createNamedPipeW(lpname: Pcwstr, dwopenmode: FileFlagsAndAttributes, dwpipemode: NamedPipeMode, nmaxinstances: UInt, noutbuffersize: UInt, ninbuffersize: UInt, ndefaulttimeout: UInt, lpsecurityattributes: ConstPtr<SecurityAttributes>): Handle =
+public actual fun createNamedPipeW(lpname: Pcwstr, dwopenmode: FileFlagsAndAttributes, dwpipemode: NamedPipeMode, nmaxinstances: UInt, noutbuffersize: UInt, ninbuffersize: UInt, ndefaulttimeout: UInt, lpsecurityattributes: ConstPtr): Handle =
     MutPtr(WindowsWin32SystemPipesJniBridge.windowssysWindowsWin32SystemPipesCreateNamedPipeW(lpname.rawAddress, dwopenmode.toInt(), dwpipemode.toInt(), nmaxinstances.toInt(), noutbuffersize.toInt(), ninbuffersize.toInt(), ndefaulttimeout.toInt(), lpsecurityattributes.rawAddress))
 
-public actual fun createPipe(hreadpipe: MutPtr<Handle>, hwritepipe: MutPtr<Handle>, lppipeattributes: ConstPtr<SecurityAttributes>, nsize: UInt): Bool =
+public actual fun createPipe(hreadpipe: MutPtr, hwritepipe: MutPtr, lppipeattributes: ConstPtr, nsize: UInt): Bool =
     WindowsWin32SystemPipesJniBridge.windowssysWindowsWin32SystemPipesCreatePipe(hreadpipe.rawAddress, hwritepipe.rawAddress, lppipeattributes.rawAddress, nsize.toInt())
 
 public actual fun disconnectNamedPipe(hnamedpipe: Handle): Bool =
@@ -165,37 +162,37 @@ public actual fun getNamedPipeClientComputerNameA(pipe: Handle, clientcomputerna
 public actual fun getNamedPipeClientComputerNameW(pipe: Handle, clientcomputername: Pwstr, clientcomputernamelength: UInt): Bool =
     WindowsWin32SystemPipesJniBridge.windowssysWindowsWin32SystemPipesGetNamedPipeClientComputerNameW(pipe.rawAddress, clientcomputername.rawAddress, clientcomputernamelength.toInt())
 
-public actual fun getNamedPipeClientProcessId(pipe: Handle, clientprocessid: MutPtr<UInt>): Bool =
+public actual fun getNamedPipeClientProcessId(pipe: Handle, clientprocessid: MutPtr): Bool =
     WindowsWin32SystemPipesJniBridge.windowssysWindowsWin32SystemPipesGetNamedPipeClientProcessId(pipe.rawAddress, clientprocessid.rawAddress)
 
-public actual fun getNamedPipeClientSessionId(pipe: Handle, clientsessionid: MutPtr<UInt>): Bool =
+public actual fun getNamedPipeClientSessionId(pipe: Handle, clientsessionid: MutPtr): Bool =
     WindowsWin32SystemPipesJniBridge.windowssysWindowsWin32SystemPipesGetNamedPipeClientSessionId(pipe.rawAddress, clientsessionid.rawAddress)
 
-public actual fun getNamedPipeHandleStateA(hnamedpipe: Handle, lpstate: MutPtr<NamedPipeMode>, lpcurinstances: MutPtr<UInt>, lpmaxcollectioncount: MutPtr<UInt>, lpcollectdatatimeout: MutPtr<UInt>, lpusername: Pstr, nmaxusernamesize: UInt): Bool =
+public actual fun getNamedPipeHandleStateA(hnamedpipe: Handle, lpstate: MutPtr, lpcurinstances: MutPtr, lpmaxcollectioncount: MutPtr, lpcollectdatatimeout: MutPtr, lpusername: Pstr, nmaxusernamesize: UInt): Bool =
     WindowsWin32SystemPipesJniBridge.windowssysWindowsWin32SystemPipesGetNamedPipeHandleStateA(hnamedpipe.rawAddress, lpstate.rawAddress, lpcurinstances.rawAddress, lpmaxcollectioncount.rawAddress, lpcollectdatatimeout.rawAddress, lpusername.rawAddress, nmaxusernamesize.toInt())
 
-public actual fun getNamedPipeHandleStateW(hnamedpipe: Handle, lpstate: MutPtr<NamedPipeMode>, lpcurinstances: MutPtr<UInt>, lpmaxcollectioncount: MutPtr<UInt>, lpcollectdatatimeout: MutPtr<UInt>, lpusername: Pwstr, nmaxusernamesize: UInt): Bool =
+public actual fun getNamedPipeHandleStateW(hnamedpipe: Handle, lpstate: MutPtr, lpcurinstances: MutPtr, lpmaxcollectioncount: MutPtr, lpcollectdatatimeout: MutPtr, lpusername: Pwstr, nmaxusernamesize: UInt): Bool =
     WindowsWin32SystemPipesJniBridge.windowssysWindowsWin32SystemPipesGetNamedPipeHandleStateW(hnamedpipe.rawAddress, lpstate.rawAddress, lpcurinstances.rawAddress, lpmaxcollectioncount.rawAddress, lpcollectdatatimeout.rawAddress, lpusername.rawAddress, nmaxusernamesize.toInt())
 
-public actual fun getNamedPipeInfo(hnamedpipe: Handle, lpflags: MutPtr<NamedPipeMode>, lpoutbuffersize: MutPtr<UInt>, lpinbuffersize: MutPtr<UInt>, lpmaxinstances: MutPtr<UInt>): Bool =
+public actual fun getNamedPipeInfo(hnamedpipe: Handle, lpflags: MutPtr, lpoutbuffersize: MutPtr, lpinbuffersize: MutPtr, lpmaxinstances: MutPtr): Bool =
     WindowsWin32SystemPipesJniBridge.windowssysWindowsWin32SystemPipesGetNamedPipeInfo(hnamedpipe.rawAddress, lpflags.rawAddress, lpoutbuffersize.rawAddress, lpinbuffersize.rawAddress, lpmaxinstances.rawAddress)
 
-public actual fun getNamedPipeServerProcessId(pipe: Handle, serverprocessid: MutPtr<UInt>): Bool =
+public actual fun getNamedPipeServerProcessId(pipe: Handle, serverprocessid: MutPtr): Bool =
     WindowsWin32SystemPipesJniBridge.windowssysWindowsWin32SystemPipesGetNamedPipeServerProcessId(pipe.rawAddress, serverprocessid.rawAddress)
 
-public actual fun getNamedPipeServerSessionId(pipe: Handle, serversessionid: MutPtr<UInt>): Bool =
+public actual fun getNamedPipeServerSessionId(pipe: Handle, serversessionid: MutPtr): Bool =
     WindowsWin32SystemPipesJniBridge.windowssysWindowsWin32SystemPipesGetNamedPipeServerSessionId(pipe.rawAddress, serversessionid.rawAddress)
 
 public actual fun impersonateNamedPipeClient(hnamedpipe: Handle): Bool =
     WindowsWin32SystemPipesJniBridge.windowssysWindowsWin32SystemPipesImpersonateNamedPipeClient(hnamedpipe.rawAddress)
 
-public actual fun peekNamedPipe(hnamedpipe: Handle, lpbuffer: MutPtr<CVoid>, nbuffersize: UInt, lpbytesread: MutPtr<UInt>, lptotalbytesavail: MutPtr<UInt>, lpbytesleftthismessage: MutPtr<UInt>): Bool =
+public actual fun peekNamedPipe(hnamedpipe: Handle, lpbuffer: MutPtr, nbuffersize: UInt, lpbytesread: MutPtr, lptotalbytesavail: MutPtr, lpbytesleftthismessage: MutPtr): Bool =
     WindowsWin32SystemPipesJniBridge.windowssysWindowsWin32SystemPipesPeekNamedPipe(hnamedpipe.rawAddress, lpbuffer.rawAddress, nbuffersize.toInt(), lpbytesread.rawAddress, lptotalbytesavail.rawAddress, lpbytesleftthismessage.rawAddress)
 
-public actual fun setNamedPipeHandleState(hnamedpipe: Handle, lpmode: ConstPtr<NamedPipeMode>, lpmaxcollectioncount: ConstPtr<UInt>, lpcollectdatatimeout: ConstPtr<UInt>): Bool =
+public actual fun setNamedPipeHandleState(hnamedpipe: Handle, lpmode: ConstPtr, lpmaxcollectioncount: ConstPtr, lpcollectdatatimeout: ConstPtr): Bool =
     WindowsWin32SystemPipesJniBridge.windowssysWindowsWin32SystemPipesSetNamedPipeHandleState(hnamedpipe.rawAddress, lpmode.rawAddress, lpmaxcollectioncount.rawAddress, lpcollectdatatimeout.rawAddress)
 
-public actual fun transactNamedPipe(hnamedpipe: Handle, lpinbuffer: ConstPtr<CVoid>, ninbuffersize: UInt, lpoutbuffer: MutPtr<CVoid>, noutbuffersize: UInt, lpbytesread: MutPtr<UInt>, lpoverlapped: MutPtr<Overlapped>): Bool =
+public actual fun transactNamedPipe(hnamedpipe: Handle, lpinbuffer: ConstPtr, ninbuffersize: UInt, lpoutbuffer: MutPtr, noutbuffersize: UInt, lpbytesread: MutPtr, lpoverlapped: MutPtr): Bool =
     WindowsWin32SystemPipesJniBridge.windowssysWindowsWin32SystemPipesTransactNamedPipe(hnamedpipe.rawAddress, lpinbuffer.rawAddress, ninbuffersize.toInt(), lpoutbuffer.rawAddress, noutbuffersize.toInt(), lpbytesread.rawAddress, lpoverlapped.rawAddress)
 
 public actual fun waitNamedPipeA(lpnamedpipename: Pcstr, ntimeout: UInt): Bool =

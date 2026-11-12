@@ -2,9 +2,7 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.media.windowsmediaformat
 
-import io.github.kotlinmania.rustlang.core.ffi.CVoid
 import io.github.kotlinmania.rustlang.core.ptr.MutPtr
-import io.github.kotlinmania.windowssys.core.Bool
 import io.github.kotlinmania.windowssys.core.Hresult
 import io.github.kotlinmania.windowssys.core.Pcwstr
 
@@ -46,35 +44,35 @@ private external fun wasmWindowssysWindowsWin32MediaWindowsmediaformatWMCreateWr
 @JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWin32MediaWindowsmediaformatWMIsContentProtected(p0, p1)")
 private external fun wasmWindowssysWindowsWin32MediaWindowsmediaformatWMIsContentProtected(p0: String, p1: String): Int
 
-public actual fun wMCreateBackupRestorer(pcallback: MutPtr<CVoid>, ppbackup: MutPtr<MutPtr<CVoid>>): Hresult =
+public actual fun wMCreateBackupRestorer(pcallback: MutPtr, ppbackup: MutPtr): Hresult =
     if (windowsWin32MediaWindowsmediaformatNapiAvailable) wasmWindowssysWindowsWin32MediaWindowsmediaformatWMCreateBackupRestorer(pcallback.rawAddress.toString(), ppbackup.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun wMCreateEditor(ppeditor: MutPtr<MutPtr<CVoid>>): Hresult =
+public actual fun wMCreateEditor(ppeditor: MutPtr): Hresult =
     if (windowsWin32MediaWindowsmediaformatNapiAvailable) wasmWindowssysWindowsWin32MediaWindowsmediaformatWMCreateEditor(ppeditor.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun wMCreateIndexer(ppindexer: MutPtr<MutPtr<CVoid>>): Hresult =
+public actual fun wMCreateIndexer(ppindexer: MutPtr): Hresult =
     if (windowsWin32MediaWindowsmediaformatNapiAvailable) wasmWindowssysWindowsWin32MediaWindowsmediaformatWMCreateIndexer(ppindexer.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun wMCreateProfileManager(ppprofilemanager: MutPtr<MutPtr<CVoid>>): Hresult =
+public actual fun wMCreateProfileManager(ppprofilemanager: MutPtr): Hresult =
     if (windowsWin32MediaWindowsmediaformatNapiAvailable) wasmWindowssysWindowsWin32MediaWindowsmediaformatWMCreateProfileManager(ppprofilemanager.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun wMCreateReader(punkcert: MutPtr<CVoid>, dwrights: UInt, ppreader: MutPtr<MutPtr<CVoid>>): Hresult =
+public actual fun wMCreateReader(punkcert: MutPtr, dwrights: UInt, ppreader: MutPtr): Hresult =
     if (windowsWin32MediaWindowsmediaformatNapiAvailable) wasmWindowssysWindowsWin32MediaWindowsmediaformatWMCreateReader(punkcert.rawAddress.toString(), dwrights.toInt(), ppreader.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun wMCreateSyncReader(punkcert: MutPtr<CVoid>, dwrights: UInt, ppsyncreader: MutPtr<MutPtr<CVoid>>): Hresult =
+public actual fun wMCreateSyncReader(punkcert: MutPtr, dwrights: UInt, ppsyncreader: MutPtr): Hresult =
     if (windowsWin32MediaWindowsmediaformatNapiAvailable) wasmWindowssysWindowsWin32MediaWindowsmediaformatWMCreateSyncReader(punkcert.rawAddress.toString(), dwrights.toInt(), ppsyncreader.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun wMCreateWriter(punkcert: MutPtr<CVoid>, ppwriter: MutPtr<MutPtr<CVoid>>): Hresult =
+public actual fun wMCreateWriter(punkcert: MutPtr, ppwriter: MutPtr): Hresult =
     if (windowsWin32MediaWindowsmediaformatNapiAvailable) wasmWindowssysWindowsWin32MediaWindowsmediaformatWMCreateWriter(punkcert.rawAddress.toString(), ppwriter.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun wMCreateWriterFileSink(ppsink: MutPtr<MutPtr<CVoid>>): Hresult =
+public actual fun wMCreateWriterFileSink(ppsink: MutPtr): Hresult =
     if (windowsWin32MediaWindowsmediaformatNapiAvailable) wasmWindowssysWindowsWin32MediaWindowsmediaformatWMCreateWriterFileSink(ppsink.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun wMCreateWriterNetworkSink(ppsink: MutPtr<MutPtr<CVoid>>): Hresult =
+public actual fun wMCreateWriterNetworkSink(ppsink: MutPtr): Hresult =
     if (windowsWin32MediaWindowsmediaformatNapiAvailable) wasmWindowssysWindowsWin32MediaWindowsmediaformatWMCreateWriterNetworkSink(ppsink.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun wMCreateWriterPushSink(ppsink: MutPtr<MutPtr<CVoid>>): Hresult =
+public actual fun wMCreateWriterPushSink(ppsink: MutPtr): Hresult =
     if (windowsWin32MediaWindowsmediaformatNapiAvailable) wasmWindowssysWindowsWin32MediaWindowsmediaformatWMCreateWriterPushSink(ppsink.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun wMIsContentProtected(pwszfilename: Pcwstr, pfisprotected: MutPtr<Bool>): Hresult =
+public actual fun wMIsContentProtected(pwszfilename: Pcwstr, pfisprotected: MutPtr): Hresult =
     if (windowsWin32MediaWindowsmediaformatNapiAvailable) wasmWindowssysWindowsWin32MediaWindowsmediaformatWMIsContentProtected(pwszfilename.rawAddress.toString(), pfisprotected.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")

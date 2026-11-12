@@ -2,15 +2,12 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.system.hypervisor
 
-import io.github.kotlinmania.rustlang.core.ffi.CVoid
 import io.github.kotlinmania.rustlang.core.ptr.ConstPtr
 import io.github.kotlinmania.rustlang.core.ptr.MutPtr
 import io.github.kotlinmania.windowssys.core.Bool
-import io.github.kotlinmania.windowssys.core.Guid
 import io.github.kotlinmania.windowssys.core.Hresult
 import io.github.kotlinmania.windowssys.core.Pcstr
 import io.github.kotlinmania.windowssys.core.Pcwstr
-import io.github.kotlinmania.windowssys.core.Pwstr
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Handle
 import io.github.kotlinmania.windowssys.windows.win32.system.hostcomputesystem.HcsSystem
 import io.github.kotlinmania.windowssys.windows.win32.system.power.DevicePowerState
@@ -390,181 +387,181 @@ private object WindowsWin32SystemHypervisorJniBridge {
     external fun windowssysWindowsWin32SystemHypervisorWHvWriteVpciDeviceRegister(partition: Long, logicaldeviceid: Long, register: Long, data: Long): Int
 }
 
-public actual fun applyGuestMemoryFix(vmsavedstatedumphandle: MutPtr<CVoid>, vpid: UInt, virtualaddress: ULong, fixbuffer: ConstPtr<CVoid>, fixbuffersize: UInt): Hresult =
+public actual fun applyGuestMemoryFix(vmsavedstatedumphandle: MutPtr, vpid: UInt, virtualaddress: ULong, fixbuffer: ConstPtr, fixbuffersize: UInt): Hresult =
     WindowsWin32SystemHypervisorJniBridge.windowssysWindowsWin32SystemHypervisorApplyGuestMemoryFix(vmsavedstatedumphandle.rawAddress, vpid.toInt(), virtualaddress.toLong(), fixbuffer.rawAddress, fixbuffersize.toInt())
 
 public actual fun applyPendingSavedStateFileReplayLog(vmrsfile: Pcwstr): Hresult =
     WindowsWin32SystemHypervisorJniBridge.windowssysWindowsWin32SystemHypervisorApplyPendingSavedStateFileReplayLog(vmrsfile.rawAddress)
 
-public actual fun callStackUnwind(vmsavedstatedumphandle: MutPtr<CVoid>, vpid: UInt, imageinfo: ConstPtr<ModuleInfo>, imageinfocount: UInt, framecount: UInt, callstack: MutPtr<Pwstr>): Hresult =
+public actual fun callStackUnwind(vmsavedstatedumphandle: MutPtr, vpid: UInt, imageinfo: ConstPtr, imageinfocount: UInt, framecount: UInt, callstack: MutPtr): Hresult =
     WindowsWin32SystemHypervisorJniBridge.windowssysWindowsWin32SystemHypervisorCallStackUnwind(vmsavedstatedumphandle.rawAddress, vpid.toInt(), imageinfo.rawAddress, imageinfocount.toInt(), framecount.toInt(), callstack.rawAddress)
 
-public actual fun findSavedStateSymbolFieldInType(vmsavedstatedumphandle: MutPtr<CVoid>, vpid: UInt, typename: Pcstr, fieldname: Pcwstr, offset: MutPtr<UInt>, found: MutPtr<Bool>): Hresult =
+public actual fun findSavedStateSymbolFieldInType(vmsavedstatedumphandle: MutPtr, vpid: UInt, typename: Pcstr, fieldname: Pcwstr, offset: MutPtr, found: MutPtr): Hresult =
     WindowsWin32SystemHypervisorJniBridge.windowssysWindowsWin32SystemHypervisorFindSavedStateSymbolFieldInType(vmsavedstatedumphandle.rawAddress, vpid.toInt(), typename.rawAddress, fieldname.rawAddress, offset.rawAddress, found.rawAddress)
 
-public actual fun forceActiveVirtualTrustLevel(vmsavedstatedumphandle: MutPtr<CVoid>, vpid: UInt, virtualtrustlevel: UByte): Hresult =
+public actual fun forceActiveVirtualTrustLevel(vmsavedstatedumphandle: MutPtr, vpid: UInt, virtualtrustlevel: UByte): Hresult =
     WindowsWin32SystemHypervisorJniBridge.windowssysWindowsWin32SystemHypervisorForceActiveVirtualTrustLevel(vmsavedstatedumphandle.rawAddress, vpid.toInt(), virtualtrustlevel.toByte())
 
-public actual fun forceArchitecture(vmsavedstatedumphandle: MutPtr<CVoid>, vpid: UInt, architecture: VirtualProcessorArch): Hresult =
+public actual fun forceArchitecture(vmsavedstatedumphandle: MutPtr, vpid: UInt, architecture: VirtualProcessorArch): Hresult =
     WindowsWin32SystemHypervisorJniBridge.windowssysWindowsWin32SystemHypervisorForceArchitecture(vmsavedstatedumphandle.rawAddress, vpid.toInt(), architecture)
 
-public actual fun forceNestedHostMode(vmsavedstatedumphandle: MutPtr<CVoid>, vpid: UInt, hostmode: Bool, oldmode: MutPtr<Bool>): Hresult =
+public actual fun forceNestedHostMode(vmsavedstatedumphandle: MutPtr, vpid: UInt, hostmode: Bool, oldmode: MutPtr): Hresult =
     WindowsWin32SystemHypervisorJniBridge.windowssysWindowsWin32SystemHypervisorForceNestedHostMode(vmsavedstatedumphandle.rawAddress, vpid.toInt(), hostmode, oldmode.rawAddress)
 
-public actual fun forcePagingMode(vmsavedstatedumphandle: MutPtr<CVoid>, vpid: UInt, pagingmode: PagingMode): Hresult =
+public actual fun forcePagingMode(vmsavedstatedumphandle: MutPtr, vpid: UInt, pagingmode: PagingMode): Hresult =
     WindowsWin32SystemHypervisorJniBridge.windowssysWindowsWin32SystemHypervisorForcePagingMode(vmsavedstatedumphandle.rawAddress, vpid.toInt(), pagingmode)
 
-public actual fun getActiveVirtualTrustLevel(vmsavedstatedumphandle: MutPtr<CVoid>, vpid: UInt, virtualtrustlevel: MutPtr<UByte>): Hresult =
+public actual fun getActiveVirtualTrustLevel(vmsavedstatedumphandle: MutPtr, vpid: UInt, virtualtrustlevel: MutPtr): Hresult =
     WindowsWin32SystemHypervisorJniBridge.windowssysWindowsWin32SystemHypervisorGetActiveVirtualTrustLevel(vmsavedstatedumphandle.rawAddress, vpid.toInt(), virtualtrustlevel.rawAddress)
 
-public actual fun getArchitecture(vmsavedstatedumphandle: MutPtr<CVoid>, vpid: UInt, architecture: MutPtr<VirtualProcessorArch>): Hresult =
+public actual fun getArchitecture(vmsavedstatedumphandle: MutPtr, vpid: UInt, architecture: MutPtr): Hresult =
     WindowsWin32SystemHypervisorJniBridge.windowssysWindowsWin32SystemHypervisorGetArchitecture(vmsavedstatedumphandle.rawAddress, vpid.toInt(), architecture.rawAddress)
 
-public actual fun getEnabledVirtualTrustLevels(vmsavedstatedumphandle: MutPtr<CVoid>, vpid: UInt, virtualtrustlevels: MutPtr<UInt>): Hresult =
+public actual fun getEnabledVirtualTrustLevels(vmsavedstatedumphandle: MutPtr, vpid: UInt, virtualtrustlevels: MutPtr): Hresult =
     WindowsWin32SystemHypervisorJniBridge.windowssysWindowsWin32SystemHypervisorGetEnabledVirtualTrustLevels(vmsavedstatedumphandle.rawAddress, vpid.toInt(), virtualtrustlevels.rawAddress)
 
-public actual fun getGuestEnabledVirtualTrustLevels(vmsavedstatedumphandle: MutPtr<CVoid>, virtualtrustlevels: MutPtr<UInt>): Hresult =
+public actual fun getGuestEnabledVirtualTrustLevels(vmsavedstatedumphandle: MutPtr, virtualtrustlevels: MutPtr): Hresult =
     WindowsWin32SystemHypervisorJniBridge.windowssysWindowsWin32SystemHypervisorGetGuestEnabledVirtualTrustLevels(vmsavedstatedumphandle.rawAddress, virtualtrustlevels.rawAddress)
 
-public actual fun getGuestOsInfo(vmsavedstatedumphandle: MutPtr<CVoid>, virtualtrustlevel: UByte, guestosinfo: MutPtr<GuestOsInfo>): Hresult =
+public actual fun getGuestOsInfo(vmsavedstatedumphandle: MutPtr, virtualtrustlevel: UByte, guestosinfo: MutPtr): Hresult =
     WindowsWin32SystemHypervisorJniBridge.windowssysWindowsWin32SystemHypervisorGetGuestOsInfo(vmsavedstatedumphandle.rawAddress, virtualtrustlevel.toByte(), guestosinfo.rawAddress)
 
-public actual fun getGuestPhysicalMemoryChunks(vmsavedstatedumphandle: MutPtr<CVoid>, memorychunkpagesize: MutPtr<ULong>, memorychunks: MutPtr<GpaMemoryChunk>, memorychunkcount: MutPtr<ULong>): Hresult =
+public actual fun getGuestPhysicalMemoryChunks(vmsavedstatedumphandle: MutPtr, memorychunkpagesize: MutPtr, memorychunks: MutPtr, memorychunkcount: MutPtr): Hresult =
     WindowsWin32SystemHypervisorJniBridge.windowssysWindowsWin32SystemHypervisorGetGuestPhysicalMemoryChunks(vmsavedstatedumphandle.rawAddress, memorychunkpagesize.rawAddress, memorychunks.rawAddress, memorychunkcount.rawAddress)
 
-public actual fun getGuestRawSavedMemorySize(vmsavedstatedumphandle: MutPtr<CVoid>, guestrawsavedmemorysize: MutPtr<ULong>): Hresult =
+public actual fun getGuestRawSavedMemorySize(vmsavedstatedumphandle: MutPtr, guestrawsavedmemorysize: MutPtr): Hresult =
     WindowsWin32SystemHypervisorJniBridge.windowssysWindowsWin32SystemHypervisorGetGuestRawSavedMemorySize(vmsavedstatedumphandle.rawAddress, guestrawsavedmemorysize.rawAddress)
 
-public actual fun getMemoryBlockCacheLimit(vmsavedstatedumphandle: MutPtr<CVoid>, memoryblockcachelimit: MutPtr<ULong>): Hresult =
+public actual fun getMemoryBlockCacheLimit(vmsavedstatedumphandle: MutPtr, memoryblockcachelimit: MutPtr): Hresult =
     WindowsWin32SystemHypervisorJniBridge.windowssysWindowsWin32SystemHypervisorGetMemoryBlockCacheLimit(vmsavedstatedumphandle.rawAddress, memoryblockcachelimit.rawAddress)
 
-public actual fun getNestedVirtualizationMode(vmsavedstatedumphandle: MutPtr<CVoid>, vpid: UInt, enabled: MutPtr<Bool>): Hresult =
+public actual fun getNestedVirtualizationMode(vmsavedstatedumphandle: MutPtr, vpid: UInt, enabled: MutPtr): Hresult =
     WindowsWin32SystemHypervisorJniBridge.windowssysWindowsWin32SystemHypervisorGetNestedVirtualizationMode(vmsavedstatedumphandle.rawAddress, vpid.toInt(), enabled.rawAddress)
 
-public actual fun getPagingMode(vmsavedstatedumphandle: MutPtr<CVoid>, vpid: UInt, pagingmode: MutPtr<PagingMode>): Hresult =
+public actual fun getPagingMode(vmsavedstatedumphandle: MutPtr, vpid: UInt, pagingmode: MutPtr): Hresult =
     WindowsWin32SystemHypervisorJniBridge.windowssysWindowsWin32SystemHypervisorGetPagingMode(vmsavedstatedumphandle.rawAddress, vpid.toInt(), pagingmode.rawAddress)
 
-public actual fun getRegisterValue(vmsavedstatedumphandle: MutPtr<CVoid>, vpid: UInt, registerid: UInt, registervalue: MutPtr<VirtualProcessorRegister>): Hresult =
+public actual fun getRegisterValue(vmsavedstatedumphandle: MutPtr, vpid: UInt, registerid: UInt, registervalue: MutPtr): Hresult =
     WindowsWin32SystemHypervisorJniBridge.windowssysWindowsWin32SystemHypervisorGetRegisterValue(vmsavedstatedumphandle.rawAddress, vpid.toInt(), registerid.toInt(), registervalue.rawAddress)
 
-public actual fun getSavedStateSymbolFieldInfo(vmsavedstatedumphandle: MutPtr<CVoid>, vpid: UInt, typename: Pcstr, typefieldinfomap: MutPtr<Pwstr>): Hresult =
+public actual fun getSavedStateSymbolFieldInfo(vmsavedstatedumphandle: MutPtr, vpid: UInt, typename: Pcstr, typefieldinfomap: MutPtr): Hresult =
     WindowsWin32SystemHypervisorJniBridge.windowssysWindowsWin32SystemHypervisorGetSavedStateSymbolFieldInfo(vmsavedstatedumphandle.rawAddress, vpid.toInt(), typename.rawAddress, typefieldinfomap.rawAddress)
 
-public actual fun getSavedStateSymbolProviderHandle(vmsavedstatedumphandle: MutPtr<CVoid>): Handle =
+public actual fun getSavedStateSymbolProviderHandle(vmsavedstatedumphandle: MutPtr): Handle =
     MutPtr(WindowsWin32SystemHypervisorJniBridge.windowssysWindowsWin32SystemHypervisorGetSavedStateSymbolProviderHandle(vmsavedstatedumphandle.rawAddress))
 
-public actual fun getSavedStateSymbolTypeSize(vmsavedstatedumphandle: MutPtr<CVoid>, vpid: UInt, typename: Pcstr, size: MutPtr<UInt>): Hresult =
+public actual fun getSavedStateSymbolTypeSize(vmsavedstatedumphandle: MutPtr, vpid: UInt, typename: Pcstr, size: MutPtr): Hresult =
     WindowsWin32SystemHypervisorJniBridge.windowssysWindowsWin32SystemHypervisorGetSavedStateSymbolTypeSize(vmsavedstatedumphandle.rawAddress, vpid.toInt(), typename.rawAddress, size.rawAddress)
 
-public actual fun getVpCount(vmsavedstatedumphandle: MutPtr<CVoid>, vpcount: MutPtr<UInt>): Hresult =
+public actual fun getVpCount(vmsavedstatedumphandle: MutPtr, vpcount: MutPtr): Hresult =
     WindowsWin32SystemHypervisorJniBridge.windowssysWindowsWin32SystemHypervisorGetVpCount(vmsavedstatedumphandle.rawAddress, vpcount.rawAddress)
 
-public actual fun guestPhysicalAddressToRawSavedMemoryOffset(vmsavedstatedumphandle: MutPtr<CVoid>, physicaladdress: ULong, rawsavedmemoryoffset: MutPtr<ULong>): Hresult =
+public actual fun guestPhysicalAddressToRawSavedMemoryOffset(vmsavedstatedumphandle: MutPtr, physicaladdress: ULong, rawsavedmemoryoffset: MutPtr): Hresult =
     WindowsWin32SystemHypervisorJniBridge.windowssysWindowsWin32SystemHypervisorGuestPhysicalAddressToRawSavedMemoryOffset(vmsavedstatedumphandle.rawAddress, physicaladdress.toLong(), rawsavedmemoryoffset.rawAddress)
 
-public actual fun guestVirtualAddressToPhysicalAddress(vmsavedstatedumphandle: MutPtr<CVoid>, vpid: UInt, virtualaddress: ULong, physicaladdress: MutPtr<ULong>, unmappedregionsize: MutPtr<ULong>): Hresult =
+public actual fun guestVirtualAddressToPhysicalAddress(vmsavedstatedumphandle: MutPtr, vpid: UInt, virtualaddress: ULong, physicaladdress: MutPtr, unmappedregionsize: MutPtr): Hresult =
     WindowsWin32SystemHypervisorJniBridge.windowssysWindowsWin32SystemHypervisorGuestVirtualAddressToPhysicalAddress(vmsavedstatedumphandle.rawAddress, vpid.toInt(), virtualaddress.toLong(), physicaladdress.rawAddress, unmappedregionsize.rawAddress)
 
-public actual fun hdvCreateDeviceInstance(devicehosthandle: ConstPtr<CVoid>, devicetype: HdvDeviceType, deviceclassid: ConstPtr<Guid>, deviceinstanceid: ConstPtr<Guid>, deviceinterface: ConstPtr<CVoid>, devicecontext: ConstPtr<CVoid>, devicehandle: MutPtr<MutPtr<CVoid>>): Hresult =
+public actual fun hdvCreateDeviceInstance(devicehosthandle: ConstPtr, devicetype: HdvDeviceType, deviceclassid: ConstPtr, deviceinstanceid: ConstPtr, deviceinterface: ConstPtr, devicecontext: ConstPtr, devicehandle: MutPtr): Hresult =
     WindowsWin32SystemHypervisorJniBridge.windowssysWindowsWin32SystemHypervisorHdvCreateDeviceInstance(devicehosthandle.rawAddress, devicetype, deviceclassid.rawAddress, deviceinstanceid.rawAddress, deviceinterface.rawAddress, devicecontext.rawAddress, devicehandle.rawAddress)
 
-public actual fun hdvCreateGuestMemoryAperture(requestor: ConstPtr<CVoid>, guestphysicaladdress: ULong, bytecount: UInt, writeprotected: Bool, mappedaddress: MutPtr<MutPtr<CVoid>>): Hresult =
+public actual fun hdvCreateGuestMemoryAperture(requestor: ConstPtr, guestphysicaladdress: ULong, bytecount: UInt, writeprotected: Bool, mappedaddress: MutPtr): Hresult =
     WindowsWin32SystemHypervisorJniBridge.windowssysWindowsWin32SystemHypervisorHdvCreateGuestMemoryAperture(requestor.rawAddress, guestphysicaladdress.toLong(), bytecount.toInt(), writeprotected, mappedaddress.rawAddress)
 
-public actual fun hdvCreateSectionBackedMmioRange(requestor: ConstPtr<CVoid>, barindex: HdvPciBarSelector, offsetinpages: ULong, lengthinpages: ULong, mappingflags: HdvMmioMappingFlags, sectionhandle: Handle, sectionoffsetinpages: ULong): Hresult =
+public actual fun hdvCreateSectionBackedMmioRange(requestor: ConstPtr, barindex: HdvPciBarSelector, offsetinpages: ULong, lengthinpages: ULong, mappingflags: HdvMmioMappingFlags, sectionhandle: Handle, sectionoffsetinpages: ULong): Hresult =
     WindowsWin32SystemHypervisorJniBridge.windowssysWindowsWin32SystemHypervisorHdvCreateSectionBackedMmioRange(requestor.rawAddress, barindex, offsetinpages.toLong(), lengthinpages.toLong(), mappingflags, sectionhandle.rawAddress, sectionoffsetinpages.toLong())
 
-public actual fun hdvDeliverGuestInterrupt(requestor: ConstPtr<CVoid>, msiaddress: ULong, msidata: UInt): Hresult =
+public actual fun hdvDeliverGuestInterrupt(requestor: ConstPtr, msiaddress: ULong, msidata: UInt): Hresult =
     WindowsWin32SystemHypervisorJniBridge.windowssysWindowsWin32SystemHypervisorHdvDeliverGuestInterrupt(requestor.rawAddress, msiaddress.toLong(), msidata.toInt())
 
-public actual fun hdvDestroyGuestMemoryAperture(requestor: ConstPtr<CVoid>, mappedaddress: ConstPtr<CVoid>): Hresult =
+public actual fun hdvDestroyGuestMemoryAperture(requestor: ConstPtr, mappedaddress: ConstPtr): Hresult =
     WindowsWin32SystemHypervisorJniBridge.windowssysWindowsWin32SystemHypervisorHdvDestroyGuestMemoryAperture(requestor.rawAddress, mappedaddress.rawAddress)
 
-public actual fun hdvDestroySectionBackedMmioRange(requestor: ConstPtr<CVoid>, barindex: HdvPciBarSelector, offsetinpages: ULong): Hresult =
+public actual fun hdvDestroySectionBackedMmioRange(requestor: ConstPtr, barindex: HdvPciBarSelector, offsetinpages: ULong): Hresult =
     WindowsWin32SystemHypervisorJniBridge.windowssysWindowsWin32SystemHypervisorHdvDestroySectionBackedMmioRange(requestor.rawAddress, barindex, offsetinpages.toLong())
 
-public actual fun hdvInitializeDeviceHost(computesystem: HcsSystem, devicehosthandle: MutPtr<MutPtr<CVoid>>): Hresult =
+public actual fun hdvInitializeDeviceHost(computesystem: HcsSystem, devicehosthandle: MutPtr): Hresult =
     WindowsWin32SystemHypervisorJniBridge.windowssysWindowsWin32SystemHypervisorHdvInitializeDeviceHost(computesystem.rawAddress, devicehosthandle.rawAddress)
 
-public actual fun hdvInitializeDeviceHostEx(computesystem: HcsSystem, flags: HdvDeviceHostFlags, devicehosthandle: MutPtr<MutPtr<CVoid>>): Hresult =
+public actual fun hdvInitializeDeviceHostEx(computesystem: HcsSystem, flags: HdvDeviceHostFlags, devicehosthandle: MutPtr): Hresult =
     WindowsWin32SystemHypervisorJniBridge.windowssysWindowsWin32SystemHypervisorHdvInitializeDeviceHostEx(computesystem.rawAddress, flags, devicehosthandle.rawAddress)
 
-public actual fun hdvReadGuestMemory(requestor: ConstPtr<CVoid>, guestphysicaladdress: ULong, bytecount: UInt, buffer: MutPtr<UByte>): Hresult =
+public actual fun hdvReadGuestMemory(requestor: ConstPtr, guestphysicaladdress: ULong, bytecount: UInt, buffer: MutPtr): Hresult =
     WindowsWin32SystemHypervisorJniBridge.windowssysWindowsWin32SystemHypervisorHdvReadGuestMemory(requestor.rawAddress, guestphysicaladdress.toLong(), bytecount.toInt(), buffer.rawAddress)
 
-public actual fun hdvRegisterDoorbell(requestor: ConstPtr<CVoid>, barindex: HdvPciBarSelector, baroffset: ULong, triggervalue: ULong, flags: ULong, doorbellevent: Handle): Hresult =
+public actual fun hdvRegisterDoorbell(requestor: ConstPtr, barindex: HdvPciBarSelector, baroffset: ULong, triggervalue: ULong, flags: ULong, doorbellevent: Handle): Hresult =
     WindowsWin32SystemHypervisorJniBridge.windowssysWindowsWin32SystemHypervisorHdvRegisterDoorbell(requestor.rawAddress, barindex, baroffset.toLong(), triggervalue.toLong(), flags.toLong(), doorbellevent.rawAddress)
 
-public actual fun hdvTeardownDeviceHost(devicehosthandle: ConstPtr<CVoid>): Hresult =
+public actual fun hdvTeardownDeviceHost(devicehosthandle: ConstPtr): Hresult =
     WindowsWin32SystemHypervisorJniBridge.windowssysWindowsWin32SystemHypervisorHdvTeardownDeviceHost(devicehosthandle.rawAddress)
 
-public actual fun hdvUnregisterDoorbell(requestor: ConstPtr<CVoid>, barindex: HdvPciBarSelector, baroffset: ULong, triggervalue: ULong, flags: ULong): Hresult =
+public actual fun hdvUnregisterDoorbell(requestor: ConstPtr, barindex: HdvPciBarSelector, baroffset: ULong, triggervalue: ULong, flags: ULong): Hresult =
     WindowsWin32SystemHypervisorJniBridge.windowssysWindowsWin32SystemHypervisorHdvUnregisterDoorbell(requestor.rawAddress, barindex, baroffset.toLong(), triggervalue.toLong(), flags.toLong())
 
-public actual fun hdvWriteGuestMemory(requestor: ConstPtr<CVoid>, guestphysicaladdress: ULong, bytecount: UInt, buffer: ConstPtr<UByte>): Hresult =
+public actual fun hdvWriteGuestMemory(requestor: ConstPtr, guestphysicaladdress: ULong, bytecount: UInt, buffer: ConstPtr): Hresult =
     WindowsWin32SystemHypervisorJniBridge.windowssysWindowsWin32SystemHypervisorHdvWriteGuestMemory(requestor.rawAddress, guestphysicaladdress.toLong(), bytecount.toInt(), buffer.rawAddress)
 
-public actual fun inKernelSpace(vmsavedstatedumphandle: MutPtr<CVoid>, vpid: UInt, inkernelspace: MutPtr<Bool>): Hresult =
+public actual fun inKernelSpace(vmsavedstatedumphandle: MutPtr, vpid: UInt, inkernelspace: MutPtr): Hresult =
     WindowsWin32SystemHypervisorJniBridge.windowssysWindowsWin32SystemHypervisorInKernelSpace(vmsavedstatedumphandle.rawAddress, vpid.toInt(), inkernelspace.rawAddress)
 
-public actual fun isActiveVirtualTrustLevelEnabled(vmsavedstatedumphandle: MutPtr<CVoid>, vpid: UInt, activevirtualtrustlevelenabled: MutPtr<Bool>): Hresult =
+public actual fun isActiveVirtualTrustLevelEnabled(vmsavedstatedumphandle: MutPtr, vpid: UInt, activevirtualtrustlevelenabled: MutPtr): Hresult =
     WindowsWin32SystemHypervisorJniBridge.windowssysWindowsWin32SystemHypervisorIsActiveVirtualTrustLevelEnabled(vmsavedstatedumphandle.rawAddress, vpid.toInt(), activevirtualtrustlevelenabled.rawAddress)
 
-public actual fun isNestedVirtualizationEnabled(vmsavedstatedumphandle: MutPtr<CVoid>, enabled: MutPtr<Bool>): Hresult =
+public actual fun isNestedVirtualizationEnabled(vmsavedstatedumphandle: MutPtr, enabled: MutPtr): Hresult =
     WindowsWin32SystemHypervisorJniBridge.windowssysWindowsWin32SystemHypervisorIsNestedVirtualizationEnabled(vmsavedstatedumphandle.rawAddress, enabled.rawAddress)
 
-public actual fun loadSavedStateFile(vmrsfile: Pcwstr, vmsavedstatedumphandle: MutPtr<MutPtr<CVoid>>): Hresult =
+public actual fun loadSavedStateFile(vmrsfile: Pcwstr, vmsavedstatedumphandle: MutPtr): Hresult =
     WindowsWin32SystemHypervisorJniBridge.windowssysWindowsWin32SystemHypervisorLoadSavedStateFile(vmrsfile.rawAddress, vmsavedstatedumphandle.rawAddress)
 
-public actual fun loadSavedStateFiles(binfile: Pcwstr, vsvfile: Pcwstr, vmsavedstatedumphandle: MutPtr<MutPtr<CVoid>>): Hresult =
+public actual fun loadSavedStateFiles(binfile: Pcwstr, vsvfile: Pcwstr, vmsavedstatedumphandle: MutPtr): Hresult =
     WindowsWin32SystemHypervisorJniBridge.windowssysWindowsWin32SystemHypervisorLoadSavedStateFiles(binfile.rawAddress, vsvfile.rawAddress, vmsavedstatedumphandle.rawAddress)
 
-public actual fun loadSavedStateModuleSymbols(vmsavedstatedumphandle: MutPtr<CVoid>, imagename: Pcstr, modulename: Pcstr, baseaddress: ULong, sizeofbase: UInt): Hresult =
+public actual fun loadSavedStateModuleSymbols(vmsavedstatedumphandle: MutPtr, imagename: Pcstr, modulename: Pcstr, baseaddress: ULong, sizeofbase: UInt): Hresult =
     WindowsWin32SystemHypervisorJniBridge.windowssysWindowsWin32SystemHypervisorLoadSavedStateModuleSymbols(vmsavedstatedumphandle.rawAddress, imagename.rawAddress, modulename.rawAddress, baseaddress.toLong(), sizeofbase.toInt())
 
-public actual fun loadSavedStateModuleSymbolsEx(vmsavedstatedumphandle: MutPtr<CVoid>, imagename: Pcstr, imagetimestamp: UInt, modulename: Pcstr, baseaddress: ULong, sizeofbase: UInt): Hresult =
+public actual fun loadSavedStateModuleSymbolsEx(vmsavedstatedumphandle: MutPtr, imagename: Pcstr, imagetimestamp: UInt, modulename: Pcstr, baseaddress: ULong, sizeofbase: UInt): Hresult =
     WindowsWin32SystemHypervisorJniBridge.windowssysWindowsWin32SystemHypervisorLoadSavedStateModuleSymbolsEx(vmsavedstatedumphandle.rawAddress, imagename.rawAddress, imagetimestamp.toInt(), modulename.rawAddress, baseaddress.toLong(), sizeofbase.toInt())
 
-public actual fun loadSavedStateSymbolProvider(vmsavedstatedumphandle: MutPtr<CVoid>, usersymbols: Pcwstr, force: Bool): Hresult =
+public actual fun loadSavedStateSymbolProvider(vmsavedstatedumphandle: MutPtr, usersymbols: Pcwstr, force: Bool): Hresult =
     WindowsWin32SystemHypervisorJniBridge.windowssysWindowsWin32SystemHypervisorLoadSavedStateSymbolProvider(vmsavedstatedumphandle.rawAddress, usersymbols.rawAddress, force)
 
-public actual fun locateSavedStateFiles(vmname: Pcwstr, snapshotname: Pcwstr, binpath: MutPtr<Pwstr>, vsvpath: MutPtr<Pwstr>, vmrspath: MutPtr<Pwstr>): Hresult =
+public actual fun locateSavedStateFiles(vmname: Pcwstr, snapshotname: Pcwstr, binpath: MutPtr, vsvpath: MutPtr, vmrspath: MutPtr): Hresult =
     WindowsWin32SystemHypervisorJniBridge.windowssysWindowsWin32SystemHypervisorLocateSavedStateFiles(vmname.rawAddress, snapshotname.rawAddress, binpath.rawAddress, vsvpath.rawAddress, vmrspath.rawAddress)
 
-public actual fun readGuestPhysicalAddress(vmsavedstatedumphandle: MutPtr<CVoid>, physicaladdress: ULong, buffer: MutPtr<CVoid>, buffersize: UInt, bytesread: MutPtr<UInt>): Hresult =
+public actual fun readGuestPhysicalAddress(vmsavedstatedumphandle: MutPtr, physicaladdress: ULong, buffer: MutPtr, buffersize: UInt, bytesread: MutPtr): Hresult =
     WindowsWin32SystemHypervisorJniBridge.windowssysWindowsWin32SystemHypervisorReadGuestPhysicalAddress(vmsavedstatedumphandle.rawAddress, physicaladdress.toLong(), buffer.rawAddress, buffersize.toInt(), bytesread.rawAddress)
 
-public actual fun readGuestRawSavedMemory(vmsavedstatedumphandle: MutPtr<CVoid>, rawsavedmemoryoffset: ULong, buffer: MutPtr<CVoid>, buffersize: UInt, bytesread: MutPtr<UInt>): Hresult =
+public actual fun readGuestRawSavedMemory(vmsavedstatedumphandle: MutPtr, rawsavedmemoryoffset: ULong, buffer: MutPtr, buffersize: UInt, bytesread: MutPtr): Hresult =
     WindowsWin32SystemHypervisorJniBridge.windowssysWindowsWin32SystemHypervisorReadGuestRawSavedMemory(vmsavedstatedumphandle.rawAddress, rawsavedmemoryoffset.toLong(), buffer.rawAddress, buffersize.toInt(), bytesread.rawAddress)
 
-public actual fun readSavedStateGlobalVariable(vmsavedstatedumphandle: MutPtr<CVoid>, vpid: UInt, globalname: Pcstr, buffer: MutPtr<CVoid>, buffersize: UInt): Hresult =
+public actual fun readSavedStateGlobalVariable(vmsavedstatedumphandle: MutPtr, vpid: UInt, globalname: Pcstr, buffer: MutPtr, buffersize: UInt): Hresult =
     WindowsWin32SystemHypervisorJniBridge.windowssysWindowsWin32SystemHypervisorReadSavedStateGlobalVariable(vmsavedstatedumphandle.rawAddress, vpid.toInt(), globalname.rawAddress, buffer.rawAddress, buffersize.toInt())
 
-public actual fun releaseSavedStateFiles(vmsavedstatedumphandle: MutPtr<CVoid>): Hresult =
+public actual fun releaseSavedStateFiles(vmsavedstatedumphandle: MutPtr): Hresult =
     WindowsWin32SystemHypervisorJniBridge.windowssysWindowsWin32SystemHypervisorReleaseSavedStateFiles(vmsavedstatedumphandle.rawAddress)
 
-public actual fun releaseSavedStateSymbolProvider(vmsavedstatedumphandle: MutPtr<CVoid>): Hresult =
+public actual fun releaseSavedStateSymbolProvider(vmsavedstatedumphandle: MutPtr): Hresult =
     WindowsWin32SystemHypervisorJniBridge.windowssysWindowsWin32SystemHypervisorReleaseSavedStateSymbolProvider(vmsavedstatedumphandle.rawAddress)
 
-public actual fun resolveSavedStateGlobalVariableAddress(vmsavedstatedumphandle: MutPtr<CVoid>, vpid: UInt, globalname: Pcstr, virtualaddress: MutPtr<ULong>, size: MutPtr<UInt>): Hresult =
+public actual fun resolveSavedStateGlobalVariableAddress(vmsavedstatedumphandle: MutPtr, vpid: UInt, globalname: Pcstr, virtualaddress: MutPtr, size: MutPtr): Hresult =
     WindowsWin32SystemHypervisorJniBridge.windowssysWindowsWin32SystemHypervisorResolveSavedStateGlobalVariableAddress(vmsavedstatedumphandle.rawAddress, vpid.toInt(), globalname.rawAddress, virtualaddress.rawAddress, size.rawAddress)
 
-public actual fun scanMemoryForDosImages(vmsavedstatedumphandle: MutPtr<CVoid>, vpid: UInt, startaddress: ULong, endaddress: ULong, callbackcontext: MutPtr<CVoid>, foundimagecallback: FoundImageCallback, standaloneaddress: ConstPtr<ULong>, standaloneaddresscount: UInt): Hresult =
+public actual fun scanMemoryForDosImages(vmsavedstatedumphandle: MutPtr, vpid: UInt, startaddress: ULong, endaddress: ULong, callbackcontext: MutPtr, foundimagecallback: FoundImageCallback, standaloneaddress: ConstPtr, standaloneaddresscount: UInt): Hresult =
     WindowsWin32SystemHypervisorJniBridge.windowssysWindowsWin32SystemHypervisorScanMemoryForDosImages(vmsavedstatedumphandle.rawAddress, vpid.toInt(), startaddress.toLong(), endaddress.toLong(), callbackcontext.rawAddress, 0L, standaloneaddress.rawAddress, standaloneaddresscount.toInt())
 
-public actual fun setMemoryBlockCacheLimit(vmsavedstatedumphandle: MutPtr<CVoid>, memoryblockcachelimit: ULong): Hresult =
+public actual fun setMemoryBlockCacheLimit(vmsavedstatedumphandle: MutPtr, memoryblockcachelimit: ULong): Hresult =
     WindowsWin32SystemHypervisorJniBridge.windowssysWindowsWin32SystemHypervisorSetMemoryBlockCacheLimit(vmsavedstatedumphandle.rawAddress, memoryblockcachelimit.toLong())
 
-public actual fun setSavedStateSymbolProviderDebugInfoCallback(vmsavedstatedumphandle: MutPtr<CVoid>, callback: GuestSymbolsProviderDebugInfoCallback): Hresult =
+public actual fun setSavedStateSymbolProviderDebugInfoCallback(vmsavedstatedumphandle: MutPtr, callback: GuestSymbolsProviderDebugInfoCallback): Hresult =
     WindowsWin32SystemHypervisorJniBridge.windowssysWindowsWin32SystemHypervisorSetSavedStateSymbolProviderDebugInfoCallback(vmsavedstatedumphandle.rawAddress, 0L)
 
-public actual fun wHvAcceptPartitionMigration(migrationhandle: Handle, partition: MutPtr<WhvPartitionHandle>): Hresult =
+public actual fun wHvAcceptPartitionMigration(migrationhandle: Handle, partition: MutPtr): Hresult =
     WindowsWin32SystemHypervisorJniBridge.windowssysWindowsWin32SystemHypervisorWHvAcceptPartitionMigration(migrationhandle.rawAddress, partition.rawAddress)
 
-public actual fun wHvAdviseGpaRange(partition: WhvPartitionHandle, gparanges: ConstPtr<WhvMemoryRangeEntry>, gparangescount: UInt, advice: WhvAdviseGpaRangeCode, advicebuffer: ConstPtr<CVoid>, advicebuffersizeinbytes: UInt): Hresult =
+public actual fun wHvAdviseGpaRange(partition: WhvPartitionHandle, gparanges: ConstPtr, gparangescount: UInt, advice: WhvAdviseGpaRangeCode, advicebuffer: ConstPtr, advicebuffersizeinbytes: UInt): Hresult =
     WindowsWin32SystemHypervisorJniBridge.windowssysWindowsWin32SystemHypervisorWHvAdviseGpaRange(partition, gparanges.rawAddress, gparangescount.toInt(), advice, advicebuffer.rawAddress, advicebuffersizeinbytes.toInt())
 
-public actual fun wHvAllocateVpciResource(providerid: ConstPtr<Guid>, flags: WhvAllocateVpciResourceFlags, resourcedescriptor: ConstPtr<CVoid>, resourcedescriptorsizeinbytes: UInt, vpciresource: MutPtr<Handle>): Hresult =
+public actual fun wHvAllocateVpciResource(providerid: ConstPtr, flags: WhvAllocateVpciResourceFlags, resourcedescriptor: ConstPtr, resourcedescriptorsizeinbytes: UInt, vpciresource: MutPtr): Hresult =
     WindowsWin32SystemHypervisorJniBridge.windowssysWindowsWin32SystemHypervisorWHvAllocateVpciResource(providerid.rawAddress, flags, resourcedescriptor.rawAddress, resourcedescriptorsizeinbytes.toInt(), vpciresource.rawAddress)
 
 public actual fun wHvCancelPartitionMigration(partition: WhvPartitionHandle): Hresult =
@@ -576,31 +573,31 @@ public actual fun wHvCancelRunVirtualProcessor(partition: WhvPartitionHandle, vp
 public actual fun wHvCompletePartitionMigration(partition: WhvPartitionHandle): Hresult =
     WindowsWin32SystemHypervisorJniBridge.windowssysWindowsWin32SystemHypervisorWHvCompletePartitionMigration(partition)
 
-public actual fun wHvCreateNotificationPort(partition: WhvPartitionHandle, parameters: ConstPtr<WhvNotificationPortParameters>, eventhandle: Handle, porthandle: MutPtr<MutPtr<CVoid>>): Hresult =
+public actual fun wHvCreateNotificationPort(partition: WhvPartitionHandle, parameters: ConstPtr, eventhandle: Handle, porthandle: MutPtr): Hresult =
     WindowsWin32SystemHypervisorJniBridge.windowssysWindowsWin32SystemHypervisorWHvCreateNotificationPort(partition, parameters.rawAddress, eventhandle.rawAddress, porthandle.rawAddress)
 
-public actual fun wHvCreatePartition(partition: MutPtr<WhvPartitionHandle>): Hresult =
+public actual fun wHvCreatePartition(partition: MutPtr): Hresult =
     WindowsWin32SystemHypervisorJniBridge.windowssysWindowsWin32SystemHypervisorWHvCreatePartition(partition.rawAddress)
 
-public actual fun wHvCreateTrigger(partition: WhvPartitionHandle, parameters: ConstPtr<WhvTriggerParameters>, triggerhandle: MutPtr<MutPtr<CVoid>>, eventhandle: MutPtr<Handle>): Hresult =
+public actual fun wHvCreateTrigger(partition: WhvPartitionHandle, parameters: ConstPtr, triggerhandle: MutPtr, eventhandle: MutPtr): Hresult =
     WindowsWin32SystemHypervisorJniBridge.windowssysWindowsWin32SystemHypervisorWHvCreateTrigger(partition, parameters.rawAddress, triggerhandle.rawAddress, eventhandle.rawAddress)
 
 public actual fun wHvCreateVirtualProcessor(partition: WhvPartitionHandle, vpindex: UInt, flags: UInt): Hresult =
     WindowsWin32SystemHypervisorJniBridge.windowssysWindowsWin32SystemHypervisorWHvCreateVirtualProcessor(partition, vpindex.toInt(), flags.toInt())
 
-public actual fun wHvCreateVirtualProcessor2(partition: WhvPartitionHandle, vpindex: UInt, properties: ConstPtr<WhvVirtualProcessorProperty>, propertycount: UInt): Hresult =
+public actual fun wHvCreateVirtualProcessor2(partition: WhvPartitionHandle, vpindex: UInt, properties: ConstPtr, propertycount: UInt): Hresult =
     WindowsWin32SystemHypervisorJniBridge.windowssysWindowsWin32SystemHypervisorWHvCreateVirtualProcessor2(partition, vpindex.toInt(), properties.rawAddress, propertycount.toInt())
 
 public actual fun wHvCreateVpciDevice(partition: WhvPartitionHandle, logicaldeviceid: ULong, vpciresource: Handle, flags: WhvCreateVpciDeviceFlags, notificationeventhandle: Handle): Hresult =
     WindowsWin32SystemHypervisorJniBridge.windowssysWindowsWin32SystemHypervisorWHvCreateVpciDevice(partition, logicaldeviceid.toLong(), vpciresource.rawAddress, flags, notificationeventhandle.rawAddress)
 
-public actual fun wHvDeleteNotificationPort(partition: WhvPartitionHandle, porthandle: ConstPtr<CVoid>): Hresult =
+public actual fun wHvDeleteNotificationPort(partition: WhvPartitionHandle, porthandle: ConstPtr): Hresult =
     WindowsWin32SystemHypervisorJniBridge.windowssysWindowsWin32SystemHypervisorWHvDeleteNotificationPort(partition, porthandle.rawAddress)
 
 public actual fun wHvDeletePartition(partition: WhvPartitionHandle): Hresult =
     WindowsWin32SystemHypervisorJniBridge.windowssysWindowsWin32SystemHypervisorWHvDeletePartition(partition)
 
-public actual fun wHvDeleteTrigger(partition: WhvPartitionHandle, triggerhandle: ConstPtr<CVoid>): Hresult =
+public actual fun wHvDeleteTrigger(partition: WhvPartitionHandle, triggerhandle: ConstPtr): Hresult =
     WindowsWin32SystemHypervisorJniBridge.windowssysWindowsWin32SystemHypervisorWHvDeleteTrigger(partition, triggerhandle.rawAddress)
 
 public actual fun wHvDeleteVirtualProcessor(partition: WhvPartitionHandle, vpindex: UInt): Hresult =
@@ -609,88 +606,88 @@ public actual fun wHvDeleteVirtualProcessor(partition: WhvPartitionHandle, vpind
 public actual fun wHvDeleteVpciDevice(partition: WhvPartitionHandle, logicaldeviceid: ULong): Hresult =
     WindowsWin32SystemHypervisorJniBridge.windowssysWindowsWin32SystemHypervisorWHvDeleteVpciDevice(partition, logicaldeviceid.toLong())
 
-public actual fun wHvEmulatorCreateEmulator(callbacks: ConstPtr<WhvEmulatorCallbacks>, emulator: MutPtr<MutPtr<CVoid>>): Hresult =
+public actual fun wHvEmulatorCreateEmulator(callbacks: ConstPtr, emulator: MutPtr): Hresult =
     WindowsWin32SystemHypervisorJniBridge.windowssysWindowsWin32SystemHypervisorWHvEmulatorCreateEmulator(callbacks.rawAddress, emulator.rawAddress)
 
-public actual fun wHvEmulatorDestroyEmulator(emulator: ConstPtr<CVoid>): Hresult =
+public actual fun wHvEmulatorDestroyEmulator(emulator: ConstPtr): Hresult =
     WindowsWin32SystemHypervisorJniBridge.windowssysWindowsWin32SystemHypervisorWHvEmulatorDestroyEmulator(emulator.rawAddress)
 
-public actual fun wHvEmulatorTryIoEmulation(emulator: ConstPtr<CVoid>, context: ConstPtr<CVoid>, vpcontext: ConstPtr<WhvVpExitContext>, ioinstructioncontext: ConstPtr<WhvX64IoPortAccessContext>, emulatorreturnstatus: MutPtr<WhvEmulatorStatus>): Hresult =
+public actual fun wHvEmulatorTryIoEmulation(emulator: ConstPtr, context: ConstPtr, vpcontext: ConstPtr, ioinstructioncontext: ConstPtr, emulatorreturnstatus: MutPtr): Hresult =
     WindowsWin32SystemHypervisorJniBridge.windowssysWindowsWin32SystemHypervisorWHvEmulatorTryIoEmulation(emulator.rawAddress, context.rawAddress, vpcontext.rawAddress, ioinstructioncontext.rawAddress, emulatorreturnstatus.rawAddress)
 
-public actual fun wHvEmulatorTryMmioEmulation(emulator: ConstPtr<CVoid>, context: ConstPtr<CVoid>, vpcontext: ConstPtr<WhvVpExitContext>, mmioinstructioncontext: ConstPtr<WhvMemoryAccessContext>, emulatorreturnstatus: MutPtr<WhvEmulatorStatus>): Hresult =
+public actual fun wHvEmulatorTryMmioEmulation(emulator: ConstPtr, context: ConstPtr, vpcontext: ConstPtr, mmioinstructioncontext: ConstPtr, emulatorreturnstatus: MutPtr): Hresult =
     WindowsWin32SystemHypervisorJniBridge.windowssysWindowsWin32SystemHypervisorWHvEmulatorTryMmioEmulation(emulator.rawAddress, context.rawAddress, vpcontext.rawAddress, mmioinstructioncontext.rawAddress, emulatorreturnstatus.rawAddress)
 
-public actual fun wHvGetCapability(capabilitycode: WhvCapabilityCode, capabilitybuffer: MutPtr<CVoid>, capabilitybuffersizeinbytes: UInt, writtensizeinbytes: MutPtr<UInt>): Hresult =
+public actual fun wHvGetCapability(capabilitycode: WhvCapabilityCode, capabilitybuffer: MutPtr, capabilitybuffersizeinbytes: UInt, writtensizeinbytes: MutPtr): Hresult =
     WindowsWin32SystemHypervisorJniBridge.windowssysWindowsWin32SystemHypervisorWHvGetCapability(capabilitycode, capabilitybuffer.rawAddress, capabilitybuffersizeinbytes.toInt(), writtensizeinbytes.rawAddress)
 
-public actual fun wHvGetInterruptTargetVpSet(partition: WhvPartitionHandle, destination: ULong, destinationmode: WhvInterruptDestinationMode, targetvps: MutPtr<UInt>, vpcount: UInt, targetvpcount: MutPtr<UInt>): Hresult =
+public actual fun wHvGetInterruptTargetVpSet(partition: WhvPartitionHandle, destination: ULong, destinationmode: WhvInterruptDestinationMode, targetvps: MutPtr, vpcount: UInt, targetvpcount: MutPtr): Hresult =
     WindowsWin32SystemHypervisorJniBridge.windowssysWindowsWin32SystemHypervisorWHvGetInterruptTargetVpSet(partition, destination.toLong(), destinationmode, targetvps.rawAddress, vpcount.toInt(), targetvpcount.rawAddress)
 
-public actual fun wHvGetPartitionCounters(partition: WhvPartitionHandle, counterset: WhvPartitionCounterSet, buffer: MutPtr<CVoid>, buffersizeinbytes: UInt, byteswritten: MutPtr<UInt>): Hresult =
+public actual fun wHvGetPartitionCounters(partition: WhvPartitionHandle, counterset: WhvPartitionCounterSet, buffer: MutPtr, buffersizeinbytes: UInt, byteswritten: MutPtr): Hresult =
     WindowsWin32SystemHypervisorJniBridge.windowssysWindowsWin32SystemHypervisorWHvGetPartitionCounters(partition, counterset, buffer.rawAddress, buffersizeinbytes.toInt(), byteswritten.rawAddress)
 
-public actual fun wHvGetPartitionProperty(partition: WhvPartitionHandle, propertycode: WhvPartitionPropertyCode, propertybuffer: MutPtr<CVoid>, propertybuffersizeinbytes: UInt, writtensizeinbytes: MutPtr<UInt>): Hresult =
+public actual fun wHvGetPartitionProperty(partition: WhvPartitionHandle, propertycode: WhvPartitionPropertyCode, propertybuffer: MutPtr, propertybuffersizeinbytes: UInt, writtensizeinbytes: MutPtr): Hresult =
     WindowsWin32SystemHypervisorJniBridge.windowssysWindowsWin32SystemHypervisorWHvGetPartitionProperty(partition, propertycode, propertybuffer.rawAddress, propertybuffersizeinbytes.toInt(), writtensizeinbytes.rawAddress)
 
-public actual fun wHvGetVirtualProcessorCounters(partition: WhvPartitionHandle, vpindex: UInt, counterset: WhvProcessorCounterSet, buffer: MutPtr<CVoid>, buffersizeinbytes: UInt, byteswritten: MutPtr<UInt>): Hresult =
+public actual fun wHvGetVirtualProcessorCounters(partition: WhvPartitionHandle, vpindex: UInt, counterset: WhvProcessorCounterSet, buffer: MutPtr, buffersizeinbytes: UInt, byteswritten: MutPtr): Hresult =
     WindowsWin32SystemHypervisorJniBridge.windowssysWindowsWin32SystemHypervisorWHvGetVirtualProcessorCounters(partition, vpindex.toInt(), counterset, buffer.rawAddress, buffersizeinbytes.toInt(), byteswritten.rawAddress)
 
-public actual fun wHvGetVirtualProcessorCpuidOutput(partition: WhvPartitionHandle, vpindex: UInt, eax: UInt, ecx: UInt, cpuidoutput: MutPtr<WhvCpuidOutput>): Hresult =
+public actual fun wHvGetVirtualProcessorCpuidOutput(partition: WhvPartitionHandle, vpindex: UInt, eax: UInt, ecx: UInt, cpuidoutput: MutPtr): Hresult =
     WindowsWin32SystemHypervisorJniBridge.windowssysWindowsWin32SystemHypervisorWHvGetVirtualProcessorCpuidOutput(partition, vpindex.toInt(), eax.toInt(), ecx.toInt(), cpuidoutput.rawAddress)
 
-public actual fun wHvGetVirtualProcessorInterruptControllerState(partition: WhvPartitionHandle, vpindex: UInt, state: MutPtr<CVoid>, statesize: UInt, writtensize: MutPtr<UInt>): Hresult =
+public actual fun wHvGetVirtualProcessorInterruptControllerState(partition: WhvPartitionHandle, vpindex: UInt, state: MutPtr, statesize: UInt, writtensize: MutPtr): Hresult =
     WindowsWin32SystemHypervisorJniBridge.windowssysWindowsWin32SystemHypervisorWHvGetVirtualProcessorInterruptControllerState(partition, vpindex.toInt(), state.rawAddress, statesize.toInt(), writtensize.rawAddress)
 
-public actual fun wHvGetVirtualProcessorInterruptControllerState2(partition: WhvPartitionHandle, vpindex: UInt, state: MutPtr<CVoid>, statesize: UInt, writtensize: MutPtr<UInt>): Hresult =
+public actual fun wHvGetVirtualProcessorInterruptControllerState2(partition: WhvPartitionHandle, vpindex: UInt, state: MutPtr, statesize: UInt, writtensize: MutPtr): Hresult =
     WindowsWin32SystemHypervisorJniBridge.windowssysWindowsWin32SystemHypervisorWHvGetVirtualProcessorInterruptControllerState2(partition, vpindex.toInt(), state.rawAddress, statesize.toInt(), writtensize.rawAddress)
 
-public actual fun wHvGetVirtualProcessorRegisters(partition: WhvPartitionHandle, vpindex: UInt, registernames: ConstPtr<WhvRegisterName>, registercount: UInt, registervalues: MutPtr<WhvRegisterValue>): Hresult =
+public actual fun wHvGetVirtualProcessorRegisters(partition: WhvPartitionHandle, vpindex: UInt, registernames: ConstPtr, registercount: UInt, registervalues: MutPtr): Hresult =
     WindowsWin32SystemHypervisorJniBridge.windowssysWindowsWin32SystemHypervisorWHvGetVirtualProcessorRegisters(partition, vpindex.toInt(), registernames.rawAddress, registercount.toInt(), registervalues.rawAddress)
 
-public actual fun wHvGetVirtualProcessorState(partition: WhvPartitionHandle, vpindex: UInt, statetype: WhvVirtualProcessorStateType, buffer: MutPtr<CVoid>, buffersizeinbytes: UInt, byteswritten: MutPtr<UInt>): Hresult =
+public actual fun wHvGetVirtualProcessorState(partition: WhvPartitionHandle, vpindex: UInt, statetype: WhvVirtualProcessorStateType, buffer: MutPtr, buffersizeinbytes: UInt, byteswritten: MutPtr): Hresult =
     WindowsWin32SystemHypervisorJniBridge.windowssysWindowsWin32SystemHypervisorWHvGetVirtualProcessorState(partition, vpindex.toInt(), statetype, buffer.rawAddress, buffersizeinbytes.toInt(), byteswritten.rawAddress)
 
-public actual fun wHvGetVirtualProcessorXsaveState(partition: WhvPartitionHandle, vpindex: UInt, buffer: MutPtr<CVoid>, buffersizeinbytes: UInt, byteswritten: MutPtr<UInt>): Hresult =
+public actual fun wHvGetVirtualProcessorXsaveState(partition: WhvPartitionHandle, vpindex: UInt, buffer: MutPtr, buffersizeinbytes: UInt, byteswritten: MutPtr): Hresult =
     WindowsWin32SystemHypervisorJniBridge.windowssysWindowsWin32SystemHypervisorWHvGetVirtualProcessorXsaveState(partition, vpindex.toInt(), buffer.rawAddress, buffersizeinbytes.toInt(), byteswritten.rawAddress)
 
-public actual fun wHvGetVpciDeviceInterruptTarget(partition: WhvPartitionHandle, logicaldeviceid: ULong, index: UInt, multimessagenumber: UInt, target: MutPtr<WhvVpciInterruptTarget>, targetsizeinbytes: UInt, byteswritten: MutPtr<UInt>): Hresult =
+public actual fun wHvGetVpciDeviceInterruptTarget(partition: WhvPartitionHandle, logicaldeviceid: ULong, index: UInt, multimessagenumber: UInt, target: MutPtr, targetsizeinbytes: UInt, byteswritten: MutPtr): Hresult =
     WindowsWin32SystemHypervisorJniBridge.windowssysWindowsWin32SystemHypervisorWHvGetVpciDeviceInterruptTarget(partition, logicaldeviceid.toLong(), index.toInt(), multimessagenumber.toInt(), target.rawAddress, targetsizeinbytes.toInt(), byteswritten.rawAddress)
 
-public actual fun wHvGetVpciDeviceNotification(partition: WhvPartitionHandle, logicaldeviceid: ULong, notification: MutPtr<WhvVpciDeviceNotification>, notificationsizeinbytes: UInt): Hresult =
+public actual fun wHvGetVpciDeviceNotification(partition: WhvPartitionHandle, logicaldeviceid: ULong, notification: MutPtr, notificationsizeinbytes: UInt): Hresult =
     WindowsWin32SystemHypervisorJniBridge.windowssysWindowsWin32SystemHypervisorWHvGetVpciDeviceNotification(partition, logicaldeviceid.toLong(), notification.rawAddress, notificationsizeinbytes.toInt())
 
-public actual fun wHvGetVpciDeviceProperty(partition: WhvPartitionHandle, logicaldeviceid: ULong, propertycode: WhvVpciDevicePropertyCode, propertybuffer: MutPtr<CVoid>, propertybuffersizeinbytes: UInt, writtensizeinbytes: MutPtr<UInt>): Hresult =
+public actual fun wHvGetVpciDeviceProperty(partition: WhvPartitionHandle, logicaldeviceid: ULong, propertycode: WhvVpciDevicePropertyCode, propertybuffer: MutPtr, propertybuffersizeinbytes: UInt, writtensizeinbytes: MutPtr): Hresult =
     WindowsWin32SystemHypervisorJniBridge.windowssysWindowsWin32SystemHypervisorWHvGetVpciDeviceProperty(partition, logicaldeviceid.toLong(), propertycode, propertybuffer.rawAddress, propertybuffersizeinbytes.toInt(), writtensizeinbytes.rawAddress)
 
-public actual fun wHvMapGpaRange(partition: WhvPartitionHandle, sourceaddress: ConstPtr<CVoid>, guestaddress: ULong, sizeinbytes: ULong, flags: WhvMapGpaRangeFlags): Hresult =
+public actual fun wHvMapGpaRange(partition: WhvPartitionHandle, sourceaddress: ConstPtr, guestaddress: ULong, sizeinbytes: ULong, flags: WhvMapGpaRangeFlags): Hresult =
     WindowsWin32SystemHypervisorJniBridge.windowssysWindowsWin32SystemHypervisorWHvMapGpaRange(partition, sourceaddress.rawAddress, guestaddress.toLong(), sizeinbytes.toLong(), flags)
 
-public actual fun wHvMapGpaRange2(partition: WhvPartitionHandle, process: Handle, sourceaddress: ConstPtr<CVoid>, guestaddress: ULong, sizeinbytes: ULong, flags: WhvMapGpaRangeFlags): Hresult =
+public actual fun wHvMapGpaRange2(partition: WhvPartitionHandle, process: Handle, sourceaddress: ConstPtr, guestaddress: ULong, sizeinbytes: ULong, flags: WhvMapGpaRangeFlags): Hresult =
     WindowsWin32SystemHypervisorJniBridge.windowssysWindowsWin32SystemHypervisorWHvMapGpaRange2(partition, process.rawAddress, sourceaddress.rawAddress, guestaddress.toLong(), sizeinbytes.toLong(), flags)
 
-public actual fun wHvMapVpciDeviceInterrupt(partition: WhvPartitionHandle, logicaldeviceid: ULong, index: UInt, messagecount: UInt, target: ConstPtr<WhvVpciInterruptTarget>, msiaddress: MutPtr<ULong>, msidata: MutPtr<UInt>): Hresult =
+public actual fun wHvMapVpciDeviceInterrupt(partition: WhvPartitionHandle, logicaldeviceid: ULong, index: UInt, messagecount: UInt, target: ConstPtr, msiaddress: MutPtr, msidata: MutPtr): Hresult =
     WindowsWin32SystemHypervisorJniBridge.windowssysWindowsWin32SystemHypervisorWHvMapVpciDeviceInterrupt(partition, logicaldeviceid.toLong(), index.toInt(), messagecount.toInt(), target.rawAddress, msiaddress.rawAddress, msidata.rawAddress)
 
-public actual fun wHvMapVpciDeviceMmioRanges(partition: WhvPartitionHandle, logicaldeviceid: ULong, mappingcount: MutPtr<UInt>, mappings: MutPtr<MutPtr<WhvVpciMmioMapping>>): Hresult =
+public actual fun wHvMapVpciDeviceMmioRanges(partition: WhvPartitionHandle, logicaldeviceid: ULong, mappingcount: MutPtr, mappings: MutPtr): Hresult =
     WindowsWin32SystemHypervisorJniBridge.windowssysWindowsWin32SystemHypervisorWHvMapVpciDeviceMmioRanges(partition, logicaldeviceid.toLong(), mappingcount.rawAddress, mappings.rawAddress)
 
-public actual fun wHvPostVirtualProcessorSynicMessage(partition: WhvPartitionHandle, vpindex: UInt, sintindex: UInt, message: ConstPtr<CVoid>, messagesizeinbytes: UInt): Hresult =
+public actual fun wHvPostVirtualProcessorSynicMessage(partition: WhvPartitionHandle, vpindex: UInt, sintindex: UInt, message: ConstPtr, messagesizeinbytes: UInt): Hresult =
     WindowsWin32SystemHypervisorJniBridge.windowssysWindowsWin32SystemHypervisorWHvPostVirtualProcessorSynicMessage(partition, vpindex.toInt(), sintindex.toInt(), message.rawAddress, messagesizeinbytes.toInt())
 
-public actual fun wHvQueryGpaRangeDirtyBitmap(partition: WhvPartitionHandle, guestaddress: ULong, rangesizeinbytes: ULong, bitmap: MutPtr<ULong>, bitmapsizeinbytes: UInt): Hresult =
+public actual fun wHvQueryGpaRangeDirtyBitmap(partition: WhvPartitionHandle, guestaddress: ULong, rangesizeinbytes: ULong, bitmap: MutPtr, bitmapsizeinbytes: UInt): Hresult =
     WindowsWin32SystemHypervisorJniBridge.windowssysWindowsWin32SystemHypervisorWHvQueryGpaRangeDirtyBitmap(partition, guestaddress.toLong(), rangesizeinbytes.toLong(), bitmap.rawAddress, bitmapsizeinbytes.toInt())
 
-public actual fun wHvReadGpaRange(partition: WhvPartitionHandle, vpindex: UInt, guestaddress: ULong, controls: WhvAccessGpaControls, data: MutPtr<CVoid>, datasizeinbytes: UInt): Hresult =
+public actual fun wHvReadGpaRange(partition: WhvPartitionHandle, vpindex: UInt, guestaddress: ULong, controls: WhvAccessGpaControls, data: MutPtr, datasizeinbytes: UInt): Hresult =
     0
 
-public actual fun wHvReadVpciDeviceRegister(partition: WhvPartitionHandle, logicaldeviceid: ULong, register: ConstPtr<WhvVpciDeviceRegister>, data: MutPtr<CVoid>): Hresult =
+public actual fun wHvReadVpciDeviceRegister(partition: WhvPartitionHandle, logicaldeviceid: ULong, register: ConstPtr, data: MutPtr): Hresult =
     WindowsWin32SystemHypervisorJniBridge.windowssysWindowsWin32SystemHypervisorWHvReadVpciDeviceRegister(partition, logicaldeviceid.toLong(), register.rawAddress, data.rawAddress)
 
-public actual fun wHvRegisterPartitionDoorbellEvent(partition: WhvPartitionHandle, matchdata: ConstPtr<WhvDoorbellMatchData>, eventhandle: Handle): Hresult =
+public actual fun wHvRegisterPartitionDoorbellEvent(partition: WhvPartitionHandle, matchdata: ConstPtr, eventhandle: Handle): Hresult =
     WindowsWin32SystemHypervisorJniBridge.windowssysWindowsWin32SystemHypervisorWHvRegisterPartitionDoorbellEvent(partition, matchdata.rawAddress, eventhandle.rawAddress)
 
-public actual fun wHvRequestInterrupt(partition: WhvPartitionHandle, interrupt: ConstPtr<WhvInterruptControl>, interruptcontrolsize: UInt): Hresult =
+public actual fun wHvRequestInterrupt(partition: WhvPartitionHandle, interrupt: ConstPtr, interruptcontrolsize: UInt): Hresult =
     WindowsWin32SystemHypervisorJniBridge.windowssysWindowsWin32SystemHypervisorWHvRequestInterrupt(partition, interrupt.rawAddress, interruptcontrolsize.toInt())
 
 public actual fun wHvRequestVpciDeviceInterrupt(partition: WhvPartitionHandle, logicaldeviceid: ULong, msiaddress: ULong, msidata: UInt): Hresult =
@@ -702,31 +699,31 @@ public actual fun wHvResetPartition(partition: WhvPartitionHandle): Hresult =
 public actual fun wHvResumePartitionTime(partition: WhvPartitionHandle): Hresult =
     WindowsWin32SystemHypervisorJniBridge.windowssysWindowsWin32SystemHypervisorWHvResumePartitionTime(partition)
 
-public actual fun wHvRetargetVpciDeviceInterrupt(partition: WhvPartitionHandle, logicaldeviceid: ULong, msiaddress: ULong, msidata: UInt, target: ConstPtr<WhvVpciInterruptTarget>): Hresult =
+public actual fun wHvRetargetVpciDeviceInterrupt(partition: WhvPartitionHandle, logicaldeviceid: ULong, msiaddress: ULong, msidata: UInt, target: ConstPtr): Hresult =
     WindowsWin32SystemHypervisorJniBridge.windowssysWindowsWin32SystemHypervisorWHvRetargetVpciDeviceInterrupt(partition, logicaldeviceid.toLong(), msiaddress.toLong(), msidata.toInt(), target.rawAddress)
 
-public actual fun wHvRunVirtualProcessor(partition: WhvPartitionHandle, vpindex: UInt, exitcontext: MutPtr<CVoid>, exitcontextsizeinbytes: UInt): Hresult =
+public actual fun wHvRunVirtualProcessor(partition: WhvPartitionHandle, vpindex: UInt, exitcontext: MutPtr, exitcontextsizeinbytes: UInt): Hresult =
     WindowsWin32SystemHypervisorJniBridge.windowssysWindowsWin32SystemHypervisorWHvRunVirtualProcessor(partition, vpindex.toInt(), exitcontext.rawAddress, exitcontextsizeinbytes.toInt())
 
-public actual fun wHvSetNotificationPortProperty(partition: WhvPartitionHandle, porthandle: ConstPtr<CVoid>, propertycode: WhvNotificationPortPropertyCode, propertyvalue: ULong): Hresult =
+public actual fun wHvSetNotificationPortProperty(partition: WhvPartitionHandle, porthandle: ConstPtr, propertycode: WhvNotificationPortPropertyCode, propertyvalue: ULong): Hresult =
     WindowsWin32SystemHypervisorJniBridge.windowssysWindowsWin32SystemHypervisorWHvSetNotificationPortProperty(partition, porthandle.rawAddress, propertycode, propertyvalue.toLong())
 
-public actual fun wHvSetPartitionProperty(partition: WhvPartitionHandle, propertycode: WhvPartitionPropertyCode, propertybuffer: ConstPtr<CVoid>, propertybuffersizeinbytes: UInt): Hresult =
+public actual fun wHvSetPartitionProperty(partition: WhvPartitionHandle, propertycode: WhvPartitionPropertyCode, propertybuffer: ConstPtr, propertybuffersizeinbytes: UInt): Hresult =
     WindowsWin32SystemHypervisorJniBridge.windowssysWindowsWin32SystemHypervisorWHvSetPartitionProperty(partition, propertycode, propertybuffer.rawAddress, propertybuffersizeinbytes.toInt())
 
-public actual fun wHvSetVirtualProcessorInterruptControllerState(partition: WhvPartitionHandle, vpindex: UInt, state: ConstPtr<CVoid>, statesize: UInt): Hresult =
+public actual fun wHvSetVirtualProcessorInterruptControllerState(partition: WhvPartitionHandle, vpindex: UInt, state: ConstPtr, statesize: UInt): Hresult =
     WindowsWin32SystemHypervisorJniBridge.windowssysWindowsWin32SystemHypervisorWHvSetVirtualProcessorInterruptControllerState(partition, vpindex.toInt(), state.rawAddress, statesize.toInt())
 
-public actual fun wHvSetVirtualProcessorInterruptControllerState2(partition: WhvPartitionHandle, vpindex: UInt, state: ConstPtr<CVoid>, statesize: UInt): Hresult =
+public actual fun wHvSetVirtualProcessorInterruptControllerState2(partition: WhvPartitionHandle, vpindex: UInt, state: ConstPtr, statesize: UInt): Hresult =
     WindowsWin32SystemHypervisorJniBridge.windowssysWindowsWin32SystemHypervisorWHvSetVirtualProcessorInterruptControllerState2(partition, vpindex.toInt(), state.rawAddress, statesize.toInt())
 
-public actual fun wHvSetVirtualProcessorRegisters(partition: WhvPartitionHandle, vpindex: UInt, registernames: ConstPtr<WhvRegisterName>, registercount: UInt, registervalues: ConstPtr<WhvRegisterValue>): Hresult =
+public actual fun wHvSetVirtualProcessorRegisters(partition: WhvPartitionHandle, vpindex: UInt, registernames: ConstPtr, registercount: UInt, registervalues: ConstPtr): Hresult =
     WindowsWin32SystemHypervisorJniBridge.windowssysWindowsWin32SystemHypervisorWHvSetVirtualProcessorRegisters(partition, vpindex.toInt(), registernames.rawAddress, registercount.toInt(), registervalues.rawAddress)
 
-public actual fun wHvSetVirtualProcessorState(partition: WhvPartitionHandle, vpindex: UInt, statetype: WhvVirtualProcessorStateType, buffer: ConstPtr<CVoid>, buffersizeinbytes: UInt): Hresult =
+public actual fun wHvSetVirtualProcessorState(partition: WhvPartitionHandle, vpindex: UInt, statetype: WhvVirtualProcessorStateType, buffer: ConstPtr, buffersizeinbytes: UInt): Hresult =
     WindowsWin32SystemHypervisorJniBridge.windowssysWindowsWin32SystemHypervisorWHvSetVirtualProcessorState(partition, vpindex.toInt(), statetype, buffer.rawAddress, buffersizeinbytes.toInt())
 
-public actual fun wHvSetVirtualProcessorXsaveState(partition: WhvPartitionHandle, vpindex: UInt, buffer: ConstPtr<CVoid>, buffersizeinbytes: UInt): Hresult =
+public actual fun wHvSetVirtualProcessorXsaveState(partition: WhvPartitionHandle, vpindex: UInt, buffer: ConstPtr, buffersizeinbytes: UInt): Hresult =
     WindowsWin32SystemHypervisorJniBridge.windowssysWindowsWin32SystemHypervisorWHvSetVirtualProcessorXsaveState(partition, vpindex.toInt(), buffer.rawAddress, buffersizeinbytes.toInt())
 
 public actual fun wHvSetVpciDevicePowerState(partition: WhvPartitionHandle, logicaldeviceid: ULong, powerstate: DevicePowerState): Hresult =
@@ -735,16 +732,16 @@ public actual fun wHvSetVpciDevicePowerState(partition: WhvPartitionHandle, logi
 public actual fun wHvSetupPartition(partition: WhvPartitionHandle): Hresult =
     WindowsWin32SystemHypervisorJniBridge.windowssysWindowsWin32SystemHypervisorWHvSetupPartition(partition)
 
-public actual fun wHvSignalVirtualProcessorSynicEvent(partition: WhvPartitionHandle, synicevent: WhvSynicEventParameters, newlysignaled: MutPtr<Bool>): Hresult =
+public actual fun wHvSignalVirtualProcessorSynicEvent(partition: WhvPartitionHandle, synicevent: WhvSynicEventParameters, newlysignaled: MutPtr): Hresult =
     0
 
-public actual fun wHvStartPartitionMigration(partition: WhvPartitionHandle, migrationhandle: MutPtr<Handle>): Hresult =
+public actual fun wHvStartPartitionMigration(partition: WhvPartitionHandle, migrationhandle: MutPtr): Hresult =
     WindowsWin32SystemHypervisorJniBridge.windowssysWindowsWin32SystemHypervisorWHvStartPartitionMigration(partition, migrationhandle.rawAddress)
 
 public actual fun wHvSuspendPartitionTime(partition: WhvPartitionHandle): Hresult =
     WindowsWin32SystemHypervisorJniBridge.windowssysWindowsWin32SystemHypervisorWHvSuspendPartitionTime(partition)
 
-public actual fun wHvTranslateGva(partition: WhvPartitionHandle, vpindex: UInt, gva: ULong, translateflags: WhvTranslateGvaFlags, translationresult: MutPtr<WhvTranslateGvaResult>, gpa: MutPtr<ULong>): Hresult =
+public actual fun wHvTranslateGva(partition: WhvPartitionHandle, vpindex: UInt, gva: ULong, translateflags: WhvTranslateGvaFlags, translationresult: MutPtr, gpa: MutPtr): Hresult =
     WindowsWin32SystemHypervisorJniBridge.windowssysWindowsWin32SystemHypervisorWHvTranslateGva(partition, vpindex.toInt(), gva.toLong(), translateflags, translationresult.rawAddress, gpa.rawAddress)
 
 public actual fun wHvUnmapGpaRange(partition: WhvPartitionHandle, guestaddress: ULong, sizeinbytes: ULong): Hresult =
@@ -756,14 +753,14 @@ public actual fun wHvUnmapVpciDeviceInterrupt(partition: WhvPartitionHandle, log
 public actual fun wHvUnmapVpciDeviceMmioRanges(partition: WhvPartitionHandle, logicaldeviceid: ULong): Hresult =
     WindowsWin32SystemHypervisorJniBridge.windowssysWindowsWin32SystemHypervisorWHvUnmapVpciDeviceMmioRanges(partition, logicaldeviceid.toLong())
 
-public actual fun wHvUnregisterPartitionDoorbellEvent(partition: WhvPartitionHandle, matchdata: ConstPtr<WhvDoorbellMatchData>): Hresult =
+public actual fun wHvUnregisterPartitionDoorbellEvent(partition: WhvPartitionHandle, matchdata: ConstPtr): Hresult =
     WindowsWin32SystemHypervisorJniBridge.windowssysWindowsWin32SystemHypervisorWHvUnregisterPartitionDoorbellEvent(partition, matchdata.rawAddress)
 
-public actual fun wHvUpdateTriggerParameters(partition: WhvPartitionHandle, parameters: ConstPtr<WhvTriggerParameters>, triggerhandle: ConstPtr<CVoid>): Hresult =
+public actual fun wHvUpdateTriggerParameters(partition: WhvPartitionHandle, parameters: ConstPtr, triggerhandle: ConstPtr): Hresult =
     WindowsWin32SystemHypervisorJniBridge.windowssysWindowsWin32SystemHypervisorWHvUpdateTriggerParameters(partition, parameters.rawAddress, triggerhandle.rawAddress)
 
-public actual fun wHvWriteGpaRange(partition: WhvPartitionHandle, vpindex: UInt, guestaddress: ULong, controls: WhvAccessGpaControls, data: ConstPtr<CVoid>, datasizeinbytes: UInt): Hresult =
+public actual fun wHvWriteGpaRange(partition: WhvPartitionHandle, vpindex: UInt, guestaddress: ULong, controls: WhvAccessGpaControls, data: ConstPtr, datasizeinbytes: UInt): Hresult =
     0
 
-public actual fun wHvWriteVpciDeviceRegister(partition: WhvPartitionHandle, logicaldeviceid: ULong, register: ConstPtr<WhvVpciDeviceRegister>, data: ConstPtr<CVoid>): Hresult =
+public actual fun wHvWriteVpciDeviceRegister(partition: WhvPartitionHandle, logicaldeviceid: ULong, register: ConstPtr, data: ConstPtr): Hresult =
     WindowsWin32SystemHypervisorJniBridge.windowssysWindowsWin32SystemHypervisorWHvWriteVpciDeviceRegister(partition, logicaldeviceid.toLong(), register.rawAddress, data.rawAddress)

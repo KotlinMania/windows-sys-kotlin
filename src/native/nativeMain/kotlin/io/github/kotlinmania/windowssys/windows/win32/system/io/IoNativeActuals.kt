@@ -2,7 +2,6 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.system.io
 
-import io.github.kotlinmania.rustlang.core.ffi.CVoid
 import io.github.kotlinmania.rustlang.core.ptr.ConstPtr
 import io.github.kotlinmania.rustlang.core.ptr.MutPtr
 import io.github.kotlinmania.windowssys.core.Bool
@@ -28,7 +27,7 @@ public actual fun bindIoCompletionCallback(filehandle: Handle, function: Lpoverl
 public actual fun cancelIo(hfile: Handle): Bool =
     windowssysWindowsWin32SystemIoCancelIo(hfile.rawAddress.toCPointer<ByteVar>())
 
-public actual fun cancelIoEx(hfile: Handle, lpoverlapped: ConstPtr<Overlapped>): Bool =
+public actual fun cancelIoEx(hfile: Handle, lpoverlapped: ConstPtr): Bool =
     windowssysWindowsWin32SystemIoCancelIoEx(hfile.rawAddress.toCPointer<ByteVar>(), lpoverlapped.rawAddress.toCPointer<ByteVar>())
 
 public actual fun cancelSynchronousIo(hthread: Handle): Bool =
@@ -37,20 +36,20 @@ public actual fun cancelSynchronousIo(hthread: Handle): Bool =
 public actual fun createIoCompletionPort(filehandle: Handle, existingcompletionport: Handle, completionkey: ULong, numberofconcurrentthreads: UInt): Handle =
     MutPtr(windowssysWindowsWin32SystemIoCreateIoCompletionPort(filehandle.rawAddress.toCPointer<ByteVar>(), existingcompletionport.rawAddress.toCPointer<ByteVar>(), completionkey, numberofconcurrentthreads)?.toLong() ?: 0L)
 
-public actual fun deviceIoControl(hdevice: Handle, dwiocontrolcode: UInt, lpinbuffer: ConstPtr<CVoid>, ninbuffersize: UInt, lpoutbuffer: MutPtr<CVoid>, noutbuffersize: UInt, lpbytesreturned: MutPtr<UInt>, lpoverlapped: MutPtr<Overlapped>): Bool =
+public actual fun deviceIoControl(hdevice: Handle, dwiocontrolcode: UInt, lpinbuffer: ConstPtr, ninbuffersize: UInt, lpoutbuffer: MutPtr, noutbuffersize: UInt, lpbytesreturned: MutPtr, lpoverlapped: MutPtr): Bool =
     windowssysWindowsWin32SystemIoDeviceIoControl(hdevice.rawAddress.toCPointer<ByteVar>(), dwiocontrolcode, lpinbuffer.rawAddress.toCPointer<ByteVar>(), ninbuffersize, lpoutbuffer.rawAddress.toCPointer<ByteVar>(), noutbuffersize, lpbytesreturned.rawAddress.toCPointer<ByteVar>(), lpoverlapped.rawAddress.toCPointer<ByteVar>())
 
-public actual fun getOverlappedResult(hfile: Handle, lpoverlapped: ConstPtr<Overlapped>, lpnumberofbytestransferred: MutPtr<UInt>, bwait: Bool): Bool =
+public actual fun getOverlappedResult(hfile: Handle, lpoverlapped: ConstPtr, lpnumberofbytestransferred: MutPtr, bwait: Bool): Bool =
     windowssysWindowsWin32SystemIoGetOverlappedResult(hfile.rawAddress.toCPointer<ByteVar>(), lpoverlapped.rawAddress.toCPointer<ByteVar>(), lpnumberofbytestransferred.rawAddress.toCPointer<ByteVar>(), bwait)
 
-public actual fun getOverlappedResultEx(hfile: Handle, lpoverlapped: ConstPtr<Overlapped>, lpnumberofbytestransferred: MutPtr<UInt>, dwmilliseconds: UInt, balertable: Bool): Bool =
+public actual fun getOverlappedResultEx(hfile: Handle, lpoverlapped: ConstPtr, lpnumberofbytestransferred: MutPtr, dwmilliseconds: UInt, balertable: Bool): Bool =
     windowssysWindowsWin32SystemIoGetOverlappedResultEx(hfile.rawAddress.toCPointer<ByteVar>(), lpoverlapped.rawAddress.toCPointer<ByteVar>(), lpnumberofbytestransferred.rawAddress.toCPointer<ByteVar>(), dwmilliseconds, balertable)
 
-public actual fun getQueuedCompletionStatus(completionport: Handle, lpnumberofbytestransferred: MutPtr<UInt>, lpcompletionkey: MutPtr<ULong>, lpoverlapped: MutPtr<MutPtr<Overlapped>>, dwmilliseconds: UInt): Bool =
+public actual fun getQueuedCompletionStatus(completionport: Handle, lpnumberofbytestransferred: MutPtr, lpcompletionkey: MutPtr, lpoverlapped: MutPtr, dwmilliseconds: UInt): Bool =
     windowssysWindowsWin32SystemIoGetQueuedCompletionStatus(completionport.rawAddress.toCPointer<ByteVar>(), lpnumberofbytestransferred.rawAddress.toCPointer<ByteVar>(), lpcompletionkey.rawAddress.toCPointer<ByteVar>(), lpoverlapped.rawAddress.toCPointer<ByteVar>(), dwmilliseconds)
 
-public actual fun getQueuedCompletionStatusEx(completionport: Handle, lpcompletionportentries: MutPtr<OverlappedEntry>, ulcount: UInt, ulnumentriesremoved: MutPtr<UInt>, dwmilliseconds: UInt, falertable: Bool): Bool =
+public actual fun getQueuedCompletionStatusEx(completionport: Handle, lpcompletionportentries: MutPtr, ulcount: UInt, ulnumentriesremoved: MutPtr, dwmilliseconds: UInt, falertable: Bool): Bool =
     windowssysWindowsWin32SystemIoGetQueuedCompletionStatusEx(completionport.rawAddress.toCPointer<ByteVar>(), lpcompletionportentries.rawAddress.toCPointer<ByteVar>(), ulcount, ulnumentriesremoved.rawAddress.toCPointer<ByteVar>(), dwmilliseconds, falertable)
 
-public actual fun postQueuedCompletionStatus(completionport: Handle, dwnumberofbytestransferred: UInt, dwcompletionkey: ULong, lpoverlapped: ConstPtr<Overlapped>): Bool =
+public actual fun postQueuedCompletionStatus(completionport: Handle, dwnumberofbytestransferred: UInt, dwcompletionkey: ULong, lpoverlapped: ConstPtr): Bool =
     windowssysWindowsWin32SystemIoPostQueuedCompletionStatus(completionport.rawAddress.toCPointer<ByteVar>(), dwnumberofbytestransferred, dwcompletionkey, lpoverlapped.rawAddress.toCPointer<ByteVar>())

@@ -2,7 +2,6 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.storage.iscsidisc
 
-import io.github.kotlinmania.rustlang.core.ffi.CVoid
 import io.github.kotlinmania.rustlang.core.ptr.MutPtr
 import io.github.kotlinmania.windowssys.core.Pcstr
 import io.github.kotlinmania.windowssys.core.Pcwstr
@@ -257,22 +256,22 @@ public actual fun addISNSServerA(address: Pcstr): UInt =
 public actual fun addISNSServerW(address: Pcwstr): UInt =
     if (windowsWin32StorageIscsidiscNapiAvailable) wasmWindowssysWindowsWin32StorageIscsidiscAddISNSServerW(address.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun addIScsiConnectionA(uniquesessionid: MutPtr<IscsiUniqueSessionId>, reserved: MutPtr<CVoid>, initiatorportnumber: UInt, targetportal: MutPtr<IscsiTargetPortala>, securityflags: ULong, loginoptions: MutPtr<IscsiLoginOptions>, keysize: UInt, key: Pcstr, connectionid: MutPtr<IscsiUniqueSessionId>): UInt =
+public actual fun addIScsiConnectionA(uniquesessionid: MutPtr, reserved: MutPtr, initiatorportnumber: UInt, targetportal: MutPtr, securityflags: ULong, loginoptions: MutPtr, keysize: UInt, key: Pcstr, connectionid: MutPtr): UInt =
     if (windowsWin32StorageIscsidiscNapiAvailable) wasmWindowssysWindowsWin32StorageIscsidiscAddIScsiConnectionA(uniquesessionid.rawAddress.toString(), reserved.rawAddress.toString(), initiatorportnumber.toInt(), targetportal.rawAddress.toString(), securityflags.toString(), loginoptions.rawAddress.toString(), keysize.toInt(), key.rawAddress.toString(), connectionid.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun addIScsiConnectionW(uniquesessionid: MutPtr<IscsiUniqueSessionId>, reserved: MutPtr<CVoid>, initiatorportnumber: UInt, targetportal: MutPtr<IscsiTargetPortalw>, securityflags: ULong, loginoptions: MutPtr<IscsiLoginOptions>, keysize: UInt, key: Pcstr, connectionid: MutPtr<IscsiUniqueSessionId>): UInt =
+public actual fun addIScsiConnectionW(uniquesessionid: MutPtr, reserved: MutPtr, initiatorportnumber: UInt, targetportal: MutPtr, securityflags: ULong, loginoptions: MutPtr, keysize: UInt, key: Pcstr, connectionid: MutPtr): UInt =
     if (windowsWin32StorageIscsidiscNapiAvailable) wasmWindowssysWindowsWin32StorageIscsidiscAddIScsiConnectionW(uniquesessionid.rawAddress.toString(), reserved.rawAddress.toString(), initiatorportnumber.toInt(), targetportal.rawAddress.toString(), securityflags.toString(), loginoptions.rawAddress.toString(), keysize.toInt(), key.rawAddress.toString(), connectionid.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun addIScsiSendTargetPortalA(initiatorinstance: Pcstr, initiatorportnumber: UInt, loginoptions: MutPtr<IscsiLoginOptions>, securityflags: ULong, portal: MutPtr<IscsiTargetPortala>): UInt =
+public actual fun addIScsiSendTargetPortalA(initiatorinstance: Pcstr, initiatorportnumber: UInt, loginoptions: MutPtr, securityflags: ULong, portal: MutPtr): UInt =
     if (windowsWin32StorageIscsidiscNapiAvailable) wasmWindowssysWindowsWin32StorageIscsidiscAddIScsiSendTargetPortalA(initiatorinstance.rawAddress.toString(), initiatorportnumber.toInt(), loginoptions.rawAddress.toString(), securityflags.toString(), portal.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun addIScsiSendTargetPortalW(initiatorinstance: Pcwstr, initiatorportnumber: UInt, loginoptions: MutPtr<IscsiLoginOptions>, securityflags: ULong, portal: MutPtr<IscsiTargetPortalw>): UInt =
+public actual fun addIScsiSendTargetPortalW(initiatorinstance: Pcwstr, initiatorportnumber: UInt, loginoptions: MutPtr, securityflags: ULong, portal: MutPtr): UInt =
     if (windowsWin32StorageIscsidiscNapiAvailable) wasmWindowssysWindowsWin32StorageIscsidiscAddIScsiSendTargetPortalW(initiatorinstance.rawAddress.toString(), initiatorportnumber.toInt(), loginoptions.rawAddress.toString(), securityflags.toString(), portal.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun addIScsiStaticTargetA(targetname: Pcstr, targetalias: Pcstr, targetflags: UInt, persist: Boolean, mappings: MutPtr<IscsiTargetMappinga>, loginoptions: MutPtr<IscsiLoginOptions>, portalgroup: MutPtr<IscsiTargetPortalGroupa>): UInt =
+public actual fun addIScsiStaticTargetA(targetname: Pcstr, targetalias: Pcstr, targetflags: UInt, persist: Boolean, mappings: MutPtr, loginoptions: MutPtr, portalgroup: MutPtr): UInt =
     if (windowsWin32StorageIscsidiscNapiAvailable) wasmWindowssysWindowsWin32StorageIscsidiscAddIScsiStaticTargetA(targetname.rawAddress.toString(), targetalias.rawAddress.toString(), targetflags.toInt(), persist, mappings.rawAddress.toString(), loginoptions.rawAddress.toString(), portalgroup.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun addIScsiStaticTargetW(targetname: Pcwstr, targetalias: Pcwstr, targetflags: UInt, persist: Boolean, mappings: MutPtr<IscsiTargetMappingw>, loginoptions: MutPtr<IscsiLoginOptions>, portalgroup: MutPtr<IscsiTargetPortalGroupw>): UInt =
+public actual fun addIScsiStaticTargetW(targetname: Pcwstr, targetalias: Pcwstr, targetflags: UInt, persist: Boolean, mappings: MutPtr, loginoptions: MutPtr, portalgroup: MutPtr): UInt =
     if (windowsWin32StorageIscsidiscNapiAvailable) wasmWindowssysWindowsWin32StorageIscsidiscAddIScsiStaticTargetW(targetname.rawAddress.toString(), targetalias.rawAddress.toString(), targetflags.toInt(), persist, mappings.rawAddress.toString(), loginoptions.rawAddress.toString(), portalgroup.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun addPersistentIScsiDeviceA(devicepath: Pcstr): UInt =
@@ -290,16 +289,16 @@ public actual fun addRadiusServerW(address: Pcwstr): UInt =
 public actual fun clearPersistentIScsiDevices(): UInt =
     if (windowsWin32StorageIscsidiscNapiAvailable) wasmWindowssysWindowsWin32StorageIscsidiscClearPersistentIScsiDevices().toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun getDevicesForIScsiSessionA(uniquesessionid: MutPtr<IscsiUniqueSessionId>, devicecount: MutPtr<UInt>, devices: MutPtr<IscsiDeviceOnSessiona>): UInt =
+public actual fun getDevicesForIScsiSessionA(uniquesessionid: MutPtr, devicecount: MutPtr, devices: MutPtr): UInt =
     if (windowsWin32StorageIscsidiscNapiAvailable) wasmWindowssysWindowsWin32StorageIscsidiscGetDevicesForIScsiSessionA(uniquesessionid.rawAddress.toString(), devicecount.rawAddress.toString(), devices.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun getDevicesForIScsiSessionW(uniquesessionid: MutPtr<IscsiUniqueSessionId>, devicecount: MutPtr<UInt>, devices: MutPtr<IscsiDeviceOnSessionw>): UInt =
+public actual fun getDevicesForIScsiSessionW(uniquesessionid: MutPtr, devicecount: MutPtr, devices: MutPtr): UInt =
     if (windowsWin32StorageIscsidiscNapiAvailable) wasmWindowssysWindowsWin32StorageIscsidiscGetDevicesForIScsiSessionW(uniquesessionid.rawAddress.toString(), devicecount.rawAddress.toString(), devices.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun getIScsiIKEInfoA(initiatorname: Pcstr, initiatorportnumber: UInt, reserved: MutPtr<UInt>, authinfo: MutPtr<IkeAuthenticationInformation>): UInt =
+public actual fun getIScsiIKEInfoA(initiatorname: Pcstr, initiatorportnumber: UInt, reserved: MutPtr, authinfo: MutPtr): UInt =
     if (windowsWin32StorageIscsidiscNapiAvailable) wasmWindowssysWindowsWin32StorageIscsidiscGetIScsiIKEInfoA(initiatorname.rawAddress.toString(), initiatorportnumber.toInt(), reserved.rawAddress.toString(), authinfo.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun getIScsiIKEInfoW(initiatorname: Pcwstr, initiatorportnumber: UInt, reserved: MutPtr<UInt>, authinfo: MutPtr<IkeAuthenticationInformation>): UInt =
+public actual fun getIScsiIKEInfoW(initiatorname: Pcwstr, initiatorportnumber: UInt, reserved: MutPtr, authinfo: MutPtr): UInt =
     if (windowsWin32StorageIscsidiscNapiAvailable) wasmWindowssysWindowsWin32StorageIscsidiscGetIScsiIKEInfoW(initiatorname.rawAddress.toString(), initiatorportnumber.toInt(), reserved.rawAddress.toString(), authinfo.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun getIScsiInitiatorNodeNameA(initiatornodename: Pstr): UInt =
@@ -308,31 +307,31 @@ public actual fun getIScsiInitiatorNodeNameA(initiatornodename: Pstr): UInt =
 public actual fun getIScsiInitiatorNodeNameW(initiatornodename: Pwstr): UInt =
     if (windowsWin32StorageIscsidiscNapiAvailable) wasmWindowssysWindowsWin32StorageIscsidiscGetIScsiInitiatorNodeNameW(initiatornodename.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun getIScsiSessionListA(buffersize: MutPtr<UInt>, sessioncount: MutPtr<UInt>, sessioninfo: MutPtr<IscsiSessionInfoa>): UInt =
+public actual fun getIScsiSessionListA(buffersize: MutPtr, sessioncount: MutPtr, sessioninfo: MutPtr): UInt =
     if (windowsWin32StorageIscsidiscNapiAvailable) wasmWindowssysWindowsWin32StorageIscsidiscGetIScsiSessionListA(buffersize.rawAddress.toString(), sessioncount.rawAddress.toString(), sessioninfo.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun getIScsiSessionListEx(buffersize: MutPtr<UInt>, sessioncountptr: MutPtr<UInt>, sessioninfo: MutPtr<IscsiSessionInfoEx>): UInt =
+public actual fun getIScsiSessionListEx(buffersize: MutPtr, sessioncountptr: MutPtr, sessioninfo: MutPtr): UInt =
     if (windowsWin32StorageIscsidiscNapiAvailable) wasmWindowssysWindowsWin32StorageIscsidiscGetIScsiSessionListEx(buffersize.rawAddress.toString(), sessioncountptr.rawAddress.toString(), sessioninfo.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun getIScsiSessionListW(buffersize: MutPtr<UInt>, sessioncount: MutPtr<UInt>, sessioninfo: MutPtr<IscsiSessionInfow>): UInt =
+public actual fun getIScsiSessionListW(buffersize: MutPtr, sessioncount: MutPtr, sessioninfo: MutPtr): UInt =
     if (windowsWin32StorageIscsidiscNapiAvailable) wasmWindowssysWindowsWin32StorageIscsidiscGetIScsiSessionListW(buffersize.rawAddress.toString(), sessioncount.rawAddress.toString(), sessioninfo.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun getIScsiTargetInformationA(targetname: Pcstr, discoverymechanism: Pcstr, infoclass: TargetInformationClass, buffersize: MutPtr<UInt>, buffer: MutPtr<CVoid>): UInt =
+public actual fun getIScsiTargetInformationA(targetname: Pcstr, discoverymechanism: Pcstr, infoclass: TargetInformationClass, buffersize: MutPtr, buffer: MutPtr): UInt =
     if (windowsWin32StorageIscsidiscNapiAvailable) wasmWindowssysWindowsWin32StorageIscsidiscGetIScsiTargetInformationA(targetname.rawAddress.toString(), discoverymechanism.rawAddress.toString(), infoclass, buffersize.rawAddress.toString(), buffer.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun getIScsiTargetInformationW(targetname: Pcwstr, discoverymechanism: Pcwstr, infoclass: TargetInformationClass, buffersize: MutPtr<UInt>, buffer: MutPtr<CVoid>): UInt =
+public actual fun getIScsiTargetInformationW(targetname: Pcwstr, discoverymechanism: Pcwstr, infoclass: TargetInformationClass, buffersize: MutPtr, buffer: MutPtr): UInt =
     if (windowsWin32StorageIscsidiscNapiAvailable) wasmWindowssysWindowsWin32StorageIscsidiscGetIScsiTargetInformationW(targetname.rawAddress.toString(), discoverymechanism.rawAddress.toString(), infoclass, buffersize.rawAddress.toString(), buffer.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun getIScsiVersionInformation(versioninfo: MutPtr<IscsiVersionInfo>): UInt =
+public actual fun getIScsiVersionInformation(versioninfo: MutPtr): UInt =
     if (windowsWin32StorageIscsidiscNapiAvailable) wasmWindowssysWindowsWin32StorageIscsidiscGetIScsiVersionInformation(versioninfo.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun loginIScsiTargetA(targetname: Pcstr, isinformationalsession: Boolean, initiatorinstance: Pcstr, initiatorportnumber: UInt, targetportal: MutPtr<IscsiTargetPortala>, securityflags: ULong, mappings: MutPtr<IscsiTargetMappinga>, loginoptions: MutPtr<IscsiLoginOptions>, keysize: UInt, key: Pcstr, ispersistent: Boolean, uniquesessionid: MutPtr<IscsiUniqueSessionId>, uniqueconnectionid: MutPtr<IscsiUniqueSessionId>): UInt =
+public actual fun loginIScsiTargetA(targetname: Pcstr, isinformationalsession: Boolean, initiatorinstance: Pcstr, initiatorportnumber: UInt, targetportal: MutPtr, securityflags: ULong, mappings: MutPtr, loginoptions: MutPtr, keysize: UInt, key: Pcstr, ispersistent: Boolean, uniquesessionid: MutPtr, uniqueconnectionid: MutPtr): UInt =
     if (windowsWin32StorageIscsidiscNapiAvailable) wasmWindowssysWindowsWin32StorageIscsidiscLoginIScsiTargetA(targetname.rawAddress.toString(), isinformationalsession, initiatorinstance.rawAddress.toString(), initiatorportnumber.toInt(), targetportal.rawAddress.toString(), securityflags.toString(), mappings.rawAddress.toString(), loginoptions.rawAddress.toString(), keysize.toInt(), key.rawAddress.toString(), ispersistent, uniquesessionid.rawAddress.toString(), uniqueconnectionid.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun loginIScsiTargetW(targetname: Pcwstr, isinformationalsession: Boolean, initiatorinstance: Pcwstr, initiatorportnumber: UInt, targetportal: MutPtr<IscsiTargetPortalw>, securityflags: ULong, mappings: MutPtr<IscsiTargetMappingw>, loginoptions: MutPtr<IscsiLoginOptions>, keysize: UInt, key: Pcstr, ispersistent: Boolean, uniquesessionid: MutPtr<IscsiUniqueSessionId>, uniqueconnectionid: MutPtr<IscsiUniqueSessionId>): UInt =
+public actual fun loginIScsiTargetW(targetname: Pcwstr, isinformationalsession: Boolean, initiatorinstance: Pcwstr, initiatorportnumber: UInt, targetportal: MutPtr, securityflags: ULong, mappings: MutPtr, loginoptions: MutPtr, keysize: UInt, key: Pcstr, ispersistent: Boolean, uniquesessionid: MutPtr, uniqueconnectionid: MutPtr): UInt =
     if (windowsWin32StorageIscsidiscNapiAvailable) wasmWindowssysWindowsWin32StorageIscsidiscLoginIScsiTargetW(targetname.rawAddress.toString(), isinformationalsession, initiatorinstance.rawAddress.toString(), initiatorportnumber.toInt(), targetportal.rawAddress.toString(), securityflags.toString(), mappings.rawAddress.toString(), loginoptions.rawAddress.toString(), keysize.toInt(), key.rawAddress.toString(), ispersistent, uniquesessionid.rawAddress.toString(), uniqueconnectionid.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun logoutIScsiTarget(uniquesessionid: MutPtr<IscsiUniqueSessionId>): UInt =
+public actual fun logoutIScsiTarget(uniquesessionid: MutPtr): UInt =
     if (windowsWin32StorageIscsidiscNapiAvailable) wasmWindowssysWindowsWin32StorageIscsidiscLogoutIScsiTarget(uniquesessionid.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun refreshISNSServerA(address: Pcstr): UInt =
@@ -341,10 +340,10 @@ public actual fun refreshISNSServerA(address: Pcstr): UInt =
 public actual fun refreshISNSServerW(address: Pcwstr): UInt =
     if (windowsWin32StorageIscsidiscNapiAvailable) wasmWindowssysWindowsWin32StorageIscsidiscRefreshISNSServerW(address.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun refreshIScsiSendTargetPortalA(initiatorinstance: Pcstr, initiatorportnumber: UInt, portal: MutPtr<IscsiTargetPortala>): UInt =
+public actual fun refreshIScsiSendTargetPortalA(initiatorinstance: Pcstr, initiatorportnumber: UInt, portal: MutPtr): UInt =
     if (windowsWin32StorageIscsidiscNapiAvailable) wasmWindowssysWindowsWin32StorageIscsidiscRefreshIScsiSendTargetPortalA(initiatorinstance.rawAddress.toString(), initiatorportnumber.toInt(), portal.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun refreshIScsiSendTargetPortalW(initiatorinstance: Pcwstr, initiatorportnumber: UInt, portal: MutPtr<IscsiTargetPortalw>): UInt =
+public actual fun refreshIScsiSendTargetPortalW(initiatorinstance: Pcwstr, initiatorportnumber: UInt, portal: MutPtr): UInt =
     if (windowsWin32StorageIscsidiscNapiAvailable) wasmWindowssysWindowsWin32StorageIscsidiscRefreshIScsiSendTargetPortalW(initiatorinstance.rawAddress.toString(), initiatorportnumber.toInt(), portal.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun removeISNSServerA(address: Pcstr): UInt =
@@ -353,19 +352,19 @@ public actual fun removeISNSServerA(address: Pcstr): UInt =
 public actual fun removeISNSServerW(address: Pcwstr): UInt =
     if (windowsWin32StorageIscsidiscNapiAvailable) wasmWindowssysWindowsWin32StorageIscsidiscRemoveISNSServerW(address.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun removeIScsiConnection(uniquesessionid: MutPtr<IscsiUniqueSessionId>, connectionid: MutPtr<IscsiUniqueSessionId>): UInt =
+public actual fun removeIScsiConnection(uniquesessionid: MutPtr, connectionid: MutPtr): UInt =
     if (windowsWin32StorageIscsidiscNapiAvailable) wasmWindowssysWindowsWin32StorageIscsidiscRemoveIScsiConnection(uniquesessionid.rawAddress.toString(), connectionid.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun removeIScsiPersistentTargetA(initiatorinstance: Pcstr, initiatorportnumber: UInt, targetname: Pcstr, portal: MutPtr<IscsiTargetPortala>): UInt =
+public actual fun removeIScsiPersistentTargetA(initiatorinstance: Pcstr, initiatorportnumber: UInt, targetname: Pcstr, portal: MutPtr): UInt =
     if (windowsWin32StorageIscsidiscNapiAvailable) wasmWindowssysWindowsWin32StorageIscsidiscRemoveIScsiPersistentTargetA(initiatorinstance.rawAddress.toString(), initiatorportnumber.toInt(), targetname.rawAddress.toString(), portal.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun removeIScsiPersistentTargetW(initiatorinstance: Pcwstr, initiatorportnumber: UInt, targetname: Pcwstr, portal: MutPtr<IscsiTargetPortalw>): UInt =
+public actual fun removeIScsiPersistentTargetW(initiatorinstance: Pcwstr, initiatorportnumber: UInt, targetname: Pcwstr, portal: MutPtr): UInt =
     if (windowsWin32StorageIscsidiscNapiAvailable) wasmWindowssysWindowsWin32StorageIscsidiscRemoveIScsiPersistentTargetW(initiatorinstance.rawAddress.toString(), initiatorportnumber.toInt(), targetname.rawAddress.toString(), portal.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun removeIScsiSendTargetPortalA(initiatorinstance: Pcstr, initiatorportnumber: UInt, portal: MutPtr<IscsiTargetPortala>): UInt =
+public actual fun removeIScsiSendTargetPortalA(initiatorinstance: Pcstr, initiatorportnumber: UInt, portal: MutPtr): UInt =
     if (windowsWin32StorageIscsidiscNapiAvailable) wasmWindowssysWindowsWin32StorageIscsidiscRemoveIScsiSendTargetPortalA(initiatorinstance.rawAddress.toString(), initiatorportnumber.toInt(), portal.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun removeIScsiSendTargetPortalW(initiatorinstance: Pcwstr, initiatorportnumber: UInt, portal: MutPtr<IscsiTargetPortalw>): UInt =
+public actual fun removeIScsiSendTargetPortalW(initiatorinstance: Pcwstr, initiatorportnumber: UInt, portal: MutPtr): UInt =
     if (windowsWin32StorageIscsidiscNapiAvailable) wasmWindowssysWindowsWin32StorageIscsidiscRemoveIScsiSendTargetPortalW(initiatorinstance.rawAddress.toString(), initiatorportnumber.toInt(), portal.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun removeIScsiStaticTargetA(targetname: Pcstr): UInt =
@@ -386,85 +385,85 @@ public actual fun removeRadiusServerA(address: Pcstr): UInt =
 public actual fun removeRadiusServerW(address: Pcwstr): UInt =
     if (windowsWin32StorageIscsidiscNapiAvailable) wasmWindowssysWindowsWin32StorageIscsidiscRemoveRadiusServerW(address.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun reportActiveIScsiTargetMappingsA(buffersize: MutPtr<UInt>, mappingcount: MutPtr<UInt>, mappings: MutPtr<IscsiTargetMappinga>): UInt =
+public actual fun reportActiveIScsiTargetMappingsA(buffersize: MutPtr, mappingcount: MutPtr, mappings: MutPtr): UInt =
     if (windowsWin32StorageIscsidiscNapiAvailable) wasmWindowssysWindowsWin32StorageIscsidiscReportActiveIScsiTargetMappingsA(buffersize.rawAddress.toString(), mappingcount.rawAddress.toString(), mappings.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun reportActiveIScsiTargetMappingsW(buffersize: MutPtr<UInt>, mappingcount: MutPtr<UInt>, mappings: MutPtr<IscsiTargetMappingw>): UInt =
+public actual fun reportActiveIScsiTargetMappingsW(buffersize: MutPtr, mappingcount: MutPtr, mappings: MutPtr): UInt =
     if (windowsWin32StorageIscsidiscNapiAvailable) wasmWindowssysWindowsWin32StorageIscsidiscReportActiveIScsiTargetMappingsW(buffersize.rawAddress.toString(), mappingcount.rawAddress.toString(), mappings.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun reportISNSServerListA(buffersizeinchar: MutPtr<UInt>, buffer: Pstr): UInt =
+public actual fun reportISNSServerListA(buffersizeinchar: MutPtr, buffer: Pstr): UInt =
     if (windowsWin32StorageIscsidiscNapiAvailable) wasmWindowssysWindowsWin32StorageIscsidiscReportISNSServerListA(buffersizeinchar.rawAddress.toString(), buffer.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun reportISNSServerListW(buffersizeinchar: MutPtr<UInt>, buffer: Pwstr): UInt =
+public actual fun reportISNSServerListW(buffersizeinchar: MutPtr, buffer: Pwstr): UInt =
     if (windowsWin32StorageIscsidiscNapiAvailable) wasmWindowssysWindowsWin32StorageIscsidiscReportISNSServerListW(buffersizeinchar.rawAddress.toString(), buffer.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun reportIScsiInitiatorListA(buffersize: MutPtr<UInt>, buffer: Pstr): UInt =
+public actual fun reportIScsiInitiatorListA(buffersize: MutPtr, buffer: Pstr): UInt =
     if (windowsWin32StorageIscsidiscNapiAvailable) wasmWindowssysWindowsWin32StorageIscsidiscReportIScsiInitiatorListA(buffersize.rawAddress.toString(), buffer.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun reportIScsiInitiatorListW(buffersize: MutPtr<UInt>, buffer: Pwstr): UInt =
+public actual fun reportIScsiInitiatorListW(buffersize: MutPtr, buffer: Pwstr): UInt =
     if (windowsWin32StorageIscsidiscNapiAvailable) wasmWindowssysWindowsWin32StorageIscsidiscReportIScsiInitiatorListW(buffersize.rawAddress.toString(), buffer.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun reportIScsiPersistentLoginsA(count: MutPtr<UInt>, persistentlogininfo: MutPtr<PersistentIscsiLoginInfoa>, buffersizeinbytes: MutPtr<UInt>): UInt =
+public actual fun reportIScsiPersistentLoginsA(count: MutPtr, persistentlogininfo: MutPtr, buffersizeinbytes: MutPtr): UInt =
     if (windowsWin32StorageIscsidiscNapiAvailable) wasmWindowssysWindowsWin32StorageIscsidiscReportIScsiPersistentLoginsA(count.rawAddress.toString(), persistentlogininfo.rawAddress.toString(), buffersizeinbytes.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun reportIScsiPersistentLoginsW(count: MutPtr<UInt>, persistentlogininfo: MutPtr<PersistentIscsiLoginInfow>, buffersizeinbytes: MutPtr<UInt>): UInt =
+public actual fun reportIScsiPersistentLoginsW(count: MutPtr, persistentlogininfo: MutPtr, buffersizeinbytes: MutPtr): UInt =
     if (windowsWin32StorageIscsidiscNapiAvailable) wasmWindowssysWindowsWin32StorageIscsidiscReportIScsiPersistentLoginsW(count.rawAddress.toString(), persistentlogininfo.rawAddress.toString(), buffersizeinbytes.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun reportIScsiSendTargetPortalsA(portalcount: MutPtr<UInt>, portalinfo: MutPtr<IscsiTargetPortalInfoa>): UInt =
+public actual fun reportIScsiSendTargetPortalsA(portalcount: MutPtr, portalinfo: MutPtr): UInt =
     if (windowsWin32StorageIscsidiscNapiAvailable) wasmWindowssysWindowsWin32StorageIscsidiscReportIScsiSendTargetPortalsA(portalcount.rawAddress.toString(), portalinfo.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun reportIScsiSendTargetPortalsExA(portalcount: MutPtr<UInt>, portalinfosize: MutPtr<UInt>, portalinfo: MutPtr<IscsiTargetPortalInfoExa>): UInt =
+public actual fun reportIScsiSendTargetPortalsExA(portalcount: MutPtr, portalinfosize: MutPtr, portalinfo: MutPtr): UInt =
     if (windowsWin32StorageIscsidiscNapiAvailable) wasmWindowssysWindowsWin32StorageIscsidiscReportIScsiSendTargetPortalsExA(portalcount.rawAddress.toString(), portalinfosize.rawAddress.toString(), portalinfo.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun reportIScsiSendTargetPortalsExW(portalcount: MutPtr<UInt>, portalinfosize: MutPtr<UInt>, portalinfo: MutPtr<IscsiTargetPortalInfoExw>): UInt =
+public actual fun reportIScsiSendTargetPortalsExW(portalcount: MutPtr, portalinfosize: MutPtr, portalinfo: MutPtr): UInt =
     if (windowsWin32StorageIscsidiscNapiAvailable) wasmWindowssysWindowsWin32StorageIscsidiscReportIScsiSendTargetPortalsExW(portalcount.rawAddress.toString(), portalinfosize.rawAddress.toString(), portalinfo.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun reportIScsiSendTargetPortalsW(portalcount: MutPtr<UInt>, portalinfo: MutPtr<IscsiTargetPortalInfow>): UInt =
+public actual fun reportIScsiSendTargetPortalsW(portalcount: MutPtr, portalinfo: MutPtr): UInt =
     if (windowsWin32StorageIscsidiscNapiAvailable) wasmWindowssysWindowsWin32StorageIscsidiscReportIScsiSendTargetPortalsW(portalcount.rawAddress.toString(), portalinfo.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun reportIScsiTargetPortalsA(initiatorname: Pcstr, targetname: Pcstr, targetportaltag: MutPtr<UShort>, elementcount: MutPtr<UInt>, portals: MutPtr<IscsiTargetPortala>): UInt =
+public actual fun reportIScsiTargetPortalsA(initiatorname: Pcstr, targetname: Pcstr, targetportaltag: MutPtr, elementcount: MutPtr, portals: MutPtr): UInt =
     if (windowsWin32StorageIscsidiscNapiAvailable) wasmWindowssysWindowsWin32StorageIscsidiscReportIScsiTargetPortalsA(initiatorname.rawAddress.toString(), targetname.rawAddress.toString(), targetportaltag.rawAddress.toString(), elementcount.rawAddress.toString(), portals.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun reportIScsiTargetPortalsW(initiatorname: Pcwstr, targetname: Pcwstr, targetportaltag: MutPtr<UShort>, elementcount: MutPtr<UInt>, portals: MutPtr<IscsiTargetPortalw>): UInt =
+public actual fun reportIScsiTargetPortalsW(initiatorname: Pcwstr, targetname: Pcwstr, targetportaltag: MutPtr, elementcount: MutPtr, portals: MutPtr): UInt =
     if (windowsWin32StorageIscsidiscNapiAvailable) wasmWindowssysWindowsWin32StorageIscsidiscReportIScsiTargetPortalsW(initiatorname.rawAddress.toString(), targetname.rawAddress.toString(), targetportaltag.rawAddress.toString(), elementcount.rawAddress.toString(), portals.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun reportIScsiTargetsA(forceupdate: Boolean, buffersize: MutPtr<UInt>, buffer: Pstr): UInt =
+public actual fun reportIScsiTargetsA(forceupdate: Boolean, buffersize: MutPtr, buffer: Pstr): UInt =
     if (windowsWin32StorageIscsidiscNapiAvailable) wasmWindowssysWindowsWin32StorageIscsidiscReportIScsiTargetsA(forceupdate, buffersize.rawAddress.toString(), buffer.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun reportIScsiTargetsW(forceupdate: Boolean, buffersize: MutPtr<UInt>, buffer: Pwstr): UInt =
+public actual fun reportIScsiTargetsW(forceupdate: Boolean, buffersize: MutPtr, buffer: Pwstr): UInt =
     if (windowsWin32StorageIscsidiscNapiAvailable) wasmWindowssysWindowsWin32StorageIscsidiscReportIScsiTargetsW(forceupdate, buffersize.rawAddress.toString(), buffer.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun reportPersistentIScsiDevicesA(buffersizeinchar: MutPtr<UInt>, buffer: Pstr): UInt =
+public actual fun reportPersistentIScsiDevicesA(buffersizeinchar: MutPtr, buffer: Pstr): UInt =
     if (windowsWin32StorageIscsidiscNapiAvailable) wasmWindowssysWindowsWin32StorageIscsidiscReportPersistentIScsiDevicesA(buffersizeinchar.rawAddress.toString(), buffer.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun reportPersistentIScsiDevicesW(buffersizeinchar: MutPtr<UInt>, buffer: Pwstr): UInt =
+public actual fun reportPersistentIScsiDevicesW(buffersizeinchar: MutPtr, buffer: Pwstr): UInt =
     if (windowsWin32StorageIscsidiscNapiAvailable) wasmWindowssysWindowsWin32StorageIscsidiscReportPersistentIScsiDevicesW(buffersizeinchar.rawAddress.toString(), buffer.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun reportRadiusServerListA(buffersizeinchar: MutPtr<UInt>, buffer: Pstr): UInt =
+public actual fun reportRadiusServerListA(buffersizeinchar: MutPtr, buffer: Pstr): UInt =
     if (windowsWin32StorageIscsidiscNapiAvailable) wasmWindowssysWindowsWin32StorageIscsidiscReportRadiusServerListA(buffersizeinchar.rawAddress.toString(), buffer.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun reportRadiusServerListW(buffersizeinchar: MutPtr<UInt>, buffer: Pwstr): UInt =
+public actual fun reportRadiusServerListW(buffersizeinchar: MutPtr, buffer: Pwstr): UInt =
     if (windowsWin32StorageIscsidiscNapiAvailable) wasmWindowssysWindowsWin32StorageIscsidiscReportRadiusServerListW(buffersizeinchar.rawAddress.toString(), buffer.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun sendScsiInquiry(uniquesessionid: MutPtr<IscsiUniqueSessionId>, lun: ULong, evpdcmddt: UByte, pagecode: UByte, scsistatus: MutPtr<UByte>, responsesize: MutPtr<UInt>, responsebuffer: MutPtr<UByte>, sensesize: MutPtr<UInt>, sensebuffer: MutPtr<UByte>): UInt =
+public actual fun sendScsiInquiry(uniquesessionid: MutPtr, lun: ULong, evpdcmddt: UByte, pagecode: UByte, scsistatus: MutPtr, responsesize: MutPtr, responsebuffer: MutPtr, sensesize: MutPtr, sensebuffer: MutPtr): UInt =
     if (windowsWin32StorageIscsidiscNapiAvailable) wasmWindowssysWindowsWin32StorageIscsidiscSendScsiInquiry(uniquesessionid.rawAddress.toString(), lun.toString(), evpdcmddt.toInt(), pagecode.toInt(), scsistatus.rawAddress.toString(), responsesize.rawAddress.toString(), responsebuffer.rawAddress.toString(), sensesize.rawAddress.toString(), sensebuffer.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun sendScsiReadCapacity(uniquesessionid: MutPtr<IscsiUniqueSessionId>, lun: ULong, scsistatus: MutPtr<UByte>, responsesize: MutPtr<UInt>, responsebuffer: MutPtr<UByte>, sensesize: MutPtr<UInt>, sensebuffer: MutPtr<UByte>): UInt =
+public actual fun sendScsiReadCapacity(uniquesessionid: MutPtr, lun: ULong, scsistatus: MutPtr, responsesize: MutPtr, responsebuffer: MutPtr, sensesize: MutPtr, sensebuffer: MutPtr): UInt =
     if (windowsWin32StorageIscsidiscNapiAvailable) wasmWindowssysWindowsWin32StorageIscsidiscSendScsiReadCapacity(uniquesessionid.rawAddress.toString(), lun.toString(), scsistatus.rawAddress.toString(), responsesize.rawAddress.toString(), responsebuffer.rawAddress.toString(), sensesize.rawAddress.toString(), sensebuffer.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun sendScsiReportLuns(uniquesessionid: MutPtr<IscsiUniqueSessionId>, scsistatus: MutPtr<UByte>, responsesize: MutPtr<UInt>, responsebuffer: MutPtr<UByte>, sensesize: MutPtr<UInt>, sensebuffer: MutPtr<UByte>): UInt =
+public actual fun sendScsiReportLuns(uniquesessionid: MutPtr, scsistatus: MutPtr, responsesize: MutPtr, responsebuffer: MutPtr, sensesize: MutPtr, sensebuffer: MutPtr): UInt =
     if (windowsWin32StorageIscsidiscNapiAvailable) wasmWindowssysWindowsWin32StorageIscsidiscSendScsiReportLuns(uniquesessionid.rawAddress.toString(), scsistatus.rawAddress.toString(), responsesize.rawAddress.toString(), responsebuffer.rawAddress.toString(), sensesize.rawAddress.toString(), sensebuffer.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun setIScsiGroupPresharedKey(keylength: UInt, key: MutPtr<UByte>, persist: Boolean): UInt =
+public actual fun setIScsiGroupPresharedKey(keylength: UInt, key: MutPtr, persist: Boolean): UInt =
     if (windowsWin32StorageIscsidiscNapiAvailable) wasmWindowssysWindowsWin32StorageIscsidiscSetIScsiGroupPresharedKey(keylength.toInt(), key.rawAddress.toString(), persist).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun setIScsiIKEInfoA(initiatorname: Pcstr, initiatorportnumber: UInt, authinfo: MutPtr<IkeAuthenticationInformation>, persist: Boolean): UInt =
+public actual fun setIScsiIKEInfoA(initiatorname: Pcstr, initiatorportnumber: UInt, authinfo: MutPtr, persist: Boolean): UInt =
     if (windowsWin32StorageIscsidiscNapiAvailable) wasmWindowssysWindowsWin32StorageIscsidiscSetIScsiIKEInfoA(initiatorname.rawAddress.toString(), initiatorportnumber.toInt(), authinfo.rawAddress.toString(), persist).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun setIScsiIKEInfoW(initiatorname: Pcwstr, initiatorportnumber: UInt, authinfo: MutPtr<IkeAuthenticationInformation>, persist: Boolean): UInt =
+public actual fun setIScsiIKEInfoW(initiatorname: Pcwstr, initiatorportnumber: UInt, authinfo: MutPtr, persist: Boolean): UInt =
     if (windowsWin32StorageIscsidiscNapiAvailable) wasmWindowssysWindowsWin32StorageIscsidiscSetIScsiIKEInfoW(initiatorname.rawAddress.toString(), initiatorportnumber.toInt(), authinfo.rawAddress.toString(), persist).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun setIScsiInitiatorCHAPSharedSecret(sharedsecretlength: UInt, sharedsecret: MutPtr<UByte>): UInt =
+public actual fun setIScsiInitiatorCHAPSharedSecret(sharedsecretlength: UInt, sharedsecret: MutPtr): UInt =
     if (windowsWin32StorageIscsidiscNapiAvailable) wasmWindowssysWindowsWin32StorageIscsidiscSetIScsiInitiatorCHAPSharedSecret(sharedsecretlength.toInt(), sharedsecret.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun setIScsiInitiatorNodeNameA(initiatornodename: Pcstr): UInt =
@@ -473,7 +472,7 @@ public actual fun setIScsiInitiatorNodeNameA(initiatornodename: Pcstr): UInt =
 public actual fun setIScsiInitiatorNodeNameW(initiatornodename: Pcwstr): UInt =
     if (windowsWin32StorageIscsidiscNapiAvailable) wasmWindowssysWindowsWin32StorageIscsidiscSetIScsiInitiatorNodeNameW(initiatornodename.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun setIScsiInitiatorRADIUSSharedSecret(sharedsecretlength: UInt, sharedsecret: MutPtr<UByte>): UInt =
+public actual fun setIScsiInitiatorRADIUSSharedSecret(sharedsecretlength: UInt, sharedsecret: MutPtr): UInt =
     if (windowsWin32StorageIscsidiscNapiAvailable) wasmWindowssysWindowsWin32StorageIscsidiscSetIScsiInitiatorRADIUSSharedSecret(sharedsecretlength.toInt(), sharedsecret.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun setIScsiTunnelModeOuterAddressA(initiatorname: Pcstr, initiatorportnumber: UInt, destinationaddress: Pcstr, outermodeaddress: Pcstr, persist: Boolean): UInt =

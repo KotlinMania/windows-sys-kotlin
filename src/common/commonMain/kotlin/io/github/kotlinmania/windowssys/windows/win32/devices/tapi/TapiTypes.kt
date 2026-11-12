@@ -1,6 +1,5 @@
 package io.github.kotlinmania.windowssys.windows.win32.devices.tapi
 
-import io.github.kotlinmania.rustlang.core.ffi.CVoid
 import io.github.kotlinmania.rustlang.core.ptr.ConstPtr
 import io.github.kotlinmania.rustlang.core.ptr.MutPtr
 import io.github.kotlinmania.windowssys.core.Hresult
@@ -69,23 +68,23 @@ public typealias FtStateEventCause = Int
 
 public typealias FullduplexSupport = Int
 
-public typealias Hdrvcall = MutPtr<CVoid>
+public typealias Hdrvcall = MutPtr
 
-public typealias Hdrvdialoginstance = MutPtr<CVoid>
+public typealias Hdrvdialoginstance = MutPtr
 
-public typealias Hdrvline = MutPtr<CVoid>
+public typealias Hdrvline = MutPtr
 
-public typealias Hdrvmspline = MutPtr<CVoid>
+public typealias Hdrvmspline = MutPtr
 
-public typealias Hdrvphone = MutPtr<CVoid>
+public typealias Hdrvphone = MutPtr
 
-public typealias Hprovider = MutPtr<CVoid>
+public typealias Hprovider = MutPtr
 
-public typealias Htapicall = MutPtr<CVoid>
+public typealias Htapicall = MutPtr
 
-public typealias Htapiline = MutPtr<CVoid>
+public typealias Htapiline = MutPtr
 
-public typealias Htapiphone = MutPtr<CVoid>
+public typealias Htapiphone = MutPtr
 
 public fun interface LinecallbackFn {
     public operator fun invoke(hdevice: UInt, dwmessage: UInt, dwinstance: ULong, dwparam1: ULong, dwparam2: ULong, dwparam3: ULong)
@@ -100,19 +99,19 @@ public fun interface LineeventFn {
 public typealias Lineevent = LineeventFn?
 
 public fun interface LpgettnefstreamcodepageFn {
-    public operator fun invoke(lpstream: MutPtr<CVoid>, lpulcodepage: MutPtr<UInt>, lpulsubcodepage: MutPtr<UInt>): Hresult
+    public operator fun invoke(lpstream: MutPtr, lpulcodepage: MutPtr, lpulsubcodepage: MutPtr): Hresult
 }
 
 public typealias Lpgettnefstreamcodepage = LpgettnefstreamcodepageFn?
 
 public fun interface LpopentnefstreamFn {
-    public operator fun invoke(lpvsupport: MutPtr<CVoid>, lpstream: MutPtr<CVoid>, lpszstreamname: ConstPtr<Byte>, ulflags: UInt, lpmessage: MutPtr<CVoid>, wkeyval: UShort, lpptnef: MutPtr<MutPtr<CVoid>>): Hresult
+    public operator fun invoke(lpvsupport: MutPtr, lpstream: MutPtr, lpszstreamname: ConstPtr, ulflags: UInt, lpmessage: MutPtr, wkeyval: UShort, lpptnef: MutPtr): Hresult
 }
 
 public typealias Lpopentnefstream = LpopentnefstreamFn?
 
 public fun interface LpopentnefstreamexFn {
-    public operator fun invoke(lpvsupport: MutPtr<CVoid>, lpstream: MutPtr<CVoid>, lpszstreamname: ConstPtr<Byte>, ulflags: UInt, lpmessage: MutPtr<CVoid>, wkeyval: UShort, lpadressbook: MutPtr<CVoid>, lpptnef: MutPtr<MutPtr<CVoid>>): Hresult
+    public operator fun invoke(lpvsupport: MutPtr, lpstream: MutPtr, lpszstreamname: ConstPtr, ulflags: UInt, lpmessage: MutPtr, wkeyval: UShort, lpadressbook: MutPtr, lpptnef: MutPtr): Hresult
 }
 
 public typealias Lpopentnefstreamex = LpopentnefstreamexFn?
@@ -186,7 +185,7 @@ public typealias TerminalState = Int
 public typealias TerminalType = Int
 
 public fun interface TuispidllcallbackFn {
-    public operator fun invoke(dwobjectid: ULong, dwobjecttype: UInt, lpparams: MutPtr<CVoid>, dwsize: UInt): Int
+    public operator fun invoke(dwobjectid: ULong, dwobjecttype: UInt, lpparams: MutPtr, dwsize: UInt): Int
 }
 
 public typealias Tuispidllcallback = TuispidllcallbackFn?

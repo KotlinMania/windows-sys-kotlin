@@ -1,6 +1,5 @@
 package io.github.kotlinmania.windowssys.windows.win32.devices.usb
 
-import io.github.kotlinmania.rustlang.core.ffi.CVoid
 import io.github.kotlinmania.rustlang.core.ptr.ConstPtr
 import io.github.kotlinmania.rustlang.core.ptr.MutPtr
 
@@ -22,7 +21,7 @@ public typealias UsbfnEvent = Int
 
 public typealias UsbfnPortType = Int
 
-public typealias UsbChangeRegistrationHandle = MutPtr<CVoid>
+public typealias UsbChangeRegistrationHandle = MutPtr
 
 public typealias UsbConnectionStatus = Int
 
@@ -37,7 +36,7 @@ public typealias UsbHubNode = Int
 public typealias UsbHubType = Int
 
 public fun interface UsbIdleCallbackFn {
-    public operator fun invoke(context: ConstPtr<CVoid>)
+    public operator fun invoke(context: ConstPtr)
 }
 
 public typealias UsbIdleCallback = UsbIdleCallbackFn?
@@ -50,7 +49,7 @@ public typealias UsbWmiDeviceNodeType = Int
 
 public typealias WdmusbPowerState = Int
 
-public typealias WinusbInterfaceHandle = MutPtr<CVoid>
+public typealias WinusbInterfaceHandle = MutPtr
 
 public typealias WinusbPipePolicy = UInt
 

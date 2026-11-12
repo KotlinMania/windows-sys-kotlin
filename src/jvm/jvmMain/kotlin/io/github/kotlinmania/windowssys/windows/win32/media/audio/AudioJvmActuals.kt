@@ -2,11 +2,9 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.media.audio
 
-import io.github.kotlinmania.rustlang.core.ffi.CVoid
 import io.github.kotlinmania.rustlang.core.ptr.ConstPtr
 import io.github.kotlinmania.rustlang.core.ptr.MutPtr
 import io.github.kotlinmania.windowssys.core.Bool
-import io.github.kotlinmania.windowssys.core.Guid
 import io.github.kotlinmania.windowssys.core.Hresult
 import io.github.kotlinmania.windowssys.core.Pcstr
 import io.github.kotlinmania.windowssys.core.Pcwstr
@@ -16,8 +14,6 @@ import io.github.kotlinmania.windowssys.windows.win32.foundation.Hinstance
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Hmodule
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Lparam
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Lresult
-import io.github.kotlinmania.windowssys.windows.win32.media.Mmtime
-import io.github.kotlinmania.windowssys.windows.win32.system.com.structuredstorage.Propvariant
 
 private object WindowsWin32MediaAudioJniBridge {
     init {
@@ -550,34 +546,34 @@ private object WindowsWin32MediaAudioJniBridge {
     external fun windowssysWindowsWin32MediaAudioWaveOutWrite(hwo: Long, pwh: Long, cbwh: Int): Int
 }
 
-public actual fun activateAudioInterfaceAsync(deviceinterfacepath: Pcwstr, riid: ConstPtr<Guid>, activationparams: ConstPtr<Propvariant>, completionhandler: MutPtr<CVoid>, activationoperation: MutPtr<MutPtr<CVoid>>): Hresult =
+public actual fun activateAudioInterfaceAsync(deviceinterfacepath: Pcwstr, riid: ConstPtr, activationparams: ConstPtr, completionhandler: MutPtr, activationoperation: MutPtr): Hresult =
     WindowsWin32MediaAudioJniBridge.windowssysWindowsWin32MediaAudioActivateAudioInterfaceAsync(deviceinterfacepath.rawAddress, riid.rawAddress, activationparams.rawAddress, completionhandler.rawAddress, activationoperation.rawAddress)
 
-public actual fun coRegisterMessageFilter(lpmessagefilter: MutPtr<CVoid>, lplpmessagefilter: MutPtr<MutPtr<CVoid>>): Hresult =
+public actual fun coRegisterMessageFilter(lpmessagefilter: MutPtr, lplpmessagefilter: MutPtr): Hresult =
     WindowsWin32MediaAudioJniBridge.windowssysWindowsWin32MediaAudioCoRegisterMessageFilter(lpmessagefilter.rawAddress, lplpmessagefilter.rawAddress)
 
-public actual fun createCaptureAudioStateMonitor(audiostatemonitor: MutPtr<MutPtr<CVoid>>): Hresult =
+public actual fun createCaptureAudioStateMonitor(audiostatemonitor: MutPtr): Hresult =
     WindowsWin32MediaAudioJniBridge.windowssysWindowsWin32MediaAudioCreateCaptureAudioStateMonitor(audiostatemonitor.rawAddress)
 
-public actual fun createCaptureAudioStateMonitorForCategory(category: AudioStreamCategory, audiostatemonitor: MutPtr<MutPtr<CVoid>>): Hresult =
+public actual fun createCaptureAudioStateMonitorForCategory(category: AudioStreamCategory, audiostatemonitor: MutPtr): Hresult =
     WindowsWin32MediaAudioJniBridge.windowssysWindowsWin32MediaAudioCreateCaptureAudioStateMonitorForCategory(category, audiostatemonitor.rawAddress)
 
-public actual fun createCaptureAudioStateMonitorForCategoryAndDeviceId(category: AudioStreamCategory, deviceid: Pcwstr, audiostatemonitor: MutPtr<MutPtr<CVoid>>): Hresult =
+public actual fun createCaptureAudioStateMonitorForCategoryAndDeviceId(category: AudioStreamCategory, deviceid: Pcwstr, audiostatemonitor: MutPtr): Hresult =
     WindowsWin32MediaAudioJniBridge.windowssysWindowsWin32MediaAudioCreateCaptureAudioStateMonitorForCategoryAndDeviceId(category, deviceid.rawAddress, audiostatemonitor.rawAddress)
 
-public actual fun createCaptureAudioStateMonitorForCategoryAndDeviceRole(category: AudioStreamCategory, role: ERole, audiostatemonitor: MutPtr<MutPtr<CVoid>>): Hresult =
+public actual fun createCaptureAudioStateMonitorForCategoryAndDeviceRole(category: AudioStreamCategory, role: ERole, audiostatemonitor: MutPtr): Hresult =
     WindowsWin32MediaAudioJniBridge.windowssysWindowsWin32MediaAudioCreateCaptureAudioStateMonitorForCategoryAndDeviceRole(category, role, audiostatemonitor.rawAddress)
 
-public actual fun createRenderAudioStateMonitor(audiostatemonitor: MutPtr<MutPtr<CVoid>>): Hresult =
+public actual fun createRenderAudioStateMonitor(audiostatemonitor: MutPtr): Hresult =
     WindowsWin32MediaAudioJniBridge.windowssysWindowsWin32MediaAudioCreateRenderAudioStateMonitor(audiostatemonitor.rawAddress)
 
-public actual fun createRenderAudioStateMonitorForCategory(category: AudioStreamCategory, audiostatemonitor: MutPtr<MutPtr<CVoid>>): Hresult =
+public actual fun createRenderAudioStateMonitorForCategory(category: AudioStreamCategory, audiostatemonitor: MutPtr): Hresult =
     WindowsWin32MediaAudioJniBridge.windowssysWindowsWin32MediaAudioCreateRenderAudioStateMonitorForCategory(category, audiostatemonitor.rawAddress)
 
-public actual fun createRenderAudioStateMonitorForCategoryAndDeviceId(category: AudioStreamCategory, deviceid: Pcwstr, audiostatemonitor: MutPtr<MutPtr<CVoid>>): Hresult =
+public actual fun createRenderAudioStateMonitorForCategoryAndDeviceId(category: AudioStreamCategory, deviceid: Pcwstr, audiostatemonitor: MutPtr): Hresult =
     WindowsWin32MediaAudioJniBridge.windowssysWindowsWin32MediaAudioCreateRenderAudioStateMonitorForCategoryAndDeviceId(category, deviceid.rawAddress, audiostatemonitor.rawAddress)
 
-public actual fun createRenderAudioStateMonitorForCategoryAndDeviceRole(category: AudioStreamCategory, role: ERole, audiostatemonitor: MutPtr<MutPtr<CVoid>>): Hresult =
+public actual fun createRenderAudioStateMonitorForCategoryAndDeviceRole(category: AudioStreamCategory, role: ERole, audiostatemonitor: MutPtr): Hresult =
     WindowsWin32MediaAudioJniBridge.windowssysWindowsWin32MediaAudioCreateRenderAudioStateMonitorForCategoryAndDeviceRole(category, role, audiostatemonitor.rawAddress)
 
 public actual fun playSoundA(pszsound: Pcstr, hmod: Hmodule, fdwsound: SndFlags): Bool =
@@ -586,31 +582,31 @@ public actual fun playSoundA(pszsound: Pcstr, hmod: Hmodule, fdwsound: SndFlags)
 public actual fun playSoundW(pszsound: Pcwstr, hmod: Hmodule, fdwsound: SndFlags): Bool =
     WindowsWin32MediaAudioJniBridge.windowssysWindowsWin32MediaAudioPlaySoundW(pszsound.rawAddress, hmod.rawAddress, fdwsound.toInt())
 
-public actual fun acmDriverAddA(phadid: MutPtr<Hacmdriverid>, hinstmodule: Hinstance, lparam: Lparam, dwpriority: UInt, fdwadd: UInt): UInt =
+public actual fun acmDriverAddA(phadid: MutPtr, hinstmodule: Hinstance, lparam: Lparam, dwpriority: UInt, fdwadd: UInt): UInt =
     WindowsWin32MediaAudioJniBridge.windowssysWindowsWin32MediaAudioAcmDriverAddA(phadid.rawAddress, hinstmodule.rawAddress, lparam, dwpriority.toInt(), fdwadd.toInt()).toUInt()
 
-public actual fun acmDriverAddW(phadid: MutPtr<Hacmdriverid>, hinstmodule: Hinstance, lparam: Lparam, dwpriority: UInt, fdwadd: UInt): UInt =
+public actual fun acmDriverAddW(phadid: MutPtr, hinstmodule: Hinstance, lparam: Lparam, dwpriority: UInt, fdwadd: UInt): UInt =
     WindowsWin32MediaAudioJniBridge.windowssysWindowsWin32MediaAudioAcmDriverAddW(phadid.rawAddress, hinstmodule.rawAddress, lparam, dwpriority.toInt(), fdwadd.toInt()).toUInt()
 
 public actual fun acmDriverClose(had: Hacmdriver, fdwclose: UInt): UInt =
     WindowsWin32MediaAudioJniBridge.windowssysWindowsWin32MediaAudioAcmDriverClose(had.rawAddress, fdwclose.toInt()).toUInt()
 
-public actual fun acmDriverDetailsA(hadid: Hacmdriverid, padd: MutPtr<Acmdriverdetailsa>, fdwdetails: UInt): UInt =
+public actual fun acmDriverDetailsA(hadid: Hacmdriverid, padd: MutPtr, fdwdetails: UInt): UInt =
     WindowsWin32MediaAudioJniBridge.windowssysWindowsWin32MediaAudioAcmDriverDetailsA(hadid.rawAddress, padd.rawAddress, fdwdetails.toInt()).toUInt()
 
-public actual fun acmDriverDetailsW(hadid: Hacmdriverid, padd: MutPtr<Acmdriverdetailsw>, fdwdetails: UInt): UInt =
+public actual fun acmDriverDetailsW(hadid: Hacmdriverid, padd: MutPtr, fdwdetails: UInt): UInt =
     WindowsWin32MediaAudioJniBridge.windowssysWindowsWin32MediaAudioAcmDriverDetailsW(hadid.rawAddress, padd.rawAddress, fdwdetails.toInt()).toUInt()
 
 public actual fun acmDriverEnum(fncallback: Acmdriverenumcb, dwinstance: ULong, fdwenum: UInt): UInt =
     WindowsWin32MediaAudioJniBridge.windowssysWindowsWin32MediaAudioAcmDriverEnum(0L, dwinstance.toLong(), fdwenum.toInt()).toUInt()
 
-public actual fun acmDriverID(hao: Hacmobj, phadid: MutPtr<Hacmdriverid>, fdwdriverid: UInt): UInt =
+public actual fun acmDriverID(hao: Hacmobj, phadid: MutPtr, fdwdriverid: UInt): UInt =
     WindowsWin32MediaAudioJniBridge.windowssysWindowsWin32MediaAudioAcmDriverID(hao.rawAddress, phadid.rawAddress, fdwdriverid.toInt()).toUInt()
 
 public actual fun acmDriverMessage(had: Hacmdriver, umsg: UInt, lparam1: Lparam, lparam2: Lparam): Lresult =
     WindowsWin32MediaAudioJniBridge.windowssysWindowsWin32MediaAudioAcmDriverMessage(had.rawAddress, umsg.toInt(), lparam1, lparam2)
 
-public actual fun acmDriverOpen(phad: MutPtr<Hacmdriver>, hadid: Hacmdriverid, fdwopen: UInt): UInt =
+public actual fun acmDriverOpen(phad: MutPtr, hadid: Hacmdriverid, fdwopen: UInt): UInt =
     WindowsWin32MediaAudioJniBridge.windowssysWindowsWin32MediaAudioAcmDriverOpen(phad.rawAddress, hadid.rawAddress, fdwopen.toInt()).toUInt()
 
 public actual fun acmDriverPriority(hadid: Hacmdriverid, dwpriority: UInt, fdwpriority: UInt): UInt =
@@ -619,109 +615,109 @@ public actual fun acmDriverPriority(hadid: Hacmdriverid, dwpriority: UInt, fdwpr
 public actual fun acmDriverRemove(hadid: Hacmdriverid, fdwremove: UInt): UInt =
     WindowsWin32MediaAudioJniBridge.windowssysWindowsWin32MediaAudioAcmDriverRemove(hadid.rawAddress, fdwremove.toInt()).toUInt()
 
-public actual fun acmFilterChooseA(pafltrc: MutPtr<Acmfilterchoosea>): UInt =
+public actual fun acmFilterChooseA(pafltrc: MutPtr): UInt =
     WindowsWin32MediaAudioJniBridge.windowssysWindowsWin32MediaAudioAcmFilterChooseA(pafltrc.rawAddress).toUInt()
 
-public actual fun acmFilterChooseW(pafltrc: MutPtr<Acmfilterchoosew>): UInt =
+public actual fun acmFilterChooseW(pafltrc: MutPtr): UInt =
     WindowsWin32MediaAudioJniBridge.windowssysWindowsWin32MediaAudioAcmFilterChooseW(pafltrc.rawAddress).toUInt()
 
-public actual fun acmFilterDetailsA(had: Hacmdriver, pafd: MutPtr<Acmfilterdetailsa>, fdwdetails: UInt): UInt =
+public actual fun acmFilterDetailsA(had: Hacmdriver, pafd: MutPtr, fdwdetails: UInt): UInt =
     WindowsWin32MediaAudioJniBridge.windowssysWindowsWin32MediaAudioAcmFilterDetailsA(had.rawAddress, pafd.rawAddress, fdwdetails.toInt()).toUInt()
 
-public actual fun acmFilterDetailsW(had: Hacmdriver, pafd: MutPtr<Acmfilterdetailsw>, fdwdetails: UInt): UInt =
+public actual fun acmFilterDetailsW(had: Hacmdriver, pafd: MutPtr, fdwdetails: UInt): UInt =
     WindowsWin32MediaAudioJniBridge.windowssysWindowsWin32MediaAudioAcmFilterDetailsW(had.rawAddress, pafd.rawAddress, fdwdetails.toInt()).toUInt()
 
-public actual fun acmFilterEnumA(had: Hacmdriver, pafd: MutPtr<Acmfilterdetailsa>, fncallback: Acmfilterenumcba, dwinstance: ULong, fdwenum: UInt): UInt =
+public actual fun acmFilterEnumA(had: Hacmdriver, pafd: MutPtr, fncallback: Acmfilterenumcba, dwinstance: ULong, fdwenum: UInt): UInt =
     WindowsWin32MediaAudioJniBridge.windowssysWindowsWin32MediaAudioAcmFilterEnumA(had.rawAddress, pafd.rawAddress, 0L, dwinstance.toLong(), fdwenum.toInt()).toUInt()
 
-public actual fun acmFilterEnumW(had: Hacmdriver, pafd: MutPtr<Acmfilterdetailsw>, fncallback: Acmfilterenumcbw, dwinstance: ULong, fdwenum: UInt): UInt =
+public actual fun acmFilterEnumW(had: Hacmdriver, pafd: MutPtr, fncallback: Acmfilterenumcbw, dwinstance: ULong, fdwenum: UInt): UInt =
     WindowsWin32MediaAudioJniBridge.windowssysWindowsWin32MediaAudioAcmFilterEnumW(had.rawAddress, pafd.rawAddress, 0L, dwinstance.toLong(), fdwenum.toInt()).toUInt()
 
-public actual fun acmFilterTagDetailsA(had: Hacmdriver, paftd: MutPtr<Acmfiltertagdetailsa>, fdwdetails: UInt): UInt =
+public actual fun acmFilterTagDetailsA(had: Hacmdriver, paftd: MutPtr, fdwdetails: UInt): UInt =
     WindowsWin32MediaAudioJniBridge.windowssysWindowsWin32MediaAudioAcmFilterTagDetailsA(had.rawAddress, paftd.rawAddress, fdwdetails.toInt()).toUInt()
 
-public actual fun acmFilterTagDetailsW(had: Hacmdriver, paftd: MutPtr<Acmfiltertagdetailsw>, fdwdetails: UInt): UInt =
+public actual fun acmFilterTagDetailsW(had: Hacmdriver, paftd: MutPtr, fdwdetails: UInt): UInt =
     WindowsWin32MediaAudioJniBridge.windowssysWindowsWin32MediaAudioAcmFilterTagDetailsW(had.rawAddress, paftd.rawAddress, fdwdetails.toInt()).toUInt()
 
-public actual fun acmFilterTagEnumA(had: Hacmdriver, paftd: MutPtr<Acmfiltertagdetailsa>, fncallback: Acmfiltertagenumcba, dwinstance: ULong, fdwenum: UInt): UInt =
+public actual fun acmFilterTagEnumA(had: Hacmdriver, paftd: MutPtr, fncallback: Acmfiltertagenumcba, dwinstance: ULong, fdwenum: UInt): UInt =
     WindowsWin32MediaAudioJniBridge.windowssysWindowsWin32MediaAudioAcmFilterTagEnumA(had.rawAddress, paftd.rawAddress, 0L, dwinstance.toLong(), fdwenum.toInt()).toUInt()
 
-public actual fun acmFilterTagEnumW(had: Hacmdriver, paftd: MutPtr<Acmfiltertagdetailsw>, fncallback: Acmfiltertagenumcbw, dwinstance: ULong, fdwenum: UInt): UInt =
+public actual fun acmFilterTagEnumW(had: Hacmdriver, paftd: MutPtr, fncallback: Acmfiltertagenumcbw, dwinstance: ULong, fdwenum: UInt): UInt =
     WindowsWin32MediaAudioJniBridge.windowssysWindowsWin32MediaAudioAcmFilterTagEnumW(had.rawAddress, paftd.rawAddress, 0L, dwinstance.toLong(), fdwenum.toInt()).toUInt()
 
-public actual fun acmFormatChooseA(pafmtc: MutPtr<Acmformatchoosea>): UInt =
+public actual fun acmFormatChooseA(pafmtc: MutPtr): UInt =
     WindowsWin32MediaAudioJniBridge.windowssysWindowsWin32MediaAudioAcmFormatChooseA(pafmtc.rawAddress).toUInt()
 
-public actual fun acmFormatChooseW(pafmtc: MutPtr<Acmformatchoosew>): UInt =
+public actual fun acmFormatChooseW(pafmtc: MutPtr): UInt =
     WindowsWin32MediaAudioJniBridge.windowssysWindowsWin32MediaAudioAcmFormatChooseW(pafmtc.rawAddress).toUInt()
 
-public actual fun acmFormatDetailsA(had: Hacmdriver, pafd: MutPtr<Acmformatdetailsa>, fdwdetails: UInt): UInt =
+public actual fun acmFormatDetailsA(had: Hacmdriver, pafd: MutPtr, fdwdetails: UInt): UInt =
     WindowsWin32MediaAudioJniBridge.windowssysWindowsWin32MediaAudioAcmFormatDetailsA(had.rawAddress, pafd.rawAddress, fdwdetails.toInt()).toUInt()
 
-public actual fun acmFormatDetailsW(had: Hacmdriver, pafd: MutPtr<TAcmformatdetailsw>, fdwdetails: UInt): UInt =
+public actual fun acmFormatDetailsW(had: Hacmdriver, pafd: MutPtr, fdwdetails: UInt): UInt =
     WindowsWin32MediaAudioJniBridge.windowssysWindowsWin32MediaAudioAcmFormatDetailsW(had.rawAddress, pafd.rawAddress, fdwdetails.toInt()).toUInt()
 
-public actual fun acmFormatEnumA(had: Hacmdriver, pafd: MutPtr<Acmformatdetailsa>, fncallback: Acmformatenumcba, dwinstance: ULong, fdwenum: UInt): UInt =
+public actual fun acmFormatEnumA(had: Hacmdriver, pafd: MutPtr, fncallback: Acmformatenumcba, dwinstance: ULong, fdwenum: UInt): UInt =
     WindowsWin32MediaAudioJniBridge.windowssysWindowsWin32MediaAudioAcmFormatEnumA(had.rawAddress, pafd.rawAddress, 0L, dwinstance.toLong(), fdwenum.toInt()).toUInt()
 
-public actual fun acmFormatEnumW(had: Hacmdriver, pafd: MutPtr<TAcmformatdetailsw>, fncallback: Acmformatenumcbw, dwinstance: ULong, fdwenum: UInt): UInt =
+public actual fun acmFormatEnumW(had: Hacmdriver, pafd: MutPtr, fncallback: Acmformatenumcbw, dwinstance: ULong, fdwenum: UInt): UInt =
     WindowsWin32MediaAudioJniBridge.windowssysWindowsWin32MediaAudioAcmFormatEnumW(had.rawAddress, pafd.rawAddress, 0L, dwinstance.toLong(), fdwenum.toInt()).toUInt()
 
-public actual fun acmFormatSuggest(had: Hacmdriver, pwfxsrc: MutPtr<Waveformatex>, pwfxdst: MutPtr<Waveformatex>, cbwfxdst: UInt, fdwsuggest: UInt): UInt =
+public actual fun acmFormatSuggest(had: Hacmdriver, pwfxsrc: MutPtr, pwfxdst: MutPtr, cbwfxdst: UInt, fdwsuggest: UInt): UInt =
     WindowsWin32MediaAudioJniBridge.windowssysWindowsWin32MediaAudioAcmFormatSuggest(had.rawAddress, pwfxsrc.rawAddress, pwfxdst.rawAddress, cbwfxdst.toInt(), fdwsuggest.toInt()).toUInt()
 
-public actual fun acmFormatTagDetailsA(had: Hacmdriver, paftd: MutPtr<Acmformattagdetailsa>, fdwdetails: UInt): UInt =
+public actual fun acmFormatTagDetailsA(had: Hacmdriver, paftd: MutPtr, fdwdetails: UInt): UInt =
     WindowsWin32MediaAudioJniBridge.windowssysWindowsWin32MediaAudioAcmFormatTagDetailsA(had.rawAddress, paftd.rawAddress, fdwdetails.toInt()).toUInt()
 
-public actual fun acmFormatTagDetailsW(had: Hacmdriver, paftd: MutPtr<Acmformattagdetailsw>, fdwdetails: UInt): UInt =
+public actual fun acmFormatTagDetailsW(had: Hacmdriver, paftd: MutPtr, fdwdetails: UInt): UInt =
     WindowsWin32MediaAudioJniBridge.windowssysWindowsWin32MediaAudioAcmFormatTagDetailsW(had.rawAddress, paftd.rawAddress, fdwdetails.toInt()).toUInt()
 
-public actual fun acmFormatTagEnumA(had: Hacmdriver, paftd: MutPtr<Acmformattagdetailsa>, fncallback: Acmformattagenumcba, dwinstance: ULong, fdwenum: UInt): UInt =
+public actual fun acmFormatTagEnumA(had: Hacmdriver, paftd: MutPtr, fncallback: Acmformattagenumcba, dwinstance: ULong, fdwenum: UInt): UInt =
     WindowsWin32MediaAudioJniBridge.windowssysWindowsWin32MediaAudioAcmFormatTagEnumA(had.rawAddress, paftd.rawAddress, 0L, dwinstance.toLong(), fdwenum.toInt()).toUInt()
 
-public actual fun acmFormatTagEnumW(had: Hacmdriver, paftd: MutPtr<Acmformattagdetailsw>, fncallback: Acmformattagenumcbw, dwinstance: ULong, fdwenum: UInt): UInt =
+public actual fun acmFormatTagEnumW(had: Hacmdriver, paftd: MutPtr, fncallback: Acmformattagenumcbw, dwinstance: ULong, fdwenum: UInt): UInt =
     WindowsWin32MediaAudioJniBridge.windowssysWindowsWin32MediaAudioAcmFormatTagEnumW(had.rawAddress, paftd.rawAddress, 0L, dwinstance.toLong(), fdwenum.toInt()).toUInt()
 
 public actual fun acmGetVersion(): UInt =
     WindowsWin32MediaAudioJniBridge.windowssysWindowsWin32MediaAudioAcmGetVersion().toUInt()
 
-public actual fun acmMetrics(hao: Hacmobj, umetric: UInt, pmetric: MutPtr<CVoid>): UInt =
+public actual fun acmMetrics(hao: Hacmobj, umetric: UInt, pmetric: MutPtr): UInt =
     WindowsWin32MediaAudioJniBridge.windowssysWindowsWin32MediaAudioAcmMetrics(hao.rawAddress, umetric.toInt(), pmetric.rawAddress).toUInt()
 
 public actual fun acmStreamClose(has: Hacmstream, fdwclose: UInt): UInt =
     WindowsWin32MediaAudioJniBridge.windowssysWindowsWin32MediaAudioAcmStreamClose(has.rawAddress, fdwclose.toInt()).toUInt()
 
-public actual fun acmStreamConvert(has: Hacmstream, pash: MutPtr<Acmstreamheader>, fdwconvert: UInt): UInt =
+public actual fun acmStreamConvert(has: Hacmstream, pash: MutPtr, fdwconvert: UInt): UInt =
     WindowsWin32MediaAudioJniBridge.windowssysWindowsWin32MediaAudioAcmStreamConvert(has.rawAddress, pash.rawAddress, fdwconvert.toInt()).toUInt()
 
 public actual fun acmStreamMessage(has: Hacmstream, umsg: UInt, lparam1: Lparam, lparam2: Lparam): UInt =
     WindowsWin32MediaAudioJniBridge.windowssysWindowsWin32MediaAudioAcmStreamMessage(has.rawAddress, umsg.toInt(), lparam1, lparam2).toUInt()
 
-public actual fun acmStreamOpen(phas: MutPtr<Hacmstream>, had: Hacmdriver, pwfxsrc: MutPtr<Waveformatex>, pwfxdst: MutPtr<Waveformatex>, pwfltr: MutPtr<Wavefilter>, dwcallback: ULong, dwinstance: ULong, fdwopen: UInt): UInt =
+public actual fun acmStreamOpen(phas: MutPtr, had: Hacmdriver, pwfxsrc: MutPtr, pwfxdst: MutPtr, pwfltr: MutPtr, dwcallback: ULong, dwinstance: ULong, fdwopen: UInt): UInt =
     WindowsWin32MediaAudioJniBridge.windowssysWindowsWin32MediaAudioAcmStreamOpen(phas.rawAddress, had.rawAddress, pwfxsrc.rawAddress, pwfxdst.rawAddress, pwfltr.rawAddress, dwcallback.toLong(), dwinstance.toLong(), fdwopen.toInt()).toUInt()
 
-public actual fun acmStreamPrepareHeader(has: Hacmstream, pash: MutPtr<Acmstreamheader>, fdwprepare: UInt): UInt =
+public actual fun acmStreamPrepareHeader(has: Hacmstream, pash: MutPtr, fdwprepare: UInt): UInt =
     WindowsWin32MediaAudioJniBridge.windowssysWindowsWin32MediaAudioAcmStreamPrepareHeader(has.rawAddress, pash.rawAddress, fdwprepare.toInt()).toUInt()
 
 public actual fun acmStreamReset(has: Hacmstream, fdwreset: UInt): UInt =
     WindowsWin32MediaAudioJniBridge.windowssysWindowsWin32MediaAudioAcmStreamReset(has.rawAddress, fdwreset.toInt()).toUInt()
 
-public actual fun acmStreamSize(has: Hacmstream, cbinput: UInt, pdwoutputbytes: MutPtr<UInt>, fdwsize: UInt): UInt =
+public actual fun acmStreamSize(has: Hacmstream, cbinput: UInt, pdwoutputbytes: MutPtr, fdwsize: UInt): UInt =
     WindowsWin32MediaAudioJniBridge.windowssysWindowsWin32MediaAudioAcmStreamSize(has.rawAddress, cbinput.toInt(), pdwoutputbytes.rawAddress, fdwsize.toInt()).toUInt()
 
-public actual fun acmStreamUnprepareHeader(has: Hacmstream, pash: MutPtr<Acmstreamheader>, fdwunprepare: UInt): UInt =
+public actual fun acmStreamUnprepareHeader(has: Hacmstream, pash: MutPtr, fdwunprepare: UInt): UInt =
     WindowsWin32MediaAudioJniBridge.windowssysWindowsWin32MediaAudioAcmStreamUnprepareHeader(has.rawAddress, pash.rawAddress, fdwunprepare.toInt()).toUInt()
 
-public actual fun auxGetDevCapsA(udeviceid: ULong, pac: MutPtr<Auxcapsa>, cbac: UInt): UInt =
+public actual fun auxGetDevCapsA(udeviceid: ULong, pac: MutPtr, cbac: UInt): UInt =
     WindowsWin32MediaAudioJniBridge.windowssysWindowsWin32MediaAudioAuxGetDevCapsA(udeviceid.toLong(), pac.rawAddress, cbac.toInt()).toUInt()
 
-public actual fun auxGetDevCapsW(udeviceid: ULong, pac: MutPtr<Auxcapsw>, cbac: UInt): UInt =
+public actual fun auxGetDevCapsW(udeviceid: ULong, pac: MutPtr, cbac: UInt): UInt =
     WindowsWin32MediaAudioJniBridge.windowssysWindowsWin32MediaAudioAuxGetDevCapsW(udeviceid.toLong(), pac.rawAddress, cbac.toInt()).toUInt()
 
 public actual fun auxGetNumDevs(): UInt =
     WindowsWin32MediaAudioJniBridge.windowssysWindowsWin32MediaAudioAuxGetNumDevs().toUInt()
 
-public actual fun auxGetVolume(udeviceid: UInt, pdwvolume: MutPtr<UInt>): UInt =
+public actual fun auxGetVolume(udeviceid: UInt, pdwvolume: MutPtr): UInt =
     WindowsWin32MediaAudioJniBridge.windowssysWindowsWin32MediaAudioAuxGetVolume(udeviceid.toInt(), pdwvolume.rawAddress).toUInt()
 
 public actual fun auxOutMessage(udeviceid: UInt, umsg: UInt, dw1: ULong, dw2: ULong): UInt =
@@ -730,22 +726,22 @@ public actual fun auxOutMessage(udeviceid: UInt, umsg: UInt, dw1: ULong, dw2: UL
 public actual fun auxSetVolume(udeviceid: UInt, dwvolume: UInt): UInt =
     WindowsWin32MediaAudioJniBridge.windowssysWindowsWin32MediaAudioAuxSetVolume(udeviceid.toInt(), dwvolume.toInt()).toUInt()
 
-public actual fun midiConnect(hmi: Hmidi, hmo: Hmidiout, preserved: ConstPtr<CVoid>): UInt =
+public actual fun midiConnect(hmi: Hmidi, hmo: Hmidiout, preserved: ConstPtr): UInt =
     WindowsWin32MediaAudioJniBridge.windowssysWindowsWin32MediaAudioMidiConnect(hmi.rawAddress, hmo.rawAddress, preserved.rawAddress).toUInt()
 
-public actual fun midiDisconnect(hmi: Hmidi, hmo: Hmidiout, preserved: ConstPtr<CVoid>): UInt =
+public actual fun midiDisconnect(hmi: Hmidi, hmo: Hmidiout, preserved: ConstPtr): UInt =
     WindowsWin32MediaAudioJniBridge.windowssysWindowsWin32MediaAudioMidiDisconnect(hmi.rawAddress, hmo.rawAddress, preserved.rawAddress).toUInt()
 
-public actual fun midiInAddBuffer(hmi: Hmidiin, pmh: MutPtr<Midihdr>, cbmh: UInt): UInt =
+public actual fun midiInAddBuffer(hmi: Hmidiin, pmh: MutPtr, cbmh: UInt): UInt =
     WindowsWin32MediaAudioJniBridge.windowssysWindowsWin32MediaAudioMidiInAddBuffer(hmi.rawAddress, pmh.rawAddress, cbmh.toInt()).toUInt()
 
 public actual fun midiInClose(hmi: Hmidiin): UInt =
     WindowsWin32MediaAudioJniBridge.windowssysWindowsWin32MediaAudioMidiInClose(hmi.rawAddress).toUInt()
 
-public actual fun midiInGetDevCapsA(udeviceid: ULong, pmic: MutPtr<Midiincapsa>, cbmic: UInt): UInt =
+public actual fun midiInGetDevCapsA(udeviceid: ULong, pmic: MutPtr, cbmic: UInt): UInt =
     WindowsWin32MediaAudioJniBridge.windowssysWindowsWin32MediaAudioMidiInGetDevCapsA(udeviceid.toLong(), pmic.rawAddress, cbmic.toInt()).toUInt()
 
-public actual fun midiInGetDevCapsW(udeviceid: ULong, pmic: MutPtr<Midiincapsw>, cbmic: UInt): UInt =
+public actual fun midiInGetDevCapsW(udeviceid: ULong, pmic: MutPtr, cbmic: UInt): UInt =
     WindowsWin32MediaAudioJniBridge.windowssysWindowsWin32MediaAudioMidiInGetDevCapsW(udeviceid.toLong(), pmic.rawAddress, cbmic.toInt()).toUInt()
 
 public actual fun midiInGetErrorTextA(mmrerror: UInt, psztext: Pstr, cchtext: UInt): UInt =
@@ -754,7 +750,7 @@ public actual fun midiInGetErrorTextA(mmrerror: UInt, psztext: Pstr, cchtext: UI
 public actual fun midiInGetErrorTextW(mmrerror: UInt, psztext: Pwstr, cchtext: UInt): UInt =
     WindowsWin32MediaAudioJniBridge.windowssysWindowsWin32MediaAudioMidiInGetErrorTextW(mmrerror.toInt(), psztext.rawAddress, cchtext.toInt()).toUInt()
 
-public actual fun midiInGetID(hmi: Hmidiin, pudeviceid: MutPtr<UInt>): UInt =
+public actual fun midiInGetID(hmi: Hmidiin, pudeviceid: MutPtr): UInt =
     WindowsWin32MediaAudioJniBridge.windowssysWindowsWin32MediaAudioMidiInGetID(hmi.rawAddress, pudeviceid.rawAddress).toUInt()
 
 public actual fun midiInGetNumDevs(): UInt =
@@ -763,10 +759,10 @@ public actual fun midiInGetNumDevs(): UInt =
 public actual fun midiInMessage(hmi: Hmidiin, umsg: UInt, dw1: ULong, dw2: ULong): UInt =
     WindowsWin32MediaAudioJniBridge.windowssysWindowsWin32MediaAudioMidiInMessage(hmi.rawAddress, umsg.toInt(), dw1.toLong(), dw2.toLong()).toUInt()
 
-public actual fun midiInOpen(phmi: MutPtr<Hmidiin>, udeviceid: UInt, dwcallback: ULong, dwinstance: ULong, fdwopen: MidiWaveOpenType): UInt =
+public actual fun midiInOpen(phmi: MutPtr, udeviceid: UInt, dwcallback: ULong, dwinstance: ULong, fdwopen: MidiWaveOpenType): UInt =
     WindowsWin32MediaAudioJniBridge.windowssysWindowsWin32MediaAudioMidiInOpen(phmi.rawAddress, udeviceid.toInt(), dwcallback.toLong(), dwinstance.toLong(), fdwopen.toInt()).toUInt()
 
-public actual fun midiInPrepareHeader(hmi: Hmidiin, pmh: MutPtr<Midihdr>, cbmh: UInt): UInt =
+public actual fun midiInPrepareHeader(hmi: Hmidiin, pmh: MutPtr, cbmh: UInt): UInt =
     WindowsWin32MediaAudioJniBridge.windowssysWindowsWin32MediaAudioMidiInPrepareHeader(hmi.rawAddress, pmh.rawAddress, cbmh.toInt()).toUInt()
 
 public actual fun midiInReset(hmi: Hmidiin): UInt =
@@ -778,22 +774,22 @@ public actual fun midiInStart(hmi: Hmidiin): UInt =
 public actual fun midiInStop(hmi: Hmidiin): UInt =
     WindowsWin32MediaAudioJniBridge.windowssysWindowsWin32MediaAudioMidiInStop(hmi.rawAddress).toUInt()
 
-public actual fun midiInUnprepareHeader(hmi: Hmidiin, pmh: MutPtr<Midihdr>, cbmh: UInt): UInt =
+public actual fun midiInUnprepareHeader(hmi: Hmidiin, pmh: MutPtr, cbmh: UInt): UInt =
     WindowsWin32MediaAudioJniBridge.windowssysWindowsWin32MediaAudioMidiInUnprepareHeader(hmi.rawAddress, pmh.rawAddress, cbmh.toInt()).toUInt()
 
-public actual fun midiOutCacheDrumPatches(hmo: Hmidiout, upatch: UInt, pwkya: ConstPtr<UShort>, fucache: UInt): UInt =
+public actual fun midiOutCacheDrumPatches(hmo: Hmidiout, upatch: UInt, pwkya: ConstPtr, fucache: UInt): UInt =
     WindowsWin32MediaAudioJniBridge.windowssysWindowsWin32MediaAudioMidiOutCacheDrumPatches(hmo.rawAddress, upatch.toInt(), pwkya.rawAddress, fucache.toInt()).toUInt()
 
-public actual fun midiOutCachePatches(hmo: Hmidiout, ubank: UInt, pwpa: ConstPtr<UShort>, fucache: UInt): UInt =
+public actual fun midiOutCachePatches(hmo: Hmidiout, ubank: UInt, pwpa: ConstPtr, fucache: UInt): UInt =
     WindowsWin32MediaAudioJniBridge.windowssysWindowsWin32MediaAudioMidiOutCachePatches(hmo.rawAddress, ubank.toInt(), pwpa.rawAddress, fucache.toInt()).toUInt()
 
 public actual fun midiOutClose(hmo: Hmidiout): UInt =
     WindowsWin32MediaAudioJniBridge.windowssysWindowsWin32MediaAudioMidiOutClose(hmo.rawAddress).toUInt()
 
-public actual fun midiOutGetDevCapsA(udeviceid: ULong, pmoc: MutPtr<Midioutcapsa>, cbmoc: UInt): UInt =
+public actual fun midiOutGetDevCapsA(udeviceid: ULong, pmoc: MutPtr, cbmoc: UInt): UInt =
     WindowsWin32MediaAudioJniBridge.windowssysWindowsWin32MediaAudioMidiOutGetDevCapsA(udeviceid.toLong(), pmoc.rawAddress, cbmoc.toInt()).toUInt()
 
-public actual fun midiOutGetDevCapsW(udeviceid: ULong, pmoc: MutPtr<Midioutcapsw>, cbmoc: UInt): UInt =
+public actual fun midiOutGetDevCapsW(udeviceid: ULong, pmoc: MutPtr, cbmoc: UInt): UInt =
     WindowsWin32MediaAudioJniBridge.windowssysWindowsWin32MediaAudioMidiOutGetDevCapsW(udeviceid.toLong(), pmoc.rawAddress, cbmoc.toInt()).toUInt()
 
 public actual fun midiOutGetErrorTextA(mmrerror: UInt, psztext: Pstr, cchtext: UInt): UInt =
@@ -802,25 +798,25 @@ public actual fun midiOutGetErrorTextA(mmrerror: UInt, psztext: Pstr, cchtext: U
 public actual fun midiOutGetErrorTextW(mmrerror: UInt, psztext: Pwstr, cchtext: UInt): UInt =
     WindowsWin32MediaAudioJniBridge.windowssysWindowsWin32MediaAudioMidiOutGetErrorTextW(mmrerror.toInt(), psztext.rawAddress, cchtext.toInt()).toUInt()
 
-public actual fun midiOutGetID(hmo: Hmidiout, pudeviceid: MutPtr<UInt>): UInt =
+public actual fun midiOutGetID(hmo: Hmidiout, pudeviceid: MutPtr): UInt =
     WindowsWin32MediaAudioJniBridge.windowssysWindowsWin32MediaAudioMidiOutGetID(hmo.rawAddress, pudeviceid.rawAddress).toUInt()
 
 public actual fun midiOutGetNumDevs(): UInt =
     WindowsWin32MediaAudioJniBridge.windowssysWindowsWin32MediaAudioMidiOutGetNumDevs().toUInt()
 
-public actual fun midiOutGetVolume(hmo: Hmidiout, pdwvolume: MutPtr<UInt>): UInt =
+public actual fun midiOutGetVolume(hmo: Hmidiout, pdwvolume: MutPtr): UInt =
     WindowsWin32MediaAudioJniBridge.windowssysWindowsWin32MediaAudioMidiOutGetVolume(hmo.rawAddress, pdwvolume.rawAddress).toUInt()
 
-public actual fun midiOutLongMsg(hmo: Hmidiout, pmh: ConstPtr<Midihdr>, cbmh: UInt): UInt =
+public actual fun midiOutLongMsg(hmo: Hmidiout, pmh: ConstPtr, cbmh: UInt): UInt =
     WindowsWin32MediaAudioJniBridge.windowssysWindowsWin32MediaAudioMidiOutLongMsg(hmo.rawAddress, pmh.rawAddress, cbmh.toInt()).toUInt()
 
 public actual fun midiOutMessage(hmo: Hmidiout, umsg: UInt, dw1: ULong, dw2: ULong): UInt =
     WindowsWin32MediaAudioJniBridge.windowssysWindowsWin32MediaAudioMidiOutMessage(hmo.rawAddress, umsg.toInt(), dw1.toLong(), dw2.toLong()).toUInt()
 
-public actual fun midiOutOpen(phmo: MutPtr<Hmidiout>, udeviceid: UInt, dwcallback: ULong, dwinstance: ULong, fdwopen: MidiWaveOpenType): UInt =
+public actual fun midiOutOpen(phmo: MutPtr, udeviceid: UInt, dwcallback: ULong, dwinstance: ULong, fdwopen: MidiWaveOpenType): UInt =
     WindowsWin32MediaAudioJniBridge.windowssysWindowsWin32MediaAudioMidiOutOpen(phmo.rawAddress, udeviceid.toInt(), dwcallback.toLong(), dwinstance.toLong(), fdwopen.toInt()).toUInt()
 
-public actual fun midiOutPrepareHeader(hmo: Hmidiout, pmh: MutPtr<Midihdr>, cbmh: UInt): UInt =
+public actual fun midiOutPrepareHeader(hmo: Hmidiout, pmh: MutPtr, cbmh: UInt): UInt =
     WindowsWin32MediaAudioJniBridge.windowssysWindowsWin32MediaAudioMidiOutPrepareHeader(hmo.rawAddress, pmh.rawAddress, cbmh.toInt()).toUInt()
 
 public actual fun midiOutReset(hmo: Hmidiout): UInt =
@@ -832,25 +828,25 @@ public actual fun midiOutSetVolume(hmo: Hmidiout, dwvolume: UInt): UInt =
 public actual fun midiOutShortMsg(hmo: Hmidiout, dwmsg: UInt): UInt =
     WindowsWin32MediaAudioJniBridge.windowssysWindowsWin32MediaAudioMidiOutShortMsg(hmo.rawAddress, dwmsg.toInt()).toUInt()
 
-public actual fun midiOutUnprepareHeader(hmo: Hmidiout, pmh: MutPtr<Midihdr>, cbmh: UInt): UInt =
+public actual fun midiOutUnprepareHeader(hmo: Hmidiout, pmh: MutPtr, cbmh: UInt): UInt =
     WindowsWin32MediaAudioJniBridge.windowssysWindowsWin32MediaAudioMidiOutUnprepareHeader(hmo.rawAddress, pmh.rawAddress, cbmh.toInt()).toUInt()
 
 public actual fun midiStreamClose(hms: Hmidistrm): UInt =
     WindowsWin32MediaAudioJniBridge.windowssysWindowsWin32MediaAudioMidiStreamClose(hms.rawAddress).toUInt()
 
-public actual fun midiStreamOpen(phms: MutPtr<Hmidistrm>, pudeviceid: MutPtr<UInt>, cmidi: UInt, dwcallback: ULong, dwinstance: ULong, fdwopen: UInt): UInt =
+public actual fun midiStreamOpen(phms: MutPtr, pudeviceid: MutPtr, cmidi: UInt, dwcallback: ULong, dwinstance: ULong, fdwopen: UInt): UInt =
     WindowsWin32MediaAudioJniBridge.windowssysWindowsWin32MediaAudioMidiStreamOpen(phms.rawAddress, pudeviceid.rawAddress, cmidi.toInt(), dwcallback.toLong(), dwinstance.toLong(), fdwopen.toInt()).toUInt()
 
-public actual fun midiStreamOut(hms: Hmidistrm, pmh: MutPtr<Midihdr>, cbmh: UInt): UInt =
+public actual fun midiStreamOut(hms: Hmidistrm, pmh: MutPtr, cbmh: UInt): UInt =
     WindowsWin32MediaAudioJniBridge.windowssysWindowsWin32MediaAudioMidiStreamOut(hms.rawAddress, pmh.rawAddress, cbmh.toInt()).toUInt()
 
 public actual fun midiStreamPause(hms: Hmidistrm): UInt =
     WindowsWin32MediaAudioJniBridge.windowssysWindowsWin32MediaAudioMidiStreamPause(hms.rawAddress).toUInt()
 
-public actual fun midiStreamPosition(hms: Hmidistrm, lpmmt: MutPtr<Mmtime>, cbmmt: UInt): UInt =
+public actual fun midiStreamPosition(hms: Hmidistrm, lpmmt: MutPtr, cbmmt: UInt): UInt =
     WindowsWin32MediaAudioJniBridge.windowssysWindowsWin32MediaAudioMidiStreamPosition(hms.rawAddress, lpmmt.rawAddress, cbmmt.toInt()).toUInt()
 
-public actual fun midiStreamProperty(hms: Hmidistrm, lppropdata: MutPtr<UByte>, dwproperty: UInt): UInt =
+public actual fun midiStreamProperty(hms: Hmidistrm, lppropdata: MutPtr, dwproperty: UInt): UInt =
     WindowsWin32MediaAudioJniBridge.windowssysWindowsWin32MediaAudioMidiStreamProperty(hms.rawAddress, lppropdata.rawAddress, dwproperty.toInt()).toUInt()
 
 public actual fun midiStreamRestart(hms: Hmidistrm): UInt =
@@ -862,31 +858,31 @@ public actual fun midiStreamStop(hms: Hmidistrm): UInt =
 public actual fun mixerClose(hmx: Hmixer): UInt =
     WindowsWin32MediaAudioJniBridge.windowssysWindowsWin32MediaAudioMixerClose(hmx.rawAddress).toUInt()
 
-public actual fun mixerGetControlDetailsA(hmxobj: Hmixerobj, pmxcd: MutPtr<Mixercontroldetails>, fdwdetails: UInt): UInt =
+public actual fun mixerGetControlDetailsA(hmxobj: Hmixerobj, pmxcd: MutPtr, fdwdetails: UInt): UInt =
     WindowsWin32MediaAudioJniBridge.windowssysWindowsWin32MediaAudioMixerGetControlDetailsA(hmxobj.rawAddress, pmxcd.rawAddress, fdwdetails.toInt()).toUInt()
 
-public actual fun mixerGetControlDetailsW(hmxobj: Hmixerobj, pmxcd: MutPtr<Mixercontroldetails>, fdwdetails: UInt): UInt =
+public actual fun mixerGetControlDetailsW(hmxobj: Hmixerobj, pmxcd: MutPtr, fdwdetails: UInt): UInt =
     WindowsWin32MediaAudioJniBridge.windowssysWindowsWin32MediaAudioMixerGetControlDetailsW(hmxobj.rawAddress, pmxcd.rawAddress, fdwdetails.toInt()).toUInt()
 
-public actual fun mixerGetDevCapsA(umxid: ULong, pmxcaps: MutPtr<Mixercapsa>, cbmxcaps: UInt): UInt =
+public actual fun mixerGetDevCapsA(umxid: ULong, pmxcaps: MutPtr, cbmxcaps: UInt): UInt =
     WindowsWin32MediaAudioJniBridge.windowssysWindowsWin32MediaAudioMixerGetDevCapsA(umxid.toLong(), pmxcaps.rawAddress, cbmxcaps.toInt()).toUInt()
 
-public actual fun mixerGetDevCapsW(umxid: ULong, pmxcaps: MutPtr<Mixercapsw>, cbmxcaps: UInt): UInt =
+public actual fun mixerGetDevCapsW(umxid: ULong, pmxcaps: MutPtr, cbmxcaps: UInt): UInt =
     WindowsWin32MediaAudioJniBridge.windowssysWindowsWin32MediaAudioMixerGetDevCapsW(umxid.toLong(), pmxcaps.rawAddress, cbmxcaps.toInt()).toUInt()
 
-public actual fun mixerGetID(hmxobj: Hmixerobj, pumxid: MutPtr<UInt>, fdwid: UInt): UInt =
+public actual fun mixerGetID(hmxobj: Hmixerobj, pumxid: MutPtr, fdwid: UInt): UInt =
     WindowsWin32MediaAudioJniBridge.windowssysWindowsWin32MediaAudioMixerGetID(hmxobj.rawAddress, pumxid.rawAddress, fdwid.toInt()).toUInt()
 
-public actual fun mixerGetLineControlsA(hmxobj: Hmixerobj, pmxlc: MutPtr<Mixerlinecontrolsa>, fdwcontrols: UInt): UInt =
+public actual fun mixerGetLineControlsA(hmxobj: Hmixerobj, pmxlc: MutPtr, fdwcontrols: UInt): UInt =
     WindowsWin32MediaAudioJniBridge.windowssysWindowsWin32MediaAudioMixerGetLineControlsA(hmxobj.rawAddress, pmxlc.rawAddress, fdwcontrols.toInt()).toUInt()
 
-public actual fun mixerGetLineControlsW(hmxobj: Hmixerobj, pmxlc: MutPtr<Mixerlinecontrolsw>, fdwcontrols: UInt): UInt =
+public actual fun mixerGetLineControlsW(hmxobj: Hmixerobj, pmxlc: MutPtr, fdwcontrols: UInt): UInt =
     WindowsWin32MediaAudioJniBridge.windowssysWindowsWin32MediaAudioMixerGetLineControlsW(hmxobj.rawAddress, pmxlc.rawAddress, fdwcontrols.toInt()).toUInt()
 
-public actual fun mixerGetLineInfoA(hmxobj: Hmixerobj, pmxl: MutPtr<Mixerlinea>, fdwinfo: UInt): UInt =
+public actual fun mixerGetLineInfoA(hmxobj: Hmixerobj, pmxl: MutPtr, fdwinfo: UInt): UInt =
     WindowsWin32MediaAudioJniBridge.windowssysWindowsWin32MediaAudioMixerGetLineInfoA(hmxobj.rawAddress, pmxl.rawAddress, fdwinfo.toInt()).toUInt()
 
-public actual fun mixerGetLineInfoW(hmxobj: Hmixerobj, pmxl: MutPtr<Mixerlinew>, fdwinfo: UInt): UInt =
+public actual fun mixerGetLineInfoW(hmxobj: Hmixerobj, pmxl: MutPtr, fdwinfo: UInt): UInt =
     WindowsWin32MediaAudioJniBridge.windowssysWindowsWin32MediaAudioMixerGetLineInfoW(hmxobj.rawAddress, pmxl.rawAddress, fdwinfo.toInt()).toUInt()
 
 public actual fun mixerGetNumDevs(): UInt =
@@ -895,10 +891,10 @@ public actual fun mixerGetNumDevs(): UInt =
 public actual fun mixerMessage(hmx: Hmixer, umsg: UInt, dwparam1: ULong, dwparam2: ULong): UInt =
     WindowsWin32MediaAudioJniBridge.windowssysWindowsWin32MediaAudioMixerMessage(hmx.rawAddress, umsg.toInt(), dwparam1.toLong(), dwparam2.toLong()).toUInt()
 
-public actual fun mixerOpen(phmx: MutPtr<Hmixer>, umxid: UInt, dwcallback: ULong, dwinstance: ULong, fdwopen: UInt): UInt =
+public actual fun mixerOpen(phmx: MutPtr, umxid: UInt, dwcallback: ULong, dwinstance: ULong, fdwopen: UInt): UInt =
     WindowsWin32MediaAudioJniBridge.windowssysWindowsWin32MediaAudioMixerOpen(phmx.rawAddress, umxid.toInt(), dwcallback.toLong(), dwinstance.toLong(), fdwopen.toInt()).toUInt()
 
-public actual fun mixerSetControlDetails(hmxobj: Hmixerobj, pmxcd: ConstPtr<Mixercontroldetails>, fdwdetails: UInt): UInt =
+public actual fun mixerSetControlDetails(hmxobj: Hmixerobj, pmxcd: ConstPtr, fdwdetails: UInt): UInt =
     WindowsWin32MediaAudioJniBridge.windowssysWindowsWin32MediaAudioMixerSetControlDetails(hmxobj.rawAddress, pmxcd.rawAddress, fdwdetails.toInt()).toUInt()
 
 public actual fun sndPlaySoundA(pszsound: Pcstr, fusound: UInt): Bool =
@@ -907,16 +903,16 @@ public actual fun sndPlaySoundA(pszsound: Pcstr, fusound: UInt): Bool =
 public actual fun sndPlaySoundW(pszsound: Pcwstr, fusound: UInt): Bool =
     WindowsWin32MediaAudioJniBridge.windowssysWindowsWin32MediaAudioSndPlaySoundW(pszsound.rawAddress, fusound.toInt())
 
-public actual fun waveInAddBuffer(hwi: Hwavein, pwh: MutPtr<Wavehdr>, cbwh: UInt): UInt =
+public actual fun waveInAddBuffer(hwi: Hwavein, pwh: MutPtr, cbwh: UInt): UInt =
     WindowsWin32MediaAudioJniBridge.windowssysWindowsWin32MediaAudioWaveInAddBuffer(hwi.rawAddress, pwh.rawAddress, cbwh.toInt()).toUInt()
 
 public actual fun waveInClose(hwi: Hwavein): UInt =
     WindowsWin32MediaAudioJniBridge.windowssysWindowsWin32MediaAudioWaveInClose(hwi.rawAddress).toUInt()
 
-public actual fun waveInGetDevCapsA(udeviceid: ULong, pwic: MutPtr<Waveincapsa>, cbwic: UInt): UInt =
+public actual fun waveInGetDevCapsA(udeviceid: ULong, pwic: MutPtr, cbwic: UInt): UInt =
     WindowsWin32MediaAudioJniBridge.windowssysWindowsWin32MediaAudioWaveInGetDevCapsA(udeviceid.toLong(), pwic.rawAddress, cbwic.toInt()).toUInt()
 
-public actual fun waveInGetDevCapsW(udeviceid: ULong, pwic: MutPtr<Waveincapsw>, cbwic: UInt): UInt =
+public actual fun waveInGetDevCapsW(udeviceid: ULong, pwic: MutPtr, cbwic: UInt): UInt =
     WindowsWin32MediaAudioJniBridge.windowssysWindowsWin32MediaAudioWaveInGetDevCapsW(udeviceid.toLong(), pwic.rawAddress, cbwic.toInt()).toUInt()
 
 public actual fun waveInGetErrorTextA(mmrerror: UInt, psztext: Pstr, cchtext: UInt): UInt =
@@ -925,22 +921,22 @@ public actual fun waveInGetErrorTextA(mmrerror: UInt, psztext: Pstr, cchtext: UI
 public actual fun waveInGetErrorTextW(mmrerror: UInt, psztext: Pwstr, cchtext: UInt): UInt =
     WindowsWin32MediaAudioJniBridge.windowssysWindowsWin32MediaAudioWaveInGetErrorTextW(mmrerror.toInt(), psztext.rawAddress, cchtext.toInt()).toUInt()
 
-public actual fun waveInGetID(hwi: Hwavein, pudeviceid: ConstPtr<UInt>): UInt =
+public actual fun waveInGetID(hwi: Hwavein, pudeviceid: ConstPtr): UInt =
     WindowsWin32MediaAudioJniBridge.windowssysWindowsWin32MediaAudioWaveInGetID(hwi.rawAddress, pudeviceid.rawAddress).toUInt()
 
 public actual fun waveInGetNumDevs(): UInt =
     WindowsWin32MediaAudioJniBridge.windowssysWindowsWin32MediaAudioWaveInGetNumDevs().toUInt()
 
-public actual fun waveInGetPosition(hwi: Hwavein, pmmt: MutPtr<Mmtime>, cbmmt: UInt): UInt =
+public actual fun waveInGetPosition(hwi: Hwavein, pmmt: MutPtr, cbmmt: UInt): UInt =
     WindowsWin32MediaAudioJniBridge.windowssysWindowsWin32MediaAudioWaveInGetPosition(hwi.rawAddress, pmmt.rawAddress, cbmmt.toInt()).toUInt()
 
 public actual fun waveInMessage(hwi: Hwavein, umsg: UInt, dw1: ULong, dw2: ULong): UInt =
     WindowsWin32MediaAudioJniBridge.windowssysWindowsWin32MediaAudioWaveInMessage(hwi.rawAddress, umsg.toInt(), dw1.toLong(), dw2.toLong()).toUInt()
 
-public actual fun waveInOpen(phwi: MutPtr<Hwavein>, udeviceid: UInt, pwfx: ConstPtr<Waveformatex>, dwcallback: ULong, dwinstance: ULong, fdwopen: MidiWaveOpenType): UInt =
+public actual fun waveInOpen(phwi: MutPtr, udeviceid: UInt, pwfx: ConstPtr, dwcallback: ULong, dwinstance: ULong, fdwopen: MidiWaveOpenType): UInt =
     WindowsWin32MediaAudioJniBridge.windowssysWindowsWin32MediaAudioWaveInOpen(phwi.rawAddress, udeviceid.toInt(), pwfx.rawAddress, dwcallback.toLong(), dwinstance.toLong(), fdwopen.toInt()).toUInt()
 
-public actual fun waveInPrepareHeader(hwi: Hwavein, pwh: MutPtr<Wavehdr>, cbwh: UInt): UInt =
+public actual fun waveInPrepareHeader(hwi: Hwavein, pwh: MutPtr, cbwh: UInt): UInt =
     WindowsWin32MediaAudioJniBridge.windowssysWindowsWin32MediaAudioWaveInPrepareHeader(hwi.rawAddress, pwh.rawAddress, cbwh.toInt()).toUInt()
 
 public actual fun waveInReset(hwi: Hwavein): UInt =
@@ -952,7 +948,7 @@ public actual fun waveInStart(hwi: Hwavein): UInt =
 public actual fun waveInStop(hwi: Hwavein): UInt =
     WindowsWin32MediaAudioJniBridge.windowssysWindowsWin32MediaAudioWaveInStop(hwi.rawAddress).toUInt()
 
-public actual fun waveInUnprepareHeader(hwi: Hwavein, pwh: MutPtr<Wavehdr>, cbwh: UInt): UInt =
+public actual fun waveInUnprepareHeader(hwi: Hwavein, pwh: MutPtr, cbwh: UInt): UInt =
     WindowsWin32MediaAudioJniBridge.windowssysWindowsWin32MediaAudioWaveInUnprepareHeader(hwi.rawAddress, pwh.rawAddress, cbwh.toInt()).toUInt()
 
 public actual fun waveOutBreakLoop(hwo: Hwaveout): UInt =
@@ -961,10 +957,10 @@ public actual fun waveOutBreakLoop(hwo: Hwaveout): UInt =
 public actual fun waveOutClose(hwo: Hwaveout): UInt =
     WindowsWin32MediaAudioJniBridge.windowssysWindowsWin32MediaAudioWaveOutClose(hwo.rawAddress).toUInt()
 
-public actual fun waveOutGetDevCapsA(udeviceid: ULong, pwoc: MutPtr<Waveoutcapsa>, cbwoc: UInt): UInt =
+public actual fun waveOutGetDevCapsA(udeviceid: ULong, pwoc: MutPtr, cbwoc: UInt): UInt =
     WindowsWin32MediaAudioJniBridge.windowssysWindowsWin32MediaAudioWaveOutGetDevCapsA(udeviceid.toLong(), pwoc.rawAddress, cbwoc.toInt()).toUInt()
 
-public actual fun waveOutGetDevCapsW(udeviceid: ULong, pwoc: MutPtr<Waveoutcapsw>, cbwoc: UInt): UInt =
+public actual fun waveOutGetDevCapsW(udeviceid: ULong, pwoc: MutPtr, cbwoc: UInt): UInt =
     WindowsWin32MediaAudioJniBridge.windowssysWindowsWin32MediaAudioWaveOutGetDevCapsW(udeviceid.toLong(), pwoc.rawAddress, cbwoc.toInt()).toUInt()
 
 public actual fun waveOutGetErrorTextA(mmrerror: UInt, psztext: Pstr, cchtext: UInt): UInt =
@@ -973,34 +969,34 @@ public actual fun waveOutGetErrorTextA(mmrerror: UInt, psztext: Pstr, cchtext: U
 public actual fun waveOutGetErrorTextW(mmrerror: UInt, psztext: Pwstr, cchtext: UInt): UInt =
     WindowsWin32MediaAudioJniBridge.windowssysWindowsWin32MediaAudioWaveOutGetErrorTextW(mmrerror.toInt(), psztext.rawAddress, cchtext.toInt()).toUInt()
 
-public actual fun waveOutGetID(hwo: Hwaveout, pudeviceid: MutPtr<UInt>): UInt =
+public actual fun waveOutGetID(hwo: Hwaveout, pudeviceid: MutPtr): UInt =
     WindowsWin32MediaAudioJniBridge.windowssysWindowsWin32MediaAudioWaveOutGetID(hwo.rawAddress, pudeviceid.rawAddress).toUInt()
 
 public actual fun waveOutGetNumDevs(): UInt =
     WindowsWin32MediaAudioJniBridge.windowssysWindowsWin32MediaAudioWaveOutGetNumDevs().toUInt()
 
-public actual fun waveOutGetPitch(hwo: Hwaveout, pdwpitch: MutPtr<UInt>): UInt =
+public actual fun waveOutGetPitch(hwo: Hwaveout, pdwpitch: MutPtr): UInt =
     WindowsWin32MediaAudioJniBridge.windowssysWindowsWin32MediaAudioWaveOutGetPitch(hwo.rawAddress, pdwpitch.rawAddress).toUInt()
 
-public actual fun waveOutGetPlaybackRate(hwo: Hwaveout, pdwrate: MutPtr<UInt>): UInt =
+public actual fun waveOutGetPlaybackRate(hwo: Hwaveout, pdwrate: MutPtr): UInt =
     WindowsWin32MediaAudioJniBridge.windowssysWindowsWin32MediaAudioWaveOutGetPlaybackRate(hwo.rawAddress, pdwrate.rawAddress).toUInt()
 
-public actual fun waveOutGetPosition(hwo: Hwaveout, pmmt: MutPtr<Mmtime>, cbmmt: UInt): UInt =
+public actual fun waveOutGetPosition(hwo: Hwaveout, pmmt: MutPtr, cbmmt: UInt): UInt =
     WindowsWin32MediaAudioJniBridge.windowssysWindowsWin32MediaAudioWaveOutGetPosition(hwo.rawAddress, pmmt.rawAddress, cbmmt.toInt()).toUInt()
 
-public actual fun waveOutGetVolume(hwo: Hwaveout, pdwvolume: MutPtr<UInt>): UInt =
+public actual fun waveOutGetVolume(hwo: Hwaveout, pdwvolume: MutPtr): UInt =
     WindowsWin32MediaAudioJniBridge.windowssysWindowsWin32MediaAudioWaveOutGetVolume(hwo.rawAddress, pdwvolume.rawAddress).toUInt()
 
 public actual fun waveOutMessage(hwo: Hwaveout, umsg: UInt, dw1: ULong, dw2: ULong): UInt =
     WindowsWin32MediaAudioJniBridge.windowssysWindowsWin32MediaAudioWaveOutMessage(hwo.rawAddress, umsg.toInt(), dw1.toLong(), dw2.toLong()).toUInt()
 
-public actual fun waveOutOpen(phwo: MutPtr<Hwaveout>, udeviceid: UInt, pwfx: ConstPtr<Waveformatex>, dwcallback: ULong, dwinstance: ULong, fdwopen: MidiWaveOpenType): UInt =
+public actual fun waveOutOpen(phwo: MutPtr, udeviceid: UInt, pwfx: ConstPtr, dwcallback: ULong, dwinstance: ULong, fdwopen: MidiWaveOpenType): UInt =
     WindowsWin32MediaAudioJniBridge.windowssysWindowsWin32MediaAudioWaveOutOpen(phwo.rawAddress, udeviceid.toInt(), pwfx.rawAddress, dwcallback.toLong(), dwinstance.toLong(), fdwopen.toInt()).toUInt()
 
 public actual fun waveOutPause(hwo: Hwaveout): UInt =
     WindowsWin32MediaAudioJniBridge.windowssysWindowsWin32MediaAudioWaveOutPause(hwo.rawAddress).toUInt()
 
-public actual fun waveOutPrepareHeader(hwo: Hwaveout, pwh: MutPtr<Wavehdr>, cbwh: UInt): UInt =
+public actual fun waveOutPrepareHeader(hwo: Hwaveout, pwh: MutPtr, cbwh: UInt): UInt =
     WindowsWin32MediaAudioJniBridge.windowssysWindowsWin32MediaAudioWaveOutPrepareHeader(hwo.rawAddress, pwh.rawAddress, cbwh.toInt()).toUInt()
 
 public actual fun waveOutReset(hwo: Hwaveout): UInt =
@@ -1018,8 +1014,8 @@ public actual fun waveOutSetPlaybackRate(hwo: Hwaveout, dwrate: UInt): UInt =
 public actual fun waveOutSetVolume(hwo: Hwaveout, dwvolume: UInt): UInt =
     WindowsWin32MediaAudioJniBridge.windowssysWindowsWin32MediaAudioWaveOutSetVolume(hwo.rawAddress, dwvolume.toInt()).toUInt()
 
-public actual fun waveOutUnprepareHeader(hwo: Hwaveout, pwh: MutPtr<Wavehdr>, cbwh: UInt): UInt =
+public actual fun waveOutUnprepareHeader(hwo: Hwaveout, pwh: MutPtr, cbwh: UInt): UInt =
     WindowsWin32MediaAudioJniBridge.windowssysWindowsWin32MediaAudioWaveOutUnprepareHeader(hwo.rawAddress, pwh.rawAddress, cbwh.toInt()).toUInt()
 
-public actual fun waveOutWrite(hwo: Hwaveout, pwh: MutPtr<Wavehdr>, cbwh: UInt): UInt =
+public actual fun waveOutWrite(hwo: Hwaveout, pwh: MutPtr, cbwh: UInt): UInt =
     WindowsWin32MediaAudioJniBridge.windowssysWindowsWin32MediaAudioWaveOutWrite(hwo.rawAddress, pwh.rawAddress, cbwh.toInt()).toUInt()

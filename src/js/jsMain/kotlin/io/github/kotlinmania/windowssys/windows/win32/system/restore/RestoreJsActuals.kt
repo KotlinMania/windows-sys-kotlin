@@ -12,8 +12,8 @@ private val windowsWin32SystemRestoreNapiAddon: dynamic =
 public actual fun sRRemoveRestorePoint(dwrpnum: UInt): UInt =
     if (windowsWin32SystemRestoreNapiAddon != null) (windowsWin32SystemRestoreNapiAddon.windowssysWindowsWin32SystemRestoreSRRemoveRestorePoint(dwrpnum.toInt()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun sRSetRestorePointA(prestoreptspec: ConstPtr<Restorepointinfoa>, psmgrstatus: MutPtr<Statemgrstatus>): Bool =
+public actual fun sRSetRestorePointA(prestoreptspec: ConstPtr, psmgrstatus: MutPtr): Bool =
     if (windowsWin32SystemRestoreNapiAddon != null) (windowsWin32SystemRestoreNapiAddon.windowssysWindowsWin32SystemRestoreSRSetRestorePointA(prestoreptspec.rawAddress.toString(), psmgrstatus.rawAddress.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun sRSetRestorePointW(prestoreptspec: ConstPtr<Restorepointinfow>, psmgrstatus: MutPtr<Statemgrstatus>): Bool =
+public actual fun sRSetRestorePointW(prestoreptspec: ConstPtr, psmgrstatus: MutPtr): Bool =
     if (windowsWin32SystemRestoreNapiAddon != null) (windowsWin32SystemRestoreNapiAddon.windowssysWindowsWin32SystemRestoreSRSetRestorePointW(prestoreptspec.rawAddress.toString(), psmgrstatus.rawAddress.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")

@@ -1,6 +1,5 @@
 package io.github.kotlinmania.windowssys
 
-import io.github.kotlinmania.rustlang.core.ffi.CVoid
 import io.github.kotlinmania.rustlang.core.ptr.ConstPtr
 import io.github.kotlinmania.rustlang.core.ptr.MutPtr
 import io.github.kotlinmania.windowssys.windows.win32.system.processstatus.EnumPageFileInformation
@@ -65,9 +64,9 @@ class ProcessStatusTest {
                 sizeOfImage = 0x20000u,
                 entryPoint = MutPtr(0x140001000L),
             )
-        assertEquals(MutPtr<CVoid>(0x140000000L), modInfo.lpBaseOfDll)
+        assertEquals(MutPtr(0x140000000L), modInfo.lpBaseOfDll)
         assertEquals(0x20000u, modInfo.sizeOfImage)
-        assertEquals(MutPtr<CVoid>(0x140001000L), modInfo.entryPoint)
+        assertEquals(MutPtr(0x140001000L), modInfo.entryPoint)
     }
 
     @Test
@@ -172,7 +171,7 @@ class ProcessStatusTest {
                 virtualAddress = MutPtr(0x10000000L),
                 virtualAttributes = exBlock,
             )
-        assertEquals(MutPtr<CVoid>(0x10000000L), wsExInfo.virtualAddress)
+        assertEquals(MutPtr(0x10000000L), wsExInfo.virtualAddress)
         assertEquals(0x2, wsExInfo.virtualAttributes.flags)
 
         val wsInfo =
@@ -192,8 +191,8 @@ class ProcessStatusTest {
                 faultingPc = MutPtr(0x7FFF0001L),
                 faultingVa = MutPtr(0x7FFF1000L),
             )
-        assertEquals(MutPtr<CVoid>(0x7FFF0001L), watchInfo.faultingPc)
-        assertEquals(MutPtr<CVoid>(0x7FFF1000L), watchInfo.faultingVa)
+        assertEquals(MutPtr(0x7FFF0001L), watchInfo.faultingPc)
+        assertEquals(MutPtr(0x7FFF1000L), watchInfo.faultingVa)
 
         val watchInfoEx =
             PsapiWsWatchInformationEx(
@@ -213,7 +212,7 @@ class ProcessStatusTest {
                 assertFalse(ppagefileinfo.isNull())
                 1
             }
-        val infoPtr = MutPtr<EnumPageFileInformation>(0x2000L)
+        val infoPtr = MutPtr(0x2000L)
         val resultA = callbackA.invoke(MutPtr(0L), infoPtr, ConstPtr(0L))
         assertEquals(1, resultA)
 

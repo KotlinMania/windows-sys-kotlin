@@ -1,18 +1,16 @@
 package io.github.kotlinmania.windowssys.windows.wdk.system.registry
 
-import io.github.kotlinmania.rustlang.core.ffi.CVoid
 import io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
 import io.github.kotlinmania.rustlang.core.mem.TypeLayout
 import io.github.kotlinmania.rustlang.core.ptr.MutPtr
-import io.github.kotlinmania.windowssys.windows.win32.foundation.UnicodeString
 
 public class KeyValueEntry internal constructor(
-    valueNameCtorArg: MutPtr<UnicodeString>,
+    valueNameCtorArg: MutPtr,
     public var dataLength: UInt,
     public var dataOffset: UInt,
     public var type: UInt,
 ) {
-    public var valueName: MutPtr<UnicodeString> = valueNameCtorArg
+    public var valueName: MutPtr = valueNameCtorArg
         internal set
 
     public constructor() : this(
@@ -22,7 +20,7 @@ public class KeyValueEntry internal constructor(
         type = 0u,
     )
 
-    public operator fun component1(): MutPtr<UnicodeString> = this.valueName
+    public operator fun component1(): MutPtr = this.valueName
 
     public operator fun component2(): UInt = this.dataLength
 
@@ -30,7 +28,7 @@ public class KeyValueEntry internal constructor(
 
     public operator fun component4(): UInt = this.type
 
-    public fun copy(valueName: MutPtr<UnicodeString> = this.valueName, dataLength: UInt = this.dataLength, dataOffset: UInt = this.dataOffset, type: UInt = this.type): KeyValueEntry = KeyValueEntry(valueNameCtorArg = valueName, dataLength = dataLength, dataOffset = dataOffset, type = type)
+    public fun copy(valueName: MutPtr = this.valueName, dataLength: UInt = this.dataLength, dataOffset: UInt = this.dataOffset, type: UInt = this.type): KeyValueEntry = KeyValueEntry(valueNameCtorArg = valueName, dataLength = dataLength, dataOffset = dataOffset, type = type)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -59,7 +57,7 @@ public class KeyValueEntry internal constructor(
                     KeyValueEntry(
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<UnicodeString>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 8L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 12L),
@@ -68,7 +66,7 @@ public class KeyValueEntry internal constructor(
                 override fun writeNative(addr: Long, value: KeyValueEntry) {
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<UnicodeString>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr, value.valueName)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 8L, value.dataLength)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 12L, value.dataOffset)
@@ -77,7 +75,7 @@ public class KeyValueEntry internal constructor(
             }
 
         public operator fun invoke(
-            valueName: MutPtr<UnicodeString> = MutPtr(0L),
+            valueName: MutPtr = MutPtr(0L),
             dataLength: UInt = 0u,
             dataOffset: UInt = 0u,
             type: UInt = 0u,
@@ -92,32 +90,32 @@ public class KeyValueEntry internal constructor(
 }
 
 public class RegEnumerateKeyInformation internal constructor(
-    objCtorArg: MutPtr<CVoid>,
+    objCtorArg: MutPtr,
     public var index: UInt,
     public var keyInformationClass: KeyInformationClass,
-    keyInformationCtorArg: MutPtr<CVoid>,
+    keyInformationCtorArg: MutPtr,
     public var length: UInt,
-    resultLengthCtorArg: MutPtr<UInt>,
-    callContextCtorArg: MutPtr<CVoid>,
-    objectContextCtorArg: MutPtr<CVoid>,
-    reservedCtorArg: MutPtr<CVoid>,
+    resultLengthCtorArg: MutPtr,
+    callContextCtorArg: MutPtr,
+    objectContextCtorArg: MutPtr,
+    reservedCtorArg: MutPtr,
 ) {
-    public var obj: MutPtr<CVoid> = objCtorArg
+    public var obj: MutPtr = objCtorArg
         internal set
 
-    public var keyInformation: MutPtr<CVoid> = keyInformationCtorArg
+    public var keyInformation: MutPtr = keyInformationCtorArg
         internal set
 
-    public var resultLength: MutPtr<UInt> = resultLengthCtorArg
+    public var resultLength: MutPtr = resultLengthCtorArg
         internal set
 
-    public var callContext: MutPtr<CVoid> = callContextCtorArg
+    public var callContext: MutPtr = callContextCtorArg
         internal set
 
-    public var objectContext: MutPtr<CVoid> = objectContextCtorArg
+    public var objectContext: MutPtr = objectContextCtorArg
         internal set
 
-    public var reserved: MutPtr<CVoid> = reservedCtorArg
+    public var reserved: MutPtr = reservedCtorArg
         internal set
 
     public constructor() : this(
@@ -132,25 +130,25 @@ public class RegEnumerateKeyInformation internal constructor(
         reservedCtorArg = MutPtr(0L),
     )
 
-    public operator fun component1(): MutPtr<CVoid> = this.obj
+    public operator fun component1(): MutPtr = this.obj
 
     public operator fun component2(): UInt = this.index
 
     public operator fun component3(): KeyInformationClass = this.keyInformationClass
 
-    public operator fun component4(): MutPtr<CVoid> = this.keyInformation
+    public operator fun component4(): MutPtr = this.keyInformation
 
     public operator fun component5(): UInt = this.length
 
-    public operator fun component6(): MutPtr<UInt> = this.resultLength
+    public operator fun component6(): MutPtr = this.resultLength
 
-    public operator fun component7(): MutPtr<CVoid> = this.callContext
+    public operator fun component7(): MutPtr = this.callContext
 
-    public operator fun component8(): MutPtr<CVoid> = this.objectContext
+    public operator fun component8(): MutPtr = this.objectContext
 
-    public operator fun component9(): MutPtr<CVoid> = this.reserved
+    public operator fun component9(): MutPtr = this.reserved
 
-    public fun copy(obj: MutPtr<CVoid> = this.obj, index: UInt = this.index, keyInformationClass: KeyInformationClass = this.keyInformationClass, keyInformation: MutPtr<CVoid> = this.keyInformation, length: UInt = this.length, resultLength: MutPtr<UInt> = this.resultLength, callContext: MutPtr<CVoid> = this.callContext, objectContext: MutPtr<CVoid> = this.objectContext, reserved: MutPtr<CVoid> = this.reserved): RegEnumerateKeyInformation = RegEnumerateKeyInformation(objCtorArg = obj, index = index, keyInformationClass = keyInformationClass, keyInformationCtorArg = keyInformation, length = length, resultLengthCtorArg = resultLength, callContextCtorArg = callContext, objectContextCtorArg = objectContext, reservedCtorArg = reserved)
+    public fun copy(obj: MutPtr = this.obj, index: UInt = this.index, keyInformationClass: KeyInformationClass = this.keyInformationClass, keyInformation: MutPtr = this.keyInformation, length: UInt = this.length, resultLength: MutPtr = this.resultLength, callContext: MutPtr = this.callContext, objectContext: MutPtr = this.objectContext, reserved: MutPtr = this.reserved): RegEnumerateKeyInformation = RegEnumerateKeyInformation(objCtorArg = obj, index = index, keyInformationClass = keyInformationClass, keyInformationCtorArg = keyInformation, length = length, resultLengthCtorArg = resultLength, callContextCtorArg = callContext, objectContextCtorArg = objectContext, reservedCtorArg = reserved)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -189,73 +187,73 @@ public class RegEnumerateKeyInformation internal constructor(
                     RegEnumerateKeyInformation(
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<CVoid>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 8L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr + 12L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<CVoid>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 16L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 24L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<UInt>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 32L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<CVoid>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 40L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<CVoid>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 48L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<CVoid>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 56L),
                     )
                 override fun writeNative(addr: Long, value: RegEnumerateKeyInformation) {
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<CVoid>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr, value.obj)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 8L, value.index)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr + 12L, value.keyInformationClass)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<CVoid>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 16L, value.keyInformation)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 24L, value.length)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<UInt>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 32L, value.resultLength)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<CVoid>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 40L, value.callContext)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<CVoid>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 48L, value.objectContext)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<CVoid>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 56L, value.reserved)
                 }
             }
 
         public operator fun invoke(
-            obj: MutPtr<CVoid> = MutPtr(0L),
+            obj: MutPtr = MutPtr(0L),
             index: UInt = 0u,
             keyInformationClass: KeyInformationClass = 0,
-            keyInformation: MutPtr<CVoid> = MutPtr(0L),
+            keyInformation: MutPtr = MutPtr(0L),
             length: UInt = 0u,
-            resultLength: MutPtr<UInt> = MutPtr(0L),
-            callContext: MutPtr<CVoid> = MutPtr(0L),
-            objectContext: MutPtr<CVoid> = MutPtr(0L),
-            reserved: MutPtr<CVoid> = MutPtr(0L),
+            resultLength: MutPtr = MutPtr(0L),
+            callContext: MutPtr = MutPtr(0L),
+            objectContext: MutPtr = MutPtr(0L),
+            reserved: MutPtr = MutPtr(0L),
         ): RegEnumerateKeyInformation =
             RegEnumerateKeyInformation(
                 objCtorArg = obj,
@@ -272,32 +270,32 @@ public class RegEnumerateKeyInformation internal constructor(
 }
 
 public class RegEnumerateValueKeyInformation internal constructor(
-    objCtorArg: MutPtr<CVoid>,
+    objCtorArg: MutPtr,
     public var index: UInt,
     public var keyValueInformationClass: KeyValueInformationClass,
-    keyValueInformationCtorArg: MutPtr<CVoid>,
+    keyValueInformationCtorArg: MutPtr,
     public var length: UInt,
-    resultLengthCtorArg: MutPtr<UInt>,
-    callContextCtorArg: MutPtr<CVoid>,
-    objectContextCtorArg: MutPtr<CVoid>,
-    reservedCtorArg: MutPtr<CVoid>,
+    resultLengthCtorArg: MutPtr,
+    callContextCtorArg: MutPtr,
+    objectContextCtorArg: MutPtr,
+    reservedCtorArg: MutPtr,
 ) {
-    public var obj: MutPtr<CVoid> = objCtorArg
+    public var obj: MutPtr = objCtorArg
         internal set
 
-    public var keyValueInformation: MutPtr<CVoid> = keyValueInformationCtorArg
+    public var keyValueInformation: MutPtr = keyValueInformationCtorArg
         internal set
 
-    public var resultLength: MutPtr<UInt> = resultLengthCtorArg
+    public var resultLength: MutPtr = resultLengthCtorArg
         internal set
 
-    public var callContext: MutPtr<CVoid> = callContextCtorArg
+    public var callContext: MutPtr = callContextCtorArg
         internal set
 
-    public var objectContext: MutPtr<CVoid> = objectContextCtorArg
+    public var objectContext: MutPtr = objectContextCtorArg
         internal set
 
-    public var reserved: MutPtr<CVoid> = reservedCtorArg
+    public var reserved: MutPtr = reservedCtorArg
         internal set
 
     public constructor() : this(
@@ -312,25 +310,25 @@ public class RegEnumerateValueKeyInformation internal constructor(
         reservedCtorArg = MutPtr(0L),
     )
 
-    public operator fun component1(): MutPtr<CVoid> = this.obj
+    public operator fun component1(): MutPtr = this.obj
 
     public operator fun component2(): UInt = this.index
 
     public operator fun component3(): KeyValueInformationClass = this.keyValueInformationClass
 
-    public operator fun component4(): MutPtr<CVoid> = this.keyValueInformation
+    public operator fun component4(): MutPtr = this.keyValueInformation
 
     public operator fun component5(): UInt = this.length
 
-    public operator fun component6(): MutPtr<UInt> = this.resultLength
+    public operator fun component6(): MutPtr = this.resultLength
 
-    public operator fun component7(): MutPtr<CVoid> = this.callContext
+    public operator fun component7(): MutPtr = this.callContext
 
-    public operator fun component8(): MutPtr<CVoid> = this.objectContext
+    public operator fun component8(): MutPtr = this.objectContext
 
-    public operator fun component9(): MutPtr<CVoid> = this.reserved
+    public operator fun component9(): MutPtr = this.reserved
 
-    public fun copy(obj: MutPtr<CVoid> = this.obj, index: UInt = this.index, keyValueInformationClass: KeyValueInformationClass = this.keyValueInformationClass, keyValueInformation: MutPtr<CVoid> = this.keyValueInformation, length: UInt = this.length, resultLength: MutPtr<UInt> = this.resultLength, callContext: MutPtr<CVoid> = this.callContext, objectContext: MutPtr<CVoid> = this.objectContext, reserved: MutPtr<CVoid> = this.reserved): RegEnumerateValueKeyInformation = RegEnumerateValueKeyInformation(objCtorArg = obj, index = index, keyValueInformationClass = keyValueInformationClass, keyValueInformationCtorArg = keyValueInformation, length = length, resultLengthCtorArg = resultLength, callContextCtorArg = callContext, objectContextCtorArg = objectContext, reservedCtorArg = reserved)
+    public fun copy(obj: MutPtr = this.obj, index: UInt = this.index, keyValueInformationClass: KeyValueInformationClass = this.keyValueInformationClass, keyValueInformation: MutPtr = this.keyValueInformation, length: UInt = this.length, resultLength: MutPtr = this.resultLength, callContext: MutPtr = this.callContext, objectContext: MutPtr = this.objectContext, reserved: MutPtr = this.reserved): RegEnumerateValueKeyInformation = RegEnumerateValueKeyInformation(objCtorArg = obj, index = index, keyValueInformationClass = keyValueInformationClass, keyValueInformationCtorArg = keyValueInformation, length = length, resultLengthCtorArg = resultLength, callContextCtorArg = callContext, objectContextCtorArg = objectContext, reservedCtorArg = reserved)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -369,73 +367,73 @@ public class RegEnumerateValueKeyInformation internal constructor(
                     RegEnumerateValueKeyInformation(
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<CVoid>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 8L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr + 12L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<CVoid>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 16L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 24L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<UInt>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 32L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<CVoid>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 40L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<CVoid>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 48L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<CVoid>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 56L),
                     )
                 override fun writeNative(addr: Long, value: RegEnumerateValueKeyInformation) {
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<CVoid>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr, value.obj)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 8L, value.index)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr + 12L, value.keyValueInformationClass)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<CVoid>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 16L, value.keyValueInformation)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 24L, value.length)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<UInt>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 32L, value.resultLength)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<CVoid>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 40L, value.callContext)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<CVoid>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 48L, value.objectContext)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<CVoid>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 56L, value.reserved)
                 }
             }
 
         public operator fun invoke(
-            obj: MutPtr<CVoid> = MutPtr(0L),
+            obj: MutPtr = MutPtr(0L),
             index: UInt = 0u,
             keyValueInformationClass: KeyValueInformationClass = 0,
-            keyValueInformation: MutPtr<CVoid> = MutPtr(0L),
+            keyValueInformation: MutPtr = MutPtr(0L),
             length: UInt = 0u,
-            resultLength: MutPtr<UInt> = MutPtr(0L),
-            callContext: MutPtr<CVoid> = MutPtr(0L),
-            objectContext: MutPtr<CVoid> = MutPtr(0L),
-            reserved: MutPtr<CVoid> = MutPtr(0L),
+            resultLength: MutPtr = MutPtr(0L),
+            callContext: MutPtr = MutPtr(0L),
+            objectContext: MutPtr = MutPtr(0L),
+            reserved: MutPtr = MutPtr(0L),
         ): RegEnumerateValueKeyInformation =
             RegEnumerateValueKeyInformation(
                 objCtorArg = obj,
@@ -452,31 +450,31 @@ public class RegEnumerateValueKeyInformation internal constructor(
 }
 
 public class RegQueryKeyInformation internal constructor(
-    objCtorArg: MutPtr<CVoid>,
+    objCtorArg: MutPtr,
     public var keyInformationClass: KeyInformationClass,
-    keyInformationCtorArg: MutPtr<CVoid>,
+    keyInformationCtorArg: MutPtr,
     public var length: UInt,
-    resultLengthCtorArg: MutPtr<UInt>,
-    callContextCtorArg: MutPtr<CVoid>,
-    objectContextCtorArg: MutPtr<CVoid>,
-    reservedCtorArg: MutPtr<CVoid>,
+    resultLengthCtorArg: MutPtr,
+    callContextCtorArg: MutPtr,
+    objectContextCtorArg: MutPtr,
+    reservedCtorArg: MutPtr,
 ) {
-    public var obj: MutPtr<CVoid> = objCtorArg
+    public var obj: MutPtr = objCtorArg
         internal set
 
-    public var keyInformation: MutPtr<CVoid> = keyInformationCtorArg
+    public var keyInformation: MutPtr = keyInformationCtorArg
         internal set
 
-    public var resultLength: MutPtr<UInt> = resultLengthCtorArg
+    public var resultLength: MutPtr = resultLengthCtorArg
         internal set
 
-    public var callContext: MutPtr<CVoid> = callContextCtorArg
+    public var callContext: MutPtr = callContextCtorArg
         internal set
 
-    public var objectContext: MutPtr<CVoid> = objectContextCtorArg
+    public var objectContext: MutPtr = objectContextCtorArg
         internal set
 
-    public var reserved: MutPtr<CVoid> = reservedCtorArg
+    public var reserved: MutPtr = reservedCtorArg
         internal set
 
     public constructor() : this(
@@ -490,23 +488,23 @@ public class RegQueryKeyInformation internal constructor(
         reservedCtorArg = MutPtr(0L),
     )
 
-    public operator fun component1(): MutPtr<CVoid> = this.obj
+    public operator fun component1(): MutPtr = this.obj
 
     public operator fun component2(): KeyInformationClass = this.keyInformationClass
 
-    public operator fun component3(): MutPtr<CVoid> = this.keyInformation
+    public operator fun component3(): MutPtr = this.keyInformation
 
     public operator fun component4(): UInt = this.length
 
-    public operator fun component5(): MutPtr<UInt> = this.resultLength
+    public operator fun component5(): MutPtr = this.resultLength
 
-    public operator fun component6(): MutPtr<CVoid> = this.callContext
+    public operator fun component6(): MutPtr = this.callContext
 
-    public operator fun component7(): MutPtr<CVoid> = this.objectContext
+    public operator fun component7(): MutPtr = this.objectContext
 
-    public operator fun component8(): MutPtr<CVoid> = this.reserved
+    public operator fun component8(): MutPtr = this.reserved
 
-    public fun copy(obj: MutPtr<CVoid> = this.obj, keyInformationClass: KeyInformationClass = this.keyInformationClass, keyInformation: MutPtr<CVoid> = this.keyInformation, length: UInt = this.length, resultLength: MutPtr<UInt> = this.resultLength, callContext: MutPtr<CVoid> = this.callContext, objectContext: MutPtr<CVoid> = this.objectContext, reserved: MutPtr<CVoid> = this.reserved): RegQueryKeyInformation = RegQueryKeyInformation(objCtorArg = obj, keyInformationClass = keyInformationClass, keyInformationCtorArg = keyInformation, length = length, resultLengthCtorArg = resultLength, callContextCtorArg = callContext, objectContextCtorArg = objectContext, reservedCtorArg = reserved)
+    public fun copy(obj: MutPtr = this.obj, keyInformationClass: KeyInformationClass = this.keyInformationClass, keyInformation: MutPtr = this.keyInformation, length: UInt = this.length, resultLength: MutPtr = this.resultLength, callContext: MutPtr = this.callContext, objectContext: MutPtr = this.objectContext, reserved: MutPtr = this.reserved): RegQueryKeyInformation = RegQueryKeyInformation(objCtorArg = obj, keyInformationClass = keyInformationClass, keyInformationCtorArg = keyInformation, length = length, resultLengthCtorArg = resultLength, callContextCtorArg = callContext, objectContextCtorArg = objectContext, reservedCtorArg = reserved)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -543,70 +541,70 @@ public class RegQueryKeyInformation internal constructor(
                     RegQueryKeyInformation(
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<CVoid>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr + 8L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<CVoid>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 16L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 24L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<UInt>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 32L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<CVoid>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 40L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<CVoid>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 48L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<CVoid>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 56L),
                     )
                 override fun writeNative(addr: Long, value: RegQueryKeyInformation) {
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<CVoid>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr, value.obj)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr + 8L, value.keyInformationClass)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<CVoid>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 16L, value.keyInformation)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 24L, value.length)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<UInt>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 32L, value.resultLength)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<CVoid>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 40L, value.callContext)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<CVoid>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 48L, value.objectContext)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<CVoid>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 56L, value.reserved)
                 }
             }
 
         public operator fun invoke(
-            obj: MutPtr<CVoid> = MutPtr(0L),
+            obj: MutPtr = MutPtr(0L),
             keyInformationClass: KeyInformationClass = 0,
-            keyInformation: MutPtr<CVoid> = MutPtr(0L),
+            keyInformation: MutPtr = MutPtr(0L),
             length: UInt = 0u,
-            resultLength: MutPtr<UInt> = MutPtr(0L),
-            callContext: MutPtr<CVoid> = MutPtr(0L),
-            objectContext: MutPtr<CVoid> = MutPtr(0L),
-            reserved: MutPtr<CVoid> = MutPtr(0L),
+            resultLength: MutPtr = MutPtr(0L),
+            callContext: MutPtr = MutPtr(0L),
+            objectContext: MutPtr = MutPtr(0L),
+            reserved: MutPtr = MutPtr(0L),
         ): RegQueryKeyInformation =
             RegQueryKeyInformation(
                 objCtorArg = obj,
@@ -622,38 +620,38 @@ public class RegQueryKeyInformation internal constructor(
 }
 
 public class RegQueryMultipleValueKeyInformation internal constructor(
-    objCtorArg: MutPtr<CVoid>,
-    valueEntriesCtorArg: MutPtr<KeyValueEntry>,
+    objCtorArg: MutPtr,
+    valueEntriesCtorArg: MutPtr,
     public var entryCount: UInt,
-    valueBufferCtorArg: MutPtr<CVoid>,
-    bufferLengthCtorArg: MutPtr<UInt>,
-    requiredBufferLengthCtorArg: MutPtr<UInt>,
-    callContextCtorArg: MutPtr<CVoid>,
-    objectContextCtorArg: MutPtr<CVoid>,
-    reservedCtorArg: MutPtr<CVoid>,
+    valueBufferCtorArg: MutPtr,
+    bufferLengthCtorArg: MutPtr,
+    requiredBufferLengthCtorArg: MutPtr,
+    callContextCtorArg: MutPtr,
+    objectContextCtorArg: MutPtr,
+    reservedCtorArg: MutPtr,
 ) {
-    public var obj: MutPtr<CVoid> = objCtorArg
+    public var obj: MutPtr = objCtorArg
         internal set
 
-    public var valueEntries: MutPtr<KeyValueEntry> = valueEntriesCtorArg
+    public var valueEntries: MutPtr = valueEntriesCtorArg
         internal set
 
-    public var valueBuffer: MutPtr<CVoid> = valueBufferCtorArg
+    public var valueBuffer: MutPtr = valueBufferCtorArg
         internal set
 
-    public var bufferLength: MutPtr<UInt> = bufferLengthCtorArg
+    public var bufferLength: MutPtr = bufferLengthCtorArg
         internal set
 
-    public var requiredBufferLength: MutPtr<UInt> = requiredBufferLengthCtorArg
+    public var requiredBufferLength: MutPtr = requiredBufferLengthCtorArg
         internal set
 
-    public var callContext: MutPtr<CVoid> = callContextCtorArg
+    public var callContext: MutPtr = callContextCtorArg
         internal set
 
-    public var objectContext: MutPtr<CVoid> = objectContextCtorArg
+    public var objectContext: MutPtr = objectContextCtorArg
         internal set
 
-    public var reserved: MutPtr<CVoid> = reservedCtorArg
+    public var reserved: MutPtr = reservedCtorArg
         internal set
 
     public constructor() : this(
@@ -668,25 +666,25 @@ public class RegQueryMultipleValueKeyInformation internal constructor(
         reservedCtorArg = MutPtr(0L),
     )
 
-    public operator fun component1(): MutPtr<CVoid> = this.obj
+    public operator fun component1(): MutPtr = this.obj
 
-    public operator fun component2(): MutPtr<KeyValueEntry> = this.valueEntries
+    public operator fun component2(): MutPtr = this.valueEntries
 
     public operator fun component3(): UInt = this.entryCount
 
-    public operator fun component4(): MutPtr<CVoid> = this.valueBuffer
+    public operator fun component4(): MutPtr = this.valueBuffer
 
-    public operator fun component5(): MutPtr<UInt> = this.bufferLength
+    public operator fun component5(): MutPtr = this.bufferLength
 
-    public operator fun component6(): MutPtr<UInt> = this.requiredBufferLength
+    public operator fun component6(): MutPtr = this.requiredBufferLength
 
-    public operator fun component7(): MutPtr<CVoid> = this.callContext
+    public operator fun component7(): MutPtr = this.callContext
 
-    public operator fun component8(): MutPtr<CVoid> = this.objectContext
+    public operator fun component8(): MutPtr = this.objectContext
 
-    public operator fun component9(): MutPtr<CVoid> = this.reserved
+    public operator fun component9(): MutPtr = this.reserved
 
-    public fun copy(obj: MutPtr<CVoid> = this.obj, valueEntries: MutPtr<KeyValueEntry> = this.valueEntries, entryCount: UInt = this.entryCount, valueBuffer: MutPtr<CVoid> = this.valueBuffer, bufferLength: MutPtr<UInt> = this.bufferLength, requiredBufferLength: MutPtr<UInt> = this.requiredBufferLength, callContext: MutPtr<CVoid> = this.callContext, objectContext: MutPtr<CVoid> = this.objectContext, reserved: MutPtr<CVoid> = this.reserved): RegQueryMultipleValueKeyInformation = RegQueryMultipleValueKeyInformation(objCtorArg = obj, valueEntriesCtorArg = valueEntries, entryCount = entryCount, valueBufferCtorArg = valueBuffer, bufferLengthCtorArg = bufferLength, requiredBufferLengthCtorArg = requiredBufferLength, callContextCtorArg = callContext, objectContextCtorArg = objectContext, reservedCtorArg = reserved)
+    public fun copy(obj: MutPtr = this.obj, valueEntries: MutPtr = this.valueEntries, entryCount: UInt = this.entryCount, valueBuffer: MutPtr = this.valueBuffer, bufferLength: MutPtr = this.bufferLength, requiredBufferLength: MutPtr = this.requiredBufferLength, callContext: MutPtr = this.callContext, objectContext: MutPtr = this.objectContext, reserved: MutPtr = this.reserved): RegQueryMultipleValueKeyInformation = RegQueryMultipleValueKeyInformation(objCtorArg = obj, valueEntriesCtorArg = valueEntries, entryCount = entryCount, valueBufferCtorArg = valueBuffer, bufferLengthCtorArg = bufferLength, requiredBufferLengthCtorArg = requiredBufferLength, callContextCtorArg = callContext, objectContextCtorArg = objectContext, reservedCtorArg = reserved)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -725,85 +723,85 @@ public class RegQueryMultipleValueKeyInformation internal constructor(
                     RegQueryMultipleValueKeyInformation(
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<CVoid>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<KeyValueEntry>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 16L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<CVoid>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 24L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<UInt>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 32L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<UInt>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 40L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<CVoid>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 48L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<CVoid>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 56L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<CVoid>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 64L),
                     )
                 override fun writeNative(addr: Long, value: RegQueryMultipleValueKeyInformation) {
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<CVoid>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr, value.obj)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<KeyValueEntry>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.valueEntries)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 16L, value.entryCount)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<CVoid>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 24L, value.valueBuffer)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<UInt>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 32L, value.bufferLength)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<UInt>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 40L, value.requiredBufferLength)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<CVoid>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 48L, value.callContext)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<CVoid>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 56L, value.objectContext)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<CVoid>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 64L, value.reserved)
                 }
             }
 
         public operator fun invoke(
-            obj: MutPtr<CVoid> = MutPtr(0L),
-            valueEntries: MutPtr<KeyValueEntry> = MutPtr(0L),
+            obj: MutPtr = MutPtr(0L),
+            valueEntries: MutPtr = MutPtr(0L),
             entryCount: UInt = 0u,
-            valueBuffer: MutPtr<CVoid> = MutPtr(0L),
-            bufferLength: MutPtr<UInt> = MutPtr(0L),
-            requiredBufferLength: MutPtr<UInt> = MutPtr(0L),
-            callContext: MutPtr<CVoid> = MutPtr(0L),
-            objectContext: MutPtr<CVoid> = MutPtr(0L),
-            reserved: MutPtr<CVoid> = MutPtr(0L),
+            valueBuffer: MutPtr = MutPtr(0L),
+            bufferLength: MutPtr = MutPtr(0L),
+            requiredBufferLength: MutPtr = MutPtr(0L),
+            callContext: MutPtr = MutPtr(0L),
+            objectContext: MutPtr = MutPtr(0L),
+            reserved: MutPtr = MutPtr(0L),
         ): RegQueryMultipleValueKeyInformation =
             RegQueryMultipleValueKeyInformation(
                 objCtorArg = obj,
@@ -820,35 +818,35 @@ public class RegQueryMultipleValueKeyInformation internal constructor(
 }
 
 public class RegQueryValueKeyInformation internal constructor(
-    objCtorArg: MutPtr<CVoid>,
-    valueNameCtorArg: MutPtr<UnicodeString>,
+    objCtorArg: MutPtr,
+    valueNameCtorArg: MutPtr,
     public var keyValueInformationClass: KeyValueInformationClass,
-    keyValueInformationCtorArg: MutPtr<CVoid>,
+    keyValueInformationCtorArg: MutPtr,
     public var length: UInt,
-    resultLengthCtorArg: MutPtr<UInt>,
-    callContextCtorArg: MutPtr<CVoid>,
-    objectContextCtorArg: MutPtr<CVoid>,
-    reservedCtorArg: MutPtr<CVoid>,
+    resultLengthCtorArg: MutPtr,
+    callContextCtorArg: MutPtr,
+    objectContextCtorArg: MutPtr,
+    reservedCtorArg: MutPtr,
 ) {
-    public var obj: MutPtr<CVoid> = objCtorArg
+    public var obj: MutPtr = objCtorArg
         internal set
 
-    public var valueName: MutPtr<UnicodeString> = valueNameCtorArg
+    public var valueName: MutPtr = valueNameCtorArg
         internal set
 
-    public var keyValueInformation: MutPtr<CVoid> = keyValueInformationCtorArg
+    public var keyValueInformation: MutPtr = keyValueInformationCtorArg
         internal set
 
-    public var resultLength: MutPtr<UInt> = resultLengthCtorArg
+    public var resultLength: MutPtr = resultLengthCtorArg
         internal set
 
-    public var callContext: MutPtr<CVoid> = callContextCtorArg
+    public var callContext: MutPtr = callContextCtorArg
         internal set
 
-    public var objectContext: MutPtr<CVoid> = objectContextCtorArg
+    public var objectContext: MutPtr = objectContextCtorArg
         internal set
 
-    public var reserved: MutPtr<CVoid> = reservedCtorArg
+    public var reserved: MutPtr = reservedCtorArg
         internal set
 
     public constructor() : this(
@@ -863,25 +861,25 @@ public class RegQueryValueKeyInformation internal constructor(
         reservedCtorArg = MutPtr(0L),
     )
 
-    public operator fun component1(): MutPtr<CVoid> = this.obj
+    public operator fun component1(): MutPtr = this.obj
 
-    public operator fun component2(): MutPtr<UnicodeString> = this.valueName
+    public operator fun component2(): MutPtr = this.valueName
 
     public operator fun component3(): KeyValueInformationClass = this.keyValueInformationClass
 
-    public operator fun component4(): MutPtr<CVoid> = this.keyValueInformation
+    public operator fun component4(): MutPtr = this.keyValueInformation
 
     public operator fun component5(): UInt = this.length
 
-    public operator fun component6(): MutPtr<UInt> = this.resultLength
+    public operator fun component6(): MutPtr = this.resultLength
 
-    public operator fun component7(): MutPtr<CVoid> = this.callContext
+    public operator fun component7(): MutPtr = this.callContext
 
-    public operator fun component8(): MutPtr<CVoid> = this.objectContext
+    public operator fun component8(): MutPtr = this.objectContext
 
-    public operator fun component9(): MutPtr<CVoid> = this.reserved
+    public operator fun component9(): MutPtr = this.reserved
 
-    public fun copy(obj: MutPtr<CVoid> = this.obj, valueName: MutPtr<UnicodeString> = this.valueName, keyValueInformationClass: KeyValueInformationClass = this.keyValueInformationClass, keyValueInformation: MutPtr<CVoid> = this.keyValueInformation, length: UInt = this.length, resultLength: MutPtr<UInt> = this.resultLength, callContext: MutPtr<CVoid> = this.callContext, objectContext: MutPtr<CVoid> = this.objectContext, reserved: MutPtr<CVoid> = this.reserved): RegQueryValueKeyInformation = RegQueryValueKeyInformation(objCtorArg = obj, valueNameCtorArg = valueName, keyValueInformationClass = keyValueInformationClass, keyValueInformationCtorArg = keyValueInformation, length = length, resultLengthCtorArg = resultLength, callContextCtorArg = callContext, objectContextCtorArg = objectContext, reservedCtorArg = reserved)
+    public fun copy(obj: MutPtr = this.obj, valueName: MutPtr = this.valueName, keyValueInformationClass: KeyValueInformationClass = this.keyValueInformationClass, keyValueInformation: MutPtr = this.keyValueInformation, length: UInt = this.length, resultLength: MutPtr = this.resultLength, callContext: MutPtr = this.callContext, objectContext: MutPtr = this.objectContext, reserved: MutPtr = this.reserved): RegQueryValueKeyInformation = RegQueryValueKeyInformation(objCtorArg = obj, valueNameCtorArg = valueName, keyValueInformationClass = keyValueInformationClass, keyValueInformationCtorArg = keyValueInformation, length = length, resultLengthCtorArg = resultLength, callContextCtorArg = callContext, objectContextCtorArg = objectContext, reservedCtorArg = reserved)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -920,79 +918,79 @@ public class RegQueryValueKeyInformation internal constructor(
                     RegQueryValueKeyInformation(
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<CVoid>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<UnicodeString>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr + 16L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<CVoid>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 24L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 32L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<UInt>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 40L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<CVoid>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 48L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<CVoid>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 56L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<CVoid>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 64L),
                     )
                 override fun writeNative(addr: Long, value: RegQueryValueKeyInformation) {
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<CVoid>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr, value.obj)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<UnicodeString>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.valueName)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr + 16L, value.keyValueInformationClass)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<CVoid>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 24L, value.keyValueInformation)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 32L, value.length)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<UInt>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 40L, value.resultLength)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<CVoid>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 48L, value.callContext)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<CVoid>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 56L, value.objectContext)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<CVoid>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 64L, value.reserved)
                 }
             }
 
         public operator fun invoke(
-            obj: MutPtr<CVoid> = MutPtr(0L),
-            valueName: MutPtr<UnicodeString> = MutPtr(0L),
+            obj: MutPtr = MutPtr(0L),
+            valueName: MutPtr = MutPtr(0L),
             keyValueInformationClass: KeyValueInformationClass = 0,
-            keyValueInformation: MutPtr<CVoid> = MutPtr(0L),
+            keyValueInformation: MutPtr = MutPtr(0L),
             length: UInt = 0u,
-            resultLength: MutPtr<UInt> = MutPtr(0L),
-            callContext: MutPtr<CVoid> = MutPtr(0L),
-            objectContext: MutPtr<CVoid> = MutPtr(0L),
-            reserved: MutPtr<CVoid> = MutPtr(0L),
+            resultLength: MutPtr = MutPtr(0L),
+            callContext: MutPtr = MutPtr(0L),
+            objectContext: MutPtr = MutPtr(0L),
+            reserved: MutPtr = MutPtr(0L),
         ): RegQueryValueKeyInformation =
             RegQueryValueKeyInformation(
                 objCtorArg = obj,
@@ -1009,27 +1007,27 @@ public class RegQueryValueKeyInformation internal constructor(
 }
 
 public class RegSetInformationKeyInformation internal constructor(
-    objCtorArg: MutPtr<CVoid>,
+    objCtorArg: MutPtr,
     public var keySetInformationClass: KeySetInformationClass,
-    keySetInformationCtorArg: MutPtr<CVoid>,
+    keySetInformationCtorArg: MutPtr,
     public var keySetInformationLength: UInt,
-    callContextCtorArg: MutPtr<CVoid>,
-    objectContextCtorArg: MutPtr<CVoid>,
-    reservedCtorArg: MutPtr<CVoid>,
+    callContextCtorArg: MutPtr,
+    objectContextCtorArg: MutPtr,
+    reservedCtorArg: MutPtr,
 ) {
-    public var obj: MutPtr<CVoid> = objCtorArg
+    public var obj: MutPtr = objCtorArg
         internal set
 
-    public var keySetInformation: MutPtr<CVoid> = keySetInformationCtorArg
+    public var keySetInformation: MutPtr = keySetInformationCtorArg
         internal set
 
-    public var callContext: MutPtr<CVoid> = callContextCtorArg
+    public var callContext: MutPtr = callContextCtorArg
         internal set
 
-    public var objectContext: MutPtr<CVoid> = objectContextCtorArg
+    public var objectContext: MutPtr = objectContextCtorArg
         internal set
 
-    public var reserved: MutPtr<CVoid> = reservedCtorArg
+    public var reserved: MutPtr = reservedCtorArg
         internal set
 
     public constructor() : this(
@@ -1042,21 +1040,21 @@ public class RegSetInformationKeyInformation internal constructor(
         reservedCtorArg = MutPtr(0L),
     )
 
-    public operator fun component1(): MutPtr<CVoid> = this.obj
+    public operator fun component1(): MutPtr = this.obj
 
     public operator fun component2(): KeySetInformationClass = this.keySetInformationClass
 
-    public operator fun component3(): MutPtr<CVoid> = this.keySetInformation
+    public operator fun component3(): MutPtr = this.keySetInformation
 
     public operator fun component4(): UInt = this.keySetInformationLength
 
-    public operator fun component5(): MutPtr<CVoid> = this.callContext
+    public operator fun component5(): MutPtr = this.callContext
 
-    public operator fun component6(): MutPtr<CVoid> = this.objectContext
+    public operator fun component6(): MutPtr = this.objectContext
 
-    public operator fun component7(): MutPtr<CVoid> = this.reserved
+    public operator fun component7(): MutPtr = this.reserved
 
-    public fun copy(obj: MutPtr<CVoid> = this.obj, keySetInformationClass: KeySetInformationClass = this.keySetInformationClass, keySetInformation: MutPtr<CVoid> = this.keySetInformation, keySetInformationLength: UInt = this.keySetInformationLength, callContext: MutPtr<CVoid> = this.callContext, objectContext: MutPtr<CVoid> = this.objectContext, reserved: MutPtr<CVoid> = this.reserved): RegSetInformationKeyInformation = RegSetInformationKeyInformation(objCtorArg = obj, keySetInformationClass = keySetInformationClass, keySetInformationCtorArg = keySetInformation, keySetInformationLength = keySetInformationLength, callContextCtorArg = callContext, objectContextCtorArg = objectContext, reservedCtorArg = reserved)
+    public fun copy(obj: MutPtr = this.obj, keySetInformationClass: KeySetInformationClass = this.keySetInformationClass, keySetInformation: MutPtr = this.keySetInformation, keySetInformationLength: UInt = this.keySetInformationLength, callContext: MutPtr = this.callContext, objectContext: MutPtr = this.objectContext, reserved: MutPtr = this.reserved): RegSetInformationKeyInformation = RegSetInformationKeyInformation(objCtorArg = obj, keySetInformationClass = keySetInformationClass, keySetInformationCtorArg = keySetInformation, keySetInformationLength = keySetInformationLength, callContextCtorArg = callContext, objectContextCtorArg = objectContext, reservedCtorArg = reserved)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -1091,61 +1089,61 @@ public class RegSetInformationKeyInformation internal constructor(
                     RegSetInformationKeyInformation(
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<CVoid>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr + 8L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<CVoid>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 16L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 24L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<CVoid>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 32L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<CVoid>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 40L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<CVoid>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 48L),
                     )
                 override fun writeNative(addr: Long, value: RegSetInformationKeyInformation) {
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<CVoid>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr, value.obj)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr + 8L, value.keySetInformationClass)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<CVoid>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 16L, value.keySetInformation)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 24L, value.keySetInformationLength)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<CVoid>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 32L, value.callContext)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<CVoid>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 40L, value.objectContext)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<CVoid>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 48L, value.reserved)
                 }
             }
 
         public operator fun invoke(
-            obj: MutPtr<CVoid> = MutPtr(0L),
+            obj: MutPtr = MutPtr(0L),
             keySetInformationClass: KeySetInformationClass = 0,
-            keySetInformation: MutPtr<CVoid> = MutPtr(0L),
+            keySetInformation: MutPtr = MutPtr(0L),
             keySetInformationLength: UInt = 0u,
-            callContext: MutPtr<CVoid> = MutPtr(0L),
-            objectContext: MutPtr<CVoid> = MutPtr(0L),
-            reserved: MutPtr<CVoid> = MutPtr(0L),
+            callContext: MutPtr = MutPtr(0L),
+            objectContext: MutPtr = MutPtr(0L),
+            reserved: MutPtr = MutPtr(0L),
         ): RegSetInformationKeyInformation =
             RegSetInformationKeyInformation(
                 objCtorArg = obj,

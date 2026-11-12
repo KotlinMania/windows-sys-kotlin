@@ -1,11 +1,9 @@
 package io.github.kotlinmania.windowssys.windows.win32.networking.wininet
 
-import io.github.kotlinmania.rustlang.core.ffi.CVoid
 import io.github.kotlinmania.rustlang.core.ptr.ConstPtr
 import io.github.kotlinmania.rustlang.core.ptr.MutPtr
 import io.github.kotlinmania.windowssys.core.Bool
 import io.github.kotlinmania.windowssys.core.Pcstr
-import io.github.kotlinmania.windowssys.core.Pstr
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Hwnd
 
 public typealias AppCacheFinalizeState = Int
@@ -15,7 +13,7 @@ public typealias AppCacheState = Int
 public typealias CacheConfig = UInt
 
 public fun interface CacheOperatorFn {
-    public operator fun invoke(pcei: MutPtr<InternetCacheEntryInfoa>, pcbcei: MutPtr<UInt>, popdata: MutPtr<CVoid>): Bool
+    public operator fun invoke(pcei: MutPtr, pcbcei: MutPtr, popdata: MutPtr): Bool
 }
 
 public typealias CacheOperator = CacheOperatorFn?
@@ -27,7 +25,7 @@ public typealias Fortstat = Int
 public typealias FtpFlags = UInt
 
 public fun interface GopherAttributeEnumeratorFn {
-    public operator fun invoke(lpattributeinfo: ConstPtr<GopherAttributeType>, dwerror: UInt): Bool
+    public operator fun invoke(lpattributeinfo: ConstPtr, dwerror: UInt): Bool
 }
 
 public typealias GopherAttributeEnumerator = GopherAttributeEnumeratorFn?
@@ -37,7 +35,7 @@ public typealias GopherType = UInt
 public typealias HttpAddreqFlag = UInt
 
 public fun interface HttpPolicyExtensionInitFn {
-    public operator fun invoke(version: HttpPolicyExtensionVersion, type: HttpPolicyExtensionType, pvdata: ConstPtr<CVoid>, cbdata: UInt): UInt
+    public operator fun invoke(version: HttpPolicyExtensionVersion, type: HttpPolicyExtensionType, pvdata: ConstPtr, cbdata: UInt): UInt
 }
 
 public typealias HttpPolicyExtensionInit = HttpPolicyExtensionInitFn?
@@ -52,7 +50,7 @@ public typealias HttpPolicyExtensionType = Int
 
 public typealias HttpPolicyExtensionVersion = Int
 
-public typealias HttpPushWaitHandle = MutPtr<CVoid>
+public typealias HttpPushWaitHandle = MutPtr
 
 public typealias HttpPushWaitType = Int
 
@@ -79,19 +77,19 @@ public typealias InternetState = UInt
 public typealias InternetCookieState = Int
 
 public fun interface LpinternetStatusCallbackFn {
-    public operator fun invoke(hinternet: ConstPtr<CVoid>, dwcontext: ULong, dwinternetstatus: UInt, lpvstatusinformation: ConstPtr<CVoid>, dwstatusinformationlength: UInt)
+    public operator fun invoke(hinternet: ConstPtr, dwcontext: ULong, dwinternetstatus: UInt, lpvstatusinformation: ConstPtr, dwstatusinformationlength: UInt)
 }
 
 public typealias LpinternetStatusCallback = LpinternetStatusCallbackFn?
 
 public fun interface PfnAuthNotifyFn {
-    public operator fun invoke(param0: ULong, param1: UInt, param2: MutPtr<CVoid>): UInt
+    public operator fun invoke(param0: ULong, param1: UInt, param2: MutPtr): UInt
 }
 
 public typealias PfnAuthNotify = PfnAuthNotifyFn?
 
 public fun interface PfnDialHandlerFn {
-    public operator fun invoke(param0: Hwnd, param1: Pcstr, param2: UInt, param3: MutPtr<UInt>): UInt
+    public operator fun invoke(param0: Hwnd, param1: Pcstr, param2: UInt, param3: MutPtr): UInt
 }
 
 public typealias PfnDialHandler = PfnDialHandlerFn?
@@ -113,13 +111,13 @@ public fun interface PfnInternetDeInitializeAutoProxyDllFn {
 public typealias PfnInternetDeInitializeAutoProxyDll = PfnInternetDeInitializeAutoProxyDllFn?
 
 public fun interface PfnInternetGetProxyInfoFn {
-    public operator fun invoke(lpszurl: Pcstr, dwurllength: UInt, lpszurlhostname: Pcstr, dwurlhostnamelength: UInt, lplpszproxyhostname: MutPtr<Pstr>, lpdwproxyhostnamelength: MutPtr<UInt>): Bool
+    public operator fun invoke(lpszurl: Pcstr, dwurllength: UInt, lpszurlhostname: Pcstr, dwurlhostnamelength: UInt, lplpszproxyhostname: MutPtr, lpdwproxyhostnamelength: MutPtr): Bool
 }
 
 public typealias PfnInternetGetProxyInfo = PfnInternetGetProxyInfoFn?
 
 public fun interface PfnInternetInitializeAutoProxyDllFn {
-    public operator fun invoke(dwversion: UInt, lpszdownloadedtempfile: Pcstr, lpszmime: Pcstr, lpautoproxycallbacks: MutPtr<AutoProxyHelperFunctions>, lpautoproxyscriptbuffer: MutPtr<AutoProxyScriptBuffer>): Bool
+    public operator fun invoke(dwversion: UInt, lpszdownloadedtempfile: Pcstr, lpszmime: Pcstr, lpautoproxycallbacks: MutPtr, lpautoproxyscriptbuffer: MutPtr): Bool
 }
 
 public typealias PfnInternetInitializeAutoProxyDll = PfnInternetInitializeAutoProxyDllFn?

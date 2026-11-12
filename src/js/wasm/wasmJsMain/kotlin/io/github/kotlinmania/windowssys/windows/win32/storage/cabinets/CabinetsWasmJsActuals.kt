@@ -2,7 +2,6 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.storage.cabinets
 
-import io.github.kotlinmania.rustlang.core.ffi.CVoid
 import io.github.kotlinmania.rustlang.core.ptr.ConstPtr
 import io.github.kotlinmania.rustlang.core.ptr.MutPtr
 import io.github.kotlinmania.windowssys.core.Bool
@@ -43,32 +42,32 @@ private external fun wasmWindowssysWindowsWin32StorageCabinetsFDIIsCabinet(p0: S
 @JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssysWindowsWin32StorageCabinetsFDITruncateCabinet(p0, p1, p2)")
 private external fun wasmWindowssysWindowsWin32StorageCabinetsFDITruncateCabinet(p0: String, p1: String, p2: Int): Int
 
-public actual fun fCIAddFile(hfci: ConstPtr<CVoid>, pszsourcefile: Pcstr, pszfilename: Pcstr, fexecute: Bool, pfnfcignc: Pfnfcigetnextcabinet, pfnfcis: Pfnfcistatus, pfnfcigoi: Pfnfcigetopeninfo, typecompress: UShort): Bool =
+public actual fun fCIAddFile(hfci: ConstPtr, pszsourcefile: Pcstr, pszfilename: Pcstr, fexecute: Bool, pfnfcignc: Pfnfcigetnextcabinet, pfnfcis: Pfnfcistatus, pfnfcigoi: Pfnfcigetopeninfo, typecompress: UShort): Bool =
     if (windowsWin32StorageCabinetsNapiAvailable) wasmWindowssysWindowsWin32StorageCabinetsFCIAddFile(hfci.rawAddress.toString(), pszsourcefile.rawAddress.toString(), pszfilename.rawAddress.toString(), fexecute, 0L.toString(), 0L.toString(), 0L.toString(), typecompress.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun fCICreate(perf: ConstPtr<Erf>, pfnfcifp: Pfnfcifileplaced, pfna: Pfnfcialloc, pfnf: Pfnfcifree, pfnopen: Pfnfciopen, pfnread: Pfnfciread, pfnwrite: Pfnfciwrite, pfnclose: Pfnfciclose, pfnseek: Pfnfciseek, pfndelete: Pfnfcidelete, pfnfcigtf: Pfnfcigettempfile, pccab: ConstPtr<Ccab>, pv: ConstPtr<CVoid>): MutPtr<CVoid> =
+public actual fun fCICreate(perf: ConstPtr, pfnfcifp: Pfnfcifileplaced, pfna: Pfnfcialloc, pfnf: Pfnfcifree, pfnopen: Pfnfciopen, pfnread: Pfnfciread, pfnwrite: Pfnfciwrite, pfnclose: Pfnfciclose, pfnseek: Pfnfciseek, pfndelete: Pfnfcidelete, pfnfcigtf: Pfnfcigettempfile, pccab: ConstPtr, pv: ConstPtr): MutPtr =
     if (windowsWin32StorageCabinetsNapiAvailable) MutPtr(wasmWindowssysWindowsWin32StorageCabinetsFCICreate(perf.rawAddress.toString(), 0L.toString(), 0L.toString(), 0L.toString(), 0L.toString(), 0L.toString(), 0L.toString(), 0L.toString(), 0L.toString(), 0L.toString(), 0L.toString(), pccab.rawAddress.toString(), pv.rawAddress.toString()).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun fCIDestroy(hfci: ConstPtr<CVoid>): Bool =
+public actual fun fCIDestroy(hfci: ConstPtr): Bool =
     if (windowsWin32StorageCabinetsNapiAvailable) wasmWindowssysWindowsWin32StorageCabinetsFCIDestroy(hfci.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun fCIFlushCabinet(hfci: ConstPtr<CVoid>, fgetnextcab: Bool, pfnfcignc: Pfnfcigetnextcabinet, pfnfcis: Pfnfcistatus): Bool =
+public actual fun fCIFlushCabinet(hfci: ConstPtr, fgetnextcab: Bool, pfnfcignc: Pfnfcigetnextcabinet, pfnfcis: Pfnfcistatus): Bool =
     if (windowsWin32StorageCabinetsNapiAvailable) wasmWindowssysWindowsWin32StorageCabinetsFCIFlushCabinet(hfci.rawAddress.toString(), fgetnextcab, 0L.toString(), 0L.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun fCIFlushFolder(hfci: ConstPtr<CVoid>, pfnfcignc: Pfnfcigetnextcabinet, pfnfcis: Pfnfcistatus): Bool =
+public actual fun fCIFlushFolder(hfci: ConstPtr, pfnfcignc: Pfnfcigetnextcabinet, pfnfcis: Pfnfcistatus): Bool =
     if (windowsWin32StorageCabinetsNapiAvailable) wasmWindowssysWindowsWin32StorageCabinetsFCIFlushFolder(hfci.rawAddress.toString(), 0L.toString(), 0L.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun fDICopy(hfdi: ConstPtr<CVoid>, pszcabinet: Pcstr, pszcabpath: Pcstr, flags: Int, pfnfdin: Pfnfdinotify, pfnfdid: Pfnfdidecrypt, pvuser: ConstPtr<CVoid>): Bool =
+public actual fun fDICopy(hfdi: ConstPtr, pszcabinet: Pcstr, pszcabpath: Pcstr, flags: Int, pfnfdin: Pfnfdinotify, pfnfdid: Pfnfdidecrypt, pvuser: ConstPtr): Bool =
     if (windowsWin32StorageCabinetsNapiAvailable) wasmWindowssysWindowsWin32StorageCabinetsFDICopy(hfdi.rawAddress.toString(), pszcabinet.rawAddress.toString(), pszcabpath.rawAddress.toString(), flags, 0L.toString(), 0L.toString(), pvuser.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun fDICreate(pfnalloc: Pfnalloc, pfnfree: Pfnfree, pfnopen: Pfnopen, pfnread: Pfnread, pfnwrite: Pfnwrite, pfnclose: Pfnclose, pfnseek: Pfnseek, cputype: FdicreateCpuType, perf: MutPtr<Erf>): MutPtr<CVoid> =
+public actual fun fDICreate(pfnalloc: Pfnalloc, pfnfree: Pfnfree, pfnopen: Pfnopen, pfnread: Pfnread, pfnwrite: Pfnwrite, pfnclose: Pfnclose, pfnseek: Pfnseek, cputype: FdicreateCpuType, perf: MutPtr): MutPtr =
     if (windowsWin32StorageCabinetsNapiAvailable) MutPtr(wasmWindowssysWindowsWin32StorageCabinetsFDICreate(0L.toString(), 0L.toString(), 0L.toString(), 0L.toString(), 0L.toString(), 0L.toString(), 0L.toString(), cputype, perf.rawAddress.toString()).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun fDIDestroy(hfdi: ConstPtr<CVoid>): Bool =
+public actual fun fDIDestroy(hfdi: ConstPtr): Bool =
     if (windowsWin32StorageCabinetsNapiAvailable) wasmWindowssysWindowsWin32StorageCabinetsFDIDestroy(hfdi.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun fDIIsCabinet(hfdi: ConstPtr<CVoid>, hf: Long, pfdici: MutPtr<Fdicabinetinfo>): Bool =
+public actual fun fDIIsCabinet(hfdi: ConstPtr, hf: Long, pfdici: MutPtr): Bool =
     if (windowsWin32StorageCabinetsNapiAvailable) wasmWindowssysWindowsWin32StorageCabinetsFDIIsCabinet(hfdi.rawAddress.toString(), hf.toString(), pfdici.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun fDITruncateCabinet(hfdi: ConstPtr<CVoid>, pszcabinetname: Pcstr, ifoldertodelete: UShort): Bool =
+public actual fun fDITruncateCabinet(hfdi: ConstPtr, pszcabinetname: Pcstr, ifoldertodelete: UShort): Bool =
     if (windowsWin32StorageCabinetsNapiAvailable) wasmWindowssysWindowsWin32StorageCabinetsFDITruncateCabinet(hfdi.rawAddress.toString(), pszcabinetname.rawAddress.toString(), ifoldertodelete.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")

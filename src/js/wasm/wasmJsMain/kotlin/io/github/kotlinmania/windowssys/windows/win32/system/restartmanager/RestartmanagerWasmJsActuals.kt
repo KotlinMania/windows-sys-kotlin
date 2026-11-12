@@ -46,7 +46,7 @@ private external fun wasmWindowssysWindowsWin32SystemRestartmanagerRmShutdown(p0
 @JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemRestartmanagerRmStartSession(p0, p1, p2)")
 private external fun wasmWindowssysWindowsWin32SystemRestartmanagerRmStartSession(p0: String, p1: Int, p2: String): Int
 
-public actual fun rmAddFilter(dwsessionhandle: UInt, strmodulename: Pcwstr, pprocess: ConstPtr<RmUniqueProcess>, strserviceshortname: Pcwstr, filteraction: RmFilterAction): Win32Error =
+public actual fun rmAddFilter(dwsessionhandle: UInt, strmodulename: Pcwstr, pprocess: ConstPtr, strserviceshortname: Pcwstr, filteraction: RmFilterAction): Win32Error =
     if (windowsWin32SystemRestartmanagerNapiAvailable) wasmWindowssysWindowsWin32SystemRestartmanagerRmAddFilter(dwsessionhandle.toInt(), strmodulename.rawAddress.toString(), pprocess.rawAddress.toString(), strserviceshortname.rawAddress.toString(), filteraction).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun rmCancelCurrentTask(dwsessionhandle: UInt): Win32Error =
@@ -55,19 +55,19 @@ public actual fun rmCancelCurrentTask(dwsessionhandle: UInt): Win32Error =
 public actual fun rmEndSession(dwsessionhandle: UInt): Win32Error =
     if (windowsWin32SystemRestartmanagerNapiAvailable) wasmWindowssysWindowsWin32SystemRestartmanagerRmEndSession(dwsessionhandle.toInt()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rmGetFilterList(dwsessionhandle: UInt, pbfilterbuf: MutPtr<UByte>, cbfilterbuf: UInt, cbfilterbufneeded: MutPtr<UInt>): Win32Error =
+public actual fun rmGetFilterList(dwsessionhandle: UInt, pbfilterbuf: MutPtr, cbfilterbuf: UInt, cbfilterbufneeded: MutPtr): Win32Error =
     if (windowsWin32SystemRestartmanagerNapiAvailable) wasmWindowssysWindowsWin32SystemRestartmanagerRmGetFilterList(dwsessionhandle.toInt(), pbfilterbuf.rawAddress.toString(), cbfilterbuf.toInt(), cbfilterbufneeded.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rmGetList(dwsessionhandle: UInt, pnprocinfoneeded: MutPtr<UInt>, pnprocinfo: MutPtr<UInt>, rgaffectedapps: MutPtr<RmProcessInfo>, lpdwrebootreasons: MutPtr<UInt>): Win32Error =
+public actual fun rmGetList(dwsessionhandle: UInt, pnprocinfoneeded: MutPtr, pnprocinfo: MutPtr, rgaffectedapps: MutPtr, lpdwrebootreasons: MutPtr): Win32Error =
     if (windowsWin32SystemRestartmanagerNapiAvailable) wasmWindowssysWindowsWin32SystemRestartmanagerRmGetList(dwsessionhandle.toInt(), pnprocinfoneeded.rawAddress.toString(), pnprocinfo.rawAddress.toString(), rgaffectedapps.rawAddress.toString(), lpdwrebootreasons.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rmJoinSession(psessionhandle: MutPtr<UInt>, strsessionkey: Pcwstr): Win32Error =
+public actual fun rmJoinSession(psessionhandle: MutPtr, strsessionkey: Pcwstr): Win32Error =
     if (windowsWin32SystemRestartmanagerNapiAvailable) wasmWindowssysWindowsWin32SystemRestartmanagerRmJoinSession(psessionhandle.rawAddress.toString(), strsessionkey.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rmRegisterResources(dwsessionhandle: UInt, nfiles: UInt, rgsfilenames: ConstPtr<Pcwstr>, napplications: UInt, rgapplications: ConstPtr<RmUniqueProcess>, nservices: UInt, rgsservicenames: ConstPtr<Pcwstr>): Win32Error =
+public actual fun rmRegisterResources(dwsessionhandle: UInt, nfiles: UInt, rgsfilenames: ConstPtr, napplications: UInt, rgapplications: ConstPtr, nservices: UInt, rgsservicenames: ConstPtr): Win32Error =
     if (windowsWin32SystemRestartmanagerNapiAvailable) wasmWindowssysWindowsWin32SystemRestartmanagerRmRegisterResources(dwsessionhandle.toInt(), nfiles.toInt(), rgsfilenames.rawAddress.toString(), napplications.toInt(), rgapplications.rawAddress.toString(), nservices.toInt(), rgsservicenames.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rmRemoveFilter(dwsessionhandle: UInt, strmodulename: Pcwstr, pprocess: ConstPtr<RmUniqueProcess>, strserviceshortname: Pcwstr): Win32Error =
+public actual fun rmRemoveFilter(dwsessionhandle: UInt, strmodulename: Pcwstr, pprocess: ConstPtr, strserviceshortname: Pcwstr): Win32Error =
     if (windowsWin32SystemRestartmanagerNapiAvailable) wasmWindowssysWindowsWin32SystemRestartmanagerRmRemoveFilter(dwsessionhandle.toInt(), strmodulename.rawAddress.toString(), pprocess.rawAddress.toString(), strserviceshortname.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun rmRestart(dwsessionhandle: UInt, dwrestartflags: UInt, fnstatus: RmWriteStatusCallback): Win32Error =
@@ -76,5 +76,5 @@ public actual fun rmRestart(dwsessionhandle: UInt, dwrestartflags: UInt, fnstatu
 public actual fun rmShutdown(dwsessionhandle: UInt, lactionflags: UInt, fnstatus: RmWriteStatusCallback): Win32Error =
     if (windowsWin32SystemRestartmanagerNapiAvailable) wasmWindowssysWindowsWin32SystemRestartmanagerRmShutdown(dwsessionhandle.toInt(), lactionflags.toInt(), 0L.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rmStartSession(psessionhandle: MutPtr<UInt>, dwsessionflags: UInt, strsessionkey: Pwstr): Win32Error =
+public actual fun rmStartSession(psessionhandle: MutPtr, dwsessionflags: UInt, strsessionkey: Pwstr): Win32Error =
     if (windowsWin32SystemRestartmanagerNapiAvailable) wasmWindowssysWindowsWin32SystemRestartmanagerRmStartSession(psessionhandle.rawAddress.toString(), dwsessionflags.toInt(), strsessionkey.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")

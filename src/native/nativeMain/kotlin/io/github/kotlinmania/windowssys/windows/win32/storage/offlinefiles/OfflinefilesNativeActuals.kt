@@ -11,13 +11,13 @@ import io.github.kotlinmania.windowssys.windows.win32.storage.offlinefiles.cinte
 import kotlinx.cinterop.ByteVar
 import kotlinx.cinterop.toCPointer
 
-public actual fun offlineFilesEnable(benable: Bool, pbrebootrequired: MutPtr<Bool>): UInt =
+public actual fun offlineFilesEnable(benable: Bool, pbrebootrequired: MutPtr): UInt =
     windowssysWindowsWin32StorageOfflinefilesOfflineFilesEnable(benable, pbrebootrequired.rawAddress.toCPointer<ByteVar>())
 
-public actual fun offlineFilesQueryStatus(pbactive: MutPtr<Bool>, pbenabled: MutPtr<Bool>): UInt =
+public actual fun offlineFilesQueryStatus(pbactive: MutPtr, pbenabled: MutPtr): UInt =
     windowssysWindowsWin32StorageOfflinefilesOfflineFilesQueryStatus(pbactive.rawAddress.toCPointer<ByteVar>(), pbenabled.rawAddress.toCPointer<ByteVar>())
 
-public actual fun offlineFilesQueryStatusEx(pbactive: MutPtr<Bool>, pbenabled: MutPtr<Bool>, pbavailable: MutPtr<Bool>): UInt =
+public actual fun offlineFilesQueryStatusEx(pbactive: MutPtr, pbenabled: MutPtr, pbavailable: MutPtr): UInt =
     windowssysWindowsWin32StorageOfflinefilesOfflineFilesQueryStatusEx(pbactive.rawAddress.toCPointer<ByteVar>(), pbenabled.rawAddress.toCPointer<ByteVar>(), pbavailable.rawAddress.toCPointer<ByteVar>())
 
 public actual fun offlineFilesStart(): UInt =

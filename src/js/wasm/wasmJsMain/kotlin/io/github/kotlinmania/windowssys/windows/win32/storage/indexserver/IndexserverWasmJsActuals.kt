@@ -2,10 +2,8 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.storage.indexserver
 
-import io.github.kotlinmania.rustlang.core.ffi.CVoid
 import io.github.kotlinmania.rustlang.core.ptr.ConstPtr
 import io.github.kotlinmania.rustlang.core.ptr.MutPtr
-import io.github.kotlinmania.windowssys.core.Guid
 import io.github.kotlinmania.windowssys.core.Hresult
 import io.github.kotlinmania.windowssys.core.Pcwstr
 
@@ -26,14 +24,14 @@ private external fun wasmWindowssysWindowsWin32StorageIndexserverLoadIFilter(p0:
 @JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssysWindowsWin32StorageIndexserverLoadIFilterEx(p0, p1, p2, p3)")
 private external fun wasmWindowssysWindowsWin32StorageIndexserverLoadIFilterEx(p0: String, p1: Int, p2: String, p3: String): Int
 
-public actual fun bindIFilterFromStorage(pstg: MutPtr<CVoid>, punkouter: MutPtr<CVoid>, ppiunk: MutPtr<MutPtr<CVoid>>): Hresult =
+public actual fun bindIFilterFromStorage(pstg: MutPtr, punkouter: MutPtr, ppiunk: MutPtr): Hresult =
     if (windowsWin32StorageIndexserverNapiAvailable) wasmWindowssysWindowsWin32StorageIndexserverBindIFilterFromStorage(pstg.rawAddress.toString(), punkouter.rawAddress.toString(), ppiunk.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun bindIFilterFromStream(pstm: MutPtr<CVoid>, punkouter: MutPtr<CVoid>, ppiunk: MutPtr<MutPtr<CVoid>>): Hresult =
+public actual fun bindIFilterFromStream(pstm: MutPtr, punkouter: MutPtr, ppiunk: MutPtr): Hresult =
     if (windowsWin32StorageIndexserverNapiAvailable) wasmWindowssysWindowsWin32StorageIndexserverBindIFilterFromStream(pstm.rawAddress.toString(), punkouter.rawAddress.toString(), ppiunk.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun loadIFilter(pwcspath: Pcwstr, punkouter: MutPtr<CVoid>, ppiunk: MutPtr<MutPtr<CVoid>>): Hresult =
+public actual fun loadIFilter(pwcspath: Pcwstr, punkouter: MutPtr, ppiunk: MutPtr): Hresult =
     if (windowsWin32StorageIndexserverNapiAvailable) wasmWindowssysWindowsWin32StorageIndexserverLoadIFilter(pwcspath.rawAddress.toString(), punkouter.rawAddress.toString(), ppiunk.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun loadIFilterEx(pwcspath: Pcwstr, dwflags: UInt, riid: ConstPtr<Guid>, ppiunk: MutPtr<MutPtr<CVoid>>): Hresult =
+public actual fun loadIFilterEx(pwcspath: Pcwstr, dwflags: UInt, riid: ConstPtr, ppiunk: MutPtr): Hresult =
     if (windowsWin32StorageIndexserverNapiAvailable) wasmWindowssysWindowsWin32StorageIndexserverLoadIFilterEx(pwcspath.rawAddress.toString(), dwflags.toInt(), riid.rawAddress.toString(), ppiunk.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")

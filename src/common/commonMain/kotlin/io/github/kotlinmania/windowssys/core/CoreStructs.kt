@@ -2,7 +2,6 @@
 
 package io.github.kotlinmania.windowssys.core
 
-import io.github.kotlinmania.rustlang.core.ffi.CVoid
 import io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
 import io.github.kotlinmania.rustlang.core.mem.TypeLayout
 import io.github.kotlinmania.rustlang.core.ptr.ConstPtr
@@ -10,23 +9,23 @@ import io.github.kotlinmania.rustlang.core.ptr.MutPtr
 import io.github.kotlinmania.windowssys.U128
 
 public fun interface IunknownVtblQueryInterfaceCallback {
-    public operator fun invoke(thisRef: MutPtr<CVoid>, iid: ConstPtr<Guid>, iface: MutPtr<MutPtr<CVoid>>): Hresult
+    public operator fun invoke(thisRef: MutPtr, iid: ConstPtr, iface: MutPtr): Hresult
 }
 
 public fun interface IunknownVtblAddRefCallback {
-    public operator fun invoke(thisRef: MutPtr<CVoid>): UInt
+    public operator fun invoke(thisRef: MutPtr): UInt
 }
 
 public fun interface IinspectableVtblGetIidsCallback {
-    public operator fun invoke(thisRef: MutPtr<CVoid>, count: MutPtr<UInt>, values: MutPtr<MutPtr<Guid>>): Hresult
+    public operator fun invoke(thisRef: MutPtr, count: MutPtr, values: MutPtr): Hresult
 }
 
 public fun interface IinspectableVtblGetRuntimeClassNameCallback {
-    public operator fun invoke(thisRef: MutPtr<CVoid>, value: MutPtr<MutPtr<CVoid>>): Hresult
+    public operator fun invoke(thisRef: MutPtr, value: MutPtr): Hresult
 }
 
 public fun interface IinspectableVtblGetTrustLevelCallback {
-    public operator fun invoke(thisRef: MutPtr<CVoid>, value: MutPtr<Int>): Hresult
+    public operator fun invoke(thisRef: MutPtr, value: MutPtr): Hresult
 }
 
 public data class Guid(

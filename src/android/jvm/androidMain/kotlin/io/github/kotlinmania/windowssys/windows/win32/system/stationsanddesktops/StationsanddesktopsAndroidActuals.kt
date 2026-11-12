@@ -2,7 +2,6 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.system.stationsanddesktops
 
-import io.github.kotlinmania.rustlang.core.ffi.CVoid
 import io.github.kotlinmania.rustlang.core.ptr.ConstPtr
 import io.github.kotlinmania.rustlang.core.ptr.MutPtr
 import io.github.kotlinmania.windowssys.core.Bool
@@ -11,9 +10,6 @@ import io.github.kotlinmania.windowssys.core.Pcwstr
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Handle
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Lparam
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Wparam
-import io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.Devmodea
-import io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.Devmodew
-import io.github.kotlinmania.windowssys.windows.win32.security.SecurityAttributes
 import io.github.kotlinmania.windowssys.windows.win32.ui.windowsandmessaging.Wndenumproc
 
 private object WindowsWin32SystemStationsanddesktopsJniBridge {
@@ -112,16 +108,16 @@ private object WindowsWin32SystemStationsanddesktopsJniBridge {
     external fun windowssysWindowsWin32SystemStationsanddesktopsSwitchDesktop(hdesktop: Long): Int
 }
 
-public actual fun broadcastSystemMessageA(flags: UInt, lpinfo: MutPtr<UInt>, msg: UInt, wparam: Wparam, lparam: Lparam): Int =
+public actual fun broadcastSystemMessageA(flags: UInt, lpinfo: MutPtr, msg: UInt, wparam: Wparam, lparam: Lparam): Int =
     WindowsWin32SystemStationsanddesktopsJniBridge.windowssysWindowsWin32SystemStationsanddesktopsBroadcastSystemMessageA(flags.toInt(), lpinfo.rawAddress, msg.toInt(), wparam.toLong(), lparam)
 
-public actual fun broadcastSystemMessageExA(flags: BroadcastSystemMessageFlags, lpinfo: MutPtr<BroadcastSystemMessageInfo>, msg: UInt, wparam: Wparam, lparam: Lparam, pbsminfo: MutPtr<Bsminfo>): Int =
+public actual fun broadcastSystemMessageExA(flags: BroadcastSystemMessageFlags, lpinfo: MutPtr, msg: UInt, wparam: Wparam, lparam: Lparam, pbsminfo: MutPtr): Int =
     WindowsWin32SystemStationsanddesktopsJniBridge.windowssysWindowsWin32SystemStationsanddesktopsBroadcastSystemMessageExA(flags.toInt(), lpinfo.rawAddress, msg.toInt(), wparam.toLong(), lparam, pbsminfo.rawAddress)
 
-public actual fun broadcastSystemMessageExW(flags: BroadcastSystemMessageFlags, lpinfo: MutPtr<BroadcastSystemMessageInfo>, msg: UInt, wparam: Wparam, lparam: Lparam, pbsminfo: MutPtr<Bsminfo>): Int =
+public actual fun broadcastSystemMessageExW(flags: BroadcastSystemMessageFlags, lpinfo: MutPtr, msg: UInt, wparam: Wparam, lparam: Lparam, pbsminfo: MutPtr): Int =
     WindowsWin32SystemStationsanddesktopsJniBridge.windowssysWindowsWin32SystemStationsanddesktopsBroadcastSystemMessageExW(flags.toInt(), lpinfo.rawAddress, msg.toInt(), wparam.toLong(), lparam, pbsminfo.rawAddress)
 
-public actual fun broadcastSystemMessageW(flags: BroadcastSystemMessageFlags, lpinfo: MutPtr<BroadcastSystemMessageInfo>, msg: UInt, wparam: Wparam, lparam: Lparam): Int =
+public actual fun broadcastSystemMessageW(flags: BroadcastSystemMessageFlags, lpinfo: MutPtr, msg: UInt, wparam: Wparam, lparam: Lparam): Int =
     WindowsWin32SystemStationsanddesktopsJniBridge.windowssysWindowsWin32SystemStationsanddesktopsBroadcastSystemMessageW(flags.toInt(), lpinfo.rawAddress, msg.toInt(), wparam.toLong(), lparam)
 
 public actual fun closeDesktop(hdesktop: Hdesk): Bool =
@@ -130,22 +126,22 @@ public actual fun closeDesktop(hdesktop: Hdesk): Bool =
 public actual fun closeWindowStation(hwinsta: Hwinsta): Bool =
     WindowsWin32SystemStationsanddesktopsJniBridge.windowssysWindowsWin32SystemStationsanddesktopsCloseWindowStation(hwinsta.rawAddress)
 
-public actual fun createDesktopA(lpszdesktop: Pcstr, lpszdevice: Pcstr, pdevmode: ConstPtr<Devmodea>, dwflags: DesktopControlFlags, dwdesiredaccess: UInt, lpsa: ConstPtr<SecurityAttributes>): Hdesk =
+public actual fun createDesktopA(lpszdesktop: Pcstr, lpszdevice: Pcstr, pdevmode: ConstPtr, dwflags: DesktopControlFlags, dwdesiredaccess: UInt, lpsa: ConstPtr): Hdesk =
     MutPtr(WindowsWin32SystemStationsanddesktopsJniBridge.windowssysWindowsWin32SystemStationsanddesktopsCreateDesktopA(lpszdesktop.rawAddress, lpszdevice.rawAddress, pdevmode.rawAddress, dwflags.toInt(), dwdesiredaccess.toInt(), lpsa.rawAddress))
 
-public actual fun createDesktopExA(lpszdesktop: Pcstr, lpszdevice: Pcstr, pdevmode: ConstPtr<Devmodea>, dwflags: DesktopControlFlags, dwdesiredaccess: UInt, lpsa: ConstPtr<SecurityAttributes>, ulheapsize: UInt, pvoid: ConstPtr<CVoid>): Hdesk =
+public actual fun createDesktopExA(lpszdesktop: Pcstr, lpszdevice: Pcstr, pdevmode: ConstPtr, dwflags: DesktopControlFlags, dwdesiredaccess: UInt, lpsa: ConstPtr, ulheapsize: UInt, pvoid: ConstPtr): Hdesk =
     MutPtr(WindowsWin32SystemStationsanddesktopsJniBridge.windowssysWindowsWin32SystemStationsanddesktopsCreateDesktopExA(lpszdesktop.rawAddress, lpszdevice.rawAddress, pdevmode.rawAddress, dwflags.toInt(), dwdesiredaccess.toInt(), lpsa.rawAddress, ulheapsize.toInt(), pvoid.rawAddress))
 
-public actual fun createDesktopExW(lpszdesktop: Pcwstr, lpszdevice: Pcwstr, pdevmode: ConstPtr<Devmodew>, dwflags: DesktopControlFlags, dwdesiredaccess: UInt, lpsa: ConstPtr<SecurityAttributes>, ulheapsize: UInt, pvoid: ConstPtr<CVoid>): Hdesk =
+public actual fun createDesktopExW(lpszdesktop: Pcwstr, lpszdevice: Pcwstr, pdevmode: ConstPtr, dwflags: DesktopControlFlags, dwdesiredaccess: UInt, lpsa: ConstPtr, ulheapsize: UInt, pvoid: ConstPtr): Hdesk =
     MutPtr(WindowsWin32SystemStationsanddesktopsJniBridge.windowssysWindowsWin32SystemStationsanddesktopsCreateDesktopExW(lpszdesktop.rawAddress, lpszdevice.rawAddress, pdevmode.rawAddress, dwflags.toInt(), dwdesiredaccess.toInt(), lpsa.rawAddress, ulheapsize.toInt(), pvoid.rawAddress))
 
-public actual fun createDesktopW(lpszdesktop: Pcwstr, lpszdevice: Pcwstr, pdevmode: ConstPtr<Devmodew>, dwflags: DesktopControlFlags, dwdesiredaccess: UInt, lpsa: ConstPtr<SecurityAttributes>): Hdesk =
+public actual fun createDesktopW(lpszdesktop: Pcwstr, lpszdevice: Pcwstr, pdevmode: ConstPtr, dwflags: DesktopControlFlags, dwdesiredaccess: UInt, lpsa: ConstPtr): Hdesk =
     MutPtr(WindowsWin32SystemStationsanddesktopsJniBridge.windowssysWindowsWin32SystemStationsanddesktopsCreateDesktopW(lpszdesktop.rawAddress, lpszdevice.rawAddress, pdevmode.rawAddress, dwflags.toInt(), dwdesiredaccess.toInt(), lpsa.rawAddress))
 
-public actual fun createWindowStationA(lpwinsta: Pcstr, dwflags: UInt, dwdesiredaccess: UInt, lpsa: ConstPtr<SecurityAttributes>): Hwinsta =
+public actual fun createWindowStationA(lpwinsta: Pcstr, dwflags: UInt, dwdesiredaccess: UInt, lpsa: ConstPtr): Hwinsta =
     MutPtr(WindowsWin32SystemStationsanddesktopsJniBridge.windowssysWindowsWin32SystemStationsanddesktopsCreateWindowStationA(lpwinsta.rawAddress, dwflags.toInt(), dwdesiredaccess.toInt(), lpsa.rawAddress))
 
-public actual fun createWindowStationW(lpwinsta: Pcwstr, dwflags: UInt, dwdesiredaccess: UInt, lpsa: ConstPtr<SecurityAttributes>): Hwinsta =
+public actual fun createWindowStationW(lpwinsta: Pcwstr, dwflags: UInt, dwdesiredaccess: UInt, lpsa: ConstPtr): Hwinsta =
     MutPtr(WindowsWin32SystemStationsanddesktopsJniBridge.windowssysWindowsWin32SystemStationsanddesktopsCreateWindowStationW(lpwinsta.rawAddress, dwflags.toInt(), dwdesiredaccess.toInt(), lpsa.rawAddress))
 
 public actual fun enumDesktopWindows(hdesktop: Hdesk, lpfn: Wndenumproc, lparam: Lparam): Bool =
@@ -169,10 +165,10 @@ public actual fun getProcessWindowStation(): Hwinsta =
 public actual fun getThreadDesktop(dwthreadid: UInt): Hdesk =
     MutPtr(WindowsWin32SystemStationsanddesktopsJniBridge.windowssysWindowsWin32SystemStationsanddesktopsGetThreadDesktop(dwthreadid.toInt()))
 
-public actual fun getUserObjectInformationA(hobj: Handle, nindex: UserObjectInformationIndex, pvinfo: MutPtr<CVoid>, nlength: UInt, lpnlengthneeded: MutPtr<UInt>): Bool =
+public actual fun getUserObjectInformationA(hobj: Handle, nindex: UserObjectInformationIndex, pvinfo: MutPtr, nlength: UInt, lpnlengthneeded: MutPtr): Bool =
     WindowsWin32SystemStationsanddesktopsJniBridge.windowssysWindowsWin32SystemStationsanddesktopsGetUserObjectInformationA(hobj.rawAddress, nindex, pvinfo.rawAddress, nlength.toInt(), lpnlengthneeded.rawAddress)
 
-public actual fun getUserObjectInformationW(hobj: Handle, nindex: UserObjectInformationIndex, pvinfo: MutPtr<CVoid>, nlength: UInt, lpnlengthneeded: MutPtr<UInt>): Bool =
+public actual fun getUserObjectInformationW(hobj: Handle, nindex: UserObjectInformationIndex, pvinfo: MutPtr, nlength: UInt, lpnlengthneeded: MutPtr): Bool =
     WindowsWin32SystemStationsanddesktopsJniBridge.windowssysWindowsWin32SystemStationsanddesktopsGetUserObjectInformationW(hobj.rawAddress, nindex, pvinfo.rawAddress, nlength.toInt(), lpnlengthneeded.rawAddress)
 
 public actual fun openDesktopA(lpszdesktop: Pcstr, dwflags: DesktopControlFlags, finherit: Bool, dwdesiredaccess: UInt): Hdesk =
@@ -196,10 +192,10 @@ public actual fun setProcessWindowStation(hwinsta: Hwinsta): Bool =
 public actual fun setThreadDesktop(hdesktop: Hdesk): Bool =
     WindowsWin32SystemStationsanddesktopsJniBridge.windowssysWindowsWin32SystemStationsanddesktopsSetThreadDesktop(hdesktop.rawAddress)
 
-public actual fun setUserObjectInformationA(hobj: Handle, nindex: Int, pvinfo: ConstPtr<CVoid>, nlength: UInt): Bool =
+public actual fun setUserObjectInformationA(hobj: Handle, nindex: Int, pvinfo: ConstPtr, nlength: UInt): Bool =
     WindowsWin32SystemStationsanddesktopsJniBridge.windowssysWindowsWin32SystemStationsanddesktopsSetUserObjectInformationA(hobj.rawAddress, nindex, pvinfo.rawAddress, nlength.toInt())
 
-public actual fun setUserObjectInformationW(hobj: Handle, nindex: Int, pvinfo: ConstPtr<CVoid>, nlength: UInt): Bool =
+public actual fun setUserObjectInformationW(hobj: Handle, nindex: Int, pvinfo: ConstPtr, nlength: UInt): Bool =
     WindowsWin32SystemStationsanddesktopsJniBridge.windowssysWindowsWin32SystemStationsanddesktopsSetUserObjectInformationW(hobj.rawAddress, nindex, pvinfo.rawAddress, nlength.toInt())
 
 public actual fun switchDesktop(hdesktop: Hdesk): Bool =

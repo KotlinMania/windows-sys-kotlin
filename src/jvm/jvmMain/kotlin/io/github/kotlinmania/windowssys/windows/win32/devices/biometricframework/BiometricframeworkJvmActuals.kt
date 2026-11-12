@@ -2,11 +2,9 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.devices.biometricframework
 
-import io.github.kotlinmania.rustlang.core.ffi.CVoid
 import io.github.kotlinmania.rustlang.core.ptr.ConstPtr
 import io.github.kotlinmania.rustlang.core.ptr.MutPtr
 import io.github.kotlinmania.windowssys.core.Bool
-import io.github.kotlinmania.windowssys.core.Guid
 import io.github.kotlinmania.windowssys.core.Hresult
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Hwnd
 
@@ -238,19 +236,19 @@ public actual fun winBioAsyncEnumServiceProviders(frameworkhandle: UInt, factor:
 public actual fun winBioAsyncMonitorFrameworkChanges(frameworkhandle: UInt, changetypes: UInt): Hresult =
     WindowsWin32DevicesBiometricframeworkJniBridge.windowssysWindowsWin32DevicesBiometricframeworkWinBioAsyncMonitorFrameworkChanges(frameworkhandle.toInt(), changetypes.toInt())
 
-public actual fun winBioAsyncOpenFramework(notificationmethod: WinbioAsyncNotificationMethod, targetwindow: Hwnd, messagecode: UInt, callbackroutine: PwinbioAsyncCompletionCallback, userdata: ConstPtr<CVoid>, asynchronousopen: Bool, frameworkhandle: MutPtr<UInt>): Hresult =
+public actual fun winBioAsyncOpenFramework(notificationmethod: WinbioAsyncNotificationMethod, targetwindow: Hwnd, messagecode: UInt, callbackroutine: PwinbioAsyncCompletionCallback, userdata: ConstPtr, asynchronousopen: Bool, frameworkhandle: MutPtr): Hresult =
     WindowsWin32DevicesBiometricframeworkJniBridge.windowssysWindowsWin32DevicesBiometricframeworkWinBioAsyncOpenFramework(notificationmethod, targetwindow.rawAddress, messagecode.toInt(), 0L, userdata.rawAddress, asynchronousopen, frameworkhandle.rawAddress)
 
-public actual fun winBioAsyncOpenSession(factor: UInt, pooltype: WinbioPool, flags: UInt, unitarray: ConstPtr<UInt>, unitcount: ULong, databaseid: ConstPtr<Guid>, notificationmethod: WinbioAsyncNotificationMethod, targetwindow: Hwnd, messagecode: UInt, callbackroutine: PwinbioAsyncCompletionCallback, userdata: ConstPtr<CVoid>, asynchronousopen: Bool, sessionhandle: MutPtr<UInt>): Hresult =
+public actual fun winBioAsyncOpenSession(factor: UInt, pooltype: WinbioPool, flags: UInt, unitarray: ConstPtr, unitcount: ULong, databaseid: ConstPtr, notificationmethod: WinbioAsyncNotificationMethod, targetwindow: Hwnd, messagecode: UInt, callbackroutine: PwinbioAsyncCompletionCallback, userdata: ConstPtr, asynchronousopen: Bool, sessionhandle: MutPtr): Hresult =
     WindowsWin32DevicesBiometricframeworkJniBridge.windowssysWindowsWin32DevicesBiometricframeworkWinBioAsyncOpenSession(factor.toInt(), pooltype.toInt(), flags.toInt(), unitarray.rawAddress, unitcount.toLong(), databaseid.rawAddress, notificationmethod, targetwindow.rawAddress, messagecode.toInt(), 0L, userdata.rawAddress, asynchronousopen, sessionhandle.rawAddress)
 
 public actual fun winBioCancel(sessionhandle: UInt): Hresult =
     WindowsWin32DevicesBiometricframeworkJniBridge.windowssysWindowsWin32DevicesBiometricframeworkWinBioCancel(sessionhandle.toInt())
 
-public actual fun winBioCaptureSample(sessionhandle: UInt, purpose: UByte, flags: UByte, unitid: MutPtr<UInt>, sample: MutPtr<MutPtr<WinbioBir>>, samplesize: MutPtr<ULong>, rejectdetail: MutPtr<UInt>): Hresult =
+public actual fun winBioCaptureSample(sessionhandle: UInt, purpose: UByte, flags: UByte, unitid: MutPtr, sample: MutPtr, samplesize: MutPtr, rejectdetail: MutPtr): Hresult =
     WindowsWin32DevicesBiometricframeworkJniBridge.windowssysWindowsWin32DevicesBiometricframeworkWinBioCaptureSample(sessionhandle.toInt(), purpose.toByte(), flags.toByte(), unitid.rawAddress, sample.rawAddress, samplesize.rawAddress, rejectdetail.rawAddress)
 
-public actual fun winBioCaptureSampleWithCallback(sessionhandle: UInt, purpose: UByte, flags: UByte, capturecallback: PwinbioCaptureCallback, capturecallbackcontext: ConstPtr<CVoid>): Hresult =
+public actual fun winBioCaptureSampleWithCallback(sessionhandle: UInt, purpose: UByte, flags: UByte, capturecallback: PwinbioCaptureCallback, capturecallbackcontext: ConstPtr): Hresult =
     WindowsWin32DevicesBiometricframeworkJniBridge.windowssysWindowsWin32DevicesBiometricframeworkWinBioCaptureSampleWithCallback(sessionhandle.toInt(), purpose.toByte(), flags.toByte(), 0L, capturecallbackcontext.rawAddress)
 
 public actual fun winBioCloseFramework(frameworkhandle: UInt): Hresult =
@@ -259,25 +257,25 @@ public actual fun winBioCloseFramework(frameworkhandle: UInt): Hresult =
 public actual fun winBioCloseSession(sessionhandle: UInt): Hresult =
     WindowsWin32DevicesBiometricframeworkJniBridge.windowssysWindowsWin32DevicesBiometricframeworkWinBioCloseSession(sessionhandle.toInt())
 
-public actual fun winBioControlUnit(sessionhandle: UInt, unitid: UInt, component: WinbioComponent, controlcode: UInt, sendbuffer: ConstPtr<UByte>, sendbuffersize: ULong, receivebuffer: MutPtr<UByte>, receivebuffersize: ULong, receivedatasize: MutPtr<ULong>, operationstatus: MutPtr<UInt>): Hresult =
+public actual fun winBioControlUnit(sessionhandle: UInt, unitid: UInt, component: WinbioComponent, controlcode: UInt, sendbuffer: ConstPtr, sendbuffersize: ULong, receivebuffer: MutPtr, receivebuffersize: ULong, receivedatasize: MutPtr, operationstatus: MutPtr): Hresult =
     WindowsWin32DevicesBiometricframeworkJniBridge.windowssysWindowsWin32DevicesBiometricframeworkWinBioControlUnit(sessionhandle.toInt(), unitid.toInt(), component.toInt(), controlcode.toInt(), sendbuffer.rawAddress, sendbuffersize.toLong(), receivebuffer.rawAddress, receivebuffersize.toLong(), receivedatasize.rawAddress, operationstatus.rawAddress)
 
-public actual fun winBioControlUnitPrivileged(sessionhandle: UInt, unitid: UInt, component: WinbioComponent, controlcode: UInt, sendbuffer: ConstPtr<UByte>, sendbuffersize: ULong, receivebuffer: MutPtr<UByte>, receivebuffersize: ULong, receivedatasize: MutPtr<ULong>, operationstatus: MutPtr<UInt>): Hresult =
+public actual fun winBioControlUnitPrivileged(sessionhandle: UInt, unitid: UInt, component: WinbioComponent, controlcode: UInt, sendbuffer: ConstPtr, sendbuffersize: ULong, receivebuffer: MutPtr, receivebuffersize: ULong, receivedatasize: MutPtr, operationstatus: MutPtr): Hresult =
     WindowsWin32DevicesBiometricframeworkJniBridge.windowssysWindowsWin32DevicesBiometricframeworkWinBioControlUnitPrivileged(sessionhandle.toInt(), unitid.toInt(), component.toInt(), controlcode.toInt(), sendbuffer.rawAddress, sendbuffersize.toLong(), receivebuffer.rawAddress, receivebuffersize.toLong(), receivedatasize.rawAddress, operationstatus.rawAddress)
 
-public actual fun winBioDeleteTemplate(sessionhandle: UInt, unitid: UInt, identity: ConstPtr<WinbioIdentity>, subfactor: UByte): Hresult =
+public actual fun winBioDeleteTemplate(sessionhandle: UInt, unitid: UInt, identity: ConstPtr, subfactor: UByte): Hresult =
     WindowsWin32DevicesBiometricframeworkJniBridge.windowssysWindowsWin32DevicesBiometricframeworkWinBioDeleteTemplate(sessionhandle.toInt(), unitid.toInt(), identity.rawAddress, subfactor.toByte())
 
 public actual fun winBioEnrollBegin(sessionhandle: UInt, subfactor: UByte, unitid: UInt): Hresult =
     WindowsWin32DevicesBiometricframeworkJniBridge.windowssysWindowsWin32DevicesBiometricframeworkWinBioEnrollBegin(sessionhandle.toInt(), subfactor.toByte(), unitid.toInt())
 
-public actual fun winBioEnrollCapture(sessionhandle: UInt, rejectdetail: MutPtr<UInt>): Hresult =
+public actual fun winBioEnrollCapture(sessionhandle: UInt, rejectdetail: MutPtr): Hresult =
     WindowsWin32DevicesBiometricframeworkJniBridge.windowssysWindowsWin32DevicesBiometricframeworkWinBioEnrollCapture(sessionhandle.toInt(), rejectdetail.rawAddress)
 
-public actual fun winBioEnrollCaptureWithCallback(sessionhandle: UInt, enrollcallback: PwinbioEnrollCaptureCallback, enrollcallbackcontext: ConstPtr<CVoid>): Hresult =
+public actual fun winBioEnrollCaptureWithCallback(sessionhandle: UInt, enrollcallback: PwinbioEnrollCaptureCallback, enrollcallbackcontext: ConstPtr): Hresult =
     WindowsWin32DevicesBiometricframeworkJniBridge.windowssysWindowsWin32DevicesBiometricframeworkWinBioEnrollCaptureWithCallback(sessionhandle.toInt(), 0L, enrollcallbackcontext.rawAddress)
 
-public actual fun winBioEnrollCommit(sessionhandle: UInt, identity: MutPtr<WinbioIdentity>, isnewtemplate: MutPtr<UByte>): Hresult =
+public actual fun winBioEnrollCommit(sessionhandle: UInt, identity: MutPtr, isnewtemplate: MutPtr): Hresult =
     WindowsWin32DevicesBiometricframeworkJniBridge.windowssysWindowsWin32DevicesBiometricframeworkWinBioEnrollCommit(sessionhandle.toInt(), identity.rawAddress, isnewtemplate.rawAddress)
 
 public actual fun winBioEnrollDiscard(sessionhandle: UInt): Hresult =
@@ -286,46 +284,46 @@ public actual fun winBioEnrollDiscard(sessionhandle: UInt): Hresult =
 public actual fun winBioEnrollSelect(sessionhandle: UInt, selectorvalue: ULong): Hresult =
     WindowsWin32DevicesBiometricframeworkJniBridge.windowssysWindowsWin32DevicesBiometricframeworkWinBioEnrollSelect(sessionhandle.toInt(), selectorvalue.toLong())
 
-public actual fun winBioEnumBiometricUnits(factor: UInt, unitschemaarray: MutPtr<MutPtr<WinbioUnitSchema>>, unitcount: MutPtr<ULong>): Hresult =
+public actual fun winBioEnumBiometricUnits(factor: UInt, unitschemaarray: MutPtr, unitcount: MutPtr): Hresult =
     WindowsWin32DevicesBiometricframeworkJniBridge.windowssysWindowsWin32DevicesBiometricframeworkWinBioEnumBiometricUnits(factor.toInt(), unitschemaarray.rawAddress, unitcount.rawAddress)
 
-public actual fun winBioEnumDatabases(factor: UInt, storageschemaarray: MutPtr<MutPtr<WinbioStorageSchema>>, storagecount: MutPtr<ULong>): Hresult =
+public actual fun winBioEnumDatabases(factor: UInt, storageschemaarray: MutPtr, storagecount: MutPtr): Hresult =
     WindowsWin32DevicesBiometricframeworkJniBridge.windowssysWindowsWin32DevicesBiometricframeworkWinBioEnumDatabases(factor.toInt(), storageschemaarray.rawAddress, storagecount.rawAddress)
 
-public actual fun winBioEnumEnrollments(sessionhandle: UInt, unitid: UInt, identity: ConstPtr<WinbioIdentity>, subfactorarray: MutPtr<MutPtr<UByte>>, subfactorcount: MutPtr<ULong>): Hresult =
+public actual fun winBioEnumEnrollments(sessionhandle: UInt, unitid: UInt, identity: ConstPtr, subfactorarray: MutPtr, subfactorcount: MutPtr): Hresult =
     WindowsWin32DevicesBiometricframeworkJniBridge.windowssysWindowsWin32DevicesBiometricframeworkWinBioEnumEnrollments(sessionhandle.toInt(), unitid.toInt(), identity.rawAddress, subfactorarray.rawAddress, subfactorcount.rawAddress)
 
-public actual fun winBioEnumServiceProviders(factor: UInt, bspschemaarray: MutPtr<MutPtr<WinbioBspSchema>>, bspcount: MutPtr<ULong>): Hresult =
+public actual fun winBioEnumServiceProviders(factor: UInt, bspschemaarray: MutPtr, bspcount: MutPtr): Hresult =
     WindowsWin32DevicesBiometricframeworkJniBridge.windowssysWindowsWin32DevicesBiometricframeworkWinBioEnumServiceProviders(factor.toInt(), bspschemaarray.rawAddress, bspcount.rawAddress)
 
-public actual fun winBioFree(address: ConstPtr<CVoid>): Hresult =
+public actual fun winBioFree(address: ConstPtr): Hresult =
     WindowsWin32DevicesBiometricframeworkJniBridge.windowssysWindowsWin32DevicesBiometricframeworkWinBioFree(address.rawAddress)
 
-public actual fun winBioGetCredentialState(identity: WinbioIdentity, type: WinbioCredentialType, credentialstate: MutPtr<WinbioCredentialState>): Hresult =
+public actual fun winBioGetCredentialState(identity: WinbioIdentity, type: WinbioCredentialType, credentialstate: MutPtr): Hresult =
     0
 
-public actual fun winBioGetDomainLogonSetting(value: MutPtr<UByte>, source: MutPtr<WinbioSettingSource>) {
+public actual fun winBioGetDomainLogonSetting(value: MutPtr, source: MutPtr) {
     WindowsWin32DevicesBiometricframeworkJniBridge.windowssysWindowsWin32DevicesBiometricframeworkWinBioGetDomainLogonSetting(value.rawAddress, source.rawAddress)
 }
 
-public actual fun winBioGetEnabledSetting(value: MutPtr<UByte>, source: MutPtr<WinbioSettingSource>) {
+public actual fun winBioGetEnabledSetting(value: MutPtr, source: MutPtr) {
     WindowsWin32DevicesBiometricframeworkJniBridge.windowssysWindowsWin32DevicesBiometricframeworkWinBioGetEnabledSetting(value.rawAddress, source.rawAddress)
 }
 
-public actual fun winBioGetEnrolledFactors(accountowner: ConstPtr<WinbioIdentity>, enrolledfactors: MutPtr<UInt>): Hresult =
+public actual fun winBioGetEnrolledFactors(accountowner: ConstPtr, enrolledfactors: MutPtr): Hresult =
     WindowsWin32DevicesBiometricframeworkJniBridge.windowssysWindowsWin32DevicesBiometricframeworkWinBioGetEnrolledFactors(accountowner.rawAddress, enrolledfactors.rawAddress)
 
-public actual fun winBioGetLogonSetting(value: MutPtr<UByte>, source: MutPtr<WinbioSettingSource>) {
+public actual fun winBioGetLogonSetting(value: MutPtr, source: MutPtr) {
     WindowsWin32DevicesBiometricframeworkJniBridge.windowssysWindowsWin32DevicesBiometricframeworkWinBioGetLogonSetting(value.rawAddress, source.rawAddress)
 }
 
-public actual fun winBioGetProperty(sessionhandle: UInt, propertytype: UInt, propertyid: UInt, unitid: UInt, identity: ConstPtr<WinbioIdentity>, subfactor: UByte, propertybuffer: MutPtr<MutPtr<CVoid>>, propertybuffersize: MutPtr<ULong>): Hresult =
+public actual fun winBioGetProperty(sessionhandle: UInt, propertytype: UInt, propertyid: UInt, unitid: UInt, identity: ConstPtr, subfactor: UByte, propertybuffer: MutPtr, propertybuffersize: MutPtr): Hresult =
     WindowsWin32DevicesBiometricframeworkJniBridge.windowssysWindowsWin32DevicesBiometricframeworkWinBioGetProperty(sessionhandle.toInt(), propertytype.toInt(), propertyid.toInt(), unitid.toInt(), identity.rawAddress, subfactor.toByte(), propertybuffer.rawAddress, propertybuffersize.rawAddress)
 
-public actual fun winBioIdentify(sessionhandle: UInt, unitid: MutPtr<UInt>, identity: MutPtr<WinbioIdentity>, subfactor: MutPtr<UByte>, rejectdetail: MutPtr<UInt>): Hresult =
+public actual fun winBioIdentify(sessionhandle: UInt, unitid: MutPtr, identity: MutPtr, subfactor: MutPtr, rejectdetail: MutPtr): Hresult =
     WindowsWin32DevicesBiometricframeworkJniBridge.windowssysWindowsWin32DevicesBiometricframeworkWinBioIdentify(sessionhandle.toInt(), unitid.rawAddress, identity.rawAddress, subfactor.rawAddress, rejectdetail.rawAddress)
 
-public actual fun winBioIdentifyWithCallback(sessionhandle: UInt, identifycallback: PwinbioIdentifyCallback, identifycallbackcontext: ConstPtr<CVoid>): Hresult =
+public actual fun winBioIdentifyWithCallback(sessionhandle: UInt, identifycallback: PwinbioIdentifyCallback, identifycallbackcontext: ConstPtr): Hresult =
     WindowsWin32DevicesBiometricframeworkJniBridge.windowssysWindowsWin32DevicesBiometricframeworkWinBioIdentifyWithCallback(sessionhandle.toInt(), 0L, identifycallbackcontext.rawAddress)
 
 public actual fun winBioImproveBegin(sessionhandle: UInt, unitid: UInt): Hresult =
@@ -334,10 +332,10 @@ public actual fun winBioImproveBegin(sessionhandle: UInt, unitid: UInt): Hresult
 public actual fun winBioImproveEnd(sessionhandle: UInt): Hresult =
     WindowsWin32DevicesBiometricframeworkJniBridge.windowssysWindowsWin32DevicesBiometricframeworkWinBioImproveEnd(sessionhandle.toInt())
 
-public actual fun winBioLocateSensor(sessionhandle: UInt, unitid: MutPtr<UInt>): Hresult =
+public actual fun winBioLocateSensor(sessionhandle: UInt, unitid: MutPtr): Hresult =
     WindowsWin32DevicesBiometricframeworkJniBridge.windowssysWindowsWin32DevicesBiometricframeworkWinBioLocateSensor(sessionhandle.toInt(), unitid.rawAddress)
 
-public actual fun winBioLocateSensorWithCallback(sessionhandle: UInt, locatecallback: PwinbioLocateSensorCallback, locatecallbackcontext: ConstPtr<CVoid>): Hresult =
+public actual fun winBioLocateSensorWithCallback(sessionhandle: UInt, locatecallback: PwinbioLocateSensorCallback, locatecallbackcontext: ConstPtr): Hresult =
     WindowsWin32DevicesBiometricframeworkJniBridge.windowssysWindowsWin32DevicesBiometricframeworkWinBioLocateSensorWithCallback(sessionhandle.toInt(), 0L, locatecallbackcontext.rawAddress)
 
 public actual fun winBioLockUnit(sessionhandle: UInt, unitid: UInt): Hresult =
@@ -349,10 +347,10 @@ public actual fun winBioLogonIdentifiedUser(sessionhandle: UInt): Hresult =
 public actual fun winBioMonitorPresence(sessionhandle: UInt, unitid: UInt): Hresult =
     WindowsWin32DevicesBiometricframeworkJniBridge.windowssysWindowsWin32DevicesBiometricframeworkWinBioMonitorPresence(sessionhandle.toInt(), unitid.toInt())
 
-public actual fun winBioOpenSession(factor: UInt, pooltype: WinbioPool, flags: UInt, unitarray: ConstPtr<UInt>, unitcount: ULong, databaseid: ConstPtr<Guid>, sessionhandle: MutPtr<UInt>): Hresult =
+public actual fun winBioOpenSession(factor: UInt, pooltype: WinbioPool, flags: UInt, unitarray: ConstPtr, unitcount: ULong, databaseid: ConstPtr, sessionhandle: MutPtr): Hresult =
     WindowsWin32DevicesBiometricframeworkJniBridge.windowssysWindowsWin32DevicesBiometricframeworkWinBioOpenSession(factor.toInt(), pooltype.toInt(), flags.toInt(), unitarray.rawAddress, unitcount.toLong(), databaseid.rawAddress, sessionhandle.rawAddress)
 
-public actual fun winBioRegisterEventMonitor(sessionhandle: UInt, eventmask: UInt, eventcallback: PwinbioEventCallback, eventcallbackcontext: ConstPtr<CVoid>): Hresult =
+public actual fun winBioRegisterEventMonitor(sessionhandle: UInt, eventmask: UInt, eventcallback: PwinbioEventCallback, eventcallbackcontext: ConstPtr): Hresult =
     WindowsWin32DevicesBiometricframeworkJniBridge.windowssysWindowsWin32DevicesBiometricframeworkWinBioRegisterEventMonitor(sessionhandle.toInt(), eventmask.toInt(), 0L, eventcallbackcontext.rawAddress)
 
 public actual fun winBioReleaseFocus(): Hresult =
@@ -367,10 +365,10 @@ public actual fun winBioRemoveAllDomainCredentials(): Hresult =
 public actual fun winBioRemoveCredential(identity: WinbioIdentity, type: WinbioCredentialType): Hresult =
     0
 
-public actual fun winBioSetCredential(type: WinbioCredentialType, credential: ConstPtr<UByte>, credentialsize: ULong, format: WinbioCredentialFormat): Hresult =
+public actual fun winBioSetCredential(type: WinbioCredentialType, credential: ConstPtr, credentialsize: ULong, format: WinbioCredentialFormat): Hresult =
     WindowsWin32DevicesBiometricframeworkJniBridge.windowssysWindowsWin32DevicesBiometricframeworkWinBioSetCredential(type, credential.rawAddress, credentialsize.toLong(), format)
 
-public actual fun winBioSetProperty(sessionhandle: UInt, propertytype: UInt, propertyid: UInt, unitid: UInt, identity: ConstPtr<WinbioIdentity>, subfactor: UByte, propertybuffer: ConstPtr<CVoid>, propertybuffersize: ULong): Hresult =
+public actual fun winBioSetProperty(sessionhandle: UInt, propertytype: UInt, propertyid: UInt, unitid: UInt, identity: ConstPtr, subfactor: UByte, propertybuffer: ConstPtr, propertybuffersize: ULong): Hresult =
     WindowsWin32DevicesBiometricframeworkJniBridge.windowssysWindowsWin32DevicesBiometricframeworkWinBioSetProperty(sessionhandle.toInt(), propertytype.toInt(), propertyid.toInt(), unitid.toInt(), identity.rawAddress, subfactor.toByte(), propertybuffer.rawAddress, propertybuffersize.toLong())
 
 public actual fun winBioUnlockUnit(sessionhandle: UInt, unitid: UInt): Hresult =
@@ -379,10 +377,10 @@ public actual fun winBioUnlockUnit(sessionhandle: UInt, unitid: UInt): Hresult =
 public actual fun winBioUnregisterEventMonitor(sessionhandle: UInt): Hresult =
     WindowsWin32DevicesBiometricframeworkJniBridge.windowssysWindowsWin32DevicesBiometricframeworkWinBioUnregisterEventMonitor(sessionhandle.toInt())
 
-public actual fun winBioVerify(sessionhandle: UInt, identity: ConstPtr<WinbioIdentity>, subfactor: UByte, unitid: MutPtr<UInt>, match: MutPtr<UByte>, rejectdetail: MutPtr<UInt>): Hresult =
+public actual fun winBioVerify(sessionhandle: UInt, identity: ConstPtr, subfactor: UByte, unitid: MutPtr, match: MutPtr, rejectdetail: MutPtr): Hresult =
     WindowsWin32DevicesBiometricframeworkJniBridge.windowssysWindowsWin32DevicesBiometricframeworkWinBioVerify(sessionhandle.toInt(), identity.rawAddress, subfactor.toByte(), unitid.rawAddress, match.rawAddress, rejectdetail.rawAddress)
 
-public actual fun winBioVerifyWithCallback(sessionhandle: UInt, identity: ConstPtr<WinbioIdentity>, subfactor: UByte, verifycallback: PwinbioVerifyCallback, verifycallbackcontext: ConstPtr<CVoid>): Hresult =
+public actual fun winBioVerifyWithCallback(sessionhandle: UInt, identity: ConstPtr, subfactor: UByte, verifycallback: PwinbioVerifyCallback, verifycallbackcontext: ConstPtr): Hresult =
     WindowsWin32DevicesBiometricframeworkJniBridge.windowssysWindowsWin32DevicesBiometricframeworkWinBioVerifyWithCallback(sessionhandle.toInt(), identity.rawAddress, subfactor.toByte(), 0L, verifycallbackcontext.rawAddress)
 
 public actual fun winBioWait(sessionhandle: UInt): Hresult =

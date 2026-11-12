@@ -2,11 +2,9 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.networking.wininet
 
-import io.github.kotlinmania.rustlang.core.ffi.CVoid
 import io.github.kotlinmania.rustlang.core.ptr.ConstPtr
 import io.github.kotlinmania.rustlang.core.ptr.MutPtr
 import io.github.kotlinmania.windowssys.core.Bool
-import io.github.kotlinmania.windowssys.core.Bstr
 import io.github.kotlinmania.windowssys.core.Pcstr
 import io.github.kotlinmania.windowssys.core.Pcwstr
 import io.github.kotlinmania.windowssys.core.Pstr
@@ -15,12 +13,8 @@ import io.github.kotlinmania.windowssys.windows.win32.foundation.Filetime
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Handle
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Hinstance
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Hwnd
-import io.github.kotlinmania.windowssys.windows.win32.foundation.Systemtime
 import io.github.kotlinmania.windowssys.windows.win32.networking.winhttp.WinHttpCreateUrlFlags
 import io.github.kotlinmania.windowssys.windows.win32.security.cryptography.AlgId
-import io.github.kotlinmania.windowssys.windows.win32.security.cryptography.CertChainContext
-import io.github.kotlinmania.windowssys.windows.win32.storage.filesystem.Win32FindDataa
-import io.github.kotlinmania.windowssys.windows.win32.storage.filesystem.Win32FindDataw
 
 private object WindowsWin32NetworkingWininetJniBridge {
     init {
@@ -901,14 +895,14 @@ private object WindowsWin32NetworkingWininetJniBridge {
     external fun windowssysWindowsWin32NetworkingWininetUrlCacheUpdateEntryExtraData(happcache: Long, pcwszurl: Long, pbextradata: Long, cbextradata: Int): Int
 }
 
-public actual fun appCacheCheckManifest(pwszmasterurl: Pcwstr, pwszmanifesturl: Pcwstr, pbmanifestdata: ConstPtr<UByte>, dwmanifestdatasize: UInt, pbmanifestresponseheaders: ConstPtr<UByte>, dwmanifestresponseheaderssize: UInt, pestate: MutPtr<AppCacheState>, phnewappcache: MutPtr<MutPtr<CVoid>>): UInt =
+public actual fun appCacheCheckManifest(pwszmasterurl: Pcwstr, pwszmanifesturl: Pcwstr, pbmanifestdata: ConstPtr, dwmanifestdatasize: UInt, pbmanifestresponseheaders: ConstPtr, dwmanifestresponseheaderssize: UInt, pestate: MutPtr, phnewappcache: MutPtr): UInt =
     WindowsWin32NetworkingWininetJniBridge.windowssysWindowsWin32NetworkingWininetAppCacheCheckManifest(pwszmasterurl.rawAddress, pwszmanifesturl.rawAddress, pbmanifestdata.rawAddress, dwmanifestdatasize.toInt(), pbmanifestresponseheaders.rawAddress, dwmanifestresponseheaderssize.toInt(), pestate.rawAddress, phnewappcache.rawAddress).toUInt()
 
-public actual fun appCacheCloseHandle(happcache: ConstPtr<CVoid>) {
+public actual fun appCacheCloseHandle(happcache: ConstPtr) {
     WindowsWin32NetworkingWininetJniBridge.windowssysWindowsWin32NetworkingWininetAppCacheCloseHandle(happcache.rawAddress)
 }
 
-public actual fun appCacheCreateAndCommitFile(happcache: ConstPtr<CVoid>, pwszsourcefilepath: Pcwstr, pwszurl: Pcwstr, pbresponseheaders: ConstPtr<UByte>, dwresponseheaderssize: UInt): UInt =
+public actual fun appCacheCreateAndCommitFile(happcache: ConstPtr, pwszsourcefilepath: Pcwstr, pwszurl: Pcwstr, pbresponseheaders: ConstPtr, dwresponseheaderssize: UInt): UInt =
     WindowsWin32NetworkingWininetJniBridge.windowssysWindowsWin32NetworkingWininetAppCacheCreateAndCommitFile(happcache.rawAddress, pwszsourcefilepath.rawAddress, pwszurl.rawAddress, pbresponseheaders.rawAddress, dwresponseheaderssize.toInt()).toUInt()
 
 public actual fun appCacheDeleteGroup(pwszmanifesturl: Pcwstr): UInt =
@@ -917,17 +911,17 @@ public actual fun appCacheDeleteGroup(pwszmanifesturl: Pcwstr): UInt =
 public actual fun appCacheDeleteIEGroup(pwszmanifesturl: Pcwstr): UInt =
     WindowsWin32NetworkingWininetJniBridge.windowssysWindowsWin32NetworkingWininetAppCacheDeleteIEGroup(pwszmanifesturl.rawAddress).toUInt()
 
-public actual fun appCacheDuplicateHandle(happcache: ConstPtr<CVoid>, phduplicatedappcache: MutPtr<MutPtr<CVoid>>): UInt =
+public actual fun appCacheDuplicateHandle(happcache: ConstPtr, phduplicatedappcache: MutPtr): UInt =
     WindowsWin32NetworkingWininetJniBridge.windowssysWindowsWin32NetworkingWininetAppCacheDuplicateHandle(happcache.rawAddress, phduplicatedappcache.rawAddress).toUInt()
 
-public actual fun appCacheFinalize(happcache: ConstPtr<CVoid>, pbmanifestdata: ConstPtr<UByte>, dwmanifestdatasize: UInt, pestate: MutPtr<AppCacheFinalizeState>): UInt =
+public actual fun appCacheFinalize(happcache: ConstPtr, pbmanifestdata: ConstPtr, dwmanifestdatasize: UInt, pestate: MutPtr): UInt =
     WindowsWin32NetworkingWininetJniBridge.windowssysWindowsWin32NetworkingWininetAppCacheFinalize(happcache.rawAddress, pbmanifestdata.rawAddress, dwmanifestdatasize.toInt(), pestate.rawAddress).toUInt()
 
-public actual fun appCacheFreeDownloadList(pdownloadlist: MutPtr<AppCacheDownloadList>) {
+public actual fun appCacheFreeDownloadList(pdownloadlist: MutPtr) {
     WindowsWin32NetworkingWininetJniBridge.windowssysWindowsWin32NetworkingWininetAppCacheFreeDownloadList(pdownloadlist.rawAddress)
 }
 
-public actual fun appCacheFreeGroupList(pappcachegrouplist: MutPtr<AppCacheGroupList>) {
+public actual fun appCacheFreeGroupList(pappcachegrouplist: MutPtr) {
     WindowsWin32NetworkingWininetJniBridge.windowssysWindowsWin32NetworkingWininetAppCacheFreeGroupList(pappcachegrouplist.rawAddress)
 }
 
@@ -937,43 +931,43 @@ public actual fun appCacheFreeIESpace(ftcutoff: Filetime): UInt =
 public actual fun appCacheFreeSpace(ftcutoff: Filetime): UInt =
     0u
 
-public actual fun appCacheGetDownloadList(happcache: ConstPtr<CVoid>, pdownloadlist: MutPtr<AppCacheDownloadList>): UInt =
+public actual fun appCacheGetDownloadList(happcache: ConstPtr, pdownloadlist: MutPtr): UInt =
     WindowsWin32NetworkingWininetJniBridge.windowssysWindowsWin32NetworkingWininetAppCacheGetDownloadList(happcache.rawAddress, pdownloadlist.rawAddress).toUInt()
 
-public actual fun appCacheGetFallbackUrl(happcache: ConstPtr<CVoid>, pwszurl: Pcwstr, ppwszfallbackurl: MutPtr<Pwstr>): UInt =
+public actual fun appCacheGetFallbackUrl(happcache: ConstPtr, pwszurl: Pcwstr, ppwszfallbackurl: MutPtr): UInt =
     WindowsWin32NetworkingWininetJniBridge.windowssysWindowsWin32NetworkingWininetAppCacheGetFallbackUrl(happcache.rawAddress, pwszurl.rawAddress, ppwszfallbackurl.rawAddress).toUInt()
 
-public actual fun appCacheGetGroupList(pappcachegrouplist: MutPtr<AppCacheGroupList>): UInt =
+public actual fun appCacheGetGroupList(pappcachegrouplist: MutPtr): UInt =
     WindowsWin32NetworkingWininetJniBridge.windowssysWindowsWin32NetworkingWininetAppCacheGetGroupList(pappcachegrouplist.rawAddress).toUInt()
 
-public actual fun appCacheGetIEGroupList(pappcachegrouplist: MutPtr<AppCacheGroupList>): UInt =
+public actual fun appCacheGetIEGroupList(pappcachegrouplist: MutPtr): UInt =
     WindowsWin32NetworkingWininetJniBridge.windowssysWindowsWin32NetworkingWininetAppCacheGetIEGroupList(pappcachegrouplist.rawAddress).toUInt()
 
-public actual fun appCacheGetInfo(happcache: ConstPtr<CVoid>, pappcacheinfo: MutPtr<AppCacheGroupInfo>): UInt =
+public actual fun appCacheGetInfo(happcache: ConstPtr, pappcacheinfo: MutPtr): UInt =
     WindowsWin32NetworkingWininetJniBridge.windowssysWindowsWin32NetworkingWininetAppCacheGetInfo(happcache.rawAddress, pappcacheinfo.rawAddress).toUInt()
 
-public actual fun appCacheGetManifestUrl(happcache: ConstPtr<CVoid>, ppwszmanifesturl: MutPtr<Pwstr>): UInt =
+public actual fun appCacheGetManifestUrl(happcache: ConstPtr, ppwszmanifesturl: MutPtr): UInt =
     WindowsWin32NetworkingWininetJniBridge.windowssysWindowsWin32NetworkingWininetAppCacheGetManifestUrl(happcache.rawAddress, ppwszmanifesturl.rawAddress).toUInt()
 
-public actual fun appCacheLookup(pwszurl: Pcwstr, dwflags: UInt, phappcache: MutPtr<MutPtr<CVoid>>): UInt =
+public actual fun appCacheLookup(pwszurl: Pcwstr, dwflags: UInt, phappcache: MutPtr): UInt =
     WindowsWin32NetworkingWininetJniBridge.windowssysWindowsWin32NetworkingWininetAppCacheLookup(pwszurl.rawAddress, dwflags.toInt(), phappcache.rawAddress).toUInt()
 
-public actual fun commitUrlCacheEntryA(lpszurlname: Pcstr, lpszlocalfilename: Pcstr, expiretime: Filetime, lastmodifiedtime: Filetime, cacheentrytype: UInt, lpheaderinfo: ConstPtr<UByte>, cchheaderinfo: UInt, lpszfileextension: Pcstr, lpszoriginalurl: Pcstr): Bool =
+public actual fun commitUrlCacheEntryA(lpszurlname: Pcstr, lpszlocalfilename: Pcstr, expiretime: Filetime, lastmodifiedtime: Filetime, cacheentrytype: UInt, lpheaderinfo: ConstPtr, cchheaderinfo: UInt, lpszfileextension: Pcstr, lpszoriginalurl: Pcstr): Bool =
     0
 
-public actual fun commitUrlCacheEntryBinaryBlob(pwszurlname: Pcwstr, dwtype: UInt, ftexpiretime: Filetime, ftmodifiedtime: Filetime, pbblob: ConstPtr<UByte>, cbblob: UInt): UInt =
+public actual fun commitUrlCacheEntryBinaryBlob(pwszurlname: Pcwstr, dwtype: UInt, ftexpiretime: Filetime, ftmodifiedtime: Filetime, pbblob: ConstPtr, cbblob: UInt): UInt =
     0u
 
 public actual fun commitUrlCacheEntryW(lpszurlname: Pcwstr, lpszlocalfilename: Pcwstr, expiretime: Filetime, lastmodifiedtime: Filetime, cacheentrytype: UInt, lpszheaderinfo: Pcwstr, cchheaderinfo: UInt, lpszfileextension: Pcwstr, lpszoriginalurl: Pcwstr): Bool =
     0
 
-public actual fun createMD5SSOHash(pszchallengeinfo: Pcwstr, pwszrealm: Pcwstr, pwsztarget: Pcwstr, pbhexhash: MutPtr<UByte>): Bool =
+public actual fun createMD5SSOHash(pszchallengeinfo: Pcwstr, pwszrealm: Pcwstr, pwsztarget: Pcwstr, pbhexhash: MutPtr): Bool =
     WindowsWin32NetworkingWininetJniBridge.windowssysWindowsWin32NetworkingWininetCreateMD5SSOHash(pszchallengeinfo.rawAddress, pwszrealm.rawAddress, pwsztarget.rawAddress, pbhexhash.rawAddress)
 
-public actual fun createUrlCacheContainerA(name: Pcstr, lpcacheprefix: Pcstr, lpszcachepath: Pcstr, kbcachelimit: UInt, dwcontainertype: UInt, dwoptions: UInt, pvbuffer: ConstPtr<CVoid>, cbbuffer: ConstPtr<UInt>): Bool =
+public actual fun createUrlCacheContainerA(name: Pcstr, lpcacheprefix: Pcstr, lpszcachepath: Pcstr, kbcachelimit: UInt, dwcontainertype: UInt, dwoptions: UInt, pvbuffer: ConstPtr, cbbuffer: ConstPtr): Bool =
     WindowsWin32NetworkingWininetJniBridge.windowssysWindowsWin32NetworkingWininetCreateUrlCacheContainerA(name.rawAddress, lpcacheprefix.rawAddress, lpszcachepath.rawAddress, kbcachelimit.toInt(), dwcontainertype.toInt(), dwoptions.toInt(), pvbuffer.rawAddress, cbbuffer.rawAddress)
 
-public actual fun createUrlCacheContainerW(name: Pcwstr, lpcacheprefix: Pcwstr, lpszcachepath: Pcwstr, kbcachelimit: UInt, dwcontainertype: UInt, dwoptions: UInt, pvbuffer: ConstPtr<CVoid>, cbbuffer: ConstPtr<UInt>): Bool =
+public actual fun createUrlCacheContainerW(name: Pcwstr, lpcacheprefix: Pcwstr, lpszcachepath: Pcwstr, kbcachelimit: UInt, dwcontainertype: UInt, dwoptions: UInt, pvbuffer: ConstPtr, cbbuffer: ConstPtr): Bool =
     WindowsWin32NetworkingWininetJniBridge.windowssysWindowsWin32NetworkingWininetCreateUrlCacheContainerW(name.rawAddress, lpcacheprefix.rawAddress, lpszcachepath.rawAddress, kbcachelimit.toInt(), dwcontainertype.toInt(), dwoptions.toInt(), pvbuffer.rawAddress, cbbuffer.rawAddress)
 
 public actual fun createUrlCacheEntryA(lpszurlname: Pcstr, dwexpectedfilesize: UInt, lpszfileextension: Pcstr, lpszfilename: Pstr, dwreserved: UInt): Bool =
@@ -985,7 +979,7 @@ public actual fun createUrlCacheEntryExW(lpszurlname: Pcwstr, dwexpectedfilesize
 public actual fun createUrlCacheEntryW(lpszurlname: Pcwstr, dwexpectedfilesize: UInt, lpszfileextension: Pcwstr, lpszfilename: Pwstr, dwreserved: UInt): Bool =
     WindowsWin32NetworkingWininetJniBridge.windowssysWindowsWin32NetworkingWininetCreateUrlCacheEntryW(lpszurlname.rawAddress, dwexpectedfilesize.toInt(), lpszfileextension.rawAddress, lpszfilename.rawAddress, dwreserved.toInt())
 
-public actual fun createUrlCacheGroup(dwflags: UInt, lpreserved: ConstPtr<CVoid>): Long =
+public actual fun createUrlCacheGroup(dwflags: UInt, lpreserved: ConstPtr): Long =
     WindowsWin32NetworkingWininetJniBridge.windowssysWindowsWin32NetworkingWininetCreateUrlCacheGroup(dwflags.toInt(), lpreserved.rawAddress)
 
 public actual fun deleteIE3Cache(hwnd: Hwnd, hinst: Hinstance, lpszcmd: Pcstr, ncmdshow: Int): UInt =
@@ -1006,7 +1000,7 @@ public actual fun deleteUrlCacheEntryA(lpszurlname: Pcstr): Bool =
 public actual fun deleteUrlCacheEntryW(lpszurlname: Pcwstr): Bool =
     WindowsWin32NetworkingWininetJniBridge.windowssysWindowsWin32NetworkingWininetDeleteUrlCacheEntryW(lpszurlname.rawAddress)
 
-public actual fun deleteUrlCacheGroup(groupid: Long, dwflags: UInt, lpreserved: ConstPtr<CVoid>): Bool =
+public actual fun deleteUrlCacheGroup(groupid: Long, dwflags: UInt, lpreserved: ConstPtr): Bool =
     WindowsWin32NetworkingWininetJniBridge.windowssysWindowsWin32NetworkingWininetDeleteUrlCacheGroup(groupid, dwflags.toInt(), lpreserved.rawAddress)
 
 public actual fun deleteWpadCacheForNetworks(param0: WpadCacheDelete): Bool =
@@ -1027,46 +1021,46 @@ public actual fun exportCookieFileW(szfilename: Pcwstr, fappend: Bool): Bool =
 public actual fun findCloseUrlCache(henumhandle: Handle): Bool =
     WindowsWin32NetworkingWininetJniBridge.windowssysWindowsWin32NetworkingWininetFindCloseUrlCache(henumhandle.rawAddress)
 
-public actual fun findFirstUrlCacheContainerA(pdwmodified: MutPtr<UInt>, lpcontainerinfo: MutPtr<InternetCacheContainerInfoa>, lpcbcontainerinfo: MutPtr<UInt>, dwoptions: UInt): Handle =
+public actual fun findFirstUrlCacheContainerA(pdwmodified: MutPtr, lpcontainerinfo: MutPtr, lpcbcontainerinfo: MutPtr, dwoptions: UInt): Handle =
     MutPtr(WindowsWin32NetworkingWininetJniBridge.windowssysWindowsWin32NetworkingWininetFindFirstUrlCacheContainerA(pdwmodified.rawAddress, lpcontainerinfo.rawAddress, lpcbcontainerinfo.rawAddress, dwoptions.toInt()))
 
-public actual fun findFirstUrlCacheContainerW(pdwmodified: MutPtr<UInt>, lpcontainerinfo: MutPtr<InternetCacheContainerInfow>, lpcbcontainerinfo: MutPtr<UInt>, dwoptions: UInt): Handle =
+public actual fun findFirstUrlCacheContainerW(pdwmodified: MutPtr, lpcontainerinfo: MutPtr, lpcbcontainerinfo: MutPtr, dwoptions: UInt): Handle =
     MutPtr(WindowsWin32NetworkingWininetJniBridge.windowssysWindowsWin32NetworkingWininetFindFirstUrlCacheContainerW(pdwmodified.rawAddress, lpcontainerinfo.rawAddress, lpcbcontainerinfo.rawAddress, dwoptions.toInt()))
 
-public actual fun findFirstUrlCacheEntryA(lpszurlsearchpattern: Pcstr, lpfirstcacheentryinfo: MutPtr<InternetCacheEntryInfoa>, lpcbcacheentryinfo: MutPtr<UInt>): Handle =
+public actual fun findFirstUrlCacheEntryA(lpszurlsearchpattern: Pcstr, lpfirstcacheentryinfo: MutPtr, lpcbcacheentryinfo: MutPtr): Handle =
     MutPtr(WindowsWin32NetworkingWininetJniBridge.windowssysWindowsWin32NetworkingWininetFindFirstUrlCacheEntryA(lpszurlsearchpattern.rawAddress, lpfirstcacheentryinfo.rawAddress, lpcbcacheentryinfo.rawAddress))
 
-public actual fun findFirstUrlCacheEntryExA(lpszurlsearchpattern: Pcstr, dwflags: UInt, dwfilter: UInt, groupid: Long, lpfirstcacheentryinfo: MutPtr<InternetCacheEntryInfoa>, lpcbcacheentryinfo: MutPtr<UInt>, lpgroupattributes: ConstPtr<CVoid>, lpcbgroupattributes: ConstPtr<UInt>, lpreserved: ConstPtr<CVoid>): Handle =
+public actual fun findFirstUrlCacheEntryExA(lpszurlsearchpattern: Pcstr, dwflags: UInt, dwfilter: UInt, groupid: Long, lpfirstcacheentryinfo: MutPtr, lpcbcacheentryinfo: MutPtr, lpgroupattributes: ConstPtr, lpcbgroupattributes: ConstPtr, lpreserved: ConstPtr): Handle =
     MutPtr(WindowsWin32NetworkingWininetJniBridge.windowssysWindowsWin32NetworkingWininetFindFirstUrlCacheEntryExA(lpszurlsearchpattern.rawAddress, dwflags.toInt(), dwfilter.toInt(), groupid, lpfirstcacheentryinfo.rawAddress, lpcbcacheentryinfo.rawAddress, lpgroupattributes.rawAddress, lpcbgroupattributes.rawAddress, lpreserved.rawAddress))
 
-public actual fun findFirstUrlCacheEntryExW(lpszurlsearchpattern: Pcwstr, dwflags: UInt, dwfilter: UInt, groupid: Long, lpfirstcacheentryinfo: MutPtr<InternetCacheEntryInfow>, lpcbcacheentryinfo: MutPtr<UInt>, lpgroupattributes: ConstPtr<CVoid>, lpcbgroupattributes: ConstPtr<UInt>, lpreserved: ConstPtr<CVoid>): Handle =
+public actual fun findFirstUrlCacheEntryExW(lpszurlsearchpattern: Pcwstr, dwflags: UInt, dwfilter: UInt, groupid: Long, lpfirstcacheentryinfo: MutPtr, lpcbcacheentryinfo: MutPtr, lpgroupattributes: ConstPtr, lpcbgroupattributes: ConstPtr, lpreserved: ConstPtr): Handle =
     MutPtr(WindowsWin32NetworkingWininetJniBridge.windowssysWindowsWin32NetworkingWininetFindFirstUrlCacheEntryExW(lpszurlsearchpattern.rawAddress, dwflags.toInt(), dwfilter.toInt(), groupid, lpfirstcacheentryinfo.rawAddress, lpcbcacheentryinfo.rawAddress, lpgroupattributes.rawAddress, lpcbgroupattributes.rawAddress, lpreserved.rawAddress))
 
-public actual fun findFirstUrlCacheEntryW(lpszurlsearchpattern: Pcwstr, lpfirstcacheentryinfo: MutPtr<InternetCacheEntryInfow>, lpcbcacheentryinfo: MutPtr<UInt>): Handle =
+public actual fun findFirstUrlCacheEntryW(lpszurlsearchpattern: Pcwstr, lpfirstcacheentryinfo: MutPtr, lpcbcacheentryinfo: MutPtr): Handle =
     MutPtr(WindowsWin32NetworkingWininetJniBridge.windowssysWindowsWin32NetworkingWininetFindFirstUrlCacheEntryW(lpszurlsearchpattern.rawAddress, lpfirstcacheentryinfo.rawAddress, lpcbcacheentryinfo.rawAddress))
 
-public actual fun findFirstUrlCacheGroup(dwflags: UInt, dwfilter: UInt, lpsearchcondition: ConstPtr<CVoid>, dwsearchcondition: UInt, lpgroupid: MutPtr<Long>, lpreserved: ConstPtr<CVoid>): Handle =
+public actual fun findFirstUrlCacheGroup(dwflags: UInt, dwfilter: UInt, lpsearchcondition: ConstPtr, dwsearchcondition: UInt, lpgroupid: MutPtr, lpreserved: ConstPtr): Handle =
     MutPtr(WindowsWin32NetworkingWininetJniBridge.windowssysWindowsWin32NetworkingWininetFindFirstUrlCacheGroup(dwflags.toInt(), dwfilter.toInt(), lpsearchcondition.rawAddress, dwsearchcondition.toInt(), lpgroupid.rawAddress, lpreserved.rawAddress))
 
-public actual fun findNextUrlCacheContainerA(henumhandle: Handle, lpcontainerinfo: MutPtr<InternetCacheContainerInfoa>, lpcbcontainerinfo: MutPtr<UInt>): Bool =
+public actual fun findNextUrlCacheContainerA(henumhandle: Handle, lpcontainerinfo: MutPtr, lpcbcontainerinfo: MutPtr): Bool =
     WindowsWin32NetworkingWininetJniBridge.windowssysWindowsWin32NetworkingWininetFindNextUrlCacheContainerA(henumhandle.rawAddress, lpcontainerinfo.rawAddress, lpcbcontainerinfo.rawAddress)
 
-public actual fun findNextUrlCacheContainerW(henumhandle: Handle, lpcontainerinfo: MutPtr<InternetCacheContainerInfow>, lpcbcontainerinfo: MutPtr<UInt>): Bool =
+public actual fun findNextUrlCacheContainerW(henumhandle: Handle, lpcontainerinfo: MutPtr, lpcbcontainerinfo: MutPtr): Bool =
     WindowsWin32NetworkingWininetJniBridge.windowssysWindowsWin32NetworkingWininetFindNextUrlCacheContainerW(henumhandle.rawAddress, lpcontainerinfo.rawAddress, lpcbcontainerinfo.rawAddress)
 
-public actual fun findNextUrlCacheEntryA(henumhandle: Handle, lpnextcacheentryinfo: MutPtr<InternetCacheEntryInfoa>, lpcbcacheentryinfo: MutPtr<UInt>): Bool =
+public actual fun findNextUrlCacheEntryA(henumhandle: Handle, lpnextcacheentryinfo: MutPtr, lpcbcacheentryinfo: MutPtr): Bool =
     WindowsWin32NetworkingWininetJniBridge.windowssysWindowsWin32NetworkingWininetFindNextUrlCacheEntryA(henumhandle.rawAddress, lpnextcacheentryinfo.rawAddress, lpcbcacheentryinfo.rawAddress)
 
-public actual fun findNextUrlCacheEntryExA(henumhandle: Handle, lpnextcacheentryinfo: MutPtr<InternetCacheEntryInfoa>, lpcbcacheentryinfo: MutPtr<UInt>, lpgroupattributes: ConstPtr<CVoid>, lpcbgroupattributes: ConstPtr<UInt>, lpreserved: ConstPtr<CVoid>): Bool =
+public actual fun findNextUrlCacheEntryExA(henumhandle: Handle, lpnextcacheentryinfo: MutPtr, lpcbcacheentryinfo: MutPtr, lpgroupattributes: ConstPtr, lpcbgroupattributes: ConstPtr, lpreserved: ConstPtr): Bool =
     WindowsWin32NetworkingWininetJniBridge.windowssysWindowsWin32NetworkingWininetFindNextUrlCacheEntryExA(henumhandle.rawAddress, lpnextcacheentryinfo.rawAddress, lpcbcacheentryinfo.rawAddress, lpgroupattributes.rawAddress, lpcbgroupattributes.rawAddress, lpreserved.rawAddress)
 
-public actual fun findNextUrlCacheEntryExW(henumhandle: Handle, lpnextcacheentryinfo: MutPtr<InternetCacheEntryInfow>, lpcbcacheentryinfo: MutPtr<UInt>, lpgroupattributes: ConstPtr<CVoid>, lpcbgroupattributes: ConstPtr<UInt>, lpreserved: ConstPtr<CVoid>): Bool =
+public actual fun findNextUrlCacheEntryExW(henumhandle: Handle, lpnextcacheentryinfo: MutPtr, lpcbcacheentryinfo: MutPtr, lpgroupattributes: ConstPtr, lpcbgroupattributes: ConstPtr, lpreserved: ConstPtr): Bool =
     WindowsWin32NetworkingWininetJniBridge.windowssysWindowsWin32NetworkingWininetFindNextUrlCacheEntryExW(henumhandle.rawAddress, lpnextcacheentryinfo.rawAddress, lpcbcacheentryinfo.rawAddress, lpgroupattributes.rawAddress, lpcbgroupattributes.rawAddress, lpreserved.rawAddress)
 
-public actual fun findNextUrlCacheEntryW(henumhandle: Handle, lpnextcacheentryinfo: MutPtr<InternetCacheEntryInfow>, lpcbcacheentryinfo: MutPtr<UInt>): Bool =
+public actual fun findNextUrlCacheEntryW(henumhandle: Handle, lpnextcacheentryinfo: MutPtr, lpcbcacheentryinfo: MutPtr): Bool =
     WindowsWin32NetworkingWininetJniBridge.windowssysWindowsWin32NetworkingWininetFindNextUrlCacheEntryW(henumhandle.rawAddress, lpnextcacheentryinfo.rawAddress, lpcbcacheentryinfo.rawAddress)
 
-public actual fun findNextUrlCacheGroup(hfind: Handle, lpgroupid: MutPtr<Long>, lpreserved: ConstPtr<CVoid>): Bool =
+public actual fun findNextUrlCacheGroup(hfind: Handle, lpgroupid: MutPtr, lpreserved: ConstPtr): Bool =
     WindowsWin32NetworkingWininetJniBridge.windowssysWindowsWin32NetworkingWininetFindNextUrlCacheGroup(hfind.rawAddress, lpgroupid.rawAddress, lpreserved.rawAddress)
 
 public actual fun findP3PPolicySymbol(pszsymbol: Pcstr): Int =
@@ -1078,231 +1072,231 @@ public actual fun freeUrlCacheSpaceA(lpszcachepath: Pcstr, dwsize: UInt, dwfilte
 public actual fun freeUrlCacheSpaceW(lpszcachepath: Pcwstr, dwsize: UInt, dwfilter: UInt): Bool =
     WindowsWin32NetworkingWininetJniBridge.windowssysWindowsWin32NetworkingWininetFreeUrlCacheSpaceW(lpszcachepath.rawAddress, dwsize.toInt(), dwfilter.toInt())
 
-public actual fun ftpCommandA(hconnect: ConstPtr<CVoid>, fexpectresponse: Bool, dwflags: FtpFlags, lpszcommand: Pcstr, dwcontext: ULong, phftpcommand: MutPtr<MutPtr<CVoid>>): Bool =
+public actual fun ftpCommandA(hconnect: ConstPtr, fexpectresponse: Bool, dwflags: FtpFlags, lpszcommand: Pcstr, dwcontext: ULong, phftpcommand: MutPtr): Bool =
     WindowsWin32NetworkingWininetJniBridge.windowssysWindowsWin32NetworkingWininetFtpCommandA(hconnect.rawAddress, fexpectresponse, dwflags.toInt(), lpszcommand.rawAddress, dwcontext.toLong(), phftpcommand.rawAddress)
 
-public actual fun ftpCommandW(hconnect: ConstPtr<CVoid>, fexpectresponse: Bool, dwflags: FtpFlags, lpszcommand: Pcwstr, dwcontext: ULong, phftpcommand: MutPtr<MutPtr<CVoid>>): Bool =
+public actual fun ftpCommandW(hconnect: ConstPtr, fexpectresponse: Bool, dwflags: FtpFlags, lpszcommand: Pcwstr, dwcontext: ULong, phftpcommand: MutPtr): Bool =
     WindowsWin32NetworkingWininetJniBridge.windowssysWindowsWin32NetworkingWininetFtpCommandW(hconnect.rawAddress, fexpectresponse, dwflags.toInt(), lpszcommand.rawAddress, dwcontext.toLong(), phftpcommand.rawAddress)
 
-public actual fun ftpCreateDirectoryA(hconnect: ConstPtr<CVoid>, lpszdirectory: Pcstr): Bool =
+public actual fun ftpCreateDirectoryA(hconnect: ConstPtr, lpszdirectory: Pcstr): Bool =
     WindowsWin32NetworkingWininetJniBridge.windowssysWindowsWin32NetworkingWininetFtpCreateDirectoryA(hconnect.rawAddress, lpszdirectory.rawAddress)
 
-public actual fun ftpCreateDirectoryW(hconnect: ConstPtr<CVoid>, lpszdirectory: Pcwstr): Bool =
+public actual fun ftpCreateDirectoryW(hconnect: ConstPtr, lpszdirectory: Pcwstr): Bool =
     WindowsWin32NetworkingWininetJniBridge.windowssysWindowsWin32NetworkingWininetFtpCreateDirectoryW(hconnect.rawAddress, lpszdirectory.rawAddress)
 
-public actual fun ftpDeleteFileA(hconnect: ConstPtr<CVoid>, lpszfilename: Pcstr): Bool =
+public actual fun ftpDeleteFileA(hconnect: ConstPtr, lpszfilename: Pcstr): Bool =
     WindowsWin32NetworkingWininetJniBridge.windowssysWindowsWin32NetworkingWininetFtpDeleteFileA(hconnect.rawAddress, lpszfilename.rawAddress)
 
-public actual fun ftpDeleteFileW(hconnect: ConstPtr<CVoid>, lpszfilename: Pcwstr): Bool =
+public actual fun ftpDeleteFileW(hconnect: ConstPtr, lpszfilename: Pcwstr): Bool =
     WindowsWin32NetworkingWininetJniBridge.windowssysWindowsWin32NetworkingWininetFtpDeleteFileW(hconnect.rawAddress, lpszfilename.rawAddress)
 
-public actual fun ftpFindFirstFileA(hconnect: ConstPtr<CVoid>, lpszsearchfile: Pcstr, lpfindfiledata: MutPtr<Win32FindDataa>, dwflags: UInt, dwcontext: ULong): MutPtr<CVoid> =
+public actual fun ftpFindFirstFileA(hconnect: ConstPtr, lpszsearchfile: Pcstr, lpfindfiledata: MutPtr, dwflags: UInt, dwcontext: ULong): MutPtr =
     MutPtr(WindowsWin32NetworkingWininetJniBridge.windowssysWindowsWin32NetworkingWininetFtpFindFirstFileA(hconnect.rawAddress, lpszsearchfile.rawAddress, lpfindfiledata.rawAddress, dwflags.toInt(), dwcontext.toLong()))
 
-public actual fun ftpFindFirstFileW(hconnect: ConstPtr<CVoid>, lpszsearchfile: Pcwstr, lpfindfiledata: MutPtr<Win32FindDataw>, dwflags: UInt, dwcontext: ULong): MutPtr<CVoid> =
+public actual fun ftpFindFirstFileW(hconnect: ConstPtr, lpszsearchfile: Pcwstr, lpfindfiledata: MutPtr, dwflags: UInt, dwcontext: ULong): MutPtr =
     MutPtr(WindowsWin32NetworkingWininetJniBridge.windowssysWindowsWin32NetworkingWininetFtpFindFirstFileW(hconnect.rawAddress, lpszsearchfile.rawAddress, lpfindfiledata.rawAddress, dwflags.toInt(), dwcontext.toLong()))
 
-public actual fun ftpGetCurrentDirectoryA(hconnect: ConstPtr<CVoid>, lpszcurrentdirectory: Pstr, lpdwcurrentdirectory: MutPtr<UInt>): Bool =
+public actual fun ftpGetCurrentDirectoryA(hconnect: ConstPtr, lpszcurrentdirectory: Pstr, lpdwcurrentdirectory: MutPtr): Bool =
     WindowsWin32NetworkingWininetJniBridge.windowssysWindowsWin32NetworkingWininetFtpGetCurrentDirectoryA(hconnect.rawAddress, lpszcurrentdirectory.rawAddress, lpdwcurrentdirectory.rawAddress)
 
-public actual fun ftpGetCurrentDirectoryW(hconnect: ConstPtr<CVoid>, lpszcurrentdirectory: Pwstr, lpdwcurrentdirectory: MutPtr<UInt>): Bool =
+public actual fun ftpGetCurrentDirectoryW(hconnect: ConstPtr, lpszcurrentdirectory: Pwstr, lpdwcurrentdirectory: MutPtr): Bool =
     WindowsWin32NetworkingWininetJniBridge.windowssysWindowsWin32NetworkingWininetFtpGetCurrentDirectoryW(hconnect.rawAddress, lpszcurrentdirectory.rawAddress, lpdwcurrentdirectory.rawAddress)
 
-public actual fun ftpGetFileA(hconnect: ConstPtr<CVoid>, lpszremotefile: Pcstr, lpsznewfile: Pcstr, ffailifexists: Bool, dwflagsandattributes: UInt, dwflags: UInt, dwcontext: ULong): Bool =
+public actual fun ftpGetFileA(hconnect: ConstPtr, lpszremotefile: Pcstr, lpsznewfile: Pcstr, ffailifexists: Bool, dwflagsandattributes: UInt, dwflags: UInt, dwcontext: ULong): Bool =
     WindowsWin32NetworkingWininetJniBridge.windowssysWindowsWin32NetworkingWininetFtpGetFileA(hconnect.rawAddress, lpszremotefile.rawAddress, lpsznewfile.rawAddress, ffailifexists, dwflagsandattributes.toInt(), dwflags.toInt(), dwcontext.toLong())
 
-public actual fun ftpGetFileEx(hftpsession: ConstPtr<CVoid>, lpszremotefile: Pcstr, lpsznewfile: Pcwstr, ffailifexists: Bool, dwflagsandattributes: UInt, dwflags: UInt, dwcontext: ULong): Bool =
+public actual fun ftpGetFileEx(hftpsession: ConstPtr, lpszremotefile: Pcstr, lpsznewfile: Pcwstr, ffailifexists: Bool, dwflagsandattributes: UInt, dwflags: UInt, dwcontext: ULong): Bool =
     WindowsWin32NetworkingWininetJniBridge.windowssysWindowsWin32NetworkingWininetFtpGetFileEx(hftpsession.rawAddress, lpszremotefile.rawAddress, lpsznewfile.rawAddress, ffailifexists, dwflagsandattributes.toInt(), dwflags.toInt(), dwcontext.toLong())
 
-public actual fun ftpGetFileSize(hfile: ConstPtr<CVoid>, lpdwfilesizehigh: MutPtr<UInt>): UInt =
+public actual fun ftpGetFileSize(hfile: ConstPtr, lpdwfilesizehigh: MutPtr): UInt =
     WindowsWin32NetworkingWininetJniBridge.windowssysWindowsWin32NetworkingWininetFtpGetFileSize(hfile.rawAddress, lpdwfilesizehigh.rawAddress).toUInt()
 
-public actual fun ftpGetFileW(hconnect: ConstPtr<CVoid>, lpszremotefile: Pcwstr, lpsznewfile: Pcwstr, ffailifexists: Bool, dwflagsandattributes: UInt, dwflags: UInt, dwcontext: ULong): Bool =
+public actual fun ftpGetFileW(hconnect: ConstPtr, lpszremotefile: Pcwstr, lpsznewfile: Pcwstr, ffailifexists: Bool, dwflagsandattributes: UInt, dwflags: UInt, dwcontext: ULong): Bool =
     WindowsWin32NetworkingWininetJniBridge.windowssysWindowsWin32NetworkingWininetFtpGetFileW(hconnect.rawAddress, lpszremotefile.rawAddress, lpsznewfile.rawAddress, ffailifexists, dwflagsandattributes.toInt(), dwflags.toInt(), dwcontext.toLong())
 
-public actual fun ftpOpenFileA(hconnect: ConstPtr<CVoid>, lpszfilename: Pcstr, dwaccess: UInt, dwflags: FtpFlags, dwcontext: ULong): MutPtr<CVoid> =
+public actual fun ftpOpenFileA(hconnect: ConstPtr, lpszfilename: Pcstr, dwaccess: UInt, dwflags: FtpFlags, dwcontext: ULong): MutPtr =
     MutPtr(WindowsWin32NetworkingWininetJniBridge.windowssysWindowsWin32NetworkingWininetFtpOpenFileA(hconnect.rawAddress, lpszfilename.rawAddress, dwaccess.toInt(), dwflags.toInt(), dwcontext.toLong()))
 
-public actual fun ftpOpenFileW(hconnect: ConstPtr<CVoid>, lpszfilename: Pcwstr, dwaccess: UInt, dwflags: FtpFlags, dwcontext: ULong): MutPtr<CVoid> =
+public actual fun ftpOpenFileW(hconnect: ConstPtr, lpszfilename: Pcwstr, dwaccess: UInt, dwflags: FtpFlags, dwcontext: ULong): MutPtr =
     MutPtr(WindowsWin32NetworkingWininetJniBridge.windowssysWindowsWin32NetworkingWininetFtpOpenFileW(hconnect.rawAddress, lpszfilename.rawAddress, dwaccess.toInt(), dwflags.toInt(), dwcontext.toLong()))
 
-public actual fun ftpPutFileA(hconnect: ConstPtr<CVoid>, lpszlocalfile: Pcstr, lpsznewremotefile: Pcstr, dwflags: FtpFlags, dwcontext: ULong): Bool =
+public actual fun ftpPutFileA(hconnect: ConstPtr, lpszlocalfile: Pcstr, lpsznewremotefile: Pcstr, dwflags: FtpFlags, dwcontext: ULong): Bool =
     WindowsWin32NetworkingWininetJniBridge.windowssysWindowsWin32NetworkingWininetFtpPutFileA(hconnect.rawAddress, lpszlocalfile.rawAddress, lpsznewremotefile.rawAddress, dwflags.toInt(), dwcontext.toLong())
 
-public actual fun ftpPutFileEx(hftpsession: ConstPtr<CVoid>, lpszlocalfile: Pcwstr, lpsznewremotefile: Pcstr, dwflags: UInt, dwcontext: ULong): Bool =
+public actual fun ftpPutFileEx(hftpsession: ConstPtr, lpszlocalfile: Pcwstr, lpsznewremotefile: Pcstr, dwflags: UInt, dwcontext: ULong): Bool =
     WindowsWin32NetworkingWininetJniBridge.windowssysWindowsWin32NetworkingWininetFtpPutFileEx(hftpsession.rawAddress, lpszlocalfile.rawAddress, lpsznewremotefile.rawAddress, dwflags.toInt(), dwcontext.toLong())
 
-public actual fun ftpPutFileW(hconnect: ConstPtr<CVoid>, lpszlocalfile: Pcwstr, lpsznewremotefile: Pcwstr, dwflags: FtpFlags, dwcontext: ULong): Bool =
+public actual fun ftpPutFileW(hconnect: ConstPtr, lpszlocalfile: Pcwstr, lpsznewremotefile: Pcwstr, dwflags: FtpFlags, dwcontext: ULong): Bool =
     WindowsWin32NetworkingWininetJniBridge.windowssysWindowsWin32NetworkingWininetFtpPutFileW(hconnect.rawAddress, lpszlocalfile.rawAddress, lpsznewremotefile.rawAddress, dwflags.toInt(), dwcontext.toLong())
 
-public actual fun ftpRemoveDirectoryA(hconnect: ConstPtr<CVoid>, lpszdirectory: Pcstr): Bool =
+public actual fun ftpRemoveDirectoryA(hconnect: ConstPtr, lpszdirectory: Pcstr): Bool =
     WindowsWin32NetworkingWininetJniBridge.windowssysWindowsWin32NetworkingWininetFtpRemoveDirectoryA(hconnect.rawAddress, lpszdirectory.rawAddress)
 
-public actual fun ftpRemoveDirectoryW(hconnect: ConstPtr<CVoid>, lpszdirectory: Pcwstr): Bool =
+public actual fun ftpRemoveDirectoryW(hconnect: ConstPtr, lpszdirectory: Pcwstr): Bool =
     WindowsWin32NetworkingWininetJniBridge.windowssysWindowsWin32NetworkingWininetFtpRemoveDirectoryW(hconnect.rawAddress, lpszdirectory.rawAddress)
 
-public actual fun ftpRenameFileA(hconnect: ConstPtr<CVoid>, lpszexisting: Pcstr, lpsznew: Pcstr): Bool =
+public actual fun ftpRenameFileA(hconnect: ConstPtr, lpszexisting: Pcstr, lpsznew: Pcstr): Bool =
     WindowsWin32NetworkingWininetJniBridge.windowssysWindowsWin32NetworkingWininetFtpRenameFileA(hconnect.rawAddress, lpszexisting.rawAddress, lpsznew.rawAddress)
 
-public actual fun ftpRenameFileW(hconnect: ConstPtr<CVoid>, lpszexisting: Pcwstr, lpsznew: Pcwstr): Bool =
+public actual fun ftpRenameFileW(hconnect: ConstPtr, lpszexisting: Pcwstr, lpsznew: Pcwstr): Bool =
     WindowsWin32NetworkingWininetJniBridge.windowssysWindowsWin32NetworkingWininetFtpRenameFileW(hconnect.rawAddress, lpszexisting.rawAddress, lpsznew.rawAddress)
 
-public actual fun ftpSetCurrentDirectoryA(hconnect: ConstPtr<CVoid>, lpszdirectory: Pcstr): Bool =
+public actual fun ftpSetCurrentDirectoryA(hconnect: ConstPtr, lpszdirectory: Pcstr): Bool =
     WindowsWin32NetworkingWininetJniBridge.windowssysWindowsWin32NetworkingWininetFtpSetCurrentDirectoryA(hconnect.rawAddress, lpszdirectory.rawAddress)
 
-public actual fun ftpSetCurrentDirectoryW(hconnect: ConstPtr<CVoid>, lpszdirectory: Pcwstr): Bool =
+public actual fun ftpSetCurrentDirectoryW(hconnect: ConstPtr, lpszdirectory: Pcwstr): Bool =
     WindowsWin32NetworkingWininetJniBridge.windowssysWindowsWin32NetworkingWininetFtpSetCurrentDirectoryW(hconnect.rawAddress, lpszdirectory.rawAddress)
 
-public actual fun getDiskInfoA(pszpath: Pcstr, pdwclustersize: MutPtr<UInt>, pdlavail: MutPtr<ULong>, pdltotal: MutPtr<ULong>): Bool =
+public actual fun getDiskInfoA(pszpath: Pcstr, pdwclustersize: MutPtr, pdlavail: MutPtr, pdltotal: MutPtr): Bool =
     WindowsWin32NetworkingWininetJniBridge.windowssysWindowsWin32NetworkingWininetGetDiskInfoA(pszpath.rawAddress, pdwclustersize.rawAddress, pdlavail.rawAddress, pdltotal.rawAddress)
 
-public actual fun getUrlCacheConfigInfoA(lpcacheconfiginfo: MutPtr<InternetCacheConfigInfoa>, lpcbcacheconfiginfo: ConstPtr<UInt>, dwfieldcontrol: CacheConfig): Bool =
+public actual fun getUrlCacheConfigInfoA(lpcacheconfiginfo: MutPtr, lpcbcacheconfiginfo: ConstPtr, dwfieldcontrol: CacheConfig): Bool =
     WindowsWin32NetworkingWininetJniBridge.windowssysWindowsWin32NetworkingWininetGetUrlCacheConfigInfoA(lpcacheconfiginfo.rawAddress, lpcbcacheconfiginfo.rawAddress, dwfieldcontrol.toInt())
 
-public actual fun getUrlCacheConfigInfoW(lpcacheconfiginfo: MutPtr<InternetCacheConfigInfow>, lpcbcacheconfiginfo: ConstPtr<UInt>, dwfieldcontrol: CacheConfig): Bool =
+public actual fun getUrlCacheConfigInfoW(lpcacheconfiginfo: MutPtr, lpcbcacheconfiginfo: ConstPtr, dwfieldcontrol: CacheConfig): Bool =
     WindowsWin32NetworkingWininetJniBridge.windowssysWindowsWin32NetworkingWininetGetUrlCacheConfigInfoW(lpcacheconfiginfo.rawAddress, lpcbcacheconfiginfo.rawAddress, dwfieldcontrol.toInt())
 
-public actual fun getUrlCacheEntryBinaryBlob(pwszurlname: Pcwstr, dwtype: MutPtr<UInt>, pftexpiretime: MutPtr<Filetime>, pftaccesstime: MutPtr<Filetime>, pftmodifiedtime: MutPtr<Filetime>, ppbblob: MutPtr<MutPtr<UByte>>, pcbblob: MutPtr<UInt>): UInt =
+public actual fun getUrlCacheEntryBinaryBlob(pwszurlname: Pcwstr, dwtype: MutPtr, pftexpiretime: MutPtr, pftaccesstime: MutPtr, pftmodifiedtime: MutPtr, ppbblob: MutPtr, pcbblob: MutPtr): UInt =
     WindowsWin32NetworkingWininetJniBridge.windowssysWindowsWin32NetworkingWininetGetUrlCacheEntryBinaryBlob(pwszurlname.rawAddress, dwtype.rawAddress, pftexpiretime.rawAddress, pftaccesstime.rawAddress, pftmodifiedtime.rawAddress, ppbblob.rawAddress, pcbblob.rawAddress).toUInt()
 
-public actual fun getUrlCacheEntryInfoA(lpszurlname: Pcstr, lpcacheentryinfo: MutPtr<InternetCacheEntryInfoa>, lpcbcacheentryinfo: MutPtr<UInt>): Bool =
+public actual fun getUrlCacheEntryInfoA(lpszurlname: Pcstr, lpcacheentryinfo: MutPtr, lpcbcacheentryinfo: MutPtr): Bool =
     WindowsWin32NetworkingWininetJniBridge.windowssysWindowsWin32NetworkingWininetGetUrlCacheEntryInfoA(lpszurlname.rawAddress, lpcacheentryinfo.rawAddress, lpcbcacheentryinfo.rawAddress)
 
-public actual fun getUrlCacheEntryInfoExA(lpszurl: Pcstr, lpcacheentryinfo: MutPtr<InternetCacheEntryInfoa>, lpcbcacheentryinfo: MutPtr<UInt>, lpszredirecturl: Pcstr, lpcbredirecturl: ConstPtr<UInt>, lpreserved: ConstPtr<CVoid>, dwflags: UInt): Bool =
+public actual fun getUrlCacheEntryInfoExA(lpszurl: Pcstr, lpcacheentryinfo: MutPtr, lpcbcacheentryinfo: MutPtr, lpszredirecturl: Pcstr, lpcbredirecturl: ConstPtr, lpreserved: ConstPtr, dwflags: UInt): Bool =
     WindowsWin32NetworkingWininetJniBridge.windowssysWindowsWin32NetworkingWininetGetUrlCacheEntryInfoExA(lpszurl.rawAddress, lpcacheentryinfo.rawAddress, lpcbcacheentryinfo.rawAddress, lpszredirecturl.rawAddress, lpcbredirecturl.rawAddress, lpreserved.rawAddress, dwflags.toInt())
 
-public actual fun getUrlCacheEntryInfoExW(lpszurl: Pcwstr, lpcacheentryinfo: MutPtr<InternetCacheEntryInfow>, lpcbcacheentryinfo: MutPtr<UInt>, lpszredirecturl: Pcwstr, lpcbredirecturl: ConstPtr<UInt>, lpreserved: ConstPtr<CVoid>, dwflags: UInt): Bool =
+public actual fun getUrlCacheEntryInfoExW(lpszurl: Pcwstr, lpcacheentryinfo: MutPtr, lpcbcacheentryinfo: MutPtr, lpszredirecturl: Pcwstr, lpcbredirecturl: ConstPtr, lpreserved: ConstPtr, dwflags: UInt): Bool =
     WindowsWin32NetworkingWininetJniBridge.windowssysWindowsWin32NetworkingWininetGetUrlCacheEntryInfoExW(lpszurl.rawAddress, lpcacheentryinfo.rawAddress, lpcbcacheentryinfo.rawAddress, lpszredirecturl.rawAddress, lpcbredirecturl.rawAddress, lpreserved.rawAddress, dwflags.toInt())
 
-public actual fun getUrlCacheEntryInfoW(lpszurlname: Pcwstr, lpcacheentryinfo: MutPtr<InternetCacheEntryInfow>, lpcbcacheentryinfo: MutPtr<UInt>): Bool =
+public actual fun getUrlCacheEntryInfoW(lpszurlname: Pcwstr, lpcacheentryinfo: MutPtr, lpcbcacheentryinfo: MutPtr): Bool =
     WindowsWin32NetworkingWininetJniBridge.windowssysWindowsWin32NetworkingWininetGetUrlCacheEntryInfoW(lpszurlname.rawAddress, lpcacheentryinfo.rawAddress, lpcbcacheentryinfo.rawAddress)
 
-public actual fun getUrlCacheGroupAttributeA(gid: Long, dwflags: UInt, dwattributes: UInt, lpgroupinfo: MutPtr<InternetCacheGroupInfoa>, lpcbgroupinfo: MutPtr<UInt>, lpreserved: ConstPtr<CVoid>): Bool =
+public actual fun getUrlCacheGroupAttributeA(gid: Long, dwflags: UInt, dwattributes: UInt, lpgroupinfo: MutPtr, lpcbgroupinfo: MutPtr, lpreserved: ConstPtr): Bool =
     WindowsWin32NetworkingWininetJniBridge.windowssysWindowsWin32NetworkingWininetGetUrlCacheGroupAttributeA(gid, dwflags.toInt(), dwattributes.toInt(), lpgroupinfo.rawAddress, lpcbgroupinfo.rawAddress, lpreserved.rawAddress)
 
-public actual fun getUrlCacheGroupAttributeW(gid: Long, dwflags: UInt, dwattributes: UInt, lpgroupinfo: MutPtr<InternetCacheGroupInfow>, lpcbgroupinfo: MutPtr<UInt>, lpreserved: ConstPtr<CVoid>): Bool =
+public actual fun getUrlCacheGroupAttributeW(gid: Long, dwflags: UInt, dwattributes: UInt, lpgroupinfo: MutPtr, lpcbgroupinfo: MutPtr, lpreserved: ConstPtr): Bool =
     WindowsWin32NetworkingWininetJniBridge.windowssysWindowsWin32NetworkingWininetGetUrlCacheGroupAttributeW(gid, dwflags.toInt(), dwattributes.toInt(), lpgroupinfo.rawAddress, lpcbgroupinfo.rawAddress, lpreserved.rawAddress)
 
-public actual fun getUrlCacheHeaderData(nidx: UInt, lpdwdata: MutPtr<UInt>): Bool =
+public actual fun getUrlCacheHeaderData(nidx: UInt, lpdwdata: MutPtr): Bool =
     WindowsWin32NetworkingWininetJniBridge.windowssysWindowsWin32NetworkingWininetGetUrlCacheHeaderData(nidx.toInt(), lpdwdata.rawAddress)
 
-public actual fun gopherCreateLocatorA(lpszhost: Pcstr, nserverport: UShort, lpszdisplaystring: Pcstr, lpszselectorstring: Pcstr, dwgophertype: UInt, lpszlocator: Pstr, lpdwbufferlength: MutPtr<UInt>): Bool =
+public actual fun gopherCreateLocatorA(lpszhost: Pcstr, nserverport: UShort, lpszdisplaystring: Pcstr, lpszselectorstring: Pcstr, dwgophertype: UInt, lpszlocator: Pstr, lpdwbufferlength: MutPtr): Bool =
     WindowsWin32NetworkingWininetJniBridge.windowssysWindowsWin32NetworkingWininetGopherCreateLocatorA(lpszhost.rawAddress, nserverport.toShort(), lpszdisplaystring.rawAddress, lpszselectorstring.rawAddress, dwgophertype.toInt(), lpszlocator.rawAddress, lpdwbufferlength.rawAddress)
 
-public actual fun gopherCreateLocatorW(lpszhost: Pcwstr, nserverport: UShort, lpszdisplaystring: Pcwstr, lpszselectorstring: Pcwstr, dwgophertype: UInt, lpszlocator: Pwstr, lpdwbufferlength: MutPtr<UInt>): Bool =
+public actual fun gopherCreateLocatorW(lpszhost: Pcwstr, nserverport: UShort, lpszdisplaystring: Pcwstr, lpszselectorstring: Pcwstr, dwgophertype: UInt, lpszlocator: Pwstr, lpdwbufferlength: MutPtr): Bool =
     WindowsWin32NetworkingWininetJniBridge.windowssysWindowsWin32NetworkingWininetGopherCreateLocatorW(lpszhost.rawAddress, nserverport.toShort(), lpszdisplaystring.rawAddress, lpszselectorstring.rawAddress, dwgophertype.toInt(), lpszlocator.rawAddress, lpdwbufferlength.rawAddress)
 
-public actual fun gopherFindFirstFileA(hconnect: ConstPtr<CVoid>, lpszlocator: Pcstr, lpszsearchstring: Pcstr, lpfinddata: MutPtr<GopherFindDataa>, dwflags: UInt, dwcontext: ULong): MutPtr<CVoid> =
+public actual fun gopherFindFirstFileA(hconnect: ConstPtr, lpszlocator: Pcstr, lpszsearchstring: Pcstr, lpfinddata: MutPtr, dwflags: UInt, dwcontext: ULong): MutPtr =
     MutPtr(WindowsWin32NetworkingWininetJniBridge.windowssysWindowsWin32NetworkingWininetGopherFindFirstFileA(hconnect.rawAddress, lpszlocator.rawAddress, lpszsearchstring.rawAddress, lpfinddata.rawAddress, dwflags.toInt(), dwcontext.toLong()))
 
-public actual fun gopherFindFirstFileW(hconnect: ConstPtr<CVoid>, lpszlocator: Pcwstr, lpszsearchstring: Pcwstr, lpfinddata: MutPtr<GopherFindDataw>, dwflags: UInt, dwcontext: ULong): MutPtr<CVoid> =
+public actual fun gopherFindFirstFileW(hconnect: ConstPtr, lpszlocator: Pcwstr, lpszsearchstring: Pcwstr, lpfinddata: MutPtr, dwflags: UInt, dwcontext: ULong): MutPtr =
     MutPtr(WindowsWin32NetworkingWininetJniBridge.windowssysWindowsWin32NetworkingWininetGopherFindFirstFileW(hconnect.rawAddress, lpszlocator.rawAddress, lpszsearchstring.rawAddress, lpfinddata.rawAddress, dwflags.toInt(), dwcontext.toLong()))
 
-public actual fun gopherGetAttributeA(hconnect: ConstPtr<CVoid>, lpszlocator: Pcstr, lpszattributename: Pcstr, lpbuffer: MutPtr<UByte>, dwbufferlength: UInt, lpdwcharactersreturned: MutPtr<UInt>, lpfnenumerator: GopherAttributeEnumerator, dwcontext: ULong): Bool =
+public actual fun gopherGetAttributeA(hconnect: ConstPtr, lpszlocator: Pcstr, lpszattributename: Pcstr, lpbuffer: MutPtr, dwbufferlength: UInt, lpdwcharactersreturned: MutPtr, lpfnenumerator: GopherAttributeEnumerator, dwcontext: ULong): Bool =
     WindowsWin32NetworkingWininetJniBridge.windowssysWindowsWin32NetworkingWininetGopherGetAttributeA(hconnect.rawAddress, lpszlocator.rawAddress, lpszattributename.rawAddress, lpbuffer.rawAddress, dwbufferlength.toInt(), lpdwcharactersreturned.rawAddress, 0L, dwcontext.toLong())
 
-public actual fun gopherGetAttributeW(hconnect: ConstPtr<CVoid>, lpszlocator: Pcwstr, lpszattributename: Pcwstr, lpbuffer: MutPtr<UByte>, dwbufferlength: UInt, lpdwcharactersreturned: MutPtr<UInt>, lpfnenumerator: GopherAttributeEnumerator, dwcontext: ULong): Bool =
+public actual fun gopherGetAttributeW(hconnect: ConstPtr, lpszlocator: Pcwstr, lpszattributename: Pcwstr, lpbuffer: MutPtr, dwbufferlength: UInt, lpdwcharactersreturned: MutPtr, lpfnenumerator: GopherAttributeEnumerator, dwcontext: ULong): Bool =
     WindowsWin32NetworkingWininetJniBridge.windowssysWindowsWin32NetworkingWininetGopherGetAttributeW(hconnect.rawAddress, lpszlocator.rawAddress, lpszattributename.rawAddress, lpbuffer.rawAddress, dwbufferlength.toInt(), lpdwcharactersreturned.rawAddress, 0L, dwcontext.toLong())
 
-public actual fun gopherGetLocatorTypeA(lpszlocator: Pcstr, lpdwgophertype: MutPtr<UInt>): Bool =
+public actual fun gopherGetLocatorTypeA(lpszlocator: Pcstr, lpdwgophertype: MutPtr): Bool =
     WindowsWin32NetworkingWininetJniBridge.windowssysWindowsWin32NetworkingWininetGopherGetLocatorTypeA(lpszlocator.rawAddress, lpdwgophertype.rawAddress)
 
-public actual fun gopherGetLocatorTypeW(lpszlocator: Pcwstr, lpdwgophertype: MutPtr<UInt>): Bool =
+public actual fun gopherGetLocatorTypeW(lpszlocator: Pcwstr, lpdwgophertype: MutPtr): Bool =
     WindowsWin32NetworkingWininetJniBridge.windowssysWindowsWin32NetworkingWininetGopherGetLocatorTypeW(lpszlocator.rawAddress, lpdwgophertype.rawAddress)
 
-public actual fun gopherOpenFileA(hconnect: ConstPtr<CVoid>, lpszlocator: Pcstr, lpszview: Pcstr, dwflags: UInt, dwcontext: ULong): MutPtr<CVoid> =
+public actual fun gopherOpenFileA(hconnect: ConstPtr, lpszlocator: Pcstr, lpszview: Pcstr, dwflags: UInt, dwcontext: ULong): MutPtr =
     MutPtr(WindowsWin32NetworkingWininetJniBridge.windowssysWindowsWin32NetworkingWininetGopherOpenFileA(hconnect.rawAddress, lpszlocator.rawAddress, lpszview.rawAddress, dwflags.toInt(), dwcontext.toLong()))
 
-public actual fun gopherOpenFileW(hconnect: ConstPtr<CVoid>, lpszlocator: Pcwstr, lpszview: Pcwstr, dwflags: UInt, dwcontext: ULong): MutPtr<CVoid> =
+public actual fun gopherOpenFileW(hconnect: ConstPtr, lpszlocator: Pcwstr, lpszview: Pcwstr, dwflags: UInt, dwcontext: ULong): MutPtr =
     MutPtr(WindowsWin32NetworkingWininetJniBridge.windowssysWindowsWin32NetworkingWininetGopherOpenFileW(hconnect.rawAddress, lpszlocator.rawAddress, lpszview.rawAddress, dwflags.toInt(), dwcontext.toLong()))
 
-public actual fun httpAddRequestHeadersA(hrequest: ConstPtr<CVoid>, lpszheaders: Pcstr, dwheaderslength: UInt, dwmodifiers: HttpAddreqFlag): Bool =
+public actual fun httpAddRequestHeadersA(hrequest: ConstPtr, lpszheaders: Pcstr, dwheaderslength: UInt, dwmodifiers: HttpAddreqFlag): Bool =
     WindowsWin32NetworkingWininetJniBridge.windowssysWindowsWin32NetworkingWininetHttpAddRequestHeadersA(hrequest.rawAddress, lpszheaders.rawAddress, dwheaderslength.toInt(), dwmodifiers.toInt())
 
-public actual fun httpAddRequestHeadersW(hrequest: ConstPtr<CVoid>, lpszheaders: Pcwstr, dwheaderslength: UInt, dwmodifiers: HttpAddreqFlag): Bool =
+public actual fun httpAddRequestHeadersW(hrequest: ConstPtr, lpszheaders: Pcwstr, dwheaderslength: UInt, dwmodifiers: HttpAddreqFlag): Bool =
     WindowsWin32NetworkingWininetJniBridge.windowssysWindowsWin32NetworkingWininetHttpAddRequestHeadersW(hrequest.rawAddress, lpszheaders.rawAddress, dwheaderslength.toInt(), dwmodifiers.toInt())
 
-public actual fun httpCheckDavComplianceA(lpszurl: Pcstr, lpszcompliancetoken: Pcstr, lpffound: MutPtr<Bool>, hwnd: Hwnd, lpvreserved: ConstPtr<CVoid>): Bool =
+public actual fun httpCheckDavComplianceA(lpszurl: Pcstr, lpszcompliancetoken: Pcstr, lpffound: MutPtr, hwnd: Hwnd, lpvreserved: ConstPtr): Bool =
     WindowsWin32NetworkingWininetJniBridge.windowssysWindowsWin32NetworkingWininetHttpCheckDavComplianceA(lpszurl.rawAddress, lpszcompliancetoken.rawAddress, lpffound.rawAddress, hwnd.rawAddress, lpvreserved.rawAddress)
 
-public actual fun httpCheckDavComplianceW(lpszurl: Pcwstr, lpszcompliancetoken: Pcwstr, lpffound: MutPtr<Bool>, hwnd: Hwnd, lpvreserved: ConstPtr<CVoid>): Bool =
+public actual fun httpCheckDavComplianceW(lpszurl: Pcwstr, lpszcompliancetoken: Pcwstr, lpffound: MutPtr, hwnd: Hwnd, lpvreserved: ConstPtr): Bool =
     WindowsWin32NetworkingWininetJniBridge.windowssysWindowsWin32NetworkingWininetHttpCheckDavComplianceW(lpszurl.rawAddress, lpszcompliancetoken.rawAddress, lpffound.rawAddress, hwnd.rawAddress, lpvreserved.rawAddress)
 
-public actual fun httpCloseDependencyHandle(hdependencyhandle: ConstPtr<CVoid>) {
+public actual fun httpCloseDependencyHandle(hdependencyhandle: ConstPtr) {
     WindowsWin32NetworkingWininetJniBridge.windowssysWindowsWin32NetworkingWininetHttpCloseDependencyHandle(hdependencyhandle.rawAddress)
 }
 
-public actual fun httpDuplicateDependencyHandle(hdependencyhandle: ConstPtr<CVoid>, phduplicateddependencyhandle: MutPtr<MutPtr<CVoid>>): UInt =
+public actual fun httpDuplicateDependencyHandle(hdependencyhandle: ConstPtr, phduplicateddependencyhandle: MutPtr): UInt =
     WindowsWin32NetworkingWininetJniBridge.windowssysWindowsWin32NetworkingWininetHttpDuplicateDependencyHandle(hdependencyhandle.rawAddress, phduplicateddependencyhandle.rawAddress).toUInt()
 
-public actual fun httpEndRequestA(hrequest: ConstPtr<CVoid>, lpbuffersout: MutPtr<InternetBuffersa>, dwflags: UInt, dwcontext: ULong): Bool =
+public actual fun httpEndRequestA(hrequest: ConstPtr, lpbuffersout: MutPtr, dwflags: UInt, dwcontext: ULong): Bool =
     WindowsWin32NetworkingWininetJniBridge.windowssysWindowsWin32NetworkingWininetHttpEndRequestA(hrequest.rawAddress, lpbuffersout.rawAddress, dwflags.toInt(), dwcontext.toLong())
 
-public actual fun httpEndRequestW(hrequest: ConstPtr<CVoid>, lpbuffersout: MutPtr<InternetBuffersw>, dwflags: UInt, dwcontext: ULong): Bool =
+public actual fun httpEndRequestW(hrequest: ConstPtr, lpbuffersout: MutPtr, dwflags: UInt, dwcontext: ULong): Bool =
     WindowsWin32NetworkingWininetJniBridge.windowssysWindowsWin32NetworkingWininetHttpEndRequestW(hrequest.rawAddress, lpbuffersout.rawAddress, dwflags.toInt(), dwcontext.toLong())
 
-public actual fun httpGetServerCredentials(pwszurl: Pcwstr, ppwszusername: MutPtr<Pwstr>, ppwszpassword: MutPtr<Pwstr>): UInt =
+public actual fun httpGetServerCredentials(pwszurl: Pcwstr, ppwszusername: MutPtr, ppwszpassword: MutPtr): UInt =
     WindowsWin32NetworkingWininetJniBridge.windowssysWindowsWin32NetworkingWininetHttpGetServerCredentials(pwszurl.rawAddress, ppwszusername.rawAddress, ppwszpassword.rawAddress).toUInt()
 
-public actual fun httpIndicatePageLoadComplete(hdependencyhandle: ConstPtr<CVoid>): UInt =
+public actual fun httpIndicatePageLoadComplete(hdependencyhandle: ConstPtr): UInt =
     WindowsWin32NetworkingWininetJniBridge.windowssysWindowsWin32NetworkingWininetHttpIndicatePageLoadComplete(hdependencyhandle.rawAddress).toUInt()
 
-public actual fun httpIsHostHstsEnabled(pcwszurl: Pcwstr, pfishsts: MutPtr<Bool>): UInt =
+public actual fun httpIsHostHstsEnabled(pcwszurl: Pcwstr, pfishsts: MutPtr): UInt =
     WindowsWin32NetworkingWininetJniBridge.windowssysWindowsWin32NetworkingWininetHttpIsHostHstsEnabled(pcwszurl.rawAddress, pfishsts.rawAddress).toUInt()
 
-public actual fun httpOpenDependencyHandle(hrequesthandle: ConstPtr<CVoid>, fbackground: Bool, phdependencyhandle: MutPtr<MutPtr<CVoid>>): UInt =
+public actual fun httpOpenDependencyHandle(hrequesthandle: ConstPtr, fbackground: Bool, phdependencyhandle: MutPtr): UInt =
     WindowsWin32NetworkingWininetJniBridge.windowssysWindowsWin32NetworkingWininetHttpOpenDependencyHandle(hrequesthandle.rawAddress, fbackground, phdependencyhandle.rawAddress).toUInt()
 
-public actual fun httpOpenRequestA(hconnect: ConstPtr<CVoid>, lpszverb: Pcstr, lpszobjectname: Pcstr, lpszversion: Pcstr, lpszreferrer: Pcstr, lplpszaccepttypes: ConstPtr<Pcstr>, dwflags: UInt, dwcontext: ULong): MutPtr<CVoid> =
+public actual fun httpOpenRequestA(hconnect: ConstPtr, lpszverb: Pcstr, lpszobjectname: Pcstr, lpszversion: Pcstr, lpszreferrer: Pcstr, lplpszaccepttypes: ConstPtr, dwflags: UInt, dwcontext: ULong): MutPtr =
     MutPtr(WindowsWin32NetworkingWininetJniBridge.windowssysWindowsWin32NetworkingWininetHttpOpenRequestA(hconnect.rawAddress, lpszverb.rawAddress, lpszobjectname.rawAddress, lpszversion.rawAddress, lpszreferrer.rawAddress, lplpszaccepttypes.rawAddress, dwflags.toInt(), dwcontext.toLong()))
 
-public actual fun httpOpenRequestW(hconnect: ConstPtr<CVoid>, lpszverb: Pcwstr, lpszobjectname: Pcwstr, lpszversion: Pcwstr, lpszreferrer: Pcwstr, lplpszaccepttypes: ConstPtr<Pcwstr>, dwflags: UInt, dwcontext: ULong): MutPtr<CVoid> =
+public actual fun httpOpenRequestW(hconnect: ConstPtr, lpszverb: Pcwstr, lpszobjectname: Pcwstr, lpszversion: Pcwstr, lpszreferrer: Pcwstr, lplpszaccepttypes: ConstPtr, dwflags: UInt, dwcontext: ULong): MutPtr =
     MutPtr(WindowsWin32NetworkingWininetJniBridge.windowssysWindowsWin32NetworkingWininetHttpOpenRequestW(hconnect.rawAddress, lpszverb.rawAddress, lpszobjectname.rawAddress, lpszversion.rawAddress, lpszreferrer.rawAddress, lplpszaccepttypes.rawAddress, dwflags.toInt(), dwcontext.toLong()))
 
 public actual fun httpPushClose(hwait: HttpPushWaitHandle) {
     WindowsWin32NetworkingWininetJniBridge.windowssysWindowsWin32NetworkingWininetHttpPushClose(hwait.rawAddress)
 }
 
-public actual fun httpPushEnable(hrequest: ConstPtr<CVoid>, ptransportsetting: ConstPtr<HttpPushTransportSetting>, phwait: MutPtr<HttpPushWaitHandle>): UInt =
+public actual fun httpPushEnable(hrequest: ConstPtr, ptransportsetting: ConstPtr, phwait: MutPtr): UInt =
     WindowsWin32NetworkingWininetJniBridge.windowssysWindowsWin32NetworkingWininetHttpPushEnable(hrequest.rawAddress, ptransportsetting.rawAddress, phwait.rawAddress).toUInt()
 
-public actual fun httpPushWait(hwait: HttpPushWaitHandle, etype: HttpPushWaitType, pnotificationstatus: MutPtr<HttpPushNotificationStatus>): UInt =
+public actual fun httpPushWait(hwait: HttpPushWaitHandle, etype: HttpPushWaitType, pnotificationstatus: MutPtr): UInt =
     WindowsWin32NetworkingWininetJniBridge.windowssysWindowsWin32NetworkingWininetHttpPushWait(hwait.rawAddress, etype, pnotificationstatus.rawAddress).toUInt()
 
-public actual fun httpQueryInfoA(hrequest: ConstPtr<CVoid>, dwinfolevel: UInt, lpbuffer: MutPtr<CVoid>, lpdwbufferlength: MutPtr<UInt>, lpdwindex: MutPtr<UInt>): Bool =
+public actual fun httpQueryInfoA(hrequest: ConstPtr, dwinfolevel: UInt, lpbuffer: MutPtr, lpdwbufferlength: MutPtr, lpdwindex: MutPtr): Bool =
     WindowsWin32NetworkingWininetJniBridge.windowssysWindowsWin32NetworkingWininetHttpQueryInfoA(hrequest.rawAddress, dwinfolevel.toInt(), lpbuffer.rawAddress, lpdwbufferlength.rawAddress, lpdwindex.rawAddress)
 
-public actual fun httpQueryInfoW(hrequest: ConstPtr<CVoid>, dwinfolevel: UInt, lpbuffer: MutPtr<CVoid>, lpdwbufferlength: MutPtr<UInt>, lpdwindex: MutPtr<UInt>): Bool =
+public actual fun httpQueryInfoW(hrequest: ConstPtr, dwinfolevel: UInt, lpbuffer: MutPtr, lpdwbufferlength: MutPtr, lpdwindex: MutPtr): Bool =
     WindowsWin32NetworkingWininetJniBridge.windowssysWindowsWin32NetworkingWininetHttpQueryInfoW(hrequest.rawAddress, dwinfolevel.toInt(), lpbuffer.rawAddress, lpdwbufferlength.rawAddress, lpdwindex.rawAddress)
 
-public actual fun httpSendRequestA(hrequest: ConstPtr<CVoid>, lpszheaders: Pcstr, dwheaderslength: UInt, lpoptional: ConstPtr<CVoid>, dwoptionallength: UInt): Bool =
+public actual fun httpSendRequestA(hrequest: ConstPtr, lpszheaders: Pcstr, dwheaderslength: UInt, lpoptional: ConstPtr, dwoptionallength: UInt): Bool =
     WindowsWin32NetworkingWininetJniBridge.windowssysWindowsWin32NetworkingWininetHttpSendRequestA(hrequest.rawAddress, lpszheaders.rawAddress, dwheaderslength.toInt(), lpoptional.rawAddress, dwoptionallength.toInt())
 
-public actual fun httpSendRequestExA(hrequest: ConstPtr<CVoid>, lpbuffersin: ConstPtr<InternetBuffersa>, lpbuffersout: MutPtr<InternetBuffersa>, dwflags: UInt, dwcontext: ULong): Bool =
+public actual fun httpSendRequestExA(hrequest: ConstPtr, lpbuffersin: ConstPtr, lpbuffersout: MutPtr, dwflags: UInt, dwcontext: ULong): Bool =
     WindowsWin32NetworkingWininetJniBridge.windowssysWindowsWin32NetworkingWininetHttpSendRequestExA(hrequest.rawAddress, lpbuffersin.rawAddress, lpbuffersout.rawAddress, dwflags.toInt(), dwcontext.toLong())
 
-public actual fun httpSendRequestExW(hrequest: ConstPtr<CVoid>, lpbuffersin: ConstPtr<InternetBuffersw>, lpbuffersout: MutPtr<InternetBuffersw>, dwflags: UInt, dwcontext: ULong): Bool =
+public actual fun httpSendRequestExW(hrequest: ConstPtr, lpbuffersin: ConstPtr, lpbuffersout: MutPtr, dwflags: UInt, dwcontext: ULong): Bool =
     WindowsWin32NetworkingWininetJniBridge.windowssysWindowsWin32NetworkingWininetHttpSendRequestExW(hrequest.rawAddress, lpbuffersin.rawAddress, lpbuffersout.rawAddress, dwflags.toInt(), dwcontext.toLong())
 
-public actual fun httpSendRequestW(hrequest: ConstPtr<CVoid>, lpszheaders: Pcwstr, dwheaderslength: UInt, lpoptional: ConstPtr<CVoid>, dwoptionallength: UInt): Bool =
+public actual fun httpSendRequestW(hrequest: ConstPtr, lpszheaders: Pcwstr, dwheaderslength: UInt, lpoptional: ConstPtr, dwoptionallength: UInt): Bool =
     WindowsWin32NetworkingWininetJniBridge.windowssysWindowsWin32NetworkingWininetHttpSendRequestW(hrequest.rawAddress, lpszheaders.rawAddress, dwheaderslength.toInt(), lpoptional.rawAddress, dwoptionallength.toInt())
 
-public actual fun httpWebSocketClose(hwebsocket: ConstPtr<CVoid>, usstatus: UShort, pvreason: ConstPtr<CVoid>, dwreasonlength: UInt): Bool =
+public actual fun httpWebSocketClose(hwebsocket: ConstPtr, usstatus: UShort, pvreason: ConstPtr, dwreasonlength: UInt): Bool =
     WindowsWin32NetworkingWininetJniBridge.windowssysWindowsWin32NetworkingWininetHttpWebSocketClose(hwebsocket.rawAddress, usstatus.toShort(), pvreason.rawAddress, dwreasonlength.toInt())
 
-public actual fun httpWebSocketCompleteUpgrade(hrequest: ConstPtr<CVoid>, dwcontext: ULong): MutPtr<CVoid> =
+public actual fun httpWebSocketCompleteUpgrade(hrequest: ConstPtr, dwcontext: ULong): MutPtr =
     MutPtr(WindowsWin32NetworkingWininetJniBridge.windowssysWindowsWin32NetworkingWininetHttpWebSocketCompleteUpgrade(hrequest.rawAddress, dwcontext.toLong()))
 
-public actual fun httpWebSocketQueryCloseStatus(hwebsocket: ConstPtr<CVoid>, pusstatus: MutPtr<UShort>, pvreason: MutPtr<CVoid>, dwreasonlength: UInt, pdwreasonlengthconsumed: MutPtr<UInt>): Bool =
+public actual fun httpWebSocketQueryCloseStatus(hwebsocket: ConstPtr, pusstatus: MutPtr, pvreason: MutPtr, dwreasonlength: UInt, pdwreasonlengthconsumed: MutPtr): Bool =
     WindowsWin32NetworkingWininetJniBridge.windowssysWindowsWin32NetworkingWininetHttpWebSocketQueryCloseStatus(hwebsocket.rawAddress, pusstatus.rawAddress, pvreason.rawAddress, dwreasonlength.toInt(), pdwreasonlengthconsumed.rawAddress)
 
-public actual fun httpWebSocketReceive(hwebsocket: ConstPtr<CVoid>, pvbuffer: MutPtr<CVoid>, dwbufferlength: UInt, pdwbytesread: MutPtr<UInt>, pbuffertype: MutPtr<HttpWebSocketBufferType>): Bool =
+public actual fun httpWebSocketReceive(hwebsocket: ConstPtr, pvbuffer: MutPtr, dwbufferlength: UInt, pdwbytesread: MutPtr, pbuffertype: MutPtr): Bool =
     WindowsWin32NetworkingWininetJniBridge.windowssysWindowsWin32NetworkingWininetHttpWebSocketReceive(hwebsocket.rawAddress, pvbuffer.rawAddress, dwbufferlength.toInt(), pdwbytesread.rawAddress, pbuffertype.rawAddress)
 
-public actual fun httpWebSocketSend(hwebsocket: ConstPtr<CVoid>, buffertype: HttpWebSocketBufferType, pvbuffer: ConstPtr<CVoid>, dwbufferlength: UInt): Bool =
+public actual fun httpWebSocketSend(hwebsocket: ConstPtr, buffertype: HttpWebSocketBufferType, pvbuffer: ConstPtr, dwbufferlength: UInt): Bool =
     WindowsWin32NetworkingWininetJniBridge.windowssysWindowsWin32NetworkingWininetHttpWebSocketSend(hwebsocket.rawAddress, buffertype, pvbuffer.rawAddress, dwbufferlength.toInt())
 
-public actual fun httpWebSocketShutdown(hwebsocket: ConstPtr<CVoid>, usstatus: UShort, pvreason: ConstPtr<CVoid>, dwreasonlength: UInt): Bool =
+public actual fun httpWebSocketShutdown(hwebsocket: ConstPtr, usstatus: UShort, pvreason: ConstPtr, dwreasonlength: UInt): Bool =
     WindowsWin32NetworkingWininetJniBridge.windowssysWindowsWin32NetworkingWininetHttpWebSocketShutdown(hwebsocket.rawAddress, usstatus.toShort(), pvreason.rawAddress, dwreasonlength.toInt())
 
 public actual fun importCookieFileA(szfilename: Pcstr): Bool =
@@ -1311,16 +1305,16 @@ public actual fun importCookieFileA(szfilename: Pcstr): Bool =
 public actual fun importCookieFileW(szfilename: Pcwstr): Bool =
     WindowsWin32NetworkingWininetJniBridge.windowssysWindowsWin32NetworkingWininetImportCookieFileW(szfilename.rawAddress)
 
-public actual fun incrementUrlCacheHeaderData(nidx: UInt, lpdwdata: MutPtr<UInt>): Bool =
+public actual fun incrementUrlCacheHeaderData(nidx: UInt, lpdwdata: MutPtr): Bool =
     WindowsWin32NetworkingWininetJniBridge.windowssysWindowsWin32NetworkingWininetIncrementUrlCacheHeaderData(nidx.toInt(), lpdwdata.rawAddress)
 
-public actual fun internalInternetGetCookie(lpszurl: Pcstr, lpszcookiedata: Pstr, lpdwdatasize: MutPtr<UInt>): UInt =
+public actual fun internalInternetGetCookie(lpszurl: Pcstr, lpszcookiedata: Pstr, lpdwdatasize: MutPtr): UInt =
     WindowsWin32NetworkingWininetJniBridge.windowssysWindowsWin32NetworkingWininetInternalInternetGetCookie(lpszurl.rawAddress, lpszcookiedata.rawAddress, lpdwdatasize.rawAddress).toUInt()
 
-public actual fun internetAlgIdToStringA(ai: AlgId, lpstr: Pstr, lpdwstrlength: MutPtr<UInt>, dwreserved: UInt): Bool =
+public actual fun internetAlgIdToStringA(ai: AlgId, lpstr: Pstr, lpdwstrlength: MutPtr, dwreserved: UInt): Bool =
     WindowsWin32NetworkingWininetJniBridge.windowssysWindowsWin32NetworkingWininetInternetAlgIdToStringA(ai.toInt(), lpstr.rawAddress, lpdwstrlength.rawAddress, dwreserved.toInt())
 
-public actual fun internetAlgIdToStringW(ai: AlgId, lpstr: Pwstr, lpdwstrlength: MutPtr<UInt>, dwreserved: UInt): Bool =
+public actual fun internetAlgIdToStringW(ai: AlgId, lpstr: Pwstr, lpdwstrlength: MutPtr, dwreserved: UInt): Bool =
     WindowsWin32NetworkingWininetJniBridge.windowssysWindowsWin32NetworkingWininetInternetAlgIdToStringW(ai.toInt(), lpstr.rawAddress, lpdwstrlength.rawAddress, dwreserved.toInt())
 
 public actual fun internetAttemptConnect(dwreserved: UInt): UInt =
@@ -1332,10 +1326,10 @@ public actual fun internetAutodial(dwflags: InternetAutodial, hwndparent: Hwnd):
 public actual fun internetAutodialHangup(dwreserved: UInt): Bool =
     WindowsWin32NetworkingWininetJniBridge.windowssysWindowsWin32NetworkingWininetInternetAutodialHangup(dwreserved.toInt())
 
-public actual fun internetCanonicalizeUrlA(lpszurl: Pcstr, lpszbuffer: Pstr, lpdwbufferlength: MutPtr<UInt>, dwflags: UInt): Bool =
+public actual fun internetCanonicalizeUrlA(lpszurl: Pcstr, lpszbuffer: Pstr, lpdwbufferlength: MutPtr, dwflags: UInt): Bool =
     WindowsWin32NetworkingWininetJniBridge.windowssysWindowsWin32NetworkingWininetInternetCanonicalizeUrlA(lpszurl.rawAddress, lpszbuffer.rawAddress, lpdwbufferlength.rawAddress, dwflags.toInt())
 
-public actual fun internetCanonicalizeUrlW(lpszurl: Pcwstr, lpszbuffer: Pwstr, lpdwbufferlength: MutPtr<UInt>, dwflags: UInt): Bool =
+public actual fun internetCanonicalizeUrlW(lpszurl: Pcwstr, lpszbuffer: Pwstr, lpdwbufferlength: MutPtr, dwflags: UInt): Bool =
     WindowsWin32NetworkingWininetJniBridge.windowssysWindowsWin32NetworkingWininetInternetCanonicalizeUrlW(lpszurl.rawAddress, lpszbuffer.rawAddress, lpdwbufferlength.rawAddress, dwflags.toInt())
 
 public actual fun internetCheckConnectionA(lpszurl: Pcstr, dwflags: UInt, dwreserved: UInt): Bool =
@@ -1347,13 +1341,13 @@ public actual fun internetCheckConnectionW(lpszurl: Pcwstr, dwflags: UInt, dwres
 public actual fun internetClearAllPerSiteCookieDecisions(): Bool =
     WindowsWin32NetworkingWininetJniBridge.windowssysWindowsWin32NetworkingWininetInternetClearAllPerSiteCookieDecisions()
 
-public actual fun internetCloseHandle(hinternet: ConstPtr<CVoid>): Bool =
+public actual fun internetCloseHandle(hinternet: ConstPtr): Bool =
     WindowsWin32NetworkingWininetJniBridge.windowssysWindowsWin32NetworkingWininetInternetCloseHandle(hinternet.rawAddress)
 
-public actual fun internetCombineUrlA(lpszbaseurl: Pcstr, lpszrelativeurl: Pcstr, lpszbuffer: Pstr, lpdwbufferlength: MutPtr<UInt>, dwflags: UInt): Bool =
+public actual fun internetCombineUrlA(lpszbaseurl: Pcstr, lpszrelativeurl: Pcstr, lpszbuffer: Pstr, lpdwbufferlength: MutPtr, dwflags: UInt): Bool =
     WindowsWin32NetworkingWininetJniBridge.windowssysWindowsWin32NetworkingWininetInternetCombineUrlA(lpszbaseurl.rawAddress, lpszrelativeurl.rawAddress, lpszbuffer.rawAddress, lpdwbufferlength.rawAddress, dwflags.toInt())
 
-public actual fun internetCombineUrlW(lpszbaseurl: Pcwstr, lpszrelativeurl: Pcwstr, lpszbuffer: Pwstr, lpdwbufferlength: MutPtr<UInt>, dwflags: UInt): Bool =
+public actual fun internetCombineUrlW(lpszbaseurl: Pcwstr, lpszrelativeurl: Pcwstr, lpszbuffer: Pwstr, lpdwbufferlength: MutPtr, dwflags: UInt): Bool =
     WindowsWin32NetworkingWininetJniBridge.windowssysWindowsWin32NetworkingWininetInternetCombineUrlW(lpszbaseurl.rawAddress, lpszrelativeurl.rawAddress, lpszbuffer.rawAddress, lpdwbufferlength.rawAddress, dwflags.toInt())
 
 public actual fun internetConfirmZoneCrossing(hwnd: Hwnd, szurlprev: Pcstr, szurlnew: Pcstr, bpost: Bool): UInt =
@@ -1365,111 +1359,111 @@ public actual fun internetConfirmZoneCrossingA(hwnd: Hwnd, szurlprev: Pcstr, szu
 public actual fun internetConfirmZoneCrossingW(hwnd: Hwnd, szurlprev: Pcwstr, szurlnew: Pcwstr, bpost: Bool): UInt =
     WindowsWin32NetworkingWininetJniBridge.windowssysWindowsWin32NetworkingWininetInternetConfirmZoneCrossingW(hwnd.rawAddress, szurlprev.rawAddress, szurlnew.rawAddress, bpost).toUInt()
 
-public actual fun internetConnectA(hinternet: ConstPtr<CVoid>, lpszservername: Pcstr, nserverport: UShort, lpszusername: Pcstr, lpszpassword: Pcstr, dwservice: UInt, dwflags: UInt, dwcontext: ULong): MutPtr<CVoid> =
+public actual fun internetConnectA(hinternet: ConstPtr, lpszservername: Pcstr, nserverport: UShort, lpszusername: Pcstr, lpszpassword: Pcstr, dwservice: UInt, dwflags: UInt, dwcontext: ULong): MutPtr =
     MutPtr(WindowsWin32NetworkingWininetJniBridge.windowssysWindowsWin32NetworkingWininetInternetConnectA(hinternet.rawAddress, lpszservername.rawAddress, nserverport.toShort(), lpszusername.rawAddress, lpszpassword.rawAddress, dwservice.toInt(), dwflags.toInt(), dwcontext.toLong()))
 
-public actual fun internetConnectW(hinternet: ConstPtr<CVoid>, lpszservername: Pcwstr, nserverport: UShort, lpszusername: Pcwstr, lpszpassword: Pcwstr, dwservice: UInt, dwflags: UInt, dwcontext: ULong): MutPtr<CVoid> =
+public actual fun internetConnectW(hinternet: ConstPtr, lpszservername: Pcwstr, nserverport: UShort, lpszusername: Pcwstr, lpszpassword: Pcwstr, dwservice: UInt, dwflags: UInt, dwcontext: ULong): MutPtr =
     MutPtr(WindowsWin32NetworkingWininetJniBridge.windowssysWindowsWin32NetworkingWininetInternetConnectW(hinternet.rawAddress, lpszservername.rawAddress, nserverport.toShort(), lpszusername.rawAddress, lpszpassword.rawAddress, dwservice.toInt(), dwflags.toInt(), dwcontext.toLong()))
 
-public actual fun internetConvertUrlFromWireToWideChar(pcszurl: Pcstr, cchurl: UInt, pcwszbaseurl: Pcwstr, dwcodepagehost: UInt, dwcodepagepath: UInt, fencodepathextra: Bool, dwcodepageextra: UInt, ppwszconvertedurl: MutPtr<Pwstr>): UInt =
+public actual fun internetConvertUrlFromWireToWideChar(pcszurl: Pcstr, cchurl: UInt, pcwszbaseurl: Pcwstr, dwcodepagehost: UInt, dwcodepagepath: UInt, fencodepathextra: Bool, dwcodepageextra: UInt, ppwszconvertedurl: MutPtr): UInt =
     WindowsWin32NetworkingWininetJniBridge.windowssysWindowsWin32NetworkingWininetInternetConvertUrlFromWireToWideChar(pcszurl.rawAddress, cchurl.toInt(), pcwszbaseurl.rawAddress, dwcodepagehost.toInt(), dwcodepagepath.toInt(), fencodepathextra, dwcodepageextra.toInt(), ppwszconvertedurl.rawAddress).toUInt()
 
-public actual fun internetCrackUrlA(lpszurl: Pcstr, dwurllength: UInt, dwflags: WinHttpCreateUrlFlags, lpurlcomponents: MutPtr<UrlComponentsa>): Bool =
+public actual fun internetCrackUrlA(lpszurl: Pcstr, dwurllength: UInt, dwflags: WinHttpCreateUrlFlags, lpurlcomponents: MutPtr): Bool =
     WindowsWin32NetworkingWininetJniBridge.windowssysWindowsWin32NetworkingWininetInternetCrackUrlA(lpszurl.rawAddress, dwurllength.toInt(), dwflags.toInt(), lpurlcomponents.rawAddress)
 
-public actual fun internetCrackUrlW(lpszurl: Pcwstr, dwurllength: UInt, dwflags: WinHttpCreateUrlFlags, lpurlcomponents: MutPtr<UrlComponentsw>): Bool =
+public actual fun internetCrackUrlW(lpszurl: Pcwstr, dwurllength: UInt, dwflags: WinHttpCreateUrlFlags, lpurlcomponents: MutPtr): Bool =
     WindowsWin32NetworkingWininetJniBridge.windowssysWindowsWin32NetworkingWininetInternetCrackUrlW(lpszurl.rawAddress, dwurllength.toInt(), dwflags.toInt(), lpurlcomponents.rawAddress)
 
-public actual fun internetCreateUrlA(lpurlcomponents: ConstPtr<UrlComponentsa>, dwflags: UInt, lpszurl: Pstr, lpdwurllength: MutPtr<UInt>): Bool =
+public actual fun internetCreateUrlA(lpurlcomponents: ConstPtr, dwflags: UInt, lpszurl: Pstr, lpdwurllength: MutPtr): Bool =
     WindowsWin32NetworkingWininetJniBridge.windowssysWindowsWin32NetworkingWininetInternetCreateUrlA(lpurlcomponents.rawAddress, dwflags.toInt(), lpszurl.rawAddress, lpdwurllength.rawAddress)
 
-public actual fun internetCreateUrlW(lpurlcomponents: ConstPtr<UrlComponentsw>, dwflags: UInt, lpszurl: Pwstr, lpdwurllength: MutPtr<UInt>): Bool =
+public actual fun internetCreateUrlW(lpurlcomponents: ConstPtr, dwflags: UInt, lpszurl: Pwstr, lpdwurllength: MutPtr): Bool =
     WindowsWin32NetworkingWininetJniBridge.windowssysWindowsWin32NetworkingWininetInternetCreateUrlW(lpurlcomponents.rawAddress, dwflags.toInt(), lpszurl.rawAddress, lpdwurllength.rawAddress)
 
-public actual fun internetDial(hwndparent: Hwnd, lpszconnectoid: Pcstr, dwflags: UInt, lpdwconnection: MutPtr<UInt>, dwreserved: UInt): UInt =
+public actual fun internetDial(hwndparent: Hwnd, lpszconnectoid: Pcstr, dwflags: UInt, lpdwconnection: MutPtr, dwreserved: UInt): UInt =
     WindowsWin32NetworkingWininetJniBridge.windowssysWindowsWin32NetworkingWininetInternetDial(hwndparent.rawAddress, lpszconnectoid.rawAddress, dwflags.toInt(), lpdwconnection.rawAddress, dwreserved.toInt()).toUInt()
 
-public actual fun internetDialA(hwndparent: Hwnd, lpszconnectoid: Pcstr, dwflags: UInt, lpdwconnection: MutPtr<ULong>, dwreserved: UInt): UInt =
+public actual fun internetDialA(hwndparent: Hwnd, lpszconnectoid: Pcstr, dwflags: UInt, lpdwconnection: MutPtr, dwreserved: UInt): UInt =
     WindowsWin32NetworkingWininetJniBridge.windowssysWindowsWin32NetworkingWininetInternetDialA(hwndparent.rawAddress, lpszconnectoid.rawAddress, dwflags.toInt(), lpdwconnection.rawAddress, dwreserved.toInt()).toUInt()
 
-public actual fun internetDialW(hwndparent: Hwnd, lpszconnectoid: Pcwstr, dwflags: UInt, lpdwconnection: MutPtr<ULong>, dwreserved: UInt): UInt =
+public actual fun internetDialW(hwndparent: Hwnd, lpszconnectoid: Pcwstr, dwflags: UInt, lpdwconnection: MutPtr, dwreserved: UInt): UInt =
     WindowsWin32NetworkingWininetJniBridge.windowssysWindowsWin32NetworkingWininetInternetDialW(hwndparent.rawAddress, lpszconnectoid.rawAddress, dwflags.toInt(), lpdwconnection.rawAddress, dwreserved.toInt()).toUInt()
 
-public actual fun internetEnumPerSiteCookieDecisionA(pszsitename: Pstr, pcsitenamesize: MutPtr<UInt>, pdwdecision: MutPtr<UInt>, dwindex: UInt): Bool =
+public actual fun internetEnumPerSiteCookieDecisionA(pszsitename: Pstr, pcsitenamesize: MutPtr, pdwdecision: MutPtr, dwindex: UInt): Bool =
     WindowsWin32NetworkingWininetJniBridge.windowssysWindowsWin32NetworkingWininetInternetEnumPerSiteCookieDecisionA(pszsitename.rawAddress, pcsitenamesize.rawAddress, pdwdecision.rawAddress, dwindex.toInt())
 
-public actual fun internetEnumPerSiteCookieDecisionW(pszsitename: Pwstr, pcsitenamesize: MutPtr<UInt>, pdwdecision: MutPtr<UInt>, dwindex: UInt): Bool =
+public actual fun internetEnumPerSiteCookieDecisionW(pszsitename: Pwstr, pcsitenamesize: MutPtr, pdwdecision: MutPtr, dwindex: UInt): Bool =
     WindowsWin32NetworkingWininetJniBridge.windowssysWindowsWin32NetworkingWininetInternetEnumPerSiteCookieDecisionW(pszsitename.rawAddress, pcsitenamesize.rawAddress, pdwdecision.rawAddress, dwindex.toInt())
 
-public actual fun internetErrorDlg(hwnd: Hwnd, hrequest: MutPtr<CVoid>, dwerror: UInt, dwflags: UInt, lppvdata: MutPtr<MutPtr<CVoid>>): UInt =
+public actual fun internetErrorDlg(hwnd: Hwnd, hrequest: MutPtr, dwerror: UInt, dwflags: UInt, lppvdata: MutPtr): UInt =
     WindowsWin32NetworkingWininetJniBridge.windowssysWindowsWin32NetworkingWininetInternetErrorDlg(hwnd.rawAddress, hrequest.rawAddress, dwerror.toInt(), dwflags.toInt(), lppvdata.rawAddress).toUInt()
 
-public actual fun internetFindNextFileA(hfind: ConstPtr<CVoid>, lpvfinddata: MutPtr<CVoid>): Bool =
+public actual fun internetFindNextFileA(hfind: ConstPtr, lpvfinddata: MutPtr): Bool =
     WindowsWin32NetworkingWininetJniBridge.windowssysWindowsWin32NetworkingWininetInternetFindNextFileA(hfind.rawAddress, lpvfinddata.rawAddress)
 
-public actual fun internetFindNextFileW(hfind: ConstPtr<CVoid>, lpvfinddata: MutPtr<CVoid>): Bool =
+public actual fun internetFindNextFileW(hfind: ConstPtr, lpvfinddata: MutPtr): Bool =
     WindowsWin32NetworkingWininetJniBridge.windowssysWindowsWin32NetworkingWininetInternetFindNextFileW(hfind.rawAddress, lpvfinddata.rawAddress)
 
 public actual fun internetFortezzaCommand(dwcommand: UInt, hwnd: Hwnd, dwreserved: ULong): Bool =
     WindowsWin32NetworkingWininetJniBridge.windowssysWindowsWin32NetworkingWininetInternetFortezzaCommand(dwcommand.toInt(), hwnd.rawAddress, dwreserved.toLong())
 
-public actual fun internetFreeCookies(pcookies: MutPtr<InternetCookie2>, dwcookiecount: UInt) {
+public actual fun internetFreeCookies(pcookies: MutPtr, dwcookiecount: UInt) {
     WindowsWin32NetworkingWininetJniBridge.windowssysWindowsWin32NetworkingWininetInternetFreeCookies(pcookies.rawAddress, dwcookiecount.toInt())
 }
 
-public actual fun internetFreeProxyInfoList(pproxyinfolist: MutPtr<WininetProxyInfoList>) {
+public actual fun internetFreeProxyInfoList(pproxyinfolist: MutPtr) {
     WindowsWin32NetworkingWininetJniBridge.windowssysWindowsWin32NetworkingWininetInternetFreeProxyInfoList(pproxyinfolist.rawAddress)
 }
 
-public actual fun internetGetConnectedState(lpdwflags: MutPtr<InternetConnection>, dwreserved: UInt): Bool =
+public actual fun internetGetConnectedState(lpdwflags: MutPtr, dwreserved: UInt): Bool =
     WindowsWin32NetworkingWininetJniBridge.windowssysWindowsWin32NetworkingWininetInternetGetConnectedState(lpdwflags.rawAddress, dwreserved.toInt())
 
-public actual fun internetGetConnectedStateEx(lpdwflags: MutPtr<InternetConnection>, lpszconnectionname: Pstr, dwnamelen: UInt, dwreserved: UInt): Bool =
+public actual fun internetGetConnectedStateEx(lpdwflags: MutPtr, lpszconnectionname: Pstr, dwnamelen: UInt, dwreserved: UInt): Bool =
     WindowsWin32NetworkingWininetJniBridge.windowssysWindowsWin32NetworkingWininetInternetGetConnectedStateEx(lpdwflags.rawAddress, lpszconnectionname.rawAddress, dwnamelen.toInt(), dwreserved.toInt())
 
-public actual fun internetGetConnectedStateExA(lpdwflags: MutPtr<InternetConnection>, lpszconnectionname: Pstr, cchnamelen: UInt, dwreserved: UInt): Bool =
+public actual fun internetGetConnectedStateExA(lpdwflags: MutPtr, lpszconnectionname: Pstr, cchnamelen: UInt, dwreserved: UInt): Bool =
     WindowsWin32NetworkingWininetJniBridge.windowssysWindowsWin32NetworkingWininetInternetGetConnectedStateExA(lpdwflags.rawAddress, lpszconnectionname.rawAddress, cchnamelen.toInt(), dwreserved.toInt())
 
-public actual fun internetGetConnectedStateExW(lpdwflags: MutPtr<InternetConnection>, lpszconnectionname: Pwstr, cchnamelen: UInt, dwreserved: UInt): Bool =
+public actual fun internetGetConnectedStateExW(lpdwflags: MutPtr, lpszconnectionname: Pwstr, cchnamelen: UInt, dwreserved: UInt): Bool =
     WindowsWin32NetworkingWininetJniBridge.windowssysWindowsWin32NetworkingWininetInternetGetConnectedStateExW(lpdwflags.rawAddress, lpszconnectionname.rawAddress, cchnamelen.toInt(), dwreserved.toInt())
 
-public actual fun internetGetCookieA(lpszurl: Pcstr, lpszcookiename: Pcstr, lpszcookiedata: Pstr, lpdwsize: MutPtr<UInt>): Bool =
+public actual fun internetGetCookieA(lpszurl: Pcstr, lpszcookiename: Pcstr, lpszcookiedata: Pstr, lpdwsize: MutPtr): Bool =
     WindowsWin32NetworkingWininetJniBridge.windowssysWindowsWin32NetworkingWininetInternetGetCookieA(lpszurl.rawAddress, lpszcookiename.rawAddress, lpszcookiedata.rawAddress, lpdwsize.rawAddress)
 
-public actual fun internetGetCookieEx2(pcwszurl: Pcwstr, pcwszcookiename: Pcwstr, dwflags: UInt, ppcookies: MutPtr<MutPtr<InternetCookie2>>, pdwcookiecount: MutPtr<UInt>): UInt =
+public actual fun internetGetCookieEx2(pcwszurl: Pcwstr, pcwszcookiename: Pcwstr, dwflags: UInt, ppcookies: MutPtr, pdwcookiecount: MutPtr): UInt =
     WindowsWin32NetworkingWininetJniBridge.windowssysWindowsWin32NetworkingWininetInternetGetCookieEx2(pcwszurl.rawAddress, pcwszcookiename.rawAddress, dwflags.toInt(), ppcookies.rawAddress, pdwcookiecount.rawAddress).toUInt()
 
-public actual fun internetGetCookieExA(lpszurl: Pcstr, lpszcookiename: Pcstr, lpszcookiedata: Pcstr, lpdwsize: MutPtr<UInt>, dwflags: InternetCookieFlags, lpreserved: ConstPtr<CVoid>): Bool =
+public actual fun internetGetCookieExA(lpszurl: Pcstr, lpszcookiename: Pcstr, lpszcookiedata: Pcstr, lpdwsize: MutPtr, dwflags: InternetCookieFlags, lpreserved: ConstPtr): Bool =
     WindowsWin32NetworkingWininetJniBridge.windowssysWindowsWin32NetworkingWininetInternetGetCookieExA(lpszurl.rawAddress, lpszcookiename.rawAddress, lpszcookiedata.rawAddress, lpdwsize.rawAddress, dwflags.toInt(), lpreserved.rawAddress)
 
-public actual fun internetGetCookieExW(lpszurl: Pcwstr, lpszcookiename: Pcwstr, lpszcookiedata: Pcwstr, lpdwsize: MutPtr<UInt>, dwflags: InternetCookieFlags, lpreserved: ConstPtr<CVoid>): Bool =
+public actual fun internetGetCookieExW(lpszurl: Pcwstr, lpszcookiename: Pcwstr, lpszcookiedata: Pcwstr, lpdwsize: MutPtr, dwflags: InternetCookieFlags, lpreserved: ConstPtr): Bool =
     WindowsWin32NetworkingWininetJniBridge.windowssysWindowsWin32NetworkingWininetInternetGetCookieExW(lpszurl.rawAddress, lpszcookiename.rawAddress, lpszcookiedata.rawAddress, lpdwsize.rawAddress, dwflags.toInt(), lpreserved.rawAddress)
 
-public actual fun internetGetCookieW(lpszurl: Pcwstr, lpszcookiename: Pcwstr, lpszcookiedata: Pwstr, lpdwsize: MutPtr<UInt>): Bool =
+public actual fun internetGetCookieW(lpszurl: Pcwstr, lpszcookiename: Pcwstr, lpszcookiedata: Pwstr, lpdwsize: MutPtr): Bool =
     WindowsWin32NetworkingWininetJniBridge.windowssysWindowsWin32NetworkingWininetInternetGetCookieW(lpszurl.rawAddress, lpszcookiename.rawAddress, lpszcookiedata.rawAddress, lpdwsize.rawAddress)
 
-public actual fun internetGetLastResponseInfoA(lpdwerror: MutPtr<UInt>, lpszbuffer: Pstr, lpdwbufferlength: MutPtr<UInt>): Bool =
+public actual fun internetGetLastResponseInfoA(lpdwerror: MutPtr, lpszbuffer: Pstr, lpdwbufferlength: MutPtr): Bool =
     WindowsWin32NetworkingWininetJniBridge.windowssysWindowsWin32NetworkingWininetInternetGetLastResponseInfoA(lpdwerror.rawAddress, lpszbuffer.rawAddress, lpdwbufferlength.rawAddress)
 
-public actual fun internetGetLastResponseInfoW(lpdwerror: MutPtr<UInt>, lpszbuffer: Pwstr, lpdwbufferlength: MutPtr<UInt>): Bool =
+public actual fun internetGetLastResponseInfoW(lpdwerror: MutPtr, lpszbuffer: Pwstr, lpdwbufferlength: MutPtr): Bool =
     WindowsWin32NetworkingWininetJniBridge.windowssysWindowsWin32NetworkingWininetInternetGetLastResponseInfoW(lpdwerror.rawAddress, lpszbuffer.rawAddress, lpdwbufferlength.rawAddress)
 
-public actual fun internetGetPerSiteCookieDecisionA(pchhostname: Pcstr, presult: MutPtr<UInt>): Bool =
+public actual fun internetGetPerSiteCookieDecisionA(pchhostname: Pcstr, presult: MutPtr): Bool =
     WindowsWin32NetworkingWininetJniBridge.windowssysWindowsWin32NetworkingWininetInternetGetPerSiteCookieDecisionA(pchhostname.rawAddress, presult.rawAddress)
 
-public actual fun internetGetPerSiteCookieDecisionW(pchhostname: Pcwstr, presult: MutPtr<UInt>): Bool =
+public actual fun internetGetPerSiteCookieDecisionW(pchhostname: Pcwstr, presult: MutPtr): Bool =
     WindowsWin32NetworkingWininetJniBridge.windowssysWindowsWin32NetworkingWininetInternetGetPerSiteCookieDecisionW(pchhostname.rawAddress, presult.rawAddress)
 
-public actual fun internetGetProxyForUrl(hinternet: ConstPtr<CVoid>, pcwszurl: Pcwstr, pproxyinfolist: MutPtr<WininetProxyInfoList>): UInt =
+public actual fun internetGetProxyForUrl(hinternet: ConstPtr, pcwszurl: Pcwstr, pproxyinfolist: MutPtr): UInt =
     WindowsWin32NetworkingWininetJniBridge.windowssysWindowsWin32NetworkingWininetInternetGetProxyForUrl(hinternet.rawAddress, pcwszurl.rawAddress, pproxyinfolist.rawAddress).toUInt()
 
-public actual fun internetGetSecurityInfoByURL(lpszurl: Pcstr, ppcertchain: MutPtr<MutPtr<CertChainContext>>, pdwsecureflags: MutPtr<UInt>): Bool =
+public actual fun internetGetSecurityInfoByURL(lpszurl: Pcstr, ppcertchain: MutPtr, pdwsecureflags: MutPtr): Bool =
     WindowsWin32NetworkingWininetJniBridge.windowssysWindowsWin32NetworkingWininetInternetGetSecurityInfoByURL(lpszurl.rawAddress, ppcertchain.rawAddress, pdwsecureflags.rawAddress)
 
-public actual fun internetGetSecurityInfoByURLA(lpszurl: Pcstr, ppcertchain: MutPtr<MutPtr<CertChainContext>>, pdwsecureflags: MutPtr<UInt>): Bool =
+public actual fun internetGetSecurityInfoByURLA(lpszurl: Pcstr, ppcertchain: MutPtr, pdwsecureflags: MutPtr): Bool =
     WindowsWin32NetworkingWininetJniBridge.windowssysWindowsWin32NetworkingWininetInternetGetSecurityInfoByURLA(lpszurl.rawAddress, ppcertchain.rawAddress, pdwsecureflags.rawAddress)
 
-public actual fun internetGetSecurityInfoByURLW(lpszurl: Pcwstr, ppcertchain: MutPtr<MutPtr<CertChainContext>>, pdwsecureflags: MutPtr<UInt>): Bool =
+public actual fun internetGetSecurityInfoByURLW(lpszurl: Pcwstr, ppcertchain: MutPtr, pdwsecureflags: MutPtr): Bool =
     WindowsWin32NetworkingWininetJniBridge.windowssysWindowsWin32NetworkingWininetInternetGetSecurityInfoByURLW(lpszurl.rawAddress, ppcertchain.rawAddress, pdwsecureflags.rawAddress)
 
 public actual fun internetGoOnline(lpszurl: Pcstr, hwndparent: Hwnd, dwflags: UInt): Bool =
@@ -1487,52 +1481,52 @@ public actual fun internetHangUp(dwconnection: ULong, dwreserved: UInt): UInt =
 public actual fun internetInitializeAutoProxyDll(dwreserved: UInt): Bool =
     WindowsWin32NetworkingWininetJniBridge.windowssysWindowsWin32NetworkingWininetInternetInitializeAutoProxyDll(dwreserved.toInt())
 
-public actual fun internetLockRequestFile(hinternet: ConstPtr<CVoid>, lphlockrequestinfo: MutPtr<Handle>): Bool =
+public actual fun internetLockRequestFile(hinternet: ConstPtr, lphlockrequestinfo: MutPtr): Bool =
     WindowsWin32NetworkingWininetJniBridge.windowssysWindowsWin32NetworkingWininetInternetLockRequestFile(hinternet.rawAddress, lphlockrequestinfo.rawAddress)
 
-public actual fun internetOpenA(lpszagent: Pcstr, dwaccesstype: UInt, lpszproxy: Pcstr, lpszproxybypass: Pcstr, dwflags: UInt): MutPtr<CVoid> =
+public actual fun internetOpenA(lpszagent: Pcstr, dwaccesstype: UInt, lpszproxy: Pcstr, lpszproxybypass: Pcstr, dwflags: UInt): MutPtr =
     MutPtr(WindowsWin32NetworkingWininetJniBridge.windowssysWindowsWin32NetworkingWininetInternetOpenA(lpszagent.rawAddress, dwaccesstype.toInt(), lpszproxy.rawAddress, lpszproxybypass.rawAddress, dwflags.toInt()))
 
-public actual fun internetOpenUrlA(hinternet: ConstPtr<CVoid>, lpszurl: Pcstr, lpszheaders: Pcstr, dwheaderslength: UInt, dwflags: UInt, dwcontext: ULong): MutPtr<CVoid> =
+public actual fun internetOpenUrlA(hinternet: ConstPtr, lpszurl: Pcstr, lpszheaders: Pcstr, dwheaderslength: UInt, dwflags: UInt, dwcontext: ULong): MutPtr =
     MutPtr(WindowsWin32NetworkingWininetJniBridge.windowssysWindowsWin32NetworkingWininetInternetOpenUrlA(hinternet.rawAddress, lpszurl.rawAddress, lpszheaders.rawAddress, dwheaderslength.toInt(), dwflags.toInt(), dwcontext.toLong()))
 
-public actual fun internetOpenUrlW(hinternet: ConstPtr<CVoid>, lpszurl: Pcwstr, lpszheaders: Pcwstr, dwheaderslength: UInt, dwflags: UInt, dwcontext: ULong): MutPtr<CVoid> =
+public actual fun internetOpenUrlW(hinternet: ConstPtr, lpszurl: Pcwstr, lpszheaders: Pcwstr, dwheaderslength: UInt, dwflags: UInt, dwcontext: ULong): MutPtr =
     MutPtr(WindowsWin32NetworkingWininetJniBridge.windowssysWindowsWin32NetworkingWininetInternetOpenUrlW(hinternet.rawAddress, lpszurl.rawAddress, lpszheaders.rawAddress, dwheaderslength.toInt(), dwflags.toInt(), dwcontext.toLong()))
 
-public actual fun internetOpenW(lpszagent: Pcwstr, dwaccesstype: UInt, lpszproxy: Pcwstr, lpszproxybypass: Pcwstr, dwflags: UInt): MutPtr<CVoid> =
+public actual fun internetOpenW(lpszagent: Pcwstr, dwaccesstype: UInt, lpszproxy: Pcwstr, lpszproxybypass: Pcwstr, dwflags: UInt): MutPtr =
     MutPtr(WindowsWin32NetworkingWininetJniBridge.windowssysWindowsWin32NetworkingWininetInternetOpenW(lpszagent.rawAddress, dwaccesstype.toInt(), lpszproxy.rawAddress, lpszproxybypass.rawAddress, dwflags.toInt()))
 
-public actual fun internetQueryDataAvailable(hfile: ConstPtr<CVoid>, lpdwnumberofbytesavailable: MutPtr<UInt>, dwflags: UInt, dwcontext: ULong): Bool =
+public actual fun internetQueryDataAvailable(hfile: ConstPtr, lpdwnumberofbytesavailable: MutPtr, dwflags: UInt, dwcontext: ULong): Bool =
     WindowsWin32NetworkingWininetJniBridge.windowssysWindowsWin32NetworkingWininetInternetQueryDataAvailable(hfile.rawAddress, lpdwnumberofbytesavailable.rawAddress, dwflags.toInt(), dwcontext.toLong())
 
-public actual fun internetQueryFortezzaStatus(pdwstatus: MutPtr<UInt>, dwreserved: ULong): Bool =
+public actual fun internetQueryFortezzaStatus(pdwstatus: MutPtr, dwreserved: ULong): Bool =
     WindowsWin32NetworkingWininetJniBridge.windowssysWindowsWin32NetworkingWininetInternetQueryFortezzaStatus(pdwstatus.rawAddress, dwreserved.toLong())
 
-public actual fun internetQueryOptionA(hinternet: ConstPtr<CVoid>, dwoption: UInt, lpbuffer: MutPtr<CVoid>, lpdwbufferlength: MutPtr<UInt>): Bool =
+public actual fun internetQueryOptionA(hinternet: ConstPtr, dwoption: UInt, lpbuffer: MutPtr, lpdwbufferlength: MutPtr): Bool =
     WindowsWin32NetworkingWininetJniBridge.windowssysWindowsWin32NetworkingWininetInternetQueryOptionA(hinternet.rawAddress, dwoption.toInt(), lpbuffer.rawAddress, lpdwbufferlength.rawAddress)
 
-public actual fun internetQueryOptionW(hinternet: ConstPtr<CVoid>, dwoption: UInt, lpbuffer: MutPtr<CVoid>, lpdwbufferlength: MutPtr<UInt>): Bool =
+public actual fun internetQueryOptionW(hinternet: ConstPtr, dwoption: UInt, lpbuffer: MutPtr, lpdwbufferlength: MutPtr): Bool =
     WindowsWin32NetworkingWininetJniBridge.windowssysWindowsWin32NetworkingWininetInternetQueryOptionW(hinternet.rawAddress, dwoption.toInt(), lpbuffer.rawAddress, lpdwbufferlength.rawAddress)
 
-public actual fun internetReadFile(hfile: ConstPtr<CVoid>, lpbuffer: MutPtr<CVoid>, dwnumberofbytestoread: UInt, lpdwnumberofbytesread: MutPtr<UInt>): Bool =
+public actual fun internetReadFile(hfile: ConstPtr, lpbuffer: MutPtr, dwnumberofbytestoread: UInt, lpdwnumberofbytesread: MutPtr): Bool =
     WindowsWin32NetworkingWininetJniBridge.windowssysWindowsWin32NetworkingWininetInternetReadFile(hfile.rawAddress, lpbuffer.rawAddress, dwnumberofbytestoread.toInt(), lpdwnumberofbytesread.rawAddress)
 
-public actual fun internetReadFileExA(hfile: ConstPtr<CVoid>, lpbuffersout: MutPtr<InternetBuffersa>, dwflags: UInt, dwcontext: ULong): Bool =
+public actual fun internetReadFileExA(hfile: ConstPtr, lpbuffersout: MutPtr, dwflags: UInt, dwcontext: ULong): Bool =
     WindowsWin32NetworkingWininetJniBridge.windowssysWindowsWin32NetworkingWininetInternetReadFileExA(hfile.rawAddress, lpbuffersout.rawAddress, dwflags.toInt(), dwcontext.toLong())
 
-public actual fun internetReadFileExW(hfile: ConstPtr<CVoid>, lpbuffersout: MutPtr<InternetBuffersw>, dwflags: UInt, dwcontext: ULong): Bool =
+public actual fun internetReadFileExW(hfile: ConstPtr, lpbuffersout: MutPtr, dwflags: UInt, dwcontext: ULong): Bool =
     WindowsWin32NetworkingWininetJniBridge.windowssysWindowsWin32NetworkingWininetInternetReadFileExW(hfile.rawAddress, lpbuffersout.rawAddress, dwflags.toInt(), dwcontext.toLong())
 
-public actual fun internetSecurityProtocolToStringA(dwprotocol: UInt, lpstr: Pstr, lpdwstrlength: MutPtr<UInt>, dwreserved: UInt): Bool =
+public actual fun internetSecurityProtocolToStringA(dwprotocol: UInt, lpstr: Pstr, lpdwstrlength: MutPtr, dwreserved: UInt): Bool =
     WindowsWin32NetworkingWininetJniBridge.windowssysWindowsWin32NetworkingWininetInternetSecurityProtocolToStringA(dwprotocol.toInt(), lpstr.rawAddress, lpdwstrlength.rawAddress, dwreserved.toInt())
 
-public actual fun internetSecurityProtocolToStringW(dwprotocol: UInt, lpstr: Pwstr, lpdwstrlength: MutPtr<UInt>, dwreserved: UInt): Bool =
+public actual fun internetSecurityProtocolToStringW(dwprotocol: UInt, lpstr: Pwstr, lpdwstrlength: MutPtr, dwreserved: UInt): Bool =
     WindowsWin32NetworkingWininetJniBridge.windowssysWindowsWin32NetworkingWininetInternetSecurityProtocolToStringW(dwprotocol.toInt(), lpstr.rawAddress, lpdwstrlength.rawAddress, dwreserved.toInt())
 
 public actual fun internetSetCookieA(lpszurl: Pcstr, lpszcookiename: Pcstr, lpszcookiedata: Pcstr): Bool =
     WindowsWin32NetworkingWininetJniBridge.windowssysWindowsWin32NetworkingWininetInternetSetCookieA(lpszurl.rawAddress, lpszcookiename.rawAddress, lpszcookiedata.rawAddress)
 
-public actual fun internetSetCookieEx2(pcwszurl: Pcwstr, pcookie: ConstPtr<InternetCookie2>, pcwszp3ppolicy: Pcwstr, dwflags: UInt, pdwcookiestate: MutPtr<UInt>): UInt =
+public actual fun internetSetCookieEx2(pcwszurl: Pcwstr, pcookie: ConstPtr, pcwszp3ppolicy: Pcwstr, dwflags: UInt, pdwcookiestate: MutPtr): UInt =
     WindowsWin32NetworkingWininetJniBridge.windowssysWindowsWin32NetworkingWininetInternetSetCookieEx2(pcwszurl.rawAddress, pcookie.rawAddress, pcwszp3ppolicy.rawAddress, dwflags.toInt(), pdwcookiestate.rawAddress).toUInt()
 
 public actual fun internetSetCookieExA(lpszurl: Pcstr, lpszcookiename: Pcstr, lpszcookiedata: Pcstr, dwflags: UInt, dwreserved: ULong): UInt =
@@ -1553,19 +1547,19 @@ public actual fun internetSetDialStateA(lpszconnectoid: Pcstr, dwstate: UInt, dw
 public actual fun internetSetDialStateW(lpszconnectoid: Pcwstr, dwstate: UInt, dwreserved: UInt): Bool =
     WindowsWin32NetworkingWininetJniBridge.windowssysWindowsWin32NetworkingWininetInternetSetDialStateW(lpszconnectoid.rawAddress, dwstate.toInt(), dwreserved.toInt())
 
-public actual fun internetSetFilePointer(hfile: ConstPtr<CVoid>, ldistancetomove: Int, lpdistancetomovehigh: MutPtr<Int>, dwmovemethod: UInt, dwcontext: ULong): UInt =
+public actual fun internetSetFilePointer(hfile: ConstPtr, ldistancetomove: Int, lpdistancetomovehigh: MutPtr, dwmovemethod: UInt, dwcontext: ULong): UInt =
     WindowsWin32NetworkingWininetJniBridge.windowssysWindowsWin32NetworkingWininetInternetSetFilePointer(hfile.rawAddress, ldistancetomove, lpdistancetomovehigh.rawAddress, dwmovemethod.toInt(), dwcontext.toLong()).toUInt()
 
-public actual fun internetSetOptionA(hinternet: ConstPtr<CVoid>, dwoption: UInt, lpbuffer: ConstPtr<CVoid>, dwbufferlength: UInt): Bool =
+public actual fun internetSetOptionA(hinternet: ConstPtr, dwoption: UInt, lpbuffer: ConstPtr, dwbufferlength: UInt): Bool =
     WindowsWin32NetworkingWininetJniBridge.windowssysWindowsWin32NetworkingWininetInternetSetOptionA(hinternet.rawAddress, dwoption.toInt(), lpbuffer.rawAddress, dwbufferlength.toInt())
 
-public actual fun internetSetOptionExA(hinternet: ConstPtr<CVoid>, dwoption: UInt, lpbuffer: ConstPtr<CVoid>, dwbufferlength: UInt, dwflags: UInt): Bool =
+public actual fun internetSetOptionExA(hinternet: ConstPtr, dwoption: UInt, lpbuffer: ConstPtr, dwbufferlength: UInt, dwflags: UInt): Bool =
     WindowsWin32NetworkingWininetJniBridge.windowssysWindowsWin32NetworkingWininetInternetSetOptionExA(hinternet.rawAddress, dwoption.toInt(), lpbuffer.rawAddress, dwbufferlength.toInt(), dwflags.toInt())
 
-public actual fun internetSetOptionExW(hinternet: ConstPtr<CVoid>, dwoption: UInt, lpbuffer: ConstPtr<CVoid>, dwbufferlength: UInt, dwflags: UInt): Bool =
+public actual fun internetSetOptionExW(hinternet: ConstPtr, dwoption: UInt, lpbuffer: ConstPtr, dwbufferlength: UInt, dwflags: UInt): Bool =
     WindowsWin32NetworkingWininetJniBridge.windowssysWindowsWin32NetworkingWininetInternetSetOptionExW(hinternet.rawAddress, dwoption.toInt(), lpbuffer.rawAddress, dwbufferlength.toInt(), dwflags.toInt())
 
-public actual fun internetSetOptionW(hinternet: ConstPtr<CVoid>, dwoption: UInt, lpbuffer: ConstPtr<CVoid>, dwbufferlength: UInt): Bool =
+public actual fun internetSetOptionW(hinternet: ConstPtr, dwoption: UInt, lpbuffer: ConstPtr, dwbufferlength: UInt): Bool =
     WindowsWin32NetworkingWininetJniBridge.windowssysWindowsWin32NetworkingWininetInternetSetOptionW(hinternet.rawAddress, dwoption.toInt(), lpbuffer.rawAddress, dwbufferlength.toInt())
 
 public actual fun internetSetPerSiteCookieDecisionA(pchhostname: Pcstr, dwdecision: UInt): Bool =
@@ -1574,13 +1568,13 @@ public actual fun internetSetPerSiteCookieDecisionA(pchhostname: Pcstr, dwdecisi
 public actual fun internetSetPerSiteCookieDecisionW(pchhostname: Pcwstr, dwdecision: UInt): Bool =
     WindowsWin32NetworkingWininetJniBridge.windowssysWindowsWin32NetworkingWininetInternetSetPerSiteCookieDecisionW(pchhostname.rawAddress, dwdecision.toInt())
 
-public actual fun internetSetStatusCallback(hinternet: ConstPtr<CVoid>, lpfninternetcallback: LpinternetStatusCallback): LpinternetStatusCallback =
+public actual fun internetSetStatusCallback(hinternet: ConstPtr, lpfninternetcallback: LpinternetStatusCallback): LpinternetStatusCallback =
     null
 
-public actual fun internetSetStatusCallbackA(hinternet: ConstPtr<CVoid>, lpfninternetcallback: LpinternetStatusCallback): LpinternetStatusCallback =
+public actual fun internetSetStatusCallbackA(hinternet: ConstPtr, lpfninternetcallback: LpinternetStatusCallback): LpinternetStatusCallback =
     null
 
-public actual fun internetSetStatusCallbackW(hinternet: ConstPtr<CVoid>, lpfninternetcallback: LpinternetStatusCallback): LpinternetStatusCallback =
+public actual fun internetSetStatusCallbackW(hinternet: ConstPtr, lpfninternetcallback: LpinternetStatusCallback): LpinternetStatusCallback =
     null
 
 public actual fun internetShowSecurityInfoByURL(lpszurl: Pcstr, hwndparent: Hwnd): Bool =
@@ -1592,34 +1586,34 @@ public actual fun internetShowSecurityInfoByURLA(lpszurl: Pcstr, hwndparent: Hwn
 public actual fun internetShowSecurityInfoByURLW(lpszurl: Pcwstr, hwndparent: Hwnd): Bool =
     WindowsWin32NetworkingWininetJniBridge.windowssysWindowsWin32NetworkingWininetInternetShowSecurityInfoByURLW(lpszurl.rawAddress, hwndparent.rawAddress)
 
-public actual fun internetTimeFromSystemTime(pst: ConstPtr<Systemtime>, dwrfc: UInt, lpsztime: Pstr, cbtime: UInt): Bool =
+public actual fun internetTimeFromSystemTime(pst: ConstPtr, dwrfc: UInt, lpsztime: Pstr, cbtime: UInt): Bool =
     WindowsWin32NetworkingWininetJniBridge.windowssysWindowsWin32NetworkingWininetInternetTimeFromSystemTime(pst.rawAddress, dwrfc.toInt(), lpsztime.rawAddress, cbtime.toInt())
 
-public actual fun internetTimeFromSystemTimeA(pst: ConstPtr<Systemtime>, dwrfc: UInt, lpsztime: Pstr, cbtime: UInt): Bool =
+public actual fun internetTimeFromSystemTimeA(pst: ConstPtr, dwrfc: UInt, lpsztime: Pstr, cbtime: UInt): Bool =
     WindowsWin32NetworkingWininetJniBridge.windowssysWindowsWin32NetworkingWininetInternetTimeFromSystemTimeA(pst.rawAddress, dwrfc.toInt(), lpsztime.rawAddress, cbtime.toInt())
 
-public actual fun internetTimeFromSystemTimeW(pst: ConstPtr<Systemtime>, dwrfc: UInt, lpsztime: Pwstr, cbtime: UInt): Bool =
+public actual fun internetTimeFromSystemTimeW(pst: ConstPtr, dwrfc: UInt, lpsztime: Pwstr, cbtime: UInt): Bool =
     WindowsWin32NetworkingWininetJniBridge.windowssysWindowsWin32NetworkingWininetInternetTimeFromSystemTimeW(pst.rawAddress, dwrfc.toInt(), lpsztime.rawAddress, cbtime.toInt())
 
-public actual fun internetTimeToSystemTime(lpsztime: Pcstr, pst: MutPtr<Systemtime>, dwreserved: UInt): Bool =
+public actual fun internetTimeToSystemTime(lpsztime: Pcstr, pst: MutPtr, dwreserved: UInt): Bool =
     WindowsWin32NetworkingWininetJniBridge.windowssysWindowsWin32NetworkingWininetInternetTimeToSystemTime(lpsztime.rawAddress, pst.rawAddress, dwreserved.toInt())
 
-public actual fun internetTimeToSystemTimeA(lpsztime: Pcstr, pst: MutPtr<Systemtime>, dwreserved: UInt): Bool =
+public actual fun internetTimeToSystemTimeA(lpsztime: Pcstr, pst: MutPtr, dwreserved: UInt): Bool =
     WindowsWin32NetworkingWininetJniBridge.windowssysWindowsWin32NetworkingWininetInternetTimeToSystemTimeA(lpsztime.rawAddress, pst.rawAddress, dwreserved.toInt())
 
-public actual fun internetTimeToSystemTimeW(lpsztime: Pcwstr, pst: MutPtr<Systemtime>, dwreserved: UInt): Bool =
+public actual fun internetTimeToSystemTimeW(lpsztime: Pcwstr, pst: MutPtr, dwreserved: UInt): Bool =
     WindowsWin32NetworkingWininetJniBridge.windowssysWindowsWin32NetworkingWininetInternetTimeToSystemTimeW(lpsztime.rawAddress, pst.rawAddress, dwreserved.toInt())
 
 public actual fun internetUnlockRequestFile(hlockrequestinfo: Handle): Bool =
     WindowsWin32NetworkingWininetJniBridge.windowssysWindowsWin32NetworkingWininetInternetUnlockRequestFile(hlockrequestinfo.rawAddress)
 
-public actual fun internetWriteFile(hfile: ConstPtr<CVoid>, lpbuffer: ConstPtr<CVoid>, dwnumberofbytestowrite: UInt, lpdwnumberofbyteswritten: MutPtr<UInt>): Bool =
+public actual fun internetWriteFile(hfile: ConstPtr, lpbuffer: ConstPtr, dwnumberofbytestowrite: UInt, lpdwnumberofbyteswritten: MutPtr): Bool =
     WindowsWin32NetworkingWininetJniBridge.windowssysWindowsWin32NetworkingWininetInternetWriteFile(hfile.rawAddress, lpbuffer.rawAddress, dwnumberofbytestowrite.toInt(), lpdwnumberofbyteswritten.rawAddress)
 
-public actual fun internetWriteFileExA(hfile: ConstPtr<CVoid>, lpbuffersin: ConstPtr<InternetBuffersa>, dwflags: UInt, dwcontext: ULong): Bool =
+public actual fun internetWriteFileExA(hfile: ConstPtr, lpbuffersin: ConstPtr, dwflags: UInt, dwcontext: ULong): Bool =
     WindowsWin32NetworkingWininetJniBridge.windowssysWindowsWin32NetworkingWininetInternetWriteFileExA(hfile.rawAddress, lpbuffersin.rawAddress, dwflags.toInt(), dwcontext.toLong())
 
-public actual fun internetWriteFileExW(hfile: ConstPtr<CVoid>, lpbuffersin: ConstPtr<InternetBuffersw>, dwflags: UInt, dwcontext: ULong): Bool =
+public actual fun internetWriteFileExW(hfile: ConstPtr, lpbuffersin: ConstPtr, dwflags: UInt, dwcontext: ULong): Bool =
     WindowsWin32NetworkingWininetJniBridge.windowssysWindowsWin32NetworkingWininetInternetWriteFileExW(hfile.rawAddress, lpbuffersin.rawAddress, dwflags.toInt(), dwcontext.toLong())
 
 public actual fun isDomainLegalCookieDomainA(pchdomain: Pcstr, pchfulldomain: Pcstr): Bool =
@@ -1634,82 +1628,82 @@ public actual fun isHostInProxyBypassList(tscheme: InternetScheme, lpszhost: Pcs
 public actual fun isProfilesEnabled(): Bool =
     WindowsWin32NetworkingWininetJniBridge.windowssysWindowsWin32NetworkingWininetIsProfilesEnabled()
 
-public actual fun isUrlCacheEntryExpiredA(lpszurlname: Pcstr, dwflags: UInt, pftlastmodified: MutPtr<Filetime>): Bool =
+public actual fun isUrlCacheEntryExpiredA(lpszurlname: Pcstr, dwflags: UInt, pftlastmodified: MutPtr): Bool =
     WindowsWin32NetworkingWininetJniBridge.windowssysWindowsWin32NetworkingWininetIsUrlCacheEntryExpiredA(lpszurlname.rawAddress, dwflags.toInt(), pftlastmodified.rawAddress)
 
-public actual fun isUrlCacheEntryExpiredW(lpszurlname: Pcwstr, dwflags: UInt, pftlastmodified: MutPtr<Filetime>): Bool =
+public actual fun isUrlCacheEntryExpiredW(lpszurlname: Pcwstr, dwflags: UInt, pftlastmodified: MutPtr): Bool =
     WindowsWin32NetworkingWininetJniBridge.windowssysWindowsWin32NetworkingWininetIsUrlCacheEntryExpiredW(lpszurlname.rawAddress, dwflags.toInt(), pftlastmodified.rawAddress)
 
 public actual fun loadUrlCacheContent(): Bool =
     WindowsWin32NetworkingWininetJniBridge.windowssysWindowsWin32NetworkingWininetLoadUrlCacheContent()
 
-public actual fun parseX509EncodedCertificateForListBoxEntry(lpcert: ConstPtr<UByte>, cbcert: UInt, lpszlistboxentry: Pstr, lpdwlistboxentry: MutPtr<UInt>): UInt =
+public actual fun parseX509EncodedCertificateForListBoxEntry(lpcert: ConstPtr, cbcert: UInt, lpszlistboxentry: Pstr, lpdwlistboxentry: MutPtr): UInt =
     WindowsWin32NetworkingWininetJniBridge.windowssysWindowsWin32NetworkingWininetParseX509EncodedCertificateForListBoxEntry(lpcert.rawAddress, cbcert.toInt(), lpszlistboxentry.rawAddress, lpdwlistboxentry.rawAddress).toUInt()
 
-public actual fun performOperationOverUrlCacheA(pszurlsearchpattern: Pcstr, dwflags: UInt, dwfilter: UInt, groupid: Long, preserved1: ConstPtr<CVoid>, pdwreserved2: ConstPtr<UInt>, preserved3: ConstPtr<CVoid>, op: CacheOperator, poperatordata: MutPtr<CVoid>): Bool =
+public actual fun performOperationOverUrlCacheA(pszurlsearchpattern: Pcstr, dwflags: UInt, dwfilter: UInt, groupid: Long, preserved1: ConstPtr, pdwreserved2: ConstPtr, preserved3: ConstPtr, op: CacheOperator, poperatordata: MutPtr): Bool =
     WindowsWin32NetworkingWininetJniBridge.windowssysWindowsWin32NetworkingWininetPerformOperationOverUrlCacheA(pszurlsearchpattern.rawAddress, dwflags.toInt(), dwfilter.toInt(), groupid, preserved1.rawAddress, pdwreserved2.rawAddress, preserved3.rawAddress, 0L, poperatordata.rawAddress)
 
-public actual fun privacyGetZonePreferenceW(dwzone: UInt, dwtype: UInt, pdwtemplate: MutPtr<UInt>, pszbuffer: Pwstr, pdwbufferlength: MutPtr<UInt>): UInt =
+public actual fun privacyGetZonePreferenceW(dwzone: UInt, dwtype: UInt, pdwtemplate: MutPtr, pszbuffer: Pwstr, pdwbufferlength: MutPtr): UInt =
     WindowsWin32NetworkingWininetJniBridge.windowssysWindowsWin32NetworkingWininetPrivacyGetZonePreferenceW(dwzone.toInt(), dwtype.toInt(), pdwtemplate.rawAddress, pszbuffer.rawAddress, pdwbufferlength.rawAddress).toUInt()
 
 public actual fun privacySetZonePreferenceW(dwzone: UInt, dwtype: UInt, dwtemplate: UInt, pszpreference: Pcwstr): UInt =
     WindowsWin32NetworkingWininetJniBridge.windowssysWindowsWin32NetworkingWininetPrivacySetZonePreferenceW(dwzone.toInt(), dwtype.toInt(), dwtemplate.toInt(), pszpreference.rawAddress).toUInt()
 
-public actual fun readGuidsForConnectedNetworks(pcnetworks: MutPtr<UInt>, pppwsznetworkguids: MutPtr<MutPtr<Pwstr>>, pppbstrnetworknames: MutPtr<MutPtr<Bstr>>, pppwszgwmacs: MutPtr<MutPtr<Pwstr>>, pcgatewaymacs: MutPtr<UInt>, pdwflags: MutPtr<UInt>): Bool =
+public actual fun readGuidsForConnectedNetworks(pcnetworks: MutPtr, pppwsznetworkguids: MutPtr, pppbstrnetworknames: MutPtr, pppwszgwmacs: MutPtr, pcgatewaymacs: MutPtr, pdwflags: MutPtr): Bool =
     WindowsWin32NetworkingWininetJniBridge.windowssysWindowsWin32NetworkingWininetReadGuidsForConnectedNetworks(pcnetworks.rawAddress, pppwsznetworkguids.rawAddress, pppbstrnetworknames.rawAddress, pppwszgwmacs.rawAddress, pcgatewaymacs.rawAddress, pdwflags.rawAddress)
 
-public actual fun readUrlCacheEntryStream(hurlcachestream: Handle, dwlocation: UInt, lpbuffer: MutPtr<CVoid>, lpdwlen: MutPtr<UInt>, reserved: UInt): Bool =
+public actual fun readUrlCacheEntryStream(hurlcachestream: Handle, dwlocation: UInt, lpbuffer: MutPtr, lpdwlen: MutPtr, reserved: UInt): Bool =
     WindowsWin32NetworkingWininetJniBridge.windowssysWindowsWin32NetworkingWininetReadUrlCacheEntryStream(hurlcachestream.rawAddress, dwlocation.toInt(), lpbuffer.rawAddress, lpdwlen.rawAddress, reserved.toInt())
 
-public actual fun readUrlCacheEntryStreamEx(hurlcachestream: Handle, qwlocation: ULong, lpbuffer: MutPtr<CVoid>, lpdwlen: MutPtr<UInt>): Bool =
+public actual fun readUrlCacheEntryStreamEx(hurlcachestream: Handle, qwlocation: ULong, lpbuffer: MutPtr, lpdwlen: MutPtr): Bool =
     WindowsWin32NetworkingWininetJniBridge.windowssysWindowsWin32NetworkingWininetReadUrlCacheEntryStreamEx(hurlcachestream.rawAddress, qwlocation.toLong(), lpbuffer.rawAddress, lpdwlen.rawAddress)
 
 public actual fun registerUrlCacheNotification(hwnd: Hwnd, umsg: UInt, gid: Long, dwopsfilter: UInt, dwreserved: UInt): Bool =
     WindowsWin32NetworkingWininetJniBridge.windowssysWindowsWin32NetworkingWininetRegisterUrlCacheNotification(hwnd.rawAddress, umsg.toInt(), gid, dwopsfilter.toInt(), dwreserved.toInt())
 
-public actual fun resumeSuspendedDownload(hrequest: ConstPtr<CVoid>, dwresultcode: UInt): Bool =
+public actual fun resumeSuspendedDownload(hrequest: ConstPtr, dwresultcode: UInt): Bool =
     WindowsWin32NetworkingWininetJniBridge.windowssysWindowsWin32NetworkingWininetResumeSuspendedDownload(hrequest.rawAddress, dwresultcode.toInt())
 
-public actual fun retrieveUrlCacheEntryFileA(lpszurlname: Pcstr, lpcacheentryinfo: MutPtr<InternetCacheEntryInfoa>, lpcbcacheentryinfo: MutPtr<UInt>, dwreserved: UInt): Bool =
+public actual fun retrieveUrlCacheEntryFileA(lpszurlname: Pcstr, lpcacheentryinfo: MutPtr, lpcbcacheentryinfo: MutPtr, dwreserved: UInt): Bool =
     WindowsWin32NetworkingWininetJniBridge.windowssysWindowsWin32NetworkingWininetRetrieveUrlCacheEntryFileA(lpszurlname.rawAddress, lpcacheentryinfo.rawAddress, lpcbcacheentryinfo.rawAddress, dwreserved.toInt())
 
-public actual fun retrieveUrlCacheEntryFileW(lpszurlname: Pcwstr, lpcacheentryinfo: MutPtr<InternetCacheEntryInfow>, lpcbcacheentryinfo: MutPtr<UInt>, dwreserved: UInt): Bool =
+public actual fun retrieveUrlCacheEntryFileW(lpszurlname: Pcwstr, lpcacheentryinfo: MutPtr, lpcbcacheentryinfo: MutPtr, dwreserved: UInt): Bool =
     WindowsWin32NetworkingWininetJniBridge.windowssysWindowsWin32NetworkingWininetRetrieveUrlCacheEntryFileW(lpszurlname.rawAddress, lpcacheentryinfo.rawAddress, lpcbcacheentryinfo.rawAddress, dwreserved.toInt())
 
-public actual fun retrieveUrlCacheEntryStreamA(lpszurlname: Pcstr, lpcacheentryinfo: MutPtr<InternetCacheEntryInfoa>, lpcbcacheentryinfo: MutPtr<UInt>, frandomread: Bool, dwreserved: UInt): Handle =
+public actual fun retrieveUrlCacheEntryStreamA(lpszurlname: Pcstr, lpcacheentryinfo: MutPtr, lpcbcacheentryinfo: MutPtr, frandomread: Bool, dwreserved: UInt): Handle =
     MutPtr(WindowsWin32NetworkingWininetJniBridge.windowssysWindowsWin32NetworkingWininetRetrieveUrlCacheEntryStreamA(lpszurlname.rawAddress, lpcacheentryinfo.rawAddress, lpcbcacheentryinfo.rawAddress, frandomread, dwreserved.toInt()))
 
-public actual fun retrieveUrlCacheEntryStreamW(lpszurlname: Pcwstr, lpcacheentryinfo: MutPtr<InternetCacheEntryInfow>, lpcbcacheentryinfo: MutPtr<UInt>, frandomread: Bool, dwreserved: UInt): Handle =
+public actual fun retrieveUrlCacheEntryStreamW(lpszurlname: Pcwstr, lpcacheentryinfo: MutPtr, lpcbcacheentryinfo: MutPtr, frandomread: Bool, dwreserved: UInt): Handle =
     MutPtr(WindowsWin32NetworkingWininetJniBridge.windowssysWindowsWin32NetworkingWininetRetrieveUrlCacheEntryStreamW(lpszurlname.rawAddress, lpcacheentryinfo.rawAddress, lpcbcacheentryinfo.rawAddress, frandomread, dwreserved.toInt()))
 
 public actual fun runOnceUrlCache(hwnd: Hwnd, hinst: Hinstance, lpszcmd: Pcstr, ncmdshow: Int): UInt =
     WindowsWin32NetworkingWininetJniBridge.windowssysWindowsWin32NetworkingWininetRunOnceUrlCache(hwnd.rawAddress, hinst.rawAddress, lpszcmd.rawAddress, ncmdshow).toUInt()
 
-public actual fun setUrlCacheConfigInfoA(lpcacheconfiginfo: ConstPtr<InternetCacheConfigInfoa>, dwfieldcontrol: UInt): Bool =
+public actual fun setUrlCacheConfigInfoA(lpcacheconfiginfo: ConstPtr, dwfieldcontrol: UInt): Bool =
     WindowsWin32NetworkingWininetJniBridge.windowssysWindowsWin32NetworkingWininetSetUrlCacheConfigInfoA(lpcacheconfiginfo.rawAddress, dwfieldcontrol.toInt())
 
-public actual fun setUrlCacheConfigInfoW(lpcacheconfiginfo: ConstPtr<InternetCacheConfigInfow>, dwfieldcontrol: UInt): Bool =
+public actual fun setUrlCacheConfigInfoW(lpcacheconfiginfo: ConstPtr, dwfieldcontrol: UInt): Bool =
     WindowsWin32NetworkingWininetJniBridge.windowssysWindowsWin32NetworkingWininetSetUrlCacheConfigInfoW(lpcacheconfiginfo.rawAddress, dwfieldcontrol.toInt())
 
-public actual fun setUrlCacheEntryGroup(lpszurlname: Pcstr, dwflags: UInt, groupid: Long, pbgroupattributes: ConstPtr<UByte>, cbgroupattributes: UInt, lpreserved: ConstPtr<CVoid>): Bool =
+public actual fun setUrlCacheEntryGroup(lpszurlname: Pcstr, dwflags: UInt, groupid: Long, pbgroupattributes: ConstPtr, cbgroupattributes: UInt, lpreserved: ConstPtr): Bool =
     WindowsWin32NetworkingWininetJniBridge.windowssysWindowsWin32NetworkingWininetSetUrlCacheEntryGroup(lpszurlname.rawAddress, dwflags.toInt(), groupid, pbgroupattributes.rawAddress, cbgroupattributes.toInt(), lpreserved.rawAddress)
 
-public actual fun setUrlCacheEntryGroupA(lpszurlname: Pcstr, dwflags: UInt, groupid: Long, pbgroupattributes: ConstPtr<UByte>, cbgroupattributes: UInt, lpreserved: ConstPtr<CVoid>): Bool =
+public actual fun setUrlCacheEntryGroupA(lpszurlname: Pcstr, dwflags: UInt, groupid: Long, pbgroupattributes: ConstPtr, cbgroupattributes: UInt, lpreserved: ConstPtr): Bool =
     WindowsWin32NetworkingWininetJniBridge.windowssysWindowsWin32NetworkingWininetSetUrlCacheEntryGroupA(lpszurlname.rawAddress, dwflags.toInt(), groupid, pbgroupattributes.rawAddress, cbgroupattributes.toInt(), lpreserved.rawAddress)
 
-public actual fun setUrlCacheEntryGroupW(lpszurlname: Pcwstr, dwflags: UInt, groupid: Long, pbgroupattributes: ConstPtr<UByte>, cbgroupattributes: UInt, lpreserved: ConstPtr<CVoid>): Bool =
+public actual fun setUrlCacheEntryGroupW(lpszurlname: Pcwstr, dwflags: UInt, groupid: Long, pbgroupattributes: ConstPtr, cbgroupattributes: UInt, lpreserved: ConstPtr): Bool =
     WindowsWin32NetworkingWininetJniBridge.windowssysWindowsWin32NetworkingWininetSetUrlCacheEntryGroupW(lpszurlname.rawAddress, dwflags.toInt(), groupid, pbgroupattributes.rawAddress, cbgroupattributes.toInt(), lpreserved.rawAddress)
 
-public actual fun setUrlCacheEntryInfoA(lpszurlname: Pcstr, lpcacheentryinfo: ConstPtr<InternetCacheEntryInfoa>, dwfieldcontrol: UInt): Bool =
+public actual fun setUrlCacheEntryInfoA(lpszurlname: Pcstr, lpcacheentryinfo: ConstPtr, dwfieldcontrol: UInt): Bool =
     WindowsWin32NetworkingWininetJniBridge.windowssysWindowsWin32NetworkingWininetSetUrlCacheEntryInfoA(lpszurlname.rawAddress, lpcacheentryinfo.rawAddress, dwfieldcontrol.toInt())
 
-public actual fun setUrlCacheEntryInfoW(lpszurlname: Pcwstr, lpcacheentryinfo: ConstPtr<InternetCacheEntryInfow>, dwfieldcontrol: UInt): Bool =
+public actual fun setUrlCacheEntryInfoW(lpszurlname: Pcwstr, lpcacheentryinfo: ConstPtr, dwfieldcontrol: UInt): Bool =
     WindowsWin32NetworkingWininetJniBridge.windowssysWindowsWin32NetworkingWininetSetUrlCacheEntryInfoW(lpszurlname.rawAddress, lpcacheentryinfo.rawAddress, dwfieldcontrol.toInt())
 
-public actual fun setUrlCacheGroupAttributeA(gid: Long, dwflags: UInt, dwattributes: UInt, lpgroupinfo: ConstPtr<InternetCacheGroupInfoa>, lpreserved: ConstPtr<CVoid>): Bool =
+public actual fun setUrlCacheGroupAttributeA(gid: Long, dwflags: UInt, dwattributes: UInt, lpgroupinfo: ConstPtr, lpreserved: ConstPtr): Bool =
     WindowsWin32NetworkingWininetJniBridge.windowssysWindowsWin32NetworkingWininetSetUrlCacheGroupAttributeA(gid, dwflags.toInt(), dwattributes.toInt(), lpgroupinfo.rawAddress, lpreserved.rawAddress)
 
-public actual fun setUrlCacheGroupAttributeW(gid: Long, dwflags: UInt, dwattributes: UInt, lpgroupinfo: ConstPtr<InternetCacheGroupInfow>, lpreserved: ConstPtr<CVoid>): Bool =
+public actual fun setUrlCacheGroupAttributeW(gid: Long, dwflags: UInt, dwattributes: UInt, lpgroupinfo: ConstPtr, lpreserved: ConstPtr): Bool =
     WindowsWin32NetworkingWininetJniBridge.windowssysWindowsWin32NetworkingWininetSetUrlCacheGroupAttributeW(gid, dwflags.toInt(), dwattributes.toInt(), lpgroupinfo.rawAddress, lpreserved.rawAddress)
 
 public actual fun setUrlCacheHeaderData(nidx: UInt, dwdata: UInt): Bool =
@@ -1718,10 +1712,10 @@ public actual fun setUrlCacheHeaderData(nidx: UInt, dwdata: UInt): Bool =
 public actual fun showClientAuthCerts(hwndparent: Hwnd): UInt =
     WindowsWin32NetworkingWininetJniBridge.windowssysWindowsWin32NetworkingWininetShowClientAuthCerts(hwndparent.rawAddress).toUInt()
 
-public actual fun showSecurityInfo(hwndparent: Hwnd, psecurityinfo: ConstPtr<InternetSecurityInfo>): UInt =
+public actual fun showSecurityInfo(hwndparent: Hwnd, psecurityinfo: ConstPtr): UInt =
     WindowsWin32NetworkingWininetJniBridge.windowssysWindowsWin32NetworkingWininetShowSecurityInfo(hwndparent.rawAddress, psecurityinfo.rawAddress).toUInt()
 
-public actual fun showX509EncodedCertificate(hwndparent: Hwnd, lpcert: ConstPtr<UByte>, cbcert: UInt): UInt =
+public actual fun showX509EncodedCertificate(hwndparent: Hwnd, lpcert: ConstPtr, cbcert: UInt): UInt =
     WindowsWin32NetworkingWininetJniBridge.windowssysWindowsWin32NetworkingWininetShowX509EncodedCertificate(hwndparent.rawAddress, lpcert.rawAddress, cbcert.toInt()).toUInt()
 
 public actual fun unlockUrlCacheEntryFile(lpszurlname: Pcstr, dwreserved: UInt): Bool =
@@ -1739,10 +1733,10 @@ public actual fun unlockUrlCacheEntryStream(hurlcachestream: Handle, reserved: U
 public actual fun updateUrlCacheContentPath(sznewpath: Pcstr): Bool =
     WindowsWin32NetworkingWininetJniBridge.windowssysWindowsWin32NetworkingWininetUpdateUrlCacheContentPath(sznewpath.rawAddress)
 
-public actual fun urlCacheCheckEntriesExist(rgpwszurls: ConstPtr<Pcwstr>, centries: UInt, rgfexist: MutPtr<Bool>): UInt =
+public actual fun urlCacheCheckEntriesExist(rgpwszurls: ConstPtr, centries: UInt, rgfexist: MutPtr): UInt =
     WindowsWin32NetworkingWininetJniBridge.windowssysWindowsWin32NetworkingWininetUrlCacheCheckEntriesExist(rgpwszurls.rawAddress, centries.toInt(), rgfexist.rawAddress).toUInt()
 
-public actual fun urlCacheCloseEntryHandle(hentryfile: ConstPtr<CVoid>) {
+public actual fun urlCacheCloseEntryHandle(hentryfile: ConstPtr) {
     WindowsWin32NetworkingWininetJniBridge.windowssysWindowsWin32NetworkingWininetUrlCacheCloseEntryHandle(hentryfile.rawAddress)
 }
 
@@ -1752,41 +1746,41 @@ public actual fun urlCacheContainerSetEntryMaximumAge(pwszprefix: Pcwstr, dwentr
 public actual fun urlCacheCreateContainer(pwszname: Pcwstr, pwszprefix: Pcwstr, pwszdirectory: Pcwstr, ulllimit: ULong, dwoptions: UInt): UInt =
     WindowsWin32NetworkingWininetJniBridge.windowssysWindowsWin32NetworkingWininetUrlCacheCreateContainer(pwszname.rawAddress, pwszprefix.rawAddress, pwszdirectory.rawAddress, ulllimit.toLong(), dwoptions.toInt()).toUInt()
 
-public actual fun urlCacheFindFirstEntry(pwszprefix: Pcwstr, dwflags: UInt, dwfilter: UInt, groupid: Long, pcacheentryinfo: MutPtr<UrlcacheEntryInfo>, phfind: MutPtr<Handle>): UInt =
+public actual fun urlCacheFindFirstEntry(pwszprefix: Pcwstr, dwflags: UInt, dwfilter: UInt, groupid: Long, pcacheentryinfo: MutPtr, phfind: MutPtr): UInt =
     WindowsWin32NetworkingWininetJniBridge.windowssysWindowsWin32NetworkingWininetUrlCacheFindFirstEntry(pwszprefix.rawAddress, dwflags.toInt(), dwfilter.toInt(), groupid, pcacheentryinfo.rawAddress, phfind.rawAddress).toUInt()
 
-public actual fun urlCacheFindNextEntry(hfind: Handle, pcacheentryinfo: MutPtr<UrlcacheEntryInfo>): UInt =
+public actual fun urlCacheFindNextEntry(hfind: Handle, pcacheentryinfo: MutPtr): UInt =
     WindowsWin32NetworkingWininetJniBridge.windowssysWindowsWin32NetworkingWininetUrlCacheFindNextEntry(hfind.rawAddress, pcacheentryinfo.rawAddress).toUInt()
 
-public actual fun urlCacheFreeEntryInfo(pcacheentryinfo: MutPtr<UrlcacheEntryInfo>) {
+public actual fun urlCacheFreeEntryInfo(pcacheentryinfo: MutPtr) {
     WindowsWin32NetworkingWininetJniBridge.windowssysWindowsWin32NetworkingWininetUrlCacheFreeEntryInfo(pcacheentryinfo.rawAddress)
 }
 
 public actual fun urlCacheFreeGlobalSpace(ulltargetsize: ULong, dwfilter: UInt): UInt =
     WindowsWin32NetworkingWininetJniBridge.windowssysWindowsWin32NetworkingWininetUrlCacheFreeGlobalSpace(ulltargetsize.toLong(), dwfilter.toInt()).toUInt()
 
-public actual fun urlCacheGetContentPaths(pppwszdirectories: MutPtr<MutPtr<Pwstr>>, pcdirectories: MutPtr<UInt>): UInt =
+public actual fun urlCacheGetContentPaths(pppwszdirectories: MutPtr, pcdirectories: MutPtr): UInt =
     WindowsWin32NetworkingWininetJniBridge.windowssysWindowsWin32NetworkingWininetUrlCacheGetContentPaths(pppwszdirectories.rawAddress, pcdirectories.rawAddress).toUInt()
 
-public actual fun urlCacheGetEntryInfo(happcache: ConstPtr<CVoid>, pcwszurl: Pcwstr, pcacheentryinfo: MutPtr<UrlcacheEntryInfo>): UInt =
+public actual fun urlCacheGetEntryInfo(happcache: ConstPtr, pcwszurl: Pcwstr, pcacheentryinfo: MutPtr): UInt =
     WindowsWin32NetworkingWininetJniBridge.windowssysWindowsWin32NetworkingWininetUrlCacheGetEntryInfo(happcache.rawAddress, pcwszurl.rawAddress, pcacheentryinfo.rawAddress).toUInt()
 
-public actual fun urlCacheGetGlobalCacheSize(dwfilter: UInt, pullsize: MutPtr<ULong>, pulllimit: MutPtr<ULong>): UInt =
+public actual fun urlCacheGetGlobalCacheSize(dwfilter: UInt, pullsize: MutPtr, pulllimit: MutPtr): UInt =
     WindowsWin32NetworkingWininetJniBridge.windowssysWindowsWin32NetworkingWininetUrlCacheGetGlobalCacheSize(dwfilter.toInt(), pullsize.rawAddress, pulllimit.rawAddress).toUInt()
 
-public actual fun urlCacheGetGlobalLimit(limittype: UrlCacheLimitType, pulllimit: MutPtr<ULong>): UInt =
+public actual fun urlCacheGetGlobalLimit(limittype: UrlCacheLimitType, pulllimit: MutPtr): UInt =
     WindowsWin32NetworkingWininetJniBridge.windowssysWindowsWin32NetworkingWininetUrlCacheGetGlobalLimit(limittype, pulllimit.rawAddress).toUInt()
 
-public actual fun urlCacheReadEntryStream(hurlcachestream: ConstPtr<CVoid>, ulllocation: ULong, pbuffer: MutPtr<CVoid>, dwbufferlen: UInt, pdwbufferlen: MutPtr<UInt>): UInt =
+public actual fun urlCacheReadEntryStream(hurlcachestream: ConstPtr, ulllocation: ULong, pbuffer: MutPtr, dwbufferlen: UInt, pdwbufferlen: MutPtr): UInt =
     WindowsWin32NetworkingWininetJniBridge.windowssysWindowsWin32NetworkingWininetUrlCacheReadEntryStream(hurlcachestream.rawAddress, ulllocation.toLong(), pbuffer.rawAddress, dwbufferlen.toInt(), pdwbufferlen.rawAddress).toUInt()
 
 public actual fun urlCacheReloadSettings(): UInt =
     WindowsWin32NetworkingWininetJniBridge.windowssysWindowsWin32NetworkingWininetUrlCacheReloadSettings().toUInt()
 
-public actual fun urlCacheRetrieveEntryFile(happcache: ConstPtr<CVoid>, pcwszurl: Pcwstr, pcacheentryinfo: MutPtr<UrlcacheEntryInfo>, phentryfile: MutPtr<MutPtr<CVoid>>): UInt =
+public actual fun urlCacheRetrieveEntryFile(happcache: ConstPtr, pcwszurl: Pcwstr, pcacheentryinfo: MutPtr, phentryfile: MutPtr): UInt =
     WindowsWin32NetworkingWininetJniBridge.windowssysWindowsWin32NetworkingWininetUrlCacheRetrieveEntryFile(happcache.rawAddress, pcwszurl.rawAddress, pcacheentryinfo.rawAddress, phentryfile.rawAddress).toUInt()
 
-public actual fun urlCacheRetrieveEntryStream(happcache: ConstPtr<CVoid>, pcwszurl: Pcwstr, frandomread: Bool, pcacheentryinfo: MutPtr<UrlcacheEntryInfo>, phentrystream: MutPtr<MutPtr<CVoid>>): UInt =
+public actual fun urlCacheRetrieveEntryStream(happcache: ConstPtr, pcwszurl: Pcwstr, frandomread: Bool, pcacheentryinfo: MutPtr, phentrystream: MutPtr): UInt =
     WindowsWin32NetworkingWininetJniBridge.windowssysWindowsWin32NetworkingWininetUrlCacheRetrieveEntryStream(happcache.rawAddress, pcwszurl.rawAddress, frandomread, pcacheentryinfo.rawAddress, phentrystream.rawAddress).toUInt()
 
 public actual fun urlCacheServer(): UInt =
@@ -1795,5 +1789,5 @@ public actual fun urlCacheServer(): UInt =
 public actual fun urlCacheSetGlobalLimit(limittype: UrlCacheLimitType, ulllimit: ULong): UInt =
     WindowsWin32NetworkingWininetJniBridge.windowssysWindowsWin32NetworkingWininetUrlCacheSetGlobalLimit(limittype, ulllimit.toLong()).toUInt()
 
-public actual fun urlCacheUpdateEntryExtraData(happcache: ConstPtr<CVoid>, pcwszurl: Pcwstr, pbextradata: ConstPtr<UByte>, cbextradata: UInt): UInt =
+public actual fun urlCacheUpdateEntryExtraData(happcache: ConstPtr, pcwszurl: Pcwstr, pbextradata: ConstPtr, cbextradata: UInt): UInt =
     WindowsWin32NetworkingWininetJniBridge.windowssysWindowsWin32NetworkingWininetUrlCacheUpdateEntryExtraData(happcache.rawAddress, pcwszurl.rawAddress, pbextradata.rawAddress, cbextradata.toInt()).toUInt()

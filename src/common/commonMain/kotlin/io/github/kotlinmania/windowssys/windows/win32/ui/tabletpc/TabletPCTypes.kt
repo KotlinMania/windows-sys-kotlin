@@ -1,6 +1,5 @@
 package io.github.kotlinmania.windowssys.windows.win32.ui.tabletpc
 
-import io.github.kotlinmania.rustlang.core.ffi.CVoid
 import io.github.kotlinmania.rustlang.core.ptr.MutPtr
 import io.github.kotlinmania.windowssys.core.Hresult
 
@@ -114,15 +113,15 @@ public typealias Flickmode = Int
 
 public typealias GetDandidateFlags = Int
 
-public typealias Hrecoalt = MutPtr<CVoid>
+public typealias Hrecoalt = MutPtr
 
-public typealias Hrecocontext = MutPtr<CVoid>
+public typealias Hrecocontext = MutPtr
 
-public typealias Hrecognizer = MutPtr<CVoid>
+public typealias Hrecognizer = MutPtr
 
-public typealias Hrecolattice = MutPtr<CVoid>
+public typealias Hrecolattice = MutPtr
 
-public typealias Hrecowordlist = MutPtr<CVoid>
+public typealias Hrecowordlist = MutPtr
 
 public typealias InkMetricFlags = Int
 
@@ -213,7 +212,7 @@ public typealias PanelInputArea = Int
 public typealias PanelType = Int
 
 public fun interface PfnRecoCallbackFn {
-    public operator fun invoke(param0: UInt, param1: MutPtr<UByte>, param2: Hrecocontext): Hresult
+    public operator fun invoke(param0: UInt, param1: MutPtr, param2: Hrecocontext): Hresult
 }
 
 public typealias PfnRecoCallback = PfnRecoCallbackFn?

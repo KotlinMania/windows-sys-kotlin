@@ -131,25 +131,25 @@ private object WindowsWin32UiControlsDialogsJniBridge {
     external fun windowssysWindowsWin32UiControlsDialogsReplaceTextW(param0: Long): Long
 }
 
-public actual fun chooseColorA(param0: MutPtr<Choosecolora>): Bool =
+public actual fun chooseColorA(param0: MutPtr): Bool =
     WindowsWin32UiControlsDialogsJniBridge.windowssysWindowsWin32UiControlsDialogsChooseColorA(param0.rawAddress)
 
-public actual fun chooseColorW(param0: MutPtr<Choosecolorw>): Bool =
+public actual fun chooseColorW(param0: MutPtr): Bool =
     WindowsWin32UiControlsDialogsJniBridge.windowssysWindowsWin32UiControlsDialogsChooseColorW(param0.rawAddress)
 
-public actual fun chooseFontA(param0: MutPtr<Choosefonta>): Bool =
+public actual fun chooseFontA(param0: MutPtr): Bool =
     WindowsWin32UiControlsDialogsJniBridge.windowssysWindowsWin32UiControlsDialogsChooseFontA(param0.rawAddress)
 
-public actual fun chooseFontW(param0: MutPtr<Choosefontw>): Bool =
+public actual fun chooseFontW(param0: MutPtr): Bool =
     WindowsWin32UiControlsDialogsJniBridge.windowssysWindowsWin32UiControlsDialogsChooseFontW(param0.rawAddress)
 
 public actual fun commDlgExtendedError(): CommonDlgErrors =
     WindowsWin32UiControlsDialogsJniBridge.windowssysWindowsWin32UiControlsDialogsCommDlgExtendedError().toUInt()
 
-public actual fun findTextA(param0: MutPtr<Findreplacea>): Hwnd =
+public actual fun findTextA(param0: MutPtr): Hwnd =
     MutPtr(WindowsWin32UiControlsDialogsJniBridge.windowssysWindowsWin32UiControlsDialogsFindTextA(param0.rawAddress))
 
-public actual fun findTextW(param0: MutPtr<Findreplacew>): Hwnd =
+public actual fun findTextW(param0: MutPtr): Hwnd =
     MutPtr(WindowsWin32UiControlsDialogsJniBridge.windowssysWindowsWin32UiControlsDialogsFindTextW(param0.rawAddress))
 
 public actual fun getFileTitleA(param0: Pcstr, buf: Pstr, cchsize: UShort): Short =
@@ -158,38 +158,38 @@ public actual fun getFileTitleA(param0: Pcstr, buf: Pstr, cchsize: UShort): Shor
 public actual fun getFileTitleW(param0: Pcwstr, buf: Pwstr, cchsize: UShort): Short =
     WindowsWin32UiControlsDialogsJniBridge.windowssysWindowsWin32UiControlsDialogsGetFileTitleW(param0.rawAddress, buf.rawAddress, cchsize.toShort())
 
-public actual fun getOpenFileNameA(param0: MutPtr<Openfilenamea>): Bool =
+public actual fun getOpenFileNameA(param0: MutPtr): Bool =
     WindowsWin32UiControlsDialogsJniBridge.windowssysWindowsWin32UiControlsDialogsGetOpenFileNameA(param0.rawAddress)
 
-public actual fun getOpenFileNameW(param0: MutPtr<Openfilenamew>): Bool =
+public actual fun getOpenFileNameW(param0: MutPtr): Bool =
     WindowsWin32UiControlsDialogsJniBridge.windowssysWindowsWin32UiControlsDialogsGetOpenFileNameW(param0.rawAddress)
 
-public actual fun getSaveFileNameA(param0: MutPtr<Openfilenamea>): Bool =
+public actual fun getSaveFileNameA(param0: MutPtr): Bool =
     WindowsWin32UiControlsDialogsJniBridge.windowssysWindowsWin32UiControlsDialogsGetSaveFileNameA(param0.rawAddress)
 
-public actual fun getSaveFileNameW(param0: MutPtr<Openfilenamew>): Bool =
+public actual fun getSaveFileNameW(param0: MutPtr): Bool =
     WindowsWin32UiControlsDialogsJniBridge.windowssysWindowsWin32UiControlsDialogsGetSaveFileNameW(param0.rawAddress)
 
-public actual fun pageSetupDlgA(param0: MutPtr<Pagesetupdlga>): Bool =
+public actual fun pageSetupDlgA(param0: MutPtr): Bool =
     WindowsWin32UiControlsDialogsJniBridge.windowssysWindowsWin32UiControlsDialogsPageSetupDlgA(param0.rawAddress)
 
-public actual fun pageSetupDlgW(param0: MutPtr<Pagesetupdlgw>): Bool =
+public actual fun pageSetupDlgW(param0: MutPtr): Bool =
     WindowsWin32UiControlsDialogsJniBridge.windowssysWindowsWin32UiControlsDialogsPageSetupDlgW(param0.rawAddress)
 
-public actual fun printDlgA(ppd: MutPtr<Printdlga>): Bool =
+public actual fun printDlgA(ppd: MutPtr): Bool =
     WindowsWin32UiControlsDialogsJniBridge.windowssysWindowsWin32UiControlsDialogsPrintDlgA(ppd.rawAddress)
 
-public actual fun printDlgExA(ppd: MutPtr<Printdlgexa>): Hresult =
+public actual fun printDlgExA(ppd: MutPtr): Hresult =
     WindowsWin32UiControlsDialogsJniBridge.windowssysWindowsWin32UiControlsDialogsPrintDlgExA(ppd.rawAddress)
 
-public actual fun printDlgExW(ppd: MutPtr<Printdlgexw>): Hresult =
+public actual fun printDlgExW(ppd: MutPtr): Hresult =
     WindowsWin32UiControlsDialogsJniBridge.windowssysWindowsWin32UiControlsDialogsPrintDlgExW(ppd.rawAddress)
 
-public actual fun printDlgW(ppd: MutPtr<Printdlgw>): Bool =
+public actual fun printDlgW(ppd: MutPtr): Bool =
     WindowsWin32UiControlsDialogsJniBridge.windowssysWindowsWin32UiControlsDialogsPrintDlgW(ppd.rawAddress)
 
-public actual fun replaceTextA(param0: MutPtr<Findreplacea>): Hwnd =
+public actual fun replaceTextA(param0: MutPtr): Hwnd =
     MutPtr(WindowsWin32UiControlsDialogsJniBridge.windowssysWindowsWin32UiControlsDialogsReplaceTextA(param0.rawAddress))
 
-public actual fun replaceTextW(param0: MutPtr<Findreplacew>): Hwnd =
+public actual fun replaceTextW(param0: MutPtr): Hwnd =
     MutPtr(WindowsWin32UiControlsDialogsJniBridge.windowssysWindowsWin32UiControlsDialogsReplaceTextW(param0.rawAddress))

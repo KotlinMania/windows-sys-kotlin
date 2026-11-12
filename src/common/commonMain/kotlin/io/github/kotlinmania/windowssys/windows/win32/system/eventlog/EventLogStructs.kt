@@ -7,13 +7,9 @@ import io.github.kotlinmania.rustlang.core.mem.TypeLayout
 import io.github.kotlinmania.rustlang.core.ptr.ConstPtr
 import io.github.kotlinmania.rustlang.core.ptr.MutPtr
 import io.github.kotlinmania.windowssys.core.Bool
-import io.github.kotlinmania.windowssys.core.Guid
 import io.github.kotlinmania.windowssys.core.Pcstr
 import io.github.kotlinmania.windowssys.core.Pcwstr
-import io.github.kotlinmania.windowssys.core.Pstr
 import io.github.kotlinmania.windowssys.core.Pwstr
-import io.github.kotlinmania.windowssys.windows.win32.foundation.Filetime
-import io.github.kotlinmania.windowssys.windows.win32.foundation.Systemtime
 import io.github.kotlinmania.windowssys.windows.win32.security.Psid
 
 public data class Eventlogrecord(
@@ -253,39 +249,39 @@ public class EvtVariant0 internal constructor(
     public var singleVal: Float,
     public var doubleVal: Double,
     public var fileTimeVal: ULong,
-    sysTimeValCtorArg: MutPtr<Systemtime>,
-    guidValCtorArg: MutPtr<Guid>,
+    sysTimeValCtorArg: MutPtr,
+    guidValCtorArg: MutPtr,
     stringValCtorArg: Pcwstr,
     ansiStringValCtorArg: Pcstr,
-    binaryValCtorArg: MutPtr<UByte>,
+    binaryValCtorArg: MutPtr,
     sidValCtorArg: Psid,
     public var sizeTVal: Int,
-    booleanArrCtorArg: MutPtr<Bool>,
-    sByteArrCtorArg: MutPtr<Byte>,
-    int16ArrCtorArg: MutPtr<Short>,
-    int32ArrCtorArg: MutPtr<Int>,
-    int64ArrCtorArg: MutPtr<Long>,
-    byteArrCtorArg: MutPtr<UByte>,
-    uInt16ArrCtorArg: MutPtr<UShort>,
-    uInt32ArrCtorArg: MutPtr<UInt>,
-    uInt64ArrCtorArg: MutPtr<ULong>,
-    singleArrCtorArg: MutPtr<Float>,
-    doubleArrCtorArg: MutPtr<Double>,
-    fileTimeArrCtorArg: MutPtr<Filetime>,
-    sysTimeArrCtorArg: MutPtr<Systemtime>,
-    guidArrCtorArg: MutPtr<Guid>,
-    stringArrCtorArg: MutPtr<Pwstr>,
-    ansiStringArrCtorArg: MutPtr<Pstr>,
-    sidArrCtorArg: MutPtr<Psid>,
-    sizeTArrCtorArg: MutPtr<Int>,
+    booleanArrCtorArg: MutPtr,
+    sByteArrCtorArg: MutPtr,
+    int16ArrCtorArg: MutPtr,
+    int32ArrCtorArg: MutPtr,
+    int64ArrCtorArg: MutPtr,
+    byteArrCtorArg: MutPtr,
+    uInt16ArrCtorArg: MutPtr,
+    uInt32ArrCtorArg: MutPtr,
+    uInt64ArrCtorArg: MutPtr,
+    singleArrCtorArg: MutPtr,
+    doubleArrCtorArg: MutPtr,
+    fileTimeArrCtorArg: MutPtr,
+    sysTimeArrCtorArg: MutPtr,
+    guidArrCtorArg: MutPtr,
+    stringArrCtorArg: MutPtr,
+    ansiStringArrCtorArg: MutPtr,
+    sidArrCtorArg: MutPtr,
+    sizeTArrCtorArg: MutPtr,
     public var evtHandleVal: EvtHandle,
     xmlValCtorArg: Pcwstr,
-    xmlValArrCtorArg: ConstPtr<Pcwstr>,
+    xmlValArrCtorArg: ConstPtr,
 ) {
-    public var sysTimeVal: MutPtr<Systemtime> = sysTimeValCtorArg
+    public var sysTimeVal: MutPtr = sysTimeValCtorArg
         internal set
 
-    public var guidVal: MutPtr<Guid> = guidValCtorArg
+    public var guidVal: MutPtr = guidValCtorArg
         internal set
 
     public var stringVal: Pcwstr = stringValCtorArg
@@ -294,70 +290,70 @@ public class EvtVariant0 internal constructor(
     public var ansiStringVal: Pcstr = ansiStringValCtorArg
         internal set
 
-    public var binaryVal: MutPtr<UByte> = binaryValCtorArg
+    public var binaryVal: MutPtr = binaryValCtorArg
         internal set
 
     public var sidVal: Psid = sidValCtorArg
         internal set
 
-    public var booleanArr: MutPtr<Bool> = booleanArrCtorArg
+    public var booleanArr: MutPtr = booleanArrCtorArg
         internal set
 
-    public var sByteArr: MutPtr<Byte> = sByteArrCtorArg
+    public var sByteArr: MutPtr = sByteArrCtorArg
         internal set
 
-    public var int16Arr: MutPtr<Short> = int16ArrCtorArg
+    public var int16Arr: MutPtr = int16ArrCtorArg
         internal set
 
-    public var int32Arr: MutPtr<Int> = int32ArrCtorArg
+    public var int32Arr: MutPtr = int32ArrCtorArg
         internal set
 
-    public var int64Arr: MutPtr<Long> = int64ArrCtorArg
+    public var int64Arr: MutPtr = int64ArrCtorArg
         internal set
 
-    public var byteArr: MutPtr<UByte> = byteArrCtorArg
+    public var byteArr: MutPtr = byteArrCtorArg
         internal set
 
-    public var uInt16Arr: MutPtr<UShort> = uInt16ArrCtorArg
+    public var uInt16Arr: MutPtr = uInt16ArrCtorArg
         internal set
 
-    public var uInt32Arr: MutPtr<UInt> = uInt32ArrCtorArg
+    public var uInt32Arr: MutPtr = uInt32ArrCtorArg
         internal set
 
-    public var uInt64Arr: MutPtr<ULong> = uInt64ArrCtorArg
+    public var uInt64Arr: MutPtr = uInt64ArrCtorArg
         internal set
 
-    public var singleArr: MutPtr<Float> = singleArrCtorArg
+    public var singleArr: MutPtr = singleArrCtorArg
         internal set
 
-    public var doubleArr: MutPtr<Double> = doubleArrCtorArg
+    public var doubleArr: MutPtr = doubleArrCtorArg
         internal set
 
-    public var fileTimeArr: MutPtr<Filetime> = fileTimeArrCtorArg
+    public var fileTimeArr: MutPtr = fileTimeArrCtorArg
         internal set
 
-    public var sysTimeArr: MutPtr<Systemtime> = sysTimeArrCtorArg
+    public var sysTimeArr: MutPtr = sysTimeArrCtorArg
         internal set
 
-    public var guidArr: MutPtr<Guid> = guidArrCtorArg
+    public var guidArr: MutPtr = guidArrCtorArg
         internal set
 
-    public var stringArr: MutPtr<Pwstr> = stringArrCtorArg
+    public var stringArr: MutPtr = stringArrCtorArg
         internal set
 
-    public var ansiStringArr: MutPtr<Pstr> = ansiStringArrCtorArg
+    public var ansiStringArr: MutPtr = ansiStringArrCtorArg
         internal set
 
-    public var sidArr: MutPtr<Psid> = sidArrCtorArg
+    public var sidArr: MutPtr = sidArrCtorArg
         internal set
 
-    public var sizeTArr: MutPtr<Int> = sizeTArrCtorArg
+    public var sizeTArr: MutPtr = sizeTArrCtorArg
         internal set
 
     public var xmlVal: Pcwstr = xmlValCtorArg
         internal set
 
-    public var xmlValArr: ConstPtr<Pcwstr> = xmlValArrCtorArg
+    public var xmlValArr: ConstPtr = xmlValArrCtorArg
         internal set
 
     public constructor() : this(
@@ -417,34 +413,34 @@ public class EvtVariant0 internal constructor(
             singleVal: Float = 0.0f,
             doubleVal: Double = 0.0,
             fileTimeVal: ULong = 0uL,
-            sysTimeVal: MutPtr<Systemtime> = MutPtr(0L),
-            guidVal: MutPtr<Guid> = MutPtr(0L),
+            sysTimeVal: MutPtr = MutPtr(0L),
+            guidVal: MutPtr = MutPtr(0L),
             stringVal: Pcwstr = ConstPtr(0L),
             ansiStringVal: Pcstr = ConstPtr(0L),
-            binaryVal: MutPtr<UByte> = MutPtr(0L),
+            binaryVal: MutPtr = MutPtr(0L),
             sidVal: Psid = MutPtr(0L),
             sizeTVal: Int = 0,
-            booleanArr: MutPtr<Bool> = MutPtr(0L),
-            sByteArr: MutPtr<Byte> = MutPtr(0L),
-            int16Arr: MutPtr<Short> = MutPtr(0L),
-            int32Arr: MutPtr<Int> = MutPtr(0L),
-            int64Arr: MutPtr<Long> = MutPtr(0L),
-            byteArr: MutPtr<UByte> = MutPtr(0L),
-            uInt16Arr: MutPtr<UShort> = MutPtr(0L),
-            uInt32Arr: MutPtr<UInt> = MutPtr(0L),
-            uInt64Arr: MutPtr<ULong> = MutPtr(0L),
-            singleArr: MutPtr<Float> = MutPtr(0L),
-            doubleArr: MutPtr<Double> = MutPtr(0L),
-            fileTimeArr: MutPtr<Filetime> = MutPtr(0L),
-            sysTimeArr: MutPtr<Systemtime> = MutPtr(0L),
-            guidArr: MutPtr<Guid> = MutPtr(0L),
-            stringArr: MutPtr<Pwstr> = MutPtr(0L),
-            ansiStringArr: MutPtr<Pstr> = MutPtr(0L),
-            sidArr: MutPtr<Psid> = MutPtr(0L),
-            sizeTArr: MutPtr<Int> = MutPtr(0L),
+            booleanArr: MutPtr = MutPtr(0L),
+            sByteArr: MutPtr = MutPtr(0L),
+            int16Arr: MutPtr = MutPtr(0L),
+            int32Arr: MutPtr = MutPtr(0L),
+            int64Arr: MutPtr = MutPtr(0L),
+            byteArr: MutPtr = MutPtr(0L),
+            uInt16Arr: MutPtr = MutPtr(0L),
+            uInt32Arr: MutPtr = MutPtr(0L),
+            uInt64Arr: MutPtr = MutPtr(0L),
+            singleArr: MutPtr = MutPtr(0L),
+            doubleArr: MutPtr = MutPtr(0L),
+            fileTimeArr: MutPtr = MutPtr(0L),
+            sysTimeArr: MutPtr = MutPtr(0L),
+            guidArr: MutPtr = MutPtr(0L),
+            stringArr: MutPtr = MutPtr(0L),
+            ansiStringArr: MutPtr = MutPtr(0L),
+            sidArr: MutPtr = MutPtr(0L),
+            sizeTArr: MutPtr = MutPtr(0L),
             evtHandleVal: EvtHandle = 0L,
             xmlVal: Pcwstr = ConstPtr(0L),
-            xmlValArr: ConstPtr<Pcwstr> = ConstPtr(0L),
+            xmlValArr: ConstPtr = ConstPtr(0L),
         ): EvtVariant0 =
             EvtVariant0(
                 booleanVal = booleanVal,

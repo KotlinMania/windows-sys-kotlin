@@ -1,6 +1,5 @@
 package io.github.kotlinmania.windowssys.windows.win32.media.dxmediaobjects
 
-import io.github.kotlinmania.rustlang.core.ffi.CVoid
 import io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
 import io.github.kotlinmania.rustlang.core.mem.TypeLayout
 import io.github.kotlinmania.rustlang.core.ptr.MutPtr
@@ -14,14 +13,14 @@ public class DmoMediaType internal constructor(
     public var bTemporalCompression: Bool,
     public var lSampleSize: UInt,
     public var formattype: Guid,
-    pUnkCtorArg: MutPtr<CVoid>,
+    pUnkCtorArg: MutPtr,
     public var cbFormat: UInt,
-    pbFormatCtorArg: MutPtr<UByte>,
+    pbFormatCtorArg: MutPtr,
 ) {
-    public var pUnk: MutPtr<CVoid> = pUnkCtorArg
+    public var pUnk: MutPtr = pUnkCtorArg
         internal set
 
-    public var pbFormat: MutPtr<UByte> = pbFormatCtorArg
+    public var pbFormat: MutPtr = pbFormatCtorArg
         internal set
 
     public constructor() : this(
@@ -48,13 +47,13 @@ public class DmoMediaType internal constructor(
 
     public operator fun component6(): Guid = this.formattype
 
-    public operator fun component7(): MutPtr<CVoid> = this.pUnk
+    public operator fun component7(): MutPtr = this.pUnk
 
     public operator fun component8(): UInt = this.cbFormat
 
-    public operator fun component9(): MutPtr<UByte> = this.pbFormat
+    public operator fun component9(): MutPtr = this.pbFormat
 
-    public fun copy(majortype: Guid = this.majortype, subtype: Guid = this.subtype, bFixedSizeSamples: Bool = this.bFixedSizeSamples, bTemporalCompression: Bool = this.bTemporalCompression, lSampleSize: UInt = this.lSampleSize, formattype: Guid = this.formattype, pUnk: MutPtr<CVoid> = this.pUnk, cbFormat: UInt = this.cbFormat, pbFormat: MutPtr<UByte> = this.pbFormat): DmoMediaType = DmoMediaType(majortype = majortype, subtype = subtype, bFixedSizeSamples = bFixedSizeSamples, bTemporalCompression = bTemporalCompression, lSampleSize = lSampleSize, formattype = formattype, pUnkCtorArg = pUnk, cbFormat = cbFormat, pbFormatCtorArg = pbFormat)
+    public fun copy(majortype: Guid = this.majortype, subtype: Guid = this.subtype, bFixedSizeSamples: Bool = this.bFixedSizeSamples, bTemporalCompression: Bool = this.bTemporalCompression, lSampleSize: UInt = this.lSampleSize, formattype: Guid = this.formattype, pUnk: MutPtr = this.pUnk, cbFormat: UInt = this.cbFormat, pbFormat: MutPtr = this.pbFormat): DmoMediaType = DmoMediaType(majortype = majortype, subtype = subtype, bFixedSizeSamples = bFixedSizeSamples, bTemporalCompression = bTemporalCompression, lSampleSize = lSampleSize, formattype = formattype, pUnkCtorArg = pUnk, cbFormat = cbFormat, pbFormatCtorArg = pbFormat)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -92,9 +91,9 @@ public class DmoMediaType internal constructor(
             bTemporalCompression: Bool = 0,
             lSampleSize: UInt = 0u,
             formattype: Guid = Guid(),
-            pUnk: MutPtr<CVoid> = MutPtr(0L),
+            pUnk: MutPtr = MutPtr(0L),
             cbFormat: UInt = 0u,
-            pbFormat: MutPtr<UByte> = MutPtr(0L),
+            pbFormat: MutPtr = MutPtr(0L),
         ): DmoMediaType =
             DmoMediaType(
                 majortype = majortype,
@@ -111,12 +110,12 @@ public class DmoMediaType internal constructor(
 }
 
 public class DmoOutputDataBuffer internal constructor(
-    pBufferCtorArg: MutPtr<CVoid>,
+    pBufferCtorArg: MutPtr,
     public var dwStatus: UInt,
     public var rtTimestamp: Long,
     public var rtTimelength: Long,
 ) {
-    public var pBuffer: MutPtr<CVoid> = pBufferCtorArg
+    public var pBuffer: MutPtr = pBufferCtorArg
         internal set
 
     public constructor() : this(
@@ -126,7 +125,7 @@ public class DmoOutputDataBuffer internal constructor(
         rtTimelength = 0L,
     )
 
-    public operator fun component1(): MutPtr<CVoid> = this.pBuffer
+    public operator fun component1(): MutPtr = this.pBuffer
 
     public operator fun component2(): UInt = this.dwStatus
 
@@ -134,7 +133,7 @@ public class DmoOutputDataBuffer internal constructor(
 
     public operator fun component4(): Long = this.rtTimelength
 
-    public fun copy(pBuffer: MutPtr<CVoid> = this.pBuffer, dwStatus: UInt = this.dwStatus, rtTimestamp: Long = this.rtTimestamp, rtTimelength: Long = this.rtTimelength): DmoOutputDataBuffer = DmoOutputDataBuffer(pBufferCtorArg = pBuffer, dwStatus = dwStatus, rtTimestamp = rtTimestamp, rtTimelength = rtTimelength)
+    public fun copy(pBuffer: MutPtr = this.pBuffer, dwStatus: UInt = this.dwStatus, rtTimestamp: Long = this.rtTimestamp, rtTimelength: Long = this.rtTimelength): DmoOutputDataBuffer = DmoOutputDataBuffer(pBufferCtorArg = pBuffer, dwStatus = dwStatus, rtTimestamp = rtTimestamp, rtTimelength = rtTimelength)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -163,7 +162,7 @@ public class DmoOutputDataBuffer internal constructor(
                     DmoOutputDataBuffer(
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<CVoid>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 8L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I64).readNative(addr + 16L),
@@ -172,7 +171,7 @@ public class DmoOutputDataBuffer internal constructor(
                 override fun writeNative(addr: Long, value: DmoOutputDataBuffer) {
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<CVoid>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr, value.pBuffer)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 8L, value.dwStatus)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I64).writeNative(addr + 16L, value.rtTimestamp)
@@ -181,7 +180,7 @@ public class DmoOutputDataBuffer internal constructor(
             }
 
         public operator fun invoke(
-            pBuffer: MutPtr<CVoid> = MutPtr(0L),
+            pBuffer: MutPtr = MutPtr(0L),
             dwStatus: UInt = 0u,
             rtTimestamp: Long = 0L,
             rtTimelength: Long = 0L,

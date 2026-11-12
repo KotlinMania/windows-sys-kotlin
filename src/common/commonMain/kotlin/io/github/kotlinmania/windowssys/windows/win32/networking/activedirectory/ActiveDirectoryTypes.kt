@@ -2,7 +2,6 @@ package io.github.kotlinmania.windowssys.windows.win32.networking.activedirector
 
 import io.github.kotlinmania.rustlang.core.ptr.ConstPtr
 import io.github.kotlinmania.rustlang.core.ptr.MutPtr
-import io.github.kotlinmania.windowssys.core.Guid
 import io.github.kotlinmania.windowssys.core.Hresult
 import io.github.kotlinmania.windowssys.core.Pcwstr
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Hwnd
@@ -102,19 +101,19 @@ public typealias DsSpnNameType = Int
 public typealias DsSpnWriteOp = Int
 
 public fun interface LpcqaddformsprocFn {
-    public operator fun invoke(lparam: Lparam, pform: MutPtr<Cqform>): Hresult
+    public operator fun invoke(lparam: Lparam, pform: MutPtr): Hresult
 }
 
 public typealias Lpcqaddformsproc = LpcqaddformsprocFn?
 
 public fun interface LpcqaddpagesprocFn {
-    public operator fun invoke(lparam: Lparam, clsidform: ConstPtr<Guid>, ppage: MutPtr<Cqpage>): Hresult
+    public operator fun invoke(lparam: Lparam, clsidform: ConstPtr, ppage: MutPtr): Hresult
 }
 
 public typealias Lpcqaddpagesproc = LpcqaddpagesprocFn?
 
 public fun interface LpcqpageprocFn {
-    public operator fun invoke(ppage: MutPtr<Cqpage>, hwnd: Hwnd, umsg: UInt, wparam: Wparam, lparam: Lparam): Hresult
+    public operator fun invoke(ppage: MutPtr, hwnd: Hwnd, umsg: UInt, wparam: Wparam, lparam: Lparam): Hresult
 }
 
 public typealias Lpcqpageproc = LpcqpageprocFn?

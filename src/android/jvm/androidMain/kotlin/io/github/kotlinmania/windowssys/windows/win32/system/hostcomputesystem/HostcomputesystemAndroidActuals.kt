@@ -2,14 +2,11 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.system.hostcomputesystem
 
-import io.github.kotlinmania.rustlang.core.ffi.CVoid
 import io.github.kotlinmania.rustlang.core.ptr.ConstPtr
 import io.github.kotlinmania.rustlang.core.ptr.MutPtr
 import io.github.kotlinmania.windowssys.core.Hresult
 import io.github.kotlinmania.windowssys.core.Pcwstr
-import io.github.kotlinmania.windowssys.core.Pwstr
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Handle
-import io.github.kotlinmania.windowssys.windows.win32.security.SecurityDescriptor
 
 private object WindowsWin32SystemHostcomputesystemJniBridge {
     init {
@@ -239,10 +236,10 @@ public actual fun hcsCloseProcess(process: HcsProcess) {
 public actual fun hcsCrashComputeSystem(computesystem: HcsSystem, operation: HcsOperation, options: Pcwstr): Hresult =
     WindowsWin32SystemHostcomputesystemJniBridge.windowssysWindowsWin32SystemHostcomputesystemHcsCrashComputeSystem(computesystem.rawAddress, operation.rawAddress, options.rawAddress)
 
-public actual fun hcsCreateComputeSystem(id: Pcwstr, configuration: Pcwstr, operation: HcsOperation, securitydescriptor: ConstPtr<SecurityDescriptor>, computesystem: MutPtr<HcsSystem>): Hresult =
+public actual fun hcsCreateComputeSystem(id: Pcwstr, configuration: Pcwstr, operation: HcsOperation, securitydescriptor: ConstPtr, computesystem: MutPtr): Hresult =
     WindowsWin32SystemHostcomputesystemJniBridge.windowssysWindowsWin32SystemHostcomputesystemHcsCreateComputeSystem(id.rawAddress, configuration.rawAddress, operation.rawAddress, securitydescriptor.rawAddress, computesystem.rawAddress)
 
-public actual fun hcsCreateComputeSystemInNamespace(idnamespace: Pcwstr, id: Pcwstr, configuration: Pcwstr, operation: HcsOperation, options: ConstPtr<HcsCreateOptions>, computesystem: MutPtr<HcsSystem>): Hresult =
+public actual fun hcsCreateComputeSystemInNamespace(idnamespace: Pcwstr, id: Pcwstr, configuration: Pcwstr, operation: HcsOperation, options: ConstPtr, computesystem: MutPtr): Hresult =
     WindowsWin32SystemHostcomputesystemJniBridge.windowssysWindowsWin32SystemHostcomputesystemHcsCreateComputeSystemInNamespace(idnamespace.rawAddress, id.rawAddress, configuration.rawAddress, operation.rawAddress, options.rawAddress, computesystem.rawAddress)
 
 public actual fun hcsCreateEmptyGuestStateFile(gueststatefilepath: Pcwstr): Hresult =
@@ -251,13 +248,13 @@ public actual fun hcsCreateEmptyGuestStateFile(gueststatefilepath: Pcwstr): Hres
 public actual fun hcsCreateEmptyRuntimeStateFile(runtimestatefilepath: Pcwstr): Hresult =
     WindowsWin32SystemHostcomputesystemJniBridge.windowssysWindowsWin32SystemHostcomputesystemHcsCreateEmptyRuntimeStateFile(runtimestatefilepath.rawAddress)
 
-public actual fun hcsCreateOperation(context: ConstPtr<CVoid>, callback: HcsOperationCompletion): HcsOperation =
+public actual fun hcsCreateOperation(context: ConstPtr, callback: HcsOperationCompletion): HcsOperation =
     MutPtr(WindowsWin32SystemHostcomputesystemJniBridge.windowssysWindowsWin32SystemHostcomputesystemHcsCreateOperation(context.rawAddress, 0L))
 
-public actual fun hcsCreateOperationWithNotifications(eventtypes: HcsOperationOptions, context: ConstPtr<CVoid>, callback: HcsEventCallback): HcsOperation =
+public actual fun hcsCreateOperationWithNotifications(eventtypes: HcsOperationOptions, context: ConstPtr, callback: HcsEventCallback): HcsOperation =
     MutPtr(WindowsWin32SystemHostcomputesystemJniBridge.windowssysWindowsWin32SystemHostcomputesystemHcsCreateOperationWithNotifications(eventtypes, context.rawAddress, 0L))
 
-public actual fun hcsCreateProcess(computesystem: HcsSystem, processparameters: Pcwstr, operation: HcsOperation, securitydescriptor: ConstPtr<SecurityDescriptor>, process: MutPtr<HcsProcess>): Hresult =
+public actual fun hcsCreateProcess(computesystem: HcsSystem, processparameters: Pcwstr, operation: HcsOperation, securitydescriptor: ConstPtr, process: MutPtr): Hresult =
     WindowsWin32SystemHostcomputesystemJniBridge.windowssysWindowsWin32SystemHostcomputesystemHcsCreateProcess(computesystem.rawAddress, processparameters.rawAddress, operation.rawAddress, securitydescriptor.rawAddress, process.rawAddress)
 
 public actual fun hcsDestroyLayer(layerpath: Pcwstr): Hresult =
@@ -287,19 +284,19 @@ public actual fun hcsGetComputeSystemFromOperation(operation: HcsOperation): Hcs
 public actual fun hcsGetComputeSystemProperties(computesystem: HcsSystem, operation: HcsOperation, propertyquery: Pcwstr): Hresult =
     WindowsWin32SystemHostcomputesystemJniBridge.windowssysWindowsWin32SystemHostcomputesystemHcsGetComputeSystemProperties(computesystem.rawAddress, operation.rawAddress, propertyquery.rawAddress)
 
-public actual fun hcsGetLayerVhdMountPath(vhdhandle: Handle, mountpath: MutPtr<Pwstr>): Hresult =
+public actual fun hcsGetLayerVhdMountPath(vhdhandle: Handle, mountpath: MutPtr): Hresult =
     WindowsWin32SystemHostcomputesystemJniBridge.windowssysWindowsWin32SystemHostcomputesystemHcsGetLayerVhdMountPath(vhdhandle.rawAddress, mountpath.rawAddress)
 
-public actual fun hcsGetOperationContext(operation: HcsOperation): MutPtr<CVoid> =
+public actual fun hcsGetOperationContext(operation: HcsOperation): MutPtr =
     MutPtr(WindowsWin32SystemHostcomputesystemJniBridge.windowssysWindowsWin32SystemHostcomputesystemHcsGetOperationContext(operation.rawAddress))
 
 public actual fun hcsGetOperationId(operation: HcsOperation): ULong =
     WindowsWin32SystemHostcomputesystemJniBridge.windowssysWindowsWin32SystemHostcomputesystemHcsGetOperationId(operation.rawAddress).toULong()
 
-public actual fun hcsGetOperationResult(operation: HcsOperation, resultdocument: MutPtr<Pwstr>): Hresult =
+public actual fun hcsGetOperationResult(operation: HcsOperation, resultdocument: MutPtr): Hresult =
     WindowsWin32SystemHostcomputesystemJniBridge.windowssysWindowsWin32SystemHostcomputesystemHcsGetOperationResult(operation.rawAddress, resultdocument.rawAddress)
 
-public actual fun hcsGetOperationResultAndProcessInfo(operation: HcsOperation, processinformation: MutPtr<HcsProcessInformation>, resultdocument: MutPtr<Pwstr>): Hresult =
+public actual fun hcsGetOperationResultAndProcessInfo(operation: HcsOperation, processinformation: MutPtr, resultdocument: MutPtr): Hresult =
     WindowsWin32SystemHostcomputesystemJniBridge.windowssysWindowsWin32SystemHostcomputesystemHcsGetOperationResultAndProcessInfo(operation.rawAddress, processinformation.rawAddress, resultdocument.rawAddress)
 
 public actual fun hcsGetOperationType(operation: HcsOperation): HcsOperationType =
@@ -314,10 +311,10 @@ public actual fun hcsGetProcessInfo(process: HcsProcess, operation: HcsOperation
 public actual fun hcsGetProcessProperties(process: HcsProcess, operation: HcsOperation, propertyquery: Pcwstr): Hresult =
     WindowsWin32SystemHostcomputesystemJniBridge.windowssysWindowsWin32SystemHostcomputesystemHcsGetProcessProperties(process.rawAddress, operation.rawAddress, propertyquery.rawAddress)
 
-public actual fun hcsGetProcessorCompatibilityFromSavedState(runtimefilename: Pcwstr, processorfeaturesstring: MutPtr<Pcwstr>): Hresult =
+public actual fun hcsGetProcessorCompatibilityFromSavedState(runtimefilename: Pcwstr, processorfeaturesstring: MutPtr): Hresult =
     WindowsWin32SystemHostcomputesystemJniBridge.windowssysWindowsWin32SystemHostcomputesystemHcsGetProcessorCompatibilityFromSavedState(runtimefilename.rawAddress, processorfeaturesstring.rawAddress)
 
-public actual fun hcsGetServiceProperties(propertyquery: Pcwstr, result: MutPtr<Pwstr>): Hresult =
+public actual fun hcsGetServiceProperties(propertyquery: Pcwstr, result: MutPtr): Hresult =
     WindowsWin32SystemHostcomputesystemJniBridge.windowssysWindowsWin32SystemHostcomputesystemHcsGetServiceProperties(propertyquery.rawAddress, result.rawAddress)
 
 public actual fun hcsGrantVmAccess(vmid: Pcwstr, filepath: Pcwstr): Hresult =
@@ -341,16 +338,16 @@ public actual fun hcsModifyComputeSystem(computesystem: HcsSystem, operation: Hc
 public actual fun hcsModifyProcess(process: HcsProcess, operation: HcsOperation, settings: Pcwstr): Hresult =
     WindowsWin32SystemHostcomputesystemJniBridge.windowssysWindowsWin32SystemHostcomputesystemHcsModifyProcess(process.rawAddress, operation.rawAddress, settings.rawAddress)
 
-public actual fun hcsModifyServiceSettings(settings: Pcwstr, result: MutPtr<Pwstr>): Hresult =
+public actual fun hcsModifyServiceSettings(settings: Pcwstr, result: MutPtr): Hresult =
     WindowsWin32SystemHostcomputesystemJniBridge.windowssysWindowsWin32SystemHostcomputesystemHcsModifyServiceSettings(settings.rawAddress, result.rawAddress)
 
-public actual fun hcsOpenComputeSystem(id: Pcwstr, requestedaccess: UInt, computesystem: MutPtr<HcsSystem>): Hresult =
+public actual fun hcsOpenComputeSystem(id: Pcwstr, requestedaccess: UInt, computesystem: MutPtr): Hresult =
     WindowsWin32SystemHostcomputesystemJniBridge.windowssysWindowsWin32SystemHostcomputesystemHcsOpenComputeSystem(id.rawAddress, requestedaccess.toInt(), computesystem.rawAddress)
 
-public actual fun hcsOpenComputeSystemInNamespace(idnamespace: Pcwstr, id: Pcwstr, requestedaccess: UInt, computesystem: MutPtr<HcsSystem>): Hresult =
+public actual fun hcsOpenComputeSystemInNamespace(idnamespace: Pcwstr, id: Pcwstr, requestedaccess: UInt, computesystem: MutPtr): Hresult =
     WindowsWin32SystemHostcomputesystemJniBridge.windowssysWindowsWin32SystemHostcomputesystemHcsOpenComputeSystemInNamespace(idnamespace.rawAddress, id.rawAddress, requestedaccess.toInt(), computesystem.rawAddress)
 
-public actual fun hcsOpenProcess(computesystem: HcsSystem, processid: UInt, requestedaccess: UInt, process: MutPtr<HcsProcess>): Hresult =
+public actual fun hcsOpenProcess(computesystem: HcsSystem, processid: UInt, requestedaccess: UInt, process: MutPtr): Hresult =
     WindowsWin32SystemHostcomputesystemJniBridge.windowssysWindowsWin32SystemHostcomputesystemHcsOpenProcess(computesystem.rawAddress, processid.toInt(), requestedaccess.toInt(), process.rawAddress)
 
 public actual fun hcsPauseComputeSystem(computesystem: HcsSystem, operation: HcsOperation, options: Pcwstr): Hresult =
@@ -368,16 +365,16 @@ public actual fun hcsRevokeVmGroupAccess(filepath: Pcwstr): Hresult =
 public actual fun hcsSaveComputeSystem(computesystem: HcsSystem, operation: HcsOperation, options: Pcwstr): Hresult =
     WindowsWin32SystemHostcomputesystemJniBridge.windowssysWindowsWin32SystemHostcomputesystemHcsSaveComputeSystem(computesystem.rawAddress, operation.rawAddress, options.rawAddress)
 
-public actual fun hcsSetComputeSystemCallback(computesystem: HcsSystem, callbackoptions: HcsEventOptions, context: ConstPtr<CVoid>, callback: HcsEventCallback): Hresult =
+public actual fun hcsSetComputeSystemCallback(computesystem: HcsSystem, callbackoptions: HcsEventOptions, context: ConstPtr, callback: HcsEventCallback): Hresult =
     WindowsWin32SystemHostcomputesystemJniBridge.windowssysWindowsWin32SystemHostcomputesystemHcsSetComputeSystemCallback(computesystem.rawAddress, callbackoptions, context.rawAddress, 0L)
 
-public actual fun hcsSetOperationCallback(operation: HcsOperation, context: ConstPtr<CVoid>, callback: HcsOperationCompletion): Hresult =
+public actual fun hcsSetOperationCallback(operation: HcsOperation, context: ConstPtr, callback: HcsOperationCompletion): Hresult =
     WindowsWin32SystemHostcomputesystemJniBridge.windowssysWindowsWin32SystemHostcomputesystemHcsSetOperationCallback(operation.rawAddress, context.rawAddress, 0L)
 
-public actual fun hcsSetOperationContext(operation: HcsOperation, context: ConstPtr<CVoid>): Hresult =
+public actual fun hcsSetOperationContext(operation: HcsOperation, context: ConstPtr): Hresult =
     WindowsWin32SystemHostcomputesystemJniBridge.windowssysWindowsWin32SystemHostcomputesystemHcsSetOperationContext(operation.rawAddress, context.rawAddress)
 
-public actual fun hcsSetProcessCallback(process: HcsProcess, callbackoptions: HcsEventOptions, context: ConstPtr<CVoid>, callback: HcsEventCallback): Hresult =
+public actual fun hcsSetProcessCallback(process: HcsProcess, callbackoptions: HcsEventOptions, context: ConstPtr, callback: HcsEventCallback): Hresult =
     WindowsWin32SystemHostcomputesystemJniBridge.windowssysWindowsWin32SystemHostcomputesystemHcsSetProcessCallback(process.rawAddress, callbackoptions, context.rawAddress, 0L)
 
 public actual fun hcsSetupBaseOSLayer(layerpath: Pcwstr, vhdhandle: Handle, options: Pcwstr): Hresult =
@@ -404,14 +401,14 @@ public actual fun hcsTerminateComputeSystem(computesystem: HcsSystem, operation:
 public actual fun hcsTerminateProcess(process: HcsProcess, operation: HcsOperation, options: Pcwstr): Hresult =
     WindowsWin32SystemHostcomputesystemJniBridge.windowssysWindowsWin32SystemHostcomputesystemHcsTerminateProcess(process.rawAddress, operation.rawAddress, options.rawAddress)
 
-public actual fun hcsWaitForComputeSystemExit(computesystem: HcsSystem, timeoutms: UInt, result: MutPtr<Pwstr>): Hresult =
+public actual fun hcsWaitForComputeSystemExit(computesystem: HcsSystem, timeoutms: UInt, result: MutPtr): Hresult =
     WindowsWin32SystemHostcomputesystemJniBridge.windowssysWindowsWin32SystemHostcomputesystemHcsWaitForComputeSystemExit(computesystem.rawAddress, timeoutms.toInt(), result.rawAddress)
 
-public actual fun hcsWaitForOperationResult(operation: HcsOperation, timeoutms: UInt, resultdocument: MutPtr<Pwstr>): Hresult =
+public actual fun hcsWaitForOperationResult(operation: HcsOperation, timeoutms: UInt, resultdocument: MutPtr): Hresult =
     WindowsWin32SystemHostcomputesystemJniBridge.windowssysWindowsWin32SystemHostcomputesystemHcsWaitForOperationResult(operation.rawAddress, timeoutms.toInt(), resultdocument.rawAddress)
 
-public actual fun hcsWaitForOperationResultAndProcessInfo(operation: HcsOperation, timeoutms: UInt, processinformation: MutPtr<HcsProcessInformation>, resultdocument: MutPtr<Pwstr>): Hresult =
+public actual fun hcsWaitForOperationResultAndProcessInfo(operation: HcsOperation, timeoutms: UInt, processinformation: MutPtr, resultdocument: MutPtr): Hresult =
     WindowsWin32SystemHostcomputesystemJniBridge.windowssysWindowsWin32SystemHostcomputesystemHcsWaitForOperationResultAndProcessInfo(operation.rawAddress, timeoutms.toInt(), processinformation.rawAddress, resultdocument.rawAddress)
 
-public actual fun hcsWaitForProcessExit(computesystem: HcsProcess, timeoutms: UInt, result: MutPtr<Pwstr>): Hresult =
+public actual fun hcsWaitForProcessExit(computesystem: HcsProcess, timeoutms: UInt, result: MutPtr): Hresult =
     WindowsWin32SystemHostcomputesystemJniBridge.windowssysWindowsWin32SystemHostcomputesystemHcsWaitForProcessExit(computesystem.rawAddress, timeoutms.toInt(), result.rawAddress)

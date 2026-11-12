@@ -2,17 +2,13 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.system.com
 
-import io.github.kotlinmania.rustlang.core.ffi.CVoid
 import io.github.kotlinmania.rustlang.core.ptr.ConstPtr
 import io.github.kotlinmania.rustlang.core.ptr.MutPtr
 import io.github.kotlinmania.windowssys.core.Bool
-import io.github.kotlinmania.windowssys.core.Guid
 import io.github.kotlinmania.windowssys.core.Hresult
 import io.github.kotlinmania.windowssys.core.Pcstr
 import io.github.kotlinmania.windowssys.core.Pcwstr
 import io.github.kotlinmania.windowssys.core.Pwstr
-import io.github.kotlinmania.windowssys.windows.win32.foundation.Filetime
-import io.github.kotlinmania.windowssys.windows.win32.foundation.Handle
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Hinstance
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Hwnd
 import io.github.kotlinmania.windowssys.windows.win32.security.PsecurityDescriptor
@@ -352,25 +348,25 @@ private external fun wasmWindowssysWindowsWin32SystemComStringFromGUID2(p0: Stri
 @JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemComStringFromIID(p0, p1)")
 private external fun wasmWindowssysWindowsWin32SystemComStringFromIID(p0: String, p1: String): Int
 
-public actual fun bindMoniker(pmk: MutPtr<CVoid>, grfopt: UInt, iidresult: ConstPtr<Guid>, ppvresult: MutPtr<MutPtr<CVoid>>): Hresult =
+public actual fun bindMoniker(pmk: MutPtr, grfopt: UInt, iidresult: ConstPtr, ppvresult: MutPtr): Hresult =
     if (windowsWin32SystemComNapiAvailable) wasmWindowssysWindowsWin32SystemComBindMoniker(pmk.rawAddress.toString(), grfopt.toInt(), iidresult.rawAddress.toString(), ppvresult.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun cLSIDFromProgID(lpszprogid: Pcwstr, lpclsid: MutPtr<Guid>): Hresult =
+public actual fun cLSIDFromProgID(lpszprogid: Pcwstr, lpclsid: MutPtr): Hresult =
     if (windowsWin32SystemComNapiAvailable) wasmWindowssysWindowsWin32SystemComCLSIDFromProgID(lpszprogid.rawAddress.toString(), lpclsid.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun cLSIDFromProgIDEx(lpszprogid: Pcwstr, lpclsid: MutPtr<Guid>): Hresult =
+public actual fun cLSIDFromProgIDEx(lpszprogid: Pcwstr, lpclsid: MutPtr): Hresult =
     if (windowsWin32SystemComNapiAvailable) wasmWindowssysWindowsWin32SystemComCLSIDFromProgIDEx(lpszprogid.rawAddress.toString(), lpclsid.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun cLSIDFromString(lpsz: Pcwstr, pclsid: MutPtr<Guid>): Hresult =
+public actual fun cLSIDFromString(lpsz: Pcwstr, pclsid: MutPtr): Hresult =
     if (windowsWin32SystemComNapiAvailable) wasmWindowssysWindowsWin32SystemComCLSIDFromString(lpsz.rawAddress.toString(), pclsid.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun coAddRefServerProcess(): UInt =
     if (windowsWin32SystemComNapiAvailable) wasmWindowssysWindowsWin32SystemComCoAddRefServerProcess().toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun coAllowSetForegroundWindow(punk: MutPtr<CVoid>, lpvreserved: ConstPtr<CVoid>): Hresult =
+public actual fun coAllowSetForegroundWindow(punk: MutPtr, lpvreserved: ConstPtr): Hresult =
     if (windowsWin32SystemComNapiAvailable) wasmWindowssysWindowsWin32SystemComCoAllowSetForegroundWindow(punk.rawAddress.toString(), lpvreserved.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun coAllowUnmarshalerCLSID(clsid: ConstPtr<Guid>): Hresult =
+public actual fun coAllowUnmarshalerCLSID(clsid: ConstPtr): Hresult =
     if (windowsWin32SystemComNapiAvailable) wasmWindowssysWindowsWin32SystemComCoAllowUnmarshalerCLSID(clsid.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun coBuildVersion(): UInt =
@@ -379,46 +375,46 @@ public actual fun coBuildVersion(): UInt =
 public actual fun coCancelCall(dwthreadid: UInt, ultimeout: UInt): Hresult =
     if (windowsWin32SystemComNapiAvailable) wasmWindowssysWindowsWin32SystemComCoCancelCall(dwthreadid.toInt(), ultimeout.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun coCopyProxy(pproxy: MutPtr<CVoid>, ppcopy: MutPtr<MutPtr<CVoid>>): Hresult =
+public actual fun coCopyProxy(pproxy: MutPtr, ppcopy: MutPtr): Hresult =
     if (windowsWin32SystemComNapiAvailable) wasmWindowssysWindowsWin32SystemComCoCopyProxy(pproxy.rawAddress.toString(), ppcopy.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun coCreateFreeThreadedMarshaler(punkouter: MutPtr<CVoid>, ppunkmarshal: MutPtr<MutPtr<CVoid>>): Hresult =
+public actual fun coCreateFreeThreadedMarshaler(punkouter: MutPtr, ppunkmarshal: MutPtr): Hresult =
     if (windowsWin32SystemComNapiAvailable) wasmWindowssysWindowsWin32SystemComCoCreateFreeThreadedMarshaler(punkouter.rawAddress.toString(), ppunkmarshal.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun coCreateGuid(pguid: MutPtr<Guid>): Hresult =
+public actual fun coCreateGuid(pguid: MutPtr): Hresult =
     if (windowsWin32SystemComNapiAvailable) wasmWindowssysWindowsWin32SystemComCoCreateGuid(pguid.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun coCreateInstance(rclsid: ConstPtr<Guid>, punkouter: MutPtr<CVoid>, dwclscontext: Clsctx, riid: ConstPtr<Guid>, ppv: MutPtr<MutPtr<CVoid>>): Hresult =
+public actual fun coCreateInstance(rclsid: ConstPtr, punkouter: MutPtr, dwclscontext: Clsctx, riid: ConstPtr, ppv: MutPtr): Hresult =
     if (windowsWin32SystemComNapiAvailable) wasmWindowssysWindowsWin32SystemComCoCreateInstance(rclsid.rawAddress.toString(), punkouter.rawAddress.toString(), dwclscontext.toInt(), riid.rawAddress.toString(), ppv.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun coCreateInstanceEx(clsid: ConstPtr<Guid>, punkouter: MutPtr<CVoid>, dwclsctx: Clsctx, pserverinfo: ConstPtr<Coserverinfo>, dwcount: UInt, presults: MutPtr<MultiQi>): Hresult =
+public actual fun coCreateInstanceEx(clsid: ConstPtr, punkouter: MutPtr, dwclsctx: Clsctx, pserverinfo: ConstPtr, dwcount: UInt, presults: MutPtr): Hresult =
     if (windowsWin32SystemComNapiAvailable) wasmWindowssysWindowsWin32SystemComCoCreateInstanceEx(clsid.rawAddress.toString(), punkouter.rawAddress.toString(), dwclsctx.toInt(), pserverinfo.rawAddress.toString(), dwcount.toInt(), presults.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun coCreateInstanceFromApp(clsid: ConstPtr<Guid>, punkouter: MutPtr<CVoid>, dwclsctx: Clsctx, reserved: ConstPtr<CVoid>, dwcount: UInt, presults: MutPtr<MultiQi>): Hresult =
+public actual fun coCreateInstanceFromApp(clsid: ConstPtr, punkouter: MutPtr, dwclsctx: Clsctx, reserved: ConstPtr, dwcount: UInt, presults: MutPtr): Hresult =
     if (windowsWin32SystemComNapiAvailable) wasmWindowssysWindowsWin32SystemComCoCreateInstanceFromApp(clsid.rawAddress.toString(), punkouter.rawAddress.toString(), dwclsctx.toInt(), reserved.rawAddress.toString(), dwcount.toInt(), presults.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun coDecrementMTAUsage(cookie: CoMtaUsageCookie): Hresult =
     if (windowsWin32SystemComNapiAvailable) wasmWindowssysWindowsWin32SystemComCoDecrementMTAUsage(cookie.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun coDisableCallCancellation(preserved: ConstPtr<CVoid>): Hresult =
+public actual fun coDisableCallCancellation(preserved: ConstPtr): Hresult =
     if (windowsWin32SystemComNapiAvailable) wasmWindowssysWindowsWin32SystemComCoDisableCallCancellation(preserved.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun coDisconnectContext(dwtimeout: UInt): Hresult =
     if (windowsWin32SystemComNapiAvailable) wasmWindowssysWindowsWin32SystemComCoDisconnectContext(dwtimeout.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun coDisconnectObject(punk: MutPtr<CVoid>, dwreserved: UInt): Hresult =
+public actual fun coDisconnectObject(punk: MutPtr, dwreserved: UInt): Hresult =
     if (windowsWin32SystemComNapiAvailable) wasmWindowssysWindowsWin32SystemComCoDisconnectObject(punk.rawAddress.toString(), dwreserved.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun coDosDateTimeToFileTime(ndosdate: UShort, ndostime: UShort, lpfiletime: MutPtr<Filetime>): Bool =
+public actual fun coDosDateTimeToFileTime(ndosdate: UShort, ndostime: UShort, lpfiletime: MutPtr): Bool =
     if (windowsWin32SystemComNapiAvailable) wasmWindowssysWindowsWin32SystemComCoDosDateTimeToFileTime(ndosdate.toInt(), ndostime.toInt(), lpfiletime.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun coEnableCallCancellation(preserved: ConstPtr<CVoid>): Hresult =
+public actual fun coEnableCallCancellation(preserved: ConstPtr): Hresult =
     if (windowsWin32SystemComNapiAvailable) wasmWindowssysWindowsWin32SystemComCoEnableCallCancellation(preserved.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun coFileTimeNow(lpfiletime: MutPtr<Filetime>): Hresult =
+public actual fun coFileTimeNow(lpfiletime: MutPtr): Hresult =
     if (windowsWin32SystemComNapiAvailable) wasmWindowssysWindowsWin32SystemComCoFileTimeNow(lpfiletime.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun coFileTimeToDosDateTime(lpfiletime: ConstPtr<Filetime>, lpdosdate: MutPtr<UShort>, lpdostime: MutPtr<UShort>): Bool =
+public actual fun coFileTimeToDosDateTime(lpfiletime: ConstPtr, lpdosdate: MutPtr, lpdostime: MutPtr): Bool =
     if (windowsWin32SystemComNapiAvailable) wasmWindowssysWindowsWin32SystemComCoFileTimeToDosDateTime(lpfiletime.rawAddress.toString(), lpdosdate.rawAddress.toString(), lpdostime.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun coFreeAllLibraries() {
@@ -453,112 +449,112 @@ public actual fun coFreeUnusedLibrariesEx(dwunloaddelay: UInt, dwreserved: UInt)
     }
 }
 
-public actual fun coGetApartmentType(papttype: MutPtr<Apttype>, paptqualifier: MutPtr<Apttypequalifier>): Hresult =
+public actual fun coGetApartmentType(papttype: MutPtr, paptqualifier: MutPtr): Hresult =
     if (windowsWin32SystemComNapiAvailable) wasmWindowssysWindowsWin32SystemComCoGetApartmentType(papttype.rawAddress.toString(), paptqualifier.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun coGetCallContext(riid: ConstPtr<Guid>, ppinterface: MutPtr<MutPtr<CVoid>>): Hresult =
+public actual fun coGetCallContext(riid: ConstPtr, ppinterface: MutPtr): Hresult =
     if (windowsWin32SystemComNapiAvailable) wasmWindowssysWindowsWin32SystemComCoGetCallContext(riid.rawAddress.toString(), ppinterface.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun coGetCallerTID(lpdwtid: MutPtr<UInt>): Hresult =
+public actual fun coGetCallerTID(lpdwtid: MutPtr): Hresult =
     if (windowsWin32SystemComNapiAvailable) wasmWindowssysWindowsWin32SystemComCoGetCallerTID(lpdwtid.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun coGetCancelObject(dwthreadid: UInt, iid: ConstPtr<Guid>, ppunk: MutPtr<MutPtr<CVoid>>): Hresult =
+public actual fun coGetCancelObject(dwthreadid: UInt, iid: ConstPtr, ppunk: MutPtr): Hresult =
     if (windowsWin32SystemComNapiAvailable) wasmWindowssysWindowsWin32SystemComCoGetCancelObject(dwthreadid.toInt(), iid.rawAddress.toString(), ppunk.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun coGetClassObject(rclsid: ConstPtr<Guid>, dwclscontext: UInt, pvreserved: ConstPtr<CVoid>, riid: ConstPtr<Guid>, ppv: MutPtr<MutPtr<CVoid>>): Hresult =
+public actual fun coGetClassObject(rclsid: ConstPtr, dwclscontext: UInt, pvreserved: ConstPtr, riid: ConstPtr, ppv: MutPtr): Hresult =
     if (windowsWin32SystemComNapiAvailable) wasmWindowssysWindowsWin32SystemComCoGetClassObject(rclsid.rawAddress.toString(), dwclscontext.toInt(), pvreserved.rawAddress.toString(), riid.rawAddress.toString(), ppv.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun coGetContextToken(ptoken: MutPtr<ULong>): Hresult =
+public actual fun coGetContextToken(ptoken: MutPtr): Hresult =
     if (windowsWin32SystemComNapiAvailable) wasmWindowssysWindowsWin32SystemComCoGetContextToken(ptoken.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun coGetCurrentLogicalThreadId(pguid: MutPtr<Guid>): Hresult =
+public actual fun coGetCurrentLogicalThreadId(pguid: MutPtr): Hresult =
     if (windowsWin32SystemComNapiAvailable) wasmWindowssysWindowsWin32SystemComCoGetCurrentLogicalThreadId(pguid.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun coGetCurrentProcess(): UInt =
     if (windowsWin32SystemComNapiAvailable) wasmWindowssysWindowsWin32SystemComCoGetCurrentProcess().toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun coGetMalloc(dwmemcontext: UInt, ppmalloc: MutPtr<MutPtr<CVoid>>): Hresult =
+public actual fun coGetMalloc(dwmemcontext: UInt, ppmalloc: MutPtr): Hresult =
     if (windowsWin32SystemComNapiAvailable) wasmWindowssysWindowsWin32SystemComCoGetMalloc(dwmemcontext.toInt(), ppmalloc.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun coGetObject(pszname: Pcwstr, pbindoptions: ConstPtr<BindOpts>, riid: ConstPtr<Guid>, ppv: MutPtr<MutPtr<CVoid>>): Hresult =
+public actual fun coGetObject(pszname: Pcwstr, pbindoptions: ConstPtr, riid: ConstPtr, ppv: MutPtr): Hresult =
     if (windowsWin32SystemComNapiAvailable) wasmWindowssysWindowsWin32SystemComCoGetObject(pszname.rawAddress.toString(), pbindoptions.rawAddress.toString(), riid.rawAddress.toString(), ppv.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun coGetObjectContext(riid: ConstPtr<Guid>, ppv: MutPtr<MutPtr<CVoid>>): Hresult =
+public actual fun coGetObjectContext(riid: ConstPtr, ppv: MutPtr): Hresult =
     if (windowsWin32SystemComNapiAvailable) wasmWindowssysWindowsWin32SystemComCoGetObjectContext(riid.rawAddress.toString(), ppv.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun coGetPSClsid(riid: ConstPtr<Guid>, pclsid: MutPtr<Guid>): Hresult =
+public actual fun coGetPSClsid(riid: ConstPtr, pclsid: MutPtr): Hresult =
     if (windowsWin32SystemComNapiAvailable) wasmWindowssysWindowsWin32SystemComCoGetPSClsid(riid.rawAddress.toString(), pclsid.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun coGetSystemSecurityPermissions(comsdtype: Comsd, ppsd: MutPtr<PsecurityDescriptor>): Hresult =
+public actual fun coGetSystemSecurityPermissions(comsdtype: Comsd, ppsd: MutPtr): Hresult =
     if (windowsWin32SystemComNapiAvailable) wasmWindowssysWindowsWin32SystemComCoGetSystemSecurityPermissions(comsdtype, ppsd.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun coGetTreatAsClass(clsidold: ConstPtr<Guid>, pclsidnew: MutPtr<Guid>): Hresult =
+public actual fun coGetTreatAsClass(clsidold: ConstPtr, pclsidnew: MutPtr): Hresult =
     if (windowsWin32SystemComNapiAvailable) wasmWindowssysWindowsWin32SystemComCoGetTreatAsClass(clsidold.rawAddress.toString(), pclsidnew.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun coImpersonateClient(): Hresult =
     if (windowsWin32SystemComNapiAvailable) wasmWindowssysWindowsWin32SystemComCoImpersonateClient() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun coIncrementMTAUsage(pcookie: MutPtr<CoMtaUsageCookie>): Hresult =
+public actual fun coIncrementMTAUsage(pcookie: MutPtr): Hresult =
     if (windowsWin32SystemComNapiAvailable) wasmWindowssysWindowsWin32SystemComCoIncrementMTAUsage(pcookie.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun coInitialize(pvreserved: ConstPtr<CVoid>): Hresult =
+public actual fun coInitialize(pvreserved: ConstPtr): Hresult =
     if (windowsWin32SystemComNapiAvailable) wasmWindowssysWindowsWin32SystemComCoInitialize(pvreserved.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun coInitializeEx(pvreserved: ConstPtr<CVoid>, dwcoinit: UInt): Hresult =
+public actual fun coInitializeEx(pvreserved: ConstPtr, dwcoinit: UInt): Hresult =
     if (windowsWin32SystemComNapiAvailable) wasmWindowssysWindowsWin32SystemComCoInitializeEx(pvreserved.rawAddress.toString(), dwcoinit.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun coInitializeSecurity(psecdesc: PsecurityDescriptor, cauthsvc: Int, asauthsvc: ConstPtr<SoleAuthenticationService>, preserved1: ConstPtr<CVoid>, dwauthnlevel: RpcCAuthnLevel, dwimplevel: RpcCImpLevel, pauthlist: ConstPtr<CVoid>, dwcapabilities: UInt, preserved3: ConstPtr<CVoid>): Hresult =
+public actual fun coInitializeSecurity(psecdesc: PsecurityDescriptor, cauthsvc: Int, asauthsvc: ConstPtr, preserved1: ConstPtr, dwauthnlevel: RpcCAuthnLevel, dwimplevel: RpcCImpLevel, pauthlist: ConstPtr, dwcapabilities: UInt, preserved3: ConstPtr): Hresult =
     if (windowsWin32SystemComNapiAvailable) wasmWindowssysWindowsWin32SystemComCoInitializeSecurity(psecdesc.rawAddress.toString(), cauthsvc, asauthsvc.rawAddress.toString(), preserved1.rawAddress.toString(), dwauthnlevel.toInt(), dwimplevel.toInt(), pauthlist.rawAddress.toString(), dwcapabilities.toInt(), preserved3.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun coInstall(pbc: MutPtr<CVoid>, dwflags: UInt, pclassspec: ConstPtr<UClsspec>, pquery: ConstPtr<Querycontext>, pszcodebase: Pcwstr): Hresult =
+public actual fun coInstall(pbc: MutPtr, dwflags: UInt, pclassspec: ConstPtr, pquery: ConstPtr, pszcodebase: Pcwstr): Hresult =
     if (windowsWin32SystemComNapiAvailable) wasmWindowssysWindowsWin32SystemComCoInstall(pbc.rawAddress.toString(), dwflags.toInt(), pclassspec.rawAddress.toString(), pquery.rawAddress.toString(), pszcodebase.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun coInvalidateRemoteMachineBindings(pszmachinename: Pcwstr): Hresult =
     if (windowsWin32SystemComNapiAvailable) wasmWindowssysWindowsWin32SystemComCoInvalidateRemoteMachineBindings(pszmachinename.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun coIsHandlerConnected(punk: MutPtr<CVoid>): Bool =
+public actual fun coIsHandlerConnected(punk: MutPtr): Bool =
     if (windowsWin32SystemComNapiAvailable) wasmWindowssysWindowsWin32SystemComCoIsHandlerConnected(punk.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun coIsOle1Class(rclsid: ConstPtr<Guid>): Bool =
+public actual fun coIsOle1Class(rclsid: ConstPtr): Bool =
     if (windowsWin32SystemComNapiAvailable) wasmWindowssysWindowsWin32SystemComCoIsOle1Class(rclsid.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun coLoadLibrary(lpszlibname: Pcwstr, bautofree: Bool): Hinstance =
     if (windowsWin32SystemComNapiAvailable) MutPtr(wasmWindowssysWindowsWin32SystemComCoLoadLibrary(lpszlibname.rawAddress.toString(), bautofree).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun coLockObjectExternal(punk: MutPtr<CVoid>, flock: Bool, flastunlockreleases: Bool): Hresult =
+public actual fun coLockObjectExternal(punk: MutPtr, flock: Bool, flastunlockreleases: Bool): Hresult =
     if (windowsWin32SystemComNapiAvailable) wasmWindowssysWindowsWin32SystemComCoLockObjectExternal(punk.rawAddress.toString(), flock, flastunlockreleases) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun coQueryAuthenticationServices(pcauthsvc: MutPtr<UInt>, asauthsvc: MutPtr<MutPtr<SoleAuthenticationService>>): Hresult =
+public actual fun coQueryAuthenticationServices(pcauthsvc: MutPtr, asauthsvc: MutPtr): Hresult =
     if (windowsWin32SystemComNapiAvailable) wasmWindowssysWindowsWin32SystemComCoQueryAuthenticationServices(pcauthsvc.rawAddress.toString(), asauthsvc.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun coQueryClientBlanket(pauthnsvc: MutPtr<UInt>, pauthzsvc: MutPtr<UInt>, pserverprincname: MutPtr<Pwstr>, pauthnlevel: MutPtr<UInt>, pimplevel: MutPtr<UInt>, pprivs: MutPtr<MutPtr<CVoid>>, pcapabilities: MutPtr<UInt>): Hresult =
+public actual fun coQueryClientBlanket(pauthnsvc: MutPtr, pauthzsvc: MutPtr, pserverprincname: MutPtr, pauthnlevel: MutPtr, pimplevel: MutPtr, pprivs: MutPtr, pcapabilities: MutPtr): Hresult =
     if (windowsWin32SystemComNapiAvailable) wasmWindowssysWindowsWin32SystemComCoQueryClientBlanket(pauthnsvc.rawAddress.toString(), pauthzsvc.rawAddress.toString(), pserverprincname.rawAddress.toString(), pauthnlevel.rawAddress.toString(), pimplevel.rawAddress.toString(), pprivs.rawAddress.toString(), pcapabilities.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun coQueryProxyBlanket(pproxy: MutPtr<CVoid>, pwauthnsvc: MutPtr<UInt>, pauthzsvc: MutPtr<UInt>, pserverprincname: MutPtr<Pwstr>, pauthnlevel: MutPtr<UInt>, pimplevel: MutPtr<UInt>, pauthinfo: MutPtr<MutPtr<CVoid>>, pcapabilites: MutPtr<UInt>): Hresult =
+public actual fun coQueryProxyBlanket(pproxy: MutPtr, pwauthnsvc: MutPtr, pauthzsvc: MutPtr, pserverprincname: MutPtr, pauthnlevel: MutPtr, pimplevel: MutPtr, pauthinfo: MutPtr, pcapabilites: MutPtr): Hresult =
     if (windowsWin32SystemComNapiAvailable) wasmWindowssysWindowsWin32SystemComCoQueryProxyBlanket(pproxy.rawAddress.toString(), pwauthnsvc.rawAddress.toString(), pauthzsvc.rawAddress.toString(), pserverprincname.rawAddress.toString(), pauthnlevel.rawAddress.toString(), pimplevel.rawAddress.toString(), pauthinfo.rawAddress.toString(), pcapabilites.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun coRegisterActivationFilter(pactivationfilter: MutPtr<CVoid>): Hresult =
+public actual fun coRegisterActivationFilter(pactivationfilter: MutPtr): Hresult =
     if (windowsWin32SystemComNapiAvailable) wasmWindowssysWindowsWin32SystemComCoRegisterActivationFilter(pactivationfilter.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun coRegisterChannelHook(extensionuuid: ConstPtr<Guid>, pchannelhook: MutPtr<CVoid>): Hresult =
+public actual fun coRegisterChannelHook(extensionuuid: ConstPtr, pchannelhook: MutPtr): Hresult =
     if (windowsWin32SystemComNapiAvailable) wasmWindowssysWindowsWin32SystemComCoRegisterChannelHook(extensionuuid.rawAddress.toString(), pchannelhook.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun coRegisterClassObject(rclsid: ConstPtr<Guid>, punk: MutPtr<CVoid>, dwclscontext: Clsctx, flags: UInt, lpdwregister: MutPtr<UInt>): Hresult =
+public actual fun coRegisterClassObject(rclsid: ConstPtr, punk: MutPtr, dwclscontext: Clsctx, flags: UInt, lpdwregister: MutPtr): Hresult =
     if (windowsWin32SystemComNapiAvailable) wasmWindowssysWindowsWin32SystemComCoRegisterClassObject(rclsid.rawAddress.toString(), punk.rawAddress.toString(), dwclscontext.toInt(), flags.toInt(), lpdwregister.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun coRegisterDeviceCatalog(deviceinstanceid: Pcwstr, cookie: MutPtr<CoDeviceCatalogCookie>): Hresult =
+public actual fun coRegisterDeviceCatalog(deviceinstanceid: Pcwstr, cookie: MutPtr): Hresult =
     if (windowsWin32SystemComNapiAvailable) wasmWindowssysWindowsWin32SystemComCoRegisterDeviceCatalog(deviceinstanceid.rawAddress.toString(), cookie.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun coRegisterInitializeSpy(pspy: MutPtr<CVoid>, pulicookie: MutPtr<ULong>): Hresult =
+public actual fun coRegisterInitializeSpy(pspy: MutPtr, pulicookie: MutPtr): Hresult =
     if (windowsWin32SystemComNapiAvailable) wasmWindowssysWindowsWin32SystemComCoRegisterInitializeSpy(pspy.rawAddress.toString(), pulicookie.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun coRegisterMallocSpy(pmallocspy: MutPtr<CVoid>): Hresult =
+public actual fun coRegisterMallocSpy(pmallocspy: MutPtr): Hresult =
     if (windowsWin32SystemComNapiAvailable) wasmWindowssysWindowsWin32SystemComCoRegisterMallocSpy(pmallocspy.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun coRegisterPSClsid(riid: ConstPtr<Guid>, rclsid: ConstPtr<Guid>): Hresult =
+public actual fun coRegisterPSClsid(riid: ConstPtr, rclsid: ConstPtr): Hresult =
     if (windowsWin32SystemComNapiAvailable) wasmWindowssysWindowsWin32SystemComCoRegisterPSClsid(riid.rawAddress.toString(), rclsid.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun coRegisterSurrogate(psurrogate: MutPtr<CVoid>): Hresult =
+public actual fun coRegisterSurrogate(psurrogate: MutPtr): Hresult =
     if (windowsWin32SystemComNapiAvailable) wasmWindowssysWindowsWin32SystemComCoRegisterSurrogate(psurrogate.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun coReleaseServerProcess(): UInt =
@@ -582,22 +578,22 @@ public actual fun coRevokeInitializeSpy(ulicookie: ULong): Hresult =
 public actual fun coRevokeMallocSpy(): Hresult =
     if (windowsWin32SystemComNapiAvailable) wasmWindowssysWindowsWin32SystemComCoRevokeMallocSpy() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun coSetCancelObject(punk: MutPtr<CVoid>): Hresult =
+public actual fun coSetCancelObject(punk: MutPtr): Hresult =
     if (windowsWin32SystemComNapiAvailable) wasmWindowssysWindowsWin32SystemComCoSetCancelObject(punk.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun coSetProxyBlanket(pproxy: MutPtr<CVoid>, dwauthnsvc: UInt, dwauthzsvc: UInt, pserverprincname: Pcwstr, dwauthnlevel: RpcCAuthnLevel, dwimplevel: RpcCImpLevel, pauthinfo: ConstPtr<CVoid>, dwcapabilities: UInt): Hresult =
+public actual fun coSetProxyBlanket(pproxy: MutPtr, dwauthnsvc: UInt, dwauthzsvc: UInt, pserverprincname: Pcwstr, dwauthnlevel: RpcCAuthnLevel, dwimplevel: RpcCImpLevel, pauthinfo: ConstPtr, dwcapabilities: UInt): Hresult =
     if (windowsWin32SystemComNapiAvailable) wasmWindowssysWindowsWin32SystemComCoSetProxyBlanket(pproxy.rawAddress.toString(), dwauthnsvc.toInt(), dwauthzsvc.toInt(), pserverprincname.rawAddress.toString(), dwauthnlevel.toInt(), dwimplevel.toInt(), pauthinfo.rawAddress.toString(), dwcapabilities.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun coSuspendClassObjects(): Hresult =
     if (windowsWin32SystemComNapiAvailable) wasmWindowssysWindowsWin32SystemComCoSuspendClassObjects() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun coSwitchCallContext(pnewobject: MutPtr<CVoid>, ppoldobject: MutPtr<MutPtr<CVoid>>): Hresult =
+public actual fun coSwitchCallContext(pnewobject: MutPtr, ppoldobject: MutPtr): Hresult =
     if (windowsWin32SystemComNapiAvailable) wasmWindowssysWindowsWin32SystemComCoSwitchCallContext(pnewobject.rawAddress.toString(), ppoldobject.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun coTaskMemAlloc(cb: ULong): MutPtr<CVoid> =
+public actual fun coTaskMemAlloc(cb: ULong): MutPtr =
     if (windowsWin32SystemComNapiAvailable) MutPtr(wasmWindowssysWindowsWin32SystemComCoTaskMemAlloc(cb.toString()).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun coTaskMemFree(pv: ConstPtr<CVoid>) {
+public actual fun coTaskMemFree(pv: ConstPtr) {
     if (windowsWin32SystemComNapiAvailable) {
         wasmWindowssysWindowsWin32SystemComCoTaskMemFree(pv.rawAddress.toString())
     } else {
@@ -605,13 +601,13 @@ public actual fun coTaskMemFree(pv: ConstPtr<CVoid>) {
     }
 }
 
-public actual fun coTaskMemRealloc(pv: ConstPtr<CVoid>, cb: ULong): MutPtr<CVoid> =
+public actual fun coTaskMemRealloc(pv: ConstPtr, cb: ULong): MutPtr =
     if (windowsWin32SystemComNapiAvailable) MutPtr(wasmWindowssysWindowsWin32SystemComCoTaskMemRealloc(pv.rawAddress.toString(), cb.toString()).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun coTestCancel(): Hresult =
     if (windowsWin32SystemComNapiAvailable) wasmWindowssysWindowsWin32SystemComCoTestCancel() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun coTreatAsClass(clsidold: ConstPtr<Guid>, clsidnew: ConstPtr<Guid>): Hresult =
+public actual fun coTreatAsClass(clsidold: ConstPtr, clsidnew: ConstPtr): Hresult =
     if (windowsWin32SystemComNapiAvailable) wasmWindowssysWindowsWin32SystemComCoTreatAsClass(clsidold.rawAddress.toString(), clsidnew.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun coUninitialize() {
@@ -622,92 +618,92 @@ public actual fun coUninitialize() {
     }
 }
 
-public actual fun coWaitForMultipleHandles(dwflags: UInt, dwtimeout: UInt, chandles: UInt, phandles: ConstPtr<Handle>, lpdwindex: MutPtr<UInt>): Hresult =
+public actual fun coWaitForMultipleHandles(dwflags: UInt, dwtimeout: UInt, chandles: UInt, phandles: ConstPtr, lpdwindex: MutPtr): Hresult =
     if (windowsWin32SystemComNapiAvailable) wasmWindowssysWindowsWin32SystemComCoWaitForMultipleHandles(dwflags.toInt(), dwtimeout.toInt(), chandles.toInt(), phandles.rawAddress.toString(), lpdwindex.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun coWaitForMultipleObjects(dwflags: UInt, dwtimeout: UInt, chandles: UInt, phandles: ConstPtr<Handle>, lpdwindex: MutPtr<UInt>): Hresult =
+public actual fun coWaitForMultipleObjects(dwflags: UInt, dwtimeout: UInt, chandles: UInt, phandles: ConstPtr, lpdwindex: MutPtr): Hresult =
     if (windowsWin32SystemComNapiAvailable) wasmWindowssysWindowsWin32SystemComCoWaitForMultipleObjects(dwflags.toInt(), dwtimeout.toInt(), chandles.toInt(), phandles.rawAddress.toString(), lpdwindex.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun createAntiMoniker(ppmk: MutPtr<MutPtr<CVoid>>): Hresult =
+public actual fun createAntiMoniker(ppmk: MutPtr): Hresult =
     if (windowsWin32SystemComNapiAvailable) wasmWindowssysWindowsWin32SystemComCreateAntiMoniker(ppmk.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun createBindCtx(reserved: UInt, ppbc: MutPtr<MutPtr<CVoid>>): Hresult =
+public actual fun createBindCtx(reserved: UInt, ppbc: MutPtr): Hresult =
     if (windowsWin32SystemComNapiAvailable) wasmWindowssysWindowsWin32SystemComCreateBindCtx(reserved.toInt(), ppbc.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun createClassMoniker(rclsid: ConstPtr<Guid>, ppmk: MutPtr<MutPtr<CVoid>>): Hresult =
+public actual fun createClassMoniker(rclsid: ConstPtr, ppmk: MutPtr): Hresult =
     if (windowsWin32SystemComNapiAvailable) wasmWindowssysWindowsWin32SystemComCreateClassMoniker(rclsid.rawAddress.toString(), ppmk.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun createDataAdviseHolder(ppdaholder: MutPtr<MutPtr<CVoid>>): Hresult =
+public actual fun createDataAdviseHolder(ppdaholder: MutPtr): Hresult =
     if (windowsWin32SystemComNapiAvailable) wasmWindowssysWindowsWin32SystemComCreateDataAdviseHolder(ppdaholder.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun createDataCache(punkouter: MutPtr<CVoid>, rclsid: ConstPtr<Guid>, iid: ConstPtr<Guid>, ppv: MutPtr<MutPtr<CVoid>>): Hresult =
+public actual fun createDataCache(punkouter: MutPtr, rclsid: ConstPtr, iid: ConstPtr, ppv: MutPtr): Hresult =
     if (windowsWin32SystemComNapiAvailable) wasmWindowssysWindowsWin32SystemComCreateDataCache(punkouter.rawAddress.toString(), rclsid.rawAddress.toString(), iid.rawAddress.toString(), ppv.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun createFileMoniker(lpszpathname: Pcwstr, ppmk: MutPtr<MutPtr<CVoid>>): Hresult =
+public actual fun createFileMoniker(lpszpathname: Pcwstr, ppmk: MutPtr): Hresult =
     if (windowsWin32SystemComNapiAvailable) wasmWindowssysWindowsWin32SystemComCreateFileMoniker(lpszpathname.rawAddress.toString(), ppmk.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun createGenericComposite(pmkfirst: MutPtr<CVoid>, pmkrest: MutPtr<CVoid>, ppmkcomposite: MutPtr<MutPtr<CVoid>>): Hresult =
+public actual fun createGenericComposite(pmkfirst: MutPtr, pmkrest: MutPtr, ppmkcomposite: MutPtr): Hresult =
     if (windowsWin32SystemComNapiAvailable) wasmWindowssysWindowsWin32SystemComCreateGenericComposite(pmkfirst.rawAddress.toString(), pmkrest.rawAddress.toString(), ppmkcomposite.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun createIUriBuilder(piuri: MutPtr<CVoid>, dwflags: UInt, dwreserved: ULong, ppiuribuilder: MutPtr<MutPtr<CVoid>>): Hresult =
+public actual fun createIUriBuilder(piuri: MutPtr, dwflags: UInt, dwreserved: ULong, ppiuribuilder: MutPtr): Hresult =
     if (windowsWin32SystemComNapiAvailable) wasmWindowssysWindowsWin32SystemComCreateIUriBuilder(piuri.rawAddress.toString(), dwflags.toInt(), dwreserved.toString(), ppiuribuilder.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun createItemMoniker(lpszdelim: Pcwstr, lpszitem: Pcwstr, ppmk: MutPtr<MutPtr<CVoid>>): Hresult =
+public actual fun createItemMoniker(lpszdelim: Pcwstr, lpszitem: Pcwstr, ppmk: MutPtr): Hresult =
     if (windowsWin32SystemComNapiAvailable) wasmWindowssysWindowsWin32SystemComCreateItemMoniker(lpszdelim.rawAddress.toString(), lpszitem.rawAddress.toString(), ppmk.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun createObjrefMoniker(punk: MutPtr<CVoid>, ppmk: MutPtr<MutPtr<CVoid>>): Hresult =
+public actual fun createObjrefMoniker(punk: MutPtr, ppmk: MutPtr): Hresult =
     if (windowsWin32SystemComNapiAvailable) wasmWindowssysWindowsWin32SystemComCreateObjrefMoniker(punk.rawAddress.toString(), ppmk.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun createPointerMoniker(punk: MutPtr<CVoid>, ppmk: MutPtr<MutPtr<CVoid>>): Hresult =
+public actual fun createPointerMoniker(punk: MutPtr, ppmk: MutPtr): Hresult =
     if (windowsWin32SystemComNapiAvailable) wasmWindowssysWindowsWin32SystemComCreatePointerMoniker(punk.rawAddress.toString(), ppmk.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun createStdProgressIndicator(hwndparent: Hwnd, psztitle: Pcwstr, pibsccaller: MutPtr<CVoid>, ppibsc: MutPtr<MutPtr<CVoid>>): Hresult =
+public actual fun createStdProgressIndicator(hwndparent: Hwnd, psztitle: Pcwstr, pibsccaller: MutPtr, ppibsc: MutPtr): Hresult =
     if (windowsWin32SystemComNapiAvailable) wasmWindowssysWindowsWin32SystemComCreateStdProgressIndicator(hwndparent.rawAddress.toString(), psztitle.rawAddress.toString(), pibsccaller.rawAddress.toString(), ppibsc.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun createUri(pwzuri: Pcwstr, dwflags: UriCreateFlags, dwreserved: ULong, ppuri: MutPtr<MutPtr<CVoid>>): Hresult =
+public actual fun createUri(pwzuri: Pcwstr, dwflags: UriCreateFlags, dwreserved: ULong, ppuri: MutPtr): Hresult =
     if (windowsWin32SystemComNapiAvailable) wasmWindowssysWindowsWin32SystemComCreateUri(pwzuri.rawAddress.toString(), dwflags.toInt(), dwreserved.toString(), ppuri.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun createUriFromMultiByteString(pszansiinputuri: Pcstr, dwencodingflags: UInt, dwcodepage: UInt, dwcreateflags: UInt, dwreserved: ULong, ppuri: MutPtr<MutPtr<CVoid>>): Hresult =
+public actual fun createUriFromMultiByteString(pszansiinputuri: Pcstr, dwencodingflags: UInt, dwcodepage: UInt, dwcreateflags: UInt, dwreserved: ULong, ppuri: MutPtr): Hresult =
     if (windowsWin32SystemComNapiAvailable) wasmWindowssysWindowsWin32SystemComCreateUriFromMultiByteString(pszansiinputuri.rawAddress.toString(), dwencodingflags.toInt(), dwcodepage.toInt(), dwcreateflags.toInt(), dwreserved.toString(), ppuri.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun createUriWithFragment(pwzuri: Pcwstr, pwzfragment: Pcwstr, dwflags: UInt, dwreserved: ULong, ppuri: MutPtr<MutPtr<CVoid>>): Hresult =
+public actual fun createUriWithFragment(pwzuri: Pcwstr, pwzfragment: Pcwstr, dwflags: UInt, dwreserved: ULong, ppuri: MutPtr): Hresult =
     if (windowsWin32SystemComNapiAvailable) wasmWindowssysWindowsWin32SystemComCreateUriWithFragment(pwzuri.rawAddress.toString(), pwzfragment.rawAddress.toString(), dwflags.toInt(), dwreserved.toString(), ppuri.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun dcomChannelSetHResult(pvreserved: ConstPtr<CVoid>, pulreserved: ConstPtr<UInt>, appshr: Hresult): Hresult =
+public actual fun dcomChannelSetHResult(pvreserved: ConstPtr, pulreserved: ConstPtr, appshr: Hresult): Hresult =
     if (windowsWin32SystemComNapiAvailable) wasmWindowssysWindowsWin32SystemComDcomChannelSetHResult(pvreserved.rawAddress.toString(), pulreserved.rawAddress.toString(), appshr) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun getClassFile(szfilename: Pcwstr, pclsid: MutPtr<Guid>): Hresult =
+public actual fun getClassFile(szfilename: Pcwstr, pclsid: MutPtr): Hresult =
     if (windowsWin32SystemComNapiAvailable) wasmWindowssysWindowsWin32SystemComGetClassFile(szfilename.rawAddress.toString(), pclsid.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun getErrorInfo(dwreserved: UInt, pperrinfo: MutPtr<MutPtr<CVoid>>): Hresult =
+public actual fun getErrorInfo(dwreserved: UInt, pperrinfo: MutPtr): Hresult =
     if (windowsWin32SystemComNapiAvailable) wasmWindowssysWindowsWin32SystemComGetErrorInfo(dwreserved.toInt(), pperrinfo.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun getRunningObjectTable(reserved: UInt, pprot: MutPtr<MutPtr<CVoid>>): Hresult =
+public actual fun getRunningObjectTable(reserved: UInt, pprot: MutPtr): Hresult =
     if (windowsWin32SystemComNapiAvailable) wasmWindowssysWindowsWin32SystemComGetRunningObjectTable(reserved.toInt(), pprot.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun iIDFromString(lpsz: Pcwstr, lpiid: MutPtr<Guid>): Hresult =
+public actual fun iIDFromString(lpsz: Pcwstr, lpiid: MutPtr): Hresult =
     if (windowsWin32SystemComNapiAvailable) wasmWindowssysWindowsWin32SystemComIIDFromString(lpsz.rawAddress.toString(), lpiid.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun mkParseDisplayName(pbc: MutPtr<CVoid>, szusername: Pcwstr, pcheaten: MutPtr<UInt>, ppmk: MutPtr<MutPtr<CVoid>>): Hresult =
+public actual fun mkParseDisplayName(pbc: MutPtr, szusername: Pcwstr, pcheaten: MutPtr, ppmk: MutPtr): Hresult =
     if (windowsWin32SystemComNapiAvailable) wasmWindowssysWindowsWin32SystemComMkParseDisplayName(pbc.rawAddress.toString(), szusername.rawAddress.toString(), pcheaten.rawAddress.toString(), ppmk.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun monikerCommonPrefixWith(pmkthis: MutPtr<CVoid>, pmkother: MutPtr<CVoid>, ppmkcommon: MutPtr<MutPtr<CVoid>>): Hresult =
+public actual fun monikerCommonPrefixWith(pmkthis: MutPtr, pmkother: MutPtr, ppmkcommon: MutPtr): Hresult =
     if (windowsWin32SystemComNapiAvailable) wasmWindowssysWindowsWin32SystemComMonikerCommonPrefixWith(pmkthis.rawAddress.toString(), pmkother.rawAddress.toString(), ppmkcommon.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun monikerRelativePathTo(pmksrc: MutPtr<CVoid>, pmkdest: MutPtr<CVoid>, ppmkrelpath: MutPtr<MutPtr<CVoid>>, dwreserved: Bool): Hresult =
+public actual fun monikerRelativePathTo(pmksrc: MutPtr, pmkdest: MutPtr, ppmkrelpath: MutPtr, dwreserved: Bool): Hresult =
     if (windowsWin32SystemComNapiAvailable) wasmWindowssysWindowsWin32SystemComMonikerRelativePathTo(pmksrc.rawAddress.toString(), pmkdest.rawAddress.toString(), ppmkrelpath.rawAddress.toString(), dwreserved) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun progIDFromCLSID(clsid: ConstPtr<Guid>, lplpszprogid: MutPtr<Pwstr>): Hresult =
+public actual fun progIDFromCLSID(clsid: ConstPtr, lplpszprogid: MutPtr): Hresult =
     if (windowsWin32SystemComNapiAvailable) wasmWindowssysWindowsWin32SystemComProgIDFromCLSID(clsid.rawAddress.toString(), lplpszprogid.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun setErrorInfo(dwreserved: UInt, perrinfo: MutPtr<CVoid>): Hresult =
+public actual fun setErrorInfo(dwreserved: UInt, perrinfo: MutPtr): Hresult =
     if (windowsWin32SystemComNapiAvailable) wasmWindowssysWindowsWin32SystemComSetErrorInfo(dwreserved.toInt(), perrinfo.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun stringFromCLSID(rclsid: ConstPtr<Guid>, lplpsz: MutPtr<Pwstr>): Hresult =
+public actual fun stringFromCLSID(rclsid: ConstPtr, lplpsz: MutPtr): Hresult =
     if (windowsWin32SystemComNapiAvailable) wasmWindowssysWindowsWin32SystemComStringFromCLSID(rclsid.rawAddress.toString(), lplpsz.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun stringFromGUID2(rguid: ConstPtr<Guid>, lpsz: Pwstr, cchmax: Int): Int =
+public actual fun stringFromGUID2(rguid: ConstPtr, lpsz: Pwstr, cchmax: Int): Int =
     if (windowsWin32SystemComNapiAvailable) wasmWindowssysWindowsWin32SystemComStringFromGUID2(rguid.rawAddress.toString(), lpsz.rawAddress.toString(), cchmax) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun stringFromIID(rclsid: ConstPtr<Guid>, lplpsz: MutPtr<Pwstr>): Hresult =
+public actual fun stringFromIID(rclsid: ConstPtr, lplpsz: MutPtr): Hresult =
     if (windowsWin32SystemComNapiAvailable) wasmWindowssysWindowsWin32SystemComStringFromIID(rclsid.rawAddress.toString(), lplpsz.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")

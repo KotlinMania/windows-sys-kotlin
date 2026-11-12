@@ -1,6 +1,5 @@
 package io.github.kotlinmania.windowssys.windows.win32.system.libraryloader
 
-import io.github.kotlinmania.rustlang.core.ffi.CVoid
 import io.github.kotlinmania.rustlang.core.ptr.ConstPtr
 import io.github.kotlinmania.rustlang.core.ptr.MutPtr
 import io.github.kotlinmania.windowssys.core.Bool
@@ -14,7 +13,7 @@ import io.github.kotlinmania.windowssys.windows.win32.foundation.Hglobal
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Hmodule
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Hrsrc
 
-public expect fun addDllDirectory(newdirectory: Pcwstr): MutPtr<CVoid>
+public expect fun addDllDirectory(newdirectory: Pcwstr): MutPtr
 
 public expect fun beginUpdateResourceA(pfilename: Pcstr, bdeleteexistingresources: Bool): Handle
 
@@ -72,9 +71,9 @@ public expect fun getModuleFileNameW(hmodule: Hmodule, lpfilename: Pwstr, nsize:
 
 public expect fun getModuleHandleA(lpmodulename: Pcstr): Hmodule
 
-public expect fun getModuleHandleExA(dwflags: UInt, lpmodulename: Pcstr, phmodule: MutPtr<Hmodule>): Bool
+public expect fun getModuleHandleExA(dwflags: UInt, lpmodulename: Pcstr, phmodule: MutPtr): Bool
 
-public expect fun getModuleHandleExW(dwflags: UInt, lpmodulename: Pcwstr, phmodule: MutPtr<Hmodule>): Bool
+public expect fun getModuleHandleExW(dwflags: UInt, lpmodulename: Pcwstr, phmodule: MutPtr): Bool
 
 public expect fun getModuleHandleW(lpmodulename: Pcwstr): Hmodule
 
@@ -88,17 +87,17 @@ public expect fun loadLibraryExW(lplibfilename: Pcwstr, hfile: Handle, dwflags: 
 
 public expect fun loadLibraryW(lplibfilename: Pcwstr): Hmodule
 
-public expect fun loadModule(lpmodulename: Pcstr, lpparameterblock: ConstPtr<CVoid>): UInt
+public expect fun loadModule(lpmodulename: Pcstr, lpparameterblock: ConstPtr): UInt
 
 public expect fun loadPackagedLibrary(lpwlibfilename: Pcwstr, reserved: UInt): Hmodule
 
 public expect fun loadResource(hmodule: Hmodule, hresinfo: Hrsrc): Hglobal
 
-public expect fun lockResource(hresdata: Hglobal): MutPtr<CVoid>
+public expect fun lockResource(hresdata: Hglobal): MutPtr
 
 public expect fun queryOptionalDelayLoadedAPI(hparentmodule: Hmodule, lpdllname: Pcstr, lpprocname: Pcstr, reserved: UInt): Bool
 
-public expect fun removeDllDirectory(cookie: ConstPtr<CVoid>): Bool
+public expect fun removeDllDirectory(cookie: ConstPtr): Bool
 
 public expect fun setDefaultDllDirectories(directoryflags: LoadLibraryFlags): Bool
 
@@ -108,6 +107,6 @@ public expect fun setDllDirectoryW(lppathname: Pcwstr): Bool
 
 public expect fun sizeofResource(hmodule: Hmodule, hresinfo: Hrsrc): UInt
 
-public expect fun updateResourceA(hupdate: Handle, lptype: Pcstr, lpname: Pcstr, wlanguage: UShort, lpdata: ConstPtr<CVoid>, cb: UInt): Bool
+public expect fun updateResourceA(hupdate: Handle, lptype: Pcstr, lpname: Pcstr, wlanguage: UShort, lpdata: ConstPtr, cb: UInt): Bool
 
-public expect fun updateResourceW(hupdate: Handle, lptype: Pcwstr, lpname: Pcwstr, wlanguage: UShort, lpdata: ConstPtr<CVoid>, cb: UInt): Bool
+public expect fun updateResourceW(hupdate: Handle, lptype: Pcwstr, lpname: Pcwstr, wlanguage: UShort, lpdata: ConstPtr, cb: UInt): Bool

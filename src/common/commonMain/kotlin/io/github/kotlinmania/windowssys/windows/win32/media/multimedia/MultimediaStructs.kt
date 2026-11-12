@@ -2,7 +2,6 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.media.multimedia
 
-import io.github.kotlinmania.rustlang.core.ffi.CVoid
 import io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
 import io.github.kotlinmania.rustlang.core.mem.TypeLayout
 import io.github.kotlinmania.rustlang.core.ptr.ConstPtr
@@ -19,16 +18,13 @@ import io.github.kotlinmania.windowssys.windows.win32.foundation.Lparam
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Lresult
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Point
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Rect
-import io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.Bitmapinfo
 import io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.Bitmapinfoheader
 import io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.Hdc
 import io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.Hpalette
-import io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.Paletteentry
 import io.github.kotlinmania.windowssys.windows.win32.media.Htask
 import io.github.kotlinmania.windowssys.windows.win32.media.Lptimecallback
 import io.github.kotlinmania.windowssys.windows.win32.media.audio.Hmixer
 import io.github.kotlinmania.windowssys.windows.win32.media.audio.Hwave
-import io.github.kotlinmania.windowssys.windows.win32.media.audio.Waveformat
 import io.github.kotlinmania.windowssys.windows.win32.media.audio.Waveformatex
 
 public data class Adpcmcoefset(
@@ -84,16 +80,16 @@ public class Avicompressoptions internal constructor(
     public var dwQuality: UInt,
     public var dwBytesPerSecond: UInt,
     public var dwFlags: UInt,
-    lpFormatCtorArg: MutPtr<CVoid>,
+    lpFormatCtorArg: MutPtr,
     public var cbFormat: UInt,
-    lpParmsCtorArg: MutPtr<CVoid>,
+    lpParmsCtorArg: MutPtr,
     public var cbParms: UInt,
     public var dwInterleaveEvery: UInt,
 ) {
-    public var lpFormat: MutPtr<CVoid> = lpFormatCtorArg
+    public var lpFormat: MutPtr = lpFormatCtorArg
         internal set
 
-    public var lpParms: MutPtr<CVoid> = lpParmsCtorArg
+    public var lpParms: MutPtr = lpParmsCtorArg
         internal set
 
     public constructor() : this(
@@ -122,17 +118,17 @@ public class Avicompressoptions internal constructor(
 
     public operator fun component6(): UInt = this.dwFlags
 
-    public operator fun component7(): MutPtr<CVoid> = this.lpFormat
+    public operator fun component7(): MutPtr = this.lpFormat
 
     public operator fun component8(): UInt = this.cbFormat
 
-    public operator fun component9(): MutPtr<CVoid> = this.lpParms
+    public operator fun component9(): MutPtr = this.lpParms
 
     public operator fun component10(): UInt = this.cbParms
 
     public operator fun component11(): UInt = this.dwInterleaveEvery
 
-    public fun copy(fccType: UInt = this.fccType, fccHandler: UInt = this.fccHandler, dwKeyFrameEvery: UInt = this.dwKeyFrameEvery, dwQuality: UInt = this.dwQuality, dwBytesPerSecond: UInt = this.dwBytesPerSecond, dwFlags: UInt = this.dwFlags, lpFormat: MutPtr<CVoid> = this.lpFormat, cbFormat: UInt = this.cbFormat, lpParms: MutPtr<CVoid> = this.lpParms, cbParms: UInt = this.cbParms, dwInterleaveEvery: UInt = this.dwInterleaveEvery): Avicompressoptions = Avicompressoptions(fccType = fccType, fccHandler = fccHandler, dwKeyFrameEvery = dwKeyFrameEvery, dwQuality = dwQuality, dwBytesPerSecond = dwBytesPerSecond, dwFlags = dwFlags, lpFormatCtorArg = lpFormat, cbFormat = cbFormat, lpParmsCtorArg = lpParms, cbParms = cbParms, dwInterleaveEvery = dwInterleaveEvery)
+    public fun copy(fccType: UInt = this.fccType, fccHandler: UInt = this.fccHandler, dwKeyFrameEvery: UInt = this.dwKeyFrameEvery, dwQuality: UInt = this.dwQuality, dwBytesPerSecond: UInt = this.dwBytesPerSecond, dwFlags: UInt = this.dwFlags, lpFormat: MutPtr = this.lpFormat, cbFormat: UInt = this.cbFormat, lpParms: MutPtr = this.lpParms, cbParms: UInt = this.cbParms, dwInterleaveEvery: UInt = this.dwInterleaveEvery): Avicompressoptions = Avicompressoptions(fccType = fccType, fccHandler = fccHandler, dwKeyFrameEvery = dwKeyFrameEvery, dwQuality = dwQuality, dwBytesPerSecond = dwBytesPerSecond, dwFlags = dwFlags, lpFormatCtorArg = lpFormat, cbFormat = cbFormat, lpParmsCtorArg = lpParms, cbParms = cbParms, dwInterleaveEvery = dwInterleaveEvery)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -181,12 +177,12 @@ public class Avicompressoptions internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 20L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<CVoid>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 24L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 32L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<CVoid>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 40L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 48L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 52L),
@@ -200,12 +196,12 @@ public class Avicompressoptions internal constructor(
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 20L, value.dwFlags)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<CVoid>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 24L, value.lpFormat)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 32L, value.cbFormat)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<CVoid>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 40L, value.lpParms)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 48L, value.cbParms)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 52L, value.dwInterleaveEvery)
@@ -219,9 +215,9 @@ public class Avicompressoptions internal constructor(
             dwQuality: UInt = 0u,
             dwBytesPerSecond: UInt = 0u,
             dwFlags: UInt = 0u,
-            lpFormat: MutPtr<CVoid> = MutPtr(0L),
+            lpFormat: MutPtr = MutPtr(0L),
             cbFormat: UInt = 0u,
-            lpParms: MutPtr<CVoid> = MutPtr(0L),
+            lpParms: MutPtr = MutPtr(0L),
             cbParms: UInt = 0u,
             dwInterleaveEvery: UInt = 0u,
         ): Avicompressoptions =
@@ -594,10 +590,10 @@ public class Capdrivercaps internal constructor(
 
 public class Capinfochunk internal constructor(
     public var fccInfoID: UInt,
-    lpDataCtorArg: MutPtr<CVoid>,
+    lpDataCtorArg: MutPtr,
     public var cbData: Int,
 ) {
-    public var lpData: MutPtr<CVoid> = lpDataCtorArg
+    public var lpData: MutPtr = lpDataCtorArg
         internal set
 
     public constructor() : this(
@@ -608,11 +604,11 @@ public class Capinfochunk internal constructor(
 
     public operator fun component1(): UInt = this.fccInfoID
 
-    public operator fun component2(): MutPtr<CVoid> = this.lpData
+    public operator fun component2(): MutPtr = this.lpData
 
     public operator fun component3(): Int = this.cbData
 
-    public fun copy(fccInfoID: UInt = this.fccInfoID, lpData: MutPtr<CVoid> = this.lpData, cbData: Int = this.cbData): Capinfochunk = Capinfochunk(fccInfoID = fccInfoID, lpDataCtorArg = lpData, cbData = cbData)
+    public fun copy(fccInfoID: UInt = this.fccInfoID, lpData: MutPtr = this.lpData, cbData: Int = this.cbData): Capinfochunk = Capinfochunk(fccInfoID = fccInfoID, lpDataCtorArg = lpData, cbData = cbData)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -640,7 +636,7 @@ public class Capinfochunk internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<CVoid>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr + 16L),
                     )
@@ -648,7 +644,7 @@ public class Capinfochunk internal constructor(
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr, value.fccInfoID)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<CVoid>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.lpData)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr + 16L, value.cbData)
                 }
@@ -656,7 +652,7 @@ public class Capinfochunk internal constructor(
 
         public operator fun invoke(
             fccInfoID: UInt = 0u,
-            lpData: MutPtr<CVoid> = MutPtr(0L),
+            lpData: MutPtr = MutPtr(0L),
             cbData: Int = 0,
         ): Capinfochunk =
             Capinfochunk(
@@ -892,34 +888,34 @@ public class Compvars internal constructor(
     hicCtorArg: Hic,
     public var fccType: UInt,
     public var fccHandler: UInt,
-    lpbiInCtorArg: MutPtr<Bitmapinfo>,
-    lpbiOutCtorArg: MutPtr<Bitmapinfo>,
-    lpBitsOutCtorArg: MutPtr<CVoid>,
-    lpBitsPrevCtorArg: MutPtr<CVoid>,
+    lpbiInCtorArg: MutPtr,
+    lpbiOutCtorArg: MutPtr,
+    lpBitsOutCtorArg: MutPtr,
+    lpBitsPrevCtorArg: MutPtr,
     public var lFrame: Int,
     public var lKey: Int,
     public var lDataRate: Int,
     public var lQ: Int,
     public var lKeyCount: Int,
-    lpStateCtorArg: MutPtr<CVoid>,
+    lpStateCtorArg: MutPtr,
     public var cbState: Int,
 ) {
     public var hic: Hic = hicCtorArg
         internal set
 
-    public var lpbiIn: MutPtr<Bitmapinfo> = lpbiInCtorArg
+    public var lpbiIn: MutPtr = lpbiInCtorArg
         internal set
 
-    public var lpbiOut: MutPtr<Bitmapinfo> = lpbiOutCtorArg
+    public var lpbiOut: MutPtr = lpbiOutCtorArg
         internal set
 
-    public var lpBitsOut: MutPtr<CVoid> = lpBitsOutCtorArg
+    public var lpBitsOut: MutPtr = lpBitsOutCtorArg
         internal set
 
-    public var lpBitsPrev: MutPtr<CVoid> = lpBitsPrevCtorArg
+    public var lpBitsPrev: MutPtr = lpBitsPrevCtorArg
         internal set
 
-    public var lpState: MutPtr<CVoid> = lpStateCtorArg
+    public var lpState: MutPtr = lpStateCtorArg
         internal set
 
     public constructor() : this(
@@ -951,13 +947,13 @@ public class Compvars internal constructor(
 
     public operator fun component5(): UInt = this.fccHandler
 
-    public operator fun component6(): MutPtr<Bitmapinfo> = this.lpbiIn
+    public operator fun component6(): MutPtr = this.lpbiIn
 
-    public operator fun component7(): MutPtr<Bitmapinfo> = this.lpbiOut
+    public operator fun component7(): MutPtr = this.lpbiOut
 
-    public operator fun component8(): MutPtr<CVoid> = this.lpBitsOut
+    public operator fun component8(): MutPtr = this.lpBitsOut
 
-    public operator fun component9(): MutPtr<CVoid> = this.lpBitsPrev
+    public operator fun component9(): MutPtr = this.lpBitsPrev
 
     public operator fun component10(): Int = this.lFrame
 
@@ -969,11 +965,11 @@ public class Compvars internal constructor(
 
     public operator fun component14(): Int = this.lKeyCount
 
-    public operator fun component15(): MutPtr<CVoid> = this.lpState
+    public operator fun component15(): MutPtr = this.lpState
 
     public operator fun component16(): Int = this.cbState
 
-    public fun copy(cbSize: Int = this.cbSize, dwFlags: UInt = this.dwFlags, hic: Hic = this.hic, fccType: UInt = this.fccType, fccHandler: UInt = this.fccHandler, lpbiIn: MutPtr<Bitmapinfo> = this.lpbiIn, lpbiOut: MutPtr<Bitmapinfo> = this.lpbiOut, lpBitsOut: MutPtr<CVoid> = this.lpBitsOut, lpBitsPrev: MutPtr<CVoid> = this.lpBitsPrev, lFrame: Int = this.lFrame, lKey: Int = this.lKey, lDataRate: Int = this.lDataRate, lQ: Int = this.lQ, lKeyCount: Int = this.lKeyCount, lpState: MutPtr<CVoid> = this.lpState, cbState: Int = this.cbState): Compvars = Compvars(cbSize = cbSize, dwFlags = dwFlags, hicCtorArg = hic, fccType = fccType, fccHandler = fccHandler, lpbiInCtorArg = lpbiIn, lpbiOutCtorArg = lpbiOut, lpBitsOutCtorArg = lpBitsOut, lpBitsPrevCtorArg = lpBitsPrev, lFrame = lFrame, lKey = lKey, lDataRate = lDataRate, lQ = lQ, lKeyCount = lKeyCount, lpStateCtorArg = lpState, cbState = cbState)
+    public fun copy(cbSize: Int = this.cbSize, dwFlags: UInt = this.dwFlags, hic: Hic = this.hic, fccType: UInt = this.fccType, fccHandler: UInt = this.fccHandler, lpbiIn: MutPtr = this.lpbiIn, lpbiOut: MutPtr = this.lpbiOut, lpBitsOut: MutPtr = this.lpBitsOut, lpBitsPrev: MutPtr = this.lpBitsPrev, lFrame: Int = this.lFrame, lKey: Int = this.lKey, lDataRate: Int = this.lDataRate, lQ: Int = this.lQ, lKeyCount: Int = this.lKeyCount, lpState: MutPtr = this.lpState, cbState: Int = this.cbState): Compvars = Compvars(cbSize = cbSize, dwFlags = dwFlags, hicCtorArg = hic, fccType = fccType, fccHandler = fccHandler, lpbiInCtorArg = lpbiIn, lpbiOutCtorArg = lpbiOut, lpBitsOutCtorArg = lpBitsOut, lpBitsPrevCtorArg = lpBitsPrev, lFrame = lFrame, lKey = lKey, lDataRate = lDataRate, lQ = lQ, lKeyCount = lKeyCount, lpStateCtorArg = lpState, cbState = cbState)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -1028,25 +1024,25 @@ public class Compvars internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 4L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<CVoid>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 16L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 20L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<Bitmapinfo>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 24L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<Bitmapinfo>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 32L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<CVoid>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 40L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<CVoid>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 48L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr + 56L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr + 60L),
@@ -1055,7 +1051,7 @@ public class Compvars internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr + 72L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<CVoid>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 80L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr + 88L),
                     )
@@ -1064,25 +1060,25 @@ public class Compvars internal constructor(
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 4L, value.dwFlags)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<CVoid>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.hic)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 16L, value.fccType)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 20L, value.fccHandler)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<Bitmapinfo>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 24L, value.lpbiIn)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<Bitmapinfo>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 32L, value.lpbiOut)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<CVoid>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 40L, value.lpBitsOut)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<CVoid>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 48L, value.lpBitsPrev)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr + 56L, value.lFrame)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr + 60L, value.lKey)
@@ -1091,7 +1087,7 @@ public class Compvars internal constructor(
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr + 72L, value.lKeyCount)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<CVoid>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 80L, value.lpState)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr + 88L, value.cbState)
                 }
@@ -1103,16 +1099,16 @@ public class Compvars internal constructor(
             hic: Hic = MutPtr(0L),
             fccType: UInt = 0u,
             fccHandler: UInt = 0u,
-            lpbiIn: MutPtr<Bitmapinfo> = MutPtr(0L),
-            lpbiOut: MutPtr<Bitmapinfo> = MutPtr(0L),
-            lpBitsOut: MutPtr<CVoid> = MutPtr(0L),
-            lpBitsPrev: MutPtr<CVoid> = MutPtr(0L),
+            lpbiIn: MutPtr = MutPtr(0L),
+            lpbiOut: MutPtr = MutPtr(0L),
+            lpBitsOut: MutPtr = MutPtr(0L),
+            lpBitsPrev: MutPtr = MutPtr(0L),
             lFrame: Int = 0,
             lKey: Int = 0,
             lDataRate: Int = 0,
             lQ: Int = 0,
             lKeyCount: Int = 0,
-            lpState: MutPtr<CVoid> = MutPtr(0L),
+            lpState: MutPtr = MutPtr(0L),
             cbState: Int = 0,
         ): Compvars =
             Compvars(
@@ -1413,40 +1409,40 @@ public data class Gsm610waveformat(
 
 public class Iccompress internal constructor(
     public var dwFlags: UInt,
-    lpbiOutputCtorArg: MutPtr<Bitmapinfoheader>,
-    lpOutputCtorArg: MutPtr<CVoid>,
-    lpbiInputCtorArg: MutPtr<Bitmapinfoheader>,
-    lpInputCtorArg: MutPtr<CVoid>,
-    lpckidCtorArg: MutPtr<UInt>,
-    lpdwFlagsCtorArg: MutPtr<UInt>,
+    lpbiOutputCtorArg: MutPtr,
+    lpOutputCtorArg: MutPtr,
+    lpbiInputCtorArg: MutPtr,
+    lpInputCtorArg: MutPtr,
+    lpckidCtorArg: MutPtr,
+    lpdwFlagsCtorArg: MutPtr,
     public var lFrameNum: Int,
     public var dwFrameSize: UInt,
     public var dwQuality: UInt,
-    lpbiPrevCtorArg: MutPtr<Bitmapinfoheader>,
-    lpPrevCtorArg: MutPtr<CVoid>,
+    lpbiPrevCtorArg: MutPtr,
+    lpPrevCtorArg: MutPtr,
 ) {
-    public var lpbiOutput: MutPtr<Bitmapinfoheader> = lpbiOutputCtorArg
+    public var lpbiOutput: MutPtr = lpbiOutputCtorArg
         internal set
 
-    public var lpOutput: MutPtr<CVoid> = lpOutputCtorArg
+    public var lpOutput: MutPtr = lpOutputCtorArg
         internal set
 
-    public var lpbiInput: MutPtr<Bitmapinfoheader> = lpbiInputCtorArg
+    public var lpbiInput: MutPtr = lpbiInputCtorArg
         internal set
 
-    public var lpInput: MutPtr<CVoid> = lpInputCtorArg
+    public var lpInput: MutPtr = lpInputCtorArg
         internal set
 
-    public var lpckid: MutPtr<UInt> = lpckidCtorArg
+    public var lpckid: MutPtr = lpckidCtorArg
         internal set
 
-    public var lpdwFlags: MutPtr<UInt> = lpdwFlagsCtorArg
+    public var lpdwFlags: MutPtr = lpdwFlagsCtorArg
         internal set
 
-    public var lpbiPrev: MutPtr<Bitmapinfoheader> = lpbiPrevCtorArg
+    public var lpbiPrev: MutPtr = lpbiPrevCtorArg
         internal set
 
-    public var lpPrev: MutPtr<CVoid> = lpPrevCtorArg
+    public var lpPrev: MutPtr = lpPrevCtorArg
         internal set
 
     public constructor() : this(
@@ -1466,17 +1462,17 @@ public class Iccompress internal constructor(
 
     public operator fun component1(): UInt = this.dwFlags
 
-    public operator fun component2(): MutPtr<Bitmapinfoheader> = this.lpbiOutput
+    public operator fun component2(): MutPtr = this.lpbiOutput
 
-    public operator fun component3(): MutPtr<CVoid> = this.lpOutput
+    public operator fun component3(): MutPtr = this.lpOutput
 
-    public operator fun component4(): MutPtr<Bitmapinfoheader> = this.lpbiInput
+    public operator fun component4(): MutPtr = this.lpbiInput
 
-    public operator fun component5(): MutPtr<CVoid> = this.lpInput
+    public operator fun component5(): MutPtr = this.lpInput
 
-    public operator fun component6(): MutPtr<UInt> = this.lpckid
+    public operator fun component6(): MutPtr = this.lpckid
 
-    public operator fun component7(): MutPtr<UInt> = this.lpdwFlags
+    public operator fun component7(): MutPtr = this.lpdwFlags
 
     public operator fun component8(): Int = this.lFrameNum
 
@@ -1484,11 +1480,11 @@ public class Iccompress internal constructor(
 
     public operator fun component10(): UInt = this.dwQuality
 
-    public operator fun component11(): MutPtr<Bitmapinfoheader> = this.lpbiPrev
+    public operator fun component11(): MutPtr = this.lpbiPrev
 
-    public operator fun component12(): MutPtr<CVoid> = this.lpPrev
+    public operator fun component12(): MutPtr = this.lpPrev
 
-    public fun copy(dwFlags: UInt = this.dwFlags, lpbiOutput: MutPtr<Bitmapinfoheader> = this.lpbiOutput, lpOutput: MutPtr<CVoid> = this.lpOutput, lpbiInput: MutPtr<Bitmapinfoheader> = this.lpbiInput, lpInput: MutPtr<CVoid> = this.lpInput, lpckid: MutPtr<UInt> = this.lpckid, lpdwFlags: MutPtr<UInt> = this.lpdwFlags, lFrameNum: Int = this.lFrameNum, dwFrameSize: UInt = this.dwFrameSize, dwQuality: UInt = this.dwQuality, lpbiPrev: MutPtr<Bitmapinfoheader> = this.lpbiPrev, lpPrev: MutPtr<CVoid> = this.lpPrev): Iccompress = Iccompress(dwFlags = dwFlags, lpbiOutputCtorArg = lpbiOutput, lpOutputCtorArg = lpOutput, lpbiInputCtorArg = lpbiInput, lpInputCtorArg = lpInput, lpckidCtorArg = lpckid, lpdwFlagsCtorArg = lpdwFlags, lFrameNum = lFrameNum, dwFrameSize = dwFrameSize, dwQuality = dwQuality, lpbiPrevCtorArg = lpbiPrev, lpPrevCtorArg = lpPrev)
+    public fun copy(dwFlags: UInt = this.dwFlags, lpbiOutput: MutPtr = this.lpbiOutput, lpOutput: MutPtr = this.lpOutput, lpbiInput: MutPtr = this.lpbiInput, lpInput: MutPtr = this.lpInput, lpckid: MutPtr = this.lpckid, lpdwFlags: MutPtr = this.lpdwFlags, lFrameNum: Int = this.lFrameNum, dwFrameSize: UInt = this.dwFrameSize, dwQuality: UInt = this.dwQuality, lpbiPrev: MutPtr = this.lpbiPrev, lpPrev: MutPtr = this.lpPrev): Iccompress = Iccompress(dwFlags = dwFlags, lpbiOutputCtorArg = lpbiOutput, lpOutputCtorArg = lpOutput, lpbiInputCtorArg = lpbiInput, lpInputCtorArg = lpInput, lpckidCtorArg = lpckid, lpdwFlagsCtorArg = lpdwFlags, lFrameNum = lFrameNum, dwFrameSize = dwFrameSize, dwQuality = dwQuality, lpbiPrevCtorArg = lpbiPrev, lpPrevCtorArg = lpPrev)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -1534,93 +1530,93 @@ public class Iccompress internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<Bitmapinfoheader>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<CVoid>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 16L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<Bitmapinfoheader>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 24L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<CVoid>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 32L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<UInt>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 40L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<UInt>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 48L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr + 56L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 60L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 64L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<Bitmapinfoheader>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 72L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<CVoid>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 80L),
                     )
                 override fun writeNative(addr: Long, value: Iccompress) {
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr, value.dwFlags)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<Bitmapinfoheader>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.lpbiOutput)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<CVoid>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 16L, value.lpOutput)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<Bitmapinfoheader>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 24L, value.lpbiInput)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<CVoid>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 32L, value.lpInput)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<UInt>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 40L, value.lpckid)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<UInt>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 48L, value.lpdwFlags)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr + 56L, value.lFrameNum)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 60L, value.dwFrameSize)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 64L, value.dwQuality)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<Bitmapinfoheader>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 72L, value.lpbiPrev)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<CVoid>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 80L, value.lpPrev)
                 }
             }
 
         public operator fun invoke(
             dwFlags: UInt = 0u,
-            lpbiOutput: MutPtr<Bitmapinfoheader> = MutPtr(0L),
-            lpOutput: MutPtr<CVoid> = MutPtr(0L),
-            lpbiInput: MutPtr<Bitmapinfoheader> = MutPtr(0L),
-            lpInput: MutPtr<CVoid> = MutPtr(0L),
-            lpckid: MutPtr<UInt> = MutPtr(0L),
-            lpdwFlags: MutPtr<UInt> = MutPtr(0L),
+            lpbiOutput: MutPtr = MutPtr(0L),
+            lpOutput: MutPtr = MutPtr(0L),
+            lpbiInput: MutPtr = MutPtr(0L),
+            lpInput: MutPtr = MutPtr(0L),
+            lpckid: MutPtr = MutPtr(0L),
+            lpdwFlags: MutPtr = MutPtr(0L),
             lFrameNum: Int = 0,
             dwFrameSize: UInt = 0u,
             dwQuality: UInt = 0u,
-            lpbiPrev: MutPtr<Bitmapinfoheader> = MutPtr(0L),
-            lpPrev: MutPtr<CVoid> = MutPtr(0L),
+            lpbiPrev: MutPtr = MutPtr(0L),
+            lpPrev: MutPtr = MutPtr(0L),
         ): Iccompress =
             Iccompress(
                 dwFlags = dwFlags,
@@ -1641,9 +1637,9 @@ public class Iccompress internal constructor(
 
 public class Iccompressframes internal constructor(
     public var dwFlags: UInt,
-    lpbiOutputCtorArg: MutPtr<Bitmapinfoheader>,
+    lpbiOutputCtorArg: MutPtr,
     public var lOutput: Lparam,
-    lpbiInputCtorArg: MutPtr<Bitmapinfoheader>,
+    lpbiInputCtorArg: MutPtr,
     public var lInput: Lparam,
     public var lStartFrame: Int,
     public var lFrameCount: Int,
@@ -1657,10 +1653,10 @@ public class Iccompressframes internal constructor(
     public var getData: Int,
     public var putData: Int,
 ) {
-    public var lpbiOutput: MutPtr<Bitmapinfoheader> = lpbiOutputCtorArg
+    public var lpbiOutput: MutPtr = lpbiOutputCtorArg
         internal set
 
-    public var lpbiInput: MutPtr<Bitmapinfoheader> = lpbiInputCtorArg
+    public var lpbiInput: MutPtr = lpbiInputCtorArg
         internal set
 
     public constructor() : this(
@@ -1684,11 +1680,11 @@ public class Iccompressframes internal constructor(
 
     public operator fun component1(): UInt = this.dwFlags
 
-    public operator fun component2(): MutPtr<Bitmapinfoheader> = this.lpbiOutput
+    public operator fun component2(): MutPtr = this.lpbiOutput
 
     public operator fun component3(): Lparam = this.lOutput
 
-    public operator fun component4(): MutPtr<Bitmapinfoheader> = this.lpbiInput
+    public operator fun component4(): MutPtr = this.lpbiInput
 
     public operator fun component5(): Lparam = this.lInput
 
@@ -1714,7 +1710,7 @@ public class Iccompressframes internal constructor(
 
     public operator fun component16(): Int = this.putData
 
-    public fun copy(dwFlags: UInt = this.dwFlags, lpbiOutput: MutPtr<Bitmapinfoheader> = this.lpbiOutput, lOutput: Lparam = this.lOutput, lpbiInput: MutPtr<Bitmapinfoheader> = this.lpbiInput, lInput: Lparam = this.lInput, lStartFrame: Int = this.lStartFrame, lFrameCount: Int = this.lFrameCount, lQuality: Int = this.lQuality, lDataRate: Int = this.lDataRate, lKeyRate: Int = this.lKeyRate, dwRate: UInt = this.dwRate, dwScale: UInt = this.dwScale, dwOverheadPerFrame: UInt = this.dwOverheadPerFrame, dwReserved2: UInt = this.dwReserved2, getData: Int = this.getData, putData: Int = this.putData): Iccompressframes = Iccompressframes(dwFlags = dwFlags, lpbiOutputCtorArg = lpbiOutput, lOutput = lOutput, lpbiInputCtorArg = lpbiInput, lInput = lInput, lStartFrame = lStartFrame, lFrameCount = lFrameCount, lQuality = lQuality, lDataRate = lDataRate, lKeyRate = lKeyRate, dwRate = dwRate, dwScale = dwScale, dwOverheadPerFrame = dwOverheadPerFrame, dwReserved2 = dwReserved2, getData = getData, putData = putData)
+    public fun copy(dwFlags: UInt = this.dwFlags, lpbiOutput: MutPtr = this.lpbiOutput, lOutput: Lparam = this.lOutput, lpbiInput: MutPtr = this.lpbiInput, lInput: Lparam = this.lInput, lStartFrame: Int = this.lStartFrame, lFrameCount: Int = this.lFrameCount, lQuality: Int = this.lQuality, lDataRate: Int = this.lDataRate, lKeyRate: Int = this.lKeyRate, dwRate: UInt = this.dwRate, dwScale: UInt = this.dwScale, dwOverheadPerFrame: UInt = this.dwOverheadPerFrame, dwReserved2: UInt = this.dwReserved2, getData: Int = this.getData, putData: Int = this.putData): Iccompressframes = Iccompressframes(dwFlags = dwFlags, lpbiOutputCtorArg = lpbiOutput, lOutput = lOutput, lpbiInputCtorArg = lpbiInput, lInput = lInput, lStartFrame = lStartFrame, lFrameCount = lFrameCount, lQuality = lQuality, lDataRate = lDataRate, lKeyRate = lKeyRate, dwRate = dwRate, dwScale = dwScale, dwOverheadPerFrame = dwOverheadPerFrame, dwReserved2 = dwReserved2, getData = getData, putData = putData)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -1768,12 +1764,12 @@ public class Iccompressframes internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<Bitmapinfoheader>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I64).readNative(addr + 16L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<Bitmapinfoheader>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 24L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I64).readNative(addr + 32L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr + 40L),
@@ -1792,12 +1788,12 @@ public class Iccompressframes internal constructor(
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr, value.dwFlags)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<Bitmapinfoheader>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.lpbiOutput)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I64).writeNative(addr + 16L, value.lOutput)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<Bitmapinfoheader>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 24L, value.lpbiInput)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I64).writeNative(addr + 32L, value.lInput)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr + 40L, value.lStartFrame)
@@ -1816,9 +1812,9 @@ public class Iccompressframes internal constructor(
 
         public operator fun invoke(
             dwFlags: UInt = 0u,
-            lpbiOutput: MutPtr<Bitmapinfoheader> = MutPtr(0L),
+            lpbiOutput: MutPtr = MutPtr(0L),
             lOutput: Lparam = 0L,
-            lpbiInput: MutPtr<Bitmapinfoheader> = MutPtr(0L),
+            lpbiInput: MutPtr = MutPtr(0L),
             lInput: Lparam = 0L,
             lStartFrame: Int = 0,
             lFrameCount: Int = 0,
@@ -1855,22 +1851,22 @@ public class Iccompressframes internal constructor(
 
 public class Icdecompress internal constructor(
     public var dwFlags: UInt,
-    lpbiInputCtorArg: MutPtr<Bitmapinfoheader>,
-    lpInputCtorArg: MutPtr<CVoid>,
-    lpbiOutputCtorArg: MutPtr<Bitmapinfoheader>,
-    lpOutputCtorArg: MutPtr<CVoid>,
+    lpbiInputCtorArg: MutPtr,
+    lpInputCtorArg: MutPtr,
+    lpbiOutputCtorArg: MutPtr,
+    lpOutputCtorArg: MutPtr,
     public var ckid: UInt,
 ) {
-    public var lpbiInput: MutPtr<Bitmapinfoheader> = lpbiInputCtorArg
+    public var lpbiInput: MutPtr = lpbiInputCtorArg
         internal set
 
-    public var lpInput: MutPtr<CVoid> = lpInputCtorArg
+    public var lpInput: MutPtr = lpInputCtorArg
         internal set
 
-    public var lpbiOutput: MutPtr<Bitmapinfoheader> = lpbiOutputCtorArg
+    public var lpbiOutput: MutPtr = lpbiOutputCtorArg
         internal set
 
-    public var lpOutput: MutPtr<CVoid> = lpOutputCtorArg
+    public var lpOutput: MutPtr = lpOutputCtorArg
         internal set
 
     public constructor() : this(
@@ -1884,17 +1880,17 @@ public class Icdecompress internal constructor(
 
     public operator fun component1(): UInt = this.dwFlags
 
-    public operator fun component2(): MutPtr<Bitmapinfoheader> = this.lpbiInput
+    public operator fun component2(): MutPtr = this.lpbiInput
 
-    public operator fun component3(): MutPtr<CVoid> = this.lpInput
+    public operator fun component3(): MutPtr = this.lpInput
 
-    public operator fun component4(): MutPtr<Bitmapinfoheader> = this.lpbiOutput
+    public operator fun component4(): MutPtr = this.lpbiOutput
 
-    public operator fun component5(): MutPtr<CVoid> = this.lpOutput
+    public operator fun component5(): MutPtr = this.lpOutput
 
     public operator fun component6(): UInt = this.ckid
 
-    public fun copy(dwFlags: UInt = this.dwFlags, lpbiInput: MutPtr<Bitmapinfoheader> = this.lpbiInput, lpInput: MutPtr<CVoid> = this.lpInput, lpbiOutput: MutPtr<Bitmapinfoheader> = this.lpbiOutput, lpOutput: MutPtr<CVoid> = this.lpOutput, ckid: UInt = this.ckid): Icdecompress = Icdecompress(dwFlags = dwFlags, lpbiInputCtorArg = lpbiInput, lpInputCtorArg = lpInput, lpbiOutputCtorArg = lpbiOutput, lpOutputCtorArg = lpOutput, ckid = ckid)
+    public fun copy(dwFlags: UInt = this.dwFlags, lpbiInput: MutPtr = this.lpbiInput, lpInput: MutPtr = this.lpInput, lpbiOutput: MutPtr = this.lpbiOutput, lpOutput: MutPtr = this.lpOutput, ckid: UInt = this.ckid): Icdecompress = Icdecompress(dwFlags = dwFlags, lpbiInputCtorArg = lpbiInput, lpInputCtorArg = lpInput, lpbiOutputCtorArg = lpbiOutput, lpOutputCtorArg = lpOutput, ckid = ckid)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -1928,19 +1924,19 @@ public class Icdecompress internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<Bitmapinfoheader>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<CVoid>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 16L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<Bitmapinfoheader>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 24L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<CVoid>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 32L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 40L),
                     )
@@ -1948,19 +1944,19 @@ public class Icdecompress internal constructor(
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr, value.dwFlags)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<Bitmapinfoheader>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.lpbiInput)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<CVoid>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 16L, value.lpInput)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<Bitmapinfoheader>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 24L, value.lpbiOutput)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<CVoid>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 32L, value.lpOutput)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 40L, value.ckid)
                 }
@@ -1968,10 +1964,10 @@ public class Icdecompress internal constructor(
 
         public operator fun invoke(
             dwFlags: UInt = 0u,
-            lpbiInput: MutPtr<Bitmapinfoheader> = MutPtr(0L),
-            lpInput: MutPtr<CVoid> = MutPtr(0L),
-            lpbiOutput: MutPtr<Bitmapinfoheader> = MutPtr(0L),
-            lpOutput: MutPtr<CVoid> = MutPtr(0L),
+            lpbiInput: MutPtr = MutPtr(0L),
+            lpInput: MutPtr = MutPtr(0L),
+            lpbiOutput: MutPtr = MutPtr(0L),
+            lpOutput: MutPtr = MutPtr(0L),
             ckid: UInt = 0u,
         ): Icdecompress =
             Icdecompress(
@@ -1987,10 +1983,10 @@ public class Icdecompress internal constructor(
 
 public class Icdecompressex internal constructor(
     public var dwFlags: UInt,
-    lpbiSrcCtorArg: MutPtr<Bitmapinfoheader>,
-    lpSrcCtorArg: MutPtr<CVoid>,
-    lpbiDstCtorArg: MutPtr<Bitmapinfoheader>,
-    lpDstCtorArg: MutPtr<CVoid>,
+    lpbiSrcCtorArg: MutPtr,
+    lpSrcCtorArg: MutPtr,
+    lpbiDstCtorArg: MutPtr,
+    lpDstCtorArg: MutPtr,
     public var xDst: Int,
     public var yDst: Int,
     public var dxDst: Int,
@@ -2000,16 +1996,16 @@ public class Icdecompressex internal constructor(
     public var dxSrc: Int,
     public var dySrc: Int,
 ) {
-    public var lpbiSrc: MutPtr<Bitmapinfoheader> = lpbiSrcCtorArg
+    public var lpbiSrc: MutPtr = lpbiSrcCtorArg
         internal set
 
-    public var lpSrc: MutPtr<CVoid> = lpSrcCtorArg
+    public var lpSrc: MutPtr = lpSrcCtorArg
         internal set
 
-    public var lpbiDst: MutPtr<Bitmapinfoheader> = lpbiDstCtorArg
+    public var lpbiDst: MutPtr = lpbiDstCtorArg
         internal set
 
-    public var lpDst: MutPtr<CVoid> = lpDstCtorArg
+    public var lpDst: MutPtr = lpDstCtorArg
         internal set
 
     public constructor() : this(
@@ -2030,13 +2026,13 @@ public class Icdecompressex internal constructor(
 
     public operator fun component1(): UInt = this.dwFlags
 
-    public operator fun component2(): MutPtr<Bitmapinfoheader> = this.lpbiSrc
+    public operator fun component2(): MutPtr = this.lpbiSrc
 
-    public operator fun component3(): MutPtr<CVoid> = this.lpSrc
+    public operator fun component3(): MutPtr = this.lpSrc
 
-    public operator fun component4(): MutPtr<Bitmapinfoheader> = this.lpbiDst
+    public operator fun component4(): MutPtr = this.lpbiDst
 
-    public operator fun component5(): MutPtr<CVoid> = this.lpDst
+    public operator fun component5(): MutPtr = this.lpDst
 
     public operator fun component6(): Int = this.xDst
 
@@ -2054,7 +2050,7 @@ public class Icdecompressex internal constructor(
 
     public operator fun component13(): Int = this.dySrc
 
-    public fun copy(dwFlags: UInt = this.dwFlags, lpbiSrc: MutPtr<Bitmapinfoheader> = this.lpbiSrc, lpSrc: MutPtr<CVoid> = this.lpSrc, lpbiDst: MutPtr<Bitmapinfoheader> = this.lpbiDst, lpDst: MutPtr<CVoid> = this.lpDst, xDst: Int = this.xDst, yDst: Int = this.yDst, dxDst: Int = this.dxDst, dyDst: Int = this.dyDst, xSrc: Int = this.xSrc, ySrc: Int = this.ySrc, dxSrc: Int = this.dxSrc, dySrc: Int = this.dySrc): Icdecompressex = Icdecompressex(dwFlags = dwFlags, lpbiSrcCtorArg = lpbiSrc, lpSrcCtorArg = lpSrc, lpbiDstCtorArg = lpbiDst, lpDstCtorArg = lpDst, xDst = xDst, yDst = yDst, dxDst = dxDst, dyDst = dyDst, xSrc = xSrc, ySrc = ySrc, dxSrc = dxSrc, dySrc = dySrc)
+    public fun copy(dwFlags: UInt = this.dwFlags, lpbiSrc: MutPtr = this.lpbiSrc, lpSrc: MutPtr = this.lpSrc, lpbiDst: MutPtr = this.lpbiDst, lpDst: MutPtr = this.lpDst, xDst: Int = this.xDst, yDst: Int = this.yDst, dxDst: Int = this.dxDst, dyDst: Int = this.dyDst, xSrc: Int = this.xSrc, ySrc: Int = this.ySrc, dxSrc: Int = this.dxSrc, dySrc: Int = this.dySrc): Icdecompressex = Icdecompressex(dwFlags = dwFlags, lpbiSrcCtorArg = lpbiSrc, lpSrcCtorArg = lpSrc, lpbiDstCtorArg = lpbiDst, lpDstCtorArg = lpDst, xDst = xDst, yDst = yDst, dxDst = dxDst, dyDst = dyDst, xSrc = xSrc, ySrc = ySrc, dxSrc = dxSrc, dySrc = dySrc)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -2102,19 +2098,19 @@ public class Icdecompressex internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<Bitmapinfoheader>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<CVoid>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 16L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<Bitmapinfoheader>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 24L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<CVoid>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 32L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr + 40L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr + 44L),
@@ -2129,19 +2125,19 @@ public class Icdecompressex internal constructor(
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr, value.dwFlags)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<Bitmapinfoheader>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.lpbiSrc)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<CVoid>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 16L, value.lpSrc)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<Bitmapinfoheader>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 24L, value.lpbiDst)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<CVoid>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 32L, value.lpDst)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr + 40L, value.xDst)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr + 44L, value.yDst)
@@ -2156,10 +2152,10 @@ public class Icdecompressex internal constructor(
 
         public operator fun invoke(
             dwFlags: UInt = 0u,
-            lpbiSrc: MutPtr<Bitmapinfoheader> = MutPtr(0L),
-            lpSrc: MutPtr<CVoid> = MutPtr(0L),
-            lpbiDst: MutPtr<Bitmapinfoheader> = MutPtr(0L),
-            lpDst: MutPtr<CVoid> = MutPtr(0L),
+            lpbiSrc: MutPtr = MutPtr(0L),
+            lpSrc: MutPtr = MutPtr(0L),
+            lpbiDst: MutPtr = MutPtr(0L),
+            lpDst: MutPtr = MutPtr(0L),
             xDst: Int = 0,
             yDst: Int = 0,
             dxDst: Int = 0,
@@ -2189,15 +2185,15 @@ public class Icdecompressex internal constructor(
 
 public class Icdraw internal constructor(
     public var dwFlags: UInt,
-    lpFormatCtorArg: MutPtr<CVoid>,
-    lpDataCtorArg: MutPtr<CVoid>,
+    lpFormatCtorArg: MutPtr,
+    lpDataCtorArg: MutPtr,
     public var cbData: UInt,
     public var lTime: Int,
 ) {
-    public var lpFormat: MutPtr<CVoid> = lpFormatCtorArg
+    public var lpFormat: MutPtr = lpFormatCtorArg
         internal set
 
-    public var lpData: MutPtr<CVoid> = lpDataCtorArg
+    public var lpData: MutPtr = lpDataCtorArg
         internal set
 
     public constructor() : this(
@@ -2210,15 +2206,15 @@ public class Icdraw internal constructor(
 
     public operator fun component1(): UInt = this.dwFlags
 
-    public operator fun component2(): MutPtr<CVoid> = this.lpFormat
+    public operator fun component2(): MutPtr = this.lpFormat
 
-    public operator fun component3(): MutPtr<CVoid> = this.lpData
+    public operator fun component3(): MutPtr = this.lpData
 
     public operator fun component4(): UInt = this.cbData
 
     public operator fun component5(): Int = this.lTime
 
-    public fun copy(dwFlags: UInt = this.dwFlags, lpFormat: MutPtr<CVoid> = this.lpFormat, lpData: MutPtr<CVoid> = this.lpData, cbData: UInt = this.cbData, lTime: Int = this.lTime): Icdraw = Icdraw(dwFlags = dwFlags, lpFormatCtorArg = lpFormat, lpDataCtorArg = lpData, cbData = cbData, lTime = lTime)
+    public fun copy(dwFlags: UInt = this.dwFlags, lpFormat: MutPtr = this.lpFormat, lpData: MutPtr = this.lpData, cbData: UInt = this.cbData, lTime: Int = this.lTime): Icdraw = Icdraw(dwFlags = dwFlags, lpFormatCtorArg = lpFormat, lpDataCtorArg = lpData, cbData = cbData, lTime = lTime)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -2250,11 +2246,11 @@ public class Icdraw internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<CVoid>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<CVoid>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 16L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 24L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr + 28L),
@@ -2263,11 +2259,11 @@ public class Icdraw internal constructor(
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr, value.dwFlags)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<CVoid>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.lpFormat)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<CVoid>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 16L, value.lpData)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 24L, value.cbData)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr + 28L, value.lTime)
@@ -2276,8 +2272,8 @@ public class Icdraw internal constructor(
 
         public operator fun invoke(
             dwFlags: UInt = 0u,
-            lpFormat: MutPtr<CVoid> = MutPtr(0L),
-            lpData: MutPtr<CVoid> = MutPtr(0L),
+            lpFormat: MutPtr = MutPtr(0L),
+            lpData: MutPtr = MutPtr(0L),
             cbData: UInt = 0u,
             lTime: Int = 0,
         ): Icdraw =
@@ -2300,7 +2296,7 @@ public class Icdrawbegin internal constructor(
     public var yDst: Int,
     public var dxDst: Int,
     public var dyDst: Int,
-    lpbiCtorArg: MutPtr<Bitmapinfoheader>,
+    lpbiCtorArg: MutPtr,
     public var xSrc: Int,
     public var ySrc: Int,
     public var dxSrc: Int,
@@ -2317,7 +2313,7 @@ public class Icdrawbegin internal constructor(
     public var hdc: Hdc = hdcCtorArg
         internal set
 
-    public var lpbi: MutPtr<Bitmapinfoheader> = lpbiCtorArg
+    public var lpbi: MutPtr = lpbiCtorArg
         internal set
 
     public constructor() : this(
@@ -2354,7 +2350,7 @@ public class Icdrawbegin internal constructor(
 
     public operator fun component8(): Int = this.dyDst
 
-    public operator fun component9(): MutPtr<Bitmapinfoheader> = this.lpbi
+    public operator fun component9(): MutPtr = this.lpbi
 
     public operator fun component10(): Int = this.xSrc
 
@@ -2368,7 +2364,7 @@ public class Icdrawbegin internal constructor(
 
     public operator fun component15(): UInt = this.dwScale
 
-    public fun copy(dwFlags: UInt = this.dwFlags, hpal: Hpalette = this.hpal, hwnd: Hwnd = this.hwnd, hdc: Hdc = this.hdc, xDst: Int = this.xDst, yDst: Int = this.yDst, dxDst: Int = this.dxDst, dyDst: Int = this.dyDst, lpbi: MutPtr<Bitmapinfoheader> = this.lpbi, xSrc: Int = this.xSrc, ySrc: Int = this.ySrc, dxSrc: Int = this.dxSrc, dySrc: Int = this.dySrc, dwRate: UInt = this.dwRate, dwScale: UInt = this.dwScale): Icdrawbegin = Icdrawbegin(dwFlags = dwFlags, hpalCtorArg = hpal, hwndCtorArg = hwnd, hdcCtorArg = hdc, xDst = xDst, yDst = yDst, dxDst = dxDst, dyDst = dyDst, lpbiCtorArg = lpbi, xSrc = xSrc, ySrc = ySrc, dxSrc = dxSrc, dySrc = dySrc, dwRate = dwRate, dwScale = dwScale)
+    public fun copy(dwFlags: UInt = this.dwFlags, hpal: Hpalette = this.hpal, hwnd: Hwnd = this.hwnd, hdc: Hdc = this.hdc, xDst: Int = this.xDst, yDst: Int = this.yDst, dxDst: Int = this.dxDst, dyDst: Int = this.dyDst, lpbi: MutPtr = this.lpbi, xSrc: Int = this.xSrc, ySrc: Int = this.ySrc, dxSrc: Int = this.dxSrc, dySrc: Int = this.dySrc, dwRate: UInt = this.dwRate, dwScale: UInt = this.dwScale): Icdrawbegin = Icdrawbegin(dwFlags = dwFlags, hpalCtorArg = hpal, hwndCtorArg = hwnd, hdcCtorArg = hdc, xDst = xDst, yDst = yDst, dxDst = dxDst, dyDst = dyDst, lpbiCtorArg = lpbi, xSrc = xSrc, ySrc = ySrc, dxSrc = dxSrc, dySrc = dySrc, dwRate = dwRate, dwScale = dwScale)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -2420,7 +2416,7 @@ public class Icdrawbegin internal constructor(
             yDst: Int = 0,
             dxDst: Int = 0,
             dyDst: Int = 0,
-            lpbi: MutPtr<Bitmapinfoheader> = MutPtr(0L),
+            lpbi: MutPtr = MutPtr(0L),
             xSrc: Int = 0,
             ySrc: Int = 0,
             dxSrc: Int = 0,
@@ -2449,18 +2445,18 @@ public class Icdrawbegin internal constructor(
 }
 
 public class Icdrawsuggest internal constructor(
-    lpbiInCtorArg: MutPtr<Bitmapinfoheader>,
-    lpbiSuggestCtorArg: MutPtr<Bitmapinfoheader>,
+    lpbiInCtorArg: MutPtr,
+    lpbiSuggestCtorArg: MutPtr,
     public var dxSrc: Int,
     public var dySrc: Int,
     public var dxDst: Int,
     public var dyDst: Int,
     hicDecompressorCtorArg: Hic,
 ) {
-    public var lpbiIn: MutPtr<Bitmapinfoheader> = lpbiInCtorArg
+    public var lpbiIn: MutPtr = lpbiInCtorArg
         internal set
 
-    public var lpbiSuggest: MutPtr<Bitmapinfoheader> = lpbiSuggestCtorArg
+    public var lpbiSuggest: MutPtr = lpbiSuggestCtorArg
         internal set
 
     public var hicDecompressor: Hic = hicDecompressorCtorArg
@@ -2476,9 +2472,9 @@ public class Icdrawsuggest internal constructor(
         hicDecompressorCtorArg = MutPtr(0L),
     )
 
-    public operator fun component1(): MutPtr<Bitmapinfoheader> = this.lpbiIn
+    public operator fun component1(): MutPtr = this.lpbiIn
 
-    public operator fun component2(): MutPtr<Bitmapinfoheader> = this.lpbiSuggest
+    public operator fun component2(): MutPtr = this.lpbiSuggest
 
     public operator fun component3(): Int = this.dxSrc
 
@@ -2490,7 +2486,7 @@ public class Icdrawsuggest internal constructor(
 
     public operator fun component7(): Hic = this.hicDecompressor
 
-    public fun copy(lpbiIn: MutPtr<Bitmapinfoheader> = this.lpbiIn, lpbiSuggest: MutPtr<Bitmapinfoheader> = this.lpbiSuggest, dxSrc: Int = this.dxSrc, dySrc: Int = this.dySrc, dxDst: Int = this.dxDst, dyDst: Int = this.dyDst, hicDecompressor: Hic = this.hicDecompressor): Icdrawsuggest = Icdrawsuggest(lpbiInCtorArg = lpbiIn, lpbiSuggestCtorArg = lpbiSuggest, dxSrc = dxSrc, dySrc = dySrc, dxDst = dxDst, dyDst = dyDst, hicDecompressorCtorArg = hicDecompressor)
+    public fun copy(lpbiIn: MutPtr = this.lpbiIn, lpbiSuggest: MutPtr = this.lpbiSuggest, dxSrc: Int = this.dxSrc, dySrc: Int = this.dySrc, dxDst: Int = this.dxDst, dyDst: Int = this.dyDst, hicDecompressor: Hic = this.hicDecompressor): Icdrawsuggest = Icdrawsuggest(lpbiInCtorArg = lpbiIn, lpbiSuggestCtorArg = lpbiSuggest, dxSrc = dxSrc, dySrc = dySrc, dxDst = dxDst, dyDst = dyDst, hicDecompressorCtorArg = hicDecompressor)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -2525,11 +2521,11 @@ public class Icdrawsuggest internal constructor(
                     Icdrawsuggest(
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<Bitmapinfoheader>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<Bitmapinfoheader>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr + 16L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr + 20L),
@@ -2537,17 +2533,17 @@ public class Icdrawsuggest internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr + 28L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<CVoid>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 32L),
                     )
                 override fun writeNative(addr: Long, value: Icdrawsuggest) {
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<Bitmapinfoheader>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr, value.lpbiIn)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<Bitmapinfoheader>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.lpbiSuggest)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr + 16L, value.dxSrc)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr + 20L, value.dySrc)
@@ -2555,14 +2551,14 @@ public class Icdrawsuggest internal constructor(
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr + 28L, value.dyDst)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<CVoid>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 32L, value.hicDecompressor)
                 }
             }
 
         public operator fun invoke(
-            lpbiIn: MutPtr<Bitmapinfoheader> = MutPtr(0L),
-            lpbiSuggest: MutPtr<Bitmapinfoheader> = MutPtr(0L),
+            lpbiIn: MutPtr = MutPtr(0L),
+            lpbiSuggest: MutPtr = MutPtr(0L),
             dxSrc: Int = 0,
             dySrc: Int = 0,
             dxDst: Int = 0,
@@ -2677,14 +2673,14 @@ public class Icopen internal constructor(
     public var dwVersion: UInt,
     public var dwFlags: UInt,
     public var dwError: Lresult,
-    pV1ReservedCtorArg: MutPtr<CVoid>,
-    pV2ReservedCtorArg: MutPtr<CVoid>,
+    pV1ReservedCtorArg: MutPtr,
+    pV2ReservedCtorArg: MutPtr,
     public var dnDevNode: UInt,
 ) {
-    public var pV1Reserved: MutPtr<CVoid> = pV1ReservedCtorArg
+    public var pV1Reserved: MutPtr = pV1ReservedCtorArg
         internal set
 
-    public var pV2Reserved: MutPtr<CVoid> = pV2ReservedCtorArg
+    public var pV2Reserved: MutPtr = pV2ReservedCtorArg
         internal set
 
     public constructor() : this(
@@ -2711,13 +2707,13 @@ public class Icopen internal constructor(
 
     public operator fun component6(): Lresult = this.dwError
 
-    public operator fun component7(): MutPtr<CVoid> = this.pV1Reserved
+    public operator fun component7(): MutPtr = this.pV1Reserved
 
-    public operator fun component8(): MutPtr<CVoid> = this.pV2Reserved
+    public operator fun component8(): MutPtr = this.pV2Reserved
 
     public operator fun component9(): UInt = this.dnDevNode
 
-    public fun copy(dwSize: UInt = this.dwSize, fccType: UInt = this.fccType, fccHandler: UInt = this.fccHandler, dwVersion: UInt = this.dwVersion, dwFlags: UInt = this.dwFlags, dwError: Lresult = this.dwError, pV1Reserved: MutPtr<CVoid> = this.pV1Reserved, pV2Reserved: MutPtr<CVoid> = this.pV2Reserved, dnDevNode: UInt = this.dnDevNode): Icopen = Icopen(dwSize = dwSize, fccType = fccType, fccHandler = fccHandler, dwVersion = dwVersion, dwFlags = dwFlags, dwError = dwError, pV1ReservedCtorArg = pV1Reserved, pV2ReservedCtorArg = pV2Reserved, dnDevNode = dnDevNode)
+    public fun copy(dwSize: UInt = this.dwSize, fccType: UInt = this.fccType, fccHandler: UInt = this.fccHandler, dwVersion: UInt = this.dwVersion, dwFlags: UInt = this.dwFlags, dwError: Lresult = this.dwError, pV1Reserved: MutPtr = this.pV1Reserved, pV2Reserved: MutPtr = this.pV2Reserved, dnDevNode: UInt = this.dnDevNode): Icopen = Icopen(dwSize = dwSize, fccType = fccType, fccHandler = fccHandler, dwVersion = dwVersion, dwFlags = dwFlags, dwError = dwError, pV1ReservedCtorArg = pV1Reserved, pV2ReservedCtorArg = pV2Reserved, dnDevNode = dnDevNode)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -2762,11 +2758,11 @@ public class Icopen internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I64).readNative(addr + 24L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<CVoid>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 32L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<CVoid>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 40L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 48L),
                     )
@@ -2779,11 +2775,11 @@ public class Icopen internal constructor(
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I64).writeNative(addr + 24L, value.dwError)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<CVoid>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 32L, value.pV1Reserved)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<CVoid>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 40L, value.pV2Reserved)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 48L, value.dnDevNode)
                 }
@@ -2796,8 +2792,8 @@ public class Icopen internal constructor(
             dwVersion: UInt = 0u,
             dwFlags: UInt = 0u,
             dwError: Lresult = 0L,
-            pV1Reserved: MutPtr<CVoid> = MutPtr(0L),
-            pV2Reserved: MutPtr<CVoid> = MutPtr(0L),
+            pV1Reserved: MutPtr = MutPtr(0L),
+            pV2Reserved: MutPtr = MutPtr(0L),
             dnDevNode: UInt = 0u,
         ): Icopen =
             Icopen(
@@ -2818,9 +2814,9 @@ public class Icpalette internal constructor(
     public var dwFlags: UInt,
     public var iStart: Int,
     public var iLen: Int,
-    lppeCtorArg: MutPtr<Paletteentry>,
+    lppeCtorArg: MutPtr,
 ) {
-    public var lppe: MutPtr<Paletteentry> = lppeCtorArg
+    public var lppe: MutPtr = lppeCtorArg
         internal set
 
     public constructor() : this(
@@ -2836,9 +2832,9 @@ public class Icpalette internal constructor(
 
     public operator fun component3(): Int = this.iLen
 
-    public operator fun component4(): MutPtr<Paletteentry> = this.lppe
+    public operator fun component4(): MutPtr = this.lppe
 
-    public fun copy(dwFlags: UInt = this.dwFlags, iStart: Int = this.iStart, iLen: Int = this.iLen, lppe: MutPtr<Paletteentry> = this.lppe): Icpalette = Icpalette(dwFlags = dwFlags, iStart = iStart, iLen = iLen, lppeCtorArg = lppe)
+    public fun copy(dwFlags: UInt = this.dwFlags, iStart: Int = this.iStart, iLen: Int = this.iLen, lppe: MutPtr = this.lppe): Icpalette = Icpalette(dwFlags = dwFlags, iStart = iStart, iLen = iLen, lppeCtorArg = lppe)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -2870,7 +2866,7 @@ public class Icpalette internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr + 8L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<Paletteentry>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 16L),
                     )
                 override fun writeNative(addr: Long, value: Icpalette) {
@@ -2879,7 +2875,7 @@ public class Icpalette internal constructor(
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr + 8L, value.iLen)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<Paletteentry>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 16L, value.lppe)
                 }
             }
@@ -2888,7 +2884,7 @@ public class Icpalette internal constructor(
             dwFlags: UInt = 0u,
             iStart: Int = 0,
             iLen: Int = 0,
-            lppe: MutPtr<Paletteentry> = MutPtr(0L),
+            lppe: MutPtr = MutPtr(0L),
         ): Icpalette =
             Icpalette(
                 dwFlags = dwFlags,
@@ -7419,7 +7415,7 @@ public data class Midiopenstrmid(
 
 public class Mixeropendesc internal constructor(
     hmxCtorArg: Hmixer,
-    pReserved0CtorArg: MutPtr<CVoid>,
+    pReserved0CtorArg: MutPtr,
     public var dwCallback: Int,
     public var dwInstance: Int,
     public var dnDevNode: Int,
@@ -7427,7 +7423,7 @@ public class Mixeropendesc internal constructor(
     public var hmx: Hmixer = hmxCtorArg
         internal set
 
-    public var pReserved0: MutPtr<CVoid> = pReserved0CtorArg
+    public var pReserved0: MutPtr = pReserved0CtorArg
         internal set
 
     public constructor() : this(
@@ -7440,7 +7436,7 @@ public class Mixeropendesc internal constructor(
 
     public operator fun component1(): Hmixer = this.hmx
 
-    public operator fun component2(): MutPtr<CVoid> = this.pReserved0
+    public operator fun component2(): MutPtr = this.pReserved0
 
     public operator fun component3(): Int = this.dwCallback
 
@@ -7448,7 +7444,7 @@ public class Mixeropendesc internal constructor(
 
     public operator fun component5(): Int = this.dnDevNode
 
-    public fun copy(hmx: Hmixer = this.hmx, pReserved0: MutPtr<CVoid> = this.pReserved0, dwCallback: Int = this.dwCallback, dwInstance: Int = this.dwInstance, dnDevNode: Int = this.dnDevNode): Mixeropendesc = Mixeropendesc(hmxCtorArg = hmx, pReserved0CtorArg = pReserved0, dwCallback = dwCallback, dwInstance = dwInstance, dnDevNode = dnDevNode)
+    public fun copy(hmx: Hmixer = this.hmx, pReserved0: MutPtr = this.pReserved0, dwCallback: Int = this.dwCallback, dwInstance: Int = this.dwInstance, dnDevNode: Int = this.dnDevNode): Mixeropendesc = Mixeropendesc(hmxCtorArg = hmx, pReserved0CtorArg = pReserved0, dwCallback = dwCallback, dwInstance = dwInstance, dnDevNode = dnDevNode)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -7473,7 +7469,7 @@ public class Mixeropendesc internal constructor(
     public companion object {
         public operator fun invoke(
             hmx: Hmixer = MutPtr(0L),
-            pReserved0: MutPtr<CVoid> = MutPtr(0L),
+            pReserved0: MutPtr = MutPtr(0L),
             dwCallback: Int = 0,
             dwInstance: Int = 0,
             dnDevNode: Int = 0,
@@ -7526,10 +7522,10 @@ public class Mmioinfo internal constructor(
     public var wErrorRet: UInt,
     htaskCtorArg: Htask,
     public var cchBuffer: Int,
-    pchBufferCtorArg: MutPtr<Byte>,
-    pchNextCtorArg: MutPtr<Byte>,
-    pchEndReadCtorArg: MutPtr<Byte>,
-    pchEndWriteCtorArg: MutPtr<Byte>,
+    pchBufferCtorArg: MutPtr,
+    pchNextCtorArg: MutPtr,
+    pchEndReadCtorArg: MutPtr,
+    pchEndWriteCtorArg: MutPtr,
     public var lBufOffset: Int,
     public var lDiskOffset: Int,
     public var adwInfo: UIntArray,
@@ -7540,16 +7536,16 @@ public class Mmioinfo internal constructor(
     public var htask: Htask = htaskCtorArg
         internal set
 
-    public var pchBuffer: MutPtr<Byte> = pchBufferCtorArg
+    public var pchBuffer: MutPtr = pchBufferCtorArg
         internal set
 
-    public var pchNext: MutPtr<Byte> = pchNextCtorArg
+    public var pchNext: MutPtr = pchNextCtorArg
         internal set
 
-    public var pchEndRead: MutPtr<Byte> = pchEndReadCtorArg
+    public var pchEndRead: MutPtr = pchEndReadCtorArg
         internal set
 
-    public var pchEndWrite: MutPtr<Byte> = pchEndWriteCtorArg
+    public var pchEndWrite: MutPtr = pchEndWriteCtorArg
         internal set
 
     public var hmmio: Hmmio = hmmioCtorArg
@@ -7586,13 +7582,13 @@ public class Mmioinfo internal constructor(
 
     public operator fun component6(): Int = this.cchBuffer
 
-    public operator fun component7(): MutPtr<Byte> = this.pchBuffer
+    public operator fun component7(): MutPtr = this.pchBuffer
 
-    public operator fun component8(): MutPtr<Byte> = this.pchNext
+    public operator fun component8(): MutPtr = this.pchNext
 
-    public operator fun component9(): MutPtr<Byte> = this.pchEndRead
+    public operator fun component9(): MutPtr = this.pchEndRead
 
-    public operator fun component10(): MutPtr<Byte> = this.pchEndWrite
+    public operator fun component10(): MutPtr = this.pchEndWrite
 
     public operator fun component11(): Int = this.lBufOffset
 
@@ -7606,7 +7602,7 @@ public class Mmioinfo internal constructor(
 
     public operator fun component16(): Hmmio = this.hmmio
 
-    public fun copy(dwFlags: UInt = this.dwFlags, fccIOProc: UInt = this.fccIOProc, pIOProc: Lpmmioproc = this.pIOProc, wErrorRet: UInt = this.wErrorRet, htask: Htask = this.htask, cchBuffer: Int = this.cchBuffer, pchBuffer: MutPtr<Byte> = this.pchBuffer, pchNext: MutPtr<Byte> = this.pchNext, pchEndRead: MutPtr<Byte> = this.pchEndRead, pchEndWrite: MutPtr<Byte> = this.pchEndWrite, lBufOffset: Int = this.lBufOffset, lDiskOffset: Int = this.lDiskOffset, adwInfo: UIntArray = this.adwInfo, dwReserved1: UInt = this.dwReserved1, dwReserved2: UInt = this.dwReserved2, hmmio: Hmmio = this.hmmio): Mmioinfo = Mmioinfo(dwFlags = dwFlags, fccIOProc = fccIOProc, pIOProc = pIOProc, wErrorRet = wErrorRet, htaskCtorArg = htask, cchBuffer = cchBuffer, pchBufferCtorArg = pchBuffer, pchNextCtorArg = pchNext, pchEndReadCtorArg = pchEndRead, pchEndWriteCtorArg = pchEndWrite, lBufOffset = lBufOffset, lDiskOffset = lDiskOffset, adwInfo = adwInfo, dwReserved1 = dwReserved1, dwReserved2 = dwReserved2, hmmioCtorArg = hmmio)
+    public fun copy(dwFlags: UInt = this.dwFlags, fccIOProc: UInt = this.fccIOProc, pIOProc: Lpmmioproc = this.pIOProc, wErrorRet: UInt = this.wErrorRet, htask: Htask = this.htask, cchBuffer: Int = this.cchBuffer, pchBuffer: MutPtr = this.pchBuffer, pchNext: MutPtr = this.pchNext, pchEndRead: MutPtr = this.pchEndRead, pchEndWrite: MutPtr = this.pchEndWrite, lBufOffset: Int = this.lBufOffset, lDiskOffset: Int = this.lDiskOffset, adwInfo: UIntArray = this.adwInfo, dwReserved1: UInt = this.dwReserved1, dwReserved2: UInt = this.dwReserved2, hmmio: Hmmio = this.hmmio): Mmioinfo = Mmioinfo(dwFlags = dwFlags, fccIOProc = fccIOProc, pIOProc = pIOProc, wErrorRet = wErrorRet, htaskCtorArg = htask, cchBuffer = cchBuffer, pchBufferCtorArg = pchBuffer, pchNextCtorArg = pchNext, pchEndReadCtorArg = pchEndRead, pchEndWriteCtorArg = pchEndWrite, lBufOffset = lBufOffset, lDiskOffset = lDiskOffset, adwInfo = adwInfo, dwReserved1 = dwReserved1, dwReserved2 = dwReserved2, hmmioCtorArg = hmmio)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -7658,10 +7654,10 @@ public class Mmioinfo internal constructor(
             wErrorRet: UInt = 0u,
             htask: Htask = MutPtr(0L),
             cchBuffer: Int = 0,
-            pchBuffer: MutPtr<Byte> = MutPtr(0L),
-            pchNext: MutPtr<Byte> = MutPtr(0L),
-            pchEndRead: MutPtr<Byte> = MutPtr(0L),
-            pchEndWrite: MutPtr<Byte> = MutPtr(0L),
+            pchBuffer: MutPtr = MutPtr(0L),
+            pchNext: MutPtr = MutPtr(0L),
+            pchEndRead: MutPtr = MutPtr(0L),
+            pchEndWrite: MutPtr = MutPtr(0L),
             lBufOffset: Int = 0,
             lDiskOffset: Int = 0,
             adwInfo: UIntArray = UIntArray(3),
@@ -7766,7 +7762,7 @@ public data class Truespeechwaveformat(
 }
 
 public class Videohdr internal constructor(
-    lpDataCtorArg: MutPtr<UByte>,
+    lpDataCtorArg: MutPtr,
     public var dwBufferLength: UInt,
     public var dwBytesUsed: UInt,
     public var dwTimeCaptured: UInt,
@@ -7774,7 +7770,7 @@ public class Videohdr internal constructor(
     public var dwFlags: UInt,
     public var dwReserved: IntArray,
 ) {
-    public var lpData: MutPtr<UByte> = lpDataCtorArg
+    public var lpData: MutPtr = lpDataCtorArg
         internal set
 
     public constructor() : this(
@@ -7787,7 +7783,7 @@ public class Videohdr internal constructor(
         dwReserved = IntArray(4),
     )
 
-    public operator fun component1(): MutPtr<UByte> = this.lpData
+    public operator fun component1(): MutPtr = this.lpData
 
     public operator fun component2(): UInt = this.dwBufferLength
 
@@ -7801,7 +7797,7 @@ public class Videohdr internal constructor(
 
     public operator fun component7(): IntArray = this.dwReserved
 
-    public fun copy(lpData: MutPtr<UByte> = this.lpData, dwBufferLength: UInt = this.dwBufferLength, dwBytesUsed: UInt = this.dwBytesUsed, dwTimeCaptured: UInt = this.dwTimeCaptured, dwUser: Int = this.dwUser, dwFlags: UInt = this.dwFlags, dwReserved: IntArray = this.dwReserved): Videohdr = Videohdr(lpDataCtorArg = lpData, dwBufferLength = dwBufferLength, dwBytesUsed = dwBytesUsed, dwTimeCaptured = dwTimeCaptured, dwUser = dwUser, dwFlags = dwFlags, dwReserved = dwReserved)
+    public fun copy(lpData: MutPtr = this.lpData, dwBufferLength: UInt = this.dwBufferLength, dwBytesUsed: UInt = this.dwBytesUsed, dwTimeCaptured: UInt = this.dwTimeCaptured, dwUser: Int = this.dwUser, dwFlags: UInt = this.dwFlags, dwReserved: IntArray = this.dwReserved): Videohdr = Videohdr(lpDataCtorArg = lpData, dwBufferLength = dwBufferLength, dwBytesUsed = dwBytesUsed, dwTimeCaptured = dwTimeCaptured, dwUser = dwUser, dwFlags = dwFlags, dwReserved = dwReserved)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -7836,7 +7832,7 @@ public class Videohdr internal constructor(
                     Videohdr(
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<UByte>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 8L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 12L),
@@ -7851,7 +7847,7 @@ public class Videohdr internal constructor(
                 override fun writeNative(addr: Long, value: Videohdr) {
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<UByte>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr, value.lpData)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 8L, value.dwBufferLength)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 12L, value.dwBytesUsed)
@@ -7866,7 +7862,7 @@ public class Videohdr internal constructor(
             }
 
         public operator fun invoke(
-            lpData: MutPtr<UByte> = MutPtr(0L),
+            lpData: MutPtr = MutPtr(0L),
             dwBufferLength: UInt = 0u,
             dwBytesUsed: UInt = 0u,
             dwTimeCaptured: UInt = 0u,
@@ -7888,7 +7884,7 @@ public class Videohdr internal constructor(
 
 public class Waveopendesc internal constructor(
     hWaveCtorArg: Hwave,
-    lpFormatCtorArg: MutPtr<Waveformat>,
+    lpFormatCtorArg: MutPtr,
     public var dwCallback: Int,
     public var dwInstance: Int,
     public var uMappedDeviceID: UInt,
@@ -7897,7 +7893,7 @@ public class Waveopendesc internal constructor(
     public var hWave: Hwave = hWaveCtorArg
         internal set
 
-    public var lpFormat: MutPtr<Waveformat> = lpFormatCtorArg
+    public var lpFormat: MutPtr = lpFormatCtorArg
         internal set
 
     public constructor() : this(
@@ -7911,7 +7907,7 @@ public class Waveopendesc internal constructor(
 
     public operator fun component1(): Hwave = this.hWave
 
-    public operator fun component2(): MutPtr<Waveformat> = this.lpFormat
+    public operator fun component2(): MutPtr = this.lpFormat
 
     public operator fun component3(): Int = this.dwCallback
 
@@ -7921,7 +7917,7 @@ public class Waveopendesc internal constructor(
 
     public operator fun component6(): Int = this.dnDevNode
 
-    public fun copy(hWave: Hwave = this.hWave, lpFormat: MutPtr<Waveformat> = this.lpFormat, dwCallback: Int = this.dwCallback, dwInstance: Int = this.dwInstance, uMappedDeviceID: UInt = this.uMappedDeviceID, dnDevNode: Int = this.dnDevNode): Waveopendesc = Waveopendesc(hWaveCtorArg = hWave, lpFormatCtorArg = lpFormat, dwCallback = dwCallback, dwInstance = dwInstance, uMappedDeviceID = uMappedDeviceID, dnDevNode = dnDevNode)
+    public fun copy(hWave: Hwave = this.hWave, lpFormat: MutPtr = this.lpFormat, dwCallback: Int = this.dwCallback, dwInstance: Int = this.dwInstance, uMappedDeviceID: UInt = this.uMappedDeviceID, dnDevNode: Int = this.dnDevNode): Waveopendesc = Waveopendesc(hWaveCtorArg = hWave, lpFormatCtorArg = lpFormat, dwCallback = dwCallback, dwInstance = dwInstance, uMappedDeviceID = uMappedDeviceID, dnDevNode = dnDevNode)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -7948,7 +7944,7 @@ public class Waveopendesc internal constructor(
     public companion object {
         public operator fun invoke(
             hWave: Hwave = MutPtr(0L),
-            lpFormat: MutPtr<Waveformat> = MutPtr(0L),
+            lpFormat: MutPtr = MutPtr(0L),
             dwCallback: Int = 0,
             dwInstance: Int = 0,
             uMappedDeviceID: UInt = 0u,

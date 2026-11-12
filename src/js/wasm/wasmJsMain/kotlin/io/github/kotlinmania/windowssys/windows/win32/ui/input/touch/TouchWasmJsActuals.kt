@@ -48,25 +48,25 @@ public actual fun closeGestureInfoHandle(hgestureinfo: Hgestureinfo): Bool =
 public actual fun closeTouchInputHandle(htouchinput: Htouchinput): Bool =
     if (windowsWin32UiInputTouchNapiAvailable) wasmWindowssysWindowsWin32UiInputTouchCloseTouchInputHandle(htouchinput.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun getGestureConfig(hwnd: Hwnd, dwreserved: UInt, dwflags: UInt, pcids: ConstPtr<UInt>, pgestureconfig: MutPtr<Gestureconfig>, cbsize: UInt): Bool =
+public actual fun getGestureConfig(hwnd: Hwnd, dwreserved: UInt, dwflags: UInt, pcids: ConstPtr, pgestureconfig: MutPtr, cbsize: UInt): Bool =
     if (windowsWin32UiInputTouchNapiAvailable) wasmWindowssysWindowsWin32UiInputTouchGetGestureConfig(hwnd.rawAddress.toString(), dwreserved.toInt(), dwflags.toInt(), pcids.rawAddress.toString(), pgestureconfig.rawAddress.toString(), cbsize.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun getGestureExtraArgs(hgestureinfo: Hgestureinfo, cbextraargs: UInt, pextraargs: MutPtr<UByte>): Bool =
+public actual fun getGestureExtraArgs(hgestureinfo: Hgestureinfo, cbextraargs: UInt, pextraargs: MutPtr): Bool =
     if (windowsWin32UiInputTouchNapiAvailable) wasmWindowssysWindowsWin32UiInputTouchGetGestureExtraArgs(hgestureinfo.rawAddress.toString(), cbextraargs.toInt(), pextraargs.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun getGestureInfo(hgestureinfo: Hgestureinfo, pgestureinfo: MutPtr<Gestureinfo>): Bool =
+public actual fun getGestureInfo(hgestureinfo: Hgestureinfo, pgestureinfo: MutPtr): Bool =
     if (windowsWin32UiInputTouchNapiAvailable) wasmWindowssysWindowsWin32UiInputTouchGetGestureInfo(hgestureinfo.rawAddress.toString(), pgestureinfo.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun getTouchInputInfo(htouchinput: Htouchinput, cinputs: UInt, pinputs: MutPtr<Touchinput>, cbsize: Int): Bool =
+public actual fun getTouchInputInfo(htouchinput: Htouchinput, cinputs: UInt, pinputs: MutPtr, cbsize: Int): Bool =
     if (windowsWin32UiInputTouchNapiAvailable) wasmWindowssysWindowsWin32UiInputTouchGetTouchInputInfo(htouchinput.rawAddress.toString(), cinputs.toInt(), pinputs.rawAddress.toString(), cbsize) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun isTouchWindow(hwnd: Hwnd, pulflags: MutPtr<UInt>): Bool =
+public actual fun isTouchWindow(hwnd: Hwnd, pulflags: MutPtr): Bool =
     if (windowsWin32UiInputTouchNapiAvailable) wasmWindowssysWindowsWin32UiInputTouchIsTouchWindow(hwnd.rawAddress.toString(), pulflags.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun registerTouchWindow(hwnd: Hwnd, ulflags: RegisterTouchWindowFlags): Bool =
     if (windowsWin32UiInputTouchNapiAvailable) wasmWindowssysWindowsWin32UiInputTouchRegisterTouchWindow(hwnd.rawAddress.toString(), ulflags.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun setGestureConfig(hwnd: Hwnd, dwreserved: UInt, cids: UInt, pgestureconfig: ConstPtr<Gestureconfig>, cbsize: UInt): Bool =
+public actual fun setGestureConfig(hwnd: Hwnd, dwreserved: UInt, cids: UInt, pgestureconfig: ConstPtr, cbsize: UInt): Bool =
     if (windowsWin32UiInputTouchNapiAvailable) wasmWindowssysWindowsWin32UiInputTouchSetGestureConfig(hwnd.rawAddress.toString(), dwreserved.toInt(), cids.toInt(), pgestureconfig.rawAddress.toString(), cbsize.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun unregisterTouchWindow(hwnd: Hwnd): Bool =

@@ -13,5 +13,5 @@ private val windowsWin32SystemWmiNapiAvailable: Boolean = initWindowsWin32System
 @JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemWmiMiApplicationInitializeV1(p0, p1, p2, p3)")
 private external fun wasmWindowssysWindowsWin32SystemWmiMiApplicationInitializeV1(p0: Int, p1: String, p2: String, p3: String): Int
 
-public actual fun miApplicationInitializeV1(flags: UInt, applicationid: ConstPtr<UShort>, extendederror: MutPtr<MutPtr<MiInstance>>, application: MutPtr<MiApplication>): MiResult =
+public actual fun miApplicationInitializeV1(flags: UInt, applicationid: ConstPtr, extendederror: MutPtr, application: MutPtr): MiResult =
     if (windowsWin32SystemWmiNapiAvailable) wasmWindowssysWindowsWin32SystemWmiMiApplicationInitializeV1(flags.toInt(), applicationid.rawAddress.toString(), extendederror.rawAddress.toString(), application.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")

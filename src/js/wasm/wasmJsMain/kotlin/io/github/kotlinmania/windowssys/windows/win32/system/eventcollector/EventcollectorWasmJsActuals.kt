@@ -63,19 +63,19 @@ public actual fun ecClose(obj: Long): Bool =
 public actual fun ecDeleteSubscription(subscriptionname: Pcwstr, flags: UInt): Bool =
     if (windowsWin32SystemEventcollectorNapiAvailable) wasmWindowssysWindowsWin32SystemEventcollectorEcDeleteSubscription(subscriptionname.rawAddress.toString(), flags.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ecEnumNextSubscription(subscriptionenum: Long, subscriptionnamebuffersize: UInt, subscriptionnamebuffer: Pwstr, subscriptionnamebufferused: MutPtr<UInt>): Bool =
+public actual fun ecEnumNextSubscription(subscriptionenum: Long, subscriptionnamebuffersize: UInt, subscriptionnamebuffer: Pwstr, subscriptionnamebufferused: MutPtr): Bool =
     if (windowsWin32SystemEventcollectorNapiAvailable) wasmWindowssysWindowsWin32SystemEventcollectorEcEnumNextSubscription(subscriptionenum.toString(), subscriptionnamebuffersize.toInt(), subscriptionnamebuffer.rawAddress.toString(), subscriptionnamebufferused.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ecGetObjectArrayProperty(objectarray: Long, propertyid: EcSubscriptionPropertyId, arrayindex: UInt, flags: UInt, propertyvaluebuffersize: UInt, propertyvaluebuffer: MutPtr<EcVariant>, propertyvaluebufferused: MutPtr<UInt>): Bool =
+public actual fun ecGetObjectArrayProperty(objectarray: Long, propertyid: EcSubscriptionPropertyId, arrayindex: UInt, flags: UInt, propertyvaluebuffersize: UInt, propertyvaluebuffer: MutPtr, propertyvaluebufferused: MutPtr): Bool =
     if (windowsWin32SystemEventcollectorNapiAvailable) wasmWindowssysWindowsWin32SystemEventcollectorEcGetObjectArrayProperty(objectarray.toString(), propertyid, arrayindex.toInt(), flags.toInt(), propertyvaluebuffersize.toInt(), propertyvaluebuffer.rawAddress.toString(), propertyvaluebufferused.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ecGetObjectArraySize(objectarray: Long, objectarraysize: MutPtr<UInt>): Bool =
+public actual fun ecGetObjectArraySize(objectarray: Long, objectarraysize: MutPtr): Bool =
     if (windowsWin32SystemEventcollectorNapiAvailable) wasmWindowssysWindowsWin32SystemEventcollectorEcGetObjectArraySize(objectarray.toString(), objectarraysize.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ecGetSubscriptionProperty(subscription: Long, propertyid: EcSubscriptionPropertyId, flags: UInt, propertyvaluebuffersize: UInt, propertyvaluebuffer: MutPtr<EcVariant>, propertyvaluebufferused: MutPtr<UInt>): Bool =
+public actual fun ecGetSubscriptionProperty(subscription: Long, propertyid: EcSubscriptionPropertyId, flags: UInt, propertyvaluebuffersize: UInt, propertyvaluebuffer: MutPtr, propertyvaluebufferused: MutPtr): Bool =
     if (windowsWin32SystemEventcollectorNapiAvailable) wasmWindowssysWindowsWin32SystemEventcollectorEcGetSubscriptionProperty(subscription.toString(), propertyid, flags.toInt(), propertyvaluebuffersize.toInt(), propertyvaluebuffer.rawAddress.toString(), propertyvaluebufferused.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ecGetSubscriptionRunTimeStatus(subscriptionname: Pcwstr, statusinfoid: EcSubscriptionRuntimeStatusInfoId, eventsourcename: Pcwstr, flags: UInt, statusvaluebuffersize: UInt, statusvaluebuffer: MutPtr<EcVariant>, statusvaluebufferused: MutPtr<UInt>): Bool =
+public actual fun ecGetSubscriptionRunTimeStatus(subscriptionname: Pcwstr, statusinfoid: EcSubscriptionRuntimeStatusInfoId, eventsourcename: Pcwstr, flags: UInt, statusvaluebuffersize: UInt, statusvaluebuffer: MutPtr, statusvaluebufferused: MutPtr): Bool =
     if (windowsWin32SystemEventcollectorNapiAvailable) wasmWindowssysWindowsWin32SystemEventcollectorEcGetSubscriptionRunTimeStatus(subscriptionname.rawAddress.toString(), statusinfoid, eventsourcename.rawAddress.toString(), flags.toInt(), statusvaluebuffersize.toInt(), statusvaluebuffer.rawAddress.toString(), statusvaluebufferused.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun ecInsertObjectArrayElement(objectarray: Long, arrayindex: UInt): Bool =
@@ -96,8 +96,8 @@ public actual fun ecRetrySubscription(subscriptionname: Pcwstr, eventsourcename:
 public actual fun ecSaveSubscription(subscription: Long, flags: UInt): Bool =
     if (windowsWin32SystemEventcollectorNapiAvailable) wasmWindowssysWindowsWin32SystemEventcollectorEcSaveSubscription(subscription.toString(), flags.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ecSetObjectArrayProperty(objectarray: Long, propertyid: EcSubscriptionPropertyId, arrayindex: UInt, flags: UInt, propertyvalue: MutPtr<EcVariant>): Bool =
+public actual fun ecSetObjectArrayProperty(objectarray: Long, propertyid: EcSubscriptionPropertyId, arrayindex: UInt, flags: UInt, propertyvalue: MutPtr): Bool =
     if (windowsWin32SystemEventcollectorNapiAvailable) wasmWindowssysWindowsWin32SystemEventcollectorEcSetObjectArrayProperty(objectarray.toString(), propertyid, arrayindex.toInt(), flags.toInt(), propertyvalue.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ecSetSubscriptionProperty(subscription: Long, propertyid: EcSubscriptionPropertyId, flags: UInt, propertyvalue: MutPtr<EcVariant>): Bool =
+public actual fun ecSetSubscriptionProperty(subscription: Long, propertyid: EcSubscriptionPropertyId, flags: UInt, propertyvalue: MutPtr): Bool =
     if (windowsWin32SystemEventcollectorNapiAvailable) wasmWindowssysWindowsWin32SystemEventcollectorEcSetSubscriptionProperty(subscription.toString(), propertyid, flags.toInt(), propertyvalue.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")

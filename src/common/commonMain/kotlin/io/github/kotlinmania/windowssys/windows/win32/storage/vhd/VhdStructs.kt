@@ -2,7 +2,6 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.storage.vhd
 
-import io.github.kotlinmania.rustlang.core.ffi.CVoid
 import io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
 import io.github.kotlinmania.rustlang.core.mem.TypeLayout
 import io.github.kotlinmania.rustlang.core.ptr.ConstPtr
@@ -1133,17 +1132,17 @@ public class RawScsiVirtualDiskParameters00 internal constructor(
     public var senseInfoLength: UByte,
     public var srbFlags: UInt,
     public var dataTransferLength: UInt,
-    dataBufferCtorArg: MutPtr<CVoid>,
-    senseInfoCtorArg: MutPtr<UByte>,
-    cdbCtorArg: MutPtr<UByte>,
+    dataBufferCtorArg: MutPtr,
+    senseInfoCtorArg: MutPtr,
+    cdbCtorArg: MutPtr,
 ) {
-    public var dataBuffer: MutPtr<CVoid> = dataBufferCtorArg
+    public var dataBuffer: MutPtr = dataBufferCtorArg
         internal set
 
-    public var senseInfo: MutPtr<UByte> = senseInfoCtorArg
+    public var senseInfo: MutPtr = senseInfoCtorArg
         internal set
 
-    public var cdb: MutPtr<UByte> = cdbCtorArg
+    public var cdb: MutPtr = cdbCtorArg
         internal set
 
     public constructor() : this(
@@ -1170,13 +1169,13 @@ public class RawScsiVirtualDiskParameters00 internal constructor(
 
     public operator fun component6(): UInt = this.dataTransferLength
 
-    public operator fun component7(): MutPtr<CVoid> = this.dataBuffer
+    public operator fun component7(): MutPtr = this.dataBuffer
 
-    public operator fun component8(): MutPtr<UByte> = this.senseInfo
+    public operator fun component8(): MutPtr = this.senseInfo
 
-    public operator fun component9(): MutPtr<UByte> = this.cdb
+    public operator fun component9(): MutPtr = this.cdb
 
-    public fun copy(rSVDHandle: Bool = this.rSVDHandle, dataIn: UByte = this.dataIn, cdbLength: UByte = this.cdbLength, senseInfoLength: UByte = this.senseInfoLength, srbFlags: UInt = this.srbFlags, dataTransferLength: UInt = this.dataTransferLength, dataBuffer: MutPtr<CVoid> = this.dataBuffer, senseInfo: MutPtr<UByte> = this.senseInfo, cdb: MutPtr<UByte> = this.cdb): RawScsiVirtualDiskParameters00 = RawScsiVirtualDiskParameters00(rSVDHandle = rSVDHandle, dataIn = dataIn, cdbLength = cdbLength, senseInfoLength = senseInfoLength, srbFlags = srbFlags, dataTransferLength = dataTransferLength, dataBufferCtorArg = dataBuffer, senseInfoCtorArg = senseInfo, cdbCtorArg = cdb)
+    public fun copy(rSVDHandle: Bool = this.rSVDHandle, dataIn: UByte = this.dataIn, cdbLength: UByte = this.cdbLength, senseInfoLength: UByte = this.senseInfoLength, srbFlags: UInt = this.srbFlags, dataTransferLength: UInt = this.dataTransferLength, dataBuffer: MutPtr = this.dataBuffer, senseInfo: MutPtr = this.senseInfo, cdb: MutPtr = this.cdb): RawScsiVirtualDiskParameters00 = RawScsiVirtualDiskParameters00(rSVDHandle = rSVDHandle, dataIn = dataIn, cdbLength = cdbLength, senseInfoLength = senseInfoLength, srbFlags = srbFlags, dataTransferLength = dataTransferLength, dataBufferCtorArg = dataBuffer, senseInfoCtorArg = senseInfo, cdbCtorArg = cdb)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -1221,15 +1220,15 @@ public class RawScsiVirtualDiskParameters00 internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 12L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<CVoid>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 16L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<UByte>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 24L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<UByte>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 32L),
                     )
                 override fun writeNative(addr: Long, value: RawScsiVirtualDiskParameters00) {
@@ -1241,15 +1240,15 @@ public class RawScsiVirtualDiskParameters00 internal constructor(
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 12L, value.dataTransferLength)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<CVoid>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 16L, value.dataBuffer)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<UByte>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 24L, value.senseInfo)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<UByte>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 32L, value.cdb)
                 }
             }
@@ -1261,9 +1260,9 @@ public class RawScsiVirtualDiskParameters00 internal constructor(
             senseInfoLength: UByte = 0u,
             srbFlags: UInt = 0u,
             dataTransferLength: UInt = 0u,
-            dataBuffer: MutPtr<CVoid> = MutPtr(0L),
-            senseInfo: MutPtr<UByte> = MutPtr(0L),
-            cdb: MutPtr<UByte> = MutPtr(0L),
+            dataBuffer: MutPtr = MutPtr(0L),
+            senseInfo: MutPtr = MutPtr(0L),
+            cdb: MutPtr = MutPtr(0L),
         ): RawScsiVirtualDiskParameters00 =
             RawScsiVirtualDiskParameters00(
                 rSVDHandle = rSVDHandle,

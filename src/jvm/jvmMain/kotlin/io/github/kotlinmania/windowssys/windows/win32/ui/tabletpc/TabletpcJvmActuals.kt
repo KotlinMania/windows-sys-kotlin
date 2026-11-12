@@ -9,7 +9,6 @@ import io.github.kotlinmania.windowssys.core.Guid
 import io.github.kotlinmania.windowssys.core.Hresult
 import io.github.kotlinmania.windowssys.core.Pcwstr
 import io.github.kotlinmania.windowssys.core.Pwstr
-import io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.Xform
 
 private object WindowsWin32UiTabletpcJniBridge {
     init {
@@ -146,7 +145,7 @@ private object WindowsWin32UiTabletpcJniBridge {
     external fun windowssysWindowsWin32UiTabletpcSetWordList(hrc: Long, hwl: Long): Int
 }
 
-public actual fun addStroke(hrc: Hrecocontext, ppacketdesc: ConstPtr<PacketDescription>, cbpacket: UInt, ppacket: ConstPtr<UByte>, pxform: ConstPtr<Xform>): Hresult =
+public actual fun addStroke(hrc: Hrecocontext, ppacketdesc: ConstPtr, cbpacket: UInt, ppacket: ConstPtr, pxform: ConstPtr): Hresult =
     WindowsWin32UiTabletpcJniBridge.windowssysWindowsWin32UiTabletpcAddStroke(hrc.rawAddress, ppacketdesc.rawAddress, cbpacket.toInt(), ppacket.rawAddress, pxform.rawAddress)
 
 public actual fun addWordsToWordList(hwl: Hrecowordlist, pwcwords: Pcwstr): Hresult =
@@ -155,10 +154,10 @@ public actual fun addWordsToWordList(hwl: Hrecowordlist, pwcwords: Pcwstr): Hres
 public actual fun adviseInkChange(hrc: Hrecocontext, bnewstroke: Bool): Hresult =
     WindowsWin32UiTabletpcJniBridge.windowssysWindowsWin32UiTabletpcAdviseInkChange(hrc.rawAddress, bnewstroke)
 
-public actual fun createContext(hrec: Hrecognizer, phrc: MutPtr<Hrecocontext>): Hresult =
+public actual fun createContext(hrec: Hrecognizer, phrc: MutPtr): Hresult =
     WindowsWin32UiTabletpcJniBridge.windowssysWindowsWin32UiTabletpcCreateContext(hrec.rawAddress, phrc.rawAddress)
 
-public actual fun createRecognizer(pclsid: MutPtr<Guid>, phrec: MutPtr<Hrecognizer>): Hresult =
+public actual fun createRecognizer(pclsid: MutPtr, phrec: MutPtr): Hresult =
     WindowsWin32UiTabletpcJniBridge.windowssysWindowsWin32UiTabletpcCreateRecognizer(pclsid.rawAddress, phrec.rawAddress)
 
 public actual fun destroyContext(hrc: Hrecocontext): Hresult =
@@ -173,43 +172,43 @@ public actual fun destroyWordList(hwl: Hrecowordlist): Hresult =
 public actual fun endInkInput(hrc: Hrecocontext): Hresult =
     WindowsWin32UiTabletpcJniBridge.windowssysWindowsWin32UiTabletpcEndInkInput(hrc.rawAddress)
 
-public actual fun getAllRecognizers(recognizerclsids: MutPtr<MutPtr<Guid>>, count: MutPtr<UInt>): Hresult =
+public actual fun getAllRecognizers(recognizerclsids: MutPtr, count: MutPtr): Hresult =
     WindowsWin32UiTabletpcJniBridge.windowssysWindowsWin32UiTabletpcGetAllRecognizers(recognizerclsids.rawAddress, count.rawAddress)
 
-public actual fun getBestResultString(hrc: Hrecocontext, pcsize: MutPtr<UInt>, pwcbestresult: Pwstr): Hresult =
+public actual fun getBestResultString(hrc: Hrecocontext, pcsize: MutPtr, pwcbestresult: Pwstr): Hresult =
     WindowsWin32UiTabletpcJniBridge.windowssysWindowsWin32UiTabletpcGetBestResultString(hrc.rawAddress, pcsize.rawAddress, pwcbestresult.rawAddress)
 
-public actual fun getLatticePtr(hrc: Hrecocontext, pplattice: MutPtr<MutPtr<RecoLattice>>): Hresult =
+public actual fun getLatticePtr(hrc: Hrecocontext, pplattice: MutPtr): Hresult =
     WindowsWin32UiTabletpcJniBridge.windowssysWindowsWin32UiTabletpcGetLatticePtr(hrc.rawAddress, pplattice.rawAddress)
 
-public actual fun getLeftSeparator(hrc: Hrecocontext, pcsize: MutPtr<UInt>, pwcleftseparator: Pwstr): Hresult =
+public actual fun getLeftSeparator(hrc: Hrecocontext, pcsize: MutPtr, pwcleftseparator: Pwstr): Hresult =
     WindowsWin32UiTabletpcJniBridge.windowssysWindowsWin32UiTabletpcGetLeftSeparator(hrc.rawAddress, pcsize.rawAddress, pwcleftseparator.rawAddress)
 
-public actual fun getRecoAttributes(hrec: Hrecognizer, precoattrs: MutPtr<RecoAttrs>): Hresult =
+public actual fun getRecoAttributes(hrec: Hrecognizer, precoattrs: MutPtr): Hresult =
     WindowsWin32UiTabletpcJniBridge.windowssysWindowsWin32UiTabletpcGetRecoAttributes(hrec.rawAddress, precoattrs.rawAddress)
 
-public actual fun getResultPropertyList(hrec: Hrecognizer, ppropertycount: MutPtr<UInt>, ppropertyguid: MutPtr<Guid>): Hresult =
+public actual fun getResultPropertyList(hrec: Hrecognizer, ppropertycount: MutPtr, ppropertyguid: MutPtr): Hresult =
     WindowsWin32UiTabletpcJniBridge.windowssysWindowsWin32UiTabletpcGetResultPropertyList(hrec.rawAddress, ppropertycount.rawAddress, ppropertyguid.rawAddress)
 
-public actual fun getRightSeparator(hrc: Hrecocontext, pcsize: MutPtr<UInt>, pwcrightseparator: Pwstr): Hresult =
+public actual fun getRightSeparator(hrc: Hrecocontext, pcsize: MutPtr, pwcrightseparator: Pwstr): Hresult =
     WindowsWin32UiTabletpcJniBridge.windowssysWindowsWin32UiTabletpcGetRightSeparator(hrc.rawAddress, pcsize.rawAddress, pwcrightseparator.rawAddress)
 
-public actual fun getUnicodeRanges(hrec: Hrecognizer, pcranges: MutPtr<UInt>, pcr: MutPtr<CharacterRange>): Hresult =
+public actual fun getUnicodeRanges(hrec: Hrecognizer, pcranges: MutPtr, pcr: MutPtr): Hresult =
     WindowsWin32UiTabletpcJniBridge.windowssysWindowsWin32UiTabletpcGetUnicodeRanges(hrec.rawAddress, pcranges.rawAddress, pcr.rawAddress)
 
 public actual fun isStringSupported(hrc: Hrecocontext, wcstring: UInt, pwcstring: Pcwstr): Hresult =
     WindowsWin32UiTabletpcJniBridge.windowssysWindowsWin32UiTabletpcIsStringSupported(hrc.rawAddress, wcstring.toInt(), pwcstring.rawAddress)
 
-public actual fun loadCachedAttributes(clsid: Guid, precoattributes: MutPtr<RecoAttrs>): Hresult =
+public actual fun loadCachedAttributes(clsid: Guid, precoattributes: MutPtr): Hresult =
     0
 
-public actual fun makeWordList(hrec: Hrecognizer, pbuffer: Pcwstr, phwl: MutPtr<Hrecowordlist>): Hresult =
+public actual fun makeWordList(hrec: Hrecognizer, pbuffer: Pcwstr, phwl: MutPtr): Hresult =
     WindowsWin32UiTabletpcJniBridge.windowssysWindowsWin32UiTabletpcMakeWordList(hrec.rawAddress, pbuffer.rawAddress, phwl.rawAddress)
 
-public actual fun process(hrc: Hrecocontext, pbpartialprocessing: MutPtr<Bool>): Hresult =
+public actual fun process(hrc: Hrecocontext, pbpartialprocessing: MutPtr): Hresult =
     WindowsWin32UiTabletpcJniBridge.windowssysWindowsWin32UiTabletpcProcess(hrc.rawAddress, pbpartialprocessing.rawAddress)
 
-public actual fun setEnabledUnicodeRanges(hrc: Hrecocontext, cranges: UInt, pcr: MutPtr<CharacterRange>): Hresult =
+public actual fun setEnabledUnicodeRanges(hrc: Hrecocontext, cranges: UInt, pcr: MutPtr): Hresult =
     WindowsWin32UiTabletpcJniBridge.windowssysWindowsWin32UiTabletpcSetEnabledUnicodeRanges(hrc.rawAddress, cranges.toInt(), pcr.rawAddress)
 
 public actual fun setFactoid(hrc: Hrecocontext, cwcfactoid: UInt, pwcfactoid: Pcwstr): Hresult =
@@ -218,7 +217,7 @@ public actual fun setFactoid(hrc: Hrecocontext, cwcfactoid: UInt, pwcfactoid: Pc
 public actual fun setFlags(hrc: Hrecocontext, dwflags: UInt): Hresult =
     WindowsWin32UiTabletpcJniBridge.windowssysWindowsWin32UiTabletpcSetFlags(hrc.rawAddress, dwflags.toInt())
 
-public actual fun setGuide(hrc: Hrecocontext, pguide: ConstPtr<RecoGuide>, iindex: UInt): Hresult =
+public actual fun setGuide(hrc: Hrecocontext, pguide: ConstPtr, iindex: UInt): Hresult =
     WindowsWin32UiTabletpcJniBridge.windowssysWindowsWin32UiTabletpcSetGuide(hrc.rawAddress, pguide.rawAddress, iindex.toInt())
 
 public actual fun setTextContext(hrc: Hrecocontext, cwcbefore: UInt, pwcbefore: Pcwstr, cwcafter: UInt, pwcafter: Pcwstr): Hresult =

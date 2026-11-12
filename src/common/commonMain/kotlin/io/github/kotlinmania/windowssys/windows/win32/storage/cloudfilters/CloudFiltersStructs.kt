@@ -2,7 +2,6 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.storage.cloudfilters
 
-import io.github.kotlinmania.rustlang.core.ffi.CVoid
 import io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
 import io.github.kotlinmania.rustlang.core.mem.TypeLayout
 import io.github.kotlinmania.rustlang.core.ptr.ConstPtr
@@ -12,30 +11,29 @@ import io.github.kotlinmania.windowssys.core.Hresult
 import io.github.kotlinmania.windowssys.core.Pcwstr
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Ntstatus
 import io.github.kotlinmania.windowssys.windows.win32.storage.filesystem.FileBasicInfo
-import io.github.kotlinmania.windowssys.windows.win32.system.CorrelationVector
 
 public class CfCallbackInfo internal constructor(
     public var structSize: UInt,
     public var connectionKey: CfConnectionKey,
-    callbackContextCtorArg: MutPtr<CVoid>,
+    callbackContextCtorArg: MutPtr,
     volumeGuidNameCtorArg: Pcwstr,
     volumeDosNameCtorArg: Pcwstr,
     public var volumeSerialNumber: UInt,
     public var syncRootFileId: Long,
-    syncRootIdentityCtorArg: ConstPtr<CVoid>,
+    syncRootIdentityCtorArg: ConstPtr,
     public var syncRootIdentityLength: UInt,
     public var fileId: Long,
     public var fileSize: Long,
-    fileIdentityCtorArg: ConstPtr<CVoid>,
+    fileIdentityCtorArg: ConstPtr,
     public var fileIdentityLength: UInt,
     normalizedPathCtorArg: Pcwstr,
     public var transferKey: Long,
     public var priorityHint: UByte,
-    correlationVectorCtorArg: MutPtr<CorrelationVector.CorrelationVector>,
-    processInfoCtorArg: MutPtr<CfProcessInfo>,
+    correlationVectorCtorArg: MutPtr,
+    processInfoCtorArg: MutPtr,
     public var requestKey: Long,
 ) {
-    public var callbackContext: MutPtr<CVoid> = callbackContextCtorArg
+    public var callbackContext: MutPtr = callbackContextCtorArg
         internal set
 
     public var volumeGuidName: Pcwstr = volumeGuidNameCtorArg
@@ -44,19 +42,19 @@ public class CfCallbackInfo internal constructor(
     public var volumeDosName: Pcwstr = volumeDosNameCtorArg
         internal set
 
-    public var syncRootIdentity: ConstPtr<CVoid> = syncRootIdentityCtorArg
+    public var syncRootIdentity: ConstPtr = syncRootIdentityCtorArg
         internal set
 
-    public var fileIdentity: ConstPtr<CVoid> = fileIdentityCtorArg
+    public var fileIdentity: ConstPtr = fileIdentityCtorArg
         internal set
 
     public var normalizedPath: Pcwstr = normalizedPathCtorArg
         internal set
 
-    public var correlationVector: MutPtr<CorrelationVector.CorrelationVector> = correlationVectorCtorArg
+    public var correlationVector: MutPtr = correlationVectorCtorArg
         internal set
 
-    public var processInfo: MutPtr<CfProcessInfo> = processInfoCtorArg
+    public var processInfo: MutPtr = processInfoCtorArg
         internal set
 
     public constructor() : this(
@@ -85,22 +83,22 @@ public class CfCallbackInfo internal constructor(
         public operator fun invoke(
             structSize: UInt = 0u,
             connectionKey: CfConnectionKey = 0L,
-            callbackContext: MutPtr<CVoid> = MutPtr(0L),
+            callbackContext: MutPtr = MutPtr(0L),
             volumeGuidName: Pcwstr = ConstPtr(0L),
             volumeDosName: Pcwstr = ConstPtr(0L),
             volumeSerialNumber: UInt = 0u,
             syncRootFileId: Long = 0L,
-            syncRootIdentity: ConstPtr<CVoid> = ConstPtr(0L),
+            syncRootIdentity: ConstPtr = ConstPtr(0L),
             syncRootIdentityLength: UInt = 0u,
             fileId: Long = 0L,
             fileSize: Long = 0L,
-            fileIdentity: ConstPtr<CVoid> = ConstPtr(0L),
+            fileIdentity: ConstPtr = ConstPtr(0L),
             fileIdentityLength: UInt = 0u,
             normalizedPath: Pcwstr = ConstPtr(0L),
             transferKey: Long = 0L,
             priorityHint: UByte = 0u,
-            correlationVector: MutPtr<CorrelationVector.CorrelationVector> = MutPtr(0L),
-            processInfo: MutPtr<CfProcessInfo> = MutPtr(0L),
+            correlationVector: MutPtr = MutPtr(0L),
+            processInfo: MutPtr = MutPtr(0L),
             requestKey: Long = 0L,
         ): CfCallbackInfo =
             CfCallbackInfo(
@@ -551,14 +549,14 @@ public class CfOperationInfo internal constructor(
     public var type: CfOperationType,
     public var connectionKey: CfConnectionKey,
     public var transferKey: Long,
-    correlationVectorCtorArg: ConstPtr<CorrelationVector.CorrelationVector>,
-    syncStatusCtorArg: ConstPtr<CfSyncStatus>,
+    correlationVectorCtorArg: ConstPtr,
+    syncStatusCtorArg: ConstPtr,
     public var requestKey: Long,
 ) {
-    public var correlationVector: ConstPtr<CorrelationVector.CorrelationVector> = correlationVectorCtorArg
+    public var correlationVector: ConstPtr = correlationVectorCtorArg
         internal set
 
-    public var syncStatus: ConstPtr<CfSyncStatus> = syncStatusCtorArg
+    public var syncStatus: ConstPtr = syncStatusCtorArg
         internal set
 
     public constructor() : this(
@@ -579,13 +577,13 @@ public class CfOperationInfo internal constructor(
 
     public operator fun component4(): Long = this.transferKey
 
-    public operator fun component5(): ConstPtr<CorrelationVector.CorrelationVector> = this.correlationVector
+    public operator fun component5(): ConstPtr = this.correlationVector
 
-    public operator fun component6(): ConstPtr<CfSyncStatus> = this.syncStatus
+    public operator fun component6(): ConstPtr = this.syncStatus
 
     public operator fun component7(): Long = this.requestKey
 
-    public fun copy(structSize: UInt = this.structSize, type: CfOperationType = this.type, connectionKey: CfConnectionKey = this.connectionKey, transferKey: Long = this.transferKey, correlationVector: ConstPtr<CorrelationVector.CorrelationVector> = this.correlationVector, syncStatus: ConstPtr<CfSyncStatus> = this.syncStatus, requestKey: Long = this.requestKey): CfOperationInfo = CfOperationInfo(structSize = structSize, type = type, connectionKey = connectionKey, transferKey = transferKey, correlationVectorCtorArg = correlationVector, syncStatusCtorArg = syncStatus, requestKey = requestKey)
+    public fun copy(structSize: UInt = this.structSize, type: CfOperationType = this.type, connectionKey: CfConnectionKey = this.connectionKey, transferKey: Long = this.transferKey, correlationVector: ConstPtr = this.correlationVector, syncStatus: ConstPtr = this.syncStatus, requestKey: Long = this.requestKey): CfOperationInfo = CfOperationInfo(structSize = structSize, type = type, connectionKey = connectionKey, transferKey = transferKey, correlationVectorCtorArg = correlationVector, syncStatusCtorArg = syncStatus, requestKey = requestKey)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -624,11 +622,11 @@ public class CfOperationInfo internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I64).readNative(addr + 16L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .constPtrLayout<CorrelationVector.CorrelationVector>(64)
+                                .constPtrLayout(64)
                         ).readNative(addr + 24L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .constPtrLayout<CfSyncStatus>(64)
+                                .constPtrLayout(64)
                         ).readNative(addr + 32L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I64).readNative(addr + 40L),
                     )
@@ -639,11 +637,11 @@ public class CfOperationInfo internal constructor(
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I64).writeNative(addr + 16L, value.transferKey)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .constPtrLayout<CorrelationVector.CorrelationVector>(64)
+                            .constPtrLayout(64)
                     ).writeNative(addr + 24L, value.correlationVector)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .constPtrLayout<CfSyncStatus>(64)
+                            .constPtrLayout(64)
                     ).writeNative(addr + 32L, value.syncStatus)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I64).writeNative(addr + 40L, value.requestKey)
                 }
@@ -654,8 +652,8 @@ public class CfOperationInfo internal constructor(
             type: CfOperationType = 0,
             connectionKey: CfConnectionKey = 0L,
             transferKey: Long = 0L,
-            correlationVector: ConstPtr<CorrelationVector.CorrelationVector> = ConstPtr(0L),
-            syncStatus: ConstPtr<CfSyncStatus> = ConstPtr(0L),
+            correlationVector: ConstPtr = ConstPtr(0L),
+            syncStatus: ConstPtr = ConstPtr(0L),
             requestKey: Long = 0L,
         ): CfOperationInfo =
             CfOperationInfo(
@@ -717,10 +715,10 @@ public data class CfOperationParameters02(
 public class CfOperationParameters05 internal constructor(
     public var flags: CfOperationAckDehydrateFlags,
     public var completionStatus: Ntstatus,
-    fileIdentityCtorArg: ConstPtr<CVoid>,
+    fileIdentityCtorArg: ConstPtr,
     public var fileIdentityLength: UInt,
 ) {
-    public var fileIdentity: ConstPtr<CVoid> = fileIdentityCtorArg
+    public var fileIdentity: ConstPtr = fileIdentityCtorArg
         internal set
 
     public constructor() : this(
@@ -734,11 +732,11 @@ public class CfOperationParameters05 internal constructor(
 
     public operator fun component2(): Ntstatus = this.completionStatus
 
-    public operator fun component3(): ConstPtr<CVoid> = this.fileIdentity
+    public operator fun component3(): ConstPtr = this.fileIdentity
 
     public operator fun component4(): UInt = this.fileIdentityLength
 
-    public fun copy(flags: CfOperationAckDehydrateFlags = this.flags, completionStatus: Ntstatus = this.completionStatus, fileIdentity: ConstPtr<CVoid> = this.fileIdentity, fileIdentityLength: UInt = this.fileIdentityLength): CfOperationParameters05 = CfOperationParameters05(flags = flags, completionStatus = completionStatus, fileIdentityCtorArg = fileIdentity, fileIdentityLength = fileIdentityLength)
+    public fun copy(flags: CfOperationAckDehydrateFlags = this.flags, completionStatus: Ntstatus = this.completionStatus, fileIdentity: ConstPtr = this.fileIdentity, fileIdentityLength: UInt = this.fileIdentityLength): CfOperationParameters05 = CfOperationParameters05(flags = flags, completionStatus = completionStatus, fileIdentityCtorArg = fileIdentity, fileIdentityLength = fileIdentityLength)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -769,7 +767,7 @@ public class CfOperationParameters05 internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr + 4L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .constPtrLayout<CVoid>(64)
+                                .constPtrLayout(64)
                         ).readNative(addr + 8L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 16L),
                     )
@@ -778,7 +776,7 @@ public class CfOperationParameters05 internal constructor(
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr + 4L, value.completionStatus)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .constPtrLayout<CVoid>(64)
+                            .constPtrLayout(64)
                     ).writeNative(addr + 8L, value.fileIdentity)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 16L, value.fileIdentityLength)
                 }
@@ -787,7 +785,7 @@ public class CfOperationParameters05 internal constructor(
         public operator fun invoke(
             flags: CfOperationAckDehydrateFlags = 0,
             completionStatus: Ntstatus = 0,
-            fileIdentity: ConstPtr<CVoid> = ConstPtr(0L),
+            fileIdentity: ConstPtr = ConstPtr(0L),
             fileIdentityLength: UInt = 0u,
         ): CfOperationParameters05 =
             CfOperationParameters05(
@@ -845,14 +843,14 @@ public data class CfOperationParameters06(
 
 public class CfOperationParameters03 internal constructor(
     public var flags: CfOperationRestartHydrationFlags,
-    fsMetadataCtorArg: ConstPtr<CfFsMetadata>,
-    fileIdentityCtorArg: ConstPtr<CVoid>,
+    fsMetadataCtorArg: ConstPtr,
+    fileIdentityCtorArg: ConstPtr,
     public var fileIdentityLength: UInt,
 ) {
-    public var fsMetadata: ConstPtr<CfFsMetadata> = fsMetadataCtorArg
+    public var fsMetadata: ConstPtr = fsMetadataCtorArg
         internal set
 
-    public var fileIdentity: ConstPtr<CVoid> = fileIdentityCtorArg
+    public var fileIdentity: ConstPtr = fileIdentityCtorArg
         internal set
 
     public constructor() : this(
@@ -864,13 +862,13 @@ public class CfOperationParameters03 internal constructor(
 
     public operator fun component1(): CfOperationRestartHydrationFlags = this.flags
 
-    public operator fun component2(): ConstPtr<CfFsMetadata> = this.fsMetadata
+    public operator fun component2(): ConstPtr = this.fsMetadata
 
-    public operator fun component3(): ConstPtr<CVoid> = this.fileIdentity
+    public operator fun component3(): ConstPtr = this.fileIdentity
 
     public operator fun component4(): UInt = this.fileIdentityLength
 
-    public fun copy(flags: CfOperationRestartHydrationFlags = this.flags, fsMetadata: ConstPtr<CfFsMetadata> = this.fsMetadata, fileIdentity: ConstPtr<CVoid> = this.fileIdentity, fileIdentityLength: UInt = this.fileIdentityLength): CfOperationParameters03 = CfOperationParameters03(flags = flags, fsMetadataCtorArg = fsMetadata, fileIdentityCtorArg = fileIdentity, fileIdentityLength = fileIdentityLength)
+    public fun copy(flags: CfOperationRestartHydrationFlags = this.flags, fsMetadata: ConstPtr = this.fsMetadata, fileIdentity: ConstPtr = this.fileIdentity, fileIdentityLength: UInt = this.fileIdentityLength): CfOperationParameters03 = CfOperationParameters03(flags = flags, fsMetadataCtorArg = fsMetadata, fileIdentityCtorArg = fileIdentity, fileIdentityLength = fileIdentityLength)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -900,11 +898,11 @@ public class CfOperationParameters03 internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .constPtrLayout<CfFsMetadata>(64)
+                                .constPtrLayout(64)
                         ).readNative(addr + 8L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .constPtrLayout<CVoid>(64)
+                                .constPtrLayout(64)
                         ).readNative(addr + 16L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 24L),
                     )
@@ -912,11 +910,11 @@ public class CfOperationParameters03 internal constructor(
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr, value.flags)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .constPtrLayout<CfFsMetadata>(64)
+                            .constPtrLayout(64)
                     ).writeNative(addr + 8L, value.fsMetadata)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .constPtrLayout<CVoid>(64)
+                            .constPtrLayout(64)
                     ).writeNative(addr + 16L, value.fileIdentity)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 24L, value.fileIdentityLength)
                 }
@@ -924,8 +922,8 @@ public class CfOperationParameters03 internal constructor(
 
         public operator fun invoke(
             flags: CfOperationRestartHydrationFlags = 0,
-            fsMetadata: ConstPtr<CfFsMetadata> = ConstPtr(0L),
-            fileIdentity: ConstPtr<CVoid> = ConstPtr(0L),
+            fsMetadata: ConstPtr = ConstPtr(0L),
+            fileIdentity: ConstPtr = ConstPtr(0L),
             fileIdentityLength: UInt = 0u,
         ): CfOperationParameters03 =
             CfOperationParameters03(
@@ -939,12 +937,12 @@ public class CfOperationParameters03 internal constructor(
 
 public class CfOperationParameters01 internal constructor(
     public var flags: CfOperationRetrieveDataFlags,
-    bufferCtorArg: MutPtr<CVoid>,
+    bufferCtorArg: MutPtr,
     public var offset: Long,
     public var length: Long,
     public var returnedLength: Long,
 ) {
-    public var buffer: MutPtr<CVoid> = bufferCtorArg
+    public var buffer: MutPtr = bufferCtorArg
         internal set
 
     public constructor() : this(
@@ -957,7 +955,7 @@ public class CfOperationParameters01 internal constructor(
 
     public operator fun component1(): CfOperationRetrieveDataFlags = this.flags
 
-    public operator fun component2(): MutPtr<CVoid> = this.buffer
+    public operator fun component2(): MutPtr = this.buffer
 
     public operator fun component3(): Long = this.offset
 
@@ -965,7 +963,7 @@ public class CfOperationParameters01 internal constructor(
 
     public operator fun component5(): Long = this.returnedLength
 
-    public fun copy(flags: CfOperationRetrieveDataFlags = this.flags, buffer: MutPtr<CVoid> = this.buffer, offset: Long = this.offset, length: Long = this.length, returnedLength: Long = this.returnedLength): CfOperationParameters01 = CfOperationParameters01(flags = flags, bufferCtorArg = buffer, offset = offset, length = length, returnedLength = returnedLength)
+    public fun copy(flags: CfOperationRetrieveDataFlags = this.flags, buffer: MutPtr = this.buffer, offset: Long = this.offset, length: Long = this.length, returnedLength: Long = this.returnedLength): CfOperationParameters01 = CfOperationParameters01(flags = flags, bufferCtorArg = buffer, offset = offset, length = length, returnedLength = returnedLength)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -997,7 +995,7 @@ public class CfOperationParameters01 internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<CVoid>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I64).readNative(addr + 16L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I64).readNative(addr + 24L),
@@ -1007,7 +1005,7 @@ public class CfOperationParameters01 internal constructor(
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr, value.flags)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<CVoid>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.buffer)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I64).writeNative(addr + 16L, value.offset)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I64).writeNative(addr + 24L, value.length)
@@ -1017,7 +1015,7 @@ public class CfOperationParameters01 internal constructor(
 
         public operator fun invoke(
             flags: CfOperationRetrieveDataFlags = 0,
-            buffer: MutPtr<CVoid> = MutPtr(0L),
+            buffer: MutPtr = MutPtr(0L),
             offset: Long = 0L,
             length: Long = 0L,
             returnedLength: Long = 0L,
@@ -1035,11 +1033,11 @@ public class CfOperationParameters01 internal constructor(
 public class CfOperationParameters00 internal constructor(
     public var flags: CfOperationTransferDataFlags,
     public var completionStatus: Ntstatus,
-    bufferCtorArg: ConstPtr<CVoid>,
+    bufferCtorArg: ConstPtr,
     public var offset: Long,
     public var length: Long,
 ) {
-    public var buffer: ConstPtr<CVoid> = bufferCtorArg
+    public var buffer: ConstPtr = bufferCtorArg
         internal set
 
     public constructor() : this(
@@ -1054,13 +1052,13 @@ public class CfOperationParameters00 internal constructor(
 
     public operator fun component2(): Ntstatus = this.completionStatus
 
-    public operator fun component3(): ConstPtr<CVoid> = this.buffer
+    public operator fun component3(): ConstPtr = this.buffer
 
     public operator fun component4(): Long = this.offset
 
     public operator fun component5(): Long = this.length
 
-    public fun copy(flags: CfOperationTransferDataFlags = this.flags, completionStatus: Ntstatus = this.completionStatus, buffer: ConstPtr<CVoid> = this.buffer, offset: Long = this.offset, length: Long = this.length): CfOperationParameters00 = CfOperationParameters00(flags = flags, completionStatus = completionStatus, bufferCtorArg = buffer, offset = offset, length = length)
+    public fun copy(flags: CfOperationTransferDataFlags = this.flags, completionStatus: Ntstatus = this.completionStatus, buffer: ConstPtr = this.buffer, offset: Long = this.offset, length: Long = this.length): CfOperationParameters00 = CfOperationParameters00(flags = flags, completionStatus = completionStatus, bufferCtorArg = buffer, offset = offset, length = length)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -1093,7 +1091,7 @@ public class CfOperationParameters00 internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr + 4L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .constPtrLayout<CVoid>(64)
+                                .constPtrLayout(64)
                         ).readNative(addr + 8L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I64).readNative(addr + 16L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I64).readNative(addr + 24L),
@@ -1103,7 +1101,7 @@ public class CfOperationParameters00 internal constructor(
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr + 4L, value.completionStatus)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .constPtrLayout<CVoid>(64)
+                            .constPtrLayout(64)
                     ).writeNative(addr + 8L, value.buffer)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I64).writeNative(addr + 16L, value.offset)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I64).writeNative(addr + 24L, value.length)
@@ -1113,7 +1111,7 @@ public class CfOperationParameters00 internal constructor(
         public operator fun invoke(
             flags: CfOperationTransferDataFlags = 0,
             completionStatus: Ntstatus = 0,
-            buffer: ConstPtr<CVoid> = ConstPtr(0L),
+            buffer: ConstPtr = ConstPtr(0L),
             offset: Long = 0L,
             length: Long = 0L,
         ): CfOperationParameters00 =
@@ -1131,11 +1129,11 @@ public class CfOperationParameters04 internal constructor(
     public var flags: CfOperationTransferPlaceholdersFlags,
     public var completionStatus: Ntstatus,
     public var placeholderTotalCount: Long,
-    placeholderArrayCtorArg: MutPtr<CfPlaceholderCreateInfo>,
+    placeholderArrayCtorArg: MutPtr,
     public var placeholderCount: UInt,
     public var entriesProcessed: UInt,
 ) {
-    public var placeholderArray: MutPtr<CfPlaceholderCreateInfo> = placeholderArrayCtorArg
+    public var placeholderArray: MutPtr = placeholderArrayCtorArg
         internal set
 
     public constructor() : this(
@@ -1153,13 +1151,13 @@ public class CfOperationParameters04 internal constructor(
 
     public operator fun component3(): Long = this.placeholderTotalCount
 
-    public operator fun component4(): MutPtr<CfPlaceholderCreateInfo> = this.placeholderArray
+    public operator fun component4(): MutPtr = this.placeholderArray
 
     public operator fun component5(): UInt = this.placeholderCount
 
     public operator fun component6(): UInt = this.entriesProcessed
 
-    public fun copy(flags: CfOperationTransferPlaceholdersFlags = this.flags, completionStatus: Ntstatus = this.completionStatus, placeholderTotalCount: Long = this.placeholderTotalCount, placeholderArray: MutPtr<CfPlaceholderCreateInfo> = this.placeholderArray, placeholderCount: UInt = this.placeholderCount, entriesProcessed: UInt = this.entriesProcessed): CfOperationParameters04 = CfOperationParameters04(flags = flags, completionStatus = completionStatus, placeholderTotalCount = placeholderTotalCount, placeholderArrayCtorArg = placeholderArray, placeholderCount = placeholderCount, entriesProcessed = entriesProcessed)
+    public fun copy(flags: CfOperationTransferPlaceholdersFlags = this.flags, completionStatus: Ntstatus = this.completionStatus, placeholderTotalCount: Long = this.placeholderTotalCount, placeholderArray: MutPtr = this.placeholderArray, placeholderCount: UInt = this.placeholderCount, entriesProcessed: UInt = this.entriesProcessed): CfOperationParameters04 = CfOperationParameters04(flags = flags, completionStatus = completionStatus, placeholderTotalCount = placeholderTotalCount, placeholderArrayCtorArg = placeholderArray, placeholderCount = placeholderCount, entriesProcessed = entriesProcessed)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -1195,7 +1193,7 @@ public class CfOperationParameters04 internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I64).readNative(addr + 8L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<CfPlaceholderCreateInfo>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 16L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 24L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 28L),
@@ -1206,7 +1204,7 @@ public class CfOperationParameters04 internal constructor(
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I64).writeNative(addr + 8L, value.placeholderTotalCount)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<CfPlaceholderCreateInfo>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 16L, value.placeholderArray)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 24L, value.placeholderCount)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 28L, value.entriesProcessed)
@@ -1217,7 +1215,7 @@ public class CfOperationParameters04 internal constructor(
             flags: CfOperationTransferPlaceholdersFlags = 0,
             completionStatus: Ntstatus = 0,
             placeholderTotalCount: Long = 0L,
-            placeholderArray: MutPtr<CfPlaceholderCreateInfo> = MutPtr(0L),
+            placeholderArray: MutPtr = MutPtr(0L),
             placeholderCount: UInt = 0u,
             entriesProcessed: UInt = 0u,
         ): CfOperationParameters04 =
@@ -1297,7 +1295,7 @@ public data class CfPlaceholderBasicInfo(
 public class CfPlaceholderCreateInfo internal constructor(
     relativeFileNameCtorArg: Pcwstr,
     public var fsMetadata: CfFsMetadata,
-    fileIdentityCtorArg: ConstPtr<CVoid>,
+    fileIdentityCtorArg: ConstPtr,
     public var fileIdentityLength: UInt,
     public var flags: CfPlaceholderCreateFlags,
     public var result: Hresult,
@@ -1306,7 +1304,7 @@ public class CfPlaceholderCreateInfo internal constructor(
     public var relativeFileName: Pcwstr = relativeFileNameCtorArg
         internal set
 
-    public var fileIdentity: ConstPtr<CVoid> = fileIdentityCtorArg
+    public var fileIdentity: ConstPtr = fileIdentityCtorArg
         internal set
 
     public constructor() : this(
@@ -1323,7 +1321,7 @@ public class CfPlaceholderCreateInfo internal constructor(
 
     public operator fun component2(): CfFsMetadata = this.fsMetadata
 
-    public operator fun component3(): ConstPtr<CVoid> = this.fileIdentity
+    public operator fun component3(): ConstPtr = this.fileIdentity
 
     public operator fun component4(): UInt = this.fileIdentityLength
 
@@ -1333,7 +1331,7 @@ public class CfPlaceholderCreateInfo internal constructor(
 
     public operator fun component7(): Long = this.createUsn
 
-    public fun copy(relativeFileName: Pcwstr = this.relativeFileName, fsMetadata: CfFsMetadata = this.fsMetadata, fileIdentity: ConstPtr<CVoid> = this.fileIdentity, fileIdentityLength: UInt = this.fileIdentityLength, flags: CfPlaceholderCreateFlags = this.flags, result: Hresult = this.result, createUsn: Long = this.createUsn): CfPlaceholderCreateInfo = CfPlaceholderCreateInfo(relativeFileNameCtorArg = relativeFileName, fsMetadata = fsMetadata, fileIdentityCtorArg = fileIdentity, fileIdentityLength = fileIdentityLength, flags = flags, result = result, createUsn = createUsn)
+    public fun copy(relativeFileName: Pcwstr = this.relativeFileName, fsMetadata: CfFsMetadata = this.fsMetadata, fileIdentity: ConstPtr = this.fileIdentity, fileIdentityLength: UInt = this.fileIdentityLength, flags: CfPlaceholderCreateFlags = this.flags, result: Hresult = this.result, createUsn: Long = this.createUsn): CfPlaceholderCreateInfo = CfPlaceholderCreateInfo(relativeFileNameCtorArg = relativeFileName, fsMetadata = fsMetadata, fileIdentityCtorArg = fileIdentity, fileIdentityLength = fileIdentityLength, flags = flags, result = result, createUsn = createUsn)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -1363,7 +1361,7 @@ public class CfPlaceholderCreateInfo internal constructor(
         public operator fun invoke(
             relativeFileName: Pcwstr = ConstPtr(0L),
             fsMetadata: CfFsMetadata = CfFsMetadata(),
-            fileIdentity: ConstPtr<CVoid> = ConstPtr(0L),
+            fileIdentity: ConstPtr = ConstPtr(0L),
             fileIdentityLength: UInt = 0u,
             flags: CfPlaceholderCreateFlags = 0,
             result: Hresult = 0,
@@ -1641,9 +1639,9 @@ public class CfSyncRegistration internal constructor(
     public var structSize: UInt,
     providerNameCtorArg: Pcwstr,
     providerVersionCtorArg: Pcwstr,
-    syncRootIdentityCtorArg: ConstPtr<CVoid>,
+    syncRootIdentityCtorArg: ConstPtr,
     public var syncRootIdentityLength: UInt,
-    fileIdentityCtorArg: ConstPtr<CVoid>,
+    fileIdentityCtorArg: ConstPtr,
     public var fileIdentityLength: UInt,
     public var providerId: Guid,
 ) {
@@ -1653,10 +1651,10 @@ public class CfSyncRegistration internal constructor(
     public var providerVersion: Pcwstr = providerVersionCtorArg
         internal set
 
-    public var syncRootIdentity: ConstPtr<CVoid> = syncRootIdentityCtorArg
+    public var syncRootIdentity: ConstPtr = syncRootIdentityCtorArg
         internal set
 
-    public var fileIdentity: ConstPtr<CVoid> = fileIdentityCtorArg
+    public var fileIdentity: ConstPtr = fileIdentityCtorArg
         internal set
 
     public constructor() : this(
@@ -1676,17 +1674,17 @@ public class CfSyncRegistration internal constructor(
 
     public operator fun component3(): Pcwstr = this.providerVersion
 
-    public operator fun component4(): ConstPtr<CVoid> = this.syncRootIdentity
+    public operator fun component4(): ConstPtr = this.syncRootIdentity
 
     public operator fun component5(): UInt = this.syncRootIdentityLength
 
-    public operator fun component6(): ConstPtr<CVoid> = this.fileIdentity
+    public operator fun component6(): ConstPtr = this.fileIdentity
 
     public operator fun component7(): UInt = this.fileIdentityLength
 
     public operator fun component8(): Guid = this.providerId
 
-    public fun copy(structSize: UInt = this.structSize, providerName: Pcwstr = this.providerName, providerVersion: Pcwstr = this.providerVersion, syncRootIdentity: ConstPtr<CVoid> = this.syncRootIdentity, syncRootIdentityLength: UInt = this.syncRootIdentityLength, fileIdentity: ConstPtr<CVoid> = this.fileIdentity, fileIdentityLength: UInt = this.fileIdentityLength, providerId: Guid = this.providerId): CfSyncRegistration = CfSyncRegistration(structSize = structSize, providerNameCtorArg = providerName, providerVersionCtorArg = providerVersion, syncRootIdentityCtorArg = syncRootIdentity, syncRootIdentityLength = syncRootIdentityLength, fileIdentityCtorArg = fileIdentity, fileIdentityLength = fileIdentityLength, providerId = providerId)
+    public fun copy(structSize: UInt = this.structSize, providerName: Pcwstr = this.providerName, providerVersion: Pcwstr = this.providerVersion, syncRootIdentity: ConstPtr = this.syncRootIdentity, syncRootIdentityLength: UInt = this.syncRootIdentityLength, fileIdentity: ConstPtr = this.fileIdentity, fileIdentityLength: UInt = this.fileIdentityLength, providerId: Guid = this.providerId): CfSyncRegistration = CfSyncRegistration(structSize = structSize, providerNameCtorArg = providerName, providerVersionCtorArg = providerVersion, syncRootIdentityCtorArg = syncRootIdentity, syncRootIdentityLength = syncRootIdentityLength, fileIdentityCtorArg = fileIdentity, fileIdentityLength = fileIdentityLength, providerId = providerId)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -1719,9 +1717,9 @@ public class CfSyncRegistration internal constructor(
             structSize: UInt = 0u,
             providerName: Pcwstr = ConstPtr(0L),
             providerVersion: Pcwstr = ConstPtr(0L),
-            syncRootIdentity: ConstPtr<CVoid> = ConstPtr(0L),
+            syncRootIdentity: ConstPtr = ConstPtr(0L),
             syncRootIdentityLength: UInt = 0u,
-            fileIdentity: ConstPtr<CVoid> = ConstPtr(0L),
+            fileIdentity: ConstPtr = ConstPtr(0L),
             fileIdentityLength: UInt = 0u,
             providerId: Guid = Guid(),
         ): CfSyncRegistration =

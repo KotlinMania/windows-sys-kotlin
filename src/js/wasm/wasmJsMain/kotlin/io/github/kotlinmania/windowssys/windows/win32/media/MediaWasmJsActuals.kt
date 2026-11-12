@@ -36,10 +36,10 @@ public actual fun timeBeginPeriod(uperiod: UInt): UInt =
 public actual fun timeEndPeriod(uperiod: UInt): UInt =
     if (windowsWin32MediaNapiAvailable) wasmWindowssysWindowsWin32MediaTimeEndPeriod(uperiod.toInt()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun timeGetDevCaps(ptc: MutPtr<Timecaps>, cbtc: UInt): UInt =
+public actual fun timeGetDevCaps(ptc: MutPtr, cbtc: UInt): UInt =
     if (windowsWin32MediaNapiAvailable) wasmWindowssysWindowsWin32MediaTimeGetDevCaps(ptc.rawAddress.toString(), cbtc.toInt()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun timeGetSystemTime(pmmt: MutPtr<Mmtime>, cbmmt: UInt): UInt =
+public actual fun timeGetSystemTime(pmmt: MutPtr, cbmmt: UInt): UInt =
     if (windowsWin32MediaNapiAvailable) wasmWindowssysWindowsWin32MediaTimeGetSystemTime(pmmt.rawAddress.toString(), cbmmt.toInt()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun timeGetTime(): UInt =

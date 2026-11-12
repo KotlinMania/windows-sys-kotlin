@@ -2,7 +2,6 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.storage.compression
 
-import io.github.kotlinmania.rustlang.core.ffi.CVoid
 import io.github.kotlinmania.rustlang.core.ptr.ConstPtr
 import io.github.kotlinmania.rustlang.core.ptr.MutPtr
 import io.github.kotlinmania.windowssys.core.Bool
@@ -54,22 +53,22 @@ public actual fun closeCompressor(compressorhandle: CompressorHandle): Bool =
 public actual fun closeDecompressor(decompressorhandle: DecompressorHandle): Bool =
     if (windowsWin32StorageCompressionNapiAvailable) wasmWindowssysWindowsWin32StorageCompressionCloseDecompressor(decompressorhandle.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun compress(compressorhandle: CompressorHandle, uncompresseddata: ConstPtr<CVoid>, uncompresseddatasize: ULong, compressedbuffer: MutPtr<CVoid>, compressedbuffersize: ULong, compresseddatasize: MutPtr<ULong>): Bool =
+public actual fun compress(compressorhandle: CompressorHandle, uncompresseddata: ConstPtr, uncompresseddatasize: ULong, compressedbuffer: MutPtr, compressedbuffersize: ULong, compresseddatasize: MutPtr): Bool =
     if (windowsWin32StorageCompressionNapiAvailable) wasmWindowssysWindowsWin32StorageCompressionCompress(compressorhandle.rawAddress.toString(), uncompresseddata.rawAddress.toString(), uncompresseddatasize.toString(), compressedbuffer.rawAddress.toString(), compressedbuffersize.toString(), compresseddatasize.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun createCompressor(algorithm: CompressAlgorithm, allocationroutines: ConstPtr<CompressAllocationRoutines>, compressorhandle: MutPtr<CompressorHandle>): Bool =
+public actual fun createCompressor(algorithm: CompressAlgorithm, allocationroutines: ConstPtr, compressorhandle: MutPtr): Bool =
     if (windowsWin32StorageCompressionNapiAvailable) wasmWindowssysWindowsWin32StorageCompressionCreateCompressor(algorithm.toInt(), allocationroutines.rawAddress.toString(), compressorhandle.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun createDecompressor(algorithm: CompressAlgorithm, allocationroutines: ConstPtr<CompressAllocationRoutines>, decompressorhandle: MutPtr<DecompressorHandle>): Bool =
+public actual fun createDecompressor(algorithm: CompressAlgorithm, allocationroutines: ConstPtr, decompressorhandle: MutPtr): Bool =
     if (windowsWin32StorageCompressionNapiAvailable) wasmWindowssysWindowsWin32StorageCompressionCreateDecompressor(algorithm.toInt(), allocationroutines.rawAddress.toString(), decompressorhandle.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun decompress(decompressorhandle: DecompressorHandle, compresseddata: ConstPtr<CVoid>, compresseddatasize: ULong, uncompressedbuffer: MutPtr<CVoid>, uncompressedbuffersize: ULong, uncompresseddatasize: MutPtr<ULong>): Bool =
+public actual fun decompress(decompressorhandle: DecompressorHandle, compresseddata: ConstPtr, compresseddatasize: ULong, uncompressedbuffer: MutPtr, uncompressedbuffersize: ULong, uncompresseddatasize: MutPtr): Bool =
     if (windowsWin32StorageCompressionNapiAvailable) wasmWindowssysWindowsWin32StorageCompressionDecompress(decompressorhandle.rawAddress.toString(), compresseddata.rawAddress.toString(), compresseddatasize.toString(), uncompressedbuffer.rawAddress.toString(), uncompressedbuffersize.toString(), uncompresseddatasize.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun queryCompressorInformation(compressorhandle: CompressorHandle, compressinformationclass: CompressInformationClass, compressinformation: MutPtr<CVoid>, compressinformationsize: ULong): Bool =
+public actual fun queryCompressorInformation(compressorhandle: CompressorHandle, compressinformationclass: CompressInformationClass, compressinformation: MutPtr, compressinformationsize: ULong): Bool =
     if (windowsWin32StorageCompressionNapiAvailable) wasmWindowssysWindowsWin32StorageCompressionQueryCompressorInformation(compressorhandle.rawAddress.toString(), compressinformationclass, compressinformation.rawAddress.toString(), compressinformationsize.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun queryDecompressorInformation(decompressorhandle: DecompressorHandle, compressinformationclass: CompressInformationClass, compressinformation: MutPtr<CVoid>, compressinformationsize: ULong): Bool =
+public actual fun queryDecompressorInformation(decompressorhandle: DecompressorHandle, compressinformationclass: CompressInformationClass, compressinformation: MutPtr, compressinformationsize: ULong): Bool =
     if (windowsWin32StorageCompressionNapiAvailable) wasmWindowssysWindowsWin32StorageCompressionQueryDecompressorInformation(decompressorhandle.rawAddress.toString(), compressinformationclass, compressinformation.rawAddress.toString(), compressinformationsize.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun resetCompressor(compressorhandle: CompressorHandle): Bool =
@@ -78,8 +77,8 @@ public actual fun resetCompressor(compressorhandle: CompressorHandle): Bool =
 public actual fun resetDecompressor(decompressorhandle: DecompressorHandle): Bool =
     if (windowsWin32StorageCompressionNapiAvailable) wasmWindowssysWindowsWin32StorageCompressionResetDecompressor(decompressorhandle.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun setCompressorInformation(compressorhandle: CompressorHandle, compressinformationclass: CompressInformationClass, compressinformation: ConstPtr<CVoid>, compressinformationsize: ULong): Bool =
+public actual fun setCompressorInformation(compressorhandle: CompressorHandle, compressinformationclass: CompressInformationClass, compressinformation: ConstPtr, compressinformationsize: ULong): Bool =
     if (windowsWin32StorageCompressionNapiAvailable) wasmWindowssysWindowsWin32StorageCompressionSetCompressorInformation(compressorhandle.rawAddress.toString(), compressinformationclass, compressinformation.rawAddress.toString(), compressinformationsize.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun setDecompressorInformation(decompressorhandle: DecompressorHandle, compressinformationclass: CompressInformationClass, compressinformation: ConstPtr<CVoid>, compressinformationsize: ULong): Bool =
+public actual fun setDecompressorInformation(decompressorhandle: DecompressorHandle, compressinformationclass: CompressInformationClass, compressinformation: ConstPtr, compressinformationsize: ULong): Bool =
     if (windowsWin32StorageCompressionNapiAvailable) wasmWindowssysWindowsWin32StorageCompressionSetDecompressorInformation(decompressorhandle.rawAddress.toString(), compressinformationclass, compressinformation.rawAddress.toString(), compressinformationsize.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")

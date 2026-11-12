@@ -2,7 +2,6 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.ui.shell
 
-import io.github.kotlinmania.rustlang.core.ffi.CVoid
 import io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
 import io.github.kotlinmania.rustlang.core.mem.TypeLayout
 import io.github.kotlinmania.rustlang.core.ptr.ConstPtr
@@ -27,18 +26,12 @@ import io.github.kotlinmania.windowssys.windows.win32.foundation.Size
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Systemtime
 import io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.Hbitmap
 import io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.Hmonitor
-import io.github.kotlinmania.windowssys.windows.win32.networkmanagement.iphelper.NetAddressInfo
 import io.github.kotlinmania.windowssys.windows.win32.networkmanagement.wnet.Netresourcea
-import io.github.kotlinmania.windowssys.windows.win32.security.SecurityAttributes
 import io.github.kotlinmania.windowssys.windows.win32.system.Variant
-import io.github.kotlinmania.windowssys.windows.win32.system.com.ByteBlob
 import io.github.kotlinmania.windowssys.windows.win32.system.console.Coord
 import io.github.kotlinmania.windowssys.windows.win32.system.registry.Hkey
-import io.github.kotlinmania.windowssys.windows.win32.system.threading.ProcessInformation
-import io.github.kotlinmania.windowssys.windows.win32.system.threading.Startupinfow
 import io.github.kotlinmania.windowssys.windows.win32.ui.controls.Himagelist
 import io.github.kotlinmania.windowssys.windows.win32.ui.controls.Lpfnsvaddpropsheetpage
-import io.github.kotlinmania.windowssys.windows.win32.ui.shell.common.Itemidlist
 import io.github.kotlinmania.windowssys.windows.win32.ui.shell.common.Strret
 import io.github.kotlinmania.windowssys.windows.win32.ui.windowsandmessaging.Haccel
 import io.github.kotlinmania.windowssys.windows.win32.ui.windowsandmessaging.Hicon
@@ -98,16 +91,16 @@ public data class Aashellmenufilename(
 }
 
 public class Aashellmenuitem internal constructor(
-    lpReserved1CtorArg: MutPtr<CVoid>,
+    lpReserved1CtorArg: MutPtr,
     public var iReserved: Int,
     public var uiReserved: UInt,
-    lpNameCtorArg: MutPtr<Aashellmenufilename>,
+    lpNameCtorArg: MutPtr,
     pszCtorArg: Pwstr,
 ) {
-    public var lpReserved1: MutPtr<CVoid> = lpReserved1CtorArg
+    public var lpReserved1: MutPtr = lpReserved1CtorArg
         internal set
 
-    public var lpName: MutPtr<Aashellmenufilename> = lpNameCtorArg
+    public var lpName: MutPtr = lpNameCtorArg
         internal set
 
     public var psz: Pwstr = pszCtorArg
@@ -121,17 +114,17 @@ public class Aashellmenuitem internal constructor(
         pszCtorArg = MutPtr(0L),
     )
 
-    public operator fun component1(): MutPtr<CVoid> = this.lpReserved1
+    public operator fun component1(): MutPtr = this.lpReserved1
 
     public operator fun component2(): Int = this.iReserved
 
     public operator fun component3(): UInt = this.uiReserved
 
-    public operator fun component4(): MutPtr<Aashellmenufilename> = this.lpName
+    public operator fun component4(): MutPtr = this.lpName
 
     public operator fun component5(): Pwstr = this.psz
 
-    public fun copy(lpReserved1: MutPtr<CVoid> = this.lpReserved1, iReserved: Int = this.iReserved, uiReserved: UInt = this.uiReserved, lpName: MutPtr<Aashellmenufilename> = this.lpName, psz: Pwstr = this.psz): Aashellmenuitem = Aashellmenuitem(lpReserved1CtorArg = lpReserved1, iReserved = iReserved, uiReserved = uiReserved, lpNameCtorArg = lpName, pszCtorArg = psz)
+    public fun copy(lpReserved1: MutPtr = this.lpReserved1, iReserved: Int = this.iReserved, uiReserved: UInt = this.uiReserved, lpName: MutPtr = this.lpName, psz: Pwstr = this.psz): Aashellmenuitem = Aashellmenuitem(lpReserved1CtorArg = lpReserved1, iReserved = iReserved, uiReserved = uiReserved, lpNameCtorArg = lpName, pszCtorArg = psz)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -155,10 +148,10 @@ public class Aashellmenuitem internal constructor(
 
     public companion object {
         public operator fun invoke(
-            lpReserved1: MutPtr<CVoid> = MutPtr(0L),
+            lpReserved1: MutPtr = MutPtr(0L),
             iReserved: Int = 0,
             uiReserved: UInt = 0u,
-            lpName: MutPtr<Aashellmenufilename> = MutPtr(0L),
+            lpName: MutPtr = MutPtr(0L),
             psz: Pwstr = MutPtr(0L),
         ): Aashellmenuitem =
             Aashellmenuitem(
@@ -301,9 +294,9 @@ public class Appcategoryinfo internal constructor(
 
 public class Appcategoryinfolist internal constructor(
     public var cCategory: UInt,
-    pCategoryInfoCtorArg: MutPtr<Appcategoryinfo>,
+    pCategoryInfoCtorArg: MutPtr,
 ) {
-    public var pCategoryInfo: MutPtr<Appcategoryinfo> = pCategoryInfoCtorArg
+    public var pCategoryInfo: MutPtr = pCategoryInfoCtorArg
         internal set
 
     public constructor() : this(
@@ -313,9 +306,9 @@ public class Appcategoryinfolist internal constructor(
 
     public operator fun component1(): UInt = this.cCategory
 
-    public operator fun component2(): MutPtr<Appcategoryinfo> = this.pCategoryInfo
+    public operator fun component2(): MutPtr = this.pCategoryInfo
 
-    public fun copy(cCategory: UInt = this.cCategory, pCategoryInfo: MutPtr<Appcategoryinfo> = this.pCategoryInfo): Appcategoryinfolist = Appcategoryinfolist(cCategory = cCategory, pCategoryInfoCtorArg = pCategoryInfo)
+    public fun copy(cCategory: UInt = this.cCategory, pCategoryInfo: MutPtr = this.pCategoryInfo): Appcategoryinfolist = Appcategoryinfolist(cCategory = cCategory, pCategoryInfoCtorArg = pCategoryInfo)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -341,21 +334,21 @@ public class Appcategoryinfolist internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<Appcategoryinfo>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                     )
                 override fun writeNative(addr: Long, value: Appcategoryinfolist) {
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr, value.cCategory)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<Appcategoryinfo>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.pCategoryInfo)
                 }
             }
 
         public operator fun invoke(
             cCategory: UInt = 0u,
-            pCategoryInfo: MutPtr<Appcategoryinfo> = MutPtr(0L),
+            pCategoryInfo: MutPtr = MutPtr(0L),
         ): Appcategoryinfolist =
             Appcategoryinfolist(
                 cCategory = cCategory,
@@ -603,13 +596,13 @@ public class Bandinfosfb internal constructor(
     public var crBtnDk: Colorref,
     public var wViewMode: UShort,
     public var wAlign: UShort,
-    psfCtorArg: MutPtr<CVoid>,
-    pidlCtorArg: MutPtr<Itemidlist>,
+    psfCtorArg: MutPtr,
+    pidlCtorArg: MutPtr,
 ) {
-    public var psf: MutPtr<CVoid> = psfCtorArg
+    public var psf: MutPtr = psfCtorArg
         internal set
 
-    public var pidl: MutPtr<Itemidlist> = pidlCtorArg
+    public var pidl: MutPtr = pidlCtorArg
         internal set
 
     public constructor() : this(
@@ -641,11 +634,11 @@ public class Bandinfosfb internal constructor(
 
     public operator fun component8(): UShort = this.wAlign
 
-    public operator fun component9(): MutPtr<CVoid> = this.psf
+    public operator fun component9(): MutPtr = this.psf
 
-    public operator fun component10(): MutPtr<Itemidlist> = this.pidl
+    public operator fun component10(): MutPtr = this.pidl
 
-    public fun copy(dwMask: UInt = this.dwMask, dwStateMask: UInt = this.dwStateMask, dwState: UInt = this.dwState, crBkgnd: Colorref = this.crBkgnd, crBtnLt: Colorref = this.crBtnLt, crBtnDk: Colorref = this.crBtnDk, wViewMode: UShort = this.wViewMode, wAlign: UShort = this.wAlign, psf: MutPtr<CVoid> = this.psf, pidl: MutPtr<Itemidlist> = this.pidl): Bandinfosfb = Bandinfosfb(dwMask = dwMask, dwStateMask = dwStateMask, dwState = dwState, crBkgnd = crBkgnd, crBtnLt = crBtnLt, crBtnDk = crBtnDk, wViewMode = wViewMode, wAlign = wAlign, psfCtorArg = psf, pidlCtorArg = pidl)
+    public fun copy(dwMask: UInt = this.dwMask, dwStateMask: UInt = this.dwStateMask, dwState: UInt = this.dwState, crBkgnd: Colorref = this.crBkgnd, crBtnLt: Colorref = this.crBtnLt, crBtnDk: Colorref = this.crBtnDk, wViewMode: UShort = this.wViewMode, wAlign: UShort = this.wAlign, psf: MutPtr = this.psf, pidl: MutPtr = this.pidl): Bandinfosfb = Bandinfosfb(dwMask = dwMask, dwStateMask = dwStateMask, dwState = dwState, crBkgnd = crBkgnd, crBtnLt = crBtnLt, crBtnDk = crBtnDk, wViewMode = wViewMode, wAlign = wAlign, psfCtorArg = psf, pidlCtorArg = pidl)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -694,11 +687,11 @@ public class Bandinfosfb internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16).readNative(addr + 26L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<CVoid>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 32L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<Itemidlist>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 40L),
                     )
                 override fun writeNative(addr: Long, value: Bandinfosfb) {
@@ -712,11 +705,11 @@ public class Bandinfosfb internal constructor(
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16).writeNative(addr + 26L, value.wAlign)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<CVoid>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 32L, value.psf)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<Itemidlist>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 40L, value.pidl)
                 }
             }
@@ -730,8 +723,8 @@ public class Bandinfosfb internal constructor(
             crBtnDk: Colorref = 0u,
             wViewMode: UShort = 0u,
             wAlign: UShort = 0u,
-            psf: MutPtr<CVoid> = MutPtr(0L),
-            pidl: MutPtr<Itemidlist> = MutPtr(0L),
+            psf: MutPtr = MutPtr(0L),
+            pidl: MutPtr = MutPtr(0L),
         ): Bandinfosfb =
             Bandinfosfb(
                 dwMask = dwMask,
@@ -830,24 +823,24 @@ public class BannerNotification internal constructor(
 
 public class Basebrowserdatalh internal constructor(
     hwndCtorArg: Hwnd,
-    ptlCtorArg: MutPtr<CVoid>,
-    phlfCtorArg: MutPtr<CVoid>,
-    pautoWb2CtorArg: MutPtr<CVoid>,
-    pautoEdsCtorArg: MutPtr<CVoid>,
-    pautoSsCtorArg: MutPtr<CVoid>,
+    ptlCtorArg: MutPtr,
+    phlfCtorArg: MutPtr,
+    pautoWb2CtorArg: MutPtr,
+    pautoEdsCtorArg: MutPtr,
+    pautoSsCtorArg: MutPtr,
     public var eSecureLockIcon: Int,
     public var bitfield: UInt,
     public var uActivateState: UInt,
-    pidlViewStateCtorArg: MutPtr<Itemidlist>,
-    pctViewCtorArg: MutPtr<CVoid>,
-    pidlCurCtorArg: MutPtr<Itemidlist>,
-    psvCtorArg: MutPtr<CVoid>,
-    psfCtorArg: MutPtr<CVoid>,
+    pidlViewStateCtorArg: MutPtr,
+    pctViewCtorArg: MutPtr,
+    pidlCurCtorArg: MutPtr,
+    psvCtorArg: MutPtr,
+    psfCtorArg: MutPtr,
     hwndViewCtorArg: Hwnd,
     pszTitleCurCtorArg: Pwstr,
-    pidlPendingCtorArg: MutPtr<Itemidlist>,
-    psvPendingCtorArg: MutPtr<CVoid>,
-    psfPendingCtorArg: MutPtr<CVoid>,
+    pidlPendingCtorArg: MutPtr,
+    psvPendingCtorArg: MutPtr,
+    psfPendingCtorArg: MutPtr,
     hwndViewPendingCtorArg: Hwnd,
     pszTitlePendingCtorArg: Pwstr,
     public var fIsViewMshtml: Bool,
@@ -860,34 +853,34 @@ public class Basebrowserdatalh internal constructor(
     public var hwnd: Hwnd = hwndCtorArg
         internal set
 
-    public var ptl: MutPtr<CVoid> = ptlCtorArg
+    public var ptl: MutPtr = ptlCtorArg
         internal set
 
-    public var phlf: MutPtr<CVoid> = phlfCtorArg
+    public var phlf: MutPtr = phlfCtorArg
         internal set
 
-    public var pautoWb2: MutPtr<CVoid> = pautoWb2CtorArg
+    public var pautoWb2: MutPtr = pautoWb2CtorArg
         internal set
 
-    public var pautoEds: MutPtr<CVoid> = pautoEdsCtorArg
+    public var pautoEds: MutPtr = pautoEdsCtorArg
         internal set
 
-    public var pautoSs: MutPtr<CVoid> = pautoSsCtorArg
+    public var pautoSs: MutPtr = pautoSsCtorArg
         internal set
 
-    public var pidlViewState: MutPtr<Itemidlist> = pidlViewStateCtorArg
+    public var pidlViewState: MutPtr = pidlViewStateCtorArg
         internal set
 
-    public var pctView: MutPtr<CVoid> = pctViewCtorArg
+    public var pctView: MutPtr = pctViewCtorArg
         internal set
 
-    public var pidlCur: MutPtr<Itemidlist> = pidlCurCtorArg
+    public var pidlCur: MutPtr = pidlCurCtorArg
         internal set
 
-    public var psv: MutPtr<CVoid> = psvCtorArg
+    public var psv: MutPtr = psvCtorArg
         internal set
 
-    public var psf: MutPtr<CVoid> = psfCtorArg
+    public var psf: MutPtr = psfCtorArg
         internal set
 
     public var hwndView: Hwnd = hwndViewCtorArg
@@ -896,13 +889,13 @@ public class Basebrowserdatalh internal constructor(
     public var pszTitleCur: Pwstr = pszTitleCurCtorArg
         internal set
 
-    public var pidlPending: MutPtr<Itemidlist> = pidlPendingCtorArg
+    public var pidlPending: MutPtr = pidlPendingCtorArg
         internal set
 
-    public var psvPending: MutPtr<CVoid> = psvPendingCtorArg
+    public var psvPending: MutPtr = psvPendingCtorArg
         internal set
 
-    public var psfPending: MutPtr<CVoid> = psfPendingCtorArg
+    public var psfPending: MutPtr = psfPendingCtorArg
         internal set
 
     public var hwndViewPending: Hwnd = hwndViewPendingCtorArg
@@ -947,24 +940,24 @@ public class Basebrowserdatalh internal constructor(
     public companion object {
         public operator fun invoke(
             hwnd: Hwnd = MutPtr(0L),
-            ptl: MutPtr<CVoid> = MutPtr(0L),
-            phlf: MutPtr<CVoid> = MutPtr(0L),
-            pautoWb2: MutPtr<CVoid> = MutPtr(0L),
-            pautoEds: MutPtr<CVoid> = MutPtr(0L),
-            pautoSs: MutPtr<CVoid> = MutPtr(0L),
+            ptl: MutPtr = MutPtr(0L),
+            phlf: MutPtr = MutPtr(0L),
+            pautoWb2: MutPtr = MutPtr(0L),
+            pautoEds: MutPtr = MutPtr(0L),
+            pautoSs: MutPtr = MutPtr(0L),
             eSecureLockIcon: Int = 0,
             bitfield: UInt = 0u,
             uActivateState: UInt = 0u,
-            pidlViewState: MutPtr<Itemidlist> = MutPtr(0L),
-            pctView: MutPtr<CVoid> = MutPtr(0L),
-            pidlCur: MutPtr<Itemidlist> = MutPtr(0L),
-            psv: MutPtr<CVoid> = MutPtr(0L),
-            psf: MutPtr<CVoid> = MutPtr(0L),
+            pidlViewState: MutPtr = MutPtr(0L),
+            pctView: MutPtr = MutPtr(0L),
+            pidlCur: MutPtr = MutPtr(0L),
+            psv: MutPtr = MutPtr(0L),
+            psf: MutPtr = MutPtr(0L),
             hwndView: Hwnd = MutPtr(0L),
             pszTitleCur: Pwstr = MutPtr(0L),
-            pidlPending: MutPtr<Itemidlist> = MutPtr(0L),
-            psvPending: MutPtr<CVoid> = MutPtr(0L),
-            psfPending: MutPtr<CVoid> = MutPtr(0L),
+            pidlPending: MutPtr = MutPtr(0L),
+            psvPending: MutPtr = MutPtr(0L),
+            psfPending: MutPtr = MutPtr(0L),
             hwndViewPending: Hwnd = MutPtr(0L),
             pszTitlePending: Pwstr = MutPtr(0L),
             fIsViewMshtml: Bool = 0,
@@ -1008,24 +1001,24 @@ public class Basebrowserdatalh internal constructor(
 
 public class Basebrowserdataxp internal constructor(
     hwndCtorArg: Hwnd,
-    ptlCtorArg: MutPtr<CVoid>,
-    phlfCtorArg: MutPtr<CVoid>,
-    pautoWb2CtorArg: MutPtr<CVoid>,
-    pautoEdsCtorArg: MutPtr<CVoid>,
-    pautoSsCtorArg: MutPtr<CVoid>,
+    ptlCtorArg: MutPtr,
+    phlfCtorArg: MutPtr,
+    pautoWb2CtorArg: MutPtr,
+    pautoEdsCtorArg: MutPtr,
+    pautoSsCtorArg: MutPtr,
     public var eSecureLockIcon: Int,
     public var bitfield: UInt,
     public var uActivateState: UInt,
-    pidlViewStateCtorArg: MutPtr<Itemidlist>,
-    pctViewCtorArg: MutPtr<CVoid>,
-    pidlCurCtorArg: MutPtr<Itemidlist>,
-    psvCtorArg: MutPtr<CVoid>,
-    psfCtorArg: MutPtr<CVoid>,
+    pidlViewStateCtorArg: MutPtr,
+    pctViewCtorArg: MutPtr,
+    pidlCurCtorArg: MutPtr,
+    psvCtorArg: MutPtr,
+    psfCtorArg: MutPtr,
     hwndViewCtorArg: Hwnd,
     pszTitleCurCtorArg: Pwstr,
-    pidlPendingCtorArg: MutPtr<Itemidlist>,
-    psvPendingCtorArg: MutPtr<CVoid>,
-    psfPendingCtorArg: MutPtr<CVoid>,
+    pidlPendingCtorArg: MutPtr,
+    psvPendingCtorArg: MutPtr,
+    psfPendingCtorArg: MutPtr,
     hwndViewPendingCtorArg: Hwnd,
     pszTitlePendingCtorArg: Pwstr,
     public var fIsViewMshtml: Bool,
@@ -1037,34 +1030,34 @@ public class Basebrowserdataxp internal constructor(
     public var hwnd: Hwnd = hwndCtorArg
         internal set
 
-    public var ptl: MutPtr<CVoid> = ptlCtorArg
+    public var ptl: MutPtr = ptlCtorArg
         internal set
 
-    public var phlf: MutPtr<CVoid> = phlfCtorArg
+    public var phlf: MutPtr = phlfCtorArg
         internal set
 
-    public var pautoWb2: MutPtr<CVoid> = pautoWb2CtorArg
+    public var pautoWb2: MutPtr = pautoWb2CtorArg
         internal set
 
-    public var pautoEds: MutPtr<CVoid> = pautoEdsCtorArg
+    public var pautoEds: MutPtr = pautoEdsCtorArg
         internal set
 
-    public var pautoSs: MutPtr<CVoid> = pautoSsCtorArg
+    public var pautoSs: MutPtr = pautoSsCtorArg
         internal set
 
-    public var pidlViewState: MutPtr<Itemidlist> = pidlViewStateCtorArg
+    public var pidlViewState: MutPtr = pidlViewStateCtorArg
         internal set
 
-    public var pctView: MutPtr<CVoid> = pctViewCtorArg
+    public var pctView: MutPtr = pctViewCtorArg
         internal set
 
-    public var pidlCur: MutPtr<Itemidlist> = pidlCurCtorArg
+    public var pidlCur: MutPtr = pidlCurCtorArg
         internal set
 
-    public var psv: MutPtr<CVoid> = psvCtorArg
+    public var psv: MutPtr = psvCtorArg
         internal set
 
-    public var psf: MutPtr<CVoid> = psfCtorArg
+    public var psf: MutPtr = psfCtorArg
         internal set
 
     public var hwndView: Hwnd = hwndViewCtorArg
@@ -1073,13 +1066,13 @@ public class Basebrowserdataxp internal constructor(
     public var pszTitleCur: Pwstr = pszTitleCurCtorArg
         internal set
 
-    public var pidlPending: MutPtr<Itemidlist> = pidlPendingCtorArg
+    public var pidlPending: MutPtr = pidlPendingCtorArg
         internal set
 
-    public var psvPending: MutPtr<CVoid> = psvPendingCtorArg
+    public var psvPending: MutPtr = psvPendingCtorArg
         internal set
 
-    public var psfPending: MutPtr<CVoid> = psfPendingCtorArg
+    public var psfPending: MutPtr = psfPendingCtorArg
         internal set
 
     public var hwndViewPending: Hwnd = hwndViewPendingCtorArg
@@ -1123,24 +1116,24 @@ public class Basebrowserdataxp internal constructor(
     public companion object {
         public operator fun invoke(
             hwnd: Hwnd = MutPtr(0L),
-            ptl: MutPtr<CVoid> = MutPtr(0L),
-            phlf: MutPtr<CVoid> = MutPtr(0L),
-            pautoWb2: MutPtr<CVoid> = MutPtr(0L),
-            pautoEds: MutPtr<CVoid> = MutPtr(0L),
-            pautoSs: MutPtr<CVoid> = MutPtr(0L),
+            ptl: MutPtr = MutPtr(0L),
+            phlf: MutPtr = MutPtr(0L),
+            pautoWb2: MutPtr = MutPtr(0L),
+            pautoEds: MutPtr = MutPtr(0L),
+            pautoSs: MutPtr = MutPtr(0L),
             eSecureLockIcon: Int = 0,
             bitfield: UInt = 0u,
             uActivateState: UInt = 0u,
-            pidlViewState: MutPtr<Itemidlist> = MutPtr(0L),
-            pctView: MutPtr<CVoid> = MutPtr(0L),
-            pidlCur: MutPtr<Itemidlist> = MutPtr(0L),
-            psv: MutPtr<CVoid> = MutPtr(0L),
-            psf: MutPtr<CVoid> = MutPtr(0L),
+            pidlViewState: MutPtr = MutPtr(0L),
+            pctView: MutPtr = MutPtr(0L),
+            pidlCur: MutPtr = MutPtr(0L),
+            psv: MutPtr = MutPtr(0L),
+            psf: MutPtr = MutPtr(0L),
             hwndView: Hwnd = MutPtr(0L),
             pszTitleCur: Pwstr = MutPtr(0L),
-            pidlPending: MutPtr<Itemidlist> = MutPtr(0L),
-            psvPending: MutPtr<CVoid> = MutPtr(0L),
-            psfPending: MutPtr<CVoid> = MutPtr(0L),
+            pidlPending: MutPtr = MutPtr(0L),
+            psvPending: MutPtr = MutPtr(0L),
+            psfPending: MutPtr = MutPtr(0L),
             hwndViewPending: Hwnd = MutPtr(0L),
             pszTitlePending: Pwstr = MutPtr(0L),
             fIsViewMshtml: Bool = 0,
@@ -1182,7 +1175,7 @@ public class Basebrowserdataxp internal constructor(
 
 public class Browseinfoa internal constructor(
     hwndOwnerCtorArg: Hwnd,
-    pidlRootCtorArg: MutPtr<Itemidlist>,
+    pidlRootCtorArg: MutPtr,
     pszDisplayNameCtorArg: Pstr,
     lpszTitleCtorArg: Pcstr,
     public var ulFlags: UInt,
@@ -1193,7 +1186,7 @@ public class Browseinfoa internal constructor(
     public var hwndOwner: Hwnd = hwndOwnerCtorArg
         internal set
 
-    public var pidlRoot: MutPtr<Itemidlist> = pidlRootCtorArg
+    public var pidlRoot: MutPtr = pidlRootCtorArg
         internal set
 
     public var pszDisplayName: Pstr = pszDisplayNameCtorArg
@@ -1215,7 +1208,7 @@ public class Browseinfoa internal constructor(
 
     public operator fun component1(): Hwnd = this.hwndOwner
 
-    public operator fun component2(): MutPtr<Itemidlist> = this.pidlRoot
+    public operator fun component2(): MutPtr = this.pidlRoot
 
     public operator fun component3(): Pstr = this.pszDisplayName
 
@@ -1229,7 +1222,7 @@ public class Browseinfoa internal constructor(
 
     public operator fun component8(): Int = this.iImage
 
-    public fun copy(hwndOwner: Hwnd = this.hwndOwner, pidlRoot: MutPtr<Itemidlist> = this.pidlRoot, pszDisplayName: Pstr = this.pszDisplayName, lpszTitle: Pcstr = this.lpszTitle, ulFlags: UInt = this.ulFlags, lpfn: Bffcallback = this.lpfn, lParam: Lparam = this.lParam, iImage: Int = this.iImage): Browseinfoa = Browseinfoa(hwndOwnerCtorArg = hwndOwner, pidlRootCtorArg = pidlRoot, pszDisplayNameCtorArg = pszDisplayName, lpszTitleCtorArg = lpszTitle, ulFlags = ulFlags, lpfn = lpfn, lParam = lParam, iImage = iImage)
+    public fun copy(hwndOwner: Hwnd = this.hwndOwner, pidlRoot: MutPtr = this.pidlRoot, pszDisplayName: Pstr = this.pszDisplayName, lpszTitle: Pcstr = this.lpszTitle, ulFlags: UInt = this.ulFlags, lpfn: Bffcallback = this.lpfn, lParam: Lparam = this.lParam, iImage: Int = this.iImage): Browseinfoa = Browseinfoa(hwndOwnerCtorArg = hwndOwner, pidlRootCtorArg = pidlRoot, pszDisplayNameCtorArg = pszDisplayName, lpszTitleCtorArg = lpszTitle, ulFlags = ulFlags, lpfn = lpfn, lParam = lParam, iImage = iImage)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -1260,7 +1253,7 @@ public class Browseinfoa internal constructor(
     public companion object {
         public operator fun invoke(
             hwndOwner: Hwnd = MutPtr(0L),
-            pidlRoot: MutPtr<Itemidlist> = MutPtr(0L),
+            pidlRoot: MutPtr = MutPtr(0L),
             pszDisplayName: Pstr = MutPtr(0L),
             lpszTitle: Pcstr = ConstPtr(0L),
             ulFlags: UInt = 0u,
@@ -1283,7 +1276,7 @@ public class Browseinfoa internal constructor(
 
 public class Browseinfow internal constructor(
     hwndOwnerCtorArg: Hwnd,
-    pidlRootCtorArg: MutPtr<Itemidlist>,
+    pidlRootCtorArg: MutPtr,
     pszDisplayNameCtorArg: Pwstr,
     lpszTitleCtorArg: Pcwstr,
     public var ulFlags: UInt,
@@ -1294,7 +1287,7 @@ public class Browseinfow internal constructor(
     public var hwndOwner: Hwnd = hwndOwnerCtorArg
         internal set
 
-    public var pidlRoot: MutPtr<Itemidlist> = pidlRootCtorArg
+    public var pidlRoot: MutPtr = pidlRootCtorArg
         internal set
 
     public var pszDisplayName: Pwstr = pszDisplayNameCtorArg
@@ -1316,7 +1309,7 @@ public class Browseinfow internal constructor(
 
     public operator fun component1(): Hwnd = this.hwndOwner
 
-    public operator fun component2(): MutPtr<Itemidlist> = this.pidlRoot
+    public operator fun component2(): MutPtr = this.pidlRoot
 
     public operator fun component3(): Pwstr = this.pszDisplayName
 
@@ -1330,7 +1323,7 @@ public class Browseinfow internal constructor(
 
     public operator fun component8(): Int = this.iImage
 
-    public fun copy(hwndOwner: Hwnd = this.hwndOwner, pidlRoot: MutPtr<Itemidlist> = this.pidlRoot, pszDisplayName: Pwstr = this.pszDisplayName, lpszTitle: Pcwstr = this.lpszTitle, ulFlags: UInt = this.ulFlags, lpfn: Bffcallback = this.lpfn, lParam: Lparam = this.lParam, iImage: Int = this.iImage): Browseinfow = Browseinfow(hwndOwnerCtorArg = hwndOwner, pidlRootCtorArg = pidlRoot, pszDisplayNameCtorArg = pszDisplayName, lpszTitleCtorArg = lpszTitle, ulFlags = ulFlags, lpfn = lpfn, lParam = lParam, iImage = iImage)
+    public fun copy(hwndOwner: Hwnd = this.hwndOwner, pidlRoot: MutPtr = this.pidlRoot, pszDisplayName: Pwstr = this.pszDisplayName, lpszTitle: Pcwstr = this.lpszTitle, ulFlags: UInt = this.ulFlags, lpfn: Bffcallback = this.lpfn, lParam: Lparam = this.lParam, iImage: Int = this.iImage): Browseinfow = Browseinfow(hwndOwnerCtorArg = hwndOwner, pidlRootCtorArg = pidlRoot, pszDisplayNameCtorArg = pszDisplayName, lpszTitleCtorArg = lpszTitle, ulFlags = ulFlags, lpfn = lpfn, lParam = lParam, iImage = iImage)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -1361,7 +1354,7 @@ public class Browseinfow internal constructor(
     public companion object {
         public operator fun invoke(
             hwndOwner: Hwnd = MutPtr(0L),
-            pidlRoot: MutPtr<Itemidlist> = MutPtr(0L),
+            pidlRoot: MutPtr = MutPtr(0L),
             pszDisplayName: Pwstr = MutPtr(0L),
             lpszTitle: Pcwstr = ConstPtr(0L),
             ulFlags: UInt = 0u,
@@ -2029,14 +2022,14 @@ public data class CmColumninfo(
 }
 
 public class ConfirmConflictItem internal constructor(
-    pShellItemCtorArg: MutPtr<CVoid>,
+    pShellItemCtorArg: MutPtr,
     pszOriginalNameCtorArg: Pwstr,
     pszAlternateNameCtorArg: Pwstr,
     pszLocationShortCtorArg: Pwstr,
     pszLocationFullCtorArg: Pwstr,
     public var nType: SyncmgrConflictItemType,
 ) {
-    public var pShellItem: MutPtr<CVoid> = pShellItemCtorArg
+    public var pShellItem: MutPtr = pShellItemCtorArg
         internal set
 
     public var pszOriginalName: Pwstr = pszOriginalNameCtorArg
@@ -2060,7 +2053,7 @@ public class ConfirmConflictItem internal constructor(
         nType = 0,
     )
 
-    public operator fun component1(): MutPtr<CVoid> = this.pShellItem
+    public operator fun component1(): MutPtr = this.pShellItem
 
     public operator fun component2(): Pwstr = this.pszOriginalName
 
@@ -2072,7 +2065,7 @@ public class ConfirmConflictItem internal constructor(
 
     public operator fun component6(): SyncmgrConflictItemType = this.nType
 
-    public fun copy(pShellItem: MutPtr<CVoid> = this.pShellItem, pszOriginalName: Pwstr = this.pszOriginalName, pszAlternateName: Pwstr = this.pszAlternateName, pszLocationShort: Pwstr = this.pszLocationShort, pszLocationFull: Pwstr = this.pszLocationFull, nType: SyncmgrConflictItemType = this.nType): ConfirmConflictItem = ConfirmConflictItem(pShellItemCtorArg = pShellItem, pszOriginalNameCtorArg = pszOriginalName, pszAlternateNameCtorArg = pszAlternateName, pszLocationShortCtorArg = pszLocationShort, pszLocationFullCtorArg = pszLocationFull, nType = nType)
+    public fun copy(pShellItem: MutPtr = this.pShellItem, pszOriginalName: Pwstr = this.pszOriginalName, pszAlternateName: Pwstr = this.pszAlternateName, pszLocationShort: Pwstr = this.pszLocationShort, pszLocationFull: Pwstr = this.pszLocationFull, nType: SyncmgrConflictItemType = this.nType): ConfirmConflictItem = ConfirmConflictItem(pShellItemCtorArg = pShellItem, pszOriginalNameCtorArg = pszOriginalName, pszAlternateNameCtorArg = pszAlternateName, pszLocationShortCtorArg = pszLocationShort, pszLocationFullCtorArg = pszLocationFull, nType = nType)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -2098,7 +2091,7 @@ public class ConfirmConflictItem internal constructor(
 
     public companion object {
         public operator fun invoke(
-            pShellItem: MutPtr<CVoid> = MutPtr(0L),
+            pShellItem: MutPtr = MutPtr(0L),
             pszOriginalName: Pwstr = MutPtr(0L),
             pszAlternateName: Pwstr = MutPtr(0L),
             pszLocationShort: Pwstr = MutPtr(0L),
@@ -2192,9 +2185,9 @@ public class CredentialProviderCredentialSerialization internal constructor(
     public var ulAuthenticationPackage: UInt,
     public var clsidCredentialProvider: Guid,
     public var cbSerialization: UInt,
-    rgbSerializationCtorArg: MutPtr<UByte>,
+    rgbSerializationCtorArg: MutPtr,
 ) {
-    public var rgbSerialization: MutPtr<UByte> = rgbSerializationCtorArg
+    public var rgbSerialization: MutPtr = rgbSerializationCtorArg
         internal set
 
     public constructor() : this(
@@ -2210,9 +2203,9 @@ public class CredentialProviderCredentialSerialization internal constructor(
 
     public operator fun component3(): UInt = this.cbSerialization
 
-    public operator fun component4(): MutPtr<UByte> = this.rgbSerialization
+    public operator fun component4(): MutPtr = this.rgbSerialization
 
-    public fun copy(ulAuthenticationPackage: UInt = this.ulAuthenticationPackage, clsidCredentialProvider: Guid = this.clsidCredentialProvider, cbSerialization: UInt = this.cbSerialization, rgbSerialization: MutPtr<UByte> = this.rgbSerialization): CredentialProviderCredentialSerialization = CredentialProviderCredentialSerialization(ulAuthenticationPackage = ulAuthenticationPackage, clsidCredentialProvider = clsidCredentialProvider, cbSerialization = cbSerialization, rgbSerializationCtorArg = rgbSerialization)
+    public fun copy(ulAuthenticationPackage: UInt = this.ulAuthenticationPackage, clsidCredentialProvider: Guid = this.clsidCredentialProvider, cbSerialization: UInt = this.cbSerialization, rgbSerialization: MutPtr = this.rgbSerialization): CredentialProviderCredentialSerialization = CredentialProviderCredentialSerialization(ulAuthenticationPackage = ulAuthenticationPackage, clsidCredentialProvider = clsidCredentialProvider, cbSerialization = cbSerialization, rgbSerializationCtorArg = rgbSerialization)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -2237,7 +2230,7 @@ public class CredentialProviderCredentialSerialization internal constructor(
             ulAuthenticationPackage: UInt = 0u,
             clsidCredentialProvider: Guid = Guid(),
             cbSerialization: UInt = 0u,
-            rgbSerialization: MutPtr<UByte> = MutPtr(0L),
+            rgbSerialization: MutPtr = MutPtr(0L),
         ): CredentialProviderCredentialSerialization =
             CredentialProviderCredentialSerialization(
                 ulAuthenticationPackage = ulAuthenticationPackage,
@@ -2310,20 +2303,20 @@ public class CredentialProviderFieldDescriptor internal constructor(
 
 public class Csfv internal constructor(
     public var cbSize: UInt,
-    pshfCtorArg: MutPtr<CVoid>,
-    psvOuterCtorArg: MutPtr<CVoid>,
-    pidlCtorArg: MutPtr<Itemidlist>,
+    pshfCtorArg: MutPtr,
+    psvOuterCtorArg: MutPtr,
+    pidlCtorArg: MutPtr,
     public var lEvents: Int,
     public var pfnCallback: Lpfnviewcallback,
     public var fvm: Folderviewmode,
 ) {
-    public var pshf: MutPtr<CVoid> = pshfCtorArg
+    public var pshf: MutPtr = pshfCtorArg
         internal set
 
-    public var psvOuter: MutPtr<CVoid> = psvOuterCtorArg
+    public var psvOuter: MutPtr = psvOuterCtorArg
         internal set
 
-    public var pidl: MutPtr<Itemidlist> = pidlCtorArg
+    public var pidl: MutPtr = pidlCtorArg
         internal set
 
     public constructor() : this(
@@ -2338,11 +2331,11 @@ public class Csfv internal constructor(
 
     public operator fun component1(): UInt = this.cbSize
 
-    public operator fun component2(): MutPtr<CVoid> = this.pshf
+    public operator fun component2(): MutPtr = this.pshf
 
-    public operator fun component3(): MutPtr<CVoid> = this.psvOuter
+    public operator fun component3(): MutPtr = this.psvOuter
 
-    public operator fun component4(): MutPtr<Itemidlist> = this.pidl
+    public operator fun component4(): MutPtr = this.pidl
 
     public operator fun component5(): Int = this.lEvents
 
@@ -2350,7 +2343,7 @@ public class Csfv internal constructor(
 
     public operator fun component7(): Folderviewmode = this.fvm
 
-    public fun copy(cbSize: UInt = this.cbSize, pshf: MutPtr<CVoid> = this.pshf, psvOuter: MutPtr<CVoid> = this.psvOuter, pidl: MutPtr<Itemidlist> = this.pidl, lEvents: Int = this.lEvents, pfnCallback: Lpfnviewcallback = this.pfnCallback, fvm: Folderviewmode = this.fvm): Csfv = Csfv(cbSize = cbSize, pshfCtorArg = pshf, psvOuterCtorArg = psvOuter, pidlCtorArg = pidl, lEvents = lEvents, pfnCallback = pfnCallback, fvm = fvm)
+    public fun copy(cbSize: UInt = this.cbSize, pshf: MutPtr = this.pshf, psvOuter: MutPtr = this.psvOuter, pidl: MutPtr = this.pidl, lEvents: Int = this.lEvents, pfnCallback: Lpfnviewcallback = this.pfnCallback, fvm: Folderviewmode = this.fvm): Csfv = Csfv(cbSize = cbSize, pshfCtorArg = pshf, psvOuterCtorArg = psvOuter, pidlCtorArg = pidl, lEvents = lEvents, pfnCallback = pfnCallback, fvm = fvm)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -2379,9 +2372,9 @@ public class Csfv internal constructor(
     public companion object {
         public operator fun invoke(
             cbSize: UInt = 0u,
-            pshf: MutPtr<CVoid> = MutPtr(0L),
-            psvOuter: MutPtr<CVoid> = MutPtr(0L),
-            pidl: MutPtr<Itemidlist> = MutPtr(0L),
+            pshf: MutPtr = MutPtr(0L),
+            psvOuter: MutPtr = MutPtr(0L),
+            pidl: MutPtr = MutPtr(0L),
             lEvents: Int = 0,
             pfnCallback: Lpfnviewcallback = null,
             fvm: Folderviewmode = 0,
@@ -2422,34 +2415,34 @@ public data class DatablockHeader(
 
 public class Defcontextmenu internal constructor(
     hwndCtorArg: Hwnd,
-    pcmcbCtorArg: MutPtr<CVoid>,
-    pidlFolderCtorArg: MutPtr<Itemidlist>,
-    psfCtorArg: MutPtr<CVoid>,
+    pcmcbCtorArg: MutPtr,
+    pidlFolderCtorArg: MutPtr,
+    psfCtorArg: MutPtr,
     public var cidl: UInt,
-    apidlCtorArg: MutPtr<MutPtr<Itemidlist>>,
-    punkAssociationInfoCtorArg: MutPtr<CVoid>,
+    apidlCtorArg: MutPtr,
+    punkAssociationInfoCtorArg: MutPtr,
     public var cKeys: UInt,
-    aKeysCtorArg: ConstPtr<Hkey>,
+    aKeysCtorArg: ConstPtr,
 ) {
     public var hwnd: Hwnd = hwndCtorArg
         internal set
 
-    public var pcmcb: MutPtr<CVoid> = pcmcbCtorArg
+    public var pcmcb: MutPtr = pcmcbCtorArg
         internal set
 
-    public var pidlFolder: MutPtr<Itemidlist> = pidlFolderCtorArg
+    public var pidlFolder: MutPtr = pidlFolderCtorArg
         internal set
 
-    public var psf: MutPtr<CVoid> = psfCtorArg
+    public var psf: MutPtr = psfCtorArg
         internal set
 
-    public var apidl: MutPtr<MutPtr<Itemidlist>> = apidlCtorArg
+    public var apidl: MutPtr = apidlCtorArg
         internal set
 
-    public var punkAssociationInfo: MutPtr<CVoid> = punkAssociationInfoCtorArg
+    public var punkAssociationInfo: MutPtr = punkAssociationInfoCtorArg
         internal set
 
-    public var aKeys: ConstPtr<Hkey> = aKeysCtorArg
+    public var aKeys: ConstPtr = aKeysCtorArg
         internal set
 
     public constructor() : this(
@@ -2466,23 +2459,23 @@ public class Defcontextmenu internal constructor(
 
     public operator fun component1(): Hwnd = this.hwnd
 
-    public operator fun component2(): MutPtr<CVoid> = this.pcmcb
+    public operator fun component2(): MutPtr = this.pcmcb
 
-    public operator fun component3(): MutPtr<Itemidlist> = this.pidlFolder
+    public operator fun component3(): MutPtr = this.pidlFolder
 
-    public operator fun component4(): MutPtr<CVoid> = this.psf
+    public operator fun component4(): MutPtr = this.psf
 
     public operator fun component5(): UInt = this.cidl
 
-    public operator fun component6(): MutPtr<MutPtr<Itemidlist>> = this.apidl
+    public operator fun component6(): MutPtr = this.apidl
 
-    public operator fun component7(): MutPtr<CVoid> = this.punkAssociationInfo
+    public operator fun component7(): MutPtr = this.punkAssociationInfo
 
     public operator fun component8(): UInt = this.cKeys
 
-    public operator fun component9(): ConstPtr<Hkey> = this.aKeys
+    public operator fun component9(): ConstPtr = this.aKeys
 
-    public fun copy(hwnd: Hwnd = this.hwnd, pcmcb: MutPtr<CVoid> = this.pcmcb, pidlFolder: MutPtr<Itemidlist> = this.pidlFolder, psf: MutPtr<CVoid> = this.psf, cidl: UInt = this.cidl, apidl: MutPtr<MutPtr<Itemidlist>> = this.apidl, punkAssociationInfo: MutPtr<CVoid> = this.punkAssociationInfo, cKeys: UInt = this.cKeys, aKeys: ConstPtr<Hkey> = this.aKeys): Defcontextmenu = Defcontextmenu(hwndCtorArg = hwnd, pcmcbCtorArg = pcmcb, pidlFolderCtorArg = pidlFolder, psfCtorArg = psf, cidl = cidl, apidlCtorArg = apidl, punkAssociationInfoCtorArg = punkAssociationInfo, cKeys = cKeys, aKeysCtorArg = aKeys)
+    public fun copy(hwnd: Hwnd = this.hwnd, pcmcb: MutPtr = this.pcmcb, pidlFolder: MutPtr = this.pidlFolder, psf: MutPtr = this.psf, cidl: UInt = this.cidl, apidl: MutPtr = this.apidl, punkAssociationInfo: MutPtr = this.punkAssociationInfo, cKeys: UInt = this.cKeys, aKeys: ConstPtr = this.aKeys): Defcontextmenu = Defcontextmenu(hwndCtorArg = hwnd, pcmcbCtorArg = pcmcb, pidlFolderCtorArg = pidlFolder, psfCtorArg = psf, cidl = cidl, apidlCtorArg = apidl, punkAssociationInfoCtorArg = punkAssociationInfo, cKeys = cKeys, aKeysCtorArg = aKeys)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -2515,14 +2508,14 @@ public class Defcontextmenu internal constructor(
     public companion object {
         public operator fun invoke(
             hwnd: Hwnd = MutPtr(0L),
-            pcmcb: MutPtr<CVoid> = MutPtr(0L),
-            pidlFolder: MutPtr<Itemidlist> = MutPtr(0L),
-            psf: MutPtr<CVoid> = MutPtr(0L),
+            pcmcb: MutPtr = MutPtr(0L),
+            pidlFolder: MutPtr = MutPtr(0L),
+            psf: MutPtr = MutPtr(0L),
             cidl: UInt = 0u,
-            apidl: MutPtr<MutPtr<Itemidlist>> = MutPtr(0L),
-            punkAssociationInfo: MutPtr<CVoid> = MutPtr(0L),
+            apidl: MutPtr = MutPtr(0L),
+            punkAssociationInfo: MutPtr = MutPtr(0L),
             cKeys: UInt = 0u,
-            aKeys: ConstPtr<Hkey> = ConstPtr(0L),
+            aKeys: ConstPtr = ConstPtr(0L),
         ): Defcontextmenu =
             Defcontextmenu(
                 hwndCtorArg = hwnd,
@@ -2628,13 +2621,13 @@ public data class Deskbandinfo(
 }
 
 public class Detailsinfo internal constructor(
-    pidlCtorArg: MutPtr<Itemidlist>,
+    pidlCtorArg: MutPtr,
     public var fmt: Int,
     public var cxChar: Int,
     public var str: Strret,
     public var iImage: Int,
 ) {
-    public var pidl: MutPtr<Itemidlist> = pidlCtorArg
+    public var pidl: MutPtr = pidlCtorArg
         internal set
 
     public constructor() : this(
@@ -2645,7 +2638,7 @@ public class Detailsinfo internal constructor(
         iImage = 0,
     )
 
-    public operator fun component1(): MutPtr<Itemidlist> = this.pidl
+    public operator fun component1(): MutPtr = this.pidl
 
     public operator fun component2(): Int = this.fmt
 
@@ -2655,7 +2648,7 @@ public class Detailsinfo internal constructor(
 
     public operator fun component5(): Int = this.iImage
 
-    public fun copy(pidl: MutPtr<Itemidlist> = this.pidl, fmt: Int = this.fmt, cxChar: Int = this.cxChar, str: Strret = this.str, iImage: Int = this.iImage): Detailsinfo = Detailsinfo(pidlCtorArg = pidl, fmt = fmt, cxChar = cxChar, str = str, iImage = iImage)
+    public fun copy(pidl: MutPtr = this.pidl, fmt: Int = this.fmt, cxChar: Int = this.cxChar, str: Strret = this.str, iImage: Int = this.iImage): Detailsinfo = Detailsinfo(pidlCtorArg = pidl, fmt = fmt, cxChar = cxChar, str = str, iImage = iImage)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -2679,7 +2672,7 @@ public class Detailsinfo internal constructor(
 
     public companion object {
         public operator fun invoke(
-            pidl: MutPtr<Itemidlist> = MutPtr(0L),
+            pidl: MutPtr = MutPtr(0L),
             fmt: Int = 0,
             cxChar: Int = 0,
             str: Strret = Strret(),
@@ -2701,13 +2694,13 @@ public class Dfmics internal constructor(
     public var lParam: Lparam,
     public var idCmdFirst: UInt,
     public var idDefMax: UInt,
-    piciCtorArg: MutPtr<Cminvokecommandinfo>,
-    punkSiteCtorArg: MutPtr<CVoid>,
+    piciCtorArg: MutPtr,
+    punkSiteCtorArg: MutPtr,
 ) {
-    public var pici: MutPtr<Cminvokecommandinfo> = piciCtorArg
+    public var pici: MutPtr = piciCtorArg
         internal set
 
-    public var punkSite: MutPtr<CVoid> = punkSiteCtorArg
+    public var punkSite: MutPtr = punkSiteCtorArg
         internal set
 
     public constructor() : this(
@@ -2730,11 +2723,11 @@ public class Dfmics internal constructor(
 
     public operator fun component5(): UInt = this.idDefMax
 
-    public operator fun component6(): MutPtr<Cminvokecommandinfo> = this.pici
+    public operator fun component6(): MutPtr = this.pici
 
-    public operator fun component7(): MutPtr<CVoid> = this.punkSite
+    public operator fun component7(): MutPtr = this.punkSite
 
-    public fun copy(cbSize: UInt = this.cbSize, fMask: UInt = this.fMask, lParam: Lparam = this.lParam, idCmdFirst: UInt = this.idCmdFirst, idDefMax: UInt = this.idDefMax, pici: MutPtr<Cminvokecommandinfo> = this.pici, punkSite: MutPtr<CVoid> = this.punkSite): Dfmics = Dfmics(cbSize = cbSize, fMask = fMask, lParam = lParam, idCmdFirst = idCmdFirst, idDefMax = idDefMax, piciCtorArg = pici, punkSiteCtorArg = punkSite)
+    public fun copy(cbSize: UInt = this.cbSize, fMask: UInt = this.fMask, lParam: Lparam = this.lParam, idCmdFirst: UInt = this.idCmdFirst, idDefMax: UInt = this.idDefMax, pici: MutPtr = this.pici, punkSite: MutPtr = this.punkSite): Dfmics = Dfmics(cbSize = cbSize, fMask = fMask, lParam = lParam, idCmdFirst = idCmdFirst, idDefMax = idDefMax, piciCtorArg = pici, punkSiteCtorArg = punkSite)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -2774,11 +2767,11 @@ public class Dfmics internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 20L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<Cminvokecommandinfo>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 24L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<CVoid>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 32L),
                     )
                 override fun writeNative(addr: Long, value: Dfmics) {
@@ -2789,11 +2782,11 @@ public class Dfmics internal constructor(
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 20L, value.idDefMax)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<Cminvokecommandinfo>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 24L, value.pici)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<CVoid>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 32L, value.punkSite)
                 }
             }
@@ -2804,8 +2797,8 @@ public class Dfmics internal constructor(
             lParam: Lparam = 0L,
             idCmdFirst: UInt = 0u,
             idDefMax: UInt = 0u,
-            pici: MutPtr<Cminvokecommandinfo> = MutPtr(0L),
-            punkSite: MutPtr<CVoid> = MutPtr(0L),
+            pici: MutPtr = MutPtr(0L),
+            punkSite: MutPtr = MutPtr(0L),
         ): Dfmics =
             Dfmics(
                 cbSize = cbSize,
@@ -4004,11 +3997,11 @@ public data class Multikeyhelpw(
 }
 
 public class NcAddress internal constructor(
-    pAddrInfoCtorArg: MutPtr<NetAddressInfo>,
+    pAddrInfoCtorArg: MutPtr,
     public var portNumber: UShort,
     public var prefixLength: UByte,
 ) {
-    public var pAddrInfo: MutPtr<NetAddressInfo> = pAddrInfoCtorArg
+    public var pAddrInfo: MutPtr = pAddrInfoCtorArg
         internal set
 
     public constructor() : this(
@@ -4017,13 +4010,13 @@ public class NcAddress internal constructor(
         prefixLength = 0u,
     )
 
-    public operator fun component1(): MutPtr<NetAddressInfo> = this.pAddrInfo
+    public operator fun component1(): MutPtr = this.pAddrInfo
 
     public operator fun component2(): UShort = this.portNumber
 
     public operator fun component3(): UByte = this.prefixLength
 
-    public fun copy(pAddrInfo: MutPtr<NetAddressInfo> = this.pAddrInfo, portNumber: UShort = this.portNumber, prefixLength: UByte = this.prefixLength): NcAddress = NcAddress(pAddrInfoCtorArg = pAddrInfo, portNumber = portNumber, prefixLength = prefixLength)
+    public fun copy(pAddrInfo: MutPtr = this.pAddrInfo, portNumber: UShort = this.portNumber, prefixLength: UByte = this.prefixLength): NcAddress = NcAddress(pAddrInfoCtorArg = pAddrInfo, portNumber = portNumber, prefixLength = prefixLength)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -4050,7 +4043,7 @@ public class NcAddress internal constructor(
                     NcAddress(
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<NetAddressInfo>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16).readNative(addr + 8L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8).readNative(addr + 10L),
@@ -4058,7 +4051,7 @@ public class NcAddress internal constructor(
                 override fun writeNative(addr: Long, value: NcAddress) {
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<NetAddressInfo>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr, value.pAddrInfo)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16).writeNative(addr + 8L, value.portNumber)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8).writeNative(addr + 10L, value.prefixLength)
@@ -4066,7 +4059,7 @@ public class NcAddress internal constructor(
             }
 
         public operator fun invoke(
-            pAddrInfo: MutPtr<NetAddressInfo> = MutPtr(0L),
+            pAddrInfo: MutPtr = MutPtr(0L),
             portNumber: UShort = 0u,
             prefixLength: UByte = 0u,
         ): NcAddress =
@@ -4646,7 +4639,7 @@ public data class Nresarray(
 )
 
 public class Nstccustomdraw internal constructor(
-    psiCtorArg: MutPtr<CVoid>,
+    psiCtorArg: MutPtr,
     public var uItemState: UInt,
     public var nstcis: UInt,
     pszTextCtorArg: Pcwstr,
@@ -4655,7 +4648,7 @@ public class Nstccustomdraw internal constructor(
     public var iLevel: Int,
     public var iIndent: Int,
 ) {
-    public var psi: MutPtr<CVoid> = psiCtorArg
+    public var psi: MutPtr = psiCtorArg
         internal set
 
     public var pszText: Pcwstr = pszTextCtorArg
@@ -4672,7 +4665,7 @@ public class Nstccustomdraw internal constructor(
         iIndent = 0,
     )
 
-    public operator fun component1(): MutPtr<CVoid> = this.psi
+    public operator fun component1(): MutPtr = this.psi
 
     public operator fun component2(): UInt = this.uItemState
 
@@ -4688,7 +4681,7 @@ public class Nstccustomdraw internal constructor(
 
     public operator fun component8(): Int = this.iIndent
 
-    public fun copy(psi: MutPtr<CVoid> = this.psi, uItemState: UInt = this.uItemState, nstcis: UInt = this.nstcis, pszText: Pcwstr = this.pszText, iImage: Int = this.iImage, himl: Himagelist = this.himl, iLevel: Int = this.iLevel, iIndent: Int = this.iIndent): Nstccustomdraw = Nstccustomdraw(psiCtorArg = psi, uItemState = uItemState, nstcis = nstcis, pszTextCtorArg = pszText, iImage = iImage, himl = himl, iLevel = iLevel, iIndent = iIndent)
+    public fun copy(psi: MutPtr = this.psi, uItemState: UInt = this.uItemState, nstcis: UInt = this.nstcis, pszText: Pcwstr = this.pszText, iImage: Int = this.iImage, himl: Himagelist = this.himl, iLevel: Int = this.iLevel, iIndent: Int = this.iIndent): Nstccustomdraw = Nstccustomdraw(psiCtorArg = psi, uItemState = uItemState, nstcis = nstcis, pszTextCtorArg = pszText, iImage = iImage, himl = himl, iLevel = iLevel, iIndent = iIndent)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -4718,7 +4711,7 @@ public class Nstccustomdraw internal constructor(
 
     public companion object {
         public operator fun invoke(
-            psi: MutPtr<CVoid> = MutPtr(0L),
+            psi: MutPtr = MutPtr(0L),
             uItemState: UInt = 0u,
             nstcis: UInt = 0u,
             pszText: Pcwstr = ConstPtr(0L),
@@ -5136,13 +5129,13 @@ public class Parsedurlw internal constructor(
 }
 
 public class PersistFolderTargetInfo internal constructor(
-    pidlTargetFolderCtorArg: MutPtr<Itemidlist>,
+    pidlTargetFolderCtorArg: MutPtr,
     public var szTargetParsingName: UShortArray,
     public var szNetworkProvider: UShortArray,
     public var dwAttributes: UInt,
     public var csidl: Int,
 ) {
-    public var pidlTargetFolder: MutPtr<Itemidlist> = pidlTargetFolderCtorArg
+    public var pidlTargetFolder: MutPtr = pidlTargetFolderCtorArg
         internal set
 
     public constructor() : this(
@@ -5153,7 +5146,7 @@ public class PersistFolderTargetInfo internal constructor(
         csidl = 0,
     )
 
-    public operator fun component1(): MutPtr<Itemidlist> = this.pidlTargetFolder
+    public operator fun component1(): MutPtr = this.pidlTargetFolder
 
     public operator fun component2(): UShortArray = this.szTargetParsingName
 
@@ -5163,7 +5156,7 @@ public class PersistFolderTargetInfo internal constructor(
 
     public operator fun component5(): Int = this.csidl
 
-    public fun copy(pidlTargetFolder: MutPtr<Itemidlist> = this.pidlTargetFolder, szTargetParsingName: UShortArray = this.szTargetParsingName, szNetworkProvider: UShortArray = this.szNetworkProvider, dwAttributes: UInt = this.dwAttributes, csidl: Int = this.csidl): PersistFolderTargetInfo = PersistFolderTargetInfo(pidlTargetFolderCtorArg = pidlTargetFolder, szTargetParsingName = szTargetParsingName, szNetworkProvider = szNetworkProvider, dwAttributes = dwAttributes, csidl = csidl)
+    public fun copy(pidlTargetFolder: MutPtr = this.pidlTargetFolder, szTargetParsingName: UShortArray = this.szTargetParsingName, szNetworkProvider: UShortArray = this.szNetworkProvider, dwAttributes: UInt = this.dwAttributes, csidl: Int = this.csidl): PersistFolderTargetInfo = PersistFolderTargetInfo(pidlTargetFolderCtorArg = pidlTargetFolder, szTargetParsingName = szTargetParsingName, szNetworkProvider = szNetworkProvider, dwAttributes = dwAttributes, csidl = csidl)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -5194,7 +5187,7 @@ public class PersistFolderTargetInfo internal constructor(
                     PersistFolderTargetInfo(
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<Itemidlist>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem
@@ -5210,7 +5203,7 @@ public class PersistFolderTargetInfo internal constructor(
                 override fun writeNative(addr: Long, value: PersistFolderTargetInfo) {
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<Itemidlist>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr, value.pidlTargetFolder)
                     (
                         io.github.kotlinmania.rustlang.core.mem
@@ -5226,7 +5219,7 @@ public class PersistFolderTargetInfo internal constructor(
             }
 
         public operator fun invoke(
-            pidlTargetFolder: MutPtr<Itemidlist> = MutPtr(0L),
+            pidlTargetFolder: MutPtr = MutPtr(0L),
             szTargetParsingName: UShortArray = UShortArray(260),
             szNetworkProvider: UShortArray = UShortArray(260),
             dwAttributes: UInt = 0u,
@@ -5589,12 +5582,12 @@ public class Qcminfo internal constructor(
     public var indexMenu: UInt,
     public var idCmdFirst: UInt,
     public var idCmdLast: UInt,
-    pIdMapCtorArg: ConstPtr<QcminfoIdmap>,
+    pIdMapCtorArg: ConstPtr,
 ) {
     public var hmenu: Hmenu = hmenuCtorArg
         internal set
 
-    public var pIdMap: ConstPtr<QcminfoIdmap> = pIdMapCtorArg
+    public var pIdMap: ConstPtr = pIdMapCtorArg
         internal set
 
     public constructor() : this(
@@ -5613,9 +5606,9 @@ public class Qcminfo internal constructor(
 
     public operator fun component4(): UInt = this.idCmdLast
 
-    public operator fun component5(): ConstPtr<QcminfoIdmap> = this.pIdMap
+    public operator fun component5(): ConstPtr = this.pIdMap
 
-    public fun copy(hmenu: Hmenu = this.hmenu, indexMenu: UInt = this.indexMenu, idCmdFirst: UInt = this.idCmdFirst, idCmdLast: UInt = this.idCmdLast, pIdMap: ConstPtr<QcminfoIdmap> = this.pIdMap): Qcminfo = Qcminfo(hmenuCtorArg = hmenu, indexMenu = indexMenu, idCmdFirst = idCmdFirst, idCmdLast = idCmdLast, pIdMapCtorArg = pIdMap)
+    public fun copy(hmenu: Hmenu = this.hmenu, indexMenu: UInt = this.indexMenu, idCmdFirst: UInt = this.idCmdFirst, idCmdLast: UInt = this.idCmdLast, pIdMap: ConstPtr = this.pIdMap): Qcminfo = Qcminfo(hmenuCtorArg = hmenu, indexMenu = indexMenu, idCmdFirst = idCmdFirst, idCmdLast = idCmdLast, pIdMapCtorArg = pIdMap)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -5643,7 +5636,7 @@ public class Qcminfo internal constructor(
             indexMenu: UInt = 0u,
             idCmdFirst: UInt = 0u,
             idCmdLast: UInt = 0u,
-            pIdMap: ConstPtr<QcminfoIdmap> = ConstPtr(0L),
+            pIdMap: ConstPtr = ConstPtr(0L),
         ): Qcminfo =
             Qcminfo(
                 hmenuCtorArg = hmenu,
@@ -5706,10 +5699,10 @@ public data class QcminfoIdmapPlacement(
 }
 
 public class Qitab internal constructor(
-    piidCtorArg: ConstPtr<Guid>,
+    piidCtorArg: ConstPtr,
     public var dwOffset: UInt,
 ) {
-    public var piid: ConstPtr<Guid> = piidCtorArg
+    public var piid: ConstPtr = piidCtorArg
         internal set
 
     public constructor() : this(
@@ -5717,11 +5710,11 @@ public class Qitab internal constructor(
         dwOffset = 0u,
     )
 
-    public operator fun component1(): ConstPtr<Guid> = this.piid
+    public operator fun component1(): ConstPtr = this.piid
 
     public operator fun component2(): UInt = this.dwOffset
 
-    public fun copy(piid: ConstPtr<Guid> = this.piid, dwOffset: UInt = this.dwOffset): Qitab = Qitab(piidCtorArg = piid, dwOffset = dwOffset)
+    public fun copy(piid: ConstPtr = this.piid, dwOffset: UInt = this.dwOffset): Qitab = Qitab(piidCtorArg = piid, dwOffset = dwOffset)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -5746,21 +5739,21 @@ public class Qitab internal constructor(
                     Qitab(
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .constPtrLayout<Guid>(64)
+                                .constPtrLayout(64)
                         ).readNative(addr),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 8L),
                     )
                 override fun writeNative(addr: Long, value: Qitab) {
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .constPtrLayout<Guid>(64)
+                            .constPtrLayout(64)
                     ).writeNative(addr, value.piid)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 8L, value.dwOffset)
                 }
             }
 
         public operator fun invoke(
-            piid: ConstPtr<Guid> = ConstPtr(0L),
+            piid: ConstPtr = ConstPtr(0L),
             dwOffset: UInt = 0u,
         ): Qitab =
             Qitab(
@@ -5826,17 +5819,17 @@ public data class SfvmProppageData(
 
 public class SfvCreate internal constructor(
     public var cbSize: UInt,
-    pshfCtorArg: MutPtr<CVoid>,
-    psvOuterCtorArg: MutPtr<CVoid>,
-    psfvcbCtorArg: MutPtr<CVoid>,
+    pshfCtorArg: MutPtr,
+    psvOuterCtorArg: MutPtr,
+    psfvcbCtorArg: MutPtr,
 ) {
-    public var pshf: MutPtr<CVoid> = pshfCtorArg
+    public var pshf: MutPtr = pshfCtorArg
         internal set
 
-    public var psvOuter: MutPtr<CVoid> = psvOuterCtorArg
+    public var psvOuter: MutPtr = psvOuterCtorArg
         internal set
 
-    public var psfvcb: MutPtr<CVoid> = psfvcbCtorArg
+    public var psfvcb: MutPtr = psfvcbCtorArg
         internal set
 
     public constructor() : this(
@@ -5848,13 +5841,13 @@ public class SfvCreate internal constructor(
 
     public operator fun component1(): UInt = this.cbSize
 
-    public operator fun component2(): MutPtr<CVoid> = this.pshf
+    public operator fun component2(): MutPtr = this.pshf
 
-    public operator fun component3(): MutPtr<CVoid> = this.psvOuter
+    public operator fun component3(): MutPtr = this.psvOuter
 
-    public operator fun component4(): MutPtr<CVoid> = this.psfvcb
+    public operator fun component4(): MutPtr = this.psfvcb
 
-    public fun copy(cbSize: UInt = this.cbSize, pshf: MutPtr<CVoid> = this.pshf, psvOuter: MutPtr<CVoid> = this.psvOuter, psfvcb: MutPtr<CVoid> = this.psfvcb): SfvCreate = SfvCreate(cbSize = cbSize, pshfCtorArg = pshf, psvOuterCtorArg = psvOuter, psfvcbCtorArg = psfvcb)
+    public fun copy(cbSize: UInt = this.cbSize, pshf: MutPtr = this.pshf, psvOuter: MutPtr = this.psvOuter, psfvcb: MutPtr = this.psfvcb): SfvCreate = SfvCreate(cbSize = cbSize, pshfCtorArg = pshf, psvOuterCtorArg = psvOuter, psfvcbCtorArg = psfvcb)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -5884,39 +5877,39 @@ public class SfvCreate internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<CVoid>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<CVoid>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 16L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<CVoid>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 24L),
                     )
                 override fun writeNative(addr: Long, value: SfvCreate) {
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr, value.cbSize)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<CVoid>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.pshf)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<CVoid>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 16L, value.psvOuter)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<CVoid>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 24L, value.psfvcb)
                 }
             }
 
         public operator fun invoke(
             cbSize: UInt = 0u,
-            pshf: MutPtr<CVoid> = MutPtr(0L),
-            psvOuter: MutPtr<CVoid> = MutPtr(0L),
-            psfvcb: MutPtr<CVoid> = MutPtr(0L),
+            pshf: MutPtr = MutPtr(0L),
+            psvOuter: MutPtr = MutPtr(0L),
+            psfvcb: MutPtr = MutPtr(0L),
         ): SfvCreate =
             SfvCreate(
                 cbSize = cbSize,
@@ -5928,10 +5921,10 @@ public class SfvCreate internal constructor(
 }
 
 public class SfvSetitempos internal constructor(
-    pidlCtorArg: MutPtr<Itemidlist>,
+    pidlCtorArg: MutPtr,
     public var pt: Point,
 ) {
-    public var pidl: MutPtr<Itemidlist> = pidlCtorArg
+    public var pidl: MutPtr = pidlCtorArg
         internal set
 
     public constructor() : this(
@@ -5939,11 +5932,11 @@ public class SfvSetitempos internal constructor(
         pt = Point(),
     )
 
-    public operator fun component1(): MutPtr<Itemidlist> = this.pidl
+    public operator fun component1(): MutPtr = this.pidl
 
     public operator fun component2(): Point = this.pt
 
-    public fun copy(pidl: MutPtr<Itemidlist> = this.pidl, pt: Point = this.pt): SfvSetitempos = SfvSetitempos(pidlCtorArg = pidl, pt = pt)
+    public fun copy(pidl: MutPtr = this.pidl, pt: Point = this.pt): SfvSetitempos = SfvSetitempos(pidlCtorArg = pidl, pt = pt)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -5961,7 +5954,7 @@ public class SfvSetitempos internal constructor(
 
     public companion object {
         public operator fun invoke(
-            pidl: MutPtr<Itemidlist> = MutPtr(0L),
+            pidl: MutPtr = MutPtr(0L),
             pt: Point = Point(),
         ): SfvSetitempos =
             SfvSetitempos(
@@ -5972,10 +5965,10 @@ public class SfvSetitempos internal constructor(
 }
 
 public class Shardappidinfo internal constructor(
-    psiCtorArg: MutPtr<CVoid>,
+    psiCtorArg: MutPtr,
     pszAppIDCtorArg: Pcwstr,
 ) {
-    public var psi: MutPtr<CVoid> = psiCtorArg
+    public var psi: MutPtr = psiCtorArg
         internal set
 
     public var pszAppID: Pcwstr = pszAppIDCtorArg
@@ -5986,11 +5979,11 @@ public class Shardappidinfo internal constructor(
         pszAppIDCtorArg = ConstPtr(0L),
     )
 
-    public operator fun component1(): MutPtr<CVoid> = this.psi
+    public operator fun component1(): MutPtr = this.psi
 
     public operator fun component2(): Pcwstr = this.pszAppID
 
-    public fun copy(psi: MutPtr<CVoid> = this.psi, pszAppID: Pcwstr = this.pszAppID): Shardappidinfo = Shardappidinfo(psiCtorArg = psi, pszAppIDCtorArg = pszAppID)
+    public fun copy(psi: MutPtr = this.psi, pszAppID: Pcwstr = this.pszAppID): Shardappidinfo = Shardappidinfo(psiCtorArg = psi, pszAppIDCtorArg = pszAppID)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -6008,7 +6001,7 @@ public class Shardappidinfo internal constructor(
 
     public companion object {
         public operator fun invoke(
-            psi: MutPtr<CVoid> = MutPtr(0L),
+            psi: MutPtr = MutPtr(0L),
             pszAppID: Pcwstr = ConstPtr(0L),
         ): Shardappidinfo =
             Shardappidinfo(
@@ -6019,10 +6012,10 @@ public class Shardappidinfo internal constructor(
 }
 
 public class Shardappidinfoidlist internal constructor(
-    pidlCtorArg: MutPtr<Itemidlist>,
+    pidlCtorArg: MutPtr,
     pszAppIDCtorArg: Pcwstr,
 ) {
-    public var pidl: MutPtr<Itemidlist> = pidlCtorArg
+    public var pidl: MutPtr = pidlCtorArg
         internal set
 
     public var pszAppID: Pcwstr = pszAppIDCtorArg
@@ -6033,11 +6026,11 @@ public class Shardappidinfoidlist internal constructor(
         pszAppIDCtorArg = ConstPtr(0L),
     )
 
-    public operator fun component1(): MutPtr<Itemidlist> = this.pidl
+    public operator fun component1(): MutPtr = this.pidl
 
     public operator fun component2(): Pcwstr = this.pszAppID
 
-    public fun copy(pidl: MutPtr<Itemidlist> = this.pidl, pszAppID: Pcwstr = this.pszAppID): Shardappidinfoidlist = Shardappidinfoidlist(pidlCtorArg = pidl, pszAppIDCtorArg = pszAppID)
+    public fun copy(pidl: MutPtr = this.pidl, pszAppID: Pcwstr = this.pszAppID): Shardappidinfoidlist = Shardappidinfoidlist(pidlCtorArg = pidl, pszAppIDCtorArg = pszAppID)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -6055,7 +6048,7 @@ public class Shardappidinfoidlist internal constructor(
 
     public companion object {
         public operator fun invoke(
-            pidl: MutPtr<Itemidlist> = MutPtr(0L),
+            pidl: MutPtr = MutPtr(0L),
             pszAppID: Pcwstr = ConstPtr(0L),
         ): Shardappidinfoidlist =
             Shardappidinfoidlist(
@@ -6066,10 +6059,10 @@ public class Shardappidinfoidlist internal constructor(
 }
 
 public class Shardappidinfolink internal constructor(
-    pslCtorArg: MutPtr<CVoid>,
+    pslCtorArg: MutPtr,
     pszAppIDCtorArg: Pcwstr,
 ) {
-    public var psl: MutPtr<CVoid> = pslCtorArg
+    public var psl: MutPtr = pslCtorArg
         internal set
 
     public var pszAppID: Pcwstr = pszAppIDCtorArg
@@ -6080,11 +6073,11 @@ public class Shardappidinfolink internal constructor(
         pszAppIDCtorArg = ConstPtr(0L),
     )
 
-    public operator fun component1(): MutPtr<CVoid> = this.psl
+    public operator fun component1(): MutPtr = this.psl
 
     public operator fun component2(): Pcwstr = this.pszAppID
 
-    public fun copy(psl: MutPtr<CVoid> = this.psl, pszAppID: Pcwstr = this.pszAppID): Shardappidinfolink = Shardappidinfolink(pslCtorArg = psl, pszAppIDCtorArg = pszAppID)
+    public fun copy(psl: MutPtr = this.psl, pszAppID: Pcwstr = this.pszAppID): Shardappidinfolink = Shardappidinfolink(pslCtorArg = psl, pszAppIDCtorArg = pszAppID)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -6102,7 +6095,7 @@ public class Shardappidinfolink internal constructor(
 
     public companion object {
         public operator fun invoke(
-            psl: MutPtr<CVoid> = MutPtr(0L),
+            psl: MutPtr = MutPtr(0L),
             pszAppID: Pcwstr = ConstPtr(0L),
         ): Shardappidinfolink =
             Shardappidinfolink(
@@ -6269,12 +6262,12 @@ public class Shcreateprocessinfow internal constructor(
     pszParametersCtorArg: Pcwstr,
     pszCurrentDirectoryCtorArg: Pcwstr,
     hUserTokenCtorArg: Handle,
-    lpProcessAttributesCtorArg: MutPtr<SecurityAttributes>,
-    lpThreadAttributesCtorArg: MutPtr<SecurityAttributes>,
+    lpProcessAttributesCtorArg: MutPtr,
+    lpThreadAttributesCtorArg: MutPtr,
     public var bInheritHandles: Bool,
     public var dwCreationFlags: UInt,
-    lpStartupInfoCtorArg: MutPtr<Startupinfow>,
-    lpProcessInformationCtorArg: MutPtr<ProcessInformation>,
+    lpStartupInfoCtorArg: MutPtr,
+    lpProcessInformationCtorArg: MutPtr,
 ) {
     public var hwnd: Hwnd = hwndCtorArg
         internal set
@@ -6291,16 +6284,16 @@ public class Shcreateprocessinfow internal constructor(
     public var hUserToken: Handle = hUserTokenCtorArg
         internal set
 
-    public var lpProcessAttributes: MutPtr<SecurityAttributes> = lpProcessAttributesCtorArg
+    public var lpProcessAttributes: MutPtr = lpProcessAttributesCtorArg
         internal set
 
-    public var lpThreadAttributes: MutPtr<SecurityAttributes> = lpThreadAttributesCtorArg
+    public var lpThreadAttributes: MutPtr = lpThreadAttributesCtorArg
         internal set
 
-    public var lpStartupInfo: MutPtr<Startupinfow> = lpStartupInfoCtorArg
+    public var lpStartupInfo: MutPtr = lpStartupInfoCtorArg
         internal set
 
-    public var lpProcessInformation: MutPtr<ProcessInformation> = lpProcessInformationCtorArg
+    public var lpProcessInformation: MutPtr = lpProcessInformationCtorArg
         internal set
 
     public constructor() : this(
@@ -6333,19 +6326,19 @@ public class Shcreateprocessinfow internal constructor(
 
     public operator fun component7(): Handle = this.hUserToken
 
-    public operator fun component8(): MutPtr<SecurityAttributes> = this.lpProcessAttributes
+    public operator fun component8(): MutPtr = this.lpProcessAttributes
 
-    public operator fun component9(): MutPtr<SecurityAttributes> = this.lpThreadAttributes
+    public operator fun component9(): MutPtr = this.lpThreadAttributes
 
     public operator fun component10(): Bool = this.bInheritHandles
 
     public operator fun component11(): UInt = this.dwCreationFlags
 
-    public operator fun component12(): MutPtr<Startupinfow> = this.lpStartupInfo
+    public operator fun component12(): MutPtr = this.lpStartupInfo
 
-    public operator fun component13(): MutPtr<ProcessInformation> = this.lpProcessInformation
+    public operator fun component13(): MutPtr = this.lpProcessInformation
 
-    public fun copy(cbSize: UInt = this.cbSize, fMask: UInt = this.fMask, hwnd: Hwnd = this.hwnd, pszFile: Pcwstr = this.pszFile, pszParameters: Pcwstr = this.pszParameters, pszCurrentDirectory: Pcwstr = this.pszCurrentDirectory, hUserToken: Handle = this.hUserToken, lpProcessAttributes: MutPtr<SecurityAttributes> = this.lpProcessAttributes, lpThreadAttributes: MutPtr<SecurityAttributes> = this.lpThreadAttributes, bInheritHandles: Bool = this.bInheritHandles, dwCreationFlags: UInt = this.dwCreationFlags, lpStartupInfo: MutPtr<Startupinfow> = this.lpStartupInfo, lpProcessInformation: MutPtr<ProcessInformation> = this.lpProcessInformation): Shcreateprocessinfow = Shcreateprocessinfow(cbSize = cbSize, fMask = fMask, hwndCtorArg = hwnd, pszFileCtorArg = pszFile, pszParametersCtorArg = pszParameters, pszCurrentDirectoryCtorArg = pszCurrentDirectory, hUserTokenCtorArg = hUserToken, lpProcessAttributesCtorArg = lpProcessAttributes, lpThreadAttributesCtorArg = lpThreadAttributes, bInheritHandles = bInheritHandles, dwCreationFlags = dwCreationFlags, lpStartupInfoCtorArg = lpStartupInfo, lpProcessInformationCtorArg = lpProcessInformation)
+    public fun copy(cbSize: UInt = this.cbSize, fMask: UInt = this.fMask, hwnd: Hwnd = this.hwnd, pszFile: Pcwstr = this.pszFile, pszParameters: Pcwstr = this.pszParameters, pszCurrentDirectory: Pcwstr = this.pszCurrentDirectory, hUserToken: Handle = this.hUserToken, lpProcessAttributes: MutPtr = this.lpProcessAttributes, lpThreadAttributes: MutPtr = this.lpThreadAttributes, bInheritHandles: Bool = this.bInheritHandles, dwCreationFlags: UInt = this.dwCreationFlags, lpStartupInfo: MutPtr = this.lpStartupInfo, lpProcessInformation: MutPtr = this.lpProcessInformation): Shcreateprocessinfow = Shcreateprocessinfow(cbSize = cbSize, fMask = fMask, hwndCtorArg = hwnd, pszFileCtorArg = pszFile, pszParametersCtorArg = pszParameters, pszCurrentDirectoryCtorArg = pszCurrentDirectory, hUserTokenCtorArg = hUserToken, lpProcessAttributesCtorArg = lpProcessAttributes, lpThreadAttributesCtorArg = lpThreadAttributes, bInheritHandles = bInheritHandles, dwCreationFlags = dwCreationFlags, lpStartupInfoCtorArg = lpStartupInfo, lpProcessInformationCtorArg = lpProcessInformation)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -6392,12 +6385,12 @@ public class Shcreateprocessinfow internal constructor(
             pszParameters: Pcwstr = ConstPtr(0L),
             pszCurrentDirectory: Pcwstr = ConstPtr(0L),
             hUserToken: Handle = MutPtr(0L),
-            lpProcessAttributes: MutPtr<SecurityAttributes> = MutPtr(0L),
-            lpThreadAttributes: MutPtr<SecurityAttributes> = MutPtr(0L),
+            lpProcessAttributes: MutPtr = MutPtr(0L),
+            lpThreadAttributes: MutPtr = MutPtr(0L),
             bInheritHandles: Bool = 0,
             dwCreationFlags: UInt = 0u,
-            lpStartupInfo: MutPtr<Startupinfow> = MutPtr(0L),
-            lpProcessInformation: MutPtr<ProcessInformation> = MutPtr(0L),
+            lpStartupInfo: MutPtr = MutPtr(0L),
+            lpProcessInformation: MutPtr = MutPtr(0L),
         ): Shcreateprocessinfow =
             Shcreateprocessinfow(
                 cbSize = cbSize,
@@ -6446,10 +6439,10 @@ public data class SHChangeDWORDAsIDList(
 }
 
 public class SHChangeNotifyEntry internal constructor(
-    pidlCtorArg: MutPtr<Itemidlist>,
+    pidlCtorArg: MutPtr,
     public var fRecursive: Bool,
 ) {
-    public var pidl: MutPtr<Itemidlist> = pidlCtorArg
+    public var pidl: MutPtr = pidlCtorArg
         internal set
 
     public constructor() : this(
@@ -6457,11 +6450,11 @@ public class SHChangeNotifyEntry internal constructor(
         fRecursive = 0,
     )
 
-    public operator fun component1(): MutPtr<Itemidlist> = this.pidl
+    public operator fun component1(): MutPtr = this.pidl
 
     public operator fun component2(): Bool = this.fRecursive
 
-    public fun copy(pidl: MutPtr<Itemidlist> = this.pidl, fRecursive: Bool = this.fRecursive): SHChangeNotifyEntry = SHChangeNotifyEntry(pidlCtorArg = pidl, fRecursive = fRecursive)
+    public fun copy(pidl: MutPtr = this.pidl, fRecursive: Bool = this.fRecursive): SHChangeNotifyEntry = SHChangeNotifyEntry(pidlCtorArg = pidl, fRecursive = fRecursive)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -6486,21 +6479,21 @@ public class SHChangeNotifyEntry internal constructor(
                     SHChangeNotifyEntry(
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<Itemidlist>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr + 8L),
                     )
                 override fun writeNative(addr: Long, value: SHChangeNotifyEntry) {
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<Itemidlist>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr, value.pidl)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr + 8L, value.fRecursive)
                 }
             }
 
         public operator fun invoke(
-            pidl: MutPtr<Itemidlist> = MutPtr(0L),
+            pidl: MutPtr = MutPtr(0L),
             fRecursive: Bool = 0,
         ): SHChangeNotifyEntry =
             SHChangeNotifyEntry(
@@ -6699,7 +6692,7 @@ public class Shellexecuteinfoa internal constructor(
     lpDirectoryCtorArg: Pcstr,
     public var nShow: Int,
     hInstAppCtorArg: Hinstance,
-    lpIDListCtorArg: MutPtr<CVoid>,
+    lpIDListCtorArg: MutPtr,
     lpClassCtorArg: Pcstr,
     hkeyClassCtorArg: Hkey,
     public var dwHotKey: UInt,
@@ -6724,7 +6717,7 @@ public class Shellexecuteinfoa internal constructor(
     public var hInstApp: Hinstance = hInstAppCtorArg
         internal set
 
-    public var lpIDList: MutPtr<CVoid> = lpIDListCtorArg
+    public var lpIDList: MutPtr = lpIDListCtorArg
         internal set
 
     public var lpClass: Pcstr = lpClassCtorArg
@@ -6772,7 +6765,7 @@ public class Shellexecuteinfoa internal constructor(
 
     public operator fun component9(): Hinstance = this.hInstApp
 
-    public operator fun component10(): MutPtr<CVoid> = this.lpIDList
+    public operator fun component10(): MutPtr = this.lpIDList
 
     public operator fun component11(): Pcstr = this.lpClass
 
@@ -6784,7 +6777,7 @@ public class Shellexecuteinfoa internal constructor(
 
     public operator fun component15(): Handle = this.hProcess
 
-    public fun copy(cbSize: UInt = this.cbSize, fMask: UInt = this.fMask, hwnd: Hwnd = this.hwnd, lpVerb: Pcstr = this.lpVerb, lpFile: Pcstr = this.lpFile, lpParameters: Pcstr = this.lpParameters, lpDirectory: Pcstr = this.lpDirectory, nShow: Int = this.nShow, hInstApp: Hinstance = this.hInstApp, lpIDList: MutPtr<CVoid> = this.lpIDList, lpClass: Pcstr = this.lpClass, hkeyClass: Hkey = this.hkeyClass, dwHotKey: UInt = this.dwHotKey, anonymous: Shellexecuteinfoa0 = this.anonymous, hProcess: Handle = this.hProcess): Shellexecuteinfoa = Shellexecuteinfoa(cbSize = cbSize, fMask = fMask, hwndCtorArg = hwnd, lpVerbCtorArg = lpVerb, lpFileCtorArg = lpFile, lpParametersCtorArg = lpParameters, lpDirectoryCtorArg = lpDirectory, nShow = nShow, hInstAppCtorArg = hInstApp, lpIDListCtorArg = lpIDList, lpClassCtorArg = lpClass, hkeyClassCtorArg = hkeyClass, dwHotKey = dwHotKey, anonymous = anonymous, hProcessCtorArg = hProcess)
+    public fun copy(cbSize: UInt = this.cbSize, fMask: UInt = this.fMask, hwnd: Hwnd = this.hwnd, lpVerb: Pcstr = this.lpVerb, lpFile: Pcstr = this.lpFile, lpParameters: Pcstr = this.lpParameters, lpDirectory: Pcstr = this.lpDirectory, nShow: Int = this.nShow, hInstApp: Hinstance = this.hInstApp, lpIDList: MutPtr = this.lpIDList, lpClass: Pcstr = this.lpClass, hkeyClass: Hkey = this.hkeyClass, dwHotKey: UInt = this.dwHotKey, anonymous: Shellexecuteinfoa0 = this.anonymous, hProcess: Handle = this.hProcess): Shellexecuteinfoa = Shellexecuteinfoa(cbSize = cbSize, fMask = fMask, hwndCtorArg = hwnd, lpVerbCtorArg = lpVerb, lpFileCtorArg = lpFile, lpParametersCtorArg = lpParameters, lpDirectoryCtorArg = lpDirectory, nShow = nShow, hInstAppCtorArg = hInstApp, lpIDListCtorArg = lpIDList, lpClassCtorArg = lpClass, hkeyClassCtorArg = hkeyClass, dwHotKey = dwHotKey, anonymous = anonymous, hProcessCtorArg = hProcess)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -6837,7 +6830,7 @@ public class Shellexecuteinfoa internal constructor(
             lpDirectory: Pcstr = ConstPtr(0L),
             nShow: Int = 0,
             hInstApp: Hinstance = MutPtr(0L),
-            lpIDList: MutPtr<CVoid> = MutPtr(0L),
+            lpIDList: MutPtr = MutPtr(0L),
             lpClass: Pcstr = ConstPtr(0L),
             hkeyClass: Hkey = MutPtr(0L),
             dwHotKey: UInt = 0u,
@@ -6921,7 +6914,7 @@ public class Shellexecuteinfow internal constructor(
     lpDirectoryCtorArg: Pcwstr,
     public var nShow: Int,
     hInstAppCtorArg: Hinstance,
-    lpIDListCtorArg: MutPtr<CVoid>,
+    lpIDListCtorArg: MutPtr,
     lpClassCtorArg: Pcwstr,
     hkeyClassCtorArg: Hkey,
     public var dwHotKey: UInt,
@@ -6946,7 +6939,7 @@ public class Shellexecuteinfow internal constructor(
     public var hInstApp: Hinstance = hInstAppCtorArg
         internal set
 
-    public var lpIDList: MutPtr<CVoid> = lpIDListCtorArg
+    public var lpIDList: MutPtr = lpIDListCtorArg
         internal set
 
     public var lpClass: Pcwstr = lpClassCtorArg
@@ -6994,7 +6987,7 @@ public class Shellexecuteinfow internal constructor(
 
     public operator fun component9(): Hinstance = this.hInstApp
 
-    public operator fun component10(): MutPtr<CVoid> = this.lpIDList
+    public operator fun component10(): MutPtr = this.lpIDList
 
     public operator fun component11(): Pcwstr = this.lpClass
 
@@ -7006,7 +6999,7 @@ public class Shellexecuteinfow internal constructor(
 
     public operator fun component15(): Handle = this.hProcess
 
-    public fun copy(cbSize: UInt = this.cbSize, fMask: UInt = this.fMask, hwnd: Hwnd = this.hwnd, lpVerb: Pcwstr = this.lpVerb, lpFile: Pcwstr = this.lpFile, lpParameters: Pcwstr = this.lpParameters, lpDirectory: Pcwstr = this.lpDirectory, nShow: Int = this.nShow, hInstApp: Hinstance = this.hInstApp, lpIDList: MutPtr<CVoid> = this.lpIDList, lpClass: Pcwstr = this.lpClass, hkeyClass: Hkey = this.hkeyClass, dwHotKey: UInt = this.dwHotKey, anonymous: Shellexecuteinfow0 = this.anonymous, hProcess: Handle = this.hProcess): Shellexecuteinfow = Shellexecuteinfow(cbSize = cbSize, fMask = fMask, hwndCtorArg = hwnd, lpVerbCtorArg = lpVerb, lpFileCtorArg = lpFile, lpParametersCtorArg = lpParameters, lpDirectoryCtorArg = lpDirectory, nShow = nShow, hInstAppCtorArg = hInstApp, lpIDListCtorArg = lpIDList, lpClassCtorArg = lpClass, hkeyClassCtorArg = hkeyClass, dwHotKey = dwHotKey, anonymous = anonymous, hProcessCtorArg = hProcess)
+    public fun copy(cbSize: UInt = this.cbSize, fMask: UInt = this.fMask, hwnd: Hwnd = this.hwnd, lpVerb: Pcwstr = this.lpVerb, lpFile: Pcwstr = this.lpFile, lpParameters: Pcwstr = this.lpParameters, lpDirectory: Pcwstr = this.lpDirectory, nShow: Int = this.nShow, hInstApp: Hinstance = this.hInstApp, lpIDList: MutPtr = this.lpIDList, lpClass: Pcwstr = this.lpClass, hkeyClass: Hkey = this.hkeyClass, dwHotKey: UInt = this.dwHotKey, anonymous: Shellexecuteinfow0 = this.anonymous, hProcess: Handle = this.hProcess): Shellexecuteinfow = Shellexecuteinfow(cbSize = cbSize, fMask = fMask, hwndCtorArg = hwnd, lpVerbCtorArg = lpVerb, lpFileCtorArg = lpFile, lpParametersCtorArg = lpParameters, lpDirectoryCtorArg = lpDirectory, nShow = nShow, hInstAppCtorArg = hInstApp, lpIDListCtorArg = lpIDList, lpClassCtorArg = lpClass, hkeyClassCtorArg = hkeyClass, dwHotKey = dwHotKey, anonymous = anonymous, hProcessCtorArg = hProcess)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -7059,7 +7052,7 @@ public class Shellexecuteinfow internal constructor(
             lpDirectory: Pcwstr = ConstPtr(0L),
             nShow: Int = 0,
             hInstApp: Hinstance = MutPtr(0L),
-            lpIDList: MutPtr<CVoid> = MutPtr(0L),
+            lpIDList: MutPtr = MutPtr(0L),
             lpClass: Pcwstr = ConstPtr(0L),
             hkeyClass: Hkey = MutPtr(0L),
             dwHotKey: UInt = 0u,
@@ -7390,23 +7383,23 @@ public class Shfileinfow internal constructor(
 public class Shfileopstructa internal constructor(
     hwndCtorArg: Hwnd,
     public var wFunc: UInt,
-    pFromCtorArg: MutPtr<Byte>,
-    pToCtorArg: MutPtr<Byte>,
+    pFromCtorArg: MutPtr,
+    pToCtorArg: MutPtr,
     public var fFlags: UShort,
     public var fAnyOperationsAborted: Bool,
-    hNameMappingsCtorArg: MutPtr<CVoid>,
+    hNameMappingsCtorArg: MutPtr,
     lpszProgressTitleCtorArg: Pcstr,
 ) {
     public var hwnd: Hwnd = hwndCtorArg
         internal set
 
-    public var pFrom: MutPtr<Byte> = pFromCtorArg
+    public var pFrom: MutPtr = pFromCtorArg
         internal set
 
-    public var pTo: MutPtr<Byte> = pToCtorArg
+    public var pTo: MutPtr = pToCtorArg
         internal set
 
-    public var hNameMappings: MutPtr<CVoid> = hNameMappingsCtorArg
+    public var hNameMappings: MutPtr = hNameMappingsCtorArg
         internal set
 
     public var lpszProgressTitle: Pcstr = lpszProgressTitleCtorArg
@@ -7427,19 +7420,19 @@ public class Shfileopstructa internal constructor(
 
     public operator fun component2(): UInt = this.wFunc
 
-    public operator fun component3(): MutPtr<Byte> = this.pFrom
+    public operator fun component3(): MutPtr = this.pFrom
 
-    public operator fun component4(): MutPtr<Byte> = this.pTo
+    public operator fun component4(): MutPtr = this.pTo
 
     public operator fun component5(): UShort = this.fFlags
 
     public operator fun component6(): Bool = this.fAnyOperationsAborted
 
-    public operator fun component7(): MutPtr<CVoid> = this.hNameMappings
+    public operator fun component7(): MutPtr = this.hNameMappings
 
     public operator fun component8(): Pcstr = this.lpszProgressTitle
 
-    public fun copy(hwnd: Hwnd = this.hwnd, wFunc: UInt = this.wFunc, pFrom: MutPtr<Byte> = this.pFrom, pTo: MutPtr<Byte> = this.pTo, fFlags: UShort = this.fFlags, fAnyOperationsAborted: Bool = this.fAnyOperationsAborted, hNameMappings: MutPtr<CVoid> = this.hNameMappings, lpszProgressTitle: Pcstr = this.lpszProgressTitle): Shfileopstructa = Shfileopstructa(hwndCtorArg = hwnd, wFunc = wFunc, pFromCtorArg = pFrom, pToCtorArg = pTo, fFlags = fFlags, fAnyOperationsAborted = fAnyOperationsAborted, hNameMappingsCtorArg = hNameMappings, lpszProgressTitleCtorArg = lpszProgressTitle)
+    public fun copy(hwnd: Hwnd = this.hwnd, wFunc: UInt = this.wFunc, pFrom: MutPtr = this.pFrom, pTo: MutPtr = this.pTo, fFlags: UShort = this.fFlags, fAnyOperationsAborted: Bool = this.fAnyOperationsAborted, hNameMappings: MutPtr = this.hNameMappings, lpszProgressTitle: Pcstr = this.lpszProgressTitle): Shfileopstructa = Shfileopstructa(hwndCtorArg = hwnd, wFunc = wFunc, pFromCtorArg = pFrom, pToCtorArg = pTo, fFlags = fFlags, fAnyOperationsAborted = fAnyOperationsAborted, hNameMappingsCtorArg = hNameMappings, lpszProgressTitleCtorArg = lpszProgressTitle)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -7471,11 +7464,11 @@ public class Shfileopstructa internal constructor(
         public operator fun invoke(
             hwnd: Hwnd = MutPtr(0L),
             wFunc: UInt = 0u,
-            pFrom: MutPtr<Byte> = MutPtr(0L),
-            pTo: MutPtr<Byte> = MutPtr(0L),
+            pFrom: MutPtr = MutPtr(0L),
+            pTo: MutPtr = MutPtr(0L),
             fFlags: UShort = 0u,
             fAnyOperationsAborted: Bool = 0,
-            hNameMappings: MutPtr<CVoid> = MutPtr(0L),
+            hNameMappings: MutPtr = MutPtr(0L),
             lpszProgressTitle: Pcstr = ConstPtr(0L),
         ): Shfileopstructa =
             Shfileopstructa(
@@ -7498,7 +7491,7 @@ public class Shfileopstructw internal constructor(
     pToCtorArg: Pcwstr,
     public var fFlags: UShort,
     public var fAnyOperationsAborted: Bool,
-    hNameMappingsCtorArg: MutPtr<CVoid>,
+    hNameMappingsCtorArg: MutPtr,
     lpszProgressTitleCtorArg: Pcwstr,
 ) {
     public var hwnd: Hwnd = hwndCtorArg
@@ -7510,7 +7503,7 @@ public class Shfileopstructw internal constructor(
     public var pTo: Pcwstr = pToCtorArg
         internal set
 
-    public var hNameMappings: MutPtr<CVoid> = hNameMappingsCtorArg
+    public var hNameMappings: MutPtr = hNameMappingsCtorArg
         internal set
 
     public var lpszProgressTitle: Pcwstr = lpszProgressTitleCtorArg
@@ -7539,11 +7532,11 @@ public class Shfileopstructw internal constructor(
 
     public operator fun component6(): Bool = this.fAnyOperationsAborted
 
-    public operator fun component7(): MutPtr<CVoid> = this.hNameMappings
+    public operator fun component7(): MutPtr = this.hNameMappings
 
     public operator fun component8(): Pcwstr = this.lpszProgressTitle
 
-    public fun copy(hwnd: Hwnd = this.hwnd, wFunc: UInt = this.wFunc, pFrom: Pcwstr = this.pFrom, pTo: Pcwstr = this.pTo, fFlags: UShort = this.fFlags, fAnyOperationsAborted: Bool = this.fAnyOperationsAborted, hNameMappings: MutPtr<CVoid> = this.hNameMappings, lpszProgressTitle: Pcwstr = this.lpszProgressTitle): Shfileopstructw = Shfileopstructw(hwndCtorArg = hwnd, wFunc = wFunc, pFromCtorArg = pFrom, pToCtorArg = pTo, fFlags = fFlags, fAnyOperationsAborted = fAnyOperationsAborted, hNameMappingsCtorArg = hNameMappings, lpszProgressTitleCtorArg = lpszProgressTitle)
+    public fun copy(hwnd: Hwnd = this.hwnd, wFunc: UInt = this.wFunc, pFrom: Pcwstr = this.pFrom, pTo: Pcwstr = this.pTo, fFlags: UShort = this.fFlags, fAnyOperationsAborted: Bool = this.fAnyOperationsAborted, hNameMappings: MutPtr = this.hNameMappings, lpszProgressTitle: Pcwstr = this.lpszProgressTitle): Shfileopstructw = Shfileopstructw(hwndCtorArg = hwnd, wFunc = wFunc, pFromCtorArg = pFrom, pToCtorArg = pTo, fFlags = fFlags, fAnyOperationsAborted = fAnyOperationsAborted, hNameMappingsCtorArg = hNameMappings, lpszProgressTitleCtorArg = lpszProgressTitle)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -7579,7 +7572,7 @@ public class Shfileopstructw internal constructor(
             pTo: Pcwstr = ConstPtr(0L),
             fFlags: UShort = 0u,
             fAnyOperationsAborted: Bool = 0,
-            hNameMappings: MutPtr<CVoid> = MutPtr(0L),
+            hNameMappings: MutPtr = MutPtr(0L),
             lpszProgressTitle: Pcwstr = ConstPtr(0L),
         ): Shfileopstructw =
             Shfileopstructw(
@@ -7598,13 +7591,13 @@ public class Shfileopstructw internal constructor(
 public class Shfoldercustomsettings internal constructor(
     public var dwSize: UInt,
     public var dwMask: UInt,
-    pvidCtorArg: MutPtr<Guid>,
+    pvidCtorArg: MutPtr,
     pszWebViewTemplateCtorArg: Pwstr,
     public var cchWebViewTemplate: UInt,
     pszWebViewTemplateVersionCtorArg: Pwstr,
     pszInfoTipCtorArg: Pwstr,
     public var cchInfoTip: UInt,
-    pclsidCtorArg: MutPtr<Guid>,
+    pclsidCtorArg: MutPtr,
     public var dwFlags: UInt,
     pszIconFileCtorArg: Pwstr,
     public var cchIconFile: UInt,
@@ -7612,7 +7605,7 @@ public class Shfoldercustomsettings internal constructor(
     pszLogoCtorArg: Pwstr,
     public var cchLogo: UInt,
 ) {
-    public var pvid: MutPtr<Guid> = pvidCtorArg
+    public var pvid: MutPtr = pvidCtorArg
         internal set
 
     public var pszWebViewTemplate: Pwstr = pszWebViewTemplateCtorArg
@@ -7624,7 +7617,7 @@ public class Shfoldercustomsettings internal constructor(
     public var pszInfoTip: Pwstr = pszInfoTipCtorArg
         internal set
 
-    public var pclsid: MutPtr<Guid> = pclsidCtorArg
+    public var pclsid: MutPtr = pclsidCtorArg
         internal set
 
     public var pszIconFile: Pwstr = pszIconFileCtorArg
@@ -7655,7 +7648,7 @@ public class Shfoldercustomsettings internal constructor(
 
     public operator fun component2(): UInt = this.dwMask
 
-    public operator fun component3(): MutPtr<Guid> = this.pvid
+    public operator fun component3(): MutPtr = this.pvid
 
     public operator fun component4(): Pwstr = this.pszWebViewTemplate
 
@@ -7667,7 +7660,7 @@ public class Shfoldercustomsettings internal constructor(
 
     public operator fun component8(): UInt = this.cchInfoTip
 
-    public operator fun component9(): MutPtr<Guid> = this.pclsid
+    public operator fun component9(): MutPtr = this.pclsid
 
     public operator fun component10(): UInt = this.dwFlags
 
@@ -7681,7 +7674,7 @@ public class Shfoldercustomsettings internal constructor(
 
     public operator fun component15(): UInt = this.cchLogo
 
-    public fun copy(dwSize: UInt = this.dwSize, dwMask: UInt = this.dwMask, pvid: MutPtr<Guid> = this.pvid, pszWebViewTemplate: Pwstr = this.pszWebViewTemplate, cchWebViewTemplate: UInt = this.cchWebViewTemplate, pszWebViewTemplateVersion: Pwstr = this.pszWebViewTemplateVersion, pszInfoTip: Pwstr = this.pszInfoTip, cchInfoTip: UInt = this.cchInfoTip, pclsid: MutPtr<Guid> = this.pclsid, dwFlags: UInt = this.dwFlags, pszIconFile: Pwstr = this.pszIconFile, cchIconFile: UInt = this.cchIconFile, iIconIndex: Int = this.iIconIndex, pszLogo: Pwstr = this.pszLogo, cchLogo: UInt = this.cchLogo): Shfoldercustomsettings = Shfoldercustomsettings(dwSize = dwSize, dwMask = dwMask, pvidCtorArg = pvid, pszWebViewTemplateCtorArg = pszWebViewTemplate, cchWebViewTemplate = cchWebViewTemplate, pszWebViewTemplateVersionCtorArg = pszWebViewTemplateVersion, pszInfoTipCtorArg = pszInfoTip, cchInfoTip = cchInfoTip, pclsidCtorArg = pclsid, dwFlags = dwFlags, pszIconFileCtorArg = pszIconFile, cchIconFile = cchIconFile, iIconIndex = iIconIndex, pszLogoCtorArg = pszLogo, cchLogo = cchLogo)
+    public fun copy(dwSize: UInt = this.dwSize, dwMask: UInt = this.dwMask, pvid: MutPtr = this.pvid, pszWebViewTemplate: Pwstr = this.pszWebViewTemplate, cchWebViewTemplate: UInt = this.cchWebViewTemplate, pszWebViewTemplateVersion: Pwstr = this.pszWebViewTemplateVersion, pszInfoTip: Pwstr = this.pszInfoTip, cchInfoTip: UInt = this.cchInfoTip, pclsid: MutPtr = this.pclsid, dwFlags: UInt = this.dwFlags, pszIconFile: Pwstr = this.pszIconFile, cchIconFile: UInt = this.cchIconFile, iIconIndex: Int = this.iIconIndex, pszLogo: Pwstr = this.pszLogo, cchLogo: UInt = this.cchLogo): Shfoldercustomsettings = Shfoldercustomsettings(dwSize = dwSize, dwMask = dwMask, pvidCtorArg = pvid, pszWebViewTemplateCtorArg = pszWebViewTemplate, cchWebViewTemplate = cchWebViewTemplate, pszWebViewTemplateVersionCtorArg = pszWebViewTemplateVersion, pszInfoTipCtorArg = pszInfoTip, cchInfoTip = cchInfoTip, pclsidCtorArg = pclsid, dwFlags = dwFlags, pszIconFileCtorArg = pszIconFile, cchIconFile = cchIconFile, iIconIndex = iIconIndex, pszLogoCtorArg = pszLogo, cchLogo = cchLogo)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -7727,13 +7720,13 @@ public class Shfoldercustomsettings internal constructor(
         public operator fun invoke(
             dwSize: UInt = 0u,
             dwMask: UInt = 0u,
-            pvid: MutPtr<Guid> = MutPtr(0L),
+            pvid: MutPtr = MutPtr(0L),
             pszWebViewTemplate: Pwstr = MutPtr(0L),
             cchWebViewTemplate: UInt = 0u,
             pszWebViewTemplateVersion: Pwstr = MutPtr(0L),
             pszInfoTip: Pwstr = MutPtr(0L),
             cchInfoTip: UInt = 0u,
-            pclsid: MutPtr<Guid> = MutPtr(0L),
+            pclsid: MutPtr = MutPtr(0L),
             dwFlags: UInt = 0u,
             pszIconFile: Pwstr = MutPtr(0L),
             cchIconFile: UInt = 0u,
@@ -8042,13 +8035,13 @@ public class Slowappinfo internal constructor(
 
 public class Smcshchangenotifystruct internal constructor(
     public var lEvent: Int,
-    pidl1CtorArg: MutPtr<Itemidlist>,
-    pidl2CtorArg: MutPtr<Itemidlist>,
+    pidl1CtorArg: MutPtr,
+    pidl2CtorArg: MutPtr,
 ) {
-    public var pidl1: MutPtr<Itemidlist> = pidl1CtorArg
+    public var pidl1: MutPtr = pidl1CtorArg
         internal set
 
-    public var pidl2: MutPtr<Itemidlist> = pidl2CtorArg
+    public var pidl2: MutPtr = pidl2CtorArg
         internal set
 
     public constructor() : this(
@@ -8059,11 +8052,11 @@ public class Smcshchangenotifystruct internal constructor(
 
     public operator fun component1(): Int = this.lEvent
 
-    public operator fun component2(): MutPtr<Itemidlist> = this.pidl1
+    public operator fun component2(): MutPtr = this.pidl1
 
-    public operator fun component3(): MutPtr<Itemidlist> = this.pidl2
+    public operator fun component3(): MutPtr = this.pidl2
 
-    public fun copy(lEvent: Int = this.lEvent, pidl1: MutPtr<Itemidlist> = this.pidl1, pidl2: MutPtr<Itemidlist> = this.pidl2): Smcshchangenotifystruct = Smcshchangenotifystruct(lEvent = lEvent, pidl1CtorArg = pidl1, pidl2CtorArg = pidl2)
+    public fun copy(lEvent: Int = this.lEvent, pidl1: MutPtr = this.pidl1, pidl2: MutPtr = this.pidl2): Smcshchangenotifystruct = Smcshchangenotifystruct(lEvent = lEvent, pidl1CtorArg = pidl1, pidl2CtorArg = pidl2)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -8091,30 +8084,30 @@ public class Smcshchangenotifystruct internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<Itemidlist>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<Itemidlist>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 16L),
                     )
                 override fun writeNative(addr: Long, value: Smcshchangenotifystruct) {
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr, value.lEvent)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<Itemidlist>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.pidl1)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<Itemidlist>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 16L, value.pidl2)
                 }
             }
 
         public operator fun invoke(
             lEvent: Int = 0,
-            pidl1: MutPtr<Itemidlist> = MutPtr(0L),
-            pidl2: MutPtr<Itemidlist> = MutPtr(0L),
+            pidl1: MutPtr = MutPtr(0L),
+            pidl2: MutPtr = MutPtr(0L),
         ): Smcshchangenotifystruct =
             Smcshchangenotifystruct(
                 lEvent = lEvent,
@@ -8132,11 +8125,11 @@ public class Smdata internal constructor(
     public var uId: UInt,
     public var uIdParent: UInt,
     public var uIdAncestor: UInt,
-    punkCtorArg: MutPtr<CVoid>,
-    pidlFolderCtorArg: MutPtr<Itemidlist>,
-    pidlItemCtorArg: MutPtr<Itemidlist>,
-    psfCtorArg: MutPtr<CVoid>,
-    pvUserDataCtorArg: MutPtr<CVoid>,
+    punkCtorArg: MutPtr,
+    pidlFolderCtorArg: MutPtr,
+    pidlItemCtorArg: MutPtr,
+    psfCtorArg: MutPtr,
+    pvUserDataCtorArg: MutPtr,
 ) {
     public var hmenu: Hmenu = hmenuCtorArg
         internal set
@@ -8144,19 +8137,19 @@ public class Smdata internal constructor(
     public var hwnd: Hwnd = hwndCtorArg
         internal set
 
-    public var punk: MutPtr<CVoid> = punkCtorArg
+    public var punk: MutPtr = punkCtorArg
         internal set
 
-    public var pidlFolder: MutPtr<Itemidlist> = pidlFolderCtorArg
+    public var pidlFolder: MutPtr = pidlFolderCtorArg
         internal set
 
-    public var pidlItem: MutPtr<Itemidlist> = pidlItemCtorArg
+    public var pidlItem: MutPtr = pidlItemCtorArg
         internal set
 
-    public var psf: MutPtr<CVoid> = psfCtorArg
+    public var psf: MutPtr = psfCtorArg
         internal set
 
-    public var pvUserData: MutPtr<CVoid> = pvUserDataCtorArg
+    public var pvUserData: MutPtr = pvUserDataCtorArg
         internal set
 
     public constructor() : this(
@@ -8188,17 +8181,17 @@ public class Smdata internal constructor(
 
     public operator fun component7(): UInt = this.uIdAncestor
 
-    public operator fun component8(): MutPtr<CVoid> = this.punk
+    public operator fun component8(): MutPtr = this.punk
 
-    public operator fun component9(): MutPtr<Itemidlist> = this.pidlFolder
+    public operator fun component9(): MutPtr = this.pidlFolder
 
-    public operator fun component10(): MutPtr<Itemidlist> = this.pidlItem
+    public operator fun component10(): MutPtr = this.pidlItem
 
-    public operator fun component11(): MutPtr<CVoid> = this.psf
+    public operator fun component11(): MutPtr = this.psf
 
-    public operator fun component12(): MutPtr<CVoid> = this.pvUserData
+    public operator fun component12(): MutPtr = this.pvUserData
 
-    public fun copy(dwMask: UInt = this.dwMask, dwFlags: UInt = this.dwFlags, hmenu: Hmenu = this.hmenu, hwnd: Hwnd = this.hwnd, uId: UInt = this.uId, uIdParent: UInt = this.uIdParent, uIdAncestor: UInt = this.uIdAncestor, punk: MutPtr<CVoid> = this.punk, pidlFolder: MutPtr<Itemidlist> = this.pidlFolder, pidlItem: MutPtr<Itemidlist> = this.pidlItem, psf: MutPtr<CVoid> = this.psf, pvUserData: MutPtr<CVoid> = this.pvUserData): Smdata = Smdata(dwMask = dwMask, dwFlags = dwFlags, hmenuCtorArg = hmenu, hwndCtorArg = hwnd, uId = uId, uIdParent = uIdParent, uIdAncestor = uIdAncestor, punkCtorArg = punk, pidlFolderCtorArg = pidlFolder, pidlItemCtorArg = pidlItem, psfCtorArg = psf, pvUserDataCtorArg = pvUserData)
+    public fun copy(dwMask: UInt = this.dwMask, dwFlags: UInt = this.dwFlags, hmenu: Hmenu = this.hmenu, hwnd: Hwnd = this.hwnd, uId: UInt = this.uId, uIdParent: UInt = this.uIdParent, uIdAncestor: UInt = this.uIdAncestor, punk: MutPtr = this.punk, pidlFolder: MutPtr = this.pidlFolder, pidlItem: MutPtr = this.pidlItem, psf: MutPtr = this.psf, pvUserData: MutPtr = this.pvUserData): Smdata = Smdata(dwMask = dwMask, dwFlags = dwFlags, hmenuCtorArg = hmenu, hwndCtorArg = hwnd, uId = uId, uIdParent = uIdParent, uIdAncestor = uIdAncestor, punkCtorArg = punk, pidlFolderCtorArg = pidlFolder, pidlItemCtorArg = pidlItem, psfCtorArg = psf, pvUserDataCtorArg = pvUserData)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -8243,11 +8236,11 @@ public class Smdata internal constructor(
             uId: UInt = 0u,
             uIdParent: UInt = 0u,
             uIdAncestor: UInt = 0u,
-            punk: MutPtr<CVoid> = MutPtr(0L),
-            pidlFolder: MutPtr<Itemidlist> = MutPtr(0L),
-            pidlItem: MutPtr<Itemidlist> = MutPtr(0L),
-            psf: MutPtr<CVoid> = MutPtr(0L),
-            pvUserData: MutPtr<CVoid> = MutPtr(0L),
+            punk: MutPtr = MutPtr(0L),
+            pidlFolder: MutPtr = MutPtr(0L),
+            pidlItem: MutPtr = MutPtr(0L),
+            psf: MutPtr = MutPtr(0L),
+            pvUserData: MutPtr = MutPtr(0L),
         ): Smdata =
             Smdata(
                 dwMask = dwMask,
@@ -8301,26 +8294,26 @@ public data class Sortcolumn(
 
 public class Sv2cvw2Params internal constructor(
     public var cbSize: UInt,
-    psvPrevCtorArg: MutPtr<CVoid>,
-    pfsCtorArg: MutPtr<Foldersettings>,
-    psbOwnerCtorArg: MutPtr<CVoid>,
-    prcViewCtorArg: MutPtr<Rect>,
-    pvidCtorArg: ConstPtr<Guid>,
+    psvPrevCtorArg: MutPtr,
+    pfsCtorArg: MutPtr,
+    psbOwnerCtorArg: MutPtr,
+    prcViewCtorArg: MutPtr,
+    pvidCtorArg: ConstPtr,
     hwndViewCtorArg: Hwnd,
 ) {
-    public var psvPrev: MutPtr<CVoid> = psvPrevCtorArg
+    public var psvPrev: MutPtr = psvPrevCtorArg
         internal set
 
-    public var pfs: MutPtr<Foldersettings> = pfsCtorArg
+    public var pfs: MutPtr = pfsCtorArg
         internal set
 
-    public var psbOwner: MutPtr<CVoid> = psbOwnerCtorArg
+    public var psbOwner: MutPtr = psbOwnerCtorArg
         internal set
 
-    public var prcView: MutPtr<Rect> = prcViewCtorArg
+    public var prcView: MutPtr = prcViewCtorArg
         internal set
 
-    public var pvid: ConstPtr<Guid> = pvidCtorArg
+    public var pvid: ConstPtr = pvidCtorArg
         internal set
 
     public var hwndView: Hwnd = hwndViewCtorArg
@@ -8338,19 +8331,19 @@ public class Sv2cvw2Params internal constructor(
 
     public operator fun component1(): UInt = this.cbSize
 
-    public operator fun component2(): MutPtr<CVoid> = this.psvPrev
+    public operator fun component2(): MutPtr = this.psvPrev
 
-    public operator fun component3(): MutPtr<Foldersettings> = this.pfs
+    public operator fun component3(): MutPtr = this.pfs
 
-    public operator fun component4(): MutPtr<CVoid> = this.psbOwner
+    public operator fun component4(): MutPtr = this.psbOwner
 
-    public operator fun component5(): MutPtr<Rect> = this.prcView
+    public operator fun component5(): MutPtr = this.prcView
 
-    public operator fun component6(): ConstPtr<Guid> = this.pvid
+    public operator fun component6(): ConstPtr = this.pvid
 
     public operator fun component7(): Hwnd = this.hwndView
 
-    public fun copy(cbSize: UInt = this.cbSize, psvPrev: MutPtr<CVoid> = this.psvPrev, pfs: MutPtr<Foldersettings> = this.pfs, psbOwner: MutPtr<CVoid> = this.psbOwner, prcView: MutPtr<Rect> = this.prcView, pvid: ConstPtr<Guid> = this.pvid, hwndView: Hwnd = this.hwndView): Sv2cvw2Params = Sv2cvw2Params(cbSize = cbSize, psvPrevCtorArg = psvPrev, pfsCtorArg = pfs, psbOwnerCtorArg = psbOwner, prcViewCtorArg = prcView, pvidCtorArg = pvid, hwndViewCtorArg = hwndView)
+    public fun copy(cbSize: UInt = this.cbSize, psvPrev: MutPtr = this.psvPrev, pfs: MutPtr = this.pfs, psbOwner: MutPtr = this.psbOwner, prcView: MutPtr = this.prcView, pvid: ConstPtr = this.pvid, hwndView: Hwnd = this.hwndView): Sv2cvw2Params = Sv2cvw2Params(cbSize = cbSize, psvPrevCtorArg = psvPrev, pfsCtorArg = pfs, psbOwnerCtorArg = psbOwner, prcViewCtorArg = prcView, pvidCtorArg = pvid, hwndViewCtorArg = hwndView)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -8379,11 +8372,11 @@ public class Sv2cvw2Params internal constructor(
     public companion object {
         public operator fun invoke(
             cbSize: UInt = 0u,
-            psvPrev: MutPtr<CVoid> = MutPtr(0L),
-            pfs: MutPtr<Foldersettings> = MutPtr(0L),
-            psbOwner: MutPtr<CVoid> = MutPtr(0L),
-            prcView: MutPtr<Rect> = MutPtr(0L),
-            pvid: ConstPtr<Guid> = ConstPtr(0L),
+            psvPrev: MutPtr = MutPtr(0L),
+            pfs: MutPtr = MutPtr(0L),
+            psbOwner: MutPtr = MutPtr(0L),
+            prcView: MutPtr = MutPtr(0L),
+            pvid: ConstPtr = ConstPtr(0L),
             hwndView: Hwnd = MutPtr(0L),
         ): Sv2cvw2Params =
             Sv2cvw2Params(
@@ -8627,13 +8620,13 @@ public class Syncmgrprogressitem internal constructor(
 }
 
 public class SyncmgrConflictIdInfo internal constructor(
-    pblobIDCtorArg: MutPtr<ByteBlob>,
-    pblobExtraCtorArg: MutPtr<ByteBlob>,
+    pblobIDCtorArg: MutPtr,
+    pblobExtraCtorArg: MutPtr,
 ) {
-    public var pblobID: MutPtr<ByteBlob> = pblobIDCtorArg
+    public var pblobID: MutPtr = pblobIDCtorArg
         internal set
 
-    public var pblobExtra: MutPtr<ByteBlob> = pblobExtraCtorArg
+    public var pblobExtra: MutPtr = pblobExtraCtorArg
         internal set
 
     public constructor() : this(
@@ -8641,11 +8634,11 @@ public class SyncmgrConflictIdInfo internal constructor(
         pblobExtraCtorArg = MutPtr(0L),
     )
 
-    public operator fun component1(): MutPtr<ByteBlob> = this.pblobID
+    public operator fun component1(): MutPtr = this.pblobID
 
-    public operator fun component2(): MutPtr<ByteBlob> = this.pblobExtra
+    public operator fun component2(): MutPtr = this.pblobExtra
 
-    public fun copy(pblobID: MutPtr<ByteBlob> = this.pblobID, pblobExtra: MutPtr<ByteBlob> = this.pblobExtra): SyncmgrConflictIdInfo = SyncmgrConflictIdInfo(pblobIDCtorArg = pblobID, pblobExtraCtorArg = pblobExtra)
+    public fun copy(pblobID: MutPtr = this.pblobID, pblobExtra: MutPtr = this.pblobExtra): SyncmgrConflictIdInfo = SyncmgrConflictIdInfo(pblobIDCtorArg = pblobID, pblobExtraCtorArg = pblobExtra)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -8670,28 +8663,28 @@ public class SyncmgrConflictIdInfo internal constructor(
                     SyncmgrConflictIdInfo(
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<ByteBlob>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<ByteBlob>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                     )
                 override fun writeNative(addr: Long, value: SyncmgrConflictIdInfo) {
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<ByteBlob>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr, value.pblobID)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<ByteBlob>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.pblobExtra)
                 }
             }
 
         public operator fun invoke(
-            pblobID: MutPtr<ByteBlob> = MutPtr(0L),
-            pblobExtra: MutPtr<ByteBlob> = MutPtr(0L),
+            pblobID: MutPtr = MutPtr(0L),
+            pblobExtra: MutPtr = MutPtr(0L),
         ): SyncmgrConflictIdInfo =
             SyncmgrConflictIdInfo(
                 pblobIDCtorArg = pblobID,
@@ -8799,13 +8792,13 @@ public class Thumbbutton internal constructor(
 }
 
 public class Toolbaritem internal constructor(
-    ptbarCtorArg: MutPtr<CVoid>,
+    ptbarCtorArg: MutPtr,
     public var rcBorderTool: Rect,
     pwszItemCtorArg: Pwstr,
     public var fShow: Bool,
     hMonCtorArg: Hmonitor,
 ) {
-    public var ptbar: MutPtr<CVoid> = ptbarCtorArg
+    public var ptbar: MutPtr = ptbarCtorArg
         internal set
 
     public var pwszItem: Pwstr = pwszItemCtorArg
@@ -8822,7 +8815,7 @@ public class Toolbaritem internal constructor(
         hMonCtorArg = MutPtr(0L),
     )
 
-    public operator fun component1(): MutPtr<CVoid> = this.ptbar
+    public operator fun component1(): MutPtr = this.ptbar
 
     public operator fun component2(): Rect = this.rcBorderTool
 
@@ -8832,7 +8825,7 @@ public class Toolbaritem internal constructor(
 
     public operator fun component5(): Hmonitor = this.hMon
 
-    public fun copy(ptbar: MutPtr<CVoid> = this.ptbar, rcBorderTool: Rect = this.rcBorderTool, pwszItem: Pwstr = this.pwszItem, fShow: Bool = this.fShow, hMon: Hmonitor = this.hMon): Toolbaritem = Toolbaritem(ptbarCtorArg = ptbar, rcBorderTool = rcBorderTool, pwszItemCtorArg = pwszItem, fShow = fShow, hMonCtorArg = hMon)
+    public fun copy(ptbar: MutPtr = this.ptbar, rcBorderTool: Rect = this.rcBorderTool, pwszItem: Pwstr = this.pwszItem, fShow: Bool = this.fShow, hMon: Hmonitor = this.hMon): Toolbaritem = Toolbaritem(ptbarCtorArg = ptbar, rcBorderTool = rcBorderTool, pwszItemCtorArg = pwszItem, fShow = fShow, hMonCtorArg = hMon)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -8856,7 +8849,7 @@ public class Toolbaritem internal constructor(
 
     public companion object {
         public operator fun invoke(
-            ptbar: MutPtr<CVoid> = MutPtr(0L),
+            ptbar: MutPtr = MutPtr(0L),
             rcBorderTool: Rect = Rect(),
             pwszItem: Pwstr = MutPtr(0L),
             fShow: Bool = 0,
@@ -9001,12 +8994,12 @@ public class Urlinvokecommandinfow internal constructor(
 public class Windowdata internal constructor(
     public var dwWindowID: UInt,
     public var uiCP: UInt,
-    pidlCtorArg: MutPtr<Itemidlist>,
+    pidlCtorArg: MutPtr,
     lpszUrlCtorArg: Pwstr,
     lpszUrlLocationCtorArg: Pwstr,
     lpszTitleCtorArg: Pwstr,
 ) {
-    public var pidl: MutPtr<Itemidlist> = pidlCtorArg
+    public var pidl: MutPtr = pidlCtorArg
         internal set
 
     public var lpszUrl: Pwstr = lpszUrlCtorArg
@@ -9031,7 +9024,7 @@ public class Windowdata internal constructor(
 
     public operator fun component2(): UInt = this.uiCP
 
-    public operator fun component3(): MutPtr<Itemidlist> = this.pidl
+    public operator fun component3(): MutPtr = this.pidl
 
     public operator fun component4(): Pwstr = this.lpszUrl
 
@@ -9039,7 +9032,7 @@ public class Windowdata internal constructor(
 
     public operator fun component6(): Pwstr = this.lpszTitle
 
-    public fun copy(dwWindowID: UInt = this.dwWindowID, uiCP: UInt = this.uiCP, pidl: MutPtr<Itemidlist> = this.pidl, lpszUrl: Pwstr = this.lpszUrl, lpszUrlLocation: Pwstr = this.lpszUrlLocation, lpszTitle: Pwstr = this.lpszTitle): Windowdata = Windowdata(dwWindowID = dwWindowID, uiCP = uiCP, pidlCtorArg = pidl, lpszUrlCtorArg = lpszUrl, lpszUrlLocationCtorArg = lpszUrlLocation, lpszTitleCtorArg = lpszTitle)
+    public fun copy(dwWindowID: UInt = this.dwWindowID, uiCP: UInt = this.uiCP, pidl: MutPtr = this.pidl, lpszUrl: Pwstr = this.lpszUrl, lpszUrlLocation: Pwstr = this.lpszUrlLocation, lpszTitle: Pwstr = this.lpszTitle): Windowdata = Windowdata(dwWindowID = dwWindowID, uiCP = uiCP, pidlCtorArg = pidl, lpszUrlCtorArg = lpszUrl, lpszUrlLocationCtorArg = lpszUrlLocation, lpszTitleCtorArg = lpszTitle)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -9067,7 +9060,7 @@ public class Windowdata internal constructor(
         public operator fun invoke(
             dwWindowID: UInt = 0u,
             uiCP: UInt = 0u,
-            pidl: MutPtr<Itemidlist> = MutPtr(0L),
+            pidl: MutPtr = MutPtr(0L),
             lpszUrl: Pwstr = MutPtr(0L),
             lpszUrlLocation: Pwstr = MutPtr(0L),
             lpszTitle: Pwstr = MutPtr(0L),

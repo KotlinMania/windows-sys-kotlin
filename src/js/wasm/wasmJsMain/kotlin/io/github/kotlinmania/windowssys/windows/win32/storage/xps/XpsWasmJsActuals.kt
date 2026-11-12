@@ -2,7 +2,6 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.storage.xps
 
-import io.github.kotlinmania.rustlang.core.ffi.CVoid
 import io.github.kotlinmania.rustlang.core.ptr.ConstPtr
 import io.github.kotlinmania.rustlang.core.ptr.MutPtr
 import io.github.kotlinmania.windowssys.core.Bool
@@ -11,8 +10,6 @@ import io.github.kotlinmania.windowssys.core.Pcwstr
 import io.github.kotlinmania.windowssys.core.Pstr
 import io.github.kotlinmania.windowssys.core.Pwstr
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Hwnd
-import io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.Devmodea
-import io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.Devmodew
 import io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.Hdc
 
 @JsFun("() => { if (typeof globalThis.__km_napi_windowssys !== 'undefined') return globalThis.__km_napi_windowssys !== null; if (typeof process === 'undefined' || !process.versions || !process.versions.node) { globalThis.__km_napi_windowssys = null; return false; } var mod = process.getBuiltinModule ? process.getBuiltinModule('module') : (process.mainModule && process.mainModule.constructor); var req = (mod && mod.createRequire) ? mod.createRequire((process.cwd ? process.cwd() : '.') + '/package.json') : (process.mainModule ? process.mainModule.require : null); if (!req) { globalThis.__km_napi_windowssys = null; return false; } try { globalThis.__km_napi_windowssys = req('@kotlinmania/windowssys-native-bindings'); return true; } catch (_) {} var fs = req('fs'); var path = req('path'); var dir = process.cwd ? process.cwd() : '.'; var rels = ['windowssys_native.node', 'build/node-ffi/windowssys_native.node', 'build/node-ffi/release/windowssys_native.node', 'build/node-ffi/debug/windowssys_native.node', 'src/js/node-windowssys/build/Release/windowssys_native.node', 'src/js/node-windowssys/build/Debug/windowssys_native.node', 'src/js/node-windowssys/dist/build/Release/windowssys_native.node', 'src/js/node-windowssys/dist/build/Debug/windowssys_native.node']; for (var d = 0; d < 8; d++) { for (var i = 0; i < rels.length; i++) { var c = path.resolve(dir, rels[i]); if (fs.existsSync(c)) { globalThis.__km_napi_windowssys = req(c); return true; } } var parent = path.dirname(dir); if (parent === dir) break; dir = parent; } globalThis.__km_napi_windowssys = null; return false; }")
@@ -59,10 +56,10 @@ private external fun wasmWindowssysWindowsWin32StorageXpsStartPage(p0: String): 
 public actual fun abortDoc(hdc: Hdc): Int =
     if (windowsWin32StorageXpsNapiAvailable) wasmWindowssysWindowsWin32StorageXpsAbortDoc(hdc.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun deviceCapabilitiesA(pdevice: Pcstr, pport: Pcstr, fwcapability: PrinterDeviceCapabilities, poutput: Pstr, pdevmode: ConstPtr<Devmodea>): Int =
+public actual fun deviceCapabilitiesA(pdevice: Pcstr, pport: Pcstr, fwcapability: PrinterDeviceCapabilities, poutput: Pstr, pdevmode: ConstPtr): Int =
     if (windowsWin32StorageXpsNapiAvailable) wasmWindowssysWindowsWin32StorageXpsDeviceCapabilitiesA(pdevice.rawAddress.toString(), pport.rawAddress.toString(), fwcapability.toInt(), poutput.rawAddress.toString(), pdevmode.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun deviceCapabilitiesW(pdevice: Pcwstr, pport: Pcwstr, fwcapability: PrinterDeviceCapabilities, poutput: Pwstr, pdevmode: ConstPtr<Devmodew>): Int =
+public actual fun deviceCapabilitiesW(pdevice: Pcwstr, pport: Pcwstr, fwcapability: PrinterDeviceCapabilities, poutput: Pwstr, pdevmode: ConstPtr): Int =
     if (windowsWin32StorageXpsNapiAvailable) wasmWindowssysWindowsWin32StorageXpsDeviceCapabilitiesW(pdevice.rawAddress.toString(), pport.rawAddress.toString(), fwcapability.toInt(), poutput.rawAddress.toString(), pdevmode.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun endDoc(hdc: Hdc): Int =
@@ -71,7 +68,7 @@ public actual fun endDoc(hdc: Hdc): Int =
 public actual fun endPage(hdc: Hdc): Int =
     if (windowsWin32StorageXpsNapiAvailable) wasmWindowssysWindowsWin32StorageXpsEndPage(hdc.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun escape(hdc: Hdc, iescape: Int, cjin: Int, pvin: Pcstr, pvout: MutPtr<CVoid>): Int =
+public actual fun escape(hdc: Hdc, iescape: Int, cjin: Int, pvin: Pcstr, pvout: MutPtr): Int =
     if (windowsWin32StorageXpsNapiAvailable) wasmWindowssysWindowsWin32StorageXpsEscape(hdc.rawAddress.toString(), iescape, cjin, pvin.rawAddress.toString(), pvout.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun extEscape(hdc: Hdc, iescape: Int, cjinput: Int, lpindata: Pcstr, cjoutput: Int, lpoutdata: Pstr): Int =
@@ -83,10 +80,10 @@ public actual fun printWindow(hwnd: Hwnd, hdcblt: Hdc, nflags: PrintWindowFlags)
 public actual fun setAbortProc(hdc: Hdc, proc: Abortproc): Int =
     if (windowsWin32StorageXpsNapiAvailable) wasmWindowssysWindowsWin32StorageXpsSetAbortProc(hdc.rawAddress.toString(), 0L.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun startDocA(hdc: Hdc, lpdi: ConstPtr<Docinfoa>): Int =
+public actual fun startDocA(hdc: Hdc, lpdi: ConstPtr): Int =
     if (windowsWin32StorageXpsNapiAvailable) wasmWindowssysWindowsWin32StorageXpsStartDocA(hdc.rawAddress.toString(), lpdi.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun startDocW(hdc: Hdc, lpdi: ConstPtr<Docinfow>): Int =
+public actual fun startDocW(hdc: Hdc, lpdi: ConstPtr): Int =
     if (windowsWin32StorageXpsNapiAvailable) wasmWindowssysWindowsWin32StorageXpsStartDocW(hdc.rawAddress.toString(), lpdi.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun startPage(hdc: Hdc): Int =

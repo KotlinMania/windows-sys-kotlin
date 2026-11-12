@@ -2,7 +2,6 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.system.power
 
-import io.github.kotlinmania.rustlang.core.ffi.CVoid
 import io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
 import io.github.kotlinmania.rustlang.core.mem.TypeLayout
 import io.github.kotlinmania.rustlang.core.ptr.MutPtr
@@ -505,10 +504,10 @@ public class BatteryUsbChargerStatus internal constructor(
     public var voltage: UInt,
     public var portType: UsbChargerPort,
     public var portId: ULong,
-    powerSourceInformationCtorArg: MutPtr<CVoid>,
+    powerSourceInformationCtorArg: MutPtr,
     public var oemCharger: Guid,
 ) {
-    public var powerSourceInformation: MutPtr<CVoid> = powerSourceInformationCtorArg
+    public var powerSourceInformation: MutPtr = powerSourceInformationCtorArg
         internal set
 
     public constructor() : this(
@@ -537,11 +536,11 @@ public class BatteryUsbChargerStatus internal constructor(
 
     public operator fun component7(): ULong = this.portId
 
-    public operator fun component8(): MutPtr<CVoid> = this.powerSourceInformation
+    public operator fun component8(): MutPtr = this.powerSourceInformation
 
     public operator fun component9(): Guid = this.oemCharger
 
-    public fun copy(type: BatteryChargingSourceType = this.type, reserved: UInt = this.reserved, flags: UInt = this.flags, maxCurrent: UInt = this.maxCurrent, voltage: UInt = this.voltage, portType: UsbChargerPort = this.portType, portId: ULong = this.portId, powerSourceInformation: MutPtr<CVoid> = this.powerSourceInformation, oemCharger: Guid = this.oemCharger): BatteryUsbChargerStatus = BatteryUsbChargerStatus(type = type, reserved = reserved, flags = flags, maxCurrent = maxCurrent, voltage = voltage, portType = portType, portId = portId, powerSourceInformationCtorArg = powerSourceInformation, oemCharger = oemCharger)
+    public fun copy(type: BatteryChargingSourceType = this.type, reserved: UInt = this.reserved, flags: UInt = this.flags, maxCurrent: UInt = this.maxCurrent, voltage: UInt = this.voltage, portType: UsbChargerPort = this.portType, portId: ULong = this.portId, powerSourceInformation: MutPtr = this.powerSourceInformation, oemCharger: Guid = this.oemCharger): BatteryUsbChargerStatus = BatteryUsbChargerStatus(type = type, reserved = reserved, flags = flags, maxCurrent = maxCurrent, voltage = voltage, portType = portType, portId = portId, powerSourceInformationCtorArg = powerSourceInformation, oemCharger = oemCharger)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -580,7 +579,7 @@ public class BatteryUsbChargerStatus internal constructor(
             voltage: UInt = 0u,
             portType: UsbChargerPort = 0,
             portId: ULong = 0uL,
-            powerSourceInformation: MutPtr<CVoid> = MutPtr(0L),
+            powerSourceInformation: MutPtr = MutPtr(0L),
             oemCharger: Guid = Guid(),
         ): BatteryUsbChargerStatus =
             BatteryUsbChargerStatus(
@@ -702,9 +701,9 @@ public data class CmPowerData(
 
 public class DeviceNotifySubscribeParameters internal constructor(
     public var callback: PdeviceNotifyCallbackRoutine,
-    contextCtorArg: MutPtr<CVoid>,
+    contextCtorArg: MutPtr,
 ) {
-    public var context: MutPtr<CVoid> = contextCtorArg
+    public var context: MutPtr = contextCtorArg
         internal set
 
     public constructor() : this(
@@ -714,9 +713,9 @@ public class DeviceNotifySubscribeParameters internal constructor(
 
     public operator fun component1(): PdeviceNotifyCallbackRoutine = this.callback
 
-    public operator fun component2(): MutPtr<CVoid> = this.context
+    public operator fun component2(): MutPtr = this.context
 
-    public fun copy(callback: PdeviceNotifyCallbackRoutine = this.callback, context: MutPtr<CVoid> = this.context): DeviceNotifySubscribeParameters = DeviceNotifySubscribeParameters(callback = callback, contextCtorArg = context)
+    public fun copy(callback: PdeviceNotifyCallbackRoutine = this.callback, context: MutPtr = this.context): DeviceNotifySubscribeParameters = DeviceNotifySubscribeParameters(callback = callback, contextCtorArg = context)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -735,7 +734,7 @@ public class DeviceNotifySubscribeParameters internal constructor(
     public companion object {
         public operator fun invoke(
             callback: PdeviceNotifyCallbackRoutine = null,
-            context: MutPtr<CVoid> = MutPtr(0L),
+            context: MutPtr = MutPtr(0L),
         ): DeviceNotifySubscribeParameters =
             DeviceNotifySubscribeParameters(
                 callback = callback,
@@ -1936,10 +1935,10 @@ public class PpmWmiIdleStatesEx internal constructor(
     public var count: UInt,
     public var targetState: UInt,
     public var oldState: UInt,
-    targetProcessorsCtorArg: MutPtr<CVoid>,
+    targetProcessorsCtorArg: MutPtr,
     public var state: List<PpmWmiIdleState>,
 ) {
-    public var targetProcessors: MutPtr<CVoid> = targetProcessorsCtorArg
+    public var targetProcessors: MutPtr = targetProcessorsCtorArg
         internal set
 
     public constructor() : this(
@@ -1959,11 +1958,11 @@ public class PpmWmiIdleStatesEx internal constructor(
 
     public operator fun component4(): UInt = this.oldState
 
-    public operator fun component5(): MutPtr<CVoid> = this.targetProcessors
+    public operator fun component5(): MutPtr = this.targetProcessors
 
     public operator fun component6(): List<PpmWmiIdleState> = this.state
 
-    public fun copy(type: UInt = this.type, count: UInt = this.count, targetState: UInt = this.targetState, oldState: UInt = this.oldState, targetProcessors: MutPtr<CVoid> = this.targetProcessors, state: List<PpmWmiIdleState> = this.state): PpmWmiIdleStatesEx = PpmWmiIdleStatesEx(type = type, count = count, targetState = targetState, oldState = oldState, targetProcessorsCtorArg = targetProcessors, state = state)
+    public fun copy(type: UInt = this.type, count: UInt = this.count, targetState: UInt = this.targetState, oldState: UInt = this.oldState, targetProcessors: MutPtr = this.targetProcessors, state: List<PpmWmiIdleState> = this.state): PpmWmiIdleStatesEx = PpmWmiIdleStatesEx(type = type, count = count, targetState = targetState, oldState = oldState, targetProcessorsCtorArg = targetProcessors, state = state)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -2000,7 +1999,7 @@ public class PpmWmiIdleStatesEx internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 12L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<CVoid>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 16L),
                         (
                             io.github.kotlinmania.rustlang.core.mem
@@ -2014,7 +2013,7 @@ public class PpmWmiIdleStatesEx internal constructor(
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 12L, value.oldState)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<CVoid>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 16L, value.targetProcessors)
                     (
                         io.github.kotlinmania.rustlang.core.mem
@@ -2028,7 +2027,7 @@ public class PpmWmiIdleStatesEx internal constructor(
             count: UInt = 0u,
             targetState: UInt = 0u,
             oldState: UInt = 0u,
-            targetProcessors: MutPtr<CVoid> = MutPtr(0L),
+            targetProcessors: MutPtr = MutPtr(0L),
             state: List<PpmWmiIdleState> = List(1) { PpmWmiIdleState() },
         ): PpmWmiIdleStatesEx =
             PpmWmiIdleStatesEx(
@@ -2223,7 +2222,7 @@ public class PpmWmiPerfStatesEx internal constructor(
     public var type: UByte,
     public var reserved: UByte,
     public var timerInterval: UInt,
-    targetProcessorsCtorArg: MutPtr<CVoid>,
+    targetProcessorsCtorArg: MutPtr,
     public var pStateHandler: UInt,
     public var pStateContext: UInt,
     public var tStateHandler: UInt,
@@ -2233,7 +2232,7 @@ public class PpmWmiPerfStatesEx internal constructor(
     public var reserved2: ULong,
     public var state: List<PpmWmiPerfState>,
 ) {
-    public var targetProcessors: MutPtr<CVoid> = targetProcessorsCtorArg
+    public var targetProcessors: MutPtr = targetProcessorsCtorArg
         internal set
 
     public constructor() : this(
@@ -2281,7 +2280,7 @@ public class PpmWmiPerfStatesEx internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 32L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<CVoid>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 40L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 48L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 52L),
@@ -2310,7 +2309,7 @@ public class PpmWmiPerfStatesEx internal constructor(
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 32L, value.timerInterval)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<CVoid>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 40L, value.targetProcessors)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 48L, value.pStateHandler)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 52L, value.pStateContext)
@@ -2339,7 +2338,7 @@ public class PpmWmiPerfStatesEx internal constructor(
             type: UByte = 0u,
             reserved: UByte = 0u,
             timerInterval: UInt = 0u,
-            targetProcessors: MutPtr<CVoid> = MutPtr(0L),
+            targetProcessors: MutPtr = MutPtr(0L),
             pStateHandler: UInt = 0u,
             pStateContext: UInt = 0u,
             tStateHandler: UInt = 0u,

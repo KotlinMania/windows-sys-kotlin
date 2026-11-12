@@ -13,8 +13,8 @@ private external fun wasiWindowssysWindowsWin32SystemRestoreSRRemoveRestorePoint
 public actual fun sRRemoveRestorePoint(dwrpnum: UInt): UInt =
     wasiWindowssysWindowsWin32SystemRestoreSRRemoveRestorePoint(dwrpnum.toInt()).toUInt()
 
-public actual fun sRSetRestorePointA(prestoreptspec: ConstPtr<Restorepointinfoa>, psmgrstatus: MutPtr<Statemgrstatus>): Bool =
+public actual fun sRSetRestorePointA(prestoreptspec: ConstPtr, psmgrstatus: MutPtr): Bool =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32SystemRestoreSRSetRestorePointA")
 
-public actual fun sRSetRestorePointW(prestoreptspec: ConstPtr<Restorepointinfow>, psmgrstatus: MutPtr<Statemgrstatus>): Bool =
+public actual fun sRSetRestorePointW(prestoreptspec: ConstPtr, psmgrstatus: MutPtr): Bool =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32SystemRestoreSRSetRestorePointW")

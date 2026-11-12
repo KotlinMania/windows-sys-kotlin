@@ -24,14 +24,14 @@ private object WindowsWin32SystemUseraccessloggingJniBridge {
     external fun windowssysWindowsWin32SystemUseraccessloggingUalStop(data: Long): Int
 }
 
-public actual fun ualInstrument(data: ConstPtr<UalDataBlob>): Hresult =
+public actual fun ualInstrument(data: ConstPtr): Hresult =
     WindowsWin32SystemUseraccessloggingJniBridge.windowssysWindowsWin32SystemUseraccessloggingUalInstrument(data.rawAddress)
 
 public actual fun ualRegisterProduct(wszproductname: Pcwstr, wszrolename: Pcwstr, wszguid: Pcwstr): Hresult =
     WindowsWin32SystemUseraccessloggingJniBridge.windowssysWindowsWin32SystemUseraccessloggingUalRegisterProduct(wszproductname.rawAddress, wszrolename.rawAddress, wszguid.rawAddress)
 
-public actual fun ualStart(data: ConstPtr<UalDataBlob>): Hresult =
+public actual fun ualStart(data: ConstPtr): Hresult =
     WindowsWin32SystemUseraccessloggingJniBridge.windowssysWindowsWin32SystemUseraccessloggingUalStart(data.rawAddress)
 
-public actual fun ualStop(data: ConstPtr<UalDataBlob>): Hresult =
+public actual fun ualStop(data: ConstPtr): Hresult =
     WindowsWin32SystemUseraccessloggingJniBridge.windowssysWindowsWin32SystemUseraccessloggingUalStop(data.rawAddress)

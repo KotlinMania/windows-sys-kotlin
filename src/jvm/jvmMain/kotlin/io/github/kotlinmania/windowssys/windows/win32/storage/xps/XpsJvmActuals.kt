@@ -2,7 +2,6 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.storage.xps
 
-import io.github.kotlinmania.rustlang.core.ffi.CVoid
 import io.github.kotlinmania.rustlang.core.ptr.ConstPtr
 import io.github.kotlinmania.rustlang.core.ptr.MutPtr
 import io.github.kotlinmania.windowssys.core.Bool
@@ -11,8 +10,6 @@ import io.github.kotlinmania.windowssys.core.Pcwstr
 import io.github.kotlinmania.windowssys.core.Pstr
 import io.github.kotlinmania.windowssys.core.Pwstr
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Hwnd
-import io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.Devmodea
-import io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.Devmodew
 import io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.Hdc
 
 private object WindowsWin32StorageXpsJniBridge {
@@ -111,10 +108,10 @@ private object WindowsWin32StorageXpsJniBridge {
 public actual fun abortDoc(hdc: Hdc): Int =
     WindowsWin32StorageXpsJniBridge.windowssysWindowsWin32StorageXpsAbortDoc(hdc.rawAddress)
 
-public actual fun deviceCapabilitiesA(pdevice: Pcstr, pport: Pcstr, fwcapability: PrinterDeviceCapabilities, poutput: Pstr, pdevmode: ConstPtr<Devmodea>): Int =
+public actual fun deviceCapabilitiesA(pdevice: Pcstr, pport: Pcstr, fwcapability: PrinterDeviceCapabilities, poutput: Pstr, pdevmode: ConstPtr): Int =
     WindowsWin32StorageXpsJniBridge.windowssysWindowsWin32StorageXpsDeviceCapabilitiesA(pdevice.rawAddress, pport.rawAddress, fwcapability.toShort(), poutput.rawAddress, pdevmode.rawAddress)
 
-public actual fun deviceCapabilitiesW(pdevice: Pcwstr, pport: Pcwstr, fwcapability: PrinterDeviceCapabilities, poutput: Pwstr, pdevmode: ConstPtr<Devmodew>): Int =
+public actual fun deviceCapabilitiesW(pdevice: Pcwstr, pport: Pcwstr, fwcapability: PrinterDeviceCapabilities, poutput: Pwstr, pdevmode: ConstPtr): Int =
     WindowsWin32StorageXpsJniBridge.windowssysWindowsWin32StorageXpsDeviceCapabilitiesW(pdevice.rawAddress, pport.rawAddress, fwcapability.toShort(), poutput.rawAddress, pdevmode.rawAddress)
 
 public actual fun endDoc(hdc: Hdc): Int =
@@ -123,7 +120,7 @@ public actual fun endDoc(hdc: Hdc): Int =
 public actual fun endPage(hdc: Hdc): Int =
     WindowsWin32StorageXpsJniBridge.windowssysWindowsWin32StorageXpsEndPage(hdc.rawAddress)
 
-public actual fun escape(hdc: Hdc, iescape: Int, cjin: Int, pvin: Pcstr, pvout: MutPtr<CVoid>): Int =
+public actual fun escape(hdc: Hdc, iescape: Int, cjin: Int, pvin: Pcstr, pvout: MutPtr): Int =
     WindowsWin32StorageXpsJniBridge.windowssysWindowsWin32StorageXpsEscape(hdc.rawAddress, iescape, cjin, pvin.rawAddress, pvout.rawAddress)
 
 public actual fun extEscape(hdc: Hdc, iescape: Int, cjinput: Int, lpindata: Pcstr, cjoutput: Int, lpoutdata: Pstr): Int =
@@ -135,10 +132,10 @@ public actual fun printWindow(hwnd: Hwnd, hdcblt: Hdc, nflags: PrintWindowFlags)
 public actual fun setAbortProc(hdc: Hdc, proc: Abortproc): Int =
     WindowsWin32StorageXpsJniBridge.windowssysWindowsWin32StorageXpsSetAbortProc(hdc.rawAddress, 0L)
 
-public actual fun startDocA(hdc: Hdc, lpdi: ConstPtr<Docinfoa>): Int =
+public actual fun startDocA(hdc: Hdc, lpdi: ConstPtr): Int =
     WindowsWin32StorageXpsJniBridge.windowssysWindowsWin32StorageXpsStartDocA(hdc.rawAddress, lpdi.rawAddress)
 
-public actual fun startDocW(hdc: Hdc, lpdi: ConstPtr<Docinfow>): Int =
+public actual fun startDocW(hdc: Hdc, lpdi: ConstPtr): Int =
     WindowsWin32StorageXpsJniBridge.windowssysWindowsWin32StorageXpsStartDocW(hdc.rawAddress, lpdi.rawAddress)
 
 public actual fun startPage(hdc: Hdc): Int =

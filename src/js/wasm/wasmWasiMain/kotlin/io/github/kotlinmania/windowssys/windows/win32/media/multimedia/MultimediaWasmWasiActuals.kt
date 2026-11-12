@@ -2,11 +2,9 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.media.multimedia
 
-import io.github.kotlinmania.rustlang.core.ffi.CVoid
 import io.github.kotlinmania.rustlang.core.ptr.ConstPtr
 import io.github.kotlinmania.rustlang.core.ptr.MutPtr
 import io.github.kotlinmania.windowssys.core.Bool
-import io.github.kotlinmania.windowssys.core.Guid
 import io.github.kotlinmania.windowssys.core.Hresult
 import io.github.kotlinmania.windowssys.core.Pcstr
 import io.github.kotlinmania.windowssys.core.Pcwstr
@@ -19,14 +17,9 @@ import io.github.kotlinmania.windowssys.windows.win32.foundation.Hmodule
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Hwnd
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Lparam
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Lresult
-import io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.Bitmapinfo
-import io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.Bitmapinfoheader
 import io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.Hdc
 import io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.Hpalette
-import io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.Paletteentry
 import io.github.kotlinmania.windowssys.windows.win32.media.Htask
-import io.github.kotlinmania.windowssys.windows.win32.ui.controls.dialogs.Openfilenamea
-import io.github.kotlinmania.windowssys.windows.win32.ui.controls.dialogs.Openfilenamew
 
 // The host must provide the C companion wrapper exports in import module windowssys.
 public actual fun aVIBuildFilterA(lpszfilter: Pstr, cbfilter: Int, fsaving: Bool): Hresult =
@@ -41,16 +34,16 @@ private external fun wasiWindowssysWindowsWin32MediaMultimediaAVIClearClipboard(
 public actual fun aVIClearClipboard(): Hresult =
     wasiWindowssysWindowsWin32MediaMultimediaAVIClearClipboard()
 
-public actual fun aVIFileAddRef(pfile: MutPtr<CVoid>): UInt =
+public actual fun aVIFileAddRef(pfile: MutPtr): UInt =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32MediaMultimediaAVIFileAddRef")
 
-public actual fun aVIFileCreateStreamA(pfile: MutPtr<CVoid>, ppavi: MutPtr<MutPtr<CVoid>>, psi: ConstPtr<Avistreaminfoa>): Hresult =
+public actual fun aVIFileCreateStreamA(pfile: MutPtr, ppavi: MutPtr, psi: ConstPtr): Hresult =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32MediaMultimediaAVIFileCreateStreamA")
 
-public actual fun aVIFileCreateStreamW(pfile: MutPtr<CVoid>, ppavi: MutPtr<MutPtr<CVoid>>, psi: ConstPtr<Avistreaminfow>): Hresult =
+public actual fun aVIFileCreateStreamW(pfile: MutPtr, ppavi: MutPtr, psi: ConstPtr): Hresult =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32MediaMultimediaAVIFileCreateStreamW")
 
-public actual fun aVIFileEndRecord(pfile: MutPtr<CVoid>): Hresult =
+public actual fun aVIFileEndRecord(pfile: MutPtr): Hresult =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32MediaMultimediaAVIFileEndRecord")
 
 @kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32MediaMultimediaAVIFileExit")
@@ -59,13 +52,13 @@ private external fun wasiWindowssysWindowsWin32MediaMultimediaAVIFileExit(): Uni
 public actual fun aVIFileExit(): Unit =
     wasiWindowssysWindowsWin32MediaMultimediaAVIFileExit()
 
-public actual fun aVIFileGetStream(pfile: MutPtr<CVoid>, ppavi: MutPtr<MutPtr<CVoid>>, fcctype: UInt, lparam: Int): Hresult =
+public actual fun aVIFileGetStream(pfile: MutPtr, ppavi: MutPtr, fcctype: UInt, lparam: Int): Hresult =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32MediaMultimediaAVIFileGetStream")
 
-public actual fun aVIFileInfoA(pfile: MutPtr<CVoid>, pfi: MutPtr<Avifileinfoa>, lsize: Int): Hresult =
+public actual fun aVIFileInfoA(pfile: MutPtr, pfi: MutPtr, lsize: Int): Hresult =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32MediaMultimediaAVIFileInfoA")
 
-public actual fun aVIFileInfoW(pfile: MutPtr<CVoid>, pfi: MutPtr<Avifileinfow>, lsize: Int): Hresult =
+public actual fun aVIFileInfoW(pfile: MutPtr, pfi: MutPtr, lsize: Int): Hresult =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32MediaMultimediaAVIFileInfoW")
 
 @kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32MediaMultimediaAVIFileInit")
@@ -74,136 +67,136 @@ private external fun wasiWindowssysWindowsWin32MediaMultimediaAVIFileInit(): Uni
 public actual fun aVIFileInit(): Unit =
     wasiWindowssysWindowsWin32MediaMultimediaAVIFileInit()
 
-public actual fun aVIFileOpenA(ppfile: MutPtr<MutPtr<CVoid>>, szfile: Pcstr, umode: UInt, lphandler: ConstPtr<Guid>): Hresult =
+public actual fun aVIFileOpenA(ppfile: MutPtr, szfile: Pcstr, umode: UInt, lphandler: ConstPtr): Hresult =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32MediaMultimediaAVIFileOpenA")
 
-public actual fun aVIFileOpenW(ppfile: MutPtr<MutPtr<CVoid>>, szfile: Pcwstr, umode: UInt, lphandler: ConstPtr<Guid>): Hresult =
+public actual fun aVIFileOpenW(ppfile: MutPtr, szfile: Pcwstr, umode: UInt, lphandler: ConstPtr): Hresult =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32MediaMultimediaAVIFileOpenW")
 
-public actual fun aVIFileReadData(pfile: MutPtr<CVoid>, ckid: UInt, lpdata: MutPtr<CVoid>, lpcbdata: MutPtr<Int>): Hresult =
+public actual fun aVIFileReadData(pfile: MutPtr, ckid: UInt, lpdata: MutPtr, lpcbdata: MutPtr): Hresult =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32MediaMultimediaAVIFileReadData")
 
-public actual fun aVIFileRelease(pfile: MutPtr<CVoid>): UInt =
+public actual fun aVIFileRelease(pfile: MutPtr): UInt =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32MediaMultimediaAVIFileRelease")
 
-public actual fun aVIFileWriteData(pfile: MutPtr<CVoid>, ckid: UInt, lpdata: ConstPtr<CVoid>, cbdata: Int): Hresult =
+public actual fun aVIFileWriteData(pfile: MutPtr, ckid: UInt, lpdata: ConstPtr, cbdata: Int): Hresult =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32MediaMultimediaAVIFileWriteData")
 
-public actual fun aVIGetFromClipboard(lppf: MutPtr<MutPtr<CVoid>>): Hresult =
+public actual fun aVIGetFromClipboard(lppf: MutPtr): Hresult =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32MediaMultimediaAVIGetFromClipboard")
 
-public actual fun aVIMakeCompressedStream(ppscompressed: MutPtr<MutPtr<CVoid>>, ppssource: MutPtr<CVoid>, lpoptions: ConstPtr<Avicompressoptions>, pclsidhandler: ConstPtr<Guid>): Hresult =
+public actual fun aVIMakeCompressedStream(ppscompressed: MutPtr, ppssource: MutPtr, lpoptions: ConstPtr, pclsidhandler: ConstPtr): Hresult =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32MediaMultimediaAVIMakeCompressedStream")
 
-public actual fun aVIMakeFileFromStreams(ppfile: MutPtr<MutPtr<CVoid>>, nstreams: Int, papstreams: ConstPtr<MutPtr<CVoid>>): Hresult =
+public actual fun aVIMakeFileFromStreams(ppfile: MutPtr, nstreams: Int, papstreams: ConstPtr): Hresult =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32MediaMultimediaAVIMakeFileFromStreams")
 
-public actual fun aVIMakeStreamFromClipboard(cfformat: UInt, hglobal: Handle, ppstream: MutPtr<MutPtr<CVoid>>): Hresult =
+public actual fun aVIMakeStreamFromClipboard(cfformat: UInt, hglobal: Handle, ppstream: MutPtr): Hresult =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32MediaMultimediaAVIMakeStreamFromClipboard")
 
-public actual fun aVIPutFileOnClipboard(pf: MutPtr<CVoid>): Hresult =
+public actual fun aVIPutFileOnClipboard(pf: MutPtr): Hresult =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32MediaMultimediaAVIPutFileOnClipboard")
 
-public actual fun aVISaveA(szfile: Pcstr, pclsidhandler: ConstPtr<Guid>, lpfncallback: Avisavecallback, nstreams: Int, pfile: MutPtr<CVoid>, lpoptions: ConstPtr<Avicompressoptions>, vararg variadicArgs: Long): Hresult =
+public actual fun aVISaveA(szfile: Pcstr, pclsidhandler: ConstPtr, lpfncallback: Avisavecallback, nstreams: Int, pfile: MutPtr, lpoptions: ConstPtr, vararg variadicArgs: Long): Hresult =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32MediaMultimediaAVISaveA")
 
-public actual fun aVISaveOptions(hwnd: Hwnd, uiflags: UInt, nstreams: Int, ppavi: ConstPtr<MutPtr<CVoid>>, plpoptions: MutPtr<MutPtr<Avicompressoptions>>): Long =
+public actual fun aVISaveOptions(hwnd: Hwnd, uiflags: UInt, nstreams: Int, ppavi: ConstPtr, plpoptions: MutPtr): Long =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32MediaMultimediaAVISaveOptions")
 
-public actual fun aVISaveOptionsFree(nstreams: Int, plpoptions: ConstPtr<ConstPtr<Avicompressoptions>>): Hresult =
+public actual fun aVISaveOptionsFree(nstreams: Int, plpoptions: ConstPtr): Hresult =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32MediaMultimediaAVISaveOptionsFree")
 
-public actual fun aVISaveVA(szfile: Pcstr, pclsidhandler: ConstPtr<Guid>, lpfncallback: Avisavecallback, nstreams: Int, ppavi: ConstPtr<MutPtr<CVoid>>, plpoptions: ConstPtr<ConstPtr<Avicompressoptions>>): Hresult =
+public actual fun aVISaveVA(szfile: Pcstr, pclsidhandler: ConstPtr, lpfncallback: Avisavecallback, nstreams: Int, ppavi: ConstPtr, plpoptions: ConstPtr): Hresult =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32MediaMultimediaAVISaveVA")
 
-public actual fun aVISaveVW(szfile: Pcwstr, pclsidhandler: ConstPtr<Guid>, lpfncallback: Avisavecallback, nstreams: Int, ppavi: ConstPtr<MutPtr<CVoid>>, plpoptions: ConstPtr<ConstPtr<Avicompressoptions>>): Hresult =
+public actual fun aVISaveVW(szfile: Pcwstr, pclsidhandler: ConstPtr, lpfncallback: Avisavecallback, nstreams: Int, ppavi: ConstPtr, plpoptions: ConstPtr): Hresult =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32MediaMultimediaAVISaveVW")
 
-public actual fun aVISaveW(szfile: Pcwstr, pclsidhandler: ConstPtr<Guid>, lpfncallback: Avisavecallback, nstreams: Int, pfile: MutPtr<CVoid>, lpoptions: ConstPtr<Avicompressoptions>, vararg variadicArgs: Long): Hresult =
+public actual fun aVISaveW(szfile: Pcwstr, pclsidhandler: ConstPtr, lpfncallback: Avisavecallback, nstreams: Int, pfile: MutPtr, lpoptions: ConstPtr, vararg variadicArgs: Long): Hresult =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32MediaMultimediaAVISaveW")
 
-public actual fun aVIStreamAddRef(pavi: MutPtr<CVoid>): UInt =
+public actual fun aVIStreamAddRef(pavi: MutPtr): UInt =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32MediaMultimediaAVIStreamAddRef")
 
-public actual fun aVIStreamBeginStreaming(pavi: MutPtr<CVoid>, lstart: Int, lend: Int, lrate: Int): Hresult =
+public actual fun aVIStreamBeginStreaming(pavi: MutPtr, lstart: Int, lend: Int, lrate: Int): Hresult =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32MediaMultimediaAVIStreamBeginStreaming")
 
-public actual fun aVIStreamCreate(ppavi: MutPtr<MutPtr<CVoid>>, lparam1: Int, lparam2: Int, pclsidhandler: ConstPtr<Guid>): Hresult =
+public actual fun aVIStreamCreate(ppavi: MutPtr, lparam1: Int, lparam2: Int, pclsidhandler: ConstPtr): Hresult =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32MediaMultimediaAVIStreamCreate")
 
-public actual fun aVIStreamEndStreaming(pavi: MutPtr<CVoid>): Hresult =
+public actual fun aVIStreamEndStreaming(pavi: MutPtr): Hresult =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32MediaMultimediaAVIStreamEndStreaming")
 
-public actual fun aVIStreamFindSample(pavi: MutPtr<CVoid>, lpos: Int, lflags: Int): Int =
+public actual fun aVIStreamFindSample(pavi: MutPtr, lpos: Int, lflags: Int): Int =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32MediaMultimediaAVIStreamFindSample")
 
-public actual fun aVIStreamGetFrame(pg: MutPtr<CVoid>, lpos: Int): MutPtr<CVoid> =
+public actual fun aVIStreamGetFrame(pg: MutPtr, lpos: Int): MutPtr =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32MediaMultimediaAVIStreamGetFrame")
 
-public actual fun aVIStreamGetFrameClose(pg: MutPtr<CVoid>): Hresult =
+public actual fun aVIStreamGetFrameClose(pg: MutPtr): Hresult =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32MediaMultimediaAVIStreamGetFrameClose")
 
-public actual fun aVIStreamGetFrameOpen(pavi: MutPtr<CVoid>, lpbiwanted: ConstPtr<Bitmapinfoheader>): MutPtr<CVoid> =
+public actual fun aVIStreamGetFrameOpen(pavi: MutPtr, lpbiwanted: ConstPtr): MutPtr =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32MediaMultimediaAVIStreamGetFrameOpen")
 
-public actual fun aVIStreamInfoA(pavi: MutPtr<CVoid>, psi: MutPtr<Avistreaminfoa>, lsize: Int): Hresult =
+public actual fun aVIStreamInfoA(pavi: MutPtr, psi: MutPtr, lsize: Int): Hresult =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32MediaMultimediaAVIStreamInfoA")
 
-public actual fun aVIStreamInfoW(pavi: MutPtr<CVoid>, psi: MutPtr<Avistreaminfow>, lsize: Int): Hresult =
+public actual fun aVIStreamInfoW(pavi: MutPtr, psi: MutPtr, lsize: Int): Hresult =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32MediaMultimediaAVIStreamInfoW")
 
-public actual fun aVIStreamLength(pavi: MutPtr<CVoid>): Int =
+public actual fun aVIStreamLength(pavi: MutPtr): Int =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32MediaMultimediaAVIStreamLength")
 
-public actual fun aVIStreamOpenFromFileA(ppavi: MutPtr<MutPtr<CVoid>>, szfile: Pcstr, fcctype: UInt, lparam: Int, mode: UInt, pclsidhandler: ConstPtr<Guid>): Hresult =
+public actual fun aVIStreamOpenFromFileA(ppavi: MutPtr, szfile: Pcstr, fcctype: UInt, lparam: Int, mode: UInt, pclsidhandler: ConstPtr): Hresult =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32MediaMultimediaAVIStreamOpenFromFileA")
 
-public actual fun aVIStreamOpenFromFileW(ppavi: MutPtr<MutPtr<CVoid>>, szfile: Pcwstr, fcctype: UInt, lparam: Int, mode: UInt, pclsidhandler: ConstPtr<Guid>): Hresult =
+public actual fun aVIStreamOpenFromFileW(ppavi: MutPtr, szfile: Pcwstr, fcctype: UInt, lparam: Int, mode: UInt, pclsidhandler: ConstPtr): Hresult =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32MediaMultimediaAVIStreamOpenFromFileW")
 
-public actual fun aVIStreamRead(pavi: MutPtr<CVoid>, lstart: Int, lsamples: Int, lpbuffer: MutPtr<CVoid>, cbbuffer: Int, plbytes: MutPtr<Int>, plsamples: MutPtr<Int>): Hresult =
+public actual fun aVIStreamRead(pavi: MutPtr, lstart: Int, lsamples: Int, lpbuffer: MutPtr, cbbuffer: Int, plbytes: MutPtr, plsamples: MutPtr): Hresult =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32MediaMultimediaAVIStreamRead")
 
-public actual fun aVIStreamReadData(pavi: MutPtr<CVoid>, fcc: UInt, lp: MutPtr<CVoid>, lpcb: MutPtr<Int>): Hresult =
+public actual fun aVIStreamReadData(pavi: MutPtr, fcc: UInt, lp: MutPtr, lpcb: MutPtr): Hresult =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32MediaMultimediaAVIStreamReadData")
 
-public actual fun aVIStreamReadFormat(pavi: MutPtr<CVoid>, lpos: Int, lpformat: MutPtr<CVoid>, lpcbformat: MutPtr<Int>): Hresult =
+public actual fun aVIStreamReadFormat(pavi: MutPtr, lpos: Int, lpformat: MutPtr, lpcbformat: MutPtr): Hresult =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32MediaMultimediaAVIStreamReadFormat")
 
-public actual fun aVIStreamRelease(pavi: MutPtr<CVoid>): UInt =
+public actual fun aVIStreamRelease(pavi: MutPtr): UInt =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32MediaMultimediaAVIStreamRelease")
 
-public actual fun aVIStreamSampleToTime(pavi: MutPtr<CVoid>, lsample: Int): Int =
+public actual fun aVIStreamSampleToTime(pavi: MutPtr, lsample: Int): Int =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32MediaMultimediaAVIStreamSampleToTime")
 
-public actual fun aVIStreamSetFormat(pavi: MutPtr<CVoid>, lpos: Int, lpformat: ConstPtr<CVoid>, cbformat: Int): Hresult =
+public actual fun aVIStreamSetFormat(pavi: MutPtr, lpos: Int, lpformat: ConstPtr, cbformat: Int): Hresult =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32MediaMultimediaAVIStreamSetFormat")
 
-public actual fun aVIStreamStart(pavi: MutPtr<CVoid>): Int =
+public actual fun aVIStreamStart(pavi: MutPtr): Int =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32MediaMultimediaAVIStreamStart")
 
-public actual fun aVIStreamTimeToSample(pavi: MutPtr<CVoid>, ltime: Int): Int =
+public actual fun aVIStreamTimeToSample(pavi: MutPtr, ltime: Int): Int =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32MediaMultimediaAVIStreamTimeToSample")
 
-public actual fun aVIStreamWrite(pavi: MutPtr<CVoid>, lstart: Int, lsamples: Int, lpbuffer: ConstPtr<CVoid>, cbbuffer: Int, dwflags: UInt, plsampwritten: MutPtr<Int>, plbyteswritten: MutPtr<Int>): Hresult =
+public actual fun aVIStreamWrite(pavi: MutPtr, lstart: Int, lsamples: Int, lpbuffer: ConstPtr, cbbuffer: Int, dwflags: UInt, plsampwritten: MutPtr, plbyteswritten: MutPtr): Hresult =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32MediaMultimediaAVIStreamWrite")
 
-public actual fun aVIStreamWriteData(pavi: MutPtr<CVoid>, fcc: UInt, lp: ConstPtr<CVoid>, cb: Int): Hresult =
+public actual fun aVIStreamWriteData(pavi: MutPtr, fcc: UInt, lp: ConstPtr, cb: Int): Hresult =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32MediaMultimediaAVIStreamWriteData")
 
 public actual fun closeDriver(hdriver: Hdrvr, lparam1: Lparam, lparam2: Lparam): Lresult =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32MediaMultimediaCloseDriver")
 
-public actual fun createEditableStream(ppseditable: MutPtr<MutPtr<CVoid>>, pssource: MutPtr<CVoid>): Hresult =
+public actual fun createEditableStream(ppseditable: MutPtr, pssource: MutPtr): Hresult =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32MediaMultimediaCreateEditableStream")
 
 public actual fun defDriverProc(dwdriveridentifier: ULong, hdrvr: Hdrvr, umsg: UInt, lparam1: Lparam, lparam2: Lparam): Lresult =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32MediaMultimediaDefDriverProc")
 
-public actual fun drawDibBegin(hdd: Long, hdc: Hdc, dxdst: Int, dydst: Int, lpbi: ConstPtr<Bitmapinfoheader>, dxsrc: Int, dysrc: Int, wflags: UInt): Bool =
+public actual fun drawDibBegin(hdd: Long, hdc: Hdc, dxdst: Int, dydst: Int, lpbi: ConstPtr, dxsrc: Int, dysrc: Int, wflags: UInt): Bool =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32MediaMultimediaDrawDibBegin")
 
-public actual fun drawDibChangePalette(hdd: Long, istart: Int, ilen: Int, lppe: ConstPtr<Paletteentry>): Bool =
+public actual fun drawDibChangePalette(hdd: Long, istart: Int, ilen: Int, lppe: ConstPtr): Bool =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32MediaMultimediaDrawDibChangePalette")
 
 @kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32MediaMultimediaDrawDibClose")
@@ -212,7 +205,7 @@ private external fun wasiWindowssysWindowsWin32MediaMultimediaDrawDibClose(hdd: 
 public actual fun drawDibClose(hdd: Long): Bool =
     wasiWindowssysWindowsWin32MediaMultimediaDrawDibClose(hdd)
 
-public actual fun drawDibDraw(hdd: Long, hdc: Hdc, xdst: Int, ydst: Int, dxdst: Int, dydst: Int, lpbi: ConstPtr<Bitmapinfoheader>, lpbits: ConstPtr<CVoid>, xsrc: Int, ysrc: Int, dxsrc: Int, dysrc: Int, wflags: UInt): Bool =
+public actual fun drawDibDraw(hdd: Long, hdc: Hdc, xdst: Int, ydst: Int, dxdst: Int, dydst: Int, lpbi: ConstPtr, lpbits: ConstPtr, xsrc: Int, ysrc: Int, dxsrc: Int, dysrc: Int, wflags: UInt): Bool =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32MediaMultimediaDrawDibDraw")
 
 @kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32MediaMultimediaDrawDibEnd")
@@ -221,7 +214,7 @@ private external fun wasiWindowssysWindowsWin32MediaMultimediaDrawDibEnd(hdd: Lo
 public actual fun drawDibEnd(hdd: Long): Bool =
     wasiWindowssysWindowsWin32MediaMultimediaDrawDibEnd(hdd)
 
-public actual fun drawDibGetBuffer(hdd: Long, lpbi: MutPtr<Bitmapinfoheader>, dwsize: UInt, dwflags: UInt): MutPtr<CVoid> =
+public actual fun drawDibGetBuffer(hdd: Long, lpbi: MutPtr, dwsize: UInt, dwflags: UInt): MutPtr =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32MediaMultimediaDrawDibGetBuffer")
 
 public actual fun drawDibGetPalette(hdd: Long): Hpalette =
@@ -233,7 +226,7 @@ private external fun wasiWindowssysWindowsWin32MediaMultimediaDrawDibOpen(): Lon
 public actual fun drawDibOpen(): Long =
     wasiWindowssysWindowsWin32MediaMultimediaDrawDibOpen()
 
-public actual fun drawDibProfileDisplay(lpbi: ConstPtr<Bitmapinfoheader>): Lresult =
+public actual fun drawDibProfileDisplay(lpbi: ConstPtr): Lresult =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32MediaMultimediaDrawDibProfileDisplay")
 
 public actual fun drawDibRealize(hdd: Long, hdc: Hdc, fbackground: Bool): UInt =
@@ -254,7 +247,7 @@ private external fun wasiWindowssysWindowsWin32MediaMultimediaDrawDibStop(hdd: L
 public actual fun drawDibStop(hdd: Long): Bool =
     wasiWindowssysWindowsWin32MediaMultimediaDrawDibStop(hdd)
 
-public actual fun drawDibTime(hdd: Long, lpddtime: MutPtr<Drawdibtime>): Bool =
+public actual fun drawDibTime(hdd: Long, lpddtime: MutPtr): Bool =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32MediaMultimediaDrawDibTime")
 
 public actual fun driverCallback(dwcallback: ULong, dwflags: UInt, hdevice: Hdrvr, dwmsg: UInt, dwuser: ULong, dwparam1: ULong, dwparam2: ULong): Bool =
@@ -263,84 +256,84 @@ public actual fun driverCallback(dwcallback: ULong, dwflags: UInt, hdevice: Hdrv
 public actual fun drvGetModuleHandle(hdriver: Hdrvr): Hmodule =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32MediaMultimediaDrvGetModuleHandle")
 
-public actual fun editStreamClone(pavi: MutPtr<CVoid>, ppresult: MutPtr<MutPtr<CVoid>>): Hresult =
+public actual fun editStreamClone(pavi: MutPtr, ppresult: MutPtr): Hresult =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32MediaMultimediaEditStreamClone")
 
-public actual fun editStreamCopy(pavi: MutPtr<CVoid>, plstart: MutPtr<Int>, pllength: MutPtr<Int>, ppresult: MutPtr<MutPtr<CVoid>>): Hresult =
+public actual fun editStreamCopy(pavi: MutPtr, plstart: MutPtr, pllength: MutPtr, ppresult: MutPtr): Hresult =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32MediaMultimediaEditStreamCopy")
 
-public actual fun editStreamCut(pavi: MutPtr<CVoid>, plstart: MutPtr<Int>, pllength: MutPtr<Int>, ppresult: MutPtr<MutPtr<CVoid>>): Hresult =
+public actual fun editStreamCut(pavi: MutPtr, plstart: MutPtr, pllength: MutPtr, ppresult: MutPtr): Hresult =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32MediaMultimediaEditStreamCut")
 
-public actual fun editStreamPaste(pavi: MutPtr<CVoid>, plpos: MutPtr<Int>, pllength: MutPtr<Int>, pstream: MutPtr<CVoid>, lstart: Int, lend: Int): Hresult =
+public actual fun editStreamPaste(pavi: MutPtr, plpos: MutPtr, pllength: MutPtr, pstream: MutPtr, lstart: Int, lend: Int): Hresult =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32MediaMultimediaEditStreamPaste")
 
-public actual fun editStreamSetInfoA(pavi: MutPtr<CVoid>, lpinfo: ConstPtr<Avistreaminfoa>, cbinfo: Int): Hresult =
+public actual fun editStreamSetInfoA(pavi: MutPtr, lpinfo: ConstPtr, cbinfo: Int): Hresult =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32MediaMultimediaEditStreamSetInfoA")
 
-public actual fun editStreamSetInfoW(pavi: MutPtr<CVoid>, lpinfo: ConstPtr<Avistreaminfow>, cbinfo: Int): Hresult =
+public actual fun editStreamSetInfoW(pavi: MutPtr, lpinfo: ConstPtr, cbinfo: Int): Hresult =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32MediaMultimediaEditStreamSetInfoW")
 
-public actual fun editStreamSetNameA(pavi: MutPtr<CVoid>, lpszname: Pcstr): Hresult =
+public actual fun editStreamSetNameA(pavi: MutPtr, lpszname: Pcstr): Hresult =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32MediaMultimediaEditStreamSetNameA")
 
-public actual fun editStreamSetNameW(pavi: MutPtr<CVoid>, lpszname: Pcwstr): Hresult =
+public actual fun editStreamSetNameW(pavi: MutPtr, lpszname: Pcwstr): Hresult =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32MediaMultimediaEditStreamSetNameW")
 
 public actual fun getDriverModuleHandle(hdriver: Hdrvr): Hmodule =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32MediaMultimediaGetDriverModuleHandle")
 
-public actual fun getOpenFileNamePreviewA(lpofn: MutPtr<Openfilenamea>): Bool =
+public actual fun getOpenFileNamePreviewA(lpofn: MutPtr): Bool =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32MediaMultimediaGetOpenFileNamePreviewA")
 
-public actual fun getOpenFileNamePreviewW(lpofn: MutPtr<Openfilenamew>): Bool =
+public actual fun getOpenFileNamePreviewW(lpofn: MutPtr): Bool =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32MediaMultimediaGetOpenFileNamePreviewW")
 
-public actual fun getSaveFileNamePreviewA(lpofn: MutPtr<Openfilenamea>): Bool =
+public actual fun getSaveFileNamePreviewA(lpofn: MutPtr): Bool =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32MediaMultimediaGetSaveFileNamePreviewA")
 
-public actual fun getSaveFileNamePreviewW(lpofn: MutPtr<Openfilenamew>): Bool =
+public actual fun getSaveFileNamePreviewW(lpofn: MutPtr): Bool =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32MediaMultimediaGetSaveFileNamePreviewW")
 
 public actual fun iCClose(hic: Hic): Lresult =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32MediaMultimediaICClose")
 
-public actual fun iCCompress(hic: Hic, dwflags: UInt, lpbioutput: ConstPtr<Bitmapinfoheader>, lpdata: MutPtr<CVoid>, lpbiinput: ConstPtr<Bitmapinfoheader>, lpbits: ConstPtr<CVoid>, lpckid: MutPtr<UInt>, lpdwflags: MutPtr<UInt>, lframenum: Int, dwframesize: UInt, dwquality: UInt, lpbiprev: ConstPtr<Bitmapinfoheader>, lpprev: ConstPtr<CVoid>): UInt =
+public actual fun iCCompress(hic: Hic, dwflags: UInt, lpbioutput: ConstPtr, lpdata: MutPtr, lpbiinput: ConstPtr, lpbits: ConstPtr, lpckid: MutPtr, lpdwflags: MutPtr, lframenum: Int, dwframesize: UInt, dwquality: UInt, lpbiprev: ConstPtr, lpprev: ConstPtr): UInt =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32MediaMultimediaICCompress")
 
-public actual fun iCCompressorChoose(hwnd: Hwnd, uiflags: UInt, pvin: ConstPtr<CVoid>, lpdata: ConstPtr<CVoid>, pc: MutPtr<Compvars>, lpsztitle: Pcstr): Bool =
+public actual fun iCCompressorChoose(hwnd: Hwnd, uiflags: UInt, pvin: ConstPtr, lpdata: ConstPtr, pc: MutPtr, lpsztitle: Pcstr): Bool =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32MediaMultimediaICCompressorChoose")
 
-public actual fun iCCompressorFree(pc: ConstPtr<Compvars>): Unit = throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32MediaMultimediaICCompressorFree")
+public actual fun iCCompressorFree(pc: ConstPtr): Unit = throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32MediaMultimediaICCompressorFree")
 
-public actual fun iCDecompress(hic: Hic, dwflags: UInt, lpbiformat: ConstPtr<Bitmapinfoheader>, lpdata: ConstPtr<CVoid>, lpbi: ConstPtr<Bitmapinfoheader>, lpbits: MutPtr<CVoid>): UInt =
+public actual fun iCDecompress(hic: Hic, dwflags: UInt, lpbiformat: ConstPtr, lpdata: ConstPtr, lpbi: ConstPtr, lpbits: MutPtr): UInt =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32MediaMultimediaICDecompress")
 
-public actual fun iCDraw(hic: Hic, dwflags: UInt, lpformat: ConstPtr<CVoid>, lpdata: ConstPtr<CVoid>, cbdata: UInt, ltime: Int): UInt =
+public actual fun iCDraw(hic: Hic, dwflags: UInt, lpformat: ConstPtr, lpdata: ConstPtr, cbdata: UInt, ltime: Int): UInt =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32MediaMultimediaICDraw")
 
-public actual fun iCDrawBegin(hic: Hic, dwflags: UInt, hpal: Hpalette, hwnd: Hwnd, hdc: Hdc, xdst: Int, ydst: Int, dxdst: Int, dydst: Int, lpbi: ConstPtr<Bitmapinfoheader>, xsrc: Int, ysrc: Int, dxsrc: Int, dysrc: Int, dwrate: UInt, dwscale: UInt): UInt =
+public actual fun iCDrawBegin(hic: Hic, dwflags: UInt, hpal: Hpalette, hwnd: Hwnd, hdc: Hdc, xdst: Int, ydst: Int, dxdst: Int, dydst: Int, lpbi: ConstPtr, xsrc: Int, ysrc: Int, dxsrc: Int, dysrc: Int, dwrate: UInt, dwscale: UInt): UInt =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32MediaMultimediaICDrawBegin")
 
-public actual fun iCGetDisplayFormat(hic: Hic, lpbiin: ConstPtr<Bitmapinfoheader>, lpbiout: MutPtr<Bitmapinfoheader>, bitdepth: Int, dx: Int, dy: Int): Hic =
+public actual fun iCGetDisplayFormat(hic: Hic, lpbiin: ConstPtr, lpbiout: MutPtr, bitdepth: Int, dx: Int, dy: Int): Hic =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32MediaMultimediaICGetDisplayFormat")
 
-public actual fun iCGetInfo(hic: Hic, picinfo: MutPtr<Icinfo>, cb: UInt): Lresult =
+public actual fun iCGetInfo(hic: Hic, picinfo: MutPtr, cb: UInt): Lresult =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32MediaMultimediaICGetInfo")
 
-public actual fun iCImageCompress(hic: Hic, uiflags: UInt, lpbiin: ConstPtr<Bitmapinfo>, lpbits: ConstPtr<CVoid>, lpbiout: ConstPtr<Bitmapinfo>, lquality: Int, plsize: MutPtr<Int>): Handle =
+public actual fun iCImageCompress(hic: Hic, uiflags: UInt, lpbiin: ConstPtr, lpbits: ConstPtr, lpbiout: ConstPtr, lquality: Int, plsize: MutPtr): Handle =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32MediaMultimediaICImageCompress")
 
-public actual fun iCImageDecompress(hic: Hic, uiflags: UInt, lpbiin: ConstPtr<Bitmapinfo>, lpbits: ConstPtr<CVoid>, lpbiout: ConstPtr<Bitmapinfo>): Handle =
+public actual fun iCImageDecompress(hic: Hic, uiflags: UInt, lpbiin: ConstPtr, lpbits: ConstPtr, lpbiout: ConstPtr): Handle =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32MediaMultimediaICImageDecompress")
 
-public actual fun iCInfo(fcctype: UInt, fcchandler: UInt, lpicinfo: MutPtr<Icinfo>): Bool =
+public actual fun iCInfo(fcctype: UInt, fcchandler: UInt, lpicinfo: MutPtr): Bool =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32MediaMultimediaICInfo")
 
 public actual fun iCInstall(fcctype: UInt, fcchandler: UInt, lparam: Lparam, szdesc: Pcstr, wflags: UInt): Bool =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32MediaMultimediaICInstall")
 
-public actual fun iCLocate(fcctype: UInt, fcchandler: UInt, lpbiin: ConstPtr<Bitmapinfoheader>, lpbiout: ConstPtr<Bitmapinfoheader>, wflags: UShort): Hic =
+public actual fun iCLocate(fcctype: UInt, fcchandler: UInt, lpbiin: ConstPtr, lpbiout: ConstPtr, wflags: UShort): Hic =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32MediaMultimediaICLocate")
 
 public actual fun iCOpen(fcctype: UInt, fcchandler: UInt, wmode: UInt): Hic =
@@ -358,12 +351,12 @@ public actual fun iCRemove(fcctype: UInt, fcchandler: UInt, wflags: UInt): Bool 
 public actual fun iCSendMessage(hic: Hic, msg: UInt, dw1: ULong, dw2: ULong): Lresult =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32MediaMultimediaICSendMessage")
 
-public actual fun iCSeqCompressFrame(pc: ConstPtr<Compvars>, uiflags: UInt, lpbits: ConstPtr<CVoid>, pfkey: MutPtr<Bool>, plsize: MutPtr<Int>): MutPtr<CVoid> =
+public actual fun iCSeqCompressFrame(pc: ConstPtr, uiflags: UInt, lpbits: ConstPtr, pfkey: MutPtr, plsize: MutPtr): MutPtr =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32MediaMultimediaICSeqCompressFrame")
 
-public actual fun iCSeqCompressFrameEnd(pc: ConstPtr<Compvars>): Unit = throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32MediaMultimediaICSeqCompressFrameEnd")
+public actual fun iCSeqCompressFrameEnd(pc: ConstPtr): Unit = throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32MediaMultimediaICSeqCompressFrameEnd")
 
-public actual fun iCSeqCompressFrameStart(pc: ConstPtr<Compvars>, lpbiin: ConstPtr<Bitmapinfo>): Bool =
+public actual fun iCSeqCompressFrameStart(pc: ConstPtr, lpbiin: ConstPtr): Bool =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32MediaMultimediaICSeqCompressFrameStart")
 
 public actual fun mCIWndCreateA(hwndparent: Hwnd, hinstance: Hinstance, dwstyle: UInt, szfile: Pcstr): Hwnd =
@@ -402,10 +395,10 @@ public actual fun capGetDriverDescriptionA(wdriverindex: UInt, lpszname: Pstr, c
 public actual fun capGetDriverDescriptionW(wdriverindex: UInt, lpszname: Pwstr, cbname: Int, lpszver: Pwstr, cbver: Int): Bool =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32MediaMultimediaCapGetDriverDescriptionW")
 
-public actual fun joyGetDevCapsA(ujoyid: ULong, pjc: MutPtr<Joycapsa>, cbjc: UInt): UInt =
+public actual fun joyGetDevCapsA(ujoyid: ULong, pjc: MutPtr, cbjc: UInt): UInt =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32MediaMultimediaJoyGetDevCapsA")
 
-public actual fun joyGetDevCapsW(ujoyid: ULong, pjc: MutPtr<Joycapsw>, cbjc: UInt): UInt =
+public actual fun joyGetDevCapsW(ujoyid: ULong, pjc: MutPtr, cbjc: UInt): UInt =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32MediaMultimediaJoyGetDevCapsW")
 
 @kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32MediaMultimediaJoyGetNumDevs")
@@ -414,13 +407,13 @@ private external fun wasiWindowssysWindowsWin32MediaMultimediaJoyGetNumDevs(): I
 public actual fun joyGetNumDevs(): UInt =
     wasiWindowssysWindowsWin32MediaMultimediaJoyGetNumDevs().toUInt()
 
-public actual fun joyGetPos(ujoyid: UInt, pji: MutPtr<Joyinfo>): UInt =
+public actual fun joyGetPos(ujoyid: UInt, pji: MutPtr): UInt =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32MediaMultimediaJoyGetPos")
 
-public actual fun joyGetPosEx(ujoyid: UInt, pji: MutPtr<Joyinfoex>): UInt =
+public actual fun joyGetPosEx(ujoyid: UInt, pji: MutPtr): UInt =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32MediaMultimediaJoyGetPosEx")
 
-public actual fun joyGetThreshold(ujoyid: UInt, puthreshold: MutPtr<UInt>): UInt =
+public actual fun joyGetThreshold(ujoyid: UInt, puthreshold: MutPtr): UInt =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32MediaMultimediaJoyGetThreshold")
 
 @kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32MediaMultimediaJoyReleaseCapture")
@@ -480,7 +473,7 @@ public actual fun mciGetErrorStringA(mcierr: UInt, psztext: Pstr, cchtext: UInt)
 public actual fun mciGetErrorStringW(mcierr: UInt, psztext: Pwstr, cchtext: UInt): Bool =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32MediaMultimediaMciGetErrorStringW")
 
-public actual fun mciGetYieldProc(mciid: UInt, pdwyielddata: ConstPtr<UInt>): Yieldproc =
+public actual fun mciGetYieldProc(mciid: UInt, pdwyielddata: ConstPtr): Yieldproc =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32MediaMultimediaMciGetYieldProc")
 
 public actual fun mciLoadCommandResource(hinstance: Handle, lpresname: Pcwstr, wtype: UInt): UInt =
@@ -528,7 +521,7 @@ private external fun wasiWindowssysWindowsWin32MediaMultimediaMmTaskBlock(h: Int
 public actual fun mmTaskBlock(h: UInt): Unit =
     wasiWindowssysWindowsWin32MediaMultimediaMmTaskBlock(h.toInt())
 
-public actual fun mmTaskCreate(lpfn: Lptaskcallback, lph: MutPtr<Handle>, dwinst: ULong): UInt =
+public actual fun mmTaskCreate(lpfn: Lptaskcallback, lph: MutPtr, dwinst: ULong): UInt =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32MediaMultimediaMmTaskCreate")
 
 @kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32MediaMultimediaMmTaskSignal")
@@ -543,25 +536,25 @@ private external fun wasiWindowssysWindowsWin32MediaMultimediaMmTaskYield(): Uni
 public actual fun mmTaskYield(): Unit =
     wasiWindowssysWindowsWin32MediaMultimediaMmTaskYield()
 
-public actual fun mmioAdvance(hmmio: Hmmio, pmmioinfo: ConstPtr<Mmioinfo>, fuadvance: UInt): UInt =
+public actual fun mmioAdvance(hmmio: Hmmio, pmmioinfo: ConstPtr, fuadvance: UInt): UInt =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32MediaMultimediaMmioAdvance")
 
-public actual fun mmioAscend(hmmio: Hmmio, pmmcki: ConstPtr<Mmckinfo>, fuascend: UInt): UInt =
+public actual fun mmioAscend(hmmio: Hmmio, pmmcki: ConstPtr, fuascend: UInt): UInt =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32MediaMultimediaMmioAscend")
 
 public actual fun mmioClose(hmmio: Hmmio, fuclose: UInt): UInt =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32MediaMultimediaMmioClose")
 
-public actual fun mmioCreateChunk(hmmio: Hmmio, pmmcki: ConstPtr<Mmckinfo>, fucreate: UInt): UInt =
+public actual fun mmioCreateChunk(hmmio: Hmmio, pmmcki: ConstPtr, fucreate: UInt): UInt =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32MediaMultimediaMmioCreateChunk")
 
-public actual fun mmioDescend(hmmio: Hmmio, pmmcki: MutPtr<Mmckinfo>, pmmckiparent: ConstPtr<Mmckinfo>, fudescend: UInt): UInt =
+public actual fun mmioDescend(hmmio: Hmmio, pmmcki: MutPtr, pmmckiparent: ConstPtr, fudescend: UInt): UInt =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32MediaMultimediaMmioDescend")
 
 public actual fun mmioFlush(hmmio: Hmmio, fuflush: UInt): UInt =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32MediaMultimediaMmioFlush")
 
-public actual fun mmioGetInfo(hmmio: Hmmio, pmmioinfo: MutPtr<Mmioinfo>, fuinfo: UInt): UInt =
+public actual fun mmioGetInfo(hmmio: Hmmio, pmmioinfo: MutPtr, fuinfo: UInt): UInt =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32MediaMultimediaMmioGetInfo")
 
 public actual fun mmioInstallIOProcA(fccioproc: UInt, pioproc: Lpmmioproc, dwflags: UInt): Lpmmioproc =
@@ -570,19 +563,19 @@ public actual fun mmioInstallIOProcA(fccioproc: UInt, pioproc: Lpmmioproc, dwfla
 public actual fun mmioInstallIOProcW(fccioproc: UInt, pioproc: Lpmmioproc, dwflags: UInt): Lpmmioproc =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32MediaMultimediaMmioInstallIOProcW")
 
-public actual fun mmioOpenA(pszfilename: Pstr, pmmioinfo: MutPtr<Mmioinfo>, fdwopen: UInt): Hmmio =
+public actual fun mmioOpenA(pszfilename: Pstr, pmmioinfo: MutPtr, fdwopen: UInt): Hmmio =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32MediaMultimediaMmioOpenA")
 
-public actual fun mmioOpenW(pszfilename: Pwstr, pmmioinfo: MutPtr<Mmioinfo>, fdwopen: UInt): Hmmio =
+public actual fun mmioOpenW(pszfilename: Pwstr, pmmioinfo: MutPtr, fdwopen: UInt): Hmmio =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32MediaMultimediaMmioOpenW")
 
-public actual fun mmioRead(hmmio: Hmmio, pch: MutPtr<Byte>, cch: Int): Int =
+public actual fun mmioRead(hmmio: Hmmio, pch: MutPtr, cch: Int): Int =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32MediaMultimediaMmioRead")
 
-public actual fun mmioRenameA(pszfilename: Pcstr, psznewfilename: Pcstr, pmmioinfo: ConstPtr<Mmioinfo>, fdwrename: UInt): UInt =
+public actual fun mmioRenameA(pszfilename: Pcstr, psznewfilename: Pcstr, pmmioinfo: ConstPtr, fdwrename: UInt): UInt =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32MediaMultimediaMmioRenameA")
 
-public actual fun mmioRenameW(pszfilename: Pcwstr, psznewfilename: Pcwstr, pmmioinfo: ConstPtr<Mmioinfo>, fdwrename: UInt): UInt =
+public actual fun mmioRenameW(pszfilename: Pcwstr, psznewfilename: Pcwstr, pmmioinfo: ConstPtr, fdwrename: UInt): UInt =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32MediaMultimediaMmioRenameW")
 
 public actual fun mmioSeek(hmmio: Hmmio, loffset: Int, iorigin: Int): Int =
@@ -594,7 +587,7 @@ public actual fun mmioSendMessage(hmmio: Hmmio, umsg: UInt, lparam1: Lparam, lpa
 public actual fun mmioSetBuffer(hmmio: Hmmio, pchbuffer: Pstr, cchbuffer: Int, fubuffer: UInt): UInt =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32MediaMultimediaMmioSetBuffer")
 
-public actual fun mmioSetInfo(hmmio: Hmmio, pmmioinfo: ConstPtr<Mmioinfo>, fuinfo: UInt): UInt =
+public actual fun mmioSetInfo(hmmio: Hmmio, pmmioinfo: ConstPtr, fuinfo: UInt): UInt =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32MediaMultimediaMmioSetInfo")
 
 public actual fun mmioStringToFOURCCA(sz: Pcstr, uflags: UInt): UInt =
@@ -606,5 +599,5 @@ public actual fun mmioStringToFOURCCW(sz: Pcwstr, uflags: UInt): UInt =
 public actual fun mmioWrite(hmmio: Hmmio, pch: Pcstr, cch: Int): Int =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32MediaMultimediaMmioWrite")
 
-public actual fun sndOpenSound(eventname: Pcwstr, appname: Pcwstr, flags: Int, filehandle: MutPtr<Handle>): Int =
+public actual fun sndOpenSound(eventname: Pcwstr, appname: Pcwstr, flags: Int, filehandle: MutPtr): Int =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32MediaMultimediaSndOpenSound")

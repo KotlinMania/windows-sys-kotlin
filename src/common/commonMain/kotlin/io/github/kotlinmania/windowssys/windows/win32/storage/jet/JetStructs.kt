@@ -2,7 +2,6 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.storage.jet
 
-import io.github.kotlinmania.rustlang.core.ffi.CVoid
 import io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
 import io.github.kotlinmania.rustlang.core.mem.TypeLayout
 import io.github.kotlinmania.rustlang.core.ptr.ConstPtr
@@ -277,7 +276,7 @@ public class JetColumncreateA internal constructor(
     public var coltyp: UInt,
     public var cbMax: UInt,
     public var grbit: UInt,
-    pvDefaultCtorArg: MutPtr<CVoid>,
+    pvDefaultCtorArg: MutPtr,
     public var cbDefault: UInt,
     public var cp: UInt,
     public var columnid: UInt,
@@ -286,7 +285,7 @@ public class JetColumncreateA internal constructor(
     public var szColumnName: Pstr = szColumnNameCtorArg
         internal set
 
-    public var pvDefault: MutPtr<CVoid> = pvDefaultCtorArg
+    public var pvDefault: MutPtr = pvDefaultCtorArg
         internal set
 
     public constructor() : this(
@@ -312,7 +311,7 @@ public class JetColumncreateA internal constructor(
 
     public operator fun component5(): UInt = this.grbit
 
-    public operator fun component6(): MutPtr<CVoid> = this.pvDefault
+    public operator fun component6(): MutPtr = this.pvDefault
 
     public operator fun component7(): UInt = this.cbDefault
 
@@ -322,7 +321,7 @@ public class JetColumncreateA internal constructor(
 
     public operator fun component10(): Int = this.err
 
-    public fun copy(cbStruct: UInt = this.cbStruct, szColumnName: Pstr = this.szColumnName, coltyp: UInt = this.coltyp, cbMax: UInt = this.cbMax, grbit: UInt = this.grbit, pvDefault: MutPtr<CVoid> = this.pvDefault, cbDefault: UInt = this.cbDefault, cp: UInt = this.cp, columnid: UInt = this.columnid, err: Int = this.err): JetColumncreateA = JetColumncreateA(cbStruct = cbStruct, szColumnNameCtorArg = szColumnName, coltyp = coltyp, cbMax = cbMax, grbit = grbit, pvDefaultCtorArg = pvDefault, cbDefault = cbDefault, cp = cp, columnid = columnid, err = err)
+    public fun copy(cbStruct: UInt = this.cbStruct, szColumnName: Pstr = this.szColumnName, coltyp: UInt = this.coltyp, cbMax: UInt = this.cbMax, grbit: UInt = this.grbit, pvDefault: MutPtr = this.pvDefault, cbDefault: UInt = this.cbDefault, cp: UInt = this.cp, columnid: UInt = this.columnid, err: Int = this.err): JetColumncreateA = JetColumncreateA(cbStruct = cbStruct, szColumnNameCtorArg = szColumnName, coltyp = coltyp, cbMax = cbMax, grbit = grbit, pvDefaultCtorArg = pvDefault, cbDefault = cbDefault, cp = cp, columnid = columnid, err = err)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -361,7 +360,7 @@ public class JetColumncreateA internal constructor(
             coltyp: UInt = 0u,
             cbMax: UInt = 0u,
             grbit: UInt = 0u,
-            pvDefault: MutPtr<CVoid> = MutPtr(0L),
+            pvDefault: MutPtr = MutPtr(0L),
             cbDefault: UInt = 0u,
             cp: UInt = 0u,
             columnid: UInt = 0u,
@@ -388,7 +387,7 @@ public class JetColumncreateW internal constructor(
     public var coltyp: UInt,
     public var cbMax: UInt,
     public var grbit: UInt,
-    pvDefaultCtorArg: MutPtr<CVoid>,
+    pvDefaultCtorArg: MutPtr,
     public var cbDefault: UInt,
     public var cp: UInt,
     public var columnid: UInt,
@@ -397,7 +396,7 @@ public class JetColumncreateW internal constructor(
     public var szColumnName: Pwstr = szColumnNameCtorArg
         internal set
 
-    public var pvDefault: MutPtr<CVoid> = pvDefaultCtorArg
+    public var pvDefault: MutPtr = pvDefaultCtorArg
         internal set
 
     public constructor() : this(
@@ -423,7 +422,7 @@ public class JetColumncreateW internal constructor(
 
     public operator fun component5(): UInt = this.grbit
 
-    public operator fun component6(): MutPtr<CVoid> = this.pvDefault
+    public operator fun component6(): MutPtr = this.pvDefault
 
     public operator fun component7(): UInt = this.cbDefault
 
@@ -433,7 +432,7 @@ public class JetColumncreateW internal constructor(
 
     public operator fun component10(): Int = this.err
 
-    public fun copy(cbStruct: UInt = this.cbStruct, szColumnName: Pwstr = this.szColumnName, coltyp: UInt = this.coltyp, cbMax: UInt = this.cbMax, grbit: UInt = this.grbit, pvDefault: MutPtr<CVoid> = this.pvDefault, cbDefault: UInt = this.cbDefault, cp: UInt = this.cp, columnid: UInt = this.columnid, err: Int = this.err): JetColumncreateW = JetColumncreateW(cbStruct = cbStruct, szColumnNameCtorArg = szColumnName, coltyp = coltyp, cbMax = cbMax, grbit = grbit, pvDefaultCtorArg = pvDefault, cbDefault = cbDefault, cp = cp, columnid = columnid, err = err)
+    public fun copy(cbStruct: UInt = this.cbStruct, szColumnName: Pwstr = this.szColumnName, coltyp: UInt = this.coltyp, cbMax: UInt = this.cbMax, grbit: UInt = this.grbit, pvDefault: MutPtr = this.pvDefault, cbDefault: UInt = this.cbDefault, cp: UInt = this.cp, columnid: UInt = this.columnid, err: Int = this.err): JetColumncreateW = JetColumncreateW(cbStruct = cbStruct, szColumnNameCtorArg = szColumnName, coltyp = coltyp, cbMax = cbMax, grbit = grbit, pvDefaultCtorArg = pvDefault, cbDefault = cbDefault, cp = cp, columnid = columnid, err = err)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -472,7 +471,7 @@ public class JetColumncreateW internal constructor(
             coltyp: UInt = 0u,
             cbMax: UInt = 0u,
             grbit: UInt = 0u,
-            pvDefault: MutPtr<CVoid> = MutPtr(0L),
+            pvDefault: MutPtr = MutPtr(0L),
             cbDefault: UInt = 0u,
             cp: UInt = 0u,
             columnid: UInt = 0u,
@@ -1041,9 +1040,9 @@ public data class JetEnumcolumn0(
 
 public class JetEnumcolumn00 internal constructor(
     public var cEnumColumnValue: UInt,
-    rgEnumColumnValueCtorArg: MutPtr<JetEnumcolumnvalue>,
+    rgEnumColumnValueCtorArg: MutPtr,
 ) {
-    public var rgEnumColumnValue: MutPtr<JetEnumcolumnvalue> = rgEnumColumnValueCtorArg
+    public var rgEnumColumnValue: MutPtr = rgEnumColumnValueCtorArg
         internal set
 
     public constructor() : this(
@@ -1053,9 +1052,9 @@ public class JetEnumcolumn00 internal constructor(
 
     public operator fun component1(): UInt = this.cEnumColumnValue
 
-    public operator fun component2(): MutPtr<JetEnumcolumnvalue> = this.rgEnumColumnValue
+    public operator fun component2(): MutPtr = this.rgEnumColumnValue
 
-    public fun copy(cEnumColumnValue: UInt = this.cEnumColumnValue, rgEnumColumnValue: MutPtr<JetEnumcolumnvalue> = this.rgEnumColumnValue): JetEnumcolumn00 = JetEnumcolumn00(cEnumColumnValue = cEnumColumnValue, rgEnumColumnValueCtorArg = rgEnumColumnValue)
+    public fun copy(cEnumColumnValue: UInt = this.cEnumColumnValue, rgEnumColumnValue: MutPtr = this.rgEnumColumnValue): JetEnumcolumn00 = JetEnumcolumn00(cEnumColumnValue = cEnumColumnValue, rgEnumColumnValueCtorArg = rgEnumColumnValue)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -1081,21 +1080,21 @@ public class JetEnumcolumn00 internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<JetEnumcolumnvalue>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                     )
                 override fun writeNative(addr: Long, value: JetEnumcolumn00) {
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr, value.cEnumColumnValue)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<JetEnumcolumnvalue>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.rgEnumColumnValue)
                 }
             }
 
         public operator fun invoke(
             cEnumColumnValue: UInt = 0u,
-            rgEnumColumnValue: MutPtr<JetEnumcolumnvalue> = MutPtr(0L),
+            rgEnumColumnValue: MutPtr = MutPtr(0L),
         ): JetEnumcolumn00 =
             JetEnumcolumn00(
                 cEnumColumnValue = cEnumColumnValue,
@@ -1106,9 +1105,9 @@ public class JetEnumcolumn00 internal constructor(
 
 public class JetEnumcolumn01 internal constructor(
     public var cbData: UInt,
-    pvDataCtorArg: MutPtr<CVoid>,
+    pvDataCtorArg: MutPtr,
 ) {
-    public var pvData: MutPtr<CVoid> = pvDataCtorArg
+    public var pvData: MutPtr = pvDataCtorArg
         internal set
 
     public constructor() : this(
@@ -1118,9 +1117,9 @@ public class JetEnumcolumn01 internal constructor(
 
     public operator fun component1(): UInt = this.cbData
 
-    public operator fun component2(): MutPtr<CVoid> = this.pvData
+    public operator fun component2(): MutPtr = this.pvData
 
-    public fun copy(cbData: UInt = this.cbData, pvData: MutPtr<CVoid> = this.pvData): JetEnumcolumn01 = JetEnumcolumn01(cbData = cbData, pvDataCtorArg = pvData)
+    public fun copy(cbData: UInt = this.cbData, pvData: MutPtr = this.pvData): JetEnumcolumn01 = JetEnumcolumn01(cbData = cbData, pvDataCtorArg = pvData)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -1146,21 +1145,21 @@ public class JetEnumcolumn01 internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<CVoid>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                     )
                 override fun writeNative(addr: Long, value: JetEnumcolumn01) {
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr, value.cbData)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<CVoid>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.pvData)
                 }
             }
 
         public operator fun invoke(
             cbData: UInt = 0u,
-            pvData: MutPtr<CVoid> = MutPtr(0L),
+            pvData: MutPtr = MutPtr(0L),
         ): JetEnumcolumn01 =
             JetEnumcolumn01(
                 cbData = cbData,
@@ -1172,9 +1171,9 @@ public class JetEnumcolumn01 internal constructor(
 public class JetEnumcolumnid internal constructor(
     public var columnid: UInt,
     public var ctagSequence: UInt,
-    rgtagSequenceCtorArg: MutPtr<UInt>,
+    rgtagSequenceCtorArg: MutPtr,
 ) {
-    public var rgtagSequence: MutPtr<UInt> = rgtagSequenceCtorArg
+    public var rgtagSequence: MutPtr = rgtagSequenceCtorArg
         internal set
 
     public constructor() : this(
@@ -1187,9 +1186,9 @@ public class JetEnumcolumnid internal constructor(
 
     public operator fun component2(): UInt = this.ctagSequence
 
-    public operator fun component3(): MutPtr<UInt> = this.rgtagSequence
+    public operator fun component3(): MutPtr = this.rgtagSequence
 
-    public fun copy(columnid: UInt = this.columnid, ctagSequence: UInt = this.ctagSequence, rgtagSequence: MutPtr<UInt> = this.rgtagSequence): JetEnumcolumnid = JetEnumcolumnid(columnid = columnid, ctagSequence = ctagSequence, rgtagSequenceCtorArg = rgtagSequence)
+    public fun copy(columnid: UInt = this.columnid, ctagSequence: UInt = this.ctagSequence, rgtagSequence: MutPtr = this.rgtagSequence): JetEnumcolumnid = JetEnumcolumnid(columnid = columnid, ctagSequence = ctagSequence, rgtagSequenceCtorArg = rgtagSequence)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -1218,7 +1217,7 @@ public class JetEnumcolumnid internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 4L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<UInt>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                     )
                 override fun writeNative(addr: Long, value: JetEnumcolumnid) {
@@ -1226,7 +1225,7 @@ public class JetEnumcolumnid internal constructor(
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 4L, value.ctagSequence)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<UInt>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.rgtagSequence)
                 }
             }
@@ -1234,7 +1233,7 @@ public class JetEnumcolumnid internal constructor(
         public operator fun invoke(
             columnid: UInt = 0u,
             ctagSequence: UInt = 0u,
-            rgtagSequence: MutPtr<UInt> = MutPtr(0L),
+            rgtagSequence: MutPtr = MutPtr(0L),
         ): JetEnumcolumnid =
             JetEnumcolumnid(
                 columnid = columnid,
@@ -1248,9 +1247,9 @@ public class JetEnumcolumnvalue internal constructor(
     public var itagSequence: UInt,
     public var err: Int,
     public var cbData: UInt,
-    pvDataCtorArg: MutPtr<CVoid>,
+    pvDataCtorArg: MutPtr,
 ) {
-    public var pvData: MutPtr<CVoid> = pvDataCtorArg
+    public var pvData: MutPtr = pvDataCtorArg
         internal set
 
     public constructor() : this(
@@ -1266,9 +1265,9 @@ public class JetEnumcolumnvalue internal constructor(
 
     public operator fun component3(): UInt = this.cbData
 
-    public operator fun component4(): MutPtr<CVoid> = this.pvData
+    public operator fun component4(): MutPtr = this.pvData
 
-    public fun copy(itagSequence: UInt = this.itagSequence, err: Int = this.err, cbData: UInt = this.cbData, pvData: MutPtr<CVoid> = this.pvData): JetEnumcolumnvalue = JetEnumcolumnvalue(itagSequence = itagSequence, err = err, cbData = cbData, pvDataCtorArg = pvData)
+    public fun copy(itagSequence: UInt = this.itagSequence, err: Int = this.err, cbData: UInt = this.cbData, pvData: MutPtr = this.pvData): JetEnumcolumnvalue = JetEnumcolumnvalue(itagSequence = itagSequence, err = err, cbData = cbData, pvDataCtorArg = pvData)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -1300,7 +1299,7 @@ public class JetEnumcolumnvalue internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 8L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<CVoid>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 16L),
                     )
                 override fun writeNative(addr: Long, value: JetEnumcolumnvalue) {
@@ -1309,7 +1308,7 @@ public class JetEnumcolumnvalue internal constructor(
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 8L, value.cbData)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<CVoid>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 16L, value.pvData)
                 }
             }
@@ -1318,7 +1317,7 @@ public class JetEnumcolumnvalue internal constructor(
             itagSequence: UInt = 0u,
             err: Int = 0,
             cbData: UInt = 0u,
-            pvData: MutPtr<CVoid> = MutPtr(0L),
+            pvData: MutPtr = MutPtr(0L),
         ): JetEnumcolumnvalue =
             JetEnumcolumnvalue(
                 itagSequence = itagSequence,
@@ -1406,11 +1405,11 @@ public class JetIndexcreate2A internal constructor(
     public var ulDensity: UInt,
     public var anonymous1: JetIndexcreate2A0,
     public var anonymous2: JetIndexcreate2A1,
-    rgconditionalcolumnCtorArg: MutPtr<JetConditionalcolumnA>,
+    rgconditionalcolumnCtorArg: MutPtr,
     public var cConditionalColumn: UInt,
     public var err: Int,
     public var cbKeyMost: UInt,
-    pSpacehintsCtorArg: MutPtr<JetSpacehints>,
+    pSpacehintsCtorArg: MutPtr,
 ) {
     public var szIndexName: Pstr = szIndexNameCtorArg
         internal set
@@ -1418,10 +1417,10 @@ public class JetIndexcreate2A internal constructor(
     public var szKey: Pstr = szKeyCtorArg
         internal set
 
-    public var rgconditionalcolumn: MutPtr<JetConditionalcolumnA> = rgconditionalcolumnCtorArg
+    public var rgconditionalcolumn: MutPtr = rgconditionalcolumnCtorArg
         internal set
 
-    public var pSpacehints: MutPtr<JetSpacehints> = pSpacehintsCtorArg
+    public var pSpacehints: MutPtr = pSpacehintsCtorArg
         internal set
 
     public constructor() : this(
@@ -1456,7 +1455,7 @@ public class JetIndexcreate2A internal constructor(
 
     public operator fun component8(): JetIndexcreate2A1 = this.anonymous2
 
-    public operator fun component9(): MutPtr<JetConditionalcolumnA> = this.rgconditionalcolumn
+    public operator fun component9(): MutPtr = this.rgconditionalcolumn
 
     public operator fun component10(): UInt = this.cConditionalColumn
 
@@ -1464,9 +1463,9 @@ public class JetIndexcreate2A internal constructor(
 
     public operator fun component12(): UInt = this.cbKeyMost
 
-    public operator fun component13(): MutPtr<JetSpacehints> = this.pSpacehints
+    public operator fun component13(): MutPtr = this.pSpacehints
 
-    public fun copy(cbStruct: UInt = this.cbStruct, szIndexName: Pstr = this.szIndexName, szKey: Pstr = this.szKey, cbKey: UInt = this.cbKey, grbit: UInt = this.grbit, ulDensity: UInt = this.ulDensity, anonymous1: JetIndexcreate2A0 = this.anonymous1, anonymous2: JetIndexcreate2A1 = this.anonymous2, rgconditionalcolumn: MutPtr<JetConditionalcolumnA> = this.rgconditionalcolumn, cConditionalColumn: UInt = this.cConditionalColumn, err: Int = this.err, cbKeyMost: UInt = this.cbKeyMost, pSpacehints: MutPtr<JetSpacehints> = this.pSpacehints): JetIndexcreate2A = JetIndexcreate2A(cbStruct = cbStruct, szIndexNameCtorArg = szIndexName, szKeyCtorArg = szKey, cbKey = cbKey, grbit = grbit, ulDensity = ulDensity, anonymous1 = anonymous1, anonymous2 = anonymous2, rgconditionalcolumnCtorArg = rgconditionalcolumn, cConditionalColumn = cConditionalColumn, err = err, cbKeyMost = cbKeyMost, pSpacehintsCtorArg = pSpacehints)
+    public fun copy(cbStruct: UInt = this.cbStruct, szIndexName: Pstr = this.szIndexName, szKey: Pstr = this.szKey, cbKey: UInt = this.cbKey, grbit: UInt = this.grbit, ulDensity: UInt = this.ulDensity, anonymous1: JetIndexcreate2A0 = this.anonymous1, anonymous2: JetIndexcreate2A1 = this.anonymous2, rgconditionalcolumn: MutPtr = this.rgconditionalcolumn, cConditionalColumn: UInt = this.cConditionalColumn, err: Int = this.err, cbKeyMost: UInt = this.cbKeyMost, pSpacehints: MutPtr = this.pSpacehints): JetIndexcreate2A = JetIndexcreate2A(cbStruct = cbStruct, szIndexNameCtorArg = szIndexName, szKeyCtorArg = szKey, cbKey = cbKey, grbit = grbit, ulDensity = ulDensity, anonymous1 = anonymous1, anonymous2 = anonymous2, rgconditionalcolumnCtorArg = rgconditionalcolumn, cConditionalColumn = cConditionalColumn, err = err, cbKeyMost = cbKeyMost, pSpacehintsCtorArg = pSpacehints)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -1514,11 +1513,11 @@ public class JetIndexcreate2A internal constructor(
             ulDensity: UInt = 0u,
             anonymous1: JetIndexcreate2A0 = JetIndexcreate2A0(),
             anonymous2: JetIndexcreate2A1 = JetIndexcreate2A1(),
-            rgconditionalcolumn: MutPtr<JetConditionalcolumnA> = MutPtr(0L),
+            rgconditionalcolumn: MutPtr = MutPtr(0L),
             cConditionalColumn: UInt = 0u,
             err: Int = 0,
             cbKeyMost: UInt = 0u,
-            pSpacehints: MutPtr<JetSpacehints> = MutPtr(0L),
+            pSpacehints: MutPtr = MutPtr(0L),
         ): JetIndexcreate2A =
             JetIndexcreate2A(
                 cbStruct = cbStruct,
@@ -1540,9 +1539,9 @@ public class JetIndexcreate2A internal constructor(
 
 public class JetIndexcreate2A0 internal constructor(
     public var lcid: UInt,
-    pidxunicodeCtorArg: MutPtr<JetUnicodeindex>,
+    pidxunicodeCtorArg: MutPtr,
 ) {
-    public var pidxunicode: MutPtr<JetUnicodeindex> = pidxunicodeCtorArg
+    public var pidxunicode: MutPtr = pidxunicodeCtorArg
         internal set
 
     public constructor() : this(
@@ -1552,9 +1551,9 @@ public class JetIndexcreate2A0 internal constructor(
 
     public operator fun component1(): UInt = this.lcid
 
-    public operator fun component2(): MutPtr<JetUnicodeindex> = this.pidxunicode
+    public operator fun component2(): MutPtr = this.pidxunicode
 
-    public fun copy(lcid: UInt = this.lcid, pidxunicode: MutPtr<JetUnicodeindex> = this.pidxunicode): JetIndexcreate2A0 = JetIndexcreate2A0(lcid = lcid, pidxunicodeCtorArg = pidxunicode)
+    public fun copy(lcid: UInt = this.lcid, pidxunicode: MutPtr = this.pidxunicode): JetIndexcreate2A0 = JetIndexcreate2A0(lcid = lcid, pidxunicodeCtorArg = pidxunicode)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -1573,7 +1572,7 @@ public class JetIndexcreate2A0 internal constructor(
     public companion object {
         public operator fun invoke(
             lcid: UInt = 0u,
-            pidxunicode: MutPtr<JetUnicodeindex> = MutPtr(0L),
+            pidxunicode: MutPtr = MutPtr(0L),
         ): JetIndexcreate2A0 =
             JetIndexcreate2A0(
                 lcid = lcid,
@@ -1584,9 +1583,9 @@ public class JetIndexcreate2A0 internal constructor(
 
 public class JetIndexcreate2A1 internal constructor(
     public var cbVarSegMac: UInt,
-    ptuplelimitsCtorArg: MutPtr<JetTuplelimits>,
+    ptuplelimitsCtorArg: MutPtr,
 ) {
-    public var ptuplelimits: MutPtr<JetTuplelimits> = ptuplelimitsCtorArg
+    public var ptuplelimits: MutPtr = ptuplelimitsCtorArg
         internal set
 
     public constructor() : this(
@@ -1596,9 +1595,9 @@ public class JetIndexcreate2A1 internal constructor(
 
     public operator fun component1(): UInt = this.cbVarSegMac
 
-    public operator fun component2(): MutPtr<JetTuplelimits> = this.ptuplelimits
+    public operator fun component2(): MutPtr = this.ptuplelimits
 
-    public fun copy(cbVarSegMac: UInt = this.cbVarSegMac, ptuplelimits: MutPtr<JetTuplelimits> = this.ptuplelimits): JetIndexcreate2A1 = JetIndexcreate2A1(cbVarSegMac = cbVarSegMac, ptuplelimitsCtorArg = ptuplelimits)
+    public fun copy(cbVarSegMac: UInt = this.cbVarSegMac, ptuplelimits: MutPtr = this.ptuplelimits): JetIndexcreate2A1 = JetIndexcreate2A1(cbVarSegMac = cbVarSegMac, ptuplelimitsCtorArg = ptuplelimits)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -1617,7 +1616,7 @@ public class JetIndexcreate2A1 internal constructor(
     public companion object {
         public operator fun invoke(
             cbVarSegMac: UInt = 0u,
-            ptuplelimits: MutPtr<JetTuplelimits> = MutPtr(0L),
+            ptuplelimits: MutPtr = MutPtr(0L),
         ): JetIndexcreate2A1 =
             JetIndexcreate2A1(
                 cbVarSegMac = cbVarSegMac,
@@ -1635,11 +1634,11 @@ public class JetIndexcreate2W internal constructor(
     public var ulDensity: UInt,
     public var anonymous1: JetIndexcreate2W0,
     public var anonymous2: JetIndexcreate2W1,
-    rgconditionalcolumnCtorArg: MutPtr<JetConditionalcolumnW>,
+    rgconditionalcolumnCtorArg: MutPtr,
     public var cConditionalColumn: UInt,
     public var err: Int,
     public var cbKeyMost: UInt,
-    pSpacehintsCtorArg: MutPtr<JetSpacehints>,
+    pSpacehintsCtorArg: MutPtr,
 ) {
     public var szIndexName: Pwstr = szIndexNameCtorArg
         internal set
@@ -1647,10 +1646,10 @@ public class JetIndexcreate2W internal constructor(
     public var szKey: Pwstr = szKeyCtorArg
         internal set
 
-    public var rgconditionalcolumn: MutPtr<JetConditionalcolumnW> = rgconditionalcolumnCtorArg
+    public var rgconditionalcolumn: MutPtr = rgconditionalcolumnCtorArg
         internal set
 
-    public var pSpacehints: MutPtr<JetSpacehints> = pSpacehintsCtorArg
+    public var pSpacehints: MutPtr = pSpacehintsCtorArg
         internal set
 
     public constructor() : this(
@@ -1685,7 +1684,7 @@ public class JetIndexcreate2W internal constructor(
 
     public operator fun component8(): JetIndexcreate2W1 = this.anonymous2
 
-    public operator fun component9(): MutPtr<JetConditionalcolumnW> = this.rgconditionalcolumn
+    public operator fun component9(): MutPtr = this.rgconditionalcolumn
 
     public operator fun component10(): UInt = this.cConditionalColumn
 
@@ -1693,9 +1692,9 @@ public class JetIndexcreate2W internal constructor(
 
     public operator fun component12(): UInt = this.cbKeyMost
 
-    public operator fun component13(): MutPtr<JetSpacehints> = this.pSpacehints
+    public operator fun component13(): MutPtr = this.pSpacehints
 
-    public fun copy(cbStruct: UInt = this.cbStruct, szIndexName: Pwstr = this.szIndexName, szKey: Pwstr = this.szKey, cbKey: UInt = this.cbKey, grbit: UInt = this.grbit, ulDensity: UInt = this.ulDensity, anonymous1: JetIndexcreate2W0 = this.anonymous1, anonymous2: JetIndexcreate2W1 = this.anonymous2, rgconditionalcolumn: MutPtr<JetConditionalcolumnW> = this.rgconditionalcolumn, cConditionalColumn: UInt = this.cConditionalColumn, err: Int = this.err, cbKeyMost: UInt = this.cbKeyMost, pSpacehints: MutPtr<JetSpacehints> = this.pSpacehints): JetIndexcreate2W = JetIndexcreate2W(cbStruct = cbStruct, szIndexNameCtorArg = szIndexName, szKeyCtorArg = szKey, cbKey = cbKey, grbit = grbit, ulDensity = ulDensity, anonymous1 = anonymous1, anonymous2 = anonymous2, rgconditionalcolumnCtorArg = rgconditionalcolumn, cConditionalColumn = cConditionalColumn, err = err, cbKeyMost = cbKeyMost, pSpacehintsCtorArg = pSpacehints)
+    public fun copy(cbStruct: UInt = this.cbStruct, szIndexName: Pwstr = this.szIndexName, szKey: Pwstr = this.szKey, cbKey: UInt = this.cbKey, grbit: UInt = this.grbit, ulDensity: UInt = this.ulDensity, anonymous1: JetIndexcreate2W0 = this.anonymous1, anonymous2: JetIndexcreate2W1 = this.anonymous2, rgconditionalcolumn: MutPtr = this.rgconditionalcolumn, cConditionalColumn: UInt = this.cConditionalColumn, err: Int = this.err, cbKeyMost: UInt = this.cbKeyMost, pSpacehints: MutPtr = this.pSpacehints): JetIndexcreate2W = JetIndexcreate2W(cbStruct = cbStruct, szIndexNameCtorArg = szIndexName, szKeyCtorArg = szKey, cbKey = cbKey, grbit = grbit, ulDensity = ulDensity, anonymous1 = anonymous1, anonymous2 = anonymous2, rgconditionalcolumnCtorArg = rgconditionalcolumn, cConditionalColumn = cConditionalColumn, err = err, cbKeyMost = cbKeyMost, pSpacehintsCtorArg = pSpacehints)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -1743,11 +1742,11 @@ public class JetIndexcreate2W internal constructor(
             ulDensity: UInt = 0u,
             anonymous1: JetIndexcreate2W0 = JetIndexcreate2W0(),
             anonymous2: JetIndexcreate2W1 = JetIndexcreate2W1(),
-            rgconditionalcolumn: MutPtr<JetConditionalcolumnW> = MutPtr(0L),
+            rgconditionalcolumn: MutPtr = MutPtr(0L),
             cConditionalColumn: UInt = 0u,
             err: Int = 0,
             cbKeyMost: UInt = 0u,
-            pSpacehints: MutPtr<JetSpacehints> = MutPtr(0L),
+            pSpacehints: MutPtr = MutPtr(0L),
         ): JetIndexcreate2W =
             JetIndexcreate2W(
                 cbStruct = cbStruct,
@@ -1769,9 +1768,9 @@ public class JetIndexcreate2W internal constructor(
 
 public class JetIndexcreate2W0 internal constructor(
     public var lcid: UInt,
-    pidxunicodeCtorArg: MutPtr<JetUnicodeindex>,
+    pidxunicodeCtorArg: MutPtr,
 ) {
-    public var pidxunicode: MutPtr<JetUnicodeindex> = pidxunicodeCtorArg
+    public var pidxunicode: MutPtr = pidxunicodeCtorArg
         internal set
 
     public constructor() : this(
@@ -1781,9 +1780,9 @@ public class JetIndexcreate2W0 internal constructor(
 
     public operator fun component1(): UInt = this.lcid
 
-    public operator fun component2(): MutPtr<JetUnicodeindex> = this.pidxunicode
+    public operator fun component2(): MutPtr = this.pidxunicode
 
-    public fun copy(lcid: UInt = this.lcid, pidxunicode: MutPtr<JetUnicodeindex> = this.pidxunicode): JetIndexcreate2W0 = JetIndexcreate2W0(lcid = lcid, pidxunicodeCtorArg = pidxunicode)
+    public fun copy(lcid: UInt = this.lcid, pidxunicode: MutPtr = this.pidxunicode): JetIndexcreate2W0 = JetIndexcreate2W0(lcid = lcid, pidxunicodeCtorArg = pidxunicode)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -1802,7 +1801,7 @@ public class JetIndexcreate2W0 internal constructor(
     public companion object {
         public operator fun invoke(
             lcid: UInt = 0u,
-            pidxunicode: MutPtr<JetUnicodeindex> = MutPtr(0L),
+            pidxunicode: MutPtr = MutPtr(0L),
         ): JetIndexcreate2W0 =
             JetIndexcreate2W0(
                 lcid = lcid,
@@ -1813,9 +1812,9 @@ public class JetIndexcreate2W0 internal constructor(
 
 public class JetIndexcreate2W1 internal constructor(
     public var cbVarSegMac: UInt,
-    ptuplelimitsCtorArg: MutPtr<JetTuplelimits>,
+    ptuplelimitsCtorArg: MutPtr,
 ) {
-    public var ptuplelimits: MutPtr<JetTuplelimits> = ptuplelimitsCtorArg
+    public var ptuplelimits: MutPtr = ptuplelimitsCtorArg
         internal set
 
     public constructor() : this(
@@ -1825,9 +1824,9 @@ public class JetIndexcreate2W1 internal constructor(
 
     public operator fun component1(): UInt = this.cbVarSegMac
 
-    public operator fun component2(): MutPtr<JetTuplelimits> = this.ptuplelimits
+    public operator fun component2(): MutPtr = this.ptuplelimits
 
-    public fun copy(cbVarSegMac: UInt = this.cbVarSegMac, ptuplelimits: MutPtr<JetTuplelimits> = this.ptuplelimits): JetIndexcreate2W1 = JetIndexcreate2W1(cbVarSegMac = cbVarSegMac, ptuplelimitsCtorArg = ptuplelimits)
+    public fun copy(cbVarSegMac: UInt = this.cbVarSegMac, ptuplelimits: MutPtr = this.ptuplelimits): JetIndexcreate2W1 = JetIndexcreate2W1(cbVarSegMac = cbVarSegMac, ptuplelimitsCtorArg = ptuplelimits)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -1846,7 +1845,7 @@ public class JetIndexcreate2W1 internal constructor(
     public companion object {
         public operator fun invoke(
             cbVarSegMac: UInt = 0u,
-            ptuplelimits: MutPtr<JetTuplelimits> = MutPtr(0L),
+            ptuplelimits: MutPtr = MutPtr(0L),
         ): JetIndexcreate2W1 =
             JetIndexcreate2W1(
                 cbVarSegMac = cbVarSegMac,
@@ -1862,13 +1861,13 @@ public class JetIndexcreate3A internal constructor(
     public var cbKey: UInt,
     public var grbit: UInt,
     public var ulDensity: UInt,
-    pidxunicodeCtorArg: MutPtr<JetUnicodeindex2>,
+    pidxunicodeCtorArg: MutPtr,
     public var anonymous: JetIndexcreate3A0,
-    rgconditionalcolumnCtorArg: MutPtr<JetConditionalcolumnA>,
+    rgconditionalcolumnCtorArg: MutPtr,
     public var cConditionalColumn: UInt,
     public var err: Int,
     public var cbKeyMost: UInt,
-    pSpacehintsCtorArg: MutPtr<JetSpacehints>,
+    pSpacehintsCtorArg: MutPtr,
 ) {
     public var szIndexName: Pstr = szIndexNameCtorArg
         internal set
@@ -1876,13 +1875,13 @@ public class JetIndexcreate3A internal constructor(
     public var szKey: Pstr = szKeyCtorArg
         internal set
 
-    public var pidxunicode: MutPtr<JetUnicodeindex2> = pidxunicodeCtorArg
+    public var pidxunicode: MutPtr = pidxunicodeCtorArg
         internal set
 
-    public var rgconditionalcolumn: MutPtr<JetConditionalcolumnA> = rgconditionalcolumnCtorArg
+    public var rgconditionalcolumn: MutPtr = rgconditionalcolumnCtorArg
         internal set
 
-    public var pSpacehints: MutPtr<JetSpacehints> = pSpacehintsCtorArg
+    public var pSpacehints: MutPtr = pSpacehintsCtorArg
         internal set
 
     public constructor() : this(
@@ -1913,11 +1912,11 @@ public class JetIndexcreate3A internal constructor(
 
     public operator fun component6(): UInt = this.ulDensity
 
-    public operator fun component7(): MutPtr<JetUnicodeindex2> = this.pidxunicode
+    public operator fun component7(): MutPtr = this.pidxunicode
 
     public operator fun component8(): JetIndexcreate3A0 = this.anonymous
 
-    public operator fun component9(): MutPtr<JetConditionalcolumnA> = this.rgconditionalcolumn
+    public operator fun component9(): MutPtr = this.rgconditionalcolumn
 
     public operator fun component10(): UInt = this.cConditionalColumn
 
@@ -1925,9 +1924,9 @@ public class JetIndexcreate3A internal constructor(
 
     public operator fun component12(): UInt = this.cbKeyMost
 
-    public operator fun component13(): MutPtr<JetSpacehints> = this.pSpacehints
+    public operator fun component13(): MutPtr = this.pSpacehints
 
-    public fun copy(cbStruct: UInt = this.cbStruct, szIndexName: Pstr = this.szIndexName, szKey: Pstr = this.szKey, cbKey: UInt = this.cbKey, grbit: UInt = this.grbit, ulDensity: UInt = this.ulDensity, pidxunicode: MutPtr<JetUnicodeindex2> = this.pidxunicode, anonymous: JetIndexcreate3A0 = this.anonymous, rgconditionalcolumn: MutPtr<JetConditionalcolumnA> = this.rgconditionalcolumn, cConditionalColumn: UInt = this.cConditionalColumn, err: Int = this.err, cbKeyMost: UInt = this.cbKeyMost, pSpacehints: MutPtr<JetSpacehints> = this.pSpacehints): JetIndexcreate3A = JetIndexcreate3A(cbStruct = cbStruct, szIndexNameCtorArg = szIndexName, szKeyCtorArg = szKey, cbKey = cbKey, grbit = grbit, ulDensity = ulDensity, pidxunicodeCtorArg = pidxunicode, anonymous = anonymous, rgconditionalcolumnCtorArg = rgconditionalcolumn, cConditionalColumn = cConditionalColumn, err = err, cbKeyMost = cbKeyMost, pSpacehintsCtorArg = pSpacehints)
+    public fun copy(cbStruct: UInt = this.cbStruct, szIndexName: Pstr = this.szIndexName, szKey: Pstr = this.szKey, cbKey: UInt = this.cbKey, grbit: UInt = this.grbit, ulDensity: UInt = this.ulDensity, pidxunicode: MutPtr = this.pidxunicode, anonymous: JetIndexcreate3A0 = this.anonymous, rgconditionalcolumn: MutPtr = this.rgconditionalcolumn, cConditionalColumn: UInt = this.cConditionalColumn, err: Int = this.err, cbKeyMost: UInt = this.cbKeyMost, pSpacehints: MutPtr = this.pSpacehints): JetIndexcreate3A = JetIndexcreate3A(cbStruct = cbStruct, szIndexNameCtorArg = szIndexName, szKeyCtorArg = szKey, cbKey = cbKey, grbit = grbit, ulDensity = ulDensity, pidxunicodeCtorArg = pidxunicode, anonymous = anonymous, rgconditionalcolumnCtorArg = rgconditionalcolumn, cConditionalColumn = cConditionalColumn, err = err, cbKeyMost = cbKeyMost, pSpacehintsCtorArg = pSpacehints)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -1973,13 +1972,13 @@ public class JetIndexcreate3A internal constructor(
             cbKey: UInt = 0u,
             grbit: UInt = 0u,
             ulDensity: UInt = 0u,
-            pidxunicode: MutPtr<JetUnicodeindex2> = MutPtr(0L),
+            pidxunicode: MutPtr = MutPtr(0L),
             anonymous: JetIndexcreate3A0 = JetIndexcreate3A0(),
-            rgconditionalcolumn: MutPtr<JetConditionalcolumnA> = MutPtr(0L),
+            rgconditionalcolumn: MutPtr = MutPtr(0L),
             cConditionalColumn: UInt = 0u,
             err: Int = 0,
             cbKeyMost: UInt = 0u,
-            pSpacehints: MutPtr<JetSpacehints> = MutPtr(0L),
+            pSpacehints: MutPtr = MutPtr(0L),
         ): JetIndexcreate3A =
             JetIndexcreate3A(
                 cbStruct = cbStruct,
@@ -2001,9 +2000,9 @@ public class JetIndexcreate3A internal constructor(
 
 public class JetIndexcreate3A0 internal constructor(
     public var cbVarSegMac: UInt,
-    ptuplelimitsCtorArg: MutPtr<JetTuplelimits>,
+    ptuplelimitsCtorArg: MutPtr,
 ) {
-    public var ptuplelimits: MutPtr<JetTuplelimits> = ptuplelimitsCtorArg
+    public var ptuplelimits: MutPtr = ptuplelimitsCtorArg
         internal set
 
     public constructor() : this(
@@ -2013,9 +2012,9 @@ public class JetIndexcreate3A0 internal constructor(
 
     public operator fun component1(): UInt = this.cbVarSegMac
 
-    public operator fun component2(): MutPtr<JetTuplelimits> = this.ptuplelimits
+    public operator fun component2(): MutPtr = this.ptuplelimits
 
-    public fun copy(cbVarSegMac: UInt = this.cbVarSegMac, ptuplelimits: MutPtr<JetTuplelimits> = this.ptuplelimits): JetIndexcreate3A0 = JetIndexcreate3A0(cbVarSegMac = cbVarSegMac, ptuplelimitsCtorArg = ptuplelimits)
+    public fun copy(cbVarSegMac: UInt = this.cbVarSegMac, ptuplelimits: MutPtr = this.ptuplelimits): JetIndexcreate3A0 = JetIndexcreate3A0(cbVarSegMac = cbVarSegMac, ptuplelimitsCtorArg = ptuplelimits)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -2034,7 +2033,7 @@ public class JetIndexcreate3A0 internal constructor(
     public companion object {
         public operator fun invoke(
             cbVarSegMac: UInt = 0u,
-            ptuplelimits: MutPtr<JetTuplelimits> = MutPtr(0L),
+            ptuplelimits: MutPtr = MutPtr(0L),
         ): JetIndexcreate3A0 =
             JetIndexcreate3A0(
                 cbVarSegMac = cbVarSegMac,
@@ -2050,13 +2049,13 @@ public class JetIndexcreate3W internal constructor(
     public var cbKey: UInt,
     public var grbit: UInt,
     public var ulDensity: UInt,
-    pidxunicodeCtorArg: MutPtr<JetUnicodeindex2>,
+    pidxunicodeCtorArg: MutPtr,
     public var anonymous: JetIndexcreate3W0,
-    rgconditionalcolumnCtorArg: MutPtr<JetConditionalcolumnW>,
+    rgconditionalcolumnCtorArg: MutPtr,
     public var cConditionalColumn: UInt,
     public var err: Int,
     public var cbKeyMost: UInt,
-    pSpacehintsCtorArg: MutPtr<JetSpacehints>,
+    pSpacehintsCtorArg: MutPtr,
 ) {
     public var szIndexName: Pwstr = szIndexNameCtorArg
         internal set
@@ -2064,13 +2063,13 @@ public class JetIndexcreate3W internal constructor(
     public var szKey: Pwstr = szKeyCtorArg
         internal set
 
-    public var pidxunicode: MutPtr<JetUnicodeindex2> = pidxunicodeCtorArg
+    public var pidxunicode: MutPtr = pidxunicodeCtorArg
         internal set
 
-    public var rgconditionalcolumn: MutPtr<JetConditionalcolumnW> = rgconditionalcolumnCtorArg
+    public var rgconditionalcolumn: MutPtr = rgconditionalcolumnCtorArg
         internal set
 
-    public var pSpacehints: MutPtr<JetSpacehints> = pSpacehintsCtorArg
+    public var pSpacehints: MutPtr = pSpacehintsCtorArg
         internal set
 
     public constructor() : this(
@@ -2101,11 +2100,11 @@ public class JetIndexcreate3W internal constructor(
 
     public operator fun component6(): UInt = this.ulDensity
 
-    public operator fun component7(): MutPtr<JetUnicodeindex2> = this.pidxunicode
+    public operator fun component7(): MutPtr = this.pidxunicode
 
     public operator fun component8(): JetIndexcreate3W0 = this.anonymous
 
-    public operator fun component9(): MutPtr<JetConditionalcolumnW> = this.rgconditionalcolumn
+    public operator fun component9(): MutPtr = this.rgconditionalcolumn
 
     public operator fun component10(): UInt = this.cConditionalColumn
 
@@ -2113,9 +2112,9 @@ public class JetIndexcreate3W internal constructor(
 
     public operator fun component12(): UInt = this.cbKeyMost
 
-    public operator fun component13(): MutPtr<JetSpacehints> = this.pSpacehints
+    public operator fun component13(): MutPtr = this.pSpacehints
 
-    public fun copy(cbStruct: UInt = this.cbStruct, szIndexName: Pwstr = this.szIndexName, szKey: Pwstr = this.szKey, cbKey: UInt = this.cbKey, grbit: UInt = this.grbit, ulDensity: UInt = this.ulDensity, pidxunicode: MutPtr<JetUnicodeindex2> = this.pidxunicode, anonymous: JetIndexcreate3W0 = this.anonymous, rgconditionalcolumn: MutPtr<JetConditionalcolumnW> = this.rgconditionalcolumn, cConditionalColumn: UInt = this.cConditionalColumn, err: Int = this.err, cbKeyMost: UInt = this.cbKeyMost, pSpacehints: MutPtr<JetSpacehints> = this.pSpacehints): JetIndexcreate3W = JetIndexcreate3W(cbStruct = cbStruct, szIndexNameCtorArg = szIndexName, szKeyCtorArg = szKey, cbKey = cbKey, grbit = grbit, ulDensity = ulDensity, pidxunicodeCtorArg = pidxunicode, anonymous = anonymous, rgconditionalcolumnCtorArg = rgconditionalcolumn, cConditionalColumn = cConditionalColumn, err = err, cbKeyMost = cbKeyMost, pSpacehintsCtorArg = pSpacehints)
+    public fun copy(cbStruct: UInt = this.cbStruct, szIndexName: Pwstr = this.szIndexName, szKey: Pwstr = this.szKey, cbKey: UInt = this.cbKey, grbit: UInt = this.grbit, ulDensity: UInt = this.ulDensity, pidxunicode: MutPtr = this.pidxunicode, anonymous: JetIndexcreate3W0 = this.anonymous, rgconditionalcolumn: MutPtr = this.rgconditionalcolumn, cConditionalColumn: UInt = this.cConditionalColumn, err: Int = this.err, cbKeyMost: UInt = this.cbKeyMost, pSpacehints: MutPtr = this.pSpacehints): JetIndexcreate3W = JetIndexcreate3W(cbStruct = cbStruct, szIndexNameCtorArg = szIndexName, szKeyCtorArg = szKey, cbKey = cbKey, grbit = grbit, ulDensity = ulDensity, pidxunicodeCtorArg = pidxunicode, anonymous = anonymous, rgconditionalcolumnCtorArg = rgconditionalcolumn, cConditionalColumn = cConditionalColumn, err = err, cbKeyMost = cbKeyMost, pSpacehintsCtorArg = pSpacehints)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -2161,13 +2160,13 @@ public class JetIndexcreate3W internal constructor(
             cbKey: UInt = 0u,
             grbit: UInt = 0u,
             ulDensity: UInt = 0u,
-            pidxunicode: MutPtr<JetUnicodeindex2> = MutPtr(0L),
+            pidxunicode: MutPtr = MutPtr(0L),
             anonymous: JetIndexcreate3W0 = JetIndexcreate3W0(),
-            rgconditionalcolumn: MutPtr<JetConditionalcolumnW> = MutPtr(0L),
+            rgconditionalcolumn: MutPtr = MutPtr(0L),
             cConditionalColumn: UInt = 0u,
             err: Int = 0,
             cbKeyMost: UInt = 0u,
-            pSpacehints: MutPtr<JetSpacehints> = MutPtr(0L),
+            pSpacehints: MutPtr = MutPtr(0L),
         ): JetIndexcreate3W =
             JetIndexcreate3W(
                 cbStruct = cbStruct,
@@ -2189,9 +2188,9 @@ public class JetIndexcreate3W internal constructor(
 
 public class JetIndexcreate3W0 internal constructor(
     public var cbVarSegMac: UInt,
-    ptuplelimitsCtorArg: MutPtr<JetTuplelimits>,
+    ptuplelimitsCtorArg: MutPtr,
 ) {
-    public var ptuplelimits: MutPtr<JetTuplelimits> = ptuplelimitsCtorArg
+    public var ptuplelimits: MutPtr = ptuplelimitsCtorArg
         internal set
 
     public constructor() : this(
@@ -2201,9 +2200,9 @@ public class JetIndexcreate3W0 internal constructor(
 
     public operator fun component1(): UInt = this.cbVarSegMac
 
-    public operator fun component2(): MutPtr<JetTuplelimits> = this.ptuplelimits
+    public operator fun component2(): MutPtr = this.ptuplelimits
 
-    public fun copy(cbVarSegMac: UInt = this.cbVarSegMac, ptuplelimits: MutPtr<JetTuplelimits> = this.ptuplelimits): JetIndexcreate3W0 = JetIndexcreate3W0(cbVarSegMac = cbVarSegMac, ptuplelimitsCtorArg = ptuplelimits)
+    public fun copy(cbVarSegMac: UInt = this.cbVarSegMac, ptuplelimits: MutPtr = this.ptuplelimits): JetIndexcreate3W0 = JetIndexcreate3W0(cbVarSegMac = cbVarSegMac, ptuplelimitsCtorArg = ptuplelimits)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -2222,7 +2221,7 @@ public class JetIndexcreate3W0 internal constructor(
     public companion object {
         public operator fun invoke(
             cbVarSegMac: UInt = 0u,
-            ptuplelimits: MutPtr<JetTuplelimits> = MutPtr(0L),
+            ptuplelimits: MutPtr = MutPtr(0L),
         ): JetIndexcreate3W0 =
             JetIndexcreate3W0(
                 cbVarSegMac = cbVarSegMac,
@@ -2240,7 +2239,7 @@ public class JetIndexcreateA internal constructor(
     public var ulDensity: UInt,
     public var anonymous1: JetIndexcreateA0,
     public var anonymous2: JetIndexcreateA1,
-    rgconditionalcolumnCtorArg: MutPtr<JetConditionalcolumnA>,
+    rgconditionalcolumnCtorArg: MutPtr,
     public var cConditionalColumn: UInt,
     public var err: Int,
     public var cbKeyMost: UInt,
@@ -2251,7 +2250,7 @@ public class JetIndexcreateA internal constructor(
     public var szKey: Pstr = szKeyCtorArg
         internal set
 
-    public var rgconditionalcolumn: MutPtr<JetConditionalcolumnA> = rgconditionalcolumnCtorArg
+    public var rgconditionalcolumn: MutPtr = rgconditionalcolumnCtorArg
         internal set
 
     public constructor() : this(
@@ -2285,7 +2284,7 @@ public class JetIndexcreateA internal constructor(
 
     public operator fun component8(): JetIndexcreateA1 = this.anonymous2
 
-    public operator fun component9(): MutPtr<JetConditionalcolumnA> = this.rgconditionalcolumn
+    public operator fun component9(): MutPtr = this.rgconditionalcolumn
 
     public operator fun component10(): UInt = this.cConditionalColumn
 
@@ -2293,7 +2292,7 @@ public class JetIndexcreateA internal constructor(
 
     public operator fun component12(): UInt = this.cbKeyMost
 
-    public fun copy(cbStruct: UInt = this.cbStruct, szIndexName: Pstr = this.szIndexName, szKey: Pstr = this.szKey, cbKey: UInt = this.cbKey, grbit: UInt = this.grbit, ulDensity: UInt = this.ulDensity, anonymous1: JetIndexcreateA0 = this.anonymous1, anonymous2: JetIndexcreateA1 = this.anonymous2, rgconditionalcolumn: MutPtr<JetConditionalcolumnA> = this.rgconditionalcolumn, cConditionalColumn: UInt = this.cConditionalColumn, err: Int = this.err, cbKeyMost: UInt = this.cbKeyMost): JetIndexcreateA = JetIndexcreateA(cbStruct = cbStruct, szIndexNameCtorArg = szIndexName, szKeyCtorArg = szKey, cbKey = cbKey, grbit = grbit, ulDensity = ulDensity, anonymous1 = anonymous1, anonymous2 = anonymous2, rgconditionalcolumnCtorArg = rgconditionalcolumn, cConditionalColumn = cConditionalColumn, err = err, cbKeyMost = cbKeyMost)
+    public fun copy(cbStruct: UInt = this.cbStruct, szIndexName: Pstr = this.szIndexName, szKey: Pstr = this.szKey, cbKey: UInt = this.cbKey, grbit: UInt = this.grbit, ulDensity: UInt = this.ulDensity, anonymous1: JetIndexcreateA0 = this.anonymous1, anonymous2: JetIndexcreateA1 = this.anonymous2, rgconditionalcolumn: MutPtr = this.rgconditionalcolumn, cConditionalColumn: UInt = this.cConditionalColumn, err: Int = this.err, cbKeyMost: UInt = this.cbKeyMost): JetIndexcreateA = JetIndexcreateA(cbStruct = cbStruct, szIndexNameCtorArg = szIndexName, szKeyCtorArg = szKey, cbKey = cbKey, grbit = grbit, ulDensity = ulDensity, anonymous1 = anonymous1, anonymous2 = anonymous2, rgconditionalcolumnCtorArg = rgconditionalcolumn, cConditionalColumn = cConditionalColumn, err = err, cbKeyMost = cbKeyMost)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -2339,7 +2338,7 @@ public class JetIndexcreateA internal constructor(
             ulDensity: UInt = 0u,
             anonymous1: JetIndexcreateA0 = JetIndexcreateA0(),
             anonymous2: JetIndexcreateA1 = JetIndexcreateA1(),
-            rgconditionalcolumn: MutPtr<JetConditionalcolumnA> = MutPtr(0L),
+            rgconditionalcolumn: MutPtr = MutPtr(0L),
             cConditionalColumn: UInt = 0u,
             err: Int = 0,
             cbKeyMost: UInt = 0u,
@@ -2363,9 +2362,9 @@ public class JetIndexcreateA internal constructor(
 
 public class JetIndexcreateA0 internal constructor(
     public var lcid: UInt,
-    pidxunicodeCtorArg: MutPtr<JetUnicodeindex>,
+    pidxunicodeCtorArg: MutPtr,
 ) {
-    public var pidxunicode: MutPtr<JetUnicodeindex> = pidxunicodeCtorArg
+    public var pidxunicode: MutPtr = pidxunicodeCtorArg
         internal set
 
     public constructor() : this(
@@ -2375,9 +2374,9 @@ public class JetIndexcreateA0 internal constructor(
 
     public operator fun component1(): UInt = this.lcid
 
-    public operator fun component2(): MutPtr<JetUnicodeindex> = this.pidxunicode
+    public operator fun component2(): MutPtr = this.pidxunicode
 
-    public fun copy(lcid: UInt = this.lcid, pidxunicode: MutPtr<JetUnicodeindex> = this.pidxunicode): JetIndexcreateA0 = JetIndexcreateA0(lcid = lcid, pidxunicodeCtorArg = pidxunicode)
+    public fun copy(lcid: UInt = this.lcid, pidxunicode: MutPtr = this.pidxunicode): JetIndexcreateA0 = JetIndexcreateA0(lcid = lcid, pidxunicodeCtorArg = pidxunicode)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -2396,7 +2395,7 @@ public class JetIndexcreateA0 internal constructor(
     public companion object {
         public operator fun invoke(
             lcid: UInt = 0u,
-            pidxunicode: MutPtr<JetUnicodeindex> = MutPtr(0L),
+            pidxunicode: MutPtr = MutPtr(0L),
         ): JetIndexcreateA0 =
             JetIndexcreateA0(
                 lcid = lcid,
@@ -2407,9 +2406,9 @@ public class JetIndexcreateA0 internal constructor(
 
 public class JetIndexcreateA1 internal constructor(
     public var cbVarSegMac: UInt,
-    ptuplelimitsCtorArg: MutPtr<JetTuplelimits>,
+    ptuplelimitsCtorArg: MutPtr,
 ) {
-    public var ptuplelimits: MutPtr<JetTuplelimits> = ptuplelimitsCtorArg
+    public var ptuplelimits: MutPtr = ptuplelimitsCtorArg
         internal set
 
     public constructor() : this(
@@ -2419,9 +2418,9 @@ public class JetIndexcreateA1 internal constructor(
 
     public operator fun component1(): UInt = this.cbVarSegMac
 
-    public operator fun component2(): MutPtr<JetTuplelimits> = this.ptuplelimits
+    public operator fun component2(): MutPtr = this.ptuplelimits
 
-    public fun copy(cbVarSegMac: UInt = this.cbVarSegMac, ptuplelimits: MutPtr<JetTuplelimits> = this.ptuplelimits): JetIndexcreateA1 = JetIndexcreateA1(cbVarSegMac = cbVarSegMac, ptuplelimitsCtorArg = ptuplelimits)
+    public fun copy(cbVarSegMac: UInt = this.cbVarSegMac, ptuplelimits: MutPtr = this.ptuplelimits): JetIndexcreateA1 = JetIndexcreateA1(cbVarSegMac = cbVarSegMac, ptuplelimitsCtorArg = ptuplelimits)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -2440,7 +2439,7 @@ public class JetIndexcreateA1 internal constructor(
     public companion object {
         public operator fun invoke(
             cbVarSegMac: UInt = 0u,
-            ptuplelimits: MutPtr<JetTuplelimits> = MutPtr(0L),
+            ptuplelimits: MutPtr = MutPtr(0L),
         ): JetIndexcreateA1 =
             JetIndexcreateA1(
                 cbVarSegMac = cbVarSegMac,
@@ -2458,7 +2457,7 @@ public class JetIndexcreateW internal constructor(
     public var ulDensity: UInt,
     public var anonymous1: JetIndexcreateW0,
     public var anonymous2: JetIndexcreateW1,
-    rgconditionalcolumnCtorArg: MutPtr<JetConditionalcolumnW>,
+    rgconditionalcolumnCtorArg: MutPtr,
     public var cConditionalColumn: UInt,
     public var err: Int,
     public var cbKeyMost: UInt,
@@ -2469,7 +2468,7 @@ public class JetIndexcreateW internal constructor(
     public var szKey: Pwstr = szKeyCtorArg
         internal set
 
-    public var rgconditionalcolumn: MutPtr<JetConditionalcolumnW> = rgconditionalcolumnCtorArg
+    public var rgconditionalcolumn: MutPtr = rgconditionalcolumnCtorArg
         internal set
 
     public constructor() : this(
@@ -2503,7 +2502,7 @@ public class JetIndexcreateW internal constructor(
 
     public operator fun component8(): JetIndexcreateW1 = this.anonymous2
 
-    public operator fun component9(): MutPtr<JetConditionalcolumnW> = this.rgconditionalcolumn
+    public operator fun component9(): MutPtr = this.rgconditionalcolumn
 
     public operator fun component10(): UInt = this.cConditionalColumn
 
@@ -2511,7 +2510,7 @@ public class JetIndexcreateW internal constructor(
 
     public operator fun component12(): UInt = this.cbKeyMost
 
-    public fun copy(cbStruct: UInt = this.cbStruct, szIndexName: Pwstr = this.szIndexName, szKey: Pwstr = this.szKey, cbKey: UInt = this.cbKey, grbit: UInt = this.grbit, ulDensity: UInt = this.ulDensity, anonymous1: JetIndexcreateW0 = this.anonymous1, anonymous2: JetIndexcreateW1 = this.anonymous2, rgconditionalcolumn: MutPtr<JetConditionalcolumnW> = this.rgconditionalcolumn, cConditionalColumn: UInt = this.cConditionalColumn, err: Int = this.err, cbKeyMost: UInt = this.cbKeyMost): JetIndexcreateW = JetIndexcreateW(cbStruct = cbStruct, szIndexNameCtorArg = szIndexName, szKeyCtorArg = szKey, cbKey = cbKey, grbit = grbit, ulDensity = ulDensity, anonymous1 = anonymous1, anonymous2 = anonymous2, rgconditionalcolumnCtorArg = rgconditionalcolumn, cConditionalColumn = cConditionalColumn, err = err, cbKeyMost = cbKeyMost)
+    public fun copy(cbStruct: UInt = this.cbStruct, szIndexName: Pwstr = this.szIndexName, szKey: Pwstr = this.szKey, cbKey: UInt = this.cbKey, grbit: UInt = this.grbit, ulDensity: UInt = this.ulDensity, anonymous1: JetIndexcreateW0 = this.anonymous1, anonymous2: JetIndexcreateW1 = this.anonymous2, rgconditionalcolumn: MutPtr = this.rgconditionalcolumn, cConditionalColumn: UInt = this.cConditionalColumn, err: Int = this.err, cbKeyMost: UInt = this.cbKeyMost): JetIndexcreateW = JetIndexcreateW(cbStruct = cbStruct, szIndexNameCtorArg = szIndexName, szKeyCtorArg = szKey, cbKey = cbKey, grbit = grbit, ulDensity = ulDensity, anonymous1 = anonymous1, anonymous2 = anonymous2, rgconditionalcolumnCtorArg = rgconditionalcolumn, cConditionalColumn = cConditionalColumn, err = err, cbKeyMost = cbKeyMost)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -2557,7 +2556,7 @@ public class JetIndexcreateW internal constructor(
             ulDensity: UInt = 0u,
             anonymous1: JetIndexcreateW0 = JetIndexcreateW0(),
             anonymous2: JetIndexcreateW1 = JetIndexcreateW1(),
-            rgconditionalcolumn: MutPtr<JetConditionalcolumnW> = MutPtr(0L),
+            rgconditionalcolumn: MutPtr = MutPtr(0L),
             cConditionalColumn: UInt = 0u,
             err: Int = 0,
             cbKeyMost: UInt = 0u,
@@ -2581,9 +2580,9 @@ public class JetIndexcreateW internal constructor(
 
 public class JetIndexcreateW0 internal constructor(
     public var lcid: UInt,
-    pidxunicodeCtorArg: MutPtr<JetUnicodeindex>,
+    pidxunicodeCtorArg: MutPtr,
 ) {
-    public var pidxunicode: MutPtr<JetUnicodeindex> = pidxunicodeCtorArg
+    public var pidxunicode: MutPtr = pidxunicodeCtorArg
         internal set
 
     public constructor() : this(
@@ -2593,9 +2592,9 @@ public class JetIndexcreateW0 internal constructor(
 
     public operator fun component1(): UInt = this.lcid
 
-    public operator fun component2(): MutPtr<JetUnicodeindex> = this.pidxunicode
+    public operator fun component2(): MutPtr = this.pidxunicode
 
-    public fun copy(lcid: UInt = this.lcid, pidxunicode: MutPtr<JetUnicodeindex> = this.pidxunicode): JetIndexcreateW0 = JetIndexcreateW0(lcid = lcid, pidxunicodeCtorArg = pidxunicode)
+    public fun copy(lcid: UInt = this.lcid, pidxunicode: MutPtr = this.pidxunicode): JetIndexcreateW0 = JetIndexcreateW0(lcid = lcid, pidxunicodeCtorArg = pidxunicode)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -2614,7 +2613,7 @@ public class JetIndexcreateW0 internal constructor(
     public companion object {
         public operator fun invoke(
             lcid: UInt = 0u,
-            pidxunicode: MutPtr<JetUnicodeindex> = MutPtr(0L),
+            pidxunicode: MutPtr = MutPtr(0L),
         ): JetIndexcreateW0 =
             JetIndexcreateW0(
                 lcid = lcid,
@@ -2625,9 +2624,9 @@ public class JetIndexcreateW0 internal constructor(
 
 public class JetIndexcreateW1 internal constructor(
     public var cbVarSegMac: UInt,
-    ptuplelimitsCtorArg: MutPtr<JetTuplelimits>,
+    ptuplelimitsCtorArg: MutPtr,
 ) {
-    public var ptuplelimits: MutPtr<JetTuplelimits> = ptuplelimitsCtorArg
+    public var ptuplelimits: MutPtr = ptuplelimitsCtorArg
         internal set
 
     public constructor() : this(
@@ -2637,9 +2636,9 @@ public class JetIndexcreateW1 internal constructor(
 
     public operator fun component1(): UInt = this.cbVarSegMac
 
-    public operator fun component2(): MutPtr<JetTuplelimits> = this.ptuplelimits
+    public operator fun component2(): MutPtr = this.ptuplelimits
 
-    public fun copy(cbVarSegMac: UInt = this.cbVarSegMac, ptuplelimits: MutPtr<JetTuplelimits> = this.ptuplelimits): JetIndexcreateW1 = JetIndexcreateW1(cbVarSegMac = cbVarSegMac, ptuplelimitsCtorArg = ptuplelimits)
+    public fun copy(cbVarSegMac: UInt = this.cbVarSegMac, ptuplelimits: MutPtr = this.ptuplelimits): JetIndexcreateW1 = JetIndexcreateW1(cbVarSegMac = cbVarSegMac, ptuplelimitsCtorArg = ptuplelimits)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -2658,7 +2657,7 @@ public class JetIndexcreateW1 internal constructor(
     public companion object {
         public operator fun invoke(
             cbVarSegMac: UInt = 0u,
-            ptuplelimits: MutPtr<JetTuplelimits> = MutPtr(0L),
+            ptuplelimits: MutPtr = MutPtr(0L),
         ): JetIndexcreateW1 =
             JetIndexcreateW1(
                 cbVarSegMac = cbVarSegMac,
@@ -2810,11 +2809,11 @@ public data class JetIndexrange(
 public class JetIndexColumn internal constructor(
     public var columnid: UInt,
     public var relop: JetRelop,
-    pvCtorArg: MutPtr<CVoid>,
+    pvCtorArg: MutPtr,
     public var cb: UInt,
     public var grbit: UInt,
 ) {
-    public var pv: MutPtr<CVoid> = pvCtorArg
+    public var pv: MutPtr = pvCtorArg
         internal set
 
     public constructor() : this(
@@ -2829,13 +2828,13 @@ public class JetIndexColumn internal constructor(
 
     public operator fun component2(): JetRelop = this.relop
 
-    public operator fun component3(): MutPtr<CVoid> = this.pv
+    public operator fun component3(): MutPtr = this.pv
 
     public operator fun component4(): UInt = this.cb
 
     public operator fun component5(): UInt = this.grbit
 
-    public fun copy(columnid: UInt = this.columnid, relop: JetRelop = this.relop, pv: MutPtr<CVoid> = this.pv, cb: UInt = this.cb, grbit: UInt = this.grbit): JetIndexColumn = JetIndexColumn(columnid = columnid, relop = relop, pvCtorArg = pv, cb = cb, grbit = grbit)
+    public fun copy(columnid: UInt = this.columnid, relop: JetRelop = this.relop, pv: MutPtr = this.pv, cb: UInt = this.cb, grbit: UInt = this.grbit): JetIndexColumn = JetIndexColumn(columnid = columnid, relop = relop, pvCtorArg = pv, cb = cb, grbit = grbit)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -2868,7 +2867,7 @@ public class JetIndexColumn internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr + 4L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<CVoid>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 16L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 20L),
@@ -2878,7 +2877,7 @@ public class JetIndexColumn internal constructor(
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr + 4L, value.relop)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<CVoid>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.pv)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 16L, value.cb)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 20L, value.grbit)
@@ -2888,7 +2887,7 @@ public class JetIndexColumn internal constructor(
         public operator fun invoke(
             columnid: UInt = 0u,
             relop: JetRelop = 0,
-            pv: MutPtr<CVoid> = MutPtr(0L),
+            pv: MutPtr = MutPtr(0L),
             cb: UInt = 0u,
             grbit: UInt = 0u,
         ): JetIndexColumn =
@@ -2903,15 +2902,15 @@ public class JetIndexColumn internal constructor(
 }
 
 public class JetIndexRange internal constructor(
-    rgStartColumnsCtorArg: MutPtr<JetIndexColumn>,
+    rgStartColumnsCtorArg: MutPtr,
     public var cStartColumns: UInt,
-    rgEndColumnsCtorArg: MutPtr<JetIndexColumn>,
+    rgEndColumnsCtorArg: MutPtr,
     public var cEndColumns: UInt,
 ) {
-    public var rgStartColumns: MutPtr<JetIndexColumn> = rgStartColumnsCtorArg
+    public var rgStartColumns: MutPtr = rgStartColumnsCtorArg
         internal set
 
-    public var rgEndColumns: MutPtr<JetIndexColumn> = rgEndColumnsCtorArg
+    public var rgEndColumns: MutPtr = rgEndColumnsCtorArg
         internal set
 
     public constructor() : this(
@@ -2921,15 +2920,15 @@ public class JetIndexRange internal constructor(
         cEndColumns = 0u,
     )
 
-    public operator fun component1(): MutPtr<JetIndexColumn> = this.rgStartColumns
+    public operator fun component1(): MutPtr = this.rgStartColumns
 
     public operator fun component2(): UInt = this.cStartColumns
 
-    public operator fun component3(): MutPtr<JetIndexColumn> = this.rgEndColumns
+    public operator fun component3(): MutPtr = this.rgEndColumns
 
     public operator fun component4(): UInt = this.cEndColumns
 
-    public fun copy(rgStartColumns: MutPtr<JetIndexColumn> = this.rgStartColumns, cStartColumns: UInt = this.cStartColumns, rgEndColumns: MutPtr<JetIndexColumn> = this.rgEndColumns, cEndColumns: UInt = this.cEndColumns): JetIndexRange = JetIndexRange(rgStartColumnsCtorArg = rgStartColumns, cStartColumns = cStartColumns, rgEndColumnsCtorArg = rgEndColumns, cEndColumns = cEndColumns)
+    public fun copy(rgStartColumns: MutPtr = this.rgStartColumns, cStartColumns: UInt = this.cStartColumns, rgEndColumns: MutPtr = this.rgEndColumns, cEndColumns: UInt = this.cEndColumns): JetIndexRange = JetIndexRange(rgStartColumnsCtorArg = rgStartColumns, cStartColumns = cStartColumns, rgEndColumnsCtorArg = rgEndColumns, cEndColumns = cEndColumns)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -2958,33 +2957,33 @@ public class JetIndexRange internal constructor(
                     JetIndexRange(
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<JetIndexColumn>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 8L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<JetIndexColumn>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 16L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 24L),
                     )
                 override fun writeNative(addr: Long, value: JetIndexRange) {
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<JetIndexColumn>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr, value.rgStartColumns)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 8L, value.cStartColumns)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<JetIndexColumn>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 16L, value.rgEndColumns)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 24L, value.cEndColumns)
                 }
             }
 
         public operator fun invoke(
-            rgStartColumns: MutPtr<JetIndexColumn> = MutPtr(0L),
+            rgStartColumns: MutPtr = MutPtr(0L),
             cStartColumns: UInt = 0u,
-            rgEndColumns: MutPtr<JetIndexColumn> = MutPtr(0L),
+            rgEndColumns: MutPtr = MutPtr(0L),
             cEndColumns: UInt = 0u,
         ): JetIndexRange =
             JetIndexRange(
@@ -3000,20 +2999,20 @@ public class JetInstanceInfoA internal constructor(
     public var hInstanceId: JetInstance,
     szInstanceNameCtorArg: Pstr,
     public var cDatabases: JetApiPtr,
-    szDatabaseFileNameCtorArg: MutPtr<MutPtr<Byte>>,
-    szDatabaseDisplayNameCtorArg: MutPtr<MutPtr<Byte>>,
-    szDatabaseSlvfileNameObsoleteCtorArg: MutPtr<MutPtr<Byte>>,
+    szDatabaseFileNameCtorArg: MutPtr,
+    szDatabaseDisplayNameCtorArg: MutPtr,
+    szDatabaseSlvfileNameObsoleteCtorArg: MutPtr,
 ) {
     public var szInstanceName: Pstr = szInstanceNameCtorArg
         internal set
 
-    public var szDatabaseFileName: MutPtr<MutPtr<Byte>> = szDatabaseFileNameCtorArg
+    public var szDatabaseFileName: MutPtr = szDatabaseFileNameCtorArg
         internal set
 
-    public var szDatabaseDisplayName: MutPtr<MutPtr<Byte>> = szDatabaseDisplayNameCtorArg
+    public var szDatabaseDisplayName: MutPtr = szDatabaseDisplayNameCtorArg
         internal set
 
-    public var szDatabaseSlvfileNameObsolete: MutPtr<MutPtr<Byte>> = szDatabaseSlvfileNameObsoleteCtorArg
+    public var szDatabaseSlvfileNameObsolete: MutPtr = szDatabaseSlvfileNameObsoleteCtorArg
         internal set
 
     public constructor() : this(
@@ -3031,13 +3030,13 @@ public class JetInstanceInfoA internal constructor(
 
     public operator fun component3(): JetApiPtr = this.cDatabases
 
-    public operator fun component4(): MutPtr<MutPtr<Byte>> = this.szDatabaseFileName
+    public operator fun component4(): MutPtr = this.szDatabaseFileName
 
-    public operator fun component5(): MutPtr<MutPtr<Byte>> = this.szDatabaseDisplayName
+    public operator fun component5(): MutPtr = this.szDatabaseDisplayName
 
-    public operator fun component6(): MutPtr<MutPtr<Byte>> = this.szDatabaseSlvfileNameObsolete
+    public operator fun component6(): MutPtr = this.szDatabaseSlvfileNameObsolete
 
-    public fun copy(hInstanceId: JetInstance = this.hInstanceId, szInstanceName: Pstr = this.szInstanceName, cDatabases: JetApiPtr = this.cDatabases, szDatabaseFileName: MutPtr<MutPtr<Byte>> = this.szDatabaseFileName, szDatabaseDisplayName: MutPtr<MutPtr<Byte>> = this.szDatabaseDisplayName, szDatabaseSlvfileNameObsolete: MutPtr<MutPtr<Byte>> = this.szDatabaseSlvfileNameObsolete): JetInstanceInfoA = JetInstanceInfoA(hInstanceId = hInstanceId, szInstanceNameCtorArg = szInstanceName, cDatabases = cDatabases, szDatabaseFileNameCtorArg = szDatabaseFileName, szDatabaseDisplayNameCtorArg = szDatabaseDisplayName, szDatabaseSlvfileNameObsoleteCtorArg = szDatabaseSlvfileNameObsolete)
+    public fun copy(hInstanceId: JetInstance = this.hInstanceId, szInstanceName: Pstr = this.szInstanceName, cDatabases: JetApiPtr = this.cDatabases, szDatabaseFileName: MutPtr = this.szDatabaseFileName, szDatabaseDisplayName: MutPtr = this.szDatabaseDisplayName, szDatabaseSlvfileNameObsolete: MutPtr = this.szDatabaseSlvfileNameObsolete): JetInstanceInfoA = JetInstanceInfoA(hInstanceId = hInstanceId, szInstanceNameCtorArg = szInstanceName, cDatabases = cDatabases, szDatabaseFileNameCtorArg = szDatabaseFileName, szDatabaseDisplayNameCtorArg = szDatabaseDisplayName, szDatabaseSlvfileNameObsoleteCtorArg = szDatabaseSlvfileNameObsolete)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -3066,9 +3065,9 @@ public class JetInstanceInfoA internal constructor(
             hInstanceId: JetInstance = 0uL,
             szInstanceName: Pstr = MutPtr(0L),
             cDatabases: JetApiPtr = 0uL,
-            szDatabaseFileName: MutPtr<MutPtr<Byte>> = MutPtr(0L),
-            szDatabaseDisplayName: MutPtr<MutPtr<Byte>> = MutPtr(0L),
-            szDatabaseSlvfileNameObsolete: MutPtr<MutPtr<Byte>> = MutPtr(0L),
+            szDatabaseFileName: MutPtr = MutPtr(0L),
+            szDatabaseDisplayName: MutPtr = MutPtr(0L),
+            szDatabaseSlvfileNameObsolete: MutPtr = MutPtr(0L),
         ): JetInstanceInfoA =
             JetInstanceInfoA(
                 hInstanceId = hInstanceId,
@@ -3085,20 +3084,20 @@ public class JetInstanceInfoW internal constructor(
     public var hInstanceId: JetInstance,
     szInstanceNameCtorArg: Pwstr,
     public var cDatabases: JetApiPtr,
-    szDatabaseFileNameCtorArg: MutPtr<MutPtr<UShort>>,
-    szDatabaseDisplayNameCtorArg: MutPtr<MutPtr<UShort>>,
-    szDatabaseSlvfileNameObsoleteCtorArg: MutPtr<MutPtr<UShort>>,
+    szDatabaseFileNameCtorArg: MutPtr,
+    szDatabaseDisplayNameCtorArg: MutPtr,
+    szDatabaseSlvfileNameObsoleteCtorArg: MutPtr,
 ) {
     public var szInstanceName: Pwstr = szInstanceNameCtorArg
         internal set
 
-    public var szDatabaseFileName: MutPtr<MutPtr<UShort>> = szDatabaseFileNameCtorArg
+    public var szDatabaseFileName: MutPtr = szDatabaseFileNameCtorArg
         internal set
 
-    public var szDatabaseDisplayName: MutPtr<MutPtr<UShort>> = szDatabaseDisplayNameCtorArg
+    public var szDatabaseDisplayName: MutPtr = szDatabaseDisplayNameCtorArg
         internal set
 
-    public var szDatabaseSlvfileNameObsolete: MutPtr<MutPtr<UShort>> = szDatabaseSlvfileNameObsoleteCtorArg
+    public var szDatabaseSlvfileNameObsolete: MutPtr = szDatabaseSlvfileNameObsoleteCtorArg
         internal set
 
     public constructor() : this(
@@ -3116,13 +3115,13 @@ public class JetInstanceInfoW internal constructor(
 
     public operator fun component3(): JetApiPtr = this.cDatabases
 
-    public operator fun component4(): MutPtr<MutPtr<UShort>> = this.szDatabaseFileName
+    public operator fun component4(): MutPtr = this.szDatabaseFileName
 
-    public operator fun component5(): MutPtr<MutPtr<UShort>> = this.szDatabaseDisplayName
+    public operator fun component5(): MutPtr = this.szDatabaseDisplayName
 
-    public operator fun component6(): MutPtr<MutPtr<UShort>> = this.szDatabaseSlvfileNameObsolete
+    public operator fun component6(): MutPtr = this.szDatabaseSlvfileNameObsolete
 
-    public fun copy(hInstanceId: JetInstance = this.hInstanceId, szInstanceName: Pwstr = this.szInstanceName, cDatabases: JetApiPtr = this.cDatabases, szDatabaseFileName: MutPtr<MutPtr<UShort>> = this.szDatabaseFileName, szDatabaseDisplayName: MutPtr<MutPtr<UShort>> = this.szDatabaseDisplayName, szDatabaseSlvfileNameObsolete: MutPtr<MutPtr<UShort>> = this.szDatabaseSlvfileNameObsolete): JetInstanceInfoW = JetInstanceInfoW(hInstanceId = hInstanceId, szInstanceNameCtorArg = szInstanceName, cDatabases = cDatabases, szDatabaseFileNameCtorArg = szDatabaseFileName, szDatabaseDisplayNameCtorArg = szDatabaseDisplayName, szDatabaseSlvfileNameObsoleteCtorArg = szDatabaseSlvfileNameObsolete)
+    public fun copy(hInstanceId: JetInstance = this.hInstanceId, szInstanceName: Pwstr = this.szInstanceName, cDatabases: JetApiPtr = this.cDatabases, szDatabaseFileName: MutPtr = this.szDatabaseFileName, szDatabaseDisplayName: MutPtr = this.szDatabaseDisplayName, szDatabaseSlvfileNameObsolete: MutPtr = this.szDatabaseSlvfileNameObsolete): JetInstanceInfoW = JetInstanceInfoW(hInstanceId = hInstanceId, szInstanceNameCtorArg = szInstanceName, cDatabases = cDatabases, szDatabaseFileNameCtorArg = szDatabaseFileName, szDatabaseDisplayNameCtorArg = szDatabaseDisplayName, szDatabaseSlvfileNameObsoleteCtorArg = szDatabaseSlvfileNameObsolete)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -3151,9 +3150,9 @@ public class JetInstanceInfoW internal constructor(
             hInstanceId: JetInstance = 0uL,
             szInstanceName: Pwstr = MutPtr(0L),
             cDatabases: JetApiPtr = 0uL,
-            szDatabaseFileName: MutPtr<MutPtr<UShort>> = MutPtr(0L),
-            szDatabaseDisplayName: MutPtr<MutPtr<UShort>> = MutPtr(0L),
-            szDatabaseSlvfileNameObsolete: MutPtr<MutPtr<UShort>> = MutPtr(0L),
+            szDatabaseFileName: MutPtr = MutPtr(0L),
+            szDatabaseDisplayName: MutPtr = MutPtr(0L),
+            szDatabaseSlvfileNameObsolete: MutPtr = MutPtr(0L),
         ): JetInstanceInfoW =
             JetInstanceInfoW(
                 hInstanceId = hInstanceId,
@@ -3448,22 +3447,22 @@ public data class JetObjectlist(
 
 public class JetOpentemporarytable internal constructor(
     public var cbStruct: UInt,
-    prgcolumndefCtorArg: ConstPtr<JetColumndef>,
+    prgcolumndefCtorArg: ConstPtr,
     public var ccolumn: UInt,
-    pidxunicodeCtorArg: MutPtr<JetUnicodeindex>,
+    pidxunicodeCtorArg: MutPtr,
     public var grbit: UInt,
-    prgcolumnidCtorArg: MutPtr<UInt>,
+    prgcolumnidCtorArg: MutPtr,
     public var cbKeyMost: UInt,
     public var cbVarSegMac: UInt,
     public var tableid: JetTableid,
 ) {
-    public var prgcolumndef: ConstPtr<JetColumndef> = prgcolumndefCtorArg
+    public var prgcolumndef: ConstPtr = prgcolumndefCtorArg
         internal set
 
-    public var pidxunicode: MutPtr<JetUnicodeindex> = pidxunicodeCtorArg
+    public var pidxunicode: MutPtr = pidxunicodeCtorArg
         internal set
 
-    public var prgcolumnid: MutPtr<UInt> = prgcolumnidCtorArg
+    public var prgcolumnid: MutPtr = prgcolumnidCtorArg
         internal set
 
     public constructor() : this(
@@ -3480,15 +3479,15 @@ public class JetOpentemporarytable internal constructor(
 
     public operator fun component1(): UInt = this.cbStruct
 
-    public operator fun component2(): ConstPtr<JetColumndef> = this.prgcolumndef
+    public operator fun component2(): ConstPtr = this.prgcolumndef
 
     public operator fun component3(): UInt = this.ccolumn
 
-    public operator fun component4(): MutPtr<JetUnicodeindex> = this.pidxunicode
+    public operator fun component4(): MutPtr = this.pidxunicode
 
     public operator fun component5(): UInt = this.grbit
 
-    public operator fun component6(): MutPtr<UInt> = this.prgcolumnid
+    public operator fun component6(): MutPtr = this.prgcolumnid
 
     public operator fun component7(): UInt = this.cbKeyMost
 
@@ -3496,7 +3495,7 @@ public class JetOpentemporarytable internal constructor(
 
     public operator fun component9(): JetTableid = this.tableid
 
-    public fun copy(cbStruct: UInt = this.cbStruct, prgcolumndef: ConstPtr<JetColumndef> = this.prgcolumndef, ccolumn: UInt = this.ccolumn, pidxunicode: MutPtr<JetUnicodeindex> = this.pidxunicode, grbit: UInt = this.grbit, prgcolumnid: MutPtr<UInt> = this.prgcolumnid, cbKeyMost: UInt = this.cbKeyMost, cbVarSegMac: UInt = this.cbVarSegMac, tableid: JetTableid = this.tableid): JetOpentemporarytable = JetOpentemporarytable(cbStruct = cbStruct, prgcolumndefCtorArg = prgcolumndef, ccolumn = ccolumn, pidxunicodeCtorArg = pidxunicode, grbit = grbit, prgcolumnidCtorArg = prgcolumnid, cbKeyMost = cbKeyMost, cbVarSegMac = cbVarSegMac, tableid = tableid)
+    public fun copy(cbStruct: UInt = this.cbStruct, prgcolumndef: ConstPtr = this.prgcolumndef, ccolumn: UInt = this.ccolumn, pidxunicode: MutPtr = this.pidxunicode, grbit: UInt = this.grbit, prgcolumnid: MutPtr = this.prgcolumnid, cbKeyMost: UInt = this.cbKeyMost, cbVarSegMac: UInt = this.cbVarSegMac, tableid: JetTableid = this.tableid): JetOpentemporarytable = JetOpentemporarytable(cbStruct = cbStruct, prgcolumndefCtorArg = prgcolumndef, ccolumn = ccolumn, pidxunicodeCtorArg = pidxunicode, grbit = grbit, prgcolumnidCtorArg = prgcolumnid, cbKeyMost = cbKeyMost, cbVarSegMac = cbVarSegMac, tableid = tableid)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -3536,17 +3535,17 @@ public class JetOpentemporarytable internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .constPtrLayout<JetColumndef>(64)
+                                .constPtrLayout(64)
                         ).readNative(addr + 8L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 16L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<JetUnicodeindex>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 24L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 32L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<UInt>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 40L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 48L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 52L),
@@ -3556,17 +3555,17 @@ public class JetOpentemporarytable internal constructor(
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr, value.cbStruct)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .constPtrLayout<JetColumndef>(64)
+                            .constPtrLayout(64)
                     ).writeNative(addr + 8L, value.prgcolumndef)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 16L, value.ccolumn)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<JetUnicodeindex>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 24L, value.pidxunicode)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 32L, value.grbit)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<UInt>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 40L, value.prgcolumnid)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 48L, value.cbKeyMost)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 52L, value.cbVarSegMac)
@@ -3576,11 +3575,11 @@ public class JetOpentemporarytable internal constructor(
 
         public operator fun invoke(
             cbStruct: UInt = 0u,
-            prgcolumndef: ConstPtr<JetColumndef> = ConstPtr(0L),
+            prgcolumndef: ConstPtr = ConstPtr(0L),
             ccolumn: UInt = 0u,
-            pidxunicode: MutPtr<JetUnicodeindex> = MutPtr(0L),
+            pidxunicode: MutPtr = MutPtr(0L),
             grbit: UInt = 0u,
-            prgcolumnid: MutPtr<UInt> = MutPtr(0L),
+            prgcolumnid: MutPtr = MutPtr(0L),
             cbKeyMost: UInt = 0u,
             cbVarSegMac: UInt = 0u,
             tableid: JetTableid = 0uL,
@@ -3601,22 +3600,22 @@ public class JetOpentemporarytable internal constructor(
 
 public class JetOpentemporarytable2 internal constructor(
     public var cbStruct: UInt,
-    prgcolumndefCtorArg: ConstPtr<JetColumndef>,
+    prgcolumndefCtorArg: ConstPtr,
     public var ccolumn: UInt,
-    pidxunicodeCtorArg: MutPtr<JetUnicodeindex2>,
+    pidxunicodeCtorArg: MutPtr,
     public var grbit: UInt,
-    prgcolumnidCtorArg: MutPtr<UInt>,
+    prgcolumnidCtorArg: MutPtr,
     public var cbKeyMost: UInt,
     public var cbVarSegMac: UInt,
     public var tableid: JetTableid,
 ) {
-    public var prgcolumndef: ConstPtr<JetColumndef> = prgcolumndefCtorArg
+    public var prgcolumndef: ConstPtr = prgcolumndefCtorArg
         internal set
 
-    public var pidxunicode: MutPtr<JetUnicodeindex2> = pidxunicodeCtorArg
+    public var pidxunicode: MutPtr = pidxunicodeCtorArg
         internal set
 
-    public var prgcolumnid: MutPtr<UInt> = prgcolumnidCtorArg
+    public var prgcolumnid: MutPtr = prgcolumnidCtorArg
         internal set
 
     public constructor() : this(
@@ -3633,15 +3632,15 @@ public class JetOpentemporarytable2 internal constructor(
 
     public operator fun component1(): UInt = this.cbStruct
 
-    public operator fun component2(): ConstPtr<JetColumndef> = this.prgcolumndef
+    public operator fun component2(): ConstPtr = this.prgcolumndef
 
     public operator fun component3(): UInt = this.ccolumn
 
-    public operator fun component4(): MutPtr<JetUnicodeindex2> = this.pidxunicode
+    public operator fun component4(): MutPtr = this.pidxunicode
 
     public operator fun component5(): UInt = this.grbit
 
-    public operator fun component6(): MutPtr<UInt> = this.prgcolumnid
+    public operator fun component6(): MutPtr = this.prgcolumnid
 
     public operator fun component7(): UInt = this.cbKeyMost
 
@@ -3649,7 +3648,7 @@ public class JetOpentemporarytable2 internal constructor(
 
     public operator fun component9(): JetTableid = this.tableid
 
-    public fun copy(cbStruct: UInt = this.cbStruct, prgcolumndef: ConstPtr<JetColumndef> = this.prgcolumndef, ccolumn: UInt = this.ccolumn, pidxunicode: MutPtr<JetUnicodeindex2> = this.pidxunicode, grbit: UInt = this.grbit, prgcolumnid: MutPtr<UInt> = this.prgcolumnid, cbKeyMost: UInt = this.cbKeyMost, cbVarSegMac: UInt = this.cbVarSegMac, tableid: JetTableid = this.tableid): JetOpentemporarytable2 = JetOpentemporarytable2(cbStruct = cbStruct, prgcolumndefCtorArg = prgcolumndef, ccolumn = ccolumn, pidxunicodeCtorArg = pidxunicode, grbit = grbit, prgcolumnidCtorArg = prgcolumnid, cbKeyMost = cbKeyMost, cbVarSegMac = cbVarSegMac, tableid = tableid)
+    public fun copy(cbStruct: UInt = this.cbStruct, prgcolumndef: ConstPtr = this.prgcolumndef, ccolumn: UInt = this.ccolumn, pidxunicode: MutPtr = this.pidxunicode, grbit: UInt = this.grbit, prgcolumnid: MutPtr = this.prgcolumnid, cbKeyMost: UInt = this.cbKeyMost, cbVarSegMac: UInt = this.cbVarSegMac, tableid: JetTableid = this.tableid): JetOpentemporarytable2 = JetOpentemporarytable2(cbStruct = cbStruct, prgcolumndefCtorArg = prgcolumndef, ccolumn = ccolumn, pidxunicodeCtorArg = pidxunicode, grbit = grbit, prgcolumnidCtorArg = prgcolumnid, cbKeyMost = cbKeyMost, cbVarSegMac = cbVarSegMac, tableid = tableid)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -3689,17 +3688,17 @@ public class JetOpentemporarytable2 internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .constPtrLayout<JetColumndef>(64)
+                                .constPtrLayout(64)
                         ).readNative(addr + 8L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 16L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<JetUnicodeindex2>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 24L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 32L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<UInt>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 40L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 48L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 52L),
@@ -3709,17 +3708,17 @@ public class JetOpentemporarytable2 internal constructor(
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr, value.cbStruct)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .constPtrLayout<JetColumndef>(64)
+                            .constPtrLayout(64)
                     ).writeNative(addr + 8L, value.prgcolumndef)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 16L, value.ccolumn)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<JetUnicodeindex2>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 24L, value.pidxunicode)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 32L, value.grbit)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<UInt>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 40L, value.prgcolumnid)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 48L, value.cbKeyMost)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 52L, value.cbVarSegMac)
@@ -3729,11 +3728,11 @@ public class JetOpentemporarytable2 internal constructor(
 
         public operator fun invoke(
             cbStruct: UInt = 0u,
-            prgcolumndef: ConstPtr<JetColumndef> = ConstPtr(0L),
+            prgcolumndef: ConstPtr = ConstPtr(0L),
             ccolumn: UInt = 0u,
-            pidxunicode: MutPtr<JetUnicodeindex2> = MutPtr(0L),
+            pidxunicode: MutPtr = MutPtr(0L),
             grbit: UInt = 0u,
-            prgcolumnid: MutPtr<UInt> = MutPtr(0L),
+            prgcolumnid: MutPtr = MutPtr(0L),
             cbKeyMost: UInt = 0u,
             cbVarSegMac: UInt = 0u,
             tableid: JetTableid = 0uL,
@@ -3992,7 +3991,7 @@ public data class JetRetinfo(
 
 public class JetRetrievecolumn internal constructor(
     public var columnid: UInt,
-    pvDataCtorArg: MutPtr<CVoid>,
+    pvDataCtorArg: MutPtr,
     public var cbData: UInt,
     public var cbActual: UInt,
     public var grbit: UInt,
@@ -4001,7 +4000,7 @@ public class JetRetrievecolumn internal constructor(
     public var columnidNextTagged: UInt,
     public var err: Int,
 ) {
-    public var pvData: MutPtr<CVoid> = pvDataCtorArg
+    public var pvData: MutPtr = pvDataCtorArg
         internal set
 
     public constructor() : this(
@@ -4018,7 +4017,7 @@ public class JetRetrievecolumn internal constructor(
 
     public operator fun component1(): UInt = this.columnid
 
-    public operator fun component2(): MutPtr<CVoid> = this.pvData
+    public operator fun component2(): MutPtr = this.pvData
 
     public operator fun component3(): UInt = this.cbData
 
@@ -4034,7 +4033,7 @@ public class JetRetrievecolumn internal constructor(
 
     public operator fun component9(): Int = this.err
 
-    public fun copy(columnid: UInt = this.columnid, pvData: MutPtr<CVoid> = this.pvData, cbData: UInt = this.cbData, cbActual: UInt = this.cbActual, grbit: UInt = this.grbit, ibLongValue: UInt = this.ibLongValue, itagSequence: UInt = this.itagSequence, columnidNextTagged: UInt = this.columnidNextTagged, err: Int = this.err): JetRetrievecolumn = JetRetrievecolumn(columnid = columnid, pvDataCtorArg = pvData, cbData = cbData, cbActual = cbActual, grbit = grbit, ibLongValue = ibLongValue, itagSequence = itagSequence, columnidNextTagged = columnidNextTagged, err = err)
+    public fun copy(columnid: UInt = this.columnid, pvData: MutPtr = this.pvData, cbData: UInt = this.cbData, cbActual: UInt = this.cbActual, grbit: UInt = this.grbit, ibLongValue: UInt = this.ibLongValue, itagSequence: UInt = this.itagSequence, columnidNextTagged: UInt = this.columnidNextTagged, err: Int = this.err): JetRetrievecolumn = JetRetrievecolumn(columnid = columnid, pvDataCtorArg = pvData, cbData = cbData, cbActual = cbActual, grbit = grbit, ibLongValue = ibLongValue, itagSequence = itagSequence, columnidNextTagged = columnidNextTagged, err = err)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -4074,7 +4073,7 @@ public class JetRetrievecolumn internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<CVoid>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 16L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 20L),
@@ -4088,7 +4087,7 @@ public class JetRetrievecolumn internal constructor(
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr, value.columnid)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<CVoid>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.pvData)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 16L, value.cbData)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 20L, value.cbActual)
@@ -4102,7 +4101,7 @@ public class JetRetrievecolumn internal constructor(
 
         public operator fun invoke(
             columnid: UInt = 0u,
-            pvData: MutPtr<CVoid> = MutPtr(0L),
+            pvData: MutPtr = MutPtr(0L),
             cbData: UInt = 0u,
             cbActual: UInt = 0u,
             grbit: UInt = 0u,
@@ -4127,13 +4126,13 @@ public class JetRetrievecolumn internal constructor(
 
 public class JetRstinfoA internal constructor(
     public var cbStruct: UInt,
-    rgrstmapCtorArg: MutPtr<JetRstmapA>,
+    rgrstmapCtorArg: MutPtr,
     public var crstmap: Int,
     public var lgposStop: JetLgpos,
     public var logtimeStop: JetLogtime,
     public var pfnStatus: JetPfnstatus,
 ) {
-    public var rgrstmap: MutPtr<JetRstmapA> = rgrstmapCtorArg
+    public var rgrstmap: MutPtr = rgrstmapCtorArg
         internal set
 
     public constructor() : this(
@@ -4147,7 +4146,7 @@ public class JetRstinfoA internal constructor(
 
     public operator fun component1(): UInt = this.cbStruct
 
-    public operator fun component2(): MutPtr<JetRstmapA> = this.rgrstmap
+    public operator fun component2(): MutPtr = this.rgrstmap
 
     public operator fun component3(): Int = this.crstmap
 
@@ -4157,7 +4156,7 @@ public class JetRstinfoA internal constructor(
 
     public operator fun component6(): JetPfnstatus = this.pfnStatus
 
-    public fun copy(cbStruct: UInt = this.cbStruct, rgrstmap: MutPtr<JetRstmapA> = this.rgrstmap, crstmap: Int = this.crstmap, lgposStop: JetLgpos = this.lgposStop, logtimeStop: JetLogtime = this.logtimeStop, pfnStatus: JetPfnstatus = this.pfnStatus): JetRstinfoA = JetRstinfoA(cbStruct = cbStruct, rgrstmapCtorArg = rgrstmap, crstmap = crstmap, lgposStop = lgposStop, logtimeStop = logtimeStop, pfnStatus = pfnStatus)
+    public fun copy(cbStruct: UInt = this.cbStruct, rgrstmap: MutPtr = this.rgrstmap, crstmap: Int = this.crstmap, lgposStop: JetLgpos = this.lgposStop, logtimeStop: JetLogtime = this.logtimeStop, pfnStatus: JetPfnstatus = this.pfnStatus): JetRstinfoA = JetRstinfoA(cbStruct = cbStruct, rgrstmapCtorArg = rgrstmap, crstmap = crstmap, lgposStop = lgposStop, logtimeStop = logtimeStop, pfnStatus = pfnStatus)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -4184,7 +4183,7 @@ public class JetRstinfoA internal constructor(
     public companion object {
         public operator fun invoke(
             cbStruct: UInt = 0u,
-            rgrstmap: MutPtr<JetRstmapA> = MutPtr(0L),
+            rgrstmap: MutPtr = MutPtr(0L),
             crstmap: Int = 0,
             lgposStop: JetLgpos = JetLgpos(),
             logtimeStop: JetLogtime = JetLogtime(),
@@ -4203,13 +4202,13 @@ public class JetRstinfoA internal constructor(
 
 public class JetRstinfoW internal constructor(
     public var cbStruct: UInt,
-    rgrstmapCtorArg: MutPtr<JetRstmapW>,
+    rgrstmapCtorArg: MutPtr,
     public var crstmap: Int,
     public var lgposStop: JetLgpos,
     public var logtimeStop: JetLogtime,
     public var pfnStatus: JetPfnstatus,
 ) {
-    public var rgrstmap: MutPtr<JetRstmapW> = rgrstmapCtorArg
+    public var rgrstmap: MutPtr = rgrstmapCtorArg
         internal set
 
     public constructor() : this(
@@ -4223,7 +4222,7 @@ public class JetRstinfoW internal constructor(
 
     public operator fun component1(): UInt = this.cbStruct
 
-    public operator fun component2(): MutPtr<JetRstmapW> = this.rgrstmap
+    public operator fun component2(): MutPtr = this.rgrstmap
 
     public operator fun component3(): Int = this.crstmap
 
@@ -4233,7 +4232,7 @@ public class JetRstinfoW internal constructor(
 
     public operator fun component6(): JetPfnstatus = this.pfnStatus
 
-    public fun copy(cbStruct: UInt = this.cbStruct, rgrstmap: MutPtr<JetRstmapW> = this.rgrstmap, crstmap: Int = this.crstmap, lgposStop: JetLgpos = this.lgposStop, logtimeStop: JetLogtime = this.logtimeStop, pfnStatus: JetPfnstatus = this.pfnStatus): JetRstinfoW = JetRstinfoW(cbStruct = cbStruct, rgrstmapCtorArg = rgrstmap, crstmap = crstmap, lgposStop = lgposStop, logtimeStop = logtimeStop, pfnStatus = pfnStatus)
+    public fun copy(cbStruct: UInt = this.cbStruct, rgrstmap: MutPtr = this.rgrstmap, crstmap: Int = this.crstmap, lgposStop: JetLgpos = this.lgposStop, logtimeStop: JetLogtime = this.logtimeStop, pfnStatus: JetPfnstatus = this.pfnStatus): JetRstinfoW = JetRstinfoW(cbStruct = cbStruct, rgrstmapCtorArg = rgrstmap, crstmap = crstmap, lgposStop = lgposStop, logtimeStop = logtimeStop, pfnStatus = pfnStatus)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -4260,7 +4259,7 @@ public class JetRstinfoW internal constructor(
     public companion object {
         public operator fun invoke(
             cbStruct: UInt = 0u,
-            rgrstmap: MutPtr<JetRstmapW> = MutPtr(0L),
+            rgrstmap: MutPtr = MutPtr(0L),
             crstmap: Int = 0,
             lgposStop: JetLgpos = JetLgpos(),
             logtimeStop: JetLogtime = JetLogtime(),
@@ -4373,14 +4372,14 @@ public class JetRstmapW internal constructor(
 
 public class JetSetcolumn internal constructor(
     public var columnid: UInt,
-    pvDataCtorArg: ConstPtr<CVoid>,
+    pvDataCtorArg: ConstPtr,
     public var cbData: UInt,
     public var grbit: UInt,
     public var ibLongValue: UInt,
     public var itagSequence: UInt,
     public var err: Int,
 ) {
-    public var pvData: ConstPtr<CVoid> = pvDataCtorArg
+    public var pvData: ConstPtr = pvDataCtorArg
         internal set
 
     public constructor() : this(
@@ -4395,7 +4394,7 @@ public class JetSetcolumn internal constructor(
 
     public operator fun component1(): UInt = this.columnid
 
-    public operator fun component2(): ConstPtr<CVoid> = this.pvData
+    public operator fun component2(): ConstPtr = this.pvData
 
     public operator fun component3(): UInt = this.cbData
 
@@ -4407,7 +4406,7 @@ public class JetSetcolumn internal constructor(
 
     public operator fun component7(): Int = this.err
 
-    public fun copy(columnid: UInt = this.columnid, pvData: ConstPtr<CVoid> = this.pvData, cbData: UInt = this.cbData, grbit: UInt = this.grbit, ibLongValue: UInt = this.ibLongValue, itagSequence: UInt = this.itagSequence, err: Int = this.err): JetSetcolumn = JetSetcolumn(columnid = columnid, pvDataCtorArg = pvData, cbData = cbData, grbit = grbit, ibLongValue = ibLongValue, itagSequence = itagSequence, err = err)
+    public fun copy(columnid: UInt = this.columnid, pvData: ConstPtr = this.pvData, cbData: UInt = this.cbData, grbit: UInt = this.grbit, ibLongValue: UInt = this.ibLongValue, itagSequence: UInt = this.itagSequence, err: Int = this.err): JetSetcolumn = JetSetcolumn(columnid = columnid, pvDataCtorArg = pvData, cbData = cbData, grbit = grbit, ibLongValue = ibLongValue, itagSequence = itagSequence, err = err)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -4443,7 +4442,7 @@ public class JetSetcolumn internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .constPtrLayout<CVoid>(64)
+                                .constPtrLayout(64)
                         ).readNative(addr + 8L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 16L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 20L),
@@ -4455,7 +4454,7 @@ public class JetSetcolumn internal constructor(
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr, value.columnid)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .constPtrLayout<CVoid>(64)
+                            .constPtrLayout(64)
                     ).writeNative(addr + 8L, value.pvData)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 16L, value.cbData)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 20L, value.grbit)
@@ -4467,7 +4466,7 @@ public class JetSetcolumn internal constructor(
 
         public operator fun invoke(
             columnid: UInt = 0u,
-            pvData: ConstPtr<CVoid> = ConstPtr(0L),
+            pvData: ConstPtr = ConstPtr(0L),
             cbData: UInt = 0u,
             grbit: UInt = 0u,
             ibLongValue: UInt = 0u,
@@ -4724,9 +4723,9 @@ public class JetTablecreate2A internal constructor(
     szTemplateTableNameCtorArg: Pstr,
     public var ulPages: UInt,
     public var ulDensity: UInt,
-    rgcolumncreateCtorArg: MutPtr<JetColumncreateA>,
+    rgcolumncreateCtorArg: MutPtr,
     public var cColumns: UInt,
-    rgindexcreateCtorArg: MutPtr<JetIndexcreateA>,
+    rgindexcreateCtorArg: MutPtr,
     public var cIndexes: UInt,
     szCallbackCtorArg: Pstr,
     public var cbtyp: UInt,
@@ -4740,10 +4739,10 @@ public class JetTablecreate2A internal constructor(
     public var szTemplateTableName: Pstr = szTemplateTableNameCtorArg
         internal set
 
-    public var rgcolumncreate: MutPtr<JetColumncreateA> = rgcolumncreateCtorArg
+    public var rgcolumncreate: MutPtr = rgcolumncreateCtorArg
         internal set
 
-    public var rgindexcreate: MutPtr<JetIndexcreateA> = rgindexcreateCtorArg
+    public var rgindexcreate: MutPtr = rgindexcreateCtorArg
         internal set
 
     public var szCallback: Pstr = szCallbackCtorArg
@@ -4776,11 +4775,11 @@ public class JetTablecreate2A internal constructor(
 
     public operator fun component5(): UInt = this.ulDensity
 
-    public operator fun component6(): MutPtr<JetColumncreateA> = this.rgcolumncreate
+    public operator fun component6(): MutPtr = this.rgcolumncreate
 
     public operator fun component7(): UInt = this.cColumns
 
-    public operator fun component8(): MutPtr<JetIndexcreateA> = this.rgindexcreate
+    public operator fun component8(): MutPtr = this.rgindexcreate
 
     public operator fun component9(): UInt = this.cIndexes
 
@@ -4794,7 +4793,7 @@ public class JetTablecreate2A internal constructor(
 
     public operator fun component14(): UInt = this.cCreated
 
-    public fun copy(cbStruct: UInt = this.cbStruct, szTableName: Pstr = this.szTableName, szTemplateTableName: Pstr = this.szTemplateTableName, ulPages: UInt = this.ulPages, ulDensity: UInt = this.ulDensity, rgcolumncreate: MutPtr<JetColumncreateA> = this.rgcolumncreate, cColumns: UInt = this.cColumns, rgindexcreate: MutPtr<JetIndexcreateA> = this.rgindexcreate, cIndexes: UInt = this.cIndexes, szCallback: Pstr = this.szCallback, cbtyp: UInt = this.cbtyp, grbit: UInt = this.grbit, tableid: JetTableid = this.tableid, cCreated: UInt = this.cCreated): JetTablecreate2A = JetTablecreate2A(cbStruct = cbStruct, szTableNameCtorArg = szTableName, szTemplateTableNameCtorArg = szTemplateTableName, ulPages = ulPages, ulDensity = ulDensity, rgcolumncreateCtorArg = rgcolumncreate, cColumns = cColumns, rgindexcreateCtorArg = rgindexcreate, cIndexes = cIndexes, szCallbackCtorArg = szCallback, cbtyp = cbtyp, grbit = grbit, tableid = tableid, cCreated = cCreated)
+    public fun copy(cbStruct: UInt = this.cbStruct, szTableName: Pstr = this.szTableName, szTemplateTableName: Pstr = this.szTemplateTableName, ulPages: UInt = this.ulPages, ulDensity: UInt = this.ulDensity, rgcolumncreate: MutPtr = this.rgcolumncreate, cColumns: UInt = this.cColumns, rgindexcreate: MutPtr = this.rgindexcreate, cIndexes: UInt = this.cIndexes, szCallback: Pstr = this.szCallback, cbtyp: UInt = this.cbtyp, grbit: UInt = this.grbit, tableid: JetTableid = this.tableid, cCreated: UInt = this.cCreated): JetTablecreate2A = JetTablecreate2A(cbStruct = cbStruct, szTableNameCtorArg = szTableName, szTemplateTableNameCtorArg = szTemplateTableName, ulPages = ulPages, ulDensity = ulDensity, rgcolumncreateCtorArg = rgcolumncreate, cColumns = cColumns, rgindexcreateCtorArg = rgindexcreate, cIndexes = cIndexes, szCallbackCtorArg = szCallback, cbtyp = cbtyp, grbit = grbit, tableid = tableid, cCreated = cCreated)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -4841,9 +4840,9 @@ public class JetTablecreate2A internal constructor(
             szTemplateTableName: Pstr = MutPtr(0L),
             ulPages: UInt = 0u,
             ulDensity: UInt = 0u,
-            rgcolumncreate: MutPtr<JetColumncreateA> = MutPtr(0L),
+            rgcolumncreate: MutPtr = MutPtr(0L),
             cColumns: UInt = 0u,
-            rgindexcreate: MutPtr<JetIndexcreateA> = MutPtr(0L),
+            rgindexcreate: MutPtr = MutPtr(0L),
             cIndexes: UInt = 0u,
             szCallback: Pstr = MutPtr(0L),
             cbtyp: UInt = 0u,
@@ -4876,9 +4875,9 @@ public class JetTablecreate2W internal constructor(
     szTemplateTableNameCtorArg: Pwstr,
     public var ulPages: UInt,
     public var ulDensity: UInt,
-    rgcolumncreateCtorArg: MutPtr<JetColumncreateW>,
+    rgcolumncreateCtorArg: MutPtr,
     public var cColumns: UInt,
-    rgindexcreateCtorArg: MutPtr<JetIndexcreateW>,
+    rgindexcreateCtorArg: MutPtr,
     public var cIndexes: UInt,
     szCallbackCtorArg: Pwstr,
     public var cbtyp: UInt,
@@ -4892,10 +4891,10 @@ public class JetTablecreate2W internal constructor(
     public var szTemplateTableName: Pwstr = szTemplateTableNameCtorArg
         internal set
 
-    public var rgcolumncreate: MutPtr<JetColumncreateW> = rgcolumncreateCtorArg
+    public var rgcolumncreate: MutPtr = rgcolumncreateCtorArg
         internal set
 
-    public var rgindexcreate: MutPtr<JetIndexcreateW> = rgindexcreateCtorArg
+    public var rgindexcreate: MutPtr = rgindexcreateCtorArg
         internal set
 
     public var szCallback: Pwstr = szCallbackCtorArg
@@ -4928,11 +4927,11 @@ public class JetTablecreate2W internal constructor(
 
     public operator fun component5(): UInt = this.ulDensity
 
-    public operator fun component6(): MutPtr<JetColumncreateW> = this.rgcolumncreate
+    public operator fun component6(): MutPtr = this.rgcolumncreate
 
     public operator fun component7(): UInt = this.cColumns
 
-    public operator fun component8(): MutPtr<JetIndexcreateW> = this.rgindexcreate
+    public operator fun component8(): MutPtr = this.rgindexcreate
 
     public operator fun component9(): UInt = this.cIndexes
 
@@ -4946,7 +4945,7 @@ public class JetTablecreate2W internal constructor(
 
     public operator fun component14(): UInt = this.cCreated
 
-    public fun copy(cbStruct: UInt = this.cbStruct, szTableName: Pwstr = this.szTableName, szTemplateTableName: Pwstr = this.szTemplateTableName, ulPages: UInt = this.ulPages, ulDensity: UInt = this.ulDensity, rgcolumncreate: MutPtr<JetColumncreateW> = this.rgcolumncreate, cColumns: UInt = this.cColumns, rgindexcreate: MutPtr<JetIndexcreateW> = this.rgindexcreate, cIndexes: UInt = this.cIndexes, szCallback: Pwstr = this.szCallback, cbtyp: UInt = this.cbtyp, grbit: UInt = this.grbit, tableid: JetTableid = this.tableid, cCreated: UInt = this.cCreated): JetTablecreate2W = JetTablecreate2W(cbStruct = cbStruct, szTableNameCtorArg = szTableName, szTemplateTableNameCtorArg = szTemplateTableName, ulPages = ulPages, ulDensity = ulDensity, rgcolumncreateCtorArg = rgcolumncreate, cColumns = cColumns, rgindexcreateCtorArg = rgindexcreate, cIndexes = cIndexes, szCallbackCtorArg = szCallback, cbtyp = cbtyp, grbit = grbit, tableid = tableid, cCreated = cCreated)
+    public fun copy(cbStruct: UInt = this.cbStruct, szTableName: Pwstr = this.szTableName, szTemplateTableName: Pwstr = this.szTemplateTableName, ulPages: UInt = this.ulPages, ulDensity: UInt = this.ulDensity, rgcolumncreate: MutPtr = this.rgcolumncreate, cColumns: UInt = this.cColumns, rgindexcreate: MutPtr = this.rgindexcreate, cIndexes: UInt = this.cIndexes, szCallback: Pwstr = this.szCallback, cbtyp: UInt = this.cbtyp, grbit: UInt = this.grbit, tableid: JetTableid = this.tableid, cCreated: UInt = this.cCreated): JetTablecreate2W = JetTablecreate2W(cbStruct = cbStruct, szTableNameCtorArg = szTableName, szTemplateTableNameCtorArg = szTemplateTableName, ulPages = ulPages, ulDensity = ulDensity, rgcolumncreateCtorArg = rgcolumncreate, cColumns = cColumns, rgindexcreateCtorArg = rgindexcreate, cIndexes = cIndexes, szCallbackCtorArg = szCallback, cbtyp = cbtyp, grbit = grbit, tableid = tableid, cCreated = cCreated)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -4993,9 +4992,9 @@ public class JetTablecreate2W internal constructor(
             szTemplateTableName: Pwstr = MutPtr(0L),
             ulPages: UInt = 0u,
             ulDensity: UInt = 0u,
-            rgcolumncreate: MutPtr<JetColumncreateW> = MutPtr(0L),
+            rgcolumncreate: MutPtr = MutPtr(0L),
             cColumns: UInt = 0u,
-            rgindexcreate: MutPtr<JetIndexcreateW> = MutPtr(0L),
+            rgindexcreate: MutPtr = MutPtr(0L),
             cIndexes: UInt = 0u,
             szCallback: Pwstr = MutPtr(0L),
             cbtyp: UInt = 0u,
@@ -5028,15 +5027,15 @@ public class JetTablecreate3A internal constructor(
     szTemplateTableNameCtorArg: Pstr,
     public var ulPages: UInt,
     public var ulDensity: UInt,
-    rgcolumncreateCtorArg: MutPtr<JetColumncreateA>,
+    rgcolumncreateCtorArg: MutPtr,
     public var cColumns: UInt,
-    rgindexcreateCtorArg: MutPtr<JetIndexcreate2A>,
+    rgindexcreateCtorArg: MutPtr,
     public var cIndexes: UInt,
     szCallbackCtorArg: Pstr,
     public var cbtyp: UInt,
     public var grbit: UInt,
-    pSeqSpacehintsCtorArg: MutPtr<JetSpacehints>,
-    pLVSpacehintsCtorArg: MutPtr<JetSpacehints>,
+    pSeqSpacehintsCtorArg: MutPtr,
+    pLVSpacehintsCtorArg: MutPtr,
     public var cbSeparateLV: UInt,
     public var tableid: JetTableid,
     public var cCreated: UInt,
@@ -5047,19 +5046,19 @@ public class JetTablecreate3A internal constructor(
     public var szTemplateTableName: Pstr = szTemplateTableNameCtorArg
         internal set
 
-    public var rgcolumncreate: MutPtr<JetColumncreateA> = rgcolumncreateCtorArg
+    public var rgcolumncreate: MutPtr = rgcolumncreateCtorArg
         internal set
 
-    public var rgindexcreate: MutPtr<JetIndexcreate2A> = rgindexcreateCtorArg
+    public var rgindexcreate: MutPtr = rgindexcreateCtorArg
         internal set
 
     public var szCallback: Pstr = szCallbackCtorArg
         internal set
 
-    public var pSeqSpacehints: MutPtr<JetSpacehints> = pSeqSpacehintsCtorArg
+    public var pSeqSpacehints: MutPtr = pSeqSpacehintsCtorArg
         internal set
 
-    public var pLVSpacehints: MutPtr<JetSpacehints> = pLVSpacehintsCtorArg
+    public var pLVSpacehints: MutPtr = pLVSpacehintsCtorArg
         internal set
 
     public constructor() : this(
@@ -5089,15 +5088,15 @@ public class JetTablecreate3A internal constructor(
             szTemplateTableName: Pstr = MutPtr(0L),
             ulPages: UInt = 0u,
             ulDensity: UInt = 0u,
-            rgcolumncreate: MutPtr<JetColumncreateA> = MutPtr(0L),
+            rgcolumncreate: MutPtr = MutPtr(0L),
             cColumns: UInt = 0u,
-            rgindexcreate: MutPtr<JetIndexcreate2A> = MutPtr(0L),
+            rgindexcreate: MutPtr = MutPtr(0L),
             cIndexes: UInt = 0u,
             szCallback: Pstr = MutPtr(0L),
             cbtyp: UInt = 0u,
             grbit: UInt = 0u,
-            pSeqSpacehints: MutPtr<JetSpacehints> = MutPtr(0L),
-            pLVSpacehints: MutPtr<JetSpacehints> = MutPtr(0L),
+            pSeqSpacehints: MutPtr = MutPtr(0L),
+            pLVSpacehints: MutPtr = MutPtr(0L),
             cbSeparateLV: UInt = 0u,
             tableid: JetTableid = 0uL,
             cCreated: UInt = 0u,
@@ -5130,15 +5129,15 @@ public class JetTablecreate3W internal constructor(
     szTemplateTableNameCtorArg: Pwstr,
     public var ulPages: UInt,
     public var ulDensity: UInt,
-    rgcolumncreateCtorArg: MutPtr<JetColumncreateW>,
+    rgcolumncreateCtorArg: MutPtr,
     public var cColumns: UInt,
-    rgindexcreateCtorArg: MutPtr<JetIndexcreate2W>,
+    rgindexcreateCtorArg: MutPtr,
     public var cIndexes: UInt,
     szCallbackCtorArg: Pwstr,
     public var cbtyp: UInt,
     public var grbit: UInt,
-    pSeqSpacehintsCtorArg: MutPtr<JetSpacehints>,
-    pLVSpacehintsCtorArg: MutPtr<JetSpacehints>,
+    pSeqSpacehintsCtorArg: MutPtr,
+    pLVSpacehintsCtorArg: MutPtr,
     public var cbSeparateLV: UInt,
     public var tableid: JetTableid,
     public var cCreated: UInt,
@@ -5149,19 +5148,19 @@ public class JetTablecreate3W internal constructor(
     public var szTemplateTableName: Pwstr = szTemplateTableNameCtorArg
         internal set
 
-    public var rgcolumncreate: MutPtr<JetColumncreateW> = rgcolumncreateCtorArg
+    public var rgcolumncreate: MutPtr = rgcolumncreateCtorArg
         internal set
 
-    public var rgindexcreate: MutPtr<JetIndexcreate2W> = rgindexcreateCtorArg
+    public var rgindexcreate: MutPtr = rgindexcreateCtorArg
         internal set
 
     public var szCallback: Pwstr = szCallbackCtorArg
         internal set
 
-    public var pSeqSpacehints: MutPtr<JetSpacehints> = pSeqSpacehintsCtorArg
+    public var pSeqSpacehints: MutPtr = pSeqSpacehintsCtorArg
         internal set
 
-    public var pLVSpacehints: MutPtr<JetSpacehints> = pLVSpacehintsCtorArg
+    public var pLVSpacehints: MutPtr = pLVSpacehintsCtorArg
         internal set
 
     public constructor() : this(
@@ -5191,15 +5190,15 @@ public class JetTablecreate3W internal constructor(
             szTemplateTableName: Pwstr = MutPtr(0L),
             ulPages: UInt = 0u,
             ulDensity: UInt = 0u,
-            rgcolumncreate: MutPtr<JetColumncreateW> = MutPtr(0L),
+            rgcolumncreate: MutPtr = MutPtr(0L),
             cColumns: UInt = 0u,
-            rgindexcreate: MutPtr<JetIndexcreate2W> = MutPtr(0L),
+            rgindexcreate: MutPtr = MutPtr(0L),
             cIndexes: UInt = 0u,
             szCallback: Pwstr = MutPtr(0L),
             cbtyp: UInt = 0u,
             grbit: UInt = 0u,
-            pSeqSpacehints: MutPtr<JetSpacehints> = MutPtr(0L),
-            pLVSpacehints: MutPtr<JetSpacehints> = MutPtr(0L),
+            pSeqSpacehints: MutPtr = MutPtr(0L),
+            pLVSpacehints: MutPtr = MutPtr(0L),
             cbSeparateLV: UInt = 0u,
             tableid: JetTableid = 0uL,
             cCreated: UInt = 0u,
@@ -5232,15 +5231,15 @@ public class JetTablecreate4A internal constructor(
     szTemplateTableNameCtorArg: Pstr,
     public var ulPages: UInt,
     public var ulDensity: UInt,
-    rgcolumncreateCtorArg: MutPtr<JetColumncreateA>,
+    rgcolumncreateCtorArg: MutPtr,
     public var cColumns: UInt,
-    rgindexcreateCtorArg: MutPtr<JetIndexcreate3A>,
+    rgindexcreateCtorArg: MutPtr,
     public var cIndexes: UInt,
     szCallbackCtorArg: Pstr,
     public var cbtyp: UInt,
     public var grbit: UInt,
-    pSeqSpacehintsCtorArg: MutPtr<JetSpacehints>,
-    pLVSpacehintsCtorArg: MutPtr<JetSpacehints>,
+    pSeqSpacehintsCtorArg: MutPtr,
+    pLVSpacehintsCtorArg: MutPtr,
     public var cbSeparateLV: UInt,
     public var tableid: JetTableid,
     public var cCreated: UInt,
@@ -5251,19 +5250,19 @@ public class JetTablecreate4A internal constructor(
     public var szTemplateTableName: Pstr = szTemplateTableNameCtorArg
         internal set
 
-    public var rgcolumncreate: MutPtr<JetColumncreateA> = rgcolumncreateCtorArg
+    public var rgcolumncreate: MutPtr = rgcolumncreateCtorArg
         internal set
 
-    public var rgindexcreate: MutPtr<JetIndexcreate3A> = rgindexcreateCtorArg
+    public var rgindexcreate: MutPtr = rgindexcreateCtorArg
         internal set
 
     public var szCallback: Pstr = szCallbackCtorArg
         internal set
 
-    public var pSeqSpacehints: MutPtr<JetSpacehints> = pSeqSpacehintsCtorArg
+    public var pSeqSpacehints: MutPtr = pSeqSpacehintsCtorArg
         internal set
 
-    public var pLVSpacehints: MutPtr<JetSpacehints> = pLVSpacehintsCtorArg
+    public var pLVSpacehints: MutPtr = pLVSpacehintsCtorArg
         internal set
 
     public constructor() : this(
@@ -5293,15 +5292,15 @@ public class JetTablecreate4A internal constructor(
             szTemplateTableName: Pstr = MutPtr(0L),
             ulPages: UInt = 0u,
             ulDensity: UInt = 0u,
-            rgcolumncreate: MutPtr<JetColumncreateA> = MutPtr(0L),
+            rgcolumncreate: MutPtr = MutPtr(0L),
             cColumns: UInt = 0u,
-            rgindexcreate: MutPtr<JetIndexcreate3A> = MutPtr(0L),
+            rgindexcreate: MutPtr = MutPtr(0L),
             cIndexes: UInt = 0u,
             szCallback: Pstr = MutPtr(0L),
             cbtyp: UInt = 0u,
             grbit: UInt = 0u,
-            pSeqSpacehints: MutPtr<JetSpacehints> = MutPtr(0L),
-            pLVSpacehints: MutPtr<JetSpacehints> = MutPtr(0L),
+            pSeqSpacehints: MutPtr = MutPtr(0L),
+            pLVSpacehints: MutPtr = MutPtr(0L),
             cbSeparateLV: UInt = 0u,
             tableid: JetTableid = 0uL,
             cCreated: UInt = 0u,
@@ -5334,15 +5333,15 @@ public class JetTablecreate4W internal constructor(
     szTemplateTableNameCtorArg: Pwstr,
     public var ulPages: UInt,
     public var ulDensity: UInt,
-    rgcolumncreateCtorArg: MutPtr<JetColumncreateW>,
+    rgcolumncreateCtorArg: MutPtr,
     public var cColumns: UInt,
-    rgindexcreateCtorArg: MutPtr<JetIndexcreate3W>,
+    rgindexcreateCtorArg: MutPtr,
     public var cIndexes: UInt,
     szCallbackCtorArg: Pwstr,
     public var cbtyp: UInt,
     public var grbit: UInt,
-    pSeqSpacehintsCtorArg: MutPtr<JetSpacehints>,
-    pLVSpacehintsCtorArg: MutPtr<JetSpacehints>,
+    pSeqSpacehintsCtorArg: MutPtr,
+    pLVSpacehintsCtorArg: MutPtr,
     public var cbSeparateLV: UInt,
     public var tableid: JetTableid,
     public var cCreated: UInt,
@@ -5353,19 +5352,19 @@ public class JetTablecreate4W internal constructor(
     public var szTemplateTableName: Pwstr = szTemplateTableNameCtorArg
         internal set
 
-    public var rgcolumncreate: MutPtr<JetColumncreateW> = rgcolumncreateCtorArg
+    public var rgcolumncreate: MutPtr = rgcolumncreateCtorArg
         internal set
 
-    public var rgindexcreate: MutPtr<JetIndexcreate3W> = rgindexcreateCtorArg
+    public var rgindexcreate: MutPtr = rgindexcreateCtorArg
         internal set
 
     public var szCallback: Pwstr = szCallbackCtorArg
         internal set
 
-    public var pSeqSpacehints: MutPtr<JetSpacehints> = pSeqSpacehintsCtorArg
+    public var pSeqSpacehints: MutPtr = pSeqSpacehintsCtorArg
         internal set
 
-    public var pLVSpacehints: MutPtr<JetSpacehints> = pLVSpacehintsCtorArg
+    public var pLVSpacehints: MutPtr = pLVSpacehintsCtorArg
         internal set
 
     public constructor() : this(
@@ -5395,15 +5394,15 @@ public class JetTablecreate4W internal constructor(
             szTemplateTableName: Pwstr = MutPtr(0L),
             ulPages: UInt = 0u,
             ulDensity: UInt = 0u,
-            rgcolumncreate: MutPtr<JetColumncreateW> = MutPtr(0L),
+            rgcolumncreate: MutPtr = MutPtr(0L),
             cColumns: UInt = 0u,
-            rgindexcreate: MutPtr<JetIndexcreate3W> = MutPtr(0L),
+            rgindexcreate: MutPtr = MutPtr(0L),
             cIndexes: UInt = 0u,
             szCallback: Pwstr = MutPtr(0L),
             cbtyp: UInt = 0u,
             grbit: UInt = 0u,
-            pSeqSpacehints: MutPtr<JetSpacehints> = MutPtr(0L),
-            pLVSpacehints: MutPtr<JetSpacehints> = MutPtr(0L),
+            pSeqSpacehints: MutPtr = MutPtr(0L),
+            pLVSpacehints: MutPtr = MutPtr(0L),
             cbSeparateLV: UInt = 0u,
             tableid: JetTableid = 0uL,
             cCreated: UInt = 0u,
@@ -5436,9 +5435,9 @@ public class JetTablecreateA internal constructor(
     szTemplateTableNameCtorArg: Pstr,
     public var ulPages: UInt,
     public var ulDensity: UInt,
-    rgcolumncreateCtorArg: MutPtr<JetColumncreateA>,
+    rgcolumncreateCtorArg: MutPtr,
     public var cColumns: UInt,
-    rgindexcreateCtorArg: MutPtr<JetIndexcreateA>,
+    rgindexcreateCtorArg: MutPtr,
     public var cIndexes: UInt,
     public var grbit: UInt,
     public var tableid: JetTableid,
@@ -5450,10 +5449,10 @@ public class JetTablecreateA internal constructor(
     public var szTemplateTableName: Pstr = szTemplateTableNameCtorArg
         internal set
 
-    public var rgcolumncreate: MutPtr<JetColumncreateA> = rgcolumncreateCtorArg
+    public var rgcolumncreate: MutPtr = rgcolumncreateCtorArg
         internal set
 
-    public var rgindexcreate: MutPtr<JetIndexcreateA> = rgindexcreateCtorArg
+    public var rgindexcreate: MutPtr = rgindexcreateCtorArg
         internal set
 
     public constructor() : this(
@@ -5481,11 +5480,11 @@ public class JetTablecreateA internal constructor(
 
     public operator fun component5(): UInt = this.ulDensity
 
-    public operator fun component6(): MutPtr<JetColumncreateA> = this.rgcolumncreate
+    public operator fun component6(): MutPtr = this.rgcolumncreate
 
     public operator fun component7(): UInt = this.cColumns
 
-    public operator fun component8(): MutPtr<JetIndexcreateA> = this.rgindexcreate
+    public operator fun component8(): MutPtr = this.rgindexcreate
 
     public operator fun component9(): UInt = this.cIndexes
 
@@ -5495,7 +5494,7 @@ public class JetTablecreateA internal constructor(
 
     public operator fun component12(): UInt = this.cCreated
 
-    public fun copy(cbStruct: UInt = this.cbStruct, szTableName: Pstr = this.szTableName, szTemplateTableName: Pstr = this.szTemplateTableName, ulPages: UInt = this.ulPages, ulDensity: UInt = this.ulDensity, rgcolumncreate: MutPtr<JetColumncreateA> = this.rgcolumncreate, cColumns: UInt = this.cColumns, rgindexcreate: MutPtr<JetIndexcreateA> = this.rgindexcreate, cIndexes: UInt = this.cIndexes, grbit: UInt = this.grbit, tableid: JetTableid = this.tableid, cCreated: UInt = this.cCreated): JetTablecreateA = JetTablecreateA(cbStruct = cbStruct, szTableNameCtorArg = szTableName, szTemplateTableNameCtorArg = szTemplateTableName, ulPages = ulPages, ulDensity = ulDensity, rgcolumncreateCtorArg = rgcolumncreate, cColumns = cColumns, rgindexcreateCtorArg = rgindexcreate, cIndexes = cIndexes, grbit = grbit, tableid = tableid, cCreated = cCreated)
+    public fun copy(cbStruct: UInt = this.cbStruct, szTableName: Pstr = this.szTableName, szTemplateTableName: Pstr = this.szTemplateTableName, ulPages: UInt = this.ulPages, ulDensity: UInt = this.ulDensity, rgcolumncreate: MutPtr = this.rgcolumncreate, cColumns: UInt = this.cColumns, rgindexcreate: MutPtr = this.rgindexcreate, cIndexes: UInt = this.cIndexes, grbit: UInt = this.grbit, tableid: JetTableid = this.tableid, cCreated: UInt = this.cCreated): JetTablecreateA = JetTablecreateA(cbStruct = cbStruct, szTableNameCtorArg = szTableName, szTemplateTableNameCtorArg = szTemplateTableName, ulPages = ulPages, ulDensity = ulDensity, rgcolumncreateCtorArg = rgcolumncreate, cColumns = cColumns, rgindexcreateCtorArg = rgindexcreate, cIndexes = cIndexes, grbit = grbit, tableid = tableid, cCreated = cCreated)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -5538,9 +5537,9 @@ public class JetTablecreateA internal constructor(
             szTemplateTableName: Pstr = MutPtr(0L),
             ulPages: UInt = 0u,
             ulDensity: UInt = 0u,
-            rgcolumncreate: MutPtr<JetColumncreateA> = MutPtr(0L),
+            rgcolumncreate: MutPtr = MutPtr(0L),
             cColumns: UInt = 0u,
-            rgindexcreate: MutPtr<JetIndexcreateA> = MutPtr(0L),
+            rgindexcreate: MutPtr = MutPtr(0L),
             cIndexes: UInt = 0u,
             grbit: UInt = 0u,
             tableid: JetTableid = 0uL,
@@ -5569,9 +5568,9 @@ public class JetTablecreateW internal constructor(
     szTemplateTableNameCtorArg: Pwstr,
     public var ulPages: UInt,
     public var ulDensity: UInt,
-    rgcolumncreateCtorArg: MutPtr<JetColumncreateW>,
+    rgcolumncreateCtorArg: MutPtr,
     public var cColumns: UInt,
-    rgindexcreateCtorArg: MutPtr<JetIndexcreateW>,
+    rgindexcreateCtorArg: MutPtr,
     public var cIndexes: UInt,
     public var grbit: UInt,
     public var tableid: JetTableid,
@@ -5583,10 +5582,10 @@ public class JetTablecreateW internal constructor(
     public var szTemplateTableName: Pwstr = szTemplateTableNameCtorArg
         internal set
 
-    public var rgcolumncreate: MutPtr<JetColumncreateW> = rgcolumncreateCtorArg
+    public var rgcolumncreate: MutPtr = rgcolumncreateCtorArg
         internal set
 
-    public var rgindexcreate: MutPtr<JetIndexcreateW> = rgindexcreateCtorArg
+    public var rgindexcreate: MutPtr = rgindexcreateCtorArg
         internal set
 
     public constructor() : this(
@@ -5614,11 +5613,11 @@ public class JetTablecreateW internal constructor(
 
     public operator fun component5(): UInt = this.ulDensity
 
-    public operator fun component6(): MutPtr<JetColumncreateW> = this.rgcolumncreate
+    public operator fun component6(): MutPtr = this.rgcolumncreate
 
     public operator fun component7(): UInt = this.cColumns
 
-    public operator fun component8(): MutPtr<JetIndexcreateW> = this.rgindexcreate
+    public operator fun component8(): MutPtr = this.rgindexcreate
 
     public operator fun component9(): UInt = this.cIndexes
 
@@ -5628,7 +5627,7 @@ public class JetTablecreateW internal constructor(
 
     public operator fun component12(): UInt = this.cCreated
 
-    public fun copy(cbStruct: UInt = this.cbStruct, szTableName: Pwstr = this.szTableName, szTemplateTableName: Pwstr = this.szTemplateTableName, ulPages: UInt = this.ulPages, ulDensity: UInt = this.ulDensity, rgcolumncreate: MutPtr<JetColumncreateW> = this.rgcolumncreate, cColumns: UInt = this.cColumns, rgindexcreate: MutPtr<JetIndexcreateW> = this.rgindexcreate, cIndexes: UInt = this.cIndexes, grbit: UInt = this.grbit, tableid: JetTableid = this.tableid, cCreated: UInt = this.cCreated): JetTablecreateW = JetTablecreateW(cbStruct = cbStruct, szTableNameCtorArg = szTableName, szTemplateTableNameCtorArg = szTemplateTableName, ulPages = ulPages, ulDensity = ulDensity, rgcolumncreateCtorArg = rgcolumncreate, cColumns = cColumns, rgindexcreateCtorArg = rgindexcreate, cIndexes = cIndexes, grbit = grbit, tableid = tableid, cCreated = cCreated)
+    public fun copy(cbStruct: UInt = this.cbStruct, szTableName: Pwstr = this.szTableName, szTemplateTableName: Pwstr = this.szTemplateTableName, ulPages: UInt = this.ulPages, ulDensity: UInt = this.ulDensity, rgcolumncreate: MutPtr = this.rgcolumncreate, cColumns: UInt = this.cColumns, rgindexcreate: MutPtr = this.rgindexcreate, cIndexes: UInt = this.cIndexes, grbit: UInt = this.grbit, tableid: JetTableid = this.tableid, cCreated: UInt = this.cCreated): JetTablecreateW = JetTablecreateW(cbStruct = cbStruct, szTableNameCtorArg = szTableName, szTemplateTableNameCtorArg = szTemplateTableName, ulPages = ulPages, ulDensity = ulDensity, rgcolumncreateCtorArg = rgcolumncreate, cColumns = cColumns, rgindexcreateCtorArg = rgindexcreate, cIndexes = cIndexes, grbit = grbit, tableid = tableid, cCreated = cCreated)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -5671,9 +5670,9 @@ public class JetTablecreateW internal constructor(
             szTemplateTableName: Pwstr = MutPtr(0L),
             ulPages: UInt = 0u,
             ulDensity: UInt = 0u,
-            rgcolumncreate: MutPtr<JetColumncreateW> = MutPtr(0L),
+            rgcolumncreate: MutPtr = MutPtr(0L),
             cColumns: UInt = 0u,
-            rgindexcreate: MutPtr<JetIndexcreateW> = MutPtr(0L),
+            rgindexcreate: MutPtr = MutPtr(0L),
             cIndexes: UInt = 0u,
             grbit: UInt = 0u,
             tableid: JetTableid = 0uL,
@@ -5881,14 +5880,14 @@ public class JetUnicodeindex2 internal constructor(
 
 public class JetUserdefineddefaultA internal constructor(
     szCallbackCtorArg: Pstr,
-    pbUserDataCtorArg: MutPtr<UByte>,
+    pbUserDataCtorArg: MutPtr,
     public var cbUserData: UInt,
     szDependantColumnsCtorArg: Pstr,
 ) {
     public var szCallback: Pstr = szCallbackCtorArg
         internal set
 
-    public var pbUserData: MutPtr<UByte> = pbUserDataCtorArg
+    public var pbUserData: MutPtr = pbUserDataCtorArg
         internal set
 
     public var szDependantColumns: Pstr = szDependantColumnsCtorArg
@@ -5903,13 +5902,13 @@ public class JetUserdefineddefaultA internal constructor(
 
     public operator fun component1(): Pstr = this.szCallback
 
-    public operator fun component2(): MutPtr<UByte> = this.pbUserData
+    public operator fun component2(): MutPtr = this.pbUserData
 
     public operator fun component3(): UInt = this.cbUserData
 
     public operator fun component4(): Pstr = this.szDependantColumns
 
-    public fun copy(szCallback: Pstr = this.szCallback, pbUserData: MutPtr<UByte> = this.pbUserData, cbUserData: UInt = this.cbUserData, szDependantColumns: Pstr = this.szDependantColumns): JetUserdefineddefaultA = JetUserdefineddefaultA(szCallbackCtorArg = szCallback, pbUserDataCtorArg = pbUserData, cbUserData = cbUserData, szDependantColumnsCtorArg = szDependantColumns)
+    public fun copy(szCallback: Pstr = this.szCallback, pbUserData: MutPtr = this.pbUserData, cbUserData: UInt = this.cbUserData, szDependantColumns: Pstr = this.szDependantColumns): JetUserdefineddefaultA = JetUserdefineddefaultA(szCallbackCtorArg = szCallback, pbUserDataCtorArg = pbUserData, cbUserData = cbUserData, szDependantColumnsCtorArg = szDependantColumns)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -5932,7 +5931,7 @@ public class JetUserdefineddefaultA internal constructor(
     public companion object {
         public operator fun invoke(
             szCallback: Pstr = MutPtr(0L),
-            pbUserData: MutPtr<UByte> = MutPtr(0L),
+            pbUserData: MutPtr = MutPtr(0L),
             cbUserData: UInt = 0u,
             szDependantColumns: Pstr = MutPtr(0L),
         ): JetUserdefineddefaultA =
@@ -5947,14 +5946,14 @@ public class JetUserdefineddefaultA internal constructor(
 
 public class JetUserdefineddefaultW internal constructor(
     szCallbackCtorArg: Pwstr,
-    pbUserDataCtorArg: MutPtr<UByte>,
+    pbUserDataCtorArg: MutPtr,
     public var cbUserData: UInt,
     szDependantColumnsCtorArg: Pwstr,
 ) {
     public var szCallback: Pwstr = szCallbackCtorArg
         internal set
 
-    public var pbUserData: MutPtr<UByte> = pbUserDataCtorArg
+    public var pbUserData: MutPtr = pbUserDataCtorArg
         internal set
 
     public var szDependantColumns: Pwstr = szDependantColumnsCtorArg
@@ -5969,13 +5968,13 @@ public class JetUserdefineddefaultW internal constructor(
 
     public operator fun component1(): Pwstr = this.szCallback
 
-    public operator fun component2(): MutPtr<UByte> = this.pbUserData
+    public operator fun component2(): MutPtr = this.pbUserData
 
     public operator fun component3(): UInt = this.cbUserData
 
     public operator fun component4(): Pwstr = this.szDependantColumns
 
-    public fun copy(szCallback: Pwstr = this.szCallback, pbUserData: MutPtr<UByte> = this.pbUserData, cbUserData: UInt = this.cbUserData, szDependantColumns: Pwstr = this.szDependantColumns): JetUserdefineddefaultW = JetUserdefineddefaultW(szCallbackCtorArg = szCallback, pbUserDataCtorArg = pbUserData, cbUserData = cbUserData, szDependantColumnsCtorArg = szDependantColumns)
+    public fun copy(szCallback: Pwstr = this.szCallback, pbUserData: MutPtr = this.pbUserData, cbUserData: UInt = this.cbUserData, szDependantColumns: Pwstr = this.szDependantColumns): JetUserdefineddefaultW = JetUserdefineddefaultW(szCallbackCtorArg = szCallback, pbUserDataCtorArg = pbUserData, cbUserData = cbUserData, szDependantColumnsCtorArg = szDependantColumns)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -5998,7 +5997,7 @@ public class JetUserdefineddefaultW internal constructor(
     public companion object {
         public operator fun invoke(
             szCallback: Pwstr = MutPtr(0L),
-            pbUserData: MutPtr<UByte> = MutPtr(0L),
+            pbUserData: MutPtr = MutPtr(0L),
             cbUserData: UInt = 0u,
             szDependantColumns: Pwstr = MutPtr(0L),
         ): JetUserdefineddefaultW =

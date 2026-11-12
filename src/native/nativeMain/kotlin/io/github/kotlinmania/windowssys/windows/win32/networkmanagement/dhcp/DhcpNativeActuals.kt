@@ -2,7 +2,6 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.networkmanagement.dhcp
 
-import io.github.kotlinmania.rustlang.core.ffi.CVoid
 import io.github.kotlinmania.rustlang.core.ptr.ConstPtr
 import io.github.kotlinmania.rustlang.core.ptr.MutPtr
 import io.github.kotlinmania.windowssys.core.Bool
@@ -208,28 +207,28 @@ import kotlinx.cinterop.ByteVar
 import kotlinx.cinterop.toCPointer
 import kotlinx.cinterop.toLong
 
-public actual fun dhcpAddFilterV4(serveripaddress: Pcwstr, addfilterinfo: ConstPtr<DhcpFilterAddInfo>, forceflag: Bool): UInt =
+public actual fun dhcpAddFilterV4(serveripaddress: Pcwstr, addfilterinfo: ConstPtr, forceflag: Bool): UInt =
     windowssysWindowsWin32NetworkmanagementDhcpDhcpAddFilterV4(serveripaddress.rawAddress.toCPointer<ByteVar>(), addfilterinfo.rawAddress.toCPointer<ByteVar>(), forceflag)
 
 public actual fun dhcpAddSecurityGroup(pserver: Pcwstr): UInt =
     windowssysWindowsWin32NetworkmanagementDhcpDhcpAddSecurityGroup(pserver.rawAddress.toCPointer<ByteVar>())
 
-public actual fun dhcpAddServer(flags: UInt, idinfo: MutPtr<CVoid>, newserver: MutPtr<DhcpdsServer>, callbackfn: MutPtr<CVoid>, callbackdata: MutPtr<CVoid>): UInt =
+public actual fun dhcpAddServer(flags: UInt, idinfo: MutPtr, newserver: MutPtr, callbackfn: MutPtr, callbackdata: MutPtr): UInt =
     windowssysWindowsWin32NetworkmanagementDhcpDhcpAddServer(flags, idinfo.rawAddress.toCPointer<ByteVar>(), newserver.rawAddress.toCPointer<ByteVar>(), callbackfn.rawAddress.toCPointer<ByteVar>(), callbackdata.rawAddress.toCPointer<ByteVar>())
 
-public actual fun dhcpAddSubnetElement(serveripaddress: Pcwstr, subnetaddress: UInt, addelementinfo: ConstPtr<DhcpSubnetElementData>): UInt =
+public actual fun dhcpAddSubnetElement(serveripaddress: Pcwstr, subnetaddress: UInt, addelementinfo: ConstPtr): UInt =
     windowssysWindowsWin32NetworkmanagementDhcpDhcpAddSubnetElement(serveripaddress.rawAddress.toCPointer<ByteVar>(), subnetaddress, addelementinfo.rawAddress.toCPointer<ByteVar>())
 
-public actual fun dhcpAddSubnetElementV4(serveripaddress: Pcwstr, subnetaddress: UInt, addelementinfo: ConstPtr<DhcpSubnetElementDataV4>): UInt =
+public actual fun dhcpAddSubnetElementV4(serveripaddress: Pcwstr, subnetaddress: UInt, addelementinfo: ConstPtr): UInt =
     windowssysWindowsWin32NetworkmanagementDhcpDhcpAddSubnetElementV4(serveripaddress.rawAddress.toCPointer<ByteVar>(), subnetaddress, addelementinfo.rawAddress.toCPointer<ByteVar>())
 
-public actual fun dhcpAddSubnetElementV5(serveripaddress: Pcwstr, subnetaddress: UInt, addelementinfo: ConstPtr<DhcpSubnetElementDataV5>): UInt =
+public actual fun dhcpAddSubnetElementV5(serveripaddress: Pcwstr, subnetaddress: UInt, addelementinfo: ConstPtr): UInt =
     windowssysWindowsWin32NetworkmanagementDhcpDhcpAddSubnetElementV5(serveripaddress.rawAddress.toCPointer<ByteVar>(), subnetaddress, addelementinfo.rawAddress.toCPointer<ByteVar>())
 
-public actual fun dhcpAddSubnetElementV6(serveripaddress: Pcwstr, subnetaddress: DhcpIpv6Address, addelementinfo: MutPtr<DhcpSubnetElementDataV6>): UInt =
+public actual fun dhcpAddSubnetElementV6(serveripaddress: Pcwstr, subnetaddress: DhcpIpv6Address, addelementinfo: MutPtr): UInt =
     0u
 
-public actual fun dhcpAuditLogGetParams(serveripaddress: Pcwstr, flags: UInt, auditlogdir: MutPtr<Pwstr>, diskcheckinterval: MutPtr<UInt>, maxlogfilessize: MutPtr<UInt>, minspaceondisk: MutPtr<UInt>): UInt =
+public actual fun dhcpAuditLogGetParams(serveripaddress: Pcwstr, flags: UInt, auditlogdir: MutPtr, diskcheckinterval: MutPtr, maxlogfilessize: MutPtr, minspaceondisk: MutPtr): UInt =
     windowssysWindowsWin32NetworkmanagementDhcpDhcpAuditLogGetParams(serveripaddress.rawAddress.toCPointer<ByteVar>(), flags, auditlogdir.rawAddress.toCPointer<ByteVar>(), diskcheckinterval.rawAddress.toCPointer<ByteVar>(), maxlogfilessize.rawAddress.toCPointer<ByteVar>(), minspaceondisk.rawAddress.toCPointer<ByteVar>())
 
 public actual fun dhcpAuditLogSetParams(serveripaddress: Pcwstr, flags: UInt, auditlogdir: Pcwstr, diskcheckinterval: UInt, maxlogfilessize: UInt, minspaceondisk: UInt): UInt =
@@ -239,43 +238,43 @@ public actual fun dhcpCApiCleanup() {
     windowssysWindowsWin32NetworkmanagementDhcpDhcpCApiCleanup()
 }
 
-public actual fun dhcpCApiInitialize(version: MutPtr<UInt>): UInt =
+public actual fun dhcpCApiInitialize(version: MutPtr): UInt =
     windowssysWindowsWin32NetworkmanagementDhcpDhcpCApiInitialize(version.rawAddress.toCPointer<ByteVar>())
 
-public actual fun dhcpCreateClass(serveripaddress: Pcwstr, reservedmustbezero: UInt, classinfo: MutPtr<DhcpClassInfo>): UInt =
+public actual fun dhcpCreateClass(serveripaddress: Pcwstr, reservedmustbezero: UInt, classinfo: MutPtr): UInt =
     windowssysWindowsWin32NetworkmanagementDhcpDhcpCreateClass(serveripaddress.rawAddress.toCPointer<ByteVar>(), reservedmustbezero, classinfo.rawAddress.toCPointer<ByteVar>())
 
-public actual fun dhcpCreateClassV6(serveripaddress: Pcwstr, reservedmustbezero: UInt, classinfo: MutPtr<DhcpClassInfoV6>): UInt =
+public actual fun dhcpCreateClassV6(serveripaddress: Pcwstr, reservedmustbezero: UInt, classinfo: MutPtr): UInt =
     windowssysWindowsWin32NetworkmanagementDhcpDhcpCreateClassV6(serveripaddress.rawAddress.toCPointer<ByteVar>(), reservedmustbezero, classinfo.rawAddress.toCPointer<ByteVar>())
 
-public actual fun dhcpCreateClientInfo(serveripaddress: Pcwstr, clientinfo: ConstPtr<DhcpClientInfo>): UInt =
+public actual fun dhcpCreateClientInfo(serveripaddress: Pcwstr, clientinfo: ConstPtr): UInt =
     windowssysWindowsWin32NetworkmanagementDhcpDhcpCreateClientInfo(serveripaddress.rawAddress.toCPointer<ByteVar>(), clientinfo.rawAddress.toCPointer<ByteVar>())
 
-public actual fun dhcpCreateClientInfoV4(serveripaddress: Pcwstr, clientinfo: ConstPtr<DhcpClientInfoV4>): UInt =
+public actual fun dhcpCreateClientInfoV4(serveripaddress: Pcwstr, clientinfo: ConstPtr): UInt =
     windowssysWindowsWin32NetworkmanagementDhcpDhcpCreateClientInfoV4(serveripaddress.rawAddress.toCPointer<ByteVar>(), clientinfo.rawAddress.toCPointer<ByteVar>())
 
-public actual fun dhcpCreateClientInfoVQ(serveripaddress: Pcwstr, clientinfo: ConstPtr<DhcpClientInfoVq>): UInt =
+public actual fun dhcpCreateClientInfoVQ(serveripaddress: Pcwstr, clientinfo: ConstPtr): UInt =
     windowssysWindowsWin32NetworkmanagementDhcpDhcpCreateClientInfoVQ(serveripaddress.rawAddress.toCPointer<ByteVar>(), clientinfo.rawAddress.toCPointer<ByteVar>())
 
-public actual fun dhcpCreateOption(serveripaddress: Pcwstr, optionid: UInt, optioninfo: ConstPtr<DhcpOption>): UInt =
+public actual fun dhcpCreateOption(serveripaddress: Pcwstr, optionid: UInt, optioninfo: ConstPtr): UInt =
     windowssysWindowsWin32NetworkmanagementDhcpDhcpCreateOption(serveripaddress.rawAddress.toCPointer<ByteVar>(), optionid, optioninfo.rawAddress.toCPointer<ByteVar>())
 
-public actual fun dhcpCreateOptionV5(serveripaddress: Pcwstr, flags: UInt, optionid: UInt, classname: Pcwstr, vendorname: Pcwstr, optioninfo: MutPtr<DhcpOption>): UInt =
+public actual fun dhcpCreateOptionV5(serveripaddress: Pcwstr, flags: UInt, optionid: UInt, classname: Pcwstr, vendorname: Pcwstr, optioninfo: MutPtr): UInt =
     windowssysWindowsWin32NetworkmanagementDhcpDhcpCreateOptionV5(serveripaddress.rawAddress.toCPointer<ByteVar>(), flags, optionid, classname.rawAddress.toCPointer<ByteVar>(), vendorname.rawAddress.toCPointer<ByteVar>(), optioninfo.rawAddress.toCPointer<ByteVar>())
 
-public actual fun dhcpCreateOptionV6(serveripaddress: Pcwstr, flags: UInt, optionid: UInt, classname: Pcwstr, vendorname: Pcwstr, optioninfo: MutPtr<DhcpOption>): UInt =
+public actual fun dhcpCreateOptionV6(serveripaddress: Pcwstr, flags: UInt, optionid: UInt, classname: Pcwstr, vendorname: Pcwstr, optioninfo: MutPtr): UInt =
     windowssysWindowsWin32NetworkmanagementDhcpDhcpCreateOptionV6(serveripaddress.rawAddress.toCPointer<ByteVar>(), flags, optionid, classname.rawAddress.toCPointer<ByteVar>(), vendorname.rawAddress.toCPointer<ByteVar>(), optioninfo.rawAddress.toCPointer<ByteVar>())
 
-public actual fun dhcpCreateSubnet(serveripaddress: Pcwstr, subnetaddress: UInt, subnetinfo: ConstPtr<DhcpSubnetInfo>): UInt =
+public actual fun dhcpCreateSubnet(serveripaddress: Pcwstr, subnetaddress: UInt, subnetinfo: ConstPtr): UInt =
     windowssysWindowsWin32NetworkmanagementDhcpDhcpCreateSubnet(serveripaddress.rawAddress.toCPointer<ByteVar>(), subnetaddress, subnetinfo.rawAddress.toCPointer<ByteVar>())
 
-public actual fun dhcpCreateSubnetV6(serveripaddress: Pcwstr, subnetaddress: DhcpIpv6Address, subnetinfo: MutPtr<DhcpSubnetInfoV6>): UInt =
+public actual fun dhcpCreateSubnetV6(serveripaddress: Pcwstr, subnetaddress: DhcpIpv6Address, subnetinfo: MutPtr): UInt =
     0u
 
-public actual fun dhcpCreateSubnetVQ(serveripaddress: Pcwstr, subnetaddress: UInt, subnetinfo: ConstPtr<DhcpSubnetInfoVq>): UInt =
+public actual fun dhcpCreateSubnetVQ(serveripaddress: Pcwstr, subnetaddress: UInt, subnetinfo: ConstPtr): UInt =
     windowssysWindowsWin32NetworkmanagementDhcpDhcpCreateSubnetVQ(serveripaddress.rawAddress.toCPointer<ByteVar>(), subnetaddress, subnetinfo.rawAddress.toCPointer<ByteVar>())
 
-public actual fun dhcpDeRegisterParamChange(flags: UInt, reserved: MutPtr<CVoid>, event: MutPtr<CVoid>): UInt =
+public actual fun dhcpDeRegisterParamChange(flags: UInt, reserved: MutPtr, event: MutPtr): UInt =
     windowssysWindowsWin32NetworkmanagementDhcpDhcpDeRegisterParamChange(flags, reserved.rawAddress.toCPointer<ByteVar>(), event.rawAddress.toCPointer<ByteVar>())
 
 public actual fun dhcpDeleteClass(serveripaddress: Pcwstr, reservedmustbezero: UInt, classname: Pcwstr): UInt =
@@ -284,16 +283,16 @@ public actual fun dhcpDeleteClass(serveripaddress: Pcwstr, reservedmustbezero: U
 public actual fun dhcpDeleteClassV6(serveripaddress: Pcwstr, reservedmustbezero: UInt, classname: Pcwstr): UInt =
     windowssysWindowsWin32NetworkmanagementDhcpDhcpDeleteClassV6(serveripaddress.rawAddress.toCPointer<ByteVar>(), reservedmustbezero, classname.rawAddress.toCPointer<ByteVar>())
 
-public actual fun dhcpDeleteClientInfo(serveripaddress: Pcwstr, clientinfo: ConstPtr<DhcpSearchInfo>): UInt =
+public actual fun dhcpDeleteClientInfo(serveripaddress: Pcwstr, clientinfo: ConstPtr): UInt =
     windowssysWindowsWin32NetworkmanagementDhcpDhcpDeleteClientInfo(serveripaddress.rawAddress.toCPointer<ByteVar>(), clientinfo.rawAddress.toCPointer<ByteVar>())
 
-public actual fun dhcpDeleteClientInfoV6(serveripaddress: Pcwstr, clientinfo: ConstPtr<DhcpSearchInfoV6>): UInt =
+public actual fun dhcpDeleteClientInfoV6(serveripaddress: Pcwstr, clientinfo: ConstPtr): UInt =
     windowssysWindowsWin32NetworkmanagementDhcpDhcpDeleteClientInfoV6(serveripaddress.rawAddress.toCPointer<ByteVar>(), clientinfo.rawAddress.toCPointer<ByteVar>())
 
-public actual fun dhcpDeleteFilterV4(serveripaddress: Pcwstr, deletefilterinfo: ConstPtr<DhcpAddrPattern>): UInt =
+public actual fun dhcpDeleteFilterV4(serveripaddress: Pcwstr, deletefilterinfo: ConstPtr): UInt =
     windowssysWindowsWin32NetworkmanagementDhcpDhcpDeleteFilterV4(serveripaddress.rawAddress.toCPointer<ByteVar>(), deletefilterinfo.rawAddress.toCPointer<ByteVar>())
 
-public actual fun dhcpDeleteServer(flags: UInt, idinfo: MutPtr<CVoid>, newserver: MutPtr<DhcpdsServer>, callbackfn: MutPtr<CVoid>, callbackdata: MutPtr<CVoid>): UInt =
+public actual fun dhcpDeleteServer(flags: UInt, idinfo: MutPtr, newserver: MutPtr, callbackfn: MutPtr, callbackdata: MutPtr): UInt =
     windowssysWindowsWin32NetworkmanagementDhcpDhcpDeleteServer(flags, idinfo.rawAddress.toCPointer<ByteVar>(), newserver.rawAddress.toCPointer<ByteVar>(), callbackfn.rawAddress.toCPointer<ByteVar>(), callbackdata.rawAddress.toCPointer<ByteVar>())
 
 public actual fun dhcpDeleteSubnet(serveripaddress: Pcwstr, subnetaddress: UInt, forceflag: DhcpForceFlag): UInt =
@@ -312,229 +311,229 @@ public actual fun dhcpDsCleanup() {
 public actual fun dhcpDsInit(): UInt =
     windowssysWindowsWin32NetworkmanagementDhcpDhcpDsInit()
 
-public actual fun dhcpEnumClasses(serveripaddress: Pcwstr, reservedmustbezero: UInt, resumehandle: MutPtr<UInt>, preferredmaximum: UInt, classinfoarray: MutPtr<MutPtr<DhcpClassInfoArray>>, nread: MutPtr<UInt>, ntotal: MutPtr<UInt>): UInt =
+public actual fun dhcpEnumClasses(serveripaddress: Pcwstr, reservedmustbezero: UInt, resumehandle: MutPtr, preferredmaximum: UInt, classinfoarray: MutPtr, nread: MutPtr, ntotal: MutPtr): UInt =
     windowssysWindowsWin32NetworkmanagementDhcpDhcpEnumClasses(serveripaddress.rawAddress.toCPointer<ByteVar>(), reservedmustbezero, resumehandle.rawAddress.toCPointer<ByteVar>(), preferredmaximum, classinfoarray.rawAddress.toCPointer<ByteVar>(), nread.rawAddress.toCPointer<ByteVar>(), ntotal.rawAddress.toCPointer<ByteVar>())
 
-public actual fun dhcpEnumClassesV6(serveripaddress: Pcwstr, reservedmustbezero: UInt, resumehandle: MutPtr<UInt>, preferredmaximum: UInt, classinfoarray: MutPtr<MutPtr<DhcpClassInfoArrayV6>>, nread: MutPtr<UInt>, ntotal: MutPtr<UInt>): UInt =
+public actual fun dhcpEnumClassesV6(serveripaddress: Pcwstr, reservedmustbezero: UInt, resumehandle: MutPtr, preferredmaximum: UInt, classinfoarray: MutPtr, nread: MutPtr, ntotal: MutPtr): UInt =
     windowssysWindowsWin32NetworkmanagementDhcpDhcpEnumClassesV6(serveripaddress.rawAddress.toCPointer<ByteVar>(), reservedmustbezero, resumehandle.rawAddress.toCPointer<ByteVar>(), preferredmaximum, classinfoarray.rawAddress.toCPointer<ByteVar>(), nread.rawAddress.toCPointer<ByteVar>(), ntotal.rawAddress.toCPointer<ByteVar>())
 
-public actual fun dhcpEnumFilterV4(serveripaddress: Pcwstr, resumehandle: MutPtr<DhcpAddrPattern>, preferredmaximum: UInt, listtype: DhcpFilterListType, enumfilterinfo: MutPtr<MutPtr<DhcpFilterEnumInfo>>, elementsread: MutPtr<UInt>, elementstotal: MutPtr<UInt>): UInt =
+public actual fun dhcpEnumFilterV4(serveripaddress: Pcwstr, resumehandle: MutPtr, preferredmaximum: UInt, listtype: DhcpFilterListType, enumfilterinfo: MutPtr, elementsread: MutPtr, elementstotal: MutPtr): UInt =
     windowssysWindowsWin32NetworkmanagementDhcpDhcpEnumFilterV4(serveripaddress.rawAddress.toCPointer<ByteVar>(), resumehandle.rawAddress.toCPointer<ByteVar>(), preferredmaximum, listtype, enumfilterinfo.rawAddress.toCPointer<ByteVar>(), elementsread.rawAddress.toCPointer<ByteVar>(), elementstotal.rawAddress.toCPointer<ByteVar>())
 
-public actual fun dhcpEnumOptionValues(serveripaddress: Pcwstr, scopeinfo: ConstPtr<DhcpOptionScopeInfo>, resumehandle: MutPtr<UInt>, preferredmaximum: UInt, optionvalues: MutPtr<MutPtr<DhcpOptionValueArray>>, optionsread: MutPtr<UInt>, optionstotal: MutPtr<UInt>): UInt =
+public actual fun dhcpEnumOptionValues(serveripaddress: Pcwstr, scopeinfo: ConstPtr, resumehandle: MutPtr, preferredmaximum: UInt, optionvalues: MutPtr, optionsread: MutPtr, optionstotal: MutPtr): UInt =
     windowssysWindowsWin32NetworkmanagementDhcpDhcpEnumOptionValues(serveripaddress.rawAddress.toCPointer<ByteVar>(), scopeinfo.rawAddress.toCPointer<ByteVar>(), resumehandle.rawAddress.toCPointer<ByteVar>(), preferredmaximum, optionvalues.rawAddress.toCPointer<ByteVar>(), optionsread.rawAddress.toCPointer<ByteVar>(), optionstotal.rawAddress.toCPointer<ByteVar>())
 
-public actual fun dhcpEnumOptionValuesV5(serveripaddress: Pcwstr, flags: UInt, classname: Pcwstr, vendorname: Pcwstr, scopeinfo: MutPtr<DhcpOptionScopeInfo>, resumehandle: MutPtr<UInt>, preferredmaximum: UInt, optionvalues: MutPtr<MutPtr<DhcpOptionValueArray>>, optionsread: MutPtr<UInt>, optionstotal: MutPtr<UInt>): UInt =
+public actual fun dhcpEnumOptionValuesV5(serveripaddress: Pcwstr, flags: UInt, classname: Pcwstr, vendorname: Pcwstr, scopeinfo: MutPtr, resumehandle: MutPtr, preferredmaximum: UInt, optionvalues: MutPtr, optionsread: MutPtr, optionstotal: MutPtr): UInt =
     windowssysWindowsWin32NetworkmanagementDhcpDhcpEnumOptionValuesV5(serveripaddress.rawAddress.toCPointer<ByteVar>(), flags, classname.rawAddress.toCPointer<ByteVar>(), vendorname.rawAddress.toCPointer<ByteVar>(), scopeinfo.rawAddress.toCPointer<ByteVar>(), resumehandle.rawAddress.toCPointer<ByteVar>(), preferredmaximum, optionvalues.rawAddress.toCPointer<ByteVar>(), optionsread.rawAddress.toCPointer<ByteVar>(), optionstotal.rawAddress.toCPointer<ByteVar>())
 
-public actual fun dhcpEnumOptionValuesV6(serveripaddress: Pcwstr, flags: UInt, classname: Pcwstr, vendorname: Pcwstr, scopeinfo: MutPtr<DhcpOptionScopeInfo6>, resumehandle: MutPtr<UInt>, preferredmaximum: UInt, optionvalues: MutPtr<MutPtr<DhcpOptionValueArray>>, optionsread: MutPtr<UInt>, optionstotal: MutPtr<UInt>): UInt =
+public actual fun dhcpEnumOptionValuesV6(serveripaddress: Pcwstr, flags: UInt, classname: Pcwstr, vendorname: Pcwstr, scopeinfo: MutPtr, resumehandle: MutPtr, preferredmaximum: UInt, optionvalues: MutPtr, optionsread: MutPtr, optionstotal: MutPtr): UInt =
     windowssysWindowsWin32NetworkmanagementDhcpDhcpEnumOptionValuesV6(serveripaddress.rawAddress.toCPointer<ByteVar>(), flags, classname.rawAddress.toCPointer<ByteVar>(), vendorname.rawAddress.toCPointer<ByteVar>(), scopeinfo.rawAddress.toCPointer<ByteVar>(), resumehandle.rawAddress.toCPointer<ByteVar>(), preferredmaximum, optionvalues.rawAddress.toCPointer<ByteVar>(), optionsread.rawAddress.toCPointer<ByteVar>(), optionstotal.rawAddress.toCPointer<ByteVar>())
 
-public actual fun dhcpEnumOptions(serveripaddress: Pcwstr, resumehandle: MutPtr<UInt>, preferredmaximum: UInt, options: MutPtr<MutPtr<DhcpOptionArray>>, optionsread: MutPtr<UInt>, optionstotal: MutPtr<UInt>): UInt =
+public actual fun dhcpEnumOptions(serveripaddress: Pcwstr, resumehandle: MutPtr, preferredmaximum: UInt, options: MutPtr, optionsread: MutPtr, optionstotal: MutPtr): UInt =
     windowssysWindowsWin32NetworkmanagementDhcpDhcpEnumOptions(serveripaddress.rawAddress.toCPointer<ByteVar>(), resumehandle.rawAddress.toCPointer<ByteVar>(), preferredmaximum, options.rawAddress.toCPointer<ByteVar>(), optionsread.rawAddress.toCPointer<ByteVar>(), optionstotal.rawAddress.toCPointer<ByteVar>())
 
-public actual fun dhcpEnumOptionsV5(serveripaddress: Pcwstr, flags: UInt, classname: Pcwstr, vendorname: Pcwstr, resumehandle: MutPtr<UInt>, preferredmaximum: UInt, options: MutPtr<MutPtr<DhcpOptionArray>>, optionsread: MutPtr<UInt>, optionstotal: MutPtr<UInt>): UInt =
+public actual fun dhcpEnumOptionsV5(serveripaddress: Pcwstr, flags: UInt, classname: Pcwstr, vendorname: Pcwstr, resumehandle: MutPtr, preferredmaximum: UInt, options: MutPtr, optionsread: MutPtr, optionstotal: MutPtr): UInt =
     windowssysWindowsWin32NetworkmanagementDhcpDhcpEnumOptionsV5(serveripaddress.rawAddress.toCPointer<ByteVar>(), flags, classname.rawAddress.toCPointer<ByteVar>(), vendorname.rawAddress.toCPointer<ByteVar>(), resumehandle.rawAddress.toCPointer<ByteVar>(), preferredmaximum, options.rawAddress.toCPointer<ByteVar>(), optionsread.rawAddress.toCPointer<ByteVar>(), optionstotal.rawAddress.toCPointer<ByteVar>())
 
-public actual fun dhcpEnumOptionsV6(serveripaddress: Pcwstr, flags: UInt, classname: Pcwstr, vendorname: Pcwstr, resumehandle: MutPtr<UInt>, preferredmaximum: UInt, options: MutPtr<MutPtr<DhcpOptionArray>>, optionsread: MutPtr<UInt>, optionstotal: MutPtr<UInt>): UInt =
+public actual fun dhcpEnumOptionsV6(serveripaddress: Pcwstr, flags: UInt, classname: Pcwstr, vendorname: Pcwstr, resumehandle: MutPtr, preferredmaximum: UInt, options: MutPtr, optionsread: MutPtr, optionstotal: MutPtr): UInt =
     windowssysWindowsWin32NetworkmanagementDhcpDhcpEnumOptionsV6(serveripaddress.rawAddress.toCPointer<ByteVar>(), flags, classname.rawAddress.toCPointer<ByteVar>(), vendorname.rawAddress.toCPointer<ByteVar>(), resumehandle.rawAddress.toCPointer<ByteVar>(), preferredmaximum, options.rawAddress.toCPointer<ByteVar>(), optionsread.rawAddress.toCPointer<ByteVar>(), optionstotal.rawAddress.toCPointer<ByteVar>())
 
-public actual fun dhcpEnumServers(flags: UInt, idinfo: MutPtr<CVoid>, servers: MutPtr<MutPtr<DhcpdsServers>>, callbackfn: MutPtr<CVoid>, callbackdata: MutPtr<CVoid>): UInt =
+public actual fun dhcpEnumServers(flags: UInt, idinfo: MutPtr, servers: MutPtr, callbackfn: MutPtr, callbackdata: MutPtr): UInt =
     windowssysWindowsWin32NetworkmanagementDhcpDhcpEnumServers(flags, idinfo.rawAddress.toCPointer<ByteVar>(), servers.rawAddress.toCPointer<ByteVar>(), callbackfn.rawAddress.toCPointer<ByteVar>(), callbackdata.rawAddress.toCPointer<ByteVar>())
 
-public actual fun dhcpEnumSubnetClients(serveripaddress: Pcwstr, subnetaddress: UInt, resumehandle: MutPtr<UInt>, preferredmaximum: UInt, clientinfo: MutPtr<MutPtr<DhcpClientInfoArray>>, clientsread: MutPtr<UInt>, clientstotal: MutPtr<UInt>): UInt =
+public actual fun dhcpEnumSubnetClients(serveripaddress: Pcwstr, subnetaddress: UInt, resumehandle: MutPtr, preferredmaximum: UInt, clientinfo: MutPtr, clientsread: MutPtr, clientstotal: MutPtr): UInt =
     windowssysWindowsWin32NetworkmanagementDhcpDhcpEnumSubnetClients(serveripaddress.rawAddress.toCPointer<ByteVar>(), subnetaddress, resumehandle.rawAddress.toCPointer<ByteVar>(), preferredmaximum, clientinfo.rawAddress.toCPointer<ByteVar>(), clientsread.rawAddress.toCPointer<ByteVar>(), clientstotal.rawAddress.toCPointer<ByteVar>())
 
-public actual fun dhcpEnumSubnetClientsFilterStatusInfo(serveripaddress: Pcwstr, subnetaddress: UInt, resumehandle: MutPtr<UInt>, preferredmaximum: UInt, clientinfo: MutPtr<MutPtr<DhcpClientFilterStatusInfoArray>>, clientsread: MutPtr<UInt>, clientstotal: MutPtr<UInt>): UInt =
+public actual fun dhcpEnumSubnetClientsFilterStatusInfo(serveripaddress: Pcwstr, subnetaddress: UInt, resumehandle: MutPtr, preferredmaximum: UInt, clientinfo: MutPtr, clientsread: MutPtr, clientstotal: MutPtr): UInt =
     windowssysWindowsWin32NetworkmanagementDhcpDhcpEnumSubnetClientsFilterStatusInfo(serveripaddress.rawAddress.toCPointer<ByteVar>(), subnetaddress, resumehandle.rawAddress.toCPointer<ByteVar>(), preferredmaximum, clientinfo.rawAddress.toCPointer<ByteVar>(), clientsread.rawAddress.toCPointer<ByteVar>(), clientstotal.rawAddress.toCPointer<ByteVar>())
 
-public actual fun dhcpEnumSubnetClientsV4(serveripaddress: Pcwstr, subnetaddress: UInt, resumehandle: MutPtr<UInt>, preferredmaximum: UInt, clientinfo: MutPtr<MutPtr<DhcpClientInfoArrayV4>>, clientsread: MutPtr<UInt>, clientstotal: MutPtr<UInt>): UInt =
+public actual fun dhcpEnumSubnetClientsV4(serveripaddress: Pcwstr, subnetaddress: UInt, resumehandle: MutPtr, preferredmaximum: UInt, clientinfo: MutPtr, clientsread: MutPtr, clientstotal: MutPtr): UInt =
     windowssysWindowsWin32NetworkmanagementDhcpDhcpEnumSubnetClientsV4(serveripaddress.rawAddress.toCPointer<ByteVar>(), subnetaddress, resumehandle.rawAddress.toCPointer<ByteVar>(), preferredmaximum, clientinfo.rawAddress.toCPointer<ByteVar>(), clientsread.rawAddress.toCPointer<ByteVar>(), clientstotal.rawAddress.toCPointer<ByteVar>())
 
-public actual fun dhcpEnumSubnetClientsV5(serveripaddress: Pcwstr, subnetaddress: UInt, resumehandle: MutPtr<UInt>, preferredmaximum: UInt, clientinfo: MutPtr<MutPtr<DhcpClientInfoArrayV5>>, clientsread: MutPtr<UInt>, clientstotal: MutPtr<UInt>): UInt =
+public actual fun dhcpEnumSubnetClientsV5(serveripaddress: Pcwstr, subnetaddress: UInt, resumehandle: MutPtr, preferredmaximum: UInt, clientinfo: MutPtr, clientsread: MutPtr, clientstotal: MutPtr): UInt =
     windowssysWindowsWin32NetworkmanagementDhcpDhcpEnumSubnetClientsV5(serveripaddress.rawAddress.toCPointer<ByteVar>(), subnetaddress, resumehandle.rawAddress.toCPointer<ByteVar>(), preferredmaximum, clientinfo.rawAddress.toCPointer<ByteVar>(), clientsread.rawAddress.toCPointer<ByteVar>(), clientstotal.rawAddress.toCPointer<ByteVar>())
 
-public actual fun dhcpEnumSubnetClientsV6(serveripaddress: Pcwstr, subnetaddress: DhcpIpv6Address, resumehandle: MutPtr<DhcpIpv6Address>, preferredmaximum: UInt, clientinfo: MutPtr<MutPtr<DhcpClientInfoArrayV6>>, clientsread: MutPtr<UInt>, clientstotal: MutPtr<UInt>): UInt =
+public actual fun dhcpEnumSubnetClientsV6(serveripaddress: Pcwstr, subnetaddress: DhcpIpv6Address, resumehandle: MutPtr, preferredmaximum: UInt, clientinfo: MutPtr, clientsread: MutPtr, clientstotal: MutPtr): UInt =
     0u
 
-public actual fun dhcpEnumSubnetClientsVQ(serveripaddress: Pcwstr, subnetaddress: UInt, resumehandle: MutPtr<UInt>, preferredmaximum: UInt, clientinfo: MutPtr<MutPtr<DhcpClientInfoArrayVq>>, clientsread: MutPtr<UInt>, clientstotal: MutPtr<UInt>): UInt =
+public actual fun dhcpEnumSubnetClientsVQ(serveripaddress: Pcwstr, subnetaddress: UInt, resumehandle: MutPtr, preferredmaximum: UInt, clientinfo: MutPtr, clientsread: MutPtr, clientstotal: MutPtr): UInt =
     windowssysWindowsWin32NetworkmanagementDhcpDhcpEnumSubnetClientsVQ(serveripaddress.rawAddress.toCPointer<ByteVar>(), subnetaddress, resumehandle.rawAddress.toCPointer<ByteVar>(), preferredmaximum, clientinfo.rawAddress.toCPointer<ByteVar>(), clientsread.rawAddress.toCPointer<ByteVar>(), clientstotal.rawAddress.toCPointer<ByteVar>())
 
-public actual fun dhcpEnumSubnetElements(serveripaddress: Pcwstr, subnetaddress: UInt, enumelementtype: DhcpSubnetElementType, resumehandle: MutPtr<UInt>, preferredmaximum: UInt, enumelementinfo: MutPtr<MutPtr<DhcpSubnetElementInfoArray>>, elementsread: MutPtr<UInt>, elementstotal: MutPtr<UInt>): UInt =
+public actual fun dhcpEnumSubnetElements(serveripaddress: Pcwstr, subnetaddress: UInt, enumelementtype: DhcpSubnetElementType, resumehandle: MutPtr, preferredmaximum: UInt, enumelementinfo: MutPtr, elementsread: MutPtr, elementstotal: MutPtr): UInt =
     windowssysWindowsWin32NetworkmanagementDhcpDhcpEnumSubnetElements(serveripaddress.rawAddress.toCPointer<ByteVar>(), subnetaddress, enumelementtype, resumehandle.rawAddress.toCPointer<ByteVar>(), preferredmaximum, enumelementinfo.rawAddress.toCPointer<ByteVar>(), elementsread.rawAddress.toCPointer<ByteVar>(), elementstotal.rawAddress.toCPointer<ByteVar>())
 
-public actual fun dhcpEnumSubnetElementsV4(serveripaddress: Pcwstr, subnetaddress: UInt, enumelementtype: DhcpSubnetElementType, resumehandle: MutPtr<UInt>, preferredmaximum: UInt, enumelementinfo: MutPtr<MutPtr<DhcpSubnetElementInfoArrayV4>>, elementsread: MutPtr<UInt>, elementstotal: MutPtr<UInt>): UInt =
+public actual fun dhcpEnumSubnetElementsV4(serveripaddress: Pcwstr, subnetaddress: UInt, enumelementtype: DhcpSubnetElementType, resumehandle: MutPtr, preferredmaximum: UInt, enumelementinfo: MutPtr, elementsread: MutPtr, elementstotal: MutPtr): UInt =
     windowssysWindowsWin32NetworkmanagementDhcpDhcpEnumSubnetElementsV4(serveripaddress.rawAddress.toCPointer<ByteVar>(), subnetaddress, enumelementtype, resumehandle.rawAddress.toCPointer<ByteVar>(), preferredmaximum, enumelementinfo.rawAddress.toCPointer<ByteVar>(), elementsread.rawAddress.toCPointer<ByteVar>(), elementstotal.rawAddress.toCPointer<ByteVar>())
 
-public actual fun dhcpEnumSubnetElementsV5(serveripaddress: Pcwstr, subnetaddress: UInt, enumelementtype: DhcpSubnetElementType, resumehandle: MutPtr<UInt>, preferredmaximum: UInt, enumelementinfo: MutPtr<MutPtr<DhcpSubnetElementInfoArrayV5>>, elementsread: MutPtr<UInt>, elementstotal: MutPtr<UInt>): UInt =
+public actual fun dhcpEnumSubnetElementsV5(serveripaddress: Pcwstr, subnetaddress: UInt, enumelementtype: DhcpSubnetElementType, resumehandle: MutPtr, preferredmaximum: UInt, enumelementinfo: MutPtr, elementsread: MutPtr, elementstotal: MutPtr): UInt =
     windowssysWindowsWin32NetworkmanagementDhcpDhcpEnumSubnetElementsV5(serveripaddress.rawAddress.toCPointer<ByteVar>(), subnetaddress, enumelementtype, resumehandle.rawAddress.toCPointer<ByteVar>(), preferredmaximum, enumelementinfo.rawAddress.toCPointer<ByteVar>(), elementsread.rawAddress.toCPointer<ByteVar>(), elementstotal.rawAddress.toCPointer<ByteVar>())
 
-public actual fun dhcpEnumSubnetElementsV6(serveripaddress: Pcwstr, subnetaddress: DhcpIpv6Address, enumelementtype: DhcpSubnetElementTypeV6, resumehandle: MutPtr<UInt>, preferredmaximum: UInt, enumelementinfo: MutPtr<MutPtr<DhcpSubnetElementInfoArrayV6>>, elementsread: MutPtr<UInt>, elementstotal: MutPtr<UInt>): UInt =
+public actual fun dhcpEnumSubnetElementsV6(serveripaddress: Pcwstr, subnetaddress: DhcpIpv6Address, enumelementtype: DhcpSubnetElementTypeV6, resumehandle: MutPtr, preferredmaximum: UInt, enumelementinfo: MutPtr, elementsread: MutPtr, elementstotal: MutPtr): UInt =
     0u
 
-public actual fun dhcpEnumSubnets(serveripaddress: Pcwstr, resumehandle: MutPtr<UInt>, preferredmaximum: UInt, enuminfo: MutPtr<MutPtr<DhcpIpArray>>, elementsread: MutPtr<UInt>, elementstotal: MutPtr<UInt>): UInt =
+public actual fun dhcpEnumSubnets(serveripaddress: Pcwstr, resumehandle: MutPtr, preferredmaximum: UInt, enuminfo: MutPtr, elementsread: MutPtr, elementstotal: MutPtr): UInt =
     windowssysWindowsWin32NetworkmanagementDhcpDhcpEnumSubnets(serveripaddress.rawAddress.toCPointer<ByteVar>(), resumehandle.rawAddress.toCPointer<ByteVar>(), preferredmaximum, enuminfo.rawAddress.toCPointer<ByteVar>(), elementsread.rawAddress.toCPointer<ByteVar>(), elementstotal.rawAddress.toCPointer<ByteVar>())
 
-public actual fun dhcpEnumSubnetsV6(serveripaddress: Pcwstr, resumehandle: MutPtr<UInt>, preferredmaximum: UInt, enuminfo: MutPtr<MutPtr<Dhcpv6IpArray>>, elementsread: MutPtr<UInt>, elementstotal: MutPtr<UInt>): UInt =
+public actual fun dhcpEnumSubnetsV6(serveripaddress: Pcwstr, resumehandle: MutPtr, preferredmaximum: UInt, enuminfo: MutPtr, elementsread: MutPtr, elementstotal: MutPtr): UInt =
     windowssysWindowsWin32NetworkmanagementDhcpDhcpEnumSubnetsV6(serveripaddress.rawAddress.toCPointer<ByteVar>(), resumehandle.rawAddress.toCPointer<ByteVar>(), preferredmaximum, enuminfo.rawAddress.toCPointer<ByteVar>(), elementsread.rawAddress.toCPointer<ByteVar>(), elementstotal.rawAddress.toCPointer<ByteVar>())
 
-public actual fun dhcpGetAllOptionValues(serveripaddress: Pcwstr, flags: UInt, scopeinfo: MutPtr<DhcpOptionScopeInfo>, values: MutPtr<MutPtr<DhcpAllOptionValues>>): UInt =
+public actual fun dhcpGetAllOptionValues(serveripaddress: Pcwstr, flags: UInt, scopeinfo: MutPtr, values: MutPtr): UInt =
     windowssysWindowsWin32NetworkmanagementDhcpDhcpGetAllOptionValues(serveripaddress.rawAddress.toCPointer<ByteVar>(), flags, scopeinfo.rawAddress.toCPointer<ByteVar>(), values.rawAddress.toCPointer<ByteVar>())
 
-public actual fun dhcpGetAllOptionValuesV6(serveripaddress: Pcwstr, flags: UInt, scopeinfo: MutPtr<DhcpOptionScopeInfo6>, values: MutPtr<MutPtr<DhcpAllOptionValues>>): UInt =
+public actual fun dhcpGetAllOptionValuesV6(serveripaddress: Pcwstr, flags: UInt, scopeinfo: MutPtr, values: MutPtr): UInt =
     windowssysWindowsWin32NetworkmanagementDhcpDhcpGetAllOptionValuesV6(serveripaddress.rawAddress.toCPointer<ByteVar>(), flags, scopeinfo.rawAddress.toCPointer<ByteVar>(), values.rawAddress.toCPointer<ByteVar>())
 
-public actual fun dhcpGetAllOptions(serveripaddress: Pcwstr, flags: UInt, optionstruct: MutPtr<MutPtr<DhcpAllOptions>>): UInt =
+public actual fun dhcpGetAllOptions(serveripaddress: Pcwstr, flags: UInt, optionstruct: MutPtr): UInt =
     windowssysWindowsWin32NetworkmanagementDhcpDhcpGetAllOptions(serveripaddress.rawAddress.toCPointer<ByteVar>(), flags, optionstruct.rawAddress.toCPointer<ByteVar>())
 
-public actual fun dhcpGetAllOptionsV6(serveripaddress: Pcwstr, flags: UInt, optionstruct: MutPtr<MutPtr<DhcpAllOptions>>): UInt =
+public actual fun dhcpGetAllOptionsV6(serveripaddress: Pcwstr, flags: UInt, optionstruct: MutPtr): UInt =
     windowssysWindowsWin32NetworkmanagementDhcpDhcpGetAllOptionsV6(serveripaddress.rawAddress.toCPointer<ByteVar>(), flags, optionstruct.rawAddress.toCPointer<ByteVar>())
 
-public actual fun dhcpGetClassInfo(serveripaddress: Pcwstr, reservedmustbezero: UInt, partialclassinfo: MutPtr<DhcpClassInfo>, filledclassinfo: MutPtr<MutPtr<DhcpClassInfo>>): UInt =
+public actual fun dhcpGetClassInfo(serveripaddress: Pcwstr, reservedmustbezero: UInt, partialclassinfo: MutPtr, filledclassinfo: MutPtr): UInt =
     windowssysWindowsWin32NetworkmanagementDhcpDhcpGetClassInfo(serveripaddress.rawAddress.toCPointer<ByteVar>(), reservedmustbezero, partialclassinfo.rawAddress.toCPointer<ByteVar>(), filledclassinfo.rawAddress.toCPointer<ByteVar>())
 
-public actual fun dhcpGetClientInfo(serveripaddress: Pcwstr, searchinfo: ConstPtr<DhcpSearchInfo>, clientinfo: MutPtr<MutPtr<DhcpClientInfo>>): UInt =
+public actual fun dhcpGetClientInfo(serveripaddress: Pcwstr, searchinfo: ConstPtr, clientinfo: MutPtr): UInt =
     windowssysWindowsWin32NetworkmanagementDhcpDhcpGetClientInfo(serveripaddress.rawAddress.toCPointer<ByteVar>(), searchinfo.rawAddress.toCPointer<ByteVar>(), clientinfo.rawAddress.toCPointer<ByteVar>())
 
-public actual fun dhcpGetClientInfoV4(serveripaddress: Pcwstr, searchinfo: ConstPtr<DhcpSearchInfo>, clientinfo: MutPtr<MutPtr<DhcpClientInfoV4>>): UInt =
+public actual fun dhcpGetClientInfoV4(serveripaddress: Pcwstr, searchinfo: ConstPtr, clientinfo: MutPtr): UInt =
     windowssysWindowsWin32NetworkmanagementDhcpDhcpGetClientInfoV4(serveripaddress.rawAddress.toCPointer<ByteVar>(), searchinfo.rawAddress.toCPointer<ByteVar>(), clientinfo.rawAddress.toCPointer<ByteVar>())
 
-public actual fun dhcpGetClientInfoV6(serveripaddress: Pcwstr, searchinfo: ConstPtr<DhcpSearchInfoV6>, clientinfo: MutPtr<MutPtr<DhcpClientInfoV6>>): UInt =
+public actual fun dhcpGetClientInfoV6(serveripaddress: Pcwstr, searchinfo: ConstPtr, clientinfo: MutPtr): UInt =
     windowssysWindowsWin32NetworkmanagementDhcpDhcpGetClientInfoV6(serveripaddress.rawAddress.toCPointer<ByteVar>(), searchinfo.rawAddress.toCPointer<ByteVar>(), clientinfo.rawAddress.toCPointer<ByteVar>())
 
-public actual fun dhcpGetClientInfoVQ(serveripaddress: Pcwstr, searchinfo: ConstPtr<DhcpSearchInfo>, clientinfo: MutPtr<MutPtr<DhcpClientInfoVq>>): UInt =
+public actual fun dhcpGetClientInfoVQ(serveripaddress: Pcwstr, searchinfo: ConstPtr, clientinfo: MutPtr): UInt =
     windowssysWindowsWin32NetworkmanagementDhcpDhcpGetClientInfoVQ(serveripaddress.rawAddress.toCPointer<ByteVar>(), searchinfo.rawAddress.toCPointer<ByteVar>(), clientinfo.rawAddress.toCPointer<ByteVar>())
 
-public actual fun dhcpGetClientOptions(serveripaddress: Pcwstr, clientipaddress: UInt, clientsubnetmask: UInt, clientoptions: MutPtr<MutPtr<DhcpOptionList>>): UInt =
+public actual fun dhcpGetClientOptions(serveripaddress: Pcwstr, clientipaddress: UInt, clientsubnetmask: UInt, clientoptions: MutPtr): UInt =
     windowssysWindowsWin32NetworkmanagementDhcpDhcpGetClientOptions(serveripaddress.rawAddress.toCPointer<ByteVar>(), clientipaddress, clientsubnetmask, clientoptions.rawAddress.toCPointer<ByteVar>())
 
-public actual fun dhcpGetFilterV4(serveripaddress: Pcwstr, globalfilterinfo: MutPtr<DhcpFilterGlobalInfo>): UInt =
+public actual fun dhcpGetFilterV4(serveripaddress: Pcwstr, globalfilterinfo: MutPtr): UInt =
     windowssysWindowsWin32NetworkmanagementDhcpDhcpGetFilterV4(serveripaddress.rawAddress.toCPointer<ByteVar>(), globalfilterinfo.rawAddress.toCPointer<ByteVar>())
 
-public actual fun dhcpGetMibInfo(serveripaddress: Pcwstr, mibinfo: MutPtr<MutPtr<DhcpMibInfo>>): UInt =
+public actual fun dhcpGetMibInfo(serveripaddress: Pcwstr, mibinfo: MutPtr): UInt =
     windowssysWindowsWin32NetworkmanagementDhcpDhcpGetMibInfo(serveripaddress.rawAddress.toCPointer<ByteVar>(), mibinfo.rawAddress.toCPointer<ByteVar>())
 
-public actual fun dhcpGetMibInfoV5(serveripaddress: Pcwstr, mibinfo: MutPtr<MutPtr<DhcpMibInfoV5>>): UInt =
+public actual fun dhcpGetMibInfoV5(serveripaddress: Pcwstr, mibinfo: MutPtr): UInt =
     windowssysWindowsWin32NetworkmanagementDhcpDhcpGetMibInfoV5(serveripaddress.rawAddress.toCPointer<ByteVar>(), mibinfo.rawAddress.toCPointer<ByteVar>())
 
-public actual fun dhcpGetMibInfoV6(serveripaddress: Pcwstr, mibinfo: MutPtr<MutPtr<DhcpMibInfoV6>>): UInt =
+public actual fun dhcpGetMibInfoV6(serveripaddress: Pcwstr, mibinfo: MutPtr): UInt =
     windowssysWindowsWin32NetworkmanagementDhcpDhcpGetMibInfoV6(serveripaddress.rawAddress.toCPointer<ByteVar>(), mibinfo.rawAddress.toCPointer<ByteVar>())
 
-public actual fun dhcpGetOptionInfo(serveripaddress: Pcwstr, optionid: UInt, optioninfo: MutPtr<MutPtr<DhcpOption>>): UInt =
+public actual fun dhcpGetOptionInfo(serveripaddress: Pcwstr, optionid: UInt, optioninfo: MutPtr): UInt =
     windowssysWindowsWin32NetworkmanagementDhcpDhcpGetOptionInfo(serveripaddress.rawAddress.toCPointer<ByteVar>(), optionid, optioninfo.rawAddress.toCPointer<ByteVar>())
 
-public actual fun dhcpGetOptionInfoV5(serveripaddress: Pcwstr, flags: UInt, optionid: UInt, classname: Pcwstr, vendorname: Pcwstr, optioninfo: MutPtr<MutPtr<DhcpOption>>): UInt =
+public actual fun dhcpGetOptionInfoV5(serveripaddress: Pcwstr, flags: UInt, optionid: UInt, classname: Pcwstr, vendorname: Pcwstr, optioninfo: MutPtr): UInt =
     windowssysWindowsWin32NetworkmanagementDhcpDhcpGetOptionInfoV5(serveripaddress.rawAddress.toCPointer<ByteVar>(), flags, optionid, classname.rawAddress.toCPointer<ByteVar>(), vendorname.rawAddress.toCPointer<ByteVar>(), optioninfo.rawAddress.toCPointer<ByteVar>())
 
-public actual fun dhcpGetOptionInfoV6(serveripaddress: Pcwstr, flags: UInt, optionid: UInt, classname: Pcwstr, vendorname: Pcwstr, optioninfo: MutPtr<MutPtr<DhcpOption>>): UInt =
+public actual fun dhcpGetOptionInfoV6(serveripaddress: Pcwstr, flags: UInt, optionid: UInt, classname: Pcwstr, vendorname: Pcwstr, optioninfo: MutPtr): UInt =
     windowssysWindowsWin32NetworkmanagementDhcpDhcpGetOptionInfoV6(serveripaddress.rawAddress.toCPointer<ByteVar>(), flags, optionid, classname.rawAddress.toCPointer<ByteVar>(), vendorname.rawAddress.toCPointer<ByteVar>(), optioninfo.rawAddress.toCPointer<ByteVar>())
 
-public actual fun dhcpGetOptionValue(serveripaddress: Pcwstr, optionid: UInt, scopeinfo: ConstPtr<DhcpOptionScopeInfo>, optionvalue: MutPtr<MutPtr<DhcpOptionValue>>): UInt =
+public actual fun dhcpGetOptionValue(serveripaddress: Pcwstr, optionid: UInt, scopeinfo: ConstPtr, optionvalue: MutPtr): UInt =
     windowssysWindowsWin32NetworkmanagementDhcpDhcpGetOptionValue(serveripaddress.rawAddress.toCPointer<ByteVar>(), optionid, scopeinfo.rawAddress.toCPointer<ByteVar>(), optionvalue.rawAddress.toCPointer<ByteVar>())
 
-public actual fun dhcpGetOptionValueV5(serveripaddress: Pcwstr, flags: UInt, optionid: UInt, classname: Pcwstr, vendorname: Pcwstr, scopeinfo: MutPtr<DhcpOptionScopeInfo>, optionvalue: MutPtr<MutPtr<DhcpOptionValue>>): UInt =
+public actual fun dhcpGetOptionValueV5(serveripaddress: Pcwstr, flags: UInt, optionid: UInt, classname: Pcwstr, vendorname: Pcwstr, scopeinfo: MutPtr, optionvalue: MutPtr): UInt =
     windowssysWindowsWin32NetworkmanagementDhcpDhcpGetOptionValueV5(serveripaddress.rawAddress.toCPointer<ByteVar>(), flags, optionid, classname.rawAddress.toCPointer<ByteVar>(), vendorname.rawAddress.toCPointer<ByteVar>(), scopeinfo.rawAddress.toCPointer<ByteVar>(), optionvalue.rawAddress.toCPointer<ByteVar>())
 
-public actual fun dhcpGetOptionValueV6(serveripaddress: Pcwstr, flags: UInt, optionid: UInt, classname: Pcwstr, vendorname: Pcwstr, scopeinfo: MutPtr<DhcpOptionScopeInfo6>, optionvalue: MutPtr<MutPtr<DhcpOptionValue>>): UInt =
+public actual fun dhcpGetOptionValueV6(serveripaddress: Pcwstr, flags: UInt, optionid: UInt, classname: Pcwstr, vendorname: Pcwstr, scopeinfo: MutPtr, optionvalue: MutPtr): UInt =
     windowssysWindowsWin32NetworkmanagementDhcpDhcpGetOptionValueV6(serveripaddress.rawAddress.toCPointer<ByteVar>(), flags, optionid, classname.rawAddress.toCPointer<ByteVar>(), vendorname.rawAddress.toCPointer<ByteVar>(), scopeinfo.rawAddress.toCPointer<ByteVar>(), optionvalue.rawAddress.toCPointer<ByteVar>())
 
-public actual fun dhcpGetOriginalSubnetMask(sadaptername: Pcwstr, dwsubnetmask: MutPtr<UInt>): UInt =
+public actual fun dhcpGetOriginalSubnetMask(sadaptername: Pcwstr, dwsubnetmask: MutPtr): UInt =
     windowssysWindowsWin32NetworkmanagementDhcpDhcpGetOriginalSubnetMask(sadaptername.rawAddress.toCPointer<ByteVar>(), dwsubnetmask.rawAddress.toCPointer<ByteVar>())
 
-public actual fun dhcpGetServerBindingInfo(serveripaddress: Pcwstr, flags: UInt, bindelementsinfo: MutPtr<MutPtr<DhcpBindElementArray>>): UInt =
+public actual fun dhcpGetServerBindingInfo(serveripaddress: Pcwstr, flags: UInt, bindelementsinfo: MutPtr): UInt =
     windowssysWindowsWin32NetworkmanagementDhcpDhcpGetServerBindingInfo(serveripaddress.rawAddress.toCPointer<ByteVar>(), flags, bindelementsinfo.rawAddress.toCPointer<ByteVar>())
 
-public actual fun dhcpGetServerBindingInfoV6(serveripaddress: Pcwstr, flags: UInt, bindelementsinfo: MutPtr<MutPtr<Dhcpv6BindElementArray>>): UInt =
+public actual fun dhcpGetServerBindingInfoV6(serveripaddress: Pcwstr, flags: UInt, bindelementsinfo: MutPtr): UInt =
     windowssysWindowsWin32NetworkmanagementDhcpDhcpGetServerBindingInfoV6(serveripaddress.rawAddress.toCPointer<ByteVar>(), flags, bindelementsinfo.rawAddress.toCPointer<ByteVar>())
 
-public actual fun dhcpGetServerSpecificStrings(serveripaddress: Pcwstr, serverspecificstrings: MutPtr<MutPtr<DhcpServerSpecificStrings>>): UInt =
+public actual fun dhcpGetServerSpecificStrings(serveripaddress: Pcwstr, serverspecificstrings: MutPtr): UInt =
     windowssysWindowsWin32NetworkmanagementDhcpDhcpGetServerSpecificStrings(serveripaddress.rawAddress.toCPointer<ByteVar>(), serverspecificstrings.rawAddress.toCPointer<ByteVar>())
 
-public actual fun dhcpGetSubnetDelayOffer(serveripaddress: Pcwstr, subnetaddress: UInt, timedelayinmilliseconds: MutPtr<UShort>): UInt =
+public actual fun dhcpGetSubnetDelayOffer(serveripaddress: Pcwstr, subnetaddress: UInt, timedelayinmilliseconds: MutPtr): UInt =
     windowssysWindowsWin32NetworkmanagementDhcpDhcpGetSubnetDelayOffer(serveripaddress.rawAddress.toCPointer<ByteVar>(), subnetaddress, timedelayinmilliseconds.rawAddress.toCPointer<ByteVar>())
 
-public actual fun dhcpGetSubnetInfo(serveripaddress: Pcwstr, subnetaddress: UInt, subnetinfo: MutPtr<MutPtr<DhcpSubnetInfo>>): UInt =
+public actual fun dhcpGetSubnetInfo(serveripaddress: Pcwstr, subnetaddress: UInt, subnetinfo: MutPtr): UInt =
     windowssysWindowsWin32NetworkmanagementDhcpDhcpGetSubnetInfo(serveripaddress.rawAddress.toCPointer<ByteVar>(), subnetaddress, subnetinfo.rawAddress.toCPointer<ByteVar>())
 
-public actual fun dhcpGetSubnetInfoV6(serveripaddress: Pcwstr, subnetaddress: DhcpIpv6Address, subnetinfo: MutPtr<MutPtr<DhcpSubnetInfoV6>>): UInt =
+public actual fun dhcpGetSubnetInfoV6(serveripaddress: Pcwstr, subnetaddress: DhcpIpv6Address, subnetinfo: MutPtr): UInt =
     0u
 
-public actual fun dhcpGetSubnetInfoVQ(serveripaddress: Pcwstr, subnetaddress: UInt, subnetinfo: MutPtr<MutPtr<DhcpSubnetInfoVq>>): UInt =
+public actual fun dhcpGetSubnetInfoVQ(serveripaddress: Pcwstr, subnetaddress: UInt, subnetinfo: MutPtr): UInt =
     windowssysWindowsWin32NetworkmanagementDhcpDhcpGetSubnetInfoVQ(serveripaddress.rawAddress.toCPointer<ByteVar>(), subnetaddress, subnetinfo.rawAddress.toCPointer<ByteVar>())
 
-public actual fun dhcpGetSuperScopeInfoV4(serveripaddress: Pcwstr, superscopetable: MutPtr<MutPtr<DhcpSuperScopeTable>>): UInt =
+public actual fun dhcpGetSuperScopeInfoV4(serveripaddress: Pcwstr, superscopetable: MutPtr): UInt =
     windowssysWindowsWin32NetworkmanagementDhcpDhcpGetSuperScopeInfoV4(serveripaddress.rawAddress.toCPointer<ByteVar>(), superscopetable.rawAddress.toCPointer<ByteVar>())
 
-public actual fun dhcpGetThreadOptions(pflags: MutPtr<UInt>, reserved: MutPtr<CVoid>): UInt =
+public actual fun dhcpGetThreadOptions(pflags: MutPtr, reserved: MutPtr): UInt =
     windowssysWindowsWin32NetworkmanagementDhcpDhcpGetThreadOptions(pflags.rawAddress.toCPointer<ByteVar>(), reserved.rawAddress.toCPointer<ByteVar>())
 
-public actual fun dhcpGetVersion(serveripaddress: Pcwstr, majorversion: MutPtr<UInt>, minorversion: MutPtr<UInt>): UInt =
+public actual fun dhcpGetVersion(serveripaddress: Pcwstr, majorversion: MutPtr, minorversion: MutPtr): UInt =
     windowssysWindowsWin32NetworkmanagementDhcpDhcpGetVersion(serveripaddress.rawAddress.toCPointer<ByteVar>(), majorversion.rawAddress.toCPointer<ByteVar>(), minorversion.rawAddress.toCPointer<ByteVar>())
 
-public actual fun dhcpHlprAddV4PolicyCondition(policy: MutPtr<DhcpPolicy>, parentexpr: UInt, type: DhcpPolAttrType, optionid: UInt, suboptionid: UInt, vendorname: Pcwstr, operator: DhcpPolComparator, value: ConstPtr<UByte>, valuelength: UInt, conditionindex: MutPtr<UInt>): UInt =
+public actual fun dhcpHlprAddV4PolicyCondition(policy: MutPtr, parentexpr: UInt, type: DhcpPolAttrType, optionid: UInt, suboptionid: UInt, vendorname: Pcwstr, operator: DhcpPolComparator, value: ConstPtr, valuelength: UInt, conditionindex: MutPtr): UInt =
     windowssysWindowsWin32NetworkmanagementDhcpDhcpHlprAddV4PolicyCondition(policy.rawAddress.toCPointer<ByteVar>(), parentexpr, type, optionid, suboptionid, vendorname.rawAddress.toCPointer<ByteVar>(), operator, value.rawAddress.toCPointer<ByteVar>(), valuelength, conditionindex.rawAddress.toCPointer<ByteVar>())
 
-public actual fun dhcpHlprAddV4PolicyExpr(policy: MutPtr<DhcpPolicy>, parentexpr: UInt, operator: DhcpPolLogicOper, exprindex: MutPtr<UInt>): UInt =
+public actual fun dhcpHlprAddV4PolicyExpr(policy: MutPtr, parentexpr: UInt, operator: DhcpPolLogicOper, exprindex: MutPtr): UInt =
     windowssysWindowsWin32NetworkmanagementDhcpDhcpHlprAddV4PolicyExpr(policy.rawAddress.toCPointer<ByteVar>(), parentexpr, operator, exprindex.rawAddress.toCPointer<ByteVar>())
 
-public actual fun dhcpHlprAddV4PolicyRange(policy: MutPtr<DhcpPolicy>, range: ConstPtr<DhcpIpRange>): UInt =
+public actual fun dhcpHlprAddV4PolicyRange(policy: MutPtr, range: ConstPtr): UInt =
     windowssysWindowsWin32NetworkmanagementDhcpDhcpHlprAddV4PolicyRange(policy.rawAddress.toCPointer<ByteVar>(), range.rawAddress.toCPointer<ByteVar>())
 
-public actual fun dhcpHlprCreateV4Policy(policyname: Pcwstr, fglobalpolicy: Bool, subnet: UInt, processingorder: UInt, rootoperator: DhcpPolLogicOper, description: Pcwstr, enabled: Bool, policy: MutPtr<MutPtr<DhcpPolicy>>): UInt =
+public actual fun dhcpHlprCreateV4Policy(policyname: Pcwstr, fglobalpolicy: Bool, subnet: UInt, processingorder: UInt, rootoperator: DhcpPolLogicOper, description: Pcwstr, enabled: Bool, policy: MutPtr): UInt =
     windowssysWindowsWin32NetworkmanagementDhcpDhcpHlprCreateV4Policy(policyname.rawAddress.toCPointer<ByteVar>(), fglobalpolicy, subnet, processingorder, rootoperator, description.rawAddress.toCPointer<ByteVar>(), enabled, policy.rawAddress.toCPointer<ByteVar>())
 
-public actual fun dhcpHlprCreateV4PolicyEx(policyname: Pcwstr, fglobalpolicy: Bool, subnet: UInt, processingorder: UInt, rootoperator: DhcpPolLogicOper, description: Pcwstr, enabled: Bool, policy: MutPtr<MutPtr<DhcpPolicyEx>>): UInt =
+public actual fun dhcpHlprCreateV4PolicyEx(policyname: Pcwstr, fglobalpolicy: Bool, subnet: UInt, processingorder: UInt, rootoperator: DhcpPolLogicOper, description: Pcwstr, enabled: Bool, policy: MutPtr): UInt =
     windowssysWindowsWin32NetworkmanagementDhcpDhcpHlprCreateV4PolicyEx(policyname.rawAddress.toCPointer<ByteVar>(), fglobalpolicy, subnet, processingorder, rootoperator, description.rawAddress.toCPointer<ByteVar>(), enabled, policy.rawAddress.toCPointer<ByteVar>())
 
-public actual fun dhcpHlprFindV4DhcpProperty(propertyarray: ConstPtr<DhcpPropertyArray>, id: DhcpPropertyId, type: DhcpPropertyType): MutPtr<DhcpProperty> =
+public actual fun dhcpHlprFindV4DhcpProperty(propertyarray: ConstPtr, id: DhcpPropertyId, type: DhcpPropertyType): MutPtr =
     MutPtr(windowssysWindowsWin32NetworkmanagementDhcpDhcpHlprFindV4DhcpProperty(propertyarray.rawAddress.toCPointer<ByteVar>(), id, type)?.toLong() ?: 0L)
 
-public actual fun dhcpHlprFreeV4DhcpProperty(property: MutPtr<DhcpProperty>) {
+public actual fun dhcpHlprFreeV4DhcpProperty(property: MutPtr) {
     windowssysWindowsWin32NetworkmanagementDhcpDhcpHlprFreeV4DhcpProperty(property.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun dhcpHlprFreeV4DhcpPropertyArray(propertyarray: MutPtr<DhcpPropertyArray>) {
+public actual fun dhcpHlprFreeV4DhcpPropertyArray(propertyarray: MutPtr) {
     windowssysWindowsWin32NetworkmanagementDhcpDhcpHlprFreeV4DhcpPropertyArray(propertyarray.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun dhcpHlprFreeV4Policy(policy: MutPtr<DhcpPolicy>) {
+public actual fun dhcpHlprFreeV4Policy(policy: MutPtr) {
     windowssysWindowsWin32NetworkmanagementDhcpDhcpHlprFreeV4Policy(policy.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun dhcpHlprFreeV4PolicyArray(policyarray: MutPtr<DhcpPolicyArray>) {
+public actual fun dhcpHlprFreeV4PolicyArray(policyarray: MutPtr) {
     windowssysWindowsWin32NetworkmanagementDhcpDhcpHlprFreeV4PolicyArray(policyarray.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun dhcpHlprFreeV4PolicyEx(policyex: MutPtr<DhcpPolicyEx>) {
+public actual fun dhcpHlprFreeV4PolicyEx(policyex: MutPtr) {
     windowssysWindowsWin32NetworkmanagementDhcpDhcpHlprFreeV4PolicyEx(policyex.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun dhcpHlprFreeV4PolicyExArray(policyexarray: MutPtr<DhcpPolicyExArray>) {
+public actual fun dhcpHlprFreeV4PolicyExArray(policyexarray: MutPtr) {
     windowssysWindowsWin32NetworkmanagementDhcpDhcpHlprFreeV4PolicyExArray(policyexarray.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun dhcpHlprIsV4PolicySingleUC(policy: ConstPtr<DhcpPolicy>): Bool =
+public actual fun dhcpHlprIsV4PolicySingleUC(policy: ConstPtr): Bool =
     windowssysWindowsWin32NetworkmanagementDhcpDhcpHlprIsV4PolicySingleUC(policy.rawAddress.toCPointer<ByteVar>())
 
-public actual fun dhcpHlprIsV4PolicyValid(ppolicy: ConstPtr<DhcpPolicy>): UInt =
+public actual fun dhcpHlprIsV4PolicyValid(ppolicy: ConstPtr): UInt =
     windowssysWindowsWin32NetworkmanagementDhcpDhcpHlprIsV4PolicyValid(ppolicy.rawAddress.toCPointer<ByteVar>())
 
-public actual fun dhcpHlprIsV4PolicyWellFormed(ppolicy: ConstPtr<DhcpPolicy>): Bool =
+public actual fun dhcpHlprIsV4PolicyWellFormed(ppolicy: ConstPtr): Bool =
     windowssysWindowsWin32NetworkmanagementDhcpDhcpHlprIsV4PolicyWellFormed(ppolicy.rawAddress.toCPointer<ByteVar>())
 
-public actual fun dhcpHlprModifyV4PolicyExpr(policy: MutPtr<DhcpPolicy>, operator: DhcpPolLogicOper): UInt =
+public actual fun dhcpHlprModifyV4PolicyExpr(policy: MutPtr, operator: DhcpPolLogicOper): UInt =
     windowssysWindowsWin32NetworkmanagementDhcpDhcpHlprModifyV4PolicyExpr(policy.rawAddress.toCPointer<ByteVar>(), operator)
 
-public actual fun dhcpHlprResetV4PolicyExpr(policy: MutPtr<DhcpPolicy>): UInt =
+public actual fun dhcpHlprResetV4PolicyExpr(policy: MutPtr): UInt =
     windowssysWindowsWin32NetworkmanagementDhcpDhcpHlprResetV4PolicyExpr(policy.rawAddress.toCPointer<ByteVar>())
 
-public actual fun dhcpModifyClass(serveripaddress: Pcwstr, reservedmustbezero: UInt, classinfo: MutPtr<DhcpClassInfo>): UInt =
+public actual fun dhcpModifyClass(serveripaddress: Pcwstr, reservedmustbezero: UInt, classinfo: MutPtr): UInt =
     windowssysWindowsWin32NetworkmanagementDhcpDhcpModifyClass(serveripaddress.rawAddress.toCPointer<ByteVar>(), reservedmustbezero, classinfo.rawAddress.toCPointer<ByteVar>())
 
-public actual fun dhcpModifyClassV6(serveripaddress: Pcwstr, reservedmustbezero: UInt, classinfo: MutPtr<DhcpClassInfoV6>): UInt =
+public actual fun dhcpModifyClassV6(serveripaddress: Pcwstr, reservedmustbezero: UInt, classinfo: MutPtr): UInt =
     windowssysWindowsWin32NetworkmanagementDhcpDhcpModifyClassV6(serveripaddress.rawAddress.toCPointer<ByteVar>(), reservedmustbezero, classinfo.rawAddress.toCPointer<ByteVar>())
 
-public actual fun dhcpRegisterParamChange(flags: UInt, reserved: ConstPtr<CVoid>, adaptername: Pcwstr, classid: MutPtr<DhcpcapiClassid>, params: DhcpcapiParamsArray, handle: MutPtr<CVoid>): UInt =
+public actual fun dhcpRegisterParamChange(flags: UInt, reserved: ConstPtr, adaptername: Pcwstr, classid: MutPtr, params: DhcpcapiParamsArray, handle: MutPtr): UInt =
     0u
 
 public actual fun dhcpRemoveDNSRegistrations(): UInt =
@@ -549,60 +548,60 @@ public actual fun dhcpRemoveOptionV5(serveripaddress: Pcwstr, flags: UInt, optio
 public actual fun dhcpRemoveOptionV6(serveripaddress: Pcwstr, flags: UInt, optionid: UInt, classname: Pcwstr, vendorname: Pcwstr): UInt =
     windowssysWindowsWin32NetworkmanagementDhcpDhcpRemoveOptionV6(serveripaddress.rawAddress.toCPointer<ByteVar>(), flags, optionid, classname.rawAddress.toCPointer<ByteVar>(), vendorname.rawAddress.toCPointer<ByteVar>())
 
-public actual fun dhcpRemoveOptionValue(serveripaddress: Pcwstr, optionid: UInt, scopeinfo: ConstPtr<DhcpOptionScopeInfo>): UInt =
+public actual fun dhcpRemoveOptionValue(serveripaddress: Pcwstr, optionid: UInt, scopeinfo: ConstPtr): UInt =
     windowssysWindowsWin32NetworkmanagementDhcpDhcpRemoveOptionValue(serveripaddress.rawAddress.toCPointer<ByteVar>(), optionid, scopeinfo.rawAddress.toCPointer<ByteVar>())
 
-public actual fun dhcpRemoveOptionValueV5(serveripaddress: Pcwstr, flags: UInt, optionid: UInt, classname: Pcwstr, vendorname: Pcwstr, scopeinfo: MutPtr<DhcpOptionScopeInfo>): UInt =
+public actual fun dhcpRemoveOptionValueV5(serveripaddress: Pcwstr, flags: UInt, optionid: UInt, classname: Pcwstr, vendorname: Pcwstr, scopeinfo: MutPtr): UInt =
     windowssysWindowsWin32NetworkmanagementDhcpDhcpRemoveOptionValueV5(serveripaddress.rawAddress.toCPointer<ByteVar>(), flags, optionid, classname.rawAddress.toCPointer<ByteVar>(), vendorname.rawAddress.toCPointer<ByteVar>(), scopeinfo.rawAddress.toCPointer<ByteVar>())
 
-public actual fun dhcpRemoveOptionValueV6(serveripaddress: Pcwstr, flags: UInt, optionid: UInt, classname: Pcwstr, vendorname: Pcwstr, scopeinfo: MutPtr<DhcpOptionScopeInfo6>): UInt =
+public actual fun dhcpRemoveOptionValueV6(serveripaddress: Pcwstr, flags: UInt, optionid: UInt, classname: Pcwstr, vendorname: Pcwstr, scopeinfo: MutPtr): UInt =
     windowssysWindowsWin32NetworkmanagementDhcpDhcpRemoveOptionValueV6(serveripaddress.rawAddress.toCPointer<ByteVar>(), flags, optionid, classname.rawAddress.toCPointer<ByteVar>(), vendorname.rawAddress.toCPointer<ByteVar>(), scopeinfo.rawAddress.toCPointer<ByteVar>())
 
-public actual fun dhcpRemoveSubnetElement(serveripaddress: Pcwstr, subnetaddress: UInt, removeelementinfo: ConstPtr<DhcpSubnetElementData>, forceflag: DhcpForceFlag): UInt =
+public actual fun dhcpRemoveSubnetElement(serveripaddress: Pcwstr, subnetaddress: UInt, removeelementinfo: ConstPtr, forceflag: DhcpForceFlag): UInt =
     windowssysWindowsWin32NetworkmanagementDhcpDhcpRemoveSubnetElement(serveripaddress.rawAddress.toCPointer<ByteVar>(), subnetaddress, removeelementinfo.rawAddress.toCPointer<ByteVar>(), forceflag)
 
-public actual fun dhcpRemoveSubnetElementV4(serveripaddress: Pcwstr, subnetaddress: UInt, removeelementinfo: ConstPtr<DhcpSubnetElementDataV4>, forceflag: DhcpForceFlag): UInt =
+public actual fun dhcpRemoveSubnetElementV4(serveripaddress: Pcwstr, subnetaddress: UInt, removeelementinfo: ConstPtr, forceflag: DhcpForceFlag): UInt =
     windowssysWindowsWin32NetworkmanagementDhcpDhcpRemoveSubnetElementV4(serveripaddress.rawAddress.toCPointer<ByteVar>(), subnetaddress, removeelementinfo.rawAddress.toCPointer<ByteVar>(), forceflag)
 
-public actual fun dhcpRemoveSubnetElementV5(serveripaddress: Pcwstr, subnetaddress: UInt, removeelementinfo: ConstPtr<DhcpSubnetElementDataV5>, forceflag: DhcpForceFlag): UInt =
+public actual fun dhcpRemoveSubnetElementV5(serveripaddress: Pcwstr, subnetaddress: UInt, removeelementinfo: ConstPtr, forceflag: DhcpForceFlag): UInt =
     windowssysWindowsWin32NetworkmanagementDhcpDhcpRemoveSubnetElementV5(serveripaddress.rawAddress.toCPointer<ByteVar>(), subnetaddress, removeelementinfo.rawAddress.toCPointer<ByteVar>(), forceflag)
 
-public actual fun dhcpRemoveSubnetElementV6(serveripaddress: Pcwstr, subnetaddress: DhcpIpv6Address, removeelementinfo: MutPtr<DhcpSubnetElementDataV6>, forceflag: DhcpForceFlag): UInt =
+public actual fun dhcpRemoveSubnetElementV6(serveripaddress: Pcwstr, subnetaddress: DhcpIpv6Address, removeelementinfo: MutPtr, forceflag: DhcpForceFlag): UInt =
     0u
 
-public actual fun dhcpRequestParams(flags: UInt, reserved: MutPtr<CVoid>, adaptername: Pcwstr, classid: MutPtr<DhcpcapiClassid>, sendparams: DhcpcapiParamsArray, recdparams: DhcpcapiParamsArray, buffer: MutPtr<UByte>, psize: MutPtr<UInt>, requestidstr: Pcwstr): UInt =
+public actual fun dhcpRequestParams(flags: UInt, reserved: MutPtr, adaptername: Pcwstr, classid: MutPtr, sendparams: DhcpcapiParamsArray, recdparams: DhcpcapiParamsArray, buffer: MutPtr, psize: MutPtr, requestidstr: Pcwstr): UInt =
     0u
 
-public actual fun dhcpRpcFreeMemory(bufferpointer: MutPtr<CVoid>) {
+public actual fun dhcpRpcFreeMemory(bufferpointer: MutPtr) {
     windowssysWindowsWin32NetworkmanagementDhcpDhcpRpcFreeMemory(bufferpointer.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun dhcpScanDatabase(serveripaddress: Pcwstr, subnetaddress: UInt, fixflag: UInt, scanlist: MutPtr<MutPtr<DhcpScanList>>): UInt =
+public actual fun dhcpScanDatabase(serveripaddress: Pcwstr, subnetaddress: UInt, fixflag: UInt, scanlist: MutPtr): UInt =
     windowssysWindowsWin32NetworkmanagementDhcpDhcpScanDatabase(serveripaddress.rawAddress.toCPointer<ByteVar>(), subnetaddress, fixflag, scanlist.rawAddress.toCPointer<ByteVar>())
 
-public actual fun dhcpServerAuditlogParamsFree(configinfo: MutPtr<DhcpServerConfigInfoVq>) {
+public actual fun dhcpServerAuditlogParamsFree(configinfo: MutPtr) {
     windowssysWindowsWin32NetworkmanagementDhcpDhcpServerAuditlogParamsFree(configinfo.rawAddress.toCPointer<ByteVar>())
 }
 
 public actual fun dhcpServerBackupDatabase(serveripaddress: Pcwstr, path: Pcwstr): UInt =
     windowssysWindowsWin32NetworkmanagementDhcpDhcpServerBackupDatabase(serveripaddress.rawAddress.toCPointer<ByteVar>(), path.rawAddress.toCPointer<ByteVar>())
 
-public actual fun dhcpServerGetConfig(serveripaddress: Pcwstr, configinfo: MutPtr<MutPtr<DhcpServerConfigInfo>>): UInt =
+public actual fun dhcpServerGetConfig(serveripaddress: Pcwstr, configinfo: MutPtr): UInt =
     windowssysWindowsWin32NetworkmanagementDhcpDhcpServerGetConfig(serveripaddress.rawAddress.toCPointer<ByteVar>(), configinfo.rawAddress.toCPointer<ByteVar>())
 
-public actual fun dhcpServerGetConfigV4(serveripaddress: Pcwstr, configinfo: MutPtr<MutPtr<DhcpServerConfigInfoV4>>): UInt =
+public actual fun dhcpServerGetConfigV4(serveripaddress: Pcwstr, configinfo: MutPtr): UInt =
     windowssysWindowsWin32NetworkmanagementDhcpDhcpServerGetConfigV4(serveripaddress.rawAddress.toCPointer<ByteVar>(), configinfo.rawAddress.toCPointer<ByteVar>())
 
-public actual fun dhcpServerGetConfigV6(serveripaddress: Pcwstr, scopeinfo: MutPtr<DhcpOptionScopeInfo6>, configinfo: MutPtr<MutPtr<DhcpServerConfigInfoV6>>): UInt =
+public actual fun dhcpServerGetConfigV6(serveripaddress: Pcwstr, scopeinfo: MutPtr, configinfo: MutPtr): UInt =
     windowssysWindowsWin32NetworkmanagementDhcpDhcpServerGetConfigV6(serveripaddress.rawAddress.toCPointer<ByteVar>(), scopeinfo.rawAddress.toCPointer<ByteVar>(), configinfo.rawAddress.toCPointer<ByteVar>())
 
-public actual fun dhcpServerGetConfigVQ(serveripaddress: Pcwstr, configinfo: MutPtr<MutPtr<DhcpServerConfigInfoVq>>): UInt =
+public actual fun dhcpServerGetConfigVQ(serveripaddress: Pcwstr, configinfo: MutPtr): UInt =
     windowssysWindowsWin32NetworkmanagementDhcpDhcpServerGetConfigVQ(serveripaddress.rawAddress.toCPointer<ByteVar>(), configinfo.rawAddress.toCPointer<ByteVar>())
 
-public actual fun dhcpServerQueryAttribute(serveripaddr: Pcwstr, dwreserved: UInt, dhcpattribid: UInt, pdhcpattrib: MutPtr<MutPtr<DhcpAttrib>>): UInt =
+public actual fun dhcpServerQueryAttribute(serveripaddr: Pcwstr, dwreserved: UInt, dhcpattribid: UInt, pdhcpattrib: MutPtr): UInt =
     windowssysWindowsWin32NetworkmanagementDhcpDhcpServerQueryAttribute(serveripaddr.rawAddress.toCPointer<ByteVar>(), dwreserved, dhcpattribid, pdhcpattrib.rawAddress.toCPointer<ByteVar>())
 
-public actual fun dhcpServerQueryAttributes(serveripaddr: Pcwstr, dwreserved: UInt, dwattribcount: UInt, pdhcpattribs: MutPtr<UInt>, pdhcpattribarr: MutPtr<MutPtr<DhcpAttribArray>>): UInt =
+public actual fun dhcpServerQueryAttributes(serveripaddr: Pcwstr, dwreserved: UInt, dwattribcount: UInt, pdhcpattribs: MutPtr, pdhcpattribarr: MutPtr): UInt =
     windowssysWindowsWin32NetworkmanagementDhcpDhcpServerQueryAttributes(serveripaddr.rawAddress.toCPointer<ByteVar>(), dwreserved, dwattribcount, pdhcpattribs.rawAddress.toCPointer<ByteVar>(), pdhcpattribarr.rawAddress.toCPointer<ByteVar>())
 
 public actual fun dhcpServerQueryDnsRegCredentials(serveripaddress: Pcwstr, unamesize: UInt, uname: Pwstr, domainsize: UInt, domain: Pwstr): UInt =
@@ -614,16 +613,16 @@ public actual fun dhcpServerRedoAuthorization(serveripaddr: Pcwstr, dwreserved: 
 public actual fun dhcpServerRestoreDatabase(serveripaddress: Pcwstr, path: Pcwstr): UInt =
     windowssysWindowsWin32NetworkmanagementDhcpDhcpServerRestoreDatabase(serveripaddress.rawAddress.toCPointer<ByteVar>(), path.rawAddress.toCPointer<ByteVar>())
 
-public actual fun dhcpServerSetConfig(serveripaddress: Pcwstr, fieldstoset: UInt, configinfo: MutPtr<DhcpServerConfigInfo>): UInt =
+public actual fun dhcpServerSetConfig(serveripaddress: Pcwstr, fieldstoset: UInt, configinfo: MutPtr): UInt =
     windowssysWindowsWin32NetworkmanagementDhcpDhcpServerSetConfig(serveripaddress.rawAddress.toCPointer<ByteVar>(), fieldstoset, configinfo.rawAddress.toCPointer<ByteVar>())
 
-public actual fun dhcpServerSetConfigV4(serveripaddress: Pcwstr, fieldstoset: UInt, configinfo: MutPtr<DhcpServerConfigInfoV4>): UInt =
+public actual fun dhcpServerSetConfigV4(serveripaddress: Pcwstr, fieldstoset: UInt, configinfo: MutPtr): UInt =
     windowssysWindowsWin32NetworkmanagementDhcpDhcpServerSetConfigV4(serveripaddress.rawAddress.toCPointer<ByteVar>(), fieldstoset, configinfo.rawAddress.toCPointer<ByteVar>())
 
-public actual fun dhcpServerSetConfigV6(serveripaddress: Pcwstr, scopeinfo: MutPtr<DhcpOptionScopeInfo6>, fieldstoset: UInt, configinfo: MutPtr<DhcpServerConfigInfoV6>): UInt =
+public actual fun dhcpServerSetConfigV6(serveripaddress: Pcwstr, scopeinfo: MutPtr, fieldstoset: UInt, configinfo: MutPtr): UInt =
     windowssysWindowsWin32NetworkmanagementDhcpDhcpServerSetConfigV6(serveripaddress.rawAddress.toCPointer<ByteVar>(), scopeinfo.rawAddress.toCPointer<ByteVar>(), fieldstoset, configinfo.rawAddress.toCPointer<ByteVar>())
 
-public actual fun dhcpServerSetConfigVQ(serveripaddress: Pcwstr, fieldstoset: UInt, configinfo: MutPtr<DhcpServerConfigInfoVq>): UInt =
+public actual fun dhcpServerSetConfigVQ(serveripaddress: Pcwstr, fieldstoset: UInt, configinfo: MutPtr): UInt =
     windowssysWindowsWin32NetworkmanagementDhcpDhcpServerSetConfigVQ(serveripaddress.rawAddress.toCPointer<ByteVar>(), fieldstoset, configinfo.rawAddress.toCPointer<ByteVar>())
 
 public actual fun dhcpServerSetDnsRegCredentials(serveripaddress: Pcwstr, uname: Pcwstr, domain: Pcwstr, passwd: Pcwstr): UInt =
@@ -632,220 +631,220 @@ public actual fun dhcpServerSetDnsRegCredentials(serveripaddress: Pcwstr, uname:
 public actual fun dhcpServerSetDnsRegCredentialsV5(serveripaddress: Pcwstr, uname: Pcwstr, domain: Pcwstr, passwd: Pcwstr): UInt =
     windowssysWindowsWin32NetworkmanagementDhcpDhcpServerSetDnsRegCredentialsV5(serveripaddress.rawAddress.toCPointer<ByteVar>(), uname.rawAddress.toCPointer<ByteVar>(), domain.rawAddress.toCPointer<ByteVar>(), passwd.rawAddress.toCPointer<ByteVar>())
 
-public actual fun dhcpSetClientInfo(serveripaddress: Pcwstr, clientinfo: ConstPtr<DhcpClientInfo>): UInt =
+public actual fun dhcpSetClientInfo(serveripaddress: Pcwstr, clientinfo: ConstPtr): UInt =
     windowssysWindowsWin32NetworkmanagementDhcpDhcpSetClientInfo(serveripaddress.rawAddress.toCPointer<ByteVar>(), clientinfo.rawAddress.toCPointer<ByteVar>())
 
-public actual fun dhcpSetClientInfoV4(serveripaddress: Pcwstr, clientinfo: ConstPtr<DhcpClientInfoV4>): UInt =
+public actual fun dhcpSetClientInfoV4(serveripaddress: Pcwstr, clientinfo: ConstPtr): UInt =
     windowssysWindowsWin32NetworkmanagementDhcpDhcpSetClientInfoV4(serveripaddress.rawAddress.toCPointer<ByteVar>(), clientinfo.rawAddress.toCPointer<ByteVar>())
 
-public actual fun dhcpSetClientInfoV6(serveripaddress: Pcwstr, clientinfo: ConstPtr<DhcpClientInfoV6>): UInt =
+public actual fun dhcpSetClientInfoV6(serveripaddress: Pcwstr, clientinfo: ConstPtr): UInt =
     windowssysWindowsWin32NetworkmanagementDhcpDhcpSetClientInfoV6(serveripaddress.rawAddress.toCPointer<ByteVar>(), clientinfo.rawAddress.toCPointer<ByteVar>())
 
-public actual fun dhcpSetClientInfoVQ(serveripaddress: Pcwstr, clientinfo: ConstPtr<DhcpClientInfoVq>): UInt =
+public actual fun dhcpSetClientInfoVQ(serveripaddress: Pcwstr, clientinfo: ConstPtr): UInt =
     windowssysWindowsWin32NetworkmanagementDhcpDhcpSetClientInfoVQ(serveripaddress.rawAddress.toCPointer<ByteVar>(), clientinfo.rawAddress.toCPointer<ByteVar>())
 
-public actual fun dhcpSetFilterV4(serveripaddress: Pcwstr, globalfilterinfo: ConstPtr<DhcpFilterGlobalInfo>): UInt =
+public actual fun dhcpSetFilterV4(serveripaddress: Pcwstr, globalfilterinfo: ConstPtr): UInt =
     windowssysWindowsWin32NetworkmanagementDhcpDhcpSetFilterV4(serveripaddress.rawAddress.toCPointer<ByteVar>(), globalfilterinfo.rawAddress.toCPointer<ByteVar>())
 
-public actual fun dhcpSetOptionInfo(serveripaddress: Pcwstr, optionid: UInt, optioninfo: ConstPtr<DhcpOption>): UInt =
+public actual fun dhcpSetOptionInfo(serveripaddress: Pcwstr, optionid: UInt, optioninfo: ConstPtr): UInt =
     windowssysWindowsWin32NetworkmanagementDhcpDhcpSetOptionInfo(serveripaddress.rawAddress.toCPointer<ByteVar>(), optionid, optioninfo.rawAddress.toCPointer<ByteVar>())
 
-public actual fun dhcpSetOptionInfoV5(serveripaddress: Pcwstr, flags: UInt, optionid: UInt, classname: Pcwstr, vendorname: Pcwstr, optioninfo: MutPtr<DhcpOption>): UInt =
+public actual fun dhcpSetOptionInfoV5(serveripaddress: Pcwstr, flags: UInt, optionid: UInt, classname: Pcwstr, vendorname: Pcwstr, optioninfo: MutPtr): UInt =
     windowssysWindowsWin32NetworkmanagementDhcpDhcpSetOptionInfoV5(serveripaddress.rawAddress.toCPointer<ByteVar>(), flags, optionid, classname.rawAddress.toCPointer<ByteVar>(), vendorname.rawAddress.toCPointer<ByteVar>(), optioninfo.rawAddress.toCPointer<ByteVar>())
 
-public actual fun dhcpSetOptionInfoV6(serveripaddress: Pcwstr, flags: UInt, optionid: UInt, classname: Pcwstr, vendorname: Pcwstr, optioninfo: MutPtr<DhcpOption>): UInt =
+public actual fun dhcpSetOptionInfoV6(serveripaddress: Pcwstr, flags: UInt, optionid: UInt, classname: Pcwstr, vendorname: Pcwstr, optioninfo: MutPtr): UInt =
     windowssysWindowsWin32NetworkmanagementDhcpDhcpSetOptionInfoV6(serveripaddress.rawAddress.toCPointer<ByteVar>(), flags, optionid, classname.rawAddress.toCPointer<ByteVar>(), vendorname.rawAddress.toCPointer<ByteVar>(), optioninfo.rawAddress.toCPointer<ByteVar>())
 
-public actual fun dhcpSetOptionValue(serveripaddress: Pcwstr, optionid: UInt, scopeinfo: ConstPtr<DhcpOptionScopeInfo>, optionvalue: ConstPtr<DhcpOptionData>): UInt =
+public actual fun dhcpSetOptionValue(serveripaddress: Pcwstr, optionid: UInt, scopeinfo: ConstPtr, optionvalue: ConstPtr): UInt =
     windowssysWindowsWin32NetworkmanagementDhcpDhcpSetOptionValue(serveripaddress.rawAddress.toCPointer<ByteVar>(), optionid, scopeinfo.rawAddress.toCPointer<ByteVar>(), optionvalue.rawAddress.toCPointer<ByteVar>())
 
-public actual fun dhcpSetOptionValueV5(serveripaddress: Pcwstr, flags: UInt, optionid: UInt, classname: Pcwstr, vendorname: Pcwstr, scopeinfo: MutPtr<DhcpOptionScopeInfo>, optionvalue: MutPtr<DhcpOptionData>): UInt =
+public actual fun dhcpSetOptionValueV5(serveripaddress: Pcwstr, flags: UInt, optionid: UInt, classname: Pcwstr, vendorname: Pcwstr, scopeinfo: MutPtr, optionvalue: MutPtr): UInt =
     windowssysWindowsWin32NetworkmanagementDhcpDhcpSetOptionValueV5(serveripaddress.rawAddress.toCPointer<ByteVar>(), flags, optionid, classname.rawAddress.toCPointer<ByteVar>(), vendorname.rawAddress.toCPointer<ByteVar>(), scopeinfo.rawAddress.toCPointer<ByteVar>(), optionvalue.rawAddress.toCPointer<ByteVar>())
 
-public actual fun dhcpSetOptionValueV6(serveripaddress: Pcwstr, flags: UInt, optionid: UInt, classname: Pcwstr, vendorname: Pcwstr, scopeinfo: MutPtr<DhcpOptionScopeInfo6>, optionvalue: MutPtr<DhcpOptionData>): UInt =
+public actual fun dhcpSetOptionValueV6(serveripaddress: Pcwstr, flags: UInt, optionid: UInt, classname: Pcwstr, vendorname: Pcwstr, scopeinfo: MutPtr, optionvalue: MutPtr): UInt =
     windowssysWindowsWin32NetworkmanagementDhcpDhcpSetOptionValueV6(serveripaddress.rawAddress.toCPointer<ByteVar>(), flags, optionid, classname.rawAddress.toCPointer<ByteVar>(), vendorname.rawAddress.toCPointer<ByteVar>(), scopeinfo.rawAddress.toCPointer<ByteVar>(), optionvalue.rawAddress.toCPointer<ByteVar>())
 
-public actual fun dhcpSetOptionValues(serveripaddress: Pcwstr, scopeinfo: ConstPtr<DhcpOptionScopeInfo>, optionvalues: ConstPtr<DhcpOptionValueArray>): UInt =
+public actual fun dhcpSetOptionValues(serveripaddress: Pcwstr, scopeinfo: ConstPtr, optionvalues: ConstPtr): UInt =
     windowssysWindowsWin32NetworkmanagementDhcpDhcpSetOptionValues(serveripaddress.rawAddress.toCPointer<ByteVar>(), scopeinfo.rawAddress.toCPointer<ByteVar>(), optionvalues.rawAddress.toCPointer<ByteVar>())
 
-public actual fun dhcpSetOptionValuesV5(serveripaddress: Pcwstr, flags: UInt, classname: Pcwstr, vendorname: Pcwstr, scopeinfo: MutPtr<DhcpOptionScopeInfo>, optionvalues: MutPtr<DhcpOptionValueArray>): UInt =
+public actual fun dhcpSetOptionValuesV5(serveripaddress: Pcwstr, flags: UInt, classname: Pcwstr, vendorname: Pcwstr, scopeinfo: MutPtr, optionvalues: MutPtr): UInt =
     windowssysWindowsWin32NetworkmanagementDhcpDhcpSetOptionValuesV5(serveripaddress.rawAddress.toCPointer<ByteVar>(), flags, classname.rawAddress.toCPointer<ByteVar>(), vendorname.rawAddress.toCPointer<ByteVar>(), scopeinfo.rawAddress.toCPointer<ByteVar>(), optionvalues.rawAddress.toCPointer<ByteVar>())
 
-public actual fun dhcpSetServerBindingInfo(serveripaddress: Pcwstr, flags: UInt, bindelementinfo: MutPtr<DhcpBindElementArray>): UInt =
+public actual fun dhcpSetServerBindingInfo(serveripaddress: Pcwstr, flags: UInt, bindelementinfo: MutPtr): UInt =
     windowssysWindowsWin32NetworkmanagementDhcpDhcpSetServerBindingInfo(serveripaddress.rawAddress.toCPointer<ByteVar>(), flags, bindelementinfo.rawAddress.toCPointer<ByteVar>())
 
-public actual fun dhcpSetServerBindingInfoV6(serveripaddress: Pcwstr, flags: UInt, bindelementinfo: MutPtr<Dhcpv6BindElementArray>): UInt =
+public actual fun dhcpSetServerBindingInfoV6(serveripaddress: Pcwstr, flags: UInt, bindelementinfo: MutPtr): UInt =
     windowssysWindowsWin32NetworkmanagementDhcpDhcpSetServerBindingInfoV6(serveripaddress.rawAddress.toCPointer<ByteVar>(), flags, bindelementinfo.rawAddress.toCPointer<ByteVar>())
 
 public actual fun dhcpSetSubnetDelayOffer(serveripaddress: Pcwstr, subnetaddress: UInt, timedelayinmilliseconds: UShort): UInt =
     windowssysWindowsWin32NetworkmanagementDhcpDhcpSetSubnetDelayOffer(serveripaddress.rawAddress.toCPointer<ByteVar>(), subnetaddress, timedelayinmilliseconds)
 
-public actual fun dhcpSetSubnetInfo(serveripaddress: Pcwstr, subnetaddress: UInt, subnetinfo: ConstPtr<DhcpSubnetInfo>): UInt =
+public actual fun dhcpSetSubnetInfo(serveripaddress: Pcwstr, subnetaddress: UInt, subnetinfo: ConstPtr): UInt =
     windowssysWindowsWin32NetworkmanagementDhcpDhcpSetSubnetInfo(serveripaddress.rawAddress.toCPointer<ByteVar>(), subnetaddress, subnetinfo.rawAddress.toCPointer<ByteVar>())
 
-public actual fun dhcpSetSubnetInfoV6(serveripaddress: Pcwstr, subnetaddress: DhcpIpv6Address, subnetinfo: MutPtr<DhcpSubnetInfoV6>): UInt =
+public actual fun dhcpSetSubnetInfoV6(serveripaddress: Pcwstr, subnetaddress: DhcpIpv6Address, subnetinfo: MutPtr): UInt =
     0u
 
-public actual fun dhcpSetSubnetInfoVQ(serveripaddress: Pcwstr, subnetaddress: UInt, subnetinfo: ConstPtr<DhcpSubnetInfoVq>): UInt =
+public actual fun dhcpSetSubnetInfoVQ(serveripaddress: Pcwstr, subnetaddress: UInt, subnetinfo: ConstPtr): UInt =
     windowssysWindowsWin32NetworkmanagementDhcpDhcpSetSubnetInfoVQ(serveripaddress.rawAddress.toCPointer<ByteVar>(), subnetaddress, subnetinfo.rawAddress.toCPointer<ByteVar>())
 
 public actual fun dhcpSetSuperScopeV4(serveripaddress: Pcwstr, subnetaddress: UInt, superscopename: Pcwstr, changeexisting: Bool): UInt =
     windowssysWindowsWin32NetworkmanagementDhcpDhcpSetSuperScopeV4(serveripaddress.rawAddress.toCPointer<ByteVar>(), subnetaddress, superscopename.rawAddress.toCPointer<ByteVar>(), changeexisting)
 
-public actual fun dhcpSetThreadOptions(flags: UInt, reserved: MutPtr<CVoid>): UInt =
+public actual fun dhcpSetThreadOptions(flags: UInt, reserved: MutPtr): UInt =
     windowssysWindowsWin32NetworkmanagementDhcpDhcpSetThreadOptions(flags, reserved.rawAddress.toCPointer<ByteVar>())
 
-public actual fun dhcpUndoRequestParams(flags: UInt, reserved: ConstPtr<CVoid>, adaptername: Pcwstr, requestidstr: Pcwstr): UInt =
+public actual fun dhcpUndoRequestParams(flags: UInt, reserved: ConstPtr, adaptername: Pcwstr, requestidstr: Pcwstr): UInt =
     windowssysWindowsWin32NetworkmanagementDhcpDhcpUndoRequestParams(flags, reserved.rawAddress.toCPointer<ByteVar>(), adaptername.rawAddress.toCPointer<ByteVar>(), requestidstr.rawAddress.toCPointer<ByteVar>())
 
-public actual fun dhcpV4AddPolicyRange(serveripaddress: Pcwstr, subnetaddress: UInt, policyname: Pcwstr, range: ConstPtr<DhcpIpRange>): UInt =
+public actual fun dhcpV4AddPolicyRange(serveripaddress: Pcwstr, subnetaddress: UInt, policyname: Pcwstr, range: ConstPtr): UInt =
     windowssysWindowsWin32NetworkmanagementDhcpDhcpV4AddPolicyRange(serveripaddress.rawAddress.toCPointer<ByteVar>(), subnetaddress, policyname.rawAddress.toCPointer<ByteVar>(), range.rawAddress.toCPointer<ByteVar>())
 
-public actual fun dhcpV4CreateClientInfo(serveripaddress: Pcwstr, clientinfo: ConstPtr<DhcpClientInfoPb>): UInt =
+public actual fun dhcpV4CreateClientInfo(serveripaddress: Pcwstr, clientinfo: ConstPtr): UInt =
     windowssysWindowsWin32NetworkmanagementDhcpDhcpV4CreateClientInfo(serveripaddress.rawAddress.toCPointer<ByteVar>(), clientinfo.rawAddress.toCPointer<ByteVar>())
 
-public actual fun dhcpV4CreateClientInfoEx(serveripaddress: Pcwstr, clientinfo: ConstPtr<DhcpClientInfoEx>): UInt =
+public actual fun dhcpV4CreateClientInfoEx(serveripaddress: Pcwstr, clientinfo: ConstPtr): UInt =
     windowssysWindowsWin32NetworkmanagementDhcpDhcpV4CreateClientInfoEx(serveripaddress.rawAddress.toCPointer<ByteVar>(), clientinfo.rawAddress.toCPointer<ByteVar>())
 
-public actual fun dhcpV4CreatePolicy(serveripaddress: Pcwstr, ppolicy: ConstPtr<DhcpPolicy>): UInt =
+public actual fun dhcpV4CreatePolicy(serveripaddress: Pcwstr, ppolicy: ConstPtr): UInt =
     windowssysWindowsWin32NetworkmanagementDhcpDhcpV4CreatePolicy(serveripaddress.rawAddress.toCPointer<ByteVar>(), ppolicy.rawAddress.toCPointer<ByteVar>())
 
-public actual fun dhcpV4CreatePolicyEx(serveripaddress: Pcwstr, policyex: ConstPtr<DhcpPolicyEx>): UInt =
+public actual fun dhcpV4CreatePolicyEx(serveripaddress: Pcwstr, policyex: ConstPtr): UInt =
     windowssysWindowsWin32NetworkmanagementDhcpDhcpV4CreatePolicyEx(serveripaddress.rawAddress.toCPointer<ByteVar>(), policyex.rawAddress.toCPointer<ByteVar>())
 
 public actual fun dhcpV4DeletePolicy(serveripaddress: Pcwstr, fglobalpolicy: Bool, subnetaddress: UInt, policyname: Pcwstr): UInt =
     windowssysWindowsWin32NetworkmanagementDhcpDhcpV4DeletePolicy(serveripaddress.rawAddress.toCPointer<ByteVar>(), fglobalpolicy, subnetaddress, policyname.rawAddress.toCPointer<ByteVar>())
 
-public actual fun dhcpV4EnumPolicies(serveripaddress: Pcwstr, resumehandle: MutPtr<UInt>, preferredmaximum: UInt, fglobalpolicy: Bool, subnetaddress: UInt, enuminfo: MutPtr<MutPtr<DhcpPolicyArray>>, elementsread: MutPtr<UInt>, elementstotal: MutPtr<UInt>): UInt =
+public actual fun dhcpV4EnumPolicies(serveripaddress: Pcwstr, resumehandle: MutPtr, preferredmaximum: UInt, fglobalpolicy: Bool, subnetaddress: UInt, enuminfo: MutPtr, elementsread: MutPtr, elementstotal: MutPtr): UInt =
     windowssysWindowsWin32NetworkmanagementDhcpDhcpV4EnumPolicies(serveripaddress.rawAddress.toCPointer<ByteVar>(), resumehandle.rawAddress.toCPointer<ByteVar>(), preferredmaximum, fglobalpolicy, subnetaddress, enuminfo.rawAddress.toCPointer<ByteVar>(), elementsread.rawAddress.toCPointer<ByteVar>(), elementstotal.rawAddress.toCPointer<ByteVar>())
 
-public actual fun dhcpV4EnumPoliciesEx(serveripaddress: Pcwstr, resumehandle: MutPtr<UInt>, preferredmaximum: UInt, globalpolicy: Bool, subnetaddress: UInt, enuminfo: MutPtr<MutPtr<DhcpPolicyExArray>>, elementsread: MutPtr<UInt>, elementstotal: MutPtr<UInt>): UInt =
+public actual fun dhcpV4EnumPoliciesEx(serveripaddress: Pcwstr, resumehandle: MutPtr, preferredmaximum: UInt, globalpolicy: Bool, subnetaddress: UInt, enuminfo: MutPtr, elementsread: MutPtr, elementstotal: MutPtr): UInt =
     windowssysWindowsWin32NetworkmanagementDhcpDhcpV4EnumPoliciesEx(serveripaddress.rawAddress.toCPointer<ByteVar>(), resumehandle.rawAddress.toCPointer<ByteVar>(), preferredmaximum, globalpolicy, subnetaddress, enuminfo.rawAddress.toCPointer<ByteVar>(), elementsread.rawAddress.toCPointer<ByteVar>(), elementstotal.rawAddress.toCPointer<ByteVar>())
 
-public actual fun dhcpV4EnumSubnetClients(serveripaddress: Pcwstr, subnetaddress: UInt, resumehandle: MutPtr<UInt>, preferredmaximum: UInt, clientinfo: MutPtr<MutPtr<DhcpClientInfoPbArray>>, clientsread: MutPtr<UInt>, clientstotal: MutPtr<UInt>): UInt =
+public actual fun dhcpV4EnumSubnetClients(serveripaddress: Pcwstr, subnetaddress: UInt, resumehandle: MutPtr, preferredmaximum: UInt, clientinfo: MutPtr, clientsread: MutPtr, clientstotal: MutPtr): UInt =
     windowssysWindowsWin32NetworkmanagementDhcpDhcpV4EnumSubnetClients(serveripaddress.rawAddress.toCPointer<ByteVar>(), subnetaddress, resumehandle.rawAddress.toCPointer<ByteVar>(), preferredmaximum, clientinfo.rawAddress.toCPointer<ByteVar>(), clientsread.rawAddress.toCPointer<ByteVar>(), clientstotal.rawAddress.toCPointer<ByteVar>())
 
-public actual fun dhcpV4EnumSubnetClientsEx(serveripaddress: Pcwstr, subnetaddress: UInt, resumehandle: MutPtr<UInt>, preferredmaximum: UInt, clientinfo: MutPtr<MutPtr<DhcpClientInfoExArray>>, clientsread: MutPtr<UInt>, clientstotal: MutPtr<UInt>): UInt =
+public actual fun dhcpV4EnumSubnetClientsEx(serveripaddress: Pcwstr, subnetaddress: UInt, resumehandle: MutPtr, preferredmaximum: UInt, clientinfo: MutPtr, clientsread: MutPtr, clientstotal: MutPtr): UInt =
     windowssysWindowsWin32NetworkmanagementDhcpDhcpV4EnumSubnetClientsEx(serveripaddress.rawAddress.toCPointer<ByteVar>(), subnetaddress, resumehandle.rawAddress.toCPointer<ByteVar>(), preferredmaximum, clientinfo.rawAddress.toCPointer<ByteVar>(), clientsread.rawAddress.toCPointer<ByteVar>(), clientstotal.rawAddress.toCPointer<ByteVar>())
 
-public actual fun dhcpV4EnumSubnetReservations(serveripaddress: Pcwstr, subnetaddress: UInt, resumehandle: MutPtr<UInt>, preferredmaximum: UInt, enumelementinfo: MutPtr<MutPtr<DhcpReservationInfoArray>>, elementsread: MutPtr<UInt>, elementstotal: MutPtr<UInt>): UInt =
+public actual fun dhcpV4EnumSubnetReservations(serveripaddress: Pcwstr, subnetaddress: UInt, resumehandle: MutPtr, preferredmaximum: UInt, enumelementinfo: MutPtr, elementsread: MutPtr, elementstotal: MutPtr): UInt =
     windowssysWindowsWin32NetworkmanagementDhcpDhcpV4EnumSubnetReservations(serveripaddress.rawAddress.toCPointer<ByteVar>(), subnetaddress, resumehandle.rawAddress.toCPointer<ByteVar>(), preferredmaximum, enumelementinfo.rawAddress.toCPointer<ByteVar>(), elementsread.rawAddress.toCPointer<ByteVar>(), elementstotal.rawAddress.toCPointer<ByteVar>())
 
-public actual fun dhcpV4FailoverAddScopeToRelationship(serveripaddress: Pcwstr, prelationship: ConstPtr<DhcpFailoverRelationship>): UInt =
+public actual fun dhcpV4FailoverAddScopeToRelationship(serveripaddress: Pcwstr, prelationship: ConstPtr): UInt =
     windowssysWindowsWin32NetworkmanagementDhcpDhcpV4FailoverAddScopeToRelationship(serveripaddress.rawAddress.toCPointer<ByteVar>(), prelationship.rawAddress.toCPointer<ByteVar>())
 
-public actual fun dhcpV4FailoverCreateRelationship(serveripaddress: Pcwstr, prelationship: ConstPtr<DhcpFailoverRelationship>): UInt =
+public actual fun dhcpV4FailoverCreateRelationship(serveripaddress: Pcwstr, prelationship: ConstPtr): UInt =
     windowssysWindowsWin32NetworkmanagementDhcpDhcpV4FailoverCreateRelationship(serveripaddress.rawAddress.toCPointer<ByteVar>(), prelationship.rawAddress.toCPointer<ByteVar>())
 
 public actual fun dhcpV4FailoverDeleteRelationship(serveripaddress: Pcwstr, prelationshipname: Pcwstr): UInt =
     windowssysWindowsWin32NetworkmanagementDhcpDhcpV4FailoverDeleteRelationship(serveripaddress.rawAddress.toCPointer<ByteVar>(), prelationshipname.rawAddress.toCPointer<ByteVar>())
 
-public actual fun dhcpV4FailoverDeleteScopeFromRelationship(serveripaddress: Pcwstr, prelationship: ConstPtr<DhcpFailoverRelationship>): UInt =
+public actual fun dhcpV4FailoverDeleteScopeFromRelationship(serveripaddress: Pcwstr, prelationship: ConstPtr): UInt =
     windowssysWindowsWin32NetworkmanagementDhcpDhcpV4FailoverDeleteScopeFromRelationship(serveripaddress.rawAddress.toCPointer<ByteVar>(), prelationship.rawAddress.toCPointer<ByteVar>())
 
-public actual fun dhcpV4FailoverEnumRelationship(serveripaddress: Pcwstr, resumehandle: MutPtr<UInt>, preferredmaximum: UInt, prelationship: MutPtr<MutPtr<DhcpFailoverRelationshipArray>>, relationshipread: MutPtr<UInt>, relationshiptotal: MutPtr<UInt>): UInt =
+public actual fun dhcpV4FailoverEnumRelationship(serveripaddress: Pcwstr, resumehandle: MutPtr, preferredmaximum: UInt, prelationship: MutPtr, relationshipread: MutPtr, relationshiptotal: MutPtr): UInt =
     windowssysWindowsWin32NetworkmanagementDhcpDhcpV4FailoverEnumRelationship(serveripaddress.rawAddress.toCPointer<ByteVar>(), resumehandle.rawAddress.toCPointer<ByteVar>(), preferredmaximum, prelationship.rawAddress.toCPointer<ByteVar>(), relationshipread.rawAddress.toCPointer<ByteVar>(), relationshiptotal.rawAddress.toCPointer<ByteVar>())
 
-public actual fun dhcpV4FailoverGetAddressStatus(serveripaddress: Pcwstr, subnetaddress: UInt, pstatus: MutPtr<UInt>): UInt =
+public actual fun dhcpV4FailoverGetAddressStatus(serveripaddress: Pcwstr, subnetaddress: UInt, pstatus: MutPtr): UInt =
     windowssysWindowsWin32NetworkmanagementDhcpDhcpV4FailoverGetAddressStatus(serveripaddress.rawAddress.toCPointer<ByteVar>(), subnetaddress, pstatus.rawAddress.toCPointer<ByteVar>())
 
-public actual fun dhcpV4FailoverGetClientInfo(serveripaddress: Pcwstr, searchinfo: ConstPtr<DhcpSearchInfo>, clientinfo: MutPtr<MutPtr<Dhcpv4FailoverClientInfo>>): UInt =
+public actual fun dhcpV4FailoverGetClientInfo(serveripaddress: Pcwstr, searchinfo: ConstPtr, clientinfo: MutPtr): UInt =
     windowssysWindowsWin32NetworkmanagementDhcpDhcpV4FailoverGetClientInfo(serveripaddress.rawAddress.toCPointer<ByteVar>(), searchinfo.rawAddress.toCPointer<ByteVar>(), clientinfo.rawAddress.toCPointer<ByteVar>())
 
-public actual fun dhcpV4FailoverGetRelationship(serveripaddress: Pcwstr, prelationshipname: Pcwstr, prelationship: MutPtr<MutPtr<DhcpFailoverRelationship>>): UInt =
+public actual fun dhcpV4FailoverGetRelationship(serveripaddress: Pcwstr, prelationshipname: Pcwstr, prelationship: MutPtr): UInt =
     windowssysWindowsWin32NetworkmanagementDhcpDhcpV4FailoverGetRelationship(serveripaddress.rawAddress.toCPointer<ByteVar>(), prelationshipname.rawAddress.toCPointer<ByteVar>(), prelationship.rawAddress.toCPointer<ByteVar>())
 
-public actual fun dhcpV4FailoverGetScopeRelationship(serveripaddress: Pcwstr, scopeid: UInt, prelationship: MutPtr<MutPtr<DhcpFailoverRelationship>>): UInt =
+public actual fun dhcpV4FailoverGetScopeRelationship(serveripaddress: Pcwstr, scopeid: UInt, prelationship: MutPtr): UInt =
     windowssysWindowsWin32NetworkmanagementDhcpDhcpV4FailoverGetScopeRelationship(serveripaddress.rawAddress.toCPointer<ByteVar>(), scopeid, prelationship.rawAddress.toCPointer<ByteVar>())
 
-public actual fun dhcpV4FailoverGetScopeStatistics(serveripaddress: Pcwstr, scopeid: UInt, pstats: MutPtr<MutPtr<DhcpFailoverStatistics>>): UInt =
+public actual fun dhcpV4FailoverGetScopeStatistics(serveripaddress: Pcwstr, scopeid: UInt, pstats: MutPtr): UInt =
     windowssysWindowsWin32NetworkmanagementDhcpDhcpV4FailoverGetScopeStatistics(serveripaddress.rawAddress.toCPointer<ByteVar>(), scopeid, pstats.rawAddress.toCPointer<ByteVar>())
 
-public actual fun dhcpV4FailoverGetSystemTime(serveripaddress: Pcwstr, ptime: MutPtr<UInt>, pmaxalloweddeltatime: MutPtr<UInt>): UInt =
+public actual fun dhcpV4FailoverGetSystemTime(serveripaddress: Pcwstr, ptime: MutPtr, pmaxalloweddeltatime: MutPtr): UInt =
     windowssysWindowsWin32NetworkmanagementDhcpDhcpV4FailoverGetSystemTime(serveripaddress.rawAddress.toCPointer<ByteVar>(), ptime.rawAddress.toCPointer<ByteVar>(), pmaxalloweddeltatime.rawAddress.toCPointer<ByteVar>())
 
-public actual fun dhcpV4FailoverSetRelationship(serveripaddress: Pcwstr, flags: UInt, prelationship: ConstPtr<DhcpFailoverRelationship>): UInt =
+public actual fun dhcpV4FailoverSetRelationship(serveripaddress: Pcwstr, flags: UInt, prelationship: ConstPtr): UInt =
     windowssysWindowsWin32NetworkmanagementDhcpDhcpV4FailoverSetRelationship(serveripaddress.rawAddress.toCPointer<ByteVar>(), flags, prelationship.rawAddress.toCPointer<ByteVar>())
 
 public actual fun dhcpV4FailoverTriggerAddrAllocation(serveripaddress: Pcwstr, pfailrelname: Pcwstr): UInt =
     windowssysWindowsWin32NetworkmanagementDhcpDhcpV4FailoverTriggerAddrAllocation(serveripaddress.rawAddress.toCPointer<ByteVar>(), pfailrelname.rawAddress.toCPointer<ByteVar>())
 
-public actual fun dhcpV4GetAllOptionValues(serveripaddress: Pcwstr, flags: UInt, scopeinfo: MutPtr<DhcpOptionScopeInfo>, values: MutPtr<MutPtr<DhcpAllOptionValuesPb>>): UInt =
+public actual fun dhcpV4GetAllOptionValues(serveripaddress: Pcwstr, flags: UInt, scopeinfo: MutPtr, values: MutPtr): UInt =
     windowssysWindowsWin32NetworkmanagementDhcpDhcpV4GetAllOptionValues(serveripaddress.rawAddress.toCPointer<ByteVar>(), flags, scopeinfo.rawAddress.toCPointer<ByteVar>(), values.rawAddress.toCPointer<ByteVar>())
 
-public actual fun dhcpV4GetClientInfo(serveripaddress: Pcwstr, searchinfo: ConstPtr<DhcpSearchInfo>, clientinfo: MutPtr<MutPtr<DhcpClientInfoPb>>): UInt =
+public actual fun dhcpV4GetClientInfo(serveripaddress: Pcwstr, searchinfo: ConstPtr, clientinfo: MutPtr): UInt =
     windowssysWindowsWin32NetworkmanagementDhcpDhcpV4GetClientInfo(serveripaddress.rawAddress.toCPointer<ByteVar>(), searchinfo.rawAddress.toCPointer<ByteVar>(), clientinfo.rawAddress.toCPointer<ByteVar>())
 
-public actual fun dhcpV4GetClientInfoEx(serveripaddress: Pcwstr, searchinfo: ConstPtr<DhcpSearchInfo>, clientinfo: MutPtr<MutPtr<DhcpClientInfoEx>>): UInt =
+public actual fun dhcpV4GetClientInfoEx(serveripaddress: Pcwstr, searchinfo: ConstPtr, clientinfo: MutPtr): UInt =
     windowssysWindowsWin32NetworkmanagementDhcpDhcpV4GetClientInfoEx(serveripaddress.rawAddress.toCPointer<ByteVar>(), searchinfo.rawAddress.toCPointer<ByteVar>(), clientinfo.rawAddress.toCPointer<ByteVar>())
 
-public actual fun dhcpV4GetFreeIPAddress(serveripaddress: Pcwstr, scopeid: UInt, startip: UInt, endip: UInt, numfreeaddrreq: UInt, ipaddrlist: MutPtr<MutPtr<DhcpIpArray>>): UInt =
+public actual fun dhcpV4GetFreeIPAddress(serveripaddress: Pcwstr, scopeid: UInt, startip: UInt, endip: UInt, numfreeaddrreq: UInt, ipaddrlist: MutPtr): UInt =
     windowssysWindowsWin32NetworkmanagementDhcpDhcpV4GetFreeIPAddress(serveripaddress.rawAddress.toCPointer<ByteVar>(), scopeid, startip, endip, numfreeaddrreq, ipaddrlist.rawAddress.toCPointer<ByteVar>())
 
-public actual fun dhcpV4GetOptionValue(serveripaddress: Pcwstr, flags: UInt, optionid: UInt, policyname: Pcwstr, vendorname: Pcwstr, scopeinfo: MutPtr<DhcpOptionScopeInfo>, optionvalue: MutPtr<MutPtr<DhcpOptionValue>>): UInt =
+public actual fun dhcpV4GetOptionValue(serveripaddress: Pcwstr, flags: UInt, optionid: UInt, policyname: Pcwstr, vendorname: Pcwstr, scopeinfo: MutPtr, optionvalue: MutPtr): UInt =
     windowssysWindowsWin32NetworkmanagementDhcpDhcpV4GetOptionValue(serveripaddress.rawAddress.toCPointer<ByteVar>(), flags, optionid, policyname.rawAddress.toCPointer<ByteVar>(), vendorname.rawAddress.toCPointer<ByteVar>(), scopeinfo.rawAddress.toCPointer<ByteVar>(), optionvalue.rawAddress.toCPointer<ByteVar>())
 
-public actual fun dhcpV4GetPolicy(serveripaddress: Pcwstr, fglobalpolicy: Bool, subnetaddress: UInt, policyname: Pcwstr, policy: MutPtr<MutPtr<DhcpPolicy>>): UInt =
+public actual fun dhcpV4GetPolicy(serveripaddress: Pcwstr, fglobalpolicy: Bool, subnetaddress: UInt, policyname: Pcwstr, policy: MutPtr): UInt =
     windowssysWindowsWin32NetworkmanagementDhcpDhcpV4GetPolicy(serveripaddress.rawAddress.toCPointer<ByteVar>(), fglobalpolicy, subnetaddress, policyname.rawAddress.toCPointer<ByteVar>(), policy.rawAddress.toCPointer<ByteVar>())
 
-public actual fun dhcpV4GetPolicyEx(serveripaddress: Pcwstr, globalpolicy: Bool, subnetaddress: UInt, policyname: Pcwstr, policy: MutPtr<MutPtr<DhcpPolicyEx>>): UInt =
+public actual fun dhcpV4GetPolicyEx(serveripaddress: Pcwstr, globalpolicy: Bool, subnetaddress: UInt, policyname: Pcwstr, policy: MutPtr): UInt =
     windowssysWindowsWin32NetworkmanagementDhcpDhcpV4GetPolicyEx(serveripaddress.rawAddress.toCPointer<ByteVar>(), globalpolicy, subnetaddress, policyname.rawAddress.toCPointer<ByteVar>(), policy.rawAddress.toCPointer<ByteVar>())
 
-public actual fun dhcpV4QueryPolicyEnforcement(serveripaddress: Pcwstr, fglobalpolicy: Bool, subnetaddress: UInt, enabled: MutPtr<Bool>): UInt =
+public actual fun dhcpV4QueryPolicyEnforcement(serveripaddress: Pcwstr, fglobalpolicy: Bool, subnetaddress: UInt, enabled: MutPtr): UInt =
     windowssysWindowsWin32NetworkmanagementDhcpDhcpV4QueryPolicyEnforcement(serveripaddress.rawAddress.toCPointer<ByteVar>(), fglobalpolicy, subnetaddress, enabled.rawAddress.toCPointer<ByteVar>())
 
-public actual fun dhcpV4RemoveOptionValue(serveripaddress: Pcwstr, flags: UInt, optionid: UInt, policyname: Pcwstr, vendorname: Pcwstr, scopeinfo: MutPtr<DhcpOptionScopeInfo>): UInt =
+public actual fun dhcpV4RemoveOptionValue(serveripaddress: Pcwstr, flags: UInt, optionid: UInt, policyname: Pcwstr, vendorname: Pcwstr, scopeinfo: MutPtr): UInt =
     windowssysWindowsWin32NetworkmanagementDhcpDhcpV4RemoveOptionValue(serveripaddress.rawAddress.toCPointer<ByteVar>(), flags, optionid, policyname.rawAddress.toCPointer<ByteVar>(), vendorname.rawAddress.toCPointer<ByteVar>(), scopeinfo.rawAddress.toCPointer<ByteVar>())
 
-public actual fun dhcpV4RemovePolicyRange(serveripaddress: Pcwstr, subnetaddress: UInt, policyname: Pcwstr, range: ConstPtr<DhcpIpRange>): UInt =
+public actual fun dhcpV4RemovePolicyRange(serveripaddress: Pcwstr, subnetaddress: UInt, policyname: Pcwstr, range: ConstPtr): UInt =
     windowssysWindowsWin32NetworkmanagementDhcpDhcpV4RemovePolicyRange(serveripaddress.rawAddress.toCPointer<ByteVar>(), subnetaddress, policyname.rawAddress.toCPointer<ByteVar>(), range.rawAddress.toCPointer<ByteVar>())
 
-public actual fun dhcpV4SetOptionValue(serveripaddress: Pcwstr, flags: UInt, optionid: UInt, policyname: Pcwstr, vendorname: Pcwstr, scopeinfo: MutPtr<DhcpOptionScopeInfo>, optionvalue: MutPtr<DhcpOptionData>): UInt =
+public actual fun dhcpV4SetOptionValue(serveripaddress: Pcwstr, flags: UInt, optionid: UInt, policyname: Pcwstr, vendorname: Pcwstr, scopeinfo: MutPtr, optionvalue: MutPtr): UInt =
     windowssysWindowsWin32NetworkmanagementDhcpDhcpV4SetOptionValue(serveripaddress.rawAddress.toCPointer<ByteVar>(), flags, optionid, policyname.rawAddress.toCPointer<ByteVar>(), vendorname.rawAddress.toCPointer<ByteVar>(), scopeinfo.rawAddress.toCPointer<ByteVar>(), optionvalue.rawAddress.toCPointer<ByteVar>())
 
-public actual fun dhcpV4SetOptionValues(serveripaddress: Pcwstr, flags: UInt, policyname: Pcwstr, vendorname: Pcwstr, scopeinfo: MutPtr<DhcpOptionScopeInfo>, optionvalues: MutPtr<DhcpOptionValueArray>): UInt =
+public actual fun dhcpV4SetOptionValues(serveripaddress: Pcwstr, flags: UInt, policyname: Pcwstr, vendorname: Pcwstr, scopeinfo: MutPtr, optionvalues: MutPtr): UInt =
     windowssysWindowsWin32NetworkmanagementDhcpDhcpV4SetOptionValues(serveripaddress.rawAddress.toCPointer<ByteVar>(), flags, policyname.rawAddress.toCPointer<ByteVar>(), vendorname.rawAddress.toCPointer<ByteVar>(), scopeinfo.rawAddress.toCPointer<ByteVar>(), optionvalues.rawAddress.toCPointer<ByteVar>())
 
-public actual fun dhcpV4SetPolicy(serveripaddress: Pcwstr, fieldsmodified: UInt, fglobalpolicy: Bool, subnetaddress: UInt, policyname: Pcwstr, policy: ConstPtr<DhcpPolicy>): UInt =
+public actual fun dhcpV4SetPolicy(serveripaddress: Pcwstr, fieldsmodified: UInt, fglobalpolicy: Bool, subnetaddress: UInt, policyname: Pcwstr, policy: ConstPtr): UInt =
     windowssysWindowsWin32NetworkmanagementDhcpDhcpV4SetPolicy(serveripaddress.rawAddress.toCPointer<ByteVar>(), fieldsmodified, fglobalpolicy, subnetaddress, policyname.rawAddress.toCPointer<ByteVar>(), policy.rawAddress.toCPointer<ByteVar>())
 
 public actual fun dhcpV4SetPolicyEnforcement(serveripaddress: Pcwstr, fglobalpolicy: Bool, subnetaddress: UInt, enable: Bool): UInt =
     windowssysWindowsWin32NetworkmanagementDhcpDhcpV4SetPolicyEnforcement(serveripaddress.rawAddress.toCPointer<ByteVar>(), fglobalpolicy, subnetaddress, enable)
 
-public actual fun dhcpV4SetPolicyEx(serveripaddress: Pcwstr, fieldsmodified: UInt, globalpolicy: Bool, subnetaddress: UInt, policyname: Pcwstr, policy: ConstPtr<DhcpPolicyEx>): UInt =
+public actual fun dhcpV4SetPolicyEx(serveripaddress: Pcwstr, fieldsmodified: UInt, globalpolicy: Bool, subnetaddress: UInt, policyname: Pcwstr, policy: ConstPtr): UInt =
     windowssysWindowsWin32NetworkmanagementDhcpDhcpV4SetPolicyEx(serveripaddress.rawAddress.toCPointer<ByteVar>(), fieldsmodified, globalpolicy, subnetaddress, policyname.rawAddress.toCPointer<ByteVar>(), policy.rawAddress.toCPointer<ByteVar>())
 
-public actual fun dhcpV6CreateClientInfo(serveripaddress: Pcwstr, clientinfo: ConstPtr<DhcpClientInfoV6>): UInt =
+public actual fun dhcpV6CreateClientInfo(serveripaddress: Pcwstr, clientinfo: ConstPtr): UInt =
     windowssysWindowsWin32NetworkmanagementDhcpDhcpV6CreateClientInfo(serveripaddress.rawAddress.toCPointer<ByteVar>(), clientinfo.rawAddress.toCPointer<ByteVar>())
 
-public actual fun dhcpV6GetFreeIPAddress(serveripaddress: Pcwstr, scopeid: DhcpIpv6Address, startip: DhcpIpv6Address, endip: DhcpIpv6Address, numfreeaddrreq: UInt, ipaddrlist: MutPtr<MutPtr<Dhcpv6IpArray>>): UInt =
+public actual fun dhcpV6GetFreeIPAddress(serveripaddress: Pcwstr, scopeid: DhcpIpv6Address, startip: DhcpIpv6Address, endip: DhcpIpv6Address, numfreeaddrreq: UInt, ipaddrlist: MutPtr): UInt =
     0u
 
-public actual fun dhcpV6GetStatelessStatistics(serveripaddress: Pcwstr, statelessstats: MutPtr<MutPtr<Dhcpv6StatelessStats>>): UInt =
+public actual fun dhcpV6GetStatelessStatistics(serveripaddress: Pcwstr, statelessstats: MutPtr): UInt =
     windowssysWindowsWin32NetworkmanagementDhcpDhcpV6GetStatelessStatistics(serveripaddress.rawAddress.toCPointer<ByteVar>(), statelessstats.rawAddress.toCPointer<ByteVar>())
 
-public actual fun dhcpV6GetStatelessStoreParams(serveripaddress: Pcwstr, fserverlevel: Bool, subnetaddress: DhcpIpv6Address, params: MutPtr<MutPtr<Dhcpv6StatelessParams>>): UInt =
+public actual fun dhcpV6GetStatelessStoreParams(serveripaddress: Pcwstr, fserverlevel: Bool, subnetaddress: DhcpIpv6Address, params: MutPtr): UInt =
     0u
 
-public actual fun dhcpV6SetStatelessStoreParams(serveripaddress: Pcwstr, fserverlevel: Bool, subnetaddress: DhcpIpv6Address, fieldmodified: UInt, params: ConstPtr<Dhcpv6StatelessParams>): UInt =
+public actual fun dhcpV6SetStatelessStoreParams(serveripaddress: Pcwstr, fserverlevel: Bool, subnetaddress: DhcpIpv6Address, fieldmodified: UInt, params: ConstPtr): UInt =
     0u
 
 public actual fun dhcpv6CApiCleanup() {
     windowssysWindowsWin32NetworkmanagementDhcpDhcpv6CApiCleanup()
 }
 
-public actual fun dhcpv6CApiInitialize(version: MutPtr<UInt>) {
+public actual fun dhcpv6CApiInitialize(version: MutPtr) {
     windowssysWindowsWin32NetworkmanagementDhcpDhcpv6CApiInitialize(version.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun dhcpv6ReleasePrefix(adaptername: Pcwstr, classid: MutPtr<Dhcpv6capiClassid>, leaseinfo: MutPtr<DHCPV6PrefixLeaseInformation>): UInt =
+public actual fun dhcpv6ReleasePrefix(adaptername: Pcwstr, classid: MutPtr, leaseinfo: MutPtr): UInt =
     windowssysWindowsWin32NetworkmanagementDhcpDhcpv6ReleasePrefix(adaptername.rawAddress.toCPointer<ByteVar>(), classid.rawAddress.toCPointer<ByteVar>(), leaseinfo.rawAddress.toCPointer<ByteVar>())
 
-public actual fun dhcpv6RenewPrefix(adaptername: Pcwstr, pclassid: MutPtr<Dhcpv6capiClassid>, prefixleaseinfo: MutPtr<DHCPV6PrefixLeaseInformation>, pdwtimetowait: MutPtr<UInt>, bvalidateprefix: UInt): UInt =
+public actual fun dhcpv6RenewPrefix(adaptername: Pcwstr, pclassid: MutPtr, prefixleaseinfo: MutPtr, pdwtimetowait: MutPtr, bvalidateprefix: UInt): UInt =
     windowssysWindowsWin32NetworkmanagementDhcpDhcpv6RenewPrefix(adaptername.rawAddress.toCPointer<ByteVar>(), pclassid.rawAddress.toCPointer<ByteVar>(), prefixleaseinfo.rawAddress.toCPointer<ByteVar>(), pdwtimetowait.rawAddress.toCPointer<ByteVar>(), bvalidateprefix)
 
-public actual fun dhcpv6RequestParams(forcenewinform: Bool, reserved: MutPtr<CVoid>, adaptername: Pcwstr, classid: MutPtr<Dhcpv6capiClassid>, recdparams: Dhcpv6capiParamsArray, buffer: MutPtr<UByte>, psize: MutPtr<UInt>): UInt =
+public actual fun dhcpv6RequestParams(forcenewinform: Bool, reserved: MutPtr, adaptername: Pcwstr, classid: MutPtr, recdparams: Dhcpv6capiParamsArray, buffer: MutPtr, psize: MutPtr): UInt =
     0u
 
-public actual fun dhcpv6RequestPrefix(adaptername: Pcwstr, pclassid: MutPtr<Dhcpv6capiClassid>, prefixleaseinfo: MutPtr<DHCPV6PrefixLeaseInformation>, pdwtimetowait: MutPtr<UInt>): UInt =
+public actual fun dhcpv6RequestPrefix(adaptername: Pcwstr, pclassid: MutPtr, prefixleaseinfo: MutPtr, pdwtimetowait: MutPtr): UInt =
     windowssysWindowsWin32NetworkmanagementDhcpDhcpv6RequestPrefix(adaptername.rawAddress.toCPointer<ByteVar>(), pclassid.rawAddress.toCPointer<ByteVar>(), prefixleaseinfo.rawAddress.toCPointer<ByteVar>(), pdwtimetowait.rawAddress.toCPointer<ByteVar>())

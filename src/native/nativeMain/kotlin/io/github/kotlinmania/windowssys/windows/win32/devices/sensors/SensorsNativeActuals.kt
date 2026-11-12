@@ -2,13 +2,10 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.devices.sensors
 
-import io.github.kotlinmania.rustlang.core.ffi.CVoid
 import io.github.kotlinmania.rustlang.core.ptr.ConstPtr
 import io.github.kotlinmania.rustlang.core.ptr.MutPtr
-import io.github.kotlinmania.windowssys.core.Bool
 import io.github.kotlinmania.windowssys.core.Guid
 import io.github.kotlinmania.windowssys.core.Hresult
-import io.github.kotlinmania.windowssys.windows.win32.devices.properties.Devproptype
 import io.github.kotlinmania.windowssys.windows.win32.devices.sensors.cinterop.windowssysWindowsWin32DevicesSensorsCollectionsListAllocateBufferAndSerialize
 import io.github.kotlinmania.windowssys.windows.win32.devices.sensors.cinterop.windowssysWindowsWin32DevicesSensorsCollectionsListCopyAndMarshall
 import io.github.kotlinmania.windowssys.windows.win32.devices.sensors.cinterop.windowssysWindowsWin32DevicesSensorsCollectionsListDeserializeFromBuffer
@@ -48,130 +45,127 @@ import io.github.kotlinmania.windowssys.windows.win32.devices.sensors.cinterop.w
 import io.github.kotlinmania.windowssys.windows.win32.devices.sensors.cinterop.windowssysWindowsWin32DevicesSensorsSensorCollectionGetAt
 import io.github.kotlinmania.windowssys.windows.win32.devices.sensors.cinterop.windowssysWindowsWin32DevicesSensorsSerializationBufferAllocate
 import io.github.kotlinmania.windowssys.windows.win32.devices.sensors.cinterop.windowssysWindowsWin32DevicesSensorsSerializationBufferFree
-import io.github.kotlinmania.windowssys.windows.win32.foundation.Filetime
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Ntstatus
-import io.github.kotlinmania.windowssys.windows.win32.foundation.Propertykey
-import io.github.kotlinmania.windowssys.windows.win32.system.com.structuredstorage.Propvariant
 import kotlinx.cinterop.ByteVar
 import kotlinx.cinterop.toCPointer
 
-public actual fun collectionsListAllocateBufferAndSerialize(sourcecollection: ConstPtr<SensorCollectionList>, ptargetbuffersizeinbytes: MutPtr<UInt>, ptargetbuffer: MutPtr<MutPtr<UByte>>): Ntstatus =
+public actual fun collectionsListAllocateBufferAndSerialize(sourcecollection: ConstPtr, ptargetbuffersizeinbytes: MutPtr, ptargetbuffer: MutPtr): Ntstatus =
     windowssysWindowsWin32DevicesSensorsCollectionsListAllocateBufferAndSerialize(sourcecollection.rawAddress.toCPointer<ByteVar>(), ptargetbuffersizeinbytes.rawAddress.toCPointer<ByteVar>(), ptargetbuffer.rawAddress.toCPointer<ByteVar>())
 
-public actual fun collectionsListCopyAndMarshall(target: MutPtr<SensorCollectionList>, source: ConstPtr<SensorCollectionList>): Ntstatus =
+public actual fun collectionsListCopyAndMarshall(target: MutPtr, source: ConstPtr): Ntstatus =
     windowssysWindowsWin32DevicesSensorsCollectionsListCopyAndMarshall(target.rawAddress.toCPointer<ByteVar>(), source.rawAddress.toCPointer<ByteVar>())
 
-public actual fun collectionsListDeserializeFromBuffer(sourcebuffersizeinbytes: UInt, sourcebuffer: ConstPtr<UByte>, targetcollection: MutPtr<SensorCollectionList>): Ntstatus =
+public actual fun collectionsListDeserializeFromBuffer(sourcebuffersizeinbytes: UInt, sourcebuffer: ConstPtr, targetcollection: MutPtr): Ntstatus =
     windowssysWindowsWin32DevicesSensorsCollectionsListDeserializeFromBuffer(sourcebuffersizeinbytes, sourcebuffer.rawAddress.toCPointer<ByteVar>(), targetcollection.rawAddress.toCPointer<ByteVar>())
 
 public actual fun collectionsListGetFillableCount(buffersizebytes: UInt): UInt =
     windowssysWindowsWin32DevicesSensorsCollectionsListGetFillableCount(buffersizebytes)
 
-public actual fun collectionsListGetMarshalledSize(collection: ConstPtr<SensorCollectionList>): UInt =
+public actual fun collectionsListGetMarshalledSize(collection: ConstPtr): UInt =
     windowssysWindowsWin32DevicesSensorsCollectionsListGetMarshalledSize(collection.rawAddress.toCPointer<ByteVar>())
 
-public actual fun collectionsListGetMarshalledSizeWithoutSerialization(collection: ConstPtr<SensorCollectionList>): UInt =
+public actual fun collectionsListGetMarshalledSizeWithoutSerialization(collection: ConstPtr): UInt =
     windowssysWindowsWin32DevicesSensorsCollectionsListGetMarshalledSizeWithoutSerialization(collection.rawAddress.toCPointer<ByteVar>())
 
-public actual fun collectionsListGetSerializedSize(collection: ConstPtr<SensorCollectionList>): UInt =
+public actual fun collectionsListGetSerializedSize(collection: ConstPtr): UInt =
     windowssysWindowsWin32DevicesSensorsCollectionsListGetSerializedSize(collection.rawAddress.toCPointer<ByteVar>())
 
-public actual fun collectionsListMarshall(target: MutPtr<SensorCollectionList>): Ntstatus =
+public actual fun collectionsListMarshall(target: MutPtr): Ntstatus =
     windowssysWindowsWin32DevicesSensorsCollectionsListMarshall(target.rawAddress.toCPointer<ByteVar>())
 
-public actual fun collectionsListSerializeToBuffer(sourcecollection: ConstPtr<SensorCollectionList>, targetbuffersizeinbytes: UInt, targetbuffer: MutPtr<UByte>): Ntstatus =
+public actual fun collectionsListSerializeToBuffer(sourcecollection: ConstPtr, targetbuffersizeinbytes: UInt, targetbuffer: MutPtr): Ntstatus =
     windowssysWindowsWin32DevicesSensorsCollectionsListSerializeToBuffer(sourcecollection.rawAddress.toCPointer<ByteVar>(), targetbuffersizeinbytes, targetbuffer.rawAddress.toCPointer<ByteVar>())
 
-public actual fun collectionsListSortSubscribedActivitiesByConfidence(thresholds: ConstPtr<SensorCollectionList>, pcollection: MutPtr<SensorCollectionList>): Ntstatus =
+public actual fun collectionsListSortSubscribedActivitiesByConfidence(thresholds: ConstPtr, pcollection: MutPtr): Ntstatus =
     windowssysWindowsWin32DevicesSensorsCollectionsListSortSubscribedActivitiesByConfidence(thresholds.rawAddress.toCPointer<ByteVar>(), pcollection.rawAddress.toCPointer<ByteVar>())
 
-public actual fun collectionsListUpdateMarshalledPointer(collection: MutPtr<SensorCollectionList>): Ntstatus =
+public actual fun collectionsListUpdateMarshalledPointer(collection: MutPtr): Ntstatus =
     windowssysWindowsWin32DevicesSensorsCollectionsListUpdateMarshalledPointer(collection.rawAddress.toCPointer<ByteVar>())
 
-public actual fun evaluateActivityThresholds(newsample: ConstPtr<SensorCollectionList>, oldsample: ConstPtr<SensorCollectionList>, thresholds: ConstPtr<SensorCollectionList>): Boolean =
+public actual fun evaluateActivityThresholds(newsample: ConstPtr, oldsample: ConstPtr, thresholds: ConstPtr): Boolean =
     windowssysWindowsWin32DevicesSensorsEvaluateActivityThresholds(newsample.rawAddress.toCPointer<ByteVar>(), oldsample.rawAddress.toCPointer<ByteVar>(), thresholds.rawAddress.toCPointer<ByteVar>())
 
-public actual fun getPerformanceTime(timems: MutPtr<UInt>): Ntstatus =
+public actual fun getPerformanceTime(timems: MutPtr): Ntstatus =
     windowssysWindowsWin32DevicesSensorsGetPerformanceTime(timems.rawAddress.toCPointer<ByteVar>())
 
-public actual fun initPropVariantFromCLSIDArray(members: ConstPtr<Guid>, size: UInt, ppropvar: MutPtr<Propvariant>): Hresult =
+public actual fun initPropVariantFromCLSIDArray(members: ConstPtr, size: UInt, ppropvar: MutPtr): Hresult =
     windowssysWindowsWin32DevicesSensorsInitPropVariantFromCLSIDArray(members.rawAddress.toCPointer<ByteVar>(), size, ppropvar.rawAddress.toCPointer<ByteVar>())
 
-public actual fun initPropVariantFromFloat(fltval: Float, ppropvar: MutPtr<Propvariant>): Hresult =
+public actual fun initPropVariantFromFloat(fltval: Float, ppropvar: MutPtr): Hresult =
     windowssysWindowsWin32DevicesSensorsInitPropVariantFromFloat(fltval, ppropvar.rawAddress.toCPointer<ByteVar>())
 
-public actual fun isCollectionListSame(lista: ConstPtr<SensorCollectionList>, listb: ConstPtr<SensorCollectionList>): Boolean =
+public actual fun isCollectionListSame(lista: ConstPtr, listb: ConstPtr): Boolean =
     windowssysWindowsWin32DevicesSensorsIsCollectionListSame(lista.rawAddress.toCPointer<ByteVar>(), listb.rawAddress.toCPointer<ByteVar>())
 
-public actual fun isGUIDPresentInList(guidarray: ConstPtr<Guid>, arraylength: UInt, guidelem: ConstPtr<Guid>): Boolean =
+public actual fun isGUIDPresentInList(guidarray: ConstPtr, arraylength: UInt, guidelem: ConstPtr): Boolean =
     windowssysWindowsWin32DevicesSensorsIsGUIDPresentInList(guidarray.rawAddress.toCPointer<ByteVar>(), arraylength, guidelem.rawAddress.toCPointer<ByteVar>())
 
-public actual fun isKeyPresentInCollectionList(plist: ConstPtr<SensorCollectionList>, pkey: ConstPtr<Propertykey>): Boolean =
+public actual fun isKeyPresentInCollectionList(plist: ConstPtr, pkey: ConstPtr): Boolean =
     windowssysWindowsWin32DevicesSensorsIsKeyPresentInCollectionList(plist.rawAddress.toCPointer<ByteVar>(), pkey.rawAddress.toCPointer<ByteVar>())
 
-public actual fun isKeyPresentInPropertyList(plist: ConstPtr<SensorPropertyList>, pkey: ConstPtr<Propertykey>): Boolean =
+public actual fun isKeyPresentInPropertyList(plist: ConstPtr, pkey: ConstPtr): Boolean =
     windowssysWindowsWin32DevicesSensorsIsKeyPresentInPropertyList(plist.rawAddress.toCPointer<ByteVar>(), pkey.rawAddress.toCPointer<ByteVar>())
 
-public actual fun isSensorSubscribed(subscriptionlist: ConstPtr<SensorCollectionList>, currenttype: Guid): Boolean =
+public actual fun isSensorSubscribed(subscriptionlist: ConstPtr, currenttype: Guid): Boolean =
     false
 
-public actual fun propKeyFindKeyGetBool(plist: ConstPtr<SensorCollectionList>, pkey: ConstPtr<Propertykey>, pretvalue: MutPtr<Bool>): Ntstatus =
+public actual fun propKeyFindKeyGetBool(plist: ConstPtr, pkey: ConstPtr, pretvalue: MutPtr): Ntstatus =
     windowssysWindowsWin32DevicesSensorsPropKeyFindKeyGetBool(plist.rawAddress.toCPointer<ByteVar>(), pkey.rawAddress.toCPointer<ByteVar>(), pretvalue.rawAddress.toCPointer<ByteVar>())
 
-public actual fun propKeyFindKeyGetDouble(plist: ConstPtr<SensorCollectionList>, pkey: ConstPtr<Propertykey>, pretvalue: MutPtr<Double>): Ntstatus =
+public actual fun propKeyFindKeyGetDouble(plist: ConstPtr, pkey: ConstPtr, pretvalue: MutPtr): Ntstatus =
     windowssysWindowsWin32DevicesSensorsPropKeyFindKeyGetDouble(plist.rawAddress.toCPointer<ByteVar>(), pkey.rawAddress.toCPointer<ByteVar>(), pretvalue.rawAddress.toCPointer<ByteVar>())
 
-public actual fun propKeyFindKeyGetFileTime(plist: ConstPtr<SensorCollectionList>, pkey: ConstPtr<Propertykey>, pretvalue: MutPtr<Filetime>): Ntstatus =
+public actual fun propKeyFindKeyGetFileTime(plist: ConstPtr, pkey: ConstPtr, pretvalue: MutPtr): Ntstatus =
     windowssysWindowsWin32DevicesSensorsPropKeyFindKeyGetFileTime(plist.rawAddress.toCPointer<ByteVar>(), pkey.rawAddress.toCPointer<ByteVar>(), pretvalue.rawAddress.toCPointer<ByteVar>())
 
-public actual fun propKeyFindKeyGetFloat(plist: ConstPtr<SensorCollectionList>, pkey: ConstPtr<Propertykey>, pretvalue: MutPtr<Float>): Ntstatus =
+public actual fun propKeyFindKeyGetFloat(plist: ConstPtr, pkey: ConstPtr, pretvalue: MutPtr): Ntstatus =
     windowssysWindowsWin32DevicesSensorsPropKeyFindKeyGetFloat(plist.rawAddress.toCPointer<ByteVar>(), pkey.rawAddress.toCPointer<ByteVar>(), pretvalue.rawAddress.toCPointer<ByteVar>())
 
-public actual fun propKeyFindKeyGetGuid(plist: ConstPtr<SensorCollectionList>, pkey: ConstPtr<Propertykey>, pretvalue: MutPtr<Guid>): Ntstatus =
+public actual fun propKeyFindKeyGetGuid(plist: ConstPtr, pkey: ConstPtr, pretvalue: MutPtr): Ntstatus =
     windowssysWindowsWin32DevicesSensorsPropKeyFindKeyGetGuid(plist.rawAddress.toCPointer<ByteVar>(), pkey.rawAddress.toCPointer<ByteVar>(), pretvalue.rawAddress.toCPointer<ByteVar>())
 
-public actual fun propKeyFindKeyGetInt32(plist: ConstPtr<SensorCollectionList>, pkey: ConstPtr<Propertykey>, pretvalue: MutPtr<Int>): Ntstatus =
+public actual fun propKeyFindKeyGetInt32(plist: ConstPtr, pkey: ConstPtr, pretvalue: MutPtr): Ntstatus =
     windowssysWindowsWin32DevicesSensorsPropKeyFindKeyGetInt32(plist.rawAddress.toCPointer<ByteVar>(), pkey.rawAddress.toCPointer<ByteVar>(), pretvalue.rawAddress.toCPointer<ByteVar>())
 
-public actual fun propKeyFindKeyGetInt64(plist: ConstPtr<SensorCollectionList>, pkey: ConstPtr<Propertykey>, pretvalue: MutPtr<Long>): Ntstatus =
+public actual fun propKeyFindKeyGetInt64(plist: ConstPtr, pkey: ConstPtr, pretvalue: MutPtr): Ntstatus =
     windowssysWindowsWin32DevicesSensorsPropKeyFindKeyGetInt64(plist.rawAddress.toCPointer<ByteVar>(), pkey.rawAddress.toCPointer<ByteVar>(), pretvalue.rawAddress.toCPointer<ByteVar>())
 
-public actual fun propKeyFindKeyGetNthInt64(plist: ConstPtr<SensorCollectionList>, pkey: ConstPtr<Propertykey>, occurrence: UInt, pretvalue: MutPtr<Long>): Ntstatus =
+public actual fun propKeyFindKeyGetNthInt64(plist: ConstPtr, pkey: ConstPtr, occurrence: UInt, pretvalue: MutPtr): Ntstatus =
     windowssysWindowsWin32DevicesSensorsPropKeyFindKeyGetNthInt64(plist.rawAddress.toCPointer<ByteVar>(), pkey.rawAddress.toCPointer<ByteVar>(), occurrence, pretvalue.rawAddress.toCPointer<ByteVar>())
 
-public actual fun propKeyFindKeyGetNthUlong(plist: ConstPtr<SensorCollectionList>, pkey: ConstPtr<Propertykey>, occurrence: UInt, pretvalue: MutPtr<UInt>): Ntstatus =
+public actual fun propKeyFindKeyGetNthUlong(plist: ConstPtr, pkey: ConstPtr, occurrence: UInt, pretvalue: MutPtr): Ntstatus =
     windowssysWindowsWin32DevicesSensorsPropKeyFindKeyGetNthUlong(plist.rawAddress.toCPointer<ByteVar>(), pkey.rawAddress.toCPointer<ByteVar>(), occurrence, pretvalue.rawAddress.toCPointer<ByteVar>())
 
-public actual fun propKeyFindKeyGetNthUshort(plist: ConstPtr<SensorCollectionList>, pkey: ConstPtr<Propertykey>, occurrence: UInt, pretvalue: MutPtr<UShort>): Ntstatus =
+public actual fun propKeyFindKeyGetNthUshort(plist: ConstPtr, pkey: ConstPtr, occurrence: UInt, pretvalue: MutPtr): Ntstatus =
     windowssysWindowsWin32DevicesSensorsPropKeyFindKeyGetNthUshort(plist.rawAddress.toCPointer<ByteVar>(), pkey.rawAddress.toCPointer<ByteVar>(), occurrence, pretvalue.rawAddress.toCPointer<ByteVar>())
 
-public actual fun propKeyFindKeyGetPropVariant(plist: ConstPtr<SensorCollectionList>, pkey: ConstPtr<Propertykey>, typecheck: Boolean, pvalue: MutPtr<Propvariant>): Ntstatus =
+public actual fun propKeyFindKeyGetPropVariant(plist: ConstPtr, pkey: ConstPtr, typecheck: Boolean, pvalue: MutPtr): Ntstatus =
     windowssysWindowsWin32DevicesSensorsPropKeyFindKeyGetPropVariant(plist.rawAddress.toCPointer<ByteVar>(), pkey.rawAddress.toCPointer<ByteVar>(), typecheck, pvalue.rawAddress.toCPointer<ByteVar>())
 
-public actual fun propKeyFindKeyGetUlong(plist: ConstPtr<SensorCollectionList>, pkey: ConstPtr<Propertykey>, pretvalue: MutPtr<UInt>): Ntstatus =
+public actual fun propKeyFindKeyGetUlong(plist: ConstPtr, pkey: ConstPtr, pretvalue: MutPtr): Ntstatus =
     windowssysWindowsWin32DevicesSensorsPropKeyFindKeyGetUlong(plist.rawAddress.toCPointer<ByteVar>(), pkey.rawAddress.toCPointer<ByteVar>(), pretvalue.rawAddress.toCPointer<ByteVar>())
 
-public actual fun propKeyFindKeyGetUshort(plist: ConstPtr<SensorCollectionList>, pkey: ConstPtr<Propertykey>, pretvalue: MutPtr<UShort>): Ntstatus =
+public actual fun propKeyFindKeyGetUshort(plist: ConstPtr, pkey: ConstPtr, pretvalue: MutPtr): Ntstatus =
     windowssysWindowsWin32DevicesSensorsPropKeyFindKeyGetUshort(plist.rawAddress.toCPointer<ByteVar>(), pkey.rawAddress.toCPointer<ByteVar>(), pretvalue.rawAddress.toCPointer<ByteVar>())
 
-public actual fun propKeyFindKeySetPropVariant(plist: MutPtr<SensorCollectionList>, pkey: ConstPtr<Propertykey>, typecheck: Boolean, pvalue: ConstPtr<Propvariant>): Ntstatus =
+public actual fun propKeyFindKeySetPropVariant(plist: MutPtr, pkey: ConstPtr, typecheck: Boolean, pvalue: ConstPtr): Ntstatus =
     windowssysWindowsWin32DevicesSensorsPropKeyFindKeySetPropVariant(plist.rawAddress.toCPointer<ByteVar>(), pkey.rawAddress.toCPointer<ByteVar>(), typecheck, pvalue.rawAddress.toCPointer<ByteVar>())
 
-public actual fun propVariantGetInformation(propvariantvalue: ConstPtr<Propvariant>, propvariantoffset: MutPtr<UInt>, propvariantsize: MutPtr<UInt>, propvariantpointer: MutPtr<MutPtr<CVoid>>, remappedtype: MutPtr<Devproptype>): Ntstatus =
+public actual fun propVariantGetInformation(propvariantvalue: ConstPtr, propvariantoffset: MutPtr, propvariantsize: MutPtr, propvariantpointer: MutPtr, remappedtype: MutPtr): Ntstatus =
     windowssysWindowsWin32DevicesSensorsPropVariantGetInformation(propvariantvalue.rawAddress.toCPointer<ByteVar>(), propvariantoffset.rawAddress.toCPointer<ByteVar>(), propvariantsize.rawAddress.toCPointer<ByteVar>(), propvariantpointer.rawAddress.toCPointer<ByteVar>(), remappedtype.rawAddress.toCPointer<ByteVar>())
 
-public actual fun propertiesListCopy(target: MutPtr<SensorPropertyList>, source: ConstPtr<SensorPropertyList>): Ntstatus =
+public actual fun propertiesListCopy(target: MutPtr, source: ConstPtr): Ntstatus =
     windowssysWindowsWin32DevicesSensorsPropertiesListCopy(target.rawAddress.toCPointer<ByteVar>(), source.rawAddress.toCPointer<ByteVar>())
 
 public actual fun propertiesListGetFillableCount(buffersizebytes: UInt): UInt =
     windowssysWindowsWin32DevicesSensorsPropertiesListGetFillableCount(buffersizebytes)
 
-public actual fun sensorCollectionGetAt(index: UInt, psensorslist: ConstPtr<SensorCollectionList>, pkey: MutPtr<Propertykey>, pvalue: MutPtr<Propvariant>): Ntstatus =
+public actual fun sensorCollectionGetAt(index: UInt, psensorslist: ConstPtr, pkey: MutPtr, pvalue: MutPtr): Ntstatus =
     windowssysWindowsWin32DevicesSensorsSensorCollectionGetAt(index, psensorslist.rawAddress.toCPointer<ByteVar>(), pkey.rawAddress.toCPointer<ByteVar>(), pvalue.rawAddress.toCPointer<ByteVar>())
 
-public actual fun serializationBufferAllocate(sizeinbytes: UInt, pbuffer: MutPtr<MutPtr<UByte>>): Ntstatus =
+public actual fun serializationBufferAllocate(sizeinbytes: UInt, pbuffer: MutPtr): Ntstatus =
     windowssysWindowsWin32DevicesSensorsSerializationBufferAllocate(sizeinbytes, pbuffer.rawAddress.toCPointer<ByteVar>())
 
-public actual fun serializationBufferFree(buffer: ConstPtr<UByte>) {
+public actual fun serializationBufferFree(buffer: ConstPtr) {
     windowssysWindowsWin32DevicesSensorsSerializationBufferFree(buffer.rawAddress.toCPointer<ByteVar>())
 }

@@ -580,7 +580,7 @@ public class DfsInfo3 internal constructor(
     commentCtorArg: Pwstr,
     public var state: UInt,
     public var numberOfStorages: UInt,
-    storageCtorArg: MutPtr<DfsStorageInfo>,
+    storageCtorArg: MutPtr,
 ) {
     public var entryPath: Pwstr = entryPathCtorArg
         internal set
@@ -588,7 +588,7 @@ public class DfsInfo3 internal constructor(
     public var comment: Pwstr = commentCtorArg
         internal set
 
-    public var storage: MutPtr<DfsStorageInfo> = storageCtorArg
+    public var storage: MutPtr = storageCtorArg
         internal set
 
     public constructor() : this(
@@ -607,9 +607,9 @@ public class DfsInfo3 internal constructor(
 
     public operator fun component4(): UInt = this.numberOfStorages
 
-    public operator fun component5(): MutPtr<DfsStorageInfo> = this.storage
+    public operator fun component5(): MutPtr = this.storage
 
-    public fun copy(entryPath: Pwstr = this.entryPath, comment: Pwstr = this.comment, state: UInt = this.state, numberOfStorages: UInt = this.numberOfStorages, storage: MutPtr<DfsStorageInfo> = this.storage): DfsInfo3 = DfsInfo3(entryPathCtorArg = entryPath, commentCtorArg = comment, state = state, numberOfStorages = numberOfStorages, storageCtorArg = storage)
+    public fun copy(entryPath: Pwstr = this.entryPath, comment: Pwstr = this.comment, state: UInt = this.state, numberOfStorages: UInt = this.numberOfStorages, storage: MutPtr = this.storage): DfsInfo3 = DfsInfo3(entryPathCtorArg = entryPath, commentCtorArg = comment, state = state, numberOfStorages = numberOfStorages, storageCtorArg = storage)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -637,7 +637,7 @@ public class DfsInfo3 internal constructor(
             comment: Pwstr = MutPtr(0L),
             state: UInt = 0u,
             numberOfStorages: UInt = 0u,
-            storage: MutPtr<DfsStorageInfo> = MutPtr(0L),
+            storage: MutPtr = MutPtr(0L),
         ): DfsInfo3 =
             DfsInfo3(
                 entryPathCtorArg = entryPath,
@@ -731,7 +731,7 @@ public class DfsInfo4 internal constructor(
     public var timeout: UInt,
     public var guid: Guid,
     public var numberOfStorages: UInt,
-    storageCtorArg: MutPtr<DfsStorageInfo>,
+    storageCtorArg: MutPtr,
 ) {
     public var entryPath: Pwstr = entryPathCtorArg
         internal set
@@ -739,7 +739,7 @@ public class DfsInfo4 internal constructor(
     public var comment: Pwstr = commentCtorArg
         internal set
 
-    public var storage: MutPtr<DfsStorageInfo> = storageCtorArg
+    public var storage: MutPtr = storageCtorArg
         internal set
 
     public constructor() : this(
@@ -764,9 +764,9 @@ public class DfsInfo4 internal constructor(
 
     public operator fun component6(): UInt = this.numberOfStorages
 
-    public operator fun component7(): MutPtr<DfsStorageInfo> = this.storage
+    public operator fun component7(): MutPtr = this.storage
 
-    public fun copy(entryPath: Pwstr = this.entryPath, comment: Pwstr = this.comment, state: UInt = this.state, timeout: UInt = this.timeout, guid: Guid = this.guid, numberOfStorages: UInt = this.numberOfStorages, storage: MutPtr<DfsStorageInfo> = this.storage): DfsInfo4 = DfsInfo4(entryPathCtorArg = entryPath, commentCtorArg = comment, state = state, timeout = timeout, guid = guid, numberOfStorages = numberOfStorages, storageCtorArg = storage)
+    public fun copy(entryPath: Pwstr = this.entryPath, comment: Pwstr = this.comment, state: UInt = this.state, timeout: UInt = this.timeout, guid: Guid = this.guid, numberOfStorages: UInt = this.numberOfStorages, storage: MutPtr = this.storage): DfsInfo4 = DfsInfo4(entryPathCtorArg = entryPath, commentCtorArg = comment, state = state, timeout = timeout, guid = guid, numberOfStorages = numberOfStorages, storageCtorArg = storage)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -800,7 +800,7 @@ public class DfsInfo4 internal constructor(
             timeout: UInt = 0u,
             guid: Guid = Guid(),
             numberOfStorages: UInt = 0u,
-            storage: MutPtr<DfsStorageInfo> = MutPtr(0L),
+            storage: MutPtr = MutPtr(0L),
         ): DfsInfo4 =
             DfsInfo4(
                 entryPathCtorArg = entryPath,
@@ -953,7 +953,7 @@ public class DfsInfo6 internal constructor(
     public var propertyFlags: UInt,
     public var metadataSize: UInt,
     public var numberOfStorages: UInt,
-    storageCtorArg: MutPtr<DfsStorageInfo1>,
+    storageCtorArg: MutPtr,
 ) {
     public var entryPath: Pwstr = entryPathCtorArg
         internal set
@@ -961,7 +961,7 @@ public class DfsInfo6 internal constructor(
     public var comment: Pwstr = commentCtorArg
         internal set
 
-    public var storage: MutPtr<DfsStorageInfo1> = storageCtorArg
+    public var storage: MutPtr = storageCtorArg
         internal set
 
     public constructor() : this(
@@ -992,9 +992,9 @@ public class DfsInfo6 internal constructor(
 
     public operator fun component8(): UInt = this.numberOfStorages
 
-    public operator fun component9(): MutPtr<DfsStorageInfo1> = this.storage
+    public operator fun component9(): MutPtr = this.storage
 
-    public fun copy(entryPath: Pwstr = this.entryPath, comment: Pwstr = this.comment, state: UInt = this.state, timeout: UInt = this.timeout, guid: Guid = this.guid, propertyFlags: UInt = this.propertyFlags, metadataSize: UInt = this.metadataSize, numberOfStorages: UInt = this.numberOfStorages, storage: MutPtr<DfsStorageInfo1> = this.storage): DfsInfo6 = DfsInfo6(entryPathCtorArg = entryPath, commentCtorArg = comment, state = state, timeout = timeout, guid = guid, propertyFlags = propertyFlags, metadataSize = metadataSize, numberOfStorages = numberOfStorages, storageCtorArg = storage)
+    public fun copy(entryPath: Pwstr = this.entryPath, comment: Pwstr = this.comment, state: UInt = this.state, timeout: UInt = this.timeout, guid: Guid = this.guid, propertyFlags: UInt = this.propertyFlags, metadataSize: UInt = this.metadataSize, numberOfStorages: UInt = this.numberOfStorages, storage: MutPtr = this.storage): DfsInfo6 = DfsInfo6(entryPathCtorArg = entryPath, commentCtorArg = comment, state = state, timeout = timeout, guid = guid, propertyFlags = propertyFlags, metadataSize = metadataSize, numberOfStorages = numberOfStorages, storageCtorArg = storage)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -1034,7 +1034,7 @@ public class DfsInfo6 internal constructor(
             propertyFlags: UInt = 0u,
             metadataSize: UInt = 0u,
             numberOfStorages: UInt = 0u,
-            storage: MutPtr<DfsStorageInfo1> = MutPtr(0L),
+            storage: MutPtr = MutPtr(0L),
         ): DfsInfo6 =
             DfsInfo6(
                 entryPathCtorArg = entryPath,
@@ -1179,7 +1179,7 @@ public class DfsInfo9 internal constructor(
     public var sdLengthReserved: UInt,
     pSecurityDescriptorCtorArg: PsecurityDescriptor,
     public var numberOfStorages: UInt,
-    storageCtorArg: MutPtr<DfsStorageInfo1>,
+    storageCtorArg: MutPtr,
 ) {
     public var entryPath: Pwstr = entryPathCtorArg
         internal set
@@ -1190,7 +1190,7 @@ public class DfsInfo9 internal constructor(
     public var pSecurityDescriptor: PsecurityDescriptor = pSecurityDescriptorCtorArg
         internal set
 
-    public var storage: MutPtr<DfsStorageInfo1> = storageCtorArg
+    public var storage: MutPtr = storageCtorArg
         internal set
 
     public constructor() : this(
@@ -1227,9 +1227,9 @@ public class DfsInfo9 internal constructor(
 
     public operator fun component10(): UInt = this.numberOfStorages
 
-    public operator fun component11(): MutPtr<DfsStorageInfo1> = this.storage
+    public operator fun component11(): MutPtr = this.storage
 
-    public fun copy(entryPath: Pwstr = this.entryPath, comment: Pwstr = this.comment, state: UInt = this.state, timeout: UInt = this.timeout, guid: Guid = this.guid, propertyFlags: UInt = this.propertyFlags, metadataSize: UInt = this.metadataSize, sdLengthReserved: UInt = this.sdLengthReserved, pSecurityDescriptor: PsecurityDescriptor = this.pSecurityDescriptor, numberOfStorages: UInt = this.numberOfStorages, storage: MutPtr<DfsStorageInfo1> = this.storage): DfsInfo9 = DfsInfo9(entryPathCtorArg = entryPath, commentCtorArg = comment, state = state, timeout = timeout, guid = guid, propertyFlags = propertyFlags, metadataSize = metadataSize, sdLengthReserved = sdLengthReserved, pSecurityDescriptorCtorArg = pSecurityDescriptor, numberOfStorages = numberOfStorages, storageCtorArg = storage)
+    public fun copy(entryPath: Pwstr = this.entryPath, comment: Pwstr = this.comment, state: UInt = this.state, timeout: UInt = this.timeout, guid: Guid = this.guid, propertyFlags: UInt = this.propertyFlags, metadataSize: UInt = this.metadataSize, sdLengthReserved: UInt = this.sdLengthReserved, pSecurityDescriptor: PsecurityDescriptor = this.pSecurityDescriptor, numberOfStorages: UInt = this.numberOfStorages, storage: MutPtr = this.storage): DfsInfo9 = DfsInfo9(entryPathCtorArg = entryPath, commentCtorArg = comment, state = state, timeout = timeout, guid = guid, propertyFlags = propertyFlags, metadataSize = metadataSize, sdLengthReserved = sdLengthReserved, pSecurityDescriptorCtorArg = pSecurityDescriptor, numberOfStorages = numberOfStorages, storageCtorArg = storage)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -1275,7 +1275,7 @@ public class DfsInfo9 internal constructor(
             sdLengthReserved: UInt = 0u,
             pSecurityDescriptor: PsecurityDescriptor = MutPtr(0L),
             numberOfStorages: UInt = 0u,
-            storage: MutPtr<DfsStorageInfo1> = MutPtr(0L),
+            storage: MutPtr = MutPtr(0L),
         ): DfsInfo9 =
             DfsInfo9(
                 entryPathCtorArg = entryPath,

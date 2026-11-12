@@ -12,14 +12,14 @@ import io.github.kotlinmania.windowssys.windows.win32.system.useraccesslogging.c
 import kotlinx.cinterop.ByteVar
 import kotlinx.cinterop.toCPointer
 
-public actual fun ualInstrument(data: ConstPtr<UalDataBlob>): Hresult =
+public actual fun ualInstrument(data: ConstPtr): Hresult =
     windowssysWindowsWin32SystemUseraccessloggingUalInstrument(data.rawAddress.toCPointer<ByteVar>())
 
 public actual fun ualRegisterProduct(wszproductname: Pcwstr, wszrolename: Pcwstr, wszguid: Pcwstr): Hresult =
     windowssysWindowsWin32SystemUseraccessloggingUalRegisterProduct(wszproductname.rawAddress.toCPointer<ByteVar>(), wszrolename.rawAddress.toCPointer<ByteVar>(), wszguid.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ualStart(data: ConstPtr<UalDataBlob>): Hresult =
+public actual fun ualStart(data: ConstPtr): Hresult =
     windowssysWindowsWin32SystemUseraccessloggingUalStart(data.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ualStop(data: ConstPtr<UalDataBlob>): Hresult =
+public actual fun ualStop(data: ConstPtr): Hresult =
     windowssysWindowsWin32SystemUseraccessloggingUalStop(data.rawAddress.toCPointer<ByteVar>())

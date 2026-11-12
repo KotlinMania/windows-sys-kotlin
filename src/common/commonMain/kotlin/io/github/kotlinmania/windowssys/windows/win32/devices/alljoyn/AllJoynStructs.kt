@@ -1,6 +1,5 @@
 package io.github.kotlinmania.windowssys.windows.win32.devices.alljoyn
 
-import io.github.kotlinmania.rustlang.core.ffi.CVoid
 import io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
 import io.github.kotlinmania.rustlang.core.mem.TypeLayout
 import io.github.kotlinmania.rustlang.core.ptr.ConstPtr
@@ -53,10 +52,10 @@ public data class AlljoynBusobjectCallbacks(
 )
 
 public class AlljoynBusobjectMethodentry internal constructor(
-    memberCtorArg: ConstPtr<AlljoynInterfacedescriptionMember>,
+    memberCtorArg: ConstPtr,
     public var methodHandler: AlljoynMessagereceiverMethodhandlerPtr,
 ) {
-    public var member: ConstPtr<AlljoynInterfacedescriptionMember> = memberCtorArg
+    public var member: ConstPtr = memberCtorArg
         internal set
 
     public constructor() : this(
@@ -64,11 +63,11 @@ public class AlljoynBusobjectMethodentry internal constructor(
         methodHandler = null,
     )
 
-    public operator fun component1(): ConstPtr<AlljoynInterfacedescriptionMember> = this.member
+    public operator fun component1(): ConstPtr = this.member
 
     public operator fun component2(): AlljoynMessagereceiverMethodhandlerPtr = this.methodHandler
 
-    public fun copy(member: ConstPtr<AlljoynInterfacedescriptionMember> = this.member, methodHandler: AlljoynMessagereceiverMethodhandlerPtr = this.methodHandler): AlljoynBusobjectMethodentry = AlljoynBusobjectMethodentry(memberCtorArg = member, methodHandler = methodHandler)
+    public fun copy(member: ConstPtr = this.member, methodHandler: AlljoynMessagereceiverMethodhandlerPtr = this.methodHandler): AlljoynBusobjectMethodentry = AlljoynBusobjectMethodentry(memberCtorArg = member, methodHandler = methodHandler)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -86,7 +85,7 @@ public class AlljoynBusobjectMethodentry internal constructor(
 
     public companion object {
         public operator fun invoke(
-            member: ConstPtr<AlljoynInterfacedescriptionMember> = ConstPtr(0L),
+            member: ConstPtr = ConstPtr(0L),
             methodHandler: AlljoynMessagereceiverMethodhandlerPtr = null,
         ): AlljoynBusobjectMethodentry =
             AlljoynBusobjectMethodentry(
@@ -97,19 +96,19 @@ public class AlljoynBusobjectMethodentry internal constructor(
 }
 
 public class AlljoynCertificateid internal constructor(
-    serialCtorArg: MutPtr<UByte>,
+    serialCtorArg: MutPtr,
     public var serialLen: Int,
-    issuerPublicKeyCtorArg: MutPtr<Byte>,
-    issuerAkiCtorArg: MutPtr<UByte>,
+    issuerPublicKeyCtorArg: MutPtr,
+    issuerAkiCtorArg: MutPtr,
     public var issuerAkiLen: Int,
 ) {
-    public var serial: MutPtr<UByte> = serialCtorArg
+    public var serial: MutPtr = serialCtorArg
         internal set
 
-    public var issuerPublicKey: MutPtr<Byte> = issuerPublicKeyCtorArg
+    public var issuerPublicKey: MutPtr = issuerPublicKeyCtorArg
         internal set
 
-    public var issuerAki: MutPtr<UByte> = issuerAkiCtorArg
+    public var issuerAki: MutPtr = issuerAkiCtorArg
         internal set
 
     public constructor() : this(
@@ -120,17 +119,17 @@ public class AlljoynCertificateid internal constructor(
         issuerAkiLen = 0,
     )
 
-    public operator fun component1(): MutPtr<UByte> = this.serial
+    public operator fun component1(): MutPtr = this.serial
 
     public operator fun component2(): Int = this.serialLen
 
-    public operator fun component3(): MutPtr<Byte> = this.issuerPublicKey
+    public operator fun component3(): MutPtr = this.issuerPublicKey
 
-    public operator fun component4(): MutPtr<UByte> = this.issuerAki
+    public operator fun component4(): MutPtr = this.issuerAki
 
     public operator fun component5(): Int = this.issuerAkiLen
 
-    public fun copy(serial: MutPtr<UByte> = this.serial, serialLen: Int = this.serialLen, issuerPublicKey: MutPtr<Byte> = this.issuerPublicKey, issuerAki: MutPtr<UByte> = this.issuerAki, issuerAkiLen: Int = this.issuerAkiLen): AlljoynCertificateid = AlljoynCertificateid(serialCtorArg = serial, serialLen = serialLen, issuerPublicKeyCtorArg = issuerPublicKey, issuerAkiCtorArg = issuerAki, issuerAkiLen = issuerAkiLen)
+    public fun copy(serial: MutPtr = this.serial, serialLen: Int = this.serialLen, issuerPublicKey: MutPtr = this.issuerPublicKey, issuerAki: MutPtr = this.issuerAki, issuerAkiLen: Int = this.issuerAkiLen): AlljoynCertificateid = AlljoynCertificateid(serialCtorArg = serial, serialLen = serialLen, issuerPublicKeyCtorArg = issuerPublicKey, issuerAkiCtorArg = issuerAki, issuerAkiLen = issuerAkiLen)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -161,42 +160,42 @@ public class AlljoynCertificateid internal constructor(
                     AlljoynCertificateid(
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<UByte>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.USIZE64).readNative(addr + 8L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<Byte>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 16L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<UByte>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 24L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.USIZE64).readNative(addr + 32L),
                     )
                 override fun writeNative(addr: Long, value: AlljoynCertificateid) {
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<UByte>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr, value.serial)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.USIZE64).writeNative(addr + 8L, value.serialLen)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<Byte>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 16L, value.issuerPublicKey)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<UByte>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 24L, value.issuerAki)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.USIZE64).writeNative(addr + 32L, value.issuerAkiLen)
                 }
             }
 
         public operator fun invoke(
-            serial: MutPtr<UByte> = MutPtr(0L),
+            serial: MutPtr = MutPtr(0L),
             serialLen: Int = 0,
-            issuerPublicKey: MutPtr<Byte> = MutPtr(0L),
-            issuerAki: MutPtr<UByte> = MutPtr(0L),
+            issuerPublicKey: MutPtr = MutPtr(0L),
+            issuerAki: MutPtr = MutPtr(0L),
             issuerAkiLen: Int = 0,
         ): AlljoynCertificateid =
             AlljoynCertificateid(
@@ -211,9 +210,9 @@ public class AlljoynCertificateid internal constructor(
 
 public class AlljoynCertificateidarray internal constructor(
     public var count: Int,
-    idsCtorArg: MutPtr<AlljoynCertificateid>,
+    idsCtorArg: MutPtr,
 ) {
-    public var ids: MutPtr<AlljoynCertificateid> = idsCtorArg
+    public var ids: MutPtr = idsCtorArg
         internal set
 
     public constructor() : this(
@@ -223,9 +222,9 @@ public class AlljoynCertificateidarray internal constructor(
 
     public operator fun component1(): Int = this.count
 
-    public operator fun component2(): MutPtr<AlljoynCertificateid> = this.ids
+    public operator fun component2(): MutPtr = this.ids
 
-    public fun copy(count: Int = this.count, ids: MutPtr<AlljoynCertificateid> = this.ids): AlljoynCertificateidarray = AlljoynCertificateidarray(count = count, idsCtorArg = ids)
+    public fun copy(count: Int = this.count, ids: MutPtr = this.ids): AlljoynCertificateidarray = AlljoynCertificateidarray(count = count, idsCtorArg = ids)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -251,21 +250,21 @@ public class AlljoynCertificateidarray internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.USIZE64).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<AlljoynCertificateid>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                     )
                 override fun writeNative(addr: Long, value: AlljoynCertificateidarray) {
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.USIZE64).writeNative(addr, value.count)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<AlljoynCertificateid>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.ids)
                 }
             }
 
         public operator fun invoke(
             count: Int = 0,
-            ids: MutPtr<AlljoynCertificateid> = MutPtr(0L),
+            ids: MutPtr = MutPtr(0L),
         ): AlljoynCertificateidarray =
             AlljoynCertificateidarray(
                 count = count,
@@ -281,7 +280,7 @@ public class AlljoynInterfacedescriptionMember internal constructor(
     signatureCtorArg: Pcstr,
     returnSignatureCtorArg: Pcstr,
     argNamesCtorArg: Pcstr,
-    internalMemberCtorArg: ConstPtr<CVoid>,
+    internalMemberCtorArg: ConstPtr,
 ) {
     public var name: Pcstr = nameCtorArg
         internal set
@@ -295,7 +294,7 @@ public class AlljoynInterfacedescriptionMember internal constructor(
     public var argNames: Pcstr = argNamesCtorArg
         internal set
 
-    public var internalMember: ConstPtr<CVoid> = internalMemberCtorArg
+    public var internalMember: ConstPtr = internalMemberCtorArg
         internal set
 
     public constructor() : this(
@@ -320,9 +319,9 @@ public class AlljoynInterfacedescriptionMember internal constructor(
 
     public operator fun component6(): Pcstr = this.argNames
 
-    public operator fun component7(): ConstPtr<CVoid> = this.internalMember
+    public operator fun component7(): ConstPtr = this.internalMember
 
-    public fun copy(iface: AlljoynInterfacedescription = this.iface, memberType: AlljoynMessagetype = this.memberType, name: Pcstr = this.name, signature: Pcstr = this.signature, returnSignature: Pcstr = this.returnSignature, argNames: Pcstr = this.argNames, internalMember: ConstPtr<CVoid> = this.internalMember): AlljoynInterfacedescriptionMember = AlljoynInterfacedescriptionMember(iface = iface, memberType = memberType, nameCtorArg = name, signatureCtorArg = signature, returnSignatureCtorArg = returnSignature, argNamesCtorArg = argNames, internalMemberCtorArg = internalMember)
+    public fun copy(iface: AlljoynInterfacedescription = this.iface, memberType: AlljoynMessagetype = this.memberType, name: Pcstr = this.name, signature: Pcstr = this.signature, returnSignature: Pcstr = this.returnSignature, argNames: Pcstr = this.argNames, internalMember: ConstPtr = this.internalMember): AlljoynInterfacedescriptionMember = AlljoynInterfacedescriptionMember(iface = iface, memberType = memberType, nameCtorArg = name, signatureCtorArg = signature, returnSignatureCtorArg = returnSignature, argNamesCtorArg = argNames, internalMemberCtorArg = internalMember)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -356,7 +355,7 @@ public class AlljoynInterfacedescriptionMember internal constructor(
             signature: Pcstr = ConstPtr(0L),
             returnSignature: Pcstr = ConstPtr(0L),
             argNames: Pcstr = ConstPtr(0L),
-            internalMember: ConstPtr<CVoid> = ConstPtr(0L),
+            internalMember: ConstPtr = ConstPtr(0L),
         ): AlljoynInterfacedescriptionMember =
             AlljoynInterfacedescriptionMember(
                 iface = iface,
@@ -374,7 +373,7 @@ public class AlljoynInterfacedescriptionProperty internal constructor(
     nameCtorArg: Pcstr,
     signatureCtorArg: Pcstr,
     public var access: UByte,
-    internalPropertyCtorArg: ConstPtr<CVoid>,
+    internalPropertyCtorArg: ConstPtr,
 ) {
     public var name: Pcstr = nameCtorArg
         internal set
@@ -382,7 +381,7 @@ public class AlljoynInterfacedescriptionProperty internal constructor(
     public var signature: Pcstr = signatureCtorArg
         internal set
 
-    public var internalProperty: ConstPtr<CVoid> = internalPropertyCtorArg
+    public var internalProperty: ConstPtr = internalPropertyCtorArg
         internal set
 
     public constructor() : this(
@@ -398,9 +397,9 @@ public class AlljoynInterfacedescriptionProperty internal constructor(
 
     public operator fun component3(): UByte = this.access
 
-    public operator fun component4(): ConstPtr<CVoid> = this.internalProperty
+    public operator fun component4(): ConstPtr = this.internalProperty
 
-    public fun copy(name: Pcstr = this.name, signature: Pcstr = this.signature, access: UByte = this.access, internalProperty: ConstPtr<CVoid> = this.internalProperty): AlljoynInterfacedescriptionProperty = AlljoynInterfacedescriptionProperty(nameCtorArg = name, signatureCtorArg = signature, access = access, internalPropertyCtorArg = internalProperty)
+    public fun copy(name: Pcstr = this.name, signature: Pcstr = this.signature, access: UByte = this.access, internalProperty: ConstPtr = this.internalProperty): AlljoynInterfacedescriptionProperty = AlljoynInterfacedescriptionProperty(nameCtorArg = name, signatureCtorArg = signature, access = access, internalPropertyCtorArg = internalProperty)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -425,7 +424,7 @@ public class AlljoynInterfacedescriptionProperty internal constructor(
             name: Pcstr = ConstPtr(0L),
             signature: Pcstr = ConstPtr(0L),
             access: UByte = 0u,
-            internalProperty: ConstPtr<CVoid> = ConstPtr(0L),
+            internalProperty: ConstPtr = ConstPtr(0L),
         ): AlljoynInterfacedescriptionProperty =
             AlljoynInterfacedescriptionProperty(
                 nameCtorArg = name,
@@ -450,9 +449,9 @@ public data class AlljoynKeystorelistenerWithSynchronizationCallbacks(
 
 public class AlljoynManifestarray internal constructor(
     public var count: Int,
-    xmlsCtorArg: MutPtr<MutPtr<Byte>>,
+    xmlsCtorArg: MutPtr,
 ) {
-    public var xmls: MutPtr<MutPtr<Byte>> = xmlsCtorArg
+    public var xmls: MutPtr = xmlsCtorArg
         internal set
 
     public constructor() : this(
@@ -462,9 +461,9 @@ public class AlljoynManifestarray internal constructor(
 
     public operator fun component1(): Int = this.count
 
-    public operator fun component2(): MutPtr<MutPtr<Byte>> = this.xmls
+    public operator fun component2(): MutPtr = this.xmls
 
-    public fun copy(count: Int = this.count, xmls: MutPtr<MutPtr<Byte>> = this.xmls): AlljoynManifestarray = AlljoynManifestarray(count = count, xmlsCtorArg = xmls)
+    public fun copy(count: Int = this.count, xmls: MutPtr = this.xmls): AlljoynManifestarray = AlljoynManifestarray(count = count, xmlsCtorArg = xmls)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -490,21 +489,21 @@ public class AlljoynManifestarray internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.USIZE64).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<MutPtr<Byte>>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                     )
                 override fun writeNative(addr: Long, value: AlljoynManifestarray) {
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.USIZE64).writeNative(addr, value.count)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<MutPtr<Byte>>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.xmls)
                 }
             }
 
         public operator fun invoke(
             count: Int = 0,
-            xmls: MutPtr<MutPtr<Byte>> = MutPtr(0L),
+            xmls: MutPtr = MutPtr(0L),
         ): AlljoynManifestarray =
             AlljoynManifestarray(
                 count = count,

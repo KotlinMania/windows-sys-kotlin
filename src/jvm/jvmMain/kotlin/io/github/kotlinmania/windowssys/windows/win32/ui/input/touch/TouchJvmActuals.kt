@@ -100,25 +100,25 @@ public actual fun closeGestureInfoHandle(hgestureinfo: Hgestureinfo): Bool =
 public actual fun closeTouchInputHandle(htouchinput: Htouchinput): Bool =
     WindowsWin32UiInputTouchJniBridge.windowssysWindowsWin32UiInputTouchCloseTouchInputHandle(htouchinput.rawAddress)
 
-public actual fun getGestureConfig(hwnd: Hwnd, dwreserved: UInt, dwflags: UInt, pcids: ConstPtr<UInt>, pgestureconfig: MutPtr<Gestureconfig>, cbsize: UInt): Bool =
+public actual fun getGestureConfig(hwnd: Hwnd, dwreserved: UInt, dwflags: UInt, pcids: ConstPtr, pgestureconfig: MutPtr, cbsize: UInt): Bool =
     WindowsWin32UiInputTouchJniBridge.windowssysWindowsWin32UiInputTouchGetGestureConfig(hwnd.rawAddress, dwreserved.toInt(), dwflags.toInt(), pcids.rawAddress, pgestureconfig.rawAddress, cbsize.toInt())
 
-public actual fun getGestureExtraArgs(hgestureinfo: Hgestureinfo, cbextraargs: UInt, pextraargs: MutPtr<UByte>): Bool =
+public actual fun getGestureExtraArgs(hgestureinfo: Hgestureinfo, cbextraargs: UInt, pextraargs: MutPtr): Bool =
     WindowsWin32UiInputTouchJniBridge.windowssysWindowsWin32UiInputTouchGetGestureExtraArgs(hgestureinfo.rawAddress, cbextraargs.toInt(), pextraargs.rawAddress)
 
-public actual fun getGestureInfo(hgestureinfo: Hgestureinfo, pgestureinfo: MutPtr<Gestureinfo>): Bool =
+public actual fun getGestureInfo(hgestureinfo: Hgestureinfo, pgestureinfo: MutPtr): Bool =
     WindowsWin32UiInputTouchJniBridge.windowssysWindowsWin32UiInputTouchGetGestureInfo(hgestureinfo.rawAddress, pgestureinfo.rawAddress)
 
-public actual fun getTouchInputInfo(htouchinput: Htouchinput, cinputs: UInt, pinputs: MutPtr<Touchinput>, cbsize: Int): Bool =
+public actual fun getTouchInputInfo(htouchinput: Htouchinput, cinputs: UInt, pinputs: MutPtr, cbsize: Int): Bool =
     WindowsWin32UiInputTouchJniBridge.windowssysWindowsWin32UiInputTouchGetTouchInputInfo(htouchinput.rawAddress, cinputs.toInt(), pinputs.rawAddress, cbsize)
 
-public actual fun isTouchWindow(hwnd: Hwnd, pulflags: MutPtr<UInt>): Bool =
+public actual fun isTouchWindow(hwnd: Hwnd, pulflags: MutPtr): Bool =
     WindowsWin32UiInputTouchJniBridge.windowssysWindowsWin32UiInputTouchIsTouchWindow(hwnd.rawAddress, pulflags.rawAddress)
 
 public actual fun registerTouchWindow(hwnd: Hwnd, ulflags: RegisterTouchWindowFlags): Bool =
     WindowsWin32UiInputTouchJniBridge.windowssysWindowsWin32UiInputTouchRegisterTouchWindow(hwnd.rawAddress, ulflags.toInt())
 
-public actual fun setGestureConfig(hwnd: Hwnd, dwreserved: UInt, cids: UInt, pgestureconfig: ConstPtr<Gestureconfig>, cbsize: UInt): Bool =
+public actual fun setGestureConfig(hwnd: Hwnd, dwreserved: UInt, cids: UInt, pgestureconfig: ConstPtr, cbsize: UInt): Bool =
     WindowsWin32UiInputTouchJniBridge.windowssysWindowsWin32UiInputTouchSetGestureConfig(hwnd.rawAddress, dwreserved.toInt(), cids.toInt(), pgestureconfig.rawAddress, cbsize.toInt())
 
 public actual fun unregisterTouchWindow(hwnd: Hwnd): Bool =

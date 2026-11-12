@@ -22,7 +22,7 @@ import io.github.kotlinmania.windowssys.windows.win32.networkmanagement.webdav.c
 import kotlinx.cinterop.ByteVar
 import kotlinx.cinterop.toCPointer
 
-public actual fun davAddConnection(connectionhandle: MutPtr<Handle>, remotename: Pcwstr, username: Pcwstr, password: Pcwstr, clientcert: ConstPtr<UByte>, certsize: UInt): UInt =
+public actual fun davAddConnection(connectionhandle: MutPtr, remotename: Pcwstr, username: Pcwstr, password: Pcwstr, clientcert: ConstPtr, certsize: UInt): UInt =
     windowssysWindowsWin32NetworkmanagementWebdavDavAddConnection(connectionhandle.rawAddress.toCPointer<ByteVar>(), remotename.rawAddress.toCPointer<ByteVar>(), username.rawAddress.toCPointer<ByteVar>(), password.rawAddress.toCPointer<ByteVar>(), clientcert.rawAddress.toCPointer<ByteVar>(), certsize)
 
 public actual fun davCancelConnectionsToServer(lpname: Pcwstr, fforce: Bool): UInt =
@@ -34,16 +34,16 @@ public actual fun davDeleteConnection(connectionhandle: Handle): UInt =
 public actual fun davFlushFile(hfile: Handle): UInt =
     windowssysWindowsWin32NetworkmanagementWebdavDavFlushFile(hfile.rawAddress.toCPointer<ByteVar>())
 
-public actual fun davGetExtendedError(hfile: Handle, exterror: MutPtr<UInt>, exterrorstring: Pwstr, cchsize: MutPtr<UInt>): UInt =
+public actual fun davGetExtendedError(hfile: Handle, exterror: MutPtr, exterrorstring: Pwstr, cchsize: MutPtr): UInt =
     windowssysWindowsWin32NetworkmanagementWebdavDavGetExtendedError(hfile.rawAddress.toCPointer<ByteVar>(), exterror.rawAddress.toCPointer<ByteVar>(), exterrorstring.rawAddress.toCPointer<ByteVar>(), cchsize.rawAddress.toCPointer<ByteVar>())
 
-public actual fun davGetHTTPFromUNCPath(uncpath: Pcwstr, url: Pwstr, lpsize: MutPtr<UInt>): UInt =
+public actual fun davGetHTTPFromUNCPath(uncpath: Pcwstr, url: Pwstr, lpsize: MutPtr): UInt =
     windowssysWindowsWin32NetworkmanagementWebdavDavGetHTTPFromUNCPath(uncpath.rawAddress.toCPointer<ByteVar>(), url.rawAddress.toCPointer<ByteVar>(), lpsize.rawAddress.toCPointer<ByteVar>())
 
-public actual fun davGetTheLockOwnerOfTheFile(filename: Pcwstr, lockownername: Pwstr, lockownernamelengthinbytes: MutPtr<UInt>): UInt =
+public actual fun davGetTheLockOwnerOfTheFile(filename: Pcwstr, lockownername: Pwstr, lockownernamelengthinbytes: MutPtr): UInt =
     windowssysWindowsWin32NetworkmanagementWebdavDavGetTheLockOwnerOfTheFile(filename.rawAddress.toCPointer<ByteVar>(), lockownername.rawAddress.toCPointer<ByteVar>(), lockownernamelengthinbytes.rawAddress.toCPointer<ByteVar>())
 
-public actual fun davGetUNCFromHTTPPath(url: Pcwstr, uncpath: Pwstr, lpsize: MutPtr<UInt>): UInt =
+public actual fun davGetUNCFromHTTPPath(url: Pcwstr, uncpath: Pwstr, lpsize: MutPtr): UInt =
     windowssysWindowsWin32NetworkmanagementWebdavDavGetUNCFromHTTPPath(url.rawAddress.toCPointer<ByteVar>(), uncpath.rawAddress.toCPointer<ByteVar>(), lpsize.rawAddress.toCPointer<ByteVar>())
 
 public actual fun davInvalidateCache(urlname: Pcwstr): UInt =

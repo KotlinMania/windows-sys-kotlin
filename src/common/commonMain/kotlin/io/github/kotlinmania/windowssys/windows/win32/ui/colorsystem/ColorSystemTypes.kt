@@ -1,6 +1,5 @@
 package io.github.kotlinmania.windowssys.windows.win32.ui.colorsystem
 
-import io.github.kotlinmania.rustlang.core.ffi.CVoid
 import io.github.kotlinmania.rustlang.core.ptr.MutPtr
 import io.github.kotlinmania.windowssys.core.Bool
 import io.github.kotlinmania.windowssys.core.Pcstr
@@ -19,7 +18,7 @@ public typealias Colortype = Int
 
 public typealias ColorMatchToTargetAction = UInt
 
-public typealias Hcolorspace = MutPtr<CVoid>
+public typealias Hcolorspace = MutPtr
 
 public fun interface IcmenumprocaFn {
     public operator fun invoke(param0: Pcstr, param1: Lparam): Int
@@ -46,13 +45,13 @@ public fun interface LpbmcallbackfnFn {
 public typealias Lpbmcallbackfn = LpbmcallbackfnFn?
 
 public fun interface PcmscallbackaFn {
-    public operator fun invoke(param0: MutPtr<Colormatchsetupa>, param1: Lparam): Bool
+    public operator fun invoke(param0: MutPtr, param1: Lparam): Bool
 }
 
 public typealias Pcmscallbacka = PcmscallbackaFn?
 
 public fun interface PcmscallbackwFn {
-    public operator fun invoke(param0: MutPtr<Colormatchsetupw>, param1: Lparam): Bool
+    public operator fun invoke(param0: MutPtr, param1: Lparam): Bool
 }
 
 public typealias Pcmscallbackw = PcmscallbackwFn?

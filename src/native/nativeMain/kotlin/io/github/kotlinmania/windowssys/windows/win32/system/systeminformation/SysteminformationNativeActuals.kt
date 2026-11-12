@@ -2,7 +2,6 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.system.systeminformation
 
-import io.github.kotlinmania.rustlang.core.ffi.CVoid
 import io.github.kotlinmania.rustlang.core.ptr.ConstPtr
 import io.github.kotlinmania.rustlang.core.ptr.MutPtr
 import io.github.kotlinmania.windowssys.core.Bool
@@ -11,9 +10,7 @@ import io.github.kotlinmania.windowssys.core.Pcstr
 import io.github.kotlinmania.windowssys.core.Pcwstr
 import io.github.kotlinmania.windowssys.core.Pstr
 import io.github.kotlinmania.windowssys.core.Pwstr
-import io.github.kotlinmania.windowssys.windows.win32.foundation.Filetime
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Handle
-import io.github.kotlinmania.windowssys.windows.win32.foundation.Systemtime
 import io.github.kotlinmania.windowssys.windows.win32.system.systeminformation.cinterop.windowssysWindowsWin32SystemSysteminformationDnsHostnameToComputerNameExW
 import io.github.kotlinmania.windowssys.windows.win32.system.systeminformation.cinterop.windowssysWindowsWin32SystemSysteminformationEnumSystemFirmwareTables
 import io.github.kotlinmania.windowssys.windows.win32.system.systeminformation.cinterop.windowssysWindowsWin32SystemSysteminformationGetComputerNameExA
@@ -80,57 +77,57 @@ import io.github.kotlinmania.windowssys.windows.win32.system.systeminformation.c
 import kotlinx.cinterop.ByteVar
 import kotlinx.cinterop.toCPointer
 
-public actual fun dnsHostnameToComputerNameExW(hostname: Pcwstr, computername: Pwstr, nsize: MutPtr<UInt>): Bool =
+public actual fun dnsHostnameToComputerNameExW(hostname: Pcwstr, computername: Pwstr, nsize: MutPtr): Bool =
     windowssysWindowsWin32SystemSysteminformationDnsHostnameToComputerNameExW(hostname.rawAddress.toCPointer<ByteVar>(), computername.rawAddress.toCPointer<ByteVar>(), nsize.rawAddress.toCPointer<ByteVar>())
 
-public actual fun enumSystemFirmwareTables(firmwaretableprovidersignature: FirmwareTableProvider, pfirmwaretableenumbuffer: MutPtr<UByte>, buffersize: UInt): UInt =
+public actual fun enumSystemFirmwareTables(firmwaretableprovidersignature: FirmwareTableProvider, pfirmwaretableenumbuffer: MutPtr, buffersize: UInt): UInt =
     windowssysWindowsWin32SystemSysteminformationEnumSystemFirmwareTables(firmwaretableprovidersignature, pfirmwaretableenumbuffer.rawAddress.toCPointer<ByteVar>(), buffersize)
 
-public actual fun getComputerNameExA(nametype: ComputerNameFormat, lpbuffer: Pstr, nsize: MutPtr<UInt>): Bool =
+public actual fun getComputerNameExA(nametype: ComputerNameFormat, lpbuffer: Pstr, nsize: MutPtr): Bool =
     windowssysWindowsWin32SystemSysteminformationGetComputerNameExA(nametype, lpbuffer.rawAddress.toCPointer<ByteVar>(), nsize.rawAddress.toCPointer<ByteVar>())
 
-public actual fun getComputerNameExW(nametype: ComputerNameFormat, lpbuffer: Pwstr, nsize: MutPtr<UInt>): Bool =
+public actual fun getComputerNameExW(nametype: ComputerNameFormat, lpbuffer: Pwstr, nsize: MutPtr): Bool =
     windowssysWindowsWin32SystemSysteminformationGetComputerNameExW(nametype, lpbuffer.rawAddress.toCPointer<ByteVar>(), nsize.rawAddress.toCPointer<ByteVar>())
 
 public actual fun getDeveloperDriveEnablementState(): DeveloperDriveEnablementState =
     windowssysWindowsWin32SystemSysteminformationGetDeveloperDriveEnablementState()
 
-public actual fun getFirmwareType(firmwaretype: MutPtr<FirmwareType>): Bool =
+public actual fun getFirmwareType(firmwaretype: MutPtr): Bool =
     windowssysWindowsWin32SystemSysteminformationGetFirmwareType(firmwaretype.rawAddress.toCPointer<ByteVar>())
 
-public actual fun getIntegratedDisplaySize(sizeininches: MutPtr<Double>): Hresult =
+public actual fun getIntegratedDisplaySize(sizeininches: MutPtr): Hresult =
     windowssysWindowsWin32SystemSysteminformationGetIntegratedDisplaySize(sizeininches.rawAddress.toCPointer<ByteVar>())
 
-public actual fun getLocalTime(lpsystemtime: MutPtr<Systemtime>) {
+public actual fun getLocalTime(lpsystemtime: MutPtr) {
     windowssysWindowsWin32SystemSysteminformationGetLocalTime(lpsystemtime.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun getLogicalProcessorInformation(buffer: MutPtr<SystemLogicalProcessorInformation>, returnedlength: MutPtr<UInt>): Bool =
+public actual fun getLogicalProcessorInformation(buffer: MutPtr, returnedlength: MutPtr): Bool =
     windowssysWindowsWin32SystemSysteminformationGetLogicalProcessorInformation(buffer.rawAddress.toCPointer<ByteVar>(), returnedlength.rawAddress.toCPointer<ByteVar>())
 
-public actual fun getLogicalProcessorInformationEx(relationshiptype: LogicalProcessorRelationship, buffer: MutPtr<SystemLogicalProcessorInformationEx>, returnedlength: MutPtr<UInt>): Bool =
+public actual fun getLogicalProcessorInformationEx(relationshiptype: LogicalProcessorRelationship, buffer: MutPtr, returnedlength: MutPtr): Bool =
     windowssysWindowsWin32SystemSysteminformationGetLogicalProcessorInformationEx(relationshiptype, buffer.rawAddress.toCPointer<ByteVar>(), returnedlength.rawAddress.toCPointer<ByteVar>())
 
-public actual fun getNativeSystemInfo(lpsysteminfo: MutPtr<SystemInfo>) {
+public actual fun getNativeSystemInfo(lpsysteminfo: MutPtr) {
     windowssysWindowsWin32SystemSysteminformationGetNativeSystemInfo(lpsysteminfo.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun getOsManufacturingMode(pbenabled: MutPtr<Bool>): Bool =
+public actual fun getOsManufacturingMode(pbenabled: MutPtr): Bool =
     windowssysWindowsWin32SystemSysteminformationGetOsManufacturingMode(pbenabled.rawAddress.toCPointer<ByteVar>())
 
-public actual fun getOsSafeBootMode(flags: MutPtr<UInt>): Bool =
+public actual fun getOsSafeBootMode(flags: MutPtr): Bool =
     windowssysWindowsWin32SystemSysteminformationGetOsSafeBootMode(flags.rawAddress.toCPointer<ByteVar>())
 
-public actual fun getPhysicallyInstalledSystemMemory(totalmemoryinkilobytes: MutPtr<ULong>): Bool =
+public actual fun getPhysicallyInstalledSystemMemory(totalmemoryinkilobytes: MutPtr): Bool =
     windowssysWindowsWin32SystemSysteminformationGetPhysicallyInstalledSystemMemory(totalmemoryinkilobytes.rawAddress.toCPointer<ByteVar>())
 
-public actual fun getProcessorSystemCycleTime(group: UShort, buffer: MutPtr<SystemProcessorCycleTimeInformation>, returnedlength: MutPtr<UInt>): Bool =
+public actual fun getProcessorSystemCycleTime(group: UShort, buffer: MutPtr, returnedlength: MutPtr): Bool =
     windowssysWindowsWin32SystemSysteminformationGetProcessorSystemCycleTime(group, buffer.rawAddress.toCPointer<ByteVar>(), returnedlength.rawAddress.toCPointer<ByteVar>())
 
-public actual fun getProductInfo(dwosmajorversion: UInt, dwosminorversion: UInt, dwspmajorversion: UInt, dwspminorversion: UInt, pdwreturnedproducttype: MutPtr<OsProductType>): Bool =
+public actual fun getProductInfo(dwosmajorversion: UInt, dwosminorversion: UInt, dwspmajorversion: UInt, dwspminorversion: UInt, pdwreturnedproducttype: MutPtr): Bool =
     windowssysWindowsWin32SystemSysteminformationGetProductInfo(dwosmajorversion, dwosminorversion, dwspmajorversion, dwspminorversion, pdwreturnedproducttype.rawAddress.toCPointer<ByteVar>())
 
-public actual fun getSystemCpuSetInformation(information: MutPtr<SystemCpuSetInformation>, bufferlength: UInt, returnedlength: MutPtr<UInt>, process: Handle, flags: UInt): Bool =
+public actual fun getSystemCpuSetInformation(information: MutPtr, bufferlength: UInt, returnedlength: MutPtr, process: Handle, flags: UInt): Bool =
     windowssysWindowsWin32SystemSysteminformationGetSystemCpuSetInformation(information.rawAddress.toCPointer<ByteVar>(), bufferlength, returnedlength.rawAddress.toCPointer<ByteVar>(), process.rawAddress.toCPointer<ByteVar>(), flags)
 
 public actual fun getSystemDEPPolicy(): DepSystemPolicyType =
@@ -142,31 +139,31 @@ public actual fun getSystemDirectoryA(lpbuffer: Pstr, usize: UInt): UInt =
 public actual fun getSystemDirectoryW(lpbuffer: Pwstr, usize: UInt): UInt =
     windowssysWindowsWin32SystemSysteminformationGetSystemDirectoryW(lpbuffer.rawAddress.toCPointer<ByteVar>(), usize)
 
-public actual fun getSystemFirmwareTable(firmwaretableprovidersignature: FirmwareTableProvider, firmwaretableid: UInt, pfirmwaretablebuffer: MutPtr<UByte>, buffersize: UInt): UInt =
+public actual fun getSystemFirmwareTable(firmwaretableprovidersignature: FirmwareTableProvider, firmwaretableid: UInt, pfirmwaretablebuffer: MutPtr, buffersize: UInt): UInt =
     windowssysWindowsWin32SystemSysteminformationGetSystemFirmwareTable(firmwaretableprovidersignature, firmwaretableid, pfirmwaretablebuffer.rawAddress.toCPointer<ByteVar>(), buffersize)
 
-public actual fun getSystemInfo(lpsysteminfo: MutPtr<SystemInfo>) {
+public actual fun getSystemInfo(lpsysteminfo: MutPtr) {
     windowssysWindowsWin32SystemSysteminformationGetSystemInfo(lpsysteminfo.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun getSystemLeapSecondInformation(enabled: MutPtr<Bool>, flags: MutPtr<UInt>): Bool =
+public actual fun getSystemLeapSecondInformation(enabled: MutPtr, flags: MutPtr): Bool =
     windowssysWindowsWin32SystemSysteminformationGetSystemLeapSecondInformation(enabled.rawAddress.toCPointer<ByteVar>(), flags.rawAddress.toCPointer<ByteVar>())
 
-public actual fun getSystemTime(lpsystemtime: MutPtr<Systemtime>) {
+public actual fun getSystemTime(lpsystemtime: MutPtr) {
     windowssysWindowsWin32SystemSysteminformationGetSystemTime(lpsystemtime.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun getSystemTimeAdjustment(lptimeadjustment: MutPtr<UInt>, lptimeincrement: MutPtr<UInt>, lptimeadjustmentdisabled: MutPtr<Bool>): Bool =
+public actual fun getSystemTimeAdjustment(lptimeadjustment: MutPtr, lptimeincrement: MutPtr, lptimeadjustmentdisabled: MutPtr): Bool =
     windowssysWindowsWin32SystemSysteminformationGetSystemTimeAdjustment(lptimeadjustment.rawAddress.toCPointer<ByteVar>(), lptimeincrement.rawAddress.toCPointer<ByteVar>(), lptimeadjustmentdisabled.rawAddress.toCPointer<ByteVar>())
 
-public actual fun getSystemTimeAdjustmentPrecise(lptimeadjustment: MutPtr<ULong>, lptimeincrement: MutPtr<ULong>, lptimeadjustmentdisabled: MutPtr<Bool>): Bool =
+public actual fun getSystemTimeAdjustmentPrecise(lptimeadjustment: MutPtr, lptimeincrement: MutPtr, lptimeadjustmentdisabled: MutPtr): Bool =
     windowssysWindowsWin32SystemSysteminformationGetSystemTimeAdjustmentPrecise(lptimeadjustment.rawAddress.toCPointer<ByteVar>(), lptimeincrement.rawAddress.toCPointer<ByteVar>(), lptimeadjustmentdisabled.rawAddress.toCPointer<ByteVar>())
 
-public actual fun getSystemTimeAsFileTime(lpsystemtimeasfiletime: MutPtr<Filetime>) {
+public actual fun getSystemTimeAsFileTime(lpsystemtimeasfiletime: MutPtr) {
     windowssysWindowsWin32SystemSysteminformationGetSystemTimeAsFileTime(lpsystemtimeasfiletime.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun getSystemTimePreciseAsFileTime(lpsystemtimeasfiletime: MutPtr<Filetime>) {
+public actual fun getSystemTimePreciseAsFileTime(lpsystemtimeasfiletime: MutPtr) {
     windowssysWindowsWin32SystemSysteminformationGetSystemTimePreciseAsFileTime(lpsystemtimeasfiletime.rawAddress.toCPointer<ByteVar>())
 }
 
@@ -197,10 +194,10 @@ public actual fun getTickCount64(): ULong =
 public actual fun getVersion(): UInt =
     windowssysWindowsWin32SystemSysteminformationGetVersion()
 
-public actual fun getVersionExA(lpversioninformation: MutPtr<Osversioninfoa>): Bool =
+public actual fun getVersionExA(lpversioninformation: MutPtr): Bool =
     windowssysWindowsWin32SystemSysteminformationGetVersionExA(lpversioninformation.rawAddress.toCPointer<ByteVar>())
 
-public actual fun getVersionExW(lpversioninformation: MutPtr<Osversioninfow>): Bool =
+public actual fun getVersionExW(lpversioninformation: MutPtr): Bool =
     windowssysWindowsWin32SystemSysteminformationGetVersionExW(lpversioninformation.rawAddress.toCPointer<ByteVar>())
 
 public actual fun getWindowsDirectoryA(lpbuffer: Pstr, usize: UInt): UInt =
@@ -209,36 +206,36 @@ public actual fun getWindowsDirectoryA(lpbuffer: Pstr, usize: UInt): UInt =
 public actual fun getWindowsDirectoryW(lpbuffer: Pwstr, usize: UInt): UInt =
     windowssysWindowsWin32SystemSysteminformationGetWindowsDirectoryW(lpbuffer.rawAddress.toCPointer<ByteVar>(), usize)
 
-public actual fun globalMemoryStatus(lpbuffer: MutPtr<Memorystatus>) {
+public actual fun globalMemoryStatus(lpbuffer: MutPtr) {
     windowssysWindowsWin32SystemSysteminformationGlobalMemoryStatus(lpbuffer.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun globalMemoryStatusEx(lpbuffer: MutPtr<Memorystatusex>): Bool =
+public actual fun globalMemoryStatusEx(lpbuffer: MutPtr): Bool =
     windowssysWindowsWin32SystemSysteminformationGlobalMemoryStatusEx(lpbuffer.rawAddress.toCPointer<ByteVar>())
 
 public actual fun isUserCetAvailableInEnvironment(usercetenvironment: UserCetEnvironment): Bool =
     windowssysWindowsWin32SystemSysteminformationIsUserCetAvailableInEnvironment(usercetenvironment)
 
-public actual fun isWow64GuestMachineSupported(wowguestmachine: ImageFileMachine, machineissupported: MutPtr<Bool>): Hresult =
+public actual fun isWow64GuestMachineSupported(wowguestmachine: ImageFileMachine, machineissupported: MutPtr): Hresult =
     windowssysWindowsWin32SystemSysteminformationIsWow64GuestMachineSupported(wowguestmachine, machineissupported.rawAddress.toCPointer<ByteVar>())
 
-public actual fun rtlConvertDeviceFamilyInfoToString(puldevicefamilybuffersize: MutPtr<UInt>, puldeviceformbuffersize: MutPtr<UInt>, devicefamily: Pwstr, deviceform: Pwstr): UInt =
+public actual fun rtlConvertDeviceFamilyInfoToString(puldevicefamilybuffersize: MutPtr, puldeviceformbuffersize: MutPtr, devicefamily: Pwstr, deviceform: Pwstr): UInt =
     windowssysWindowsWin32SystemSysteminformationRtlConvertDeviceFamilyInfoToString(puldevicefamilybuffersize.rawAddress.toCPointer<ByteVar>(), puldeviceformbuffersize.rawAddress.toCPointer<ByteVar>(), devicefamily.rawAddress.toCPointer<ByteVar>(), deviceform.rawAddress.toCPointer<ByteVar>())
 
-public actual fun rtlGetDeviceFamilyInfoEnum(pulluapinfo: MutPtr<ULong>, puldevicefamily: MutPtr<Devicefamilyinfoenum>, puldeviceform: MutPtr<Devicefamilydeviceform>) {
+public actual fun rtlGetDeviceFamilyInfoEnum(pulluapinfo: MutPtr, puldevicefamily: MutPtr, puldeviceform: MutPtr) {
     windowssysWindowsWin32SystemSysteminformationRtlGetDeviceFamilyInfoEnum(pulluapinfo.rawAddress.toCPointer<ByteVar>(), puldevicefamily.rawAddress.toCPointer<ByteVar>(), puldeviceform.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun rtlGetProductInfo(osmajorversion: UInt, osminorversion: UInt, spmajorversion: UInt, spminorversion: UInt, returnedproducttype: MutPtr<UInt>): Boolean =
+public actual fun rtlGetProductInfo(osmajorversion: UInt, osminorversion: UInt, spmajorversion: UInt, spminorversion: UInt, returnedproducttype: MutPtr): Boolean =
     windowssysWindowsWin32SystemSysteminformationRtlGetProductInfo(osmajorversion, osminorversion, spmajorversion, spminorversion, returnedproducttype.rawAddress.toCPointer<ByteVar>())
 
-public actual fun rtlGetSystemGlobalData(dataid: RtlSystemGlobalDataId, buffer: MutPtr<CVoid>, size: UInt): UInt =
+public actual fun rtlGetSystemGlobalData(dataid: RtlSystemGlobalDataId, buffer: MutPtr, size: UInt): UInt =
     windowssysWindowsWin32SystemSysteminformationRtlGetSystemGlobalData(dataid, buffer.rawAddress.toCPointer<ByteVar>(), size)
 
 public actual fun rtlOsDeploymentState(flags: UInt): OsDeployementStateValues =
     windowssysWindowsWin32SystemSysteminformationRtlOsDeploymentState(flags)
 
-public actual fun rtlSwitchedVVI(versioninfo: ConstPtr<Osversioninfoexw>, typemask: UInt, conditionmask: ULong): UInt =
+public actual fun rtlSwitchedVVI(versioninfo: ConstPtr, typemask: UInt, conditionmask: ULong): UInt =
     windowssysWindowsWin32SystemSysteminformationRtlSwitchedVVI(versioninfo.rawAddress.toCPointer<ByteVar>(), typemask, conditionmask)
 
 public actual fun setComputerNameA(lpcomputername: Pcstr): Bool =
@@ -256,10 +253,10 @@ public actual fun setComputerNameExW(nametype: ComputerNameFormat, lpbuffer: Pcw
 public actual fun setComputerNameW(lpcomputername: Pcwstr): Bool =
     windowssysWindowsWin32SystemSysteminformationSetComputerNameW(lpcomputername.rawAddress.toCPointer<ByteVar>())
 
-public actual fun setLocalTime(lpsystemtime: ConstPtr<Systemtime>): Bool =
+public actual fun setLocalTime(lpsystemtime: ConstPtr): Bool =
     windowssysWindowsWin32SystemSysteminformationSetLocalTime(lpsystemtime.rawAddress.toCPointer<ByteVar>())
 
-public actual fun setSystemTime(lpsystemtime: ConstPtr<Systemtime>): Bool =
+public actual fun setSystemTime(lpsystemtime: ConstPtr): Bool =
     windowssysWindowsWin32SystemSysteminformationSetSystemTime(lpsystemtime.rawAddress.toCPointer<ByteVar>())
 
 public actual fun setSystemTimeAdjustment(dwtimeadjustment: UInt, btimeadjustmentdisabled: Bool): Bool =
@@ -271,8 +268,8 @@ public actual fun setSystemTimeAdjustmentPrecise(dwtimeadjustment: ULong, btimea
 public actual fun verSetConditionMask(conditionmask: ULong, typemask: VerFlags, condition: UByte): ULong =
     windowssysWindowsWin32SystemSysteminformationVerSetConditionMask(conditionmask, typemask, condition)
 
-public actual fun verifyVersionInfoA(lpversioninformation: MutPtr<Osversioninfoexa>, dwtypemask: VerFlags, dwlconditionmask: ULong): Bool =
+public actual fun verifyVersionInfoA(lpversioninformation: MutPtr, dwtypemask: VerFlags, dwlconditionmask: ULong): Bool =
     windowssysWindowsWin32SystemSysteminformationVerifyVersionInfoA(lpversioninformation.rawAddress.toCPointer<ByteVar>(), dwtypemask, dwlconditionmask)
 
-public actual fun verifyVersionInfoW(lpversioninformation: MutPtr<Osversioninfoexw>, dwtypemask: VerFlags, dwlconditionmask: ULong): Bool =
+public actual fun verifyVersionInfoW(lpversioninformation: MutPtr, dwtypemask: VerFlags, dwlconditionmask: ULong): Bool =
     windowssysWindowsWin32SystemSysteminformationVerifyVersionInfoW(lpversioninformation.rawAddress.toCPointer<ByteVar>(), dwtypemask, dwlconditionmask)

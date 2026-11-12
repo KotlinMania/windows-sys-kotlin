@@ -2,7 +2,6 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.system.services
 
-import io.github.kotlinmania.rustlang.core.ffi.CVoid
 import io.github.kotlinmania.rustlang.core.ptr.ConstPtr
 import io.github.kotlinmania.rustlang.core.ptr.MutPtr
 import io.github.kotlinmania.windowssys.core.Bool
@@ -13,7 +12,6 @@ import io.github.kotlinmania.windowssys.core.Pwstr
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Handle
 import io.github.kotlinmania.windowssys.windows.win32.security.ObjectSecurityInformation
 import io.github.kotlinmania.windowssys.windows.win32.security.PsecurityDescriptor
-import io.github.kotlinmania.windowssys.windows.win32.system.registry.Hkey
 
 private object WindowsWin32SystemServicesJniBridge {
     init {
@@ -246,91 +244,91 @@ private object WindowsWin32SystemServicesJniBridge {
     external fun windowssysWindowsWin32SystemServicesWaitServiceState(hservice: Long, dwnotify: Int, dwtimeout: Int, hcancelevent: Long): Int
 }
 
-public actual fun changeServiceConfig2A(hservice: ScHandle, dwinfolevel: ServiceConfig, lpinfo: ConstPtr<CVoid>): Bool =
+public actual fun changeServiceConfig2A(hservice: ScHandle, dwinfolevel: ServiceConfig, lpinfo: ConstPtr): Bool =
     WindowsWin32SystemServicesJniBridge.windowssysWindowsWin32SystemServicesChangeServiceConfig2A(hservice.rawAddress, dwinfolevel.toInt(), lpinfo.rawAddress)
 
-public actual fun changeServiceConfig2W(hservice: ScHandle, dwinfolevel: ServiceConfig, lpinfo: ConstPtr<CVoid>): Bool =
+public actual fun changeServiceConfig2W(hservice: ScHandle, dwinfolevel: ServiceConfig, lpinfo: ConstPtr): Bool =
     WindowsWin32SystemServicesJniBridge.windowssysWindowsWin32SystemServicesChangeServiceConfig2W(hservice.rawAddress, dwinfolevel.toInt(), lpinfo.rawAddress)
 
-public actual fun changeServiceConfigA(hservice: ScHandle, dwservicetype: EnumServiceType, dwstarttype: ServiceStartType, dwerrorcontrol: ServiceError, lpbinarypathname: Pcstr, lploadordergroup: Pcstr, lpdwtagid: MutPtr<UInt>, lpdependencies: Pcstr, lpservicestartname: Pcstr, lppassword: Pcstr, lpdisplayname: Pcstr): Bool =
+public actual fun changeServiceConfigA(hservice: ScHandle, dwservicetype: EnumServiceType, dwstarttype: ServiceStartType, dwerrorcontrol: ServiceError, lpbinarypathname: Pcstr, lploadordergroup: Pcstr, lpdwtagid: MutPtr, lpdependencies: Pcstr, lpservicestartname: Pcstr, lppassword: Pcstr, lpdisplayname: Pcstr): Bool =
     WindowsWin32SystemServicesJniBridge.windowssysWindowsWin32SystemServicesChangeServiceConfigA(hservice.rawAddress, dwservicetype.toInt(), dwstarttype.toInt(), dwerrorcontrol.toInt(), lpbinarypathname.rawAddress, lploadordergroup.rawAddress, lpdwtagid.rawAddress, lpdependencies.rawAddress, lpservicestartname.rawAddress, lppassword.rawAddress, lpdisplayname.rawAddress)
 
-public actual fun changeServiceConfigW(hservice: ScHandle, dwservicetype: EnumServiceType, dwstarttype: ServiceStartType, dwerrorcontrol: ServiceError, lpbinarypathname: Pcwstr, lploadordergroup: Pcwstr, lpdwtagid: MutPtr<UInt>, lpdependencies: Pcwstr, lpservicestartname: Pcwstr, lppassword: Pcwstr, lpdisplayname: Pcwstr): Bool =
+public actual fun changeServiceConfigW(hservice: ScHandle, dwservicetype: EnumServiceType, dwstarttype: ServiceStartType, dwerrorcontrol: ServiceError, lpbinarypathname: Pcwstr, lploadordergroup: Pcwstr, lpdwtagid: MutPtr, lpdependencies: Pcwstr, lpservicestartname: Pcwstr, lppassword: Pcwstr, lpdisplayname: Pcwstr): Bool =
     WindowsWin32SystemServicesJniBridge.windowssysWindowsWin32SystemServicesChangeServiceConfigW(hservice.rawAddress, dwservicetype.toInt(), dwstarttype.toInt(), dwerrorcontrol.toInt(), lpbinarypathname.rawAddress, lploadordergroup.rawAddress, lpdwtagid.rawAddress, lpdependencies.rawAddress, lpservicestartname.rawAddress, lppassword.rawAddress, lpdisplayname.rawAddress)
 
 public actual fun closeServiceHandle(hscobject: ScHandle): Bool =
     WindowsWin32SystemServicesJniBridge.windowssysWindowsWin32SystemServicesCloseServiceHandle(hscobject.rawAddress)
 
-public actual fun controlService(hservice: ScHandle, dwcontrol: UInt, lpservicestatus: MutPtr<ServiceStatus>): Bool =
+public actual fun controlService(hservice: ScHandle, dwcontrol: UInt, lpservicestatus: MutPtr): Bool =
     WindowsWin32SystemServicesJniBridge.windowssysWindowsWin32SystemServicesControlService(hservice.rawAddress, dwcontrol.toInt(), lpservicestatus.rawAddress)
 
-public actual fun controlServiceExA(hservice: ScHandle, dwcontrol: UInt, dwinfolevel: UInt, pcontrolparams: MutPtr<CVoid>): Bool =
+public actual fun controlServiceExA(hservice: ScHandle, dwcontrol: UInt, dwinfolevel: UInt, pcontrolparams: MutPtr): Bool =
     WindowsWin32SystemServicesJniBridge.windowssysWindowsWin32SystemServicesControlServiceExA(hservice.rawAddress, dwcontrol.toInt(), dwinfolevel.toInt(), pcontrolparams.rawAddress)
 
-public actual fun controlServiceExW(hservice: ScHandle, dwcontrol: UInt, dwinfolevel: UInt, pcontrolparams: MutPtr<CVoid>): Bool =
+public actual fun controlServiceExW(hservice: ScHandle, dwcontrol: UInt, dwinfolevel: UInt, pcontrolparams: MutPtr): Bool =
     WindowsWin32SystemServicesJniBridge.windowssysWindowsWin32SystemServicesControlServiceExW(hservice.rawAddress, dwcontrol.toInt(), dwinfolevel.toInt(), pcontrolparams.rawAddress)
 
-public actual fun createServiceA(hscmanager: ScHandle, lpservicename: Pcstr, lpdisplayname: Pcstr, dwdesiredaccess: UInt, dwservicetype: EnumServiceType, dwstarttype: ServiceStartType, dwerrorcontrol: ServiceError, lpbinarypathname: Pcstr, lploadordergroup: Pcstr, lpdwtagid: MutPtr<UInt>, lpdependencies: Pcstr, lpservicestartname: Pcstr, lppassword: Pcstr): ScHandle =
+public actual fun createServiceA(hscmanager: ScHandle, lpservicename: Pcstr, lpdisplayname: Pcstr, dwdesiredaccess: UInt, dwservicetype: EnumServiceType, dwstarttype: ServiceStartType, dwerrorcontrol: ServiceError, lpbinarypathname: Pcstr, lploadordergroup: Pcstr, lpdwtagid: MutPtr, lpdependencies: Pcstr, lpservicestartname: Pcstr, lppassword: Pcstr): ScHandle =
     MutPtr(WindowsWin32SystemServicesJniBridge.windowssysWindowsWin32SystemServicesCreateServiceA(hscmanager.rawAddress, lpservicename.rawAddress, lpdisplayname.rawAddress, dwdesiredaccess.toInt(), dwservicetype.toInt(), dwstarttype.toInt(), dwerrorcontrol.toInt(), lpbinarypathname.rawAddress, lploadordergroup.rawAddress, lpdwtagid.rawAddress, lpdependencies.rawAddress, lpservicestartname.rawAddress, lppassword.rawAddress))
 
-public actual fun createServiceW(hscmanager: ScHandle, lpservicename: Pcwstr, lpdisplayname: Pcwstr, dwdesiredaccess: UInt, dwservicetype: EnumServiceType, dwstarttype: ServiceStartType, dwerrorcontrol: ServiceError, lpbinarypathname: Pcwstr, lploadordergroup: Pcwstr, lpdwtagid: MutPtr<UInt>, lpdependencies: Pcwstr, lpservicestartname: Pcwstr, lppassword: Pcwstr): ScHandle =
+public actual fun createServiceW(hscmanager: ScHandle, lpservicename: Pcwstr, lpdisplayname: Pcwstr, dwdesiredaccess: UInt, dwservicetype: EnumServiceType, dwstarttype: ServiceStartType, dwerrorcontrol: ServiceError, lpbinarypathname: Pcwstr, lploadordergroup: Pcwstr, lpdwtagid: MutPtr, lpdependencies: Pcwstr, lpservicestartname: Pcwstr, lppassword: Pcwstr): ScHandle =
     MutPtr(WindowsWin32SystemServicesJniBridge.windowssysWindowsWin32SystemServicesCreateServiceW(hscmanager.rawAddress, lpservicename.rawAddress, lpdisplayname.rawAddress, dwdesiredaccess.toInt(), dwservicetype.toInt(), dwstarttype.toInt(), dwerrorcontrol.toInt(), lpbinarypathname.rawAddress, lploadordergroup.rawAddress, lpdwtagid.rawAddress, lpdependencies.rawAddress, lpservicestartname.rawAddress, lppassword.rawAddress))
 
 public actual fun deleteService(hservice: ScHandle): Bool =
     WindowsWin32SystemServicesJniBridge.windowssysWindowsWin32SystemServicesDeleteService(hservice.rawAddress)
 
-public actual fun enumDependentServicesA(hservice: ScHandle, dwservicestate: EnumServiceState, lpservices: MutPtr<EnumServiceStatusa>, cbbufsize: UInt, pcbbytesneeded: MutPtr<UInt>, lpservicesreturned: MutPtr<UInt>): Bool =
+public actual fun enumDependentServicesA(hservice: ScHandle, dwservicestate: EnumServiceState, lpservices: MutPtr, cbbufsize: UInt, pcbbytesneeded: MutPtr, lpservicesreturned: MutPtr): Bool =
     WindowsWin32SystemServicesJniBridge.windowssysWindowsWin32SystemServicesEnumDependentServicesA(hservice.rawAddress, dwservicestate.toInt(), lpservices.rawAddress, cbbufsize.toInt(), pcbbytesneeded.rawAddress, lpservicesreturned.rawAddress)
 
-public actual fun enumDependentServicesW(hservice: ScHandle, dwservicestate: EnumServiceState, lpservices: MutPtr<EnumServiceStatusw>, cbbufsize: UInt, pcbbytesneeded: MutPtr<UInt>, lpservicesreturned: MutPtr<UInt>): Bool =
+public actual fun enumDependentServicesW(hservice: ScHandle, dwservicestate: EnumServiceState, lpservices: MutPtr, cbbufsize: UInt, pcbbytesneeded: MutPtr, lpservicesreturned: MutPtr): Bool =
     WindowsWin32SystemServicesJniBridge.windowssysWindowsWin32SystemServicesEnumDependentServicesW(hservice.rawAddress, dwservicestate.toInt(), lpservices.rawAddress, cbbufsize.toInt(), pcbbytesneeded.rawAddress, lpservicesreturned.rawAddress)
 
-public actual fun enumServicesStatusA(hscmanager: ScHandle, dwservicetype: EnumServiceType, dwservicestate: EnumServiceState, lpservices: MutPtr<EnumServiceStatusa>, cbbufsize: UInt, pcbbytesneeded: MutPtr<UInt>, lpservicesreturned: MutPtr<UInt>, lpresumehandle: MutPtr<UInt>): Bool =
+public actual fun enumServicesStatusA(hscmanager: ScHandle, dwservicetype: EnumServiceType, dwservicestate: EnumServiceState, lpservices: MutPtr, cbbufsize: UInt, pcbbytesneeded: MutPtr, lpservicesreturned: MutPtr, lpresumehandle: MutPtr): Bool =
     WindowsWin32SystemServicesJniBridge.windowssysWindowsWin32SystemServicesEnumServicesStatusA(hscmanager.rawAddress, dwservicetype.toInt(), dwservicestate.toInt(), lpservices.rawAddress, cbbufsize.toInt(), pcbbytesneeded.rawAddress, lpservicesreturned.rawAddress, lpresumehandle.rawAddress)
 
-public actual fun enumServicesStatusExA(hscmanager: ScHandle, infolevel: ScEnumType, dwservicetype: EnumServiceType, dwservicestate: EnumServiceState, lpservices: MutPtr<UByte>, cbbufsize: UInt, pcbbytesneeded: MutPtr<UInt>, lpservicesreturned: MutPtr<UInt>, lpresumehandle: MutPtr<UInt>, pszgroupname: Pcstr): Bool =
+public actual fun enumServicesStatusExA(hscmanager: ScHandle, infolevel: ScEnumType, dwservicetype: EnumServiceType, dwservicestate: EnumServiceState, lpservices: MutPtr, cbbufsize: UInt, pcbbytesneeded: MutPtr, lpservicesreturned: MutPtr, lpresumehandle: MutPtr, pszgroupname: Pcstr): Bool =
     WindowsWin32SystemServicesJniBridge.windowssysWindowsWin32SystemServicesEnumServicesStatusExA(hscmanager.rawAddress, infolevel, dwservicetype.toInt(), dwservicestate.toInt(), lpservices.rawAddress, cbbufsize.toInt(), pcbbytesneeded.rawAddress, lpservicesreturned.rawAddress, lpresumehandle.rawAddress, pszgroupname.rawAddress)
 
-public actual fun enumServicesStatusExW(hscmanager: ScHandle, infolevel: ScEnumType, dwservicetype: EnumServiceType, dwservicestate: EnumServiceState, lpservices: MutPtr<UByte>, cbbufsize: UInt, pcbbytesneeded: MutPtr<UInt>, lpservicesreturned: MutPtr<UInt>, lpresumehandle: MutPtr<UInt>, pszgroupname: Pcwstr): Bool =
+public actual fun enumServicesStatusExW(hscmanager: ScHandle, infolevel: ScEnumType, dwservicetype: EnumServiceType, dwservicestate: EnumServiceState, lpservices: MutPtr, cbbufsize: UInt, pcbbytesneeded: MutPtr, lpservicesreturned: MutPtr, lpresumehandle: MutPtr, pszgroupname: Pcwstr): Bool =
     WindowsWin32SystemServicesJniBridge.windowssysWindowsWin32SystemServicesEnumServicesStatusExW(hscmanager.rawAddress, infolevel, dwservicetype.toInt(), dwservicestate.toInt(), lpservices.rawAddress, cbbufsize.toInt(), pcbbytesneeded.rawAddress, lpservicesreturned.rawAddress, lpresumehandle.rawAddress, pszgroupname.rawAddress)
 
-public actual fun enumServicesStatusW(hscmanager: ScHandle, dwservicetype: EnumServiceType, dwservicestate: EnumServiceState, lpservices: MutPtr<EnumServiceStatusw>, cbbufsize: UInt, pcbbytesneeded: MutPtr<UInt>, lpservicesreturned: MutPtr<UInt>, lpresumehandle: MutPtr<UInt>): Bool =
+public actual fun enumServicesStatusW(hscmanager: ScHandle, dwservicetype: EnumServiceType, dwservicestate: EnumServiceState, lpservices: MutPtr, cbbufsize: UInt, pcbbytesneeded: MutPtr, lpservicesreturned: MutPtr, lpresumehandle: MutPtr): Bool =
     WindowsWin32SystemServicesJniBridge.windowssysWindowsWin32SystemServicesEnumServicesStatusW(hscmanager.rawAddress, dwservicetype.toInt(), dwservicestate.toInt(), lpservices.rawAddress, cbbufsize.toInt(), pcbbytesneeded.rawAddress, lpservicesreturned.rawAddress, lpresumehandle.rawAddress)
 
-public actual fun getServiceDirectory(hservicestatus: ServiceStatusHandle, edirectorytype: ServiceDirectoryType, lppathbuffer: Pwstr, cchpathbufferlength: UInt, lpcchrequiredbufferlength: MutPtr<UInt>): UInt =
+public actual fun getServiceDirectory(hservicestatus: ServiceStatusHandle, edirectorytype: ServiceDirectoryType, lppathbuffer: Pwstr, cchpathbufferlength: UInt, lpcchrequiredbufferlength: MutPtr): UInt =
     WindowsWin32SystemServicesJniBridge.windowssysWindowsWin32SystemServicesGetServiceDirectory(hservicestatus.rawAddress, edirectorytype, lppathbuffer.rawAddress, cchpathbufferlength.toInt(), lpcchrequiredbufferlength.rawAddress).toUInt()
 
-public actual fun getServiceDisplayNameA(hscmanager: ScHandle, lpservicename: Pcstr, lpdisplayname: Pstr, lpcchbuffer: MutPtr<UInt>): Bool =
+public actual fun getServiceDisplayNameA(hscmanager: ScHandle, lpservicename: Pcstr, lpdisplayname: Pstr, lpcchbuffer: MutPtr): Bool =
     WindowsWin32SystemServicesJniBridge.windowssysWindowsWin32SystemServicesGetServiceDisplayNameA(hscmanager.rawAddress, lpservicename.rawAddress, lpdisplayname.rawAddress, lpcchbuffer.rawAddress)
 
-public actual fun getServiceDisplayNameW(hscmanager: ScHandle, lpservicename: Pcwstr, lpdisplayname: Pwstr, lpcchbuffer: MutPtr<UInt>): Bool =
+public actual fun getServiceDisplayNameW(hscmanager: ScHandle, lpservicename: Pcwstr, lpdisplayname: Pwstr, lpcchbuffer: MutPtr): Bool =
     WindowsWin32SystemServicesJniBridge.windowssysWindowsWin32SystemServicesGetServiceDisplayNameW(hscmanager.rawAddress, lpservicename.rawAddress, lpdisplayname.rawAddress, lpcchbuffer.rawAddress)
 
-public actual fun getServiceKeyNameA(hscmanager: ScHandle, lpdisplayname: Pcstr, lpservicename: Pstr, lpcchbuffer: MutPtr<UInt>): Bool =
+public actual fun getServiceKeyNameA(hscmanager: ScHandle, lpdisplayname: Pcstr, lpservicename: Pstr, lpcchbuffer: MutPtr): Bool =
     WindowsWin32SystemServicesJniBridge.windowssysWindowsWin32SystemServicesGetServiceKeyNameA(hscmanager.rawAddress, lpdisplayname.rawAddress, lpservicename.rawAddress, lpcchbuffer.rawAddress)
 
-public actual fun getServiceKeyNameW(hscmanager: ScHandle, lpdisplayname: Pcwstr, lpservicename: Pwstr, lpcchbuffer: MutPtr<UInt>): Bool =
+public actual fun getServiceKeyNameW(hscmanager: ScHandle, lpdisplayname: Pcwstr, lpservicename: Pwstr, lpcchbuffer: MutPtr): Bool =
     WindowsWin32SystemServicesJniBridge.windowssysWindowsWin32SystemServicesGetServiceKeyNameW(hscmanager.rawAddress, lpdisplayname.rawAddress, lpservicename.rawAddress, lpcchbuffer.rawAddress)
 
-public actual fun getServiceRegistryStateKey(servicestatushandle: ServiceStatusHandle, statetype: ServiceRegistryStateType, accessmask: UInt, servicestatekey: MutPtr<Hkey>): UInt =
+public actual fun getServiceRegistryStateKey(servicestatushandle: ServiceStatusHandle, statetype: ServiceRegistryStateType, accessmask: UInt, servicestatekey: MutPtr): UInt =
     WindowsWin32SystemServicesJniBridge.windowssysWindowsWin32SystemServicesGetServiceRegistryStateKey(servicestatushandle.rawAddress, statetype, accessmask.toInt(), servicestatekey.rawAddress).toUInt()
 
-public actual fun getSharedServiceDirectory(servicehandle: ScHandle, directorytype: ServiceSharedDirectoryType, pathbuffer: Pwstr, pathbufferlength: UInt, requiredbufferlength: MutPtr<UInt>): UInt =
+public actual fun getSharedServiceDirectory(servicehandle: ScHandle, directorytype: ServiceSharedDirectoryType, pathbuffer: Pwstr, pathbufferlength: UInt, requiredbufferlength: MutPtr): UInt =
     WindowsWin32SystemServicesJniBridge.windowssysWindowsWin32SystemServicesGetSharedServiceDirectory(servicehandle.rawAddress, directorytype, pathbuffer.rawAddress, pathbufferlength.toInt(), requiredbufferlength.rawAddress).toUInt()
 
-public actual fun getSharedServiceRegistryStateKey(servicehandle: ScHandle, statetype: ServiceSharedRegistryStateType, accessmask: UInt, servicestatekey: MutPtr<Hkey>): UInt =
+public actual fun getSharedServiceRegistryStateKey(servicehandle: ScHandle, statetype: ServiceSharedRegistryStateType, accessmask: UInt, servicestatekey: MutPtr): UInt =
     WindowsWin32SystemServicesJniBridge.windowssysWindowsWin32SystemServicesGetSharedServiceRegistryStateKey(servicehandle.rawAddress, statetype, accessmask.toInt(), servicestatekey.rawAddress).toUInt()
 
-public actual fun lockServiceDatabase(hscmanager: ScHandle): MutPtr<CVoid> =
+public actual fun lockServiceDatabase(hscmanager: ScHandle): MutPtr =
     MutPtr(WindowsWin32SystemServicesJniBridge.windowssysWindowsWin32SystemServicesLockServiceDatabase(hscmanager.rawAddress))
 
 public actual fun notifyBootConfigStatus(bootacceptable: Bool): Bool =
     WindowsWin32SystemServicesJniBridge.windowssysWindowsWin32SystemServicesNotifyBootConfigStatus(bootacceptable)
 
-public actual fun notifyServiceStatusChangeA(hservice: ScHandle, dwnotifymask: ServiceNotify, pnotifybuffer: ConstPtr<ServiceNotify2a>): UInt =
+public actual fun notifyServiceStatusChangeA(hservice: ScHandle, dwnotifymask: ServiceNotify, pnotifybuffer: ConstPtr): UInt =
     WindowsWin32SystemServicesJniBridge.windowssysWindowsWin32SystemServicesNotifyServiceStatusChangeA(hservice.rawAddress, dwnotifymask.toInt(), pnotifybuffer.rawAddress).toUInt()
 
-public actual fun notifyServiceStatusChangeW(hservice: ScHandle, dwnotifymask: ServiceNotify, pnotifybuffer: ConstPtr<ServiceNotify2w>): UInt =
+public actual fun notifyServiceStatusChangeW(hservice: ScHandle, dwnotifymask: ServiceNotify, pnotifybuffer: ConstPtr): UInt =
     WindowsWin32SystemServicesJniBridge.windowssysWindowsWin32SystemServicesNotifyServiceStatusChangeW(hservice.rawAddress, dwnotifymask.toInt(), pnotifybuffer.rawAddress).toUInt()
 
 public actual fun openSCManagerA(lpmachinename: Pcstr, lpdatabasename: Pcstr, dwdesiredaccess: UInt): ScHandle =
@@ -345,43 +343,43 @@ public actual fun openServiceA(hscmanager: ScHandle, lpservicename: Pcstr, dwdes
 public actual fun openServiceW(hscmanager: ScHandle, lpservicename: Pcwstr, dwdesiredaccess: UInt): ScHandle =
     MutPtr(WindowsWin32SystemServicesJniBridge.windowssysWindowsWin32SystemServicesOpenServiceW(hscmanager.rawAddress, lpservicename.rawAddress, dwdesiredaccess.toInt()))
 
-public actual fun queryServiceConfig2A(hservice: ScHandle, dwinfolevel: ServiceConfig, lpbuffer: MutPtr<UByte>, cbbufsize: UInt, pcbbytesneeded: MutPtr<UInt>): Bool =
+public actual fun queryServiceConfig2A(hservice: ScHandle, dwinfolevel: ServiceConfig, lpbuffer: MutPtr, cbbufsize: UInt, pcbbytesneeded: MutPtr): Bool =
     WindowsWin32SystemServicesJniBridge.windowssysWindowsWin32SystemServicesQueryServiceConfig2A(hservice.rawAddress, dwinfolevel.toInt(), lpbuffer.rawAddress, cbbufsize.toInt(), pcbbytesneeded.rawAddress)
 
-public actual fun queryServiceConfig2W(hservice: ScHandle, dwinfolevel: ServiceConfig, lpbuffer: MutPtr<UByte>, cbbufsize: UInt, pcbbytesneeded: MutPtr<UInt>): Bool =
+public actual fun queryServiceConfig2W(hservice: ScHandle, dwinfolevel: ServiceConfig, lpbuffer: MutPtr, cbbufsize: UInt, pcbbytesneeded: MutPtr): Bool =
     WindowsWin32SystemServicesJniBridge.windowssysWindowsWin32SystemServicesQueryServiceConfig2W(hservice.rawAddress, dwinfolevel.toInt(), lpbuffer.rawAddress, cbbufsize.toInt(), pcbbytesneeded.rawAddress)
 
-public actual fun queryServiceConfigA(hservice: ScHandle, lpserviceconfig: MutPtr<QueryServiceConfiga>, cbbufsize: UInt, pcbbytesneeded: MutPtr<UInt>): Bool =
+public actual fun queryServiceConfigA(hservice: ScHandle, lpserviceconfig: MutPtr, cbbufsize: UInt, pcbbytesneeded: MutPtr): Bool =
     WindowsWin32SystemServicesJniBridge.windowssysWindowsWin32SystemServicesQueryServiceConfigA(hservice.rawAddress, lpserviceconfig.rawAddress, cbbufsize.toInt(), pcbbytesneeded.rawAddress)
 
-public actual fun queryServiceConfigW(hservice: ScHandle, lpserviceconfig: MutPtr<QueryServiceConfigw>, cbbufsize: UInt, pcbbytesneeded: MutPtr<UInt>): Bool =
+public actual fun queryServiceConfigW(hservice: ScHandle, lpserviceconfig: MutPtr, cbbufsize: UInt, pcbbytesneeded: MutPtr): Bool =
     WindowsWin32SystemServicesJniBridge.windowssysWindowsWin32SystemServicesQueryServiceConfigW(hservice.rawAddress, lpserviceconfig.rawAddress, cbbufsize.toInt(), pcbbytesneeded.rawAddress)
 
-public actual fun queryServiceDynamicInformation(hservicestatus: ServiceStatusHandle, dwinfolevel: UInt, ppdynamicinfo: MutPtr<MutPtr<CVoid>>): Bool =
+public actual fun queryServiceDynamicInformation(hservicestatus: ServiceStatusHandle, dwinfolevel: UInt, ppdynamicinfo: MutPtr): Bool =
     WindowsWin32SystemServicesJniBridge.windowssysWindowsWin32SystemServicesQueryServiceDynamicInformation(hservicestatus.rawAddress, dwinfolevel.toInt(), ppdynamicinfo.rawAddress)
 
-public actual fun queryServiceLockStatusA(hscmanager: ScHandle, lplockstatus: MutPtr<QueryServiceLockStatusa>, cbbufsize: UInt, pcbbytesneeded: MutPtr<UInt>): Bool =
+public actual fun queryServiceLockStatusA(hscmanager: ScHandle, lplockstatus: MutPtr, cbbufsize: UInt, pcbbytesneeded: MutPtr): Bool =
     WindowsWin32SystemServicesJniBridge.windowssysWindowsWin32SystemServicesQueryServiceLockStatusA(hscmanager.rawAddress, lplockstatus.rawAddress, cbbufsize.toInt(), pcbbytesneeded.rawAddress)
 
-public actual fun queryServiceLockStatusW(hscmanager: ScHandle, lplockstatus: MutPtr<QueryServiceLockStatusw>, cbbufsize: UInt, pcbbytesneeded: MutPtr<UInt>): Bool =
+public actual fun queryServiceLockStatusW(hscmanager: ScHandle, lplockstatus: MutPtr, cbbufsize: UInt, pcbbytesneeded: MutPtr): Bool =
     WindowsWin32SystemServicesJniBridge.windowssysWindowsWin32SystemServicesQueryServiceLockStatusW(hscmanager.rawAddress, lplockstatus.rawAddress, cbbufsize.toInt(), pcbbytesneeded.rawAddress)
 
-public actual fun queryServiceObjectSecurity(hservice: ScHandle, dwsecurityinformation: UInt, lpsecuritydescriptor: PsecurityDescriptor, cbbufsize: UInt, pcbbytesneeded: MutPtr<UInt>): Bool =
+public actual fun queryServiceObjectSecurity(hservice: ScHandle, dwsecurityinformation: UInt, lpsecuritydescriptor: PsecurityDescriptor, cbbufsize: UInt, pcbbytesneeded: MutPtr): Bool =
     WindowsWin32SystemServicesJniBridge.windowssysWindowsWin32SystemServicesQueryServiceObjectSecurity(hservice.rawAddress, dwsecurityinformation.toInt(), lpsecuritydescriptor.rawAddress, cbbufsize.toInt(), pcbbytesneeded.rawAddress)
 
-public actual fun queryServiceStatus(hservice: ScHandle, lpservicestatus: MutPtr<ServiceStatus>): Bool =
+public actual fun queryServiceStatus(hservice: ScHandle, lpservicestatus: MutPtr): Bool =
     WindowsWin32SystemServicesJniBridge.windowssysWindowsWin32SystemServicesQueryServiceStatus(hservice.rawAddress, lpservicestatus.rawAddress)
 
-public actual fun queryServiceStatusEx(hservice: ScHandle, infolevel: ScStatusType, lpbuffer: MutPtr<UByte>, cbbufsize: UInt, pcbbytesneeded: MutPtr<UInt>): Bool =
+public actual fun queryServiceStatusEx(hservice: ScHandle, infolevel: ScStatusType, lpbuffer: MutPtr, cbbufsize: UInt, pcbbytesneeded: MutPtr): Bool =
     WindowsWin32SystemServicesJniBridge.windowssysWindowsWin32SystemServicesQueryServiceStatusEx(hservice.rawAddress, infolevel, lpbuffer.rawAddress, cbbufsize.toInt(), pcbbytesneeded.rawAddress)
 
 public actual fun registerServiceCtrlHandlerA(lpservicename: Pcstr, lphandlerproc: LphandlerFunction): ServiceStatusHandle =
     MutPtr(WindowsWin32SystemServicesJniBridge.windowssysWindowsWin32SystemServicesRegisterServiceCtrlHandlerA(lpservicename.rawAddress, 0L))
 
-public actual fun registerServiceCtrlHandlerExA(lpservicename: Pcstr, lphandlerproc: LphandlerFunctionEx, lpcontext: ConstPtr<CVoid>): ServiceStatusHandle =
+public actual fun registerServiceCtrlHandlerExA(lpservicename: Pcstr, lphandlerproc: LphandlerFunctionEx, lpcontext: ConstPtr): ServiceStatusHandle =
     MutPtr(WindowsWin32SystemServicesJniBridge.windowssysWindowsWin32SystemServicesRegisterServiceCtrlHandlerExA(lpservicename.rawAddress, 0L, lpcontext.rawAddress))
 
-public actual fun registerServiceCtrlHandlerExW(lpservicename: Pcwstr, lphandlerproc: LphandlerFunctionEx, lpcontext: ConstPtr<CVoid>): ServiceStatusHandle =
+public actual fun registerServiceCtrlHandlerExW(lpservicename: Pcwstr, lphandlerproc: LphandlerFunctionEx, lpcontext: ConstPtr): ServiceStatusHandle =
     MutPtr(WindowsWin32SystemServicesJniBridge.windowssysWindowsWin32SystemServicesRegisterServiceCtrlHandlerExW(lpservicename.rawAddress, 0L, lpcontext.rawAddress))
 
 public actual fun registerServiceCtrlHandlerW(lpservicename: Pcwstr, lphandlerproc: LphandlerFunction): ServiceStatusHandle =
@@ -393,25 +391,25 @@ public actual fun setServiceBits(hservicestatus: ServiceStatusHandle, dwserviceb
 public actual fun setServiceObjectSecurity(hservice: ScHandle, dwsecurityinformation: ObjectSecurityInformation, lpsecuritydescriptor: PsecurityDescriptor): Bool =
     WindowsWin32SystemServicesJniBridge.windowssysWindowsWin32SystemServicesSetServiceObjectSecurity(hservice.rawAddress, dwsecurityinformation.toInt(), lpsecuritydescriptor.rawAddress)
 
-public actual fun setServiceStatus(hservicestatus: ServiceStatusHandle, lpservicestatus: ConstPtr<ServiceStatus>): Bool =
+public actual fun setServiceStatus(hservicestatus: ServiceStatusHandle, lpservicestatus: ConstPtr): Bool =
     WindowsWin32SystemServicesJniBridge.windowssysWindowsWin32SystemServicesSetServiceStatus(hservicestatus.rawAddress, lpservicestatus.rawAddress)
 
-public actual fun startServiceA(hservice: ScHandle, dwnumserviceargs: UInt, lpserviceargvectors: ConstPtr<Pcstr>): Bool =
+public actual fun startServiceA(hservice: ScHandle, dwnumserviceargs: UInt, lpserviceargvectors: ConstPtr): Bool =
     WindowsWin32SystemServicesJniBridge.windowssysWindowsWin32SystemServicesStartServiceA(hservice.rawAddress, dwnumserviceargs.toInt(), lpserviceargvectors.rawAddress)
 
-public actual fun startServiceCtrlDispatcherA(lpservicestarttable: ConstPtr<ServiceTableEntrya>): Bool =
+public actual fun startServiceCtrlDispatcherA(lpservicestarttable: ConstPtr): Bool =
     WindowsWin32SystemServicesJniBridge.windowssysWindowsWin32SystemServicesStartServiceCtrlDispatcherA(lpservicestarttable.rawAddress)
 
-public actual fun startServiceCtrlDispatcherW(lpservicestarttable: ConstPtr<ServiceTableEntryw>): Bool =
+public actual fun startServiceCtrlDispatcherW(lpservicestarttable: ConstPtr): Bool =
     WindowsWin32SystemServicesJniBridge.windowssysWindowsWin32SystemServicesStartServiceCtrlDispatcherW(lpservicestarttable.rawAddress)
 
-public actual fun startServiceW(hservice: ScHandle, dwnumserviceargs: UInt, lpserviceargvectors: ConstPtr<Pcwstr>): Bool =
+public actual fun startServiceW(hservice: ScHandle, dwnumserviceargs: UInt, lpserviceargvectors: ConstPtr): Bool =
     WindowsWin32SystemServicesJniBridge.windowssysWindowsWin32SystemServicesStartServiceW(hservice.rawAddress, dwnumserviceargs.toInt(), lpserviceargvectors.rawAddress)
 
-public actual fun subscribeServiceChangeNotifications(hservice: ScHandle, eeventtype: ScEventType, pcallback: PscNotificationCallback, pcallbackcontext: ConstPtr<CVoid>, psubscription: MutPtr<PscNotificationRegistration>): UInt =
+public actual fun subscribeServiceChangeNotifications(hservice: ScHandle, eeventtype: ScEventType, pcallback: PscNotificationCallback, pcallbackcontext: ConstPtr, psubscription: MutPtr): UInt =
     WindowsWin32SystemServicesJniBridge.windowssysWindowsWin32SystemServicesSubscribeServiceChangeNotifications(hservice.rawAddress, eeventtype, 0L, pcallbackcontext.rawAddress, psubscription.rawAddress).toUInt()
 
-public actual fun unlockServiceDatabase(sclock: ConstPtr<CVoid>): Bool =
+public actual fun unlockServiceDatabase(sclock: ConstPtr): Bool =
     WindowsWin32SystemServicesJniBridge.windowssysWindowsWin32SystemServicesUnlockServiceDatabase(sclock.rawAddress)
 
 public actual fun unsubscribeServiceChangeNotifications(psubscription: PscNotificationRegistration) {

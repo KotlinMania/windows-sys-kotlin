@@ -2,14 +2,12 @@
 
 package io.github.kotlinmania.windowssys.windows.wdk.system.systemservices
 
-import io.github.kotlinmania.rustlang.core.ffi.CVoid
 import io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
 import io.github.kotlinmania.rustlang.core.mem.TypeLayout
 import io.github.kotlinmania.rustlang.core.ptr.ConstPtr
 import io.github.kotlinmania.rustlang.core.ptr.MutPtr
 import io.github.kotlinmania.windowssys.core.Guid
 import io.github.kotlinmania.windowssys.windows.wdk.foundation.DispatcherHeader
-import io.github.kotlinmania.windowssys.windows.wdk.foundation.Kdpc
 import io.github.kotlinmania.windowssys.windows.wdk.foundation.Kevent
 import io.github.kotlinmania.windowssys.windows.wdk.foundation.PioRemoveLockTrackingBlock
 import io.github.kotlinmania.windowssys.windows.wdk.foundation.PkdeferredRoutine
@@ -151,10 +149,10 @@ public class IoRemoveLockDbgBlock internal constructor(
     public var spin: Int,
     public var lowMemoryCount: Int,
     public var reserved1: UIntArray,
-    reserved2CtorArg: MutPtr<CVoid>,
+    reserved2CtorArg: MutPtr,
     public var blocks: PioRemoveLockTrackingBlock,
 ) {
-    public var reserved2: MutPtr<CVoid> = reserved2CtorArg
+    public var reserved2: MutPtr = reserved2CtorArg
         internal set
 
     public constructor() : this(
@@ -186,11 +184,11 @@ public class IoRemoveLockDbgBlock internal constructor(
 
     public operator fun component8(): UIntArray = this.reserved1
 
-    public operator fun component9(): MutPtr<CVoid> = this.reserved2
+    public operator fun component9(): MutPtr = this.reserved2
 
     public operator fun component10(): PioRemoveLockTrackingBlock = this.blocks
 
-    public fun copy(signature: Int = this.signature, highWatermark: UInt = this.highWatermark, maxLockedTicks: Long = this.maxLockedTicks, allocateTag: Int = this.allocateTag, lockList: ListEntry = this.lockList, spin: Int = this.spin, lowMemoryCount: Int = this.lowMemoryCount, reserved1: UIntArray = this.reserved1, reserved2: MutPtr<CVoid> = this.reserved2, blocks: PioRemoveLockTrackingBlock = this.blocks): IoRemoveLockDbgBlock = IoRemoveLockDbgBlock(signature = signature, highWatermark = highWatermark, maxLockedTicks = maxLockedTicks, allocateTag = allocateTag, lockList = lockList, spin = spin, lowMemoryCount = lowMemoryCount, reserved1 = reserved1, reserved2CtorArg = reserved2, blocks = blocks)
+    public fun copy(signature: Int = this.signature, highWatermark: UInt = this.highWatermark, maxLockedTicks: Long = this.maxLockedTicks, allocateTag: Int = this.allocateTag, lockList: ListEntry = this.lockList, spin: Int = this.spin, lowMemoryCount: Int = this.lowMemoryCount, reserved1: UIntArray = this.reserved1, reserved2: MutPtr = this.reserved2, blocks: PioRemoveLockTrackingBlock = this.blocks): IoRemoveLockDbgBlock = IoRemoveLockDbgBlock(signature = signature, highWatermark = highWatermark, maxLockedTicks = maxLockedTicks, allocateTag = allocateTag, lockList = lockList, spin = spin, lowMemoryCount = lowMemoryCount, reserved1 = reserved1, reserved2CtorArg = reserved2, blocks = blocks)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -232,7 +230,7 @@ public class IoRemoveLockDbgBlock internal constructor(
             spin: Int = 0,
             lowMemoryCount: Int = 0,
             reserved1: UIntArray = UIntArray(4),
-            reserved2: MutPtr<CVoid> = MutPtr(0L),
+            reserved2: MutPtr = MutPtr(0L),
             blocks: PioRemoveLockTrackingBlock = 0,
         ): IoRemoveLockDbgBlock =
             IoRemoveLockDbgBlock(
@@ -256,14 +254,14 @@ public data class IoReportInterruptActiveStateParameters(
 )
 
 public class IoReportInterruptActiveStateParameters0 internal constructor(
-    genericCtorArg: MutPtr<CVoid>,
+    genericCtorArg: MutPtr,
     public var interruptObject: Pkinterrupt,
-    interruptMessageTableCtorArg: MutPtr<IoInterruptMessageInfo>,
+    interruptMessageTableCtorArg: MutPtr,
 ) {
-    public var generic: MutPtr<CVoid> = genericCtorArg
+    public var generic: MutPtr = genericCtorArg
         internal set
 
-    public var interruptMessageTable: MutPtr<IoInterruptMessageInfo> = interruptMessageTableCtorArg
+    public var interruptMessageTable: MutPtr = interruptMessageTableCtorArg
         internal set
 
     public constructor() : this(
@@ -272,13 +270,13 @@ public class IoReportInterruptActiveStateParameters0 internal constructor(
         interruptMessageTableCtorArg = MutPtr(0L),
     )
 
-    public operator fun component1(): MutPtr<CVoid> = this.generic
+    public operator fun component1(): MutPtr = this.generic
 
     public operator fun component2(): Pkinterrupt = this.interruptObject
 
-    public operator fun component3(): MutPtr<IoInterruptMessageInfo> = this.interruptMessageTable
+    public operator fun component3(): MutPtr = this.interruptMessageTable
 
-    public fun copy(generic: MutPtr<CVoid> = this.generic, interruptObject: Pkinterrupt = this.interruptObject, interruptMessageTable: MutPtr<IoInterruptMessageInfo> = this.interruptMessageTable): IoReportInterruptActiveStateParameters0 = IoReportInterruptActiveStateParameters0(genericCtorArg = generic, interruptObject = interruptObject, interruptMessageTableCtorArg = interruptMessageTable)
+    public fun copy(generic: MutPtr = this.generic, interruptObject: Pkinterrupt = this.interruptObject, interruptMessageTable: MutPtr = this.interruptMessageTable): IoReportInterruptActiveStateParameters0 = IoReportInterruptActiveStateParameters0(genericCtorArg = generic, interruptObject = interruptObject, interruptMessageTableCtorArg = interruptMessageTable)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -298,9 +296,9 @@ public class IoReportInterruptActiveStateParameters0 internal constructor(
 
     public companion object {
         public operator fun invoke(
-            generic: MutPtr<CVoid> = MutPtr(0L),
+            generic: MutPtr = MutPtr(0L),
             interruptObject: Pkinterrupt = 0L,
-            interruptMessageTable: MutPtr<IoInterruptMessageInfo> = MutPtr(0L),
+            interruptMessageTable: MutPtr = MutPtr(0L),
         ): IoReportInterruptActiveStateParameters0 =
             IoReportInterruptActiveStateParameters0(
                 genericCtorArg = generic,
@@ -797,14 +795,14 @@ public data class IoSessionStateInformation(
 public class IoSessionStateNotification internal constructor(
     public var size: UInt,
     public var flags: UInt,
-    ioObjectCtorArg: MutPtr<CVoid>,
+    ioObjectCtorArg: MutPtr,
     public var eventMask: UInt,
-    contextCtorArg: MutPtr<CVoid>,
+    contextCtorArg: MutPtr,
 ) {
-    public var ioObject: MutPtr<CVoid> = ioObjectCtorArg
+    public var ioObject: MutPtr = ioObjectCtorArg
         internal set
 
-    public var context: MutPtr<CVoid> = contextCtorArg
+    public var context: MutPtr = contextCtorArg
         internal set
 
     public constructor() : this(
@@ -819,13 +817,13 @@ public class IoSessionStateNotification internal constructor(
 
     public operator fun component2(): UInt = this.flags
 
-    public operator fun component3(): MutPtr<CVoid> = this.ioObject
+    public operator fun component3(): MutPtr = this.ioObject
 
     public operator fun component4(): UInt = this.eventMask
 
-    public operator fun component5(): MutPtr<CVoid> = this.context
+    public operator fun component5(): MutPtr = this.context
 
-    public fun copy(size: UInt = this.size, flags: UInt = this.flags, ioObject: MutPtr<CVoid> = this.ioObject, eventMask: UInt = this.eventMask, context: MutPtr<CVoid> = this.context): IoSessionStateNotification = IoSessionStateNotification(size = size, flags = flags, ioObjectCtorArg = ioObject, eventMask = eventMask, contextCtorArg = context)
+    public fun copy(size: UInt = this.size, flags: UInt = this.flags, ioObject: MutPtr = this.ioObject, eventMask: UInt = this.eventMask, context: MutPtr = this.context): IoSessionStateNotification = IoSessionStateNotification(size = size, flags = flags, ioObjectCtorArg = ioObject, eventMask = eventMask, contextCtorArg = context)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -858,12 +856,12 @@ public class IoSessionStateNotification internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 4L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<CVoid>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 16L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<CVoid>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 24L),
                     )
                 override fun writeNative(addr: Long, value: IoSessionStateNotification) {
@@ -871,12 +869,12 @@ public class IoSessionStateNotification internal constructor(
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 4L, value.flags)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<CVoid>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.ioObject)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 16L, value.eventMask)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<CVoid>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 24L, value.context)
                 }
             }
@@ -884,9 +882,9 @@ public class IoSessionStateNotification internal constructor(
         public operator fun invoke(
             size: UInt = 0u,
             flags: UInt = 0u,
-            ioObject: MutPtr<CVoid> = MutPtr(0L),
+            ioObject: MutPtr = MutPtr(0L),
             eventMask: UInt = 0u,
-            context: MutPtr<CVoid> = MutPtr(0L),
+            context: MutPtr = MutPtr(0L),
         ): IoSessionStateNotification =
             IoSessionStateNotification(
                 size = size,
@@ -927,9 +925,9 @@ public data class IoStatusBlock64(
 
 public class IoStatusBlock640 internal constructor(
     public var status: Ntstatus,
-    pointerCtorArg: MutPtr<CVoid>,
+    pointerCtorArg: MutPtr,
 ) {
-    public var pointer: MutPtr<CVoid> = pointerCtorArg
+    public var pointer: MutPtr = pointerCtorArg
         internal set
 
     public constructor() : this(
@@ -939,9 +937,9 @@ public class IoStatusBlock640 internal constructor(
 
     public operator fun component1(): Ntstatus = this.status
 
-    public operator fun component2(): MutPtr<CVoid> = this.pointer
+    public operator fun component2(): MutPtr = this.pointer
 
-    public fun copy(status: Ntstatus = this.status, pointer: MutPtr<CVoid> = this.pointer): IoStatusBlock640 = IoStatusBlock640(status = status, pointerCtorArg = pointer)
+    public fun copy(status: Ntstatus = this.status, pointer: MutPtr = this.pointer): IoStatusBlock640 = IoStatusBlock640(status = status, pointerCtorArg = pointer)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -960,7 +958,7 @@ public class IoStatusBlock640 internal constructor(
     public companion object {
         public operator fun invoke(
             status: Ntstatus = 0,
-            pointer: MutPtr<CVoid> = MutPtr(0L),
+            pointer: MutPtr = MutPtr(0L),
         ): IoStatusBlock640 =
             IoStatusBlock640(
                 status = status,
@@ -970,10 +968,10 @@ public class IoStatusBlock640 internal constructor(
 }
 
 public class KaddressRange internal constructor(
-    addressCtorArg: MutPtr<CVoid>,
+    addressCtorArg: MutPtr,
     public var size: Int,
 ) {
-    public var address: MutPtr<CVoid> = addressCtorArg
+    public var address: MutPtr = addressCtorArg
         internal set
 
     public constructor() : this(
@@ -981,11 +979,11 @@ public class KaddressRange internal constructor(
         size = 0,
     )
 
-    public operator fun component1(): MutPtr<CVoid> = this.address
+    public operator fun component1(): MutPtr = this.address
 
     public operator fun component2(): Int = this.size
 
-    public fun copy(address: MutPtr<CVoid> = this.address, size: Int = this.size): KaddressRange = KaddressRange(addressCtorArg = address, size = size)
+    public fun copy(address: MutPtr = this.address, size: Int = this.size): KaddressRange = KaddressRange(addressCtorArg = address, size = size)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -1010,21 +1008,21 @@ public class KaddressRange internal constructor(
                     KaddressRange(
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<CVoid>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.USIZE64).readNative(addr + 8L),
                     )
                 override fun writeNative(addr: Long, value: KaddressRange) {
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<CVoid>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr, value.address)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.USIZE64).writeNative(addr + 8L, value.size)
                 }
             }
 
         public operator fun invoke(
-            address: MutPtr<CVoid> = MutPtr(0L),
+            address: MutPtr = MutPtr(0L),
             size: Int = 0,
         ): KaddressRange =
             KaddressRange(
@@ -1035,10 +1033,10 @@ public class KaddressRange internal constructor(
 }
 
 public class KaddressRangeDescriptor internal constructor(
-    addressRangesCtorArg: ConstPtr<KaddressRange>,
+    addressRangesCtorArg: ConstPtr,
     public var addressRangeCount: Int,
 ) {
-    public var addressRanges: ConstPtr<KaddressRange> = addressRangesCtorArg
+    public var addressRanges: ConstPtr = addressRangesCtorArg
         internal set
 
     public constructor() : this(
@@ -1046,11 +1044,11 @@ public class KaddressRangeDescriptor internal constructor(
         addressRangeCount = 0,
     )
 
-    public operator fun component1(): ConstPtr<KaddressRange> = this.addressRanges
+    public operator fun component1(): ConstPtr = this.addressRanges
 
     public operator fun component2(): Int = this.addressRangeCount
 
-    public fun copy(addressRanges: ConstPtr<KaddressRange> = this.addressRanges, addressRangeCount: Int = this.addressRangeCount): KaddressRangeDescriptor = KaddressRangeDescriptor(addressRangesCtorArg = addressRanges, addressRangeCount = addressRangeCount)
+    public fun copy(addressRanges: ConstPtr = this.addressRanges, addressRangeCount: Int = this.addressRangeCount): KaddressRangeDescriptor = KaddressRangeDescriptor(addressRangesCtorArg = addressRanges, addressRangeCount = addressRangeCount)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -1075,21 +1073,21 @@ public class KaddressRangeDescriptor internal constructor(
                     KaddressRangeDescriptor(
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .constPtrLayout<KaddressRange>(64)
+                                .constPtrLayout(64)
                         ).readNative(addr),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.USIZE64).readNative(addr + 8L),
                     )
                 override fun writeNative(addr: Long, value: KaddressRangeDescriptor) {
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .constPtrLayout<KaddressRange>(64)
+                            .constPtrLayout(64)
                     ).writeNative(addr, value.addressRanges)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.USIZE64).writeNative(addr + 8L, value.addressRangeCount)
                 }
             }
 
         public operator fun invoke(
-            addressRanges: ConstPtr<KaddressRange> = ConstPtr(0L),
+            addressRanges: ConstPtr = ConstPtr(0L),
             addressRangeCount: Int = 0,
         ): KaddressRangeDescriptor =
             KaddressRangeDescriptor(
@@ -1105,29 +1103,29 @@ public class Kapc internal constructor(
     public var size: UByte,
     public var spareByte1: UByte,
     public var spareLong0: UInt,
-    threadCtorArg: MutPtr<Int>,
+    threadCtorArg: MutPtr,
     public var apcListEntry: ListEntry,
-    reservedCtorArg: List<MutPtr<CVoid>>,
-    normalContextCtorArg: MutPtr<CVoid>,
-    systemArgument1CtorArg: MutPtr<CVoid>,
-    systemArgument2CtorArg: MutPtr<CVoid>,
+    reservedCtorArg: List<MutPtr>,
+    normalContextCtorArg: MutPtr,
+    systemArgument1CtorArg: MutPtr,
+    systemArgument2CtorArg: MutPtr,
     public var apcStateIndex: Byte,
     public var apcMode: Byte,
     public var inserted: Boolean,
 ) {
-    public var thread: MutPtr<Int> = threadCtorArg
+    public var thread: MutPtr = threadCtorArg
         internal set
 
-    public var reserved: List<MutPtr<CVoid>> = reservedCtorArg
+    public var reserved: List<MutPtr> = reservedCtorArg
         internal set
 
-    public var normalContext: MutPtr<CVoid> = normalContextCtorArg
+    public var normalContext: MutPtr = normalContextCtorArg
         internal set
 
-    public var systemArgument1: MutPtr<CVoid> = systemArgument1CtorArg
+    public var systemArgument1: MutPtr = systemArgument1CtorArg
         internal set
 
-    public var systemArgument2: MutPtr<CVoid> = systemArgument2CtorArg
+    public var systemArgument2: MutPtr = systemArgument2CtorArg
         internal set
 
     public constructor() : this(
@@ -1157,17 +1155,17 @@ public class Kapc internal constructor(
 
     public operator fun component5(): UInt = this.spareLong0
 
-    public operator fun component6(): MutPtr<Int> = this.thread
+    public operator fun component6(): MutPtr = this.thread
 
     public operator fun component7(): ListEntry = this.apcListEntry
 
-    public operator fun component8(): List<MutPtr<CVoid>> = this.reserved
+    public operator fun component8(): List<MutPtr> = this.reserved
 
-    public operator fun component9(): MutPtr<CVoid> = this.normalContext
+    public operator fun component9(): MutPtr = this.normalContext
 
-    public operator fun component10(): MutPtr<CVoid> = this.systemArgument1
+    public operator fun component10(): MutPtr = this.systemArgument1
 
-    public operator fun component11(): MutPtr<CVoid> = this.systemArgument2
+    public operator fun component11(): MutPtr = this.systemArgument2
 
     public operator fun component12(): Byte = this.apcStateIndex
 
@@ -1175,7 +1173,7 @@ public class Kapc internal constructor(
 
     public operator fun component14(): Boolean = this.inserted
 
-    public fun copy(type: UByte = this.type, allFlags: UByte = this.allFlags, size: UByte = this.size, spareByte1: UByte = this.spareByte1, spareLong0: UInt = this.spareLong0, thread: MutPtr<Int> = this.thread, apcListEntry: ListEntry = this.apcListEntry, reserved: List<MutPtr<CVoid>> = this.reserved, normalContext: MutPtr<CVoid> = this.normalContext, systemArgument1: MutPtr<CVoid> = this.systemArgument1, systemArgument2: MutPtr<CVoid> = this.systemArgument2, apcStateIndex: Byte = this.apcStateIndex, apcMode: Byte = this.apcMode, inserted: Boolean = this.inserted): Kapc = Kapc(type = type, allFlags = allFlags, size = size, spareByte1 = spareByte1, spareLong0 = spareLong0, threadCtorArg = thread, apcListEntry = apcListEntry, reservedCtorArg = reserved, normalContextCtorArg = normalContext, systemArgument1CtorArg = systemArgument1, systemArgument2CtorArg = systemArgument2, apcStateIndex = apcStateIndex, apcMode = apcMode, inserted = inserted)
+    public fun copy(type: UByte = this.type, allFlags: UByte = this.allFlags, size: UByte = this.size, spareByte1: UByte = this.spareByte1, spareLong0: UInt = this.spareLong0, thread: MutPtr = this.thread, apcListEntry: ListEntry = this.apcListEntry, reserved: List<MutPtr> = this.reserved, normalContext: MutPtr = this.normalContext, systemArgument1: MutPtr = this.systemArgument1, systemArgument2: MutPtr = this.systemArgument2, apcStateIndex: Byte = this.apcStateIndex, apcMode: Byte = this.apcMode, inserted: Boolean = this.inserted): Kapc = Kapc(type = type, allFlags = allFlags, size = size, spareByte1 = spareByte1, spareLong0 = spareLong0, threadCtorArg = thread, apcListEntry = apcListEntry, reservedCtorArg = reserved, normalContextCtorArg = normalContext, systemArgument1CtorArg = systemArgument1, systemArgument2CtorArg = systemArgument2, apcStateIndex = apcStateIndex, apcMode = apcMode, inserted = inserted)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -1222,12 +1220,12 @@ public class Kapc internal constructor(
             size: UByte = 0u,
             spareByte1: UByte = 0u,
             spareLong0: UInt = 0u,
-            thread: MutPtr<Int> = MutPtr(0L),
+            thread: MutPtr = MutPtr(0L),
             apcListEntry: ListEntry = ListEntry(),
-            reserved: List<MutPtr<CVoid>> = List(3) { MutPtr(0L) },
-            normalContext: MutPtr<CVoid> = MutPtr(0L),
-            systemArgument1: MutPtr<CVoid> = MutPtr(0L),
-            systemArgument2: MutPtr<CVoid> = MutPtr(0L),
+            reserved: List<MutPtr> = List(3) { MutPtr(0L) },
+            normalContext: MutPtr = MutPtr(0L),
+            systemArgument1: MutPtr = MutPtr(0L),
+            systemArgument2: MutPtr = MutPtr(0L),
             apcStateIndex: Byte = 0,
             apcMode: Byte = 0,
             inserted: Boolean = false,
@@ -1252,13 +1250,13 @@ public class Kapc internal constructor(
 }
 
 public class KbugcheckAddPages internal constructor(
-    contextCtorArg: MutPtr<CVoid>,
+    contextCtorArg: MutPtr,
     public var flags: UInt,
     public var bugCheckCode: UInt,
     public var address: Int,
     public var count: Int,
 ) {
-    public var context: MutPtr<CVoid> = contextCtorArg
+    public var context: MutPtr = contextCtorArg
         internal set
 
     public constructor() : this(
@@ -1269,7 +1267,7 @@ public class KbugcheckAddPages internal constructor(
         count = 0,
     )
 
-    public operator fun component1(): MutPtr<CVoid> = this.context
+    public operator fun component1(): MutPtr = this.context
 
     public operator fun component2(): UInt = this.flags
 
@@ -1279,7 +1277,7 @@ public class KbugcheckAddPages internal constructor(
 
     public operator fun component5(): Int = this.count
 
-    public fun copy(context: MutPtr<CVoid> = this.context, flags: UInt = this.flags, bugCheckCode: UInt = this.bugCheckCode, address: Int = this.address, count: Int = this.count): KbugcheckAddPages = KbugcheckAddPages(contextCtorArg = context, flags = flags, bugCheckCode = bugCheckCode, address = address, count = count)
+    public fun copy(context: MutPtr = this.context, flags: UInt = this.flags, bugCheckCode: UInt = this.bugCheckCode, address: Int = this.address, count: Int = this.count): KbugcheckAddPages = KbugcheckAddPages(contextCtorArg = context, flags = flags, bugCheckCode = bugCheckCode, address = address, count = count)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -1310,7 +1308,7 @@ public class KbugcheckAddPages internal constructor(
                     KbugcheckAddPages(
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<CVoid>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 8L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 12L),
@@ -1320,7 +1318,7 @@ public class KbugcheckAddPages internal constructor(
                 override fun writeNative(addr: Long, value: KbugcheckAddPages) {
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<CVoid>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr, value.context)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 8L, value.flags)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 12L, value.bugCheckCode)
@@ -1330,7 +1328,7 @@ public class KbugcheckAddPages internal constructor(
             }
 
         public operator fun invoke(
-            context: MutPtr<CVoid> = MutPtr(0L),
+            context: MutPtr = MutPtr(0L),
             flags: UInt = 0u,
             bugCheckCode: UInt = 0u,
             address: Int = 0,
@@ -1349,16 +1347,16 @@ public class KbugcheckAddPages internal constructor(
 public class KbugcheckCallbackRecord internal constructor(
     public var entry: ListEntry,
     public var callbackRoutine: PkbugcheckCallbackRoutine,
-    bufferCtorArg: MutPtr<CVoid>,
+    bufferCtorArg: MutPtr,
     public var length: UInt,
-    componentCtorArg: MutPtr<UByte>,
+    componentCtorArg: MutPtr,
     public var checksum: Int,
     public var state: UByte,
 ) {
-    public var buffer: MutPtr<CVoid> = bufferCtorArg
+    public var buffer: MutPtr = bufferCtorArg
         internal set
 
-    public var component: MutPtr<UByte> = componentCtorArg
+    public var component: MutPtr = componentCtorArg
         internal set
 
     public constructor() : this(
@@ -1375,17 +1373,17 @@ public class KbugcheckCallbackRecord internal constructor(
 
     public operator fun component2(): PkbugcheckCallbackRoutine = this.callbackRoutine
 
-    public operator fun component3(): MutPtr<CVoid> = this.buffer
+    public operator fun component3(): MutPtr = this.buffer
 
     public operator fun component4(): UInt = this.length
 
-    public operator fun component5(): MutPtr<UByte> = this.component
+    public operator fun component5(): MutPtr = this.component
 
     public operator fun component6(): Int = this.checksum
 
     public operator fun component7(): UByte = this.state
 
-    public fun copy(entry: ListEntry = this.entry, callbackRoutine: PkbugcheckCallbackRoutine = this.callbackRoutine, buffer: MutPtr<CVoid> = this.buffer, length: UInt = this.length, component: MutPtr<UByte> = this.component, checksum: Int = this.checksum, state: UByte = this.state): KbugcheckCallbackRecord = KbugcheckCallbackRecord(entry = entry, callbackRoutine = callbackRoutine, bufferCtorArg = buffer, length = length, componentCtorArg = component, checksum = checksum, state = state)
+    public fun copy(entry: ListEntry = this.entry, callbackRoutine: PkbugcheckCallbackRoutine = this.callbackRoutine, buffer: MutPtr = this.buffer, length: UInt = this.length, component: MutPtr = this.component, checksum: Int = this.checksum, state: UByte = this.state): KbugcheckCallbackRecord = KbugcheckCallbackRecord(entry = entry, callbackRoutine = callbackRoutine, bufferCtorArg = buffer, length = length, componentCtorArg = component, checksum = checksum, state = state)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -1415,9 +1413,9 @@ public class KbugcheckCallbackRecord internal constructor(
         public operator fun invoke(
             entry: ListEntry = ListEntry(),
             callbackRoutine: PkbugcheckCallbackRoutine = null,
-            buffer: MutPtr<CVoid> = MutPtr(0L),
+            buffer: MutPtr = MutPtr(0L),
             length: UInt = 0u,
-            component: MutPtr<UByte> = MutPtr(0L),
+            component: MutPtr = MutPtr(0L),
             checksum: Int = 0,
             state: UByte = 0u,
         ): KbugcheckCallbackRecord =
@@ -1435,11 +1433,11 @@ public class KbugcheckCallbackRecord internal constructor(
 
 public class KbugcheckDumpIo internal constructor(
     public var offset: ULong,
-    bufferCtorArg: MutPtr<CVoid>,
+    bufferCtorArg: MutPtr,
     public var bufferLength: UInt,
     public var type: KbugcheckDumpIoType,
 ) {
-    public var buffer: MutPtr<CVoid> = bufferCtorArg
+    public var buffer: MutPtr = bufferCtorArg
         internal set
 
     public constructor() : this(
@@ -1451,13 +1449,13 @@ public class KbugcheckDumpIo internal constructor(
 
     public operator fun component1(): ULong = this.offset
 
-    public operator fun component2(): MutPtr<CVoid> = this.buffer
+    public operator fun component2(): MutPtr = this.buffer
 
     public operator fun component3(): UInt = this.bufferLength
 
     public operator fun component4(): KbugcheckDumpIoType = this.type
 
-    public fun copy(offset: ULong = this.offset, buffer: MutPtr<CVoid> = this.buffer, bufferLength: UInt = this.bufferLength, type: KbugcheckDumpIoType = this.type): KbugcheckDumpIo = KbugcheckDumpIo(offset = offset, bufferCtorArg = buffer, bufferLength = bufferLength, type = type)
+    public fun copy(offset: ULong = this.offset, buffer: MutPtr = this.buffer, bufferLength: UInt = this.bufferLength, type: KbugcheckDumpIoType = this.type): KbugcheckDumpIo = KbugcheckDumpIo(offset = offset, bufferCtorArg = buffer, bufferLength = bufferLength, type = type)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -1487,7 +1485,7 @@ public class KbugcheckDumpIo internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U64).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<CVoid>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 16L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr + 20L),
@@ -1496,7 +1494,7 @@ public class KbugcheckDumpIo internal constructor(
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U64).writeNative(addr, value.offset)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<CVoid>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.buffer)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 16L, value.bufferLength)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr + 20L, value.type)
@@ -1505,7 +1503,7 @@ public class KbugcheckDumpIo internal constructor(
 
         public operator fun invoke(
             offset: ULong = 0uL,
-            buffer: MutPtr<CVoid> = MutPtr(0L),
+            buffer: MutPtr = MutPtr(0L),
             bufferLength: UInt = 0u,
             type: KbugcheckDumpIoType = 0,
         ): KbugcheckDumpIo =
@@ -1521,12 +1519,12 @@ public class KbugcheckDumpIo internal constructor(
 public class KbugcheckReasonCallbackRecord internal constructor(
     public var entry: ListEntry,
     public var callbackRoutine: PkbugcheckReasonCallbackRoutine,
-    componentCtorArg: MutPtr<UByte>,
+    componentCtorArg: MutPtr,
     public var checksum: Int,
     public var reason: KbugcheckCallbackReason,
     public var state: UByte,
 ) {
-    public var component: MutPtr<UByte> = componentCtorArg
+    public var component: MutPtr = componentCtorArg
         internal set
 
     public constructor() : this(
@@ -1542,7 +1540,7 @@ public class KbugcheckReasonCallbackRecord internal constructor(
 
     public operator fun component2(): PkbugcheckReasonCallbackRoutine = this.callbackRoutine
 
-    public operator fun component3(): MutPtr<UByte> = this.component
+    public operator fun component3(): MutPtr = this.component
 
     public operator fun component4(): Int = this.checksum
 
@@ -1550,7 +1548,7 @@ public class KbugcheckReasonCallbackRecord internal constructor(
 
     public operator fun component6(): UByte = this.state
 
-    public fun copy(entry: ListEntry = this.entry, callbackRoutine: PkbugcheckReasonCallbackRoutine = this.callbackRoutine, component: MutPtr<UByte> = this.component, checksum: Int = this.checksum, reason: KbugcheckCallbackReason = this.reason, state: UByte = this.state): KbugcheckReasonCallbackRecord = KbugcheckReasonCallbackRecord(entry = entry, callbackRoutine = callbackRoutine, componentCtorArg = component, checksum = checksum, reason = reason, state = state)
+    public fun copy(entry: ListEntry = this.entry, callbackRoutine: PkbugcheckReasonCallbackRoutine = this.callbackRoutine, component: MutPtr = this.component, checksum: Int = this.checksum, reason: KbugcheckCallbackReason = this.reason, state: UByte = this.state): KbugcheckReasonCallbackRecord = KbugcheckReasonCallbackRecord(entry = entry, callbackRoutine = callbackRoutine, componentCtorArg = component, checksum = checksum, reason = reason, state = state)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -1578,7 +1576,7 @@ public class KbugcheckReasonCallbackRecord internal constructor(
         public operator fun invoke(
             entry: ListEntry = ListEntry(),
             callbackRoutine: PkbugcheckReasonCallbackRoutine = null,
-            component: MutPtr<UByte> = MutPtr(0L),
+            component: MutPtr = MutPtr(0L),
             checksum: Int = 0,
             reason: KbugcheckCallbackReason = 0,
             state: UByte = 0u,
@@ -1595,13 +1593,13 @@ public class KbugcheckReasonCallbackRecord internal constructor(
 }
 
 public class KbugcheckRemovePages internal constructor(
-    contextCtorArg: MutPtr<CVoid>,
+    contextCtorArg: MutPtr,
     public var flags: UInt,
     public var bugCheckCode: UInt,
     public var address: Int,
     public var count: Int,
 ) {
-    public var context: MutPtr<CVoid> = contextCtorArg
+    public var context: MutPtr = contextCtorArg
         internal set
 
     public constructor() : this(
@@ -1612,7 +1610,7 @@ public class KbugcheckRemovePages internal constructor(
         count = 0,
     )
 
-    public operator fun component1(): MutPtr<CVoid> = this.context
+    public operator fun component1(): MutPtr = this.context
 
     public operator fun component2(): UInt = this.flags
 
@@ -1622,7 +1620,7 @@ public class KbugcheckRemovePages internal constructor(
 
     public operator fun component5(): Int = this.count
 
-    public fun copy(context: MutPtr<CVoid> = this.context, flags: UInt = this.flags, bugCheckCode: UInt = this.bugCheckCode, address: Int = this.address, count: Int = this.count): KbugcheckRemovePages = KbugcheckRemovePages(contextCtorArg = context, flags = flags, bugCheckCode = bugCheckCode, address = address, count = count)
+    public fun copy(context: MutPtr = this.context, flags: UInt = this.flags, bugCheckCode: UInt = this.bugCheckCode, address: Int = this.address, count: Int = this.count): KbugcheckRemovePages = KbugcheckRemovePages(contextCtorArg = context, flags = flags, bugCheckCode = bugCheckCode, address = address, count = count)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -1653,7 +1651,7 @@ public class KbugcheckRemovePages internal constructor(
                     KbugcheckRemovePages(
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<CVoid>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 8L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 12L),
@@ -1663,7 +1661,7 @@ public class KbugcheckRemovePages internal constructor(
                 override fun writeNative(addr: Long, value: KbugcheckRemovePages) {
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<CVoid>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr, value.context)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 8L, value.flags)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 12L, value.bugCheckCode)
@@ -1673,7 +1671,7 @@ public class KbugcheckRemovePages internal constructor(
             }
 
         public operator fun invoke(
-            context: MutPtr<CVoid> = MutPtr(0L),
+            context: MutPtr = MutPtr(0L),
             flags: UInt = 0u,
             bugCheckCode: UInt = 0u,
             address: Int = 0,
@@ -1690,17 +1688,17 @@ public class KbugcheckRemovePages internal constructor(
 }
 
 public class KbugcheckSecondaryDumpData internal constructor(
-    inBufferCtorArg: MutPtr<CVoid>,
+    inBufferCtorArg: MutPtr,
     public var inBufferLength: UInt,
     public var maximumAllowed: UInt,
     public var guid: Guid,
-    outBufferCtorArg: MutPtr<CVoid>,
+    outBufferCtorArg: MutPtr,
     public var outBufferLength: UInt,
 ) {
-    public var inBuffer: MutPtr<CVoid> = inBufferCtorArg
+    public var inBuffer: MutPtr = inBufferCtorArg
         internal set
 
-    public var outBuffer: MutPtr<CVoid> = outBufferCtorArg
+    public var outBuffer: MutPtr = outBufferCtorArg
         internal set
 
     public constructor() : this(
@@ -1712,7 +1710,7 @@ public class KbugcheckSecondaryDumpData internal constructor(
         outBufferLength = 0u,
     )
 
-    public operator fun component1(): MutPtr<CVoid> = this.inBuffer
+    public operator fun component1(): MutPtr = this.inBuffer
 
     public operator fun component2(): UInt = this.inBufferLength
 
@@ -1720,11 +1718,11 @@ public class KbugcheckSecondaryDumpData internal constructor(
 
     public operator fun component4(): Guid = this.guid
 
-    public operator fun component5(): MutPtr<CVoid> = this.outBuffer
+    public operator fun component5(): MutPtr = this.outBuffer
 
     public operator fun component6(): UInt = this.outBufferLength
 
-    public fun copy(inBuffer: MutPtr<CVoid> = this.inBuffer, inBufferLength: UInt = this.inBufferLength, maximumAllowed: UInt = this.maximumAllowed, guid: Guid = this.guid, outBuffer: MutPtr<CVoid> = this.outBuffer, outBufferLength: UInt = this.outBufferLength): KbugcheckSecondaryDumpData = KbugcheckSecondaryDumpData(inBufferCtorArg = inBuffer, inBufferLength = inBufferLength, maximumAllowed = maximumAllowed, guid = guid, outBufferCtorArg = outBuffer, outBufferLength = outBufferLength)
+    public fun copy(inBuffer: MutPtr = this.inBuffer, inBufferLength: UInt = this.inBufferLength, maximumAllowed: UInt = this.maximumAllowed, guid: Guid = this.guid, outBuffer: MutPtr = this.outBuffer, outBufferLength: UInt = this.outBufferLength): KbugcheckSecondaryDumpData = KbugcheckSecondaryDumpData(inBufferCtorArg = inBuffer, inBufferLength = inBufferLength, maximumAllowed = maximumAllowed, guid = guid, outBufferCtorArg = outBuffer, outBufferLength = outBufferLength)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -1750,11 +1748,11 @@ public class KbugcheckSecondaryDumpData internal constructor(
 
     public companion object {
         public operator fun invoke(
-            inBuffer: MutPtr<CVoid> = MutPtr(0L),
+            inBuffer: MutPtr = MutPtr(0L),
             inBufferLength: UInt = 0u,
             maximumAllowed: UInt = 0u,
             guid: Guid = Guid(),
-            outBuffer: MutPtr<CVoid> = MutPtr(0L),
+            outBuffer: MutPtr = MutPtr(0L),
             outBufferLength: UInt = 0u,
         ): KbugcheckSecondaryDumpData =
             KbugcheckSecondaryDumpData(
@@ -1769,13 +1767,13 @@ public class KbugcheckSecondaryDumpData internal constructor(
 }
 
 public class KbugcheckSecondaryDumpDataEx internal constructor(
-    inBufferCtorArg: MutPtr<CVoid>,
+    inBufferCtorArg: MutPtr,
     public var inBufferLength: UInt,
     public var maximumAllowed: UInt,
     public var guid: Guid,
-    outBufferCtorArg: MutPtr<CVoid>,
+    outBufferCtorArg: MutPtr,
     public var outBufferLength: UInt,
-    contextCtorArg: MutPtr<CVoid>,
+    contextCtorArg: MutPtr,
     public var flags: UInt,
     public var dumpType: UInt,
     public var bugCheckCode: UInt,
@@ -1784,13 +1782,13 @@ public class KbugcheckSecondaryDumpDataEx internal constructor(
     public var bugCheckParameter3: Int,
     public var bugCheckParameter4: Int,
 ) {
-    public var inBuffer: MutPtr<CVoid> = inBufferCtorArg
+    public var inBuffer: MutPtr = inBufferCtorArg
         internal set
 
-    public var outBuffer: MutPtr<CVoid> = outBufferCtorArg
+    public var outBuffer: MutPtr = outBufferCtorArg
         internal set
 
-    public var context: MutPtr<CVoid> = contextCtorArg
+    public var context: MutPtr = contextCtorArg
         internal set
 
     public constructor() : this(
@@ -1810,7 +1808,7 @@ public class KbugcheckSecondaryDumpDataEx internal constructor(
         bugCheckParameter4 = 0,
     )
 
-    public operator fun component1(): MutPtr<CVoid> = this.inBuffer
+    public operator fun component1(): MutPtr = this.inBuffer
 
     public operator fun component2(): UInt = this.inBufferLength
 
@@ -1818,11 +1816,11 @@ public class KbugcheckSecondaryDumpDataEx internal constructor(
 
     public operator fun component4(): Guid = this.guid
 
-    public operator fun component5(): MutPtr<CVoid> = this.outBuffer
+    public operator fun component5(): MutPtr = this.outBuffer
 
     public operator fun component6(): UInt = this.outBufferLength
 
-    public operator fun component7(): MutPtr<CVoid> = this.context
+    public operator fun component7(): MutPtr = this.context
 
     public operator fun component8(): UInt = this.flags
 
@@ -1838,7 +1836,7 @@ public class KbugcheckSecondaryDumpDataEx internal constructor(
 
     public operator fun component14(): Int = this.bugCheckParameter4
 
-    public fun copy(inBuffer: MutPtr<CVoid> = this.inBuffer, inBufferLength: UInt = this.inBufferLength, maximumAllowed: UInt = this.maximumAllowed, guid: Guid = this.guid, outBuffer: MutPtr<CVoid> = this.outBuffer, outBufferLength: UInt = this.outBufferLength, context: MutPtr<CVoid> = this.context, flags: UInt = this.flags, dumpType: UInt = this.dumpType, bugCheckCode: UInt = this.bugCheckCode, bugCheckParameter1: Int = this.bugCheckParameter1, bugCheckParameter2: Int = this.bugCheckParameter2, bugCheckParameter3: Int = this.bugCheckParameter3, bugCheckParameter4: Int = this.bugCheckParameter4): KbugcheckSecondaryDumpDataEx = KbugcheckSecondaryDumpDataEx(inBufferCtorArg = inBuffer, inBufferLength = inBufferLength, maximumAllowed = maximumAllowed, guid = guid, outBufferCtorArg = outBuffer, outBufferLength = outBufferLength, contextCtorArg = context, flags = flags, dumpType = dumpType, bugCheckCode = bugCheckCode, bugCheckParameter1 = bugCheckParameter1, bugCheckParameter2 = bugCheckParameter2, bugCheckParameter3 = bugCheckParameter3, bugCheckParameter4 = bugCheckParameter4)
+    public fun copy(inBuffer: MutPtr = this.inBuffer, inBufferLength: UInt = this.inBufferLength, maximumAllowed: UInt = this.maximumAllowed, guid: Guid = this.guid, outBuffer: MutPtr = this.outBuffer, outBufferLength: UInt = this.outBufferLength, context: MutPtr = this.context, flags: UInt = this.flags, dumpType: UInt = this.dumpType, bugCheckCode: UInt = this.bugCheckCode, bugCheckParameter1: Int = this.bugCheckParameter1, bugCheckParameter2: Int = this.bugCheckParameter2, bugCheckParameter3: Int = this.bugCheckParameter3, bugCheckParameter4: Int = this.bugCheckParameter4): KbugcheckSecondaryDumpDataEx = KbugcheckSecondaryDumpDataEx(inBufferCtorArg = inBuffer, inBufferLength = inBufferLength, maximumAllowed = maximumAllowed, guid = guid, outBufferCtorArg = outBuffer, outBufferLength = outBufferLength, contextCtorArg = context, flags = flags, dumpType = dumpType, bugCheckCode = bugCheckCode, bugCheckParameter1 = bugCheckParameter1, bugCheckParameter2 = bugCheckParameter2, bugCheckParameter3 = bugCheckParameter3, bugCheckParameter4 = bugCheckParameter4)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -1880,13 +1878,13 @@ public class KbugcheckSecondaryDumpDataEx internal constructor(
 
     public companion object {
         public operator fun invoke(
-            inBuffer: MutPtr<CVoid> = MutPtr(0L),
+            inBuffer: MutPtr = MutPtr(0L),
             inBufferLength: UInt = 0u,
             maximumAllowed: UInt = 0u,
             guid: Guid = Guid(),
-            outBuffer: MutPtr<CVoid> = MutPtr(0L),
+            outBuffer: MutPtr = MutPtr(0L),
             outBufferLength: UInt = 0u,
-            context: MutPtr<CVoid> = MutPtr(0L),
+            context: MutPtr = MutPtr(0L),
             flags: UInt = 0u,
             dumpType: UInt = 0u,
             bugCheckCode: UInt = 0u,
@@ -1915,7 +1913,7 @@ public class KbugcheckSecondaryDumpDataEx internal constructor(
 }
 
 public class KbugcheckTriageDumpData internal constructor(
-    dataArrayCtorArg: MutPtr<KtriageDumpDataArray>,
+    dataArrayCtorArg: MutPtr,
     public var flags: UInt,
     public var maxVirtMemSize: UInt,
     public var bugCheckCode: UInt,
@@ -1924,7 +1922,7 @@ public class KbugcheckTriageDumpData internal constructor(
     public var bugCheckParameter3: Int,
     public var bugCheckParameter4: Int,
 ) {
-    public var dataArray: MutPtr<KtriageDumpDataArray> = dataArrayCtorArg
+    public var dataArray: MutPtr = dataArrayCtorArg
         internal set
 
     public constructor() : this(
@@ -1938,7 +1936,7 @@ public class KbugcheckTriageDumpData internal constructor(
         bugCheckParameter4 = 0,
     )
 
-    public operator fun component1(): MutPtr<KtriageDumpDataArray> = this.dataArray
+    public operator fun component1(): MutPtr = this.dataArray
 
     public operator fun component2(): UInt = this.flags
 
@@ -1954,7 +1952,7 @@ public class KbugcheckTriageDumpData internal constructor(
 
     public operator fun component8(): Int = this.bugCheckParameter4
 
-    public fun copy(dataArray: MutPtr<KtriageDumpDataArray> = this.dataArray, flags: UInt = this.flags, maxVirtMemSize: UInt = this.maxVirtMemSize, bugCheckCode: UInt = this.bugCheckCode, bugCheckParameter1: Int = this.bugCheckParameter1, bugCheckParameter2: Int = this.bugCheckParameter2, bugCheckParameter3: Int = this.bugCheckParameter3, bugCheckParameter4: Int = this.bugCheckParameter4): KbugcheckTriageDumpData = KbugcheckTriageDumpData(dataArrayCtorArg = dataArray, flags = flags, maxVirtMemSize = maxVirtMemSize, bugCheckCode = bugCheckCode, bugCheckParameter1 = bugCheckParameter1, bugCheckParameter2 = bugCheckParameter2, bugCheckParameter3 = bugCheckParameter3, bugCheckParameter4 = bugCheckParameter4)
+    public fun copy(dataArray: MutPtr = this.dataArray, flags: UInt = this.flags, maxVirtMemSize: UInt = this.maxVirtMemSize, bugCheckCode: UInt = this.bugCheckCode, bugCheckParameter1: Int = this.bugCheckParameter1, bugCheckParameter2: Int = this.bugCheckParameter2, bugCheckParameter3: Int = this.bugCheckParameter3, bugCheckParameter4: Int = this.bugCheckParameter4): KbugcheckTriageDumpData = KbugcheckTriageDumpData(dataArrayCtorArg = dataArray, flags = flags, maxVirtMemSize = maxVirtMemSize, bugCheckCode = bugCheckCode, bugCheckParameter1 = bugCheckParameter1, bugCheckParameter2 = bugCheckParameter2, bugCheckParameter3 = bugCheckParameter3, bugCheckParameter4 = bugCheckParameter4)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -1991,7 +1989,7 @@ public class KbugcheckTriageDumpData internal constructor(
                     KbugcheckTriageDumpData(
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<KtriageDumpDataArray>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 8L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 12L),
@@ -2004,7 +2002,7 @@ public class KbugcheckTriageDumpData internal constructor(
                 override fun writeNative(addr: Long, value: KbugcheckTriageDumpData) {
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<KtriageDumpDataArray>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr, value.dataArray)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 8L, value.flags)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 12L, value.maxVirtMemSize)
@@ -2017,7 +2015,7 @@ public class KbugcheckTriageDumpData internal constructor(
             }
 
         public operator fun invoke(
-            dataArray: MutPtr<KtriageDumpDataArray> = MutPtr(0L),
+            dataArray: MutPtr = MutPtr(0L),
             flags: UInt = 0u,
             maxVirtMemSize: UInt = 0u,
             bugCheckCode: UInt = 0u,
@@ -2837,13 +2835,13 @@ public data class Ksemaphore(
 )
 
 public class KspinLockQueue internal constructor(
-    nextCtorArg: MutPtr<KspinLockQueue>,
-    lockCtorArg: MutPtr<Int>,
+    nextCtorArg: MutPtr,
+    lockCtorArg: MutPtr,
 ) {
-    public var next: MutPtr<KspinLockQueue> = nextCtorArg
+    public var next: MutPtr = nextCtorArg
         internal set
 
-    public var lock: MutPtr<Int> = lockCtorArg
+    public var lock: MutPtr = lockCtorArg
         internal set
 
     public constructor() : this(
@@ -2851,11 +2849,11 @@ public class KspinLockQueue internal constructor(
         lockCtorArg = MutPtr(0L),
     )
 
-    public operator fun component1(): MutPtr<KspinLockQueue> = this.next
+    public operator fun component1(): MutPtr = this.next
 
-    public operator fun component2(): MutPtr<Int> = this.lock
+    public operator fun component2(): MutPtr = this.lock
 
-    public fun copy(next: MutPtr<KspinLockQueue> = this.next, lock: MutPtr<Int> = this.lock): KspinLockQueue = KspinLockQueue(nextCtorArg = next, lockCtorArg = lock)
+    public fun copy(next: MutPtr = this.next, lock: MutPtr = this.lock): KspinLockQueue = KspinLockQueue(nextCtorArg = next, lockCtorArg = lock)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -2880,28 +2878,28 @@ public class KspinLockQueue internal constructor(
                     KspinLockQueue(
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<KspinLockQueue>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<Int>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                     )
                 override fun writeNative(addr: Long, value: KspinLockQueue) {
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<KspinLockQueue>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr, value.next)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<Int>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.lock)
                 }
             }
 
         public operator fun invoke(
-            next: MutPtr<KspinLockQueue> = MutPtr(0L),
-            lock: MutPtr<Int> = MutPtr(0L),
+            next: MutPtr = MutPtr(0L),
+            lock: MutPtr = MutPtr(0L),
         ): KspinLockQueue =
             KspinLockQueue(
                 nextCtorArg = next,
@@ -2939,10 +2937,10 @@ public class Ktimer internal constructor(
     public var header: DispatcherHeader,
     public var dueTime: ULong,
     public var timerListEntry: ListEntry,
-    dpcCtorArg: MutPtr<Kdpc>,
+    dpcCtorArg: MutPtr,
     public var period: UInt,
 ) {
-    public var dpc: MutPtr<Kdpc> = dpcCtorArg
+    public var dpc: MutPtr = dpcCtorArg
         internal set
 
     public constructor() : this(
@@ -2959,11 +2957,11 @@ public class Ktimer internal constructor(
 
     public operator fun component3(): ListEntry = this.timerListEntry
 
-    public operator fun component4(): MutPtr<Kdpc> = this.dpc
+    public operator fun component4(): MutPtr = this.dpc
 
     public operator fun component5(): UInt = this.period
 
-    public fun copy(header: DispatcherHeader = this.header, dueTime: ULong = this.dueTime, timerListEntry: ListEntry = this.timerListEntry, dpc: MutPtr<Kdpc> = this.dpc, period: UInt = this.period): Ktimer = Ktimer(header = header, dueTime = dueTime, timerListEntry = timerListEntry, dpcCtorArg = dpc, period = period)
+    public fun copy(header: DispatcherHeader = this.header, dueTime: ULong = this.dueTime, timerListEntry: ListEntry = this.timerListEntry, dpc: MutPtr = this.dpc, period: UInt = this.period): Ktimer = Ktimer(header = header, dueTime = dueTime, timerListEntry = timerListEntry, dpcCtorArg = dpc, period = period)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -2990,7 +2988,7 @@ public class Ktimer internal constructor(
             header: DispatcherHeader = DispatcherHeader(),
             dueTime: ULong = 0uL,
             timerListEntry: ListEntry = ListEntry(),
-            dpc: MutPtr<Kdpc> = MutPtr(0L),
+            dpc: MutPtr = MutPtr(0L),
             period: UInt = 0u,
         ): Ktimer =
             Ktimer(
@@ -3010,10 +3008,10 @@ public class KtriageDumpDataArray internal constructor(
     public var dataSize: UInt,
     public var maxDataSize: UInt,
     public var componentNameBufferLength: UInt,
-    componentNameCtorArg: MutPtr<UByte>,
+    componentNameCtorArg: MutPtr,
     public var blocks: List<KaddressRange>,
 ) {
-    public var componentName: MutPtr<UByte> = componentNameCtorArg
+    public var componentName: MutPtr = componentNameCtorArg
         internal set
 
     public constructor() : this(
@@ -3039,11 +3037,11 @@ public class KtriageDumpDataArray internal constructor(
 
     public operator fun component6(): UInt = this.componentNameBufferLength
 
-    public operator fun component7(): MutPtr<UByte> = this.componentName
+    public operator fun component7(): MutPtr = this.componentName
 
     public operator fun component8(): List<KaddressRange> = this.blocks
 
-    public fun copy(list: ListEntry = this.list, numBlocksUsed: UInt = this.numBlocksUsed, numBlocksTotal: UInt = this.numBlocksTotal, dataSize: UInt = this.dataSize, maxDataSize: UInt = this.maxDataSize, componentNameBufferLength: UInt = this.componentNameBufferLength, componentName: MutPtr<UByte> = this.componentName, blocks: List<KaddressRange> = this.blocks): KtriageDumpDataArray = KtriageDumpDataArray(list = list, numBlocksUsed = numBlocksUsed, numBlocksTotal = numBlocksTotal, dataSize = dataSize, maxDataSize = maxDataSize, componentNameBufferLength = componentNameBufferLength, componentNameCtorArg = componentName, blocks = blocks)
+    public fun copy(list: ListEntry = this.list, numBlocksUsed: UInt = this.numBlocksUsed, numBlocksTotal: UInt = this.numBlocksTotal, dataSize: UInt = this.dataSize, maxDataSize: UInt = this.maxDataSize, componentNameBufferLength: UInt = this.componentNameBufferLength, componentName: MutPtr = this.componentName, blocks: List<KaddressRange> = this.blocks): KtriageDumpDataArray = KtriageDumpDataArray(list = list, numBlocksUsed = numBlocksUsed, numBlocksTotal = numBlocksTotal, dataSize = dataSize, maxDataSize = maxDataSize, componentNameBufferLength = componentNameBufferLength, componentNameCtorArg = componentName, blocks = blocks)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -3079,7 +3077,7 @@ public class KtriageDumpDataArray internal constructor(
             dataSize: UInt = 0u,
             maxDataSize: UInt = 0u,
             componentNameBufferLength: UInt = 0u,
-            componentName: MutPtr<UByte> = MutPtr(0L),
+            componentName: MutPtr = MutPtr(0L),
             blocks: List<KaddressRange> = List(1) { KaddressRange() },
         ): KtriageDumpDataArray =
             KtriageDumpDataArray(
@@ -3391,18 +3389,18 @@ public data class KuserSharedData40(
 }
 
 public class KwaitChain internal constructor(
-    headCtorArg: MutPtr<CVoid>,
+    headCtorArg: MutPtr,
 ) {
-    public var head: MutPtr<CVoid> = headCtorArg
+    public var head: MutPtr = headCtorArg
         internal set
 
     public constructor() : this(
         headCtorArg = MutPtr(0L),
     )
 
-    public operator fun component1(): MutPtr<CVoid> = this.head
+    public operator fun component1(): MutPtr = this.head
 
-    public fun copy(head: MutPtr<CVoid> = this.head): KwaitChain = KwaitChain(headCtorArg = head)
+    public fun copy(head: MutPtr = this.head): KwaitChain = KwaitChain(headCtorArg = head)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -3422,19 +3420,19 @@ public class KwaitChain internal constructor(
                     KwaitChain(
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<CVoid>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr),
                     )
                 override fun writeNative(addr: Long, value: KwaitChain) {
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<CVoid>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr, value.head)
                 }
             }
 
         public operator fun invoke(
-            head: MutPtr<CVoid> = MutPtr(0L),
+            head: MutPtr = MutPtr(0L),
         ): KwaitChain =
             KwaitChain(
                 headCtorArg = head,
@@ -3514,10 +3512,10 @@ public data class MailslotCreateParameters(
 }
 
 public class MapRegisterEntry internal constructor(
-    mapRegisterCtorArg: MutPtr<CVoid>,
+    mapRegisterCtorArg: MutPtr,
     public var writeToDevice: Boolean,
 ) {
-    public var mapRegister: MutPtr<CVoid> = mapRegisterCtorArg
+    public var mapRegister: MutPtr = mapRegisterCtorArg
         internal set
 
     public constructor() : this(
@@ -3525,11 +3523,11 @@ public class MapRegisterEntry internal constructor(
         writeToDevice = false,
     )
 
-    public operator fun component1(): MutPtr<CVoid> = this.mapRegister
+    public operator fun component1(): MutPtr = this.mapRegister
 
     public operator fun component2(): Boolean = this.writeToDevice
 
-    public fun copy(mapRegister: MutPtr<CVoid> = this.mapRegister, writeToDevice: Boolean = this.writeToDevice): MapRegisterEntry = MapRegisterEntry(mapRegisterCtorArg = mapRegister, writeToDevice = writeToDevice)
+    public fun copy(mapRegister: MutPtr = this.mapRegister, writeToDevice: Boolean = this.writeToDevice): MapRegisterEntry = MapRegisterEntry(mapRegisterCtorArg = mapRegister, writeToDevice = writeToDevice)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -3554,21 +3552,21 @@ public class MapRegisterEntry internal constructor(
                     MapRegisterEntry(
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<CVoid>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.BOOL).readNative(addr + 8L),
                     )
                 override fun writeNative(addr: Long, value: MapRegisterEntry) {
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<CVoid>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr, value.mapRegister)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.BOOL).writeNative(addr + 8L, value.writeToDevice)
                 }
             }
 
         public operator fun invoke(
-            mapRegister: MutPtr<CVoid> = MutPtr(0L),
+            mapRegister: MutPtr = MutPtr(0L),
             writeToDevice: Boolean = false,
         ): MapRegisterEntry =
             MapRegisterEntry(
@@ -3581,9 +3579,9 @@ public class MapRegisterEntry internal constructor(
 public class McaDriverInfo internal constructor(
     public var exceptionCallback: Int,
     public var dpcCallback: PkdeferredRoutine,
-    deviceContextCtorArg: MutPtr<CVoid>,
+    deviceContextCtorArg: MutPtr,
 ) {
-    public var deviceContext: MutPtr<CVoid> = deviceContextCtorArg
+    public var deviceContext: MutPtr = deviceContextCtorArg
         internal set
 
     public constructor() : this(
@@ -3596,9 +3594,9 @@ public class McaDriverInfo internal constructor(
 
     public operator fun component2(): PkdeferredRoutine = this.dpcCallback
 
-    public operator fun component3(): MutPtr<CVoid> = this.deviceContext
+    public operator fun component3(): MutPtr = this.deviceContext
 
-    public fun copy(exceptionCallback: Int = this.exceptionCallback, dpcCallback: PkdeferredRoutine = this.dpcCallback, deviceContext: MutPtr<CVoid> = this.deviceContext): McaDriverInfo = McaDriverInfo(exceptionCallback = exceptionCallback, dpcCallback = dpcCallback, deviceContextCtorArg = deviceContext)
+    public fun copy(exceptionCallback: Int = this.exceptionCallback, dpcCallback: PkdeferredRoutine = this.dpcCallback, deviceContext: MutPtr = this.deviceContext): McaDriverInfo = McaDriverInfo(exceptionCallback = exceptionCallback, dpcCallback = dpcCallback, deviceContextCtorArg = deviceContext)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -3620,7 +3618,7 @@ public class McaDriverInfo internal constructor(
         public operator fun invoke(
             exceptionCallback: Int = 0,
             dpcCallback: PkdeferredRoutine = null,
-            deviceContext: MutPtr<CVoid> = MutPtr(0L),
+            deviceContext: MutPtr = MutPtr(0L),
         ): McaDriverInfo =
             McaDriverInfo(
                 exceptionCallback = exceptionCallback,
@@ -3962,10 +3960,10 @@ public data class MmCopyAddress(
 )
 
 public class MmCopyAddress0 internal constructor(
-    virtualAddressCtorArg: MutPtr<CVoid>,
+    virtualAddressCtorArg: MutPtr,
     public var physicalAddress: Long,
 ) {
-    public var virtualAddress: MutPtr<CVoid> = virtualAddressCtorArg
+    public var virtualAddress: MutPtr = virtualAddressCtorArg
         internal set
 
     public constructor() : this(
@@ -3973,11 +3971,11 @@ public class MmCopyAddress0 internal constructor(
         physicalAddress = 0L,
     )
 
-    public operator fun component1(): MutPtr<CVoid> = this.virtualAddress
+    public operator fun component1(): MutPtr = this.virtualAddress
 
     public operator fun component2(): Long = this.physicalAddress
 
-    public fun copy(virtualAddress: MutPtr<CVoid> = this.virtualAddress, physicalAddress: Long = this.physicalAddress): MmCopyAddress0 = MmCopyAddress0(virtualAddressCtorArg = virtualAddress, physicalAddress = physicalAddress)
+    public fun copy(virtualAddress: MutPtr = this.virtualAddress, physicalAddress: Long = this.physicalAddress): MmCopyAddress0 = MmCopyAddress0(virtualAddressCtorArg = virtualAddress, physicalAddress = physicalAddress)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -3995,7 +3993,7 @@ public class MmCopyAddress0 internal constructor(
 
     public companion object {
         public operator fun invoke(
-            virtualAddress: MutPtr<CVoid> = MutPtr(0L),
+            virtualAddress: MutPtr = MutPtr(0L),
             physicalAddress: Long = 0L,
         ): MmCopyAddress0 =
             MmCopyAddress0(
@@ -4103,7 +4101,7 @@ public data class NpemCapabilityStandard0(
 public class NpemControlInterface internal constructor(
     public var size: UShort,
     public var version: UShort,
-    contextCtorArg: MutPtr<CVoid>,
+    contextCtorArg: MutPtr,
     public var interfaceReference: PinterfaceReference,
     public var interfaceDereference: PinterfaceDereference,
     public var setNpemSupportState: PnpemControlEnableDisable,
@@ -4111,7 +4109,7 @@ public class NpemControlInterface internal constructor(
     public var setStandardControl: PnpemControlSetStandardControl,
     public var queryNpemControl: PnpemControlQueryControl,
 ) {
-    public var context: MutPtr<CVoid> = contextCtorArg
+    public var context: MutPtr = contextCtorArg
         internal set
 
     public constructor() : this(
@@ -4130,7 +4128,7 @@ public class NpemControlInterface internal constructor(
 
     public operator fun component2(): UShort = this.version
 
-    public operator fun component3(): MutPtr<CVoid> = this.context
+    public operator fun component3(): MutPtr = this.context
 
     public operator fun component4(): PinterfaceReference = this.interfaceReference
 
@@ -4144,7 +4142,7 @@ public class NpemControlInterface internal constructor(
 
     public operator fun component9(): PnpemControlQueryControl = this.queryNpemControl
 
-    public fun copy(size: UShort = this.size, version: UShort = this.version, context: MutPtr<CVoid> = this.context, interfaceReference: PinterfaceReference = this.interfaceReference, interfaceDereference: PinterfaceDereference = this.interfaceDereference, setNpemSupportState: PnpemControlEnableDisable = this.setNpemSupportState, queryStandardCapabilities: PnpemControlQueryStandardCapabilities = this.queryStandardCapabilities, setStandardControl: PnpemControlSetStandardControl = this.setStandardControl, queryNpemControl: PnpemControlQueryControl = this.queryNpemControl): NpemControlInterface = NpemControlInterface(size = size, version = version, contextCtorArg = context, interfaceReference = interfaceReference, interfaceDereference = interfaceDereference, setNpemSupportState = setNpemSupportState, queryStandardCapabilities = queryStandardCapabilities, setStandardControl = setStandardControl, queryNpemControl = queryNpemControl)
+    public fun copy(size: UShort = this.size, version: UShort = this.version, context: MutPtr = this.context, interfaceReference: PinterfaceReference = this.interfaceReference, interfaceDereference: PinterfaceDereference = this.interfaceDereference, setNpemSupportState: PnpemControlEnableDisable = this.setNpemSupportState, queryStandardCapabilities: PnpemControlQueryStandardCapabilities = this.queryStandardCapabilities, setStandardControl: PnpemControlSetStandardControl = this.setStandardControl, queryNpemControl: PnpemControlQueryControl = this.queryNpemControl): NpemControlInterface = NpemControlInterface(size = size, version = version, contextCtorArg = context, interfaceReference = interfaceReference, interfaceDereference = interfaceDereference, setNpemSupportState = setNpemSupportState, queryStandardCapabilities = queryStandardCapabilities, setStandardControl = setStandardControl, queryNpemControl = queryNpemControl)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -4178,7 +4176,7 @@ public class NpemControlInterface internal constructor(
         public operator fun invoke(
             size: UShort = 0u,
             version: UShort = 0u,
-            context: MutPtr<CVoid> = MutPtr(0L),
+            context: MutPtr = MutPtr(0L),
             interfaceReference: PinterfaceReference = null,
             interfaceDereference: PinterfaceDereference = null,
             setNpemSupportState: PnpemControlEnableDisable = null,
@@ -4241,13 +4239,13 @@ public class ObCallbackRegistration internal constructor(
     public var version: UShort,
     public var operationRegistrationCount: UShort,
     public var altitude: UnicodeString,
-    registrationContextCtorArg: MutPtr<CVoid>,
-    operationRegistrationCtorArg: MutPtr<ObOperationRegistration>,
+    registrationContextCtorArg: MutPtr,
+    operationRegistrationCtorArg: MutPtr,
 ) {
-    public var registrationContext: MutPtr<CVoid> = registrationContextCtorArg
+    public var registrationContext: MutPtr = registrationContextCtorArg
         internal set
 
-    public var operationRegistration: MutPtr<ObOperationRegistration> = operationRegistrationCtorArg
+    public var operationRegistration: MutPtr = operationRegistrationCtorArg
         internal set
 
     public constructor() : this(
@@ -4264,11 +4262,11 @@ public class ObCallbackRegistration internal constructor(
 
     public operator fun component3(): UnicodeString = this.altitude
 
-    public operator fun component4(): MutPtr<CVoid> = this.registrationContext
+    public operator fun component4(): MutPtr = this.registrationContext
 
-    public operator fun component5(): MutPtr<ObOperationRegistration> = this.operationRegistration
+    public operator fun component5(): MutPtr = this.operationRegistration
 
-    public fun copy(version: UShort = this.version, operationRegistrationCount: UShort = this.operationRegistrationCount, altitude: UnicodeString = this.altitude, registrationContext: MutPtr<CVoid> = this.registrationContext, operationRegistration: MutPtr<ObOperationRegistration> = this.operationRegistration): ObCallbackRegistration = ObCallbackRegistration(version = version, operationRegistrationCount = operationRegistrationCount, altitude = altitude, registrationContextCtorArg = registrationContext, operationRegistrationCtorArg = operationRegistration)
+    public fun copy(version: UShort = this.version, operationRegistrationCount: UShort = this.operationRegistrationCount, altitude: UnicodeString = this.altitude, registrationContext: MutPtr = this.registrationContext, operationRegistration: MutPtr = this.operationRegistration): ObCallbackRegistration = ObCallbackRegistration(version = version, operationRegistrationCount = operationRegistrationCount, altitude = altitude, registrationContextCtorArg = registrationContext, operationRegistrationCtorArg = operationRegistration)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -4295,8 +4293,8 @@ public class ObCallbackRegistration internal constructor(
             version: UShort = 0u,
             operationRegistrationCount: UShort = 0u,
             altitude: UnicodeString = UnicodeString(),
-            registrationContext: MutPtr<CVoid> = MutPtr(0L),
-            operationRegistration: MutPtr<ObOperationRegistration> = MutPtr(0L),
+            registrationContext: MutPtr = MutPtr(0L),
+            operationRegistration: MutPtr = MutPtr(0L),
         ): ObCallbackRegistration =
             ObCallbackRegistration(
                 version = version,
@@ -4309,12 +4307,12 @@ public class ObCallbackRegistration internal constructor(
 }
 
 public class ObOperationRegistration internal constructor(
-    objectTypeCtorArg: MutPtr<PobjectType>,
+    objectTypeCtorArg: MutPtr,
     public var operations: UInt,
     public var preOperation: PobPreOperationCallback,
     public var postOperation: PobPostOperationCallback,
 ) {
-    public var objectType: MutPtr<PobjectType> = objectTypeCtorArg
+    public var objectType: MutPtr = objectTypeCtorArg
         internal set
 
     public constructor() : this(
@@ -4324,7 +4322,7 @@ public class ObOperationRegistration internal constructor(
         postOperation = null,
     )
 
-    public operator fun component1(): MutPtr<PobjectType> = this.objectType
+    public operator fun component1(): MutPtr = this.objectType
 
     public operator fun component2(): UInt = this.operations
 
@@ -4332,7 +4330,7 @@ public class ObOperationRegistration internal constructor(
 
     public operator fun component4(): PobPostOperationCallback = this.postOperation
 
-    public fun copy(objectType: MutPtr<PobjectType> = this.objectType, operations: UInt = this.operations, preOperation: PobPreOperationCallback = this.preOperation, postOperation: PobPostOperationCallback = this.postOperation): ObOperationRegistration = ObOperationRegistration(objectTypeCtorArg = objectType, operations = operations, preOperation = preOperation, postOperation = postOperation)
+    public fun copy(objectType: MutPtr = this.objectType, operations: UInt = this.operations, preOperation: PobPreOperationCallback = this.preOperation, postOperation: PobPostOperationCallback = this.postOperation): ObOperationRegistration = ObOperationRegistration(objectTypeCtorArg = objectType, operations = operations, preOperation = preOperation, postOperation = postOperation)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -4354,7 +4352,7 @@ public class ObOperationRegistration internal constructor(
 
     public companion object {
         public operator fun invoke(
-            objectType: MutPtr<PobjectType> = MutPtr(0L),
+            objectType: MutPtr = MutPtr(0L),
             operations: UInt = 0u,
             preOperation: PobPreOperationCallback = null,
             postOperation: PobPostOperationCallback = null,
@@ -4409,19 +4407,19 @@ public data class ObPostDuplicateHandleInformation(
 public class ObPostOperationInformation internal constructor(
     public var operation: UInt,
     public var anonymous: ObPostOperationInformation0,
-    objCtorArg: MutPtr<CVoid>,
+    objCtorArg: MutPtr,
     public var objectType: PobjectType,
-    callContextCtorArg: MutPtr<CVoid>,
+    callContextCtorArg: MutPtr,
     public var returnStatus: Ntstatus,
-    parametersCtorArg: MutPtr<ObPostOperationParameters>,
+    parametersCtorArg: MutPtr,
 ) {
-    public var obj: MutPtr<CVoid> = objCtorArg
+    public var obj: MutPtr = objCtorArg
         internal set
 
-    public var callContext: MutPtr<CVoid> = callContextCtorArg
+    public var callContext: MutPtr = callContextCtorArg
         internal set
 
-    public var parameters: MutPtr<ObPostOperationParameters> = parametersCtorArg
+    public var parameters: MutPtr = parametersCtorArg
         internal set
 
     public constructor() : this(
@@ -4438,17 +4436,17 @@ public class ObPostOperationInformation internal constructor(
 
     public operator fun component2(): ObPostOperationInformation0 = this.anonymous
 
-    public operator fun component3(): MutPtr<CVoid> = this.obj
+    public operator fun component3(): MutPtr = this.obj
 
     public operator fun component4(): PobjectType = this.objectType
 
-    public operator fun component5(): MutPtr<CVoid> = this.callContext
+    public operator fun component5(): MutPtr = this.callContext
 
     public operator fun component6(): Ntstatus = this.returnStatus
 
-    public operator fun component7(): MutPtr<ObPostOperationParameters> = this.parameters
+    public operator fun component7(): MutPtr = this.parameters
 
-    public fun copy(operation: UInt = this.operation, anonymous: ObPostOperationInformation0 = this.anonymous, obj: MutPtr<CVoid> = this.obj, objectType: PobjectType = this.objectType, callContext: MutPtr<CVoid> = this.callContext, returnStatus: Ntstatus = this.returnStatus, parameters: MutPtr<ObPostOperationParameters> = this.parameters): ObPostOperationInformation = ObPostOperationInformation(operation = operation, anonymous = anonymous, objCtorArg = obj, objectType = objectType, callContextCtorArg = callContext, returnStatus = returnStatus, parametersCtorArg = parameters)
+    public fun copy(operation: UInt = this.operation, anonymous: ObPostOperationInformation0 = this.anonymous, obj: MutPtr = this.obj, objectType: PobjectType = this.objectType, callContext: MutPtr = this.callContext, returnStatus: Ntstatus = this.returnStatus, parameters: MutPtr = this.parameters): ObPostOperationInformation = ObPostOperationInformation(operation = operation, anonymous = anonymous, objCtorArg = obj, objectType = objectType, callContextCtorArg = callContext, returnStatus = returnStatus, parametersCtorArg = parameters)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -4478,11 +4476,11 @@ public class ObPostOperationInformation internal constructor(
         public operator fun invoke(
             operation: UInt = 0u,
             anonymous: ObPostOperationInformation0 = ObPostOperationInformation0(),
-            obj: MutPtr<CVoid> = MutPtr(0L),
+            obj: MutPtr = MutPtr(0L),
             objectType: PobjectType = 0L,
-            callContext: MutPtr<CVoid> = MutPtr(0L),
+            callContext: MutPtr = MutPtr(0L),
             returnStatus: Ntstatus = 0,
-            parameters: MutPtr<ObPostOperationParameters> = MutPtr(0L),
+            parameters: MutPtr = MutPtr(0L),
         ): ObPostOperationInformation =
             ObPostOperationInformation(
                 operation = operation,
@@ -4550,13 +4548,13 @@ public data class ObPreCreateHandleInformation(
 public class ObPreDuplicateHandleInformation internal constructor(
     public var desiredAccess: UInt,
     public var originalDesiredAccess: UInt,
-    sourceProcessCtorArg: MutPtr<CVoid>,
-    targetProcessCtorArg: MutPtr<CVoid>,
+    sourceProcessCtorArg: MutPtr,
+    targetProcessCtorArg: MutPtr,
 ) {
-    public var sourceProcess: MutPtr<CVoid> = sourceProcessCtorArg
+    public var sourceProcess: MutPtr = sourceProcessCtorArg
         internal set
 
-    public var targetProcess: MutPtr<CVoid> = targetProcessCtorArg
+    public var targetProcess: MutPtr = targetProcessCtorArg
         internal set
 
     public constructor() : this(
@@ -4570,11 +4568,11 @@ public class ObPreDuplicateHandleInformation internal constructor(
 
     public operator fun component2(): UInt = this.originalDesiredAccess
 
-    public operator fun component3(): MutPtr<CVoid> = this.sourceProcess
+    public operator fun component3(): MutPtr = this.sourceProcess
 
-    public operator fun component4(): MutPtr<CVoid> = this.targetProcess
+    public operator fun component4(): MutPtr = this.targetProcess
 
-    public fun copy(desiredAccess: UInt = this.desiredAccess, originalDesiredAccess: UInt = this.originalDesiredAccess, sourceProcess: MutPtr<CVoid> = this.sourceProcess, targetProcess: MutPtr<CVoid> = this.targetProcess): ObPreDuplicateHandleInformation = ObPreDuplicateHandleInformation(desiredAccess = desiredAccess, originalDesiredAccess = originalDesiredAccess, sourceProcessCtorArg = sourceProcess, targetProcessCtorArg = targetProcess)
+    public fun copy(desiredAccess: UInt = this.desiredAccess, originalDesiredAccess: UInt = this.originalDesiredAccess, sourceProcess: MutPtr = this.sourceProcess, targetProcess: MutPtr = this.targetProcess): ObPreDuplicateHandleInformation = ObPreDuplicateHandleInformation(desiredAccess = desiredAccess, originalDesiredAccess = originalDesiredAccess, sourceProcessCtorArg = sourceProcess, targetProcessCtorArg = targetProcess)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -4605,11 +4603,11 @@ public class ObPreDuplicateHandleInformation internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 4L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<CVoid>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<CVoid>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 16L),
                     )
                 override fun writeNative(addr: Long, value: ObPreDuplicateHandleInformation) {
@@ -4617,11 +4615,11 @@ public class ObPreDuplicateHandleInformation internal constructor(
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 4L, value.originalDesiredAccess)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<CVoid>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.sourceProcess)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<CVoid>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 16L, value.targetProcess)
                 }
             }
@@ -4629,8 +4627,8 @@ public class ObPreDuplicateHandleInformation internal constructor(
         public operator fun invoke(
             desiredAccess: UInt = 0u,
             originalDesiredAccess: UInt = 0u,
-            sourceProcess: MutPtr<CVoid> = MutPtr(0L),
-            targetProcess: MutPtr<CVoid> = MutPtr(0L),
+            sourceProcess: MutPtr = MutPtr(0L),
+            targetProcess: MutPtr = MutPtr(0L),
         ): ObPreDuplicateHandleInformation =
             ObPreDuplicateHandleInformation(
                 desiredAccess = desiredAccess,
@@ -4644,18 +4642,18 @@ public class ObPreDuplicateHandleInformation internal constructor(
 public class ObPreOperationInformation internal constructor(
     public var operation: UInt,
     public var anonymous: ObPreOperationInformation0,
-    objCtorArg: MutPtr<CVoid>,
+    objCtorArg: MutPtr,
     public var objectType: PobjectType,
-    callContextCtorArg: MutPtr<CVoid>,
-    parametersCtorArg: MutPtr<ObPreOperationParameters>,
+    callContextCtorArg: MutPtr,
+    parametersCtorArg: MutPtr,
 ) {
-    public var obj: MutPtr<CVoid> = objCtorArg
+    public var obj: MutPtr = objCtorArg
         internal set
 
-    public var callContext: MutPtr<CVoid> = callContextCtorArg
+    public var callContext: MutPtr = callContextCtorArg
         internal set
 
-    public var parameters: MutPtr<ObPreOperationParameters> = parametersCtorArg
+    public var parameters: MutPtr = parametersCtorArg
         internal set
 
     public constructor() : this(
@@ -4671,15 +4669,15 @@ public class ObPreOperationInformation internal constructor(
 
     public operator fun component2(): ObPreOperationInformation0 = this.anonymous
 
-    public operator fun component3(): MutPtr<CVoid> = this.obj
+    public operator fun component3(): MutPtr = this.obj
 
     public operator fun component4(): PobjectType = this.objectType
 
-    public operator fun component5(): MutPtr<CVoid> = this.callContext
+    public operator fun component5(): MutPtr = this.callContext
 
-    public operator fun component6(): MutPtr<ObPreOperationParameters> = this.parameters
+    public operator fun component6(): MutPtr = this.parameters
 
-    public fun copy(operation: UInt = this.operation, anonymous: ObPreOperationInformation0 = this.anonymous, obj: MutPtr<CVoid> = this.obj, objectType: PobjectType = this.objectType, callContext: MutPtr<CVoid> = this.callContext, parameters: MutPtr<ObPreOperationParameters> = this.parameters): ObPreOperationInformation = ObPreOperationInformation(operation = operation, anonymous = anonymous, objCtorArg = obj, objectType = objectType, callContextCtorArg = callContext, parametersCtorArg = parameters)
+    public fun copy(operation: UInt = this.operation, anonymous: ObPreOperationInformation0 = this.anonymous, obj: MutPtr = this.obj, objectType: PobjectType = this.objectType, callContext: MutPtr = this.callContext, parameters: MutPtr = this.parameters): ObPreOperationInformation = ObPreOperationInformation(operation = operation, anonymous = anonymous, objCtorArg = obj, objectType = objectType, callContextCtorArg = callContext, parametersCtorArg = parameters)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -4707,10 +4705,10 @@ public class ObPreOperationInformation internal constructor(
         public operator fun invoke(
             operation: UInt = 0u,
             anonymous: ObPreOperationInformation0 = ObPreOperationInformation0(),
-            obj: MutPtr<CVoid> = MutPtr(0L),
+            obj: MutPtr = MutPtr(0L),
             objectType: PobjectType = 0L,
-            callContext: MutPtr<CVoid> = MutPtr(0L),
-            parameters: MutPtr<ObPreOperationParameters> = MutPtr(0L),
+            callContext: MutPtr = MutPtr(0L),
+            parameters: MutPtr = MutPtr(0L),
         ): ObPreOperationInformation =
             ObPreOperationInformation(
                 operation = operation,
@@ -4779,9 +4777,9 @@ public class Pcibusdata internal constructor(
     public var pin2Line: PciPin2Line,
     public var line2Pin: PciLine2Pin,
     public var parentSlot: PciSlotNumber,
-    reservedCtorArg: List<MutPtr<CVoid>>,
+    reservedCtorArg: List<MutPtr>,
 ) {
-    public var reserved: List<MutPtr<CVoid>> = reservedCtorArg
+    public var reserved: List<MutPtr> = reservedCtorArg
         internal set
 
     public constructor() : this(
@@ -4809,9 +4807,9 @@ public class Pcibusdata internal constructor(
 
     public operator fun component7(): PciSlotNumber = this.parentSlot
 
-    public operator fun component8(): List<MutPtr<CVoid>> = this.reserved
+    public operator fun component8(): List<MutPtr> = this.reserved
 
-    public fun copy(tag: UInt = this.tag, version: UInt = this.version, readConfig: PciReadWriteConfig = this.readConfig, writeConfig: PciReadWriteConfig = this.writeConfig, pin2Line: PciPin2Line = this.pin2Line, line2Pin: PciLine2Pin = this.line2Pin, parentSlot: PciSlotNumber = this.parentSlot, reserved: List<MutPtr<CVoid>> = this.reserved): Pcibusdata = Pcibusdata(tag = tag, version = version, readConfig = readConfig, writeConfig = writeConfig, pin2Line = pin2Line, line2Pin = line2Pin, parentSlot = parentSlot, reservedCtorArg = reserved)
+    public fun copy(tag: UInt = this.tag, version: UInt = this.version, readConfig: PciReadWriteConfig = this.readConfig, writeConfig: PciReadWriteConfig = this.writeConfig, pin2Line: PciPin2Line = this.pin2Line, line2Pin: PciLine2Pin = this.line2Pin, parentSlot: PciSlotNumber = this.parentSlot, reserved: List<MutPtr> = this.reserved): Pcibusdata = Pcibusdata(tag = tag, version = version, readConfig = readConfig, writeConfig = writeConfig, pin2Line = pin2Line, line2Pin = line2Pin, parentSlot = parentSlot, reservedCtorArg = reserved)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -4848,7 +4846,7 @@ public class Pcibusdata internal constructor(
             pin2Line: PciPin2Line = null,
             line2Pin: PciLine2Pin = null,
             parentSlot: PciSlotNumber = PciSlotNumber(),
-            reserved: List<MutPtr<CVoid>> = List(4) { MutPtr(0L) },
+            reserved: List<MutPtr> = List(4) { MutPtr(0L) },
         ): Pcibusdata =
             Pcibusdata(
                 tag = tag,
@@ -5211,13 +5209,13 @@ public data class PciAgpIsochStatus(
 public class PciAtsInterface internal constructor(
     public var size: UShort,
     public var version: UShort,
-    contextCtorArg: MutPtr<CVoid>,
+    contextCtorArg: MutPtr,
     public var interfaceReference: PinterfaceReference,
     public var interfaceDereference: PinterfaceDereference,
     public var setAddressTranslationServices: PpciSetAts,
     public var invalidateQueueDepth: UByte,
 ) {
-    public var context: MutPtr<CVoid> = contextCtorArg
+    public var context: MutPtr = contextCtorArg
         internal set
 
     public constructor() : this(
@@ -5234,7 +5232,7 @@ public class PciAtsInterface internal constructor(
 
     public operator fun component2(): UShort = this.version
 
-    public operator fun component3(): MutPtr<CVoid> = this.context
+    public operator fun component3(): MutPtr = this.context
 
     public operator fun component4(): PinterfaceReference = this.interfaceReference
 
@@ -5244,7 +5242,7 @@ public class PciAtsInterface internal constructor(
 
     public operator fun component7(): UByte = this.invalidateQueueDepth
 
-    public fun copy(size: UShort = this.size, version: UShort = this.version, context: MutPtr<CVoid> = this.context, interfaceReference: PinterfaceReference = this.interfaceReference, interfaceDereference: PinterfaceDereference = this.interfaceDereference, setAddressTranslationServices: PpciSetAts = this.setAddressTranslationServices, invalidateQueueDepth: UByte = this.invalidateQueueDepth): PciAtsInterface = PciAtsInterface(size = size, version = version, contextCtorArg = context, interfaceReference = interfaceReference, interfaceDereference = interfaceDereference, setAddressTranslationServices = setAddressTranslationServices, invalidateQueueDepth = invalidateQueueDepth)
+    public fun copy(size: UShort = this.size, version: UShort = this.version, context: MutPtr = this.context, interfaceReference: PinterfaceReference = this.interfaceReference, interfaceDereference: PinterfaceDereference = this.interfaceDereference, setAddressTranslationServices: PpciSetAts = this.setAddressTranslationServices, invalidateQueueDepth: UByte = this.invalidateQueueDepth): PciAtsInterface = PciAtsInterface(size = size, version = version, contextCtorArg = context, interfaceReference = interfaceReference, interfaceDereference = interfaceDereference, setAddressTranslationServices = setAddressTranslationServices, invalidateQueueDepth = invalidateQueueDepth)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -5274,7 +5272,7 @@ public class PciAtsInterface internal constructor(
         public operator fun invoke(
             size: UShort = 0u,
             version: UShort = 0u,
-            context: MutPtr<CVoid> = MutPtr(0L),
+            context: MutPtr = MutPtr(0L),
             interfaceReference: PinterfaceReference = null,
             interfaceDereference: PinterfaceDereference = null,
             setAddressTranslationServices: PpciSetAts = null,
@@ -5295,7 +5293,7 @@ public class PciAtsInterface internal constructor(
 public class PciBusInterfaceStandard internal constructor(
     public var size: UShort,
     public var version: UShort,
-    contextCtorArg: MutPtr<CVoid>,
+    contextCtorArg: MutPtr,
     public var interfaceReference: PinterfaceReference,
     public var interfaceDereference: PinterfaceDereference,
     public var readConfig: PpciReadWriteConfig,
@@ -5306,7 +5304,7 @@ public class PciBusInterfaceStandard internal constructor(
     public var expressWakeControl: PpciExpressWakeControl,
     public var prepareMultistageResume: PpciPrepareMultistageResume,
 ) {
-    public var context: MutPtr<CVoid> = contextCtorArg
+    public var context: MutPtr = contextCtorArg
         internal set
 
     public constructor() : this(
@@ -5328,7 +5326,7 @@ public class PciBusInterfaceStandard internal constructor(
 
     public operator fun component2(): UShort = this.version
 
-    public operator fun component3(): MutPtr<CVoid> = this.context
+    public operator fun component3(): MutPtr = this.context
 
     public operator fun component4(): PinterfaceReference = this.interfaceReference
 
@@ -5348,7 +5346,7 @@ public class PciBusInterfaceStandard internal constructor(
 
     public operator fun component12(): PpciPrepareMultistageResume = this.prepareMultistageResume
 
-    public fun copy(size: UShort = this.size, version: UShort = this.version, context: MutPtr<CVoid> = this.context, interfaceReference: PinterfaceReference = this.interfaceReference, interfaceDereference: PinterfaceDereference = this.interfaceDereference, readConfig: PpciReadWriteConfig = this.readConfig, writeConfig: PpciReadWriteConfig = this.writeConfig, pinToLine: PpciPinToLine = this.pinToLine, lineToPin: PpciLineToPin = this.lineToPin, rootBusCapability: PpciRootBusCapability = this.rootBusCapability, expressWakeControl: PpciExpressWakeControl = this.expressWakeControl, prepareMultistageResume: PpciPrepareMultistageResume = this.prepareMultistageResume): PciBusInterfaceStandard = PciBusInterfaceStandard(size = size, version = version, contextCtorArg = context, interfaceReference = interfaceReference, interfaceDereference = interfaceDereference, readConfig = readConfig, writeConfig = writeConfig, pinToLine = pinToLine, lineToPin = lineToPin, rootBusCapability = rootBusCapability, expressWakeControl = expressWakeControl, prepareMultistageResume = prepareMultistageResume)
+    public fun copy(size: UShort = this.size, version: UShort = this.version, context: MutPtr = this.context, interfaceReference: PinterfaceReference = this.interfaceReference, interfaceDereference: PinterfaceDereference = this.interfaceDereference, readConfig: PpciReadWriteConfig = this.readConfig, writeConfig: PpciReadWriteConfig = this.writeConfig, pinToLine: PpciPinToLine = this.pinToLine, lineToPin: PpciLineToPin = this.lineToPin, rootBusCapability: PpciRootBusCapability = this.rootBusCapability, expressWakeControl: PpciExpressWakeControl = this.expressWakeControl, prepareMultistageResume: PpciPrepareMultistageResume = this.prepareMultistageResume): PciBusInterfaceStandard = PciBusInterfaceStandard(size = size, version = version, contextCtorArg = context, interfaceReference = interfaceReference, interfaceDereference = interfaceDereference, readConfig = readConfig, writeConfig = writeConfig, pinToLine = pinToLine, lineToPin = lineToPin, rootBusCapability = rootBusCapability, expressWakeControl = expressWakeControl, prepareMultistageResume = prepareMultistageResume)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -5388,7 +5386,7 @@ public class PciBusInterfaceStandard internal constructor(
         public operator fun invoke(
             size: UShort = 0u,
             version: UShort = 0u,
-            context: MutPtr<CVoid> = MutPtr(0L),
+            context: MutPtr = MutPtr(0L),
             interfaceReference: PinterfaceReference = null,
             interfaceDereference: PinterfaceDereference = null,
             readConfig: PpciReadWriteConfig = null,
@@ -5825,13 +5823,13 @@ public data class PciDevicePresenceParameters(
 public class PciDevicePresentInterface internal constructor(
     public var size: UShort,
     public var version: UShort,
-    contextCtorArg: MutPtr<CVoid>,
+    contextCtorArg: MutPtr,
     public var interfaceReference: PinterfaceReference,
     public var interfaceDereference: PinterfaceDereference,
     public var isDevicePresent: PpciIsDevicePresent,
     public var isDevicePresentEx: PpciIsDevicePresentEx,
 ) {
-    public var context: MutPtr<CVoid> = contextCtorArg
+    public var context: MutPtr = contextCtorArg
         internal set
 
     public constructor() : this(
@@ -5848,7 +5846,7 @@ public class PciDevicePresentInterface internal constructor(
 
     public operator fun component2(): UShort = this.version
 
-    public operator fun component3(): MutPtr<CVoid> = this.context
+    public operator fun component3(): MutPtr = this.context
 
     public operator fun component4(): PinterfaceReference = this.interfaceReference
 
@@ -5858,7 +5856,7 @@ public class PciDevicePresentInterface internal constructor(
 
     public operator fun component7(): PpciIsDevicePresentEx = this.isDevicePresentEx
 
-    public fun copy(size: UShort = this.size, version: UShort = this.version, context: MutPtr<CVoid> = this.context, interfaceReference: PinterfaceReference = this.interfaceReference, interfaceDereference: PinterfaceDereference = this.interfaceDereference, isDevicePresent: PpciIsDevicePresent = this.isDevicePresent, isDevicePresentEx: PpciIsDevicePresentEx = this.isDevicePresentEx): PciDevicePresentInterface = PciDevicePresentInterface(size = size, version = version, contextCtorArg = context, interfaceReference = interfaceReference, interfaceDereference = interfaceDereference, isDevicePresent = isDevicePresent, isDevicePresentEx = isDevicePresentEx)
+    public fun copy(size: UShort = this.size, version: UShort = this.version, context: MutPtr = this.context, interfaceReference: PinterfaceReference = this.interfaceReference, interfaceDereference: PinterfaceDereference = this.interfaceDereference, isDevicePresent: PpciIsDevicePresent = this.isDevicePresent, isDevicePresentEx: PpciIsDevicePresentEx = this.isDevicePresentEx): PciDevicePresentInterface = PciDevicePresentInterface(size = size, version = version, contextCtorArg = context, interfaceReference = interfaceReference, interfaceDereference = interfaceDereference, isDevicePresent = isDevicePresent, isDevicePresentEx = isDevicePresentEx)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -5888,7 +5886,7 @@ public class PciDevicePresentInterface internal constructor(
         public operator fun invoke(
             size: UShort = 0u,
             version: UShort = 0u,
-            context: MutPtr<CVoid> = MutPtr(0L),
+            context: MutPtr = MutPtr(0L),
             interfaceReference: PinterfaceReference = null,
             interfaceDereference: PinterfaceDereference = null,
             isDevicePresent: PpciIsDevicePresent = null,

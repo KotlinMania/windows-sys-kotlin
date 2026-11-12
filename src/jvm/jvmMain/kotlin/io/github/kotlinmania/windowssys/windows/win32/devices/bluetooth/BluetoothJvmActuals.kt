@@ -2,11 +2,9 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.devices.bluetooth
 
-import io.github.kotlinmania.rustlang.core.ffi.CVoid
 import io.github.kotlinmania.rustlang.core.ptr.ConstPtr
 import io.github.kotlinmania.rustlang.core.ptr.MutPtr
 import io.github.kotlinmania.windowssys.core.Bool
-import io.github.kotlinmania.windowssys.core.Guid
 import io.github.kotlinmania.windowssys.core.Hresult
 import io.github.kotlinmania.windowssys.core.Pcwstr
 import io.github.kotlinmania.windowssys.core.Pwstr
@@ -211,16 +209,16 @@ private object WindowsWin32DevicesBluetoothJniBridge {
     external fun windowssysWindowsWin32DevicesBluetoothBluetoothUpdateDeviceRecord(pbtdi: Long): Int
 }
 
-public actual fun bluetoothAuthenticateDevice(hwndparent: Hwnd, hradio: Handle, pbtbi: MutPtr<BluetoothDeviceInfo>, pszpasskey: Pcwstr, ulpasskeylength: UInt): UInt =
+public actual fun bluetoothAuthenticateDevice(hwndparent: Hwnd, hradio: Handle, pbtbi: MutPtr, pszpasskey: Pcwstr, ulpasskeylength: UInt): UInt =
     WindowsWin32DevicesBluetoothJniBridge.windowssysWindowsWin32DevicesBluetoothBluetoothAuthenticateDevice(hwndparent.rawAddress, hradio.rawAddress, pbtbi.rawAddress, pszpasskey.rawAddress, ulpasskeylength.toInt()).toUInt()
 
-public actual fun bluetoothAuthenticateDeviceEx(hwndparentin: Hwnd, hradioin: Handle, pbtdiinout: MutPtr<BluetoothDeviceInfo>, pbtoobdata: ConstPtr<BluetoothOobDataInfo>, authenticationrequirement: AuthenticationRequirements): UInt =
+public actual fun bluetoothAuthenticateDeviceEx(hwndparentin: Hwnd, hradioin: Handle, pbtdiinout: MutPtr, pbtoobdata: ConstPtr, authenticationrequirement: AuthenticationRequirements): UInt =
     WindowsWin32DevicesBluetoothJniBridge.windowssysWindowsWin32DevicesBluetoothBluetoothAuthenticateDeviceEx(hwndparentin.rawAddress, hradioin.rawAddress, pbtdiinout.rawAddress, pbtoobdata.rawAddress, authenticationrequirement).toUInt()
 
-public actual fun bluetoothAuthenticateMultipleDevices(hwndparent: Hwnd, hradio: Handle, cdevices: UInt, rgbtdi: MutPtr<BluetoothDeviceInfo>): UInt =
+public actual fun bluetoothAuthenticateMultipleDevices(hwndparent: Hwnd, hradio: Handle, cdevices: UInt, rgbtdi: MutPtr): UInt =
     WindowsWin32DevicesBluetoothJniBridge.windowssysWindowsWin32DevicesBluetoothBluetoothAuthenticateMultipleDevices(hwndparent.rawAddress, hradio.rawAddress, cdevices.toInt(), rgbtdi.rawAddress).toUInt()
 
-public actual fun bluetoothDisplayDeviceProperties(hwndparent: Hwnd, pbtdi: MutPtr<BluetoothDeviceInfo>): Bool =
+public actual fun bluetoothDisplayDeviceProperties(hwndparent: Hwnd, pbtdi: MutPtr): Bool =
     WindowsWin32DevicesBluetoothJniBridge.windowssysWindowsWin32DevicesBluetoothBluetoothDisplayDeviceProperties(hwndparent.rawAddress, pbtdi.rawAddress)
 
 public actual fun bluetoothEnableDiscovery(hradio: Handle, fenabled: Bool): Bool =
@@ -229,22 +227,22 @@ public actual fun bluetoothEnableDiscovery(hradio: Handle, fenabled: Bool): Bool
 public actual fun bluetoothEnableIncomingConnections(hradio: Handle, fenabled: Bool): Bool =
     WindowsWin32DevicesBluetoothJniBridge.windowssysWindowsWin32DevicesBluetoothBluetoothEnableIncomingConnections(hradio.rawAddress, fenabled)
 
-public actual fun bluetoothEnumerateInstalledServices(hradio: Handle, pbtdi: ConstPtr<BluetoothDeviceInfo>, pcserviceinout: MutPtr<UInt>, pguidservices: MutPtr<Guid>): UInt =
+public actual fun bluetoothEnumerateInstalledServices(hradio: Handle, pbtdi: ConstPtr, pcserviceinout: MutPtr, pguidservices: MutPtr): UInt =
     WindowsWin32DevicesBluetoothJniBridge.windowssysWindowsWin32DevicesBluetoothBluetoothEnumerateInstalledServices(hradio.rawAddress, pbtdi.rawAddress, pcserviceinout.rawAddress, pguidservices.rawAddress).toUInt()
 
 public actual fun bluetoothFindDeviceClose(hfind: HbluetoothDeviceFind): Bool =
     WindowsWin32DevicesBluetoothJniBridge.windowssysWindowsWin32DevicesBluetoothBluetoothFindDeviceClose(hfind.rawAddress)
 
-public actual fun bluetoothFindFirstDevice(pbtsp: ConstPtr<BluetoothDeviceSearchParams>, pbtdi: MutPtr<BluetoothDeviceInfo>): HbluetoothDeviceFind =
+public actual fun bluetoothFindFirstDevice(pbtsp: ConstPtr, pbtdi: MutPtr): HbluetoothDeviceFind =
     MutPtr(WindowsWin32DevicesBluetoothJniBridge.windowssysWindowsWin32DevicesBluetoothBluetoothFindFirstDevice(pbtsp.rawAddress, pbtdi.rawAddress))
 
-public actual fun bluetoothFindFirstRadio(pbtfrp: ConstPtr<BluetoothFindRadioParams>, phradio: MutPtr<Handle>): HbluetoothRadioFind =
+public actual fun bluetoothFindFirstRadio(pbtfrp: ConstPtr, phradio: MutPtr): HbluetoothRadioFind =
     MutPtr(WindowsWin32DevicesBluetoothJniBridge.windowssysWindowsWin32DevicesBluetoothBluetoothFindFirstRadio(pbtfrp.rawAddress, phradio.rawAddress))
 
-public actual fun bluetoothFindNextDevice(hfind: HbluetoothDeviceFind, pbtdi: MutPtr<BluetoothDeviceInfo>): Bool =
+public actual fun bluetoothFindNextDevice(hfind: HbluetoothDeviceFind, pbtdi: MutPtr): Bool =
     WindowsWin32DevicesBluetoothJniBridge.windowssysWindowsWin32DevicesBluetoothBluetoothFindNextDevice(hfind.rawAddress, pbtdi.rawAddress)
 
-public actual fun bluetoothFindNextRadio(hfind: HbluetoothRadioFind, phradio: MutPtr<Handle>): Bool =
+public actual fun bluetoothFindNextRadio(hfind: HbluetoothRadioFind, phradio: MutPtr): Bool =
     WindowsWin32DevicesBluetoothJniBridge.windowssysWindowsWin32DevicesBluetoothBluetoothFindNextRadio(hfind.rawAddress, phradio.rawAddress)
 
 public actual fun bluetoothFindRadioClose(hfind: HbluetoothRadioFind): Bool =
@@ -253,46 +251,46 @@ public actual fun bluetoothFindRadioClose(hfind: HbluetoothRadioFind): Bool =
 public actual fun bluetoothGATTAbortReliableWrite(hdevice: Handle, reliablewritecontext: ULong, flags: UInt): Hresult =
     WindowsWin32DevicesBluetoothJniBridge.windowssysWindowsWin32DevicesBluetoothBluetoothGATTAbortReliableWrite(hdevice.rawAddress, reliablewritecontext.toLong(), flags.toInt())
 
-public actual fun bluetoothGATTBeginReliableWrite(hdevice: Handle, reliablewritecontext: MutPtr<ULong>, flags: UInt): Hresult =
+public actual fun bluetoothGATTBeginReliableWrite(hdevice: Handle, reliablewritecontext: MutPtr, flags: UInt): Hresult =
     WindowsWin32DevicesBluetoothJniBridge.windowssysWindowsWin32DevicesBluetoothBluetoothGATTBeginReliableWrite(hdevice.rawAddress, reliablewritecontext.rawAddress, flags.toInt())
 
 public actual fun bluetoothGATTEndReliableWrite(hdevice: Handle, reliablewritecontext: ULong, flags: UInt): Hresult =
     WindowsWin32DevicesBluetoothJniBridge.windowssysWindowsWin32DevicesBluetoothBluetoothGATTEndReliableWrite(hdevice.rawAddress, reliablewritecontext.toLong(), flags.toInt())
 
-public actual fun bluetoothGATTGetCharacteristicValue(hdevice: Handle, characteristic: ConstPtr<BthLeGattCharacteristic>, characteristicvaluedatasize: UInt, characteristicvalue: MutPtr<BthLeGattCharacteristicValue>, characteristicvaluesizerequired: MutPtr<UShort>, flags: UInt): Hresult =
+public actual fun bluetoothGATTGetCharacteristicValue(hdevice: Handle, characteristic: ConstPtr, characteristicvaluedatasize: UInt, characteristicvalue: MutPtr, characteristicvaluesizerequired: MutPtr, flags: UInt): Hresult =
     WindowsWin32DevicesBluetoothJniBridge.windowssysWindowsWin32DevicesBluetoothBluetoothGATTGetCharacteristicValue(hdevice.rawAddress, characteristic.rawAddress, characteristicvaluedatasize.toInt(), characteristicvalue.rawAddress, characteristicvaluesizerequired.rawAddress, flags.toInt())
 
-public actual fun bluetoothGATTGetCharacteristics(hdevice: Handle, service: ConstPtr<BthLeGattService>, characteristicsbuffercount: UShort, characteristicsbuffer: MutPtr<BthLeGattCharacteristic>, characteristicsbufferactual: MutPtr<UShort>, flags: UInt): Hresult =
+public actual fun bluetoothGATTGetCharacteristics(hdevice: Handle, service: ConstPtr, characteristicsbuffercount: UShort, characteristicsbuffer: MutPtr, characteristicsbufferactual: MutPtr, flags: UInt): Hresult =
     WindowsWin32DevicesBluetoothJniBridge.windowssysWindowsWin32DevicesBluetoothBluetoothGATTGetCharacteristics(hdevice.rawAddress, service.rawAddress, characteristicsbuffercount.toShort(), characteristicsbuffer.rawAddress, characteristicsbufferactual.rawAddress, flags.toInt())
 
-public actual fun bluetoothGATTGetDescriptorValue(hdevice: Handle, descriptor: ConstPtr<BthLeGattDescriptor>, descriptorvaluedatasize: UInt, descriptorvalue: MutPtr<BthLeGattDescriptorValue>, descriptorvaluesizerequired: MutPtr<UShort>, flags: UInt): Hresult =
+public actual fun bluetoothGATTGetDescriptorValue(hdevice: Handle, descriptor: ConstPtr, descriptorvaluedatasize: UInt, descriptorvalue: MutPtr, descriptorvaluesizerequired: MutPtr, flags: UInt): Hresult =
     WindowsWin32DevicesBluetoothJniBridge.windowssysWindowsWin32DevicesBluetoothBluetoothGATTGetDescriptorValue(hdevice.rawAddress, descriptor.rawAddress, descriptorvaluedatasize.toInt(), descriptorvalue.rawAddress, descriptorvaluesizerequired.rawAddress, flags.toInt())
 
-public actual fun bluetoothGATTGetDescriptors(hdevice: Handle, characteristic: ConstPtr<BthLeGattCharacteristic>, descriptorsbuffercount: UShort, descriptorsbuffer: MutPtr<BthLeGattDescriptor>, descriptorsbufferactual: MutPtr<UShort>, flags: UInt): Hresult =
+public actual fun bluetoothGATTGetDescriptors(hdevice: Handle, characteristic: ConstPtr, descriptorsbuffercount: UShort, descriptorsbuffer: MutPtr, descriptorsbufferactual: MutPtr, flags: UInt): Hresult =
     WindowsWin32DevicesBluetoothJniBridge.windowssysWindowsWin32DevicesBluetoothBluetoothGATTGetDescriptors(hdevice.rawAddress, characteristic.rawAddress, descriptorsbuffercount.toShort(), descriptorsbuffer.rawAddress, descriptorsbufferactual.rawAddress, flags.toInt())
 
-public actual fun bluetoothGATTGetIncludedServices(hdevice: Handle, parentservice: ConstPtr<BthLeGattService>, includedservicesbuffercount: UShort, includedservicesbuffer: MutPtr<BthLeGattService>, includedservicesbufferactual: MutPtr<UShort>, flags: UInt): Hresult =
+public actual fun bluetoothGATTGetIncludedServices(hdevice: Handle, parentservice: ConstPtr, includedservicesbuffercount: UShort, includedservicesbuffer: MutPtr, includedservicesbufferactual: MutPtr, flags: UInt): Hresult =
     WindowsWin32DevicesBluetoothJniBridge.windowssysWindowsWin32DevicesBluetoothBluetoothGATTGetIncludedServices(hdevice.rawAddress, parentservice.rawAddress, includedservicesbuffercount.toShort(), includedservicesbuffer.rawAddress, includedservicesbufferactual.rawAddress, flags.toInt())
 
-public actual fun bluetoothGATTGetServices(hdevice: Handle, servicesbuffercount: UShort, servicesbuffer: MutPtr<BthLeGattService>, servicesbufferactual: MutPtr<UShort>, flags: UInt): Hresult =
+public actual fun bluetoothGATTGetServices(hdevice: Handle, servicesbuffercount: UShort, servicesbuffer: MutPtr, servicesbufferactual: MutPtr, flags: UInt): Hresult =
     WindowsWin32DevicesBluetoothJniBridge.windowssysWindowsWin32DevicesBluetoothBluetoothGATTGetServices(hdevice.rawAddress, servicesbuffercount.toShort(), servicesbuffer.rawAddress, servicesbufferactual.rawAddress, flags.toInt())
 
-public actual fun bluetoothGATTRegisterEvent(hservice: Handle, eventtype: BthLeGattEventType, eventparameterin: ConstPtr<CVoid>, callback: PfnbluetoothGattEventCallback, callbackcontext: ConstPtr<CVoid>, peventhandle: MutPtr<Long>, flags: UInt): Hresult =
+public actual fun bluetoothGATTRegisterEvent(hservice: Handle, eventtype: BthLeGattEventType, eventparameterin: ConstPtr, callback: PfnbluetoothGattEventCallback, callbackcontext: ConstPtr, peventhandle: MutPtr, flags: UInt): Hresult =
     WindowsWin32DevicesBluetoothJniBridge.windowssysWindowsWin32DevicesBluetoothBluetoothGATTRegisterEvent(hservice.rawAddress, eventtype, eventparameterin.rawAddress, 0L, callbackcontext.rawAddress, peventhandle.rawAddress, flags.toInt())
 
-public actual fun bluetoothGATTSetCharacteristicValue(hdevice: Handle, characteristic: ConstPtr<BthLeGattCharacteristic>, characteristicvalue: ConstPtr<BthLeGattCharacteristicValue>, reliablewritecontext: ULong, flags: UInt): Hresult =
+public actual fun bluetoothGATTSetCharacteristicValue(hdevice: Handle, characteristic: ConstPtr, characteristicvalue: ConstPtr, reliablewritecontext: ULong, flags: UInt): Hresult =
     WindowsWin32DevicesBluetoothJniBridge.windowssysWindowsWin32DevicesBluetoothBluetoothGATTSetCharacteristicValue(hdevice.rawAddress, characteristic.rawAddress, characteristicvalue.rawAddress, reliablewritecontext.toLong(), flags.toInt())
 
-public actual fun bluetoothGATTSetDescriptorValue(hdevice: Handle, descriptor: ConstPtr<BthLeGattDescriptor>, descriptorvalue: ConstPtr<BthLeGattDescriptorValue>, flags: UInt): Hresult =
+public actual fun bluetoothGATTSetDescriptorValue(hdevice: Handle, descriptor: ConstPtr, descriptorvalue: ConstPtr, flags: UInt): Hresult =
     WindowsWin32DevicesBluetoothJniBridge.windowssysWindowsWin32DevicesBluetoothBluetoothGATTSetDescriptorValue(hdevice.rawAddress, descriptor.rawAddress, descriptorvalue.rawAddress, flags.toInt())
 
 public actual fun bluetoothGATTUnregisterEvent(eventhandle: Long, flags: UInt): Hresult =
     WindowsWin32DevicesBluetoothJniBridge.windowssysWindowsWin32DevicesBluetoothBluetoothGATTUnregisterEvent(eventhandle, flags.toInt())
 
-public actual fun bluetoothGetDeviceInfo(hradio: Handle, pbtdi: MutPtr<BluetoothDeviceInfo>): UInt =
+public actual fun bluetoothGetDeviceInfo(hradio: Handle, pbtdi: MutPtr): UInt =
     WindowsWin32DevicesBluetoothJniBridge.windowssysWindowsWin32DevicesBluetoothBluetoothGetDeviceInfo(hradio.rawAddress, pbtdi.rawAddress).toUInt()
 
-public actual fun bluetoothGetRadioInfo(hradio: Handle, pradioinfo: MutPtr<BluetoothRadioInfo>): UInt =
+public actual fun bluetoothGetRadioInfo(hradio: Handle, pradioinfo: MutPtr): UInt =
     WindowsWin32DevicesBluetoothJniBridge.windowssysWindowsWin32DevicesBluetoothBluetoothGetRadioInfo(hradio.rawAddress, pradioinfo.rawAddress).toUInt()
 
 public actual fun bluetoothIsConnectable(hradio: Handle): Bool =
@@ -304,50 +302,50 @@ public actual fun bluetoothIsDiscoverable(hradio: Handle): Bool =
 public actual fun bluetoothIsVersionAvailable(majorversion: UByte, minorversion: UByte): Bool =
     WindowsWin32DevicesBluetoothJniBridge.windowssysWindowsWin32DevicesBluetoothBluetoothIsVersionAvailable(majorversion.toByte(), minorversion.toByte())
 
-public actual fun bluetoothRegisterForAuthentication(pbtdi: ConstPtr<BluetoothDeviceInfo>, phreghandle: MutPtr<Long>, pfncallback: PfnAuthenticationCallback, pvparam: ConstPtr<CVoid>): UInt =
+public actual fun bluetoothRegisterForAuthentication(pbtdi: ConstPtr, phreghandle: MutPtr, pfncallback: PfnAuthenticationCallback, pvparam: ConstPtr): UInt =
     WindowsWin32DevicesBluetoothJniBridge.windowssysWindowsWin32DevicesBluetoothBluetoothRegisterForAuthentication(pbtdi.rawAddress, phreghandle.rawAddress, 0L, pvparam.rawAddress).toUInt()
 
-public actual fun bluetoothRegisterForAuthenticationEx(pbtdiin: ConstPtr<BluetoothDeviceInfo>, phreghandleout: MutPtr<Long>, pfncallbackin: PfnAuthenticationCallbackEx, pvparam: ConstPtr<CVoid>): UInt =
+public actual fun bluetoothRegisterForAuthenticationEx(pbtdiin: ConstPtr, phreghandleout: MutPtr, pfncallbackin: PfnAuthenticationCallbackEx, pvparam: ConstPtr): UInt =
     WindowsWin32DevicesBluetoothJniBridge.windowssysWindowsWin32DevicesBluetoothBluetoothRegisterForAuthenticationEx(pbtdiin.rawAddress, phreghandleout.rawAddress, 0L, pvparam.rawAddress).toUInt()
 
-public actual fun bluetoothRemoveDevice(paddress: ConstPtr<BluetoothAddress>): UInt =
+public actual fun bluetoothRemoveDevice(paddress: ConstPtr): UInt =
     WindowsWin32DevicesBluetoothJniBridge.windowssysWindowsWin32DevicesBluetoothBluetoothRemoveDevice(paddress.rawAddress).toUInt()
 
-public actual fun bluetoothSdpEnumAttributes(psdpstream: ConstPtr<UByte>, cbstreamsize: UInt, pfncallback: PfnBluetoothEnumAttributesCallback, pvparam: ConstPtr<CVoid>): Bool =
+public actual fun bluetoothSdpEnumAttributes(psdpstream: ConstPtr, cbstreamsize: UInt, pfncallback: PfnBluetoothEnumAttributesCallback, pvparam: ConstPtr): Bool =
     WindowsWin32DevicesBluetoothJniBridge.windowssysWindowsWin32DevicesBluetoothBluetoothSdpEnumAttributes(psdpstream.rawAddress, cbstreamsize.toInt(), 0L, pvparam.rawAddress)
 
-public actual fun bluetoothSdpGetAttributeValue(precordstream: ConstPtr<UByte>, cbrecordlength: UInt, usattributeid: UShort, pattributedata: MutPtr<SdpElementData>): UInt =
+public actual fun bluetoothSdpGetAttributeValue(precordstream: ConstPtr, cbrecordlength: UInt, usattributeid: UShort, pattributedata: MutPtr): UInt =
     WindowsWin32DevicesBluetoothJniBridge.windowssysWindowsWin32DevicesBluetoothBluetoothSdpGetAttributeValue(precordstream.rawAddress, cbrecordlength.toInt(), usattributeid.toShort(), pattributedata.rawAddress).toUInt()
 
-public actual fun bluetoothSdpGetContainerElementData(pcontainerstream: ConstPtr<UByte>, cbcontainerlength: UInt, pelement: MutPtr<Long>, pdata: MutPtr<SdpElementData>): UInt =
+public actual fun bluetoothSdpGetContainerElementData(pcontainerstream: ConstPtr, cbcontainerlength: UInt, pelement: MutPtr, pdata: MutPtr): UInt =
     WindowsWin32DevicesBluetoothJniBridge.windowssysWindowsWin32DevicesBluetoothBluetoothSdpGetContainerElementData(pcontainerstream.rawAddress, cbcontainerlength.toInt(), pelement.rawAddress, pdata.rawAddress).toUInt()
 
-public actual fun bluetoothSdpGetElementData(psdpstream: ConstPtr<UByte>, cbsdpstreamlength: UInt, pdata: MutPtr<SdpElementData>): UInt =
+public actual fun bluetoothSdpGetElementData(psdpstream: ConstPtr, cbsdpstreamlength: UInt, pdata: MutPtr): UInt =
     WindowsWin32DevicesBluetoothJniBridge.windowssysWindowsWin32DevicesBluetoothBluetoothSdpGetElementData(psdpstream.rawAddress, cbsdpstreamlength.toInt(), pdata.rawAddress).toUInt()
 
-public actual fun bluetoothSdpGetString(precordstream: ConstPtr<UByte>, cbrecordlength: UInt, pstringdata: ConstPtr<SdpStringTypeData>, usstringoffset: UShort, pszstring: Pwstr, pcchstringlength: MutPtr<UInt>): UInt =
+public actual fun bluetoothSdpGetString(precordstream: ConstPtr, cbrecordlength: UInt, pstringdata: ConstPtr, usstringoffset: UShort, pszstring: Pwstr, pcchstringlength: MutPtr): UInt =
     WindowsWin32DevicesBluetoothJniBridge.windowssysWindowsWin32DevicesBluetoothBluetoothSdpGetString(precordstream.rawAddress, cbrecordlength.toInt(), pstringdata.rawAddress, usstringoffset.toShort(), pszstring.rawAddress, pcchstringlength.rawAddress).toUInt()
 
-public actual fun bluetoothSelectDevices(pbtsdp: MutPtr<BluetoothSelectDeviceParams>): Bool =
+public actual fun bluetoothSelectDevices(pbtsdp: MutPtr): Bool =
     WindowsWin32DevicesBluetoothJniBridge.windowssysWindowsWin32DevicesBluetoothBluetoothSelectDevices(pbtsdp.rawAddress)
 
-public actual fun bluetoothSelectDevicesFree(pbtsdp: MutPtr<BluetoothSelectDeviceParams>): Bool =
+public actual fun bluetoothSelectDevicesFree(pbtsdp: MutPtr): Bool =
     WindowsWin32DevicesBluetoothJniBridge.windowssysWindowsWin32DevicesBluetoothBluetoothSelectDevicesFree(pbtsdp.rawAddress)
 
-public actual fun bluetoothSendAuthenticationResponse(hradio: Handle, pbtdi: ConstPtr<BluetoothDeviceInfo>, pszpasskey: Pcwstr): UInt =
+public actual fun bluetoothSendAuthenticationResponse(hradio: Handle, pbtdi: ConstPtr, pszpasskey: Pcwstr): UInt =
     WindowsWin32DevicesBluetoothJniBridge.windowssysWindowsWin32DevicesBluetoothBluetoothSendAuthenticationResponse(hradio.rawAddress, pbtdi.rawAddress, pszpasskey.rawAddress).toUInt()
 
-public actual fun bluetoothSendAuthenticationResponseEx(hradioin: Handle, pauthresponse: ConstPtr<BluetoothAuthenticateResponse>): UInt =
+public actual fun bluetoothSendAuthenticationResponseEx(hradioin: Handle, pauthresponse: ConstPtr): UInt =
     WindowsWin32DevicesBluetoothJniBridge.windowssysWindowsWin32DevicesBluetoothBluetoothSendAuthenticationResponseEx(hradioin.rawAddress, pauthresponse.rawAddress).toUInt()
 
-public actual fun bluetoothSetLocalServiceInfo(hradioin: Handle, pclassguid: ConstPtr<Guid>, ulinstance: UInt, pserviceinfoin: ConstPtr<BluetoothLocalServiceInfo>): UInt =
+public actual fun bluetoothSetLocalServiceInfo(hradioin: Handle, pclassguid: ConstPtr, ulinstance: UInt, pserviceinfoin: ConstPtr): UInt =
     WindowsWin32DevicesBluetoothJniBridge.windowssysWindowsWin32DevicesBluetoothBluetoothSetLocalServiceInfo(hradioin.rawAddress, pclassguid.rawAddress, ulinstance.toInt(), pserviceinfoin.rawAddress).toUInt()
 
-public actual fun bluetoothSetServiceState(hradio: Handle, pbtdi: ConstPtr<BluetoothDeviceInfo>, pguidservice: ConstPtr<Guid>, dwserviceflags: UInt): UInt =
+public actual fun bluetoothSetServiceState(hradio: Handle, pbtdi: ConstPtr, pguidservice: ConstPtr, dwserviceflags: UInt): UInt =
     WindowsWin32DevicesBluetoothJniBridge.windowssysWindowsWin32DevicesBluetoothBluetoothSetServiceState(hradio.rawAddress, pbtdi.rawAddress, pguidservice.rawAddress, dwserviceflags.toInt()).toUInt()
 
 public actual fun bluetoothUnregisterAuthentication(hreghandle: Long): Bool =
     WindowsWin32DevicesBluetoothJniBridge.windowssysWindowsWin32DevicesBluetoothBluetoothUnregisterAuthentication(hreghandle)
 
-public actual fun bluetoothUpdateDeviceRecord(pbtdi: ConstPtr<BluetoothDeviceInfo>): UInt =
+public actual fun bluetoothUpdateDeviceRecord(pbtdi: ConstPtr): UInt =
     WindowsWin32DevicesBluetoothJniBridge.windowssysWindowsWin32DevicesBluetoothBluetoothUpdateDeviceRecord(pbtdi.rawAddress).toUInt()

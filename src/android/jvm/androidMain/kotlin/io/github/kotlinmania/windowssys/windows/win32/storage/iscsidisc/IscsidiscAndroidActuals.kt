@@ -2,7 +2,6 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.storage.iscsidisc
 
-import io.github.kotlinmania.rustlang.core.ffi.CVoid
 import io.github.kotlinmania.rustlang.core.ptr.MutPtr
 import io.github.kotlinmania.windowssys.core.Pcstr
 import io.github.kotlinmania.windowssys.core.Pcwstr
@@ -258,22 +257,22 @@ public actual fun addISNSServerA(address: Pcstr): UInt =
 public actual fun addISNSServerW(address: Pcwstr): UInt =
     WindowsWin32StorageIscsidiscJniBridge.windowssysWindowsWin32StorageIscsidiscAddISNSServerW(address.rawAddress).toUInt()
 
-public actual fun addIScsiConnectionA(uniquesessionid: MutPtr<IscsiUniqueSessionId>, reserved: MutPtr<CVoid>, initiatorportnumber: UInt, targetportal: MutPtr<IscsiTargetPortala>, securityflags: ULong, loginoptions: MutPtr<IscsiLoginOptions>, keysize: UInt, key: Pcstr, connectionid: MutPtr<IscsiUniqueSessionId>): UInt =
+public actual fun addIScsiConnectionA(uniquesessionid: MutPtr, reserved: MutPtr, initiatorportnumber: UInt, targetportal: MutPtr, securityflags: ULong, loginoptions: MutPtr, keysize: UInt, key: Pcstr, connectionid: MutPtr): UInt =
     WindowsWin32StorageIscsidiscJniBridge.windowssysWindowsWin32StorageIscsidiscAddIScsiConnectionA(uniquesessionid.rawAddress, reserved.rawAddress, initiatorportnumber.toInt(), targetportal.rawAddress, securityflags.toLong(), loginoptions.rawAddress, keysize.toInt(), key.rawAddress, connectionid.rawAddress).toUInt()
 
-public actual fun addIScsiConnectionW(uniquesessionid: MutPtr<IscsiUniqueSessionId>, reserved: MutPtr<CVoid>, initiatorportnumber: UInt, targetportal: MutPtr<IscsiTargetPortalw>, securityflags: ULong, loginoptions: MutPtr<IscsiLoginOptions>, keysize: UInt, key: Pcstr, connectionid: MutPtr<IscsiUniqueSessionId>): UInt =
+public actual fun addIScsiConnectionW(uniquesessionid: MutPtr, reserved: MutPtr, initiatorportnumber: UInt, targetportal: MutPtr, securityflags: ULong, loginoptions: MutPtr, keysize: UInt, key: Pcstr, connectionid: MutPtr): UInt =
     WindowsWin32StorageIscsidiscJniBridge.windowssysWindowsWin32StorageIscsidiscAddIScsiConnectionW(uniquesessionid.rawAddress, reserved.rawAddress, initiatorportnumber.toInt(), targetportal.rawAddress, securityflags.toLong(), loginoptions.rawAddress, keysize.toInt(), key.rawAddress, connectionid.rawAddress).toUInt()
 
-public actual fun addIScsiSendTargetPortalA(initiatorinstance: Pcstr, initiatorportnumber: UInt, loginoptions: MutPtr<IscsiLoginOptions>, securityflags: ULong, portal: MutPtr<IscsiTargetPortala>): UInt =
+public actual fun addIScsiSendTargetPortalA(initiatorinstance: Pcstr, initiatorportnumber: UInt, loginoptions: MutPtr, securityflags: ULong, portal: MutPtr): UInt =
     WindowsWin32StorageIscsidiscJniBridge.windowssysWindowsWin32StorageIscsidiscAddIScsiSendTargetPortalA(initiatorinstance.rawAddress, initiatorportnumber.toInt(), loginoptions.rawAddress, securityflags.toLong(), portal.rawAddress).toUInt()
 
-public actual fun addIScsiSendTargetPortalW(initiatorinstance: Pcwstr, initiatorportnumber: UInt, loginoptions: MutPtr<IscsiLoginOptions>, securityflags: ULong, portal: MutPtr<IscsiTargetPortalw>): UInt =
+public actual fun addIScsiSendTargetPortalW(initiatorinstance: Pcwstr, initiatorportnumber: UInt, loginoptions: MutPtr, securityflags: ULong, portal: MutPtr): UInt =
     WindowsWin32StorageIscsidiscJniBridge.windowssysWindowsWin32StorageIscsidiscAddIScsiSendTargetPortalW(initiatorinstance.rawAddress, initiatorportnumber.toInt(), loginoptions.rawAddress, securityflags.toLong(), portal.rawAddress).toUInt()
 
-public actual fun addIScsiStaticTargetA(targetname: Pcstr, targetalias: Pcstr, targetflags: UInt, persist: Boolean, mappings: MutPtr<IscsiTargetMappinga>, loginoptions: MutPtr<IscsiLoginOptions>, portalgroup: MutPtr<IscsiTargetPortalGroupa>): UInt =
+public actual fun addIScsiStaticTargetA(targetname: Pcstr, targetalias: Pcstr, targetflags: UInt, persist: Boolean, mappings: MutPtr, loginoptions: MutPtr, portalgroup: MutPtr): UInt =
     WindowsWin32StorageIscsidiscJniBridge.windowssysWindowsWin32StorageIscsidiscAddIScsiStaticTargetA(targetname.rawAddress, targetalias.rawAddress, targetflags.toInt(), persist, mappings.rawAddress, loginoptions.rawAddress, portalgroup.rawAddress).toUInt()
 
-public actual fun addIScsiStaticTargetW(targetname: Pcwstr, targetalias: Pcwstr, targetflags: UInt, persist: Boolean, mappings: MutPtr<IscsiTargetMappingw>, loginoptions: MutPtr<IscsiLoginOptions>, portalgroup: MutPtr<IscsiTargetPortalGroupw>): UInt =
+public actual fun addIScsiStaticTargetW(targetname: Pcwstr, targetalias: Pcwstr, targetflags: UInt, persist: Boolean, mappings: MutPtr, loginoptions: MutPtr, portalgroup: MutPtr): UInt =
     WindowsWin32StorageIscsidiscJniBridge.windowssysWindowsWin32StorageIscsidiscAddIScsiStaticTargetW(targetname.rawAddress, targetalias.rawAddress, targetflags.toInt(), persist, mappings.rawAddress, loginoptions.rawAddress, portalgroup.rawAddress).toUInt()
 
 public actual fun addPersistentIScsiDeviceA(devicepath: Pcstr): UInt =
@@ -291,16 +290,16 @@ public actual fun addRadiusServerW(address: Pcwstr): UInt =
 public actual fun clearPersistentIScsiDevices(): UInt =
     WindowsWin32StorageIscsidiscJniBridge.windowssysWindowsWin32StorageIscsidiscClearPersistentIScsiDevices().toUInt()
 
-public actual fun getDevicesForIScsiSessionA(uniquesessionid: MutPtr<IscsiUniqueSessionId>, devicecount: MutPtr<UInt>, devices: MutPtr<IscsiDeviceOnSessiona>): UInt =
+public actual fun getDevicesForIScsiSessionA(uniquesessionid: MutPtr, devicecount: MutPtr, devices: MutPtr): UInt =
     WindowsWin32StorageIscsidiscJniBridge.windowssysWindowsWin32StorageIscsidiscGetDevicesForIScsiSessionA(uniquesessionid.rawAddress, devicecount.rawAddress, devices.rawAddress).toUInt()
 
-public actual fun getDevicesForIScsiSessionW(uniquesessionid: MutPtr<IscsiUniqueSessionId>, devicecount: MutPtr<UInt>, devices: MutPtr<IscsiDeviceOnSessionw>): UInt =
+public actual fun getDevicesForIScsiSessionW(uniquesessionid: MutPtr, devicecount: MutPtr, devices: MutPtr): UInt =
     WindowsWin32StorageIscsidiscJniBridge.windowssysWindowsWin32StorageIscsidiscGetDevicesForIScsiSessionW(uniquesessionid.rawAddress, devicecount.rawAddress, devices.rawAddress).toUInt()
 
-public actual fun getIScsiIKEInfoA(initiatorname: Pcstr, initiatorportnumber: UInt, reserved: MutPtr<UInt>, authinfo: MutPtr<IkeAuthenticationInformation>): UInt =
+public actual fun getIScsiIKEInfoA(initiatorname: Pcstr, initiatorportnumber: UInt, reserved: MutPtr, authinfo: MutPtr): UInt =
     WindowsWin32StorageIscsidiscJniBridge.windowssysWindowsWin32StorageIscsidiscGetIScsiIKEInfoA(initiatorname.rawAddress, initiatorportnumber.toInt(), reserved.rawAddress, authinfo.rawAddress).toUInt()
 
-public actual fun getIScsiIKEInfoW(initiatorname: Pcwstr, initiatorportnumber: UInt, reserved: MutPtr<UInt>, authinfo: MutPtr<IkeAuthenticationInformation>): UInt =
+public actual fun getIScsiIKEInfoW(initiatorname: Pcwstr, initiatorportnumber: UInt, reserved: MutPtr, authinfo: MutPtr): UInt =
     WindowsWin32StorageIscsidiscJniBridge.windowssysWindowsWin32StorageIscsidiscGetIScsiIKEInfoW(initiatorname.rawAddress, initiatorportnumber.toInt(), reserved.rawAddress, authinfo.rawAddress).toUInt()
 
 public actual fun getIScsiInitiatorNodeNameA(initiatornodename: Pstr): UInt =
@@ -309,31 +308,31 @@ public actual fun getIScsiInitiatorNodeNameA(initiatornodename: Pstr): UInt =
 public actual fun getIScsiInitiatorNodeNameW(initiatornodename: Pwstr): UInt =
     WindowsWin32StorageIscsidiscJniBridge.windowssysWindowsWin32StorageIscsidiscGetIScsiInitiatorNodeNameW(initiatornodename.rawAddress).toUInt()
 
-public actual fun getIScsiSessionListA(buffersize: MutPtr<UInt>, sessioncount: MutPtr<UInt>, sessioninfo: MutPtr<IscsiSessionInfoa>): UInt =
+public actual fun getIScsiSessionListA(buffersize: MutPtr, sessioncount: MutPtr, sessioninfo: MutPtr): UInt =
     WindowsWin32StorageIscsidiscJniBridge.windowssysWindowsWin32StorageIscsidiscGetIScsiSessionListA(buffersize.rawAddress, sessioncount.rawAddress, sessioninfo.rawAddress).toUInt()
 
-public actual fun getIScsiSessionListEx(buffersize: MutPtr<UInt>, sessioncountptr: MutPtr<UInt>, sessioninfo: MutPtr<IscsiSessionInfoEx>): UInt =
+public actual fun getIScsiSessionListEx(buffersize: MutPtr, sessioncountptr: MutPtr, sessioninfo: MutPtr): UInt =
     WindowsWin32StorageIscsidiscJniBridge.windowssysWindowsWin32StorageIscsidiscGetIScsiSessionListEx(buffersize.rawAddress, sessioncountptr.rawAddress, sessioninfo.rawAddress).toUInt()
 
-public actual fun getIScsiSessionListW(buffersize: MutPtr<UInt>, sessioncount: MutPtr<UInt>, sessioninfo: MutPtr<IscsiSessionInfow>): UInt =
+public actual fun getIScsiSessionListW(buffersize: MutPtr, sessioncount: MutPtr, sessioninfo: MutPtr): UInt =
     WindowsWin32StorageIscsidiscJniBridge.windowssysWindowsWin32StorageIscsidiscGetIScsiSessionListW(buffersize.rawAddress, sessioncount.rawAddress, sessioninfo.rawAddress).toUInt()
 
-public actual fun getIScsiTargetInformationA(targetname: Pcstr, discoverymechanism: Pcstr, infoclass: TargetInformationClass, buffersize: MutPtr<UInt>, buffer: MutPtr<CVoid>): UInt =
+public actual fun getIScsiTargetInformationA(targetname: Pcstr, discoverymechanism: Pcstr, infoclass: TargetInformationClass, buffersize: MutPtr, buffer: MutPtr): UInt =
     WindowsWin32StorageIscsidiscJniBridge.windowssysWindowsWin32StorageIscsidiscGetIScsiTargetInformationA(targetname.rawAddress, discoverymechanism.rawAddress, infoclass, buffersize.rawAddress, buffer.rawAddress).toUInt()
 
-public actual fun getIScsiTargetInformationW(targetname: Pcwstr, discoverymechanism: Pcwstr, infoclass: TargetInformationClass, buffersize: MutPtr<UInt>, buffer: MutPtr<CVoid>): UInt =
+public actual fun getIScsiTargetInformationW(targetname: Pcwstr, discoverymechanism: Pcwstr, infoclass: TargetInformationClass, buffersize: MutPtr, buffer: MutPtr): UInt =
     WindowsWin32StorageIscsidiscJniBridge.windowssysWindowsWin32StorageIscsidiscGetIScsiTargetInformationW(targetname.rawAddress, discoverymechanism.rawAddress, infoclass, buffersize.rawAddress, buffer.rawAddress).toUInt()
 
-public actual fun getIScsiVersionInformation(versioninfo: MutPtr<IscsiVersionInfo>): UInt =
+public actual fun getIScsiVersionInformation(versioninfo: MutPtr): UInt =
     WindowsWin32StorageIscsidiscJniBridge.windowssysWindowsWin32StorageIscsidiscGetIScsiVersionInformation(versioninfo.rawAddress).toUInt()
 
-public actual fun loginIScsiTargetA(targetname: Pcstr, isinformationalsession: Boolean, initiatorinstance: Pcstr, initiatorportnumber: UInt, targetportal: MutPtr<IscsiTargetPortala>, securityflags: ULong, mappings: MutPtr<IscsiTargetMappinga>, loginoptions: MutPtr<IscsiLoginOptions>, keysize: UInt, key: Pcstr, ispersistent: Boolean, uniquesessionid: MutPtr<IscsiUniqueSessionId>, uniqueconnectionid: MutPtr<IscsiUniqueSessionId>): UInt =
+public actual fun loginIScsiTargetA(targetname: Pcstr, isinformationalsession: Boolean, initiatorinstance: Pcstr, initiatorportnumber: UInt, targetportal: MutPtr, securityflags: ULong, mappings: MutPtr, loginoptions: MutPtr, keysize: UInt, key: Pcstr, ispersistent: Boolean, uniquesessionid: MutPtr, uniqueconnectionid: MutPtr): UInt =
     WindowsWin32StorageIscsidiscJniBridge.windowssysWindowsWin32StorageIscsidiscLoginIScsiTargetA(targetname.rawAddress, isinformationalsession, initiatorinstance.rawAddress, initiatorportnumber.toInt(), targetportal.rawAddress, securityflags.toLong(), mappings.rawAddress, loginoptions.rawAddress, keysize.toInt(), key.rawAddress, ispersistent, uniquesessionid.rawAddress, uniqueconnectionid.rawAddress).toUInt()
 
-public actual fun loginIScsiTargetW(targetname: Pcwstr, isinformationalsession: Boolean, initiatorinstance: Pcwstr, initiatorportnumber: UInt, targetportal: MutPtr<IscsiTargetPortalw>, securityflags: ULong, mappings: MutPtr<IscsiTargetMappingw>, loginoptions: MutPtr<IscsiLoginOptions>, keysize: UInt, key: Pcstr, ispersistent: Boolean, uniquesessionid: MutPtr<IscsiUniqueSessionId>, uniqueconnectionid: MutPtr<IscsiUniqueSessionId>): UInt =
+public actual fun loginIScsiTargetW(targetname: Pcwstr, isinformationalsession: Boolean, initiatorinstance: Pcwstr, initiatorportnumber: UInt, targetportal: MutPtr, securityflags: ULong, mappings: MutPtr, loginoptions: MutPtr, keysize: UInt, key: Pcstr, ispersistent: Boolean, uniquesessionid: MutPtr, uniqueconnectionid: MutPtr): UInt =
     WindowsWin32StorageIscsidiscJniBridge.windowssysWindowsWin32StorageIscsidiscLoginIScsiTargetW(targetname.rawAddress, isinformationalsession, initiatorinstance.rawAddress, initiatorportnumber.toInt(), targetportal.rawAddress, securityflags.toLong(), mappings.rawAddress, loginoptions.rawAddress, keysize.toInt(), key.rawAddress, ispersistent, uniquesessionid.rawAddress, uniqueconnectionid.rawAddress).toUInt()
 
-public actual fun logoutIScsiTarget(uniquesessionid: MutPtr<IscsiUniqueSessionId>): UInt =
+public actual fun logoutIScsiTarget(uniquesessionid: MutPtr): UInt =
     WindowsWin32StorageIscsidiscJniBridge.windowssysWindowsWin32StorageIscsidiscLogoutIScsiTarget(uniquesessionid.rawAddress).toUInt()
 
 public actual fun refreshISNSServerA(address: Pcstr): UInt =
@@ -342,10 +341,10 @@ public actual fun refreshISNSServerA(address: Pcstr): UInt =
 public actual fun refreshISNSServerW(address: Pcwstr): UInt =
     WindowsWin32StorageIscsidiscJniBridge.windowssysWindowsWin32StorageIscsidiscRefreshISNSServerW(address.rawAddress).toUInt()
 
-public actual fun refreshIScsiSendTargetPortalA(initiatorinstance: Pcstr, initiatorportnumber: UInt, portal: MutPtr<IscsiTargetPortala>): UInt =
+public actual fun refreshIScsiSendTargetPortalA(initiatorinstance: Pcstr, initiatorportnumber: UInt, portal: MutPtr): UInt =
     WindowsWin32StorageIscsidiscJniBridge.windowssysWindowsWin32StorageIscsidiscRefreshIScsiSendTargetPortalA(initiatorinstance.rawAddress, initiatorportnumber.toInt(), portal.rawAddress).toUInt()
 
-public actual fun refreshIScsiSendTargetPortalW(initiatorinstance: Pcwstr, initiatorportnumber: UInt, portal: MutPtr<IscsiTargetPortalw>): UInt =
+public actual fun refreshIScsiSendTargetPortalW(initiatorinstance: Pcwstr, initiatorportnumber: UInt, portal: MutPtr): UInt =
     WindowsWin32StorageIscsidiscJniBridge.windowssysWindowsWin32StorageIscsidiscRefreshIScsiSendTargetPortalW(initiatorinstance.rawAddress, initiatorportnumber.toInt(), portal.rawAddress).toUInt()
 
 public actual fun removeISNSServerA(address: Pcstr): UInt =
@@ -354,19 +353,19 @@ public actual fun removeISNSServerA(address: Pcstr): UInt =
 public actual fun removeISNSServerW(address: Pcwstr): UInt =
     WindowsWin32StorageIscsidiscJniBridge.windowssysWindowsWin32StorageIscsidiscRemoveISNSServerW(address.rawAddress).toUInt()
 
-public actual fun removeIScsiConnection(uniquesessionid: MutPtr<IscsiUniqueSessionId>, connectionid: MutPtr<IscsiUniqueSessionId>): UInt =
+public actual fun removeIScsiConnection(uniquesessionid: MutPtr, connectionid: MutPtr): UInt =
     WindowsWin32StorageIscsidiscJniBridge.windowssysWindowsWin32StorageIscsidiscRemoveIScsiConnection(uniquesessionid.rawAddress, connectionid.rawAddress).toUInt()
 
-public actual fun removeIScsiPersistentTargetA(initiatorinstance: Pcstr, initiatorportnumber: UInt, targetname: Pcstr, portal: MutPtr<IscsiTargetPortala>): UInt =
+public actual fun removeIScsiPersistentTargetA(initiatorinstance: Pcstr, initiatorportnumber: UInt, targetname: Pcstr, portal: MutPtr): UInt =
     WindowsWin32StorageIscsidiscJniBridge.windowssysWindowsWin32StorageIscsidiscRemoveIScsiPersistentTargetA(initiatorinstance.rawAddress, initiatorportnumber.toInt(), targetname.rawAddress, portal.rawAddress).toUInt()
 
-public actual fun removeIScsiPersistentTargetW(initiatorinstance: Pcwstr, initiatorportnumber: UInt, targetname: Pcwstr, portal: MutPtr<IscsiTargetPortalw>): UInt =
+public actual fun removeIScsiPersistentTargetW(initiatorinstance: Pcwstr, initiatorportnumber: UInt, targetname: Pcwstr, portal: MutPtr): UInt =
     WindowsWin32StorageIscsidiscJniBridge.windowssysWindowsWin32StorageIscsidiscRemoveIScsiPersistentTargetW(initiatorinstance.rawAddress, initiatorportnumber.toInt(), targetname.rawAddress, portal.rawAddress).toUInt()
 
-public actual fun removeIScsiSendTargetPortalA(initiatorinstance: Pcstr, initiatorportnumber: UInt, portal: MutPtr<IscsiTargetPortala>): UInt =
+public actual fun removeIScsiSendTargetPortalA(initiatorinstance: Pcstr, initiatorportnumber: UInt, portal: MutPtr): UInt =
     WindowsWin32StorageIscsidiscJniBridge.windowssysWindowsWin32StorageIscsidiscRemoveIScsiSendTargetPortalA(initiatorinstance.rawAddress, initiatorportnumber.toInt(), portal.rawAddress).toUInt()
 
-public actual fun removeIScsiSendTargetPortalW(initiatorinstance: Pcwstr, initiatorportnumber: UInt, portal: MutPtr<IscsiTargetPortalw>): UInt =
+public actual fun removeIScsiSendTargetPortalW(initiatorinstance: Pcwstr, initiatorportnumber: UInt, portal: MutPtr): UInt =
     WindowsWin32StorageIscsidiscJniBridge.windowssysWindowsWin32StorageIscsidiscRemoveIScsiSendTargetPortalW(initiatorinstance.rawAddress, initiatorportnumber.toInt(), portal.rawAddress).toUInt()
 
 public actual fun removeIScsiStaticTargetA(targetname: Pcstr): UInt =
@@ -387,85 +386,85 @@ public actual fun removeRadiusServerA(address: Pcstr): UInt =
 public actual fun removeRadiusServerW(address: Pcwstr): UInt =
     WindowsWin32StorageIscsidiscJniBridge.windowssysWindowsWin32StorageIscsidiscRemoveRadiusServerW(address.rawAddress).toUInt()
 
-public actual fun reportActiveIScsiTargetMappingsA(buffersize: MutPtr<UInt>, mappingcount: MutPtr<UInt>, mappings: MutPtr<IscsiTargetMappinga>): UInt =
+public actual fun reportActiveIScsiTargetMappingsA(buffersize: MutPtr, mappingcount: MutPtr, mappings: MutPtr): UInt =
     WindowsWin32StorageIscsidiscJniBridge.windowssysWindowsWin32StorageIscsidiscReportActiveIScsiTargetMappingsA(buffersize.rawAddress, mappingcount.rawAddress, mappings.rawAddress).toUInt()
 
-public actual fun reportActiveIScsiTargetMappingsW(buffersize: MutPtr<UInt>, mappingcount: MutPtr<UInt>, mappings: MutPtr<IscsiTargetMappingw>): UInt =
+public actual fun reportActiveIScsiTargetMappingsW(buffersize: MutPtr, mappingcount: MutPtr, mappings: MutPtr): UInt =
     WindowsWin32StorageIscsidiscJniBridge.windowssysWindowsWin32StorageIscsidiscReportActiveIScsiTargetMappingsW(buffersize.rawAddress, mappingcount.rawAddress, mappings.rawAddress).toUInt()
 
-public actual fun reportISNSServerListA(buffersizeinchar: MutPtr<UInt>, buffer: Pstr): UInt =
+public actual fun reportISNSServerListA(buffersizeinchar: MutPtr, buffer: Pstr): UInt =
     WindowsWin32StorageIscsidiscJniBridge.windowssysWindowsWin32StorageIscsidiscReportISNSServerListA(buffersizeinchar.rawAddress, buffer.rawAddress).toUInt()
 
-public actual fun reportISNSServerListW(buffersizeinchar: MutPtr<UInt>, buffer: Pwstr): UInt =
+public actual fun reportISNSServerListW(buffersizeinchar: MutPtr, buffer: Pwstr): UInt =
     WindowsWin32StorageIscsidiscJniBridge.windowssysWindowsWin32StorageIscsidiscReportISNSServerListW(buffersizeinchar.rawAddress, buffer.rawAddress).toUInt()
 
-public actual fun reportIScsiInitiatorListA(buffersize: MutPtr<UInt>, buffer: Pstr): UInt =
+public actual fun reportIScsiInitiatorListA(buffersize: MutPtr, buffer: Pstr): UInt =
     WindowsWin32StorageIscsidiscJniBridge.windowssysWindowsWin32StorageIscsidiscReportIScsiInitiatorListA(buffersize.rawAddress, buffer.rawAddress).toUInt()
 
-public actual fun reportIScsiInitiatorListW(buffersize: MutPtr<UInt>, buffer: Pwstr): UInt =
+public actual fun reportIScsiInitiatorListW(buffersize: MutPtr, buffer: Pwstr): UInt =
     WindowsWin32StorageIscsidiscJniBridge.windowssysWindowsWin32StorageIscsidiscReportIScsiInitiatorListW(buffersize.rawAddress, buffer.rawAddress).toUInt()
 
-public actual fun reportIScsiPersistentLoginsA(count: MutPtr<UInt>, persistentlogininfo: MutPtr<PersistentIscsiLoginInfoa>, buffersizeinbytes: MutPtr<UInt>): UInt =
+public actual fun reportIScsiPersistentLoginsA(count: MutPtr, persistentlogininfo: MutPtr, buffersizeinbytes: MutPtr): UInt =
     WindowsWin32StorageIscsidiscJniBridge.windowssysWindowsWin32StorageIscsidiscReportIScsiPersistentLoginsA(count.rawAddress, persistentlogininfo.rawAddress, buffersizeinbytes.rawAddress).toUInt()
 
-public actual fun reportIScsiPersistentLoginsW(count: MutPtr<UInt>, persistentlogininfo: MutPtr<PersistentIscsiLoginInfow>, buffersizeinbytes: MutPtr<UInt>): UInt =
+public actual fun reportIScsiPersistentLoginsW(count: MutPtr, persistentlogininfo: MutPtr, buffersizeinbytes: MutPtr): UInt =
     WindowsWin32StorageIscsidiscJniBridge.windowssysWindowsWin32StorageIscsidiscReportIScsiPersistentLoginsW(count.rawAddress, persistentlogininfo.rawAddress, buffersizeinbytes.rawAddress).toUInt()
 
-public actual fun reportIScsiSendTargetPortalsA(portalcount: MutPtr<UInt>, portalinfo: MutPtr<IscsiTargetPortalInfoa>): UInt =
+public actual fun reportIScsiSendTargetPortalsA(portalcount: MutPtr, portalinfo: MutPtr): UInt =
     WindowsWin32StorageIscsidiscJniBridge.windowssysWindowsWin32StorageIscsidiscReportIScsiSendTargetPortalsA(portalcount.rawAddress, portalinfo.rawAddress).toUInt()
 
-public actual fun reportIScsiSendTargetPortalsExA(portalcount: MutPtr<UInt>, portalinfosize: MutPtr<UInt>, portalinfo: MutPtr<IscsiTargetPortalInfoExa>): UInt =
+public actual fun reportIScsiSendTargetPortalsExA(portalcount: MutPtr, portalinfosize: MutPtr, portalinfo: MutPtr): UInt =
     WindowsWin32StorageIscsidiscJniBridge.windowssysWindowsWin32StorageIscsidiscReportIScsiSendTargetPortalsExA(portalcount.rawAddress, portalinfosize.rawAddress, portalinfo.rawAddress).toUInt()
 
-public actual fun reportIScsiSendTargetPortalsExW(portalcount: MutPtr<UInt>, portalinfosize: MutPtr<UInt>, portalinfo: MutPtr<IscsiTargetPortalInfoExw>): UInt =
+public actual fun reportIScsiSendTargetPortalsExW(portalcount: MutPtr, portalinfosize: MutPtr, portalinfo: MutPtr): UInt =
     WindowsWin32StorageIscsidiscJniBridge.windowssysWindowsWin32StorageIscsidiscReportIScsiSendTargetPortalsExW(portalcount.rawAddress, portalinfosize.rawAddress, portalinfo.rawAddress).toUInt()
 
-public actual fun reportIScsiSendTargetPortalsW(portalcount: MutPtr<UInt>, portalinfo: MutPtr<IscsiTargetPortalInfow>): UInt =
+public actual fun reportIScsiSendTargetPortalsW(portalcount: MutPtr, portalinfo: MutPtr): UInt =
     WindowsWin32StorageIscsidiscJniBridge.windowssysWindowsWin32StorageIscsidiscReportIScsiSendTargetPortalsW(portalcount.rawAddress, portalinfo.rawAddress).toUInt()
 
-public actual fun reportIScsiTargetPortalsA(initiatorname: Pcstr, targetname: Pcstr, targetportaltag: MutPtr<UShort>, elementcount: MutPtr<UInt>, portals: MutPtr<IscsiTargetPortala>): UInt =
+public actual fun reportIScsiTargetPortalsA(initiatorname: Pcstr, targetname: Pcstr, targetportaltag: MutPtr, elementcount: MutPtr, portals: MutPtr): UInt =
     WindowsWin32StorageIscsidiscJniBridge.windowssysWindowsWin32StorageIscsidiscReportIScsiTargetPortalsA(initiatorname.rawAddress, targetname.rawAddress, targetportaltag.rawAddress, elementcount.rawAddress, portals.rawAddress).toUInt()
 
-public actual fun reportIScsiTargetPortalsW(initiatorname: Pcwstr, targetname: Pcwstr, targetportaltag: MutPtr<UShort>, elementcount: MutPtr<UInt>, portals: MutPtr<IscsiTargetPortalw>): UInt =
+public actual fun reportIScsiTargetPortalsW(initiatorname: Pcwstr, targetname: Pcwstr, targetportaltag: MutPtr, elementcount: MutPtr, portals: MutPtr): UInt =
     WindowsWin32StorageIscsidiscJniBridge.windowssysWindowsWin32StorageIscsidiscReportIScsiTargetPortalsW(initiatorname.rawAddress, targetname.rawAddress, targetportaltag.rawAddress, elementcount.rawAddress, portals.rawAddress).toUInt()
 
-public actual fun reportIScsiTargetsA(forceupdate: Boolean, buffersize: MutPtr<UInt>, buffer: Pstr): UInt =
+public actual fun reportIScsiTargetsA(forceupdate: Boolean, buffersize: MutPtr, buffer: Pstr): UInt =
     WindowsWin32StorageIscsidiscJniBridge.windowssysWindowsWin32StorageIscsidiscReportIScsiTargetsA(forceupdate, buffersize.rawAddress, buffer.rawAddress).toUInt()
 
-public actual fun reportIScsiTargetsW(forceupdate: Boolean, buffersize: MutPtr<UInt>, buffer: Pwstr): UInt =
+public actual fun reportIScsiTargetsW(forceupdate: Boolean, buffersize: MutPtr, buffer: Pwstr): UInt =
     WindowsWin32StorageIscsidiscJniBridge.windowssysWindowsWin32StorageIscsidiscReportIScsiTargetsW(forceupdate, buffersize.rawAddress, buffer.rawAddress).toUInt()
 
-public actual fun reportPersistentIScsiDevicesA(buffersizeinchar: MutPtr<UInt>, buffer: Pstr): UInt =
+public actual fun reportPersistentIScsiDevicesA(buffersizeinchar: MutPtr, buffer: Pstr): UInt =
     WindowsWin32StorageIscsidiscJniBridge.windowssysWindowsWin32StorageIscsidiscReportPersistentIScsiDevicesA(buffersizeinchar.rawAddress, buffer.rawAddress).toUInt()
 
-public actual fun reportPersistentIScsiDevicesW(buffersizeinchar: MutPtr<UInt>, buffer: Pwstr): UInt =
+public actual fun reportPersistentIScsiDevicesW(buffersizeinchar: MutPtr, buffer: Pwstr): UInt =
     WindowsWin32StorageIscsidiscJniBridge.windowssysWindowsWin32StorageIscsidiscReportPersistentIScsiDevicesW(buffersizeinchar.rawAddress, buffer.rawAddress).toUInt()
 
-public actual fun reportRadiusServerListA(buffersizeinchar: MutPtr<UInt>, buffer: Pstr): UInt =
+public actual fun reportRadiusServerListA(buffersizeinchar: MutPtr, buffer: Pstr): UInt =
     WindowsWin32StorageIscsidiscJniBridge.windowssysWindowsWin32StorageIscsidiscReportRadiusServerListA(buffersizeinchar.rawAddress, buffer.rawAddress).toUInt()
 
-public actual fun reportRadiusServerListW(buffersizeinchar: MutPtr<UInt>, buffer: Pwstr): UInt =
+public actual fun reportRadiusServerListW(buffersizeinchar: MutPtr, buffer: Pwstr): UInt =
     WindowsWin32StorageIscsidiscJniBridge.windowssysWindowsWin32StorageIscsidiscReportRadiusServerListW(buffersizeinchar.rawAddress, buffer.rawAddress).toUInt()
 
-public actual fun sendScsiInquiry(uniquesessionid: MutPtr<IscsiUniqueSessionId>, lun: ULong, evpdcmddt: UByte, pagecode: UByte, scsistatus: MutPtr<UByte>, responsesize: MutPtr<UInt>, responsebuffer: MutPtr<UByte>, sensesize: MutPtr<UInt>, sensebuffer: MutPtr<UByte>): UInt =
+public actual fun sendScsiInquiry(uniquesessionid: MutPtr, lun: ULong, evpdcmddt: UByte, pagecode: UByte, scsistatus: MutPtr, responsesize: MutPtr, responsebuffer: MutPtr, sensesize: MutPtr, sensebuffer: MutPtr): UInt =
     WindowsWin32StorageIscsidiscJniBridge.windowssysWindowsWin32StorageIscsidiscSendScsiInquiry(uniquesessionid.rawAddress, lun.toLong(), evpdcmddt.toByte(), pagecode.toByte(), scsistatus.rawAddress, responsesize.rawAddress, responsebuffer.rawAddress, sensesize.rawAddress, sensebuffer.rawAddress).toUInt()
 
-public actual fun sendScsiReadCapacity(uniquesessionid: MutPtr<IscsiUniqueSessionId>, lun: ULong, scsistatus: MutPtr<UByte>, responsesize: MutPtr<UInt>, responsebuffer: MutPtr<UByte>, sensesize: MutPtr<UInt>, sensebuffer: MutPtr<UByte>): UInt =
+public actual fun sendScsiReadCapacity(uniquesessionid: MutPtr, lun: ULong, scsistatus: MutPtr, responsesize: MutPtr, responsebuffer: MutPtr, sensesize: MutPtr, sensebuffer: MutPtr): UInt =
     WindowsWin32StorageIscsidiscJniBridge.windowssysWindowsWin32StorageIscsidiscSendScsiReadCapacity(uniquesessionid.rawAddress, lun.toLong(), scsistatus.rawAddress, responsesize.rawAddress, responsebuffer.rawAddress, sensesize.rawAddress, sensebuffer.rawAddress).toUInt()
 
-public actual fun sendScsiReportLuns(uniquesessionid: MutPtr<IscsiUniqueSessionId>, scsistatus: MutPtr<UByte>, responsesize: MutPtr<UInt>, responsebuffer: MutPtr<UByte>, sensesize: MutPtr<UInt>, sensebuffer: MutPtr<UByte>): UInt =
+public actual fun sendScsiReportLuns(uniquesessionid: MutPtr, scsistatus: MutPtr, responsesize: MutPtr, responsebuffer: MutPtr, sensesize: MutPtr, sensebuffer: MutPtr): UInt =
     WindowsWin32StorageIscsidiscJniBridge.windowssysWindowsWin32StorageIscsidiscSendScsiReportLuns(uniquesessionid.rawAddress, scsistatus.rawAddress, responsesize.rawAddress, responsebuffer.rawAddress, sensesize.rawAddress, sensebuffer.rawAddress).toUInt()
 
-public actual fun setIScsiGroupPresharedKey(keylength: UInt, key: MutPtr<UByte>, persist: Boolean): UInt =
+public actual fun setIScsiGroupPresharedKey(keylength: UInt, key: MutPtr, persist: Boolean): UInt =
     WindowsWin32StorageIscsidiscJniBridge.windowssysWindowsWin32StorageIscsidiscSetIScsiGroupPresharedKey(keylength.toInt(), key.rawAddress, persist).toUInt()
 
-public actual fun setIScsiIKEInfoA(initiatorname: Pcstr, initiatorportnumber: UInt, authinfo: MutPtr<IkeAuthenticationInformation>, persist: Boolean): UInt =
+public actual fun setIScsiIKEInfoA(initiatorname: Pcstr, initiatorportnumber: UInt, authinfo: MutPtr, persist: Boolean): UInt =
     WindowsWin32StorageIscsidiscJniBridge.windowssysWindowsWin32StorageIscsidiscSetIScsiIKEInfoA(initiatorname.rawAddress, initiatorportnumber.toInt(), authinfo.rawAddress, persist).toUInt()
 
-public actual fun setIScsiIKEInfoW(initiatorname: Pcwstr, initiatorportnumber: UInt, authinfo: MutPtr<IkeAuthenticationInformation>, persist: Boolean): UInt =
+public actual fun setIScsiIKEInfoW(initiatorname: Pcwstr, initiatorportnumber: UInt, authinfo: MutPtr, persist: Boolean): UInt =
     WindowsWin32StorageIscsidiscJniBridge.windowssysWindowsWin32StorageIscsidiscSetIScsiIKEInfoW(initiatorname.rawAddress, initiatorportnumber.toInt(), authinfo.rawAddress, persist).toUInt()
 
-public actual fun setIScsiInitiatorCHAPSharedSecret(sharedsecretlength: UInt, sharedsecret: MutPtr<UByte>): UInt =
+public actual fun setIScsiInitiatorCHAPSharedSecret(sharedsecretlength: UInt, sharedsecret: MutPtr): UInt =
     WindowsWin32StorageIscsidiscJniBridge.windowssysWindowsWin32StorageIscsidiscSetIScsiInitiatorCHAPSharedSecret(sharedsecretlength.toInt(), sharedsecret.rawAddress).toUInt()
 
 public actual fun setIScsiInitiatorNodeNameA(initiatornodename: Pcstr): UInt =
@@ -474,7 +473,7 @@ public actual fun setIScsiInitiatorNodeNameA(initiatornodename: Pcstr): UInt =
 public actual fun setIScsiInitiatorNodeNameW(initiatornodename: Pcwstr): UInt =
     WindowsWin32StorageIscsidiscJniBridge.windowssysWindowsWin32StorageIscsidiscSetIScsiInitiatorNodeNameW(initiatornodename.rawAddress).toUInt()
 
-public actual fun setIScsiInitiatorRADIUSSharedSecret(sharedsecretlength: UInt, sharedsecret: MutPtr<UByte>): UInt =
+public actual fun setIScsiInitiatorRADIUSSharedSecret(sharedsecretlength: UInt, sharedsecret: MutPtr): UInt =
     WindowsWin32StorageIscsidiscJniBridge.windowssysWindowsWin32StorageIscsidiscSetIScsiInitiatorRADIUSSharedSecret(sharedsecretlength.toInt(), sharedsecret.rawAddress).toUInt()
 
 public actual fun setIScsiTunnelModeOuterAddressA(initiatorname: Pcstr, initiatorportnumber: UInt, destinationaddress: Pcstr, outermodeaddress: Pcstr, persist: Boolean): UInt =

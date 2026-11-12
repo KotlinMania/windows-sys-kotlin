@@ -1,6 +1,5 @@
 package io.github.kotlinmania.windowssys.windows.win32.security
 
-import io.github.kotlinmania.rustlang.core.ffi.CVoid
 import io.github.kotlinmania.rustlang.core.ptr.ConstPtr
 import io.github.kotlinmania.rustlang.core.ptr.MutPtr
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Ntstatus
@@ -27,23 +26,23 @@ public typealias Logon32Provider = UInt
 
 public typealias MandatoryLevel = Int
 
-public typealias NcryptDescriptorHandle = MutPtr<CVoid>
+public typealias NcryptDescriptorHandle = MutPtr
 
-public typealias NcryptStreamHandle = MutPtr<CVoid>
+public typealias NcryptStreamHandle = MutPtr
 
 public typealias ObjectSecurityInformation = UInt
 
 public fun interface PlsaApCallPackageUntrustedFn {
-    public operator fun invoke(clientrequest: ConstPtr<ConstPtr<CVoid>>, protocolsubmitbuffer: ConstPtr<CVoid>, clientbufferbase: ConstPtr<CVoid>, submitbufferlength: UInt, protocolreturnbuffer: MutPtr<MutPtr<CVoid>>, returnbufferlength: MutPtr<UInt>, protocolstatus: MutPtr<Int>): Ntstatus
+    public operator fun invoke(clientrequest: ConstPtr, protocolsubmitbuffer: ConstPtr, clientbufferbase: ConstPtr, submitbufferlength: UInt, protocolreturnbuffer: MutPtr, returnbufferlength: MutPtr, protocolstatus: MutPtr): Ntstatus
 }
 
 public typealias PlsaApCallPackageUntrusted = PlsaApCallPackageUntrustedFn?
 
-public typealias PsecurityDescriptor = MutPtr<CVoid>
+public typealias PsecurityDescriptor = MutPtr
 
-public typealias Psid = MutPtr<CVoid>
+public typealias Psid = MutPtr
 
-public typealias SaferLevelHandle = MutPtr<CVoid>
+public typealias SaferLevelHandle = MutPtr
 
 public typealias SecurityAutoInheritFlags = UInt
 
@@ -52,7 +51,7 @@ public typealias SecurityDescriptorControl = UShort
 public typealias SecurityImpersonationLevel = Int
 
 public fun interface SecThreadStartFn {
-    public operator fun invoke(lpthreadparameter: MutPtr<CVoid>): UInt
+    public operator fun invoke(lpthreadparameter: MutPtr): UInt
 }
 
 public typealias SecThreadStart = SecThreadStartFn?

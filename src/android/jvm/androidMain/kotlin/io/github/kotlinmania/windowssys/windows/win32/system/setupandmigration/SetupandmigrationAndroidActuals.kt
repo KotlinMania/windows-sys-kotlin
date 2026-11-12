@@ -2,7 +2,6 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.system.setupandmigration
 
-import io.github.kotlinmania.rustlang.core.ffi.CVoid
 import io.github.kotlinmania.rustlang.core.ptr.ConstPtr
 import io.github.kotlinmania.rustlang.core.ptr.MutPtr
 import io.github.kotlinmania.windowssys.core.Bool
@@ -22,11 +21,11 @@ private object WindowsWin32SystemSetupandmigrationJniBridge {
     external fun windowssysWindowsWin32SystemSetupandmigrationUnregisterWaitUntilOOBECompleted(waithandle: Long): Int
 }
 
-public actual fun oOBEComplete(isoobecomplete: MutPtr<Bool>): Bool =
+public actual fun oOBEComplete(isoobecomplete: MutPtr): Bool =
     WindowsWin32SystemSetupandmigrationJniBridge.windowssysWindowsWin32SystemSetupandmigrationOOBEComplete(isoobecomplete.rawAddress)
 
-public actual fun registerWaitUntilOOBECompleted(oobecompletedcallback: OobeCompletedCallback, callbackcontext: ConstPtr<CVoid>, waithandle: MutPtr<MutPtr<CVoid>>): Bool =
+public actual fun registerWaitUntilOOBECompleted(oobecompletedcallback: OobeCompletedCallback, callbackcontext: ConstPtr, waithandle: MutPtr): Bool =
     WindowsWin32SystemSetupandmigrationJniBridge.windowssysWindowsWin32SystemSetupandmigrationRegisterWaitUntilOOBECompleted(0L, callbackcontext.rawAddress, waithandle.rawAddress)
 
-public actual fun unregisterWaitUntilOOBECompleted(waithandle: ConstPtr<CVoid>): Bool =
+public actual fun unregisterWaitUntilOOBECompleted(waithandle: ConstPtr): Bool =
     WindowsWin32SystemSetupandmigrationJniBridge.windowssysWindowsWin32SystemSetupandmigrationUnregisterWaitUntilOOBECompleted(waithandle.rawAddress)

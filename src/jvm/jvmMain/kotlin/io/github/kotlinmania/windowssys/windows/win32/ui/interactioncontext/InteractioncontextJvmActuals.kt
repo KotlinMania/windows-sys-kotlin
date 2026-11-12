@@ -2,7 +2,6 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.ui.interactioncontext
 
-import io.github.kotlinmania.rustlang.core.ffi.CVoid
 import io.github.kotlinmania.rustlang.core.ptr.ConstPtr
 import io.github.kotlinmania.rustlang.core.ptr.MutPtr
 import io.github.kotlinmania.windowssys.core.Hresult
@@ -157,40 +156,40 @@ private object WindowsWin32UiInteractioncontextJniBridge {
 public actual fun addPointerInteractionContext(interactioncontext: Hinteractioncontext, pointerid: UInt): Hresult =
     WindowsWin32UiInteractioncontextJniBridge.windowssysWindowsWin32UiInteractioncontextAddPointerInteractionContext(interactioncontext.rawAddress, pointerid.toInt())
 
-public actual fun bufferPointerPacketsInteractionContext(interactioncontext: Hinteractioncontext, entriescount: UInt, pointerinfo: ConstPtr<Input.Pointer.PointerInfo>): Hresult =
+public actual fun bufferPointerPacketsInteractionContext(interactioncontext: Hinteractioncontext, entriescount: UInt, pointerinfo: ConstPtr): Hresult =
     WindowsWin32UiInteractioncontextJniBridge.windowssysWindowsWin32UiInteractioncontextBufferPointerPacketsInteractionContext(interactioncontext.rawAddress, entriescount.toInt(), pointerinfo.rawAddress)
 
-public actual fun createInteractionContext(interactioncontext: MutPtr<Hinteractioncontext>): Hresult =
+public actual fun createInteractionContext(interactioncontext: MutPtr): Hresult =
     WindowsWin32UiInteractioncontextJniBridge.windowssysWindowsWin32UiInteractioncontextCreateInteractionContext(interactioncontext.rawAddress)
 
 public actual fun destroyInteractionContext(interactioncontext: Hinteractioncontext): Hresult =
     WindowsWin32UiInteractioncontextJniBridge.windowssysWindowsWin32UiInteractioncontextDestroyInteractionContext(interactioncontext.rawAddress)
 
-public actual fun getCrossSlideParameterInteractionContext(interactioncontext: Hinteractioncontext, threshold: CrossSlideThreshold, distance: MutPtr<Float>): Hresult =
+public actual fun getCrossSlideParameterInteractionContext(interactioncontext: Hinteractioncontext, threshold: CrossSlideThreshold, distance: MutPtr): Hresult =
     WindowsWin32UiInteractioncontextJniBridge.windowssysWindowsWin32UiInteractioncontextGetCrossSlideParameterInteractionContext(interactioncontext.rawAddress, threshold, distance.rawAddress)
 
-public actual fun getHoldParameterInteractionContext(interactioncontext: Hinteractioncontext, parameter: HoldParameter, value: MutPtr<Float>): Hresult =
+public actual fun getHoldParameterInteractionContext(interactioncontext: Hinteractioncontext, parameter: HoldParameter, value: MutPtr): Hresult =
     WindowsWin32UiInteractioncontextJniBridge.windowssysWindowsWin32UiInteractioncontextGetHoldParameterInteractionContext(interactioncontext.rawAddress, parameter, value.rawAddress)
 
-public actual fun getInertiaParameterInteractionContext(interactioncontext: Hinteractioncontext, inertiaparameter: InertiaParameter, value: MutPtr<Float>): Hresult =
+public actual fun getInertiaParameterInteractionContext(interactioncontext: Hinteractioncontext, inertiaparameter: InertiaParameter, value: MutPtr): Hresult =
     WindowsWin32UiInteractioncontextJniBridge.windowssysWindowsWin32UiInteractioncontextGetInertiaParameterInteractionContext(interactioncontext.rawAddress, inertiaparameter, value.rawAddress)
 
-public actual fun getInteractionConfigurationInteractionContext(interactioncontext: Hinteractioncontext, configurationcount: UInt, configuration: MutPtr<InteractionContextConfiguration>): Hresult =
+public actual fun getInteractionConfigurationInteractionContext(interactioncontext: Hinteractioncontext, configurationcount: UInt, configuration: MutPtr): Hresult =
     WindowsWin32UiInteractioncontextJniBridge.windowssysWindowsWin32UiInteractioncontextGetInteractionConfigurationInteractionContext(interactioncontext.rawAddress, configurationcount.toInt(), configuration.rawAddress)
 
-public actual fun getMouseWheelParameterInteractionContext(interactioncontext: Hinteractioncontext, parameter: MouseWheelParameter, value: MutPtr<Float>): Hresult =
+public actual fun getMouseWheelParameterInteractionContext(interactioncontext: Hinteractioncontext, parameter: MouseWheelParameter, value: MutPtr): Hresult =
     WindowsWin32UiInteractioncontextJniBridge.windowssysWindowsWin32UiInteractioncontextGetMouseWheelParameterInteractionContext(interactioncontext.rawAddress, parameter, value.rawAddress)
 
-public actual fun getPropertyInteractionContext(interactioncontext: Hinteractioncontext, contextproperty: InteractionContextProperty, value: MutPtr<UInt>): Hresult =
+public actual fun getPropertyInteractionContext(interactioncontext: Hinteractioncontext, contextproperty: InteractionContextProperty, value: MutPtr): Hresult =
     WindowsWin32UiInteractioncontextJniBridge.windowssysWindowsWin32UiInteractioncontextGetPropertyInteractionContext(interactioncontext.rawAddress, contextproperty, value.rawAddress)
 
-public actual fun getStateInteractionContext(interactioncontext: Hinteractioncontext, pointerinfo: ConstPtr<Input.Pointer.PointerInfo>, state: MutPtr<InteractionState>): Hresult =
+public actual fun getStateInteractionContext(interactioncontext: Hinteractioncontext, pointerinfo: ConstPtr, state: MutPtr): Hresult =
     WindowsWin32UiInteractioncontextJniBridge.windowssysWindowsWin32UiInteractioncontextGetStateInteractionContext(interactioncontext.rawAddress, pointerinfo.rawAddress, state.rawAddress)
 
-public actual fun getTapParameterInteractionContext(interactioncontext: Hinteractioncontext, parameter: TapParameter, value: MutPtr<Float>): Hresult =
+public actual fun getTapParameterInteractionContext(interactioncontext: Hinteractioncontext, parameter: TapParameter, value: MutPtr): Hresult =
     WindowsWin32UiInteractioncontextJniBridge.windowssysWindowsWin32UiInteractioncontextGetTapParameterInteractionContext(interactioncontext.rawAddress, parameter, value.rawAddress)
 
-public actual fun getTranslationParameterInteractionContext(interactioncontext: Hinteractioncontext, parameter: TranslationParameter, value: MutPtr<Float>): Hresult =
+public actual fun getTranslationParameterInteractionContext(interactioncontext: Hinteractioncontext, parameter: TranslationParameter, value: MutPtr): Hresult =
     WindowsWin32UiInteractioncontextJniBridge.windowssysWindowsWin32UiInteractioncontextGetTranslationParameterInteractionContext(interactioncontext.rawAddress, parameter, value.rawAddress)
 
 public actual fun processBufferedPacketsInteractionContext(interactioncontext: Hinteractioncontext): Hresult =
@@ -199,13 +198,13 @@ public actual fun processBufferedPacketsInteractionContext(interactioncontext: H
 public actual fun processInertiaInteractionContext(interactioncontext: Hinteractioncontext): Hresult =
     WindowsWin32UiInteractioncontextJniBridge.windowssysWindowsWin32UiInteractioncontextProcessInertiaInteractionContext(interactioncontext.rawAddress)
 
-public actual fun processPointerFramesInteractionContext(interactioncontext: Hinteractioncontext, entriescount: UInt, pointercount: UInt, pointerinfo: ConstPtr<Input.Pointer.PointerInfo>): Hresult =
+public actual fun processPointerFramesInteractionContext(interactioncontext: Hinteractioncontext, entriescount: UInt, pointercount: UInt, pointerinfo: ConstPtr): Hresult =
     WindowsWin32UiInteractioncontextJniBridge.windowssysWindowsWin32UiInteractioncontextProcessPointerFramesInteractionContext(interactioncontext.rawAddress, entriescount.toInt(), pointercount.toInt(), pointerinfo.rawAddress)
 
-public actual fun registerOutputCallbackInteractionContext(interactioncontext: Hinteractioncontext, outputcallback: InteractionContextOutputCallback, clientdata: ConstPtr<CVoid>): Hresult =
+public actual fun registerOutputCallbackInteractionContext(interactioncontext: Hinteractioncontext, outputcallback: InteractionContextOutputCallback, clientdata: ConstPtr): Hresult =
     WindowsWin32UiInteractioncontextJniBridge.windowssysWindowsWin32UiInteractioncontextRegisterOutputCallbackInteractionContext(interactioncontext.rawAddress, 0L, clientdata.rawAddress)
 
-public actual fun registerOutputCallbackInteractionContext2(interactioncontext: Hinteractioncontext, outputcallback: InteractionContextOutputCallback2, clientdata: ConstPtr<CVoid>): Hresult =
+public actual fun registerOutputCallbackInteractionContext2(interactioncontext: Hinteractioncontext, outputcallback: InteractionContextOutputCallback2, clientdata: ConstPtr): Hresult =
     WindowsWin32UiInteractioncontextJniBridge.windowssysWindowsWin32UiInteractioncontextRegisterOutputCallbackInteractionContext2(interactioncontext.rawAddress, 0L, clientdata.rawAddress)
 
 public actual fun removePointerInteractionContext(interactioncontext: Hinteractioncontext, pointerid: UInt): Hresult =
@@ -214,7 +213,7 @@ public actual fun removePointerInteractionContext(interactioncontext: Hinteracti
 public actual fun resetInteractionContext(interactioncontext: Hinteractioncontext): Hresult =
     WindowsWin32UiInteractioncontextJniBridge.windowssysWindowsWin32UiInteractioncontextResetInteractionContext(interactioncontext.rawAddress)
 
-public actual fun setCrossSlideParametersInteractionContext(interactioncontext: Hinteractioncontext, parametercount: UInt, crossslideparameters: ConstPtr<CrossSlideParameter>): Hresult =
+public actual fun setCrossSlideParametersInteractionContext(interactioncontext: Hinteractioncontext, parametercount: UInt, crossslideparameters: ConstPtr): Hresult =
     WindowsWin32UiInteractioncontextJniBridge.windowssysWindowsWin32UiInteractioncontextSetCrossSlideParametersInteractionContext(interactioncontext.rawAddress, parametercount.toInt(), crossslideparameters.rawAddress)
 
 public actual fun setHoldParameterInteractionContext(interactioncontext: Hinteractioncontext, parameter: HoldParameter, value: Float): Hresult =
@@ -223,7 +222,7 @@ public actual fun setHoldParameterInteractionContext(interactioncontext: Hintera
 public actual fun setInertiaParameterInteractionContext(interactioncontext: Hinteractioncontext, inertiaparameter: InertiaParameter, value: Float): Hresult =
     WindowsWin32UiInteractioncontextJniBridge.windowssysWindowsWin32UiInteractioncontextSetInertiaParameterInteractionContext(interactioncontext.rawAddress, inertiaparameter, value)
 
-public actual fun setInteractionConfigurationInteractionContext(interactioncontext: Hinteractioncontext, configurationcount: UInt, configuration: ConstPtr<InteractionContextConfiguration>): Hresult =
+public actual fun setInteractionConfigurationInteractionContext(interactioncontext: Hinteractioncontext, configurationcount: UInt, configuration: ConstPtr): Hresult =
     WindowsWin32UiInteractioncontextJniBridge.windowssysWindowsWin32UiInteractioncontextSetInteractionConfigurationInteractionContext(interactioncontext.rawAddress, configurationcount.toInt(), configuration.rawAddress)
 
 public actual fun setMouseWheelParameterInteractionContext(interactioncontext: Hinteractioncontext, parameter: MouseWheelParameter, value: Float): Hresult =

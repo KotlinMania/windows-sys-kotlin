@@ -2,19 +2,14 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.networkmanagement.p2p
 
-import io.github.kotlinmania.rustlang.core.ffi.CVoid
 import io.github.kotlinmania.rustlang.core.ptr.ConstPtr
 import io.github.kotlinmania.rustlang.core.ptr.MutPtr
 import io.github.kotlinmania.windowssys.core.Bool
-import io.github.kotlinmania.windowssys.core.Guid
 import io.github.kotlinmania.windowssys.core.Hresult
 import io.github.kotlinmania.windowssys.core.Pcwstr
 import io.github.kotlinmania.windowssys.core.Pwstr
-import io.github.kotlinmania.windowssys.windows.win32.foundation.Filetime
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Handle
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Hwnd
-import io.github.kotlinmania.windowssys.windows.win32.security.cryptography.CertContext
-import io.github.kotlinmania.windowssys.windows.win32.system.io.Overlapped
 
 private object WindowsWin32NetworkmanagementP2pJniBridge {
     init {
@@ -622,100 +617,100 @@ private object WindowsWin32NetworkmanagementP2pJniBridge {
     external fun windowssysWindowsWin32NetworkmanagementP2pPeerPnrpUpdateRegistration(hregistration: Long, pregistrationinfo: Long): Int
 }
 
-public actual fun drtClose(hdrt: ConstPtr<CVoid>) {
+public actual fun drtClose(hdrt: ConstPtr) {
     WindowsWin32NetworkmanagementP2pJniBridge.windowssysWindowsWin32NetworkmanagementP2pDrtClose(hdrt.rawAddress)
 }
 
-public actual fun drtContinueSearch(hsearchcontext: ConstPtr<CVoid>): Hresult =
+public actual fun drtContinueSearch(hsearchcontext: ConstPtr): Hresult =
     WindowsWin32NetworkmanagementP2pJniBridge.windowssysWindowsWin32NetworkmanagementP2pDrtContinueSearch(hsearchcontext.rawAddress)
 
-public actual fun drtCreateDerivedKey(plocalcert: ConstPtr<CertContext>, pkey: MutPtr<DrtData>): Hresult =
+public actual fun drtCreateDerivedKey(plocalcert: ConstPtr, pkey: MutPtr): Hresult =
     WindowsWin32NetworkmanagementP2pJniBridge.windowssysWindowsWin32NetworkmanagementP2pDrtCreateDerivedKey(plocalcert.rawAddress, pkey.rawAddress)
 
-public actual fun drtCreateDerivedKeySecurityProvider(prootcert: ConstPtr<CertContext>, plocalcert: ConstPtr<CertContext>, ppsecurityprovider: MutPtr<MutPtr<DrtSecurityProvider>>): Hresult =
+public actual fun drtCreateDerivedKeySecurityProvider(prootcert: ConstPtr, plocalcert: ConstPtr, ppsecurityprovider: MutPtr): Hresult =
     WindowsWin32NetworkmanagementP2pJniBridge.windowssysWindowsWin32NetworkmanagementP2pDrtCreateDerivedKeySecurityProvider(prootcert.rawAddress, plocalcert.rawAddress, ppsecurityprovider.rawAddress)
 
-public actual fun drtCreateDnsBootstrapResolver(port: UShort, pwszaddress: Pcwstr, ppmodule: MutPtr<MutPtr<DrtBootstrapProvider>>): Hresult =
+public actual fun drtCreateDnsBootstrapResolver(port: UShort, pwszaddress: Pcwstr, ppmodule: MutPtr): Hresult =
     WindowsWin32NetworkmanagementP2pJniBridge.windowssysWindowsWin32NetworkmanagementP2pDrtCreateDnsBootstrapResolver(port.toShort(), pwszaddress.rawAddress, ppmodule.rawAddress)
 
-public actual fun drtCreateIpv6UdpTransport(scope: DrtScope, dwscopeid: UInt, dwlocalitythreshold: UInt, pwport: MutPtr<UShort>, phtransport: MutPtr<MutPtr<CVoid>>): Hresult =
+public actual fun drtCreateIpv6UdpTransport(scope: DrtScope, dwscopeid: UInt, dwlocalitythreshold: UInt, pwport: MutPtr, phtransport: MutPtr): Hresult =
     WindowsWin32NetworkmanagementP2pJniBridge.windowssysWindowsWin32NetworkmanagementP2pDrtCreateIpv6UdpTransport(scope, dwscopeid.toInt(), dwlocalitythreshold.toInt(), pwport.rawAddress, phtransport.rawAddress)
 
-public actual fun drtCreateNullSecurityProvider(ppsecurityprovider: MutPtr<MutPtr<DrtSecurityProvider>>): Hresult =
+public actual fun drtCreateNullSecurityProvider(ppsecurityprovider: MutPtr): Hresult =
     WindowsWin32NetworkmanagementP2pJniBridge.windowssysWindowsWin32NetworkmanagementP2pDrtCreateNullSecurityProvider(ppsecurityprovider.rawAddress)
 
-public actual fun drtCreatePnrpBootstrapResolver(fpublish: Bool, pwzpeername: Pcwstr, pwzcloudname: Pcwstr, pwzpublishingidentity: Pcwstr, ppresolver: MutPtr<MutPtr<DrtBootstrapProvider>>): Hresult =
+public actual fun drtCreatePnrpBootstrapResolver(fpublish: Bool, pwzpeername: Pcwstr, pwzcloudname: Pcwstr, pwzpublishingidentity: Pcwstr, ppresolver: MutPtr): Hresult =
     WindowsWin32NetworkmanagementP2pJniBridge.windowssysWindowsWin32NetworkmanagementP2pDrtCreatePnrpBootstrapResolver(fpublish, pwzpeername.rawAddress, pwzcloudname.rawAddress, pwzpublishingidentity.rawAddress, ppresolver.rawAddress)
 
-public actual fun drtDeleteDerivedKeySecurityProvider(psecurityprovider: ConstPtr<DrtSecurityProvider>) {
+public actual fun drtDeleteDerivedKeySecurityProvider(psecurityprovider: ConstPtr) {
     WindowsWin32NetworkmanagementP2pJniBridge.windowssysWindowsWin32NetworkmanagementP2pDrtDeleteDerivedKeySecurityProvider(psecurityprovider.rawAddress)
 }
 
-public actual fun drtDeleteDnsBootstrapResolver(presolver: ConstPtr<DrtBootstrapProvider>) {
+public actual fun drtDeleteDnsBootstrapResolver(presolver: ConstPtr) {
     WindowsWin32NetworkmanagementP2pJniBridge.windowssysWindowsWin32NetworkmanagementP2pDrtDeleteDnsBootstrapResolver(presolver.rawAddress)
 }
 
-public actual fun drtDeleteIpv6UdpTransport(htransport: ConstPtr<CVoid>): Hresult =
+public actual fun drtDeleteIpv6UdpTransport(htransport: ConstPtr): Hresult =
     WindowsWin32NetworkmanagementP2pJniBridge.windowssysWindowsWin32NetworkmanagementP2pDrtDeleteIpv6UdpTransport(htransport.rawAddress)
 
-public actual fun drtDeleteNullSecurityProvider(psecurityprovider: ConstPtr<DrtSecurityProvider>) {
+public actual fun drtDeleteNullSecurityProvider(psecurityprovider: ConstPtr) {
     WindowsWin32NetworkmanagementP2pJniBridge.windowssysWindowsWin32NetworkmanagementP2pDrtDeleteNullSecurityProvider(psecurityprovider.rawAddress)
 }
 
-public actual fun drtDeletePnrpBootstrapResolver(presolver: ConstPtr<DrtBootstrapProvider>) {
+public actual fun drtDeletePnrpBootstrapResolver(presolver: ConstPtr) {
     WindowsWin32NetworkmanagementP2pJniBridge.windowssysWindowsWin32NetworkmanagementP2pDrtDeletePnrpBootstrapResolver(presolver.rawAddress)
 }
 
-public actual fun drtEndSearch(hsearchcontext: ConstPtr<CVoid>): Hresult =
+public actual fun drtEndSearch(hsearchcontext: ConstPtr): Hresult =
     WindowsWin32NetworkmanagementP2pJniBridge.windowssysWindowsWin32NetworkmanagementP2pDrtEndSearch(hsearchcontext.rawAddress)
 
-public actual fun drtGetEventData(hdrt: ConstPtr<CVoid>, uleventdatalen: UInt, peventdata: MutPtr<DrtEventData>): Hresult =
+public actual fun drtGetEventData(hdrt: ConstPtr, uleventdatalen: UInt, peventdata: MutPtr): Hresult =
     WindowsWin32NetworkmanagementP2pJniBridge.windowssysWindowsWin32NetworkmanagementP2pDrtGetEventData(hdrt.rawAddress, uleventdatalen.toInt(), peventdata.rawAddress)
 
-public actual fun drtGetEventDataSize(hdrt: ConstPtr<CVoid>, puleventdatalen: MutPtr<UInt>): Hresult =
+public actual fun drtGetEventDataSize(hdrt: ConstPtr, puleventdatalen: MutPtr): Hresult =
     WindowsWin32NetworkmanagementP2pJniBridge.windowssysWindowsWin32NetworkmanagementP2pDrtGetEventDataSize(hdrt.rawAddress, puleventdatalen.rawAddress)
 
-public actual fun drtGetInstanceName(hdrt: ConstPtr<CVoid>, ulcbinstancenamesize: UInt, pwzdrtinstancename: Pwstr): Hresult =
+public actual fun drtGetInstanceName(hdrt: ConstPtr, ulcbinstancenamesize: UInt, pwzdrtinstancename: Pwstr): Hresult =
     WindowsWin32NetworkmanagementP2pJniBridge.windowssysWindowsWin32NetworkmanagementP2pDrtGetInstanceName(hdrt.rawAddress, ulcbinstancenamesize.toInt(), pwzdrtinstancename.rawAddress)
 
-public actual fun drtGetInstanceNameSize(hdrt: ConstPtr<CVoid>, pulcbinstancenamesize: MutPtr<UInt>): Hresult =
+public actual fun drtGetInstanceNameSize(hdrt: ConstPtr, pulcbinstancenamesize: MutPtr): Hresult =
     WindowsWin32NetworkmanagementP2pJniBridge.windowssysWindowsWin32NetworkmanagementP2pDrtGetInstanceNameSize(hdrt.rawAddress, pulcbinstancenamesize.rawAddress)
 
-public actual fun drtGetSearchPath(hsearchcontext: ConstPtr<CVoid>, ulsearchpathsize: UInt, psearchpath: MutPtr<DrtAddressList>): Hresult =
+public actual fun drtGetSearchPath(hsearchcontext: ConstPtr, ulsearchpathsize: UInt, psearchpath: MutPtr): Hresult =
     WindowsWin32NetworkmanagementP2pJniBridge.windowssysWindowsWin32NetworkmanagementP2pDrtGetSearchPath(hsearchcontext.rawAddress, ulsearchpathsize.toInt(), psearchpath.rawAddress)
 
-public actual fun drtGetSearchPathSize(hsearchcontext: ConstPtr<CVoid>, pulsearchpathsize: MutPtr<UInt>): Hresult =
+public actual fun drtGetSearchPathSize(hsearchcontext: ConstPtr, pulsearchpathsize: MutPtr): Hresult =
     WindowsWin32NetworkmanagementP2pJniBridge.windowssysWindowsWin32NetworkmanagementP2pDrtGetSearchPathSize(hsearchcontext.rawAddress, pulsearchpathsize.rawAddress)
 
-public actual fun drtGetSearchResult(hsearchcontext: ConstPtr<CVoid>, ulsearchresultsize: UInt, psearchresult: MutPtr<DrtSearchResult>): Hresult =
+public actual fun drtGetSearchResult(hsearchcontext: ConstPtr, ulsearchresultsize: UInt, psearchresult: MutPtr): Hresult =
     WindowsWin32NetworkmanagementP2pJniBridge.windowssysWindowsWin32NetworkmanagementP2pDrtGetSearchResult(hsearchcontext.rawAddress, ulsearchresultsize.toInt(), psearchresult.rawAddress)
 
-public actual fun drtGetSearchResultSize(hsearchcontext: ConstPtr<CVoid>, pulsearchresultsize: MutPtr<UInt>): Hresult =
+public actual fun drtGetSearchResultSize(hsearchcontext: ConstPtr, pulsearchresultsize: MutPtr): Hresult =
     WindowsWin32NetworkmanagementP2pJniBridge.windowssysWindowsWin32NetworkmanagementP2pDrtGetSearchResultSize(hsearchcontext.rawAddress, pulsearchresultsize.rawAddress)
 
-public actual fun drtOpen(psettings: ConstPtr<DrtSettings>, hevent: Handle, pvcontext: ConstPtr<CVoid>, phdrt: MutPtr<MutPtr<CVoid>>): Hresult =
+public actual fun drtOpen(psettings: ConstPtr, hevent: Handle, pvcontext: ConstPtr, phdrt: MutPtr): Hresult =
     WindowsWin32NetworkmanagementP2pJniBridge.windowssysWindowsWin32NetworkmanagementP2pDrtOpen(psettings.rawAddress, hevent.rawAddress, pvcontext.rawAddress, phdrt.rawAddress)
 
-public actual fun drtRegisterKey(hdrt: ConstPtr<CVoid>, pregistration: ConstPtr<DrtRegistration>, pvkeycontext: ConstPtr<CVoid>, phkeyregistration: MutPtr<MutPtr<CVoid>>): Hresult =
+public actual fun drtRegisterKey(hdrt: ConstPtr, pregistration: ConstPtr, pvkeycontext: ConstPtr, phkeyregistration: MutPtr): Hresult =
     WindowsWin32NetworkmanagementP2pJniBridge.windowssysWindowsWin32NetworkmanagementP2pDrtRegisterKey(hdrt.rawAddress, pregistration.rawAddress, pvkeycontext.rawAddress, phkeyregistration.rawAddress)
 
-public actual fun drtStartSearch(hdrt: ConstPtr<CVoid>, pkey: ConstPtr<DrtData>, pinfo: ConstPtr<DrtSearchInfo>, timeout: UInt, hevent: Handle, pvcontext: ConstPtr<CVoid>, hsearchcontext: MutPtr<MutPtr<CVoid>>): Hresult =
+public actual fun drtStartSearch(hdrt: ConstPtr, pkey: ConstPtr, pinfo: ConstPtr, timeout: UInt, hevent: Handle, pvcontext: ConstPtr, hsearchcontext: MutPtr): Hresult =
     WindowsWin32NetworkmanagementP2pJniBridge.windowssysWindowsWin32NetworkmanagementP2pDrtStartSearch(hdrt.rawAddress, pkey.rawAddress, pinfo.rawAddress, timeout.toInt(), hevent.rawAddress, pvcontext.rawAddress, hsearchcontext.rawAddress)
 
-public actual fun drtUnregisterKey(hkeyregistration: ConstPtr<CVoid>) {
+public actual fun drtUnregisterKey(hkeyregistration: ConstPtr) {
     WindowsWin32NetworkmanagementP2pJniBridge.windowssysWindowsWin32NetworkmanagementP2pDrtUnregisterKey(hkeyregistration.rawAddress)
 }
 
-public actual fun drtUpdateKey(hkeyregistration: ConstPtr<CVoid>, pappdata: ConstPtr<DrtData>): Hresult =
+public actual fun drtUpdateKey(hkeyregistration: ConstPtr, pappdata: ConstPtr): Hresult =
     WindowsWin32NetworkmanagementP2pJniBridge.windowssysWindowsWin32NetworkmanagementP2pDrtUpdateKey(hkeyregistration.rawAddress, pappdata.rawAddress)
 
-public actual fun peerCollabAddContact(pwzcontactdata: Pcwstr, ppcontact: MutPtr<MutPtr<PeerContact>>): Hresult =
+public actual fun peerCollabAddContact(pwzcontactdata: Pcwstr, ppcontact: MutPtr): Hresult =
     WindowsWin32NetworkmanagementP2pJniBridge.windowssysWindowsWin32NetworkmanagementP2pPeerCollabAddContact(pwzcontactdata.rawAddress, ppcontact.rawAddress)
 
-public actual fun peerCollabAsyncInviteContact(pccontact: ConstPtr<PeerContact>, pcendpoint: ConstPtr<PeerEndpoint>, pcinvitation: ConstPtr<PeerInvitation>, hevent: Handle, phinvitation: MutPtr<Handle>): Hresult =
+public actual fun peerCollabAsyncInviteContact(pccontact: ConstPtr, pcendpoint: ConstPtr, pcinvitation: ConstPtr, hevent: Handle, phinvitation: MutPtr): Hresult =
     WindowsWin32NetworkmanagementP2pJniBridge.windowssysWindowsWin32NetworkmanagementP2pPeerCollabAsyncInviteContact(pccontact.rawAddress, pcendpoint.rawAddress, pcinvitation.rawAddress, hevent.rawAddress, phinvitation.rawAddress)
 
-public actual fun peerCollabAsyncInviteEndpoint(pcendpoint: ConstPtr<PeerEndpoint>, pcinvitation: ConstPtr<PeerInvitation>, hevent: Handle, phinvitation: MutPtr<Handle>): Hresult =
+public actual fun peerCollabAsyncInviteEndpoint(pcendpoint: ConstPtr, pcinvitation: ConstPtr, hevent: Handle, phinvitation: MutPtr): Hresult =
     WindowsWin32NetworkmanagementP2pJniBridge.windowssysWindowsWin32NetworkmanagementP2pPeerCollabAsyncInviteEndpoint(pcendpoint.rawAddress, pcinvitation.rawAddress, hevent.rawAddress, phinvitation.rawAddress)
 
 public actual fun peerCollabCancelInvitation(hinvitation: Handle): Hresult =
@@ -727,85 +722,85 @@ public actual fun peerCollabCloseHandle(hinvitation: Handle): Hresult =
 public actual fun peerCollabDeleteContact(pwzpeername: Pcwstr): Hresult =
     WindowsWin32NetworkmanagementP2pJniBridge.windowssysWindowsWin32NetworkmanagementP2pPeerCollabDeleteContact(pwzpeername.rawAddress)
 
-public actual fun peerCollabDeleteEndpointData(pcendpoint: ConstPtr<PeerEndpoint>): Hresult =
+public actual fun peerCollabDeleteEndpointData(pcendpoint: ConstPtr): Hresult =
     WindowsWin32NetworkmanagementP2pJniBridge.windowssysWindowsWin32NetworkmanagementP2pPeerCollabDeleteEndpointData(pcendpoint.rawAddress)
 
-public actual fun peerCollabDeleteObject(pobjectid: ConstPtr<Guid>): Hresult =
+public actual fun peerCollabDeleteObject(pobjectid: ConstPtr): Hresult =
     WindowsWin32NetworkmanagementP2pJniBridge.windowssysWindowsWin32NetworkmanagementP2pPeerCollabDeleteObject(pobjectid.rawAddress)
 
-public actual fun peerCollabEnumApplicationRegistrationInfo(registrationtype: PeerApplicationRegistrationType, phpeerenum: MutPtr<MutPtr<CVoid>>): Hresult =
+public actual fun peerCollabEnumApplicationRegistrationInfo(registrationtype: PeerApplicationRegistrationType, phpeerenum: MutPtr): Hresult =
     WindowsWin32NetworkmanagementP2pJniBridge.windowssysWindowsWin32NetworkmanagementP2pPeerCollabEnumApplicationRegistrationInfo(registrationtype, phpeerenum.rawAddress)
 
-public actual fun peerCollabEnumApplications(pcendpoint: ConstPtr<PeerEndpoint>, papplicationid: ConstPtr<Guid>, phpeerenum: MutPtr<MutPtr<CVoid>>): Hresult =
+public actual fun peerCollabEnumApplications(pcendpoint: ConstPtr, papplicationid: ConstPtr, phpeerenum: MutPtr): Hresult =
     WindowsWin32NetworkmanagementP2pJniBridge.windowssysWindowsWin32NetworkmanagementP2pPeerCollabEnumApplications(pcendpoint.rawAddress, papplicationid.rawAddress, phpeerenum.rawAddress)
 
-public actual fun peerCollabEnumContacts(phpeerenum: MutPtr<MutPtr<CVoid>>): Hresult =
+public actual fun peerCollabEnumContacts(phpeerenum: MutPtr): Hresult =
     WindowsWin32NetworkmanagementP2pJniBridge.windowssysWindowsWin32NetworkmanagementP2pPeerCollabEnumContacts(phpeerenum.rawAddress)
 
-public actual fun peerCollabEnumEndpoints(pccontact: ConstPtr<PeerContact>, phpeerenum: MutPtr<MutPtr<CVoid>>): Hresult =
+public actual fun peerCollabEnumEndpoints(pccontact: ConstPtr, phpeerenum: MutPtr): Hresult =
     WindowsWin32NetworkmanagementP2pJniBridge.windowssysWindowsWin32NetworkmanagementP2pPeerCollabEnumEndpoints(pccontact.rawAddress, phpeerenum.rawAddress)
 
-public actual fun peerCollabEnumObjects(pcendpoint: ConstPtr<PeerEndpoint>, pobjectid: ConstPtr<Guid>, phpeerenum: MutPtr<MutPtr<CVoid>>): Hresult =
+public actual fun peerCollabEnumObjects(pcendpoint: ConstPtr, pobjectid: ConstPtr, phpeerenum: MutPtr): Hresult =
     WindowsWin32NetworkmanagementP2pJniBridge.windowssysWindowsWin32NetworkmanagementP2pPeerCollabEnumObjects(pcendpoint.rawAddress, pobjectid.rawAddress, phpeerenum.rawAddress)
 
-public actual fun peerCollabEnumPeopleNearMe(phpeerenum: MutPtr<MutPtr<CVoid>>): Hresult =
+public actual fun peerCollabEnumPeopleNearMe(phpeerenum: MutPtr): Hresult =
     WindowsWin32NetworkmanagementP2pJniBridge.windowssysWindowsWin32NetworkmanagementP2pPeerCollabEnumPeopleNearMe(phpeerenum.rawAddress)
 
-public actual fun peerCollabExportContact(pwzpeername: Pcwstr, ppwzcontactdata: MutPtr<Pwstr>): Hresult =
+public actual fun peerCollabExportContact(pwzpeername: Pcwstr, ppwzcontactdata: MutPtr): Hresult =
     WindowsWin32NetworkmanagementP2pJniBridge.windowssysWindowsWin32NetworkmanagementP2pPeerCollabExportContact(pwzpeername.rawAddress, ppwzcontactdata.rawAddress)
 
-public actual fun peerCollabGetAppLaunchInfo(pplaunchinfo: MutPtr<MutPtr<PeerAppLaunchInfo>>): Hresult =
+public actual fun peerCollabGetAppLaunchInfo(pplaunchinfo: MutPtr): Hresult =
     WindowsWin32NetworkmanagementP2pJniBridge.windowssysWindowsWin32NetworkmanagementP2pPeerCollabGetAppLaunchInfo(pplaunchinfo.rawAddress)
 
-public actual fun peerCollabGetApplicationRegistrationInfo(papplicationid: ConstPtr<Guid>, registrationtype: PeerApplicationRegistrationType, ppapplication: MutPtr<MutPtr<PeerApplicationRegistrationInfo>>): Hresult =
+public actual fun peerCollabGetApplicationRegistrationInfo(papplicationid: ConstPtr, registrationtype: PeerApplicationRegistrationType, ppapplication: MutPtr): Hresult =
     WindowsWin32NetworkmanagementP2pJniBridge.windowssysWindowsWin32NetworkmanagementP2pPeerCollabGetApplicationRegistrationInfo(papplicationid.rawAddress, registrationtype, ppapplication.rawAddress)
 
-public actual fun peerCollabGetContact(pwzpeername: Pcwstr, ppcontact: MutPtr<MutPtr<PeerContact>>): Hresult =
+public actual fun peerCollabGetContact(pwzpeername: Pcwstr, ppcontact: MutPtr): Hresult =
     WindowsWin32NetworkmanagementP2pJniBridge.windowssysWindowsWin32NetworkmanagementP2pPeerCollabGetContact(pwzpeername.rawAddress, ppcontact.rawAddress)
 
-public actual fun peerCollabGetEndpointName(ppwzendpointname: MutPtr<Pwstr>): Hresult =
+public actual fun peerCollabGetEndpointName(ppwzendpointname: MutPtr): Hresult =
     WindowsWin32NetworkmanagementP2pJniBridge.windowssysWindowsWin32NetworkmanagementP2pPeerCollabGetEndpointName(ppwzendpointname.rawAddress)
 
-public actual fun peerCollabGetEventData(hpeerevent: ConstPtr<CVoid>, ppeventdata: MutPtr<MutPtr<PeerCollabEventData>>): Hresult =
+public actual fun peerCollabGetEventData(hpeerevent: ConstPtr, ppeventdata: MutPtr): Hresult =
     WindowsWin32NetworkmanagementP2pJniBridge.windowssysWindowsWin32NetworkmanagementP2pPeerCollabGetEventData(hpeerevent.rawAddress, ppeventdata.rawAddress)
 
-public actual fun peerCollabGetInvitationResponse(hinvitation: Handle, ppinvitationresponse: MutPtr<MutPtr<PeerInvitationResponse>>): Hresult =
+public actual fun peerCollabGetInvitationResponse(hinvitation: Handle, ppinvitationresponse: MutPtr): Hresult =
     WindowsWin32NetworkmanagementP2pJniBridge.windowssysWindowsWin32NetworkmanagementP2pPeerCollabGetInvitationResponse(hinvitation.rawAddress, ppinvitationresponse.rawAddress)
 
-public actual fun peerCollabGetPresenceInfo(pcendpoint: ConstPtr<PeerEndpoint>, pppresenceinfo: MutPtr<MutPtr<PeerPresenceInfo>>): Hresult =
+public actual fun peerCollabGetPresenceInfo(pcendpoint: ConstPtr, pppresenceinfo: MutPtr): Hresult =
     WindowsWin32NetworkmanagementP2pJniBridge.windowssysWindowsWin32NetworkmanagementP2pPeerCollabGetPresenceInfo(pcendpoint.rawAddress, pppresenceinfo.rawAddress)
 
-public actual fun peerCollabGetSigninOptions(pdwsigninoptions: MutPtr<UInt>): Hresult =
+public actual fun peerCollabGetSigninOptions(pdwsigninoptions: MutPtr): Hresult =
     WindowsWin32NetworkmanagementP2pJniBridge.windowssysWindowsWin32NetworkmanagementP2pPeerCollabGetSigninOptions(pdwsigninoptions.rawAddress)
 
-public actual fun peerCollabInviteContact(pccontact: ConstPtr<PeerContact>, pcendpoint: ConstPtr<PeerEndpoint>, pcinvitation: ConstPtr<PeerInvitation>, ppresponse: MutPtr<MutPtr<PeerInvitationResponse>>): Hresult =
+public actual fun peerCollabInviteContact(pccontact: ConstPtr, pcendpoint: ConstPtr, pcinvitation: ConstPtr, ppresponse: MutPtr): Hresult =
     WindowsWin32NetworkmanagementP2pJniBridge.windowssysWindowsWin32NetworkmanagementP2pPeerCollabInviteContact(pccontact.rawAddress, pcendpoint.rawAddress, pcinvitation.rawAddress, ppresponse.rawAddress)
 
-public actual fun peerCollabInviteEndpoint(pcendpoint: ConstPtr<PeerEndpoint>, pcinvitation: ConstPtr<PeerInvitation>, ppresponse: MutPtr<MutPtr<PeerInvitationResponse>>): Hresult =
+public actual fun peerCollabInviteEndpoint(pcendpoint: ConstPtr, pcinvitation: ConstPtr, ppresponse: MutPtr): Hresult =
     WindowsWin32NetworkmanagementP2pJniBridge.windowssysWindowsWin32NetworkmanagementP2pPeerCollabInviteEndpoint(pcendpoint.rawAddress, pcinvitation.rawAddress, ppresponse.rawAddress)
 
-public actual fun peerCollabParseContact(pwzcontactdata: Pcwstr, ppcontact: MutPtr<MutPtr<PeerContact>>): Hresult =
+public actual fun peerCollabParseContact(pwzcontactdata: Pcwstr, ppcontact: MutPtr): Hresult =
     WindowsWin32NetworkmanagementP2pJniBridge.windowssysWindowsWin32NetworkmanagementP2pPeerCollabParseContact(pwzcontactdata.rawAddress, ppcontact.rawAddress)
 
-public actual fun peerCollabQueryContactData(pcendpoint: ConstPtr<PeerEndpoint>, ppwzcontactdata: MutPtr<Pwstr>): Hresult =
+public actual fun peerCollabQueryContactData(pcendpoint: ConstPtr, ppwzcontactdata: MutPtr): Hresult =
     WindowsWin32NetworkmanagementP2pJniBridge.windowssysWindowsWin32NetworkmanagementP2pPeerCollabQueryContactData(pcendpoint.rawAddress, ppwzcontactdata.rawAddress)
 
-public actual fun peerCollabRefreshEndpointData(pcendpoint: ConstPtr<PeerEndpoint>): Hresult =
+public actual fun peerCollabRefreshEndpointData(pcendpoint: ConstPtr): Hresult =
     WindowsWin32NetworkmanagementP2pJniBridge.windowssysWindowsWin32NetworkmanagementP2pPeerCollabRefreshEndpointData(pcendpoint.rawAddress)
 
-public actual fun peerCollabRegisterApplication(pcapplication: ConstPtr<PeerApplicationRegistrationInfo>, registrationtype: PeerApplicationRegistrationType): Hresult =
+public actual fun peerCollabRegisterApplication(pcapplication: ConstPtr, registrationtype: PeerApplicationRegistrationType): Hresult =
     WindowsWin32NetworkmanagementP2pJniBridge.windowssysWindowsWin32NetworkmanagementP2pPeerCollabRegisterApplication(pcapplication.rawAddress, registrationtype)
 
-public actual fun peerCollabRegisterEvent(hevent: Handle, ceventregistration: UInt, peventregistrations: ConstPtr<PeerCollabEventRegistration>, phpeerevent: MutPtr<MutPtr<CVoid>>): Hresult =
+public actual fun peerCollabRegisterEvent(hevent: Handle, ceventregistration: UInt, peventregistrations: ConstPtr, phpeerevent: MutPtr): Hresult =
     WindowsWin32NetworkmanagementP2pJniBridge.windowssysWindowsWin32NetworkmanagementP2pPeerCollabRegisterEvent(hevent.rawAddress, ceventregistration.toInt(), peventregistrations.rawAddress, phpeerevent.rawAddress)
 
 public actual fun peerCollabSetEndpointName(pwzendpointname: Pcwstr): Hresult =
     WindowsWin32NetworkmanagementP2pJniBridge.windowssysWindowsWin32NetworkmanagementP2pPeerCollabSetEndpointName(pwzendpointname.rawAddress)
 
-public actual fun peerCollabSetObject(pcobject: ConstPtr<PeerObject>): Hresult =
+public actual fun peerCollabSetObject(pcobject: ConstPtr): Hresult =
     WindowsWin32NetworkmanagementP2pJniBridge.windowssysWindowsWin32NetworkmanagementP2pPeerCollabSetObject(pcobject.rawAddress)
 
-public actual fun peerCollabSetPresenceInfo(pcpresenceinfo: ConstPtr<PeerPresenceInfo>): Hresult =
+public actual fun peerCollabSetPresenceInfo(pcpresenceinfo: ConstPtr): Hresult =
     WindowsWin32NetworkmanagementP2pJniBridge.windowssysWindowsWin32NetworkmanagementP2pPeerCollabSetPresenceInfo(pcpresenceinfo.rawAddress)
 
 public actual fun peerCollabShutdown(): Hresult =
@@ -820,70 +815,70 @@ public actual fun peerCollabSignout(dwsigninoptions: UInt): Hresult =
 public actual fun peerCollabStartup(wversionrequested: UShort): Hresult =
     WindowsWin32NetworkmanagementP2pJniBridge.windowssysWindowsWin32NetworkmanagementP2pPeerCollabStartup(wversionrequested.toShort())
 
-public actual fun peerCollabSubscribeEndpointData(pcendpoint: ConstPtr<PeerEndpoint>): Hresult =
+public actual fun peerCollabSubscribeEndpointData(pcendpoint: ConstPtr): Hresult =
     WindowsWin32NetworkmanagementP2pJniBridge.windowssysWindowsWin32NetworkmanagementP2pPeerCollabSubscribeEndpointData(pcendpoint.rawAddress)
 
-public actual fun peerCollabUnregisterApplication(papplicationid: ConstPtr<Guid>, registrationtype: PeerApplicationRegistrationType): Hresult =
+public actual fun peerCollabUnregisterApplication(papplicationid: ConstPtr, registrationtype: PeerApplicationRegistrationType): Hresult =
     WindowsWin32NetworkmanagementP2pJniBridge.windowssysWindowsWin32NetworkmanagementP2pPeerCollabUnregisterApplication(papplicationid.rawAddress, registrationtype)
 
-public actual fun peerCollabUnregisterEvent(hpeerevent: ConstPtr<CVoid>): Hresult =
+public actual fun peerCollabUnregisterEvent(hpeerevent: ConstPtr): Hresult =
     WindowsWin32NetworkmanagementP2pJniBridge.windowssysWindowsWin32NetworkmanagementP2pPeerCollabUnregisterEvent(hpeerevent.rawAddress)
 
-public actual fun peerCollabUnsubscribeEndpointData(pcendpoint: ConstPtr<PeerEndpoint>): Hresult =
+public actual fun peerCollabUnsubscribeEndpointData(pcendpoint: ConstPtr): Hresult =
     WindowsWin32NetworkmanagementP2pJniBridge.windowssysWindowsWin32NetworkmanagementP2pPeerCollabUnsubscribeEndpointData(pcendpoint.rawAddress)
 
-public actual fun peerCollabUpdateContact(pcontact: ConstPtr<PeerContact>): Hresult =
+public actual fun peerCollabUpdateContact(pcontact: ConstPtr): Hresult =
     WindowsWin32NetworkmanagementP2pJniBridge.windowssysWindowsWin32NetworkmanagementP2pPeerCollabUpdateContact(pcontact.rawAddress)
 
-public actual fun peerCreatePeerName(pwzidentity: Pcwstr, pwzclassifier: Pcwstr, ppwzpeername: MutPtr<Pwstr>): Hresult =
+public actual fun peerCreatePeerName(pwzidentity: Pcwstr, pwzclassifier: Pcwstr, ppwzpeername: MutPtr): Hresult =
     WindowsWin32NetworkmanagementP2pJniBridge.windowssysWindowsWin32NetworkmanagementP2pPeerCreatePeerName(pwzidentity.rawAddress, pwzclassifier.rawAddress, ppwzpeername.rawAddress)
 
-public actual fun peerDistClientAddContentInformation(hpeerdist: Long, hcontenthandle: Long, cbnumberofbytes: UInt, pbuffer: ConstPtr<UByte>, lpoverlapped: ConstPtr<Overlapped>): UInt =
+public actual fun peerDistClientAddContentInformation(hpeerdist: Long, hcontenthandle: Long, cbnumberofbytes: UInt, pbuffer: ConstPtr, lpoverlapped: ConstPtr): UInt =
     WindowsWin32NetworkmanagementP2pJniBridge.windowssysWindowsWin32NetworkmanagementP2pPeerDistClientAddContentInformation(hpeerdist, hcontenthandle, cbnumberofbytes.toInt(), pbuffer.rawAddress, lpoverlapped.rawAddress).toUInt()
 
-public actual fun peerDistClientAddData(hpeerdist: Long, hcontenthandle: Long, cbnumberofbytes: UInt, pbuffer: ConstPtr<UByte>, lpoverlapped: ConstPtr<Overlapped>): UInt =
+public actual fun peerDistClientAddData(hpeerdist: Long, hcontenthandle: Long, cbnumberofbytes: UInt, pbuffer: ConstPtr, lpoverlapped: ConstPtr): UInt =
     WindowsWin32NetworkmanagementP2pJniBridge.windowssysWindowsWin32NetworkmanagementP2pPeerDistClientAddData(hpeerdist, hcontenthandle, cbnumberofbytes.toInt(), pbuffer.rawAddress, lpoverlapped.rawAddress).toUInt()
 
-public actual fun peerDistClientBlockRead(hpeerdist: Long, hcontenthandle: Long, cbmaxnumberofbytes: UInt, pbuffer: MutPtr<UByte>, dwtimeoutinmilliseconds: UInt, lpoverlapped: ConstPtr<Overlapped>): UInt =
+public actual fun peerDistClientBlockRead(hpeerdist: Long, hcontenthandle: Long, cbmaxnumberofbytes: UInt, pbuffer: MutPtr, dwtimeoutinmilliseconds: UInt, lpoverlapped: ConstPtr): UInt =
     WindowsWin32NetworkmanagementP2pJniBridge.windowssysWindowsWin32NetworkmanagementP2pPeerDistClientBlockRead(hpeerdist, hcontenthandle, cbmaxnumberofbytes.toInt(), pbuffer.rawAddress, dwtimeoutinmilliseconds.toInt(), lpoverlapped.rawAddress).toUInt()
 
-public actual fun peerDistClientCancelAsyncOperation(hpeerdist: Long, hcontenthandle: Long, poverlapped: ConstPtr<Overlapped>): UInt =
+public actual fun peerDistClientCancelAsyncOperation(hpeerdist: Long, hcontenthandle: Long, poverlapped: ConstPtr): UInt =
     WindowsWin32NetworkmanagementP2pJniBridge.windowssysWindowsWin32NetworkmanagementP2pPeerDistClientCancelAsyncOperation(hpeerdist, hcontenthandle, poverlapped.rawAddress).toUInt()
 
 public actual fun peerDistClientCloseContent(hpeerdist: Long, hcontenthandle: Long): UInt =
     WindowsWin32NetworkmanagementP2pJniBridge.windowssysWindowsWin32NetworkmanagementP2pPeerDistClientCloseContent(hpeerdist, hcontenthandle).toUInt()
 
-public actual fun peerDistClientCompleteContentInformation(hpeerdist: Long, hcontenthandle: Long, lpoverlapped: ConstPtr<Overlapped>): UInt =
+public actual fun peerDistClientCompleteContentInformation(hpeerdist: Long, hcontenthandle: Long, lpoverlapped: ConstPtr): UInt =
     WindowsWin32NetworkmanagementP2pJniBridge.windowssysWindowsWin32NetworkmanagementP2pPeerDistClientCompleteContentInformation(hpeerdist, hcontenthandle, lpoverlapped.rawAddress).toUInt()
 
-public actual fun peerDistClientFlushContent(hpeerdist: Long, pcontenttag: ConstPtr<PeerdistContentTag>, hcompletionport: Handle, ulcompletionkey: ULong, lpoverlapped: ConstPtr<Overlapped>): UInt =
+public actual fun peerDistClientFlushContent(hpeerdist: Long, pcontenttag: ConstPtr, hcompletionport: Handle, ulcompletionkey: ULong, lpoverlapped: ConstPtr): UInt =
     WindowsWin32NetworkmanagementP2pJniBridge.windowssysWindowsWin32NetworkmanagementP2pPeerDistClientFlushContent(hpeerdist, pcontenttag.rawAddress, hcompletionport.rawAddress, ulcompletionkey.toLong(), lpoverlapped.rawAddress).toUInt()
 
-public actual fun peerDistClientGetInformationByHandle(hpeerdist: Long, hcontenthandle: Long, peerdistclientinfoclass: PeerdistClientInfoByHandleClass, dwbuffersize: UInt, lpinformation: MutPtr<CVoid>): UInt =
+public actual fun peerDistClientGetInformationByHandle(hpeerdist: Long, hcontenthandle: Long, peerdistclientinfoclass: PeerdistClientInfoByHandleClass, dwbuffersize: UInt, lpinformation: MutPtr): UInt =
     WindowsWin32NetworkmanagementP2pJniBridge.windowssysWindowsWin32NetworkmanagementP2pPeerDistClientGetInformationByHandle(hpeerdist, hcontenthandle, peerdistclientinfoclass, dwbuffersize.toInt(), lpinformation.rawAddress).toUInt()
 
-public actual fun peerDistClientOpenContent(hpeerdist: Long, pcontenttag: ConstPtr<PeerdistContentTag>, hcompletionport: Handle, ulcompletionkey: ULong, phcontenthandle: MutPtr<Long>): UInt =
+public actual fun peerDistClientOpenContent(hpeerdist: Long, pcontenttag: ConstPtr, hcompletionport: Handle, ulcompletionkey: ULong, phcontenthandle: MutPtr): UInt =
     WindowsWin32NetworkmanagementP2pJniBridge.windowssysWindowsWin32NetworkmanagementP2pPeerDistClientOpenContent(hpeerdist, pcontenttag.rawAddress, hcompletionport.rawAddress, ulcompletionkey.toLong(), phcontenthandle.rawAddress).toUInt()
 
-public actual fun peerDistClientStreamRead(hpeerdist: Long, hcontenthandle: Long, cbmaxnumberofbytes: UInt, pbuffer: MutPtr<UByte>, dwtimeoutinmilliseconds: UInt, lpoverlapped: ConstPtr<Overlapped>): UInt =
+public actual fun peerDistClientStreamRead(hpeerdist: Long, hcontenthandle: Long, cbmaxnumberofbytes: UInt, pbuffer: MutPtr, dwtimeoutinmilliseconds: UInt, lpoverlapped: ConstPtr): UInt =
     WindowsWin32NetworkmanagementP2pJniBridge.windowssysWindowsWin32NetworkmanagementP2pPeerDistClientStreamRead(hpeerdist, hcontenthandle, cbmaxnumberofbytes.toInt(), pbuffer.rawAddress, dwtimeoutinmilliseconds.toInt(), lpoverlapped.rawAddress).toUInt()
 
-public actual fun peerDistGetOverlappedResult(lpoverlapped: ConstPtr<Overlapped>, lpnumberofbytestransferred: MutPtr<UInt>, bwait: Bool): Bool =
+public actual fun peerDistGetOverlappedResult(lpoverlapped: ConstPtr, lpnumberofbytestransferred: MutPtr, bwait: Bool): Bool =
     WindowsWin32NetworkmanagementP2pJniBridge.windowssysWindowsWin32NetworkmanagementP2pPeerDistGetOverlappedResult(lpoverlapped.rawAddress, lpnumberofbytestransferred.rawAddress, bwait)
 
-public actual fun peerDistGetStatus(hpeerdist: Long, ppeerdiststatus: MutPtr<PeerdistStatus>): UInt =
+public actual fun peerDistGetStatus(hpeerdist: Long, ppeerdiststatus: MutPtr): UInt =
     WindowsWin32NetworkmanagementP2pJniBridge.windowssysWindowsWin32NetworkmanagementP2pPeerDistGetStatus(hpeerdist, ppeerdiststatus.rawAddress).toUInt()
 
-public actual fun peerDistGetStatusEx(hpeerdist: Long, ppeerdiststatus: MutPtr<PeerdistStatusInfo>): UInt =
+public actual fun peerDistGetStatusEx(hpeerdist: Long, ppeerdiststatus: MutPtr): UInt =
     WindowsWin32NetworkmanagementP2pJniBridge.windowssysWindowsWin32NetworkmanagementP2pPeerDistGetStatusEx(hpeerdist, ppeerdiststatus.rawAddress).toUInt()
 
-public actual fun peerDistRegisterForStatusChangeNotification(hpeerdist: Long, hcompletionport: Handle, ulcompletionkey: ULong, lpoverlapped: ConstPtr<Overlapped>, ppeerdiststatus: MutPtr<PeerdistStatus>): UInt =
+public actual fun peerDistRegisterForStatusChangeNotification(hpeerdist: Long, hcompletionport: Handle, ulcompletionkey: ULong, lpoverlapped: ConstPtr, ppeerdiststatus: MutPtr): UInt =
     WindowsWin32NetworkmanagementP2pJniBridge.windowssysWindowsWin32NetworkmanagementP2pPeerDistRegisterForStatusChangeNotification(hpeerdist, hcompletionport.rawAddress, ulcompletionkey.toLong(), lpoverlapped.rawAddress, ppeerdiststatus.rawAddress).toUInt()
 
-public actual fun peerDistRegisterForStatusChangeNotificationEx(hpeerdist: Long, hcompletionport: Handle, ulcompletionkey: ULong, lpoverlapped: ConstPtr<Overlapped>, ppeerdiststatus: MutPtr<PeerdistStatusInfo>): UInt =
+public actual fun peerDistRegisterForStatusChangeNotificationEx(hpeerdist: Long, hcompletionport: Handle, ulcompletionkey: ULong, lpoverlapped: ConstPtr, ppeerdiststatus: MutPtr): UInt =
     WindowsWin32NetworkmanagementP2pJniBridge.windowssysWindowsWin32NetworkmanagementP2pPeerDistRegisterForStatusChangeNotificationEx(hpeerdist, hcompletionport.rawAddress, ulcompletionkey.toLong(), lpoverlapped.rawAddress, ppeerdiststatus.rawAddress).toUInt()
 
-public actual fun peerDistServerCancelAsyncOperation(hpeerdist: Long, cbcontentidentifier: UInt, pcontentidentifier: ConstPtr<UByte>, poverlapped: ConstPtr<Overlapped>): UInt =
+public actual fun peerDistServerCancelAsyncOperation(hpeerdist: Long, cbcontentidentifier: UInt, pcontentidentifier: ConstPtr, poverlapped: ConstPtr): UInt =
     WindowsWin32NetworkmanagementP2pJniBridge.windowssysWindowsWin32NetworkmanagementP2pPeerDistServerCancelAsyncOperation(hpeerdist, cbcontentidentifier.toInt(), pcontentidentifier.rawAddress, poverlapped.rawAddress).toUInt()
 
 public actual fun peerDistServerCloseContentInformation(hpeerdist: Long, hcontentinfo: Long): UInt =
@@ -892,340 +887,340 @@ public actual fun peerDistServerCloseContentInformation(hpeerdist: Long, hconten
 public actual fun peerDistServerCloseStreamHandle(hpeerdist: Long, hstream: Long): UInt =
     WindowsWin32NetworkmanagementP2pJniBridge.windowssysWindowsWin32NetworkmanagementP2pPeerDistServerCloseStreamHandle(hpeerdist, hstream).toUInt()
 
-public actual fun peerDistServerOpenContentInformation(hpeerdist: Long, cbcontentidentifier: UInt, pcontentidentifier: ConstPtr<UByte>, ullcontentoffset: ULong, cbcontentlength: ULong, hcompletionport: Handle, ulcompletionkey: ULong, phcontentinfo: MutPtr<Long>): UInt =
+public actual fun peerDistServerOpenContentInformation(hpeerdist: Long, cbcontentidentifier: UInt, pcontentidentifier: ConstPtr, ullcontentoffset: ULong, cbcontentlength: ULong, hcompletionport: Handle, ulcompletionkey: ULong, phcontentinfo: MutPtr): UInt =
     WindowsWin32NetworkmanagementP2pJniBridge.windowssysWindowsWin32NetworkmanagementP2pPeerDistServerOpenContentInformation(hpeerdist, cbcontentidentifier.toInt(), pcontentidentifier.rawAddress, ullcontentoffset.toLong(), cbcontentlength.toLong(), hcompletionport.rawAddress, ulcompletionkey.toLong(), phcontentinfo.rawAddress).toUInt()
 
-public actual fun peerDistServerOpenContentInformationEx(hpeerdist: Long, cbcontentidentifier: UInt, pcontentidentifier: ConstPtr<UByte>, ullcontentoffset: ULong, cbcontentlength: ULong, pretrievaloptions: ConstPtr<PeerdistRetrievalOptions>, hcompletionport: Handle, ulcompletionkey: ULong, phcontentinfo: MutPtr<Long>): UInt =
+public actual fun peerDistServerOpenContentInformationEx(hpeerdist: Long, cbcontentidentifier: UInt, pcontentidentifier: ConstPtr, ullcontentoffset: ULong, cbcontentlength: ULong, pretrievaloptions: ConstPtr, hcompletionport: Handle, ulcompletionkey: ULong, phcontentinfo: MutPtr): UInt =
     WindowsWin32NetworkmanagementP2pJniBridge.windowssysWindowsWin32NetworkmanagementP2pPeerDistServerOpenContentInformationEx(hpeerdist, cbcontentidentifier.toInt(), pcontentidentifier.rawAddress, ullcontentoffset.toLong(), cbcontentlength.toLong(), pretrievaloptions.rawAddress, hcompletionport.rawAddress, ulcompletionkey.toLong(), phcontentinfo.rawAddress).toUInt()
 
-public actual fun peerDistServerPublishAddToStream(hpeerdist: Long, hstream: Long, cbnumberofbytes: UInt, pbuffer: ConstPtr<UByte>, lpoverlapped: ConstPtr<Overlapped>): UInt =
+public actual fun peerDistServerPublishAddToStream(hpeerdist: Long, hstream: Long, cbnumberofbytes: UInt, pbuffer: ConstPtr, lpoverlapped: ConstPtr): UInt =
     WindowsWin32NetworkmanagementP2pJniBridge.windowssysWindowsWin32NetworkmanagementP2pPeerDistServerPublishAddToStream(hpeerdist, hstream, cbnumberofbytes.toInt(), pbuffer.rawAddress, lpoverlapped.rawAddress).toUInt()
 
-public actual fun peerDistServerPublishCompleteStream(hpeerdist: Long, hstream: Long, lpoverlapped: ConstPtr<Overlapped>): UInt =
+public actual fun peerDistServerPublishCompleteStream(hpeerdist: Long, hstream: Long, lpoverlapped: ConstPtr): UInt =
     WindowsWin32NetworkmanagementP2pJniBridge.windowssysWindowsWin32NetworkmanagementP2pPeerDistServerPublishCompleteStream(hpeerdist, hstream, lpoverlapped.rawAddress).toUInt()
 
-public actual fun peerDistServerPublishStream(hpeerdist: Long, cbcontentidentifier: UInt, pcontentidentifier: ConstPtr<UByte>, cbcontentlength: ULong, ppublishoptions: ConstPtr<PeerdistPublicationOptions>, hcompletionport: Handle, ulcompletionkey: ULong, phstream: MutPtr<Long>): UInt =
+public actual fun peerDistServerPublishStream(hpeerdist: Long, cbcontentidentifier: UInt, pcontentidentifier: ConstPtr, cbcontentlength: ULong, ppublishoptions: ConstPtr, hcompletionport: Handle, ulcompletionkey: ULong, phstream: MutPtr): UInt =
     WindowsWin32NetworkmanagementP2pJniBridge.windowssysWindowsWin32NetworkmanagementP2pPeerDistServerPublishStream(hpeerdist, cbcontentidentifier.toInt(), pcontentidentifier.rawAddress, cbcontentlength.toLong(), ppublishoptions.rawAddress, hcompletionport.rawAddress, ulcompletionkey.toLong(), phstream.rawAddress).toUInt()
 
-public actual fun peerDistServerRetrieveContentInformation(hpeerdist: Long, hcontentinfo: Long, cbmaxnumberofbytes: UInt, pbuffer: MutPtr<UByte>, lpoverlapped: ConstPtr<Overlapped>): UInt =
+public actual fun peerDistServerRetrieveContentInformation(hpeerdist: Long, hcontentinfo: Long, cbmaxnumberofbytes: UInt, pbuffer: MutPtr, lpoverlapped: ConstPtr): UInt =
     WindowsWin32NetworkmanagementP2pJniBridge.windowssysWindowsWin32NetworkmanagementP2pPeerDistServerRetrieveContentInformation(hpeerdist, hcontentinfo, cbmaxnumberofbytes.toInt(), pbuffer.rawAddress, lpoverlapped.rawAddress).toUInt()
 
-public actual fun peerDistServerUnpublish(hpeerdist: Long, cbcontentidentifier: UInt, pcontentidentifier: ConstPtr<UByte>): UInt =
+public actual fun peerDistServerUnpublish(hpeerdist: Long, cbcontentidentifier: UInt, pcontentidentifier: ConstPtr): UInt =
     WindowsWin32NetworkmanagementP2pJniBridge.windowssysWindowsWin32NetworkmanagementP2pPeerDistServerUnpublish(hpeerdist, cbcontentidentifier.toInt(), pcontentidentifier.rawAddress).toUInt()
 
 public actual fun peerDistShutdown(hpeerdist: Long): UInt =
     WindowsWin32NetworkmanagementP2pJniBridge.windowssysWindowsWin32NetworkmanagementP2pPeerDistShutdown(hpeerdist).toUInt()
 
-public actual fun peerDistStartup(dwversionrequested: UInt, phpeerdist: MutPtr<Long>, pdwsupportedversion: MutPtr<UInt>): UInt =
+public actual fun peerDistStartup(dwversionrequested: UInt, phpeerdist: MutPtr, pdwsupportedversion: MutPtr): UInt =
     WindowsWin32NetworkmanagementP2pJniBridge.windowssysWindowsWin32NetworkmanagementP2pPeerDistStartup(dwversionrequested.toInt(), phpeerdist.rawAddress, pdwsupportedversion.rawAddress).toUInt()
 
 public actual fun peerDistUnregisterForStatusChangeNotification(hpeerdist: Long): UInt =
     WindowsWin32NetworkmanagementP2pJniBridge.windowssysWindowsWin32NetworkmanagementP2pPeerDistUnregisterForStatusChangeNotification(hpeerdist).toUInt()
 
-public actual fun peerEndEnumeration(hpeerenum: ConstPtr<CVoid>): Hresult =
+public actual fun peerEndEnumeration(hpeerenum: ConstPtr): Hresult =
     WindowsWin32NetworkmanagementP2pJniBridge.windowssysWindowsWin32NetworkmanagementP2pPeerEndEnumeration(hpeerenum.rawAddress)
 
-public actual fun peerEnumGroups(pwzidentity: Pcwstr, phpeerenum: MutPtr<MutPtr<CVoid>>): Hresult =
+public actual fun peerEnumGroups(pwzidentity: Pcwstr, phpeerenum: MutPtr): Hresult =
     WindowsWin32NetworkmanagementP2pJniBridge.windowssysWindowsWin32NetworkmanagementP2pPeerEnumGroups(pwzidentity.rawAddress, phpeerenum.rawAddress)
 
-public actual fun peerEnumIdentities(phpeerenum: MutPtr<MutPtr<CVoid>>): Hresult =
+public actual fun peerEnumIdentities(phpeerenum: MutPtr): Hresult =
     WindowsWin32NetworkmanagementP2pJniBridge.windowssysWindowsWin32NetworkmanagementP2pPeerEnumIdentities(phpeerenum.rawAddress)
 
-public actual fun peerFreeData(pvdata: ConstPtr<CVoid>) {
+public actual fun peerFreeData(pvdata: ConstPtr) {
     WindowsWin32NetworkmanagementP2pJniBridge.windowssysWindowsWin32NetworkmanagementP2pPeerFreeData(pvdata.rawAddress)
 }
 
-public actual fun peerGetItemCount(hpeerenum: ConstPtr<CVoid>, pcount: MutPtr<UInt>): Hresult =
+public actual fun peerGetItemCount(hpeerenum: ConstPtr, pcount: MutPtr): Hresult =
     WindowsWin32NetworkmanagementP2pJniBridge.windowssysWindowsWin32NetworkmanagementP2pPeerGetItemCount(hpeerenum.rawAddress, pcount.rawAddress)
 
-public actual fun peerGetNextItem(hpeerenum: ConstPtr<CVoid>, pcount: MutPtr<UInt>, pppvitems: MutPtr<MutPtr<MutPtr<CVoid>>>): Hresult =
+public actual fun peerGetNextItem(hpeerenum: ConstPtr, pcount: MutPtr, pppvitems: MutPtr): Hresult =
     WindowsWin32NetworkmanagementP2pJniBridge.windowssysWindowsWin32NetworkmanagementP2pPeerGetNextItem(hpeerenum.rawAddress, pcount.rawAddress, pppvitems.rawAddress)
 
-public actual fun peerGraphAddRecord(hgraph: ConstPtr<CVoid>, precord: ConstPtr<PeerRecord>, precordid: MutPtr<Guid>): Hresult =
+public actual fun peerGraphAddRecord(hgraph: ConstPtr, precord: ConstPtr, precordid: MutPtr): Hresult =
     WindowsWin32NetworkmanagementP2pJniBridge.windowssysWindowsWin32NetworkmanagementP2pPeerGraphAddRecord(hgraph.rawAddress, precord.rawAddress, precordid.rawAddress)
 
-public actual fun peerGraphClose(hgraph: ConstPtr<CVoid>): Hresult =
+public actual fun peerGraphClose(hgraph: ConstPtr): Hresult =
     WindowsWin32NetworkmanagementP2pJniBridge.windowssysWindowsWin32NetworkmanagementP2pPeerGraphClose(hgraph.rawAddress)
 
-public actual fun peerGraphCloseDirectConnection(hgraph: ConstPtr<CVoid>, ullconnectionid: ULong): Hresult =
+public actual fun peerGraphCloseDirectConnection(hgraph: ConstPtr, ullconnectionid: ULong): Hresult =
     WindowsWin32NetworkmanagementP2pJniBridge.windowssysWindowsWin32NetworkmanagementP2pPeerGraphCloseDirectConnection(hgraph.rawAddress, ullconnectionid.toLong())
 
-public actual fun peerGraphConnect(hgraph: ConstPtr<CVoid>, pwzpeerid: Pcwstr, paddress: ConstPtr<PeerAddress>, pullconnectionid: MutPtr<ULong>): Hresult =
+public actual fun peerGraphConnect(hgraph: ConstPtr, pwzpeerid: Pcwstr, paddress: ConstPtr, pullconnectionid: MutPtr): Hresult =
     WindowsWin32NetworkmanagementP2pJniBridge.windowssysWindowsWin32NetworkmanagementP2pPeerGraphConnect(hgraph.rawAddress, pwzpeerid.rawAddress, paddress.rawAddress, pullconnectionid.rawAddress)
 
-public actual fun peerGraphCreate(pgraphproperties: ConstPtr<PeerGraphProperties>, pwzdatabasename: Pcwstr, psecurityinterface: ConstPtr<PeerSecurityInterface>, phgraph: MutPtr<MutPtr<CVoid>>): Hresult =
+public actual fun peerGraphCreate(pgraphproperties: ConstPtr, pwzdatabasename: Pcwstr, psecurityinterface: ConstPtr, phgraph: MutPtr): Hresult =
     WindowsWin32NetworkmanagementP2pJniBridge.windowssysWindowsWin32NetworkmanagementP2pPeerGraphCreate(pgraphproperties.rawAddress, pwzdatabasename.rawAddress, psecurityinterface.rawAddress, phgraph.rawAddress)
 
 public actual fun peerGraphDelete(pwzgraphid: Pcwstr, pwzpeerid: Pcwstr, pwzdatabasename: Pcwstr): Hresult =
     WindowsWin32NetworkmanagementP2pJniBridge.windowssysWindowsWin32NetworkmanagementP2pPeerGraphDelete(pwzgraphid.rawAddress, pwzpeerid.rawAddress, pwzdatabasename.rawAddress)
 
-public actual fun peerGraphDeleteRecord(hgraph: ConstPtr<CVoid>, precordid: ConstPtr<Guid>, flocal: Bool): Hresult =
+public actual fun peerGraphDeleteRecord(hgraph: ConstPtr, precordid: ConstPtr, flocal: Bool): Hresult =
     WindowsWin32NetworkmanagementP2pJniBridge.windowssysWindowsWin32NetworkmanagementP2pPeerGraphDeleteRecord(hgraph.rawAddress, precordid.rawAddress, flocal)
 
-public actual fun peerGraphEndEnumeration(hpeerenum: ConstPtr<CVoid>): Hresult =
+public actual fun peerGraphEndEnumeration(hpeerenum: ConstPtr): Hresult =
     WindowsWin32NetworkmanagementP2pJniBridge.windowssysWindowsWin32NetworkmanagementP2pPeerGraphEndEnumeration(hpeerenum.rawAddress)
 
-public actual fun peerGraphEnumConnections(hgraph: ConstPtr<CVoid>, dwflags: UInt, phpeerenum: MutPtr<MutPtr<CVoid>>): Hresult =
+public actual fun peerGraphEnumConnections(hgraph: ConstPtr, dwflags: UInt, phpeerenum: MutPtr): Hresult =
     WindowsWin32NetworkmanagementP2pJniBridge.windowssysWindowsWin32NetworkmanagementP2pPeerGraphEnumConnections(hgraph.rawAddress, dwflags.toInt(), phpeerenum.rawAddress)
 
-public actual fun peerGraphEnumNodes(hgraph: ConstPtr<CVoid>, pwzpeerid: Pcwstr, phpeerenum: MutPtr<MutPtr<CVoid>>): Hresult =
+public actual fun peerGraphEnumNodes(hgraph: ConstPtr, pwzpeerid: Pcwstr, phpeerenum: MutPtr): Hresult =
     WindowsWin32NetworkmanagementP2pJniBridge.windowssysWindowsWin32NetworkmanagementP2pPeerGraphEnumNodes(hgraph.rawAddress, pwzpeerid.rawAddress, phpeerenum.rawAddress)
 
-public actual fun peerGraphEnumRecords(hgraph: ConstPtr<CVoid>, precordtype: ConstPtr<Guid>, pwzpeerid: Pcwstr, phpeerenum: MutPtr<MutPtr<CVoid>>): Hresult =
+public actual fun peerGraphEnumRecords(hgraph: ConstPtr, precordtype: ConstPtr, pwzpeerid: Pcwstr, phpeerenum: MutPtr): Hresult =
     WindowsWin32NetworkmanagementP2pJniBridge.windowssysWindowsWin32NetworkmanagementP2pPeerGraphEnumRecords(hgraph.rawAddress, precordtype.rawAddress, pwzpeerid.rawAddress, phpeerenum.rawAddress)
 
-public actual fun peerGraphExportDatabase(hgraph: ConstPtr<CVoid>, pwzfilepath: Pcwstr): Hresult =
+public actual fun peerGraphExportDatabase(hgraph: ConstPtr, pwzfilepath: Pcwstr): Hresult =
     WindowsWin32NetworkmanagementP2pJniBridge.windowssysWindowsWin32NetworkmanagementP2pPeerGraphExportDatabase(hgraph.rawAddress, pwzfilepath.rawAddress)
 
-public actual fun peerGraphFreeData(pvdata: ConstPtr<CVoid>) {
+public actual fun peerGraphFreeData(pvdata: ConstPtr) {
     WindowsWin32NetworkmanagementP2pJniBridge.windowssysWindowsWin32NetworkmanagementP2pPeerGraphFreeData(pvdata.rawAddress)
 }
 
-public actual fun peerGraphGetEventData(hpeerevent: ConstPtr<CVoid>, ppeventdata: MutPtr<MutPtr<PeerGraphEventData>>): Hresult =
+public actual fun peerGraphGetEventData(hpeerevent: ConstPtr, ppeventdata: MutPtr): Hresult =
     WindowsWin32NetworkmanagementP2pJniBridge.windowssysWindowsWin32NetworkmanagementP2pPeerGraphGetEventData(hpeerevent.rawAddress, ppeventdata.rawAddress)
 
-public actual fun peerGraphGetItemCount(hpeerenum: ConstPtr<CVoid>, pcount: MutPtr<UInt>): Hresult =
+public actual fun peerGraphGetItemCount(hpeerenum: ConstPtr, pcount: MutPtr): Hresult =
     WindowsWin32NetworkmanagementP2pJniBridge.windowssysWindowsWin32NetworkmanagementP2pPeerGraphGetItemCount(hpeerenum.rawAddress, pcount.rawAddress)
 
-public actual fun peerGraphGetNextItem(hpeerenum: ConstPtr<CVoid>, pcount: MutPtr<UInt>, pppvitems: MutPtr<MutPtr<MutPtr<CVoid>>>): Hresult =
+public actual fun peerGraphGetNextItem(hpeerenum: ConstPtr, pcount: MutPtr, pppvitems: MutPtr): Hresult =
     WindowsWin32NetworkmanagementP2pJniBridge.windowssysWindowsWin32NetworkmanagementP2pPeerGraphGetNextItem(hpeerenum.rawAddress, pcount.rawAddress, pppvitems.rawAddress)
 
-public actual fun peerGraphGetNodeInfo(hgraph: ConstPtr<CVoid>, ullnodeid: ULong, ppnodeinfo: MutPtr<MutPtr<PeerNodeInfo>>): Hresult =
+public actual fun peerGraphGetNodeInfo(hgraph: ConstPtr, ullnodeid: ULong, ppnodeinfo: MutPtr): Hresult =
     WindowsWin32NetworkmanagementP2pJniBridge.windowssysWindowsWin32NetworkmanagementP2pPeerGraphGetNodeInfo(hgraph.rawAddress, ullnodeid.toLong(), ppnodeinfo.rawAddress)
 
-public actual fun peerGraphGetProperties(hgraph: ConstPtr<CVoid>, ppgraphproperties: MutPtr<MutPtr<PeerGraphProperties>>): Hresult =
+public actual fun peerGraphGetProperties(hgraph: ConstPtr, ppgraphproperties: MutPtr): Hresult =
     WindowsWin32NetworkmanagementP2pJniBridge.windowssysWindowsWin32NetworkmanagementP2pPeerGraphGetProperties(hgraph.rawAddress, ppgraphproperties.rawAddress)
 
-public actual fun peerGraphGetRecord(hgraph: ConstPtr<CVoid>, precordid: ConstPtr<Guid>, pprecord: MutPtr<MutPtr<PeerRecord>>): Hresult =
+public actual fun peerGraphGetRecord(hgraph: ConstPtr, precordid: ConstPtr, pprecord: MutPtr): Hresult =
     WindowsWin32NetworkmanagementP2pJniBridge.windowssysWindowsWin32NetworkmanagementP2pPeerGraphGetRecord(hgraph.rawAddress, precordid.rawAddress, pprecord.rawAddress)
 
-public actual fun peerGraphGetStatus(hgraph: ConstPtr<CVoid>, pdwstatus: MutPtr<UInt>): Hresult =
+public actual fun peerGraphGetStatus(hgraph: ConstPtr, pdwstatus: MutPtr): Hresult =
     WindowsWin32NetworkmanagementP2pJniBridge.windowssysWindowsWin32NetworkmanagementP2pPeerGraphGetStatus(hgraph.rawAddress, pdwstatus.rawAddress)
 
-public actual fun peerGraphImportDatabase(hgraph: ConstPtr<CVoid>, pwzfilepath: Pcwstr): Hresult =
+public actual fun peerGraphImportDatabase(hgraph: ConstPtr, pwzfilepath: Pcwstr): Hresult =
     WindowsWin32NetworkmanagementP2pJniBridge.windowssysWindowsWin32NetworkmanagementP2pPeerGraphImportDatabase(hgraph.rawAddress, pwzfilepath.rawAddress)
 
-public actual fun peerGraphListen(hgraph: ConstPtr<CVoid>, dwscope: UInt, dwscopeid: UInt, wport: UShort): Hresult =
+public actual fun peerGraphListen(hgraph: ConstPtr, dwscope: UInt, dwscopeid: UInt, wport: UShort): Hresult =
     WindowsWin32NetworkmanagementP2pJniBridge.windowssysWindowsWin32NetworkmanagementP2pPeerGraphListen(hgraph.rawAddress, dwscope.toInt(), dwscopeid.toInt(), wport.toShort())
 
-public actual fun peerGraphOpen(pwzgraphid: Pcwstr, pwzpeerid: Pcwstr, pwzdatabasename: Pcwstr, psecurityinterface: ConstPtr<PeerSecurityInterface>, crecordtypesyncprecedence: UInt, precordtypesyncprecedence: ConstPtr<Guid>, phgraph: MutPtr<MutPtr<CVoid>>): Hresult =
+public actual fun peerGraphOpen(pwzgraphid: Pcwstr, pwzpeerid: Pcwstr, pwzdatabasename: Pcwstr, psecurityinterface: ConstPtr, crecordtypesyncprecedence: UInt, precordtypesyncprecedence: ConstPtr, phgraph: MutPtr): Hresult =
     WindowsWin32NetworkmanagementP2pJniBridge.windowssysWindowsWin32NetworkmanagementP2pPeerGraphOpen(pwzgraphid.rawAddress, pwzpeerid.rawAddress, pwzdatabasename.rawAddress, psecurityinterface.rawAddress, crecordtypesyncprecedence.toInt(), precordtypesyncprecedence.rawAddress, phgraph.rawAddress)
 
-public actual fun peerGraphOpenDirectConnection(hgraph: ConstPtr<CVoid>, pwzpeerid: Pcwstr, paddress: ConstPtr<PeerAddress>, pullconnectionid: MutPtr<ULong>): Hresult =
+public actual fun peerGraphOpenDirectConnection(hgraph: ConstPtr, pwzpeerid: Pcwstr, paddress: ConstPtr, pullconnectionid: MutPtr): Hresult =
     WindowsWin32NetworkmanagementP2pJniBridge.windowssysWindowsWin32NetworkmanagementP2pPeerGraphOpenDirectConnection(hgraph.rawAddress, pwzpeerid.rawAddress, paddress.rawAddress, pullconnectionid.rawAddress)
 
-public actual fun peerGraphPeerTimeToUniversalTime(hgraph: ConstPtr<CVoid>, pftpeertime: ConstPtr<Filetime>, pftuniversaltime: MutPtr<Filetime>): Hresult =
+public actual fun peerGraphPeerTimeToUniversalTime(hgraph: ConstPtr, pftpeertime: ConstPtr, pftuniversaltime: MutPtr): Hresult =
     WindowsWin32NetworkmanagementP2pJniBridge.windowssysWindowsWin32NetworkmanagementP2pPeerGraphPeerTimeToUniversalTime(hgraph.rawAddress, pftpeertime.rawAddress, pftuniversaltime.rawAddress)
 
-public actual fun peerGraphRegisterEvent(hgraph: ConstPtr<CVoid>, hevent: Handle, ceventregistrations: UInt, peventregistrations: ConstPtr<PeerGraphEventRegistration>, phpeerevent: MutPtr<MutPtr<CVoid>>): Hresult =
+public actual fun peerGraphRegisterEvent(hgraph: ConstPtr, hevent: Handle, ceventregistrations: UInt, peventregistrations: ConstPtr, phpeerevent: MutPtr): Hresult =
     WindowsWin32NetworkmanagementP2pJniBridge.windowssysWindowsWin32NetworkmanagementP2pPeerGraphRegisterEvent(hgraph.rawAddress, hevent.rawAddress, ceventregistrations.toInt(), peventregistrations.rawAddress, phpeerevent.rawAddress)
 
-public actual fun peerGraphSearchRecords(hgraph: ConstPtr<CVoid>, pwzcriteria: Pcwstr, phpeerenum: MutPtr<MutPtr<CVoid>>): Hresult =
+public actual fun peerGraphSearchRecords(hgraph: ConstPtr, pwzcriteria: Pcwstr, phpeerenum: MutPtr): Hresult =
     WindowsWin32NetworkmanagementP2pJniBridge.windowssysWindowsWin32NetworkmanagementP2pPeerGraphSearchRecords(hgraph.rawAddress, pwzcriteria.rawAddress, phpeerenum.rawAddress)
 
-public actual fun peerGraphSendData(hgraph: ConstPtr<CVoid>, ullconnectionid: ULong, ptype: ConstPtr<Guid>, cbdata: UInt, pvdata: ConstPtr<CVoid>): Hresult =
+public actual fun peerGraphSendData(hgraph: ConstPtr, ullconnectionid: ULong, ptype: ConstPtr, cbdata: UInt, pvdata: ConstPtr): Hresult =
     WindowsWin32NetworkmanagementP2pJniBridge.windowssysWindowsWin32NetworkmanagementP2pPeerGraphSendData(hgraph.rawAddress, ullconnectionid.toLong(), ptype.rawAddress, cbdata.toInt(), pvdata.rawAddress)
 
-public actual fun peerGraphSetNodeAttributes(hgraph: ConstPtr<CVoid>, pwzattributes: Pcwstr): Hresult =
+public actual fun peerGraphSetNodeAttributes(hgraph: ConstPtr, pwzattributes: Pcwstr): Hresult =
     WindowsWin32NetworkmanagementP2pJniBridge.windowssysWindowsWin32NetworkmanagementP2pPeerGraphSetNodeAttributes(hgraph.rawAddress, pwzattributes.rawAddress)
 
-public actual fun peerGraphSetPresence(hgraph: ConstPtr<CVoid>, fpresent: Bool): Hresult =
+public actual fun peerGraphSetPresence(hgraph: ConstPtr, fpresent: Bool): Hresult =
     WindowsWin32NetworkmanagementP2pJniBridge.windowssysWindowsWin32NetworkmanagementP2pPeerGraphSetPresence(hgraph.rawAddress, fpresent)
 
-public actual fun peerGraphSetProperties(hgraph: ConstPtr<CVoid>, pgraphproperties: ConstPtr<PeerGraphProperties>): Hresult =
+public actual fun peerGraphSetProperties(hgraph: ConstPtr, pgraphproperties: ConstPtr): Hresult =
     WindowsWin32NetworkmanagementP2pJniBridge.windowssysWindowsWin32NetworkmanagementP2pPeerGraphSetProperties(hgraph.rawAddress, pgraphproperties.rawAddress)
 
 public actual fun peerGraphShutdown(): Hresult =
     WindowsWin32NetworkmanagementP2pJniBridge.windowssysWindowsWin32NetworkmanagementP2pPeerGraphShutdown()
 
-public actual fun peerGraphStartup(wversionrequested: UShort, pversiondata: MutPtr<PeerVersionData>): Hresult =
+public actual fun peerGraphStartup(wversionrequested: UShort, pversiondata: MutPtr): Hresult =
     WindowsWin32NetworkmanagementP2pJniBridge.windowssysWindowsWin32NetworkmanagementP2pPeerGraphStartup(wversionrequested.toShort(), pversiondata.rawAddress)
 
-public actual fun peerGraphUniversalTimeToPeerTime(hgraph: ConstPtr<CVoid>, pftuniversaltime: ConstPtr<Filetime>, pftpeertime: MutPtr<Filetime>): Hresult =
+public actual fun peerGraphUniversalTimeToPeerTime(hgraph: ConstPtr, pftuniversaltime: ConstPtr, pftpeertime: MutPtr): Hresult =
     WindowsWin32NetworkmanagementP2pJniBridge.windowssysWindowsWin32NetworkmanagementP2pPeerGraphUniversalTimeToPeerTime(hgraph.rawAddress, pftuniversaltime.rawAddress, pftpeertime.rawAddress)
 
-public actual fun peerGraphUnregisterEvent(hpeerevent: ConstPtr<CVoid>): Hresult =
+public actual fun peerGraphUnregisterEvent(hpeerevent: ConstPtr): Hresult =
     WindowsWin32NetworkmanagementP2pJniBridge.windowssysWindowsWin32NetworkmanagementP2pPeerGraphUnregisterEvent(hpeerevent.rawAddress)
 
-public actual fun peerGraphUpdateRecord(hgraph: ConstPtr<CVoid>, precord: ConstPtr<PeerRecord>): Hresult =
+public actual fun peerGraphUpdateRecord(hgraph: ConstPtr, precord: ConstPtr): Hresult =
     WindowsWin32NetworkmanagementP2pJniBridge.windowssysWindowsWin32NetworkmanagementP2pPeerGraphUpdateRecord(hgraph.rawAddress, precord.rawAddress)
 
-public actual fun peerGraphValidateDeferredRecords(hgraph: ConstPtr<CVoid>, crecordids: UInt, precordids: ConstPtr<Guid>): Hresult =
+public actual fun peerGraphValidateDeferredRecords(hgraph: ConstPtr, crecordids: UInt, precordids: ConstPtr): Hresult =
     WindowsWin32NetworkmanagementP2pJniBridge.windowssysWindowsWin32NetworkmanagementP2pPeerGraphValidateDeferredRecords(hgraph.rawAddress, crecordids.toInt(), precordids.rawAddress)
 
-public actual fun peerGroupAddRecord(hgroup: ConstPtr<CVoid>, precord: ConstPtr<PeerRecord>, precordid: MutPtr<Guid>): Hresult =
+public actual fun peerGroupAddRecord(hgroup: ConstPtr, precord: ConstPtr, precordid: MutPtr): Hresult =
     WindowsWin32NetworkmanagementP2pJniBridge.windowssysWindowsWin32NetworkmanagementP2pPeerGroupAddRecord(hgroup.rawAddress, precord.rawAddress, precordid.rawAddress)
 
-public actual fun peerGroupClose(hgroup: ConstPtr<CVoid>): Hresult =
+public actual fun peerGroupClose(hgroup: ConstPtr): Hresult =
     WindowsWin32NetworkmanagementP2pJniBridge.windowssysWindowsWin32NetworkmanagementP2pPeerGroupClose(hgroup.rawAddress)
 
-public actual fun peerGroupCloseDirectConnection(hgroup: ConstPtr<CVoid>, ullconnectionid: ULong): Hresult =
+public actual fun peerGroupCloseDirectConnection(hgroup: ConstPtr, ullconnectionid: ULong): Hresult =
     WindowsWin32NetworkmanagementP2pJniBridge.windowssysWindowsWin32NetworkmanagementP2pPeerGroupCloseDirectConnection(hgroup.rawAddress, ullconnectionid.toLong())
 
-public actual fun peerGroupConnect(hgroup: ConstPtr<CVoid>): Hresult =
+public actual fun peerGroupConnect(hgroup: ConstPtr): Hresult =
     WindowsWin32NetworkmanagementP2pJniBridge.windowssysWindowsWin32NetworkmanagementP2pPeerGroupConnect(hgroup.rawAddress)
 
-public actual fun peerGroupConnectByAddress(hgroup: ConstPtr<CVoid>, caddresses: UInt, paddresses: ConstPtr<PeerAddress>): Hresult =
+public actual fun peerGroupConnectByAddress(hgroup: ConstPtr, caddresses: UInt, paddresses: ConstPtr): Hresult =
     WindowsWin32NetworkmanagementP2pJniBridge.windowssysWindowsWin32NetworkmanagementP2pPeerGroupConnectByAddress(hgroup.rawAddress, caddresses.toInt(), paddresses.rawAddress)
 
-public actual fun peerGroupCreate(pproperties: ConstPtr<PeerGroupProperties>, phgroup: MutPtr<MutPtr<CVoid>>): Hresult =
+public actual fun peerGroupCreate(pproperties: ConstPtr, phgroup: MutPtr): Hresult =
     WindowsWin32NetworkmanagementP2pJniBridge.windowssysWindowsWin32NetworkmanagementP2pPeerGroupCreate(pproperties.rawAddress, phgroup.rawAddress)
 
-public actual fun peerGroupCreateInvitation(hgroup: ConstPtr<CVoid>, pwzidentityinfo: Pcwstr, pftexpiration: ConstPtr<Filetime>, croles: UInt, proles: ConstPtr<Guid>, ppwzinvitation: MutPtr<Pwstr>): Hresult =
+public actual fun peerGroupCreateInvitation(hgroup: ConstPtr, pwzidentityinfo: Pcwstr, pftexpiration: ConstPtr, croles: UInt, proles: ConstPtr, ppwzinvitation: MutPtr): Hresult =
     WindowsWin32NetworkmanagementP2pJniBridge.windowssysWindowsWin32NetworkmanagementP2pPeerGroupCreateInvitation(hgroup.rawAddress, pwzidentityinfo.rawAddress, pftexpiration.rawAddress, croles.toInt(), proles.rawAddress, ppwzinvitation.rawAddress)
 
-public actual fun peerGroupCreatePasswordInvitation(hgroup: ConstPtr<CVoid>, ppwzinvitation: MutPtr<Pwstr>): Hresult =
+public actual fun peerGroupCreatePasswordInvitation(hgroup: ConstPtr, ppwzinvitation: MutPtr): Hresult =
     WindowsWin32NetworkmanagementP2pJniBridge.windowssysWindowsWin32NetworkmanagementP2pPeerGroupCreatePasswordInvitation(hgroup.rawAddress, ppwzinvitation.rawAddress)
 
 public actual fun peerGroupDelete(pwzidentity: Pcwstr, pwzgrouppeername: Pcwstr): Hresult =
     WindowsWin32NetworkmanagementP2pJniBridge.windowssysWindowsWin32NetworkmanagementP2pPeerGroupDelete(pwzidentity.rawAddress, pwzgrouppeername.rawAddress)
 
-public actual fun peerGroupDeleteRecord(hgroup: ConstPtr<CVoid>, precordid: ConstPtr<Guid>): Hresult =
+public actual fun peerGroupDeleteRecord(hgroup: ConstPtr, precordid: ConstPtr): Hresult =
     WindowsWin32NetworkmanagementP2pJniBridge.windowssysWindowsWin32NetworkmanagementP2pPeerGroupDeleteRecord(hgroup.rawAddress, precordid.rawAddress)
 
-public actual fun peerGroupEnumConnections(hgroup: ConstPtr<CVoid>, dwflags: UInt, phpeerenum: MutPtr<MutPtr<CVoid>>): Hresult =
+public actual fun peerGroupEnumConnections(hgroup: ConstPtr, dwflags: UInt, phpeerenum: MutPtr): Hresult =
     WindowsWin32NetworkmanagementP2pJniBridge.windowssysWindowsWin32NetworkmanagementP2pPeerGroupEnumConnections(hgroup.rawAddress, dwflags.toInt(), phpeerenum.rawAddress)
 
-public actual fun peerGroupEnumMembers(hgroup: ConstPtr<CVoid>, dwflags: UInt, pwzidentity: Pcwstr, phpeerenum: MutPtr<MutPtr<CVoid>>): Hresult =
+public actual fun peerGroupEnumMembers(hgroup: ConstPtr, dwflags: UInt, pwzidentity: Pcwstr, phpeerenum: MutPtr): Hresult =
     WindowsWin32NetworkmanagementP2pJniBridge.windowssysWindowsWin32NetworkmanagementP2pPeerGroupEnumMembers(hgroup.rawAddress, dwflags.toInt(), pwzidentity.rawAddress, phpeerenum.rawAddress)
 
-public actual fun peerGroupEnumRecords(hgroup: ConstPtr<CVoid>, precordtype: ConstPtr<Guid>, phpeerenum: MutPtr<MutPtr<CVoid>>): Hresult =
+public actual fun peerGroupEnumRecords(hgroup: ConstPtr, precordtype: ConstPtr, phpeerenum: MutPtr): Hresult =
     WindowsWin32NetworkmanagementP2pJniBridge.windowssysWindowsWin32NetworkmanagementP2pPeerGroupEnumRecords(hgroup.rawAddress, precordtype.rawAddress, phpeerenum.rawAddress)
 
-public actual fun peerGroupExportConfig(hgroup: ConstPtr<CVoid>, pwzpassword: Pcwstr, ppwzxml: MutPtr<Pwstr>): Hresult =
+public actual fun peerGroupExportConfig(hgroup: ConstPtr, pwzpassword: Pcwstr, ppwzxml: MutPtr): Hresult =
     WindowsWin32NetworkmanagementP2pJniBridge.windowssysWindowsWin32NetworkmanagementP2pPeerGroupExportConfig(hgroup.rawAddress, pwzpassword.rawAddress, ppwzxml.rawAddress)
 
-public actual fun peerGroupExportDatabase(hgroup: ConstPtr<CVoid>, pwzfilepath: Pcwstr): Hresult =
+public actual fun peerGroupExportDatabase(hgroup: ConstPtr, pwzfilepath: Pcwstr): Hresult =
     WindowsWin32NetworkmanagementP2pJniBridge.windowssysWindowsWin32NetworkmanagementP2pPeerGroupExportDatabase(hgroup.rawAddress, pwzfilepath.rawAddress)
 
-public actual fun peerGroupGetEventData(hpeerevent: ConstPtr<CVoid>, ppeventdata: MutPtr<MutPtr<PeerGroupEventData>>): Hresult =
+public actual fun peerGroupGetEventData(hpeerevent: ConstPtr, ppeventdata: MutPtr): Hresult =
     WindowsWin32NetworkmanagementP2pJniBridge.windowssysWindowsWin32NetworkmanagementP2pPeerGroupGetEventData(hpeerevent.rawAddress, ppeventdata.rawAddress)
 
-public actual fun peerGroupGetProperties(hgroup: ConstPtr<CVoid>, ppproperties: MutPtr<MutPtr<PeerGroupProperties>>): Hresult =
+public actual fun peerGroupGetProperties(hgroup: ConstPtr, ppproperties: MutPtr): Hresult =
     WindowsWin32NetworkmanagementP2pJniBridge.windowssysWindowsWin32NetworkmanagementP2pPeerGroupGetProperties(hgroup.rawAddress, ppproperties.rawAddress)
 
-public actual fun peerGroupGetRecord(hgroup: ConstPtr<CVoid>, precordid: ConstPtr<Guid>, pprecord: MutPtr<MutPtr<PeerRecord>>): Hresult =
+public actual fun peerGroupGetRecord(hgroup: ConstPtr, precordid: ConstPtr, pprecord: MutPtr): Hresult =
     WindowsWin32NetworkmanagementP2pJniBridge.windowssysWindowsWin32NetworkmanagementP2pPeerGroupGetRecord(hgroup.rawAddress, precordid.rawAddress, pprecord.rawAddress)
 
-public actual fun peerGroupGetStatus(hgroup: ConstPtr<CVoid>, pdwstatus: MutPtr<UInt>): Hresult =
+public actual fun peerGroupGetStatus(hgroup: ConstPtr, pdwstatus: MutPtr): Hresult =
     WindowsWin32NetworkmanagementP2pJniBridge.windowssysWindowsWin32NetworkmanagementP2pPeerGroupGetStatus(hgroup.rawAddress, pdwstatus.rawAddress)
 
-public actual fun peerGroupImportConfig(pwzxml: Pcwstr, pwzpassword: Pcwstr, foverwrite: Bool, ppwzidentity: MutPtr<Pwstr>, ppwzgroup: MutPtr<Pwstr>): Hresult =
+public actual fun peerGroupImportConfig(pwzxml: Pcwstr, pwzpassword: Pcwstr, foverwrite: Bool, ppwzidentity: MutPtr, ppwzgroup: MutPtr): Hresult =
     WindowsWin32NetworkmanagementP2pJniBridge.windowssysWindowsWin32NetworkmanagementP2pPeerGroupImportConfig(pwzxml.rawAddress, pwzpassword.rawAddress, foverwrite, ppwzidentity.rawAddress, ppwzgroup.rawAddress)
 
-public actual fun peerGroupImportDatabase(hgroup: ConstPtr<CVoid>, pwzfilepath: Pcwstr): Hresult =
+public actual fun peerGroupImportDatabase(hgroup: ConstPtr, pwzfilepath: Pcwstr): Hresult =
     WindowsWin32NetworkmanagementP2pJniBridge.windowssysWindowsWin32NetworkmanagementP2pPeerGroupImportDatabase(hgroup.rawAddress, pwzfilepath.rawAddress)
 
-public actual fun peerGroupIssueCredentials(hgroup: ConstPtr<CVoid>, pwzsubjectidentity: Pcwstr, pcredentialinfo: ConstPtr<PeerCredentialInfo>, dwflags: UInt, ppwzinvitation: MutPtr<Pwstr>): Hresult =
+public actual fun peerGroupIssueCredentials(hgroup: ConstPtr, pwzsubjectidentity: Pcwstr, pcredentialinfo: ConstPtr, dwflags: UInt, ppwzinvitation: MutPtr): Hresult =
     WindowsWin32NetworkmanagementP2pJniBridge.windowssysWindowsWin32NetworkmanagementP2pPeerGroupIssueCredentials(hgroup.rawAddress, pwzsubjectidentity.rawAddress, pcredentialinfo.rawAddress, dwflags.toInt(), ppwzinvitation.rawAddress)
 
-public actual fun peerGroupJoin(pwzidentity: Pcwstr, pwzinvitation: Pcwstr, pwzcloud: Pcwstr, phgroup: MutPtr<MutPtr<CVoid>>): Hresult =
+public actual fun peerGroupJoin(pwzidentity: Pcwstr, pwzinvitation: Pcwstr, pwzcloud: Pcwstr, phgroup: MutPtr): Hresult =
     WindowsWin32NetworkmanagementP2pJniBridge.windowssysWindowsWin32NetworkmanagementP2pPeerGroupJoin(pwzidentity.rawAddress, pwzinvitation.rawAddress, pwzcloud.rawAddress, phgroup.rawAddress)
 
-public actual fun peerGroupOpen(pwzidentity: Pcwstr, pwzgrouppeername: Pcwstr, pwzcloud: Pcwstr, phgroup: MutPtr<MutPtr<CVoid>>): Hresult =
+public actual fun peerGroupOpen(pwzidentity: Pcwstr, pwzgrouppeername: Pcwstr, pwzcloud: Pcwstr, phgroup: MutPtr): Hresult =
     WindowsWin32NetworkmanagementP2pJniBridge.windowssysWindowsWin32NetworkmanagementP2pPeerGroupOpen(pwzidentity.rawAddress, pwzgrouppeername.rawAddress, pwzcloud.rawAddress, phgroup.rawAddress)
 
-public actual fun peerGroupOpenDirectConnection(hgroup: ConstPtr<CVoid>, pwzidentity: Pcwstr, paddress: ConstPtr<PeerAddress>, pullconnectionid: MutPtr<ULong>): Hresult =
+public actual fun peerGroupOpenDirectConnection(hgroup: ConstPtr, pwzidentity: Pcwstr, paddress: ConstPtr, pullconnectionid: MutPtr): Hresult =
     WindowsWin32NetworkmanagementP2pJniBridge.windowssysWindowsWin32NetworkmanagementP2pPeerGroupOpenDirectConnection(hgroup.rawAddress, pwzidentity.rawAddress, paddress.rawAddress, pullconnectionid.rawAddress)
 
-public actual fun peerGroupParseInvitation(pwzinvitation: Pcwstr, ppinvitationinfo: MutPtr<MutPtr<PeerInvitationInfo>>): Hresult =
+public actual fun peerGroupParseInvitation(pwzinvitation: Pcwstr, ppinvitationinfo: MutPtr): Hresult =
     WindowsWin32NetworkmanagementP2pJniBridge.windowssysWindowsWin32NetworkmanagementP2pPeerGroupParseInvitation(pwzinvitation.rawAddress, ppinvitationinfo.rawAddress)
 
-public actual fun peerGroupPasswordJoin(pwzidentity: Pcwstr, pwzinvitation: Pcwstr, pwzpassword: Pcwstr, pwzcloud: Pcwstr, phgroup: MutPtr<MutPtr<CVoid>>): Hresult =
+public actual fun peerGroupPasswordJoin(pwzidentity: Pcwstr, pwzinvitation: Pcwstr, pwzpassword: Pcwstr, pwzcloud: Pcwstr, phgroup: MutPtr): Hresult =
     WindowsWin32NetworkmanagementP2pJniBridge.windowssysWindowsWin32NetworkmanagementP2pPeerGroupPasswordJoin(pwzidentity.rawAddress, pwzinvitation.rawAddress, pwzpassword.rawAddress, pwzcloud.rawAddress, phgroup.rawAddress)
 
-public actual fun peerGroupPeerTimeToUniversalTime(hgroup: ConstPtr<CVoid>, pftpeertime: ConstPtr<Filetime>, pftuniversaltime: MutPtr<Filetime>): Hresult =
+public actual fun peerGroupPeerTimeToUniversalTime(hgroup: ConstPtr, pftpeertime: ConstPtr, pftuniversaltime: MutPtr): Hresult =
     WindowsWin32NetworkmanagementP2pJniBridge.windowssysWindowsWin32NetworkmanagementP2pPeerGroupPeerTimeToUniversalTime(hgroup.rawAddress, pftpeertime.rawAddress, pftuniversaltime.rawAddress)
 
-public actual fun peerGroupRegisterEvent(hgroup: ConstPtr<CVoid>, hevent: Handle, ceventregistration: UInt, peventregistrations: ConstPtr<PeerGroupEventRegistration>, phpeerevent: MutPtr<MutPtr<CVoid>>): Hresult =
+public actual fun peerGroupRegisterEvent(hgroup: ConstPtr, hevent: Handle, ceventregistration: UInt, peventregistrations: ConstPtr, phpeerevent: MutPtr): Hresult =
     WindowsWin32NetworkmanagementP2pJniBridge.windowssysWindowsWin32NetworkmanagementP2pPeerGroupRegisterEvent(hgroup.rawAddress, hevent.rawAddress, ceventregistration.toInt(), peventregistrations.rawAddress, phpeerevent.rawAddress)
 
-public actual fun peerGroupResumePasswordAuthentication(hgroup: ConstPtr<CVoid>, hpeereventhandle: ConstPtr<CVoid>): Hresult =
+public actual fun peerGroupResumePasswordAuthentication(hgroup: ConstPtr, hpeereventhandle: ConstPtr): Hresult =
     WindowsWin32NetworkmanagementP2pJniBridge.windowssysWindowsWin32NetworkmanagementP2pPeerGroupResumePasswordAuthentication(hgroup.rawAddress, hpeereventhandle.rawAddress)
 
-public actual fun peerGroupSearchRecords(hgroup: ConstPtr<CVoid>, pwzcriteria: Pcwstr, phpeerenum: MutPtr<MutPtr<CVoid>>): Hresult =
+public actual fun peerGroupSearchRecords(hgroup: ConstPtr, pwzcriteria: Pcwstr, phpeerenum: MutPtr): Hresult =
     WindowsWin32NetworkmanagementP2pJniBridge.windowssysWindowsWin32NetworkmanagementP2pPeerGroupSearchRecords(hgroup.rawAddress, pwzcriteria.rawAddress, phpeerenum.rawAddress)
 
-public actual fun peerGroupSendData(hgroup: ConstPtr<CVoid>, ullconnectionid: ULong, ptype: ConstPtr<Guid>, cbdata: UInt, pvdata: ConstPtr<CVoid>): Hresult =
+public actual fun peerGroupSendData(hgroup: ConstPtr, ullconnectionid: ULong, ptype: ConstPtr, cbdata: UInt, pvdata: ConstPtr): Hresult =
     WindowsWin32NetworkmanagementP2pJniBridge.windowssysWindowsWin32NetworkmanagementP2pPeerGroupSendData(hgroup.rawAddress, ullconnectionid.toLong(), ptype.rawAddress, cbdata.toInt(), pvdata.rawAddress)
 
-public actual fun peerGroupSetProperties(hgroup: ConstPtr<CVoid>, pproperties: ConstPtr<PeerGroupProperties>): Hresult =
+public actual fun peerGroupSetProperties(hgroup: ConstPtr, pproperties: ConstPtr): Hresult =
     WindowsWin32NetworkmanagementP2pJniBridge.windowssysWindowsWin32NetworkmanagementP2pPeerGroupSetProperties(hgroup.rawAddress, pproperties.rawAddress)
 
 public actual fun peerGroupShutdown(): Hresult =
     WindowsWin32NetworkmanagementP2pJniBridge.windowssysWindowsWin32NetworkmanagementP2pPeerGroupShutdown()
 
-public actual fun peerGroupStartup(wversionrequested: UShort, pversiondata: MutPtr<PeerVersionData>): Hresult =
+public actual fun peerGroupStartup(wversionrequested: UShort, pversiondata: MutPtr): Hresult =
     WindowsWin32NetworkmanagementP2pJniBridge.windowssysWindowsWin32NetworkmanagementP2pPeerGroupStartup(wversionrequested.toShort(), pversiondata.rawAddress)
 
-public actual fun peerGroupUniversalTimeToPeerTime(hgroup: ConstPtr<CVoid>, pftuniversaltime: ConstPtr<Filetime>, pftpeertime: MutPtr<Filetime>): Hresult =
+public actual fun peerGroupUniversalTimeToPeerTime(hgroup: ConstPtr, pftuniversaltime: ConstPtr, pftpeertime: MutPtr): Hresult =
     WindowsWin32NetworkmanagementP2pJniBridge.windowssysWindowsWin32NetworkmanagementP2pPeerGroupUniversalTimeToPeerTime(hgroup.rawAddress, pftuniversaltime.rawAddress, pftpeertime.rawAddress)
 
-public actual fun peerGroupUnregisterEvent(hpeerevent: ConstPtr<CVoid>): Hresult =
+public actual fun peerGroupUnregisterEvent(hpeerevent: ConstPtr): Hresult =
     WindowsWin32NetworkmanagementP2pJniBridge.windowssysWindowsWin32NetworkmanagementP2pPeerGroupUnregisterEvent(hpeerevent.rawAddress)
 
-public actual fun peerGroupUpdateRecord(hgroup: ConstPtr<CVoid>, precord: ConstPtr<PeerRecord>): Hresult =
+public actual fun peerGroupUpdateRecord(hgroup: ConstPtr, precord: ConstPtr): Hresult =
     WindowsWin32NetworkmanagementP2pJniBridge.windowssysWindowsWin32NetworkmanagementP2pPeerGroupUpdateRecord(hgroup.rawAddress, precord.rawAddress)
 
-public actual fun peerHostNameToPeerName(pwzhostname: Pcwstr, ppwzpeername: MutPtr<Pwstr>): Hresult =
+public actual fun peerHostNameToPeerName(pwzhostname: Pcwstr, ppwzpeername: MutPtr): Hresult =
     WindowsWin32NetworkmanagementP2pJniBridge.windowssysWindowsWin32NetworkmanagementP2pPeerHostNameToPeerName(pwzhostname.rawAddress, ppwzpeername.rawAddress)
 
-public actual fun peerIdentityCreate(pwzclassifier: Pcwstr, pwzfriendlyname: Pcwstr, hcryptprov: ULong, ppwzidentity: MutPtr<Pwstr>): Hresult =
+public actual fun peerIdentityCreate(pwzclassifier: Pcwstr, pwzfriendlyname: Pcwstr, hcryptprov: ULong, ppwzidentity: MutPtr): Hresult =
     WindowsWin32NetworkmanagementP2pJniBridge.windowssysWindowsWin32NetworkmanagementP2pPeerIdentityCreate(pwzclassifier.rawAddress, pwzfriendlyname.rawAddress, hcryptprov.toLong(), ppwzidentity.rawAddress)
 
 public actual fun peerIdentityDelete(pwzidentity: Pcwstr): Hresult =
     WindowsWin32NetworkmanagementP2pJniBridge.windowssysWindowsWin32NetworkmanagementP2pPeerIdentityDelete(pwzidentity.rawAddress)
 
-public actual fun peerIdentityExport(pwzidentity: Pcwstr, pwzpassword: Pcwstr, ppwzexportxml: MutPtr<Pwstr>): Hresult =
+public actual fun peerIdentityExport(pwzidentity: Pcwstr, pwzpassword: Pcwstr, ppwzexportxml: MutPtr): Hresult =
     WindowsWin32NetworkmanagementP2pJniBridge.windowssysWindowsWin32NetworkmanagementP2pPeerIdentityExport(pwzidentity.rawAddress, pwzpassword.rawAddress, ppwzexportxml.rawAddress)
 
-public actual fun peerIdentityGetCryptKey(pwzidentity: Pcwstr, phcryptprov: MutPtr<ULong>): Hresult =
+public actual fun peerIdentityGetCryptKey(pwzidentity: Pcwstr, phcryptprov: MutPtr): Hresult =
     WindowsWin32NetworkmanagementP2pJniBridge.windowssysWindowsWin32NetworkmanagementP2pPeerIdentityGetCryptKey(pwzidentity.rawAddress, phcryptprov.rawAddress)
 
-public actual fun peerIdentityGetDefault(ppwzpeername: MutPtr<Pwstr>): Hresult =
+public actual fun peerIdentityGetDefault(ppwzpeername: MutPtr): Hresult =
     WindowsWin32NetworkmanagementP2pJniBridge.windowssysWindowsWin32NetworkmanagementP2pPeerIdentityGetDefault(ppwzpeername.rawAddress)
 
-public actual fun peerIdentityGetFriendlyName(pwzidentity: Pcwstr, ppwzfriendlyname: MutPtr<Pwstr>): Hresult =
+public actual fun peerIdentityGetFriendlyName(pwzidentity: Pcwstr, ppwzfriendlyname: MutPtr): Hresult =
     WindowsWin32NetworkmanagementP2pJniBridge.windowssysWindowsWin32NetworkmanagementP2pPeerIdentityGetFriendlyName(pwzidentity.rawAddress, ppwzfriendlyname.rawAddress)
 
-public actual fun peerIdentityGetXML(pwzidentity: Pcwstr, ppwzidentityxml: MutPtr<Pwstr>): Hresult =
+public actual fun peerIdentityGetXML(pwzidentity: Pcwstr, ppwzidentityxml: MutPtr): Hresult =
     WindowsWin32NetworkmanagementP2pJniBridge.windowssysWindowsWin32NetworkmanagementP2pPeerIdentityGetXML(pwzidentity.rawAddress, ppwzidentityxml.rawAddress)
 
-public actual fun peerIdentityImport(pwzimportxml: Pcwstr, pwzpassword: Pcwstr, ppwzidentity: MutPtr<Pwstr>): Hresult =
+public actual fun peerIdentityImport(pwzimportxml: Pcwstr, pwzpassword: Pcwstr, ppwzidentity: MutPtr): Hresult =
     WindowsWin32NetworkmanagementP2pJniBridge.windowssysWindowsWin32NetworkmanagementP2pPeerIdentityImport(pwzimportxml.rawAddress, pwzpassword.rawAddress, ppwzidentity.rawAddress)
 
 public actual fun peerIdentitySetFriendlyName(pwzidentity: Pcwstr, pwzfriendlyname: Pcwstr): Hresult =
     WindowsWin32NetworkmanagementP2pJniBridge.windowssysWindowsWin32NetworkmanagementP2pPeerIdentitySetFriendlyName(pwzidentity.rawAddress, pwzfriendlyname.rawAddress)
 
-public actual fun peerNameToPeerHostName(pwzpeername: Pcwstr, ppwzhostname: MutPtr<Pwstr>): Hresult =
+public actual fun peerNameToPeerHostName(pwzpeername: Pcwstr, ppwzhostname: MutPtr): Hresult =
     WindowsWin32NetworkmanagementP2pJniBridge.windowssysWindowsWin32NetworkmanagementP2pPeerNameToPeerHostName(pwzpeername.rawAddress, ppwzhostname.rawAddress)
 
-public actual fun peerPnrpEndResolve(hresolve: ConstPtr<CVoid>): Hresult =
+public actual fun peerPnrpEndResolve(hresolve: ConstPtr): Hresult =
     WindowsWin32NetworkmanagementP2pJniBridge.windowssysWindowsWin32NetworkmanagementP2pPeerPnrpEndResolve(hresolve.rawAddress)
 
-public actual fun peerPnrpGetCloudInfo(pcnumclouds: MutPtr<UInt>, ppcloudinfo: MutPtr<MutPtr<PeerPnrpCloudInfo>>): Hresult =
+public actual fun peerPnrpGetCloudInfo(pcnumclouds: MutPtr, ppcloudinfo: MutPtr): Hresult =
     WindowsWin32NetworkmanagementP2pJniBridge.windowssysWindowsWin32NetworkmanagementP2pPeerPnrpGetCloudInfo(pcnumclouds.rawAddress, ppcloudinfo.rawAddress)
 
-public actual fun peerPnrpGetEndpoint(hresolve: ConstPtr<CVoid>, ppendpoint: MutPtr<MutPtr<PeerPnrpEndpointInfo>>): Hresult =
+public actual fun peerPnrpGetEndpoint(hresolve: ConstPtr, ppendpoint: MutPtr): Hresult =
     WindowsWin32NetworkmanagementP2pJniBridge.windowssysWindowsWin32NetworkmanagementP2pPeerPnrpGetEndpoint(hresolve.rawAddress, ppendpoint.rawAddress)
 
-public actual fun peerPnrpRegister(pcwzpeername: Pcwstr, pregistrationinfo: ConstPtr<PeerPnrpRegistrationInfo>, phregistration: MutPtr<MutPtr<CVoid>>): Hresult =
+public actual fun peerPnrpRegister(pcwzpeername: Pcwstr, pregistrationinfo: ConstPtr, phregistration: MutPtr): Hresult =
     WindowsWin32NetworkmanagementP2pJniBridge.windowssysWindowsWin32NetworkmanagementP2pPeerPnrpRegister(pcwzpeername.rawAddress, pregistrationinfo.rawAddress, phregistration.rawAddress)
 
-public actual fun peerPnrpResolve(pcwzpeername: Pcwstr, pcwzcloudname: Pcwstr, pcendpoints: MutPtr<UInt>, ppendpoints: MutPtr<MutPtr<PeerPnrpEndpointInfo>>): Hresult =
+public actual fun peerPnrpResolve(pcwzpeername: Pcwstr, pcwzcloudname: Pcwstr, pcendpoints: MutPtr, ppendpoints: MutPtr): Hresult =
     WindowsWin32NetworkmanagementP2pJniBridge.windowssysWindowsWin32NetworkmanagementP2pPeerPnrpResolve(pcwzpeername.rawAddress, pcwzcloudname.rawAddress, pcendpoints.rawAddress, ppendpoints.rawAddress)
 
 public actual fun peerPnrpShutdown(): Hresult =
     WindowsWin32NetworkmanagementP2pJniBridge.windowssysWindowsWin32NetworkmanagementP2pPeerPnrpShutdown()
 
-public actual fun peerPnrpStartResolve(pcwzpeername: Pcwstr, pcwzcloudname: Pcwstr, cmaxendpoints: UInt, hevent: Handle, phresolve: MutPtr<MutPtr<CVoid>>): Hresult =
+public actual fun peerPnrpStartResolve(pcwzpeername: Pcwstr, pcwzcloudname: Pcwstr, cmaxendpoints: UInt, hevent: Handle, phresolve: MutPtr): Hresult =
     WindowsWin32NetworkmanagementP2pJniBridge.windowssysWindowsWin32NetworkmanagementP2pPeerPnrpStartResolve(pcwzpeername.rawAddress, pcwzcloudname.rawAddress, cmaxendpoints.toInt(), hevent.rawAddress, phresolve.rawAddress)
 
 public actual fun peerPnrpStartup(wversionrequested: UShort): Hresult =
     WindowsWin32NetworkmanagementP2pJniBridge.windowssysWindowsWin32NetworkmanagementP2pPeerPnrpStartup(wversionrequested.toShort())
 
-public actual fun peerPnrpUnregister(hregistration: ConstPtr<CVoid>): Hresult =
+public actual fun peerPnrpUnregister(hregistration: ConstPtr): Hresult =
     WindowsWin32NetworkmanagementP2pJniBridge.windowssysWindowsWin32NetworkmanagementP2pPeerPnrpUnregister(hregistration.rawAddress)
 
-public actual fun peerPnrpUpdateRegistration(hregistration: ConstPtr<CVoid>, pregistrationinfo: ConstPtr<PeerPnrpRegistrationInfo>): Hresult =
+public actual fun peerPnrpUpdateRegistration(hregistration: ConstPtr, pregistrationinfo: ConstPtr): Hresult =
     WindowsWin32NetworkmanagementP2pJniBridge.windowssysWindowsWin32NetworkmanagementP2pPeerPnrpUpdateRegistration(hregistration.rawAddress, pregistrationinfo.rawAddress)

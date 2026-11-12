@@ -2,7 +2,6 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus
 
-import io.github.kotlinmania.rustlang.core.ffi.CVoid
 import io.github.kotlinmania.rustlang.core.ptr.ConstPtr
 import io.github.kotlinmania.rustlang.core.ptr.MutPtr
 import io.github.kotlinmania.windowssys.core.Bool
@@ -12,15 +11,12 @@ import io.github.kotlinmania.windowssys.core.Pwstr
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Handle
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Hinstance
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Hwnd
-import io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.Bitmapinfo
 import io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.Hbitmap
 import io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.Hdc
 import io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.Henhmetafile
 import io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.Hmetafile
 import io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.Hpalette
 import io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.Hrgn
-import io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.Logfonta
-import io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.Logfontw
 import io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssysWindowsWin32GraphicsGdiplusGdipAddPathArc
 import io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssysWindowsWin32GraphicsGdiplusGdipAddPathArcI
 import io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus.cinterop.windowssysWindowsWin32GraphicsGdiplusGdipAddPathBezier
@@ -653,1880 +649,1880 @@ import kotlinx.cinterop.ByteVar
 import kotlinx.cinterop.toCPointer
 import kotlinx.cinterop.toLong
 
-public actual fun gdipAddPathArc(path: MutPtr<GpPath>, x: Float, y: Float, width: Float, height: Float, startangle: Float, sweepangle: Float): Status =
+public actual fun gdipAddPathArc(path: MutPtr, x: Float, y: Float, width: Float, height: Float, startangle: Float, sweepangle: Float): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipAddPathArc(path.rawAddress.toCPointer<ByteVar>(), x, y, width, height, startangle, sweepangle)
 
-public actual fun gdipAddPathArcI(path: MutPtr<GpPath>, x: Int, y: Int, width: Int, height: Int, startangle: Float, sweepangle: Float): Status =
+public actual fun gdipAddPathArcI(path: MutPtr, x: Int, y: Int, width: Int, height: Int, startangle: Float, sweepangle: Float): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipAddPathArcI(path.rawAddress.toCPointer<ByteVar>(), x, y, width, height, startangle, sweepangle)
 
-public actual fun gdipAddPathBezier(path: MutPtr<GpPath>, x1: Float, y1: Float, x2: Float, y2: Float, x3: Float, y3: Float, x4: Float, y4: Float): Status =
+public actual fun gdipAddPathBezier(path: MutPtr, x1: Float, y1: Float, x2: Float, y2: Float, x3: Float, y3: Float, x4: Float, y4: Float): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipAddPathBezier(path.rawAddress.toCPointer<ByteVar>(), x1, y1, x2, y2, x3, y3, x4, y4)
 
-public actual fun gdipAddPathBezierI(path: MutPtr<GpPath>, x1: Int, y1: Int, x2: Int, y2: Int, x3: Int, y3: Int, x4: Int, y4: Int): Status =
+public actual fun gdipAddPathBezierI(path: MutPtr, x1: Int, y1: Int, x2: Int, y2: Int, x3: Int, y3: Int, x4: Int, y4: Int): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipAddPathBezierI(path.rawAddress.toCPointer<ByteVar>(), x1, y1, x2, y2, x3, y3, x4, y4)
 
-public actual fun gdipAddPathBeziers(path: MutPtr<GpPath>, points: ConstPtr<PointF>, count: Int): Status =
+public actual fun gdipAddPathBeziers(path: MutPtr, points: ConstPtr, count: Int): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipAddPathBeziers(path.rawAddress.toCPointer<ByteVar>(), points.rawAddress.toCPointer<ByteVar>(), count)
 
-public actual fun gdipAddPathBeziersI(path: MutPtr<GpPath>, points: ConstPtr<Point>, count: Int): Status =
+public actual fun gdipAddPathBeziersI(path: MutPtr, points: ConstPtr, count: Int): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipAddPathBeziersI(path.rawAddress.toCPointer<ByteVar>(), points.rawAddress.toCPointer<ByteVar>(), count)
 
-public actual fun gdipAddPathClosedCurve(path: MutPtr<GpPath>, points: ConstPtr<PointF>, count: Int): Status =
+public actual fun gdipAddPathClosedCurve(path: MutPtr, points: ConstPtr, count: Int): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipAddPathClosedCurve(path.rawAddress.toCPointer<ByteVar>(), points.rawAddress.toCPointer<ByteVar>(), count)
 
-public actual fun gdipAddPathClosedCurve2(path: MutPtr<GpPath>, points: ConstPtr<PointF>, count: Int, tension: Float): Status =
+public actual fun gdipAddPathClosedCurve2(path: MutPtr, points: ConstPtr, count: Int, tension: Float): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipAddPathClosedCurve2(path.rawAddress.toCPointer<ByteVar>(), points.rawAddress.toCPointer<ByteVar>(), count, tension)
 
-public actual fun gdipAddPathClosedCurve2I(path: MutPtr<GpPath>, points: ConstPtr<Point>, count: Int, tension: Float): Status =
+public actual fun gdipAddPathClosedCurve2I(path: MutPtr, points: ConstPtr, count: Int, tension: Float): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipAddPathClosedCurve2I(path.rawAddress.toCPointer<ByteVar>(), points.rawAddress.toCPointer<ByteVar>(), count, tension)
 
-public actual fun gdipAddPathClosedCurveI(path: MutPtr<GpPath>, points: ConstPtr<Point>, count: Int): Status =
+public actual fun gdipAddPathClosedCurveI(path: MutPtr, points: ConstPtr, count: Int): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipAddPathClosedCurveI(path.rawAddress.toCPointer<ByteVar>(), points.rawAddress.toCPointer<ByteVar>(), count)
 
-public actual fun gdipAddPathCurve(path: MutPtr<GpPath>, points: ConstPtr<PointF>, count: Int): Status =
+public actual fun gdipAddPathCurve(path: MutPtr, points: ConstPtr, count: Int): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipAddPathCurve(path.rawAddress.toCPointer<ByteVar>(), points.rawAddress.toCPointer<ByteVar>(), count)
 
-public actual fun gdipAddPathCurve2(path: MutPtr<GpPath>, points: ConstPtr<PointF>, count: Int, tension: Float): Status =
+public actual fun gdipAddPathCurve2(path: MutPtr, points: ConstPtr, count: Int, tension: Float): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipAddPathCurve2(path.rawAddress.toCPointer<ByteVar>(), points.rawAddress.toCPointer<ByteVar>(), count, tension)
 
-public actual fun gdipAddPathCurve2I(path: MutPtr<GpPath>, points: ConstPtr<Point>, count: Int, tension: Float): Status =
+public actual fun gdipAddPathCurve2I(path: MutPtr, points: ConstPtr, count: Int, tension: Float): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipAddPathCurve2I(path.rawAddress.toCPointer<ByteVar>(), points.rawAddress.toCPointer<ByteVar>(), count, tension)
 
-public actual fun gdipAddPathCurve3(path: MutPtr<GpPath>, points: ConstPtr<PointF>, count: Int, offset: Int, numberofsegments: Int, tension: Float): Status =
+public actual fun gdipAddPathCurve3(path: MutPtr, points: ConstPtr, count: Int, offset: Int, numberofsegments: Int, tension: Float): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipAddPathCurve3(path.rawAddress.toCPointer<ByteVar>(), points.rawAddress.toCPointer<ByteVar>(), count, offset, numberofsegments, tension)
 
-public actual fun gdipAddPathCurve3I(path: MutPtr<GpPath>, points: ConstPtr<Point>, count: Int, offset: Int, numberofsegments: Int, tension: Float): Status =
+public actual fun gdipAddPathCurve3I(path: MutPtr, points: ConstPtr, count: Int, offset: Int, numberofsegments: Int, tension: Float): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipAddPathCurve3I(path.rawAddress.toCPointer<ByteVar>(), points.rawAddress.toCPointer<ByteVar>(), count, offset, numberofsegments, tension)
 
-public actual fun gdipAddPathCurveI(path: MutPtr<GpPath>, points: ConstPtr<Point>, count: Int): Status =
+public actual fun gdipAddPathCurveI(path: MutPtr, points: ConstPtr, count: Int): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipAddPathCurveI(path.rawAddress.toCPointer<ByteVar>(), points.rawAddress.toCPointer<ByteVar>(), count)
 
-public actual fun gdipAddPathEllipse(path: MutPtr<GpPath>, x: Float, y: Float, width: Float, height: Float): Status =
+public actual fun gdipAddPathEllipse(path: MutPtr, x: Float, y: Float, width: Float, height: Float): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipAddPathEllipse(path.rawAddress.toCPointer<ByteVar>(), x, y, width, height)
 
-public actual fun gdipAddPathEllipseI(path: MutPtr<GpPath>, x: Int, y: Int, width: Int, height: Int): Status =
+public actual fun gdipAddPathEllipseI(path: MutPtr, x: Int, y: Int, width: Int, height: Int): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipAddPathEllipseI(path.rawAddress.toCPointer<ByteVar>(), x, y, width, height)
 
-public actual fun gdipAddPathLine(path: MutPtr<GpPath>, x1: Float, y1: Float, x2: Float, y2: Float): Status =
+public actual fun gdipAddPathLine(path: MutPtr, x1: Float, y1: Float, x2: Float, y2: Float): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipAddPathLine(path.rawAddress.toCPointer<ByteVar>(), x1, y1, x2, y2)
 
-public actual fun gdipAddPathLine2(path: MutPtr<GpPath>, points: ConstPtr<PointF>, count: Int): Status =
+public actual fun gdipAddPathLine2(path: MutPtr, points: ConstPtr, count: Int): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipAddPathLine2(path.rawAddress.toCPointer<ByteVar>(), points.rawAddress.toCPointer<ByteVar>(), count)
 
-public actual fun gdipAddPathLine2I(path: MutPtr<GpPath>, points: ConstPtr<Point>, count: Int): Status =
+public actual fun gdipAddPathLine2I(path: MutPtr, points: ConstPtr, count: Int): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipAddPathLine2I(path.rawAddress.toCPointer<ByteVar>(), points.rawAddress.toCPointer<ByteVar>(), count)
 
-public actual fun gdipAddPathLineI(path: MutPtr<GpPath>, x1: Int, y1: Int, x2: Int, y2: Int): Status =
+public actual fun gdipAddPathLineI(path: MutPtr, x1: Int, y1: Int, x2: Int, y2: Int): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipAddPathLineI(path.rawAddress.toCPointer<ByteVar>(), x1, y1, x2, y2)
 
-public actual fun gdipAddPathPath(path: MutPtr<GpPath>, addingpath: ConstPtr<GpPath>, connect: Bool): Status =
+public actual fun gdipAddPathPath(path: MutPtr, addingpath: ConstPtr, connect: Bool): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipAddPathPath(path.rawAddress.toCPointer<ByteVar>(), addingpath.rawAddress.toCPointer<ByteVar>(), connect)
 
-public actual fun gdipAddPathPie(path: MutPtr<GpPath>, x: Float, y: Float, width: Float, height: Float, startangle: Float, sweepangle: Float): Status =
+public actual fun gdipAddPathPie(path: MutPtr, x: Float, y: Float, width: Float, height: Float, startangle: Float, sweepangle: Float): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipAddPathPie(path.rawAddress.toCPointer<ByteVar>(), x, y, width, height, startangle, sweepangle)
 
-public actual fun gdipAddPathPieI(path: MutPtr<GpPath>, x: Int, y: Int, width: Int, height: Int, startangle: Float, sweepangle: Float): Status =
+public actual fun gdipAddPathPieI(path: MutPtr, x: Int, y: Int, width: Int, height: Int, startangle: Float, sweepangle: Float): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipAddPathPieI(path.rawAddress.toCPointer<ByteVar>(), x, y, width, height, startangle, sweepangle)
 
-public actual fun gdipAddPathPolygon(path: MutPtr<GpPath>, points: ConstPtr<PointF>, count: Int): Status =
+public actual fun gdipAddPathPolygon(path: MutPtr, points: ConstPtr, count: Int): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipAddPathPolygon(path.rawAddress.toCPointer<ByteVar>(), points.rawAddress.toCPointer<ByteVar>(), count)
 
-public actual fun gdipAddPathPolygonI(path: MutPtr<GpPath>, points: ConstPtr<Point>, count: Int): Status =
+public actual fun gdipAddPathPolygonI(path: MutPtr, points: ConstPtr, count: Int): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipAddPathPolygonI(path.rawAddress.toCPointer<ByteVar>(), points.rawAddress.toCPointer<ByteVar>(), count)
 
-public actual fun gdipAddPathRectangle(path: MutPtr<GpPath>, x: Float, y: Float, width: Float, height: Float): Status =
+public actual fun gdipAddPathRectangle(path: MutPtr, x: Float, y: Float, width: Float, height: Float): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipAddPathRectangle(path.rawAddress.toCPointer<ByteVar>(), x, y, width, height)
 
-public actual fun gdipAddPathRectangleI(path: MutPtr<GpPath>, x: Int, y: Int, width: Int, height: Int): Status =
+public actual fun gdipAddPathRectangleI(path: MutPtr, x: Int, y: Int, width: Int, height: Int): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipAddPathRectangleI(path.rawAddress.toCPointer<ByteVar>(), x, y, width, height)
 
-public actual fun gdipAddPathRectangles(path: MutPtr<GpPath>, rects: ConstPtr<RectF>, count: Int): Status =
+public actual fun gdipAddPathRectangles(path: MutPtr, rects: ConstPtr, count: Int): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipAddPathRectangles(path.rawAddress.toCPointer<ByteVar>(), rects.rawAddress.toCPointer<ByteVar>(), count)
 
-public actual fun gdipAddPathRectanglesI(path: MutPtr<GpPath>, rects: ConstPtr<Rect>, count: Int): Status =
+public actual fun gdipAddPathRectanglesI(path: MutPtr, rects: ConstPtr, count: Int): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipAddPathRectanglesI(path.rawAddress.toCPointer<ByteVar>(), rects.rawAddress.toCPointer<ByteVar>(), count)
 
-public actual fun gdipAddPathString(path: MutPtr<GpPath>, string: Pcwstr, length: Int, family: ConstPtr<GpFontFamily>, style: Int, emsize: Float, layoutrect: ConstPtr<RectF>, format: ConstPtr<GpStringFormat>): Status =
+public actual fun gdipAddPathString(path: MutPtr, string: Pcwstr, length: Int, family: ConstPtr, style: Int, emsize: Float, layoutrect: ConstPtr, format: ConstPtr): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipAddPathString(path.rawAddress.toCPointer<ByteVar>(), string.rawAddress.toCPointer<ByteVar>(), length, family.rawAddress.toCPointer<ByteVar>(), style, emsize, layoutrect.rawAddress.toCPointer<ByteVar>(), format.rawAddress.toCPointer<ByteVar>())
 
-public actual fun gdipAddPathStringI(path: MutPtr<GpPath>, string: Pcwstr, length: Int, family: ConstPtr<GpFontFamily>, style: Int, emsize: Float, layoutrect: ConstPtr<Rect>, format: ConstPtr<GpStringFormat>): Status =
+public actual fun gdipAddPathStringI(path: MutPtr, string: Pcwstr, length: Int, family: ConstPtr, style: Int, emsize: Float, layoutrect: ConstPtr, format: ConstPtr): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipAddPathStringI(path.rawAddress.toCPointer<ByteVar>(), string.rawAddress.toCPointer<ByteVar>(), length, family.rawAddress.toCPointer<ByteVar>(), style, emsize, layoutrect.rawAddress.toCPointer<ByteVar>(), format.rawAddress.toCPointer<ByteVar>())
 
-public actual fun gdipAlloc(size: ULong): MutPtr<CVoid> =
+public actual fun gdipAlloc(size: ULong): MutPtr =
     MutPtr(windowssysWindowsWin32GraphicsGdiplusGdipAlloc(size)?.toLong() ?: 0L)
 
-public actual fun gdipBeginContainer(graphics: MutPtr<GpGraphics>, dstrect: ConstPtr<RectF>, srcrect: ConstPtr<RectF>, unit: Unit, state: MutPtr<UInt>): Status =
+public actual fun gdipBeginContainer(graphics: MutPtr, dstrect: ConstPtr, srcrect: ConstPtr, unit: Unit, state: MutPtr): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipBeginContainer(graphics.rawAddress.toCPointer<ByteVar>(), dstrect.rawAddress.toCPointer<ByteVar>(), srcrect.rawAddress.toCPointer<ByteVar>(), unit, state.rawAddress.toCPointer<ByteVar>())
 
-public actual fun gdipBeginContainer2(graphics: MutPtr<GpGraphics>, state: MutPtr<UInt>): Status =
+public actual fun gdipBeginContainer2(graphics: MutPtr, state: MutPtr): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipBeginContainer2(graphics.rawAddress.toCPointer<ByteVar>(), state.rawAddress.toCPointer<ByteVar>())
 
-public actual fun gdipBeginContainerI(graphics: MutPtr<GpGraphics>, dstrect: ConstPtr<Rect>, srcrect: ConstPtr<Rect>, unit: Unit, state: MutPtr<UInt>): Status =
+public actual fun gdipBeginContainerI(graphics: MutPtr, dstrect: ConstPtr, srcrect: ConstPtr, unit: Unit, state: MutPtr): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipBeginContainerI(graphics.rawAddress.toCPointer<ByteVar>(), dstrect.rawAddress.toCPointer<ByteVar>(), srcrect.rawAddress.toCPointer<ByteVar>(), unit, state.rawAddress.toCPointer<ByteVar>())
 
-public actual fun gdipBitmapApplyEffect(bitmap: MutPtr<GpBitmap>, effect: MutPtr<CGpEffect>, roi: MutPtr<io.github.kotlinmania.windowssys.windows.win32.foundation.Rect>, useauxdata: Bool, auxdata: MutPtr<MutPtr<CVoid>>, auxdatasize: MutPtr<Int>): Status =
+public actual fun gdipBitmapApplyEffect(bitmap: MutPtr, effect: MutPtr, roi: MutPtr, useauxdata: Bool, auxdata: MutPtr, auxdatasize: MutPtr): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipBitmapApplyEffect(bitmap.rawAddress.toCPointer<ByteVar>(), effect.rawAddress.toCPointer<ByteVar>(), roi.rawAddress.toCPointer<ByteVar>(), useauxdata, auxdata.rawAddress.toCPointer<ByteVar>(), auxdatasize.rawAddress.toCPointer<ByteVar>())
 
-public actual fun gdipBitmapConvertFormat(pinputbitmap: MutPtr<GpBitmap>, format: Int, dithertype: DitherType, palettetype: PaletteType, palette: MutPtr<ColorPalette>, alphathresholdpercent: Float): Status =
+public actual fun gdipBitmapConvertFormat(pinputbitmap: MutPtr, format: Int, dithertype: DitherType, palettetype: PaletteType, palette: MutPtr, alphathresholdpercent: Float): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipBitmapConvertFormat(pinputbitmap.rawAddress.toCPointer<ByteVar>(), format, dithertype, palettetype, palette.rawAddress.toCPointer<ByteVar>(), alphathresholdpercent)
 
-public actual fun gdipBitmapCreateApplyEffect(inputbitmaps: MutPtr<MutPtr<GpBitmap>>, numinputs: Int, effect: MutPtr<CGpEffect>, roi: MutPtr<io.github.kotlinmania.windowssys.windows.win32.foundation.Rect>, outputrect: MutPtr<io.github.kotlinmania.windowssys.windows.win32.foundation.Rect>, outputbitmap: MutPtr<MutPtr<GpBitmap>>, useauxdata: Bool, auxdata: MutPtr<MutPtr<CVoid>>, auxdatasize: MutPtr<Int>): Status =
+public actual fun gdipBitmapCreateApplyEffect(inputbitmaps: MutPtr, numinputs: Int, effect: MutPtr, roi: MutPtr, outputrect: MutPtr, outputbitmap: MutPtr, useauxdata: Bool, auxdata: MutPtr, auxdatasize: MutPtr): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipBitmapCreateApplyEffect(inputbitmaps.rawAddress.toCPointer<ByteVar>(), numinputs, effect.rawAddress.toCPointer<ByteVar>(), roi.rawAddress.toCPointer<ByteVar>(), outputrect.rawAddress.toCPointer<ByteVar>(), outputbitmap.rawAddress.toCPointer<ByteVar>(), useauxdata, auxdata.rawAddress.toCPointer<ByteVar>(), auxdatasize.rawAddress.toCPointer<ByteVar>())
 
-public actual fun gdipBitmapGetHistogram(bitmap: MutPtr<GpBitmap>, format: HistogramFormat, numberofentries: UInt, channel0: MutPtr<UInt>, channel1: MutPtr<UInt>, channel2: MutPtr<UInt>, channel3: MutPtr<UInt>): Status =
+public actual fun gdipBitmapGetHistogram(bitmap: MutPtr, format: HistogramFormat, numberofentries: UInt, channel0: MutPtr, channel1: MutPtr, channel2: MutPtr, channel3: MutPtr): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipBitmapGetHistogram(bitmap.rawAddress.toCPointer<ByteVar>(), format, numberofentries, channel0.rawAddress.toCPointer<ByteVar>(), channel1.rawAddress.toCPointer<ByteVar>(), channel2.rawAddress.toCPointer<ByteVar>(), channel3.rawAddress.toCPointer<ByteVar>())
 
-public actual fun gdipBitmapGetHistogramSize(format: HistogramFormat, numberofentries: MutPtr<UInt>): Status =
+public actual fun gdipBitmapGetHistogramSize(format: HistogramFormat, numberofentries: MutPtr): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipBitmapGetHistogramSize(format, numberofentries.rawAddress.toCPointer<ByteVar>())
 
-public actual fun gdipBitmapGetPixel(bitmap: MutPtr<GpBitmap>, x: Int, y: Int, color: MutPtr<UInt>): Status =
+public actual fun gdipBitmapGetPixel(bitmap: MutPtr, x: Int, y: Int, color: MutPtr): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipBitmapGetPixel(bitmap.rawAddress.toCPointer<ByteVar>(), x, y, color.rawAddress.toCPointer<ByteVar>())
 
-public actual fun gdipBitmapLockBits(bitmap: MutPtr<GpBitmap>, rect: ConstPtr<Rect>, flags: UInt, format: Int, lockedbitmapdata: MutPtr<BitmapData>): Status =
+public actual fun gdipBitmapLockBits(bitmap: MutPtr, rect: ConstPtr, flags: UInt, format: Int, lockedbitmapdata: MutPtr): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipBitmapLockBits(bitmap.rawAddress.toCPointer<ByteVar>(), rect.rawAddress.toCPointer<ByteVar>(), flags, format, lockedbitmapdata.rawAddress.toCPointer<ByteVar>())
 
-public actual fun gdipBitmapSetPixel(bitmap: MutPtr<GpBitmap>, x: Int, y: Int, color: UInt): Status =
+public actual fun gdipBitmapSetPixel(bitmap: MutPtr, x: Int, y: Int, color: UInt): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipBitmapSetPixel(bitmap.rawAddress.toCPointer<ByteVar>(), x, y, color)
 
-public actual fun gdipBitmapSetResolution(bitmap: MutPtr<GpBitmap>, xdpi: Float, ydpi: Float): Status =
+public actual fun gdipBitmapSetResolution(bitmap: MutPtr, xdpi: Float, ydpi: Float): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipBitmapSetResolution(bitmap.rawAddress.toCPointer<ByteVar>(), xdpi, ydpi)
 
-public actual fun gdipBitmapUnlockBits(bitmap: MutPtr<GpBitmap>, lockedbitmapdata: MutPtr<BitmapData>): Status =
+public actual fun gdipBitmapUnlockBits(bitmap: MutPtr, lockedbitmapdata: MutPtr): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipBitmapUnlockBits(bitmap.rawAddress.toCPointer<ByteVar>(), lockedbitmapdata.rawAddress.toCPointer<ByteVar>())
 
-public actual fun gdipClearPathMarkers(path: MutPtr<GpPath>): Status =
+public actual fun gdipClearPathMarkers(path: MutPtr): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipClearPathMarkers(path.rawAddress.toCPointer<ByteVar>())
 
-public actual fun gdipCloneBitmapArea(x: Float, y: Float, width: Float, height: Float, format: Int, srcbitmap: MutPtr<GpBitmap>, dstbitmap: MutPtr<MutPtr<GpBitmap>>): Status =
+public actual fun gdipCloneBitmapArea(x: Float, y: Float, width: Float, height: Float, format: Int, srcbitmap: MutPtr, dstbitmap: MutPtr): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipCloneBitmapArea(x, y, width, height, format, srcbitmap.rawAddress.toCPointer<ByteVar>(), dstbitmap.rawAddress.toCPointer<ByteVar>())
 
-public actual fun gdipCloneBitmapAreaI(x: Int, y: Int, width: Int, height: Int, format: Int, srcbitmap: MutPtr<GpBitmap>, dstbitmap: MutPtr<MutPtr<GpBitmap>>): Status =
+public actual fun gdipCloneBitmapAreaI(x: Int, y: Int, width: Int, height: Int, format: Int, srcbitmap: MutPtr, dstbitmap: MutPtr): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipCloneBitmapAreaI(x, y, width, height, format, srcbitmap.rawAddress.toCPointer<ByteVar>(), dstbitmap.rawAddress.toCPointer<ByteVar>())
 
-public actual fun gdipCloneBrush(brush: MutPtr<GpBrush>, clonebrush: MutPtr<MutPtr<GpBrush>>): Status =
+public actual fun gdipCloneBrush(brush: MutPtr, clonebrush: MutPtr): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipCloneBrush(brush.rawAddress.toCPointer<ByteVar>(), clonebrush.rawAddress.toCPointer<ByteVar>())
 
-public actual fun gdipCloneCustomLineCap(customcap: MutPtr<GpCustomLineCap>, clonedcap: MutPtr<MutPtr<GpCustomLineCap>>): Status =
+public actual fun gdipCloneCustomLineCap(customcap: MutPtr, clonedcap: MutPtr): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipCloneCustomLineCap(customcap.rawAddress.toCPointer<ByteVar>(), clonedcap.rawAddress.toCPointer<ByteVar>())
 
-public actual fun gdipCloneFont(font: MutPtr<GpFont>, clonefont: MutPtr<MutPtr<GpFont>>): Status =
+public actual fun gdipCloneFont(font: MutPtr, clonefont: MutPtr): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipCloneFont(font.rawAddress.toCPointer<ByteVar>(), clonefont.rawAddress.toCPointer<ByteVar>())
 
-public actual fun gdipCloneFontFamily(fontfamily: MutPtr<GpFontFamily>, clonedfontfamily: MutPtr<MutPtr<GpFontFamily>>): Status =
+public actual fun gdipCloneFontFamily(fontfamily: MutPtr, clonedfontfamily: MutPtr): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipCloneFontFamily(fontfamily.rawAddress.toCPointer<ByteVar>(), clonedfontfamily.rawAddress.toCPointer<ByteVar>())
 
-public actual fun gdipCloneImage(image: MutPtr<GpImage>, cloneimage: MutPtr<MutPtr<GpImage>>): Status =
+public actual fun gdipCloneImage(image: MutPtr, cloneimage: MutPtr): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipCloneImage(image.rawAddress.toCPointer<ByteVar>(), cloneimage.rawAddress.toCPointer<ByteVar>())
 
-public actual fun gdipCloneImageAttributes(imageattr: ConstPtr<GpImageAttributes>, cloneimageattr: MutPtr<MutPtr<GpImageAttributes>>): Status =
+public actual fun gdipCloneImageAttributes(imageattr: ConstPtr, cloneimageattr: MutPtr): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipCloneImageAttributes(imageattr.rawAddress.toCPointer<ByteVar>(), cloneimageattr.rawAddress.toCPointer<ByteVar>())
 
-public actual fun gdipCloneMatrix(matrix: MutPtr<Matrix>, clonematrix: MutPtr<MutPtr<Matrix>>): Status =
+public actual fun gdipCloneMatrix(matrix: MutPtr, clonematrix: MutPtr): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipCloneMatrix(matrix.rawAddress.toCPointer<ByteVar>(), clonematrix.rawAddress.toCPointer<ByteVar>())
 
-public actual fun gdipClonePath(path: MutPtr<GpPath>, clonepath: MutPtr<MutPtr<GpPath>>): Status =
+public actual fun gdipClonePath(path: MutPtr, clonepath: MutPtr): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipClonePath(path.rawAddress.toCPointer<ByteVar>(), clonepath.rawAddress.toCPointer<ByteVar>())
 
-public actual fun gdipClonePen(pen: MutPtr<GpPen>, clonepen: MutPtr<MutPtr<GpPen>>): Status =
+public actual fun gdipClonePen(pen: MutPtr, clonepen: MutPtr): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipClonePen(pen.rawAddress.toCPointer<ByteVar>(), clonepen.rawAddress.toCPointer<ByteVar>())
 
-public actual fun gdipCloneRegion(region: MutPtr<GpRegion>, cloneregion: MutPtr<MutPtr<GpRegion>>): Status =
+public actual fun gdipCloneRegion(region: MutPtr, cloneregion: MutPtr): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipCloneRegion(region.rawAddress.toCPointer<ByteVar>(), cloneregion.rawAddress.toCPointer<ByteVar>())
 
-public actual fun gdipCloneStringFormat(format: ConstPtr<GpStringFormat>, newformat: MutPtr<MutPtr<GpStringFormat>>): Status =
+public actual fun gdipCloneStringFormat(format: ConstPtr, newformat: MutPtr): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipCloneStringFormat(format.rawAddress.toCPointer<ByteVar>(), newformat.rawAddress.toCPointer<ByteVar>())
 
-public actual fun gdipClosePathFigure(path: MutPtr<GpPath>): Status =
+public actual fun gdipClosePathFigure(path: MutPtr): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipClosePathFigure(path.rawAddress.toCPointer<ByteVar>())
 
-public actual fun gdipClosePathFigures(path: MutPtr<GpPath>): Status =
+public actual fun gdipClosePathFigures(path: MutPtr): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipClosePathFigures(path.rawAddress.toCPointer<ByteVar>())
 
-public actual fun gdipCombineRegionPath(region: MutPtr<GpRegion>, path: MutPtr<GpPath>, combinemode: CombineMode): Status =
+public actual fun gdipCombineRegionPath(region: MutPtr, path: MutPtr, combinemode: CombineMode): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipCombineRegionPath(region.rawAddress.toCPointer<ByteVar>(), path.rawAddress.toCPointer<ByteVar>(), combinemode)
 
-public actual fun gdipCombineRegionRect(region: MutPtr<GpRegion>, rect: ConstPtr<RectF>, combinemode: CombineMode): Status =
+public actual fun gdipCombineRegionRect(region: MutPtr, rect: ConstPtr, combinemode: CombineMode): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipCombineRegionRect(region.rawAddress.toCPointer<ByteVar>(), rect.rawAddress.toCPointer<ByteVar>(), combinemode)
 
-public actual fun gdipCombineRegionRectI(region: MutPtr<GpRegion>, rect: ConstPtr<Rect>, combinemode: CombineMode): Status =
+public actual fun gdipCombineRegionRectI(region: MutPtr, rect: ConstPtr, combinemode: CombineMode): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipCombineRegionRectI(region.rawAddress.toCPointer<ByteVar>(), rect.rawAddress.toCPointer<ByteVar>(), combinemode)
 
-public actual fun gdipCombineRegionRegion(region: MutPtr<GpRegion>, region2: MutPtr<GpRegion>, combinemode: CombineMode): Status =
+public actual fun gdipCombineRegionRegion(region: MutPtr, region2: MutPtr, combinemode: CombineMode): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipCombineRegionRegion(region.rawAddress.toCPointer<ByteVar>(), region2.rawAddress.toCPointer<ByteVar>(), combinemode)
 
-public actual fun gdipComment(graphics: MutPtr<GpGraphics>, sizedata: UInt, data: ConstPtr<UByte>): Status =
+public actual fun gdipComment(graphics: MutPtr, sizedata: UInt, data: ConstPtr): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipComment(graphics.rawAddress.toCPointer<ByteVar>(), sizedata, data.rawAddress.toCPointer<ByteVar>())
 
-public actual fun gdipConvertToEmfPlus(refgraphics: ConstPtr<GpGraphics>, metafile: MutPtr<GpMetafile>, conversionfailureflag: MutPtr<Int>, emftype: EmfType, description: Pcwstr, outMetafile: MutPtr<MutPtr<GpMetafile>>): Status =
+public actual fun gdipConvertToEmfPlus(refgraphics: ConstPtr, metafile: MutPtr, conversionfailureflag: MutPtr, emftype: EmfType, description: Pcwstr, outMetafile: MutPtr): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipConvertToEmfPlus(refgraphics.rawAddress.toCPointer<ByteVar>(), metafile.rawAddress.toCPointer<ByteVar>(), conversionfailureflag.rawAddress.toCPointer<ByteVar>(), emftype, description.rawAddress.toCPointer<ByteVar>(), outMetafile.rawAddress.toCPointer<ByteVar>())
 
-public actual fun gdipConvertToEmfPlusToFile(refgraphics: ConstPtr<GpGraphics>, metafile: MutPtr<GpMetafile>, conversionfailureflag: MutPtr<Int>, filename: Pcwstr, emftype: EmfType, description: Pcwstr, outMetafile: MutPtr<MutPtr<GpMetafile>>): Status =
+public actual fun gdipConvertToEmfPlusToFile(refgraphics: ConstPtr, metafile: MutPtr, conversionfailureflag: MutPtr, filename: Pcwstr, emftype: EmfType, description: Pcwstr, outMetafile: MutPtr): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipConvertToEmfPlusToFile(refgraphics.rawAddress.toCPointer<ByteVar>(), metafile.rawAddress.toCPointer<ByteVar>(), conversionfailureflag.rawAddress.toCPointer<ByteVar>(), filename.rawAddress.toCPointer<ByteVar>(), emftype, description.rawAddress.toCPointer<ByteVar>(), outMetafile.rawAddress.toCPointer<ByteVar>())
 
-public actual fun gdipConvertToEmfPlusToStream(refgraphics: ConstPtr<GpGraphics>, metafile: MutPtr<GpMetafile>, conversionfailureflag: MutPtr<Int>, stream: MutPtr<CVoid>, emftype: EmfType, description: Pcwstr, outMetafile: MutPtr<MutPtr<GpMetafile>>): Status =
+public actual fun gdipConvertToEmfPlusToStream(refgraphics: ConstPtr, metafile: MutPtr, conversionfailureflag: MutPtr, stream: MutPtr, emftype: EmfType, description: Pcwstr, outMetafile: MutPtr): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipConvertToEmfPlusToStream(refgraphics.rawAddress.toCPointer<ByteVar>(), metafile.rawAddress.toCPointer<ByteVar>(), conversionfailureflag.rawAddress.toCPointer<ByteVar>(), stream.rawAddress.toCPointer<ByteVar>(), emftype, description.rawAddress.toCPointer<ByteVar>(), outMetafile.rawAddress.toCPointer<ByteVar>())
 
-public actual fun gdipCreateAdjustableArrowCap(height: Float, width: Float, isfilled: Bool, cap: MutPtr<MutPtr<GpAdjustableArrowCap>>): Status =
+public actual fun gdipCreateAdjustableArrowCap(height: Float, width: Float, isfilled: Bool, cap: MutPtr): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipCreateAdjustableArrowCap(height, width, isfilled, cap.rawAddress.toCPointer<ByteVar>())
 
-public actual fun gdipCreateBitmapFromFile(filename: Pcwstr, bitmap: MutPtr<MutPtr<GpBitmap>>): Status =
+public actual fun gdipCreateBitmapFromFile(filename: Pcwstr, bitmap: MutPtr): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipCreateBitmapFromFile(filename.rawAddress.toCPointer<ByteVar>(), bitmap.rawAddress.toCPointer<ByteVar>())
 
-public actual fun gdipCreateBitmapFromFileICM(filename: Pcwstr, bitmap: MutPtr<MutPtr<GpBitmap>>): Status =
+public actual fun gdipCreateBitmapFromFileICM(filename: Pcwstr, bitmap: MutPtr): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipCreateBitmapFromFileICM(filename.rawAddress.toCPointer<ByteVar>(), bitmap.rawAddress.toCPointer<ByteVar>())
 
-public actual fun gdipCreateBitmapFromGdiDib(gdibitmapinfo: ConstPtr<Bitmapinfo>, gdibitmapdata: MutPtr<CVoid>, bitmap: MutPtr<MutPtr<GpBitmap>>): Status =
+public actual fun gdipCreateBitmapFromGdiDib(gdibitmapinfo: ConstPtr, gdibitmapdata: MutPtr, bitmap: MutPtr): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipCreateBitmapFromGdiDib(gdibitmapinfo.rawAddress.toCPointer<ByteVar>(), gdibitmapdata.rawAddress.toCPointer<ByteVar>(), bitmap.rawAddress.toCPointer<ByteVar>())
 
-public actual fun gdipCreateBitmapFromGraphics(width: Int, height: Int, target: MutPtr<GpGraphics>, bitmap: MutPtr<MutPtr<GpBitmap>>): Status =
+public actual fun gdipCreateBitmapFromGraphics(width: Int, height: Int, target: MutPtr, bitmap: MutPtr): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipCreateBitmapFromGraphics(width, height, target.rawAddress.toCPointer<ByteVar>(), bitmap.rawAddress.toCPointer<ByteVar>())
 
-public actual fun gdipCreateBitmapFromHBITMAP(hbm: Hbitmap, hpal: Hpalette, bitmap: MutPtr<MutPtr<GpBitmap>>): Status =
+public actual fun gdipCreateBitmapFromHBITMAP(hbm: Hbitmap, hpal: Hpalette, bitmap: MutPtr): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipCreateBitmapFromHBITMAP(hbm.rawAddress.toCPointer<ByteVar>(), hpal.rawAddress.toCPointer<ByteVar>(), bitmap.rawAddress.toCPointer<ByteVar>())
 
-public actual fun gdipCreateBitmapFromHICON(hicon: Hicon, bitmap: MutPtr<MutPtr<GpBitmap>>): Status =
+public actual fun gdipCreateBitmapFromHICON(hicon: Hicon, bitmap: MutPtr): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipCreateBitmapFromHICON(hicon.rawAddress.toCPointer<ByteVar>(), bitmap.rawAddress.toCPointer<ByteVar>())
 
-public actual fun gdipCreateBitmapFromResource(hinstance: Hinstance, lpbitmapname: Pcwstr, bitmap: MutPtr<MutPtr<GpBitmap>>): Status =
+public actual fun gdipCreateBitmapFromResource(hinstance: Hinstance, lpbitmapname: Pcwstr, bitmap: MutPtr): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipCreateBitmapFromResource(hinstance.rawAddress.toCPointer<ByteVar>(), lpbitmapname.rawAddress.toCPointer<ByteVar>(), bitmap.rawAddress.toCPointer<ByteVar>())
 
-public actual fun gdipCreateBitmapFromScan0(width: Int, height: Int, stride: Int, format: Int, scan0: ConstPtr<UByte>, bitmap: MutPtr<MutPtr<GpBitmap>>): Status =
+public actual fun gdipCreateBitmapFromScan0(width: Int, height: Int, stride: Int, format: Int, scan0: ConstPtr, bitmap: MutPtr): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipCreateBitmapFromScan0(width, height, stride, format, scan0.rawAddress.toCPointer<ByteVar>(), bitmap.rawAddress.toCPointer<ByteVar>())
 
-public actual fun gdipCreateBitmapFromStream(stream: MutPtr<CVoid>, bitmap: MutPtr<MutPtr<GpBitmap>>): Status =
+public actual fun gdipCreateBitmapFromStream(stream: MutPtr, bitmap: MutPtr): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipCreateBitmapFromStream(stream.rawAddress.toCPointer<ByteVar>(), bitmap.rawAddress.toCPointer<ByteVar>())
 
-public actual fun gdipCreateBitmapFromStreamICM(stream: MutPtr<CVoid>, bitmap: MutPtr<MutPtr<GpBitmap>>): Status =
+public actual fun gdipCreateBitmapFromStreamICM(stream: MutPtr, bitmap: MutPtr): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipCreateBitmapFromStreamICM(stream.rawAddress.toCPointer<ByteVar>(), bitmap.rawAddress.toCPointer<ByteVar>())
 
-public actual fun gdipCreateCachedBitmap(bitmap: MutPtr<GpBitmap>, graphics: MutPtr<GpGraphics>, cachedbitmap: MutPtr<MutPtr<GpCachedBitmap>>): Status =
+public actual fun gdipCreateCachedBitmap(bitmap: MutPtr, graphics: MutPtr, cachedbitmap: MutPtr): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipCreateCachedBitmap(bitmap.rawAddress.toCPointer<ByteVar>(), graphics.rawAddress.toCPointer<ByteVar>(), cachedbitmap.rawAddress.toCPointer<ByteVar>())
 
-public actual fun gdipCreateCustomLineCap(fillpath: MutPtr<GpPath>, strokepath: MutPtr<GpPath>, basecap: LineCap, baseinset: Float, customcap: MutPtr<MutPtr<GpCustomLineCap>>): Status =
+public actual fun gdipCreateCustomLineCap(fillpath: MutPtr, strokepath: MutPtr, basecap: LineCap, baseinset: Float, customcap: MutPtr): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipCreateCustomLineCap(fillpath.rawAddress.toCPointer<ByteVar>(), strokepath.rawAddress.toCPointer<ByteVar>(), basecap, baseinset, customcap.rawAddress.toCPointer<ByteVar>())
 
-public actual fun gdipCreateEffect(guid: Guid, effect: MutPtr<MutPtr<CGpEffect>>): Status =
+public actual fun gdipCreateEffect(guid: Guid, effect: MutPtr): Status =
     0
 
-public actual fun gdipCreateFont(fontfamily: ConstPtr<GpFontFamily>, emsize: Float, style: Int, unit: Unit, font: MutPtr<MutPtr<GpFont>>): Status =
+public actual fun gdipCreateFont(fontfamily: ConstPtr, emsize: Float, style: Int, unit: Unit, font: MutPtr): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipCreateFont(fontfamily.rawAddress.toCPointer<ByteVar>(), emsize, style, unit, font.rawAddress.toCPointer<ByteVar>())
 
-public actual fun gdipCreateFontFamilyFromName(name: Pcwstr, fontcollection: MutPtr<GpFontCollection>, fontfamily: MutPtr<MutPtr<GpFontFamily>>): Status =
+public actual fun gdipCreateFontFamilyFromName(name: Pcwstr, fontcollection: MutPtr, fontfamily: MutPtr): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipCreateFontFamilyFromName(name.rawAddress.toCPointer<ByteVar>(), fontcollection.rawAddress.toCPointer<ByteVar>(), fontfamily.rawAddress.toCPointer<ByteVar>())
 
-public actual fun gdipCreateFontFromDC(hdc: Hdc, font: MutPtr<MutPtr<GpFont>>): Status =
+public actual fun gdipCreateFontFromDC(hdc: Hdc, font: MutPtr): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipCreateFontFromDC(hdc.rawAddress.toCPointer<ByteVar>(), font.rawAddress.toCPointer<ByteVar>())
 
-public actual fun gdipCreateFontFromLogfontA(hdc: Hdc, logfont: ConstPtr<Logfonta>, font: MutPtr<MutPtr<GpFont>>): Status =
+public actual fun gdipCreateFontFromLogfontA(hdc: Hdc, logfont: ConstPtr, font: MutPtr): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipCreateFontFromLogfontA(hdc.rawAddress.toCPointer<ByteVar>(), logfont.rawAddress.toCPointer<ByteVar>(), font.rawAddress.toCPointer<ByteVar>())
 
-public actual fun gdipCreateFontFromLogfontW(hdc: Hdc, logfont: ConstPtr<Logfontw>, font: MutPtr<MutPtr<GpFont>>): Status =
+public actual fun gdipCreateFontFromLogfontW(hdc: Hdc, logfont: ConstPtr, font: MutPtr): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipCreateFontFromLogfontW(hdc.rawAddress.toCPointer<ByteVar>(), logfont.rawAddress.toCPointer<ByteVar>(), font.rawAddress.toCPointer<ByteVar>())
 
-public actual fun gdipCreateFromHDC(hdc: Hdc, graphics: MutPtr<MutPtr<GpGraphics>>): Status =
+public actual fun gdipCreateFromHDC(hdc: Hdc, graphics: MutPtr): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipCreateFromHDC(hdc.rawAddress.toCPointer<ByteVar>(), graphics.rawAddress.toCPointer<ByteVar>())
 
-public actual fun gdipCreateFromHDC2(hdc: Hdc, hdevice: Handle, graphics: MutPtr<MutPtr<GpGraphics>>): Status =
+public actual fun gdipCreateFromHDC2(hdc: Hdc, hdevice: Handle, graphics: MutPtr): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipCreateFromHDC2(hdc.rawAddress.toCPointer<ByteVar>(), hdevice.rawAddress.toCPointer<ByteVar>(), graphics.rawAddress.toCPointer<ByteVar>())
 
-public actual fun gdipCreateFromHWND(hwnd: Hwnd, graphics: MutPtr<MutPtr<GpGraphics>>): Status =
+public actual fun gdipCreateFromHWND(hwnd: Hwnd, graphics: MutPtr): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipCreateFromHWND(hwnd.rawAddress.toCPointer<ByteVar>(), graphics.rawAddress.toCPointer<ByteVar>())
 
-public actual fun gdipCreateFromHWNDICM(hwnd: Hwnd, graphics: MutPtr<MutPtr<GpGraphics>>): Status =
+public actual fun gdipCreateFromHWNDICM(hwnd: Hwnd, graphics: MutPtr): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipCreateFromHWNDICM(hwnd.rawAddress.toCPointer<ByteVar>(), graphics.rawAddress.toCPointer<ByteVar>())
 
-public actual fun gdipCreateHBITMAPFromBitmap(bitmap: MutPtr<GpBitmap>, hbmreturn: MutPtr<Hbitmap>, background: UInt): Status =
+public actual fun gdipCreateHBITMAPFromBitmap(bitmap: MutPtr, hbmreturn: MutPtr, background: UInt): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipCreateHBITMAPFromBitmap(bitmap.rawAddress.toCPointer<ByteVar>(), hbmreturn.rawAddress.toCPointer<ByteVar>(), background)
 
-public actual fun gdipCreateHICONFromBitmap(bitmap: MutPtr<GpBitmap>, hbmreturn: MutPtr<Hicon>): Status =
+public actual fun gdipCreateHICONFromBitmap(bitmap: MutPtr, hbmreturn: MutPtr): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipCreateHICONFromBitmap(bitmap.rawAddress.toCPointer<ByteVar>(), hbmreturn.rawAddress.toCPointer<ByteVar>())
 
 public actual fun gdipCreateHalftonePalette(): Hpalette =
     MutPtr(windowssysWindowsWin32GraphicsGdiplusGdipCreateHalftonePalette()?.toLong() ?: 0L)
 
-public actual fun gdipCreateHatchBrush(hatchstyle: HatchStyle, forecol: UInt, backcol: UInt, brush: MutPtr<MutPtr<GpHatch>>): Status =
+public actual fun gdipCreateHatchBrush(hatchstyle: HatchStyle, forecol: UInt, backcol: UInt, brush: MutPtr): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipCreateHatchBrush(hatchstyle, forecol, backcol, brush.rawAddress.toCPointer<ByteVar>())
 
-public actual fun gdipCreateImageAttributes(imageattr: MutPtr<MutPtr<GpImageAttributes>>): Status =
+public actual fun gdipCreateImageAttributes(imageattr: MutPtr): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipCreateImageAttributes(imageattr.rawAddress.toCPointer<ByteVar>())
 
-public actual fun gdipCreateLineBrush(point1: ConstPtr<PointF>, point2: ConstPtr<PointF>, color1: UInt, color2: UInt, wrapmode: WrapMode, linegradient: MutPtr<MutPtr<GpLineGradient>>): Status =
+public actual fun gdipCreateLineBrush(point1: ConstPtr, point2: ConstPtr, color1: UInt, color2: UInt, wrapmode: WrapMode, linegradient: MutPtr): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipCreateLineBrush(point1.rawAddress.toCPointer<ByteVar>(), point2.rawAddress.toCPointer<ByteVar>(), color1, color2, wrapmode, linegradient.rawAddress.toCPointer<ByteVar>())
 
-public actual fun gdipCreateLineBrushFromRect(rect: ConstPtr<RectF>, color1: UInt, color2: UInt, mode: LinearGradientMode, wrapmode: WrapMode, linegradient: MutPtr<MutPtr<GpLineGradient>>): Status =
+public actual fun gdipCreateLineBrushFromRect(rect: ConstPtr, color1: UInt, color2: UInt, mode: LinearGradientMode, wrapmode: WrapMode, linegradient: MutPtr): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipCreateLineBrushFromRect(rect.rawAddress.toCPointer<ByteVar>(), color1, color2, mode, wrapmode, linegradient.rawAddress.toCPointer<ByteVar>())
 
-public actual fun gdipCreateLineBrushFromRectI(rect: ConstPtr<Rect>, color1: UInt, color2: UInt, mode: LinearGradientMode, wrapmode: WrapMode, linegradient: MutPtr<MutPtr<GpLineGradient>>): Status =
+public actual fun gdipCreateLineBrushFromRectI(rect: ConstPtr, color1: UInt, color2: UInt, mode: LinearGradientMode, wrapmode: WrapMode, linegradient: MutPtr): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipCreateLineBrushFromRectI(rect.rawAddress.toCPointer<ByteVar>(), color1, color2, mode, wrapmode, linegradient.rawAddress.toCPointer<ByteVar>())
 
-public actual fun gdipCreateLineBrushFromRectWithAngle(rect: ConstPtr<RectF>, color1: UInt, color2: UInt, angle: Float, isanglescalable: Bool, wrapmode: WrapMode, linegradient: MutPtr<MutPtr<GpLineGradient>>): Status =
+public actual fun gdipCreateLineBrushFromRectWithAngle(rect: ConstPtr, color1: UInt, color2: UInt, angle: Float, isanglescalable: Bool, wrapmode: WrapMode, linegradient: MutPtr): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipCreateLineBrushFromRectWithAngle(rect.rawAddress.toCPointer<ByteVar>(), color1, color2, angle, isanglescalable, wrapmode, linegradient.rawAddress.toCPointer<ByteVar>())
 
-public actual fun gdipCreateLineBrushFromRectWithAngleI(rect: ConstPtr<Rect>, color1: UInt, color2: UInt, angle: Float, isanglescalable: Bool, wrapmode: WrapMode, linegradient: MutPtr<MutPtr<GpLineGradient>>): Status =
+public actual fun gdipCreateLineBrushFromRectWithAngleI(rect: ConstPtr, color1: UInt, color2: UInt, angle: Float, isanglescalable: Bool, wrapmode: WrapMode, linegradient: MutPtr): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipCreateLineBrushFromRectWithAngleI(rect.rawAddress.toCPointer<ByteVar>(), color1, color2, angle, isanglescalable, wrapmode, linegradient.rawAddress.toCPointer<ByteVar>())
 
-public actual fun gdipCreateLineBrushI(point1: ConstPtr<Point>, point2: ConstPtr<Point>, color1: UInt, color2: UInt, wrapmode: WrapMode, linegradient: MutPtr<MutPtr<GpLineGradient>>): Status =
+public actual fun gdipCreateLineBrushI(point1: ConstPtr, point2: ConstPtr, color1: UInt, color2: UInt, wrapmode: WrapMode, linegradient: MutPtr): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipCreateLineBrushI(point1.rawAddress.toCPointer<ByteVar>(), point2.rawAddress.toCPointer<ByteVar>(), color1, color2, wrapmode, linegradient.rawAddress.toCPointer<ByteVar>())
 
-public actual fun gdipCreateMatrix(matrix: MutPtr<MutPtr<Matrix>>): Status =
+public actual fun gdipCreateMatrix(matrix: MutPtr): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipCreateMatrix(matrix.rawAddress.toCPointer<ByteVar>())
 
-public actual fun gdipCreateMatrix2(m11: Float, m12: Float, m21: Float, m22: Float, dx: Float, dy: Float, matrix: MutPtr<MutPtr<Matrix>>): Status =
+public actual fun gdipCreateMatrix2(m11: Float, m12: Float, m21: Float, m22: Float, dx: Float, dy: Float, matrix: MutPtr): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipCreateMatrix2(m11, m12, m21, m22, dx, dy, matrix.rawAddress.toCPointer<ByteVar>())
 
-public actual fun gdipCreateMatrix3(rect: ConstPtr<RectF>, dstplg: ConstPtr<PointF>, matrix: MutPtr<MutPtr<Matrix>>): Status =
+public actual fun gdipCreateMatrix3(rect: ConstPtr, dstplg: ConstPtr, matrix: MutPtr): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipCreateMatrix3(rect.rawAddress.toCPointer<ByteVar>(), dstplg.rawAddress.toCPointer<ByteVar>(), matrix.rawAddress.toCPointer<ByteVar>())
 
-public actual fun gdipCreateMatrix3I(rect: ConstPtr<Rect>, dstplg: ConstPtr<Point>, matrix: MutPtr<MutPtr<Matrix>>): Status =
+public actual fun gdipCreateMatrix3I(rect: ConstPtr, dstplg: ConstPtr, matrix: MutPtr): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipCreateMatrix3I(rect.rawAddress.toCPointer<ByteVar>(), dstplg.rawAddress.toCPointer<ByteVar>(), matrix.rawAddress.toCPointer<ByteVar>())
 
-public actual fun gdipCreateMetafileFromEmf(hemf: Henhmetafile, deleteemf: Bool, metafile: MutPtr<MutPtr<GpMetafile>>): Status =
+public actual fun gdipCreateMetafileFromEmf(hemf: Henhmetafile, deleteemf: Bool, metafile: MutPtr): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipCreateMetafileFromEmf(hemf.rawAddress.toCPointer<ByteVar>(), deleteemf, metafile.rawAddress.toCPointer<ByteVar>())
 
-public actual fun gdipCreateMetafileFromFile(file: Pcwstr, metafile: MutPtr<MutPtr<GpMetafile>>): Status =
+public actual fun gdipCreateMetafileFromFile(file: Pcwstr, metafile: MutPtr): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipCreateMetafileFromFile(file.rawAddress.toCPointer<ByteVar>(), metafile.rawAddress.toCPointer<ByteVar>())
 
-public actual fun gdipCreateMetafileFromStream(stream: MutPtr<CVoid>, metafile: MutPtr<MutPtr<GpMetafile>>): Status =
+public actual fun gdipCreateMetafileFromStream(stream: MutPtr, metafile: MutPtr): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipCreateMetafileFromStream(stream.rawAddress.toCPointer<ByteVar>(), metafile.rawAddress.toCPointer<ByteVar>())
 
-public actual fun gdipCreateMetafileFromWmf(hwmf: Hmetafile, deletewmf: Bool, wmfplaceablefileheader: ConstPtr<WmfPlaceableFileHeader>, metafile: MutPtr<MutPtr<GpMetafile>>): Status =
+public actual fun gdipCreateMetafileFromWmf(hwmf: Hmetafile, deletewmf: Bool, wmfplaceablefileheader: ConstPtr, metafile: MutPtr): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipCreateMetafileFromWmf(hwmf.rawAddress.toCPointer<ByteVar>(), deletewmf, wmfplaceablefileheader.rawAddress.toCPointer<ByteVar>(), metafile.rawAddress.toCPointer<ByteVar>())
 
-public actual fun gdipCreateMetafileFromWmfFile(file: Pcwstr, wmfplaceablefileheader: ConstPtr<WmfPlaceableFileHeader>, metafile: MutPtr<MutPtr<GpMetafile>>): Status =
+public actual fun gdipCreateMetafileFromWmfFile(file: Pcwstr, wmfplaceablefileheader: ConstPtr, metafile: MutPtr): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipCreateMetafileFromWmfFile(file.rawAddress.toCPointer<ByteVar>(), wmfplaceablefileheader.rawAddress.toCPointer<ByteVar>(), metafile.rawAddress.toCPointer<ByteVar>())
 
-public actual fun gdipCreatePath(brushmode: FillMode, path: MutPtr<MutPtr<GpPath>>): Status =
+public actual fun gdipCreatePath(brushmode: FillMode, path: MutPtr): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipCreatePath(brushmode, path.rawAddress.toCPointer<ByteVar>())
 
-public actual fun gdipCreatePath2(param0: ConstPtr<PointF>, param1: ConstPtr<UByte>, param2: Int, param3: FillMode, path: MutPtr<MutPtr<GpPath>>): Status =
+public actual fun gdipCreatePath2(param0: ConstPtr, param1: ConstPtr, param2: Int, param3: FillMode, path: MutPtr): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipCreatePath2(param0.rawAddress.toCPointer<ByteVar>(), param1.rawAddress.toCPointer<ByteVar>(), param2, param3, path.rawAddress.toCPointer<ByteVar>())
 
-public actual fun gdipCreatePath2I(param0: ConstPtr<Point>, param1: ConstPtr<UByte>, param2: Int, param3: FillMode, path: MutPtr<MutPtr<GpPath>>): Status =
+public actual fun gdipCreatePath2I(param0: ConstPtr, param1: ConstPtr, param2: Int, param3: FillMode, path: MutPtr): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipCreatePath2I(param0.rawAddress.toCPointer<ByteVar>(), param1.rawAddress.toCPointer<ByteVar>(), param2, param3, path.rawAddress.toCPointer<ByteVar>())
 
-public actual fun gdipCreatePathGradient(points: ConstPtr<PointF>, count: Int, wrapmode: WrapMode, polygradient: MutPtr<MutPtr<GpPathGradient>>): Status =
+public actual fun gdipCreatePathGradient(points: ConstPtr, count: Int, wrapmode: WrapMode, polygradient: MutPtr): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipCreatePathGradient(points.rawAddress.toCPointer<ByteVar>(), count, wrapmode, polygradient.rawAddress.toCPointer<ByteVar>())
 
-public actual fun gdipCreatePathGradientFromPath(path: ConstPtr<GpPath>, polygradient: MutPtr<MutPtr<GpPathGradient>>): Status =
+public actual fun gdipCreatePathGradientFromPath(path: ConstPtr, polygradient: MutPtr): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipCreatePathGradientFromPath(path.rawAddress.toCPointer<ByteVar>(), polygradient.rawAddress.toCPointer<ByteVar>())
 
-public actual fun gdipCreatePathGradientI(points: ConstPtr<Point>, count: Int, wrapmode: WrapMode, polygradient: MutPtr<MutPtr<GpPathGradient>>): Status =
+public actual fun gdipCreatePathGradientI(points: ConstPtr, count: Int, wrapmode: WrapMode, polygradient: MutPtr): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipCreatePathGradientI(points.rawAddress.toCPointer<ByteVar>(), count, wrapmode, polygradient.rawAddress.toCPointer<ByteVar>())
 
-public actual fun gdipCreatePathIter(iterator: MutPtr<MutPtr<GpPathIterator>>, path: MutPtr<GpPath>): Status =
+public actual fun gdipCreatePathIter(iterator: MutPtr, path: MutPtr): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipCreatePathIter(iterator.rawAddress.toCPointer<ByteVar>(), path.rawAddress.toCPointer<ByteVar>())
 
-public actual fun gdipCreatePen1(color: UInt, width: Float, unit: Unit, pen: MutPtr<MutPtr<GpPen>>): Status =
+public actual fun gdipCreatePen1(color: UInt, width: Float, unit: Unit, pen: MutPtr): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipCreatePen1(color, width, unit, pen.rawAddress.toCPointer<ByteVar>())
 
-public actual fun gdipCreatePen2(brush: MutPtr<GpBrush>, width: Float, unit: Unit, pen: MutPtr<MutPtr<GpPen>>): Status =
+public actual fun gdipCreatePen2(brush: MutPtr, width: Float, unit: Unit, pen: MutPtr): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipCreatePen2(brush.rawAddress.toCPointer<ByteVar>(), width, unit, pen.rawAddress.toCPointer<ByteVar>())
 
-public actual fun gdipCreateRegion(region: MutPtr<MutPtr<GpRegion>>): Status =
+public actual fun gdipCreateRegion(region: MutPtr): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipCreateRegion(region.rawAddress.toCPointer<ByteVar>())
 
-public actual fun gdipCreateRegionHrgn(hrgn: Hrgn, region: MutPtr<MutPtr<GpRegion>>): Status =
+public actual fun gdipCreateRegionHrgn(hrgn: Hrgn, region: MutPtr): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipCreateRegionHrgn(hrgn.rawAddress.toCPointer<ByteVar>(), region.rawAddress.toCPointer<ByteVar>())
 
-public actual fun gdipCreateRegionPath(path: MutPtr<GpPath>, region: MutPtr<MutPtr<GpRegion>>): Status =
+public actual fun gdipCreateRegionPath(path: MutPtr, region: MutPtr): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipCreateRegionPath(path.rawAddress.toCPointer<ByteVar>(), region.rawAddress.toCPointer<ByteVar>())
 
-public actual fun gdipCreateRegionRect(rect: ConstPtr<RectF>, region: MutPtr<MutPtr<GpRegion>>): Status =
+public actual fun gdipCreateRegionRect(rect: ConstPtr, region: MutPtr): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipCreateRegionRect(rect.rawAddress.toCPointer<ByteVar>(), region.rawAddress.toCPointer<ByteVar>())
 
-public actual fun gdipCreateRegionRectI(rect: ConstPtr<Rect>, region: MutPtr<MutPtr<GpRegion>>): Status =
+public actual fun gdipCreateRegionRectI(rect: ConstPtr, region: MutPtr): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipCreateRegionRectI(rect.rawAddress.toCPointer<ByteVar>(), region.rawAddress.toCPointer<ByteVar>())
 
-public actual fun gdipCreateRegionRgnData(regiondata: ConstPtr<UByte>, size: Int, region: MutPtr<MutPtr<GpRegion>>): Status =
+public actual fun gdipCreateRegionRgnData(regiondata: ConstPtr, size: Int, region: MutPtr): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipCreateRegionRgnData(regiondata.rawAddress.toCPointer<ByteVar>(), size, region.rawAddress.toCPointer<ByteVar>())
 
-public actual fun gdipCreateSolidFill(color: UInt, brush: MutPtr<MutPtr<GpSolidFill>>): Status =
+public actual fun gdipCreateSolidFill(color: UInt, brush: MutPtr): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipCreateSolidFill(color, brush.rawAddress.toCPointer<ByteVar>())
 
-public actual fun gdipCreateStreamOnFile(filename: Pcwstr, access: UInt, stream: MutPtr<MutPtr<CVoid>>): Status =
+public actual fun gdipCreateStreamOnFile(filename: Pcwstr, access: UInt, stream: MutPtr): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipCreateStreamOnFile(filename.rawAddress.toCPointer<ByteVar>(), access, stream.rawAddress.toCPointer<ByteVar>())
 
-public actual fun gdipCreateStringFormat(formatattributes: Int, language: UShort, format: MutPtr<MutPtr<GpStringFormat>>): Status =
+public actual fun gdipCreateStringFormat(formatattributes: Int, language: UShort, format: MutPtr): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipCreateStringFormat(formatattributes, language, format.rawAddress.toCPointer<ByteVar>())
 
-public actual fun gdipCreateTexture(image: MutPtr<GpImage>, wrapmode: WrapMode, texture: MutPtr<MutPtr<GpTexture>>): Status =
+public actual fun gdipCreateTexture(image: MutPtr, wrapmode: WrapMode, texture: MutPtr): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipCreateTexture(image.rawAddress.toCPointer<ByteVar>(), wrapmode, texture.rawAddress.toCPointer<ByteVar>())
 
-public actual fun gdipCreateTexture2(image: MutPtr<GpImage>, wrapmode: WrapMode, x: Float, y: Float, width: Float, height: Float, texture: MutPtr<MutPtr<GpTexture>>): Status =
+public actual fun gdipCreateTexture2(image: MutPtr, wrapmode: WrapMode, x: Float, y: Float, width: Float, height: Float, texture: MutPtr): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipCreateTexture2(image.rawAddress.toCPointer<ByteVar>(), wrapmode, x, y, width, height, texture.rawAddress.toCPointer<ByteVar>())
 
-public actual fun gdipCreateTexture2I(image: MutPtr<GpImage>, wrapmode: WrapMode, x: Int, y: Int, width: Int, height: Int, texture: MutPtr<MutPtr<GpTexture>>): Status =
+public actual fun gdipCreateTexture2I(image: MutPtr, wrapmode: WrapMode, x: Int, y: Int, width: Int, height: Int, texture: MutPtr): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipCreateTexture2I(image.rawAddress.toCPointer<ByteVar>(), wrapmode, x, y, width, height, texture.rawAddress.toCPointer<ByteVar>())
 
-public actual fun gdipCreateTextureIA(image: MutPtr<GpImage>, imageattributes: ConstPtr<GpImageAttributes>, x: Float, y: Float, width: Float, height: Float, texture: MutPtr<MutPtr<GpTexture>>): Status =
+public actual fun gdipCreateTextureIA(image: MutPtr, imageattributes: ConstPtr, x: Float, y: Float, width: Float, height: Float, texture: MutPtr): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipCreateTextureIA(image.rawAddress.toCPointer<ByteVar>(), imageattributes.rawAddress.toCPointer<ByteVar>(), x, y, width, height, texture.rawAddress.toCPointer<ByteVar>())
 
-public actual fun gdipCreateTextureIAI(image: MutPtr<GpImage>, imageattributes: ConstPtr<GpImageAttributes>, x: Int, y: Int, width: Int, height: Int, texture: MutPtr<MutPtr<GpTexture>>): Status =
+public actual fun gdipCreateTextureIAI(image: MutPtr, imageattributes: ConstPtr, x: Int, y: Int, width: Int, height: Int, texture: MutPtr): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipCreateTextureIAI(image.rawAddress.toCPointer<ByteVar>(), imageattributes.rawAddress.toCPointer<ByteVar>(), x, y, width, height, texture.rawAddress.toCPointer<ByteVar>())
 
-public actual fun gdipDeleteBrush(brush: MutPtr<GpBrush>): Status =
+public actual fun gdipDeleteBrush(brush: MutPtr): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipDeleteBrush(brush.rawAddress.toCPointer<ByteVar>())
 
-public actual fun gdipDeleteCachedBitmap(cachedbitmap: MutPtr<GpCachedBitmap>): Status =
+public actual fun gdipDeleteCachedBitmap(cachedbitmap: MutPtr): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipDeleteCachedBitmap(cachedbitmap.rawAddress.toCPointer<ByteVar>())
 
-public actual fun gdipDeleteCustomLineCap(customcap: MutPtr<GpCustomLineCap>): Status =
+public actual fun gdipDeleteCustomLineCap(customcap: MutPtr): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipDeleteCustomLineCap(customcap.rawAddress.toCPointer<ByteVar>())
 
-public actual fun gdipDeleteEffect(effect: MutPtr<CGpEffect>): Status =
+public actual fun gdipDeleteEffect(effect: MutPtr): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipDeleteEffect(effect.rawAddress.toCPointer<ByteVar>())
 
-public actual fun gdipDeleteFont(font: MutPtr<GpFont>): Status =
+public actual fun gdipDeleteFont(font: MutPtr): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipDeleteFont(font.rawAddress.toCPointer<ByteVar>())
 
-public actual fun gdipDeleteFontFamily(fontfamily: MutPtr<GpFontFamily>): Status =
+public actual fun gdipDeleteFontFamily(fontfamily: MutPtr): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipDeleteFontFamily(fontfamily.rawAddress.toCPointer<ByteVar>())
 
-public actual fun gdipDeleteGraphics(graphics: MutPtr<GpGraphics>): Status =
+public actual fun gdipDeleteGraphics(graphics: MutPtr): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipDeleteGraphics(graphics.rawAddress.toCPointer<ByteVar>())
 
-public actual fun gdipDeleteMatrix(matrix: MutPtr<Matrix>): Status =
+public actual fun gdipDeleteMatrix(matrix: MutPtr): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipDeleteMatrix(matrix.rawAddress.toCPointer<ByteVar>())
 
-public actual fun gdipDeletePath(path: MutPtr<GpPath>): Status =
+public actual fun gdipDeletePath(path: MutPtr): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipDeletePath(path.rawAddress.toCPointer<ByteVar>())
 
-public actual fun gdipDeletePathIter(iterator: MutPtr<GpPathIterator>): Status =
+public actual fun gdipDeletePathIter(iterator: MutPtr): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipDeletePathIter(iterator.rawAddress.toCPointer<ByteVar>())
 
-public actual fun gdipDeletePen(pen: MutPtr<GpPen>): Status =
+public actual fun gdipDeletePen(pen: MutPtr): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipDeletePen(pen.rawAddress.toCPointer<ByteVar>())
 
-public actual fun gdipDeletePrivateFontCollection(fontcollection: MutPtr<MutPtr<GpFontCollection>>): Status =
+public actual fun gdipDeletePrivateFontCollection(fontcollection: MutPtr): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipDeletePrivateFontCollection(fontcollection.rawAddress.toCPointer<ByteVar>())
 
-public actual fun gdipDeleteRegion(region: MutPtr<GpRegion>): Status =
+public actual fun gdipDeleteRegion(region: MutPtr): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipDeleteRegion(region.rawAddress.toCPointer<ByteVar>())
 
-public actual fun gdipDeleteStringFormat(format: MutPtr<GpStringFormat>): Status =
+public actual fun gdipDeleteStringFormat(format: MutPtr): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipDeleteStringFormat(format.rawAddress.toCPointer<ByteVar>())
 
-public actual fun gdipDisposeImage(image: MutPtr<GpImage>): Status =
+public actual fun gdipDisposeImage(image: MutPtr): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipDisposeImage(image.rawAddress.toCPointer<ByteVar>())
 
-public actual fun gdipDisposeImageAttributes(imageattr: MutPtr<GpImageAttributes>): Status =
+public actual fun gdipDisposeImageAttributes(imageattr: MutPtr): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipDisposeImageAttributes(imageattr.rawAddress.toCPointer<ByteVar>())
 
-public actual fun gdipDrawArc(graphics: MutPtr<GpGraphics>, pen: MutPtr<GpPen>, x: Float, y: Float, width: Float, height: Float, startangle: Float, sweepangle: Float): Status =
+public actual fun gdipDrawArc(graphics: MutPtr, pen: MutPtr, x: Float, y: Float, width: Float, height: Float, startangle: Float, sweepangle: Float): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipDrawArc(graphics.rawAddress.toCPointer<ByteVar>(), pen.rawAddress.toCPointer<ByteVar>(), x, y, width, height, startangle, sweepangle)
 
-public actual fun gdipDrawArcI(graphics: MutPtr<GpGraphics>, pen: MutPtr<GpPen>, x: Int, y: Int, width: Int, height: Int, startangle: Float, sweepangle: Float): Status =
+public actual fun gdipDrawArcI(graphics: MutPtr, pen: MutPtr, x: Int, y: Int, width: Int, height: Int, startangle: Float, sweepangle: Float): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipDrawArcI(graphics.rawAddress.toCPointer<ByteVar>(), pen.rawAddress.toCPointer<ByteVar>(), x, y, width, height, startangle, sweepangle)
 
-public actual fun gdipDrawBezier(graphics: MutPtr<GpGraphics>, pen: MutPtr<GpPen>, x1: Float, y1: Float, x2: Float, y2: Float, x3: Float, y3: Float, x4: Float, y4: Float): Status =
+public actual fun gdipDrawBezier(graphics: MutPtr, pen: MutPtr, x1: Float, y1: Float, x2: Float, y2: Float, x3: Float, y3: Float, x4: Float, y4: Float): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipDrawBezier(graphics.rawAddress.toCPointer<ByteVar>(), pen.rawAddress.toCPointer<ByteVar>(), x1, y1, x2, y2, x3, y3, x4, y4)
 
-public actual fun gdipDrawBezierI(graphics: MutPtr<GpGraphics>, pen: MutPtr<GpPen>, x1: Int, y1: Int, x2: Int, y2: Int, x3: Int, y3: Int, x4: Int, y4: Int): Status =
+public actual fun gdipDrawBezierI(graphics: MutPtr, pen: MutPtr, x1: Int, y1: Int, x2: Int, y2: Int, x3: Int, y3: Int, x4: Int, y4: Int): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipDrawBezierI(graphics.rawAddress.toCPointer<ByteVar>(), pen.rawAddress.toCPointer<ByteVar>(), x1, y1, x2, y2, x3, y3, x4, y4)
 
-public actual fun gdipDrawBeziers(graphics: MutPtr<GpGraphics>, pen: MutPtr<GpPen>, points: ConstPtr<PointF>, count: Int): Status =
+public actual fun gdipDrawBeziers(graphics: MutPtr, pen: MutPtr, points: ConstPtr, count: Int): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipDrawBeziers(graphics.rawAddress.toCPointer<ByteVar>(), pen.rawAddress.toCPointer<ByteVar>(), points.rawAddress.toCPointer<ByteVar>(), count)
 
-public actual fun gdipDrawBeziersI(graphics: MutPtr<GpGraphics>, pen: MutPtr<GpPen>, points: ConstPtr<Point>, count: Int): Status =
+public actual fun gdipDrawBeziersI(graphics: MutPtr, pen: MutPtr, points: ConstPtr, count: Int): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipDrawBeziersI(graphics.rawAddress.toCPointer<ByteVar>(), pen.rawAddress.toCPointer<ByteVar>(), points.rawAddress.toCPointer<ByteVar>(), count)
 
-public actual fun gdipDrawCachedBitmap(graphics: MutPtr<GpGraphics>, cachedbitmap: MutPtr<GpCachedBitmap>, x: Int, y: Int): Status =
+public actual fun gdipDrawCachedBitmap(graphics: MutPtr, cachedbitmap: MutPtr, x: Int, y: Int): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipDrawCachedBitmap(graphics.rawAddress.toCPointer<ByteVar>(), cachedbitmap.rawAddress.toCPointer<ByteVar>(), x, y)
 
-public actual fun gdipDrawClosedCurve(graphics: MutPtr<GpGraphics>, pen: MutPtr<GpPen>, points: ConstPtr<PointF>, count: Int): Status =
+public actual fun gdipDrawClosedCurve(graphics: MutPtr, pen: MutPtr, points: ConstPtr, count: Int): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipDrawClosedCurve(graphics.rawAddress.toCPointer<ByteVar>(), pen.rawAddress.toCPointer<ByteVar>(), points.rawAddress.toCPointer<ByteVar>(), count)
 
-public actual fun gdipDrawClosedCurve2(graphics: MutPtr<GpGraphics>, pen: MutPtr<GpPen>, points: ConstPtr<PointF>, count: Int, tension: Float): Status =
+public actual fun gdipDrawClosedCurve2(graphics: MutPtr, pen: MutPtr, points: ConstPtr, count: Int, tension: Float): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipDrawClosedCurve2(graphics.rawAddress.toCPointer<ByteVar>(), pen.rawAddress.toCPointer<ByteVar>(), points.rawAddress.toCPointer<ByteVar>(), count, tension)
 
-public actual fun gdipDrawClosedCurve2I(graphics: MutPtr<GpGraphics>, pen: MutPtr<GpPen>, points: ConstPtr<Point>, count: Int, tension: Float): Status =
+public actual fun gdipDrawClosedCurve2I(graphics: MutPtr, pen: MutPtr, points: ConstPtr, count: Int, tension: Float): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipDrawClosedCurve2I(graphics.rawAddress.toCPointer<ByteVar>(), pen.rawAddress.toCPointer<ByteVar>(), points.rawAddress.toCPointer<ByteVar>(), count, tension)
 
-public actual fun gdipDrawClosedCurveI(graphics: MutPtr<GpGraphics>, pen: MutPtr<GpPen>, points: ConstPtr<Point>, count: Int): Status =
+public actual fun gdipDrawClosedCurveI(graphics: MutPtr, pen: MutPtr, points: ConstPtr, count: Int): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipDrawClosedCurveI(graphics.rawAddress.toCPointer<ByteVar>(), pen.rawAddress.toCPointer<ByteVar>(), points.rawAddress.toCPointer<ByteVar>(), count)
 
-public actual fun gdipDrawCurve(graphics: MutPtr<GpGraphics>, pen: MutPtr<GpPen>, points: ConstPtr<PointF>, count: Int): Status =
+public actual fun gdipDrawCurve(graphics: MutPtr, pen: MutPtr, points: ConstPtr, count: Int): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipDrawCurve(graphics.rawAddress.toCPointer<ByteVar>(), pen.rawAddress.toCPointer<ByteVar>(), points.rawAddress.toCPointer<ByteVar>(), count)
 
-public actual fun gdipDrawCurve2(graphics: MutPtr<GpGraphics>, pen: MutPtr<GpPen>, points: ConstPtr<PointF>, count: Int, tension: Float): Status =
+public actual fun gdipDrawCurve2(graphics: MutPtr, pen: MutPtr, points: ConstPtr, count: Int, tension: Float): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipDrawCurve2(graphics.rawAddress.toCPointer<ByteVar>(), pen.rawAddress.toCPointer<ByteVar>(), points.rawAddress.toCPointer<ByteVar>(), count, tension)
 
-public actual fun gdipDrawCurve2I(graphics: MutPtr<GpGraphics>, pen: MutPtr<GpPen>, points: ConstPtr<Point>, count: Int, tension: Float): Status =
+public actual fun gdipDrawCurve2I(graphics: MutPtr, pen: MutPtr, points: ConstPtr, count: Int, tension: Float): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipDrawCurve2I(graphics.rawAddress.toCPointer<ByteVar>(), pen.rawAddress.toCPointer<ByteVar>(), points.rawAddress.toCPointer<ByteVar>(), count, tension)
 
-public actual fun gdipDrawCurve3(graphics: MutPtr<GpGraphics>, pen: MutPtr<GpPen>, points: ConstPtr<PointF>, count: Int, offset: Int, numberofsegments: Int, tension: Float): Status =
+public actual fun gdipDrawCurve3(graphics: MutPtr, pen: MutPtr, points: ConstPtr, count: Int, offset: Int, numberofsegments: Int, tension: Float): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipDrawCurve3(graphics.rawAddress.toCPointer<ByteVar>(), pen.rawAddress.toCPointer<ByteVar>(), points.rawAddress.toCPointer<ByteVar>(), count, offset, numberofsegments, tension)
 
-public actual fun gdipDrawCurve3I(graphics: MutPtr<GpGraphics>, pen: MutPtr<GpPen>, points: ConstPtr<Point>, count: Int, offset: Int, numberofsegments: Int, tension: Float): Status =
+public actual fun gdipDrawCurve3I(graphics: MutPtr, pen: MutPtr, points: ConstPtr, count: Int, offset: Int, numberofsegments: Int, tension: Float): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipDrawCurve3I(graphics.rawAddress.toCPointer<ByteVar>(), pen.rawAddress.toCPointer<ByteVar>(), points.rawAddress.toCPointer<ByteVar>(), count, offset, numberofsegments, tension)
 
-public actual fun gdipDrawCurveI(graphics: MutPtr<GpGraphics>, pen: MutPtr<GpPen>, points: ConstPtr<Point>, count: Int): Status =
+public actual fun gdipDrawCurveI(graphics: MutPtr, pen: MutPtr, points: ConstPtr, count: Int): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipDrawCurveI(graphics.rawAddress.toCPointer<ByteVar>(), pen.rawAddress.toCPointer<ByteVar>(), points.rawAddress.toCPointer<ByteVar>(), count)
 
-public actual fun gdipDrawDriverString(graphics: MutPtr<GpGraphics>, text: ConstPtr<UShort>, length: Int, font: ConstPtr<GpFont>, brush: ConstPtr<GpBrush>, positions: ConstPtr<PointF>, flags: Int, matrix: ConstPtr<Matrix>): Status =
+public actual fun gdipDrawDriverString(graphics: MutPtr, text: ConstPtr, length: Int, font: ConstPtr, brush: ConstPtr, positions: ConstPtr, flags: Int, matrix: ConstPtr): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipDrawDriverString(graphics.rawAddress.toCPointer<ByteVar>(), text.rawAddress.toCPointer<ByteVar>(), length, font.rawAddress.toCPointer<ByteVar>(), brush.rawAddress.toCPointer<ByteVar>(), positions.rawAddress.toCPointer<ByteVar>(), flags, matrix.rawAddress.toCPointer<ByteVar>())
 
-public actual fun gdipDrawEllipse(graphics: MutPtr<GpGraphics>, pen: MutPtr<GpPen>, x: Float, y: Float, width: Float, height: Float): Status =
+public actual fun gdipDrawEllipse(graphics: MutPtr, pen: MutPtr, x: Float, y: Float, width: Float, height: Float): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipDrawEllipse(graphics.rawAddress.toCPointer<ByteVar>(), pen.rawAddress.toCPointer<ByteVar>(), x, y, width, height)
 
-public actual fun gdipDrawEllipseI(graphics: MutPtr<GpGraphics>, pen: MutPtr<GpPen>, x: Int, y: Int, width: Int, height: Int): Status =
+public actual fun gdipDrawEllipseI(graphics: MutPtr, pen: MutPtr, x: Int, y: Int, width: Int, height: Int): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipDrawEllipseI(graphics.rawAddress.toCPointer<ByteVar>(), pen.rawAddress.toCPointer<ByteVar>(), x, y, width, height)
 
-public actual fun gdipDrawImage(graphics: MutPtr<GpGraphics>, image: MutPtr<GpImage>, x: Float, y: Float): Status =
+public actual fun gdipDrawImage(graphics: MutPtr, image: MutPtr, x: Float, y: Float): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipDrawImage(graphics.rawAddress.toCPointer<ByteVar>(), image.rawAddress.toCPointer<ByteVar>(), x, y)
 
-public actual fun gdipDrawImageFX(graphics: MutPtr<GpGraphics>, image: MutPtr<GpImage>, source: MutPtr<RectF>, xform: MutPtr<Matrix>, effect: MutPtr<CGpEffect>, imageattributes: MutPtr<GpImageAttributes>, srcunit: Unit): Status =
+public actual fun gdipDrawImageFX(graphics: MutPtr, image: MutPtr, source: MutPtr, xform: MutPtr, effect: MutPtr, imageattributes: MutPtr, srcunit: Unit): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipDrawImageFX(graphics.rawAddress.toCPointer<ByteVar>(), image.rawAddress.toCPointer<ByteVar>(), source.rawAddress.toCPointer<ByteVar>(), xform.rawAddress.toCPointer<ByteVar>(), effect.rawAddress.toCPointer<ByteVar>(), imageattributes.rawAddress.toCPointer<ByteVar>(), srcunit)
 
-public actual fun gdipDrawImageI(graphics: MutPtr<GpGraphics>, image: MutPtr<GpImage>, x: Int, y: Int): Status =
+public actual fun gdipDrawImageI(graphics: MutPtr, image: MutPtr, x: Int, y: Int): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipDrawImageI(graphics.rawAddress.toCPointer<ByteVar>(), image.rawAddress.toCPointer<ByteVar>(), x, y)
 
-public actual fun gdipDrawImagePointRect(graphics: MutPtr<GpGraphics>, image: MutPtr<GpImage>, x: Float, y: Float, srcx: Float, srcy: Float, srcwidth: Float, srcheight: Float, srcunit: Unit): Status =
+public actual fun gdipDrawImagePointRect(graphics: MutPtr, image: MutPtr, x: Float, y: Float, srcx: Float, srcy: Float, srcwidth: Float, srcheight: Float, srcunit: Unit): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipDrawImagePointRect(graphics.rawAddress.toCPointer<ByteVar>(), image.rawAddress.toCPointer<ByteVar>(), x, y, srcx, srcy, srcwidth, srcheight, srcunit)
 
-public actual fun gdipDrawImagePointRectI(graphics: MutPtr<GpGraphics>, image: MutPtr<GpImage>, x: Int, y: Int, srcx: Int, srcy: Int, srcwidth: Int, srcheight: Int, srcunit: Unit): Status =
+public actual fun gdipDrawImagePointRectI(graphics: MutPtr, image: MutPtr, x: Int, y: Int, srcx: Int, srcy: Int, srcwidth: Int, srcheight: Int, srcunit: Unit): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipDrawImagePointRectI(graphics.rawAddress.toCPointer<ByteVar>(), image.rawAddress.toCPointer<ByteVar>(), x, y, srcx, srcy, srcwidth, srcheight, srcunit)
 
-public actual fun gdipDrawImagePoints(graphics: MutPtr<GpGraphics>, image: MutPtr<GpImage>, dstpoints: ConstPtr<PointF>, count: Int): Status =
+public actual fun gdipDrawImagePoints(graphics: MutPtr, image: MutPtr, dstpoints: ConstPtr, count: Int): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipDrawImagePoints(graphics.rawAddress.toCPointer<ByteVar>(), image.rawAddress.toCPointer<ByteVar>(), dstpoints.rawAddress.toCPointer<ByteVar>(), count)
 
-public actual fun gdipDrawImagePointsI(graphics: MutPtr<GpGraphics>, image: MutPtr<GpImage>, dstpoints: ConstPtr<Point>, count: Int): Status =
+public actual fun gdipDrawImagePointsI(graphics: MutPtr, image: MutPtr, dstpoints: ConstPtr, count: Int): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipDrawImagePointsI(graphics.rawAddress.toCPointer<ByteVar>(), image.rawAddress.toCPointer<ByteVar>(), dstpoints.rawAddress.toCPointer<ByteVar>(), count)
 
-public actual fun gdipDrawImagePointsRect(graphics: MutPtr<GpGraphics>, image: MutPtr<GpImage>, points: ConstPtr<PointF>, count: Int, srcx: Float, srcy: Float, srcwidth: Float, srcheight: Float, srcunit: Unit, imageattributes: ConstPtr<GpImageAttributes>, callback: Long, callbackdata: MutPtr<CVoid>): Status =
+public actual fun gdipDrawImagePointsRect(graphics: MutPtr, image: MutPtr, points: ConstPtr, count: Int, srcx: Float, srcy: Float, srcwidth: Float, srcheight: Float, srcunit: Unit, imageattributes: ConstPtr, callback: Long, callbackdata: MutPtr): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipDrawImagePointsRect(graphics.rawAddress.toCPointer<ByteVar>(), image.rawAddress.toCPointer<ByteVar>(), points.rawAddress.toCPointer<ByteVar>(), count, srcx, srcy, srcwidth, srcheight, srcunit, imageattributes.rawAddress.toCPointer<ByteVar>(), callback, callbackdata.rawAddress.toCPointer<ByteVar>())
 
-public actual fun gdipDrawImagePointsRectI(graphics: MutPtr<GpGraphics>, image: MutPtr<GpImage>, points: ConstPtr<Point>, count: Int, srcx: Int, srcy: Int, srcwidth: Int, srcheight: Int, srcunit: Unit, imageattributes: ConstPtr<GpImageAttributes>, callback: Long, callbackdata: MutPtr<CVoid>): Status =
+public actual fun gdipDrawImagePointsRectI(graphics: MutPtr, image: MutPtr, points: ConstPtr, count: Int, srcx: Int, srcy: Int, srcwidth: Int, srcheight: Int, srcunit: Unit, imageattributes: ConstPtr, callback: Long, callbackdata: MutPtr): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipDrawImagePointsRectI(graphics.rawAddress.toCPointer<ByteVar>(), image.rawAddress.toCPointer<ByteVar>(), points.rawAddress.toCPointer<ByteVar>(), count, srcx, srcy, srcwidth, srcheight, srcunit, imageattributes.rawAddress.toCPointer<ByteVar>(), callback, callbackdata.rawAddress.toCPointer<ByteVar>())
 
-public actual fun gdipDrawImageRect(graphics: MutPtr<GpGraphics>, image: MutPtr<GpImage>, x: Float, y: Float, width: Float, height: Float): Status =
+public actual fun gdipDrawImageRect(graphics: MutPtr, image: MutPtr, x: Float, y: Float, width: Float, height: Float): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipDrawImageRect(graphics.rawAddress.toCPointer<ByteVar>(), image.rawAddress.toCPointer<ByteVar>(), x, y, width, height)
 
-public actual fun gdipDrawImageRectI(graphics: MutPtr<GpGraphics>, image: MutPtr<GpImage>, x: Int, y: Int, width: Int, height: Int): Status =
+public actual fun gdipDrawImageRectI(graphics: MutPtr, image: MutPtr, x: Int, y: Int, width: Int, height: Int): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipDrawImageRectI(graphics.rawAddress.toCPointer<ByteVar>(), image.rawAddress.toCPointer<ByteVar>(), x, y, width, height)
 
-public actual fun gdipDrawImageRectRect(graphics: MutPtr<GpGraphics>, image: MutPtr<GpImage>, dstx: Float, dsty: Float, dstwidth: Float, dstheight: Float, srcx: Float, srcy: Float, srcwidth: Float, srcheight: Float, srcunit: Unit, imageattributes: ConstPtr<GpImageAttributes>, callback: Long, callbackdata: MutPtr<CVoid>): Status =
+public actual fun gdipDrawImageRectRect(graphics: MutPtr, image: MutPtr, dstx: Float, dsty: Float, dstwidth: Float, dstheight: Float, srcx: Float, srcy: Float, srcwidth: Float, srcheight: Float, srcunit: Unit, imageattributes: ConstPtr, callback: Long, callbackdata: MutPtr): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipDrawImageRectRect(graphics.rawAddress.toCPointer<ByteVar>(), image.rawAddress.toCPointer<ByteVar>(), dstx, dsty, dstwidth, dstheight, srcx, srcy, srcwidth, srcheight, srcunit, imageattributes.rawAddress.toCPointer<ByteVar>(), callback, callbackdata.rawAddress.toCPointer<ByteVar>())
 
-public actual fun gdipDrawImageRectRectI(graphics: MutPtr<GpGraphics>, image: MutPtr<GpImage>, dstx: Int, dsty: Int, dstwidth: Int, dstheight: Int, srcx: Int, srcy: Int, srcwidth: Int, srcheight: Int, srcunit: Unit, imageattributes: ConstPtr<GpImageAttributes>, callback: Long, callbackdata: MutPtr<CVoid>): Status =
+public actual fun gdipDrawImageRectRectI(graphics: MutPtr, image: MutPtr, dstx: Int, dsty: Int, dstwidth: Int, dstheight: Int, srcx: Int, srcy: Int, srcwidth: Int, srcheight: Int, srcunit: Unit, imageattributes: ConstPtr, callback: Long, callbackdata: MutPtr): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipDrawImageRectRectI(graphics.rawAddress.toCPointer<ByteVar>(), image.rawAddress.toCPointer<ByteVar>(), dstx, dsty, dstwidth, dstheight, srcx, srcy, srcwidth, srcheight, srcunit, imageattributes.rawAddress.toCPointer<ByteVar>(), callback, callbackdata.rawAddress.toCPointer<ByteVar>())
 
-public actual fun gdipDrawLine(graphics: MutPtr<GpGraphics>, pen: MutPtr<GpPen>, x1: Float, y1: Float, x2: Float, y2: Float): Status =
+public actual fun gdipDrawLine(graphics: MutPtr, pen: MutPtr, x1: Float, y1: Float, x2: Float, y2: Float): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipDrawLine(graphics.rawAddress.toCPointer<ByteVar>(), pen.rawAddress.toCPointer<ByteVar>(), x1, y1, x2, y2)
 
-public actual fun gdipDrawLineI(graphics: MutPtr<GpGraphics>, pen: MutPtr<GpPen>, x1: Int, y1: Int, x2: Int, y2: Int): Status =
+public actual fun gdipDrawLineI(graphics: MutPtr, pen: MutPtr, x1: Int, y1: Int, x2: Int, y2: Int): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipDrawLineI(graphics.rawAddress.toCPointer<ByteVar>(), pen.rawAddress.toCPointer<ByteVar>(), x1, y1, x2, y2)
 
-public actual fun gdipDrawLines(graphics: MutPtr<GpGraphics>, pen: MutPtr<GpPen>, points: ConstPtr<PointF>, count: Int): Status =
+public actual fun gdipDrawLines(graphics: MutPtr, pen: MutPtr, points: ConstPtr, count: Int): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipDrawLines(graphics.rawAddress.toCPointer<ByteVar>(), pen.rawAddress.toCPointer<ByteVar>(), points.rawAddress.toCPointer<ByteVar>(), count)
 
-public actual fun gdipDrawLinesI(graphics: MutPtr<GpGraphics>, pen: MutPtr<GpPen>, points: ConstPtr<Point>, count: Int): Status =
+public actual fun gdipDrawLinesI(graphics: MutPtr, pen: MutPtr, points: ConstPtr, count: Int): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipDrawLinesI(graphics.rawAddress.toCPointer<ByteVar>(), pen.rawAddress.toCPointer<ByteVar>(), points.rawAddress.toCPointer<ByteVar>(), count)
 
-public actual fun gdipDrawPath(graphics: MutPtr<GpGraphics>, pen: MutPtr<GpPen>, path: MutPtr<GpPath>): Status =
+public actual fun gdipDrawPath(graphics: MutPtr, pen: MutPtr, path: MutPtr): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipDrawPath(graphics.rawAddress.toCPointer<ByteVar>(), pen.rawAddress.toCPointer<ByteVar>(), path.rawAddress.toCPointer<ByteVar>())
 
-public actual fun gdipDrawPie(graphics: MutPtr<GpGraphics>, pen: MutPtr<GpPen>, x: Float, y: Float, width: Float, height: Float, startangle: Float, sweepangle: Float): Status =
+public actual fun gdipDrawPie(graphics: MutPtr, pen: MutPtr, x: Float, y: Float, width: Float, height: Float, startangle: Float, sweepangle: Float): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipDrawPie(graphics.rawAddress.toCPointer<ByteVar>(), pen.rawAddress.toCPointer<ByteVar>(), x, y, width, height, startangle, sweepangle)
 
-public actual fun gdipDrawPieI(graphics: MutPtr<GpGraphics>, pen: MutPtr<GpPen>, x: Int, y: Int, width: Int, height: Int, startangle: Float, sweepangle: Float): Status =
+public actual fun gdipDrawPieI(graphics: MutPtr, pen: MutPtr, x: Int, y: Int, width: Int, height: Int, startangle: Float, sweepangle: Float): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipDrawPieI(graphics.rawAddress.toCPointer<ByteVar>(), pen.rawAddress.toCPointer<ByteVar>(), x, y, width, height, startangle, sweepangle)
 
-public actual fun gdipDrawPolygon(graphics: MutPtr<GpGraphics>, pen: MutPtr<GpPen>, points: ConstPtr<PointF>, count: Int): Status =
+public actual fun gdipDrawPolygon(graphics: MutPtr, pen: MutPtr, points: ConstPtr, count: Int): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipDrawPolygon(graphics.rawAddress.toCPointer<ByteVar>(), pen.rawAddress.toCPointer<ByteVar>(), points.rawAddress.toCPointer<ByteVar>(), count)
 
-public actual fun gdipDrawPolygonI(graphics: MutPtr<GpGraphics>, pen: MutPtr<GpPen>, points: ConstPtr<Point>, count: Int): Status =
+public actual fun gdipDrawPolygonI(graphics: MutPtr, pen: MutPtr, points: ConstPtr, count: Int): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipDrawPolygonI(graphics.rawAddress.toCPointer<ByteVar>(), pen.rawAddress.toCPointer<ByteVar>(), points.rawAddress.toCPointer<ByteVar>(), count)
 
-public actual fun gdipDrawRectangle(graphics: MutPtr<GpGraphics>, pen: MutPtr<GpPen>, x: Float, y: Float, width: Float, height: Float): Status =
+public actual fun gdipDrawRectangle(graphics: MutPtr, pen: MutPtr, x: Float, y: Float, width: Float, height: Float): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipDrawRectangle(graphics.rawAddress.toCPointer<ByteVar>(), pen.rawAddress.toCPointer<ByteVar>(), x, y, width, height)
 
-public actual fun gdipDrawRectangleI(graphics: MutPtr<GpGraphics>, pen: MutPtr<GpPen>, x: Int, y: Int, width: Int, height: Int): Status =
+public actual fun gdipDrawRectangleI(graphics: MutPtr, pen: MutPtr, x: Int, y: Int, width: Int, height: Int): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipDrawRectangleI(graphics.rawAddress.toCPointer<ByteVar>(), pen.rawAddress.toCPointer<ByteVar>(), x, y, width, height)
 
-public actual fun gdipDrawRectangles(graphics: MutPtr<GpGraphics>, pen: MutPtr<GpPen>, rects: ConstPtr<RectF>, count: Int): Status =
+public actual fun gdipDrawRectangles(graphics: MutPtr, pen: MutPtr, rects: ConstPtr, count: Int): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipDrawRectangles(graphics.rawAddress.toCPointer<ByteVar>(), pen.rawAddress.toCPointer<ByteVar>(), rects.rawAddress.toCPointer<ByteVar>(), count)
 
-public actual fun gdipDrawRectanglesI(graphics: MutPtr<GpGraphics>, pen: MutPtr<GpPen>, rects: ConstPtr<Rect>, count: Int): Status =
+public actual fun gdipDrawRectanglesI(graphics: MutPtr, pen: MutPtr, rects: ConstPtr, count: Int): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipDrawRectanglesI(graphics.rawAddress.toCPointer<ByteVar>(), pen.rawAddress.toCPointer<ByteVar>(), rects.rawAddress.toCPointer<ByteVar>(), count)
 
-public actual fun gdipDrawString(graphics: MutPtr<GpGraphics>, string: Pcwstr, length: Int, font: ConstPtr<GpFont>, layoutrect: ConstPtr<RectF>, stringformat: ConstPtr<GpStringFormat>, brush: ConstPtr<GpBrush>): Status =
+public actual fun gdipDrawString(graphics: MutPtr, string: Pcwstr, length: Int, font: ConstPtr, layoutrect: ConstPtr, stringformat: ConstPtr, brush: ConstPtr): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipDrawString(graphics.rawAddress.toCPointer<ByteVar>(), string.rawAddress.toCPointer<ByteVar>(), length, font.rawAddress.toCPointer<ByteVar>(), layoutrect.rawAddress.toCPointer<ByteVar>(), stringformat.rawAddress.toCPointer<ByteVar>(), brush.rawAddress.toCPointer<ByteVar>())
 
-public actual fun gdipEmfToWmfBits(hemf: Henhmetafile, cbdata16: UInt, pdata16: MutPtr<UByte>, imapmode: Int, eflags: Int): UInt =
+public actual fun gdipEmfToWmfBits(hemf: Henhmetafile, cbdata16: UInt, pdata16: MutPtr, imapmode: Int, eflags: Int): UInt =
     windowssysWindowsWin32GraphicsGdiplusGdipEmfToWmfBits(hemf.rawAddress.toCPointer<ByteVar>(), cbdata16, pdata16.rawAddress.toCPointer<ByteVar>(), imapmode, eflags)
 
-public actual fun gdipEndContainer(graphics: MutPtr<GpGraphics>, state: UInt): Status =
+public actual fun gdipEndContainer(graphics: MutPtr, state: UInt): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipEndContainer(graphics.rawAddress.toCPointer<ByteVar>(), state)
 
-public actual fun gdipEnumerateMetafileDestPoint(graphics: MutPtr<GpGraphics>, metafile: ConstPtr<GpMetafile>, destpoint: ConstPtr<PointF>, callback: Long, callbackdata: MutPtr<CVoid>, imageattributes: ConstPtr<GpImageAttributes>): Status =
+public actual fun gdipEnumerateMetafileDestPoint(graphics: MutPtr, metafile: ConstPtr, destpoint: ConstPtr, callback: Long, callbackdata: MutPtr, imageattributes: ConstPtr): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipEnumerateMetafileDestPoint(graphics.rawAddress.toCPointer<ByteVar>(), metafile.rawAddress.toCPointer<ByteVar>(), destpoint.rawAddress.toCPointer<ByteVar>(), callback, callbackdata.rawAddress.toCPointer<ByteVar>(), imageattributes.rawAddress.toCPointer<ByteVar>())
 
-public actual fun gdipEnumerateMetafileDestPointI(graphics: MutPtr<GpGraphics>, metafile: ConstPtr<GpMetafile>, destpoint: ConstPtr<Point>, callback: Long, callbackdata: MutPtr<CVoid>, imageattributes: ConstPtr<GpImageAttributes>): Status =
+public actual fun gdipEnumerateMetafileDestPointI(graphics: MutPtr, metafile: ConstPtr, destpoint: ConstPtr, callback: Long, callbackdata: MutPtr, imageattributes: ConstPtr): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipEnumerateMetafileDestPointI(graphics.rawAddress.toCPointer<ByteVar>(), metafile.rawAddress.toCPointer<ByteVar>(), destpoint.rawAddress.toCPointer<ByteVar>(), callback, callbackdata.rawAddress.toCPointer<ByteVar>(), imageattributes.rawAddress.toCPointer<ByteVar>())
 
-public actual fun gdipEnumerateMetafileDestPoints(graphics: MutPtr<GpGraphics>, metafile: ConstPtr<GpMetafile>, destpoints: ConstPtr<PointF>, count: Int, callback: Long, callbackdata: MutPtr<CVoid>, imageattributes: ConstPtr<GpImageAttributes>): Status =
+public actual fun gdipEnumerateMetafileDestPoints(graphics: MutPtr, metafile: ConstPtr, destpoints: ConstPtr, count: Int, callback: Long, callbackdata: MutPtr, imageattributes: ConstPtr): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipEnumerateMetafileDestPoints(graphics.rawAddress.toCPointer<ByteVar>(), metafile.rawAddress.toCPointer<ByteVar>(), destpoints.rawAddress.toCPointer<ByteVar>(), count, callback, callbackdata.rawAddress.toCPointer<ByteVar>(), imageattributes.rawAddress.toCPointer<ByteVar>())
 
-public actual fun gdipEnumerateMetafileDestPointsI(graphics: MutPtr<GpGraphics>, metafile: ConstPtr<GpMetafile>, destpoints: ConstPtr<Point>, count: Int, callback: Long, callbackdata: MutPtr<CVoid>, imageattributes: ConstPtr<GpImageAttributes>): Status =
+public actual fun gdipEnumerateMetafileDestPointsI(graphics: MutPtr, metafile: ConstPtr, destpoints: ConstPtr, count: Int, callback: Long, callbackdata: MutPtr, imageattributes: ConstPtr): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipEnumerateMetafileDestPointsI(graphics.rawAddress.toCPointer<ByteVar>(), metafile.rawAddress.toCPointer<ByteVar>(), destpoints.rawAddress.toCPointer<ByteVar>(), count, callback, callbackdata.rawAddress.toCPointer<ByteVar>(), imageattributes.rawAddress.toCPointer<ByteVar>())
 
-public actual fun gdipEnumerateMetafileDestRect(graphics: MutPtr<GpGraphics>, metafile: ConstPtr<GpMetafile>, destrect: ConstPtr<RectF>, callback: Long, callbackdata: MutPtr<CVoid>, imageattributes: ConstPtr<GpImageAttributes>): Status =
+public actual fun gdipEnumerateMetafileDestRect(graphics: MutPtr, metafile: ConstPtr, destrect: ConstPtr, callback: Long, callbackdata: MutPtr, imageattributes: ConstPtr): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipEnumerateMetafileDestRect(graphics.rawAddress.toCPointer<ByteVar>(), metafile.rawAddress.toCPointer<ByteVar>(), destrect.rawAddress.toCPointer<ByteVar>(), callback, callbackdata.rawAddress.toCPointer<ByteVar>(), imageattributes.rawAddress.toCPointer<ByteVar>())
 
-public actual fun gdipEnumerateMetafileDestRectI(graphics: MutPtr<GpGraphics>, metafile: ConstPtr<GpMetafile>, destrect: ConstPtr<Rect>, callback: Long, callbackdata: MutPtr<CVoid>, imageattributes: ConstPtr<GpImageAttributes>): Status =
+public actual fun gdipEnumerateMetafileDestRectI(graphics: MutPtr, metafile: ConstPtr, destrect: ConstPtr, callback: Long, callbackdata: MutPtr, imageattributes: ConstPtr): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipEnumerateMetafileDestRectI(graphics.rawAddress.toCPointer<ByteVar>(), metafile.rawAddress.toCPointer<ByteVar>(), destrect.rawAddress.toCPointer<ByteVar>(), callback, callbackdata.rawAddress.toCPointer<ByteVar>(), imageattributes.rawAddress.toCPointer<ByteVar>())
 
-public actual fun gdipEnumerateMetafileSrcRectDestPoint(graphics: MutPtr<GpGraphics>, metafile: ConstPtr<GpMetafile>, destpoint: ConstPtr<PointF>, srcrect: ConstPtr<RectF>, srcunit: Unit, callback: Long, callbackdata: MutPtr<CVoid>, imageattributes: ConstPtr<GpImageAttributes>): Status =
+public actual fun gdipEnumerateMetafileSrcRectDestPoint(graphics: MutPtr, metafile: ConstPtr, destpoint: ConstPtr, srcrect: ConstPtr, srcunit: Unit, callback: Long, callbackdata: MutPtr, imageattributes: ConstPtr): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipEnumerateMetafileSrcRectDestPoint(graphics.rawAddress.toCPointer<ByteVar>(), metafile.rawAddress.toCPointer<ByteVar>(), destpoint.rawAddress.toCPointer<ByteVar>(), srcrect.rawAddress.toCPointer<ByteVar>(), srcunit, callback, callbackdata.rawAddress.toCPointer<ByteVar>(), imageattributes.rawAddress.toCPointer<ByteVar>())
 
-public actual fun gdipEnumerateMetafileSrcRectDestPointI(graphics: MutPtr<GpGraphics>, metafile: ConstPtr<GpMetafile>, destpoint: ConstPtr<Point>, srcrect: ConstPtr<Rect>, srcunit: Unit, callback: Long, callbackdata: MutPtr<CVoid>, imageattributes: ConstPtr<GpImageAttributes>): Status =
+public actual fun gdipEnumerateMetafileSrcRectDestPointI(graphics: MutPtr, metafile: ConstPtr, destpoint: ConstPtr, srcrect: ConstPtr, srcunit: Unit, callback: Long, callbackdata: MutPtr, imageattributes: ConstPtr): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipEnumerateMetafileSrcRectDestPointI(graphics.rawAddress.toCPointer<ByteVar>(), metafile.rawAddress.toCPointer<ByteVar>(), destpoint.rawAddress.toCPointer<ByteVar>(), srcrect.rawAddress.toCPointer<ByteVar>(), srcunit, callback, callbackdata.rawAddress.toCPointer<ByteVar>(), imageattributes.rawAddress.toCPointer<ByteVar>())
 
-public actual fun gdipEnumerateMetafileSrcRectDestPoints(graphics: MutPtr<GpGraphics>, metafile: ConstPtr<GpMetafile>, destpoints: ConstPtr<PointF>, count: Int, srcrect: ConstPtr<RectF>, srcunit: Unit, callback: Long, callbackdata: MutPtr<CVoid>, imageattributes: ConstPtr<GpImageAttributes>): Status =
+public actual fun gdipEnumerateMetafileSrcRectDestPoints(graphics: MutPtr, metafile: ConstPtr, destpoints: ConstPtr, count: Int, srcrect: ConstPtr, srcunit: Unit, callback: Long, callbackdata: MutPtr, imageattributes: ConstPtr): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipEnumerateMetafileSrcRectDestPoints(graphics.rawAddress.toCPointer<ByteVar>(), metafile.rawAddress.toCPointer<ByteVar>(), destpoints.rawAddress.toCPointer<ByteVar>(), count, srcrect.rawAddress.toCPointer<ByteVar>(), srcunit, callback, callbackdata.rawAddress.toCPointer<ByteVar>(), imageattributes.rawAddress.toCPointer<ByteVar>())
 
-public actual fun gdipEnumerateMetafileSrcRectDestPointsI(graphics: MutPtr<GpGraphics>, metafile: ConstPtr<GpMetafile>, destpoints: ConstPtr<Point>, count: Int, srcrect: ConstPtr<Rect>, srcunit: Unit, callback: Long, callbackdata: MutPtr<CVoid>, imageattributes: ConstPtr<GpImageAttributes>): Status =
+public actual fun gdipEnumerateMetafileSrcRectDestPointsI(graphics: MutPtr, metafile: ConstPtr, destpoints: ConstPtr, count: Int, srcrect: ConstPtr, srcunit: Unit, callback: Long, callbackdata: MutPtr, imageattributes: ConstPtr): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipEnumerateMetafileSrcRectDestPointsI(graphics.rawAddress.toCPointer<ByteVar>(), metafile.rawAddress.toCPointer<ByteVar>(), destpoints.rawAddress.toCPointer<ByteVar>(), count, srcrect.rawAddress.toCPointer<ByteVar>(), srcunit, callback, callbackdata.rawAddress.toCPointer<ByteVar>(), imageattributes.rawAddress.toCPointer<ByteVar>())
 
-public actual fun gdipEnumerateMetafileSrcRectDestRect(graphics: MutPtr<GpGraphics>, metafile: ConstPtr<GpMetafile>, destrect: ConstPtr<RectF>, srcrect: ConstPtr<RectF>, srcunit: Unit, callback: Long, callbackdata: MutPtr<CVoid>, imageattributes: ConstPtr<GpImageAttributes>): Status =
+public actual fun gdipEnumerateMetafileSrcRectDestRect(graphics: MutPtr, metafile: ConstPtr, destrect: ConstPtr, srcrect: ConstPtr, srcunit: Unit, callback: Long, callbackdata: MutPtr, imageattributes: ConstPtr): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipEnumerateMetafileSrcRectDestRect(graphics.rawAddress.toCPointer<ByteVar>(), metafile.rawAddress.toCPointer<ByteVar>(), destrect.rawAddress.toCPointer<ByteVar>(), srcrect.rawAddress.toCPointer<ByteVar>(), srcunit, callback, callbackdata.rawAddress.toCPointer<ByteVar>(), imageattributes.rawAddress.toCPointer<ByteVar>())
 
-public actual fun gdipEnumerateMetafileSrcRectDestRectI(graphics: MutPtr<GpGraphics>, metafile: ConstPtr<GpMetafile>, destrect: ConstPtr<Rect>, srcrect: ConstPtr<Rect>, srcunit: Unit, callback: Long, callbackdata: MutPtr<CVoid>, imageattributes: ConstPtr<GpImageAttributes>): Status =
+public actual fun gdipEnumerateMetafileSrcRectDestRectI(graphics: MutPtr, metafile: ConstPtr, destrect: ConstPtr, srcrect: ConstPtr, srcunit: Unit, callback: Long, callbackdata: MutPtr, imageattributes: ConstPtr): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipEnumerateMetafileSrcRectDestRectI(graphics.rawAddress.toCPointer<ByteVar>(), metafile.rawAddress.toCPointer<ByteVar>(), destrect.rawAddress.toCPointer<ByteVar>(), srcrect.rawAddress.toCPointer<ByteVar>(), srcunit, callback, callbackdata.rawAddress.toCPointer<ByteVar>(), imageattributes.rawAddress.toCPointer<ByteVar>())
 
-public actual fun gdipFillClosedCurve(graphics: MutPtr<GpGraphics>, brush: MutPtr<GpBrush>, points: ConstPtr<PointF>, count: Int): Status =
+public actual fun gdipFillClosedCurve(graphics: MutPtr, brush: MutPtr, points: ConstPtr, count: Int): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipFillClosedCurve(graphics.rawAddress.toCPointer<ByteVar>(), brush.rawAddress.toCPointer<ByteVar>(), points.rawAddress.toCPointer<ByteVar>(), count)
 
-public actual fun gdipFillClosedCurve2(graphics: MutPtr<GpGraphics>, brush: MutPtr<GpBrush>, points: ConstPtr<PointF>, count: Int, tension: Float, fillmode: FillMode): Status =
+public actual fun gdipFillClosedCurve2(graphics: MutPtr, brush: MutPtr, points: ConstPtr, count: Int, tension: Float, fillmode: FillMode): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipFillClosedCurve2(graphics.rawAddress.toCPointer<ByteVar>(), brush.rawAddress.toCPointer<ByteVar>(), points.rawAddress.toCPointer<ByteVar>(), count, tension, fillmode)
 
-public actual fun gdipFillClosedCurve2I(graphics: MutPtr<GpGraphics>, brush: MutPtr<GpBrush>, points: ConstPtr<Point>, count: Int, tension: Float, fillmode: FillMode): Status =
+public actual fun gdipFillClosedCurve2I(graphics: MutPtr, brush: MutPtr, points: ConstPtr, count: Int, tension: Float, fillmode: FillMode): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipFillClosedCurve2I(graphics.rawAddress.toCPointer<ByteVar>(), brush.rawAddress.toCPointer<ByteVar>(), points.rawAddress.toCPointer<ByteVar>(), count, tension, fillmode)
 
-public actual fun gdipFillClosedCurveI(graphics: MutPtr<GpGraphics>, brush: MutPtr<GpBrush>, points: ConstPtr<Point>, count: Int): Status =
+public actual fun gdipFillClosedCurveI(graphics: MutPtr, brush: MutPtr, points: ConstPtr, count: Int): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipFillClosedCurveI(graphics.rawAddress.toCPointer<ByteVar>(), brush.rawAddress.toCPointer<ByteVar>(), points.rawAddress.toCPointer<ByteVar>(), count)
 
-public actual fun gdipFillEllipse(graphics: MutPtr<GpGraphics>, brush: MutPtr<GpBrush>, x: Float, y: Float, width: Float, height: Float): Status =
+public actual fun gdipFillEllipse(graphics: MutPtr, brush: MutPtr, x: Float, y: Float, width: Float, height: Float): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipFillEllipse(graphics.rawAddress.toCPointer<ByteVar>(), brush.rawAddress.toCPointer<ByteVar>(), x, y, width, height)
 
-public actual fun gdipFillEllipseI(graphics: MutPtr<GpGraphics>, brush: MutPtr<GpBrush>, x: Int, y: Int, width: Int, height: Int): Status =
+public actual fun gdipFillEllipseI(graphics: MutPtr, brush: MutPtr, x: Int, y: Int, width: Int, height: Int): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipFillEllipseI(graphics.rawAddress.toCPointer<ByteVar>(), brush.rawAddress.toCPointer<ByteVar>(), x, y, width, height)
 
-public actual fun gdipFillPath(graphics: MutPtr<GpGraphics>, brush: MutPtr<GpBrush>, path: MutPtr<GpPath>): Status =
+public actual fun gdipFillPath(graphics: MutPtr, brush: MutPtr, path: MutPtr): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipFillPath(graphics.rawAddress.toCPointer<ByteVar>(), brush.rawAddress.toCPointer<ByteVar>(), path.rawAddress.toCPointer<ByteVar>())
 
-public actual fun gdipFillPie(graphics: MutPtr<GpGraphics>, brush: MutPtr<GpBrush>, x: Float, y: Float, width: Float, height: Float, startangle: Float, sweepangle: Float): Status =
+public actual fun gdipFillPie(graphics: MutPtr, brush: MutPtr, x: Float, y: Float, width: Float, height: Float, startangle: Float, sweepangle: Float): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipFillPie(graphics.rawAddress.toCPointer<ByteVar>(), brush.rawAddress.toCPointer<ByteVar>(), x, y, width, height, startangle, sweepangle)
 
-public actual fun gdipFillPieI(graphics: MutPtr<GpGraphics>, brush: MutPtr<GpBrush>, x: Int, y: Int, width: Int, height: Int, startangle: Float, sweepangle: Float): Status =
+public actual fun gdipFillPieI(graphics: MutPtr, brush: MutPtr, x: Int, y: Int, width: Int, height: Int, startangle: Float, sweepangle: Float): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipFillPieI(graphics.rawAddress.toCPointer<ByteVar>(), brush.rawAddress.toCPointer<ByteVar>(), x, y, width, height, startangle, sweepangle)
 
-public actual fun gdipFillPolygon(graphics: MutPtr<GpGraphics>, brush: MutPtr<GpBrush>, points: ConstPtr<PointF>, count: Int, fillmode: FillMode): Status =
+public actual fun gdipFillPolygon(graphics: MutPtr, brush: MutPtr, points: ConstPtr, count: Int, fillmode: FillMode): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipFillPolygon(graphics.rawAddress.toCPointer<ByteVar>(), brush.rawAddress.toCPointer<ByteVar>(), points.rawAddress.toCPointer<ByteVar>(), count, fillmode)
 
-public actual fun gdipFillPolygon2(graphics: MutPtr<GpGraphics>, brush: MutPtr<GpBrush>, points: ConstPtr<PointF>, count: Int): Status =
+public actual fun gdipFillPolygon2(graphics: MutPtr, brush: MutPtr, points: ConstPtr, count: Int): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipFillPolygon2(graphics.rawAddress.toCPointer<ByteVar>(), brush.rawAddress.toCPointer<ByteVar>(), points.rawAddress.toCPointer<ByteVar>(), count)
 
-public actual fun gdipFillPolygon2I(graphics: MutPtr<GpGraphics>, brush: MutPtr<GpBrush>, points: ConstPtr<Point>, count: Int): Status =
+public actual fun gdipFillPolygon2I(graphics: MutPtr, brush: MutPtr, points: ConstPtr, count: Int): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipFillPolygon2I(graphics.rawAddress.toCPointer<ByteVar>(), brush.rawAddress.toCPointer<ByteVar>(), points.rawAddress.toCPointer<ByteVar>(), count)
 
-public actual fun gdipFillPolygonI(graphics: MutPtr<GpGraphics>, brush: MutPtr<GpBrush>, points: ConstPtr<Point>, count: Int, fillmode: FillMode): Status =
+public actual fun gdipFillPolygonI(graphics: MutPtr, brush: MutPtr, points: ConstPtr, count: Int, fillmode: FillMode): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipFillPolygonI(graphics.rawAddress.toCPointer<ByteVar>(), brush.rawAddress.toCPointer<ByteVar>(), points.rawAddress.toCPointer<ByteVar>(), count, fillmode)
 
-public actual fun gdipFillRectangle(graphics: MutPtr<GpGraphics>, brush: MutPtr<GpBrush>, x: Float, y: Float, width: Float, height: Float): Status =
+public actual fun gdipFillRectangle(graphics: MutPtr, brush: MutPtr, x: Float, y: Float, width: Float, height: Float): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipFillRectangle(graphics.rawAddress.toCPointer<ByteVar>(), brush.rawAddress.toCPointer<ByteVar>(), x, y, width, height)
 
-public actual fun gdipFillRectangleI(graphics: MutPtr<GpGraphics>, brush: MutPtr<GpBrush>, x: Int, y: Int, width: Int, height: Int): Status =
+public actual fun gdipFillRectangleI(graphics: MutPtr, brush: MutPtr, x: Int, y: Int, width: Int, height: Int): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipFillRectangleI(graphics.rawAddress.toCPointer<ByteVar>(), brush.rawAddress.toCPointer<ByteVar>(), x, y, width, height)
 
-public actual fun gdipFillRectangles(graphics: MutPtr<GpGraphics>, brush: MutPtr<GpBrush>, rects: ConstPtr<RectF>, count: Int): Status =
+public actual fun gdipFillRectangles(graphics: MutPtr, brush: MutPtr, rects: ConstPtr, count: Int): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipFillRectangles(graphics.rawAddress.toCPointer<ByteVar>(), brush.rawAddress.toCPointer<ByteVar>(), rects.rawAddress.toCPointer<ByteVar>(), count)
 
-public actual fun gdipFillRectanglesI(graphics: MutPtr<GpGraphics>, brush: MutPtr<GpBrush>, rects: ConstPtr<Rect>, count: Int): Status =
+public actual fun gdipFillRectanglesI(graphics: MutPtr, brush: MutPtr, rects: ConstPtr, count: Int): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipFillRectanglesI(graphics.rawAddress.toCPointer<ByteVar>(), brush.rawAddress.toCPointer<ByteVar>(), rects.rawAddress.toCPointer<ByteVar>(), count)
 
-public actual fun gdipFillRegion(graphics: MutPtr<GpGraphics>, brush: MutPtr<GpBrush>, region: MutPtr<GpRegion>): Status =
+public actual fun gdipFillRegion(graphics: MutPtr, brush: MutPtr, region: MutPtr): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipFillRegion(graphics.rawAddress.toCPointer<ByteVar>(), brush.rawAddress.toCPointer<ByteVar>(), region.rawAddress.toCPointer<ByteVar>())
 
-public actual fun gdipFindFirstImageItem(image: MutPtr<GpImage>, item: MutPtr<ImageItemData>): Status =
+public actual fun gdipFindFirstImageItem(image: MutPtr, item: MutPtr): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipFindFirstImageItem(image.rawAddress.toCPointer<ByteVar>(), item.rawAddress.toCPointer<ByteVar>())
 
-public actual fun gdipFindNextImageItem(image: MutPtr<GpImage>, item: MutPtr<ImageItemData>): Status =
+public actual fun gdipFindNextImageItem(image: MutPtr, item: MutPtr): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipFindNextImageItem(image.rawAddress.toCPointer<ByteVar>(), item.rawAddress.toCPointer<ByteVar>())
 
-public actual fun gdipFlattenPath(path: MutPtr<GpPath>, matrix: MutPtr<Matrix>, flatness: Float): Status =
+public actual fun gdipFlattenPath(path: MutPtr, matrix: MutPtr, flatness: Float): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipFlattenPath(path.rawAddress.toCPointer<ByteVar>(), matrix.rawAddress.toCPointer<ByteVar>(), flatness)
 
-public actual fun gdipFlush(graphics: MutPtr<GpGraphics>, intention: FlushIntention): Status =
+public actual fun gdipFlush(graphics: MutPtr, intention: FlushIntention): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipFlush(graphics.rawAddress.toCPointer<ByteVar>(), intention)
 
-public actual fun gdipFree(ptr: MutPtr<CVoid>) {
+public actual fun gdipFree(ptr: MutPtr) {
     windowssysWindowsWin32GraphicsGdiplusGdipFree(ptr.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun gdipGetAdjustableArrowCapFillState(cap: MutPtr<GpAdjustableArrowCap>, fillstate: MutPtr<Bool>): Status =
+public actual fun gdipGetAdjustableArrowCapFillState(cap: MutPtr, fillstate: MutPtr): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipGetAdjustableArrowCapFillState(cap.rawAddress.toCPointer<ByteVar>(), fillstate.rawAddress.toCPointer<ByteVar>())
 
-public actual fun gdipGetAdjustableArrowCapHeight(cap: MutPtr<GpAdjustableArrowCap>, height: MutPtr<Float>): Status =
+public actual fun gdipGetAdjustableArrowCapHeight(cap: MutPtr, height: MutPtr): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipGetAdjustableArrowCapHeight(cap.rawAddress.toCPointer<ByteVar>(), height.rawAddress.toCPointer<ByteVar>())
 
-public actual fun gdipGetAdjustableArrowCapMiddleInset(cap: MutPtr<GpAdjustableArrowCap>, middleinset: MutPtr<Float>): Status =
+public actual fun gdipGetAdjustableArrowCapMiddleInset(cap: MutPtr, middleinset: MutPtr): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipGetAdjustableArrowCapMiddleInset(cap.rawAddress.toCPointer<ByteVar>(), middleinset.rawAddress.toCPointer<ByteVar>())
 
-public actual fun gdipGetAdjustableArrowCapWidth(cap: MutPtr<GpAdjustableArrowCap>, width: MutPtr<Float>): Status =
+public actual fun gdipGetAdjustableArrowCapWidth(cap: MutPtr, width: MutPtr): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipGetAdjustableArrowCapWidth(cap.rawAddress.toCPointer<ByteVar>(), width.rawAddress.toCPointer<ByteVar>())
 
-public actual fun gdipGetAllPropertyItems(image: MutPtr<GpImage>, totalbuffersize: UInt, numproperties: UInt, allitems: MutPtr<PropertyItem>): Status =
+public actual fun gdipGetAllPropertyItems(image: MutPtr, totalbuffersize: UInt, numproperties: UInt, allitems: MutPtr): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipGetAllPropertyItems(image.rawAddress.toCPointer<ByteVar>(), totalbuffersize, numproperties, allitems.rawAddress.toCPointer<ByteVar>())
 
-public actual fun gdipGetBrushType(brush: MutPtr<GpBrush>, type: MutPtr<BrushType>): Status =
+public actual fun gdipGetBrushType(brush: MutPtr, type: MutPtr): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipGetBrushType(brush.rawAddress.toCPointer<ByteVar>(), type.rawAddress.toCPointer<ByteVar>())
 
-public actual fun gdipGetCellAscent(family: ConstPtr<GpFontFamily>, style: Int, cellascent: MutPtr<UShort>): Status =
+public actual fun gdipGetCellAscent(family: ConstPtr, style: Int, cellascent: MutPtr): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipGetCellAscent(family.rawAddress.toCPointer<ByteVar>(), style, cellascent.rawAddress.toCPointer<ByteVar>())
 
-public actual fun gdipGetCellDescent(family: ConstPtr<GpFontFamily>, style: Int, celldescent: MutPtr<UShort>): Status =
+public actual fun gdipGetCellDescent(family: ConstPtr, style: Int, celldescent: MutPtr): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipGetCellDescent(family.rawAddress.toCPointer<ByteVar>(), style, celldescent.rawAddress.toCPointer<ByteVar>())
 
-public actual fun gdipGetClip(graphics: MutPtr<GpGraphics>, region: MutPtr<GpRegion>): Status =
+public actual fun gdipGetClip(graphics: MutPtr, region: MutPtr): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipGetClip(graphics.rawAddress.toCPointer<ByteVar>(), region.rawAddress.toCPointer<ByteVar>())
 
-public actual fun gdipGetClipBounds(graphics: MutPtr<GpGraphics>, rect: MutPtr<RectF>): Status =
+public actual fun gdipGetClipBounds(graphics: MutPtr, rect: MutPtr): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipGetClipBounds(graphics.rawAddress.toCPointer<ByteVar>(), rect.rawAddress.toCPointer<ByteVar>())
 
-public actual fun gdipGetClipBoundsI(graphics: MutPtr<GpGraphics>, rect: MutPtr<Rect>): Status =
+public actual fun gdipGetClipBoundsI(graphics: MutPtr, rect: MutPtr): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipGetClipBoundsI(graphics.rawAddress.toCPointer<ByteVar>(), rect.rawAddress.toCPointer<ByteVar>())
 
-public actual fun gdipGetCompositingMode(graphics: MutPtr<GpGraphics>, compositingmode: MutPtr<CompositingMode>): Status =
+public actual fun gdipGetCompositingMode(graphics: MutPtr, compositingmode: MutPtr): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipGetCompositingMode(graphics.rawAddress.toCPointer<ByteVar>(), compositingmode.rawAddress.toCPointer<ByteVar>())
 
-public actual fun gdipGetCompositingQuality(graphics: MutPtr<GpGraphics>, compositingquality: MutPtr<CompositingQuality>): Status =
+public actual fun gdipGetCompositingQuality(graphics: MutPtr, compositingquality: MutPtr): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipGetCompositingQuality(graphics.rawAddress.toCPointer<ByteVar>(), compositingquality.rawAddress.toCPointer<ByteVar>())
 
-public actual fun gdipGetCustomLineCapBaseCap(customcap: MutPtr<GpCustomLineCap>, basecap: MutPtr<LineCap>): Status =
+public actual fun gdipGetCustomLineCapBaseCap(customcap: MutPtr, basecap: MutPtr): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipGetCustomLineCapBaseCap(customcap.rawAddress.toCPointer<ByteVar>(), basecap.rawAddress.toCPointer<ByteVar>())
 
-public actual fun gdipGetCustomLineCapBaseInset(customcap: MutPtr<GpCustomLineCap>, inset: MutPtr<Float>): Status =
+public actual fun gdipGetCustomLineCapBaseInset(customcap: MutPtr, inset: MutPtr): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipGetCustomLineCapBaseInset(customcap.rawAddress.toCPointer<ByteVar>(), inset.rawAddress.toCPointer<ByteVar>())
 
-public actual fun gdipGetCustomLineCapStrokeCaps(customcap: MutPtr<GpCustomLineCap>, startcap: MutPtr<LineCap>, endcap: MutPtr<LineCap>): Status =
+public actual fun gdipGetCustomLineCapStrokeCaps(customcap: MutPtr, startcap: MutPtr, endcap: MutPtr): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipGetCustomLineCapStrokeCaps(customcap.rawAddress.toCPointer<ByteVar>(), startcap.rawAddress.toCPointer<ByteVar>(), endcap.rawAddress.toCPointer<ByteVar>())
 
-public actual fun gdipGetCustomLineCapStrokeJoin(customcap: MutPtr<GpCustomLineCap>, linejoin: MutPtr<LineJoin>): Status =
+public actual fun gdipGetCustomLineCapStrokeJoin(customcap: MutPtr, linejoin: MutPtr): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipGetCustomLineCapStrokeJoin(customcap.rawAddress.toCPointer<ByteVar>(), linejoin.rawAddress.toCPointer<ByteVar>())
 
-public actual fun gdipGetCustomLineCapType(customcap: MutPtr<GpCustomLineCap>, captype: MutPtr<CustomLineCapType>): Status =
+public actual fun gdipGetCustomLineCapType(customcap: MutPtr, captype: MutPtr): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipGetCustomLineCapType(customcap.rawAddress.toCPointer<ByteVar>(), captype.rawAddress.toCPointer<ByteVar>())
 
-public actual fun gdipGetCustomLineCapWidthScale(customcap: MutPtr<GpCustomLineCap>, widthscale: MutPtr<Float>): Status =
+public actual fun gdipGetCustomLineCapWidthScale(customcap: MutPtr, widthscale: MutPtr): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipGetCustomLineCapWidthScale(customcap.rawAddress.toCPointer<ByteVar>(), widthscale.rawAddress.toCPointer<ByteVar>())
 
-public actual fun gdipGetDC(graphics: MutPtr<GpGraphics>, hdc: MutPtr<Hdc>): Status =
+public actual fun gdipGetDC(graphics: MutPtr, hdc: MutPtr): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipGetDC(graphics.rawAddress.toCPointer<ByteVar>(), hdc.rawAddress.toCPointer<ByteVar>())
 
-public actual fun gdipGetDpiX(graphics: MutPtr<GpGraphics>, dpi: MutPtr<Float>): Status =
+public actual fun gdipGetDpiX(graphics: MutPtr, dpi: MutPtr): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipGetDpiX(graphics.rawAddress.toCPointer<ByteVar>(), dpi.rawAddress.toCPointer<ByteVar>())
 
-public actual fun gdipGetDpiY(graphics: MutPtr<GpGraphics>, dpi: MutPtr<Float>): Status =
+public actual fun gdipGetDpiY(graphics: MutPtr, dpi: MutPtr): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipGetDpiY(graphics.rawAddress.toCPointer<ByteVar>(), dpi.rawAddress.toCPointer<ByteVar>())
 
-public actual fun gdipGetEffectParameterSize(effect: MutPtr<CGpEffect>, size: MutPtr<UInt>): Status =
+public actual fun gdipGetEffectParameterSize(effect: MutPtr, size: MutPtr): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipGetEffectParameterSize(effect.rawAddress.toCPointer<ByteVar>(), size.rawAddress.toCPointer<ByteVar>())
 
-public actual fun gdipGetEffectParameters(effect: MutPtr<CGpEffect>, size: MutPtr<UInt>, params: MutPtr<CVoid>): Status =
+public actual fun gdipGetEffectParameters(effect: MutPtr, size: MutPtr, params: MutPtr): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipGetEffectParameters(effect.rawAddress.toCPointer<ByteVar>(), size.rawAddress.toCPointer<ByteVar>(), params.rawAddress.toCPointer<ByteVar>())
 
-public actual fun gdipGetEmHeight(family: ConstPtr<GpFontFamily>, style: Int, emheight: MutPtr<UShort>): Status =
+public actual fun gdipGetEmHeight(family: ConstPtr, style: Int, emheight: MutPtr): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipGetEmHeight(family.rawAddress.toCPointer<ByteVar>(), style, emheight.rawAddress.toCPointer<ByteVar>())
 
-public actual fun gdipGetEncoderParameterList(image: MutPtr<GpImage>, clsidencoder: ConstPtr<Guid>, size: UInt, buffer: MutPtr<EncoderParameters>): Status =
+public actual fun gdipGetEncoderParameterList(image: MutPtr, clsidencoder: ConstPtr, size: UInt, buffer: MutPtr): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipGetEncoderParameterList(image.rawAddress.toCPointer<ByteVar>(), clsidencoder.rawAddress.toCPointer<ByteVar>(), size, buffer.rawAddress.toCPointer<ByteVar>())
 
-public actual fun gdipGetEncoderParameterListSize(image: MutPtr<GpImage>, clsidencoder: ConstPtr<Guid>, size: MutPtr<UInt>): Status =
+public actual fun gdipGetEncoderParameterListSize(image: MutPtr, clsidencoder: ConstPtr, size: MutPtr): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipGetEncoderParameterListSize(image.rawAddress.toCPointer<ByteVar>(), clsidencoder.rawAddress.toCPointer<ByteVar>(), size.rawAddress.toCPointer<ByteVar>())
 
-public actual fun gdipGetFamily(font: MutPtr<GpFont>, family: MutPtr<MutPtr<GpFontFamily>>): Status =
+public actual fun gdipGetFamily(font: MutPtr, family: MutPtr): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipGetFamily(font.rawAddress.toCPointer<ByteVar>(), family.rawAddress.toCPointer<ByteVar>())
 
-public actual fun gdipGetFamilyName(family: ConstPtr<GpFontFamily>, name: Pwstr, language: UShort): Status =
+public actual fun gdipGetFamilyName(family: ConstPtr, name: Pwstr, language: UShort): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipGetFamilyName(family.rawAddress.toCPointer<ByteVar>(), name.rawAddress.toCPointer<ByteVar>(), language)
 
-public actual fun gdipGetFontCollectionFamilyCount(fontcollection: MutPtr<GpFontCollection>, numfound: MutPtr<Int>): Status =
+public actual fun gdipGetFontCollectionFamilyCount(fontcollection: MutPtr, numfound: MutPtr): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipGetFontCollectionFamilyCount(fontcollection.rawAddress.toCPointer<ByteVar>(), numfound.rawAddress.toCPointer<ByteVar>())
 
-public actual fun gdipGetFontCollectionFamilyList(fontcollection: ConstPtr<GpFontCollection>, numsought: Int, gpfamilies: MutPtr<MutPtr<GpFontFamily>>, numfound: MutPtr<Int>): Status =
+public actual fun gdipGetFontCollectionFamilyList(fontcollection: ConstPtr, numsought: Int, gpfamilies: MutPtr, numfound: MutPtr): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipGetFontCollectionFamilyList(fontcollection.rawAddress.toCPointer<ByteVar>(), numsought, gpfamilies.rawAddress.toCPointer<ByteVar>(), numfound.rawAddress.toCPointer<ByteVar>())
 
-public actual fun gdipGetFontHeight(font: ConstPtr<GpFont>, graphics: ConstPtr<GpGraphics>, height: MutPtr<Float>): Status =
+public actual fun gdipGetFontHeight(font: ConstPtr, graphics: ConstPtr, height: MutPtr): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipGetFontHeight(font.rawAddress.toCPointer<ByteVar>(), graphics.rawAddress.toCPointer<ByteVar>(), height.rawAddress.toCPointer<ByteVar>())
 
-public actual fun gdipGetFontHeightGivenDPI(font: ConstPtr<GpFont>, dpi: Float, height: MutPtr<Float>): Status =
+public actual fun gdipGetFontHeightGivenDPI(font: ConstPtr, dpi: Float, height: MutPtr): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipGetFontHeightGivenDPI(font.rawAddress.toCPointer<ByteVar>(), dpi, height.rawAddress.toCPointer<ByteVar>())
 
-public actual fun gdipGetFontSize(font: MutPtr<GpFont>, size: MutPtr<Float>): Status =
+public actual fun gdipGetFontSize(font: MutPtr, size: MutPtr): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipGetFontSize(font.rawAddress.toCPointer<ByteVar>(), size.rawAddress.toCPointer<ByteVar>())
 
-public actual fun gdipGetFontStyle(font: MutPtr<GpFont>, style: MutPtr<Int>): Status =
+public actual fun gdipGetFontStyle(font: MutPtr, style: MutPtr): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipGetFontStyle(font.rawAddress.toCPointer<ByteVar>(), style.rawAddress.toCPointer<ByteVar>())
 
-public actual fun gdipGetFontUnit(font: MutPtr<GpFont>, unit: MutPtr<Unit>): Status =
+public actual fun gdipGetFontUnit(font: MutPtr, unit: MutPtr): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipGetFontUnit(font.rawAddress.toCPointer<ByteVar>(), unit.rawAddress.toCPointer<ByteVar>())
 
-public actual fun gdipGetGenericFontFamilyMonospace(nativefamily: MutPtr<MutPtr<GpFontFamily>>): Status =
+public actual fun gdipGetGenericFontFamilyMonospace(nativefamily: MutPtr): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipGetGenericFontFamilyMonospace(nativefamily.rawAddress.toCPointer<ByteVar>())
 
-public actual fun gdipGetGenericFontFamilySansSerif(nativefamily: MutPtr<MutPtr<GpFontFamily>>): Status =
+public actual fun gdipGetGenericFontFamilySansSerif(nativefamily: MutPtr): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipGetGenericFontFamilySansSerif(nativefamily.rawAddress.toCPointer<ByteVar>())
 
-public actual fun gdipGetGenericFontFamilySerif(nativefamily: MutPtr<MutPtr<GpFontFamily>>): Status =
+public actual fun gdipGetGenericFontFamilySerif(nativefamily: MutPtr): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipGetGenericFontFamilySerif(nativefamily.rawAddress.toCPointer<ByteVar>())
 
-public actual fun gdipGetHatchBackgroundColor(brush: MutPtr<GpHatch>, backcol: MutPtr<UInt>): Status =
+public actual fun gdipGetHatchBackgroundColor(brush: MutPtr, backcol: MutPtr): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipGetHatchBackgroundColor(brush.rawAddress.toCPointer<ByteVar>(), backcol.rawAddress.toCPointer<ByteVar>())
 
-public actual fun gdipGetHatchForegroundColor(brush: MutPtr<GpHatch>, forecol: MutPtr<UInt>): Status =
+public actual fun gdipGetHatchForegroundColor(brush: MutPtr, forecol: MutPtr): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipGetHatchForegroundColor(brush.rawAddress.toCPointer<ByteVar>(), forecol.rawAddress.toCPointer<ByteVar>())
 
-public actual fun gdipGetHatchStyle(brush: MutPtr<GpHatch>, hatchstyle: MutPtr<HatchStyle>): Status =
+public actual fun gdipGetHatchStyle(brush: MutPtr, hatchstyle: MutPtr): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipGetHatchStyle(brush.rawAddress.toCPointer<ByteVar>(), hatchstyle.rawAddress.toCPointer<ByteVar>())
 
-public actual fun gdipGetHemfFromMetafile(metafile: MutPtr<GpMetafile>, hemf: MutPtr<Henhmetafile>): Status =
+public actual fun gdipGetHemfFromMetafile(metafile: MutPtr, hemf: MutPtr): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipGetHemfFromMetafile(metafile.rawAddress.toCPointer<ByteVar>(), hemf.rawAddress.toCPointer<ByteVar>())
 
-public actual fun gdipGetImageAttributesAdjustedPalette(imageattr: MutPtr<GpImageAttributes>, colorpalette: MutPtr<ColorPalette>, coloradjusttype: ColorAdjustType): Status =
+public actual fun gdipGetImageAttributesAdjustedPalette(imageattr: MutPtr, colorpalette: MutPtr, coloradjusttype: ColorAdjustType): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipGetImageAttributesAdjustedPalette(imageattr.rawAddress.toCPointer<ByteVar>(), colorpalette.rawAddress.toCPointer<ByteVar>(), coloradjusttype)
 
-public actual fun gdipGetImageBounds(image: MutPtr<GpImage>, srcrect: MutPtr<RectF>, srcunit: MutPtr<Unit>): Status =
+public actual fun gdipGetImageBounds(image: MutPtr, srcrect: MutPtr, srcunit: MutPtr): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipGetImageBounds(image.rawAddress.toCPointer<ByteVar>(), srcrect.rawAddress.toCPointer<ByteVar>(), srcunit.rawAddress.toCPointer<ByteVar>())
 
-public actual fun gdipGetImageDecoders(numdecoders: UInt, size: UInt, decoders: MutPtr<ImageCodecInfo>): Status =
+public actual fun gdipGetImageDecoders(numdecoders: UInt, size: UInt, decoders: MutPtr): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipGetImageDecoders(numdecoders, size, decoders.rawAddress.toCPointer<ByteVar>())
 
-public actual fun gdipGetImageDecodersSize(numdecoders: MutPtr<UInt>, size: MutPtr<UInt>): Status =
+public actual fun gdipGetImageDecodersSize(numdecoders: MutPtr, size: MutPtr): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipGetImageDecodersSize(numdecoders.rawAddress.toCPointer<ByteVar>(), size.rawAddress.toCPointer<ByteVar>())
 
-public actual fun gdipGetImageDimension(image: MutPtr<GpImage>, width: MutPtr<Float>, height: MutPtr<Float>): Status =
+public actual fun gdipGetImageDimension(image: MutPtr, width: MutPtr, height: MutPtr): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipGetImageDimension(image.rawAddress.toCPointer<ByteVar>(), width.rawAddress.toCPointer<ByteVar>(), height.rawAddress.toCPointer<ByteVar>())
 
-public actual fun gdipGetImageEncoders(numencoders: UInt, size: UInt, encoders: MutPtr<ImageCodecInfo>): Status =
+public actual fun gdipGetImageEncoders(numencoders: UInt, size: UInt, encoders: MutPtr): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipGetImageEncoders(numencoders, size, encoders.rawAddress.toCPointer<ByteVar>())
 
-public actual fun gdipGetImageEncodersSize(numencoders: MutPtr<UInt>, size: MutPtr<UInt>): Status =
+public actual fun gdipGetImageEncodersSize(numencoders: MutPtr, size: MutPtr): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipGetImageEncodersSize(numencoders.rawAddress.toCPointer<ByteVar>(), size.rawAddress.toCPointer<ByteVar>())
 
-public actual fun gdipGetImageFlags(image: MutPtr<GpImage>, flags: MutPtr<UInt>): Status =
+public actual fun gdipGetImageFlags(image: MutPtr, flags: MutPtr): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipGetImageFlags(image.rawAddress.toCPointer<ByteVar>(), flags.rawAddress.toCPointer<ByteVar>())
 
-public actual fun gdipGetImageGraphicsContext(image: MutPtr<GpImage>, graphics: MutPtr<MutPtr<GpGraphics>>): Status =
+public actual fun gdipGetImageGraphicsContext(image: MutPtr, graphics: MutPtr): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipGetImageGraphicsContext(image.rawAddress.toCPointer<ByteVar>(), graphics.rawAddress.toCPointer<ByteVar>())
 
-public actual fun gdipGetImageHeight(image: MutPtr<GpImage>, height: MutPtr<UInt>): Status =
+public actual fun gdipGetImageHeight(image: MutPtr, height: MutPtr): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipGetImageHeight(image.rawAddress.toCPointer<ByteVar>(), height.rawAddress.toCPointer<ByteVar>())
 
-public actual fun gdipGetImageHorizontalResolution(image: MutPtr<GpImage>, resolution: MutPtr<Float>): Status =
+public actual fun gdipGetImageHorizontalResolution(image: MutPtr, resolution: MutPtr): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipGetImageHorizontalResolution(image.rawAddress.toCPointer<ByteVar>(), resolution.rawAddress.toCPointer<ByteVar>())
 
-public actual fun gdipGetImageItemData(image: MutPtr<GpImage>, item: MutPtr<ImageItemData>): Status =
+public actual fun gdipGetImageItemData(image: MutPtr, item: MutPtr): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipGetImageItemData(image.rawAddress.toCPointer<ByteVar>(), item.rawAddress.toCPointer<ByteVar>())
 
-public actual fun gdipGetImagePalette(image: MutPtr<GpImage>, palette: MutPtr<ColorPalette>, size: Int): Status =
+public actual fun gdipGetImagePalette(image: MutPtr, palette: MutPtr, size: Int): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipGetImagePalette(image.rawAddress.toCPointer<ByteVar>(), palette.rawAddress.toCPointer<ByteVar>(), size)
 
-public actual fun gdipGetImagePaletteSize(image: MutPtr<GpImage>, size: MutPtr<Int>): Status =
+public actual fun gdipGetImagePaletteSize(image: MutPtr, size: MutPtr): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipGetImagePaletteSize(image.rawAddress.toCPointer<ByteVar>(), size.rawAddress.toCPointer<ByteVar>())
 
-public actual fun gdipGetImagePixelFormat(image: MutPtr<GpImage>, format: MutPtr<Int>): Status =
+public actual fun gdipGetImagePixelFormat(image: MutPtr, format: MutPtr): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipGetImagePixelFormat(image.rawAddress.toCPointer<ByteVar>(), format.rawAddress.toCPointer<ByteVar>())
 
-public actual fun gdipGetImageRawFormat(image: MutPtr<GpImage>, format: MutPtr<Guid>): Status =
+public actual fun gdipGetImageRawFormat(image: MutPtr, format: MutPtr): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipGetImageRawFormat(image.rawAddress.toCPointer<ByteVar>(), format.rawAddress.toCPointer<ByteVar>())
 
-public actual fun gdipGetImageThumbnail(image: MutPtr<GpImage>, thumbwidth: UInt, thumbheight: UInt, thumbimage: MutPtr<MutPtr<GpImage>>, callback: Long, callbackdata: MutPtr<CVoid>): Status =
+public actual fun gdipGetImageThumbnail(image: MutPtr, thumbwidth: UInt, thumbheight: UInt, thumbimage: MutPtr, callback: Long, callbackdata: MutPtr): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipGetImageThumbnail(image.rawAddress.toCPointer<ByteVar>(), thumbwidth, thumbheight, thumbimage.rawAddress.toCPointer<ByteVar>(), callback, callbackdata.rawAddress.toCPointer<ByteVar>())
 
-public actual fun gdipGetImageType(image: MutPtr<GpImage>, type: MutPtr<ImageType>): Status =
+public actual fun gdipGetImageType(image: MutPtr, type: MutPtr): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipGetImageType(image.rawAddress.toCPointer<ByteVar>(), type.rawAddress.toCPointer<ByteVar>())
 
-public actual fun gdipGetImageVerticalResolution(image: MutPtr<GpImage>, resolution: MutPtr<Float>): Status =
+public actual fun gdipGetImageVerticalResolution(image: MutPtr, resolution: MutPtr): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipGetImageVerticalResolution(image.rawAddress.toCPointer<ByteVar>(), resolution.rawAddress.toCPointer<ByteVar>())
 
-public actual fun gdipGetImageWidth(image: MutPtr<GpImage>, width: MutPtr<UInt>): Status =
+public actual fun gdipGetImageWidth(image: MutPtr, width: MutPtr): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipGetImageWidth(image.rawAddress.toCPointer<ByteVar>(), width.rawAddress.toCPointer<ByteVar>())
 
-public actual fun gdipGetInterpolationMode(graphics: MutPtr<GpGraphics>, interpolationmode: MutPtr<InterpolationMode>): Status =
+public actual fun gdipGetInterpolationMode(graphics: MutPtr, interpolationmode: MutPtr): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipGetInterpolationMode(graphics.rawAddress.toCPointer<ByteVar>(), interpolationmode.rawAddress.toCPointer<ByteVar>())
 
-public actual fun gdipGetLineBlend(brush: MutPtr<GpLineGradient>, blend: MutPtr<Float>, positions: MutPtr<Float>, count: Int): Status =
+public actual fun gdipGetLineBlend(brush: MutPtr, blend: MutPtr, positions: MutPtr, count: Int): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipGetLineBlend(brush.rawAddress.toCPointer<ByteVar>(), blend.rawAddress.toCPointer<ByteVar>(), positions.rawAddress.toCPointer<ByteVar>(), count)
 
-public actual fun gdipGetLineBlendCount(brush: MutPtr<GpLineGradient>, count: MutPtr<Int>): Status =
+public actual fun gdipGetLineBlendCount(brush: MutPtr, count: MutPtr): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipGetLineBlendCount(brush.rawAddress.toCPointer<ByteVar>(), count.rawAddress.toCPointer<ByteVar>())
 
-public actual fun gdipGetLineColors(brush: MutPtr<GpLineGradient>, colors: MutPtr<UInt>): Status =
+public actual fun gdipGetLineColors(brush: MutPtr, colors: MutPtr): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipGetLineColors(brush.rawAddress.toCPointer<ByteVar>(), colors.rawAddress.toCPointer<ByteVar>())
 
-public actual fun gdipGetLineGammaCorrection(brush: MutPtr<GpLineGradient>, usegammacorrection: MutPtr<Bool>): Status =
+public actual fun gdipGetLineGammaCorrection(brush: MutPtr, usegammacorrection: MutPtr): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipGetLineGammaCorrection(brush.rawAddress.toCPointer<ByteVar>(), usegammacorrection.rawAddress.toCPointer<ByteVar>())
 
-public actual fun gdipGetLinePresetBlend(brush: MutPtr<GpLineGradient>, blend: MutPtr<UInt>, positions: MutPtr<Float>, count: Int): Status =
+public actual fun gdipGetLinePresetBlend(brush: MutPtr, blend: MutPtr, positions: MutPtr, count: Int): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipGetLinePresetBlend(brush.rawAddress.toCPointer<ByteVar>(), blend.rawAddress.toCPointer<ByteVar>(), positions.rawAddress.toCPointer<ByteVar>(), count)
 
-public actual fun gdipGetLinePresetBlendCount(brush: MutPtr<GpLineGradient>, count: MutPtr<Int>): Status =
+public actual fun gdipGetLinePresetBlendCount(brush: MutPtr, count: MutPtr): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipGetLinePresetBlendCount(brush.rawAddress.toCPointer<ByteVar>(), count.rawAddress.toCPointer<ByteVar>())
 
-public actual fun gdipGetLineRect(brush: MutPtr<GpLineGradient>, rect: MutPtr<RectF>): Status =
+public actual fun gdipGetLineRect(brush: MutPtr, rect: MutPtr): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipGetLineRect(brush.rawAddress.toCPointer<ByteVar>(), rect.rawAddress.toCPointer<ByteVar>())
 
-public actual fun gdipGetLineRectI(brush: MutPtr<GpLineGradient>, rect: MutPtr<Rect>): Status =
+public actual fun gdipGetLineRectI(brush: MutPtr, rect: MutPtr): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipGetLineRectI(brush.rawAddress.toCPointer<ByteVar>(), rect.rawAddress.toCPointer<ByteVar>())
 
-public actual fun gdipGetLineSpacing(family: ConstPtr<GpFontFamily>, style: Int, linespacing: MutPtr<UShort>): Status =
+public actual fun gdipGetLineSpacing(family: ConstPtr, style: Int, linespacing: MutPtr): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipGetLineSpacing(family.rawAddress.toCPointer<ByteVar>(), style, linespacing.rawAddress.toCPointer<ByteVar>())
 
-public actual fun gdipGetLineTransform(brush: MutPtr<GpLineGradient>, matrix: MutPtr<Matrix>): Status =
+public actual fun gdipGetLineTransform(brush: MutPtr, matrix: MutPtr): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipGetLineTransform(brush.rawAddress.toCPointer<ByteVar>(), matrix.rawAddress.toCPointer<ByteVar>())
 
-public actual fun gdipGetLineWrapMode(brush: MutPtr<GpLineGradient>, wrapmode: MutPtr<WrapMode>): Status =
+public actual fun gdipGetLineWrapMode(brush: MutPtr, wrapmode: MutPtr): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipGetLineWrapMode(brush.rawAddress.toCPointer<ByteVar>(), wrapmode.rawAddress.toCPointer<ByteVar>())
 
-public actual fun gdipGetLogFontA(font: MutPtr<GpFont>, graphics: MutPtr<GpGraphics>, logfonta: MutPtr<Logfonta>): Status =
+public actual fun gdipGetLogFontA(font: MutPtr, graphics: MutPtr, logfonta: MutPtr): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipGetLogFontA(font.rawAddress.toCPointer<ByteVar>(), graphics.rawAddress.toCPointer<ByteVar>(), logfonta.rawAddress.toCPointer<ByteVar>())
 
-public actual fun gdipGetLogFontW(font: MutPtr<GpFont>, graphics: MutPtr<GpGraphics>, logfontw: MutPtr<Logfontw>): Status =
+public actual fun gdipGetLogFontW(font: MutPtr, graphics: MutPtr, logfontw: MutPtr): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipGetLogFontW(font.rawAddress.toCPointer<ByteVar>(), graphics.rawAddress.toCPointer<ByteVar>(), logfontw.rawAddress.toCPointer<ByteVar>())
 
-public actual fun gdipGetMatrixElements(matrix: ConstPtr<Matrix>, matrixout: MutPtr<Float>): Status =
+public actual fun gdipGetMatrixElements(matrix: ConstPtr, matrixout: MutPtr): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipGetMatrixElements(matrix.rawAddress.toCPointer<ByteVar>(), matrixout.rawAddress.toCPointer<ByteVar>())
 
-public actual fun gdipGetMetafileDownLevelRasterizationLimit(metafile: ConstPtr<GpMetafile>, metafilerasterizationlimitdpi: MutPtr<UInt>): Status =
+public actual fun gdipGetMetafileDownLevelRasterizationLimit(metafile: ConstPtr, metafilerasterizationlimitdpi: MutPtr): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipGetMetafileDownLevelRasterizationLimit(metafile.rawAddress.toCPointer<ByteVar>(), metafilerasterizationlimitdpi.rawAddress.toCPointer<ByteVar>())
 
-public actual fun gdipGetMetafileHeaderFromEmf(hemf: Henhmetafile, header: MutPtr<MetafileHeader>): Status =
+public actual fun gdipGetMetafileHeaderFromEmf(hemf: Henhmetafile, header: MutPtr): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipGetMetafileHeaderFromEmf(hemf.rawAddress.toCPointer<ByteVar>(), header.rawAddress.toCPointer<ByteVar>())
 
-public actual fun gdipGetMetafileHeaderFromFile(filename: Pcwstr, header: MutPtr<MetafileHeader>): Status =
+public actual fun gdipGetMetafileHeaderFromFile(filename: Pcwstr, header: MutPtr): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipGetMetafileHeaderFromFile(filename.rawAddress.toCPointer<ByteVar>(), header.rawAddress.toCPointer<ByteVar>())
 
-public actual fun gdipGetMetafileHeaderFromMetafile(metafile: MutPtr<GpMetafile>, header: MutPtr<MetafileHeader>): Status =
+public actual fun gdipGetMetafileHeaderFromMetafile(metafile: MutPtr, header: MutPtr): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipGetMetafileHeaderFromMetafile(metafile.rawAddress.toCPointer<ByteVar>(), header.rawAddress.toCPointer<ByteVar>())
 
-public actual fun gdipGetMetafileHeaderFromStream(stream: MutPtr<CVoid>, header: MutPtr<MetafileHeader>): Status =
+public actual fun gdipGetMetafileHeaderFromStream(stream: MutPtr, header: MutPtr): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipGetMetafileHeaderFromStream(stream.rawAddress.toCPointer<ByteVar>(), header.rawAddress.toCPointer<ByteVar>())
 
-public actual fun gdipGetMetafileHeaderFromWmf(hwmf: Hmetafile, wmfplaceablefileheader: ConstPtr<WmfPlaceableFileHeader>, header: MutPtr<MetafileHeader>): Status =
+public actual fun gdipGetMetafileHeaderFromWmf(hwmf: Hmetafile, wmfplaceablefileheader: ConstPtr, header: MutPtr): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipGetMetafileHeaderFromWmf(hwmf.rawAddress.toCPointer<ByteVar>(), wmfplaceablefileheader.rawAddress.toCPointer<ByteVar>(), header.rawAddress.toCPointer<ByteVar>())
 
-public actual fun gdipGetNearestColor(graphics: MutPtr<GpGraphics>, argb: MutPtr<UInt>): Status =
+public actual fun gdipGetNearestColor(graphics: MutPtr, argb: MutPtr): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipGetNearestColor(graphics.rawAddress.toCPointer<ByteVar>(), argb.rawAddress.toCPointer<ByteVar>())
 
-public actual fun gdipGetPageScale(graphics: MutPtr<GpGraphics>, scale: MutPtr<Float>): Status =
+public actual fun gdipGetPageScale(graphics: MutPtr, scale: MutPtr): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipGetPageScale(graphics.rawAddress.toCPointer<ByteVar>(), scale.rawAddress.toCPointer<ByteVar>())
 
-public actual fun gdipGetPageUnit(graphics: MutPtr<GpGraphics>, unit: MutPtr<Unit>): Status =
+public actual fun gdipGetPageUnit(graphics: MutPtr, unit: MutPtr): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipGetPageUnit(graphics.rawAddress.toCPointer<ByteVar>(), unit.rawAddress.toCPointer<ByteVar>())
 
-public actual fun gdipGetPathData(path: MutPtr<GpPath>, pathdata: MutPtr<PathData>): Status =
+public actual fun gdipGetPathData(path: MutPtr, pathdata: MutPtr): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipGetPathData(path.rawAddress.toCPointer<ByteVar>(), pathdata.rawAddress.toCPointer<ByteVar>())
 
-public actual fun gdipGetPathFillMode(path: MutPtr<GpPath>, fillmode: MutPtr<FillMode>): Status =
+public actual fun gdipGetPathFillMode(path: MutPtr, fillmode: MutPtr): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipGetPathFillMode(path.rawAddress.toCPointer<ByteVar>(), fillmode.rawAddress.toCPointer<ByteVar>())
 
-public actual fun gdipGetPathGradientBlend(brush: MutPtr<GpPathGradient>, blend: MutPtr<Float>, positions: MutPtr<Float>, count: Int): Status =
+public actual fun gdipGetPathGradientBlend(brush: MutPtr, blend: MutPtr, positions: MutPtr, count: Int): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipGetPathGradientBlend(brush.rawAddress.toCPointer<ByteVar>(), blend.rawAddress.toCPointer<ByteVar>(), positions.rawAddress.toCPointer<ByteVar>(), count)
 
-public actual fun gdipGetPathGradientBlendCount(brush: MutPtr<GpPathGradient>, count: MutPtr<Int>): Status =
+public actual fun gdipGetPathGradientBlendCount(brush: MutPtr, count: MutPtr): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipGetPathGradientBlendCount(brush.rawAddress.toCPointer<ByteVar>(), count.rawAddress.toCPointer<ByteVar>())
 
-public actual fun gdipGetPathGradientCenterColor(brush: MutPtr<GpPathGradient>, colors: MutPtr<UInt>): Status =
+public actual fun gdipGetPathGradientCenterColor(brush: MutPtr, colors: MutPtr): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipGetPathGradientCenterColor(brush.rawAddress.toCPointer<ByteVar>(), colors.rawAddress.toCPointer<ByteVar>())
 
-public actual fun gdipGetPathGradientCenterPoint(brush: MutPtr<GpPathGradient>, points: MutPtr<PointF>): Status =
+public actual fun gdipGetPathGradientCenterPoint(brush: MutPtr, points: MutPtr): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipGetPathGradientCenterPoint(brush.rawAddress.toCPointer<ByteVar>(), points.rawAddress.toCPointer<ByteVar>())
 
-public actual fun gdipGetPathGradientCenterPointI(brush: MutPtr<GpPathGradient>, points: MutPtr<Point>): Status =
+public actual fun gdipGetPathGradientCenterPointI(brush: MutPtr, points: MutPtr): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipGetPathGradientCenterPointI(brush.rawAddress.toCPointer<ByteVar>(), points.rawAddress.toCPointer<ByteVar>())
 
-public actual fun gdipGetPathGradientFocusScales(brush: MutPtr<GpPathGradient>, xscale: MutPtr<Float>, yscale: MutPtr<Float>): Status =
+public actual fun gdipGetPathGradientFocusScales(brush: MutPtr, xscale: MutPtr, yscale: MutPtr): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipGetPathGradientFocusScales(brush.rawAddress.toCPointer<ByteVar>(), xscale.rawAddress.toCPointer<ByteVar>(), yscale.rawAddress.toCPointer<ByteVar>())
 
-public actual fun gdipGetPathGradientGammaCorrection(brush: MutPtr<GpPathGradient>, usegammacorrection: MutPtr<Bool>): Status =
+public actual fun gdipGetPathGradientGammaCorrection(brush: MutPtr, usegammacorrection: MutPtr): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipGetPathGradientGammaCorrection(brush.rawAddress.toCPointer<ByteVar>(), usegammacorrection.rawAddress.toCPointer<ByteVar>())
 
-public actual fun gdipGetPathGradientPath(brush: MutPtr<GpPathGradient>, path: MutPtr<GpPath>): Status =
+public actual fun gdipGetPathGradientPath(brush: MutPtr, path: MutPtr): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipGetPathGradientPath(brush.rawAddress.toCPointer<ByteVar>(), path.rawAddress.toCPointer<ByteVar>())
 
-public actual fun gdipGetPathGradientPointCount(brush: MutPtr<GpPathGradient>, count: MutPtr<Int>): Status =
+public actual fun gdipGetPathGradientPointCount(brush: MutPtr, count: MutPtr): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipGetPathGradientPointCount(brush.rawAddress.toCPointer<ByteVar>(), count.rawAddress.toCPointer<ByteVar>())
 
-public actual fun gdipGetPathGradientPresetBlend(brush: MutPtr<GpPathGradient>, blend: MutPtr<UInt>, positions: MutPtr<Float>, count: Int): Status =
+public actual fun gdipGetPathGradientPresetBlend(brush: MutPtr, blend: MutPtr, positions: MutPtr, count: Int): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipGetPathGradientPresetBlend(brush.rawAddress.toCPointer<ByteVar>(), blend.rawAddress.toCPointer<ByteVar>(), positions.rawAddress.toCPointer<ByteVar>(), count)
 
-public actual fun gdipGetPathGradientPresetBlendCount(brush: MutPtr<GpPathGradient>, count: MutPtr<Int>): Status =
+public actual fun gdipGetPathGradientPresetBlendCount(brush: MutPtr, count: MutPtr): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipGetPathGradientPresetBlendCount(brush.rawAddress.toCPointer<ByteVar>(), count.rawAddress.toCPointer<ByteVar>())
 
-public actual fun gdipGetPathGradientRect(brush: MutPtr<GpPathGradient>, rect: MutPtr<RectF>): Status =
+public actual fun gdipGetPathGradientRect(brush: MutPtr, rect: MutPtr): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipGetPathGradientRect(brush.rawAddress.toCPointer<ByteVar>(), rect.rawAddress.toCPointer<ByteVar>())
 
-public actual fun gdipGetPathGradientRectI(brush: MutPtr<GpPathGradient>, rect: MutPtr<Rect>): Status =
+public actual fun gdipGetPathGradientRectI(brush: MutPtr, rect: MutPtr): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipGetPathGradientRectI(brush.rawAddress.toCPointer<ByteVar>(), rect.rawAddress.toCPointer<ByteVar>())
 
-public actual fun gdipGetPathGradientSurroundColorCount(brush: MutPtr<GpPathGradient>, count: MutPtr<Int>): Status =
+public actual fun gdipGetPathGradientSurroundColorCount(brush: MutPtr, count: MutPtr): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipGetPathGradientSurroundColorCount(brush.rawAddress.toCPointer<ByteVar>(), count.rawAddress.toCPointer<ByteVar>())
 
-public actual fun gdipGetPathGradientSurroundColorsWithCount(brush: ConstPtr<GpPathGradient>, color: MutPtr<UInt>, count: MutPtr<Int>): Status =
+public actual fun gdipGetPathGradientSurroundColorsWithCount(brush: ConstPtr, color: MutPtr, count: MutPtr): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipGetPathGradientSurroundColorsWithCount(brush.rawAddress.toCPointer<ByteVar>(), color.rawAddress.toCPointer<ByteVar>(), count.rawAddress.toCPointer<ByteVar>())
 
-public actual fun gdipGetPathGradientTransform(brush: MutPtr<GpPathGradient>, matrix: MutPtr<Matrix>): Status =
+public actual fun gdipGetPathGradientTransform(brush: MutPtr, matrix: MutPtr): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipGetPathGradientTransform(brush.rawAddress.toCPointer<ByteVar>(), matrix.rawAddress.toCPointer<ByteVar>())
 
-public actual fun gdipGetPathGradientWrapMode(brush: MutPtr<GpPathGradient>, wrapmode: MutPtr<WrapMode>): Status =
+public actual fun gdipGetPathGradientWrapMode(brush: MutPtr, wrapmode: MutPtr): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipGetPathGradientWrapMode(brush.rawAddress.toCPointer<ByteVar>(), wrapmode.rawAddress.toCPointer<ByteVar>())
 
-public actual fun gdipGetPathLastPoint(path: MutPtr<GpPath>, lastpoint: MutPtr<PointF>): Status =
+public actual fun gdipGetPathLastPoint(path: MutPtr, lastpoint: MutPtr): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipGetPathLastPoint(path.rawAddress.toCPointer<ByteVar>(), lastpoint.rawAddress.toCPointer<ByteVar>())
 
-public actual fun gdipGetPathPoints(param0: MutPtr<GpPath>, points: MutPtr<PointF>, count: Int): Status =
+public actual fun gdipGetPathPoints(param0: MutPtr, points: MutPtr, count: Int): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipGetPathPoints(param0.rawAddress.toCPointer<ByteVar>(), points.rawAddress.toCPointer<ByteVar>(), count)
 
-public actual fun gdipGetPathPointsI(param0: MutPtr<GpPath>, points: MutPtr<Point>, count: Int): Status =
+public actual fun gdipGetPathPointsI(param0: MutPtr, points: MutPtr, count: Int): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipGetPathPointsI(param0.rawAddress.toCPointer<ByteVar>(), points.rawAddress.toCPointer<ByteVar>(), count)
 
-public actual fun gdipGetPathTypes(path: ConstPtr<GpPath>, types: MutPtr<UByte>, count: Int): Status =
+public actual fun gdipGetPathTypes(path: ConstPtr, types: MutPtr, count: Int): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipGetPathTypes(path.rawAddress.toCPointer<ByteVar>(), types.rawAddress.toCPointer<ByteVar>(), count)
 
-public actual fun gdipGetPathWorldBounds(path: MutPtr<GpPath>, bounds: MutPtr<RectF>, matrix: ConstPtr<Matrix>, pen: ConstPtr<GpPen>): Status =
+public actual fun gdipGetPathWorldBounds(path: MutPtr, bounds: MutPtr, matrix: ConstPtr, pen: ConstPtr): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipGetPathWorldBounds(path.rawAddress.toCPointer<ByteVar>(), bounds.rawAddress.toCPointer<ByteVar>(), matrix.rawAddress.toCPointer<ByteVar>(), pen.rawAddress.toCPointer<ByteVar>())
 
-public actual fun gdipGetPathWorldBoundsI(path: MutPtr<GpPath>, bounds: MutPtr<Rect>, matrix: ConstPtr<Matrix>, pen: ConstPtr<GpPen>): Status =
+public actual fun gdipGetPathWorldBoundsI(path: MutPtr, bounds: MutPtr, matrix: ConstPtr, pen: ConstPtr): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipGetPathWorldBoundsI(path.rawAddress.toCPointer<ByteVar>(), bounds.rawAddress.toCPointer<ByteVar>(), matrix.rawAddress.toCPointer<ByteVar>(), pen.rawAddress.toCPointer<ByteVar>())
 
-public actual fun gdipGetPenBrushFill(pen: MutPtr<GpPen>, brush: MutPtr<MutPtr<GpBrush>>): Status =
+public actual fun gdipGetPenBrushFill(pen: MutPtr, brush: MutPtr): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipGetPenBrushFill(pen.rawAddress.toCPointer<ByteVar>(), brush.rawAddress.toCPointer<ByteVar>())
 
-public actual fun gdipGetPenColor(pen: MutPtr<GpPen>, argb: MutPtr<UInt>): Status =
+public actual fun gdipGetPenColor(pen: MutPtr, argb: MutPtr): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipGetPenColor(pen.rawAddress.toCPointer<ByteVar>(), argb.rawAddress.toCPointer<ByteVar>())
 
-public actual fun gdipGetPenCompoundArray(pen: MutPtr<GpPen>, dash: MutPtr<Float>, count: Int): Status =
+public actual fun gdipGetPenCompoundArray(pen: MutPtr, dash: MutPtr, count: Int): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipGetPenCompoundArray(pen.rawAddress.toCPointer<ByteVar>(), dash.rawAddress.toCPointer<ByteVar>(), count)
 
-public actual fun gdipGetPenCompoundCount(pen: MutPtr<GpPen>, count: MutPtr<Int>): Status =
+public actual fun gdipGetPenCompoundCount(pen: MutPtr, count: MutPtr): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipGetPenCompoundCount(pen.rawAddress.toCPointer<ByteVar>(), count.rawAddress.toCPointer<ByteVar>())
 
-public actual fun gdipGetPenCustomEndCap(pen: MutPtr<GpPen>, customcap: MutPtr<MutPtr<GpCustomLineCap>>): Status =
+public actual fun gdipGetPenCustomEndCap(pen: MutPtr, customcap: MutPtr): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipGetPenCustomEndCap(pen.rawAddress.toCPointer<ByteVar>(), customcap.rawAddress.toCPointer<ByteVar>())
 
-public actual fun gdipGetPenCustomStartCap(pen: MutPtr<GpPen>, customcap: MutPtr<MutPtr<GpCustomLineCap>>): Status =
+public actual fun gdipGetPenCustomStartCap(pen: MutPtr, customcap: MutPtr): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipGetPenCustomStartCap(pen.rawAddress.toCPointer<ByteVar>(), customcap.rawAddress.toCPointer<ByteVar>())
 
-public actual fun gdipGetPenDashArray(pen: MutPtr<GpPen>, dash: MutPtr<Float>, count: Int): Status =
+public actual fun gdipGetPenDashArray(pen: MutPtr, dash: MutPtr, count: Int): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipGetPenDashArray(pen.rawAddress.toCPointer<ByteVar>(), dash.rawAddress.toCPointer<ByteVar>(), count)
 
-public actual fun gdipGetPenDashCap197819(pen: MutPtr<GpPen>, dashcap: MutPtr<DashCap>): Status =
+public actual fun gdipGetPenDashCap197819(pen: MutPtr, dashcap: MutPtr): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipGetPenDashCap197819(pen.rawAddress.toCPointer<ByteVar>(), dashcap.rawAddress.toCPointer<ByteVar>())
 
-public actual fun gdipGetPenDashCount(pen: MutPtr<GpPen>, count: MutPtr<Int>): Status =
+public actual fun gdipGetPenDashCount(pen: MutPtr, count: MutPtr): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipGetPenDashCount(pen.rawAddress.toCPointer<ByteVar>(), count.rawAddress.toCPointer<ByteVar>())
 
-public actual fun gdipGetPenDashOffset(pen: MutPtr<GpPen>, offset: MutPtr<Float>): Status =
+public actual fun gdipGetPenDashOffset(pen: MutPtr, offset: MutPtr): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipGetPenDashOffset(pen.rawAddress.toCPointer<ByteVar>(), offset.rawAddress.toCPointer<ByteVar>())
 
-public actual fun gdipGetPenDashStyle(pen: MutPtr<GpPen>, dashstyle: MutPtr<DashStyle>): Status =
+public actual fun gdipGetPenDashStyle(pen: MutPtr, dashstyle: MutPtr): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipGetPenDashStyle(pen.rawAddress.toCPointer<ByteVar>(), dashstyle.rawAddress.toCPointer<ByteVar>())
 
-public actual fun gdipGetPenEndCap(pen: MutPtr<GpPen>, endcap: MutPtr<LineCap>): Status =
+public actual fun gdipGetPenEndCap(pen: MutPtr, endcap: MutPtr): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipGetPenEndCap(pen.rawAddress.toCPointer<ByteVar>(), endcap.rawAddress.toCPointer<ByteVar>())
 
-public actual fun gdipGetPenFillType(pen: MutPtr<GpPen>, type: MutPtr<PenType>): Status =
+public actual fun gdipGetPenFillType(pen: MutPtr, type: MutPtr): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipGetPenFillType(pen.rawAddress.toCPointer<ByteVar>(), type.rawAddress.toCPointer<ByteVar>())
 
-public actual fun gdipGetPenLineJoin(pen: MutPtr<GpPen>, linejoin: MutPtr<LineJoin>): Status =
+public actual fun gdipGetPenLineJoin(pen: MutPtr, linejoin: MutPtr): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipGetPenLineJoin(pen.rawAddress.toCPointer<ByteVar>(), linejoin.rawAddress.toCPointer<ByteVar>())
 
-public actual fun gdipGetPenMiterLimit(pen: MutPtr<GpPen>, miterlimit: MutPtr<Float>): Status =
+public actual fun gdipGetPenMiterLimit(pen: MutPtr, miterlimit: MutPtr): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipGetPenMiterLimit(pen.rawAddress.toCPointer<ByteVar>(), miterlimit.rawAddress.toCPointer<ByteVar>())
 
-public actual fun gdipGetPenMode(pen: MutPtr<GpPen>, penmode: MutPtr<PenAlignment>): Status =
+public actual fun gdipGetPenMode(pen: MutPtr, penmode: MutPtr): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipGetPenMode(pen.rawAddress.toCPointer<ByteVar>(), penmode.rawAddress.toCPointer<ByteVar>())
 
-public actual fun gdipGetPenStartCap(pen: MutPtr<GpPen>, startcap: MutPtr<LineCap>): Status =
+public actual fun gdipGetPenStartCap(pen: MutPtr, startcap: MutPtr): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipGetPenStartCap(pen.rawAddress.toCPointer<ByteVar>(), startcap.rawAddress.toCPointer<ByteVar>())
 
-public actual fun gdipGetPenTransform(pen: MutPtr<GpPen>, matrix: MutPtr<Matrix>): Status =
+public actual fun gdipGetPenTransform(pen: MutPtr, matrix: MutPtr): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipGetPenTransform(pen.rawAddress.toCPointer<ByteVar>(), matrix.rawAddress.toCPointer<ByteVar>())
 
-public actual fun gdipGetPenUnit(pen: MutPtr<GpPen>, unit: MutPtr<Unit>): Status =
+public actual fun gdipGetPenUnit(pen: MutPtr, unit: MutPtr): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipGetPenUnit(pen.rawAddress.toCPointer<ByteVar>(), unit.rawAddress.toCPointer<ByteVar>())
 
-public actual fun gdipGetPenWidth(pen: MutPtr<GpPen>, width: MutPtr<Float>): Status =
+public actual fun gdipGetPenWidth(pen: MutPtr, width: MutPtr): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipGetPenWidth(pen.rawAddress.toCPointer<ByteVar>(), width.rawAddress.toCPointer<ByteVar>())
 
-public actual fun gdipGetPixelOffsetMode(graphics: MutPtr<GpGraphics>, pixeloffsetmode: MutPtr<PixelOffsetMode>): Status =
+public actual fun gdipGetPixelOffsetMode(graphics: MutPtr, pixeloffsetmode: MutPtr): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipGetPixelOffsetMode(graphics.rawAddress.toCPointer<ByteVar>(), pixeloffsetmode.rawAddress.toCPointer<ByteVar>())
 
-public actual fun gdipGetPointCount(path: MutPtr<GpPath>, count: MutPtr<Int>): Status =
+public actual fun gdipGetPointCount(path: MutPtr, count: MutPtr): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipGetPointCount(path.rawAddress.toCPointer<ByteVar>(), count.rawAddress.toCPointer<ByteVar>())
 
-public actual fun gdipGetPropertyCount(image: MutPtr<GpImage>, numofproperty: MutPtr<UInt>): Status =
+public actual fun gdipGetPropertyCount(image: MutPtr, numofproperty: MutPtr): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipGetPropertyCount(image.rawAddress.toCPointer<ByteVar>(), numofproperty.rawAddress.toCPointer<ByteVar>())
 
-public actual fun gdipGetPropertyIdList(image: MutPtr<GpImage>, numofproperty: UInt, list: MutPtr<UInt>): Status =
+public actual fun gdipGetPropertyIdList(image: MutPtr, numofproperty: UInt, list: MutPtr): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipGetPropertyIdList(image.rawAddress.toCPointer<ByteVar>(), numofproperty, list.rawAddress.toCPointer<ByteVar>())
 
-public actual fun gdipGetPropertyItem(image: MutPtr<GpImage>, propid: UInt, propsize: UInt, buffer: MutPtr<PropertyItem>): Status =
+public actual fun gdipGetPropertyItem(image: MutPtr, propid: UInt, propsize: UInt, buffer: MutPtr): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipGetPropertyItem(image.rawAddress.toCPointer<ByteVar>(), propid, propsize, buffer.rawAddress.toCPointer<ByteVar>())
 
-public actual fun gdipGetPropertyItemSize(image: MutPtr<GpImage>, propid: UInt, size: MutPtr<UInt>): Status =
+public actual fun gdipGetPropertyItemSize(image: MutPtr, propid: UInt, size: MutPtr): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipGetPropertyItemSize(image.rawAddress.toCPointer<ByteVar>(), propid, size.rawAddress.toCPointer<ByteVar>())
 
-public actual fun gdipGetPropertySize(image: MutPtr<GpImage>, totalbuffersize: MutPtr<UInt>, numproperties: MutPtr<UInt>): Status =
+public actual fun gdipGetPropertySize(image: MutPtr, totalbuffersize: MutPtr, numproperties: MutPtr): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipGetPropertySize(image.rawAddress.toCPointer<ByteVar>(), totalbuffersize.rawAddress.toCPointer<ByteVar>(), numproperties.rawAddress.toCPointer<ByteVar>())
 
-public actual fun gdipGetRegionBounds(region: MutPtr<GpRegion>, graphics: MutPtr<GpGraphics>, rect: MutPtr<RectF>): Status =
+public actual fun gdipGetRegionBounds(region: MutPtr, graphics: MutPtr, rect: MutPtr): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipGetRegionBounds(region.rawAddress.toCPointer<ByteVar>(), graphics.rawAddress.toCPointer<ByteVar>(), rect.rawAddress.toCPointer<ByteVar>())
 
-public actual fun gdipGetRegionBoundsI(region: MutPtr<GpRegion>, graphics: MutPtr<GpGraphics>, rect: MutPtr<Rect>): Status =
+public actual fun gdipGetRegionBoundsI(region: MutPtr, graphics: MutPtr, rect: MutPtr): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipGetRegionBoundsI(region.rawAddress.toCPointer<ByteVar>(), graphics.rawAddress.toCPointer<ByteVar>(), rect.rawAddress.toCPointer<ByteVar>())
 
-public actual fun gdipGetRegionData(region: MutPtr<GpRegion>, buffer: MutPtr<UByte>, buffersize: UInt, sizefilled: MutPtr<UInt>): Status =
+public actual fun gdipGetRegionData(region: MutPtr, buffer: MutPtr, buffersize: UInt, sizefilled: MutPtr): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipGetRegionData(region.rawAddress.toCPointer<ByteVar>(), buffer.rawAddress.toCPointer<ByteVar>(), buffersize, sizefilled.rawAddress.toCPointer<ByteVar>())
 
-public actual fun gdipGetRegionDataSize(region: MutPtr<GpRegion>, buffersize: MutPtr<UInt>): Status =
+public actual fun gdipGetRegionDataSize(region: MutPtr, buffersize: MutPtr): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipGetRegionDataSize(region.rawAddress.toCPointer<ByteVar>(), buffersize.rawAddress.toCPointer<ByteVar>())
 
-public actual fun gdipGetRegionHRgn(region: MutPtr<GpRegion>, graphics: MutPtr<GpGraphics>, hrgn: MutPtr<Hrgn>): Status =
+public actual fun gdipGetRegionHRgn(region: MutPtr, graphics: MutPtr, hrgn: MutPtr): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipGetRegionHRgn(region.rawAddress.toCPointer<ByteVar>(), graphics.rawAddress.toCPointer<ByteVar>(), hrgn.rawAddress.toCPointer<ByteVar>())
 
-public actual fun gdipGetRegionScans(region: MutPtr<GpRegion>, rects: MutPtr<RectF>, count: MutPtr<Int>, matrix: MutPtr<Matrix>): Status =
+public actual fun gdipGetRegionScans(region: MutPtr, rects: MutPtr, count: MutPtr, matrix: MutPtr): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipGetRegionScans(region.rawAddress.toCPointer<ByteVar>(), rects.rawAddress.toCPointer<ByteVar>(), count.rawAddress.toCPointer<ByteVar>(), matrix.rawAddress.toCPointer<ByteVar>())
 
-public actual fun gdipGetRegionScansCount(region: MutPtr<GpRegion>, count: MutPtr<UInt>, matrix: MutPtr<Matrix>): Status =
+public actual fun gdipGetRegionScansCount(region: MutPtr, count: MutPtr, matrix: MutPtr): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipGetRegionScansCount(region.rawAddress.toCPointer<ByteVar>(), count.rawAddress.toCPointer<ByteVar>(), matrix.rawAddress.toCPointer<ByteVar>())
 
-public actual fun gdipGetRegionScansI(region: MutPtr<GpRegion>, rects: MutPtr<Rect>, count: MutPtr<Int>, matrix: MutPtr<Matrix>): Status =
+public actual fun gdipGetRegionScansI(region: MutPtr, rects: MutPtr, count: MutPtr, matrix: MutPtr): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipGetRegionScansI(region.rawAddress.toCPointer<ByteVar>(), rects.rawAddress.toCPointer<ByteVar>(), count.rawAddress.toCPointer<ByteVar>(), matrix.rawAddress.toCPointer<ByteVar>())
 
-public actual fun gdipGetRenderingOrigin(graphics: MutPtr<GpGraphics>, x: MutPtr<Int>, y: MutPtr<Int>): Status =
+public actual fun gdipGetRenderingOrigin(graphics: MutPtr, x: MutPtr, y: MutPtr): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipGetRenderingOrigin(graphics.rawAddress.toCPointer<ByteVar>(), x.rawAddress.toCPointer<ByteVar>(), y.rawAddress.toCPointer<ByteVar>())
 
-public actual fun gdipGetSmoothingMode(graphics: MutPtr<GpGraphics>, smoothingmode: MutPtr<SmoothingMode>): Status =
+public actual fun gdipGetSmoothingMode(graphics: MutPtr, smoothingmode: MutPtr): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipGetSmoothingMode(graphics.rawAddress.toCPointer<ByteVar>(), smoothingmode.rawAddress.toCPointer<ByteVar>())
 
-public actual fun gdipGetSolidFillColor(brush: MutPtr<GpSolidFill>, color: MutPtr<UInt>): Status =
+public actual fun gdipGetSolidFillColor(brush: MutPtr, color: MutPtr): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipGetSolidFillColor(brush.rawAddress.toCPointer<ByteVar>(), color.rawAddress.toCPointer<ByteVar>())
 
-public actual fun gdipGetStringFormatAlign(format: ConstPtr<GpStringFormat>, align: MutPtr<StringAlignment>): Status =
+public actual fun gdipGetStringFormatAlign(format: ConstPtr, align: MutPtr): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipGetStringFormatAlign(format.rawAddress.toCPointer<ByteVar>(), align.rawAddress.toCPointer<ByteVar>())
 
-public actual fun gdipGetStringFormatDigitSubstitution(format: ConstPtr<GpStringFormat>, language: MutPtr<UShort>, substitute: MutPtr<StringDigitSubstitute>): Status =
+public actual fun gdipGetStringFormatDigitSubstitution(format: ConstPtr, language: MutPtr, substitute: MutPtr): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipGetStringFormatDigitSubstitution(format.rawAddress.toCPointer<ByteVar>(), language.rawAddress.toCPointer<ByteVar>(), substitute.rawAddress.toCPointer<ByteVar>())
 
-public actual fun gdipGetStringFormatFlags(format: ConstPtr<GpStringFormat>, flags: MutPtr<Int>): Status =
+public actual fun gdipGetStringFormatFlags(format: ConstPtr, flags: MutPtr): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipGetStringFormatFlags(format.rawAddress.toCPointer<ByteVar>(), flags.rawAddress.toCPointer<ByteVar>())
 
-public actual fun gdipGetStringFormatHotkeyPrefix(format: ConstPtr<GpStringFormat>, hotkeyprefix: MutPtr<Int>): Status =
+public actual fun gdipGetStringFormatHotkeyPrefix(format: ConstPtr, hotkeyprefix: MutPtr): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipGetStringFormatHotkeyPrefix(format.rawAddress.toCPointer<ByteVar>(), hotkeyprefix.rawAddress.toCPointer<ByteVar>())
 
-public actual fun gdipGetStringFormatLineAlign(format: ConstPtr<GpStringFormat>, align: MutPtr<StringAlignment>): Status =
+public actual fun gdipGetStringFormatLineAlign(format: ConstPtr, align: MutPtr): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipGetStringFormatLineAlign(format.rawAddress.toCPointer<ByteVar>(), align.rawAddress.toCPointer<ByteVar>())
 
-public actual fun gdipGetStringFormatMeasurableCharacterRangeCount(format: ConstPtr<GpStringFormat>, count: MutPtr<Int>): Status =
+public actual fun gdipGetStringFormatMeasurableCharacterRangeCount(format: ConstPtr, count: MutPtr): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipGetStringFormatMeasurableCharacterRangeCount(format.rawAddress.toCPointer<ByteVar>(), count.rawAddress.toCPointer<ByteVar>())
 
-public actual fun gdipGetStringFormatTabStopCount(format: ConstPtr<GpStringFormat>, count: MutPtr<Int>): Status =
+public actual fun gdipGetStringFormatTabStopCount(format: ConstPtr, count: MutPtr): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipGetStringFormatTabStopCount(format.rawAddress.toCPointer<ByteVar>(), count.rawAddress.toCPointer<ByteVar>())
 
-public actual fun gdipGetStringFormatTabStops(format: ConstPtr<GpStringFormat>, count: Int, firsttaboffset: MutPtr<Float>, tabstops: MutPtr<Float>): Status =
+public actual fun gdipGetStringFormatTabStops(format: ConstPtr, count: Int, firsttaboffset: MutPtr, tabstops: MutPtr): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipGetStringFormatTabStops(format.rawAddress.toCPointer<ByteVar>(), count, firsttaboffset.rawAddress.toCPointer<ByteVar>(), tabstops.rawAddress.toCPointer<ByteVar>())
 
-public actual fun gdipGetStringFormatTrimming(format: ConstPtr<GpStringFormat>, trimming: MutPtr<StringTrimming>): Status =
+public actual fun gdipGetStringFormatTrimming(format: ConstPtr, trimming: MutPtr): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipGetStringFormatTrimming(format.rawAddress.toCPointer<ByteVar>(), trimming.rawAddress.toCPointer<ByteVar>())
 
-public actual fun gdipGetTextContrast(graphics: MutPtr<GpGraphics>, contrast: MutPtr<UInt>): Status =
+public actual fun gdipGetTextContrast(graphics: MutPtr, contrast: MutPtr): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipGetTextContrast(graphics.rawAddress.toCPointer<ByteVar>(), contrast.rawAddress.toCPointer<ByteVar>())
 
-public actual fun gdipGetTextRenderingHint(graphics: MutPtr<GpGraphics>, mode: MutPtr<TextRenderingHint>): Status =
+public actual fun gdipGetTextRenderingHint(graphics: MutPtr, mode: MutPtr): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipGetTextRenderingHint(graphics.rawAddress.toCPointer<ByteVar>(), mode.rawAddress.toCPointer<ByteVar>())
 
-public actual fun gdipGetTextureImage(brush: MutPtr<GpTexture>, image: MutPtr<MutPtr<GpImage>>): Status =
+public actual fun gdipGetTextureImage(brush: MutPtr, image: MutPtr): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipGetTextureImage(brush.rawAddress.toCPointer<ByteVar>(), image.rawAddress.toCPointer<ByteVar>())
 
-public actual fun gdipGetTextureTransform(brush: MutPtr<GpTexture>, matrix: MutPtr<Matrix>): Status =
+public actual fun gdipGetTextureTransform(brush: MutPtr, matrix: MutPtr): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipGetTextureTransform(brush.rawAddress.toCPointer<ByteVar>(), matrix.rawAddress.toCPointer<ByteVar>())
 
-public actual fun gdipGetTextureWrapMode(brush: MutPtr<GpTexture>, wrapmode: MutPtr<WrapMode>): Status =
+public actual fun gdipGetTextureWrapMode(brush: MutPtr, wrapmode: MutPtr): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipGetTextureWrapMode(brush.rawAddress.toCPointer<ByteVar>(), wrapmode.rawAddress.toCPointer<ByteVar>())
 
-public actual fun gdipGetVisibleClipBounds(graphics: MutPtr<GpGraphics>, rect: MutPtr<RectF>): Status =
+public actual fun gdipGetVisibleClipBounds(graphics: MutPtr, rect: MutPtr): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipGetVisibleClipBounds(graphics.rawAddress.toCPointer<ByteVar>(), rect.rawAddress.toCPointer<ByteVar>())
 
-public actual fun gdipGetVisibleClipBoundsI(graphics: MutPtr<GpGraphics>, rect: MutPtr<Rect>): Status =
+public actual fun gdipGetVisibleClipBoundsI(graphics: MutPtr, rect: MutPtr): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipGetVisibleClipBoundsI(graphics.rawAddress.toCPointer<ByteVar>(), rect.rawAddress.toCPointer<ByteVar>())
 
-public actual fun gdipGetWorldTransform(graphics: MutPtr<GpGraphics>, matrix: MutPtr<Matrix>): Status =
+public actual fun gdipGetWorldTransform(graphics: MutPtr, matrix: MutPtr): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipGetWorldTransform(graphics.rawAddress.toCPointer<ByteVar>(), matrix.rawAddress.toCPointer<ByteVar>())
 
-public actual fun gdipGraphicsClear(graphics: MutPtr<GpGraphics>, color: UInt): Status =
+public actual fun gdipGraphicsClear(graphics: MutPtr, color: UInt): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipGraphicsClear(graphics.rawAddress.toCPointer<ByteVar>(), color)
 
-public actual fun gdipGraphicsSetAbort(pgraphics: MutPtr<GpGraphics>, piabort: MutPtr<CVoid>): Status =
+public actual fun gdipGraphicsSetAbort(pgraphics: MutPtr, piabort: MutPtr): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipGraphicsSetAbort(pgraphics.rawAddress.toCPointer<ByteVar>(), piabort.rawAddress.toCPointer<ByteVar>())
 
-public actual fun gdipImageForceValidation(image: MutPtr<GpImage>): Status =
+public actual fun gdipImageForceValidation(image: MutPtr): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipImageForceValidation(image.rawAddress.toCPointer<ByteVar>())
 
-public actual fun gdipImageGetFrameCount(image: MutPtr<GpImage>, dimensionid: ConstPtr<Guid>, count: MutPtr<UInt>): Status =
+public actual fun gdipImageGetFrameCount(image: MutPtr, dimensionid: ConstPtr, count: MutPtr): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipImageGetFrameCount(image.rawAddress.toCPointer<ByteVar>(), dimensionid.rawAddress.toCPointer<ByteVar>(), count.rawAddress.toCPointer<ByteVar>())
 
-public actual fun gdipImageGetFrameDimensionsCount(image: MutPtr<GpImage>, count: MutPtr<UInt>): Status =
+public actual fun gdipImageGetFrameDimensionsCount(image: MutPtr, count: MutPtr): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipImageGetFrameDimensionsCount(image.rawAddress.toCPointer<ByteVar>(), count.rawAddress.toCPointer<ByteVar>())
 
-public actual fun gdipImageGetFrameDimensionsList(image: MutPtr<GpImage>, dimensionids: MutPtr<Guid>, count: UInt): Status =
+public actual fun gdipImageGetFrameDimensionsList(image: MutPtr, dimensionids: MutPtr, count: UInt): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipImageGetFrameDimensionsList(image.rawAddress.toCPointer<ByteVar>(), dimensionids.rawAddress.toCPointer<ByteVar>(), count)
 
-public actual fun gdipImageRotateFlip(image: MutPtr<GpImage>, rftype: RotateFlipType): Status =
+public actual fun gdipImageRotateFlip(image: MutPtr, rftype: RotateFlipType): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipImageRotateFlip(image.rawAddress.toCPointer<ByteVar>(), rftype)
 
-public actual fun gdipImageSelectActiveFrame(image: MutPtr<GpImage>, dimensionid: ConstPtr<Guid>, frameindex: UInt): Status =
+public actual fun gdipImageSelectActiveFrame(image: MutPtr, dimensionid: ConstPtr, frameindex: UInt): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipImageSelectActiveFrame(image.rawAddress.toCPointer<ByteVar>(), dimensionid.rawAddress.toCPointer<ByteVar>(), frameindex)
 
-public actual fun gdipImageSetAbort(pimage: MutPtr<GpImage>, piabort: MutPtr<CVoid>): Status =
+public actual fun gdipImageSetAbort(pimage: MutPtr, piabort: MutPtr): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipImageSetAbort(pimage.rawAddress.toCPointer<ByteVar>(), piabort.rawAddress.toCPointer<ByteVar>())
 
-public actual fun gdipInitializePalette(palette: MutPtr<ColorPalette>, palettetype: PaletteType, optimalcolors: Int, usetransparentcolor: Bool, bitmap: MutPtr<GpBitmap>): Status =
+public actual fun gdipInitializePalette(palette: MutPtr, palettetype: PaletteType, optimalcolors: Int, usetransparentcolor: Bool, bitmap: MutPtr): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipInitializePalette(palette.rawAddress.toCPointer<ByteVar>(), palettetype, optimalcolors, usetransparentcolor, bitmap.rawAddress.toCPointer<ByteVar>())
 
-public actual fun gdipInvertMatrix(matrix: MutPtr<Matrix>): Status =
+public actual fun gdipInvertMatrix(matrix: MutPtr): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipInvertMatrix(matrix.rawAddress.toCPointer<ByteVar>())
 
-public actual fun gdipIsClipEmpty(graphics: MutPtr<GpGraphics>, result: MutPtr<Bool>): Status =
+public actual fun gdipIsClipEmpty(graphics: MutPtr, result: MutPtr): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipIsClipEmpty(graphics.rawAddress.toCPointer<ByteVar>(), result.rawAddress.toCPointer<ByteVar>())
 
-public actual fun gdipIsEmptyRegion(region: MutPtr<GpRegion>, graphics: MutPtr<GpGraphics>, result: MutPtr<Bool>): Status =
+public actual fun gdipIsEmptyRegion(region: MutPtr, graphics: MutPtr, result: MutPtr): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipIsEmptyRegion(region.rawAddress.toCPointer<ByteVar>(), graphics.rawAddress.toCPointer<ByteVar>(), result.rawAddress.toCPointer<ByteVar>())
 
-public actual fun gdipIsEqualRegion(region: MutPtr<GpRegion>, region2: MutPtr<GpRegion>, graphics: MutPtr<GpGraphics>, result: MutPtr<Bool>): Status =
+public actual fun gdipIsEqualRegion(region: MutPtr, region2: MutPtr, graphics: MutPtr, result: MutPtr): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipIsEqualRegion(region.rawAddress.toCPointer<ByteVar>(), region2.rawAddress.toCPointer<ByteVar>(), graphics.rawAddress.toCPointer<ByteVar>(), result.rawAddress.toCPointer<ByteVar>())
 
-public actual fun gdipIsInfiniteRegion(region: MutPtr<GpRegion>, graphics: MutPtr<GpGraphics>, result: MutPtr<Bool>): Status =
+public actual fun gdipIsInfiniteRegion(region: MutPtr, graphics: MutPtr, result: MutPtr): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipIsInfiniteRegion(region.rawAddress.toCPointer<ByteVar>(), graphics.rawAddress.toCPointer<ByteVar>(), result.rawAddress.toCPointer<ByteVar>())
 
-public actual fun gdipIsMatrixEqual(matrix: ConstPtr<Matrix>, matrix2: ConstPtr<Matrix>, result: MutPtr<Bool>): Status =
+public actual fun gdipIsMatrixEqual(matrix: ConstPtr, matrix2: ConstPtr, result: MutPtr): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipIsMatrixEqual(matrix.rawAddress.toCPointer<ByteVar>(), matrix2.rawAddress.toCPointer<ByteVar>(), result.rawAddress.toCPointer<ByteVar>())
 
-public actual fun gdipIsMatrixIdentity(matrix: ConstPtr<Matrix>, result: MutPtr<Bool>): Status =
+public actual fun gdipIsMatrixIdentity(matrix: ConstPtr, result: MutPtr): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipIsMatrixIdentity(matrix.rawAddress.toCPointer<ByteVar>(), result.rawAddress.toCPointer<ByteVar>())
 
-public actual fun gdipIsMatrixInvertible(matrix: ConstPtr<Matrix>, result: MutPtr<Bool>): Status =
+public actual fun gdipIsMatrixInvertible(matrix: ConstPtr, result: MutPtr): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipIsMatrixInvertible(matrix.rawAddress.toCPointer<ByteVar>(), result.rawAddress.toCPointer<ByteVar>())
 
-public actual fun gdipIsOutlineVisiblePathPoint(path: MutPtr<GpPath>, x: Float, y: Float, pen: MutPtr<GpPen>, graphics: MutPtr<GpGraphics>, result: MutPtr<Bool>): Status =
+public actual fun gdipIsOutlineVisiblePathPoint(path: MutPtr, x: Float, y: Float, pen: MutPtr, graphics: MutPtr, result: MutPtr): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipIsOutlineVisiblePathPoint(path.rawAddress.toCPointer<ByteVar>(), x, y, pen.rawAddress.toCPointer<ByteVar>(), graphics.rawAddress.toCPointer<ByteVar>(), result.rawAddress.toCPointer<ByteVar>())
 
-public actual fun gdipIsOutlineVisiblePathPointI(path: MutPtr<GpPath>, x: Int, y: Int, pen: MutPtr<GpPen>, graphics: MutPtr<GpGraphics>, result: MutPtr<Bool>): Status =
+public actual fun gdipIsOutlineVisiblePathPointI(path: MutPtr, x: Int, y: Int, pen: MutPtr, graphics: MutPtr, result: MutPtr): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipIsOutlineVisiblePathPointI(path.rawAddress.toCPointer<ByteVar>(), x, y, pen.rawAddress.toCPointer<ByteVar>(), graphics.rawAddress.toCPointer<ByteVar>(), result.rawAddress.toCPointer<ByteVar>())
 
-public actual fun gdipIsStyleAvailable(family: ConstPtr<GpFontFamily>, style: Int, isstyleavailable: MutPtr<Bool>): Status =
+public actual fun gdipIsStyleAvailable(family: ConstPtr, style: Int, isstyleavailable: MutPtr): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipIsStyleAvailable(family.rawAddress.toCPointer<ByteVar>(), style, isstyleavailable.rawAddress.toCPointer<ByteVar>())
 
-public actual fun gdipIsVisibleClipEmpty(graphics: MutPtr<GpGraphics>, result: MutPtr<Bool>): Status =
+public actual fun gdipIsVisibleClipEmpty(graphics: MutPtr, result: MutPtr): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipIsVisibleClipEmpty(graphics.rawAddress.toCPointer<ByteVar>(), result.rawAddress.toCPointer<ByteVar>())
 
-public actual fun gdipIsVisiblePathPoint(path: MutPtr<GpPath>, x: Float, y: Float, graphics: MutPtr<GpGraphics>, result: MutPtr<Bool>): Status =
+public actual fun gdipIsVisiblePathPoint(path: MutPtr, x: Float, y: Float, graphics: MutPtr, result: MutPtr): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipIsVisiblePathPoint(path.rawAddress.toCPointer<ByteVar>(), x, y, graphics.rawAddress.toCPointer<ByteVar>(), result.rawAddress.toCPointer<ByteVar>())
 
-public actual fun gdipIsVisiblePathPointI(path: MutPtr<GpPath>, x: Int, y: Int, graphics: MutPtr<GpGraphics>, result: MutPtr<Bool>): Status =
+public actual fun gdipIsVisiblePathPointI(path: MutPtr, x: Int, y: Int, graphics: MutPtr, result: MutPtr): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipIsVisiblePathPointI(path.rawAddress.toCPointer<ByteVar>(), x, y, graphics.rawAddress.toCPointer<ByteVar>(), result.rawAddress.toCPointer<ByteVar>())
 
-public actual fun gdipIsVisiblePoint(graphics: MutPtr<GpGraphics>, x: Float, y: Float, result: MutPtr<Bool>): Status =
+public actual fun gdipIsVisiblePoint(graphics: MutPtr, x: Float, y: Float, result: MutPtr): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipIsVisiblePoint(graphics.rawAddress.toCPointer<ByteVar>(), x, y, result.rawAddress.toCPointer<ByteVar>())
 
-public actual fun gdipIsVisiblePointI(graphics: MutPtr<GpGraphics>, x: Int, y: Int, result: MutPtr<Bool>): Status =
+public actual fun gdipIsVisiblePointI(graphics: MutPtr, x: Int, y: Int, result: MutPtr): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipIsVisiblePointI(graphics.rawAddress.toCPointer<ByteVar>(), x, y, result.rawAddress.toCPointer<ByteVar>())
 
-public actual fun gdipIsVisibleRect(graphics: MutPtr<GpGraphics>, x: Float, y: Float, width: Float, height: Float, result: MutPtr<Bool>): Status =
+public actual fun gdipIsVisibleRect(graphics: MutPtr, x: Float, y: Float, width: Float, height: Float, result: MutPtr): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipIsVisibleRect(graphics.rawAddress.toCPointer<ByteVar>(), x, y, width, height, result.rawAddress.toCPointer<ByteVar>())
 
-public actual fun gdipIsVisibleRectI(graphics: MutPtr<GpGraphics>, x: Int, y: Int, width: Int, height: Int, result: MutPtr<Bool>): Status =
+public actual fun gdipIsVisibleRectI(graphics: MutPtr, x: Int, y: Int, width: Int, height: Int, result: MutPtr): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipIsVisibleRectI(graphics.rawAddress.toCPointer<ByteVar>(), x, y, width, height, result.rawAddress.toCPointer<ByteVar>())
 
-public actual fun gdipIsVisibleRegionPoint(region: MutPtr<GpRegion>, x: Float, y: Float, graphics: MutPtr<GpGraphics>, result: MutPtr<Bool>): Status =
+public actual fun gdipIsVisibleRegionPoint(region: MutPtr, x: Float, y: Float, graphics: MutPtr, result: MutPtr): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipIsVisibleRegionPoint(region.rawAddress.toCPointer<ByteVar>(), x, y, graphics.rawAddress.toCPointer<ByteVar>(), result.rawAddress.toCPointer<ByteVar>())
 
-public actual fun gdipIsVisibleRegionPointI(region: MutPtr<GpRegion>, x: Int, y: Int, graphics: MutPtr<GpGraphics>, result: MutPtr<Bool>): Status =
+public actual fun gdipIsVisibleRegionPointI(region: MutPtr, x: Int, y: Int, graphics: MutPtr, result: MutPtr): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipIsVisibleRegionPointI(region.rawAddress.toCPointer<ByteVar>(), x, y, graphics.rawAddress.toCPointer<ByteVar>(), result.rawAddress.toCPointer<ByteVar>())
 
-public actual fun gdipIsVisibleRegionRect(region: MutPtr<GpRegion>, x: Float, y: Float, width: Float, height: Float, graphics: MutPtr<GpGraphics>, result: MutPtr<Bool>): Status =
+public actual fun gdipIsVisibleRegionRect(region: MutPtr, x: Float, y: Float, width: Float, height: Float, graphics: MutPtr, result: MutPtr): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipIsVisibleRegionRect(region.rawAddress.toCPointer<ByteVar>(), x, y, width, height, graphics.rawAddress.toCPointer<ByteVar>(), result.rawAddress.toCPointer<ByteVar>())
 
-public actual fun gdipIsVisibleRegionRectI(region: MutPtr<GpRegion>, x: Int, y: Int, width: Int, height: Int, graphics: MutPtr<GpGraphics>, result: MutPtr<Bool>): Status =
+public actual fun gdipIsVisibleRegionRectI(region: MutPtr, x: Int, y: Int, width: Int, height: Int, graphics: MutPtr, result: MutPtr): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipIsVisibleRegionRectI(region.rawAddress.toCPointer<ByteVar>(), x, y, width, height, graphics.rawAddress.toCPointer<ByteVar>(), result.rawAddress.toCPointer<ByteVar>())
 
-public actual fun gdipLoadImageFromFile(filename: Pcwstr, image: MutPtr<MutPtr<GpImage>>): Status =
+public actual fun gdipLoadImageFromFile(filename: Pcwstr, image: MutPtr): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipLoadImageFromFile(filename.rawAddress.toCPointer<ByteVar>(), image.rawAddress.toCPointer<ByteVar>())
 
-public actual fun gdipLoadImageFromFileICM(filename: Pcwstr, image: MutPtr<MutPtr<GpImage>>): Status =
+public actual fun gdipLoadImageFromFileICM(filename: Pcwstr, image: MutPtr): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipLoadImageFromFileICM(filename.rawAddress.toCPointer<ByteVar>(), image.rawAddress.toCPointer<ByteVar>())
 
-public actual fun gdipLoadImageFromStream(stream: MutPtr<CVoid>, image: MutPtr<MutPtr<GpImage>>): Status =
+public actual fun gdipLoadImageFromStream(stream: MutPtr, image: MutPtr): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipLoadImageFromStream(stream.rawAddress.toCPointer<ByteVar>(), image.rawAddress.toCPointer<ByteVar>())
 
-public actual fun gdipLoadImageFromStreamICM(stream: MutPtr<CVoid>, image: MutPtr<MutPtr<GpImage>>): Status =
+public actual fun gdipLoadImageFromStreamICM(stream: MutPtr, image: MutPtr): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipLoadImageFromStreamICM(stream.rawAddress.toCPointer<ByteVar>(), image.rawAddress.toCPointer<ByteVar>())
 
-public actual fun gdipMeasureCharacterRanges(graphics: MutPtr<GpGraphics>, string: Pcwstr, length: Int, font: ConstPtr<GpFont>, layoutrect: ConstPtr<RectF>, stringformat: ConstPtr<GpStringFormat>, regioncount: Int, regions: MutPtr<MutPtr<GpRegion>>): Status =
+public actual fun gdipMeasureCharacterRanges(graphics: MutPtr, string: Pcwstr, length: Int, font: ConstPtr, layoutrect: ConstPtr, stringformat: ConstPtr, regioncount: Int, regions: MutPtr): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipMeasureCharacterRanges(graphics.rawAddress.toCPointer<ByteVar>(), string.rawAddress.toCPointer<ByteVar>(), length, font.rawAddress.toCPointer<ByteVar>(), layoutrect.rawAddress.toCPointer<ByteVar>(), stringformat.rawAddress.toCPointer<ByteVar>(), regioncount, regions.rawAddress.toCPointer<ByteVar>())
 
-public actual fun gdipMeasureDriverString(graphics: MutPtr<GpGraphics>, text: ConstPtr<UShort>, length: Int, font: ConstPtr<GpFont>, positions: ConstPtr<PointF>, flags: Int, matrix: ConstPtr<Matrix>, boundingbox: MutPtr<RectF>): Status =
+public actual fun gdipMeasureDriverString(graphics: MutPtr, text: ConstPtr, length: Int, font: ConstPtr, positions: ConstPtr, flags: Int, matrix: ConstPtr, boundingbox: MutPtr): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipMeasureDriverString(graphics.rawAddress.toCPointer<ByteVar>(), text.rawAddress.toCPointer<ByteVar>(), length, font.rawAddress.toCPointer<ByteVar>(), positions.rawAddress.toCPointer<ByteVar>(), flags, matrix.rawAddress.toCPointer<ByteVar>(), boundingbox.rawAddress.toCPointer<ByteVar>())
 
-public actual fun gdipMeasureString(graphics: MutPtr<GpGraphics>, string: Pcwstr, length: Int, font: ConstPtr<GpFont>, layoutrect: ConstPtr<RectF>, stringformat: ConstPtr<GpStringFormat>, boundingbox: MutPtr<RectF>, codepointsfitted: MutPtr<Int>, linesfilled: MutPtr<Int>): Status =
+public actual fun gdipMeasureString(graphics: MutPtr, string: Pcwstr, length: Int, font: ConstPtr, layoutrect: ConstPtr, stringformat: ConstPtr, boundingbox: MutPtr, codepointsfitted: MutPtr, linesfilled: MutPtr): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipMeasureString(graphics.rawAddress.toCPointer<ByteVar>(), string.rawAddress.toCPointer<ByteVar>(), length, font.rawAddress.toCPointer<ByteVar>(), layoutrect.rawAddress.toCPointer<ByteVar>(), stringformat.rawAddress.toCPointer<ByteVar>(), boundingbox.rawAddress.toCPointer<ByteVar>(), codepointsfitted.rawAddress.toCPointer<ByteVar>(), linesfilled.rawAddress.toCPointer<ByteVar>())
 
-public actual fun gdipMultiplyLineTransform(brush: MutPtr<GpLineGradient>, matrix: ConstPtr<Matrix>, order: MatrixOrder): Status =
+public actual fun gdipMultiplyLineTransform(brush: MutPtr, matrix: ConstPtr, order: MatrixOrder): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipMultiplyLineTransform(brush.rawAddress.toCPointer<ByteVar>(), matrix.rawAddress.toCPointer<ByteVar>(), order)
 
-public actual fun gdipMultiplyMatrix(matrix: MutPtr<Matrix>, matrix2: MutPtr<Matrix>, order: MatrixOrder): Status =
+public actual fun gdipMultiplyMatrix(matrix: MutPtr, matrix2: MutPtr, order: MatrixOrder): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipMultiplyMatrix(matrix.rawAddress.toCPointer<ByteVar>(), matrix2.rawAddress.toCPointer<ByteVar>(), order)
 
-public actual fun gdipMultiplyPathGradientTransform(brush: MutPtr<GpPathGradient>, matrix: ConstPtr<Matrix>, order: MatrixOrder): Status =
+public actual fun gdipMultiplyPathGradientTransform(brush: MutPtr, matrix: ConstPtr, order: MatrixOrder): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipMultiplyPathGradientTransform(brush.rawAddress.toCPointer<ByteVar>(), matrix.rawAddress.toCPointer<ByteVar>(), order)
 
-public actual fun gdipMultiplyPenTransform(pen: MutPtr<GpPen>, matrix: ConstPtr<Matrix>, order: MatrixOrder): Status =
+public actual fun gdipMultiplyPenTransform(pen: MutPtr, matrix: ConstPtr, order: MatrixOrder): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipMultiplyPenTransform(pen.rawAddress.toCPointer<ByteVar>(), matrix.rawAddress.toCPointer<ByteVar>(), order)
 
-public actual fun gdipMultiplyTextureTransform(brush: MutPtr<GpTexture>, matrix: ConstPtr<Matrix>, order: MatrixOrder): Status =
+public actual fun gdipMultiplyTextureTransform(brush: MutPtr, matrix: ConstPtr, order: MatrixOrder): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipMultiplyTextureTransform(brush.rawAddress.toCPointer<ByteVar>(), matrix.rawAddress.toCPointer<ByteVar>(), order)
 
-public actual fun gdipMultiplyWorldTransform(graphics: MutPtr<GpGraphics>, matrix: ConstPtr<Matrix>, order: MatrixOrder): Status =
+public actual fun gdipMultiplyWorldTransform(graphics: MutPtr, matrix: ConstPtr, order: MatrixOrder): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipMultiplyWorldTransform(graphics.rawAddress.toCPointer<ByteVar>(), matrix.rawAddress.toCPointer<ByteVar>(), order)
 
-public actual fun gdipNewInstalledFontCollection(fontcollection: MutPtr<MutPtr<GpFontCollection>>): Status =
+public actual fun gdipNewInstalledFontCollection(fontcollection: MutPtr): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipNewInstalledFontCollection(fontcollection.rawAddress.toCPointer<ByteVar>())
 
-public actual fun gdipNewPrivateFontCollection(fontcollection: MutPtr<MutPtr<GpFontCollection>>): Status =
+public actual fun gdipNewPrivateFontCollection(fontcollection: MutPtr): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipNewPrivateFontCollection(fontcollection.rawAddress.toCPointer<ByteVar>())
 
-public actual fun gdipPathIterCopyData(iterator: MutPtr<GpPathIterator>, resultcount: MutPtr<Int>, points: MutPtr<PointF>, types: MutPtr<UByte>, startindex: Int, endindex: Int): Status =
+public actual fun gdipPathIterCopyData(iterator: MutPtr, resultcount: MutPtr, points: MutPtr, types: MutPtr, startindex: Int, endindex: Int): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipPathIterCopyData(iterator.rawAddress.toCPointer<ByteVar>(), resultcount.rawAddress.toCPointer<ByteVar>(), points.rawAddress.toCPointer<ByteVar>(), types.rawAddress.toCPointer<ByteVar>(), startindex, endindex)
 
-public actual fun gdipPathIterEnumerate(iterator: MutPtr<GpPathIterator>, resultcount: MutPtr<Int>, points: MutPtr<PointF>, types: MutPtr<UByte>, count: Int): Status =
+public actual fun gdipPathIterEnumerate(iterator: MutPtr, resultcount: MutPtr, points: MutPtr, types: MutPtr, count: Int): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipPathIterEnumerate(iterator.rawAddress.toCPointer<ByteVar>(), resultcount.rawAddress.toCPointer<ByteVar>(), points.rawAddress.toCPointer<ByteVar>(), types.rawAddress.toCPointer<ByteVar>(), count)
 
-public actual fun gdipPathIterGetCount(iterator: MutPtr<GpPathIterator>, count: MutPtr<Int>): Status =
+public actual fun gdipPathIterGetCount(iterator: MutPtr, count: MutPtr): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipPathIterGetCount(iterator.rawAddress.toCPointer<ByteVar>(), count.rawAddress.toCPointer<ByteVar>())
 
-public actual fun gdipPathIterGetSubpathCount(iterator: MutPtr<GpPathIterator>, count: MutPtr<Int>): Status =
+public actual fun gdipPathIterGetSubpathCount(iterator: MutPtr, count: MutPtr): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipPathIterGetSubpathCount(iterator.rawAddress.toCPointer<ByteVar>(), count.rawAddress.toCPointer<ByteVar>())
 
-public actual fun gdipPathIterHasCurve(iterator: MutPtr<GpPathIterator>, hascurve: MutPtr<Bool>): Status =
+public actual fun gdipPathIterHasCurve(iterator: MutPtr, hascurve: MutPtr): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipPathIterHasCurve(iterator.rawAddress.toCPointer<ByteVar>(), hascurve.rawAddress.toCPointer<ByteVar>())
 
-public actual fun gdipPathIterIsValid(iterator: MutPtr<GpPathIterator>, valid: MutPtr<Bool>): Status =
+public actual fun gdipPathIterIsValid(iterator: MutPtr, valid: MutPtr): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipPathIterIsValid(iterator.rawAddress.toCPointer<ByteVar>(), valid.rawAddress.toCPointer<ByteVar>())
 
-public actual fun gdipPathIterNextMarker(iterator: MutPtr<GpPathIterator>, resultcount: MutPtr<Int>, startindex: MutPtr<Int>, endindex: MutPtr<Int>): Status =
+public actual fun gdipPathIterNextMarker(iterator: MutPtr, resultcount: MutPtr, startindex: MutPtr, endindex: MutPtr): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipPathIterNextMarker(iterator.rawAddress.toCPointer<ByteVar>(), resultcount.rawAddress.toCPointer<ByteVar>(), startindex.rawAddress.toCPointer<ByteVar>(), endindex.rawAddress.toCPointer<ByteVar>())
 
-public actual fun gdipPathIterNextMarkerPath(iterator: MutPtr<GpPathIterator>, resultcount: MutPtr<Int>, path: MutPtr<GpPath>): Status =
+public actual fun gdipPathIterNextMarkerPath(iterator: MutPtr, resultcount: MutPtr, path: MutPtr): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipPathIterNextMarkerPath(iterator.rawAddress.toCPointer<ByteVar>(), resultcount.rawAddress.toCPointer<ByteVar>(), path.rawAddress.toCPointer<ByteVar>())
 
-public actual fun gdipPathIterNextPathType(iterator: MutPtr<GpPathIterator>, resultcount: MutPtr<Int>, pathtype: MutPtr<UByte>, startindex: MutPtr<Int>, endindex: MutPtr<Int>): Status =
+public actual fun gdipPathIterNextPathType(iterator: MutPtr, resultcount: MutPtr, pathtype: MutPtr, startindex: MutPtr, endindex: MutPtr): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipPathIterNextPathType(iterator.rawAddress.toCPointer<ByteVar>(), resultcount.rawAddress.toCPointer<ByteVar>(), pathtype.rawAddress.toCPointer<ByteVar>(), startindex.rawAddress.toCPointer<ByteVar>(), endindex.rawAddress.toCPointer<ByteVar>())
 
-public actual fun gdipPathIterNextSubpath(iterator: MutPtr<GpPathIterator>, resultcount: MutPtr<Int>, startindex: MutPtr<Int>, endindex: MutPtr<Int>, isclosed: MutPtr<Bool>): Status =
+public actual fun gdipPathIterNextSubpath(iterator: MutPtr, resultcount: MutPtr, startindex: MutPtr, endindex: MutPtr, isclosed: MutPtr): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipPathIterNextSubpath(iterator.rawAddress.toCPointer<ByteVar>(), resultcount.rawAddress.toCPointer<ByteVar>(), startindex.rawAddress.toCPointer<ByteVar>(), endindex.rawAddress.toCPointer<ByteVar>(), isclosed.rawAddress.toCPointer<ByteVar>())
 
-public actual fun gdipPathIterNextSubpathPath(iterator: MutPtr<GpPathIterator>, resultcount: MutPtr<Int>, path: MutPtr<GpPath>, isclosed: MutPtr<Bool>): Status =
+public actual fun gdipPathIterNextSubpathPath(iterator: MutPtr, resultcount: MutPtr, path: MutPtr, isclosed: MutPtr): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipPathIterNextSubpathPath(iterator.rawAddress.toCPointer<ByteVar>(), resultcount.rawAddress.toCPointer<ByteVar>(), path.rawAddress.toCPointer<ByteVar>(), isclosed.rawAddress.toCPointer<ByteVar>())
 
-public actual fun gdipPathIterRewind(iterator: MutPtr<GpPathIterator>): Status =
+public actual fun gdipPathIterRewind(iterator: MutPtr): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipPathIterRewind(iterator.rawAddress.toCPointer<ByteVar>())
 
-public actual fun gdipPlayMetafileRecord(metafile: ConstPtr<GpMetafile>, recordtype: EmfPlusRecordType, flags: UInt, datasize: UInt, data: ConstPtr<UByte>): Status =
+public actual fun gdipPlayMetafileRecord(metafile: ConstPtr, recordtype: EmfPlusRecordType, flags: UInt, datasize: UInt, data: ConstPtr): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipPlayMetafileRecord(metafile.rawAddress.toCPointer<ByteVar>(), recordtype, flags, datasize, data.rawAddress.toCPointer<ByteVar>())
 
-public actual fun gdipPrivateAddFontFile(fontcollection: MutPtr<GpFontCollection>, filename: Pcwstr): Status =
+public actual fun gdipPrivateAddFontFile(fontcollection: MutPtr, filename: Pcwstr): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipPrivateAddFontFile(fontcollection.rawAddress.toCPointer<ByteVar>(), filename.rawAddress.toCPointer<ByteVar>())
 
-public actual fun gdipPrivateAddMemoryFont(fontcollection: MutPtr<GpFontCollection>, memory: ConstPtr<CVoid>, length: Int): Status =
+public actual fun gdipPrivateAddMemoryFont(fontcollection: MutPtr, memory: ConstPtr, length: Int): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipPrivateAddMemoryFont(fontcollection.rawAddress.toCPointer<ByteVar>(), memory.rawAddress.toCPointer<ByteVar>(), length)
 
-public actual fun gdipRecordMetafile(referencehdc: Hdc, type: EmfType, framerect: ConstPtr<RectF>, frameunit: MetafileFrameUnit, description: Pcwstr, metafile: MutPtr<MutPtr<GpMetafile>>): Status =
+public actual fun gdipRecordMetafile(referencehdc: Hdc, type: EmfType, framerect: ConstPtr, frameunit: MetafileFrameUnit, description: Pcwstr, metafile: MutPtr): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipRecordMetafile(referencehdc.rawAddress.toCPointer<ByteVar>(), type, framerect.rawAddress.toCPointer<ByteVar>(), frameunit, description.rawAddress.toCPointer<ByteVar>(), metafile.rawAddress.toCPointer<ByteVar>())
 
-public actual fun gdipRecordMetafileFileName(filename: Pcwstr, referencehdc: Hdc, type: EmfType, framerect: ConstPtr<RectF>, frameunit: MetafileFrameUnit, description: Pcwstr, metafile: MutPtr<MutPtr<GpMetafile>>): Status =
+public actual fun gdipRecordMetafileFileName(filename: Pcwstr, referencehdc: Hdc, type: EmfType, framerect: ConstPtr, frameunit: MetafileFrameUnit, description: Pcwstr, metafile: MutPtr): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipRecordMetafileFileName(filename.rawAddress.toCPointer<ByteVar>(), referencehdc.rawAddress.toCPointer<ByteVar>(), type, framerect.rawAddress.toCPointer<ByteVar>(), frameunit, description.rawAddress.toCPointer<ByteVar>(), metafile.rawAddress.toCPointer<ByteVar>())
 
-public actual fun gdipRecordMetafileFileNameI(filename: Pcwstr, referencehdc: Hdc, type: EmfType, framerect: ConstPtr<Rect>, frameunit: MetafileFrameUnit, description: Pcwstr, metafile: MutPtr<MutPtr<GpMetafile>>): Status =
+public actual fun gdipRecordMetafileFileNameI(filename: Pcwstr, referencehdc: Hdc, type: EmfType, framerect: ConstPtr, frameunit: MetafileFrameUnit, description: Pcwstr, metafile: MutPtr): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipRecordMetafileFileNameI(filename.rawAddress.toCPointer<ByteVar>(), referencehdc.rawAddress.toCPointer<ByteVar>(), type, framerect.rawAddress.toCPointer<ByteVar>(), frameunit, description.rawAddress.toCPointer<ByteVar>(), metafile.rawAddress.toCPointer<ByteVar>())
 
-public actual fun gdipRecordMetafileI(referencehdc: Hdc, type: EmfType, framerect: ConstPtr<Rect>, frameunit: MetafileFrameUnit, description: Pcwstr, metafile: MutPtr<MutPtr<GpMetafile>>): Status =
+public actual fun gdipRecordMetafileI(referencehdc: Hdc, type: EmfType, framerect: ConstPtr, frameunit: MetafileFrameUnit, description: Pcwstr, metafile: MutPtr): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipRecordMetafileI(referencehdc.rawAddress.toCPointer<ByteVar>(), type, framerect.rawAddress.toCPointer<ByteVar>(), frameunit, description.rawAddress.toCPointer<ByteVar>(), metafile.rawAddress.toCPointer<ByteVar>())
 
-public actual fun gdipRecordMetafileStream(stream: MutPtr<CVoid>, referencehdc: Hdc, type: EmfType, framerect: ConstPtr<RectF>, frameunit: MetafileFrameUnit, description: Pcwstr, metafile: MutPtr<MutPtr<GpMetafile>>): Status =
+public actual fun gdipRecordMetafileStream(stream: MutPtr, referencehdc: Hdc, type: EmfType, framerect: ConstPtr, frameunit: MetafileFrameUnit, description: Pcwstr, metafile: MutPtr): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipRecordMetafileStream(stream.rawAddress.toCPointer<ByteVar>(), referencehdc.rawAddress.toCPointer<ByteVar>(), type, framerect.rawAddress.toCPointer<ByteVar>(), frameunit, description.rawAddress.toCPointer<ByteVar>(), metafile.rawAddress.toCPointer<ByteVar>())
 
-public actual fun gdipRecordMetafileStreamI(stream: MutPtr<CVoid>, referencehdc: Hdc, type: EmfType, framerect: ConstPtr<Rect>, frameunit: MetafileFrameUnit, description: Pcwstr, metafile: MutPtr<MutPtr<GpMetafile>>): Status =
+public actual fun gdipRecordMetafileStreamI(stream: MutPtr, referencehdc: Hdc, type: EmfType, framerect: ConstPtr, frameunit: MetafileFrameUnit, description: Pcwstr, metafile: MutPtr): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipRecordMetafileStreamI(stream.rawAddress.toCPointer<ByteVar>(), referencehdc.rawAddress.toCPointer<ByteVar>(), type, framerect.rawAddress.toCPointer<ByteVar>(), frameunit, description.rawAddress.toCPointer<ByteVar>(), metafile.rawAddress.toCPointer<ByteVar>())
 
-public actual fun gdipReleaseDC(graphics: MutPtr<GpGraphics>, hdc: Hdc): Status =
+public actual fun gdipReleaseDC(graphics: MutPtr, hdc: Hdc): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipReleaseDC(graphics.rawAddress.toCPointer<ByteVar>(), hdc.rawAddress.toCPointer<ByteVar>())
 
-public actual fun gdipRemovePropertyItem(image: MutPtr<GpImage>, propid: UInt): Status =
+public actual fun gdipRemovePropertyItem(image: MutPtr, propid: UInt): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipRemovePropertyItem(image.rawAddress.toCPointer<ByteVar>(), propid)
 
-public actual fun gdipResetClip(graphics: MutPtr<GpGraphics>): Status =
+public actual fun gdipResetClip(graphics: MutPtr): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipResetClip(graphics.rawAddress.toCPointer<ByteVar>())
 
-public actual fun gdipResetImageAttributes(imageattr: MutPtr<GpImageAttributes>, type: ColorAdjustType): Status =
+public actual fun gdipResetImageAttributes(imageattr: MutPtr, type: ColorAdjustType): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipResetImageAttributes(imageattr.rawAddress.toCPointer<ByteVar>(), type)
 
-public actual fun gdipResetLineTransform(brush: MutPtr<GpLineGradient>): Status =
+public actual fun gdipResetLineTransform(brush: MutPtr): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipResetLineTransform(brush.rawAddress.toCPointer<ByteVar>())
 
-public actual fun gdipResetPageTransform(graphics: MutPtr<GpGraphics>): Status =
+public actual fun gdipResetPageTransform(graphics: MutPtr): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipResetPageTransform(graphics.rawAddress.toCPointer<ByteVar>())
 
-public actual fun gdipResetPath(path: MutPtr<GpPath>): Status =
+public actual fun gdipResetPath(path: MutPtr): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipResetPath(path.rawAddress.toCPointer<ByteVar>())
 
-public actual fun gdipResetPathGradientTransform(brush: MutPtr<GpPathGradient>): Status =
+public actual fun gdipResetPathGradientTransform(brush: MutPtr): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipResetPathGradientTransform(brush.rawAddress.toCPointer<ByteVar>())
 
-public actual fun gdipResetPenTransform(pen: MutPtr<GpPen>): Status =
+public actual fun gdipResetPenTransform(pen: MutPtr): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipResetPenTransform(pen.rawAddress.toCPointer<ByteVar>())
 
-public actual fun gdipResetTextureTransform(brush: MutPtr<GpTexture>): Status =
+public actual fun gdipResetTextureTransform(brush: MutPtr): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipResetTextureTransform(brush.rawAddress.toCPointer<ByteVar>())
 
-public actual fun gdipResetWorldTransform(graphics: MutPtr<GpGraphics>): Status =
+public actual fun gdipResetWorldTransform(graphics: MutPtr): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipResetWorldTransform(graphics.rawAddress.toCPointer<ByteVar>())
 
-public actual fun gdipRestoreGraphics(graphics: MutPtr<GpGraphics>, state: UInt): Status =
+public actual fun gdipRestoreGraphics(graphics: MutPtr, state: UInt): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipRestoreGraphics(graphics.rawAddress.toCPointer<ByteVar>(), state)
 
-public actual fun gdipReversePath(path: MutPtr<GpPath>): Status =
+public actual fun gdipReversePath(path: MutPtr): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipReversePath(path.rawAddress.toCPointer<ByteVar>())
 
-public actual fun gdipRotateLineTransform(brush: MutPtr<GpLineGradient>, angle: Float, order: MatrixOrder): Status =
+public actual fun gdipRotateLineTransform(brush: MutPtr, angle: Float, order: MatrixOrder): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipRotateLineTransform(brush.rawAddress.toCPointer<ByteVar>(), angle, order)
 
-public actual fun gdipRotateMatrix(matrix: MutPtr<Matrix>, angle: Float, order: MatrixOrder): Status =
+public actual fun gdipRotateMatrix(matrix: MutPtr, angle: Float, order: MatrixOrder): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipRotateMatrix(matrix.rawAddress.toCPointer<ByteVar>(), angle, order)
 
-public actual fun gdipRotatePathGradientTransform(brush: MutPtr<GpPathGradient>, angle: Float, order: MatrixOrder): Status =
+public actual fun gdipRotatePathGradientTransform(brush: MutPtr, angle: Float, order: MatrixOrder): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipRotatePathGradientTransform(brush.rawAddress.toCPointer<ByteVar>(), angle, order)
 
-public actual fun gdipRotatePenTransform(pen: MutPtr<GpPen>, angle: Float, order: MatrixOrder): Status =
+public actual fun gdipRotatePenTransform(pen: MutPtr, angle: Float, order: MatrixOrder): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipRotatePenTransform(pen.rawAddress.toCPointer<ByteVar>(), angle, order)
 
-public actual fun gdipRotateTextureTransform(brush: MutPtr<GpTexture>, angle: Float, order: MatrixOrder): Status =
+public actual fun gdipRotateTextureTransform(brush: MutPtr, angle: Float, order: MatrixOrder): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipRotateTextureTransform(brush.rawAddress.toCPointer<ByteVar>(), angle, order)
 
-public actual fun gdipRotateWorldTransform(graphics: MutPtr<GpGraphics>, angle: Float, order: MatrixOrder): Status =
+public actual fun gdipRotateWorldTransform(graphics: MutPtr, angle: Float, order: MatrixOrder): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipRotateWorldTransform(graphics.rawAddress.toCPointer<ByteVar>(), angle, order)
 
-public actual fun gdipSaveAdd(image: MutPtr<GpImage>, encoderparams: ConstPtr<EncoderParameters>): Status =
+public actual fun gdipSaveAdd(image: MutPtr, encoderparams: ConstPtr): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipSaveAdd(image.rawAddress.toCPointer<ByteVar>(), encoderparams.rawAddress.toCPointer<ByteVar>())
 
-public actual fun gdipSaveAddImage(image: MutPtr<GpImage>, newimage: MutPtr<GpImage>, encoderparams: ConstPtr<EncoderParameters>): Status =
+public actual fun gdipSaveAddImage(image: MutPtr, newimage: MutPtr, encoderparams: ConstPtr): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipSaveAddImage(image.rawAddress.toCPointer<ByteVar>(), newimage.rawAddress.toCPointer<ByteVar>(), encoderparams.rawAddress.toCPointer<ByteVar>())
 
-public actual fun gdipSaveGraphics(graphics: MutPtr<GpGraphics>, state: MutPtr<UInt>): Status =
+public actual fun gdipSaveGraphics(graphics: MutPtr, state: MutPtr): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipSaveGraphics(graphics.rawAddress.toCPointer<ByteVar>(), state.rawAddress.toCPointer<ByteVar>())
 
-public actual fun gdipSaveImageToFile(image: MutPtr<GpImage>, filename: Pcwstr, clsidencoder: ConstPtr<Guid>, encoderparams: ConstPtr<EncoderParameters>): Status =
+public actual fun gdipSaveImageToFile(image: MutPtr, filename: Pcwstr, clsidencoder: ConstPtr, encoderparams: ConstPtr): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipSaveImageToFile(image.rawAddress.toCPointer<ByteVar>(), filename.rawAddress.toCPointer<ByteVar>(), clsidencoder.rawAddress.toCPointer<ByteVar>(), encoderparams.rawAddress.toCPointer<ByteVar>())
 
-public actual fun gdipSaveImageToStream(image: MutPtr<GpImage>, stream: MutPtr<CVoid>, clsidencoder: ConstPtr<Guid>, encoderparams: ConstPtr<EncoderParameters>): Status =
+public actual fun gdipSaveImageToStream(image: MutPtr, stream: MutPtr, clsidencoder: ConstPtr, encoderparams: ConstPtr): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipSaveImageToStream(image.rawAddress.toCPointer<ByteVar>(), stream.rawAddress.toCPointer<ByteVar>(), clsidencoder.rawAddress.toCPointer<ByteVar>(), encoderparams.rawAddress.toCPointer<ByteVar>())
 
-public actual fun gdipScaleLineTransform(brush: MutPtr<GpLineGradient>, sx: Float, sy: Float, order: MatrixOrder): Status =
+public actual fun gdipScaleLineTransform(brush: MutPtr, sx: Float, sy: Float, order: MatrixOrder): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipScaleLineTransform(brush.rawAddress.toCPointer<ByteVar>(), sx, sy, order)
 
-public actual fun gdipScaleMatrix(matrix: MutPtr<Matrix>, scalex: Float, scaley: Float, order: MatrixOrder): Status =
+public actual fun gdipScaleMatrix(matrix: MutPtr, scalex: Float, scaley: Float, order: MatrixOrder): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipScaleMatrix(matrix.rawAddress.toCPointer<ByteVar>(), scalex, scaley, order)
 
-public actual fun gdipScalePathGradientTransform(brush: MutPtr<GpPathGradient>, sx: Float, sy: Float, order: MatrixOrder): Status =
+public actual fun gdipScalePathGradientTransform(brush: MutPtr, sx: Float, sy: Float, order: MatrixOrder): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipScalePathGradientTransform(brush.rawAddress.toCPointer<ByteVar>(), sx, sy, order)
 
-public actual fun gdipScalePenTransform(pen: MutPtr<GpPen>, sx: Float, sy: Float, order: MatrixOrder): Status =
+public actual fun gdipScalePenTransform(pen: MutPtr, sx: Float, sy: Float, order: MatrixOrder): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipScalePenTransform(pen.rawAddress.toCPointer<ByteVar>(), sx, sy, order)
 
-public actual fun gdipScaleTextureTransform(brush: MutPtr<GpTexture>, sx: Float, sy: Float, order: MatrixOrder): Status =
+public actual fun gdipScaleTextureTransform(brush: MutPtr, sx: Float, sy: Float, order: MatrixOrder): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipScaleTextureTransform(brush.rawAddress.toCPointer<ByteVar>(), sx, sy, order)
 
-public actual fun gdipScaleWorldTransform(graphics: MutPtr<GpGraphics>, sx: Float, sy: Float, order: MatrixOrder): Status =
+public actual fun gdipScaleWorldTransform(graphics: MutPtr, sx: Float, sy: Float, order: MatrixOrder): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipScaleWorldTransform(graphics.rawAddress.toCPointer<ByteVar>(), sx, sy, order)
 
-public actual fun gdipSetAdjustableArrowCapFillState(cap: MutPtr<GpAdjustableArrowCap>, fillstate: Bool): Status =
+public actual fun gdipSetAdjustableArrowCapFillState(cap: MutPtr, fillstate: Bool): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipSetAdjustableArrowCapFillState(cap.rawAddress.toCPointer<ByteVar>(), fillstate)
 
-public actual fun gdipSetAdjustableArrowCapHeight(cap: MutPtr<GpAdjustableArrowCap>, height: Float): Status =
+public actual fun gdipSetAdjustableArrowCapHeight(cap: MutPtr, height: Float): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipSetAdjustableArrowCapHeight(cap.rawAddress.toCPointer<ByteVar>(), height)
 
-public actual fun gdipSetAdjustableArrowCapMiddleInset(cap: MutPtr<GpAdjustableArrowCap>, middleinset: Float): Status =
+public actual fun gdipSetAdjustableArrowCapMiddleInset(cap: MutPtr, middleinset: Float): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipSetAdjustableArrowCapMiddleInset(cap.rawAddress.toCPointer<ByteVar>(), middleinset)
 
-public actual fun gdipSetAdjustableArrowCapWidth(cap: MutPtr<GpAdjustableArrowCap>, width: Float): Status =
+public actual fun gdipSetAdjustableArrowCapWidth(cap: MutPtr, width: Float): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipSetAdjustableArrowCapWidth(cap.rawAddress.toCPointer<ByteVar>(), width)
 
-public actual fun gdipSetClipGraphics(graphics: MutPtr<GpGraphics>, srcgraphics: MutPtr<GpGraphics>, combinemode: CombineMode): Status =
+public actual fun gdipSetClipGraphics(graphics: MutPtr, srcgraphics: MutPtr, combinemode: CombineMode): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipSetClipGraphics(graphics.rawAddress.toCPointer<ByteVar>(), srcgraphics.rawAddress.toCPointer<ByteVar>(), combinemode)
 
-public actual fun gdipSetClipHrgn(graphics: MutPtr<GpGraphics>, hrgn: Hrgn, combinemode: CombineMode): Status =
+public actual fun gdipSetClipHrgn(graphics: MutPtr, hrgn: Hrgn, combinemode: CombineMode): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipSetClipHrgn(graphics.rawAddress.toCPointer<ByteVar>(), hrgn.rawAddress.toCPointer<ByteVar>(), combinemode)
 
-public actual fun gdipSetClipPath(graphics: MutPtr<GpGraphics>, path: MutPtr<GpPath>, combinemode: CombineMode): Status =
+public actual fun gdipSetClipPath(graphics: MutPtr, path: MutPtr, combinemode: CombineMode): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipSetClipPath(graphics.rawAddress.toCPointer<ByteVar>(), path.rawAddress.toCPointer<ByteVar>(), combinemode)
 
-public actual fun gdipSetClipRect(graphics: MutPtr<GpGraphics>, x: Float, y: Float, width: Float, height: Float, combinemode: CombineMode): Status =
+public actual fun gdipSetClipRect(graphics: MutPtr, x: Float, y: Float, width: Float, height: Float, combinemode: CombineMode): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipSetClipRect(graphics.rawAddress.toCPointer<ByteVar>(), x, y, width, height, combinemode)
 
-public actual fun gdipSetClipRectI(graphics: MutPtr<GpGraphics>, x: Int, y: Int, width: Int, height: Int, combinemode: CombineMode): Status =
+public actual fun gdipSetClipRectI(graphics: MutPtr, x: Int, y: Int, width: Int, height: Int, combinemode: CombineMode): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipSetClipRectI(graphics.rawAddress.toCPointer<ByteVar>(), x, y, width, height, combinemode)
 
-public actual fun gdipSetClipRegion(graphics: MutPtr<GpGraphics>, region: MutPtr<GpRegion>, combinemode: CombineMode): Status =
+public actual fun gdipSetClipRegion(graphics: MutPtr, region: MutPtr, combinemode: CombineMode): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipSetClipRegion(graphics.rawAddress.toCPointer<ByteVar>(), region.rawAddress.toCPointer<ByteVar>(), combinemode)
 
-public actual fun gdipSetCompositingMode(graphics: MutPtr<GpGraphics>, compositingmode: CompositingMode): Status =
+public actual fun gdipSetCompositingMode(graphics: MutPtr, compositingmode: CompositingMode): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipSetCompositingMode(graphics.rawAddress.toCPointer<ByteVar>(), compositingmode)
 
-public actual fun gdipSetCompositingQuality(graphics: MutPtr<GpGraphics>, compositingquality: CompositingQuality): Status =
+public actual fun gdipSetCompositingQuality(graphics: MutPtr, compositingquality: CompositingQuality): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipSetCompositingQuality(graphics.rawAddress.toCPointer<ByteVar>(), compositingquality)
 
-public actual fun gdipSetCustomLineCapBaseCap(customcap: MutPtr<GpCustomLineCap>, basecap: LineCap): Status =
+public actual fun gdipSetCustomLineCapBaseCap(customcap: MutPtr, basecap: LineCap): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipSetCustomLineCapBaseCap(customcap.rawAddress.toCPointer<ByteVar>(), basecap)
 
-public actual fun gdipSetCustomLineCapBaseInset(customcap: MutPtr<GpCustomLineCap>, inset: Float): Status =
+public actual fun gdipSetCustomLineCapBaseInset(customcap: MutPtr, inset: Float): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipSetCustomLineCapBaseInset(customcap.rawAddress.toCPointer<ByteVar>(), inset)
 
-public actual fun gdipSetCustomLineCapStrokeCaps(customcap: MutPtr<GpCustomLineCap>, startcap: LineCap, endcap: LineCap): Status =
+public actual fun gdipSetCustomLineCapStrokeCaps(customcap: MutPtr, startcap: LineCap, endcap: LineCap): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipSetCustomLineCapStrokeCaps(customcap.rawAddress.toCPointer<ByteVar>(), startcap, endcap)
 
-public actual fun gdipSetCustomLineCapStrokeJoin(customcap: MutPtr<GpCustomLineCap>, linejoin: LineJoin): Status =
+public actual fun gdipSetCustomLineCapStrokeJoin(customcap: MutPtr, linejoin: LineJoin): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipSetCustomLineCapStrokeJoin(customcap.rawAddress.toCPointer<ByteVar>(), linejoin)
 
-public actual fun gdipSetCustomLineCapWidthScale(customcap: MutPtr<GpCustomLineCap>, widthscale: Float): Status =
+public actual fun gdipSetCustomLineCapWidthScale(customcap: MutPtr, widthscale: Float): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipSetCustomLineCapWidthScale(customcap.rawAddress.toCPointer<ByteVar>(), widthscale)
 
-public actual fun gdipSetEffectParameters(effect: MutPtr<CGpEffect>, params: ConstPtr<CVoid>, size: UInt): Status =
+public actual fun gdipSetEffectParameters(effect: MutPtr, params: ConstPtr, size: UInt): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipSetEffectParameters(effect.rawAddress.toCPointer<ByteVar>(), params.rawAddress.toCPointer<ByteVar>(), size)
 
-public actual fun gdipSetEmpty(region: MutPtr<GpRegion>): Status =
+public actual fun gdipSetEmpty(region: MutPtr): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipSetEmpty(region.rawAddress.toCPointer<ByteVar>())
 
-public actual fun gdipSetImageAttributesCachedBackground(imageattr: MutPtr<GpImageAttributes>, enableflag: Bool): Status =
+public actual fun gdipSetImageAttributesCachedBackground(imageattr: MutPtr, enableflag: Bool): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipSetImageAttributesCachedBackground(imageattr.rawAddress.toCPointer<ByteVar>(), enableflag)
 
-public actual fun gdipSetImageAttributesColorKeys(imageattr: MutPtr<GpImageAttributes>, type: ColorAdjustType, enableflag: Bool, colorlow: UInt, colorhigh: UInt): Status =
+public actual fun gdipSetImageAttributesColorKeys(imageattr: MutPtr, type: ColorAdjustType, enableflag: Bool, colorlow: UInt, colorhigh: UInt): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipSetImageAttributesColorKeys(imageattr.rawAddress.toCPointer<ByteVar>(), type, enableflag, colorlow, colorhigh)
 
-public actual fun gdipSetImageAttributesColorMatrix(imageattr: MutPtr<GpImageAttributes>, type: ColorAdjustType, enableflag: Bool, colormatrix: ConstPtr<ColorMatrix>, graymatrix: ConstPtr<ColorMatrix>, flags: ColorMatrixFlags): Status =
+public actual fun gdipSetImageAttributesColorMatrix(imageattr: MutPtr, type: ColorAdjustType, enableflag: Bool, colormatrix: ConstPtr, graymatrix: ConstPtr, flags: ColorMatrixFlags): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipSetImageAttributesColorMatrix(imageattr.rawAddress.toCPointer<ByteVar>(), type, enableflag, colormatrix.rawAddress.toCPointer<ByteVar>(), graymatrix.rawAddress.toCPointer<ByteVar>(), flags)
 
-public actual fun gdipSetImageAttributesGamma(imageattr: MutPtr<GpImageAttributes>, type: ColorAdjustType, enableflag: Bool, gamma: Float): Status =
+public actual fun gdipSetImageAttributesGamma(imageattr: MutPtr, type: ColorAdjustType, enableflag: Bool, gamma: Float): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipSetImageAttributesGamma(imageattr.rawAddress.toCPointer<ByteVar>(), type, enableflag, gamma)
 
-public actual fun gdipSetImageAttributesNoOp(imageattr: MutPtr<GpImageAttributes>, type: ColorAdjustType, enableflag: Bool): Status =
+public actual fun gdipSetImageAttributesNoOp(imageattr: MutPtr, type: ColorAdjustType, enableflag: Bool): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipSetImageAttributesNoOp(imageattr.rawAddress.toCPointer<ByteVar>(), type, enableflag)
 
-public actual fun gdipSetImageAttributesOutputChannel(imageattr: MutPtr<GpImageAttributes>, type: ColorAdjustType, enableflag: Bool, channelflags: ColorChannelFlags): Status =
+public actual fun gdipSetImageAttributesOutputChannel(imageattr: MutPtr, type: ColorAdjustType, enableflag: Bool, channelflags: ColorChannelFlags): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipSetImageAttributesOutputChannel(imageattr.rawAddress.toCPointer<ByteVar>(), type, enableflag, channelflags)
 
-public actual fun gdipSetImageAttributesOutputChannelColorProfile(imageattr: MutPtr<GpImageAttributes>, type: ColorAdjustType, enableflag: Bool, colorprofilefilename: Pcwstr): Status =
+public actual fun gdipSetImageAttributesOutputChannelColorProfile(imageattr: MutPtr, type: ColorAdjustType, enableflag: Bool, colorprofilefilename: Pcwstr): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipSetImageAttributesOutputChannelColorProfile(imageattr.rawAddress.toCPointer<ByteVar>(), type, enableflag, colorprofilefilename.rawAddress.toCPointer<ByteVar>())
 
-public actual fun gdipSetImageAttributesRemapTable(imageattr: MutPtr<GpImageAttributes>, type: ColorAdjustType, enableflag: Bool, mapsize: UInt, map: ConstPtr<ColorMap>): Status =
+public actual fun gdipSetImageAttributesRemapTable(imageattr: MutPtr, type: ColorAdjustType, enableflag: Bool, mapsize: UInt, map: ConstPtr): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipSetImageAttributesRemapTable(imageattr.rawAddress.toCPointer<ByteVar>(), type, enableflag, mapsize, map.rawAddress.toCPointer<ByteVar>())
 
-public actual fun gdipSetImageAttributesThreshold(imageattr: MutPtr<GpImageAttributes>, type: ColorAdjustType, enableflag: Bool, threshold: Float): Status =
+public actual fun gdipSetImageAttributesThreshold(imageattr: MutPtr, type: ColorAdjustType, enableflag: Bool, threshold: Float): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipSetImageAttributesThreshold(imageattr.rawAddress.toCPointer<ByteVar>(), type, enableflag, threshold)
 
-public actual fun gdipSetImageAttributesToIdentity(imageattr: MutPtr<GpImageAttributes>, type: ColorAdjustType): Status =
+public actual fun gdipSetImageAttributesToIdentity(imageattr: MutPtr, type: ColorAdjustType): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipSetImageAttributesToIdentity(imageattr.rawAddress.toCPointer<ByteVar>(), type)
 
-public actual fun gdipSetImageAttributesWrapMode(imageattr: MutPtr<GpImageAttributes>, wrap: WrapMode, argb: UInt, clamp: Bool): Status =
+public actual fun gdipSetImageAttributesWrapMode(imageattr: MutPtr, wrap: WrapMode, argb: UInt, clamp: Bool): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipSetImageAttributesWrapMode(imageattr.rawAddress.toCPointer<ByteVar>(), wrap, argb, clamp)
 
-public actual fun gdipSetImagePalette(image: MutPtr<GpImage>, palette: ConstPtr<ColorPalette>): Status =
+public actual fun gdipSetImagePalette(image: MutPtr, palette: ConstPtr): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipSetImagePalette(image.rawAddress.toCPointer<ByteVar>(), palette.rawAddress.toCPointer<ByteVar>())
 
-public actual fun gdipSetInfinite(region: MutPtr<GpRegion>): Status =
+public actual fun gdipSetInfinite(region: MutPtr): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipSetInfinite(region.rawAddress.toCPointer<ByteVar>())
 
-public actual fun gdipSetInterpolationMode(graphics: MutPtr<GpGraphics>, interpolationmode: InterpolationMode): Status =
+public actual fun gdipSetInterpolationMode(graphics: MutPtr, interpolationmode: InterpolationMode): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipSetInterpolationMode(graphics.rawAddress.toCPointer<ByteVar>(), interpolationmode)
 
-public actual fun gdipSetLineBlend(brush: MutPtr<GpLineGradient>, blend: ConstPtr<Float>, positions: ConstPtr<Float>, count: Int): Status =
+public actual fun gdipSetLineBlend(brush: MutPtr, blend: ConstPtr, positions: ConstPtr, count: Int): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipSetLineBlend(brush.rawAddress.toCPointer<ByteVar>(), blend.rawAddress.toCPointer<ByteVar>(), positions.rawAddress.toCPointer<ByteVar>(), count)
 
-public actual fun gdipSetLineColors(brush: MutPtr<GpLineGradient>, color1: UInt, color2: UInt): Status =
+public actual fun gdipSetLineColors(brush: MutPtr, color1: UInt, color2: UInt): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipSetLineColors(brush.rawAddress.toCPointer<ByteVar>(), color1, color2)
 
-public actual fun gdipSetLineGammaCorrection(brush: MutPtr<GpLineGradient>, usegammacorrection: Bool): Status =
+public actual fun gdipSetLineGammaCorrection(brush: MutPtr, usegammacorrection: Bool): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipSetLineGammaCorrection(brush.rawAddress.toCPointer<ByteVar>(), usegammacorrection)
 
-public actual fun gdipSetLineLinearBlend(brush: MutPtr<GpLineGradient>, focus: Float, scale: Float): Status =
+public actual fun gdipSetLineLinearBlend(brush: MutPtr, focus: Float, scale: Float): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipSetLineLinearBlend(brush.rawAddress.toCPointer<ByteVar>(), focus, scale)
 
-public actual fun gdipSetLinePresetBlend(brush: MutPtr<GpLineGradient>, blend: ConstPtr<UInt>, positions: ConstPtr<Float>, count: Int): Status =
+public actual fun gdipSetLinePresetBlend(brush: MutPtr, blend: ConstPtr, positions: ConstPtr, count: Int): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipSetLinePresetBlend(brush.rawAddress.toCPointer<ByteVar>(), blend.rawAddress.toCPointer<ByteVar>(), positions.rawAddress.toCPointer<ByteVar>(), count)
 
-public actual fun gdipSetLineSigmaBlend(brush: MutPtr<GpLineGradient>, focus: Float, scale: Float): Status =
+public actual fun gdipSetLineSigmaBlend(brush: MutPtr, focus: Float, scale: Float): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipSetLineSigmaBlend(brush.rawAddress.toCPointer<ByteVar>(), focus, scale)
 
-public actual fun gdipSetLineTransform(brush: MutPtr<GpLineGradient>, matrix: ConstPtr<Matrix>): Status =
+public actual fun gdipSetLineTransform(brush: MutPtr, matrix: ConstPtr): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipSetLineTransform(brush.rawAddress.toCPointer<ByteVar>(), matrix.rawAddress.toCPointer<ByteVar>())
 
-public actual fun gdipSetLineWrapMode(brush: MutPtr<GpLineGradient>, wrapmode: WrapMode): Status =
+public actual fun gdipSetLineWrapMode(brush: MutPtr, wrapmode: WrapMode): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipSetLineWrapMode(brush.rawAddress.toCPointer<ByteVar>(), wrapmode)
 
-public actual fun gdipSetMatrixElements(matrix: MutPtr<Matrix>, m11: Float, m12: Float, m21: Float, m22: Float, dx: Float, dy: Float): Status =
+public actual fun gdipSetMatrixElements(matrix: MutPtr, m11: Float, m12: Float, m21: Float, m22: Float, dx: Float, dy: Float): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipSetMatrixElements(matrix.rawAddress.toCPointer<ByteVar>(), m11, m12, m21, m22, dx, dy)
 
-public actual fun gdipSetMetafileDownLevelRasterizationLimit(metafile: MutPtr<GpMetafile>, metafilerasterizationlimitdpi: UInt): Status =
+public actual fun gdipSetMetafileDownLevelRasterizationLimit(metafile: MutPtr, metafilerasterizationlimitdpi: UInt): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipSetMetafileDownLevelRasterizationLimit(metafile.rawAddress.toCPointer<ByteVar>(), metafilerasterizationlimitdpi)
 
-public actual fun gdipSetPageScale(graphics: MutPtr<GpGraphics>, scale: Float): Status =
+public actual fun gdipSetPageScale(graphics: MutPtr, scale: Float): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipSetPageScale(graphics.rawAddress.toCPointer<ByteVar>(), scale)
 
-public actual fun gdipSetPageUnit(graphics: MutPtr<GpGraphics>, unit: Unit): Status =
+public actual fun gdipSetPageUnit(graphics: MutPtr, unit: Unit): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipSetPageUnit(graphics.rawAddress.toCPointer<ByteVar>(), unit)
 
-public actual fun gdipSetPathFillMode(path: MutPtr<GpPath>, fillmode: FillMode): Status =
+public actual fun gdipSetPathFillMode(path: MutPtr, fillmode: FillMode): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipSetPathFillMode(path.rawAddress.toCPointer<ByteVar>(), fillmode)
 
-public actual fun gdipSetPathGradientBlend(brush: MutPtr<GpPathGradient>, blend: ConstPtr<Float>, positions: ConstPtr<Float>, count: Int): Status =
+public actual fun gdipSetPathGradientBlend(brush: MutPtr, blend: ConstPtr, positions: ConstPtr, count: Int): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipSetPathGradientBlend(brush.rawAddress.toCPointer<ByteVar>(), blend.rawAddress.toCPointer<ByteVar>(), positions.rawAddress.toCPointer<ByteVar>(), count)
 
-public actual fun gdipSetPathGradientCenterColor(brush: MutPtr<GpPathGradient>, colors: UInt): Status =
+public actual fun gdipSetPathGradientCenterColor(brush: MutPtr, colors: UInt): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipSetPathGradientCenterColor(brush.rawAddress.toCPointer<ByteVar>(), colors)
 
-public actual fun gdipSetPathGradientCenterPoint(brush: MutPtr<GpPathGradient>, points: ConstPtr<PointF>): Status =
+public actual fun gdipSetPathGradientCenterPoint(brush: MutPtr, points: ConstPtr): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipSetPathGradientCenterPoint(brush.rawAddress.toCPointer<ByteVar>(), points.rawAddress.toCPointer<ByteVar>())
 
-public actual fun gdipSetPathGradientCenterPointI(brush: MutPtr<GpPathGradient>, points: ConstPtr<Point>): Status =
+public actual fun gdipSetPathGradientCenterPointI(brush: MutPtr, points: ConstPtr): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipSetPathGradientCenterPointI(brush.rawAddress.toCPointer<ByteVar>(), points.rawAddress.toCPointer<ByteVar>())
 
-public actual fun gdipSetPathGradientFocusScales(brush: MutPtr<GpPathGradient>, xscale: Float, yscale: Float): Status =
+public actual fun gdipSetPathGradientFocusScales(brush: MutPtr, xscale: Float, yscale: Float): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipSetPathGradientFocusScales(brush.rawAddress.toCPointer<ByteVar>(), xscale, yscale)
 
-public actual fun gdipSetPathGradientGammaCorrection(brush: MutPtr<GpPathGradient>, usegammacorrection: Bool): Status =
+public actual fun gdipSetPathGradientGammaCorrection(brush: MutPtr, usegammacorrection: Bool): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipSetPathGradientGammaCorrection(brush.rawAddress.toCPointer<ByteVar>(), usegammacorrection)
 
-public actual fun gdipSetPathGradientLinearBlend(brush: MutPtr<GpPathGradient>, focus: Float, scale: Float): Status =
+public actual fun gdipSetPathGradientLinearBlend(brush: MutPtr, focus: Float, scale: Float): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipSetPathGradientLinearBlend(brush.rawAddress.toCPointer<ByteVar>(), focus, scale)
 
-public actual fun gdipSetPathGradientPath(brush: MutPtr<GpPathGradient>, path: ConstPtr<GpPath>): Status =
+public actual fun gdipSetPathGradientPath(brush: MutPtr, path: ConstPtr): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipSetPathGradientPath(brush.rawAddress.toCPointer<ByteVar>(), path.rawAddress.toCPointer<ByteVar>())
 
-public actual fun gdipSetPathGradientPresetBlend(brush: MutPtr<GpPathGradient>, blend: ConstPtr<UInt>, positions: ConstPtr<Float>, count: Int): Status =
+public actual fun gdipSetPathGradientPresetBlend(brush: MutPtr, blend: ConstPtr, positions: ConstPtr, count: Int): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipSetPathGradientPresetBlend(brush.rawAddress.toCPointer<ByteVar>(), blend.rawAddress.toCPointer<ByteVar>(), positions.rawAddress.toCPointer<ByteVar>(), count)
 
-public actual fun gdipSetPathGradientSigmaBlend(brush: MutPtr<GpPathGradient>, focus: Float, scale: Float): Status =
+public actual fun gdipSetPathGradientSigmaBlend(brush: MutPtr, focus: Float, scale: Float): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipSetPathGradientSigmaBlend(brush.rawAddress.toCPointer<ByteVar>(), focus, scale)
 
-public actual fun gdipSetPathGradientSurroundColorsWithCount(brush: MutPtr<GpPathGradient>, color: ConstPtr<UInt>, count: MutPtr<Int>): Status =
+public actual fun gdipSetPathGradientSurroundColorsWithCount(brush: MutPtr, color: ConstPtr, count: MutPtr): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipSetPathGradientSurroundColorsWithCount(brush.rawAddress.toCPointer<ByteVar>(), color.rawAddress.toCPointer<ByteVar>(), count.rawAddress.toCPointer<ByteVar>())
 
-public actual fun gdipSetPathGradientTransform(brush: MutPtr<GpPathGradient>, matrix: MutPtr<Matrix>): Status =
+public actual fun gdipSetPathGradientTransform(brush: MutPtr, matrix: MutPtr): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipSetPathGradientTransform(brush.rawAddress.toCPointer<ByteVar>(), matrix.rawAddress.toCPointer<ByteVar>())
 
-public actual fun gdipSetPathGradientWrapMode(brush: MutPtr<GpPathGradient>, wrapmode: WrapMode): Status =
+public actual fun gdipSetPathGradientWrapMode(brush: MutPtr, wrapmode: WrapMode): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipSetPathGradientWrapMode(brush.rawAddress.toCPointer<ByteVar>(), wrapmode)
 
-public actual fun gdipSetPathMarker(path: MutPtr<GpPath>): Status =
+public actual fun gdipSetPathMarker(path: MutPtr): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipSetPathMarker(path.rawAddress.toCPointer<ByteVar>())
 
-public actual fun gdipSetPenBrushFill(pen: MutPtr<GpPen>, brush: MutPtr<GpBrush>): Status =
+public actual fun gdipSetPenBrushFill(pen: MutPtr, brush: MutPtr): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipSetPenBrushFill(pen.rawAddress.toCPointer<ByteVar>(), brush.rawAddress.toCPointer<ByteVar>())
 
-public actual fun gdipSetPenColor(pen: MutPtr<GpPen>, argb: UInt): Status =
+public actual fun gdipSetPenColor(pen: MutPtr, argb: UInt): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipSetPenColor(pen.rawAddress.toCPointer<ByteVar>(), argb)
 
-public actual fun gdipSetPenCompoundArray(pen: MutPtr<GpPen>, dash: ConstPtr<Float>, count: Int): Status =
+public actual fun gdipSetPenCompoundArray(pen: MutPtr, dash: ConstPtr, count: Int): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipSetPenCompoundArray(pen.rawAddress.toCPointer<ByteVar>(), dash.rawAddress.toCPointer<ByteVar>(), count)
 
-public actual fun gdipSetPenCustomEndCap(pen: MutPtr<GpPen>, customcap: MutPtr<GpCustomLineCap>): Status =
+public actual fun gdipSetPenCustomEndCap(pen: MutPtr, customcap: MutPtr): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipSetPenCustomEndCap(pen.rawAddress.toCPointer<ByteVar>(), customcap.rawAddress.toCPointer<ByteVar>())
 
-public actual fun gdipSetPenCustomStartCap(pen: MutPtr<GpPen>, customcap: MutPtr<GpCustomLineCap>): Status =
+public actual fun gdipSetPenCustomStartCap(pen: MutPtr, customcap: MutPtr): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipSetPenCustomStartCap(pen.rawAddress.toCPointer<ByteVar>(), customcap.rawAddress.toCPointer<ByteVar>())
 
-public actual fun gdipSetPenDashArray(pen: MutPtr<GpPen>, dash: ConstPtr<Float>, count: Int): Status =
+public actual fun gdipSetPenDashArray(pen: MutPtr, dash: ConstPtr, count: Int): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipSetPenDashArray(pen.rawAddress.toCPointer<ByteVar>(), dash.rawAddress.toCPointer<ByteVar>(), count)
 
-public actual fun gdipSetPenDashCap197819(pen: MutPtr<GpPen>, dashcap: DashCap): Status =
+public actual fun gdipSetPenDashCap197819(pen: MutPtr, dashcap: DashCap): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipSetPenDashCap197819(pen.rawAddress.toCPointer<ByteVar>(), dashcap)
 
-public actual fun gdipSetPenDashOffset(pen: MutPtr<GpPen>, offset: Float): Status =
+public actual fun gdipSetPenDashOffset(pen: MutPtr, offset: Float): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipSetPenDashOffset(pen.rawAddress.toCPointer<ByteVar>(), offset)
 
-public actual fun gdipSetPenDashStyle(pen: MutPtr<GpPen>, dashstyle: DashStyle): Status =
+public actual fun gdipSetPenDashStyle(pen: MutPtr, dashstyle: DashStyle): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipSetPenDashStyle(pen.rawAddress.toCPointer<ByteVar>(), dashstyle)
 
-public actual fun gdipSetPenEndCap(pen: MutPtr<GpPen>, endcap: LineCap): Status =
+public actual fun gdipSetPenEndCap(pen: MutPtr, endcap: LineCap): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipSetPenEndCap(pen.rawAddress.toCPointer<ByteVar>(), endcap)
 
-public actual fun gdipSetPenLineCap197819(pen: MutPtr<GpPen>, startcap: LineCap, endcap: LineCap, dashcap: DashCap): Status =
+public actual fun gdipSetPenLineCap197819(pen: MutPtr, startcap: LineCap, endcap: LineCap, dashcap: DashCap): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipSetPenLineCap197819(pen.rawAddress.toCPointer<ByteVar>(), startcap, endcap, dashcap)
 
-public actual fun gdipSetPenLineJoin(pen: MutPtr<GpPen>, linejoin: LineJoin): Status =
+public actual fun gdipSetPenLineJoin(pen: MutPtr, linejoin: LineJoin): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipSetPenLineJoin(pen.rawAddress.toCPointer<ByteVar>(), linejoin)
 
-public actual fun gdipSetPenMiterLimit(pen: MutPtr<GpPen>, miterlimit: Float): Status =
+public actual fun gdipSetPenMiterLimit(pen: MutPtr, miterlimit: Float): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipSetPenMiterLimit(pen.rawAddress.toCPointer<ByteVar>(), miterlimit)
 
-public actual fun gdipSetPenMode(pen: MutPtr<GpPen>, penmode: PenAlignment): Status =
+public actual fun gdipSetPenMode(pen: MutPtr, penmode: PenAlignment): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipSetPenMode(pen.rawAddress.toCPointer<ByteVar>(), penmode)
 
-public actual fun gdipSetPenStartCap(pen: MutPtr<GpPen>, startcap: LineCap): Status =
+public actual fun gdipSetPenStartCap(pen: MutPtr, startcap: LineCap): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipSetPenStartCap(pen.rawAddress.toCPointer<ByteVar>(), startcap)
 
-public actual fun gdipSetPenTransform(pen: MutPtr<GpPen>, matrix: MutPtr<Matrix>): Status =
+public actual fun gdipSetPenTransform(pen: MutPtr, matrix: MutPtr): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipSetPenTransform(pen.rawAddress.toCPointer<ByteVar>(), matrix.rawAddress.toCPointer<ByteVar>())
 
-public actual fun gdipSetPenUnit(pen: MutPtr<GpPen>, unit: Unit): Status =
+public actual fun gdipSetPenUnit(pen: MutPtr, unit: Unit): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipSetPenUnit(pen.rawAddress.toCPointer<ByteVar>(), unit)
 
-public actual fun gdipSetPenWidth(pen: MutPtr<GpPen>, width: Float): Status =
+public actual fun gdipSetPenWidth(pen: MutPtr, width: Float): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipSetPenWidth(pen.rawAddress.toCPointer<ByteVar>(), width)
 
-public actual fun gdipSetPixelOffsetMode(graphics: MutPtr<GpGraphics>, pixeloffsetmode: PixelOffsetMode): Status =
+public actual fun gdipSetPixelOffsetMode(graphics: MutPtr, pixeloffsetmode: PixelOffsetMode): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipSetPixelOffsetMode(graphics.rawAddress.toCPointer<ByteVar>(), pixeloffsetmode)
 
-public actual fun gdipSetPropertyItem(image: MutPtr<GpImage>, item: ConstPtr<PropertyItem>): Status =
+public actual fun gdipSetPropertyItem(image: MutPtr, item: ConstPtr): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipSetPropertyItem(image.rawAddress.toCPointer<ByteVar>(), item.rawAddress.toCPointer<ByteVar>())
 
-public actual fun gdipSetRenderingOrigin(graphics: MutPtr<GpGraphics>, x: Int, y: Int): Status =
+public actual fun gdipSetRenderingOrigin(graphics: MutPtr, x: Int, y: Int): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipSetRenderingOrigin(graphics.rawAddress.toCPointer<ByteVar>(), x, y)
 
-public actual fun gdipSetSmoothingMode(graphics: MutPtr<GpGraphics>, smoothingmode: SmoothingMode): Status =
+public actual fun gdipSetSmoothingMode(graphics: MutPtr, smoothingmode: SmoothingMode): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipSetSmoothingMode(graphics.rawAddress.toCPointer<ByteVar>(), smoothingmode)
 
-public actual fun gdipSetSolidFillColor(brush: MutPtr<GpSolidFill>, color: UInt): Status =
+public actual fun gdipSetSolidFillColor(brush: MutPtr, color: UInt): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipSetSolidFillColor(brush.rawAddress.toCPointer<ByteVar>(), color)
 
-public actual fun gdipSetStringFormatAlign(format: MutPtr<GpStringFormat>, align: StringAlignment): Status =
+public actual fun gdipSetStringFormatAlign(format: MutPtr, align: StringAlignment): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipSetStringFormatAlign(format.rawAddress.toCPointer<ByteVar>(), align)
 
-public actual fun gdipSetStringFormatDigitSubstitution(format: MutPtr<GpStringFormat>, language: UShort, substitute: StringDigitSubstitute): Status =
+public actual fun gdipSetStringFormatDigitSubstitution(format: MutPtr, language: UShort, substitute: StringDigitSubstitute): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipSetStringFormatDigitSubstitution(format.rawAddress.toCPointer<ByteVar>(), language, substitute)
 
-public actual fun gdipSetStringFormatFlags(format: MutPtr<GpStringFormat>, flags: Int): Status =
+public actual fun gdipSetStringFormatFlags(format: MutPtr, flags: Int): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipSetStringFormatFlags(format.rawAddress.toCPointer<ByteVar>(), flags)
 
-public actual fun gdipSetStringFormatHotkeyPrefix(format: MutPtr<GpStringFormat>, hotkeyprefix: Int): Status =
+public actual fun gdipSetStringFormatHotkeyPrefix(format: MutPtr, hotkeyprefix: Int): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipSetStringFormatHotkeyPrefix(format.rawAddress.toCPointer<ByteVar>(), hotkeyprefix)
 
-public actual fun gdipSetStringFormatLineAlign(format: MutPtr<GpStringFormat>, align: StringAlignment): Status =
+public actual fun gdipSetStringFormatLineAlign(format: MutPtr, align: StringAlignment): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipSetStringFormatLineAlign(format.rawAddress.toCPointer<ByteVar>(), align)
 
-public actual fun gdipSetStringFormatMeasurableCharacterRanges(format: MutPtr<GpStringFormat>, rangecount: Int, ranges: ConstPtr<CharacterRange>): Status =
+public actual fun gdipSetStringFormatMeasurableCharacterRanges(format: MutPtr, rangecount: Int, ranges: ConstPtr): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipSetStringFormatMeasurableCharacterRanges(format.rawAddress.toCPointer<ByteVar>(), rangecount, ranges.rawAddress.toCPointer<ByteVar>())
 
-public actual fun gdipSetStringFormatTabStops(format: MutPtr<GpStringFormat>, firsttaboffset: Float, count: Int, tabstops: ConstPtr<Float>): Status =
+public actual fun gdipSetStringFormatTabStops(format: MutPtr, firsttaboffset: Float, count: Int, tabstops: ConstPtr): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipSetStringFormatTabStops(format.rawAddress.toCPointer<ByteVar>(), firsttaboffset, count, tabstops.rawAddress.toCPointer<ByteVar>())
 
-public actual fun gdipSetStringFormatTrimming(format: MutPtr<GpStringFormat>, trimming: StringTrimming): Status =
+public actual fun gdipSetStringFormatTrimming(format: MutPtr, trimming: StringTrimming): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipSetStringFormatTrimming(format.rawAddress.toCPointer<ByteVar>(), trimming)
 
-public actual fun gdipSetTextContrast(graphics: MutPtr<GpGraphics>, contrast: UInt): Status =
+public actual fun gdipSetTextContrast(graphics: MutPtr, contrast: UInt): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipSetTextContrast(graphics.rawAddress.toCPointer<ByteVar>(), contrast)
 
-public actual fun gdipSetTextRenderingHint(graphics: MutPtr<GpGraphics>, mode: TextRenderingHint): Status =
+public actual fun gdipSetTextRenderingHint(graphics: MutPtr, mode: TextRenderingHint): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipSetTextRenderingHint(graphics.rawAddress.toCPointer<ByteVar>(), mode)
 
-public actual fun gdipSetTextureTransform(brush: MutPtr<GpTexture>, matrix: ConstPtr<Matrix>): Status =
+public actual fun gdipSetTextureTransform(brush: MutPtr, matrix: ConstPtr): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipSetTextureTransform(brush.rawAddress.toCPointer<ByteVar>(), matrix.rawAddress.toCPointer<ByteVar>())
 
-public actual fun gdipSetTextureWrapMode(brush: MutPtr<GpTexture>, wrapmode: WrapMode): Status =
+public actual fun gdipSetTextureWrapMode(brush: MutPtr, wrapmode: WrapMode): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipSetTextureWrapMode(brush.rawAddress.toCPointer<ByteVar>(), wrapmode)
 
-public actual fun gdipSetWorldTransform(graphics: MutPtr<GpGraphics>, matrix: MutPtr<Matrix>): Status =
+public actual fun gdipSetWorldTransform(graphics: MutPtr, matrix: MutPtr): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipSetWorldTransform(graphics.rawAddress.toCPointer<ByteVar>(), matrix.rawAddress.toCPointer<ByteVar>())
 
-public actual fun gdipShearMatrix(matrix: MutPtr<Matrix>, shearx: Float, sheary: Float, order: MatrixOrder): Status =
+public actual fun gdipShearMatrix(matrix: MutPtr, shearx: Float, sheary: Float, order: MatrixOrder): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipShearMatrix(matrix.rawAddress.toCPointer<ByteVar>(), shearx, sheary, order)
 
-public actual fun gdipStartPathFigure(path: MutPtr<GpPath>): Status =
+public actual fun gdipStartPathFigure(path: MutPtr): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipStartPathFigure(path.rawAddress.toCPointer<ByteVar>())
 
-public actual fun gdipStringFormatGetGenericDefault(format: MutPtr<MutPtr<GpStringFormat>>): Status =
+public actual fun gdipStringFormatGetGenericDefault(format: MutPtr): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipStringFormatGetGenericDefault(format.rawAddress.toCPointer<ByteVar>())
 
-public actual fun gdipStringFormatGetGenericTypographic(format: MutPtr<MutPtr<GpStringFormat>>): Status =
+public actual fun gdipStringFormatGetGenericTypographic(format: MutPtr): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipStringFormatGetGenericTypographic(format.rawAddress.toCPointer<ByteVar>())
 
-public actual fun gdipTestControl(control: GpTestControlEnum, param1: MutPtr<CVoid>): Status =
+public actual fun gdipTestControl(control: GpTestControlEnum, param1: MutPtr): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipTestControl(control, param1.rawAddress.toCPointer<ByteVar>())
 
-public actual fun gdipTransformMatrixPoints(matrix: MutPtr<Matrix>, pts: MutPtr<PointF>, count: Int): Status =
+public actual fun gdipTransformMatrixPoints(matrix: MutPtr, pts: MutPtr, count: Int): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipTransformMatrixPoints(matrix.rawAddress.toCPointer<ByteVar>(), pts.rawAddress.toCPointer<ByteVar>(), count)
 
-public actual fun gdipTransformMatrixPointsI(matrix: MutPtr<Matrix>, pts: MutPtr<Point>, count: Int): Status =
+public actual fun gdipTransformMatrixPointsI(matrix: MutPtr, pts: MutPtr, count: Int): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipTransformMatrixPointsI(matrix.rawAddress.toCPointer<ByteVar>(), pts.rawAddress.toCPointer<ByteVar>(), count)
 
-public actual fun gdipTransformPath(path: MutPtr<GpPath>, matrix: MutPtr<Matrix>): Status =
+public actual fun gdipTransformPath(path: MutPtr, matrix: MutPtr): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipTransformPath(path.rawAddress.toCPointer<ByteVar>(), matrix.rawAddress.toCPointer<ByteVar>())
 
-public actual fun gdipTransformPoints(graphics: MutPtr<GpGraphics>, destspace: CoordinateSpace, srcspace: CoordinateSpace, points: MutPtr<PointF>, count: Int): Status =
+public actual fun gdipTransformPoints(graphics: MutPtr, destspace: CoordinateSpace, srcspace: CoordinateSpace, points: MutPtr, count: Int): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipTransformPoints(graphics.rawAddress.toCPointer<ByteVar>(), destspace, srcspace, points.rawAddress.toCPointer<ByteVar>(), count)
 
-public actual fun gdipTransformPointsI(graphics: MutPtr<GpGraphics>, destspace: CoordinateSpace, srcspace: CoordinateSpace, points: MutPtr<Point>, count: Int): Status =
+public actual fun gdipTransformPointsI(graphics: MutPtr, destspace: CoordinateSpace, srcspace: CoordinateSpace, points: MutPtr, count: Int): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipTransformPointsI(graphics.rawAddress.toCPointer<ByteVar>(), destspace, srcspace, points.rawAddress.toCPointer<ByteVar>(), count)
 
-public actual fun gdipTransformRegion(region: MutPtr<GpRegion>, matrix: MutPtr<Matrix>): Status =
+public actual fun gdipTransformRegion(region: MutPtr, matrix: MutPtr): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipTransformRegion(region.rawAddress.toCPointer<ByteVar>(), matrix.rawAddress.toCPointer<ByteVar>())
 
-public actual fun gdipTranslateClip(graphics: MutPtr<GpGraphics>, dx: Float, dy: Float): Status =
+public actual fun gdipTranslateClip(graphics: MutPtr, dx: Float, dy: Float): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipTranslateClip(graphics.rawAddress.toCPointer<ByteVar>(), dx, dy)
 
-public actual fun gdipTranslateClipI(graphics: MutPtr<GpGraphics>, dx: Int, dy: Int): Status =
+public actual fun gdipTranslateClipI(graphics: MutPtr, dx: Int, dy: Int): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipTranslateClipI(graphics.rawAddress.toCPointer<ByteVar>(), dx, dy)
 
-public actual fun gdipTranslateLineTransform(brush: MutPtr<GpLineGradient>, dx: Float, dy: Float, order: MatrixOrder): Status =
+public actual fun gdipTranslateLineTransform(brush: MutPtr, dx: Float, dy: Float, order: MatrixOrder): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipTranslateLineTransform(brush.rawAddress.toCPointer<ByteVar>(), dx, dy, order)
 
-public actual fun gdipTranslateMatrix(matrix: MutPtr<Matrix>, offsetx: Float, offsety: Float, order: MatrixOrder): Status =
+public actual fun gdipTranslateMatrix(matrix: MutPtr, offsetx: Float, offsety: Float, order: MatrixOrder): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipTranslateMatrix(matrix.rawAddress.toCPointer<ByteVar>(), offsetx, offsety, order)
 
-public actual fun gdipTranslatePathGradientTransform(brush: MutPtr<GpPathGradient>, dx: Float, dy: Float, order: MatrixOrder): Status =
+public actual fun gdipTranslatePathGradientTransform(brush: MutPtr, dx: Float, dy: Float, order: MatrixOrder): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipTranslatePathGradientTransform(brush.rawAddress.toCPointer<ByteVar>(), dx, dy, order)
 
-public actual fun gdipTranslatePenTransform(pen: MutPtr<GpPen>, dx: Float, dy: Float, order: MatrixOrder): Status =
+public actual fun gdipTranslatePenTransform(pen: MutPtr, dx: Float, dy: Float, order: MatrixOrder): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipTranslatePenTransform(pen.rawAddress.toCPointer<ByteVar>(), dx, dy, order)
 
-public actual fun gdipTranslateRegion(region: MutPtr<GpRegion>, dx: Float, dy: Float): Status =
+public actual fun gdipTranslateRegion(region: MutPtr, dx: Float, dy: Float): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipTranslateRegion(region.rawAddress.toCPointer<ByteVar>(), dx, dy)
 
-public actual fun gdipTranslateRegionI(region: MutPtr<GpRegion>, dx: Int, dy: Int): Status =
+public actual fun gdipTranslateRegionI(region: MutPtr, dx: Int, dy: Int): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipTranslateRegionI(region.rawAddress.toCPointer<ByteVar>(), dx, dy)
 
-public actual fun gdipTranslateTextureTransform(brush: MutPtr<GpTexture>, dx: Float, dy: Float, order: MatrixOrder): Status =
+public actual fun gdipTranslateTextureTransform(brush: MutPtr, dx: Float, dy: Float, order: MatrixOrder): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipTranslateTextureTransform(brush.rawAddress.toCPointer<ByteVar>(), dx, dy, order)
 
-public actual fun gdipTranslateWorldTransform(graphics: MutPtr<GpGraphics>, dx: Float, dy: Float, order: MatrixOrder): Status =
+public actual fun gdipTranslateWorldTransform(graphics: MutPtr, dx: Float, dy: Float, order: MatrixOrder): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipTranslateWorldTransform(graphics.rawAddress.toCPointer<ByteVar>(), dx, dy, order)
 
-public actual fun gdipVectorTransformMatrixPoints(matrix: MutPtr<Matrix>, pts: MutPtr<PointF>, count: Int): Status =
+public actual fun gdipVectorTransformMatrixPoints(matrix: MutPtr, pts: MutPtr, count: Int): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipVectorTransformMatrixPoints(matrix.rawAddress.toCPointer<ByteVar>(), pts.rawAddress.toCPointer<ByteVar>(), count)
 
-public actual fun gdipVectorTransformMatrixPointsI(matrix: MutPtr<Matrix>, pts: MutPtr<Point>, count: Int): Status =
+public actual fun gdipVectorTransformMatrixPointsI(matrix: MutPtr, pts: MutPtr, count: Int): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipVectorTransformMatrixPointsI(matrix.rawAddress.toCPointer<ByteVar>(), pts.rawAddress.toCPointer<ByteVar>(), count)
 
-public actual fun gdipWarpPath(path: MutPtr<GpPath>, matrix: MutPtr<Matrix>, points: ConstPtr<PointF>, count: Int, srcx: Float, srcy: Float, srcwidth: Float, srcheight: Float, warpmode: WarpMode, flatness: Float): Status =
+public actual fun gdipWarpPath(path: MutPtr, matrix: MutPtr, points: ConstPtr, count: Int, srcx: Float, srcy: Float, srcwidth: Float, srcheight: Float, warpmode: WarpMode, flatness: Float): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipWarpPath(path.rawAddress.toCPointer<ByteVar>(), matrix.rawAddress.toCPointer<ByteVar>(), points.rawAddress.toCPointer<ByteVar>(), count, srcx, srcy, srcwidth, srcheight, warpmode, flatness)
 
-public actual fun gdipWidenPath(nativepath: MutPtr<GpPath>, pen: MutPtr<GpPen>, matrix: MutPtr<Matrix>, flatness: Float): Status =
+public actual fun gdipWidenPath(nativepath: MutPtr, pen: MutPtr, matrix: MutPtr, flatness: Float): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipWidenPath(nativepath.rawAddress.toCPointer<ByteVar>(), pen.rawAddress.toCPointer<ByteVar>(), matrix.rawAddress.toCPointer<ByteVar>(), flatness)
 
-public actual fun gdipWindingModeOutline(path: MutPtr<GpPath>, matrix: MutPtr<Matrix>, flatness: Float): Status =
+public actual fun gdipWindingModeOutline(path: MutPtr, matrix: MutPtr, flatness: Float): Status =
     windowssysWindowsWin32GraphicsGdiplusGdipWindingModeOutline(path.rawAddress.toCPointer<ByteVar>(), matrix.rawAddress.toCPointer<ByteVar>(), flatness)
 
-public actual fun gdiplusNotificationHook(token: MutPtr<ULong>): Status =
+public actual fun gdiplusNotificationHook(token: MutPtr): Status =
     windowssysWindowsWin32GraphicsGdiplusGdiplusNotificationHook(token.rawAddress.toCPointer<ByteVar>())
 
 public actual fun gdiplusNotificationUnhook(token: ULong) {
@@ -2537,5 +2533,5 @@ public actual fun gdiplusShutdown(token: ULong) {
     windowssysWindowsWin32GraphicsGdiplusGdiplusShutdown(token)
 }
 
-public actual fun gdiplusStartup(token: MutPtr<ULong>, input: ConstPtr<GdiplusStartupInput>, output: MutPtr<GdiplusStartupOutput>): Status =
+public actual fun gdiplusStartup(token: MutPtr, input: ConstPtr, output: MutPtr): Status =
     windowssysWindowsWin32GraphicsGdiplusGdiplusStartup(token.rawAddress.toCPointer<ByteVar>(), input.rawAddress.toCPointer<ByteVar>(), output.rawAddress.toCPointer<ByteVar>())

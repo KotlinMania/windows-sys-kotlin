@@ -1,6 +1,5 @@
 package io.github.kotlinmania.windowssys.windows.win32.system.diagnostics.debug
 
-import io.github.kotlinmania.rustlang.core.ffi.CVoid
 import io.github.kotlinmania.rustlang.core.ptr.ConstPtr
 import io.github.kotlinmania.rustlang.core.ptr.MutPtr
 import io.github.kotlinmania.windowssys.core.Bool
@@ -24,7 +23,7 @@ public typealias DbgpropInfo = Int
 public typealias DebugEventCode = UInt
 
 public fun interface DigestFunctionFn {
-    public operator fun invoke(refdata: MutPtr<CVoid>, pdata: MutPtr<UByte>, dwlength: UInt): Bool
+    public operator fun invoke(refdata: MutPtr, pdata: MutPtr, dwlength: UInt): Bool
 }
 
 public typealias DigestFunction = DigestFunctionFn?
@@ -76,13 +75,13 @@ public fun interface LpcallBackUserInterruptRoutineFn {
 public typealias LpcallBackUserInterruptRoutine = LpcallBackUserInterruptRoutineFn?
 
 public fun interface LptopLevelExceptionFilterFn {
-    public operator fun invoke(exceptioninfo: ConstPtr<ExceptionPointers>): Int
+    public operator fun invoke(exceptioninfo: ConstPtr): Int
 }
 
 public typealias LptopLevelExceptionFilter = LptopLevelExceptionFilterFn?
 
 public fun interface MinidumpCallbackRoutineFn {
-    public operator fun invoke(callbackparam: MutPtr<CVoid>, callbackinput: ConstPtr<MinidumpCallbackInput>, callbackoutput: MutPtr<MinidumpCallbackOutput>): Bool
+    public operator fun invoke(callbackparam: MutPtr, callbackinput: ConstPtr, callbackoutput: MutPtr): Bool
 }
 
 public typealias MinidumpCallbackRoutine = MinidumpCallbackRoutineFn?
@@ -110,91 +109,91 @@ public typealias ObjectAttribFlags = Int
 public typealias OpenThreadWaitChainSessionFlags = UInt
 
 public fun interface PcogetactivationstateFn {
-    public operator fun invoke(param0: Guid, param1: UInt, param2: MutPtr<UInt>): Hresult
+    public operator fun invoke(param0: Guid, param1: UInt, param2: MutPtr): Hresult
 }
 
 public typealias Pcogetactivationstate = PcogetactivationstateFn?
 
 public fun interface PcogetcallstateFn {
-    public operator fun invoke(param0: Int, param1: MutPtr<UInt>): Hresult
+    public operator fun invoke(param0: Int, param1: MutPtr): Hresult
 }
 
 public typealias Pcogetcallstate = PcogetcallstateFn?
 
 public fun interface PdbghelpCreateUserDumpCallbackFn {
-    public operator fun invoke(datatype: UInt, data: ConstPtr<ConstPtr<CVoid>>, datalength: MutPtr<UInt>, userdata: ConstPtr<CVoid>): Bool
+    public operator fun invoke(datatype: UInt, data: ConstPtr, datalength: MutPtr, userdata: ConstPtr): Bool
 }
 
 public typealias PdbghelpCreateUserDumpCallback = PdbghelpCreateUserDumpCallbackFn?
 
 public fun interface PenumdirtreeCallbackFn {
-    public operator fun invoke(filepath: Pcstr, callerdata: ConstPtr<CVoid>): Bool
+    public operator fun invoke(filepath: Pcstr, callerdata: ConstPtr): Bool
 }
 
 public typealias PenumdirtreeCallback = PenumdirtreeCallbackFn?
 
 public fun interface PenumdirtreeCallbackwFn {
-    public operator fun invoke(filepath: Pcwstr, callerdata: ConstPtr<CVoid>): Bool
+    public operator fun invoke(filepath: Pcwstr, callerdata: ConstPtr): Bool
 }
 
 public typealias PenumdirtreeCallbackw = PenumdirtreeCallbackwFn?
 
 public fun interface PenumloadedModulesCallback64Fn {
-    public operator fun invoke(modulename: Pcstr, modulebase: ULong, modulesize: UInt, usercontext: ConstPtr<CVoid>): Bool
+    public operator fun invoke(modulename: Pcstr, modulebase: ULong, modulesize: UInt, usercontext: ConstPtr): Bool
 }
 
 public typealias PenumloadedModulesCallback64 = PenumloadedModulesCallback64Fn?
 
 public fun interface PenumloadedModulesCallbackw64Fn {
-    public operator fun invoke(modulename: Pcwstr, modulebase: ULong, modulesize: UInt, usercontext: ConstPtr<CVoid>): Bool
+    public operator fun invoke(modulename: Pcwstr, modulebase: ULong, modulesize: UInt, usercontext: ConstPtr): Bool
 }
 
 public typealias PenumloadedModulesCallbackw64 = PenumloadedModulesCallbackw64Fn?
 
 public fun interface PenumsourcefiletokenscallbackFn {
-    public operator fun invoke(token: ConstPtr<CVoid>, size: ULong): Bool
+    public operator fun invoke(token: ConstPtr, size: ULong): Bool
 }
 
 public typealias Penumsourcefiletokenscallback = PenumsourcefiletokenscallbackFn?
 
 public fun interface PfindfileinpathcallbackFn {
-    public operator fun invoke(filename: Pcstr, context: ConstPtr<CVoid>): Bool
+    public operator fun invoke(filename: Pcstr, context: ConstPtr): Bool
 }
 
 public typealias Pfindfileinpathcallback = PfindfileinpathcallbackFn?
 
 public fun interface PfindfileinpathcallbackwFn {
-    public operator fun invoke(filename: Pcwstr, context: ConstPtr<CVoid>): Bool
+    public operator fun invoke(filename: Pcwstr, context: ConstPtr): Bool
 }
 
 public typealias Pfindfileinpathcallbackw = PfindfileinpathcallbackwFn?
 
 public fun interface PfindDebugFileCallbackFn {
-    public operator fun invoke(filehandle: Handle, filename: Pcstr, callerdata: ConstPtr<CVoid>): Bool
+    public operator fun invoke(filehandle: Handle, filename: Pcstr, callerdata: ConstPtr): Bool
 }
 
 public typealias PfindDebugFileCallback = PfindDebugFileCallbackFn?
 
 public fun interface PfindDebugFileCallbackwFn {
-    public operator fun invoke(filehandle: Handle, filename: Pcwstr, callerdata: ConstPtr<CVoid>): Bool
+    public operator fun invoke(filehandle: Handle, filename: Pcwstr, callerdata: ConstPtr): Bool
 }
 
 public typealias PfindDebugFileCallbackw = PfindDebugFileCallbackwFn?
 
 public fun interface PfindExeFileCallbackFn {
-    public operator fun invoke(filehandle: Handle, filename: Pcstr, callerdata: ConstPtr<CVoid>): Bool
+    public operator fun invoke(filehandle: Handle, filename: Pcstr, callerdata: ConstPtr): Bool
 }
 
 public typealias PfindExeFileCallback = PfindExeFileCallbackFn?
 
 public fun interface PfindExeFileCallbackwFn {
-    public operator fun invoke(filehandle: Handle, filename: Pcwstr, callerdata: ConstPtr<CVoid>): Bool
+    public operator fun invoke(filehandle: Handle, filename: Pcwstr, callerdata: ConstPtr): Bool
 }
 
 public typealias PfindExeFileCallbackw = PfindExeFileCallbackwFn?
 
 public fun interface PfunctionTableAccessRoutine64Fn {
-    public operator fun invoke(ahprocess: Handle, addrbase: ULong): MutPtr<CVoid>
+    public operator fun invoke(ahprocess: Handle, addrbase: ULong): MutPtr
 }
 
 public typealias PfunctionTableAccessRoutine64 = PfunctionTableAccessRoutine64Fn?
@@ -206,13 +205,13 @@ public fun interface PgetModuleBaseRoutine64Fn {
 public typealias PgetModuleBaseRoutine64 = PgetModuleBaseRoutine64Fn?
 
 public fun interface PgetRuntimeFunctionCallbackFn {
-    public operator fun invoke(controlpc: ULong, context: ConstPtr<CVoid>): MutPtr<ImageRuntimeFunctionEntry>
+    public operator fun invoke(controlpc: ULong, context: ConstPtr): MutPtr
 }
 
 public typealias PgetRuntimeFunctionCallback = PgetRuntimeFunctionCallbackFn?
 
 public fun interface PgetTargetAttributeValue64Fn {
-    public operator fun invoke(hprocess: Handle, attribute: UInt, attributedata: ULong, attributevalue: MutPtr<ULong>): Bool
+    public operator fun invoke(hprocess: Handle, attribute: UInt, attributedata: ULong, attributevalue: MutPtr): Bool
 }
 
 public typealias PgetTargetAttributeValue64 = PgetTargetAttributeValue64Fn?
@@ -236,7 +235,7 @@ public fun interface PimagehlpStatusRoutine64Fn {
 public typealias PimagehlpStatusRoutine64 = PimagehlpStatusRoutine64Fn?
 
 public fun interface PreadProcessMemoryRoutine64Fn {
-    public operator fun invoke(hprocess: Handle, qwbaseaddress: ULong, lpbuffer: MutPtr<CVoid>, nsize: UInt, lpnumberofbytesread: MutPtr<UInt>): Bool
+    public operator fun invoke(hprocess: Handle, qwbaseaddress: ULong, lpbuffer: MutPtr, nsize: UInt, lpnumberofbytesread: MutPtr): Bool
 }
 
 public typealias PreadProcessMemoryRoutine64 = PreadProcessMemoryRoutine64Fn?
@@ -274,31 +273,31 @@ public fun interface PsymbolservercloseprocFn {
 public typealias Psymbolservercloseproc = PsymbolservercloseprocFn?
 
 public fun interface PsymbolserverdeltanameFn {
-    public operator fun invoke(param0: Pcstr, param1: MutPtr<CVoid>, param2: UInt, param3: UInt, param4: MutPtr<CVoid>, param5: UInt, param6: UInt, param7: Pcstr, param8: ULong): Bool
+    public operator fun invoke(param0: Pcstr, param1: MutPtr, param2: UInt, param3: UInt, param4: MutPtr, param5: UInt, param6: UInt, param7: Pcstr, param8: ULong): Bool
 }
 
 public typealias Psymbolserverdeltaname = PsymbolserverdeltanameFn?
 
 public fun interface PsymbolserverdeltanamewFn {
-    public operator fun invoke(param0: Pcwstr, param1: MutPtr<CVoid>, param2: UInt, param3: UInt, param4: MutPtr<CVoid>, param5: UInt, param6: UInt, param7: Pcwstr, param8: ULong): Bool
+    public operator fun invoke(param0: Pcwstr, param1: MutPtr, param2: UInt, param3: UInt, param4: MutPtr, param5: UInt, param6: UInt, param7: Pcwstr, param8: ULong): Bool
 }
 
 public typealias Psymbolserverdeltanamew = PsymbolserverdeltanamewFn?
 
 public fun interface PsymbolservergetindexstringFn {
-    public operator fun invoke(param0: MutPtr<CVoid>, param1: UInt, param2: UInt, param3: Pcstr, param4: ULong): Bool
+    public operator fun invoke(param0: MutPtr, param1: UInt, param2: UInt, param3: Pcstr, param4: ULong): Bool
 }
 
 public typealias Psymbolservergetindexstring = PsymbolservergetindexstringFn?
 
 public fun interface PsymbolservergetindexstringwFn {
-    public operator fun invoke(param0: MutPtr<CVoid>, param1: UInt, param2: UInt, param3: Pcwstr, param4: ULong): Bool
+    public operator fun invoke(param0: MutPtr, param1: UInt, param2: UInt, param3: Pcwstr, param4: ULong): Bool
 }
 
 public typealias Psymbolservergetindexstringw = PsymbolservergetindexstringwFn?
 
 public fun interface PsymbolservergetoptiondataprocFn {
-    public operator fun invoke(param0: ULong, param1: MutPtr<ULong>): Bool
+    public operator fun invoke(param0: ULong, param1: MutPtr): Bool
 }
 
 public typealias Psymbolservergetoptiondataproc = PsymbolservergetoptiondataprocFn?
@@ -322,7 +321,7 @@ public fun interface PsymbolservergetsupplementwFn {
 public typealias Psymbolservergetsupplementw = PsymbolservergetsupplementwFn?
 
 public fun interface PsymbolservergetversionFn {
-    public operator fun invoke(param0: MutPtr<ApiVersion>): Bool
+    public operator fun invoke(param0: MutPtr): Bool
 }
 
 public typealias Psymbolservergetversion = PsymbolservergetversionFn?
@@ -376,19 +375,19 @@ public fun interface PsymbolserverpingprocwexFn {
 public typealias Psymbolserverpingprocwex = PsymbolserverpingprocwexFn?
 
 public fun interface PsymbolserverprocFn {
-    public operator fun invoke(param0: Pcstr, param1: Pcstr, param2: MutPtr<CVoid>, param3: UInt, param4: UInt, param5: Pcstr): Bool
+    public operator fun invoke(param0: Pcstr, param1: Pcstr, param2: MutPtr, param3: UInt, param4: UInt, param5: Pcstr): Bool
 }
 
 public typealias Psymbolserverproc = PsymbolserverprocFn?
 
 public fun interface PsymbolserverprocaFn {
-    public operator fun invoke(param0: Pcstr, param1: Pcstr, param2: MutPtr<CVoid>, param3: UInt, param4: UInt, param5: Pcstr): Bool
+    public operator fun invoke(param0: Pcstr, param1: Pcstr, param2: MutPtr, param3: UInt, param4: UInt, param5: Pcstr): Bool
 }
 
 public typealias Psymbolserverproca = PsymbolserverprocaFn?
 
 public fun interface PsymbolserverprocwFn {
-    public operator fun invoke(param0: Pcwstr, param1: Pcwstr, param2: MutPtr<CVoid>, param3: UInt, param4: UInt, param5: Pcwstr): Bool
+    public operator fun invoke(param0: Pcwstr, param1: Pcwstr, param2: MutPtr, param3: UInt, param4: UInt, param5: Pcwstr): Bool
 }
 
 public typealias Psymbolserverprocw = PsymbolserverprocwFn?
@@ -412,13 +411,13 @@ public fun interface PsymbolserversetoptionswprocFn {
 public typealias Psymbolserversetoptionswproc = PsymbolserversetoptionswprocFn?
 
 public fun interface PsymbolserverstorefileFn {
-    public operator fun invoke(param0: Pcstr, param1: Pcstr, param2: MutPtr<CVoid>, param3: UInt, param4: UInt, param5: Pcstr, param6: ULong, param7: UInt): Bool
+    public operator fun invoke(param0: Pcstr, param1: Pcstr, param2: MutPtr, param3: UInt, param4: UInt, param5: Pcstr, param6: ULong, param7: UInt): Bool
 }
 
 public typealias Psymbolserverstorefile = PsymbolserverstorefileFn?
 
 public fun interface PsymbolserverstorefilewFn {
-    public operator fun invoke(param0: Pcwstr, param1: Pcwstr, param2: MutPtr<CVoid>, param3: UInt, param4: UInt, param5: Pcwstr, param6: ULong, param7: UInt): Bool
+    public operator fun invoke(param0: Pcwstr, param1: Pcwstr, param2: MutPtr, param3: UInt, param4: UInt, param5: Pcwstr, param6: ULong, param7: UInt): Bool
 }
 
 public typealias Psymbolserverstorefilew = PsymbolserverstorefilewFn?
@@ -442,19 +441,19 @@ public fun interface PsymbolserverversionFn {
 public typealias Psymbolserverversion = PsymbolserverversionFn?
 
 public fun interface PsymbolserverwexprocFn {
-    public operator fun invoke(param0: Pcwstr, param1: Pcwstr, param2: MutPtr<CVoid>, param3: UInt, param4: UInt, param5: Pcwstr, param6: MutPtr<SymsrvExtendedOutputData>): Bool
+    public operator fun invoke(param0: Pcwstr, param1: Pcwstr, param2: MutPtr, param3: UInt, param4: UInt, param5: Pcwstr, param6: MutPtr): Bool
 }
 
 public typealias Psymbolserverwexproc = PsymbolserverwexprocFn?
 
 public fun interface PsymbolFuncentryCallbackFn {
-    public operator fun invoke(hprocess: Handle, addrbase: UInt, usercontext: ConstPtr<CVoid>): MutPtr<CVoid>
+    public operator fun invoke(hprocess: Handle, addrbase: UInt, usercontext: ConstPtr): MutPtr
 }
 
 public typealias PsymbolFuncentryCallback = PsymbolFuncentryCallbackFn?
 
 public fun interface PsymbolFuncentryCallback64Fn {
-    public operator fun invoke(hprocess: Handle, addrbase: ULong, usercontext: ULong): MutPtr<CVoid>
+    public operator fun invoke(hprocess: Handle, addrbase: ULong, usercontext: ULong): MutPtr
 }
 
 public typealias PsymbolFuncentryCallback64 = PsymbolFuncentryCallback64Fn?
@@ -466,85 +465,85 @@ public fun interface PsymbolRegisteredCallback64Fn {
 public typealias PsymbolRegisteredCallback64 = PsymbolRegisteredCallback64Fn?
 
 public fun interface PsymEnumeratesymbolsCallbackFn {
-    public operator fun invoke(psyminfo: ConstPtr<SymbolInfo>, symbolsize: UInt, usercontext: ConstPtr<CVoid>): Bool
+    public operator fun invoke(psyminfo: ConstPtr, symbolsize: UInt, usercontext: ConstPtr): Bool
 }
 
 public typealias PsymEnumeratesymbolsCallback = PsymEnumeratesymbolsCallbackFn?
 
 public fun interface PsymEnumeratesymbolsCallbackwFn {
-    public operator fun invoke(psyminfo: ConstPtr<SymbolInfow>, symbolsize: UInt, usercontext: ConstPtr<CVoid>): Bool
+    public operator fun invoke(psyminfo: ConstPtr, symbolsize: UInt, usercontext: ConstPtr): Bool
 }
 
 public typealias PsymEnumeratesymbolsCallbackw = PsymEnumeratesymbolsCallbackwFn?
 
 public fun interface PsymEnumlinesCallbackFn {
-    public operator fun invoke(lineinfo: ConstPtr<Srccodeinfo>, usercontext: ConstPtr<CVoid>): Bool
+    public operator fun invoke(lineinfo: ConstPtr, usercontext: ConstPtr): Bool
 }
 
 public typealias PsymEnumlinesCallback = PsymEnumlinesCallbackFn?
 
 public fun interface PsymEnumlinesCallbackwFn {
-    public operator fun invoke(lineinfo: ConstPtr<Srccodeinfow>, usercontext: ConstPtr<CVoid>): Bool
+    public operator fun invoke(lineinfo: ConstPtr, usercontext: ConstPtr): Bool
 }
 
 public typealias PsymEnumlinesCallbackw = PsymEnumlinesCallbackwFn?
 
 public fun interface PsymEnummodulesCallback64Fn {
-    public operator fun invoke(modulename: Pcstr, baseofdll: ULong, usercontext: ConstPtr<CVoid>): Bool
+    public operator fun invoke(modulename: Pcstr, baseofdll: ULong, usercontext: ConstPtr): Bool
 }
 
 public typealias PsymEnummodulesCallback64 = PsymEnummodulesCallback64Fn?
 
 public fun interface PsymEnummodulesCallbackw64Fn {
-    public operator fun invoke(modulename: Pcwstr, baseofdll: ULong, usercontext: ConstPtr<CVoid>): Bool
+    public operator fun invoke(modulename: Pcwstr, baseofdll: ULong, usercontext: ConstPtr): Bool
 }
 
 public typealias PsymEnummodulesCallbackw64 = PsymEnummodulesCallbackw64Fn?
 
 public fun interface PsymEnumprocessesCallbackFn {
-    public operator fun invoke(hprocess: Handle, usercontext: ConstPtr<CVoid>): Bool
+    public operator fun invoke(hprocess: Handle, usercontext: ConstPtr): Bool
 }
 
 public typealias PsymEnumprocessesCallback = PsymEnumprocessesCallbackFn?
 
 public fun interface PsymEnumsourcefilesCallbackFn {
-    public operator fun invoke(psourcefile: ConstPtr<Sourcefile>, usercontext: ConstPtr<CVoid>): Bool
+    public operator fun invoke(psourcefile: ConstPtr, usercontext: ConstPtr): Bool
 }
 
 public typealias PsymEnumsourcefilesCallback = PsymEnumsourcefilesCallbackFn?
 
 public fun interface PsymEnumsourcefilesCallbackwFn {
-    public operator fun invoke(psourcefile: ConstPtr<Sourcefilew>, usercontext: ConstPtr<CVoid>): Bool
+    public operator fun invoke(psourcefile: ConstPtr, usercontext: ConstPtr): Bool
 }
 
 public typealias PsymEnumsourcefilesCallbackw = PsymEnumsourcefilesCallbackwFn?
 
 public fun interface PsymEnumsymbolsCallback64Fn {
-    public operator fun invoke(symbolname: Pcstr, symboladdress: ULong, symbolsize: UInt, usercontext: ConstPtr<CVoid>): Bool
+    public operator fun invoke(symbolname: Pcstr, symboladdress: ULong, symbolsize: UInt, usercontext: ConstPtr): Bool
 }
 
 public typealias PsymEnumsymbolsCallback64 = PsymEnumsymbolsCallback64Fn?
 
 public fun interface PsymEnumsymbolsCallback64wFn {
-    public operator fun invoke(symbolname: Pcwstr, symboladdress: ULong, symbolsize: UInt, usercontext: ConstPtr<CVoid>): Bool
+    public operator fun invoke(symbolname: Pcwstr, symboladdress: ULong, symbolsize: UInt, usercontext: ConstPtr): Bool
 }
 
 public typealias PsymEnumsymbolsCallback64w = PsymEnumsymbolsCallback64wFn?
 
 public fun interface PtranslateAddressRoutine64Fn {
-    public operator fun invoke(hprocess: Handle, hthread: Handle, lpaddr: ConstPtr<Address64>): ULong
+    public operator fun invoke(hprocess: Handle, hthread: Handle, lpaddr: ConstPtr): ULong
 }
 
 public typealias PtranslateAddressRoutine64 = PtranslateAddressRoutine64Fn?
 
 public fun interface PvectoredExceptionHandlerFn {
-    public operator fun invoke(exceptioninfo: MutPtr<ExceptionPointers>): Int
+    public operator fun invoke(exceptioninfo: MutPtr): Int
 }
 
 public typealias PvectoredExceptionHandler = PvectoredExceptionHandlerFn?
 
 public fun interface PwaitchaincallbackFn {
-    public operator fun invoke(wcthandle: MutPtr<CVoid>, context: ULong, callbackstatus: UInt, nodecount: MutPtr<UInt>, nodeinfoarray: MutPtr<WaitchainNodeInfo>, iscycle: MutPtr<Bool>)
+    public operator fun invoke(wcthandle: MutPtr, context: ULong, callbackstatus: UInt, nodecount: MutPtr, nodeinfoarray: MutPtr, iscycle: MutPtr)
 }
 
 public typealias Pwaitchaincallback = PwaitchaincallbackFn?
@@ -554,13 +553,13 @@ public typealias RipInfoType = UInt
 public typealias RtlVirtualUnwindHandlerType = UInt
 
 public fun interface SymaddsourcestreamFn {
-    public operator fun invoke(param0: Handle, param1: ULong, param2: Pcstr, param3: MutPtr<UByte>, param4: ULong): Bool
+    public operator fun invoke(param0: Handle, param1: ULong, param2: Pcstr, param3: MutPtr, param4: ULong): Bool
 }
 
 public typealias Symaddsourcestream = SymaddsourcestreamFn?
 
 public fun interface SymaddsourcestreamaFn {
-    public operator fun invoke(param0: Handle, param1: ULong, param2: Pcstr, param3: MutPtr<UByte>, param4: ULong): Bool
+    public operator fun invoke(param0: Handle, param1: ULong, param2: Pcstr, param3: MutPtr, param4: ULong): Bool
 }
 
 public typealias Symaddsourcestreama = SymaddsourcestreamaFn?
@@ -588,13 +587,13 @@ public typealias WctObjectStatus = Int
 public typealias WctObjectType = Int
 
 public fun interface WheaErrorSourceCorrectDeviceDriverFn {
-    public operator fun invoke(errorsourcedesc: MutPtr<CVoid>, maximumsectionlength: MutPtr<UInt>): Ntstatus
+    public operator fun invoke(errorsourcedesc: MutPtr, maximumsectionlength: MutPtr): Ntstatus
 }
 
 public typealias WheaErrorSourceCorrectDeviceDriver = WheaErrorSourceCorrectDeviceDriverFn?
 
 public fun interface WheaErrorSourceInitializeDeviceDriverFn {
-    public operator fun invoke(context: MutPtr<CVoid>, errorsourceid: UInt): Ntstatus
+    public operator fun invoke(context: MutPtr, errorsourceid: UInt): Ntstatus
 }
 
 public typealias WheaErrorSourceInitializeDeviceDriver = WheaErrorSourceInitializeDeviceDriverFn?
@@ -604,7 +603,7 @@ public typealias WheaErrorSourceState = Int
 public typealias WheaErrorSourceType = Int
 
 public fun interface WheaErrorSourceUninitializeDeviceDriverFn {
-    public operator fun invoke(context: MutPtr<CVoid>)
+    public operator fun invoke(context: MutPtr)
 }
 
 public typealias WheaErrorSourceUninitializeDeviceDriver = WheaErrorSourceUninitializeDeviceDriverFn?

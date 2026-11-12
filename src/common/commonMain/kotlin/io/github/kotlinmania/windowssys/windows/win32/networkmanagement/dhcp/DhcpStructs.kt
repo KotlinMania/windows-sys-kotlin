@@ -2,7 +2,6 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.networkmanagement.dhcp
 
-import io.github.kotlinmania.rustlang.core.ffi.CVoid
 import io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
 import io.github.kotlinmania.rustlang.core.mem.TypeLayout
 import io.github.kotlinmania.rustlang.core.ptr.MutPtr
@@ -36,10 +35,10 @@ public class DhcpapiParams internal constructor(
     public var flags: UInt,
     public var optionId: UInt,
     public var isVendor: Bool,
-    dataCtorArg: MutPtr<UByte>,
+    dataCtorArg: MutPtr,
     public var nBytesData: UInt,
 ) {
-    public var data: MutPtr<UByte> = dataCtorArg
+    public var data: MutPtr = dataCtorArg
         internal set
 
     public constructor() : this(
@@ -56,11 +55,11 @@ public class DhcpapiParams internal constructor(
 
     public operator fun component3(): Bool = this.isVendor
 
-    public operator fun component4(): MutPtr<UByte> = this.data
+    public operator fun component4(): MutPtr = this.data
 
     public operator fun component5(): UInt = this.nBytesData
 
-    public fun copy(flags: UInt = this.flags, optionId: UInt = this.optionId, isVendor: Bool = this.isVendor, data: MutPtr<UByte> = this.data, nBytesData: UInt = this.nBytesData): DhcpapiParams = DhcpapiParams(flags = flags, optionId = optionId, isVendor = isVendor, dataCtorArg = data, nBytesData = nBytesData)
+    public fun copy(flags: UInt = this.flags, optionId: UInt = this.optionId, isVendor: Bool = this.isVendor, data: MutPtr = this.data, nBytesData: UInt = this.nBytesData): DhcpapiParams = DhcpapiParams(flags = flags, optionId = optionId, isVendor = isVendor, dataCtorArg = data, nBytesData = nBytesData)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -94,7 +93,7 @@ public class DhcpapiParams internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr + 8L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<UByte>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 16L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 24L),
                     )
@@ -104,7 +103,7 @@ public class DhcpapiParams internal constructor(
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr + 8L, value.isVendor)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<UByte>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 16L, value.data)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 24L, value.nBytesData)
                 }
@@ -114,7 +113,7 @@ public class DhcpapiParams internal constructor(
             flags: UInt = 0u,
             optionId: UInt = 0u,
             isVendor: Bool = 0,
-            data: MutPtr<UByte> = MutPtr(0L),
+            data: MutPtr = MutPtr(0L),
             nBytesData: UInt = 0u,
         ): DhcpapiParams =
             DhcpapiParams(
@@ -129,10 +128,10 @@ public class DhcpapiParams internal constructor(
 
 public class DhcpcapiClassid internal constructor(
     public var flags: UInt,
-    dataCtorArg: MutPtr<UByte>,
+    dataCtorArg: MutPtr,
     public var nBytesData: UInt,
 ) {
-    public var data: MutPtr<UByte> = dataCtorArg
+    public var data: MutPtr = dataCtorArg
         internal set
 
     public constructor() : this(
@@ -143,11 +142,11 @@ public class DhcpcapiClassid internal constructor(
 
     public operator fun component1(): UInt = this.flags
 
-    public operator fun component2(): MutPtr<UByte> = this.data
+    public operator fun component2(): MutPtr = this.data
 
     public operator fun component3(): UInt = this.nBytesData
 
-    public fun copy(flags: UInt = this.flags, data: MutPtr<UByte> = this.data, nBytesData: UInt = this.nBytesData): DhcpcapiClassid = DhcpcapiClassid(flags = flags, dataCtorArg = data, nBytesData = nBytesData)
+    public fun copy(flags: UInt = this.flags, data: MutPtr = this.data, nBytesData: UInt = this.nBytesData): DhcpcapiClassid = DhcpcapiClassid(flags = flags, dataCtorArg = data, nBytesData = nBytesData)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -175,7 +174,7 @@ public class DhcpcapiClassid internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<UByte>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 16L),
                     )
@@ -183,7 +182,7 @@ public class DhcpcapiClassid internal constructor(
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr, value.flags)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<UByte>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.data)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 16L, value.nBytesData)
                 }
@@ -191,7 +190,7 @@ public class DhcpcapiClassid internal constructor(
 
         public operator fun invoke(
             flags: UInt = 0u,
-            data: MutPtr<UByte> = MutPtr(0L),
+            data: MutPtr = MutPtr(0L),
             nBytesData: UInt = 0u,
         ): DhcpcapiClassid =
             DhcpcapiClassid(
@@ -204,9 +203,9 @@ public class DhcpcapiClassid internal constructor(
 
 public class DhcpcapiParamsArray internal constructor(
     public var nParams: UInt,
-    paramsCtorArg: MutPtr<DhcpapiParams>,
+    paramsCtorArg: MutPtr,
 ) {
-    public var params: MutPtr<DhcpapiParams> = paramsCtorArg
+    public var params: MutPtr = paramsCtorArg
         internal set
 
     public constructor() : this(
@@ -216,9 +215,9 @@ public class DhcpcapiParamsArray internal constructor(
 
     public operator fun component1(): UInt = this.nParams
 
-    public operator fun component2(): MutPtr<DhcpapiParams> = this.params
+    public operator fun component2(): MutPtr = this.params
 
-    public fun copy(nParams: UInt = this.nParams, params: MutPtr<DhcpapiParams> = this.params): DhcpcapiParamsArray = DhcpcapiParamsArray(nParams = nParams, paramsCtorArg = params)
+    public fun copy(nParams: UInt = this.nParams, params: MutPtr = this.params): DhcpcapiParamsArray = DhcpcapiParamsArray(nParams = nParams, paramsCtorArg = params)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -244,21 +243,21 @@ public class DhcpcapiParamsArray internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<DhcpapiParams>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                     )
                 override fun writeNative(addr: Long, value: DhcpcapiParamsArray) {
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr, value.nParams)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<DhcpapiParams>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.params)
                 }
             }
 
         public operator fun invoke(
             nParams: UInt = 0u,
-            params: MutPtr<DhcpapiParams> = MutPtr(0L),
+            params: MutPtr = MutPtr(0L),
         ): DhcpcapiParamsArray =
             DhcpcapiParamsArray(
                 nParams = nParams,
@@ -357,9 +356,9 @@ public class DhcpdsServer internal constructor(
 public class DhcpdsServers internal constructor(
     public var flags: UInt,
     public var numElements: UInt,
-    serversCtorArg: MutPtr<DhcpdsServer>,
+    serversCtorArg: MutPtr,
 ) {
-    public var servers: MutPtr<DhcpdsServer> = serversCtorArg
+    public var servers: MutPtr = serversCtorArg
         internal set
 
     public constructor() : this(
@@ -372,9 +371,9 @@ public class DhcpdsServers internal constructor(
 
     public operator fun component2(): UInt = this.numElements
 
-    public operator fun component3(): MutPtr<DhcpdsServer> = this.servers
+    public operator fun component3(): MutPtr = this.servers
 
-    public fun copy(flags: UInt = this.flags, numElements: UInt = this.numElements, servers: MutPtr<DhcpdsServer> = this.servers): DhcpdsServers = DhcpdsServers(flags = flags, numElements = numElements, serversCtorArg = servers)
+    public fun copy(flags: UInt = this.flags, numElements: UInt = this.numElements, servers: MutPtr = this.servers): DhcpdsServers = DhcpdsServers(flags = flags, numElements = numElements, serversCtorArg = servers)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -403,7 +402,7 @@ public class DhcpdsServers internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 4L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<DhcpdsServer>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                     )
                 override fun writeNative(addr: Long, value: DhcpdsServers) {
@@ -411,7 +410,7 @@ public class DhcpdsServers internal constructor(
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 4L, value.numElements)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<DhcpdsServer>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.servers)
                 }
             }
@@ -419,7 +418,7 @@ public class DhcpdsServers internal constructor(
         public operator fun invoke(
             flags: UInt = 0u,
             numElements: UInt = 0u,
-            servers: MutPtr<DhcpdsServer> = MutPtr(0L),
+            servers: MutPtr = MutPtr(0L),
         ): DhcpdsServers =
             DhcpdsServers(
                 flags = flags,
@@ -537,9 +536,9 @@ public class Dhcpv4FailoverClientInfo internal constructor(
 
 public class Dhcpv4FailoverClientInfoArray internal constructor(
     public var numElements: UInt,
-    clientsCtorArg: MutPtr<MutPtr<Dhcpv4FailoverClientInfo>>,
+    clientsCtorArg: MutPtr,
 ) {
-    public var clients: MutPtr<MutPtr<Dhcpv4FailoverClientInfo>> = clientsCtorArg
+    public var clients: MutPtr = clientsCtorArg
         internal set
 
     public constructor() : this(
@@ -549,9 +548,9 @@ public class Dhcpv4FailoverClientInfoArray internal constructor(
 
     public operator fun component1(): UInt = this.numElements
 
-    public operator fun component2(): MutPtr<MutPtr<Dhcpv4FailoverClientInfo>> = this.clients
+    public operator fun component2(): MutPtr = this.clients
 
-    public fun copy(numElements: UInt = this.numElements, clients: MutPtr<MutPtr<Dhcpv4FailoverClientInfo>> = this.clients): Dhcpv4FailoverClientInfoArray = Dhcpv4FailoverClientInfoArray(numElements = numElements, clientsCtorArg = clients)
+    public fun copy(numElements: UInt = this.numElements, clients: MutPtr = this.clients): Dhcpv4FailoverClientInfoArray = Dhcpv4FailoverClientInfoArray(numElements = numElements, clientsCtorArg = clients)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -577,21 +576,21 @@ public class Dhcpv4FailoverClientInfoArray internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<MutPtr<Dhcpv4FailoverClientInfo>>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                     )
                 override fun writeNative(addr: Long, value: Dhcpv4FailoverClientInfoArray) {
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr, value.numElements)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<MutPtr<Dhcpv4FailoverClientInfo>>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.clients)
                 }
             }
 
         public operator fun invoke(
             numElements: UInt = 0u,
-            clients: MutPtr<MutPtr<Dhcpv4FailoverClientInfo>> = MutPtr(0L),
+            clients: MutPtr = MutPtr(0L),
         ): Dhcpv4FailoverClientInfoArray =
             Dhcpv4FailoverClientInfoArray(
                 numElements = numElements,
@@ -712,10 +711,10 @@ public class Dhcpv4FailoverClientInfoEx internal constructor(
 
 public class Dhcpv6capiClassid internal constructor(
     public var flags: UInt,
-    dataCtorArg: MutPtr<UByte>,
+    dataCtorArg: MutPtr,
     public var nBytesData: UInt,
 ) {
-    public var data: MutPtr<UByte> = dataCtorArg
+    public var data: MutPtr = dataCtorArg
         internal set
 
     public constructor() : this(
@@ -726,11 +725,11 @@ public class Dhcpv6capiClassid internal constructor(
 
     public operator fun component1(): UInt = this.flags
 
-    public operator fun component2(): MutPtr<UByte> = this.data
+    public operator fun component2(): MutPtr = this.data
 
     public operator fun component3(): UInt = this.nBytesData
 
-    public fun copy(flags: UInt = this.flags, data: MutPtr<UByte> = this.data, nBytesData: UInt = this.nBytesData): Dhcpv6capiClassid = Dhcpv6capiClassid(flags = flags, dataCtorArg = data, nBytesData = nBytesData)
+    public fun copy(flags: UInt = this.flags, data: MutPtr = this.data, nBytesData: UInt = this.nBytesData): Dhcpv6capiClassid = Dhcpv6capiClassid(flags = flags, dataCtorArg = data, nBytesData = nBytesData)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -758,7 +757,7 @@ public class Dhcpv6capiClassid internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<UByte>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 16L),
                     )
@@ -766,7 +765,7 @@ public class Dhcpv6capiClassid internal constructor(
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr, value.flags)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<UByte>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.data)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 16L, value.nBytesData)
                 }
@@ -774,7 +773,7 @@ public class Dhcpv6capiClassid internal constructor(
 
         public operator fun invoke(
             flags: UInt = 0u,
-            data: MutPtr<UByte> = MutPtr(0L),
+            data: MutPtr = MutPtr(0L),
             nBytesData: UInt = 0u,
         ): Dhcpv6capiClassid =
             Dhcpv6capiClassid(
@@ -789,10 +788,10 @@ public class Dhcpv6capiParams internal constructor(
     public var flags: UInt,
     public var optionId: UInt,
     public var isVendor: Bool,
-    dataCtorArg: MutPtr<UByte>,
+    dataCtorArg: MutPtr,
     public var nBytesData: UInt,
 ) {
-    public var data: MutPtr<UByte> = dataCtorArg
+    public var data: MutPtr = dataCtorArg
         internal set
 
     public constructor() : this(
@@ -809,11 +808,11 @@ public class Dhcpv6capiParams internal constructor(
 
     public operator fun component3(): Bool = this.isVendor
 
-    public operator fun component4(): MutPtr<UByte> = this.data
+    public operator fun component4(): MutPtr = this.data
 
     public operator fun component5(): UInt = this.nBytesData
 
-    public fun copy(flags: UInt = this.flags, optionId: UInt = this.optionId, isVendor: Bool = this.isVendor, data: MutPtr<UByte> = this.data, nBytesData: UInt = this.nBytesData): Dhcpv6capiParams = Dhcpv6capiParams(flags = flags, optionId = optionId, isVendor = isVendor, dataCtorArg = data, nBytesData = nBytesData)
+    public fun copy(flags: UInt = this.flags, optionId: UInt = this.optionId, isVendor: Bool = this.isVendor, data: MutPtr = this.data, nBytesData: UInt = this.nBytesData): Dhcpv6capiParams = Dhcpv6capiParams(flags = flags, optionId = optionId, isVendor = isVendor, dataCtorArg = data, nBytesData = nBytesData)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -847,7 +846,7 @@ public class Dhcpv6capiParams internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr + 8L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<UByte>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 16L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 24L),
                     )
@@ -857,7 +856,7 @@ public class Dhcpv6capiParams internal constructor(
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr + 8L, value.isVendor)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<UByte>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 16L, value.data)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 24L, value.nBytesData)
                 }
@@ -867,7 +866,7 @@ public class Dhcpv6capiParams internal constructor(
             flags: UInt = 0u,
             optionId: UInt = 0u,
             isVendor: Bool = 0,
-            data: MutPtr<UByte> = MutPtr(0L),
+            data: MutPtr = MutPtr(0L),
             nBytesData: UInt = 0u,
         ): Dhcpv6capiParams =
             Dhcpv6capiParams(
@@ -882,9 +881,9 @@ public class Dhcpv6capiParams internal constructor(
 
 public class Dhcpv6capiParamsArray internal constructor(
     public var nParams: UInt,
-    paramsCtorArg: MutPtr<Dhcpv6capiParams>,
+    paramsCtorArg: MutPtr,
 ) {
-    public var params: MutPtr<Dhcpv6capiParams> = paramsCtorArg
+    public var params: MutPtr = paramsCtorArg
         internal set
 
     public constructor() : this(
@@ -894,9 +893,9 @@ public class Dhcpv6capiParamsArray internal constructor(
 
     public operator fun component1(): UInt = this.nParams
 
-    public operator fun component2(): MutPtr<Dhcpv6capiParams> = this.params
+    public operator fun component2(): MutPtr = this.params
 
-    public fun copy(nParams: UInt = this.nParams, params: MutPtr<Dhcpv6capiParams> = this.params): Dhcpv6capiParamsArray = Dhcpv6capiParamsArray(nParams = nParams, paramsCtorArg = params)
+    public fun copy(nParams: UInt = this.nParams, params: MutPtr = this.params): Dhcpv6capiParamsArray = Dhcpv6capiParamsArray(nParams = nParams, paramsCtorArg = params)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -922,21 +921,21 @@ public class Dhcpv6capiParamsArray internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<Dhcpv6capiParams>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                     )
                 override fun writeNative(addr: Long, value: Dhcpv6capiParamsArray) {
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr, value.nParams)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<Dhcpv6capiParams>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.params)
                 }
             }
 
         public operator fun invoke(
             nParams: UInt = 0u,
-            params: MutPtr<Dhcpv6capiParams> = MutPtr(0L),
+            params: MutPtr = MutPtr(0L),
         ): Dhcpv6capiParamsArray =
             Dhcpv6capiParamsArray(
                 nParams = nParams,
@@ -1004,20 +1003,20 @@ public data class DHCPV6Prefix(
 
 public class DHCPV6PrefixLeaseInformation internal constructor(
     public var nPrefixes: UInt,
-    prefixArrayCtorArg: MutPtr<DHCPV6Prefix>,
+    prefixArrayCtorArg: MutPtr,
     public var iaid: UInt,
     public var t1: Long,
     public var t2: Long,
     public var maxLeaseExpirationTime: Long,
     public var lastRenewalTime: Long,
     public var status: StatusCode,
-    serverIdCtorArg: MutPtr<UByte>,
+    serverIdCtorArg: MutPtr,
     public var serverIdLen: UInt,
 ) {
-    public var prefixArray: MutPtr<DHCPV6Prefix> = prefixArrayCtorArg
+    public var prefixArray: MutPtr = prefixArrayCtorArg
         internal set
 
-    public var serverId: MutPtr<UByte> = serverIdCtorArg
+    public var serverId: MutPtr = serverIdCtorArg
         internal set
 
     public constructor() : this(
@@ -1035,7 +1034,7 @@ public class DHCPV6PrefixLeaseInformation internal constructor(
 
     public operator fun component1(): UInt = this.nPrefixes
 
-    public operator fun component2(): MutPtr<DHCPV6Prefix> = this.prefixArray
+    public operator fun component2(): MutPtr = this.prefixArray
 
     public operator fun component3(): UInt = this.iaid
 
@@ -1049,11 +1048,11 @@ public class DHCPV6PrefixLeaseInformation internal constructor(
 
     public operator fun component8(): StatusCode = this.status
 
-    public operator fun component9(): MutPtr<UByte> = this.serverId
+    public operator fun component9(): MutPtr = this.serverId
 
     public operator fun component10(): UInt = this.serverIdLen
 
-    public fun copy(nPrefixes: UInt = this.nPrefixes, prefixArray: MutPtr<DHCPV6Prefix> = this.prefixArray, iaid: UInt = this.iaid, t1: Long = this.t1, t2: Long = this.t2, maxLeaseExpirationTime: Long = this.maxLeaseExpirationTime, lastRenewalTime: Long = this.lastRenewalTime, status: StatusCode = this.status, serverId: MutPtr<UByte> = this.serverId, serverIdLen: UInt = this.serverIdLen): DHCPV6PrefixLeaseInformation = DHCPV6PrefixLeaseInformation(nPrefixes = nPrefixes, prefixArrayCtorArg = prefixArray, iaid = iaid, t1 = t1, t2 = t2, maxLeaseExpirationTime = maxLeaseExpirationTime, lastRenewalTime = lastRenewalTime, status = status, serverIdCtorArg = serverId, serverIdLen = serverIdLen)
+    public fun copy(nPrefixes: UInt = this.nPrefixes, prefixArray: MutPtr = this.prefixArray, iaid: UInt = this.iaid, t1: Long = this.t1, t2: Long = this.t2, maxLeaseExpirationTime: Long = this.maxLeaseExpirationTime, lastRenewalTime: Long = this.lastRenewalTime, status: StatusCode = this.status, serverId: MutPtr = this.serverId, serverIdLen: UInt = this.serverIdLen): DHCPV6PrefixLeaseInformation = DHCPV6PrefixLeaseInformation(nPrefixes = nPrefixes, prefixArrayCtorArg = prefixArray, iaid = iaid, t1 = t1, t2 = t2, maxLeaseExpirationTime = maxLeaseExpirationTime, lastRenewalTime = lastRenewalTime, status = status, serverIdCtorArg = serverId, serverIdLen = serverIdLen)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -1095,7 +1094,7 @@ public class DHCPV6PrefixLeaseInformation internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<DHCPV6Prefix>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 16L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I64).readNative(addr + 24L),
@@ -1105,7 +1104,7 @@ public class DHCPV6PrefixLeaseInformation internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr + 56L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<UByte>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 64L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 72L),
                     )
@@ -1113,7 +1112,7 @@ public class DHCPV6PrefixLeaseInformation internal constructor(
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr, value.nPrefixes)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<DHCPV6Prefix>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.prefixArray)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 16L, value.iaid)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I64).writeNative(addr + 24L, value.t1)
@@ -1123,7 +1122,7 @@ public class DHCPV6PrefixLeaseInformation internal constructor(
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr + 56L, value.status)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<UByte>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 64L, value.serverId)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 72L, value.serverIdLen)
                 }
@@ -1131,14 +1130,14 @@ public class DHCPV6PrefixLeaseInformation internal constructor(
 
         public operator fun invoke(
             nPrefixes: UInt = 0u,
-            prefixArray: MutPtr<DHCPV6Prefix> = MutPtr(0L),
+            prefixArray: MutPtr = MutPtr(0L),
             iaid: UInt = 0u,
             t1: Long = 0L,
             t2: Long = 0L,
             maxLeaseExpirationTime: Long = 0L,
             lastRenewalTime: Long = 0L,
             status: StatusCode = 0,
-            serverId: MutPtr<UByte> = MutPtr(0L),
+            serverId: MutPtr = MutPtr(0L),
             serverIdLen: UInt = 0u,
         ): DHCPV6PrefixLeaseInformation =
             DHCPV6PrefixLeaseInformation(
@@ -1164,12 +1163,12 @@ public class Dhcpv6BindElement internal constructor(
     ifDescriptionCtorArg: Pwstr,
     public var ipV6IfIndex: UInt,
     public var ifIdSize: UInt,
-    ifIdCtorArg: MutPtr<UByte>,
+    ifIdCtorArg: MutPtr,
 ) {
     public var ifDescription: Pwstr = ifDescriptionCtorArg
         internal set
 
-    public var ifId: MutPtr<UByte> = ifIdCtorArg
+    public var ifId: MutPtr = ifIdCtorArg
         internal set
 
     public constructor() : this(
@@ -1197,9 +1196,9 @@ public class Dhcpv6BindElement internal constructor(
 
     public operator fun component7(): UInt = this.ifIdSize
 
-    public operator fun component8(): MutPtr<UByte> = this.ifId
+    public operator fun component8(): MutPtr = this.ifId
 
-    public fun copy(flags: UInt = this.flags, fBoundToDHCPServer: Bool = this.fBoundToDHCPServer, adapterPrimaryAddress: DhcpIpv6Address = this.adapterPrimaryAddress, adapterSubnetAddress: DhcpIpv6Address = this.adapterSubnetAddress, ifDescription: Pwstr = this.ifDescription, ipV6IfIndex: UInt = this.ipV6IfIndex, ifIdSize: UInt = this.ifIdSize, ifId: MutPtr<UByte> = this.ifId): Dhcpv6BindElement = Dhcpv6BindElement(flags = flags, fBoundToDHCPServer = fBoundToDHCPServer, adapterPrimaryAddress = adapterPrimaryAddress, adapterSubnetAddress = adapterSubnetAddress, ifDescriptionCtorArg = ifDescription, ipV6IfIndex = ipV6IfIndex, ifIdSize = ifIdSize, ifIdCtorArg = ifId)
+    public fun copy(flags: UInt = this.flags, fBoundToDHCPServer: Bool = this.fBoundToDHCPServer, adapterPrimaryAddress: DhcpIpv6Address = this.adapterPrimaryAddress, adapterSubnetAddress: DhcpIpv6Address = this.adapterSubnetAddress, ifDescription: Pwstr = this.ifDescription, ipV6IfIndex: UInt = this.ipV6IfIndex, ifIdSize: UInt = this.ifIdSize, ifId: MutPtr = this.ifId): Dhcpv6BindElement = Dhcpv6BindElement(flags = flags, fBoundToDHCPServer = fBoundToDHCPServer, adapterPrimaryAddress = adapterPrimaryAddress, adapterSubnetAddress = adapterSubnetAddress, ifDescriptionCtorArg = ifDescription, ipV6IfIndex = ipV6IfIndex, ifIdSize = ifIdSize, ifIdCtorArg = ifId)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -1236,7 +1235,7 @@ public class Dhcpv6BindElement internal constructor(
             ifDescription: Pwstr = MutPtr(0L),
             ipV6IfIndex: UInt = 0u,
             ifIdSize: UInt = 0u,
-            ifId: MutPtr<UByte> = MutPtr(0L),
+            ifId: MutPtr = MutPtr(0L),
         ): Dhcpv6BindElement =
             Dhcpv6BindElement(
                 flags = flags,
@@ -1253,9 +1252,9 @@ public class Dhcpv6BindElement internal constructor(
 
 public class Dhcpv6BindElementArray internal constructor(
     public var numElements: UInt,
-    elementsCtorArg: MutPtr<Dhcpv6BindElement>,
+    elementsCtorArg: MutPtr,
 ) {
-    public var elements: MutPtr<Dhcpv6BindElement> = elementsCtorArg
+    public var elements: MutPtr = elementsCtorArg
         internal set
 
     public constructor() : this(
@@ -1265,9 +1264,9 @@ public class Dhcpv6BindElementArray internal constructor(
 
     public operator fun component1(): UInt = this.numElements
 
-    public operator fun component2(): MutPtr<Dhcpv6BindElement> = this.elements
+    public operator fun component2(): MutPtr = this.elements
 
-    public fun copy(numElements: UInt = this.numElements, elements: MutPtr<Dhcpv6BindElement> = this.elements): Dhcpv6BindElementArray = Dhcpv6BindElementArray(numElements = numElements, elementsCtorArg = elements)
+    public fun copy(numElements: UInt = this.numElements, elements: MutPtr = this.elements): Dhcpv6BindElementArray = Dhcpv6BindElementArray(numElements = numElements, elementsCtorArg = elements)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -1293,21 +1292,21 @@ public class Dhcpv6BindElementArray internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<Dhcpv6BindElement>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                     )
                 override fun writeNative(addr: Long, value: Dhcpv6BindElementArray) {
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr, value.numElements)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<Dhcpv6BindElement>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.elements)
                 }
             }
 
         public operator fun invoke(
             numElements: UInt = 0u,
-            elements: MutPtr<Dhcpv6BindElement> = MutPtr(0L),
+            elements: MutPtr = MutPtr(0L),
         ): Dhcpv6BindElementArray =
             Dhcpv6BindElementArray(
                 numElements = numElements,
@@ -1318,9 +1317,9 @@ public class Dhcpv6BindElementArray internal constructor(
 
 public class Dhcpv6IpArray internal constructor(
     public var numElements: UInt,
-    elementsCtorArg: MutPtr<DhcpIpv6Address>,
+    elementsCtorArg: MutPtr,
 ) {
-    public var elements: MutPtr<DhcpIpv6Address> = elementsCtorArg
+    public var elements: MutPtr = elementsCtorArg
         internal set
 
     public constructor() : this(
@@ -1330,9 +1329,9 @@ public class Dhcpv6IpArray internal constructor(
 
     public operator fun component1(): UInt = this.numElements
 
-    public operator fun component2(): MutPtr<DhcpIpv6Address> = this.elements
+    public operator fun component2(): MutPtr = this.elements
 
-    public fun copy(numElements: UInt = this.numElements, elements: MutPtr<DhcpIpv6Address> = this.elements): Dhcpv6IpArray = Dhcpv6IpArray(numElements = numElements, elementsCtorArg = elements)
+    public fun copy(numElements: UInt = this.numElements, elements: MutPtr = this.elements): Dhcpv6IpArray = Dhcpv6IpArray(numElements = numElements, elementsCtorArg = elements)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -1358,21 +1357,21 @@ public class Dhcpv6IpArray internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<DhcpIpv6Address>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                     )
                 override fun writeNative(addr: Long, value: Dhcpv6IpArray) {
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr, value.numElements)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<DhcpIpv6Address>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.elements)
                 }
             }
 
         public operator fun invoke(
             numElements: UInt = 0u,
-            elements: MutPtr<DhcpIpv6Address> = MutPtr(0L),
+            elements: MutPtr = MutPtr(0L),
         ): Dhcpv6IpArray =
             Dhcpv6IpArray(
                 numElements = numElements,
@@ -1430,9 +1429,9 @@ public data class Dhcpv6StatelessScopeStats(
 
 public class Dhcpv6StatelessStats internal constructor(
     public var numScopes: UInt,
-    scopeStatsCtorArg: MutPtr<Dhcpv6StatelessScopeStats>,
+    scopeStatsCtorArg: MutPtr,
 ) {
-    public var scopeStats: MutPtr<Dhcpv6StatelessScopeStats> = scopeStatsCtorArg
+    public var scopeStats: MutPtr = scopeStatsCtorArg
         internal set
 
     public constructor() : this(
@@ -1442,9 +1441,9 @@ public class Dhcpv6StatelessStats internal constructor(
 
     public operator fun component1(): UInt = this.numScopes
 
-    public operator fun component2(): MutPtr<Dhcpv6StatelessScopeStats> = this.scopeStats
+    public operator fun component2(): MutPtr = this.scopeStats
 
-    public fun copy(numScopes: UInt = this.numScopes, scopeStats: MutPtr<Dhcpv6StatelessScopeStats> = this.scopeStats): Dhcpv6StatelessStats = Dhcpv6StatelessStats(numScopes = numScopes, scopeStatsCtorArg = scopeStats)
+    public fun copy(numScopes: UInt = this.numScopes, scopeStats: MutPtr = this.scopeStats): Dhcpv6StatelessStats = Dhcpv6StatelessStats(numScopes = numScopes, scopeStatsCtorArg = scopeStats)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -1470,21 +1469,21 @@ public class Dhcpv6StatelessStats internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<Dhcpv6StatelessScopeStats>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                     )
                 override fun writeNative(addr: Long, value: Dhcpv6StatelessStats) {
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr, value.numScopes)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<Dhcpv6StatelessScopeStats>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.scopeStats)
                 }
             }
 
         public operator fun invoke(
             numScopes: UInt = 0u,
-            scopeStats: MutPtr<Dhcpv6StatelessScopeStats> = MutPtr(0L),
+            scopeStats: MutPtr = MutPtr(0L),
         ): Dhcpv6StatelessStats =
             Dhcpv6StatelessStats(
                 numScopes = numScopes,
@@ -1552,14 +1551,14 @@ public data class DhcpAddrPattern(
 
 public class DhcpAllOptions internal constructor(
     public var flags: UInt,
-    nonVendorOptionsCtorArg: MutPtr<DhcpOptionArray>,
+    nonVendorOptionsCtorArg: MutPtr,
     public var numVendorOptions: UInt,
-    vendorOptionsCtorArg: MutPtr<DhcpAllOptions0>,
+    vendorOptionsCtorArg: MutPtr,
 ) {
-    public var nonVendorOptions: MutPtr<DhcpOptionArray> = nonVendorOptionsCtorArg
+    public var nonVendorOptions: MutPtr = nonVendorOptionsCtorArg
         internal set
 
-    public var vendorOptions: MutPtr<DhcpAllOptions0> = vendorOptionsCtorArg
+    public var vendorOptions: MutPtr = vendorOptionsCtorArg
         internal set
 
     public constructor() : this(
@@ -1571,13 +1570,13 @@ public class DhcpAllOptions internal constructor(
 
     public operator fun component1(): UInt = this.flags
 
-    public operator fun component2(): MutPtr<DhcpOptionArray> = this.nonVendorOptions
+    public operator fun component2(): MutPtr = this.nonVendorOptions
 
     public operator fun component3(): UInt = this.numVendorOptions
 
-    public operator fun component4(): MutPtr<DhcpAllOptions0> = this.vendorOptions
+    public operator fun component4(): MutPtr = this.vendorOptions
 
-    public fun copy(flags: UInt = this.flags, nonVendorOptions: MutPtr<DhcpOptionArray> = this.nonVendorOptions, numVendorOptions: UInt = this.numVendorOptions, vendorOptions: MutPtr<DhcpAllOptions0> = this.vendorOptions): DhcpAllOptions = DhcpAllOptions(flags = flags, nonVendorOptionsCtorArg = nonVendorOptions, numVendorOptions = numVendorOptions, vendorOptionsCtorArg = vendorOptions)
+    public fun copy(flags: UInt = this.flags, nonVendorOptions: MutPtr = this.nonVendorOptions, numVendorOptions: UInt = this.numVendorOptions, vendorOptions: MutPtr = this.vendorOptions): DhcpAllOptions = DhcpAllOptions(flags = flags, nonVendorOptionsCtorArg = nonVendorOptions, numVendorOptions = numVendorOptions, vendorOptionsCtorArg = vendorOptions)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -1607,33 +1606,33 @@ public class DhcpAllOptions internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<DhcpOptionArray>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 16L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<DhcpAllOptions0>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 24L),
                     )
                 override fun writeNative(addr: Long, value: DhcpAllOptions) {
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr, value.flags)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<DhcpOptionArray>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.nonVendorOptions)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 16L, value.numVendorOptions)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<DhcpAllOptions0>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 24L, value.vendorOptions)
                 }
             }
 
         public operator fun invoke(
             flags: UInt = 0u,
-            nonVendorOptions: MutPtr<DhcpOptionArray> = MutPtr(0L),
+            nonVendorOptions: MutPtr = MutPtr(0L),
             numVendorOptions: UInt = 0u,
-            vendorOptions: MutPtr<DhcpAllOptions0> = MutPtr(0L),
+            vendorOptions: MutPtr = MutPtr(0L),
         ): DhcpAllOptions =
             DhcpAllOptions(
                 flags = flags,
@@ -1702,9 +1701,9 @@ public class DhcpAllOptions0 internal constructor(
 public class DhcpAllOptionValues internal constructor(
     public var flags: UInt,
     public var numElements: UInt,
-    optionsCtorArg: MutPtr<DhcpAllOptionValues0>,
+    optionsCtorArg: MutPtr,
 ) {
-    public var options: MutPtr<DhcpAllOptionValues0> = optionsCtorArg
+    public var options: MutPtr = optionsCtorArg
         internal set
 
     public constructor() : this(
@@ -1717,9 +1716,9 @@ public class DhcpAllOptionValues internal constructor(
 
     public operator fun component2(): UInt = this.numElements
 
-    public operator fun component3(): MutPtr<DhcpAllOptionValues0> = this.options
+    public operator fun component3(): MutPtr = this.options
 
-    public fun copy(flags: UInt = this.flags, numElements: UInt = this.numElements, options: MutPtr<DhcpAllOptionValues0> = this.options): DhcpAllOptionValues = DhcpAllOptionValues(flags = flags, numElements = numElements, optionsCtorArg = options)
+    public fun copy(flags: UInt = this.flags, numElements: UInt = this.numElements, options: MutPtr = this.options): DhcpAllOptionValues = DhcpAllOptionValues(flags = flags, numElements = numElements, optionsCtorArg = options)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -1748,7 +1747,7 @@ public class DhcpAllOptionValues internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 4L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<DhcpAllOptionValues0>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                     )
                 override fun writeNative(addr: Long, value: DhcpAllOptionValues) {
@@ -1756,7 +1755,7 @@ public class DhcpAllOptionValues internal constructor(
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 4L, value.numElements)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<DhcpAllOptionValues0>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.options)
                 }
             }
@@ -1764,7 +1763,7 @@ public class DhcpAllOptionValues internal constructor(
         public operator fun invoke(
             flags: UInt = 0u,
             numElements: UInt = 0u,
-            options: MutPtr<DhcpAllOptionValues0> = MutPtr(0L),
+            options: MutPtr = MutPtr(0L),
         ): DhcpAllOptionValues =
             DhcpAllOptionValues(
                 flags = flags,
@@ -1778,7 +1777,7 @@ public class DhcpAllOptionValues0 internal constructor(
     clsNameCtorArg: Pwstr,
     vendorNameCtorArg: Pwstr,
     public var isVendor: Bool,
-    optionsArrayCtorArg: MutPtr<DhcpOptionValueArray>,
+    optionsArrayCtorArg: MutPtr,
 ) {
     public var clsName: Pwstr = clsNameCtorArg
         internal set
@@ -1786,7 +1785,7 @@ public class DhcpAllOptionValues0 internal constructor(
     public var vendorName: Pwstr = vendorNameCtorArg
         internal set
 
-    public var optionsArray: MutPtr<DhcpOptionValueArray> = optionsArrayCtorArg
+    public var optionsArray: MutPtr = optionsArrayCtorArg
         internal set
 
     public constructor() : this(
@@ -1802,9 +1801,9 @@ public class DhcpAllOptionValues0 internal constructor(
 
     public operator fun component3(): Bool = this.isVendor
 
-    public operator fun component4(): MutPtr<DhcpOptionValueArray> = this.optionsArray
+    public operator fun component4(): MutPtr = this.optionsArray
 
-    public fun copy(clsName: Pwstr = this.clsName, vendorName: Pwstr = this.vendorName, isVendor: Bool = this.isVendor, optionsArray: MutPtr<DhcpOptionValueArray> = this.optionsArray): DhcpAllOptionValues0 = DhcpAllOptionValues0(clsNameCtorArg = clsName, vendorNameCtorArg = vendorName, isVendor = isVendor, optionsArrayCtorArg = optionsArray)
+    public fun copy(clsName: Pwstr = this.clsName, vendorName: Pwstr = this.vendorName, isVendor: Bool = this.isVendor, optionsArray: MutPtr = this.optionsArray): DhcpAllOptionValues0 = DhcpAllOptionValues0(clsNameCtorArg = clsName, vendorNameCtorArg = vendorName, isVendor = isVendor, optionsArrayCtorArg = optionsArray)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -1829,7 +1828,7 @@ public class DhcpAllOptionValues0 internal constructor(
             clsName: Pwstr = MutPtr(0L),
             vendorName: Pwstr = MutPtr(0L),
             isVendor: Bool = 0,
-            optionsArray: MutPtr<DhcpOptionValueArray> = MutPtr(0L),
+            optionsArray: MutPtr = MutPtr(0L),
         ): DhcpAllOptionValues0 =
             DhcpAllOptionValues0(
                 clsNameCtorArg = clsName,
@@ -1843,9 +1842,9 @@ public class DhcpAllOptionValues0 internal constructor(
 public class DhcpAllOptionValuesPb internal constructor(
     public var flags: UInt,
     public var numElements: UInt,
-    optionsCtorArg: MutPtr<DhcpAllOptionValuesPb0>,
+    optionsCtorArg: MutPtr,
 ) {
-    public var options: MutPtr<DhcpAllOptionValuesPb0> = optionsCtorArg
+    public var options: MutPtr = optionsCtorArg
         internal set
 
     public constructor() : this(
@@ -1858,9 +1857,9 @@ public class DhcpAllOptionValuesPb internal constructor(
 
     public operator fun component2(): UInt = this.numElements
 
-    public operator fun component3(): MutPtr<DhcpAllOptionValuesPb0> = this.options
+    public operator fun component3(): MutPtr = this.options
 
-    public fun copy(flags: UInt = this.flags, numElements: UInt = this.numElements, options: MutPtr<DhcpAllOptionValuesPb0> = this.options): DhcpAllOptionValuesPb = DhcpAllOptionValuesPb(flags = flags, numElements = numElements, optionsCtorArg = options)
+    public fun copy(flags: UInt = this.flags, numElements: UInt = this.numElements, options: MutPtr = this.options): DhcpAllOptionValuesPb = DhcpAllOptionValuesPb(flags = flags, numElements = numElements, optionsCtorArg = options)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -1889,7 +1888,7 @@ public class DhcpAllOptionValuesPb internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 4L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<DhcpAllOptionValuesPb0>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                     )
                 override fun writeNative(addr: Long, value: DhcpAllOptionValuesPb) {
@@ -1897,7 +1896,7 @@ public class DhcpAllOptionValuesPb internal constructor(
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 4L, value.numElements)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<DhcpAllOptionValuesPb0>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.options)
                 }
             }
@@ -1905,7 +1904,7 @@ public class DhcpAllOptionValuesPb internal constructor(
         public operator fun invoke(
             flags: UInt = 0u,
             numElements: UInt = 0u,
-            options: MutPtr<DhcpAllOptionValuesPb0> = MutPtr(0L),
+            options: MutPtr = MutPtr(0L),
         ): DhcpAllOptionValuesPb =
             DhcpAllOptionValuesPb(
                 flags = flags,
@@ -1919,7 +1918,7 @@ public class DhcpAllOptionValuesPb0 internal constructor(
     policyNameCtorArg: Pwstr,
     vendorNameCtorArg: Pwstr,
     public var isVendor: Bool,
-    optionsArrayCtorArg: MutPtr<DhcpOptionValueArray>,
+    optionsArrayCtorArg: MutPtr,
 ) {
     public var policyName: Pwstr = policyNameCtorArg
         internal set
@@ -1927,7 +1926,7 @@ public class DhcpAllOptionValuesPb0 internal constructor(
     public var vendorName: Pwstr = vendorNameCtorArg
         internal set
 
-    public var optionsArray: MutPtr<DhcpOptionValueArray> = optionsArrayCtorArg
+    public var optionsArray: MutPtr = optionsArrayCtorArg
         internal set
 
     public constructor() : this(
@@ -1943,9 +1942,9 @@ public class DhcpAllOptionValuesPb0 internal constructor(
 
     public operator fun component3(): Bool = this.isVendor
 
-    public operator fun component4(): MutPtr<DhcpOptionValueArray> = this.optionsArray
+    public operator fun component4(): MutPtr = this.optionsArray
 
-    public fun copy(policyName: Pwstr = this.policyName, vendorName: Pwstr = this.vendorName, isVendor: Bool = this.isVendor, optionsArray: MutPtr<DhcpOptionValueArray> = this.optionsArray): DhcpAllOptionValuesPb0 = DhcpAllOptionValuesPb0(policyNameCtorArg = policyName, vendorNameCtorArg = vendorName, isVendor = isVendor, optionsArrayCtorArg = optionsArray)
+    public fun copy(policyName: Pwstr = this.policyName, vendorName: Pwstr = this.vendorName, isVendor: Bool = this.isVendor, optionsArray: MutPtr = this.optionsArray): DhcpAllOptionValuesPb0 = DhcpAllOptionValuesPb0(policyNameCtorArg = policyName, vendorNameCtorArg = vendorName, isVendor = isVendor, optionsArrayCtorArg = optionsArray)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -1970,7 +1969,7 @@ public class DhcpAllOptionValuesPb0 internal constructor(
             policyName: Pwstr = MutPtr(0L),
             vendorName: Pwstr = MutPtr(0L),
             isVendor: Bool = 0,
-            optionsArray: MutPtr<DhcpOptionValueArray> = MutPtr(0L),
+            optionsArray: MutPtr = MutPtr(0L),
         ): DhcpAllOptionValuesPb0 =
             DhcpAllOptionValuesPb0(
                 policyNameCtorArg = policyName,
@@ -1994,9 +1993,9 @@ public data class DhcpAttrib0(
 
 public class DhcpAttribArray internal constructor(
     public var numElements: UInt,
-    dhcpAttribsCtorArg: MutPtr<DhcpAttrib>,
+    dhcpAttribsCtorArg: MutPtr,
 ) {
-    public var dhcpAttribs: MutPtr<DhcpAttrib> = dhcpAttribsCtorArg
+    public var dhcpAttribs: MutPtr = dhcpAttribsCtorArg
         internal set
 
     public constructor() : this(
@@ -2006,9 +2005,9 @@ public class DhcpAttribArray internal constructor(
 
     public operator fun component1(): UInt = this.numElements
 
-    public operator fun component2(): MutPtr<DhcpAttrib> = this.dhcpAttribs
+    public operator fun component2(): MutPtr = this.dhcpAttribs
 
-    public fun copy(numElements: UInt = this.numElements, dhcpAttribs: MutPtr<DhcpAttrib> = this.dhcpAttribs): DhcpAttribArray = DhcpAttribArray(numElements = numElements, dhcpAttribsCtorArg = dhcpAttribs)
+    public fun copy(numElements: UInt = this.numElements, dhcpAttribs: MutPtr = this.dhcpAttribs): DhcpAttribArray = DhcpAttribArray(numElements = numElements, dhcpAttribsCtorArg = dhcpAttribs)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -2034,21 +2033,21 @@ public class DhcpAttribArray internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<DhcpAttrib>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                     )
                 override fun writeNative(addr: Long, value: DhcpAttribArray) {
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr, value.numElements)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<DhcpAttrib>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.dhcpAttribs)
                 }
             }
 
         public operator fun invoke(
             numElements: UInt = 0u,
-            dhcpAttribs: MutPtr<DhcpAttrib> = MutPtr(0L),
+            dhcpAttribs: MutPtr = MutPtr(0L),
         ): DhcpAttribArray =
             DhcpAttribArray(
                 numElements = numElements,
@@ -2059,9 +2058,9 @@ public class DhcpAttribArray internal constructor(
 
 public class DhcpBinaryData internal constructor(
     public var dataLength: UInt,
-    dataCtorArg: MutPtr<UByte>,
+    dataCtorArg: MutPtr,
 ) {
-    public var data: MutPtr<UByte> = dataCtorArg
+    public var data: MutPtr = dataCtorArg
         internal set
 
     public constructor() : this(
@@ -2071,9 +2070,9 @@ public class DhcpBinaryData internal constructor(
 
     public operator fun component1(): UInt = this.dataLength
 
-    public operator fun component2(): MutPtr<UByte> = this.data
+    public operator fun component2(): MutPtr = this.data
 
-    public fun copy(dataLength: UInt = this.dataLength, data: MutPtr<UByte> = this.data): DhcpBinaryData = DhcpBinaryData(dataLength = dataLength, dataCtorArg = data)
+    public fun copy(dataLength: UInt = this.dataLength, data: MutPtr = this.data): DhcpBinaryData = DhcpBinaryData(dataLength = dataLength, dataCtorArg = data)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -2099,21 +2098,21 @@ public class DhcpBinaryData internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<UByte>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                     )
                 override fun writeNative(addr: Long, value: DhcpBinaryData) {
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr, value.dataLength)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<UByte>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.data)
                 }
             }
 
         public operator fun invoke(
             dataLength: UInt = 0u,
-            data: MutPtr<UByte> = MutPtr(0L),
+            data: MutPtr = MutPtr(0L),
         ): DhcpBinaryData =
             DhcpBinaryData(
                 dataLength = dataLength,
@@ -2129,12 +2128,12 @@ public class DhcpBindElement internal constructor(
     public var adapterSubnetAddress: UInt,
     ifDescriptionCtorArg: Pwstr,
     public var ifIdSize: UInt,
-    ifIdCtorArg: MutPtr<UByte>,
+    ifIdCtorArg: MutPtr,
 ) {
     public var ifDescription: Pwstr = ifDescriptionCtorArg
         internal set
 
-    public var ifId: MutPtr<UByte> = ifIdCtorArg
+    public var ifId: MutPtr = ifIdCtorArg
         internal set
 
     public constructor() : this(
@@ -2159,9 +2158,9 @@ public class DhcpBindElement internal constructor(
 
     public operator fun component6(): UInt = this.ifIdSize
 
-    public operator fun component7(): MutPtr<UByte> = this.ifId
+    public operator fun component7(): MutPtr = this.ifId
 
-    public fun copy(flags: UInt = this.flags, fBoundToDHCPServer: Bool = this.fBoundToDHCPServer, adapterPrimaryAddress: UInt = this.adapterPrimaryAddress, adapterSubnetAddress: UInt = this.adapterSubnetAddress, ifDescription: Pwstr = this.ifDescription, ifIdSize: UInt = this.ifIdSize, ifId: MutPtr<UByte> = this.ifId): DhcpBindElement = DhcpBindElement(flags = flags, fBoundToDHCPServer = fBoundToDHCPServer, adapterPrimaryAddress = adapterPrimaryAddress, adapterSubnetAddress = adapterSubnetAddress, ifDescriptionCtorArg = ifDescription, ifIdSize = ifIdSize, ifIdCtorArg = ifId)
+    public fun copy(flags: UInt = this.flags, fBoundToDHCPServer: Bool = this.fBoundToDHCPServer, adapterPrimaryAddress: UInt = this.adapterPrimaryAddress, adapterSubnetAddress: UInt = this.adapterSubnetAddress, ifDescription: Pwstr = this.ifDescription, ifIdSize: UInt = this.ifIdSize, ifId: MutPtr = this.ifId): DhcpBindElement = DhcpBindElement(flags = flags, fBoundToDHCPServer = fBoundToDHCPServer, adapterPrimaryAddress = adapterPrimaryAddress, adapterSubnetAddress = adapterSubnetAddress, ifDescriptionCtorArg = ifDescription, ifIdSize = ifIdSize, ifIdCtorArg = ifId)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -2195,7 +2194,7 @@ public class DhcpBindElement internal constructor(
             adapterSubnetAddress: UInt = 0u,
             ifDescription: Pwstr = MutPtr(0L),
             ifIdSize: UInt = 0u,
-            ifId: MutPtr<UByte> = MutPtr(0L),
+            ifId: MutPtr = MutPtr(0L),
         ): DhcpBindElement =
             DhcpBindElement(
                 flags = flags,
@@ -2211,9 +2210,9 @@ public class DhcpBindElement internal constructor(
 
 public class DhcpBindElementArray internal constructor(
     public var numElements: UInt,
-    elementsCtorArg: MutPtr<DhcpBindElement>,
+    elementsCtorArg: MutPtr,
 ) {
-    public var elements: MutPtr<DhcpBindElement> = elementsCtorArg
+    public var elements: MutPtr = elementsCtorArg
         internal set
 
     public constructor() : this(
@@ -2223,9 +2222,9 @@ public class DhcpBindElementArray internal constructor(
 
     public operator fun component1(): UInt = this.numElements
 
-    public operator fun component2(): MutPtr<DhcpBindElement> = this.elements
+    public operator fun component2(): MutPtr = this.elements
 
-    public fun copy(numElements: UInt = this.numElements, elements: MutPtr<DhcpBindElement> = this.elements): DhcpBindElementArray = DhcpBindElementArray(numElements = numElements, elementsCtorArg = elements)
+    public fun copy(numElements: UInt = this.numElements, elements: MutPtr = this.elements): DhcpBindElementArray = DhcpBindElementArray(numElements = numElements, elementsCtorArg = elements)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -2251,21 +2250,21 @@ public class DhcpBindElementArray internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<DhcpBindElement>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                     )
                 override fun writeNative(addr: Long, value: DhcpBindElementArray) {
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr, value.numElements)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<DhcpBindElement>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.elements)
                 }
             }
 
         public operator fun invoke(
             numElements: UInt = 0u,
-            elements: MutPtr<DhcpBindElement> = MutPtr(0L),
+            elements: MutPtr = MutPtr(0L),
         ): DhcpBindElementArray =
             DhcpBindElementArray(
                 numElements = numElements,
@@ -2311,13 +2310,13 @@ public class DhcpCalloutTable internal constructor(
     public var dhcpAddressOfferHook: LpdhcpGiveAddress,
     public var dhcpHandleOptionsHook: LpdhcpHandleOptions,
     public var dhcpDeleteClientHook: LpdhcpDeleteClient,
-    dhcpExtensionHookCtorArg: MutPtr<CVoid>,
-    dhcpReservedHookCtorArg: MutPtr<CVoid>,
+    dhcpExtensionHookCtorArg: MutPtr,
+    dhcpReservedHookCtorArg: MutPtr,
 ) {
-    public var dhcpExtensionHook: MutPtr<CVoid> = dhcpExtensionHookCtorArg
+    public var dhcpExtensionHook: MutPtr = dhcpExtensionHookCtorArg
         internal set
 
-    public var dhcpReservedHook: MutPtr<CVoid> = dhcpReservedHookCtorArg
+    public var dhcpReservedHook: MutPtr = dhcpReservedHookCtorArg
         internal set
 
     public constructor() : this(
@@ -2349,11 +2348,11 @@ public class DhcpCalloutTable internal constructor(
 
     public operator fun component8(): LpdhcpDeleteClient = this.dhcpDeleteClientHook
 
-    public operator fun component9(): MutPtr<CVoid> = this.dhcpExtensionHook
+    public operator fun component9(): MutPtr = this.dhcpExtensionHook
 
-    public operator fun component10(): MutPtr<CVoid> = this.dhcpReservedHook
+    public operator fun component10(): MutPtr = this.dhcpReservedHook
 
-    public fun copy(dhcpControlHook: LpdhcpControl = this.dhcpControlHook, dhcpNewPktHook: LpdhcpNewpkt = this.dhcpNewPktHook, dhcpPktDropHook: LpdhcpDropSend = this.dhcpPktDropHook, dhcpPktSendHook: LpdhcpDropSend = this.dhcpPktSendHook, dhcpAddressDelHook: LpdhcpProb = this.dhcpAddressDelHook, dhcpAddressOfferHook: LpdhcpGiveAddress = this.dhcpAddressOfferHook, dhcpHandleOptionsHook: LpdhcpHandleOptions = this.dhcpHandleOptionsHook, dhcpDeleteClientHook: LpdhcpDeleteClient = this.dhcpDeleteClientHook, dhcpExtensionHook: MutPtr<CVoid> = this.dhcpExtensionHook, dhcpReservedHook: MutPtr<CVoid> = this.dhcpReservedHook): DhcpCalloutTable = DhcpCalloutTable(dhcpControlHook = dhcpControlHook, dhcpNewPktHook = dhcpNewPktHook, dhcpPktDropHook = dhcpPktDropHook, dhcpPktSendHook = dhcpPktSendHook, dhcpAddressDelHook = dhcpAddressDelHook, dhcpAddressOfferHook = dhcpAddressOfferHook, dhcpHandleOptionsHook = dhcpHandleOptionsHook, dhcpDeleteClientHook = dhcpDeleteClientHook, dhcpExtensionHookCtorArg = dhcpExtensionHook, dhcpReservedHookCtorArg = dhcpReservedHook)
+    public fun copy(dhcpControlHook: LpdhcpControl = this.dhcpControlHook, dhcpNewPktHook: LpdhcpNewpkt = this.dhcpNewPktHook, dhcpPktDropHook: LpdhcpDropSend = this.dhcpPktDropHook, dhcpPktSendHook: LpdhcpDropSend = this.dhcpPktSendHook, dhcpAddressDelHook: LpdhcpProb = this.dhcpAddressDelHook, dhcpAddressOfferHook: LpdhcpGiveAddress = this.dhcpAddressOfferHook, dhcpHandleOptionsHook: LpdhcpHandleOptions = this.dhcpHandleOptionsHook, dhcpDeleteClientHook: LpdhcpDeleteClient = this.dhcpDeleteClientHook, dhcpExtensionHook: MutPtr = this.dhcpExtensionHook, dhcpReservedHook: MutPtr = this.dhcpReservedHook): DhcpCalloutTable = DhcpCalloutTable(dhcpControlHook = dhcpControlHook, dhcpNewPktHook = dhcpNewPktHook, dhcpPktDropHook = dhcpPktDropHook, dhcpPktSendHook = dhcpPktSendHook, dhcpAddressDelHook = dhcpAddressDelHook, dhcpAddressOfferHook = dhcpAddressOfferHook, dhcpHandleOptionsHook = dhcpHandleOptionsHook, dhcpDeleteClientHook = dhcpDeleteClientHook, dhcpExtensionHookCtorArg = dhcpExtensionHook, dhcpReservedHookCtorArg = dhcpReservedHook)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -2395,8 +2394,8 @@ public class DhcpCalloutTable internal constructor(
             dhcpAddressOfferHook: LpdhcpGiveAddress = null,
             dhcpHandleOptionsHook: LpdhcpHandleOptions = null,
             dhcpDeleteClientHook: LpdhcpDeleteClient = null,
-            dhcpExtensionHook: MutPtr<CVoid> = MutPtr(0L),
-            dhcpReservedHook: MutPtr<CVoid> = MutPtr(0L),
+            dhcpExtensionHook: MutPtr = MutPtr(0L),
+            dhcpReservedHook: MutPtr = MutPtr(0L),
         ): DhcpCalloutTable =
             DhcpCalloutTable(
                 dhcpControlHook = dhcpControlHook,
@@ -2419,7 +2418,7 @@ public class DhcpClassInfo internal constructor(
     public var classDataLength: UInt,
     public var isVendor: Bool,
     public var flags: UInt,
-    classDataCtorArg: MutPtr<UByte>,
+    classDataCtorArg: MutPtr,
 ) {
     public var clsName: Pwstr = clsNameCtorArg
         internal set
@@ -2427,7 +2426,7 @@ public class DhcpClassInfo internal constructor(
     public var classComment: Pwstr = classCommentCtorArg
         internal set
 
-    public var classData: MutPtr<UByte> = classDataCtorArg
+    public var classData: MutPtr = classDataCtorArg
         internal set
 
     public constructor() : this(
@@ -2449,9 +2448,9 @@ public class DhcpClassInfo internal constructor(
 
     public operator fun component5(): UInt = this.flags
 
-    public operator fun component6(): MutPtr<UByte> = this.classData
+    public operator fun component6(): MutPtr = this.classData
 
-    public fun copy(clsName: Pwstr = this.clsName, classComment: Pwstr = this.classComment, classDataLength: UInt = this.classDataLength, isVendor: Bool = this.isVendor, flags: UInt = this.flags, classData: MutPtr<UByte> = this.classData): DhcpClassInfo = DhcpClassInfo(clsNameCtorArg = clsName, classCommentCtorArg = classComment, classDataLength = classDataLength, isVendor = isVendor, flags = flags, classDataCtorArg = classData)
+    public fun copy(clsName: Pwstr = this.clsName, classComment: Pwstr = this.classComment, classDataLength: UInt = this.classDataLength, isVendor: Bool = this.isVendor, flags: UInt = this.flags, classData: MutPtr = this.classData): DhcpClassInfo = DhcpClassInfo(clsNameCtorArg = clsName, classCommentCtorArg = classComment, classDataLength = classDataLength, isVendor = isVendor, flags = flags, classDataCtorArg = classData)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -2482,7 +2481,7 @@ public class DhcpClassInfo internal constructor(
             classDataLength: UInt = 0u,
             isVendor: Bool = 0,
             flags: UInt = 0u,
-            classData: MutPtr<UByte> = MutPtr(0L),
+            classData: MutPtr = MutPtr(0L),
         ): DhcpClassInfo =
             DhcpClassInfo(
                 clsNameCtorArg = clsName,
@@ -2497,9 +2496,9 @@ public class DhcpClassInfo internal constructor(
 
 public class DhcpClassInfoArray internal constructor(
     public var numElements: UInt,
-    classesCtorArg: MutPtr<DhcpClassInfo>,
+    classesCtorArg: MutPtr,
 ) {
-    public var classes: MutPtr<DhcpClassInfo> = classesCtorArg
+    public var classes: MutPtr = classesCtorArg
         internal set
 
     public constructor() : this(
@@ -2509,9 +2508,9 @@ public class DhcpClassInfoArray internal constructor(
 
     public operator fun component1(): UInt = this.numElements
 
-    public operator fun component2(): MutPtr<DhcpClassInfo> = this.classes
+    public operator fun component2(): MutPtr = this.classes
 
-    public fun copy(numElements: UInt = this.numElements, classes: MutPtr<DhcpClassInfo> = this.classes): DhcpClassInfoArray = DhcpClassInfoArray(numElements = numElements, classesCtorArg = classes)
+    public fun copy(numElements: UInt = this.numElements, classes: MutPtr = this.classes): DhcpClassInfoArray = DhcpClassInfoArray(numElements = numElements, classesCtorArg = classes)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -2537,21 +2536,21 @@ public class DhcpClassInfoArray internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<DhcpClassInfo>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                     )
                 override fun writeNative(addr: Long, value: DhcpClassInfoArray) {
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr, value.numElements)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<DhcpClassInfo>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.classes)
                 }
             }
 
         public operator fun invoke(
             numElements: UInt = 0u,
-            classes: MutPtr<DhcpClassInfo> = MutPtr(0L),
+            classes: MutPtr = MutPtr(0L),
         ): DhcpClassInfoArray =
             DhcpClassInfoArray(
                 numElements = numElements,
@@ -2562,9 +2561,9 @@ public class DhcpClassInfoArray internal constructor(
 
 public class DhcpClassInfoArrayV6 internal constructor(
     public var numElements: UInt,
-    classesCtorArg: MutPtr<DhcpClassInfoV6>,
+    classesCtorArg: MutPtr,
 ) {
-    public var classes: MutPtr<DhcpClassInfoV6> = classesCtorArg
+    public var classes: MutPtr = classesCtorArg
         internal set
 
     public constructor() : this(
@@ -2574,9 +2573,9 @@ public class DhcpClassInfoArrayV6 internal constructor(
 
     public operator fun component1(): UInt = this.numElements
 
-    public operator fun component2(): MutPtr<DhcpClassInfoV6> = this.classes
+    public operator fun component2(): MutPtr = this.classes
 
-    public fun copy(numElements: UInt = this.numElements, classes: MutPtr<DhcpClassInfoV6> = this.classes): DhcpClassInfoArrayV6 = DhcpClassInfoArrayV6(numElements = numElements, classesCtorArg = classes)
+    public fun copy(numElements: UInt = this.numElements, classes: MutPtr = this.classes): DhcpClassInfoArrayV6 = DhcpClassInfoArrayV6(numElements = numElements, classesCtorArg = classes)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -2602,21 +2601,21 @@ public class DhcpClassInfoArrayV6 internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<DhcpClassInfoV6>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                     )
                 override fun writeNative(addr: Long, value: DhcpClassInfoArrayV6) {
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr, value.numElements)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<DhcpClassInfoV6>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.classes)
                 }
             }
 
         public operator fun invoke(
             numElements: UInt = 0u,
-            classes: MutPtr<DhcpClassInfoV6> = MutPtr(0L),
+            classes: MutPtr = MutPtr(0L),
         ): DhcpClassInfoArrayV6 =
             DhcpClassInfoArrayV6(
                 numElements = numElements,
@@ -2632,7 +2631,7 @@ public class DhcpClassInfoV6 internal constructor(
     public var isVendor: Bool,
     public var enterpriseNumber: UInt,
     public var flags: UInt,
-    classDataCtorArg: MutPtr<UByte>,
+    classDataCtorArg: MutPtr,
 ) {
     public var clsName: Pwstr = clsNameCtorArg
         internal set
@@ -2640,7 +2639,7 @@ public class DhcpClassInfoV6 internal constructor(
     public var classComment: Pwstr = classCommentCtorArg
         internal set
 
-    public var classData: MutPtr<UByte> = classDataCtorArg
+    public var classData: MutPtr = classDataCtorArg
         internal set
 
     public constructor() : this(
@@ -2665,9 +2664,9 @@ public class DhcpClassInfoV6 internal constructor(
 
     public operator fun component6(): UInt = this.flags
 
-    public operator fun component7(): MutPtr<UByte> = this.classData
+    public operator fun component7(): MutPtr = this.classData
 
-    public fun copy(clsName: Pwstr = this.clsName, classComment: Pwstr = this.classComment, classDataLength: UInt = this.classDataLength, isVendor: Bool = this.isVendor, enterpriseNumber: UInt = this.enterpriseNumber, flags: UInt = this.flags, classData: MutPtr<UByte> = this.classData): DhcpClassInfoV6 = DhcpClassInfoV6(clsNameCtorArg = clsName, classCommentCtorArg = classComment, classDataLength = classDataLength, isVendor = isVendor, enterpriseNumber = enterpriseNumber, flags = flags, classDataCtorArg = classData)
+    public fun copy(clsName: Pwstr = this.clsName, classComment: Pwstr = this.classComment, classDataLength: UInt = this.classDataLength, isVendor: Bool = this.isVendor, enterpriseNumber: UInt = this.enterpriseNumber, flags: UInt = this.flags, classData: MutPtr = this.classData): DhcpClassInfoV6 = DhcpClassInfoV6(clsNameCtorArg = clsName, classCommentCtorArg = classComment, classDataLength = classDataLength, isVendor = isVendor, enterpriseNumber = enterpriseNumber, flags = flags, classDataCtorArg = classData)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -2701,7 +2700,7 @@ public class DhcpClassInfoV6 internal constructor(
             isVendor: Bool = 0,
             enterpriseNumber: UInt = 0u,
             flags: UInt = 0u,
-            classData: MutPtr<UByte> = MutPtr(0L),
+            classData: MutPtr = MutPtr(0L),
         ): DhcpClassInfoV6 =
             DhcpClassInfoV6(
                 clsNameCtorArg = clsName,
@@ -2852,9 +2851,9 @@ public class DhcpClientFilterStatusInfo internal constructor(
 
 public class DhcpClientFilterStatusInfoArray internal constructor(
     public var numElements: UInt,
-    clientsCtorArg: MutPtr<MutPtr<DhcpClientFilterStatusInfo>>,
+    clientsCtorArg: MutPtr,
 ) {
-    public var clients: MutPtr<MutPtr<DhcpClientFilterStatusInfo>> = clientsCtorArg
+    public var clients: MutPtr = clientsCtorArg
         internal set
 
     public constructor() : this(
@@ -2864,9 +2863,9 @@ public class DhcpClientFilterStatusInfoArray internal constructor(
 
     public operator fun component1(): UInt = this.numElements
 
-    public operator fun component2(): MutPtr<MutPtr<DhcpClientFilterStatusInfo>> = this.clients
+    public operator fun component2(): MutPtr = this.clients
 
-    public fun copy(numElements: UInt = this.numElements, clients: MutPtr<MutPtr<DhcpClientFilterStatusInfo>> = this.clients): DhcpClientFilterStatusInfoArray = DhcpClientFilterStatusInfoArray(numElements = numElements, clientsCtorArg = clients)
+    public fun copy(numElements: UInt = this.numElements, clients: MutPtr = this.clients): DhcpClientFilterStatusInfoArray = DhcpClientFilterStatusInfoArray(numElements = numElements, clientsCtorArg = clients)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -2892,21 +2891,21 @@ public class DhcpClientFilterStatusInfoArray internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<MutPtr<DhcpClientFilterStatusInfo>>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                     )
                 override fun writeNative(addr: Long, value: DhcpClientFilterStatusInfoArray) {
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr, value.numElements)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<MutPtr<DhcpClientFilterStatusInfo>>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.clients)
                 }
             }
 
         public operator fun invoke(
             numElements: UInt = 0u,
-            clients: MutPtr<MutPtr<DhcpClientFilterStatusInfo>> = MutPtr(0L),
+            clients: MutPtr = MutPtr(0L),
         ): DhcpClientFilterStatusInfoArray =
             DhcpClientFilterStatusInfoArray(
                 numElements = numElements,
@@ -3004,9 +3003,9 @@ public class DhcpClientInfo internal constructor(
 
 public class DhcpClientInfoArray internal constructor(
     public var numElements: UInt,
-    clientsCtorArg: MutPtr<MutPtr<DhcpClientInfo>>,
+    clientsCtorArg: MutPtr,
 ) {
-    public var clients: MutPtr<MutPtr<DhcpClientInfo>> = clientsCtorArg
+    public var clients: MutPtr = clientsCtorArg
         internal set
 
     public constructor() : this(
@@ -3016,9 +3015,9 @@ public class DhcpClientInfoArray internal constructor(
 
     public operator fun component1(): UInt = this.numElements
 
-    public operator fun component2(): MutPtr<MutPtr<DhcpClientInfo>> = this.clients
+    public operator fun component2(): MutPtr = this.clients
 
-    public fun copy(numElements: UInt = this.numElements, clients: MutPtr<MutPtr<DhcpClientInfo>> = this.clients): DhcpClientInfoArray = DhcpClientInfoArray(numElements = numElements, clientsCtorArg = clients)
+    public fun copy(numElements: UInt = this.numElements, clients: MutPtr = this.clients): DhcpClientInfoArray = DhcpClientInfoArray(numElements = numElements, clientsCtorArg = clients)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -3044,21 +3043,21 @@ public class DhcpClientInfoArray internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<MutPtr<DhcpClientInfo>>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                     )
                 override fun writeNative(addr: Long, value: DhcpClientInfoArray) {
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr, value.numElements)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<MutPtr<DhcpClientInfo>>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.clients)
                 }
             }
 
         public operator fun invoke(
             numElements: UInt = 0u,
-            clients: MutPtr<MutPtr<DhcpClientInfo>> = MutPtr(0L),
+            clients: MutPtr = MutPtr(0L),
         ): DhcpClientInfoArray =
             DhcpClientInfoArray(
                 numElements = numElements,
@@ -3069,9 +3068,9 @@ public class DhcpClientInfoArray internal constructor(
 
 public class DhcpClientInfoArrayV4 internal constructor(
     public var numElements: UInt,
-    clientsCtorArg: MutPtr<MutPtr<DhcpClientInfoV4>>,
+    clientsCtorArg: MutPtr,
 ) {
-    public var clients: MutPtr<MutPtr<DhcpClientInfoV4>> = clientsCtorArg
+    public var clients: MutPtr = clientsCtorArg
         internal set
 
     public constructor() : this(
@@ -3081,9 +3080,9 @@ public class DhcpClientInfoArrayV4 internal constructor(
 
     public operator fun component1(): UInt = this.numElements
 
-    public operator fun component2(): MutPtr<MutPtr<DhcpClientInfoV4>> = this.clients
+    public operator fun component2(): MutPtr = this.clients
 
-    public fun copy(numElements: UInt = this.numElements, clients: MutPtr<MutPtr<DhcpClientInfoV4>> = this.clients): DhcpClientInfoArrayV4 = DhcpClientInfoArrayV4(numElements = numElements, clientsCtorArg = clients)
+    public fun copy(numElements: UInt = this.numElements, clients: MutPtr = this.clients): DhcpClientInfoArrayV4 = DhcpClientInfoArrayV4(numElements = numElements, clientsCtorArg = clients)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -3109,21 +3108,21 @@ public class DhcpClientInfoArrayV4 internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<MutPtr<DhcpClientInfoV4>>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                     )
                 override fun writeNative(addr: Long, value: DhcpClientInfoArrayV4) {
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr, value.numElements)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<MutPtr<DhcpClientInfoV4>>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.clients)
                 }
             }
 
         public operator fun invoke(
             numElements: UInt = 0u,
-            clients: MutPtr<MutPtr<DhcpClientInfoV4>> = MutPtr(0L),
+            clients: MutPtr = MutPtr(0L),
         ): DhcpClientInfoArrayV4 =
             DhcpClientInfoArrayV4(
                 numElements = numElements,
@@ -3134,9 +3133,9 @@ public class DhcpClientInfoArrayV4 internal constructor(
 
 public class DhcpClientInfoArrayV5 internal constructor(
     public var numElements: UInt,
-    clientsCtorArg: MutPtr<MutPtr<DhcpClientInfoV5>>,
+    clientsCtorArg: MutPtr,
 ) {
-    public var clients: MutPtr<MutPtr<DhcpClientInfoV5>> = clientsCtorArg
+    public var clients: MutPtr = clientsCtorArg
         internal set
 
     public constructor() : this(
@@ -3146,9 +3145,9 @@ public class DhcpClientInfoArrayV5 internal constructor(
 
     public operator fun component1(): UInt = this.numElements
 
-    public operator fun component2(): MutPtr<MutPtr<DhcpClientInfoV5>> = this.clients
+    public operator fun component2(): MutPtr = this.clients
 
-    public fun copy(numElements: UInt = this.numElements, clients: MutPtr<MutPtr<DhcpClientInfoV5>> = this.clients): DhcpClientInfoArrayV5 = DhcpClientInfoArrayV5(numElements = numElements, clientsCtorArg = clients)
+    public fun copy(numElements: UInt = this.numElements, clients: MutPtr = this.clients): DhcpClientInfoArrayV5 = DhcpClientInfoArrayV5(numElements = numElements, clientsCtorArg = clients)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -3174,21 +3173,21 @@ public class DhcpClientInfoArrayV5 internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<MutPtr<DhcpClientInfoV5>>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                     )
                 override fun writeNative(addr: Long, value: DhcpClientInfoArrayV5) {
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr, value.numElements)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<MutPtr<DhcpClientInfoV5>>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.clients)
                 }
             }
 
         public operator fun invoke(
             numElements: UInt = 0u,
-            clients: MutPtr<MutPtr<DhcpClientInfoV5>> = MutPtr(0L),
+            clients: MutPtr = MutPtr(0L),
         ): DhcpClientInfoArrayV5 =
             DhcpClientInfoArrayV5(
                 numElements = numElements,
@@ -3199,9 +3198,9 @@ public class DhcpClientInfoArrayV5 internal constructor(
 
 public class DhcpClientInfoArrayV6 internal constructor(
     public var numElements: UInt,
-    clientsCtorArg: MutPtr<MutPtr<DhcpClientInfoV6>>,
+    clientsCtorArg: MutPtr,
 ) {
-    public var clients: MutPtr<MutPtr<DhcpClientInfoV6>> = clientsCtorArg
+    public var clients: MutPtr = clientsCtorArg
         internal set
 
     public constructor() : this(
@@ -3211,9 +3210,9 @@ public class DhcpClientInfoArrayV6 internal constructor(
 
     public operator fun component1(): UInt = this.numElements
 
-    public operator fun component2(): MutPtr<MutPtr<DhcpClientInfoV6>> = this.clients
+    public operator fun component2(): MutPtr = this.clients
 
-    public fun copy(numElements: UInt = this.numElements, clients: MutPtr<MutPtr<DhcpClientInfoV6>> = this.clients): DhcpClientInfoArrayV6 = DhcpClientInfoArrayV6(numElements = numElements, clientsCtorArg = clients)
+    public fun copy(numElements: UInt = this.numElements, clients: MutPtr = this.clients): DhcpClientInfoArrayV6 = DhcpClientInfoArrayV6(numElements = numElements, clientsCtorArg = clients)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -3239,21 +3238,21 @@ public class DhcpClientInfoArrayV6 internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<MutPtr<DhcpClientInfoV6>>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                     )
                 override fun writeNative(addr: Long, value: DhcpClientInfoArrayV6) {
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr, value.numElements)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<MutPtr<DhcpClientInfoV6>>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.clients)
                 }
             }
 
         public operator fun invoke(
             numElements: UInt = 0u,
-            clients: MutPtr<MutPtr<DhcpClientInfoV6>> = MutPtr(0L),
+            clients: MutPtr = MutPtr(0L),
         ): DhcpClientInfoArrayV6 =
             DhcpClientInfoArrayV6(
                 numElements = numElements,
@@ -3264,9 +3263,9 @@ public class DhcpClientInfoArrayV6 internal constructor(
 
 public class DhcpClientInfoArrayVq internal constructor(
     public var numElements: UInt,
-    clientsCtorArg: MutPtr<MutPtr<DhcpClientInfoVq>>,
+    clientsCtorArg: MutPtr,
 ) {
-    public var clients: MutPtr<MutPtr<DhcpClientInfoVq>> = clientsCtorArg
+    public var clients: MutPtr = clientsCtorArg
         internal set
 
     public constructor() : this(
@@ -3276,9 +3275,9 @@ public class DhcpClientInfoArrayVq internal constructor(
 
     public operator fun component1(): UInt = this.numElements
 
-    public operator fun component2(): MutPtr<MutPtr<DhcpClientInfoVq>> = this.clients
+    public operator fun component2(): MutPtr = this.clients
 
-    public fun copy(numElements: UInt = this.numElements, clients: MutPtr<MutPtr<DhcpClientInfoVq>> = this.clients): DhcpClientInfoArrayVq = DhcpClientInfoArrayVq(numElements = numElements, clientsCtorArg = clients)
+    public fun copy(numElements: UInt = this.numElements, clients: MutPtr = this.clients): DhcpClientInfoArrayVq = DhcpClientInfoArrayVq(numElements = numElements, clientsCtorArg = clients)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -3304,21 +3303,21 @@ public class DhcpClientInfoArrayVq internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<MutPtr<DhcpClientInfoVq>>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                     )
                 override fun writeNative(addr: Long, value: DhcpClientInfoArrayVq) {
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr, value.numElements)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<MutPtr<DhcpClientInfoVq>>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.clients)
                 }
             }
 
         public operator fun invoke(
             numElements: UInt = 0u,
-            clients: MutPtr<MutPtr<DhcpClientInfoVq>> = MutPtr(0L),
+            clients: MutPtr = MutPtr(0L),
         ): DhcpClientInfoArrayVq =
             DhcpClientInfoArrayVq(
                 numElements = numElements,
@@ -3342,7 +3341,7 @@ public class DhcpClientInfoEx internal constructor(
     public var quarantineCapable: Bool,
     public var filterStatus: UInt,
     policyNameCtorArg: Pwstr,
-    propertiesCtorArg: MutPtr<DhcpPropertyArray>,
+    propertiesCtorArg: MutPtr,
 ) {
     public var clientName: Pwstr = clientNameCtorArg
         internal set
@@ -3353,7 +3352,7 @@ public class DhcpClientInfoEx internal constructor(
     public var policyName: Pwstr = policyNameCtorArg
         internal set
 
-    public var properties: MutPtr<DhcpPropertyArray> = propertiesCtorArg
+    public var properties: MutPtr = propertiesCtorArg
         internal set
 
     public constructor() : this(
@@ -3402,9 +3401,9 @@ public class DhcpClientInfoEx internal constructor(
 
     public operator fun component14(): Pwstr = this.policyName
 
-    public operator fun component15(): MutPtr<DhcpPropertyArray> = this.properties
+    public operator fun component15(): MutPtr = this.properties
 
-    public fun copy(clientIpAddress: UInt = this.clientIpAddress, subnetMask: UInt = this.subnetMask, clientHardwareAddress: DhcpBinaryData = this.clientHardwareAddress, clientName: Pwstr = this.clientName, clientComment: Pwstr = this.clientComment, clientLeaseExpires: DateTime = this.clientLeaseExpires, ownerHost: DhcpHostInfo = this.ownerHost, bClientType: UByte = this.bClientType, addressState: UByte = this.addressState, status: QuarantineStatus = this.status, probationEnds: DateTime = this.probationEnds, quarantineCapable: Bool = this.quarantineCapable, filterStatus: UInt = this.filterStatus, policyName: Pwstr = this.policyName, properties: MutPtr<DhcpPropertyArray> = this.properties): DhcpClientInfoEx = DhcpClientInfoEx(clientIpAddress = clientIpAddress, subnetMask = subnetMask, clientHardwareAddress = clientHardwareAddress, clientNameCtorArg = clientName, clientCommentCtorArg = clientComment, clientLeaseExpires = clientLeaseExpires, ownerHost = ownerHost, bClientType = bClientType, addressState = addressState, status = status, probationEnds = probationEnds, quarantineCapable = quarantineCapable, filterStatus = filterStatus, policyNameCtorArg = policyName, propertiesCtorArg = properties)
+    public fun copy(clientIpAddress: UInt = this.clientIpAddress, subnetMask: UInt = this.subnetMask, clientHardwareAddress: DhcpBinaryData = this.clientHardwareAddress, clientName: Pwstr = this.clientName, clientComment: Pwstr = this.clientComment, clientLeaseExpires: DateTime = this.clientLeaseExpires, ownerHost: DhcpHostInfo = this.ownerHost, bClientType: UByte = this.bClientType, addressState: UByte = this.addressState, status: QuarantineStatus = this.status, probationEnds: DateTime = this.probationEnds, quarantineCapable: Bool = this.quarantineCapable, filterStatus: UInt = this.filterStatus, policyName: Pwstr = this.policyName, properties: MutPtr = this.properties): DhcpClientInfoEx = DhcpClientInfoEx(clientIpAddress = clientIpAddress, subnetMask = subnetMask, clientHardwareAddress = clientHardwareAddress, clientNameCtorArg = clientName, clientCommentCtorArg = clientComment, clientLeaseExpires = clientLeaseExpires, ownerHost = ownerHost, bClientType = bClientType, addressState = addressState, status = status, probationEnds = probationEnds, quarantineCapable = quarantineCapable, filterStatus = filterStatus, policyNameCtorArg = policyName, propertiesCtorArg = properties)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -3462,7 +3461,7 @@ public class DhcpClientInfoEx internal constructor(
             quarantineCapable: Bool = 0,
             filterStatus: UInt = 0u,
             policyName: Pwstr = MutPtr(0L),
-            properties: MutPtr<DhcpPropertyArray> = MutPtr(0L),
+            properties: MutPtr = MutPtr(0L),
         ): DhcpClientInfoEx =
             DhcpClientInfoEx(
                 clientIpAddress = clientIpAddress,
@@ -3486,9 +3485,9 @@ public class DhcpClientInfoEx internal constructor(
 
 public class DhcpClientInfoExArray internal constructor(
     public var numElements: UInt,
-    clientsCtorArg: MutPtr<MutPtr<DhcpClientInfoEx>>,
+    clientsCtorArg: MutPtr,
 ) {
-    public var clients: MutPtr<MutPtr<DhcpClientInfoEx>> = clientsCtorArg
+    public var clients: MutPtr = clientsCtorArg
         internal set
 
     public constructor() : this(
@@ -3498,9 +3497,9 @@ public class DhcpClientInfoExArray internal constructor(
 
     public operator fun component1(): UInt = this.numElements
 
-    public operator fun component2(): MutPtr<MutPtr<DhcpClientInfoEx>> = this.clients
+    public operator fun component2(): MutPtr = this.clients
 
-    public fun copy(numElements: UInt = this.numElements, clients: MutPtr<MutPtr<DhcpClientInfoEx>> = this.clients): DhcpClientInfoExArray = DhcpClientInfoExArray(numElements = numElements, clientsCtorArg = clients)
+    public fun copy(numElements: UInt = this.numElements, clients: MutPtr = this.clients): DhcpClientInfoExArray = DhcpClientInfoExArray(numElements = numElements, clientsCtorArg = clients)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -3526,21 +3525,21 @@ public class DhcpClientInfoExArray internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<MutPtr<DhcpClientInfoEx>>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                     )
                 override fun writeNative(addr: Long, value: DhcpClientInfoExArray) {
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr, value.numElements)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<MutPtr<DhcpClientInfoEx>>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.clients)
                 }
             }
 
         public operator fun invoke(
             numElements: UInt = 0u,
-            clients: MutPtr<MutPtr<DhcpClientInfoEx>> = MutPtr(0L),
+            clients: MutPtr = MutPtr(0L),
         ): DhcpClientInfoExArray =
             DhcpClientInfoExArray(
                 numElements = numElements,
@@ -3697,9 +3696,9 @@ public class DhcpClientInfoPb internal constructor(
 
 public class DhcpClientInfoPbArray internal constructor(
     public var numElements: UInt,
-    clientsCtorArg: MutPtr<MutPtr<DhcpClientInfoPb>>,
+    clientsCtorArg: MutPtr,
 ) {
-    public var clients: MutPtr<MutPtr<DhcpClientInfoPb>> = clientsCtorArg
+    public var clients: MutPtr = clientsCtorArg
         internal set
 
     public constructor() : this(
@@ -3709,9 +3708,9 @@ public class DhcpClientInfoPbArray internal constructor(
 
     public operator fun component1(): UInt = this.numElements
 
-    public operator fun component2(): MutPtr<MutPtr<DhcpClientInfoPb>> = this.clients
+    public operator fun component2(): MutPtr = this.clients
 
-    public fun copy(numElements: UInt = this.numElements, clients: MutPtr<MutPtr<DhcpClientInfoPb>> = this.clients): DhcpClientInfoPbArray = DhcpClientInfoPbArray(numElements = numElements, clientsCtorArg = clients)
+    public fun copy(numElements: UInt = this.numElements, clients: MutPtr = this.clients): DhcpClientInfoPbArray = DhcpClientInfoPbArray(numElements = numElements, clientsCtorArg = clients)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -3737,21 +3736,21 @@ public class DhcpClientInfoPbArray internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<MutPtr<DhcpClientInfoPb>>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                     )
                 override fun writeNative(addr: Long, value: DhcpClientInfoPbArray) {
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr, value.numElements)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<MutPtr<DhcpClientInfoPb>>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.clients)
                 }
             }
 
         public operator fun invoke(
             numElements: UInt = 0u,
-            clients: MutPtr<MutPtr<DhcpClientInfoPb>> = MutPtr(0L),
+            clients: MutPtr = MutPtr(0L),
         ): DhcpClientInfoPbArray =
             DhcpClientInfoPbArray(
                 numElements = numElements,
@@ -4200,7 +4199,7 @@ public class DhcpFailoverRelationship internal constructor(
     relationshipNameCtorArg: Pwstr,
     primaryServerNameCtorArg: Pwstr,
     secondaryServerNameCtorArg: Pwstr,
-    pScopesCtorArg: MutPtr<DhcpIpArray>,
+    pScopesCtorArg: MutPtr,
     public var percentage: UByte,
     sharedSecretCtorArg: Pwstr,
 ) {
@@ -4213,7 +4212,7 @@ public class DhcpFailoverRelationship internal constructor(
     public var secondaryServerName: Pwstr = secondaryServerNameCtorArg
         internal set
 
-    public var pScopes: MutPtr<DhcpIpArray> = pScopesCtorArg
+    public var pScopes: MutPtr = pScopesCtorArg
         internal set
 
     public var sharedSecret: Pwstr = sharedSecretCtorArg
@@ -4258,13 +4257,13 @@ public class DhcpFailoverRelationship internal constructor(
 
     public operator fun component11(): Pwstr = this.secondaryServerName
 
-    public operator fun component12(): MutPtr<DhcpIpArray> = this.pScopes
+    public operator fun component12(): MutPtr = this.pScopes
 
     public operator fun component13(): UByte = this.percentage
 
     public operator fun component14(): Pwstr = this.sharedSecret
 
-    public fun copy(primaryServer: UInt = this.primaryServer, secondaryServer: UInt = this.secondaryServer, mode: DhcpFailoverMode = this.mode, serverType: DhcpFailoverServer = this.serverType, state: FsmState = this.state, prevState: FsmState = this.prevState, mclt: UInt = this.mclt, safePeriod: UInt = this.safePeriod, relationshipName: Pwstr = this.relationshipName, primaryServerName: Pwstr = this.primaryServerName, secondaryServerName: Pwstr = this.secondaryServerName, pScopes: MutPtr<DhcpIpArray> = this.pScopes, percentage: UByte = this.percentage, sharedSecret: Pwstr = this.sharedSecret): DhcpFailoverRelationship = DhcpFailoverRelationship(primaryServer = primaryServer, secondaryServer = secondaryServer, mode = mode, serverType = serverType, state = state, prevState = prevState, mclt = mclt, safePeriod = safePeriod, relationshipNameCtorArg = relationshipName, primaryServerNameCtorArg = primaryServerName, secondaryServerNameCtorArg = secondaryServerName, pScopesCtorArg = pScopes, percentage = percentage, sharedSecretCtorArg = sharedSecret)
+    public fun copy(primaryServer: UInt = this.primaryServer, secondaryServer: UInt = this.secondaryServer, mode: DhcpFailoverMode = this.mode, serverType: DhcpFailoverServer = this.serverType, state: FsmState = this.state, prevState: FsmState = this.prevState, mclt: UInt = this.mclt, safePeriod: UInt = this.safePeriod, relationshipName: Pwstr = this.relationshipName, primaryServerName: Pwstr = this.primaryServerName, secondaryServerName: Pwstr = this.secondaryServerName, pScopes: MutPtr = this.pScopes, percentage: UByte = this.percentage, sharedSecret: Pwstr = this.sharedSecret): DhcpFailoverRelationship = DhcpFailoverRelationship(primaryServer = primaryServer, secondaryServer = secondaryServer, mode = mode, serverType = serverType, state = state, prevState = prevState, mclt = mclt, safePeriod = safePeriod, relationshipNameCtorArg = relationshipName, primaryServerNameCtorArg = primaryServerName, secondaryServerNameCtorArg = secondaryServerName, pScopesCtorArg = pScopes, percentage = percentage, sharedSecretCtorArg = sharedSecret)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -4317,7 +4316,7 @@ public class DhcpFailoverRelationship internal constructor(
             relationshipName: Pwstr = MutPtr(0L),
             primaryServerName: Pwstr = MutPtr(0L),
             secondaryServerName: Pwstr = MutPtr(0L),
-            pScopes: MutPtr<DhcpIpArray> = MutPtr(0L),
+            pScopes: MutPtr = MutPtr(0L),
             percentage: UByte = 0u,
             sharedSecret: Pwstr = MutPtr(0L),
         ): DhcpFailoverRelationship =
@@ -4342,9 +4341,9 @@ public class DhcpFailoverRelationship internal constructor(
 
 public class DhcpFailoverRelationshipArray internal constructor(
     public var numElements: UInt,
-    pRelationshipsCtorArg: MutPtr<DhcpFailoverRelationship>,
+    pRelationshipsCtorArg: MutPtr,
 ) {
-    public var pRelationships: MutPtr<DhcpFailoverRelationship> = pRelationshipsCtorArg
+    public var pRelationships: MutPtr = pRelationshipsCtorArg
         internal set
 
     public constructor() : this(
@@ -4354,9 +4353,9 @@ public class DhcpFailoverRelationshipArray internal constructor(
 
     public operator fun component1(): UInt = this.numElements
 
-    public operator fun component2(): MutPtr<DhcpFailoverRelationship> = this.pRelationships
+    public operator fun component2(): MutPtr = this.pRelationships
 
-    public fun copy(numElements: UInt = this.numElements, pRelationships: MutPtr<DhcpFailoverRelationship> = this.pRelationships): DhcpFailoverRelationshipArray = DhcpFailoverRelationshipArray(numElements = numElements, pRelationshipsCtorArg = pRelationships)
+    public fun copy(numElements: UInt = this.numElements, pRelationships: MutPtr = this.pRelationships): DhcpFailoverRelationshipArray = DhcpFailoverRelationshipArray(numElements = numElements, pRelationshipsCtorArg = pRelationships)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -4382,21 +4381,21 @@ public class DhcpFailoverRelationshipArray internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<DhcpFailoverRelationship>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                     )
                 override fun writeNative(addr: Long, value: DhcpFailoverRelationshipArray) {
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr, value.numElements)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<DhcpFailoverRelationship>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.pRelationships)
                 }
             }
 
         public operator fun invoke(
             numElements: UInt = 0u,
-            pRelationships: MutPtr<DhcpFailoverRelationship> = MutPtr(0L),
+            pRelationships: MutPtr = MutPtr(0L),
         ): DhcpFailoverRelationshipArray =
             DhcpFailoverRelationshipArray(
                 numElements = numElements,
@@ -4496,9 +4495,9 @@ public class DhcpFilterAddInfo internal constructor(
 
 public class DhcpFilterEnumInfo internal constructor(
     public var numElements: UInt,
-    pEnumRecordsCtorArg: MutPtr<DhcpFilterRecord>,
+    pEnumRecordsCtorArg: MutPtr,
 ) {
-    public var pEnumRecords: MutPtr<DhcpFilterRecord> = pEnumRecordsCtorArg
+    public var pEnumRecords: MutPtr = pEnumRecordsCtorArg
         internal set
 
     public constructor() : this(
@@ -4508,9 +4507,9 @@ public class DhcpFilterEnumInfo internal constructor(
 
     public operator fun component1(): UInt = this.numElements
 
-    public operator fun component2(): MutPtr<DhcpFilterRecord> = this.pEnumRecords
+    public operator fun component2(): MutPtr = this.pEnumRecords
 
-    public fun copy(numElements: UInt = this.numElements, pEnumRecords: MutPtr<DhcpFilterRecord> = this.pEnumRecords): DhcpFilterEnumInfo = DhcpFilterEnumInfo(numElements = numElements, pEnumRecordsCtorArg = pEnumRecords)
+    public fun copy(numElements: UInt = this.numElements, pEnumRecords: MutPtr = this.pEnumRecords): DhcpFilterEnumInfo = DhcpFilterEnumInfo(numElements = numElements, pEnumRecordsCtorArg = pEnumRecords)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -4536,21 +4535,21 @@ public class DhcpFilterEnumInfo internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<DhcpFilterRecord>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                     )
                 override fun writeNative(addr: Long, value: DhcpFilterEnumInfo) {
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr, value.numElements)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<DhcpFilterRecord>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.pEnumRecords)
                 }
             }
 
         public operator fun invoke(
             numElements: UInt = 0u,
-            pEnumRecords: MutPtr<DhcpFilterRecord> = MutPtr(0L),
+            pEnumRecords: MutPtr = MutPtr(0L),
         ): DhcpFilterEnumInfo =
             DhcpFilterEnumInfo(
                 numElements = numElements,
@@ -4759,9 +4758,9 @@ public data class DhcpIpv6Address(
 
 public class DhcpIpArray internal constructor(
     public var numElements: UInt,
-    elementsCtorArg: MutPtr<UInt>,
+    elementsCtorArg: MutPtr,
 ) {
-    public var elements: MutPtr<UInt> = elementsCtorArg
+    public var elements: MutPtr = elementsCtorArg
         internal set
 
     public constructor() : this(
@@ -4771,9 +4770,9 @@ public class DhcpIpArray internal constructor(
 
     public operator fun component1(): UInt = this.numElements
 
-    public operator fun component2(): MutPtr<UInt> = this.elements
+    public operator fun component2(): MutPtr = this.elements
 
-    public fun copy(numElements: UInt = this.numElements, elements: MutPtr<UInt> = this.elements): DhcpIpArray = DhcpIpArray(numElements = numElements, elementsCtorArg = elements)
+    public fun copy(numElements: UInt = this.numElements, elements: MutPtr = this.elements): DhcpIpArray = DhcpIpArray(numElements = numElements, elementsCtorArg = elements)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -4799,21 +4798,21 @@ public class DhcpIpArray internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<UInt>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                     )
                 override fun writeNative(addr: Long, value: DhcpIpArray) {
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr, value.numElements)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<UInt>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.elements)
                 }
             }
 
         public operator fun invoke(
             numElements: UInt = 0u,
-            elements: MutPtr<UInt> = MutPtr(0L),
+            elements: MutPtr = MutPtr(0L),
         ): DhcpIpArray =
             DhcpIpArray(
                 numElements = numElements,
@@ -4868,9 +4867,9 @@ public data class DhcpIpRange(
 
 public class DhcpIpRangeArray internal constructor(
     public var numElements: UInt,
-    elementsCtorArg: MutPtr<DhcpIpRange>,
+    elementsCtorArg: MutPtr,
 ) {
-    public var elements: MutPtr<DhcpIpRange> = elementsCtorArg
+    public var elements: MutPtr = elementsCtorArg
         internal set
 
     public constructor() : this(
@@ -4880,9 +4879,9 @@ public class DhcpIpRangeArray internal constructor(
 
     public operator fun component1(): UInt = this.numElements
 
-    public operator fun component2(): MutPtr<DhcpIpRange> = this.elements
+    public operator fun component2(): MutPtr = this.elements
 
-    public fun copy(numElements: UInt = this.numElements, elements: MutPtr<DhcpIpRange> = this.elements): DhcpIpRangeArray = DhcpIpRangeArray(numElements = numElements, elementsCtorArg = elements)
+    public fun copy(numElements: UInt = this.numElements, elements: MutPtr = this.elements): DhcpIpRangeArray = DhcpIpRangeArray(numElements = numElements, elementsCtorArg = elements)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -4908,21 +4907,21 @@ public class DhcpIpRangeArray internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<DhcpIpRange>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                     )
                 override fun writeNative(addr: Long, value: DhcpIpRangeArray) {
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr, value.numElements)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<DhcpIpRange>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.elements)
                 }
             }
 
         public operator fun invoke(
             numElements: UInt = 0u,
-            elements: MutPtr<DhcpIpRange> = MutPtr(0L),
+            elements: MutPtr = MutPtr(0L),
         ): DhcpIpRangeArray =
             DhcpIpRangeArray(
                 numElements = numElements,
@@ -4955,9 +4954,9 @@ public data class DhcpIpRangeV6(
 
 public class DhcpIpReservation internal constructor(
     public var reservedIpAddress: UInt,
-    reservedForClientCtorArg: MutPtr<DhcpBinaryData>,
+    reservedForClientCtorArg: MutPtr,
 ) {
-    public var reservedForClient: MutPtr<DhcpBinaryData> = reservedForClientCtorArg
+    public var reservedForClient: MutPtr = reservedForClientCtorArg
         internal set
 
     public constructor() : this(
@@ -4967,9 +4966,9 @@ public class DhcpIpReservation internal constructor(
 
     public operator fun component1(): UInt = this.reservedIpAddress
 
-    public operator fun component2(): MutPtr<DhcpBinaryData> = this.reservedForClient
+    public operator fun component2(): MutPtr = this.reservedForClient
 
-    public fun copy(reservedIpAddress: UInt = this.reservedIpAddress, reservedForClient: MutPtr<DhcpBinaryData> = this.reservedForClient): DhcpIpReservation = DhcpIpReservation(reservedIpAddress = reservedIpAddress, reservedForClientCtorArg = reservedForClient)
+    public fun copy(reservedIpAddress: UInt = this.reservedIpAddress, reservedForClient: MutPtr = this.reservedForClient): DhcpIpReservation = DhcpIpReservation(reservedIpAddress = reservedIpAddress, reservedForClientCtorArg = reservedForClient)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -4995,21 +4994,21 @@ public class DhcpIpReservation internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<DhcpBinaryData>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                     )
                 override fun writeNative(addr: Long, value: DhcpIpReservation) {
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr, value.reservedIpAddress)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<DhcpBinaryData>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.reservedForClient)
                 }
             }
 
         public operator fun invoke(
             reservedIpAddress: UInt = 0u,
-            reservedForClient: MutPtr<DhcpBinaryData> = MutPtr(0L),
+            reservedForClient: MutPtr = MutPtr(0L),
         ): DhcpIpReservation =
             DhcpIpReservation(
                 reservedIpAddress = reservedIpAddress,
@@ -5099,10 +5098,10 @@ public class DhcpIpReservationInfo internal constructor(
 
 public class DhcpIpReservationV4 internal constructor(
     public var reservedIpAddress: UInt,
-    reservedForClientCtorArg: MutPtr<DhcpBinaryData>,
+    reservedForClientCtorArg: MutPtr,
     public var bAllowedClientTypes: UByte,
 ) {
-    public var reservedForClient: MutPtr<DhcpBinaryData> = reservedForClientCtorArg
+    public var reservedForClient: MutPtr = reservedForClientCtorArg
         internal set
 
     public constructor() : this(
@@ -5113,11 +5112,11 @@ public class DhcpIpReservationV4 internal constructor(
 
     public operator fun component1(): UInt = this.reservedIpAddress
 
-    public operator fun component2(): MutPtr<DhcpBinaryData> = this.reservedForClient
+    public operator fun component2(): MutPtr = this.reservedForClient
 
     public operator fun component3(): UByte = this.bAllowedClientTypes
 
-    public fun copy(reservedIpAddress: UInt = this.reservedIpAddress, reservedForClient: MutPtr<DhcpBinaryData> = this.reservedForClient, bAllowedClientTypes: UByte = this.bAllowedClientTypes): DhcpIpReservationV4 = DhcpIpReservationV4(reservedIpAddress = reservedIpAddress, reservedForClientCtorArg = reservedForClient, bAllowedClientTypes = bAllowedClientTypes)
+    public fun copy(reservedIpAddress: UInt = this.reservedIpAddress, reservedForClient: MutPtr = this.reservedForClient, bAllowedClientTypes: UByte = this.bAllowedClientTypes): DhcpIpReservationV4 = DhcpIpReservationV4(reservedIpAddress = reservedIpAddress, reservedForClientCtorArg = reservedForClient, bAllowedClientTypes = bAllowedClientTypes)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -5145,7 +5144,7 @@ public class DhcpIpReservationV4 internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<DhcpBinaryData>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8).readNative(addr + 16L),
                     )
@@ -5153,7 +5152,7 @@ public class DhcpIpReservationV4 internal constructor(
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr, value.reservedIpAddress)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<DhcpBinaryData>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.reservedForClient)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8).writeNative(addr + 16L, value.bAllowedClientTypes)
                 }
@@ -5161,7 +5160,7 @@ public class DhcpIpReservationV4 internal constructor(
 
         public operator fun invoke(
             reservedIpAddress: UInt = 0u,
-            reservedForClient: MutPtr<DhcpBinaryData> = MutPtr(0L),
+            reservedForClient: MutPtr = MutPtr(0L),
             bAllowedClientTypes: UByte = 0u,
         ): DhcpIpReservationV4 =
             DhcpIpReservationV4(
@@ -5174,10 +5173,10 @@ public class DhcpIpReservationV4 internal constructor(
 
 public class DhcpIpReservationV6 internal constructor(
     public var reservedIpAddress: DhcpIpv6Address,
-    reservedForClientCtorArg: MutPtr<DhcpBinaryData>,
+    reservedForClientCtorArg: MutPtr,
     public var interfaceId: UInt,
 ) {
-    public var reservedForClient: MutPtr<DhcpBinaryData> = reservedForClientCtorArg
+    public var reservedForClient: MutPtr = reservedForClientCtorArg
         internal set
 
     public constructor() : this(
@@ -5188,11 +5187,11 @@ public class DhcpIpReservationV6 internal constructor(
 
     public operator fun component1(): DhcpIpv6Address = this.reservedIpAddress
 
-    public operator fun component2(): MutPtr<DhcpBinaryData> = this.reservedForClient
+    public operator fun component2(): MutPtr = this.reservedForClient
 
     public operator fun component3(): UInt = this.interfaceId
 
-    public fun copy(reservedIpAddress: DhcpIpv6Address = this.reservedIpAddress, reservedForClient: MutPtr<DhcpBinaryData> = this.reservedForClient, interfaceId: UInt = this.interfaceId): DhcpIpReservationV6 = DhcpIpReservationV6(reservedIpAddress = reservedIpAddress, reservedForClientCtorArg = reservedForClient, interfaceId = interfaceId)
+    public fun copy(reservedIpAddress: DhcpIpv6Address = this.reservedIpAddress, reservedForClient: MutPtr = this.reservedForClient, interfaceId: UInt = this.interfaceId): DhcpIpReservationV6 = DhcpIpReservationV6(reservedIpAddress = reservedIpAddress, reservedForClientCtorArg = reservedForClient, interfaceId = interfaceId)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -5220,7 +5219,7 @@ public class DhcpIpReservationV6 internal constructor(
                         (DhcpIpv6Address.typeLayout()).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<DhcpBinaryData>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 16L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 24L),
                     )
@@ -5228,7 +5227,7 @@ public class DhcpIpReservationV6 internal constructor(
                     (DhcpIpv6Address.typeLayout()).writeNative(addr, value.reservedIpAddress)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<DhcpBinaryData>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 16L, value.reservedForClient)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 24L, value.interfaceId)
                 }
@@ -5236,7 +5235,7 @@ public class DhcpIpReservationV6 internal constructor(
 
         public operator fun invoke(
             reservedIpAddress: DhcpIpv6Address = DhcpIpv6Address(),
-            reservedForClient: MutPtr<DhcpBinaryData> = MutPtr(0L),
+            reservedForClient: MutPtr = MutPtr(0L),
             interfaceId: UInt = 0u,
         ): DhcpIpReservationV6 =
             DhcpIpReservationV6(
@@ -5257,9 +5256,9 @@ public class DhcpMibInfo internal constructor(
     public var releases: UInt,
     public var serverStartTime: DateTime,
     public var scopes: UInt,
-    scopeInfoCtorArg: MutPtr<ScopeMibInfo>,
+    scopeInfoCtorArg: MutPtr,
 ) {
-    public var scopeInfo: MutPtr<ScopeMibInfo> = scopeInfoCtorArg
+    public var scopeInfo: MutPtr = scopeInfoCtorArg
         internal set
 
     public constructor() : this(
@@ -5293,9 +5292,9 @@ public class DhcpMibInfo internal constructor(
 
     public operator fun component9(): UInt = this.scopes
 
-    public operator fun component10(): MutPtr<ScopeMibInfo> = this.scopeInfo
+    public operator fun component10(): MutPtr = this.scopeInfo
 
-    public fun copy(discovers: UInt = this.discovers, offers: UInt = this.offers, requests: UInt = this.requests, acks: UInt = this.acks, naks: UInt = this.naks, declines: UInt = this.declines, releases: UInt = this.releases, serverStartTime: DateTime = this.serverStartTime, scopes: UInt = this.scopes, scopeInfo: MutPtr<ScopeMibInfo> = this.scopeInfo): DhcpMibInfo = DhcpMibInfo(discovers = discovers, offers = offers, requests = requests, acks = acks, naks = naks, declines = declines, releases = releases, serverStartTime = serverStartTime, scopes = scopes, scopeInfoCtorArg = scopeInfo)
+    public fun copy(discovers: UInt = this.discovers, offers: UInt = this.offers, requests: UInt = this.requests, acks: UInt = this.acks, naks: UInt = this.naks, declines: UInt = this.declines, releases: UInt = this.releases, serverStartTime: DateTime = this.serverStartTime, scopes: UInt = this.scopes, scopeInfo: MutPtr = this.scopeInfo): DhcpMibInfo = DhcpMibInfo(discovers = discovers, offers = offers, requests = requests, acks = acks, naks = naks, declines = declines, releases = releases, serverStartTime = serverStartTime, scopes = scopes, scopeInfoCtorArg = scopeInfo)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -5345,7 +5344,7 @@ public class DhcpMibInfo internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 36L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<ScopeMibInfo>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 40L),
                     )
                 override fun writeNative(addr: Long, value: DhcpMibInfo) {
@@ -5360,7 +5359,7 @@ public class DhcpMibInfo internal constructor(
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 36L, value.scopes)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<ScopeMibInfo>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 40L, value.scopeInfo)
                 }
             }
@@ -5375,7 +5374,7 @@ public class DhcpMibInfo internal constructor(
             releases: UInt = 0u,
             serverStartTime: DateTime = DateTime(),
             scopes: UInt = 0u,
-            scopeInfo: MutPtr<ScopeMibInfo> = MutPtr(0L),
+            scopeInfo: MutPtr = MutPtr(0L),
         ): DhcpMibInfo =
             DhcpMibInfo(
                 discovers = discovers,
@@ -5411,9 +5410,9 @@ public class DhcpMibInfoV5 internal constructor(
     public var delayedOffers: UInt,
     public var scopesWithDelayedOffers: UInt,
     public var scopes: UInt,
-    scopeInfoCtorArg: MutPtr<ScopeMibInfoV5>,
+    scopeInfoCtorArg: MutPtr,
 ) {
-    public var scopeInfo: MutPtr<ScopeMibInfoV5> = scopeInfoCtorArg
+    public var scopeInfo: MutPtr = scopeInfoCtorArg
         internal set
 
     public constructor() : this(
@@ -5465,7 +5464,7 @@ public class DhcpMibInfoV5 internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 72L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<ScopeMibInfoV5>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 80L),
                     )
                 override fun writeNative(addr: Long, value: DhcpMibInfoV5) {
@@ -5489,7 +5488,7 @@ public class DhcpMibInfoV5 internal constructor(
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 72L, value.scopes)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<ScopeMibInfoV5>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 80L, value.scopeInfo)
                 }
             }
@@ -5513,7 +5512,7 @@ public class DhcpMibInfoV5 internal constructor(
             delayedOffers: UInt = 0u,
             scopesWithDelayedOffers: UInt = 0u,
             scopes: UInt = 0u,
-            scopeInfo: MutPtr<ScopeMibInfoV5> = MutPtr(0L),
+            scopeInfo: MutPtr = MutPtr(0L),
         ): DhcpMibInfoV5 =
             DhcpMibInfoV5(
                 discovers = discovers,
@@ -5552,9 +5551,9 @@ public class DhcpMibInfoV6 internal constructor(
     public var informs: UInt,
     public var serverStartTime: DateTime,
     public var scopes: UInt,
-    scopeInfoCtorArg: MutPtr<ScopeMibInfoV6>,
+    scopeInfoCtorArg: MutPtr,
 ) {
-    public var scopeInfo: MutPtr<ScopeMibInfoV6> = scopeInfoCtorArg
+    public var scopeInfo: MutPtr = scopeInfoCtorArg
         internal set
 
     public constructor() : this(
@@ -5597,9 +5596,9 @@ public class DhcpMibInfoV6 internal constructor(
 
     public operator fun component12(): UInt = this.scopes
 
-    public operator fun component13(): MutPtr<ScopeMibInfoV6> = this.scopeInfo
+    public operator fun component13(): MutPtr = this.scopeInfo
 
-    public fun copy(solicits: UInt = this.solicits, advertises: UInt = this.advertises, requests: UInt = this.requests, renews: UInt = this.renews, rebinds: UInt = this.rebinds, replies: UInt = this.replies, confirms: UInt = this.confirms, declines: UInt = this.declines, releases: UInt = this.releases, informs: UInt = this.informs, serverStartTime: DateTime = this.serverStartTime, scopes: UInt = this.scopes, scopeInfo: MutPtr<ScopeMibInfoV6> = this.scopeInfo): DhcpMibInfoV6 = DhcpMibInfoV6(solicits = solicits, advertises = advertises, requests = requests, renews = renews, rebinds = rebinds, replies = replies, confirms = confirms, declines = declines, releases = releases, informs = informs, serverStartTime = serverStartTime, scopes = scopes, scopeInfoCtorArg = scopeInfo)
+    public fun copy(solicits: UInt = this.solicits, advertises: UInt = this.advertises, requests: UInt = this.requests, renews: UInt = this.renews, rebinds: UInt = this.rebinds, replies: UInt = this.replies, confirms: UInt = this.confirms, declines: UInt = this.declines, releases: UInt = this.releases, informs: UInt = this.informs, serverStartTime: DateTime = this.serverStartTime, scopes: UInt = this.scopes, scopeInfo: MutPtr = this.scopeInfo): DhcpMibInfoV6 = DhcpMibInfoV6(solicits = solicits, advertises = advertises, requests = requests, renews = renews, rebinds = rebinds, replies = replies, confirms = confirms, declines = declines, releases = releases, informs = informs, serverStartTime = serverStartTime, scopes = scopes, scopeInfoCtorArg = scopeInfo)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -5658,7 +5657,7 @@ public class DhcpMibInfoV6 internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 48L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<ScopeMibInfoV6>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 56L),
                     )
                 override fun writeNative(addr: Long, value: DhcpMibInfoV6) {
@@ -5676,7 +5675,7 @@ public class DhcpMibInfoV6 internal constructor(
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 48L, value.scopes)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<ScopeMibInfoV6>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 56L, value.scopeInfo)
                 }
             }
@@ -5694,7 +5693,7 @@ public class DhcpMibInfoV6 internal constructor(
             informs: UInt = 0u,
             serverStartTime: DateTime = DateTime(),
             scopes: UInt = 0u,
-            scopeInfo: MutPtr<ScopeMibInfoV6> = MutPtr(0L),
+            scopeInfo: MutPtr = MutPtr(0L),
         ): DhcpMibInfoV6 =
             DhcpMibInfoV6(
                 solicits = solicits,
@@ -5731,9 +5730,9 @@ public class DhcpMibInfoVq internal constructor(
     public var qtnCapableClients: UInt,
     public var qtnIASErrors: UInt,
     public var scopes: UInt,
-    scopeInfoCtorArg: MutPtr<ScopeMibInfoVq>,
+    scopeInfoCtorArg: MutPtr,
 ) {
-    public var scopeInfo: MutPtr<ScopeMibInfoVq> = scopeInfoCtorArg
+    public var scopeInfo: MutPtr = scopeInfoCtorArg
         internal set
 
     public constructor() : this(
@@ -5781,7 +5780,7 @@ public class DhcpMibInfoVq internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 64L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<ScopeMibInfoVq>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 72L),
                     )
                 override fun writeNative(addr: Long, value: DhcpMibInfoVq) {
@@ -5803,7 +5802,7 @@ public class DhcpMibInfoVq internal constructor(
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 64L, value.scopes)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<ScopeMibInfoVq>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 72L, value.scopeInfo)
                 }
             }
@@ -5825,7 +5824,7 @@ public class DhcpMibInfoVq internal constructor(
             qtnCapableClients: UInt = 0u,
             qtnIASErrors: UInt = 0u,
             scopes: UInt = 0u,
-            scopeInfo: MutPtr<ScopeMibInfoVq> = MutPtr(0L),
+            scopeInfo: MutPtr = MutPtr(0L),
         ): DhcpMibInfoVq =
             DhcpMibInfoVq(
                 discovers = discovers,
@@ -5922,9 +5921,9 @@ public class DhcpOption internal constructor(
 
 public class DhcpOptionArray internal constructor(
     public var numElements: UInt,
-    optionsCtorArg: MutPtr<DhcpOption>,
+    optionsCtorArg: MutPtr,
 ) {
-    public var options: MutPtr<DhcpOption> = optionsCtorArg
+    public var options: MutPtr = optionsCtorArg
         internal set
 
     public constructor() : this(
@@ -5934,9 +5933,9 @@ public class DhcpOptionArray internal constructor(
 
     public operator fun component1(): UInt = this.numElements
 
-    public operator fun component2(): MutPtr<DhcpOption> = this.options
+    public operator fun component2(): MutPtr = this.options
 
-    public fun copy(numElements: UInt = this.numElements, options: MutPtr<DhcpOption> = this.options): DhcpOptionArray = DhcpOptionArray(numElements = numElements, optionsCtorArg = options)
+    public fun copy(numElements: UInt = this.numElements, options: MutPtr = this.options): DhcpOptionArray = DhcpOptionArray(numElements = numElements, optionsCtorArg = options)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -5962,21 +5961,21 @@ public class DhcpOptionArray internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<DhcpOption>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                     )
                 override fun writeNative(addr: Long, value: DhcpOptionArray) {
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr, value.numElements)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<DhcpOption>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.options)
                 }
             }
 
         public operator fun invoke(
             numElements: UInt = 0u,
-            options: MutPtr<DhcpOption> = MutPtr(0L),
+            options: MutPtr = MutPtr(0L),
         ): DhcpOptionArray =
             DhcpOptionArray(
                 numElements = numElements,
@@ -5987,9 +5986,9 @@ public class DhcpOptionArray internal constructor(
 
 public class DhcpOptionData internal constructor(
     public var numElements: UInt,
-    elementsCtorArg: MutPtr<DhcpOptionDataElement>,
+    elementsCtorArg: MutPtr,
 ) {
-    public var elements: MutPtr<DhcpOptionDataElement> = elementsCtorArg
+    public var elements: MutPtr = elementsCtorArg
         internal set
 
     public constructor() : this(
@@ -5999,9 +5998,9 @@ public class DhcpOptionData internal constructor(
 
     public operator fun component1(): UInt = this.numElements
 
-    public operator fun component2(): MutPtr<DhcpOptionDataElement> = this.elements
+    public operator fun component2(): MutPtr = this.elements
 
-    public fun copy(numElements: UInt = this.numElements, elements: MutPtr<DhcpOptionDataElement> = this.elements): DhcpOptionData = DhcpOptionData(numElements = numElements, elementsCtorArg = elements)
+    public fun copy(numElements: UInt = this.numElements, elements: MutPtr = this.elements): DhcpOptionData = DhcpOptionData(numElements = numElements, elementsCtorArg = elements)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -6027,21 +6026,21 @@ public class DhcpOptionData internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<DhcpOptionDataElement>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                     )
                 override fun writeNative(addr: Long, value: DhcpOptionData) {
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr, value.numElements)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<DhcpOptionDataElement>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.elements)
                 }
             }
 
         public operator fun invoke(
             numElements: UInt = 0u,
-            elements: MutPtr<DhcpOptionDataElement> = MutPtr(0L),
+            elements: MutPtr = MutPtr(0L),
         ): DhcpOptionData =
             DhcpOptionData(
                 numElements = numElements,
@@ -6160,9 +6159,9 @@ public class DhcpOptionDataElement0 internal constructor(
 
 public class DhcpOptionList internal constructor(
     public var numOptions: UInt,
-    optionsCtorArg: MutPtr<DhcpOptionValue>,
+    optionsCtorArg: MutPtr,
 ) {
-    public var options: MutPtr<DhcpOptionValue> = optionsCtorArg
+    public var options: MutPtr = optionsCtorArg
         internal set
 
     public constructor() : this(
@@ -6172,9 +6171,9 @@ public class DhcpOptionList internal constructor(
 
     public operator fun component1(): UInt = this.numOptions
 
-    public operator fun component2(): MutPtr<DhcpOptionValue> = this.options
+    public operator fun component2(): MutPtr = this.options
 
-    public fun copy(numOptions: UInt = this.numOptions, options: MutPtr<DhcpOptionValue> = this.options): DhcpOptionList = DhcpOptionList(numOptions = numOptions, optionsCtorArg = options)
+    public fun copy(numOptions: UInt = this.numOptions, options: MutPtr = this.options): DhcpOptionList = DhcpOptionList(numOptions = numOptions, optionsCtorArg = options)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -6200,21 +6199,21 @@ public class DhcpOptionList internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<DhcpOptionValue>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                     )
                 override fun writeNative(addr: Long, value: DhcpOptionList) {
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr, value.numOptions)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<DhcpOptionValue>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.options)
                 }
             }
 
         public operator fun invoke(
             numOptions: UInt = 0u,
-            options: MutPtr<DhcpOptionValue> = MutPtr(0L),
+            options: MutPtr = MutPtr(0L),
         ): DhcpOptionList =
             DhcpOptionList(
                 numOptions = numOptions,
@@ -6229,16 +6228,16 @@ public data class DhcpOptionScopeInfo(
 )
 
 public class DhcpOptionScopeInfo0 internal constructor(
-    defaultScopeInfoCtorArg: MutPtr<CVoid>,
-    globalScopeInfoCtorArg: MutPtr<CVoid>,
+    defaultScopeInfoCtorArg: MutPtr,
+    globalScopeInfoCtorArg: MutPtr,
     public var subnetScopeInfo: UInt,
     public var reservedScopeInfo: DhcpReservedScope,
     mScopeInfoCtorArg: Pwstr,
 ) {
-    public var defaultScopeInfo: MutPtr<CVoid> = defaultScopeInfoCtorArg
+    public var defaultScopeInfo: MutPtr = defaultScopeInfoCtorArg
         internal set
 
-    public var globalScopeInfo: MutPtr<CVoid> = globalScopeInfoCtorArg
+    public var globalScopeInfo: MutPtr = globalScopeInfoCtorArg
         internal set
 
     public var mScopeInfo: Pwstr = mScopeInfoCtorArg
@@ -6252,9 +6251,9 @@ public class DhcpOptionScopeInfo0 internal constructor(
         mScopeInfoCtorArg = MutPtr(0L),
     )
 
-    public operator fun component1(): MutPtr<CVoid> = this.defaultScopeInfo
+    public operator fun component1(): MutPtr = this.defaultScopeInfo
 
-    public operator fun component2(): MutPtr<CVoid> = this.globalScopeInfo
+    public operator fun component2(): MutPtr = this.globalScopeInfo
 
     public operator fun component3(): UInt = this.subnetScopeInfo
 
@@ -6262,7 +6261,7 @@ public class DhcpOptionScopeInfo0 internal constructor(
 
     public operator fun component5(): Pwstr = this.mScopeInfo
 
-    public fun copy(defaultScopeInfo: MutPtr<CVoid> = this.defaultScopeInfo, globalScopeInfo: MutPtr<CVoid> = this.globalScopeInfo, subnetScopeInfo: UInt = this.subnetScopeInfo, reservedScopeInfo: DhcpReservedScope = this.reservedScopeInfo, mScopeInfo: Pwstr = this.mScopeInfo): DhcpOptionScopeInfo0 = DhcpOptionScopeInfo0(defaultScopeInfoCtorArg = defaultScopeInfo, globalScopeInfoCtorArg = globalScopeInfo, subnetScopeInfo = subnetScopeInfo, reservedScopeInfo = reservedScopeInfo, mScopeInfoCtorArg = mScopeInfo)
+    public fun copy(defaultScopeInfo: MutPtr = this.defaultScopeInfo, globalScopeInfo: MutPtr = this.globalScopeInfo, subnetScopeInfo: UInt = this.subnetScopeInfo, reservedScopeInfo: DhcpReservedScope = this.reservedScopeInfo, mScopeInfo: Pwstr = this.mScopeInfo): DhcpOptionScopeInfo0 = DhcpOptionScopeInfo0(defaultScopeInfoCtorArg = defaultScopeInfo, globalScopeInfoCtorArg = globalScopeInfo, subnetScopeInfo = subnetScopeInfo, reservedScopeInfo = reservedScopeInfo, mScopeInfoCtorArg = mScopeInfo)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -6286,8 +6285,8 @@ public class DhcpOptionScopeInfo0 internal constructor(
 
     public companion object {
         public operator fun invoke(
-            defaultScopeInfo: MutPtr<CVoid> = MutPtr(0L),
-            globalScopeInfo: MutPtr<CVoid> = MutPtr(0L),
+            defaultScopeInfo: MutPtr = MutPtr(0L),
+            globalScopeInfo: MutPtr = MutPtr(0L),
             subnetScopeInfo: UInt = 0u,
             reservedScopeInfo: DhcpReservedScope = DhcpReservedScope(),
             mScopeInfo: Pwstr = MutPtr(0L),
@@ -6308,11 +6307,11 @@ public data class DhcpOptionScopeInfo6(
 )
 
 public class DhcpOptionScopeInfo60 internal constructor(
-    defaultScopeInfoCtorArg: MutPtr<CVoid>,
+    defaultScopeInfoCtorArg: MutPtr,
     public var subnetScopeInfo: DhcpIpv6Address,
     public var reservedScopeInfo: DhcpReservedScope6,
 ) {
-    public var defaultScopeInfo: MutPtr<CVoid> = defaultScopeInfoCtorArg
+    public var defaultScopeInfo: MutPtr = defaultScopeInfoCtorArg
         internal set
 
     public constructor() : this(
@@ -6321,13 +6320,13 @@ public class DhcpOptionScopeInfo60 internal constructor(
         reservedScopeInfo = DhcpReservedScope6(),
     )
 
-    public operator fun component1(): MutPtr<CVoid> = this.defaultScopeInfo
+    public operator fun component1(): MutPtr = this.defaultScopeInfo
 
     public operator fun component2(): DhcpIpv6Address = this.subnetScopeInfo
 
     public operator fun component3(): DhcpReservedScope6 = this.reservedScopeInfo
 
-    public fun copy(defaultScopeInfo: MutPtr<CVoid> = this.defaultScopeInfo, subnetScopeInfo: DhcpIpv6Address = this.subnetScopeInfo, reservedScopeInfo: DhcpReservedScope6 = this.reservedScopeInfo): DhcpOptionScopeInfo60 = DhcpOptionScopeInfo60(defaultScopeInfoCtorArg = defaultScopeInfo, subnetScopeInfo = subnetScopeInfo, reservedScopeInfo = reservedScopeInfo)
+    public fun copy(defaultScopeInfo: MutPtr = this.defaultScopeInfo, subnetScopeInfo: DhcpIpv6Address = this.subnetScopeInfo, reservedScopeInfo: DhcpReservedScope6 = this.reservedScopeInfo): DhcpOptionScopeInfo60 = DhcpOptionScopeInfo60(defaultScopeInfoCtorArg = defaultScopeInfo, subnetScopeInfo = subnetScopeInfo, reservedScopeInfo = reservedScopeInfo)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -6347,7 +6346,7 @@ public class DhcpOptionScopeInfo60 internal constructor(
 
     public companion object {
         public operator fun invoke(
-            defaultScopeInfo: MutPtr<CVoid> = MutPtr(0L),
+            defaultScopeInfo: MutPtr = MutPtr(0L),
             subnetScopeInfo: DhcpIpv6Address = DhcpIpv6Address(),
             reservedScopeInfo: DhcpReservedScope6 = DhcpReservedScope6(),
         ): DhcpOptionScopeInfo60 =
@@ -6383,9 +6382,9 @@ public data class DhcpOptionValue(
 
 public class DhcpOptionValueArray internal constructor(
     public var numElements: UInt,
-    valuesCtorArg: MutPtr<DhcpOptionValue>,
+    valuesCtorArg: MutPtr,
 ) {
-    public var values: MutPtr<DhcpOptionValue> = valuesCtorArg
+    public var values: MutPtr = valuesCtorArg
         internal set
 
     public constructor() : this(
@@ -6395,9 +6394,9 @@ public class DhcpOptionValueArray internal constructor(
 
     public operator fun component1(): UInt = this.numElements
 
-    public operator fun component2(): MutPtr<DhcpOptionValue> = this.values
+    public operator fun component2(): MutPtr = this.values
 
-    public fun copy(numElements: UInt = this.numElements, values: MutPtr<DhcpOptionValue> = this.values): DhcpOptionValueArray = DhcpOptionValueArray(numElements = numElements, valuesCtorArg = values)
+    public fun copy(numElements: UInt = this.numElements, values: MutPtr = this.values): DhcpOptionValueArray = DhcpOptionValueArray(numElements = numElements, valuesCtorArg = values)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -6423,21 +6422,21 @@ public class DhcpOptionValueArray internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<DhcpOptionValue>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                     )
                 override fun writeNative(addr: Long, value: DhcpOptionValueArray) {
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr, value.numElements)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<DhcpOptionValue>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.values)
                 }
             }
 
         public operator fun invoke(
             numElements: UInt = 0u,
-            values: MutPtr<DhcpOptionValue> = MutPtr(0L),
+            values: MutPtr = MutPtr(0L),
         ): DhcpOptionValueArray =
             DhcpOptionValueArray(
                 numElements = numElements,
@@ -6524,22 +6523,22 @@ public class DhcpPolicy internal constructor(
     public var isGlobalPolicy: Bool,
     public var subnet: UInt,
     public var processingOrder: UInt,
-    conditionsCtorArg: MutPtr<DhcpPolCondArray>,
-    expressionsCtorArg: MutPtr<DhcpPolExprArray>,
-    rangesCtorArg: MutPtr<DhcpIpRangeArray>,
+    conditionsCtorArg: MutPtr,
+    expressionsCtorArg: MutPtr,
+    rangesCtorArg: MutPtr,
     descriptionCtorArg: Pwstr,
     public var enabled: Bool,
 ) {
     public var policyName: Pwstr = policyNameCtorArg
         internal set
 
-    public var conditions: MutPtr<DhcpPolCondArray> = conditionsCtorArg
+    public var conditions: MutPtr = conditionsCtorArg
         internal set
 
-    public var expressions: MutPtr<DhcpPolExprArray> = expressionsCtorArg
+    public var expressions: MutPtr = expressionsCtorArg
         internal set
 
-    public var ranges: MutPtr<DhcpIpRangeArray> = rangesCtorArg
+    public var ranges: MutPtr = rangesCtorArg
         internal set
 
     public var description: Pwstr = descriptionCtorArg
@@ -6565,17 +6564,17 @@ public class DhcpPolicy internal constructor(
 
     public operator fun component4(): UInt = this.processingOrder
 
-    public operator fun component5(): MutPtr<DhcpPolCondArray> = this.conditions
+    public operator fun component5(): MutPtr = this.conditions
 
-    public operator fun component6(): MutPtr<DhcpPolExprArray> = this.expressions
+    public operator fun component6(): MutPtr = this.expressions
 
-    public operator fun component7(): MutPtr<DhcpIpRangeArray> = this.ranges
+    public operator fun component7(): MutPtr = this.ranges
 
     public operator fun component8(): Pwstr = this.description
 
     public operator fun component9(): Bool = this.enabled
 
-    public fun copy(policyName: Pwstr = this.policyName, isGlobalPolicy: Bool = this.isGlobalPolicy, subnet: UInt = this.subnet, processingOrder: UInt = this.processingOrder, conditions: MutPtr<DhcpPolCondArray> = this.conditions, expressions: MutPtr<DhcpPolExprArray> = this.expressions, ranges: MutPtr<DhcpIpRangeArray> = this.ranges, description: Pwstr = this.description, enabled: Bool = this.enabled): DhcpPolicy = DhcpPolicy(policyNameCtorArg = policyName, isGlobalPolicy = isGlobalPolicy, subnet = subnet, processingOrder = processingOrder, conditionsCtorArg = conditions, expressionsCtorArg = expressions, rangesCtorArg = ranges, descriptionCtorArg = description, enabled = enabled)
+    public fun copy(policyName: Pwstr = this.policyName, isGlobalPolicy: Bool = this.isGlobalPolicy, subnet: UInt = this.subnet, processingOrder: UInt = this.processingOrder, conditions: MutPtr = this.conditions, expressions: MutPtr = this.expressions, ranges: MutPtr = this.ranges, description: Pwstr = this.description, enabled: Bool = this.enabled): DhcpPolicy = DhcpPolicy(policyNameCtorArg = policyName, isGlobalPolicy = isGlobalPolicy, subnet = subnet, processingOrder = processingOrder, conditionsCtorArg = conditions, expressionsCtorArg = expressions, rangesCtorArg = ranges, descriptionCtorArg = description, enabled = enabled)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -6611,9 +6610,9 @@ public class DhcpPolicy internal constructor(
             isGlobalPolicy: Bool = 0,
             subnet: UInt = 0u,
             processingOrder: UInt = 0u,
-            conditions: MutPtr<DhcpPolCondArray> = MutPtr(0L),
-            expressions: MutPtr<DhcpPolExprArray> = MutPtr(0L),
-            ranges: MutPtr<DhcpIpRangeArray> = MutPtr(0L),
+            conditions: MutPtr = MutPtr(0L),
+            expressions: MutPtr = MutPtr(0L),
+            ranges: MutPtr = MutPtr(0L),
             description: Pwstr = MutPtr(0L),
             enabled: Bool = 0,
         ): DhcpPolicy =
@@ -6633,9 +6632,9 @@ public class DhcpPolicy internal constructor(
 
 public class DhcpPolicyArray internal constructor(
     public var numElements: UInt,
-    elementsCtorArg: MutPtr<DhcpPolicy>,
+    elementsCtorArg: MutPtr,
 ) {
-    public var elements: MutPtr<DhcpPolicy> = elementsCtorArg
+    public var elements: MutPtr = elementsCtorArg
         internal set
 
     public constructor() : this(
@@ -6645,9 +6644,9 @@ public class DhcpPolicyArray internal constructor(
 
     public operator fun component1(): UInt = this.numElements
 
-    public operator fun component2(): MutPtr<DhcpPolicy> = this.elements
+    public operator fun component2(): MutPtr = this.elements
 
-    public fun copy(numElements: UInt = this.numElements, elements: MutPtr<DhcpPolicy> = this.elements): DhcpPolicyArray = DhcpPolicyArray(numElements = numElements, elementsCtorArg = elements)
+    public fun copy(numElements: UInt = this.numElements, elements: MutPtr = this.elements): DhcpPolicyArray = DhcpPolicyArray(numElements = numElements, elementsCtorArg = elements)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -6673,21 +6672,21 @@ public class DhcpPolicyArray internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<DhcpPolicy>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                     )
                 override fun writeNative(addr: Long, value: DhcpPolicyArray) {
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr, value.numElements)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<DhcpPolicy>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.elements)
                 }
             }
 
         public operator fun invoke(
             numElements: UInt = 0u,
-            elements: MutPtr<DhcpPolicy> = MutPtr(0L),
+            elements: MutPtr = MutPtr(0L),
         ): DhcpPolicyArray =
             DhcpPolicyArray(
                 numElements = numElements,
@@ -6701,29 +6700,29 @@ public class DhcpPolicyEx internal constructor(
     public var isGlobalPolicy: Bool,
     public var subnet: UInt,
     public var processingOrder: UInt,
-    conditionsCtorArg: MutPtr<DhcpPolCondArray>,
-    expressionsCtorArg: MutPtr<DhcpPolExprArray>,
-    rangesCtorArg: MutPtr<DhcpIpRangeArray>,
+    conditionsCtorArg: MutPtr,
+    expressionsCtorArg: MutPtr,
+    rangesCtorArg: MutPtr,
     descriptionCtorArg: Pwstr,
     public var enabled: Bool,
-    propertiesCtorArg: MutPtr<DhcpPropertyArray>,
+    propertiesCtorArg: MutPtr,
 ) {
     public var policyName: Pwstr = policyNameCtorArg
         internal set
 
-    public var conditions: MutPtr<DhcpPolCondArray> = conditionsCtorArg
+    public var conditions: MutPtr = conditionsCtorArg
         internal set
 
-    public var expressions: MutPtr<DhcpPolExprArray> = expressionsCtorArg
+    public var expressions: MutPtr = expressionsCtorArg
         internal set
 
-    public var ranges: MutPtr<DhcpIpRangeArray> = rangesCtorArg
+    public var ranges: MutPtr = rangesCtorArg
         internal set
 
     public var description: Pwstr = descriptionCtorArg
         internal set
 
-    public var properties: MutPtr<DhcpPropertyArray> = propertiesCtorArg
+    public var properties: MutPtr = propertiesCtorArg
         internal set
 
     public constructor() : this(
@@ -6747,19 +6746,19 @@ public class DhcpPolicyEx internal constructor(
 
     public operator fun component4(): UInt = this.processingOrder
 
-    public operator fun component5(): MutPtr<DhcpPolCondArray> = this.conditions
+    public operator fun component5(): MutPtr = this.conditions
 
-    public operator fun component6(): MutPtr<DhcpPolExprArray> = this.expressions
+    public operator fun component6(): MutPtr = this.expressions
 
-    public operator fun component7(): MutPtr<DhcpIpRangeArray> = this.ranges
+    public operator fun component7(): MutPtr = this.ranges
 
     public operator fun component8(): Pwstr = this.description
 
     public operator fun component9(): Bool = this.enabled
 
-    public operator fun component10(): MutPtr<DhcpPropertyArray> = this.properties
+    public operator fun component10(): MutPtr = this.properties
 
-    public fun copy(policyName: Pwstr = this.policyName, isGlobalPolicy: Bool = this.isGlobalPolicy, subnet: UInt = this.subnet, processingOrder: UInt = this.processingOrder, conditions: MutPtr<DhcpPolCondArray> = this.conditions, expressions: MutPtr<DhcpPolExprArray> = this.expressions, ranges: MutPtr<DhcpIpRangeArray> = this.ranges, description: Pwstr = this.description, enabled: Bool = this.enabled, properties: MutPtr<DhcpPropertyArray> = this.properties): DhcpPolicyEx = DhcpPolicyEx(policyNameCtorArg = policyName, isGlobalPolicy = isGlobalPolicy, subnet = subnet, processingOrder = processingOrder, conditionsCtorArg = conditions, expressionsCtorArg = expressions, rangesCtorArg = ranges, descriptionCtorArg = description, enabled = enabled, propertiesCtorArg = properties)
+    public fun copy(policyName: Pwstr = this.policyName, isGlobalPolicy: Bool = this.isGlobalPolicy, subnet: UInt = this.subnet, processingOrder: UInt = this.processingOrder, conditions: MutPtr = this.conditions, expressions: MutPtr = this.expressions, ranges: MutPtr = this.ranges, description: Pwstr = this.description, enabled: Bool = this.enabled, properties: MutPtr = this.properties): DhcpPolicyEx = DhcpPolicyEx(policyNameCtorArg = policyName, isGlobalPolicy = isGlobalPolicy, subnet = subnet, processingOrder = processingOrder, conditionsCtorArg = conditions, expressionsCtorArg = expressions, rangesCtorArg = ranges, descriptionCtorArg = description, enabled = enabled, propertiesCtorArg = properties)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -6797,12 +6796,12 @@ public class DhcpPolicyEx internal constructor(
             isGlobalPolicy: Bool = 0,
             subnet: UInt = 0u,
             processingOrder: UInt = 0u,
-            conditions: MutPtr<DhcpPolCondArray> = MutPtr(0L),
-            expressions: MutPtr<DhcpPolExprArray> = MutPtr(0L),
-            ranges: MutPtr<DhcpIpRangeArray> = MutPtr(0L),
+            conditions: MutPtr = MutPtr(0L),
+            expressions: MutPtr = MutPtr(0L),
+            ranges: MutPtr = MutPtr(0L),
             description: Pwstr = MutPtr(0L),
             enabled: Bool = 0,
-            properties: MutPtr<DhcpPropertyArray> = MutPtr(0L),
+            properties: MutPtr = MutPtr(0L),
         ): DhcpPolicyEx =
             DhcpPolicyEx(
                 policyNameCtorArg = policyName,
@@ -6821,9 +6820,9 @@ public class DhcpPolicyEx internal constructor(
 
 public class DhcpPolicyExArray internal constructor(
     public var numElements: UInt,
-    elementsCtorArg: MutPtr<DhcpPolicyEx>,
+    elementsCtorArg: MutPtr,
 ) {
-    public var elements: MutPtr<DhcpPolicyEx> = elementsCtorArg
+    public var elements: MutPtr = elementsCtorArg
         internal set
 
     public constructor() : this(
@@ -6833,9 +6832,9 @@ public class DhcpPolicyExArray internal constructor(
 
     public operator fun component1(): UInt = this.numElements
 
-    public operator fun component2(): MutPtr<DhcpPolicyEx> = this.elements
+    public operator fun component2(): MutPtr = this.elements
 
-    public fun copy(numElements: UInt = this.numElements, elements: MutPtr<DhcpPolicyEx> = this.elements): DhcpPolicyExArray = DhcpPolicyExArray(numElements = numElements, elementsCtorArg = elements)
+    public fun copy(numElements: UInt = this.numElements, elements: MutPtr = this.elements): DhcpPolicyExArray = DhcpPolicyExArray(numElements = numElements, elementsCtorArg = elements)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -6861,21 +6860,21 @@ public class DhcpPolicyExArray internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<DhcpPolicyEx>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                     )
                 override fun writeNative(addr: Long, value: DhcpPolicyExArray) {
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr, value.numElements)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<DhcpPolicyEx>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.elements)
                 }
             }
 
         public operator fun invoke(
             numElements: UInt = 0u,
-            elements: MutPtr<DhcpPolicyEx> = MutPtr(0L),
+            elements: MutPtr = MutPtr(0L),
         ): DhcpPolicyExArray =
             DhcpPolicyExArray(
                 numElements = numElements,
@@ -6891,13 +6890,13 @@ public class DhcpPolCond internal constructor(
     public var subOptionID: UInt,
     vendorNameCtorArg: Pwstr,
     public var operator: DhcpPolComparator,
-    valueCtorArg: MutPtr<UByte>,
+    valueCtorArg: MutPtr,
     public var valueLength: UInt,
 ) {
     public var vendorName: Pwstr = vendorNameCtorArg
         internal set
 
-    public var value: MutPtr<UByte> = valueCtorArg
+    public var value: MutPtr = valueCtorArg
         internal set
 
     public constructor() : this(
@@ -6923,11 +6922,11 @@ public class DhcpPolCond internal constructor(
 
     public operator fun component6(): DhcpPolComparator = this.operator
 
-    public operator fun component7(): MutPtr<UByte> = this.value
+    public operator fun component7(): MutPtr = this.value
 
     public operator fun component8(): UInt = this.valueLength
 
-    public fun copy(parentExpr: UInt = this.parentExpr, type: DhcpPolAttrType = this.type, optionID: UInt = this.optionID, subOptionID: UInt = this.subOptionID, vendorName: Pwstr = this.vendorName, operator: DhcpPolComparator = this.operator, value: MutPtr<UByte> = this.value, valueLength: UInt = this.valueLength): DhcpPolCond = DhcpPolCond(parentExpr = parentExpr, type = type, optionID = optionID, subOptionID = subOptionID, vendorNameCtorArg = vendorName, operator = operator, valueCtorArg = value, valueLength = valueLength)
+    public fun copy(parentExpr: UInt = this.parentExpr, type: DhcpPolAttrType = this.type, optionID: UInt = this.optionID, subOptionID: UInt = this.subOptionID, vendorName: Pwstr = this.vendorName, operator: DhcpPolComparator = this.operator, value: MutPtr = this.value, valueLength: UInt = this.valueLength): DhcpPolCond = DhcpPolCond(parentExpr = parentExpr, type = type, optionID = optionID, subOptionID = subOptionID, vendorNameCtorArg = vendorName, operator = operator, valueCtorArg = value, valueLength = valueLength)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -6963,7 +6962,7 @@ public class DhcpPolCond internal constructor(
             subOptionID: UInt = 0u,
             vendorName: Pwstr = MutPtr(0L),
             operator: DhcpPolComparator = 0,
-            value: MutPtr<UByte> = MutPtr(0L),
+            value: MutPtr = MutPtr(0L),
             valueLength: UInt = 0u,
         ): DhcpPolCond =
             DhcpPolCond(
@@ -6981,9 +6980,9 @@ public class DhcpPolCond internal constructor(
 
 public class DhcpPolCondArray internal constructor(
     public var numElements: UInt,
-    elementsCtorArg: MutPtr<DhcpPolCond>,
+    elementsCtorArg: MutPtr,
 ) {
-    public var elements: MutPtr<DhcpPolCond> = elementsCtorArg
+    public var elements: MutPtr = elementsCtorArg
         internal set
 
     public constructor() : this(
@@ -6993,9 +6992,9 @@ public class DhcpPolCondArray internal constructor(
 
     public operator fun component1(): UInt = this.numElements
 
-    public operator fun component2(): MutPtr<DhcpPolCond> = this.elements
+    public operator fun component2(): MutPtr = this.elements
 
-    public fun copy(numElements: UInt = this.numElements, elements: MutPtr<DhcpPolCond> = this.elements): DhcpPolCondArray = DhcpPolCondArray(numElements = numElements, elementsCtorArg = elements)
+    public fun copy(numElements: UInt = this.numElements, elements: MutPtr = this.elements): DhcpPolCondArray = DhcpPolCondArray(numElements = numElements, elementsCtorArg = elements)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -7021,21 +7020,21 @@ public class DhcpPolCondArray internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<DhcpPolCond>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                     )
                 override fun writeNative(addr: Long, value: DhcpPolCondArray) {
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr, value.numElements)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<DhcpPolCond>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.elements)
                 }
             }
 
         public operator fun invoke(
             numElements: UInt = 0u,
-            elements: MutPtr<DhcpPolCond> = MutPtr(0L),
+            elements: MutPtr = MutPtr(0L),
         ): DhcpPolCondArray =
             DhcpPolCondArray(
                 numElements = numElements,
@@ -7068,9 +7067,9 @@ public data class DhcpPolExpr(
 
 public class DhcpPolExprArray internal constructor(
     public var numElements: UInt,
-    elementsCtorArg: MutPtr<DhcpPolExpr>,
+    elementsCtorArg: MutPtr,
 ) {
-    public var elements: MutPtr<DhcpPolExpr> = elementsCtorArg
+    public var elements: MutPtr = elementsCtorArg
         internal set
 
     public constructor() : this(
@@ -7080,9 +7079,9 @@ public class DhcpPolExprArray internal constructor(
 
     public operator fun component1(): UInt = this.numElements
 
-    public operator fun component2(): MutPtr<DhcpPolExpr> = this.elements
+    public operator fun component2(): MutPtr = this.elements
 
-    public fun copy(numElements: UInt = this.numElements, elements: MutPtr<DhcpPolExpr> = this.elements): DhcpPolExprArray = DhcpPolExprArray(numElements = numElements, elementsCtorArg = elements)
+    public fun copy(numElements: UInt = this.numElements, elements: MutPtr = this.elements): DhcpPolExprArray = DhcpPolExprArray(numElements = numElements, elementsCtorArg = elements)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -7108,21 +7107,21 @@ public class DhcpPolExprArray internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<DhcpPolExpr>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                     )
                 override fun writeNative(addr: Long, value: DhcpPolExprArray) {
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr, value.numElements)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<DhcpPolExpr>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.elements)
                 }
             }
 
         public operator fun invoke(
             numElements: UInt = 0u,
-            elements: MutPtr<DhcpPolExpr> = MutPtr(0L),
+            elements: MutPtr = MutPtr(0L),
         ): DhcpPolExprArray =
             DhcpPolExprArray(
                 numElements = numElements,
@@ -7207,9 +7206,9 @@ public class DhcpProperty0 internal constructor(
 
 public class DhcpPropertyArray internal constructor(
     public var numElements: UInt,
-    elementsCtorArg: MutPtr<DhcpProperty>,
+    elementsCtorArg: MutPtr,
 ) {
-    public var elements: MutPtr<DhcpProperty> = elementsCtorArg
+    public var elements: MutPtr = elementsCtorArg
         internal set
 
     public constructor() : this(
@@ -7219,9 +7218,9 @@ public class DhcpPropertyArray internal constructor(
 
     public operator fun component1(): UInt = this.numElements
 
-    public operator fun component2(): MutPtr<DhcpProperty> = this.elements
+    public operator fun component2(): MutPtr = this.elements
 
-    public fun copy(numElements: UInt = this.numElements, elements: MutPtr<DhcpProperty> = this.elements): DhcpPropertyArray = DhcpPropertyArray(numElements = numElements, elementsCtorArg = elements)
+    public fun copy(numElements: UInt = this.numElements, elements: MutPtr = this.elements): DhcpPropertyArray = DhcpPropertyArray(numElements = numElements, elementsCtorArg = elements)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -7247,21 +7246,21 @@ public class DhcpPropertyArray internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<DhcpProperty>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                     )
                 override fun writeNative(addr: Long, value: DhcpPropertyArray) {
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr, value.numElements)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<DhcpProperty>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.elements)
                 }
             }
 
         public operator fun invoke(
             numElements: UInt = 0u,
-            elements: MutPtr<DhcpProperty> = MutPtr(0L),
+            elements: MutPtr = MutPtr(0L),
         ): DhcpPropertyArray =
             DhcpPropertyArray(
                 numElements = numElements,
@@ -7272,9 +7271,9 @@ public class DhcpPropertyArray internal constructor(
 
 public class DhcpReservationInfoArray internal constructor(
     public var numElements: UInt,
-    elementsCtorArg: MutPtr<MutPtr<DhcpIpReservationInfo>>,
+    elementsCtorArg: MutPtr,
 ) {
-    public var elements: MutPtr<MutPtr<DhcpIpReservationInfo>> = elementsCtorArg
+    public var elements: MutPtr = elementsCtorArg
         internal set
 
     public constructor() : this(
@@ -7284,9 +7283,9 @@ public class DhcpReservationInfoArray internal constructor(
 
     public operator fun component1(): UInt = this.numElements
 
-    public operator fun component2(): MutPtr<MutPtr<DhcpIpReservationInfo>> = this.elements
+    public operator fun component2(): MutPtr = this.elements
 
-    public fun copy(numElements: UInt = this.numElements, elements: MutPtr<MutPtr<DhcpIpReservationInfo>> = this.elements): DhcpReservationInfoArray = DhcpReservationInfoArray(numElements = numElements, elementsCtorArg = elements)
+    public fun copy(numElements: UInt = this.numElements, elements: MutPtr = this.elements): DhcpReservationInfoArray = DhcpReservationInfoArray(numElements = numElements, elementsCtorArg = elements)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -7312,21 +7311,21 @@ public class DhcpReservationInfoArray internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<MutPtr<DhcpIpReservationInfo>>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                     )
                 override fun writeNative(addr: Long, value: DhcpReservationInfoArray) {
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr, value.numElements)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<MutPtr<DhcpIpReservationInfo>>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.elements)
                 }
             }
 
         public operator fun invoke(
             numElements: UInt = 0u,
-            elements: MutPtr<MutPtr<DhcpIpReservationInfo>> = MutPtr(0L),
+            elements: MutPtr = MutPtr(0L),
         ): DhcpReservationInfoArray =
             DhcpReservationInfoArray(
                 numElements = numElements,
@@ -7403,9 +7402,9 @@ public data class DhcpScanItem(
 
 public class DhcpScanList internal constructor(
     public var numScanItems: UInt,
-    scanItemsCtorArg: MutPtr<DhcpScanItem>,
+    scanItemsCtorArg: MutPtr,
 ) {
-    public var scanItems: MutPtr<DhcpScanItem> = scanItemsCtorArg
+    public var scanItems: MutPtr = scanItemsCtorArg
         internal set
 
     public constructor() : this(
@@ -7415,9 +7414,9 @@ public class DhcpScanList internal constructor(
 
     public operator fun component1(): UInt = this.numScanItems
 
-    public operator fun component2(): MutPtr<DhcpScanItem> = this.scanItems
+    public operator fun component2(): MutPtr = this.scanItems
 
-    public fun copy(numScanItems: UInt = this.numScanItems, scanItems: MutPtr<DhcpScanItem> = this.scanItems): DhcpScanList = DhcpScanList(numScanItems = numScanItems, scanItemsCtorArg = scanItems)
+    public fun copy(numScanItems: UInt = this.numScanItems, scanItems: MutPtr = this.scanItems): DhcpScanList = DhcpScanList(numScanItems = numScanItems, scanItemsCtorArg = scanItems)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -7443,21 +7442,21 @@ public class DhcpScanList internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<DhcpScanItem>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                     )
                 override fun writeNative(addr: Long, value: DhcpScanList) {
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr, value.numScanItems)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<DhcpScanItem>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.scanItems)
                 }
             }
 
         public operator fun invoke(
             numScanItems: UInt = 0u,
-            scanItems: MutPtr<DhcpScanItem> = MutPtr(0L),
+            scanItems: MutPtr = MutPtr(0L),
         ): DhcpScanList =
             DhcpScanList(
                 numScanItems = numScanItems,
@@ -8036,75 +8035,75 @@ public class DhcpServerConfigInfoVq internal constructor(
 }
 
 public class DhcpServerOptions internal constructor(
-    messageTypeCtorArg: MutPtr<UByte>,
-    subnetMaskCtorArg: MutPtr<UInt>,
-    requestedAddressCtorArg: MutPtr<UInt>,
-    requestLeaseTimeCtorArg: MutPtr<UInt>,
-    overlayFieldsCtorArg: MutPtr<UByte>,
-    routerAddressCtorArg: MutPtr<UInt>,
-    serverCtorArg: MutPtr<UInt>,
-    parameterRequestListCtorArg: MutPtr<UByte>,
+    messageTypeCtorArg: MutPtr,
+    subnetMaskCtorArg: MutPtr,
+    requestedAddressCtorArg: MutPtr,
+    requestLeaseTimeCtorArg: MutPtr,
+    overlayFieldsCtorArg: MutPtr,
+    routerAddressCtorArg: MutPtr,
+    serverCtorArg: MutPtr,
+    parameterRequestListCtorArg: MutPtr,
     public var parameterRequestListLength: UInt,
     machineNameCtorArg: Pstr,
     public var machineNameLength: UInt,
     public var clientHardwareAddressType: UByte,
     public var clientHardwareAddressLength: UByte,
-    clientHardwareAddressCtorArg: MutPtr<UByte>,
+    clientHardwareAddressCtorArg: MutPtr,
     classIdentifierCtorArg: Pstr,
     public var classIdentifierLength: UInt,
-    vendorClassCtorArg: MutPtr<UByte>,
+    vendorClassCtorArg: MutPtr,
     public var vendorClassLength: UInt,
     public var dNSFlags: UInt,
     public var dNSNameLength: UInt,
-    dNSNameCtorArg: MutPtr<UByte>,
+    dNSNameCtorArg: MutPtr,
     public var dSDomainNameRequested: Boolean,
     dSDomainNameCtorArg: Pstr,
     public var dSDomainNameLen: UInt,
-    scopeIdCtorArg: MutPtr<UInt>,
+    scopeIdCtorArg: MutPtr,
 ) {
-    public var messageType: MutPtr<UByte> = messageTypeCtorArg
+    public var messageType: MutPtr = messageTypeCtorArg
         internal set
 
-    public var subnetMask: MutPtr<UInt> = subnetMaskCtorArg
+    public var subnetMask: MutPtr = subnetMaskCtorArg
         internal set
 
-    public var requestedAddress: MutPtr<UInt> = requestedAddressCtorArg
+    public var requestedAddress: MutPtr = requestedAddressCtorArg
         internal set
 
-    public var requestLeaseTime: MutPtr<UInt> = requestLeaseTimeCtorArg
+    public var requestLeaseTime: MutPtr = requestLeaseTimeCtorArg
         internal set
 
-    public var overlayFields: MutPtr<UByte> = overlayFieldsCtorArg
+    public var overlayFields: MutPtr = overlayFieldsCtorArg
         internal set
 
-    public var routerAddress: MutPtr<UInt> = routerAddressCtorArg
+    public var routerAddress: MutPtr = routerAddressCtorArg
         internal set
 
-    public var server: MutPtr<UInt> = serverCtorArg
+    public var server: MutPtr = serverCtorArg
         internal set
 
-    public var parameterRequestList: MutPtr<UByte> = parameterRequestListCtorArg
+    public var parameterRequestList: MutPtr = parameterRequestListCtorArg
         internal set
 
     public var machineName: Pstr = machineNameCtorArg
         internal set
 
-    public var clientHardwareAddress: MutPtr<UByte> = clientHardwareAddressCtorArg
+    public var clientHardwareAddress: MutPtr = clientHardwareAddressCtorArg
         internal set
 
     public var classIdentifier: Pstr = classIdentifierCtorArg
         internal set
 
-    public var vendorClass: MutPtr<UByte> = vendorClassCtorArg
+    public var vendorClass: MutPtr = vendorClassCtorArg
         internal set
 
-    public var dNSName: MutPtr<UByte> = dNSNameCtorArg
+    public var dNSName: MutPtr = dNSNameCtorArg
         internal set
 
     public var dSDomainName: Pstr = dSDomainNameCtorArg
         internal set
 
-    public var scopeId: MutPtr<UInt> = scopeIdCtorArg
+    public var scopeId: MutPtr = scopeIdCtorArg
         internal set
 
     public constructor() : this(
@@ -8137,31 +8136,31 @@ public class DhcpServerOptions internal constructor(
 
     public companion object {
         public operator fun invoke(
-            messageType: MutPtr<UByte> = MutPtr(0L),
-            subnetMask: MutPtr<UInt> = MutPtr(0L),
-            requestedAddress: MutPtr<UInt> = MutPtr(0L),
-            requestLeaseTime: MutPtr<UInt> = MutPtr(0L),
-            overlayFields: MutPtr<UByte> = MutPtr(0L),
-            routerAddress: MutPtr<UInt> = MutPtr(0L),
-            server: MutPtr<UInt> = MutPtr(0L),
-            parameterRequestList: MutPtr<UByte> = MutPtr(0L),
+            messageType: MutPtr = MutPtr(0L),
+            subnetMask: MutPtr = MutPtr(0L),
+            requestedAddress: MutPtr = MutPtr(0L),
+            requestLeaseTime: MutPtr = MutPtr(0L),
+            overlayFields: MutPtr = MutPtr(0L),
+            routerAddress: MutPtr = MutPtr(0L),
+            server: MutPtr = MutPtr(0L),
+            parameterRequestList: MutPtr = MutPtr(0L),
             parameterRequestListLength: UInt = 0u,
             machineName: Pstr = MutPtr(0L),
             machineNameLength: UInt = 0u,
             clientHardwareAddressType: UByte = 0u,
             clientHardwareAddressLength: UByte = 0u,
-            clientHardwareAddress: MutPtr<UByte> = MutPtr(0L),
+            clientHardwareAddress: MutPtr = MutPtr(0L),
             classIdentifier: Pstr = MutPtr(0L),
             classIdentifierLength: UInt = 0u,
-            vendorClass: MutPtr<UByte> = MutPtr(0L),
+            vendorClass: MutPtr = MutPtr(0L),
             vendorClassLength: UInt = 0u,
             dNSFlags: UInt = 0u,
             dNSNameLength: UInt = 0u,
-            dNSName: MutPtr<UByte> = MutPtr(0L),
+            dNSName: MutPtr = MutPtr(0L),
             dSDomainNameRequested: Boolean = false,
             dSDomainName: Pstr = MutPtr(0L),
             dSDomainNameLen: UInt = 0u,
-            scopeId: MutPtr<UInt> = MutPtr(0L),
+            scopeId: MutPtr = MutPtr(0L),
         ): DhcpServerOptions =
             DhcpServerOptions(
                 messageTypeCtorArg = messageType,
@@ -8246,25 +8245,25 @@ public data class DhcpSubnetElementData(
 )
 
 public class DhcpSubnetElementData0 internal constructor(
-    ipRangeCtorArg: MutPtr<DhcpIpRange>,
-    secondaryHostCtorArg: MutPtr<DhcpHostInfo>,
-    reservedIpCtorArg: MutPtr<DhcpIpReservation>,
-    excludeIpRangeCtorArg: MutPtr<DhcpIpRange>,
-    ipUsedClusterCtorArg: MutPtr<DhcpIpCluster>,
+    ipRangeCtorArg: MutPtr,
+    secondaryHostCtorArg: MutPtr,
+    reservedIpCtorArg: MutPtr,
+    excludeIpRangeCtorArg: MutPtr,
+    ipUsedClusterCtorArg: MutPtr,
 ) {
-    public var ipRange: MutPtr<DhcpIpRange> = ipRangeCtorArg
+    public var ipRange: MutPtr = ipRangeCtorArg
         internal set
 
-    public var secondaryHost: MutPtr<DhcpHostInfo> = secondaryHostCtorArg
+    public var secondaryHost: MutPtr = secondaryHostCtorArg
         internal set
 
-    public var reservedIp: MutPtr<DhcpIpReservation> = reservedIpCtorArg
+    public var reservedIp: MutPtr = reservedIpCtorArg
         internal set
 
-    public var excludeIpRange: MutPtr<DhcpIpRange> = excludeIpRangeCtorArg
+    public var excludeIpRange: MutPtr = excludeIpRangeCtorArg
         internal set
 
-    public var ipUsedCluster: MutPtr<DhcpIpCluster> = ipUsedClusterCtorArg
+    public var ipUsedCluster: MutPtr = ipUsedClusterCtorArg
         internal set
 
     public constructor() : this(
@@ -8275,17 +8274,17 @@ public class DhcpSubnetElementData0 internal constructor(
         ipUsedClusterCtorArg = MutPtr(0L),
     )
 
-    public operator fun component1(): MutPtr<DhcpIpRange> = this.ipRange
+    public operator fun component1(): MutPtr = this.ipRange
 
-    public operator fun component2(): MutPtr<DhcpHostInfo> = this.secondaryHost
+    public operator fun component2(): MutPtr = this.secondaryHost
 
-    public operator fun component3(): MutPtr<DhcpIpReservation> = this.reservedIp
+    public operator fun component3(): MutPtr = this.reservedIp
 
-    public operator fun component4(): MutPtr<DhcpIpRange> = this.excludeIpRange
+    public operator fun component4(): MutPtr = this.excludeIpRange
 
-    public operator fun component5(): MutPtr<DhcpIpCluster> = this.ipUsedCluster
+    public operator fun component5(): MutPtr = this.ipUsedCluster
 
-    public fun copy(ipRange: MutPtr<DhcpIpRange> = this.ipRange, secondaryHost: MutPtr<DhcpHostInfo> = this.secondaryHost, reservedIp: MutPtr<DhcpIpReservation> = this.reservedIp, excludeIpRange: MutPtr<DhcpIpRange> = this.excludeIpRange, ipUsedCluster: MutPtr<DhcpIpCluster> = this.ipUsedCluster): DhcpSubnetElementData0 = DhcpSubnetElementData0(ipRangeCtorArg = ipRange, secondaryHostCtorArg = secondaryHost, reservedIpCtorArg = reservedIp, excludeIpRangeCtorArg = excludeIpRange, ipUsedClusterCtorArg = ipUsedCluster)
+    public fun copy(ipRange: MutPtr = this.ipRange, secondaryHost: MutPtr = this.secondaryHost, reservedIp: MutPtr = this.reservedIp, excludeIpRange: MutPtr = this.excludeIpRange, ipUsedCluster: MutPtr = this.ipUsedCluster): DhcpSubnetElementData0 = DhcpSubnetElementData0(ipRangeCtorArg = ipRange, secondaryHostCtorArg = secondaryHost, reservedIpCtorArg = reservedIp, excludeIpRangeCtorArg = excludeIpRange, ipUsedClusterCtorArg = ipUsedCluster)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -8309,11 +8308,11 @@ public class DhcpSubnetElementData0 internal constructor(
 
     public companion object {
         public operator fun invoke(
-            ipRange: MutPtr<DhcpIpRange> = MutPtr(0L),
-            secondaryHost: MutPtr<DhcpHostInfo> = MutPtr(0L),
-            reservedIp: MutPtr<DhcpIpReservation> = MutPtr(0L),
-            excludeIpRange: MutPtr<DhcpIpRange> = MutPtr(0L),
-            ipUsedCluster: MutPtr<DhcpIpCluster> = MutPtr(0L),
+            ipRange: MutPtr = MutPtr(0L),
+            secondaryHost: MutPtr = MutPtr(0L),
+            reservedIp: MutPtr = MutPtr(0L),
+            excludeIpRange: MutPtr = MutPtr(0L),
+            ipUsedCluster: MutPtr = MutPtr(0L),
         ): DhcpSubnetElementData0 =
             DhcpSubnetElementData0(
                 ipRangeCtorArg = ipRange,
@@ -8331,25 +8330,25 @@ public data class DhcpSubnetElementDataV4(
 )
 
 public class DhcpSubnetElementDataV40 internal constructor(
-    ipRangeCtorArg: MutPtr<DhcpIpRange>,
-    secondaryHostCtorArg: MutPtr<DhcpHostInfo>,
-    reservedIpCtorArg: MutPtr<DhcpIpReservationV4>,
-    excludeIpRangeCtorArg: MutPtr<DhcpIpRange>,
-    ipUsedClusterCtorArg: MutPtr<DhcpIpCluster>,
+    ipRangeCtorArg: MutPtr,
+    secondaryHostCtorArg: MutPtr,
+    reservedIpCtorArg: MutPtr,
+    excludeIpRangeCtorArg: MutPtr,
+    ipUsedClusterCtorArg: MutPtr,
 ) {
-    public var ipRange: MutPtr<DhcpIpRange> = ipRangeCtorArg
+    public var ipRange: MutPtr = ipRangeCtorArg
         internal set
 
-    public var secondaryHost: MutPtr<DhcpHostInfo> = secondaryHostCtorArg
+    public var secondaryHost: MutPtr = secondaryHostCtorArg
         internal set
 
-    public var reservedIp: MutPtr<DhcpIpReservationV4> = reservedIpCtorArg
+    public var reservedIp: MutPtr = reservedIpCtorArg
         internal set
 
-    public var excludeIpRange: MutPtr<DhcpIpRange> = excludeIpRangeCtorArg
+    public var excludeIpRange: MutPtr = excludeIpRangeCtorArg
         internal set
 
-    public var ipUsedCluster: MutPtr<DhcpIpCluster> = ipUsedClusterCtorArg
+    public var ipUsedCluster: MutPtr = ipUsedClusterCtorArg
         internal set
 
     public constructor() : this(
@@ -8360,17 +8359,17 @@ public class DhcpSubnetElementDataV40 internal constructor(
         ipUsedClusterCtorArg = MutPtr(0L),
     )
 
-    public operator fun component1(): MutPtr<DhcpIpRange> = this.ipRange
+    public operator fun component1(): MutPtr = this.ipRange
 
-    public operator fun component2(): MutPtr<DhcpHostInfo> = this.secondaryHost
+    public operator fun component2(): MutPtr = this.secondaryHost
 
-    public operator fun component3(): MutPtr<DhcpIpReservationV4> = this.reservedIp
+    public operator fun component3(): MutPtr = this.reservedIp
 
-    public operator fun component4(): MutPtr<DhcpIpRange> = this.excludeIpRange
+    public operator fun component4(): MutPtr = this.excludeIpRange
 
-    public operator fun component5(): MutPtr<DhcpIpCluster> = this.ipUsedCluster
+    public operator fun component5(): MutPtr = this.ipUsedCluster
 
-    public fun copy(ipRange: MutPtr<DhcpIpRange> = this.ipRange, secondaryHost: MutPtr<DhcpHostInfo> = this.secondaryHost, reservedIp: MutPtr<DhcpIpReservationV4> = this.reservedIp, excludeIpRange: MutPtr<DhcpIpRange> = this.excludeIpRange, ipUsedCluster: MutPtr<DhcpIpCluster> = this.ipUsedCluster): DhcpSubnetElementDataV40 = DhcpSubnetElementDataV40(ipRangeCtorArg = ipRange, secondaryHostCtorArg = secondaryHost, reservedIpCtorArg = reservedIp, excludeIpRangeCtorArg = excludeIpRange, ipUsedClusterCtorArg = ipUsedCluster)
+    public fun copy(ipRange: MutPtr = this.ipRange, secondaryHost: MutPtr = this.secondaryHost, reservedIp: MutPtr = this.reservedIp, excludeIpRange: MutPtr = this.excludeIpRange, ipUsedCluster: MutPtr = this.ipUsedCluster): DhcpSubnetElementDataV40 = DhcpSubnetElementDataV40(ipRangeCtorArg = ipRange, secondaryHostCtorArg = secondaryHost, reservedIpCtorArg = reservedIp, excludeIpRangeCtorArg = excludeIpRange, ipUsedClusterCtorArg = ipUsedCluster)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -8394,11 +8393,11 @@ public class DhcpSubnetElementDataV40 internal constructor(
 
     public companion object {
         public operator fun invoke(
-            ipRange: MutPtr<DhcpIpRange> = MutPtr(0L),
-            secondaryHost: MutPtr<DhcpHostInfo> = MutPtr(0L),
-            reservedIp: MutPtr<DhcpIpReservationV4> = MutPtr(0L),
-            excludeIpRange: MutPtr<DhcpIpRange> = MutPtr(0L),
-            ipUsedCluster: MutPtr<DhcpIpCluster> = MutPtr(0L),
+            ipRange: MutPtr = MutPtr(0L),
+            secondaryHost: MutPtr = MutPtr(0L),
+            reservedIp: MutPtr = MutPtr(0L),
+            excludeIpRange: MutPtr = MutPtr(0L),
+            ipUsedCluster: MutPtr = MutPtr(0L),
         ): DhcpSubnetElementDataV40 =
             DhcpSubnetElementDataV40(
                 ipRangeCtorArg = ipRange,
@@ -8416,25 +8415,25 @@ public data class DhcpSubnetElementDataV5(
 )
 
 public class DhcpSubnetElementDataV50 internal constructor(
-    ipRangeCtorArg: MutPtr<DhcpBootpIpRange>,
-    secondaryHostCtorArg: MutPtr<DhcpHostInfo>,
-    reservedIpCtorArg: MutPtr<DhcpIpReservationV4>,
-    excludeIpRangeCtorArg: MutPtr<DhcpIpRange>,
-    ipUsedClusterCtorArg: MutPtr<DhcpIpCluster>,
+    ipRangeCtorArg: MutPtr,
+    secondaryHostCtorArg: MutPtr,
+    reservedIpCtorArg: MutPtr,
+    excludeIpRangeCtorArg: MutPtr,
+    ipUsedClusterCtorArg: MutPtr,
 ) {
-    public var ipRange: MutPtr<DhcpBootpIpRange> = ipRangeCtorArg
+    public var ipRange: MutPtr = ipRangeCtorArg
         internal set
 
-    public var secondaryHost: MutPtr<DhcpHostInfo> = secondaryHostCtorArg
+    public var secondaryHost: MutPtr = secondaryHostCtorArg
         internal set
 
-    public var reservedIp: MutPtr<DhcpIpReservationV4> = reservedIpCtorArg
+    public var reservedIp: MutPtr = reservedIpCtorArg
         internal set
 
-    public var excludeIpRange: MutPtr<DhcpIpRange> = excludeIpRangeCtorArg
+    public var excludeIpRange: MutPtr = excludeIpRangeCtorArg
         internal set
 
-    public var ipUsedCluster: MutPtr<DhcpIpCluster> = ipUsedClusterCtorArg
+    public var ipUsedCluster: MutPtr = ipUsedClusterCtorArg
         internal set
 
     public constructor() : this(
@@ -8445,17 +8444,17 @@ public class DhcpSubnetElementDataV50 internal constructor(
         ipUsedClusterCtorArg = MutPtr(0L),
     )
 
-    public operator fun component1(): MutPtr<DhcpBootpIpRange> = this.ipRange
+    public operator fun component1(): MutPtr = this.ipRange
 
-    public operator fun component2(): MutPtr<DhcpHostInfo> = this.secondaryHost
+    public operator fun component2(): MutPtr = this.secondaryHost
 
-    public operator fun component3(): MutPtr<DhcpIpReservationV4> = this.reservedIp
+    public operator fun component3(): MutPtr = this.reservedIp
 
-    public operator fun component4(): MutPtr<DhcpIpRange> = this.excludeIpRange
+    public operator fun component4(): MutPtr = this.excludeIpRange
 
-    public operator fun component5(): MutPtr<DhcpIpCluster> = this.ipUsedCluster
+    public operator fun component5(): MutPtr = this.ipUsedCluster
 
-    public fun copy(ipRange: MutPtr<DhcpBootpIpRange> = this.ipRange, secondaryHost: MutPtr<DhcpHostInfo> = this.secondaryHost, reservedIp: MutPtr<DhcpIpReservationV4> = this.reservedIp, excludeIpRange: MutPtr<DhcpIpRange> = this.excludeIpRange, ipUsedCluster: MutPtr<DhcpIpCluster> = this.ipUsedCluster): DhcpSubnetElementDataV50 = DhcpSubnetElementDataV50(ipRangeCtorArg = ipRange, secondaryHostCtorArg = secondaryHost, reservedIpCtorArg = reservedIp, excludeIpRangeCtorArg = excludeIpRange, ipUsedClusterCtorArg = ipUsedCluster)
+    public fun copy(ipRange: MutPtr = this.ipRange, secondaryHost: MutPtr = this.secondaryHost, reservedIp: MutPtr = this.reservedIp, excludeIpRange: MutPtr = this.excludeIpRange, ipUsedCluster: MutPtr = this.ipUsedCluster): DhcpSubnetElementDataV50 = DhcpSubnetElementDataV50(ipRangeCtorArg = ipRange, secondaryHostCtorArg = secondaryHost, reservedIpCtorArg = reservedIp, excludeIpRangeCtorArg = excludeIpRange, ipUsedClusterCtorArg = ipUsedCluster)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -8479,11 +8478,11 @@ public class DhcpSubnetElementDataV50 internal constructor(
 
     public companion object {
         public operator fun invoke(
-            ipRange: MutPtr<DhcpBootpIpRange> = MutPtr(0L),
-            secondaryHost: MutPtr<DhcpHostInfo> = MutPtr(0L),
-            reservedIp: MutPtr<DhcpIpReservationV4> = MutPtr(0L),
-            excludeIpRange: MutPtr<DhcpIpRange> = MutPtr(0L),
-            ipUsedCluster: MutPtr<DhcpIpCluster> = MutPtr(0L),
+            ipRange: MutPtr = MutPtr(0L),
+            secondaryHost: MutPtr = MutPtr(0L),
+            reservedIp: MutPtr = MutPtr(0L),
+            excludeIpRange: MutPtr = MutPtr(0L),
+            ipUsedCluster: MutPtr = MutPtr(0L),
         ): DhcpSubnetElementDataV50 =
             DhcpSubnetElementDataV50(
                 ipRangeCtorArg = ipRange,
@@ -8501,17 +8500,17 @@ public data class DhcpSubnetElementDataV6(
 )
 
 public class DhcpSubnetElementDataV60 internal constructor(
-    ipRangeCtorArg: MutPtr<DhcpIpRangeV6>,
-    reservedIpCtorArg: MutPtr<DhcpIpReservationV6>,
-    excludeIpRangeCtorArg: MutPtr<DhcpIpRangeV6>,
+    ipRangeCtorArg: MutPtr,
+    reservedIpCtorArg: MutPtr,
+    excludeIpRangeCtorArg: MutPtr,
 ) {
-    public var ipRange: MutPtr<DhcpIpRangeV6> = ipRangeCtorArg
+    public var ipRange: MutPtr = ipRangeCtorArg
         internal set
 
-    public var reservedIp: MutPtr<DhcpIpReservationV6> = reservedIpCtorArg
+    public var reservedIp: MutPtr = reservedIpCtorArg
         internal set
 
-    public var excludeIpRange: MutPtr<DhcpIpRangeV6> = excludeIpRangeCtorArg
+    public var excludeIpRange: MutPtr = excludeIpRangeCtorArg
         internal set
 
     public constructor() : this(
@@ -8520,13 +8519,13 @@ public class DhcpSubnetElementDataV60 internal constructor(
         excludeIpRangeCtorArg = MutPtr(0L),
     )
 
-    public operator fun component1(): MutPtr<DhcpIpRangeV6> = this.ipRange
+    public operator fun component1(): MutPtr = this.ipRange
 
-    public operator fun component2(): MutPtr<DhcpIpReservationV6> = this.reservedIp
+    public operator fun component2(): MutPtr = this.reservedIp
 
-    public operator fun component3(): MutPtr<DhcpIpRangeV6> = this.excludeIpRange
+    public operator fun component3(): MutPtr = this.excludeIpRange
 
-    public fun copy(ipRange: MutPtr<DhcpIpRangeV6> = this.ipRange, reservedIp: MutPtr<DhcpIpReservationV6> = this.reservedIp, excludeIpRange: MutPtr<DhcpIpRangeV6> = this.excludeIpRange): DhcpSubnetElementDataV60 = DhcpSubnetElementDataV60(ipRangeCtorArg = ipRange, reservedIpCtorArg = reservedIp, excludeIpRangeCtorArg = excludeIpRange)
+    public fun copy(ipRange: MutPtr = this.ipRange, reservedIp: MutPtr = this.reservedIp, excludeIpRange: MutPtr = this.excludeIpRange): DhcpSubnetElementDataV60 = DhcpSubnetElementDataV60(ipRangeCtorArg = ipRange, reservedIpCtorArg = reservedIp, excludeIpRangeCtorArg = excludeIpRange)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -8546,9 +8545,9 @@ public class DhcpSubnetElementDataV60 internal constructor(
 
     public companion object {
         public operator fun invoke(
-            ipRange: MutPtr<DhcpIpRangeV6> = MutPtr(0L),
-            reservedIp: MutPtr<DhcpIpReservationV6> = MutPtr(0L),
-            excludeIpRange: MutPtr<DhcpIpRangeV6> = MutPtr(0L),
+            ipRange: MutPtr = MutPtr(0L),
+            reservedIp: MutPtr = MutPtr(0L),
+            excludeIpRange: MutPtr = MutPtr(0L),
         ): DhcpSubnetElementDataV60 =
             DhcpSubnetElementDataV60(
                 ipRangeCtorArg = ipRange,
@@ -8560,9 +8559,9 @@ public class DhcpSubnetElementDataV60 internal constructor(
 
 public class DhcpSubnetElementInfoArray internal constructor(
     public var numElements: UInt,
-    elementsCtorArg: MutPtr<DhcpSubnetElementData>,
+    elementsCtorArg: MutPtr,
 ) {
-    public var elements: MutPtr<DhcpSubnetElementData> = elementsCtorArg
+    public var elements: MutPtr = elementsCtorArg
         internal set
 
     public constructor() : this(
@@ -8572,9 +8571,9 @@ public class DhcpSubnetElementInfoArray internal constructor(
 
     public operator fun component1(): UInt = this.numElements
 
-    public operator fun component2(): MutPtr<DhcpSubnetElementData> = this.elements
+    public operator fun component2(): MutPtr = this.elements
 
-    public fun copy(numElements: UInt = this.numElements, elements: MutPtr<DhcpSubnetElementData> = this.elements): DhcpSubnetElementInfoArray = DhcpSubnetElementInfoArray(numElements = numElements, elementsCtorArg = elements)
+    public fun copy(numElements: UInt = this.numElements, elements: MutPtr = this.elements): DhcpSubnetElementInfoArray = DhcpSubnetElementInfoArray(numElements = numElements, elementsCtorArg = elements)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -8600,21 +8599,21 @@ public class DhcpSubnetElementInfoArray internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<DhcpSubnetElementData>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                     )
                 override fun writeNative(addr: Long, value: DhcpSubnetElementInfoArray) {
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr, value.numElements)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<DhcpSubnetElementData>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.elements)
                 }
             }
 
         public operator fun invoke(
             numElements: UInt = 0u,
-            elements: MutPtr<DhcpSubnetElementData> = MutPtr(0L),
+            elements: MutPtr = MutPtr(0L),
         ): DhcpSubnetElementInfoArray =
             DhcpSubnetElementInfoArray(
                 numElements = numElements,
@@ -8625,9 +8624,9 @@ public class DhcpSubnetElementInfoArray internal constructor(
 
 public class DhcpSubnetElementInfoArrayV4 internal constructor(
     public var numElements: UInt,
-    elementsCtorArg: MutPtr<DhcpSubnetElementDataV4>,
+    elementsCtorArg: MutPtr,
 ) {
-    public var elements: MutPtr<DhcpSubnetElementDataV4> = elementsCtorArg
+    public var elements: MutPtr = elementsCtorArg
         internal set
 
     public constructor() : this(
@@ -8637,9 +8636,9 @@ public class DhcpSubnetElementInfoArrayV4 internal constructor(
 
     public operator fun component1(): UInt = this.numElements
 
-    public operator fun component2(): MutPtr<DhcpSubnetElementDataV4> = this.elements
+    public operator fun component2(): MutPtr = this.elements
 
-    public fun copy(numElements: UInt = this.numElements, elements: MutPtr<DhcpSubnetElementDataV4> = this.elements): DhcpSubnetElementInfoArrayV4 = DhcpSubnetElementInfoArrayV4(numElements = numElements, elementsCtorArg = elements)
+    public fun copy(numElements: UInt = this.numElements, elements: MutPtr = this.elements): DhcpSubnetElementInfoArrayV4 = DhcpSubnetElementInfoArrayV4(numElements = numElements, elementsCtorArg = elements)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -8665,21 +8664,21 @@ public class DhcpSubnetElementInfoArrayV4 internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<DhcpSubnetElementDataV4>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                     )
                 override fun writeNative(addr: Long, value: DhcpSubnetElementInfoArrayV4) {
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr, value.numElements)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<DhcpSubnetElementDataV4>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.elements)
                 }
             }
 
         public operator fun invoke(
             numElements: UInt = 0u,
-            elements: MutPtr<DhcpSubnetElementDataV4> = MutPtr(0L),
+            elements: MutPtr = MutPtr(0L),
         ): DhcpSubnetElementInfoArrayV4 =
             DhcpSubnetElementInfoArrayV4(
                 numElements = numElements,
@@ -8690,9 +8689,9 @@ public class DhcpSubnetElementInfoArrayV4 internal constructor(
 
 public class DhcpSubnetElementInfoArrayV5 internal constructor(
     public var numElements: UInt,
-    elementsCtorArg: MutPtr<DhcpSubnetElementDataV5>,
+    elementsCtorArg: MutPtr,
 ) {
-    public var elements: MutPtr<DhcpSubnetElementDataV5> = elementsCtorArg
+    public var elements: MutPtr = elementsCtorArg
         internal set
 
     public constructor() : this(
@@ -8702,9 +8701,9 @@ public class DhcpSubnetElementInfoArrayV5 internal constructor(
 
     public operator fun component1(): UInt = this.numElements
 
-    public operator fun component2(): MutPtr<DhcpSubnetElementDataV5> = this.elements
+    public operator fun component2(): MutPtr = this.elements
 
-    public fun copy(numElements: UInt = this.numElements, elements: MutPtr<DhcpSubnetElementDataV5> = this.elements): DhcpSubnetElementInfoArrayV5 = DhcpSubnetElementInfoArrayV5(numElements = numElements, elementsCtorArg = elements)
+    public fun copy(numElements: UInt = this.numElements, elements: MutPtr = this.elements): DhcpSubnetElementInfoArrayV5 = DhcpSubnetElementInfoArrayV5(numElements = numElements, elementsCtorArg = elements)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -8730,21 +8729,21 @@ public class DhcpSubnetElementInfoArrayV5 internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<DhcpSubnetElementDataV5>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                     )
                 override fun writeNative(addr: Long, value: DhcpSubnetElementInfoArrayV5) {
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr, value.numElements)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<DhcpSubnetElementDataV5>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.elements)
                 }
             }
 
         public operator fun invoke(
             numElements: UInt = 0u,
-            elements: MutPtr<DhcpSubnetElementDataV5> = MutPtr(0L),
+            elements: MutPtr = MutPtr(0L),
         ): DhcpSubnetElementInfoArrayV5 =
             DhcpSubnetElementInfoArrayV5(
                 numElements = numElements,
@@ -8755,9 +8754,9 @@ public class DhcpSubnetElementInfoArrayV5 internal constructor(
 
 public class DhcpSubnetElementInfoArrayV6 internal constructor(
     public var numElements: UInt,
-    elementsCtorArg: MutPtr<DhcpSubnetElementDataV6>,
+    elementsCtorArg: MutPtr,
 ) {
-    public var elements: MutPtr<DhcpSubnetElementDataV6> = elementsCtorArg
+    public var elements: MutPtr = elementsCtorArg
         internal set
 
     public constructor() : this(
@@ -8767,9 +8766,9 @@ public class DhcpSubnetElementInfoArrayV6 internal constructor(
 
     public operator fun component1(): UInt = this.numElements
 
-    public operator fun component2(): MutPtr<DhcpSubnetElementDataV6> = this.elements
+    public operator fun component2(): MutPtr = this.elements
 
-    public fun copy(numElements: UInt = this.numElements, elements: MutPtr<DhcpSubnetElementDataV6> = this.elements): DhcpSubnetElementInfoArrayV6 = DhcpSubnetElementInfoArrayV6(numElements = numElements, elementsCtorArg = elements)
+    public fun copy(numElements: UInt = this.numElements, elements: MutPtr = this.elements): DhcpSubnetElementInfoArrayV6 = DhcpSubnetElementInfoArrayV6(numElements = numElements, elementsCtorArg = elements)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -8795,21 +8794,21 @@ public class DhcpSubnetElementInfoArrayV6 internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<DhcpSubnetElementDataV6>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                     )
                 override fun writeNative(addr: Long, value: DhcpSubnetElementInfoArrayV6) {
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr, value.numElements)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<DhcpSubnetElementDataV6>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.elements)
                 }
             }
 
         public operator fun invoke(
             numElements: UInt = 0u,
-            elements: MutPtr<DhcpSubnetElementDataV6> = MutPtr(0L),
+            elements: MutPtr = MutPtr(0L),
         ): DhcpSubnetElementInfoArrayV6 =
             DhcpSubnetElementInfoArrayV6(
                 numElements = numElements,
@@ -9105,9 +9104,9 @@ public class DhcpSubnetInfoVq internal constructor(
 
 public class DhcpSuperScopeTable internal constructor(
     public var cEntries: UInt,
-    pEntriesCtorArg: MutPtr<DhcpSuperScopeTableEntry>,
+    pEntriesCtorArg: MutPtr,
 ) {
-    public var pEntries: MutPtr<DhcpSuperScopeTableEntry> = pEntriesCtorArg
+    public var pEntries: MutPtr = pEntriesCtorArg
         internal set
 
     public constructor() : this(
@@ -9117,9 +9116,9 @@ public class DhcpSuperScopeTable internal constructor(
 
     public operator fun component1(): UInt = this.cEntries
 
-    public operator fun component2(): MutPtr<DhcpSuperScopeTableEntry> = this.pEntries
+    public operator fun component2(): MutPtr = this.pEntries
 
-    public fun copy(cEntries: UInt = this.cEntries, pEntries: MutPtr<DhcpSuperScopeTableEntry> = this.pEntries): DhcpSuperScopeTable = DhcpSuperScopeTable(cEntries = cEntries, pEntriesCtorArg = pEntries)
+    public fun copy(cEntries: UInt = this.cEntries, pEntries: MutPtr = this.pEntries): DhcpSuperScopeTable = DhcpSuperScopeTable(cEntries = cEntries, pEntriesCtorArg = pEntries)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -9145,21 +9144,21 @@ public class DhcpSuperScopeTable internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<DhcpSuperScopeTableEntry>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                     )
                 override fun writeNative(addr: Long, value: DhcpSuperScopeTable) {
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr, value.cEntries)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<DhcpSuperScopeTableEntry>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.pEntries)
                 }
             }
 
         public operator fun invoke(
             cEntries: UInt = 0u,
-            pEntries: MutPtr<DhcpSuperScopeTableEntry> = MutPtr(0L),
+            pEntries: MutPtr = MutPtr(0L),
         ): DhcpSuperScopeTable =
             DhcpSuperScopeTable(
                 cEntries = cEntries,

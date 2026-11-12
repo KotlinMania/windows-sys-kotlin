@@ -58,12 +58,12 @@ public class NetInterfaceContext internal constructor(
 public class NetInterfaceContextTable internal constructor(
     interfaceContextHandleCtorArg: Handle,
     public var numberOfEntries: UInt,
-    interfaceContextArrayCtorArg: MutPtr<NetInterfaceContext>,
+    interfaceContextArrayCtorArg: MutPtr,
 ) {
     public var interfaceContextHandle: Handle = interfaceContextHandleCtorArg
         internal set
 
-    public var interfaceContextArray: MutPtr<NetInterfaceContext> = interfaceContextArrayCtorArg
+    public var interfaceContextArray: MutPtr = interfaceContextArrayCtorArg
         internal set
 
     public constructor() : this(
@@ -76,9 +76,9 @@ public class NetInterfaceContextTable internal constructor(
 
     public operator fun component2(): UInt = this.numberOfEntries
 
-    public operator fun component3(): MutPtr<NetInterfaceContext> = this.interfaceContextArray
+    public operator fun component3(): MutPtr = this.interfaceContextArray
 
-    public fun copy(interfaceContextHandle: Handle = this.interfaceContextHandle, numberOfEntries: UInt = this.numberOfEntries, interfaceContextArray: MutPtr<NetInterfaceContext> = this.interfaceContextArray): NetInterfaceContextTable = NetInterfaceContextTable(interfaceContextHandleCtorArg = interfaceContextHandle, numberOfEntries = numberOfEntries, interfaceContextArrayCtorArg = interfaceContextArray)
+    public fun copy(interfaceContextHandle: Handle = this.interfaceContextHandle, numberOfEntries: UInt = this.numberOfEntries, interfaceContextArray: MutPtr = this.interfaceContextArray): NetInterfaceContextTable = NetInterfaceContextTable(interfaceContextHandleCtorArg = interfaceContextHandle, numberOfEntries = numberOfEntries, interfaceContextArrayCtorArg = interfaceContextArray)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -100,7 +100,7 @@ public class NetInterfaceContextTable internal constructor(
         public operator fun invoke(
             interfaceContextHandle: Handle = MutPtr(0L),
             numberOfEntries: UInt = 0u,
-            interfaceContextArray: MutPtr<NetInterfaceContext> = MutPtr(0L),
+            interfaceContextArray: MutPtr = MutPtr(0L),
         ): NetInterfaceContextTable =
             NetInterfaceContextTable(
                 interfaceContextHandleCtorArg = interfaceContextHandle,

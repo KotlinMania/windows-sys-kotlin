@@ -2,18 +2,14 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.system.messagequeuing
 
-import io.github.kotlinmania.rustlang.core.ffi.CVoid
 import io.github.kotlinmania.rustlang.core.ptr.ConstPtr
 import io.github.kotlinmania.rustlang.core.ptr.MutPtr
-import io.github.kotlinmania.windowssys.core.Guid
 import io.github.kotlinmania.windowssys.core.Hresult
 import io.github.kotlinmania.windowssys.core.Pcwstr
 import io.github.kotlinmania.windowssys.core.Pwstr
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Handle
 import io.github.kotlinmania.windowssys.windows.win32.security.ObjectSecurityInformation
 import io.github.kotlinmania.windowssys.windows.win32.security.PsecurityDescriptor
-import io.github.kotlinmania.windowssys.windows.win32.system.com.structuredstorage.Propvariant
-import io.github.kotlinmania.windowssys.windows.win32.system.io.Overlapped
 
 private object WindowsWin32SystemMessagequeuingJniBridge {
     init {
@@ -123,10 +119,10 @@ private object WindowsWin32SystemMessagequeuingJniBridge {
     external fun windowssysWindowsWin32SystemMessagequeuingMQSetQueueSecurity(lpwcsformatname: Long, securityinformation: Int, psecuritydescriptor: Long): Int
 }
 
-public actual fun mQADsPathToFormatName(lpwcsadspath: Pcwstr, lpwcsformatname: Pwstr, lpdwformatnamelength: MutPtr<UInt>): Hresult =
+public actual fun mQADsPathToFormatName(lpwcsadspath: Pcwstr, lpwcsformatname: Pwstr, lpdwformatnamelength: MutPtr): Hresult =
     WindowsWin32SystemMessagequeuingJniBridge.windowssysWindowsWin32SystemMessagequeuingMQADsPathToFormatName(lpwcsadspath.rawAddress, lpwcsformatname.rawAddress, lpdwformatnamelength.rawAddress)
 
-public actual fun mQBeginTransaction(pptransaction: MutPtr<MutPtr<CVoid>>): Hresult =
+public actual fun mQBeginTransaction(pptransaction: MutPtr): Hresult =
     WindowsWin32SystemMessagequeuingJniBridge.windowssysWindowsWin32SystemMessagequeuingMQBeginTransaction(pptransaction.rawAddress)
 
 public actual fun mQCloseCursor(hcursor: Handle): Hresult =
@@ -135,16 +131,16 @@ public actual fun mQCloseCursor(hcursor: Handle): Hresult =
 public actual fun mQCloseQueue(hqueue: Long): Hresult =
     WindowsWin32SystemMessagequeuingJniBridge.windowssysWindowsWin32SystemMessagequeuingMQCloseQueue(hqueue)
 
-public actual fun mQCreateCursor(hqueue: Long, phcursor: MutPtr<Handle>): Hresult =
+public actual fun mQCreateCursor(hqueue: Long, phcursor: MutPtr): Hresult =
     WindowsWin32SystemMessagequeuingJniBridge.windowssysWindowsWin32SystemMessagequeuingMQCreateCursor(hqueue, phcursor.rawAddress)
 
-public actual fun mQCreateQueue(psecuritydescriptor: PsecurityDescriptor, pqueueprops: MutPtr<Mqqueueprops>, lpwcsformatname: Pwstr, lpdwformatnamelength: MutPtr<UInt>): Hresult =
+public actual fun mQCreateQueue(psecuritydescriptor: PsecurityDescriptor, pqueueprops: MutPtr, lpwcsformatname: Pwstr, lpdwformatnamelength: MutPtr): Hresult =
     WindowsWin32SystemMessagequeuingJniBridge.windowssysWindowsWin32SystemMessagequeuingMQCreateQueue(psecuritydescriptor.rawAddress, pqueueprops.rawAddress, lpwcsformatname.rawAddress, lpdwformatnamelength.rawAddress)
 
 public actual fun mQDeleteQueue(lpwcsformatname: Pcwstr): Hresult =
     WindowsWin32SystemMessagequeuingJniBridge.windowssysWindowsWin32SystemMessagequeuingMQDeleteQueue(lpwcsformatname.rawAddress)
 
-public actual fun mQFreeMemory(pvmemory: ConstPtr<CVoid>) {
+public actual fun mQFreeMemory(pvmemory: ConstPtr) {
     WindowsWin32SystemMessagequeuingJniBridge.windowssysWindowsWin32SystemMessagequeuingMQFreeMemory(pvmemory.rawAddress)
 }
 
@@ -152,40 +148,40 @@ public actual fun mQFreeSecurityContext(hsecuritycontext: Handle) {
     WindowsWin32SystemMessagequeuingJniBridge.windowssysWindowsWin32SystemMessagequeuingMQFreeSecurityContext(hsecuritycontext.rawAddress)
 }
 
-public actual fun mQGetMachineProperties(lpwcsmachinename: Pcwstr, pguidmachineid: ConstPtr<Guid>, pqmprops: MutPtr<Mqqmprops>): Hresult =
+public actual fun mQGetMachineProperties(lpwcsmachinename: Pcwstr, pguidmachineid: ConstPtr, pqmprops: MutPtr): Hresult =
     WindowsWin32SystemMessagequeuingJniBridge.windowssysWindowsWin32SystemMessagequeuingMQGetMachineProperties(lpwcsmachinename.rawAddress, pguidmachineid.rawAddress, pqmprops.rawAddress)
 
-public actual fun mQGetOverlappedResult(lpoverlapped: ConstPtr<Overlapped>): Hresult =
+public actual fun mQGetOverlappedResult(lpoverlapped: ConstPtr): Hresult =
     WindowsWin32SystemMessagequeuingJniBridge.windowssysWindowsWin32SystemMessagequeuingMQGetOverlappedResult(lpoverlapped.rawAddress)
 
-public actual fun mQGetPrivateComputerInformation(lpwcscomputername: Pcwstr, pprivateprops: MutPtr<Mqprivateprops>): Hresult =
+public actual fun mQGetPrivateComputerInformation(lpwcscomputername: Pcwstr, pprivateprops: MutPtr): Hresult =
     WindowsWin32SystemMessagequeuingJniBridge.windowssysWindowsWin32SystemMessagequeuingMQGetPrivateComputerInformation(lpwcscomputername.rawAddress, pprivateprops.rawAddress)
 
-public actual fun mQGetQueueProperties(lpwcsformatname: Pcwstr, pqueueprops: MutPtr<Mqqueueprops>): Hresult =
+public actual fun mQGetQueueProperties(lpwcsformatname: Pcwstr, pqueueprops: MutPtr): Hresult =
     WindowsWin32SystemMessagequeuingJniBridge.windowssysWindowsWin32SystemMessagequeuingMQGetQueueProperties(lpwcsformatname.rawAddress, pqueueprops.rawAddress)
 
-public actual fun mQGetQueueSecurity(lpwcsformatname: Pcwstr, requestedinformation: UInt, psecuritydescriptor: PsecurityDescriptor, nlength: UInt, lpnlengthneeded: MutPtr<UInt>): Hresult =
+public actual fun mQGetQueueSecurity(lpwcsformatname: Pcwstr, requestedinformation: UInt, psecuritydescriptor: PsecurityDescriptor, nlength: UInt, lpnlengthneeded: MutPtr): Hresult =
     WindowsWin32SystemMessagequeuingJniBridge.windowssysWindowsWin32SystemMessagequeuingMQGetQueueSecurity(lpwcsformatname.rawAddress, requestedinformation.toInt(), psecuritydescriptor.rawAddress, nlength.toInt(), lpnlengthneeded.rawAddress)
 
-public actual fun mQGetSecurityContext(lpcertbuffer: ConstPtr<CVoid>, dwcertbufferlength: UInt, phsecuritycontext: MutPtr<Handle>): Hresult =
+public actual fun mQGetSecurityContext(lpcertbuffer: ConstPtr, dwcertbufferlength: UInt, phsecuritycontext: MutPtr): Hresult =
     WindowsWin32SystemMessagequeuingJniBridge.windowssysWindowsWin32SystemMessagequeuingMQGetSecurityContext(lpcertbuffer.rawAddress, dwcertbufferlength.toInt(), phsecuritycontext.rawAddress)
 
-public actual fun mQGetSecurityContextEx(lpcertbuffer: ConstPtr<CVoid>, dwcertbufferlength: UInt, phsecuritycontext: MutPtr<Handle>): Hresult =
+public actual fun mQGetSecurityContextEx(lpcertbuffer: ConstPtr, dwcertbufferlength: UInt, phsecuritycontext: MutPtr): Hresult =
     WindowsWin32SystemMessagequeuingJniBridge.windowssysWindowsWin32SystemMessagequeuingMQGetSecurityContextEx(lpcertbuffer.rawAddress, dwcertbufferlength.toInt(), phsecuritycontext.rawAddress)
 
-public actual fun mQHandleToFormatName(hqueue: Long, lpwcsformatname: Pwstr, lpdwformatnamelength: MutPtr<UInt>): Hresult =
+public actual fun mQHandleToFormatName(hqueue: Long, lpwcsformatname: Pwstr, lpdwformatnamelength: MutPtr): Hresult =
     WindowsWin32SystemMessagequeuingJniBridge.windowssysWindowsWin32SystemMessagequeuingMQHandleToFormatName(hqueue, lpwcsformatname.rawAddress, lpdwformatnamelength.rawAddress)
 
-public actual fun mQInstanceToFormatName(pguid: ConstPtr<Guid>, lpwcsformatname: Pwstr, lpdwformatnamelength: MutPtr<UInt>): Hresult =
+public actual fun mQInstanceToFormatName(pguid: ConstPtr, lpwcsformatname: Pwstr, lpdwformatnamelength: MutPtr): Hresult =
     WindowsWin32SystemMessagequeuingJniBridge.windowssysWindowsWin32SystemMessagequeuingMQInstanceToFormatName(pguid.rawAddress, lpwcsformatname.rawAddress, lpdwformatnamelength.rawAddress)
 
-public actual fun mQLocateBegin(lpwcscontext: Pcwstr, prestriction: ConstPtr<Mqrestriction>, pcolumns: ConstPtr<Mqcolumnset>, psort: ConstPtr<Mqsortset>, phenum: MutPtr<Handle>): Hresult =
+public actual fun mQLocateBegin(lpwcscontext: Pcwstr, prestriction: ConstPtr, pcolumns: ConstPtr, psort: ConstPtr, phenum: MutPtr): Hresult =
     WindowsWin32SystemMessagequeuingJniBridge.windowssysWindowsWin32SystemMessagequeuingMQLocateBegin(lpwcscontext.rawAddress, prestriction.rawAddress, pcolumns.rawAddress, psort.rawAddress, phenum.rawAddress)
 
 public actual fun mQLocateEnd(henum: Handle): Hresult =
     WindowsWin32SystemMessagequeuingJniBridge.windowssysWindowsWin32SystemMessagequeuingMQLocateEnd(henum.rawAddress)
 
-public actual fun mQLocateNext(henum: Handle, pcprops: MutPtr<UInt>, apropvar: MutPtr<Propvariant>): Hresult =
+public actual fun mQLocateNext(henum: Handle, pcprops: MutPtr, apropvar: MutPtr): Hresult =
     WindowsWin32SystemMessagequeuingJniBridge.windowssysWindowsWin32SystemMessagequeuingMQLocateNext(henum.rawAddress, pcprops.rawAddress, apropvar.rawAddress)
 
 public actual fun mQMarkMessageRejected(hqueue: Handle, ulllookupid: ULong): Hresult =
@@ -194,34 +190,34 @@ public actual fun mQMarkMessageRejected(hqueue: Handle, ulllookupid: ULong): Hre
 public actual fun mQMgmtAction(pcomputername: Pcwstr, pobjectname: Pcwstr, paction: Pcwstr): Hresult =
     WindowsWin32SystemMessagequeuingJniBridge.windowssysWindowsWin32SystemMessagequeuingMQMgmtAction(pcomputername.rawAddress, pobjectname.rawAddress, paction.rawAddress)
 
-public actual fun mQMgmtGetInfo(pcomputername: Pcwstr, pobjectname: Pcwstr, pmgmtprops: MutPtr<Mqmgmtprops>): Hresult =
+public actual fun mQMgmtGetInfo(pcomputername: Pcwstr, pobjectname: Pcwstr, pmgmtprops: MutPtr): Hresult =
     WindowsWin32SystemMessagequeuingJniBridge.windowssysWindowsWin32SystemMessagequeuingMQMgmtGetInfo(pcomputername.rawAddress, pobjectname.rawAddress, pmgmtprops.rawAddress)
 
-public actual fun mQMoveMessage(hsourcequeue: Long, hdestinationqueue: Long, ulllookupid: ULong, ptransaction: MutPtr<CVoid>): Hresult =
+public actual fun mQMoveMessage(hsourcequeue: Long, hdestinationqueue: Long, ulllookupid: ULong, ptransaction: MutPtr): Hresult =
     WindowsWin32SystemMessagequeuingJniBridge.windowssysWindowsWin32SystemMessagequeuingMQMoveMessage(hsourcequeue, hdestinationqueue, ulllookupid.toLong(), ptransaction.rawAddress)
 
-public actual fun mQOpenQueue(lpwcsformatname: Pcwstr, dwaccess: UInt, dwsharemode: UInt, phqueue: MutPtr<Long>): Hresult =
+public actual fun mQOpenQueue(lpwcsformatname: Pcwstr, dwaccess: UInt, dwsharemode: UInt, phqueue: MutPtr): Hresult =
     WindowsWin32SystemMessagequeuingJniBridge.windowssysWindowsWin32SystemMessagequeuingMQOpenQueue(lpwcsformatname.rawAddress, dwaccess.toInt(), dwsharemode.toInt(), phqueue.rawAddress)
 
-public actual fun mQPathNameToFormatName(lpwcspathname: Pcwstr, lpwcsformatname: Pwstr, lpdwformatnamelength: MutPtr<UInt>): Hresult =
+public actual fun mQPathNameToFormatName(lpwcspathname: Pcwstr, lpwcsformatname: Pwstr, lpdwformatnamelength: MutPtr): Hresult =
     WindowsWin32SystemMessagequeuingJniBridge.windowssysWindowsWin32SystemMessagequeuingMQPathNameToFormatName(lpwcspathname.rawAddress, lpwcsformatname.rawAddress, lpdwformatnamelength.rawAddress)
 
 public actual fun mQPurgeQueue(hqueue: Long): Hresult =
     WindowsWin32SystemMessagequeuingJniBridge.windowssysWindowsWin32SystemMessagequeuingMQPurgeQueue(hqueue)
 
-public actual fun mQReceiveMessage(hsource: Long, dwtimeout: UInt, dwaction: UInt, pmessageprops: MutPtr<Mqmsgprops>, lpoverlapped: MutPtr<Overlapped>, fnreceivecallback: Pmqreceivecallback, hcursor: Handle, ptransaction: MutPtr<CVoid>): Hresult =
+public actual fun mQReceiveMessage(hsource: Long, dwtimeout: UInt, dwaction: UInt, pmessageprops: MutPtr, lpoverlapped: MutPtr, fnreceivecallback: Pmqreceivecallback, hcursor: Handle, ptransaction: MutPtr): Hresult =
     WindowsWin32SystemMessagequeuingJniBridge.windowssysWindowsWin32SystemMessagequeuingMQReceiveMessage(hsource, dwtimeout.toInt(), dwaction.toInt(), pmessageprops.rawAddress, lpoverlapped.rawAddress, 0L, hcursor.rawAddress, ptransaction.rawAddress)
 
-public actual fun mQReceiveMessageByLookupId(hsource: Long, ulllookupid: ULong, dwlookupaction: UInt, pmessageprops: MutPtr<Mqmsgprops>, lpoverlapped: MutPtr<Overlapped>, fnreceivecallback: Pmqreceivecallback, ptransaction: MutPtr<CVoid>): Hresult =
+public actual fun mQReceiveMessageByLookupId(hsource: Long, ulllookupid: ULong, dwlookupaction: UInt, pmessageprops: MutPtr, lpoverlapped: MutPtr, fnreceivecallback: Pmqreceivecallback, ptransaction: MutPtr): Hresult =
     WindowsWin32SystemMessagequeuingJniBridge.windowssysWindowsWin32SystemMessagequeuingMQReceiveMessageByLookupId(hsource, ulllookupid.toLong(), dwlookupaction.toInt(), pmessageprops.rawAddress, lpoverlapped.rawAddress, 0L, ptransaction.rawAddress)
 
-public actual fun mQRegisterCertificate(dwflags: UInt, lpcertbuffer: ConstPtr<CVoid>, dwcertbufferlength: UInt): Hresult =
+public actual fun mQRegisterCertificate(dwflags: UInt, lpcertbuffer: ConstPtr, dwcertbufferlength: UInt): Hresult =
     WindowsWin32SystemMessagequeuingJniBridge.windowssysWindowsWin32SystemMessagequeuingMQRegisterCertificate(dwflags.toInt(), lpcertbuffer.rawAddress, dwcertbufferlength.toInt())
 
-public actual fun mQSendMessage(hdestinationqueue: Long, pmessageprops: ConstPtr<Mqmsgprops>, ptransaction: MutPtr<CVoid>): Hresult =
+public actual fun mQSendMessage(hdestinationqueue: Long, pmessageprops: ConstPtr, ptransaction: MutPtr): Hresult =
     WindowsWin32SystemMessagequeuingJniBridge.windowssysWindowsWin32SystemMessagequeuingMQSendMessage(hdestinationqueue, pmessageprops.rawAddress, ptransaction.rawAddress)
 
-public actual fun mQSetQueueProperties(lpwcsformatname: Pcwstr, pqueueprops: MutPtr<Mqqueueprops>): Hresult =
+public actual fun mQSetQueueProperties(lpwcsformatname: Pcwstr, pqueueprops: MutPtr): Hresult =
     WindowsWin32SystemMessagequeuingJniBridge.windowssysWindowsWin32SystemMessagequeuingMQSetQueueProperties(lpwcsformatname.rawAddress, pqueueprops.rawAddress)
 
 public actual fun mQSetQueueSecurity(lpwcsformatname: Pcwstr, securityinformation: ObjectSecurityInformation, psecuritydescriptor: PsecurityDescriptor): Hresult =

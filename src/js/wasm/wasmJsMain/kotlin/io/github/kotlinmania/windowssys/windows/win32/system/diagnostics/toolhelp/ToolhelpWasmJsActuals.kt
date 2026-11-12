@@ -2,7 +2,6 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.system.diagnostics.toolhelp
 
-import io.github.kotlinmania.rustlang.core.ffi.CVoid
 import io.github.kotlinmania.rustlang.core.ptr.ConstPtr
 import io.github.kotlinmania.rustlang.core.ptr.MutPtr
 import io.github.kotlinmania.windowssys.core.Bool
@@ -64,47 +63,47 @@ private external fun wasmWindowssysWindowsWin32SystemDiagnosticsToolhelpToolhelp
 public actual fun createToolhelp32Snapshot(dwflags: CreateToolhelpSnapshotFlags, th32processid: UInt): Handle =
     if (windowsWin32SystemDiagnosticsToolhelpNapiAvailable) MutPtr(wasmWindowssysWindowsWin32SystemDiagnosticsToolhelpCreateToolhelp32Snapshot(dwflags.toInt(), th32processid.toInt()).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun heap32First(lphe: MutPtr<Heapentry32>, th32processid: UInt, th32heapid: ULong): Bool =
+public actual fun heap32First(lphe: MutPtr, th32processid: UInt, th32heapid: ULong): Bool =
     if (windowsWin32SystemDiagnosticsToolhelpNapiAvailable) wasmWindowssysWindowsWin32SystemDiagnosticsToolhelpHeap32First(lphe.rawAddress.toString(), th32processid.toInt(), th32heapid.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun heap32ListFirst(hsnapshot: Handle, lphl: MutPtr<Heaplist32>): Bool =
+public actual fun heap32ListFirst(hsnapshot: Handle, lphl: MutPtr): Bool =
     if (windowsWin32SystemDiagnosticsToolhelpNapiAvailable) wasmWindowssysWindowsWin32SystemDiagnosticsToolhelpHeap32ListFirst(hsnapshot.rawAddress.toString(), lphl.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun heap32ListNext(hsnapshot: Handle, lphl: MutPtr<Heaplist32>): Bool =
+public actual fun heap32ListNext(hsnapshot: Handle, lphl: MutPtr): Bool =
     if (windowsWin32SystemDiagnosticsToolhelpNapiAvailable) wasmWindowssysWindowsWin32SystemDiagnosticsToolhelpHeap32ListNext(hsnapshot.rawAddress.toString(), lphl.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun heap32Next(lphe: MutPtr<Heapentry32>): Bool =
+public actual fun heap32Next(lphe: MutPtr): Bool =
     if (windowsWin32SystemDiagnosticsToolhelpNapiAvailable) wasmWindowssysWindowsWin32SystemDiagnosticsToolhelpHeap32Next(lphe.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun module32First(hsnapshot: Handle, lpme: MutPtr<Moduleentry32>): Bool =
+public actual fun module32First(hsnapshot: Handle, lpme: MutPtr): Bool =
     if (windowsWin32SystemDiagnosticsToolhelpNapiAvailable) wasmWindowssysWindowsWin32SystemDiagnosticsToolhelpModule32First(hsnapshot.rawAddress.toString(), lpme.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun module32FirstW(hsnapshot: Handle, lpme: MutPtr<Moduleentry32w>): Bool =
+public actual fun module32FirstW(hsnapshot: Handle, lpme: MutPtr): Bool =
     if (windowsWin32SystemDiagnosticsToolhelpNapiAvailable) wasmWindowssysWindowsWin32SystemDiagnosticsToolhelpModule32FirstW(hsnapshot.rawAddress.toString(), lpme.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun module32Next(hsnapshot: Handle, lpme: MutPtr<Moduleentry32>): Bool =
+public actual fun module32Next(hsnapshot: Handle, lpme: MutPtr): Bool =
     if (windowsWin32SystemDiagnosticsToolhelpNapiAvailable) wasmWindowssysWindowsWin32SystemDiagnosticsToolhelpModule32Next(hsnapshot.rawAddress.toString(), lpme.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun module32NextW(hsnapshot: Handle, lpme: MutPtr<Moduleentry32w>): Bool =
+public actual fun module32NextW(hsnapshot: Handle, lpme: MutPtr): Bool =
     if (windowsWin32SystemDiagnosticsToolhelpNapiAvailable) wasmWindowssysWindowsWin32SystemDiagnosticsToolhelpModule32NextW(hsnapshot.rawAddress.toString(), lpme.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun process32First(hsnapshot: Handle, lppe: MutPtr<Processentry32>): Bool =
+public actual fun process32First(hsnapshot: Handle, lppe: MutPtr): Bool =
     if (windowsWin32SystemDiagnosticsToolhelpNapiAvailable) wasmWindowssysWindowsWin32SystemDiagnosticsToolhelpProcess32First(hsnapshot.rawAddress.toString(), lppe.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun process32FirstW(hsnapshot: Handle, lppe: MutPtr<Processentry32w>): Bool =
+public actual fun process32FirstW(hsnapshot: Handle, lppe: MutPtr): Bool =
     if (windowsWin32SystemDiagnosticsToolhelpNapiAvailable) wasmWindowssysWindowsWin32SystemDiagnosticsToolhelpProcess32FirstW(hsnapshot.rawAddress.toString(), lppe.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun process32Next(hsnapshot: Handle, lppe: MutPtr<Processentry32>): Bool =
+public actual fun process32Next(hsnapshot: Handle, lppe: MutPtr): Bool =
     if (windowsWin32SystemDiagnosticsToolhelpNapiAvailable) wasmWindowssysWindowsWin32SystemDiagnosticsToolhelpProcess32Next(hsnapshot.rawAddress.toString(), lppe.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun process32NextW(hsnapshot: Handle, lppe: MutPtr<Processentry32w>): Bool =
+public actual fun process32NextW(hsnapshot: Handle, lppe: MutPtr): Bool =
     if (windowsWin32SystemDiagnosticsToolhelpNapiAvailable) wasmWindowssysWindowsWin32SystemDiagnosticsToolhelpProcess32NextW(hsnapshot.rawAddress.toString(), lppe.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun thread32First(hsnapshot: Handle, lpte: MutPtr<Threadentry32>): Bool =
+public actual fun thread32First(hsnapshot: Handle, lpte: MutPtr): Bool =
     if (windowsWin32SystemDiagnosticsToolhelpNapiAvailable) wasmWindowssysWindowsWin32SystemDiagnosticsToolhelpThread32First(hsnapshot.rawAddress.toString(), lpte.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun thread32Next(hsnapshot: Handle, lpte: MutPtr<Threadentry32>): Bool =
+public actual fun thread32Next(hsnapshot: Handle, lpte: MutPtr): Bool =
     if (windowsWin32SystemDiagnosticsToolhelpNapiAvailable) wasmWindowssysWindowsWin32SystemDiagnosticsToolhelpThread32Next(hsnapshot.rawAddress.toString(), lpte.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun toolhelp32ReadProcessMemory(th32processid: UInt, lpbaseaddress: ConstPtr<CVoid>, lpbuffer: MutPtr<CVoid>, cbread: ULong, lpnumberofbytesread: MutPtr<ULong>): Bool =
+public actual fun toolhelp32ReadProcessMemory(th32processid: UInt, lpbaseaddress: ConstPtr, lpbuffer: MutPtr, cbread: ULong, lpnumberofbytesread: MutPtr): Bool =
     if (windowsWin32SystemDiagnosticsToolhelpNapiAvailable) wasmWindowssysWindowsWin32SystemDiagnosticsToolhelpToolhelp32ReadProcessMemory(th32processid.toInt(), lpbaseaddress.rawAddress.toString(), lpbuffer.rawAddress.toString(), cbread.toString(), lpnumberofbytesread.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")

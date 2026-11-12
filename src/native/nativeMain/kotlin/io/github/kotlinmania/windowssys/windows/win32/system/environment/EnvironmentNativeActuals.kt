@@ -2,7 +2,6 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.system.environment
 
-import io.github.kotlinmania.rustlang.core.ffi.CVoid
 import io.github.kotlinmania.rustlang.core.ptr.ConstPtr
 import io.github.kotlinmania.rustlang.core.ptr.MutPtr
 import io.github.kotlinmania.windowssys.core.Bool
@@ -53,34 +52,34 @@ import kotlinx.cinterop.ByteVar
 import kotlinx.cinterop.toCPointer
 import kotlinx.cinterop.toLong
 
-public actual fun callEnclave(lproutine: Long, lpparameter: ConstPtr<CVoid>, fwaitforthread: Bool, lpreturnvalue: MutPtr<MutPtr<CVoid>>): Bool =
+public actual fun callEnclave(lproutine: Long, lpparameter: ConstPtr, fwaitforthread: Bool, lpreturnvalue: MutPtr): Bool =
     windowssysWindowsWin32SystemEnvironmentCallEnclave(lproutine, lpparameter.rawAddress.toCPointer<ByteVar>(), fwaitforthread, lpreturnvalue.rawAddress.toCPointer<ByteVar>())
 
-public actual fun createEnclave(hprocess: Handle, lpaddress: ConstPtr<CVoid>, dwsize: ULong, dwinitialcommitment: ULong, flenclavetype: UInt, lpenclaveinformation: ConstPtr<CVoid>, dwinfolength: UInt, lpenclaveerror: MutPtr<UInt>): MutPtr<CVoid> =
+public actual fun createEnclave(hprocess: Handle, lpaddress: ConstPtr, dwsize: ULong, dwinitialcommitment: ULong, flenclavetype: UInt, lpenclaveinformation: ConstPtr, dwinfolength: UInt, lpenclaveerror: MutPtr): MutPtr =
     MutPtr(windowssysWindowsWin32SystemEnvironmentCreateEnclave(hprocess.rawAddress.toCPointer<ByteVar>(), lpaddress.rawAddress.toCPointer<ByteVar>(), dwsize, dwinitialcommitment, flenclavetype, lpenclaveinformation.rawAddress.toCPointer<ByteVar>(), dwinfolength, lpenclaveerror.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun createEnvironmentBlock(lpenvironment: MutPtr<MutPtr<CVoid>>, htoken: Handle, binherit: Bool): Bool =
+public actual fun createEnvironmentBlock(lpenvironment: MutPtr, htoken: Handle, binherit: Bool): Bool =
     windowssysWindowsWin32SystemEnvironmentCreateEnvironmentBlock(lpenvironment.rawAddress.toCPointer<ByteVar>(), htoken.rawAddress.toCPointer<ByteVar>(), binherit)
 
-public actual fun deleteEnclave(lpaddress: ConstPtr<CVoid>): Bool =
+public actual fun deleteEnclave(lpaddress: ConstPtr): Bool =
     windowssysWindowsWin32SystemEnvironmentDeleteEnclave(lpaddress.rawAddress.toCPointer<ByteVar>())
 
-public actual fun destroyEnvironmentBlock(lpenvironment: ConstPtr<CVoid>): Bool =
+public actual fun destroyEnvironmentBlock(lpenvironment: ConstPtr): Bool =
     windowssysWindowsWin32SystemEnvironmentDestroyEnvironmentBlock(lpenvironment.rawAddress.toCPointer<ByteVar>())
 
-public actual fun enclaveGetAttestationReport(enclavedata: ConstPtr<UByte>, report: MutPtr<CVoid>, buffersize: UInt, outputsize: MutPtr<UInt>): Hresult =
+public actual fun enclaveGetAttestationReport(enclavedata: ConstPtr, report: MutPtr, buffersize: UInt, outputsize: MutPtr): Hresult =
     windowssysWindowsWin32SystemEnvironmentEnclaveGetAttestationReport(enclavedata.rawAddress.toCPointer<ByteVar>(), report.rawAddress.toCPointer<ByteVar>(), buffersize, outputsize.rawAddress.toCPointer<ByteVar>())
 
-public actual fun enclaveGetEnclaveInformation(informationsize: UInt, enclaveinformation: MutPtr<EnclaveInformation>): Hresult =
+public actual fun enclaveGetEnclaveInformation(informationsize: UInt, enclaveinformation: MutPtr): Hresult =
     windowssysWindowsWin32SystemEnvironmentEnclaveGetEnclaveInformation(informationsize, enclaveinformation.rawAddress.toCPointer<ByteVar>())
 
-public actual fun enclaveSealData(datatoencrypt: ConstPtr<CVoid>, datatoencryptsize: UInt, identitypolicy: EnclaveSealingIdentityPolicy, runtimepolicy: UInt, protectedblob: MutPtr<CVoid>, buffersize: UInt, protectedblobsize: MutPtr<UInt>): Hresult =
+public actual fun enclaveSealData(datatoencrypt: ConstPtr, datatoencryptsize: UInt, identitypolicy: EnclaveSealingIdentityPolicy, runtimepolicy: UInt, protectedblob: MutPtr, buffersize: UInt, protectedblobsize: MutPtr): Hresult =
     windowssysWindowsWin32SystemEnvironmentEnclaveSealData(datatoencrypt.rawAddress.toCPointer<ByteVar>(), datatoencryptsize, identitypolicy, runtimepolicy, protectedblob.rawAddress.toCPointer<ByteVar>(), buffersize, protectedblobsize.rawAddress.toCPointer<ByteVar>())
 
-public actual fun enclaveUnsealData(protectedblob: ConstPtr<CVoid>, protectedblobsize: UInt, decrypteddata: MutPtr<CVoid>, buffersize: UInt, decrypteddatasize: MutPtr<UInt>, sealingidentity: MutPtr<EnclaveIdentity>, unsealingflags: MutPtr<UInt>): Hresult =
+public actual fun enclaveUnsealData(protectedblob: ConstPtr, protectedblobsize: UInt, decrypteddata: MutPtr, buffersize: UInt, decrypteddatasize: MutPtr, sealingidentity: MutPtr, unsealingflags: MutPtr): Hresult =
     windowssysWindowsWin32SystemEnvironmentEnclaveUnsealData(protectedblob.rawAddress.toCPointer<ByteVar>(), protectedblobsize, decrypteddata.rawAddress.toCPointer<ByteVar>(), buffersize, decrypteddatasize.rawAddress.toCPointer<ByteVar>(), sealingidentity.rawAddress.toCPointer<ByteVar>(), unsealingflags.rawAddress.toCPointer<ByteVar>())
 
-public actual fun enclaveVerifyAttestationReport(enclavetype: UInt, report: ConstPtr<CVoid>, reportsize: UInt): Hresult =
+public actual fun enclaveVerifyAttestationReport(enclavetype: UInt, report: ConstPtr, reportsize: UInt): Hresult =
     windowssysWindowsWin32SystemEnvironmentEnclaveVerifyAttestationReport(enclavetype, report.rawAddress.toCPointer<ByteVar>(), reportsize)
 
 public actual fun expandEnvironmentStringsA(lpsrc: Pcstr, lpdst: Pstr, nsize: UInt): UInt =
@@ -125,19 +124,19 @@ public actual fun getEnvironmentVariableA(lpname: Pcstr, lpbuffer: Pstr, nsize: 
 public actual fun getEnvironmentVariableW(lpname: Pcwstr, lpbuffer: Pwstr, nsize: UInt): UInt =
     windowssysWindowsWin32SystemEnvironmentGetEnvironmentVariableW(lpname.rawAddress.toCPointer<ByteVar>(), lpbuffer.rawAddress.toCPointer<ByteVar>(), nsize)
 
-public actual fun initializeEnclave(hprocess: Handle, lpaddress: ConstPtr<CVoid>, lpenclaveinformation: ConstPtr<CVoid>, dwinfolength: UInt, lpenclaveerror: MutPtr<UInt>): Bool =
+public actual fun initializeEnclave(hprocess: Handle, lpaddress: ConstPtr, lpenclaveinformation: ConstPtr, dwinfolength: UInt, lpenclaveerror: MutPtr): Bool =
     windowssysWindowsWin32SystemEnvironmentInitializeEnclave(hprocess.rawAddress.toCPointer<ByteVar>(), lpaddress.rawAddress.toCPointer<ByteVar>(), lpenclaveinformation.rawAddress.toCPointer<ByteVar>(), dwinfolength, lpenclaveerror.rawAddress.toCPointer<ByteVar>())
 
 public actual fun isEnclaveTypeSupported(flenclavetype: UInt): Bool =
     windowssysWindowsWin32SystemEnvironmentIsEnclaveTypeSupported(flenclavetype)
 
-public actual fun loadEnclaveData(hprocess: Handle, lpaddress: ConstPtr<CVoid>, lpbuffer: ConstPtr<CVoid>, nsize: ULong, flprotect: UInt, lppageinformation: ConstPtr<CVoid>, dwinfolength: UInt, lpnumberofbyteswritten: MutPtr<ULong>, lpenclaveerror: MutPtr<UInt>): Bool =
+public actual fun loadEnclaveData(hprocess: Handle, lpaddress: ConstPtr, lpbuffer: ConstPtr, nsize: ULong, flprotect: UInt, lppageinformation: ConstPtr, dwinfolength: UInt, lpnumberofbyteswritten: MutPtr, lpenclaveerror: MutPtr): Bool =
     windowssysWindowsWin32SystemEnvironmentLoadEnclaveData(hprocess.rawAddress.toCPointer<ByteVar>(), lpaddress.rawAddress.toCPointer<ByteVar>(), lpbuffer.rawAddress.toCPointer<ByteVar>(), nsize, flprotect, lppageinformation.rawAddress.toCPointer<ByteVar>(), dwinfolength, lpnumberofbyteswritten.rawAddress.toCPointer<ByteVar>(), lpenclaveerror.rawAddress.toCPointer<ByteVar>())
 
-public actual fun loadEnclaveImageA(lpenclaveaddress: ConstPtr<CVoid>, lpimagename: Pcstr): Bool =
+public actual fun loadEnclaveImageA(lpenclaveaddress: ConstPtr, lpimagename: Pcstr): Bool =
     windowssysWindowsWin32SystemEnvironmentLoadEnclaveImageA(lpenclaveaddress.rawAddress.toCPointer<ByteVar>(), lpimagename.rawAddress.toCPointer<ByteVar>())
 
-public actual fun loadEnclaveImageW(lpenclaveaddress: ConstPtr<CVoid>, lpimagename: Pcwstr): Bool =
+public actual fun loadEnclaveImageW(lpenclaveaddress: ConstPtr, lpimagename: Pcwstr): Bool =
     windowssysWindowsWin32SystemEnvironmentLoadEnclaveImageW(lpenclaveaddress.rawAddress.toCPointer<ByteVar>(), lpimagename.rawAddress.toCPointer<ByteVar>())
 
 public actual fun needCurrentDirectoryForExePathA(exename: Pcstr): Bool =
@@ -161,5 +160,5 @@ public actual fun setEnvironmentVariableA(lpname: Pcstr, lpvalue: Pcstr): Bool =
 public actual fun setEnvironmentVariableW(lpname: Pcwstr, lpvalue: Pcwstr): Bool =
     windowssysWindowsWin32SystemEnvironmentSetEnvironmentVariableW(lpname.rawAddress.toCPointer<ByteVar>(), lpvalue.rawAddress.toCPointer<ByteVar>())
 
-public actual fun terminateEnclave(lpaddress: ConstPtr<CVoid>, fwait: Bool): Bool =
+public actual fun terminateEnclave(lpaddress: ConstPtr, fwait: Bool): Bool =
     windowssysWindowsWin32SystemEnvironmentTerminateEnclave(lpaddress.rawAddress.toCPointer<ByteVar>(), fwait)

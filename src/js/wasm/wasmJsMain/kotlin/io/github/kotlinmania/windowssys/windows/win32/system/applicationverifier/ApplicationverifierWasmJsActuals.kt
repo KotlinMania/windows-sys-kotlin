@@ -2,7 +2,6 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.system.applicationverifier
 
-import io.github.kotlinmania.rustlang.core.ffi.CVoid
 import io.github.kotlinmania.rustlang.core.ptr.MutPtr
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Handle
 
@@ -14,5 +13,5 @@ private val windowsWin32SystemApplicationverifierNapiAvailable: Boolean = initWi
 @JsFun("(p0, p1, p2, p3, p4) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemApplicationverifierVerifierEnumerateResource(p0, p1, p2, p3, p4)")
 private external fun wasmWindowssysWindowsWin32SystemApplicationverifierVerifierEnumerateResource(p0: String, p1: Int, p2: Int, p3: String, p4: String): Int
 
-public actual fun verifierEnumerateResource(process: Handle, flags: VerifierEnumResourceFlags, resourcetype: UInt, resourcecallback: AvrfResourceEnumerateCallback, enumerationcontext: MutPtr<CVoid>): UInt =
+public actual fun verifierEnumerateResource(process: Handle, flags: VerifierEnumResourceFlags, resourcetype: UInt, resourcecallback: AvrfResourceEnumerateCallback, enumerationcontext: MutPtr): UInt =
     if (windowsWin32SystemApplicationverifierNapiAvailable) wasmWindowssysWindowsWin32SystemApplicationverifierVerifierEnumerateResource(process.rawAddress.toString(), flags.toInt(), resourcetype.toInt(), 0L.toString(), enumerationcontext.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")

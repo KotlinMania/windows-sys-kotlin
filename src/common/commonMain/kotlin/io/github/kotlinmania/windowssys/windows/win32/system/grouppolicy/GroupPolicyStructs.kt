@@ -2,7 +2,6 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.system.grouppolicy
 
-import io.github.kotlinmania.rustlang.core.ffi.CVoid
 import io.github.kotlinmania.rustlang.core.ptr.MutPtr
 import io.github.kotlinmania.windowssys.core.Bool
 import io.github.kotlinmania.windowssys.core.Guid
@@ -11,7 +10,6 @@ import io.github.kotlinmania.windowssys.core.Pwstr
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Hwnd
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Lparam
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Systemtime
-import io.github.kotlinmania.windowssys.windows.win32.system.com.Safearray
 
 public class Gpobrowseinfo internal constructor(
     public var dwSize: UInt,
@@ -150,8 +148,8 @@ public class GroupPolicyObjecta internal constructor(
     public var szGPOName: ByteArray,
     public var gPOLink: GpoLink,
     public var lParam: Lparam,
-    pNextCtorArg: MutPtr<GroupPolicyObjecta>,
-    pPrevCtorArg: MutPtr<GroupPolicyObjecta>,
+    pNextCtorArg: MutPtr,
+    pPrevCtorArg: MutPtr,
     lpExtensionsCtorArg: Pstr,
     public var lParam2: Lparam,
     lpLinkCtorArg: Pstr,
@@ -165,10 +163,10 @@ public class GroupPolicyObjecta internal constructor(
     public var lpDisplayName: Pstr = lpDisplayNameCtorArg
         internal set
 
-    public var pNext: MutPtr<GroupPolicyObjecta> = pNextCtorArg
+    public var pNext: MutPtr = pNextCtorArg
         internal set
 
-    public var pPrev: MutPtr<GroupPolicyObjecta> = pPrevCtorArg
+    public var pPrev: MutPtr = pPrevCtorArg
         internal set
 
     public var lpExtensions: Pstr = lpExtensionsCtorArg
@@ -209,9 +207,9 @@ public class GroupPolicyObjecta internal constructor(
 
     public operator fun component8(): Lparam = this.lParam
 
-    public operator fun component9(): MutPtr<GroupPolicyObjecta> = this.pNext
+    public operator fun component9(): MutPtr = this.pNext
 
-    public operator fun component10(): MutPtr<GroupPolicyObjecta> = this.pPrev
+    public operator fun component10(): MutPtr = this.pPrev
 
     public operator fun component11(): Pstr = this.lpExtensions
 
@@ -219,7 +217,7 @@ public class GroupPolicyObjecta internal constructor(
 
     public operator fun component13(): Pstr = this.lpLink
 
-    public fun copy(dwOptions: UInt = this.dwOptions, dwVersion: UInt = this.dwVersion, lpDSPath: Pstr = this.lpDSPath, lpFileSysPath: Pstr = this.lpFileSysPath, lpDisplayName: Pstr = this.lpDisplayName, szGPOName: ByteArray = this.szGPOName, gPOLink: GpoLink = this.gPOLink, lParam: Lparam = this.lParam, pNext: MutPtr<GroupPolicyObjecta> = this.pNext, pPrev: MutPtr<GroupPolicyObjecta> = this.pPrev, lpExtensions: Pstr = this.lpExtensions, lParam2: Lparam = this.lParam2, lpLink: Pstr = this.lpLink): GroupPolicyObjecta = GroupPolicyObjecta(dwOptions = dwOptions, dwVersion = dwVersion, lpDSPathCtorArg = lpDSPath, lpFileSysPathCtorArg = lpFileSysPath, lpDisplayNameCtorArg = lpDisplayName, szGPOName = szGPOName, gPOLink = gPOLink, lParam = lParam, pNextCtorArg = pNext, pPrevCtorArg = pPrev, lpExtensionsCtorArg = lpExtensions, lParam2 = lParam2, lpLinkCtorArg = lpLink)
+    public fun copy(dwOptions: UInt = this.dwOptions, dwVersion: UInt = this.dwVersion, lpDSPath: Pstr = this.lpDSPath, lpFileSysPath: Pstr = this.lpFileSysPath, lpDisplayName: Pstr = this.lpDisplayName, szGPOName: ByteArray = this.szGPOName, gPOLink: GpoLink = this.gPOLink, lParam: Lparam = this.lParam, pNext: MutPtr = this.pNext, pPrev: MutPtr = this.pPrev, lpExtensions: Pstr = this.lpExtensions, lParam2: Lparam = this.lParam2, lpLink: Pstr = this.lpLink): GroupPolicyObjecta = GroupPolicyObjecta(dwOptions = dwOptions, dwVersion = dwVersion, lpDSPathCtorArg = lpDSPath, lpFileSysPathCtorArg = lpFileSysPath, lpDisplayNameCtorArg = lpDisplayName, szGPOName = szGPOName, gPOLink = gPOLink, lParam = lParam, pNextCtorArg = pNext, pPrevCtorArg = pPrev, lpExtensionsCtorArg = lpExtensions, lParam2 = lParam2, lpLinkCtorArg = lpLink)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -267,8 +265,8 @@ public class GroupPolicyObjecta internal constructor(
             szGPOName: ByteArray = ByteArray(50),
             gPOLink: GpoLink = 0,
             lParam: Lparam = 0L,
-            pNext: MutPtr<GroupPolicyObjecta> = MutPtr(0L),
-            pPrev: MutPtr<GroupPolicyObjecta> = MutPtr(0L),
+            pNext: MutPtr = MutPtr(0L),
+            pPrev: MutPtr = MutPtr(0L),
             lpExtensions: Pstr = MutPtr(0L),
             lParam2: Lparam = 0L,
             lpLink: Pstr = MutPtr(0L),
@@ -300,8 +298,8 @@ public class GroupPolicyObjectw internal constructor(
     public var szGPOName: UShortArray,
     public var gPOLink: GpoLink,
     public var lParam: Lparam,
-    pNextCtorArg: MutPtr<GroupPolicyObjectw>,
-    pPrevCtorArg: MutPtr<GroupPolicyObjectw>,
+    pNextCtorArg: MutPtr,
+    pPrevCtorArg: MutPtr,
     lpExtensionsCtorArg: Pwstr,
     public var lParam2: Lparam,
     lpLinkCtorArg: Pwstr,
@@ -315,10 +313,10 @@ public class GroupPolicyObjectw internal constructor(
     public var lpDisplayName: Pwstr = lpDisplayNameCtorArg
         internal set
 
-    public var pNext: MutPtr<GroupPolicyObjectw> = pNextCtorArg
+    public var pNext: MutPtr = pNextCtorArg
         internal set
 
-    public var pPrev: MutPtr<GroupPolicyObjectw> = pPrevCtorArg
+    public var pPrev: MutPtr = pPrevCtorArg
         internal set
 
     public var lpExtensions: Pwstr = lpExtensionsCtorArg
@@ -359,9 +357,9 @@ public class GroupPolicyObjectw internal constructor(
 
     public operator fun component8(): Lparam = this.lParam
 
-    public operator fun component9(): MutPtr<GroupPolicyObjectw> = this.pNext
+    public operator fun component9(): MutPtr = this.pNext
 
-    public operator fun component10(): MutPtr<GroupPolicyObjectw> = this.pPrev
+    public operator fun component10(): MutPtr = this.pPrev
 
     public operator fun component11(): Pwstr = this.lpExtensions
 
@@ -369,7 +367,7 @@ public class GroupPolicyObjectw internal constructor(
 
     public operator fun component13(): Pwstr = this.lpLink
 
-    public fun copy(dwOptions: UInt = this.dwOptions, dwVersion: UInt = this.dwVersion, lpDSPath: Pwstr = this.lpDSPath, lpFileSysPath: Pwstr = this.lpFileSysPath, lpDisplayName: Pwstr = this.lpDisplayName, szGPOName: UShortArray = this.szGPOName, gPOLink: GpoLink = this.gPOLink, lParam: Lparam = this.lParam, pNext: MutPtr<GroupPolicyObjectw> = this.pNext, pPrev: MutPtr<GroupPolicyObjectw> = this.pPrev, lpExtensions: Pwstr = this.lpExtensions, lParam2: Lparam = this.lParam2, lpLink: Pwstr = this.lpLink): GroupPolicyObjectw = GroupPolicyObjectw(dwOptions = dwOptions, dwVersion = dwVersion, lpDSPathCtorArg = lpDSPath, lpFileSysPathCtorArg = lpFileSysPath, lpDisplayNameCtorArg = lpDisplayName, szGPOName = szGPOName, gPOLink = gPOLink, lParam = lParam, pNextCtorArg = pNext, pPrevCtorArg = pPrev, lpExtensionsCtorArg = lpExtensions, lParam2 = lParam2, lpLinkCtorArg = lpLink)
+    public fun copy(dwOptions: UInt = this.dwOptions, dwVersion: UInt = this.dwVersion, lpDSPath: Pwstr = this.lpDSPath, lpFileSysPath: Pwstr = this.lpFileSysPath, lpDisplayName: Pwstr = this.lpDisplayName, szGPOName: UShortArray = this.szGPOName, gPOLink: GpoLink = this.gPOLink, lParam: Lparam = this.lParam, pNext: MutPtr = this.pNext, pPrev: MutPtr = this.pPrev, lpExtensions: Pwstr = this.lpExtensions, lParam2: Lparam = this.lParam2, lpLink: Pwstr = this.lpLink): GroupPolicyObjectw = GroupPolicyObjectw(dwOptions = dwOptions, dwVersion = dwVersion, lpDSPathCtorArg = lpDSPath, lpFileSysPathCtorArg = lpFileSysPath, lpDisplayNameCtorArg = lpDisplayName, szGPOName = szGPOName, gPOLink = gPOLink, lParam = lParam, pNextCtorArg = pNext, pPrevCtorArg = pPrev, lpExtensionsCtorArg = lpExtensions, lParam2 = lParam2, lpLinkCtorArg = lpLink)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -417,8 +415,8 @@ public class GroupPolicyObjectw internal constructor(
             szGPOName: UShortArray = UShortArray(50),
             gPOLink: GpoLink = 0,
             lParam: Lparam = 0L,
-            pNext: MutPtr<GroupPolicyObjectw> = MutPtr(0L),
-            pPrev: MutPtr<GroupPolicyObjectw> = MutPtr(0L),
+            pNext: MutPtr = MutPtr(0L),
+            pPrev: MutPtr = MutPtr(0L),
             lpExtensions: Pwstr = MutPtr(0L),
             lParam2: Lparam = 0L,
             lpLink: Pwstr = MutPtr(0L),
@@ -894,10 +892,10 @@ public class Policysettingstatusinfo internal constructor(
 public class RsopTarget internal constructor(
     pwszAccountNameCtorArg: Pwstr,
     pwszNewSOMCtorArg: Pwstr,
-    psaSecurityGroupsCtorArg: MutPtr<Safearray>,
-    pRsopTokenCtorArg: MutPtr<CVoid>,
-    pGPOListCtorArg: MutPtr<GroupPolicyObjecta>,
-    pWbemServicesCtorArg: MutPtr<CVoid>,
+    psaSecurityGroupsCtorArg: MutPtr,
+    pRsopTokenCtorArg: MutPtr,
+    pGPOListCtorArg: MutPtr,
+    pWbemServicesCtorArg: MutPtr,
 ) {
     public var pwszAccountName: Pwstr = pwszAccountNameCtorArg
         internal set
@@ -905,16 +903,16 @@ public class RsopTarget internal constructor(
     public var pwszNewSOM: Pwstr = pwszNewSOMCtorArg
         internal set
 
-    public var psaSecurityGroups: MutPtr<Safearray> = psaSecurityGroupsCtorArg
+    public var psaSecurityGroups: MutPtr = psaSecurityGroupsCtorArg
         internal set
 
-    public var pRsopToken: MutPtr<CVoid> = pRsopTokenCtorArg
+    public var pRsopToken: MutPtr = pRsopTokenCtorArg
         internal set
 
-    public var pGPOList: MutPtr<GroupPolicyObjecta> = pGPOListCtorArg
+    public var pGPOList: MutPtr = pGPOListCtorArg
         internal set
 
-    public var pWbemServices: MutPtr<CVoid> = pWbemServicesCtorArg
+    public var pWbemServices: MutPtr = pWbemServicesCtorArg
         internal set
 
     public constructor() : this(
@@ -930,15 +928,15 @@ public class RsopTarget internal constructor(
 
     public operator fun component2(): Pwstr = this.pwszNewSOM
 
-    public operator fun component3(): MutPtr<Safearray> = this.psaSecurityGroups
+    public operator fun component3(): MutPtr = this.psaSecurityGroups
 
-    public operator fun component4(): MutPtr<CVoid> = this.pRsopToken
+    public operator fun component4(): MutPtr = this.pRsopToken
 
-    public operator fun component5(): MutPtr<GroupPolicyObjecta> = this.pGPOList
+    public operator fun component5(): MutPtr = this.pGPOList
 
-    public operator fun component6(): MutPtr<CVoid> = this.pWbemServices
+    public operator fun component6(): MutPtr = this.pWbemServices
 
-    public fun copy(pwszAccountName: Pwstr = this.pwszAccountName, pwszNewSOM: Pwstr = this.pwszNewSOM, psaSecurityGroups: MutPtr<Safearray> = this.psaSecurityGroups, pRsopToken: MutPtr<CVoid> = this.pRsopToken, pGPOList: MutPtr<GroupPolicyObjecta> = this.pGPOList, pWbemServices: MutPtr<CVoid> = this.pWbemServices): RsopTarget = RsopTarget(pwszAccountNameCtorArg = pwszAccountName, pwszNewSOMCtorArg = pwszNewSOM, psaSecurityGroupsCtorArg = psaSecurityGroups, pRsopTokenCtorArg = pRsopToken, pGPOListCtorArg = pGPOList, pWbemServicesCtorArg = pWbemServices)
+    public fun copy(pwszAccountName: Pwstr = this.pwszAccountName, pwszNewSOM: Pwstr = this.pwszNewSOM, psaSecurityGroups: MutPtr = this.psaSecurityGroups, pRsopToken: MutPtr = this.pRsopToken, pGPOList: MutPtr = this.pGPOList, pWbemServices: MutPtr = this.pWbemServices): RsopTarget = RsopTarget(pwszAccountNameCtorArg = pwszAccountName, pwszNewSOMCtorArg = pwszNewSOM, psaSecurityGroupsCtorArg = psaSecurityGroups, pRsopTokenCtorArg = pRsopToken, pGPOListCtorArg = pGPOList, pWbemServicesCtorArg = pWbemServices)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -966,10 +964,10 @@ public class RsopTarget internal constructor(
         public operator fun invoke(
             pwszAccountName: Pwstr = MutPtr(0L),
             pwszNewSOM: Pwstr = MutPtr(0L),
-            psaSecurityGroups: MutPtr<Safearray> = MutPtr(0L),
-            pRsopToken: MutPtr<CVoid> = MutPtr(0L),
-            pGPOList: MutPtr<GroupPolicyObjecta> = MutPtr(0L),
-            pWbemServices: MutPtr<CVoid> = MutPtr(0L),
+            psaSecurityGroups: MutPtr = MutPtr(0L),
+            pRsopToken: MutPtr = MutPtr(0L),
+            pGPOList: MutPtr = MutPtr(0L),
+            pWbemServices: MutPtr = MutPtr(0L),
         ): RsopTarget =
             RsopTarget(
                 pwszAccountNameCtorArg = pwszAccountName,

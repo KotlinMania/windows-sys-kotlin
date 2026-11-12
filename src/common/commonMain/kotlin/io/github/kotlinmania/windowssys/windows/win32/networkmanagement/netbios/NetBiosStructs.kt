@@ -328,7 +328,7 @@ public class Ncb internal constructor(
     public var ncbRetcode: UByte,
     public var ncbLsn: UByte,
     public var ncbNum: UByte,
-    ncbBufferCtorArg: MutPtr<UByte>,
+    ncbBufferCtorArg: MutPtr,
     public var ncbLength: UShort,
     public var ncbCallname: UByteArray,
     public var ncbName: UByteArray,
@@ -340,7 +340,7 @@ public class Ncb internal constructor(
     public var ncbReserve: UByteArray,
     ncbEventCtorArg: Handle,
 ) {
-    public var ncbBuffer: MutPtr<UByte> = ncbBufferCtorArg
+    public var ncbBuffer: MutPtr = ncbBufferCtorArg
         internal set
 
     public var ncbEvent: Handle = ncbEventCtorArg
@@ -372,7 +372,7 @@ public class Ncb internal constructor(
 
     public operator fun component4(): UByte = this.ncbNum
 
-    public operator fun component5(): MutPtr<UByte> = this.ncbBuffer
+    public operator fun component5(): MutPtr = this.ncbBuffer
 
     public operator fun component6(): UShort = this.ncbLength
 
@@ -394,7 +394,7 @@ public class Ncb internal constructor(
 
     public operator fun component15(): Handle = this.ncbEvent
 
-    public fun copy(ncbCommand: UByte = this.ncbCommand, ncbRetcode: UByte = this.ncbRetcode, ncbLsn: UByte = this.ncbLsn, ncbNum: UByte = this.ncbNum, ncbBuffer: MutPtr<UByte> = this.ncbBuffer, ncbLength: UShort = this.ncbLength, ncbCallname: UByteArray = this.ncbCallname, ncbName: UByteArray = this.ncbName, ncbRto: UByte = this.ncbRto, ncbSto: UByte = this.ncbSto, ncbPost: Int = this.ncbPost, ncbLanaNum: UByte = this.ncbLanaNum, ncbCmdCplt: UByte = this.ncbCmdCplt, ncbReserve: UByteArray = this.ncbReserve, ncbEvent: Handle = this.ncbEvent): Ncb = Ncb(ncbCommand = ncbCommand, ncbRetcode = ncbRetcode, ncbLsn = ncbLsn, ncbNum = ncbNum, ncbBufferCtorArg = ncbBuffer, ncbLength = ncbLength, ncbCallname = ncbCallname, ncbName = ncbName, ncbRto = ncbRto, ncbSto = ncbSto, ncbPost = ncbPost, ncbLanaNum = ncbLanaNum, ncbCmdCplt = ncbCmdCplt, ncbReserve = ncbReserve, ncbEventCtorArg = ncbEvent)
+    public fun copy(ncbCommand: UByte = this.ncbCommand, ncbRetcode: UByte = this.ncbRetcode, ncbLsn: UByte = this.ncbLsn, ncbNum: UByte = this.ncbNum, ncbBuffer: MutPtr = this.ncbBuffer, ncbLength: UShort = this.ncbLength, ncbCallname: UByteArray = this.ncbCallname, ncbName: UByteArray = this.ncbName, ncbRto: UByte = this.ncbRto, ncbSto: UByte = this.ncbSto, ncbPost: Int = this.ncbPost, ncbLanaNum: UByte = this.ncbLanaNum, ncbCmdCplt: UByte = this.ncbCmdCplt, ncbReserve: UByteArray = this.ncbReserve, ncbEvent: Handle = this.ncbEvent): Ncb = Ncb(ncbCommand = ncbCommand, ncbRetcode = ncbRetcode, ncbLsn = ncbLsn, ncbNum = ncbNum, ncbBufferCtorArg = ncbBuffer, ncbLength = ncbLength, ncbCallname = ncbCallname, ncbName = ncbName, ncbRto = ncbRto, ncbSto = ncbSto, ncbPost = ncbPost, ncbLanaNum = ncbLanaNum, ncbCmdCplt = ncbCmdCplt, ncbReserve = ncbReserve, ncbEventCtorArg = ncbEvent)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -442,7 +442,7 @@ public class Ncb internal constructor(
             ncbRetcode: UByte = 0u,
             ncbLsn: UByte = 0u,
             ncbNum: UByte = 0u,
-            ncbBuffer: MutPtr<UByte> = MutPtr(0L),
+            ncbBuffer: MutPtr = MutPtr(0L),
             ncbLength: UShort = 0u,
             ncbCallname: UByteArray = UByteArray(16),
             ncbName: UByteArray = UByteArray(16),

@@ -2,11 +2,9 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.security.credentials
 
-import io.github.kotlinmania.rustlang.core.ffi.CVoid
 import io.github.kotlinmania.rustlang.core.ptr.ConstPtr
 import io.github.kotlinmania.rustlang.core.ptr.MutPtr
 import io.github.kotlinmania.windowssys.core.Bool
-import io.github.kotlinmania.windowssys.core.Guid
 import io.github.kotlinmania.windowssys.core.Hresult
 import io.github.kotlinmania.windowssys.core.Pcstr
 import io.github.kotlinmania.windowssys.core.Pcwstr
@@ -152,29 +150,29 @@ public actual fun credDeleteA(targetname: Pcstr, type: CredType, flags: UInt): B
 public actual fun credDeleteW(targetname: Pcwstr, type: CredType, flags: UInt): Bool =
     windowssysWindowsWin32SecurityCredentialsCredDeleteW(targetname.rawAddress.toCPointer<ByteVar>(), type, flags)
 
-public actual fun credEnumerateA(filter: Pcstr, flags: CredEnumerateFlags, count: MutPtr<UInt>, credential: MutPtr<MutPtr<MutPtr<Credentiala>>>): Bool =
+public actual fun credEnumerateA(filter: Pcstr, flags: CredEnumerateFlags, count: MutPtr, credential: MutPtr): Bool =
     windowssysWindowsWin32SecurityCredentialsCredEnumerateA(filter.rawAddress.toCPointer<ByteVar>(), flags, count.rawAddress.toCPointer<ByteVar>(), credential.rawAddress.toCPointer<ByteVar>())
 
-public actual fun credEnumerateW(filter: Pcwstr, flags: CredEnumerateFlags, count: MutPtr<UInt>, credential: MutPtr<MutPtr<MutPtr<Credentialw>>>): Bool =
+public actual fun credEnumerateW(filter: Pcwstr, flags: CredEnumerateFlags, count: MutPtr, credential: MutPtr): Bool =
     windowssysWindowsWin32SecurityCredentialsCredEnumerateW(filter.rawAddress.toCPointer<ByteVar>(), flags, count.rawAddress.toCPointer<ByteVar>(), credential.rawAddress.toCPointer<ByteVar>())
 
-public actual fun credFindBestCredentialA(targetname: Pcstr, type: UInt, flags: UInt, credential: MutPtr<MutPtr<Credentiala>>): Bool =
+public actual fun credFindBestCredentialA(targetname: Pcstr, type: UInt, flags: UInt, credential: MutPtr): Bool =
     windowssysWindowsWin32SecurityCredentialsCredFindBestCredentialA(targetname.rawAddress.toCPointer<ByteVar>(), type, flags, credential.rawAddress.toCPointer<ByteVar>())
 
-public actual fun credFindBestCredentialW(targetname: Pcwstr, type: UInt, flags: UInt, credential: MutPtr<MutPtr<Credentialw>>): Bool =
+public actual fun credFindBestCredentialW(targetname: Pcwstr, type: UInt, flags: UInt, credential: MutPtr): Bool =
     windowssysWindowsWin32SecurityCredentialsCredFindBestCredentialW(targetname.rawAddress.toCPointer<ByteVar>(), type, flags, credential.rawAddress.toCPointer<ByteVar>())
 
-public actual fun credFree(buffer: ConstPtr<CVoid>) {
+public actual fun credFree(buffer: ConstPtr) {
     windowssysWindowsWin32SecurityCredentialsCredFree(buffer.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun credGetSessionTypes(maximumpersistcount: UInt, maximumpersist: MutPtr<UInt>): Bool =
+public actual fun credGetSessionTypes(maximumpersistcount: UInt, maximumpersist: MutPtr): Bool =
     windowssysWindowsWin32SecurityCredentialsCredGetSessionTypes(maximumpersistcount, maximumpersist.rawAddress.toCPointer<ByteVar>())
 
-public actual fun credGetTargetInfoA(targetname: Pcstr, flags: UInt, targetinfo: MutPtr<MutPtr<CredentialTargetInformationa>>): Bool =
+public actual fun credGetTargetInfoA(targetname: Pcstr, flags: UInt, targetinfo: MutPtr): Bool =
     windowssysWindowsWin32SecurityCredentialsCredGetTargetInfoA(targetname.rawAddress.toCPointer<ByteVar>(), flags, targetinfo.rawAddress.toCPointer<ByteVar>())
 
-public actual fun credGetTargetInfoW(targetname: Pcwstr, flags: UInt, targetinfo: MutPtr<MutPtr<CredentialTargetInformationw>>): Bool =
+public actual fun credGetTargetInfoW(targetname: Pcwstr, flags: UInt, targetinfo: MutPtr): Bool =
     windowssysWindowsWin32SecurityCredentialsCredGetTargetInfoW(targetname.rawAddress.toCPointer<ByteVar>(), flags, targetinfo.rawAddress.toCPointer<ByteVar>())
 
 public actual fun credIsMarshaledCredentialA(marshaledcredential: Pcstr): Bool =
@@ -183,40 +181,40 @@ public actual fun credIsMarshaledCredentialA(marshaledcredential: Pcstr): Bool =
 public actual fun credIsMarshaledCredentialW(marshaledcredential: Pcwstr): Bool =
     windowssysWindowsWin32SecurityCredentialsCredIsMarshaledCredentialW(marshaledcredential.rawAddress.toCPointer<ByteVar>())
 
-public actual fun credIsProtectedA(pszprotectedcredentials: Pcstr, pprotectiontype: MutPtr<CredProtectionType>): Bool =
+public actual fun credIsProtectedA(pszprotectedcredentials: Pcstr, pprotectiontype: MutPtr): Bool =
     windowssysWindowsWin32SecurityCredentialsCredIsProtectedA(pszprotectedcredentials.rawAddress.toCPointer<ByteVar>(), pprotectiontype.rawAddress.toCPointer<ByteVar>())
 
-public actual fun credIsProtectedW(pszprotectedcredentials: Pcwstr, pprotectiontype: MutPtr<CredProtectionType>): Bool =
+public actual fun credIsProtectedW(pszprotectedcredentials: Pcwstr, pprotectiontype: MutPtr): Bool =
     windowssysWindowsWin32SecurityCredentialsCredIsProtectedW(pszprotectedcredentials.rawAddress.toCPointer<ByteVar>(), pprotectiontype.rawAddress.toCPointer<ByteVar>())
 
-public actual fun credMarshalCredentialA(credtype: CredMarshalType, credential: ConstPtr<CVoid>, marshaledcredential: MutPtr<Pstr>): Bool =
+public actual fun credMarshalCredentialA(credtype: CredMarshalType, credential: ConstPtr, marshaledcredential: MutPtr): Bool =
     windowssysWindowsWin32SecurityCredentialsCredMarshalCredentialA(credtype, credential.rawAddress.toCPointer<ByteVar>(), marshaledcredential.rawAddress.toCPointer<ByteVar>())
 
-public actual fun credMarshalCredentialW(credtype: CredMarshalType, credential: ConstPtr<CVoid>, marshaledcredential: MutPtr<Pwstr>): Bool =
+public actual fun credMarshalCredentialW(credtype: CredMarshalType, credential: ConstPtr, marshaledcredential: MutPtr): Bool =
     windowssysWindowsWin32SecurityCredentialsCredMarshalCredentialW(credtype, credential.rawAddress.toCPointer<ByteVar>(), marshaledcredential.rawAddress.toCPointer<ByteVar>())
 
-public actual fun credPackAuthenticationBufferA(dwflags: CredPackFlags, pszusername: Pcstr, pszpassword: Pcstr, ppackedcredentials: MutPtr<UByte>, pcbpackedcredentials: MutPtr<UInt>): Bool =
+public actual fun credPackAuthenticationBufferA(dwflags: CredPackFlags, pszusername: Pcstr, pszpassword: Pcstr, ppackedcredentials: MutPtr, pcbpackedcredentials: MutPtr): Bool =
     windowssysWindowsWin32SecurityCredentialsCredPackAuthenticationBufferA(dwflags, pszusername.rawAddress.toCPointer<ByteVar>(), pszpassword.rawAddress.toCPointer<ByteVar>(), ppackedcredentials.rawAddress.toCPointer<ByteVar>(), pcbpackedcredentials.rawAddress.toCPointer<ByteVar>())
 
-public actual fun credPackAuthenticationBufferW(dwflags: CredPackFlags, pszusername: Pcwstr, pszpassword: Pcwstr, ppackedcredentials: MutPtr<UByte>, pcbpackedcredentials: MutPtr<UInt>): Bool =
+public actual fun credPackAuthenticationBufferW(dwflags: CredPackFlags, pszusername: Pcwstr, pszpassword: Pcwstr, ppackedcredentials: MutPtr, pcbpackedcredentials: MutPtr): Bool =
     windowssysWindowsWin32SecurityCredentialsCredPackAuthenticationBufferW(dwflags, pszusername.rawAddress.toCPointer<ByteVar>(), pszpassword.rawAddress.toCPointer<ByteVar>(), ppackedcredentials.rawAddress.toCPointer<ByteVar>(), pcbpackedcredentials.rawAddress.toCPointer<ByteVar>())
 
-public actual fun credProtectA(fasself: Bool, pszcredentials: Pcstr, cchcredentials: UInt, pszprotectedcredentials: Pstr, pcchmaxchars: MutPtr<UInt>, protectiontype: MutPtr<CredProtectionType>): Bool =
+public actual fun credProtectA(fasself: Bool, pszcredentials: Pcstr, cchcredentials: UInt, pszprotectedcredentials: Pstr, pcchmaxchars: MutPtr, protectiontype: MutPtr): Bool =
     windowssysWindowsWin32SecurityCredentialsCredProtectA(fasself, pszcredentials.rawAddress.toCPointer<ByteVar>(), cchcredentials, pszprotectedcredentials.rawAddress.toCPointer<ByteVar>(), pcchmaxchars.rawAddress.toCPointer<ByteVar>(), protectiontype.rawAddress.toCPointer<ByteVar>())
 
-public actual fun credProtectW(fasself: Bool, pszcredentials: Pcwstr, cchcredentials: UInt, pszprotectedcredentials: Pwstr, pcchmaxchars: MutPtr<UInt>, protectiontype: MutPtr<CredProtectionType>): Bool =
+public actual fun credProtectW(fasself: Bool, pszcredentials: Pcwstr, cchcredentials: UInt, pszprotectedcredentials: Pwstr, pcchmaxchars: MutPtr, protectiontype: MutPtr): Bool =
     windowssysWindowsWin32SecurityCredentialsCredProtectW(fasself, pszcredentials.rawAddress.toCPointer<ByteVar>(), cchcredentials, pszprotectedcredentials.rawAddress.toCPointer<ByteVar>(), pcchmaxchars.rawAddress.toCPointer<ByteVar>(), protectiontype.rawAddress.toCPointer<ByteVar>())
 
-public actual fun credReadA(targetname: Pcstr, type: CredType, flags: UInt, credential: MutPtr<MutPtr<Credentiala>>): Bool =
+public actual fun credReadA(targetname: Pcstr, type: CredType, flags: UInt, credential: MutPtr): Bool =
     windowssysWindowsWin32SecurityCredentialsCredReadA(targetname.rawAddress.toCPointer<ByteVar>(), type, flags, credential.rawAddress.toCPointer<ByteVar>())
 
-public actual fun credReadDomainCredentialsA(targetinfo: ConstPtr<CredentialTargetInformationa>, flags: UInt, count: MutPtr<UInt>, credential: MutPtr<MutPtr<MutPtr<Credentiala>>>): Bool =
+public actual fun credReadDomainCredentialsA(targetinfo: ConstPtr, flags: UInt, count: MutPtr, credential: MutPtr): Bool =
     windowssysWindowsWin32SecurityCredentialsCredReadDomainCredentialsA(targetinfo.rawAddress.toCPointer<ByteVar>(), flags, count.rawAddress.toCPointer<ByteVar>(), credential.rawAddress.toCPointer<ByteVar>())
 
-public actual fun credReadDomainCredentialsW(targetinfo: ConstPtr<CredentialTargetInformationw>, flags: UInt, count: MutPtr<UInt>, credential: MutPtr<MutPtr<MutPtr<Credentialw>>>): Bool =
+public actual fun credReadDomainCredentialsW(targetinfo: ConstPtr, flags: UInt, count: MutPtr, credential: MutPtr): Bool =
     windowssysWindowsWin32SecurityCredentialsCredReadDomainCredentialsW(targetinfo.rawAddress.toCPointer<ByteVar>(), flags, count.rawAddress.toCPointer<ByteVar>(), credential.rawAddress.toCPointer<ByteVar>())
 
-public actual fun credReadW(targetname: Pcwstr, type: CredType, flags: UInt, credential: MutPtr<MutPtr<Credentialw>>): Bool =
+public actual fun credReadW(targetname: Pcwstr, type: CredType, flags: UInt, credential: MutPtr): Bool =
     windowssysWindowsWin32SecurityCredentialsCredReadW(targetname.rawAddress.toCPointer<ByteVar>(), type, flags, credential.rawAddress.toCPointer<ByteVar>())
 
 public actual fun credRenameA(oldtargetname: Pcstr, newtargetname: Pcstr, type: CredType, flags: UInt): Bool =
@@ -225,10 +223,10 @@ public actual fun credRenameA(oldtargetname: Pcstr, newtargetname: Pcstr, type: 
 public actual fun credRenameW(oldtargetname: Pcwstr, newtargetname: Pcwstr, type: CredType, flags: UInt): Bool =
     windowssysWindowsWin32SecurityCredentialsCredRenameW(oldtargetname.rawAddress.toCPointer<ByteVar>(), newtargetname.rawAddress.toCPointer<ByteVar>(), type, flags)
 
-public actual fun credUICmdLinePromptForCredentialsA(psztargetname: Pcstr, pcontext: ConstPtr<SecHandle>, dwautherror: UInt, username: Pstr, uluserbuffersize: UInt, pszpassword: Pstr, ulpasswordbuffersize: UInt, pfsave: MutPtr<Bool>, dwflags: CreduiFlags): UInt =
+public actual fun credUICmdLinePromptForCredentialsA(psztargetname: Pcstr, pcontext: ConstPtr, dwautherror: UInt, username: Pstr, uluserbuffersize: UInt, pszpassword: Pstr, ulpasswordbuffersize: UInt, pfsave: MutPtr, dwflags: CreduiFlags): UInt =
     windowssysWindowsWin32SecurityCredentialsCredUICmdLinePromptForCredentialsA(psztargetname.rawAddress.toCPointer<ByteVar>(), pcontext.rawAddress.toCPointer<ByteVar>(), dwautherror, username.rawAddress.toCPointer<ByteVar>(), uluserbuffersize, pszpassword.rawAddress.toCPointer<ByteVar>(), ulpasswordbuffersize, pfsave.rawAddress.toCPointer<ByteVar>(), dwflags)
 
-public actual fun credUICmdLinePromptForCredentialsW(psztargetname: Pcwstr, pcontext: ConstPtr<SecHandle>, dwautherror: UInt, username: Pwstr, uluserbuffersize: UInt, pszpassword: Pwstr, ulpasswordbuffersize: UInt, pfsave: MutPtr<Bool>, dwflags: CreduiFlags): UInt =
+public actual fun credUICmdLinePromptForCredentialsW(psztargetname: Pcwstr, pcontext: ConstPtr, dwautherror: UInt, username: Pwstr, uluserbuffersize: UInt, pszpassword: Pwstr, ulpasswordbuffersize: UInt, pfsave: MutPtr, dwflags: CreduiFlags): UInt =
     windowssysWindowsWin32SecurityCredentialsCredUICmdLinePromptForCredentialsW(psztargetname.rawAddress.toCPointer<ByteVar>(), pcontext.rawAddress.toCPointer<ByteVar>(), dwautherror, username.rawAddress.toCPointer<ByteVar>(), uluserbuffersize, pszpassword.rawAddress.toCPointer<ByteVar>(), ulpasswordbuffersize, pfsave.rawAddress.toCPointer<ByteVar>(), dwflags)
 
 public actual fun credUIConfirmCredentialsA(psztargetname: Pcstr, bconfirm: Bool): UInt =
@@ -243,68 +241,68 @@ public actual fun credUIParseUserNameA(username: Pcstr, user: Pstr, userbuffersi
 public actual fun credUIParseUserNameW(username: Pcwstr, user: Pwstr, userbuffersize: UInt, domain: Pwstr, domainbuffersize: UInt): Win32Error =
     windowssysWindowsWin32SecurityCredentialsCredUIParseUserNameW(username.rawAddress.toCPointer<ByteVar>(), user.rawAddress.toCPointer<ByteVar>(), userbuffersize, domain.rawAddress.toCPointer<ByteVar>(), domainbuffersize)
 
-public actual fun credUIPromptForCredentialsA(puiinfo: ConstPtr<CreduiInfoa>, psztargetname: Pcstr, pcontext: ConstPtr<SecHandle>, dwautherror: UInt, pszusername: Pstr, ulusernamebuffersize: UInt, pszpassword: Pstr, ulpasswordbuffersize: UInt, save: MutPtr<Bool>, dwflags: CreduiFlags): Win32Error =
+public actual fun credUIPromptForCredentialsA(puiinfo: ConstPtr, psztargetname: Pcstr, pcontext: ConstPtr, dwautherror: UInt, pszusername: Pstr, ulusernamebuffersize: UInt, pszpassword: Pstr, ulpasswordbuffersize: UInt, save: MutPtr, dwflags: CreduiFlags): Win32Error =
     windowssysWindowsWin32SecurityCredentialsCredUIPromptForCredentialsA(puiinfo.rawAddress.toCPointer<ByteVar>(), psztargetname.rawAddress.toCPointer<ByteVar>(), pcontext.rawAddress.toCPointer<ByteVar>(), dwautherror, pszusername.rawAddress.toCPointer<ByteVar>(), ulusernamebuffersize, pszpassword.rawAddress.toCPointer<ByteVar>(), ulpasswordbuffersize, save.rawAddress.toCPointer<ByteVar>(), dwflags)
 
-public actual fun credUIPromptForCredentialsW(puiinfo: ConstPtr<CreduiInfow>, psztargetname: Pcwstr, pcontext: ConstPtr<SecHandle>, dwautherror: UInt, pszusername: Pwstr, ulusernamebuffersize: UInt, pszpassword: Pwstr, ulpasswordbuffersize: UInt, save: MutPtr<Bool>, dwflags: CreduiFlags): Win32Error =
+public actual fun credUIPromptForCredentialsW(puiinfo: ConstPtr, psztargetname: Pcwstr, pcontext: ConstPtr, dwautherror: UInt, pszusername: Pwstr, ulusernamebuffersize: UInt, pszpassword: Pwstr, ulpasswordbuffersize: UInt, save: MutPtr, dwflags: CreduiFlags): Win32Error =
     windowssysWindowsWin32SecurityCredentialsCredUIPromptForCredentialsW(puiinfo.rawAddress.toCPointer<ByteVar>(), psztargetname.rawAddress.toCPointer<ByteVar>(), pcontext.rawAddress.toCPointer<ByteVar>(), dwautherror, pszusername.rawAddress.toCPointer<ByteVar>(), ulusernamebuffersize, pszpassword.rawAddress.toCPointer<ByteVar>(), ulpasswordbuffersize, save.rawAddress.toCPointer<ByteVar>(), dwflags)
 
-public actual fun credUIPromptForWindowsCredentialsA(puiinfo: ConstPtr<CreduiInfoa>, dwautherror: UInt, pulauthpackage: MutPtr<UInt>, pvinauthbuffer: ConstPtr<CVoid>, ulinauthbuffersize: UInt, ppvoutauthbuffer: MutPtr<MutPtr<CVoid>>, puloutauthbuffersize: MutPtr<UInt>, pfsave: MutPtr<Bool>, dwflags: CreduiwinFlags): UInt =
+public actual fun credUIPromptForWindowsCredentialsA(puiinfo: ConstPtr, dwautherror: UInt, pulauthpackage: MutPtr, pvinauthbuffer: ConstPtr, ulinauthbuffersize: UInt, ppvoutauthbuffer: MutPtr, puloutauthbuffersize: MutPtr, pfsave: MutPtr, dwflags: CreduiwinFlags): UInt =
     windowssysWindowsWin32SecurityCredentialsCredUIPromptForWindowsCredentialsA(puiinfo.rawAddress.toCPointer<ByteVar>(), dwautherror, pulauthpackage.rawAddress.toCPointer<ByteVar>(), pvinauthbuffer.rawAddress.toCPointer<ByteVar>(), ulinauthbuffersize, ppvoutauthbuffer.rawAddress.toCPointer<ByteVar>(), puloutauthbuffersize.rawAddress.toCPointer<ByteVar>(), pfsave.rawAddress.toCPointer<ByteVar>(), dwflags)
 
-public actual fun credUIPromptForWindowsCredentialsW(puiinfo: ConstPtr<CreduiInfow>, dwautherror: UInt, pulauthpackage: MutPtr<UInt>, pvinauthbuffer: ConstPtr<CVoid>, ulinauthbuffersize: UInt, ppvoutauthbuffer: MutPtr<MutPtr<CVoid>>, puloutauthbuffersize: MutPtr<UInt>, pfsave: MutPtr<Bool>, dwflags: CreduiwinFlags): UInt =
+public actual fun credUIPromptForWindowsCredentialsW(puiinfo: ConstPtr, dwautherror: UInt, pulauthpackage: MutPtr, pvinauthbuffer: ConstPtr, ulinauthbuffersize: UInt, ppvoutauthbuffer: MutPtr, puloutauthbuffersize: MutPtr, pfsave: MutPtr, dwflags: CreduiwinFlags): UInt =
     windowssysWindowsWin32SecurityCredentialsCredUIPromptForWindowsCredentialsW(puiinfo.rawAddress.toCPointer<ByteVar>(), dwautherror, pulauthpackage.rawAddress.toCPointer<ByteVar>(), pvinauthbuffer.rawAddress.toCPointer<ByteVar>(), ulinauthbuffersize, ppvoutauthbuffer.rawAddress.toCPointer<ByteVar>(), puloutauthbuffersize.rawAddress.toCPointer<ByteVar>(), pfsave.rawAddress.toCPointer<ByteVar>(), dwflags)
 
-public actual fun credUIReadSSOCredW(pszrealm: Pcwstr, ppszusername: MutPtr<Pwstr>): UInt =
+public actual fun credUIReadSSOCredW(pszrealm: Pcwstr, ppszusername: MutPtr): UInt =
     windowssysWindowsWin32SecurityCredentialsCredUIReadSSOCredW(pszrealm.rawAddress.toCPointer<ByteVar>(), ppszusername.rawAddress.toCPointer<ByteVar>())
 
 public actual fun credUIStoreSSOCredW(pszrealm: Pcwstr, pszusername: Pcwstr, pszpassword: Pcwstr, bpersist: Bool): UInt =
     windowssysWindowsWin32SecurityCredentialsCredUIStoreSSOCredW(pszrealm.rawAddress.toCPointer<ByteVar>(), pszusername.rawAddress.toCPointer<ByteVar>(), pszpassword.rawAddress.toCPointer<ByteVar>(), bpersist)
 
-public actual fun credUnPackAuthenticationBufferA(dwflags: CredPackFlags, pauthbuffer: ConstPtr<CVoid>, cbauthbuffer: UInt, pszusername: Pstr, pcchlmaxusername: MutPtr<UInt>, pszdomainname: Pstr, pcchmaxdomainname: MutPtr<UInt>, pszpassword: Pstr, pcchmaxpassword: MutPtr<UInt>): Bool =
+public actual fun credUnPackAuthenticationBufferA(dwflags: CredPackFlags, pauthbuffer: ConstPtr, cbauthbuffer: UInt, pszusername: Pstr, pcchlmaxusername: MutPtr, pszdomainname: Pstr, pcchmaxdomainname: MutPtr, pszpassword: Pstr, pcchmaxpassword: MutPtr): Bool =
     windowssysWindowsWin32SecurityCredentialsCredUnPackAuthenticationBufferA(dwflags, pauthbuffer.rawAddress.toCPointer<ByteVar>(), cbauthbuffer, pszusername.rawAddress.toCPointer<ByteVar>(), pcchlmaxusername.rawAddress.toCPointer<ByteVar>(), pszdomainname.rawAddress.toCPointer<ByteVar>(), pcchmaxdomainname.rawAddress.toCPointer<ByteVar>(), pszpassword.rawAddress.toCPointer<ByteVar>(), pcchmaxpassword.rawAddress.toCPointer<ByteVar>())
 
-public actual fun credUnPackAuthenticationBufferW(dwflags: CredPackFlags, pauthbuffer: ConstPtr<CVoid>, cbauthbuffer: UInt, pszusername: Pwstr, pcchmaxusername: MutPtr<UInt>, pszdomainname: Pwstr, pcchmaxdomainname: MutPtr<UInt>, pszpassword: Pwstr, pcchmaxpassword: MutPtr<UInt>): Bool =
+public actual fun credUnPackAuthenticationBufferW(dwflags: CredPackFlags, pauthbuffer: ConstPtr, cbauthbuffer: UInt, pszusername: Pwstr, pcchmaxusername: MutPtr, pszdomainname: Pwstr, pcchmaxdomainname: MutPtr, pszpassword: Pwstr, pcchmaxpassword: MutPtr): Bool =
     windowssysWindowsWin32SecurityCredentialsCredUnPackAuthenticationBufferW(dwflags, pauthbuffer.rawAddress.toCPointer<ByteVar>(), cbauthbuffer, pszusername.rawAddress.toCPointer<ByteVar>(), pcchmaxusername.rawAddress.toCPointer<ByteVar>(), pszdomainname.rawAddress.toCPointer<ByteVar>(), pcchmaxdomainname.rawAddress.toCPointer<ByteVar>(), pszpassword.rawAddress.toCPointer<ByteVar>(), pcchmaxpassword.rawAddress.toCPointer<ByteVar>())
 
-public actual fun credUnmarshalCredentialA(marshaledcredential: Pcstr, credtype: MutPtr<CredMarshalType>, credential: MutPtr<MutPtr<CVoid>>): Bool =
+public actual fun credUnmarshalCredentialA(marshaledcredential: Pcstr, credtype: MutPtr, credential: MutPtr): Bool =
     windowssysWindowsWin32SecurityCredentialsCredUnmarshalCredentialA(marshaledcredential.rawAddress.toCPointer<ByteVar>(), credtype.rawAddress.toCPointer<ByteVar>(), credential.rawAddress.toCPointer<ByteVar>())
 
-public actual fun credUnmarshalCredentialW(marshaledcredential: Pcwstr, credtype: MutPtr<CredMarshalType>, credential: MutPtr<MutPtr<CVoid>>): Bool =
+public actual fun credUnmarshalCredentialW(marshaledcredential: Pcwstr, credtype: MutPtr, credential: MutPtr): Bool =
     windowssysWindowsWin32SecurityCredentialsCredUnmarshalCredentialW(marshaledcredential.rawAddress.toCPointer<ByteVar>(), credtype.rawAddress.toCPointer<ByteVar>(), credential.rawAddress.toCPointer<ByteVar>())
 
-public actual fun credUnprotectA(fasself: Bool, pszprotectedcredentials: Pcstr, cchprotectedcredentials: UInt, pszcredentials: Pstr, pcchmaxchars: MutPtr<UInt>): Bool =
+public actual fun credUnprotectA(fasself: Bool, pszprotectedcredentials: Pcstr, cchprotectedcredentials: UInt, pszcredentials: Pstr, pcchmaxchars: MutPtr): Bool =
     windowssysWindowsWin32SecurityCredentialsCredUnprotectA(fasself, pszprotectedcredentials.rawAddress.toCPointer<ByteVar>(), cchprotectedcredentials, pszcredentials.rawAddress.toCPointer<ByteVar>(), pcchmaxchars.rawAddress.toCPointer<ByteVar>())
 
-public actual fun credUnprotectW(fasself: Bool, pszprotectedcredentials: Pcwstr, cchprotectedcredentials: UInt, pszcredentials: Pwstr, pcchmaxchars: MutPtr<UInt>): Bool =
+public actual fun credUnprotectW(fasself: Bool, pszprotectedcredentials: Pcwstr, cchprotectedcredentials: UInt, pszcredentials: Pwstr, pcchmaxchars: MutPtr): Bool =
     windowssysWindowsWin32SecurityCredentialsCredUnprotectW(fasself, pszprotectedcredentials.rawAddress.toCPointer<ByteVar>(), cchprotectedcredentials, pszcredentials.rawAddress.toCPointer<ByteVar>(), pcchmaxchars.rawAddress.toCPointer<ByteVar>())
 
-public actual fun credWriteA(credential: ConstPtr<Credentiala>, flags: UInt): Bool =
+public actual fun credWriteA(credential: ConstPtr, flags: UInt): Bool =
     windowssysWindowsWin32SecurityCredentialsCredWriteA(credential.rawAddress.toCPointer<ByteVar>(), flags)
 
-public actual fun credWriteDomainCredentialsA(targetinfo: ConstPtr<CredentialTargetInformationa>, credential: ConstPtr<Credentiala>, flags: UInt): Bool =
+public actual fun credWriteDomainCredentialsA(targetinfo: ConstPtr, credential: ConstPtr, flags: UInt): Bool =
     windowssysWindowsWin32SecurityCredentialsCredWriteDomainCredentialsA(targetinfo.rawAddress.toCPointer<ByteVar>(), credential.rawAddress.toCPointer<ByteVar>(), flags)
 
-public actual fun credWriteDomainCredentialsW(targetinfo: ConstPtr<CredentialTargetInformationw>, credential: ConstPtr<Credentialw>, flags: UInt): Bool =
+public actual fun credWriteDomainCredentialsW(targetinfo: ConstPtr, credential: ConstPtr, flags: UInt): Bool =
     windowssysWindowsWin32SecurityCredentialsCredWriteDomainCredentialsW(targetinfo.rawAddress.toCPointer<ByteVar>(), credential.rawAddress.toCPointer<ByteVar>(), flags)
 
-public actual fun credWriteW(credential: ConstPtr<Credentialw>, flags: UInt): Bool =
+public actual fun credWriteW(credential: ConstPtr, flags: UInt): Bool =
     windowssysWindowsWin32SecurityCredentialsCredWriteW(credential.rawAddress.toCPointer<ByteVar>(), flags)
 
-public actual fun getOpenCardNameA(param0: MutPtr<Opencardnamea>): Int =
+public actual fun getOpenCardNameA(param0: MutPtr): Int =
     windowssysWindowsWin32SecurityCredentialsGetOpenCardNameA(param0.rawAddress.toCPointer<ByteVar>())
 
-public actual fun getOpenCardNameW(param0: MutPtr<Opencardnamew>): Int =
+public actual fun getOpenCardNameW(param0: MutPtr): Int =
     windowssysWindowsWin32SecurityCredentialsGetOpenCardNameW(param0.rawAddress.toCPointer<ByteVar>())
 
-public actual fun keyCredentialManagerFreeInformation(keycredentialmanagerinfo: ConstPtr<KeyCredentialManagerInfo>) {
+public actual fun keyCredentialManagerFreeInformation(keycredentialmanagerinfo: ConstPtr) {
     windowssysWindowsWin32SecurityCredentialsKeyCredentialManagerFreeInformation(keycredentialmanagerinfo.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun keyCredentialManagerGetInformation(keycredentialmanagerinfo: MutPtr<MutPtr<KeyCredentialManagerInfo>>): Hresult =
+public actual fun keyCredentialManagerGetInformation(keycredentialmanagerinfo: MutPtr): Hresult =
     windowssysWindowsWin32SecurityCredentialsKeyCredentialManagerGetInformation(keycredentialmanagerinfo.rawAddress.toCPointer<ByteVar>())
 
-public actual fun keyCredentialManagerGetOperationErrorStates(keycredentialmanageroperationtype: KeyCredentialManagerOperationType, isready: MutPtr<Bool>, keycredentialmanageroperationerrorstates: MutPtr<KeyCredentialManagerOperationErrorStates>): Hresult =
+public actual fun keyCredentialManagerGetOperationErrorStates(keycredentialmanageroperationtype: KeyCredentialManagerOperationType, isready: MutPtr, keycredentialmanageroperationerrorstates: MutPtr): Hresult =
     windowssysWindowsWin32SecurityCredentialsKeyCredentialManagerGetOperationErrorStates(keycredentialmanageroperationtype, isready.rawAddress.toCPointer<ByteVar>(), keycredentialmanageroperationerrorstates.rawAddress.toCPointer<ByteVar>())
 
 public actual fun keyCredentialManagerShowUIOperation(hwndowner: Hwnd, keycredentialmanageroperationtype: KeyCredentialManagerOperationType): Hresult =
@@ -328,13 +326,13 @@ public actual fun sCardBeginTransaction(hcard: ULong): Int =
 public actual fun sCardCancel(hcontext: ULong): Int =
     windowssysWindowsWin32SecurityCredentialsSCardCancel(hcontext)
 
-public actual fun sCardConnectA(hcontext: ULong, szreader: Pcstr, dwsharemode: UInt, dwpreferredprotocols: UInt, phcard: MutPtr<ULong>, pdwactiveprotocol: MutPtr<UInt>): Int =
+public actual fun sCardConnectA(hcontext: ULong, szreader: Pcstr, dwsharemode: UInt, dwpreferredprotocols: UInt, phcard: MutPtr, pdwactiveprotocol: MutPtr): Int =
     windowssysWindowsWin32SecurityCredentialsSCardConnectA(hcontext, szreader.rawAddress.toCPointer<ByteVar>(), dwsharemode, dwpreferredprotocols, phcard.rawAddress.toCPointer<ByteVar>(), pdwactiveprotocol.rawAddress.toCPointer<ByteVar>())
 
-public actual fun sCardConnectW(hcontext: ULong, szreader: Pcwstr, dwsharemode: UInt, dwpreferredprotocols: UInt, phcard: MutPtr<ULong>, pdwactiveprotocol: MutPtr<UInt>): Int =
+public actual fun sCardConnectW(hcontext: ULong, szreader: Pcwstr, dwsharemode: UInt, dwpreferredprotocols: UInt, phcard: MutPtr, pdwactiveprotocol: MutPtr): Int =
     windowssysWindowsWin32SecurityCredentialsSCardConnectW(hcontext, szreader.rawAddress.toCPointer<ByteVar>(), dwsharemode, dwpreferredprotocols, phcard.rawAddress.toCPointer<ByteVar>(), pdwactiveprotocol.rawAddress.toCPointer<ByteVar>())
 
-public actual fun sCardControl(hcard: ULong, dwcontrolcode: UInt, lpinbuffer: ConstPtr<CVoid>, cbinbuffersize: UInt, lpoutbuffer: MutPtr<CVoid>, cboutbuffersize: UInt, lpbytesreturned: MutPtr<UInt>): Int =
+public actual fun sCardControl(hcard: ULong, dwcontrolcode: UInt, lpinbuffer: ConstPtr, cbinbuffersize: UInt, lpoutbuffer: MutPtr, cboutbuffersize: UInt, lpbytesreturned: MutPtr): Int =
     windowssysWindowsWin32SecurityCredentialsSCardControl(hcard, dwcontrolcode, lpinbuffer.rawAddress.toCPointer<ByteVar>(), cbinbuffersize, lpoutbuffer.rawAddress.toCPointer<ByteVar>(), cboutbuffersize, lpbytesreturned.rawAddress.toCPointer<ByteVar>())
 
 public actual fun sCardDisconnect(hcard: ULong, dwdisposition: UInt): Int =
@@ -346,7 +344,7 @@ public actual fun sCardDlgExtendedError(): Int =
 public actual fun sCardEndTransaction(hcard: ULong, dwdisposition: UInt): Int =
     windowssysWindowsWin32SecurityCredentialsSCardEndTransaction(hcard, dwdisposition)
 
-public actual fun sCardEstablishContext(dwscope: ScardScope, pvreserved1: ConstPtr<CVoid>, pvreserved2: ConstPtr<CVoid>, phcontext: MutPtr<ULong>): Int =
+public actual fun sCardEstablishContext(dwscope: ScardScope, pvreserved1: ConstPtr, pvreserved2: ConstPtr, phcontext: MutPtr): Int =
     windowssysWindowsWin32SecurityCredentialsSCardEstablishContext(dwscope, pvreserved1.rawAddress.toCPointer<ByteVar>(), pvreserved2.rawAddress.toCPointer<ByteVar>(), phcontext.rawAddress.toCPointer<ByteVar>())
 
 public actual fun sCardForgetCardTypeA(hcontext: ULong, szcardname: Pcstr): Int =
@@ -367,55 +365,55 @@ public actual fun sCardForgetReaderGroupW(hcontext: ULong, szgroupname: Pcwstr):
 public actual fun sCardForgetReaderW(hcontext: ULong, szreadername: Pcwstr): Int =
     windowssysWindowsWin32SecurityCredentialsSCardForgetReaderW(hcontext, szreadername.rawAddress.toCPointer<ByteVar>())
 
-public actual fun sCardFreeMemory(hcontext: ULong, pvmem: ConstPtr<CVoid>): Int =
+public actual fun sCardFreeMemory(hcontext: ULong, pvmem: ConstPtr): Int =
     windowssysWindowsWin32SecurityCredentialsSCardFreeMemory(hcontext, pvmem.rawAddress.toCPointer<ByteVar>())
 
-public actual fun sCardGetAttrib(hcard: ULong, dwattrid: UInt, pbattr: MutPtr<UByte>, pcbattrlen: MutPtr<UInt>): Int =
+public actual fun sCardGetAttrib(hcard: ULong, dwattrid: UInt, pbattr: MutPtr, pcbattrlen: MutPtr): Int =
     windowssysWindowsWin32SecurityCredentialsSCardGetAttrib(hcard, dwattrid, pbattr.rawAddress.toCPointer<ByteVar>(), pcbattrlen.rawAddress.toCPointer<ByteVar>())
 
-public actual fun sCardGetCardTypeProviderNameA(hcontext: ULong, szcardname: Pcstr, dwproviderid: UInt, szprovider: Pstr, pcchprovider: MutPtr<UInt>): Int =
+public actual fun sCardGetCardTypeProviderNameA(hcontext: ULong, szcardname: Pcstr, dwproviderid: UInt, szprovider: Pstr, pcchprovider: MutPtr): Int =
     windowssysWindowsWin32SecurityCredentialsSCardGetCardTypeProviderNameA(hcontext, szcardname.rawAddress.toCPointer<ByteVar>(), dwproviderid, szprovider.rawAddress.toCPointer<ByteVar>(), pcchprovider.rawAddress.toCPointer<ByteVar>())
 
-public actual fun sCardGetCardTypeProviderNameW(hcontext: ULong, szcardname: Pcwstr, dwproviderid: UInt, szprovider: Pwstr, pcchprovider: MutPtr<UInt>): Int =
+public actual fun sCardGetCardTypeProviderNameW(hcontext: ULong, szcardname: Pcwstr, dwproviderid: UInt, szprovider: Pwstr, pcchprovider: MutPtr): Int =
     windowssysWindowsWin32SecurityCredentialsSCardGetCardTypeProviderNameW(hcontext, szcardname.rawAddress.toCPointer<ByteVar>(), dwproviderid, szprovider.rawAddress.toCPointer<ByteVar>(), pcchprovider.rawAddress.toCPointer<ByteVar>())
 
-public actual fun sCardGetDeviceTypeIdA(hcontext: ULong, szreadername: Pcstr, pdwdevicetypeid: MutPtr<UInt>): Int =
+public actual fun sCardGetDeviceTypeIdA(hcontext: ULong, szreadername: Pcstr, pdwdevicetypeid: MutPtr): Int =
     windowssysWindowsWin32SecurityCredentialsSCardGetDeviceTypeIdA(hcontext, szreadername.rawAddress.toCPointer<ByteVar>(), pdwdevicetypeid.rawAddress.toCPointer<ByteVar>())
 
-public actual fun sCardGetDeviceTypeIdW(hcontext: ULong, szreadername: Pcwstr, pdwdevicetypeid: MutPtr<UInt>): Int =
+public actual fun sCardGetDeviceTypeIdW(hcontext: ULong, szreadername: Pcwstr, pdwdevicetypeid: MutPtr): Int =
     windowssysWindowsWin32SecurityCredentialsSCardGetDeviceTypeIdW(hcontext, szreadername.rawAddress.toCPointer<ByteVar>(), pdwdevicetypeid.rawAddress.toCPointer<ByteVar>())
 
-public actual fun sCardGetProviderIdA(hcontext: ULong, szcard: Pcstr, pguidproviderid: MutPtr<Guid>): Int =
+public actual fun sCardGetProviderIdA(hcontext: ULong, szcard: Pcstr, pguidproviderid: MutPtr): Int =
     windowssysWindowsWin32SecurityCredentialsSCardGetProviderIdA(hcontext, szcard.rawAddress.toCPointer<ByteVar>(), pguidproviderid.rawAddress.toCPointer<ByteVar>())
 
-public actual fun sCardGetProviderIdW(hcontext: ULong, szcard: Pcwstr, pguidproviderid: MutPtr<Guid>): Int =
+public actual fun sCardGetProviderIdW(hcontext: ULong, szcard: Pcwstr, pguidproviderid: MutPtr): Int =
     windowssysWindowsWin32SecurityCredentialsSCardGetProviderIdW(hcontext, szcard.rawAddress.toCPointer<ByteVar>(), pguidproviderid.rawAddress.toCPointer<ByteVar>())
 
-public actual fun sCardGetReaderDeviceInstanceIdA(hcontext: ULong, szreadername: Pcstr, szdeviceinstanceid: Pstr, pcchdeviceinstanceid: MutPtr<UInt>): Int =
+public actual fun sCardGetReaderDeviceInstanceIdA(hcontext: ULong, szreadername: Pcstr, szdeviceinstanceid: Pstr, pcchdeviceinstanceid: MutPtr): Int =
     windowssysWindowsWin32SecurityCredentialsSCardGetReaderDeviceInstanceIdA(hcontext, szreadername.rawAddress.toCPointer<ByteVar>(), szdeviceinstanceid.rawAddress.toCPointer<ByteVar>(), pcchdeviceinstanceid.rawAddress.toCPointer<ByteVar>())
 
-public actual fun sCardGetReaderDeviceInstanceIdW(hcontext: ULong, szreadername: Pcwstr, szdeviceinstanceid: Pwstr, pcchdeviceinstanceid: MutPtr<UInt>): Int =
+public actual fun sCardGetReaderDeviceInstanceIdW(hcontext: ULong, szreadername: Pcwstr, szdeviceinstanceid: Pwstr, pcchdeviceinstanceid: MutPtr): Int =
     windowssysWindowsWin32SecurityCredentialsSCardGetReaderDeviceInstanceIdW(hcontext, szreadername.rawAddress.toCPointer<ByteVar>(), szdeviceinstanceid.rawAddress.toCPointer<ByteVar>(), pcchdeviceinstanceid.rawAddress.toCPointer<ByteVar>())
 
-public actual fun sCardGetReaderIconA(hcontext: ULong, szreadername: Pcstr, pbicon: MutPtr<UByte>, pcbicon: MutPtr<UInt>): Int =
+public actual fun sCardGetReaderIconA(hcontext: ULong, szreadername: Pcstr, pbicon: MutPtr, pcbicon: MutPtr): Int =
     windowssysWindowsWin32SecurityCredentialsSCardGetReaderIconA(hcontext, szreadername.rawAddress.toCPointer<ByteVar>(), pbicon.rawAddress.toCPointer<ByteVar>(), pcbicon.rawAddress.toCPointer<ByteVar>())
 
-public actual fun sCardGetReaderIconW(hcontext: ULong, szreadername: Pcwstr, pbicon: MutPtr<UByte>, pcbicon: MutPtr<UInt>): Int =
+public actual fun sCardGetReaderIconW(hcontext: ULong, szreadername: Pcwstr, pbicon: MutPtr, pcbicon: MutPtr): Int =
     windowssysWindowsWin32SecurityCredentialsSCardGetReaderIconW(hcontext, szreadername.rawAddress.toCPointer<ByteVar>(), pbicon.rawAddress.toCPointer<ByteVar>(), pcbicon.rawAddress.toCPointer<ByteVar>())
 
-public actual fun sCardGetStatusChangeA(hcontext: ULong, dwtimeout: UInt, rgreaderstates: MutPtr<ScardReaderstatea>, creaders: UInt): Int =
+public actual fun sCardGetStatusChangeA(hcontext: ULong, dwtimeout: UInt, rgreaderstates: MutPtr, creaders: UInt): Int =
     windowssysWindowsWin32SecurityCredentialsSCardGetStatusChangeA(hcontext, dwtimeout, rgreaderstates.rawAddress.toCPointer<ByteVar>(), creaders)
 
-public actual fun sCardGetStatusChangeW(hcontext: ULong, dwtimeout: UInt, rgreaderstates: MutPtr<ScardReaderstatew>, creaders: UInt): Int =
+public actual fun sCardGetStatusChangeW(hcontext: ULong, dwtimeout: UInt, rgreaderstates: MutPtr, creaders: UInt): Int =
     windowssysWindowsWin32SecurityCredentialsSCardGetStatusChangeW(hcontext, dwtimeout, rgreaderstates.rawAddress.toCPointer<ByteVar>(), creaders)
 
-public actual fun sCardGetTransmitCount(hcard: ULong, pctransmitcount: MutPtr<UInt>): Int =
+public actual fun sCardGetTransmitCount(hcard: ULong, pctransmitcount: MutPtr): Int =
     windowssysWindowsWin32SecurityCredentialsSCardGetTransmitCount(hcard, pctransmitcount.rawAddress.toCPointer<ByteVar>())
 
-public actual fun sCardIntroduceCardTypeA(hcontext: ULong, szcardname: Pcstr, pguidprimaryprovider: ConstPtr<Guid>, rgguidinterfaces: ConstPtr<Guid>, dwinterfacecount: UInt, pbatr: ConstPtr<UByte>, pbatrmask: ConstPtr<UByte>, cbatrlen: UInt): Int =
+public actual fun sCardIntroduceCardTypeA(hcontext: ULong, szcardname: Pcstr, pguidprimaryprovider: ConstPtr, rgguidinterfaces: ConstPtr, dwinterfacecount: UInt, pbatr: ConstPtr, pbatrmask: ConstPtr, cbatrlen: UInt): Int =
     windowssysWindowsWin32SecurityCredentialsSCardIntroduceCardTypeA(hcontext, szcardname.rawAddress.toCPointer<ByteVar>(), pguidprimaryprovider.rawAddress.toCPointer<ByteVar>(), rgguidinterfaces.rawAddress.toCPointer<ByteVar>(), dwinterfacecount, pbatr.rawAddress.toCPointer<ByteVar>(), pbatrmask.rawAddress.toCPointer<ByteVar>(), cbatrlen)
 
-public actual fun sCardIntroduceCardTypeW(hcontext: ULong, szcardname: Pcwstr, pguidprimaryprovider: ConstPtr<Guid>, rgguidinterfaces: ConstPtr<Guid>, dwinterfacecount: UInt, pbatr: ConstPtr<UByte>, pbatrmask: ConstPtr<UByte>, cbatrlen: UInt): Int =
+public actual fun sCardIntroduceCardTypeW(hcontext: ULong, szcardname: Pcwstr, pguidprimaryprovider: ConstPtr, rgguidinterfaces: ConstPtr, dwinterfacecount: UInt, pbatr: ConstPtr, pbatrmask: ConstPtr, cbatrlen: UInt): Int =
     windowssysWindowsWin32SecurityCredentialsSCardIntroduceCardTypeW(hcontext, szcardname.rawAddress.toCPointer<ByteVar>(), pguidprimaryprovider.rawAddress.toCPointer<ByteVar>(), rgguidinterfaces.rawAddress.toCPointer<ByteVar>(), dwinterfacecount, pbatr.rawAddress.toCPointer<ByteVar>(), pbatrmask.rawAddress.toCPointer<ByteVar>(), cbatrlen)
 
 public actual fun sCardIntroduceReaderA(hcontext: ULong, szreadername: Pcstr, szdevicename: Pcstr): Int =
@@ -433,55 +431,55 @@ public actual fun sCardIntroduceReaderW(hcontext: ULong, szreadername: Pcwstr, s
 public actual fun sCardIsValidContext(hcontext: ULong): Int =
     windowssysWindowsWin32SecurityCredentialsSCardIsValidContext(hcontext)
 
-public actual fun sCardListCardsA(hcontext: ULong, pbatr: ConstPtr<UByte>, rgquidinterfaces: ConstPtr<Guid>, cguidinterfacecount: UInt, mszcards: Pstr, pcchcards: MutPtr<UInt>): Int =
+public actual fun sCardListCardsA(hcontext: ULong, pbatr: ConstPtr, rgquidinterfaces: ConstPtr, cguidinterfacecount: UInt, mszcards: Pstr, pcchcards: MutPtr): Int =
     windowssysWindowsWin32SecurityCredentialsSCardListCardsA(hcontext, pbatr.rawAddress.toCPointer<ByteVar>(), rgquidinterfaces.rawAddress.toCPointer<ByteVar>(), cguidinterfacecount, mszcards.rawAddress.toCPointer<ByteVar>(), pcchcards.rawAddress.toCPointer<ByteVar>())
 
-public actual fun sCardListCardsW(hcontext: ULong, pbatr: ConstPtr<UByte>, rgquidinterfaces: ConstPtr<Guid>, cguidinterfacecount: UInt, mszcards: Pwstr, pcchcards: MutPtr<UInt>): Int =
+public actual fun sCardListCardsW(hcontext: ULong, pbatr: ConstPtr, rgquidinterfaces: ConstPtr, cguidinterfacecount: UInt, mszcards: Pwstr, pcchcards: MutPtr): Int =
     windowssysWindowsWin32SecurityCredentialsSCardListCardsW(hcontext, pbatr.rawAddress.toCPointer<ByteVar>(), rgquidinterfaces.rawAddress.toCPointer<ByteVar>(), cguidinterfacecount, mszcards.rawAddress.toCPointer<ByteVar>(), pcchcards.rawAddress.toCPointer<ByteVar>())
 
-public actual fun sCardListInterfacesA(hcontext: ULong, szcard: Pcstr, pguidinterfaces: MutPtr<Guid>, pcguidinterfaces: MutPtr<UInt>): Int =
+public actual fun sCardListInterfacesA(hcontext: ULong, szcard: Pcstr, pguidinterfaces: MutPtr, pcguidinterfaces: MutPtr): Int =
     windowssysWindowsWin32SecurityCredentialsSCardListInterfacesA(hcontext, szcard.rawAddress.toCPointer<ByteVar>(), pguidinterfaces.rawAddress.toCPointer<ByteVar>(), pcguidinterfaces.rawAddress.toCPointer<ByteVar>())
 
-public actual fun sCardListInterfacesW(hcontext: ULong, szcard: Pcwstr, pguidinterfaces: MutPtr<Guid>, pcguidinterfaces: MutPtr<UInt>): Int =
+public actual fun sCardListInterfacesW(hcontext: ULong, szcard: Pcwstr, pguidinterfaces: MutPtr, pcguidinterfaces: MutPtr): Int =
     windowssysWindowsWin32SecurityCredentialsSCardListInterfacesW(hcontext, szcard.rawAddress.toCPointer<ByteVar>(), pguidinterfaces.rawAddress.toCPointer<ByteVar>(), pcguidinterfaces.rawAddress.toCPointer<ByteVar>())
 
-public actual fun sCardListReaderGroupsA(hcontext: ULong, mszgroups: Pstr, pcchgroups: MutPtr<UInt>): Int =
+public actual fun sCardListReaderGroupsA(hcontext: ULong, mszgroups: Pstr, pcchgroups: MutPtr): Int =
     windowssysWindowsWin32SecurityCredentialsSCardListReaderGroupsA(hcontext, mszgroups.rawAddress.toCPointer<ByteVar>(), pcchgroups.rawAddress.toCPointer<ByteVar>())
 
-public actual fun sCardListReaderGroupsW(hcontext: ULong, mszgroups: Pwstr, pcchgroups: MutPtr<UInt>): Int =
+public actual fun sCardListReaderGroupsW(hcontext: ULong, mszgroups: Pwstr, pcchgroups: MutPtr): Int =
     windowssysWindowsWin32SecurityCredentialsSCardListReaderGroupsW(hcontext, mszgroups.rawAddress.toCPointer<ByteVar>(), pcchgroups.rawAddress.toCPointer<ByteVar>())
 
-public actual fun sCardListReadersA(hcontext: ULong, mszgroups: Pcstr, mszreaders: Pstr, pcchreaders: MutPtr<UInt>): Int =
+public actual fun sCardListReadersA(hcontext: ULong, mszgroups: Pcstr, mszreaders: Pstr, pcchreaders: MutPtr): Int =
     windowssysWindowsWin32SecurityCredentialsSCardListReadersA(hcontext, mszgroups.rawAddress.toCPointer<ByteVar>(), mszreaders.rawAddress.toCPointer<ByteVar>(), pcchreaders.rawAddress.toCPointer<ByteVar>())
 
-public actual fun sCardListReadersW(hcontext: ULong, mszgroups: Pcwstr, mszreaders: Pwstr, pcchreaders: MutPtr<UInt>): Int =
+public actual fun sCardListReadersW(hcontext: ULong, mszgroups: Pcwstr, mszreaders: Pwstr, pcchreaders: MutPtr): Int =
     windowssysWindowsWin32SecurityCredentialsSCardListReadersW(hcontext, mszgroups.rawAddress.toCPointer<ByteVar>(), mszreaders.rawAddress.toCPointer<ByteVar>(), pcchreaders.rawAddress.toCPointer<ByteVar>())
 
-public actual fun sCardListReadersWithDeviceInstanceIdA(hcontext: ULong, szdeviceinstanceid: Pcstr, mszreaders: Pstr, pcchreaders: MutPtr<UInt>): Int =
+public actual fun sCardListReadersWithDeviceInstanceIdA(hcontext: ULong, szdeviceinstanceid: Pcstr, mszreaders: Pstr, pcchreaders: MutPtr): Int =
     windowssysWindowsWin32SecurityCredentialsSCardListReadersWithDeviceInstanceIdA(hcontext, szdeviceinstanceid.rawAddress.toCPointer<ByteVar>(), mszreaders.rawAddress.toCPointer<ByteVar>(), pcchreaders.rawAddress.toCPointer<ByteVar>())
 
-public actual fun sCardListReadersWithDeviceInstanceIdW(hcontext: ULong, szdeviceinstanceid: Pcwstr, mszreaders: Pwstr, pcchreaders: MutPtr<UInt>): Int =
+public actual fun sCardListReadersWithDeviceInstanceIdW(hcontext: ULong, szdeviceinstanceid: Pcwstr, mszreaders: Pwstr, pcchreaders: MutPtr): Int =
     windowssysWindowsWin32SecurityCredentialsSCardListReadersWithDeviceInstanceIdW(hcontext, szdeviceinstanceid.rawAddress.toCPointer<ByteVar>(), mszreaders.rawAddress.toCPointer<ByteVar>(), pcchreaders.rawAddress.toCPointer<ByteVar>())
 
-public actual fun sCardLocateCardsA(hcontext: ULong, mszcards: Pcstr, rgreaderstates: MutPtr<ScardReaderstatea>, creaders: UInt): Int =
+public actual fun sCardLocateCardsA(hcontext: ULong, mszcards: Pcstr, rgreaderstates: MutPtr, creaders: UInt): Int =
     windowssysWindowsWin32SecurityCredentialsSCardLocateCardsA(hcontext, mszcards.rawAddress.toCPointer<ByteVar>(), rgreaderstates.rawAddress.toCPointer<ByteVar>(), creaders)
 
-public actual fun sCardLocateCardsByATRA(hcontext: ULong, rgatrmasks: ConstPtr<ScardAtrmask>, catrs: UInt, rgreaderstates: MutPtr<ScardReaderstatea>, creaders: UInt): Int =
+public actual fun sCardLocateCardsByATRA(hcontext: ULong, rgatrmasks: ConstPtr, catrs: UInt, rgreaderstates: MutPtr, creaders: UInt): Int =
     windowssysWindowsWin32SecurityCredentialsSCardLocateCardsByATRA(hcontext, rgatrmasks.rawAddress.toCPointer<ByteVar>(), catrs, rgreaderstates.rawAddress.toCPointer<ByteVar>(), creaders)
 
-public actual fun sCardLocateCardsByATRW(hcontext: ULong, rgatrmasks: ConstPtr<ScardAtrmask>, catrs: UInt, rgreaderstates: MutPtr<ScardReaderstatew>, creaders: UInt): Int =
+public actual fun sCardLocateCardsByATRW(hcontext: ULong, rgatrmasks: ConstPtr, catrs: UInt, rgreaderstates: MutPtr, creaders: UInt): Int =
     windowssysWindowsWin32SecurityCredentialsSCardLocateCardsByATRW(hcontext, rgatrmasks.rawAddress.toCPointer<ByteVar>(), catrs, rgreaderstates.rawAddress.toCPointer<ByteVar>(), creaders)
 
-public actual fun sCardLocateCardsW(hcontext: ULong, mszcards: Pcwstr, rgreaderstates: MutPtr<ScardReaderstatew>, creaders: UInt): Int =
+public actual fun sCardLocateCardsW(hcontext: ULong, mszcards: Pcwstr, rgreaderstates: MutPtr, creaders: UInt): Int =
     windowssysWindowsWin32SecurityCredentialsSCardLocateCardsW(hcontext, mszcards.rawAddress.toCPointer<ByteVar>(), rgreaderstates.rawAddress.toCPointer<ByteVar>(), creaders)
 
-public actual fun sCardReadCacheA(hcontext: ULong, cardidentifier: ConstPtr<Guid>, freshnesscounter: UInt, lookupname: Pcstr, data: MutPtr<UByte>, datalen: MutPtr<UInt>): Int =
+public actual fun sCardReadCacheA(hcontext: ULong, cardidentifier: ConstPtr, freshnesscounter: UInt, lookupname: Pcstr, data: MutPtr, datalen: MutPtr): Int =
     windowssysWindowsWin32SecurityCredentialsSCardReadCacheA(hcontext, cardidentifier.rawAddress.toCPointer<ByteVar>(), freshnesscounter, lookupname.rawAddress.toCPointer<ByteVar>(), data.rawAddress.toCPointer<ByteVar>(), datalen.rawAddress.toCPointer<ByteVar>())
 
-public actual fun sCardReadCacheW(hcontext: ULong, cardidentifier: ConstPtr<Guid>, freshnesscounter: UInt, lookupname: Pcwstr, data: MutPtr<UByte>, datalen: MutPtr<UInt>): Int =
+public actual fun sCardReadCacheW(hcontext: ULong, cardidentifier: ConstPtr, freshnesscounter: UInt, lookupname: Pcwstr, data: MutPtr, datalen: MutPtr): Int =
     windowssysWindowsWin32SecurityCredentialsSCardReadCacheW(hcontext, cardidentifier.rawAddress.toCPointer<ByteVar>(), freshnesscounter, lookupname.rawAddress.toCPointer<ByteVar>(), data.rawAddress.toCPointer<ByteVar>(), datalen.rawAddress.toCPointer<ByteVar>())
 
-public actual fun sCardReconnect(hcard: ULong, dwsharemode: UInt, dwpreferredprotocols: UInt, dwinitialization: UInt, pdwactiveprotocol: MutPtr<UInt>): Int =
+public actual fun sCardReconnect(hcard: ULong, dwsharemode: UInt, dwpreferredprotocols: UInt, dwinitialization: UInt, pdwactiveprotocol: MutPtr): Int =
     windowssysWindowsWin32SecurityCredentialsSCardReconnect(hcard, dwsharemode, dwpreferredprotocols, dwinitialization, pdwactiveprotocol.rawAddress.toCPointer<ByteVar>())
 
 public actual fun sCardReleaseContext(hcontext: ULong): Int =
@@ -497,7 +495,7 @@ public actual fun sCardRemoveReaderFromGroupA(hcontext: ULong, szreadername: Pcs
 public actual fun sCardRemoveReaderFromGroupW(hcontext: ULong, szreadername: Pcwstr, szgroupname: Pcwstr): Int =
     windowssysWindowsWin32SecurityCredentialsSCardRemoveReaderFromGroupW(hcontext, szreadername.rawAddress.toCPointer<ByteVar>(), szgroupname.rawAddress.toCPointer<ByteVar>())
 
-public actual fun sCardSetAttrib(hcard: ULong, dwattrid: UInt, pbattr: ConstPtr<UByte>, cbattrlen: UInt): Int =
+public actual fun sCardSetAttrib(hcard: ULong, dwattrid: UInt, pbattr: ConstPtr, cbattrlen: UInt): Int =
     windowssysWindowsWin32SecurityCredentialsSCardSetAttrib(hcard, dwattrid, pbattr.rawAddress.toCPointer<ByteVar>(), cbattrlen)
 
 public actual fun sCardSetCardTypeProviderNameA(hcontext: ULong, szcardname: Pcstr, dwproviderid: UInt, szprovider: Pcstr): Int =
@@ -506,26 +504,26 @@ public actual fun sCardSetCardTypeProviderNameA(hcontext: ULong, szcardname: Pcs
 public actual fun sCardSetCardTypeProviderNameW(hcontext: ULong, szcardname: Pcwstr, dwproviderid: UInt, szprovider: Pcwstr): Int =
     windowssysWindowsWin32SecurityCredentialsSCardSetCardTypeProviderNameW(hcontext, szcardname.rawAddress.toCPointer<ByteVar>(), dwproviderid, szprovider.rawAddress.toCPointer<ByteVar>())
 
-public actual fun sCardState(hcard: ULong, pdwstate: MutPtr<UInt>, pdwprotocol: MutPtr<UInt>, pbatr: MutPtr<UByte>, pcbatrlen: MutPtr<UInt>): Int =
+public actual fun sCardState(hcard: ULong, pdwstate: MutPtr, pdwprotocol: MutPtr, pbatr: MutPtr, pcbatrlen: MutPtr): Int =
     windowssysWindowsWin32SecurityCredentialsSCardState(hcard, pdwstate.rawAddress.toCPointer<ByteVar>(), pdwprotocol.rawAddress.toCPointer<ByteVar>(), pbatr.rawAddress.toCPointer<ByteVar>(), pcbatrlen.rawAddress.toCPointer<ByteVar>())
 
-public actual fun sCardStatusA(hcard: ULong, mszreadernames: Pstr, pcchreaderlen: MutPtr<UInt>, pdwstate: MutPtr<UInt>, pdwprotocol: MutPtr<UInt>, pbatr: MutPtr<UByte>, pcbatrlen: MutPtr<UInt>): Int =
+public actual fun sCardStatusA(hcard: ULong, mszreadernames: Pstr, pcchreaderlen: MutPtr, pdwstate: MutPtr, pdwprotocol: MutPtr, pbatr: MutPtr, pcbatrlen: MutPtr): Int =
     windowssysWindowsWin32SecurityCredentialsSCardStatusA(hcard, mszreadernames.rawAddress.toCPointer<ByteVar>(), pcchreaderlen.rawAddress.toCPointer<ByteVar>(), pdwstate.rawAddress.toCPointer<ByteVar>(), pdwprotocol.rawAddress.toCPointer<ByteVar>(), pbatr.rawAddress.toCPointer<ByteVar>(), pcbatrlen.rawAddress.toCPointer<ByteVar>())
 
-public actual fun sCardStatusW(hcard: ULong, mszreadernames: Pwstr, pcchreaderlen: MutPtr<UInt>, pdwstate: MutPtr<UInt>, pdwprotocol: MutPtr<UInt>, pbatr: MutPtr<UByte>, pcbatrlen: MutPtr<UInt>): Int =
+public actual fun sCardStatusW(hcard: ULong, mszreadernames: Pwstr, pcchreaderlen: MutPtr, pdwstate: MutPtr, pdwprotocol: MutPtr, pbatr: MutPtr, pcbatrlen: MutPtr): Int =
     windowssysWindowsWin32SecurityCredentialsSCardStatusW(hcard, mszreadernames.rawAddress.toCPointer<ByteVar>(), pcchreaderlen.rawAddress.toCPointer<ByteVar>(), pdwstate.rawAddress.toCPointer<ByteVar>(), pdwprotocol.rawAddress.toCPointer<ByteVar>(), pbatr.rawAddress.toCPointer<ByteVar>(), pcbatrlen.rawAddress.toCPointer<ByteVar>())
 
-public actual fun sCardTransmit(hcard: ULong, piosendpci: ConstPtr<ScardIoRequest>, pbsendbuffer: ConstPtr<UByte>, cbsendlength: UInt, piorecvpci: MutPtr<ScardIoRequest>, pbrecvbuffer: MutPtr<UByte>, pcbrecvlength: MutPtr<UInt>): Int =
+public actual fun sCardTransmit(hcard: ULong, piosendpci: ConstPtr, pbsendbuffer: ConstPtr, cbsendlength: UInt, piorecvpci: MutPtr, pbrecvbuffer: MutPtr, pcbrecvlength: MutPtr): Int =
     windowssysWindowsWin32SecurityCredentialsSCardTransmit(hcard, piosendpci.rawAddress.toCPointer<ByteVar>(), pbsendbuffer.rawAddress.toCPointer<ByteVar>(), cbsendlength, piorecvpci.rawAddress.toCPointer<ByteVar>(), pbrecvbuffer.rawAddress.toCPointer<ByteVar>(), pcbrecvlength.rawAddress.toCPointer<ByteVar>())
 
-public actual fun sCardUIDlgSelectCardA(param0: MutPtr<OpencardnameExa>): Int =
+public actual fun sCardUIDlgSelectCardA(param0: MutPtr): Int =
     windowssysWindowsWin32SecurityCredentialsSCardUIDlgSelectCardA(param0.rawAddress.toCPointer<ByteVar>())
 
-public actual fun sCardUIDlgSelectCardW(param0: MutPtr<OpencardnameExw>): Int =
+public actual fun sCardUIDlgSelectCardW(param0: MutPtr): Int =
     windowssysWindowsWin32SecurityCredentialsSCardUIDlgSelectCardW(param0.rawAddress.toCPointer<ByteVar>())
 
-public actual fun sCardWriteCacheA(hcontext: ULong, cardidentifier: ConstPtr<Guid>, freshnesscounter: UInt, lookupname: Pcstr, data: ConstPtr<UByte>, datalen: UInt): Int =
+public actual fun sCardWriteCacheA(hcontext: ULong, cardidentifier: ConstPtr, freshnesscounter: UInt, lookupname: Pcstr, data: ConstPtr, datalen: UInt): Int =
     windowssysWindowsWin32SecurityCredentialsSCardWriteCacheA(hcontext, cardidentifier.rawAddress.toCPointer<ByteVar>(), freshnesscounter, lookupname.rawAddress.toCPointer<ByteVar>(), data.rawAddress.toCPointer<ByteVar>(), datalen)
 
-public actual fun sCardWriteCacheW(hcontext: ULong, cardidentifier: ConstPtr<Guid>, freshnesscounter: UInt, lookupname: Pcwstr, data: ConstPtr<UByte>, datalen: UInt): Int =
+public actual fun sCardWriteCacheW(hcontext: ULong, cardidentifier: ConstPtr, freshnesscounter: UInt, lookupname: Pcwstr, data: ConstPtr, datalen: UInt): Int =
     windowssysWindowsWin32SecurityCredentialsSCardWriteCacheW(hcontext, cardidentifier.rawAddress.toCPointer<ByteVar>(), freshnesscounter, lookupname.rawAddress.toCPointer<ByteVar>(), data.rawAddress.toCPointer<ByteVar>(), datalen)

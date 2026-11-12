@@ -31,7 +31,7 @@ public actual fun abortSystemShutdownA(lpmachinename: Pcstr): Bool =
 public actual fun abortSystemShutdownW(lpmachinename: Pcwstr): Bool =
     windowssysWindowsWin32SystemShutdownAbortSystemShutdownW(lpmachinename.rawAddress.toCPointer<ByteVar>())
 
-public actual fun checkForHiberboot(phiberboot: MutPtr<Boolean>, bclearflag: Boolean): UInt =
+public actual fun checkForHiberboot(phiberboot: MutPtr, bclearflag: Boolean): UInt =
     windowssysWindowsWin32SystemShutdownCheckForHiberboot(phiberboot.rawAddress.toCPointer<ByteVar>(), bclearflag)
 
 public actual fun exitWindowsEx(uflags: ExitWindowsFlags, dwreason: ShutdownReason): Bool =
@@ -64,5 +64,5 @@ public actual fun shutdownBlockReasonCreate(hwnd: Hwnd, pwszreason: Pcwstr): Boo
 public actual fun shutdownBlockReasonDestroy(hwnd: Hwnd): Bool =
     windowssysWindowsWin32SystemShutdownShutdownBlockReasonDestroy(hwnd.rawAddress.toCPointer<ByteVar>())
 
-public actual fun shutdownBlockReasonQuery(hwnd: Hwnd, pwszbuff: Pwstr, pcchbuff: MutPtr<UInt>): Bool =
+public actual fun shutdownBlockReasonQuery(hwnd: Hwnd, pwszbuff: Pwstr, pcchbuff: MutPtr): Bool =
     windowssysWindowsWin32SystemShutdownShutdownBlockReasonQuery(hwnd.rawAddress.toCPointer<ByteVar>(), pwszbuff.rawAddress.toCPointer<ByteVar>(), pcchbuff.rawAddress.toCPointer<ByteVar>())

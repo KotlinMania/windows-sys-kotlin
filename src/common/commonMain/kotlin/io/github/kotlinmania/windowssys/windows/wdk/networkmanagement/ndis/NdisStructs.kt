@@ -2,7 +2,6 @@
 
 package io.github.kotlinmania.windowssys.windows.wdk.networkmanagement.ndis
 
-import io.github.kotlinmania.rustlang.core.ffi.CVoid
 import io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
 import io.github.kotlinmania.rustlang.core.mem.TypeLayout
 import io.github.kotlinmania.rustlang.core.ptr.MutPtr
@@ -23,9 +22,9 @@ import io.github.kotlinmania.windowssys.windows.win32.networkmanagement.ndis.Net
 
 public class BinaryData internal constructor(
     public var length: UShort,
-    bufferCtorArg: MutPtr<CVoid>,
+    bufferCtorArg: MutPtr,
 ) {
-    public var buffer: MutPtr<CVoid> = bufferCtorArg
+    public var buffer: MutPtr = bufferCtorArg
         internal set
 
     public constructor() : this(
@@ -35,9 +34,9 @@ public class BinaryData internal constructor(
 
     public operator fun component1(): UShort = this.length
 
-    public operator fun component2(): MutPtr<CVoid> = this.buffer
+    public operator fun component2(): MutPtr = this.buffer
 
-    public fun copy(length: UShort = this.length, buffer: MutPtr<CVoid> = this.buffer): BinaryData = BinaryData(length = length, bufferCtorArg = buffer)
+    public fun copy(length: UShort = this.length, buffer: MutPtr = this.buffer): BinaryData = BinaryData(length = length, bufferCtorArg = buffer)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -63,21 +62,21 @@ public class BinaryData internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<CVoid>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                     )
                 override fun writeNative(addr: Long, value: BinaryData) {
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16).writeNative(addr, value.length)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<CVoid>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.buffer)
                 }
             }
 
         public operator fun invoke(
             length: UShort = 0u,
-            buffer: MutPtr<CVoid> = MutPtr(0L),
+            buffer: MutPtr = MutPtr(0L),
         ): BinaryData =
             BinaryData(
                 length = length,
@@ -233,10 +232,10 @@ public data class CoCallManagerParameters(
 )
 
 public class CoPvc internal constructor(
-    ndisAfHandleCtorArg: MutPtr<CVoid>,
+    ndisAfHandleCtorArg: MutPtr,
     public var pvcParameters: CoSpecificParameters,
 ) {
-    public var ndisAfHandle: MutPtr<CVoid> = ndisAfHandleCtorArg
+    public var ndisAfHandle: MutPtr = ndisAfHandleCtorArg
         internal set
 
     public constructor() : this(
@@ -244,11 +243,11 @@ public class CoPvc internal constructor(
         pvcParameters = CoSpecificParameters(),
     )
 
-    public operator fun component1(): MutPtr<CVoid> = this.ndisAfHandle
+    public operator fun component1(): MutPtr = this.ndisAfHandle
 
     public operator fun component2(): CoSpecificParameters = this.pvcParameters
 
-    public fun copy(ndisAfHandle: MutPtr<CVoid> = this.ndisAfHandle, pvcParameters: CoSpecificParameters = this.pvcParameters): CoPvc = CoPvc(ndisAfHandleCtorArg = ndisAfHandle, pvcParameters = pvcParameters)
+    public fun copy(ndisAfHandle: MutPtr = this.ndisAfHandle, pvcParameters: CoSpecificParameters = this.pvcParameters): CoPvc = CoPvc(ndisAfHandleCtorArg = ndisAfHandle, pvcParameters = pvcParameters)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -273,21 +272,21 @@ public class CoPvc internal constructor(
                     CoPvc(
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<CVoid>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr),
                         (CoSpecificParameters.typeLayout()).readNative(addr + 8L),
                     )
                 override fun writeNative(addr: Long, value: CoPvc) {
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<CVoid>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr, value.ndisAfHandle)
                     (CoSpecificParameters.typeLayout()).writeNative(addr + 8L, value.pvcParameters)
                 }
             }
 
         public operator fun invoke(
-            ndisAfHandle: MutPtr<CVoid> = MutPtr(0L),
+            ndisAfHandle: MutPtr = MutPtr(0L),
             pvcParameters: CoSpecificParameters = CoSpecificParameters(),
         ): CoPvc =
             CoPvc(
@@ -393,17 +392,17 @@ public data class CoSpecificParameters(
 
 public class Filterdbs internal constructor(
     public var anonymous: Filterdbs0,
-    trDBCtorArg: MutPtr<Int>,
-    yyydbCtorArg: MutPtr<CVoid>,
-    xxxdbCtorArg: MutPtr<CVoid>,
+    trDBCtorArg: MutPtr,
+    yyydbCtorArg: MutPtr,
+    xxxdbCtorArg: MutPtr,
 ) {
-    public var trDB: MutPtr<Int> = trDBCtorArg
+    public var trDB: MutPtr = trDBCtorArg
         internal set
 
-    public var yyydb: MutPtr<CVoid> = yyydbCtorArg
+    public var yyydb: MutPtr = yyydbCtorArg
         internal set
 
-    public var xxxdb: MutPtr<CVoid> = xxxdbCtorArg
+    public var xxxdb: MutPtr = xxxdbCtorArg
         internal set
 
     public constructor() : this(
@@ -415,13 +414,13 @@ public class Filterdbs internal constructor(
 
     public operator fun component1(): Filterdbs0 = this.anonymous
 
-    public operator fun component2(): MutPtr<Int> = this.trDB
+    public operator fun component2(): MutPtr = this.trDB
 
-    public operator fun component3(): MutPtr<CVoid> = this.yyydb
+    public operator fun component3(): MutPtr = this.yyydb
 
-    public operator fun component4(): MutPtr<CVoid> = this.xxxdb
+    public operator fun component4(): MutPtr = this.xxxdb
 
-    public fun copy(anonymous: Filterdbs0 = this.anonymous, trDB: MutPtr<Int> = this.trDB, yyydb: MutPtr<CVoid> = this.yyydb, xxxdb: MutPtr<CVoid> = this.xxxdb): Filterdbs = Filterdbs(anonymous = anonymous, trDBCtorArg = trDB, yyydbCtorArg = yyydb, xxxdbCtorArg = xxxdb)
+    public fun copy(anonymous: Filterdbs0 = this.anonymous, trDB: MutPtr = this.trDB, yyydb: MutPtr = this.yyydb, xxxdb: MutPtr = this.xxxdb): Filterdbs = Filterdbs(anonymous = anonymous, trDBCtorArg = trDB, yyydbCtorArg = yyydb, xxxdbCtorArg = xxxdb)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -444,9 +443,9 @@ public class Filterdbs internal constructor(
     public companion object {
         public operator fun invoke(
             anonymous: Filterdbs0 = Filterdbs0(),
-            trDB: MutPtr<Int> = MutPtr(0L),
-            yyydb: MutPtr<CVoid> = MutPtr(0L),
-            xxxdb: MutPtr<CVoid> = MutPtr(0L),
+            trDB: MutPtr = MutPtr(0L),
+            yyydb: MutPtr = MutPtr(0L),
+            xxxdb: MutPtr = MutPtr(0L),
         ): Filterdbs =
             Filterdbs(
                 anonymous = anonymous,
@@ -458,13 +457,13 @@ public class Filterdbs internal constructor(
 }
 
 public class Filterdbs0 internal constructor(
-    ethDBCtorArg: MutPtr<EthFilter>,
-    nullDBCtorArg: MutPtr<Int>,
+    ethDBCtorArg: MutPtr,
+    nullDBCtorArg: MutPtr,
 ) {
-    public var ethDB: MutPtr<EthFilter> = ethDBCtorArg
+    public var ethDB: MutPtr = ethDBCtorArg
         internal set
 
-    public var nullDB: MutPtr<Int> = nullDBCtorArg
+    public var nullDB: MutPtr = nullDBCtorArg
         internal set
 
     public constructor() : this(
@@ -472,11 +471,11 @@ public class Filterdbs0 internal constructor(
         nullDBCtorArg = MutPtr(0L),
     )
 
-    public operator fun component1(): MutPtr<EthFilter> = this.ethDB
+    public operator fun component1(): MutPtr = this.ethDB
 
-    public operator fun component2(): MutPtr<Int> = this.nullDB
+    public operator fun component2(): MutPtr = this.nullDB
 
-    public fun copy(ethDB: MutPtr<EthFilter> = this.ethDB, nullDB: MutPtr<Int> = this.nullDB): Filterdbs0 = Filterdbs0(ethDBCtorArg = ethDB, nullDBCtorArg = nullDB)
+    public fun copy(ethDB: MutPtr = this.ethDB, nullDB: MutPtr = this.nullDB): Filterdbs0 = Filterdbs0(ethDBCtorArg = ethDB, nullDBCtorArg = nullDB)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -494,8 +493,8 @@ public class Filterdbs0 internal constructor(
 
     public companion object {
         public operator fun invoke(
-            ethDB: MutPtr<EthFilter> = MutPtr(0L),
-            nullDB: MutPtr<Int> = MutPtr(0L),
+            ethDB: MutPtr = MutPtr(0L),
+            nullDB: MutPtr = MutPtr(0L),
         ): Filterdbs0 =
             Filterdbs0(
                 ethDBCtorArg = ethDB,
@@ -1673,19 +1672,19 @@ public data class NdisCoLinkSpeed(
 }
 
 public class NdisDmaBlock internal constructor(
-    mapRegisterBaseCtorArg: MutPtr<CVoid>,
+    mapRegisterBaseCtorArg: MutPtr,
     public var allocationEvent: Kevent,
-    systemAdapterObjectCtorArg: MutPtr<CVoid>,
-    miniportCtorArg: MutPtr<CVoid>,
+    systemAdapterObjectCtorArg: MutPtr,
+    miniportCtorArg: MutPtr,
     public var inProgress: Boolean,
 ) {
-    public var mapRegisterBase: MutPtr<CVoid> = mapRegisterBaseCtorArg
+    public var mapRegisterBase: MutPtr = mapRegisterBaseCtorArg
         internal set
 
-    public var systemAdapterObject: MutPtr<CVoid> = systemAdapterObjectCtorArg
+    public var systemAdapterObject: MutPtr = systemAdapterObjectCtorArg
         internal set
 
-    public var miniport: MutPtr<CVoid> = miniportCtorArg
+    public var miniport: MutPtr = miniportCtorArg
         internal set
 
     public constructor() : this(
@@ -1696,17 +1695,17 @@ public class NdisDmaBlock internal constructor(
         inProgress = false,
     )
 
-    public operator fun component1(): MutPtr<CVoid> = this.mapRegisterBase
+    public operator fun component1(): MutPtr = this.mapRegisterBase
 
     public operator fun component2(): Kevent = this.allocationEvent
 
-    public operator fun component3(): MutPtr<CVoid> = this.systemAdapterObject
+    public operator fun component3(): MutPtr = this.systemAdapterObject
 
-    public operator fun component4(): MutPtr<CVoid> = this.miniport
+    public operator fun component4(): MutPtr = this.miniport
 
     public operator fun component5(): Boolean = this.inProgress
 
-    public fun copy(mapRegisterBase: MutPtr<CVoid> = this.mapRegisterBase, allocationEvent: Kevent = this.allocationEvent, systemAdapterObject: MutPtr<CVoid> = this.systemAdapterObject, miniport: MutPtr<CVoid> = this.miniport, inProgress: Boolean = this.inProgress): NdisDmaBlock = NdisDmaBlock(mapRegisterBaseCtorArg = mapRegisterBase, allocationEvent = allocationEvent, systemAdapterObjectCtorArg = systemAdapterObject, miniportCtorArg = miniport, inProgress = inProgress)
+    public fun copy(mapRegisterBase: MutPtr = this.mapRegisterBase, allocationEvent: Kevent = this.allocationEvent, systemAdapterObject: MutPtr = this.systemAdapterObject, miniport: MutPtr = this.miniport, inProgress: Boolean = this.inProgress): NdisDmaBlock = NdisDmaBlock(mapRegisterBaseCtorArg = mapRegisterBase, allocationEvent = allocationEvent, systemAdapterObjectCtorArg = systemAdapterObject, miniportCtorArg = miniport, inProgress = inProgress)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -1730,10 +1729,10 @@ public class NdisDmaBlock internal constructor(
 
     public companion object {
         public operator fun invoke(
-            mapRegisterBase: MutPtr<CVoid> = MutPtr(0L),
+            mapRegisterBase: MutPtr = MutPtr(0L),
             allocationEvent: Kevent = Kevent(),
-            systemAdapterObject: MutPtr<CVoid> = MutPtr(0L),
-            miniport: MutPtr<CVoid> = MutPtr(0L),
+            systemAdapterObject: MutPtr = MutPtr(0L),
+            miniport: MutPtr = MutPtr(0L),
             inProgress: Boolean = false,
         ): NdisDmaBlock =
             NdisDmaBlock(
@@ -2152,17 +2151,17 @@ public class NdisMiniportTimer internal constructor(
     public var timer: Ktimer,
     public var dpc: Kdpc,
     public var miniportTimerFunction: PndisTimerFunction,
-    miniportTimerContextCtorArg: MutPtr<CVoid>,
-    miniportCtorArg: MutPtr<NdisMiniportBlock>,
-    nextTimerCtorArg: MutPtr<NdisMiniportTimer>,
+    miniportTimerContextCtorArg: MutPtr,
+    miniportCtorArg: MutPtr,
+    nextTimerCtorArg: MutPtr,
 ) {
-    public var miniportTimerContext: MutPtr<CVoid> = miniportTimerContextCtorArg
+    public var miniportTimerContext: MutPtr = miniportTimerContextCtorArg
         internal set
 
-    public var miniport: MutPtr<NdisMiniportBlock> = miniportCtorArg
+    public var miniport: MutPtr = miniportCtorArg
         internal set
 
-    public var nextTimer: MutPtr<NdisMiniportTimer> = nextTimerCtorArg
+    public var nextTimer: MutPtr = nextTimerCtorArg
         internal set
 
     public constructor() : this(
@@ -2180,13 +2179,13 @@ public class NdisMiniportTimer internal constructor(
 
     public operator fun component3(): PndisTimerFunction = this.miniportTimerFunction
 
-    public operator fun component4(): MutPtr<CVoid> = this.miniportTimerContext
+    public operator fun component4(): MutPtr = this.miniportTimerContext
 
-    public operator fun component5(): MutPtr<NdisMiniportBlock> = this.miniport
+    public operator fun component5(): MutPtr = this.miniport
 
-    public operator fun component6(): MutPtr<NdisMiniportTimer> = this.nextTimer
+    public operator fun component6(): MutPtr = this.nextTimer
 
-    public fun copy(timer: Ktimer = this.timer, dpc: Kdpc = this.dpc, miniportTimerFunction: PndisTimerFunction = this.miniportTimerFunction, miniportTimerContext: MutPtr<CVoid> = this.miniportTimerContext, miniport: MutPtr<NdisMiniportBlock> = this.miniport, nextTimer: MutPtr<NdisMiniportTimer> = this.nextTimer): NdisMiniportTimer = NdisMiniportTimer(timer = timer, dpc = dpc, miniportTimerFunction = miniportTimerFunction, miniportTimerContextCtorArg = miniportTimerContext, miniportCtorArg = miniport, nextTimerCtorArg = nextTimer)
+    public fun copy(timer: Ktimer = this.timer, dpc: Kdpc = this.dpc, miniportTimerFunction: PndisTimerFunction = this.miniportTimerFunction, miniportTimerContext: MutPtr = this.miniportTimerContext, miniport: MutPtr = this.miniport, nextTimer: MutPtr = this.nextTimer): NdisMiniportTimer = NdisMiniportTimer(timer = timer, dpc = dpc, miniportTimerFunction = miniportTimerFunction, miniportTimerContextCtorArg = miniportTimerContext, miniportCtorArg = miniport, nextTimerCtorArg = nextTimer)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -2215,9 +2214,9 @@ public class NdisMiniportTimer internal constructor(
             timer: Ktimer = Ktimer(),
             dpc: Kdpc = Kdpc(),
             miniportTimerFunction: PndisTimerFunction = null,
-            miniportTimerContext: MutPtr<CVoid> = MutPtr(0L),
-            miniport: MutPtr<NdisMiniportBlock> = MutPtr(0L),
-            nextTimer: MutPtr<NdisMiniportTimer> = MutPtr(0L),
+            miniportTimerContext: MutPtr = MutPtr(0L),
+            miniport: MutPtr = MutPtr(0L),
+            nextTimer: MutPtr = MutPtr(0L),
         ): NdisMiniportTimer =
             NdisMiniportTimer(
                 timer = timer,
@@ -2375,9 +2374,9 @@ public data class NdisPacket8021qInfo(
 
 public class NdisPacket8021qInfo0 internal constructor(
     public var tagHeader: NdisPacket8021qInfo00,
-    valueCtorArg: MutPtr<CVoid>,
+    valueCtorArg: MutPtr,
 ) {
-    public var value: MutPtr<CVoid> = valueCtorArg
+    public var value: MutPtr = valueCtorArg
         internal set
 
     public constructor() : this(
@@ -2387,9 +2386,9 @@ public class NdisPacket8021qInfo0 internal constructor(
 
     public operator fun component1(): NdisPacket8021qInfo00 = this.tagHeader
 
-    public operator fun component2(): MutPtr<CVoid> = this.value
+    public operator fun component2(): MutPtr = this.value
 
-    public fun copy(tagHeader: NdisPacket8021qInfo00 = this.tagHeader, value: MutPtr<CVoid> = this.value): NdisPacket8021qInfo0 = NdisPacket8021qInfo0(tagHeader = tagHeader, valueCtorArg = value)
+    public fun copy(tagHeader: NdisPacket8021qInfo00 = this.tagHeader, value: MutPtr = this.value): NdisPacket8021qInfo0 = NdisPacket8021qInfo0(tagHeader = tagHeader, valueCtorArg = value)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -2408,7 +2407,7 @@ public class NdisPacket8021qInfo0 internal constructor(
     public companion object {
         public operator fun invoke(
             tagHeader: NdisPacket8021qInfo00 = NdisPacket8021qInfo00(),
-            value: MutPtr<CVoid> = MutPtr(0L),
+            value: MutPtr = MutPtr(0L),
         ): NdisPacket8021qInfo0 =
             NdisPacket8021qInfo0(
                 tagHeader = tagHeader,
@@ -2595,22 +2594,22 @@ public data class NdisPnpCapabilities(
 }
 
 public class NdisPort internal constructor(
-    nextCtorArg: MutPtr<NdisPort>,
-    ndisReservedCtorArg: MutPtr<CVoid>,
-    miniportReservedCtorArg: MutPtr<CVoid>,
-    protocolReservedCtorArg: MutPtr<CVoid>,
+    nextCtorArg: MutPtr,
+    ndisReservedCtorArg: MutPtr,
+    miniportReservedCtorArg: MutPtr,
+    protocolReservedCtorArg: MutPtr,
     public var portCharacteristics: NdisPortCharacteristics,
 ) {
-    public var next: MutPtr<NdisPort> = nextCtorArg
+    public var next: MutPtr = nextCtorArg
         internal set
 
-    public var ndisReserved: MutPtr<CVoid> = ndisReservedCtorArg
+    public var ndisReserved: MutPtr = ndisReservedCtorArg
         internal set
 
-    public var miniportReserved: MutPtr<CVoid> = miniportReservedCtorArg
+    public var miniportReserved: MutPtr = miniportReservedCtorArg
         internal set
 
-    public var protocolReserved: MutPtr<CVoid> = protocolReservedCtorArg
+    public var protocolReserved: MutPtr = protocolReservedCtorArg
         internal set
 
     public constructor() : this(
@@ -2621,17 +2620,17 @@ public class NdisPort internal constructor(
         portCharacteristics = NdisPortCharacteristics(),
     )
 
-    public operator fun component1(): MutPtr<NdisPort> = this.next
+    public operator fun component1(): MutPtr = this.next
 
-    public operator fun component2(): MutPtr<CVoid> = this.ndisReserved
+    public operator fun component2(): MutPtr = this.ndisReserved
 
-    public operator fun component3(): MutPtr<CVoid> = this.miniportReserved
+    public operator fun component3(): MutPtr = this.miniportReserved
 
-    public operator fun component4(): MutPtr<CVoid> = this.protocolReserved
+    public operator fun component4(): MutPtr = this.protocolReserved
 
     public operator fun component5(): NdisPortCharacteristics = this.portCharacteristics
 
-    public fun copy(next: MutPtr<NdisPort> = this.next, ndisReserved: MutPtr<CVoid> = this.ndisReserved, miniportReserved: MutPtr<CVoid> = this.miniportReserved, protocolReserved: MutPtr<CVoid> = this.protocolReserved, portCharacteristics: NdisPortCharacteristics = this.portCharacteristics): NdisPort = NdisPort(nextCtorArg = next, ndisReservedCtorArg = ndisReserved, miniportReservedCtorArg = miniportReserved, protocolReservedCtorArg = protocolReserved, portCharacteristics = portCharacteristics)
+    public fun copy(next: MutPtr = this.next, ndisReserved: MutPtr = this.ndisReserved, miniportReserved: MutPtr = this.miniportReserved, protocolReserved: MutPtr = this.protocolReserved, portCharacteristics: NdisPortCharacteristics = this.portCharacteristics): NdisPort = NdisPort(nextCtorArg = next, ndisReservedCtorArg = ndisReserved, miniportReservedCtorArg = miniportReserved, protocolReservedCtorArg = protocolReserved, portCharacteristics = portCharacteristics)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -2662,48 +2661,48 @@ public class NdisPort internal constructor(
                     NdisPort(
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<NdisPort>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<CVoid>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<CVoid>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 16L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<CVoid>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 24L),
                         (NdisPortCharacteristics.typeLayout()).readNative(addr + 32L),
                     )
                 override fun writeNative(addr: Long, value: NdisPort) {
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<NdisPort>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr, value.next)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<CVoid>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.ndisReserved)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<CVoid>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 16L, value.miniportReserved)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<CVoid>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 24L, value.protocolReserved)
                     (NdisPortCharacteristics.typeLayout()).writeNative(addr + 32L, value.portCharacteristics)
                 }
             }
 
         public operator fun invoke(
-            next: MutPtr<NdisPort> = MutPtr(0L),
-            ndisReserved: MutPtr<CVoid> = MutPtr(0L),
-            miniportReserved: MutPtr<CVoid> = MutPtr(0L),
-            protocolReserved: MutPtr<CVoid> = MutPtr(0L),
+            next: MutPtr = MutPtr(0L),
+            ndisReserved: MutPtr = MutPtr(0L),
+            miniportReserved: MutPtr = MutPtr(0L),
+            protocolReserved: MutPtr = MutPtr(0L),
             portCharacteristics: NdisPortCharacteristics = NdisPortCharacteristics(),
         ): NdisPort =
             NdisPort(
@@ -3007,9 +3006,9 @@ public data class NdisRwLock0(
 
 public class NdisRwLock00 internal constructor(
     public var spinLock: Int,
-    contextCtorArg: MutPtr<CVoid>,
+    contextCtorArg: MutPtr,
 ) {
-    public var context: MutPtr<CVoid> = contextCtorArg
+    public var context: MutPtr = contextCtorArg
         internal set
 
     public constructor() : this(
@@ -3019,9 +3018,9 @@ public class NdisRwLock00 internal constructor(
 
     public operator fun component1(): Int = this.spinLock
 
-    public operator fun component2(): MutPtr<CVoid> = this.context
+    public operator fun component2(): MutPtr = this.context
 
-    public fun copy(spinLock: Int = this.spinLock, context: MutPtr<CVoid> = this.context): NdisRwLock00 = NdisRwLock00(spinLock = spinLock, contextCtorArg = context)
+    public fun copy(spinLock: Int = this.spinLock, context: MutPtr = this.context): NdisRwLock00 = NdisRwLock00(spinLock = spinLock, contextCtorArg = context)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -3047,21 +3046,21 @@ public class NdisRwLock00 internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.USIZE64).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<CVoid>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                     )
                 override fun writeNative(addr: Long, value: NdisRwLock00) {
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.USIZE64).writeNative(addr, value.spinLock)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<CVoid>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.context)
                 }
             }
 
         public operator fun invoke(
             spinLock: Int = 0,
-            context: MutPtr<CVoid> = MutPtr(0L),
+            context: MutPtr = MutPtr(0L),
         ): NdisRwLock00 =
             NdisRwLock00(
                 spinLock = spinLock,
@@ -4035,11 +4034,11 @@ public class NdisWanLineUp internal constructor(
     public var remoteAddress: UByteArray,
     public var localAddress: UByteArray,
     public var protocolBufferLength: UInt,
-    protocolBufferCtorArg: MutPtr<UByte>,
+    protocolBufferCtorArg: MutPtr,
     public var protocolType: UShort,
     public var deviceName: UnicodeString,
 ) {
-    public var protocolBuffer: MutPtr<UByte> = protocolBufferCtorArg
+    public var protocolBuffer: MutPtr = protocolBufferCtorArg
         internal set
 
     public constructor() : this(
@@ -4069,13 +4068,13 @@ public class NdisWanLineUp internal constructor(
 
     public operator fun component7(): UInt = this.protocolBufferLength
 
-    public operator fun component8(): MutPtr<UByte> = this.protocolBuffer
+    public operator fun component8(): MutPtr = this.protocolBuffer
 
     public operator fun component9(): UShort = this.protocolType
 
     public operator fun component10(): UnicodeString = this.deviceName
 
-    public fun copy(linkSpeed: UInt = this.linkSpeed, maximumTotalSize: UInt = this.maximumTotalSize, quality: NdisWanQuality = this.quality, sendWindow: UShort = this.sendWindow, remoteAddress: UByteArray = this.remoteAddress, localAddress: UByteArray = this.localAddress, protocolBufferLength: UInt = this.protocolBufferLength, protocolBuffer: MutPtr<UByte> = this.protocolBuffer, protocolType: UShort = this.protocolType, deviceName: UnicodeString = this.deviceName): NdisWanLineUp = NdisWanLineUp(linkSpeed = linkSpeed, maximumTotalSize = maximumTotalSize, quality = quality, sendWindow = sendWindow, remoteAddress = remoteAddress, localAddress = localAddress, protocolBufferLength = protocolBufferLength, protocolBufferCtorArg = protocolBuffer, protocolType = protocolType, deviceName = deviceName)
+    public fun copy(linkSpeed: UInt = this.linkSpeed, maximumTotalSize: UInt = this.maximumTotalSize, quality: NdisWanQuality = this.quality, sendWindow: UShort = this.sendWindow, remoteAddress: UByteArray = this.remoteAddress, localAddress: UByteArray = this.localAddress, protocolBufferLength: UInt = this.protocolBufferLength, protocolBuffer: MutPtr = this.protocolBuffer, protocolType: UShort = this.protocolType, deviceName: UnicodeString = this.deviceName): NdisWanLineUp = NdisWanLineUp(linkSpeed = linkSpeed, maximumTotalSize = maximumTotalSize, quality = quality, sendWindow = sendWindow, remoteAddress = remoteAddress, localAddress = localAddress, protocolBufferLength = protocolBufferLength, protocolBufferCtorArg = protocolBuffer, protocolType = protocolType, deviceName = deviceName)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -4116,7 +4115,7 @@ public class NdisWanLineUp internal constructor(
             remoteAddress: UByteArray = UByteArray(6),
             localAddress: UByteArray = UByteArray(6),
             protocolBufferLength: UInt = 0u,
-            protocolBuffer: MutPtr<UByte> = MutPtr(0L),
+            protocolBuffer: MutPtr = MutPtr(0L),
             protocolType: UShort = 0u,
             deviceName: UnicodeString = UnicodeString(),
         ): NdisWanLineUp =
@@ -5007,11 +5006,11 @@ public data class NdisWmiTcpLargeSendOffloadV21(
 }
 
 public class NdisWorkItem internal constructor(
-    contextCtorArg: MutPtr<CVoid>,
+    contextCtorArg: MutPtr,
     public var routine: NdisProc,
     public var wrapperReserved: UByteArray,
 ) {
-    public var context: MutPtr<CVoid> = contextCtorArg
+    public var context: MutPtr = contextCtorArg
         internal set
 
     public constructor() : this(
@@ -5020,13 +5019,13 @@ public class NdisWorkItem internal constructor(
         wrapperReserved = UByteArray(32),
     )
 
-    public operator fun component1(): MutPtr<CVoid> = this.context
+    public operator fun component1(): MutPtr = this.context
 
     public operator fun component2(): NdisProc = this.routine
 
     public operator fun component3(): UByteArray = this.wrapperReserved
 
-    public fun copy(context: MutPtr<CVoid> = this.context, routine: NdisProc = this.routine, wrapperReserved: UByteArray = this.wrapperReserved): NdisWorkItem = NdisWorkItem(contextCtorArg = context, routine = routine, wrapperReserved = wrapperReserved)
+    public fun copy(context: MutPtr = this.context, routine: NdisProc = this.routine, wrapperReserved: UByteArray = this.wrapperReserved): NdisWorkItem = NdisWorkItem(contextCtorArg = context, routine = routine, wrapperReserved = wrapperReserved)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -5046,7 +5045,7 @@ public class NdisWorkItem internal constructor(
 
     public companion object {
         public operator fun invoke(
-            context: MutPtr<CVoid> = MutPtr(0L),
+            context: MutPtr = MutPtr(0L),
             routine: NdisProc = null,
             wrapperReserved: UByteArray = UByteArray(32),
         ): NdisWorkItem =

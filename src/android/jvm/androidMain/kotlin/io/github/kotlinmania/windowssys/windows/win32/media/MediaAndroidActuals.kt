@@ -37,10 +37,10 @@ public actual fun timeBeginPeriod(uperiod: UInt): UInt =
 public actual fun timeEndPeriod(uperiod: UInt): UInt =
     WindowsWin32MediaJniBridge.windowssysWindowsWin32MediaTimeEndPeriod(uperiod.toInt()).toUInt()
 
-public actual fun timeGetDevCaps(ptc: MutPtr<Timecaps>, cbtc: UInt): UInt =
+public actual fun timeGetDevCaps(ptc: MutPtr, cbtc: UInt): UInt =
     WindowsWin32MediaJniBridge.windowssysWindowsWin32MediaTimeGetDevCaps(ptc.rawAddress, cbtc.toInt()).toUInt()
 
-public actual fun timeGetSystemTime(pmmt: MutPtr<Mmtime>, cbmmt: UInt): UInt =
+public actual fun timeGetSystemTime(pmmt: MutPtr, cbmmt: UInt): UInt =
     WindowsWin32MediaJniBridge.windowssysWindowsWin32MediaTimeGetSystemTime(pmmt.rawAddress, cbmmt.toInt()).toUInt()
 
 public actual fun timeGetTime(): UInt =

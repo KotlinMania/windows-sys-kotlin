@@ -1,6 +1,5 @@
 package io.github.kotlinmania.windowssys.windows.win32.devices.webservicesondevices
 
-import io.github.kotlinmania.rustlang.core.ffi.CVoid
 import io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
 import io.github.kotlinmania.rustlang.core.mem.TypeLayout
 import io.github.kotlinmania.rustlang.core.ptr.ConstPtr
@@ -10,22 +9,21 @@ import io.github.kotlinmania.windowssys.core.Hresult
 import io.github.kotlinmania.windowssys.core.Pcwstr
 import io.github.kotlinmania.windowssys.core.Pwstr
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Handle
-import io.github.kotlinmania.windowssys.windows.win32.security.cryptography.CertContext
 import io.github.kotlinmania.windowssys.windows.win32.security.cryptography.Hcertstore
 
 public class RequestbodyGetStatus internal constructor(
-    anyCtorArg: MutPtr<WsdxmlElement>,
+    anyCtorArg: MutPtr,
 ) {
-    public var any: MutPtr<WsdxmlElement> = anyCtorArg
+    public var any: MutPtr = anyCtorArg
         internal set
 
     public constructor() : this(
         anyCtorArg = MutPtr(0L),
     )
 
-    public operator fun component1(): MutPtr<WsdxmlElement> = this.any
+    public operator fun component1(): MutPtr = this.any
 
-    public fun copy(any: MutPtr<WsdxmlElement> = this.any): RequestbodyGetStatus = RequestbodyGetStatus(anyCtorArg = any)
+    public fun copy(any: MutPtr = this.any): RequestbodyGetStatus = RequestbodyGetStatus(anyCtorArg = any)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -45,19 +43,19 @@ public class RequestbodyGetStatus internal constructor(
                     RequestbodyGetStatus(
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<WsdxmlElement>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr),
                     )
                 override fun writeNative(addr: Long, value: RequestbodyGetStatus) {
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<WsdxmlElement>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr, value.any)
                 }
             }
 
         public operator fun invoke(
-            any: MutPtr<WsdxmlElement> = MutPtr(0L),
+            any: MutPtr = MutPtr(0L),
         ): RequestbodyGetStatus =
             RequestbodyGetStatus(
                 anyCtorArg = any,
@@ -66,13 +64,13 @@ public class RequestbodyGetStatus internal constructor(
 }
 
 public class RequestbodyRenew internal constructor(
-    expiresCtorArg: MutPtr<WsdEventingExpires>,
-    anyCtorArg: MutPtr<WsdxmlElement>,
+    expiresCtorArg: MutPtr,
+    anyCtorArg: MutPtr,
 ) {
-    public var expires: MutPtr<WsdEventingExpires> = expiresCtorArg
+    public var expires: MutPtr = expiresCtorArg
         internal set
 
-    public var any: MutPtr<WsdxmlElement> = anyCtorArg
+    public var any: MutPtr = anyCtorArg
         internal set
 
     public constructor() : this(
@@ -80,11 +78,11 @@ public class RequestbodyRenew internal constructor(
         anyCtorArg = MutPtr(0L),
     )
 
-    public operator fun component1(): MutPtr<WsdEventingExpires> = this.expires
+    public operator fun component1(): MutPtr = this.expires
 
-    public operator fun component2(): MutPtr<WsdxmlElement> = this.any
+    public operator fun component2(): MutPtr = this.any
 
-    public fun copy(expires: MutPtr<WsdEventingExpires> = this.expires, any: MutPtr<WsdxmlElement> = this.any): RequestbodyRenew = RequestbodyRenew(expiresCtorArg = expires, anyCtorArg = any)
+    public fun copy(expires: MutPtr = this.expires, any: MutPtr = this.any): RequestbodyRenew = RequestbodyRenew(expiresCtorArg = expires, anyCtorArg = any)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -109,28 +107,28 @@ public class RequestbodyRenew internal constructor(
                     RequestbodyRenew(
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<WsdEventingExpires>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<WsdxmlElement>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                     )
                 override fun writeNative(addr: Long, value: RequestbodyRenew) {
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<WsdEventingExpires>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr, value.expires)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<WsdxmlElement>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.any)
                 }
             }
 
         public operator fun invoke(
-            expires: MutPtr<WsdEventingExpires> = MutPtr(0L),
-            any: MutPtr<WsdxmlElement> = MutPtr(0L),
+            expires: MutPtr = MutPtr(0L),
+            any: MutPtr = MutPtr(0L),
         ): RequestbodyRenew =
             RequestbodyRenew(
                 expiresCtorArg = expires,
@@ -140,25 +138,25 @@ public class RequestbodyRenew internal constructor(
 }
 
 public class RequestbodySubscribe internal constructor(
-    endToCtorArg: MutPtr<WsdEndpointReference>,
-    deliveryCtorArg: MutPtr<WsdEventingDeliveryMode>,
-    expiresCtorArg: MutPtr<WsdEventingExpires>,
-    filterCtorArg: MutPtr<WsdEventingFilter>,
-    anyCtorArg: MutPtr<WsdxmlElement>,
+    endToCtorArg: MutPtr,
+    deliveryCtorArg: MutPtr,
+    expiresCtorArg: MutPtr,
+    filterCtorArg: MutPtr,
+    anyCtorArg: MutPtr,
 ) {
-    public var endTo: MutPtr<WsdEndpointReference> = endToCtorArg
+    public var endTo: MutPtr = endToCtorArg
         internal set
 
-    public var delivery: MutPtr<WsdEventingDeliveryMode> = deliveryCtorArg
+    public var delivery: MutPtr = deliveryCtorArg
         internal set
 
-    public var expires: MutPtr<WsdEventingExpires> = expiresCtorArg
+    public var expires: MutPtr = expiresCtorArg
         internal set
 
-    public var filter: MutPtr<WsdEventingFilter> = filterCtorArg
+    public var filter: MutPtr = filterCtorArg
         internal set
 
-    public var any: MutPtr<WsdxmlElement> = anyCtorArg
+    public var any: MutPtr = anyCtorArg
         internal set
 
     public constructor() : this(
@@ -169,17 +167,17 @@ public class RequestbodySubscribe internal constructor(
         anyCtorArg = MutPtr(0L),
     )
 
-    public operator fun component1(): MutPtr<WsdEndpointReference> = this.endTo
+    public operator fun component1(): MutPtr = this.endTo
 
-    public operator fun component2(): MutPtr<WsdEventingDeliveryMode> = this.delivery
+    public operator fun component2(): MutPtr = this.delivery
 
-    public operator fun component3(): MutPtr<WsdEventingExpires> = this.expires
+    public operator fun component3(): MutPtr = this.expires
 
-    public operator fun component4(): MutPtr<WsdEventingFilter> = this.filter
+    public operator fun component4(): MutPtr = this.filter
 
-    public operator fun component5(): MutPtr<WsdxmlElement> = this.any
+    public operator fun component5(): MutPtr = this.any
 
-    public fun copy(endTo: MutPtr<WsdEndpointReference> = this.endTo, delivery: MutPtr<WsdEventingDeliveryMode> = this.delivery, expires: MutPtr<WsdEventingExpires> = this.expires, filter: MutPtr<WsdEventingFilter> = this.filter, any: MutPtr<WsdxmlElement> = this.any): RequestbodySubscribe = RequestbodySubscribe(endToCtorArg = endTo, deliveryCtorArg = delivery, expiresCtorArg = expires, filterCtorArg = filter, anyCtorArg = any)
+    public fun copy(endTo: MutPtr = this.endTo, delivery: MutPtr = this.delivery, expires: MutPtr = this.expires, filter: MutPtr = this.filter, any: MutPtr = this.any): RequestbodySubscribe = RequestbodySubscribe(endToCtorArg = endTo, deliveryCtorArg = delivery, expiresCtorArg = expires, filterCtorArg = filter, anyCtorArg = any)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -210,55 +208,55 @@ public class RequestbodySubscribe internal constructor(
                     RequestbodySubscribe(
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<WsdEndpointReference>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<WsdEventingDeliveryMode>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<WsdEventingExpires>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 16L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<WsdEventingFilter>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 24L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<WsdxmlElement>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 32L),
                     )
                 override fun writeNative(addr: Long, value: RequestbodySubscribe) {
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<WsdEndpointReference>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr, value.endTo)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<WsdEventingDeliveryMode>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.delivery)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<WsdEventingExpires>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 16L, value.expires)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<WsdEventingFilter>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 24L, value.filter)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<WsdxmlElement>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 32L, value.any)
                 }
             }
 
         public operator fun invoke(
-            endTo: MutPtr<WsdEndpointReference> = MutPtr(0L),
-            delivery: MutPtr<WsdEventingDeliveryMode> = MutPtr(0L),
-            expires: MutPtr<WsdEventingExpires> = MutPtr(0L),
-            filter: MutPtr<WsdEventingFilter> = MutPtr(0L),
-            any: MutPtr<WsdxmlElement> = MutPtr(0L),
+            endTo: MutPtr = MutPtr(0L),
+            delivery: MutPtr = MutPtr(0L),
+            expires: MutPtr = MutPtr(0L),
+            filter: MutPtr = MutPtr(0L),
+            any: MutPtr = MutPtr(0L),
         ): RequestbodySubscribe =
             RequestbodySubscribe(
                 endToCtorArg = endTo,
@@ -271,18 +269,18 @@ public class RequestbodySubscribe internal constructor(
 }
 
 public class RequestbodyUnsubscribe internal constructor(
-    anyCtorArg: MutPtr<WsdxmlElement>,
+    anyCtorArg: MutPtr,
 ) {
-    public var any: MutPtr<WsdxmlElement> = anyCtorArg
+    public var any: MutPtr = anyCtorArg
         internal set
 
     public constructor() : this(
         anyCtorArg = MutPtr(0L),
     )
 
-    public operator fun component1(): MutPtr<WsdxmlElement> = this.any
+    public operator fun component1(): MutPtr = this.any
 
-    public fun copy(any: MutPtr<WsdxmlElement> = this.any): RequestbodyUnsubscribe = RequestbodyUnsubscribe(anyCtorArg = any)
+    public fun copy(any: MutPtr = this.any): RequestbodyUnsubscribe = RequestbodyUnsubscribe(anyCtorArg = any)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -302,19 +300,19 @@ public class RequestbodyUnsubscribe internal constructor(
                     RequestbodyUnsubscribe(
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<WsdxmlElement>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr),
                     )
                 override fun writeNative(addr: Long, value: RequestbodyUnsubscribe) {
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<WsdxmlElement>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr, value.any)
                 }
             }
 
         public operator fun invoke(
-            any: MutPtr<WsdxmlElement> = MutPtr(0L),
+            any: MutPtr = MutPtr(0L),
         ): RequestbodyUnsubscribe =
             RequestbodyUnsubscribe(
                 anyCtorArg = any,
@@ -323,18 +321,18 @@ public class RequestbodyUnsubscribe internal constructor(
 }
 
 public class ResponsebodyGetMetadata internal constructor(
-    metadataCtorArg: MutPtr<WsdMetadataSectionList>,
+    metadataCtorArg: MutPtr,
 ) {
-    public var metadata: MutPtr<WsdMetadataSectionList> = metadataCtorArg
+    public var metadata: MutPtr = metadataCtorArg
         internal set
 
     public constructor() : this(
         metadataCtorArg = MutPtr(0L),
     )
 
-    public operator fun component1(): MutPtr<WsdMetadataSectionList> = this.metadata
+    public operator fun component1(): MutPtr = this.metadata
 
-    public fun copy(metadata: MutPtr<WsdMetadataSectionList> = this.metadata): ResponsebodyGetMetadata = ResponsebodyGetMetadata(metadataCtorArg = metadata)
+    public fun copy(metadata: MutPtr = this.metadata): ResponsebodyGetMetadata = ResponsebodyGetMetadata(metadataCtorArg = metadata)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -354,19 +352,19 @@ public class ResponsebodyGetMetadata internal constructor(
                     ResponsebodyGetMetadata(
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<WsdMetadataSectionList>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr),
                     )
                 override fun writeNative(addr: Long, value: ResponsebodyGetMetadata) {
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<WsdMetadataSectionList>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr, value.metadata)
                 }
             }
 
         public operator fun invoke(
-            metadata: MutPtr<WsdMetadataSectionList> = MutPtr(0L),
+            metadata: MutPtr = MutPtr(0L),
         ): ResponsebodyGetMetadata =
             ResponsebodyGetMetadata(
                 metadataCtorArg = metadata,
@@ -375,13 +373,13 @@ public class ResponsebodyGetMetadata internal constructor(
 }
 
 public class ResponsebodyGetStatus internal constructor(
-    expiresCtorArg: MutPtr<WsdEventingExpires>,
-    anyCtorArg: MutPtr<WsdxmlElement>,
+    expiresCtorArg: MutPtr,
+    anyCtorArg: MutPtr,
 ) {
-    public var expires: MutPtr<WsdEventingExpires> = expiresCtorArg
+    public var expires: MutPtr = expiresCtorArg
         internal set
 
-    public var any: MutPtr<WsdxmlElement> = anyCtorArg
+    public var any: MutPtr = anyCtorArg
         internal set
 
     public constructor() : this(
@@ -389,11 +387,11 @@ public class ResponsebodyGetStatus internal constructor(
         anyCtorArg = MutPtr(0L),
     )
 
-    public operator fun component1(): MutPtr<WsdEventingExpires> = this.expires
+    public operator fun component1(): MutPtr = this.expires
 
-    public operator fun component2(): MutPtr<WsdxmlElement> = this.any
+    public operator fun component2(): MutPtr = this.any
 
-    public fun copy(expires: MutPtr<WsdEventingExpires> = this.expires, any: MutPtr<WsdxmlElement> = this.any): ResponsebodyGetStatus = ResponsebodyGetStatus(expiresCtorArg = expires, anyCtorArg = any)
+    public fun copy(expires: MutPtr = this.expires, any: MutPtr = this.any): ResponsebodyGetStatus = ResponsebodyGetStatus(expiresCtorArg = expires, anyCtorArg = any)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -418,28 +416,28 @@ public class ResponsebodyGetStatus internal constructor(
                     ResponsebodyGetStatus(
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<WsdEventingExpires>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<WsdxmlElement>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                     )
                 override fun writeNative(addr: Long, value: ResponsebodyGetStatus) {
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<WsdEventingExpires>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr, value.expires)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<WsdxmlElement>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.any)
                 }
             }
 
         public operator fun invoke(
-            expires: MutPtr<WsdEventingExpires> = MutPtr(0L),
-            any: MutPtr<WsdxmlElement> = MutPtr(0L),
+            expires: MutPtr = MutPtr(0L),
+            any: MutPtr = MutPtr(0L),
         ): ResponsebodyGetStatus =
             ResponsebodyGetStatus(
                 expiresCtorArg = expires,
@@ -449,13 +447,13 @@ public class ResponsebodyGetStatus internal constructor(
 }
 
 public class ResponsebodyRenew internal constructor(
-    expiresCtorArg: MutPtr<WsdEventingExpires>,
-    anyCtorArg: MutPtr<WsdxmlElement>,
+    expiresCtorArg: MutPtr,
+    anyCtorArg: MutPtr,
 ) {
-    public var expires: MutPtr<WsdEventingExpires> = expiresCtorArg
+    public var expires: MutPtr = expiresCtorArg
         internal set
 
-    public var any: MutPtr<WsdxmlElement> = anyCtorArg
+    public var any: MutPtr = anyCtorArg
         internal set
 
     public constructor() : this(
@@ -463,11 +461,11 @@ public class ResponsebodyRenew internal constructor(
         anyCtorArg = MutPtr(0L),
     )
 
-    public operator fun component1(): MutPtr<WsdEventingExpires> = this.expires
+    public operator fun component1(): MutPtr = this.expires
 
-    public operator fun component2(): MutPtr<WsdxmlElement> = this.any
+    public operator fun component2(): MutPtr = this.any
 
-    public fun copy(expires: MutPtr<WsdEventingExpires> = this.expires, any: MutPtr<WsdxmlElement> = this.any): ResponsebodyRenew = ResponsebodyRenew(expiresCtorArg = expires, anyCtorArg = any)
+    public fun copy(expires: MutPtr = this.expires, any: MutPtr = this.any): ResponsebodyRenew = ResponsebodyRenew(expiresCtorArg = expires, anyCtorArg = any)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -492,28 +490,28 @@ public class ResponsebodyRenew internal constructor(
                     ResponsebodyRenew(
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<WsdEventingExpires>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<WsdxmlElement>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                     )
                 override fun writeNative(addr: Long, value: ResponsebodyRenew) {
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<WsdEventingExpires>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr, value.expires)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<WsdxmlElement>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.any)
                 }
             }
 
         public operator fun invoke(
-            expires: MutPtr<WsdEventingExpires> = MutPtr(0L),
-            any: MutPtr<WsdxmlElement> = MutPtr(0L),
+            expires: MutPtr = MutPtr(0L),
+            any: MutPtr = MutPtr(0L),
         ): ResponsebodyRenew =
             ResponsebodyRenew(
                 expiresCtorArg = expires,
@@ -523,17 +521,17 @@ public class ResponsebodyRenew internal constructor(
 }
 
 public class ResponsebodySubscribe internal constructor(
-    subscriptionManagerCtorArg: MutPtr<WsdEndpointReference>,
-    expiresCtorArg: MutPtr<WsdEventingExpires>,
-    anyCtorArg: MutPtr<WsdxmlElement>,
+    subscriptionManagerCtorArg: MutPtr,
+    expiresCtorArg: MutPtr,
+    anyCtorArg: MutPtr,
 ) {
-    public var subscriptionManager: MutPtr<WsdEndpointReference> = subscriptionManagerCtorArg
+    public var subscriptionManager: MutPtr = subscriptionManagerCtorArg
         internal set
 
-    public var expires: MutPtr<WsdEventingExpires> = expiresCtorArg
+    public var expires: MutPtr = expiresCtorArg
         internal set
 
-    public var any: MutPtr<WsdxmlElement> = anyCtorArg
+    public var any: MutPtr = anyCtorArg
         internal set
 
     public constructor() : this(
@@ -542,13 +540,13 @@ public class ResponsebodySubscribe internal constructor(
         anyCtorArg = MutPtr(0L),
     )
 
-    public operator fun component1(): MutPtr<WsdEndpointReference> = this.subscriptionManager
+    public operator fun component1(): MutPtr = this.subscriptionManager
 
-    public operator fun component2(): MutPtr<WsdEventingExpires> = this.expires
+    public operator fun component2(): MutPtr = this.expires
 
-    public operator fun component3(): MutPtr<WsdxmlElement> = this.any
+    public operator fun component3(): MutPtr = this.any
 
-    public fun copy(subscriptionManager: MutPtr<WsdEndpointReference> = this.subscriptionManager, expires: MutPtr<WsdEventingExpires> = this.expires, any: MutPtr<WsdxmlElement> = this.any): ResponsebodySubscribe = ResponsebodySubscribe(subscriptionManagerCtorArg = subscriptionManager, expiresCtorArg = expires, anyCtorArg = any)
+    public fun copy(subscriptionManager: MutPtr = this.subscriptionManager, expires: MutPtr = this.expires, any: MutPtr = this.any): ResponsebodySubscribe = ResponsebodySubscribe(subscriptionManagerCtorArg = subscriptionManager, expiresCtorArg = expires, anyCtorArg = any)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -575,37 +573,37 @@ public class ResponsebodySubscribe internal constructor(
                     ResponsebodySubscribe(
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<WsdEndpointReference>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<WsdEventingExpires>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<WsdxmlElement>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 16L),
                     )
                 override fun writeNative(addr: Long, value: ResponsebodySubscribe) {
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<WsdEndpointReference>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr, value.subscriptionManager)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<WsdEventingExpires>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.expires)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<WsdxmlElement>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 16L, value.any)
                 }
             }
 
         public operator fun invoke(
-            subscriptionManager: MutPtr<WsdEndpointReference> = MutPtr(0L),
-            expires: MutPtr<WsdEventingExpires> = MutPtr(0L),
-            any: MutPtr<WsdxmlElement> = MutPtr(0L),
+            subscriptionManager: MutPtr = MutPtr(0L),
+            expires: MutPtr = MutPtr(0L),
+            any: MutPtr = MutPtr(0L),
         ): ResponsebodySubscribe =
             ResponsebodySubscribe(
                 subscriptionManagerCtorArg = subscriptionManager,
@@ -616,21 +614,21 @@ public class ResponsebodySubscribe internal constructor(
 }
 
 public class ResponsebodySubscriptionEnd internal constructor(
-    subscriptionManagerCtorArg: MutPtr<WsdEndpointReference>,
+    subscriptionManagerCtorArg: MutPtr,
     statusCtorArg: Pcwstr,
-    reasonCtorArg: MutPtr<WsdLocalizedString>,
-    anyCtorArg: MutPtr<WsdxmlElement>,
+    reasonCtorArg: MutPtr,
+    anyCtorArg: MutPtr,
 ) {
-    public var subscriptionManager: MutPtr<WsdEndpointReference> = subscriptionManagerCtorArg
+    public var subscriptionManager: MutPtr = subscriptionManagerCtorArg
         internal set
 
     public var status: Pcwstr = statusCtorArg
         internal set
 
-    public var reason: MutPtr<WsdLocalizedString> = reasonCtorArg
+    public var reason: MutPtr = reasonCtorArg
         internal set
 
-    public var any: MutPtr<WsdxmlElement> = anyCtorArg
+    public var any: MutPtr = anyCtorArg
         internal set
 
     public constructor() : this(
@@ -640,15 +638,15 @@ public class ResponsebodySubscriptionEnd internal constructor(
         anyCtorArg = MutPtr(0L),
     )
 
-    public operator fun component1(): MutPtr<WsdEndpointReference> = this.subscriptionManager
+    public operator fun component1(): MutPtr = this.subscriptionManager
 
     public operator fun component2(): Pcwstr = this.status
 
-    public operator fun component3(): MutPtr<WsdLocalizedString> = this.reason
+    public operator fun component3(): MutPtr = this.reason
 
-    public operator fun component4(): MutPtr<WsdxmlElement> = this.any
+    public operator fun component4(): MutPtr = this.any
 
-    public fun copy(subscriptionManager: MutPtr<WsdEndpointReference> = this.subscriptionManager, status: Pcwstr = this.status, reason: MutPtr<WsdLocalizedString> = this.reason, any: MutPtr<WsdxmlElement> = this.any): ResponsebodySubscriptionEnd = ResponsebodySubscriptionEnd(subscriptionManagerCtorArg = subscriptionManager, statusCtorArg = status, reasonCtorArg = reason, anyCtorArg = any)
+    public fun copy(subscriptionManager: MutPtr = this.subscriptionManager, status: Pcwstr = this.status, reason: MutPtr = this.reason, any: MutPtr = this.any): ResponsebodySubscriptionEnd = ResponsebodySubscriptionEnd(subscriptionManagerCtorArg = subscriptionManager, statusCtorArg = status, reasonCtorArg = reason, anyCtorArg = any)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -670,10 +668,10 @@ public class ResponsebodySubscriptionEnd internal constructor(
 
     public companion object {
         public operator fun invoke(
-            subscriptionManager: MutPtr<WsdEndpointReference> = MutPtr(0L),
+            subscriptionManager: MutPtr = MutPtr(0L),
             status: Pcwstr = ConstPtr(0L),
-            reason: MutPtr<WsdLocalizedString> = MutPtr(0L),
-            any: MutPtr<WsdxmlElement> = MutPtr(0L),
+            reason: MutPtr = MutPtr(0L),
+            any: MutPtr = MutPtr(0L),
         ): ResponsebodySubscriptionEnd =
             ResponsebodySubscriptionEnd(
                 subscriptionManagerCtorArg = subscriptionManager,
@@ -716,18 +714,18 @@ public data class WSDUdpRetransmitParams(
 }
 
 public class WsdxmlAttribute internal constructor(
-    elementCtorArg: MutPtr<WsdxmlElement>,
-    nextCtorArg: MutPtr<WsdxmlAttribute>,
-    nameCtorArg: MutPtr<WsdxmlName>,
+    elementCtorArg: MutPtr,
+    nextCtorArg: MutPtr,
+    nameCtorArg: MutPtr,
     valueCtorArg: Pwstr,
 ) {
-    public var element: MutPtr<WsdxmlElement> = elementCtorArg
+    public var element: MutPtr = elementCtorArg
         internal set
 
-    public var next: MutPtr<WsdxmlAttribute> = nextCtorArg
+    public var next: MutPtr = nextCtorArg
         internal set
 
-    public var name: MutPtr<WsdxmlName> = nameCtorArg
+    public var name: MutPtr = nameCtorArg
         internal set
 
     public var value: Pwstr = valueCtorArg
@@ -740,15 +738,15 @@ public class WsdxmlAttribute internal constructor(
         valueCtorArg = MutPtr(0L),
     )
 
-    public operator fun component1(): MutPtr<WsdxmlElement> = this.element
+    public operator fun component1(): MutPtr = this.element
 
-    public operator fun component2(): MutPtr<WsdxmlAttribute> = this.next
+    public operator fun component2(): MutPtr = this.next
 
-    public operator fun component3(): MutPtr<WsdxmlName> = this.name
+    public operator fun component3(): MutPtr = this.name
 
     public operator fun component4(): Pwstr = this.value
 
-    public fun copy(element: MutPtr<WsdxmlElement> = this.element, next: MutPtr<WsdxmlAttribute> = this.next, name: MutPtr<WsdxmlName> = this.name, value: Pwstr = this.value): WsdxmlAttribute = WsdxmlAttribute(elementCtorArg = element, nextCtorArg = next, nameCtorArg = name, valueCtorArg = value)
+    public fun copy(element: MutPtr = this.element, next: MutPtr = this.next, name: MutPtr = this.name, value: Pwstr = this.value): WsdxmlAttribute = WsdxmlAttribute(elementCtorArg = element, nextCtorArg = next, nameCtorArg = name, valueCtorArg = value)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -770,9 +768,9 @@ public class WsdxmlAttribute internal constructor(
 
     public companion object {
         public operator fun invoke(
-            element: MutPtr<WsdxmlElement> = MutPtr(0L),
-            next: MutPtr<WsdxmlAttribute> = MutPtr(0L),
-            name: MutPtr<WsdxmlName> = MutPtr(0L),
+            element: MutPtr = MutPtr(0L),
+            next: MutPtr = MutPtr(0L),
+            name: MutPtr = MutPtr(0L),
             value: Pwstr = MutPtr(0L),
         ): WsdxmlAttribute =
             WsdxmlAttribute(
@@ -786,21 +784,21 @@ public class WsdxmlAttribute internal constructor(
 
 public class WsdxmlElement internal constructor(
     public var node: WsdxmlNode,
-    nameCtorArg: MutPtr<WsdxmlName>,
-    firstAttributeCtorArg: MutPtr<WsdxmlAttribute>,
-    firstChildCtorArg: MutPtr<WsdxmlNode>,
-    prefixMappingsCtorArg: MutPtr<WsdxmlPrefixMapping>,
+    nameCtorArg: MutPtr,
+    firstAttributeCtorArg: MutPtr,
+    firstChildCtorArg: MutPtr,
+    prefixMappingsCtorArg: MutPtr,
 ) {
-    public var name: MutPtr<WsdxmlName> = nameCtorArg
+    public var name: MutPtr = nameCtorArg
         internal set
 
-    public var firstAttribute: MutPtr<WsdxmlAttribute> = firstAttributeCtorArg
+    public var firstAttribute: MutPtr = firstAttributeCtorArg
         internal set
 
-    public var firstChild: MutPtr<WsdxmlNode> = firstChildCtorArg
+    public var firstChild: MutPtr = firstChildCtorArg
         internal set
 
-    public var prefixMappings: MutPtr<WsdxmlPrefixMapping> = prefixMappingsCtorArg
+    public var prefixMappings: MutPtr = prefixMappingsCtorArg
         internal set
 
     public constructor() : this(
@@ -813,15 +811,15 @@ public class WsdxmlElement internal constructor(
 
     public operator fun component1(): WsdxmlNode = this.node
 
-    public operator fun component2(): MutPtr<WsdxmlName> = this.name
+    public operator fun component2(): MutPtr = this.name
 
-    public operator fun component3(): MutPtr<WsdxmlAttribute> = this.firstAttribute
+    public operator fun component3(): MutPtr = this.firstAttribute
 
-    public operator fun component4(): MutPtr<WsdxmlNode> = this.firstChild
+    public operator fun component4(): MutPtr = this.firstChild
 
-    public operator fun component5(): MutPtr<WsdxmlPrefixMapping> = this.prefixMappings
+    public operator fun component5(): MutPtr = this.prefixMappings
 
-    public fun copy(node: WsdxmlNode = this.node, name: MutPtr<WsdxmlName> = this.name, firstAttribute: MutPtr<WsdxmlAttribute> = this.firstAttribute, firstChild: MutPtr<WsdxmlNode> = this.firstChild, prefixMappings: MutPtr<WsdxmlPrefixMapping> = this.prefixMappings): WsdxmlElement = WsdxmlElement(node = node, nameCtorArg = name, firstAttributeCtorArg = firstAttribute, firstChildCtorArg = firstChild, prefixMappingsCtorArg = prefixMappings)
+    public fun copy(node: WsdxmlNode = this.node, name: MutPtr = this.name, firstAttribute: MutPtr = this.firstAttribute, firstChild: MutPtr = this.firstChild, prefixMappings: MutPtr = this.prefixMappings): WsdxmlElement = WsdxmlElement(node = node, nameCtorArg = name, firstAttributeCtorArg = firstAttribute, firstChildCtorArg = firstChild, prefixMappingsCtorArg = prefixMappings)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -853,48 +851,48 @@ public class WsdxmlElement internal constructor(
                         (WsdxmlNode.typeLayout()).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<WsdxmlName>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 24L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<WsdxmlAttribute>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 32L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<WsdxmlNode>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 40L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<WsdxmlPrefixMapping>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 48L),
                     )
                 override fun writeNative(addr: Long, value: WsdxmlElement) {
                     (WsdxmlNode.typeLayout()).writeNative(addr, value.node)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<WsdxmlName>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 24L, value.name)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<WsdxmlAttribute>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 32L, value.firstAttribute)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<WsdxmlNode>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 40L, value.firstChild)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<WsdxmlPrefixMapping>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 48L, value.prefixMappings)
                 }
             }
 
         public operator fun invoke(
             node: WsdxmlNode = WsdxmlNode(),
-            name: MutPtr<WsdxmlName> = MutPtr(0L),
-            firstAttribute: MutPtr<WsdxmlAttribute> = MutPtr(0L),
-            firstChild: MutPtr<WsdxmlNode> = MutPtr(0L),
-            prefixMappings: MutPtr<WsdxmlPrefixMapping> = MutPtr(0L),
+            name: MutPtr = MutPtr(0L),
+            firstAttribute: MutPtr = MutPtr(0L),
+            firstChild: MutPtr = MutPtr(0L),
+            prefixMappings: MutPtr = MutPtr(0L),
         ): WsdxmlElement =
             WsdxmlElement(
                 node = node,
@@ -907,13 +905,13 @@ public class WsdxmlElement internal constructor(
 }
 
 public class WsdxmlElementList internal constructor(
-    nextCtorArg: MutPtr<WsdxmlElementList>,
-    elementCtorArg: MutPtr<WsdxmlElement>,
+    nextCtorArg: MutPtr,
+    elementCtorArg: MutPtr,
 ) {
-    public var next: MutPtr<WsdxmlElementList> = nextCtorArg
+    public var next: MutPtr = nextCtorArg
         internal set
 
-    public var element: MutPtr<WsdxmlElement> = elementCtorArg
+    public var element: MutPtr = elementCtorArg
         internal set
 
     public constructor() : this(
@@ -921,11 +919,11 @@ public class WsdxmlElementList internal constructor(
         elementCtorArg = MutPtr(0L),
     )
 
-    public operator fun component1(): MutPtr<WsdxmlElementList> = this.next
+    public operator fun component1(): MutPtr = this.next
 
-    public operator fun component2(): MutPtr<WsdxmlElement> = this.element
+    public operator fun component2(): MutPtr = this.element
 
-    public fun copy(next: MutPtr<WsdxmlElementList> = this.next, element: MutPtr<WsdxmlElement> = this.element): WsdxmlElementList = WsdxmlElementList(nextCtorArg = next, elementCtorArg = element)
+    public fun copy(next: MutPtr = this.next, element: MutPtr = this.element): WsdxmlElementList = WsdxmlElementList(nextCtorArg = next, elementCtorArg = element)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -950,28 +948,28 @@ public class WsdxmlElementList internal constructor(
                     WsdxmlElementList(
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<WsdxmlElementList>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<WsdxmlElement>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                     )
                 override fun writeNative(addr: Long, value: WsdxmlElementList) {
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<WsdxmlElementList>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr, value.next)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<WsdxmlElement>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.element)
                 }
             }
 
         public operator fun invoke(
-            next: MutPtr<WsdxmlElementList> = MutPtr(0L),
-            element: MutPtr<WsdxmlElement> = MutPtr(0L),
+            next: MutPtr = MutPtr(0L),
+            element: MutPtr = MutPtr(0L),
         ): WsdxmlElementList =
             WsdxmlElementList(
                 nextCtorArg = next,
@@ -981,10 +979,10 @@ public class WsdxmlElementList internal constructor(
 }
 
 public class WsdxmlName internal constructor(
-    spaceCtorArg: MutPtr<WsdxmlNamespace>,
+    spaceCtorArg: MutPtr,
     localNameCtorArg: Pwstr,
 ) {
-    public var space: MutPtr<WsdxmlNamespace> = spaceCtorArg
+    public var space: MutPtr = spaceCtorArg
         internal set
 
     public var localName: Pwstr = localNameCtorArg
@@ -995,11 +993,11 @@ public class WsdxmlName internal constructor(
         localNameCtorArg = MutPtr(0L),
     )
 
-    public operator fun component1(): MutPtr<WsdxmlNamespace> = this.space
+    public operator fun component1(): MutPtr = this.space
 
     public operator fun component2(): Pwstr = this.localName
 
-    public fun copy(space: MutPtr<WsdxmlNamespace> = this.space, localName: Pwstr = this.localName): WsdxmlName = WsdxmlName(spaceCtorArg = space, localNameCtorArg = localName)
+    public fun copy(space: MutPtr = this.space, localName: Pwstr = this.localName): WsdxmlName = WsdxmlName(spaceCtorArg = space, localNameCtorArg = localName)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -1017,7 +1015,7 @@ public class WsdxmlName internal constructor(
 
     public companion object {
         public operator fun invoke(
-            space: MutPtr<WsdxmlNamespace> = MutPtr(0L),
+            space: MutPtr = MutPtr(0L),
             localName: Pwstr = MutPtr(0L),
         ): WsdxmlName =
             WsdxmlName(
@@ -1030,7 +1028,7 @@ public class WsdxmlName internal constructor(
 public class WsdxmlNamespace internal constructor(
     uriCtorArg: Pcwstr,
     preferredPrefixCtorArg: Pcwstr,
-    namesCtorArg: MutPtr<WsdxmlName>,
+    namesCtorArg: MutPtr,
     public var namesCount: UShort,
     public var encoding: UShort,
 ) {
@@ -1040,7 +1038,7 @@ public class WsdxmlNamespace internal constructor(
     public var preferredPrefix: Pcwstr = preferredPrefixCtorArg
         internal set
 
-    public var names: MutPtr<WsdxmlName> = namesCtorArg
+    public var names: MutPtr = namesCtorArg
         internal set
 
     public constructor() : this(
@@ -1055,13 +1053,13 @@ public class WsdxmlNamespace internal constructor(
 
     public operator fun component2(): Pcwstr = this.preferredPrefix
 
-    public operator fun component3(): MutPtr<WsdxmlName> = this.names
+    public operator fun component3(): MutPtr = this.names
 
     public operator fun component4(): UShort = this.namesCount
 
     public operator fun component5(): UShort = this.encoding
 
-    public fun copy(uri: Pcwstr = this.uri, preferredPrefix: Pcwstr = this.preferredPrefix, names: MutPtr<WsdxmlName> = this.names, namesCount: UShort = this.namesCount, encoding: UShort = this.encoding): WsdxmlNamespace = WsdxmlNamespace(uriCtorArg = uri, preferredPrefixCtorArg = preferredPrefix, namesCtorArg = names, namesCount = namesCount, encoding = encoding)
+    public fun copy(uri: Pcwstr = this.uri, preferredPrefix: Pcwstr = this.preferredPrefix, names: MutPtr = this.names, namesCount: UShort = this.namesCount, encoding: UShort = this.encoding): WsdxmlNamespace = WsdxmlNamespace(uriCtorArg = uri, preferredPrefixCtorArg = preferredPrefix, namesCtorArg = names, namesCount = namesCount, encoding = encoding)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -1087,7 +1085,7 @@ public class WsdxmlNamespace internal constructor(
         public operator fun invoke(
             uri: Pcwstr = ConstPtr(0L),
             preferredPrefix: Pcwstr = ConstPtr(0L),
-            names: MutPtr<WsdxmlName> = MutPtr(0L),
+            names: MutPtr = MutPtr(0L),
             namesCount: UShort = 0u,
             encoding: UShort = 0u,
         ): WsdxmlNamespace =
@@ -1103,13 +1101,13 @@ public class WsdxmlNamespace internal constructor(
 
 public class WsdxmlNode internal constructor(
     public var type: Int,
-    parentCtorArg: MutPtr<WsdxmlElement>,
-    nextCtorArg: MutPtr<WsdxmlNode>,
+    parentCtorArg: MutPtr,
+    nextCtorArg: MutPtr,
 ) {
-    public var parent: MutPtr<WsdxmlElement> = parentCtorArg
+    public var parent: MutPtr = parentCtorArg
         internal set
 
-    public var next: MutPtr<WsdxmlNode> = nextCtorArg
+    public var next: MutPtr = nextCtorArg
         internal set
 
     public constructor() : this(
@@ -1120,11 +1118,11 @@ public class WsdxmlNode internal constructor(
 
     public operator fun component1(): Int = this.type
 
-    public operator fun component2(): MutPtr<WsdxmlElement> = this.parent
+    public operator fun component2(): MutPtr = this.parent
 
-    public operator fun component3(): MutPtr<WsdxmlNode> = this.next
+    public operator fun component3(): MutPtr = this.next
 
-    public fun copy(type: Int = this.type, parent: MutPtr<WsdxmlElement> = this.parent, next: MutPtr<WsdxmlNode> = this.next): WsdxmlNode = WsdxmlNode(type = type, parentCtorArg = parent, nextCtorArg = next)
+    public fun copy(type: Int = this.type, parent: MutPtr = this.parent, next: MutPtr = this.next): WsdxmlNode = WsdxmlNode(type = type, parentCtorArg = parent, nextCtorArg = next)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -1152,30 +1150,30 @@ public class WsdxmlNode internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<WsdxmlElement>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<WsdxmlNode>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 16L),
                     )
                 override fun writeNative(addr: Long, value: WsdxmlNode) {
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr, value.type)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<WsdxmlElement>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.parent)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<WsdxmlNode>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 16L, value.next)
                 }
             }
 
         public operator fun invoke(
             type: Int = 0,
-            parent: MutPtr<WsdxmlElement> = MutPtr(0L),
-            next: MutPtr<WsdxmlNode> = MutPtr(0L),
+            parent: MutPtr = MutPtr(0L),
+            next: MutPtr = MutPtr(0L),
         ): WsdxmlNode =
             WsdxmlNode(
                 type = type,
@@ -1191,14 +1189,14 @@ public class WsdxmlNode internal constructor(
 
 public class WsdxmlPrefixMapping internal constructor(
     public var refs: UInt,
-    nextCtorArg: MutPtr<WsdxmlPrefixMapping>,
-    spaceCtorArg: MutPtr<WsdxmlNamespace>,
+    nextCtorArg: MutPtr,
+    spaceCtorArg: MutPtr,
     prefixCtorArg: Pwstr,
 ) {
-    public var next: MutPtr<WsdxmlPrefixMapping> = nextCtorArg
+    public var next: MutPtr = nextCtorArg
         internal set
 
-    public var space: MutPtr<WsdxmlNamespace> = spaceCtorArg
+    public var space: MutPtr = spaceCtorArg
         internal set
 
     public var prefix: Pwstr = prefixCtorArg
@@ -1213,13 +1211,13 @@ public class WsdxmlPrefixMapping internal constructor(
 
     public operator fun component1(): UInt = this.refs
 
-    public operator fun component2(): MutPtr<WsdxmlPrefixMapping> = this.next
+    public operator fun component2(): MutPtr = this.next
 
-    public operator fun component3(): MutPtr<WsdxmlNamespace> = this.space
+    public operator fun component3(): MutPtr = this.space
 
     public operator fun component4(): Pwstr = this.prefix
 
-    public fun copy(refs: UInt = this.refs, next: MutPtr<WsdxmlPrefixMapping> = this.next, space: MutPtr<WsdxmlNamespace> = this.space, prefix: Pwstr = this.prefix): WsdxmlPrefixMapping = WsdxmlPrefixMapping(refs = refs, nextCtorArg = next, spaceCtorArg = space, prefixCtorArg = prefix)
+    public fun copy(refs: UInt = this.refs, next: MutPtr = this.next, space: MutPtr = this.space, prefix: Pwstr = this.prefix): WsdxmlPrefixMapping = WsdxmlPrefixMapping(refs = refs, nextCtorArg = next, spaceCtorArg = space, prefixCtorArg = prefix)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -1242,8 +1240,8 @@ public class WsdxmlPrefixMapping internal constructor(
     public companion object {
         public operator fun invoke(
             refs: UInt = 0u,
-            next: MutPtr<WsdxmlPrefixMapping> = MutPtr(0L),
-            space: MutPtr<WsdxmlNamespace> = MutPtr(0L),
+            next: MutPtr = MutPtr(0L),
+            space: MutPtr = MutPtr(0L),
             prefix: Pwstr = MutPtr(0L),
         ): WsdxmlPrefixMapping =
             WsdxmlPrefixMapping(
@@ -1301,12 +1299,12 @@ public class WsdxmlText internal constructor(
 
 public class WsdxmlType internal constructor(
     uriCtorArg: Pcwstr,
-    tableCtorArg: ConstPtr<UByte>,
+    tableCtorArg: ConstPtr,
 ) {
     public var uri: Pcwstr = uriCtorArg
         internal set
 
-    public var table: ConstPtr<UByte> = tableCtorArg
+    public var table: ConstPtr = tableCtorArg
         internal set
 
     public constructor() : this(
@@ -1316,9 +1314,9 @@ public class WsdxmlType internal constructor(
 
     public operator fun component1(): Pcwstr = this.uri
 
-    public operator fun component2(): ConstPtr<UByte> = this.table
+    public operator fun component2(): ConstPtr = this.table
 
-    public fun copy(uri: Pcwstr = this.uri, table: ConstPtr<UByte> = this.table): WsdxmlType = WsdxmlType(uriCtorArg = uri, tableCtorArg = table)
+    public fun copy(uri: Pcwstr = this.uri, table: ConstPtr = this.table): WsdxmlType = WsdxmlType(uriCtorArg = uri, tableCtorArg = table)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -1337,7 +1335,7 @@ public class WsdxmlType internal constructor(
     public companion object {
         public operator fun invoke(
             uri: Pcwstr = ConstPtr(0L),
-            table: ConstPtr<UByte> = ConstPtr(0L),
+            table: ConstPtr = ConstPtr(0L),
         ): WsdxmlType =
             WsdxmlType(
                 uriCtorArg = uri,
@@ -1399,13 +1397,13 @@ public class WsdAppSequence internal constructor(
 }
 
 public class WsdBye internal constructor(
-    endpointReferenceCtorArg: MutPtr<WsdEndpointReference>,
-    anyCtorArg: MutPtr<WsdxmlElement>,
+    endpointReferenceCtorArg: MutPtr,
+    anyCtorArg: MutPtr,
 ) {
-    public var endpointReference: MutPtr<WsdEndpointReference> = endpointReferenceCtorArg
+    public var endpointReference: MutPtr = endpointReferenceCtorArg
         internal set
 
-    public var any: MutPtr<WsdxmlElement> = anyCtorArg
+    public var any: MutPtr = anyCtorArg
         internal set
 
     public constructor() : this(
@@ -1413,11 +1411,11 @@ public class WsdBye internal constructor(
         anyCtorArg = MutPtr(0L),
     )
 
-    public operator fun component1(): MutPtr<WsdEndpointReference> = this.endpointReference
+    public operator fun component1(): MutPtr = this.endpointReference
 
-    public operator fun component2(): MutPtr<WsdxmlElement> = this.any
+    public operator fun component2(): MutPtr = this.any
 
-    public fun copy(endpointReference: MutPtr<WsdEndpointReference> = this.endpointReference, any: MutPtr<WsdxmlElement> = this.any): WsdBye = WsdBye(endpointReferenceCtorArg = endpointReference, anyCtorArg = any)
+    public fun copy(endpointReference: MutPtr = this.endpointReference, any: MutPtr = this.any): WsdBye = WsdBye(endpointReferenceCtorArg = endpointReference, anyCtorArg = any)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -1442,28 +1440,28 @@ public class WsdBye internal constructor(
                     WsdBye(
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<WsdEndpointReference>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<WsdxmlElement>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                     )
                 override fun writeNative(addr: Long, value: WsdBye) {
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<WsdEndpointReference>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr, value.endpointReference)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<WsdxmlElement>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.any)
                 }
             }
 
         public operator fun invoke(
-            endpointReference: MutPtr<WsdEndpointReference> = MutPtr(0L),
-            any: MutPtr<WsdxmlElement> = MutPtr(0L),
+            endpointReference: MutPtr = MutPtr(0L),
+            any: MutPtr = MutPtr(0L),
         ): WsdBye =
             WsdBye(
                 endpointReferenceCtorArg = endpointReference,
@@ -1473,10 +1471,10 @@ public class WsdBye internal constructor(
 }
 
 public class WsdConfigAddresses internal constructor(
-    addressesCtorArg: MutPtr<MutPtr<CVoid>>,
+    addressesCtorArg: MutPtr,
     public var dwAddressCount: UInt,
 ) {
-    public var addresses: MutPtr<MutPtr<CVoid>> = addressesCtorArg
+    public var addresses: MutPtr = addressesCtorArg
         internal set
 
     public constructor() : this(
@@ -1484,11 +1482,11 @@ public class WsdConfigAddresses internal constructor(
         dwAddressCount = 0u,
     )
 
-    public operator fun component1(): MutPtr<MutPtr<CVoid>> = this.addresses
+    public operator fun component1(): MutPtr = this.addresses
 
     public operator fun component2(): UInt = this.dwAddressCount
 
-    public fun copy(addresses: MutPtr<MutPtr<CVoid>> = this.addresses, dwAddressCount: UInt = this.dwAddressCount): WsdConfigAddresses = WsdConfigAddresses(addressesCtorArg = addresses, dwAddressCount = dwAddressCount)
+    public fun copy(addresses: MutPtr = this.addresses, dwAddressCount: UInt = this.dwAddressCount): WsdConfigAddresses = WsdConfigAddresses(addressesCtorArg = addresses, dwAddressCount = dwAddressCount)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -1513,21 +1511,21 @@ public class WsdConfigAddresses internal constructor(
                     WsdConfigAddresses(
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<MutPtr<CVoid>>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 8L),
                     )
                 override fun writeNative(addr: Long, value: WsdConfigAddresses) {
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<MutPtr<CVoid>>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr, value.addresses)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 8L, value.dwAddressCount)
                 }
             }
 
         public operator fun invoke(
-            addresses: MutPtr<MutPtr<CVoid>> = MutPtr(0L),
+            addresses: MutPtr = MutPtr(0L),
             dwAddressCount: UInt = 0u,
         ): WsdConfigAddresses =
             WsdConfigAddresses(
@@ -1539,10 +1537,10 @@ public class WsdConfigAddresses internal constructor(
 
 public class WsdConfigParam internal constructor(
     public var configParamType: WsdConfigParamType,
-    pConfigDataCtorArg: MutPtr<CVoid>,
+    pConfigDataCtorArg: MutPtr,
     public var dwConfigDataSize: UInt,
 ) {
-    public var pConfigData: MutPtr<CVoid> = pConfigDataCtorArg
+    public var pConfigData: MutPtr = pConfigDataCtorArg
         internal set
 
     public constructor() : this(
@@ -1553,11 +1551,11 @@ public class WsdConfigParam internal constructor(
 
     public operator fun component1(): WsdConfigParamType = this.configParamType
 
-    public operator fun component2(): MutPtr<CVoid> = this.pConfigData
+    public operator fun component2(): MutPtr = this.pConfigData
 
     public operator fun component3(): UInt = this.dwConfigDataSize
 
-    public fun copy(configParamType: WsdConfigParamType = this.configParamType, pConfigData: MutPtr<CVoid> = this.pConfigData, dwConfigDataSize: UInt = this.dwConfigDataSize): WsdConfigParam = WsdConfigParam(configParamType = configParamType, pConfigDataCtorArg = pConfigData, dwConfigDataSize = dwConfigDataSize)
+    public fun copy(configParamType: WsdConfigParamType = this.configParamType, pConfigData: MutPtr = this.pConfigData, dwConfigDataSize: UInt = this.dwConfigDataSize): WsdConfigParam = WsdConfigParam(configParamType = configParamType, pConfigDataCtorArg = pConfigData, dwConfigDataSize = dwConfigDataSize)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -1585,7 +1583,7 @@ public class WsdConfigParam internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<CVoid>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 16L),
                     )
@@ -1593,7 +1591,7 @@ public class WsdConfigParam internal constructor(
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr, value.configParamType)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<CVoid>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.pConfigData)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 16L, value.dwConfigDataSize)
                 }
@@ -1601,7 +1599,7 @@ public class WsdConfigParam internal constructor(
 
         public operator fun invoke(
             configParamType: WsdConfigParamType = 0,
-            pConfigData: MutPtr<CVoid> = MutPtr(0L),
+            pConfigData: MutPtr = MutPtr(0L),
             dwConfigDataSize: UInt = 0u,
         ): WsdConfigParam =
             WsdConfigParam(
@@ -1708,20 +1706,20 @@ public class WsdEndpointReference internal constructor(
     addressCtorArg: Pcwstr,
     public var referenceProperties: WsdReferenceProperties,
     public var referenceParameters: WsdReferenceParameters,
-    portTypeCtorArg: MutPtr<WsdxmlName>,
-    serviceNameCtorArg: MutPtr<WsdxmlName>,
-    anyCtorArg: MutPtr<WsdxmlElement>,
+    portTypeCtorArg: MutPtr,
+    serviceNameCtorArg: MutPtr,
+    anyCtorArg: MutPtr,
 ) {
     public var address: Pcwstr = addressCtorArg
         internal set
 
-    public var portType: MutPtr<WsdxmlName> = portTypeCtorArg
+    public var portType: MutPtr = portTypeCtorArg
         internal set
 
-    public var serviceName: MutPtr<WsdxmlName> = serviceNameCtorArg
+    public var serviceName: MutPtr = serviceNameCtorArg
         internal set
 
-    public var any: MutPtr<WsdxmlElement> = anyCtorArg
+    public var any: MutPtr = anyCtorArg
         internal set
 
     public constructor() : this(
@@ -1739,13 +1737,13 @@ public class WsdEndpointReference internal constructor(
 
     public operator fun component3(): WsdReferenceParameters = this.referenceParameters
 
-    public operator fun component4(): MutPtr<WsdxmlName> = this.portType
+    public operator fun component4(): MutPtr = this.portType
 
-    public operator fun component5(): MutPtr<WsdxmlName> = this.serviceName
+    public operator fun component5(): MutPtr = this.serviceName
 
-    public operator fun component6(): MutPtr<WsdxmlElement> = this.any
+    public operator fun component6(): MutPtr = this.any
 
-    public fun copy(address: Pcwstr = this.address, referenceProperties: WsdReferenceProperties = this.referenceProperties, referenceParameters: WsdReferenceParameters = this.referenceParameters, portType: MutPtr<WsdxmlName> = this.portType, serviceName: MutPtr<WsdxmlName> = this.serviceName, any: MutPtr<WsdxmlElement> = this.any): WsdEndpointReference = WsdEndpointReference(addressCtorArg = address, referenceProperties = referenceProperties, referenceParameters = referenceParameters, portTypeCtorArg = portType, serviceNameCtorArg = serviceName, anyCtorArg = any)
+    public fun copy(address: Pcwstr = this.address, referenceProperties: WsdReferenceProperties = this.referenceProperties, referenceParameters: WsdReferenceParameters = this.referenceParameters, portType: MutPtr = this.portType, serviceName: MutPtr = this.serviceName, any: MutPtr = this.any): WsdEndpointReference = WsdEndpointReference(addressCtorArg = address, referenceProperties = referenceProperties, referenceParameters = referenceParameters, portTypeCtorArg = portType, serviceNameCtorArg = serviceName, anyCtorArg = any)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -1774,9 +1772,9 @@ public class WsdEndpointReference internal constructor(
             address: Pcwstr = ConstPtr(0L),
             referenceProperties: WsdReferenceProperties = WsdReferenceProperties(),
             referenceParameters: WsdReferenceParameters = WsdReferenceParameters(),
-            portType: MutPtr<WsdxmlName> = MutPtr(0L),
-            serviceName: MutPtr<WsdxmlName> = MutPtr(0L),
-            any: MutPtr<WsdxmlElement> = MutPtr(0L),
+            portType: MutPtr = MutPtr(0L),
+            serviceName: MutPtr = MutPtr(0L),
+            any: MutPtr = MutPtr(0L),
         ): WsdEndpointReference =
             WsdEndpointReference(
                 addressCtorArg = address,
@@ -1790,13 +1788,13 @@ public class WsdEndpointReference internal constructor(
 }
 
 public class WsdEndpointReferenceList internal constructor(
-    nextCtorArg: MutPtr<WsdEndpointReferenceList>,
-    elementCtorArg: MutPtr<WsdEndpointReference>,
+    nextCtorArg: MutPtr,
+    elementCtorArg: MutPtr,
 ) {
-    public var next: MutPtr<WsdEndpointReferenceList> = nextCtorArg
+    public var next: MutPtr = nextCtorArg
         internal set
 
-    public var element: MutPtr<WsdEndpointReference> = elementCtorArg
+    public var element: MutPtr = elementCtorArg
         internal set
 
     public constructor() : this(
@@ -1804,11 +1802,11 @@ public class WsdEndpointReferenceList internal constructor(
         elementCtorArg = MutPtr(0L),
     )
 
-    public operator fun component1(): MutPtr<WsdEndpointReferenceList> = this.next
+    public operator fun component1(): MutPtr = this.next
 
-    public operator fun component2(): MutPtr<WsdEndpointReference> = this.element
+    public operator fun component2(): MutPtr = this.element
 
-    public fun copy(next: MutPtr<WsdEndpointReferenceList> = this.next, element: MutPtr<WsdEndpointReference> = this.element): WsdEndpointReferenceList = WsdEndpointReferenceList(nextCtorArg = next, elementCtorArg = element)
+    public fun copy(next: MutPtr = this.next, element: MutPtr = this.element): WsdEndpointReferenceList = WsdEndpointReferenceList(nextCtorArg = next, elementCtorArg = element)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -1833,28 +1831,28 @@ public class WsdEndpointReferenceList internal constructor(
                     WsdEndpointReferenceList(
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<WsdEndpointReferenceList>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<WsdEndpointReference>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                     )
                 override fun writeNative(addr: Long, value: WsdEndpointReferenceList) {
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<WsdEndpointReferenceList>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr, value.next)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<WsdEndpointReference>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.element)
                 }
             }
 
         public operator fun invoke(
-            next: MutPtr<WsdEndpointReferenceList> = MutPtr(0L),
-            element: MutPtr<WsdEndpointReference> = MutPtr(0L),
+            next: MutPtr = MutPtr(0L),
+            element: MutPtr = MutPtr(0L),
         ): WsdEndpointReferenceList =
             WsdEndpointReferenceList(
                 nextCtorArg = next,
@@ -1868,20 +1866,20 @@ public class WsdEvent internal constructor(
     public var eventType: UInt,
     dispatchTagCtorArg: Pwstr,
     public var handlerContext: WsdHandlerContext,
-    soapCtorArg: MutPtr<WsdSoapMessage>,
-    operationCtorArg: MutPtr<WsdOperation>,
-    messageParametersCtorArg: MutPtr<CVoid>,
+    soapCtorArg: MutPtr,
+    operationCtorArg: MutPtr,
+    messageParametersCtorArg: MutPtr,
 ) {
     public var dispatchTag: Pwstr = dispatchTagCtorArg
         internal set
 
-    public var soap: MutPtr<WsdSoapMessage> = soapCtorArg
+    public var soap: MutPtr = soapCtorArg
         internal set
 
-    public var operation: MutPtr<WsdOperation> = operationCtorArg
+    public var operation: MutPtr = operationCtorArg
         internal set
 
-    public var messageParameters: MutPtr<CVoid> = messageParametersCtorArg
+    public var messageParameters: MutPtr = messageParametersCtorArg
         internal set
 
     public constructor() : this(
@@ -1902,13 +1900,13 @@ public class WsdEvent internal constructor(
 
     public operator fun component4(): WsdHandlerContext = this.handlerContext
 
-    public operator fun component5(): MutPtr<WsdSoapMessage> = this.soap
+    public operator fun component5(): MutPtr = this.soap
 
-    public operator fun component6(): MutPtr<WsdOperation> = this.operation
+    public operator fun component6(): MutPtr = this.operation
 
-    public operator fun component7(): MutPtr<CVoid> = this.messageParameters
+    public operator fun component7(): MutPtr = this.messageParameters
 
-    public fun copy(hr: Hresult = this.hr, eventType: UInt = this.eventType, dispatchTag: Pwstr = this.dispatchTag, handlerContext: WsdHandlerContext = this.handlerContext, soap: MutPtr<WsdSoapMessage> = this.soap, operation: MutPtr<WsdOperation> = this.operation, messageParameters: MutPtr<CVoid> = this.messageParameters): WsdEvent = WsdEvent(hr = hr, eventType = eventType, dispatchTagCtorArg = dispatchTag, handlerContext = handlerContext, soapCtorArg = soap, operationCtorArg = operation, messageParametersCtorArg = messageParameters)
+    public fun copy(hr: Hresult = this.hr, eventType: UInt = this.eventType, dispatchTag: Pwstr = this.dispatchTag, handlerContext: WsdHandlerContext = this.handlerContext, soap: MutPtr = this.soap, operation: MutPtr = this.operation, messageParameters: MutPtr = this.messageParameters): WsdEvent = WsdEvent(hr = hr, eventType = eventType, dispatchTagCtorArg = dispatchTag, handlerContext = handlerContext, soapCtorArg = soap, operationCtorArg = operation, messageParametersCtorArg = messageParameters)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -1940,9 +1938,9 @@ public class WsdEvent internal constructor(
             eventType: UInt = 0u,
             dispatchTag: Pwstr = MutPtr(0L),
             handlerContext: WsdHandlerContext = WsdHandlerContext(),
-            soap: MutPtr<WsdSoapMessage> = MutPtr(0L),
-            operation: MutPtr<WsdOperation> = MutPtr(0L),
-            messageParameters: MutPtr<CVoid> = MutPtr(0L),
+            soap: MutPtr = MutPtr(0L),
+            operation: MutPtr = MutPtr(0L),
+            messageParameters: MutPtr = MutPtr(0L),
         ): WsdEvent =
             WsdEvent(
                 hr = hr,
@@ -1958,16 +1956,16 @@ public class WsdEvent internal constructor(
 
 public class WsdEventingDeliveryMode internal constructor(
     modeCtorArg: Pcwstr,
-    pushCtorArg: MutPtr<WsdEventingDeliveryModePush>,
-    dataCtorArg: MutPtr<CVoid>,
+    pushCtorArg: MutPtr,
+    dataCtorArg: MutPtr,
 ) {
     public var mode: Pcwstr = modeCtorArg
         internal set
 
-    public var push: MutPtr<WsdEventingDeliveryModePush> = pushCtorArg
+    public var push: MutPtr = pushCtorArg
         internal set
 
-    public var data: MutPtr<CVoid> = dataCtorArg
+    public var data: MutPtr = dataCtorArg
         internal set
 
     public constructor() : this(
@@ -1978,11 +1976,11 @@ public class WsdEventingDeliveryMode internal constructor(
 
     public operator fun component1(): Pcwstr = this.mode
 
-    public operator fun component2(): MutPtr<WsdEventingDeliveryModePush> = this.push
+    public operator fun component2(): MutPtr = this.push
 
-    public operator fun component3(): MutPtr<CVoid> = this.data
+    public operator fun component3(): MutPtr = this.data
 
-    public fun copy(mode: Pcwstr = this.mode, push: MutPtr<WsdEventingDeliveryModePush> = this.push, data: MutPtr<CVoid> = this.data): WsdEventingDeliveryMode = WsdEventingDeliveryMode(modeCtorArg = mode, pushCtorArg = push, dataCtorArg = data)
+    public fun copy(mode: Pcwstr = this.mode, push: MutPtr = this.push, data: MutPtr = this.data): WsdEventingDeliveryMode = WsdEventingDeliveryMode(modeCtorArg = mode, pushCtorArg = push, dataCtorArg = data)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -2003,8 +2001,8 @@ public class WsdEventingDeliveryMode internal constructor(
     public companion object {
         public operator fun invoke(
             mode: Pcwstr = ConstPtr(0L),
-            push: MutPtr<WsdEventingDeliveryModePush> = MutPtr(0L),
-            data: MutPtr<CVoid> = MutPtr(0L),
+            push: MutPtr = MutPtr(0L),
+            data: MutPtr = MutPtr(0L),
         ): WsdEventingDeliveryMode =
             WsdEventingDeliveryMode(
                 modeCtorArg = mode,
@@ -2015,18 +2013,18 @@ public class WsdEventingDeliveryMode internal constructor(
 }
 
 public class WsdEventingDeliveryModePush internal constructor(
-    notifyToCtorArg: MutPtr<WsdEndpointReference>,
+    notifyToCtorArg: MutPtr,
 ) {
-    public var notifyTo: MutPtr<WsdEndpointReference> = notifyToCtorArg
+    public var notifyTo: MutPtr = notifyToCtorArg
         internal set
 
     public constructor() : this(
         notifyToCtorArg = MutPtr(0L),
     )
 
-    public operator fun component1(): MutPtr<WsdEndpointReference> = this.notifyTo
+    public operator fun component1(): MutPtr = this.notifyTo
 
-    public fun copy(notifyTo: MutPtr<WsdEndpointReference> = this.notifyTo): WsdEventingDeliveryModePush = WsdEventingDeliveryModePush(notifyToCtorArg = notifyTo)
+    public fun copy(notifyTo: MutPtr = this.notifyTo): WsdEventingDeliveryModePush = WsdEventingDeliveryModePush(notifyToCtorArg = notifyTo)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -2046,19 +2044,19 @@ public class WsdEventingDeliveryModePush internal constructor(
                     WsdEventingDeliveryModePush(
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<WsdEndpointReference>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr),
                     )
                 override fun writeNative(addr: Long, value: WsdEventingDeliveryModePush) {
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<WsdEndpointReference>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr, value.notifyTo)
                 }
             }
 
         public operator fun invoke(
-            notifyTo: MutPtr<WsdEndpointReference> = MutPtr(0L),
+            notifyTo: MutPtr = MutPtr(0L),
         ): WsdEventingDeliveryModePush =
             WsdEventingDeliveryModePush(
                 notifyToCtorArg = notifyTo,
@@ -2067,13 +2065,13 @@ public class WsdEventingDeliveryModePush internal constructor(
 }
 
 public class WsdEventingExpires internal constructor(
-    durationCtorArg: MutPtr<WsdDuration>,
-    dateTimeCtorArg: MutPtr<WsdDatetime>,
+    durationCtorArg: MutPtr,
+    dateTimeCtorArg: MutPtr,
 ) {
-    public var duration: MutPtr<WsdDuration> = durationCtorArg
+    public var duration: MutPtr = durationCtorArg
         internal set
 
-    public var dateTime: MutPtr<WsdDatetime> = dateTimeCtorArg
+    public var dateTime: MutPtr = dateTimeCtorArg
         internal set
 
     public constructor() : this(
@@ -2081,11 +2079,11 @@ public class WsdEventingExpires internal constructor(
         dateTimeCtorArg = MutPtr(0L),
     )
 
-    public operator fun component1(): MutPtr<WsdDuration> = this.duration
+    public operator fun component1(): MutPtr = this.duration
 
-    public operator fun component2(): MutPtr<WsdDatetime> = this.dateTime
+    public operator fun component2(): MutPtr = this.dateTime
 
-    public fun copy(duration: MutPtr<WsdDuration> = this.duration, dateTime: MutPtr<WsdDatetime> = this.dateTime): WsdEventingExpires = WsdEventingExpires(durationCtorArg = duration, dateTimeCtorArg = dateTime)
+    public fun copy(duration: MutPtr = this.duration, dateTime: MutPtr = this.dateTime): WsdEventingExpires = WsdEventingExpires(durationCtorArg = duration, dateTimeCtorArg = dateTime)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -2110,28 +2108,28 @@ public class WsdEventingExpires internal constructor(
                     WsdEventingExpires(
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<WsdDuration>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<WsdDatetime>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                     )
                 override fun writeNative(addr: Long, value: WsdEventingExpires) {
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<WsdDuration>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr, value.duration)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<WsdDatetime>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.dateTime)
                 }
             }
 
         public operator fun invoke(
-            duration: MutPtr<WsdDuration> = MutPtr(0L),
-            dateTime: MutPtr<WsdDatetime> = MutPtr(0L),
+            duration: MutPtr = MutPtr(0L),
+            dateTime: MutPtr = MutPtr(0L),
         ): WsdEventingExpires =
             WsdEventingExpires(
                 durationCtorArg = duration,
@@ -2142,16 +2140,16 @@ public class WsdEventingExpires internal constructor(
 
 public class WsdEventingFilter internal constructor(
     dialectCtorArg: Pcwstr,
-    filterActionCtorArg: MutPtr<WsdEventingFilterAction>,
-    dataCtorArg: MutPtr<CVoid>,
+    filterActionCtorArg: MutPtr,
+    dataCtorArg: MutPtr,
 ) {
     public var dialect: Pcwstr = dialectCtorArg
         internal set
 
-    public var filterAction: MutPtr<WsdEventingFilterAction> = filterActionCtorArg
+    public var filterAction: MutPtr = filterActionCtorArg
         internal set
 
-    public var data: MutPtr<CVoid> = dataCtorArg
+    public var data: MutPtr = dataCtorArg
         internal set
 
     public constructor() : this(
@@ -2162,11 +2160,11 @@ public class WsdEventingFilter internal constructor(
 
     public operator fun component1(): Pcwstr = this.dialect
 
-    public operator fun component2(): MutPtr<WsdEventingFilterAction> = this.filterAction
+    public operator fun component2(): MutPtr = this.filterAction
 
-    public operator fun component3(): MutPtr<CVoid> = this.data
+    public operator fun component3(): MutPtr = this.data
 
-    public fun copy(dialect: Pcwstr = this.dialect, filterAction: MutPtr<WsdEventingFilterAction> = this.filterAction, data: MutPtr<CVoid> = this.data): WsdEventingFilter = WsdEventingFilter(dialectCtorArg = dialect, filterActionCtorArg = filterAction, dataCtorArg = data)
+    public fun copy(dialect: Pcwstr = this.dialect, filterAction: MutPtr = this.filterAction, data: MutPtr = this.data): WsdEventingFilter = WsdEventingFilter(dialectCtorArg = dialect, filterActionCtorArg = filterAction, dataCtorArg = data)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -2187,8 +2185,8 @@ public class WsdEventingFilter internal constructor(
     public companion object {
         public operator fun invoke(
             dialect: Pcwstr = ConstPtr(0L),
-            filterAction: MutPtr<WsdEventingFilterAction> = MutPtr(0L),
-            data: MutPtr<CVoid> = MutPtr(0L),
+            filterAction: MutPtr = MutPtr(0L),
+            data: MutPtr = MutPtr(0L),
         ): WsdEventingFilter =
             WsdEventingFilter(
                 dialectCtorArg = dialect,
@@ -2199,18 +2197,18 @@ public class WsdEventingFilter internal constructor(
 }
 
 public class WsdEventingFilterAction internal constructor(
-    actionsCtorArg: MutPtr<WsdUriList>,
+    actionsCtorArg: MutPtr,
 ) {
-    public var actions: MutPtr<WsdUriList> = actionsCtorArg
+    public var actions: MutPtr = actionsCtorArg
         internal set
 
     public constructor() : this(
         actionsCtorArg = MutPtr(0L),
     )
 
-    public operator fun component1(): MutPtr<WsdUriList> = this.actions
+    public operator fun component1(): MutPtr = this.actions
 
-    public fun copy(actions: MutPtr<WsdUriList> = this.actions): WsdEventingFilterAction = WsdEventingFilterAction(actionsCtorArg = actions)
+    public fun copy(actions: MutPtr = this.actions): WsdEventingFilterAction = WsdEventingFilterAction(actionsCtorArg = actions)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -2230,19 +2228,19 @@ public class WsdEventingFilterAction internal constructor(
                     WsdEventingFilterAction(
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<WsdUriList>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr),
                     )
                 override fun writeNative(addr: Long, value: WsdEventingFilterAction) {
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<WsdUriList>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr, value.actions)
                 }
             }
 
         public operator fun invoke(
-            actions: MutPtr<WsdUriList> = MutPtr(0L),
+            actions: MutPtr = MutPtr(0L),
         ): WsdEventingFilterAction =
             WsdEventingFilterAction(
                 actionsCtorArg = actions,
@@ -2252,13 +2250,13 @@ public class WsdEventingFilterAction internal constructor(
 
 public class WsdHandlerContext internal constructor(
     public var handler: PwsdSoapMessageHandler,
-    pVoidCtorArg: MutPtr<CVoid>,
-    unknownCtorArg: MutPtr<CVoid>,
+    pVoidCtorArg: MutPtr,
+    unknownCtorArg: MutPtr,
 ) {
-    public var pVoid: MutPtr<CVoid> = pVoidCtorArg
+    public var pVoid: MutPtr = pVoidCtorArg
         internal set
 
-    public var unknown: MutPtr<CVoid> = unknownCtorArg
+    public var unknown: MutPtr = unknownCtorArg
         internal set
 
     public constructor() : this(
@@ -2269,11 +2267,11 @@ public class WsdHandlerContext internal constructor(
 
     public operator fun component1(): PwsdSoapMessageHandler = this.handler
 
-    public operator fun component2(): MutPtr<CVoid> = this.pVoid
+    public operator fun component2(): MutPtr = this.pVoid
 
-    public operator fun component3(): MutPtr<CVoid> = this.unknown
+    public operator fun component3(): MutPtr = this.unknown
 
-    public fun copy(handler: PwsdSoapMessageHandler = this.handler, pVoid: MutPtr<CVoid> = this.pVoid, unknown: MutPtr<CVoid> = this.unknown): WsdHandlerContext = WsdHandlerContext(handler = handler, pVoidCtorArg = pVoid, unknownCtorArg = unknown)
+    public fun copy(handler: PwsdSoapMessageHandler = this.handler, pVoid: MutPtr = this.pVoid, unknown: MutPtr = this.unknown): WsdHandlerContext = WsdHandlerContext(handler = handler, pVoidCtorArg = pVoid, unknownCtorArg = unknown)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -2294,8 +2292,8 @@ public class WsdHandlerContext internal constructor(
     public companion object {
         public operator fun invoke(
             handler: PwsdSoapMessageHandler = null,
-            pVoid: MutPtr<CVoid> = MutPtr(0L),
-            unknown: MutPtr<CVoid> = MutPtr(0L),
+            pVoid: MutPtr = MutPtr(0L),
+            unknown: MutPtr = MutPtr(0L),
         ): WsdHandlerContext =
             WsdHandlerContext(
                 handler = handler,
@@ -2306,10 +2304,10 @@ public class WsdHandlerContext internal constructor(
 }
 
 public class WsdHeaderRelatesto internal constructor(
-    relationshipTypeCtorArg: MutPtr<WsdxmlName>,
+    relationshipTypeCtorArg: MutPtr,
     messageIDCtorArg: Pcwstr,
 ) {
-    public var relationshipType: MutPtr<WsdxmlName> = relationshipTypeCtorArg
+    public var relationshipType: MutPtr = relationshipTypeCtorArg
         internal set
 
     public var messageID: Pcwstr = messageIDCtorArg
@@ -2320,11 +2318,11 @@ public class WsdHeaderRelatesto internal constructor(
         messageIDCtorArg = ConstPtr(0L),
     )
 
-    public operator fun component1(): MutPtr<WsdxmlName> = this.relationshipType
+    public operator fun component1(): MutPtr = this.relationshipType
 
     public operator fun component2(): Pcwstr = this.messageID
 
-    public fun copy(relationshipType: MutPtr<WsdxmlName> = this.relationshipType, messageID: Pcwstr = this.messageID): WsdHeaderRelatesto = WsdHeaderRelatesto(relationshipTypeCtorArg = relationshipType, messageIDCtorArg = messageID)
+    public fun copy(relationshipType: MutPtr = this.relationshipType, messageID: Pcwstr = this.messageID): WsdHeaderRelatesto = WsdHeaderRelatesto(relationshipTypeCtorArg = relationshipType, messageIDCtorArg = messageID)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -2342,7 +2340,7 @@ public class WsdHeaderRelatesto internal constructor(
 
     public companion object {
         public operator fun invoke(
-            relationshipType: MutPtr<WsdxmlName> = MutPtr(0L),
+            relationshipType: MutPtr = MutPtr(0L),
             messageID: Pcwstr = ConstPtr(0L),
         ): WsdHeaderRelatesto =
             WsdHeaderRelatesto(
@@ -2353,26 +2351,26 @@ public class WsdHeaderRelatesto internal constructor(
 }
 
 public class WsdHello internal constructor(
-    endpointReferenceCtorArg: MutPtr<WsdEndpointReference>,
-    typesCtorArg: MutPtr<WsdNameList>,
-    scopesCtorArg: MutPtr<WsdScopes>,
-    xAddrsCtorArg: MutPtr<WsdUriList>,
+    endpointReferenceCtorArg: MutPtr,
+    typesCtorArg: MutPtr,
+    scopesCtorArg: MutPtr,
+    xAddrsCtorArg: MutPtr,
     public var metadataVersion: ULong,
-    anyCtorArg: MutPtr<WsdxmlElement>,
+    anyCtorArg: MutPtr,
 ) {
-    public var endpointReference: MutPtr<WsdEndpointReference> = endpointReferenceCtorArg
+    public var endpointReference: MutPtr = endpointReferenceCtorArg
         internal set
 
-    public var types: MutPtr<WsdNameList> = typesCtorArg
+    public var types: MutPtr = typesCtorArg
         internal set
 
-    public var scopes: MutPtr<WsdScopes> = scopesCtorArg
+    public var scopes: MutPtr = scopesCtorArg
         internal set
 
-    public var xAddrs: MutPtr<WsdUriList> = xAddrsCtorArg
+    public var xAddrs: MutPtr = xAddrsCtorArg
         internal set
 
-    public var any: MutPtr<WsdxmlElement> = anyCtorArg
+    public var any: MutPtr = anyCtorArg
         internal set
 
     public constructor() : this(
@@ -2384,19 +2382,19 @@ public class WsdHello internal constructor(
         anyCtorArg = MutPtr(0L),
     )
 
-    public operator fun component1(): MutPtr<WsdEndpointReference> = this.endpointReference
+    public operator fun component1(): MutPtr = this.endpointReference
 
-    public operator fun component2(): MutPtr<WsdNameList> = this.types
+    public operator fun component2(): MutPtr = this.types
 
-    public operator fun component3(): MutPtr<WsdScopes> = this.scopes
+    public operator fun component3(): MutPtr = this.scopes
 
-    public operator fun component4(): MutPtr<WsdUriList> = this.xAddrs
+    public operator fun component4(): MutPtr = this.xAddrs
 
     public operator fun component5(): ULong = this.metadataVersion
 
-    public operator fun component6(): MutPtr<WsdxmlElement> = this.any
+    public operator fun component6(): MutPtr = this.any
 
-    public fun copy(endpointReference: MutPtr<WsdEndpointReference> = this.endpointReference, types: MutPtr<WsdNameList> = this.types, scopes: MutPtr<WsdScopes> = this.scopes, xAddrs: MutPtr<WsdUriList> = this.xAddrs, metadataVersion: ULong = this.metadataVersion, any: MutPtr<WsdxmlElement> = this.any): WsdHello = WsdHello(endpointReferenceCtorArg = endpointReference, typesCtorArg = types, scopesCtorArg = scopes, xAddrsCtorArg = xAddrs, metadataVersion = metadataVersion, anyCtorArg = any)
+    public fun copy(endpointReference: MutPtr = this.endpointReference, types: MutPtr = this.types, scopes: MutPtr = this.scopes, xAddrs: MutPtr = this.xAddrs, metadataVersion: ULong = this.metadataVersion, any: MutPtr = this.any): WsdHello = WsdHello(endpointReferenceCtorArg = endpointReference, typesCtorArg = types, scopesCtorArg = scopes, xAddrsCtorArg = xAddrs, metadataVersion = metadataVersion, anyCtorArg = any)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -2429,58 +2427,58 @@ public class WsdHello internal constructor(
                     WsdHello(
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<WsdEndpointReference>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<WsdNameList>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<WsdScopes>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 16L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<WsdUriList>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 24L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U64).readNative(addr + 32L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<WsdxmlElement>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 40L),
                     )
                 override fun writeNative(addr: Long, value: WsdHello) {
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<WsdEndpointReference>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr, value.endpointReference)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<WsdNameList>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.types)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<WsdScopes>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 16L, value.scopes)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<WsdUriList>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 24L, value.xAddrs)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U64).writeNative(addr + 32L, value.metadataVersion)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<WsdxmlElement>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 40L, value.any)
                 }
             }
 
         public operator fun invoke(
-            endpointReference: MutPtr<WsdEndpointReference> = MutPtr(0L),
-            types: MutPtr<WsdNameList> = MutPtr(0L),
-            scopes: MutPtr<WsdScopes> = MutPtr(0L),
-            xAddrs: MutPtr<WsdUriList> = MutPtr(0L),
+            endpointReference: MutPtr = MutPtr(0L),
+            types: MutPtr = MutPtr(0L),
+            scopes: MutPtr = MutPtr(0L),
+            xAddrs: MutPtr = MutPtr(0L),
             metadataVersion: ULong = 0uL,
-            any: MutPtr<WsdxmlElement> = MutPtr(0L),
+            any: MutPtr = MutPtr(0L),
         ): WsdHello =
             WsdHello(
                 endpointReferenceCtorArg = endpointReference,
@@ -2494,13 +2492,13 @@ public class WsdHello internal constructor(
 }
 
 public class WsdHostMetadata internal constructor(
-    hostCtorArg: MutPtr<WsdServiceMetadata>,
-    hostedCtorArg: MutPtr<WsdServiceMetadataList>,
+    hostCtorArg: MutPtr,
+    hostedCtorArg: MutPtr,
 ) {
-    public var host: MutPtr<WsdServiceMetadata> = hostCtorArg
+    public var host: MutPtr = hostCtorArg
         internal set
 
-    public var hosted: MutPtr<WsdServiceMetadataList> = hostedCtorArg
+    public var hosted: MutPtr = hostedCtorArg
         internal set
 
     public constructor() : this(
@@ -2508,11 +2506,11 @@ public class WsdHostMetadata internal constructor(
         hostedCtorArg = MutPtr(0L),
     )
 
-    public operator fun component1(): MutPtr<WsdServiceMetadata> = this.host
+    public operator fun component1(): MutPtr = this.host
 
-    public operator fun component2(): MutPtr<WsdServiceMetadataList> = this.hosted
+    public operator fun component2(): MutPtr = this.hosted
 
-    public fun copy(host: MutPtr<WsdServiceMetadata> = this.host, hosted: MutPtr<WsdServiceMetadataList> = this.hosted): WsdHostMetadata = WsdHostMetadata(hostCtorArg = host, hostedCtorArg = hosted)
+    public fun copy(host: MutPtr = this.host, hosted: MutPtr = this.hosted): WsdHostMetadata = WsdHostMetadata(hostCtorArg = host, hostedCtorArg = hosted)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -2537,28 +2535,28 @@ public class WsdHostMetadata internal constructor(
                     WsdHostMetadata(
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<WsdServiceMetadata>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<WsdServiceMetadataList>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                     )
                 override fun writeNative(addr: Long, value: WsdHostMetadata) {
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<WsdServiceMetadata>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr, value.host)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<WsdServiceMetadataList>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.hosted)
                 }
             }
 
         public operator fun invoke(
-            host: MutPtr<WsdServiceMetadata> = MutPtr(0L),
-            hosted: MutPtr<WsdServiceMetadataList> = MutPtr(0L),
+            host: MutPtr = MutPtr(0L),
+            hosted: MutPtr = MutPtr(0L),
         ): WsdHostMetadata =
             WsdHostMetadata(
                 hostCtorArg = host,
@@ -2615,13 +2613,13 @@ public class WsdLocalizedString internal constructor(
 }
 
 public class WsdLocalizedStringList internal constructor(
-    nextCtorArg: MutPtr<WsdLocalizedStringList>,
-    elementCtorArg: MutPtr<WsdLocalizedString>,
+    nextCtorArg: MutPtr,
+    elementCtorArg: MutPtr,
 ) {
-    public var next: MutPtr<WsdLocalizedStringList> = nextCtorArg
+    public var next: MutPtr = nextCtorArg
         internal set
 
-    public var element: MutPtr<WsdLocalizedString> = elementCtorArg
+    public var element: MutPtr = elementCtorArg
         internal set
 
     public constructor() : this(
@@ -2629,11 +2627,11 @@ public class WsdLocalizedStringList internal constructor(
         elementCtorArg = MutPtr(0L),
     )
 
-    public operator fun component1(): MutPtr<WsdLocalizedStringList> = this.next
+    public operator fun component1(): MutPtr = this.next
 
-    public operator fun component2(): MutPtr<WsdLocalizedString> = this.element
+    public operator fun component2(): MutPtr = this.element
 
-    public fun copy(next: MutPtr<WsdLocalizedStringList> = this.next, element: MutPtr<WsdLocalizedString> = this.element): WsdLocalizedStringList = WsdLocalizedStringList(nextCtorArg = next, elementCtorArg = element)
+    public fun copy(next: MutPtr = this.next, element: MutPtr = this.element): WsdLocalizedStringList = WsdLocalizedStringList(nextCtorArg = next, elementCtorArg = element)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -2658,28 +2656,28 @@ public class WsdLocalizedStringList internal constructor(
                     WsdLocalizedStringList(
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<WsdLocalizedStringList>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<WsdLocalizedString>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                     )
                 override fun writeNative(addr: Long, value: WsdLocalizedStringList) {
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<WsdLocalizedStringList>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr, value.next)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<WsdLocalizedString>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.element)
                 }
             }
 
         public operator fun invoke(
-            next: MutPtr<WsdLocalizedStringList> = MutPtr(0L),
-            element: MutPtr<WsdLocalizedString> = MutPtr(0L),
+            next: MutPtr = MutPtr(0L),
+            element: MutPtr = MutPtr(0L),
         ): WsdLocalizedStringList =
             WsdLocalizedStringList(
                 nextCtorArg = next,
@@ -2691,10 +2689,10 @@ public class WsdLocalizedStringList internal constructor(
 public class WsdMetadataSection internal constructor(
     dialectCtorArg: Pcwstr,
     identifierCtorArg: Pcwstr,
-    dataCtorArg: MutPtr<CVoid>,
-    metadataReferenceCtorArg: MutPtr<WsdEndpointReference>,
+    dataCtorArg: MutPtr,
+    metadataReferenceCtorArg: MutPtr,
     locationCtorArg: Pcwstr,
-    anyCtorArg: MutPtr<WsdxmlElement>,
+    anyCtorArg: MutPtr,
 ) {
     public var dialect: Pcwstr = dialectCtorArg
         internal set
@@ -2702,16 +2700,16 @@ public class WsdMetadataSection internal constructor(
     public var identifier: Pcwstr = identifierCtorArg
         internal set
 
-    public var data: MutPtr<CVoid> = dataCtorArg
+    public var data: MutPtr = dataCtorArg
         internal set
 
-    public var metadataReference: MutPtr<WsdEndpointReference> = metadataReferenceCtorArg
+    public var metadataReference: MutPtr = metadataReferenceCtorArg
         internal set
 
     public var location: Pcwstr = locationCtorArg
         internal set
 
-    public var any: MutPtr<WsdxmlElement> = anyCtorArg
+    public var any: MutPtr = anyCtorArg
         internal set
 
     public constructor() : this(
@@ -2727,15 +2725,15 @@ public class WsdMetadataSection internal constructor(
 
     public operator fun component2(): Pcwstr = this.identifier
 
-    public operator fun component3(): MutPtr<CVoid> = this.data
+    public operator fun component3(): MutPtr = this.data
 
-    public operator fun component4(): MutPtr<WsdEndpointReference> = this.metadataReference
+    public operator fun component4(): MutPtr = this.metadataReference
 
     public operator fun component5(): Pcwstr = this.location
 
-    public operator fun component6(): MutPtr<WsdxmlElement> = this.any
+    public operator fun component6(): MutPtr = this.any
 
-    public fun copy(dialect: Pcwstr = this.dialect, identifier: Pcwstr = this.identifier, data: MutPtr<CVoid> = this.data, metadataReference: MutPtr<WsdEndpointReference> = this.metadataReference, location: Pcwstr = this.location, any: MutPtr<WsdxmlElement> = this.any): WsdMetadataSection = WsdMetadataSection(dialectCtorArg = dialect, identifierCtorArg = identifier, dataCtorArg = data, metadataReferenceCtorArg = metadataReference, locationCtorArg = location, anyCtorArg = any)
+    public fun copy(dialect: Pcwstr = this.dialect, identifier: Pcwstr = this.identifier, data: MutPtr = this.data, metadataReference: MutPtr = this.metadataReference, location: Pcwstr = this.location, any: MutPtr = this.any): WsdMetadataSection = WsdMetadataSection(dialectCtorArg = dialect, identifierCtorArg = identifier, dataCtorArg = data, metadataReferenceCtorArg = metadataReference, locationCtorArg = location, anyCtorArg = any)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -2763,10 +2761,10 @@ public class WsdMetadataSection internal constructor(
         public operator fun invoke(
             dialect: Pcwstr = ConstPtr(0L),
             identifier: Pcwstr = ConstPtr(0L),
-            data: MutPtr<CVoid> = MutPtr(0L),
-            metadataReference: MutPtr<WsdEndpointReference> = MutPtr(0L),
+            data: MutPtr = MutPtr(0L),
+            metadataReference: MutPtr = MutPtr(0L),
             location: Pcwstr = ConstPtr(0L),
-            any: MutPtr<WsdxmlElement> = MutPtr(0L),
+            any: MutPtr = MutPtr(0L),
         ): WsdMetadataSection =
             WsdMetadataSection(
                 dialectCtorArg = dialect,
@@ -2780,13 +2778,13 @@ public class WsdMetadataSection internal constructor(
 }
 
 public class WsdMetadataSectionList internal constructor(
-    nextCtorArg: MutPtr<WsdMetadataSectionList>,
-    elementCtorArg: MutPtr<WsdMetadataSection>,
+    nextCtorArg: MutPtr,
+    elementCtorArg: MutPtr,
 ) {
-    public var next: MutPtr<WsdMetadataSectionList> = nextCtorArg
+    public var next: MutPtr = nextCtorArg
         internal set
 
-    public var element: MutPtr<WsdMetadataSection> = elementCtorArg
+    public var element: MutPtr = elementCtorArg
         internal set
 
     public constructor() : this(
@@ -2794,11 +2792,11 @@ public class WsdMetadataSectionList internal constructor(
         elementCtorArg = MutPtr(0L),
     )
 
-    public operator fun component1(): MutPtr<WsdMetadataSectionList> = this.next
+    public operator fun component1(): MutPtr = this.next
 
-    public operator fun component2(): MutPtr<WsdMetadataSection> = this.element
+    public operator fun component2(): MutPtr = this.element
 
-    public fun copy(next: MutPtr<WsdMetadataSectionList> = this.next, element: MutPtr<WsdMetadataSection> = this.element): WsdMetadataSectionList = WsdMetadataSectionList(nextCtorArg = next, elementCtorArg = element)
+    public fun copy(next: MutPtr = this.next, element: MutPtr = this.element): WsdMetadataSectionList = WsdMetadataSectionList(nextCtorArg = next, elementCtorArg = element)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -2823,28 +2821,28 @@ public class WsdMetadataSectionList internal constructor(
                     WsdMetadataSectionList(
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<WsdMetadataSectionList>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<WsdMetadataSection>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                     )
                 override fun writeNative(addr: Long, value: WsdMetadataSectionList) {
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<WsdMetadataSectionList>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr, value.next)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<WsdMetadataSection>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.element)
                 }
             }
 
         public operator fun invoke(
-            next: MutPtr<WsdMetadataSectionList> = MutPtr(0L),
-            element: MutPtr<WsdMetadataSection> = MutPtr(0L),
+            next: MutPtr = MutPtr(0L),
+            element: MutPtr = MutPtr(0L),
         ): WsdMetadataSectionList =
             WsdMetadataSectionList(
                 nextCtorArg = next,
@@ -2854,13 +2852,13 @@ public class WsdMetadataSectionList internal constructor(
 }
 
 public class WsdNameList internal constructor(
-    nextCtorArg: MutPtr<WsdNameList>,
-    elementCtorArg: MutPtr<WsdxmlName>,
+    nextCtorArg: MutPtr,
+    elementCtorArg: MutPtr,
 ) {
-    public var next: MutPtr<WsdNameList> = nextCtorArg
+    public var next: MutPtr = nextCtorArg
         internal set
 
-    public var element: MutPtr<WsdxmlName> = elementCtorArg
+    public var element: MutPtr = elementCtorArg
         internal set
 
     public constructor() : this(
@@ -2868,11 +2866,11 @@ public class WsdNameList internal constructor(
         elementCtorArg = MutPtr(0L),
     )
 
-    public operator fun component1(): MutPtr<WsdNameList> = this.next
+    public operator fun component1(): MutPtr = this.next
 
-    public operator fun component2(): MutPtr<WsdxmlName> = this.element
+    public operator fun component2(): MutPtr = this.element
 
-    public fun copy(next: MutPtr<WsdNameList> = this.next, element: MutPtr<WsdxmlName> = this.element): WsdNameList = WsdNameList(nextCtorArg = next, elementCtorArg = element)
+    public fun copy(next: MutPtr = this.next, element: MutPtr = this.element): WsdNameList = WsdNameList(nextCtorArg = next, elementCtorArg = element)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -2897,28 +2895,28 @@ public class WsdNameList internal constructor(
                     WsdNameList(
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<WsdNameList>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<WsdxmlName>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                     )
                 override fun writeNative(addr: Long, value: WsdNameList) {
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<WsdNameList>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr, value.next)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<WsdxmlName>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.element)
                 }
             }
 
         public operator fun invoke(
-            next: MutPtr<WsdNameList> = MutPtr(0L),
-            element: MutPtr<WsdxmlName> = MutPtr(0L),
+            next: MutPtr = MutPtr(0L),
+            element: MutPtr = MutPtr(0L),
         ): WsdNameList =
             WsdNameList(
                 nextCtorArg = next,
@@ -2928,14 +2926,14 @@ public class WsdNameList internal constructor(
 }
 
 public class WsdOperation internal constructor(
-    requestTypeCtorArg: MutPtr<WsdxmlType>,
-    responseTypeCtorArg: MutPtr<WsdxmlType>,
+    requestTypeCtorArg: MutPtr,
+    responseTypeCtorArg: MutPtr,
     public var requestStubFunction: WsdStubFunction,
 ) {
-    public var requestType: MutPtr<WsdxmlType> = requestTypeCtorArg
+    public var requestType: MutPtr = requestTypeCtorArg
         internal set
 
-    public var responseType: MutPtr<WsdxmlType> = responseTypeCtorArg
+    public var responseType: MutPtr = responseTypeCtorArg
         internal set
 
     public constructor() : this(
@@ -2944,13 +2942,13 @@ public class WsdOperation internal constructor(
         requestStubFunction = null,
     )
 
-    public operator fun component1(): MutPtr<WsdxmlType> = this.requestType
+    public operator fun component1(): MutPtr = this.requestType
 
-    public operator fun component2(): MutPtr<WsdxmlType> = this.responseType
+    public operator fun component2(): MutPtr = this.responseType
 
     public operator fun component3(): WsdStubFunction = this.requestStubFunction
 
-    public fun copy(requestType: MutPtr<WsdxmlType> = this.requestType, responseType: MutPtr<WsdxmlType> = this.responseType, requestStubFunction: WsdStubFunction = this.requestStubFunction): WsdOperation = WsdOperation(requestTypeCtorArg = requestType, responseTypeCtorArg = responseType, requestStubFunction = requestStubFunction)
+    public fun copy(requestType: MutPtr = this.requestType, responseType: MutPtr = this.responseType, requestStubFunction: WsdStubFunction = this.requestStubFunction): WsdOperation = WsdOperation(requestTypeCtorArg = requestType, responseTypeCtorArg = responseType, requestStubFunction = requestStubFunction)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -2970,8 +2968,8 @@ public class WsdOperation internal constructor(
 
     public companion object {
         public operator fun invoke(
-            requestType: MutPtr<WsdxmlType> = MutPtr(0L),
-            responseType: MutPtr<WsdxmlType> = MutPtr(0L),
+            requestType: MutPtr = MutPtr(0L),
+            responseType: MutPtr = MutPtr(0L),
             requestStubFunction: WsdStubFunction = null,
         ): WsdOperation =
             WsdOperation(
@@ -2985,10 +2983,10 @@ public class WsdOperation internal constructor(
 public class WsdPortType internal constructor(
     public var encodedName: UInt,
     public var operationCount: UInt,
-    operationsCtorArg: MutPtr<WsdOperation>,
+    operationsCtorArg: MutPtr,
     public var protocolType: WsdProtocolType,
 ) {
-    public var operations: MutPtr<WsdOperation> = operationsCtorArg
+    public var operations: MutPtr = operationsCtorArg
         internal set
 
     public constructor() : this(
@@ -3002,11 +3000,11 @@ public class WsdPortType internal constructor(
 
     public operator fun component2(): UInt = this.operationCount
 
-    public operator fun component3(): MutPtr<WsdOperation> = this.operations
+    public operator fun component3(): MutPtr = this.operations
 
     public operator fun component4(): WsdProtocolType = this.protocolType
 
-    public fun copy(encodedName: UInt = this.encodedName, operationCount: UInt = this.operationCount, operations: MutPtr<WsdOperation> = this.operations, protocolType: WsdProtocolType = this.protocolType): WsdPortType = WsdPortType(encodedName = encodedName, operationCount = operationCount, operationsCtorArg = operations, protocolType = protocolType)
+    public fun copy(encodedName: UInt = this.encodedName, operationCount: UInt = this.operationCount, operations: MutPtr = this.operations, protocolType: WsdProtocolType = this.protocolType): WsdPortType = WsdPortType(encodedName = encodedName, operationCount = operationCount, operationsCtorArg = operations, protocolType = protocolType)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -3037,7 +3035,7 @@ public class WsdPortType internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 4L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<WsdOperation>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr + 16L),
                     )
@@ -3046,7 +3044,7 @@ public class WsdPortType internal constructor(
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 4L, value.operationCount)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<WsdOperation>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.operations)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr + 16L, value.protocolType)
                 }
@@ -3055,7 +3053,7 @@ public class WsdPortType internal constructor(
         public operator fun invoke(
             encodedName: UInt = 0u,
             operationCount: UInt = 0u,
-            operations: MutPtr<WsdOperation> = MutPtr(0L),
+            operations: MutPtr = MutPtr(0L),
             protocolType: WsdProtocolType = 0,
         ): WsdPortType =
             WsdPortType(
@@ -3068,17 +3066,17 @@ public class WsdPortType internal constructor(
 }
 
 public class WsdProbe internal constructor(
-    typesCtorArg: MutPtr<WsdNameList>,
-    scopesCtorArg: MutPtr<WsdScopes>,
-    anyCtorArg: MutPtr<WsdxmlElement>,
+    typesCtorArg: MutPtr,
+    scopesCtorArg: MutPtr,
+    anyCtorArg: MutPtr,
 ) {
-    public var types: MutPtr<WsdNameList> = typesCtorArg
+    public var types: MutPtr = typesCtorArg
         internal set
 
-    public var scopes: MutPtr<WsdScopes> = scopesCtorArg
+    public var scopes: MutPtr = scopesCtorArg
         internal set
 
-    public var any: MutPtr<WsdxmlElement> = anyCtorArg
+    public var any: MutPtr = anyCtorArg
         internal set
 
     public constructor() : this(
@@ -3087,13 +3085,13 @@ public class WsdProbe internal constructor(
         anyCtorArg = MutPtr(0L),
     )
 
-    public operator fun component1(): MutPtr<WsdNameList> = this.types
+    public operator fun component1(): MutPtr = this.types
 
-    public operator fun component2(): MutPtr<WsdScopes> = this.scopes
+    public operator fun component2(): MutPtr = this.scopes
 
-    public operator fun component3(): MutPtr<WsdxmlElement> = this.any
+    public operator fun component3(): MutPtr = this.any
 
-    public fun copy(types: MutPtr<WsdNameList> = this.types, scopes: MutPtr<WsdScopes> = this.scopes, any: MutPtr<WsdxmlElement> = this.any): WsdProbe = WsdProbe(typesCtorArg = types, scopesCtorArg = scopes, anyCtorArg = any)
+    public fun copy(types: MutPtr = this.types, scopes: MutPtr = this.scopes, any: MutPtr = this.any): WsdProbe = WsdProbe(typesCtorArg = types, scopesCtorArg = scopes, anyCtorArg = any)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -3120,37 +3118,37 @@ public class WsdProbe internal constructor(
                     WsdProbe(
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<WsdNameList>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<WsdScopes>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<WsdxmlElement>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 16L),
                     )
                 override fun writeNative(addr: Long, value: WsdProbe) {
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<WsdNameList>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr, value.types)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<WsdScopes>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.scopes)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<WsdxmlElement>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 16L, value.any)
                 }
             }
 
         public operator fun invoke(
-            types: MutPtr<WsdNameList> = MutPtr(0L),
-            scopes: MutPtr<WsdScopes> = MutPtr(0L),
-            any: MutPtr<WsdxmlElement> = MutPtr(0L),
+            types: MutPtr = MutPtr(0L),
+            scopes: MutPtr = MutPtr(0L),
+            any: MutPtr = MutPtr(0L),
         ): WsdProbe =
             WsdProbe(
                 typesCtorArg = types,
@@ -3161,26 +3159,26 @@ public class WsdProbe internal constructor(
 }
 
 public class WsdProbeMatch internal constructor(
-    endpointReferenceCtorArg: MutPtr<WsdEndpointReference>,
-    typesCtorArg: MutPtr<WsdNameList>,
-    scopesCtorArg: MutPtr<WsdScopes>,
-    xAddrsCtorArg: MutPtr<WsdUriList>,
+    endpointReferenceCtorArg: MutPtr,
+    typesCtorArg: MutPtr,
+    scopesCtorArg: MutPtr,
+    xAddrsCtorArg: MutPtr,
     public var metadataVersion: ULong,
-    anyCtorArg: MutPtr<WsdxmlElement>,
+    anyCtorArg: MutPtr,
 ) {
-    public var endpointReference: MutPtr<WsdEndpointReference> = endpointReferenceCtorArg
+    public var endpointReference: MutPtr = endpointReferenceCtorArg
         internal set
 
-    public var types: MutPtr<WsdNameList> = typesCtorArg
+    public var types: MutPtr = typesCtorArg
         internal set
 
-    public var scopes: MutPtr<WsdScopes> = scopesCtorArg
+    public var scopes: MutPtr = scopesCtorArg
         internal set
 
-    public var xAddrs: MutPtr<WsdUriList> = xAddrsCtorArg
+    public var xAddrs: MutPtr = xAddrsCtorArg
         internal set
 
-    public var any: MutPtr<WsdxmlElement> = anyCtorArg
+    public var any: MutPtr = anyCtorArg
         internal set
 
     public constructor() : this(
@@ -3192,19 +3190,19 @@ public class WsdProbeMatch internal constructor(
         anyCtorArg = MutPtr(0L),
     )
 
-    public operator fun component1(): MutPtr<WsdEndpointReference> = this.endpointReference
+    public operator fun component1(): MutPtr = this.endpointReference
 
-    public operator fun component2(): MutPtr<WsdNameList> = this.types
+    public operator fun component2(): MutPtr = this.types
 
-    public operator fun component3(): MutPtr<WsdScopes> = this.scopes
+    public operator fun component3(): MutPtr = this.scopes
 
-    public operator fun component4(): MutPtr<WsdUriList> = this.xAddrs
+    public operator fun component4(): MutPtr = this.xAddrs
 
     public operator fun component5(): ULong = this.metadataVersion
 
-    public operator fun component6(): MutPtr<WsdxmlElement> = this.any
+    public operator fun component6(): MutPtr = this.any
 
-    public fun copy(endpointReference: MutPtr<WsdEndpointReference> = this.endpointReference, types: MutPtr<WsdNameList> = this.types, scopes: MutPtr<WsdScopes> = this.scopes, xAddrs: MutPtr<WsdUriList> = this.xAddrs, metadataVersion: ULong = this.metadataVersion, any: MutPtr<WsdxmlElement> = this.any): WsdProbeMatch = WsdProbeMatch(endpointReferenceCtorArg = endpointReference, typesCtorArg = types, scopesCtorArg = scopes, xAddrsCtorArg = xAddrs, metadataVersion = metadataVersion, anyCtorArg = any)
+    public fun copy(endpointReference: MutPtr = this.endpointReference, types: MutPtr = this.types, scopes: MutPtr = this.scopes, xAddrs: MutPtr = this.xAddrs, metadataVersion: ULong = this.metadataVersion, any: MutPtr = this.any): WsdProbeMatch = WsdProbeMatch(endpointReferenceCtorArg = endpointReference, typesCtorArg = types, scopesCtorArg = scopes, xAddrsCtorArg = xAddrs, metadataVersion = metadataVersion, anyCtorArg = any)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -3237,58 +3235,58 @@ public class WsdProbeMatch internal constructor(
                     WsdProbeMatch(
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<WsdEndpointReference>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<WsdNameList>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<WsdScopes>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 16L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<WsdUriList>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 24L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U64).readNative(addr + 32L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<WsdxmlElement>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 40L),
                     )
                 override fun writeNative(addr: Long, value: WsdProbeMatch) {
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<WsdEndpointReference>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr, value.endpointReference)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<WsdNameList>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.types)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<WsdScopes>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 16L, value.scopes)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<WsdUriList>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 24L, value.xAddrs)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U64).writeNative(addr + 32L, value.metadataVersion)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<WsdxmlElement>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 40L, value.any)
                 }
             }
 
         public operator fun invoke(
-            endpointReference: MutPtr<WsdEndpointReference> = MutPtr(0L),
-            types: MutPtr<WsdNameList> = MutPtr(0L),
-            scopes: MutPtr<WsdScopes> = MutPtr(0L),
-            xAddrs: MutPtr<WsdUriList> = MutPtr(0L),
+            endpointReference: MutPtr = MutPtr(0L),
+            types: MutPtr = MutPtr(0L),
+            scopes: MutPtr = MutPtr(0L),
+            xAddrs: MutPtr = MutPtr(0L),
             metadataVersion: ULong = 0uL,
-            any: MutPtr<WsdxmlElement> = MutPtr(0L),
+            any: MutPtr = MutPtr(0L),
         ): WsdProbeMatch =
             WsdProbeMatch(
                 endpointReferenceCtorArg = endpointReference,
@@ -3302,13 +3300,13 @@ public class WsdProbeMatch internal constructor(
 }
 
 public class WsdProbeMatches internal constructor(
-    probeMatchCtorArg: MutPtr<WsdProbeMatchList>,
-    anyCtorArg: MutPtr<WsdxmlElement>,
+    probeMatchCtorArg: MutPtr,
+    anyCtorArg: MutPtr,
 ) {
-    public var probeMatch: MutPtr<WsdProbeMatchList> = probeMatchCtorArg
+    public var probeMatch: MutPtr = probeMatchCtorArg
         internal set
 
-    public var any: MutPtr<WsdxmlElement> = anyCtorArg
+    public var any: MutPtr = anyCtorArg
         internal set
 
     public constructor() : this(
@@ -3316,11 +3314,11 @@ public class WsdProbeMatches internal constructor(
         anyCtorArg = MutPtr(0L),
     )
 
-    public operator fun component1(): MutPtr<WsdProbeMatchList> = this.probeMatch
+    public operator fun component1(): MutPtr = this.probeMatch
 
-    public operator fun component2(): MutPtr<WsdxmlElement> = this.any
+    public operator fun component2(): MutPtr = this.any
 
-    public fun copy(probeMatch: MutPtr<WsdProbeMatchList> = this.probeMatch, any: MutPtr<WsdxmlElement> = this.any): WsdProbeMatches = WsdProbeMatches(probeMatchCtorArg = probeMatch, anyCtorArg = any)
+    public fun copy(probeMatch: MutPtr = this.probeMatch, any: MutPtr = this.any): WsdProbeMatches = WsdProbeMatches(probeMatchCtorArg = probeMatch, anyCtorArg = any)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -3345,28 +3343,28 @@ public class WsdProbeMatches internal constructor(
                     WsdProbeMatches(
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<WsdProbeMatchList>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<WsdxmlElement>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                     )
                 override fun writeNative(addr: Long, value: WsdProbeMatches) {
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<WsdProbeMatchList>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr, value.probeMatch)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<WsdxmlElement>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.any)
                 }
             }
 
         public operator fun invoke(
-            probeMatch: MutPtr<WsdProbeMatchList> = MutPtr(0L),
-            any: MutPtr<WsdxmlElement> = MutPtr(0L),
+            probeMatch: MutPtr = MutPtr(0L),
+            any: MutPtr = MutPtr(0L),
         ): WsdProbeMatches =
             WsdProbeMatches(
                 probeMatchCtorArg = probeMatch,
@@ -3376,13 +3374,13 @@ public class WsdProbeMatches internal constructor(
 }
 
 public class WsdProbeMatchList internal constructor(
-    nextCtorArg: MutPtr<WsdProbeMatchList>,
-    elementCtorArg: MutPtr<WsdProbeMatch>,
+    nextCtorArg: MutPtr,
+    elementCtorArg: MutPtr,
 ) {
-    public var next: MutPtr<WsdProbeMatchList> = nextCtorArg
+    public var next: MutPtr = nextCtorArg
         internal set
 
-    public var element: MutPtr<WsdProbeMatch> = elementCtorArg
+    public var element: MutPtr = elementCtorArg
         internal set
 
     public constructor() : this(
@@ -3390,11 +3388,11 @@ public class WsdProbeMatchList internal constructor(
         elementCtorArg = MutPtr(0L),
     )
 
-    public operator fun component1(): MutPtr<WsdProbeMatchList> = this.next
+    public operator fun component1(): MutPtr = this.next
 
-    public operator fun component2(): MutPtr<WsdProbeMatch> = this.element
+    public operator fun component2(): MutPtr = this.element
 
-    public fun copy(next: MutPtr<WsdProbeMatchList> = this.next, element: MutPtr<WsdProbeMatch> = this.element): WsdProbeMatchList = WsdProbeMatchList(nextCtorArg = next, elementCtorArg = element)
+    public fun copy(next: MutPtr = this.next, element: MutPtr = this.element): WsdProbeMatchList = WsdProbeMatchList(nextCtorArg = next, elementCtorArg = element)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -3419,28 +3417,28 @@ public class WsdProbeMatchList internal constructor(
                     WsdProbeMatchList(
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<WsdProbeMatchList>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<WsdProbeMatch>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                     )
                 override fun writeNative(addr: Long, value: WsdProbeMatchList) {
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<WsdProbeMatchList>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr, value.next)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<WsdProbeMatch>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.element)
                 }
             }
 
         public operator fun invoke(
-            next: MutPtr<WsdProbeMatchList> = MutPtr(0L),
-            element: MutPtr<WsdProbeMatch> = MutPtr(0L),
+            next: MutPtr = MutPtr(0L),
+            element: MutPtr = MutPtr(0L),
         ): WsdProbeMatchList =
             WsdProbeMatchList(
                 nextCtorArg = next,
@@ -3450,18 +3448,18 @@ public class WsdProbeMatchList internal constructor(
 }
 
 public class WsdReferenceParameters internal constructor(
-    anyCtorArg: MutPtr<WsdxmlElement>,
+    anyCtorArg: MutPtr,
 ) {
-    public var any: MutPtr<WsdxmlElement> = anyCtorArg
+    public var any: MutPtr = anyCtorArg
         internal set
 
     public constructor() : this(
         anyCtorArg = MutPtr(0L),
     )
 
-    public operator fun component1(): MutPtr<WsdxmlElement> = this.any
+    public operator fun component1(): MutPtr = this.any
 
-    public fun copy(any: MutPtr<WsdxmlElement> = this.any): WsdReferenceParameters = WsdReferenceParameters(anyCtorArg = any)
+    public fun copy(any: MutPtr = this.any): WsdReferenceParameters = WsdReferenceParameters(anyCtorArg = any)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -3481,19 +3479,19 @@ public class WsdReferenceParameters internal constructor(
                     WsdReferenceParameters(
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<WsdxmlElement>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr),
                     )
                 override fun writeNative(addr: Long, value: WsdReferenceParameters) {
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<WsdxmlElement>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr, value.any)
                 }
             }
 
         public operator fun invoke(
-            any: MutPtr<WsdxmlElement> = MutPtr(0L),
+            any: MutPtr = MutPtr(0L),
         ): WsdReferenceParameters =
             WsdReferenceParameters(
                 anyCtorArg = any,
@@ -3502,18 +3500,18 @@ public class WsdReferenceParameters internal constructor(
 }
 
 public class WsdReferenceProperties internal constructor(
-    anyCtorArg: MutPtr<WsdxmlElement>,
+    anyCtorArg: MutPtr,
 ) {
-    public var any: MutPtr<WsdxmlElement> = anyCtorArg
+    public var any: MutPtr = anyCtorArg
         internal set
 
     public constructor() : this(
         anyCtorArg = MutPtr(0L),
     )
 
-    public operator fun component1(): MutPtr<WsdxmlElement> = this.any
+    public operator fun component1(): MutPtr = this.any
 
-    public fun copy(any: MutPtr<WsdxmlElement> = this.any): WsdReferenceProperties = WsdReferenceProperties(anyCtorArg = any)
+    public fun copy(any: MutPtr = this.any): WsdReferenceProperties = WsdReferenceProperties(anyCtorArg = any)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -3533,19 +3531,19 @@ public class WsdReferenceProperties internal constructor(
                     WsdReferenceProperties(
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<WsdxmlElement>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr),
                     )
                 override fun writeNative(addr: Long, value: WsdReferenceProperties) {
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<WsdxmlElement>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr, value.any)
                 }
             }
 
         public operator fun invoke(
-            any: MutPtr<WsdxmlElement> = MutPtr(0L),
+            any: MutPtr = MutPtr(0L),
         ): WsdReferenceProperties =
             WsdReferenceProperties(
                 anyCtorArg = any,
@@ -3555,16 +3553,16 @@ public class WsdReferenceProperties internal constructor(
 
 public class WsdRelationshipMetadata internal constructor(
     typeCtorArg: Pcwstr,
-    dataCtorArg: MutPtr<WsdHostMetadata>,
-    anyCtorArg: MutPtr<WsdxmlElement>,
+    dataCtorArg: MutPtr,
+    anyCtorArg: MutPtr,
 ) {
     public var type: Pcwstr = typeCtorArg
         internal set
 
-    public var data: MutPtr<WsdHostMetadata> = dataCtorArg
+    public var data: MutPtr = dataCtorArg
         internal set
 
-    public var any: MutPtr<WsdxmlElement> = anyCtorArg
+    public var any: MutPtr = anyCtorArg
         internal set
 
     public constructor() : this(
@@ -3575,11 +3573,11 @@ public class WsdRelationshipMetadata internal constructor(
 
     public operator fun component1(): Pcwstr = this.type
 
-    public operator fun component2(): MutPtr<WsdHostMetadata> = this.data
+    public operator fun component2(): MutPtr = this.data
 
-    public operator fun component3(): MutPtr<WsdxmlElement> = this.any
+    public operator fun component3(): MutPtr = this.any
 
-    public fun copy(type: Pcwstr = this.type, data: MutPtr<WsdHostMetadata> = this.data, any: MutPtr<WsdxmlElement> = this.any): WsdRelationshipMetadata = WsdRelationshipMetadata(typeCtorArg = type, dataCtorArg = data, anyCtorArg = any)
+    public fun copy(type: Pcwstr = this.type, data: MutPtr = this.data, any: MutPtr = this.any): WsdRelationshipMetadata = WsdRelationshipMetadata(typeCtorArg = type, dataCtorArg = data, anyCtorArg = any)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -3600,8 +3598,8 @@ public class WsdRelationshipMetadata internal constructor(
     public companion object {
         public operator fun invoke(
             type: Pcwstr = ConstPtr(0L),
-            data: MutPtr<WsdHostMetadata> = MutPtr(0L),
-            any: MutPtr<WsdxmlElement> = MutPtr(0L),
+            data: MutPtr = MutPtr(0L),
+            any: MutPtr = MutPtr(0L),
         ): WsdRelationshipMetadata =
             WsdRelationshipMetadata(
                 typeCtorArg = type,
@@ -3612,13 +3610,13 @@ public class WsdRelationshipMetadata internal constructor(
 }
 
 public class WsdResolve internal constructor(
-    endpointReferenceCtorArg: MutPtr<WsdEndpointReference>,
-    anyCtorArg: MutPtr<WsdxmlElement>,
+    endpointReferenceCtorArg: MutPtr,
+    anyCtorArg: MutPtr,
 ) {
-    public var endpointReference: MutPtr<WsdEndpointReference> = endpointReferenceCtorArg
+    public var endpointReference: MutPtr = endpointReferenceCtorArg
         internal set
 
-    public var any: MutPtr<WsdxmlElement> = anyCtorArg
+    public var any: MutPtr = anyCtorArg
         internal set
 
     public constructor() : this(
@@ -3626,11 +3624,11 @@ public class WsdResolve internal constructor(
         anyCtorArg = MutPtr(0L),
     )
 
-    public operator fun component1(): MutPtr<WsdEndpointReference> = this.endpointReference
+    public operator fun component1(): MutPtr = this.endpointReference
 
-    public operator fun component2(): MutPtr<WsdxmlElement> = this.any
+    public operator fun component2(): MutPtr = this.any
 
-    public fun copy(endpointReference: MutPtr<WsdEndpointReference> = this.endpointReference, any: MutPtr<WsdxmlElement> = this.any): WsdResolve = WsdResolve(endpointReferenceCtorArg = endpointReference, anyCtorArg = any)
+    public fun copy(endpointReference: MutPtr = this.endpointReference, any: MutPtr = this.any): WsdResolve = WsdResolve(endpointReferenceCtorArg = endpointReference, anyCtorArg = any)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -3655,28 +3653,28 @@ public class WsdResolve internal constructor(
                     WsdResolve(
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<WsdEndpointReference>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<WsdxmlElement>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                     )
                 override fun writeNative(addr: Long, value: WsdResolve) {
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<WsdEndpointReference>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr, value.endpointReference)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<WsdxmlElement>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.any)
                 }
             }
 
         public operator fun invoke(
-            endpointReference: MutPtr<WsdEndpointReference> = MutPtr(0L),
-            any: MutPtr<WsdxmlElement> = MutPtr(0L),
+            endpointReference: MutPtr = MutPtr(0L),
+            any: MutPtr = MutPtr(0L),
         ): WsdResolve =
             WsdResolve(
                 endpointReferenceCtorArg = endpointReference,
@@ -3686,26 +3684,26 @@ public class WsdResolve internal constructor(
 }
 
 public class WsdResolveMatch internal constructor(
-    endpointReferenceCtorArg: MutPtr<WsdEndpointReference>,
-    typesCtorArg: MutPtr<WsdNameList>,
-    scopesCtorArg: MutPtr<WsdScopes>,
-    xAddrsCtorArg: MutPtr<WsdUriList>,
+    endpointReferenceCtorArg: MutPtr,
+    typesCtorArg: MutPtr,
+    scopesCtorArg: MutPtr,
+    xAddrsCtorArg: MutPtr,
     public var metadataVersion: ULong,
-    anyCtorArg: MutPtr<WsdxmlElement>,
+    anyCtorArg: MutPtr,
 ) {
-    public var endpointReference: MutPtr<WsdEndpointReference> = endpointReferenceCtorArg
+    public var endpointReference: MutPtr = endpointReferenceCtorArg
         internal set
 
-    public var types: MutPtr<WsdNameList> = typesCtorArg
+    public var types: MutPtr = typesCtorArg
         internal set
 
-    public var scopes: MutPtr<WsdScopes> = scopesCtorArg
+    public var scopes: MutPtr = scopesCtorArg
         internal set
 
-    public var xAddrs: MutPtr<WsdUriList> = xAddrsCtorArg
+    public var xAddrs: MutPtr = xAddrsCtorArg
         internal set
 
-    public var any: MutPtr<WsdxmlElement> = anyCtorArg
+    public var any: MutPtr = anyCtorArg
         internal set
 
     public constructor() : this(
@@ -3717,19 +3715,19 @@ public class WsdResolveMatch internal constructor(
         anyCtorArg = MutPtr(0L),
     )
 
-    public operator fun component1(): MutPtr<WsdEndpointReference> = this.endpointReference
+    public operator fun component1(): MutPtr = this.endpointReference
 
-    public operator fun component2(): MutPtr<WsdNameList> = this.types
+    public operator fun component2(): MutPtr = this.types
 
-    public operator fun component3(): MutPtr<WsdScopes> = this.scopes
+    public operator fun component3(): MutPtr = this.scopes
 
-    public operator fun component4(): MutPtr<WsdUriList> = this.xAddrs
+    public operator fun component4(): MutPtr = this.xAddrs
 
     public operator fun component5(): ULong = this.metadataVersion
 
-    public operator fun component6(): MutPtr<WsdxmlElement> = this.any
+    public operator fun component6(): MutPtr = this.any
 
-    public fun copy(endpointReference: MutPtr<WsdEndpointReference> = this.endpointReference, types: MutPtr<WsdNameList> = this.types, scopes: MutPtr<WsdScopes> = this.scopes, xAddrs: MutPtr<WsdUriList> = this.xAddrs, metadataVersion: ULong = this.metadataVersion, any: MutPtr<WsdxmlElement> = this.any): WsdResolveMatch = WsdResolveMatch(endpointReferenceCtorArg = endpointReference, typesCtorArg = types, scopesCtorArg = scopes, xAddrsCtorArg = xAddrs, metadataVersion = metadataVersion, anyCtorArg = any)
+    public fun copy(endpointReference: MutPtr = this.endpointReference, types: MutPtr = this.types, scopes: MutPtr = this.scopes, xAddrs: MutPtr = this.xAddrs, metadataVersion: ULong = this.metadataVersion, any: MutPtr = this.any): WsdResolveMatch = WsdResolveMatch(endpointReferenceCtorArg = endpointReference, typesCtorArg = types, scopesCtorArg = scopes, xAddrsCtorArg = xAddrs, metadataVersion = metadataVersion, anyCtorArg = any)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -3762,58 +3760,58 @@ public class WsdResolveMatch internal constructor(
                     WsdResolveMatch(
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<WsdEndpointReference>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<WsdNameList>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<WsdScopes>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 16L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<WsdUriList>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 24L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U64).readNative(addr + 32L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<WsdxmlElement>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 40L),
                     )
                 override fun writeNative(addr: Long, value: WsdResolveMatch) {
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<WsdEndpointReference>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr, value.endpointReference)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<WsdNameList>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.types)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<WsdScopes>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 16L, value.scopes)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<WsdUriList>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 24L, value.xAddrs)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U64).writeNative(addr + 32L, value.metadataVersion)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<WsdxmlElement>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 40L, value.any)
                 }
             }
 
         public operator fun invoke(
-            endpointReference: MutPtr<WsdEndpointReference> = MutPtr(0L),
-            types: MutPtr<WsdNameList> = MutPtr(0L),
-            scopes: MutPtr<WsdScopes> = MutPtr(0L),
-            xAddrs: MutPtr<WsdUriList> = MutPtr(0L),
+            endpointReference: MutPtr = MutPtr(0L),
+            types: MutPtr = MutPtr(0L),
+            scopes: MutPtr = MutPtr(0L),
+            xAddrs: MutPtr = MutPtr(0L),
             metadataVersion: ULong = 0uL,
-            any: MutPtr<WsdxmlElement> = MutPtr(0L),
+            any: MutPtr = MutPtr(0L),
         ): WsdResolveMatch =
             WsdResolveMatch(
                 endpointReferenceCtorArg = endpointReference,
@@ -3827,13 +3825,13 @@ public class WsdResolveMatch internal constructor(
 }
 
 public class WsdResolveMatches internal constructor(
-    resolveMatchCtorArg: MutPtr<WsdResolveMatch>,
-    anyCtorArg: MutPtr<WsdxmlElement>,
+    resolveMatchCtorArg: MutPtr,
+    anyCtorArg: MutPtr,
 ) {
-    public var resolveMatch: MutPtr<WsdResolveMatch> = resolveMatchCtorArg
+    public var resolveMatch: MutPtr = resolveMatchCtorArg
         internal set
 
-    public var any: MutPtr<WsdxmlElement> = anyCtorArg
+    public var any: MutPtr = anyCtorArg
         internal set
 
     public constructor() : this(
@@ -3841,11 +3839,11 @@ public class WsdResolveMatches internal constructor(
         anyCtorArg = MutPtr(0L),
     )
 
-    public operator fun component1(): MutPtr<WsdResolveMatch> = this.resolveMatch
+    public operator fun component1(): MutPtr = this.resolveMatch
 
-    public operator fun component2(): MutPtr<WsdxmlElement> = this.any
+    public operator fun component2(): MutPtr = this.any
 
-    public fun copy(resolveMatch: MutPtr<WsdResolveMatch> = this.resolveMatch, any: MutPtr<WsdxmlElement> = this.any): WsdResolveMatches = WsdResolveMatches(resolveMatchCtorArg = resolveMatch, anyCtorArg = any)
+    public fun copy(resolveMatch: MutPtr = this.resolveMatch, any: MutPtr = this.any): WsdResolveMatches = WsdResolveMatches(resolveMatchCtorArg = resolveMatch, anyCtorArg = any)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -3870,28 +3868,28 @@ public class WsdResolveMatches internal constructor(
                     WsdResolveMatches(
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<WsdResolveMatch>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<WsdxmlElement>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                     )
                 override fun writeNative(addr: Long, value: WsdResolveMatches) {
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<WsdResolveMatch>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr, value.resolveMatch)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<WsdxmlElement>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.any)
                 }
             }
 
         public operator fun invoke(
-            resolveMatch: MutPtr<WsdResolveMatch> = MutPtr(0L),
-            any: MutPtr<WsdxmlElement> = MutPtr(0L),
+            resolveMatch: MutPtr = MutPtr(0L),
+            any: MutPtr = MutPtr(0L),
         ): WsdResolveMatches =
             WsdResolveMatches(
                 resolveMatchCtorArg = resolveMatch,
@@ -3902,12 +3900,12 @@ public class WsdResolveMatches internal constructor(
 
 public class WsdScopes internal constructor(
     matchByCtorArg: Pcwstr,
-    scopesCtorArg: MutPtr<WsdUriList>,
+    scopesCtorArg: MutPtr,
 ) {
     public var matchBy: Pcwstr = matchByCtorArg
         internal set
 
-    public var scopes: MutPtr<WsdUriList> = scopesCtorArg
+    public var scopes: MutPtr = scopesCtorArg
         internal set
 
     public constructor() : this(
@@ -3917,9 +3915,9 @@ public class WsdScopes internal constructor(
 
     public operator fun component1(): Pcwstr = this.matchBy
 
-    public operator fun component2(): MutPtr<WsdUriList> = this.scopes
+    public operator fun component2(): MutPtr = this.scopes
 
-    public fun copy(matchBy: Pcwstr = this.matchBy, scopes: MutPtr<WsdUriList> = this.scopes): WsdScopes = WsdScopes(matchByCtorArg = matchBy, scopesCtorArg = scopes)
+    public fun copy(matchBy: Pcwstr = this.matchBy, scopes: MutPtr = this.scopes): WsdScopes = WsdScopes(matchByCtorArg = matchBy, scopesCtorArg = scopes)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -3938,7 +3936,7 @@ public class WsdScopes internal constructor(
     public companion object {
         public operator fun invoke(
             matchBy: Pcwstr = ConstPtr(0L),
-            scopes: MutPtr<WsdUriList> = MutPtr(0L),
+            scopes: MutPtr = MutPtr(0L),
         ): WsdScopes =
             WsdScopes(
                 matchByCtorArg = matchBy,
@@ -3948,16 +3946,16 @@ public class WsdScopes internal constructor(
 }
 
 public class WsdSecurityCertValidation internal constructor(
-    certMatchArrayCtorArg: MutPtr<MutPtr<CertContext>>,
+    certMatchArrayCtorArg: MutPtr,
     public var dwCertMatchArrayCount: UInt,
     hCertMatchStoreCtorArg: Hcertstore,
     hCertIssuerStoreCtorArg: Hcertstore,
     public var dwCertCheckOptions: UInt,
     pszCNGHashAlgIdCtorArg: Pcwstr,
-    pbCertHashCtorArg: MutPtr<UByte>,
+    pbCertHashCtorArg: MutPtr,
     public var dwCertHashSize: UInt,
 ) {
-    public var certMatchArray: MutPtr<MutPtr<CertContext>> = certMatchArrayCtorArg
+    public var certMatchArray: MutPtr = certMatchArrayCtorArg
         internal set
 
     public var hCertMatchStore: Hcertstore = hCertMatchStoreCtorArg
@@ -3969,7 +3967,7 @@ public class WsdSecurityCertValidation internal constructor(
     public var pszCNGHashAlgId: Pcwstr = pszCNGHashAlgIdCtorArg
         internal set
 
-    public var pbCertHash: MutPtr<UByte> = pbCertHashCtorArg
+    public var pbCertHash: MutPtr = pbCertHashCtorArg
         internal set
 
     public constructor() : this(
@@ -3983,7 +3981,7 @@ public class WsdSecurityCertValidation internal constructor(
         dwCertHashSize = 0u,
     )
 
-    public operator fun component1(): MutPtr<MutPtr<CertContext>> = this.certMatchArray
+    public operator fun component1(): MutPtr = this.certMatchArray
 
     public operator fun component2(): UInt = this.dwCertMatchArrayCount
 
@@ -3995,11 +3993,11 @@ public class WsdSecurityCertValidation internal constructor(
 
     public operator fun component6(): Pcwstr = this.pszCNGHashAlgId
 
-    public operator fun component7(): MutPtr<UByte> = this.pbCertHash
+    public operator fun component7(): MutPtr = this.pbCertHash
 
     public operator fun component8(): UInt = this.dwCertHashSize
 
-    public fun copy(certMatchArray: MutPtr<MutPtr<CertContext>> = this.certMatchArray, dwCertMatchArrayCount: UInt = this.dwCertMatchArrayCount, hCertMatchStore: Hcertstore = this.hCertMatchStore, hCertIssuerStore: Hcertstore = this.hCertIssuerStore, dwCertCheckOptions: UInt = this.dwCertCheckOptions, pszCNGHashAlgId: Pcwstr = this.pszCNGHashAlgId, pbCertHash: MutPtr<UByte> = this.pbCertHash, dwCertHashSize: UInt = this.dwCertHashSize): WsdSecurityCertValidation = WsdSecurityCertValidation(certMatchArrayCtorArg = certMatchArray, dwCertMatchArrayCount = dwCertMatchArrayCount, hCertMatchStoreCtorArg = hCertMatchStore, hCertIssuerStoreCtorArg = hCertIssuerStore, dwCertCheckOptions = dwCertCheckOptions, pszCNGHashAlgIdCtorArg = pszCNGHashAlgId, pbCertHashCtorArg = pbCertHash, dwCertHashSize = dwCertHashSize)
+    public fun copy(certMatchArray: MutPtr = this.certMatchArray, dwCertMatchArrayCount: UInt = this.dwCertMatchArrayCount, hCertMatchStore: Hcertstore = this.hCertMatchStore, hCertIssuerStore: Hcertstore = this.hCertIssuerStore, dwCertCheckOptions: UInt = this.dwCertCheckOptions, pszCNGHashAlgId: Pcwstr = this.pszCNGHashAlgId, pbCertHash: MutPtr = this.pbCertHash, dwCertHashSize: UInt = this.dwCertHashSize): WsdSecurityCertValidation = WsdSecurityCertValidation(certMatchArrayCtorArg = certMatchArray, dwCertMatchArrayCount = dwCertMatchArrayCount, hCertMatchStoreCtorArg = hCertMatchStore, hCertIssuerStoreCtorArg = hCertIssuerStore, dwCertCheckOptions = dwCertCheckOptions, pszCNGHashAlgIdCtorArg = pszCNGHashAlgId, pbCertHashCtorArg = pbCertHash, dwCertHashSize = dwCertHashSize)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -4029,13 +4027,13 @@ public class WsdSecurityCertValidation internal constructor(
 
     public companion object {
         public operator fun invoke(
-            certMatchArray: MutPtr<MutPtr<CertContext>> = MutPtr(0L),
+            certMatchArray: MutPtr = MutPtr(0L),
             dwCertMatchArrayCount: UInt = 0u,
             hCertMatchStore: Hcertstore = MutPtr(0L),
             hCertIssuerStore: Hcertstore = MutPtr(0L),
             dwCertCheckOptions: UInt = 0u,
             pszCNGHashAlgId: Pcwstr = ConstPtr(0L),
-            pbCertHash: MutPtr<UByte> = MutPtr(0L),
+            pbCertHash: MutPtr = MutPtr(0L),
             dwCertHashSize: UInt = 0u,
         ): WsdSecurityCertValidation =
             WsdSecurityCertValidation(
@@ -4052,13 +4050,13 @@ public class WsdSecurityCertValidation internal constructor(
 }
 
 public class WsdSecurityCertValidationV1 internal constructor(
-    certMatchArrayCtorArg: MutPtr<MutPtr<CertContext>>,
+    certMatchArrayCtorArg: MutPtr,
     public var dwCertMatchArrayCount: UInt,
     hCertMatchStoreCtorArg: Hcertstore,
     hCertIssuerStoreCtorArg: Hcertstore,
     public var dwCertCheckOptions: UInt,
 ) {
-    public var certMatchArray: MutPtr<MutPtr<CertContext>> = certMatchArrayCtorArg
+    public var certMatchArray: MutPtr = certMatchArrayCtorArg
         internal set
 
     public var hCertMatchStore: Hcertstore = hCertMatchStoreCtorArg
@@ -4075,7 +4073,7 @@ public class WsdSecurityCertValidationV1 internal constructor(
         dwCertCheckOptions = 0u,
     )
 
-    public operator fun component1(): MutPtr<MutPtr<CertContext>> = this.certMatchArray
+    public operator fun component1(): MutPtr = this.certMatchArray
 
     public operator fun component2(): UInt = this.dwCertMatchArrayCount
 
@@ -4085,7 +4083,7 @@ public class WsdSecurityCertValidationV1 internal constructor(
 
     public operator fun component5(): UInt = this.dwCertCheckOptions
 
-    public fun copy(certMatchArray: MutPtr<MutPtr<CertContext>> = this.certMatchArray, dwCertMatchArrayCount: UInt = this.dwCertMatchArrayCount, hCertMatchStore: Hcertstore = this.hCertMatchStore, hCertIssuerStore: Hcertstore = this.hCertIssuerStore, dwCertCheckOptions: UInt = this.dwCertCheckOptions): WsdSecurityCertValidationV1 = WsdSecurityCertValidationV1(certMatchArrayCtorArg = certMatchArray, dwCertMatchArrayCount = dwCertMatchArrayCount, hCertMatchStoreCtorArg = hCertMatchStore, hCertIssuerStoreCtorArg = hCertIssuerStore, dwCertCheckOptions = dwCertCheckOptions)
+    public fun copy(certMatchArray: MutPtr = this.certMatchArray, dwCertMatchArrayCount: UInt = this.dwCertMatchArrayCount, hCertMatchStore: Hcertstore = this.hCertMatchStore, hCertIssuerStore: Hcertstore = this.hCertIssuerStore, dwCertCheckOptions: UInt = this.dwCertCheckOptions): WsdSecurityCertValidationV1 = WsdSecurityCertValidationV1(certMatchArrayCtorArg = certMatchArray, dwCertMatchArrayCount = dwCertMatchArrayCount, hCertMatchStoreCtorArg = hCertMatchStore, hCertIssuerStoreCtorArg = hCertIssuerStore, dwCertCheckOptions = dwCertCheckOptions)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -4109,7 +4107,7 @@ public class WsdSecurityCertValidationV1 internal constructor(
 
     public companion object {
         public operator fun invoke(
-            certMatchArray: MutPtr<MutPtr<CertContext>> = MutPtr(0L),
+            certMatchArray: MutPtr = MutPtr(0L),
             dwCertMatchArrayCount: UInt = 0u,
             hCertMatchStore: Hcertstore = MutPtr(0L),
             hCertIssuerStore: Hcertstore = MutPtr(0L),
@@ -4126,12 +4124,12 @@ public class WsdSecurityCertValidationV1 internal constructor(
 }
 
 public class WsdSecuritySignatureValidation internal constructor(
-    signingCertArrayCtorArg: MutPtr<MutPtr<CertContext>>,
+    signingCertArrayCtorArg: MutPtr,
     public var dwSigningCertArrayCount: UInt,
     hSigningCertStoreCtorArg: Hcertstore,
     public var dwFlags: UInt,
 ) {
-    public var signingCertArray: MutPtr<MutPtr<CertContext>> = signingCertArrayCtorArg
+    public var signingCertArray: MutPtr = signingCertArrayCtorArg
         internal set
 
     public var hSigningCertStore: Hcertstore = hSigningCertStoreCtorArg
@@ -4144,7 +4142,7 @@ public class WsdSecuritySignatureValidation internal constructor(
         dwFlags = 0u,
     )
 
-    public operator fun component1(): MutPtr<MutPtr<CertContext>> = this.signingCertArray
+    public operator fun component1(): MutPtr = this.signingCertArray
 
     public operator fun component2(): UInt = this.dwSigningCertArrayCount
 
@@ -4152,7 +4150,7 @@ public class WsdSecuritySignatureValidation internal constructor(
 
     public operator fun component4(): UInt = this.dwFlags
 
-    public fun copy(signingCertArray: MutPtr<MutPtr<CertContext>> = this.signingCertArray, dwSigningCertArrayCount: UInt = this.dwSigningCertArrayCount, hSigningCertStore: Hcertstore = this.hSigningCertStore, dwFlags: UInt = this.dwFlags): WsdSecuritySignatureValidation = WsdSecuritySignatureValidation(signingCertArrayCtorArg = signingCertArray, dwSigningCertArrayCount = dwSigningCertArrayCount, hSigningCertStoreCtorArg = hSigningCertStore, dwFlags = dwFlags)
+    public fun copy(signingCertArray: MutPtr = this.signingCertArray, dwSigningCertArrayCount: UInt = this.dwSigningCertArrayCount, hSigningCertStore: Hcertstore = this.hSigningCertStore, dwFlags: UInt = this.dwFlags): WsdSecuritySignatureValidation = WsdSecuritySignatureValidation(signingCertArrayCtorArg = signingCertArray, dwSigningCertArrayCount = dwSigningCertArrayCount, hSigningCertStoreCtorArg = hSigningCertStore, dwFlags = dwFlags)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -4174,7 +4172,7 @@ public class WsdSecuritySignatureValidation internal constructor(
 
     public companion object {
         public operator fun invoke(
-            signingCertArray: MutPtr<MutPtr<CertContext>> = MutPtr(0L),
+            signingCertArray: MutPtr = MutPtr(0L),
             dwSigningCertArrayCount: UInt = 0u,
             hSigningCertStore: Hcertstore = MutPtr(0L),
             dwFlags: UInt = 0u,
@@ -4189,21 +4187,21 @@ public class WsdSecuritySignatureValidation internal constructor(
 }
 
 public class WsdServiceMetadata internal constructor(
-    endpointReferenceCtorArg: MutPtr<WsdEndpointReferenceList>,
-    typesCtorArg: MutPtr<WsdNameList>,
+    endpointReferenceCtorArg: MutPtr,
+    typesCtorArg: MutPtr,
     serviceIdCtorArg: Pcwstr,
-    anyCtorArg: MutPtr<WsdxmlElement>,
+    anyCtorArg: MutPtr,
 ) {
-    public var endpointReference: MutPtr<WsdEndpointReferenceList> = endpointReferenceCtorArg
+    public var endpointReference: MutPtr = endpointReferenceCtorArg
         internal set
 
-    public var types: MutPtr<WsdNameList> = typesCtorArg
+    public var types: MutPtr = typesCtorArg
         internal set
 
     public var serviceId: Pcwstr = serviceIdCtorArg
         internal set
 
-    public var any: MutPtr<WsdxmlElement> = anyCtorArg
+    public var any: MutPtr = anyCtorArg
         internal set
 
     public constructor() : this(
@@ -4213,15 +4211,15 @@ public class WsdServiceMetadata internal constructor(
         anyCtorArg = MutPtr(0L),
     )
 
-    public operator fun component1(): MutPtr<WsdEndpointReferenceList> = this.endpointReference
+    public operator fun component1(): MutPtr = this.endpointReference
 
-    public operator fun component2(): MutPtr<WsdNameList> = this.types
+    public operator fun component2(): MutPtr = this.types
 
     public operator fun component3(): Pcwstr = this.serviceId
 
-    public operator fun component4(): MutPtr<WsdxmlElement> = this.any
+    public operator fun component4(): MutPtr = this.any
 
-    public fun copy(endpointReference: MutPtr<WsdEndpointReferenceList> = this.endpointReference, types: MutPtr<WsdNameList> = this.types, serviceId: Pcwstr = this.serviceId, any: MutPtr<WsdxmlElement> = this.any): WsdServiceMetadata = WsdServiceMetadata(endpointReferenceCtorArg = endpointReference, typesCtorArg = types, serviceIdCtorArg = serviceId, anyCtorArg = any)
+    public fun copy(endpointReference: MutPtr = this.endpointReference, types: MutPtr = this.types, serviceId: Pcwstr = this.serviceId, any: MutPtr = this.any): WsdServiceMetadata = WsdServiceMetadata(endpointReferenceCtorArg = endpointReference, typesCtorArg = types, serviceIdCtorArg = serviceId, anyCtorArg = any)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -4243,10 +4241,10 @@ public class WsdServiceMetadata internal constructor(
 
     public companion object {
         public operator fun invoke(
-            endpointReference: MutPtr<WsdEndpointReferenceList> = MutPtr(0L),
-            types: MutPtr<WsdNameList> = MutPtr(0L),
+            endpointReference: MutPtr = MutPtr(0L),
+            types: MutPtr = MutPtr(0L),
             serviceId: Pcwstr = ConstPtr(0L),
-            any: MutPtr<WsdxmlElement> = MutPtr(0L),
+            any: MutPtr = MutPtr(0L),
         ): WsdServiceMetadata =
             WsdServiceMetadata(
                 endpointReferenceCtorArg = endpointReference,
@@ -4258,13 +4256,13 @@ public class WsdServiceMetadata internal constructor(
 }
 
 public class WsdServiceMetadataList internal constructor(
-    nextCtorArg: MutPtr<WsdServiceMetadataList>,
-    elementCtorArg: MutPtr<WsdServiceMetadata>,
+    nextCtorArg: MutPtr,
+    elementCtorArg: MutPtr,
 ) {
-    public var next: MutPtr<WsdServiceMetadataList> = nextCtorArg
+    public var next: MutPtr = nextCtorArg
         internal set
 
-    public var element: MutPtr<WsdServiceMetadata> = elementCtorArg
+    public var element: MutPtr = elementCtorArg
         internal set
 
     public constructor() : this(
@@ -4272,11 +4270,11 @@ public class WsdServiceMetadataList internal constructor(
         elementCtorArg = MutPtr(0L),
     )
 
-    public operator fun component1(): MutPtr<WsdServiceMetadataList> = this.next
+    public operator fun component1(): MutPtr = this.next
 
-    public operator fun component2(): MutPtr<WsdServiceMetadata> = this.element
+    public operator fun component2(): MutPtr = this.element
 
-    public fun copy(next: MutPtr<WsdServiceMetadataList> = this.next, element: MutPtr<WsdServiceMetadata> = this.element): WsdServiceMetadataList = WsdServiceMetadataList(nextCtorArg = next, elementCtorArg = element)
+    public fun copy(next: MutPtr = this.next, element: MutPtr = this.element): WsdServiceMetadataList = WsdServiceMetadataList(nextCtorArg = next, elementCtorArg = element)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -4301,28 +4299,28 @@ public class WsdServiceMetadataList internal constructor(
                     WsdServiceMetadataList(
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<WsdServiceMetadataList>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<WsdServiceMetadata>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                     )
                 override fun writeNative(addr: Long, value: WsdServiceMetadataList) {
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<WsdServiceMetadataList>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr, value.next)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<WsdServiceMetadata>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.element)
                 }
             }
 
         public operator fun invoke(
-            next: MutPtr<WsdServiceMetadataList> = MutPtr(0L),
-            element: MutPtr<WsdServiceMetadata> = MutPtr(0L),
+            next: MutPtr = MutPtr(0L),
+            element: MutPtr = MutPtr(0L),
         ): WsdServiceMetadataList =
             WsdServiceMetadataList(
                 nextCtorArg = next,
@@ -4332,16 +4330,16 @@ public class WsdServiceMetadataList internal constructor(
 }
 
 public class WsdSoapFault internal constructor(
-    codeCtorArg: MutPtr<WsdSoapFaultCode>,
-    reasonCtorArg: MutPtr<WsdSoapFaultReason>,
+    codeCtorArg: MutPtr,
+    reasonCtorArg: MutPtr,
     nodeCtorArg: Pcwstr,
     roleCtorArg: Pcwstr,
-    detailCtorArg: MutPtr<WsdxmlElement>,
+    detailCtorArg: MutPtr,
 ) {
-    public var code: MutPtr<WsdSoapFaultCode> = codeCtorArg
+    public var code: MutPtr = codeCtorArg
         internal set
 
-    public var reason: MutPtr<WsdSoapFaultReason> = reasonCtorArg
+    public var reason: MutPtr = reasonCtorArg
         internal set
 
     public var node: Pcwstr = nodeCtorArg
@@ -4350,7 +4348,7 @@ public class WsdSoapFault internal constructor(
     public var role: Pcwstr = roleCtorArg
         internal set
 
-    public var detail: MutPtr<WsdxmlElement> = detailCtorArg
+    public var detail: MutPtr = detailCtorArg
         internal set
 
     public constructor() : this(
@@ -4361,17 +4359,17 @@ public class WsdSoapFault internal constructor(
         detailCtorArg = MutPtr(0L),
     )
 
-    public operator fun component1(): MutPtr<WsdSoapFaultCode> = this.code
+    public operator fun component1(): MutPtr = this.code
 
-    public operator fun component2(): MutPtr<WsdSoapFaultReason> = this.reason
+    public operator fun component2(): MutPtr = this.reason
 
     public operator fun component3(): Pcwstr = this.node
 
     public operator fun component4(): Pcwstr = this.role
 
-    public operator fun component5(): MutPtr<WsdxmlElement> = this.detail
+    public operator fun component5(): MutPtr = this.detail
 
-    public fun copy(code: MutPtr<WsdSoapFaultCode> = this.code, reason: MutPtr<WsdSoapFaultReason> = this.reason, node: Pcwstr = this.node, role: Pcwstr = this.role, detail: MutPtr<WsdxmlElement> = this.detail): WsdSoapFault = WsdSoapFault(codeCtorArg = code, reasonCtorArg = reason, nodeCtorArg = node, roleCtorArg = role, detailCtorArg = detail)
+    public fun copy(code: MutPtr = this.code, reason: MutPtr = this.reason, node: Pcwstr = this.node, role: Pcwstr = this.role, detail: MutPtr = this.detail): WsdSoapFault = WsdSoapFault(codeCtorArg = code, reasonCtorArg = reason, nodeCtorArg = node, roleCtorArg = role, detailCtorArg = detail)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -4395,11 +4393,11 @@ public class WsdSoapFault internal constructor(
 
     public companion object {
         public operator fun invoke(
-            code: MutPtr<WsdSoapFaultCode> = MutPtr(0L),
-            reason: MutPtr<WsdSoapFaultReason> = MutPtr(0L),
+            code: MutPtr = MutPtr(0L),
+            reason: MutPtr = MutPtr(0L),
             node: Pcwstr = ConstPtr(0L),
             role: Pcwstr = ConstPtr(0L),
-            detail: MutPtr<WsdxmlElement> = MutPtr(0L),
+            detail: MutPtr = MutPtr(0L),
         ): WsdSoapFault =
             WsdSoapFault(
                 codeCtorArg = code,
@@ -4412,13 +4410,13 @@ public class WsdSoapFault internal constructor(
 }
 
 public class WsdSoapFaultCode internal constructor(
-    valueCtorArg: MutPtr<WsdxmlName>,
-    subcodeCtorArg: MutPtr<WsdSoapFaultSubcode>,
+    valueCtorArg: MutPtr,
+    subcodeCtorArg: MutPtr,
 ) {
-    public var value: MutPtr<WsdxmlName> = valueCtorArg
+    public var value: MutPtr = valueCtorArg
         internal set
 
-    public var subcode: MutPtr<WsdSoapFaultSubcode> = subcodeCtorArg
+    public var subcode: MutPtr = subcodeCtorArg
         internal set
 
     public constructor() : this(
@@ -4426,11 +4424,11 @@ public class WsdSoapFaultCode internal constructor(
         subcodeCtorArg = MutPtr(0L),
     )
 
-    public operator fun component1(): MutPtr<WsdxmlName> = this.value
+    public operator fun component1(): MutPtr = this.value
 
-    public operator fun component2(): MutPtr<WsdSoapFaultSubcode> = this.subcode
+    public operator fun component2(): MutPtr = this.subcode
 
-    public fun copy(value: MutPtr<WsdxmlName> = this.value, subcode: MutPtr<WsdSoapFaultSubcode> = this.subcode): WsdSoapFaultCode = WsdSoapFaultCode(valueCtorArg = value, subcodeCtorArg = subcode)
+    public fun copy(value: MutPtr = this.value, subcode: MutPtr = this.subcode): WsdSoapFaultCode = WsdSoapFaultCode(valueCtorArg = value, subcodeCtorArg = subcode)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -4455,28 +4453,28 @@ public class WsdSoapFaultCode internal constructor(
                     WsdSoapFaultCode(
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<WsdxmlName>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<WsdSoapFaultSubcode>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                     )
                 override fun writeNative(addr: Long, value: WsdSoapFaultCode) {
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<WsdxmlName>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr, value.value)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<WsdSoapFaultSubcode>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.subcode)
                 }
             }
 
         public operator fun invoke(
-            value: MutPtr<WsdxmlName> = MutPtr(0L),
-            subcode: MutPtr<WsdSoapFaultSubcode> = MutPtr(0L),
+            value: MutPtr = MutPtr(0L),
+            subcode: MutPtr = MutPtr(0L),
         ): WsdSoapFaultCode =
             WsdSoapFaultCode(
                 valueCtorArg = value,
@@ -4486,18 +4484,18 @@ public class WsdSoapFaultCode internal constructor(
 }
 
 public class WsdSoapFaultReason internal constructor(
-    textCtorArg: MutPtr<WsdLocalizedStringList>,
+    textCtorArg: MutPtr,
 ) {
-    public var text: MutPtr<WsdLocalizedStringList> = textCtorArg
+    public var text: MutPtr = textCtorArg
         internal set
 
     public constructor() : this(
         textCtorArg = MutPtr(0L),
     )
 
-    public operator fun component1(): MutPtr<WsdLocalizedStringList> = this.text
+    public operator fun component1(): MutPtr = this.text
 
-    public fun copy(text: MutPtr<WsdLocalizedStringList> = this.text): WsdSoapFaultReason = WsdSoapFaultReason(textCtorArg = text)
+    public fun copy(text: MutPtr = this.text): WsdSoapFaultReason = WsdSoapFaultReason(textCtorArg = text)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -4517,19 +4515,19 @@ public class WsdSoapFaultReason internal constructor(
                     WsdSoapFaultReason(
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<WsdLocalizedStringList>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr),
                     )
                 override fun writeNative(addr: Long, value: WsdSoapFaultReason) {
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<WsdLocalizedStringList>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr, value.text)
                 }
             }
 
         public operator fun invoke(
-            text: MutPtr<WsdLocalizedStringList> = MutPtr(0L),
+            text: MutPtr = MutPtr(0L),
         ): WsdSoapFaultReason =
             WsdSoapFaultReason(
                 textCtorArg = text,
@@ -4538,13 +4536,13 @@ public class WsdSoapFaultReason internal constructor(
 }
 
 public class WsdSoapFaultSubcode internal constructor(
-    valueCtorArg: MutPtr<WsdxmlName>,
-    subcodeCtorArg: MutPtr<WsdSoapFaultSubcode>,
+    valueCtorArg: MutPtr,
+    subcodeCtorArg: MutPtr,
 ) {
-    public var value: MutPtr<WsdxmlName> = valueCtorArg
+    public var value: MutPtr = valueCtorArg
         internal set
 
-    public var subcode: MutPtr<WsdSoapFaultSubcode> = subcodeCtorArg
+    public var subcode: MutPtr = subcodeCtorArg
         internal set
 
     public constructor() : this(
@@ -4552,11 +4550,11 @@ public class WsdSoapFaultSubcode internal constructor(
         subcodeCtorArg = MutPtr(0L),
     )
 
-    public operator fun component1(): MutPtr<WsdxmlName> = this.value
+    public operator fun component1(): MutPtr = this.value
 
-    public operator fun component2(): MutPtr<WsdSoapFaultSubcode> = this.subcode
+    public operator fun component2(): MutPtr = this.subcode
 
-    public fun copy(value: MutPtr<WsdxmlName> = this.value, subcode: MutPtr<WsdSoapFaultSubcode> = this.subcode): WsdSoapFaultSubcode = WsdSoapFaultSubcode(valueCtorArg = value, subcodeCtorArg = subcode)
+    public fun copy(value: MutPtr = this.value, subcode: MutPtr = this.subcode): WsdSoapFaultSubcode = WsdSoapFaultSubcode(valueCtorArg = value, subcodeCtorArg = subcode)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -4581,28 +4579,28 @@ public class WsdSoapFaultSubcode internal constructor(
                     WsdSoapFaultSubcode(
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<WsdxmlName>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<WsdSoapFaultSubcode>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                     )
                 override fun writeNative(addr: Long, value: WsdSoapFaultSubcode) {
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<WsdxmlName>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr, value.value)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<WsdSoapFaultSubcode>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.subcode)
                 }
             }
 
         public operator fun invoke(
-            value: MutPtr<WsdxmlName> = MutPtr(0L),
-            subcode: MutPtr<WsdSoapFaultSubcode> = MutPtr(0L),
+            value: MutPtr = MutPtr(0L),
+            subcode: MutPtr = MutPtr(0L),
         ): WsdSoapFaultSubcode =
             WsdSoapFaultSubcode(
                 valueCtorArg = value,
@@ -4616,11 +4614,11 @@ public class WsdSoapHeader internal constructor(
     actionCtorArg: Pcwstr,
     messageIDCtorArg: Pcwstr,
     public var relatesTo: WsdHeaderRelatesto,
-    replyToCtorArg: MutPtr<WsdEndpointReference>,
-    fromCtorArg: MutPtr<WsdEndpointReference>,
-    faultToCtorArg: MutPtr<WsdEndpointReference>,
-    appSequenceCtorArg: MutPtr<WsdAppSequence>,
-    anyHeadersCtorArg: MutPtr<WsdxmlElement>,
+    replyToCtorArg: MutPtr,
+    fromCtorArg: MutPtr,
+    faultToCtorArg: MutPtr,
+    appSequenceCtorArg: MutPtr,
+    anyHeadersCtorArg: MutPtr,
 ) {
     public var to: Pcwstr = toCtorArg
         internal set
@@ -4631,19 +4629,19 @@ public class WsdSoapHeader internal constructor(
     public var messageID: Pcwstr = messageIDCtorArg
         internal set
 
-    public var replyTo: MutPtr<WsdEndpointReference> = replyToCtorArg
+    public var replyTo: MutPtr = replyToCtorArg
         internal set
 
-    public var from: MutPtr<WsdEndpointReference> = fromCtorArg
+    public var from: MutPtr = fromCtorArg
         internal set
 
-    public var faultTo: MutPtr<WsdEndpointReference> = faultToCtorArg
+    public var faultTo: MutPtr = faultToCtorArg
         internal set
 
-    public var appSequence: MutPtr<WsdAppSequence> = appSequenceCtorArg
+    public var appSequence: MutPtr = appSequenceCtorArg
         internal set
 
-    public var anyHeaders: MutPtr<WsdxmlElement> = anyHeadersCtorArg
+    public var anyHeaders: MutPtr = anyHeadersCtorArg
         internal set
 
     public constructor() : this(
@@ -4666,17 +4664,17 @@ public class WsdSoapHeader internal constructor(
 
     public operator fun component4(): WsdHeaderRelatesto = this.relatesTo
 
-    public operator fun component5(): MutPtr<WsdEndpointReference> = this.replyTo
+    public operator fun component5(): MutPtr = this.replyTo
 
-    public operator fun component6(): MutPtr<WsdEndpointReference> = this.from
+    public operator fun component6(): MutPtr = this.from
 
-    public operator fun component7(): MutPtr<WsdEndpointReference> = this.faultTo
+    public operator fun component7(): MutPtr = this.faultTo
 
-    public operator fun component8(): MutPtr<WsdAppSequence> = this.appSequence
+    public operator fun component8(): MutPtr = this.appSequence
 
-    public operator fun component9(): MutPtr<WsdxmlElement> = this.anyHeaders
+    public operator fun component9(): MutPtr = this.anyHeaders
 
-    public fun copy(to: Pcwstr = this.to, action: Pcwstr = this.action, messageID: Pcwstr = this.messageID, relatesTo: WsdHeaderRelatesto = this.relatesTo, replyTo: MutPtr<WsdEndpointReference> = this.replyTo, from: MutPtr<WsdEndpointReference> = this.from, faultTo: MutPtr<WsdEndpointReference> = this.faultTo, appSequence: MutPtr<WsdAppSequence> = this.appSequence, anyHeaders: MutPtr<WsdxmlElement> = this.anyHeaders): WsdSoapHeader = WsdSoapHeader(toCtorArg = to, actionCtorArg = action, messageIDCtorArg = messageID, relatesTo = relatesTo, replyToCtorArg = replyTo, fromCtorArg = from, faultToCtorArg = faultTo, appSequenceCtorArg = appSequence, anyHeadersCtorArg = anyHeaders)
+    public fun copy(to: Pcwstr = this.to, action: Pcwstr = this.action, messageID: Pcwstr = this.messageID, relatesTo: WsdHeaderRelatesto = this.relatesTo, replyTo: MutPtr = this.replyTo, from: MutPtr = this.from, faultTo: MutPtr = this.faultTo, appSequence: MutPtr = this.appSequence, anyHeaders: MutPtr = this.anyHeaders): WsdSoapHeader = WsdSoapHeader(toCtorArg = to, actionCtorArg = action, messageIDCtorArg = messageID, relatesTo = relatesTo, replyToCtorArg = replyTo, fromCtorArg = from, faultToCtorArg = faultTo, appSequenceCtorArg = appSequence, anyHeadersCtorArg = anyHeaders)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -4712,11 +4710,11 @@ public class WsdSoapHeader internal constructor(
             action: Pcwstr = ConstPtr(0L),
             messageID: Pcwstr = ConstPtr(0L),
             relatesTo: WsdHeaderRelatesto = WsdHeaderRelatesto(),
-            replyTo: MutPtr<WsdEndpointReference> = MutPtr(0L),
-            from: MutPtr<WsdEndpointReference> = MutPtr(0L),
-            faultTo: MutPtr<WsdEndpointReference> = MutPtr(0L),
-            appSequence: MutPtr<WsdAppSequence> = MutPtr(0L),
-            anyHeaders: MutPtr<WsdxmlElement> = MutPtr(0L),
+            replyTo: MutPtr = MutPtr(0L),
+            from: MutPtr = MutPtr(0L),
+            faultTo: MutPtr = MutPtr(0L),
+            appSequence: MutPtr = MutPtr(0L),
+            anyHeaders: MutPtr = MutPtr(0L),
         ): WsdSoapHeader =
             WsdSoapHeader(
                 toCtorArg = to,
@@ -4734,13 +4732,13 @@ public class WsdSoapHeader internal constructor(
 
 public class WsdSoapMessage internal constructor(
     public var header: WsdSoapHeader,
-    bodyCtorArg: MutPtr<CVoid>,
-    bodyTypeCtorArg: MutPtr<WsdxmlType>,
+    bodyCtorArg: MutPtr,
+    bodyTypeCtorArg: MutPtr,
 ) {
-    public var body: MutPtr<CVoid> = bodyCtorArg
+    public var body: MutPtr = bodyCtorArg
         internal set
 
-    public var bodyType: MutPtr<WsdxmlType> = bodyTypeCtorArg
+    public var bodyType: MutPtr = bodyTypeCtorArg
         internal set
 
     public constructor() : this(
@@ -4751,11 +4749,11 @@ public class WsdSoapMessage internal constructor(
 
     public operator fun component1(): WsdSoapHeader = this.header
 
-    public operator fun component2(): MutPtr<CVoid> = this.body
+    public operator fun component2(): MutPtr = this.body
 
-    public operator fun component3(): MutPtr<WsdxmlType> = this.bodyType
+    public operator fun component3(): MutPtr = this.bodyType
 
-    public fun copy(header: WsdSoapHeader = this.header, body: MutPtr<CVoid> = this.body, bodyType: MutPtr<WsdxmlType> = this.bodyType): WsdSoapMessage = WsdSoapMessage(header = header, bodyCtorArg = body, bodyTypeCtorArg = bodyType)
+    public fun copy(header: WsdSoapHeader = this.header, body: MutPtr = this.body, bodyType: MutPtr = this.bodyType): WsdSoapMessage = WsdSoapMessage(header = header, bodyCtorArg = body, bodyTypeCtorArg = bodyType)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -4776,8 +4774,8 @@ public class WsdSoapMessage internal constructor(
     public companion object {
         public operator fun invoke(
             header: WsdSoapHeader = WsdSoapHeader(),
-            body: MutPtr<CVoid> = MutPtr(0L),
-            bodyType: MutPtr<WsdxmlType> = MutPtr(0L),
+            body: MutPtr = MutPtr(0L),
+            bodyType: MutPtr = MutPtr(0L),
         ): WsdSoapMessage =
             WsdSoapMessage(
                 header = header,
@@ -4790,16 +4788,16 @@ public class WsdSoapMessage internal constructor(
 public class WsdSynchronousResponseContext internal constructor(
     public var hr: Hresult,
     eventHandleCtorArg: Handle,
-    messageParametersCtorArg: MutPtr<CVoid>,
-    resultsCtorArg: MutPtr<CVoid>,
+    messageParametersCtorArg: MutPtr,
+    resultsCtorArg: MutPtr,
 ) {
     public var eventHandle: Handle = eventHandleCtorArg
         internal set
 
-    public var messageParameters: MutPtr<CVoid> = messageParametersCtorArg
+    public var messageParameters: MutPtr = messageParametersCtorArg
         internal set
 
-    public var results: MutPtr<CVoid> = resultsCtorArg
+    public var results: MutPtr = resultsCtorArg
         internal set
 
     public constructor() : this(
@@ -4813,11 +4811,11 @@ public class WsdSynchronousResponseContext internal constructor(
 
     public operator fun component2(): Handle = this.eventHandle
 
-    public operator fun component3(): MutPtr<CVoid> = this.messageParameters
+    public operator fun component3(): MutPtr = this.messageParameters
 
-    public operator fun component4(): MutPtr<CVoid> = this.results
+    public operator fun component4(): MutPtr = this.results
 
-    public fun copy(hr: Hresult = this.hr, eventHandle: Handle = this.eventHandle, messageParameters: MutPtr<CVoid> = this.messageParameters, results: MutPtr<CVoid> = this.results): WsdSynchronousResponseContext = WsdSynchronousResponseContext(hr = hr, eventHandleCtorArg = eventHandle, messageParametersCtorArg = messageParameters, resultsCtorArg = results)
+    public fun copy(hr: Hresult = this.hr, eventHandle: Handle = this.eventHandle, messageParameters: MutPtr = this.messageParameters, results: MutPtr = this.results): WsdSynchronousResponseContext = WsdSynchronousResponseContext(hr = hr, eventHandleCtorArg = eventHandle, messageParametersCtorArg = messageParameters, resultsCtorArg = results)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -4841,8 +4839,8 @@ public class WsdSynchronousResponseContext internal constructor(
         public operator fun invoke(
             hr: Hresult = 0,
             eventHandle: Handle = MutPtr(0L),
-            messageParameters: MutPtr<CVoid> = MutPtr(0L),
-            results: MutPtr<CVoid> = MutPtr(0L),
+            messageParameters: MutPtr = MutPtr(0L),
+            results: MutPtr = MutPtr(0L),
         ): WsdSynchronousResponseContext =
             WsdSynchronousResponseContext(
                 hr = hr,
@@ -4854,12 +4852,12 @@ public class WsdSynchronousResponseContext internal constructor(
 }
 
 public class WsdThisDeviceMetadata internal constructor(
-    friendlyNameCtorArg: MutPtr<WsdLocalizedStringList>,
+    friendlyNameCtorArg: MutPtr,
     firmwareVersionCtorArg: Pcwstr,
     serialNumberCtorArg: Pcwstr,
-    anyCtorArg: MutPtr<WsdxmlElement>,
+    anyCtorArg: MutPtr,
 ) {
-    public var friendlyName: MutPtr<WsdLocalizedStringList> = friendlyNameCtorArg
+    public var friendlyName: MutPtr = friendlyNameCtorArg
         internal set
 
     public var firmwareVersion: Pcwstr = firmwareVersionCtorArg
@@ -4868,7 +4866,7 @@ public class WsdThisDeviceMetadata internal constructor(
     public var serialNumber: Pcwstr = serialNumberCtorArg
         internal set
 
-    public var any: MutPtr<WsdxmlElement> = anyCtorArg
+    public var any: MutPtr = anyCtorArg
         internal set
 
     public constructor() : this(
@@ -4878,15 +4876,15 @@ public class WsdThisDeviceMetadata internal constructor(
         anyCtorArg = MutPtr(0L),
     )
 
-    public operator fun component1(): MutPtr<WsdLocalizedStringList> = this.friendlyName
+    public operator fun component1(): MutPtr = this.friendlyName
 
     public operator fun component2(): Pcwstr = this.firmwareVersion
 
     public operator fun component3(): Pcwstr = this.serialNumber
 
-    public operator fun component4(): MutPtr<WsdxmlElement> = this.any
+    public operator fun component4(): MutPtr = this.any
 
-    public fun copy(friendlyName: MutPtr<WsdLocalizedStringList> = this.friendlyName, firmwareVersion: Pcwstr = this.firmwareVersion, serialNumber: Pcwstr = this.serialNumber, any: MutPtr<WsdxmlElement> = this.any): WsdThisDeviceMetadata = WsdThisDeviceMetadata(friendlyNameCtorArg = friendlyName, firmwareVersionCtorArg = firmwareVersion, serialNumberCtorArg = serialNumber, anyCtorArg = any)
+    public fun copy(friendlyName: MutPtr = this.friendlyName, firmwareVersion: Pcwstr = this.firmwareVersion, serialNumber: Pcwstr = this.serialNumber, any: MutPtr = this.any): WsdThisDeviceMetadata = WsdThisDeviceMetadata(friendlyNameCtorArg = friendlyName, firmwareVersionCtorArg = firmwareVersion, serialNumberCtorArg = serialNumber, anyCtorArg = any)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -4908,10 +4906,10 @@ public class WsdThisDeviceMetadata internal constructor(
 
     public companion object {
         public operator fun invoke(
-            friendlyName: MutPtr<WsdLocalizedStringList> = MutPtr(0L),
+            friendlyName: MutPtr = MutPtr(0L),
             firmwareVersion: Pcwstr = ConstPtr(0L),
             serialNumber: Pcwstr = ConstPtr(0L),
-            any: MutPtr<WsdxmlElement> = MutPtr(0L),
+            any: MutPtr = MutPtr(0L),
         ): WsdThisDeviceMetadata =
             WsdThisDeviceMetadata(
                 friendlyNameCtorArg = friendlyName,
@@ -4923,21 +4921,21 @@ public class WsdThisDeviceMetadata internal constructor(
 }
 
 public class WsdThisModelMetadata internal constructor(
-    manufacturerCtorArg: MutPtr<WsdLocalizedStringList>,
+    manufacturerCtorArg: MutPtr,
     manufacturerUrlCtorArg: Pcwstr,
-    modelNameCtorArg: MutPtr<WsdLocalizedStringList>,
+    modelNameCtorArg: MutPtr,
     modelNumberCtorArg: Pcwstr,
     modelUrlCtorArg: Pcwstr,
     presentationUrlCtorArg: Pcwstr,
-    anyCtorArg: MutPtr<WsdxmlElement>,
+    anyCtorArg: MutPtr,
 ) {
-    public var manufacturer: MutPtr<WsdLocalizedStringList> = manufacturerCtorArg
+    public var manufacturer: MutPtr = manufacturerCtorArg
         internal set
 
     public var manufacturerUrl: Pcwstr = manufacturerUrlCtorArg
         internal set
 
-    public var modelName: MutPtr<WsdLocalizedStringList> = modelNameCtorArg
+    public var modelName: MutPtr = modelNameCtorArg
         internal set
 
     public var modelNumber: Pcwstr = modelNumberCtorArg
@@ -4949,7 +4947,7 @@ public class WsdThisModelMetadata internal constructor(
     public var presentationUrl: Pcwstr = presentationUrlCtorArg
         internal set
 
-    public var any: MutPtr<WsdxmlElement> = anyCtorArg
+    public var any: MutPtr = anyCtorArg
         internal set
 
     public constructor() : this(
@@ -4962,11 +4960,11 @@ public class WsdThisModelMetadata internal constructor(
         anyCtorArg = MutPtr(0L),
     )
 
-    public operator fun component1(): MutPtr<WsdLocalizedStringList> = this.manufacturer
+    public operator fun component1(): MutPtr = this.manufacturer
 
     public operator fun component2(): Pcwstr = this.manufacturerUrl
 
-    public operator fun component3(): MutPtr<WsdLocalizedStringList> = this.modelName
+    public operator fun component3(): MutPtr = this.modelName
 
     public operator fun component4(): Pcwstr = this.modelNumber
 
@@ -4974,9 +4972,9 @@ public class WsdThisModelMetadata internal constructor(
 
     public operator fun component6(): Pcwstr = this.presentationUrl
 
-    public operator fun component7(): MutPtr<WsdxmlElement> = this.any
+    public operator fun component7(): MutPtr = this.any
 
-    public fun copy(manufacturer: MutPtr<WsdLocalizedStringList> = this.manufacturer, manufacturerUrl: Pcwstr = this.manufacturerUrl, modelName: MutPtr<WsdLocalizedStringList> = this.modelName, modelNumber: Pcwstr = this.modelNumber, modelUrl: Pcwstr = this.modelUrl, presentationUrl: Pcwstr = this.presentationUrl, any: MutPtr<WsdxmlElement> = this.any): WsdThisModelMetadata = WsdThisModelMetadata(manufacturerCtorArg = manufacturer, manufacturerUrlCtorArg = manufacturerUrl, modelNameCtorArg = modelName, modelNumberCtorArg = modelNumber, modelUrlCtorArg = modelUrl, presentationUrlCtorArg = presentationUrl, anyCtorArg = any)
+    public fun copy(manufacturer: MutPtr = this.manufacturer, manufacturerUrl: Pcwstr = this.manufacturerUrl, modelName: MutPtr = this.modelName, modelNumber: Pcwstr = this.modelNumber, modelUrl: Pcwstr = this.modelUrl, presentationUrl: Pcwstr = this.presentationUrl, any: MutPtr = this.any): WsdThisModelMetadata = WsdThisModelMetadata(manufacturerCtorArg = manufacturer, manufacturerUrlCtorArg = manufacturerUrl, modelNameCtorArg = modelName, modelNumberCtorArg = modelNumber, modelUrlCtorArg = modelUrl, presentationUrlCtorArg = presentationUrl, anyCtorArg = any)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -5004,13 +5002,13 @@ public class WsdThisModelMetadata internal constructor(
 
     public companion object {
         public operator fun invoke(
-            manufacturer: MutPtr<WsdLocalizedStringList> = MutPtr(0L),
+            manufacturer: MutPtr = MutPtr(0L),
             manufacturerUrl: Pcwstr = ConstPtr(0L),
-            modelName: MutPtr<WsdLocalizedStringList> = MutPtr(0L),
+            modelName: MutPtr = MutPtr(0L),
             modelNumber: Pcwstr = ConstPtr(0L),
             modelUrl: Pcwstr = ConstPtr(0L),
             presentationUrl: Pcwstr = ConstPtr(0L),
-            any: MutPtr<WsdxmlElement> = MutPtr(0L),
+            any: MutPtr = MutPtr(0L),
         ): WsdThisModelMetadata =
             WsdThisModelMetadata(
                 manufacturerCtorArg = manufacturer,
@@ -5025,18 +5023,18 @@ public class WsdThisModelMetadata internal constructor(
 }
 
 public class WsdUnknownLookup internal constructor(
-    anyCtorArg: MutPtr<WsdxmlElement>,
+    anyCtorArg: MutPtr,
 ) {
-    public var any: MutPtr<WsdxmlElement> = anyCtorArg
+    public var any: MutPtr = anyCtorArg
         internal set
 
     public constructor() : this(
         anyCtorArg = MutPtr(0L),
     )
 
-    public operator fun component1(): MutPtr<WsdxmlElement> = this.any
+    public operator fun component1(): MutPtr = this.any
 
-    public fun copy(any: MutPtr<WsdxmlElement> = this.any): WsdUnknownLookup = WsdUnknownLookup(anyCtorArg = any)
+    public fun copy(any: MutPtr = this.any): WsdUnknownLookup = WsdUnknownLookup(anyCtorArg = any)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -5056,19 +5054,19 @@ public class WsdUnknownLookup internal constructor(
                     WsdUnknownLookup(
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<WsdxmlElement>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr),
                     )
                 override fun writeNative(addr: Long, value: WsdUnknownLookup) {
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<WsdxmlElement>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr, value.any)
                 }
             }
 
         public operator fun invoke(
-            any: MutPtr<WsdxmlElement> = MutPtr(0L),
+            any: MutPtr = MutPtr(0L),
         ): WsdUnknownLookup =
             WsdUnknownLookup(
                 anyCtorArg = any,
@@ -5077,10 +5075,10 @@ public class WsdUnknownLookup internal constructor(
 }
 
 public class WsdUriList internal constructor(
-    nextCtorArg: MutPtr<WsdUriList>,
+    nextCtorArg: MutPtr,
     elementCtorArg: Pcwstr,
 ) {
-    public var next: MutPtr<WsdUriList> = nextCtorArg
+    public var next: MutPtr = nextCtorArg
         internal set
 
     public var element: Pcwstr = elementCtorArg
@@ -5091,11 +5089,11 @@ public class WsdUriList internal constructor(
         elementCtorArg = ConstPtr(0L),
     )
 
-    public operator fun component1(): MutPtr<WsdUriList> = this.next
+    public operator fun component1(): MutPtr = this.next
 
     public operator fun component2(): Pcwstr = this.element
 
-    public fun copy(next: MutPtr<WsdUriList> = this.next, element: Pcwstr = this.element): WsdUriList = WsdUriList(nextCtorArg = next, elementCtorArg = element)
+    public fun copy(next: MutPtr = this.next, element: Pcwstr = this.element): WsdUriList = WsdUriList(nextCtorArg = next, elementCtorArg = element)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -5113,7 +5111,7 @@ public class WsdUriList internal constructor(
 
     public companion object {
         public operator fun invoke(
-            next: MutPtr<WsdUriList> = MutPtr(0L),
+            next: MutPtr = MutPtr(0L),
             element: Pcwstr = ConstPtr(0L),
         ): WsdUriList =
             WsdUriList(

@@ -14,7 +14,6 @@ import io.github.kotlinmania.windowssys.windows.win32.foundation.Hwnd
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Lparam
 import io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.Hdc
 import io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.Henhmetafile
-import io.github.kotlinmania.windowssys.windows.win32.security.SecurityQualityOfService
 
 private object WindowsWin32SystemDataexchangeJniBridge {
     init {
@@ -274,25 +273,25 @@ public actual fun countClipboardFormats(): Int =
 public actual fun ddeAbandonTransaction(idinst: UInt, hconv: Hconv, idtransaction: UInt): Bool =
     WindowsWin32SystemDataexchangeJniBridge.windowssysWindowsWin32SystemDataexchangeDdeAbandonTransaction(idinst.toInt(), hconv.rawAddress, idtransaction.toInt())
 
-public actual fun ddeAccessData(hdata: Hddedata, pcbdatasize: MutPtr<UInt>): MutPtr<UByte> =
+public actual fun ddeAccessData(hdata: Hddedata, pcbdatasize: MutPtr): MutPtr =
     MutPtr(WindowsWin32SystemDataexchangeJniBridge.windowssysWindowsWin32SystemDataexchangeDdeAccessData(hdata.rawAddress, pcbdatasize.rawAddress))
 
-public actual fun ddeAddData(hdata: Hddedata, psrc: ConstPtr<UByte>, cb: UInt, cboff: UInt): Hddedata =
+public actual fun ddeAddData(hdata: Hddedata, psrc: ConstPtr, cb: UInt, cboff: UInt): Hddedata =
     MutPtr(WindowsWin32SystemDataexchangeJniBridge.windowssysWindowsWin32SystemDataexchangeDdeAddData(hdata.rawAddress, psrc.rawAddress, cb.toInt(), cboff.toInt()))
 
-public actual fun ddeClientTransaction(pdata: ConstPtr<UByte>, cbdata: UInt, hconv: Hconv, hszitem: Hsz, wfmt: UInt, wtype: DdeClientTransactionType, dwtimeout: UInt, pdwresult: MutPtr<UInt>): Hddedata =
+public actual fun ddeClientTransaction(pdata: ConstPtr, cbdata: UInt, hconv: Hconv, hszitem: Hsz, wfmt: UInt, wtype: DdeClientTransactionType, dwtimeout: UInt, pdwresult: MutPtr): Hddedata =
     MutPtr(WindowsWin32SystemDataexchangeJniBridge.windowssysWindowsWin32SystemDataexchangeDdeClientTransaction(pdata.rawAddress, cbdata.toInt(), hconv.rawAddress, hszitem.rawAddress, wfmt.toInt(), wtype.toInt(), dwtimeout.toInt(), pdwresult.rawAddress))
 
 public actual fun ddeCmpStringHandles(hsz1: Hsz, hsz2: Hsz): Int =
     WindowsWin32SystemDataexchangeJniBridge.windowssysWindowsWin32SystemDataexchangeDdeCmpStringHandles(hsz1.rawAddress, hsz2.rawAddress)
 
-public actual fun ddeConnect(idinst: UInt, hszservice: Hsz, hsztopic: Hsz, pcc: ConstPtr<Convcontext>): Hconv =
+public actual fun ddeConnect(idinst: UInt, hszservice: Hsz, hsztopic: Hsz, pcc: ConstPtr): Hconv =
     MutPtr(WindowsWin32SystemDataexchangeJniBridge.windowssysWindowsWin32SystemDataexchangeDdeConnect(idinst.toInt(), hszservice.rawAddress, hsztopic.rawAddress, pcc.rawAddress))
 
-public actual fun ddeConnectList(idinst: UInt, hszservice: Hsz, hsztopic: Hsz, hconvlist: Hconvlist, pcc: ConstPtr<Convcontext>): Hconvlist =
+public actual fun ddeConnectList(idinst: UInt, hszservice: Hsz, hsztopic: Hsz, hconvlist: Hconvlist, pcc: ConstPtr): Hconvlist =
     MutPtr(WindowsWin32SystemDataexchangeJniBridge.windowssysWindowsWin32SystemDataexchangeDdeConnectList(idinst.toInt(), hszservice.rawAddress, hsztopic.rawAddress, hconvlist.rawAddress, pcc.rawAddress))
 
-public actual fun ddeCreateDataHandle(idinst: UInt, psrc: ConstPtr<UByte>, cb: UInt, cboff: UInt, hszitem: Hsz, wfmt: UInt, afcmd: UInt): Hddedata =
+public actual fun ddeCreateDataHandle(idinst: UInt, psrc: ConstPtr, cb: UInt, cboff: UInt, hszitem: Hsz, wfmt: UInt, afcmd: UInt): Hddedata =
     MutPtr(WindowsWin32SystemDataexchangeJniBridge.windowssysWindowsWin32SystemDataexchangeDdeCreateDataHandle(idinst.toInt(), psrc.rawAddress, cb.toInt(), cboff.toInt(), hszitem.rawAddress, wfmt.toInt(), afcmd.toInt()))
 
 public actual fun ddeCreateStringHandleA(idinst: UInt, psz: Pcstr, icodepage: Int): Hsz =
@@ -316,7 +315,7 @@ public actual fun ddeFreeDataHandle(hdata: Hddedata): Bool =
 public actual fun ddeFreeStringHandle(idinst: UInt, hsz: Hsz): Bool =
     WindowsWin32SystemDataexchangeJniBridge.windowssysWindowsWin32SystemDataexchangeDdeFreeStringHandle(idinst.toInt(), hsz.rawAddress)
 
-public actual fun ddeGetData(hdata: Hddedata, pdst: MutPtr<UByte>, cbmax: UInt, cboff: UInt): UInt =
+public actual fun ddeGetData(hdata: Hddedata, pdst: MutPtr, cbmax: UInt, cboff: UInt): UInt =
     WindowsWin32SystemDataexchangeJniBridge.windowssysWindowsWin32SystemDataexchangeDdeGetData(hdata.rawAddress, pdst.rawAddress, cbmax.toInt(), cboff.toInt()).toUInt()
 
 public actual fun ddeGetLastError(idinst: UInt): UInt =
@@ -325,10 +324,10 @@ public actual fun ddeGetLastError(idinst: UInt): UInt =
 public actual fun ddeImpersonateClient(hconv: Hconv): Bool =
     WindowsWin32SystemDataexchangeJniBridge.windowssysWindowsWin32SystemDataexchangeDdeImpersonateClient(hconv.rawAddress)
 
-public actual fun ddeInitializeA(pidinst: MutPtr<UInt>, pfncallback: Pfncallback, afcmd: DdeInitializeCommand, ulres: UInt): UInt =
+public actual fun ddeInitializeA(pidinst: MutPtr, pfncallback: Pfncallback, afcmd: DdeInitializeCommand, ulres: UInt): UInt =
     WindowsWin32SystemDataexchangeJniBridge.windowssysWindowsWin32SystemDataexchangeDdeInitializeA(pidinst.rawAddress, 0L, afcmd.toInt(), ulres.toInt()).toUInt()
 
-public actual fun ddeInitializeW(pidinst: MutPtr<UInt>, pfncallback: Pfncallback, afcmd: DdeInitializeCommand, ulres: UInt): UInt =
+public actual fun ddeInitializeW(pidinst: MutPtr, pfncallback: Pfncallback, afcmd: DdeInitializeCommand, ulres: UInt): UInt =
     WindowsWin32SystemDataexchangeJniBridge.windowssysWindowsWin32SystemDataexchangeDdeInitializeW(pidinst.rawAddress, 0L, afcmd.toInt(), ulres.toInt()).toUInt()
 
 public actual fun ddeKeepStringHandle(idinst: UInt, hsz: Hsz): Bool =
@@ -340,7 +339,7 @@ public actual fun ddeNameService(idinst: UInt, hsz1: Hsz, hsz2: Hsz, afcmd: DdeN
 public actual fun ddePostAdvise(idinst: UInt, hsztopic: Hsz, hszitem: Hsz): Bool =
     WindowsWin32SystemDataexchangeJniBridge.windowssysWindowsWin32SystemDataexchangeDdePostAdvise(idinst.toInt(), hsztopic.rawAddress, hszitem.rawAddress)
 
-public actual fun ddeQueryConvInfo(hconv: Hconv, idtransaction: UInt, pconvinfo: MutPtr<Convinfo>): UInt =
+public actual fun ddeQueryConvInfo(hconv: Hconv, idtransaction: UInt, pconvinfo: MutPtr): UInt =
     WindowsWin32SystemDataexchangeJniBridge.windowssysWindowsWin32SystemDataexchangeDdeQueryConvInfo(hconv.rawAddress, idtransaction.toInt(), pconvinfo.rawAddress).toUInt()
 
 public actual fun ddeQueryNextServer(hconvlist: Hconvlist, hconvprev: Hconv): Hconv =
@@ -355,7 +354,7 @@ public actual fun ddeQueryStringW(idinst: UInt, hsz: Hsz, psz: Pwstr, cchmax: UI
 public actual fun ddeReconnect(hconv: Hconv): Hconv =
     MutPtr(WindowsWin32SystemDataexchangeJniBridge.windowssysWindowsWin32SystemDataexchangeDdeReconnect(hconv.rawAddress))
 
-public actual fun ddeSetQualityOfService(hwndclient: Hwnd, pqosnew: ConstPtr<SecurityQualityOfService>, pqosprev: MutPtr<SecurityQualityOfService>): Bool =
+public actual fun ddeSetQualityOfService(hwndclient: Hwnd, pqosnew: ConstPtr, pqosprev: MutPtr): Bool =
     WindowsWin32SystemDataexchangeJniBridge.windowssysWindowsWin32SystemDataexchangeDdeSetQualityOfService(hwndclient.rawAddress, pqosnew.rawAddress, pqosprev.rawAddress)
 
 public actual fun ddeSetUserHandle(hconv: Hconv, id: UInt, huser: ULong): Bool =
@@ -412,10 +411,10 @@ public actual fun getClipboardViewer(): Hwnd =
 public actual fun getOpenClipboardWindow(): Hwnd =
     MutPtr(WindowsWin32SystemDataexchangeJniBridge.windowssysWindowsWin32SystemDataexchangeGetOpenClipboardWindow())
 
-public actual fun getPriorityClipboardFormat(paformatprioritylist: ConstPtr<UInt>, cformats: Int): Int =
+public actual fun getPriorityClipboardFormat(paformatprioritylist: ConstPtr, cformats: Int): Int =
     WindowsWin32SystemDataexchangeJniBridge.windowssysWindowsWin32SystemDataexchangeGetPriorityClipboardFormat(paformatprioritylist.rawAddress, cformats)
 
-public actual fun getUpdatedClipboardFormats(lpuiformats: MutPtr<UInt>, cformats: UInt, pcformatsout: MutPtr<UInt>): Bool =
+public actual fun getUpdatedClipboardFormats(lpuiformats: MutPtr, cformats: UInt, pcformatsout: MutPtr): Bool =
     WindowsWin32SystemDataexchangeJniBridge.windowssysWindowsWin32SystemDataexchangeGetUpdatedClipboardFormats(lpuiformats.rawAddress, cformats.toInt(), pcformatsout.rawAddress)
 
 public actual fun globalAddAtomA(lpstring: Pcstr): UShort =
@@ -478,8 +477,8 @@ public actual fun setClipboardData(uformat: UInt, hmem: Handle): Handle =
 public actual fun setClipboardViewer(hwndnewviewer: Hwnd): Hwnd =
     MutPtr(WindowsWin32SystemDataexchangeJniBridge.windowssysWindowsWin32SystemDataexchangeSetClipboardViewer(hwndnewviewer.rawAddress))
 
-public actual fun setWinMetaFileBits(nsize: UInt, lpmeta16data: ConstPtr<UByte>, hdcref: Hdc, lpmfp: ConstPtr<Metafilepict>): Henhmetafile =
+public actual fun setWinMetaFileBits(nsize: UInt, lpmeta16data: ConstPtr, hdcref: Hdc, lpmfp: ConstPtr): Henhmetafile =
     MutPtr(WindowsWin32SystemDataexchangeJniBridge.windowssysWindowsWin32SystemDataexchangeSetWinMetaFileBits(nsize.toInt(), lpmeta16data.rawAddress, hdcref.rawAddress, lpmfp.rawAddress))
 
-public actual fun unpackDDElParam(msg: UInt, lparam: Lparam, puilo: MutPtr<ULong>, puihi: MutPtr<ULong>): Bool =
+public actual fun unpackDDElParam(msg: UInt, lparam: Lparam, puilo: MutPtr, puihi: MutPtr): Bool =
     WindowsWin32SystemDataexchangeJniBridge.windowssysWindowsWin32SystemDataexchangeUnpackDDElParam(msg.toInt(), lparam, puilo.rawAddress, puihi.rawAddress)

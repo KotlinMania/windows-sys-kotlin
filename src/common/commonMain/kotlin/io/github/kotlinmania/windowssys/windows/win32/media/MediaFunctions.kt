@@ -6,9 +6,9 @@ public expect fun timeBeginPeriod(uperiod: UInt): UInt
 
 public expect fun timeEndPeriod(uperiod: UInt): UInt
 
-public expect fun timeGetDevCaps(ptc: MutPtr<Timecaps>, cbtc: UInt): UInt
+public expect fun timeGetDevCaps(ptc: MutPtr, cbtc: UInt): UInt
 
-public expect fun timeGetSystemTime(pmmt: MutPtr<Mmtime>, cbmmt: UInt): UInt
+public expect fun timeGetSystemTime(pmmt: MutPtr, cbmmt: UInt): UInt
 
 public expect fun timeGetTime(): UInt
 

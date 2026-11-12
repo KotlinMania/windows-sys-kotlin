@@ -1,13 +1,12 @@
 package io.github.kotlinmania.windowssys.windows.win32.data.rightsmanagement
 
-import io.github.kotlinmania.rustlang.core.ffi.CVoid
 import io.github.kotlinmania.rustlang.core.ptr.MutPtr
 import io.github.kotlinmania.windowssys.core.Hresult
 
 public typealias Drmattesttype = Int
 
 public fun interface DrmcallbackFn {
-    public operator fun invoke(param0: DrmStatusMsg, param1: Hresult, param2: MutPtr<CVoid>, param3: MutPtr<CVoid>): Hresult
+    public operator fun invoke(param0: DrmStatusMsg, param1: Hresult, param2: MutPtr, param3: MutPtr): Hresult
 }
 
 public typealias Drmcallback = DrmcallbackFn?

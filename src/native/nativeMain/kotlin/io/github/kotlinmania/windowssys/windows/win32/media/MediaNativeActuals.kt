@@ -19,10 +19,10 @@ public actual fun timeBeginPeriod(uperiod: UInt): UInt =
 public actual fun timeEndPeriod(uperiod: UInt): UInt =
     windowssysWindowsWin32MediaTimeEndPeriod(uperiod)
 
-public actual fun timeGetDevCaps(ptc: MutPtr<Timecaps>, cbtc: UInt): UInt =
+public actual fun timeGetDevCaps(ptc: MutPtr, cbtc: UInt): UInt =
     windowssysWindowsWin32MediaTimeGetDevCaps(ptc.rawAddress.toCPointer<ByteVar>(), cbtc)
 
-public actual fun timeGetSystemTime(pmmt: MutPtr<Mmtime>, cbmmt: UInt): UInt =
+public actual fun timeGetSystemTime(pmmt: MutPtr, cbmmt: UInt): UInt =
     windowssysWindowsWin32MediaTimeGetSystemTime(pmmt.rawAddress.toCPointer<ByteVar>(), cbmmt)
 
 public actual fun timeGetTime(): UInt =

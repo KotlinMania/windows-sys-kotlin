@@ -9,7 +9,6 @@ import io.github.kotlinmania.windowssys.core.Pcstr
 import io.github.kotlinmania.windowssys.core.Pcwstr
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Handle
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Hwnd
-import io.github.kotlinmania.windowssys.windows.win32.system.io.Overlapped
 
 private object WindowsWin32DevicesCommunicationJniBridge {
     init {
@@ -158,58 +157,58 @@ private object WindowsWin32DevicesCommunicationJniBridge {
     external fun windowssysWindowsWin32DevicesCommunicationWaitCommEvent(hfile: Long, lpevtmask: Long, lpoverlapped: Long): Int
 }
 
-public actual fun buildCommDCBA(lpdef: Pcstr, lpdcb: MutPtr<Dcb>): Bool =
+public actual fun buildCommDCBA(lpdef: Pcstr, lpdcb: MutPtr): Bool =
     WindowsWin32DevicesCommunicationJniBridge.windowssysWindowsWin32DevicesCommunicationBuildCommDCBA(lpdef.rawAddress, lpdcb.rawAddress)
 
-public actual fun buildCommDCBAndTimeoutsA(lpdef: Pcstr, lpdcb: MutPtr<Dcb>, lpcommtimeouts: MutPtr<Commtimeouts>): Bool =
+public actual fun buildCommDCBAndTimeoutsA(lpdef: Pcstr, lpdcb: MutPtr, lpcommtimeouts: MutPtr): Bool =
     WindowsWin32DevicesCommunicationJniBridge.windowssysWindowsWin32DevicesCommunicationBuildCommDCBAndTimeoutsA(lpdef.rawAddress, lpdcb.rawAddress, lpcommtimeouts.rawAddress)
 
-public actual fun buildCommDCBAndTimeoutsW(lpdef: Pcwstr, lpdcb: MutPtr<Dcb>, lpcommtimeouts: MutPtr<Commtimeouts>): Bool =
+public actual fun buildCommDCBAndTimeoutsW(lpdef: Pcwstr, lpdcb: MutPtr, lpcommtimeouts: MutPtr): Bool =
     WindowsWin32DevicesCommunicationJniBridge.windowssysWindowsWin32DevicesCommunicationBuildCommDCBAndTimeoutsW(lpdef.rawAddress, lpdcb.rawAddress, lpcommtimeouts.rawAddress)
 
-public actual fun buildCommDCBW(lpdef: Pcwstr, lpdcb: MutPtr<Dcb>): Bool =
+public actual fun buildCommDCBW(lpdef: Pcwstr, lpdcb: MutPtr): Bool =
     WindowsWin32DevicesCommunicationJniBridge.windowssysWindowsWin32DevicesCommunicationBuildCommDCBW(lpdef.rawAddress, lpdcb.rawAddress)
 
 public actual fun clearCommBreak(hfile: Handle): Bool =
     WindowsWin32DevicesCommunicationJniBridge.windowssysWindowsWin32DevicesCommunicationClearCommBreak(hfile.rawAddress)
 
-public actual fun clearCommError(hfile: Handle, lperrors: MutPtr<ClearCommErrorFlags>, lpstat: MutPtr<Comstat>): Bool =
+public actual fun clearCommError(hfile: Handle, lperrors: MutPtr, lpstat: MutPtr): Bool =
     WindowsWin32DevicesCommunicationJniBridge.windowssysWindowsWin32DevicesCommunicationClearCommError(hfile.rawAddress, lperrors.rawAddress, lpstat.rawAddress)
 
-public actual fun commConfigDialogA(lpszname: Pcstr, hwnd: Hwnd, lpcc: MutPtr<Commconfig>): Bool =
+public actual fun commConfigDialogA(lpszname: Pcstr, hwnd: Hwnd, lpcc: MutPtr): Bool =
     WindowsWin32DevicesCommunicationJniBridge.windowssysWindowsWin32DevicesCommunicationCommConfigDialogA(lpszname.rawAddress, hwnd.rawAddress, lpcc.rawAddress)
 
-public actual fun commConfigDialogW(lpszname: Pcwstr, hwnd: Hwnd, lpcc: MutPtr<Commconfig>): Bool =
+public actual fun commConfigDialogW(lpszname: Pcwstr, hwnd: Hwnd, lpcc: MutPtr): Bool =
     WindowsWin32DevicesCommunicationJniBridge.windowssysWindowsWin32DevicesCommunicationCommConfigDialogW(lpszname.rawAddress, hwnd.rawAddress, lpcc.rawAddress)
 
 public actual fun escapeCommFunction(hfile: Handle, dwfunc: EscapeCommFunction): Bool =
     WindowsWin32DevicesCommunicationJniBridge.windowssysWindowsWin32DevicesCommunicationEscapeCommFunction(hfile.rawAddress, dwfunc.toInt())
 
-public actual fun getCommConfig(hcommdev: Handle, lpcc: MutPtr<Commconfig>, lpdwsize: MutPtr<UInt>): Bool =
+public actual fun getCommConfig(hcommdev: Handle, lpcc: MutPtr, lpdwsize: MutPtr): Bool =
     WindowsWin32DevicesCommunicationJniBridge.windowssysWindowsWin32DevicesCommunicationGetCommConfig(hcommdev.rawAddress, lpcc.rawAddress, lpdwsize.rawAddress)
 
-public actual fun getCommMask(hfile: Handle, lpevtmask: MutPtr<CommEventMask>): Bool =
+public actual fun getCommMask(hfile: Handle, lpevtmask: MutPtr): Bool =
     WindowsWin32DevicesCommunicationJniBridge.windowssysWindowsWin32DevicesCommunicationGetCommMask(hfile.rawAddress, lpevtmask.rawAddress)
 
-public actual fun getCommModemStatus(hfile: Handle, lpmodemstat: MutPtr<ModemStatusFlags>): Bool =
+public actual fun getCommModemStatus(hfile: Handle, lpmodemstat: MutPtr): Bool =
     WindowsWin32DevicesCommunicationJniBridge.windowssysWindowsWin32DevicesCommunicationGetCommModemStatus(hfile.rawAddress, lpmodemstat.rawAddress)
 
-public actual fun getCommPorts(lpportnumbers: MutPtr<UInt>, uportnumberscount: UInt, puportnumbersfound: MutPtr<UInt>): UInt =
+public actual fun getCommPorts(lpportnumbers: MutPtr, uportnumberscount: UInt, puportnumbersfound: MutPtr): UInt =
     WindowsWin32DevicesCommunicationJniBridge.windowssysWindowsWin32DevicesCommunicationGetCommPorts(lpportnumbers.rawAddress, uportnumberscount.toInt(), puportnumbersfound.rawAddress).toUInt()
 
-public actual fun getCommProperties(hfile: Handle, lpcommprop: MutPtr<Commprop>): Bool =
+public actual fun getCommProperties(hfile: Handle, lpcommprop: MutPtr): Bool =
     WindowsWin32DevicesCommunicationJniBridge.windowssysWindowsWin32DevicesCommunicationGetCommProperties(hfile.rawAddress, lpcommprop.rawAddress)
 
-public actual fun getCommState(hfile: Handle, lpdcb: MutPtr<Dcb>): Bool =
+public actual fun getCommState(hfile: Handle, lpdcb: MutPtr): Bool =
     WindowsWin32DevicesCommunicationJniBridge.windowssysWindowsWin32DevicesCommunicationGetCommState(hfile.rawAddress, lpdcb.rawAddress)
 
-public actual fun getCommTimeouts(hfile: Handle, lpcommtimeouts: MutPtr<Commtimeouts>): Bool =
+public actual fun getCommTimeouts(hfile: Handle, lpcommtimeouts: MutPtr): Bool =
     WindowsWin32DevicesCommunicationJniBridge.windowssysWindowsWin32DevicesCommunicationGetCommTimeouts(hfile.rawAddress, lpcommtimeouts.rawAddress)
 
-public actual fun getDefaultCommConfigA(lpszname: Pcstr, lpcc: MutPtr<Commconfig>, lpdwsize: MutPtr<UInt>): Bool =
+public actual fun getDefaultCommConfigA(lpszname: Pcstr, lpcc: MutPtr, lpdwsize: MutPtr): Bool =
     WindowsWin32DevicesCommunicationJniBridge.windowssysWindowsWin32DevicesCommunicationGetDefaultCommConfigA(lpszname.rawAddress, lpcc.rawAddress, lpdwsize.rawAddress)
 
-public actual fun getDefaultCommConfigW(lpszname: Pcwstr, lpcc: MutPtr<Commconfig>, lpdwsize: MutPtr<UInt>): Bool =
+public actual fun getDefaultCommConfigW(lpszname: Pcwstr, lpcc: MutPtr, lpdwsize: MutPtr): Bool =
     WindowsWin32DevicesCommunicationJniBridge.windowssysWindowsWin32DevicesCommunicationGetDefaultCommConfigW(lpszname.rawAddress, lpcc.rawAddress, lpdwsize.rawAddress)
 
 public actual fun openCommPort(uportnumber: UInt, dwdesiredaccess: UInt, dwflagsandattributes: UInt): Handle =
@@ -221,22 +220,22 @@ public actual fun purgeComm(hfile: Handle, dwflags: PurgeCommFlags): Bool =
 public actual fun setCommBreak(hfile: Handle): Bool =
     WindowsWin32DevicesCommunicationJniBridge.windowssysWindowsWin32DevicesCommunicationSetCommBreak(hfile.rawAddress)
 
-public actual fun setCommConfig(hcommdev: Handle, lpcc: ConstPtr<Commconfig>, dwsize: UInt): Bool =
+public actual fun setCommConfig(hcommdev: Handle, lpcc: ConstPtr, dwsize: UInt): Bool =
     WindowsWin32DevicesCommunicationJniBridge.windowssysWindowsWin32DevicesCommunicationSetCommConfig(hcommdev.rawAddress, lpcc.rawAddress, dwsize.toInt())
 
 public actual fun setCommMask(hfile: Handle, dwevtmask: CommEventMask): Bool =
     WindowsWin32DevicesCommunicationJniBridge.windowssysWindowsWin32DevicesCommunicationSetCommMask(hfile.rawAddress, dwevtmask.toInt())
 
-public actual fun setCommState(hfile: Handle, lpdcb: ConstPtr<Dcb>): Bool =
+public actual fun setCommState(hfile: Handle, lpdcb: ConstPtr): Bool =
     WindowsWin32DevicesCommunicationJniBridge.windowssysWindowsWin32DevicesCommunicationSetCommState(hfile.rawAddress, lpdcb.rawAddress)
 
-public actual fun setCommTimeouts(hfile: Handle, lpcommtimeouts: ConstPtr<Commtimeouts>): Bool =
+public actual fun setCommTimeouts(hfile: Handle, lpcommtimeouts: ConstPtr): Bool =
     WindowsWin32DevicesCommunicationJniBridge.windowssysWindowsWin32DevicesCommunicationSetCommTimeouts(hfile.rawAddress, lpcommtimeouts.rawAddress)
 
-public actual fun setDefaultCommConfigA(lpszname: Pcstr, lpcc: ConstPtr<Commconfig>, dwsize: UInt): Bool =
+public actual fun setDefaultCommConfigA(lpszname: Pcstr, lpcc: ConstPtr, dwsize: UInt): Bool =
     WindowsWin32DevicesCommunicationJniBridge.windowssysWindowsWin32DevicesCommunicationSetDefaultCommConfigA(lpszname.rawAddress, lpcc.rawAddress, dwsize.toInt())
 
-public actual fun setDefaultCommConfigW(lpszname: Pcwstr, lpcc: ConstPtr<Commconfig>, dwsize: UInt): Bool =
+public actual fun setDefaultCommConfigW(lpszname: Pcwstr, lpcc: ConstPtr, dwsize: UInt): Bool =
     WindowsWin32DevicesCommunicationJniBridge.windowssysWindowsWin32DevicesCommunicationSetDefaultCommConfigW(lpszname.rawAddress, lpcc.rawAddress, dwsize.toInt())
 
 public actual fun setupComm(hfile: Handle, dwinqueue: UInt, dwoutqueue: UInt): Bool =
@@ -245,5 +244,5 @@ public actual fun setupComm(hfile: Handle, dwinqueue: UInt, dwoutqueue: UInt): B
 public actual fun transmitCommChar(hfile: Handle, cchar: Byte): Bool =
     WindowsWin32DevicesCommunicationJniBridge.windowssysWindowsWin32DevicesCommunicationTransmitCommChar(hfile.rawAddress, cchar)
 
-public actual fun waitCommEvent(hfile: Handle, lpevtmask: MutPtr<CommEventMask>, lpoverlapped: MutPtr<Overlapped>): Bool =
+public actual fun waitCommEvent(hfile: Handle, lpevtmask: MutPtr, lpoverlapped: MutPtr): Bool =
     WindowsWin32DevicesCommunicationJniBridge.windowssysWindowsWin32DevicesCommunicationWaitCommEvent(hfile.rawAddress, lpevtmask.rawAddress, lpoverlapped.rawAddress)

@@ -2,12 +2,10 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.system.js
 
-import io.github.kotlinmania.rustlang.core.ffi.CVoid
 import io.github.kotlinmania.rustlang.core.ptr.ConstPtr
 import io.github.kotlinmania.rustlang.core.ptr.MutPtr
 import io.github.kotlinmania.windowssys.core.Hresult
 import io.github.kotlinmania.windowssys.core.Pcwstr
-import io.github.kotlinmania.windowssys.windows.win32.system.variant.Variant
 
 private object WindowsWin32SystemJsJniBridge {
     init {
@@ -309,245 +307,245 @@ private object WindowsWin32SystemJsJniBridge {
     external fun windowssysWindowsWin32SystemJsJsVariantToValue(variant: Long, value: Long): Int
 }
 
-public actual fun jsAddRef(ref: ConstPtr<CVoid>, count: MutPtr<UInt>): JsErrorCode =
+public actual fun jsAddRef(ref: ConstPtr, count: MutPtr): JsErrorCode =
     WindowsWin32SystemJsJniBridge.windowssysWindowsWin32SystemJsJsAddRef(ref.rawAddress, count.rawAddress).toUInt()
 
-public actual fun jsBoolToBoolean(value: UByte, booleanvalue: MutPtr<MutPtr<CVoid>>): JsErrorCode =
+public actual fun jsBoolToBoolean(value: UByte, booleanvalue: MutPtr): JsErrorCode =
     WindowsWin32SystemJsJniBridge.windowssysWindowsWin32SystemJsJsBoolToBoolean(value.toByte(), booleanvalue.rawAddress).toUInt()
 
-public actual fun jsBooleanToBool(value: ConstPtr<CVoid>, boolvalue: MutPtr<Boolean>): JsErrorCode =
+public actual fun jsBooleanToBool(value: ConstPtr, boolvalue: MutPtr): JsErrorCode =
     WindowsWin32SystemJsJniBridge.windowssysWindowsWin32SystemJsJsBooleanToBool(value.rawAddress, boolvalue.rawAddress).toUInt()
 
-public actual fun jsCallFunction(function: ConstPtr<CVoid>, arguments: ConstPtr<ConstPtr<CVoid>>, argumentcount: UShort, result: MutPtr<MutPtr<CVoid>>): JsErrorCode =
+public actual fun jsCallFunction(function: ConstPtr, arguments: ConstPtr, argumentcount: UShort, result: MutPtr): JsErrorCode =
     WindowsWin32SystemJsJniBridge.windowssysWindowsWin32SystemJsJsCallFunction(function.rawAddress, arguments.rawAddress, argumentcount.toShort(), result.rawAddress).toUInt()
 
-public actual fun jsCollectGarbage(runtime: ConstPtr<CVoid>): JsErrorCode =
+public actual fun jsCollectGarbage(runtime: ConstPtr): JsErrorCode =
     WindowsWin32SystemJsJniBridge.windowssysWindowsWin32SystemJsJsCollectGarbage(runtime.rawAddress).toUInt()
 
-public actual fun jsConstructObject(function: ConstPtr<CVoid>, arguments: ConstPtr<ConstPtr<CVoid>>, argumentcount: UShort, result: MutPtr<MutPtr<CVoid>>): JsErrorCode =
+public actual fun jsConstructObject(function: ConstPtr, arguments: ConstPtr, argumentcount: UShort, result: MutPtr): JsErrorCode =
     WindowsWin32SystemJsJniBridge.windowssysWindowsWin32SystemJsJsConstructObject(function.rawAddress, arguments.rawAddress, argumentcount.toShort(), result.rawAddress).toUInt()
 
-public actual fun jsConvertValueToBoolean(value: ConstPtr<CVoid>, booleanvalue: MutPtr<MutPtr<CVoid>>): JsErrorCode =
+public actual fun jsConvertValueToBoolean(value: ConstPtr, booleanvalue: MutPtr): JsErrorCode =
     WindowsWin32SystemJsJniBridge.windowssysWindowsWin32SystemJsJsConvertValueToBoolean(value.rawAddress, booleanvalue.rawAddress).toUInt()
 
-public actual fun jsConvertValueToNumber(value: ConstPtr<CVoid>, numbervalue: MutPtr<MutPtr<CVoid>>): JsErrorCode =
+public actual fun jsConvertValueToNumber(value: ConstPtr, numbervalue: MutPtr): JsErrorCode =
     WindowsWin32SystemJsJniBridge.windowssysWindowsWin32SystemJsJsConvertValueToNumber(value.rawAddress, numbervalue.rawAddress).toUInt()
 
-public actual fun jsConvertValueToObject(value: ConstPtr<CVoid>, obj: MutPtr<MutPtr<CVoid>>): JsErrorCode =
+public actual fun jsConvertValueToObject(value: ConstPtr, obj: MutPtr): JsErrorCode =
     WindowsWin32SystemJsJniBridge.windowssysWindowsWin32SystemJsJsConvertValueToObject(value.rawAddress, obj.rawAddress).toUInt()
 
-public actual fun jsConvertValueToString(value: ConstPtr<CVoid>, stringvalue: MutPtr<MutPtr<CVoid>>): JsErrorCode =
+public actual fun jsConvertValueToString(value: ConstPtr, stringvalue: MutPtr): JsErrorCode =
     WindowsWin32SystemJsJniBridge.windowssysWindowsWin32SystemJsJsConvertValueToString(value.rawAddress, stringvalue.rawAddress).toUInt()
 
-public actual fun jsCreateArray(length: UInt, result: MutPtr<MutPtr<CVoid>>): JsErrorCode =
+public actual fun jsCreateArray(length: UInt, result: MutPtr): JsErrorCode =
     WindowsWin32SystemJsJniBridge.windowssysWindowsWin32SystemJsJsCreateArray(length.toInt(), result.rawAddress).toUInt()
 
-public actual fun jsCreateError(message: ConstPtr<CVoid>, error: MutPtr<MutPtr<CVoid>>): JsErrorCode =
+public actual fun jsCreateError(message: ConstPtr, error: MutPtr): JsErrorCode =
     WindowsWin32SystemJsJniBridge.windowssysWindowsWin32SystemJsJsCreateError(message.rawAddress, error.rawAddress).toUInt()
 
-public actual fun jsCreateExternalObject(data: ConstPtr<CVoid>, finalizecallback: JsFinalizeCallback, obj: MutPtr<MutPtr<CVoid>>): JsErrorCode =
+public actual fun jsCreateExternalObject(data: ConstPtr, finalizecallback: JsFinalizeCallback, obj: MutPtr): JsErrorCode =
     WindowsWin32SystemJsJniBridge.windowssysWindowsWin32SystemJsJsCreateExternalObject(data.rawAddress, 0L, obj.rawAddress).toUInt()
 
-public actual fun jsCreateFunction(nativefunction: JsNativeFunction, callbackstate: ConstPtr<CVoid>, function: MutPtr<MutPtr<CVoid>>): JsErrorCode =
+public actual fun jsCreateFunction(nativefunction: JsNativeFunction, callbackstate: ConstPtr, function: MutPtr): JsErrorCode =
     WindowsWin32SystemJsJniBridge.windowssysWindowsWin32SystemJsJsCreateFunction(0L, callbackstate.rawAddress, function.rawAddress).toUInt()
 
-public actual fun jsCreateObject(obj: MutPtr<MutPtr<CVoid>>): JsErrorCode =
+public actual fun jsCreateObject(obj: MutPtr): JsErrorCode =
     WindowsWin32SystemJsJniBridge.windowssysWindowsWin32SystemJsJsCreateObject(obj.rawAddress).toUInt()
 
-public actual fun jsCreateRangeError(message: ConstPtr<CVoid>, error: MutPtr<MutPtr<CVoid>>): JsErrorCode =
+public actual fun jsCreateRangeError(message: ConstPtr, error: MutPtr): JsErrorCode =
     WindowsWin32SystemJsJniBridge.windowssysWindowsWin32SystemJsJsCreateRangeError(message.rawAddress, error.rawAddress).toUInt()
 
-public actual fun jsCreateReferenceError(message: ConstPtr<CVoid>, error: MutPtr<MutPtr<CVoid>>): JsErrorCode =
+public actual fun jsCreateReferenceError(message: ConstPtr, error: MutPtr): JsErrorCode =
     WindowsWin32SystemJsJniBridge.windowssysWindowsWin32SystemJsJsCreateReferenceError(message.rawAddress, error.rawAddress).toUInt()
 
-public actual fun jsCreateRuntime(attributes: JsRuntimeAttributes, runtimeversion: JsRuntimeVersion, threadservice: JsThreadServiceCallback, runtime: MutPtr<MutPtr<CVoid>>): JsErrorCode =
+public actual fun jsCreateRuntime(attributes: JsRuntimeAttributes, runtimeversion: JsRuntimeVersion, threadservice: JsThreadServiceCallback, runtime: MutPtr): JsErrorCode =
     WindowsWin32SystemJsJniBridge.windowssysWindowsWin32SystemJsJsCreateRuntime(attributes, runtimeversion, 0L, runtime.rawAddress).toUInt()
 
-public actual fun jsCreateSyntaxError(message: ConstPtr<CVoid>, error: MutPtr<MutPtr<CVoid>>): JsErrorCode =
+public actual fun jsCreateSyntaxError(message: ConstPtr, error: MutPtr): JsErrorCode =
     WindowsWin32SystemJsJniBridge.windowssysWindowsWin32SystemJsJsCreateSyntaxError(message.rawAddress, error.rawAddress).toUInt()
 
-public actual fun jsCreateTypeError(message: ConstPtr<CVoid>, error: MutPtr<MutPtr<CVoid>>): JsErrorCode =
+public actual fun jsCreateTypeError(message: ConstPtr, error: MutPtr): JsErrorCode =
     WindowsWin32SystemJsJniBridge.windowssysWindowsWin32SystemJsJsCreateTypeError(message.rawAddress, error.rawAddress).toUInt()
 
-public actual fun jsCreateURIError(message: ConstPtr<CVoid>, error: MutPtr<MutPtr<CVoid>>): JsErrorCode =
+public actual fun jsCreateURIError(message: ConstPtr, error: MutPtr): JsErrorCode =
     WindowsWin32SystemJsJniBridge.windowssysWindowsWin32SystemJsJsCreateURIError(message.rawAddress, error.rawAddress).toUInt()
 
-public actual fun jsDefineProperty(obj: ConstPtr<CVoid>, propertyid: ConstPtr<CVoid>, propertydescriptor: ConstPtr<CVoid>, result: MutPtr<Boolean>): JsErrorCode =
+public actual fun jsDefineProperty(obj: ConstPtr, propertyid: ConstPtr, propertydescriptor: ConstPtr, result: MutPtr): JsErrorCode =
     WindowsWin32SystemJsJniBridge.windowssysWindowsWin32SystemJsJsDefineProperty(obj.rawAddress, propertyid.rawAddress, propertydescriptor.rawAddress, result.rawAddress).toUInt()
 
-public actual fun jsDeleteIndexedProperty(obj: ConstPtr<CVoid>, index: ConstPtr<CVoid>): JsErrorCode =
+public actual fun jsDeleteIndexedProperty(obj: ConstPtr, index: ConstPtr): JsErrorCode =
     WindowsWin32SystemJsJniBridge.windowssysWindowsWin32SystemJsJsDeleteIndexedProperty(obj.rawAddress, index.rawAddress).toUInt()
 
-public actual fun jsDeleteProperty(obj: ConstPtr<CVoid>, propertyid: ConstPtr<CVoid>, usestrictrules: UByte, result: MutPtr<MutPtr<CVoid>>): JsErrorCode =
+public actual fun jsDeleteProperty(obj: ConstPtr, propertyid: ConstPtr, usestrictrules: UByte, result: MutPtr): JsErrorCode =
     WindowsWin32SystemJsJniBridge.windowssysWindowsWin32SystemJsJsDeleteProperty(obj.rawAddress, propertyid.rawAddress, usestrictrules.toByte(), result.rawAddress).toUInt()
 
-public actual fun jsDisableRuntimeExecution(runtime: ConstPtr<CVoid>): JsErrorCode =
+public actual fun jsDisableRuntimeExecution(runtime: ConstPtr): JsErrorCode =
     WindowsWin32SystemJsJniBridge.windowssysWindowsWin32SystemJsJsDisableRuntimeExecution(runtime.rawAddress).toUInt()
 
-public actual fun jsDisposeRuntime(runtime: ConstPtr<CVoid>): JsErrorCode =
+public actual fun jsDisposeRuntime(runtime: ConstPtr): JsErrorCode =
     WindowsWin32SystemJsJniBridge.windowssysWindowsWin32SystemJsJsDisposeRuntime(runtime.rawAddress).toUInt()
 
-public actual fun jsDoubleToNumber(doublevalue: Double, value: MutPtr<MutPtr<CVoid>>): JsErrorCode =
+public actual fun jsDoubleToNumber(doublevalue: Double, value: MutPtr): JsErrorCode =
     WindowsWin32SystemJsJniBridge.windowssysWindowsWin32SystemJsJsDoubleToNumber(doublevalue, value.rawAddress).toUInt()
 
-public actual fun jsEnableRuntimeExecution(runtime: ConstPtr<CVoid>): JsErrorCode =
+public actual fun jsEnableRuntimeExecution(runtime: ConstPtr): JsErrorCode =
     WindowsWin32SystemJsJniBridge.windowssysWindowsWin32SystemJsJsEnableRuntimeExecution(runtime.rawAddress).toUInt()
 
-public actual fun jsEquals(object1: ConstPtr<CVoid>, object2: ConstPtr<CVoid>, result: MutPtr<Boolean>): JsErrorCode =
+public actual fun jsEquals(object1: ConstPtr, object2: ConstPtr, result: MutPtr): JsErrorCode =
     WindowsWin32SystemJsJniBridge.windowssysWindowsWin32SystemJsJsEquals(object1.rawAddress, object2.rawAddress, result.rawAddress).toUInt()
 
-public actual fun jsGetAndClearException(exception: MutPtr<MutPtr<CVoid>>): JsErrorCode =
+public actual fun jsGetAndClearException(exception: MutPtr): JsErrorCode =
     WindowsWin32SystemJsJniBridge.windowssysWindowsWin32SystemJsJsGetAndClearException(exception.rawAddress).toUInt()
 
-public actual fun jsGetCurrentContext(currentcontext: MutPtr<MutPtr<CVoid>>): JsErrorCode =
+public actual fun jsGetCurrentContext(currentcontext: MutPtr): JsErrorCode =
     WindowsWin32SystemJsJniBridge.windowssysWindowsWin32SystemJsJsGetCurrentContext(currentcontext.rawAddress).toUInt()
 
-public actual fun jsGetExtensionAllowed(obj: ConstPtr<CVoid>, value: MutPtr<Boolean>): JsErrorCode =
+public actual fun jsGetExtensionAllowed(obj: ConstPtr, value: MutPtr): JsErrorCode =
     WindowsWin32SystemJsJniBridge.windowssysWindowsWin32SystemJsJsGetExtensionAllowed(obj.rawAddress, value.rawAddress).toUInt()
 
-public actual fun jsGetExternalData(obj: ConstPtr<CVoid>, externaldata: MutPtr<MutPtr<CVoid>>): JsErrorCode =
+public actual fun jsGetExternalData(obj: ConstPtr, externaldata: MutPtr): JsErrorCode =
     WindowsWin32SystemJsJniBridge.windowssysWindowsWin32SystemJsJsGetExternalData(obj.rawAddress, externaldata.rawAddress).toUInt()
 
-public actual fun jsGetFalseValue(falsevalue: MutPtr<MutPtr<CVoid>>): JsErrorCode =
+public actual fun jsGetFalseValue(falsevalue: MutPtr): JsErrorCode =
     WindowsWin32SystemJsJniBridge.windowssysWindowsWin32SystemJsJsGetFalseValue(falsevalue.rawAddress).toUInt()
 
-public actual fun jsGetGlobalObject(globalobject: MutPtr<MutPtr<CVoid>>): JsErrorCode =
+public actual fun jsGetGlobalObject(globalobject: MutPtr): JsErrorCode =
     WindowsWin32SystemJsJniBridge.windowssysWindowsWin32SystemJsJsGetGlobalObject(globalobject.rawAddress).toUInt()
 
-public actual fun jsGetIndexedProperty(obj: ConstPtr<CVoid>, index: ConstPtr<CVoid>, result: MutPtr<MutPtr<CVoid>>): JsErrorCode =
+public actual fun jsGetIndexedProperty(obj: ConstPtr, index: ConstPtr, result: MutPtr): JsErrorCode =
     WindowsWin32SystemJsJniBridge.windowssysWindowsWin32SystemJsJsGetIndexedProperty(obj.rawAddress, index.rawAddress, result.rawAddress).toUInt()
 
-public actual fun jsGetNullValue(nullvalue: MutPtr<MutPtr<CVoid>>): JsErrorCode =
+public actual fun jsGetNullValue(nullvalue: MutPtr): JsErrorCode =
     WindowsWin32SystemJsJniBridge.windowssysWindowsWin32SystemJsJsGetNullValue(nullvalue.rawAddress).toUInt()
 
-public actual fun jsGetOwnPropertyDescriptor(obj: ConstPtr<CVoid>, propertyid: ConstPtr<CVoid>, propertydescriptor: MutPtr<MutPtr<CVoid>>): JsErrorCode =
+public actual fun jsGetOwnPropertyDescriptor(obj: ConstPtr, propertyid: ConstPtr, propertydescriptor: MutPtr): JsErrorCode =
     WindowsWin32SystemJsJniBridge.windowssysWindowsWin32SystemJsJsGetOwnPropertyDescriptor(obj.rawAddress, propertyid.rawAddress, propertydescriptor.rawAddress).toUInt()
 
-public actual fun jsGetOwnPropertyNames(obj: ConstPtr<CVoid>, propertynames: MutPtr<MutPtr<CVoid>>): JsErrorCode =
+public actual fun jsGetOwnPropertyNames(obj: ConstPtr, propertynames: MutPtr): JsErrorCode =
     WindowsWin32SystemJsJniBridge.windowssysWindowsWin32SystemJsJsGetOwnPropertyNames(obj.rawAddress, propertynames.rawAddress).toUInt()
 
-public actual fun jsGetProperty(obj: ConstPtr<CVoid>, propertyid: ConstPtr<CVoid>, value: MutPtr<MutPtr<CVoid>>): JsErrorCode =
+public actual fun jsGetProperty(obj: ConstPtr, propertyid: ConstPtr, value: MutPtr): JsErrorCode =
     WindowsWin32SystemJsJniBridge.windowssysWindowsWin32SystemJsJsGetProperty(obj.rawAddress, propertyid.rawAddress, value.rawAddress).toUInt()
 
-public actual fun jsGetPropertyIdFromName(name: Pcwstr, propertyid: MutPtr<MutPtr<CVoid>>): JsErrorCode =
+public actual fun jsGetPropertyIdFromName(name: Pcwstr, propertyid: MutPtr): JsErrorCode =
     WindowsWin32SystemJsJniBridge.windowssysWindowsWin32SystemJsJsGetPropertyIdFromName(name.rawAddress, propertyid.rawAddress).toUInt()
 
-public actual fun jsGetPropertyNameFromId(propertyid: ConstPtr<CVoid>, name: MutPtr<MutPtr<UShort>>): JsErrorCode =
+public actual fun jsGetPropertyNameFromId(propertyid: ConstPtr, name: MutPtr): JsErrorCode =
     WindowsWin32SystemJsJniBridge.windowssysWindowsWin32SystemJsJsGetPropertyNameFromId(propertyid.rawAddress, name.rawAddress).toUInt()
 
-public actual fun jsGetPrototype(obj: ConstPtr<CVoid>, prototypeobject: MutPtr<MutPtr<CVoid>>): JsErrorCode =
+public actual fun jsGetPrototype(obj: ConstPtr, prototypeobject: MutPtr): JsErrorCode =
     WindowsWin32SystemJsJniBridge.windowssysWindowsWin32SystemJsJsGetPrototype(obj.rawAddress, prototypeobject.rawAddress).toUInt()
 
-public actual fun jsGetRuntime(context: ConstPtr<CVoid>, runtime: MutPtr<MutPtr<CVoid>>): JsErrorCode =
+public actual fun jsGetRuntime(context: ConstPtr, runtime: MutPtr): JsErrorCode =
     WindowsWin32SystemJsJniBridge.windowssysWindowsWin32SystemJsJsGetRuntime(context.rawAddress, runtime.rawAddress).toUInt()
 
-public actual fun jsGetRuntimeMemoryLimit(runtime: ConstPtr<CVoid>, memorylimit: MutPtr<ULong>): JsErrorCode =
+public actual fun jsGetRuntimeMemoryLimit(runtime: ConstPtr, memorylimit: MutPtr): JsErrorCode =
     WindowsWin32SystemJsJniBridge.windowssysWindowsWin32SystemJsJsGetRuntimeMemoryLimit(runtime.rawAddress, memorylimit.rawAddress).toUInt()
 
-public actual fun jsGetRuntimeMemoryUsage(runtime: ConstPtr<CVoid>, memoryusage: MutPtr<ULong>): JsErrorCode =
+public actual fun jsGetRuntimeMemoryUsage(runtime: ConstPtr, memoryusage: MutPtr): JsErrorCode =
     WindowsWin32SystemJsJniBridge.windowssysWindowsWin32SystemJsJsGetRuntimeMemoryUsage(runtime.rawAddress, memoryusage.rawAddress).toUInt()
 
-public actual fun jsGetStringLength(stringvalue: ConstPtr<CVoid>, length: MutPtr<Int>): JsErrorCode =
+public actual fun jsGetStringLength(stringvalue: ConstPtr, length: MutPtr): JsErrorCode =
     WindowsWin32SystemJsJniBridge.windowssysWindowsWin32SystemJsJsGetStringLength(stringvalue.rawAddress, length.rawAddress).toUInt()
 
-public actual fun jsGetTrueValue(truevalue: MutPtr<MutPtr<CVoid>>): JsErrorCode =
+public actual fun jsGetTrueValue(truevalue: MutPtr): JsErrorCode =
     WindowsWin32SystemJsJniBridge.windowssysWindowsWin32SystemJsJsGetTrueValue(truevalue.rawAddress).toUInt()
 
-public actual fun jsGetUndefinedValue(undefinedvalue: MutPtr<MutPtr<CVoid>>): JsErrorCode =
+public actual fun jsGetUndefinedValue(undefinedvalue: MutPtr): JsErrorCode =
     WindowsWin32SystemJsJniBridge.windowssysWindowsWin32SystemJsJsGetUndefinedValue(undefinedvalue.rawAddress).toUInt()
 
-public actual fun jsGetValueType(value: ConstPtr<CVoid>, type: MutPtr<JsValueType>): JsErrorCode =
+public actual fun jsGetValueType(value: ConstPtr, type: MutPtr): JsErrorCode =
     WindowsWin32SystemJsJniBridge.windowssysWindowsWin32SystemJsJsGetValueType(value.rawAddress, type.rawAddress).toUInt()
 
-public actual fun jsHasException(hasexception: MutPtr<Boolean>): JsErrorCode =
+public actual fun jsHasException(hasexception: MutPtr): JsErrorCode =
     WindowsWin32SystemJsJniBridge.windowssysWindowsWin32SystemJsJsHasException(hasexception.rawAddress).toUInt()
 
-public actual fun jsHasExternalData(obj: ConstPtr<CVoid>, value: MutPtr<Boolean>): JsErrorCode =
+public actual fun jsHasExternalData(obj: ConstPtr, value: MutPtr): JsErrorCode =
     WindowsWin32SystemJsJniBridge.windowssysWindowsWin32SystemJsJsHasExternalData(obj.rawAddress, value.rawAddress).toUInt()
 
-public actual fun jsHasIndexedProperty(obj: ConstPtr<CVoid>, index: ConstPtr<CVoid>, result: MutPtr<Boolean>): JsErrorCode =
+public actual fun jsHasIndexedProperty(obj: ConstPtr, index: ConstPtr, result: MutPtr): JsErrorCode =
     WindowsWin32SystemJsJniBridge.windowssysWindowsWin32SystemJsJsHasIndexedProperty(obj.rawAddress, index.rawAddress, result.rawAddress).toUInt()
 
-public actual fun jsHasProperty(obj: ConstPtr<CVoid>, propertyid: ConstPtr<CVoid>, hasproperty: MutPtr<Boolean>): JsErrorCode =
+public actual fun jsHasProperty(obj: ConstPtr, propertyid: ConstPtr, hasproperty: MutPtr): JsErrorCode =
     WindowsWin32SystemJsJniBridge.windowssysWindowsWin32SystemJsJsHasProperty(obj.rawAddress, propertyid.rawAddress, hasproperty.rawAddress).toUInt()
 
-public actual fun jsIdle(nextidletick: MutPtr<UInt>): JsErrorCode =
+public actual fun jsIdle(nextidletick: MutPtr): JsErrorCode =
     WindowsWin32SystemJsJniBridge.windowssysWindowsWin32SystemJsJsIdle(nextidletick.rawAddress).toUInt()
 
-public actual fun jsIntToNumber(intvalue: Int, value: MutPtr<MutPtr<CVoid>>): JsErrorCode =
+public actual fun jsIntToNumber(intvalue: Int, value: MutPtr): JsErrorCode =
     WindowsWin32SystemJsJniBridge.windowssysWindowsWin32SystemJsJsIntToNumber(intvalue, value.rawAddress).toUInt()
 
-public actual fun jsIsEnumeratingHeap(isenumeratingheap: MutPtr<Boolean>): JsErrorCode =
+public actual fun jsIsEnumeratingHeap(isenumeratingheap: MutPtr): JsErrorCode =
     WindowsWin32SystemJsJniBridge.windowssysWindowsWin32SystemJsJsIsEnumeratingHeap(isenumeratingheap.rawAddress).toUInt()
 
-public actual fun jsIsRuntimeExecutionDisabled(runtime: ConstPtr<CVoid>, isdisabled: MutPtr<Boolean>): JsErrorCode =
+public actual fun jsIsRuntimeExecutionDisabled(runtime: ConstPtr, isdisabled: MutPtr): JsErrorCode =
     WindowsWin32SystemJsJniBridge.windowssysWindowsWin32SystemJsJsIsRuntimeExecutionDisabled(runtime.rawAddress, isdisabled.rawAddress).toUInt()
 
-public actual fun jsNumberToDouble(value: ConstPtr<CVoid>, doublevalue: MutPtr<Double>): JsErrorCode =
+public actual fun jsNumberToDouble(value: ConstPtr, doublevalue: MutPtr): JsErrorCode =
     WindowsWin32SystemJsJniBridge.windowssysWindowsWin32SystemJsJsNumberToDouble(value.rawAddress, doublevalue.rawAddress).toUInt()
 
-public actual fun jsParseScript(script: Pcwstr, sourcecontext: ULong, sourceurl: Pcwstr, result: MutPtr<MutPtr<CVoid>>): JsErrorCode =
+public actual fun jsParseScript(script: Pcwstr, sourcecontext: ULong, sourceurl: Pcwstr, result: MutPtr): JsErrorCode =
     WindowsWin32SystemJsJniBridge.windowssysWindowsWin32SystemJsJsParseScript(script.rawAddress, sourcecontext.toLong(), sourceurl.rawAddress, result.rawAddress).toUInt()
 
-public actual fun jsParseSerializedScript(script: Pcwstr, buffer: ConstPtr<UByte>, sourcecontext: ULong, sourceurl: Pcwstr, result: MutPtr<MutPtr<CVoid>>): JsErrorCode =
+public actual fun jsParseSerializedScript(script: Pcwstr, buffer: ConstPtr, sourcecontext: ULong, sourceurl: Pcwstr, result: MutPtr): JsErrorCode =
     WindowsWin32SystemJsJniBridge.windowssysWindowsWin32SystemJsJsParseSerializedScript(script.rawAddress, buffer.rawAddress, sourcecontext.toLong(), sourceurl.rawAddress, result.rawAddress).toUInt()
 
-public actual fun jsPointerToString(stringvalue: Pcwstr, stringlength: ULong, value: MutPtr<MutPtr<CVoid>>): JsErrorCode =
+public actual fun jsPointerToString(stringvalue: Pcwstr, stringlength: ULong, value: MutPtr): JsErrorCode =
     WindowsWin32SystemJsJniBridge.windowssysWindowsWin32SystemJsJsPointerToString(stringvalue.rawAddress, stringlength.toLong(), value.rawAddress).toUInt()
 
-public actual fun jsPreventExtension(obj: ConstPtr<CVoid>): JsErrorCode =
+public actual fun jsPreventExtension(obj: ConstPtr): JsErrorCode =
     WindowsWin32SystemJsJniBridge.windowssysWindowsWin32SystemJsJsPreventExtension(obj.rawAddress).toUInt()
 
-public actual fun jsRelease(ref: ConstPtr<CVoid>, count: MutPtr<UInt>): JsErrorCode =
+public actual fun jsRelease(ref: ConstPtr, count: MutPtr): JsErrorCode =
     WindowsWin32SystemJsJniBridge.windowssysWindowsWin32SystemJsJsRelease(ref.rawAddress, count.rawAddress).toUInt()
 
-public actual fun jsRunScript(script: Pcwstr, sourcecontext: ULong, sourceurl: Pcwstr, result: MutPtr<MutPtr<CVoid>>): JsErrorCode =
+public actual fun jsRunScript(script: Pcwstr, sourcecontext: ULong, sourceurl: Pcwstr, result: MutPtr): JsErrorCode =
     WindowsWin32SystemJsJniBridge.windowssysWindowsWin32SystemJsJsRunScript(script.rawAddress, sourcecontext.toLong(), sourceurl.rawAddress, result.rawAddress).toUInt()
 
-public actual fun jsRunSerializedScript(script: Pcwstr, buffer: ConstPtr<UByte>, sourcecontext: ULong, sourceurl: Pcwstr, result: MutPtr<MutPtr<CVoid>>): JsErrorCode =
+public actual fun jsRunSerializedScript(script: Pcwstr, buffer: ConstPtr, sourcecontext: ULong, sourceurl: Pcwstr, result: MutPtr): JsErrorCode =
     WindowsWin32SystemJsJniBridge.windowssysWindowsWin32SystemJsJsRunSerializedScript(script.rawAddress, buffer.rawAddress, sourcecontext.toLong(), sourceurl.rawAddress, result.rawAddress).toUInt()
 
-public actual fun jsSerializeScript(script: Pcwstr, buffer: MutPtr<UByte>, buffersize: MutPtr<UInt>): JsErrorCode =
+public actual fun jsSerializeScript(script: Pcwstr, buffer: MutPtr, buffersize: MutPtr): JsErrorCode =
     WindowsWin32SystemJsJniBridge.windowssysWindowsWin32SystemJsJsSerializeScript(script.rawAddress, buffer.rawAddress, buffersize.rawAddress).toUInt()
 
-public actual fun jsSetCurrentContext(context: ConstPtr<CVoid>): JsErrorCode =
+public actual fun jsSetCurrentContext(context: ConstPtr): JsErrorCode =
     WindowsWin32SystemJsJniBridge.windowssysWindowsWin32SystemJsJsSetCurrentContext(context.rawAddress).toUInt()
 
-public actual fun jsSetException(exception: ConstPtr<CVoid>): JsErrorCode =
+public actual fun jsSetException(exception: ConstPtr): JsErrorCode =
     WindowsWin32SystemJsJniBridge.windowssysWindowsWin32SystemJsJsSetException(exception.rawAddress).toUInt()
 
-public actual fun jsSetExternalData(obj: ConstPtr<CVoid>, externaldata: ConstPtr<CVoid>): JsErrorCode =
+public actual fun jsSetExternalData(obj: ConstPtr, externaldata: ConstPtr): JsErrorCode =
     WindowsWin32SystemJsJniBridge.windowssysWindowsWin32SystemJsJsSetExternalData(obj.rawAddress, externaldata.rawAddress).toUInt()
 
-public actual fun jsSetIndexedProperty(obj: ConstPtr<CVoid>, index: ConstPtr<CVoid>, value: ConstPtr<CVoid>): JsErrorCode =
+public actual fun jsSetIndexedProperty(obj: ConstPtr, index: ConstPtr, value: ConstPtr): JsErrorCode =
     WindowsWin32SystemJsJniBridge.windowssysWindowsWin32SystemJsJsSetIndexedProperty(obj.rawAddress, index.rawAddress, value.rawAddress).toUInt()
 
-public actual fun jsSetProperty(obj: ConstPtr<CVoid>, propertyid: ConstPtr<CVoid>, value: ConstPtr<CVoid>, usestrictrules: UByte): JsErrorCode =
+public actual fun jsSetProperty(obj: ConstPtr, propertyid: ConstPtr, value: ConstPtr, usestrictrules: UByte): JsErrorCode =
     WindowsWin32SystemJsJniBridge.windowssysWindowsWin32SystemJsJsSetProperty(obj.rawAddress, propertyid.rawAddress, value.rawAddress, usestrictrules.toByte()).toUInt()
 
-public actual fun jsSetPrototype(obj: ConstPtr<CVoid>, prototypeobject: ConstPtr<CVoid>): JsErrorCode =
+public actual fun jsSetPrototype(obj: ConstPtr, prototypeobject: ConstPtr): JsErrorCode =
     WindowsWin32SystemJsJniBridge.windowssysWindowsWin32SystemJsJsSetPrototype(obj.rawAddress, prototypeobject.rawAddress).toUInt()
 
-public actual fun jsSetRuntimeBeforeCollectCallback(runtime: ConstPtr<CVoid>, callbackstate: ConstPtr<CVoid>, beforecollectcallback: JsBeforeCollectCallback): JsErrorCode =
+public actual fun jsSetRuntimeBeforeCollectCallback(runtime: ConstPtr, callbackstate: ConstPtr, beforecollectcallback: JsBeforeCollectCallback): JsErrorCode =
     WindowsWin32SystemJsJniBridge.windowssysWindowsWin32SystemJsJsSetRuntimeBeforeCollectCallback(runtime.rawAddress, callbackstate.rawAddress, 0L).toUInt()
 
-public actual fun jsSetRuntimeMemoryAllocationCallback(runtime: ConstPtr<CVoid>, callbackstate: ConstPtr<CVoid>, allocationcallback: JsMemoryAllocationCallback): JsErrorCode =
+public actual fun jsSetRuntimeMemoryAllocationCallback(runtime: ConstPtr, callbackstate: ConstPtr, allocationcallback: JsMemoryAllocationCallback): JsErrorCode =
     WindowsWin32SystemJsJniBridge.windowssysWindowsWin32SystemJsJsSetRuntimeMemoryAllocationCallback(runtime.rawAddress, callbackstate.rawAddress, 0L).toUInt()
 
-public actual fun jsSetRuntimeMemoryLimit(runtime: ConstPtr<CVoid>, memorylimit: ULong): JsErrorCode =
+public actual fun jsSetRuntimeMemoryLimit(runtime: ConstPtr, memorylimit: ULong): JsErrorCode =
     WindowsWin32SystemJsJniBridge.windowssysWindowsWin32SystemJsJsSetRuntimeMemoryLimit(runtime.rawAddress, memorylimit.toLong()).toUInt()
 
 public actual fun jsStopProfiling(reason: Hresult): JsErrorCode =
     WindowsWin32SystemJsJniBridge.windowssysWindowsWin32SystemJsJsStopProfiling(reason).toUInt()
 
-public actual fun jsStrictEquals(object1: ConstPtr<CVoid>, object2: ConstPtr<CVoid>, result: MutPtr<Boolean>): JsErrorCode =
+public actual fun jsStrictEquals(object1: ConstPtr, object2: ConstPtr, result: MutPtr): JsErrorCode =
     WindowsWin32SystemJsJniBridge.windowssysWindowsWin32SystemJsJsStrictEquals(object1.rawAddress, object2.rawAddress, result.rawAddress).toUInt()
 
-public actual fun jsStringToPointer(value: ConstPtr<CVoid>, stringvalue: MutPtr<MutPtr<UShort>>, stringlength: MutPtr<ULong>): JsErrorCode =
+public actual fun jsStringToPointer(value: ConstPtr, stringvalue: MutPtr, stringlength: MutPtr): JsErrorCode =
     WindowsWin32SystemJsJniBridge.windowssysWindowsWin32SystemJsJsStringToPointer(value.rawAddress, stringvalue.rawAddress, stringlength.rawAddress).toUInt()
 
-public actual fun jsValueToVariant(obj: ConstPtr<CVoid>, variant: MutPtr<Variant.Variant>): JsErrorCode =
+public actual fun jsValueToVariant(obj: ConstPtr, variant: MutPtr): JsErrorCode =
     WindowsWin32SystemJsJniBridge.windowssysWindowsWin32SystemJsJsValueToVariant(obj.rawAddress, variant.rawAddress).toUInt()
 
-public actual fun jsVariantToValue(variant: ConstPtr<Variant.Variant>, value: MutPtr<MutPtr<CVoid>>): JsErrorCode =
+public actual fun jsVariantToValue(variant: ConstPtr, value: MutPtr): JsErrorCode =
     WindowsWin32SystemJsJniBridge.windowssysWindowsWin32SystemJsJsVariantToValue(variant.rawAddress, value.rawAddress).toUInt()

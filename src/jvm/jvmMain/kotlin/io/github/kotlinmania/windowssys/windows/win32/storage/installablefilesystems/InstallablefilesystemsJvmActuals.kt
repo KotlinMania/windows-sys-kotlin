@@ -2,15 +2,12 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.storage.installablefilesystems
 
-import io.github.kotlinmania.rustlang.core.ffi.CVoid
 import io.github.kotlinmania.rustlang.core.ptr.ConstPtr
 import io.github.kotlinmania.rustlang.core.ptr.MutPtr
 import io.github.kotlinmania.windowssys.core.Hresult
 import io.github.kotlinmania.windowssys.core.Pcwstr
 import io.github.kotlinmania.windowssys.core.Pwstr
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Handle
-import io.github.kotlinmania.windowssys.windows.win32.security.SecurityAttributes
-import io.github.kotlinmania.windowssys.windows.win32.system.io.Overlapped
 
 private object WindowsWin32StorageInstallablefilesystemsJniBridge {
     init {
@@ -162,10 +159,10 @@ public actual fun filterAttachAtAltitude(lpfiltername: Pcwstr, lpvolumename: Pcw
 public actual fun filterClose(hfilter: Hfilter): Hresult =
     WindowsWin32StorageInstallablefilesystemsJniBridge.windowssysWindowsWin32StorageInstallablefilesystemsFilterClose(hfilter)
 
-public actual fun filterConnectCommunicationPort(lpportname: Pcwstr, dwoptions: UInt, lpcontext: ConstPtr<CVoid>, wsizeofcontext: UShort, lpsecurityattributes: ConstPtr<SecurityAttributes>, hport: MutPtr<Handle>): Hresult =
+public actual fun filterConnectCommunicationPort(lpportname: Pcwstr, dwoptions: UInt, lpcontext: ConstPtr, wsizeofcontext: UShort, lpsecurityattributes: ConstPtr, hport: MutPtr): Hresult =
     WindowsWin32StorageInstallablefilesystemsJniBridge.windowssysWindowsWin32StorageInstallablefilesystemsFilterConnectCommunicationPort(lpportname.rawAddress, dwoptions.toInt(), lpcontext.rawAddress, wsizeofcontext.toShort(), lpsecurityattributes.rawAddress, hport.rawAddress)
 
-public actual fun filterCreate(lpfiltername: Pcwstr, hfilter: MutPtr<Hfilter>): Hresult =
+public actual fun filterCreate(lpfiltername: Pcwstr, hfilter: MutPtr): Hresult =
     WindowsWin32StorageInstallablefilesystemsJniBridge.windowssysWindowsWin32StorageInstallablefilesystemsFilterCreate(lpfiltername.rawAddress, hfilter.rawAddress)
 
 public actual fun filterDetach(lpfiltername: Pcwstr, lpvolumename: Pcwstr, lpinstancename: Pcwstr): Hresult =
@@ -174,46 +171,46 @@ public actual fun filterDetach(lpfiltername: Pcwstr, lpvolumename: Pcwstr, lpins
 public actual fun filterFindClose(hfilterfind: Handle): Hresult =
     WindowsWin32StorageInstallablefilesystemsJniBridge.windowssysWindowsWin32StorageInstallablefilesystemsFilterFindClose(hfilterfind.rawAddress)
 
-public actual fun filterFindFirst(dwinformationclass: FilterInformationClass, lpbuffer: MutPtr<CVoid>, dwbuffersize: UInt, lpbytesreturned: MutPtr<UInt>, lpfilterfind: MutPtr<Handle>): Hresult =
+public actual fun filterFindFirst(dwinformationclass: FilterInformationClass, lpbuffer: MutPtr, dwbuffersize: UInt, lpbytesreturned: MutPtr, lpfilterfind: MutPtr): Hresult =
     WindowsWin32StorageInstallablefilesystemsJniBridge.windowssysWindowsWin32StorageInstallablefilesystemsFilterFindFirst(dwinformationclass, lpbuffer.rawAddress, dwbuffersize.toInt(), lpbytesreturned.rawAddress, lpfilterfind.rawAddress)
 
-public actual fun filterFindNext(hfilterfind: Handle, dwinformationclass: FilterInformationClass, lpbuffer: MutPtr<CVoid>, dwbuffersize: UInt, lpbytesreturned: MutPtr<UInt>): Hresult =
+public actual fun filterFindNext(hfilterfind: Handle, dwinformationclass: FilterInformationClass, lpbuffer: MutPtr, dwbuffersize: UInt, lpbytesreturned: MutPtr): Hresult =
     WindowsWin32StorageInstallablefilesystemsJniBridge.windowssysWindowsWin32StorageInstallablefilesystemsFilterFindNext(hfilterfind.rawAddress, dwinformationclass, lpbuffer.rawAddress, dwbuffersize.toInt(), lpbytesreturned.rawAddress)
 
 public actual fun filterGetDosName(lpvolumename: Pcwstr, lpdosname: Pwstr, dwdosnamebuffersize: UInt): Hresult =
     WindowsWin32StorageInstallablefilesystemsJniBridge.windowssysWindowsWin32StorageInstallablefilesystemsFilterGetDosName(lpvolumename.rawAddress, lpdosname.rawAddress, dwdosnamebuffersize.toInt())
 
-public actual fun filterGetInformation(hfilter: Hfilter, dwinformationclass: FilterInformationClass, lpbuffer: MutPtr<CVoid>, dwbuffersize: UInt, lpbytesreturned: MutPtr<UInt>): Hresult =
+public actual fun filterGetInformation(hfilter: Hfilter, dwinformationclass: FilterInformationClass, lpbuffer: MutPtr, dwbuffersize: UInt, lpbytesreturned: MutPtr): Hresult =
     WindowsWin32StorageInstallablefilesystemsJniBridge.windowssysWindowsWin32StorageInstallablefilesystemsFilterGetInformation(hfilter, dwinformationclass, lpbuffer.rawAddress, dwbuffersize.toInt(), lpbytesreturned.rawAddress)
 
-public actual fun filterGetMessage(hport: Handle, lpmessagebuffer: MutPtr<FilterMessageHeader>, dwmessagebuffersize: UInt, lpoverlapped: MutPtr<Overlapped>): Hresult =
+public actual fun filterGetMessage(hport: Handle, lpmessagebuffer: MutPtr, dwmessagebuffersize: UInt, lpoverlapped: MutPtr): Hresult =
     WindowsWin32StorageInstallablefilesystemsJniBridge.windowssysWindowsWin32StorageInstallablefilesystemsFilterGetMessage(hport.rawAddress, lpmessagebuffer.rawAddress, dwmessagebuffersize.toInt(), lpoverlapped.rawAddress)
 
 public actual fun filterInstanceClose(hinstance: HfilterInstance): Hresult =
     WindowsWin32StorageInstallablefilesystemsJniBridge.windowssysWindowsWin32StorageInstallablefilesystemsFilterInstanceClose(hinstance)
 
-public actual fun filterInstanceCreate(lpfiltername: Pcwstr, lpvolumename: Pcwstr, lpinstancename: Pcwstr, hinstance: MutPtr<HfilterInstance>): Hresult =
+public actual fun filterInstanceCreate(lpfiltername: Pcwstr, lpvolumename: Pcwstr, lpinstancename: Pcwstr, hinstance: MutPtr): Hresult =
     WindowsWin32StorageInstallablefilesystemsJniBridge.windowssysWindowsWin32StorageInstallablefilesystemsFilterInstanceCreate(lpfiltername.rawAddress, lpvolumename.rawAddress, lpinstancename.rawAddress, hinstance.rawAddress)
 
 public actual fun filterInstanceFindClose(hfilterinstancefind: Handle): Hresult =
     WindowsWin32StorageInstallablefilesystemsJniBridge.windowssysWindowsWin32StorageInstallablefilesystemsFilterInstanceFindClose(hfilterinstancefind.rawAddress)
 
-public actual fun filterInstanceFindFirst(lpfiltername: Pcwstr, dwinformationclass: InstanceInformationClass, lpbuffer: MutPtr<CVoid>, dwbuffersize: UInt, lpbytesreturned: MutPtr<UInt>, lpfilterinstancefind: MutPtr<Handle>): Hresult =
+public actual fun filterInstanceFindFirst(lpfiltername: Pcwstr, dwinformationclass: InstanceInformationClass, lpbuffer: MutPtr, dwbuffersize: UInt, lpbytesreturned: MutPtr, lpfilterinstancefind: MutPtr): Hresult =
     WindowsWin32StorageInstallablefilesystemsJniBridge.windowssysWindowsWin32StorageInstallablefilesystemsFilterInstanceFindFirst(lpfiltername.rawAddress, dwinformationclass, lpbuffer.rawAddress, dwbuffersize.toInt(), lpbytesreturned.rawAddress, lpfilterinstancefind.rawAddress)
 
-public actual fun filterInstanceFindNext(hfilterinstancefind: Handle, dwinformationclass: InstanceInformationClass, lpbuffer: MutPtr<CVoid>, dwbuffersize: UInt, lpbytesreturned: MutPtr<UInt>): Hresult =
+public actual fun filterInstanceFindNext(hfilterinstancefind: Handle, dwinformationclass: InstanceInformationClass, lpbuffer: MutPtr, dwbuffersize: UInt, lpbytesreturned: MutPtr): Hresult =
     WindowsWin32StorageInstallablefilesystemsJniBridge.windowssysWindowsWin32StorageInstallablefilesystemsFilterInstanceFindNext(hfilterinstancefind.rawAddress, dwinformationclass, lpbuffer.rawAddress, dwbuffersize.toInt(), lpbytesreturned.rawAddress)
 
-public actual fun filterInstanceGetInformation(hinstance: HfilterInstance, dwinformationclass: InstanceInformationClass, lpbuffer: MutPtr<CVoid>, dwbuffersize: UInt, lpbytesreturned: MutPtr<UInt>): Hresult =
+public actual fun filterInstanceGetInformation(hinstance: HfilterInstance, dwinformationclass: InstanceInformationClass, lpbuffer: MutPtr, dwbuffersize: UInt, lpbytesreturned: MutPtr): Hresult =
     WindowsWin32StorageInstallablefilesystemsJniBridge.windowssysWindowsWin32StorageInstallablefilesystemsFilterInstanceGetInformation(hinstance, dwinformationclass, lpbuffer.rawAddress, dwbuffersize.toInt(), lpbytesreturned.rawAddress)
 
 public actual fun filterLoad(lpfiltername: Pcwstr): Hresult =
     WindowsWin32StorageInstallablefilesystemsJniBridge.windowssysWindowsWin32StorageInstallablefilesystemsFilterLoad(lpfiltername.rawAddress)
 
-public actual fun filterReplyMessage(hport: Handle, lpreplybuffer: ConstPtr<FilterReplyHeader>, dwreplybuffersize: UInt): Hresult =
+public actual fun filterReplyMessage(hport: Handle, lpreplybuffer: ConstPtr, dwreplybuffersize: UInt): Hresult =
     WindowsWin32StorageInstallablefilesystemsJniBridge.windowssysWindowsWin32StorageInstallablefilesystemsFilterReplyMessage(hport.rawAddress, lpreplybuffer.rawAddress, dwreplybuffersize.toInt())
 
-public actual fun filterSendMessage(hport: Handle, lpinbuffer: ConstPtr<CVoid>, dwinbuffersize: UInt, lpoutbuffer: MutPtr<CVoid>, dwoutbuffersize: UInt, lpbytesreturned: MutPtr<UInt>): Hresult =
+public actual fun filterSendMessage(hport: Handle, lpinbuffer: ConstPtr, dwinbuffersize: UInt, lpoutbuffer: MutPtr, dwoutbuffersize: UInt, lpbytesreturned: MutPtr): Hresult =
     WindowsWin32StorageInstallablefilesystemsJniBridge.windowssysWindowsWin32StorageInstallablefilesystemsFilterSendMessage(hport.rawAddress, lpinbuffer.rawAddress, dwinbuffersize.toInt(), lpoutbuffer.rawAddress, dwoutbuffersize.toInt(), lpbytesreturned.rawAddress)
 
 public actual fun filterUnload(lpfiltername: Pcwstr): Hresult =
@@ -222,17 +219,17 @@ public actual fun filterUnload(lpfiltername: Pcwstr): Hresult =
 public actual fun filterVolumeFindClose(hvolumefind: Handle): Hresult =
     WindowsWin32StorageInstallablefilesystemsJniBridge.windowssysWindowsWin32StorageInstallablefilesystemsFilterVolumeFindClose(hvolumefind.rawAddress)
 
-public actual fun filterVolumeFindFirst(dwinformationclass: FilterVolumeInformationClass, lpbuffer: MutPtr<CVoid>, dwbuffersize: UInt, lpbytesreturned: MutPtr<UInt>, lpvolumefind: MutPtr<Handle>): Hresult =
+public actual fun filterVolumeFindFirst(dwinformationclass: FilterVolumeInformationClass, lpbuffer: MutPtr, dwbuffersize: UInt, lpbytesreturned: MutPtr, lpvolumefind: MutPtr): Hresult =
     WindowsWin32StorageInstallablefilesystemsJniBridge.windowssysWindowsWin32StorageInstallablefilesystemsFilterVolumeFindFirst(dwinformationclass, lpbuffer.rawAddress, dwbuffersize.toInt(), lpbytesreturned.rawAddress, lpvolumefind.rawAddress)
 
-public actual fun filterVolumeFindNext(hvolumefind: Handle, dwinformationclass: FilterVolumeInformationClass, lpbuffer: MutPtr<CVoid>, dwbuffersize: UInt, lpbytesreturned: MutPtr<UInt>): Hresult =
+public actual fun filterVolumeFindNext(hvolumefind: Handle, dwinformationclass: FilterVolumeInformationClass, lpbuffer: MutPtr, dwbuffersize: UInt, lpbytesreturned: MutPtr): Hresult =
     WindowsWin32StorageInstallablefilesystemsJniBridge.windowssysWindowsWin32StorageInstallablefilesystemsFilterVolumeFindNext(hvolumefind.rawAddress, dwinformationclass, lpbuffer.rawAddress, dwbuffersize.toInt(), lpbytesreturned.rawAddress)
 
 public actual fun filterVolumeInstanceFindClose(hvolumeinstancefind: Handle): Hresult =
     WindowsWin32StorageInstallablefilesystemsJniBridge.windowssysWindowsWin32StorageInstallablefilesystemsFilterVolumeInstanceFindClose(hvolumeinstancefind.rawAddress)
 
-public actual fun filterVolumeInstanceFindFirst(lpvolumename: Pcwstr, dwinformationclass: InstanceInformationClass, lpbuffer: MutPtr<CVoid>, dwbuffersize: UInt, lpbytesreturned: MutPtr<UInt>, lpvolumeinstancefind: MutPtr<Handle>): Hresult =
+public actual fun filterVolumeInstanceFindFirst(lpvolumename: Pcwstr, dwinformationclass: InstanceInformationClass, lpbuffer: MutPtr, dwbuffersize: UInt, lpbytesreturned: MutPtr, lpvolumeinstancefind: MutPtr): Hresult =
     WindowsWin32StorageInstallablefilesystemsJniBridge.windowssysWindowsWin32StorageInstallablefilesystemsFilterVolumeInstanceFindFirst(lpvolumename.rawAddress, dwinformationclass, lpbuffer.rawAddress, dwbuffersize.toInt(), lpbytesreturned.rawAddress, lpvolumeinstancefind.rawAddress)
 
-public actual fun filterVolumeInstanceFindNext(hvolumeinstancefind: Handle, dwinformationclass: InstanceInformationClass, lpbuffer: MutPtr<CVoid>, dwbuffersize: UInt, lpbytesreturned: MutPtr<UInt>): Hresult =
+public actual fun filterVolumeInstanceFindNext(hvolumeinstancefind: Handle, dwinformationclass: InstanceInformationClass, lpbuffer: MutPtr, dwbuffersize: UInt, lpbytesreturned: MutPtr): Hresult =
     WindowsWin32StorageInstallablefilesystemsJniBridge.windowssysWindowsWin32StorageInstallablefilesystemsFilterVolumeInstanceFindNext(hvolumeinstancefind.rawAddress, dwinformationclass, lpbuffer.rawAddress, dwbuffersize.toInt(), lpbytesreturned.rawAddress)

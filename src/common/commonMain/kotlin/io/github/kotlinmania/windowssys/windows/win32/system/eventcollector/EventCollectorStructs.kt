@@ -4,7 +4,6 @@ import io.github.kotlinmania.rustlang.core.ptr.ConstPtr
 import io.github.kotlinmania.rustlang.core.ptr.MutPtr
 import io.github.kotlinmania.windowssys.core.Bool
 import io.github.kotlinmania.windowssys.core.Pcwstr
-import io.github.kotlinmania.windowssys.core.Pwstr
 
 public data class EcVariant(
     public var anonymous: EcVariant0 = EcVariant0(),
@@ -17,25 +16,25 @@ public class EcVariant0 internal constructor(
     public var uInt32Val: UInt,
     public var dateTimeVal: ULong,
     stringValCtorArg: Pcwstr,
-    binaryValCtorArg: MutPtr<UByte>,
-    booleanArrCtorArg: MutPtr<Bool>,
-    int32ArrCtorArg: MutPtr<Int>,
-    stringArrCtorArg: MutPtr<Pwstr>,
+    binaryValCtorArg: MutPtr,
+    booleanArrCtorArg: MutPtr,
+    int32ArrCtorArg: MutPtr,
+    stringArrCtorArg: MutPtr,
     public var propertyHandleVal: Int,
 ) {
     public var stringVal: Pcwstr = stringValCtorArg
         internal set
 
-    public var binaryVal: MutPtr<UByte> = binaryValCtorArg
+    public var binaryVal: MutPtr = binaryValCtorArg
         internal set
 
-    public var booleanArr: MutPtr<Bool> = booleanArrCtorArg
+    public var booleanArr: MutPtr = booleanArrCtorArg
         internal set
 
-    public var int32Arr: MutPtr<Int> = int32ArrCtorArg
+    public var int32Arr: MutPtr = int32ArrCtorArg
         internal set
 
-    public var stringArr: MutPtr<Pwstr> = stringArrCtorArg
+    public var stringArr: MutPtr = stringArrCtorArg
         internal set
 
     public constructor() : this(
@@ -58,17 +57,17 @@ public class EcVariant0 internal constructor(
 
     public operator fun component4(): Pcwstr = this.stringVal
 
-    public operator fun component5(): MutPtr<UByte> = this.binaryVal
+    public operator fun component5(): MutPtr = this.binaryVal
 
-    public operator fun component6(): MutPtr<Bool> = this.booleanArr
+    public operator fun component6(): MutPtr = this.booleanArr
 
-    public operator fun component7(): MutPtr<Int> = this.int32Arr
+    public operator fun component7(): MutPtr = this.int32Arr
 
-    public operator fun component8(): MutPtr<Pwstr> = this.stringArr
+    public operator fun component8(): MutPtr = this.stringArr
 
     public operator fun component9(): Int = this.propertyHandleVal
 
-    public fun copy(booleanVal: Bool = this.booleanVal, uInt32Val: UInt = this.uInt32Val, dateTimeVal: ULong = this.dateTimeVal, stringVal: Pcwstr = this.stringVal, binaryVal: MutPtr<UByte> = this.binaryVal, booleanArr: MutPtr<Bool> = this.booleanArr, int32Arr: MutPtr<Int> = this.int32Arr, stringArr: MutPtr<Pwstr> = this.stringArr, propertyHandleVal: Int = this.propertyHandleVal): EcVariant0 = EcVariant0(booleanVal = booleanVal, uInt32Val = uInt32Val, dateTimeVal = dateTimeVal, stringValCtorArg = stringVal, binaryValCtorArg = binaryVal, booleanArrCtorArg = booleanArr, int32ArrCtorArg = int32Arr, stringArrCtorArg = stringArr, propertyHandleVal = propertyHandleVal)
+    public fun copy(booleanVal: Bool = this.booleanVal, uInt32Val: UInt = this.uInt32Val, dateTimeVal: ULong = this.dateTimeVal, stringVal: Pcwstr = this.stringVal, binaryVal: MutPtr = this.binaryVal, booleanArr: MutPtr = this.booleanArr, int32Arr: MutPtr = this.int32Arr, stringArr: MutPtr = this.stringArr, propertyHandleVal: Int = this.propertyHandleVal): EcVariant0 = EcVariant0(booleanVal = booleanVal, uInt32Val = uInt32Val, dateTimeVal = dateTimeVal, stringValCtorArg = stringVal, binaryValCtorArg = binaryVal, booleanArrCtorArg = booleanArr, int32ArrCtorArg = int32Arr, stringArrCtorArg = stringArr, propertyHandleVal = propertyHandleVal)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -104,10 +103,10 @@ public class EcVariant0 internal constructor(
             uInt32Val: UInt = 0u,
             dateTimeVal: ULong = 0uL,
             stringVal: Pcwstr = ConstPtr(0L),
-            binaryVal: MutPtr<UByte> = MutPtr(0L),
-            booleanArr: MutPtr<Bool> = MutPtr(0L),
-            int32Arr: MutPtr<Int> = MutPtr(0L),
-            stringArr: MutPtr<Pwstr> = MutPtr(0L),
+            binaryVal: MutPtr = MutPtr(0L),
+            booleanArr: MutPtr = MutPtr(0L),
+            int32Arr: MutPtr = MutPtr(0L),
+            stringArr: MutPtr = MutPtr(0L),
             propertyHandleVal: Int = 0,
         ): EcVariant0 =
             EcVariant0(

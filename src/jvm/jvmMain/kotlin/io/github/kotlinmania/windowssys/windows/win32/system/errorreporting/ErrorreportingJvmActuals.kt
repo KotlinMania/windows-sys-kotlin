@@ -2,7 +2,6 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.system.errorreporting
 
-import io.github.kotlinmania.rustlang.core.ffi.CVoid
 import io.github.kotlinmania.rustlang.core.ptr.ConstPtr
 import io.github.kotlinmania.rustlang.core.ptr.MutPtr
 import io.github.kotlinmania.windowssys.core.Bool
@@ -11,7 +10,6 @@ import io.github.kotlinmania.windowssys.core.Pcstr
 import io.github.kotlinmania.windowssys.core.Pcwstr
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Handle
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Hwnd
-import io.github.kotlinmania.windowssys.windows.win32.system.diagnostics.debug.ExceptionPointers
 
 private object WindowsWin32SystemErrorreportingJniBridge {
     init {
@@ -199,7 +197,7 @@ public actual fun addERExcludedApplicationA(szapplication: Pcstr): Bool =
 public actual fun addERExcludedApplicationW(wszapplication: Pcwstr): Bool =
     WindowsWin32SystemErrorreportingJniBridge.windowssysWindowsWin32SystemErrorreportingAddERExcludedApplicationW(wszapplication.rawAddress)
 
-public actual fun reportFault(pep: ConstPtr<ExceptionPointers>, dwopt: UInt): EFaultRepRetVal =
+public actual fun reportFault(pep: ConstPtr, dwopt: UInt): EFaultRepRetVal =
     WindowsWin32SystemErrorreportingJniBridge.windowssysWindowsWin32SystemErrorreportingReportFault(pep.rawAddress, dwopt.toInt())
 
 public actual fun werAddExcludedApplication(pwzexename: Pcwstr, ballusers: Bool): Hresult =
@@ -209,7 +207,7 @@ public actual fun werFreeString(pwszstr: Pcwstr) {
     WindowsWin32SystemErrorreportingJniBridge.windowssysWindowsWin32SystemErrorreportingWerFreeString(pwszstr.rawAddress)
 }
 
-public actual fun werGetFlags(hprocess: Handle, pdwflags: MutPtr<WerFaultReporting>): Hresult =
+public actual fun werGetFlags(hprocess: Handle, pdwflags: MutPtr): Hresult =
     WindowsWin32SystemErrorreportingJniBridge.windowssysWindowsWin32SystemErrorreportingWerGetFlags(hprocess.rawAddress, pdwflags.rawAddress)
 
 public actual fun werRegisterAdditionalProcess(processid: UInt, captureextrainfoforthreadid: UInt): Hresult =
@@ -221,22 +219,22 @@ public actual fun werRegisterAppLocalDump(localappdatarelativepath: Pcwstr): Hre
 public actual fun werRegisterCustomMetadata(key: Pcwstr, value: Pcwstr): Hresult =
     WindowsWin32SystemErrorreportingJniBridge.windowssysWindowsWin32SystemErrorreportingWerRegisterCustomMetadata(key.rawAddress, value.rawAddress)
 
-public actual fun werRegisterExcludedMemoryBlock(address: ConstPtr<CVoid>, size: UInt): Hresult =
+public actual fun werRegisterExcludedMemoryBlock(address: ConstPtr, size: UInt): Hresult =
     WindowsWin32SystemErrorreportingJniBridge.windowssysWindowsWin32SystemErrorreportingWerRegisterExcludedMemoryBlock(address.rawAddress, size.toInt())
 
 public actual fun werRegisterFile(pwzfile: Pcwstr, regfiletype: WerRegisterFileType, dwflags: WerFile): Hresult =
     WindowsWin32SystemErrorreportingJniBridge.windowssysWindowsWin32SystemErrorreportingWerRegisterFile(pwzfile.rawAddress, regfiletype, dwflags.toInt())
 
-public actual fun werRegisterMemoryBlock(pvaddress: ConstPtr<CVoid>, dwsize: UInt): Hresult =
+public actual fun werRegisterMemoryBlock(pvaddress: ConstPtr, dwsize: UInt): Hresult =
     WindowsWin32SystemErrorreportingJniBridge.windowssysWindowsWin32SystemErrorreportingWerRegisterMemoryBlock(pvaddress.rawAddress, dwsize.toInt())
 
-public actual fun werRegisterRuntimeExceptionModule(pwszoutofprocesscallbackdll: Pcwstr, pcontext: ConstPtr<CVoid>): Hresult =
+public actual fun werRegisterRuntimeExceptionModule(pwszoutofprocesscallbackdll: Pcwstr, pcontext: ConstPtr): Hresult =
     WindowsWin32SystemErrorreportingJniBridge.windowssysWindowsWin32SystemErrorreportingWerRegisterRuntimeExceptionModule(pwszoutofprocesscallbackdll.rawAddress, pcontext.rawAddress)
 
 public actual fun werRemoveExcludedApplication(pwzexename: Pcwstr, ballusers: Bool): Hresult =
     WindowsWin32SystemErrorreportingJniBridge.windowssysWindowsWin32SystemErrorreportingWerRemoveExcludedApplication(pwzexename.rawAddress, ballusers)
 
-public actual fun werReportAddDump(hreporthandle: Hreport, hprocess: Handle, hthread: Handle, dumptype: WerDumpType, pexceptionparam: ConstPtr<WerExceptionInformation>, pdumpcustomoptions: ConstPtr<WerDumpCustomOptions>, dwflags: UInt): Hresult =
+public actual fun werReportAddDump(hreporthandle: Hreport, hprocess: Handle, hthread: Handle, dumptype: WerDumpType, pexceptionparam: ConstPtr, pdumpcustomoptions: ConstPtr, dwflags: UInt): Hresult =
     WindowsWin32SystemErrorreportingJniBridge.windowssysWindowsWin32SystemErrorreportingWerReportAddDump(hreporthandle.rawAddress, hprocess.rawAddress, hthread.rawAddress, dumptype, pexceptionparam.rawAddress, pdumpcustomoptions.rawAddress, dwflags.toInt())
 
 public actual fun werReportAddFile(hreporthandle: Hreport, pwzpath: Pcwstr, repfiletype: WerFileType, dwfileflags: WerFile): Hresult =
@@ -245,7 +243,7 @@ public actual fun werReportAddFile(hreporthandle: Hreport, pwzpath: Pcwstr, repf
 public actual fun werReportCloseHandle(hreporthandle: Hreport): Hresult =
     WindowsWin32SystemErrorreportingJniBridge.windowssysWindowsWin32SystemErrorreportingWerReportCloseHandle(hreporthandle.rawAddress)
 
-public actual fun werReportCreate(pwzeventtype: Pcwstr, reptype: WerReportType, preportinformation: ConstPtr<WerReportInformation>, phreporthandle: MutPtr<Hreport>): Hresult =
+public actual fun werReportCreate(pwzeventtype: Pcwstr, reptype: WerReportType, preportinformation: ConstPtr, phreporthandle: MutPtr): Hresult =
     WindowsWin32SystemErrorreportingJniBridge.windowssysWindowsWin32SystemErrorreportingWerReportCreate(pwzeventtype.rawAddress, reptype, preportinformation.rawAddress, phreporthandle.rawAddress)
 
 public actual fun werReportHang(hwndhungapp: Hwnd, pwzhungapplicationname: Pcwstr): Hresult =
@@ -257,7 +255,7 @@ public actual fun werReportSetParameter(hreporthandle: Hreport, dwparamid: UInt,
 public actual fun werReportSetUIOption(hreporthandle: Hreport, repuitypeid: WerReportUi, pwzvalue: Pcwstr): Hresult =
     WindowsWin32SystemErrorreportingJniBridge.windowssysWindowsWin32SystemErrorreportingWerReportSetUIOption(hreporthandle.rawAddress, repuitypeid, pwzvalue.rawAddress)
 
-public actual fun werReportSubmit(hreporthandle: Hreport, consent: WerConsent, dwflags: WerSubmitFlags, psubmitresult: MutPtr<WerSubmitResult>): Hresult =
+public actual fun werReportSubmit(hreporthandle: Hreport, consent: WerConsent, dwflags: WerSubmitFlags, psubmitresult: MutPtr): Hresult =
     WindowsWin32SystemErrorreportingJniBridge.windowssysWindowsWin32SystemErrorreportingWerReportSubmit(hreporthandle.rawAddress, consent, dwflags.toInt(), psubmitresult.rawAddress)
 
 public actual fun werSetFlags(dwflags: WerFaultReporting): Hresult =
@@ -267,34 +265,34 @@ public actual fun werStoreClose(hreportstore: Hreportstore) {
     WindowsWin32SystemErrorreportingJniBridge.windowssysWindowsWin32SystemErrorreportingWerStoreClose(hreportstore.rawAddress)
 }
 
-public actual fun werStoreGetFirstReportKey(hreportstore: Hreportstore, ppszreportkey: MutPtr<Pcwstr>): Hresult =
+public actual fun werStoreGetFirstReportKey(hreportstore: Hreportstore, ppszreportkey: MutPtr): Hresult =
     WindowsWin32SystemErrorreportingJniBridge.windowssysWindowsWin32SystemErrorreportingWerStoreGetFirstReportKey(hreportstore.rawAddress, ppszreportkey.rawAddress)
 
-public actual fun werStoreGetNextReportKey(hreportstore: Hreportstore, ppszreportkey: MutPtr<Pcwstr>): Hresult =
+public actual fun werStoreGetNextReportKey(hreportstore: Hreportstore, ppszreportkey: MutPtr): Hresult =
     WindowsWin32SystemErrorreportingJniBridge.windowssysWindowsWin32SystemErrorreportingWerStoreGetNextReportKey(hreportstore.rawAddress, ppszreportkey.rawAddress)
 
-public actual fun werStoreGetReportCount(hreportstore: Hreportstore, pdwreportcount: MutPtr<UInt>): Hresult =
+public actual fun werStoreGetReportCount(hreportstore: Hreportstore, pdwreportcount: MutPtr): Hresult =
     WindowsWin32SystemErrorreportingJniBridge.windowssysWindowsWin32SystemErrorreportingWerStoreGetReportCount(hreportstore.rawAddress, pdwreportcount.rawAddress)
 
-public actual fun werStoreGetSizeOnDisk(hreportstore: Hreportstore, pqwsizeinbytes: MutPtr<ULong>): Hresult =
+public actual fun werStoreGetSizeOnDisk(hreportstore: Hreportstore, pqwsizeinbytes: MutPtr): Hresult =
     WindowsWin32SystemErrorreportingJniBridge.windowssysWindowsWin32SystemErrorreportingWerStoreGetSizeOnDisk(hreportstore.rawAddress, pqwsizeinbytes.rawAddress)
 
-public actual fun werStoreOpen(repstoretype: ReportStoreTypes, phreportstore: MutPtr<Hreportstore>): Hresult =
+public actual fun werStoreOpen(repstoretype: ReportStoreTypes, phreportstore: MutPtr): Hresult =
     WindowsWin32SystemErrorreportingJniBridge.windowssysWindowsWin32SystemErrorreportingWerStoreOpen(repstoretype, phreportstore.rawAddress)
 
 public actual fun werStorePurge(): Hresult =
     WindowsWin32SystemErrorreportingJniBridge.windowssysWindowsWin32SystemErrorreportingWerStorePurge()
 
-public actual fun werStoreQueryReportMetadataV1(hreportstore: Hreportstore, pszreportkey: Pcwstr, preportmetadata: MutPtr<WerReportMetadataV1>): Hresult =
+public actual fun werStoreQueryReportMetadataV1(hreportstore: Hreportstore, pszreportkey: Pcwstr, preportmetadata: MutPtr): Hresult =
     WindowsWin32SystemErrorreportingJniBridge.windowssysWindowsWin32SystemErrorreportingWerStoreQueryReportMetadataV1(hreportstore.rawAddress, pszreportkey.rawAddress, preportmetadata.rawAddress)
 
-public actual fun werStoreQueryReportMetadataV2(hreportstore: Hreportstore, pszreportkey: Pcwstr, preportmetadata: MutPtr<WerReportMetadataV2>): Hresult =
+public actual fun werStoreQueryReportMetadataV2(hreportstore: Hreportstore, pszreportkey: Pcwstr, preportmetadata: MutPtr): Hresult =
     WindowsWin32SystemErrorreportingJniBridge.windowssysWindowsWin32SystemErrorreportingWerStoreQueryReportMetadataV2(hreportstore.rawAddress, pszreportkey.rawAddress, preportmetadata.rawAddress)
 
-public actual fun werStoreQueryReportMetadataV3(hreportstore: Hreportstore, pszreportkey: Pcwstr, preportmetadata: MutPtr<WerReportMetadataV3>): Hresult =
+public actual fun werStoreQueryReportMetadataV3(hreportstore: Hreportstore, pszreportkey: Pcwstr, preportmetadata: MutPtr): Hresult =
     WindowsWin32SystemErrorreportingJniBridge.windowssysWindowsWin32SystemErrorreportingWerStoreQueryReportMetadataV3(hreportstore.rawAddress, pszreportkey.rawAddress, preportmetadata.rawAddress)
 
-public actual fun werStoreUploadReport(hreportstore: Hreportstore, pszreportkey: Pcwstr, dwflags: UInt, psubmitresult: MutPtr<WerSubmitResult>): Hresult =
+public actual fun werStoreUploadReport(hreportstore: Hreportstore, pszreportkey: Pcwstr, dwflags: UInt, psubmitresult: MutPtr): Hresult =
     WindowsWin32SystemErrorreportingJniBridge.windowssysWindowsWin32SystemErrorreportingWerStoreUploadReport(hreportstore.rawAddress, pszreportkey.rawAddress, dwflags.toInt(), psubmitresult.rawAddress)
 
 public actual fun werUnregisterAdditionalProcess(processid: UInt): Hresult =
@@ -306,14 +304,14 @@ public actual fun werUnregisterAppLocalDump(): Hresult =
 public actual fun werUnregisterCustomMetadata(key: Pcwstr): Hresult =
     WindowsWin32SystemErrorreportingJniBridge.windowssysWindowsWin32SystemErrorreportingWerUnregisterCustomMetadata(key.rawAddress)
 
-public actual fun werUnregisterExcludedMemoryBlock(address: ConstPtr<CVoid>): Hresult =
+public actual fun werUnregisterExcludedMemoryBlock(address: ConstPtr): Hresult =
     WindowsWin32SystemErrorreportingJniBridge.windowssysWindowsWin32SystemErrorreportingWerUnregisterExcludedMemoryBlock(address.rawAddress)
 
 public actual fun werUnregisterFile(pwzfilepath: Pcwstr): Hresult =
     WindowsWin32SystemErrorreportingJniBridge.windowssysWindowsWin32SystemErrorreportingWerUnregisterFile(pwzfilepath.rawAddress)
 
-public actual fun werUnregisterMemoryBlock(pvaddress: ConstPtr<CVoid>): Hresult =
+public actual fun werUnregisterMemoryBlock(pvaddress: ConstPtr): Hresult =
     WindowsWin32SystemErrorreportingJniBridge.windowssysWindowsWin32SystemErrorreportingWerUnregisterMemoryBlock(pvaddress.rawAddress)
 
-public actual fun werUnregisterRuntimeExceptionModule(pwszoutofprocesscallbackdll: Pcwstr, pcontext: ConstPtr<CVoid>): Hresult =
+public actual fun werUnregisterRuntimeExceptionModule(pwszoutofprocesscallbackdll: Pcwstr, pcontext: ConstPtr): Hresult =
     WindowsWin32SystemErrorreportingJniBridge.windowssysWindowsWin32SystemErrorreportingWerUnregisterRuntimeExceptionModule(pwszoutofprocesscallbackdll.rawAddress, pcontext.rawAddress)

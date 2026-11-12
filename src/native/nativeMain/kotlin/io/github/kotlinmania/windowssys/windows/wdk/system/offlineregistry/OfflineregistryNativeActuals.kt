@@ -2,7 +2,6 @@
 
 package io.github.kotlinmania.windowssys.windows.wdk.system.offlineregistry
 
-import io.github.kotlinmania.rustlang.core.ffi.CVoid
 import io.github.kotlinmania.rustlang.core.ptr.ConstPtr
 import io.github.kotlinmania.rustlang.core.ptr.MutPtr
 import io.github.kotlinmania.windowssys.core.Pcwstr
@@ -31,7 +30,6 @@ import io.github.kotlinmania.windowssys.windows.wdk.system.offlineregistry.cinte
 import io.github.kotlinmania.windowssys.windows.wdk.system.offlineregistry.cinterop.windowssysWindowsWdkSystemOfflineregistryORSetVirtualFlags
 import io.github.kotlinmania.windowssys.windows.wdk.system.offlineregistry.cinterop.windowssysWindowsWdkSystemOfflineregistryORShutdown
 import io.github.kotlinmania.windowssys.windows.wdk.system.offlineregistry.cinterop.windowssysWindowsWdkSystemOfflineregistryORStart
-import io.github.kotlinmania.windowssys.windows.win32.foundation.Filetime
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Handle
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Win32Error
 import io.github.kotlinmania.windowssys.windows.win32.security.PsecurityDescriptor
@@ -44,10 +42,10 @@ public actual fun oRCloseHive(handle: Orhkey): Win32Error =
 public actual fun oRCloseKey(keyhandle: Orhkey): Win32Error =
     windowssysWindowsWdkSystemOfflineregistryORCloseKey(keyhandle.rawAddress.toCPointer<ByteVar>())
 
-public actual fun oRCreateHive(horkey: MutPtr<Orhkey>): Win32Error =
+public actual fun oRCreateHive(horkey: MutPtr): Win32Error =
     windowssysWindowsWdkSystemOfflineregistryORCreateHive(horkey.rawAddress.toCPointer<ByteVar>())
 
-public actual fun oRCreateKey(keyhandle: Orhkey, lpsubkey: Pcwstr, lpclass: Pcwstr, dwoptions: UInt, psecuritydescriptor: PsecurityDescriptor, phkresult: MutPtr<Orhkey>, pdwdisposition: MutPtr<UInt>): Win32Error =
+public actual fun oRCreateKey(keyhandle: Orhkey, lpsubkey: Pcwstr, lpclass: Pcwstr, dwoptions: UInt, psecuritydescriptor: PsecurityDescriptor, phkresult: MutPtr, pdwdisposition: MutPtr): Win32Error =
     windowssysWindowsWdkSystemOfflineregistryORCreateKey(keyhandle.rawAddress.toCPointer<ByteVar>(), lpsubkey.rawAddress.toCPointer<ByteVar>(), lpclass.rawAddress.toCPointer<ByteVar>(), dwoptions, psecuritydescriptor.rawAddress.toCPointer<ByteVar>(), phkresult.rawAddress.toCPointer<ByteVar>(), pdwdisposition.rawAddress.toCPointer<ByteVar>())
 
 public actual fun oRDeleteKey(handle: Orhkey, lpsubkey: Pcwstr): Win32Error =
@@ -56,37 +54,37 @@ public actual fun oRDeleteKey(handle: Orhkey, lpsubkey: Pcwstr): Win32Error =
 public actual fun oRDeleteValue(handle: Orhkey, lpvaluename: Pcwstr): Win32Error =
     windowssysWindowsWdkSystemOfflineregistryORDeleteValue(handle.rawAddress.toCPointer<ByteVar>(), lpvaluename.rawAddress.toCPointer<ByteVar>())
 
-public actual fun oREnumKey(handle: Orhkey, dwindex: UInt, lpname: Pwstr, lpcname: MutPtr<UInt>, lpclass: Pwstr, lpcclass: MutPtr<UInt>, lpftlastwritetime: MutPtr<Filetime>): Win32Error =
+public actual fun oREnumKey(handle: Orhkey, dwindex: UInt, lpname: Pwstr, lpcname: MutPtr, lpclass: Pwstr, lpcclass: MutPtr, lpftlastwritetime: MutPtr): Win32Error =
     windowssysWindowsWdkSystemOfflineregistryOREnumKey(handle.rawAddress.toCPointer<ByteVar>(), dwindex, lpname.rawAddress.toCPointer<ByteVar>(), lpcname.rawAddress.toCPointer<ByteVar>(), lpclass.rawAddress.toCPointer<ByteVar>(), lpcclass.rawAddress.toCPointer<ByteVar>(), lpftlastwritetime.rawAddress.toCPointer<ByteVar>())
 
-public actual fun oREnumValue(handle: Orhkey, dwindex: UInt, lpvaluename: Pwstr, lpcvaluename: MutPtr<UInt>, lptype: MutPtr<UInt>, lpdata: MutPtr<UByte>, lpcbdata: MutPtr<UInt>): Win32Error =
+public actual fun oREnumValue(handle: Orhkey, dwindex: UInt, lpvaluename: Pwstr, lpcvaluename: MutPtr, lptype: MutPtr, lpdata: MutPtr, lpcbdata: MutPtr): Win32Error =
     windowssysWindowsWdkSystemOfflineregistryOREnumValue(handle.rawAddress.toCPointer<ByteVar>(), dwindex, lpvaluename.rawAddress.toCPointer<ByteVar>(), lpcvaluename.rawAddress.toCPointer<ByteVar>(), lptype.rawAddress.toCPointer<ByteVar>(), lpdata.rawAddress.toCPointer<ByteVar>(), lpcbdata.rawAddress.toCPointer<ByteVar>())
 
-public actual fun oRGetKeySecurity(handle: Orhkey, securityinformation: UInt, psecuritydescriptor: PsecurityDescriptor, lpcbsecuritydescriptor: MutPtr<UInt>): Win32Error =
+public actual fun oRGetKeySecurity(handle: Orhkey, securityinformation: UInt, psecuritydescriptor: PsecurityDescriptor, lpcbsecuritydescriptor: MutPtr): Win32Error =
     windowssysWindowsWdkSystemOfflineregistryORGetKeySecurity(handle.rawAddress.toCPointer<ByteVar>(), securityinformation, psecuritydescriptor.rawAddress.toCPointer<ByteVar>(), lpcbsecuritydescriptor.rawAddress.toCPointer<ByteVar>())
 
-public actual fun oRGetValue(handle: Orhkey, lpsubkey: Pcwstr, lpvalue: Pcwstr, pdwtype: MutPtr<UInt>, pvdata: MutPtr<CVoid>, pcbdata: MutPtr<UInt>): Win32Error =
+public actual fun oRGetValue(handle: Orhkey, lpsubkey: Pcwstr, lpvalue: Pcwstr, pdwtype: MutPtr, pvdata: MutPtr, pcbdata: MutPtr): Win32Error =
     windowssysWindowsWdkSystemOfflineregistryORGetValue(handle.rawAddress.toCPointer<ByteVar>(), lpsubkey.rawAddress.toCPointer<ByteVar>(), lpvalue.rawAddress.toCPointer<ByteVar>(), pdwtype.rawAddress.toCPointer<ByteVar>(), pvdata.rawAddress.toCPointer<ByteVar>(), pcbdata.rawAddress.toCPointer<ByteVar>())
 
-public actual fun oRGetVersion(pdwmajorversion: MutPtr<UInt>, pdwminorversion: MutPtr<UInt>): Win32Error =
+public actual fun oRGetVersion(pdwmajorversion: MutPtr, pdwminorversion: MutPtr): Win32Error =
     windowssysWindowsWdkSystemOfflineregistryORGetVersion(pdwmajorversion.rawAddress.toCPointer<ByteVar>(), pdwminorversion.rawAddress.toCPointer<ByteVar>())
 
-public actual fun oRGetVirtualFlags(handle: Orhkey, pdwflags: MutPtr<UInt>): Win32Error =
+public actual fun oRGetVirtualFlags(handle: Orhkey, pdwflags: MutPtr): Win32Error =
     windowssysWindowsWdkSystemOfflineregistryORGetVirtualFlags(handle.rawAddress.toCPointer<ByteVar>(), pdwflags.rawAddress.toCPointer<ByteVar>())
 
-public actual fun oRMergeHives(hivehandles: ConstPtr<Orhkey>, hivecount: UInt, phkresult: MutPtr<Orhkey>): Win32Error =
+public actual fun oRMergeHives(hivehandles: ConstPtr, hivecount: UInt, phkresult: MutPtr): Win32Error =
     windowssysWindowsWdkSystemOfflineregistryORMergeHives(hivehandles.rawAddress.toCPointer<ByteVar>(), hivecount, phkresult.rawAddress.toCPointer<ByteVar>())
 
-public actual fun oROpenHive(filepath: Pcwstr, horkey: MutPtr<Orhkey>): Win32Error =
+public actual fun oROpenHive(filepath: Pcwstr, horkey: MutPtr): Win32Error =
     windowssysWindowsWdkSystemOfflineregistryOROpenHive(filepath.rawAddress.toCPointer<ByteVar>(), horkey.rawAddress.toCPointer<ByteVar>())
 
-public actual fun oROpenHiveByHandle(filehandle: Handle, horkey: MutPtr<Orhkey>): Win32Error =
+public actual fun oROpenHiveByHandle(filehandle: Handle, horkey: MutPtr): Win32Error =
     windowssysWindowsWdkSystemOfflineregistryOROpenHiveByHandle(filehandle.rawAddress.toCPointer<ByteVar>(), horkey.rawAddress.toCPointer<ByteVar>())
 
-public actual fun oROpenKey(handle: Orhkey, lpsubkey: Pcwstr, phkresult: MutPtr<Orhkey>): Win32Error =
+public actual fun oROpenKey(handle: Orhkey, lpsubkey: Pcwstr, phkresult: MutPtr): Win32Error =
     windowssysWindowsWdkSystemOfflineregistryOROpenKey(handle.rawAddress.toCPointer<ByteVar>(), lpsubkey.rawAddress.toCPointer<ByteVar>(), phkresult.rawAddress.toCPointer<ByteVar>())
 
-public actual fun oRQueryInfoKey(handle: Orhkey, lpclass: Pwstr, lpcclass: MutPtr<UInt>, lpcsubkeys: MutPtr<UInt>, lpcmaxsubkeylen: MutPtr<UInt>, lpcmaxclasslen: MutPtr<UInt>, lpcvalues: MutPtr<UInt>, lpcmaxvaluenamelen: MutPtr<UInt>, lpcmaxvaluelen: MutPtr<UInt>, lpcbsecuritydescriptor: MutPtr<UInt>, lpftlastwritetime: MutPtr<Filetime>): Win32Error =
+public actual fun oRQueryInfoKey(handle: Orhkey, lpclass: Pwstr, lpcclass: MutPtr, lpcsubkeys: MutPtr, lpcmaxsubkeylen: MutPtr, lpcmaxclasslen: MutPtr, lpcvalues: MutPtr, lpcmaxvaluenamelen: MutPtr, lpcmaxvaluelen: MutPtr, lpcbsecuritydescriptor: MutPtr, lpftlastwritetime: MutPtr): Win32Error =
     windowssysWindowsWdkSystemOfflineregistryORQueryInfoKey(handle.rawAddress.toCPointer<ByteVar>(), lpclass.rawAddress.toCPointer<ByteVar>(), lpcclass.rawAddress.toCPointer<ByteVar>(), lpcsubkeys.rawAddress.toCPointer<ByteVar>(), lpcmaxsubkeylen.rawAddress.toCPointer<ByteVar>(), lpcmaxclasslen.rawAddress.toCPointer<ByteVar>(), lpcvalues.rawAddress.toCPointer<ByteVar>(), lpcmaxvaluenamelen.rawAddress.toCPointer<ByteVar>(), lpcmaxvaluelen.rawAddress.toCPointer<ByteVar>(), lpcbsecuritydescriptor.rawAddress.toCPointer<ByteVar>(), lpftlastwritetime.rawAddress.toCPointer<ByteVar>())
 
 public actual fun oRRenameKey(handle: Orhkey, lpnewname: Pcwstr): Win32Error =
@@ -98,7 +96,7 @@ public actual fun oRSaveHive(horkey: Orhkey, hivepath: Pcwstr, osmajorversion: U
 public actual fun oRSetKeySecurity(handle: Orhkey, securityinformation: UInt, psecuritydescriptor: PsecurityDescriptor): Win32Error =
     windowssysWindowsWdkSystemOfflineregistryORSetKeySecurity(handle.rawAddress.toCPointer<ByteVar>(), securityinformation, psecuritydescriptor.rawAddress.toCPointer<ByteVar>())
 
-public actual fun oRSetValue(handle: Orhkey, lpvaluename: Pcwstr, dwtype: UInt, lpdata: ConstPtr<UByte>, cbdata: UInt): Win32Error =
+public actual fun oRSetValue(handle: Orhkey, lpvaluename: Pcwstr, dwtype: UInt, lpdata: ConstPtr, cbdata: UInt): Win32Error =
     windowssysWindowsWdkSystemOfflineregistryORSetValue(handle.rawAddress.toCPointer<ByteVar>(), lpvaluename.rawAddress.toCPointer<ByteVar>(), dwtype, lpdata.rawAddress.toCPointer<ByteVar>(), cbdata)
 
 public actual fun oRSetVirtualFlags(handle: Orhkey, dwflags: UInt): Win32Error =

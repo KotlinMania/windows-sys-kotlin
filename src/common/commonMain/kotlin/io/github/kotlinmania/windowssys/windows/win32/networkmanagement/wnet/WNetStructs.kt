@@ -1,6 +1,5 @@
 package io.github.kotlinmania.windowssys.windows.win32.networkmanagement.wnet
 
-import io.github.kotlinmania.rustlang.core.ffi.CVoid
 import io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
 import io.github.kotlinmania.rustlang.core.mem.TypeLayout
 import io.github.kotlinmania.rustlang.core.ptr.MutPtr
@@ -13,14 +12,14 @@ import io.github.kotlinmania.windowssys.windows.win32.foundation.Win32Error
 public class Connectdlgstructa internal constructor(
     public var cbStructure: UInt,
     hwndOwnerCtorArg: Hwnd,
-    lpConnResCtorArg: MutPtr<Netresourcea>,
+    lpConnResCtorArg: MutPtr,
     public var dwFlags: ConnectdlgstructFlags,
     public var dwDevNum: UInt,
 ) {
     public var hwndOwner: Hwnd = hwndOwnerCtorArg
         internal set
 
-    public var lpConnRes: MutPtr<Netresourcea> = lpConnResCtorArg
+    public var lpConnRes: MutPtr = lpConnResCtorArg
         internal set
 
     public constructor() : this(
@@ -35,13 +34,13 @@ public class Connectdlgstructa internal constructor(
 
     public operator fun component2(): Hwnd = this.hwndOwner
 
-    public operator fun component3(): MutPtr<Netresourcea> = this.lpConnRes
+    public operator fun component3(): MutPtr = this.lpConnRes
 
     public operator fun component4(): ConnectdlgstructFlags = this.dwFlags
 
     public operator fun component5(): UInt = this.dwDevNum
 
-    public fun copy(cbStructure: UInt = this.cbStructure, hwndOwner: Hwnd = this.hwndOwner, lpConnRes: MutPtr<Netresourcea> = this.lpConnRes, dwFlags: ConnectdlgstructFlags = this.dwFlags, dwDevNum: UInt = this.dwDevNum): Connectdlgstructa = Connectdlgstructa(cbStructure = cbStructure, hwndOwnerCtorArg = hwndOwner, lpConnResCtorArg = lpConnRes, dwFlags = dwFlags, dwDevNum = dwDevNum)
+    public fun copy(cbStructure: UInt = this.cbStructure, hwndOwner: Hwnd = this.hwndOwner, lpConnRes: MutPtr = this.lpConnRes, dwFlags: ConnectdlgstructFlags = this.dwFlags, dwDevNum: UInt = this.dwDevNum): Connectdlgstructa = Connectdlgstructa(cbStructure = cbStructure, hwndOwnerCtorArg = hwndOwner, lpConnResCtorArg = lpConnRes, dwFlags = dwFlags, dwDevNum = dwDevNum)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -67,7 +66,7 @@ public class Connectdlgstructa internal constructor(
         public operator fun invoke(
             cbStructure: UInt = 0u,
             hwndOwner: Hwnd = MutPtr(0L),
-            lpConnRes: MutPtr<Netresourcea> = MutPtr(0L),
+            lpConnRes: MutPtr = MutPtr(0L),
             dwFlags: ConnectdlgstructFlags = 0u,
             dwDevNum: UInt = 0u,
         ): Connectdlgstructa =
@@ -84,14 +83,14 @@ public class Connectdlgstructa internal constructor(
 public class Connectdlgstructw internal constructor(
     public var cbStructure: UInt,
     hwndOwnerCtorArg: Hwnd,
-    lpConnResCtorArg: MutPtr<Netresourcew>,
+    lpConnResCtorArg: MutPtr,
     public var dwFlags: ConnectdlgstructFlags,
     public var dwDevNum: UInt,
 ) {
     public var hwndOwner: Hwnd = hwndOwnerCtorArg
         internal set
 
-    public var lpConnRes: MutPtr<Netresourcew> = lpConnResCtorArg
+    public var lpConnRes: MutPtr = lpConnResCtorArg
         internal set
 
     public constructor() : this(
@@ -106,13 +105,13 @@ public class Connectdlgstructw internal constructor(
 
     public operator fun component2(): Hwnd = this.hwndOwner
 
-    public operator fun component3(): MutPtr<Netresourcew> = this.lpConnRes
+    public operator fun component3(): MutPtr = this.lpConnRes
 
     public operator fun component4(): ConnectdlgstructFlags = this.dwFlags
 
     public operator fun component5(): UInt = this.dwDevNum
 
-    public fun copy(cbStructure: UInt = this.cbStructure, hwndOwner: Hwnd = this.hwndOwner, lpConnRes: MutPtr<Netresourcew> = this.lpConnRes, dwFlags: ConnectdlgstructFlags = this.dwFlags, dwDevNum: UInt = this.dwDevNum): Connectdlgstructw = Connectdlgstructw(cbStructure = cbStructure, hwndOwnerCtorArg = hwndOwner, lpConnResCtorArg = lpConnRes, dwFlags = dwFlags, dwDevNum = dwDevNum)
+    public fun copy(cbStructure: UInt = this.cbStructure, hwndOwner: Hwnd = this.hwndOwner, lpConnRes: MutPtr = this.lpConnRes, dwFlags: ConnectdlgstructFlags = this.dwFlags, dwDevNum: UInt = this.dwDevNum): Connectdlgstructw = Connectdlgstructw(cbStructure = cbStructure, hwndOwnerCtorArg = hwndOwner, lpConnResCtorArg = lpConnRes, dwFlags = dwFlags, dwDevNum = dwDevNum)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -138,7 +137,7 @@ public class Connectdlgstructw internal constructor(
         public operator fun invoke(
             cbStructure: UInt = 0u,
             hwndOwner: Hwnd = MutPtr(0L),
-            lpConnRes: MutPtr<Netresourcew> = MutPtr(0L),
+            lpConnRes: MutPtr = MutPtr(0L),
             dwFlags: ConnectdlgstructFlags = 0u,
             dwDevNum: UInt = 0u,
         ): Connectdlgstructw =
@@ -691,9 +690,9 @@ public class Notifycancel internal constructor(
 public class Notifyinfo internal constructor(
     public var dwNotifyStatus: UInt,
     public var dwOperationStatus: UInt,
-    lpContextCtorArg: MutPtr<CVoid>,
+    lpContextCtorArg: MutPtr,
 ) {
-    public var lpContext: MutPtr<CVoid> = lpContextCtorArg
+    public var lpContext: MutPtr = lpContextCtorArg
         internal set
 
     public constructor() : this(
@@ -706,9 +705,9 @@ public class Notifyinfo internal constructor(
 
     public operator fun component2(): UInt = this.dwOperationStatus
 
-    public operator fun component3(): MutPtr<CVoid> = this.lpContext
+    public operator fun component3(): MutPtr = this.lpContext
 
-    public fun copy(dwNotifyStatus: UInt = this.dwNotifyStatus, dwOperationStatus: UInt = this.dwOperationStatus, lpContext: MutPtr<CVoid> = this.lpContext): Notifyinfo = Notifyinfo(dwNotifyStatus = dwNotifyStatus, dwOperationStatus = dwOperationStatus, lpContextCtorArg = lpContext)
+    public fun copy(dwNotifyStatus: UInt = this.dwNotifyStatus, dwOperationStatus: UInt = this.dwOperationStatus, lpContext: MutPtr = this.lpContext): Notifyinfo = Notifyinfo(dwNotifyStatus = dwNotifyStatus, dwOperationStatus = dwOperationStatus, lpContextCtorArg = lpContext)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -737,7 +736,7 @@ public class Notifyinfo internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 4L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<CVoid>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                     )
                 override fun writeNative(addr: Long, value: Notifyinfo) {
@@ -745,7 +744,7 @@ public class Notifyinfo internal constructor(
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 4L, value.dwOperationStatus)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<CVoid>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.lpContext)
                 }
             }
@@ -753,7 +752,7 @@ public class Notifyinfo internal constructor(
         public operator fun invoke(
             dwNotifyStatus: UInt = 0u,
             dwOperationStatus: UInt = 0u,
-            lpContext: MutPtr<CVoid> = MutPtr(0L),
+            lpContext: MutPtr = MutPtr(0L),
         ): Notifyinfo =
             Notifyinfo(
                 dwNotifyStatus = dwNotifyStatus,

@@ -2,7 +2,6 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.system.eventlog
 
-import io.github.kotlinmania.rustlang.core.ffi.CVoid
 import io.github.kotlinmania.rustlang.core.ptr.ConstPtr
 import io.github.kotlinmania.rustlang.core.ptr.MutPtr
 import io.github.kotlinmania.windowssys.core.Bool
@@ -215,52 +214,52 @@ public actual fun evtClose(obj: EvtHandle): Bool =
 public actual fun evtCreateBookmark(bookmarkxml: Pcwstr): EvtHandle =
     if (windowsWin32SystemEventlogNapiAvailable) wasmWindowssysWindowsWin32SystemEventlogEvtCreateBookmark(bookmarkxml.rawAddress.toString()).toLong() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun evtCreateRenderContext(valuepathscount: UInt, valuepaths: ConstPtr<Pcwstr>, flags: UInt): EvtHandle =
+public actual fun evtCreateRenderContext(valuepathscount: UInt, valuepaths: ConstPtr, flags: UInt): EvtHandle =
     if (windowsWin32SystemEventlogNapiAvailable) wasmWindowssysWindowsWin32SystemEventlogEvtCreateRenderContext(valuepathscount.toInt(), valuepaths.rawAddress.toString(), flags.toInt()).toLong() else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun evtExportLog(session: EvtHandle, path: Pcwstr, query: Pcwstr, targetfilepath: Pcwstr, flags: UInt): Bool =
     if (windowsWin32SystemEventlogNapiAvailable) wasmWindowssysWindowsWin32SystemEventlogEvtExportLog(session.toString(), path.rawAddress.toString(), query.rawAddress.toString(), targetfilepath.rawAddress.toString(), flags.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun evtFormatMessage(publishermetadata: EvtHandle, event: EvtHandle, messageid: UInt, valuecount: UInt, values: ConstPtr<EvtVariant>, flags: UInt, buffersize: UInt, buffer: Pwstr, bufferused: MutPtr<UInt>): Bool =
+public actual fun evtFormatMessage(publishermetadata: EvtHandle, event: EvtHandle, messageid: UInt, valuecount: UInt, values: ConstPtr, flags: UInt, buffersize: UInt, buffer: Pwstr, bufferused: MutPtr): Bool =
     if (windowsWin32SystemEventlogNapiAvailable) wasmWindowssysWindowsWin32SystemEventlogEvtFormatMessage(publishermetadata.toString(), event.toString(), messageid.toInt(), valuecount.toInt(), values.rawAddress.toString(), flags.toInt(), buffersize.toInt(), buffer.rawAddress.toString(), bufferused.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun evtGetChannelConfigProperty(channelconfig: EvtHandle, propertyid: EvtChannelConfigPropertyId, flags: UInt, propertyvaluebuffersize: UInt, propertyvaluebuffer: MutPtr<EvtVariant>, propertyvaluebufferused: MutPtr<UInt>): Bool =
+public actual fun evtGetChannelConfigProperty(channelconfig: EvtHandle, propertyid: EvtChannelConfigPropertyId, flags: UInt, propertyvaluebuffersize: UInt, propertyvaluebuffer: MutPtr, propertyvaluebufferused: MutPtr): Bool =
     if (windowsWin32SystemEventlogNapiAvailable) wasmWindowssysWindowsWin32SystemEventlogEvtGetChannelConfigProperty(channelconfig.toString(), propertyid, flags.toInt(), propertyvaluebuffersize.toInt(), propertyvaluebuffer.rawAddress.toString(), propertyvaluebufferused.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun evtGetEventInfo(event: EvtHandle, propertyid: EvtEventPropertyId, propertyvaluebuffersize: UInt, propertyvaluebuffer: MutPtr<EvtVariant>, propertyvaluebufferused: MutPtr<UInt>): Bool =
+public actual fun evtGetEventInfo(event: EvtHandle, propertyid: EvtEventPropertyId, propertyvaluebuffersize: UInt, propertyvaluebuffer: MutPtr, propertyvaluebufferused: MutPtr): Bool =
     if (windowsWin32SystemEventlogNapiAvailable) wasmWindowssysWindowsWin32SystemEventlogEvtGetEventInfo(event.toString(), propertyid, propertyvaluebuffersize.toInt(), propertyvaluebuffer.rawAddress.toString(), propertyvaluebufferused.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun evtGetEventMetadataProperty(eventmetadata: EvtHandle, propertyid: EvtEventMetadataPropertyId, flags: UInt, eventmetadatapropertybuffersize: UInt, eventmetadatapropertybuffer: MutPtr<EvtVariant>, eventmetadatapropertybufferused: MutPtr<UInt>): Bool =
+public actual fun evtGetEventMetadataProperty(eventmetadata: EvtHandle, propertyid: EvtEventMetadataPropertyId, flags: UInt, eventmetadatapropertybuffersize: UInt, eventmetadatapropertybuffer: MutPtr, eventmetadatapropertybufferused: MutPtr): Bool =
     if (windowsWin32SystemEventlogNapiAvailable) wasmWindowssysWindowsWin32SystemEventlogEvtGetEventMetadataProperty(eventmetadata.toString(), propertyid, flags.toInt(), eventmetadatapropertybuffersize.toInt(), eventmetadatapropertybuffer.rawAddress.toString(), eventmetadatapropertybufferused.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun evtGetExtendedStatus(buffersize: UInt, buffer: Pwstr, bufferused: MutPtr<UInt>): UInt =
+public actual fun evtGetExtendedStatus(buffersize: UInt, buffer: Pwstr, bufferused: MutPtr): UInt =
     if (windowsWin32SystemEventlogNapiAvailable) wasmWindowssysWindowsWin32SystemEventlogEvtGetExtendedStatus(buffersize.toInt(), buffer.rawAddress.toString(), bufferused.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun evtGetLogInfo(log: EvtHandle, propertyid: EvtLogPropertyId, propertyvaluebuffersize: UInt, propertyvaluebuffer: MutPtr<EvtVariant>, propertyvaluebufferused: MutPtr<UInt>): Bool =
+public actual fun evtGetLogInfo(log: EvtHandle, propertyid: EvtLogPropertyId, propertyvaluebuffersize: UInt, propertyvaluebuffer: MutPtr, propertyvaluebufferused: MutPtr): Bool =
     if (windowsWin32SystemEventlogNapiAvailable) wasmWindowssysWindowsWin32SystemEventlogEvtGetLogInfo(log.toString(), propertyid, propertyvaluebuffersize.toInt(), propertyvaluebuffer.rawAddress.toString(), propertyvaluebufferused.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun evtGetObjectArrayProperty(objectarray: Long, propertyid: UInt, arrayindex: UInt, flags: UInt, propertyvaluebuffersize: UInt, propertyvaluebuffer: MutPtr<EvtVariant>, propertyvaluebufferused: MutPtr<UInt>): Bool =
+public actual fun evtGetObjectArrayProperty(objectarray: Long, propertyid: UInt, arrayindex: UInt, flags: UInt, propertyvaluebuffersize: UInt, propertyvaluebuffer: MutPtr, propertyvaluebufferused: MutPtr): Bool =
     if (windowsWin32SystemEventlogNapiAvailable) wasmWindowssysWindowsWin32SystemEventlogEvtGetObjectArrayProperty(objectarray.toString(), propertyid.toInt(), arrayindex.toInt(), flags.toInt(), propertyvaluebuffersize.toInt(), propertyvaluebuffer.rawAddress.toString(), propertyvaluebufferused.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun evtGetObjectArraySize(objectarray: Long, objectarraysize: MutPtr<UInt>): Bool =
+public actual fun evtGetObjectArraySize(objectarray: Long, objectarraysize: MutPtr): Bool =
     if (windowsWin32SystemEventlogNapiAvailable) wasmWindowssysWindowsWin32SystemEventlogEvtGetObjectArraySize(objectarray.toString(), objectarraysize.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun evtGetPublisherMetadataProperty(publishermetadata: EvtHandle, propertyid: EvtPublisherMetadataPropertyId, flags: UInt, publishermetadatapropertybuffersize: UInt, publishermetadatapropertybuffer: MutPtr<EvtVariant>, publishermetadatapropertybufferused: MutPtr<UInt>): Bool =
+public actual fun evtGetPublisherMetadataProperty(publishermetadata: EvtHandle, propertyid: EvtPublisherMetadataPropertyId, flags: UInt, publishermetadatapropertybuffersize: UInt, publishermetadatapropertybuffer: MutPtr, publishermetadatapropertybufferused: MutPtr): Bool =
     if (windowsWin32SystemEventlogNapiAvailable) wasmWindowssysWindowsWin32SystemEventlogEvtGetPublisherMetadataProperty(publishermetadata.toString(), propertyid, flags.toInt(), publishermetadatapropertybuffersize.toInt(), publishermetadatapropertybuffer.rawAddress.toString(), publishermetadatapropertybufferused.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun evtGetQueryInfo(queryorsubscription: EvtHandle, propertyid: EvtQueryPropertyId, propertyvaluebuffersize: UInt, propertyvaluebuffer: MutPtr<EvtVariant>, propertyvaluebufferused: MutPtr<UInt>): Bool =
+public actual fun evtGetQueryInfo(queryorsubscription: EvtHandle, propertyid: EvtQueryPropertyId, propertyvaluebuffersize: UInt, propertyvaluebuffer: MutPtr, propertyvaluebufferused: MutPtr): Bool =
     if (windowsWin32SystemEventlogNapiAvailable) wasmWindowssysWindowsWin32SystemEventlogEvtGetQueryInfo(queryorsubscription.toString(), propertyid, propertyvaluebuffersize.toInt(), propertyvaluebuffer.rawAddress.toString(), propertyvaluebufferused.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun evtNext(resultset: EvtHandle, eventssize: UInt, events: MutPtr<Long>, timeout: UInt, flags: UInt, returned: MutPtr<UInt>): Bool =
+public actual fun evtNext(resultset: EvtHandle, eventssize: UInt, events: MutPtr, timeout: UInt, flags: UInt, returned: MutPtr): Bool =
     if (windowsWin32SystemEventlogNapiAvailable) wasmWindowssysWindowsWin32SystemEventlogEvtNext(resultset.toString(), eventssize.toInt(), events.rawAddress.toString(), timeout.toInt(), flags.toInt(), returned.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun evtNextChannelPath(channelenum: EvtHandle, channelpathbuffersize: UInt, channelpathbuffer: Pwstr, channelpathbufferused: MutPtr<UInt>): Bool =
+public actual fun evtNextChannelPath(channelenum: EvtHandle, channelpathbuffersize: UInt, channelpathbuffer: Pwstr, channelpathbufferused: MutPtr): Bool =
     if (windowsWin32SystemEventlogNapiAvailable) wasmWindowssysWindowsWin32SystemEventlogEvtNextChannelPath(channelenum.toString(), channelpathbuffersize.toInt(), channelpathbuffer.rawAddress.toString(), channelpathbufferused.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun evtNextEventMetadata(eventmetadataenum: EvtHandle, flags: UInt): EvtHandle =
     if (windowsWin32SystemEventlogNapiAvailable) wasmWindowssysWindowsWin32SystemEventlogEvtNextEventMetadata(eventmetadataenum.toString(), flags.toInt()).toLong() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun evtNextPublisherId(publisherenum: EvtHandle, publisheridbuffersize: UInt, publisheridbuffer: Pwstr, publisheridbufferused: MutPtr<UInt>): Bool =
+public actual fun evtNextPublisherId(publisherenum: EvtHandle, publisheridbuffersize: UInt, publisheridbuffer: Pwstr, publisheridbufferused: MutPtr): Bool =
     if (windowsWin32SystemEventlogNapiAvailable) wasmWindowssysWindowsWin32SystemEventlogEvtNextPublisherId(publisherenum.toString(), publisheridbuffersize.toInt(), publisheridbuffer.rawAddress.toString(), publisheridbufferused.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun evtOpenChannelConfig(session: EvtHandle, channelpath: Pcwstr, flags: UInt): EvtHandle =
@@ -281,13 +280,13 @@ public actual fun evtOpenPublisherEnum(session: EvtHandle, flags: UInt): EvtHand
 public actual fun evtOpenPublisherMetadata(session: EvtHandle, publisherid: Pcwstr, logfilepath: Pcwstr, locale: UInt, flags: UInt): EvtHandle =
     if (windowsWin32SystemEventlogNapiAvailable) wasmWindowssysWindowsWin32SystemEventlogEvtOpenPublisherMetadata(session.toString(), publisherid.rawAddress.toString(), logfilepath.rawAddress.toString(), locale.toInt(), flags.toInt()).toLong() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun evtOpenSession(loginclass: EvtLoginClass, login: ConstPtr<CVoid>, timeout: UInt, flags: UInt): EvtHandle =
+public actual fun evtOpenSession(loginclass: EvtLoginClass, login: ConstPtr, timeout: UInt, flags: UInt): EvtHandle =
     if (windowsWin32SystemEventlogNapiAvailable) wasmWindowssysWindowsWin32SystemEventlogEvtOpenSession(loginclass, login.rawAddress.toString(), timeout.toInt(), flags.toInt()).toLong() else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun evtQuery(session: EvtHandle, path: Pcwstr, query: Pcwstr, flags: UInt): EvtHandle =
     if (windowsWin32SystemEventlogNapiAvailable) wasmWindowssysWindowsWin32SystemEventlogEvtQuery(session.toString(), path.rawAddress.toString(), query.rawAddress.toString(), flags.toInt()).toLong() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun evtRender(context: EvtHandle, fragment: EvtHandle, flags: UInt, buffersize: UInt, buffer: MutPtr<CVoid>, bufferused: MutPtr<UInt>, propertycount: MutPtr<UInt>): Bool =
+public actual fun evtRender(context: EvtHandle, fragment: EvtHandle, flags: UInt, buffersize: UInt, buffer: MutPtr, bufferused: MutPtr, propertycount: MutPtr): Bool =
     if (windowsWin32SystemEventlogNapiAvailable) wasmWindowssysWindowsWin32SystemEventlogEvtRender(context.toString(), fragment.toString(), flags.toInt(), buffersize.toInt(), buffer.rawAddress.toString(), bufferused.rawAddress.toString(), propertycount.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun evtSaveChannelConfig(channelconfig: EvtHandle, flags: UInt): Bool =
@@ -296,22 +295,22 @@ public actual fun evtSaveChannelConfig(channelconfig: EvtHandle, flags: UInt): B
 public actual fun evtSeek(resultset: EvtHandle, position: Long, bookmark: EvtHandle, timeout: UInt, flags: UInt): Bool =
     if (windowsWin32SystemEventlogNapiAvailable) wasmWindowssysWindowsWin32SystemEventlogEvtSeek(resultset.toString(), position.toString(), bookmark.toString(), timeout.toInt(), flags.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun evtSetChannelConfigProperty(channelconfig: EvtHandle, propertyid: EvtChannelConfigPropertyId, flags: UInt, propertyvalue: ConstPtr<EvtVariant>): Bool =
+public actual fun evtSetChannelConfigProperty(channelconfig: EvtHandle, propertyid: EvtChannelConfigPropertyId, flags: UInt, propertyvalue: ConstPtr): Bool =
     if (windowsWin32SystemEventlogNapiAvailable) wasmWindowssysWindowsWin32SystemEventlogEvtSetChannelConfigProperty(channelconfig.toString(), propertyid, flags.toInt(), propertyvalue.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun evtSubscribe(session: EvtHandle, signalevent: Handle, channelpath: Pcwstr, query: Pcwstr, bookmark: EvtHandle, context: ConstPtr<CVoid>, callback: EvtSubscribeCallback, flags: UInt): EvtHandle =
+public actual fun evtSubscribe(session: EvtHandle, signalevent: Handle, channelpath: Pcwstr, query: Pcwstr, bookmark: EvtHandle, context: ConstPtr, callback: EvtSubscribeCallback, flags: UInt): EvtHandle =
     if (windowsWin32SystemEventlogNapiAvailable) wasmWindowssysWindowsWin32SystemEventlogEvtSubscribe(session.toString(), signalevent.rawAddress.toString(), channelpath.rawAddress.toString(), query.rawAddress.toString(), bookmark.toString(), context.rawAddress.toString(), 0L.toString(), flags.toInt()).toLong() else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun evtUpdateBookmark(bookmark: EvtHandle, event: EvtHandle): Bool =
     if (windowsWin32SystemEventlogNapiAvailable) wasmWindowssysWindowsWin32SystemEventlogEvtUpdateBookmark(bookmark.toString(), event.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun getEventLogInformation(heventlog: Handle, dwinfolevel: UInt, lpbuffer: MutPtr<CVoid>, cbbufsize: UInt, pcbbytesneeded: MutPtr<UInt>): Bool =
+public actual fun getEventLogInformation(heventlog: Handle, dwinfolevel: UInt, lpbuffer: MutPtr, cbbufsize: UInt, pcbbytesneeded: MutPtr): Bool =
     if (windowsWin32SystemEventlogNapiAvailable) wasmWindowssysWindowsWin32SystemEventlogGetEventLogInformation(heventlog.rawAddress.toString(), dwinfolevel.toInt(), lpbuffer.rawAddress.toString(), cbbufsize.toInt(), pcbbytesneeded.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun getNumberOfEventLogRecords(heventlog: Handle, numberofrecords: MutPtr<UInt>): Bool =
+public actual fun getNumberOfEventLogRecords(heventlog: Handle, numberofrecords: MutPtr): Bool =
     if (windowsWin32SystemEventlogNapiAvailable) wasmWindowssysWindowsWin32SystemEventlogGetNumberOfEventLogRecords(heventlog.rawAddress.toString(), numberofrecords.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun getOldestEventLogRecord(heventlog: Handle, oldestrecord: MutPtr<UInt>): Bool =
+public actual fun getOldestEventLogRecord(heventlog: Handle, oldestrecord: MutPtr): Bool =
     if (windowsWin32SystemEventlogNapiAvailable) wasmWindowssysWindowsWin32SystemEventlogGetOldestEventLogRecord(heventlog.rawAddress.toString(), oldestrecord.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun notifyChangeEventLog(heventlog: Handle, hevent: Handle): Bool =
@@ -329,10 +328,10 @@ public actual fun openEventLogA(lpuncservername: Pcstr, lpsourcename: Pcstr): Ha
 public actual fun openEventLogW(lpuncservername: Pcwstr, lpsourcename: Pcwstr): Handle =
     if (windowsWin32SystemEventlogNapiAvailable) MutPtr(wasmWindowssysWindowsWin32SystemEventlogOpenEventLogW(lpuncservername.rawAddress.toString(), lpsourcename.rawAddress.toString()).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun readEventLogA(heventlog: Handle, dwreadflags: ReadEventLogReadFlags, dwrecordoffset: UInt, lpbuffer: MutPtr<CVoid>, nnumberofbytestoread: UInt, pnbytesread: MutPtr<UInt>, pnminnumberofbytesneeded: MutPtr<UInt>): Bool =
+public actual fun readEventLogA(heventlog: Handle, dwreadflags: ReadEventLogReadFlags, dwrecordoffset: UInt, lpbuffer: MutPtr, nnumberofbytestoread: UInt, pnbytesread: MutPtr, pnminnumberofbytesneeded: MutPtr): Bool =
     if (windowsWin32SystemEventlogNapiAvailable) wasmWindowssysWindowsWin32SystemEventlogReadEventLogA(heventlog.rawAddress.toString(), dwreadflags.toInt(), dwrecordoffset.toInt(), lpbuffer.rawAddress.toString(), nnumberofbytestoread.toInt(), pnbytesread.rawAddress.toString(), pnminnumberofbytesneeded.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun readEventLogW(heventlog: Handle, dwreadflags: ReadEventLogReadFlags, dwrecordoffset: UInt, lpbuffer: MutPtr<CVoid>, nnumberofbytestoread: UInt, pnbytesread: MutPtr<UInt>, pnminnumberofbytesneeded: MutPtr<UInt>): Bool =
+public actual fun readEventLogW(heventlog: Handle, dwreadflags: ReadEventLogReadFlags, dwrecordoffset: UInt, lpbuffer: MutPtr, nnumberofbytestoread: UInt, pnbytesread: MutPtr, pnminnumberofbytesneeded: MutPtr): Bool =
     if (windowsWin32SystemEventlogNapiAvailable) wasmWindowssysWindowsWin32SystemEventlogReadEventLogW(heventlog.rawAddress.toString(), dwreadflags.toInt(), dwrecordoffset.toInt(), lpbuffer.rawAddress.toString(), nnumberofbytestoread.toInt(), pnbytesread.rawAddress.toString(), pnminnumberofbytesneeded.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun registerEventSourceA(lpuncservername: Pcstr, lpsourcename: Pcstr): Handle =
@@ -341,8 +340,8 @@ public actual fun registerEventSourceA(lpuncservername: Pcstr, lpsourcename: Pcs
 public actual fun registerEventSourceW(lpuncservername: Pcwstr, lpsourcename: Pcwstr): Handle =
     if (windowsWin32SystemEventlogNapiAvailable) MutPtr(wasmWindowssysWindowsWin32SystemEventlogRegisterEventSourceW(lpuncservername.rawAddress.toString(), lpsourcename.rawAddress.toString()).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun reportEventA(heventlog: Handle, wtype: ReportEventType, wcategory: UShort, dweventid: UInt, lpusersid: Psid, wnumstrings: UShort, dwdatasize: UInt, lpstrings: ConstPtr<Pcstr>, lprawdata: ConstPtr<CVoid>): Bool =
+public actual fun reportEventA(heventlog: Handle, wtype: ReportEventType, wcategory: UShort, dweventid: UInt, lpusersid: Psid, wnumstrings: UShort, dwdatasize: UInt, lpstrings: ConstPtr, lprawdata: ConstPtr): Bool =
     if (windowsWin32SystemEventlogNapiAvailable) wasmWindowssysWindowsWin32SystemEventlogReportEventA(heventlog.rawAddress.toString(), wtype.toInt(), wcategory.toInt(), dweventid.toInt(), lpusersid.rawAddress.toString(), wnumstrings.toInt(), dwdatasize.toInt(), lpstrings.rawAddress.toString(), lprawdata.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun reportEventW(heventlog: Handle, wtype: ReportEventType, wcategory: UShort, dweventid: UInt, lpusersid: Psid, wnumstrings: UShort, dwdatasize: UInt, lpstrings: ConstPtr<Pcwstr>, lprawdata: ConstPtr<CVoid>): Bool =
+public actual fun reportEventW(heventlog: Handle, wtype: ReportEventType, wcategory: UShort, dweventid: UInt, lpusersid: Psid, wnumstrings: UShort, dwdatasize: UInt, lpstrings: ConstPtr, lprawdata: ConstPtr): Bool =
     if (windowsWin32SystemEventlogNapiAvailable) wasmWindowssysWindowsWin32SystemEventlogReportEventW(heventlog.rawAddress.toString(), wtype.toInt(), wcategory.toInt(), dweventid.toInt(), lpusersid.rawAddress.toString(), wnumstrings.toInt(), dwdatasize.toInt(), lpstrings.rawAddress.toString(), lprawdata.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")

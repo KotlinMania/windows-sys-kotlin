@@ -2,11 +2,9 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.devices.biometricframework
 
-import io.github.kotlinmania.rustlang.core.ffi.CVoid
 import io.github.kotlinmania.rustlang.core.ptr.ConstPtr
 import io.github.kotlinmania.rustlang.core.ptr.MutPtr
 import io.github.kotlinmania.windowssys.core.Bool
-import io.github.kotlinmania.windowssys.core.Guid
 import io.github.kotlinmania.windowssys.core.Hresult
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Hwnd
 
@@ -28,19 +26,19 @@ public actual fun winBioAsyncEnumServiceProviders(frameworkhandle: UInt, factor:
 public actual fun winBioAsyncMonitorFrameworkChanges(frameworkhandle: UInt, changetypes: UInt): Hresult =
     if (windowsWin32DevicesBiometricframeworkNapiAddon != null) (windowsWin32DevicesBiometricframeworkNapiAddon.windowssysWindowsWin32DevicesBiometricframeworkWinBioAsyncMonitorFrameworkChanges(frameworkhandle.toInt(), changetypes.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun winBioAsyncOpenFramework(notificationmethod: WinbioAsyncNotificationMethod, targetwindow: Hwnd, messagecode: UInt, callbackroutine: PwinbioAsyncCompletionCallback, userdata: ConstPtr<CVoid>, asynchronousopen: Bool, frameworkhandle: MutPtr<UInt>): Hresult =
+public actual fun winBioAsyncOpenFramework(notificationmethod: WinbioAsyncNotificationMethod, targetwindow: Hwnd, messagecode: UInt, callbackroutine: PwinbioAsyncCompletionCallback, userdata: ConstPtr, asynchronousopen: Bool, frameworkhandle: MutPtr): Hresult =
     if (windowsWin32DevicesBiometricframeworkNapiAddon != null) (windowsWin32DevicesBiometricframeworkNapiAddon.windowssysWindowsWin32DevicesBiometricframeworkWinBioAsyncOpenFramework(notificationmethod, targetwindow.rawAddress.toString(), messagecode.toInt(), 0L.toString(), userdata.rawAddress.toString(), asynchronousopen, frameworkhandle.rawAddress.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun winBioAsyncOpenSession(factor: UInt, pooltype: WinbioPool, flags: UInt, unitarray: ConstPtr<UInt>, unitcount: ULong, databaseid: ConstPtr<Guid>, notificationmethod: WinbioAsyncNotificationMethod, targetwindow: Hwnd, messagecode: UInt, callbackroutine: PwinbioAsyncCompletionCallback, userdata: ConstPtr<CVoid>, asynchronousopen: Bool, sessionhandle: MutPtr<UInt>): Hresult =
+public actual fun winBioAsyncOpenSession(factor: UInt, pooltype: WinbioPool, flags: UInt, unitarray: ConstPtr, unitcount: ULong, databaseid: ConstPtr, notificationmethod: WinbioAsyncNotificationMethod, targetwindow: Hwnd, messagecode: UInt, callbackroutine: PwinbioAsyncCompletionCallback, userdata: ConstPtr, asynchronousopen: Bool, sessionhandle: MutPtr): Hresult =
     if (windowsWin32DevicesBiometricframeworkNapiAddon != null) (windowsWin32DevicesBiometricframeworkNapiAddon.windowssysWindowsWin32DevicesBiometricframeworkWinBioAsyncOpenSession(factor.toInt(), pooltype.toInt(), flags.toInt(), unitarray.rawAddress.toString(), unitcount.toString(), databaseid.rawAddress.toString(), notificationmethod, targetwindow.rawAddress.toString(), messagecode.toInt(), 0L.toString(), userdata.rawAddress.toString(), asynchronousopen, sessionhandle.rawAddress.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun winBioCancel(sessionhandle: UInt): Hresult =
     if (windowsWin32DevicesBiometricframeworkNapiAddon != null) (windowsWin32DevicesBiometricframeworkNapiAddon.windowssysWindowsWin32DevicesBiometricframeworkWinBioCancel(sessionhandle.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun winBioCaptureSample(sessionhandle: UInt, purpose: UByte, flags: UByte, unitid: MutPtr<UInt>, sample: MutPtr<MutPtr<WinbioBir>>, samplesize: MutPtr<ULong>, rejectdetail: MutPtr<UInt>): Hresult =
+public actual fun winBioCaptureSample(sessionhandle: UInt, purpose: UByte, flags: UByte, unitid: MutPtr, sample: MutPtr, samplesize: MutPtr, rejectdetail: MutPtr): Hresult =
     if (windowsWin32DevicesBiometricframeworkNapiAddon != null) (windowsWin32DevicesBiometricframeworkNapiAddon.windowssysWindowsWin32DevicesBiometricframeworkWinBioCaptureSample(sessionhandle.toInt(), purpose.toInt(), flags.toInt(), unitid.rawAddress.toString(), sample.rawAddress.toString(), samplesize.rawAddress.toString(), rejectdetail.rawAddress.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun winBioCaptureSampleWithCallback(sessionhandle: UInt, purpose: UByte, flags: UByte, capturecallback: PwinbioCaptureCallback, capturecallbackcontext: ConstPtr<CVoid>): Hresult =
+public actual fun winBioCaptureSampleWithCallback(sessionhandle: UInt, purpose: UByte, flags: UByte, capturecallback: PwinbioCaptureCallback, capturecallbackcontext: ConstPtr): Hresult =
     if (windowsWin32DevicesBiometricframeworkNapiAddon != null) (windowsWin32DevicesBiometricframeworkNapiAddon.windowssysWindowsWin32DevicesBiometricframeworkWinBioCaptureSampleWithCallback(sessionhandle.toInt(), purpose.toInt(), flags.toInt(), 0L.toString(), capturecallbackcontext.rawAddress.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun winBioCloseFramework(frameworkhandle: UInt): Hresult =
@@ -49,25 +47,25 @@ public actual fun winBioCloseFramework(frameworkhandle: UInt): Hresult =
 public actual fun winBioCloseSession(sessionhandle: UInt): Hresult =
     if (windowsWin32DevicesBiometricframeworkNapiAddon != null) (windowsWin32DevicesBiometricframeworkNapiAddon.windowssysWindowsWin32DevicesBiometricframeworkWinBioCloseSession(sessionhandle.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun winBioControlUnit(sessionhandle: UInt, unitid: UInt, component: WinbioComponent, controlcode: UInt, sendbuffer: ConstPtr<UByte>, sendbuffersize: ULong, receivebuffer: MutPtr<UByte>, receivebuffersize: ULong, receivedatasize: MutPtr<ULong>, operationstatus: MutPtr<UInt>): Hresult =
+public actual fun winBioControlUnit(sessionhandle: UInt, unitid: UInt, component: WinbioComponent, controlcode: UInt, sendbuffer: ConstPtr, sendbuffersize: ULong, receivebuffer: MutPtr, receivebuffersize: ULong, receivedatasize: MutPtr, operationstatus: MutPtr): Hresult =
     if (windowsWin32DevicesBiometricframeworkNapiAddon != null) (windowsWin32DevicesBiometricframeworkNapiAddon.windowssysWindowsWin32DevicesBiometricframeworkWinBioControlUnit(sessionhandle.toInt(), unitid.toInt(), component.toInt(), controlcode.toInt(), sendbuffer.rawAddress.toString(), sendbuffersize.toString(), receivebuffer.rawAddress.toString(), receivebuffersize.toString(), receivedatasize.rawAddress.toString(), operationstatus.rawAddress.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun winBioControlUnitPrivileged(sessionhandle: UInt, unitid: UInt, component: WinbioComponent, controlcode: UInt, sendbuffer: ConstPtr<UByte>, sendbuffersize: ULong, receivebuffer: MutPtr<UByte>, receivebuffersize: ULong, receivedatasize: MutPtr<ULong>, operationstatus: MutPtr<UInt>): Hresult =
+public actual fun winBioControlUnitPrivileged(sessionhandle: UInt, unitid: UInt, component: WinbioComponent, controlcode: UInt, sendbuffer: ConstPtr, sendbuffersize: ULong, receivebuffer: MutPtr, receivebuffersize: ULong, receivedatasize: MutPtr, operationstatus: MutPtr): Hresult =
     if (windowsWin32DevicesBiometricframeworkNapiAddon != null) (windowsWin32DevicesBiometricframeworkNapiAddon.windowssysWindowsWin32DevicesBiometricframeworkWinBioControlUnitPrivileged(sessionhandle.toInt(), unitid.toInt(), component.toInt(), controlcode.toInt(), sendbuffer.rawAddress.toString(), sendbuffersize.toString(), receivebuffer.rawAddress.toString(), receivebuffersize.toString(), receivedatasize.rawAddress.toString(), operationstatus.rawAddress.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun winBioDeleteTemplate(sessionhandle: UInt, unitid: UInt, identity: ConstPtr<WinbioIdentity>, subfactor: UByte): Hresult =
+public actual fun winBioDeleteTemplate(sessionhandle: UInt, unitid: UInt, identity: ConstPtr, subfactor: UByte): Hresult =
     if (windowsWin32DevicesBiometricframeworkNapiAddon != null) (windowsWin32DevicesBiometricframeworkNapiAddon.windowssysWindowsWin32DevicesBiometricframeworkWinBioDeleteTemplate(sessionhandle.toInt(), unitid.toInt(), identity.rawAddress.toString(), subfactor.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun winBioEnrollBegin(sessionhandle: UInt, subfactor: UByte, unitid: UInt): Hresult =
     if (windowsWin32DevicesBiometricframeworkNapiAddon != null) (windowsWin32DevicesBiometricframeworkNapiAddon.windowssysWindowsWin32DevicesBiometricframeworkWinBioEnrollBegin(sessionhandle.toInt(), subfactor.toInt(), unitid.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun winBioEnrollCapture(sessionhandle: UInt, rejectdetail: MutPtr<UInt>): Hresult =
+public actual fun winBioEnrollCapture(sessionhandle: UInt, rejectdetail: MutPtr): Hresult =
     if (windowsWin32DevicesBiometricframeworkNapiAddon != null) (windowsWin32DevicesBiometricframeworkNapiAddon.windowssysWindowsWin32DevicesBiometricframeworkWinBioEnrollCapture(sessionhandle.toInt(), rejectdetail.rawAddress.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun winBioEnrollCaptureWithCallback(sessionhandle: UInt, enrollcallback: PwinbioEnrollCaptureCallback, enrollcallbackcontext: ConstPtr<CVoid>): Hresult =
+public actual fun winBioEnrollCaptureWithCallback(sessionhandle: UInt, enrollcallback: PwinbioEnrollCaptureCallback, enrollcallbackcontext: ConstPtr): Hresult =
     if (windowsWin32DevicesBiometricframeworkNapiAddon != null) (windowsWin32DevicesBiometricframeworkNapiAddon.windowssysWindowsWin32DevicesBiometricframeworkWinBioEnrollCaptureWithCallback(sessionhandle.toInt(), 0L.toString(), enrollcallbackcontext.rawAddress.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun winBioEnrollCommit(sessionhandle: UInt, identity: MutPtr<WinbioIdentity>, isnewtemplate: MutPtr<UByte>): Hresult =
+public actual fun winBioEnrollCommit(sessionhandle: UInt, identity: MutPtr, isnewtemplate: MutPtr): Hresult =
     if (windowsWin32DevicesBiometricframeworkNapiAddon != null) (windowsWin32DevicesBiometricframeworkNapiAddon.windowssysWindowsWin32DevicesBiometricframeworkWinBioEnrollCommit(sessionhandle.toInt(), identity.rawAddress.toString(), isnewtemplate.rawAddress.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun winBioEnrollDiscard(sessionhandle: UInt): Hresult =
@@ -76,25 +74,25 @@ public actual fun winBioEnrollDiscard(sessionhandle: UInt): Hresult =
 public actual fun winBioEnrollSelect(sessionhandle: UInt, selectorvalue: ULong): Hresult =
     if (windowsWin32DevicesBiometricframeworkNapiAddon != null) (windowsWin32DevicesBiometricframeworkNapiAddon.windowssysWindowsWin32DevicesBiometricframeworkWinBioEnrollSelect(sessionhandle.toInt(), selectorvalue.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun winBioEnumBiometricUnits(factor: UInt, unitschemaarray: MutPtr<MutPtr<WinbioUnitSchema>>, unitcount: MutPtr<ULong>): Hresult =
+public actual fun winBioEnumBiometricUnits(factor: UInt, unitschemaarray: MutPtr, unitcount: MutPtr): Hresult =
     if (windowsWin32DevicesBiometricframeworkNapiAddon != null) (windowsWin32DevicesBiometricframeworkNapiAddon.windowssysWindowsWin32DevicesBiometricframeworkWinBioEnumBiometricUnits(factor.toInt(), unitschemaarray.rawAddress.toString(), unitcount.rawAddress.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun winBioEnumDatabases(factor: UInt, storageschemaarray: MutPtr<MutPtr<WinbioStorageSchema>>, storagecount: MutPtr<ULong>): Hresult =
+public actual fun winBioEnumDatabases(factor: UInt, storageschemaarray: MutPtr, storagecount: MutPtr): Hresult =
     if (windowsWin32DevicesBiometricframeworkNapiAddon != null) (windowsWin32DevicesBiometricframeworkNapiAddon.windowssysWindowsWin32DevicesBiometricframeworkWinBioEnumDatabases(factor.toInt(), storageschemaarray.rawAddress.toString(), storagecount.rawAddress.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun winBioEnumEnrollments(sessionhandle: UInt, unitid: UInt, identity: ConstPtr<WinbioIdentity>, subfactorarray: MutPtr<MutPtr<UByte>>, subfactorcount: MutPtr<ULong>): Hresult =
+public actual fun winBioEnumEnrollments(sessionhandle: UInt, unitid: UInt, identity: ConstPtr, subfactorarray: MutPtr, subfactorcount: MutPtr): Hresult =
     if (windowsWin32DevicesBiometricframeworkNapiAddon != null) (windowsWin32DevicesBiometricframeworkNapiAddon.windowssysWindowsWin32DevicesBiometricframeworkWinBioEnumEnrollments(sessionhandle.toInt(), unitid.toInt(), identity.rawAddress.toString(), subfactorarray.rawAddress.toString(), subfactorcount.rawAddress.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun winBioEnumServiceProviders(factor: UInt, bspschemaarray: MutPtr<MutPtr<WinbioBspSchema>>, bspcount: MutPtr<ULong>): Hresult =
+public actual fun winBioEnumServiceProviders(factor: UInt, bspschemaarray: MutPtr, bspcount: MutPtr): Hresult =
     if (windowsWin32DevicesBiometricframeworkNapiAddon != null) (windowsWin32DevicesBiometricframeworkNapiAddon.windowssysWindowsWin32DevicesBiometricframeworkWinBioEnumServiceProviders(factor.toInt(), bspschemaarray.rawAddress.toString(), bspcount.rawAddress.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun winBioFree(address: ConstPtr<CVoid>): Hresult =
+public actual fun winBioFree(address: ConstPtr): Hresult =
     if (windowsWin32DevicesBiometricframeworkNapiAddon != null) (windowsWin32DevicesBiometricframeworkNapiAddon.windowssysWindowsWin32DevicesBiometricframeworkWinBioFree(address.rawAddress.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun winBioGetCredentialState(identity: WinbioIdentity, type: WinbioCredentialType, credentialstate: MutPtr<WinbioCredentialState>): Hresult =
+public actual fun winBioGetCredentialState(identity: WinbioIdentity, type: WinbioCredentialType, credentialstate: MutPtr): Hresult =
     throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun winBioGetDomainLogonSetting(value: MutPtr<UByte>, source: MutPtr<WinbioSettingSource>) {
+public actual fun winBioGetDomainLogonSetting(value: MutPtr, source: MutPtr) {
     if (windowsWin32DevicesBiometricframeworkNapiAddon != null) {
         windowsWin32DevicesBiometricframeworkNapiAddon.windowssysWindowsWin32DevicesBiometricframeworkWinBioGetDomainLogonSetting(value.rawAddress.toString(), source.rawAddress.toString())
     } else {
@@ -102,7 +100,7 @@ public actual fun winBioGetDomainLogonSetting(value: MutPtr<UByte>, source: MutP
     }
 }
 
-public actual fun winBioGetEnabledSetting(value: MutPtr<UByte>, source: MutPtr<WinbioSettingSource>) {
+public actual fun winBioGetEnabledSetting(value: MutPtr, source: MutPtr) {
     if (windowsWin32DevicesBiometricframeworkNapiAddon != null) {
         windowsWin32DevicesBiometricframeworkNapiAddon.windowssysWindowsWin32DevicesBiometricframeworkWinBioGetEnabledSetting(value.rawAddress.toString(), source.rawAddress.toString())
     } else {
@@ -110,10 +108,10 @@ public actual fun winBioGetEnabledSetting(value: MutPtr<UByte>, source: MutPtr<W
     }
 }
 
-public actual fun winBioGetEnrolledFactors(accountowner: ConstPtr<WinbioIdentity>, enrolledfactors: MutPtr<UInt>): Hresult =
+public actual fun winBioGetEnrolledFactors(accountowner: ConstPtr, enrolledfactors: MutPtr): Hresult =
     if (windowsWin32DevicesBiometricframeworkNapiAddon != null) (windowsWin32DevicesBiometricframeworkNapiAddon.windowssysWindowsWin32DevicesBiometricframeworkWinBioGetEnrolledFactors(accountowner.rawAddress.toString(), enrolledfactors.rawAddress.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun winBioGetLogonSetting(value: MutPtr<UByte>, source: MutPtr<WinbioSettingSource>) {
+public actual fun winBioGetLogonSetting(value: MutPtr, source: MutPtr) {
     if (windowsWin32DevicesBiometricframeworkNapiAddon != null) {
         windowsWin32DevicesBiometricframeworkNapiAddon.windowssysWindowsWin32DevicesBiometricframeworkWinBioGetLogonSetting(value.rawAddress.toString(), source.rawAddress.toString())
     } else {
@@ -121,13 +119,13 @@ public actual fun winBioGetLogonSetting(value: MutPtr<UByte>, source: MutPtr<Win
     }
 }
 
-public actual fun winBioGetProperty(sessionhandle: UInt, propertytype: UInt, propertyid: UInt, unitid: UInt, identity: ConstPtr<WinbioIdentity>, subfactor: UByte, propertybuffer: MutPtr<MutPtr<CVoid>>, propertybuffersize: MutPtr<ULong>): Hresult =
+public actual fun winBioGetProperty(sessionhandle: UInt, propertytype: UInt, propertyid: UInt, unitid: UInt, identity: ConstPtr, subfactor: UByte, propertybuffer: MutPtr, propertybuffersize: MutPtr): Hresult =
     if (windowsWin32DevicesBiometricframeworkNapiAddon != null) (windowsWin32DevicesBiometricframeworkNapiAddon.windowssysWindowsWin32DevicesBiometricframeworkWinBioGetProperty(sessionhandle.toInt(), propertytype.toInt(), propertyid.toInt(), unitid.toInt(), identity.rawAddress.toString(), subfactor.toInt(), propertybuffer.rawAddress.toString(), propertybuffersize.rawAddress.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun winBioIdentify(sessionhandle: UInt, unitid: MutPtr<UInt>, identity: MutPtr<WinbioIdentity>, subfactor: MutPtr<UByte>, rejectdetail: MutPtr<UInt>): Hresult =
+public actual fun winBioIdentify(sessionhandle: UInt, unitid: MutPtr, identity: MutPtr, subfactor: MutPtr, rejectdetail: MutPtr): Hresult =
     if (windowsWin32DevicesBiometricframeworkNapiAddon != null) (windowsWin32DevicesBiometricframeworkNapiAddon.windowssysWindowsWin32DevicesBiometricframeworkWinBioIdentify(sessionhandle.toInt(), unitid.rawAddress.toString(), identity.rawAddress.toString(), subfactor.rawAddress.toString(), rejectdetail.rawAddress.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun winBioIdentifyWithCallback(sessionhandle: UInt, identifycallback: PwinbioIdentifyCallback, identifycallbackcontext: ConstPtr<CVoid>): Hresult =
+public actual fun winBioIdentifyWithCallback(sessionhandle: UInt, identifycallback: PwinbioIdentifyCallback, identifycallbackcontext: ConstPtr): Hresult =
     if (windowsWin32DevicesBiometricframeworkNapiAddon != null) (windowsWin32DevicesBiometricframeworkNapiAddon.windowssysWindowsWin32DevicesBiometricframeworkWinBioIdentifyWithCallback(sessionhandle.toInt(), 0L.toString(), identifycallbackcontext.rawAddress.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun winBioImproveBegin(sessionhandle: UInt, unitid: UInt): Hresult =
@@ -136,10 +134,10 @@ public actual fun winBioImproveBegin(sessionhandle: UInt, unitid: UInt): Hresult
 public actual fun winBioImproveEnd(sessionhandle: UInt): Hresult =
     if (windowsWin32DevicesBiometricframeworkNapiAddon != null) (windowsWin32DevicesBiometricframeworkNapiAddon.windowssysWindowsWin32DevicesBiometricframeworkWinBioImproveEnd(sessionhandle.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun winBioLocateSensor(sessionhandle: UInt, unitid: MutPtr<UInt>): Hresult =
+public actual fun winBioLocateSensor(sessionhandle: UInt, unitid: MutPtr): Hresult =
     if (windowsWin32DevicesBiometricframeworkNapiAddon != null) (windowsWin32DevicesBiometricframeworkNapiAddon.windowssysWindowsWin32DevicesBiometricframeworkWinBioLocateSensor(sessionhandle.toInt(), unitid.rawAddress.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun winBioLocateSensorWithCallback(sessionhandle: UInt, locatecallback: PwinbioLocateSensorCallback, locatecallbackcontext: ConstPtr<CVoid>): Hresult =
+public actual fun winBioLocateSensorWithCallback(sessionhandle: UInt, locatecallback: PwinbioLocateSensorCallback, locatecallbackcontext: ConstPtr): Hresult =
     if (windowsWin32DevicesBiometricframeworkNapiAddon != null) (windowsWin32DevicesBiometricframeworkNapiAddon.windowssysWindowsWin32DevicesBiometricframeworkWinBioLocateSensorWithCallback(sessionhandle.toInt(), 0L.toString(), locatecallbackcontext.rawAddress.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun winBioLockUnit(sessionhandle: UInt, unitid: UInt): Hresult =
@@ -151,10 +149,10 @@ public actual fun winBioLogonIdentifiedUser(sessionhandle: UInt): Hresult =
 public actual fun winBioMonitorPresence(sessionhandle: UInt, unitid: UInt): Hresult =
     if (windowsWin32DevicesBiometricframeworkNapiAddon != null) (windowsWin32DevicesBiometricframeworkNapiAddon.windowssysWindowsWin32DevicesBiometricframeworkWinBioMonitorPresence(sessionhandle.toInt(), unitid.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun winBioOpenSession(factor: UInt, pooltype: WinbioPool, flags: UInt, unitarray: ConstPtr<UInt>, unitcount: ULong, databaseid: ConstPtr<Guid>, sessionhandle: MutPtr<UInt>): Hresult =
+public actual fun winBioOpenSession(factor: UInt, pooltype: WinbioPool, flags: UInt, unitarray: ConstPtr, unitcount: ULong, databaseid: ConstPtr, sessionhandle: MutPtr): Hresult =
     if (windowsWin32DevicesBiometricframeworkNapiAddon != null) (windowsWin32DevicesBiometricframeworkNapiAddon.windowssysWindowsWin32DevicesBiometricframeworkWinBioOpenSession(factor.toInt(), pooltype.toInt(), flags.toInt(), unitarray.rawAddress.toString(), unitcount.toString(), databaseid.rawAddress.toString(), sessionhandle.rawAddress.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun winBioRegisterEventMonitor(sessionhandle: UInt, eventmask: UInt, eventcallback: PwinbioEventCallback, eventcallbackcontext: ConstPtr<CVoid>): Hresult =
+public actual fun winBioRegisterEventMonitor(sessionhandle: UInt, eventmask: UInt, eventcallback: PwinbioEventCallback, eventcallbackcontext: ConstPtr): Hresult =
     if (windowsWin32DevicesBiometricframeworkNapiAddon != null) (windowsWin32DevicesBiometricframeworkNapiAddon.windowssysWindowsWin32DevicesBiometricframeworkWinBioRegisterEventMonitor(sessionhandle.toInt(), eventmask.toInt(), 0L.toString(), eventcallbackcontext.rawAddress.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun winBioReleaseFocus(): Hresult =
@@ -169,10 +167,10 @@ public actual fun winBioRemoveAllDomainCredentials(): Hresult =
 public actual fun winBioRemoveCredential(identity: WinbioIdentity, type: WinbioCredentialType): Hresult =
     throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun winBioSetCredential(type: WinbioCredentialType, credential: ConstPtr<UByte>, credentialsize: ULong, format: WinbioCredentialFormat): Hresult =
+public actual fun winBioSetCredential(type: WinbioCredentialType, credential: ConstPtr, credentialsize: ULong, format: WinbioCredentialFormat): Hresult =
     if (windowsWin32DevicesBiometricframeworkNapiAddon != null) (windowsWin32DevicesBiometricframeworkNapiAddon.windowssysWindowsWin32DevicesBiometricframeworkWinBioSetCredential(type, credential.rawAddress.toString(), credentialsize.toString(), format) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun winBioSetProperty(sessionhandle: UInt, propertytype: UInt, propertyid: UInt, unitid: UInt, identity: ConstPtr<WinbioIdentity>, subfactor: UByte, propertybuffer: ConstPtr<CVoid>, propertybuffersize: ULong): Hresult =
+public actual fun winBioSetProperty(sessionhandle: UInt, propertytype: UInt, propertyid: UInt, unitid: UInt, identity: ConstPtr, subfactor: UByte, propertybuffer: ConstPtr, propertybuffersize: ULong): Hresult =
     if (windowsWin32DevicesBiometricframeworkNapiAddon != null) (windowsWin32DevicesBiometricframeworkNapiAddon.windowssysWindowsWin32DevicesBiometricframeworkWinBioSetProperty(sessionhandle.toInt(), propertytype.toInt(), propertyid.toInt(), unitid.toInt(), identity.rawAddress.toString(), subfactor.toInt(), propertybuffer.rawAddress.toString(), propertybuffersize.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun winBioUnlockUnit(sessionhandle: UInt, unitid: UInt): Hresult =
@@ -181,10 +179,10 @@ public actual fun winBioUnlockUnit(sessionhandle: UInt, unitid: UInt): Hresult =
 public actual fun winBioUnregisterEventMonitor(sessionhandle: UInt): Hresult =
     if (windowsWin32DevicesBiometricframeworkNapiAddon != null) (windowsWin32DevicesBiometricframeworkNapiAddon.windowssysWindowsWin32DevicesBiometricframeworkWinBioUnregisterEventMonitor(sessionhandle.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun winBioVerify(sessionhandle: UInt, identity: ConstPtr<WinbioIdentity>, subfactor: UByte, unitid: MutPtr<UInt>, match: MutPtr<UByte>, rejectdetail: MutPtr<UInt>): Hresult =
+public actual fun winBioVerify(sessionhandle: UInt, identity: ConstPtr, subfactor: UByte, unitid: MutPtr, match: MutPtr, rejectdetail: MutPtr): Hresult =
     if (windowsWin32DevicesBiometricframeworkNapiAddon != null) (windowsWin32DevicesBiometricframeworkNapiAddon.windowssysWindowsWin32DevicesBiometricframeworkWinBioVerify(sessionhandle.toInt(), identity.rawAddress.toString(), subfactor.toInt(), unitid.rawAddress.toString(), match.rawAddress.toString(), rejectdetail.rawAddress.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun winBioVerifyWithCallback(sessionhandle: UInt, identity: ConstPtr<WinbioIdentity>, subfactor: UByte, verifycallback: PwinbioVerifyCallback, verifycallbackcontext: ConstPtr<CVoid>): Hresult =
+public actual fun winBioVerifyWithCallback(sessionhandle: UInt, identity: ConstPtr, subfactor: UByte, verifycallback: PwinbioVerifyCallback, verifycallbackcontext: ConstPtr): Hresult =
     if (windowsWin32DevicesBiometricframeworkNapiAddon != null) (windowsWin32DevicesBiometricframeworkNapiAddon.windowssysWindowsWin32DevicesBiometricframeworkWinBioVerifyWithCallback(sessionhandle.toInt(), identity.rawAddress.toString(), subfactor.toInt(), 0L.toString(), verifycallbackcontext.rawAddress.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun winBioWait(sessionhandle: UInt): Hresult =

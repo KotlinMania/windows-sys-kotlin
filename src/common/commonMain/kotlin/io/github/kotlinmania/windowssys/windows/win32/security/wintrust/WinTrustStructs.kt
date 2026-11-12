@@ -2,7 +2,6 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.security.wintrust
 
-import io.github.kotlinmania.rustlang.core.ffi.CVoid
 import io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
 import io.github.kotlinmania.rustlang.core.mem.TypeLayout
 import io.github.kotlinmania.rustlang.core.ptr.ConstPtr
@@ -16,23 +15,11 @@ import io.github.kotlinmania.windowssys.core.Pwstr
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Filetime
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Handle
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Hwnd
-import io.github.kotlinmania.windowssys.windows.win32.security.cryptography.CertChainContext
-import io.github.kotlinmania.windowssys.windows.win32.security.cryptography.CertChainElement
-import io.github.kotlinmania.windowssys.windows.win32.security.cryptography.CertChainPara
-import io.github.kotlinmania.windowssys.windows.win32.security.cryptography.CertContext
-import io.github.kotlinmania.windowssys.windows.win32.security.cryptography.CertStrongSignPara
-import io.github.kotlinmania.windowssys.windows.win32.security.cryptography.CertUsageMatch
-import io.github.kotlinmania.windowssys.windows.win32.security.cryptography.CmsgSignerInfo
 import io.github.kotlinmania.windowssys.windows.win32.security.cryptography.CryptAlgorithmIdentifier
 import io.github.kotlinmania.windowssys.windows.win32.security.cryptography.CryptAttributeTypeValue
 import io.github.kotlinmania.windowssys.windows.win32.security.cryptography.CryptBitBlob
 import io.github.kotlinmania.windowssys.windows.win32.security.cryptography.CryptIntegerBlob
-import io.github.kotlinmania.windowssys.windows.win32.security.cryptography.CtlContext
 import io.github.kotlinmania.windowssys.windows.win32.security.cryptography.Hcertchainengine
-import io.github.kotlinmania.windowssys.windows.win32.security.cryptography.Hcertstore
-import io.github.kotlinmania.windowssys.windows.win32.security.cryptography.sip.SipDispatchInfo
-import io.github.kotlinmania.windowssys.windows.win32.security.cryptography.sip.SipIndirectData
-import io.github.kotlinmania.windowssys.windows.win32.security.cryptography.sip.SipSubjectinfo
 
 public class CatMemberinfo internal constructor(
     pwszSubjGuidCtorArg: Pwstr,
@@ -138,15 +125,15 @@ public class CatNamevalue internal constructor(
 public class ConfigCiProvInfo internal constructor(
     public var cbSize: UInt,
     public var dwPolicies: UInt,
-    pPoliciesCtorArg: MutPtr<CryptIntegerBlob>,
+    pPoliciesCtorArg: MutPtr,
     public var result: ConfigCiProvInfoResult,
     public var dwScenario: UInt,
-    result2CtorArg: MutPtr<ConfigCiProvInfoResult2>,
+    result2CtorArg: MutPtr,
 ) {
-    public var pPolicies: MutPtr<CryptIntegerBlob> = pPoliciesCtorArg
+    public var pPolicies: MutPtr = pPoliciesCtorArg
         internal set
 
-    public var result2: MutPtr<ConfigCiProvInfoResult2> = result2CtorArg
+    public var result2: MutPtr = result2CtorArg
         internal set
 
     public constructor() : this(
@@ -162,15 +149,15 @@ public class ConfigCiProvInfo internal constructor(
 
     public operator fun component2(): UInt = this.dwPolicies
 
-    public operator fun component3(): MutPtr<CryptIntegerBlob> = this.pPolicies
+    public operator fun component3(): MutPtr = this.pPolicies
 
     public operator fun component4(): ConfigCiProvInfoResult = this.result
 
     public operator fun component5(): UInt = this.dwScenario
 
-    public operator fun component6(): MutPtr<ConfigCiProvInfoResult2> = this.result2
+    public operator fun component6(): MutPtr = this.result2
 
-    public fun copy(cbSize: UInt = this.cbSize, dwPolicies: UInt = this.dwPolicies, pPolicies: MutPtr<CryptIntegerBlob> = this.pPolicies, result: ConfigCiProvInfoResult = this.result, dwScenario: UInt = this.dwScenario, result2: MutPtr<ConfigCiProvInfoResult2> = this.result2): ConfigCiProvInfo = ConfigCiProvInfo(cbSize = cbSize, dwPolicies = dwPolicies, pPoliciesCtorArg = pPolicies, result = result, dwScenario = dwScenario, result2CtorArg = result2)
+    public fun copy(cbSize: UInt = this.cbSize, dwPolicies: UInt = this.dwPolicies, pPolicies: MutPtr = this.pPolicies, result: ConfigCiProvInfoResult = this.result, dwScenario: UInt = this.dwScenario, result2: MutPtr = this.result2): ConfigCiProvInfo = ConfigCiProvInfo(cbSize = cbSize, dwPolicies = dwPolicies, pPoliciesCtorArg = pPolicies, result = result, dwScenario = dwScenario, result2CtorArg = result2)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -205,13 +192,13 @@ public class ConfigCiProvInfo internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 4L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<CryptIntegerBlob>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                         (ConfigCiProvInfoResult.typeLayout()).readNative(addr + 16L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 32L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<ConfigCiProvInfoResult2>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 40L),
                     )
                 override fun writeNative(addr: Long, value: ConfigCiProvInfo) {
@@ -219,13 +206,13 @@ public class ConfigCiProvInfo internal constructor(
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 4L, value.dwPolicies)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<CryptIntegerBlob>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.pPolicies)
                     (ConfigCiProvInfoResult.typeLayout()).writeNative(addr + 16L, value.result)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 32L, value.dwScenario)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<ConfigCiProvInfoResult2>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 40L, value.result2)
                 }
             }
@@ -233,10 +220,10 @@ public class ConfigCiProvInfo internal constructor(
         public operator fun invoke(
             cbSize: UInt = 0u,
             dwPolicies: UInt = 0u,
-            pPolicies: MutPtr<CryptIntegerBlob> = MutPtr(0L),
+            pPolicies: MutPtr = MutPtr(0L),
             result: ConfigCiProvInfoResult = ConfigCiProvInfoResult(),
             dwScenario: UInt = 0u,
-            result2: MutPtr<ConfigCiProvInfoResult2> = MutPtr(0L),
+            result2: MutPtr = MutPtr(0L),
         ): ConfigCiProvInfo =
             ConfigCiProvInfo(
                 cbSize = cbSize,
@@ -284,9 +271,9 @@ public class ConfigCiProvInfoResult2 internal constructor(
     public var dwPolicyIndex: UInt,
     public var fIsExplicitDeny: Boolean,
     public var cbCalculatedFileHash: UInt,
-    pbCalculatedFileHashCtorArg: MutPtr<UByte>,
+    pbCalculatedFileHashCtorArg: MutPtr,
 ) {
-    public var pbCalculatedFileHash: MutPtr<UByte> = pbCalculatedFileHashCtorArg
+    public var pbCalculatedFileHash: MutPtr = pbCalculatedFileHashCtorArg
         internal set
 
     public constructor() : this(
@@ -311,9 +298,9 @@ public class ConfigCiProvInfoResult2 internal constructor(
 
     public operator fun component6(): UInt = this.cbCalculatedFileHash
 
-    public operator fun component7(): MutPtr<UByte> = this.pbCalculatedFileHash
+    public operator fun component7(): MutPtr = this.pbCalculatedFileHash
 
-    public fun copy(cbSize: UInt = this.cbSize, hr: Hresult = this.hr, dwResult: UInt = this.dwResult, dwPolicyIndex: UInt = this.dwPolicyIndex, fIsExplicitDeny: Boolean = this.fIsExplicitDeny, cbCalculatedFileHash: UInt = this.cbCalculatedFileHash, pbCalculatedFileHash: MutPtr<UByte> = this.pbCalculatedFileHash): ConfigCiProvInfoResult2 = ConfigCiProvInfoResult2(cbSize = cbSize, hr = hr, dwResult = dwResult, dwPolicyIndex = dwPolicyIndex, fIsExplicitDeny = fIsExplicitDeny, cbCalculatedFileHash = cbCalculatedFileHash, pbCalculatedFileHashCtorArg = pbCalculatedFileHash)
+    public fun copy(cbSize: UInt = this.cbSize, hr: Hresult = this.hr, dwResult: UInt = this.dwResult, dwPolicyIndex: UInt = this.dwPolicyIndex, fIsExplicitDeny: Boolean = this.fIsExplicitDeny, cbCalculatedFileHash: UInt = this.cbCalculatedFileHash, pbCalculatedFileHash: MutPtr = this.pbCalculatedFileHash): ConfigCiProvInfoResult2 = ConfigCiProvInfoResult2(cbSize = cbSize, hr = hr, dwResult = dwResult, dwPolicyIndex = dwPolicyIndex, fIsExplicitDeny = fIsExplicitDeny, cbCalculatedFileHash = cbCalculatedFileHash, pbCalculatedFileHashCtorArg = pbCalculatedFileHash)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -354,7 +341,7 @@ public class ConfigCiProvInfoResult2 internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 20L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<UByte>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 24L),
                     )
                 override fun writeNative(addr: Long, value: ConfigCiProvInfoResult2) {
@@ -366,7 +353,7 @@ public class ConfigCiProvInfoResult2 internal constructor(
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 20L, value.cbCalculatedFileHash)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<UByte>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 24L, value.pbCalculatedFileHash)
                 }
             }
@@ -378,7 +365,7 @@ public class ConfigCiProvInfoResult2 internal constructor(
             dwPolicyIndex: UInt = 0u,
             fIsExplicitDeny: Boolean = false,
             cbCalculatedFileHash: UInt = 0u,
-            pbCalculatedFileHash: MutPtr<UByte> = MutPtr(0L),
+            pbCalculatedFileHash: MutPtr = MutPtr(0L),
         ): ConfigCiProvInfoResult2 =
             ConfigCiProvInfoResult2(
                 cbSize = cbSize,
@@ -394,7 +381,7 @@ public class ConfigCiProvInfoResult2 internal constructor(
 
 public class CryptProviderCert internal constructor(
     public var cbStruct: UInt,
-    pCertCtorArg: ConstPtr<CertContext>,
+    pCertCtorArg: ConstPtr,
     public var fCommercial: Bool,
     public var fTrustedRoot: Bool,
     public var fSelfSigned: Bool,
@@ -402,23 +389,23 @@ public class CryptProviderCert internal constructor(
     public var dwRevokedReason: UInt,
     public var dwConfidence: UInt,
     public var dwError: UInt,
-    pTrustListContextCtorArg: MutPtr<CtlContext>,
+    pTrustListContextCtorArg: MutPtr,
     public var fTrustListSignerCert: Bool,
-    pCtlContextCtorArg: MutPtr<CtlContext>,
+    pCtlContextCtorArg: MutPtr,
     public var dwCtlError: UInt,
     public var fIsCyclic: Bool,
-    pChainElementCtorArg: MutPtr<CertChainElement>,
+    pChainElementCtorArg: MutPtr,
 ) {
-    public var pCert: ConstPtr<CertContext> = pCertCtorArg
+    public var pCert: ConstPtr = pCertCtorArg
         internal set
 
-    public var pTrustListContext: MutPtr<CtlContext> = pTrustListContextCtorArg
+    public var pTrustListContext: MutPtr = pTrustListContextCtorArg
         internal set
 
-    public var pCtlContext: MutPtr<CtlContext> = pCtlContextCtorArg
+    public var pCtlContext: MutPtr = pCtlContextCtorArg
         internal set
 
-    public var pChainElement: MutPtr<CertChainElement> = pChainElementCtorArg
+    public var pChainElement: MutPtr = pChainElementCtorArg
         internal set
 
     public constructor() : this(
@@ -441,7 +428,7 @@ public class CryptProviderCert internal constructor(
 
     public operator fun component1(): UInt = this.cbStruct
 
-    public operator fun component2(): ConstPtr<CertContext> = this.pCert
+    public operator fun component2(): ConstPtr = this.pCert
 
     public operator fun component3(): Bool = this.fCommercial
 
@@ -457,19 +444,19 @@ public class CryptProviderCert internal constructor(
 
     public operator fun component9(): UInt = this.dwError
 
-    public operator fun component10(): MutPtr<CtlContext> = this.pTrustListContext
+    public operator fun component10(): MutPtr = this.pTrustListContext
 
     public operator fun component11(): Bool = this.fTrustListSignerCert
 
-    public operator fun component12(): MutPtr<CtlContext> = this.pCtlContext
+    public operator fun component12(): MutPtr = this.pCtlContext
 
     public operator fun component13(): UInt = this.dwCtlError
 
     public operator fun component14(): Bool = this.fIsCyclic
 
-    public operator fun component15(): MutPtr<CertChainElement> = this.pChainElement
+    public operator fun component15(): MutPtr = this.pChainElement
 
-    public fun copy(cbStruct: UInt = this.cbStruct, pCert: ConstPtr<CertContext> = this.pCert, fCommercial: Bool = this.fCommercial, fTrustedRoot: Bool = this.fTrustedRoot, fSelfSigned: Bool = this.fSelfSigned, fTestCert: Bool = this.fTestCert, dwRevokedReason: UInt = this.dwRevokedReason, dwConfidence: UInt = this.dwConfidence, dwError: UInt = this.dwError, pTrustListContext: MutPtr<CtlContext> = this.pTrustListContext, fTrustListSignerCert: Bool = this.fTrustListSignerCert, pCtlContext: MutPtr<CtlContext> = this.pCtlContext, dwCtlError: UInt = this.dwCtlError, fIsCyclic: Bool = this.fIsCyclic, pChainElement: MutPtr<CertChainElement> = this.pChainElement): CryptProviderCert = CryptProviderCert(cbStruct = cbStruct, pCertCtorArg = pCert, fCommercial = fCommercial, fTrustedRoot = fTrustedRoot, fSelfSigned = fSelfSigned, fTestCert = fTestCert, dwRevokedReason = dwRevokedReason, dwConfidence = dwConfidence, dwError = dwError, pTrustListContextCtorArg = pTrustListContext, fTrustListSignerCert = fTrustListSignerCert, pCtlContextCtorArg = pCtlContext, dwCtlError = dwCtlError, fIsCyclic = fIsCyclic, pChainElementCtorArg = pChainElement)
+    public fun copy(cbStruct: UInt = this.cbStruct, pCert: ConstPtr = this.pCert, fCommercial: Bool = this.fCommercial, fTrustedRoot: Bool = this.fTrustedRoot, fSelfSigned: Bool = this.fSelfSigned, fTestCert: Bool = this.fTestCert, dwRevokedReason: UInt = this.dwRevokedReason, dwConfidence: UInt = this.dwConfidence, dwError: UInt = this.dwError, pTrustListContext: MutPtr = this.pTrustListContext, fTrustListSignerCert: Bool = this.fTrustListSignerCert, pCtlContext: MutPtr = this.pCtlContext, dwCtlError: UInt = this.dwCtlError, fIsCyclic: Bool = this.fIsCyclic, pChainElement: MutPtr = this.pChainElement): CryptProviderCert = CryptProviderCert(cbStruct = cbStruct, pCertCtorArg = pCert, fCommercial = fCommercial, fTrustedRoot = fTrustedRoot, fSelfSigned = fSelfSigned, fTestCert = fTestCert, dwRevokedReason = dwRevokedReason, dwConfidence = dwConfidence, dwError = dwError, pTrustListContextCtorArg = pTrustListContext, fTrustListSignerCert = fTrustListSignerCert, pCtlContextCtorArg = pCtlContext, dwCtlError = dwCtlError, fIsCyclic = fIsCyclic, pChainElementCtorArg = pChainElement)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -521,7 +508,7 @@ public class CryptProviderCert internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .constPtrLayout<CertContext>(64)
+                                .constPtrLayout(64)
                         ).readNative(addr + 8L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr + 16L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr + 20L),
@@ -532,25 +519,25 @@ public class CryptProviderCert internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 40L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<CtlContext>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 48L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr + 56L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<CtlContext>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 64L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 72L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr + 76L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<CertChainElement>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 80L),
                     )
                 override fun writeNative(addr: Long, value: CryptProviderCert) {
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr, value.cbStruct)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .constPtrLayout<CertContext>(64)
+                            .constPtrLayout(64)
                     ).writeNative(addr + 8L, value.pCert)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr + 16L, value.fCommercial)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr + 20L, value.fTrustedRoot)
@@ -561,25 +548,25 @@ public class CryptProviderCert internal constructor(
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 40L, value.dwError)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<CtlContext>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 48L, value.pTrustListContext)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr + 56L, value.fTrustListSignerCert)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<CtlContext>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 64L, value.pCtlContext)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 72L, value.dwCtlError)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr + 76L, value.fIsCyclic)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<CertChainElement>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 80L, value.pChainElement)
                 }
             }
 
         public operator fun invoke(
             cbStruct: UInt = 0u,
-            pCert: ConstPtr<CertContext> = ConstPtr(0L),
+            pCert: ConstPtr = ConstPtr(0L),
             fCommercial: Bool = 0,
             fTrustedRoot: Bool = 0,
             fSelfSigned: Bool = 0,
@@ -587,12 +574,12 @@ public class CryptProviderCert internal constructor(
             dwRevokedReason: UInt = 0u,
             dwConfidence: UInt = 0u,
             dwError: UInt = 0u,
-            pTrustListContext: MutPtr<CtlContext> = MutPtr(0L),
+            pTrustListContext: MutPtr = MutPtr(0L),
             fTrustListSignerCert: Bool = 0,
-            pCtlContext: MutPtr<CtlContext> = MutPtr(0L),
+            pCtlContext: MutPtr = MutPtr(0L),
             dwCtlError: UInt = 0u,
             fIsCyclic: Bool = 0,
-            pChainElement: MutPtr<CertChainElement> = MutPtr(0L),
+            pChainElement: MutPtr = MutPtr(0L),
         ): CryptProviderCert =
             CryptProviderCert(
                 cbStruct = cbStruct,
@@ -616,25 +603,25 @@ public class CryptProviderCert internal constructor(
 
 public class CryptProviderData internal constructor(
     public var cbStruct: UInt,
-    pWintrustDataCtorArg: MutPtr<WintrustData>,
+    pWintrustDataCtorArg: MutPtr,
     public var fOpenedFile: Bool,
     hWndParentCtorArg: Hwnd,
-    pgActionIDCtorArg: MutPtr<Guid>,
+    pgActionIDCtorArg: MutPtr,
     public var hProv: Int,
     public var dwError: UInt,
     public var dwRegSecuritySettings: UInt,
     public var dwRegPolicySettings: UInt,
-    psPfnsCtorArg: MutPtr<CryptProviderFunctions>,
+    psPfnsCtorArg: MutPtr,
     public var cdwTrustStepErrors: UInt,
-    padwTrustStepErrorsCtorArg: MutPtr<UInt>,
+    padwTrustStepErrorsCtorArg: MutPtr,
     public var chStores: UInt,
-    pahStoresCtorArg: MutPtr<Hcertstore>,
+    pahStoresCtorArg: MutPtr,
     public var dwEncoding: UInt,
-    hMsgCtorArg: MutPtr<CVoid>,
+    hMsgCtorArg: MutPtr,
     public var csSigners: UInt,
-    pasSignersCtorArg: MutPtr<CryptProviderSgnr>,
+    pasSignersCtorArg: MutPtr,
     public var csProvPrivData: UInt,
-    pasProvPrivDataCtorArg: MutPtr<CryptProviderPrivdata>,
+    pasProvPrivDataCtorArg: MutPtr,
     public var dwSubjectChoice: UInt,
     public var anonymous: CryptProviderData0,
     pszUsageOIDCtorArg: Pstr,
@@ -643,37 +630,37 @@ public class CryptProviderData internal constructor(
     pszCTLSignerUsageOIDCtorArg: Pstr,
     public var dwProvFlags: UInt,
     public var dwFinalError: UInt,
-    pRequestUsageCtorArg: MutPtr<CertUsageMatch>,
+    pRequestUsageCtorArg: MutPtr,
     public var dwTrustPubSettings: UInt,
     public var dwUIStateFlags: UInt,
-    pSigStateCtorArg: MutPtr<CryptProviderSigstate>,
-    pSigSettingsCtorArg: MutPtr<WintrustSignatureSettings>,
+    pSigStateCtorArg: MutPtr,
+    pSigSettingsCtorArg: MutPtr,
 ) {
-    public var pWintrustData: MutPtr<WintrustData> = pWintrustDataCtorArg
+    public var pWintrustData: MutPtr = pWintrustDataCtorArg
         internal set
 
     public var hWndParent: Hwnd = hWndParentCtorArg
         internal set
 
-    public var pgActionID: MutPtr<Guid> = pgActionIDCtorArg
+    public var pgActionID: MutPtr = pgActionIDCtorArg
         internal set
 
-    public var psPfns: MutPtr<CryptProviderFunctions> = psPfnsCtorArg
+    public var psPfns: MutPtr = psPfnsCtorArg
         internal set
 
-    public var padwTrustStepErrors: MutPtr<UInt> = padwTrustStepErrorsCtorArg
+    public var padwTrustStepErrors: MutPtr = padwTrustStepErrorsCtorArg
         internal set
 
-    public var pahStores: MutPtr<Hcertstore> = pahStoresCtorArg
+    public var pahStores: MutPtr = pahStoresCtorArg
         internal set
 
-    public var hMsg: MutPtr<CVoid> = hMsgCtorArg
+    public var hMsg: MutPtr = hMsgCtorArg
         internal set
 
-    public var pasSigners: MutPtr<CryptProviderSgnr> = pasSignersCtorArg
+    public var pasSigners: MutPtr = pasSignersCtorArg
         internal set
 
-    public var pasProvPrivData: MutPtr<CryptProviderPrivdata> = pasProvPrivDataCtorArg
+    public var pasProvPrivData: MutPtr = pasProvPrivDataCtorArg
         internal set
 
     public var pszUsageOID: Pstr = pszUsageOIDCtorArg
@@ -682,13 +669,13 @@ public class CryptProviderData internal constructor(
     public var pszCTLSignerUsageOID: Pstr = pszCTLSignerUsageOIDCtorArg
         internal set
 
-    public var pRequestUsage: MutPtr<CertUsageMatch> = pRequestUsageCtorArg
+    public var pRequestUsage: MutPtr = pRequestUsageCtorArg
         internal set
 
-    public var pSigState: MutPtr<CryptProviderSigstate> = pSigStateCtorArg
+    public var pSigState: MutPtr = pSigStateCtorArg
         internal set
 
-    public var pSigSettings: MutPtr<WintrustSignatureSettings> = pSigSettingsCtorArg
+    public var pSigSettings: MutPtr = pSigSettingsCtorArg
         internal set
 
     public constructor() : this(
@@ -730,25 +717,25 @@ public class CryptProviderData internal constructor(
     public companion object {
         public operator fun invoke(
             cbStruct: UInt = 0u,
-            pWintrustData: MutPtr<WintrustData> = MutPtr(0L),
+            pWintrustData: MutPtr = MutPtr(0L),
             fOpenedFile: Bool = 0,
             hWndParent: Hwnd = MutPtr(0L),
-            pgActionID: MutPtr<Guid> = MutPtr(0L),
+            pgActionID: MutPtr = MutPtr(0L),
             hProv: Int = 0,
             dwError: UInt = 0u,
             dwRegSecuritySettings: UInt = 0u,
             dwRegPolicySettings: UInt = 0u,
-            psPfns: MutPtr<CryptProviderFunctions> = MutPtr(0L),
+            psPfns: MutPtr = MutPtr(0L),
             cdwTrustStepErrors: UInt = 0u,
-            padwTrustStepErrors: MutPtr<UInt> = MutPtr(0L),
+            padwTrustStepErrors: MutPtr = MutPtr(0L),
             chStores: UInt = 0u,
-            pahStores: MutPtr<Hcertstore> = MutPtr(0L),
+            pahStores: MutPtr = MutPtr(0L),
             dwEncoding: UInt = 0u,
-            hMsg: MutPtr<CVoid> = MutPtr(0L),
+            hMsg: MutPtr = MutPtr(0L),
             csSigners: UInt = 0u,
-            pasSigners: MutPtr<CryptProviderSgnr> = MutPtr(0L),
+            pasSigners: MutPtr = MutPtr(0L),
             csProvPrivData: UInt = 0u,
-            pasProvPrivData: MutPtr<CryptProviderPrivdata> = MutPtr(0L),
+            pasProvPrivData: MutPtr = MutPtr(0L),
             dwSubjectChoice: UInt = 0u,
             anonymous: CryptProviderData0 = CryptProviderData0(),
             pszUsageOID: Pstr = MutPtr(0L),
@@ -757,11 +744,11 @@ public class CryptProviderData internal constructor(
             pszCTLSignerUsageOID: Pstr = MutPtr(0L),
             dwProvFlags: UInt = 0u,
             dwFinalError: UInt = 0u,
-            pRequestUsage: MutPtr<CertUsageMatch> = MutPtr(0L),
+            pRequestUsage: MutPtr = MutPtr(0L),
             dwTrustPubSettings: UInt = 0u,
             dwUIStateFlags: UInt = 0u,
-            pSigState: MutPtr<CryptProviderSigstate> = MutPtr(0L),
-            pSigSettings: MutPtr<WintrustSignatureSettings> = MutPtr(0L),
+            pSigState: MutPtr = MutPtr(0L),
+            pSigSettings: MutPtr = MutPtr(0L),
         ): CryptProviderData =
             CryptProviderData(
                 cbStruct = cbStruct,
@@ -802,18 +789,18 @@ public class CryptProviderData internal constructor(
 }
 
 public class CryptProviderData0 internal constructor(
-    pPDSipCtorArg: MutPtr<ProvdataSip>,
+    pPDSipCtorArg: MutPtr,
 ) {
-    public var pPDSip: MutPtr<ProvdataSip> = pPDSipCtorArg
+    public var pPDSip: MutPtr = pPDSipCtorArg
         internal set
 
     public constructor() : this(
         pPDSipCtorArg = MutPtr(0L),
     )
 
-    public operator fun component1(): MutPtr<ProvdataSip> = this.pPDSip
+    public operator fun component1(): MutPtr = this.pPDSip
 
-    public fun copy(pPDSip: MutPtr<ProvdataSip> = this.pPDSip): CryptProviderData0 = CryptProviderData0(pPDSipCtorArg = pPDSip)
+    public fun copy(pPDSip: MutPtr = this.pPDSip): CryptProviderData0 = CryptProviderData0(pPDSipCtorArg = pPDSip)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -826,7 +813,7 @@ public class CryptProviderData0 internal constructor(
 
     public companion object {
         public operator fun invoke(
-            pPDSip: MutPtr<ProvdataSip> = MutPtr(0L),
+            pPDSip: MutPtr = MutPtr(0L),
         ): CryptProviderData0 =
             CryptProviderData0(
                 pPDSipCtorArg = pPDSip,
@@ -837,13 +824,13 @@ public class CryptProviderData0 internal constructor(
 public class CryptProviderDefusage internal constructor(
     public var cbStruct: UInt,
     public var gActionID: Guid,
-    pDefPolicyCallbackDataCtorArg: MutPtr<CVoid>,
-    pDefSIPClientDataCtorArg: MutPtr<CVoid>,
+    pDefPolicyCallbackDataCtorArg: MutPtr,
+    pDefSIPClientDataCtorArg: MutPtr,
 ) {
-    public var pDefPolicyCallbackData: MutPtr<CVoid> = pDefPolicyCallbackDataCtorArg
+    public var pDefPolicyCallbackData: MutPtr = pDefPolicyCallbackDataCtorArg
         internal set
 
-    public var pDefSIPClientData: MutPtr<CVoid> = pDefSIPClientDataCtorArg
+    public var pDefSIPClientData: MutPtr = pDefSIPClientDataCtorArg
         internal set
 
     public constructor() : this(
@@ -857,11 +844,11 @@ public class CryptProviderDefusage internal constructor(
 
     public operator fun component2(): Guid = this.gActionID
 
-    public operator fun component3(): MutPtr<CVoid> = this.pDefPolicyCallbackData
+    public operator fun component3(): MutPtr = this.pDefPolicyCallbackData
 
-    public operator fun component4(): MutPtr<CVoid> = this.pDefSIPClientData
+    public operator fun component4(): MutPtr = this.pDefSIPClientData
 
-    public fun copy(cbStruct: UInt = this.cbStruct, gActionID: Guid = this.gActionID, pDefPolicyCallbackData: MutPtr<CVoid> = this.pDefPolicyCallbackData, pDefSIPClientData: MutPtr<CVoid> = this.pDefSIPClientData): CryptProviderDefusage = CryptProviderDefusage(cbStruct = cbStruct, gActionID = gActionID, pDefPolicyCallbackDataCtorArg = pDefPolicyCallbackData, pDefSIPClientDataCtorArg = pDefSIPClientData)
+    public fun copy(cbStruct: UInt = this.cbStruct, gActionID: Guid = this.gActionID, pDefPolicyCallbackData: MutPtr = this.pDefPolicyCallbackData, pDefSIPClientData: MutPtr = this.pDefSIPClientData): CryptProviderDefusage = CryptProviderDefusage(cbStruct = cbStruct, gActionID = gActionID, pDefPolicyCallbackDataCtorArg = pDefPolicyCallbackData, pDefSIPClientDataCtorArg = pDefSIPClientData)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -885,8 +872,8 @@ public class CryptProviderDefusage internal constructor(
         public operator fun invoke(
             cbStruct: UInt = 0u,
             gActionID: Guid = Guid(),
-            pDefPolicyCallbackData: MutPtr<CVoid> = MutPtr(0L),
-            pDefSIPClientData: MutPtr<CVoid> = MutPtr(0L),
+            pDefPolicyCallbackData: MutPtr = MutPtr(0L),
+            pDefSIPClientData: MutPtr = MutPtr(0L),
         ): CryptProviderDefusage =
             CryptProviderDefusage(
                 cbStruct = cbStruct,
@@ -912,10 +899,10 @@ public class CryptProviderFunctions internal constructor(
     public var pfnFinalPolicy: PfnProviderFinalpolicyCall,
     public var pfnCertCheckPolicy: PfnProviderCertchkpolicyCall,
     public var pfnTestFinalPolicy: PfnProviderTestfinalpolicyCall,
-    psUIpfnsCtorArg: MutPtr<CryptProvuiFuncs>,
+    psUIpfnsCtorArg: MutPtr,
     public var pfnCleanupPolicy: PfnProviderCleanupCall,
 ) {
-    public var psUIpfns: MutPtr<CryptProvuiFuncs> = psUIpfnsCtorArg
+    public var psUIpfns: MutPtr = psUIpfnsCtorArg
         internal set
 
     public constructor() : this(
@@ -965,11 +952,11 @@ public class CryptProviderFunctions internal constructor(
 
     public operator fun component14(): PfnProviderTestfinalpolicyCall = this.pfnTestFinalPolicy
 
-    public operator fun component15(): MutPtr<CryptProvuiFuncs> = this.psUIpfns
+    public operator fun component15(): MutPtr = this.psUIpfns
 
     public operator fun component16(): PfnProviderCleanupCall = this.pfnCleanupPolicy
 
-    public fun copy(cbStruct: UInt = this.cbStruct, pfnAlloc: PfnCpdMemAlloc = this.pfnAlloc, pfnFree: PfnCpdMemFree = this.pfnFree, pfnAddStore2Chain: PfnCpdAddStore = this.pfnAddStore2Chain, pfnAddSgnr2Chain: PfnCpdAddSgnr = this.pfnAddSgnr2Chain, pfnAddCert2Chain: PfnCpdAddCert = this.pfnAddCert2Chain, pfnAddPrivData2Chain: PfnCpdAddPrivdata = this.pfnAddPrivData2Chain, pfnInitialize: PfnProviderInitCall = this.pfnInitialize, pfnObjectTrust: PfnProviderObjtrustCall = this.pfnObjectTrust, pfnSignatureTrust: PfnProviderSigtrustCall = this.pfnSignatureTrust, pfnCertificateTrust: PfnProviderCerttrustCall = this.pfnCertificateTrust, pfnFinalPolicy: PfnProviderFinalpolicyCall = this.pfnFinalPolicy, pfnCertCheckPolicy: PfnProviderCertchkpolicyCall = this.pfnCertCheckPolicy, pfnTestFinalPolicy: PfnProviderTestfinalpolicyCall = this.pfnTestFinalPolicy, psUIpfns: MutPtr<CryptProvuiFuncs> = this.psUIpfns, pfnCleanupPolicy: PfnProviderCleanupCall = this.pfnCleanupPolicy): CryptProviderFunctions = CryptProviderFunctions(cbStruct = cbStruct, pfnAlloc = pfnAlloc, pfnFree = pfnFree, pfnAddStore2Chain = pfnAddStore2Chain, pfnAddSgnr2Chain = pfnAddSgnr2Chain, pfnAddCert2Chain = pfnAddCert2Chain, pfnAddPrivData2Chain = pfnAddPrivData2Chain, pfnInitialize = pfnInitialize, pfnObjectTrust = pfnObjectTrust, pfnSignatureTrust = pfnSignatureTrust, pfnCertificateTrust = pfnCertificateTrust, pfnFinalPolicy = pfnFinalPolicy, pfnCertCheckPolicy = pfnCertCheckPolicy, pfnTestFinalPolicy = pfnTestFinalPolicy, psUIpfnsCtorArg = psUIpfns, pfnCleanupPolicy = pfnCleanupPolicy)
+    public fun copy(cbStruct: UInt = this.cbStruct, pfnAlloc: PfnCpdMemAlloc = this.pfnAlloc, pfnFree: PfnCpdMemFree = this.pfnFree, pfnAddStore2Chain: PfnCpdAddStore = this.pfnAddStore2Chain, pfnAddSgnr2Chain: PfnCpdAddSgnr = this.pfnAddSgnr2Chain, pfnAddCert2Chain: PfnCpdAddCert = this.pfnAddCert2Chain, pfnAddPrivData2Chain: PfnCpdAddPrivdata = this.pfnAddPrivData2Chain, pfnInitialize: PfnProviderInitCall = this.pfnInitialize, pfnObjectTrust: PfnProviderObjtrustCall = this.pfnObjectTrust, pfnSignatureTrust: PfnProviderSigtrustCall = this.pfnSignatureTrust, pfnCertificateTrust: PfnProviderCerttrustCall = this.pfnCertificateTrust, pfnFinalPolicy: PfnProviderFinalpolicyCall = this.pfnFinalPolicy, pfnCertCheckPolicy: PfnProviderCertchkpolicyCall = this.pfnCertCheckPolicy, pfnTestFinalPolicy: PfnProviderTestfinalpolicyCall = this.pfnTestFinalPolicy, psUIpfns: MutPtr = this.psUIpfns, pfnCleanupPolicy: PfnProviderCleanupCall = this.pfnCleanupPolicy): CryptProviderFunctions = CryptProviderFunctions(cbStruct = cbStruct, pfnAlloc = pfnAlloc, pfnFree = pfnFree, pfnAddStore2Chain = pfnAddStore2Chain, pfnAddSgnr2Chain = pfnAddSgnr2Chain, pfnAddCert2Chain = pfnAddCert2Chain, pfnAddPrivData2Chain = pfnAddPrivData2Chain, pfnInitialize = pfnInitialize, pfnObjectTrust = pfnObjectTrust, pfnSignatureTrust = pfnSignatureTrust, pfnCertificateTrust = pfnCertificateTrust, pfnFinalPolicy = pfnFinalPolicy, pfnCertCheckPolicy = pfnCertCheckPolicy, pfnTestFinalPolicy = pfnTestFinalPolicy, psUIpfnsCtorArg = psUIpfns, pfnCleanupPolicy = pfnCleanupPolicy)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -1029,7 +1016,7 @@ public class CryptProviderFunctions internal constructor(
             pfnFinalPolicy: PfnProviderFinalpolicyCall = null,
             pfnCertCheckPolicy: PfnProviderCertchkpolicyCall = null,
             pfnTestFinalPolicy: PfnProviderTestfinalpolicyCall = null,
-            psUIpfns: MutPtr<CryptProvuiFuncs> = MutPtr(0L),
+            psUIpfns: MutPtr = MutPtr(0L),
             pfnCleanupPolicy: PfnProviderCleanupCall = null,
         ): CryptProviderFunctions =
             CryptProviderFunctions(
@@ -1057,9 +1044,9 @@ public class CryptProviderPrivdata internal constructor(
     public var cbStruct: UInt,
     public var gProviderID: Guid,
     public var cbProvData: UInt,
-    pvProvDataCtorArg: MutPtr<CVoid>,
+    pvProvDataCtorArg: MutPtr,
 ) {
-    public var pvProvData: MutPtr<CVoid> = pvProvDataCtorArg
+    public var pvProvData: MutPtr = pvProvDataCtorArg
         internal set
 
     public constructor() : this(
@@ -1075,9 +1062,9 @@ public class CryptProviderPrivdata internal constructor(
 
     public operator fun component3(): UInt = this.cbProvData
 
-    public operator fun component4(): MutPtr<CVoid> = this.pvProvData
+    public operator fun component4(): MutPtr = this.pvProvData
 
-    public fun copy(cbStruct: UInt = this.cbStruct, gProviderID: Guid = this.gProviderID, cbProvData: UInt = this.cbProvData, pvProvData: MutPtr<CVoid> = this.pvProvData): CryptProviderPrivdata = CryptProviderPrivdata(cbStruct = cbStruct, gProviderID = gProviderID, cbProvData = cbProvData, pvProvDataCtorArg = pvProvData)
+    public fun copy(cbStruct: UInt = this.cbStruct, gProviderID: Guid = this.gProviderID, cbProvData: UInt = this.cbProvData, pvProvData: MutPtr = this.pvProvData): CryptProviderPrivdata = CryptProviderPrivdata(cbStruct = cbStruct, gProviderID = gProviderID, cbProvData = cbProvData, pvProvDataCtorArg = pvProvData)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -1102,7 +1089,7 @@ public class CryptProviderPrivdata internal constructor(
             cbStruct: UInt = 0u,
             gProviderID: Guid = Guid(),
             cbProvData: UInt = 0u,
-            pvProvData: MutPtr<CVoid> = MutPtr(0L),
+            pvProvData: MutPtr = MutPtr(0L),
         ): CryptProviderPrivdata =
             CryptProviderPrivdata(
                 cbStruct = cbStruct,
@@ -1115,12 +1102,12 @@ public class CryptProviderPrivdata internal constructor(
 
 public class CryptProviderRegdefusage internal constructor(
     public var cbStruct: UInt,
-    pgActionIDCtorArg: MutPtr<Guid>,
+    pgActionIDCtorArg: MutPtr,
     pwszDllNameCtorArg: Pwstr,
     pwszLoadCallbackDataFunctionNameCtorArg: Pstr,
     pwszFreeCallbackDataFunctionNameCtorArg: Pstr,
 ) {
-    public var pgActionID: MutPtr<Guid> = pgActionIDCtorArg
+    public var pgActionID: MutPtr = pgActionIDCtorArg
         internal set
 
     public var pwszDllName: Pwstr = pwszDllNameCtorArg
@@ -1142,7 +1129,7 @@ public class CryptProviderRegdefusage internal constructor(
 
     public operator fun component1(): UInt = this.cbStruct
 
-    public operator fun component2(): MutPtr<Guid> = this.pgActionID
+    public operator fun component2(): MutPtr = this.pgActionID
 
     public operator fun component3(): Pwstr = this.pwszDllName
 
@@ -1150,7 +1137,7 @@ public class CryptProviderRegdefusage internal constructor(
 
     public operator fun component5(): Pstr = this.pwszFreeCallbackDataFunctionName
 
-    public fun copy(cbStruct: UInt = this.cbStruct, pgActionID: MutPtr<Guid> = this.pgActionID, pwszDllName: Pwstr = this.pwszDllName, pwszLoadCallbackDataFunctionName: Pstr = this.pwszLoadCallbackDataFunctionName, pwszFreeCallbackDataFunctionName: Pstr = this.pwszFreeCallbackDataFunctionName): CryptProviderRegdefusage = CryptProviderRegdefusage(cbStruct = cbStruct, pgActionIDCtorArg = pgActionID, pwszDllNameCtorArg = pwszDllName, pwszLoadCallbackDataFunctionNameCtorArg = pwszLoadCallbackDataFunctionName, pwszFreeCallbackDataFunctionNameCtorArg = pwszFreeCallbackDataFunctionName)
+    public fun copy(cbStruct: UInt = this.cbStruct, pgActionID: MutPtr = this.pgActionID, pwszDllName: Pwstr = this.pwszDllName, pwszLoadCallbackDataFunctionName: Pstr = this.pwszLoadCallbackDataFunctionName, pwszFreeCallbackDataFunctionName: Pstr = this.pwszFreeCallbackDataFunctionName): CryptProviderRegdefusage = CryptProviderRegdefusage(cbStruct = cbStruct, pgActionIDCtorArg = pgActionID, pwszDllNameCtorArg = pwszDllName, pwszLoadCallbackDataFunctionNameCtorArg = pwszLoadCallbackDataFunctionName, pwszFreeCallbackDataFunctionNameCtorArg = pwszFreeCallbackDataFunctionName)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -1175,7 +1162,7 @@ public class CryptProviderRegdefusage internal constructor(
     public companion object {
         public operator fun invoke(
             cbStruct: UInt = 0u,
-            pgActionID: MutPtr<Guid> = MutPtr(0L),
+            pgActionID: MutPtr = MutPtr(0L),
             pwszDllName: Pwstr = MutPtr(0L),
             pwszLoadCallbackDataFunctionName: Pstr = MutPtr(0L),
             pwszFreeCallbackDataFunctionName: Pstr = MutPtr(0L),
@@ -1194,24 +1181,24 @@ public class CryptProviderSgnr internal constructor(
     public var cbStruct: UInt,
     public var sftVerifyAsOf: Filetime,
     public var csCertChain: UInt,
-    pasCertChainCtorArg: MutPtr<CryptProviderCert>,
+    pasCertChainCtorArg: MutPtr,
     public var dwSignerType: UInt,
-    psSignerCtorArg: MutPtr<CmsgSignerInfo>,
+    psSignerCtorArg: MutPtr,
     public var dwError: UInt,
     public var csCounterSigners: UInt,
-    pasCounterSignersCtorArg: MutPtr<CryptProviderSgnr>,
-    pChainContextCtorArg: MutPtr<CertChainContext>,
+    pasCounterSignersCtorArg: MutPtr,
+    pChainContextCtorArg: MutPtr,
 ) {
-    public var pasCertChain: MutPtr<CryptProviderCert> = pasCertChainCtorArg
+    public var pasCertChain: MutPtr = pasCertChainCtorArg
         internal set
 
-    public var psSigner: MutPtr<CmsgSignerInfo> = psSignerCtorArg
+    public var psSigner: MutPtr = psSignerCtorArg
         internal set
 
-    public var pasCounterSigners: MutPtr<CryptProviderSgnr> = pasCounterSignersCtorArg
+    public var pasCounterSigners: MutPtr = pasCounterSignersCtorArg
         internal set
 
-    public var pChainContext: MutPtr<CertChainContext> = pChainContextCtorArg
+    public var pChainContext: MutPtr = pChainContextCtorArg
         internal set
 
     public constructor() : this(
@@ -1233,21 +1220,21 @@ public class CryptProviderSgnr internal constructor(
 
     public operator fun component3(): UInt = this.csCertChain
 
-    public operator fun component4(): MutPtr<CryptProviderCert> = this.pasCertChain
+    public operator fun component4(): MutPtr = this.pasCertChain
 
     public operator fun component5(): UInt = this.dwSignerType
 
-    public operator fun component6(): MutPtr<CmsgSignerInfo> = this.psSigner
+    public operator fun component6(): MutPtr = this.psSigner
 
     public operator fun component7(): UInt = this.dwError
 
     public operator fun component8(): UInt = this.csCounterSigners
 
-    public operator fun component9(): MutPtr<CryptProviderSgnr> = this.pasCounterSigners
+    public operator fun component9(): MutPtr = this.pasCounterSigners
 
-    public operator fun component10(): MutPtr<CertChainContext> = this.pChainContext
+    public operator fun component10(): MutPtr = this.pChainContext
 
-    public fun copy(cbStruct: UInt = this.cbStruct, sftVerifyAsOf: Filetime = this.sftVerifyAsOf, csCertChain: UInt = this.csCertChain, pasCertChain: MutPtr<CryptProviderCert> = this.pasCertChain, dwSignerType: UInt = this.dwSignerType, psSigner: MutPtr<CmsgSignerInfo> = this.psSigner, dwError: UInt = this.dwError, csCounterSigners: UInt = this.csCounterSigners, pasCounterSigners: MutPtr<CryptProviderSgnr> = this.pasCounterSigners, pChainContext: MutPtr<CertChainContext> = this.pChainContext): CryptProviderSgnr = CryptProviderSgnr(cbStruct = cbStruct, sftVerifyAsOf = sftVerifyAsOf, csCertChain = csCertChain, pasCertChainCtorArg = pasCertChain, dwSignerType = dwSignerType, psSignerCtorArg = psSigner, dwError = dwError, csCounterSigners = csCounterSigners, pasCounterSignersCtorArg = pasCounterSigners, pChainContextCtorArg = pChainContext)
+    public fun copy(cbStruct: UInt = this.cbStruct, sftVerifyAsOf: Filetime = this.sftVerifyAsOf, csCertChain: UInt = this.csCertChain, pasCertChain: MutPtr = this.pasCertChain, dwSignerType: UInt = this.dwSignerType, psSigner: MutPtr = this.psSigner, dwError: UInt = this.dwError, csCounterSigners: UInt = this.csCounterSigners, pasCounterSigners: MutPtr = this.pasCounterSigners, pChainContext: MutPtr = this.pChainContext): CryptProviderSgnr = CryptProviderSgnr(cbStruct = cbStruct, sftVerifyAsOf = sftVerifyAsOf, csCertChain = csCertChain, pasCertChainCtorArg = pasCertChain, dwSignerType = dwSignerType, psSignerCtorArg = psSigner, dwError = dwError, csCounterSigners = csCounterSigners, pasCounterSignersCtorArg = pasCounterSigners, pChainContextCtorArg = pChainContext)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -1284,13 +1271,13 @@ public class CryptProviderSgnr internal constructor(
             cbStruct: UInt = 0u,
             sftVerifyAsOf: Filetime = Filetime(),
             csCertChain: UInt = 0u,
-            pasCertChain: MutPtr<CryptProviderCert> = MutPtr(0L),
+            pasCertChain: MutPtr = MutPtr(0L),
             dwSignerType: UInt = 0u,
-            psSigner: MutPtr<CmsgSignerInfo> = MutPtr(0L),
+            psSigner: MutPtr = MutPtr(0L),
             dwError: UInt = 0u,
             csCounterSigners: UInt = 0u,
-            pasCounterSigners: MutPtr<CryptProviderSgnr> = MutPtr(0L),
-            pChainContext: MutPtr<CertChainContext> = MutPtr(0L),
+            pasCounterSigners: MutPtr = MutPtr(0L),
+            pChainContext: MutPtr = MutPtr(0L),
         ): CryptProviderSgnr =
             CryptProviderSgnr(
                 cbStruct = cbStruct,
@@ -1309,8 +1296,8 @@ public class CryptProviderSgnr internal constructor(
 
 public class CryptProviderSigstate internal constructor(
     public var cbStruct: UInt,
-    rhSecondarySigsCtorArg: MutPtr<MutPtr<CVoid>>,
-    hPrimarySigCtorArg: MutPtr<CVoid>,
+    rhSecondarySigsCtorArg: MutPtr,
+    hPrimarySigCtorArg: MutPtr,
     public var fFirstAttemptMade: Bool,
     public var fNoMoreSigs: Bool,
     public var cSecondarySigs: UInt,
@@ -1319,15 +1306,15 @@ public class CryptProviderSigstate internal constructor(
     public var dwCryptoPolicySupport: UInt,
     public var iAttemptCount: UInt,
     public var fCheckedSealing: Bool,
-    pSealingSignatureCtorArg: MutPtr<SealingSignatureAttribute>,
+    pSealingSignatureCtorArg: MutPtr,
 ) {
-    public var rhSecondarySigs: MutPtr<MutPtr<CVoid>> = rhSecondarySigsCtorArg
+    public var rhSecondarySigs: MutPtr = rhSecondarySigsCtorArg
         internal set
 
-    public var hPrimarySig: MutPtr<CVoid> = hPrimarySigCtorArg
+    public var hPrimarySig: MutPtr = hPrimarySigCtorArg
         internal set
 
-    public var pSealingSignature: MutPtr<SealingSignatureAttribute> = pSealingSignatureCtorArg
+    public var pSealingSignature: MutPtr = pSealingSignatureCtorArg
         internal set
 
     public constructor() : this(
@@ -1347,9 +1334,9 @@ public class CryptProviderSigstate internal constructor(
 
     public operator fun component1(): UInt = this.cbStruct
 
-    public operator fun component2(): MutPtr<MutPtr<CVoid>> = this.rhSecondarySigs
+    public operator fun component2(): MutPtr = this.rhSecondarySigs
 
-    public operator fun component3(): MutPtr<CVoid> = this.hPrimarySig
+    public operator fun component3(): MutPtr = this.hPrimarySig
 
     public operator fun component4(): Bool = this.fFirstAttemptMade
 
@@ -1367,9 +1354,9 @@ public class CryptProviderSigstate internal constructor(
 
     public operator fun component11(): Bool = this.fCheckedSealing
 
-    public operator fun component12(): MutPtr<SealingSignatureAttribute> = this.pSealingSignature
+    public operator fun component12(): MutPtr = this.pSealingSignature
 
-    public fun copy(cbStruct: UInt = this.cbStruct, rhSecondarySigs: MutPtr<MutPtr<CVoid>> = this.rhSecondarySigs, hPrimarySig: MutPtr<CVoid> = this.hPrimarySig, fFirstAttemptMade: Bool = this.fFirstAttemptMade, fNoMoreSigs: Bool = this.fNoMoreSigs, cSecondarySigs: UInt = this.cSecondarySigs, dwCurrentIndex: UInt = this.dwCurrentIndex, fSupportMultiSig: Bool = this.fSupportMultiSig, dwCryptoPolicySupport: UInt = this.dwCryptoPolicySupport, iAttemptCount: UInt = this.iAttemptCount, fCheckedSealing: Bool = this.fCheckedSealing, pSealingSignature: MutPtr<SealingSignatureAttribute> = this.pSealingSignature): CryptProviderSigstate = CryptProviderSigstate(cbStruct = cbStruct, rhSecondarySigsCtorArg = rhSecondarySigs, hPrimarySigCtorArg = hPrimarySig, fFirstAttemptMade = fFirstAttemptMade, fNoMoreSigs = fNoMoreSigs, cSecondarySigs = cSecondarySigs, dwCurrentIndex = dwCurrentIndex, fSupportMultiSig = fSupportMultiSig, dwCryptoPolicySupport = dwCryptoPolicySupport, iAttemptCount = iAttemptCount, fCheckedSealing = fCheckedSealing, pSealingSignatureCtorArg = pSealingSignature)
+    public fun copy(cbStruct: UInt = this.cbStruct, rhSecondarySigs: MutPtr = this.rhSecondarySigs, hPrimarySig: MutPtr = this.hPrimarySig, fFirstAttemptMade: Bool = this.fFirstAttemptMade, fNoMoreSigs: Bool = this.fNoMoreSigs, cSecondarySigs: UInt = this.cSecondarySigs, dwCurrentIndex: UInt = this.dwCurrentIndex, fSupportMultiSig: Bool = this.fSupportMultiSig, dwCryptoPolicySupport: UInt = this.dwCryptoPolicySupport, iAttemptCount: UInt = this.iAttemptCount, fCheckedSealing: Bool = this.fCheckedSealing, pSealingSignature: MutPtr = this.pSealingSignature): CryptProviderSigstate = CryptProviderSigstate(cbStruct = cbStruct, rhSecondarySigsCtorArg = rhSecondarySigs, hPrimarySigCtorArg = hPrimarySig, fFirstAttemptMade = fFirstAttemptMade, fNoMoreSigs = fNoMoreSigs, cSecondarySigs = cSecondarySigs, dwCurrentIndex = dwCurrentIndex, fSupportMultiSig = fSupportMultiSig, dwCryptoPolicySupport = dwCryptoPolicySupport, iAttemptCount = iAttemptCount, fCheckedSealing = fCheckedSealing, pSealingSignatureCtorArg = pSealingSignature)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -1415,11 +1402,11 @@ public class CryptProviderSigstate internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<MutPtr<CVoid>>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<CVoid>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 16L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr + 24L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr + 28L),
@@ -1431,18 +1418,18 @@ public class CryptProviderSigstate internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr + 52L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<SealingSignatureAttribute>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 56L),
                     )
                 override fun writeNative(addr: Long, value: CryptProviderSigstate) {
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr, value.cbStruct)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<MutPtr<CVoid>>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.rhSecondarySigs)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<CVoid>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 16L, value.hPrimarySig)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr + 24L, value.fFirstAttemptMade)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr + 28L, value.fNoMoreSigs)
@@ -1454,15 +1441,15 @@ public class CryptProviderSigstate internal constructor(
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr + 52L, value.fCheckedSealing)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<SealingSignatureAttribute>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 56L, value.pSealingSignature)
                 }
             }
 
         public operator fun invoke(
             cbStruct: UInt = 0u,
-            rhSecondarySigs: MutPtr<MutPtr<CVoid>> = MutPtr(0L),
-            hPrimarySig: MutPtr<CVoid> = MutPtr(0L),
+            rhSecondarySigs: MutPtr = MutPtr(0L),
+            hPrimarySig: MutPtr = MutPtr(0L),
             fFirstAttemptMade: Bool = 0,
             fNoMoreSigs: Bool = 0,
             cSecondarySigs: UInt = 0u,
@@ -1471,7 +1458,7 @@ public class CryptProviderSigstate internal constructor(
             dwCryptoPolicySupport: UInt = 0u,
             iAttemptCount: UInt = 0u,
             fCheckedSealing: Bool = 0,
-            pSealingSignature: MutPtr<SealingSignatureAttribute> = MutPtr(0L),
+            pSealingSignature: MutPtr = MutPtr(0L),
         ): CryptProviderSigstate =
             CryptProviderSigstate(
                 cbStruct = cbStruct,
@@ -1610,13 +1597,13 @@ public class CryptProvuiData internal constructor(
 
 public class CryptProvuiFuncs internal constructor(
     public var cbStruct: UInt,
-    psUIDataCtorArg: MutPtr<CryptProvuiData>,
+    psUIDataCtorArg: MutPtr,
     public var pfnOnMoreInfoClick: PfnProvuiCall,
     public var pfnOnMoreInfoClickDefault: PfnProvuiCall,
     public var pfnOnAdvancedClick: PfnProvuiCall,
     public var pfnOnAdvancedClickDefault: PfnProvuiCall,
 ) {
-    public var psUIData: MutPtr<CryptProvuiData> = psUIDataCtorArg
+    public var psUIData: MutPtr = psUIDataCtorArg
         internal set
 
     public constructor() : this(
@@ -1630,7 +1617,7 @@ public class CryptProvuiFuncs internal constructor(
 
     public operator fun component1(): UInt = this.cbStruct
 
-    public operator fun component2(): MutPtr<CryptProvuiData> = this.psUIData
+    public operator fun component2(): MutPtr = this.psUIData
 
     public operator fun component3(): PfnProvuiCall = this.pfnOnMoreInfoClick
 
@@ -1640,7 +1627,7 @@ public class CryptProvuiFuncs internal constructor(
 
     public operator fun component6(): PfnProvuiCall = this.pfnOnAdvancedClickDefault
 
-    public fun copy(cbStruct: UInt = this.cbStruct, psUIData: MutPtr<CryptProvuiData> = this.psUIData, pfnOnMoreInfoClick: PfnProvuiCall = this.pfnOnMoreInfoClick, pfnOnMoreInfoClickDefault: PfnProvuiCall = this.pfnOnMoreInfoClickDefault, pfnOnAdvancedClick: PfnProvuiCall = this.pfnOnAdvancedClick, pfnOnAdvancedClickDefault: PfnProvuiCall = this.pfnOnAdvancedClickDefault): CryptProvuiFuncs = CryptProvuiFuncs(cbStruct = cbStruct, psUIDataCtorArg = psUIData, pfnOnMoreInfoClick = pfnOnMoreInfoClick, pfnOnMoreInfoClickDefault = pfnOnMoreInfoClickDefault, pfnOnAdvancedClick = pfnOnAdvancedClick, pfnOnAdvancedClickDefault = pfnOnAdvancedClickDefault)
+    public fun copy(cbStruct: UInt = this.cbStruct, psUIData: MutPtr = this.psUIData, pfnOnMoreInfoClick: PfnProvuiCall = this.pfnOnMoreInfoClick, pfnOnMoreInfoClickDefault: PfnProvuiCall = this.pfnOnMoreInfoClickDefault, pfnOnAdvancedClick: PfnProvuiCall = this.pfnOnAdvancedClick, pfnOnAdvancedClickDefault: PfnProvuiCall = this.pfnOnAdvancedClickDefault): CryptProvuiFuncs = CryptProvuiFuncs(cbStruct = cbStruct, psUIDataCtorArg = psUIData, pfnOnMoreInfoClick = pfnOnMoreInfoClick, pfnOnMoreInfoClickDefault = pfnOnMoreInfoClickDefault, pfnOnAdvancedClick = pfnOnAdvancedClick, pfnOnAdvancedClickDefault = pfnOnAdvancedClickDefault)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -1667,7 +1654,7 @@ public class CryptProvuiFuncs internal constructor(
     public companion object {
         public operator fun invoke(
             cbStruct: UInt = 0u,
-            psUIData: MutPtr<CryptProvuiData> = MutPtr(0L),
+            psUIData: MutPtr = MutPtr(0L),
             pfnOnMoreInfoClick: PfnProvuiCall = null,
             pfnOnMoreInfoClickDefault: PfnProvuiCall = null,
             pfnOnAdvancedClick: PfnProvuiCall = null,
@@ -1759,13 +1746,13 @@ public class DriverVerInfo internal constructor(
     public var dwVersion: UInt,
     public var wszVersion: UShortArray,
     public var wszSignedBy: UShortArray,
-    pcSignerCertContextCtorArg: ConstPtr<CertContext>,
+    pcSignerCertContextCtorArg: ConstPtr,
     public var sOSVersionLow: DriverVerMajorminor,
     public var sOSVersionHigh: DriverVerMajorminor,
     public var dwBuildNumberLow: UInt,
     public var dwBuildNumberHigh: UInt,
 ) {
-    public var pcSignerCertContext: ConstPtr<CertContext> = pcSignerCertContextCtorArg
+    public var pcSignerCertContext: ConstPtr = pcSignerCertContextCtorArg
         internal set
 
     public constructor() : this(
@@ -1797,7 +1784,7 @@ public class DriverVerInfo internal constructor(
 
     public operator fun component7(): UShortArray = this.wszSignedBy
 
-    public operator fun component8(): ConstPtr<CertContext> = this.pcSignerCertContext
+    public operator fun component8(): ConstPtr = this.pcSignerCertContext
 
     public operator fun component9(): DriverVerMajorminor = this.sOSVersionLow
 
@@ -1807,7 +1794,7 @@ public class DriverVerInfo internal constructor(
 
     public operator fun component12(): UInt = this.dwBuildNumberHigh
 
-    public fun copy(cbStruct: UInt = this.cbStruct, dwReserved1: Int = this.dwReserved1, dwReserved2: Int = this.dwReserved2, dwPlatform: UInt = this.dwPlatform, dwVersion: UInt = this.dwVersion, wszVersion: UShortArray = this.wszVersion, wszSignedBy: UShortArray = this.wszSignedBy, pcSignerCertContext: ConstPtr<CertContext> = this.pcSignerCertContext, sOSVersionLow: DriverVerMajorminor = this.sOSVersionLow, sOSVersionHigh: DriverVerMajorminor = this.sOSVersionHigh, dwBuildNumberLow: UInt = this.dwBuildNumberLow, dwBuildNumberHigh: UInt = this.dwBuildNumberHigh): DriverVerInfo = DriverVerInfo(cbStruct = cbStruct, dwReserved1 = dwReserved1, dwReserved2 = dwReserved2, dwPlatform = dwPlatform, dwVersion = dwVersion, wszVersion = wszVersion, wszSignedBy = wszSignedBy, pcSignerCertContextCtorArg = pcSignerCertContext, sOSVersionLow = sOSVersionLow, sOSVersionHigh = sOSVersionHigh, dwBuildNumberLow = dwBuildNumberLow, dwBuildNumberHigh = dwBuildNumberHigh)
+    public fun copy(cbStruct: UInt = this.cbStruct, dwReserved1: Int = this.dwReserved1, dwReserved2: Int = this.dwReserved2, dwPlatform: UInt = this.dwPlatform, dwVersion: UInt = this.dwVersion, wszVersion: UShortArray = this.wszVersion, wszSignedBy: UShortArray = this.wszSignedBy, pcSignerCertContext: ConstPtr = this.pcSignerCertContext, sOSVersionLow: DriverVerMajorminor = this.sOSVersionLow, sOSVersionHigh: DriverVerMajorminor = this.sOSVersionHigh, dwBuildNumberLow: UInt = this.dwBuildNumberLow, dwBuildNumberHigh: UInt = this.dwBuildNumberHigh): DriverVerInfo = DriverVerInfo(cbStruct = cbStruct, dwReserved1 = dwReserved1, dwReserved2 = dwReserved2, dwPlatform = dwPlatform, dwVersion = dwVersion, wszVersion = wszVersion, wszSignedBy = wszSignedBy, pcSignerCertContextCtorArg = pcSignerCertContext, sOSVersionLow = sOSVersionLow, sOSVersionHigh = sOSVersionHigh, dwBuildNumberLow = dwBuildNumberLow, dwBuildNumberHigh = dwBuildNumberHigh)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -1865,7 +1852,7 @@ public class DriverVerInfo internal constructor(
                         ).readNative(addr + 552L).toUShortArray(),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .constPtrLayout<CertContext>(64)
+                                .constPtrLayout(64)
                         ).readNative(addr + 1072L),
                         (DriverVerMajorminor.typeLayout()).readNative(addr + 1080L),
                         (DriverVerMajorminor.typeLayout()).readNative(addr + 1088L),
@@ -1888,7 +1875,7 @@ public class DriverVerInfo internal constructor(
                     ).writeNative(addr + 552L, value.wszSignedBy.toList())
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .constPtrLayout<CertContext>(64)
+                            .constPtrLayout(64)
                     ).writeNative(addr + 1072L, value.pcSignerCertContext)
                     (DriverVerMajorminor.typeLayout()).writeNative(addr + 1080L, value.sOSVersionLow)
                     (DriverVerMajorminor.typeLayout()).writeNative(addr + 1088L, value.sOSVersionHigh)
@@ -1905,7 +1892,7 @@ public class DriverVerInfo internal constructor(
             dwVersion: UInt = 0u,
             wszVersion: UShortArray = UShortArray(260),
             wszSignedBy: UShortArray = UShortArray(260),
-            pcSignerCertContext: ConstPtr<CertContext> = ConstPtr(0L),
+            pcSignerCertContext: ConstPtr = ConstPtr(0L),
             sOSVersionLow: DriverVerMajorminor = DriverVerMajorminor(),
             sOSVersionHigh: DriverVerMajorminor = DriverVerMajorminor(),
             dwBuildNumberLow: UInt = 0u,
@@ -1975,25 +1962,25 @@ public data class IntentToSealAttribute(
 public class ProvdataSip internal constructor(
     public var cbStruct: UInt,
     public var gSubject: Guid,
-    pSipCtorArg: MutPtr<SipDispatchInfo>,
-    pCATSipCtorArg: MutPtr<SipDispatchInfo>,
-    psSipSubjectInfoCtorArg: MutPtr<SipSubjectinfo>,
-    psSipCATSubjectInfoCtorArg: MutPtr<SipSubjectinfo>,
-    psIndirectDataCtorArg: MutPtr<SipIndirectData>,
+    pSipCtorArg: MutPtr,
+    pCATSipCtorArg: MutPtr,
+    psSipSubjectInfoCtorArg: MutPtr,
+    psSipCATSubjectInfoCtorArg: MutPtr,
+    psIndirectDataCtorArg: MutPtr,
 ) {
-    public var pSip: MutPtr<SipDispatchInfo> = pSipCtorArg
+    public var pSip: MutPtr = pSipCtorArg
         internal set
 
-    public var pCATSip: MutPtr<SipDispatchInfo> = pCATSipCtorArg
+    public var pCATSip: MutPtr = pCATSipCtorArg
         internal set
 
-    public var psSipSubjectInfo: MutPtr<SipSubjectinfo> = psSipSubjectInfoCtorArg
+    public var psSipSubjectInfo: MutPtr = psSipSubjectInfoCtorArg
         internal set
 
-    public var psSipCATSubjectInfo: MutPtr<SipSubjectinfo> = psSipCATSubjectInfoCtorArg
+    public var psSipCATSubjectInfo: MutPtr = psSipCATSubjectInfoCtorArg
         internal set
 
-    public var psIndirectData: MutPtr<SipIndirectData> = psIndirectDataCtorArg
+    public var psIndirectData: MutPtr = psIndirectDataCtorArg
         internal set
 
     public constructor() : this(
@@ -2010,17 +1997,17 @@ public class ProvdataSip internal constructor(
 
     public operator fun component2(): Guid = this.gSubject
 
-    public operator fun component3(): MutPtr<SipDispatchInfo> = this.pSip
+    public operator fun component3(): MutPtr = this.pSip
 
-    public operator fun component4(): MutPtr<SipDispatchInfo> = this.pCATSip
+    public operator fun component4(): MutPtr = this.pCATSip
 
-    public operator fun component5(): MutPtr<SipSubjectinfo> = this.psSipSubjectInfo
+    public operator fun component5(): MutPtr = this.psSipSubjectInfo
 
-    public operator fun component6(): MutPtr<SipSubjectinfo> = this.psSipCATSubjectInfo
+    public operator fun component6(): MutPtr = this.psSipCATSubjectInfo
 
-    public operator fun component7(): MutPtr<SipIndirectData> = this.psIndirectData
+    public operator fun component7(): MutPtr = this.psIndirectData
 
-    public fun copy(cbStruct: UInt = this.cbStruct, gSubject: Guid = this.gSubject, pSip: MutPtr<SipDispatchInfo> = this.pSip, pCATSip: MutPtr<SipDispatchInfo> = this.pCATSip, psSipSubjectInfo: MutPtr<SipSubjectinfo> = this.psSipSubjectInfo, psSipCATSubjectInfo: MutPtr<SipSubjectinfo> = this.psSipCATSubjectInfo, psIndirectData: MutPtr<SipIndirectData> = this.psIndirectData): ProvdataSip = ProvdataSip(cbStruct = cbStruct, gSubject = gSubject, pSipCtorArg = pSip, pCATSipCtorArg = pCATSip, psSipSubjectInfoCtorArg = psSipSubjectInfo, psSipCATSubjectInfoCtorArg = psSipCATSubjectInfo, psIndirectDataCtorArg = psIndirectData)
+    public fun copy(cbStruct: UInt = this.cbStruct, gSubject: Guid = this.gSubject, pSip: MutPtr = this.pSip, pCATSip: MutPtr = this.pCATSip, psSipSubjectInfo: MutPtr = this.psSipSubjectInfo, psSipCATSubjectInfo: MutPtr = this.psSipCATSubjectInfo, psIndirectData: MutPtr = this.psIndirectData): ProvdataSip = ProvdataSip(cbStruct = cbStruct, gSubject = gSubject, pSipCtorArg = pSip, pCATSipCtorArg = pCATSip, psSipSubjectInfoCtorArg = psSipSubjectInfo, psSipCATSubjectInfoCtorArg = psSipCATSubjectInfo, psIndirectDataCtorArg = psIndirectData)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -2050,11 +2037,11 @@ public class ProvdataSip internal constructor(
         public operator fun invoke(
             cbStruct: UInt = 0u,
             gSubject: Guid = Guid(),
-            pSip: MutPtr<SipDispatchInfo> = MutPtr(0L),
-            pCATSip: MutPtr<SipDispatchInfo> = MutPtr(0L),
-            psSipSubjectInfo: MutPtr<SipSubjectinfo> = MutPtr(0L),
-            psSipCATSubjectInfo: MutPtr<SipSubjectinfo> = MutPtr(0L),
-            psIndirectData: MutPtr<SipIndirectData> = MutPtr(0L),
+            pSip: MutPtr = MutPtr(0L),
+            pCATSip: MutPtr = MutPtr(0L),
+            psSipSubjectInfo: MutPtr = MutPtr(0L),
+            psSipCATSubjectInfo: MutPtr = MutPtr(0L),
+            psIndirectData: MutPtr = MutPtr(0L),
         ): ProvdataSip =
             ProvdataSip(
                 cbStruct = cbStruct,
@@ -2104,13 +2091,13 @@ public data class SpcFinancialCriteria(
 }
 
 public class SpcImage internal constructor(
-    pImageLinkCtorArg: MutPtr<SpcLink>,
+    pImageLinkCtorArg: MutPtr,
     public var bitmap: CryptIntegerBlob,
     public var metafile: CryptIntegerBlob,
     public var enhancedMetafile: CryptIntegerBlob,
     public var gifFile: CryptIntegerBlob,
 ) {
-    public var pImageLink: MutPtr<SpcLink> = pImageLinkCtorArg
+    public var pImageLink: MutPtr = pImageLinkCtorArg
         internal set
 
     public constructor() : this(
@@ -2121,7 +2108,7 @@ public class SpcImage internal constructor(
         gifFile = CryptIntegerBlob(),
     )
 
-    public operator fun component1(): MutPtr<SpcLink> = this.pImageLink
+    public operator fun component1(): MutPtr = this.pImageLink
 
     public operator fun component2(): CryptIntegerBlob = this.bitmap
 
@@ -2131,7 +2118,7 @@ public class SpcImage internal constructor(
 
     public operator fun component5(): CryptIntegerBlob = this.gifFile
 
-    public fun copy(pImageLink: MutPtr<SpcLink> = this.pImageLink, bitmap: CryptIntegerBlob = this.bitmap, metafile: CryptIntegerBlob = this.metafile, enhancedMetafile: CryptIntegerBlob = this.enhancedMetafile, gifFile: CryptIntegerBlob = this.gifFile): SpcImage = SpcImage(pImageLinkCtorArg = pImageLink, bitmap = bitmap, metafile = metafile, enhancedMetafile = enhancedMetafile, gifFile = gifFile)
+    public fun copy(pImageLink: MutPtr = this.pImageLink, bitmap: CryptIntegerBlob = this.bitmap, metafile: CryptIntegerBlob = this.metafile, enhancedMetafile: CryptIntegerBlob = this.enhancedMetafile, gifFile: CryptIntegerBlob = this.gifFile): SpcImage = SpcImage(pImageLinkCtorArg = pImageLink, bitmap = bitmap, metafile = metafile, enhancedMetafile = enhancedMetafile, gifFile = gifFile)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -2155,7 +2142,7 @@ public class SpcImage internal constructor(
 
     public companion object {
         public operator fun invoke(
-            pImageLink: MutPtr<SpcLink> = MutPtr(0L),
+            pImageLink: MutPtr = MutPtr(0L),
             bitmap: CryptIntegerBlob = CryptIntegerBlob(),
             metafile: CryptIntegerBlob = CryptIntegerBlob(),
             enhancedMetafile: CryptIntegerBlob = CryptIntegerBlob(),
@@ -2239,9 +2226,9 @@ public class SpcLink0 internal constructor(
 
 public class SpcPeImageData internal constructor(
     public var flags: CryptBitBlob,
-    pFileCtorArg: MutPtr<SpcLink>,
+    pFileCtorArg: MutPtr,
 ) {
-    public var pFile: MutPtr<SpcLink> = pFileCtorArg
+    public var pFile: MutPtr = pFileCtorArg
         internal set
 
     public constructor() : this(
@@ -2251,9 +2238,9 @@ public class SpcPeImageData internal constructor(
 
     public operator fun component1(): CryptBitBlob = this.flags
 
-    public operator fun component2(): MutPtr<SpcLink> = this.pFile
+    public operator fun component2(): MutPtr = this.pFile
 
-    public fun copy(flags: CryptBitBlob = this.flags, pFile: MutPtr<SpcLink> = this.pFile): SpcPeImageData = SpcPeImageData(flags = flags, pFileCtorArg = pFile)
+    public fun copy(flags: CryptBitBlob = this.flags, pFile: MutPtr = this.pFile): SpcPeImageData = SpcPeImageData(flags = flags, pFileCtorArg = pFile)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -2272,7 +2259,7 @@ public class SpcPeImageData internal constructor(
     public companion object {
         public operator fun invoke(
             flags: CryptBitBlob = CryptBitBlob(),
-            pFile: MutPtr<SpcLink> = MutPtr(0L),
+            pFile: MutPtr = MutPtr(0L),
         ): SpcPeImageData =
             SpcPeImageData(
                 flags = flags,
@@ -2311,21 +2298,21 @@ public data class SpcSiginfo(
 )
 
 public class SpcSpAgencyInfo internal constructor(
-    pPolicyInformationCtorArg: MutPtr<SpcLink>,
+    pPolicyInformationCtorArg: MutPtr,
     pwszPolicyDisplayTextCtorArg: Pwstr,
-    pLogoImageCtorArg: MutPtr<SpcImage>,
-    pLogoLinkCtorArg: MutPtr<SpcLink>,
+    pLogoImageCtorArg: MutPtr,
+    pLogoLinkCtorArg: MutPtr,
 ) {
-    public var pPolicyInformation: MutPtr<SpcLink> = pPolicyInformationCtorArg
+    public var pPolicyInformation: MutPtr = pPolicyInformationCtorArg
         internal set
 
     public var pwszPolicyDisplayText: Pwstr = pwszPolicyDisplayTextCtorArg
         internal set
 
-    public var pLogoImage: MutPtr<SpcImage> = pLogoImageCtorArg
+    public var pLogoImage: MutPtr = pLogoImageCtorArg
         internal set
 
-    public var pLogoLink: MutPtr<SpcLink> = pLogoLinkCtorArg
+    public var pLogoLink: MutPtr = pLogoLinkCtorArg
         internal set
 
     public constructor() : this(
@@ -2335,15 +2322,15 @@ public class SpcSpAgencyInfo internal constructor(
         pLogoLinkCtorArg = MutPtr(0L),
     )
 
-    public operator fun component1(): MutPtr<SpcLink> = this.pPolicyInformation
+    public operator fun component1(): MutPtr = this.pPolicyInformation
 
     public operator fun component2(): Pwstr = this.pwszPolicyDisplayText
 
-    public operator fun component3(): MutPtr<SpcImage> = this.pLogoImage
+    public operator fun component3(): MutPtr = this.pLogoImage
 
-    public operator fun component4(): MutPtr<SpcLink> = this.pLogoLink
+    public operator fun component4(): MutPtr = this.pLogoLink
 
-    public fun copy(pPolicyInformation: MutPtr<SpcLink> = this.pPolicyInformation, pwszPolicyDisplayText: Pwstr = this.pwszPolicyDisplayText, pLogoImage: MutPtr<SpcImage> = this.pLogoImage, pLogoLink: MutPtr<SpcLink> = this.pLogoLink): SpcSpAgencyInfo = SpcSpAgencyInfo(pPolicyInformationCtorArg = pPolicyInformation, pwszPolicyDisplayTextCtorArg = pwszPolicyDisplayText, pLogoImageCtorArg = pLogoImage, pLogoLinkCtorArg = pLogoLink)
+    public fun copy(pPolicyInformation: MutPtr = this.pPolicyInformation, pwszPolicyDisplayText: Pwstr = this.pwszPolicyDisplayText, pLogoImage: MutPtr = this.pLogoImage, pLogoLink: MutPtr = this.pLogoLink): SpcSpAgencyInfo = SpcSpAgencyInfo(pPolicyInformationCtorArg = pPolicyInformation, pwszPolicyDisplayTextCtorArg = pwszPolicyDisplayText, pLogoImageCtorArg = pLogoImage, pLogoLinkCtorArg = pLogoLink)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -2365,10 +2352,10 @@ public class SpcSpAgencyInfo internal constructor(
 
     public companion object {
         public operator fun invoke(
-            pPolicyInformation: MutPtr<SpcLink> = MutPtr(0L),
+            pPolicyInformation: MutPtr = MutPtr(0L),
             pwszPolicyDisplayText: Pwstr = MutPtr(0L),
-            pLogoImage: MutPtr<SpcImage> = MutPtr(0L),
-            pLogoLink: MutPtr<SpcLink> = MutPtr(0L),
+            pLogoImage: MutPtr = MutPtr(0L),
+            pLogoLink: MutPtr = MutPtr(0L),
         ): SpcSpAgencyInfo =
             SpcSpAgencyInfo(
                 pPolicyInformationCtorArg = pPolicyInformation,
@@ -2381,16 +2368,16 @@ public class SpcSpAgencyInfo internal constructor(
 
 public class SpcSpOpusInfo internal constructor(
     pwszProgramNameCtorArg: Pcwstr,
-    pMoreInfoCtorArg: MutPtr<SpcLink>,
-    pPublisherInfoCtorArg: MutPtr<SpcLink>,
+    pMoreInfoCtorArg: MutPtr,
+    pPublisherInfoCtorArg: MutPtr,
 ) {
     public var pwszProgramName: Pcwstr = pwszProgramNameCtorArg
         internal set
 
-    public var pMoreInfo: MutPtr<SpcLink> = pMoreInfoCtorArg
+    public var pMoreInfo: MutPtr = pMoreInfoCtorArg
         internal set
 
-    public var pPublisherInfo: MutPtr<SpcLink> = pPublisherInfoCtorArg
+    public var pPublisherInfo: MutPtr = pPublisherInfoCtorArg
         internal set
 
     public constructor() : this(
@@ -2401,11 +2388,11 @@ public class SpcSpOpusInfo internal constructor(
 
     public operator fun component1(): Pcwstr = this.pwszProgramName
 
-    public operator fun component2(): MutPtr<SpcLink> = this.pMoreInfo
+    public operator fun component2(): MutPtr = this.pMoreInfo
 
-    public operator fun component3(): MutPtr<SpcLink> = this.pPublisherInfo
+    public operator fun component3(): MutPtr = this.pPublisherInfo
 
-    public fun copy(pwszProgramName: Pcwstr = this.pwszProgramName, pMoreInfo: MutPtr<SpcLink> = this.pMoreInfo, pPublisherInfo: MutPtr<SpcLink> = this.pPublisherInfo): SpcSpOpusInfo = SpcSpOpusInfo(pwszProgramNameCtorArg = pwszProgramName, pMoreInfoCtorArg = pMoreInfo, pPublisherInfoCtorArg = pPublisherInfo)
+    public fun copy(pwszProgramName: Pcwstr = this.pwszProgramName, pMoreInfo: MutPtr = this.pMoreInfo, pPublisherInfo: MutPtr = this.pPublisherInfo): SpcSpOpusInfo = SpcSpOpusInfo(pwszProgramNameCtorArg = pwszProgramName, pMoreInfoCtorArg = pMoreInfo, pPublisherInfoCtorArg = pPublisherInfo)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -2426,8 +2413,8 @@ public class SpcSpOpusInfo internal constructor(
     public companion object {
         public operator fun invoke(
             pwszProgramName: Pcwstr = ConstPtr(0L),
-            pMoreInfo: MutPtr<SpcLink> = MutPtr(0L),
-            pPublisherInfo: MutPtr<SpcLink> = MutPtr(0L),
+            pMoreInfo: MutPtr = MutPtr(0L),
+            pPublisherInfo: MutPtr = MutPtr(0L),
         ): SpcSpOpusInfo =
             SpcSpOpusInfo(
                 pwszProgramNameCtorArg = pwszProgramName,
@@ -2439,9 +2426,9 @@ public class SpcSpOpusInfo internal constructor(
 
 public class SpcStatementType internal constructor(
     public var cKeyPurposeId: UInt,
-    rgpszKeyPurposeIdCtorArg: MutPtr<Pstr>,
+    rgpszKeyPurposeIdCtorArg: MutPtr,
 ) {
-    public var rgpszKeyPurposeId: MutPtr<Pstr> = rgpszKeyPurposeIdCtorArg
+    public var rgpszKeyPurposeId: MutPtr = rgpszKeyPurposeIdCtorArg
         internal set
 
     public constructor() : this(
@@ -2451,9 +2438,9 @@ public class SpcStatementType internal constructor(
 
     public operator fun component1(): UInt = this.cKeyPurposeId
 
-    public operator fun component2(): MutPtr<Pstr> = this.rgpszKeyPurposeId
+    public operator fun component2(): MutPtr = this.rgpszKeyPurposeId
 
-    public fun copy(cKeyPurposeId: UInt = this.cKeyPurposeId, rgpszKeyPurposeId: MutPtr<Pstr> = this.rgpszKeyPurposeId): SpcStatementType = SpcStatementType(cKeyPurposeId = cKeyPurposeId, rgpszKeyPurposeIdCtorArg = rgpszKeyPurposeId)
+    public fun copy(cKeyPurposeId: UInt = this.cKeyPurposeId, rgpszKeyPurposeId: MutPtr = this.rgpszKeyPurposeId): SpcStatementType = SpcStatementType(cKeyPurposeId = cKeyPurposeId, rgpszKeyPurposeIdCtorArg = rgpszKeyPurposeId)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -2479,21 +2466,21 @@ public class SpcStatementType internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<Pstr>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                     )
                 override fun writeNative(addr: Long, value: SpcStatementType) {
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr, value.cKeyPurposeId)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<Pstr>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.rgpszKeyPurposeId)
                 }
             }
 
         public operator fun invoke(
             cKeyPurposeId: UInt = 0u,
-            rgpszKeyPurposeId: MutPtr<Pstr> = MutPtr(0L),
+            rgpszKeyPurposeId: MutPtr = MutPtr(0L),
         ): SpcStatementType =
             SpcStatementType(
                 cKeyPurposeId = cKeyPurposeId,
@@ -2507,17 +2494,17 @@ public class WintrustBlobInfo internal constructor(
     public var gSubject: Guid,
     pcwszDisplayNameCtorArg: Pcwstr,
     public var cbMemObject: UInt,
-    pbMemObjectCtorArg: MutPtr<UByte>,
+    pbMemObjectCtorArg: MutPtr,
     public var cbMemSignedMsg: UInt,
-    pbMemSignedMsgCtorArg: MutPtr<UByte>,
+    pbMemSignedMsgCtorArg: MutPtr,
 ) {
     public var pcwszDisplayName: Pcwstr = pcwszDisplayNameCtorArg
         internal set
 
-    public var pbMemObject: MutPtr<UByte> = pbMemObjectCtorArg
+    public var pbMemObject: MutPtr = pbMemObjectCtorArg
         internal set
 
-    public var pbMemSignedMsg: MutPtr<UByte> = pbMemSignedMsgCtorArg
+    public var pbMemSignedMsg: MutPtr = pbMemSignedMsgCtorArg
         internal set
 
     public constructor() : this(
@@ -2538,13 +2525,13 @@ public class WintrustBlobInfo internal constructor(
 
     public operator fun component4(): UInt = this.cbMemObject
 
-    public operator fun component5(): MutPtr<UByte> = this.pbMemObject
+    public operator fun component5(): MutPtr = this.pbMemObject
 
     public operator fun component6(): UInt = this.cbMemSignedMsg
 
-    public operator fun component7(): MutPtr<UByte> = this.pbMemSignedMsg
+    public operator fun component7(): MutPtr = this.pbMemSignedMsg
 
-    public fun copy(cbStruct: UInt = this.cbStruct, gSubject: Guid = this.gSubject, pcwszDisplayName: Pcwstr = this.pcwszDisplayName, cbMemObject: UInt = this.cbMemObject, pbMemObject: MutPtr<UByte> = this.pbMemObject, cbMemSignedMsg: UInt = this.cbMemSignedMsg, pbMemSignedMsg: MutPtr<UByte> = this.pbMemSignedMsg): WintrustBlobInfo = WintrustBlobInfo(cbStruct = cbStruct, gSubject = gSubject, pcwszDisplayNameCtorArg = pcwszDisplayName, cbMemObject = cbMemObject, pbMemObjectCtorArg = pbMemObject, cbMemSignedMsg = cbMemSignedMsg, pbMemSignedMsgCtorArg = pbMemSignedMsg)
+    public fun copy(cbStruct: UInt = this.cbStruct, gSubject: Guid = this.gSubject, pcwszDisplayName: Pcwstr = this.pcwszDisplayName, cbMemObject: UInt = this.cbMemObject, pbMemObject: MutPtr = this.pbMemObject, cbMemSignedMsg: UInt = this.cbMemSignedMsg, pbMemSignedMsg: MutPtr = this.pbMemSignedMsg): WintrustBlobInfo = WintrustBlobInfo(cbStruct = cbStruct, gSubject = gSubject, pcwszDisplayNameCtorArg = pcwszDisplayName, cbMemObject = cbMemObject, pbMemObjectCtorArg = pbMemObject, cbMemSignedMsg = cbMemSignedMsg, pbMemSignedMsgCtorArg = pbMemSignedMsg)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -2576,9 +2563,9 @@ public class WintrustBlobInfo internal constructor(
             gSubject: Guid = Guid(),
             pcwszDisplayName: Pcwstr = ConstPtr(0L),
             cbMemObject: UInt = 0u,
-            pbMemObject: MutPtr<UByte> = MutPtr(0L),
+            pbMemObject: MutPtr = MutPtr(0L),
             cbMemSignedMsg: UInt = 0u,
-            pbMemSignedMsg: MutPtr<UByte> = MutPtr(0L),
+            pbMemSignedMsg: MutPtr = MutPtr(0L),
         ): WintrustBlobInfo =
             WintrustBlobInfo(
                 cbStruct = cbStruct,
@@ -2599,9 +2586,9 @@ public class WintrustCatalogInfo internal constructor(
     pcwszMemberTagCtorArg: Pcwstr,
     pcwszMemberFilePathCtorArg: Pcwstr,
     hMemberFileCtorArg: Handle,
-    pbCalculatedFileHashCtorArg: MutPtr<UByte>,
+    pbCalculatedFileHashCtorArg: MutPtr,
     public var cbCalculatedFileHash: UInt,
-    pcCatalogContextCtorArg: MutPtr<CtlContext>,
+    pcCatalogContextCtorArg: MutPtr,
     public var hCatAdmin: Int,
 ) {
     public var pcwszCatalogFilePath: Pcwstr = pcwszCatalogFilePathCtorArg
@@ -2616,10 +2603,10 @@ public class WintrustCatalogInfo internal constructor(
     public var hMemberFile: Handle = hMemberFileCtorArg
         internal set
 
-    public var pbCalculatedFileHash: MutPtr<UByte> = pbCalculatedFileHashCtorArg
+    public var pbCalculatedFileHash: MutPtr = pbCalculatedFileHashCtorArg
         internal set
 
-    public var pcCatalogContext: MutPtr<CtlContext> = pcCatalogContextCtorArg
+    public var pcCatalogContext: MutPtr = pcCatalogContextCtorArg
         internal set
 
     public constructor() : this(
@@ -2647,15 +2634,15 @@ public class WintrustCatalogInfo internal constructor(
 
     public operator fun component6(): Handle = this.hMemberFile
 
-    public operator fun component7(): MutPtr<UByte> = this.pbCalculatedFileHash
+    public operator fun component7(): MutPtr = this.pbCalculatedFileHash
 
     public operator fun component8(): UInt = this.cbCalculatedFileHash
 
-    public operator fun component9(): MutPtr<CtlContext> = this.pcCatalogContext
+    public operator fun component9(): MutPtr = this.pcCatalogContext
 
     public operator fun component10(): Int = this.hCatAdmin
 
-    public fun copy(cbStruct: UInt = this.cbStruct, dwCatalogVersion: UInt = this.dwCatalogVersion, pcwszCatalogFilePath: Pcwstr = this.pcwszCatalogFilePath, pcwszMemberTag: Pcwstr = this.pcwszMemberTag, pcwszMemberFilePath: Pcwstr = this.pcwszMemberFilePath, hMemberFile: Handle = this.hMemberFile, pbCalculatedFileHash: MutPtr<UByte> = this.pbCalculatedFileHash, cbCalculatedFileHash: UInt = this.cbCalculatedFileHash, pcCatalogContext: MutPtr<CtlContext> = this.pcCatalogContext, hCatAdmin: Int = this.hCatAdmin): WintrustCatalogInfo = WintrustCatalogInfo(cbStruct = cbStruct, dwCatalogVersion = dwCatalogVersion, pcwszCatalogFilePathCtorArg = pcwszCatalogFilePath, pcwszMemberTagCtorArg = pcwszMemberTag, pcwszMemberFilePathCtorArg = pcwszMemberFilePath, hMemberFileCtorArg = hMemberFile, pbCalculatedFileHashCtorArg = pbCalculatedFileHash, cbCalculatedFileHash = cbCalculatedFileHash, pcCatalogContextCtorArg = pcCatalogContext, hCatAdmin = hCatAdmin)
+    public fun copy(cbStruct: UInt = this.cbStruct, dwCatalogVersion: UInt = this.dwCatalogVersion, pcwszCatalogFilePath: Pcwstr = this.pcwszCatalogFilePath, pcwszMemberTag: Pcwstr = this.pcwszMemberTag, pcwszMemberFilePath: Pcwstr = this.pcwszMemberFilePath, hMemberFile: Handle = this.hMemberFile, pbCalculatedFileHash: MutPtr = this.pbCalculatedFileHash, cbCalculatedFileHash: UInt = this.cbCalculatedFileHash, pcCatalogContext: MutPtr = this.pcCatalogContext, hCatAdmin: Int = this.hCatAdmin): WintrustCatalogInfo = WintrustCatalogInfo(cbStruct = cbStruct, dwCatalogVersion = dwCatalogVersion, pcwszCatalogFilePathCtorArg = pcwszCatalogFilePath, pcwszMemberTagCtorArg = pcwszMemberTag, pcwszMemberFilePathCtorArg = pcwszMemberFilePath, hMemberFileCtorArg = hMemberFile, pbCalculatedFileHashCtorArg = pbCalculatedFileHash, cbCalculatedFileHash = cbCalculatedFileHash, pcCatalogContextCtorArg = pcCatalogContext, hCatAdmin = hCatAdmin)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -2695,9 +2682,9 @@ public class WintrustCatalogInfo internal constructor(
             pcwszMemberTag: Pcwstr = ConstPtr(0L),
             pcwszMemberFilePath: Pcwstr = ConstPtr(0L),
             hMemberFile: Handle = MutPtr(0L),
-            pbCalculatedFileHash: MutPtr<UByte> = MutPtr(0L),
+            pbCalculatedFileHash: MutPtr = MutPtr(0L),
             cbCalculatedFileHash: UInt = 0u,
-            pcCatalogContext: MutPtr<CtlContext> = MutPtr(0L),
+            pcCatalogContext: MutPtr = MutPtr(0L),
             hCatAdmin: Int = 0,
         ): WintrustCatalogInfo =
             WintrustCatalogInfo(
@@ -2718,22 +2705,22 @@ public class WintrustCatalogInfo internal constructor(
 public class WintrustCertInfo internal constructor(
     public var cbStruct: UInt,
     pcwszDisplayNameCtorArg: Pcwstr,
-    psCertContextCtorArg: MutPtr<CertContext>,
+    psCertContextCtorArg: MutPtr,
     public var chStores: UInt,
-    pahStoresCtorArg: MutPtr<Hcertstore>,
+    pahStoresCtorArg: MutPtr,
     public var dwFlags: UInt,
-    psftVerifyAsOfCtorArg: MutPtr<Filetime>,
+    psftVerifyAsOfCtorArg: MutPtr,
 ) {
     public var pcwszDisplayName: Pcwstr = pcwszDisplayNameCtorArg
         internal set
 
-    public var psCertContext: MutPtr<CertContext> = psCertContextCtorArg
+    public var psCertContext: MutPtr = psCertContextCtorArg
         internal set
 
-    public var pahStores: MutPtr<Hcertstore> = pahStoresCtorArg
+    public var pahStores: MutPtr = pahStoresCtorArg
         internal set
 
-    public var psftVerifyAsOf: MutPtr<Filetime> = psftVerifyAsOfCtorArg
+    public var psftVerifyAsOf: MutPtr = psftVerifyAsOfCtorArg
         internal set
 
     public constructor() : this(
@@ -2750,17 +2737,17 @@ public class WintrustCertInfo internal constructor(
 
     public operator fun component2(): Pcwstr = this.pcwszDisplayName
 
-    public operator fun component3(): MutPtr<CertContext> = this.psCertContext
+    public operator fun component3(): MutPtr = this.psCertContext
 
     public operator fun component4(): UInt = this.chStores
 
-    public operator fun component5(): MutPtr<Hcertstore> = this.pahStores
+    public operator fun component5(): MutPtr = this.pahStores
 
     public operator fun component6(): UInt = this.dwFlags
 
-    public operator fun component7(): MutPtr<Filetime> = this.psftVerifyAsOf
+    public operator fun component7(): MutPtr = this.psftVerifyAsOf
 
-    public fun copy(cbStruct: UInt = this.cbStruct, pcwszDisplayName: Pcwstr = this.pcwszDisplayName, psCertContext: MutPtr<CertContext> = this.psCertContext, chStores: UInt = this.chStores, pahStores: MutPtr<Hcertstore> = this.pahStores, dwFlags: UInt = this.dwFlags, psftVerifyAsOf: MutPtr<Filetime> = this.psftVerifyAsOf): WintrustCertInfo = WintrustCertInfo(cbStruct = cbStruct, pcwszDisplayNameCtorArg = pcwszDisplayName, psCertContextCtorArg = psCertContext, chStores = chStores, pahStoresCtorArg = pahStores, dwFlags = dwFlags, psftVerifyAsOfCtorArg = psftVerifyAsOf)
+    public fun copy(cbStruct: UInt = this.cbStruct, pcwszDisplayName: Pcwstr = this.pcwszDisplayName, psCertContext: MutPtr = this.psCertContext, chStores: UInt = this.chStores, pahStores: MutPtr = this.pahStores, dwFlags: UInt = this.dwFlags, psftVerifyAsOf: MutPtr = this.psftVerifyAsOf): WintrustCertInfo = WintrustCertInfo(cbStruct = cbStruct, pcwszDisplayNameCtorArg = pcwszDisplayName, psCertContextCtorArg = psCertContext, chStores = chStores, pahStoresCtorArg = pahStores, dwFlags = dwFlags, psftVerifyAsOfCtorArg = psftVerifyAsOf)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -2790,11 +2777,11 @@ public class WintrustCertInfo internal constructor(
         public operator fun invoke(
             cbStruct: UInt = 0u,
             pcwszDisplayName: Pcwstr = ConstPtr(0L),
-            psCertContext: MutPtr<CertContext> = MutPtr(0L),
+            psCertContext: MutPtr = MutPtr(0L),
             chStores: UInt = 0u,
-            pahStores: MutPtr<Hcertstore> = MutPtr(0L),
+            pahStores: MutPtr = MutPtr(0L),
             dwFlags: UInt = 0u,
-            psftVerifyAsOf: MutPtr<Filetime> = MutPtr(0L),
+            psftVerifyAsOf: MutPtr = MutPtr(0L),
         ): WintrustCertInfo =
             WintrustCertInfo(
                 cbStruct = cbStruct,
@@ -2810,8 +2797,8 @@ public class WintrustCertInfo internal constructor(
 
 public class WintrustData internal constructor(
     public var cbStruct: UInt,
-    pPolicyCallbackDataCtorArg: MutPtr<CVoid>,
-    pSIPClientDataCtorArg: MutPtr<CVoid>,
+    pPolicyCallbackDataCtorArg: MutPtr,
+    pSIPClientDataCtorArg: MutPtr,
     public var dwUIChoice: WintrustDataUichoice,
     public var fdwRevocationChecks: WintrustDataRevocationChecks,
     public var dwUnionChoice: WintrustDataUnionChoice,
@@ -2821,12 +2808,12 @@ public class WintrustData internal constructor(
     pwszURLReferenceCtorArg: Pwstr,
     public var dwProvFlags: WintrustDataProviderFlags,
     public var dwUIContext: WintrustDataUicontext,
-    pSignatureSettingsCtorArg: MutPtr<WintrustSignatureSettings>,
+    pSignatureSettingsCtorArg: MutPtr,
 ) {
-    public var pPolicyCallbackData: MutPtr<CVoid> = pPolicyCallbackDataCtorArg
+    public var pPolicyCallbackData: MutPtr = pPolicyCallbackDataCtorArg
         internal set
 
-    public var pSIPClientData: MutPtr<CVoid> = pSIPClientDataCtorArg
+    public var pSIPClientData: MutPtr = pSIPClientDataCtorArg
         internal set
 
     public var hWVTStateData: Handle = hWVTStateDataCtorArg
@@ -2835,7 +2822,7 @@ public class WintrustData internal constructor(
     public var pwszURLReference: Pwstr = pwszURLReferenceCtorArg
         internal set
 
-    public var pSignatureSettings: MutPtr<WintrustSignatureSettings> = pSignatureSettingsCtorArg
+    public var pSignatureSettings: MutPtr = pSignatureSettingsCtorArg
         internal set
 
     public constructor() : this(
@@ -2856,9 +2843,9 @@ public class WintrustData internal constructor(
 
     public operator fun component1(): UInt = this.cbStruct
 
-    public operator fun component2(): MutPtr<CVoid> = this.pPolicyCallbackData
+    public operator fun component2(): MutPtr = this.pPolicyCallbackData
 
-    public operator fun component3(): MutPtr<CVoid> = this.pSIPClientData
+    public operator fun component3(): MutPtr = this.pSIPClientData
 
     public operator fun component4(): WintrustDataUichoice = this.dwUIChoice
 
@@ -2878,9 +2865,9 @@ public class WintrustData internal constructor(
 
     public operator fun component12(): WintrustDataUicontext = this.dwUIContext
 
-    public operator fun component13(): MutPtr<WintrustSignatureSettings> = this.pSignatureSettings
+    public operator fun component13(): MutPtr = this.pSignatureSettings
 
-    public fun copy(cbStruct: UInt = this.cbStruct, pPolicyCallbackData: MutPtr<CVoid> = this.pPolicyCallbackData, pSIPClientData: MutPtr<CVoid> = this.pSIPClientData, dwUIChoice: WintrustDataUichoice = this.dwUIChoice, fdwRevocationChecks: WintrustDataRevocationChecks = this.fdwRevocationChecks, dwUnionChoice: WintrustDataUnionChoice = this.dwUnionChoice, anonymous: WintrustData0 = this.anonymous, dwStateAction: WintrustDataStateAction = this.dwStateAction, hWVTStateData: Handle = this.hWVTStateData, pwszURLReference: Pwstr = this.pwszURLReference, dwProvFlags: WintrustDataProviderFlags = this.dwProvFlags, dwUIContext: WintrustDataUicontext = this.dwUIContext, pSignatureSettings: MutPtr<WintrustSignatureSettings> = this.pSignatureSettings): WintrustData = WintrustData(cbStruct = cbStruct, pPolicyCallbackDataCtorArg = pPolicyCallbackData, pSIPClientDataCtorArg = pSIPClientData, dwUIChoice = dwUIChoice, fdwRevocationChecks = fdwRevocationChecks, dwUnionChoice = dwUnionChoice, anonymous = anonymous, dwStateAction = dwStateAction, hWVTStateDataCtorArg = hWVTStateData, pwszURLReferenceCtorArg = pwszURLReference, dwProvFlags = dwProvFlags, dwUIContext = dwUIContext, pSignatureSettingsCtorArg = pSignatureSettings)
+    public fun copy(cbStruct: UInt = this.cbStruct, pPolicyCallbackData: MutPtr = this.pPolicyCallbackData, pSIPClientData: MutPtr = this.pSIPClientData, dwUIChoice: WintrustDataUichoice = this.dwUIChoice, fdwRevocationChecks: WintrustDataRevocationChecks = this.fdwRevocationChecks, dwUnionChoice: WintrustDataUnionChoice = this.dwUnionChoice, anonymous: WintrustData0 = this.anonymous, dwStateAction: WintrustDataStateAction = this.dwStateAction, hWVTStateData: Handle = this.hWVTStateData, pwszURLReference: Pwstr = this.pwszURLReference, dwProvFlags: WintrustDataProviderFlags = this.dwProvFlags, dwUIContext: WintrustDataUicontext = this.dwUIContext, pSignatureSettings: MutPtr = this.pSignatureSettings): WintrustData = WintrustData(cbStruct = cbStruct, pPolicyCallbackDataCtorArg = pPolicyCallbackData, pSIPClientDataCtorArg = pSIPClientData, dwUIChoice = dwUIChoice, fdwRevocationChecks = fdwRevocationChecks, dwUnionChoice = dwUnionChoice, anonymous = anonymous, dwStateAction = dwStateAction, hWVTStateDataCtorArg = hWVTStateData, pwszURLReferenceCtorArg = pwszURLReference, dwProvFlags = dwProvFlags, dwUIContext = dwUIContext, pSignatureSettingsCtorArg = pSignatureSettings)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -2921,8 +2908,8 @@ public class WintrustData internal constructor(
     public companion object {
         public operator fun invoke(
             cbStruct: UInt = 0u,
-            pPolicyCallbackData: MutPtr<CVoid> = MutPtr(0L),
-            pSIPClientData: MutPtr<CVoid> = MutPtr(0L),
+            pPolicyCallbackData: MutPtr = MutPtr(0L),
+            pSIPClientData: MutPtr = MutPtr(0L),
             dwUIChoice: WintrustDataUichoice = 0u,
             fdwRevocationChecks: WintrustDataRevocationChecks = 0u,
             dwUnionChoice: WintrustDataUnionChoice = 0u,
@@ -2932,7 +2919,7 @@ public class WintrustData internal constructor(
             pwszURLReference: Pwstr = MutPtr(0L),
             dwProvFlags: WintrustDataProviderFlags = 0u,
             dwUIContext: WintrustDataUicontext = 0u,
-            pSignatureSettings: MutPtr<WintrustSignatureSettings> = MutPtr(0L),
+            pSignatureSettings: MutPtr = MutPtr(0L),
         ): WintrustData =
             WintrustData(
                 cbStruct = cbStruct,
@@ -2953,25 +2940,25 @@ public class WintrustData internal constructor(
 }
 
 public class WintrustData0 internal constructor(
-    pFileCtorArg: MutPtr<WintrustFileInfo>,
-    pCatalogCtorArg: MutPtr<WintrustCatalogInfo>,
-    pBlobCtorArg: MutPtr<WintrustBlobInfo>,
-    pSgnrCtorArg: MutPtr<WintrustSgnrInfo>,
-    pCertCtorArg: MutPtr<WintrustCertInfo>,
+    pFileCtorArg: MutPtr,
+    pCatalogCtorArg: MutPtr,
+    pBlobCtorArg: MutPtr,
+    pSgnrCtorArg: MutPtr,
+    pCertCtorArg: MutPtr,
 ) {
-    public var pFile: MutPtr<WintrustFileInfo> = pFileCtorArg
+    public var pFile: MutPtr = pFileCtorArg
         internal set
 
-    public var pCatalog: MutPtr<WintrustCatalogInfo> = pCatalogCtorArg
+    public var pCatalog: MutPtr = pCatalogCtorArg
         internal set
 
-    public var pBlob: MutPtr<WintrustBlobInfo> = pBlobCtorArg
+    public var pBlob: MutPtr = pBlobCtorArg
         internal set
 
-    public var pSgnr: MutPtr<WintrustSgnrInfo> = pSgnrCtorArg
+    public var pSgnr: MutPtr = pSgnrCtorArg
         internal set
 
-    public var pCert: MutPtr<WintrustCertInfo> = pCertCtorArg
+    public var pCert: MutPtr = pCertCtorArg
         internal set
 
     public constructor() : this(
@@ -2982,17 +2969,17 @@ public class WintrustData0 internal constructor(
         pCertCtorArg = MutPtr(0L),
     )
 
-    public operator fun component1(): MutPtr<WintrustFileInfo> = this.pFile
+    public operator fun component1(): MutPtr = this.pFile
 
-    public operator fun component2(): MutPtr<WintrustCatalogInfo> = this.pCatalog
+    public operator fun component2(): MutPtr = this.pCatalog
 
-    public operator fun component3(): MutPtr<WintrustBlobInfo> = this.pBlob
+    public operator fun component3(): MutPtr = this.pBlob
 
-    public operator fun component4(): MutPtr<WintrustSgnrInfo> = this.pSgnr
+    public operator fun component4(): MutPtr = this.pSgnr
 
-    public operator fun component5(): MutPtr<WintrustCertInfo> = this.pCert
+    public operator fun component5(): MutPtr = this.pCert
 
-    public fun copy(pFile: MutPtr<WintrustFileInfo> = this.pFile, pCatalog: MutPtr<WintrustCatalogInfo> = this.pCatalog, pBlob: MutPtr<WintrustBlobInfo> = this.pBlob, pSgnr: MutPtr<WintrustSgnrInfo> = this.pSgnr, pCert: MutPtr<WintrustCertInfo> = this.pCert): WintrustData0 = WintrustData0(pFileCtorArg = pFile, pCatalogCtorArg = pCatalog, pBlobCtorArg = pBlob, pSgnrCtorArg = pSgnr, pCertCtorArg = pCert)
+    public fun copy(pFile: MutPtr = this.pFile, pCatalog: MutPtr = this.pCatalog, pBlob: MutPtr = this.pBlob, pSgnr: MutPtr = this.pSgnr, pCert: MutPtr = this.pCert): WintrustData0 = WintrustData0(pFileCtorArg = pFile, pCatalogCtorArg = pCatalog, pBlobCtorArg = pBlob, pSgnrCtorArg = pSgnr, pCertCtorArg = pCert)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -3016,11 +3003,11 @@ public class WintrustData0 internal constructor(
 
     public companion object {
         public operator fun invoke(
-            pFile: MutPtr<WintrustFileInfo> = MutPtr(0L),
-            pCatalog: MutPtr<WintrustCatalogInfo> = MutPtr(0L),
-            pBlob: MutPtr<WintrustBlobInfo> = MutPtr(0L),
-            pSgnr: MutPtr<WintrustSgnrInfo> = MutPtr(0L),
-            pCert: MutPtr<WintrustCertInfo> = MutPtr(0L),
+            pFile: MutPtr = MutPtr(0L),
+            pCatalog: MutPtr = MutPtr(0L),
+            pBlob: MutPtr = MutPtr(0L),
+            pSgnr: MutPtr = MutPtr(0L),
+            pCert: MutPtr = MutPtr(0L),
         ): WintrustData0 =
             WintrustData0(
                 pFileCtorArg = pFile,
@@ -3036,7 +3023,7 @@ public class WintrustFileInfo internal constructor(
     public var cbStruct: UInt,
     pcwszFilePathCtorArg: Pcwstr,
     hFileCtorArg: Handle,
-    pgKnownSubjectCtorArg: MutPtr<Guid>,
+    pgKnownSubjectCtorArg: MutPtr,
 ) {
     public var pcwszFilePath: Pcwstr = pcwszFilePathCtorArg
         internal set
@@ -3044,7 +3031,7 @@ public class WintrustFileInfo internal constructor(
     public var hFile: Handle = hFileCtorArg
         internal set
 
-    public var pgKnownSubject: MutPtr<Guid> = pgKnownSubjectCtorArg
+    public var pgKnownSubject: MutPtr = pgKnownSubjectCtorArg
         internal set
 
     public constructor() : this(
@@ -3060,9 +3047,9 @@ public class WintrustFileInfo internal constructor(
 
     public operator fun component3(): Handle = this.hFile
 
-    public operator fun component4(): MutPtr<Guid> = this.pgKnownSubject
+    public operator fun component4(): MutPtr = this.pgKnownSubject
 
-    public fun copy(cbStruct: UInt = this.cbStruct, pcwszFilePath: Pcwstr = this.pcwszFilePath, hFile: Handle = this.hFile, pgKnownSubject: MutPtr<Guid> = this.pgKnownSubject): WintrustFileInfo = WintrustFileInfo(cbStruct = cbStruct, pcwszFilePathCtorArg = pcwszFilePath, hFileCtorArg = hFile, pgKnownSubjectCtorArg = pgKnownSubject)
+    public fun copy(cbStruct: UInt = this.cbStruct, pcwszFilePath: Pcwstr = this.pcwszFilePath, hFile: Handle = this.hFile, pgKnownSubject: MutPtr = this.pgKnownSubject): WintrustFileInfo = WintrustFileInfo(cbStruct = cbStruct, pcwszFilePathCtorArg = pcwszFilePath, hFileCtorArg = hFile, pgKnownSubjectCtorArg = pgKnownSubject)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -3087,7 +3074,7 @@ public class WintrustFileInfo internal constructor(
             cbStruct: UInt = 0u,
             pcwszFilePath: Pcwstr = ConstPtr(0L),
             hFile: Handle = MutPtr(0L),
-            pgKnownSubject: MutPtr<Guid> = MutPtr(0L),
+            pgKnownSubject: MutPtr = MutPtr(0L),
         ): WintrustFileInfo =
             WintrustFileInfo(
                 cbStruct = cbStruct,
@@ -3101,17 +3088,17 @@ public class WintrustFileInfo internal constructor(
 public class WintrustSgnrInfo internal constructor(
     public var cbStruct: UInt,
     pcwszDisplayNameCtorArg: Pcwstr,
-    psSignerInfoCtorArg: MutPtr<CmsgSignerInfo>,
+    psSignerInfoCtorArg: MutPtr,
     public var chStores: UInt,
-    pahStoresCtorArg: MutPtr<Hcertstore>,
+    pahStoresCtorArg: MutPtr,
 ) {
     public var pcwszDisplayName: Pcwstr = pcwszDisplayNameCtorArg
         internal set
 
-    public var psSignerInfo: MutPtr<CmsgSignerInfo> = psSignerInfoCtorArg
+    public var psSignerInfo: MutPtr = psSignerInfoCtorArg
         internal set
 
-    public var pahStores: MutPtr<Hcertstore> = pahStoresCtorArg
+    public var pahStores: MutPtr = pahStoresCtorArg
         internal set
 
     public constructor() : this(
@@ -3126,13 +3113,13 @@ public class WintrustSgnrInfo internal constructor(
 
     public operator fun component2(): Pcwstr = this.pcwszDisplayName
 
-    public operator fun component3(): MutPtr<CmsgSignerInfo> = this.psSignerInfo
+    public operator fun component3(): MutPtr = this.psSignerInfo
 
     public operator fun component4(): UInt = this.chStores
 
-    public operator fun component5(): MutPtr<Hcertstore> = this.pahStores
+    public operator fun component5(): MutPtr = this.pahStores
 
-    public fun copy(cbStruct: UInt = this.cbStruct, pcwszDisplayName: Pcwstr = this.pcwszDisplayName, psSignerInfo: MutPtr<CmsgSignerInfo> = this.psSignerInfo, chStores: UInt = this.chStores, pahStores: MutPtr<Hcertstore> = this.pahStores): WintrustSgnrInfo = WintrustSgnrInfo(cbStruct = cbStruct, pcwszDisplayNameCtorArg = pcwszDisplayName, psSignerInfoCtorArg = psSignerInfo, chStores = chStores, pahStoresCtorArg = pahStores)
+    public fun copy(cbStruct: UInt = this.cbStruct, pcwszDisplayName: Pcwstr = this.pcwszDisplayName, psSignerInfo: MutPtr = this.psSignerInfo, chStores: UInt = this.chStores, pahStores: MutPtr = this.pahStores): WintrustSgnrInfo = WintrustSgnrInfo(cbStruct = cbStruct, pcwszDisplayNameCtorArg = pcwszDisplayName, psSignerInfoCtorArg = psSignerInfo, chStores = chStores, pahStoresCtorArg = pahStores)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -3158,9 +3145,9 @@ public class WintrustSgnrInfo internal constructor(
         public operator fun invoke(
             cbStruct: UInt = 0u,
             pcwszDisplayName: Pcwstr = ConstPtr(0L),
-            psSignerInfo: MutPtr<CmsgSignerInfo> = MutPtr(0L),
+            psSignerInfo: MutPtr = MutPtr(0L),
             chStores: UInt = 0u,
-            pahStores: MutPtr<Hcertstore> = MutPtr(0L),
+            pahStores: MutPtr = MutPtr(0L),
         ): WintrustSgnrInfo =
             WintrustSgnrInfo(
                 cbStruct = cbStruct,
@@ -3178,9 +3165,9 @@ public class WintrustSignatureSettings internal constructor(
     public var dwFlags: WintrustSignatureSettingsFlags,
     public var cSecondarySigs: UInt,
     public var dwVerifiedSigIndex: UInt,
-    pCryptoPolicyCtorArg: MutPtr<CertStrongSignPara>,
+    pCryptoPolicyCtorArg: MutPtr,
 ) {
-    public var pCryptoPolicy: MutPtr<CertStrongSignPara> = pCryptoPolicyCtorArg
+    public var pCryptoPolicy: MutPtr = pCryptoPolicyCtorArg
         internal set
 
     public constructor() : this(
@@ -3202,9 +3189,9 @@ public class WintrustSignatureSettings internal constructor(
 
     public operator fun component5(): UInt = this.dwVerifiedSigIndex
 
-    public operator fun component6(): MutPtr<CertStrongSignPara> = this.pCryptoPolicy
+    public operator fun component6(): MutPtr = this.pCryptoPolicy
 
-    public fun copy(cbStruct: UInt = this.cbStruct, dwIndex: UInt = this.dwIndex, dwFlags: WintrustSignatureSettingsFlags = this.dwFlags, cSecondarySigs: UInt = this.cSecondarySigs, dwVerifiedSigIndex: UInt = this.dwVerifiedSigIndex, pCryptoPolicy: MutPtr<CertStrongSignPara> = this.pCryptoPolicy): WintrustSignatureSettings = WintrustSignatureSettings(cbStruct = cbStruct, dwIndex = dwIndex, dwFlags = dwFlags, cSecondarySigs = cSecondarySigs, dwVerifiedSigIndex = dwVerifiedSigIndex, pCryptoPolicyCtorArg = pCryptoPolicy)
+    public fun copy(cbStruct: UInt = this.cbStruct, dwIndex: UInt = this.dwIndex, dwFlags: WintrustSignatureSettingsFlags = this.dwFlags, cSecondarySigs: UInt = this.cSecondarySigs, dwVerifiedSigIndex: UInt = this.dwVerifiedSigIndex, pCryptoPolicy: MutPtr = this.pCryptoPolicy): WintrustSignatureSettings = WintrustSignatureSettings(cbStruct = cbStruct, dwIndex = dwIndex, dwFlags = dwFlags, cSecondarySigs = cSecondarySigs, dwVerifiedSigIndex = dwVerifiedSigIndex, pCryptoPolicyCtorArg = pCryptoPolicy)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -3242,7 +3229,7 @@ public class WintrustSignatureSettings internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 16L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<CertStrongSignPara>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 24L),
                     )
                 override fun writeNative(addr: Long, value: WintrustSignatureSettings) {
@@ -3253,7 +3240,7 @@ public class WintrustSignatureSettings internal constructor(
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 16L, value.dwVerifiedSigIndex)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<CertStrongSignPara>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 24L, value.pCryptoPolicy)
                 }
             }
@@ -3264,7 +3251,7 @@ public class WintrustSignatureSettings internal constructor(
             dwFlags: WintrustSignatureSettingsFlags = 0u,
             cSecondarySigs: UInt = 0u,
             dwVerifiedSigIndex: UInt = 0u,
-            pCryptoPolicy: MutPtr<CertStrongSignPara> = MutPtr(0L),
+            pCryptoPolicy: MutPtr = MutPtr(0L),
         ): WintrustSignatureSettings =
             WintrustSignatureSettings(
                 cbStruct = cbStruct,
@@ -3331,12 +3318,12 @@ public data class WinCertificate(
 
 public class WinSpubTrustedPublisherData internal constructor(
     hClientTokenCtorArg: Handle,
-    lpCertificateCtorArg: MutPtr<WinCertificate>,
+    lpCertificateCtorArg: MutPtr,
 ) {
     public var hClientToken: Handle = hClientTokenCtorArg
         internal set
 
-    public var lpCertificate: MutPtr<WinCertificate> = lpCertificateCtorArg
+    public var lpCertificate: MutPtr = lpCertificateCtorArg
         internal set
 
     public constructor() : this(
@@ -3346,9 +3333,9 @@ public class WinSpubTrustedPublisherData internal constructor(
 
     public operator fun component1(): Handle = this.hClientToken
 
-    public operator fun component2(): MutPtr<WinCertificate> = this.lpCertificate
+    public operator fun component2(): MutPtr = this.lpCertificate
 
-    public fun copy(hClientToken: Handle = this.hClientToken, lpCertificate: MutPtr<WinCertificate> = this.lpCertificate): WinSpubTrustedPublisherData = WinSpubTrustedPublisherData(hClientTokenCtorArg = hClientToken, lpCertificateCtorArg = lpCertificate)
+    public fun copy(hClientToken: Handle = this.hClientToken, lpCertificate: MutPtr = this.lpCertificate): WinSpubTrustedPublisherData = WinSpubTrustedPublisherData(hClientTokenCtorArg = hClientToken, lpCertificateCtorArg = lpCertificate)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -3367,7 +3354,7 @@ public class WinSpubTrustedPublisherData internal constructor(
     public companion object {
         public operator fun invoke(
             hClientToken: Handle = MutPtr(0L),
-            lpCertificate: MutPtr<WinCertificate> = MutPtr(0L),
+            lpCertificate: MutPtr = MutPtr(0L),
         ): WinSpubTrustedPublisherData =
             WinSpubTrustedPublisherData(
                 hClientTokenCtorArg = hClientToken,
@@ -3378,16 +3365,16 @@ public class WinSpubTrustedPublisherData internal constructor(
 
 public class WinTrustActdataContextWithSubject internal constructor(
     hClientTokenCtorArg: Handle,
-    subjectTypeCtorArg: MutPtr<Guid>,
-    subjectCtorArg: MutPtr<CVoid>,
+    subjectTypeCtorArg: MutPtr,
+    subjectCtorArg: MutPtr,
 ) {
     public var hClientToken: Handle = hClientTokenCtorArg
         internal set
 
-    public var subjectType: MutPtr<Guid> = subjectTypeCtorArg
+    public var subjectType: MutPtr = subjectTypeCtorArg
         internal set
 
-    public var subject: MutPtr<CVoid> = subjectCtorArg
+    public var subject: MutPtr = subjectCtorArg
         internal set
 
     public constructor() : this(
@@ -3398,11 +3385,11 @@ public class WinTrustActdataContextWithSubject internal constructor(
 
     public operator fun component1(): Handle = this.hClientToken
 
-    public operator fun component2(): MutPtr<Guid> = this.subjectType
+    public operator fun component2(): MutPtr = this.subjectType
 
-    public operator fun component3(): MutPtr<CVoid> = this.subject
+    public operator fun component3(): MutPtr = this.subject
 
-    public fun copy(hClientToken: Handle = this.hClientToken, subjectType: MutPtr<Guid> = this.subjectType, subject: MutPtr<CVoid> = this.subject): WinTrustActdataContextWithSubject = WinTrustActdataContextWithSubject(hClientTokenCtorArg = hClientToken, subjectTypeCtorArg = subjectType, subjectCtorArg = subject)
+    public fun copy(hClientToken: Handle = this.hClientToken, subjectType: MutPtr = this.subjectType, subject: MutPtr = this.subject): WinTrustActdataContextWithSubject = WinTrustActdataContextWithSubject(hClientTokenCtorArg = hClientToken, subjectTypeCtorArg = subjectType, subjectCtorArg = subject)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -3423,8 +3410,8 @@ public class WinTrustActdataContextWithSubject internal constructor(
     public companion object {
         public operator fun invoke(
             hClientToken: Handle = MutPtr(0L),
-            subjectType: MutPtr<Guid> = MutPtr(0L),
-            subject: MutPtr<CVoid> = MutPtr(0L),
+            subjectType: MutPtr = MutPtr(0L),
+            subject: MutPtr = MutPtr(0L),
         ): WinTrustActdataContextWithSubject =
             WinTrustActdataContextWithSubject(
                 hClientTokenCtorArg = hClientToken,
@@ -3435,13 +3422,13 @@ public class WinTrustActdataContextWithSubject internal constructor(
 }
 
 public class WinTrustActdataSubjectOnly internal constructor(
-    subjectTypeCtorArg: MutPtr<Guid>,
-    subjectCtorArg: MutPtr<CVoid>,
+    subjectTypeCtorArg: MutPtr,
+    subjectCtorArg: MutPtr,
 ) {
-    public var subjectType: MutPtr<Guid> = subjectTypeCtorArg
+    public var subjectType: MutPtr = subjectTypeCtorArg
         internal set
 
-    public var subject: MutPtr<CVoid> = subjectCtorArg
+    public var subject: MutPtr = subjectCtorArg
         internal set
 
     public constructor() : this(
@@ -3449,11 +3436,11 @@ public class WinTrustActdataSubjectOnly internal constructor(
         subjectCtorArg = MutPtr(0L),
     )
 
-    public operator fun component1(): MutPtr<Guid> = this.subjectType
+    public operator fun component1(): MutPtr = this.subjectType
 
-    public operator fun component2(): MutPtr<CVoid> = this.subject
+    public operator fun component2(): MutPtr = this.subject
 
-    public fun copy(subjectType: MutPtr<Guid> = this.subjectType, subject: MutPtr<CVoid> = this.subject): WinTrustActdataSubjectOnly = WinTrustActdataSubjectOnly(subjectTypeCtorArg = subjectType, subjectCtorArg = subject)
+    public fun copy(subjectType: MutPtr = this.subjectType, subject: MutPtr = this.subject): WinTrustActdataSubjectOnly = WinTrustActdataSubjectOnly(subjectTypeCtorArg = subjectType, subjectCtorArg = subject)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -3478,28 +3465,28 @@ public class WinTrustActdataSubjectOnly internal constructor(
                     WinTrustActdataSubjectOnly(
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<Guid>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<CVoid>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                     )
                 override fun writeNative(addr: Long, value: WinTrustActdataSubjectOnly) {
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<Guid>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr, value.subjectType)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<CVoid>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.subject)
                 }
             }
 
         public operator fun invoke(
-            subjectType: MutPtr<Guid> = MutPtr(0L),
-            subject: MutPtr<CVoid> = MutPtr(0L),
+            subjectType: MutPtr = MutPtr(0L),
+            subject: MutPtr = MutPtr(0L),
         ): WinTrustActdataSubjectOnly =
             WinTrustActdataSubjectOnly(
                 subjectTypeCtorArg = subjectType,
@@ -3616,17 +3603,17 @@ public class WinTrustSubjectFileAndDisplay internal constructor(
 public class WtdGenericChainPolicyCreateInfo internal constructor(
     public var anonymous: WtdGenericChainPolicyCreateInfo0,
     hChainEngineCtorArg: Hcertchainengine,
-    pChainParaCtorArg: MutPtr<CertChainPara>,
+    pChainParaCtorArg: MutPtr,
     public var dwFlags: UInt,
-    pvReservedCtorArg: MutPtr<CVoid>,
+    pvReservedCtorArg: MutPtr,
 ) {
     public var hChainEngine: Hcertchainengine = hChainEngineCtorArg
         internal set
 
-    public var pChainPara: MutPtr<CertChainPara> = pChainParaCtorArg
+    public var pChainPara: MutPtr = pChainParaCtorArg
         internal set
 
-    public var pvReserved: MutPtr<CVoid> = pvReservedCtorArg
+    public var pvReserved: MutPtr = pvReservedCtorArg
         internal set
 
     public constructor() : this(
@@ -3641,13 +3628,13 @@ public class WtdGenericChainPolicyCreateInfo internal constructor(
 
     public operator fun component2(): Hcertchainengine = this.hChainEngine
 
-    public operator fun component3(): MutPtr<CertChainPara> = this.pChainPara
+    public operator fun component3(): MutPtr = this.pChainPara
 
     public operator fun component4(): UInt = this.dwFlags
 
-    public operator fun component5(): MutPtr<CVoid> = this.pvReserved
+    public operator fun component5(): MutPtr = this.pvReserved
 
-    public fun copy(anonymous: WtdGenericChainPolicyCreateInfo0 = this.anonymous, hChainEngine: Hcertchainengine = this.hChainEngine, pChainPara: MutPtr<CertChainPara> = this.pChainPara, dwFlags: UInt = this.dwFlags, pvReserved: MutPtr<CVoid> = this.pvReserved): WtdGenericChainPolicyCreateInfo = WtdGenericChainPolicyCreateInfo(anonymous = anonymous, hChainEngineCtorArg = hChainEngine, pChainParaCtorArg = pChainPara, dwFlags = dwFlags, pvReservedCtorArg = pvReserved)
+    public fun copy(anonymous: WtdGenericChainPolicyCreateInfo0 = this.anonymous, hChainEngine: Hcertchainengine = this.hChainEngine, pChainPara: MutPtr = this.pChainPara, dwFlags: UInt = this.dwFlags, pvReserved: MutPtr = this.pvReserved): WtdGenericChainPolicyCreateInfo = WtdGenericChainPolicyCreateInfo(anonymous = anonymous, hChainEngineCtorArg = hChainEngine, pChainParaCtorArg = pChainPara, dwFlags = dwFlags, pvReservedCtorArg = pvReserved)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -3673,9 +3660,9 @@ public class WtdGenericChainPolicyCreateInfo internal constructor(
         public operator fun invoke(
             anonymous: WtdGenericChainPolicyCreateInfo0 = WtdGenericChainPolicyCreateInfo0(),
             hChainEngine: Hcertchainengine = MutPtr(0L),
-            pChainPara: MutPtr<CertChainPara> = MutPtr(0L),
+            pChainPara: MutPtr = MutPtr(0L),
             dwFlags: UInt = 0u,
-            pvReserved: MutPtr<CVoid> = MutPtr(0L),
+            pvReserved: MutPtr = MutPtr(0L),
         ): WtdGenericChainPolicyCreateInfo =
             WtdGenericChainPolicyCreateInfo(
                 anonymous = anonymous,
@@ -3694,18 +3681,18 @@ public data class WtdGenericChainPolicyCreateInfo0(
 
 public class WtdGenericChainPolicyData internal constructor(
     public var anonymous: WtdGenericChainPolicyData0,
-    pSignerChainInfoCtorArg: MutPtr<WtdGenericChainPolicyCreateInfo>,
-    pCounterSignerChainInfoCtorArg: MutPtr<WtdGenericChainPolicyCreateInfo>,
+    pSignerChainInfoCtorArg: MutPtr,
+    pCounterSignerChainInfoCtorArg: MutPtr,
     public var pfnPolicyCallback: PfnWtdGenericChainPolicyCallback,
-    pvPolicyArgCtorArg: MutPtr<CVoid>,
+    pvPolicyArgCtorArg: MutPtr,
 ) {
-    public var pSignerChainInfo: MutPtr<WtdGenericChainPolicyCreateInfo> = pSignerChainInfoCtorArg
+    public var pSignerChainInfo: MutPtr = pSignerChainInfoCtorArg
         internal set
 
-    public var pCounterSignerChainInfo: MutPtr<WtdGenericChainPolicyCreateInfo> = pCounterSignerChainInfoCtorArg
+    public var pCounterSignerChainInfo: MutPtr = pCounterSignerChainInfoCtorArg
         internal set
 
-    public var pvPolicyArg: MutPtr<CVoid> = pvPolicyArgCtorArg
+    public var pvPolicyArg: MutPtr = pvPolicyArgCtorArg
         internal set
 
     public constructor() : this(
@@ -3718,15 +3705,15 @@ public class WtdGenericChainPolicyData internal constructor(
 
     public operator fun component1(): WtdGenericChainPolicyData0 = this.anonymous
 
-    public operator fun component2(): MutPtr<WtdGenericChainPolicyCreateInfo> = this.pSignerChainInfo
+    public operator fun component2(): MutPtr = this.pSignerChainInfo
 
-    public operator fun component3(): MutPtr<WtdGenericChainPolicyCreateInfo> = this.pCounterSignerChainInfo
+    public operator fun component3(): MutPtr = this.pCounterSignerChainInfo
 
     public operator fun component4(): PfnWtdGenericChainPolicyCallback = this.pfnPolicyCallback
 
-    public operator fun component5(): MutPtr<CVoid> = this.pvPolicyArg
+    public operator fun component5(): MutPtr = this.pvPolicyArg
 
-    public fun copy(anonymous: WtdGenericChainPolicyData0 = this.anonymous, pSignerChainInfo: MutPtr<WtdGenericChainPolicyCreateInfo> = this.pSignerChainInfo, pCounterSignerChainInfo: MutPtr<WtdGenericChainPolicyCreateInfo> = this.pCounterSignerChainInfo, pfnPolicyCallback: PfnWtdGenericChainPolicyCallback = this.pfnPolicyCallback, pvPolicyArg: MutPtr<CVoid> = this.pvPolicyArg): WtdGenericChainPolicyData = WtdGenericChainPolicyData(anonymous = anonymous, pSignerChainInfoCtorArg = pSignerChainInfo, pCounterSignerChainInfoCtorArg = pCounterSignerChainInfo, pfnPolicyCallback = pfnPolicyCallback, pvPolicyArgCtorArg = pvPolicyArg)
+    public fun copy(anonymous: WtdGenericChainPolicyData0 = this.anonymous, pSignerChainInfo: MutPtr = this.pSignerChainInfo, pCounterSignerChainInfo: MutPtr = this.pCounterSignerChainInfo, pfnPolicyCallback: PfnWtdGenericChainPolicyCallback = this.pfnPolicyCallback, pvPolicyArg: MutPtr = this.pvPolicyArg): WtdGenericChainPolicyData = WtdGenericChainPolicyData(anonymous = anonymous, pSignerChainInfoCtorArg = pSignerChainInfo, pCounterSignerChainInfoCtorArg = pCounterSignerChainInfo, pfnPolicyCallback = pfnPolicyCallback, pvPolicyArgCtorArg = pvPolicyArg)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -3751,10 +3738,10 @@ public class WtdGenericChainPolicyData internal constructor(
     public companion object {
         public operator fun invoke(
             anonymous: WtdGenericChainPolicyData0 = WtdGenericChainPolicyData0(),
-            pSignerChainInfo: MutPtr<WtdGenericChainPolicyCreateInfo> = MutPtr(0L),
-            pCounterSignerChainInfo: MutPtr<WtdGenericChainPolicyCreateInfo> = MutPtr(0L),
+            pSignerChainInfo: MutPtr = MutPtr(0L),
+            pCounterSignerChainInfo: MutPtr = MutPtr(0L),
             pfnPolicyCallback: PfnWtdGenericChainPolicyCallback = null,
-            pvPolicyArg: MutPtr<CVoid> = MutPtr(0L),
+            pvPolicyArg: MutPtr = MutPtr(0L),
         ): WtdGenericChainPolicyData =
             WtdGenericChainPolicyData(
                 anonymous = anonymous,
@@ -3773,20 +3760,20 @@ public data class WtdGenericChainPolicyData0(
 
 public class WtdGenericChainPolicySignerInfo internal constructor(
     public var anonymous: WtdGenericChainPolicySignerInfo0,
-    pChainContextCtorArg: MutPtr<CertChainContext>,
+    pChainContextCtorArg: MutPtr,
     public var dwSignerType: UInt,
-    pMsgSignerInfoCtorArg: MutPtr<CmsgSignerInfo>,
+    pMsgSignerInfoCtorArg: MutPtr,
     public var dwError: UInt,
     public var cCounterSigner: UInt,
-    rgpCounterSignerCtorArg: MutPtr<MutPtr<WtdGenericChainPolicySignerInfo>>,
+    rgpCounterSignerCtorArg: MutPtr,
 ) {
-    public var pChainContext: MutPtr<CertChainContext> = pChainContextCtorArg
+    public var pChainContext: MutPtr = pChainContextCtorArg
         internal set
 
-    public var pMsgSignerInfo: MutPtr<CmsgSignerInfo> = pMsgSignerInfoCtorArg
+    public var pMsgSignerInfo: MutPtr = pMsgSignerInfoCtorArg
         internal set
 
-    public var rgpCounterSigner: MutPtr<MutPtr<WtdGenericChainPolicySignerInfo>> = rgpCounterSignerCtorArg
+    public var rgpCounterSigner: MutPtr = rgpCounterSignerCtorArg
         internal set
 
     public constructor() : this(
@@ -3801,19 +3788,19 @@ public class WtdGenericChainPolicySignerInfo internal constructor(
 
     public operator fun component1(): WtdGenericChainPolicySignerInfo0 = this.anonymous
 
-    public operator fun component2(): MutPtr<CertChainContext> = this.pChainContext
+    public operator fun component2(): MutPtr = this.pChainContext
 
     public operator fun component3(): UInt = this.dwSignerType
 
-    public operator fun component4(): MutPtr<CmsgSignerInfo> = this.pMsgSignerInfo
+    public operator fun component4(): MutPtr = this.pMsgSignerInfo
 
     public operator fun component5(): UInt = this.dwError
 
     public operator fun component6(): UInt = this.cCounterSigner
 
-    public operator fun component7(): MutPtr<MutPtr<WtdGenericChainPolicySignerInfo>> = this.rgpCounterSigner
+    public operator fun component7(): MutPtr = this.rgpCounterSigner
 
-    public fun copy(anonymous: WtdGenericChainPolicySignerInfo0 = this.anonymous, pChainContext: MutPtr<CertChainContext> = this.pChainContext, dwSignerType: UInt = this.dwSignerType, pMsgSignerInfo: MutPtr<CmsgSignerInfo> = this.pMsgSignerInfo, dwError: UInt = this.dwError, cCounterSigner: UInt = this.cCounterSigner, rgpCounterSigner: MutPtr<MutPtr<WtdGenericChainPolicySignerInfo>> = this.rgpCounterSigner): WtdGenericChainPolicySignerInfo = WtdGenericChainPolicySignerInfo(anonymous = anonymous, pChainContextCtorArg = pChainContext, dwSignerType = dwSignerType, pMsgSignerInfoCtorArg = pMsgSignerInfo, dwError = dwError, cCounterSigner = cCounterSigner, rgpCounterSignerCtorArg = rgpCounterSigner)
+    public fun copy(anonymous: WtdGenericChainPolicySignerInfo0 = this.anonymous, pChainContext: MutPtr = this.pChainContext, dwSignerType: UInt = this.dwSignerType, pMsgSignerInfo: MutPtr = this.pMsgSignerInfo, dwError: UInt = this.dwError, cCounterSigner: UInt = this.cCounterSigner, rgpCounterSigner: MutPtr = this.rgpCounterSigner): WtdGenericChainPolicySignerInfo = WtdGenericChainPolicySignerInfo(anonymous = anonymous, pChainContextCtorArg = pChainContext, dwSignerType = dwSignerType, pMsgSignerInfoCtorArg = pMsgSignerInfo, dwError = dwError, cCounterSigner = cCounterSigner, rgpCounterSignerCtorArg = rgpCounterSigner)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -3842,12 +3829,12 @@ public class WtdGenericChainPolicySignerInfo internal constructor(
     public companion object {
         public operator fun invoke(
             anonymous: WtdGenericChainPolicySignerInfo0 = WtdGenericChainPolicySignerInfo0(),
-            pChainContext: MutPtr<CertChainContext> = MutPtr(0L),
+            pChainContext: MutPtr = MutPtr(0L),
             dwSignerType: UInt = 0u,
-            pMsgSignerInfo: MutPtr<CmsgSignerInfo> = MutPtr(0L),
+            pMsgSignerInfo: MutPtr = MutPtr(0L),
             dwError: UInt = 0u,
             cCounterSigner: UInt = 0u,
-            rgpCounterSigner: MutPtr<MutPtr<WtdGenericChainPolicySignerInfo>> = MutPtr(0L),
+            rgpCounterSigner: MutPtr = MutPtr(0L),
         ): WtdGenericChainPolicySignerInfo =
             WtdGenericChainPolicySignerInfo(
                 anonymous = anonymous,

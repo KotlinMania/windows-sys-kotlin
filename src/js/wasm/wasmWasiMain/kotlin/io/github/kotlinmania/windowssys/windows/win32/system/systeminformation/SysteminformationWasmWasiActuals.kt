@@ -2,7 +2,6 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.system.systeminformation
 
-import io.github.kotlinmania.rustlang.core.ffi.CVoid
 import io.github.kotlinmania.rustlang.core.ptr.ConstPtr
 import io.github.kotlinmania.rustlang.core.ptr.MutPtr
 import io.github.kotlinmania.windowssys.core.Bool
@@ -11,21 +10,19 @@ import io.github.kotlinmania.windowssys.core.Pcstr
 import io.github.kotlinmania.windowssys.core.Pcwstr
 import io.github.kotlinmania.windowssys.core.Pstr
 import io.github.kotlinmania.windowssys.core.Pwstr
-import io.github.kotlinmania.windowssys.windows.win32.foundation.Filetime
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Handle
-import io.github.kotlinmania.windowssys.windows.win32.foundation.Systemtime
 
 // The host must provide the C companion wrapper exports in import module windowssys.
-public actual fun dnsHostnameToComputerNameExW(hostname: Pcwstr, computername: Pwstr, nsize: MutPtr<UInt>): Bool =
+public actual fun dnsHostnameToComputerNameExW(hostname: Pcwstr, computername: Pwstr, nsize: MutPtr): Bool =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32SystemSysteminformationDnsHostnameToComputerNameExW")
 
-public actual fun enumSystemFirmwareTables(firmwaretableprovidersignature: FirmwareTableProvider, pfirmwaretableenumbuffer: MutPtr<UByte>, buffersize: UInt): UInt =
+public actual fun enumSystemFirmwareTables(firmwaretableprovidersignature: FirmwareTableProvider, pfirmwaretableenumbuffer: MutPtr, buffersize: UInt): UInt =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32SystemSysteminformationEnumSystemFirmwareTables")
 
-public actual fun getComputerNameExA(nametype: ComputerNameFormat, lpbuffer: Pstr, nsize: MutPtr<UInt>): Bool =
+public actual fun getComputerNameExA(nametype: ComputerNameFormat, lpbuffer: Pstr, nsize: MutPtr): Bool =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32SystemSysteminformationGetComputerNameExA")
 
-public actual fun getComputerNameExW(nametype: ComputerNameFormat, lpbuffer: Pwstr, nsize: MutPtr<UInt>): Bool =
+public actual fun getComputerNameExW(nametype: ComputerNameFormat, lpbuffer: Pwstr, nsize: MutPtr): Bool =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32SystemSysteminformationGetComputerNameExW")
 
 @kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32SystemSysteminformationGetDeveloperDriveEnablementState")
@@ -34,38 +31,38 @@ private external fun wasiWindowssysWindowsWin32SystemSysteminformationGetDevelop
 public actual fun getDeveloperDriveEnablementState(): DeveloperDriveEnablementState =
     wasiWindowssysWindowsWin32SystemSysteminformationGetDeveloperDriveEnablementState()
 
-public actual fun getFirmwareType(firmwaretype: MutPtr<FirmwareType>): Bool =
+public actual fun getFirmwareType(firmwaretype: MutPtr): Bool =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32SystemSysteminformationGetFirmwareType")
 
-public actual fun getIntegratedDisplaySize(sizeininches: MutPtr<Double>): Hresult =
+public actual fun getIntegratedDisplaySize(sizeininches: MutPtr): Hresult =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32SystemSysteminformationGetIntegratedDisplaySize")
 
-public actual fun getLocalTime(lpsystemtime: MutPtr<Systemtime>): Unit = throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32SystemSysteminformationGetLocalTime")
+public actual fun getLocalTime(lpsystemtime: MutPtr): Unit = throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32SystemSysteminformationGetLocalTime")
 
-public actual fun getLogicalProcessorInformation(buffer: MutPtr<SystemLogicalProcessorInformation>, returnedlength: MutPtr<UInt>): Bool =
+public actual fun getLogicalProcessorInformation(buffer: MutPtr, returnedlength: MutPtr): Bool =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32SystemSysteminformationGetLogicalProcessorInformation")
 
-public actual fun getLogicalProcessorInformationEx(relationshiptype: LogicalProcessorRelationship, buffer: MutPtr<SystemLogicalProcessorInformationEx>, returnedlength: MutPtr<UInt>): Bool =
+public actual fun getLogicalProcessorInformationEx(relationshiptype: LogicalProcessorRelationship, buffer: MutPtr, returnedlength: MutPtr): Bool =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32SystemSysteminformationGetLogicalProcessorInformationEx")
 
-public actual fun getNativeSystemInfo(lpsysteminfo: MutPtr<SystemInfo>): Unit = throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32SystemSysteminformationGetNativeSystemInfo")
+public actual fun getNativeSystemInfo(lpsysteminfo: MutPtr): Unit = throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32SystemSysteminformationGetNativeSystemInfo")
 
-public actual fun getOsManufacturingMode(pbenabled: MutPtr<Bool>): Bool =
+public actual fun getOsManufacturingMode(pbenabled: MutPtr): Bool =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32SystemSysteminformationGetOsManufacturingMode")
 
-public actual fun getOsSafeBootMode(flags: MutPtr<UInt>): Bool =
+public actual fun getOsSafeBootMode(flags: MutPtr): Bool =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32SystemSysteminformationGetOsSafeBootMode")
 
-public actual fun getPhysicallyInstalledSystemMemory(totalmemoryinkilobytes: MutPtr<ULong>): Bool =
+public actual fun getPhysicallyInstalledSystemMemory(totalmemoryinkilobytes: MutPtr): Bool =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32SystemSysteminformationGetPhysicallyInstalledSystemMemory")
 
-public actual fun getProcessorSystemCycleTime(group: UShort, buffer: MutPtr<SystemProcessorCycleTimeInformation>, returnedlength: MutPtr<UInt>): Bool =
+public actual fun getProcessorSystemCycleTime(group: UShort, buffer: MutPtr, returnedlength: MutPtr): Bool =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32SystemSysteminformationGetProcessorSystemCycleTime")
 
-public actual fun getProductInfo(dwosmajorversion: UInt, dwosminorversion: UInt, dwspmajorversion: UInt, dwspminorversion: UInt, pdwreturnedproducttype: MutPtr<OsProductType>): Bool =
+public actual fun getProductInfo(dwosmajorversion: UInt, dwosminorversion: UInt, dwspmajorversion: UInt, dwspminorversion: UInt, pdwreturnedproducttype: MutPtr): Bool =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32SystemSysteminformationGetProductInfo")
 
-public actual fun getSystemCpuSetInformation(information: MutPtr<SystemCpuSetInformation>, bufferlength: UInt, returnedlength: MutPtr<UInt>, process: Handle, flags: UInt): Bool =
+public actual fun getSystemCpuSetInformation(information: MutPtr, bufferlength: UInt, returnedlength: MutPtr, process: Handle, flags: UInt): Bool =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32SystemSysteminformationGetSystemCpuSetInformation")
 
 @kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32SystemSysteminformationGetSystemDEPPolicy")
@@ -80,25 +77,25 @@ public actual fun getSystemDirectoryA(lpbuffer: Pstr, usize: UInt): UInt =
 public actual fun getSystemDirectoryW(lpbuffer: Pwstr, usize: UInt): UInt =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32SystemSysteminformationGetSystemDirectoryW")
 
-public actual fun getSystemFirmwareTable(firmwaretableprovidersignature: FirmwareTableProvider, firmwaretableid: UInt, pfirmwaretablebuffer: MutPtr<UByte>, buffersize: UInt): UInt =
+public actual fun getSystemFirmwareTable(firmwaretableprovidersignature: FirmwareTableProvider, firmwaretableid: UInt, pfirmwaretablebuffer: MutPtr, buffersize: UInt): UInt =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32SystemSysteminformationGetSystemFirmwareTable")
 
-public actual fun getSystemInfo(lpsysteminfo: MutPtr<SystemInfo>): Unit = throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32SystemSysteminformationGetSystemInfo")
+public actual fun getSystemInfo(lpsysteminfo: MutPtr): Unit = throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32SystemSysteminformationGetSystemInfo")
 
-public actual fun getSystemLeapSecondInformation(enabled: MutPtr<Bool>, flags: MutPtr<UInt>): Bool =
+public actual fun getSystemLeapSecondInformation(enabled: MutPtr, flags: MutPtr): Bool =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32SystemSysteminformationGetSystemLeapSecondInformation")
 
-public actual fun getSystemTime(lpsystemtime: MutPtr<Systemtime>): Unit = throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32SystemSysteminformationGetSystemTime")
+public actual fun getSystemTime(lpsystemtime: MutPtr): Unit = throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32SystemSysteminformationGetSystemTime")
 
-public actual fun getSystemTimeAdjustment(lptimeadjustment: MutPtr<UInt>, lptimeincrement: MutPtr<UInt>, lptimeadjustmentdisabled: MutPtr<Bool>): Bool =
+public actual fun getSystemTimeAdjustment(lptimeadjustment: MutPtr, lptimeincrement: MutPtr, lptimeadjustmentdisabled: MutPtr): Bool =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32SystemSysteminformationGetSystemTimeAdjustment")
 
-public actual fun getSystemTimeAdjustmentPrecise(lptimeadjustment: MutPtr<ULong>, lptimeincrement: MutPtr<ULong>, lptimeadjustmentdisabled: MutPtr<Bool>): Bool =
+public actual fun getSystemTimeAdjustmentPrecise(lptimeadjustment: MutPtr, lptimeincrement: MutPtr, lptimeadjustmentdisabled: MutPtr): Bool =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32SystemSysteminformationGetSystemTimeAdjustmentPrecise")
 
-public actual fun getSystemTimeAsFileTime(lpsystemtimeasfiletime: MutPtr<Filetime>): Unit = throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32SystemSysteminformationGetSystemTimeAsFileTime")
+public actual fun getSystemTimeAsFileTime(lpsystemtimeasfiletime: MutPtr): Unit = throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32SystemSysteminformationGetSystemTimeAsFileTime")
 
-public actual fun getSystemTimePreciseAsFileTime(lpsystemtimeasfiletime: MutPtr<Filetime>): Unit = throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32SystemSysteminformationGetSystemTimePreciseAsFileTime")
+public actual fun getSystemTimePreciseAsFileTime(lpsystemtimeasfiletime: MutPtr): Unit = throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32SystemSysteminformationGetSystemTimePreciseAsFileTime")
 
 public actual fun getSystemWindowsDirectoryA(lpbuffer: Pstr, usize: UInt): UInt =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32SystemSysteminformationGetSystemWindowsDirectoryA")
@@ -136,10 +133,10 @@ private external fun wasiWindowssysWindowsWin32SystemSysteminformationGetVersion
 public actual fun getVersion(): UInt =
     wasiWindowssysWindowsWin32SystemSysteminformationGetVersion().toUInt()
 
-public actual fun getVersionExA(lpversioninformation: MutPtr<Osversioninfoa>): Bool =
+public actual fun getVersionExA(lpversioninformation: MutPtr): Bool =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32SystemSysteminformationGetVersionExA")
 
-public actual fun getVersionExW(lpversioninformation: MutPtr<Osversioninfow>): Bool =
+public actual fun getVersionExW(lpversioninformation: MutPtr): Bool =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32SystemSysteminformationGetVersionExW")
 
 public actual fun getWindowsDirectoryA(lpbuffer: Pstr, usize: UInt): UInt =
@@ -148,9 +145,9 @@ public actual fun getWindowsDirectoryA(lpbuffer: Pstr, usize: UInt): UInt =
 public actual fun getWindowsDirectoryW(lpbuffer: Pwstr, usize: UInt): UInt =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32SystemSysteminformationGetWindowsDirectoryW")
 
-public actual fun globalMemoryStatus(lpbuffer: MutPtr<Memorystatus>): Unit = throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32SystemSysteminformationGlobalMemoryStatus")
+public actual fun globalMemoryStatus(lpbuffer: MutPtr): Unit = throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32SystemSysteminformationGlobalMemoryStatus")
 
-public actual fun globalMemoryStatusEx(lpbuffer: MutPtr<Memorystatusex>): Bool =
+public actual fun globalMemoryStatusEx(lpbuffer: MutPtr): Bool =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32SystemSysteminformationGlobalMemoryStatusEx")
 
 @kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32SystemSysteminformationIsUserCetAvailableInEnvironment")
@@ -159,18 +156,18 @@ private external fun wasiWindowssysWindowsWin32SystemSysteminformationIsUserCetA
 public actual fun isUserCetAvailableInEnvironment(usercetenvironment: UserCetEnvironment): Bool =
     wasiWindowssysWindowsWin32SystemSysteminformationIsUserCetAvailableInEnvironment(usercetenvironment.toInt())
 
-public actual fun isWow64GuestMachineSupported(wowguestmachine: ImageFileMachine, machineissupported: MutPtr<Bool>): Hresult =
+public actual fun isWow64GuestMachineSupported(wowguestmachine: ImageFileMachine, machineissupported: MutPtr): Hresult =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32SystemSysteminformationIsWow64GuestMachineSupported")
 
-public actual fun rtlConvertDeviceFamilyInfoToString(puldevicefamilybuffersize: MutPtr<UInt>, puldeviceformbuffersize: MutPtr<UInt>, devicefamily: Pwstr, deviceform: Pwstr): UInt =
+public actual fun rtlConvertDeviceFamilyInfoToString(puldevicefamilybuffersize: MutPtr, puldeviceformbuffersize: MutPtr, devicefamily: Pwstr, deviceform: Pwstr): UInt =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32SystemSysteminformationRtlConvertDeviceFamilyInfoToString")
 
-public actual fun rtlGetDeviceFamilyInfoEnum(pulluapinfo: MutPtr<ULong>, puldevicefamily: MutPtr<Devicefamilyinfoenum>, puldeviceform: MutPtr<Devicefamilydeviceform>): Unit = throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32SystemSysteminformationRtlGetDeviceFamilyInfoEnum")
+public actual fun rtlGetDeviceFamilyInfoEnum(pulluapinfo: MutPtr, puldevicefamily: MutPtr, puldeviceform: MutPtr): Unit = throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32SystemSysteminformationRtlGetDeviceFamilyInfoEnum")
 
-public actual fun rtlGetProductInfo(osmajorversion: UInt, osminorversion: UInt, spmajorversion: UInt, spminorversion: UInt, returnedproducttype: MutPtr<UInt>): Boolean =
+public actual fun rtlGetProductInfo(osmajorversion: UInt, osminorversion: UInt, spmajorversion: UInt, spminorversion: UInt, returnedproducttype: MutPtr): Boolean =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32SystemSysteminformationRtlGetProductInfo")
 
-public actual fun rtlGetSystemGlobalData(dataid: RtlSystemGlobalDataId, buffer: MutPtr<CVoid>, size: UInt): UInt =
+public actual fun rtlGetSystemGlobalData(dataid: RtlSystemGlobalDataId, buffer: MutPtr, size: UInt): UInt =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32SystemSysteminformationRtlGetSystemGlobalData")
 
 @kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32SystemSysteminformationRtlOsDeploymentState")
@@ -179,7 +176,7 @@ private external fun wasiWindowssysWindowsWin32SystemSysteminformationRtlOsDeplo
 public actual fun rtlOsDeploymentState(flags: UInt): OsDeployementStateValues =
     wasiWindowssysWindowsWin32SystemSysteminformationRtlOsDeploymentState(flags.toInt())
 
-public actual fun rtlSwitchedVVI(versioninfo: ConstPtr<Osversioninfoexw>, typemask: UInt, conditionmask: ULong): UInt =
+public actual fun rtlSwitchedVVI(versioninfo: ConstPtr, typemask: UInt, conditionmask: ULong): UInt =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32SystemSysteminformationRtlSwitchedVVI")
 
 public actual fun setComputerNameA(lpcomputername: Pcstr): Bool =
@@ -197,10 +194,10 @@ public actual fun setComputerNameExW(nametype: ComputerNameFormat, lpbuffer: Pcw
 public actual fun setComputerNameW(lpcomputername: Pcwstr): Bool =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32SystemSysteminformationSetComputerNameW")
 
-public actual fun setLocalTime(lpsystemtime: ConstPtr<Systemtime>): Bool =
+public actual fun setLocalTime(lpsystemtime: ConstPtr): Bool =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32SystemSysteminformationSetLocalTime")
 
-public actual fun setSystemTime(lpsystemtime: ConstPtr<Systemtime>): Bool =
+public actual fun setSystemTime(lpsystemtime: ConstPtr): Bool =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32SystemSysteminformationSetSystemTime")
 
 @kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32SystemSysteminformationSetSystemTimeAdjustment")
@@ -221,8 +218,8 @@ private external fun wasiWindowssysWindowsWin32SystemSysteminformationVerSetCond
 public actual fun verSetConditionMask(conditionmask: ULong, typemask: VerFlags, condition: UByte): ULong =
     wasiWindowssysWindowsWin32SystemSysteminformationVerSetConditionMask(conditionmask.toLong(), typemask.toInt(), condition.toInt()).toULong()
 
-public actual fun verifyVersionInfoA(lpversioninformation: MutPtr<Osversioninfoexa>, dwtypemask: VerFlags, dwlconditionmask: ULong): Bool =
+public actual fun verifyVersionInfoA(lpversioninformation: MutPtr, dwtypemask: VerFlags, dwlconditionmask: ULong): Bool =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32SystemSysteminformationVerifyVersionInfoA")
 
-public actual fun verifyVersionInfoW(lpversioninformation: MutPtr<Osversioninfoexw>, dwtypemask: VerFlags, dwlconditionmask: ULong): Bool =
+public actual fun verifyVersionInfoW(lpversioninformation: MutPtr, dwtypemask: VerFlags, dwlconditionmask: ULong): Bool =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32SystemSysteminformationVerifyVersionInfoW")

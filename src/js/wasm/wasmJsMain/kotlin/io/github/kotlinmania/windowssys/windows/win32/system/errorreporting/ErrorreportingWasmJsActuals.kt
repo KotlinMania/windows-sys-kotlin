@@ -2,7 +2,6 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.system.errorreporting
 
-import io.github.kotlinmania.rustlang.core.ffi.CVoid
 import io.github.kotlinmania.rustlang.core.ptr.ConstPtr
 import io.github.kotlinmania.rustlang.core.ptr.MutPtr
 import io.github.kotlinmania.windowssys.core.Bool
@@ -11,7 +10,6 @@ import io.github.kotlinmania.windowssys.core.Pcstr
 import io.github.kotlinmania.windowssys.core.Pcwstr
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Handle
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Hwnd
-import io.github.kotlinmania.windowssys.windows.win32.system.diagnostics.debug.ExceptionPointers
 
 @JsFun("() => { if (typeof globalThis.__km_napi_windowssys !== 'undefined') return globalThis.__km_napi_windowssys !== null; if (typeof process === 'undefined' || !process.versions || !process.versions.node) { globalThis.__km_napi_windowssys = null; return false; } var mod = process.getBuiltinModule ? process.getBuiltinModule('module') : (process.mainModule && process.mainModule.constructor); var req = (mod && mod.createRequire) ? mod.createRequire((process.cwd ? process.cwd() : '.') + '/package.json') : (process.mainModule ? process.mainModule.require : null); if (!req) { globalThis.__km_napi_windowssys = null; return false; } try { globalThis.__km_napi_windowssys = req('@kotlinmania/windowssys-native-bindings'); return true; } catch (_) {} var fs = req('fs'); var path = req('path'); var dir = process.cwd ? process.cwd() : '.'; var rels = ['windowssys_native.node', 'build/node-ffi/windowssys_native.node', 'build/node-ffi/release/windowssys_native.node', 'build/node-ffi/debug/windowssys_native.node', 'src/js/node-windowssys/build/Release/windowssys_native.node', 'src/js/node-windowssys/build/Debug/windowssys_native.node', 'src/js/node-windowssys/dist/build/Release/windowssys_native.node', 'src/js/node-windowssys/dist/build/Debug/windowssys_native.node']; for (var d = 0; d < 8; d++) { for (var i = 0; i < rels.length; i++) { var c = path.resolve(dir, rels[i]); if (fs.existsSync(c)) { globalThis.__km_napi_windowssys = req(c); return true; } } var parent = path.dirname(dir); if (parent === dir) break; dir = parent; } globalThis.__km_napi_windowssys = null; return false; }")
 private external fun initWindowsWin32SystemErrorreportingNapiAddon(): Boolean
@@ -147,7 +145,7 @@ public actual fun addERExcludedApplicationA(szapplication: Pcstr): Bool =
 public actual fun addERExcludedApplicationW(wszapplication: Pcwstr): Bool =
     if (windowsWin32SystemErrorreportingNapiAvailable) wasmWindowssysWindowsWin32SystemErrorreportingAddERExcludedApplicationW(wszapplication.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun reportFault(pep: ConstPtr<ExceptionPointers>, dwopt: UInt): EFaultRepRetVal =
+public actual fun reportFault(pep: ConstPtr, dwopt: UInt): EFaultRepRetVal =
     if (windowsWin32SystemErrorreportingNapiAvailable) wasmWindowssysWindowsWin32SystemErrorreportingReportFault(pep.rawAddress.toString(), dwopt.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun werAddExcludedApplication(pwzexename: Pcwstr, ballusers: Bool): Hresult =
@@ -161,7 +159,7 @@ public actual fun werFreeString(pwszstr: Pcwstr) {
     }
 }
 
-public actual fun werGetFlags(hprocess: Handle, pdwflags: MutPtr<WerFaultReporting>): Hresult =
+public actual fun werGetFlags(hprocess: Handle, pdwflags: MutPtr): Hresult =
     if (windowsWin32SystemErrorreportingNapiAvailable) wasmWindowssysWindowsWin32SystemErrorreportingWerGetFlags(hprocess.rawAddress.toString(), pdwflags.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun werRegisterAdditionalProcess(processid: UInt, captureextrainfoforthreadid: UInt): Hresult =
@@ -173,22 +171,22 @@ public actual fun werRegisterAppLocalDump(localappdatarelativepath: Pcwstr): Hre
 public actual fun werRegisterCustomMetadata(key: Pcwstr, value: Pcwstr): Hresult =
     if (windowsWin32SystemErrorreportingNapiAvailable) wasmWindowssysWindowsWin32SystemErrorreportingWerRegisterCustomMetadata(key.rawAddress.toString(), value.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun werRegisterExcludedMemoryBlock(address: ConstPtr<CVoid>, size: UInt): Hresult =
+public actual fun werRegisterExcludedMemoryBlock(address: ConstPtr, size: UInt): Hresult =
     if (windowsWin32SystemErrorreportingNapiAvailable) wasmWindowssysWindowsWin32SystemErrorreportingWerRegisterExcludedMemoryBlock(address.rawAddress.toString(), size.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun werRegisterFile(pwzfile: Pcwstr, regfiletype: WerRegisterFileType, dwflags: WerFile): Hresult =
     if (windowsWin32SystemErrorreportingNapiAvailable) wasmWindowssysWindowsWin32SystemErrorreportingWerRegisterFile(pwzfile.rawAddress.toString(), regfiletype, dwflags.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun werRegisterMemoryBlock(pvaddress: ConstPtr<CVoid>, dwsize: UInt): Hresult =
+public actual fun werRegisterMemoryBlock(pvaddress: ConstPtr, dwsize: UInt): Hresult =
     if (windowsWin32SystemErrorreportingNapiAvailable) wasmWindowssysWindowsWin32SystemErrorreportingWerRegisterMemoryBlock(pvaddress.rawAddress.toString(), dwsize.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun werRegisterRuntimeExceptionModule(pwszoutofprocesscallbackdll: Pcwstr, pcontext: ConstPtr<CVoid>): Hresult =
+public actual fun werRegisterRuntimeExceptionModule(pwszoutofprocesscallbackdll: Pcwstr, pcontext: ConstPtr): Hresult =
     if (windowsWin32SystemErrorreportingNapiAvailable) wasmWindowssysWindowsWin32SystemErrorreportingWerRegisterRuntimeExceptionModule(pwszoutofprocesscallbackdll.rawAddress.toString(), pcontext.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun werRemoveExcludedApplication(pwzexename: Pcwstr, ballusers: Bool): Hresult =
     if (windowsWin32SystemErrorreportingNapiAvailable) wasmWindowssysWindowsWin32SystemErrorreportingWerRemoveExcludedApplication(pwzexename.rawAddress.toString(), ballusers) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun werReportAddDump(hreporthandle: Hreport, hprocess: Handle, hthread: Handle, dumptype: WerDumpType, pexceptionparam: ConstPtr<WerExceptionInformation>, pdumpcustomoptions: ConstPtr<WerDumpCustomOptions>, dwflags: UInt): Hresult =
+public actual fun werReportAddDump(hreporthandle: Hreport, hprocess: Handle, hthread: Handle, dumptype: WerDumpType, pexceptionparam: ConstPtr, pdumpcustomoptions: ConstPtr, dwflags: UInt): Hresult =
     if (windowsWin32SystemErrorreportingNapiAvailable) wasmWindowssysWindowsWin32SystemErrorreportingWerReportAddDump(hreporthandle.rawAddress.toString(), hprocess.rawAddress.toString(), hthread.rawAddress.toString(), dumptype, pexceptionparam.rawAddress.toString(), pdumpcustomoptions.rawAddress.toString(), dwflags.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun werReportAddFile(hreporthandle: Hreport, pwzpath: Pcwstr, repfiletype: WerFileType, dwfileflags: WerFile): Hresult =
@@ -197,7 +195,7 @@ public actual fun werReportAddFile(hreporthandle: Hreport, pwzpath: Pcwstr, repf
 public actual fun werReportCloseHandle(hreporthandle: Hreport): Hresult =
     if (windowsWin32SystemErrorreportingNapiAvailable) wasmWindowssysWindowsWin32SystemErrorreportingWerReportCloseHandle(hreporthandle.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun werReportCreate(pwzeventtype: Pcwstr, reptype: WerReportType, preportinformation: ConstPtr<WerReportInformation>, phreporthandle: MutPtr<Hreport>): Hresult =
+public actual fun werReportCreate(pwzeventtype: Pcwstr, reptype: WerReportType, preportinformation: ConstPtr, phreporthandle: MutPtr): Hresult =
     if (windowsWin32SystemErrorreportingNapiAvailable) wasmWindowssysWindowsWin32SystemErrorreportingWerReportCreate(pwzeventtype.rawAddress.toString(), reptype, preportinformation.rawAddress.toString(), phreporthandle.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun werReportHang(hwndhungapp: Hwnd, pwzhungapplicationname: Pcwstr): Hresult =
@@ -209,7 +207,7 @@ public actual fun werReportSetParameter(hreporthandle: Hreport, dwparamid: UInt,
 public actual fun werReportSetUIOption(hreporthandle: Hreport, repuitypeid: WerReportUi, pwzvalue: Pcwstr): Hresult =
     if (windowsWin32SystemErrorreportingNapiAvailable) wasmWindowssysWindowsWin32SystemErrorreportingWerReportSetUIOption(hreporthandle.rawAddress.toString(), repuitypeid, pwzvalue.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun werReportSubmit(hreporthandle: Hreport, consent: WerConsent, dwflags: WerSubmitFlags, psubmitresult: MutPtr<WerSubmitResult>): Hresult =
+public actual fun werReportSubmit(hreporthandle: Hreport, consent: WerConsent, dwflags: WerSubmitFlags, psubmitresult: MutPtr): Hresult =
     if (windowsWin32SystemErrorreportingNapiAvailable) wasmWindowssysWindowsWin32SystemErrorreportingWerReportSubmit(hreporthandle.rawAddress.toString(), consent, dwflags.toInt(), psubmitresult.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun werSetFlags(dwflags: WerFaultReporting): Hresult =
@@ -223,34 +221,34 @@ public actual fun werStoreClose(hreportstore: Hreportstore) {
     }
 }
 
-public actual fun werStoreGetFirstReportKey(hreportstore: Hreportstore, ppszreportkey: MutPtr<Pcwstr>): Hresult =
+public actual fun werStoreGetFirstReportKey(hreportstore: Hreportstore, ppszreportkey: MutPtr): Hresult =
     if (windowsWin32SystemErrorreportingNapiAvailable) wasmWindowssysWindowsWin32SystemErrorreportingWerStoreGetFirstReportKey(hreportstore.rawAddress.toString(), ppszreportkey.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun werStoreGetNextReportKey(hreportstore: Hreportstore, ppszreportkey: MutPtr<Pcwstr>): Hresult =
+public actual fun werStoreGetNextReportKey(hreportstore: Hreportstore, ppszreportkey: MutPtr): Hresult =
     if (windowsWin32SystemErrorreportingNapiAvailable) wasmWindowssysWindowsWin32SystemErrorreportingWerStoreGetNextReportKey(hreportstore.rawAddress.toString(), ppszreportkey.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun werStoreGetReportCount(hreportstore: Hreportstore, pdwreportcount: MutPtr<UInt>): Hresult =
+public actual fun werStoreGetReportCount(hreportstore: Hreportstore, pdwreportcount: MutPtr): Hresult =
     if (windowsWin32SystemErrorreportingNapiAvailable) wasmWindowssysWindowsWin32SystemErrorreportingWerStoreGetReportCount(hreportstore.rawAddress.toString(), pdwreportcount.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun werStoreGetSizeOnDisk(hreportstore: Hreportstore, pqwsizeinbytes: MutPtr<ULong>): Hresult =
+public actual fun werStoreGetSizeOnDisk(hreportstore: Hreportstore, pqwsizeinbytes: MutPtr): Hresult =
     if (windowsWin32SystemErrorreportingNapiAvailable) wasmWindowssysWindowsWin32SystemErrorreportingWerStoreGetSizeOnDisk(hreportstore.rawAddress.toString(), pqwsizeinbytes.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun werStoreOpen(repstoretype: ReportStoreTypes, phreportstore: MutPtr<Hreportstore>): Hresult =
+public actual fun werStoreOpen(repstoretype: ReportStoreTypes, phreportstore: MutPtr): Hresult =
     if (windowsWin32SystemErrorreportingNapiAvailable) wasmWindowssysWindowsWin32SystemErrorreportingWerStoreOpen(repstoretype, phreportstore.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun werStorePurge(): Hresult =
     if (windowsWin32SystemErrorreportingNapiAvailable) wasmWindowssysWindowsWin32SystemErrorreportingWerStorePurge() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun werStoreQueryReportMetadataV1(hreportstore: Hreportstore, pszreportkey: Pcwstr, preportmetadata: MutPtr<WerReportMetadataV1>): Hresult =
+public actual fun werStoreQueryReportMetadataV1(hreportstore: Hreportstore, pszreportkey: Pcwstr, preportmetadata: MutPtr): Hresult =
     if (windowsWin32SystemErrorreportingNapiAvailable) wasmWindowssysWindowsWin32SystemErrorreportingWerStoreQueryReportMetadataV1(hreportstore.rawAddress.toString(), pszreportkey.rawAddress.toString(), preportmetadata.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun werStoreQueryReportMetadataV2(hreportstore: Hreportstore, pszreportkey: Pcwstr, preportmetadata: MutPtr<WerReportMetadataV2>): Hresult =
+public actual fun werStoreQueryReportMetadataV2(hreportstore: Hreportstore, pszreportkey: Pcwstr, preportmetadata: MutPtr): Hresult =
     if (windowsWin32SystemErrorreportingNapiAvailable) wasmWindowssysWindowsWin32SystemErrorreportingWerStoreQueryReportMetadataV2(hreportstore.rawAddress.toString(), pszreportkey.rawAddress.toString(), preportmetadata.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun werStoreQueryReportMetadataV3(hreportstore: Hreportstore, pszreportkey: Pcwstr, preportmetadata: MutPtr<WerReportMetadataV3>): Hresult =
+public actual fun werStoreQueryReportMetadataV3(hreportstore: Hreportstore, pszreportkey: Pcwstr, preportmetadata: MutPtr): Hresult =
     if (windowsWin32SystemErrorreportingNapiAvailable) wasmWindowssysWindowsWin32SystemErrorreportingWerStoreQueryReportMetadataV3(hreportstore.rawAddress.toString(), pszreportkey.rawAddress.toString(), preportmetadata.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun werStoreUploadReport(hreportstore: Hreportstore, pszreportkey: Pcwstr, dwflags: UInt, psubmitresult: MutPtr<WerSubmitResult>): Hresult =
+public actual fun werStoreUploadReport(hreportstore: Hreportstore, pszreportkey: Pcwstr, dwflags: UInt, psubmitresult: MutPtr): Hresult =
     if (windowsWin32SystemErrorreportingNapiAvailable) wasmWindowssysWindowsWin32SystemErrorreportingWerStoreUploadReport(hreportstore.rawAddress.toString(), pszreportkey.rawAddress.toString(), dwflags.toInt(), psubmitresult.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun werUnregisterAdditionalProcess(processid: UInt): Hresult =
@@ -262,14 +260,14 @@ public actual fun werUnregisterAppLocalDump(): Hresult =
 public actual fun werUnregisterCustomMetadata(key: Pcwstr): Hresult =
     if (windowsWin32SystemErrorreportingNapiAvailable) wasmWindowssysWindowsWin32SystemErrorreportingWerUnregisterCustomMetadata(key.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun werUnregisterExcludedMemoryBlock(address: ConstPtr<CVoid>): Hresult =
+public actual fun werUnregisterExcludedMemoryBlock(address: ConstPtr): Hresult =
     if (windowsWin32SystemErrorreportingNapiAvailable) wasmWindowssysWindowsWin32SystemErrorreportingWerUnregisterExcludedMemoryBlock(address.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun werUnregisterFile(pwzfilepath: Pcwstr): Hresult =
     if (windowsWin32SystemErrorreportingNapiAvailable) wasmWindowssysWindowsWin32SystemErrorreportingWerUnregisterFile(pwzfilepath.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun werUnregisterMemoryBlock(pvaddress: ConstPtr<CVoid>): Hresult =
+public actual fun werUnregisterMemoryBlock(pvaddress: ConstPtr): Hresult =
     if (windowsWin32SystemErrorreportingNapiAvailable) wasmWindowssysWindowsWin32SystemErrorreportingWerUnregisterMemoryBlock(pvaddress.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun werUnregisterRuntimeExceptionModule(pwszoutofprocesscallbackdll: Pcwstr, pcontext: ConstPtr<CVoid>): Hresult =
+public actual fun werUnregisterRuntimeExceptionModule(pwszoutofprocesscallbackdll: Pcwstr, pcontext: ConstPtr): Hresult =
     if (windowsWin32SystemErrorreportingNapiAvailable) wasmWindowssysWindowsWin32SystemErrorreportingWerUnregisterRuntimeExceptionModule(pwszoutofprocesscallbackdll.rawAddress.toString(), pcontext.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")

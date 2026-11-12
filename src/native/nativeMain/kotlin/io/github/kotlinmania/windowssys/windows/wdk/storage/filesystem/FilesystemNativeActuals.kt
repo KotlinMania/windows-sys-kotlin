@@ -2,34 +2,16 @@
 
 package io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem
 
-import io.github.kotlinmania.rustlang.core.ffi.CVoid
 import io.github.kotlinmania.rustlang.core.ptr.ConstPtr
 import io.github.kotlinmania.rustlang.core.ptr.MutPtr
-import io.github.kotlinmania.windowssys.core.Guid
 import io.github.kotlinmania.windowssys.core.Hresult
 import io.github.kotlinmania.windowssys.core.Pcstr
 import io.github.kotlinmania.windowssys.core.Pcwstr
 import io.github.kotlinmania.windowssys.core.Pstr
 import io.github.kotlinmania.windowssys.core.Pwstr
-import io.github.kotlinmania.windowssys.windows.wdk.foundation.AccessState
-import io.github.kotlinmania.windowssys.windows.wdk.foundation.DeviceObject
 import io.github.kotlinmania.windowssys.windows.wdk.foundation.DriverFsNotification
-import io.github.kotlinmania.windowssys.windows.wdk.foundation.DriverObject
-import io.github.kotlinmania.windowssys.windows.wdk.foundation.EcpHeader
-import io.github.kotlinmania.windowssys.windows.wdk.foundation.EcpList
-import io.github.kotlinmania.windowssys.windows.wdk.foundation.Eresource
-import io.github.kotlinmania.windowssys.windows.wdk.foundation.FileObject
-import io.github.kotlinmania.windowssys.windows.wdk.foundation.IoStackLocation
-import io.github.kotlinmania.windowssys.windows.wdk.foundation.Irp
-import io.github.kotlinmania.windowssys.windows.wdk.foundation.Kevent
-import io.github.kotlinmania.windowssys.windows.wdk.foundation.Kmutant
-import io.github.kotlinmania.windowssys.windows.wdk.foundation.Kqueue
 import io.github.kotlinmania.windowssys.windows.wdk.foundation.KspinLockQueueNumber
-import io.github.kotlinmania.windowssys.windows.wdk.foundation.KwaitBlock
-import io.github.kotlinmania.windowssys.windows.wdk.foundation.Mdl
-import io.github.kotlinmania.windowssys.windows.wdk.foundation.ObjectAttributes
 import io.github.kotlinmania.windowssys.windows.wdk.foundation.ObjectInformationClass
-import io.github.kotlinmania.windowssys.windows.wdk.foundation.ObjectNameInformation
 import io.github.kotlinmania.windowssys.windows.wdk.foundation.Peprocess
 import io.github.kotlinmania.windowssys.windows.wdk.foundation.Pesilo
 import io.github.kotlinmania.windowssys.windows.wdk.foundation.Pethread
@@ -38,12 +20,6 @@ import io.github.kotlinmania.windowssys.windows.wdk.foundation.PnotifySync
 import io.github.kotlinmania.windowssys.windows.wdk.foundation.PobjectType
 import io.github.kotlinmania.windowssys.windows.wdk.foundation.PoolType
 import io.github.kotlinmania.windowssys.windows.wdk.foundation.Prkprocess
-import io.github.kotlinmania.windowssys.windows.wdk.foundation.SectionObjectPointers
-import io.github.kotlinmania.windowssys.windows.wdk.foundation.SecuritySubjectContext
-import io.github.kotlinmania.windowssys.windows.wdk.foundation.SspiAsyncContext
-import io.github.kotlinmania.windowssys.windows.wdk.foundation.TargetDeviceCustomNotification
-import io.github.kotlinmania.windowssys.windows.wdk.foundation.Vpb
-import io.github.kotlinmania.windowssys.windows.wdk.foundation.WorkQueueItem
 import io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssysWindowsWdkStorageFilesystemApplyControlToken
 import io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssysWindowsWdkStorageFilesystemCcAsyncCopyRead
 import io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssysWindowsWdkStorageFilesystemCcCanIWrite
@@ -705,364 +681,346 @@ import io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.
 import io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssysWindowsWdkStorageFilesystemZwSetVolumeInformationFile
 import io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.cinterop.windowssysWindowsWdkStorageFilesystemZwUnlockFile
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Handle
-import io.github.kotlinmania.windowssys.windows.win32.foundation.Luid
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Ntstatus
 import io.github.kotlinmania.windowssys.windows.win32.foundation.UnicodeString
-import io.github.kotlinmania.windowssys.windows.win32.security.Acl
 import io.github.kotlinmania.windowssys.windows.win32.security.AuditEventType
-import io.github.kotlinmania.windowssys.windows.win32.security.GenericMapping
-import io.github.kotlinmania.windowssys.windows.win32.security.ObjectTypeList
-import io.github.kotlinmania.windowssys.windows.win32.security.PrivilegeSet
 import io.github.kotlinmania.windowssys.windows.win32.security.PsecurityDescriptor
 import io.github.kotlinmania.windowssys.windows.win32.security.Psid
-import io.github.kotlinmania.windowssys.windows.win32.security.SeImpersonationState
 import io.github.kotlinmania.windowssys.windows.win32.security.SecurityImpersonationLevel
-import io.github.kotlinmania.windowssys.windows.win32.security.SecurityQualityOfService
-import io.github.kotlinmania.windowssys.windows.win32.security.SidIdentifierAuthority
-import io.github.kotlinmania.windowssys.windows.win32.security.SidNameUse
-import io.github.kotlinmania.windowssys.windows.win32.security.TokenAccessInformation
-import io.github.kotlinmania.windowssys.windows.win32.security.TokenGroups
 import io.github.kotlinmania.windowssys.windows.win32.security.TokenInformationClass
-import io.github.kotlinmania.windowssys.windows.win32.security.TokenPrivileges
 import io.github.kotlinmania.windowssys.windows.win32.security.TokenType
 import io.github.kotlinmania.windowssys.windows.win32.security.WellKnownSidType
-import io.github.kotlinmania.windowssys.windows.win32.security.authentication.identity.SeAdtParameterArray
 import io.github.kotlinmania.windowssys.windows.win32.security.authentication.identity.SecGetKeyFn
-import io.github.kotlinmania.windowssys.windows.win32.security.authentication.identity.SecurityUserData
 import io.github.kotlinmania.windowssys.windows.win32.storage.filesystem.FileAccessRights
 import io.github.kotlinmania.windowssys.windows.win32.storage.filesystem.FileFlagsAndAttributes
 import io.github.kotlinmania.windowssys.windows.win32.storage.filesystem.FileShareMode
-import io.github.kotlinmania.windowssys.windows.win32.system.io.IoStatusBlock
 import io.github.kotlinmania.windowssys.windows.win32.system.io.PioApcRoutine
-import io.github.kotlinmania.windowssys.windows.win32.system.ioctl.IoIrpExtTrackOffsetHeader
 import io.github.kotlinmania.windowssys.windows.win32.system.kernel.EventType
-import io.github.kotlinmania.windowssys.windows.win32.system.kernel.ListEntry
 import io.github.kotlinmania.windowssys.windows.win32.system.kernel.WaitType
-import io.github.kotlinmania.windowssys.windows.win32.system.memory.MemExtendedParameter
 import kotlinx.cinterop.ByteVar
 import kotlinx.cinterop.toCPointer
 import kotlinx.cinterop.toLong
 
-public actual fun applyControlToken(phcontext: ConstPtr<SecHandle>, pinput: ConstPtr<SecBufferDesc>): Hresult =
+public actual fun applyControlToken(phcontext: ConstPtr, pinput: ConstPtr): Hresult =
     windowssysWindowsWdkStorageFilesystemApplyControlToken(phcontext.rawAddress.toCPointer<ByteVar>(), pinput.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ccAsyncCopyRead(fileobject: ConstPtr<FileObject>, fileoffset: ConstPtr<Long>, length: UInt, wait: Boolean, buffer: MutPtr<CVoid>, iostatus: MutPtr<IoStatusBlock>, ioissuerthread: Pethread, asyncreadcontext: ConstPtr<CcAsyncReadContext>): Boolean =
+public actual fun ccAsyncCopyRead(fileobject: ConstPtr, fileoffset: ConstPtr, length: UInt, wait: Boolean, buffer: MutPtr, iostatus: MutPtr, ioissuerthread: Pethread, asyncreadcontext: ConstPtr): Boolean =
     windowssysWindowsWdkStorageFilesystemCcAsyncCopyRead(fileobject.rawAddress.toCPointer<ByteVar>(), fileoffset.rawAddress.toCPointer<ByteVar>(), length, wait, buffer.rawAddress.toCPointer<ByteVar>(), iostatus.rawAddress.toCPointer<ByteVar>(), ioissuerthread, asyncreadcontext.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ccCanIWrite(fileobject: ConstPtr<FileObject>, bytestowrite: UInt, wait: Boolean, retrying: UByte): Boolean =
+public actual fun ccCanIWrite(fileobject: ConstPtr, bytestowrite: UInt, wait: Boolean, retrying: UByte): Boolean =
     windowssysWindowsWdkStorageFilesystemCcCanIWrite(fileobject.rawAddress.toCPointer<ByteVar>(), bytestowrite, wait, retrying)
 
-public actual fun ccCoherencyFlushAndPurgeCache(sectionobjectpointer: ConstPtr<SectionObjectPointers>, fileoffset: ConstPtr<Long>, length: UInt, iostatus: MutPtr<IoStatusBlock>, flags: UInt) {
+public actual fun ccCoherencyFlushAndPurgeCache(sectionobjectpointer: ConstPtr, fileoffset: ConstPtr, length: UInt, iostatus: MutPtr, flags: UInt) {
     windowssysWindowsWdkStorageFilesystemCcCoherencyFlushAndPurgeCache(sectionobjectpointer.rawAddress.toCPointer<ByteVar>(), fileoffset.rawAddress.toCPointer<ByteVar>(), length, iostatus.rawAddress.toCPointer<ByteVar>(), flags)
 }
 
-public actual fun ccCopyRead(fileobject: ConstPtr<FileObject>, fileoffset: ConstPtr<Long>, length: UInt, wait: Boolean, buffer: MutPtr<CVoid>, iostatus: MutPtr<IoStatusBlock>): Boolean =
+public actual fun ccCopyRead(fileobject: ConstPtr, fileoffset: ConstPtr, length: UInt, wait: Boolean, buffer: MutPtr, iostatus: MutPtr): Boolean =
     windowssysWindowsWdkStorageFilesystemCcCopyRead(fileobject.rawAddress.toCPointer<ByteVar>(), fileoffset.rawAddress.toCPointer<ByteVar>(), length, wait, buffer.rawAddress.toCPointer<ByteVar>(), iostatus.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ccCopyReadEx(fileobject: ConstPtr<FileObject>, fileoffset: ConstPtr<Long>, length: UInt, wait: Boolean, buffer: MutPtr<CVoid>, iostatus: MutPtr<IoStatusBlock>, ioissuerthread: Pethread): Boolean =
+public actual fun ccCopyReadEx(fileobject: ConstPtr, fileoffset: ConstPtr, length: UInt, wait: Boolean, buffer: MutPtr, iostatus: MutPtr, ioissuerthread: Pethread): Boolean =
     windowssysWindowsWdkStorageFilesystemCcCopyReadEx(fileobject.rawAddress.toCPointer<ByteVar>(), fileoffset.rawAddress.toCPointer<ByteVar>(), length, wait, buffer.rawAddress.toCPointer<ByteVar>(), iostatus.rawAddress.toCPointer<ByteVar>(), ioissuerthread)
 
-public actual fun ccCopyWrite(fileobject: ConstPtr<FileObject>, fileoffset: ConstPtr<Long>, length: UInt, wait: Boolean, buffer: ConstPtr<CVoid>): Boolean =
+public actual fun ccCopyWrite(fileobject: ConstPtr, fileoffset: ConstPtr, length: UInt, wait: Boolean, buffer: ConstPtr): Boolean =
     windowssysWindowsWdkStorageFilesystemCcCopyWrite(fileobject.rawAddress.toCPointer<ByteVar>(), fileoffset.rawAddress.toCPointer<ByteVar>(), length, wait, buffer.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ccCopyWriteEx(fileobject: ConstPtr<FileObject>, fileoffset: ConstPtr<Long>, length: UInt, wait: Boolean, buffer: ConstPtr<CVoid>, ioissuerthread: Pethread): Boolean =
+public actual fun ccCopyWriteEx(fileobject: ConstPtr, fileoffset: ConstPtr, length: UInt, wait: Boolean, buffer: ConstPtr, ioissuerthread: Pethread): Boolean =
     windowssysWindowsWdkStorageFilesystemCcCopyWriteEx(fileobject.rawAddress.toCPointer<ByteVar>(), fileoffset.rawAddress.toCPointer<ByteVar>(), length, wait, buffer.rawAddress.toCPointer<ByteVar>(), ioissuerthread)
 
-public actual fun ccCopyWriteWontFlush(fileobject: ConstPtr<FileObject>, fileoffset: ConstPtr<Long>, length: UInt): Boolean =
+public actual fun ccCopyWriteWontFlush(fileobject: ConstPtr, fileoffset: ConstPtr, length: UInt): Boolean =
     windowssysWindowsWdkStorageFilesystemCcCopyWriteWontFlush(fileobject.rawAddress.toCPointer<ByteVar>(), fileoffset.rawAddress.toCPointer<ByteVar>(), length)
 
-public actual fun ccDeferWrite(fileobject: ConstPtr<FileObject>, postroutine: PccPostDeferredWrite, context1: ConstPtr<CVoid>, context2: ConstPtr<CVoid>, bytestowrite: UInt, retrying: Boolean) {
+public actual fun ccDeferWrite(fileobject: ConstPtr, postroutine: PccPostDeferredWrite, context1: ConstPtr, context2: ConstPtr, bytestowrite: UInt, retrying: Boolean) {
     windowssysWindowsWdkStorageFilesystemCcDeferWrite(fileobject.rawAddress.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>(), context1.rawAddress.toCPointer<ByteVar>(), context2.rawAddress.toCPointer<ByteVar>(), bytestowrite, retrying)
 }
 
-public actual fun ccErrorCallbackRoutine(context: ConstPtr<CcErrorCallbackContext>): Ntstatus =
+public actual fun ccErrorCallbackRoutine(context: ConstPtr): Ntstatus =
     windowssysWindowsWdkStorageFilesystemCcErrorCallbackRoutine(context.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ccFastCopyRead(fileobject: ConstPtr<FileObject>, fileoffset: UInt, length: UInt, pagecount: UInt, buffer: MutPtr<CVoid>, iostatus: MutPtr<IoStatusBlock>) {
+public actual fun ccFastCopyRead(fileobject: ConstPtr, fileoffset: UInt, length: UInt, pagecount: UInt, buffer: MutPtr, iostatus: MutPtr) {
     windowssysWindowsWdkStorageFilesystemCcFastCopyRead(fileobject.rawAddress.toCPointer<ByteVar>(), fileoffset, length, pagecount, buffer.rawAddress.toCPointer<ByteVar>(), iostatus.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun ccFastCopyWrite(fileobject: ConstPtr<FileObject>, fileoffset: UInt, length: UInt, buffer: ConstPtr<CVoid>) {
+public actual fun ccFastCopyWrite(fileobject: ConstPtr, fileoffset: UInt, length: UInt, buffer: ConstPtr) {
     windowssysWindowsWdkStorageFilesystemCcFastCopyWrite(fileobject.rawAddress.toCPointer<ByteVar>(), fileoffset, length, buffer.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun ccFlushCache(sectionobjectpointer: ConstPtr<SectionObjectPointers>, fileoffset: ConstPtr<Long>, length: UInt, iostatus: MutPtr<IoStatusBlock>) {
+public actual fun ccFlushCache(sectionobjectpointer: ConstPtr, fileoffset: ConstPtr, length: UInt, iostatus: MutPtr) {
     windowssysWindowsWdkStorageFilesystemCcFlushCache(sectionobjectpointer.rawAddress.toCPointer<ByteVar>(), fileoffset.rawAddress.toCPointer<ByteVar>(), length, iostatus.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun ccGetDirtyPages(loghandle: ConstPtr<CVoid>, dirtypageroutine: PdirtyPageRoutine, context1: ConstPtr<CVoid>, context2: ConstPtr<CVoid>): Long =
+public actual fun ccGetDirtyPages(loghandle: ConstPtr, dirtypageroutine: PdirtyPageRoutine, context1: ConstPtr, context2: ConstPtr): Long =
     windowssysWindowsWdkStorageFilesystemCcGetDirtyPages(loghandle.rawAddress.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>(), context1.rawAddress.toCPointer<ByteVar>(), context2.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ccGetFileObjectFromBcb(bcb: ConstPtr<CVoid>): MutPtr<FileObject> =
+public actual fun ccGetFileObjectFromBcb(bcb: ConstPtr): MutPtr =
     MutPtr(windowssysWindowsWdkStorageFilesystemCcGetFileObjectFromBcb(bcb.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun ccGetFileObjectFromSectionPtrs(sectionobjectpointer: ConstPtr<SectionObjectPointers>): MutPtr<FileObject> =
+public actual fun ccGetFileObjectFromSectionPtrs(sectionobjectpointer: ConstPtr): MutPtr =
     MutPtr(windowssysWindowsWdkStorageFilesystemCcGetFileObjectFromSectionPtrs(sectionobjectpointer.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun ccGetFileObjectFromSectionPtrsRef(sectionobjectpointer: ConstPtr<SectionObjectPointers>): MutPtr<FileObject> =
+public actual fun ccGetFileObjectFromSectionPtrsRef(sectionobjectpointer: ConstPtr): MutPtr =
     MutPtr(windowssysWindowsWdkStorageFilesystemCcGetFileObjectFromSectionPtrsRef(sectionobjectpointer.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun ccGetFlushedValidData(sectionobjectpointer: ConstPtr<SectionObjectPointers>, bcblistheld: Boolean): Long =
+public actual fun ccGetFlushedValidData(sectionobjectpointer: ConstPtr, bcblistheld: Boolean): Long =
     windowssysWindowsWdkStorageFilesystemCcGetFlushedValidData(sectionobjectpointer.rawAddress.toCPointer<ByteVar>(), bcblistheld)
 
-public actual fun ccInitializeCacheMap(fileobject: ConstPtr<FileObject>, filesizes: ConstPtr<CcFileSizes>, pinaccess: Boolean, callbacks: ConstPtr<CacheManagerCallbacks>, lazywritecontext: ConstPtr<CVoid>) {
+public actual fun ccInitializeCacheMap(fileobject: ConstPtr, filesizes: ConstPtr, pinaccess: Boolean, callbacks: ConstPtr, lazywritecontext: ConstPtr) {
     windowssysWindowsWdkStorageFilesystemCcInitializeCacheMap(fileobject.rawAddress.toCPointer<ByteVar>(), filesizes.rawAddress.toCPointer<ByteVar>(), pinaccess, callbacks.rawAddress.toCPointer<ByteVar>(), lazywritecontext.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun ccInitializeCacheMapEx(fileobject: ConstPtr<FileObject>, filesizes: ConstPtr<CcFileSizes>, pinaccess: Boolean, callbacks: ConstPtr<CacheManagerCallbacks>, lazywritecontext: ConstPtr<CVoid>, flags: UInt) {
+public actual fun ccInitializeCacheMapEx(fileobject: ConstPtr, filesizes: ConstPtr, pinaccess: Boolean, callbacks: ConstPtr, lazywritecontext: ConstPtr, flags: UInt) {
     windowssysWindowsWdkStorageFilesystemCcInitializeCacheMapEx(fileobject.rawAddress.toCPointer<ByteVar>(), filesizes.rawAddress.toCPointer<ByteVar>(), pinaccess, callbacks.rawAddress.toCPointer<ByteVar>(), lazywritecontext.rawAddress.toCPointer<ByteVar>(), flags)
 }
 
 public actual fun ccIsCacheManagerCallbackNeeded(status: Ntstatus): Boolean =
     windowssysWindowsWdkStorageFilesystemCcIsCacheManagerCallbackNeeded(status)
 
-public actual fun ccIsThereDirtyData(vpb: ConstPtr<Vpb>): Boolean =
+public actual fun ccIsThereDirtyData(vpb: ConstPtr): Boolean =
     windowssysWindowsWdkStorageFilesystemCcIsThereDirtyData(vpb.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ccIsThereDirtyDataEx(vpb: ConstPtr<Vpb>, numberofdirtypages: ConstPtr<UInt>): Boolean =
+public actual fun ccIsThereDirtyDataEx(vpb: ConstPtr, numberofdirtypages: ConstPtr): Boolean =
     windowssysWindowsWdkStorageFilesystemCcIsThereDirtyDataEx(vpb.rawAddress.toCPointer<ByteVar>(), numberofdirtypages.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ccMapData(fileobject: ConstPtr<FileObject>, fileoffset: ConstPtr<Long>, length: UInt, flags: UInt, bcb: MutPtr<MutPtr<CVoid>>, buffer: MutPtr<MutPtr<CVoid>>): Boolean =
+public actual fun ccMapData(fileobject: ConstPtr, fileoffset: ConstPtr, length: UInt, flags: UInt, bcb: MutPtr, buffer: MutPtr): Boolean =
     windowssysWindowsWdkStorageFilesystemCcMapData(fileobject.rawAddress.toCPointer<ByteVar>(), fileoffset.rawAddress.toCPointer<ByteVar>(), length, flags, bcb.rawAddress.toCPointer<ByteVar>(), buffer.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ccMdlRead(fileobject: ConstPtr<FileObject>, fileoffset: ConstPtr<Long>, length: UInt, mdlchain: MutPtr<MutPtr<Mdl>>, iostatus: MutPtr<IoStatusBlock>) {
+public actual fun ccMdlRead(fileobject: ConstPtr, fileoffset: ConstPtr, length: UInt, mdlchain: MutPtr, iostatus: MutPtr) {
     windowssysWindowsWdkStorageFilesystemCcMdlRead(fileobject.rawAddress.toCPointer<ByteVar>(), fileoffset.rawAddress.toCPointer<ByteVar>(), length, mdlchain.rawAddress.toCPointer<ByteVar>(), iostatus.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun ccMdlReadComplete(fileobject: ConstPtr<FileObject>, mdlchain: ConstPtr<Mdl>) {
+public actual fun ccMdlReadComplete(fileobject: ConstPtr, mdlchain: ConstPtr) {
     windowssysWindowsWdkStorageFilesystemCcMdlReadComplete(fileobject.rawAddress.toCPointer<ByteVar>(), mdlchain.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun ccMdlWriteAbort(fileobject: ConstPtr<FileObject>, mdlchain: ConstPtr<Mdl>) {
+public actual fun ccMdlWriteAbort(fileobject: ConstPtr, mdlchain: ConstPtr) {
     windowssysWindowsWdkStorageFilesystemCcMdlWriteAbort(fileobject.rawAddress.toCPointer<ByteVar>(), mdlchain.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun ccMdlWriteComplete(fileobject: ConstPtr<FileObject>, fileoffset: ConstPtr<Long>, mdlchain: ConstPtr<Mdl>) {
+public actual fun ccMdlWriteComplete(fileobject: ConstPtr, fileoffset: ConstPtr, mdlchain: ConstPtr) {
     windowssysWindowsWdkStorageFilesystemCcMdlWriteComplete(fileobject.rawAddress.toCPointer<ByteVar>(), fileoffset.rawAddress.toCPointer<ByteVar>(), mdlchain.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun ccPinMappedData(fileobject: ConstPtr<FileObject>, fileoffset: ConstPtr<Long>, length: UInt, flags: UInt, bcb: MutPtr<MutPtr<CVoid>>): Boolean =
+public actual fun ccPinMappedData(fileobject: ConstPtr, fileoffset: ConstPtr, length: UInt, flags: UInt, bcb: MutPtr): Boolean =
     windowssysWindowsWdkStorageFilesystemCcPinMappedData(fileobject.rawAddress.toCPointer<ByteVar>(), fileoffset.rawAddress.toCPointer<ByteVar>(), length, flags, bcb.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ccPinRead(fileobject: ConstPtr<FileObject>, fileoffset: ConstPtr<Long>, length: UInt, flags: UInt, bcb: MutPtr<MutPtr<CVoid>>, buffer: MutPtr<MutPtr<CVoid>>): Boolean =
+public actual fun ccPinRead(fileobject: ConstPtr, fileoffset: ConstPtr, length: UInt, flags: UInt, bcb: MutPtr, buffer: MutPtr): Boolean =
     windowssysWindowsWdkStorageFilesystemCcPinRead(fileobject.rawAddress.toCPointer<ByteVar>(), fileoffset.rawAddress.toCPointer<ByteVar>(), length, flags, bcb.rawAddress.toCPointer<ByteVar>(), buffer.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ccPrepareMdlWrite(fileobject: ConstPtr<FileObject>, fileoffset: ConstPtr<Long>, length: UInt, mdlchain: MutPtr<MutPtr<Mdl>>, iostatus: MutPtr<IoStatusBlock>) {
+public actual fun ccPrepareMdlWrite(fileobject: ConstPtr, fileoffset: ConstPtr, length: UInt, mdlchain: MutPtr, iostatus: MutPtr) {
     windowssysWindowsWdkStorageFilesystemCcPrepareMdlWrite(fileobject.rawAddress.toCPointer<ByteVar>(), fileoffset.rawAddress.toCPointer<ByteVar>(), length, mdlchain.rawAddress.toCPointer<ByteVar>(), iostatus.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun ccPreparePinWrite(fileobject: ConstPtr<FileObject>, fileoffset: ConstPtr<Long>, length: UInt, zero: Boolean, flags: UInt, bcb: MutPtr<MutPtr<CVoid>>, buffer: MutPtr<MutPtr<CVoid>>): Boolean =
+public actual fun ccPreparePinWrite(fileobject: ConstPtr, fileoffset: ConstPtr, length: UInt, zero: Boolean, flags: UInt, bcb: MutPtr, buffer: MutPtr): Boolean =
     windowssysWindowsWdkStorageFilesystemCcPreparePinWrite(fileobject.rawAddress.toCPointer<ByteVar>(), fileoffset.rawAddress.toCPointer<ByteVar>(), length, zero, flags, bcb.rawAddress.toCPointer<ByteVar>(), buffer.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ccPurgeCacheSection(sectionobjectpointer: ConstPtr<SectionObjectPointers>, fileoffset: ConstPtr<Long>, length: UInt, flags: UInt): Boolean =
+public actual fun ccPurgeCacheSection(sectionobjectpointer: ConstPtr, fileoffset: ConstPtr, length: UInt, flags: UInt): Boolean =
     windowssysWindowsWdkStorageFilesystemCcPurgeCacheSection(sectionobjectpointer.rawAddress.toCPointer<ByteVar>(), fileoffset.rawAddress.toCPointer<ByteVar>(), length, flags)
 
-public actual fun ccRemapBcb(bcb: ConstPtr<CVoid>): MutPtr<CVoid> =
+public actual fun ccRemapBcb(bcb: ConstPtr): MutPtr =
     MutPtr(windowssysWindowsWdkStorageFilesystemCcRemapBcb(bcb.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun ccRepinBcb(bcb: ConstPtr<CVoid>) {
+public actual fun ccRepinBcb(bcb: ConstPtr) {
     windowssysWindowsWdkStorageFilesystemCcRepinBcb(bcb.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun ccScheduleReadAhead(fileobject: ConstPtr<FileObject>, fileoffset: ConstPtr<Long>, length: UInt) {
+public actual fun ccScheduleReadAhead(fileobject: ConstPtr, fileoffset: ConstPtr, length: UInt) {
     windowssysWindowsWdkStorageFilesystemCcScheduleReadAhead(fileobject.rawAddress.toCPointer<ByteVar>(), fileoffset.rawAddress.toCPointer<ByteVar>(), length)
 }
 
-public actual fun ccScheduleReadAheadEx(fileobject: ConstPtr<FileObject>, fileoffset: ConstPtr<Long>, length: UInt, ioissuerthread: Pethread) {
+public actual fun ccScheduleReadAheadEx(fileobject: ConstPtr, fileoffset: ConstPtr, length: UInt, ioissuerthread: Pethread) {
     windowssysWindowsWdkStorageFilesystemCcScheduleReadAheadEx(fileobject.rawAddress.toCPointer<ByteVar>(), fileoffset.rawAddress.toCPointer<ByteVar>(), length, ioissuerthread)
 }
 
-public actual fun ccSetAdditionalCacheAttributes(fileobject: ConstPtr<FileObject>, disablereadahead: Boolean, disablewritebehind: Boolean) {
+public actual fun ccSetAdditionalCacheAttributes(fileobject: ConstPtr, disablereadahead: Boolean, disablewritebehind: Boolean) {
     windowssysWindowsWdkStorageFilesystemCcSetAdditionalCacheAttributes(fileobject.rawAddress.toCPointer<ByteVar>(), disablereadahead, disablewritebehind)
 }
 
-public actual fun ccSetAdditionalCacheAttributesEx(fileobject: ConstPtr<FileObject>, flags: UInt) {
+public actual fun ccSetAdditionalCacheAttributesEx(fileobject: ConstPtr, flags: UInt) {
     windowssysWindowsWdkStorageFilesystemCcSetAdditionalCacheAttributesEx(fileobject.rawAddress.toCPointer<ByteVar>(), flags)
 }
 
-public actual fun ccSetBcbOwnerPointer(bcb: ConstPtr<CVoid>, ownerpointer: ConstPtr<CVoid>) {
+public actual fun ccSetBcbOwnerPointer(bcb: ConstPtr, ownerpointer: ConstPtr) {
     windowssysWindowsWdkStorageFilesystemCcSetBcbOwnerPointer(bcb.rawAddress.toCPointer<ByteVar>(), ownerpointer.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun ccSetDirtyPageThreshold(fileobject: ConstPtr<FileObject>, dirtypagethreshold: UInt) {
+public actual fun ccSetDirtyPageThreshold(fileobject: ConstPtr, dirtypagethreshold: UInt) {
     windowssysWindowsWdkStorageFilesystemCcSetDirtyPageThreshold(fileobject.rawAddress.toCPointer<ByteVar>(), dirtypagethreshold)
 }
 
-public actual fun ccSetDirtyPinnedData(bcbvoid: ConstPtr<CVoid>, lsn: ConstPtr<Long>) {
+public actual fun ccSetDirtyPinnedData(bcbvoid: ConstPtr, lsn: ConstPtr) {
     windowssysWindowsWdkStorageFilesystemCcSetDirtyPinnedData(bcbvoid.rawAddress.toCPointer<ByteVar>(), lsn.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun ccSetFileSizes(fileobject: ConstPtr<FileObject>, filesizes: ConstPtr<CcFileSizes>) {
+public actual fun ccSetFileSizes(fileobject: ConstPtr, filesizes: ConstPtr) {
     windowssysWindowsWdkStorageFilesystemCcSetFileSizes(fileobject.rawAddress.toCPointer<ByteVar>(), filesizes.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun ccSetFileSizesEx(fileobject: ConstPtr<FileObject>, filesizes: ConstPtr<CcFileSizes>): Ntstatus =
+public actual fun ccSetFileSizesEx(fileobject: ConstPtr, filesizes: ConstPtr): Ntstatus =
     windowssysWindowsWdkStorageFilesystemCcSetFileSizesEx(fileobject.rawAddress.toCPointer<ByteVar>(), filesizes.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ccSetLogHandleForFile(fileobject: ConstPtr<FileObject>, loghandle: ConstPtr<CVoid>, flushtolsnroutine: PflushToLsn) {
+public actual fun ccSetLogHandleForFile(fileobject: ConstPtr, loghandle: ConstPtr, flushtolsnroutine: PflushToLsn) {
     windowssysWindowsWdkStorageFilesystemCcSetLogHandleForFile(fileobject.rawAddress.toCPointer<ByteVar>(), loghandle.rawAddress.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>())
 }
 
-public actual fun ccSetParallelFlushFile(fileobject: ConstPtr<FileObject>, enableparallelflush: Boolean) {
+public actual fun ccSetParallelFlushFile(fileobject: ConstPtr, enableparallelflush: Boolean) {
     windowssysWindowsWdkStorageFilesystemCcSetParallelFlushFile(fileobject.rawAddress.toCPointer<ByteVar>(), enableparallelflush)
 }
 
-public actual fun ccSetReadAheadGranularity(fileobject: ConstPtr<FileObject>, granularity: UInt) {
+public actual fun ccSetReadAheadGranularity(fileobject: ConstPtr, granularity: UInt) {
     windowssysWindowsWdkStorageFilesystemCcSetReadAheadGranularity(fileobject.rawAddress.toCPointer<ByteVar>(), granularity)
 }
 
-public actual fun ccUninitializeCacheMap(fileobject: ConstPtr<FileObject>, truncatesize: ConstPtr<Long>, uninitializeevent: ConstPtr<CacheUninitializeEvent>): Boolean =
+public actual fun ccUninitializeCacheMap(fileobject: ConstPtr, truncatesize: ConstPtr, uninitializeevent: ConstPtr): Boolean =
     windowssysWindowsWdkStorageFilesystemCcUninitializeCacheMap(fileobject.rawAddress.toCPointer<ByteVar>(), truncatesize.rawAddress.toCPointer<ByteVar>(), uninitializeevent.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ccUnpinData(bcb: ConstPtr<CVoid>) {
+public actual fun ccUnpinData(bcb: ConstPtr) {
     windowssysWindowsWdkStorageFilesystemCcUnpinData(bcb.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun ccUnpinDataForThread(bcb: ConstPtr<CVoid>, resourcethreadid: ULong) {
+public actual fun ccUnpinDataForThread(bcb: ConstPtr, resourcethreadid: ULong) {
     windowssysWindowsWdkStorageFilesystemCcUnpinDataForThread(bcb.rawAddress.toCPointer<ByteVar>(), resourcethreadid)
 }
 
-public actual fun ccUnpinRepinnedBcb(bcb: ConstPtr<CVoid>, writethrough: Boolean, iostatus: MutPtr<IoStatusBlock>) {
+public actual fun ccUnpinRepinnedBcb(bcb: ConstPtr, writethrough: Boolean, iostatus: MutPtr) {
     windowssysWindowsWdkStorageFilesystemCcUnpinRepinnedBcb(bcb.rawAddress.toCPointer<ByteVar>(), writethrough, iostatus.rawAddress.toCPointer<ByteVar>())
 }
 
 public actual fun ccWaitForCurrentLazyWriterActivity(): Ntstatus =
     windowssysWindowsWdkStorageFilesystemCcWaitForCurrentLazyWriterActivity()
 
-public actual fun ccZeroData(fileobject: ConstPtr<FileObject>, startoffset: ConstPtr<Long>, endoffset: ConstPtr<Long>, wait: Boolean): Boolean =
+public actual fun ccZeroData(fileobject: ConstPtr, startoffset: ConstPtr, endoffset: ConstPtr, wait: Boolean): Boolean =
     windowssysWindowsWdkStorageFilesystemCcZeroData(fileobject.rawAddress.toCPointer<ByteVar>(), startoffset.rawAddress.toCPointer<ByteVar>(), endoffset.rawAddress.toCPointer<ByteVar>(), wait)
 
-public actual fun completeAuthToken(phcontext: ConstPtr<SecHandle>, ptoken: ConstPtr<SecBufferDesc>): Hresult =
+public actual fun completeAuthToken(phcontext: ConstPtr, ptoken: ConstPtr): Hresult =
     windowssysWindowsWdkStorageFilesystemCompleteAuthToken(phcontext.rawAddress.toCPointer<ByteVar>(), ptoken.rawAddress.toCPointer<ByteVar>())
 
-public actual fun exDisableResourceBoostLite(resource: ConstPtr<Eresource>) {
+public actual fun exDisableResourceBoostLite(resource: ConstPtr) {
     windowssysWindowsWdkStorageFilesystemExDisableResourceBoostLite(resource.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun exQueryPoolBlockSize(poolblock: ConstPtr<CVoid>, quotacharged: MutPtr<Boolean>): ULong =
+public actual fun exQueryPoolBlockSize(poolblock: ConstPtr, quotacharged: MutPtr): ULong =
     windowssysWindowsWdkStorageFilesystemExQueryPoolBlockSize(poolblock.rawAddress.toCPointer<ByteVar>(), quotacharged.rawAddress.toCPointer<ByteVar>())
 
-public actual fun exportSecurityContext(phcontext: ConstPtr<SecHandle>, fflags: UInt, ppackedcontext: MutPtr<SecBuffer>, ptoken: MutPtr<MutPtr<CVoid>>): Hresult =
+public actual fun exportSecurityContext(phcontext: ConstPtr, fflags: UInt, ppackedcontext: MutPtr, ptoken: MutPtr): Hresult =
     windowssysWindowsWdkStorageFilesystemExportSecurityContext(phcontext.rawAddress.toCPointer<ByteVar>(), fflags, ppackedcontext.rawAddress.toCPointer<ByteVar>(), ptoken.rawAddress.toCPointer<ByteVar>())
 
-public actual fun fsRtlAcknowledgeEcp(ecpcontext: ConstPtr<CVoid>) {
+public actual fun fsRtlAcknowledgeEcp(ecpcontext: ConstPtr) {
     windowssysWindowsWdkStorageFilesystemFsRtlAcknowledgeEcp(ecpcontext.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun fsRtlAcquireFileExclusive(fileobject: ConstPtr<FileObject>) {
+public actual fun fsRtlAcquireFileExclusive(fileobject: ConstPtr) {
     windowssysWindowsWdkStorageFilesystemFsRtlAcquireFileExclusive(fileobject.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun fsRtlAddBaseMcbEntry(mcb: MutPtr<BaseMcb>, vbn: Long, lbn: Long, sectorcount: Long): Boolean =
+public actual fun fsRtlAddBaseMcbEntry(mcb: MutPtr, vbn: Long, lbn: Long, sectorcount: Long): Boolean =
     windowssysWindowsWdkStorageFilesystemFsRtlAddBaseMcbEntry(mcb.rawAddress.toCPointer<ByteVar>(), vbn, lbn, sectorcount)
 
-public actual fun fsRtlAddBaseMcbEntryEx(mcb: MutPtr<BaseMcb>, vbn: Long, lbn: Long, sectorcount: Long): Ntstatus =
+public actual fun fsRtlAddBaseMcbEntryEx(mcb: MutPtr, vbn: Long, lbn: Long, sectorcount: Long): Ntstatus =
     windowssysWindowsWdkStorageFilesystemFsRtlAddBaseMcbEntryEx(mcb.rawAddress.toCPointer<ByteVar>(), vbn, lbn, sectorcount)
 
-public actual fun fsRtlAddLargeMcbEntry(mcb: MutPtr<LargeMcb>, vbn: Long, lbn: Long, sectorcount: Long): Boolean =
+public actual fun fsRtlAddLargeMcbEntry(mcb: MutPtr, vbn: Long, lbn: Long, sectorcount: Long): Boolean =
     windowssysWindowsWdkStorageFilesystemFsRtlAddLargeMcbEntry(mcb.rawAddress.toCPointer<ByteVar>(), vbn, lbn, sectorcount)
 
-public actual fun fsRtlAddMcbEntry(mcb: MutPtr<Mcb>, vbn: UInt, lbn: UInt, sectorcount: UInt): Boolean =
+public actual fun fsRtlAddMcbEntry(mcb: MutPtr, vbn: UInt, lbn: UInt, sectorcount: UInt): Boolean =
     windowssysWindowsWdkStorageFilesystemFsRtlAddMcbEntry(mcb.rawAddress.toCPointer<ByteVar>(), vbn, lbn, sectorcount)
 
-public actual fun fsRtlAddToTunnelCache(cache: MutPtr<Tunnel>, directorykey: ULong, shortname: ConstPtr<UnicodeString>, longname: ConstPtr<UnicodeString>, keybyshortname: Boolean, datalength: UInt, data: ConstPtr<CVoid>) {
+public actual fun fsRtlAddToTunnelCache(cache: MutPtr, directorykey: ULong, shortname: ConstPtr, longname: ConstPtr, keybyshortname: Boolean, datalength: UInt, data: ConstPtr) {
     windowssysWindowsWdkStorageFilesystemFsRtlAddToTunnelCache(cache.rawAddress.toCPointer<ByteVar>(), directorykey, shortname.rawAddress.toCPointer<ByteVar>(), longname.rawAddress.toCPointer<ByteVar>(), keybyshortname, datalength, data.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun fsRtlAddToTunnelCacheEx(cache: MutPtr<Tunnel>, directorykey: ULong, shortname: ConstPtr<UnicodeString>, longname: ConstPtr<UnicodeString>, flags: UInt, datalength: UInt, data: ConstPtr<CVoid>) {
+public actual fun fsRtlAddToTunnelCacheEx(cache: MutPtr, directorykey: ULong, shortname: ConstPtr, longname: ConstPtr, flags: UInt, datalength: UInt, data: ConstPtr) {
     windowssysWindowsWdkStorageFilesystemFsRtlAddToTunnelCacheEx(cache.rawAddress.toCPointer<ByteVar>(), directorykey, shortname.rawAddress.toCPointer<ByteVar>(), longname.rawAddress.toCPointer<ByteVar>(), flags, datalength, data.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun fsRtlAllocateAePushLock(pooltype: PoolType, tag: UInt): MutPtr<CVoid> =
+public actual fun fsRtlAllocateAePushLock(pooltype: PoolType, tag: UInt): MutPtr =
     MutPtr(windowssysWindowsWdkStorageFilesystemFsRtlAllocateAePushLock(pooltype, tag)?.toLong() ?: 0L)
 
-public actual fun fsRtlAllocateExtraCreateParameter(ecptype: ConstPtr<Guid>, sizeofcontext: UInt, flags: UInt, cleanupcallback: PfsrtlExtraCreateParameterCleanupCallback, pooltag: UInt, ecpcontext: MutPtr<MutPtr<CVoid>>): Ntstatus =
+public actual fun fsRtlAllocateExtraCreateParameter(ecptype: ConstPtr, sizeofcontext: UInt, flags: UInt, cleanupcallback: PfsrtlExtraCreateParameterCleanupCallback, pooltag: UInt, ecpcontext: MutPtr): Ntstatus =
     windowssysWindowsWdkStorageFilesystemFsRtlAllocateExtraCreateParameter(ecptype.rawAddress.toCPointer<ByteVar>(), sizeofcontext, flags, 0L.toCPointer<ByteVar>(), pooltag, ecpcontext.rawAddress.toCPointer<ByteVar>())
 
-public actual fun fsRtlAllocateExtraCreateParameterFromLookasideList(ecptype: ConstPtr<Guid>, sizeofcontext: UInt, flags: UInt, cleanupcallback: PfsrtlExtraCreateParameterCleanupCallback, lookasidelist: MutPtr<CVoid>, ecpcontext: MutPtr<MutPtr<CVoid>>): Ntstatus =
+public actual fun fsRtlAllocateExtraCreateParameterFromLookasideList(ecptype: ConstPtr, sizeofcontext: UInt, flags: UInt, cleanupcallback: PfsrtlExtraCreateParameterCleanupCallback, lookasidelist: MutPtr, ecpcontext: MutPtr): Ntstatus =
     windowssysWindowsWdkStorageFilesystemFsRtlAllocateExtraCreateParameterFromLookasideList(ecptype.rawAddress.toCPointer<ByteVar>(), sizeofcontext, flags, 0L.toCPointer<ByteVar>(), lookasidelist.rawAddress.toCPointer<ByteVar>(), ecpcontext.rawAddress.toCPointer<ByteVar>())
 
-public actual fun fsRtlAllocateExtraCreateParameterList(flags: UInt, ecplist: MutPtr<MutPtr<EcpList>>): Ntstatus =
+public actual fun fsRtlAllocateExtraCreateParameterList(flags: UInt, ecplist: MutPtr): Ntstatus =
     windowssysWindowsWdkStorageFilesystemFsRtlAllocateExtraCreateParameterList(flags, ecplist.rawAddress.toCPointer<ByteVar>())
 
-public actual fun fsRtlAllocateFileLock(completelockirproutine: PcompleteLockIrpRoutine, unlockroutine: PunlockRoutine): MutPtr<FileLock> =
+public actual fun fsRtlAllocateFileLock(completelockirproutine: PcompleteLockIrpRoutine, unlockroutine: PunlockRoutine): MutPtr =
     MutPtr(windowssysWindowsWdkStorageFilesystemFsRtlAllocateFileLock(0L.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun fsRtlAllocateResource(): MutPtr<Eresource> =
+public actual fun fsRtlAllocateResource(): MutPtr =
     MutPtr(windowssysWindowsWdkStorageFilesystemFsRtlAllocateResource()?.toLong() ?: 0L)
 
-public actual fun fsRtlAreNamesEqual(constantnamea: ConstPtr<UnicodeString>, constantnameb: ConstPtr<UnicodeString>, ignorecase: Boolean, upcasetable: ConstPtr<UShort>): Boolean =
+public actual fun fsRtlAreNamesEqual(constantnamea: ConstPtr, constantnameb: ConstPtr, ignorecase: Boolean, upcasetable: ConstPtr): Boolean =
     windowssysWindowsWdkStorageFilesystemFsRtlAreNamesEqual(constantnamea.rawAddress.toCPointer<ByteVar>(), constantnameb.rawAddress.toCPointer<ByteVar>(), ignorecase, upcasetable.rawAddress.toCPointer<ByteVar>())
 
-public actual fun fsRtlAreThereCurrentOrInProgressFileLocks(filelock: ConstPtr<FileLock>): Boolean =
+public actual fun fsRtlAreThereCurrentOrInProgressFileLocks(filelock: ConstPtr): Boolean =
     windowssysWindowsWdkStorageFilesystemFsRtlAreThereCurrentOrInProgressFileLocks(filelock.rawAddress.toCPointer<ByteVar>())
 
-public actual fun fsRtlAreThereWaitingFileLocks(filelock: ConstPtr<FileLock>): Boolean =
+public actual fun fsRtlAreThereWaitingFileLocks(filelock: ConstPtr): Boolean =
     windowssysWindowsWdkStorageFilesystemFsRtlAreThereWaitingFileLocks(filelock.rawAddress.toCPointer<ByteVar>())
 
 public actual fun fsRtlAreVolumeStartupApplicationsComplete(): Boolean =
     windowssysWindowsWdkStorageFilesystemFsRtlAreVolumeStartupApplicationsComplete()
 
-public actual fun fsRtlBalanceReads(targetdevice: ConstPtr<DeviceObject>): Ntstatus =
+public actual fun fsRtlBalanceReads(targetdevice: ConstPtr): Ntstatus =
     windowssysWindowsWdkStorageFilesystemFsRtlBalanceReads(targetdevice.rawAddress.toCPointer<ByteVar>())
 
-public actual fun fsRtlCancellableWaitForMultipleObjects(count: UInt, objectarray: ConstPtr<ConstPtr<CVoid>>, waittype: WaitType, timeout: ConstPtr<Long>, waitblockarray: ConstPtr<KwaitBlock>, irp: ConstPtr<Irp>): Ntstatus =
+public actual fun fsRtlCancellableWaitForMultipleObjects(count: UInt, objectarray: ConstPtr, waittype: WaitType, timeout: ConstPtr, waitblockarray: ConstPtr, irp: ConstPtr): Ntstatus =
     windowssysWindowsWdkStorageFilesystemFsRtlCancellableWaitForMultipleObjects(count, objectarray.rawAddress.toCPointer<ByteVar>(), waittype, timeout.rawAddress.toCPointer<ByteVar>(), waitblockarray.rawAddress.toCPointer<ByteVar>(), irp.rawAddress.toCPointer<ByteVar>())
 
-public actual fun fsRtlCancellableWaitForSingleObject(obj: ConstPtr<CVoid>, timeout: ConstPtr<Long>, irp: ConstPtr<Irp>): Ntstatus =
+public actual fun fsRtlCancellableWaitForSingleObject(obj: ConstPtr, timeout: ConstPtr, irp: ConstPtr): Ntstatus =
     windowssysWindowsWdkStorageFilesystemFsRtlCancellableWaitForSingleObject(obj.rawAddress.toCPointer<ByteVar>(), timeout.rawAddress.toCPointer<ByteVar>(), irp.rawAddress.toCPointer<ByteVar>())
 
-public actual fun fsRtlChangeBackingFileObject(currentfileobject: ConstPtr<FileObject>, newfileobject: ConstPtr<FileObject>, changebackingtype: FsrtlChangeBackingType, flags: UInt): Ntstatus =
+public actual fun fsRtlChangeBackingFileObject(currentfileobject: ConstPtr, newfileobject: ConstPtr, changebackingtype: FsrtlChangeBackingType, flags: UInt): Ntstatus =
     windowssysWindowsWdkStorageFilesystemFsRtlChangeBackingFileObject(currentfileobject.rawAddress.toCPointer<ByteVar>(), newfileobject.rawAddress.toCPointer<ByteVar>(), changebackingtype, flags)
 
-public actual fun fsRtlCheckLockForOplockRequest(filelock: ConstPtr<FileLock>, allocationsize: ConstPtr<Long>): Boolean =
+public actual fun fsRtlCheckLockForOplockRequest(filelock: ConstPtr, allocationsize: ConstPtr): Boolean =
     windowssysWindowsWdkStorageFilesystemFsRtlCheckLockForOplockRequest(filelock.rawAddress.toCPointer<ByteVar>(), allocationsize.rawAddress.toCPointer<ByteVar>())
 
-public actual fun fsRtlCheckLockForReadAccess(filelock: ConstPtr<FileLock>, irp: ConstPtr<Irp>): Boolean =
+public actual fun fsRtlCheckLockForReadAccess(filelock: ConstPtr, irp: ConstPtr): Boolean =
     windowssysWindowsWdkStorageFilesystemFsRtlCheckLockForReadAccess(filelock.rawAddress.toCPointer<ByteVar>(), irp.rawAddress.toCPointer<ByteVar>())
 
-public actual fun fsRtlCheckLockForWriteAccess(filelock: ConstPtr<FileLock>, irp: ConstPtr<Irp>): Boolean =
+public actual fun fsRtlCheckLockForWriteAccess(filelock: ConstPtr, irp: ConstPtr): Boolean =
     windowssysWindowsWdkStorageFilesystemFsRtlCheckLockForWriteAccess(filelock.rawAddress.toCPointer<ByteVar>(), irp.rawAddress.toCPointer<ByteVar>())
 
-public actual fun fsRtlCheckOplock(oplock: ConstPtr<ConstPtr<CVoid>>, irp: ConstPtr<Irp>, context: ConstPtr<CVoid>, completionroutine: PoplockWaitCompleteRoutine, postirproutine: PoplockFsPrepostIrp): Ntstatus =
+public actual fun fsRtlCheckOplock(oplock: ConstPtr, irp: ConstPtr, context: ConstPtr, completionroutine: PoplockWaitCompleteRoutine, postirproutine: PoplockFsPrepostIrp): Ntstatus =
     windowssysWindowsWdkStorageFilesystemFsRtlCheckOplock(oplock.rawAddress.toCPointer<ByteVar>(), irp.rawAddress.toCPointer<ByteVar>(), context.rawAddress.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>())
 
-public actual fun fsRtlCheckOplockEx(oplock: ConstPtr<ConstPtr<CVoid>>, irp: ConstPtr<Irp>, flags: UInt, context: ConstPtr<CVoid>, completionroutine: PoplockWaitCompleteRoutine, postirproutine: PoplockFsPrepostIrp): Ntstatus =
+public actual fun fsRtlCheckOplockEx(oplock: ConstPtr, irp: ConstPtr, flags: UInt, context: ConstPtr, completionroutine: PoplockWaitCompleteRoutine, postirproutine: PoplockFsPrepostIrp): Ntstatus =
     windowssysWindowsWdkStorageFilesystemFsRtlCheckOplockEx(oplock.rawAddress.toCPointer<ByteVar>(), irp.rawAddress.toCPointer<ByteVar>(), flags, context.rawAddress.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>())
 
-public actual fun fsRtlCheckOplockEx2(oplock: ConstPtr<ConstPtr<CVoid>>, irp: ConstPtr<Irp>, flags: UInt, flagsex2: UInt, completionroutinecontext: ConstPtr<CVoid>, completionroutine: PoplockWaitCompleteRoutine, postirproutine: PoplockFsPrepostIrp, timeout: ULong, notifycontext: ConstPtr<CVoid>, notifyroutine: PoplockNotifyRoutine): Ntstatus =
+public actual fun fsRtlCheckOplockEx2(oplock: ConstPtr, irp: ConstPtr, flags: UInt, flagsex2: UInt, completionroutinecontext: ConstPtr, completionroutine: PoplockWaitCompleteRoutine, postirproutine: PoplockFsPrepostIrp, timeout: ULong, notifycontext: ConstPtr, notifyroutine: PoplockNotifyRoutine): Ntstatus =
     windowssysWindowsWdkStorageFilesystemFsRtlCheckOplockEx2(oplock.rawAddress.toCPointer<ByteVar>(), irp.rawAddress.toCPointer<ByteVar>(), flags, flagsex2, completionroutinecontext.rawAddress.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>(), timeout, notifycontext.rawAddress.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>())
 
-public actual fun fsRtlCheckUpperOplock(oplock: ConstPtr<ConstPtr<CVoid>>, newloweroplockstate: UInt, completionroutinecontext: ConstPtr<CVoid>, completionroutine: PoplockWaitCompleteRoutine, prependroutine: PoplockFsPrepostIrp, flags: UInt): Ntstatus =
+public actual fun fsRtlCheckUpperOplock(oplock: ConstPtr, newloweroplockstate: UInt, completionroutinecontext: ConstPtr, completionroutine: PoplockWaitCompleteRoutine, prependroutine: PoplockFsPrepostIrp, flags: UInt): Ntstatus =
     windowssysWindowsWdkStorageFilesystemFsRtlCheckUpperOplock(oplock.rawAddress.toCPointer<ByteVar>(), newloweroplockstate, completionroutinecontext.rawAddress.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>(), flags)
 
-public actual fun fsRtlCopyRead(fileobject: ConstPtr<FileObject>, fileoffset: ConstPtr<Long>, length: UInt, wait: Boolean, lockkey: UInt, buffer: MutPtr<CVoid>, iostatus: MutPtr<IoStatusBlock>, deviceobject: ConstPtr<DeviceObject>): Boolean =
+public actual fun fsRtlCopyRead(fileobject: ConstPtr, fileoffset: ConstPtr, length: UInt, wait: Boolean, lockkey: UInt, buffer: MutPtr, iostatus: MutPtr, deviceobject: ConstPtr): Boolean =
     windowssysWindowsWdkStorageFilesystemFsRtlCopyRead(fileobject.rawAddress.toCPointer<ByteVar>(), fileoffset.rawAddress.toCPointer<ByteVar>(), length, wait, lockkey, buffer.rawAddress.toCPointer<ByteVar>(), iostatus.rawAddress.toCPointer<ByteVar>(), deviceobject.rawAddress.toCPointer<ByteVar>())
 
-public actual fun fsRtlCopyWrite(fileobject: ConstPtr<FileObject>, fileoffset: ConstPtr<Long>, length: UInt, wait: Boolean, lockkey: UInt, buffer: ConstPtr<CVoid>, iostatus: MutPtr<IoStatusBlock>, deviceobject: ConstPtr<DeviceObject>): Boolean =
+public actual fun fsRtlCopyWrite(fileobject: ConstPtr, fileoffset: ConstPtr, length: UInt, wait: Boolean, lockkey: UInt, buffer: ConstPtr, iostatus: MutPtr, deviceobject: ConstPtr): Boolean =
     windowssysWindowsWdkStorageFilesystemFsRtlCopyWrite(fileobject.rawAddress.toCPointer<ByteVar>(), fileoffset.rawAddress.toCPointer<ByteVar>(), length, wait, lockkey, buffer.rawAddress.toCPointer<ByteVar>(), iostatus.rawAddress.toCPointer<ByteVar>(), deviceobject.rawAddress.toCPointer<ByteVar>())
 
-public actual fun fsRtlCreateSectionForDataScan(sectionhandle: MutPtr<Handle>, sectionobject: MutPtr<MutPtr<CVoid>>, sectionfilesize: MutPtr<Long>, fileobject: ConstPtr<FileObject>, desiredaccess: UInt, objectattributes: ConstPtr<ObjectAttributes>, maximumsize: ConstPtr<Long>, sectionpageprotection: UInt, allocationattributes: UInt, flags: UInt): Ntstatus =
+public actual fun fsRtlCreateSectionForDataScan(sectionhandle: MutPtr, sectionobject: MutPtr, sectionfilesize: MutPtr, fileobject: ConstPtr, desiredaccess: UInt, objectattributes: ConstPtr, maximumsize: ConstPtr, sectionpageprotection: UInt, allocationattributes: UInt, flags: UInt): Ntstatus =
     windowssysWindowsWdkStorageFilesystemFsRtlCreateSectionForDataScan(sectionhandle.rawAddress.toCPointer<ByteVar>(), sectionobject.rawAddress.toCPointer<ByteVar>(), sectionfilesize.rawAddress.toCPointer<ByteVar>(), fileobject.rawAddress.toCPointer<ByteVar>(), desiredaccess, objectattributes.rawAddress.toCPointer<ByteVar>(), maximumsize.rawAddress.toCPointer<ByteVar>(), sectionpageprotection, allocationattributes, flags)
 
-public actual fun fsRtlCurrentBatchOplock(oplock: ConstPtr<ConstPtr<CVoid>>): Boolean =
+public actual fun fsRtlCurrentBatchOplock(oplock: ConstPtr): Boolean =
     windowssysWindowsWdkStorageFilesystemFsRtlCurrentBatchOplock(oplock.rawAddress.toCPointer<ByteVar>())
 
-public actual fun fsRtlCurrentOplock(oplock: ConstPtr<ConstPtr<CVoid>>): Boolean =
+public actual fun fsRtlCurrentOplock(oplock: ConstPtr): Boolean =
     windowssysWindowsWdkStorageFilesystemFsRtlCurrentOplock(oplock.rawAddress.toCPointer<ByteVar>())
 
-public actual fun fsRtlCurrentOplockH(oplock: ConstPtr<ConstPtr<CVoid>>): Boolean =
+public actual fun fsRtlCurrentOplockH(oplock: ConstPtr): Boolean =
     windowssysWindowsWdkStorageFilesystemFsRtlCurrentOplockH(oplock.rawAddress.toCPointer<ByteVar>())
 
-public actual fun fsRtlDeleteExtraCreateParameterLookasideList(lookaside: MutPtr<CVoid>, flags: UInt) {
+public actual fun fsRtlDeleteExtraCreateParameterLookasideList(lookaside: MutPtr, flags: UInt) {
     windowssysWindowsWdkStorageFilesystemFsRtlDeleteExtraCreateParameterLookasideList(lookaside.rawAddress.toCPointer<ByteVar>(), flags)
 }
 
-public actual fun fsRtlDeleteKeyFromTunnelCache(cache: MutPtr<Tunnel>, directorykey: ULong) {
+public actual fun fsRtlDeleteKeyFromTunnelCache(cache: MutPtr, directorykey: ULong) {
     windowssysWindowsWdkStorageFilesystemFsRtlDeleteKeyFromTunnelCache(cache.rawAddress.toCPointer<ByteVar>(), directorykey)
 }
 
-public actual fun fsRtlDeleteTunnelCache(cache: MutPtr<Tunnel>) {
+public actual fun fsRtlDeleteTunnelCache(cache: MutPtr) {
     windowssysWindowsWdkStorageFilesystemFsRtlDeleteTunnelCache(cache.rawAddress.toCPointer<ByteVar>())
 }
 
@@ -1070,93 +1028,93 @@ public actual fun fsRtlDeregisterUncProvider(handle: Handle) {
     windowssysWindowsWdkStorageFilesystemFsRtlDeregisterUncProvider(handle.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun fsRtlDismountComplete(deviceobject: ConstPtr<DeviceObject>, dismountstatus: Ntstatus) {
+public actual fun fsRtlDismountComplete(deviceobject: ConstPtr, dismountstatus: Ntstatus) {
     windowssysWindowsWdkStorageFilesystemFsRtlDismountComplete(deviceobject.rawAddress.toCPointer<ByteVar>(), dismountstatus)
 }
 
-public actual fun fsRtlDissectDbcs(path: io.github.kotlinmania.windowssys.windows.win32.system.kernel.String, firstname: MutPtr<io.github.kotlinmania.windowssys.windows.win32.system.kernel.String>, remainingname: MutPtr<io.github.kotlinmania.windowssys.windows.win32.system.kernel.String>) {
+public actual fun fsRtlDissectDbcs(path: io.github.kotlinmania.windowssys.windows.win32.system.kernel.String, firstname: MutPtr, remainingname: MutPtr) {
 }
 
-public actual fun fsRtlDissectName(path: UnicodeString, firstname: MutPtr<UnicodeString>, remainingname: MutPtr<UnicodeString>) {
+public actual fun fsRtlDissectName(path: UnicodeString, firstname: MutPtr, remainingname: MutPtr) {
 }
 
-public actual fun fsRtlDoesDbcsContainWildCards(name: ConstPtr<io.github.kotlinmania.windowssys.windows.win32.system.kernel.String>): Boolean =
+public actual fun fsRtlDoesDbcsContainWildCards(name: ConstPtr): Boolean =
     windowssysWindowsWdkStorageFilesystemFsRtlDoesDbcsContainWildCards(name.rawAddress.toCPointer<ByteVar>())
 
-public actual fun fsRtlDoesNameContainWildCards(name: ConstPtr<UnicodeString>): Boolean =
+public actual fun fsRtlDoesNameContainWildCards(name: ConstPtr): Boolean =
     windowssysWindowsWdkStorageFilesystemFsRtlDoesNameContainWildCards(name.rawAddress.toCPointer<ByteVar>())
 
-public actual fun fsRtlFastCheckLockForRead(filelock: ConstPtr<FileLock>, startingbyte: ConstPtr<Long>, length: ConstPtr<Long>, key: UInt, fileobject: ConstPtr<FileObject>, processid: ConstPtr<CVoid>): Boolean =
+public actual fun fsRtlFastCheckLockForRead(filelock: ConstPtr, startingbyte: ConstPtr, length: ConstPtr, key: UInt, fileobject: ConstPtr, processid: ConstPtr): Boolean =
     windowssysWindowsWdkStorageFilesystemFsRtlFastCheckLockForRead(filelock.rawAddress.toCPointer<ByteVar>(), startingbyte.rawAddress.toCPointer<ByteVar>(), length.rawAddress.toCPointer<ByteVar>(), key, fileobject.rawAddress.toCPointer<ByteVar>(), processid.rawAddress.toCPointer<ByteVar>())
 
-public actual fun fsRtlFastCheckLockForWrite(filelock: ConstPtr<FileLock>, startingbyte: ConstPtr<Long>, length: ConstPtr<Long>, key: UInt, fileobject: ConstPtr<CVoid>, processid: ConstPtr<CVoid>): Boolean =
+public actual fun fsRtlFastCheckLockForWrite(filelock: ConstPtr, startingbyte: ConstPtr, length: ConstPtr, key: UInt, fileobject: ConstPtr, processid: ConstPtr): Boolean =
     windowssysWindowsWdkStorageFilesystemFsRtlFastCheckLockForWrite(filelock.rawAddress.toCPointer<ByteVar>(), startingbyte.rawAddress.toCPointer<ByteVar>(), length.rawAddress.toCPointer<ByteVar>(), key, fileobject.rawAddress.toCPointer<ByteVar>(), processid.rawAddress.toCPointer<ByteVar>())
 
-public actual fun fsRtlFastUnlockAll(filelock: ConstPtr<FileLock>, fileobject: ConstPtr<FileObject>, processid: Peprocess, context: ConstPtr<CVoid>): Ntstatus =
+public actual fun fsRtlFastUnlockAll(filelock: ConstPtr, fileobject: ConstPtr, processid: Peprocess, context: ConstPtr): Ntstatus =
     windowssysWindowsWdkStorageFilesystemFsRtlFastUnlockAll(filelock.rawAddress.toCPointer<ByteVar>(), fileobject.rawAddress.toCPointer<ByteVar>(), processid, context.rawAddress.toCPointer<ByteVar>())
 
-public actual fun fsRtlFastUnlockAllByKey(filelock: ConstPtr<FileLock>, fileobject: ConstPtr<FileObject>, processid: Peprocess, key: UInt, context: ConstPtr<CVoid>): Ntstatus =
+public actual fun fsRtlFastUnlockAllByKey(filelock: ConstPtr, fileobject: ConstPtr, processid: Peprocess, key: UInt, context: ConstPtr): Ntstatus =
     windowssysWindowsWdkStorageFilesystemFsRtlFastUnlockAllByKey(filelock.rawAddress.toCPointer<ByteVar>(), fileobject.rawAddress.toCPointer<ByteVar>(), processid, key, context.rawAddress.toCPointer<ByteVar>())
 
-public actual fun fsRtlFastUnlockSingle(filelock: ConstPtr<FileLock>, fileobject: ConstPtr<FileObject>, fileoffset: ConstPtr<Long>, length: ConstPtr<Long>, processid: Peprocess, key: UInt, context: ConstPtr<CVoid>, alreadysynchronized: Boolean): Ntstatus =
+public actual fun fsRtlFastUnlockSingle(filelock: ConstPtr, fileobject: ConstPtr, fileoffset: ConstPtr, length: ConstPtr, processid: Peprocess, key: UInt, context: ConstPtr, alreadysynchronized: Boolean): Ntstatus =
     windowssysWindowsWdkStorageFilesystemFsRtlFastUnlockSingle(filelock.rawAddress.toCPointer<ByteVar>(), fileobject.rawAddress.toCPointer<ByteVar>(), fileoffset.rawAddress.toCPointer<ByteVar>(), length.rawAddress.toCPointer<ByteVar>(), processid, key, context.rawAddress.toCPointer<ByteVar>(), alreadysynchronized)
 
-public actual fun fsRtlFindExtraCreateParameter(ecplist: ConstPtr<EcpList>, ecptype: ConstPtr<Guid>, ecpcontext: MutPtr<MutPtr<CVoid>>, ecpcontextsize: MutPtr<UInt>): Ntstatus =
+public actual fun fsRtlFindExtraCreateParameter(ecplist: ConstPtr, ecptype: ConstPtr, ecpcontext: MutPtr, ecpcontextsize: MutPtr): Ntstatus =
     windowssysWindowsWdkStorageFilesystemFsRtlFindExtraCreateParameter(ecplist.rawAddress.toCPointer<ByteVar>(), ecptype.rawAddress.toCPointer<ByteVar>(), ecpcontext.rawAddress.toCPointer<ByteVar>(), ecpcontextsize.rawAddress.toCPointer<ByteVar>())
 
-public actual fun fsRtlFindInTunnelCache(cache: ConstPtr<Tunnel>, directorykey: ULong, name: ConstPtr<UnicodeString>, shortname: MutPtr<UnicodeString>, longname: MutPtr<UnicodeString>, datalength: MutPtr<UInt>, data: MutPtr<CVoid>): Boolean =
+public actual fun fsRtlFindInTunnelCache(cache: ConstPtr, directorykey: ULong, name: ConstPtr, shortname: MutPtr, longname: MutPtr, datalength: MutPtr, data: MutPtr): Boolean =
     windowssysWindowsWdkStorageFilesystemFsRtlFindInTunnelCache(cache.rawAddress.toCPointer<ByteVar>(), directorykey, name.rawAddress.toCPointer<ByteVar>(), shortname.rawAddress.toCPointer<ByteVar>(), longname.rawAddress.toCPointer<ByteVar>(), datalength.rawAddress.toCPointer<ByteVar>(), data.rawAddress.toCPointer<ByteVar>())
 
-public actual fun fsRtlFindInTunnelCacheEx(cache: ConstPtr<Tunnel>, directorykey: ULong, name: ConstPtr<UnicodeString>, shortname: MutPtr<UnicodeString>, longname: MutPtr<UnicodeString>, flags: UInt, datalength: MutPtr<UInt>, data: MutPtr<CVoid>): Boolean =
+public actual fun fsRtlFindInTunnelCacheEx(cache: ConstPtr, directorykey: ULong, name: ConstPtr, shortname: MutPtr, longname: MutPtr, flags: UInt, datalength: MutPtr, data: MutPtr): Boolean =
     windowssysWindowsWdkStorageFilesystemFsRtlFindInTunnelCacheEx(cache.rawAddress.toCPointer<ByteVar>(), directorykey, name.rawAddress.toCPointer<ByteVar>(), shortname.rawAddress.toCPointer<ByteVar>(), longname.rawAddress.toCPointer<ByteVar>(), flags, datalength.rawAddress.toCPointer<ByteVar>(), data.rawAddress.toCPointer<ByteVar>())
 
-public actual fun fsRtlFreeAePushLock(aepushlock: MutPtr<CVoid>) {
+public actual fun fsRtlFreeAePushLock(aepushlock: MutPtr) {
     windowssysWindowsWdkStorageFilesystemFsRtlFreeAePushLock(aepushlock.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun fsRtlFreeExtraCreateParameter(ecpcontext: ConstPtr<CVoid>) {
+public actual fun fsRtlFreeExtraCreateParameter(ecpcontext: ConstPtr) {
     windowssysWindowsWdkStorageFilesystemFsRtlFreeExtraCreateParameter(ecpcontext.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun fsRtlFreeExtraCreateParameterList(ecplist: ConstPtr<EcpList>) {
+public actual fun fsRtlFreeExtraCreateParameterList(ecplist: ConstPtr) {
     windowssysWindowsWdkStorageFilesystemFsRtlFreeExtraCreateParameterList(ecplist.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun fsRtlFreeFileLock(filelock: ConstPtr<FileLock>) {
+public actual fun fsRtlFreeFileLock(filelock: ConstPtr) {
     windowssysWindowsWdkStorageFilesystemFsRtlFreeFileLock(filelock.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun fsRtlGetCurrentProcessLoaderList(): MutPtr<ListEntry> =
+public actual fun fsRtlGetCurrentProcessLoaderList(): MutPtr =
     MutPtr(windowssysWindowsWdkStorageFilesystemFsRtlGetCurrentProcessLoaderList()?.toLong() ?: 0L)
 
-public actual fun fsRtlGetEcpListFromIrp(irp: ConstPtr<Irp>, ecplist: MutPtr<MutPtr<EcpList>>): Ntstatus =
+public actual fun fsRtlGetEcpListFromIrp(irp: ConstPtr, ecplist: MutPtr): Ntstatus =
     windowssysWindowsWdkStorageFilesystemFsRtlGetEcpListFromIrp(irp.rawAddress.toCPointer<ByteVar>(), ecplist.rawAddress.toCPointer<ByteVar>())
 
-public actual fun fsRtlGetFileSize(fileobject: ConstPtr<FileObject>, filesize: MutPtr<Long>): Ntstatus =
+public actual fun fsRtlGetFileSize(fileobject: ConstPtr, filesize: MutPtr): Ntstatus =
     windowssysWindowsWdkStorageFilesystemFsRtlGetFileSize(fileobject.rawAddress.toCPointer<ByteVar>(), filesize.rawAddress.toCPointer<ByteVar>())
 
-public actual fun fsRtlGetNextBaseMcbEntry(mcb: ConstPtr<BaseMcb>, runindex: UInt, vbn: MutPtr<Long>, lbn: MutPtr<Long>, sectorcount: MutPtr<Long>): Boolean =
+public actual fun fsRtlGetNextBaseMcbEntry(mcb: ConstPtr, runindex: UInt, vbn: MutPtr, lbn: MutPtr, sectorcount: MutPtr): Boolean =
     windowssysWindowsWdkStorageFilesystemFsRtlGetNextBaseMcbEntry(mcb.rawAddress.toCPointer<ByteVar>(), runindex, vbn.rawAddress.toCPointer<ByteVar>(), lbn.rawAddress.toCPointer<ByteVar>(), sectorcount.rawAddress.toCPointer<ByteVar>())
 
-public actual fun fsRtlGetNextExtraCreateParameter(ecplist: ConstPtr<EcpList>, currentecpcontext: ConstPtr<CVoid>, nextecptype: MutPtr<Guid>, nextecpcontext: MutPtr<MutPtr<CVoid>>, nextecpcontextsize: MutPtr<UInt>): Ntstatus =
+public actual fun fsRtlGetNextExtraCreateParameter(ecplist: ConstPtr, currentecpcontext: ConstPtr, nextecptype: MutPtr, nextecpcontext: MutPtr, nextecpcontextsize: MutPtr): Ntstatus =
     windowssysWindowsWdkStorageFilesystemFsRtlGetNextExtraCreateParameter(ecplist.rawAddress.toCPointer<ByteVar>(), currentecpcontext.rawAddress.toCPointer<ByteVar>(), nextecptype.rawAddress.toCPointer<ByteVar>(), nextecpcontext.rawAddress.toCPointer<ByteVar>(), nextecpcontextsize.rawAddress.toCPointer<ByteVar>())
 
-public actual fun fsRtlGetNextFileLock(filelock: ConstPtr<FileLock>, restart: Boolean): MutPtr<FileLockInfo> =
+public actual fun fsRtlGetNextFileLock(filelock: ConstPtr, restart: Boolean): MutPtr =
     MutPtr(windowssysWindowsWdkStorageFilesystemFsRtlGetNextFileLock(filelock.rawAddress.toCPointer<ByteVar>(), restart)?.toLong() ?: 0L)
 
-public actual fun fsRtlGetNextLargeMcbEntry(mcb: ConstPtr<LargeMcb>, runindex: UInt, vbn: MutPtr<Long>, lbn: MutPtr<Long>, sectorcount: MutPtr<Long>): Boolean =
+public actual fun fsRtlGetNextLargeMcbEntry(mcb: ConstPtr, runindex: UInt, vbn: MutPtr, lbn: MutPtr, sectorcount: MutPtr): Boolean =
     windowssysWindowsWdkStorageFilesystemFsRtlGetNextLargeMcbEntry(mcb.rawAddress.toCPointer<ByteVar>(), runindex, vbn.rawAddress.toCPointer<ByteVar>(), lbn.rawAddress.toCPointer<ByteVar>(), sectorcount.rawAddress.toCPointer<ByteVar>())
 
-public actual fun fsRtlGetNextMcbEntry(mcb: ConstPtr<Mcb>, runindex: UInt, vbn: MutPtr<UInt>, lbn: MutPtr<UInt>, sectorcount: MutPtr<UInt>): Boolean =
+public actual fun fsRtlGetNextMcbEntry(mcb: ConstPtr, runindex: UInt, vbn: MutPtr, lbn: MutPtr, sectorcount: MutPtr): Boolean =
     windowssysWindowsWdkStorageFilesystemFsRtlGetNextMcbEntry(mcb.rawAddress.toCPointer<ByteVar>(), runindex, vbn.rawAddress.toCPointer<ByteVar>(), lbn.rawAddress.toCPointer<ByteVar>(), sectorcount.rawAddress.toCPointer<ByteVar>())
 
-public actual fun fsRtlGetSectorSizeInformation(deviceobject: ConstPtr<DeviceObject>, sectorsizeinfo: MutPtr<FileFsSectorSizeInformation>): Ntstatus =
+public actual fun fsRtlGetSectorSizeInformation(deviceobject: ConstPtr, sectorsizeinfo: MutPtr): Ntstatus =
     windowssysWindowsWdkStorageFilesystemFsRtlGetSectorSizeInformation(deviceobject.rawAddress.toCPointer<ByteVar>(), sectorsizeinfo.rawAddress.toCPointer<ByteVar>())
 
-public actual fun fsRtlGetSupportedFeatures(deviceobject: ConstPtr<DeviceObject>, supportedfeatures: MutPtr<UInt>): Ntstatus =
+public actual fun fsRtlGetSupportedFeatures(deviceobject: ConstPtr, supportedfeatures: MutPtr): Ntstatus =
     windowssysWindowsWdkStorageFilesystemFsRtlGetSupportedFeatures(deviceobject.rawAddress.toCPointer<ByteVar>(), supportedfeatures.rawAddress.toCPointer<ByteVar>())
 
-public actual fun fsRtlGetVirtualDiskNestingLevel(deviceobject: ConstPtr<DeviceObject>, nestinglevel: MutPtr<UInt>, nestingflags: MutPtr<UInt>): Ntstatus =
+public actual fun fsRtlGetVirtualDiskNestingLevel(deviceobject: ConstPtr, nestinglevel: MutPtr, nestingflags: MutPtr): Ntstatus =
     windowssysWindowsWdkStorageFilesystemFsRtlGetVirtualDiskNestingLevel(deviceobject.rawAddress.toCPointer<ByteVar>(), nestinglevel.rawAddress.toCPointer<ByteVar>(), nestingflags.rawAddress.toCPointer<ByteVar>())
 
 public actual fun fsRtlIncrementCcFastMdlReadWait() {
@@ -1179,69 +1137,69 @@ public actual fun fsRtlIncrementCcFastReadWait() {
     windowssysWindowsWdkStorageFilesystemFsRtlIncrementCcFastReadWait()
 }
 
-public actual fun fsRtlInitExtraCreateParameterLookasideList(lookaside: MutPtr<CVoid>, flags: UInt, size: ULong, tag: UInt) {
+public actual fun fsRtlInitExtraCreateParameterLookasideList(lookaside: MutPtr, flags: UInt, size: ULong, tag: UInt) {
     windowssysWindowsWdkStorageFilesystemFsRtlInitExtraCreateParameterLookasideList(lookaside.rawAddress.toCPointer<ByteVar>(), flags, size, tag)
 }
 
-public actual fun fsRtlInitializeBaseMcb(mcb: MutPtr<BaseMcb>, pooltype: PoolType) {
+public actual fun fsRtlInitializeBaseMcb(mcb: MutPtr, pooltype: PoolType) {
     windowssysWindowsWdkStorageFilesystemFsRtlInitializeBaseMcb(mcb.rawAddress.toCPointer<ByteVar>(), pooltype)
 }
 
-public actual fun fsRtlInitializeBaseMcbEx(mcb: MutPtr<BaseMcb>, pooltype: PoolType, flags: UShort): Boolean =
+public actual fun fsRtlInitializeBaseMcbEx(mcb: MutPtr, pooltype: PoolType, flags: UShort): Boolean =
     windowssysWindowsWdkStorageFilesystemFsRtlInitializeBaseMcbEx(mcb.rawAddress.toCPointer<ByteVar>(), pooltype, flags)
 
-public actual fun fsRtlInitializeExtraCreateParameter(ecp: MutPtr<EcpHeader>, ecpflags: UInt, cleanupcallback: PfsrtlExtraCreateParameterCleanupCallback, totalsize: UInt, ecptype: ConstPtr<Guid>, listallocatedfrom: ConstPtr<CVoid>) {
+public actual fun fsRtlInitializeExtraCreateParameter(ecp: MutPtr, ecpflags: UInt, cleanupcallback: PfsrtlExtraCreateParameterCleanupCallback, totalsize: UInt, ecptype: ConstPtr, listallocatedfrom: ConstPtr) {
     windowssysWindowsWdkStorageFilesystemFsRtlInitializeExtraCreateParameter(ecp.rawAddress.toCPointer<ByteVar>(), ecpflags, 0L.toCPointer<ByteVar>(), totalsize, ecptype.rawAddress.toCPointer<ByteVar>(), listallocatedfrom.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun fsRtlInitializeExtraCreateParameterList(ecplist: MutPtr<EcpList>): Ntstatus =
+public actual fun fsRtlInitializeExtraCreateParameterList(ecplist: MutPtr): Ntstatus =
     windowssysWindowsWdkStorageFilesystemFsRtlInitializeExtraCreateParameterList(ecplist.rawAddress.toCPointer<ByteVar>())
 
-public actual fun fsRtlInitializeFileLock(filelock: MutPtr<FileLock>, completelockirproutine: PcompleteLockIrpRoutine, unlockroutine: PunlockRoutine) {
+public actual fun fsRtlInitializeFileLock(filelock: MutPtr, completelockirproutine: PcompleteLockIrpRoutine, unlockroutine: PunlockRoutine) {
     windowssysWindowsWdkStorageFilesystemFsRtlInitializeFileLock(filelock.rawAddress.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>())
 }
 
-public actual fun fsRtlInitializeLargeMcb(mcb: MutPtr<LargeMcb>, pooltype: PoolType) {
+public actual fun fsRtlInitializeLargeMcb(mcb: MutPtr, pooltype: PoolType) {
     windowssysWindowsWdkStorageFilesystemFsRtlInitializeLargeMcb(mcb.rawAddress.toCPointer<ByteVar>(), pooltype)
 }
 
-public actual fun fsRtlInitializeMcb(mcb: MutPtr<Mcb>, pooltype: PoolType) {
+public actual fun fsRtlInitializeMcb(mcb: MutPtr, pooltype: PoolType) {
     windowssysWindowsWdkStorageFilesystemFsRtlInitializeMcb(mcb.rawAddress.toCPointer<ByteVar>(), pooltype)
 }
 
-public actual fun fsRtlInitializeOplock(oplock: MutPtr<MutPtr<CVoid>>) {
+public actual fun fsRtlInitializeOplock(oplock: MutPtr) {
     windowssysWindowsWdkStorageFilesystemFsRtlInitializeOplock(oplock.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun fsRtlInitializeTunnelCache(cache: MutPtr<Tunnel>) {
+public actual fun fsRtlInitializeTunnelCache(cache: MutPtr) {
     windowssysWindowsWdkStorageFilesystemFsRtlInitializeTunnelCache(cache.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun fsRtlInsertExtraCreateParameter(ecplist: MutPtr<EcpList>, ecpcontext: MutPtr<CVoid>): Ntstatus =
+public actual fun fsRtlInsertExtraCreateParameter(ecplist: MutPtr, ecpcontext: MutPtr): Ntstatus =
     windowssysWindowsWdkStorageFilesystemFsRtlInsertExtraCreateParameter(ecplist.rawAddress.toCPointer<ByteVar>(), ecpcontext.rawAddress.toCPointer<ByteVar>())
 
-public actual fun fsRtlInsertPerFileContext(perfilecontextpointer: ConstPtr<ConstPtr<CVoid>>, ptr: ConstPtr<FsrtlPerFileContext>): Ntstatus =
+public actual fun fsRtlInsertPerFileContext(perfilecontextpointer: ConstPtr, ptr: ConstPtr): Ntstatus =
     windowssysWindowsWdkStorageFilesystemFsRtlInsertPerFileContext(perfilecontextpointer.rawAddress.toCPointer<ByteVar>(), ptr.rawAddress.toCPointer<ByteVar>())
 
-public actual fun fsRtlInsertPerFileObjectContext(fileobject: ConstPtr<FileObject>, ptr: ConstPtr<FsrtlPerFileobjectContext>): Ntstatus =
+public actual fun fsRtlInsertPerFileObjectContext(fileobject: ConstPtr, ptr: ConstPtr): Ntstatus =
     windowssysWindowsWdkStorageFilesystemFsRtlInsertPerFileObjectContext(fileobject.rawAddress.toCPointer<ByteVar>(), ptr.rawAddress.toCPointer<ByteVar>())
 
-public actual fun fsRtlInsertPerStreamContext(perstreamcontext: ConstPtr<FsrtlAdvancedFcbHeader>, ptr: ConstPtr<FsrtlPerStreamContext>): Ntstatus =
+public actual fun fsRtlInsertPerStreamContext(perstreamcontext: ConstPtr, ptr: ConstPtr): Ntstatus =
     windowssysWindowsWdkStorageFilesystemFsRtlInsertPerStreamContext(perstreamcontext.rawAddress.toCPointer<ByteVar>(), ptr.rawAddress.toCPointer<ByteVar>())
 
 public actual fun fsRtlIs32BitProcess(process: Peprocess): Boolean =
     windowssysWindowsWdkStorageFilesystemFsRtlIs32BitProcess(process)
 
-public actual fun fsRtlIsDaxVolume(fileobject: ConstPtr<FileObject>): Boolean =
+public actual fun fsRtlIsDaxVolume(fileobject: ConstPtr): Boolean =
     windowssysWindowsWdkStorageFilesystemFsRtlIsDaxVolume(fileobject.rawAddress.toCPointer<ByteVar>())
 
-public actual fun fsRtlIsDbcsInExpression(expression: ConstPtr<io.github.kotlinmania.windowssys.windows.win32.system.kernel.String>, name: ConstPtr<io.github.kotlinmania.windowssys.windows.win32.system.kernel.String>): Boolean =
+public actual fun fsRtlIsDbcsInExpression(expression: ConstPtr, name: ConstPtr): Boolean =
     windowssysWindowsWdkStorageFilesystemFsRtlIsDbcsInExpression(expression.rawAddress.toCPointer<ByteVar>(), name.rawAddress.toCPointer<ByteVar>())
 
-public actual fun fsRtlIsEcpAcknowledged(ecpcontext: ConstPtr<CVoid>): Boolean =
+public actual fun fsRtlIsEcpAcknowledged(ecpcontext: ConstPtr): Boolean =
     windowssysWindowsWdkStorageFilesystemFsRtlIsEcpAcknowledged(ecpcontext.rawAddress.toCPointer<ByteVar>())
 
-public actual fun fsRtlIsEcpFromUserMode(ecpcontext: ConstPtr<CVoid>): Boolean =
+public actual fun fsRtlIsEcpFromUserMode(ecpcontext: ConstPtr): Boolean =
     windowssysWindowsWdkStorageFilesystemFsRtlIsEcpFromUserMode(ecpcontext.rawAddress.toCPointer<ByteVar>())
 
 public actual fun fsRtlIsExtentDangling(startpage: UInt, numberofpages: UInt, flags: UInt): UInt =
@@ -1256,10 +1214,10 @@ public actual fun fsRtlIsHpfsDbcsLegal(dbcsname: io.github.kotlinmania.windowssy
 public actual fun fsRtlIsMobileOS(): Boolean =
     windowssysWindowsWdkStorageFilesystemFsRtlIsMobileOS()
 
-public actual fun fsRtlIsNameInExpression(expression: ConstPtr<UnicodeString>, name: ConstPtr<UnicodeString>, ignorecase: Boolean, upcasetable: Pcwstr): Boolean =
+public actual fun fsRtlIsNameInExpression(expression: ConstPtr, name: ConstPtr, ignorecase: Boolean, upcasetable: Pcwstr): Boolean =
     windowssysWindowsWdkStorageFilesystemFsRtlIsNameInExpression(expression.rawAddress.toCPointer<ByteVar>(), name.rawAddress.toCPointer<ByteVar>(), ignorecase, upcasetable.rawAddress.toCPointer<ByteVar>())
 
-public actual fun fsRtlIsNameInUnUpcasedExpression(expression: ConstPtr<UnicodeString>, name: ConstPtr<UnicodeString>, ignorecase: Boolean, upcasetable: Pcwstr): Boolean =
+public actual fun fsRtlIsNameInUnUpcasedExpression(expression: ConstPtr, name: ConstPtr, ignorecase: Boolean, upcasetable: Pcwstr): Boolean =
     windowssysWindowsWdkStorageFilesystemFsRtlIsNameInUnUpcasedExpression(expression.rawAddress.toCPointer<ByteVar>(), name.rawAddress.toCPointer<ByteVar>(), ignorecase, upcasetable.rawAddress.toCPointer<ByteVar>())
 
 public actual fun fsRtlIsNonEmptyDirectoryReparsePointAllowed(reparsetag: UInt): Boolean =
@@ -1268,290 +1226,290 @@ public actual fun fsRtlIsNonEmptyDirectoryReparsePointAllowed(reparsetag: UInt):
 public actual fun fsRtlIsNtstatusExpected(exception: Ntstatus): Boolean =
     windowssysWindowsWdkStorageFilesystemFsRtlIsNtstatusExpected(exception)
 
-public actual fun fsRtlIsPagingFile(fileobject: ConstPtr<FileObject>): UInt =
+public actual fun fsRtlIsPagingFile(fileobject: ConstPtr): UInt =
     windowssysWindowsWdkStorageFilesystemFsRtlIsPagingFile(fileobject.rawAddress.toCPointer<ByteVar>())
 
-public actual fun fsRtlIsSystemPagingFile(fileobject: ConstPtr<FileObject>): UInt =
+public actual fun fsRtlIsSystemPagingFile(fileobject: ConstPtr): UInt =
     windowssysWindowsWdkStorageFilesystemFsRtlIsSystemPagingFile(fileobject.rawAddress.toCPointer<ByteVar>())
 
-public actual fun fsRtlIssueDeviceIoControl(deviceobject: ConstPtr<DeviceObject>, ioctl: UInt, flags: UByte, inputbuffer: ConstPtr<CVoid>, inputbufferlength: UInt, outputbuffer: ConstPtr<CVoid>, outputbufferlength: UInt, iosbinformation: MutPtr<ULong>): Ntstatus =
+public actual fun fsRtlIssueDeviceIoControl(deviceobject: ConstPtr, ioctl: UInt, flags: UByte, inputbuffer: ConstPtr, inputbufferlength: UInt, outputbuffer: ConstPtr, outputbufferlength: UInt, iosbinformation: MutPtr): Ntstatus =
     windowssysWindowsWdkStorageFilesystemFsRtlIssueDeviceIoControl(deviceobject.rawAddress.toCPointer<ByteVar>(), ioctl, flags, inputbuffer.rawAddress.toCPointer<ByteVar>(), inputbufferlength, outputbuffer.rawAddress.toCPointer<ByteVar>(), outputbufferlength, iosbinformation.rawAddress.toCPointer<ByteVar>())
 
-public actual fun fsRtlKernelFsControlFile(fileobject: ConstPtr<FileObject>, fscontrolcode: UInt, inputbuffer: ConstPtr<CVoid>, inputbufferlength: UInt, outputbuffer: MutPtr<CVoid>, outputbufferlength: UInt, retoutputbuffersize: MutPtr<UInt>): Ntstatus =
+public actual fun fsRtlKernelFsControlFile(fileobject: ConstPtr, fscontrolcode: UInt, inputbuffer: ConstPtr, inputbufferlength: UInt, outputbuffer: MutPtr, outputbufferlength: UInt, retoutputbuffersize: MutPtr): Ntstatus =
     windowssysWindowsWdkStorageFilesystemFsRtlKernelFsControlFile(fileobject.rawAddress.toCPointer<ByteVar>(), fscontrolcode, inputbuffer.rawAddress.toCPointer<ByteVar>(), inputbufferlength, outputbuffer.rawAddress.toCPointer<ByteVar>(), outputbufferlength, retoutputbuffersize.rawAddress.toCPointer<ByteVar>())
 
-public actual fun fsRtlLogCcFlushError(filename: ConstPtr<UnicodeString>, deviceobject: ConstPtr<DeviceObject>, sectionobjectpointer: ConstPtr<SectionObjectPointers>, flusherror: Ntstatus, flags: UInt): Ntstatus =
+public actual fun fsRtlLogCcFlushError(filename: ConstPtr, deviceobject: ConstPtr, sectionobjectpointer: ConstPtr, flusherror: Ntstatus, flags: UInt): Ntstatus =
     windowssysWindowsWdkStorageFilesystemFsRtlLogCcFlushError(filename.rawAddress.toCPointer<ByteVar>(), deviceobject.rawAddress.toCPointer<ByteVar>(), sectionobjectpointer.rawAddress.toCPointer<ByteVar>(), flusherror, flags)
 
-public actual fun fsRtlLookupBaseMcbEntry(mcb: ConstPtr<BaseMcb>, vbn: Long, lbn: MutPtr<Long>, sectorcountfromlbn: MutPtr<Long>, startinglbn: MutPtr<Long>, sectorcountfromstartinglbn: MutPtr<Long>, index: MutPtr<UInt>): Boolean =
+public actual fun fsRtlLookupBaseMcbEntry(mcb: ConstPtr, vbn: Long, lbn: MutPtr, sectorcountfromlbn: MutPtr, startinglbn: MutPtr, sectorcountfromstartinglbn: MutPtr, index: MutPtr): Boolean =
     windowssysWindowsWdkStorageFilesystemFsRtlLookupBaseMcbEntry(mcb.rawAddress.toCPointer<ByteVar>(), vbn, lbn.rawAddress.toCPointer<ByteVar>(), sectorcountfromlbn.rawAddress.toCPointer<ByteVar>(), startinglbn.rawAddress.toCPointer<ByteVar>(), sectorcountfromstartinglbn.rawAddress.toCPointer<ByteVar>(), index.rawAddress.toCPointer<ByteVar>())
 
-public actual fun fsRtlLookupLargeMcbEntry(mcb: ConstPtr<LargeMcb>, vbn: Long, lbn: MutPtr<Long>, sectorcountfromlbn: MutPtr<Long>, startinglbn: MutPtr<Long>, sectorcountfromstartinglbn: MutPtr<Long>, index: MutPtr<UInt>): Boolean =
+public actual fun fsRtlLookupLargeMcbEntry(mcb: ConstPtr, vbn: Long, lbn: MutPtr, sectorcountfromlbn: MutPtr, startinglbn: MutPtr, sectorcountfromstartinglbn: MutPtr, index: MutPtr): Boolean =
     windowssysWindowsWdkStorageFilesystemFsRtlLookupLargeMcbEntry(mcb.rawAddress.toCPointer<ByteVar>(), vbn, lbn.rawAddress.toCPointer<ByteVar>(), sectorcountfromlbn.rawAddress.toCPointer<ByteVar>(), startinglbn.rawAddress.toCPointer<ByteVar>(), sectorcountfromstartinglbn.rawAddress.toCPointer<ByteVar>(), index.rawAddress.toCPointer<ByteVar>())
 
-public actual fun fsRtlLookupLastBaseMcbEntry(mcb: ConstPtr<BaseMcb>, vbn: MutPtr<Long>, lbn: MutPtr<Long>): Boolean =
+public actual fun fsRtlLookupLastBaseMcbEntry(mcb: ConstPtr, vbn: MutPtr, lbn: MutPtr): Boolean =
     windowssysWindowsWdkStorageFilesystemFsRtlLookupLastBaseMcbEntry(mcb.rawAddress.toCPointer<ByteVar>(), vbn.rawAddress.toCPointer<ByteVar>(), lbn.rawAddress.toCPointer<ByteVar>())
 
-public actual fun fsRtlLookupLastBaseMcbEntryAndIndex(opaquemcb: ConstPtr<BaseMcb>, largevbn: MutPtr<Long>, largelbn: MutPtr<Long>, index: MutPtr<UInt>): Boolean =
+public actual fun fsRtlLookupLastBaseMcbEntryAndIndex(opaquemcb: ConstPtr, largevbn: MutPtr, largelbn: MutPtr, index: MutPtr): Boolean =
     windowssysWindowsWdkStorageFilesystemFsRtlLookupLastBaseMcbEntryAndIndex(opaquemcb.rawAddress.toCPointer<ByteVar>(), largevbn.rawAddress.toCPointer<ByteVar>(), largelbn.rawAddress.toCPointer<ByteVar>(), index.rawAddress.toCPointer<ByteVar>())
 
-public actual fun fsRtlLookupLastLargeMcbEntry(mcb: ConstPtr<LargeMcb>, vbn: MutPtr<Long>, lbn: MutPtr<Long>): Boolean =
+public actual fun fsRtlLookupLastLargeMcbEntry(mcb: ConstPtr, vbn: MutPtr, lbn: MutPtr): Boolean =
     windowssysWindowsWdkStorageFilesystemFsRtlLookupLastLargeMcbEntry(mcb.rawAddress.toCPointer<ByteVar>(), vbn.rawAddress.toCPointer<ByteVar>(), lbn.rawAddress.toCPointer<ByteVar>())
 
-public actual fun fsRtlLookupLastLargeMcbEntryAndIndex(opaquemcb: ConstPtr<LargeMcb>, largevbn: MutPtr<Long>, largelbn: MutPtr<Long>, index: MutPtr<UInt>): Boolean =
+public actual fun fsRtlLookupLastLargeMcbEntryAndIndex(opaquemcb: ConstPtr, largevbn: MutPtr, largelbn: MutPtr, index: MutPtr): Boolean =
     windowssysWindowsWdkStorageFilesystemFsRtlLookupLastLargeMcbEntryAndIndex(opaquemcb.rawAddress.toCPointer<ByteVar>(), largevbn.rawAddress.toCPointer<ByteVar>(), largelbn.rawAddress.toCPointer<ByteVar>(), index.rawAddress.toCPointer<ByteVar>())
 
-public actual fun fsRtlLookupLastMcbEntry(mcb: ConstPtr<Mcb>, vbn: MutPtr<UInt>, lbn: MutPtr<UInt>): Boolean =
+public actual fun fsRtlLookupLastMcbEntry(mcb: ConstPtr, vbn: MutPtr, lbn: MutPtr): Boolean =
     windowssysWindowsWdkStorageFilesystemFsRtlLookupLastMcbEntry(mcb.rawAddress.toCPointer<ByteVar>(), vbn.rawAddress.toCPointer<ByteVar>(), lbn.rawAddress.toCPointer<ByteVar>())
 
-public actual fun fsRtlLookupMcbEntry(mcb: ConstPtr<Mcb>, vbn: UInt, lbn: MutPtr<UInt>, sectorcount: MutPtr<UInt>, index: MutPtr<UInt>): Boolean =
+public actual fun fsRtlLookupMcbEntry(mcb: ConstPtr, vbn: UInt, lbn: MutPtr, sectorcount: MutPtr, index: MutPtr): Boolean =
     windowssysWindowsWdkStorageFilesystemFsRtlLookupMcbEntry(mcb.rawAddress.toCPointer<ByteVar>(), vbn, lbn.rawAddress.toCPointer<ByteVar>(), sectorcount.rawAddress.toCPointer<ByteVar>(), index.rawAddress.toCPointer<ByteVar>())
 
-public actual fun fsRtlLookupPerFileContext(perfilecontextpointer: ConstPtr<ConstPtr<CVoid>>, ownerid: ConstPtr<CVoid>, instanceid: ConstPtr<CVoid>): MutPtr<FsrtlPerFileContext> =
+public actual fun fsRtlLookupPerFileContext(perfilecontextpointer: ConstPtr, ownerid: ConstPtr, instanceid: ConstPtr): MutPtr =
     MutPtr(windowssysWindowsWdkStorageFilesystemFsRtlLookupPerFileContext(perfilecontextpointer.rawAddress.toCPointer<ByteVar>(), ownerid.rawAddress.toCPointer<ByteVar>(), instanceid.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun fsRtlLookupPerFileObjectContext(fileobject: ConstPtr<FileObject>, ownerid: ConstPtr<CVoid>, instanceid: ConstPtr<CVoid>): MutPtr<FsrtlPerFileobjectContext> =
+public actual fun fsRtlLookupPerFileObjectContext(fileobject: ConstPtr, ownerid: ConstPtr, instanceid: ConstPtr): MutPtr =
     MutPtr(windowssysWindowsWdkStorageFilesystemFsRtlLookupPerFileObjectContext(fileobject.rawAddress.toCPointer<ByteVar>(), ownerid.rawAddress.toCPointer<ByteVar>(), instanceid.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun fsRtlLookupPerStreamContextInternal(streamcontext: ConstPtr<FsrtlAdvancedFcbHeader>, ownerid: ConstPtr<CVoid>, instanceid: ConstPtr<CVoid>): MutPtr<FsrtlPerStreamContext> =
+public actual fun fsRtlLookupPerStreamContextInternal(streamcontext: ConstPtr, ownerid: ConstPtr, instanceid: ConstPtr): MutPtr =
     MutPtr(windowssysWindowsWdkStorageFilesystemFsRtlLookupPerStreamContextInternal(streamcontext.rawAddress.toCPointer<ByteVar>(), ownerid.rawAddress.toCPointer<ByteVar>(), instanceid.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun fsRtlMdlReadCompleteDev(fileobject: ConstPtr<FileObject>, mdlchain: ConstPtr<Mdl>, deviceobject: ConstPtr<DeviceObject>): Boolean =
+public actual fun fsRtlMdlReadCompleteDev(fileobject: ConstPtr, mdlchain: ConstPtr, deviceobject: ConstPtr): Boolean =
     windowssysWindowsWdkStorageFilesystemFsRtlMdlReadCompleteDev(fileobject.rawAddress.toCPointer<ByteVar>(), mdlchain.rawAddress.toCPointer<ByteVar>(), deviceobject.rawAddress.toCPointer<ByteVar>())
 
-public actual fun fsRtlMdlReadDev(fileobject: ConstPtr<FileObject>, fileoffset: ConstPtr<Long>, length: UInt, lockkey: UInt, mdlchain: MutPtr<MutPtr<Mdl>>, iostatus: MutPtr<IoStatusBlock>, deviceobject: ConstPtr<DeviceObject>): Boolean =
+public actual fun fsRtlMdlReadDev(fileobject: ConstPtr, fileoffset: ConstPtr, length: UInt, lockkey: UInt, mdlchain: MutPtr, iostatus: MutPtr, deviceobject: ConstPtr): Boolean =
     windowssysWindowsWdkStorageFilesystemFsRtlMdlReadDev(fileobject.rawAddress.toCPointer<ByteVar>(), fileoffset.rawAddress.toCPointer<ByteVar>(), length, lockkey, mdlchain.rawAddress.toCPointer<ByteVar>(), iostatus.rawAddress.toCPointer<ByteVar>(), deviceobject.rawAddress.toCPointer<ByteVar>())
 
-public actual fun fsRtlMdlReadEx(fileobject: ConstPtr<FileObject>, fileoffset: ConstPtr<Long>, length: UInt, lockkey: UInt, mdlchain: MutPtr<MutPtr<Mdl>>, iostatus: MutPtr<IoStatusBlock>): Ntstatus =
+public actual fun fsRtlMdlReadEx(fileobject: ConstPtr, fileoffset: ConstPtr, length: UInt, lockkey: UInt, mdlchain: MutPtr, iostatus: MutPtr): Ntstatus =
     windowssysWindowsWdkStorageFilesystemFsRtlMdlReadEx(fileobject.rawAddress.toCPointer<ByteVar>(), fileoffset.rawAddress.toCPointer<ByteVar>(), length, lockkey, mdlchain.rawAddress.toCPointer<ByteVar>(), iostatus.rawAddress.toCPointer<ByteVar>())
 
-public actual fun fsRtlMdlWriteCompleteDev(fileobject: ConstPtr<FileObject>, fileoffset: ConstPtr<Long>, mdlchain: ConstPtr<Mdl>, deviceobject: ConstPtr<DeviceObject>): Boolean =
+public actual fun fsRtlMdlWriteCompleteDev(fileobject: ConstPtr, fileoffset: ConstPtr, mdlchain: ConstPtr, deviceobject: ConstPtr): Boolean =
     windowssysWindowsWdkStorageFilesystemFsRtlMdlWriteCompleteDev(fileobject.rawAddress.toCPointer<ByteVar>(), fileoffset.rawAddress.toCPointer<ByteVar>(), mdlchain.rawAddress.toCPointer<ByteVar>(), deviceobject.rawAddress.toCPointer<ByteVar>())
 
-public actual fun fsRtlMupGetProviderIdFromName(pprovidername: ConstPtr<UnicodeString>, pproviderid: MutPtr<UInt>): Ntstatus =
+public actual fun fsRtlMupGetProviderIdFromName(pprovidername: ConstPtr, pproviderid: MutPtr): Ntstatus =
     windowssysWindowsWdkStorageFilesystemFsRtlMupGetProviderIdFromName(pprovidername.rawAddress.toCPointer<ByteVar>(), pproviderid.rawAddress.toCPointer<ByteVar>())
 
-public actual fun fsRtlMupGetProviderInfoFromFileObject(pfileobject: ConstPtr<FileObject>, level: UInt, pbuffer: MutPtr<CVoid>, pbuffersize: MutPtr<UInt>): Ntstatus =
+public actual fun fsRtlMupGetProviderInfoFromFileObject(pfileobject: ConstPtr, level: UInt, pbuffer: MutPtr, pbuffersize: MutPtr): Ntstatus =
     windowssysWindowsWdkStorageFilesystemFsRtlMupGetProviderInfoFromFileObject(pfileobject.rawAddress.toCPointer<ByteVar>(), level, pbuffer.rawAddress.toCPointer<ByteVar>(), pbuffersize.rawAddress.toCPointer<ByteVar>())
 
 public actual fun fsRtlNormalizeNtstatus(exception: Ntstatus, genericexception: Ntstatus): Ntstatus =
     windowssysWindowsWdkStorageFilesystemFsRtlNormalizeNtstatus(exception, genericexception)
 
-public actual fun fsRtlNotifyCleanup(notifysync: PnotifySync, notifylist: ConstPtr<ListEntry>, fscontext: ConstPtr<CVoid>) {
+public actual fun fsRtlNotifyCleanup(notifysync: PnotifySync, notifylist: ConstPtr, fscontext: ConstPtr) {
     windowssysWindowsWdkStorageFilesystemFsRtlNotifyCleanup(notifysync, notifylist.rawAddress.toCPointer<ByteVar>(), fscontext.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun fsRtlNotifyCleanupAll(notifysync: PnotifySync, notifylist: ConstPtr<ListEntry>) {
+public actual fun fsRtlNotifyCleanupAll(notifysync: PnotifySync, notifylist: ConstPtr) {
     windowssysWindowsWdkStorageFilesystemFsRtlNotifyCleanupAll(notifysync, notifylist.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun fsRtlNotifyFilterChangeDirectory(notifysync: PnotifySync, notifylist: ConstPtr<ListEntry>, fscontext: ConstPtr<CVoid>, fulldirectoryname: ConstPtr<io.github.kotlinmania.windowssys.windows.win32.system.kernel.String>, watchtree: Boolean, ignorebuffer: Boolean, completionfilter: UInt, notifyirp: ConstPtr<Irp>, traversecallback: PcheckForTraverseAccess, subjectcontext: ConstPtr<SecuritySubjectContext>, filtercallback: PfilterReportChange) {
+public actual fun fsRtlNotifyFilterChangeDirectory(notifysync: PnotifySync, notifylist: ConstPtr, fscontext: ConstPtr, fulldirectoryname: ConstPtr, watchtree: Boolean, ignorebuffer: Boolean, completionfilter: UInt, notifyirp: ConstPtr, traversecallback: PcheckForTraverseAccess, subjectcontext: ConstPtr, filtercallback: PfilterReportChange) {
     windowssysWindowsWdkStorageFilesystemFsRtlNotifyFilterChangeDirectory(notifysync, notifylist.rawAddress.toCPointer<ByteVar>(), fscontext.rawAddress.toCPointer<ByteVar>(), fulldirectoryname.rawAddress.toCPointer<ByteVar>(), watchtree, ignorebuffer, completionfilter, notifyirp.rawAddress.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>(), subjectcontext.rawAddress.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>())
 }
 
-public actual fun fsRtlNotifyFilterReportChange(notifysync: PnotifySync, notifylist: ConstPtr<ListEntry>, fulltargetname: ConstPtr<io.github.kotlinmania.windowssys.windows.win32.system.kernel.String>, targetnameoffset: UShort, streamname: ConstPtr<io.github.kotlinmania.windowssys.windows.win32.system.kernel.String>, normalizedparentname: ConstPtr<io.github.kotlinmania.windowssys.windows.win32.system.kernel.String>, filtermatch: UInt, action: UInt, targetcontext: ConstPtr<CVoid>, filtercontext: ConstPtr<CVoid>) {
+public actual fun fsRtlNotifyFilterReportChange(notifysync: PnotifySync, notifylist: ConstPtr, fulltargetname: ConstPtr, targetnameoffset: UShort, streamname: ConstPtr, normalizedparentname: ConstPtr, filtermatch: UInt, action: UInt, targetcontext: ConstPtr, filtercontext: ConstPtr) {
     windowssysWindowsWdkStorageFilesystemFsRtlNotifyFilterReportChange(notifysync, notifylist.rawAddress.toCPointer<ByteVar>(), fulltargetname.rawAddress.toCPointer<ByteVar>(), targetnameoffset, streamname.rawAddress.toCPointer<ByteVar>(), normalizedparentname.rawAddress.toCPointer<ByteVar>(), filtermatch, action, targetcontext.rawAddress.toCPointer<ByteVar>(), filtercontext.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun fsRtlNotifyFullChangeDirectory(notifysync: PnotifySync, notifylist: ConstPtr<ListEntry>, fscontext: ConstPtr<CVoid>, fulldirectoryname: MutPtr<io.github.kotlinmania.windowssys.windows.win32.system.kernel.String>, watchtree: Boolean, ignorebuffer: Boolean, completionfilter: UInt, notifyirp: ConstPtr<Irp>, traversecallback: PcheckForTraverseAccess, subjectcontext: ConstPtr<SecuritySubjectContext>) {
+public actual fun fsRtlNotifyFullChangeDirectory(notifysync: PnotifySync, notifylist: ConstPtr, fscontext: ConstPtr, fulldirectoryname: MutPtr, watchtree: Boolean, ignorebuffer: Boolean, completionfilter: UInt, notifyirp: ConstPtr, traversecallback: PcheckForTraverseAccess, subjectcontext: ConstPtr) {
     windowssysWindowsWdkStorageFilesystemFsRtlNotifyFullChangeDirectory(notifysync, notifylist.rawAddress.toCPointer<ByteVar>(), fscontext.rawAddress.toCPointer<ByteVar>(), fulldirectoryname.rawAddress.toCPointer<ByteVar>(), watchtree, ignorebuffer, completionfilter, notifyirp.rawAddress.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>(), subjectcontext.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun fsRtlNotifyFullReportChange(notifysync: PnotifySync, notifylist: ConstPtr<ListEntry>, fulltargetname: ConstPtr<io.github.kotlinmania.windowssys.windows.win32.system.kernel.String>, targetnameoffset: UShort, streamname: ConstPtr<io.github.kotlinmania.windowssys.windows.win32.system.kernel.String>, normalizedparentname: ConstPtr<io.github.kotlinmania.windowssys.windows.win32.system.kernel.String>, filtermatch: UInt, action: UInt, targetcontext: ConstPtr<CVoid>) {
+public actual fun fsRtlNotifyFullReportChange(notifysync: PnotifySync, notifylist: ConstPtr, fulltargetname: ConstPtr, targetnameoffset: UShort, streamname: ConstPtr, normalizedparentname: ConstPtr, filtermatch: UInt, action: UInt, targetcontext: ConstPtr) {
     windowssysWindowsWdkStorageFilesystemFsRtlNotifyFullReportChange(notifysync, notifylist.rawAddress.toCPointer<ByteVar>(), fulltargetname.rawAddress.toCPointer<ByteVar>(), targetnameoffset, streamname.rawAddress.toCPointer<ByteVar>(), normalizedparentname.rawAddress.toCPointer<ByteVar>(), filtermatch, action, targetcontext.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun fsRtlNotifyInitializeSync(notifysync: MutPtr<PnotifySync>) {
+public actual fun fsRtlNotifyInitializeSync(notifysync: MutPtr) {
     windowssysWindowsWdkStorageFilesystemFsRtlNotifyInitializeSync(notifysync.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun fsRtlNotifyUninitializeSync(notifysync: MutPtr<PnotifySync>) {
+public actual fun fsRtlNotifyUninitializeSync(notifysync: MutPtr) {
     windowssysWindowsWdkStorageFilesystemFsRtlNotifyUninitializeSync(notifysync.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun fsRtlNotifyVolumeEvent(fileobject: ConstPtr<FileObject>, eventcode: UInt): Ntstatus =
+public actual fun fsRtlNotifyVolumeEvent(fileobject: ConstPtr, eventcode: UInt): Ntstatus =
     windowssysWindowsWdkStorageFilesystemFsRtlNotifyVolumeEvent(fileobject.rawAddress.toCPointer<ByteVar>(), eventcode)
 
-public actual fun fsRtlNotifyVolumeEventEx(fileobject: ConstPtr<FileObject>, eventcode: UInt, event: ConstPtr<TargetDeviceCustomNotification>): Ntstatus =
+public actual fun fsRtlNotifyVolumeEventEx(fileobject: ConstPtr, eventcode: UInt, event: ConstPtr): Ntstatus =
     windowssysWindowsWdkStorageFilesystemFsRtlNotifyVolumeEventEx(fileobject.rawAddress.toCPointer<ByteVar>(), eventcode, event.rawAddress.toCPointer<ByteVar>())
 
-public actual fun fsRtlNumberOfRunsInBaseMcb(mcb: ConstPtr<BaseMcb>): UInt =
+public actual fun fsRtlNumberOfRunsInBaseMcb(mcb: ConstPtr): UInt =
     windowssysWindowsWdkStorageFilesystemFsRtlNumberOfRunsInBaseMcb(mcb.rawAddress.toCPointer<ByteVar>())
 
-public actual fun fsRtlNumberOfRunsInLargeMcb(mcb: ConstPtr<LargeMcb>): UInt =
+public actual fun fsRtlNumberOfRunsInLargeMcb(mcb: ConstPtr): UInt =
     windowssysWindowsWdkStorageFilesystemFsRtlNumberOfRunsInLargeMcb(mcb.rawAddress.toCPointer<ByteVar>())
 
-public actual fun fsRtlNumberOfRunsInMcb(mcb: ConstPtr<Mcb>): UInt =
+public actual fun fsRtlNumberOfRunsInMcb(mcb: ConstPtr): UInt =
     windowssysWindowsWdkStorageFilesystemFsRtlNumberOfRunsInMcb(mcb.rawAddress.toCPointer<ByteVar>())
 
-public actual fun fsRtlOplockBreakH(oplock: ConstPtr<ConstPtr<CVoid>>, irp: ConstPtr<Irp>, flags: UInt, context: ConstPtr<CVoid>, completionroutine: PoplockWaitCompleteRoutine, postirproutine: PoplockFsPrepostIrp): Ntstatus =
+public actual fun fsRtlOplockBreakH(oplock: ConstPtr, irp: ConstPtr, flags: UInt, context: ConstPtr, completionroutine: PoplockWaitCompleteRoutine, postirproutine: PoplockFsPrepostIrp): Ntstatus =
     windowssysWindowsWdkStorageFilesystemFsRtlOplockBreakH(oplock.rawAddress.toCPointer<ByteVar>(), irp.rawAddress.toCPointer<ByteVar>(), flags, context.rawAddress.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>())
 
-public actual fun fsRtlOplockBreakH2(oplock: ConstPtr<ConstPtr<CVoid>>, irp: ConstPtr<Irp>, flags: UInt, context: ConstPtr<CVoid>, completionroutine: PoplockWaitCompleteRoutine, postirproutine: PoplockFsPrepostIrp, grantedaccess: ConstPtr<UInt>, shareaccess: ConstPtr<UShort>): Ntstatus =
+public actual fun fsRtlOplockBreakH2(oplock: ConstPtr, irp: ConstPtr, flags: UInt, context: ConstPtr, completionroutine: PoplockWaitCompleteRoutine, postirproutine: PoplockFsPrepostIrp, grantedaccess: ConstPtr, shareaccess: ConstPtr): Ntstatus =
     windowssysWindowsWdkStorageFilesystemFsRtlOplockBreakH2(oplock.rawAddress.toCPointer<ByteVar>(), irp.rawAddress.toCPointer<ByteVar>(), flags, context.rawAddress.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>(), grantedaccess.rawAddress.toCPointer<ByteVar>(), shareaccess.rawAddress.toCPointer<ByteVar>())
 
-public actual fun fsRtlOplockBreakToNone(oplock: MutPtr<MutPtr<CVoid>>, irpsp: ConstPtr<IoStackLocation>, irp: ConstPtr<Irp>, context: ConstPtr<CVoid>, completionroutine: PoplockWaitCompleteRoutine, postirproutine: PoplockFsPrepostIrp): Ntstatus =
+public actual fun fsRtlOplockBreakToNone(oplock: MutPtr, irpsp: ConstPtr, irp: ConstPtr, context: ConstPtr, completionroutine: PoplockWaitCompleteRoutine, postirproutine: PoplockFsPrepostIrp): Ntstatus =
     windowssysWindowsWdkStorageFilesystemFsRtlOplockBreakToNone(oplock.rawAddress.toCPointer<ByteVar>(), irpsp.rawAddress.toCPointer<ByteVar>(), irp.rawAddress.toCPointer<ByteVar>(), context.rawAddress.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>())
 
-public actual fun fsRtlOplockBreakToNoneEx(oplock: MutPtr<MutPtr<CVoid>>, irp: ConstPtr<Irp>, flags: UInt, context: ConstPtr<CVoid>, completionroutine: PoplockWaitCompleteRoutine, postirproutine: PoplockFsPrepostIrp): Ntstatus =
+public actual fun fsRtlOplockBreakToNoneEx(oplock: MutPtr, irp: ConstPtr, flags: UInt, context: ConstPtr, completionroutine: PoplockWaitCompleteRoutine, postirproutine: PoplockFsPrepostIrp): Ntstatus =
     windowssysWindowsWdkStorageFilesystemFsRtlOplockBreakToNoneEx(oplock.rawAddress.toCPointer<ByteVar>(), irp.rawAddress.toCPointer<ByteVar>(), flags, context.rawAddress.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>())
 
-public actual fun fsRtlOplockFsctrl(oplock: ConstPtr<ConstPtr<CVoid>>, irp: ConstPtr<Irp>, opencount: UInt): Ntstatus =
+public actual fun fsRtlOplockFsctrl(oplock: ConstPtr, irp: ConstPtr, opencount: UInt): Ntstatus =
     windowssysWindowsWdkStorageFilesystemFsRtlOplockFsctrl(oplock.rawAddress.toCPointer<ByteVar>(), irp.rawAddress.toCPointer<ByteVar>(), opencount)
 
-public actual fun fsRtlOplockFsctrlEx(oplock: ConstPtr<ConstPtr<CVoid>>, irp: ConstPtr<Irp>, opencount: UInt, flags: UInt): Ntstatus =
+public actual fun fsRtlOplockFsctrlEx(oplock: ConstPtr, irp: ConstPtr, opencount: UInt, flags: UInt): Ntstatus =
     windowssysWindowsWdkStorageFilesystemFsRtlOplockFsctrlEx(oplock.rawAddress.toCPointer<ByteVar>(), irp.rawAddress.toCPointer<ByteVar>(), opencount, flags)
 
-public actual fun fsRtlOplockGetAnyBreakOwnerProcess(oplock: ConstPtr<ConstPtr<CVoid>>): Peprocess =
+public actual fun fsRtlOplockGetAnyBreakOwnerProcess(oplock: ConstPtr): Peprocess =
     windowssysWindowsWdkStorageFilesystemFsRtlOplockGetAnyBreakOwnerProcess(oplock.rawAddress.toCPointer<ByteVar>())
 
-public actual fun fsRtlOplockIsFastIoPossible(oplock: ConstPtr<ConstPtr<CVoid>>): Boolean =
+public actual fun fsRtlOplockIsFastIoPossible(oplock: ConstPtr): Boolean =
     windowssysWindowsWdkStorageFilesystemFsRtlOplockIsFastIoPossible(oplock.rawAddress.toCPointer<ByteVar>())
 
-public actual fun fsRtlOplockIsSharedRequest(irp: ConstPtr<Irp>): Boolean =
+public actual fun fsRtlOplockIsSharedRequest(irp: ConstPtr): Boolean =
     windowssysWindowsWdkStorageFilesystemFsRtlOplockIsSharedRequest(irp.rawAddress.toCPointer<ByteVar>())
 
-public actual fun fsRtlOplockKeysEqual(fo1: ConstPtr<FileObject>, fo2: ConstPtr<FileObject>): Boolean =
+public actual fun fsRtlOplockKeysEqual(fo1: ConstPtr, fo2: ConstPtr): Boolean =
     windowssysWindowsWdkStorageFilesystemFsRtlOplockKeysEqual(fo1.rawAddress.toCPointer<ByteVar>(), fo2.rawAddress.toCPointer<ByteVar>())
 
-public actual fun fsRtlPostPagingFileStackOverflow(context: ConstPtr<CVoid>, event: ConstPtr<Kevent>, stackoverflowroutine: PfsrtlStackOverflowRoutine) {
+public actual fun fsRtlPostPagingFileStackOverflow(context: ConstPtr, event: ConstPtr, stackoverflowroutine: PfsrtlStackOverflowRoutine) {
     windowssysWindowsWdkStorageFilesystemFsRtlPostPagingFileStackOverflow(context.rawAddress.toCPointer<ByteVar>(), event.rawAddress.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>())
 }
 
-public actual fun fsRtlPostStackOverflow(context: ConstPtr<CVoid>, event: ConstPtr<Kevent>, stackoverflowroutine: PfsrtlStackOverflowRoutine) {
+public actual fun fsRtlPostStackOverflow(context: ConstPtr, event: ConstPtr, stackoverflowroutine: PfsrtlStackOverflowRoutine) {
     windowssysWindowsWdkStorageFilesystemFsRtlPostStackOverflow(context.rawAddress.toCPointer<ByteVar>(), event.rawAddress.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>())
 }
 
-public actual fun fsRtlPrepareMdlWriteDev(fileobject: ConstPtr<FileObject>, fileoffset: ConstPtr<Long>, length: UInt, lockkey: UInt, mdlchain: MutPtr<MutPtr<Mdl>>, iostatus: MutPtr<IoStatusBlock>, deviceobject: ConstPtr<DeviceObject>): Boolean =
+public actual fun fsRtlPrepareMdlWriteDev(fileobject: ConstPtr, fileoffset: ConstPtr, length: UInt, lockkey: UInt, mdlchain: MutPtr, iostatus: MutPtr, deviceobject: ConstPtr): Boolean =
     windowssysWindowsWdkStorageFilesystemFsRtlPrepareMdlWriteDev(fileobject.rawAddress.toCPointer<ByteVar>(), fileoffset.rawAddress.toCPointer<ByteVar>(), length, lockkey, mdlchain.rawAddress.toCPointer<ByteVar>(), iostatus.rawAddress.toCPointer<ByteVar>(), deviceobject.rawAddress.toCPointer<ByteVar>())
 
-public actual fun fsRtlPrepareMdlWriteEx(fileobject: ConstPtr<FileObject>, fileoffset: ConstPtr<Long>, length: UInt, lockkey: UInt, mdlchain: MutPtr<MutPtr<Mdl>>, iostatus: MutPtr<IoStatusBlock>): Ntstatus =
+public actual fun fsRtlPrepareMdlWriteEx(fileobject: ConstPtr, fileoffset: ConstPtr, length: UInt, lockkey: UInt, mdlchain: MutPtr, iostatus: MutPtr): Ntstatus =
     windowssysWindowsWdkStorageFilesystemFsRtlPrepareMdlWriteEx(fileobject.rawAddress.toCPointer<ByteVar>(), fileoffset.rawAddress.toCPointer<ByteVar>(), length, lockkey, mdlchain.rawAddress.toCPointer<ByteVar>(), iostatus.rawAddress.toCPointer<ByteVar>())
 
-public actual fun fsRtlPrepareToReuseEcp(ecpcontext: ConstPtr<CVoid>) {
+public actual fun fsRtlPrepareToReuseEcp(ecpcontext: ConstPtr) {
     windowssysWindowsWdkStorageFilesystemFsRtlPrepareToReuseEcp(ecpcontext.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun fsRtlPrivateLock(filelock: ConstPtr<FileLock>, fileobject: ConstPtr<FileObject>, fileoffset: ConstPtr<Long>, length: ConstPtr<Long>, processid: Peprocess, key: UInt, failimmediately: Boolean, exclusivelock: Boolean, iosb: MutPtr<IoStatusBlock>, irp: ConstPtr<Irp>, context: ConstPtr<CVoid>, alreadysynchronized: Boolean): Boolean =
+public actual fun fsRtlPrivateLock(filelock: ConstPtr, fileobject: ConstPtr, fileoffset: ConstPtr, length: ConstPtr, processid: Peprocess, key: UInt, failimmediately: Boolean, exclusivelock: Boolean, iosb: MutPtr, irp: ConstPtr, context: ConstPtr, alreadysynchronized: Boolean): Boolean =
     windowssysWindowsWdkStorageFilesystemFsRtlPrivateLock(filelock.rawAddress.toCPointer<ByteVar>(), fileobject.rawAddress.toCPointer<ByteVar>(), fileoffset.rawAddress.toCPointer<ByteVar>(), length.rawAddress.toCPointer<ByteVar>(), processid, key, failimmediately, exclusivelock, iosb.rawAddress.toCPointer<ByteVar>(), irp.rawAddress.toCPointer<ByteVar>(), context.rawAddress.toCPointer<ByteVar>(), alreadysynchronized)
 
-public actual fun fsRtlProcessFileLock(filelock: ConstPtr<FileLock>, irp: ConstPtr<Irp>, context: ConstPtr<CVoid>): Ntstatus =
+public actual fun fsRtlProcessFileLock(filelock: ConstPtr, irp: ConstPtr, context: ConstPtr): Ntstatus =
     windowssysWindowsWdkStorageFilesystemFsRtlProcessFileLock(filelock.rawAddress.toCPointer<ByteVar>(), irp.rawAddress.toCPointer<ByteVar>(), context.rawAddress.toCPointer<ByteVar>())
 
-public actual fun fsRtlQueryCachedVdl(fileobject: ConstPtr<FileObject>, vdl: MutPtr<Long>): Ntstatus =
+public actual fun fsRtlQueryCachedVdl(fileobject: ConstPtr, vdl: MutPtr): Ntstatus =
     windowssysWindowsWdkStorageFilesystemFsRtlQueryCachedVdl(fileobject.rawAddress.toCPointer<ByteVar>(), vdl.rawAddress.toCPointer<ByteVar>())
 
-public actual fun fsRtlQueryInformationFile(fileobject: ConstPtr<FileObject>, fileinformation: MutPtr<CVoid>, length: UInt, fileinformationclass: FileInformationClass, retfileinformationsize: MutPtr<UInt>): Ntstatus =
+public actual fun fsRtlQueryInformationFile(fileobject: ConstPtr, fileinformation: MutPtr, length: UInt, fileinformationclass: FileInformationClass, retfileinformationsize: MutPtr): Ntstatus =
     windowssysWindowsWdkStorageFilesystemFsRtlQueryInformationFile(fileobject.rawAddress.toCPointer<ByteVar>(), fileinformation.rawAddress.toCPointer<ByteVar>(), length, fileinformationclass, retfileinformationsize.rawAddress.toCPointer<ByteVar>())
 
-public actual fun fsRtlQueryKernelEaFile(fileobject: ConstPtr<FileObject>, returnedeadata: MutPtr<CVoid>, length: UInt, returnsingleentry: Boolean, ealist: ConstPtr<CVoid>, ealistlength: UInt, eaindex: ConstPtr<UInt>, restartscan: Boolean, lengthreturned: MutPtr<UInt>): Ntstatus =
+public actual fun fsRtlQueryKernelEaFile(fileobject: ConstPtr, returnedeadata: MutPtr, length: UInt, returnsingleentry: Boolean, ealist: ConstPtr, ealistlength: UInt, eaindex: ConstPtr, restartscan: Boolean, lengthreturned: MutPtr): Ntstatus =
     windowssysWindowsWdkStorageFilesystemFsRtlQueryKernelEaFile(fileobject.rawAddress.toCPointer<ByteVar>(), returnedeadata.rawAddress.toCPointer<ByteVar>(), length, returnsingleentry, ealist.rawAddress.toCPointer<ByteVar>(), ealistlength, eaindex.rawAddress.toCPointer<ByteVar>(), restartscan, lengthreturned.rawAddress.toCPointer<ByteVar>())
 
 public actual fun fsRtlQueryMaximumVirtualDiskNestingLevel(): UInt =
     windowssysWindowsWdkStorageFilesystemFsRtlQueryMaximumVirtualDiskNestingLevel()
 
-public actual fun fsRtlRegisterFileSystemFilterCallbacks(filterdriverobject: ConstPtr<DriverObject>, callbacks: ConstPtr<FsFilterCallbacks>): Ntstatus =
+public actual fun fsRtlRegisterFileSystemFilterCallbacks(filterdriverobject: ConstPtr, callbacks: ConstPtr): Ntstatus =
     windowssysWindowsWdkStorageFilesystemFsRtlRegisterFileSystemFilterCallbacks(filterdriverobject.rawAddress.toCPointer<ByteVar>(), callbacks.rawAddress.toCPointer<ByteVar>())
 
-public actual fun fsRtlRegisterUncProvider(muphandle: MutPtr<Handle>, redirectordevicename: ConstPtr<UnicodeString>, mailslotssupported: Boolean): Ntstatus =
+public actual fun fsRtlRegisterUncProvider(muphandle: MutPtr, redirectordevicename: ConstPtr, mailslotssupported: Boolean): Ntstatus =
     windowssysWindowsWdkStorageFilesystemFsRtlRegisterUncProvider(muphandle.rawAddress.toCPointer<ByteVar>(), redirectordevicename.rawAddress.toCPointer<ByteVar>(), mailslotssupported)
 
-public actual fun fsRtlRegisterUncProviderEx(muphandle: MutPtr<Handle>, redirdevname: ConstPtr<UnicodeString>, deviceobject: ConstPtr<DeviceObject>, flags: UInt): Ntstatus =
+public actual fun fsRtlRegisterUncProviderEx(muphandle: MutPtr, redirdevname: ConstPtr, deviceobject: ConstPtr, flags: UInt): Ntstatus =
     windowssysWindowsWdkStorageFilesystemFsRtlRegisterUncProviderEx(muphandle.rawAddress.toCPointer<ByteVar>(), redirdevname.rawAddress.toCPointer<ByteVar>(), deviceobject.rawAddress.toCPointer<ByteVar>(), flags)
 
-public actual fun fsRtlRegisterUncProviderEx2(redirdevname: ConstPtr<UnicodeString>, deviceobject: ConstPtr<DeviceObject>, registration: ConstPtr<FsrtlUncProviderRegistration>, muphandle: MutPtr<Handle>): Ntstatus =
+public actual fun fsRtlRegisterUncProviderEx2(redirdevname: ConstPtr, deviceobject: ConstPtr, registration: ConstPtr, muphandle: MutPtr): Ntstatus =
     windowssysWindowsWdkStorageFilesystemFsRtlRegisterUncProviderEx2(redirdevname.rawAddress.toCPointer<ByteVar>(), deviceobject.rawAddress.toCPointer<ByteVar>(), registration.rawAddress.toCPointer<ByteVar>(), muphandle.rawAddress.toCPointer<ByteVar>())
 
-public actual fun fsRtlReleaseFile(fileobject: ConstPtr<FileObject>) {
+public actual fun fsRtlReleaseFile(fileobject: ConstPtr) {
     windowssysWindowsWdkStorageFilesystemFsRtlReleaseFile(fileobject.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun fsRtlRemoveBaseMcbEntry(mcb: MutPtr<BaseMcb>, vbn: Long, sectorcount: Long): Boolean =
+public actual fun fsRtlRemoveBaseMcbEntry(mcb: MutPtr, vbn: Long, sectorcount: Long): Boolean =
     windowssysWindowsWdkStorageFilesystemFsRtlRemoveBaseMcbEntry(mcb.rawAddress.toCPointer<ByteVar>(), vbn, sectorcount)
 
-public actual fun fsRtlRemoveDotsFromPath(originalstring: Pwstr, pathlength: UShort, newlength: MutPtr<UShort>): Ntstatus =
+public actual fun fsRtlRemoveDotsFromPath(originalstring: Pwstr, pathlength: UShort, newlength: MutPtr): Ntstatus =
     windowssysWindowsWdkStorageFilesystemFsRtlRemoveDotsFromPath(originalstring.rawAddress.toCPointer<ByteVar>(), pathlength, newlength.rawAddress.toCPointer<ByteVar>())
 
-public actual fun fsRtlRemoveExtraCreateParameter(ecplist: MutPtr<EcpList>, ecptype: ConstPtr<Guid>, ecpcontext: MutPtr<MutPtr<CVoid>>, ecpcontextsize: MutPtr<UInt>): Ntstatus =
+public actual fun fsRtlRemoveExtraCreateParameter(ecplist: MutPtr, ecptype: ConstPtr, ecpcontext: MutPtr, ecpcontextsize: MutPtr): Ntstatus =
     windowssysWindowsWdkStorageFilesystemFsRtlRemoveExtraCreateParameter(ecplist.rawAddress.toCPointer<ByteVar>(), ecptype.rawAddress.toCPointer<ByteVar>(), ecpcontext.rawAddress.toCPointer<ByteVar>(), ecpcontextsize.rawAddress.toCPointer<ByteVar>())
 
-public actual fun fsRtlRemoveLargeMcbEntry(mcb: MutPtr<LargeMcb>, vbn: Long, sectorcount: Long) {
+public actual fun fsRtlRemoveLargeMcbEntry(mcb: MutPtr, vbn: Long, sectorcount: Long) {
     windowssysWindowsWdkStorageFilesystemFsRtlRemoveLargeMcbEntry(mcb.rawAddress.toCPointer<ByteVar>(), vbn, sectorcount)
 }
 
-public actual fun fsRtlRemoveMcbEntry(mcb: MutPtr<Mcb>, vbn: UInt, sectorcount: UInt) {
+public actual fun fsRtlRemoveMcbEntry(mcb: MutPtr, vbn: UInt, sectorcount: UInt) {
     windowssysWindowsWdkStorageFilesystemFsRtlRemoveMcbEntry(mcb.rawAddress.toCPointer<ByteVar>(), vbn, sectorcount)
 }
 
-public actual fun fsRtlRemovePerFileContext(perfilecontextpointer: ConstPtr<ConstPtr<CVoid>>, ownerid: ConstPtr<CVoid>, instanceid: ConstPtr<CVoid>): MutPtr<FsrtlPerFileContext> =
+public actual fun fsRtlRemovePerFileContext(perfilecontextpointer: ConstPtr, ownerid: ConstPtr, instanceid: ConstPtr): MutPtr =
     MutPtr(windowssysWindowsWdkStorageFilesystemFsRtlRemovePerFileContext(perfilecontextpointer.rawAddress.toCPointer<ByteVar>(), ownerid.rawAddress.toCPointer<ByteVar>(), instanceid.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun fsRtlRemovePerFileObjectContext(fileobject: ConstPtr<FileObject>, ownerid: ConstPtr<CVoid>, instanceid: ConstPtr<CVoid>): MutPtr<FsrtlPerFileobjectContext> =
+public actual fun fsRtlRemovePerFileObjectContext(fileobject: ConstPtr, ownerid: ConstPtr, instanceid: ConstPtr): MutPtr =
     MutPtr(windowssysWindowsWdkStorageFilesystemFsRtlRemovePerFileObjectContext(fileobject.rawAddress.toCPointer<ByteVar>(), ownerid.rawAddress.toCPointer<ByteVar>(), instanceid.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun fsRtlRemovePerStreamContext(streamcontext: ConstPtr<FsrtlAdvancedFcbHeader>, ownerid: ConstPtr<CVoid>, instanceid: ConstPtr<CVoid>): MutPtr<FsrtlPerStreamContext> =
+public actual fun fsRtlRemovePerStreamContext(streamcontext: ConstPtr, ownerid: ConstPtr, instanceid: ConstPtr): MutPtr =
     MutPtr(windowssysWindowsWdkStorageFilesystemFsRtlRemovePerStreamContext(streamcontext.rawAddress.toCPointer<ByteVar>(), ownerid.rawAddress.toCPointer<ByteVar>(), instanceid.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun fsRtlResetBaseMcb(mcb: MutPtr<BaseMcb>) {
+public actual fun fsRtlResetBaseMcb(mcb: MutPtr) {
     windowssysWindowsWdkStorageFilesystemFsRtlResetBaseMcb(mcb.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun fsRtlResetLargeMcb(mcb: MutPtr<LargeMcb>, selfsynchronized: Boolean) {
+public actual fun fsRtlResetLargeMcb(mcb: MutPtr, selfsynchronized: Boolean) {
     windowssysWindowsWdkStorageFilesystemFsRtlResetLargeMcb(mcb.rawAddress.toCPointer<ByteVar>(), selfsynchronized)
 }
 
-public actual fun fsRtlSetDriverBacking(driverobj: ConstPtr<DriverObject>, flags: UInt): Ntstatus =
+public actual fun fsRtlSetDriverBacking(driverobj: ConstPtr, flags: UInt): Ntstatus =
     windowssysWindowsWdkStorageFilesystemFsRtlSetDriverBacking(driverobj.rawAddress.toCPointer<ByteVar>(), flags)
 
-public actual fun fsRtlSetEcpListIntoIrp(irp: MutPtr<Irp>, ecplist: ConstPtr<EcpList>): Ntstatus =
+public actual fun fsRtlSetEcpListIntoIrp(irp: MutPtr, ecplist: ConstPtr): Ntstatus =
     windowssysWindowsWdkStorageFilesystemFsRtlSetEcpListIntoIrp(irp.rawAddress.toCPointer<ByteVar>(), ecplist.rawAddress.toCPointer<ByteVar>())
 
-public actual fun fsRtlSetKernelEaFile(fileobject: ConstPtr<FileObject>, eabuffer: ConstPtr<CVoid>, length: UInt): Ntstatus =
+public actual fun fsRtlSetKernelEaFile(fileobject: ConstPtr, eabuffer: ConstPtr, length: UInt): Ntstatus =
     windowssysWindowsWdkStorageFilesystemFsRtlSetKernelEaFile(fileobject.rawAddress.toCPointer<ByteVar>(), eabuffer.rawAddress.toCPointer<ByteVar>(), length)
 
-public actual fun fsRtlSplitBaseMcb(mcb: MutPtr<BaseMcb>, vbn: Long, amount: Long): Boolean =
+public actual fun fsRtlSplitBaseMcb(mcb: MutPtr, vbn: Long, amount: Long): Boolean =
     windowssysWindowsWdkStorageFilesystemFsRtlSplitBaseMcb(mcb.rawAddress.toCPointer<ByteVar>(), vbn, amount)
 
-public actual fun fsRtlSplitLargeMcb(mcb: MutPtr<LargeMcb>, vbn: Long, amount: Long): Boolean =
+public actual fun fsRtlSplitLargeMcb(mcb: MutPtr, vbn: Long, amount: Long): Boolean =
     windowssysWindowsWdkStorageFilesystemFsRtlSplitLargeMcb(mcb.rawAddress.toCPointer<ByteVar>(), vbn, amount)
 
-public actual fun fsRtlTeardownPerFileContexts(perfilecontextpointer: ConstPtr<ConstPtr<CVoid>>) {
+public actual fun fsRtlTeardownPerFileContexts(perfilecontextpointer: ConstPtr) {
     windowssysWindowsWdkStorageFilesystemFsRtlTeardownPerFileContexts(perfilecontextpointer.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun fsRtlTeardownPerStreamContexts(advancedheader: ConstPtr<FsrtlAdvancedFcbHeader>) {
+public actual fun fsRtlTeardownPerStreamContexts(advancedheader: ConstPtr) {
     windowssysWindowsWdkStorageFilesystemFsRtlTeardownPerStreamContexts(advancedheader.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun fsRtlTruncateBaseMcb(mcb: MutPtr<BaseMcb>, vbn: Long) {
+public actual fun fsRtlTruncateBaseMcb(mcb: MutPtr, vbn: Long) {
     windowssysWindowsWdkStorageFilesystemFsRtlTruncateBaseMcb(mcb.rawAddress.toCPointer<ByteVar>(), vbn)
 }
 
-public actual fun fsRtlTruncateLargeMcb(mcb: MutPtr<LargeMcb>, vbn: Long) {
+public actual fun fsRtlTruncateLargeMcb(mcb: MutPtr, vbn: Long) {
     windowssysWindowsWdkStorageFilesystemFsRtlTruncateLargeMcb(mcb.rawAddress.toCPointer<ByteVar>(), vbn)
 }
 
-public actual fun fsRtlTruncateMcb(mcb: MutPtr<Mcb>, vbn: UInt) {
+public actual fun fsRtlTruncateMcb(mcb: MutPtr, vbn: UInt) {
     windowssysWindowsWdkStorageFilesystemFsRtlTruncateMcb(mcb.rawAddress.toCPointer<ByteVar>(), vbn)
 }
 
-public actual fun fsRtlUninitializeBaseMcb(mcb: ConstPtr<BaseMcb>) {
+public actual fun fsRtlUninitializeBaseMcb(mcb: ConstPtr) {
     windowssysWindowsWdkStorageFilesystemFsRtlUninitializeBaseMcb(mcb.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun fsRtlUninitializeFileLock(filelock: MutPtr<FileLock>) {
+public actual fun fsRtlUninitializeFileLock(filelock: MutPtr) {
     windowssysWindowsWdkStorageFilesystemFsRtlUninitializeFileLock(filelock.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun fsRtlUninitializeLargeMcb(mcb: MutPtr<LargeMcb>) {
+public actual fun fsRtlUninitializeLargeMcb(mcb: MutPtr) {
     windowssysWindowsWdkStorageFilesystemFsRtlUninitializeLargeMcb(mcb.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun fsRtlUninitializeMcb(mcb: MutPtr<Mcb>) {
+public actual fun fsRtlUninitializeMcb(mcb: MutPtr) {
     windowssysWindowsWdkStorageFilesystemFsRtlUninitializeMcb(mcb.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun fsRtlUninitializeOplock(oplock: MutPtr<MutPtr<CVoid>>) {
+public actual fun fsRtlUninitializeOplock(oplock: MutPtr) {
     windowssysWindowsWdkStorageFilesystemFsRtlUninitializeOplock(oplock.rawAddress.toCPointer<ByteVar>())
 }
 
@@ -1559,32 +1517,32 @@ public actual fun fsRtlUpdateDiskCounters(bytesread: ULong, byteswritten: ULong)
     windowssysWindowsWdkStorageFilesystemFsRtlUpdateDiskCounters(bytesread, byteswritten)
 }
 
-public actual fun fsRtlUpperOplockFsctrl(oplock: ConstPtr<ConstPtr<CVoid>>, irp: ConstPtr<Irp>, opencount: UInt, loweroplockstate: UInt, flags: UInt): Ntstatus =
+public actual fun fsRtlUpperOplockFsctrl(oplock: ConstPtr, irp: ConstPtr, opencount: UInt, loweroplockstate: UInt, flags: UInt): Ntstatus =
     windowssysWindowsWdkStorageFilesystemFsRtlUpperOplockFsctrl(oplock.rawAddress.toCPointer<ByteVar>(), irp.rawAddress.toCPointer<ByteVar>(), opencount, loweroplockstate, flags)
 
-public actual fun fsRtlValidateReparsePointBuffer(bufferlength: UInt, reparsebuffer: ConstPtr<ReparseDataBuffer>): Ntstatus =
+public actual fun fsRtlValidateReparsePointBuffer(bufferlength: UInt, reparsebuffer: ConstPtr): Ntstatus =
     windowssysWindowsWdkStorageFilesystemFsRtlValidateReparsePointBuffer(bufferlength, reparsebuffer.rawAddress.toCPointer<ByteVar>())
 
-public actual fun fsRtlVolumeDeviceToCorrelationId(volumedeviceobject: ConstPtr<DeviceObject>, guid: MutPtr<Guid>): Ntstatus =
+public actual fun fsRtlVolumeDeviceToCorrelationId(volumedeviceobject: ConstPtr, guid: MutPtr): Ntstatus =
     windowssysWindowsWdkStorageFilesystemFsRtlVolumeDeviceToCorrelationId(volumedeviceobject.rawAddress.toCPointer<ByteVar>(), guid.rawAddress.toCPointer<ByteVar>())
 
-public actual fun getSecurityUserInfo(logonid: ConstPtr<Luid>, flags: UInt, userinformation: MutPtr<MutPtr<SecurityUserData>>): Ntstatus =
+public actual fun getSecurityUserInfo(logonid: ConstPtr, flags: UInt, userinformation: MutPtr): Ntstatus =
     windowssysWindowsWdkStorageFilesystemGetSecurityUserInfo(logonid.rawAddress.toCPointer<ByteVar>(), flags, userinformation.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ioAcquireVpbSpinLock(irql: MutPtr<UByte>) {
+public actual fun ioAcquireVpbSpinLock(irql: MutPtr) {
     windowssysWindowsWdkStorageFilesystemIoAcquireVpbSpinLock(irql.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun ioApplyPriorityInfoThread(inputpriorityinfo: ConstPtr<IoPriorityInfo>, outputpriorityinfo: MutPtr<IoPriorityInfo>, thread: Pethread): Ntstatus =
+public actual fun ioApplyPriorityInfoThread(inputpriorityinfo: ConstPtr, outputpriorityinfo: MutPtr, thread: Pethread): Ntstatus =
     windowssysWindowsWdkStorageFilesystemIoApplyPriorityInfoThread(inputpriorityinfo.rawAddress.toCPointer<ByteVar>(), outputpriorityinfo.rawAddress.toCPointer<ByteVar>(), thread)
 
-public actual fun ioCheckDesiredAccess(desiredaccess: MutPtr<UInt>, grantedaccess: UInt): Ntstatus =
+public actual fun ioCheckDesiredAccess(desiredaccess: MutPtr, grantedaccess: UInt): Ntstatus =
     windowssysWindowsWdkStorageFilesystemIoCheckDesiredAccess(desiredaccess.rawAddress.toCPointer<ByteVar>(), grantedaccess)
 
-public actual fun ioCheckEaBufferValidity(eabuffer: ConstPtr<FileFullEaInformation>, ealength: UInt, erroroffset: MutPtr<UInt>): Ntstatus =
+public actual fun ioCheckEaBufferValidity(eabuffer: ConstPtr, ealength: UInt, erroroffset: MutPtr): Ntstatus =
     windowssysWindowsWdkStorageFilesystemIoCheckEaBufferValidity(eabuffer.rawAddress.toCPointer<ByteVar>(), ealength, erroroffset.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ioCheckFunctionAccess(grantedaccess: UInt, majorfunction: UByte, minorfunction: UByte, iocontrolcode: UInt, arg1: ConstPtr<CVoid>, arg2: ConstPtr<CVoid>): Ntstatus =
+public actual fun ioCheckFunctionAccess(grantedaccess: UInt, majorfunction: UByte, minorfunction: UByte, iocontrolcode: UInt, arg1: ConstPtr, arg2: ConstPtr): Ntstatus =
     windowssysWindowsWdkStorageFilesystemIoCheckFunctionAccess(grantedaccess, majorfunction, minorfunction, iocontrolcode, arg1.rawAddress.toCPointer<ByteVar>(), arg2.rawAddress.toCPointer<ByteVar>())
 
 public actual fun ioCheckQuerySetFileInformation(fileinformationclass: FileInformationClass, length: UInt, setoperation: Boolean): Ntstatus =
@@ -1593,150 +1551,150 @@ public actual fun ioCheckQuerySetFileInformation(fileinformationclass: FileInfor
 public actual fun ioCheckQuerySetVolumeInformation(fsinformationclass: FsInformationClass, length: UInt, setoperation: Boolean): Ntstatus =
     windowssysWindowsWdkStorageFilesystemIoCheckQuerySetVolumeInformation(fsinformationclass, length, setoperation)
 
-public actual fun ioCheckQuotaBufferValidity(quotabuffer: ConstPtr<FileQuotaInformation>, quotalength: UInt, erroroffset: MutPtr<UInt>): Ntstatus =
+public actual fun ioCheckQuotaBufferValidity(quotabuffer: ConstPtr, quotalength: UInt, erroroffset: MutPtr): Ntstatus =
     windowssysWindowsWdkStorageFilesystemIoCheckQuotaBufferValidity(quotabuffer.rawAddress.toCPointer<ByteVar>(), quotalength, erroroffset.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ioClearFsTrackOffsetState(irp: MutPtr<Irp>): Ntstatus =
+public actual fun ioClearFsTrackOffsetState(irp: MutPtr): Ntstatus =
     windowssysWindowsWdkStorageFilesystemIoClearFsTrackOffsetState(irp.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ioCreateStreamFileObject(fileobject: ConstPtr<FileObject>, deviceobject: ConstPtr<DeviceObject>): MutPtr<FileObject> =
+public actual fun ioCreateStreamFileObject(fileobject: ConstPtr, deviceobject: ConstPtr): MutPtr =
     MutPtr(windowssysWindowsWdkStorageFilesystemIoCreateStreamFileObject(fileobject.rawAddress.toCPointer<ByteVar>(), deviceobject.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun ioCreateStreamFileObjectEx(fileobject: ConstPtr<FileObject>, deviceobject: ConstPtr<DeviceObject>, filehandle: MutPtr<Handle>): MutPtr<FileObject> =
+public actual fun ioCreateStreamFileObjectEx(fileobject: ConstPtr, deviceobject: ConstPtr, filehandle: MutPtr): MutPtr =
     MutPtr(windowssysWindowsWdkStorageFilesystemIoCreateStreamFileObjectEx(fileobject.rawAddress.toCPointer<ByteVar>(), deviceobject.rawAddress.toCPointer<ByteVar>(), filehandle.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun ioCreateStreamFileObjectEx2(createoptions: ConstPtr<IoCreateStreamFileOptions>, fileobject: ConstPtr<FileObject>, deviceobject: ConstPtr<DeviceObject>, streamfileobject: MutPtr<MutPtr<FileObject>>, filehandle: MutPtr<Handle>): Ntstatus =
+public actual fun ioCreateStreamFileObjectEx2(createoptions: ConstPtr, fileobject: ConstPtr, deviceobject: ConstPtr, streamfileobject: MutPtr, filehandle: MutPtr): Ntstatus =
     windowssysWindowsWdkStorageFilesystemIoCreateStreamFileObjectEx2(createoptions.rawAddress.toCPointer<ByteVar>(), fileobject.rawAddress.toCPointer<ByteVar>(), deviceobject.rawAddress.toCPointer<ByteVar>(), streamfileobject.rawAddress.toCPointer<ByteVar>(), filehandle.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ioCreateStreamFileObjectLite(fileobject: ConstPtr<FileObject>, deviceobject: ConstPtr<DeviceObject>): MutPtr<FileObject> =
+public actual fun ioCreateStreamFileObjectLite(fileobject: ConstPtr, deviceobject: ConstPtr): MutPtr =
     MutPtr(windowssysWindowsWdkStorageFilesystemIoCreateStreamFileObjectLite(fileobject.rawAddress.toCPointer<ByteVar>(), deviceobject.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun ioEnumerateDeviceObjectList(driverobject: ConstPtr<DriverObject>, deviceobjectlist: MutPtr<MutPtr<DeviceObject>>, deviceobjectlistsize: UInt, actualnumberdeviceobjects: MutPtr<UInt>): Ntstatus =
+public actual fun ioEnumerateDeviceObjectList(driverobject: ConstPtr, deviceobjectlist: MutPtr, deviceobjectlistsize: UInt, actualnumberdeviceobjects: MutPtr): Ntstatus =
     windowssysWindowsWdkStorageFilesystemIoEnumerateDeviceObjectList(driverobject.rawAddress.toCPointer<ByteVar>(), deviceobjectlist.rawAddress.toCPointer<ByteVar>(), deviceobjectlistsize, actualnumberdeviceobjects.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ioEnumerateRegisteredFiltersList(driverobjectlist: MutPtr<MutPtr<DriverObject>>, driverobjectlistsize: UInt, actualnumberdriverobjects: MutPtr<UInt>): Ntstatus =
+public actual fun ioEnumerateRegisteredFiltersList(driverobjectlist: MutPtr, driverobjectlistsize: UInt, actualnumberdriverobjects: MutPtr): Ntstatus =
     windowssysWindowsWdkStorageFilesystemIoEnumerateRegisteredFiltersList(driverobjectlist.rawAddress.toCPointer<ByteVar>(), driverobjectlistsize, actualnumberdriverobjects.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ioFastQueryNetworkAttributes(objectattributes: ConstPtr<ObjectAttributes>, desiredaccess: UInt, openoptions: UInt, iostatus: MutPtr<IoStatusBlock>, buffer: MutPtr<FileNetworkOpenInformation>): Boolean =
+public actual fun ioFastQueryNetworkAttributes(objectattributes: ConstPtr, desiredaccess: UInt, openoptions: UInt, iostatus: MutPtr, buffer: MutPtr): Boolean =
     windowssysWindowsWdkStorageFilesystemIoFastQueryNetworkAttributes(objectattributes.rawAddress.toCPointer<ByteVar>(), desiredaccess, openoptions, iostatus.rawAddress.toCPointer<ByteVar>(), buffer.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ioGetAttachedDevice(deviceobject: ConstPtr<DeviceObject>): MutPtr<DeviceObject> =
+public actual fun ioGetAttachedDevice(deviceobject: ConstPtr): MutPtr =
     MutPtr(windowssysWindowsWdkStorageFilesystemIoGetAttachedDevice(deviceobject.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun ioGetBaseFileSystemDeviceObject(fileobject: ConstPtr<FileObject>): MutPtr<DeviceObject> =
+public actual fun ioGetBaseFileSystemDeviceObject(fileobject: ConstPtr): MutPtr =
     MutPtr(windowssysWindowsWdkStorageFilesystemIoGetBaseFileSystemDeviceObject(fileobject.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun ioGetDeviceAttachmentBaseRef(deviceobject: ConstPtr<DeviceObject>): MutPtr<DeviceObject> =
+public actual fun ioGetDeviceAttachmentBaseRef(deviceobject: ConstPtr): MutPtr =
     MutPtr(windowssysWindowsWdkStorageFilesystemIoGetDeviceAttachmentBaseRef(deviceobject.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun ioGetDeviceToVerify(thread: Pethread): MutPtr<DeviceObject> =
+public actual fun ioGetDeviceToVerify(thread: Pethread): MutPtr =
     MutPtr(windowssysWindowsWdkStorageFilesystemIoGetDeviceToVerify(thread)?.toLong() ?: 0L)
 
-public actual fun ioGetDiskDeviceObject(filesystemdeviceobject: ConstPtr<DeviceObject>, diskdeviceobject: MutPtr<MutPtr<DeviceObject>>): Ntstatus =
+public actual fun ioGetDiskDeviceObject(filesystemdeviceobject: ConstPtr, diskdeviceobject: MutPtr): Ntstatus =
     windowssysWindowsWdkStorageFilesystemIoGetDiskDeviceObject(filesystemdeviceobject.rawAddress.toCPointer<ByteVar>(), diskdeviceobject.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ioGetFsTrackOffsetState(irp: ConstPtr<Irp>, retfstrackoffsetblob: MutPtr<MutPtr<IoIrpExtTrackOffsetHeader>>, rettrackedoffset: MutPtr<Long>): Ntstatus =
+public actual fun ioGetFsTrackOffsetState(irp: ConstPtr, retfstrackoffsetblob: MutPtr, rettrackedoffset: MutPtr): Ntstatus =
     windowssysWindowsWdkStorageFilesystemIoGetFsTrackOffsetState(irp.rawAddress.toCPointer<ByteVar>(), retfstrackoffsetblob.rawAddress.toCPointer<ByteVar>(), rettrackedoffset.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ioGetLowerDeviceObject(deviceobject: ConstPtr<DeviceObject>): MutPtr<DeviceObject> =
+public actual fun ioGetLowerDeviceObject(deviceobject: ConstPtr): MutPtr =
     MutPtr(windowssysWindowsWdkStorageFilesystemIoGetLowerDeviceObject(deviceobject.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun ioGetOplockKeyContext(fileobject: ConstPtr<FileObject>): MutPtr<OplockKeyEcpContext> =
+public actual fun ioGetOplockKeyContext(fileobject: ConstPtr): MutPtr =
     MutPtr(windowssysWindowsWdkStorageFilesystemIoGetOplockKeyContext(fileobject.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun ioGetOplockKeyContextEx(fileobject: ConstPtr<FileObject>): MutPtr<OplockKeyContext> =
+public actual fun ioGetOplockKeyContextEx(fileobject: ConstPtr): MutPtr =
     MutPtr(windowssysWindowsWdkStorageFilesystemIoGetOplockKeyContextEx(fileobject.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun ioGetRequestorProcess(irp: ConstPtr<Irp>): Peprocess =
+public actual fun ioGetRequestorProcess(irp: ConstPtr): Peprocess =
     windowssysWindowsWdkStorageFilesystemIoGetRequestorProcess(irp.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ioGetRequestorProcessId(irp: ConstPtr<Irp>): UInt =
+public actual fun ioGetRequestorProcessId(irp: ConstPtr): UInt =
     windowssysWindowsWdkStorageFilesystemIoGetRequestorProcessId(irp.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ioGetRequestorSessionId(irp: ConstPtr<Irp>, psessionid: MutPtr<UInt>): Ntstatus =
+public actual fun ioGetRequestorSessionId(irp: ConstPtr, psessionid: MutPtr): Ntstatus =
     windowssysWindowsWdkStorageFilesystemIoGetRequestorSessionId(irp.rawAddress.toCPointer<ByteVar>(), psessionid.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ioIrpHasFsTrackOffsetExtensionType(irp: ConstPtr<Irp>): Boolean =
+public actual fun ioIrpHasFsTrackOffsetExtensionType(irp: ConstPtr): Boolean =
     windowssysWindowsWdkStorageFilesystemIoIrpHasFsTrackOffsetExtensionType(irp.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ioIsOperationSynchronous(irp: ConstPtr<Irp>): Boolean =
+public actual fun ioIsOperationSynchronous(irp: ConstPtr): Boolean =
     windowssysWindowsWdkStorageFilesystemIoIsOperationSynchronous(irp.rawAddress.toCPointer<ByteVar>())
 
 public actual fun ioIsSystemThread(thread: Pethread): Boolean =
     windowssysWindowsWdkStorageFilesystemIoIsSystemThread(thread)
 
-public actual fun ioIsValidNameGraftingBuffer(irp: ConstPtr<Irp>, reparsebuffer: ConstPtr<ReparseDataBuffer>): Boolean =
+public actual fun ioIsValidNameGraftingBuffer(irp: ConstPtr, reparsebuffer: ConstPtr): Boolean =
     windowssysWindowsWdkStorageFilesystemIoIsValidNameGraftingBuffer(irp.rawAddress.toCPointer<ByteVar>(), reparsebuffer.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ioPageRead(fileobject: ConstPtr<FileObject>, memorydescriptorlist: ConstPtr<Mdl>, startingoffset: ConstPtr<Long>, event: ConstPtr<Kevent>, iostatusblock: MutPtr<IoStatusBlock>): Ntstatus =
+public actual fun ioPageRead(fileobject: ConstPtr, memorydescriptorlist: ConstPtr, startingoffset: ConstPtr, event: ConstPtr, iostatusblock: MutPtr): Ntstatus =
     windowssysWindowsWdkStorageFilesystemIoPageRead(fileobject.rawAddress.toCPointer<ByteVar>(), memorydescriptorlist.rawAddress.toCPointer<ByteVar>(), startingoffset.rawAddress.toCPointer<ByteVar>(), event.rawAddress.toCPointer<ByteVar>(), iostatusblock.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ioQueryFileDosDeviceName(fileobject: ConstPtr<FileObject>, objectnameinformation: MutPtr<MutPtr<ObjectNameInformation>>): Ntstatus =
+public actual fun ioQueryFileDosDeviceName(fileobject: ConstPtr, objectnameinformation: MutPtr): Ntstatus =
     windowssysWindowsWdkStorageFilesystemIoQueryFileDosDeviceName(fileobject.rawAddress.toCPointer<ByteVar>(), objectnameinformation.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ioQueryFileInformation(fileobject: ConstPtr<FileObject>, fileinformationclass: FileInformationClass, length: UInt, fileinformation: MutPtr<CVoid>, returnedlength: MutPtr<UInt>): Ntstatus =
+public actual fun ioQueryFileInformation(fileobject: ConstPtr, fileinformationclass: FileInformationClass, length: UInt, fileinformation: MutPtr, returnedlength: MutPtr): Ntstatus =
     windowssysWindowsWdkStorageFilesystemIoQueryFileInformation(fileobject.rawAddress.toCPointer<ByteVar>(), fileinformationclass, length, fileinformation.rawAddress.toCPointer<ByteVar>(), returnedlength.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ioQueryVolumeInformation(fileobject: ConstPtr<FileObject>, fsinformationclass: FsInformationClass, length: UInt, fsinformation: MutPtr<CVoid>, returnedlength: MutPtr<UInt>): Ntstatus =
+public actual fun ioQueryVolumeInformation(fileobject: ConstPtr, fsinformationclass: FsInformationClass, length: UInt, fsinformation: MutPtr, returnedlength: MutPtr): Ntstatus =
     windowssysWindowsWdkStorageFilesystemIoQueryVolumeInformation(fileobject.rawAddress.toCPointer<ByteVar>(), fsinformationclass, length, fsinformation.rawAddress.toCPointer<ByteVar>(), returnedlength.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ioQueueThreadIrp(irp: ConstPtr<Irp>) {
+public actual fun ioQueueThreadIrp(irp: ConstPtr) {
     windowssysWindowsWdkStorageFilesystemIoQueueThreadIrp(irp.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun ioRegisterFileSystem(deviceobject: ConstPtr<DeviceObject>) {
+public actual fun ioRegisterFileSystem(deviceobject: ConstPtr) {
     windowssysWindowsWdkStorageFilesystemIoRegisterFileSystem(deviceobject.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun ioRegisterFsRegistrationChange(driverobject: ConstPtr<DriverObject>, drivernotificationroutine: DriverFsNotification): Ntstatus =
+public actual fun ioRegisterFsRegistrationChange(driverobject: ConstPtr, drivernotificationroutine: DriverFsNotification): Ntstatus =
     0
 
-public actual fun ioRegisterFsRegistrationChangeMountAware(driverobject: ConstPtr<DriverObject>, drivernotificationroutine: DriverFsNotification, synchronizewithmounts: Boolean): Ntstatus =
+public actual fun ioRegisterFsRegistrationChangeMountAware(driverobject: ConstPtr, drivernotificationroutine: DriverFsNotification, synchronizewithmounts: Boolean): Ntstatus =
     0
 
 public actual fun ioReleaseVpbSpinLock(irql: UByte) {
     windowssysWindowsWdkStorageFilesystemIoReleaseVpbSpinLock(irql)
 }
 
-public actual fun ioReplaceFileObjectName(fileobject: ConstPtr<FileObject>, newfilename: Pcwstr, filenamelength: UShort): Ntstatus =
+public actual fun ioReplaceFileObjectName(fileobject: ConstPtr, newfilename: Pcwstr, filenamelength: UShort): Ntstatus =
     windowssysWindowsWdkStorageFilesystemIoReplaceFileObjectName(fileobject.rawAddress.toCPointer<ByteVar>(), newfilename.rawAddress.toCPointer<ByteVar>(), filenamelength)
 
-public actual fun ioRequestDeviceRemovalForReset(physicaldeviceobject: ConstPtr<DeviceObject>, flags: UInt): Ntstatus =
+public actual fun ioRequestDeviceRemovalForReset(physicaldeviceobject: ConstPtr, flags: UInt): Ntstatus =
     windowssysWindowsWdkStorageFilesystemIoRequestDeviceRemovalForReset(physicaldeviceobject.rawAddress.toCPointer<ByteVar>(), flags)
 
-public actual fun ioRetrievePriorityInfo(irp: ConstPtr<Irp>, fileobject: ConstPtr<FileObject>, thread: Pethread, priorityinfo: MutPtr<IoPriorityInfo>): Ntstatus =
+public actual fun ioRetrievePriorityInfo(irp: ConstPtr, fileobject: ConstPtr, thread: Pethread, priorityinfo: MutPtr): Ntstatus =
     windowssysWindowsWdkStorageFilesystemIoRetrievePriorityInfo(irp.rawAddress.toCPointer<ByteVar>(), fileobject.rawAddress.toCPointer<ByteVar>(), thread, priorityinfo.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ioSetDeviceToVerify(thread: Pethread, deviceobject: ConstPtr<DeviceObject>) {
+public actual fun ioSetDeviceToVerify(thread: Pethread, deviceobject: ConstPtr) {
     windowssysWindowsWdkStorageFilesystemIoSetDeviceToVerify(thread, deviceobject.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun ioSetFsTrackOffsetState(irp: MutPtr<Irp>, fstrackoffsetblob: ConstPtr<IoIrpExtTrackOffsetHeader>, trackedoffset: Long): Ntstatus =
+public actual fun ioSetFsTrackOffsetState(irp: MutPtr, fstrackoffsetblob: ConstPtr, trackedoffset: Long): Ntstatus =
     windowssysWindowsWdkStorageFilesystemIoSetFsTrackOffsetState(irp.rawAddress.toCPointer<ByteVar>(), fstrackoffsetblob.rawAddress.toCPointer<ByteVar>(), trackedoffset)
 
-public actual fun ioSetInformation(fileobject: ConstPtr<FileObject>, fileinformationclass: FileInformationClass, length: UInt, fileinformation: ConstPtr<CVoid>): Ntstatus =
+public actual fun ioSetInformation(fileobject: ConstPtr, fileinformationclass: FileInformationClass, length: UInt, fileinformation: ConstPtr): Ntstatus =
     windowssysWindowsWdkStorageFilesystemIoSetInformation(fileobject.rawAddress.toCPointer<ByteVar>(), fileinformationclass, length, fileinformation.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ioSynchronousPageWrite(fileobject: ConstPtr<FileObject>, memorydescriptorlist: ConstPtr<Mdl>, startingoffset: ConstPtr<Long>, event: ConstPtr<Kevent>, iostatusblock: MutPtr<IoStatusBlock>): Ntstatus =
+public actual fun ioSynchronousPageWrite(fileobject: ConstPtr, memorydescriptorlist: ConstPtr, startingoffset: ConstPtr, event: ConstPtr, iostatusblock: MutPtr): Ntstatus =
     windowssysWindowsWdkStorageFilesystemIoSynchronousPageWrite(fileobject.rawAddress.toCPointer<ByteVar>(), memorydescriptorlist.rawAddress.toCPointer<ByteVar>(), startingoffset.rawAddress.toCPointer<ByteVar>(), event.rawAddress.toCPointer<ByteVar>(), iostatusblock.rawAddress.toCPointer<ByteVar>())
 
 public actual fun ioThreadToProcess(thread: Pethread): Peprocess =
     windowssysWindowsWdkStorageFilesystemIoThreadToProcess(thread)
 
-public actual fun ioUnregisterFileSystem(deviceobject: ConstPtr<DeviceObject>) {
+public actual fun ioUnregisterFileSystem(deviceobject: ConstPtr) {
     windowssysWindowsWdkStorageFilesystemIoUnregisterFileSystem(deviceobject.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun ioUnregisterFsRegistrationChange(driverobject: ConstPtr<DriverObject>, drivernotificationroutine: DriverFsNotification) {
+public actual fun ioUnregisterFsRegistrationChange(driverobject: ConstPtr, drivernotificationroutine: DriverFsNotification) {
 }
 
-public actual fun ioVerifyVolume(deviceobject: ConstPtr<DeviceObject>, allowrawmount: Boolean): Ntstatus =
+public actual fun ioVerifyVolume(deviceobject: ConstPtr, allowrawmount: Boolean): Ntstatus =
     windowssysWindowsWdkStorageFilesystemIoVerifyVolume(deviceobject.rawAddress.toCPointer<ByteVar>(), allowrawmount)
 
 public actual fun keAcquireQueuedSpinLock(number: KspinLockQueueNumber): UByte =
     windowssysWindowsWdkStorageFilesystemKeAcquireQueuedSpinLock(number)
 
-public actual fun keAcquireSpinLockRaiseToSynch(spinlock: MutPtr<ULong>): UByte =
+public actual fun keAcquireSpinLockRaiseToSynch(spinlock: MutPtr): UByte =
     windowssysWindowsWdkStorageFilesystemKeAcquireSpinLockRaiseToSynch(spinlock.rawAddress.toCPointer<ByteVar>())
 
 public actual fun keAttachProcess(process: Prkprocess) {
@@ -1747,40 +1705,40 @@ public actual fun keDetachProcess() {
     windowssysWindowsWdkStorageFilesystemKeDetachProcess()
 }
 
-public actual fun keInitializeMutant(mutant: MutPtr<Kmutant>, initialowner: Boolean) {
+public actual fun keInitializeMutant(mutant: MutPtr, initialowner: Boolean) {
     windowssysWindowsWdkStorageFilesystemKeInitializeMutant(mutant.rawAddress.toCPointer<ByteVar>(), initialowner)
 }
 
-public actual fun keInitializeQueue(queue: MutPtr<Kqueue>, count: UInt) {
+public actual fun keInitializeQueue(queue: MutPtr, count: UInt) {
     windowssysWindowsWdkStorageFilesystemKeInitializeQueue(queue.rawAddress.toCPointer<ByteVar>(), count)
 }
 
-public actual fun keInsertHeadQueue(queue: MutPtr<Kqueue>, entry: MutPtr<ListEntry>): Int =
+public actual fun keInsertHeadQueue(queue: MutPtr, entry: MutPtr): Int =
     windowssysWindowsWdkStorageFilesystemKeInsertHeadQueue(queue.rawAddress.toCPointer<ByteVar>(), entry.rawAddress.toCPointer<ByteVar>())
 
-public actual fun keInsertQueue(queue: MutPtr<Kqueue>, entry: MutPtr<ListEntry>): Int =
+public actual fun keInsertQueue(queue: MutPtr, entry: MutPtr): Int =
     windowssysWindowsWdkStorageFilesystemKeInsertQueue(queue.rawAddress.toCPointer<ByteVar>(), entry.rawAddress.toCPointer<ByteVar>())
 
-public actual fun keReadStateMutant(mutant: ConstPtr<Kmutant>): Int =
+public actual fun keReadStateMutant(mutant: ConstPtr): Int =
     windowssysWindowsWdkStorageFilesystemKeReadStateMutant(mutant.rawAddress.toCPointer<ByteVar>())
 
-public actual fun keReadStateQueue(queue: ConstPtr<Kqueue>): Int =
+public actual fun keReadStateQueue(queue: ConstPtr): Int =
     windowssysWindowsWdkStorageFilesystemKeReadStateQueue(queue.rawAddress.toCPointer<ByteVar>())
 
-public actual fun keReleaseMutant(mutant: MutPtr<Kmutant>, increment: Int, abandoned: Boolean, wait: Boolean): Int =
+public actual fun keReleaseMutant(mutant: MutPtr, increment: Int, abandoned: Boolean, wait: Boolean): Int =
     windowssysWindowsWdkStorageFilesystemKeReleaseMutant(mutant.rawAddress.toCPointer<ByteVar>(), increment, abandoned, wait)
 
 public actual fun keReleaseQueuedSpinLock(number: KspinLockQueueNumber, oldirql: UByte) {
     windowssysWindowsWdkStorageFilesystemKeReleaseQueuedSpinLock(number, oldirql)
 }
 
-public actual fun keRemoveQueue(queue: MutPtr<Kqueue>, waitmode: Byte, timeout: ConstPtr<Long>): MutPtr<ListEntry> =
+public actual fun keRemoveQueue(queue: MutPtr, waitmode: Byte, timeout: ConstPtr): MutPtr =
     MutPtr(windowssysWindowsWdkStorageFilesystemKeRemoveQueue(queue.rawAddress.toCPointer<ByteVar>(), waitmode, timeout.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun keRemoveQueueEx(queue: MutPtr<Kqueue>, waitmode: Byte, alertable: Boolean, timeout: ConstPtr<Long>, entryarray: MutPtr<MutPtr<ListEntry>>, count: UInt): UInt =
+public actual fun keRemoveQueueEx(queue: MutPtr, waitmode: Byte, alertable: Boolean, timeout: ConstPtr, entryarray: MutPtr, count: UInt): UInt =
     windowssysWindowsWdkStorageFilesystemKeRemoveQueueEx(queue.rawAddress.toCPointer<ByteVar>(), waitmode, alertable, timeout.rawAddress.toCPointer<ByteVar>(), entryarray.rawAddress.toCPointer<ByteVar>(), count)
 
-public actual fun keRundownQueue(queue: MutPtr<Kqueue>): MutPtr<ListEntry> =
+public actual fun keRundownQueue(queue: MutPtr): MutPtr =
     MutPtr(windowssysWindowsWdkStorageFilesystemKeRundownQueue(queue.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
 public actual fun keSetIdealProcessorThread(thread: Pkthread, processor: UByte): UByte =
@@ -1789,282 +1747,282 @@ public actual fun keSetIdealProcessorThread(thread: Pkthread, processor: UByte):
 public actual fun keSetKernelStackSwapEnable(enable: Boolean): Boolean =
     windowssysWindowsWdkStorageFilesystemKeSetKernelStackSwapEnable(enable)
 
-public actual fun keStackAttachProcess(process: Prkprocess, apcstate: MutPtr<KapcState>) {
+public actual fun keStackAttachProcess(process: Prkprocess, apcstate: MutPtr) {
     windowssysWindowsWdkStorageFilesystemKeStackAttachProcess(process, apcstate.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun keTryToAcquireQueuedSpinLock(number: KspinLockQueueNumber, oldirql: MutPtr<UByte>): UInt =
+public actual fun keTryToAcquireQueuedSpinLock(number: KspinLockQueueNumber, oldirql: MutPtr): UInt =
     windowssysWindowsWdkStorageFilesystemKeTryToAcquireQueuedSpinLock(number, oldirql.rawAddress.toCPointer<ByteVar>())
 
-public actual fun keUnstackDetachProcess(apcstate: ConstPtr<KapcState>) {
+public actual fun keUnstackDetachProcess(apcstate: ConstPtr) {
     windowssysWindowsWdkStorageFilesystemKeUnstackDetachProcess(apcstate.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun makeSignature(phcontext: ConstPtr<SecHandle>, fqop: UInt, pmessage: ConstPtr<SecBufferDesc>, messageseqno: UInt): Hresult =
+public actual fun makeSignature(phcontext: ConstPtr, fqop: UInt, pmessage: ConstPtr, messageseqno: UInt): Hresult =
     windowssysWindowsWdkStorageFilesystemMakeSignature(phcontext.rawAddress.toCPointer<ByteVar>(), fqop, pmessage.rawAddress.toCPointer<ByteVar>(), messageseqno)
 
 public actual fun mapSecurityError(secstatus: Hresult): Ntstatus =
     windowssysWindowsWdkStorageFilesystemMapSecurityError(secstatus)
 
-public actual fun mmCanFileBeTruncated(sectionpointer: ConstPtr<SectionObjectPointers>, newfilesize: ConstPtr<Long>): Boolean =
+public actual fun mmCanFileBeTruncated(sectionpointer: ConstPtr, newfilesize: ConstPtr): Boolean =
     windowssysWindowsWdkStorageFilesystemMmCanFileBeTruncated(sectionpointer.rawAddress.toCPointer<ByteVar>(), newfilesize.rawAddress.toCPointer<ByteVar>())
 
-public actual fun mmDoesFileHaveUserWritableReferences(sectionpointer: ConstPtr<SectionObjectPointers>): UInt =
+public actual fun mmDoesFileHaveUserWritableReferences(sectionpointer: ConstPtr): UInt =
     windowssysWindowsWdkStorageFilesystemMmDoesFileHaveUserWritableReferences(sectionpointer.rawAddress.toCPointer<ByteVar>())
 
-public actual fun mmFlushImageSection(sectionobjectpointer: ConstPtr<SectionObjectPointers>, flushtype: MmflushType): Boolean =
+public actual fun mmFlushImageSection(sectionobjectpointer: ConstPtr, flushtype: MmflushType): Boolean =
     windowssysWindowsWdkStorageFilesystemMmFlushImageSection(sectionobjectpointer.rawAddress.toCPointer<ByteVar>(), flushtype)
 
-public actual fun mmForceSectionClosed(sectionobjectpointer: ConstPtr<SectionObjectPointers>, delayclose: Boolean): Boolean =
+public actual fun mmForceSectionClosed(sectionobjectpointer: ConstPtr, delayclose: Boolean): Boolean =
     windowssysWindowsWdkStorageFilesystemMmForceSectionClosed(sectionobjectpointer.rawAddress.toCPointer<ByteVar>(), delayclose)
 
-public actual fun mmForceSectionClosedEx(sectionobjectpointer: ConstPtr<SectionObjectPointers>, forcecloseflags: UInt): Boolean =
+public actual fun mmForceSectionClosedEx(sectionobjectpointer: ConstPtr, forcecloseflags: UInt): Boolean =
     windowssysWindowsWdkStorageFilesystemMmForceSectionClosedEx(sectionobjectpointer.rawAddress.toCPointer<ByteVar>(), forcecloseflags)
 
 public actual fun mmGetMaximumFileSectionSize(): ULong =
     windowssysWindowsWdkStorageFilesystemMmGetMaximumFileSectionSize()
 
-public actual fun mmIsFileSectionActive(fssectionpointer: ConstPtr<SectionObjectPointers>, flags: UInt, sectionisactive: MutPtr<UInt>): Ntstatus =
+public actual fun mmIsFileSectionActive(fssectionpointer: ConstPtr, flags: UInt, sectionisactive: MutPtr): Ntstatus =
     windowssysWindowsWdkStorageFilesystemMmIsFileSectionActive(fssectionpointer.rawAddress.toCPointer<ByteVar>(), flags, sectionisactive.rawAddress.toCPointer<ByteVar>())
 
 public actual fun mmIsRecursiveIoFault(): Boolean =
     windowssysWindowsWdkStorageFilesystemMmIsRecursiveIoFault()
 
-public actual fun mmMdlPagesAreZero(mdl: ConstPtr<Mdl>): UInt =
+public actual fun mmMdlPagesAreZero(mdl: ConstPtr): UInt =
     windowssysWindowsWdkStorageFilesystemMmMdlPagesAreZero(mdl.rawAddress.toCPointer<ByteVar>())
 
-public actual fun mmPrefetchPages(numberoflists: UInt, readlists: ConstPtr<ConstPtr<ReadList>>): Ntstatus =
+public actual fun mmPrefetchPages(numberoflists: UInt, readlists: ConstPtr): Ntstatus =
     windowssysWindowsWdkStorageFilesystemMmPrefetchPages(numberoflists, readlists.rawAddress.toCPointer<ByteVar>())
 
-public actual fun mmSetAddressRangeModified(address: ConstPtr<CVoid>, length: ULong): Boolean =
+public actual fun mmSetAddressRangeModified(address: ConstPtr, length: ULong): Boolean =
     windowssysWindowsWdkStorageFilesystemMmSetAddressRangeModified(address.rawAddress.toCPointer<ByteVar>(), length)
 
-public actual fun ntAccessCheckAndAuditAlarm(subsystemname: ConstPtr<UnicodeString>, handleid: ConstPtr<CVoid>, objecttypename: ConstPtr<UnicodeString>, objectname: ConstPtr<UnicodeString>, securitydescriptor: PsecurityDescriptor, desiredaccess: UInt, genericmapping: ConstPtr<GenericMapping>, objectcreation: Boolean, grantedaccess: MutPtr<UInt>, accessstatus: MutPtr<Int>, generateonclose: MutPtr<Boolean>): Ntstatus =
+public actual fun ntAccessCheckAndAuditAlarm(subsystemname: ConstPtr, handleid: ConstPtr, objecttypename: ConstPtr, objectname: ConstPtr, securitydescriptor: PsecurityDescriptor, desiredaccess: UInt, genericmapping: ConstPtr, objectcreation: Boolean, grantedaccess: MutPtr, accessstatus: MutPtr, generateonclose: MutPtr): Ntstatus =
     windowssysWindowsWdkStorageFilesystemNtAccessCheckAndAuditAlarm(subsystemname.rawAddress.toCPointer<ByteVar>(), handleid.rawAddress.toCPointer<ByteVar>(), objecttypename.rawAddress.toCPointer<ByteVar>(), objectname.rawAddress.toCPointer<ByteVar>(), securitydescriptor.rawAddress.toCPointer<ByteVar>(), desiredaccess, genericmapping.rawAddress.toCPointer<ByteVar>(), objectcreation, grantedaccess.rawAddress.toCPointer<ByteVar>(), accessstatus.rawAddress.toCPointer<ByteVar>(), generateonclose.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ntAccessCheckByTypeAndAuditAlarm(subsystemname: ConstPtr<UnicodeString>, handleid: ConstPtr<CVoid>, objecttypename: ConstPtr<UnicodeString>, objectname: ConstPtr<UnicodeString>, securitydescriptor: PsecurityDescriptor, principalselfsid: Psid, desiredaccess: UInt, audittype: AuditEventType, flags: UInt, objecttypelist: ConstPtr<ObjectTypeList>, objecttypelistlength: UInt, genericmapping: ConstPtr<GenericMapping>, objectcreation: Boolean, grantedaccess: MutPtr<UInt>, accessstatus: MutPtr<Int>, generateonclose: MutPtr<Boolean>): Ntstatus =
+public actual fun ntAccessCheckByTypeAndAuditAlarm(subsystemname: ConstPtr, handleid: ConstPtr, objecttypename: ConstPtr, objectname: ConstPtr, securitydescriptor: PsecurityDescriptor, principalselfsid: Psid, desiredaccess: UInt, audittype: AuditEventType, flags: UInt, objecttypelist: ConstPtr, objecttypelistlength: UInt, genericmapping: ConstPtr, objectcreation: Boolean, grantedaccess: MutPtr, accessstatus: MutPtr, generateonclose: MutPtr): Ntstatus =
     windowssysWindowsWdkStorageFilesystemNtAccessCheckByTypeAndAuditAlarm(subsystemname.rawAddress.toCPointer<ByteVar>(), handleid.rawAddress.toCPointer<ByteVar>(), objecttypename.rawAddress.toCPointer<ByteVar>(), objectname.rawAddress.toCPointer<ByteVar>(), securitydescriptor.rawAddress.toCPointer<ByteVar>(), principalselfsid.rawAddress.toCPointer<ByteVar>(), desiredaccess, audittype, flags, objecttypelist.rawAddress.toCPointer<ByteVar>(), objecttypelistlength, genericmapping.rawAddress.toCPointer<ByteVar>(), objectcreation, grantedaccess.rawAddress.toCPointer<ByteVar>(), accessstatus.rawAddress.toCPointer<ByteVar>(), generateonclose.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ntAccessCheckByTypeResultListAndAuditAlarm(subsystemname: ConstPtr<UnicodeString>, handleid: ConstPtr<CVoid>, objecttypename: ConstPtr<UnicodeString>, objectname: ConstPtr<UnicodeString>, securitydescriptor: PsecurityDescriptor, principalselfsid: Psid, desiredaccess: UInt, audittype: AuditEventType, flags: UInt, objecttypelist: ConstPtr<ObjectTypeList>, objecttypelistlength: UInt, genericmapping: ConstPtr<GenericMapping>, objectcreation: Boolean, grantedaccess: MutPtr<UInt>, accessstatus: MutPtr<Int>, generateonclose: MutPtr<Boolean>): Ntstatus =
+public actual fun ntAccessCheckByTypeResultListAndAuditAlarm(subsystemname: ConstPtr, handleid: ConstPtr, objecttypename: ConstPtr, objectname: ConstPtr, securitydescriptor: PsecurityDescriptor, principalselfsid: Psid, desiredaccess: UInt, audittype: AuditEventType, flags: UInt, objecttypelist: ConstPtr, objecttypelistlength: UInt, genericmapping: ConstPtr, objectcreation: Boolean, grantedaccess: MutPtr, accessstatus: MutPtr, generateonclose: MutPtr): Ntstatus =
     windowssysWindowsWdkStorageFilesystemNtAccessCheckByTypeResultListAndAuditAlarm(subsystemname.rawAddress.toCPointer<ByteVar>(), handleid.rawAddress.toCPointer<ByteVar>(), objecttypename.rawAddress.toCPointer<ByteVar>(), objectname.rawAddress.toCPointer<ByteVar>(), securitydescriptor.rawAddress.toCPointer<ByteVar>(), principalselfsid.rawAddress.toCPointer<ByteVar>(), desiredaccess, audittype, flags, objecttypelist.rawAddress.toCPointer<ByteVar>(), objecttypelistlength, genericmapping.rawAddress.toCPointer<ByteVar>(), objectcreation, grantedaccess.rawAddress.toCPointer<ByteVar>(), accessstatus.rawAddress.toCPointer<ByteVar>(), generateonclose.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ntAccessCheckByTypeResultListAndAuditAlarmByHandle(subsystemname: ConstPtr<UnicodeString>, handleid: ConstPtr<CVoid>, clienttoken: Handle, objecttypename: ConstPtr<UnicodeString>, objectname: ConstPtr<UnicodeString>, securitydescriptor: PsecurityDescriptor, principalselfsid: Psid, desiredaccess: UInt, audittype: AuditEventType, flags: UInt, objecttypelist: ConstPtr<ObjectTypeList>, objecttypelistlength: UInt, genericmapping: ConstPtr<GenericMapping>, objectcreation: Boolean, grantedaccess: MutPtr<UInt>, accessstatus: MutPtr<Int>, generateonclose: MutPtr<Boolean>): Ntstatus =
+public actual fun ntAccessCheckByTypeResultListAndAuditAlarmByHandle(subsystemname: ConstPtr, handleid: ConstPtr, clienttoken: Handle, objecttypename: ConstPtr, objectname: ConstPtr, securitydescriptor: PsecurityDescriptor, principalselfsid: Psid, desiredaccess: UInt, audittype: AuditEventType, flags: UInt, objecttypelist: ConstPtr, objecttypelistlength: UInt, genericmapping: ConstPtr, objectcreation: Boolean, grantedaccess: MutPtr, accessstatus: MutPtr, generateonclose: MutPtr): Ntstatus =
     windowssysWindowsWdkStorageFilesystemNtAccessCheckByTypeResultListAndAuditAlarmByHandle(subsystemname.rawAddress.toCPointer<ByteVar>(), handleid.rawAddress.toCPointer<ByteVar>(), clienttoken.rawAddress.toCPointer<ByteVar>(), objecttypename.rawAddress.toCPointer<ByteVar>(), objectname.rawAddress.toCPointer<ByteVar>(), securitydescriptor.rawAddress.toCPointer<ByteVar>(), principalselfsid.rawAddress.toCPointer<ByteVar>(), desiredaccess, audittype, flags, objecttypelist.rawAddress.toCPointer<ByteVar>(), objecttypelistlength, genericmapping.rawAddress.toCPointer<ByteVar>(), objectcreation, grantedaccess.rawAddress.toCPointer<ByteVar>(), accessstatus.rawAddress.toCPointer<ByteVar>(), generateonclose.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ntAdjustGroupsToken(tokenhandle: Handle, resettodefault: Boolean, newstate: ConstPtr<TokenGroups>, bufferlength: UInt, previousstate: MutPtr<TokenGroups>, returnlength: MutPtr<UInt>): Ntstatus =
+public actual fun ntAdjustGroupsToken(tokenhandle: Handle, resettodefault: Boolean, newstate: ConstPtr, bufferlength: UInt, previousstate: MutPtr, returnlength: MutPtr): Ntstatus =
     windowssysWindowsWdkStorageFilesystemNtAdjustGroupsToken(tokenhandle.rawAddress.toCPointer<ByteVar>(), resettodefault, newstate.rawAddress.toCPointer<ByteVar>(), bufferlength, previousstate.rawAddress.toCPointer<ByteVar>(), returnlength.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ntAdjustPrivilegesToken(tokenhandle: Handle, disableallprivileges: Boolean, newstate: ConstPtr<TokenPrivileges>, bufferlength: UInt, previousstate: MutPtr<TokenPrivileges>, returnlength: MutPtr<UInt>): Ntstatus =
+public actual fun ntAdjustPrivilegesToken(tokenhandle: Handle, disableallprivileges: Boolean, newstate: ConstPtr, bufferlength: UInt, previousstate: MutPtr, returnlength: MutPtr): Ntstatus =
     windowssysWindowsWdkStorageFilesystemNtAdjustPrivilegesToken(tokenhandle.rawAddress.toCPointer<ByteVar>(), disableallprivileges, newstate.rawAddress.toCPointer<ByteVar>(), bufferlength, previousstate.rawAddress.toCPointer<ByteVar>(), returnlength.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ntAllocateVirtualMemory(processhandle: Handle, baseaddress: MutPtr<MutPtr<CVoid>>, zerobits: ULong, regionsize: MutPtr<ULong>, allocationtype: UInt, protect: UInt): Ntstatus =
+public actual fun ntAllocateVirtualMemory(processhandle: Handle, baseaddress: MutPtr, zerobits: ULong, regionsize: MutPtr, allocationtype: UInt, protect: UInt): Ntstatus =
     windowssysWindowsWdkStorageFilesystemNtAllocateVirtualMemory(processhandle.rawAddress.toCPointer<ByteVar>(), baseaddress.rawAddress.toCPointer<ByteVar>(), zerobits, regionsize.rawAddress.toCPointer<ByteVar>(), allocationtype, protect)
 
-public actual fun ntAllocateVirtualMemoryEx(processhandle: Handle, baseaddress: MutPtr<MutPtr<CVoid>>, regionsize: MutPtr<ULong>, allocationtype: UInt, pageprotection: UInt, extendedparameters: MutPtr<MemExtendedParameter>, extendedparametercount: UInt): Ntstatus =
+public actual fun ntAllocateVirtualMemoryEx(processhandle: Handle, baseaddress: MutPtr, regionsize: MutPtr, allocationtype: UInt, pageprotection: UInt, extendedparameters: MutPtr, extendedparametercount: UInt): Ntstatus =
     windowssysWindowsWdkStorageFilesystemNtAllocateVirtualMemoryEx(processhandle.rawAddress.toCPointer<ByteVar>(), baseaddress.rawAddress.toCPointer<ByteVar>(), regionsize.rawAddress.toCPointer<ByteVar>(), allocationtype, pageprotection, extendedparameters.rawAddress.toCPointer<ByteVar>(), extendedparametercount)
 
-public actual fun ntCancelIoFileEx(filehandle: Handle, iorequesttocancel: ConstPtr<IoStatusBlock>, iostatusblock: MutPtr<IoStatusBlock>): Ntstatus =
+public actual fun ntCancelIoFileEx(filehandle: Handle, iorequesttocancel: ConstPtr, iostatusblock: MutPtr): Ntstatus =
     windowssysWindowsWdkStorageFilesystemNtCancelIoFileEx(filehandle.rawAddress.toCPointer<ByteVar>(), iorequesttocancel.rawAddress.toCPointer<ByteVar>(), iostatusblock.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ntCloseObjectAuditAlarm(subsystemname: ConstPtr<UnicodeString>, handleid: ConstPtr<CVoid>, generateonclose: Boolean): Ntstatus =
+public actual fun ntCloseObjectAuditAlarm(subsystemname: ConstPtr, handleid: ConstPtr, generateonclose: Boolean): Ntstatus =
     windowssysWindowsWdkStorageFilesystemNtCloseObjectAuditAlarm(subsystemname.rawAddress.toCPointer<ByteVar>(), handleid.rawAddress.toCPointer<ByteVar>(), generateonclose)
 
-public actual fun ntCreateDirectoryObject(directoryhandle: MutPtr<Handle>, desiredaccess: UInt, objectattributes: ConstPtr<ObjectAttributes>): Ntstatus =
+public actual fun ntCreateDirectoryObject(directoryhandle: MutPtr, desiredaccess: UInt, objectattributes: ConstPtr): Ntstatus =
     windowssysWindowsWdkStorageFilesystemNtCreateDirectoryObject(directoryhandle.rawAddress.toCPointer<ByteVar>(), desiredaccess, objectattributes.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ntCreateEvent(eventhandle: MutPtr<Handle>, desiredaccess: UInt, objectattributes: ConstPtr<ObjectAttributes>, eventtype: EventType, initialstate: Boolean): Ntstatus =
+public actual fun ntCreateEvent(eventhandle: MutPtr, desiredaccess: UInt, objectattributes: ConstPtr, eventtype: EventType, initialstate: Boolean): Ntstatus =
     windowssysWindowsWdkStorageFilesystemNtCreateEvent(eventhandle.rawAddress.toCPointer<ByteVar>(), desiredaccess, objectattributes.rawAddress.toCPointer<ByteVar>(), eventtype, initialstate)
 
-public actual fun ntCreateFile(filehandle: MutPtr<Handle>, desiredaccess: FileAccessRights, objectattributes: ConstPtr<ObjectAttributes>, iostatusblock: MutPtr<IoStatusBlock>, allocationsize: ConstPtr<Long>, fileattributes: FileFlagsAndAttributes, shareaccess: FileShareMode, createdisposition: NtcreatefileCreateDisposition, createoptions: NtcreatefileCreateOptions, eabuffer: ConstPtr<CVoid>, ealength: UInt): Ntstatus =
+public actual fun ntCreateFile(filehandle: MutPtr, desiredaccess: FileAccessRights, objectattributes: ConstPtr, iostatusblock: MutPtr, allocationsize: ConstPtr, fileattributes: FileFlagsAndAttributes, shareaccess: FileShareMode, createdisposition: NtcreatefileCreateDisposition, createoptions: NtcreatefileCreateOptions, eabuffer: ConstPtr, ealength: UInt): Ntstatus =
     windowssysWindowsWdkStorageFilesystemNtCreateFile(filehandle.rawAddress.toCPointer<ByteVar>(), desiredaccess, objectattributes.rawAddress.toCPointer<ByteVar>(), iostatusblock.rawAddress.toCPointer<ByteVar>(), allocationsize.rawAddress.toCPointer<ByteVar>(), fileattributes, shareaccess, createdisposition, createoptions, eabuffer.rawAddress.toCPointer<ByteVar>(), ealength)
 
-public actual fun ntCreateSection(sectionhandle: MutPtr<Handle>, desiredaccess: UInt, objectattributes: ConstPtr<ObjectAttributes>, maximumsize: ConstPtr<Long>, sectionpageprotection: UInt, allocationattributes: UInt, filehandle: Handle): Ntstatus =
+public actual fun ntCreateSection(sectionhandle: MutPtr, desiredaccess: UInt, objectattributes: ConstPtr, maximumsize: ConstPtr, sectionpageprotection: UInt, allocationattributes: UInt, filehandle: Handle): Ntstatus =
     windowssysWindowsWdkStorageFilesystemNtCreateSection(sectionhandle.rawAddress.toCPointer<ByteVar>(), desiredaccess, objectattributes.rawAddress.toCPointer<ByteVar>(), maximumsize.rawAddress.toCPointer<ByteVar>(), sectionpageprotection, allocationattributes, filehandle.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ntCreateSectionEx(sectionhandle: MutPtr<Handle>, desiredaccess: UInt, objectattributes: ConstPtr<ObjectAttributes>, maximumsize: ConstPtr<Long>, sectionpageprotection: UInt, allocationattributes: UInt, filehandle: Handle, extendedparameters: MutPtr<MemExtendedParameter>, extendedparametercount: UInt): Ntstatus =
+public actual fun ntCreateSectionEx(sectionhandle: MutPtr, desiredaccess: UInt, objectattributes: ConstPtr, maximumsize: ConstPtr, sectionpageprotection: UInt, allocationattributes: UInt, filehandle: Handle, extendedparameters: MutPtr, extendedparametercount: UInt): Ntstatus =
     windowssysWindowsWdkStorageFilesystemNtCreateSectionEx(sectionhandle.rawAddress.toCPointer<ByteVar>(), desiredaccess, objectattributes.rawAddress.toCPointer<ByteVar>(), maximumsize.rawAddress.toCPointer<ByteVar>(), sectionpageprotection, allocationattributes, filehandle.rawAddress.toCPointer<ByteVar>(), extendedparameters.rawAddress.toCPointer<ByteVar>(), extendedparametercount)
 
-public actual fun ntDeleteFile(objectattributes: ConstPtr<ObjectAttributes>): Ntstatus =
+public actual fun ntDeleteFile(objectattributes: ConstPtr): Ntstatus =
     windowssysWindowsWdkStorageFilesystemNtDeleteFile(objectattributes.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ntDeleteObjectAuditAlarm(subsystemname: ConstPtr<UnicodeString>, handleid: ConstPtr<CVoid>, generateonclose: Boolean): Ntstatus =
+public actual fun ntDeleteObjectAuditAlarm(subsystemname: ConstPtr, handleid: ConstPtr, generateonclose: Boolean): Ntstatus =
     windowssysWindowsWdkStorageFilesystemNtDeleteObjectAuditAlarm(subsystemname.rawAddress.toCPointer<ByteVar>(), handleid.rawAddress.toCPointer<ByteVar>(), generateonclose)
 
-public actual fun ntDuplicateObject(sourceprocesshandle: Handle, sourcehandle: Handle, targetprocesshandle: Handle, targethandle: MutPtr<Handle>, desiredaccess: UInt, handleattributes: UInt, options: UInt): Ntstatus =
+public actual fun ntDuplicateObject(sourceprocesshandle: Handle, sourcehandle: Handle, targetprocesshandle: Handle, targethandle: MutPtr, desiredaccess: UInt, handleattributes: UInt, options: UInt): Ntstatus =
     windowssysWindowsWdkStorageFilesystemNtDuplicateObject(sourceprocesshandle.rawAddress.toCPointer<ByteVar>(), sourcehandle.rawAddress.toCPointer<ByteVar>(), targetprocesshandle.rawAddress.toCPointer<ByteVar>(), targethandle.rawAddress.toCPointer<ByteVar>(), desiredaccess, handleattributes, options)
 
-public actual fun ntDuplicateToken(existingtokenhandle: Handle, desiredaccess: UInt, objectattributes: ConstPtr<ObjectAttributes>, effectiveonly: Boolean, tokentype: TokenType, newtokenhandle: MutPtr<Handle>): Ntstatus =
+public actual fun ntDuplicateToken(existingtokenhandle: Handle, desiredaccess: UInt, objectattributes: ConstPtr, effectiveonly: Boolean, tokentype: TokenType, newtokenhandle: MutPtr): Ntstatus =
     windowssysWindowsWdkStorageFilesystemNtDuplicateToken(existingtokenhandle.rawAddress.toCPointer<ByteVar>(), desiredaccess, objectattributes.rawAddress.toCPointer<ByteVar>(), effectiveonly, tokentype, newtokenhandle.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ntFilterToken(existingtokenhandle: Handle, flags: UInt, sidstodisable: ConstPtr<TokenGroups>, privilegestodelete: ConstPtr<TokenPrivileges>, restrictedsids: ConstPtr<TokenGroups>, newtokenhandle: MutPtr<Handle>): Ntstatus =
+public actual fun ntFilterToken(existingtokenhandle: Handle, flags: UInt, sidstodisable: ConstPtr, privilegestodelete: ConstPtr, restrictedsids: ConstPtr, newtokenhandle: MutPtr): Ntstatus =
     windowssysWindowsWdkStorageFilesystemNtFilterToken(existingtokenhandle.rawAddress.toCPointer<ByteVar>(), flags, sidstodisable.rawAddress.toCPointer<ByteVar>(), privilegestodelete.rawAddress.toCPointer<ByteVar>(), restrictedsids.rawAddress.toCPointer<ByteVar>(), newtokenhandle.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ntFlushBuffersFile(filehandle: Handle, iostatusblock: MutPtr<IoStatusBlock>): Ntstatus =
+public actual fun ntFlushBuffersFile(filehandle: Handle, iostatusblock: MutPtr): Ntstatus =
     windowssysWindowsWdkStorageFilesystemNtFlushBuffersFile(filehandle.rawAddress.toCPointer<ByteVar>(), iostatusblock.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ntFlushBuffersFileEx(filehandle: Handle, flags: UInt, parameters: ConstPtr<CVoid>, parameterssize: UInt, iostatusblock: MutPtr<IoStatusBlock>): Ntstatus =
+public actual fun ntFlushBuffersFileEx(filehandle: Handle, flags: UInt, parameters: ConstPtr, parameterssize: UInt, iostatusblock: MutPtr): Ntstatus =
     windowssysWindowsWdkStorageFilesystemNtFlushBuffersFileEx(filehandle.rawAddress.toCPointer<ByteVar>(), flags, parameters.rawAddress.toCPointer<ByteVar>(), parameterssize, iostatusblock.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ntFlushVirtualMemory(processhandle: Handle, baseaddress: MutPtr<MutPtr<CVoid>>, regionsize: MutPtr<ULong>, iostatus: MutPtr<IoStatusBlock>): Ntstatus =
+public actual fun ntFlushVirtualMemory(processhandle: Handle, baseaddress: MutPtr, regionsize: MutPtr, iostatus: MutPtr): Ntstatus =
     windowssysWindowsWdkStorageFilesystemNtFlushVirtualMemory(processhandle.rawAddress.toCPointer<ByteVar>(), baseaddress.rawAddress.toCPointer<ByteVar>(), regionsize.rawAddress.toCPointer<ByteVar>(), iostatus.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ntFreeVirtualMemory(processhandle: Handle, baseaddress: MutPtr<MutPtr<CVoid>>, regionsize: MutPtr<ULong>, freetype: UInt): Ntstatus =
+public actual fun ntFreeVirtualMemory(processhandle: Handle, baseaddress: MutPtr, regionsize: MutPtr, freetype: UInt): Ntstatus =
     windowssysWindowsWdkStorageFilesystemNtFreeVirtualMemory(processhandle.rawAddress.toCPointer<ByteVar>(), baseaddress.rawAddress.toCPointer<ByteVar>(), regionsize.rawAddress.toCPointer<ByteVar>(), freetype)
 
-public actual fun ntFsControlFile(filehandle: Handle, event: Handle, apcroutine: PioApcRoutine, apccontext: ConstPtr<CVoid>, iostatusblock: MutPtr<IoStatusBlock>, fscontrolcode: UInt, inputbuffer: ConstPtr<CVoid>, inputbufferlength: UInt, outputbuffer: MutPtr<CVoid>, outputbufferlength: UInt): Ntstatus =
+public actual fun ntFsControlFile(filehandle: Handle, event: Handle, apcroutine: PioApcRoutine, apccontext: ConstPtr, iostatusblock: MutPtr, fscontrolcode: UInt, inputbuffer: ConstPtr, inputbufferlength: UInt, outputbuffer: MutPtr, outputbufferlength: UInt): Ntstatus =
     windowssysWindowsWdkStorageFilesystemNtFsControlFile(filehandle.rawAddress.toCPointer<ByteVar>(), event.rawAddress.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>(), apccontext.rawAddress.toCPointer<ByteVar>(), iostatusblock.rawAddress.toCPointer<ByteVar>(), fscontrolcode, inputbuffer.rawAddress.toCPointer<ByteVar>(), inputbufferlength, outputbuffer.rawAddress.toCPointer<ByteVar>(), outputbufferlength)
 
 public actual fun ntImpersonateAnonymousToken(threadhandle: Handle): Ntstatus =
     windowssysWindowsWdkStorageFilesystemNtImpersonateAnonymousToken(threadhandle.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ntLockFile(filehandle: Handle, event: Handle, apcroutine: PioApcRoutine, apccontext: ConstPtr<CVoid>, iostatusblock: MutPtr<IoStatusBlock>, byteoffset: ConstPtr<Long>, length: ConstPtr<Long>, key: UInt, failimmediately: Boolean, exclusivelock: Boolean): Ntstatus =
+public actual fun ntLockFile(filehandle: Handle, event: Handle, apcroutine: PioApcRoutine, apccontext: ConstPtr, iostatusblock: MutPtr, byteoffset: ConstPtr, length: ConstPtr, key: UInt, failimmediately: Boolean, exclusivelock: Boolean): Ntstatus =
     windowssysWindowsWdkStorageFilesystemNtLockFile(filehandle.rawAddress.toCPointer<ByteVar>(), event.rawAddress.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>(), apccontext.rawAddress.toCPointer<ByteVar>(), iostatusblock.rawAddress.toCPointer<ByteVar>(), byteoffset.rawAddress.toCPointer<ByteVar>(), length.rawAddress.toCPointer<ByteVar>(), key, failimmediately, exclusivelock)
 
-public actual fun ntNotifyChangeKey(keyhandle: Handle, event: Handle, apcroutine: PioApcRoutine, apccontext: ConstPtr<CVoid>, iostatusblock: MutPtr<IoStatusBlock>, completionfilter: UInt, watchtree: Boolean, buffer: MutPtr<CVoid>, buffersize: UInt, asynchronous: Boolean): Ntstatus =
+public actual fun ntNotifyChangeKey(keyhandle: Handle, event: Handle, apcroutine: PioApcRoutine, apccontext: ConstPtr, iostatusblock: MutPtr, completionfilter: UInt, watchtree: Boolean, buffer: MutPtr, buffersize: UInt, asynchronous: Boolean): Ntstatus =
     windowssysWindowsWdkStorageFilesystemNtNotifyChangeKey(keyhandle.rawAddress.toCPointer<ByteVar>(), event.rawAddress.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>(), apccontext.rawAddress.toCPointer<ByteVar>(), iostatusblock.rawAddress.toCPointer<ByteVar>(), completionfilter, watchtree, buffer.rawAddress.toCPointer<ByteVar>(), buffersize, asynchronous)
 
-public actual fun ntOpenDirectoryObject(directoryhandle: MutPtr<Handle>, desiredaccess: UInt, objectattributes: ConstPtr<ObjectAttributes>): Ntstatus =
+public actual fun ntOpenDirectoryObject(directoryhandle: MutPtr, desiredaccess: UInt, objectattributes: ConstPtr): Ntstatus =
     windowssysWindowsWdkStorageFilesystemNtOpenDirectoryObject(directoryhandle.rawAddress.toCPointer<ByteVar>(), desiredaccess, objectattributes.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ntOpenFile(filehandle: MutPtr<Handle>, desiredaccess: UInt, objectattributes: ConstPtr<ObjectAttributes>, iostatusblock: MutPtr<IoStatusBlock>, shareaccess: UInt, openoptions: UInt): Ntstatus =
+public actual fun ntOpenFile(filehandle: MutPtr, desiredaccess: UInt, objectattributes: ConstPtr, iostatusblock: MutPtr, shareaccess: UInt, openoptions: UInt): Ntstatus =
     windowssysWindowsWdkStorageFilesystemNtOpenFile(filehandle.rawAddress.toCPointer<ByteVar>(), desiredaccess, objectattributes.rawAddress.toCPointer<ByteVar>(), iostatusblock.rawAddress.toCPointer<ByteVar>(), shareaccess, openoptions)
 
-public actual fun ntOpenObjectAuditAlarm(subsystemname: ConstPtr<UnicodeString>, handleid: ConstPtr<CVoid>, objecttypename: ConstPtr<UnicodeString>, objectname: ConstPtr<UnicodeString>, securitydescriptor: PsecurityDescriptor, clienttoken: Handle, desiredaccess: UInt, grantedaccess: UInt, privileges: ConstPtr<PrivilegeSet>, objectcreation: Boolean, accessgranted: Boolean, generateonclose: MutPtr<Boolean>): Ntstatus =
+public actual fun ntOpenObjectAuditAlarm(subsystemname: ConstPtr, handleid: ConstPtr, objecttypename: ConstPtr, objectname: ConstPtr, securitydescriptor: PsecurityDescriptor, clienttoken: Handle, desiredaccess: UInt, grantedaccess: UInt, privileges: ConstPtr, objectcreation: Boolean, accessgranted: Boolean, generateonclose: MutPtr): Ntstatus =
     windowssysWindowsWdkStorageFilesystemNtOpenObjectAuditAlarm(subsystemname.rawAddress.toCPointer<ByteVar>(), handleid.rawAddress.toCPointer<ByteVar>(), objecttypename.rawAddress.toCPointer<ByteVar>(), objectname.rawAddress.toCPointer<ByteVar>(), securitydescriptor.rawAddress.toCPointer<ByteVar>(), clienttoken.rawAddress.toCPointer<ByteVar>(), desiredaccess, grantedaccess, privileges.rawAddress.toCPointer<ByteVar>(), objectcreation, accessgranted, generateonclose.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ntOpenProcessToken(processhandle: Handle, desiredaccess: UInt, tokenhandle: MutPtr<Handle>): Ntstatus =
+public actual fun ntOpenProcessToken(processhandle: Handle, desiredaccess: UInt, tokenhandle: MutPtr): Ntstatus =
     windowssysWindowsWdkStorageFilesystemNtOpenProcessToken(processhandle.rawAddress.toCPointer<ByteVar>(), desiredaccess, tokenhandle.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ntOpenProcessTokenEx(processhandle: Handle, desiredaccess: UInt, handleattributes: UInt, tokenhandle: MutPtr<Handle>): Ntstatus =
+public actual fun ntOpenProcessTokenEx(processhandle: Handle, desiredaccess: UInt, handleattributes: UInt, tokenhandle: MutPtr): Ntstatus =
     windowssysWindowsWdkStorageFilesystemNtOpenProcessTokenEx(processhandle.rawAddress.toCPointer<ByteVar>(), desiredaccess, handleattributes, tokenhandle.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ntOpenSymbolicLinkObject(linkhandle: MutPtr<Handle>, desiredaccess: UInt, objectattributes: ConstPtr<ObjectAttributes>): Ntstatus =
+public actual fun ntOpenSymbolicLinkObject(linkhandle: MutPtr, desiredaccess: UInt, objectattributes: ConstPtr): Ntstatus =
     windowssysWindowsWdkStorageFilesystemNtOpenSymbolicLinkObject(linkhandle.rawAddress.toCPointer<ByteVar>(), desiredaccess, objectattributes.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ntOpenThreadToken(threadhandle: Handle, desiredaccess: UInt, openasself: Boolean, tokenhandle: MutPtr<Handle>): Ntstatus =
+public actual fun ntOpenThreadToken(threadhandle: Handle, desiredaccess: UInt, openasself: Boolean, tokenhandle: MutPtr): Ntstatus =
     windowssysWindowsWdkStorageFilesystemNtOpenThreadToken(threadhandle.rawAddress.toCPointer<ByteVar>(), desiredaccess, openasself, tokenhandle.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ntOpenThreadTokenEx(threadhandle: Handle, desiredaccess: UInt, openasself: Boolean, handleattributes: UInt, tokenhandle: MutPtr<Handle>): Ntstatus =
+public actual fun ntOpenThreadTokenEx(threadhandle: Handle, desiredaccess: UInt, openasself: Boolean, handleattributes: UInt, tokenhandle: MutPtr): Ntstatus =
     windowssysWindowsWdkStorageFilesystemNtOpenThreadTokenEx(threadhandle.rawAddress.toCPointer<ByteVar>(), desiredaccess, openasself, handleattributes, tokenhandle.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ntPrivilegeCheck(clienttoken: Handle, requiredprivileges: MutPtr<PrivilegeSet>, result: MutPtr<Boolean>): Ntstatus =
+public actual fun ntPrivilegeCheck(clienttoken: Handle, requiredprivileges: MutPtr, result: MutPtr): Ntstatus =
     windowssysWindowsWdkStorageFilesystemNtPrivilegeCheck(clienttoken.rawAddress.toCPointer<ByteVar>(), requiredprivileges.rawAddress.toCPointer<ByteVar>(), result.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ntPrivilegeObjectAuditAlarm(subsystemname: ConstPtr<UnicodeString>, handleid: ConstPtr<CVoid>, clienttoken: Handle, desiredaccess: UInt, privileges: ConstPtr<PrivilegeSet>, accessgranted: Boolean): Ntstatus =
+public actual fun ntPrivilegeObjectAuditAlarm(subsystemname: ConstPtr, handleid: ConstPtr, clienttoken: Handle, desiredaccess: UInt, privileges: ConstPtr, accessgranted: Boolean): Ntstatus =
     windowssysWindowsWdkStorageFilesystemNtPrivilegeObjectAuditAlarm(subsystemname.rawAddress.toCPointer<ByteVar>(), handleid.rawAddress.toCPointer<ByteVar>(), clienttoken.rawAddress.toCPointer<ByteVar>(), desiredaccess, privileges.rawAddress.toCPointer<ByteVar>(), accessgranted)
 
-public actual fun ntPrivilegedServiceAuditAlarm(subsystemname: ConstPtr<UnicodeString>, servicename: ConstPtr<UnicodeString>, clienttoken: Handle, privileges: ConstPtr<PrivilegeSet>, accessgranted: Boolean): Ntstatus =
+public actual fun ntPrivilegedServiceAuditAlarm(subsystemname: ConstPtr, servicename: ConstPtr, clienttoken: Handle, privileges: ConstPtr, accessgranted: Boolean): Ntstatus =
     windowssysWindowsWdkStorageFilesystemNtPrivilegedServiceAuditAlarm(subsystemname.rawAddress.toCPointer<ByteVar>(), servicename.rawAddress.toCPointer<ByteVar>(), clienttoken.rawAddress.toCPointer<ByteVar>(), privileges.rawAddress.toCPointer<ByteVar>(), accessgranted)
 
-public actual fun ntQueryDirectoryFile(filehandle: Handle, event: Handle, apcroutine: PioApcRoutine, apccontext: ConstPtr<CVoid>, iostatusblock: MutPtr<IoStatusBlock>, fileinformation: MutPtr<CVoid>, length: UInt, fileinformationclass: FileInformationClass, returnsingleentry: Boolean, filename: ConstPtr<UnicodeString>, restartscan: Boolean): Ntstatus =
+public actual fun ntQueryDirectoryFile(filehandle: Handle, event: Handle, apcroutine: PioApcRoutine, apccontext: ConstPtr, iostatusblock: MutPtr, fileinformation: MutPtr, length: UInt, fileinformationclass: FileInformationClass, returnsingleentry: Boolean, filename: ConstPtr, restartscan: Boolean): Ntstatus =
     windowssysWindowsWdkStorageFilesystemNtQueryDirectoryFile(filehandle.rawAddress.toCPointer<ByteVar>(), event.rawAddress.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>(), apccontext.rawAddress.toCPointer<ByteVar>(), iostatusblock.rawAddress.toCPointer<ByteVar>(), fileinformation.rawAddress.toCPointer<ByteVar>(), length, fileinformationclass, returnsingleentry, filename.rawAddress.toCPointer<ByteVar>(), restartscan)
 
-public actual fun ntQueryDirectoryFileEx(filehandle: Handle, event: Handle, apcroutine: PioApcRoutine, apccontext: ConstPtr<CVoid>, iostatusblock: MutPtr<IoStatusBlock>, fileinformation: MutPtr<CVoid>, length: UInt, fileinformationclass: FileInformationClass, queryflags: UInt, filename: ConstPtr<UnicodeString>): Ntstatus =
+public actual fun ntQueryDirectoryFileEx(filehandle: Handle, event: Handle, apcroutine: PioApcRoutine, apccontext: ConstPtr, iostatusblock: MutPtr, fileinformation: MutPtr, length: UInt, fileinformationclass: FileInformationClass, queryflags: UInt, filename: ConstPtr): Ntstatus =
     windowssysWindowsWdkStorageFilesystemNtQueryDirectoryFileEx(filehandle.rawAddress.toCPointer<ByteVar>(), event.rawAddress.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>(), apccontext.rawAddress.toCPointer<ByteVar>(), iostatusblock.rawAddress.toCPointer<ByteVar>(), fileinformation.rawAddress.toCPointer<ByteVar>(), length, fileinformationclass, queryflags, filename.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ntQueryDirectoryObject(directoryhandle: Handle, buffer: MutPtr<CVoid>, length: UInt, returnsingleentry: Boolean, restartscan: Boolean, context: MutPtr<UInt>, returnlength: MutPtr<UInt>): Ntstatus =
+public actual fun ntQueryDirectoryObject(directoryhandle: Handle, buffer: MutPtr, length: UInt, returnsingleentry: Boolean, restartscan: Boolean, context: MutPtr, returnlength: MutPtr): Ntstatus =
     windowssysWindowsWdkStorageFilesystemNtQueryDirectoryObject(directoryhandle.rawAddress.toCPointer<ByteVar>(), buffer.rawAddress.toCPointer<ByteVar>(), length, returnsingleentry, restartscan, context.rawAddress.toCPointer<ByteVar>(), returnlength.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ntQueryEaFile(filehandle: Handle, iostatusblock: MutPtr<IoStatusBlock>, buffer: MutPtr<CVoid>, length: UInt, returnsingleentry: Boolean, ealist: ConstPtr<CVoid>, ealistlength: UInt, eaindex: ConstPtr<UInt>, restartscan: Boolean): Ntstatus =
+public actual fun ntQueryEaFile(filehandle: Handle, iostatusblock: MutPtr, buffer: MutPtr, length: UInt, returnsingleentry: Boolean, ealist: ConstPtr, ealistlength: UInt, eaindex: ConstPtr, restartscan: Boolean): Ntstatus =
     windowssysWindowsWdkStorageFilesystemNtQueryEaFile(filehandle.rawAddress.toCPointer<ByteVar>(), iostatusblock.rawAddress.toCPointer<ByteVar>(), buffer.rawAddress.toCPointer<ByteVar>(), length, returnsingleentry, ealist.rawAddress.toCPointer<ByteVar>(), ealistlength, eaindex.rawAddress.toCPointer<ByteVar>(), restartscan)
 
-public actual fun ntQueryFullAttributesFile(objectattributes: ConstPtr<ObjectAttributes>, fileinformation: MutPtr<FileNetworkOpenInformation>): Ntstatus =
+public actual fun ntQueryFullAttributesFile(objectattributes: ConstPtr, fileinformation: MutPtr): Ntstatus =
     windowssysWindowsWdkStorageFilesystemNtQueryFullAttributesFile(objectattributes.rawAddress.toCPointer<ByteVar>(), fileinformation.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ntQueryInformationByName(objectattributes: ConstPtr<ObjectAttributes>, iostatusblock: MutPtr<IoStatusBlock>, fileinformation: MutPtr<CVoid>, length: UInt, fileinformationclass: FileInformationClass): Ntstatus =
+public actual fun ntQueryInformationByName(objectattributes: ConstPtr, iostatusblock: MutPtr, fileinformation: MutPtr, length: UInt, fileinformationclass: FileInformationClass): Ntstatus =
     windowssysWindowsWdkStorageFilesystemNtQueryInformationByName(objectattributes.rawAddress.toCPointer<ByteVar>(), iostatusblock.rawAddress.toCPointer<ByteVar>(), fileinformation.rawAddress.toCPointer<ByteVar>(), length, fileinformationclass)
 
-public actual fun ntQueryInformationFile(filehandle: Handle, iostatusblock: MutPtr<IoStatusBlock>, fileinformation: MutPtr<CVoid>, length: UInt, fileinformationclass: FileInformationClass): Ntstatus =
+public actual fun ntQueryInformationFile(filehandle: Handle, iostatusblock: MutPtr, fileinformation: MutPtr, length: UInt, fileinformationclass: FileInformationClass): Ntstatus =
     windowssysWindowsWdkStorageFilesystemNtQueryInformationFile(filehandle.rawAddress.toCPointer<ByteVar>(), iostatusblock.rawAddress.toCPointer<ByteVar>(), fileinformation.rawAddress.toCPointer<ByteVar>(), length, fileinformationclass)
 
-public actual fun ntQueryInformationToken(tokenhandle: Handle, tokeninformationclass: TokenInformationClass, tokeninformation: MutPtr<CVoid>, tokeninformationlength: UInt, returnlength: MutPtr<UInt>): Ntstatus =
+public actual fun ntQueryInformationToken(tokenhandle: Handle, tokeninformationclass: TokenInformationClass, tokeninformation: MutPtr, tokeninformationlength: UInt, returnlength: MutPtr): Ntstatus =
     windowssysWindowsWdkStorageFilesystemNtQueryInformationToken(tokenhandle.rawAddress.toCPointer<ByteVar>(), tokeninformationclass, tokeninformation.rawAddress.toCPointer<ByteVar>(), tokeninformationlength, returnlength.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ntQueryQuotaInformationFile(filehandle: Handle, iostatusblock: MutPtr<IoStatusBlock>, buffer: MutPtr<CVoid>, length: UInt, returnsingleentry: Boolean, sidlist: ConstPtr<CVoid>, sidlistlength: UInt, startsid: Psid, restartscan: Boolean): Ntstatus =
+public actual fun ntQueryQuotaInformationFile(filehandle: Handle, iostatusblock: MutPtr, buffer: MutPtr, length: UInt, returnsingleentry: Boolean, sidlist: ConstPtr, sidlistlength: UInt, startsid: Psid, restartscan: Boolean): Ntstatus =
     windowssysWindowsWdkStorageFilesystemNtQueryQuotaInformationFile(filehandle.rawAddress.toCPointer<ByteVar>(), iostatusblock.rawAddress.toCPointer<ByteVar>(), buffer.rawAddress.toCPointer<ByteVar>(), length, returnsingleentry, sidlist.rawAddress.toCPointer<ByteVar>(), sidlistlength, startsid.rawAddress.toCPointer<ByteVar>(), restartscan)
 
-public actual fun ntQuerySecurityObject(handle: Handle, securityinformation: UInt, securitydescriptor: PsecurityDescriptor, length: UInt, lengthneeded: MutPtr<UInt>): Ntstatus =
+public actual fun ntQuerySecurityObject(handle: Handle, securityinformation: UInt, securitydescriptor: PsecurityDescriptor, length: UInt, lengthneeded: MutPtr): Ntstatus =
     windowssysWindowsWdkStorageFilesystemNtQuerySecurityObject(handle.rawAddress.toCPointer<ByteVar>(), securityinformation, securitydescriptor.rawAddress.toCPointer<ByteVar>(), length, lengthneeded.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ntQuerySymbolicLinkObject(linkhandle: Handle, linktarget: MutPtr<UnicodeString>, returnedlength: MutPtr<UInt>): Ntstatus =
+public actual fun ntQuerySymbolicLinkObject(linkhandle: Handle, linktarget: MutPtr, returnedlength: MutPtr): Ntstatus =
     windowssysWindowsWdkStorageFilesystemNtQuerySymbolicLinkObject(linkhandle.rawAddress.toCPointer<ByteVar>(), linktarget.rawAddress.toCPointer<ByteVar>(), returnedlength.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ntQueryVirtualMemory(processhandle: Handle, baseaddress: ConstPtr<CVoid>, memoryinformationclass: MemoryInformationClass, memoryinformation: MutPtr<CVoid>, memoryinformationlength: ULong, returnlength: MutPtr<ULong>): Ntstatus =
+public actual fun ntQueryVirtualMemory(processhandle: Handle, baseaddress: ConstPtr, memoryinformationclass: MemoryInformationClass, memoryinformation: MutPtr, memoryinformationlength: ULong, returnlength: MutPtr): Ntstatus =
     windowssysWindowsWdkStorageFilesystemNtQueryVirtualMemory(processhandle.rawAddress.toCPointer<ByteVar>(), baseaddress.rawAddress.toCPointer<ByteVar>(), memoryinformationclass, memoryinformation.rawAddress.toCPointer<ByteVar>(), memoryinformationlength, returnlength.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ntQueryVolumeInformationFile(filehandle: Handle, iostatusblock: MutPtr<IoStatusBlock>, fsinformation: MutPtr<CVoid>, length: UInt, fsinformationclass: FsInformationClass): Ntstatus =
+public actual fun ntQueryVolumeInformationFile(filehandle: Handle, iostatusblock: MutPtr, fsinformation: MutPtr, length: UInt, fsinformationclass: FsInformationClass): Ntstatus =
     windowssysWindowsWdkStorageFilesystemNtQueryVolumeInformationFile(filehandle.rawAddress.toCPointer<ByteVar>(), iostatusblock.rawAddress.toCPointer<ByteVar>(), fsinformation.rawAddress.toCPointer<ByteVar>(), length, fsinformationclass)
 
-public actual fun ntReadFile(filehandle: Handle, event: Handle, apcroutine: PioApcRoutine, apccontext: ConstPtr<CVoid>, iostatusblock: MutPtr<IoStatusBlock>, buffer: MutPtr<CVoid>, length: UInt, byteoffset: ConstPtr<Long>, key: ConstPtr<UInt>): Ntstatus =
+public actual fun ntReadFile(filehandle: Handle, event: Handle, apcroutine: PioApcRoutine, apccontext: ConstPtr, iostatusblock: MutPtr, buffer: MutPtr, length: UInt, byteoffset: ConstPtr, key: ConstPtr): Ntstatus =
     windowssysWindowsWdkStorageFilesystemNtReadFile(filehandle.rawAddress.toCPointer<ByteVar>(), event.rawAddress.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>(), apccontext.rawAddress.toCPointer<ByteVar>(), iostatusblock.rawAddress.toCPointer<ByteVar>(), buffer.rawAddress.toCPointer<ByteVar>(), length, byteoffset.rawAddress.toCPointer<ByteVar>(), key.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ntSetEaFile(filehandle: Handle, iostatusblock: MutPtr<IoStatusBlock>, buffer: ConstPtr<CVoid>, length: UInt): Ntstatus =
+public actual fun ntSetEaFile(filehandle: Handle, iostatusblock: MutPtr, buffer: ConstPtr, length: UInt): Ntstatus =
     windowssysWindowsWdkStorageFilesystemNtSetEaFile(filehandle.rawAddress.toCPointer<ByteVar>(), iostatusblock.rawAddress.toCPointer<ByteVar>(), buffer.rawAddress.toCPointer<ByteVar>(), length)
 
-public actual fun ntSetEvent(eventhandle: Handle, previousstate: MutPtr<Int>): Ntstatus =
+public actual fun ntSetEvent(eventhandle: Handle, previousstate: MutPtr): Ntstatus =
     windowssysWindowsWdkStorageFilesystemNtSetEvent(eventhandle.rawAddress.toCPointer<ByteVar>(), previousstate.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ntSetInformationFile(filehandle: Handle, iostatusblock: MutPtr<IoStatusBlock>, fileinformation: ConstPtr<CVoid>, length: UInt, fileinformationclass: FileInformationClass): Ntstatus =
+public actual fun ntSetInformationFile(filehandle: Handle, iostatusblock: MutPtr, fileinformation: ConstPtr, length: UInt, fileinformationclass: FileInformationClass): Ntstatus =
     windowssysWindowsWdkStorageFilesystemNtSetInformationFile(filehandle.rawAddress.toCPointer<ByteVar>(), iostatusblock.rawAddress.toCPointer<ByteVar>(), fileinformation.rawAddress.toCPointer<ByteVar>(), length, fileinformationclass)
 
-public actual fun ntSetInformationToken(tokenhandle: Handle, tokeninformationclass: TokenInformationClass, tokeninformation: ConstPtr<CVoid>, tokeninformationlength: UInt): Ntstatus =
+public actual fun ntSetInformationToken(tokenhandle: Handle, tokeninformationclass: TokenInformationClass, tokeninformation: ConstPtr, tokeninformationlength: UInt): Ntstatus =
     windowssysWindowsWdkStorageFilesystemNtSetInformationToken(tokenhandle.rawAddress.toCPointer<ByteVar>(), tokeninformationclass, tokeninformation.rawAddress.toCPointer<ByteVar>(), tokeninformationlength)
 
-public actual fun ntSetInformationVirtualMemory(processhandle: Handle, vminformationclass: VirtualMemoryInformationClass, numberofentries: ULong, virtualaddresses: ConstPtr<MemoryRangeEntry>, vminformation: ConstPtr<CVoid>, vminformationlength: UInt): Ntstatus =
+public actual fun ntSetInformationVirtualMemory(processhandle: Handle, vminformationclass: VirtualMemoryInformationClass, numberofentries: ULong, virtualaddresses: ConstPtr, vminformation: ConstPtr, vminformationlength: UInt): Ntstatus =
     windowssysWindowsWdkStorageFilesystemNtSetInformationVirtualMemory(processhandle.rawAddress.toCPointer<ByteVar>(), vminformationclass, numberofentries, virtualaddresses.rawAddress.toCPointer<ByteVar>(), vminformation.rawAddress.toCPointer<ByteVar>(), vminformationlength)
 
-public actual fun ntSetQuotaInformationFile(filehandle: Handle, iostatusblock: MutPtr<IoStatusBlock>, buffer: ConstPtr<CVoid>, length: UInt): Ntstatus =
+public actual fun ntSetQuotaInformationFile(filehandle: Handle, iostatusblock: MutPtr, buffer: ConstPtr, length: UInt): Ntstatus =
     windowssysWindowsWdkStorageFilesystemNtSetQuotaInformationFile(filehandle.rawAddress.toCPointer<ByteVar>(), iostatusblock.rawAddress.toCPointer<ByteVar>(), buffer.rawAddress.toCPointer<ByteVar>(), length)
 
 public actual fun ntSetSecurityObject(handle: Handle, securityinformation: UInt, securitydescriptor: PsecurityDescriptor): Ntstatus =
     windowssysWindowsWdkStorageFilesystemNtSetSecurityObject(handle.rawAddress.toCPointer<ByteVar>(), securityinformation, securitydescriptor.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ntSetVolumeInformationFile(filehandle: Handle, iostatusblock: MutPtr<IoStatusBlock>, fsinformation: ConstPtr<CVoid>, length: UInt, fsinformationclass: FsInformationClass): Ntstatus =
+public actual fun ntSetVolumeInformationFile(filehandle: Handle, iostatusblock: MutPtr, fsinformation: ConstPtr, length: UInt, fsinformationclass: FsInformationClass): Ntstatus =
     windowssysWindowsWdkStorageFilesystemNtSetVolumeInformationFile(filehandle.rawAddress.toCPointer<ByteVar>(), iostatusblock.rawAddress.toCPointer<ByteVar>(), fsinformation.rawAddress.toCPointer<ByteVar>(), length, fsinformationclass)
 
-public actual fun ntUnlockFile(filehandle: Handle, iostatusblock: MutPtr<IoStatusBlock>, byteoffset: ConstPtr<Long>, length: ConstPtr<Long>, key: UInt): Ntstatus =
+public actual fun ntUnlockFile(filehandle: Handle, iostatusblock: MutPtr, byteoffset: ConstPtr, length: ConstPtr, key: UInt): Ntstatus =
     windowssysWindowsWdkStorageFilesystemNtUnlockFile(filehandle.rawAddress.toCPointer<ByteVar>(), iostatusblock.rawAddress.toCPointer<ByteVar>(), byteoffset.rawAddress.toCPointer<ByteVar>(), length.rawAddress.toCPointer<ByteVar>(), key)
 
-public actual fun ntWriteFile(filehandle: Handle, event: Handle, apcroutine: PioApcRoutine, apccontext: ConstPtr<CVoid>, iostatusblock: MutPtr<IoStatusBlock>, buffer: ConstPtr<CVoid>, length: UInt, byteoffset: ConstPtr<Long>, key: ConstPtr<UInt>): Ntstatus =
+public actual fun ntWriteFile(filehandle: Handle, event: Handle, apcroutine: PioApcRoutine, apccontext: ConstPtr, iostatusblock: MutPtr, buffer: ConstPtr, length: UInt, byteoffset: ConstPtr, key: ConstPtr): Ntstatus =
     windowssysWindowsWdkStorageFilesystemNtWriteFile(filehandle.rawAddress.toCPointer<ByteVar>(), event.rawAddress.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>(), apccontext.rawAddress.toCPointer<ByteVar>(), iostatusblock.rawAddress.toCPointer<ByteVar>(), buffer.rawAddress.toCPointer<ByteVar>(), length, byteoffset.rawAddress.toCPointer<ByteVar>(), key.rawAddress.toCPointer<ByteVar>())
 
-public actual fun obInsertObject(obj: ConstPtr<CVoid>, passedaccessstate: MutPtr<AccessState>, desiredaccess: UInt, objectpointerbias: UInt, newobject: MutPtr<MutPtr<CVoid>>, handle: MutPtr<Handle>): Ntstatus =
+public actual fun obInsertObject(obj: ConstPtr, passedaccessstate: MutPtr, desiredaccess: UInt, objectpointerbias: UInt, newobject: MutPtr, handle: MutPtr): Ntstatus =
     windowssysWindowsWdkStorageFilesystemObInsertObject(obj.rawAddress.toCPointer<ByteVar>(), passedaccessstate.rawAddress.toCPointer<ByteVar>(), desiredaccess, objectpointerbias, newobject.rawAddress.toCPointer<ByteVar>(), handle.rawAddress.toCPointer<ByteVar>())
 
 public actual fun obIsKernelHandle(handle: Handle): Boolean =
     windowssysWindowsWdkStorageFilesystemObIsKernelHandle(handle.rawAddress.toCPointer<ByteVar>())
 
-public actual fun obMakeTemporaryObject(obj: ConstPtr<CVoid>) {
+public actual fun obMakeTemporaryObject(obj: ConstPtr) {
     windowssysWindowsWdkStorageFilesystemObMakeTemporaryObject(obj.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun obOpenObjectByPointer(obj: ConstPtr<CVoid>, handleattributes: UInt, passedaccessstate: ConstPtr<AccessState>, desiredaccess: UInt, objecttype: PobjectType, accessmode: Byte, handle: MutPtr<Handle>): Ntstatus =
+public actual fun obOpenObjectByPointer(obj: ConstPtr, handleattributes: UInt, passedaccessstate: ConstPtr, desiredaccess: UInt, objecttype: PobjectType, accessmode: Byte, handle: MutPtr): Ntstatus =
     windowssysWindowsWdkStorageFilesystemObOpenObjectByPointer(obj.rawAddress.toCPointer<ByteVar>(), handleattributes, passedaccessstate.rawAddress.toCPointer<ByteVar>(), desiredaccess, objecttype, accessmode, handle.rawAddress.toCPointer<ByteVar>())
 
-public actual fun obOpenObjectByPointerWithTag(obj: ConstPtr<CVoid>, handleattributes: UInt, passedaccessstate: ConstPtr<AccessState>, desiredaccess: UInt, objecttype: PobjectType, accessmode: Byte, tag: UInt, handle: MutPtr<Handle>): Ntstatus =
+public actual fun obOpenObjectByPointerWithTag(obj: ConstPtr, handleattributes: UInt, passedaccessstate: ConstPtr, desiredaccess: UInt, objecttype: PobjectType, accessmode: Byte, tag: UInt, handle: MutPtr): Ntstatus =
     windowssysWindowsWdkStorageFilesystemObOpenObjectByPointerWithTag(obj.rawAddress.toCPointer<ByteVar>(), handleattributes, passedaccessstate.rawAddress.toCPointer<ByteVar>(), desiredaccess, objecttype, accessmode, tag, handle.rawAddress.toCPointer<ByteVar>())
 
-public actual fun obQueryNameString(obj: ConstPtr<CVoid>, objectnameinfo: MutPtr<ObjectNameInformation>, length: UInt, returnlength: MutPtr<UInt>): Ntstatus =
+public actual fun obQueryNameString(obj: ConstPtr, objectnameinfo: MutPtr, length: UInt, returnlength: MutPtr): Ntstatus =
     windowssysWindowsWdkStorageFilesystemObQueryNameString(obj.rawAddress.toCPointer<ByteVar>(), objectnameinfo.rawAddress.toCPointer<ByteVar>(), length, returnlength.rawAddress.toCPointer<ByteVar>())
 
-public actual fun obQueryObjectAuditingByHandle(handle: Handle, generateonclose: MutPtr<Boolean>): Ntstatus =
+public actual fun obQueryObjectAuditingByHandle(handle: Handle, generateonclose: MutPtr): Ntstatus =
     windowssysWindowsWdkStorageFilesystemObQueryObjectAuditingByHandle(handle.rawAddress.toCPointer<ByteVar>(), generateonclose.rawAddress.toCPointer<ByteVar>())
 
-public actual fun pfxFindPrefix(prefixtable: ConstPtr<PrefixTable>, fullname: ConstPtr<io.github.kotlinmania.windowssys.windows.win32.system.kernel.String>): MutPtr<PrefixTableEntry> =
+public actual fun pfxFindPrefix(prefixtable: ConstPtr, fullname: ConstPtr): MutPtr =
     MutPtr(windowssysWindowsWdkStorageFilesystemPfxFindPrefix(prefixtable.rawAddress.toCPointer<ByteVar>(), fullname.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun pfxInitialize(prefixtable: MutPtr<PrefixTable>) {
+public actual fun pfxInitialize(prefixtable: MutPtr) {
     windowssysWindowsWdkStorageFilesystemPfxInitialize(prefixtable.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun pfxInsertPrefix(prefixtable: ConstPtr<PrefixTable>, prefix: ConstPtr<io.github.kotlinmania.windowssys.windows.win32.system.kernel.String>, prefixtableentry: MutPtr<PrefixTableEntry>): Boolean =
+public actual fun pfxInsertPrefix(prefixtable: ConstPtr, prefix: ConstPtr, prefixtableentry: MutPtr): Boolean =
     windowssysWindowsWdkStorageFilesystemPfxInsertPrefix(prefixtable.rawAddress.toCPointer<ByteVar>(), prefix.rawAddress.toCPointer<ByteVar>(), prefixtableentry.rawAddress.toCPointer<ByteVar>())
 
-public actual fun pfxRemovePrefix(prefixtable: ConstPtr<PrefixTable>, prefixtableentry: ConstPtr<PrefixTableEntry>) {
+public actual fun pfxRemovePrefix(prefixtable: ConstPtr, prefixtableentry: ConstPtr) {
     windowssysWindowsWdkStorageFilesystemPfxRemovePrefix(prefixtable.rawAddress.toCPointer<ByteVar>(), prefixtableentry.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun poQueueShutdownWorkItem(workitem: MutPtr<WorkQueueItem>): Ntstatus =
+public actual fun poQueueShutdownWorkItem(workitem: MutPtr): Ntstatus =
     windowssysWindowsWdkStorageFilesystemPoQueueShutdownWorkItem(workitem.rawAddress.toCPointer<ByteVar>())
 
 public actual fun psAssignImpersonationToken(thread: Pethread, token: Handle): Ntstatus =
@@ -2077,15 +2035,15 @@ public actual fun psChargePoolQuota(process: Peprocess, pooltype: PoolType, amou
 public actual fun psChargeProcessPoolQuota(process: Peprocess, pooltype: PoolType, amount: ULong): Ntstatus =
     windowssysWindowsWdkStorageFilesystemPsChargeProcessPoolQuota(process, pooltype, amount)
 
-public actual fun psDereferenceImpersonationToken(impersonationtoken: ConstPtr<CVoid>) {
+public actual fun psDereferenceImpersonationToken(impersonationtoken: ConstPtr) {
     windowssysWindowsWdkStorageFilesystemPsDereferenceImpersonationToken(impersonationtoken.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun psDereferencePrimaryToken(primarytoken: ConstPtr<CVoid>) {
+public actual fun psDereferencePrimaryToken(primarytoken: ConstPtr) {
     windowssysWindowsWdkStorageFilesystemPsDereferencePrimaryToken(primarytoken.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun psDisableImpersonation(thread: Pethread, impersonationstate: MutPtr<SeImpersonationState>): Boolean =
+public actual fun psDisableImpersonation(thread: Pethread, impersonationstate: MutPtr): Boolean =
     windowssysWindowsWdkStorageFilesystemPsDisableImpersonation(thread, impersonationstate.rawAddress.toCPointer<ByteVar>())
 
 public actual fun psGetProcessExitTime(): Long =
@@ -2094,7 +2052,7 @@ public actual fun psGetProcessExitTime(): Long =
 public actual fun psGetThreadProcess(thread: Pethread): Peprocess =
     windowssysWindowsWdkStorageFilesystemPsGetThreadProcess(thread)
 
-public actual fun psImpersonateClient(thread: Pethread, token: ConstPtr<CVoid>, copyonopen: Boolean, effectiveonly: Boolean, impersonationlevel: SecurityImpersonationLevel): Ntstatus =
+public actual fun psImpersonateClient(thread: Pethread, token: ConstPtr, copyonopen: Boolean, effectiveonly: Boolean, impersonationlevel: SecurityImpersonationLevel): Ntstatus =
     windowssysWindowsWdkStorageFilesystemPsImpersonateClient(thread, token.rawAddress.toCPointer<ByteVar>(), copyonopen, effectiveonly, impersonationlevel)
 
 public actual fun psIsDiskCountersEnabled(): Boolean =
@@ -2106,19 +2064,19 @@ public actual fun psIsSystemThread(thread: Pethread): Boolean =
 public actual fun psIsThreadTerminating(thread: Pethread): Boolean =
     windowssysWindowsWdkStorageFilesystemPsIsThreadTerminating(thread)
 
-public actual fun psLookupProcessByProcessId(processid: Handle, process: MutPtr<Peprocess>): Ntstatus =
+public actual fun psLookupProcessByProcessId(processid: Handle, process: MutPtr): Ntstatus =
     windowssysWindowsWdkStorageFilesystemPsLookupProcessByProcessId(processid.rawAddress.toCPointer<ByteVar>(), process.rawAddress.toCPointer<ByteVar>())
 
-public actual fun psLookupThreadByThreadId(threadid: Handle, thread: MutPtr<Pethread>): Ntstatus =
+public actual fun psLookupThreadByThreadId(threadid: Handle, thread: MutPtr): Ntstatus =
     windowssysWindowsWdkStorageFilesystemPsLookupThreadByThreadId(threadid.rawAddress.toCPointer<ByteVar>(), thread.rawAddress.toCPointer<ByteVar>())
 
-public actual fun psReferenceImpersonationToken(thread: Pethread, copyonopen: MutPtr<Boolean>, effectiveonly: MutPtr<Boolean>, impersonationlevel: MutPtr<SecurityImpersonationLevel>): MutPtr<CVoid> =
+public actual fun psReferenceImpersonationToken(thread: Pethread, copyonopen: MutPtr, effectiveonly: MutPtr, impersonationlevel: MutPtr): MutPtr =
     MutPtr(windowssysWindowsWdkStorageFilesystemPsReferenceImpersonationToken(thread, copyonopen.rawAddress.toCPointer<ByteVar>(), effectiveonly.rawAddress.toCPointer<ByteVar>(), impersonationlevel.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun psReferencePrimaryToken(process: Peprocess): MutPtr<CVoid> =
+public actual fun psReferencePrimaryToken(process: Peprocess): MutPtr =
     MutPtr(windowssysWindowsWdkStorageFilesystemPsReferencePrimaryToken(process)?.toLong() ?: 0L)
 
-public actual fun psRestoreImpersonation(thread: Pethread, impersonationstate: ConstPtr<SeImpersonationState>) {
+public actual fun psRestoreImpersonation(thread: Pethread, impersonationstate: ConstPtr) {
     windowssysWindowsWdkStorageFilesystemPsRestoreImpersonation(thread, impersonationstate.rawAddress.toCPointer<ByteVar>())
 }
 
@@ -2134,107 +2092,107 @@ public actual fun psUpdateDiskCounters(process: Peprocess, bytesread: ULong, byt
     windowssysWindowsWdkStorageFilesystemPsUpdateDiskCounters(process, bytesread, byteswritten, readoperationcount, writeoperationcount, flushoperationcount)
 }
 
-public actual fun querySecurityContextToken(phcontext: ConstPtr<SecHandle>, token: MutPtr<MutPtr<CVoid>>): Hresult =
+public actual fun querySecurityContextToken(phcontext: ConstPtr, token: MutPtr): Hresult =
     windowssysWindowsWdkStorageFilesystemQuerySecurityContextToken(phcontext.rawAddress.toCPointer<ByteVar>(), token.rawAddress.toCPointer<ByteVar>())
 
-public actual fun rtlAbsoluteToSelfRelativeSD(absolutesecuritydescriptor: PsecurityDescriptor, selfrelativesecuritydescriptor: PsecurityDescriptor, bufferlength: MutPtr<UInt>): Ntstatus =
+public actual fun rtlAbsoluteToSelfRelativeSD(absolutesecuritydescriptor: PsecurityDescriptor, selfrelativesecuritydescriptor: PsecurityDescriptor, bufferlength: MutPtr): Ntstatus =
     windowssysWindowsWdkStorageFilesystemRtlAbsoluteToSelfRelativeSD(absolutesecuritydescriptor.rawAddress.toCPointer<ByteVar>(), selfrelativesecuritydescriptor.rawAddress.toCPointer<ByteVar>(), bufferlength.rawAddress.toCPointer<ByteVar>())
 
-public actual fun rtlAddAccessAllowedAce(acl: MutPtr<Acl>, acerevision: UInt, accessmask: UInt, sid: Psid): Ntstatus =
+public actual fun rtlAddAccessAllowedAce(acl: MutPtr, acerevision: UInt, accessmask: UInt, sid: Psid): Ntstatus =
     windowssysWindowsWdkStorageFilesystemRtlAddAccessAllowedAce(acl.rawAddress.toCPointer<ByteVar>(), acerevision, accessmask, sid.rawAddress.toCPointer<ByteVar>())
 
-public actual fun rtlAddAccessAllowedAceEx(acl: MutPtr<Acl>, acerevision: UInt, aceflags: UInt, accessmask: UInt, sid: Psid): Ntstatus =
+public actual fun rtlAddAccessAllowedAceEx(acl: MutPtr, acerevision: UInt, aceflags: UInt, accessmask: UInt, sid: Psid): Ntstatus =
     windowssysWindowsWdkStorageFilesystemRtlAddAccessAllowedAceEx(acl.rawAddress.toCPointer<ByteVar>(), acerevision, aceflags, accessmask, sid.rawAddress.toCPointer<ByteVar>())
 
-public actual fun rtlAddAce(acl: MutPtr<Acl>, acerevision: UInt, startingaceindex: UInt, acelist: ConstPtr<CVoid>, acelistlength: UInt): Ntstatus =
+public actual fun rtlAddAce(acl: MutPtr, acerevision: UInt, startingaceindex: UInt, acelist: ConstPtr, acelistlength: UInt): Ntstatus =
     windowssysWindowsWdkStorageFilesystemRtlAddAce(acl.rawAddress.toCPointer<ByteVar>(), acerevision, startingaceindex, acelist.rawAddress.toCPointer<ByteVar>(), acelistlength)
 
-public actual fun rtlAllocateAndInitializeSid(identifierauthority: ConstPtr<SidIdentifierAuthority>, subauthoritycount: UByte, subauthority0: UInt, subauthority1: UInt, subauthority2: UInt, subauthority3: UInt, subauthority4: UInt, subauthority5: UInt, subauthority6: UInt, subauthority7: UInt, sid: MutPtr<Psid>): Ntstatus =
+public actual fun rtlAllocateAndInitializeSid(identifierauthority: ConstPtr, subauthoritycount: UByte, subauthority0: UInt, subauthority1: UInt, subauthority2: UInt, subauthority3: UInt, subauthority4: UInt, subauthority5: UInt, subauthority6: UInt, subauthority7: UInt, sid: MutPtr): Ntstatus =
     windowssysWindowsWdkStorageFilesystemRtlAllocateAndInitializeSid(identifierauthority.rawAddress.toCPointer<ByteVar>(), subauthoritycount, subauthority0, subauthority1, subauthority2, subauthority3, subauthority4, subauthority5, subauthority6, subauthority7, sid.rawAddress.toCPointer<ByteVar>())
 
-public actual fun rtlAllocateAndInitializeSidEx(identifierauthority: ConstPtr<SidIdentifierAuthority>, subauthoritycount: UByte, subauthorities: ConstPtr<UInt>, sid: MutPtr<Psid>): Ntstatus =
+public actual fun rtlAllocateAndInitializeSidEx(identifierauthority: ConstPtr, subauthoritycount: UByte, subauthorities: ConstPtr, sid: MutPtr): Ntstatus =
     windowssysWindowsWdkStorageFilesystemRtlAllocateAndInitializeSidEx(identifierauthority.rawAddress.toCPointer<ByteVar>(), subauthoritycount, subauthorities.rawAddress.toCPointer<ByteVar>(), sid.rawAddress.toCPointer<ByteVar>())
 
-public actual fun rtlAllocateHeap(heaphandle: ConstPtr<CVoid>, flags: UInt, size: ULong): MutPtr<CVoid> =
+public actual fun rtlAllocateHeap(heaphandle: ConstPtr, flags: UInt, size: ULong): MutPtr =
     MutPtr(windowssysWindowsWdkStorageFilesystemRtlAllocateHeap(heaphandle.rawAddress.toCPointer<ByteVar>(), flags, size)?.toLong() ?: 0L)
 
-public actual fun rtlAppendStringToString(destination: MutPtr<io.github.kotlinmania.windowssys.windows.win32.system.kernel.String>, source: ConstPtr<io.github.kotlinmania.windowssys.windows.win32.system.kernel.String>): Ntstatus =
+public actual fun rtlAppendStringToString(destination: MutPtr, source: ConstPtr): Ntstatus =
     windowssysWindowsWdkStorageFilesystemRtlAppendStringToString(destination.rawAddress.toCPointer<ByteVar>(), source.rawAddress.toCPointer<ByteVar>())
 
-public actual fun rtlCompareAltitudes(altitude1: ConstPtr<UnicodeString>, altitude2: ConstPtr<UnicodeString>): Int =
+public actual fun rtlCompareAltitudes(altitude1: ConstPtr, altitude2: ConstPtr): Int =
     windowssysWindowsWdkStorageFilesystemRtlCompareAltitudes(altitude1.rawAddress.toCPointer<ByteVar>(), altitude2.rawAddress.toCPointer<ByteVar>())
 
-public actual fun rtlCompareMemoryUlong(source: ConstPtr<CVoid>, length: ULong, pattern: UInt): ULong =
+public actual fun rtlCompareMemoryUlong(source: ConstPtr, length: ULong, pattern: UInt): ULong =
     windowssysWindowsWdkStorageFilesystemRtlCompareMemoryUlong(source.rawAddress.toCPointer<ByteVar>(), length, pattern)
 
-public actual fun rtlCompressBuffer(compressionformatandengine: UShort, uncompressedbuffer: ConstPtr<UByte>, uncompressedbuffersize: UInt, compressedbuffer: MutPtr<UByte>, compressedbuffersize: UInt, uncompressedchunksize: UInt, finalcompressedsize: MutPtr<UInt>, workspace: ConstPtr<CVoid>): Ntstatus =
+public actual fun rtlCompressBuffer(compressionformatandengine: UShort, uncompressedbuffer: ConstPtr, uncompressedbuffersize: UInt, compressedbuffer: MutPtr, compressedbuffersize: UInt, uncompressedchunksize: UInt, finalcompressedsize: MutPtr, workspace: ConstPtr): Ntstatus =
     windowssysWindowsWdkStorageFilesystemRtlCompressBuffer(compressionformatandengine, uncompressedbuffer.rawAddress.toCPointer<ByteVar>(), uncompressedbuffersize, compressedbuffer.rawAddress.toCPointer<ByteVar>(), compressedbuffersize, uncompressedchunksize, finalcompressedsize.rawAddress.toCPointer<ByteVar>(), workspace.rawAddress.toCPointer<ByteVar>())
 
-public actual fun rtlCompressChunks(uncompressedbuffer: ConstPtr<UByte>, uncompressedbuffersize: UInt, compressedbuffer: MutPtr<UByte>, compressedbuffersize: UInt, compresseddatainfo: MutPtr<CompressedDataInfo>, compresseddatainfolength: UInt, workspace: ConstPtr<CVoid>): Ntstatus =
+public actual fun rtlCompressChunks(uncompressedbuffer: ConstPtr, uncompressedbuffersize: UInt, compressedbuffer: MutPtr, compressedbuffersize: UInt, compresseddatainfo: MutPtr, compresseddatainfolength: UInt, workspace: ConstPtr): Ntstatus =
     windowssysWindowsWdkStorageFilesystemRtlCompressChunks(uncompressedbuffer.rawAddress.toCPointer<ByteVar>(), uncompressedbuffersize, compressedbuffer.rawAddress.toCPointer<ByteVar>(), compressedbuffersize, compresseddatainfo.rawAddress.toCPointer<ByteVar>(), compresseddatainfolength, workspace.rawAddress.toCPointer<ByteVar>())
 
-public actual fun rtlCopyLuid(destinationluid: MutPtr<Luid>, sourceluid: ConstPtr<Luid>) {
+public actual fun rtlCopyLuid(destinationluid: MutPtr, sourceluid: ConstPtr) {
     windowssysWindowsWdkStorageFilesystemRtlCopyLuid(destinationluid.rawAddress.toCPointer<ByteVar>(), sourceluid.rawAddress.toCPointer<ByteVar>())
 }
 
 public actual fun rtlCopySid(destinationsidlength: UInt, destinationsid: Psid, sourcesid: Psid): Ntstatus =
     windowssysWindowsWdkStorageFilesystemRtlCopySid(destinationsidlength, destinationsid.rawAddress.toCPointer<ByteVar>(), sourcesid.rawAddress.toCPointer<ByteVar>())
 
-public actual fun rtlCreateAcl(acl: MutPtr<Acl>, acllength: UInt, aclrevision: UInt): Ntstatus =
+public actual fun rtlCreateAcl(acl: MutPtr, acllength: UInt, aclrevision: UInt): Ntstatus =
     windowssysWindowsWdkStorageFilesystemRtlCreateAcl(acl.rawAddress.toCPointer<ByteVar>(), acllength, aclrevision)
 
-public actual fun rtlCreateHeap(flags: UInt, heapbase: ConstPtr<CVoid>, reservesize: ULong, commitsize: ULong, lock: ConstPtr<CVoid>, parameters: ConstPtr<RtlHeapParameters>): MutPtr<CVoid> =
+public actual fun rtlCreateHeap(flags: UInt, heapbase: ConstPtr, reservesize: ULong, commitsize: ULong, lock: ConstPtr, parameters: ConstPtr): MutPtr =
     MutPtr(windowssysWindowsWdkStorageFilesystemRtlCreateHeap(flags, heapbase.rawAddress.toCPointer<ByteVar>(), reservesize, commitsize, lock.rawAddress.toCPointer<ByteVar>(), parameters.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun rtlCreateServiceSid(servicename: ConstPtr<UnicodeString>, servicesid: Psid, servicesidlength: MutPtr<UInt>): Ntstatus =
+public actual fun rtlCreateServiceSid(servicename: ConstPtr, servicesid: Psid, servicesidlength: MutPtr): Ntstatus =
     windowssysWindowsWdkStorageFilesystemRtlCreateServiceSid(servicename.rawAddress.toCPointer<ByteVar>(), servicesid.rawAddress.toCPointer<ByteVar>(), servicesidlength.rawAddress.toCPointer<ByteVar>())
 
-public actual fun rtlCreateSystemVolumeInformationFolder(volumerootpath: ConstPtr<UnicodeString>): Ntstatus =
+public actual fun rtlCreateSystemVolumeInformationFolder(volumerootpath: ConstPtr): Ntstatus =
     windowssysWindowsWdkStorageFilesystemRtlCreateSystemVolumeInformationFolder(volumerootpath.rawAddress.toCPointer<ByteVar>())
 
-public actual fun rtlCreateUnicodeString(destinationstring: MutPtr<UnicodeString>, sourcestring: Pcwstr): Boolean =
+public actual fun rtlCreateUnicodeString(destinationstring: MutPtr, sourcestring: Pcwstr): Boolean =
     windowssysWindowsWdkStorageFilesystemRtlCreateUnicodeString(destinationstring.rawAddress.toCPointer<ByteVar>(), sourcestring.rawAddress.toCPointer<ByteVar>())
 
-public actual fun rtlCreateVirtualAccountSid(name: ConstPtr<UnicodeString>, basesubauthority: UInt, sid: Psid, sidlength: MutPtr<UInt>): Ntstatus =
+public actual fun rtlCreateVirtualAccountSid(name: ConstPtr, basesubauthority: UInt, sid: Psid, sidlength: MutPtr): Ntstatus =
     windowssysWindowsWdkStorageFilesystemRtlCreateVirtualAccountSid(name.rawAddress.toCPointer<ByteVar>(), basesubauthority, sid.rawAddress.toCPointer<ByteVar>(), sidlength.rawAddress.toCPointer<ByteVar>())
 
-public actual fun rtlCustomCPToUnicodeN(customcp: ConstPtr<Cptableinfo>, unicodestring: Pwstr, maxbytesinunicodestring: UInt, bytesinunicodestring: MutPtr<UInt>, customcpstring: Pcstr, bytesincustomcpstring: UInt): Ntstatus =
+public actual fun rtlCustomCPToUnicodeN(customcp: ConstPtr, unicodestring: Pwstr, maxbytesinunicodestring: UInt, bytesinunicodestring: MutPtr, customcpstring: Pcstr, bytesincustomcpstring: UInt): Ntstatus =
     windowssysWindowsWdkStorageFilesystemRtlCustomCPToUnicodeN(customcp.rawAddress.toCPointer<ByteVar>(), unicodestring.rawAddress.toCPointer<ByteVar>(), maxbytesinunicodestring, bytesinunicodestring.rawAddress.toCPointer<ByteVar>(), customcpstring.rawAddress.toCPointer<ByteVar>(), bytesincustomcpstring)
 
-public actual fun rtlDecompressBuffer(compressionformat: UShort, uncompressedbuffer: MutPtr<UByte>, uncompressedbuffersize: UInt, compressedbuffer: ConstPtr<UByte>, compressedbuffersize: UInt, finaluncompressedsize: MutPtr<UInt>): Ntstatus =
+public actual fun rtlDecompressBuffer(compressionformat: UShort, uncompressedbuffer: MutPtr, uncompressedbuffersize: UInt, compressedbuffer: ConstPtr, compressedbuffersize: UInt, finaluncompressedsize: MutPtr): Ntstatus =
     windowssysWindowsWdkStorageFilesystemRtlDecompressBuffer(compressionformat, uncompressedbuffer.rawAddress.toCPointer<ByteVar>(), uncompressedbuffersize, compressedbuffer.rawAddress.toCPointer<ByteVar>(), compressedbuffersize, finaluncompressedsize.rawAddress.toCPointer<ByteVar>())
 
-public actual fun rtlDecompressBufferEx(compressionformat: UShort, uncompressedbuffer: MutPtr<UByte>, uncompressedbuffersize: UInt, compressedbuffer: ConstPtr<UByte>, compressedbuffersize: UInt, finaluncompressedsize: MutPtr<UInt>, workspace: ConstPtr<CVoid>): Ntstatus =
+public actual fun rtlDecompressBufferEx(compressionformat: UShort, uncompressedbuffer: MutPtr, uncompressedbuffersize: UInt, compressedbuffer: ConstPtr, compressedbuffersize: UInt, finaluncompressedsize: MutPtr, workspace: ConstPtr): Ntstatus =
     windowssysWindowsWdkStorageFilesystemRtlDecompressBufferEx(compressionformat, uncompressedbuffer.rawAddress.toCPointer<ByteVar>(), uncompressedbuffersize, compressedbuffer.rawAddress.toCPointer<ByteVar>(), compressedbuffersize, finaluncompressedsize.rawAddress.toCPointer<ByteVar>(), workspace.rawAddress.toCPointer<ByteVar>())
 
-public actual fun rtlDecompressBufferEx2(compressionformat: UShort, uncompressedbuffer: MutPtr<UByte>, uncompressedbuffersize: UInt, compressedbuffer: ConstPtr<UByte>, compressedbuffersize: UInt, uncompressedchunksize: UInt, finaluncompressedsize: MutPtr<UInt>, workspace: ConstPtr<CVoid>): Ntstatus =
+public actual fun rtlDecompressBufferEx2(compressionformat: UShort, uncompressedbuffer: MutPtr, uncompressedbuffersize: UInt, compressedbuffer: ConstPtr, compressedbuffersize: UInt, uncompressedchunksize: UInt, finaluncompressedsize: MutPtr, workspace: ConstPtr): Ntstatus =
     windowssysWindowsWdkStorageFilesystemRtlDecompressBufferEx2(compressionformat, uncompressedbuffer.rawAddress.toCPointer<ByteVar>(), uncompressedbuffersize, compressedbuffer.rawAddress.toCPointer<ByteVar>(), compressedbuffersize, uncompressedchunksize, finaluncompressedsize.rawAddress.toCPointer<ByteVar>(), workspace.rawAddress.toCPointer<ByteVar>())
 
-public actual fun rtlDecompressChunks(uncompressedbuffer: MutPtr<UByte>, uncompressedbuffersize: UInt, compressedbuffer: ConstPtr<UByte>, compressedbuffersize: UInt, compressedtail: ConstPtr<UByte>, compressedtailsize: UInt, compresseddatainfo: ConstPtr<CompressedDataInfo>): Ntstatus =
+public actual fun rtlDecompressChunks(uncompressedbuffer: MutPtr, uncompressedbuffersize: UInt, compressedbuffer: ConstPtr, compressedbuffersize: UInt, compressedtail: ConstPtr, compressedtailsize: UInt, compresseddatainfo: ConstPtr): Ntstatus =
     windowssysWindowsWdkStorageFilesystemRtlDecompressChunks(uncompressedbuffer.rawAddress.toCPointer<ByteVar>(), uncompressedbuffersize, compressedbuffer.rawAddress.toCPointer<ByteVar>(), compressedbuffersize, compressedtail.rawAddress.toCPointer<ByteVar>(), compressedtailsize, compresseddatainfo.rawAddress.toCPointer<ByteVar>())
 
-public actual fun rtlDecompressFragment(compressionformat: UShort, uncompressedfragment: MutPtr<UByte>, uncompressedfragmentsize: UInt, compressedbuffer: ConstPtr<UByte>, compressedbuffersize: UInt, fragmentoffset: UInt, finaluncompressedsize: MutPtr<UInt>, workspace: ConstPtr<CVoid>): Ntstatus =
+public actual fun rtlDecompressFragment(compressionformat: UShort, uncompressedfragment: MutPtr, uncompressedfragmentsize: UInt, compressedbuffer: ConstPtr, compressedbuffersize: UInt, fragmentoffset: UInt, finaluncompressedsize: MutPtr, workspace: ConstPtr): Ntstatus =
     windowssysWindowsWdkStorageFilesystemRtlDecompressFragment(compressionformat, uncompressedfragment.rawAddress.toCPointer<ByteVar>(), uncompressedfragmentsize, compressedbuffer.rawAddress.toCPointer<ByteVar>(), compressedbuffersize, fragmentoffset, finaluncompressedsize.rawAddress.toCPointer<ByteVar>(), workspace.rawAddress.toCPointer<ByteVar>())
 
-public actual fun rtlDecompressFragmentEx(compressionformat: UShort, uncompressedfragment: MutPtr<UByte>, uncompressedfragmentsize: UInt, compressedbuffer: ConstPtr<UByte>, compressedbuffersize: UInt, fragmentoffset: UInt, uncompressedchunksize: UInt, finaluncompressedsize: MutPtr<UInt>, workspace: ConstPtr<CVoid>): Ntstatus =
+public actual fun rtlDecompressFragmentEx(compressionformat: UShort, uncompressedfragment: MutPtr, uncompressedfragmentsize: UInt, compressedbuffer: ConstPtr, compressedbuffersize: UInt, fragmentoffset: UInt, uncompressedchunksize: UInt, finaluncompressedsize: MutPtr, workspace: ConstPtr): Ntstatus =
     windowssysWindowsWdkStorageFilesystemRtlDecompressFragmentEx(compressionformat, uncompressedfragment.rawAddress.toCPointer<ByteVar>(), uncompressedfragmentsize, compressedbuffer.rawAddress.toCPointer<ByteVar>(), compressedbuffersize, fragmentoffset, uncompressedchunksize, finaluncompressedsize.rawAddress.toCPointer<ByteVar>(), workspace.rawAddress.toCPointer<ByteVar>())
 
-public actual fun rtlDeleteAce(acl: MutPtr<Acl>, aceindex: UInt): Ntstatus =
+public actual fun rtlDeleteAce(acl: MutPtr, aceindex: UInt): Ntstatus =
     windowssysWindowsWdkStorageFilesystemRtlDeleteAce(acl.rawAddress.toCPointer<ByteVar>(), aceindex)
 
-public actual fun rtlDescribeChunk(compressionformat: UShort, compressedbuffer: MutPtr<MutPtr<UByte>>, endofcompressedbufferplus1: ConstPtr<UByte>, chunkbuffer: MutPtr<MutPtr<UByte>>, chunksize: MutPtr<UInt>): Ntstatus =
+public actual fun rtlDescribeChunk(compressionformat: UShort, compressedbuffer: MutPtr, endofcompressedbufferplus1: ConstPtr, chunkbuffer: MutPtr, chunksize: MutPtr): Ntstatus =
     windowssysWindowsWdkStorageFilesystemRtlDescribeChunk(compressionformat, compressedbuffer.rawAddress.toCPointer<ByteVar>(), endofcompressedbufferplus1.rawAddress.toCPointer<ByteVar>(), chunkbuffer.rawAddress.toCPointer<ByteVar>(), chunksize.rawAddress.toCPointer<ByteVar>())
 
-public actual fun rtlDestroyHeap(heaphandle: ConstPtr<CVoid>): MutPtr<CVoid> =
+public actual fun rtlDestroyHeap(heaphandle: ConstPtr): MutPtr =
     MutPtr(windowssysWindowsWdkStorageFilesystemRtlDestroyHeap(heaphandle.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun rtlDosPathNameToNtPathNameUWithStatus(dosfilename: Pcwstr, ntfilename: MutPtr<UnicodeString>, filepart: MutPtr<Pwstr>, reserved: ConstPtr<CVoid>): Ntstatus =
+public actual fun rtlDosPathNameToNtPathNameUWithStatus(dosfilename: Pcwstr, ntfilename: MutPtr, filepart: MutPtr, reserved: ConstPtr): Ntstatus =
     windowssysWindowsWdkStorageFilesystemRtlDosPathNameToNtPathNameUWithStatus(dosfilename.rawAddress.toCPointer<ByteVar>(), ntfilename.rawAddress.toCPointer<ByteVar>(), filepart.rawAddress.toCPointer<ByteVar>(), reserved.rawAddress.toCPointer<ByteVar>())
 
-public actual fun rtlDowncaseUnicodeString(destinationstring: MutPtr<UnicodeString>, sourcestring: ConstPtr<UnicodeString>, allocatedestinationstring: Boolean): Ntstatus =
+public actual fun rtlDowncaseUnicodeString(destinationstring: MutPtr, sourcestring: ConstPtr, allocatedestinationstring: Boolean): Ntstatus =
     windowssysWindowsWdkStorageFilesystemRtlDowncaseUnicodeString(destinationstring.rawAddress.toCPointer<ByteVar>(), sourcestring.rawAddress.toCPointer<ByteVar>(), allocatedestinationstring)
 
-public actual fun rtlDuplicateUnicodeString(flags: UInt, stringin: ConstPtr<UnicodeString>, stringout: MutPtr<UnicodeString>): Ntstatus =
+public actual fun rtlDuplicateUnicodeString(flags: UInt, stringin: ConstPtr, stringout: MutPtr): Ntstatus =
     windowssysWindowsWdkStorageFilesystemRtlDuplicateUnicodeString(flags, stringin.rawAddress.toCPointer<ByteVar>(), stringout.rawAddress.toCPointer<ByteVar>())
 
 public actual fun rtlEqualPrefixSid(sid1: Psid, sid2: Psid): Boolean =
@@ -2243,66 +2201,66 @@ public actual fun rtlEqualPrefixSid(sid1: Psid, sid2: Psid): Boolean =
 public actual fun rtlEqualSid(sid1: Psid, sid2: Psid): Boolean =
     windowssysWindowsWdkStorageFilesystemRtlEqualSid(sid1.rawAddress.toCPointer<ByteVar>(), sid2.rawAddress.toCPointer<ByteVar>())
 
-public actual fun rtlFindUnicodePrefix(prefixtable: ConstPtr<UnicodePrefixTable>, fullname: ConstPtr<UnicodeString>, caseinsensitiveindex: UInt): MutPtr<UnicodePrefixTableEntry> =
+public actual fun rtlFindUnicodePrefix(prefixtable: ConstPtr, fullname: ConstPtr, caseinsensitiveindex: UInt): MutPtr =
     MutPtr(windowssysWindowsWdkStorageFilesystemRtlFindUnicodePrefix(prefixtable.rawAddress.toCPointer<ByteVar>(), fullname.rawAddress.toCPointer<ByteVar>(), caseinsensitiveindex)?.toLong() ?: 0L)
 
-public actual fun rtlFreeHeap(heaphandle: ConstPtr<CVoid>, flags: UInt, baseaddress: ConstPtr<CVoid>): UInt =
+public actual fun rtlFreeHeap(heaphandle: ConstPtr, flags: UInt, baseaddress: ConstPtr): UInt =
     windowssysWindowsWdkStorageFilesystemRtlFreeHeap(heaphandle.rawAddress.toCPointer<ByteVar>(), flags, baseaddress.rawAddress.toCPointer<ByteVar>())
 
-public actual fun rtlFreeSid(sid: Psid): MutPtr<CVoid> =
+public actual fun rtlFreeSid(sid: Psid): MutPtr =
     MutPtr(windowssysWindowsWdkStorageFilesystemRtlFreeSid(sid.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun rtlGenerate8dot3Name(name: ConstPtr<UnicodeString>, allowextendedcharacters: Boolean, context: MutPtr<GenerateNameContext>, name8dot3: MutPtr<UnicodeString>): Ntstatus =
+public actual fun rtlGenerate8dot3Name(name: ConstPtr, allowextendedcharacters: Boolean, context: MutPtr, name8dot3: MutPtr): Ntstatus =
     windowssysWindowsWdkStorageFilesystemRtlGenerate8dot3Name(name.rawAddress.toCPointer<ByteVar>(), allowextendedcharacters, context.rawAddress.toCPointer<ByteVar>(), name8dot3.rawAddress.toCPointer<ByteVar>())
 
-public actual fun rtlGetAce(acl: ConstPtr<Acl>, aceindex: UInt, ace: MutPtr<MutPtr<CVoid>>): Ntstatus =
+public actual fun rtlGetAce(acl: ConstPtr, aceindex: UInt, ace: MutPtr): Ntstatus =
     windowssysWindowsWdkStorageFilesystemRtlGetAce(acl.rawAddress.toCPointer<ByteVar>(), aceindex, ace.rawAddress.toCPointer<ByteVar>())
 
-public actual fun rtlGetCompressionWorkSpaceSize(compressionformatandengine: UShort, compressbufferworkspacesize: MutPtr<UInt>, compressfragmentworkspacesize: MutPtr<UInt>): Ntstatus =
+public actual fun rtlGetCompressionWorkSpaceSize(compressionformatandengine: UShort, compressbufferworkspacesize: MutPtr, compressfragmentworkspacesize: MutPtr): Ntstatus =
     windowssysWindowsWdkStorageFilesystemRtlGetCompressionWorkSpaceSize(compressionformatandengine, compressbufferworkspacesize.rawAddress.toCPointer<ByteVar>(), compressfragmentworkspacesize.rawAddress.toCPointer<ByteVar>())
 
-public actual fun rtlGetDaclSecurityDescriptor(securitydescriptor: PsecurityDescriptor, daclpresent: MutPtr<Boolean>, dacl: MutPtr<MutPtr<Acl>>, dacldefaulted: MutPtr<Boolean>): Ntstatus =
+public actual fun rtlGetDaclSecurityDescriptor(securitydescriptor: PsecurityDescriptor, daclpresent: MutPtr, dacl: MutPtr, dacldefaulted: MutPtr): Ntstatus =
     windowssysWindowsWdkStorageFilesystemRtlGetDaclSecurityDescriptor(securitydescriptor.rawAddress.toCPointer<ByteVar>(), daclpresent.rawAddress.toCPointer<ByteVar>(), dacl.rawAddress.toCPointer<ByteVar>(), dacldefaulted.rawAddress.toCPointer<ByteVar>())
 
-public actual fun rtlGetGroupSecurityDescriptor(securitydescriptor: PsecurityDescriptor, group: MutPtr<Psid>, groupdefaulted: MutPtr<Boolean>): Ntstatus =
+public actual fun rtlGetGroupSecurityDescriptor(securitydescriptor: PsecurityDescriptor, group: MutPtr, groupdefaulted: MutPtr): Ntstatus =
     windowssysWindowsWdkStorageFilesystemRtlGetGroupSecurityDescriptor(securitydescriptor.rawAddress.toCPointer<ByteVar>(), group.rawAddress.toCPointer<ByteVar>(), groupdefaulted.rawAddress.toCPointer<ByteVar>())
 
-public actual fun rtlGetOwnerSecurityDescriptor(securitydescriptor: PsecurityDescriptor, owner: MutPtr<Psid>, ownerdefaulted: MutPtr<Boolean>): Ntstatus =
+public actual fun rtlGetOwnerSecurityDescriptor(securitydescriptor: PsecurityDescriptor, owner: MutPtr, ownerdefaulted: MutPtr): Ntstatus =
     windowssysWindowsWdkStorageFilesystemRtlGetOwnerSecurityDescriptor(securitydescriptor.rawAddress.toCPointer<ByteVar>(), owner.rawAddress.toCPointer<ByteVar>(), ownerdefaulted.rawAddress.toCPointer<ByteVar>())
 
-public actual fun rtlGetSaclSecurityDescriptor(securitydescriptor: PsecurityDescriptor, saclpresent: MutPtr<Boolean>, sacl: MutPtr<MutPtr<Acl>>, sacldefaulted: MutPtr<Boolean>): Ntstatus =
+public actual fun rtlGetSaclSecurityDescriptor(securitydescriptor: PsecurityDescriptor, saclpresent: MutPtr, sacl: MutPtr, sacldefaulted: MutPtr): Ntstatus =
     windowssysWindowsWdkStorageFilesystemRtlGetSaclSecurityDescriptor(securitydescriptor.rawAddress.toCPointer<ByteVar>(), saclpresent.rawAddress.toCPointer<ByteVar>(), sacl.rawAddress.toCPointer<ByteVar>(), sacldefaulted.rawAddress.toCPointer<ByteVar>())
 
-public actual fun rtlIdentifierAuthoritySid(sid: Psid): MutPtr<SidIdentifierAuthority> =
+public actual fun rtlIdentifierAuthoritySid(sid: Psid): MutPtr =
     MutPtr(windowssysWindowsWdkStorageFilesystemRtlIdentifierAuthoritySid(sid.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun rtlIdnToAscii(flags: UInt, sourcestring: Pcwstr, sourcestringlength: Int, destinationstring: Pwstr, destinationstringlength: MutPtr<Int>): Ntstatus =
+public actual fun rtlIdnToAscii(flags: UInt, sourcestring: Pcwstr, sourcestringlength: Int, destinationstring: Pwstr, destinationstringlength: MutPtr): Ntstatus =
     windowssysWindowsWdkStorageFilesystemRtlIdnToAscii(flags, sourcestring.rawAddress.toCPointer<ByteVar>(), sourcestringlength, destinationstring.rawAddress.toCPointer<ByteVar>(), destinationstringlength.rawAddress.toCPointer<ByteVar>())
 
-public actual fun rtlIdnToNameprepUnicode(flags: UInt, sourcestring: Pcwstr, sourcestringlength: Int, destinationstring: Pwstr, destinationstringlength: MutPtr<Int>): Ntstatus =
+public actual fun rtlIdnToNameprepUnicode(flags: UInt, sourcestring: Pcwstr, sourcestringlength: Int, destinationstring: Pwstr, destinationstringlength: MutPtr): Ntstatus =
     windowssysWindowsWdkStorageFilesystemRtlIdnToNameprepUnicode(flags, sourcestring.rawAddress.toCPointer<ByteVar>(), sourcestringlength, destinationstring.rawAddress.toCPointer<ByteVar>(), destinationstringlength.rawAddress.toCPointer<ByteVar>())
 
-public actual fun rtlIdnToUnicode(flags: UInt, sourcestring: Pcwstr, sourcestringlength: Int, destinationstring: Pwstr, destinationstringlength: MutPtr<Int>): Ntstatus =
+public actual fun rtlIdnToUnicode(flags: UInt, sourcestring: Pcwstr, sourcestringlength: Int, destinationstring: Pwstr, destinationstringlength: MutPtr): Ntstatus =
     windowssysWindowsWdkStorageFilesystemRtlIdnToUnicode(flags, sourcestring.rawAddress.toCPointer<ByteVar>(), sourcestringlength, destinationstring.rawAddress.toCPointer<ByteVar>(), destinationstringlength.rawAddress.toCPointer<ByteVar>())
 
-public actual fun rtlInitCodePageTable(tablebase: ConstPtr<UShort>, codepagetable: MutPtr<Cptableinfo>) {
+public actual fun rtlInitCodePageTable(tablebase: ConstPtr, codepagetable: MutPtr) {
     windowssysWindowsWdkStorageFilesystemRtlInitCodePageTable(tablebase.rawAddress.toCPointer<ByteVar>(), codepagetable.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun rtlInitUnicodeStringEx(destinationstring: MutPtr<UnicodeString>, sourcestring: Pcwstr): Ntstatus =
+public actual fun rtlInitUnicodeStringEx(destinationstring: MutPtr, sourcestring: Pcwstr): Ntstatus =
     windowssysWindowsWdkStorageFilesystemRtlInitUnicodeStringEx(destinationstring.rawAddress.toCPointer<ByteVar>(), sourcestring.rawAddress.toCPointer<ByteVar>())
 
-public actual fun rtlInitializeSid(sid: Psid, identifierauthority: ConstPtr<SidIdentifierAuthority>, subauthoritycount: UByte): Ntstatus =
+public actual fun rtlInitializeSid(sid: Psid, identifierauthority: ConstPtr, subauthoritycount: UByte): Ntstatus =
     windowssysWindowsWdkStorageFilesystemRtlInitializeSid(sid.rawAddress.toCPointer<ByteVar>(), identifierauthority.rawAddress.toCPointer<ByteVar>(), subauthoritycount)
 
-public actual fun rtlInitializeSidEx(sid: Psid, identifierauthority: ConstPtr<SidIdentifierAuthority>, subauthoritycount: UByte, vararg variadicArgs: Long): Ntstatus =
+public actual fun rtlInitializeSidEx(sid: Psid, identifierauthority: ConstPtr, subauthoritycount: UByte, vararg variadicArgs: Long): Ntstatus =
     windowssysWindowsWdkStorageFilesystemRtlInitializeSidEx(sid.rawAddress.toCPointer<ByteVar>(), identifierauthority.rawAddress.toCPointer<ByteVar>(), subauthoritycount, variadicArgs.size.coerceAtMost(4), if (variadicArgs.size > 0) variadicArgs[0] else 0L, if (variadicArgs.size > 1) variadicArgs[1] else 0L, if (variadicArgs.size > 2) variadicArgs[2] else 0L, if (variadicArgs.size > 3) variadicArgs[3] else 0L)
 
-public actual fun rtlInitializeUnicodePrefix(prefixtable: MutPtr<UnicodePrefixTable>) {
+public actual fun rtlInitializeUnicodePrefix(prefixtable: MutPtr) {
     windowssysWindowsWdkStorageFilesystemRtlInitializeUnicodePrefix(prefixtable.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun rtlInsertUnicodePrefix(prefixtable: ConstPtr<UnicodePrefixTable>, prefix: ConstPtr<UnicodeString>, prefixtableentry: MutPtr<UnicodePrefixTableEntry>): Boolean =
+public actual fun rtlInsertUnicodePrefix(prefixtable: ConstPtr, prefix: ConstPtr, prefixtableentry: MutPtr): Boolean =
     windowssysWindowsWdkStorageFilesystemRtlInsertUnicodePrefix(prefixtable.rawAddress.toCPointer<ByteVar>(), prefix.rawAddress.toCPointer<ByteVar>(), prefixtableentry.rawAddress.toCPointer<ByteVar>())
 
 public actual fun rtlIsCloudFilesPlaceholder(fileattributes: UInt, reparsetag: UInt): Boolean =
@@ -2314,19 +2272,19 @@ public actual fun rtlIsDosDeviceNameU(dosfilename: Pcwstr): UInt =
 public actual fun rtlIsNonEmptyDirectoryReparsePointAllowed(reparsetag: UInt): Boolean =
     windowssysWindowsWdkStorageFilesystemRtlIsNonEmptyDirectoryReparsePointAllowed(reparsetag)
 
-public actual fun rtlIsNormalizedString(normform: UInt, sourcestring: Pcwstr, sourcestringlength: Int, normalized: MutPtr<Boolean>): Ntstatus =
+public actual fun rtlIsNormalizedString(normform: UInt, sourcestring: Pcwstr, sourcestringlength: Int, normalized: MutPtr): Ntstatus =
     windowssysWindowsWdkStorageFilesystemRtlIsNormalizedString(normform, sourcestring.rawAddress.toCPointer<ByteVar>(), sourcestringlength, normalized.rawAddress.toCPointer<ByteVar>())
 
 public actual fun rtlIsPartialPlaceholder(fileattributes: UInt, reparsetag: UInt): Boolean =
     windowssysWindowsWdkStorageFilesystemRtlIsPartialPlaceholder(fileattributes, reparsetag)
 
-public actual fun rtlIsPartialPlaceholderFileHandle(filehandle: Handle, ispartialplaceholder: MutPtr<Boolean>): Ntstatus =
+public actual fun rtlIsPartialPlaceholderFileHandle(filehandle: Handle, ispartialplaceholder: MutPtr): Ntstatus =
     windowssysWindowsWdkStorageFilesystemRtlIsPartialPlaceholderFileHandle(filehandle.rawAddress.toCPointer<ByteVar>(), ispartialplaceholder.rawAddress.toCPointer<ByteVar>())
 
-public actual fun rtlIsPartialPlaceholderFileInfo(infobuffer: ConstPtr<CVoid>, infoclass: FileInformationClass, ispartialplaceholder: MutPtr<Boolean>): Ntstatus =
+public actual fun rtlIsPartialPlaceholderFileInfo(infobuffer: ConstPtr, infoclass: FileInformationClass, ispartialplaceholder: MutPtr): Ntstatus =
     windowssysWindowsWdkStorageFilesystemRtlIsPartialPlaceholderFileInfo(infobuffer.rawAddress.toCPointer<ByteVar>(), infoclass, ispartialplaceholder.rawAddress.toCPointer<ByteVar>())
 
-public actual fun rtlIsSandboxedToken(context: ConstPtr<SecuritySubjectContext>, previousmode: Byte): Boolean =
+public actual fun rtlIsSandboxedToken(context: ConstPtr, previousmode: Byte): Boolean =
     windowssysWindowsWdkStorageFilesystemRtlIsSandboxedToken(context.rawAddress.toCPointer<ByteVar>(), previousmode)
 
 public actual fun rtlIsValidOemCharacter(char: Pwstr): Boolean =
@@ -2338,37 +2296,37 @@ public actual fun rtlLengthRequiredSid(subauthoritycount: UInt): UInt =
 public actual fun rtlLengthSid(sid: Psid): UInt =
     windowssysWindowsWdkStorageFilesystemRtlLengthSid(sid.rawAddress.toCPointer<ByteVar>())
 
-public actual fun rtlMultiByteToUnicodeN(unicodestring: Pwstr, maxbytesinunicodestring: UInt, bytesinunicodestring: MutPtr<UInt>, multibytestring: Pcstr, bytesinmultibytestring: UInt): Ntstatus =
+public actual fun rtlMultiByteToUnicodeN(unicodestring: Pwstr, maxbytesinunicodestring: UInt, bytesinunicodestring: MutPtr, multibytestring: Pcstr, bytesinmultibytestring: UInt): Ntstatus =
     windowssysWindowsWdkStorageFilesystemRtlMultiByteToUnicodeN(unicodestring.rawAddress.toCPointer<ByteVar>(), maxbytesinunicodestring, bytesinunicodestring.rawAddress.toCPointer<ByteVar>(), multibytestring.rawAddress.toCPointer<ByteVar>(), bytesinmultibytestring)
 
-public actual fun rtlMultiByteToUnicodeSize(bytesinunicodestring: MutPtr<UInt>, multibytestring: Pcstr, bytesinmultibytestring: UInt): Ntstatus =
+public actual fun rtlMultiByteToUnicodeSize(bytesinunicodestring: MutPtr, multibytestring: Pcstr, bytesinmultibytestring: UInt): Ntstatus =
     windowssysWindowsWdkStorageFilesystemRtlMultiByteToUnicodeSize(bytesinunicodestring.rawAddress.toCPointer<ByteVar>(), multibytestring.rawAddress.toCPointer<ByteVar>(), bytesinmultibytestring)
 
-public actual fun rtlNextUnicodePrefix(prefixtable: ConstPtr<UnicodePrefixTable>, restart: Boolean): MutPtr<UnicodePrefixTableEntry> =
+public actual fun rtlNextUnicodePrefix(prefixtable: ConstPtr, restart: Boolean): MutPtr =
     MutPtr(windowssysWindowsWdkStorageFilesystemRtlNextUnicodePrefix(prefixtable.rawAddress.toCPointer<ByteVar>(), restart)?.toLong() ?: 0L)
 
-public actual fun rtlNormalizeString(normform: UInt, sourcestring: Pcwstr, sourcestringlength: Int, destinationstring: Pwstr, destinationstringlength: MutPtr<Int>): Ntstatus =
+public actual fun rtlNormalizeString(normform: UInt, sourcestring: Pcwstr, sourcestringlength: Int, destinationstring: Pwstr, destinationstringlength: MutPtr): Ntstatus =
     windowssysWindowsWdkStorageFilesystemRtlNormalizeString(normform, sourcestring.rawAddress.toCPointer<ByteVar>(), sourcestringlength, destinationstring.rawAddress.toCPointer<ByteVar>(), destinationstringlength.rawAddress.toCPointer<ByteVar>())
 
 public actual fun rtlNtStatusToDosErrorNoTeb(status: Ntstatus): UInt =
     windowssysWindowsWdkStorageFilesystemRtlNtStatusToDosErrorNoTeb(status)
 
-public actual fun rtlOemStringToCountedUnicodeString(destinationstring: MutPtr<UnicodeString>, sourcestring: ConstPtr<io.github.kotlinmania.windowssys.windows.win32.system.kernel.String>, allocatedestinationstring: Boolean): Ntstatus =
+public actual fun rtlOemStringToCountedUnicodeString(destinationstring: MutPtr, sourcestring: ConstPtr, allocatedestinationstring: Boolean): Ntstatus =
     windowssysWindowsWdkStorageFilesystemRtlOemStringToCountedUnicodeString(destinationstring.rawAddress.toCPointer<ByteVar>(), sourcestring.rawAddress.toCPointer<ByteVar>(), allocatedestinationstring)
 
-public actual fun rtlOemStringToUnicodeString(destinationstring: MutPtr<UnicodeString>, sourcestring: ConstPtr<io.github.kotlinmania.windowssys.windows.win32.system.kernel.String>, allocatedestinationstring: Boolean): Ntstatus =
+public actual fun rtlOemStringToUnicodeString(destinationstring: MutPtr, sourcestring: ConstPtr, allocatedestinationstring: Boolean): Ntstatus =
     windowssysWindowsWdkStorageFilesystemRtlOemStringToUnicodeString(destinationstring.rawAddress.toCPointer<ByteVar>(), sourcestring.rawAddress.toCPointer<ByteVar>(), allocatedestinationstring)
 
-public actual fun rtlOemToUnicodeN(unicodestring: Pwstr, maxbytesinunicodestring: UInt, bytesinunicodestring: MutPtr<UInt>, oemstring: Pcstr, bytesinoemstring: UInt): Ntstatus =
+public actual fun rtlOemToUnicodeN(unicodestring: Pwstr, maxbytesinunicodestring: UInt, bytesinunicodestring: MutPtr, oemstring: Pcstr, bytesinoemstring: UInt): Ntstatus =
     windowssysWindowsWdkStorageFilesystemRtlOemToUnicodeN(unicodestring.rawAddress.toCPointer<ByteVar>(), maxbytesinunicodestring, bytesinunicodestring.rawAddress.toCPointer<ByteVar>(), oemstring.rawAddress.toCPointer<ByteVar>(), bytesinoemstring)
 
-public actual fun rtlPrefixString(string1: ConstPtr<io.github.kotlinmania.windowssys.windows.win32.system.kernel.String>, string2: ConstPtr<io.github.kotlinmania.windowssys.windows.win32.system.kernel.String>, caseinsensitive: Boolean): Boolean =
+public actual fun rtlPrefixString(string1: ConstPtr, string2: ConstPtr, caseinsensitive: Boolean): Boolean =
     windowssysWindowsWdkStorageFilesystemRtlPrefixString(string1.rawAddress.toCPointer<ByteVar>(), string2.rawAddress.toCPointer<ByteVar>(), caseinsensitive)
 
-public actual fun rtlQueryPackageIdentity(tokenobject: ConstPtr<CVoid>, packagefullname: Pwstr, packagesize: MutPtr<ULong>, appid: Pwstr, appidsize: MutPtr<ULong>, packaged: MutPtr<Boolean>): Ntstatus =
+public actual fun rtlQueryPackageIdentity(tokenobject: ConstPtr, packagefullname: Pwstr, packagesize: MutPtr, appid: Pwstr, appidsize: MutPtr, packaged: MutPtr): Ntstatus =
     windowssysWindowsWdkStorageFilesystemRtlQueryPackageIdentity(tokenobject.rawAddress.toCPointer<ByteVar>(), packagefullname.rawAddress.toCPointer<ByteVar>(), packagesize.rawAddress.toCPointer<ByteVar>(), appid.rawAddress.toCPointer<ByteVar>(), appidsize.rawAddress.toCPointer<ByteVar>(), packaged.rawAddress.toCPointer<ByteVar>())
 
-public actual fun rtlQueryPackageIdentityEx(tokenobject: ConstPtr<CVoid>, packagefullname: Pwstr, packagesize: MutPtr<ULong>, appid: Pwstr, appidsize: MutPtr<ULong>, dynamicid: MutPtr<Guid>, flags: MutPtr<ULong>): Ntstatus =
+public actual fun rtlQueryPackageIdentityEx(tokenobject: ConstPtr, packagefullname: Pwstr, packagesize: MutPtr, appid: Pwstr, appidsize: MutPtr, dynamicid: MutPtr, flags: MutPtr): Ntstatus =
     windowssysWindowsWdkStorageFilesystemRtlQueryPackageIdentityEx(tokenobject.rawAddress.toCPointer<ByteVar>(), packagefullname.rawAddress.toCPointer<ByteVar>(), packagesize.rawAddress.toCPointer<ByteVar>(), appid.rawAddress.toCPointer<ByteVar>(), appidsize.rawAddress.toCPointer<ByteVar>(), dynamicid.rawAddress.toCPointer<ByteVar>(), flags.rawAddress.toCPointer<ByteVar>())
 
 public actual fun rtlQueryProcessPlaceholderCompatibilityMode(): Byte =
@@ -2377,31 +2335,31 @@ public actual fun rtlQueryProcessPlaceholderCompatibilityMode(): Byte =
 public actual fun rtlQueryThreadPlaceholderCompatibilityMode(): Byte =
     windowssysWindowsWdkStorageFilesystemRtlQueryThreadPlaceholderCompatibilityMode()
 
-public actual fun rtlRandom(seed: MutPtr<UInt>): UInt =
+public actual fun rtlRandom(seed: MutPtr): UInt =
     windowssysWindowsWdkStorageFilesystemRtlRandom(seed.rawAddress.toCPointer<ByteVar>())
 
-public actual fun rtlRandomEx(seed: MutPtr<UInt>): UInt =
+public actual fun rtlRandomEx(seed: MutPtr): UInt =
     windowssysWindowsWdkStorageFilesystemRtlRandomEx(seed.rawAddress.toCPointer<ByteVar>())
 
-public actual fun rtlRemoveUnicodePrefix(prefixtable: ConstPtr<UnicodePrefixTable>, prefixtableentry: ConstPtr<UnicodePrefixTableEntry>) {
+public actual fun rtlRemoveUnicodePrefix(prefixtable: ConstPtr, prefixtableentry: ConstPtr) {
     windowssysWindowsWdkStorageFilesystemRtlRemoveUnicodePrefix(prefixtable.rawAddress.toCPointer<ByteVar>(), prefixtableentry.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun rtlReplaceSidInSd(securitydescriptor: PsecurityDescriptor, oldsid: Psid, newsid: Psid, numchanges: MutPtr<UInt>): Ntstatus =
+public actual fun rtlReplaceSidInSd(securitydescriptor: PsecurityDescriptor, oldsid: Psid, newsid: Psid, numchanges: MutPtr): Ntstatus =
     windowssysWindowsWdkStorageFilesystemRtlReplaceSidInSd(securitydescriptor.rawAddress.toCPointer<ByteVar>(), oldsid.rawAddress.toCPointer<ByteVar>(), newsid.rawAddress.toCPointer<ByteVar>(), numchanges.rawAddress.toCPointer<ByteVar>())
 
-public actual fun rtlReserveChunk(compressionformat: UShort, compressedbuffer: MutPtr<MutPtr<UByte>>, endofcompressedbufferplus1: ConstPtr<UByte>, chunkbuffer: MutPtr<MutPtr<UByte>>, chunksize: UInt): Ntstatus =
+public actual fun rtlReserveChunk(compressionformat: UShort, compressedbuffer: MutPtr, endofcompressedbufferplus1: ConstPtr, chunkbuffer: MutPtr, chunksize: UInt): Ntstatus =
     windowssysWindowsWdkStorageFilesystemRtlReserveChunk(compressionformat, compressedbuffer.rawAddress.toCPointer<ByteVar>(), endofcompressedbufferplus1.rawAddress.toCPointer<ByteVar>(), chunkbuffer.rawAddress.toCPointer<ByteVar>(), chunksize)
 
-public actual fun rtlSecondsSince1970ToTime(elapsedseconds: UInt, time: MutPtr<Long>) {
+public actual fun rtlSecondsSince1970ToTime(elapsedseconds: UInt, time: MutPtr) {
     windowssysWindowsWdkStorageFilesystemRtlSecondsSince1970ToTime(elapsedseconds, time.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun rtlSecondsSince1980ToTime(elapsedseconds: UInt, time: MutPtr<Long>) {
+public actual fun rtlSecondsSince1980ToTime(elapsedseconds: UInt, time: MutPtr) {
     windowssysWindowsWdkStorageFilesystemRtlSecondsSince1980ToTime(elapsedseconds, time.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun rtlSelfRelativeToAbsoluteSD(selfrelativesecuritydescriptor: PsecurityDescriptor, absolutesecuritydescriptor: PsecurityDescriptor, absolutesecuritydescriptorsize: MutPtr<UInt>, dacl: MutPtr<Acl>, daclsize: MutPtr<UInt>, sacl: MutPtr<Acl>, saclsize: MutPtr<UInt>, owner: Psid, ownersize: MutPtr<UInt>, primarygroup: Psid, primarygroupsize: MutPtr<UInt>): Ntstatus =
+public actual fun rtlSelfRelativeToAbsoluteSD(selfrelativesecuritydescriptor: PsecurityDescriptor, absolutesecuritydescriptor: PsecurityDescriptor, absolutesecuritydescriptorsize: MutPtr, dacl: MutPtr, daclsize: MutPtr, sacl: MutPtr, saclsize: MutPtr, owner: Psid, ownersize: MutPtr, primarygroup: Psid, primarygroupsize: MutPtr): Ntstatus =
     windowssysWindowsWdkStorageFilesystemRtlSelfRelativeToAbsoluteSD(selfrelativesecuritydescriptor.rawAddress.toCPointer<ByteVar>(), absolutesecuritydescriptor.rawAddress.toCPointer<ByteVar>(), absolutesecuritydescriptorsize.rawAddress.toCPointer<ByteVar>(), dacl.rawAddress.toCPointer<ByteVar>(), daclsize.rawAddress.toCPointer<ByteVar>(), sacl.rawAddress.toCPointer<ByteVar>(), saclsize.rawAddress.toCPointer<ByteVar>(), owner.rawAddress.toCPointer<ByteVar>(), ownersize.rawAddress.toCPointer<ByteVar>(), primarygroup.rawAddress.toCPointer<ByteVar>(), primarygroupsize.rawAddress.toCPointer<ByteVar>())
 
 public actual fun rtlSetGroupSecurityDescriptor(securitydescriptor: PsecurityDescriptor, group: Psid, groupdefaulted: Boolean): Ntstatus =
@@ -2416,466 +2374,466 @@ public actual fun rtlSetProcessPlaceholderCompatibilityMode(mode: Byte): Byte =
 public actual fun rtlSetThreadPlaceholderCompatibilityMode(mode: Byte): Byte =
     windowssysWindowsWdkStorageFilesystemRtlSetThreadPlaceholderCompatibilityMode(mode)
 
-public actual fun rtlSubAuthorityCountSid(sid: Psid): MutPtr<UByte> =
+public actual fun rtlSubAuthorityCountSid(sid: Psid): MutPtr =
     MutPtr(windowssysWindowsWdkStorageFilesystemRtlSubAuthorityCountSid(sid.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun rtlSubAuthoritySid(sid: Psid, subauthority: UInt): MutPtr<UInt> =
+public actual fun rtlSubAuthoritySid(sid: Psid, subauthority: UInt): MutPtr =
     MutPtr(windowssysWindowsWdkStorageFilesystemRtlSubAuthoritySid(sid.rawAddress.toCPointer<ByteVar>(), subauthority)?.toLong() ?: 0L)
 
-public actual fun rtlTimeToSecondsSince1980(time: ConstPtr<Long>, elapsedseconds: MutPtr<UInt>): Boolean =
+public actual fun rtlTimeToSecondsSince1980(time: ConstPtr, elapsedseconds: MutPtr): Boolean =
     windowssysWindowsWdkStorageFilesystemRtlTimeToSecondsSince1980(time.rawAddress.toCPointer<ByteVar>(), elapsedseconds.rawAddress.toCPointer<ByteVar>())
 
-public actual fun rtlUnicodeStringToCountedOemString(destinationstring: MutPtr<io.github.kotlinmania.windowssys.windows.win32.system.kernel.String>, sourcestring: ConstPtr<UnicodeString>, allocatedestinationstring: Boolean): Ntstatus =
+public actual fun rtlUnicodeStringToCountedOemString(destinationstring: MutPtr, sourcestring: ConstPtr, allocatedestinationstring: Boolean): Ntstatus =
     windowssysWindowsWdkStorageFilesystemRtlUnicodeStringToCountedOemString(destinationstring.rawAddress.toCPointer<ByteVar>(), sourcestring.rawAddress.toCPointer<ByteVar>(), allocatedestinationstring)
 
-public actual fun rtlUnicodeToCustomCPN(customcp: ConstPtr<Cptableinfo>, customcpstring: Pstr, maxbytesincustomcpstring: UInt, bytesincustomcpstring: MutPtr<UInt>, unicodestring: Pcwstr, bytesinunicodestring: UInt): Ntstatus =
+public actual fun rtlUnicodeToCustomCPN(customcp: ConstPtr, customcpstring: Pstr, maxbytesincustomcpstring: UInt, bytesincustomcpstring: MutPtr, unicodestring: Pcwstr, bytesinunicodestring: UInt): Ntstatus =
     windowssysWindowsWdkStorageFilesystemRtlUnicodeToCustomCPN(customcp.rawAddress.toCPointer<ByteVar>(), customcpstring.rawAddress.toCPointer<ByteVar>(), maxbytesincustomcpstring, bytesincustomcpstring.rawAddress.toCPointer<ByteVar>(), unicodestring.rawAddress.toCPointer<ByteVar>(), bytesinunicodestring)
 
-public actual fun rtlUnicodeToMultiByteN(multibytestring: Pstr, maxbytesinmultibytestring: UInt, bytesinmultibytestring: MutPtr<UInt>, unicodestring: ConstPtr<UShort>, bytesinunicodestring: UInt): Ntstatus =
+public actual fun rtlUnicodeToMultiByteN(multibytestring: Pstr, maxbytesinmultibytestring: UInt, bytesinmultibytestring: MutPtr, unicodestring: ConstPtr, bytesinunicodestring: UInt): Ntstatus =
     windowssysWindowsWdkStorageFilesystemRtlUnicodeToMultiByteN(multibytestring.rawAddress.toCPointer<ByteVar>(), maxbytesinmultibytestring, bytesinmultibytestring.rawAddress.toCPointer<ByteVar>(), unicodestring.rawAddress.toCPointer<ByteVar>(), bytesinunicodestring)
 
-public actual fun rtlUnicodeToOemN(oemstring: Pstr, maxbytesinoemstring: UInt, bytesinoemstring: MutPtr<UInt>, unicodestring: ConstPtr<UShort>, bytesinunicodestring: UInt): Ntstatus =
+public actual fun rtlUnicodeToOemN(oemstring: Pstr, maxbytesinoemstring: UInt, bytesinoemstring: MutPtr, unicodestring: ConstPtr, bytesinunicodestring: UInt): Ntstatus =
     windowssysWindowsWdkStorageFilesystemRtlUnicodeToOemN(oemstring.rawAddress.toCPointer<ByteVar>(), maxbytesinoemstring, bytesinoemstring.rawAddress.toCPointer<ByteVar>(), unicodestring.rawAddress.toCPointer<ByteVar>(), bytesinunicodestring)
 
-public actual fun rtlUpcaseUnicodeStringToCountedOemString(destinationstring: MutPtr<io.github.kotlinmania.windowssys.windows.win32.system.kernel.String>, sourcestring: ConstPtr<UnicodeString>, allocatedestinationstring: Boolean): Ntstatus =
+public actual fun rtlUpcaseUnicodeStringToCountedOemString(destinationstring: MutPtr, sourcestring: ConstPtr, allocatedestinationstring: Boolean): Ntstatus =
     windowssysWindowsWdkStorageFilesystemRtlUpcaseUnicodeStringToCountedOemString(destinationstring.rawAddress.toCPointer<ByteVar>(), sourcestring.rawAddress.toCPointer<ByteVar>(), allocatedestinationstring)
 
-public actual fun rtlUpcaseUnicodeStringToOemString(destinationstring: MutPtr<io.github.kotlinmania.windowssys.windows.win32.system.kernel.String>, sourcestring: ConstPtr<UnicodeString>, allocatedestinationstring: Boolean): Ntstatus =
+public actual fun rtlUpcaseUnicodeStringToOemString(destinationstring: MutPtr, sourcestring: ConstPtr, allocatedestinationstring: Boolean): Ntstatus =
     windowssysWindowsWdkStorageFilesystemRtlUpcaseUnicodeStringToOemString(destinationstring.rawAddress.toCPointer<ByteVar>(), sourcestring.rawAddress.toCPointer<ByteVar>(), allocatedestinationstring)
 
-public actual fun rtlUpcaseUnicodeToCustomCPN(customcp: ConstPtr<Cptableinfo>, customcpstring: Pstr, maxbytesincustomcpstring: UInt, bytesincustomcpstring: MutPtr<UInt>, unicodestring: Pcwstr, bytesinunicodestring: UInt): Ntstatus =
+public actual fun rtlUpcaseUnicodeToCustomCPN(customcp: ConstPtr, customcpstring: Pstr, maxbytesincustomcpstring: UInt, bytesincustomcpstring: MutPtr, unicodestring: Pcwstr, bytesinunicodestring: UInt): Ntstatus =
     windowssysWindowsWdkStorageFilesystemRtlUpcaseUnicodeToCustomCPN(customcp.rawAddress.toCPointer<ByteVar>(), customcpstring.rawAddress.toCPointer<ByteVar>(), maxbytesincustomcpstring, bytesincustomcpstring.rawAddress.toCPointer<ByteVar>(), unicodestring.rawAddress.toCPointer<ByteVar>(), bytesinunicodestring)
 
-public actual fun rtlUpcaseUnicodeToMultiByteN(multibytestring: Pstr, maxbytesinmultibytestring: UInt, bytesinmultibytestring: MutPtr<UInt>, unicodestring: ConstPtr<UShort>, bytesinunicodestring: UInt): Ntstatus =
+public actual fun rtlUpcaseUnicodeToMultiByteN(multibytestring: Pstr, maxbytesinmultibytestring: UInt, bytesinmultibytestring: MutPtr, unicodestring: ConstPtr, bytesinunicodestring: UInt): Ntstatus =
     windowssysWindowsWdkStorageFilesystemRtlUpcaseUnicodeToMultiByteN(multibytestring.rawAddress.toCPointer<ByteVar>(), maxbytesinmultibytestring, bytesinmultibytestring.rawAddress.toCPointer<ByteVar>(), unicodestring.rawAddress.toCPointer<ByteVar>(), bytesinunicodestring)
 
-public actual fun rtlUpcaseUnicodeToOemN(oemstring: Pstr, maxbytesinoemstring: UInt, bytesinoemstring: MutPtr<UInt>, unicodestring: ConstPtr<UShort>, bytesinunicodestring: UInt): Ntstatus =
+public actual fun rtlUpcaseUnicodeToOemN(oemstring: Pstr, maxbytesinoemstring: UInt, bytesinoemstring: MutPtr, unicodestring: ConstPtr, bytesinunicodestring: UInt): Ntstatus =
     windowssysWindowsWdkStorageFilesystemRtlUpcaseUnicodeToOemN(oemstring.rawAddress.toCPointer<ByteVar>(), maxbytesinoemstring, bytesinoemstring.rawAddress.toCPointer<ByteVar>(), unicodestring.rawAddress.toCPointer<ByteVar>(), bytesinunicodestring)
 
 public actual fun rtlValidSid(sid: Psid): Boolean =
     windowssysWindowsWdkStorageFilesystemRtlValidSid(sid.rawAddress.toCPointer<ByteVar>())
 
-public actual fun rtlValidateUnicodeString(flags: UInt, string: ConstPtr<UnicodeString>): Ntstatus =
+public actual fun rtlValidateUnicodeString(flags: UInt, string: ConstPtr): Ntstatus =
     windowssysWindowsWdkStorageFilesystemRtlValidateUnicodeString(flags, string.rawAddress.toCPointer<ByteVar>())
 
-public actual fun rtlxOemStringToUnicodeSize(oemstring: ConstPtr<io.github.kotlinmania.windowssys.windows.win32.system.kernel.String>): UInt =
+public actual fun rtlxOemStringToUnicodeSize(oemstring: ConstPtr): UInt =
     windowssysWindowsWdkStorageFilesystemRtlxOemStringToUnicodeSize(oemstring.rawAddress.toCPointer<ByteVar>())
 
-public actual fun rtlxUnicodeStringToOemSize(unicodestring: ConstPtr<UnicodeString>): UInt =
+public actual fun rtlxUnicodeStringToOemSize(unicodestring: ConstPtr): UInt =
     windowssysWindowsWdkStorageFilesystemRtlxUnicodeStringToOemSize(unicodestring.rawAddress.toCPointer<ByteVar>())
 
-public actual fun seAccessCheckFromState(securitydescriptor: PsecurityDescriptor, primarytokeninformation: ConstPtr<TokenAccessInformation>, clienttokeninformation: ConstPtr<TokenAccessInformation>, desiredaccess: UInt, previouslygrantedaccess: UInt, privileges: MutPtr<MutPtr<PrivilegeSet>>, genericmapping: ConstPtr<GenericMapping>, accessmode: Byte, grantedaccess: MutPtr<UInt>, accessstatus: MutPtr<Int>): Boolean =
+public actual fun seAccessCheckFromState(securitydescriptor: PsecurityDescriptor, primarytokeninformation: ConstPtr, clienttokeninformation: ConstPtr, desiredaccess: UInt, previouslygrantedaccess: UInt, privileges: MutPtr, genericmapping: ConstPtr, accessmode: Byte, grantedaccess: MutPtr, accessstatus: MutPtr): Boolean =
     windowssysWindowsWdkStorageFilesystemSeAccessCheckFromState(securitydescriptor.rawAddress.toCPointer<ByteVar>(), primarytokeninformation.rawAddress.toCPointer<ByteVar>(), clienttokeninformation.rawAddress.toCPointer<ByteVar>(), desiredaccess, previouslygrantedaccess, privileges.rawAddress.toCPointer<ByteVar>(), genericmapping.rawAddress.toCPointer<ByteVar>(), accessmode, grantedaccess.rawAddress.toCPointer<ByteVar>(), accessstatus.rawAddress.toCPointer<ByteVar>())
 
-public actual fun seAccessCheckFromStateEx(securitydescriptor: PsecurityDescriptor, primarytoken: ConstPtr<CVoid>, clienttoken: ConstPtr<CVoid>, desiredaccess: UInt, previouslygrantedaccess: UInt, privileges: MutPtr<MutPtr<PrivilegeSet>>, genericmapping: ConstPtr<GenericMapping>, accessmode: Byte, grantedaccess: MutPtr<UInt>, accessstatus: MutPtr<Int>): Boolean =
+public actual fun seAccessCheckFromStateEx(securitydescriptor: PsecurityDescriptor, primarytoken: ConstPtr, clienttoken: ConstPtr, desiredaccess: UInt, previouslygrantedaccess: UInt, privileges: MutPtr, genericmapping: ConstPtr, accessmode: Byte, grantedaccess: MutPtr, accessstatus: MutPtr): Boolean =
     windowssysWindowsWdkStorageFilesystemSeAccessCheckFromStateEx(securitydescriptor.rawAddress.toCPointer<ByteVar>(), primarytoken.rawAddress.toCPointer<ByteVar>(), clienttoken.rawAddress.toCPointer<ByteVar>(), desiredaccess, previouslygrantedaccess, privileges.rawAddress.toCPointer<ByteVar>(), genericmapping.rawAddress.toCPointer<ByteVar>(), accessmode, grantedaccess.rawAddress.toCPointer<ByteVar>(), accessstatus.rawAddress.toCPointer<ByteVar>())
 
-public actual fun seAdjustAccessStateForAccessConstraints(objecttype: ConstPtr<CVoid>, securitydescriptor: PsecurityDescriptor, accessstate: MutPtr<AccessState>) {
+public actual fun seAdjustAccessStateForAccessConstraints(objecttype: ConstPtr, securitydescriptor: PsecurityDescriptor, accessstate: MutPtr) {
     windowssysWindowsWdkStorageFilesystemSeAdjustAccessStateForAccessConstraints(objecttype.rawAddress.toCPointer<ByteVar>(), securitydescriptor.rawAddress.toCPointer<ByteVar>(), accessstate.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun seAdjustAccessStateForTrustLabel(objecttype: ConstPtr<CVoid>, securitydescriptor: PsecurityDescriptor, accessstate: MutPtr<AccessState>) {
+public actual fun seAdjustAccessStateForTrustLabel(objecttype: ConstPtr, securitydescriptor: PsecurityDescriptor, accessstate: MutPtr) {
     windowssysWindowsWdkStorageFilesystemSeAdjustAccessStateForTrustLabel(objecttype.rawAddress.toCPointer<ByteVar>(), securitydescriptor.rawAddress.toCPointer<ByteVar>(), accessstate.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun seAdjustObjectSecurity(objectname: ConstPtr<UnicodeString>, originaldescriptor: PsecurityDescriptor, proposeddescriptor: PsecurityDescriptor, subjectsecuritycontext: ConstPtr<SecuritySubjectContext>, adjusteddescriptor: MutPtr<PsecurityDescriptor>, applyadjusteddescriptor: MutPtr<Boolean>): Ntstatus =
+public actual fun seAdjustObjectSecurity(objectname: ConstPtr, originaldescriptor: PsecurityDescriptor, proposeddescriptor: PsecurityDescriptor, subjectsecuritycontext: ConstPtr, adjusteddescriptor: MutPtr, applyadjusteddescriptor: MutPtr): Ntstatus =
     windowssysWindowsWdkStorageFilesystemSeAdjustObjectSecurity(objectname.rawAddress.toCPointer<ByteVar>(), originaldescriptor.rawAddress.toCPointer<ByteVar>(), proposeddescriptor.rawAddress.toCPointer<ByteVar>(), subjectsecuritycontext.rawAddress.toCPointer<ByteVar>(), adjusteddescriptor.rawAddress.toCPointer<ByteVar>(), applyadjusteddescriptor.rawAddress.toCPointer<ByteVar>())
 
-public actual fun seAppendPrivileges(accessstate: MutPtr<AccessState>, privileges: ConstPtr<PrivilegeSet>): Ntstatus =
+public actual fun seAppendPrivileges(accessstate: MutPtr, privileges: ConstPtr): Ntstatus =
     windowssysWindowsWdkStorageFilesystemSeAppendPrivileges(accessstate.rawAddress.toCPointer<ByteVar>(), privileges.rawAddress.toCPointer<ByteVar>())
 
 public actual fun seAuditFipsCryptoSelftests(bsuccess: Boolean, selftestcode: UInt) {
     windowssysWindowsWdkStorageFilesystemSeAuditFipsCryptoSelftests(bsuccess, selftestcode)
 }
 
-public actual fun seAuditHardLinkCreation(filename: ConstPtr<UnicodeString>, linkname: ConstPtr<UnicodeString>, bsuccess: Boolean) {
+public actual fun seAuditHardLinkCreation(filename: ConstPtr, linkname: ConstPtr, bsuccess: Boolean) {
     windowssysWindowsWdkStorageFilesystemSeAuditHardLinkCreation(filename.rawAddress.toCPointer<ByteVar>(), linkname.rawAddress.toCPointer<ByteVar>(), bsuccess)
 }
 
-public actual fun seAuditHardLinkCreationWithTransaction(filename: ConstPtr<UnicodeString>, linkname: ConstPtr<UnicodeString>, bsuccess: Boolean, transactionid: ConstPtr<Guid>) {
+public actual fun seAuditHardLinkCreationWithTransaction(filename: ConstPtr, linkname: ConstPtr, bsuccess: Boolean, transactionid: ConstPtr) {
     windowssysWindowsWdkStorageFilesystemSeAuditHardLinkCreationWithTransaction(filename.rawAddress.toCPointer<ByteVar>(), linkname.rawAddress.toCPointer<ByteVar>(), bsuccess, transactionid.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun seAuditTransactionStateChange(transactionid: ConstPtr<Guid>, resourcemanagerid: ConstPtr<Guid>, newtransactionstate: UInt) {
+public actual fun seAuditTransactionStateChange(transactionid: ConstPtr, resourcemanagerid: ConstPtr, newtransactionstate: UInt) {
     windowssysWindowsWdkStorageFilesystemSeAuditTransactionStateChange(transactionid.rawAddress.toCPointer<ByteVar>(), resourcemanagerid.rawAddress.toCPointer<ByteVar>(), newtransactionstate)
 }
 
-public actual fun seAuditingAnyFileEventsWithContext(securitydescriptor: PsecurityDescriptor, subjectsecuritycontext: ConstPtr<SecuritySubjectContext>): Boolean =
+public actual fun seAuditingAnyFileEventsWithContext(securitydescriptor: PsecurityDescriptor, subjectsecuritycontext: ConstPtr): Boolean =
     windowssysWindowsWdkStorageFilesystemSeAuditingAnyFileEventsWithContext(securitydescriptor.rawAddress.toCPointer<ByteVar>(), subjectsecuritycontext.rawAddress.toCPointer<ByteVar>())
 
-public actual fun seAuditingAnyFileEventsWithContextEx(securitydescriptor: PsecurityDescriptor, subjectsecuritycontext: ConstPtr<SecuritySubjectContext>, stagingenabled: MutPtr<Boolean>): Boolean =
+public actual fun seAuditingAnyFileEventsWithContextEx(securitydescriptor: PsecurityDescriptor, subjectsecuritycontext: ConstPtr, stagingenabled: MutPtr): Boolean =
     windowssysWindowsWdkStorageFilesystemSeAuditingAnyFileEventsWithContextEx(securitydescriptor.rawAddress.toCPointer<ByteVar>(), subjectsecuritycontext.rawAddress.toCPointer<ByteVar>(), stagingenabled.rawAddress.toCPointer<ByteVar>())
 
 public actual fun seAuditingFileEvents(accessgranted: Boolean, securitydescriptor: PsecurityDescriptor): Boolean =
     windowssysWindowsWdkStorageFilesystemSeAuditingFileEvents(accessgranted, securitydescriptor.rawAddress.toCPointer<ByteVar>())
 
-public actual fun seAuditingFileEventsWithContext(accessgranted: Boolean, securitydescriptor: PsecurityDescriptor, subjectsecuritycontext: ConstPtr<SecuritySubjectContext>): Boolean =
+public actual fun seAuditingFileEventsWithContext(accessgranted: Boolean, securitydescriptor: PsecurityDescriptor, subjectsecuritycontext: ConstPtr): Boolean =
     windowssysWindowsWdkStorageFilesystemSeAuditingFileEventsWithContext(accessgranted, securitydescriptor.rawAddress.toCPointer<ByteVar>(), subjectsecuritycontext.rawAddress.toCPointer<ByteVar>())
 
-public actual fun seAuditingFileEventsWithContextEx(accessgranted: Boolean, securitydescriptor: PsecurityDescriptor, subjectsecuritycontext: ConstPtr<SecuritySubjectContext>, stagingenabled: MutPtr<Boolean>): Boolean =
+public actual fun seAuditingFileEventsWithContextEx(accessgranted: Boolean, securitydescriptor: PsecurityDescriptor, subjectsecuritycontext: ConstPtr, stagingenabled: MutPtr): Boolean =
     windowssysWindowsWdkStorageFilesystemSeAuditingFileEventsWithContextEx(accessgranted, securitydescriptor.rawAddress.toCPointer<ByteVar>(), subjectsecuritycontext.rawAddress.toCPointer<ByteVar>(), stagingenabled.rawAddress.toCPointer<ByteVar>())
 
-public actual fun seAuditingFileOrGlobalEvents(accessgranted: Boolean, securitydescriptor: PsecurityDescriptor, subjectsecuritycontext: ConstPtr<SecuritySubjectContext>): Boolean =
+public actual fun seAuditingFileOrGlobalEvents(accessgranted: Boolean, securitydescriptor: PsecurityDescriptor, subjectsecuritycontext: ConstPtr): Boolean =
     windowssysWindowsWdkStorageFilesystemSeAuditingFileOrGlobalEvents(accessgranted, securitydescriptor.rawAddress.toCPointer<ByteVar>(), subjectsecuritycontext.rawAddress.toCPointer<ByteVar>())
 
 public actual fun seAuditingHardLinkEvents(accessgranted: Boolean, securitydescriptor: PsecurityDescriptor): Boolean =
     windowssysWindowsWdkStorageFilesystemSeAuditingHardLinkEvents(accessgranted, securitydescriptor.rawAddress.toCPointer<ByteVar>())
 
-public actual fun seAuditingHardLinkEventsWithContext(accessgranted: Boolean, securitydescriptor: PsecurityDescriptor, subjectsecuritycontext: ConstPtr<SecuritySubjectContext>): Boolean =
+public actual fun seAuditingHardLinkEventsWithContext(accessgranted: Boolean, securitydescriptor: PsecurityDescriptor, subjectsecuritycontext: ConstPtr): Boolean =
     windowssysWindowsWdkStorageFilesystemSeAuditingHardLinkEventsWithContext(accessgranted, securitydescriptor.rawAddress.toCPointer<ByteVar>(), subjectsecuritycontext.rawAddress.toCPointer<ByteVar>())
 
-public actual fun seCaptureSubjectContextEx(thread: Pethread, process: Peprocess, subjectcontext: MutPtr<SecuritySubjectContext>) {
+public actual fun seCaptureSubjectContextEx(thread: Pethread, process: Peprocess, subjectcontext: MutPtr) {
     windowssysWindowsWdkStorageFilesystemSeCaptureSubjectContextEx(thread, process, subjectcontext.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun seCheckForCriticalAceRemoval(currentdescriptor: PsecurityDescriptor, newdescriptor: PsecurityDescriptor, subjectsecuritycontext: ConstPtr<SecuritySubjectContext>, aceremoved: MutPtr<Boolean>) {
+public actual fun seCheckForCriticalAceRemoval(currentdescriptor: PsecurityDescriptor, newdescriptor: PsecurityDescriptor, subjectsecuritycontext: ConstPtr, aceremoved: MutPtr) {
     windowssysWindowsWdkStorageFilesystemSeCheckForCriticalAceRemoval(currentdescriptor.rawAddress.toCPointer<ByteVar>(), newdescriptor.rawAddress.toCPointer<ByteVar>(), subjectsecuritycontext.rawAddress.toCPointer<ByteVar>(), aceremoved.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun seCreateClientSecurity(clientthread: Pethread, clientsecurityqos: ConstPtr<SecurityQualityOfService>, remotesession: Boolean, clientcontext: MutPtr<SecurityClientContext>): Ntstatus =
+public actual fun seCreateClientSecurity(clientthread: Pethread, clientsecurityqos: ConstPtr, remotesession: Boolean, clientcontext: MutPtr): Ntstatus =
     windowssysWindowsWdkStorageFilesystemSeCreateClientSecurity(clientthread, clientsecurityqos.rawAddress.toCPointer<ByteVar>(), remotesession, clientcontext.rawAddress.toCPointer<ByteVar>())
 
-public actual fun seCreateClientSecurityFromSubjectContext(subjectcontext: ConstPtr<SecuritySubjectContext>, clientsecurityqos: ConstPtr<SecurityQualityOfService>, serverisremote: Boolean, clientcontext: MutPtr<SecurityClientContext>): Ntstatus =
+public actual fun seCreateClientSecurityFromSubjectContext(subjectcontext: ConstPtr, clientsecurityqos: ConstPtr, serverisremote: Boolean, clientcontext: MutPtr): Ntstatus =
     windowssysWindowsWdkStorageFilesystemSeCreateClientSecurityFromSubjectContext(subjectcontext.rawAddress.toCPointer<ByteVar>(), clientsecurityqos.rawAddress.toCPointer<ByteVar>(), serverisremote, clientcontext.rawAddress.toCPointer<ByteVar>())
 
-public actual fun seDeleteClientSecurity(clientcontext: MutPtr<SecurityClientContext>) {
+public actual fun seDeleteClientSecurity(clientcontext: MutPtr) {
     windowssysWindowsWdkStorageFilesystemSeDeleteClientSecurity(clientcontext.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun seDeleteObjectAuditAlarm(obj: ConstPtr<CVoid>, handle: Handle) {
+public actual fun seDeleteObjectAuditAlarm(obj: ConstPtr, handle: Handle) {
     windowssysWindowsWdkStorageFilesystemSeDeleteObjectAuditAlarm(obj.rawAddress.toCPointer<ByteVar>(), handle.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun seDeleteObjectAuditAlarmWithTransaction(obj: ConstPtr<CVoid>, handle: Handle, transactionid: ConstPtr<Guid>) {
+public actual fun seDeleteObjectAuditAlarmWithTransaction(obj: ConstPtr, handle: Handle, transactionid: ConstPtr) {
     windowssysWindowsWdkStorageFilesystemSeDeleteObjectAuditAlarmWithTransaction(obj.rawAddress.toCPointer<ByteVar>(), handle.rawAddress.toCPointer<ByteVar>(), transactionid.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun seExamineSacl(sacl: ConstPtr<Acl>, resourcesacl: ConstPtr<Acl>, token: ConstPtr<CVoid>, desiredaccess: UInt, accessgranted: Boolean, generateaudit: MutPtr<Boolean>, generatealarm: MutPtr<Boolean>) {
+public actual fun seExamineSacl(sacl: ConstPtr, resourcesacl: ConstPtr, token: ConstPtr, desiredaccess: UInt, accessgranted: Boolean, generateaudit: MutPtr, generatealarm: MutPtr) {
     windowssysWindowsWdkStorageFilesystemSeExamineSacl(sacl.rawAddress.toCPointer<ByteVar>(), resourcesacl.rawAddress.toCPointer<ByteVar>(), token.rawAddress.toCPointer<ByteVar>(), desiredaccess, accessgranted, generateaudit.rawAddress.toCPointer<ByteVar>(), generatealarm.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun seFilterToken(existingtoken: ConstPtr<CVoid>, flags: UInt, sidstodisable: ConstPtr<TokenGroups>, privilegestodelete: ConstPtr<TokenPrivileges>, restrictedsids: ConstPtr<TokenGroups>, filteredtoken: MutPtr<MutPtr<CVoid>>): Ntstatus =
+public actual fun seFilterToken(existingtoken: ConstPtr, flags: UInt, sidstodisable: ConstPtr, privilegestodelete: ConstPtr, restrictedsids: ConstPtr, filteredtoken: MutPtr): Ntstatus =
     windowssysWindowsWdkStorageFilesystemSeFilterToken(existingtoken.rawAddress.toCPointer<ByteVar>(), flags, sidstodisable.rawAddress.toCPointer<ByteVar>(), privilegestodelete.rawAddress.toCPointer<ByteVar>(), restrictedsids.rawAddress.toCPointer<ByteVar>(), filteredtoken.rawAddress.toCPointer<ByteVar>())
 
-public actual fun seFreePrivileges(privileges: ConstPtr<PrivilegeSet>) {
+public actual fun seFreePrivileges(privileges: ConstPtr) {
     windowssysWindowsWdkStorageFilesystemSeFreePrivileges(privileges.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun seImpersonateClient(clientcontext: ConstPtr<SecurityClientContext>, serverthread: Pethread) {
+public actual fun seImpersonateClient(clientcontext: ConstPtr, serverthread: Pethread) {
     windowssysWindowsWdkStorageFilesystemSeImpersonateClient(clientcontext.rawAddress.toCPointer<ByteVar>(), serverthread)
 }
 
-public actual fun seImpersonateClientEx(clientcontext: ConstPtr<SecurityClientContext>, serverthread: Pethread): Ntstatus =
+public actual fun seImpersonateClientEx(clientcontext: ConstPtr, serverthread: Pethread): Ntstatus =
     windowssysWindowsWdkStorageFilesystemSeImpersonateClientEx(clientcontext.rawAddress.toCPointer<ByteVar>(), serverthread)
 
-public actual fun seLocateProcessImageName(process: Peprocess, pimagefilename: MutPtr<MutPtr<UnicodeString>>): Ntstatus =
+public actual fun seLocateProcessImageName(process: Peprocess, pimagefilename: MutPtr): Ntstatus =
     windowssysWindowsWdkStorageFilesystemSeLocateProcessImageName(process, pimagefilename.rawAddress.toCPointer<ByteVar>())
 
-public actual fun seMarkLogonSessionForTerminationNotification(logonid: ConstPtr<Luid>): Ntstatus =
+public actual fun seMarkLogonSessionForTerminationNotification(logonid: ConstPtr): Ntstatus =
     windowssysWindowsWdkStorageFilesystemSeMarkLogonSessionForTerminationNotification(logonid.rawAddress.toCPointer<ByteVar>())
 
-public actual fun seMarkLogonSessionForTerminationNotificationEx(logonid: ConstPtr<Luid>, pserversilo: Pesilo): Ntstatus =
+public actual fun seMarkLogonSessionForTerminationNotificationEx(logonid: ConstPtr, pserversilo: Pesilo): Ntstatus =
     windowssysWindowsWdkStorageFilesystemSeMarkLogonSessionForTerminationNotificationEx(logonid.rawAddress.toCPointer<ByteVar>(), pserversilo)
 
-public actual fun seOpenObjectAuditAlarm(objecttypename: ConstPtr<UnicodeString>, obj: ConstPtr<CVoid>, absoluteobjectname: ConstPtr<UnicodeString>, securitydescriptor: PsecurityDescriptor, accessstate: ConstPtr<AccessState>, objectcreated: Boolean, accessgranted: Boolean, accessmode: Byte, generateonclose: MutPtr<Boolean>) {
+public actual fun seOpenObjectAuditAlarm(objecttypename: ConstPtr, obj: ConstPtr, absoluteobjectname: ConstPtr, securitydescriptor: PsecurityDescriptor, accessstate: ConstPtr, objectcreated: Boolean, accessgranted: Boolean, accessmode: Byte, generateonclose: MutPtr) {
     windowssysWindowsWdkStorageFilesystemSeOpenObjectAuditAlarm(objecttypename.rawAddress.toCPointer<ByteVar>(), obj.rawAddress.toCPointer<ByteVar>(), absoluteobjectname.rawAddress.toCPointer<ByteVar>(), securitydescriptor.rawAddress.toCPointer<ByteVar>(), accessstate.rawAddress.toCPointer<ByteVar>(), objectcreated, accessgranted, accessmode, generateonclose.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun seOpenObjectAuditAlarmWithTransaction(objecttypename: ConstPtr<UnicodeString>, obj: ConstPtr<CVoid>, absoluteobjectname: ConstPtr<UnicodeString>, securitydescriptor: PsecurityDescriptor, accessstate: ConstPtr<AccessState>, objectcreated: Boolean, accessgranted: Boolean, accessmode: Byte, transactionid: ConstPtr<Guid>, generateonclose: MutPtr<Boolean>) {
+public actual fun seOpenObjectAuditAlarmWithTransaction(objecttypename: ConstPtr, obj: ConstPtr, absoluteobjectname: ConstPtr, securitydescriptor: PsecurityDescriptor, accessstate: ConstPtr, objectcreated: Boolean, accessgranted: Boolean, accessmode: Byte, transactionid: ConstPtr, generateonclose: MutPtr) {
     windowssysWindowsWdkStorageFilesystemSeOpenObjectAuditAlarmWithTransaction(objecttypename.rawAddress.toCPointer<ByteVar>(), obj.rawAddress.toCPointer<ByteVar>(), absoluteobjectname.rawAddress.toCPointer<ByteVar>(), securitydescriptor.rawAddress.toCPointer<ByteVar>(), accessstate.rawAddress.toCPointer<ByteVar>(), objectcreated, accessgranted, accessmode, transactionid.rawAddress.toCPointer<ByteVar>(), generateonclose.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun seOpenObjectForDeleteAuditAlarm(objecttypename: ConstPtr<UnicodeString>, obj: ConstPtr<CVoid>, absoluteobjectname: ConstPtr<UnicodeString>, securitydescriptor: PsecurityDescriptor, accessstate: ConstPtr<AccessState>, objectcreated: Boolean, accessgranted: Boolean, accessmode: Byte, generateonclose: MutPtr<Boolean>) {
+public actual fun seOpenObjectForDeleteAuditAlarm(objecttypename: ConstPtr, obj: ConstPtr, absoluteobjectname: ConstPtr, securitydescriptor: PsecurityDescriptor, accessstate: ConstPtr, objectcreated: Boolean, accessgranted: Boolean, accessmode: Byte, generateonclose: MutPtr) {
     windowssysWindowsWdkStorageFilesystemSeOpenObjectForDeleteAuditAlarm(objecttypename.rawAddress.toCPointer<ByteVar>(), obj.rawAddress.toCPointer<ByteVar>(), absoluteobjectname.rawAddress.toCPointer<ByteVar>(), securitydescriptor.rawAddress.toCPointer<ByteVar>(), accessstate.rawAddress.toCPointer<ByteVar>(), objectcreated, accessgranted, accessmode, generateonclose.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun seOpenObjectForDeleteAuditAlarmWithTransaction(objecttypename: ConstPtr<UnicodeString>, obj: ConstPtr<CVoid>, absoluteobjectname: ConstPtr<UnicodeString>, securitydescriptor: PsecurityDescriptor, accessstate: ConstPtr<AccessState>, objectcreated: Boolean, accessgranted: Boolean, accessmode: Byte, transactionid: ConstPtr<Guid>, generateonclose: MutPtr<Boolean>) {
+public actual fun seOpenObjectForDeleteAuditAlarmWithTransaction(objecttypename: ConstPtr, obj: ConstPtr, absoluteobjectname: ConstPtr, securitydescriptor: PsecurityDescriptor, accessstate: ConstPtr, objectcreated: Boolean, accessgranted: Boolean, accessmode: Byte, transactionid: ConstPtr, generateonclose: MutPtr) {
     windowssysWindowsWdkStorageFilesystemSeOpenObjectForDeleteAuditAlarmWithTransaction(objecttypename.rawAddress.toCPointer<ByteVar>(), obj.rawAddress.toCPointer<ByteVar>(), absoluteobjectname.rawAddress.toCPointer<ByteVar>(), securitydescriptor.rawAddress.toCPointer<ByteVar>(), accessstate.rawAddress.toCPointer<ByteVar>(), objectcreated, accessgranted, accessmode, transactionid.rawAddress.toCPointer<ByteVar>(), generateonclose.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun sePrivilegeCheck(requiredprivileges: MutPtr<PrivilegeSet>, subjectsecuritycontext: ConstPtr<SecuritySubjectContext>, accessmode: Byte): Boolean =
+public actual fun sePrivilegeCheck(requiredprivileges: MutPtr, subjectsecuritycontext: ConstPtr, accessmode: Byte): Boolean =
     windowssysWindowsWdkStorageFilesystemSePrivilegeCheck(requiredprivileges.rawAddress.toCPointer<ByteVar>(), subjectsecuritycontext.rawAddress.toCPointer<ByteVar>(), accessmode)
 
-public actual fun seQueryAuthenticationIdToken(token: ConstPtr<CVoid>, authenticationid: MutPtr<Luid>): Ntstatus =
+public actual fun seQueryAuthenticationIdToken(token: ConstPtr, authenticationid: MutPtr): Ntstatus =
     windowssysWindowsWdkStorageFilesystemSeQueryAuthenticationIdToken(token.rawAddress.toCPointer<ByteVar>(), authenticationid.rawAddress.toCPointer<ByteVar>())
 
-public actual fun seQueryInformationToken(token: ConstPtr<CVoid>, tokeninformationclass: TokenInformationClass, tokeninformation: MutPtr<MutPtr<CVoid>>): Ntstatus =
+public actual fun seQueryInformationToken(token: ConstPtr, tokeninformationclass: TokenInformationClass, tokeninformation: MutPtr): Ntstatus =
     windowssysWindowsWdkStorageFilesystemSeQueryInformationToken(token.rawAddress.toCPointer<ByteVar>(), tokeninformationclass, tokeninformation.rawAddress.toCPointer<ByteVar>())
 
-public actual fun seQuerySecurityDescriptorInfo(securityinformation: ConstPtr<UInt>, securitydescriptor: PsecurityDescriptor, length: MutPtr<UInt>, objectssecuritydescriptor: MutPtr<PsecurityDescriptor>): Ntstatus =
+public actual fun seQuerySecurityDescriptorInfo(securityinformation: ConstPtr, securitydescriptor: PsecurityDescriptor, length: MutPtr, objectssecuritydescriptor: MutPtr): Ntstatus =
     windowssysWindowsWdkStorageFilesystemSeQuerySecurityDescriptorInfo(securityinformation.rawAddress.toCPointer<ByteVar>(), securitydescriptor.rawAddress.toCPointer<ByteVar>(), length.rawAddress.toCPointer<ByteVar>(), objectssecuritydescriptor.rawAddress.toCPointer<ByteVar>())
 
-public actual fun seQueryServerSiloToken(token: ConstPtr<CVoid>, pserversilo: MutPtr<Pesilo>): Ntstatus =
+public actual fun seQueryServerSiloToken(token: ConstPtr, pserversilo: MutPtr): Ntstatus =
     windowssysWindowsWdkStorageFilesystemSeQueryServerSiloToken(token.rawAddress.toCPointer<ByteVar>(), pserversilo.rawAddress.toCPointer<ByteVar>())
 
-public actual fun seQuerySessionIdToken(token: ConstPtr<CVoid>, sessionid: MutPtr<UInt>): Ntstatus =
+public actual fun seQuerySessionIdToken(token: ConstPtr, sessionid: MutPtr): Ntstatus =
     windowssysWindowsWdkStorageFilesystemSeQuerySessionIdToken(token.rawAddress.toCPointer<ByteVar>(), sessionid.rawAddress.toCPointer<ByteVar>())
 
-public actual fun seQuerySessionIdTokenEx(token: ConstPtr<CVoid>, sessionid: MutPtr<UInt>, isservicesession: MutPtr<Boolean>): Ntstatus =
+public actual fun seQuerySessionIdTokenEx(token: ConstPtr, sessionid: MutPtr, isservicesession: MutPtr): Ntstatus =
     windowssysWindowsWdkStorageFilesystemSeQuerySessionIdTokenEx(token.rawAddress.toCPointer<ByteVar>(), sessionid.rawAddress.toCPointer<ByteVar>(), isservicesession.rawAddress.toCPointer<ByteVar>())
 
 public actual fun seRegisterLogonSessionTerminatedRoutine(callbackroutine: PseLogonSessionTerminatedRoutine): Ntstatus =
     windowssysWindowsWdkStorageFilesystemSeRegisterLogonSessionTerminatedRoutine(0L.toCPointer<ByteVar>())
 
-public actual fun seRegisterLogonSessionTerminatedRoutineEx(callbackroutine: PseLogonSessionTerminatedRoutineEx, context: ConstPtr<CVoid>): Ntstatus =
+public actual fun seRegisterLogonSessionTerminatedRoutineEx(callbackroutine: PseLogonSessionTerminatedRoutineEx, context: ConstPtr): Ntstatus =
     windowssysWindowsWdkStorageFilesystemSeRegisterLogonSessionTerminatedRoutineEx(0L.toCPointer<ByteVar>(), context.rawAddress.toCPointer<ByteVar>())
 
-public actual fun seReportSecurityEventWithSubCategory(flags: UInt, sourcename: ConstPtr<UnicodeString>, usersid: Psid, auditparameters: ConstPtr<SeAdtParameterArray>, auditsubcategoryid: UInt): Ntstatus =
+public actual fun seReportSecurityEventWithSubCategory(flags: UInt, sourcename: ConstPtr, usersid: Psid, auditparameters: ConstPtr, auditsubcategoryid: UInt): Ntstatus =
     windowssysWindowsWdkStorageFilesystemSeReportSecurityEventWithSubCategory(flags, sourcename.rawAddress.toCPointer<ByteVar>(), usersid.rawAddress.toCPointer<ByteVar>(), auditparameters.rawAddress.toCPointer<ByteVar>(), auditsubcategoryid)
 
-public actual fun seSetAccessStateGenericMapping(accessstate: MutPtr<AccessState>, genericmapping: ConstPtr<GenericMapping>) {
+public actual fun seSetAccessStateGenericMapping(accessstate: MutPtr, genericmapping: ConstPtr) {
     windowssysWindowsWdkStorageFilesystemSeSetAccessStateGenericMapping(accessstate.rawAddress.toCPointer<ByteVar>(), genericmapping.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun seSetSecurityDescriptorInfo(obj: ConstPtr<CVoid>, securityinformation: ConstPtr<UInt>, modificationdescriptor: PsecurityDescriptor, objectssecuritydescriptor: MutPtr<PsecurityDescriptor>, pooltype: PoolType, genericmapping: ConstPtr<GenericMapping>): Ntstatus =
+public actual fun seSetSecurityDescriptorInfo(obj: ConstPtr, securityinformation: ConstPtr, modificationdescriptor: PsecurityDescriptor, objectssecuritydescriptor: MutPtr, pooltype: PoolType, genericmapping: ConstPtr): Ntstatus =
     windowssysWindowsWdkStorageFilesystemSeSetSecurityDescriptorInfo(obj.rawAddress.toCPointer<ByteVar>(), securityinformation.rawAddress.toCPointer<ByteVar>(), modificationdescriptor.rawAddress.toCPointer<ByteVar>(), objectssecuritydescriptor.rawAddress.toCPointer<ByteVar>(), pooltype, genericmapping.rawAddress.toCPointer<ByteVar>())
 
-public actual fun seSetSecurityDescriptorInfoEx(obj: ConstPtr<CVoid>, securityinformation: ConstPtr<UInt>, modificationdescriptor: PsecurityDescriptor, objectssecuritydescriptor: MutPtr<PsecurityDescriptor>, autoinheritflags: UInt, pooltype: PoolType, genericmapping: ConstPtr<GenericMapping>): Ntstatus =
+public actual fun seSetSecurityDescriptorInfoEx(obj: ConstPtr, securityinformation: ConstPtr, modificationdescriptor: PsecurityDescriptor, objectssecuritydescriptor: MutPtr, autoinheritflags: UInt, pooltype: PoolType, genericmapping: ConstPtr): Ntstatus =
     windowssysWindowsWdkStorageFilesystemSeSetSecurityDescriptorInfoEx(obj.rawAddress.toCPointer<ByteVar>(), securityinformation.rawAddress.toCPointer<ByteVar>(), modificationdescriptor.rawAddress.toCPointer<ByteVar>(), objectssecuritydescriptor.rawAddress.toCPointer<ByteVar>(), autoinheritflags, pooltype, genericmapping.rawAddress.toCPointer<ByteVar>())
 
-public actual fun seShouldCheckForAccessRightsFromParent(objecttype: ConstPtr<CVoid>, childdescriptor: PsecurityDescriptor, accessstate: ConstPtr<AccessState>): Boolean =
+public actual fun seShouldCheckForAccessRightsFromParent(objecttype: ConstPtr, childdescriptor: PsecurityDescriptor, accessstate: ConstPtr): Boolean =
     windowssysWindowsWdkStorageFilesystemSeShouldCheckForAccessRightsFromParent(objecttype.rawAddress.toCPointer<ByteVar>(), childdescriptor.rawAddress.toCPointer<ByteVar>(), accessstate.rawAddress.toCPointer<ByteVar>())
 
-public actual fun seTokenFromAccessInformation(accessinformation: ConstPtr<TokenAccessInformation>, token: MutPtr<CVoid>, length: UInt, requiredlength: MutPtr<UInt>): Ntstatus =
+public actual fun seTokenFromAccessInformation(accessinformation: ConstPtr, token: MutPtr, length: UInt, requiredlength: MutPtr): Ntstatus =
     windowssysWindowsWdkStorageFilesystemSeTokenFromAccessInformation(accessinformation.rawAddress.toCPointer<ByteVar>(), token.rawAddress.toCPointer<ByteVar>(), length, requiredlength.rawAddress.toCPointer<ByteVar>())
 
-public actual fun seTokenIsAdmin(token: ConstPtr<CVoid>): Boolean =
+public actual fun seTokenIsAdmin(token: ConstPtr): Boolean =
     windowssysWindowsWdkStorageFilesystemSeTokenIsAdmin(token.rawAddress.toCPointer<ByteVar>())
 
-public actual fun seTokenIsRestricted(token: ConstPtr<CVoid>): Boolean =
+public actual fun seTokenIsRestricted(token: ConstPtr): Boolean =
     windowssysWindowsWdkStorageFilesystemSeTokenIsRestricted(token.rawAddress.toCPointer<ByteVar>())
 
-public actual fun seTokenIsWriteRestricted(token: ConstPtr<CVoid>): Boolean =
+public actual fun seTokenIsWriteRestricted(token: ConstPtr): Boolean =
     windowssysWindowsWdkStorageFilesystemSeTokenIsWriteRestricted(token.rawAddress.toCPointer<ByteVar>())
 
-public actual fun seTokenType(token: ConstPtr<CVoid>): TokenType =
+public actual fun seTokenType(token: ConstPtr): TokenType =
     windowssysWindowsWdkStorageFilesystemSeTokenType(token.rawAddress.toCPointer<ByteVar>())
 
 public actual fun seUnregisterLogonSessionTerminatedRoutine(callbackroutine: PseLogonSessionTerminatedRoutine): Ntstatus =
     windowssysWindowsWdkStorageFilesystemSeUnregisterLogonSessionTerminatedRoutine(0L.toCPointer<ByteVar>())
 
-public actual fun seUnregisterLogonSessionTerminatedRoutineEx(callbackroutine: PseLogonSessionTerminatedRoutineEx, context: ConstPtr<CVoid>): Ntstatus =
+public actual fun seUnregisterLogonSessionTerminatedRoutineEx(callbackroutine: PseLogonSessionTerminatedRoutineEx, context: ConstPtr): Ntstatus =
     windowssysWindowsWdkStorageFilesystemSeUnregisterLogonSessionTerminatedRoutineEx(0L.toCPointer<ByteVar>(), context.rawAddress.toCPointer<ByteVar>())
 
-public actual fun secLookupAccountName(name: ConstPtr<UnicodeString>, sidsize: MutPtr<UInt>, sid: Psid, nameuse: MutPtr<SidNameUse>, domainsize: MutPtr<UInt>, referenceddomain: MutPtr<UnicodeString>): Ntstatus =
+public actual fun secLookupAccountName(name: ConstPtr, sidsize: MutPtr, sid: Psid, nameuse: MutPtr, domainsize: MutPtr, referenceddomain: MutPtr): Ntstatus =
     windowssysWindowsWdkStorageFilesystemSecLookupAccountName(name.rawAddress.toCPointer<ByteVar>(), sidsize.rawAddress.toCPointer<ByteVar>(), sid.rawAddress.toCPointer<ByteVar>(), nameuse.rawAddress.toCPointer<ByteVar>(), domainsize.rawAddress.toCPointer<ByteVar>(), referenceddomain.rawAddress.toCPointer<ByteVar>())
 
-public actual fun secLookupAccountSid(sid: Psid, namesize: MutPtr<UInt>, namebuffer: MutPtr<UnicodeString>, domainsize: MutPtr<UInt>, domainbuffer: MutPtr<UnicodeString>, nameuse: MutPtr<SidNameUse>): Ntstatus =
+public actual fun secLookupAccountSid(sid: Psid, namesize: MutPtr, namebuffer: MutPtr, domainsize: MutPtr, domainbuffer: MutPtr, nameuse: MutPtr): Ntstatus =
     windowssysWindowsWdkStorageFilesystemSecLookupAccountSid(sid.rawAddress.toCPointer<ByteVar>(), namesize.rawAddress.toCPointer<ByteVar>(), namebuffer.rawAddress.toCPointer<ByteVar>(), domainsize.rawAddress.toCPointer<ByteVar>(), domainbuffer.rawAddress.toCPointer<ByteVar>(), nameuse.rawAddress.toCPointer<ByteVar>())
 
-public actual fun secLookupWellKnownSid(sidtype: WellKnownSidType, sid: Psid, sidbuffersize: UInt, sidsize: MutPtr<UInt>): Ntstatus =
+public actual fun secLookupWellKnownSid(sidtype: WellKnownSidType, sid: Psid, sidbuffersize: UInt, sidsize: MutPtr): Ntstatus =
     windowssysWindowsWdkStorageFilesystemSecLookupWellKnownSid(sidtype, sid.rawAddress.toCPointer<ByteVar>(), sidbuffersize, sidsize.rawAddress.toCPointer<ByteVar>())
 
-public actual fun secMakeSPN(serviceclass: MutPtr<UnicodeString>, servicename: MutPtr<UnicodeString>, instancename: MutPtr<UnicodeString>, instanceport: UShort, referrer: MutPtr<UnicodeString>, spn: MutPtr<UnicodeString>, length: MutPtr<UInt>, allocate: Boolean): Ntstatus =
+public actual fun secMakeSPN(serviceclass: MutPtr, servicename: MutPtr, instancename: MutPtr, instanceport: UShort, referrer: MutPtr, spn: MutPtr, length: MutPtr, allocate: Boolean): Ntstatus =
     windowssysWindowsWdkStorageFilesystemSecMakeSPN(serviceclass.rawAddress.toCPointer<ByteVar>(), servicename.rawAddress.toCPointer<ByteVar>(), instancename.rawAddress.toCPointer<ByteVar>(), instanceport, referrer.rawAddress.toCPointer<ByteVar>(), spn.rawAddress.toCPointer<ByteVar>(), length.rawAddress.toCPointer<ByteVar>(), allocate)
 
-public actual fun secMakeSPNEx(serviceclass: MutPtr<UnicodeString>, servicename: MutPtr<UnicodeString>, instancename: MutPtr<UnicodeString>, instanceport: UShort, referrer: MutPtr<UnicodeString>, targetinfo: MutPtr<UnicodeString>, spn: MutPtr<UnicodeString>, length: MutPtr<UInt>, allocate: Boolean): Ntstatus =
+public actual fun secMakeSPNEx(serviceclass: MutPtr, servicename: MutPtr, instancename: MutPtr, instanceport: UShort, referrer: MutPtr, targetinfo: MutPtr, spn: MutPtr, length: MutPtr, allocate: Boolean): Ntstatus =
     windowssysWindowsWdkStorageFilesystemSecMakeSPNEx(serviceclass.rawAddress.toCPointer<ByteVar>(), servicename.rawAddress.toCPointer<ByteVar>(), instancename.rawAddress.toCPointer<ByteVar>(), instanceport, referrer.rawAddress.toCPointer<ByteVar>(), targetinfo.rawAddress.toCPointer<ByteVar>(), spn.rawAddress.toCPointer<ByteVar>(), length.rawAddress.toCPointer<ByteVar>(), allocate)
 
-public actual fun secMakeSPNEx2(serviceclass: MutPtr<UnicodeString>, servicename: MutPtr<UnicodeString>, instancename: MutPtr<UnicodeString>, instanceport: UShort, referrer: MutPtr<UnicodeString>, intargetinfo: MutPtr<UnicodeString>, spn: MutPtr<UnicodeString>, totalsize: MutPtr<UInt>, allocate: Boolean, istargetinfomarshaled: Boolean): Ntstatus =
+public actual fun secMakeSPNEx2(serviceclass: MutPtr, servicename: MutPtr, instancename: MutPtr, instanceport: UShort, referrer: MutPtr, intargetinfo: MutPtr, spn: MutPtr, totalsize: MutPtr, allocate: Boolean, istargetinfomarshaled: Boolean): Ntstatus =
     windowssysWindowsWdkStorageFilesystemSecMakeSPNEx2(serviceclass.rawAddress.toCPointer<ByteVar>(), servicename.rawAddress.toCPointer<ByteVar>(), instancename.rawAddress.toCPointer<ByteVar>(), instanceport, referrer.rawAddress.toCPointer<ByteVar>(), intargetinfo.rawAddress.toCPointer<ByteVar>(), spn.rawAddress.toCPointer<ByteVar>(), totalsize.rawAddress.toCPointer<ByteVar>(), allocate, istargetinfomarshaled)
 
-public actual fun setContextAttributesW(phcontext: ConstPtr<SecHandle>, ulattribute: UInt, pbuffer: ConstPtr<CVoid>, cbbuffer: UInt): Hresult =
+public actual fun setContextAttributesW(phcontext: ConstPtr, ulattribute: UInt, pbuffer: ConstPtr, cbbuffer: UInt): Hresult =
     windowssysWindowsWdkStorageFilesystemSetContextAttributesW(phcontext.rawAddress.toCPointer<ByteVar>(), ulattribute, pbuffer.rawAddress.toCPointer<ByteVar>(), cbbuffer)
 
-public actual fun sspiAcceptSecurityContextAsync(asynccontext: MutPtr<SspiAsyncContext>, phcredential: ConstPtr<SecHandle>, phcontext: ConstPtr<SecHandle>, pinput: ConstPtr<SecBufferDesc>, fcontextreq: UInt, targetdatarep: UInt, phnewcontext: ConstPtr<SecHandle>, poutput: ConstPtr<SecBufferDesc>, pfcontextattr: ConstPtr<UInt>, ptsexpiry: ConstPtr<Long>): Hresult =
+public actual fun sspiAcceptSecurityContextAsync(asynccontext: MutPtr, phcredential: ConstPtr, phcontext: ConstPtr, pinput: ConstPtr, fcontextreq: UInt, targetdatarep: UInt, phnewcontext: ConstPtr, poutput: ConstPtr, pfcontextattr: ConstPtr, ptsexpiry: ConstPtr): Hresult =
     windowssysWindowsWdkStorageFilesystemSspiAcceptSecurityContextAsync(asynccontext.rawAddress.toCPointer<ByteVar>(), phcredential.rawAddress.toCPointer<ByteVar>(), phcontext.rawAddress.toCPointer<ByteVar>(), pinput.rawAddress.toCPointer<ByteVar>(), fcontextreq, targetdatarep, phnewcontext.rawAddress.toCPointer<ByteVar>(), poutput.rawAddress.toCPointer<ByteVar>(), pfcontextattr.rawAddress.toCPointer<ByteVar>(), ptsexpiry.rawAddress.toCPointer<ByteVar>())
 
-public actual fun sspiAcquireCredentialsHandleAsyncA(asynccontext: MutPtr<SspiAsyncContext>, pszprincipal: Pcstr, pszpackage: Pcstr, fcredentialuse: UInt, pvlogonid: ConstPtr<CVoid>, pauthdata: ConstPtr<CVoid>, pgetkeyfn: SecGetKeyFn, pvgetkeyargument: ConstPtr<CVoid>, phcredential: ConstPtr<SecHandle>, ptsexpiry: ConstPtr<Long>): Hresult =
+public actual fun sspiAcquireCredentialsHandleAsyncA(asynccontext: MutPtr, pszprincipal: Pcstr, pszpackage: Pcstr, fcredentialuse: UInt, pvlogonid: ConstPtr, pauthdata: ConstPtr, pgetkeyfn: SecGetKeyFn, pvgetkeyargument: ConstPtr, phcredential: ConstPtr, ptsexpiry: ConstPtr): Hresult =
     0
 
-public actual fun sspiAcquireCredentialsHandleAsyncW(asynccontext: MutPtr<SspiAsyncContext>, pszprincipal: ConstPtr<UnicodeString>, pszpackage: ConstPtr<UnicodeString>, fcredentialuse: UInt, pvlogonid: ConstPtr<CVoid>, pauthdata: ConstPtr<CVoid>, pgetkeyfn: SecGetKeyFn, pvgetkeyargument: ConstPtr<CVoid>, phcredential: ConstPtr<SecHandle>, ptsexpiry: ConstPtr<Long>): Hresult =
+public actual fun sspiAcquireCredentialsHandleAsyncW(asynccontext: MutPtr, pszprincipal: ConstPtr, pszpackage: ConstPtr, fcredentialuse: UInt, pvlogonid: ConstPtr, pauthdata: ConstPtr, pgetkeyfn: SecGetKeyFn, pvgetkeyargument: ConstPtr, phcredential: ConstPtr, ptsexpiry: ConstPtr): Hresult =
     0
 
-public actual fun sspiCreateAsyncContext(): MutPtr<SspiAsyncContext> =
+public actual fun sspiCreateAsyncContext(): MutPtr =
     MutPtr(windowssysWindowsWdkStorageFilesystemSspiCreateAsyncContext()?.toLong() ?: 0L)
 
-public actual fun sspiDeleteSecurityContextAsync(asynccontext: MutPtr<SspiAsyncContext>, phcontext: ConstPtr<SecHandle>): Hresult =
+public actual fun sspiDeleteSecurityContextAsync(asynccontext: MutPtr, phcontext: ConstPtr): Hresult =
     windowssysWindowsWdkStorageFilesystemSspiDeleteSecurityContextAsync(asynccontext.rawAddress.toCPointer<ByteVar>(), phcontext.rawAddress.toCPointer<ByteVar>())
 
-public actual fun sspiFreeAsyncContext(handle: ConstPtr<SspiAsyncContext>) {
+public actual fun sspiFreeAsyncContext(handle: ConstPtr) {
     windowssysWindowsWdkStorageFilesystemSspiFreeAsyncContext(handle.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun sspiFreeCredentialsHandleAsync(asynccontext: MutPtr<SspiAsyncContext>, phcredential: ConstPtr<SecHandle>): Hresult =
+public actual fun sspiFreeCredentialsHandleAsync(asynccontext: MutPtr, phcredential: ConstPtr): Hresult =
     windowssysWindowsWdkStorageFilesystemSspiFreeCredentialsHandleAsync(asynccontext.rawAddress.toCPointer<ByteVar>(), phcredential.rawAddress.toCPointer<ByteVar>())
 
-public actual fun sspiGetAsyncCallStatus(handle: ConstPtr<SspiAsyncContext>): Hresult =
+public actual fun sspiGetAsyncCallStatus(handle: ConstPtr): Hresult =
     windowssysWindowsWdkStorageFilesystemSspiGetAsyncCallStatus(handle.rawAddress.toCPointer<ByteVar>())
 
-public actual fun sspiInitializeSecurityContextAsyncA(asynccontext: MutPtr<SspiAsyncContext>, phcredential: ConstPtr<SecHandle>, phcontext: ConstPtr<SecHandle>, psztargetname: Pcstr, fcontextreq: UInt, reserved1: UInt, targetdatarep: UInt, pinput: ConstPtr<SecBufferDesc>, reserved2: UInt, phnewcontext: ConstPtr<SecHandle>, poutput: ConstPtr<SecBufferDesc>, pfcontextattr: ConstPtr<UInt>, ptsexpiry: ConstPtr<Long>): Hresult =
+public actual fun sspiInitializeSecurityContextAsyncA(asynccontext: MutPtr, phcredential: ConstPtr, phcontext: ConstPtr, psztargetname: Pcstr, fcontextreq: UInt, reserved1: UInt, targetdatarep: UInt, pinput: ConstPtr, reserved2: UInt, phnewcontext: ConstPtr, poutput: ConstPtr, pfcontextattr: ConstPtr, ptsexpiry: ConstPtr): Hresult =
     windowssysWindowsWdkStorageFilesystemSspiInitializeSecurityContextAsyncA(asynccontext.rawAddress.toCPointer<ByteVar>(), phcredential.rawAddress.toCPointer<ByteVar>(), phcontext.rawAddress.toCPointer<ByteVar>(), psztargetname.rawAddress.toCPointer<ByteVar>(), fcontextreq, reserved1, targetdatarep, pinput.rawAddress.toCPointer<ByteVar>(), reserved2, phnewcontext.rawAddress.toCPointer<ByteVar>(), poutput.rawAddress.toCPointer<ByteVar>(), pfcontextattr.rawAddress.toCPointer<ByteVar>(), ptsexpiry.rawAddress.toCPointer<ByteVar>())
 
-public actual fun sspiInitializeSecurityContextAsyncW(asynccontext: MutPtr<SspiAsyncContext>, phcredential: ConstPtr<SecHandle>, phcontext: ConstPtr<SecHandle>, psztargetname: ConstPtr<UnicodeString>, fcontextreq: UInt, reserved1: UInt, targetdatarep: UInt, pinput: ConstPtr<SecBufferDesc>, reserved2: UInt, phnewcontext: ConstPtr<SecHandle>, poutput: ConstPtr<SecBufferDesc>, pfcontextattr: ConstPtr<UInt>, ptsexpiry: ConstPtr<Long>): Hresult =
+public actual fun sspiInitializeSecurityContextAsyncW(asynccontext: MutPtr, phcredential: ConstPtr, phcontext: ConstPtr, psztargetname: ConstPtr, fcontextreq: UInt, reserved1: UInt, targetdatarep: UInt, pinput: ConstPtr, reserved2: UInt, phnewcontext: ConstPtr, poutput: ConstPtr, pfcontextattr: ConstPtr, ptsexpiry: ConstPtr): Hresult =
     windowssysWindowsWdkStorageFilesystemSspiInitializeSecurityContextAsyncW(asynccontext.rawAddress.toCPointer<ByteVar>(), phcredential.rawAddress.toCPointer<ByteVar>(), phcontext.rawAddress.toCPointer<ByteVar>(), psztargetname.rawAddress.toCPointer<ByteVar>(), fcontextreq, reserved1, targetdatarep, pinput.rawAddress.toCPointer<ByteVar>(), reserved2, phnewcontext.rawAddress.toCPointer<ByteVar>(), poutput.rawAddress.toCPointer<ByteVar>(), pfcontextattr.rawAddress.toCPointer<ByteVar>(), ptsexpiry.rawAddress.toCPointer<ByteVar>())
 
-public actual fun sspiReinitAsyncContext(handle: MutPtr<SspiAsyncContext>): Ntstatus =
+public actual fun sspiReinitAsyncContext(handle: MutPtr): Ntstatus =
     windowssysWindowsWdkStorageFilesystemSspiReinitAsyncContext(handle.rawAddress.toCPointer<ByteVar>())
 
-public actual fun sspiSetAsyncNotifyCallback(context: ConstPtr<SspiAsyncContext>, callback: SspiAsyncNotifyCallback, callbackdata: ConstPtr<CVoid>): Hresult =
+public actual fun sspiSetAsyncNotifyCallback(context: ConstPtr, callback: SspiAsyncNotifyCallback, callbackdata: ConstPtr): Hresult =
     windowssysWindowsWdkStorageFilesystemSspiSetAsyncNotifyCallback(context.rawAddress.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>(), callbackdata.rawAddress.toCPointer<ByteVar>())
 
-public actual fun verifySignature(phcontext: ConstPtr<SecHandle>, pmessage: ConstPtr<SecBufferDesc>, messageseqno: UInt, pfqop: MutPtr<UInt>): Hresult =
+public actual fun verifySignature(phcontext: ConstPtr, pmessage: ConstPtr, messageseqno: UInt, pfqop: MutPtr): Hresult =
     windowssysWindowsWdkStorageFilesystemVerifySignature(phcontext.rawAddress.toCPointer<ByteVar>(), pmessage.rawAddress.toCPointer<ByteVar>(), messageseqno, pfqop.rawAddress.toCPointer<ByteVar>())
 
-public actual fun zwAccessCheckAndAuditAlarm(subsystemname: ConstPtr<UnicodeString>, handleid: ConstPtr<CVoid>, objecttypename: ConstPtr<UnicodeString>, objectname: ConstPtr<UnicodeString>, securitydescriptor: PsecurityDescriptor, desiredaccess: UInt, genericmapping: ConstPtr<GenericMapping>, objectcreation: Boolean, grantedaccess: MutPtr<UInt>, accessstatus: MutPtr<Int>, generateonclose: MutPtr<Boolean>): Ntstatus =
+public actual fun zwAccessCheckAndAuditAlarm(subsystemname: ConstPtr, handleid: ConstPtr, objecttypename: ConstPtr, objectname: ConstPtr, securitydescriptor: PsecurityDescriptor, desiredaccess: UInt, genericmapping: ConstPtr, objectcreation: Boolean, grantedaccess: MutPtr, accessstatus: MutPtr, generateonclose: MutPtr): Ntstatus =
     windowssysWindowsWdkStorageFilesystemZwAccessCheckAndAuditAlarm(subsystemname.rawAddress.toCPointer<ByteVar>(), handleid.rawAddress.toCPointer<ByteVar>(), objecttypename.rawAddress.toCPointer<ByteVar>(), objectname.rawAddress.toCPointer<ByteVar>(), securitydescriptor.rawAddress.toCPointer<ByteVar>(), desiredaccess, genericmapping.rawAddress.toCPointer<ByteVar>(), objectcreation, grantedaccess.rawAddress.toCPointer<ByteVar>(), accessstatus.rawAddress.toCPointer<ByteVar>(), generateonclose.rawAddress.toCPointer<ByteVar>())
 
-public actual fun zwAccessCheckByTypeAndAuditAlarm(subsystemname: ConstPtr<UnicodeString>, handleid: ConstPtr<CVoid>, objecttypename: ConstPtr<UnicodeString>, objectname: ConstPtr<UnicodeString>, securitydescriptor: PsecurityDescriptor, principalselfsid: Psid, desiredaccess: UInt, audittype: AuditEventType, flags: UInt, objecttypelist: ConstPtr<ObjectTypeList>, objecttypelistlength: UInt, genericmapping: ConstPtr<GenericMapping>, objectcreation: Boolean, grantedaccess: MutPtr<UInt>, accessstatus: MutPtr<Int>, generateonclose: MutPtr<Boolean>): Ntstatus =
+public actual fun zwAccessCheckByTypeAndAuditAlarm(subsystemname: ConstPtr, handleid: ConstPtr, objecttypename: ConstPtr, objectname: ConstPtr, securitydescriptor: PsecurityDescriptor, principalselfsid: Psid, desiredaccess: UInt, audittype: AuditEventType, flags: UInt, objecttypelist: ConstPtr, objecttypelistlength: UInt, genericmapping: ConstPtr, objectcreation: Boolean, grantedaccess: MutPtr, accessstatus: MutPtr, generateonclose: MutPtr): Ntstatus =
     windowssysWindowsWdkStorageFilesystemZwAccessCheckByTypeAndAuditAlarm(subsystemname.rawAddress.toCPointer<ByteVar>(), handleid.rawAddress.toCPointer<ByteVar>(), objecttypename.rawAddress.toCPointer<ByteVar>(), objectname.rawAddress.toCPointer<ByteVar>(), securitydescriptor.rawAddress.toCPointer<ByteVar>(), principalselfsid.rawAddress.toCPointer<ByteVar>(), desiredaccess, audittype, flags, objecttypelist.rawAddress.toCPointer<ByteVar>(), objecttypelistlength, genericmapping.rawAddress.toCPointer<ByteVar>(), objectcreation, grantedaccess.rawAddress.toCPointer<ByteVar>(), accessstatus.rawAddress.toCPointer<ByteVar>(), generateonclose.rawAddress.toCPointer<ByteVar>())
 
-public actual fun zwAccessCheckByTypeResultListAndAuditAlarm(subsystemname: ConstPtr<UnicodeString>, handleid: ConstPtr<CVoid>, objecttypename: ConstPtr<UnicodeString>, objectname: ConstPtr<UnicodeString>, securitydescriptor: PsecurityDescriptor, principalselfsid: Psid, desiredaccess: UInt, audittype: AuditEventType, flags: UInt, objecttypelist: ConstPtr<ObjectTypeList>, objecttypelistlength: UInt, genericmapping: ConstPtr<GenericMapping>, objectcreation: Boolean, grantedaccess: MutPtr<UInt>, accessstatus: MutPtr<Int>, generateonclose: MutPtr<Boolean>): Ntstatus =
+public actual fun zwAccessCheckByTypeResultListAndAuditAlarm(subsystemname: ConstPtr, handleid: ConstPtr, objecttypename: ConstPtr, objectname: ConstPtr, securitydescriptor: PsecurityDescriptor, principalselfsid: Psid, desiredaccess: UInt, audittype: AuditEventType, flags: UInt, objecttypelist: ConstPtr, objecttypelistlength: UInt, genericmapping: ConstPtr, objectcreation: Boolean, grantedaccess: MutPtr, accessstatus: MutPtr, generateonclose: MutPtr): Ntstatus =
     windowssysWindowsWdkStorageFilesystemZwAccessCheckByTypeResultListAndAuditAlarm(subsystemname.rawAddress.toCPointer<ByteVar>(), handleid.rawAddress.toCPointer<ByteVar>(), objecttypename.rawAddress.toCPointer<ByteVar>(), objectname.rawAddress.toCPointer<ByteVar>(), securitydescriptor.rawAddress.toCPointer<ByteVar>(), principalselfsid.rawAddress.toCPointer<ByteVar>(), desiredaccess, audittype, flags, objecttypelist.rawAddress.toCPointer<ByteVar>(), objecttypelistlength, genericmapping.rawAddress.toCPointer<ByteVar>(), objectcreation, grantedaccess.rawAddress.toCPointer<ByteVar>(), accessstatus.rawAddress.toCPointer<ByteVar>(), generateonclose.rawAddress.toCPointer<ByteVar>())
 
-public actual fun zwAccessCheckByTypeResultListAndAuditAlarmByHandle(subsystemname: ConstPtr<UnicodeString>, handleid: ConstPtr<CVoid>, clienttoken: Handle, objecttypename: ConstPtr<UnicodeString>, objectname: ConstPtr<UnicodeString>, securitydescriptor: PsecurityDescriptor, principalselfsid: Psid, desiredaccess: UInt, audittype: AuditEventType, flags: UInt, objecttypelist: ConstPtr<ObjectTypeList>, objecttypelistlength: UInt, genericmapping: ConstPtr<GenericMapping>, objectcreation: Boolean, grantedaccess: MutPtr<UInt>, accessstatus: MutPtr<Int>, generateonclose: MutPtr<Boolean>): Ntstatus =
+public actual fun zwAccessCheckByTypeResultListAndAuditAlarmByHandle(subsystemname: ConstPtr, handleid: ConstPtr, clienttoken: Handle, objecttypename: ConstPtr, objectname: ConstPtr, securitydescriptor: PsecurityDescriptor, principalselfsid: Psid, desiredaccess: UInt, audittype: AuditEventType, flags: UInt, objecttypelist: ConstPtr, objecttypelistlength: UInt, genericmapping: ConstPtr, objectcreation: Boolean, grantedaccess: MutPtr, accessstatus: MutPtr, generateonclose: MutPtr): Ntstatus =
     windowssysWindowsWdkStorageFilesystemZwAccessCheckByTypeResultListAndAuditAlarmByHandle(subsystemname.rawAddress.toCPointer<ByteVar>(), handleid.rawAddress.toCPointer<ByteVar>(), clienttoken.rawAddress.toCPointer<ByteVar>(), objecttypename.rawAddress.toCPointer<ByteVar>(), objectname.rawAddress.toCPointer<ByteVar>(), securitydescriptor.rawAddress.toCPointer<ByteVar>(), principalselfsid.rawAddress.toCPointer<ByteVar>(), desiredaccess, audittype, flags, objecttypelist.rawAddress.toCPointer<ByteVar>(), objecttypelistlength, genericmapping.rawAddress.toCPointer<ByteVar>(), objectcreation, grantedaccess.rawAddress.toCPointer<ByteVar>(), accessstatus.rawAddress.toCPointer<ByteVar>(), generateonclose.rawAddress.toCPointer<ByteVar>())
 
-public actual fun zwAdjustGroupsToken(tokenhandle: Handle, resettodefault: Boolean, newstate: ConstPtr<TokenGroups>, bufferlength: UInt, previousstate: MutPtr<TokenGroups>, returnlength: MutPtr<UInt>): Ntstatus =
+public actual fun zwAdjustGroupsToken(tokenhandle: Handle, resettodefault: Boolean, newstate: ConstPtr, bufferlength: UInt, previousstate: MutPtr, returnlength: MutPtr): Ntstatus =
     windowssysWindowsWdkStorageFilesystemZwAdjustGroupsToken(tokenhandle.rawAddress.toCPointer<ByteVar>(), resettodefault, newstate.rawAddress.toCPointer<ByteVar>(), bufferlength, previousstate.rawAddress.toCPointer<ByteVar>(), returnlength.rawAddress.toCPointer<ByteVar>())
 
-public actual fun zwAdjustPrivilegesToken(tokenhandle: Handle, disableallprivileges: Boolean, newstate: ConstPtr<TokenPrivileges>, bufferlength: UInt, previousstate: MutPtr<TokenPrivileges>, returnlength: MutPtr<UInt>): Ntstatus =
+public actual fun zwAdjustPrivilegesToken(tokenhandle: Handle, disableallprivileges: Boolean, newstate: ConstPtr, bufferlength: UInt, previousstate: MutPtr, returnlength: MutPtr): Ntstatus =
     windowssysWindowsWdkStorageFilesystemZwAdjustPrivilegesToken(tokenhandle.rawAddress.toCPointer<ByteVar>(), disableallprivileges, newstate.rawAddress.toCPointer<ByteVar>(), bufferlength, previousstate.rawAddress.toCPointer<ByteVar>(), returnlength.rawAddress.toCPointer<ByteVar>())
 
-public actual fun zwAllocateVirtualMemory(processhandle: Handle, baseaddress: MutPtr<MutPtr<CVoid>>, zerobits: ULong, regionsize: MutPtr<ULong>, allocationtype: UInt, protect: UInt): Ntstatus =
+public actual fun zwAllocateVirtualMemory(processhandle: Handle, baseaddress: MutPtr, zerobits: ULong, regionsize: MutPtr, allocationtype: UInt, protect: UInt): Ntstatus =
     windowssysWindowsWdkStorageFilesystemZwAllocateVirtualMemory(processhandle.rawAddress.toCPointer<ByteVar>(), baseaddress.rawAddress.toCPointer<ByteVar>(), zerobits, regionsize.rawAddress.toCPointer<ByteVar>(), allocationtype, protect)
 
-public actual fun zwAllocateVirtualMemoryEx(processhandle: Handle, baseaddress: MutPtr<MutPtr<CVoid>>, regionsize: MutPtr<ULong>, allocationtype: UInt, pageprotection: UInt, extendedparameters: MutPtr<MemExtendedParameter>, extendedparametercount: UInt): Ntstatus =
+public actual fun zwAllocateVirtualMemoryEx(processhandle: Handle, baseaddress: MutPtr, regionsize: MutPtr, allocationtype: UInt, pageprotection: UInt, extendedparameters: MutPtr, extendedparametercount: UInt): Ntstatus =
     windowssysWindowsWdkStorageFilesystemZwAllocateVirtualMemoryEx(processhandle.rawAddress.toCPointer<ByteVar>(), baseaddress.rawAddress.toCPointer<ByteVar>(), regionsize.rawAddress.toCPointer<ByteVar>(), allocationtype, pageprotection, extendedparameters.rawAddress.toCPointer<ByteVar>(), extendedparametercount)
 
-public actual fun zwCancelIoFileEx(filehandle: Handle, iorequesttocancel: ConstPtr<IoStatusBlock>, iostatusblock: MutPtr<IoStatusBlock>): Ntstatus =
+public actual fun zwCancelIoFileEx(filehandle: Handle, iorequesttocancel: ConstPtr, iostatusblock: MutPtr): Ntstatus =
     windowssysWindowsWdkStorageFilesystemZwCancelIoFileEx(filehandle.rawAddress.toCPointer<ByteVar>(), iorequesttocancel.rawAddress.toCPointer<ByteVar>(), iostatusblock.rawAddress.toCPointer<ByteVar>())
 
-public actual fun zwCloseObjectAuditAlarm(subsystemname: ConstPtr<UnicodeString>, handleid: ConstPtr<CVoid>, generateonclose: Boolean): Ntstatus =
+public actual fun zwCloseObjectAuditAlarm(subsystemname: ConstPtr, handleid: ConstPtr, generateonclose: Boolean): Ntstatus =
     windowssysWindowsWdkStorageFilesystemZwCloseObjectAuditAlarm(subsystemname.rawAddress.toCPointer<ByteVar>(), handleid.rawAddress.toCPointer<ByteVar>(), generateonclose)
 
-public actual fun zwCreateDirectoryObject(directoryhandle: MutPtr<Handle>, desiredaccess: UInt, objectattributes: ConstPtr<ObjectAttributes>): Ntstatus =
+public actual fun zwCreateDirectoryObject(directoryhandle: MutPtr, desiredaccess: UInt, objectattributes: ConstPtr): Ntstatus =
     windowssysWindowsWdkStorageFilesystemZwCreateDirectoryObject(directoryhandle.rawAddress.toCPointer<ByteVar>(), desiredaccess, objectattributes.rawAddress.toCPointer<ByteVar>())
 
-public actual fun zwCreateEvent(eventhandle: MutPtr<Handle>, desiredaccess: UInt, objectattributes: ConstPtr<ObjectAttributes>, eventtype: EventType, initialstate: Boolean): Ntstatus =
+public actual fun zwCreateEvent(eventhandle: MutPtr, desiredaccess: UInt, objectattributes: ConstPtr, eventtype: EventType, initialstate: Boolean): Ntstatus =
     windowssysWindowsWdkStorageFilesystemZwCreateEvent(eventhandle.rawAddress.toCPointer<ByteVar>(), desiredaccess, objectattributes.rawAddress.toCPointer<ByteVar>(), eventtype, initialstate)
 
-public actual fun zwCreateSectionEx(sectionhandle: MutPtr<Handle>, desiredaccess: UInt, objectattributes: ConstPtr<ObjectAttributes>, maximumsize: ConstPtr<Long>, sectionpageprotection: UInt, allocationattributes: UInt, filehandle: Handle, extendedparameters: MutPtr<MemExtendedParameter>, extendedparametercount: UInt): Ntstatus =
+public actual fun zwCreateSectionEx(sectionhandle: MutPtr, desiredaccess: UInt, objectattributes: ConstPtr, maximumsize: ConstPtr, sectionpageprotection: UInt, allocationattributes: UInt, filehandle: Handle, extendedparameters: MutPtr, extendedparametercount: UInt): Ntstatus =
     windowssysWindowsWdkStorageFilesystemZwCreateSectionEx(sectionhandle.rawAddress.toCPointer<ByteVar>(), desiredaccess, objectattributes.rawAddress.toCPointer<ByteVar>(), maximumsize.rawAddress.toCPointer<ByteVar>(), sectionpageprotection, allocationattributes, filehandle.rawAddress.toCPointer<ByteVar>(), extendedparameters.rawAddress.toCPointer<ByteVar>(), extendedparametercount)
 
-public actual fun zwDeleteFile(objectattributes: ConstPtr<ObjectAttributes>): Ntstatus =
+public actual fun zwDeleteFile(objectattributes: ConstPtr): Ntstatus =
     windowssysWindowsWdkStorageFilesystemZwDeleteFile(objectattributes.rawAddress.toCPointer<ByteVar>())
 
-public actual fun zwDeleteObjectAuditAlarm(subsystemname: ConstPtr<UnicodeString>, handleid: ConstPtr<CVoid>, generateonclose: Boolean): Ntstatus =
+public actual fun zwDeleteObjectAuditAlarm(subsystemname: ConstPtr, handleid: ConstPtr, generateonclose: Boolean): Ntstatus =
     windowssysWindowsWdkStorageFilesystemZwDeleteObjectAuditAlarm(subsystemname.rawAddress.toCPointer<ByteVar>(), handleid.rawAddress.toCPointer<ByteVar>(), generateonclose)
 
-public actual fun zwDuplicateObject(sourceprocesshandle: Handle, sourcehandle: Handle, targetprocesshandle: Handle, targethandle: MutPtr<Handle>, desiredaccess: UInt, handleattributes: UInt, options: UInt): Ntstatus =
+public actual fun zwDuplicateObject(sourceprocesshandle: Handle, sourcehandle: Handle, targetprocesshandle: Handle, targethandle: MutPtr, desiredaccess: UInt, handleattributes: UInt, options: UInt): Ntstatus =
     windowssysWindowsWdkStorageFilesystemZwDuplicateObject(sourceprocesshandle.rawAddress.toCPointer<ByteVar>(), sourcehandle.rawAddress.toCPointer<ByteVar>(), targetprocesshandle.rawAddress.toCPointer<ByteVar>(), targethandle.rawAddress.toCPointer<ByteVar>(), desiredaccess, handleattributes, options)
 
-public actual fun zwDuplicateToken(existingtokenhandle: Handle, desiredaccess: UInt, objectattributes: ConstPtr<ObjectAttributes>, effectiveonly: Boolean, tokentype: TokenType, newtokenhandle: MutPtr<Handle>): Ntstatus =
+public actual fun zwDuplicateToken(existingtokenhandle: Handle, desiredaccess: UInt, objectattributes: ConstPtr, effectiveonly: Boolean, tokentype: TokenType, newtokenhandle: MutPtr): Ntstatus =
     windowssysWindowsWdkStorageFilesystemZwDuplicateToken(existingtokenhandle.rawAddress.toCPointer<ByteVar>(), desiredaccess, objectattributes.rawAddress.toCPointer<ByteVar>(), effectiveonly, tokentype, newtokenhandle.rawAddress.toCPointer<ByteVar>())
 
-public actual fun zwFilterToken(existingtokenhandle: Handle, flags: UInt, sidstodisable: ConstPtr<TokenGroups>, privilegestodelete: ConstPtr<TokenPrivileges>, restrictedsids: ConstPtr<TokenGroups>, newtokenhandle: MutPtr<Handle>): Ntstatus =
+public actual fun zwFilterToken(existingtokenhandle: Handle, flags: UInt, sidstodisable: ConstPtr, privilegestodelete: ConstPtr, restrictedsids: ConstPtr, newtokenhandle: MutPtr): Ntstatus =
     windowssysWindowsWdkStorageFilesystemZwFilterToken(existingtokenhandle.rawAddress.toCPointer<ByteVar>(), flags, sidstodisable.rawAddress.toCPointer<ByteVar>(), privilegestodelete.rawAddress.toCPointer<ByteVar>(), restrictedsids.rawAddress.toCPointer<ByteVar>(), newtokenhandle.rawAddress.toCPointer<ByteVar>())
 
-public actual fun zwFlushBuffersFile(filehandle: Handle, iostatusblock: MutPtr<IoStatusBlock>): Ntstatus =
+public actual fun zwFlushBuffersFile(filehandle: Handle, iostatusblock: MutPtr): Ntstatus =
     windowssysWindowsWdkStorageFilesystemZwFlushBuffersFile(filehandle.rawAddress.toCPointer<ByteVar>(), iostatusblock.rawAddress.toCPointer<ByteVar>())
 
-public actual fun zwFlushBuffersFileEx(filehandle: Handle, flags: UInt, parameters: ConstPtr<CVoid>, parameterssize: UInt, iostatusblock: MutPtr<IoStatusBlock>): Ntstatus =
+public actual fun zwFlushBuffersFileEx(filehandle: Handle, flags: UInt, parameters: ConstPtr, parameterssize: UInt, iostatusblock: MutPtr): Ntstatus =
     windowssysWindowsWdkStorageFilesystemZwFlushBuffersFileEx(filehandle.rawAddress.toCPointer<ByteVar>(), flags, parameters.rawAddress.toCPointer<ByteVar>(), parameterssize, iostatusblock.rawAddress.toCPointer<ByteVar>())
 
-public actual fun zwFlushVirtualMemory(processhandle: Handle, baseaddress: MutPtr<MutPtr<CVoid>>, regionsize: MutPtr<ULong>, iostatus: MutPtr<IoStatusBlock>): Ntstatus =
+public actual fun zwFlushVirtualMemory(processhandle: Handle, baseaddress: MutPtr, regionsize: MutPtr, iostatus: MutPtr): Ntstatus =
     windowssysWindowsWdkStorageFilesystemZwFlushVirtualMemory(processhandle.rawAddress.toCPointer<ByteVar>(), baseaddress.rawAddress.toCPointer<ByteVar>(), regionsize.rawAddress.toCPointer<ByteVar>(), iostatus.rawAddress.toCPointer<ByteVar>())
 
-public actual fun zwFreeVirtualMemory(processhandle: Handle, baseaddress: MutPtr<MutPtr<CVoid>>, regionsize: MutPtr<ULong>, freetype: UInt): Ntstatus =
+public actual fun zwFreeVirtualMemory(processhandle: Handle, baseaddress: MutPtr, regionsize: MutPtr, freetype: UInt): Ntstatus =
     windowssysWindowsWdkStorageFilesystemZwFreeVirtualMemory(processhandle.rawAddress.toCPointer<ByteVar>(), baseaddress.rawAddress.toCPointer<ByteVar>(), regionsize.rawAddress.toCPointer<ByteVar>(), freetype)
 
-public actual fun zwFsControlFile(filehandle: Handle, event: Handle, apcroutine: PioApcRoutine, apccontext: ConstPtr<CVoid>, iostatusblock: MutPtr<IoStatusBlock>, fscontrolcode: UInt, inputbuffer: ConstPtr<CVoid>, inputbufferlength: UInt, outputbuffer: MutPtr<CVoid>, outputbufferlength: UInt): Ntstatus =
+public actual fun zwFsControlFile(filehandle: Handle, event: Handle, apcroutine: PioApcRoutine, apccontext: ConstPtr, iostatusblock: MutPtr, fscontrolcode: UInt, inputbuffer: ConstPtr, inputbufferlength: UInt, outputbuffer: MutPtr, outputbufferlength: UInt): Ntstatus =
     windowssysWindowsWdkStorageFilesystemZwFsControlFile(filehandle.rawAddress.toCPointer<ByteVar>(), event.rawAddress.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>(), apccontext.rawAddress.toCPointer<ByteVar>(), iostatusblock.rawAddress.toCPointer<ByteVar>(), fscontrolcode, inputbuffer.rawAddress.toCPointer<ByteVar>(), inputbufferlength, outputbuffer.rawAddress.toCPointer<ByteVar>(), outputbufferlength)
 
 public actual fun zwImpersonateAnonymousToken(threadhandle: Handle): Ntstatus =
     windowssysWindowsWdkStorageFilesystemZwImpersonateAnonymousToken(threadhandle.rawAddress.toCPointer<ByteVar>())
 
-public actual fun zwLockFile(filehandle: Handle, event: Handle, apcroutine: PioApcRoutine, apccontext: ConstPtr<CVoid>, iostatusblock: MutPtr<IoStatusBlock>, byteoffset: ConstPtr<Long>, length: ConstPtr<Long>, key: UInt, failimmediately: Boolean, exclusivelock: Boolean): Ntstatus =
+public actual fun zwLockFile(filehandle: Handle, event: Handle, apcroutine: PioApcRoutine, apccontext: ConstPtr, iostatusblock: MutPtr, byteoffset: ConstPtr, length: ConstPtr, key: UInt, failimmediately: Boolean, exclusivelock: Boolean): Ntstatus =
     windowssysWindowsWdkStorageFilesystemZwLockFile(filehandle.rawAddress.toCPointer<ByteVar>(), event.rawAddress.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>(), apccontext.rawAddress.toCPointer<ByteVar>(), iostatusblock.rawAddress.toCPointer<ByteVar>(), byteoffset.rawAddress.toCPointer<ByteVar>(), length.rawAddress.toCPointer<ByteVar>(), key, failimmediately, exclusivelock)
 
-public actual fun zwNotifyChangeKey(keyhandle: Handle, event: Handle, apcroutine: PioApcRoutine, apccontext: ConstPtr<CVoid>, iostatusblock: MutPtr<IoStatusBlock>, completionfilter: UInt, watchtree: Boolean, buffer: MutPtr<CVoid>, buffersize: UInt, asynchronous: Boolean): Ntstatus =
+public actual fun zwNotifyChangeKey(keyhandle: Handle, event: Handle, apcroutine: PioApcRoutine, apccontext: ConstPtr, iostatusblock: MutPtr, completionfilter: UInt, watchtree: Boolean, buffer: MutPtr, buffersize: UInt, asynchronous: Boolean): Ntstatus =
     windowssysWindowsWdkStorageFilesystemZwNotifyChangeKey(keyhandle.rawAddress.toCPointer<ByteVar>(), event.rawAddress.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>(), apccontext.rawAddress.toCPointer<ByteVar>(), iostatusblock.rawAddress.toCPointer<ByteVar>(), completionfilter, watchtree, buffer.rawAddress.toCPointer<ByteVar>(), buffersize, asynchronous)
 
-public actual fun zwOpenDirectoryObject(directoryhandle: MutPtr<Handle>, desiredaccess: UInt, objectattributes: ConstPtr<ObjectAttributes>): Ntstatus =
+public actual fun zwOpenDirectoryObject(directoryhandle: MutPtr, desiredaccess: UInt, objectattributes: ConstPtr): Ntstatus =
     windowssysWindowsWdkStorageFilesystemZwOpenDirectoryObject(directoryhandle.rawAddress.toCPointer<ByteVar>(), desiredaccess, objectattributes.rawAddress.toCPointer<ByteVar>())
 
-public actual fun zwOpenObjectAuditAlarm(subsystemname: ConstPtr<UnicodeString>, handleid: ConstPtr<CVoid>, objecttypename: ConstPtr<UnicodeString>, objectname: ConstPtr<UnicodeString>, securitydescriptor: PsecurityDescriptor, clienttoken: Handle, desiredaccess: UInt, grantedaccess: UInt, privileges: ConstPtr<PrivilegeSet>, objectcreation: Boolean, accessgranted: Boolean, generateonclose: MutPtr<Boolean>): Ntstatus =
+public actual fun zwOpenObjectAuditAlarm(subsystemname: ConstPtr, handleid: ConstPtr, objecttypename: ConstPtr, objectname: ConstPtr, securitydescriptor: PsecurityDescriptor, clienttoken: Handle, desiredaccess: UInt, grantedaccess: UInt, privileges: ConstPtr, objectcreation: Boolean, accessgranted: Boolean, generateonclose: MutPtr): Ntstatus =
     windowssysWindowsWdkStorageFilesystemZwOpenObjectAuditAlarm(subsystemname.rawAddress.toCPointer<ByteVar>(), handleid.rawAddress.toCPointer<ByteVar>(), objecttypename.rawAddress.toCPointer<ByteVar>(), objectname.rawAddress.toCPointer<ByteVar>(), securitydescriptor.rawAddress.toCPointer<ByteVar>(), clienttoken.rawAddress.toCPointer<ByteVar>(), desiredaccess, grantedaccess, privileges.rawAddress.toCPointer<ByteVar>(), objectcreation, accessgranted, generateonclose.rawAddress.toCPointer<ByteVar>())
 
-public actual fun zwOpenProcessToken(processhandle: Handle, desiredaccess: UInt, tokenhandle: MutPtr<Handle>): Ntstatus =
+public actual fun zwOpenProcessToken(processhandle: Handle, desiredaccess: UInt, tokenhandle: MutPtr): Ntstatus =
     windowssysWindowsWdkStorageFilesystemZwOpenProcessToken(processhandle.rawAddress.toCPointer<ByteVar>(), desiredaccess, tokenhandle.rawAddress.toCPointer<ByteVar>())
 
-public actual fun zwOpenProcessTokenEx(processhandle: Handle, desiredaccess: UInt, handleattributes: UInt, tokenhandle: MutPtr<Handle>): Ntstatus =
+public actual fun zwOpenProcessTokenEx(processhandle: Handle, desiredaccess: UInt, handleattributes: UInt, tokenhandle: MutPtr): Ntstatus =
     windowssysWindowsWdkStorageFilesystemZwOpenProcessTokenEx(processhandle.rawAddress.toCPointer<ByteVar>(), desiredaccess, handleattributes, tokenhandle.rawAddress.toCPointer<ByteVar>())
 
-public actual fun zwOpenThreadToken(threadhandle: Handle, desiredaccess: UInt, openasself: Boolean, tokenhandle: MutPtr<Handle>): Ntstatus =
+public actual fun zwOpenThreadToken(threadhandle: Handle, desiredaccess: UInt, openasself: Boolean, tokenhandle: MutPtr): Ntstatus =
     windowssysWindowsWdkStorageFilesystemZwOpenThreadToken(threadhandle.rawAddress.toCPointer<ByteVar>(), desiredaccess, openasself, tokenhandle.rawAddress.toCPointer<ByteVar>())
 
-public actual fun zwOpenThreadTokenEx(threadhandle: Handle, desiredaccess: UInt, openasself: Boolean, handleattributes: UInt, tokenhandle: MutPtr<Handle>): Ntstatus =
+public actual fun zwOpenThreadTokenEx(threadhandle: Handle, desiredaccess: UInt, openasself: Boolean, handleattributes: UInt, tokenhandle: MutPtr): Ntstatus =
     windowssysWindowsWdkStorageFilesystemZwOpenThreadTokenEx(threadhandle.rawAddress.toCPointer<ByteVar>(), desiredaccess, openasself, handleattributes, tokenhandle.rawAddress.toCPointer<ByteVar>())
 
-public actual fun zwPrivilegeCheck(clienttoken: Handle, requiredprivileges: MutPtr<PrivilegeSet>, result: MutPtr<Boolean>): Ntstatus =
+public actual fun zwPrivilegeCheck(clienttoken: Handle, requiredprivileges: MutPtr, result: MutPtr): Ntstatus =
     windowssysWindowsWdkStorageFilesystemZwPrivilegeCheck(clienttoken.rawAddress.toCPointer<ByteVar>(), requiredprivileges.rawAddress.toCPointer<ByteVar>(), result.rawAddress.toCPointer<ByteVar>())
 
-public actual fun zwPrivilegeObjectAuditAlarm(subsystemname: ConstPtr<UnicodeString>, handleid: ConstPtr<CVoid>, clienttoken: Handle, desiredaccess: UInt, privileges: ConstPtr<PrivilegeSet>, accessgranted: Boolean): Ntstatus =
+public actual fun zwPrivilegeObjectAuditAlarm(subsystemname: ConstPtr, handleid: ConstPtr, clienttoken: Handle, desiredaccess: UInt, privileges: ConstPtr, accessgranted: Boolean): Ntstatus =
     windowssysWindowsWdkStorageFilesystemZwPrivilegeObjectAuditAlarm(subsystemname.rawAddress.toCPointer<ByteVar>(), handleid.rawAddress.toCPointer<ByteVar>(), clienttoken.rawAddress.toCPointer<ByteVar>(), desiredaccess, privileges.rawAddress.toCPointer<ByteVar>(), accessgranted)
 
-public actual fun zwPrivilegedServiceAuditAlarm(subsystemname: ConstPtr<UnicodeString>, servicename: ConstPtr<UnicodeString>, clienttoken: Handle, privileges: ConstPtr<PrivilegeSet>, accessgranted: Boolean): Ntstatus =
+public actual fun zwPrivilegedServiceAuditAlarm(subsystemname: ConstPtr, servicename: ConstPtr, clienttoken: Handle, privileges: ConstPtr, accessgranted: Boolean): Ntstatus =
     windowssysWindowsWdkStorageFilesystemZwPrivilegedServiceAuditAlarm(subsystemname.rawAddress.toCPointer<ByteVar>(), servicename.rawAddress.toCPointer<ByteVar>(), clienttoken.rawAddress.toCPointer<ByteVar>(), privileges.rawAddress.toCPointer<ByteVar>(), accessgranted)
 
-public actual fun zwQueryDirectoryFile(filehandle: Handle, event: Handle, apcroutine: PioApcRoutine, apccontext: ConstPtr<CVoid>, iostatusblock: MutPtr<IoStatusBlock>, fileinformation: MutPtr<CVoid>, length: UInt, fileinformationclass: FileInformationClass, returnsingleentry: Boolean, filename: ConstPtr<UnicodeString>, restartscan: Boolean): Ntstatus =
+public actual fun zwQueryDirectoryFile(filehandle: Handle, event: Handle, apcroutine: PioApcRoutine, apccontext: ConstPtr, iostatusblock: MutPtr, fileinformation: MutPtr, length: UInt, fileinformationclass: FileInformationClass, returnsingleentry: Boolean, filename: ConstPtr, restartscan: Boolean): Ntstatus =
     windowssysWindowsWdkStorageFilesystemZwQueryDirectoryFile(filehandle.rawAddress.toCPointer<ByteVar>(), event.rawAddress.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>(), apccontext.rawAddress.toCPointer<ByteVar>(), iostatusblock.rawAddress.toCPointer<ByteVar>(), fileinformation.rawAddress.toCPointer<ByteVar>(), length, fileinformationclass, returnsingleentry, filename.rawAddress.toCPointer<ByteVar>(), restartscan)
 
-public actual fun zwQueryDirectoryFileEx(filehandle: Handle, event: Handle, apcroutine: PioApcRoutine, apccontext: ConstPtr<CVoid>, iostatusblock: MutPtr<IoStatusBlock>, fileinformation: MutPtr<CVoid>, length: UInt, fileinformationclass: FileInformationClass, queryflags: UInt, filename: ConstPtr<UnicodeString>): Ntstatus =
+public actual fun zwQueryDirectoryFileEx(filehandle: Handle, event: Handle, apcroutine: PioApcRoutine, apccontext: ConstPtr, iostatusblock: MutPtr, fileinformation: MutPtr, length: UInt, fileinformationclass: FileInformationClass, queryflags: UInt, filename: ConstPtr): Ntstatus =
     windowssysWindowsWdkStorageFilesystemZwQueryDirectoryFileEx(filehandle.rawAddress.toCPointer<ByteVar>(), event.rawAddress.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>(), apccontext.rawAddress.toCPointer<ByteVar>(), iostatusblock.rawAddress.toCPointer<ByteVar>(), fileinformation.rawAddress.toCPointer<ByteVar>(), length, fileinformationclass, queryflags, filename.rawAddress.toCPointer<ByteVar>())
 
-public actual fun zwQueryDirectoryObject(directoryhandle: Handle, buffer: MutPtr<CVoid>, length: UInt, returnsingleentry: Boolean, restartscan: Boolean, context: MutPtr<UInt>, returnlength: MutPtr<UInt>): Ntstatus =
+public actual fun zwQueryDirectoryObject(directoryhandle: Handle, buffer: MutPtr, length: UInt, returnsingleentry: Boolean, restartscan: Boolean, context: MutPtr, returnlength: MutPtr): Ntstatus =
     windowssysWindowsWdkStorageFilesystemZwQueryDirectoryObject(directoryhandle.rawAddress.toCPointer<ByteVar>(), buffer.rawAddress.toCPointer<ByteVar>(), length, returnsingleentry, restartscan, context.rawAddress.toCPointer<ByteVar>(), returnlength.rawAddress.toCPointer<ByteVar>())
 
-public actual fun zwQueryEaFile(filehandle: Handle, iostatusblock: MutPtr<IoStatusBlock>, buffer: MutPtr<CVoid>, length: UInt, returnsingleentry: Boolean, ealist: ConstPtr<CVoid>, ealistlength: UInt, eaindex: ConstPtr<UInt>, restartscan: Boolean): Ntstatus =
+public actual fun zwQueryEaFile(filehandle: Handle, iostatusblock: MutPtr, buffer: MutPtr, length: UInt, returnsingleentry: Boolean, ealist: ConstPtr, ealistlength: UInt, eaindex: ConstPtr, restartscan: Boolean): Ntstatus =
     windowssysWindowsWdkStorageFilesystemZwQueryEaFile(filehandle.rawAddress.toCPointer<ByteVar>(), iostatusblock.rawAddress.toCPointer<ByteVar>(), buffer.rawAddress.toCPointer<ByteVar>(), length, returnsingleentry, ealist.rawAddress.toCPointer<ByteVar>(), ealistlength, eaindex.rawAddress.toCPointer<ByteVar>(), restartscan)
 
-public actual fun zwQueryFullAttributesFile(objectattributes: ConstPtr<ObjectAttributes>, fileinformation: MutPtr<FileNetworkOpenInformation>): Ntstatus =
+public actual fun zwQueryFullAttributesFile(objectattributes: ConstPtr, fileinformation: MutPtr): Ntstatus =
     windowssysWindowsWdkStorageFilesystemZwQueryFullAttributesFile(objectattributes.rawAddress.toCPointer<ByteVar>(), fileinformation.rawAddress.toCPointer<ByteVar>())
 
-public actual fun zwQueryInformationToken(tokenhandle: Handle, tokeninformationclass: TokenInformationClass, tokeninformation: MutPtr<CVoid>, tokeninformationlength: UInt, returnlength: MutPtr<UInt>): Ntstatus =
+public actual fun zwQueryInformationToken(tokenhandle: Handle, tokeninformationclass: TokenInformationClass, tokeninformation: MutPtr, tokeninformationlength: UInt, returnlength: MutPtr): Ntstatus =
     windowssysWindowsWdkStorageFilesystemZwQueryInformationToken(tokenhandle.rawAddress.toCPointer<ByteVar>(), tokeninformationclass, tokeninformation.rawAddress.toCPointer<ByteVar>(), tokeninformationlength, returnlength.rawAddress.toCPointer<ByteVar>())
 
-public actual fun zwQueryObject(handle: Handle, objectinformationclass: ObjectInformationClass, objectinformation: MutPtr<CVoid>, objectinformationlength: UInt, returnlength: MutPtr<UInt>): Ntstatus =
+public actual fun zwQueryObject(handle: Handle, objectinformationclass: ObjectInformationClass, objectinformation: MutPtr, objectinformationlength: UInt, returnlength: MutPtr): Ntstatus =
     windowssysWindowsWdkStorageFilesystemZwQueryObject(handle.rawAddress.toCPointer<ByteVar>(), objectinformationclass, objectinformation.rawAddress.toCPointer<ByteVar>(), objectinformationlength, returnlength.rawAddress.toCPointer<ByteVar>())
 
-public actual fun zwQueryQuotaInformationFile(filehandle: Handle, iostatusblock: MutPtr<IoStatusBlock>, buffer: MutPtr<CVoid>, length: UInt, returnsingleentry: Boolean, sidlist: ConstPtr<CVoid>, sidlistlength: UInt, startsid: Psid, restartscan: Boolean): Ntstatus =
+public actual fun zwQueryQuotaInformationFile(filehandle: Handle, iostatusblock: MutPtr, buffer: MutPtr, length: UInt, returnsingleentry: Boolean, sidlist: ConstPtr, sidlistlength: UInt, startsid: Psid, restartscan: Boolean): Ntstatus =
     windowssysWindowsWdkStorageFilesystemZwQueryQuotaInformationFile(filehandle.rawAddress.toCPointer<ByteVar>(), iostatusblock.rawAddress.toCPointer<ByteVar>(), buffer.rawAddress.toCPointer<ByteVar>(), length, returnsingleentry, sidlist.rawAddress.toCPointer<ByteVar>(), sidlistlength, startsid.rawAddress.toCPointer<ByteVar>(), restartscan)
 
-public actual fun zwQuerySecurityObject(handle: Handle, securityinformation: UInt, securitydescriptor: PsecurityDescriptor, length: UInt, lengthneeded: MutPtr<UInt>): Ntstatus =
+public actual fun zwQuerySecurityObject(handle: Handle, securityinformation: UInt, securitydescriptor: PsecurityDescriptor, length: UInt, lengthneeded: MutPtr): Ntstatus =
     windowssysWindowsWdkStorageFilesystemZwQuerySecurityObject(handle.rawAddress.toCPointer<ByteVar>(), securityinformation, securitydescriptor.rawAddress.toCPointer<ByteVar>(), length, lengthneeded.rawAddress.toCPointer<ByteVar>())
 
-public actual fun zwQueryVirtualMemory(processhandle: Handle, baseaddress: ConstPtr<CVoid>, memoryinformationclass: MemoryInformationClass, memoryinformation: MutPtr<CVoid>, memoryinformationlength: ULong, returnlength: MutPtr<ULong>): Ntstatus =
+public actual fun zwQueryVirtualMemory(processhandle: Handle, baseaddress: ConstPtr, memoryinformationclass: MemoryInformationClass, memoryinformation: MutPtr, memoryinformationlength: ULong, returnlength: MutPtr): Ntstatus =
     windowssysWindowsWdkStorageFilesystemZwQueryVirtualMemory(processhandle.rawAddress.toCPointer<ByteVar>(), baseaddress.rawAddress.toCPointer<ByteVar>(), memoryinformationclass, memoryinformation.rawAddress.toCPointer<ByteVar>(), memoryinformationlength, returnlength.rawAddress.toCPointer<ByteVar>())
 
-public actual fun zwQueryVolumeInformationFile(filehandle: Handle, iostatusblock: MutPtr<IoStatusBlock>, fsinformation: MutPtr<CVoid>, length: UInt, fsinformationclass: FsInformationClass): Ntstatus =
+public actual fun zwQueryVolumeInformationFile(filehandle: Handle, iostatusblock: MutPtr, fsinformation: MutPtr, length: UInt, fsinformationclass: FsInformationClass): Ntstatus =
     windowssysWindowsWdkStorageFilesystemZwQueryVolumeInformationFile(filehandle.rawAddress.toCPointer<ByteVar>(), iostatusblock.rawAddress.toCPointer<ByteVar>(), fsinformation.rawAddress.toCPointer<ByteVar>(), length, fsinformationclass)
 
-public actual fun zwSetEaFile(filehandle: Handle, iostatusblock: MutPtr<IoStatusBlock>, buffer: ConstPtr<CVoid>, length: UInt): Ntstatus =
+public actual fun zwSetEaFile(filehandle: Handle, iostatusblock: MutPtr, buffer: ConstPtr, length: UInt): Ntstatus =
     windowssysWindowsWdkStorageFilesystemZwSetEaFile(filehandle.rawAddress.toCPointer<ByteVar>(), iostatusblock.rawAddress.toCPointer<ByteVar>(), buffer.rawAddress.toCPointer<ByteVar>(), length)
 
-public actual fun zwSetEvent(eventhandle: Handle, previousstate: MutPtr<Int>): Ntstatus =
+public actual fun zwSetEvent(eventhandle: Handle, previousstate: MutPtr): Ntstatus =
     windowssysWindowsWdkStorageFilesystemZwSetEvent(eventhandle.rawAddress.toCPointer<ByteVar>(), previousstate.rawAddress.toCPointer<ByteVar>())
 
-public actual fun zwSetInformationToken(tokenhandle: Handle, tokeninformationclass: TokenInformationClass, tokeninformation: ConstPtr<CVoid>, tokeninformationlength: UInt): Ntstatus =
+public actual fun zwSetInformationToken(tokenhandle: Handle, tokeninformationclass: TokenInformationClass, tokeninformation: ConstPtr, tokeninformationlength: UInt): Ntstatus =
     windowssysWindowsWdkStorageFilesystemZwSetInformationToken(tokenhandle.rawAddress.toCPointer<ByteVar>(), tokeninformationclass, tokeninformation.rawAddress.toCPointer<ByteVar>(), tokeninformationlength)
 
-public actual fun zwSetInformationVirtualMemory(processhandle: Handle, vminformationclass: VirtualMemoryInformationClass, numberofentries: ULong, virtualaddresses: ConstPtr<MemoryRangeEntry>, vminformation: ConstPtr<CVoid>, vminformationlength: UInt): Ntstatus =
+public actual fun zwSetInformationVirtualMemory(processhandle: Handle, vminformationclass: VirtualMemoryInformationClass, numberofentries: ULong, virtualaddresses: ConstPtr, vminformation: ConstPtr, vminformationlength: UInt): Ntstatus =
     windowssysWindowsWdkStorageFilesystemZwSetInformationVirtualMemory(processhandle.rawAddress.toCPointer<ByteVar>(), vminformationclass, numberofentries, virtualaddresses.rawAddress.toCPointer<ByteVar>(), vminformation.rawAddress.toCPointer<ByteVar>(), vminformationlength)
 
-public actual fun zwSetQuotaInformationFile(filehandle: Handle, iostatusblock: MutPtr<IoStatusBlock>, buffer: ConstPtr<CVoid>, length: UInt): Ntstatus =
+public actual fun zwSetQuotaInformationFile(filehandle: Handle, iostatusblock: MutPtr, buffer: ConstPtr, length: UInt): Ntstatus =
     windowssysWindowsWdkStorageFilesystemZwSetQuotaInformationFile(filehandle.rawAddress.toCPointer<ByteVar>(), iostatusblock.rawAddress.toCPointer<ByteVar>(), buffer.rawAddress.toCPointer<ByteVar>(), length)
 
 public actual fun zwSetSecurityObject(handle: Handle, securityinformation: UInt, securitydescriptor: PsecurityDescriptor): Ntstatus =
     windowssysWindowsWdkStorageFilesystemZwSetSecurityObject(handle.rawAddress.toCPointer<ByteVar>(), securityinformation, securitydescriptor.rawAddress.toCPointer<ByteVar>())
 
-public actual fun zwSetVolumeInformationFile(filehandle: Handle, iostatusblock: MutPtr<IoStatusBlock>, fsinformation: ConstPtr<CVoid>, length: UInt, fsinformationclass: FsInformationClass): Ntstatus =
+public actual fun zwSetVolumeInformationFile(filehandle: Handle, iostatusblock: MutPtr, fsinformation: ConstPtr, length: UInt, fsinformationclass: FsInformationClass): Ntstatus =
     windowssysWindowsWdkStorageFilesystemZwSetVolumeInformationFile(filehandle.rawAddress.toCPointer<ByteVar>(), iostatusblock.rawAddress.toCPointer<ByteVar>(), fsinformation.rawAddress.toCPointer<ByteVar>(), length, fsinformationclass)
 
-public actual fun zwUnlockFile(filehandle: Handle, iostatusblock: MutPtr<IoStatusBlock>, byteoffset: ConstPtr<Long>, length: ConstPtr<Long>, key: UInt): Ntstatus =
+public actual fun zwUnlockFile(filehandle: Handle, iostatusblock: MutPtr, byteoffset: ConstPtr, length: ConstPtr, key: UInt): Ntstatus =
     windowssysWindowsWdkStorageFilesystemZwUnlockFile(filehandle.rawAddress.toCPointer<ByteVar>(), iostatusblock.rawAddress.toCPointer<ByteVar>(), byteoffset.rawAddress.toCPointer<ByteVar>(), length.rawAddress.toCPointer<ByteVar>(), key)

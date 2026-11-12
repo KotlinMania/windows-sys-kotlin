@@ -2,22 +2,18 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.security.cryptography
 
-import io.github.kotlinmania.rustlang.core.ffi.CVoid
 import io.github.kotlinmania.rustlang.core.ptr.ConstPtr
 import io.github.kotlinmania.rustlang.core.ptr.MutPtr
 import io.github.kotlinmania.windowssys.core.Bool
-import io.github.kotlinmania.windowssys.core.Guid
 import io.github.kotlinmania.windowssys.core.Hresult
 import io.github.kotlinmania.windowssys.core.Pcstr
 import io.github.kotlinmania.windowssys.core.Pcwstr
 import io.github.kotlinmania.windowssys.core.Pstr
 import io.github.kotlinmania.windowssys.core.Pwstr
-import io.github.kotlinmania.windowssys.windows.win32.foundation.Filetime
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Handle
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Hmodule
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Hwnd
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Ntstatus
-import io.github.kotlinmania.windowssys.windows.win32.foundation.Systemtime
 import io.github.kotlinmania.windowssys.windows.win32.security.NcryptDescriptorHandle
 import io.github.kotlinmania.windowssys.windows.win32.security.NcryptStreamHandle
 import io.github.kotlinmania.windowssys.windows.win32.security.ObjectSecurityInformation
@@ -1434,34 +1430,34 @@ public actual fun bCryptAddContextFunctionProvider(dwtable: UInt, pszcontext: Pc
 public actual fun bCryptCloseAlgorithmProvider(halgorithm: BcryptAlgHandle, dwflags: UInt): Ntstatus =
     WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyBCryptCloseAlgorithmProvider(halgorithm.rawAddress, dwflags.toInt())
 
-public actual fun bCryptConfigureContext(dwtable: BcryptTable, pszcontext: Pcwstr, pconfig: ConstPtr<CryptContextConfig>): Ntstatus =
+public actual fun bCryptConfigureContext(dwtable: BcryptTable, pszcontext: Pcwstr, pconfig: ConstPtr): Ntstatus =
     WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyBCryptConfigureContext(dwtable.toInt(), pszcontext.rawAddress, pconfig.rawAddress)
 
-public actual fun bCryptConfigureContextFunction(dwtable: BcryptTable, pszcontext: Pcwstr, dwinterface: BcryptInterface, pszfunction: Pcwstr, pconfig: ConstPtr<CryptContextFunctionConfig>): Ntstatus =
+public actual fun bCryptConfigureContextFunction(dwtable: BcryptTable, pszcontext: Pcwstr, dwinterface: BcryptInterface, pszfunction: Pcwstr, pconfig: ConstPtr): Ntstatus =
     WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyBCryptConfigureContextFunction(dwtable.toInt(), pszcontext.rawAddress, dwinterface.toInt(), pszfunction.rawAddress, pconfig.rawAddress)
 
-public actual fun bCryptCreateContext(dwtable: BcryptTable, pszcontext: Pcwstr, pconfig: ConstPtr<CryptContextConfig>): Ntstatus =
+public actual fun bCryptCreateContext(dwtable: BcryptTable, pszcontext: Pcwstr, pconfig: ConstPtr): Ntstatus =
     WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyBCryptCreateContext(dwtable.toInt(), pszcontext.rawAddress, pconfig.rawAddress)
 
-public actual fun bCryptCreateHash(halgorithm: BcryptAlgHandle, phhash: MutPtr<BcryptHashHandle>, pbhashobject: MutPtr<UByte>, cbhashobject: UInt, pbsecret: ConstPtr<UByte>, cbsecret: UInt, dwflags: UInt): Ntstatus =
+public actual fun bCryptCreateHash(halgorithm: BcryptAlgHandle, phhash: MutPtr, pbhashobject: MutPtr, cbhashobject: UInt, pbsecret: ConstPtr, cbsecret: UInt, dwflags: UInt): Ntstatus =
     WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyBCryptCreateHash(halgorithm.rawAddress, phhash.rawAddress, pbhashobject.rawAddress, cbhashobject.toInt(), pbsecret.rawAddress, cbsecret.toInt(), dwflags.toInt())
 
-public actual fun bCryptCreateMultiHash(halgorithm: BcryptAlgHandle, phhash: MutPtr<BcryptHashHandle>, nhashes: UInt, pbhashobject: MutPtr<UByte>, cbhashobject: UInt, pbsecret: ConstPtr<UByte>, cbsecret: UInt, dwflags: UInt): Ntstatus =
+public actual fun bCryptCreateMultiHash(halgorithm: BcryptAlgHandle, phhash: MutPtr, nhashes: UInt, pbhashobject: MutPtr, cbhashobject: UInt, pbsecret: ConstPtr, cbsecret: UInt, dwflags: UInt): Ntstatus =
     WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyBCryptCreateMultiHash(halgorithm.rawAddress, phhash.rawAddress, nhashes.toInt(), pbhashobject.rawAddress, cbhashobject.toInt(), pbsecret.rawAddress, cbsecret.toInt(), dwflags.toInt())
 
-public actual fun bCryptDecrypt(hkey: BcryptKeyHandle, pbinput: ConstPtr<UByte>, cbinput: UInt, ppaddinginfo: ConstPtr<CVoid>, pbiv: MutPtr<UByte>, cbiv: UInt, pboutput: MutPtr<UByte>, cboutput: UInt, pcbresult: MutPtr<UInt>, dwflags: BcryptFlags): Ntstatus =
+public actual fun bCryptDecrypt(hkey: BcryptKeyHandle, pbinput: ConstPtr, cbinput: UInt, ppaddinginfo: ConstPtr, pbiv: MutPtr, cbiv: UInt, pboutput: MutPtr, cboutput: UInt, pcbresult: MutPtr, dwflags: BcryptFlags): Ntstatus =
     WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyBCryptDecrypt(hkey.rawAddress, pbinput.rawAddress, cbinput.toInt(), ppaddinginfo.rawAddress, pbiv.rawAddress, cbiv.toInt(), pboutput.rawAddress, cboutput.toInt(), pcbresult.rawAddress, dwflags.toInt())
 
 public actual fun bCryptDeleteContext(dwtable: BcryptTable, pszcontext: Pcwstr): Ntstatus =
     WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyBCryptDeleteContext(dwtable.toInt(), pszcontext.rawAddress)
 
-public actual fun bCryptDeriveKey(hsharedsecret: BcryptSecretHandle, pwszkdf: Pcwstr, pparameterlist: ConstPtr<BCryptBufferDesc>, pbderivedkey: MutPtr<UByte>, cbderivedkey: UInt, pcbresult: MutPtr<UInt>, dwflags: UInt): Ntstatus =
+public actual fun bCryptDeriveKey(hsharedsecret: BcryptSecretHandle, pwszkdf: Pcwstr, pparameterlist: ConstPtr, pbderivedkey: MutPtr, cbderivedkey: UInt, pcbresult: MutPtr, dwflags: UInt): Ntstatus =
     WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyBCryptDeriveKey(hsharedsecret.rawAddress, pwszkdf.rawAddress, pparameterlist.rawAddress, pbderivedkey.rawAddress, cbderivedkey.toInt(), pcbresult.rawAddress, dwflags.toInt())
 
-public actual fun bCryptDeriveKeyCapi(hhash: BcryptHashHandle, htargetalg: BcryptAlgHandle, pbderivedkey: MutPtr<UByte>, cbderivedkey: UInt, dwflags: UInt): Ntstatus =
+public actual fun bCryptDeriveKeyCapi(hhash: BcryptHashHandle, htargetalg: BcryptAlgHandle, pbderivedkey: MutPtr, cbderivedkey: UInt, dwflags: UInt): Ntstatus =
     WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyBCryptDeriveKeyCapi(hhash.rawAddress, htargetalg.rawAddress, pbderivedkey.rawAddress, cbderivedkey.toInt(), dwflags.toInt())
 
-public actual fun bCryptDeriveKeyPBKDF2(hprf: BcryptAlgHandle, pbpassword: ConstPtr<UByte>, cbpassword: UInt, pbsalt: ConstPtr<UByte>, cbsalt: UInt, citerations: ULong, pbderivedkey: MutPtr<UByte>, cbderivedkey: UInt, dwflags: UInt): Ntstatus =
+public actual fun bCryptDeriveKeyPBKDF2(hprf: BcryptAlgHandle, pbpassword: ConstPtr, cbpassword: UInt, pbsalt: ConstPtr, cbsalt: UInt, citerations: ULong, pbderivedkey: MutPtr, cbderivedkey: UInt, dwflags: UInt): Ntstatus =
     WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyBCryptDeriveKeyPBKDF2(hprf.rawAddress, pbpassword.rawAddress, cbpassword.toInt(), pbsalt.rawAddress, cbsalt.toInt(), citerations.toLong(), pbderivedkey.rawAddress, cbderivedkey.toInt(), dwflags.toInt())
 
 public actual fun bCryptDestroyHash(hhash: BcryptHashHandle): Ntstatus =
@@ -1473,98 +1469,98 @@ public actual fun bCryptDestroyKey(hkey: BcryptKeyHandle): Ntstatus =
 public actual fun bCryptDestroySecret(hsecret: BcryptSecretHandle): Ntstatus =
     WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyBCryptDestroySecret(hsecret.rawAddress)
 
-public actual fun bCryptDuplicateHash(hhash: BcryptHashHandle, phnewhash: MutPtr<BcryptHashHandle>, pbhashobject: MutPtr<UByte>, cbhashobject: UInt, dwflags: UInt): Ntstatus =
+public actual fun bCryptDuplicateHash(hhash: BcryptHashHandle, phnewhash: MutPtr, pbhashobject: MutPtr, cbhashobject: UInt, dwflags: UInt): Ntstatus =
     WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyBCryptDuplicateHash(hhash.rawAddress, phnewhash.rawAddress, pbhashobject.rawAddress, cbhashobject.toInt(), dwflags.toInt())
 
-public actual fun bCryptDuplicateKey(hkey: BcryptKeyHandle, phnewkey: MutPtr<BcryptKeyHandle>, pbkeyobject: MutPtr<UByte>, cbkeyobject: UInt, dwflags: UInt): Ntstatus =
+public actual fun bCryptDuplicateKey(hkey: BcryptKeyHandle, phnewkey: MutPtr, pbkeyobject: MutPtr, cbkeyobject: UInt, dwflags: UInt): Ntstatus =
     WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyBCryptDuplicateKey(hkey.rawAddress, phnewkey.rawAddress, pbkeyobject.rawAddress, cbkeyobject.toInt(), dwflags.toInt())
 
-public actual fun bCryptEncrypt(hkey: BcryptKeyHandle, pbinput: ConstPtr<UByte>, cbinput: UInt, ppaddinginfo: ConstPtr<CVoid>, pbiv: MutPtr<UByte>, cbiv: UInt, pboutput: MutPtr<UByte>, cboutput: UInt, pcbresult: MutPtr<UInt>, dwflags: BcryptFlags): Ntstatus =
+public actual fun bCryptEncrypt(hkey: BcryptKeyHandle, pbinput: ConstPtr, cbinput: UInt, ppaddinginfo: ConstPtr, pbiv: MutPtr, cbiv: UInt, pboutput: MutPtr, cboutput: UInt, pcbresult: MutPtr, dwflags: BcryptFlags): Ntstatus =
     WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyBCryptEncrypt(hkey.rawAddress, pbinput.rawAddress, cbinput.toInt(), ppaddinginfo.rawAddress, pbiv.rawAddress, cbiv.toInt(), pboutput.rawAddress, cboutput.toInt(), pcbresult.rawAddress, dwflags.toInt())
 
-public actual fun bCryptEnumAlgorithms(dwalgoperations: BcryptOperation, palgcount: MutPtr<UInt>, ppalglist: MutPtr<MutPtr<BcryptAlgorithmIdentifier>>, dwflags: UInt): Ntstatus =
+public actual fun bCryptEnumAlgorithms(dwalgoperations: BcryptOperation, palgcount: MutPtr, ppalglist: MutPtr, dwflags: UInt): Ntstatus =
     WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyBCryptEnumAlgorithms(dwalgoperations.toInt(), palgcount.rawAddress, ppalglist.rawAddress, dwflags.toInt())
 
-public actual fun bCryptEnumContextFunctionProviders(dwtable: BcryptTable, pszcontext: Pcwstr, dwinterface: BcryptInterface, pszfunction: Pcwstr, pcbbuffer: MutPtr<UInt>, ppbuffer: MutPtr<MutPtr<CryptContextFunctionProviders>>): Ntstatus =
+public actual fun bCryptEnumContextFunctionProviders(dwtable: BcryptTable, pszcontext: Pcwstr, dwinterface: BcryptInterface, pszfunction: Pcwstr, pcbbuffer: MutPtr, ppbuffer: MutPtr): Ntstatus =
     WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyBCryptEnumContextFunctionProviders(dwtable.toInt(), pszcontext.rawAddress, dwinterface.toInt(), pszfunction.rawAddress, pcbbuffer.rawAddress, ppbuffer.rawAddress)
 
-public actual fun bCryptEnumContextFunctions(dwtable: BcryptTable, pszcontext: Pcwstr, dwinterface: BcryptInterface, pcbbuffer: MutPtr<UInt>, ppbuffer: MutPtr<MutPtr<CryptContextFunctions>>): Ntstatus =
+public actual fun bCryptEnumContextFunctions(dwtable: BcryptTable, pszcontext: Pcwstr, dwinterface: BcryptInterface, pcbbuffer: MutPtr, ppbuffer: MutPtr): Ntstatus =
     WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyBCryptEnumContextFunctions(dwtable.toInt(), pszcontext.rawAddress, dwinterface.toInt(), pcbbuffer.rawAddress, ppbuffer.rawAddress)
 
-public actual fun bCryptEnumContexts(dwtable: BcryptTable, pcbbuffer: MutPtr<UInt>, ppbuffer: MutPtr<MutPtr<CryptContexts>>): Ntstatus =
+public actual fun bCryptEnumContexts(dwtable: BcryptTable, pcbbuffer: MutPtr, ppbuffer: MutPtr): Ntstatus =
     WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyBCryptEnumContexts(dwtable.toInt(), pcbbuffer.rawAddress, ppbuffer.rawAddress)
 
-public actual fun bCryptEnumProviders(pszalgid: Pcwstr, pimplcount: MutPtr<UInt>, ppimpllist: MutPtr<MutPtr<BcryptProviderName>>, dwflags: UInt): Ntstatus =
+public actual fun bCryptEnumProviders(pszalgid: Pcwstr, pimplcount: MutPtr, ppimpllist: MutPtr, dwflags: UInt): Ntstatus =
     WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyBCryptEnumProviders(pszalgid.rawAddress, pimplcount.rawAddress, ppimpllist.rawAddress, dwflags.toInt())
 
-public actual fun bCryptEnumRegisteredProviders(pcbbuffer: MutPtr<UInt>, ppbuffer: MutPtr<MutPtr<CryptProviders>>): Ntstatus =
+public actual fun bCryptEnumRegisteredProviders(pcbbuffer: MutPtr, ppbuffer: MutPtr): Ntstatus =
     WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyBCryptEnumRegisteredProviders(pcbbuffer.rawAddress, ppbuffer.rawAddress)
 
-public actual fun bCryptExportKey(hkey: BcryptKeyHandle, hexportkey: BcryptKeyHandle, pszblobtype: Pcwstr, pboutput: MutPtr<UByte>, cboutput: UInt, pcbresult: MutPtr<UInt>, dwflags: UInt): Ntstatus =
+public actual fun bCryptExportKey(hkey: BcryptKeyHandle, hexportkey: BcryptKeyHandle, pszblobtype: Pcwstr, pboutput: MutPtr, cboutput: UInt, pcbresult: MutPtr, dwflags: UInt): Ntstatus =
     WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyBCryptExportKey(hkey.rawAddress, hexportkey.rawAddress, pszblobtype.rawAddress, pboutput.rawAddress, cboutput.toInt(), pcbresult.rawAddress, dwflags.toInt())
 
 public actual fun bCryptFinalizeKeyPair(hkey: BcryptKeyHandle, dwflags: UInt): Ntstatus =
     WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyBCryptFinalizeKeyPair(hkey.rawAddress, dwflags.toInt())
 
-public actual fun bCryptFinishHash(hhash: BcryptHashHandle, pboutput: MutPtr<UByte>, cboutput: UInt, dwflags: UInt): Ntstatus =
+public actual fun bCryptFinishHash(hhash: BcryptHashHandle, pboutput: MutPtr, cboutput: UInt, dwflags: UInt): Ntstatus =
     WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyBCryptFinishHash(hhash.rawAddress, pboutput.rawAddress, cboutput.toInt(), dwflags.toInt())
 
-public actual fun bCryptFreeBuffer(pvbuffer: ConstPtr<CVoid>) {
+public actual fun bCryptFreeBuffer(pvbuffer: ConstPtr) {
     WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyBCryptFreeBuffer(pvbuffer.rawAddress)
 }
 
-public actual fun bCryptGenRandom(halgorithm: BcryptAlgHandle, pbbuffer: MutPtr<UByte>, cbbuffer: UInt, dwflags: BcryptgenrandomFlags): Ntstatus =
+public actual fun bCryptGenRandom(halgorithm: BcryptAlgHandle, pbbuffer: MutPtr, cbbuffer: UInt, dwflags: BcryptgenrandomFlags): Ntstatus =
     WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyBCryptGenRandom(halgorithm.rawAddress, pbbuffer.rawAddress, cbbuffer.toInt(), dwflags.toInt())
 
-public actual fun bCryptGenerateKeyPair(halgorithm: BcryptAlgHandle, phkey: MutPtr<BcryptKeyHandle>, dwlength: UInt, dwflags: UInt): Ntstatus =
+public actual fun bCryptGenerateKeyPair(halgorithm: BcryptAlgHandle, phkey: MutPtr, dwlength: UInt, dwflags: UInt): Ntstatus =
     WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyBCryptGenerateKeyPair(halgorithm.rawAddress, phkey.rawAddress, dwlength.toInt(), dwflags.toInt())
 
-public actual fun bCryptGenerateSymmetricKey(halgorithm: BcryptAlgHandle, phkey: MutPtr<BcryptKeyHandle>, pbkeyobject: MutPtr<UByte>, cbkeyobject: UInt, pbsecret: ConstPtr<UByte>, cbsecret: UInt, dwflags: UInt): Ntstatus =
+public actual fun bCryptGenerateSymmetricKey(halgorithm: BcryptAlgHandle, phkey: MutPtr, pbkeyobject: MutPtr, cbkeyobject: UInt, pbsecret: ConstPtr, cbsecret: UInt, dwflags: UInt): Ntstatus =
     WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyBCryptGenerateSymmetricKey(halgorithm.rawAddress, phkey.rawAddress, pbkeyobject.rawAddress, cbkeyobject.toInt(), pbsecret.rawAddress, cbsecret.toInt(), dwflags.toInt())
 
-public actual fun bCryptGetFipsAlgorithmMode(pfenabled: MutPtr<UByte>): Ntstatus =
+public actual fun bCryptGetFipsAlgorithmMode(pfenabled: MutPtr): Ntstatus =
     WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyBCryptGetFipsAlgorithmMode(pfenabled.rawAddress)
 
-public actual fun bCryptGetProperty(hobject: BcryptHandle, pszproperty: Pcwstr, pboutput: MutPtr<UByte>, cboutput: UInt, pcbresult: MutPtr<UInt>, dwflags: UInt): Ntstatus =
+public actual fun bCryptGetProperty(hobject: BcryptHandle, pszproperty: Pcwstr, pboutput: MutPtr, cboutput: UInt, pcbresult: MutPtr, dwflags: UInt): Ntstatus =
     WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyBCryptGetProperty(hobject.rawAddress, pszproperty.rawAddress, pboutput.rawAddress, cboutput.toInt(), pcbresult.rawAddress, dwflags.toInt())
 
-public actual fun bCryptHash(halgorithm: BcryptAlgHandle, pbsecret: ConstPtr<UByte>, cbsecret: UInt, pbinput: ConstPtr<UByte>, cbinput: UInt, pboutput: MutPtr<UByte>, cboutput: UInt): Ntstatus =
+public actual fun bCryptHash(halgorithm: BcryptAlgHandle, pbsecret: ConstPtr, cbsecret: UInt, pbinput: ConstPtr, cbinput: UInt, pboutput: MutPtr, cboutput: UInt): Ntstatus =
     WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyBCryptHash(halgorithm.rawAddress, pbsecret.rawAddress, cbsecret.toInt(), pbinput.rawAddress, cbinput.toInt(), pboutput.rawAddress, cboutput.toInt())
 
-public actual fun bCryptHashData(hhash: BcryptHashHandle, pbinput: ConstPtr<UByte>, cbinput: UInt, dwflags: UInt): Ntstatus =
+public actual fun bCryptHashData(hhash: BcryptHashHandle, pbinput: ConstPtr, cbinput: UInt, dwflags: UInt): Ntstatus =
     WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyBCryptHashData(hhash.rawAddress, pbinput.rawAddress, cbinput.toInt(), dwflags.toInt())
 
-public actual fun bCryptImportKey(halgorithm: BcryptAlgHandle, himportkey: BcryptKeyHandle, pszblobtype: Pcwstr, phkey: MutPtr<BcryptKeyHandle>, pbkeyobject: MutPtr<UByte>, cbkeyobject: UInt, pbinput: ConstPtr<UByte>, cbinput: UInt, dwflags: UInt): Ntstatus =
+public actual fun bCryptImportKey(halgorithm: BcryptAlgHandle, himportkey: BcryptKeyHandle, pszblobtype: Pcwstr, phkey: MutPtr, pbkeyobject: MutPtr, cbkeyobject: UInt, pbinput: ConstPtr, cbinput: UInt, dwflags: UInt): Ntstatus =
     WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyBCryptImportKey(halgorithm.rawAddress, himportkey.rawAddress, pszblobtype.rawAddress, phkey.rawAddress, pbkeyobject.rawAddress, cbkeyobject.toInt(), pbinput.rawAddress, cbinput.toInt(), dwflags.toInt())
 
-public actual fun bCryptImportKeyPair(halgorithm: BcryptAlgHandle, himportkey: BcryptKeyHandle, pszblobtype: Pcwstr, phkey: MutPtr<BcryptKeyHandle>, pbinput: ConstPtr<UByte>, cbinput: UInt, dwflags: UInt): Ntstatus =
+public actual fun bCryptImportKeyPair(halgorithm: BcryptAlgHandle, himportkey: BcryptKeyHandle, pszblobtype: Pcwstr, phkey: MutPtr, pbinput: ConstPtr, cbinput: UInt, dwflags: UInt): Ntstatus =
     WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyBCryptImportKeyPair(halgorithm.rawAddress, himportkey.rawAddress, pszblobtype.rawAddress, phkey.rawAddress, pbinput.rawAddress, cbinput.toInt(), dwflags.toInt())
 
-public actual fun bCryptKeyDerivation(hkey: BcryptKeyHandle, pparameterlist: ConstPtr<BCryptBufferDesc>, pbderivedkey: MutPtr<UByte>, cbderivedkey: UInt, pcbresult: MutPtr<UInt>, dwflags: UInt): Ntstatus =
+public actual fun bCryptKeyDerivation(hkey: BcryptKeyHandle, pparameterlist: ConstPtr, pbderivedkey: MutPtr, cbderivedkey: UInt, pcbresult: MutPtr, dwflags: UInt): Ntstatus =
     WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyBCryptKeyDerivation(hkey.rawAddress, pparameterlist.rawAddress, pbderivedkey.rawAddress, cbderivedkey.toInt(), pcbresult.rawAddress, dwflags.toInt())
 
-public actual fun bCryptOpenAlgorithmProvider(phalgorithm: MutPtr<BcryptAlgHandle>, pszalgid: Pcwstr, pszimplementation: Pcwstr, dwflags: BcryptOpenAlgorithmProviderFlags): Ntstatus =
+public actual fun bCryptOpenAlgorithmProvider(phalgorithm: MutPtr, pszalgid: Pcwstr, pszimplementation: Pcwstr, dwflags: BcryptOpenAlgorithmProviderFlags): Ntstatus =
     WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyBCryptOpenAlgorithmProvider(phalgorithm.rawAddress, pszalgid.rawAddress, pszimplementation.rawAddress, dwflags.toInt())
 
-public actual fun bCryptProcessMultiOperations(hobject: BcryptHandle, operationtype: BcryptMultiOperationType, poperations: ConstPtr<CVoid>, cboperations: UInt, dwflags: UInt): Ntstatus =
+public actual fun bCryptProcessMultiOperations(hobject: BcryptHandle, operationtype: BcryptMultiOperationType, poperations: ConstPtr, cboperations: UInt, dwflags: UInt): Ntstatus =
     WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyBCryptProcessMultiOperations(hobject.rawAddress, operationtype, poperations.rawAddress, cboperations.toInt(), dwflags.toInt())
 
-public actual fun bCryptQueryContextConfiguration(dwtable: BcryptTable, pszcontext: Pcwstr, pcbbuffer: MutPtr<UInt>, ppbuffer: MutPtr<MutPtr<CryptContextConfig>>): Ntstatus =
+public actual fun bCryptQueryContextConfiguration(dwtable: BcryptTable, pszcontext: Pcwstr, pcbbuffer: MutPtr, ppbuffer: MutPtr): Ntstatus =
     WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyBCryptQueryContextConfiguration(dwtable.toInt(), pszcontext.rawAddress, pcbbuffer.rawAddress, ppbuffer.rawAddress)
 
-public actual fun bCryptQueryContextFunctionConfiguration(dwtable: BcryptTable, pszcontext: Pcwstr, dwinterface: BcryptInterface, pszfunction: Pcwstr, pcbbuffer: MutPtr<UInt>, ppbuffer: MutPtr<MutPtr<CryptContextFunctionConfig>>): Ntstatus =
+public actual fun bCryptQueryContextFunctionConfiguration(dwtable: BcryptTable, pszcontext: Pcwstr, dwinterface: BcryptInterface, pszfunction: Pcwstr, pcbbuffer: MutPtr, ppbuffer: MutPtr): Ntstatus =
     WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyBCryptQueryContextFunctionConfiguration(dwtable.toInt(), pszcontext.rawAddress, dwinterface.toInt(), pszfunction.rawAddress, pcbbuffer.rawAddress, ppbuffer.rawAddress)
 
-public actual fun bCryptQueryContextFunctionProperty(dwtable: BcryptTable, pszcontext: Pcwstr, dwinterface: BcryptInterface, pszfunction: Pcwstr, pszproperty: Pcwstr, pcbvalue: MutPtr<UInt>, ppbvalue: MutPtr<MutPtr<UByte>>): Ntstatus =
+public actual fun bCryptQueryContextFunctionProperty(dwtable: BcryptTable, pszcontext: Pcwstr, dwinterface: BcryptInterface, pszfunction: Pcwstr, pszproperty: Pcwstr, pcbvalue: MutPtr, ppbvalue: MutPtr): Ntstatus =
     WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyBCryptQueryContextFunctionProperty(dwtable.toInt(), pszcontext.rawAddress, dwinterface.toInt(), pszfunction.rawAddress, pszproperty.rawAddress, pcbvalue.rawAddress, ppbvalue.rawAddress)
 
-public actual fun bCryptQueryProviderRegistration(pszprovider: Pcwstr, dwmode: BcryptQueryProviderMode, dwinterface: BcryptInterface, pcbbuffer: MutPtr<UInt>, ppbuffer: MutPtr<MutPtr<CryptProviderReg>>): Ntstatus =
+public actual fun bCryptQueryProviderRegistration(pszprovider: Pcwstr, dwmode: BcryptQueryProviderMode, dwinterface: BcryptInterface, pcbbuffer: MutPtr, ppbuffer: MutPtr): Ntstatus =
     WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyBCryptQueryProviderRegistration(pszprovider.rawAddress, dwmode.toInt(), dwinterface.toInt(), pcbbuffer.rawAddress, ppbuffer.rawAddress)
 
-public actual fun bCryptRegisterConfigChangeNotify(phevent: MutPtr<Handle>): Ntstatus =
+public actual fun bCryptRegisterConfigChangeNotify(phevent: MutPtr): Ntstatus =
     WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyBCryptRegisterConfigChangeNotify(phevent.rawAddress)
 
-public actual fun bCryptRegisterProvider(pszprovider: Pcwstr, dwflags: UInt, preg: ConstPtr<CryptProviderReg>): Ntstatus =
+public actual fun bCryptRegisterProvider(pszprovider: Pcwstr, dwflags: UInt, preg: ConstPtr): Ntstatus =
     WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyBCryptRegisterProvider(pszprovider.rawAddress, dwflags.toInt(), preg.rawAddress)
 
 public actual fun bCryptRemoveContextFunction(dwtable: BcryptTable, pszcontext: Pcwstr, dwinterface: BcryptInterface, pszfunction: Pcwstr): Ntstatus =
@@ -1573,19 +1569,19 @@ public actual fun bCryptRemoveContextFunction(dwtable: BcryptTable, pszcontext: 
 public actual fun bCryptRemoveContextFunctionProvider(dwtable: UInt, pszcontext: Pcwstr, dwinterface: UInt, pszfunction: Pcwstr, pszprovider: Pcwstr): Ntstatus =
     WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyBCryptRemoveContextFunctionProvider(dwtable.toInt(), pszcontext.rawAddress, dwinterface.toInt(), pszfunction.rawAddress, pszprovider.rawAddress)
 
-public actual fun bCryptResolveProviders(pszcontext: Pcwstr, dwinterface: UInt, pszfunction: Pcwstr, pszprovider: Pcwstr, dwmode: BcryptQueryProviderMode, dwflags: BcryptResolveProvidersFlags, pcbbuffer: MutPtr<UInt>, ppbuffer: MutPtr<MutPtr<CryptProviderRefs>>): Ntstatus =
+public actual fun bCryptResolveProviders(pszcontext: Pcwstr, dwinterface: UInt, pszfunction: Pcwstr, pszprovider: Pcwstr, dwmode: BcryptQueryProviderMode, dwflags: BcryptResolveProvidersFlags, pcbbuffer: MutPtr, ppbuffer: MutPtr): Ntstatus =
     WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyBCryptResolveProviders(pszcontext.rawAddress, dwinterface.toInt(), pszfunction.rawAddress, pszprovider.rawAddress, dwmode.toInt(), dwflags.toInt(), pcbbuffer.rawAddress, ppbuffer.rawAddress)
 
-public actual fun bCryptSecretAgreement(hprivkey: BcryptKeyHandle, hpubkey: BcryptKeyHandle, phagreedsecret: MutPtr<BcryptSecretHandle>, dwflags: UInt): Ntstatus =
+public actual fun bCryptSecretAgreement(hprivkey: BcryptKeyHandle, hpubkey: BcryptKeyHandle, phagreedsecret: MutPtr, dwflags: UInt): Ntstatus =
     WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyBCryptSecretAgreement(hprivkey.rawAddress, hpubkey.rawAddress, phagreedsecret.rawAddress, dwflags.toInt())
 
-public actual fun bCryptSetContextFunctionProperty(dwtable: BcryptTable, pszcontext: Pcwstr, dwinterface: BcryptInterface, pszfunction: Pcwstr, pszproperty: Pcwstr, cbvalue: UInt, pbvalue: ConstPtr<UByte>): Ntstatus =
+public actual fun bCryptSetContextFunctionProperty(dwtable: BcryptTable, pszcontext: Pcwstr, dwinterface: BcryptInterface, pszfunction: Pcwstr, pszproperty: Pcwstr, cbvalue: UInt, pbvalue: ConstPtr): Ntstatus =
     WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyBCryptSetContextFunctionProperty(dwtable.toInt(), pszcontext.rawAddress, dwinterface.toInt(), pszfunction.rawAddress, pszproperty.rawAddress, cbvalue.toInt(), pbvalue.rawAddress)
 
-public actual fun bCryptSetProperty(hobject: BcryptHandle, pszproperty: Pcwstr, pbinput: ConstPtr<UByte>, cbinput: UInt, dwflags: UInt): Ntstatus =
+public actual fun bCryptSetProperty(hobject: BcryptHandle, pszproperty: Pcwstr, pbinput: ConstPtr, cbinput: UInt, dwflags: UInt): Ntstatus =
     WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyBCryptSetProperty(hobject.rawAddress, pszproperty.rawAddress, pbinput.rawAddress, cbinput.toInt(), dwflags.toInt())
 
-public actual fun bCryptSignHash(hkey: BcryptKeyHandle, ppaddinginfo: ConstPtr<CVoid>, pbinput: ConstPtr<UByte>, cbinput: UInt, pboutput: MutPtr<UByte>, cboutput: UInt, pcbresult: MutPtr<UInt>, dwflags: BcryptFlags): Ntstatus =
+public actual fun bCryptSignHash(hkey: BcryptKeyHandle, ppaddinginfo: ConstPtr, pbinput: ConstPtr, cbinput: UInt, pboutput: MutPtr, cboutput: UInt, pcbresult: MutPtr, dwflags: BcryptFlags): Ntstatus =
     WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyBCryptSignHash(hkey.rawAddress, ppaddinginfo.rawAddress, pbinput.rawAddress, cbinput.toInt(), pboutput.rawAddress, cboutput.toInt(), pcbresult.rawAddress, dwflags.toInt())
 
 public actual fun bCryptUnregisterConfigChangeNotify(hevent: Handle): Ntstatus =
@@ -1594,54 +1590,54 @@ public actual fun bCryptUnregisterConfigChangeNotify(hevent: Handle): Ntstatus =
 public actual fun bCryptUnregisterProvider(pszprovider: Pcwstr): Ntstatus =
     WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyBCryptUnregisterProvider(pszprovider.rawAddress)
 
-public actual fun bCryptVerifySignature(hkey: BcryptKeyHandle, ppaddinginfo: ConstPtr<CVoid>, pbhash: ConstPtr<UByte>, cbhash: UInt, pbsignature: ConstPtr<UByte>, cbsignature: UInt, dwflags: BcryptFlags): Ntstatus =
+public actual fun bCryptVerifySignature(hkey: BcryptKeyHandle, ppaddinginfo: ConstPtr, pbhash: ConstPtr, cbhash: UInt, pbsignature: ConstPtr, cbsignature: UInt, dwflags: BcryptFlags): Ntstatus =
     WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyBCryptVerifySignature(hkey.rawAddress, ppaddinginfo.rawAddress, pbhash.rawAddress, cbhash.toInt(), pbsignature.rawAddress, cbsignature.toInt(), dwflags.toInt())
 
-public actual fun certAddCRLContextToStore(hcertstore: Hcertstore, pcrlcontext: ConstPtr<CrlContext>, dwadddisposition: UInt, ppstorecontext: MutPtr<MutPtr<CrlContext>>): Bool =
+public actual fun certAddCRLContextToStore(hcertstore: Hcertstore, pcrlcontext: ConstPtr, dwadddisposition: UInt, ppstorecontext: MutPtr): Bool =
     WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCertAddCRLContextToStore(hcertstore.rawAddress, pcrlcontext.rawAddress, dwadddisposition.toInt(), ppstorecontext.rawAddress)
 
-public actual fun certAddCRLLinkToStore(hcertstore: Hcertstore, pcrlcontext: ConstPtr<CrlContext>, dwadddisposition: UInt, ppstorecontext: MutPtr<MutPtr<CrlContext>>): Bool =
+public actual fun certAddCRLLinkToStore(hcertstore: Hcertstore, pcrlcontext: ConstPtr, dwadddisposition: UInt, ppstorecontext: MutPtr): Bool =
     WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCertAddCRLLinkToStore(hcertstore.rawAddress, pcrlcontext.rawAddress, dwadddisposition.toInt(), ppstorecontext.rawAddress)
 
-public actual fun certAddCTLContextToStore(hcertstore: Hcertstore, pctlcontext: ConstPtr<CtlContext>, dwadddisposition: UInt, ppstorecontext: MutPtr<MutPtr<CtlContext>>): Bool =
+public actual fun certAddCTLContextToStore(hcertstore: Hcertstore, pctlcontext: ConstPtr, dwadddisposition: UInt, ppstorecontext: MutPtr): Bool =
     WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCertAddCTLContextToStore(hcertstore.rawAddress, pctlcontext.rawAddress, dwadddisposition.toInt(), ppstorecontext.rawAddress)
 
-public actual fun certAddCTLLinkToStore(hcertstore: Hcertstore, pctlcontext: ConstPtr<CtlContext>, dwadddisposition: UInt, ppstorecontext: MutPtr<MutPtr<CtlContext>>): Bool =
+public actual fun certAddCTLLinkToStore(hcertstore: Hcertstore, pctlcontext: ConstPtr, dwadddisposition: UInt, ppstorecontext: MutPtr): Bool =
     WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCertAddCTLLinkToStore(hcertstore.rawAddress, pctlcontext.rawAddress, dwadddisposition.toInt(), ppstorecontext.rawAddress)
 
-public actual fun certAddCertificateContextToStore(hcertstore: Hcertstore, pcertcontext: ConstPtr<CertContext>, dwadddisposition: UInt, ppstorecontext: MutPtr<MutPtr<CertContext>>): Bool =
+public actual fun certAddCertificateContextToStore(hcertstore: Hcertstore, pcertcontext: ConstPtr, dwadddisposition: UInt, ppstorecontext: MutPtr): Bool =
     WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCertAddCertificateContextToStore(hcertstore.rawAddress, pcertcontext.rawAddress, dwadddisposition.toInt(), ppstorecontext.rawAddress)
 
-public actual fun certAddCertificateLinkToStore(hcertstore: Hcertstore, pcertcontext: ConstPtr<CertContext>, dwadddisposition: UInt, ppstorecontext: MutPtr<MutPtr<CertContext>>): Bool =
+public actual fun certAddCertificateLinkToStore(hcertstore: Hcertstore, pcertcontext: ConstPtr, dwadddisposition: UInt, ppstorecontext: MutPtr): Bool =
     WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCertAddCertificateLinkToStore(hcertstore.rawAddress, pcertcontext.rawAddress, dwadddisposition.toInt(), ppstorecontext.rawAddress)
 
-public actual fun certAddEncodedCRLToStore(hcertstore: Hcertstore, dwcertencodingtype: CertQueryEncodingType, pbcrlencoded: ConstPtr<UByte>, cbcrlencoded: UInt, dwadddisposition: UInt, ppcrlcontext: MutPtr<MutPtr<CrlContext>>): Bool =
+public actual fun certAddEncodedCRLToStore(hcertstore: Hcertstore, dwcertencodingtype: CertQueryEncodingType, pbcrlencoded: ConstPtr, cbcrlencoded: UInt, dwadddisposition: UInt, ppcrlcontext: MutPtr): Bool =
     WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCertAddEncodedCRLToStore(hcertstore.rawAddress, dwcertencodingtype.toInt(), pbcrlencoded.rawAddress, cbcrlencoded.toInt(), dwadddisposition.toInt(), ppcrlcontext.rawAddress)
 
-public actual fun certAddEncodedCTLToStore(hcertstore: Hcertstore, dwmsgandcertencodingtype: CertQueryEncodingType, pbctlencoded: ConstPtr<UByte>, cbctlencoded: UInt, dwadddisposition: UInt, ppctlcontext: MutPtr<MutPtr<CtlContext>>): Bool =
+public actual fun certAddEncodedCTLToStore(hcertstore: Hcertstore, dwmsgandcertencodingtype: CertQueryEncodingType, pbctlencoded: ConstPtr, cbctlencoded: UInt, dwadddisposition: UInt, ppctlcontext: MutPtr): Bool =
     WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCertAddEncodedCTLToStore(hcertstore.rawAddress, dwmsgandcertencodingtype.toInt(), pbctlencoded.rawAddress, cbctlencoded.toInt(), dwadddisposition.toInt(), ppctlcontext.rawAddress)
 
-public actual fun certAddEncodedCertificateToStore(hcertstore: Hcertstore, dwcertencodingtype: CertQueryEncodingType, pbcertencoded: ConstPtr<UByte>, cbcertencoded: UInt, dwadddisposition: UInt, ppcertcontext: MutPtr<MutPtr<CertContext>>): Bool =
+public actual fun certAddEncodedCertificateToStore(hcertstore: Hcertstore, dwcertencodingtype: CertQueryEncodingType, pbcertencoded: ConstPtr, cbcertencoded: UInt, dwadddisposition: UInt, ppcertcontext: MutPtr): Bool =
     WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCertAddEncodedCertificateToStore(hcertstore.rawAddress, dwcertencodingtype.toInt(), pbcertencoded.rawAddress, cbcertencoded.toInt(), dwadddisposition.toInt(), ppcertcontext.rawAddress)
 
-public actual fun certAddEncodedCertificateToSystemStoreA(szcertstorename: Pcstr, pbcertencoded: ConstPtr<UByte>, cbcertencoded: UInt): Bool =
+public actual fun certAddEncodedCertificateToSystemStoreA(szcertstorename: Pcstr, pbcertencoded: ConstPtr, cbcertencoded: UInt): Bool =
     WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCertAddEncodedCertificateToSystemStoreA(szcertstorename.rawAddress, pbcertencoded.rawAddress, cbcertencoded.toInt())
 
-public actual fun certAddEncodedCertificateToSystemStoreW(szcertstorename: Pcwstr, pbcertencoded: ConstPtr<UByte>, cbcertencoded: UInt): Bool =
+public actual fun certAddEncodedCertificateToSystemStoreW(szcertstorename: Pcwstr, pbcertencoded: ConstPtr, cbcertencoded: UInt): Bool =
     WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCertAddEncodedCertificateToSystemStoreW(szcertstorename.rawAddress, pbcertencoded.rawAddress, cbcertencoded.toInt())
 
-public actual fun certAddEnhancedKeyUsageIdentifier(pcertcontext: ConstPtr<CertContext>, pszusageidentifier: Pcstr): Bool =
+public actual fun certAddEnhancedKeyUsageIdentifier(pcertcontext: ConstPtr, pszusageidentifier: Pcstr): Bool =
     WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCertAddEnhancedKeyUsageIdentifier(pcertcontext.rawAddress, pszusageidentifier.rawAddress)
 
-public actual fun certAddRefServerOcspResponse(hserverocspresponse: ConstPtr<CVoid>) {
+public actual fun certAddRefServerOcspResponse(hserverocspresponse: ConstPtr) {
     WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCertAddRefServerOcspResponse(hserverocspresponse.rawAddress)
 }
 
-public actual fun certAddRefServerOcspResponseContext(pserverocspresponsecontext: ConstPtr<CertServerOcspResponseContext>) {
+public actual fun certAddRefServerOcspResponseContext(pserverocspresponsecontext: ConstPtr) {
     WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCertAddRefServerOcspResponseContext(pserverocspresponsecontext.rawAddress)
 }
 
-public actual fun certAddSerializedElementToStore(hcertstore: Hcertstore, pbelement: ConstPtr<UByte>, cbelement: UInt, dwadddisposition: UInt, dwflags: UInt, dwcontexttypeflags: UInt, pdwcontexttype: MutPtr<UInt>, ppvcontext: MutPtr<MutPtr<CVoid>>): Bool =
+public actual fun certAddSerializedElementToStore(hcertstore: Hcertstore, pbelement: ConstPtr, cbelement: UInt, dwadddisposition: UInt, dwflags: UInt, dwcontexttypeflags: UInt, pdwcontexttype: MutPtr, ppvcontext: MutPtr): Bool =
     WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCertAddSerializedElementToStore(hcertstore.rawAddress, pbelement.rawAddress, cbelement.toInt(), dwadddisposition.toInt(), dwflags.toInt(), dwcontexttypeflags.toInt(), pdwcontexttype.rawAddress, ppvcontext.rawAddress)
 
 public actual fun certAddStoreToCollection(hcollectionstore: Hcertstore, hsiblingstore: Hcertstore, dwupdateflags: UInt, dwpriority: UInt): Bool =
@@ -1650,140 +1646,140 @@ public actual fun certAddStoreToCollection(hcollectionstore: Hcertstore, hsiblin
 public actual fun certAlgIdToOID(dwalgid: UInt): Pcstr =
     ConstPtr(WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCertAlgIdToOID(dwalgid.toInt()))
 
-public actual fun certCloseServerOcspResponse(hserverocspresponse: ConstPtr<CVoid>, dwflags: UInt) {
+public actual fun certCloseServerOcspResponse(hserverocspresponse: ConstPtr, dwflags: UInt) {
     WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCertCloseServerOcspResponse(hserverocspresponse.rawAddress, dwflags.toInt())
 }
 
 public actual fun certCloseStore(hcertstore: Hcertstore, dwflags: UInt): Bool =
     WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCertCloseStore(hcertstore.rawAddress, dwflags.toInt())
 
-public actual fun certCompareCertificate(dwcertencodingtype: CertQueryEncodingType, pcertid1: ConstPtr<CertInfo>, pcertid2: ConstPtr<CertInfo>): Bool =
+public actual fun certCompareCertificate(dwcertencodingtype: CertQueryEncodingType, pcertid1: ConstPtr, pcertid2: ConstPtr): Bool =
     WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCertCompareCertificate(dwcertencodingtype.toInt(), pcertid1.rawAddress, pcertid2.rawAddress)
 
-public actual fun certCompareCertificateName(dwcertencodingtype: CertQueryEncodingType, pcertname1: ConstPtr<CryptIntegerBlob>, pcertname2: ConstPtr<CryptIntegerBlob>): Bool =
+public actual fun certCompareCertificateName(dwcertencodingtype: CertQueryEncodingType, pcertname1: ConstPtr, pcertname2: ConstPtr): Bool =
     WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCertCompareCertificateName(dwcertencodingtype.toInt(), pcertname1.rawAddress, pcertname2.rawAddress)
 
-public actual fun certCompareIntegerBlob(pint1: ConstPtr<CryptIntegerBlob>, pint2: ConstPtr<CryptIntegerBlob>): Bool =
+public actual fun certCompareIntegerBlob(pint1: ConstPtr, pint2: ConstPtr): Bool =
     WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCertCompareIntegerBlob(pint1.rawAddress, pint2.rawAddress)
 
-public actual fun certComparePublicKeyInfo(dwcertencodingtype: CertQueryEncodingType, ppublickey1: ConstPtr<CertPublicKeyInfo>, ppublickey2: ConstPtr<CertPublicKeyInfo>): Bool =
+public actual fun certComparePublicKeyInfo(dwcertencodingtype: CertQueryEncodingType, ppublickey1: ConstPtr, ppublickey2: ConstPtr): Bool =
     WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCertComparePublicKeyInfo(dwcertencodingtype.toInt(), ppublickey1.rawAddress, ppublickey2.rawAddress)
 
-public actual fun certControlStore(hcertstore: Hcertstore, dwflags: CertControlStoreFlags, dwctrltype: UInt, pvctrlpara: ConstPtr<CVoid>): Bool =
+public actual fun certControlStore(hcertstore: Hcertstore, dwflags: CertControlStoreFlags, dwctrltype: UInt, pvctrlpara: ConstPtr): Bool =
     WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCertControlStore(hcertstore.rawAddress, dwflags.toInt(), dwctrltype.toInt(), pvctrlpara.rawAddress)
 
-public actual fun certCreateCRLContext(dwcertencodingtype: CertQueryEncodingType, pbcrlencoded: ConstPtr<UByte>, cbcrlencoded: UInt): MutPtr<CrlContext> =
+public actual fun certCreateCRLContext(dwcertencodingtype: CertQueryEncodingType, pbcrlencoded: ConstPtr, cbcrlencoded: UInt): MutPtr =
     MutPtr(WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCertCreateCRLContext(dwcertencodingtype.toInt(), pbcrlencoded.rawAddress, cbcrlencoded.toInt()))
 
-public actual fun certCreateCTLContext(dwmsgandcertencodingtype: UInt, pbctlencoded: ConstPtr<UByte>, cbctlencoded: UInt): MutPtr<CtlContext> =
+public actual fun certCreateCTLContext(dwmsgandcertencodingtype: UInt, pbctlencoded: ConstPtr, cbctlencoded: UInt): MutPtr =
     MutPtr(WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCertCreateCTLContext(dwmsgandcertencodingtype.toInt(), pbctlencoded.rawAddress, cbctlencoded.toInt()))
 
-public actual fun certCreateCTLEntryFromCertificateContextProperties(pcertcontext: ConstPtr<CertContext>, coptattr: UInt, rgoptattr: ConstPtr<CryptAttribute>, dwflags: UInt, pvreserved: ConstPtr<CVoid>, pctlentry: MutPtr<CtlEntry>, pcbctlentry: MutPtr<UInt>): Bool =
+public actual fun certCreateCTLEntryFromCertificateContextProperties(pcertcontext: ConstPtr, coptattr: UInt, rgoptattr: ConstPtr, dwflags: UInt, pvreserved: ConstPtr, pctlentry: MutPtr, pcbctlentry: MutPtr): Bool =
     WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCertCreateCTLEntryFromCertificateContextProperties(pcertcontext.rawAddress, coptattr.toInt(), rgoptattr.rawAddress, dwflags.toInt(), pvreserved.rawAddress, pctlentry.rawAddress, pcbctlentry.rawAddress)
 
-public actual fun certCreateCertificateChainEngine(pconfig: ConstPtr<CertChainEngineConfig>, phchainengine: MutPtr<Hcertchainengine>): Bool =
+public actual fun certCreateCertificateChainEngine(pconfig: ConstPtr, phchainengine: MutPtr): Bool =
     WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCertCreateCertificateChainEngine(pconfig.rawAddress, phchainengine.rawAddress)
 
-public actual fun certCreateCertificateContext(dwcertencodingtype: CertQueryEncodingType, pbcertencoded: ConstPtr<UByte>, cbcertencoded: UInt): MutPtr<CertContext> =
+public actual fun certCreateCertificateContext(dwcertencodingtype: CertQueryEncodingType, pbcertencoded: ConstPtr, cbcertencoded: UInt): MutPtr =
     MutPtr(WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCertCreateCertificateContext(dwcertencodingtype.toInt(), pbcertencoded.rawAddress, cbcertencoded.toInt()))
 
-public actual fun certCreateContext(dwcontexttype: UInt, dwencodingtype: UInt, pbencoded: ConstPtr<UByte>, cbencoded: UInt, dwflags: UInt, pcreatepara: ConstPtr<CertCreateContextPara>): MutPtr<CVoid> =
+public actual fun certCreateContext(dwcontexttype: UInt, dwencodingtype: UInt, pbencoded: ConstPtr, cbencoded: UInt, dwflags: UInt, pcreatepara: ConstPtr): MutPtr =
     MutPtr(WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCertCreateContext(dwcontexttype.toInt(), dwencodingtype.toInt(), pbencoded.rawAddress, cbencoded.toInt(), dwflags.toInt(), pcreatepara.rawAddress))
 
-public actual fun certCreateSelfSignCertificate(hcryptprovorncryptkey: HcryptprovOrNcryptKeyHandle, psubjectissuerblob: ConstPtr<CryptIntegerBlob>, dwflags: CertCreateSelfsignFlags, pkeyprovinfo: ConstPtr<CryptKeyProvInfo>, psignaturealgorithm: ConstPtr<CryptAlgorithmIdentifier>, pstarttime: ConstPtr<Systemtime>, pendtime: ConstPtr<Systemtime>, pextensions: ConstPtr<CertExtensions>): MutPtr<CertContext> =
+public actual fun certCreateSelfSignCertificate(hcryptprovorncryptkey: HcryptprovOrNcryptKeyHandle, psubjectissuerblob: ConstPtr, dwflags: CertCreateSelfsignFlags, pkeyprovinfo: ConstPtr, psignaturealgorithm: ConstPtr, pstarttime: ConstPtr, pendtime: ConstPtr, pextensions: ConstPtr): MutPtr =
     MutPtr(WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCertCreateSelfSignCertificate(hcryptprovorncryptkey.toLong(), psubjectissuerblob.rawAddress, dwflags.toInt(), pkeyprovinfo.rawAddress, psignaturealgorithm.rawAddress, pstarttime.rawAddress, pendtime.rawAddress, pextensions.rawAddress))
 
-public actual fun certDeleteCRLFromStore(pcrlcontext: ConstPtr<CrlContext>): Bool =
+public actual fun certDeleteCRLFromStore(pcrlcontext: ConstPtr): Bool =
     WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCertDeleteCRLFromStore(pcrlcontext.rawAddress)
 
-public actual fun certDeleteCTLFromStore(pctlcontext: ConstPtr<CtlContext>): Bool =
+public actual fun certDeleteCTLFromStore(pctlcontext: ConstPtr): Bool =
     WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCertDeleteCTLFromStore(pctlcontext.rawAddress)
 
-public actual fun certDeleteCertificateFromStore(pcertcontext: ConstPtr<CertContext>): Bool =
+public actual fun certDeleteCertificateFromStore(pcertcontext: ConstPtr): Bool =
     WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCertDeleteCertificateFromStore(pcertcontext.rawAddress)
 
-public actual fun certDuplicateCRLContext(pcrlcontext: ConstPtr<CrlContext>): MutPtr<CrlContext> =
+public actual fun certDuplicateCRLContext(pcrlcontext: ConstPtr): MutPtr =
     MutPtr(WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCertDuplicateCRLContext(pcrlcontext.rawAddress))
 
-public actual fun certDuplicateCTLContext(pctlcontext: ConstPtr<CtlContext>): MutPtr<CtlContext> =
+public actual fun certDuplicateCTLContext(pctlcontext: ConstPtr): MutPtr =
     MutPtr(WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCertDuplicateCTLContext(pctlcontext.rawAddress))
 
-public actual fun certDuplicateCertificateChain(pchaincontext: ConstPtr<CertChainContext>): MutPtr<CertChainContext> =
+public actual fun certDuplicateCertificateChain(pchaincontext: ConstPtr): MutPtr =
     MutPtr(WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCertDuplicateCertificateChain(pchaincontext.rawAddress))
 
-public actual fun certDuplicateCertificateContext(pcertcontext: ConstPtr<CertContext>): MutPtr<CertContext> =
+public actual fun certDuplicateCertificateContext(pcertcontext: ConstPtr): MutPtr =
     MutPtr(WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCertDuplicateCertificateContext(pcertcontext.rawAddress))
 
 public actual fun certDuplicateStore(hcertstore: Hcertstore): Hcertstore =
     MutPtr(WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCertDuplicateStore(hcertstore.rawAddress))
 
-public actual fun certEnumCRLContextProperties(pcrlcontext: ConstPtr<CrlContext>, dwpropid: UInt): UInt =
+public actual fun certEnumCRLContextProperties(pcrlcontext: ConstPtr, dwpropid: UInt): UInt =
     WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCertEnumCRLContextProperties(pcrlcontext.rawAddress, dwpropid.toInt()).toUInt()
 
-public actual fun certEnumCRLsInStore(hcertstore: Hcertstore, pprevcrlcontext: ConstPtr<CrlContext>): MutPtr<CrlContext> =
+public actual fun certEnumCRLsInStore(hcertstore: Hcertstore, pprevcrlcontext: ConstPtr): MutPtr =
     MutPtr(WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCertEnumCRLsInStore(hcertstore.rawAddress, pprevcrlcontext.rawAddress))
 
-public actual fun certEnumCTLContextProperties(pctlcontext: ConstPtr<CtlContext>, dwpropid: UInt): UInt =
+public actual fun certEnumCTLContextProperties(pctlcontext: ConstPtr, dwpropid: UInt): UInt =
     WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCertEnumCTLContextProperties(pctlcontext.rawAddress, dwpropid.toInt()).toUInt()
 
-public actual fun certEnumCTLsInStore(hcertstore: Hcertstore, pprevctlcontext: ConstPtr<CtlContext>): MutPtr<CtlContext> =
+public actual fun certEnumCTLsInStore(hcertstore: Hcertstore, pprevctlcontext: ConstPtr): MutPtr =
     MutPtr(WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCertEnumCTLsInStore(hcertstore.rawAddress, pprevctlcontext.rawAddress))
 
-public actual fun certEnumCertificateContextProperties(pcertcontext: ConstPtr<CertContext>, dwpropid: UInt): UInt =
+public actual fun certEnumCertificateContextProperties(pcertcontext: ConstPtr, dwpropid: UInt): UInt =
     WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCertEnumCertificateContextProperties(pcertcontext.rawAddress, dwpropid.toInt()).toUInt()
 
-public actual fun certEnumCertificatesInStore(hcertstore: Hcertstore, pprevcertcontext: ConstPtr<CertContext>): MutPtr<CertContext> =
+public actual fun certEnumCertificatesInStore(hcertstore: Hcertstore, pprevcertcontext: ConstPtr): MutPtr =
     MutPtr(WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCertEnumCertificatesInStore(hcertstore.rawAddress, pprevcertcontext.rawAddress))
 
-public actual fun certEnumPhysicalStore(pvsystemstore: ConstPtr<CVoid>, dwflags: UInt, pvarg: MutPtr<CVoid>, pfnenum: PfnCertEnumPhysicalStore): Bool =
+public actual fun certEnumPhysicalStore(pvsystemstore: ConstPtr, dwflags: UInt, pvarg: MutPtr, pfnenum: PfnCertEnumPhysicalStore): Bool =
     WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCertEnumPhysicalStore(pvsystemstore.rawAddress, dwflags.toInt(), pvarg.rawAddress, 0L)
 
-public actual fun certEnumSubjectInSortedCTL(pctlcontext: ConstPtr<CtlContext>, ppvnextsubject: MutPtr<MutPtr<CVoid>>, psubjectidentifier: MutPtr<CryptIntegerBlob>, pencodedattributes: MutPtr<CryptIntegerBlob>): Bool =
+public actual fun certEnumSubjectInSortedCTL(pctlcontext: ConstPtr, ppvnextsubject: MutPtr, psubjectidentifier: MutPtr, pencodedattributes: MutPtr): Bool =
     WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCertEnumSubjectInSortedCTL(pctlcontext.rawAddress, ppvnextsubject.rawAddress, psubjectidentifier.rawAddress, pencodedattributes.rawAddress)
 
-public actual fun certEnumSystemStore(dwflags: UInt, pvsystemstorelocationpara: ConstPtr<CVoid>, pvarg: MutPtr<CVoid>, pfnenum: PfnCertEnumSystemStore): Bool =
+public actual fun certEnumSystemStore(dwflags: UInt, pvsystemstorelocationpara: ConstPtr, pvarg: MutPtr, pfnenum: PfnCertEnumSystemStore): Bool =
     WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCertEnumSystemStore(dwflags.toInt(), pvsystemstorelocationpara.rawAddress, pvarg.rawAddress, 0L)
 
-public actual fun certEnumSystemStoreLocation(dwflags: UInt, pvarg: MutPtr<CVoid>, pfnenum: PfnCertEnumSystemStoreLocation): Bool =
+public actual fun certEnumSystemStoreLocation(dwflags: UInt, pvarg: MutPtr, pfnenum: PfnCertEnumSystemStoreLocation): Bool =
     WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCertEnumSystemStoreLocation(dwflags.toInt(), pvarg.rawAddress, 0L)
 
-public actual fun certFindAttribute(pszobjid: Pcstr, cattr: UInt, rgattr: ConstPtr<CryptAttribute>): MutPtr<CryptAttribute> =
+public actual fun certFindAttribute(pszobjid: Pcstr, cattr: UInt, rgattr: ConstPtr): MutPtr =
     MutPtr(WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCertFindAttribute(pszobjid.rawAddress, cattr.toInt(), rgattr.rawAddress))
 
-public actual fun certFindCRLInStore(hcertstore: Hcertstore, dwcertencodingtype: CertQueryEncodingType, dwfindflags: UInt, dwfindtype: UInt, pvfindpara: ConstPtr<CVoid>, pprevcrlcontext: ConstPtr<CrlContext>): MutPtr<CrlContext> =
+public actual fun certFindCRLInStore(hcertstore: Hcertstore, dwcertencodingtype: CertQueryEncodingType, dwfindflags: UInt, dwfindtype: UInt, pvfindpara: ConstPtr, pprevcrlcontext: ConstPtr): MutPtr =
     MutPtr(WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCertFindCRLInStore(hcertstore.rawAddress, dwcertencodingtype.toInt(), dwfindflags.toInt(), dwfindtype.toInt(), pvfindpara.rawAddress, pprevcrlcontext.rawAddress))
 
-public actual fun certFindCTLInStore(hcertstore: Hcertstore, dwmsgandcertencodingtype: UInt, dwfindflags: UInt, dwfindtype: CertFindType, pvfindpara: ConstPtr<CVoid>, pprevctlcontext: ConstPtr<CtlContext>): MutPtr<CtlContext> =
+public actual fun certFindCTLInStore(hcertstore: Hcertstore, dwmsgandcertencodingtype: UInt, dwfindflags: UInt, dwfindtype: CertFindType, pvfindpara: ConstPtr, pprevctlcontext: ConstPtr): MutPtr =
     MutPtr(WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCertFindCTLInStore(hcertstore.rawAddress, dwmsgandcertencodingtype.toInt(), dwfindflags.toInt(), dwfindtype.toInt(), pvfindpara.rawAddress, pprevctlcontext.rawAddress))
 
-public actual fun certFindCertificateInCRL(pcert: ConstPtr<CertContext>, pcrlcontext: ConstPtr<CrlContext>, dwflags: UInt, pvreserved: ConstPtr<CVoid>, ppcrlentry: MutPtr<MutPtr<CrlEntry>>): Bool =
+public actual fun certFindCertificateInCRL(pcert: ConstPtr, pcrlcontext: ConstPtr, dwflags: UInt, pvreserved: ConstPtr, ppcrlentry: MutPtr): Bool =
     WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCertFindCertificateInCRL(pcert.rawAddress, pcrlcontext.rawAddress, dwflags.toInt(), pvreserved.rawAddress, ppcrlentry.rawAddress)
 
-public actual fun certFindCertificateInStore(hcertstore: Hcertstore, dwcertencodingtype: CertQueryEncodingType, dwfindflags: UInt, dwfindtype: CertFindFlags, pvfindpara: ConstPtr<CVoid>, pprevcertcontext: ConstPtr<CertContext>): MutPtr<CertContext> =
+public actual fun certFindCertificateInStore(hcertstore: Hcertstore, dwcertencodingtype: CertQueryEncodingType, dwfindflags: UInt, dwfindtype: CertFindFlags, pvfindpara: ConstPtr, pprevcertcontext: ConstPtr): MutPtr =
     MutPtr(WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCertFindCertificateInStore(hcertstore.rawAddress, dwcertencodingtype.toInt(), dwfindflags.toInt(), dwfindtype.toInt(), pvfindpara.rawAddress, pprevcertcontext.rawAddress))
 
-public actual fun certFindChainInStore(hcertstore: Hcertstore, dwcertencodingtype: CertQueryEncodingType, dwfindflags: CertFindChainInStoreFlags, dwfindtype: UInt, pvfindpara: ConstPtr<CVoid>, pprevchaincontext: ConstPtr<CertChainContext>): MutPtr<CertChainContext> =
+public actual fun certFindChainInStore(hcertstore: Hcertstore, dwcertencodingtype: CertQueryEncodingType, dwfindflags: CertFindChainInStoreFlags, dwfindtype: UInt, pvfindpara: ConstPtr, pprevchaincontext: ConstPtr): MutPtr =
     MutPtr(WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCertFindChainInStore(hcertstore.rawAddress, dwcertencodingtype.toInt(), dwfindflags.toInt(), dwfindtype.toInt(), pvfindpara.rawAddress, pprevchaincontext.rawAddress))
 
-public actual fun certFindExtension(pszobjid: Pcstr, cextensions: UInt, rgextensions: ConstPtr<CertExtension>): MutPtr<CertExtension> =
+public actual fun certFindExtension(pszobjid: Pcstr, cextensions: UInt, rgextensions: ConstPtr): MutPtr =
     MutPtr(WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCertFindExtension(pszobjid.rawAddress, cextensions.toInt(), rgextensions.rawAddress))
 
-public actual fun certFindRDNAttr(pszobjid: Pcstr, pname: ConstPtr<CertNameInfo>): MutPtr<CertRdnAttr> =
+public actual fun certFindRDNAttr(pszobjid: Pcstr, pname: ConstPtr): MutPtr =
     MutPtr(WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCertFindRDNAttr(pszobjid.rawAddress, pname.rawAddress))
 
-public actual fun certFindSubjectInCTL(dwencodingtype: UInt, dwsubjecttype: UInt, pvsubject: ConstPtr<CVoid>, pctlcontext: ConstPtr<CtlContext>, dwflags: UInt): MutPtr<CtlEntry> =
+public actual fun certFindSubjectInCTL(dwencodingtype: UInt, dwsubjecttype: UInt, pvsubject: ConstPtr, pctlcontext: ConstPtr, dwflags: UInt): MutPtr =
     MutPtr(WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCertFindSubjectInCTL(dwencodingtype.toInt(), dwsubjecttype.toInt(), pvsubject.rawAddress, pctlcontext.rawAddress, dwflags.toInt()))
 
-public actual fun certFindSubjectInSortedCTL(psubjectidentifier: ConstPtr<CryptIntegerBlob>, pctlcontext: ConstPtr<CtlContext>, dwflags: UInt, pvreserved: ConstPtr<CVoid>, pencodedattributes: MutPtr<CryptIntegerBlob>): Bool =
+public actual fun certFindSubjectInSortedCTL(psubjectidentifier: ConstPtr, pctlcontext: ConstPtr, dwflags: UInt, pvreserved: ConstPtr, pencodedattributes: MutPtr): Bool =
     WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCertFindSubjectInSortedCTL(psubjectidentifier.rawAddress, pctlcontext.rawAddress, dwflags.toInt(), pvreserved.rawAddress, pencodedattributes.rawAddress)
 
-public actual fun certFreeCRLContext(pcrlcontext: ConstPtr<CrlContext>): Bool =
+public actual fun certFreeCRLContext(pcrlcontext: ConstPtr): Bool =
     WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCertFreeCRLContext(pcrlcontext.rawAddress)
 
-public actual fun certFreeCTLContext(pctlcontext: ConstPtr<CtlContext>): Bool =
+public actual fun certFreeCTLContext(pctlcontext: ConstPtr): Bool =
     WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCertFreeCTLContext(pctlcontext.rawAddress)
 
-public actual fun certFreeCertificateChain(pchaincontext: ConstPtr<CertChainContext>) {
+public actual fun certFreeCertificateChain(pchaincontext: ConstPtr) {
     WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCertFreeCertificateChain(pchaincontext.rawAddress)
 }
 
@@ -1791,87 +1787,87 @@ public actual fun certFreeCertificateChainEngine(hchainengine: Hcertchainengine)
     WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCertFreeCertificateChainEngine(hchainengine.rawAddress)
 }
 
-public actual fun certFreeCertificateChainList(prgpselection: ConstPtr<ConstPtr<CertChainContext>>) {
+public actual fun certFreeCertificateChainList(prgpselection: ConstPtr) {
     WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCertFreeCertificateChainList(prgpselection.rawAddress)
 }
 
-public actual fun certFreeCertificateContext(pcertcontext: ConstPtr<CertContext>): Bool =
+public actual fun certFreeCertificateContext(pcertcontext: ConstPtr): Bool =
     WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCertFreeCertificateContext(pcertcontext.rawAddress)
 
-public actual fun certFreeServerOcspResponseContext(pserverocspresponsecontext: ConstPtr<CertServerOcspResponseContext>) {
+public actual fun certFreeServerOcspResponseContext(pserverocspresponsecontext: ConstPtr) {
     WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCertFreeServerOcspResponseContext(pserverocspresponsecontext.rawAddress)
 }
 
-public actual fun certGetCRLContextProperty(pcrlcontext: ConstPtr<CrlContext>, dwpropid: UInt, pvdata: MutPtr<CVoid>, pcbdata: MutPtr<UInt>): Bool =
+public actual fun certGetCRLContextProperty(pcrlcontext: ConstPtr, dwpropid: UInt, pvdata: MutPtr, pcbdata: MutPtr): Bool =
     WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCertGetCRLContextProperty(pcrlcontext.rawAddress, dwpropid.toInt(), pvdata.rawAddress, pcbdata.rawAddress)
 
-public actual fun certGetCRLFromStore(hcertstore: Hcertstore, pissuercontext: ConstPtr<CertContext>, pprevcrlcontext: ConstPtr<CrlContext>, pdwflags: MutPtr<UInt>): MutPtr<CrlContext> =
+public actual fun certGetCRLFromStore(hcertstore: Hcertstore, pissuercontext: ConstPtr, pprevcrlcontext: ConstPtr, pdwflags: MutPtr): MutPtr =
     MutPtr(WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCertGetCRLFromStore(hcertstore.rawAddress, pissuercontext.rawAddress, pprevcrlcontext.rawAddress, pdwflags.rawAddress))
 
-public actual fun certGetCTLContextProperty(pctlcontext: ConstPtr<CtlContext>, dwpropid: UInt, pvdata: MutPtr<CVoid>, pcbdata: MutPtr<UInt>): Bool =
+public actual fun certGetCTLContextProperty(pctlcontext: ConstPtr, dwpropid: UInt, pvdata: MutPtr, pcbdata: MutPtr): Bool =
     WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCertGetCTLContextProperty(pctlcontext.rawAddress, dwpropid.toInt(), pvdata.rawAddress, pcbdata.rawAddress)
 
-public actual fun certGetCertificateChain(hchainengine: Hcertchainengine, pcertcontext: ConstPtr<CertContext>, ptime: ConstPtr<Filetime>, hadditionalstore: Hcertstore, pchainpara: ConstPtr<CertChainPara>, dwflags: UInt, pvreserved: ConstPtr<CVoid>, ppchaincontext: MutPtr<MutPtr<CertChainContext>>): Bool =
+public actual fun certGetCertificateChain(hchainengine: Hcertchainengine, pcertcontext: ConstPtr, ptime: ConstPtr, hadditionalstore: Hcertstore, pchainpara: ConstPtr, dwflags: UInt, pvreserved: ConstPtr, ppchaincontext: MutPtr): Bool =
     WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCertGetCertificateChain(hchainengine.rawAddress, pcertcontext.rawAddress, ptime.rawAddress, hadditionalstore.rawAddress, pchainpara.rawAddress, dwflags.toInt(), pvreserved.rawAddress, ppchaincontext.rawAddress)
 
-public actual fun certGetCertificateContextProperty(pcertcontext: ConstPtr<CertContext>, dwpropid: UInt, pvdata: MutPtr<CVoid>, pcbdata: MutPtr<UInt>): Bool =
+public actual fun certGetCertificateContextProperty(pcertcontext: ConstPtr, dwpropid: UInt, pvdata: MutPtr, pcbdata: MutPtr): Bool =
     WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCertGetCertificateContextProperty(pcertcontext.rawAddress, dwpropid.toInt(), pvdata.rawAddress, pcbdata.rawAddress)
 
-public actual fun certGetEnhancedKeyUsage(pcertcontext: ConstPtr<CertContext>, dwflags: UInt, pusage: MutPtr<CtlUsage>, pcbusage: MutPtr<UInt>): Bool =
+public actual fun certGetEnhancedKeyUsage(pcertcontext: ConstPtr, dwflags: UInt, pusage: MutPtr, pcbusage: MutPtr): Bool =
     WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCertGetEnhancedKeyUsage(pcertcontext.rawAddress, dwflags.toInt(), pusage.rawAddress, pcbusage.rawAddress)
 
-public actual fun certGetIntendedKeyUsage(dwcertencodingtype: CertQueryEncodingType, pcertinfo: ConstPtr<CertInfo>, pbkeyusage: MutPtr<UByte>, cbkeyusage: UInt): Bool =
+public actual fun certGetIntendedKeyUsage(dwcertencodingtype: CertQueryEncodingType, pcertinfo: ConstPtr, pbkeyusage: MutPtr, cbkeyusage: UInt): Bool =
     WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCertGetIntendedKeyUsage(dwcertencodingtype.toInt(), pcertinfo.rawAddress, pbkeyusage.rawAddress, cbkeyusage.toInt())
 
-public actual fun certGetIssuerCertificateFromStore(hcertstore: Hcertstore, psubjectcontext: ConstPtr<CertContext>, pprevissuercontext: ConstPtr<CertContext>, pdwflags: MutPtr<UInt>): MutPtr<CertContext> =
+public actual fun certGetIssuerCertificateFromStore(hcertstore: Hcertstore, psubjectcontext: ConstPtr, pprevissuercontext: ConstPtr, pdwflags: MutPtr): MutPtr =
     MutPtr(WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCertGetIssuerCertificateFromStore(hcertstore.rawAddress, psubjectcontext.rawAddress, pprevissuercontext.rawAddress, pdwflags.rawAddress))
 
-public actual fun certGetNameStringA(pcertcontext: ConstPtr<CertContext>, dwtype: UInt, dwflags: UInt, pvtypepara: ConstPtr<CVoid>, psznamestring: Pstr, cchnamestring: UInt): UInt =
+public actual fun certGetNameStringA(pcertcontext: ConstPtr, dwtype: UInt, dwflags: UInt, pvtypepara: ConstPtr, psznamestring: Pstr, cchnamestring: UInt): UInt =
     WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCertGetNameStringA(pcertcontext.rawAddress, dwtype.toInt(), dwflags.toInt(), pvtypepara.rawAddress, psznamestring.rawAddress, cchnamestring.toInt()).toUInt()
 
-public actual fun certGetNameStringW(pcertcontext: ConstPtr<CertContext>, dwtype: UInt, dwflags: UInt, pvtypepara: ConstPtr<CVoid>, psznamestring: Pwstr, cchnamestring: UInt): UInt =
+public actual fun certGetNameStringW(pcertcontext: ConstPtr, dwtype: UInt, dwflags: UInt, pvtypepara: ConstPtr, psznamestring: Pwstr, cchnamestring: UInt): UInt =
     WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCertGetNameStringW(pcertcontext.rawAddress, dwtype.toInt(), dwflags.toInt(), pvtypepara.rawAddress, psznamestring.rawAddress, cchnamestring.toInt()).toUInt()
 
-public actual fun certGetPublicKeyLength(dwcertencodingtype: CertQueryEncodingType, ppublickey: ConstPtr<CertPublicKeyInfo>): UInt =
+public actual fun certGetPublicKeyLength(dwcertencodingtype: CertQueryEncodingType, ppublickey: ConstPtr): UInt =
     WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCertGetPublicKeyLength(dwcertencodingtype.toInt(), ppublickey.rawAddress).toUInt()
 
-public actual fun certGetServerOcspResponseContext(hserverocspresponse: ConstPtr<CVoid>, dwflags: UInt, pvreserved: ConstPtr<CVoid>): MutPtr<CertServerOcspResponseContext> =
+public actual fun certGetServerOcspResponseContext(hserverocspresponse: ConstPtr, dwflags: UInt, pvreserved: ConstPtr): MutPtr =
     MutPtr(WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCertGetServerOcspResponseContext(hserverocspresponse.rawAddress, dwflags.toInt(), pvreserved.rawAddress))
 
-public actual fun certGetStoreProperty(hcertstore: Hcertstore, dwpropid: UInt, pvdata: MutPtr<CVoid>, pcbdata: MutPtr<UInt>): Bool =
+public actual fun certGetStoreProperty(hcertstore: Hcertstore, dwpropid: UInt, pvdata: MutPtr, pcbdata: MutPtr): Bool =
     WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCertGetStoreProperty(hcertstore.rawAddress, dwpropid.toInt(), pvdata.rawAddress, pcbdata.rawAddress)
 
-public actual fun certGetSubjectCertificateFromStore(hcertstore: Hcertstore, dwcertencodingtype: CertQueryEncodingType, pcertid: ConstPtr<CertInfo>): MutPtr<CertContext> =
+public actual fun certGetSubjectCertificateFromStore(hcertstore: Hcertstore, dwcertencodingtype: CertQueryEncodingType, pcertid: ConstPtr): MutPtr =
     MutPtr(WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCertGetSubjectCertificateFromStore(hcertstore.rawAddress, dwcertencodingtype.toInt(), pcertid.rawAddress))
 
-public actual fun certGetValidUsages(ccerts: UInt, rghcerts: ConstPtr<ConstPtr<CertContext>>, cnumoids: MutPtr<Int>, rghoids: MutPtr<Pstr>, pcboids: MutPtr<UInt>): Bool =
+public actual fun certGetValidUsages(ccerts: UInt, rghcerts: ConstPtr, cnumoids: MutPtr, rghoids: MutPtr, pcboids: MutPtr): Bool =
     WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCertGetValidUsages(ccerts.toInt(), rghcerts.rawAddress, cnumoids.rawAddress, rghoids.rawAddress, pcboids.rawAddress)
 
-public actual fun certIsRDNAttrsInCertificateName(dwcertencodingtype: CertQueryEncodingType, dwflags: UInt, pcertname: ConstPtr<CryptIntegerBlob>, prdn: ConstPtr<CertRdn>): Bool =
+public actual fun certIsRDNAttrsInCertificateName(dwcertencodingtype: CertQueryEncodingType, dwflags: UInt, pcertname: ConstPtr, prdn: ConstPtr): Bool =
     WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCertIsRDNAttrsInCertificateName(dwcertencodingtype.toInt(), dwflags.toInt(), pcertname.rawAddress, prdn.rawAddress)
 
-public actual fun certIsStrongHashToSign(pstrongsignpara: ConstPtr<CertStrongSignPara>, pwszcnghashalgid: Pcwstr, psigningcert: ConstPtr<CertContext>): Bool =
+public actual fun certIsStrongHashToSign(pstrongsignpara: ConstPtr, pwszcnghashalgid: Pcwstr, psigningcert: ConstPtr): Bool =
     WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCertIsStrongHashToSign(pstrongsignpara.rawAddress, pwszcnghashalgid.rawAddress, psigningcert.rawAddress)
 
-public actual fun certIsValidCRLForCertificate(pcert: ConstPtr<CertContext>, pcrl: ConstPtr<CrlContext>, dwflags: UInt, pvreserved: ConstPtr<CVoid>): Bool =
+public actual fun certIsValidCRLForCertificate(pcert: ConstPtr, pcrl: ConstPtr, dwflags: UInt, pvreserved: ConstPtr): Bool =
     WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCertIsValidCRLForCertificate(pcert.rawAddress, pcrl.rawAddress, dwflags.toInt(), pvreserved.rawAddress)
 
-public actual fun certIsWeakHash(dwhashusetype: UInt, pwszcnghashalgid: Pcwstr, dwchainflags: UInt, psignerchaincontext: ConstPtr<CertChainContext>, ptimestamp: ConstPtr<Filetime>, pwszfilename: Pcwstr): Bool =
+public actual fun certIsWeakHash(dwhashusetype: UInt, pwszcnghashalgid: Pcwstr, dwchainflags: UInt, psignerchaincontext: ConstPtr, ptimestamp: ConstPtr, pwszfilename: Pcwstr): Bool =
     WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCertIsWeakHash(dwhashusetype.toInt(), pwszcnghashalgid.rawAddress, dwchainflags.toInt(), psignerchaincontext.rawAddress, ptimestamp.rawAddress, pwszfilename.rawAddress)
 
-public actual fun certNameToStrA(dwcertencodingtype: CertQueryEncodingType, pname: ConstPtr<CryptIntegerBlob>, dwstrtype: CertStringType, psz: Pstr, csz: UInt): UInt =
+public actual fun certNameToStrA(dwcertencodingtype: CertQueryEncodingType, pname: ConstPtr, dwstrtype: CertStringType, psz: Pstr, csz: UInt): UInt =
     WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCertNameToStrA(dwcertencodingtype.toInt(), pname.rawAddress, dwstrtype.toInt(), psz.rawAddress, csz.toInt()).toUInt()
 
-public actual fun certNameToStrW(dwcertencodingtype: CertQueryEncodingType, pname: ConstPtr<CryptIntegerBlob>, dwstrtype: CertStringType, psz: Pwstr, csz: UInt): UInt =
+public actual fun certNameToStrW(dwcertencodingtype: CertQueryEncodingType, pname: ConstPtr, dwstrtype: CertStringType, psz: Pwstr, csz: UInt): UInt =
     WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCertNameToStrW(dwcertencodingtype.toInt(), pname.rawAddress, dwstrtype.toInt(), psz.rawAddress, csz.toInt()).toUInt()
 
 public actual fun certOIDToAlgId(pszobjid: Pcstr): UInt =
     WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCertOIDToAlgId(pszobjid.rawAddress).toUInt()
 
-public actual fun certOpenServerOcspResponse(pchaincontext: ConstPtr<CertChainContext>, dwflags: UInt, popenpara: ConstPtr<CertServerOcspResponseOpenPara>): MutPtr<CVoid> =
+public actual fun certOpenServerOcspResponse(pchaincontext: ConstPtr, dwflags: UInt, popenpara: ConstPtr): MutPtr =
     MutPtr(WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCertOpenServerOcspResponse(pchaincontext.rawAddress, dwflags.toInt(), popenpara.rawAddress))
 
-public actual fun certOpenStore(lpszstoreprovider: Pcstr, dwencodingtype: CertQueryEncodingType, hcryptprov: HcryptprovLegacy, dwflags: CertOpenStoreFlags, pvpara: ConstPtr<CVoid>): Hcertstore =
+public actual fun certOpenStore(lpszstoreprovider: Pcstr, dwencodingtype: CertQueryEncodingType, hcryptprov: HcryptprovLegacy, dwflags: CertOpenStoreFlags, pvpara: ConstPtr): Hcertstore =
     MutPtr(WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCertOpenStore(lpszstoreprovider.rawAddress, dwencodingtype.toInt(), hcryptprov.toLong(), dwflags.toInt(), pvpara.rawAddress))
 
 public actual fun certOpenSystemStoreA(hprov: HcryptprovLegacy, szsubsystemprotocol: Pcstr): Hcertstore =
@@ -1880,19 +1876,19 @@ public actual fun certOpenSystemStoreA(hprov: HcryptprovLegacy, szsubsystemproto
 public actual fun certOpenSystemStoreW(hprov: HcryptprovLegacy, szsubsystemprotocol: Pcwstr): Hcertstore =
     MutPtr(WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCertOpenSystemStoreW(hprov.toLong(), szsubsystemprotocol.rawAddress))
 
-public actual fun certRDNValueToStrA(dwvaluetype: UInt, pvalue: ConstPtr<CryptIntegerBlob>, psz: Pstr, csz: UInt): UInt =
+public actual fun certRDNValueToStrA(dwvaluetype: UInt, pvalue: ConstPtr, psz: Pstr, csz: UInt): UInt =
     WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCertRDNValueToStrA(dwvaluetype.toInt(), pvalue.rawAddress, psz.rawAddress, csz.toInt()).toUInt()
 
-public actual fun certRDNValueToStrW(dwvaluetype: UInt, pvalue: ConstPtr<CryptIntegerBlob>, psz: Pwstr, csz: UInt): UInt =
+public actual fun certRDNValueToStrW(dwvaluetype: UInt, pvalue: ConstPtr, psz: Pwstr, csz: UInt): UInt =
     WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCertRDNValueToStrW(dwvaluetype.toInt(), pvalue.rawAddress, psz.rawAddress, csz.toInt()).toUInt()
 
-public actual fun certRegisterPhysicalStore(pvsystemstore: ConstPtr<CVoid>, dwflags: UInt, pwszstorename: Pcwstr, pstoreinfo: ConstPtr<CertPhysicalStoreInfo>, pvreserved: ConstPtr<CVoid>): Bool =
+public actual fun certRegisterPhysicalStore(pvsystemstore: ConstPtr, dwflags: UInt, pwszstorename: Pcwstr, pstoreinfo: ConstPtr, pvreserved: ConstPtr): Bool =
     WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCertRegisterPhysicalStore(pvsystemstore.rawAddress, dwflags.toInt(), pwszstorename.rawAddress, pstoreinfo.rawAddress, pvreserved.rawAddress)
 
-public actual fun certRegisterSystemStore(pvsystemstore: ConstPtr<CVoid>, dwflags: UInt, pstoreinfo: ConstPtr<CertSystemStoreInfo>, pvreserved: ConstPtr<CVoid>): Bool =
+public actual fun certRegisterSystemStore(pvsystemstore: ConstPtr, dwflags: UInt, pstoreinfo: ConstPtr, pvreserved: ConstPtr): Bool =
     WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCertRegisterSystemStore(pvsystemstore.rawAddress, dwflags.toInt(), pstoreinfo.rawAddress, pvreserved.rawAddress)
 
-public actual fun certRemoveEnhancedKeyUsageIdentifier(pcertcontext: ConstPtr<CertContext>, pszusageidentifier: Pcstr): Bool =
+public actual fun certRemoveEnhancedKeyUsageIdentifier(pcertcontext: ConstPtr, pszusageidentifier: Pcstr): Bool =
     WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCertRemoveEnhancedKeyUsageIdentifier(pcertcontext.rawAddress, pszusageidentifier.rawAddress)
 
 public actual fun certRemoveStoreFromCollection(hcollectionstore: Hcertstore, hsiblingstore: Hcertstore) {
@@ -1902,130 +1898,130 @@ public actual fun certRemoveStoreFromCollection(hcollectionstore: Hcertstore, hs
 public actual fun certResyncCertificateChainEngine(hchainengine: Hcertchainengine): Bool =
     WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCertResyncCertificateChainEngine(hchainengine.rawAddress)
 
-public actual fun certRetrieveLogoOrBiometricInfo(pcertcontext: ConstPtr<CertContext>, lpszlogoorbiometrictype: Pcstr, dwretrievalflags: UInt, dwtimeout: UInt, dwflags: UInt, pvreserved: ConstPtr<CVoid>, ppbdata: MutPtr<MutPtr<UByte>>, pcbdata: MutPtr<UInt>, ppwszmimetype: MutPtr<Pwstr>): Bool =
+public actual fun certRetrieveLogoOrBiometricInfo(pcertcontext: ConstPtr, lpszlogoorbiometrictype: Pcstr, dwretrievalflags: UInt, dwtimeout: UInt, dwflags: UInt, pvreserved: ConstPtr, ppbdata: MutPtr, pcbdata: MutPtr, ppwszmimetype: MutPtr): Bool =
     WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCertRetrieveLogoOrBiometricInfo(pcertcontext.rawAddress, lpszlogoorbiometrictype.rawAddress, dwretrievalflags.toInt(), dwtimeout.toInt(), dwflags.toInt(), pvreserved.rawAddress, ppbdata.rawAddress, pcbdata.rawAddress, ppwszmimetype.rawAddress)
 
-public actual fun certSaveStore(hcertstore: Hcertstore, dwencodingtype: CertQueryEncodingType, dwsaveas: CertStoreSaveAs, dwsaveto: CertStoreSaveTo, pvsavetopara: MutPtr<CVoid>, dwflags: UInt): Bool =
+public actual fun certSaveStore(hcertstore: Hcertstore, dwencodingtype: CertQueryEncodingType, dwsaveas: CertStoreSaveAs, dwsaveto: CertStoreSaveTo, pvsavetopara: MutPtr, dwflags: UInt): Bool =
     WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCertSaveStore(hcertstore.rawAddress, dwencodingtype.toInt(), dwsaveas.toInt(), dwsaveto.toInt(), pvsavetopara.rawAddress, dwflags.toInt())
 
-public actual fun certSelectCertificateChains(pselectioncontext: ConstPtr<Guid>, dwflags: UInt, pchainparameters: ConstPtr<CertSelectChainPara>, ccriteria: UInt, rgpcriteria: ConstPtr<CertSelectCriteria>, hstore: Hcertstore, pcselection: MutPtr<UInt>, pprgpselection: MutPtr<MutPtr<MutPtr<CertChainContext>>>): Bool =
+public actual fun certSelectCertificateChains(pselectioncontext: ConstPtr, dwflags: UInt, pchainparameters: ConstPtr, ccriteria: UInt, rgpcriteria: ConstPtr, hstore: Hcertstore, pcselection: MutPtr, pprgpselection: MutPtr): Bool =
     WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCertSelectCertificateChains(pselectioncontext.rawAddress, dwflags.toInt(), pchainparameters.rawAddress, ccriteria.toInt(), rgpcriteria.rawAddress, hstore.rawAddress, pcselection.rawAddress, pprgpselection.rawAddress)
 
-public actual fun certSerializeCRLStoreElement(pcrlcontext: ConstPtr<CrlContext>, dwflags: UInt, pbelement: MutPtr<UByte>, pcbelement: MutPtr<UInt>): Bool =
+public actual fun certSerializeCRLStoreElement(pcrlcontext: ConstPtr, dwflags: UInt, pbelement: MutPtr, pcbelement: MutPtr): Bool =
     WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCertSerializeCRLStoreElement(pcrlcontext.rawAddress, dwflags.toInt(), pbelement.rawAddress, pcbelement.rawAddress)
 
-public actual fun certSerializeCTLStoreElement(pctlcontext: ConstPtr<CtlContext>, dwflags: UInt, pbelement: MutPtr<UByte>, pcbelement: MutPtr<UInt>): Bool =
+public actual fun certSerializeCTLStoreElement(pctlcontext: ConstPtr, dwflags: UInt, pbelement: MutPtr, pcbelement: MutPtr): Bool =
     WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCertSerializeCTLStoreElement(pctlcontext.rawAddress, dwflags.toInt(), pbelement.rawAddress, pcbelement.rawAddress)
 
-public actual fun certSerializeCertificateStoreElement(pcertcontext: ConstPtr<CertContext>, dwflags: UInt, pbelement: MutPtr<UByte>, pcbelement: MutPtr<UInt>): Bool =
+public actual fun certSerializeCertificateStoreElement(pcertcontext: ConstPtr, dwflags: UInt, pbelement: MutPtr, pcbelement: MutPtr): Bool =
     WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCertSerializeCertificateStoreElement(pcertcontext.rawAddress, dwflags.toInt(), pbelement.rawAddress, pcbelement.rawAddress)
 
-public actual fun certSetCRLContextProperty(pcrlcontext: ConstPtr<CrlContext>, dwpropid: UInt, dwflags: UInt, pvdata: ConstPtr<CVoid>): Bool =
+public actual fun certSetCRLContextProperty(pcrlcontext: ConstPtr, dwpropid: UInt, dwflags: UInt, pvdata: ConstPtr): Bool =
     WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCertSetCRLContextProperty(pcrlcontext.rawAddress, dwpropid.toInt(), dwflags.toInt(), pvdata.rawAddress)
 
-public actual fun certSetCTLContextProperty(pctlcontext: ConstPtr<CtlContext>, dwpropid: UInt, dwflags: UInt, pvdata: ConstPtr<CVoid>): Bool =
+public actual fun certSetCTLContextProperty(pctlcontext: ConstPtr, dwpropid: UInt, dwflags: UInt, pvdata: ConstPtr): Bool =
     WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCertSetCTLContextProperty(pctlcontext.rawAddress, dwpropid.toInt(), dwflags.toInt(), pvdata.rawAddress)
 
-public actual fun certSetCertificateContextPropertiesFromCTLEntry(pcertcontext: ConstPtr<CertContext>, pctlentry: ConstPtr<CtlEntry>, dwflags: UInt): Bool =
+public actual fun certSetCertificateContextPropertiesFromCTLEntry(pcertcontext: ConstPtr, pctlentry: ConstPtr, dwflags: UInt): Bool =
     WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCertSetCertificateContextPropertiesFromCTLEntry(pcertcontext.rawAddress, pctlentry.rawAddress, dwflags.toInt())
 
-public actual fun certSetCertificateContextProperty(pcertcontext: ConstPtr<CertContext>, dwpropid: UInt, dwflags: UInt, pvdata: ConstPtr<CVoid>): Bool =
+public actual fun certSetCertificateContextProperty(pcertcontext: ConstPtr, dwpropid: UInt, dwflags: UInt, pvdata: ConstPtr): Bool =
     WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCertSetCertificateContextProperty(pcertcontext.rawAddress, dwpropid.toInt(), dwflags.toInt(), pvdata.rawAddress)
 
-public actual fun certSetEnhancedKeyUsage(pcertcontext: ConstPtr<CertContext>, pusage: ConstPtr<CtlUsage>): Bool =
+public actual fun certSetEnhancedKeyUsage(pcertcontext: ConstPtr, pusage: ConstPtr): Bool =
     WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCertSetEnhancedKeyUsage(pcertcontext.rawAddress, pusage.rawAddress)
 
-public actual fun certSetStoreProperty(hcertstore: Hcertstore, dwpropid: UInt, dwflags: UInt, pvdata: ConstPtr<CVoid>): Bool =
+public actual fun certSetStoreProperty(hcertstore: Hcertstore, dwpropid: UInt, dwflags: UInt, pvdata: ConstPtr): Bool =
     WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCertSetStoreProperty(hcertstore.rawAddress, dwpropid.toInt(), dwflags.toInt(), pvdata.rawAddress)
 
-public actual fun certStrToNameA(dwcertencodingtype: CertQueryEncodingType, pszx500: Pcstr, dwstrtype: CertStringType, pvreserved: ConstPtr<CVoid>, pbencoded: MutPtr<UByte>, pcbencoded: MutPtr<UInt>, ppszerror: MutPtr<Pcstr>): Bool =
+public actual fun certStrToNameA(dwcertencodingtype: CertQueryEncodingType, pszx500: Pcstr, dwstrtype: CertStringType, pvreserved: ConstPtr, pbencoded: MutPtr, pcbencoded: MutPtr, ppszerror: MutPtr): Bool =
     WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCertStrToNameA(dwcertencodingtype.toInt(), pszx500.rawAddress, dwstrtype.toInt(), pvreserved.rawAddress, pbencoded.rawAddress, pcbencoded.rawAddress, ppszerror.rawAddress)
 
-public actual fun certStrToNameW(dwcertencodingtype: CertQueryEncodingType, pszx500: Pcwstr, dwstrtype: CertStringType, pvreserved: ConstPtr<CVoid>, pbencoded: MutPtr<UByte>, pcbencoded: MutPtr<UInt>, ppszerror: MutPtr<Pcwstr>): Bool =
+public actual fun certStrToNameW(dwcertencodingtype: CertQueryEncodingType, pszx500: Pcwstr, dwstrtype: CertStringType, pvreserved: ConstPtr, pbencoded: MutPtr, pcbencoded: MutPtr, ppszerror: MutPtr): Bool =
     WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCertStrToNameW(dwcertencodingtype.toInt(), pszx500.rawAddress, dwstrtype.toInt(), pvreserved.rawAddress, pbencoded.rawAddress, pcbencoded.rawAddress, ppszerror.rawAddress)
 
-public actual fun certUnregisterPhysicalStore(pvsystemstore: ConstPtr<CVoid>, dwflags: UInt, pwszstorename: Pcwstr): Bool =
+public actual fun certUnregisterPhysicalStore(pvsystemstore: ConstPtr, dwflags: UInt, pwszstorename: Pcwstr): Bool =
     WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCertUnregisterPhysicalStore(pvsystemstore.rawAddress, dwflags.toInt(), pwszstorename.rawAddress)
 
-public actual fun certUnregisterSystemStore(pvsystemstore: ConstPtr<CVoid>, dwflags: UInt): Bool =
+public actual fun certUnregisterSystemStore(pvsystemstore: ConstPtr, dwflags: UInt): Bool =
     WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCertUnregisterSystemStore(pvsystemstore.rawAddress, dwflags.toInt())
 
-public actual fun certVerifyCRLRevocation(dwcertencodingtype: CertQueryEncodingType, pcertid: ConstPtr<CertInfo>, ccrlinfo: UInt, rgpcrlinfo: ConstPtr<ConstPtr<CrlInfo>>): Bool =
+public actual fun certVerifyCRLRevocation(dwcertencodingtype: CertQueryEncodingType, pcertid: ConstPtr, ccrlinfo: UInt, rgpcrlinfo: ConstPtr): Bool =
     WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCertVerifyCRLRevocation(dwcertencodingtype.toInt(), pcertid.rawAddress, ccrlinfo.toInt(), rgpcrlinfo.rawAddress)
 
-public actual fun certVerifyCRLTimeValidity(ptimetoverify: ConstPtr<Filetime>, pcrlinfo: ConstPtr<CrlInfo>): Int =
+public actual fun certVerifyCRLTimeValidity(ptimetoverify: ConstPtr, pcrlinfo: ConstPtr): Int =
     WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCertVerifyCRLTimeValidity(ptimetoverify.rawAddress, pcrlinfo.rawAddress)
 
-public actual fun certVerifyCTLUsage(dwencodingtype: UInt, dwsubjecttype: UInt, pvsubject: ConstPtr<CVoid>, psubjectusage: ConstPtr<CtlUsage>, dwflags: UInt, pverifyusagepara: ConstPtr<CtlVerifyUsagePara>, pverifyusagestatus: MutPtr<CtlVerifyUsageStatus>): Bool =
+public actual fun certVerifyCTLUsage(dwencodingtype: UInt, dwsubjecttype: UInt, pvsubject: ConstPtr, psubjectusage: ConstPtr, dwflags: UInt, pverifyusagepara: ConstPtr, pverifyusagestatus: MutPtr): Bool =
     WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCertVerifyCTLUsage(dwencodingtype.toInt(), dwsubjecttype.toInt(), pvsubject.rawAddress, psubjectusage.rawAddress, dwflags.toInt(), pverifyusagepara.rawAddress, pverifyusagestatus.rawAddress)
 
-public actual fun certVerifyCertificateChainPolicy(pszpolicyoid: Pcstr, pchaincontext: ConstPtr<CertChainContext>, ppolicypara: ConstPtr<CertChainPolicyPara>, ppolicystatus: MutPtr<CertChainPolicyStatus>): Bool =
+public actual fun certVerifyCertificateChainPolicy(pszpolicyoid: Pcstr, pchaincontext: ConstPtr, ppolicypara: ConstPtr, ppolicystatus: MutPtr): Bool =
     WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCertVerifyCertificateChainPolicy(pszpolicyoid.rawAddress, pchaincontext.rawAddress, ppolicypara.rawAddress, ppolicystatus.rawAddress)
 
-public actual fun certVerifyRevocation(dwencodingtype: UInt, dwrevtype: UInt, ccontext: UInt, rgpvcontext: ConstPtr<ConstPtr<CVoid>>, dwflags: UInt, prevpara: ConstPtr<CertRevocationPara>, prevstatus: MutPtr<CertRevocationStatus>): Bool =
+public actual fun certVerifyRevocation(dwencodingtype: UInt, dwrevtype: UInt, ccontext: UInt, rgpvcontext: ConstPtr, dwflags: UInt, prevpara: ConstPtr, prevstatus: MutPtr): Bool =
     WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCertVerifyRevocation(dwencodingtype.toInt(), dwrevtype.toInt(), ccontext.toInt(), rgpvcontext.rawAddress, dwflags.toInt(), prevpara.rawAddress, prevstatus.rawAddress)
 
-public actual fun certVerifySubjectCertificateContext(psubject: ConstPtr<CertContext>, pissuer: ConstPtr<CertContext>, pdwflags: MutPtr<UInt>): Bool =
+public actual fun certVerifySubjectCertificateContext(psubject: ConstPtr, pissuer: ConstPtr, pdwflags: MutPtr): Bool =
     WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCertVerifySubjectCertificateContext(psubject.rawAddress, pissuer.rawAddress, pdwflags.rawAddress)
 
-public actual fun certVerifyTimeValidity(ptimetoverify: ConstPtr<Filetime>, pcertinfo: ConstPtr<CertInfo>): Int =
+public actual fun certVerifyTimeValidity(ptimetoverify: ConstPtr, pcertinfo: ConstPtr): Int =
     WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCertVerifyTimeValidity(ptimetoverify.rawAddress, pcertinfo.rawAddress)
 
-public actual fun certVerifyValidityNesting(psubjectinfo: ConstPtr<CertInfo>, pissuerinfo: ConstPtr<CertInfo>): Bool =
+public actual fun certVerifyValidityNesting(psubjectinfo: ConstPtr, pissuerinfo: ConstPtr): Bool =
     WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCertVerifyValidityNesting(psubjectinfo.rawAddress, pissuerinfo.rawAddress)
 
-public actual fun closeCryptoHandle(hcrypto: ConstPtr<InformationcardCryptoHandle>): Hresult =
+public actual fun closeCryptoHandle(hcrypto: ConstPtr): Hresult =
     WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCloseCryptoHandle(hcrypto.rawAddress)
 
-public actual fun cryptAcquireCertificatePrivateKey(pcert: ConstPtr<CertContext>, dwflags: CryptAcquireFlags, pvparameters: ConstPtr<CVoid>, phcryptprovorncryptkey: MutPtr<HcryptprovOrNcryptKeyHandle>, pdwkeyspec: MutPtr<CertKeySpec>, pfcallerfreeprovorncryptkey: MutPtr<Bool>): Bool =
+public actual fun cryptAcquireCertificatePrivateKey(pcert: ConstPtr, dwflags: CryptAcquireFlags, pvparameters: ConstPtr, phcryptprovorncryptkey: MutPtr, pdwkeyspec: MutPtr, pfcallerfreeprovorncryptkey: MutPtr): Bool =
     WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCryptAcquireCertificatePrivateKey(pcert.rawAddress, dwflags.toInt(), pvparameters.rawAddress, phcryptprovorncryptkey.rawAddress, pdwkeyspec.rawAddress, pfcallerfreeprovorncryptkey.rawAddress)
 
-public actual fun cryptAcquireContextA(phprov: MutPtr<ULong>, szcontainer: Pcstr, szprovider: Pcstr, dwprovtype: UInt, dwflags: UInt): Bool =
+public actual fun cryptAcquireContextA(phprov: MutPtr, szcontainer: Pcstr, szprovider: Pcstr, dwprovtype: UInt, dwflags: UInt): Bool =
     WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCryptAcquireContextA(phprov.rawAddress, szcontainer.rawAddress, szprovider.rawAddress, dwprovtype.toInt(), dwflags.toInt())
 
-public actual fun cryptAcquireContextW(phprov: MutPtr<ULong>, szcontainer: Pcwstr, szprovider: Pcwstr, dwprovtype: UInt, dwflags: UInt): Bool =
+public actual fun cryptAcquireContextW(phprov: MutPtr, szcontainer: Pcwstr, szprovider: Pcwstr, dwprovtype: UInt, dwflags: UInt): Bool =
     WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCryptAcquireContextW(phprov.rawAddress, szcontainer.rawAddress, szprovider.rawAddress, dwprovtype.toInt(), dwflags.toInt())
 
-public actual fun cryptBinaryToStringA(pbbinary: ConstPtr<UByte>, cbbinary: UInt, dwflags: CryptString, pszstring: Pstr, pcchstring: MutPtr<UInt>): Bool =
+public actual fun cryptBinaryToStringA(pbbinary: ConstPtr, cbbinary: UInt, dwflags: CryptString, pszstring: Pstr, pcchstring: MutPtr): Bool =
     WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCryptBinaryToStringA(pbbinary.rawAddress, cbbinary.toInt(), dwflags.toInt(), pszstring.rawAddress, pcchstring.rawAddress)
 
-public actual fun cryptBinaryToStringW(pbbinary: ConstPtr<UByte>, cbbinary: UInt, dwflags: CryptString, pszstring: Pwstr, pcchstring: MutPtr<UInt>): Bool =
+public actual fun cryptBinaryToStringW(pbbinary: ConstPtr, cbbinary: UInt, dwflags: CryptString, pszstring: Pwstr, pcchstring: MutPtr): Bool =
     WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCryptBinaryToStringW(pbbinary.rawAddress, cbbinary.toInt(), dwflags.toInt(), pszstring.rawAddress, pcchstring.rawAddress)
 
 public actual fun cryptCloseAsyncHandle(hasync: Hcryptasync): Bool =
     WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCryptCloseAsyncHandle(hasync)
 
-public actual fun cryptContextAddRef(hprov: ULong, pdwreserved: ConstPtr<UInt>, dwflags: UInt): Bool =
+public actual fun cryptContextAddRef(hprov: ULong, pdwreserved: ConstPtr, dwflags: UInt): Bool =
     WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCryptContextAddRef(hprov.toLong(), pdwreserved.rawAddress, dwflags.toInt())
 
-public actual fun cryptCreateAsyncHandle(dwflags: UInt, phasync: MutPtr<Hcryptasync>): Bool =
+public actual fun cryptCreateAsyncHandle(dwflags: UInt, phasync: MutPtr): Bool =
     WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCryptCreateAsyncHandle(dwflags.toInt(), phasync.rawAddress)
 
-public actual fun cryptCreateHash(hprov: ULong, algid: AlgId, hkey: ULong, dwflags: UInt, phhash: MutPtr<ULong>): Bool =
+public actual fun cryptCreateHash(hprov: ULong, algid: AlgId, hkey: ULong, dwflags: UInt, phhash: MutPtr): Bool =
     WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCryptCreateHash(hprov.toLong(), algid.toInt(), hkey.toLong(), dwflags.toInt(), phhash.rawAddress)
 
-public actual fun cryptCreateKeyIdentifierFromCSP(dwcertencodingtype: CertQueryEncodingType, pszpubkeyoid: Pcstr, ppubkeystruc: ConstPtr<Publickeystruc>, cbpubkeystruc: UInt, dwflags: UInt, pvreserved: ConstPtr<CVoid>, pbhash: MutPtr<UByte>, pcbhash: MutPtr<UInt>): Bool =
+public actual fun cryptCreateKeyIdentifierFromCSP(dwcertencodingtype: CertQueryEncodingType, pszpubkeyoid: Pcstr, ppubkeystruc: ConstPtr, cbpubkeystruc: UInt, dwflags: UInt, pvreserved: ConstPtr, pbhash: MutPtr, pcbhash: MutPtr): Bool =
     WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCryptCreateKeyIdentifierFromCSP(dwcertencodingtype.toInt(), pszpubkeyoid.rawAddress, ppubkeystruc.rawAddress, cbpubkeystruc.toInt(), dwflags.toInt(), pvreserved.rawAddress, pbhash.rawAddress, pcbhash.rawAddress)
 
-public actual fun cryptDecodeMessage(dwmsgtypeflags: UInt, pdecryptpara: ConstPtr<CryptDecryptMessagePara>, pverifypara: ConstPtr<CryptVerifyMessagePara>, dwsignerindex: UInt, pbencodedblob: ConstPtr<UByte>, cbencodedblob: UInt, dwprevinnercontenttype: UInt, pdwmsgtype: MutPtr<UInt>, pdwinnercontenttype: MutPtr<UInt>, pbdecoded: MutPtr<UByte>, pcbdecoded: MutPtr<UInt>, ppxchgcert: MutPtr<MutPtr<CertContext>>, ppsignercert: MutPtr<MutPtr<CertContext>>): Bool =
+public actual fun cryptDecodeMessage(dwmsgtypeflags: UInt, pdecryptpara: ConstPtr, pverifypara: ConstPtr, dwsignerindex: UInt, pbencodedblob: ConstPtr, cbencodedblob: UInt, dwprevinnercontenttype: UInt, pdwmsgtype: MutPtr, pdwinnercontenttype: MutPtr, pbdecoded: MutPtr, pcbdecoded: MutPtr, ppxchgcert: MutPtr, ppsignercert: MutPtr): Bool =
     WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCryptDecodeMessage(dwmsgtypeflags.toInt(), pdecryptpara.rawAddress, pverifypara.rawAddress, dwsignerindex.toInt(), pbencodedblob.rawAddress, cbencodedblob.toInt(), dwprevinnercontenttype.toInt(), pdwmsgtype.rawAddress, pdwinnercontenttype.rawAddress, pbdecoded.rawAddress, pcbdecoded.rawAddress, ppxchgcert.rawAddress, ppsignercert.rawAddress)
 
-public actual fun cryptDecodeObject(dwcertencodingtype: CertQueryEncodingType, lpszstructtype: Pcstr, pbencoded: ConstPtr<UByte>, cbencoded: UInt, dwflags: UInt, pvstructinfo: MutPtr<CVoid>, pcbstructinfo: MutPtr<UInt>): Bool =
+public actual fun cryptDecodeObject(dwcertencodingtype: CertQueryEncodingType, lpszstructtype: Pcstr, pbencoded: ConstPtr, cbencoded: UInt, dwflags: UInt, pvstructinfo: MutPtr, pcbstructinfo: MutPtr): Bool =
     WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCryptDecodeObject(dwcertencodingtype.toInt(), lpszstructtype.rawAddress, pbencoded.rawAddress, cbencoded.toInt(), dwflags.toInt(), pvstructinfo.rawAddress, pcbstructinfo.rawAddress)
 
-public actual fun cryptDecodeObjectEx(dwcertencodingtype: CertQueryEncodingType, lpszstructtype: Pcstr, pbencoded: ConstPtr<UByte>, cbencoded: UInt, dwflags: UInt, pdecodepara: ConstPtr<CryptDecodePara>, pvstructinfo: MutPtr<CVoid>, pcbstructinfo: MutPtr<UInt>): Bool =
+public actual fun cryptDecodeObjectEx(dwcertencodingtype: CertQueryEncodingType, lpszstructtype: Pcstr, pbencoded: ConstPtr, cbencoded: UInt, dwflags: UInt, pdecodepara: ConstPtr, pvstructinfo: MutPtr, pcbstructinfo: MutPtr): Bool =
     WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCryptDecodeObjectEx(dwcertencodingtype.toInt(), lpszstructtype.rawAddress, pbencoded.rawAddress, cbencoded.toInt(), dwflags.toInt(), pdecodepara.rawAddress, pvstructinfo.rawAddress, pcbstructinfo.rawAddress)
 
-public actual fun cryptDecrypt(hkey: ULong, hhash: ULong, final: Bool, dwflags: UInt, pbdata: MutPtr<UByte>, pdwdatalen: MutPtr<UInt>): Bool =
+public actual fun cryptDecrypt(hkey: ULong, hhash: ULong, final: Bool, dwflags: UInt, pbdata: MutPtr, pdwdatalen: MutPtr): Bool =
     WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCryptDecrypt(hkey.toLong(), hhash.toLong(), final, dwflags.toInt(), pbdata.rawAddress, pdwdatalen.rawAddress)
 
-public actual fun cryptDecryptAndVerifyMessageSignature(pdecryptpara: ConstPtr<CryptDecryptMessagePara>, pverifypara: ConstPtr<CryptVerifyMessagePara>, dwsignerindex: UInt, pbencryptedblob: ConstPtr<UByte>, cbencryptedblob: UInt, pbdecrypted: MutPtr<UByte>, pcbdecrypted: MutPtr<UInt>, ppxchgcert: MutPtr<MutPtr<CertContext>>, ppsignercert: MutPtr<MutPtr<CertContext>>): Bool =
+public actual fun cryptDecryptAndVerifyMessageSignature(pdecryptpara: ConstPtr, pverifypara: ConstPtr, dwsignerindex: UInt, pbencryptedblob: ConstPtr, cbencryptedblob: UInt, pbdecrypted: MutPtr, pcbdecrypted: MutPtr, ppxchgcert: MutPtr, ppsignercert: MutPtr): Bool =
     WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCryptDecryptAndVerifyMessageSignature(pdecryptpara.rawAddress, pverifypara.rawAddress, dwsignerindex.toInt(), pbencryptedblob.rawAddress, cbencryptedblob.toInt(), pbdecrypted.rawAddress, pcbdecrypted.rawAddress, ppxchgcert.rawAddress, ppsignercert.rawAddress)
 
-public actual fun cryptDecryptMessage(pdecryptpara: ConstPtr<CryptDecryptMessagePara>, pbencryptedblob: ConstPtr<UByte>, cbencryptedblob: UInt, pbdecrypted: MutPtr<UByte>, pcbdecrypted: MutPtr<UInt>, ppxchgcert: MutPtr<MutPtr<CertContext>>): Bool =
+public actual fun cryptDecryptMessage(pdecryptpara: ConstPtr, pbencryptedblob: ConstPtr, cbencryptedblob: UInt, pbdecrypted: MutPtr, pcbdecrypted: MutPtr, ppxchgcert: MutPtr): Bool =
     WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCryptDecryptMessage(pdecryptpara.rawAddress, pbencryptedblob.rawAddress, cbencryptedblob.toInt(), pbdecrypted.rawAddress, pcbdecrypted.rawAddress, ppxchgcert.rawAddress)
 
-public actual fun cryptDeriveKey(hprov: ULong, algid: AlgId, hbasedata: ULong, dwflags: UInt, phkey: MutPtr<ULong>): Bool =
+public actual fun cryptDeriveKey(hprov: ULong, algid: AlgId, hbasedata: ULong, dwflags: UInt, phkey: MutPtr): Bool =
     WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCryptDeriveKey(hprov.toLong(), algid.toInt(), hbasedata.toLong(), dwflags.toInt(), phkey.rawAddress)
 
 public actual fun cryptDestroyHash(hhash: ULong): Bool =
@@ -2034,236 +2030,236 @@ public actual fun cryptDestroyHash(hhash: ULong): Bool =
 public actual fun cryptDestroyKey(hkey: ULong): Bool =
     WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCryptDestroyKey(hkey.toLong())
 
-public actual fun cryptDuplicateHash(hhash: ULong, pdwreserved: ConstPtr<UInt>, dwflags: UInt, phhash: MutPtr<ULong>): Bool =
+public actual fun cryptDuplicateHash(hhash: ULong, pdwreserved: ConstPtr, dwflags: UInt, phhash: MutPtr): Bool =
     WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCryptDuplicateHash(hhash.toLong(), pdwreserved.rawAddress, dwflags.toInt(), phhash.rawAddress)
 
-public actual fun cryptDuplicateKey(hkey: ULong, pdwreserved: ConstPtr<UInt>, dwflags: UInt, phkey: MutPtr<ULong>): Bool =
+public actual fun cryptDuplicateKey(hkey: ULong, pdwreserved: ConstPtr, dwflags: UInt, phkey: MutPtr): Bool =
     WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCryptDuplicateKey(hkey.toLong(), pdwreserved.rawAddress, dwflags.toInt(), phkey.rawAddress)
 
-public actual fun cryptEncodeObject(dwcertencodingtype: CertQueryEncodingType, lpszstructtype: Pcstr, pvstructinfo: ConstPtr<CVoid>, pbencoded: MutPtr<UByte>, pcbencoded: MutPtr<UInt>): Bool =
+public actual fun cryptEncodeObject(dwcertencodingtype: CertQueryEncodingType, lpszstructtype: Pcstr, pvstructinfo: ConstPtr, pbencoded: MutPtr, pcbencoded: MutPtr): Bool =
     WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCryptEncodeObject(dwcertencodingtype.toInt(), lpszstructtype.rawAddress, pvstructinfo.rawAddress, pbencoded.rawAddress, pcbencoded.rawAddress)
 
-public actual fun cryptEncodeObjectEx(dwcertencodingtype: CertQueryEncodingType, lpszstructtype: Pcstr, pvstructinfo: ConstPtr<CVoid>, dwflags: CryptEncodeObjectFlags, pencodepara: ConstPtr<CryptEncodePara>, pvencoded: MutPtr<CVoid>, pcbencoded: MutPtr<UInt>): Bool =
+public actual fun cryptEncodeObjectEx(dwcertencodingtype: CertQueryEncodingType, lpszstructtype: Pcstr, pvstructinfo: ConstPtr, dwflags: CryptEncodeObjectFlags, pencodepara: ConstPtr, pvencoded: MutPtr, pcbencoded: MutPtr): Bool =
     WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCryptEncodeObjectEx(dwcertencodingtype.toInt(), lpszstructtype.rawAddress, pvstructinfo.rawAddress, dwflags.toInt(), pencodepara.rawAddress, pvencoded.rawAddress, pcbencoded.rawAddress)
 
-public actual fun cryptEncrypt(hkey: ULong, hhash: ULong, final: Bool, dwflags: UInt, pbdata: MutPtr<UByte>, pdwdatalen: MutPtr<UInt>, dwbuflen: UInt): Bool =
+public actual fun cryptEncrypt(hkey: ULong, hhash: ULong, final: Bool, dwflags: UInt, pbdata: MutPtr, pdwdatalen: MutPtr, dwbuflen: UInt): Bool =
     WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCryptEncrypt(hkey.toLong(), hhash.toLong(), final, dwflags.toInt(), pbdata.rawAddress, pdwdatalen.rawAddress, dwbuflen.toInt())
 
-public actual fun cryptEncryptMessage(pencryptpara: ConstPtr<CryptEncryptMessagePara>, crecipientcert: UInt, rgprecipientcert: ConstPtr<ConstPtr<CertContext>>, pbtobeencrypted: ConstPtr<UByte>, cbtobeencrypted: UInt, pbencryptedblob: MutPtr<UByte>, pcbencryptedblob: MutPtr<UInt>): Bool =
+public actual fun cryptEncryptMessage(pencryptpara: ConstPtr, crecipientcert: UInt, rgprecipientcert: ConstPtr, pbtobeencrypted: ConstPtr, cbtobeencrypted: UInt, pbencryptedblob: MutPtr, pcbencryptedblob: MutPtr): Bool =
     WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCryptEncryptMessage(pencryptpara.rawAddress, crecipientcert.toInt(), rgprecipientcert.rawAddress, pbtobeencrypted.rawAddress, cbtobeencrypted.toInt(), pbencryptedblob.rawAddress, pcbencryptedblob.rawAddress)
 
-public actual fun cryptEnumKeyIdentifierProperties(pkeyidentifier: ConstPtr<CryptIntegerBlob>, dwpropid: UInt, dwflags: UInt, pwszcomputername: Pcwstr, pvreserved: ConstPtr<CVoid>, pvarg: MutPtr<CVoid>, pfnenum: PfnCryptEnumKeyidProp): Bool =
+public actual fun cryptEnumKeyIdentifierProperties(pkeyidentifier: ConstPtr, dwpropid: UInt, dwflags: UInt, pwszcomputername: Pcwstr, pvreserved: ConstPtr, pvarg: MutPtr, pfnenum: PfnCryptEnumKeyidProp): Bool =
     WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCryptEnumKeyIdentifierProperties(pkeyidentifier.rawAddress, dwpropid.toInt(), dwflags.toInt(), pwszcomputername.rawAddress, pvreserved.rawAddress, pvarg.rawAddress, 0L)
 
-public actual fun cryptEnumOIDFunction(dwencodingtype: UInt, pszfuncname: Pcstr, pszoid: Pcstr, dwflags: UInt, pvarg: MutPtr<CVoid>, pfnenumoidfunc: PfnCryptEnumOidFunc): Bool =
+public actual fun cryptEnumOIDFunction(dwencodingtype: UInt, pszfuncname: Pcstr, pszoid: Pcstr, dwflags: UInt, pvarg: MutPtr, pfnenumoidfunc: PfnCryptEnumOidFunc): Bool =
     WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCryptEnumOIDFunction(dwencodingtype.toInt(), pszfuncname.rawAddress, pszoid.rawAddress, dwflags.toInt(), pvarg.rawAddress, 0L)
 
-public actual fun cryptEnumOIDInfo(dwgroupid: UInt, dwflags: UInt, pvarg: MutPtr<CVoid>, pfnenumoidinfo: PfnCryptEnumOidInfo): Bool =
+public actual fun cryptEnumOIDInfo(dwgroupid: UInt, dwflags: UInt, pvarg: MutPtr, pfnenumoidinfo: PfnCryptEnumOidInfo): Bool =
     WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCryptEnumOIDInfo(dwgroupid.toInt(), dwflags.toInt(), pvarg.rawAddress, 0L)
 
-public actual fun cryptEnumProviderTypesA(dwindex: UInt, pdwreserved: ConstPtr<UInt>, dwflags: UInt, pdwprovtype: MutPtr<UInt>, sztypename: Pstr, pcbtypename: MutPtr<UInt>): Bool =
+public actual fun cryptEnumProviderTypesA(dwindex: UInt, pdwreserved: ConstPtr, dwflags: UInt, pdwprovtype: MutPtr, sztypename: Pstr, pcbtypename: MutPtr): Bool =
     WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCryptEnumProviderTypesA(dwindex.toInt(), pdwreserved.rawAddress, dwflags.toInt(), pdwprovtype.rawAddress, sztypename.rawAddress, pcbtypename.rawAddress)
 
-public actual fun cryptEnumProviderTypesW(dwindex: UInt, pdwreserved: ConstPtr<UInt>, dwflags: UInt, pdwprovtype: MutPtr<UInt>, sztypename: Pwstr, pcbtypename: MutPtr<UInt>): Bool =
+public actual fun cryptEnumProviderTypesW(dwindex: UInt, pdwreserved: ConstPtr, dwflags: UInt, pdwprovtype: MutPtr, sztypename: Pwstr, pcbtypename: MutPtr): Bool =
     WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCryptEnumProviderTypesW(dwindex.toInt(), pdwreserved.rawAddress, dwflags.toInt(), pdwprovtype.rawAddress, sztypename.rawAddress, pcbtypename.rawAddress)
 
-public actual fun cryptEnumProvidersA(dwindex: UInt, pdwreserved: ConstPtr<UInt>, dwflags: UInt, pdwprovtype: MutPtr<UInt>, szprovname: Pstr, pcbprovname: MutPtr<UInt>): Bool =
+public actual fun cryptEnumProvidersA(dwindex: UInt, pdwreserved: ConstPtr, dwflags: UInt, pdwprovtype: MutPtr, szprovname: Pstr, pcbprovname: MutPtr): Bool =
     WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCryptEnumProvidersA(dwindex.toInt(), pdwreserved.rawAddress, dwflags.toInt(), pdwprovtype.rawAddress, szprovname.rawAddress, pcbprovname.rawAddress)
 
-public actual fun cryptEnumProvidersW(dwindex: UInt, pdwreserved: ConstPtr<UInt>, dwflags: UInt, pdwprovtype: MutPtr<UInt>, szprovname: Pwstr, pcbprovname: MutPtr<UInt>): Bool =
+public actual fun cryptEnumProvidersW(dwindex: UInt, pdwreserved: ConstPtr, dwflags: UInt, pdwprovtype: MutPtr, szprovname: Pwstr, pcbprovname: MutPtr): Bool =
     WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCryptEnumProvidersW(dwindex.toInt(), pdwreserved.rawAddress, dwflags.toInt(), pdwprovtype.rawAddress, szprovname.rawAddress, pcbprovname.rawAddress)
 
-public actual fun cryptExportKey(hkey: ULong, hexpkey: ULong, dwblobtype: UInt, dwflags: CryptKeyFlags, pbdata: MutPtr<UByte>, pdwdatalen: MutPtr<UInt>): Bool =
+public actual fun cryptExportKey(hkey: ULong, hexpkey: ULong, dwblobtype: UInt, dwflags: CryptKeyFlags, pbdata: MutPtr, pdwdatalen: MutPtr): Bool =
     WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCryptExportKey(hkey.toLong(), hexpkey.toLong(), dwblobtype.toInt(), dwflags.toInt(), pbdata.rawAddress, pdwdatalen.rawAddress)
 
-public actual fun cryptExportPKCS8(hcryptprov: ULong, dwkeyspec: UInt, pszprivatekeyobjid: Pcstr, dwflags: UInt, pvauxinfo: ConstPtr<CVoid>, pbprivatekeyblob: MutPtr<UByte>, pcbprivatekeyblob: MutPtr<UInt>): Bool =
+public actual fun cryptExportPKCS8(hcryptprov: ULong, dwkeyspec: UInt, pszprivatekeyobjid: Pcstr, dwflags: UInt, pvauxinfo: ConstPtr, pbprivatekeyblob: MutPtr, pcbprivatekeyblob: MutPtr): Bool =
     WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCryptExportPKCS8(hcryptprov.toLong(), dwkeyspec.toInt(), pszprivatekeyobjid.rawAddress, dwflags.toInt(), pvauxinfo.rawAddress, pbprivatekeyblob.rawAddress, pcbprivatekeyblob.rawAddress)
 
-public actual fun cryptExportPublicKeyInfo(hcryptprovorncryptkey: HcryptprovOrNcryptKeyHandle, dwkeyspec: UInt, dwcertencodingtype: CertQueryEncodingType, pinfo: MutPtr<CertPublicKeyInfo>, pcbinfo: MutPtr<UInt>): Bool =
+public actual fun cryptExportPublicKeyInfo(hcryptprovorncryptkey: HcryptprovOrNcryptKeyHandle, dwkeyspec: UInt, dwcertencodingtype: CertQueryEncodingType, pinfo: MutPtr, pcbinfo: MutPtr): Bool =
     WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCryptExportPublicKeyInfo(hcryptprovorncryptkey.toLong(), dwkeyspec.toInt(), dwcertencodingtype.toInt(), pinfo.rawAddress, pcbinfo.rawAddress)
 
-public actual fun cryptExportPublicKeyInfoEx(hcryptprovorncryptkey: HcryptprovOrNcryptKeyHandle, dwkeyspec: UInt, dwcertencodingtype: CertQueryEncodingType, pszpublickeyobjid: Pcstr, dwflags: UInt, pvauxinfo: ConstPtr<CVoid>, pinfo: MutPtr<CertPublicKeyInfo>, pcbinfo: MutPtr<UInt>): Bool =
+public actual fun cryptExportPublicKeyInfoEx(hcryptprovorncryptkey: HcryptprovOrNcryptKeyHandle, dwkeyspec: UInt, dwcertencodingtype: CertQueryEncodingType, pszpublickeyobjid: Pcstr, dwflags: UInt, pvauxinfo: ConstPtr, pinfo: MutPtr, pcbinfo: MutPtr): Bool =
     WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCryptExportPublicKeyInfoEx(hcryptprovorncryptkey.toLong(), dwkeyspec.toInt(), dwcertencodingtype.toInt(), pszpublickeyobjid.rawAddress, dwflags.toInt(), pvauxinfo.rawAddress, pinfo.rawAddress, pcbinfo.rawAddress)
 
-public actual fun cryptExportPublicKeyInfoFromBCryptKeyHandle(hbcryptkey: BcryptKeyHandle, dwcertencodingtype: CertQueryEncodingType, pszpublickeyobjid: Pcstr, dwflags: UInt, pvauxinfo: ConstPtr<CVoid>, pinfo: MutPtr<CertPublicKeyInfo>, pcbinfo: MutPtr<UInt>): Bool =
+public actual fun cryptExportPublicKeyInfoFromBCryptKeyHandle(hbcryptkey: BcryptKeyHandle, dwcertencodingtype: CertQueryEncodingType, pszpublickeyobjid: Pcstr, dwflags: UInt, pvauxinfo: ConstPtr, pinfo: MutPtr, pcbinfo: MutPtr): Bool =
     WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCryptExportPublicKeyInfoFromBCryptKeyHandle(hbcryptkey.rawAddress, dwcertencodingtype.toInt(), pszpublickeyobjid.rawAddress, dwflags.toInt(), pvauxinfo.rawAddress, pinfo.rawAddress, pcbinfo.rawAddress)
 
-public actual fun cryptFindCertificateKeyProvInfo(pcert: ConstPtr<CertContext>, dwflags: CryptFindFlags, pvreserved: ConstPtr<CVoid>): Bool =
+public actual fun cryptFindCertificateKeyProvInfo(pcert: ConstPtr, dwflags: CryptFindFlags, pvreserved: ConstPtr): Bool =
     WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCryptFindCertificateKeyProvInfo(pcert.rawAddress, dwflags.toInt(), pvreserved.rawAddress)
 
 public actual fun cryptFindLocalizedName(pwszcryptname: Pcwstr): Pcwstr =
     ConstPtr(WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCryptFindLocalizedName(pwszcryptname.rawAddress))
 
-public actual fun cryptFindOIDInfo(dwkeytype: UInt, pvkey: ConstPtr<CVoid>, dwgroupid: UInt): MutPtr<CryptOidInfo> =
+public actual fun cryptFindOIDInfo(dwkeytype: UInt, pvkey: ConstPtr, dwgroupid: UInt): MutPtr =
     MutPtr(WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCryptFindOIDInfo(dwkeytype.toInt(), pvkey.rawAddress, dwgroupid.toInt()))
 
-public actual fun cryptFormatObject(dwcertencodingtype: CertQueryEncodingType, dwformattype: UInt, dwformatstrtype: UInt, pformatstruct: ConstPtr<CVoid>, lpszstructtype: Pcstr, pbencoded: ConstPtr<UByte>, cbencoded: UInt, pbformat: MutPtr<CVoid>, pcbformat: MutPtr<UInt>): Bool =
+public actual fun cryptFormatObject(dwcertencodingtype: CertQueryEncodingType, dwformattype: UInt, dwformatstrtype: UInt, pformatstruct: ConstPtr, lpszstructtype: Pcstr, pbencoded: ConstPtr, cbencoded: UInt, pbformat: MutPtr, pcbformat: MutPtr): Bool =
     WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCryptFormatObject(dwcertencodingtype.toInt(), dwformattype.toInt(), dwformatstrtype.toInt(), pformatstruct.rawAddress, lpszstructtype.rawAddress, pbencoded.rawAddress, cbencoded.toInt(), pbformat.rawAddress, pcbformat.rawAddress)
 
-public actual fun cryptFreeOIDFunctionAddress(hfuncaddr: ConstPtr<CVoid>, dwflags: UInt): Bool =
+public actual fun cryptFreeOIDFunctionAddress(hfuncaddr: ConstPtr, dwflags: UInt): Bool =
     WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCryptFreeOIDFunctionAddress(hfuncaddr.rawAddress, dwflags.toInt())
 
-public actual fun cryptGenKey(hprov: ULong, algid: AlgId, dwflags: CryptKeyFlags, phkey: MutPtr<ULong>): Bool =
+public actual fun cryptGenKey(hprov: ULong, algid: AlgId, dwflags: CryptKeyFlags, phkey: MutPtr): Bool =
     WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCryptGenKey(hprov.toLong(), algid.toInt(), dwflags.toInt(), phkey.rawAddress)
 
-public actual fun cryptGenRandom(hprov: ULong, dwlen: UInt, pbbuffer: MutPtr<UByte>): Bool =
+public actual fun cryptGenRandom(hprov: ULong, dwlen: UInt, pbbuffer: MutPtr): Bool =
     WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCryptGenRandom(hprov.toLong(), dwlen.toInt(), pbbuffer.rawAddress)
 
-public actual fun cryptGetAsyncParam(hasync: Hcryptasync, pszparamoid: Pcstr, ppvparam: MutPtr<MutPtr<CVoid>>, ppfnfree: MutPtr<PfnCryptAsyncParamFreeFunc>): Bool =
+public actual fun cryptGetAsyncParam(hasync: Hcryptasync, pszparamoid: Pcstr, ppvparam: MutPtr, ppfnfree: MutPtr): Bool =
     WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCryptGetAsyncParam(hasync, pszparamoid.rawAddress, ppvparam.rawAddress, ppfnfree.rawAddress)
 
-public actual fun cryptGetDefaultOIDDllList(hfuncset: ConstPtr<CVoid>, dwencodingtype: UInt, pwszdlllist: Pwstr, pcchdlllist: MutPtr<UInt>): Bool =
+public actual fun cryptGetDefaultOIDDllList(hfuncset: ConstPtr, dwencodingtype: UInt, pwszdlllist: Pwstr, pcchdlllist: MutPtr): Bool =
     WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCryptGetDefaultOIDDllList(hfuncset.rawAddress, dwencodingtype.toInt(), pwszdlllist.rawAddress, pcchdlllist.rawAddress)
 
-public actual fun cryptGetDefaultOIDFunctionAddress(hfuncset: ConstPtr<CVoid>, dwencodingtype: UInt, pwszdll: Pcwstr, dwflags: UInt, ppvfuncaddr: MutPtr<MutPtr<CVoid>>, phfuncaddr: MutPtr<MutPtr<CVoid>>): Bool =
+public actual fun cryptGetDefaultOIDFunctionAddress(hfuncset: ConstPtr, dwencodingtype: UInt, pwszdll: Pcwstr, dwflags: UInt, ppvfuncaddr: MutPtr, phfuncaddr: MutPtr): Bool =
     WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCryptGetDefaultOIDFunctionAddress(hfuncset.rawAddress, dwencodingtype.toInt(), pwszdll.rawAddress, dwflags.toInt(), ppvfuncaddr.rawAddress, phfuncaddr.rawAddress)
 
-public actual fun cryptGetDefaultProviderA(dwprovtype: UInt, pdwreserved: ConstPtr<UInt>, dwflags: UInt, pszprovname: Pstr, pcbprovname: MutPtr<UInt>): Bool =
+public actual fun cryptGetDefaultProviderA(dwprovtype: UInt, pdwreserved: ConstPtr, dwflags: UInt, pszprovname: Pstr, pcbprovname: MutPtr): Bool =
     WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCryptGetDefaultProviderA(dwprovtype.toInt(), pdwreserved.rawAddress, dwflags.toInt(), pszprovname.rawAddress, pcbprovname.rawAddress)
 
-public actual fun cryptGetDefaultProviderW(dwprovtype: UInt, pdwreserved: ConstPtr<UInt>, dwflags: UInt, pszprovname: Pwstr, pcbprovname: MutPtr<UInt>): Bool =
+public actual fun cryptGetDefaultProviderW(dwprovtype: UInt, pdwreserved: ConstPtr, dwflags: UInt, pszprovname: Pwstr, pcbprovname: MutPtr): Bool =
     WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCryptGetDefaultProviderW(dwprovtype.toInt(), pdwreserved.rawAddress, dwflags.toInt(), pszprovname.rawAddress, pcbprovname.rawAddress)
 
-public actual fun cryptGetHashParam(hhash: ULong, dwparam: UInt, pbdata: MutPtr<UByte>, pdwdatalen: MutPtr<UInt>, dwflags: UInt): Bool =
+public actual fun cryptGetHashParam(hhash: ULong, dwparam: UInt, pbdata: MutPtr, pdwdatalen: MutPtr, dwflags: UInt): Bool =
     WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCryptGetHashParam(hhash.toLong(), dwparam.toInt(), pbdata.rawAddress, pdwdatalen.rawAddress, dwflags.toInt())
 
-public actual fun cryptGetKeyIdentifierProperty(pkeyidentifier: ConstPtr<CryptIntegerBlob>, dwpropid: UInt, dwflags: UInt, pwszcomputername: Pcwstr, pvreserved: ConstPtr<CVoid>, pvdata: MutPtr<CVoid>, pcbdata: MutPtr<UInt>): Bool =
+public actual fun cryptGetKeyIdentifierProperty(pkeyidentifier: ConstPtr, dwpropid: UInt, dwflags: UInt, pwszcomputername: Pcwstr, pvreserved: ConstPtr, pvdata: MutPtr, pcbdata: MutPtr): Bool =
     WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCryptGetKeyIdentifierProperty(pkeyidentifier.rawAddress, dwpropid.toInt(), dwflags.toInt(), pwszcomputername.rawAddress, pvreserved.rawAddress, pvdata.rawAddress, pcbdata.rawAddress)
 
-public actual fun cryptGetKeyParam(hkey: ULong, dwparam: CryptKeyParamId, pbdata: MutPtr<UByte>, pdwdatalen: MutPtr<UInt>, dwflags: UInt): Bool =
+public actual fun cryptGetKeyParam(hkey: ULong, dwparam: CryptKeyParamId, pbdata: MutPtr, pdwdatalen: MutPtr, dwflags: UInt): Bool =
     WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCryptGetKeyParam(hkey.toLong(), dwparam.toInt(), pbdata.rawAddress, pdwdatalen.rawAddress, dwflags.toInt())
 
-public actual fun cryptGetMessageCertificates(dwmsgandcertencodingtype: UInt, hcryptprov: HcryptprovLegacy, dwflags: UInt, pbsignedblob: ConstPtr<UByte>, cbsignedblob: UInt): Hcertstore =
+public actual fun cryptGetMessageCertificates(dwmsgandcertencodingtype: UInt, hcryptprov: HcryptprovLegacy, dwflags: UInt, pbsignedblob: ConstPtr, cbsignedblob: UInt): Hcertstore =
     MutPtr(WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCryptGetMessageCertificates(dwmsgandcertencodingtype.toInt(), hcryptprov.toLong(), dwflags.toInt(), pbsignedblob.rawAddress, cbsignedblob.toInt()))
 
-public actual fun cryptGetMessageSignerCount(dwmsgencodingtype: UInt, pbsignedblob: ConstPtr<UByte>, cbsignedblob: UInt): Int =
+public actual fun cryptGetMessageSignerCount(dwmsgencodingtype: UInt, pbsignedblob: ConstPtr, cbsignedblob: UInt): Int =
     WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCryptGetMessageSignerCount(dwmsgencodingtype.toInt(), pbsignedblob.rawAddress, cbsignedblob.toInt())
 
-public actual fun cryptGetOIDFunctionAddress(hfuncset: ConstPtr<CVoid>, dwencodingtype: UInt, pszoid: Pcstr, dwflags: UInt, ppvfuncaddr: MutPtr<MutPtr<CVoid>>, phfuncaddr: MutPtr<MutPtr<CVoid>>): Bool =
+public actual fun cryptGetOIDFunctionAddress(hfuncset: ConstPtr, dwencodingtype: UInt, pszoid: Pcstr, dwflags: UInt, ppvfuncaddr: MutPtr, phfuncaddr: MutPtr): Bool =
     WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCryptGetOIDFunctionAddress(hfuncset.rawAddress, dwencodingtype.toInt(), pszoid.rawAddress, dwflags.toInt(), ppvfuncaddr.rawAddress, phfuncaddr.rawAddress)
 
-public actual fun cryptGetOIDFunctionValue(dwencodingtype: UInt, pszfuncname: Pcstr, pszoid: Pcstr, pwszvaluename: Pcwstr, pdwvaluetype: MutPtr<UInt>, pbvaluedata: MutPtr<UByte>, pcbvaluedata: MutPtr<UInt>): Bool =
+public actual fun cryptGetOIDFunctionValue(dwencodingtype: UInt, pszfuncname: Pcstr, pszoid: Pcstr, pwszvaluename: Pcwstr, pdwvaluetype: MutPtr, pbvaluedata: MutPtr, pcbvaluedata: MutPtr): Bool =
     WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCryptGetOIDFunctionValue(dwencodingtype.toInt(), pszfuncname.rawAddress, pszoid.rawAddress, pwszvaluename.rawAddress, pdwvaluetype.rawAddress, pbvaluedata.rawAddress, pcbvaluedata.rawAddress)
 
-public actual fun cryptGetObjectUrl(pszurloid: Pcstr, pvpara: ConstPtr<CVoid>, dwflags: CryptGetUrlFlags, purlarray: MutPtr<CryptUrlArray>, pcburlarray: MutPtr<UInt>, purlinfo: MutPtr<CryptUrlInfo>, pcburlinfo: MutPtr<UInt>, pvreserved: ConstPtr<CVoid>): Bool =
+public actual fun cryptGetObjectUrl(pszurloid: Pcstr, pvpara: ConstPtr, dwflags: CryptGetUrlFlags, purlarray: MutPtr, pcburlarray: MutPtr, purlinfo: MutPtr, pcburlinfo: MutPtr, pvreserved: ConstPtr): Bool =
     WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCryptGetObjectUrl(pszurloid.rawAddress, pvpara.rawAddress, dwflags.toInt(), purlarray.rawAddress, pcburlarray.rawAddress, purlinfo.rawAddress, pcburlinfo.rawAddress, pvreserved.rawAddress)
 
-public actual fun cryptGetProvParam(hprov: ULong, dwparam: UInt, pbdata: MutPtr<UByte>, pdwdatalen: MutPtr<UInt>, dwflags: UInt): Bool =
+public actual fun cryptGetProvParam(hprov: ULong, dwparam: UInt, pbdata: MutPtr, pdwdatalen: MutPtr, dwflags: UInt): Bool =
     WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCryptGetProvParam(hprov.toLong(), dwparam.toInt(), pbdata.rawAddress, pdwdatalen.rawAddress, dwflags.toInt())
 
-public actual fun cryptGetUserKey(hprov: ULong, dwkeyspec: UInt, phuserkey: MutPtr<ULong>): Bool =
+public actual fun cryptGetUserKey(hprov: ULong, dwkeyspec: UInt, phuserkey: MutPtr): Bool =
     WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCryptGetUserKey(hprov.toLong(), dwkeyspec.toInt(), phuserkey.rawAddress)
 
-public actual fun cryptHashCertificate(hcryptprov: HcryptprovLegacy, algid: AlgId, dwflags: UInt, pbencoded: ConstPtr<UByte>, cbencoded: UInt, pbcomputedhash: MutPtr<UByte>, pcbcomputedhash: MutPtr<UInt>): Bool =
+public actual fun cryptHashCertificate(hcryptprov: HcryptprovLegacy, algid: AlgId, dwflags: UInt, pbencoded: ConstPtr, cbencoded: UInt, pbcomputedhash: MutPtr, pcbcomputedhash: MutPtr): Bool =
     WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCryptHashCertificate(hcryptprov.toLong(), algid.toInt(), dwflags.toInt(), pbencoded.rawAddress, cbencoded.toInt(), pbcomputedhash.rawAddress, pcbcomputedhash.rawAddress)
 
-public actual fun cryptHashCertificate2(pwszcnghashalgid: Pcwstr, dwflags: UInt, pvreserved: ConstPtr<CVoid>, pbencoded: ConstPtr<UByte>, cbencoded: UInt, pbcomputedhash: MutPtr<UByte>, pcbcomputedhash: MutPtr<UInt>): Bool =
+public actual fun cryptHashCertificate2(pwszcnghashalgid: Pcwstr, dwflags: UInt, pvreserved: ConstPtr, pbencoded: ConstPtr, cbencoded: UInt, pbcomputedhash: MutPtr, pcbcomputedhash: MutPtr): Bool =
     WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCryptHashCertificate2(pwszcnghashalgid.rawAddress, dwflags.toInt(), pvreserved.rawAddress, pbencoded.rawAddress, cbencoded.toInt(), pbcomputedhash.rawAddress, pcbcomputedhash.rawAddress)
 
-public actual fun cryptHashData(hhash: ULong, pbdata: ConstPtr<UByte>, dwdatalen: UInt, dwflags: UInt): Bool =
+public actual fun cryptHashData(hhash: ULong, pbdata: ConstPtr, dwdatalen: UInt, dwflags: UInt): Bool =
     WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCryptHashData(hhash.toLong(), pbdata.rawAddress, dwdatalen.toInt(), dwflags.toInt())
 
-public actual fun cryptHashMessage(phashpara: ConstPtr<CryptHashMessagePara>, fdetachedhash: Bool, ctobehashed: UInt, rgpbtobehashed: ConstPtr<ConstPtr<UByte>>, rgcbtobehashed: ConstPtr<UInt>, pbhashedblob: MutPtr<UByte>, pcbhashedblob: MutPtr<UInt>, pbcomputedhash: MutPtr<UByte>, pcbcomputedhash: MutPtr<UInt>): Bool =
+public actual fun cryptHashMessage(phashpara: ConstPtr, fdetachedhash: Bool, ctobehashed: UInt, rgpbtobehashed: ConstPtr, rgcbtobehashed: ConstPtr, pbhashedblob: MutPtr, pcbhashedblob: MutPtr, pbcomputedhash: MutPtr, pcbcomputedhash: MutPtr): Bool =
     WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCryptHashMessage(phashpara.rawAddress, fdetachedhash, ctobehashed.toInt(), rgpbtobehashed.rawAddress, rgcbtobehashed.rawAddress, pbhashedblob.rawAddress, pcbhashedblob.rawAddress, pbcomputedhash.rawAddress, pcbcomputedhash.rawAddress)
 
-public actual fun cryptHashPublicKeyInfo(hcryptprov: HcryptprovLegacy, algid: AlgId, dwflags: UInt, dwcertencodingtype: CertQueryEncodingType, pinfo: ConstPtr<CertPublicKeyInfo>, pbcomputedhash: MutPtr<UByte>, pcbcomputedhash: MutPtr<UInt>): Bool =
+public actual fun cryptHashPublicKeyInfo(hcryptprov: HcryptprovLegacy, algid: AlgId, dwflags: UInt, dwcertencodingtype: CertQueryEncodingType, pinfo: ConstPtr, pbcomputedhash: MutPtr, pcbcomputedhash: MutPtr): Bool =
     WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCryptHashPublicKeyInfo(hcryptprov.toLong(), algid.toInt(), dwflags.toInt(), dwcertencodingtype.toInt(), pinfo.rawAddress, pbcomputedhash.rawAddress, pcbcomputedhash.rawAddress)
 
 public actual fun cryptHashSessionKey(hhash: ULong, hkey: ULong, dwflags: UInt): Bool =
     WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCryptHashSessionKey(hhash.toLong(), hkey.toLong(), dwflags.toInt())
 
-public actual fun cryptHashToBeSigned(hcryptprov: HcryptprovLegacy, dwcertencodingtype: CertQueryEncodingType, pbencoded: ConstPtr<UByte>, cbencoded: UInt, pbcomputedhash: MutPtr<UByte>, pcbcomputedhash: MutPtr<UInt>): Bool =
+public actual fun cryptHashToBeSigned(hcryptprov: HcryptprovLegacy, dwcertencodingtype: CertQueryEncodingType, pbencoded: ConstPtr, cbencoded: UInt, pbcomputedhash: MutPtr, pcbcomputedhash: MutPtr): Bool =
     WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCryptHashToBeSigned(hcryptprov.toLong(), dwcertencodingtype.toInt(), pbencoded.rawAddress, cbencoded.toInt(), pbcomputedhash.rawAddress, pcbcomputedhash.rawAddress)
 
-public actual fun cryptImportKey(hprov: ULong, pbdata: ConstPtr<UByte>, dwdatalen: UInt, hpubkey: ULong, dwflags: CryptKeyFlags, phkey: MutPtr<ULong>): Bool =
+public actual fun cryptImportKey(hprov: ULong, pbdata: ConstPtr, dwdatalen: UInt, hpubkey: ULong, dwflags: CryptKeyFlags, phkey: MutPtr): Bool =
     WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCryptImportKey(hprov.toLong(), pbdata.rawAddress, dwdatalen.toInt(), hpubkey.toLong(), dwflags.toInt(), phkey.rawAddress)
 
-public actual fun cryptImportPKCS8(sprivatekeyandparams: CryptPkcs8ImportParams, dwflags: CryptKeyFlags, phcryptprov: MutPtr<ULong>, pvauxinfo: ConstPtr<CVoid>): Bool =
+public actual fun cryptImportPKCS8(sprivatekeyandparams: CryptPkcs8ImportParams, dwflags: CryptKeyFlags, phcryptprov: MutPtr, pvauxinfo: ConstPtr): Bool =
     0
 
-public actual fun cryptImportPublicKeyInfo(hcryptprov: ULong, dwcertencodingtype: CertQueryEncodingType, pinfo: ConstPtr<CertPublicKeyInfo>, phkey: MutPtr<ULong>): Bool =
+public actual fun cryptImportPublicKeyInfo(hcryptprov: ULong, dwcertencodingtype: CertQueryEncodingType, pinfo: ConstPtr, phkey: MutPtr): Bool =
     WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCryptImportPublicKeyInfo(hcryptprov.toLong(), dwcertencodingtype.toInt(), pinfo.rawAddress, phkey.rawAddress)
 
-public actual fun cryptImportPublicKeyInfoEx(hcryptprov: ULong, dwcertencodingtype: CertQueryEncodingType, pinfo: ConstPtr<CertPublicKeyInfo>, aikeyalg: AlgId, dwflags: UInt, pvauxinfo: ConstPtr<CVoid>, phkey: MutPtr<ULong>): Bool =
+public actual fun cryptImportPublicKeyInfoEx(hcryptprov: ULong, dwcertencodingtype: CertQueryEncodingType, pinfo: ConstPtr, aikeyalg: AlgId, dwflags: UInt, pvauxinfo: ConstPtr, phkey: MutPtr): Bool =
     WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCryptImportPublicKeyInfoEx(hcryptprov.toLong(), dwcertencodingtype.toInt(), pinfo.rawAddress, aikeyalg.toInt(), dwflags.toInt(), pvauxinfo.rawAddress, phkey.rawAddress)
 
-public actual fun cryptImportPublicKeyInfoEx2(dwcertencodingtype: CertQueryEncodingType, pinfo: ConstPtr<CertPublicKeyInfo>, dwflags: CryptImportPublicKeyFlags, pvauxinfo: ConstPtr<CVoid>, phkey: MutPtr<BcryptKeyHandle>): Bool =
+public actual fun cryptImportPublicKeyInfoEx2(dwcertencodingtype: CertQueryEncodingType, pinfo: ConstPtr, dwflags: CryptImportPublicKeyFlags, pvauxinfo: ConstPtr, phkey: MutPtr): Bool =
     WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCryptImportPublicKeyInfoEx2(dwcertencodingtype.toInt(), pinfo.rawAddress, dwflags.toInt(), pvauxinfo.rawAddress, phkey.rawAddress)
 
-public actual fun cryptInitOIDFunctionSet(pszfuncname: Pcstr, dwflags: UInt): MutPtr<CVoid> =
+public actual fun cryptInitOIDFunctionSet(pszfuncname: Pcstr, dwflags: UInt): MutPtr =
     MutPtr(WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCryptInitOIDFunctionSet(pszfuncname.rawAddress, dwflags.toInt()))
 
-public actual fun cryptInstallCancelRetrieval(pfncancel: PfnCryptCancelRetrieval, pvarg: ConstPtr<CVoid>, dwflags: UInt, pvreserved: ConstPtr<CVoid>): Bool =
+public actual fun cryptInstallCancelRetrieval(pfncancel: PfnCryptCancelRetrieval, pvarg: ConstPtr, dwflags: UInt, pvreserved: ConstPtr): Bool =
     WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCryptInstallCancelRetrieval(0L, pvarg.rawAddress, dwflags.toInt(), pvreserved.rawAddress)
 
-public actual fun cryptInstallDefaultContext(hcryptprov: ULong, dwdefaulttype: CryptDefaultContextType, pvdefaultpara: ConstPtr<CVoid>, dwflags: CryptDefaultContextFlags, pvreserved: ConstPtr<CVoid>, phdefaultcontext: MutPtr<MutPtr<CVoid>>): Bool =
+public actual fun cryptInstallDefaultContext(hcryptprov: ULong, dwdefaulttype: CryptDefaultContextType, pvdefaultpara: ConstPtr, dwflags: CryptDefaultContextFlags, pvreserved: ConstPtr, phdefaultcontext: MutPtr): Bool =
     WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCryptInstallDefaultContext(hcryptprov.toLong(), dwdefaulttype.toInt(), pvdefaultpara.rawAddress, dwflags.toInt(), pvreserved.rawAddress, phdefaultcontext.rawAddress)
 
-public actual fun cryptInstallOIDFunctionAddress(hmodule: Hmodule, dwencodingtype: UInt, pszfuncname: Pcstr, cfuncentry: UInt, rgfuncentry: ConstPtr<CryptOidFuncEntry>, dwflags: UInt): Bool =
+public actual fun cryptInstallOIDFunctionAddress(hmodule: Hmodule, dwencodingtype: UInt, pszfuncname: Pcstr, cfuncentry: UInt, rgfuncentry: ConstPtr, dwflags: UInt): Bool =
     WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCryptInstallOIDFunctionAddress(hmodule.rawAddress, dwencodingtype.toInt(), pszfuncname.rawAddress, cfuncentry.toInt(), rgfuncentry.rawAddress, dwflags.toInt())
 
-public actual fun cryptMemAlloc(cbsize: UInt): MutPtr<CVoid> =
+public actual fun cryptMemAlloc(cbsize: UInt): MutPtr =
     MutPtr(WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCryptMemAlloc(cbsize.toInt()))
 
-public actual fun cryptMemFree(pv: ConstPtr<CVoid>) {
+public actual fun cryptMemFree(pv: ConstPtr) {
     WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCryptMemFree(pv.rawAddress)
 }
 
-public actual fun cryptMemRealloc(pv: ConstPtr<CVoid>, cbsize: UInt): MutPtr<CVoid> =
+public actual fun cryptMemRealloc(pv: ConstPtr, cbsize: UInt): MutPtr =
     MutPtr(WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCryptMemRealloc(pv.rawAddress, cbsize.toInt()))
 
-public actual fun cryptMsgCalculateEncodedLength(dwmsgencodingtype: UInt, dwflags: UInt, dwmsgtype: UInt, pvmsgencodeinfo: ConstPtr<CVoid>, pszinnercontentobjid: Pcstr, cbdata: UInt): UInt =
+public actual fun cryptMsgCalculateEncodedLength(dwmsgencodingtype: UInt, dwflags: UInt, dwmsgtype: UInt, pvmsgencodeinfo: ConstPtr, pszinnercontentobjid: Pcstr, cbdata: UInt): UInt =
     WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCryptMsgCalculateEncodedLength(dwmsgencodingtype.toInt(), dwflags.toInt(), dwmsgtype.toInt(), pvmsgencodeinfo.rawAddress, pszinnercontentobjid.rawAddress, cbdata.toInt()).toUInt()
 
-public actual fun cryptMsgClose(hcryptmsg: ConstPtr<CVoid>): Bool =
+public actual fun cryptMsgClose(hcryptmsg: ConstPtr): Bool =
     WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCryptMsgClose(hcryptmsg.rawAddress)
 
-public actual fun cryptMsgControl(hcryptmsg: ConstPtr<CVoid>, dwflags: UInt, dwctrltype: UInt, pvctrlpara: ConstPtr<CVoid>): Bool =
+public actual fun cryptMsgControl(hcryptmsg: ConstPtr, dwflags: UInt, dwctrltype: UInt, pvctrlpara: ConstPtr): Bool =
     WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCryptMsgControl(hcryptmsg.rawAddress, dwflags.toInt(), dwctrltype.toInt(), pvctrlpara.rawAddress)
 
-public actual fun cryptMsgCountersign(hcryptmsg: ConstPtr<CVoid>, dwindex: UInt, ccountersigners: UInt, rgcountersigners: ConstPtr<CmsgSignerEncodeInfo>): Bool =
+public actual fun cryptMsgCountersign(hcryptmsg: ConstPtr, dwindex: UInt, ccountersigners: UInt, rgcountersigners: ConstPtr): Bool =
     WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCryptMsgCountersign(hcryptmsg.rawAddress, dwindex.toInt(), ccountersigners.toInt(), rgcountersigners.rawAddress)
 
-public actual fun cryptMsgCountersignEncoded(dwencodingtype: UInt, pbsignerinfo: ConstPtr<UByte>, cbsignerinfo: UInt, ccountersigners: UInt, rgcountersigners: ConstPtr<CmsgSignerEncodeInfo>, pbcountersignature: MutPtr<UByte>, pcbcountersignature: MutPtr<UInt>): Bool =
+public actual fun cryptMsgCountersignEncoded(dwencodingtype: UInt, pbsignerinfo: ConstPtr, cbsignerinfo: UInt, ccountersigners: UInt, rgcountersigners: ConstPtr, pbcountersignature: MutPtr, pcbcountersignature: MutPtr): Bool =
     WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCryptMsgCountersignEncoded(dwencodingtype.toInt(), pbsignerinfo.rawAddress, cbsignerinfo.toInt(), ccountersigners.toInt(), rgcountersigners.rawAddress, pbcountersignature.rawAddress, pcbcountersignature.rawAddress)
 
-public actual fun cryptMsgDuplicate(hcryptmsg: ConstPtr<CVoid>): MutPtr<CVoid> =
+public actual fun cryptMsgDuplicate(hcryptmsg: ConstPtr): MutPtr =
     MutPtr(WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCryptMsgDuplicate(hcryptmsg.rawAddress))
 
-public actual fun cryptMsgEncodeAndSignCTL(dwmsgencodingtype: UInt, pctlinfo: ConstPtr<CtlInfo>, psigninfo: ConstPtr<CmsgSignedEncodeInfo>, dwflags: UInt, pbencoded: MutPtr<UByte>, pcbencoded: MutPtr<UInt>): Bool =
+public actual fun cryptMsgEncodeAndSignCTL(dwmsgencodingtype: UInt, pctlinfo: ConstPtr, psigninfo: ConstPtr, dwflags: UInt, pbencoded: MutPtr, pcbencoded: MutPtr): Bool =
     WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCryptMsgEncodeAndSignCTL(dwmsgencodingtype.toInt(), pctlinfo.rawAddress, psigninfo.rawAddress, dwflags.toInt(), pbencoded.rawAddress, pcbencoded.rawAddress)
 
-public actual fun cryptMsgGetAndVerifySigner(hcryptmsg: ConstPtr<CVoid>, csignerstore: UInt, rghsignerstore: ConstPtr<Hcertstore>, dwflags: UInt, ppsigner: MutPtr<MutPtr<CertContext>>, pdwsignerindex: MutPtr<UInt>): Bool =
+public actual fun cryptMsgGetAndVerifySigner(hcryptmsg: ConstPtr, csignerstore: UInt, rghsignerstore: ConstPtr, dwflags: UInt, ppsigner: MutPtr, pdwsignerindex: MutPtr): Bool =
     WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCryptMsgGetAndVerifySigner(hcryptmsg.rawAddress, csignerstore.toInt(), rghsignerstore.rawAddress, dwflags.toInt(), ppsigner.rawAddress, pdwsignerindex.rawAddress)
 
-public actual fun cryptMsgGetParam(hcryptmsg: ConstPtr<CVoid>, dwparamtype: UInt, dwindex: UInt, pvdata: MutPtr<CVoid>, pcbdata: MutPtr<UInt>): Bool =
+public actual fun cryptMsgGetParam(hcryptmsg: ConstPtr, dwparamtype: UInt, dwindex: UInt, pvdata: MutPtr, pcbdata: MutPtr): Bool =
     WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCryptMsgGetParam(hcryptmsg.rawAddress, dwparamtype.toInt(), dwindex.toInt(), pvdata.rawAddress, pcbdata.rawAddress)
 
-public actual fun cryptMsgOpenToDecode(dwmsgencodingtype: UInt, dwflags: UInt, dwmsgtype: UInt, hcryptprov: HcryptprovLegacy, precipientinfo: ConstPtr<CertInfo>, pstreaminfo: ConstPtr<CmsgStreamInfo>): MutPtr<CVoid> =
+public actual fun cryptMsgOpenToDecode(dwmsgencodingtype: UInt, dwflags: UInt, dwmsgtype: UInt, hcryptprov: HcryptprovLegacy, precipientinfo: ConstPtr, pstreaminfo: ConstPtr): MutPtr =
     MutPtr(WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCryptMsgOpenToDecode(dwmsgencodingtype.toInt(), dwflags.toInt(), dwmsgtype.toInt(), hcryptprov.toLong(), precipientinfo.rawAddress, pstreaminfo.rawAddress))
 
-public actual fun cryptMsgOpenToEncode(dwmsgencodingtype: UInt, dwflags: UInt, dwmsgtype: CryptMsgType, pvmsgencodeinfo: ConstPtr<CVoid>, pszinnercontentobjid: Pcstr, pstreaminfo: ConstPtr<CmsgStreamInfo>): MutPtr<CVoid> =
+public actual fun cryptMsgOpenToEncode(dwmsgencodingtype: UInt, dwflags: UInt, dwmsgtype: CryptMsgType, pvmsgencodeinfo: ConstPtr, pszinnercontentobjid: Pcstr, pstreaminfo: ConstPtr): MutPtr =
     MutPtr(WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCryptMsgOpenToEncode(dwmsgencodingtype.toInt(), dwflags.toInt(), dwmsgtype.toInt(), pvmsgencodeinfo.rawAddress, pszinnercontentobjid.rawAddress, pstreaminfo.rawAddress))
 
-public actual fun cryptMsgSignCTL(dwmsgencodingtype: UInt, pbctlcontent: ConstPtr<UByte>, cbctlcontent: UInt, psigninfo: ConstPtr<CmsgSignedEncodeInfo>, dwflags: UInt, pbencoded: MutPtr<UByte>, pcbencoded: MutPtr<UInt>): Bool =
+public actual fun cryptMsgSignCTL(dwmsgencodingtype: UInt, pbctlcontent: ConstPtr, cbctlcontent: UInt, psigninfo: ConstPtr, dwflags: UInt, pbencoded: MutPtr, pcbencoded: MutPtr): Bool =
     WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCryptMsgSignCTL(dwmsgencodingtype.toInt(), pbctlcontent.rawAddress, cbctlcontent.toInt(), psigninfo.rawAddress, dwflags.toInt(), pbencoded.rawAddress, pcbencoded.rawAddress)
 
-public actual fun cryptMsgUpdate(hcryptmsg: ConstPtr<CVoid>, pbdata: ConstPtr<UByte>, cbdata: UInt, ffinal: Bool): Bool =
+public actual fun cryptMsgUpdate(hcryptmsg: ConstPtr, pbdata: ConstPtr, cbdata: UInt, ffinal: Bool): Bool =
     WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCryptMsgUpdate(hcryptmsg.rawAddress, pbdata.rawAddress, cbdata.toInt(), ffinal)
 
-public actual fun cryptMsgVerifyCountersignatureEncoded(hcryptprov: HcryptprovLegacy, dwencodingtype: UInt, pbsignerinfo: ConstPtr<UByte>, cbsignerinfo: UInt, pbsignerinfocountersignature: ConstPtr<UByte>, cbsignerinfocountersignature: UInt, pcicountersigner: ConstPtr<CertInfo>): Bool =
+public actual fun cryptMsgVerifyCountersignatureEncoded(hcryptprov: HcryptprovLegacy, dwencodingtype: UInt, pbsignerinfo: ConstPtr, cbsignerinfo: UInt, pbsignerinfocountersignature: ConstPtr, cbsignerinfocountersignature: UInt, pcicountersigner: ConstPtr): Bool =
     WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCryptMsgVerifyCountersignatureEncoded(hcryptprov.toLong(), dwencodingtype.toInt(), pbsignerinfo.rawAddress, cbsignerinfo.toInt(), pbsignerinfocountersignature.rawAddress, cbsignerinfocountersignature.toInt(), pcicountersigner.rawAddress)
 
-public actual fun cryptMsgVerifyCountersignatureEncodedEx(hcryptprov: HcryptprovLegacy, dwencodingtype: UInt, pbsignerinfo: ConstPtr<UByte>, cbsignerinfo: UInt, pbsignerinfocountersignature: ConstPtr<UByte>, cbsignerinfocountersignature: UInt, dwsignertype: UInt, pvsigner: ConstPtr<CVoid>, dwflags: UInt, pvextra: MutPtr<CVoid>): Bool =
+public actual fun cryptMsgVerifyCountersignatureEncodedEx(hcryptprov: HcryptprovLegacy, dwencodingtype: UInt, pbsignerinfo: ConstPtr, cbsignerinfo: UInt, pbsignerinfocountersignature: ConstPtr, cbsignerinfocountersignature: UInt, dwsignertype: UInt, pvsigner: ConstPtr, dwflags: UInt, pvextra: MutPtr): Bool =
     WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCryptMsgVerifyCountersignatureEncodedEx(hcryptprov.toLong(), dwencodingtype.toInt(), pbsignerinfo.rawAddress, cbsignerinfo.toInt(), pbsignerinfocountersignature.rawAddress, cbsignerinfocountersignature.toInt(), dwsignertype.toInt(), pvsigner.rawAddress, dwflags.toInt(), pvextra.rawAddress)
 
-public actual fun cryptProtectData(pdatain: ConstPtr<CryptIntegerBlob>, szdatadescr: Pcwstr, poptionalentropy: ConstPtr<CryptIntegerBlob>, pvreserved: ConstPtr<CVoid>, ppromptstruct: ConstPtr<CryptprotectPromptstruct>, dwflags: UInt, pdataout: MutPtr<CryptIntegerBlob>): Bool =
+public actual fun cryptProtectData(pdatain: ConstPtr, szdatadescr: Pcwstr, poptionalentropy: ConstPtr, pvreserved: ConstPtr, ppromptstruct: ConstPtr, dwflags: UInt, pdataout: MutPtr): Bool =
     WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCryptProtectData(pdatain.rawAddress, szdatadescr.rawAddress, poptionalentropy.rawAddress, pvreserved.rawAddress, ppromptstruct.rawAddress, dwflags.toInt(), pdataout.rawAddress)
 
-public actual fun cryptProtectMemory(pdatain: MutPtr<CVoid>, cbdatain: UInt, dwflags: UInt): Bool =
+public actual fun cryptProtectMemory(pdatain: MutPtr, cbdatain: UInt, dwflags: UInt): Bool =
     WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCryptProtectMemory(pdatain.rawAddress, cbdatain.toInt(), dwflags.toInt())
 
-public actual fun cryptQueryObject(dwobjecttype: CertQueryObjectType, pvobject: ConstPtr<CVoid>, dwexpectedcontenttypeflags: CertQueryContentTypeFlags, dwexpectedformattypeflags: CertQueryFormatTypeFlags, dwflags: UInt, pdwmsgandcertencodingtype: MutPtr<CertQueryEncodingType>, pdwcontenttype: MutPtr<CertQueryContentType>, pdwformattype: MutPtr<CertQueryFormatType>, phcertstore: MutPtr<Hcertstore>, phmsg: MutPtr<MutPtr<CVoid>>, ppvcontext: MutPtr<MutPtr<CVoid>>): Bool =
+public actual fun cryptQueryObject(dwobjecttype: CertQueryObjectType, pvobject: ConstPtr, dwexpectedcontenttypeflags: CertQueryContentTypeFlags, dwexpectedformattypeflags: CertQueryFormatTypeFlags, dwflags: UInt, pdwmsgandcertencodingtype: MutPtr, pdwcontenttype: MutPtr, pdwformattype: MutPtr, phcertstore: MutPtr, phmsg: MutPtr, ppvcontext: MutPtr): Bool =
     WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCryptQueryObject(dwobjecttype.toInt(), pvobject.rawAddress, dwexpectedcontenttypeflags.toInt(), dwexpectedformattypeflags.toInt(), dwflags.toInt(), pdwmsgandcertencodingtype.rawAddress, pdwcontenttype.rawAddress, pdwformattype.rawAddress, phcertstore.rawAddress, phmsg.rawAddress, ppvcontext.rawAddress)
 
 public actual fun cryptRegisterDefaultOIDFunction(dwencodingtype: UInt, pszfuncname: Pcstr, dwindex: UInt, pwszdll: Pcwstr): Bool =
@@ -2272,88 +2268,88 @@ public actual fun cryptRegisterDefaultOIDFunction(dwencodingtype: UInt, pszfuncn
 public actual fun cryptRegisterOIDFunction(dwencodingtype: UInt, pszfuncname: Pcstr, pszoid: Pcstr, pwszdll: Pcwstr, pszoverridefuncname: Pcstr): Bool =
     WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCryptRegisterOIDFunction(dwencodingtype.toInt(), pszfuncname.rawAddress, pszoid.rawAddress, pwszdll.rawAddress, pszoverridefuncname.rawAddress)
 
-public actual fun cryptRegisterOIDInfo(pinfo: ConstPtr<CryptOidInfo>, dwflags: UInt): Bool =
+public actual fun cryptRegisterOIDInfo(pinfo: ConstPtr, dwflags: UInt): Bool =
     WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCryptRegisterOIDInfo(pinfo.rawAddress, dwflags.toInt())
 
 public actual fun cryptReleaseContext(hprov: ULong, dwflags: UInt): Bool =
     WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCryptReleaseContext(hprov.toLong(), dwflags.toInt())
 
-public actual fun cryptRetrieveObjectByUrlA(pszurl: Pcstr, pszobjectoid: Pcstr, dwretrievalflags: UInt, dwtimeout: UInt, ppvobject: MutPtr<MutPtr<CVoid>>, hasyncretrieve: Hcryptasync, pcredentials: ConstPtr<CryptCredentials>, pvverify: ConstPtr<CVoid>, pauxinfo: MutPtr<CryptRetrieveAuxInfo>): Bool =
+public actual fun cryptRetrieveObjectByUrlA(pszurl: Pcstr, pszobjectoid: Pcstr, dwretrievalflags: UInt, dwtimeout: UInt, ppvobject: MutPtr, hasyncretrieve: Hcryptasync, pcredentials: ConstPtr, pvverify: ConstPtr, pauxinfo: MutPtr): Bool =
     WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCryptRetrieveObjectByUrlA(pszurl.rawAddress, pszobjectoid.rawAddress, dwretrievalflags.toInt(), dwtimeout.toInt(), ppvobject.rawAddress, hasyncretrieve, pcredentials.rawAddress, pvverify.rawAddress, pauxinfo.rawAddress)
 
-public actual fun cryptRetrieveObjectByUrlW(pszurl: Pcwstr, pszobjectoid: Pcstr, dwretrievalflags: UInt, dwtimeout: UInt, ppvobject: MutPtr<MutPtr<CVoid>>, hasyncretrieve: Hcryptasync, pcredentials: ConstPtr<CryptCredentials>, pvverify: ConstPtr<CVoid>, pauxinfo: MutPtr<CryptRetrieveAuxInfo>): Bool =
+public actual fun cryptRetrieveObjectByUrlW(pszurl: Pcwstr, pszobjectoid: Pcstr, dwretrievalflags: UInt, dwtimeout: UInt, ppvobject: MutPtr, hasyncretrieve: Hcryptasync, pcredentials: ConstPtr, pvverify: ConstPtr, pauxinfo: MutPtr): Bool =
     WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCryptRetrieveObjectByUrlW(pszurl.rawAddress, pszobjectoid.rawAddress, dwretrievalflags.toInt(), dwtimeout.toInt(), ppvobject.rawAddress, hasyncretrieve, pcredentials.rawAddress, pvverify.rawAddress, pauxinfo.rawAddress)
 
-public actual fun cryptRetrieveTimeStamp(wszurl: Pcwstr, dwretrievalflags: UInt, dwtimeout: UInt, pszhashid: Pcstr, ppara: ConstPtr<CryptTimestampPara>, pbdata: ConstPtr<UByte>, cbdata: UInt, pptscontext: MutPtr<MutPtr<CryptTimestampContext>>, pptssigner: MutPtr<MutPtr<CertContext>>, phstore: MutPtr<Hcertstore>): Bool =
+public actual fun cryptRetrieveTimeStamp(wszurl: Pcwstr, dwretrievalflags: UInt, dwtimeout: UInt, pszhashid: Pcstr, ppara: ConstPtr, pbdata: ConstPtr, cbdata: UInt, pptscontext: MutPtr, pptssigner: MutPtr, phstore: MutPtr): Bool =
     WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCryptRetrieveTimeStamp(wszurl.rawAddress, dwretrievalflags.toInt(), dwtimeout.toInt(), pszhashid.rawAddress, ppara.rawAddress, pbdata.rawAddress, cbdata.toInt(), pptscontext.rawAddress, pptssigner.rawAddress, phstore.rawAddress)
 
-public actual fun cryptSetAsyncParam(hasync: Hcryptasync, pszparamoid: Pcstr, pvparam: ConstPtr<CVoid>, pfnfree: PfnCryptAsyncParamFreeFunc): Bool =
+public actual fun cryptSetAsyncParam(hasync: Hcryptasync, pszparamoid: Pcstr, pvparam: ConstPtr, pfnfree: PfnCryptAsyncParamFreeFunc): Bool =
     WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCryptSetAsyncParam(hasync, pszparamoid.rawAddress, pvparam.rawAddress, 0L)
 
-public actual fun cryptSetHashParam(hhash: ULong, dwparam: CryptSetHashParam, pbdata: ConstPtr<UByte>, dwflags: UInt): Bool =
+public actual fun cryptSetHashParam(hhash: ULong, dwparam: CryptSetHashParam, pbdata: ConstPtr, dwflags: UInt): Bool =
     WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCryptSetHashParam(hhash.toLong(), dwparam.toInt(), pbdata.rawAddress, dwflags.toInt())
 
-public actual fun cryptSetKeyIdentifierProperty(pkeyidentifier: ConstPtr<CryptIntegerBlob>, dwpropid: UInt, dwflags: UInt, pwszcomputername: Pcwstr, pvreserved: ConstPtr<CVoid>, pvdata: ConstPtr<CVoid>): Bool =
+public actual fun cryptSetKeyIdentifierProperty(pkeyidentifier: ConstPtr, dwpropid: UInt, dwflags: UInt, pwszcomputername: Pcwstr, pvreserved: ConstPtr, pvdata: ConstPtr): Bool =
     WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCryptSetKeyIdentifierProperty(pkeyidentifier.rawAddress, dwpropid.toInt(), dwflags.toInt(), pwszcomputername.rawAddress, pvreserved.rawAddress, pvdata.rawAddress)
 
-public actual fun cryptSetKeyParam(hkey: ULong, dwparam: CryptKeyParamId, pbdata: ConstPtr<UByte>, dwflags: UInt): Bool =
+public actual fun cryptSetKeyParam(hkey: ULong, dwparam: CryptKeyParamId, pbdata: ConstPtr, dwflags: UInt): Bool =
     WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCryptSetKeyParam(hkey.toLong(), dwparam.toInt(), pbdata.rawAddress, dwflags.toInt())
 
-public actual fun cryptSetOIDFunctionValue(dwencodingtype: UInt, pszfuncname: Pcstr, pszoid: Pcstr, pwszvaluename: Pcwstr, dwvaluetype: RegValueType, pbvaluedata: ConstPtr<UByte>, cbvaluedata: UInt): Bool =
+public actual fun cryptSetOIDFunctionValue(dwencodingtype: UInt, pszfuncname: Pcstr, pszoid: Pcstr, pwszvaluename: Pcwstr, dwvaluetype: RegValueType, pbvaluedata: ConstPtr, cbvaluedata: UInt): Bool =
     WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCryptSetOIDFunctionValue(dwencodingtype.toInt(), pszfuncname.rawAddress, pszoid.rawAddress, pwszvaluename.rawAddress, dwvaluetype.toInt(), pbvaluedata.rawAddress, cbvaluedata.toInt())
 
-public actual fun cryptSetProvParam(hprov: ULong, dwparam: CryptSetProvParamId, pbdata: ConstPtr<UByte>, dwflags: UInt): Bool =
+public actual fun cryptSetProvParam(hprov: ULong, dwparam: CryptSetProvParamId, pbdata: ConstPtr, dwflags: UInt): Bool =
     WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCryptSetProvParam(hprov.toLong(), dwparam.toInt(), pbdata.rawAddress, dwflags.toInt())
 
 public actual fun cryptSetProviderA(pszprovname: Pcstr, dwprovtype: UInt): Bool =
     WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCryptSetProviderA(pszprovname.rawAddress, dwprovtype.toInt())
 
-public actual fun cryptSetProviderExA(pszprovname: Pcstr, dwprovtype: UInt, pdwreserved: ConstPtr<UInt>, dwflags: UInt): Bool =
+public actual fun cryptSetProviderExA(pszprovname: Pcstr, dwprovtype: UInt, pdwreserved: ConstPtr, dwflags: UInt): Bool =
     WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCryptSetProviderExA(pszprovname.rawAddress, dwprovtype.toInt(), pdwreserved.rawAddress, dwflags.toInt())
 
-public actual fun cryptSetProviderExW(pszprovname: Pcwstr, dwprovtype: UInt, pdwreserved: ConstPtr<UInt>, dwflags: UInt): Bool =
+public actual fun cryptSetProviderExW(pszprovname: Pcwstr, dwprovtype: UInt, pdwreserved: ConstPtr, dwflags: UInt): Bool =
     WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCryptSetProviderExW(pszprovname.rawAddress, dwprovtype.toInt(), pdwreserved.rawAddress, dwflags.toInt())
 
 public actual fun cryptSetProviderW(pszprovname: Pcwstr, dwprovtype: UInt): Bool =
     WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCryptSetProviderW(pszprovname.rawAddress, dwprovtype.toInt())
 
-public actual fun cryptSignAndEncodeCertificate(hcryptprovorncryptkey: HcryptprovOrNcryptKeyHandle, dwkeyspec: CertKeySpec, dwcertencodingtype: CertQueryEncodingType, lpszstructtype: Pcstr, pvstructinfo: ConstPtr<CVoid>, psignaturealgorithm: ConstPtr<CryptAlgorithmIdentifier>, pvhashauxinfo: ConstPtr<CVoid>, pbencoded: MutPtr<UByte>, pcbencoded: MutPtr<UInt>): Bool =
+public actual fun cryptSignAndEncodeCertificate(hcryptprovorncryptkey: HcryptprovOrNcryptKeyHandle, dwkeyspec: CertKeySpec, dwcertencodingtype: CertQueryEncodingType, lpszstructtype: Pcstr, pvstructinfo: ConstPtr, psignaturealgorithm: ConstPtr, pvhashauxinfo: ConstPtr, pbencoded: MutPtr, pcbencoded: MutPtr): Bool =
     WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCryptSignAndEncodeCertificate(hcryptprovorncryptkey.toLong(), dwkeyspec.toInt(), dwcertencodingtype.toInt(), lpszstructtype.rawAddress, pvstructinfo.rawAddress, psignaturealgorithm.rawAddress, pvhashauxinfo.rawAddress, pbencoded.rawAddress, pcbencoded.rawAddress)
 
-public actual fun cryptSignAndEncryptMessage(psignpara: ConstPtr<CryptSignMessagePara>, pencryptpara: ConstPtr<CryptEncryptMessagePara>, crecipientcert: UInt, rgprecipientcert: ConstPtr<ConstPtr<CertContext>>, pbtobesignedandencrypted: ConstPtr<UByte>, cbtobesignedandencrypted: UInt, pbsignedandencryptedblob: MutPtr<UByte>, pcbsignedandencryptedblob: MutPtr<UInt>): Bool =
+public actual fun cryptSignAndEncryptMessage(psignpara: ConstPtr, pencryptpara: ConstPtr, crecipientcert: UInt, rgprecipientcert: ConstPtr, pbtobesignedandencrypted: ConstPtr, cbtobesignedandencrypted: UInt, pbsignedandencryptedblob: MutPtr, pcbsignedandencryptedblob: MutPtr): Bool =
     WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCryptSignAndEncryptMessage(psignpara.rawAddress, pencryptpara.rawAddress, crecipientcert.toInt(), rgprecipientcert.rawAddress, pbtobesignedandencrypted.rawAddress, cbtobesignedandencrypted.toInt(), pbsignedandencryptedblob.rawAddress, pcbsignedandencryptedblob.rawAddress)
 
-public actual fun cryptSignCertificate(hcryptprovorncryptkey: HcryptprovOrNcryptKeyHandle, dwkeyspec: UInt, dwcertencodingtype: CertQueryEncodingType, pbencodedtobesigned: ConstPtr<UByte>, cbencodedtobesigned: UInt, psignaturealgorithm: ConstPtr<CryptAlgorithmIdentifier>, pvhashauxinfo: ConstPtr<CVoid>, pbsignature: MutPtr<UByte>, pcbsignature: MutPtr<UInt>): Bool =
+public actual fun cryptSignCertificate(hcryptprovorncryptkey: HcryptprovOrNcryptKeyHandle, dwkeyspec: UInt, dwcertencodingtype: CertQueryEncodingType, pbencodedtobesigned: ConstPtr, cbencodedtobesigned: UInt, psignaturealgorithm: ConstPtr, pvhashauxinfo: ConstPtr, pbsignature: MutPtr, pcbsignature: MutPtr): Bool =
     WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCryptSignCertificate(hcryptprovorncryptkey.toLong(), dwkeyspec.toInt(), dwcertencodingtype.toInt(), pbencodedtobesigned.rawAddress, cbencodedtobesigned.toInt(), psignaturealgorithm.rawAddress, pvhashauxinfo.rawAddress, pbsignature.rawAddress, pcbsignature.rawAddress)
 
-public actual fun cryptSignHashA(hhash: ULong, dwkeyspec: UInt, szdescription: Pcstr, dwflags: UInt, pbsignature: MutPtr<UByte>, pdwsiglen: MutPtr<UInt>): Bool =
+public actual fun cryptSignHashA(hhash: ULong, dwkeyspec: UInt, szdescription: Pcstr, dwflags: UInt, pbsignature: MutPtr, pdwsiglen: MutPtr): Bool =
     WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCryptSignHashA(hhash.toLong(), dwkeyspec.toInt(), szdescription.rawAddress, dwflags.toInt(), pbsignature.rawAddress, pdwsiglen.rawAddress)
 
-public actual fun cryptSignHashW(hhash: ULong, dwkeyspec: UInt, szdescription: Pcwstr, dwflags: UInt, pbsignature: MutPtr<UByte>, pdwsiglen: MutPtr<UInt>): Bool =
+public actual fun cryptSignHashW(hhash: ULong, dwkeyspec: UInt, szdescription: Pcwstr, dwflags: UInt, pbsignature: MutPtr, pdwsiglen: MutPtr): Bool =
     WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCryptSignHashW(hhash.toLong(), dwkeyspec.toInt(), szdescription.rawAddress, dwflags.toInt(), pbsignature.rawAddress, pdwsiglen.rawAddress)
 
-public actual fun cryptSignMessage(psignpara: ConstPtr<CryptSignMessagePara>, fdetachedsignature: Bool, ctobesigned: UInt, rgpbtobesigned: ConstPtr<ConstPtr<UByte>>, rgcbtobesigned: ConstPtr<UInt>, pbsignedblob: MutPtr<UByte>, pcbsignedblob: MutPtr<UInt>): Bool =
+public actual fun cryptSignMessage(psignpara: ConstPtr, fdetachedsignature: Bool, ctobesigned: UInt, rgpbtobesigned: ConstPtr, rgcbtobesigned: ConstPtr, pbsignedblob: MutPtr, pcbsignedblob: MutPtr): Bool =
     WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCryptSignMessage(psignpara.rawAddress, fdetachedsignature, ctobesigned.toInt(), rgpbtobesigned.rawAddress, rgcbtobesigned.rawAddress, pbsignedblob.rawAddress, pcbsignedblob.rawAddress)
 
-public actual fun cryptSignMessageWithKey(psignpara: ConstPtr<CryptKeySignMessagePara>, pbtobesigned: ConstPtr<UByte>, cbtobesigned: UInt, pbsignedblob: MutPtr<UByte>, pcbsignedblob: MutPtr<UInt>): Bool =
+public actual fun cryptSignMessageWithKey(psignpara: ConstPtr, pbtobesigned: ConstPtr, cbtobesigned: UInt, pbsignedblob: MutPtr, pcbsignedblob: MutPtr): Bool =
     WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCryptSignMessageWithKey(psignpara.rawAddress, pbtobesigned.rawAddress, cbtobesigned.toInt(), pbsignedblob.rawAddress, pcbsignedblob.rawAddress)
 
-public actual fun cryptStringToBinaryA(pszstring: Pcstr, cchstring: UInt, dwflags: CryptString, pbbinary: MutPtr<UByte>, pcbbinary: MutPtr<UInt>, pdwskip: MutPtr<UInt>, pdwflags: MutPtr<UInt>): Bool =
+public actual fun cryptStringToBinaryA(pszstring: Pcstr, cchstring: UInt, dwflags: CryptString, pbbinary: MutPtr, pcbbinary: MutPtr, pdwskip: MutPtr, pdwflags: MutPtr): Bool =
     WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCryptStringToBinaryA(pszstring.rawAddress, cchstring.toInt(), dwflags.toInt(), pbbinary.rawAddress, pcbbinary.rawAddress, pdwskip.rawAddress, pdwflags.rawAddress)
 
-public actual fun cryptStringToBinaryW(pszstring: Pcwstr, cchstring: UInt, dwflags: CryptString, pbbinary: MutPtr<UByte>, pcbbinary: MutPtr<UInt>, pdwskip: MutPtr<UInt>, pdwflags: MutPtr<UInt>): Bool =
+public actual fun cryptStringToBinaryW(pszstring: Pcwstr, cchstring: UInt, dwflags: CryptString, pbbinary: MutPtr, pcbbinary: MutPtr, pdwskip: MutPtr, pdwflags: MutPtr): Bool =
     WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCryptStringToBinaryW(pszstring.rawAddress, cchstring.toInt(), dwflags.toInt(), pbbinary.rawAddress, pcbbinary.rawAddress, pdwskip.rawAddress, pdwflags.rawAddress)
 
-public actual fun cryptUninstallCancelRetrieval(dwflags: UInt, pvreserved: ConstPtr<CVoid>): Bool =
+public actual fun cryptUninstallCancelRetrieval(dwflags: UInt, pvreserved: ConstPtr): Bool =
     WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCryptUninstallCancelRetrieval(dwflags.toInt(), pvreserved.rawAddress)
 
-public actual fun cryptUninstallDefaultContext(hdefaultcontext: ConstPtr<CVoid>, dwflags: UInt, pvreserved: ConstPtr<CVoid>): Bool =
+public actual fun cryptUninstallDefaultContext(hdefaultcontext: ConstPtr, dwflags: UInt, pvreserved: ConstPtr): Bool =
     WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCryptUninstallDefaultContext(hdefaultcontext.rawAddress, dwflags.toInt(), pvreserved.rawAddress)
 
-public actual fun cryptUnprotectData(pdatain: ConstPtr<CryptIntegerBlob>, ppszdatadescr: MutPtr<Pwstr>, poptionalentropy: ConstPtr<CryptIntegerBlob>, pvreserved: ConstPtr<CVoid>, ppromptstruct: ConstPtr<CryptprotectPromptstruct>, dwflags: UInt, pdataout: MutPtr<CryptIntegerBlob>): Bool =
+public actual fun cryptUnprotectData(pdatain: ConstPtr, ppszdatadescr: MutPtr, poptionalentropy: ConstPtr, pvreserved: ConstPtr, ppromptstruct: ConstPtr, dwflags: UInt, pdataout: MutPtr): Bool =
     WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCryptUnprotectData(pdatain.rawAddress, ppszdatadescr.rawAddress, poptionalentropy.rawAddress, pvreserved.rawAddress, ppromptstruct.rawAddress, dwflags.toInt(), pdataout.rawAddress)
 
-public actual fun cryptUnprotectMemory(pdatain: MutPtr<CVoid>, cbdatain: UInt, dwflags: UInt): Bool =
+public actual fun cryptUnprotectMemory(pdatain: MutPtr, cbdatain: UInt, dwflags: UInt): Bool =
     WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCryptUnprotectMemory(pdatain.rawAddress, cbdatain.toInt(), dwflags.toInt())
 
 public actual fun cryptUnregisterDefaultOIDFunction(dwencodingtype: UInt, pszfuncname: Pcstr, pwszdll: Pcwstr): Bool =
@@ -2362,157 +2358,157 @@ public actual fun cryptUnregisterDefaultOIDFunction(dwencodingtype: UInt, pszfun
 public actual fun cryptUnregisterOIDFunction(dwencodingtype: UInt, pszfuncname: Pcstr, pszoid: Pcstr): Bool =
     WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCryptUnregisterOIDFunction(dwencodingtype.toInt(), pszfuncname.rawAddress, pszoid.rawAddress)
 
-public actual fun cryptUnregisterOIDInfo(pinfo: ConstPtr<CryptOidInfo>): Bool =
+public actual fun cryptUnregisterOIDInfo(pinfo: ConstPtr): Bool =
     WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCryptUnregisterOIDInfo(pinfo.rawAddress)
 
-public actual fun cryptUpdateProtectedState(poldsid: Psid, pwszoldpassword: Pcwstr, dwflags: UInt, pdwsuccesscount: MutPtr<UInt>, pdwfailurecount: MutPtr<UInt>): Bool =
+public actual fun cryptUpdateProtectedState(poldsid: Psid, pwszoldpassword: Pcwstr, dwflags: UInt, pdwsuccesscount: MutPtr, pdwfailurecount: MutPtr): Bool =
     WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCryptUpdateProtectedState(poldsid.rawAddress, pwszoldpassword.rawAddress, dwflags.toInt(), pdwsuccesscount.rawAddress, pdwfailurecount.rawAddress)
 
-public actual fun cryptVerifyCertificateSignature(hcryptprov: HcryptprovLegacy, dwcertencodingtype: CertQueryEncodingType, pbencoded: ConstPtr<UByte>, cbencoded: UInt, ppublickey: ConstPtr<CertPublicKeyInfo>): Bool =
+public actual fun cryptVerifyCertificateSignature(hcryptprov: HcryptprovLegacy, dwcertencodingtype: CertQueryEncodingType, pbencoded: ConstPtr, cbencoded: UInt, ppublickey: ConstPtr): Bool =
     WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCryptVerifyCertificateSignature(hcryptprov.toLong(), dwcertencodingtype.toInt(), pbencoded.rawAddress, cbencoded.toInt(), ppublickey.rawAddress)
 
-public actual fun cryptVerifyCertificateSignatureEx(hcryptprov: HcryptprovLegacy, dwcertencodingtype: CertQueryEncodingType, dwsubjecttype: UInt, pvsubject: ConstPtr<CVoid>, dwissuertype: UInt, pvissuer: ConstPtr<CVoid>, dwflags: CryptVerifyCertFlags, pvextra: MutPtr<CVoid>): Bool =
+public actual fun cryptVerifyCertificateSignatureEx(hcryptprov: HcryptprovLegacy, dwcertencodingtype: CertQueryEncodingType, dwsubjecttype: UInt, pvsubject: ConstPtr, dwissuertype: UInt, pvissuer: ConstPtr, dwflags: CryptVerifyCertFlags, pvextra: MutPtr): Bool =
     WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCryptVerifyCertificateSignatureEx(hcryptprov.toLong(), dwcertencodingtype.toInt(), dwsubjecttype.toInt(), pvsubject.rawAddress, dwissuertype.toInt(), pvissuer.rawAddress, dwflags.toInt(), pvextra.rawAddress)
 
-public actual fun cryptVerifyDetachedMessageHash(phashpara: ConstPtr<CryptHashMessagePara>, pbdetachedhashblob: ConstPtr<UByte>, cbdetachedhashblob: UInt, ctobehashed: UInt, rgpbtobehashed: ConstPtr<ConstPtr<UByte>>, rgcbtobehashed: ConstPtr<UInt>, pbcomputedhash: MutPtr<UByte>, pcbcomputedhash: MutPtr<UInt>): Bool =
+public actual fun cryptVerifyDetachedMessageHash(phashpara: ConstPtr, pbdetachedhashblob: ConstPtr, cbdetachedhashblob: UInt, ctobehashed: UInt, rgpbtobehashed: ConstPtr, rgcbtobehashed: ConstPtr, pbcomputedhash: MutPtr, pcbcomputedhash: MutPtr): Bool =
     WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCryptVerifyDetachedMessageHash(phashpara.rawAddress, pbdetachedhashblob.rawAddress, cbdetachedhashblob.toInt(), ctobehashed.toInt(), rgpbtobehashed.rawAddress, rgcbtobehashed.rawAddress, pbcomputedhash.rawAddress, pcbcomputedhash.rawAddress)
 
-public actual fun cryptVerifyDetachedMessageSignature(pverifypara: ConstPtr<CryptVerifyMessagePara>, dwsignerindex: UInt, pbdetachedsignblob: ConstPtr<UByte>, cbdetachedsignblob: UInt, ctobesigned: UInt, rgpbtobesigned: ConstPtr<ConstPtr<UByte>>, rgcbtobesigned: ConstPtr<UInt>, ppsignercert: MutPtr<MutPtr<CertContext>>): Bool =
+public actual fun cryptVerifyDetachedMessageSignature(pverifypara: ConstPtr, dwsignerindex: UInt, pbdetachedsignblob: ConstPtr, cbdetachedsignblob: UInt, ctobesigned: UInt, rgpbtobesigned: ConstPtr, rgcbtobesigned: ConstPtr, ppsignercert: MutPtr): Bool =
     WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCryptVerifyDetachedMessageSignature(pverifypara.rawAddress, dwsignerindex.toInt(), pbdetachedsignblob.rawAddress, cbdetachedsignblob.toInt(), ctobesigned.toInt(), rgpbtobesigned.rawAddress, rgcbtobesigned.rawAddress, ppsignercert.rawAddress)
 
-public actual fun cryptVerifyMessageHash(phashpara: ConstPtr<CryptHashMessagePara>, pbhashedblob: ConstPtr<UByte>, cbhashedblob: UInt, pbtobehashed: MutPtr<UByte>, pcbtobehashed: MutPtr<UInt>, pbcomputedhash: MutPtr<UByte>, pcbcomputedhash: MutPtr<UInt>): Bool =
+public actual fun cryptVerifyMessageHash(phashpara: ConstPtr, pbhashedblob: ConstPtr, cbhashedblob: UInt, pbtobehashed: MutPtr, pcbtobehashed: MutPtr, pbcomputedhash: MutPtr, pcbcomputedhash: MutPtr): Bool =
     WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCryptVerifyMessageHash(phashpara.rawAddress, pbhashedblob.rawAddress, cbhashedblob.toInt(), pbtobehashed.rawAddress, pcbtobehashed.rawAddress, pbcomputedhash.rawAddress, pcbcomputedhash.rawAddress)
 
-public actual fun cryptVerifyMessageSignature(pverifypara: ConstPtr<CryptVerifyMessagePara>, dwsignerindex: UInt, pbsignedblob: ConstPtr<UByte>, cbsignedblob: UInt, pbdecoded: MutPtr<UByte>, pcbdecoded: MutPtr<UInt>, ppsignercert: MutPtr<MutPtr<CertContext>>): Bool =
+public actual fun cryptVerifyMessageSignature(pverifypara: ConstPtr, dwsignerindex: UInt, pbsignedblob: ConstPtr, cbsignedblob: UInt, pbdecoded: MutPtr, pcbdecoded: MutPtr, ppsignercert: MutPtr): Bool =
     WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCryptVerifyMessageSignature(pverifypara.rawAddress, dwsignerindex.toInt(), pbsignedblob.rawAddress, cbsignedblob.toInt(), pbdecoded.rawAddress, pcbdecoded.rawAddress, ppsignercert.rawAddress)
 
-public actual fun cryptVerifyMessageSignatureWithKey(pverifypara: ConstPtr<CryptKeyVerifyMessagePara>, ppublickeyinfo: ConstPtr<CertPublicKeyInfo>, pbsignedblob: ConstPtr<UByte>, cbsignedblob: UInt, pbdecoded: MutPtr<UByte>, pcbdecoded: MutPtr<UInt>): Bool =
+public actual fun cryptVerifyMessageSignatureWithKey(pverifypara: ConstPtr, ppublickeyinfo: ConstPtr, pbsignedblob: ConstPtr, cbsignedblob: UInt, pbdecoded: MutPtr, pcbdecoded: MutPtr): Bool =
     WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCryptVerifyMessageSignatureWithKey(pverifypara.rawAddress, ppublickeyinfo.rawAddress, pbsignedblob.rawAddress, cbsignedblob.toInt(), pbdecoded.rawAddress, pcbdecoded.rawAddress)
 
-public actual fun cryptVerifySignatureA(hhash: ULong, pbsignature: ConstPtr<UByte>, dwsiglen: UInt, hpubkey: ULong, szdescription: Pcstr, dwflags: UInt): Bool =
+public actual fun cryptVerifySignatureA(hhash: ULong, pbsignature: ConstPtr, dwsiglen: UInt, hpubkey: ULong, szdescription: Pcstr, dwflags: UInt): Bool =
     WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCryptVerifySignatureA(hhash.toLong(), pbsignature.rawAddress, dwsiglen.toInt(), hpubkey.toLong(), szdescription.rawAddress, dwflags.toInt())
 
-public actual fun cryptVerifySignatureW(hhash: ULong, pbsignature: ConstPtr<UByte>, dwsiglen: UInt, hpubkey: ULong, szdescription: Pcwstr, dwflags: UInt): Bool =
+public actual fun cryptVerifySignatureW(hhash: ULong, pbsignature: ConstPtr, dwsiglen: UInt, hpubkey: ULong, szdescription: Pcwstr, dwflags: UInt): Bool =
     WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCryptVerifySignatureW(hhash.toLong(), pbsignature.rawAddress, dwsiglen.toInt(), hpubkey.toLong(), szdescription.rawAddress, dwflags.toInt())
 
-public actual fun cryptVerifyTimeStampSignature(pbtscontentinfo: ConstPtr<UByte>, cbtscontentinfo: UInt, pbdata: ConstPtr<UByte>, cbdata: UInt, hadditionalstore: Hcertstore, pptscontext: MutPtr<MutPtr<CryptTimestampContext>>, pptssigner: MutPtr<MutPtr<CertContext>>, phstore: MutPtr<Hcertstore>): Bool =
+public actual fun cryptVerifyTimeStampSignature(pbtscontentinfo: ConstPtr, cbtscontentinfo: UInt, pbdata: ConstPtr, cbdata: UInt, hadditionalstore: Hcertstore, pptscontext: MutPtr, pptssigner: MutPtr, phstore: MutPtr): Bool =
     WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCryptVerifyTimeStampSignature(pbtscontentinfo.rawAddress, cbtscontentinfo.toInt(), pbdata.rawAddress, cbdata.toInt(), hadditionalstore.rawAddress, pptscontext.rawAddress, pptssigner.rawAddress, phstore.rawAddress)
 
-public actual fun cryptXmlAddObject(hsignatureorobject: ConstPtr<CVoid>, dwflags: UInt, rgproperty: ConstPtr<CryptXmlProperty>, cproperty: UInt, pencoded: ConstPtr<CryptXmlBlob>, ppobject: MutPtr<MutPtr<CryptXmlObject>>): Hresult =
+public actual fun cryptXmlAddObject(hsignatureorobject: ConstPtr, dwflags: UInt, rgproperty: ConstPtr, cproperty: UInt, pencoded: ConstPtr, ppobject: MutPtr): Hresult =
     WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCryptXmlAddObject(hsignatureorobject.rawAddress, dwflags.toInt(), rgproperty.rawAddress, cproperty.toInt(), pencoded.rawAddress, ppobject.rawAddress)
 
-public actual fun cryptXmlClose(hcryptxml: ConstPtr<CVoid>): Hresult =
+public actual fun cryptXmlClose(hcryptxml: ConstPtr): Hresult =
     WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCryptXmlClose(hcryptxml.rawAddress)
 
-public actual fun cryptXmlCreateReference(hcryptxml: ConstPtr<CVoid>, dwflags: UInt, wszid: Pcwstr, wszuri: Pcwstr, wsztype: Pcwstr, pdigestmethod: ConstPtr<CryptXmlAlgorithm>, ctransform: UInt, rgtransform: ConstPtr<CryptXmlAlgorithm>, phreference: MutPtr<MutPtr<CVoid>>): Hresult =
+public actual fun cryptXmlCreateReference(hcryptxml: ConstPtr, dwflags: UInt, wszid: Pcwstr, wszuri: Pcwstr, wsztype: Pcwstr, pdigestmethod: ConstPtr, ctransform: UInt, rgtransform: ConstPtr, phreference: MutPtr): Hresult =
     WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCryptXmlCreateReference(hcryptxml.rawAddress, dwflags.toInt(), wszid.rawAddress, wszuri.rawAddress, wsztype.rawAddress, pdigestmethod.rawAddress, ctransform.toInt(), rgtransform.rawAddress, phreference.rawAddress)
 
-public actual fun cryptXmlDigestReference(hreference: ConstPtr<CVoid>, dwflags: UInt, pdataproviderin: ConstPtr<CryptXmlDataProvider>): Hresult =
+public actual fun cryptXmlDigestReference(hreference: ConstPtr, dwflags: UInt, pdataproviderin: ConstPtr): Hresult =
     WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCryptXmlDigestReference(hreference.rawAddress, dwflags.toInt(), pdataproviderin.rawAddress)
 
-public actual fun cryptXmlEncode(hcryptxml: ConstPtr<CVoid>, dwcharset: CryptXmlCharset, rgproperty: ConstPtr<CryptXmlProperty>, cproperty: UInt, pvcallbackstate: MutPtr<CVoid>, pfnwrite: PfnCryptXmlWriteCallback): Hresult =
+public actual fun cryptXmlEncode(hcryptxml: ConstPtr, dwcharset: CryptXmlCharset, rgproperty: ConstPtr, cproperty: UInt, pvcallbackstate: MutPtr, pfnwrite: PfnCryptXmlWriteCallback): Hresult =
     WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCryptXmlEncode(hcryptxml.rawAddress, dwcharset, rgproperty.rawAddress, cproperty.toInt(), pvcallbackstate.rawAddress, 0L)
 
-public actual fun cryptXmlEnumAlgorithmInfo(dwgroupid: UInt, dwflags: UInt, pvarg: MutPtr<CVoid>, pfnenumalginfo: PfnCryptXmlEnumAlgInfo): Hresult =
+public actual fun cryptXmlEnumAlgorithmInfo(dwgroupid: UInt, dwflags: UInt, pvarg: MutPtr, pfnenumalginfo: PfnCryptXmlEnumAlgInfo): Hresult =
     WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCryptXmlEnumAlgorithmInfo(dwgroupid.toInt(), dwflags.toInt(), pvarg.rawAddress, 0L)
 
-public actual fun cryptXmlFindAlgorithmInfo(dwfindbytype: UInt, pvfindby: ConstPtr<CVoid>, dwgroupid: UInt, dwflags: UInt): MutPtr<CryptXmlAlgorithmInfo> =
+public actual fun cryptXmlFindAlgorithmInfo(dwfindbytype: UInt, pvfindby: ConstPtr, dwgroupid: UInt, dwflags: UInt): MutPtr =
     MutPtr(WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCryptXmlFindAlgorithmInfo(dwfindbytype.toInt(), pvfindby.rawAddress, dwgroupid.toInt(), dwflags.toInt()))
 
-public actual fun cryptXmlGetAlgorithmInfo(pxmlalgorithm: ConstPtr<CryptXmlAlgorithm>, dwflags: CryptXmlFlags, ppalginfo: MutPtr<MutPtr<CryptXmlAlgorithmInfo>>): Hresult =
+public actual fun cryptXmlGetAlgorithmInfo(pxmlalgorithm: ConstPtr, dwflags: CryptXmlFlags, ppalginfo: MutPtr): Hresult =
     WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCryptXmlGetAlgorithmInfo(pxmlalgorithm.rawAddress, dwflags.toInt(), ppalginfo.rawAddress)
 
-public actual fun cryptXmlGetDocContext(hcryptxml: ConstPtr<CVoid>, ppstruct: MutPtr<MutPtr<CryptXmlDocCtxt>>): Hresult =
+public actual fun cryptXmlGetDocContext(hcryptxml: ConstPtr, ppstruct: MutPtr): Hresult =
     WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCryptXmlGetDocContext(hcryptxml.rawAddress, ppstruct.rawAddress)
 
-public actual fun cryptXmlGetReference(hcryptxml: ConstPtr<CVoid>, ppstruct: MutPtr<MutPtr<CryptXmlReference>>): Hresult =
+public actual fun cryptXmlGetReference(hcryptxml: ConstPtr, ppstruct: MutPtr): Hresult =
     WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCryptXmlGetReference(hcryptxml.rawAddress, ppstruct.rawAddress)
 
-public actual fun cryptXmlGetSignature(hcryptxml: ConstPtr<CVoid>, ppstruct: MutPtr<MutPtr<CryptXmlSignature>>): Hresult =
+public actual fun cryptXmlGetSignature(hcryptxml: ConstPtr, ppstruct: MutPtr): Hresult =
     WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCryptXmlGetSignature(hcryptxml.rawAddress, ppstruct.rawAddress)
 
-public actual fun cryptXmlGetStatus(hcryptxml: ConstPtr<CVoid>, pstatus: MutPtr<CryptXmlStatus>): Hresult =
+public actual fun cryptXmlGetStatus(hcryptxml: ConstPtr, pstatus: MutPtr): Hresult =
     WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCryptXmlGetStatus(hcryptxml.rawAddress, pstatus.rawAddress)
 
-public actual fun cryptXmlGetTransforms(ppconfig: MutPtr<MutPtr<CryptXmlTransformChainConfig>>): Hresult =
+public actual fun cryptXmlGetTransforms(ppconfig: MutPtr): Hresult =
     WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCryptXmlGetTransforms(ppconfig.rawAddress)
 
-public actual fun cryptXmlImportPublicKey(dwflags: CryptXmlFlags, pkeyvalue: ConstPtr<CryptXmlKeyValue>, phkey: MutPtr<BcryptKeyHandle>): Hresult =
+public actual fun cryptXmlImportPublicKey(dwflags: CryptXmlFlags, pkeyvalue: ConstPtr, phkey: MutPtr): Hresult =
     WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCryptXmlImportPublicKey(dwflags.toInt(), pkeyvalue.rawAddress, phkey.rawAddress)
 
-public actual fun cryptXmlOpenToDecode(pconfig: ConstPtr<CryptXmlTransformChainConfig>, dwflags: CryptXmlFlags, rgproperty: ConstPtr<CryptXmlProperty>, cproperty: UInt, pencoded: ConstPtr<CryptXmlBlob>, phcryptxml: MutPtr<MutPtr<CVoid>>): Hresult =
+public actual fun cryptXmlOpenToDecode(pconfig: ConstPtr, dwflags: CryptXmlFlags, rgproperty: ConstPtr, cproperty: UInt, pencoded: ConstPtr, phcryptxml: MutPtr): Hresult =
     WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCryptXmlOpenToDecode(pconfig.rawAddress, dwflags.toInt(), rgproperty.rawAddress, cproperty.toInt(), pencoded.rawAddress, phcryptxml.rawAddress)
 
-public actual fun cryptXmlOpenToEncode(pconfig: ConstPtr<CryptXmlTransformChainConfig>, dwflags: CryptXmlFlags, wszid: Pcwstr, rgproperty: ConstPtr<CryptXmlProperty>, cproperty: UInt, pencoded: ConstPtr<CryptXmlBlob>, phsignature: MutPtr<MutPtr<CVoid>>): Hresult =
+public actual fun cryptXmlOpenToEncode(pconfig: ConstPtr, dwflags: CryptXmlFlags, wszid: Pcwstr, rgproperty: ConstPtr, cproperty: UInt, pencoded: ConstPtr, phsignature: MutPtr): Hresult =
     WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCryptXmlOpenToEncode(pconfig.rawAddress, dwflags.toInt(), wszid.rawAddress, rgproperty.rawAddress, cproperty.toInt(), pencoded.rawAddress, phsignature.rawAddress)
 
-public actual fun cryptXmlSetHMACSecret(hsignature: ConstPtr<CVoid>, pbsecret: ConstPtr<UByte>, cbsecret: UInt): Hresult =
+public actual fun cryptXmlSetHMACSecret(hsignature: ConstPtr, pbsecret: ConstPtr, cbsecret: UInt): Hresult =
     WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCryptXmlSetHMACSecret(hsignature.rawAddress, pbsecret.rawAddress, cbsecret.toInt())
 
-public actual fun cryptXmlSign(hsignature: ConstPtr<CVoid>, hkey: HcryptprovOrNcryptKeyHandle, dwkeyspec: CertKeySpec, dwflags: CryptXmlFlags, dwkeyinfospec: CryptXmlKeyinfoSpec, pvkeyinfospec: ConstPtr<CVoid>, psignaturemethod: ConstPtr<CryptXmlAlgorithm>, pcanonicalization: ConstPtr<CryptXmlAlgorithm>): Hresult =
+public actual fun cryptXmlSign(hsignature: ConstPtr, hkey: HcryptprovOrNcryptKeyHandle, dwkeyspec: CertKeySpec, dwflags: CryptXmlFlags, dwkeyinfospec: CryptXmlKeyinfoSpec, pvkeyinfospec: ConstPtr, psignaturemethod: ConstPtr, pcanonicalization: ConstPtr): Hresult =
     WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCryptXmlSign(hsignature.rawAddress, hkey.toLong(), dwkeyspec.toInt(), dwflags.toInt(), dwkeyinfospec, pvkeyinfospec.rawAddress, psignaturemethod.rawAddress, pcanonicalization.rawAddress)
 
-public actual fun cryptXmlVerifySignature(hsignature: ConstPtr<CVoid>, hkey: BcryptKeyHandle, dwflags: CryptXmlFlags): Hresult =
+public actual fun cryptXmlVerifySignature(hsignature: ConstPtr, hkey: BcryptKeyHandle, dwflags: CryptXmlFlags): Hresult =
     WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyCryptXmlVerifySignature(hsignature.rawAddress, hkey.rawAddress, dwflags.toInt())
 
-public actual fun decrypt(hcrypto: ConstPtr<InformationcardCryptoHandle>, foaep: Bool, cbindata: UInt, pindata: ConstPtr<UByte>, pcboutdata: MutPtr<UInt>, ppoutdata: MutPtr<MutPtr<UByte>>): Hresult =
+public actual fun decrypt(hcrypto: ConstPtr, foaep: Bool, cbindata: UInt, pindata: ConstPtr, pcboutdata: MutPtr, ppoutdata: MutPtr): Hresult =
     WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyDecrypt(hcrypto.rawAddress, foaep, cbindata.toInt(), pindata.rawAddress, pcboutdata.rawAddress, ppoutdata.rawAddress)
 
-public actual fun encrypt(hcrypto: ConstPtr<InformationcardCryptoHandle>, foaep: Bool, cbindata: UInt, pindata: ConstPtr<UByte>, pcboutdata: MutPtr<UInt>, ppoutdata: MutPtr<MutPtr<UByte>>): Hresult =
+public actual fun encrypt(hcrypto: ConstPtr, foaep: Bool, cbindata: UInt, pindata: ConstPtr, pcboutdata: MutPtr, ppoutdata: MutPtr): Hresult =
     WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyEncrypt(hcrypto.rawAddress, foaep, cbindata.toInt(), pindata.rawAddress, pcboutdata.rawAddress, ppoutdata.rawAddress)
 
-public actual fun findCertsByIssuer(pcertchains: MutPtr<CertChain>, pcbcertchains: MutPtr<UInt>, pccertchains: MutPtr<UInt>, pbencodedissuername: ConstPtr<UByte>, cbencodedissuername: UInt, pwszpurpose: Pcwstr, dwkeyspec: UInt): Hresult =
+public actual fun findCertsByIssuer(pcertchains: MutPtr, pcbcertchains: MutPtr, pccertchains: MutPtr, pbencodedissuername: ConstPtr, cbencodedissuername: UInt, pwszpurpose: Pcwstr, dwkeyspec: UInt): Hresult =
     WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyFindCertsByIssuer(pcertchains.rawAddress, pcbcertchains.rawAddress, pccertchains.rawAddress, pbencodedissuername.rawAddress, cbencodedissuername.toInt(), pwszpurpose.rawAddress, dwkeyspec.toInt())
 
-public actual fun freeToken(pallocmemory: ConstPtr<GenericXmlToken>): Bool =
+public actual fun freeToken(pallocmemory: ConstPtr): Bool =
     WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyFreeToken(pallocmemory.rawAddress)
 
-public actual fun generateDerivedKey(hcrypto: ConstPtr<InformationcardCryptoHandle>, cblabel: UInt, plabel: ConstPtr<UByte>, cbnonce: UInt, pnonce: ConstPtr<UByte>, derivedkeylength: UInt, offset: UInt, algid: Pcwstr, pcbkey: MutPtr<UInt>, ppkey: MutPtr<MutPtr<UByte>>): Hresult =
+public actual fun generateDerivedKey(hcrypto: ConstPtr, cblabel: UInt, plabel: ConstPtr, cbnonce: UInt, pnonce: ConstPtr, derivedkeylength: UInt, offset: UInt, algid: Pcwstr, pcbkey: MutPtr, ppkey: MutPtr): Hresult =
     WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyGenerateDerivedKey(hcrypto.rawAddress, cblabel.toInt(), plabel.rawAddress, cbnonce.toInt(), pnonce.rawAddress, derivedkeylength.toInt(), offset.toInt(), algid.rawAddress, pcbkey.rawAddress, ppkey.rawAddress)
 
-public actual fun getAsymmetricEncryptionInterface(pszprovidername: Pcwstr, pszalgid: Pcwstr, ppfunctiontable: MutPtr<MutPtr<BcryptAsymmetricEncryptionFunctionTable>>, dwflags: UInt): Ntstatus =
+public actual fun getAsymmetricEncryptionInterface(pszprovidername: Pcwstr, pszalgid: Pcwstr, ppfunctiontable: MutPtr, dwflags: UInt): Ntstatus =
     WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyGetAsymmetricEncryptionInterface(pszprovidername.rawAddress, pszalgid.rawAddress, ppfunctiontable.rawAddress, dwflags.toInt())
 
-public actual fun getBrowserToken(dwparamtype: UInt, pparam: ConstPtr<CVoid>, pcbtoken: MutPtr<UInt>, pptoken: MutPtr<MutPtr<UByte>>): Hresult =
+public actual fun getBrowserToken(dwparamtype: UInt, pparam: ConstPtr, pcbtoken: MutPtr, pptoken: MutPtr): Hresult =
     WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyGetBrowserToken(dwparamtype.toInt(), pparam.rawAddress, pcbtoken.rawAddress, pptoken.rawAddress)
 
-public actual fun getCipherInterface(pszprovidername: Pcwstr, pszalgid: Pcwstr, ppfunctiontable: MutPtr<MutPtr<BcryptCipherFunctionTable>>, dwflags: UInt): Ntstatus =
+public actual fun getCipherInterface(pszprovidername: Pcwstr, pszalgid: Pcwstr, ppfunctiontable: MutPtr, dwflags: UInt): Ntstatus =
     WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyGetCipherInterface(pszprovidername.rawAddress, pszalgid.rawAddress, ppfunctiontable.rawAddress, dwflags.toInt())
 
-public actual fun getCryptoTransform(hsymmetriccrypto: ConstPtr<InformationcardCryptoHandle>, mode: UInt, padding: PaddingMode, feedbacksize: UInt, direction: Direction, cbiv: UInt, piv: ConstPtr<UByte>, pphtransform: MutPtr<MutPtr<InformationcardCryptoHandle>>): Hresult =
+public actual fun getCryptoTransform(hsymmetriccrypto: ConstPtr, mode: UInt, padding: PaddingMode, feedbacksize: UInt, direction: Direction, cbiv: UInt, piv: ConstPtr, pphtransform: MutPtr): Hresult =
     0
 
-public actual fun getHashInterface(pszprovidername: Pcwstr, pszalgid: Pcwstr, ppfunctiontable: MutPtr<MutPtr<BcryptHashFunctionTable>>, dwflags: UInt): Ntstatus =
+public actual fun getHashInterface(pszprovidername: Pcwstr, pszalgid: Pcwstr, ppfunctiontable: MutPtr, dwflags: UInt): Ntstatus =
     WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyGetHashInterface(pszprovidername.rawAddress, pszalgid.rawAddress, ppfunctiontable.rawAddress, dwflags.toInt())
 
-public actual fun getKeyDerivationInterface(pszprovidername: Pcwstr, pszalgid: Pcwstr, ppfunctiontable: MutPtr<MutPtr<BcryptKeyDerivationFunctionTable>>, dwflags: UInt): Ntstatus =
+public actual fun getKeyDerivationInterface(pszprovidername: Pcwstr, pszalgid: Pcwstr, ppfunctiontable: MutPtr, dwflags: UInt): Ntstatus =
     WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyGetKeyDerivationInterface(pszprovidername.rawAddress, pszalgid.rawAddress, ppfunctiontable.rawAddress, dwflags.toInt())
 
-public actual fun getKeyStorageInterface(pszprovidername: Pcwstr, ppfunctiontable: MutPtr<MutPtr<NcryptKeyStorageFunctionTable>>, dwflags: UInt): Ntstatus =
+public actual fun getKeyStorageInterface(pszprovidername: Pcwstr, ppfunctiontable: MutPtr, dwflags: UInt): Ntstatus =
     WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyGetKeyStorageInterface(pszprovidername.rawAddress, ppfunctiontable.rawAddress, dwflags.toInt())
 
-public actual fun getKeyedHash(hsymmetriccrypto: ConstPtr<InformationcardCryptoHandle>, pphhash: MutPtr<MutPtr<InformationcardCryptoHandle>>): Hresult =
+public actual fun getKeyedHash(hsymmetriccrypto: ConstPtr, pphhash: MutPtr): Hresult =
     WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyGetKeyedHash(hsymmetriccrypto.rawAddress, pphhash.rawAddress)
 
-public actual fun getRngInterface(pszprovidername: Pcwstr, ppfunctiontable: MutPtr<MutPtr<BcryptRngFunctionTable>>, dwflags: UInt): Ntstatus =
+public actual fun getRngInterface(pszprovidername: Pcwstr, ppfunctiontable: MutPtr, dwflags: UInt): Ntstatus =
     WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyGetRngInterface(pszprovidername.rawAddress, ppfunctiontable.rawAddress, dwflags.toInt())
 
-public actual fun getSChannelInterface(pszprovidername: Pcwstr, ppfunctiontable: MutPtr<MutPtr<NcryptSslFunctionTable>>, dwflags: UInt): Ntstatus =
+public actual fun getSChannelInterface(pszprovidername: Pcwstr, ppfunctiontable: MutPtr, dwflags: UInt): Ntstatus =
     WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyGetSChannelInterface(pszprovidername.rawAddress, ppfunctiontable.rawAddress, dwflags.toInt())
 
-public actual fun getSecretAgreementInterface(pszprovidername: Pcwstr, pszalgid: Pcwstr, ppfunctiontable: MutPtr<MutPtr<BcryptSecretAgreementFunctionTable>>, dwflags: UInt): Ntstatus =
+public actual fun getSecretAgreementInterface(pszprovidername: Pcwstr, pszalgid: Pcwstr, ppfunctiontable: MutPtr, dwflags: UInt): Ntstatus =
     WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyGetSecretAgreementInterface(pszprovidername.rawAddress, pszalgid.rawAddress, ppfunctiontable.rawAddress, dwflags.toInt())
 
-public actual fun getSignatureInterface(pszprovidername: Pcwstr, pszalgid: Pcwstr, ppfunctiontable: MutPtr<MutPtr<BcryptSignatureFunctionTable>>, dwflags: UInt): Ntstatus =
+public actual fun getSignatureInterface(pszprovidername: Pcwstr, pszalgid: Pcwstr, ppfunctiontable: MutPtr, dwflags: UInt): Ntstatus =
     WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyGetSignatureInterface(pszprovidername.rawAddress, pszalgid.rawAddress, ppfunctiontable.rawAddress, dwflags.toInt())
 
-public actual fun getToken(cpolicychain: UInt, ppolicychain: ConstPtr<PolicyElement>, securitytoken: MutPtr<MutPtr<GenericXmlToken>>, phprooftokencrypto: MutPtr<MutPtr<InformationcardCryptoHandle>>): Hresult =
+public actual fun getToken(cpolicychain: UInt, ppolicychain: ConstPtr, securitytoken: MutPtr, phprooftokencrypto: MutPtr): Hresult =
     WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyGetToken(cpolicychain.toInt(), ppolicychain.rawAddress, securitytoken.rawAddress, phprooftokencrypto.rawAddress)
 
-public actual fun hashCore(hcrypto: ConstPtr<InformationcardCryptoHandle>, cbindata: UInt, pindata: ConstPtr<UByte>): Hresult =
+public actual fun hashCore(hcrypto: ConstPtr, cbindata: UInt, pindata: ConstPtr): Hresult =
     WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyHashCore(hcrypto.rawAddress, cbindata.toInt(), pindata.rawAddress)
 
-public actual fun hashFinal(hcrypto: ConstPtr<InformationcardCryptoHandle>, cbindata: UInt, pindata: ConstPtr<UByte>, pcboutdata: MutPtr<UInt>, ppoutdata: MutPtr<MutPtr<UByte>>): Hresult =
+public actual fun hashFinal(hcrypto: ConstPtr, cbindata: UInt, pindata: ConstPtr, pcboutdata: MutPtr, ppoutdata: MutPtr): Hresult =
     WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyHashFinal(hcrypto.rawAddress, cbindata.toInt(), pindata.rawAddress, pcboutdata.rawAddress, ppoutdata.rawAddress)
 
 public actual fun importInformationCard(filename: Pcwstr): Hresult =
@@ -2524,55 +2520,55 @@ public actual fun manageCardSpace(): Hresult =
 public actual fun nCryptCloseProtectionDescriptor(hdescriptor: NcryptDescriptorHandle): Hresult =
     WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyNCryptCloseProtectionDescriptor(hdescriptor.rawAddress)
 
-public actual fun nCryptCreateClaim(hsubjectkey: NcryptKeyHandle, hauthoritykey: NcryptKeyHandle, dwclaimtype: UInt, pparameterlist: ConstPtr<BCryptBufferDesc>, pbclaimblob: MutPtr<UByte>, cbclaimblob: UInt, pcbresult: MutPtr<UInt>, dwflags: UInt): Hresult =
+public actual fun nCryptCreateClaim(hsubjectkey: NcryptKeyHandle, hauthoritykey: NcryptKeyHandle, dwclaimtype: UInt, pparameterlist: ConstPtr, pbclaimblob: MutPtr, cbclaimblob: UInt, pcbresult: MutPtr, dwflags: UInt): Hresult =
     WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyNCryptCreateClaim(hsubjectkey.toLong(), hauthoritykey.toLong(), dwclaimtype.toInt(), pparameterlist.rawAddress, pbclaimblob.rawAddress, cbclaimblob.toInt(), pcbresult.rawAddress, dwflags.toInt())
 
-public actual fun nCryptCreatePersistedKey(hprovider: NcryptProvHandle, phkey: MutPtr<NcryptKeyHandle>, pszalgid: Pcwstr, pszkeyname: Pcwstr, dwlegacykeyspec: CertKeySpec, dwflags: NcryptFlags): Hresult =
+public actual fun nCryptCreatePersistedKey(hprovider: NcryptProvHandle, phkey: MutPtr, pszalgid: Pcwstr, pszkeyname: Pcwstr, dwlegacykeyspec: CertKeySpec, dwflags: NcryptFlags): Hresult =
     WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyNCryptCreatePersistedKey(hprovider.toLong(), phkey.rawAddress, pszalgid.rawAddress, pszkeyname.rawAddress, dwlegacykeyspec.toInt(), dwflags.toInt())
 
-public actual fun nCryptCreateProtectionDescriptor(pwszdescriptorstring: Pcwstr, dwflags: UInt, phdescriptor: MutPtr<NcryptDescriptorHandle>): Hresult =
+public actual fun nCryptCreateProtectionDescriptor(pwszdescriptorstring: Pcwstr, dwflags: UInt, phdescriptor: MutPtr): Hresult =
     WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyNCryptCreateProtectionDescriptor(pwszdescriptorstring.rawAddress, dwflags.toInt(), phdescriptor.rawAddress)
 
-public actual fun nCryptDecrypt(hkey: NcryptKeyHandle, pbinput: ConstPtr<UByte>, cbinput: UInt, ppaddinginfo: ConstPtr<CVoid>, pboutput: MutPtr<UByte>, cboutput: UInt, pcbresult: MutPtr<UInt>, dwflags: NcryptFlags): Hresult =
+public actual fun nCryptDecrypt(hkey: NcryptKeyHandle, pbinput: ConstPtr, cbinput: UInt, ppaddinginfo: ConstPtr, pboutput: MutPtr, cboutput: UInt, pcbresult: MutPtr, dwflags: NcryptFlags): Hresult =
     WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyNCryptDecrypt(hkey.toLong(), pbinput.rawAddress, cbinput.toInt(), ppaddinginfo.rawAddress, pboutput.rawAddress, cboutput.toInt(), pcbresult.rawAddress, dwflags.toInt())
 
 public actual fun nCryptDeleteKey(hkey: NcryptKeyHandle, dwflags: UInt): Hresult =
     WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyNCryptDeleteKey(hkey.toLong(), dwflags.toInt())
 
-public actual fun nCryptDeriveKey(hsharedsecret: NcryptSecretHandle, pwszkdf: Pcwstr, pparameterlist: ConstPtr<BCryptBufferDesc>, pbderivedkey: MutPtr<UByte>, cbderivedkey: UInt, pcbresult: MutPtr<UInt>, dwflags: UInt): Hresult =
+public actual fun nCryptDeriveKey(hsharedsecret: NcryptSecretHandle, pwszkdf: Pcwstr, pparameterlist: ConstPtr, pbderivedkey: MutPtr, cbderivedkey: UInt, pcbresult: MutPtr, dwflags: UInt): Hresult =
     WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyNCryptDeriveKey(hsharedsecret.toLong(), pwszkdf.rawAddress, pparameterlist.rawAddress, pbderivedkey.rawAddress, cbderivedkey.toInt(), pcbresult.rawAddress, dwflags.toInt())
 
-public actual fun nCryptEncrypt(hkey: NcryptKeyHandle, pbinput: ConstPtr<UByte>, cbinput: UInt, ppaddinginfo: ConstPtr<CVoid>, pboutput: MutPtr<UByte>, cboutput: UInt, pcbresult: MutPtr<UInt>, dwflags: NcryptFlags): Hresult =
+public actual fun nCryptEncrypt(hkey: NcryptKeyHandle, pbinput: ConstPtr, cbinput: UInt, ppaddinginfo: ConstPtr, pboutput: MutPtr, cboutput: UInt, pcbresult: MutPtr, dwflags: NcryptFlags): Hresult =
     WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyNCryptEncrypt(hkey.toLong(), pbinput.rawAddress, cbinput.toInt(), ppaddinginfo.rawAddress, pboutput.rawAddress, cboutput.toInt(), pcbresult.rawAddress, dwflags.toInt())
 
-public actual fun nCryptEnumAlgorithms(hprovider: NcryptProvHandle, dwalgoperations: NcryptOperation, pdwalgcount: MutPtr<UInt>, ppalglist: MutPtr<MutPtr<NCryptAlgorithmName>>, dwflags: UInt): Hresult =
+public actual fun nCryptEnumAlgorithms(hprovider: NcryptProvHandle, dwalgoperations: NcryptOperation, pdwalgcount: MutPtr, ppalglist: MutPtr, dwflags: UInt): Hresult =
     WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyNCryptEnumAlgorithms(hprovider.toLong(), dwalgoperations.toInt(), pdwalgcount.rawAddress, ppalglist.rawAddress, dwflags.toInt())
 
-public actual fun nCryptEnumKeys(hprovider: NcryptProvHandle, pszscope: Pcwstr, ppkeyname: MutPtr<MutPtr<NCryptKeyName>>, ppenumstate: MutPtr<MutPtr<CVoid>>, dwflags: NcryptFlags): Hresult =
+public actual fun nCryptEnumKeys(hprovider: NcryptProvHandle, pszscope: Pcwstr, ppkeyname: MutPtr, ppenumstate: MutPtr, dwflags: NcryptFlags): Hresult =
     WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyNCryptEnumKeys(hprovider.toLong(), pszscope.rawAddress, ppkeyname.rawAddress, ppenumstate.rawAddress, dwflags.toInt())
 
-public actual fun nCryptEnumStorageProviders(pdwprovidercount: MutPtr<UInt>, ppproviderlist: MutPtr<MutPtr<NCryptProviderName>>, dwflags: UInt): Hresult =
+public actual fun nCryptEnumStorageProviders(pdwprovidercount: MutPtr, ppproviderlist: MutPtr, dwflags: UInt): Hresult =
     WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyNCryptEnumStorageProviders(pdwprovidercount.rawAddress, ppproviderlist.rawAddress, dwflags.toInt())
 
-public actual fun nCryptExportKey(hkey: NcryptKeyHandle, hexportkey: NcryptKeyHandle, pszblobtype: Pcwstr, pparameterlist: ConstPtr<BCryptBufferDesc>, pboutput: MutPtr<UByte>, cboutput: UInt, pcbresult: MutPtr<UInt>, dwflags: NcryptFlags): Hresult =
+public actual fun nCryptExportKey(hkey: NcryptKeyHandle, hexportkey: NcryptKeyHandle, pszblobtype: Pcwstr, pparameterlist: ConstPtr, pboutput: MutPtr, cboutput: UInt, pcbresult: MutPtr, dwflags: NcryptFlags): Hresult =
     WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyNCryptExportKey(hkey.toLong(), hexportkey.toLong(), pszblobtype.rawAddress, pparameterlist.rawAddress, pboutput.rawAddress, cboutput.toInt(), pcbresult.rawAddress, dwflags.toInt())
 
 public actual fun nCryptFinalizeKey(hkey: NcryptKeyHandle, dwflags: NcryptFlags): Hresult =
     WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyNCryptFinalizeKey(hkey.toLong(), dwflags.toInt())
 
-public actual fun nCryptFreeBuffer(pvinput: MutPtr<CVoid>): Hresult =
+public actual fun nCryptFreeBuffer(pvinput: MutPtr): Hresult =
     WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyNCryptFreeBuffer(pvinput.rawAddress)
 
 public actual fun nCryptFreeObject(hobject: NcryptHandle): Hresult =
     WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyNCryptFreeObject(hobject.toLong())
 
-public actual fun nCryptGetProperty(hobject: NcryptHandle, pszproperty: Pcwstr, pboutput: MutPtr<UByte>, cboutput: UInt, pcbresult: MutPtr<UInt>, dwflags: ObjectSecurityInformation): Hresult =
+public actual fun nCryptGetProperty(hobject: NcryptHandle, pszproperty: Pcwstr, pboutput: MutPtr, cboutput: UInt, pcbresult: MutPtr, dwflags: ObjectSecurityInformation): Hresult =
     WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyNCryptGetProperty(hobject.toLong(), pszproperty.rawAddress, pboutput.rawAddress, cboutput.toInt(), pcbresult.rawAddress, dwflags.toInt())
 
-public actual fun nCryptGetProtectionDescriptorInfo(hdescriptor: NcryptDescriptorHandle, pmempara: ConstPtr<NcryptAllocPara>, dwinfotype: UInt, ppvinfo: MutPtr<MutPtr<CVoid>>): Hresult =
+public actual fun nCryptGetProtectionDescriptorInfo(hdescriptor: NcryptDescriptorHandle, pmempara: ConstPtr, dwinfotype: UInt, ppvinfo: MutPtr): Hresult =
     WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyNCryptGetProtectionDescriptorInfo(hdescriptor.rawAddress, pmempara.rawAddress, dwinfotype.toInt(), ppvinfo.rawAddress)
 
-public actual fun nCryptImportKey(hprovider: NcryptProvHandle, himportkey: NcryptKeyHandle, pszblobtype: Pcwstr, pparameterlist: ConstPtr<BCryptBufferDesc>, phkey: MutPtr<NcryptKeyHandle>, pbdata: ConstPtr<UByte>, cbdata: UInt, dwflags: NcryptFlags): Hresult =
+public actual fun nCryptImportKey(hprovider: NcryptProvHandle, himportkey: NcryptKeyHandle, pszblobtype: Pcwstr, pparameterlist: ConstPtr, phkey: MutPtr, pbdata: ConstPtr, cbdata: UInt, dwflags: NcryptFlags): Hresult =
     WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyNCryptImportKey(hprovider.toLong(), himportkey.toLong(), pszblobtype.rawAddress, pparameterlist.rawAddress, phkey.rawAddress, pbdata.rawAddress, cbdata.toInt(), dwflags.toInt())
 
 public actual fun nCryptIsAlgSupported(hprovider: NcryptProvHandle, pszalgid: Pcwstr, dwflags: UInt): Hresult =
@@ -2581,257 +2577,257 @@ public actual fun nCryptIsAlgSupported(hprovider: NcryptProvHandle, pszalgid: Pc
 public actual fun nCryptIsKeyHandle(hkey: NcryptKeyHandle): Bool =
     WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyNCryptIsKeyHandle(hkey.toLong())
 
-public actual fun nCryptKeyDerivation(hkey: NcryptKeyHandle, pparameterlist: ConstPtr<BCryptBufferDesc>, pbderivedkey: MutPtr<UByte>, cbderivedkey: UInt, pcbresult: MutPtr<UInt>, dwflags: UInt): Hresult =
+public actual fun nCryptKeyDerivation(hkey: NcryptKeyHandle, pparameterlist: ConstPtr, pbderivedkey: MutPtr, cbderivedkey: UInt, pcbresult: MutPtr, dwflags: UInt): Hresult =
     WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyNCryptKeyDerivation(hkey.toLong(), pparameterlist.rawAddress, pbderivedkey.rawAddress, cbderivedkey.toInt(), pcbresult.rawAddress, dwflags.toInt())
 
-public actual fun nCryptNotifyChangeKey(hprovider: NcryptProvHandle, phevent: MutPtr<Handle>, dwflags: NcryptFlags): Hresult =
+public actual fun nCryptNotifyChangeKey(hprovider: NcryptProvHandle, phevent: MutPtr, dwflags: NcryptFlags): Hresult =
     WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyNCryptNotifyChangeKey(hprovider.toLong(), phevent.rawAddress, dwflags.toInt())
 
-public actual fun nCryptOpenKey(hprovider: NcryptProvHandle, phkey: MutPtr<NcryptKeyHandle>, pszkeyname: Pcwstr, dwlegacykeyspec: CertKeySpec, dwflags: NcryptFlags): Hresult =
+public actual fun nCryptOpenKey(hprovider: NcryptProvHandle, phkey: MutPtr, pszkeyname: Pcwstr, dwlegacykeyspec: CertKeySpec, dwflags: NcryptFlags): Hresult =
     WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyNCryptOpenKey(hprovider.toLong(), phkey.rawAddress, pszkeyname.rawAddress, dwlegacykeyspec.toInt(), dwflags.toInt())
 
-public actual fun nCryptOpenStorageProvider(phprovider: MutPtr<NcryptProvHandle>, pszprovidername: Pcwstr, dwflags: UInt): Hresult =
+public actual fun nCryptOpenStorageProvider(phprovider: MutPtr, pszprovidername: Pcwstr, dwflags: UInt): Hresult =
     WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyNCryptOpenStorageProvider(phprovider.rawAddress, pszprovidername.rawAddress, dwflags.toInt())
 
-public actual fun nCryptProtectSecret(hdescriptor: NcryptDescriptorHandle, dwflags: UInt, pbdata: ConstPtr<UByte>, cbdata: UInt, pmempara: ConstPtr<NcryptAllocPara>, hwnd: Hwnd, ppbprotectedblob: MutPtr<MutPtr<UByte>>, pcbprotectedblob: MutPtr<UInt>): Hresult =
+public actual fun nCryptProtectSecret(hdescriptor: NcryptDescriptorHandle, dwflags: UInt, pbdata: ConstPtr, cbdata: UInt, pmempara: ConstPtr, hwnd: Hwnd, ppbprotectedblob: MutPtr, pcbprotectedblob: MutPtr): Hresult =
     WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyNCryptProtectSecret(hdescriptor.rawAddress, dwflags.toInt(), pbdata.rawAddress, cbdata.toInt(), pmempara.rawAddress, hwnd.rawAddress, ppbprotectedblob.rawAddress, pcbprotectedblob.rawAddress)
 
-public actual fun nCryptQueryProtectionDescriptorName(pwszname: Pcwstr, pwszdescriptorstring: Pwstr, pcdescriptorstring: MutPtr<ULong>, dwflags: UInt): Hresult =
+public actual fun nCryptQueryProtectionDescriptorName(pwszname: Pcwstr, pwszdescriptorstring: Pwstr, pcdescriptorstring: MutPtr, dwflags: UInt): Hresult =
     WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyNCryptQueryProtectionDescriptorName(pwszname.rawAddress, pwszdescriptorstring.rawAddress, pcdescriptorstring.rawAddress, dwflags.toInt())
 
 public actual fun nCryptRegisterProtectionDescriptorName(pwszname: Pcwstr, pwszdescriptorstring: Pcwstr, dwflags: UInt): Hresult =
     WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyNCryptRegisterProtectionDescriptorName(pwszname.rawAddress, pwszdescriptorstring.rawAddress, dwflags.toInt())
 
-public actual fun nCryptSecretAgreement(hprivkey: NcryptKeyHandle, hpubkey: NcryptKeyHandle, phagreedsecret: MutPtr<NcryptSecretHandle>, dwflags: NcryptFlags): Hresult =
+public actual fun nCryptSecretAgreement(hprivkey: NcryptKeyHandle, hpubkey: NcryptKeyHandle, phagreedsecret: MutPtr, dwflags: NcryptFlags): Hresult =
     WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyNCryptSecretAgreement(hprivkey.toLong(), hpubkey.toLong(), phagreedsecret.rawAddress, dwflags.toInt())
 
-public actual fun nCryptSetProperty(hobject: NcryptHandle, pszproperty: Pcwstr, pbinput: ConstPtr<UByte>, cbinput: UInt, dwflags: NcryptFlags): Hresult =
+public actual fun nCryptSetProperty(hobject: NcryptHandle, pszproperty: Pcwstr, pbinput: ConstPtr, cbinput: UInt, dwflags: NcryptFlags): Hresult =
     WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyNCryptSetProperty(hobject.toLong(), pszproperty.rawAddress, pbinput.rawAddress, cbinput.toInt(), dwflags.toInt())
 
-public actual fun nCryptSignHash(hkey: NcryptKeyHandle, ppaddinginfo: ConstPtr<CVoid>, pbhashvalue: ConstPtr<UByte>, cbhashvalue: UInt, pbsignature: MutPtr<UByte>, cbsignature: UInt, pcbresult: MutPtr<UInt>, dwflags: NcryptFlags): Hresult =
+public actual fun nCryptSignHash(hkey: NcryptKeyHandle, ppaddinginfo: ConstPtr, pbhashvalue: ConstPtr, cbhashvalue: UInt, pbsignature: MutPtr, cbsignature: UInt, pcbresult: MutPtr, dwflags: NcryptFlags): Hresult =
     WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyNCryptSignHash(hkey.toLong(), ppaddinginfo.rawAddress, pbhashvalue.rawAddress, cbhashvalue.toInt(), pbsignature.rawAddress, cbsignature.toInt(), pcbresult.rawAddress, dwflags.toInt())
 
 public actual fun nCryptStreamClose(hstream: NcryptStreamHandle): Hresult =
     WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyNCryptStreamClose(hstream.rawAddress)
 
-public actual fun nCryptStreamOpenToProtect(hdescriptor: NcryptDescriptorHandle, dwflags: UInt, hwnd: Hwnd, pstreaminfo: ConstPtr<NcryptProtectStreamInfo>, phstream: MutPtr<NcryptStreamHandle>): Hresult =
+public actual fun nCryptStreamOpenToProtect(hdescriptor: NcryptDescriptorHandle, dwflags: UInt, hwnd: Hwnd, pstreaminfo: ConstPtr, phstream: MutPtr): Hresult =
     WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyNCryptStreamOpenToProtect(hdescriptor.rawAddress, dwflags.toInt(), hwnd.rawAddress, pstreaminfo.rawAddress, phstream.rawAddress)
 
-public actual fun nCryptStreamOpenToUnprotect(pstreaminfo: ConstPtr<NcryptProtectStreamInfo>, dwflags: UInt, hwnd: Hwnd, phstream: MutPtr<NcryptStreamHandle>): Hresult =
+public actual fun nCryptStreamOpenToUnprotect(pstreaminfo: ConstPtr, dwflags: UInt, hwnd: Hwnd, phstream: MutPtr): Hresult =
     WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyNCryptStreamOpenToUnprotect(pstreaminfo.rawAddress, dwflags.toInt(), hwnd.rawAddress, phstream.rawAddress)
 
-public actual fun nCryptStreamOpenToUnprotectEx(pstreaminfo: ConstPtr<NcryptProtectStreamInfoEx>, dwflags: UInt, hwnd: Hwnd, phstream: MutPtr<NcryptStreamHandle>): Hresult =
+public actual fun nCryptStreamOpenToUnprotectEx(pstreaminfo: ConstPtr, dwflags: UInt, hwnd: Hwnd, phstream: MutPtr): Hresult =
     WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyNCryptStreamOpenToUnprotectEx(pstreaminfo.rawAddress, dwflags.toInt(), hwnd.rawAddress, phstream.rawAddress)
 
-public actual fun nCryptStreamUpdate(hstream: NcryptStreamHandle, pbdata: ConstPtr<UByte>, cbdata: ULong, ffinal: Bool): Hresult =
+public actual fun nCryptStreamUpdate(hstream: NcryptStreamHandle, pbdata: ConstPtr, cbdata: ULong, ffinal: Bool): Hresult =
     WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyNCryptStreamUpdate(hstream.rawAddress, pbdata.rawAddress, cbdata.toLong(), ffinal)
 
-public actual fun nCryptTranslateHandle(phprovider: MutPtr<NcryptProvHandle>, phkey: MutPtr<NcryptKeyHandle>, hlegacyprov: ULong, hlegacykey: ULong, dwlegacykeyspec: CertKeySpec, dwflags: UInt): Hresult =
+public actual fun nCryptTranslateHandle(phprovider: MutPtr, phkey: MutPtr, hlegacyprov: ULong, hlegacykey: ULong, dwlegacykeyspec: CertKeySpec, dwflags: UInt): Hresult =
     WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyNCryptTranslateHandle(phprovider.rawAddress, phkey.rawAddress, hlegacyprov.toLong(), hlegacykey.toLong(), dwlegacykeyspec.toInt(), dwflags.toInt())
 
-public actual fun nCryptUnprotectSecret(phdescriptor: MutPtr<NcryptDescriptorHandle>, dwflags: NcryptFlags, pbprotectedblob: ConstPtr<UByte>, cbprotectedblob: UInt, pmempara: ConstPtr<NcryptAllocPara>, hwnd: Hwnd, ppbdata: MutPtr<MutPtr<UByte>>, pcbdata: MutPtr<UInt>): Hresult =
+public actual fun nCryptUnprotectSecret(phdescriptor: MutPtr, dwflags: NcryptFlags, pbprotectedblob: ConstPtr, cbprotectedblob: UInt, pmempara: ConstPtr, hwnd: Hwnd, ppbdata: MutPtr, pcbdata: MutPtr): Hresult =
     WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyNCryptUnprotectSecret(phdescriptor.rawAddress, dwflags.toInt(), pbprotectedblob.rawAddress, cbprotectedblob.toInt(), pmempara.rawAddress, hwnd.rawAddress, ppbdata.rawAddress, pcbdata.rawAddress)
 
-public actual fun nCryptVerifyClaim(hsubjectkey: NcryptKeyHandle, hauthoritykey: NcryptKeyHandle, dwclaimtype: UInt, pparameterlist: ConstPtr<BCryptBufferDesc>, pbclaimblob: ConstPtr<UByte>, cbclaimblob: UInt, poutput: MutPtr<BCryptBufferDesc>, dwflags: UInt): Hresult =
+public actual fun nCryptVerifyClaim(hsubjectkey: NcryptKeyHandle, hauthoritykey: NcryptKeyHandle, dwclaimtype: UInt, pparameterlist: ConstPtr, pbclaimblob: ConstPtr, cbclaimblob: UInt, poutput: MutPtr, dwflags: UInt): Hresult =
     WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyNCryptVerifyClaim(hsubjectkey.toLong(), hauthoritykey.toLong(), dwclaimtype.toInt(), pparameterlist.rawAddress, pbclaimblob.rawAddress, cbclaimblob.toInt(), poutput.rawAddress, dwflags.toInt())
 
-public actual fun nCryptVerifySignature(hkey: NcryptKeyHandle, ppaddinginfo: ConstPtr<CVoid>, pbhashvalue: ConstPtr<UByte>, cbhashvalue: UInt, pbsignature: ConstPtr<UByte>, cbsignature: UInt, dwflags: NcryptFlags): Hresult =
+public actual fun nCryptVerifySignature(hkey: NcryptKeyHandle, ppaddinginfo: ConstPtr, pbhashvalue: ConstPtr, cbhashvalue: UInt, pbsignature: ConstPtr, cbsignature: UInt, dwflags: NcryptFlags): Hresult =
     WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyNCryptVerifySignature(hkey.toLong(), ppaddinginfo.rawAddress, pbhashvalue.rawAddress, cbhashvalue.toInt(), pbsignature.rawAddress, cbsignature.toInt(), dwflags.toInt())
 
-public actual fun pFXExportCertStore(hstore: Hcertstore, ppfx: MutPtr<CryptIntegerBlob>, szpassword: Pcwstr, dwflags: UInt): Bool =
+public actual fun pFXExportCertStore(hstore: Hcertstore, ppfx: MutPtr, szpassword: Pcwstr, dwflags: UInt): Bool =
     WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyPFXExportCertStore(hstore.rawAddress, ppfx.rawAddress, szpassword.rawAddress, dwflags.toInt())
 
-public actual fun pFXExportCertStoreEx(hstore: Hcertstore, ppfx: MutPtr<CryptIntegerBlob>, szpassword: Pcwstr, pvpara: ConstPtr<CVoid>, dwflags: UInt): Bool =
+public actual fun pFXExportCertStoreEx(hstore: Hcertstore, ppfx: MutPtr, szpassword: Pcwstr, pvpara: ConstPtr, dwflags: UInt): Bool =
     WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyPFXExportCertStoreEx(hstore.rawAddress, ppfx.rawAddress, szpassword.rawAddress, pvpara.rawAddress, dwflags.toInt())
 
-public actual fun pFXImportCertStore(ppfx: ConstPtr<CryptIntegerBlob>, szpassword: Pcwstr, dwflags: CryptKeyFlags): Hcertstore =
+public actual fun pFXImportCertStore(ppfx: ConstPtr, szpassword: Pcwstr, dwflags: CryptKeyFlags): Hcertstore =
     MutPtr(WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyPFXImportCertStore(ppfx.rawAddress, szpassword.rawAddress, dwflags.toInt()))
 
-public actual fun pFXIsPFXBlob(ppfx: ConstPtr<CryptIntegerBlob>): Bool =
+public actual fun pFXIsPFXBlob(ppfx: ConstPtr): Bool =
     WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyPFXIsPFXBlob(ppfx.rawAddress)
 
-public actual fun pFXVerifyPassword(ppfx: ConstPtr<CryptIntegerBlob>, szpassword: Pcwstr, dwflags: UInt): Bool =
+public actual fun pFXVerifyPassword(ppfx: ConstPtr, szpassword: Pcwstr, dwflags: UInt): Bool =
     WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyPFXVerifyPassword(ppfx.rawAddress, szpassword.rawAddress, dwflags.toInt())
 
-public actual fun processPrng(pbdata: MutPtr<UByte>, cbdata: ULong): Bool =
+public actual fun processPrng(pbdata: MutPtr, cbdata: ULong): Bool =
     WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyProcessPrng(pbdata.rawAddress, cbdata.toLong())
 
 public actual fun signError(): Hresult =
     WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographySignError()
 
-public actual fun signHash(hcrypto: ConstPtr<InformationcardCryptoHandle>, cbhash: UInt, phash: ConstPtr<UByte>, hashalgoid: Pcwstr, pcbsig: MutPtr<UInt>, ppsig: MutPtr<MutPtr<UByte>>): Hresult =
+public actual fun signHash(hcrypto: ConstPtr, cbhash: UInt, phash: ConstPtr, hashalgoid: Pcwstr, pcbsig: MutPtr, ppsig: MutPtr): Hresult =
     WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographySignHash(hcrypto.rawAddress, cbhash.toInt(), phash.rawAddress, hashalgoid.rawAddress, pcbsig.rawAddress, ppsig.rawAddress)
 
-public actual fun signerFreeSignerContext(psignercontext: ConstPtr<SignerContext>): Hresult =
+public actual fun signerFreeSignerContext(psignercontext: ConstPtr): Hresult =
     WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographySignerFreeSignerContext(psignercontext.rawAddress)
 
-public actual fun signerSign(psubjectinfo: ConstPtr<SignerSubjectInfo>, psignercert: ConstPtr<SignerCert>, psignatureinfo: ConstPtr<SignerSignatureInfo>, pproviderinfo: ConstPtr<SignerProviderInfo>, pwszhttptimestamp: Pcwstr, psrequest: ConstPtr<CryptAttributes>, psipdata: ConstPtr<CVoid>): Hresult =
+public actual fun signerSign(psubjectinfo: ConstPtr, psignercert: ConstPtr, psignatureinfo: ConstPtr, pproviderinfo: ConstPtr, pwszhttptimestamp: Pcwstr, psrequest: ConstPtr, psipdata: ConstPtr): Hresult =
     WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographySignerSign(psubjectinfo.rawAddress, psignercert.rawAddress, psignatureinfo.rawAddress, pproviderinfo.rawAddress, pwszhttptimestamp.rawAddress, psrequest.rawAddress, psipdata.rawAddress)
 
-public actual fun signerSignEx(dwflags: SignerSignFlags, psubjectinfo: ConstPtr<SignerSubjectInfo>, psignercert: ConstPtr<SignerCert>, psignatureinfo: ConstPtr<SignerSignatureInfo>, pproviderinfo: ConstPtr<SignerProviderInfo>, pwszhttptimestamp: Pcwstr, psrequest: ConstPtr<CryptAttributes>, psipdata: ConstPtr<CVoid>, ppsignercontext: MutPtr<MutPtr<SignerContext>>): Hresult =
+public actual fun signerSignEx(dwflags: SignerSignFlags, psubjectinfo: ConstPtr, psignercert: ConstPtr, psignatureinfo: ConstPtr, pproviderinfo: ConstPtr, pwszhttptimestamp: Pcwstr, psrequest: ConstPtr, psipdata: ConstPtr, ppsignercontext: MutPtr): Hresult =
     WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographySignerSignEx(dwflags.toInt(), psubjectinfo.rawAddress, psignercert.rawAddress, psignatureinfo.rawAddress, pproviderinfo.rawAddress, pwszhttptimestamp.rawAddress, psrequest.rawAddress, psipdata.rawAddress, ppsignercontext.rawAddress)
 
-public actual fun signerSignEx2(dwflags: SignerSignFlags, psubjectinfo: ConstPtr<SignerSubjectInfo>, psignercert: ConstPtr<SignerCert>, psignatureinfo: ConstPtr<SignerSignatureInfo>, pproviderinfo: ConstPtr<SignerProviderInfo>, dwtimestampflags: SignerTimestampFlags, psztimestampalgorithmoid: Pcstr, pwszhttptimestamp: Pcwstr, psrequest: ConstPtr<CryptAttributes>, psipdata: ConstPtr<CVoid>, ppsignercontext: MutPtr<MutPtr<SignerContext>>, pcryptopolicy: ConstPtr<CertStrongSignPara>, preserved: ConstPtr<CVoid>): Hresult =
+public actual fun signerSignEx2(dwflags: SignerSignFlags, psubjectinfo: ConstPtr, psignercert: ConstPtr, psignatureinfo: ConstPtr, pproviderinfo: ConstPtr, dwtimestampflags: SignerTimestampFlags, psztimestampalgorithmoid: Pcstr, pwszhttptimestamp: Pcwstr, psrequest: ConstPtr, psipdata: ConstPtr, ppsignercontext: MutPtr, pcryptopolicy: ConstPtr, preserved: ConstPtr): Hresult =
     WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographySignerSignEx2(dwflags.toInt(), psubjectinfo.rawAddress, psignercert.rawAddress, psignatureinfo.rawAddress, pproviderinfo.rawAddress, dwtimestampflags.toInt(), psztimestampalgorithmoid.rawAddress, pwszhttptimestamp.rawAddress, psrequest.rawAddress, psipdata.rawAddress, ppsignercontext.rawAddress, pcryptopolicy.rawAddress, preserved.rawAddress)
 
-public actual fun signerSignEx3(dwflags: SignerSignFlags, psubjectinfo: ConstPtr<SignerSubjectInfo>, psignercert: ConstPtr<SignerCert>, psignatureinfo: ConstPtr<SignerSignatureInfo>, pproviderinfo: ConstPtr<SignerProviderInfo>, dwtimestampflags: SignerTimestampFlags, psztimestampalgorithmoid: Pcstr, pwszhttptimestamp: Pcwstr, psrequest: ConstPtr<CryptAttributes>, psipdata: ConstPtr<CVoid>, ppsignercontext: MutPtr<MutPtr<SignerContext>>, pcryptopolicy: ConstPtr<CertStrongSignPara>, pdigestsigninfo: ConstPtr<SignerDigestSignInfo>, preserved: ConstPtr<CVoid>): Hresult =
+public actual fun signerSignEx3(dwflags: SignerSignFlags, psubjectinfo: ConstPtr, psignercert: ConstPtr, psignatureinfo: ConstPtr, pproviderinfo: ConstPtr, dwtimestampflags: SignerTimestampFlags, psztimestampalgorithmoid: Pcstr, pwszhttptimestamp: Pcwstr, psrequest: ConstPtr, psipdata: ConstPtr, ppsignercontext: MutPtr, pcryptopolicy: ConstPtr, pdigestsigninfo: ConstPtr, preserved: ConstPtr): Hresult =
     WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographySignerSignEx3(dwflags.toInt(), psubjectinfo.rawAddress, psignercert.rawAddress, psignatureinfo.rawAddress, pproviderinfo.rawAddress, dwtimestampflags.toInt(), psztimestampalgorithmoid.rawAddress, pwszhttptimestamp.rawAddress, psrequest.rawAddress, psipdata.rawAddress, ppsignercontext.rawAddress, pcryptopolicy.rawAddress, pdigestsigninfo.rawAddress, preserved.rawAddress)
 
-public actual fun signerTimeStamp(psubjectinfo: ConstPtr<SignerSubjectInfo>, pwszhttptimestamp: Pcwstr, psrequest: ConstPtr<CryptAttributes>, psipdata: ConstPtr<CVoid>): Hresult =
+public actual fun signerTimeStamp(psubjectinfo: ConstPtr, pwszhttptimestamp: Pcwstr, psrequest: ConstPtr, psipdata: ConstPtr): Hresult =
     WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographySignerTimeStamp(psubjectinfo.rawAddress, pwszhttptimestamp.rawAddress, psrequest.rawAddress, psipdata.rawAddress)
 
-public actual fun signerTimeStampEx(dwflags: UInt, psubjectinfo: ConstPtr<SignerSubjectInfo>, pwszhttptimestamp: Pcwstr, psrequest: ConstPtr<CryptAttributes>, psipdata: ConstPtr<CVoid>, ppsignercontext: MutPtr<MutPtr<SignerContext>>): Hresult =
+public actual fun signerTimeStampEx(dwflags: UInt, psubjectinfo: ConstPtr, pwszhttptimestamp: Pcwstr, psrequest: ConstPtr, psipdata: ConstPtr, ppsignercontext: MutPtr): Hresult =
     WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographySignerTimeStampEx(dwflags.toInt(), psubjectinfo.rawAddress, pwszhttptimestamp.rawAddress, psrequest.rawAddress, psipdata.rawAddress, ppsignercontext.rawAddress)
 
-public actual fun signerTimeStampEx2(dwflags: SignerTimestampFlags, psubjectinfo: ConstPtr<SignerSubjectInfo>, pwszhttptimestamp: Pcwstr, dwalgid: AlgId, psrequest: ConstPtr<CryptAttributes>, psipdata: ConstPtr<CVoid>, ppsignercontext: MutPtr<MutPtr<SignerContext>>): Hresult =
+public actual fun signerTimeStampEx2(dwflags: SignerTimestampFlags, psubjectinfo: ConstPtr, pwszhttptimestamp: Pcwstr, dwalgid: AlgId, psrequest: ConstPtr, psipdata: ConstPtr, ppsignercontext: MutPtr): Hresult =
     WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographySignerTimeStampEx2(dwflags.toInt(), psubjectinfo.rawAddress, pwszhttptimestamp.rawAddress, dwalgid.toInt(), psrequest.rawAddress, psipdata.rawAddress, ppsignercontext.rawAddress)
 
-public actual fun signerTimeStampEx3(dwflags: SignerTimestampFlags, dwindex: UInt, psubjectinfo: ConstPtr<SignerSubjectInfo>, pwszhttptimestamp: Pcwstr, pszalgorithmoid: Pcwstr, psrequest: ConstPtr<CryptAttributes>, psipdata: ConstPtr<CVoid>, ppsignercontext: MutPtr<MutPtr<SignerContext>>, pcryptopolicy: ConstPtr<CertStrongSignPara>, preserved: ConstPtr<CVoid>): Hresult =
+public actual fun signerTimeStampEx3(dwflags: SignerTimestampFlags, dwindex: UInt, psubjectinfo: ConstPtr, pwszhttptimestamp: Pcwstr, pszalgorithmoid: Pcwstr, psrequest: ConstPtr, psipdata: ConstPtr, ppsignercontext: MutPtr, pcryptopolicy: ConstPtr, preserved: ConstPtr): Hresult =
     WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographySignerTimeStampEx3(dwflags.toInt(), dwindex.toInt(), psubjectinfo.rawAddress, pwszhttptimestamp.rawAddress, pszalgorithmoid.rawAddress, psrequest.rawAddress, psipdata.rawAddress, ppsignercontext.rawAddress, pcryptopolicy.rawAddress, preserved.rawAddress)
 
 public actual fun sslChangeNotify(hevent: Handle, dwflags: UInt): Hresult =
     WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographySslChangeNotify(hevent.rawAddress, dwflags.toInt())
 
-public actual fun sslComputeClientAuthHash(hsslprovider: NcryptProvHandle, hmasterkey: NcryptKeyHandle, hhandshakehash: NcryptHashHandle, pszalgid: Pcwstr, pboutput: MutPtr<UByte>, cboutput: UInt, pcbresult: MutPtr<UInt>, dwflags: UInt): Hresult =
+public actual fun sslComputeClientAuthHash(hsslprovider: NcryptProvHandle, hmasterkey: NcryptKeyHandle, hhandshakehash: NcryptHashHandle, pszalgid: Pcwstr, pboutput: MutPtr, cboutput: UInt, pcbresult: MutPtr, dwflags: UInt): Hresult =
     WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographySslComputeClientAuthHash(hsslprovider.toLong(), hmasterkey.toLong(), hhandshakehash.toLong(), pszalgid.rawAddress, pboutput.rawAddress, cboutput.toInt(), pcbresult.rawAddress, dwflags.toInt())
 
-public actual fun sslComputeEapKeyBlock(hsslprovider: NcryptProvHandle, hmasterkey: NcryptKeyHandle, pbrandoms: ConstPtr<UByte>, cbrandoms: UInt, pboutput: MutPtr<UByte>, cboutput: UInt, pcbresult: MutPtr<UInt>, dwflags: UInt): Hresult =
+public actual fun sslComputeEapKeyBlock(hsslprovider: NcryptProvHandle, hmasterkey: NcryptKeyHandle, pbrandoms: ConstPtr, cbrandoms: UInt, pboutput: MutPtr, cboutput: UInt, pcbresult: MutPtr, dwflags: UInt): Hresult =
     WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographySslComputeEapKeyBlock(hsslprovider.toLong(), hmasterkey.toLong(), pbrandoms.rawAddress, cbrandoms.toInt(), pboutput.rawAddress, cboutput.toInt(), pcbresult.rawAddress, dwflags.toInt())
 
-public actual fun sslComputeFinishedHash(hsslprovider: NcryptProvHandle, hmasterkey: NcryptKeyHandle, hhandshakehash: NcryptHashHandle, pboutput: MutPtr<UByte>, cboutput: UInt, dwflags: UInt): Hresult =
+public actual fun sslComputeFinishedHash(hsslprovider: NcryptProvHandle, hmasterkey: NcryptKeyHandle, hhandshakehash: NcryptHashHandle, pboutput: MutPtr, cboutput: UInt, dwflags: UInt): Hresult =
     WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographySslComputeFinishedHash(hsslprovider.toLong(), hmasterkey.toLong(), hhandshakehash.toLong(), pboutput.rawAddress, cboutput.toInt(), dwflags.toInt())
 
-public actual fun sslComputeSessionHash(hsslprovider: NcryptProvHandle, hhandshakehash: NcryptHashHandle, dwprotocol: UInt, pboutput: MutPtr<UByte>, cboutput: UInt, pcbresult: MutPtr<UInt>, dwflags: UInt): Hresult =
+public actual fun sslComputeSessionHash(hsslprovider: NcryptProvHandle, hhandshakehash: NcryptHashHandle, dwprotocol: UInt, pboutput: MutPtr, cboutput: UInt, pcbresult: MutPtr, dwflags: UInt): Hresult =
     WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographySslComputeSessionHash(hsslprovider.toLong(), hhandshakehash.toLong(), dwprotocol.toInt(), pboutput.rawAddress, cboutput.toInt(), pcbresult.rawAddress, dwflags.toInt())
 
-public actual fun sslCreateClientAuthHash(hsslprovider: NcryptProvHandle, phhandshakehash: MutPtr<NcryptHashHandle>, dwprotocol: UInt, dwciphersuite: UInt, pszhashalgid: Pcwstr, dwflags: UInt): Hresult =
+public actual fun sslCreateClientAuthHash(hsslprovider: NcryptProvHandle, phhandshakehash: MutPtr, dwprotocol: UInt, dwciphersuite: UInt, pszhashalgid: Pcwstr, dwflags: UInt): Hresult =
     WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographySslCreateClientAuthHash(hsslprovider.toLong(), phhandshakehash.rawAddress, dwprotocol.toInt(), dwciphersuite.toInt(), pszhashalgid.rawAddress, dwflags.toInt())
 
-public actual fun sslCreateEphemeralKey(hsslprovider: NcryptProvHandle, phephemeralkey: MutPtr<NcryptKeyHandle>, dwprotocol: UInt, dwciphersuite: UInt, dwkeytype: UInt, dwkeybitlen: UInt, pbparams: ConstPtr<UByte>, cbparams: UInt, dwflags: UInt): Hresult =
+public actual fun sslCreateEphemeralKey(hsslprovider: NcryptProvHandle, phephemeralkey: MutPtr, dwprotocol: UInt, dwciphersuite: UInt, dwkeytype: UInt, dwkeybitlen: UInt, pbparams: ConstPtr, cbparams: UInt, dwflags: UInt): Hresult =
     WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographySslCreateEphemeralKey(hsslprovider.toLong(), phephemeralkey.rawAddress, dwprotocol.toInt(), dwciphersuite.toInt(), dwkeytype.toInt(), dwkeybitlen.toInt(), pbparams.rawAddress, cbparams.toInt(), dwflags.toInt())
 
-public actual fun sslCreateHandshakeHash(hsslprovider: NcryptProvHandle, phhandshakehash: MutPtr<NcryptHashHandle>, dwprotocol: UInt, dwciphersuite: UInt, dwflags: UInt): Hresult =
+public actual fun sslCreateHandshakeHash(hsslprovider: NcryptProvHandle, phhandshakehash: MutPtr, dwprotocol: UInt, dwciphersuite: UInt, dwflags: UInt): Hresult =
     WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographySslCreateHandshakeHash(hsslprovider.toLong(), phhandshakehash.rawAddress, dwprotocol.toInt(), dwciphersuite.toInt(), dwflags.toInt())
 
 public actual fun sslDecrementProviderReferenceCount(hsslprovider: NcryptProvHandle): Hresult =
     WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographySslDecrementProviderReferenceCount(hsslprovider.toLong())
 
-public actual fun sslDecryptPacket(hsslprovider: NcryptProvHandle, hkey: NcryptKeyHandle, pbinput: ConstPtr<UByte>, cbinput: UInt, pboutput: MutPtr<UByte>, cboutput: UInt, pcbresult: MutPtr<UInt>, sequencenumber: ULong, dwflags: UInt): Hresult =
+public actual fun sslDecryptPacket(hsslprovider: NcryptProvHandle, hkey: NcryptKeyHandle, pbinput: ConstPtr, cbinput: UInt, pboutput: MutPtr, cboutput: UInt, pcbresult: MutPtr, sequencenumber: ULong, dwflags: UInt): Hresult =
     WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographySslDecryptPacket(hsslprovider.toLong(), hkey.toLong(), pbinput.rawAddress, cbinput.toInt(), pboutput.rawAddress, cboutput.toInt(), pcbresult.rawAddress, sequencenumber.toLong(), dwflags.toInt())
 
-public actual fun sslDuplicateTranscriptHash(hsslprovider: NcryptProvHandle, htranscripthash: NcryptHashHandle, phtranscripthash: MutPtr<NcryptHashHandle>, dwflags: UInt): Hresult =
+public actual fun sslDuplicateTranscriptHash(hsslprovider: NcryptProvHandle, htranscripthash: NcryptHashHandle, phtranscripthash: MutPtr, dwflags: UInt): Hresult =
     WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographySslDuplicateTranscriptHash(hsslprovider.toLong(), htranscripthash.toLong(), phtranscripthash.rawAddress, dwflags.toInt())
 
-public actual fun sslEncryptPacket(hsslprovider: NcryptProvHandle, hkey: NcryptKeyHandle, pbinput: ConstPtr<UByte>, cbinput: UInt, pboutput: MutPtr<UByte>, cboutput: UInt, pcbresult: MutPtr<UInt>, sequencenumber: ULong, dwcontenttype: UInt, dwflags: UInt): Hresult =
+public actual fun sslEncryptPacket(hsslprovider: NcryptProvHandle, hkey: NcryptKeyHandle, pbinput: ConstPtr, cbinput: UInt, pboutput: MutPtr, cboutput: UInt, pcbresult: MutPtr, sequencenumber: ULong, dwcontenttype: UInt, dwflags: UInt): Hresult =
     WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographySslEncryptPacket(hsslprovider.toLong(), hkey.toLong(), pbinput.rawAddress, cbinput.toInt(), pboutput.rawAddress, cboutput.toInt(), pcbresult.rawAddress, sequencenumber.toLong(), dwcontenttype.toInt(), dwflags.toInt())
 
-public actual fun sslEnumCipherSuites(hsslprovider: NcryptProvHandle, hprivatekey: NcryptKeyHandle, ppciphersuite: MutPtr<MutPtr<NcryptSslCipherSuite>>, ppenumstate: MutPtr<MutPtr<CVoid>>, dwflags: UInt): Hresult =
+public actual fun sslEnumCipherSuites(hsslprovider: NcryptProvHandle, hprivatekey: NcryptKeyHandle, ppciphersuite: MutPtr, ppenumstate: MutPtr, dwflags: UInt): Hresult =
     WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographySslEnumCipherSuites(hsslprovider.toLong(), hprivatekey.toLong(), ppciphersuite.rawAddress, ppenumstate.rawAddress, dwflags.toInt())
 
-public actual fun sslEnumCipherSuitesEx(hsslprovider: NcryptProvHandle, hprivatekey: NcryptKeyHandle, ppciphersuite: MutPtr<MutPtr<NcryptSslCipherSuiteEx>>, ppenumstate: MutPtr<MutPtr<CVoid>>, dwflags: UInt): Hresult =
+public actual fun sslEnumCipherSuitesEx(hsslprovider: NcryptProvHandle, hprivatekey: NcryptKeyHandle, ppciphersuite: MutPtr, ppenumstate: MutPtr, dwflags: UInt): Hresult =
     WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographySslEnumCipherSuitesEx(hsslprovider.toLong(), hprivatekey.toLong(), ppciphersuite.rawAddress, ppenumstate.rawAddress, dwflags.toInt())
 
-public actual fun sslEnumEccCurves(hsslprovider: NcryptProvHandle, pecccurvecount: MutPtr<UInt>, ppecccurve: MutPtr<MutPtr<NcryptSslEccCurve>>, dwflags: UInt): Hresult =
+public actual fun sslEnumEccCurves(hsslprovider: NcryptProvHandle, pecccurvecount: MutPtr, ppecccurve: MutPtr, dwflags: UInt): Hresult =
     WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographySslEnumEccCurves(hsslprovider.toLong(), pecccurvecount.rawAddress, ppecccurve.rawAddress, dwflags.toInt())
 
-public actual fun sslEnumProtocolProviders(pdwprovidercount: MutPtr<UInt>, ppproviderlist: MutPtr<MutPtr<NCryptProviderName>>, dwflags: UInt): Hresult =
+public actual fun sslEnumProtocolProviders(pdwprovidercount: MutPtr, ppproviderlist: MutPtr, dwflags: UInt): Hresult =
     WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographySslEnumProtocolProviders(pdwprovidercount.rawAddress, ppproviderlist.rawAddress, dwflags.toInt())
 
-public actual fun sslExpandBinderKey(hsslprovider: NcryptProvHandle, hearlykey: NcryptKeyHandle, phbinderkey: MutPtr<NcryptKeyHandle>, pparameterlist: ConstPtr<BCryptBufferDesc>, dwflags: UInt): Hresult =
+public actual fun sslExpandBinderKey(hsslprovider: NcryptProvHandle, hearlykey: NcryptKeyHandle, phbinderkey: MutPtr, pparameterlist: ConstPtr, dwflags: UInt): Hresult =
     WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographySslExpandBinderKey(hsslprovider.toLong(), hearlykey.toLong(), phbinderkey.rawAddress, pparameterlist.rawAddress, dwflags.toInt())
 
-public actual fun sslExpandExporterMasterKey(hsslprovider: NcryptProvHandle, hbasekey: NcryptKeyHandle, hhashvalue: NcryptHashHandle, phexportermasterkey: MutPtr<NcryptKeyHandle>, pparameterlist: ConstPtr<BCryptBufferDesc>, dwflags: UInt): Hresult =
+public actual fun sslExpandExporterMasterKey(hsslprovider: NcryptProvHandle, hbasekey: NcryptKeyHandle, hhashvalue: NcryptHashHandle, phexportermasterkey: MutPtr, pparameterlist: ConstPtr, dwflags: UInt): Hresult =
     WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographySslExpandExporterMasterKey(hsslprovider.toLong(), hbasekey.toLong(), hhashvalue.toLong(), phexportermasterkey.rawAddress, pparameterlist.rawAddress, dwflags.toInt())
 
-public actual fun sslExpandPreSharedKey(hsslprovider: NcryptProvHandle, hresumptionmasterkey: NcryptKeyHandle, pbticketnonce: ConstPtr<UByte>, cbticketnonce: UInt, phpresharedkey: MutPtr<NcryptKeyHandle>, pparameterlist: ConstPtr<BCryptBufferDesc>, dwflags: UInt): Hresult =
+public actual fun sslExpandPreSharedKey(hsslprovider: NcryptProvHandle, hresumptionmasterkey: NcryptKeyHandle, pbticketnonce: ConstPtr, cbticketnonce: UInt, phpresharedkey: MutPtr, pparameterlist: ConstPtr, dwflags: UInt): Hresult =
     WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographySslExpandPreSharedKey(hsslprovider.toLong(), hresumptionmasterkey.toLong(), pbticketnonce.rawAddress, cbticketnonce.toInt(), phpresharedkey.rawAddress, pparameterlist.rawAddress, dwflags.toInt())
 
-public actual fun sslExpandResumptionMasterKey(hsslprovider: NcryptProvHandle, hmasterkey: NcryptKeyHandle, hhashvalue: NcryptHashHandle, phresumptionmasterkey: MutPtr<NcryptKeyHandle>, pparameterlist: ConstPtr<BCryptBufferDesc>, dwflags: UInt): Hresult =
+public actual fun sslExpandResumptionMasterKey(hsslprovider: NcryptProvHandle, hmasterkey: NcryptKeyHandle, hhashvalue: NcryptHashHandle, phresumptionmasterkey: MutPtr, pparameterlist: ConstPtr, dwflags: UInt): Hresult =
     WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographySslExpandResumptionMasterKey(hsslprovider.toLong(), hmasterkey.toLong(), hhashvalue.toLong(), phresumptionmasterkey.rawAddress, pparameterlist.rawAddress, dwflags.toInt())
 
-public actual fun sslExpandTrafficKeys(hsslprovider: NcryptProvHandle, hbasekey: NcryptKeyHandle, hhashvalue: NcryptHashHandle, phclienttraffickey: MutPtr<NcryptKeyHandle>, phservertraffickey: MutPtr<NcryptKeyHandle>, pparameterlist: ConstPtr<BCryptBufferDesc>, dwflags: UInt): Hresult =
+public actual fun sslExpandTrafficKeys(hsslprovider: NcryptProvHandle, hbasekey: NcryptKeyHandle, hhashvalue: NcryptHashHandle, phclienttraffickey: MutPtr, phservertraffickey: MutPtr, pparameterlist: ConstPtr, dwflags: UInt): Hresult =
     WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographySslExpandTrafficKeys(hsslprovider.toLong(), hbasekey.toLong(), hhashvalue.toLong(), phclienttraffickey.rawAddress, phservertraffickey.rawAddress, pparameterlist.rawAddress, dwflags.toInt())
 
-public actual fun sslExpandWriteKey(hsslprovider: NcryptProvHandle, hbasetraffickey: NcryptKeyHandle, phwritekey: MutPtr<NcryptKeyHandle>, pparameterlist: ConstPtr<BCryptBufferDesc>, dwflags: UInt): Hresult =
+public actual fun sslExpandWriteKey(hsslprovider: NcryptProvHandle, hbasetraffickey: NcryptKeyHandle, phwritekey: MutPtr, pparameterlist: ConstPtr, dwflags: UInt): Hresult =
     WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographySslExpandWriteKey(hsslprovider.toLong(), hbasetraffickey.toLong(), phwritekey.rawAddress, pparameterlist.rawAddress, dwflags.toInt())
 
-public actual fun sslExportKey(hsslprovider: NcryptProvHandle, hkey: NcryptKeyHandle, pszblobtype: Pcwstr, pboutput: MutPtr<UByte>, cboutput: UInt, pcbresult: MutPtr<UInt>, dwflags: UInt): Hresult =
+public actual fun sslExportKey(hsslprovider: NcryptProvHandle, hkey: NcryptKeyHandle, pszblobtype: Pcwstr, pboutput: MutPtr, cboutput: UInt, pcbresult: MutPtr, dwflags: UInt): Hresult =
     WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographySslExportKey(hsslprovider.toLong(), hkey.toLong(), pszblobtype.rawAddress, pboutput.rawAddress, cboutput.toInt(), pcbresult.rawAddress, dwflags.toInt())
 
-public actual fun sslExportKeyingMaterial(hsslprovider: NcryptProvHandle, hmasterkey: NcryptKeyHandle, slabel: Pcstr, pbrandoms: ConstPtr<UByte>, cbrandoms: UInt, pbcontextvalue: ConstPtr<UByte>, cbcontextvalue: UShort, pboutput: MutPtr<UByte>, cboutput: UInt, dwflags: UInt): Hresult =
+public actual fun sslExportKeyingMaterial(hsslprovider: NcryptProvHandle, hmasterkey: NcryptKeyHandle, slabel: Pcstr, pbrandoms: ConstPtr, cbrandoms: UInt, pbcontextvalue: ConstPtr, cbcontextvalue: UShort, pboutput: MutPtr, cboutput: UInt, dwflags: UInt): Hresult =
     WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographySslExportKeyingMaterial(hsslprovider.toLong(), hmasterkey.toLong(), slabel.rawAddress, pbrandoms.rawAddress, cbrandoms.toInt(), pbcontextvalue.rawAddress, cbcontextvalue.toShort(), pboutput.rawAddress, cboutput.toInt(), dwflags.toInt())
 
-public actual fun sslExtractEarlyKey(hsslprovider: NcryptProvHandle, hpresharedkey: NcryptKeyHandle, phearlykey: MutPtr<NcryptKeyHandle>, dwprotocol: UInt, dwciphersuite: UInt, pparameterlist: ConstPtr<BCryptBufferDesc>, dwflags: UInt): Hresult =
+public actual fun sslExtractEarlyKey(hsslprovider: NcryptProvHandle, hpresharedkey: NcryptKeyHandle, phearlykey: MutPtr, dwprotocol: UInt, dwciphersuite: UInt, pparameterlist: ConstPtr, dwflags: UInt): Hresult =
     WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographySslExtractEarlyKey(hsslprovider.toLong(), hpresharedkey.toLong(), phearlykey.rawAddress, dwprotocol.toInt(), dwciphersuite.toInt(), pparameterlist.rawAddress, dwflags.toInt())
 
-public actual fun sslExtractHandshakeKey(hsslprovider: NcryptProvHandle, hprivatekey: NcryptKeyHandle, hpublickey: NcryptKeyHandle, hearlykey: NcryptKeyHandle, phhandshakekey: MutPtr<NcryptKeyHandle>, pparameterlist: ConstPtr<BCryptBufferDesc>, dwflags: UInt): Hresult =
+public actual fun sslExtractHandshakeKey(hsslprovider: NcryptProvHandle, hprivatekey: NcryptKeyHandle, hpublickey: NcryptKeyHandle, hearlykey: NcryptKeyHandle, phhandshakekey: MutPtr, pparameterlist: ConstPtr, dwflags: UInt): Hresult =
     WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographySslExtractHandshakeKey(hsslprovider.toLong(), hprivatekey.toLong(), hpublickey.toLong(), hearlykey.toLong(), phhandshakekey.rawAddress, pparameterlist.rawAddress, dwflags.toInt())
 
-public actual fun sslExtractMasterKey(hsslprovider: NcryptProvHandle, hhandshakekey: NcryptKeyHandle, phmasterkey: MutPtr<NcryptKeyHandle>, pparameterlist: ConstPtr<BCryptBufferDesc>, dwflags: UInt): Hresult =
+public actual fun sslExtractMasterKey(hsslprovider: NcryptProvHandle, hhandshakekey: NcryptKeyHandle, phmasterkey: MutPtr, pparameterlist: ConstPtr, dwflags: UInt): Hresult =
     WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographySslExtractMasterKey(hsslprovider.toLong(), hhandshakekey.toLong(), phmasterkey.rawAddress, pparameterlist.rawAddress, dwflags.toInt())
 
-public actual fun sslFreeBuffer(pvinput: MutPtr<CVoid>): Hresult =
+public actual fun sslFreeBuffer(pvinput: MutPtr): Hresult =
     WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographySslFreeBuffer(pvinput.rawAddress)
 
 public actual fun sslFreeObject(hobject: NcryptHandle, dwflags: UInt): Hresult =
     WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographySslFreeObject(hobject.toLong(), dwflags.toInt())
 
-public actual fun sslGenerateMasterKey(hsslprovider: NcryptProvHandle, hprivatekey: NcryptKeyHandle, hpublickey: NcryptKeyHandle, phmasterkey: MutPtr<NcryptKeyHandle>, dwprotocol: UInt, dwciphersuite: UInt, pparameterlist: ConstPtr<BCryptBufferDesc>, pboutput: MutPtr<UByte>, cboutput: UInt, pcbresult: MutPtr<UInt>, dwflags: UInt): Hresult =
+public actual fun sslGenerateMasterKey(hsslprovider: NcryptProvHandle, hprivatekey: NcryptKeyHandle, hpublickey: NcryptKeyHandle, phmasterkey: MutPtr, dwprotocol: UInt, dwciphersuite: UInt, pparameterlist: ConstPtr, pboutput: MutPtr, cboutput: UInt, pcbresult: MutPtr, dwflags: UInt): Hresult =
     WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographySslGenerateMasterKey(hsslprovider.toLong(), hprivatekey.toLong(), hpublickey.toLong(), phmasterkey.rawAddress, dwprotocol.toInt(), dwciphersuite.toInt(), pparameterlist.rawAddress, pboutput.rawAddress, cboutput.toInt(), pcbresult.rawAddress, dwflags.toInt())
 
-public actual fun sslGeneratePreMasterKey(hsslprovider: NcryptProvHandle, hpublickey: NcryptKeyHandle, phpremasterkey: MutPtr<NcryptKeyHandle>, dwprotocol: UInt, dwciphersuite: UInt, pparameterlist: ConstPtr<BCryptBufferDesc>, pboutput: MutPtr<UByte>, cboutput: UInt, pcbresult: MutPtr<UInt>, dwflags: UInt): Hresult =
+public actual fun sslGeneratePreMasterKey(hsslprovider: NcryptProvHandle, hpublickey: NcryptKeyHandle, phpremasterkey: MutPtr, dwprotocol: UInt, dwciphersuite: UInt, pparameterlist: ConstPtr, pboutput: MutPtr, cboutput: UInt, pcbresult: MutPtr, dwflags: UInt): Hresult =
     WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographySslGeneratePreMasterKey(hsslprovider.toLong(), hpublickey.toLong(), phpremasterkey.rawAddress, dwprotocol.toInt(), dwciphersuite.toInt(), pparameterlist.rawAddress, pboutput.rawAddress, cboutput.toInt(), pcbresult.rawAddress, dwflags.toInt())
 
-public actual fun sslGenerateSessionKeys(hsslprovider: NcryptProvHandle, hmasterkey: NcryptKeyHandle, phreadkey: MutPtr<NcryptKeyHandle>, phwritekey: MutPtr<NcryptKeyHandle>, pparameterlist: ConstPtr<BCryptBufferDesc>, dwflags: UInt): Hresult =
+public actual fun sslGenerateSessionKeys(hsslprovider: NcryptProvHandle, hmasterkey: NcryptKeyHandle, phreadkey: MutPtr, phwritekey: MutPtr, pparameterlist: ConstPtr, dwflags: UInt): Hresult =
     WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographySslGenerateSessionKeys(hsslprovider.toLong(), hmasterkey.toLong(), phreadkey.rawAddress, phwritekey.rawAddress, pparameterlist.rawAddress, dwflags.toInt())
 
 public actual fun sslGetCipherSuitePRFHashAlgorithm(hsslprovider: NcryptProvHandle, dwprotocol: UInt, dwciphersuite: UInt, dwkeytype: UInt, szprfhash: Pwstr, dwflags: UInt): Hresult =
     WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographySslGetCipherSuitePRFHashAlgorithm(hsslprovider.toLong(), dwprotocol.toInt(), dwciphersuite.toInt(), dwkeytype.toInt(), szprfhash.rawAddress, dwflags.toInt())
 
-public actual fun sslGetKeyProperty(hkey: NcryptKeyHandle, pszproperty: Pcwstr, ppboutput: MutPtr<MutPtr<UByte>>, pcboutput: MutPtr<UInt>, dwflags: UInt): Hresult =
+public actual fun sslGetKeyProperty(hkey: NcryptKeyHandle, pszproperty: Pcwstr, ppboutput: MutPtr, pcboutput: MutPtr, dwflags: UInt): Hresult =
     WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographySslGetKeyProperty(hkey.toLong(), pszproperty.rawAddress, ppboutput.rawAddress, pcboutput.rawAddress, dwflags.toInt())
 
-public actual fun sslGetProviderProperty(hsslprovider: NcryptProvHandle, pszproperty: Pcwstr, ppboutput: MutPtr<MutPtr<UByte>>, pcboutput: MutPtr<UInt>, ppenumstate: MutPtr<MutPtr<CVoid>>, dwflags: UInt): Hresult =
+public actual fun sslGetProviderProperty(hsslprovider: NcryptProvHandle, pszproperty: Pcwstr, ppboutput: MutPtr, pcboutput: MutPtr, ppenumstate: MutPtr, dwflags: UInt): Hresult =
     WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographySslGetProviderProperty(hsslprovider.toLong(), pszproperty.rawAddress, ppboutput.rawAddress, pcboutput.rawAddress, ppenumstate.rawAddress, dwflags.toInt())
 
-public actual fun sslHashHandshake(hsslprovider: NcryptProvHandle, hhandshakehash: NcryptHashHandle, pbinput: ConstPtr<UByte>, cbinput: UInt, dwflags: UInt): Hresult =
+public actual fun sslHashHandshake(hsslprovider: NcryptProvHandle, hhandshakehash: NcryptHashHandle, pbinput: ConstPtr, cbinput: UInt, dwflags: UInt): Hresult =
     WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographySslHashHandshake(hsslprovider.toLong(), hhandshakehash.toLong(), pbinput.rawAddress, cbinput.toInt(), dwflags.toInt())
 
-public actual fun sslImportKey(hsslprovider: NcryptProvHandle, phkey: MutPtr<NcryptKeyHandle>, pszblobtype: Pcwstr, pbkeyblob: ConstPtr<UByte>, cbkeyblob: UInt, dwflags: UInt): Hresult =
+public actual fun sslImportKey(hsslprovider: NcryptProvHandle, phkey: MutPtr, pszblobtype: Pcwstr, pbkeyblob: ConstPtr, cbkeyblob: UInt, dwflags: UInt): Hresult =
     WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographySslImportKey(hsslprovider.toLong(), phkey.rawAddress, pszblobtype.rawAddress, pbkeyblob.rawAddress, cbkeyblob.toInt(), dwflags.toInt())
 
-public actual fun sslImportMasterKey(hsslprovider: NcryptProvHandle, hprivatekey: NcryptKeyHandle, phmasterkey: MutPtr<NcryptKeyHandle>, dwprotocol: UInt, dwciphersuite: UInt, pparameterlist: ConstPtr<BCryptBufferDesc>, pbencryptedkey: ConstPtr<UByte>, cbencryptedkey: UInt, dwflags: UInt): Hresult =
+public actual fun sslImportMasterKey(hsslprovider: NcryptProvHandle, hprivatekey: NcryptKeyHandle, phmasterkey: MutPtr, dwprotocol: UInt, dwciphersuite: UInt, pparameterlist: ConstPtr, pbencryptedkey: ConstPtr, cbencryptedkey: UInt, dwflags: UInt): Hresult =
     WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographySslImportMasterKey(hsslprovider.toLong(), hprivatekey.toLong(), phmasterkey.rawAddress, dwprotocol.toInt(), dwciphersuite.toInt(), pparameterlist.rawAddress, pbencryptedkey.rawAddress, cbencryptedkey.toInt(), dwflags.toInt())
 
 public actual fun sslIncrementProviderReferenceCount(hsslprovider: NcryptProvHandle): Hresult =
     WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographySslIncrementProviderReferenceCount(hsslprovider.toLong())
 
-public actual fun sslLookupCipherLengths(hsslprovider: NcryptProvHandle, dwprotocol: UInt, dwciphersuite: UInt, dwkeytype: UInt, pcipherlengths: MutPtr<NcryptSslCipherLengths>, cbcipherlengths: UInt, dwflags: UInt): Hresult =
+public actual fun sslLookupCipherLengths(hsslprovider: NcryptProvHandle, dwprotocol: UInt, dwciphersuite: UInt, dwkeytype: UInt, pcipherlengths: MutPtr, cbcipherlengths: UInt, dwflags: UInt): Hresult =
     WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographySslLookupCipherLengths(hsslprovider.toLong(), dwprotocol.toInt(), dwciphersuite.toInt(), dwkeytype.toInt(), pcipherlengths.rawAddress, cbcipherlengths.toInt(), dwflags.toInt())
 
-public actual fun sslLookupCipherSuiteInfo(hsslprovider: NcryptProvHandle, dwprotocol: UInt, dwciphersuite: UInt, dwkeytype: UInt, pciphersuite: MutPtr<NcryptSslCipherSuite>, dwflags: UInt): Hresult =
+public actual fun sslLookupCipherSuiteInfo(hsslprovider: NcryptProvHandle, dwprotocol: UInt, dwciphersuite: UInt, dwkeytype: UInt, pciphersuite: MutPtr, dwflags: UInt): Hresult =
     WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographySslLookupCipherSuiteInfo(hsslprovider.toLong(), dwprotocol.toInt(), dwciphersuite.toInt(), dwkeytype.toInt(), pciphersuite.rawAddress, dwflags.toInt())
 
-public actual fun sslOpenPrivateKey(hsslprovider: NcryptProvHandle, phprivatekey: MutPtr<NcryptKeyHandle>, pcertcontext: ConstPtr<CertContext>, dwflags: UInt): Hresult =
+public actual fun sslOpenPrivateKey(hsslprovider: NcryptProvHandle, phprivatekey: MutPtr, pcertcontext: ConstPtr, dwflags: UInt): Hresult =
     WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographySslOpenPrivateKey(hsslprovider.toLong(), phprivatekey.rawAddress, pcertcontext.rawAddress, dwflags.toInt())
 
-public actual fun sslOpenProvider(phsslprovider: MutPtr<NcryptProvHandle>, pszprovidername: Pcwstr, dwflags: UInt): Hresult =
+public actual fun sslOpenProvider(phsslprovider: MutPtr, pszprovidername: Pcwstr, dwflags: UInt): Hresult =
     WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographySslOpenProvider(phsslprovider.rawAddress, pszprovidername.rawAddress, dwflags.toInt())
 
-public actual fun sslSignHash(hsslprovider: NcryptProvHandle, hprivatekey: NcryptKeyHandle, pbhashvalue: ConstPtr<UByte>, cbhashvalue: UInt, pbsignature: MutPtr<UByte>, cbsignature: UInt, pcbresult: MutPtr<UInt>, dwflags: UInt): Hresult =
+public actual fun sslSignHash(hsslprovider: NcryptProvHandle, hprivatekey: NcryptKeyHandle, pbhashvalue: ConstPtr, cbhashvalue: UInt, pbsignature: MutPtr, cbsignature: UInt, pcbresult: MutPtr, dwflags: UInt): Hresult =
     WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographySslSignHash(hsslprovider.toLong(), hprivatekey.toLong(), pbhashvalue.rawAddress, cbhashvalue.toInt(), pbsignature.rawAddress, cbsignature.toInt(), pcbresult.rawAddress, dwflags.toInt())
 
-public actual fun sslVerifySignature(hsslprovider: NcryptProvHandle, hpublickey: NcryptKeyHandle, pbhashvalue: ConstPtr<UByte>, cbhashvalue: UInt, pbsignature: ConstPtr<UByte>, cbsignature: UInt, dwflags: UInt): Hresult =
+public actual fun sslVerifySignature(hsslprovider: NcryptProvHandle, hpublickey: NcryptKeyHandle, pbhashvalue: ConstPtr, cbhashvalue: UInt, pbsignature: ConstPtr, cbsignature: UInt, dwflags: UInt): Hresult =
     WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographySslVerifySignature(hsslprovider.toLong(), hpublickey.toLong(), pbhashvalue.rawAddress, cbhashvalue.toInt(), pbsignature.rawAddress, cbsignature.toInt(), dwflags.toInt())
 
-public actual fun systemPrng(pbrandomdata: MutPtr<UByte>, cbrandomdata: ULong): Bool =
+public actual fun systemPrng(pbrandomdata: MutPtr, cbrandomdata: ULong): Bool =
     WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographySystemPrng(pbrandomdata.rawAddress, cbrandomdata.toLong())
 
-public actual fun transformBlock(hcrypto: ConstPtr<InformationcardCryptoHandle>, cbindata: UInt, pindata: ConstPtr<UByte>, pcboutdata: MutPtr<UInt>, ppoutdata: MutPtr<MutPtr<UByte>>): Hresult =
+public actual fun transformBlock(hcrypto: ConstPtr, cbindata: UInt, pindata: ConstPtr, pcboutdata: MutPtr, ppoutdata: MutPtr): Hresult =
     WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyTransformBlock(hcrypto.rawAddress, cbindata.toInt(), pindata.rawAddress, pcboutdata.rawAddress, ppoutdata.rawAddress)
 
-public actual fun transformFinalBlock(hcrypto: ConstPtr<InformationcardCryptoHandle>, cbindata: UInt, pindata: ConstPtr<UByte>, pcboutdata: MutPtr<UInt>, ppoutdata: MutPtr<MutPtr<UByte>>): Hresult =
+public actual fun transformFinalBlock(hcrypto: ConstPtr, cbindata: UInt, pindata: ConstPtr, pcboutdata: MutPtr, ppoutdata: MutPtr): Hresult =
     WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyTransformFinalBlock(hcrypto.rawAddress, cbindata.toInt(), pindata.rawAddress, pcboutdata.rawAddress, ppoutdata.rawAddress)
 
-public actual fun verifyHash(hcrypto: ConstPtr<InformationcardCryptoHandle>, cbhash: UInt, phash: ConstPtr<UByte>, hashalgoid: Pcwstr, cbsig: UInt, psig: ConstPtr<UByte>, pfverified: MutPtr<Bool>): Hresult =
+public actual fun verifyHash(hcrypto: ConstPtr, cbhash: UInt, phash: ConstPtr, hashalgoid: Pcwstr, cbsig: UInt, psig: ConstPtr, pfverified: MutPtr): Hresult =
     WindowsWin32SecurityCryptographyJniBridge.windowssysWindowsWin32SecurityCryptographyVerifyHash(hcrypto.rawAddress, cbhash.toInt(), phash.rawAddress, hashalgoid.rawAddress, cbsig.toInt(), psig.rawAddress, pfverified.rawAddress)

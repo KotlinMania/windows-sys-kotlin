@@ -2,11 +2,9 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.media.multimedia
 
-import io.github.kotlinmania.rustlang.core.ffi.CVoid
 import io.github.kotlinmania.rustlang.core.ptr.ConstPtr
 import io.github.kotlinmania.rustlang.core.ptr.MutPtr
 import io.github.kotlinmania.windowssys.core.Bool
-import io.github.kotlinmania.windowssys.core.Guid
 import io.github.kotlinmania.windowssys.core.Hresult
 import io.github.kotlinmania.windowssys.core.Pcstr
 import io.github.kotlinmania.windowssys.core.Pcwstr
@@ -19,11 +17,8 @@ import io.github.kotlinmania.windowssys.windows.win32.foundation.Hmodule
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Hwnd
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Lparam
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Lresult
-import io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.Bitmapinfo
-import io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.Bitmapinfoheader
 import io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.Hdc
 import io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.Hpalette
-import io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.Paletteentry
 import io.github.kotlinmania.windowssys.windows.win32.media.Htask
 import io.github.kotlinmania.windowssys.windows.win32.media.multimedia.cinterop.windowssysWindowsWin32MediaMultimediaAVIBuildFilterA
 import io.github.kotlinmania.windowssys.windows.win32.media.multimedia.cinterop.windowssysWindowsWin32MediaMultimediaAVIBuildFilterW
@@ -191,8 +186,6 @@ import io.github.kotlinmania.windowssys.windows.win32.media.multimedia.cinterop.
 import io.github.kotlinmania.windowssys.windows.win32.media.multimedia.cinterop.windowssysWindowsWin32MediaMultimediaSendDriverMessage
 import io.github.kotlinmania.windowssys.windows.win32.media.multimedia.cinterop.windowssysWindowsWin32MediaMultimediaSndOpenSound
 import io.github.kotlinmania.windowssys.windows.win32.media.multimedia.cinterop.windowssysWindowsWin32MediaMultimediaVideoForWindowsVersion
-import io.github.kotlinmania.windowssys.windows.win32.ui.controls.dialogs.Openfilenamea
-import io.github.kotlinmania.windowssys.windows.win32.ui.controls.dialogs.Openfilenamew
 import kotlinx.cinterop.ByteVar
 import kotlinx.cinterop.toCPointer
 import kotlinx.cinterop.toLong
@@ -206,177 +199,177 @@ public actual fun aVIBuildFilterW(lpszfilter: Pwstr, cbfilter: Int, fsaving: Boo
 public actual fun aVIClearClipboard(): Hresult =
     windowssysWindowsWin32MediaMultimediaAVIClearClipboard()
 
-public actual fun aVIFileAddRef(pfile: MutPtr<CVoid>): UInt =
+public actual fun aVIFileAddRef(pfile: MutPtr): UInt =
     windowssysWindowsWin32MediaMultimediaAVIFileAddRef(pfile.rawAddress.toCPointer<ByteVar>())
 
-public actual fun aVIFileCreateStreamA(pfile: MutPtr<CVoid>, ppavi: MutPtr<MutPtr<CVoid>>, psi: ConstPtr<Avistreaminfoa>): Hresult =
+public actual fun aVIFileCreateStreamA(pfile: MutPtr, ppavi: MutPtr, psi: ConstPtr): Hresult =
     windowssysWindowsWin32MediaMultimediaAVIFileCreateStreamA(pfile.rawAddress.toCPointer<ByteVar>(), ppavi.rawAddress.toCPointer<ByteVar>(), psi.rawAddress.toCPointer<ByteVar>())
 
-public actual fun aVIFileCreateStreamW(pfile: MutPtr<CVoid>, ppavi: MutPtr<MutPtr<CVoid>>, psi: ConstPtr<Avistreaminfow>): Hresult =
+public actual fun aVIFileCreateStreamW(pfile: MutPtr, ppavi: MutPtr, psi: ConstPtr): Hresult =
     windowssysWindowsWin32MediaMultimediaAVIFileCreateStreamW(pfile.rawAddress.toCPointer<ByteVar>(), ppavi.rawAddress.toCPointer<ByteVar>(), psi.rawAddress.toCPointer<ByteVar>())
 
-public actual fun aVIFileEndRecord(pfile: MutPtr<CVoid>): Hresult =
+public actual fun aVIFileEndRecord(pfile: MutPtr): Hresult =
     windowssysWindowsWin32MediaMultimediaAVIFileEndRecord(pfile.rawAddress.toCPointer<ByteVar>())
 
 public actual fun aVIFileExit() {
     windowssysWindowsWin32MediaMultimediaAVIFileExit()
 }
 
-public actual fun aVIFileGetStream(pfile: MutPtr<CVoid>, ppavi: MutPtr<MutPtr<CVoid>>, fcctype: UInt, lparam: Int): Hresult =
+public actual fun aVIFileGetStream(pfile: MutPtr, ppavi: MutPtr, fcctype: UInt, lparam: Int): Hresult =
     windowssysWindowsWin32MediaMultimediaAVIFileGetStream(pfile.rawAddress.toCPointer<ByteVar>(), ppavi.rawAddress.toCPointer<ByteVar>(), fcctype, lparam)
 
-public actual fun aVIFileInfoA(pfile: MutPtr<CVoid>, pfi: MutPtr<Avifileinfoa>, lsize: Int): Hresult =
+public actual fun aVIFileInfoA(pfile: MutPtr, pfi: MutPtr, lsize: Int): Hresult =
     windowssysWindowsWin32MediaMultimediaAVIFileInfoA(pfile.rawAddress.toCPointer<ByteVar>(), pfi.rawAddress.toCPointer<ByteVar>(), lsize)
 
-public actual fun aVIFileInfoW(pfile: MutPtr<CVoid>, pfi: MutPtr<Avifileinfow>, lsize: Int): Hresult =
+public actual fun aVIFileInfoW(pfile: MutPtr, pfi: MutPtr, lsize: Int): Hresult =
     windowssysWindowsWin32MediaMultimediaAVIFileInfoW(pfile.rawAddress.toCPointer<ByteVar>(), pfi.rawAddress.toCPointer<ByteVar>(), lsize)
 
 public actual fun aVIFileInit() {
     windowssysWindowsWin32MediaMultimediaAVIFileInit()
 }
 
-public actual fun aVIFileOpenA(ppfile: MutPtr<MutPtr<CVoid>>, szfile: Pcstr, umode: UInt, lphandler: ConstPtr<Guid>): Hresult =
+public actual fun aVIFileOpenA(ppfile: MutPtr, szfile: Pcstr, umode: UInt, lphandler: ConstPtr): Hresult =
     windowssysWindowsWin32MediaMultimediaAVIFileOpenA(ppfile.rawAddress.toCPointer<ByteVar>(), szfile.rawAddress.toCPointer<ByteVar>(), umode, lphandler.rawAddress.toCPointer<ByteVar>())
 
-public actual fun aVIFileOpenW(ppfile: MutPtr<MutPtr<CVoid>>, szfile: Pcwstr, umode: UInt, lphandler: ConstPtr<Guid>): Hresult =
+public actual fun aVIFileOpenW(ppfile: MutPtr, szfile: Pcwstr, umode: UInt, lphandler: ConstPtr): Hresult =
     windowssysWindowsWin32MediaMultimediaAVIFileOpenW(ppfile.rawAddress.toCPointer<ByteVar>(), szfile.rawAddress.toCPointer<ByteVar>(), umode, lphandler.rawAddress.toCPointer<ByteVar>())
 
-public actual fun aVIFileReadData(pfile: MutPtr<CVoid>, ckid: UInt, lpdata: MutPtr<CVoid>, lpcbdata: MutPtr<Int>): Hresult =
+public actual fun aVIFileReadData(pfile: MutPtr, ckid: UInt, lpdata: MutPtr, lpcbdata: MutPtr): Hresult =
     windowssysWindowsWin32MediaMultimediaAVIFileReadData(pfile.rawAddress.toCPointer<ByteVar>(), ckid, lpdata.rawAddress.toCPointer<ByteVar>(), lpcbdata.rawAddress.toCPointer<ByteVar>())
 
-public actual fun aVIFileRelease(pfile: MutPtr<CVoid>): UInt =
+public actual fun aVIFileRelease(pfile: MutPtr): UInt =
     windowssysWindowsWin32MediaMultimediaAVIFileRelease(pfile.rawAddress.toCPointer<ByteVar>())
 
-public actual fun aVIFileWriteData(pfile: MutPtr<CVoid>, ckid: UInt, lpdata: ConstPtr<CVoid>, cbdata: Int): Hresult =
+public actual fun aVIFileWriteData(pfile: MutPtr, ckid: UInt, lpdata: ConstPtr, cbdata: Int): Hresult =
     windowssysWindowsWin32MediaMultimediaAVIFileWriteData(pfile.rawAddress.toCPointer<ByteVar>(), ckid, lpdata.rawAddress.toCPointer<ByteVar>(), cbdata)
 
-public actual fun aVIGetFromClipboard(lppf: MutPtr<MutPtr<CVoid>>): Hresult =
+public actual fun aVIGetFromClipboard(lppf: MutPtr): Hresult =
     windowssysWindowsWin32MediaMultimediaAVIGetFromClipboard(lppf.rawAddress.toCPointer<ByteVar>())
 
-public actual fun aVIMakeCompressedStream(ppscompressed: MutPtr<MutPtr<CVoid>>, ppssource: MutPtr<CVoid>, lpoptions: ConstPtr<Avicompressoptions>, pclsidhandler: ConstPtr<Guid>): Hresult =
+public actual fun aVIMakeCompressedStream(ppscompressed: MutPtr, ppssource: MutPtr, lpoptions: ConstPtr, pclsidhandler: ConstPtr): Hresult =
     windowssysWindowsWin32MediaMultimediaAVIMakeCompressedStream(ppscompressed.rawAddress.toCPointer<ByteVar>(), ppssource.rawAddress.toCPointer<ByteVar>(), lpoptions.rawAddress.toCPointer<ByteVar>(), pclsidhandler.rawAddress.toCPointer<ByteVar>())
 
-public actual fun aVIMakeFileFromStreams(ppfile: MutPtr<MutPtr<CVoid>>, nstreams: Int, papstreams: ConstPtr<MutPtr<CVoid>>): Hresult =
+public actual fun aVIMakeFileFromStreams(ppfile: MutPtr, nstreams: Int, papstreams: ConstPtr): Hresult =
     windowssysWindowsWin32MediaMultimediaAVIMakeFileFromStreams(ppfile.rawAddress.toCPointer<ByteVar>(), nstreams, papstreams.rawAddress.toCPointer<ByteVar>())
 
-public actual fun aVIMakeStreamFromClipboard(cfformat: UInt, hglobal: Handle, ppstream: MutPtr<MutPtr<CVoid>>): Hresult =
+public actual fun aVIMakeStreamFromClipboard(cfformat: UInt, hglobal: Handle, ppstream: MutPtr): Hresult =
     windowssysWindowsWin32MediaMultimediaAVIMakeStreamFromClipboard(cfformat, hglobal.rawAddress.toCPointer<ByteVar>(), ppstream.rawAddress.toCPointer<ByteVar>())
 
-public actual fun aVIPutFileOnClipboard(pf: MutPtr<CVoid>): Hresult =
+public actual fun aVIPutFileOnClipboard(pf: MutPtr): Hresult =
     windowssysWindowsWin32MediaMultimediaAVIPutFileOnClipboard(pf.rawAddress.toCPointer<ByteVar>())
 
-public actual fun aVISaveA(szfile: Pcstr, pclsidhandler: ConstPtr<Guid>, lpfncallback: Avisavecallback, nstreams: Int, pfile: MutPtr<CVoid>, lpoptions: ConstPtr<Avicompressoptions>, vararg variadicArgs: Long): Hresult =
+public actual fun aVISaveA(szfile: Pcstr, pclsidhandler: ConstPtr, lpfncallback: Avisavecallback, nstreams: Int, pfile: MutPtr, lpoptions: ConstPtr, vararg variadicArgs: Long): Hresult =
     windowssysWindowsWin32MediaMultimediaAVISaveA(szfile.rawAddress.toCPointer<ByteVar>(), pclsidhandler.rawAddress.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>(), nstreams, pfile.rawAddress.toCPointer<ByteVar>(), lpoptions.rawAddress.toCPointer<ByteVar>(), variadicArgs.size.coerceAtMost(4), if (variadicArgs.size > 0) variadicArgs[0] else 0L, if (variadicArgs.size > 1) variadicArgs[1] else 0L, if (variadicArgs.size > 2) variadicArgs[2] else 0L, if (variadicArgs.size > 3) variadicArgs[3] else 0L)
 
-public actual fun aVISaveOptions(hwnd: Hwnd, uiflags: UInt, nstreams: Int, ppavi: ConstPtr<MutPtr<CVoid>>, plpoptions: MutPtr<MutPtr<Avicompressoptions>>): Long =
+public actual fun aVISaveOptions(hwnd: Hwnd, uiflags: UInt, nstreams: Int, ppavi: ConstPtr, plpoptions: MutPtr): Long =
     windowssysWindowsWin32MediaMultimediaAVISaveOptions(hwnd.rawAddress.toCPointer<ByteVar>(), uiflags, nstreams, ppavi.rawAddress.toCPointer<ByteVar>(), plpoptions.rawAddress.toCPointer<ByteVar>())
 
-public actual fun aVISaveOptionsFree(nstreams: Int, plpoptions: ConstPtr<ConstPtr<Avicompressoptions>>): Hresult =
+public actual fun aVISaveOptionsFree(nstreams: Int, plpoptions: ConstPtr): Hresult =
     windowssysWindowsWin32MediaMultimediaAVISaveOptionsFree(nstreams, plpoptions.rawAddress.toCPointer<ByteVar>())
 
-public actual fun aVISaveVA(szfile: Pcstr, pclsidhandler: ConstPtr<Guid>, lpfncallback: Avisavecallback, nstreams: Int, ppavi: ConstPtr<MutPtr<CVoid>>, plpoptions: ConstPtr<ConstPtr<Avicompressoptions>>): Hresult =
+public actual fun aVISaveVA(szfile: Pcstr, pclsidhandler: ConstPtr, lpfncallback: Avisavecallback, nstreams: Int, ppavi: ConstPtr, plpoptions: ConstPtr): Hresult =
     windowssysWindowsWin32MediaMultimediaAVISaveVA(szfile.rawAddress.toCPointer<ByteVar>(), pclsidhandler.rawAddress.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>(), nstreams, ppavi.rawAddress.toCPointer<ByteVar>(), plpoptions.rawAddress.toCPointer<ByteVar>())
 
-public actual fun aVISaveVW(szfile: Pcwstr, pclsidhandler: ConstPtr<Guid>, lpfncallback: Avisavecallback, nstreams: Int, ppavi: ConstPtr<MutPtr<CVoid>>, plpoptions: ConstPtr<ConstPtr<Avicompressoptions>>): Hresult =
+public actual fun aVISaveVW(szfile: Pcwstr, pclsidhandler: ConstPtr, lpfncallback: Avisavecallback, nstreams: Int, ppavi: ConstPtr, plpoptions: ConstPtr): Hresult =
     windowssysWindowsWin32MediaMultimediaAVISaveVW(szfile.rawAddress.toCPointer<ByteVar>(), pclsidhandler.rawAddress.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>(), nstreams, ppavi.rawAddress.toCPointer<ByteVar>(), plpoptions.rawAddress.toCPointer<ByteVar>())
 
-public actual fun aVISaveW(szfile: Pcwstr, pclsidhandler: ConstPtr<Guid>, lpfncallback: Avisavecallback, nstreams: Int, pfile: MutPtr<CVoid>, lpoptions: ConstPtr<Avicompressoptions>, vararg variadicArgs: Long): Hresult =
+public actual fun aVISaveW(szfile: Pcwstr, pclsidhandler: ConstPtr, lpfncallback: Avisavecallback, nstreams: Int, pfile: MutPtr, lpoptions: ConstPtr, vararg variadicArgs: Long): Hresult =
     windowssysWindowsWin32MediaMultimediaAVISaveW(szfile.rawAddress.toCPointer<ByteVar>(), pclsidhandler.rawAddress.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>(), nstreams, pfile.rawAddress.toCPointer<ByteVar>(), lpoptions.rawAddress.toCPointer<ByteVar>(), variadicArgs.size.coerceAtMost(4), if (variadicArgs.size > 0) variadicArgs[0] else 0L, if (variadicArgs.size > 1) variadicArgs[1] else 0L, if (variadicArgs.size > 2) variadicArgs[2] else 0L, if (variadicArgs.size > 3) variadicArgs[3] else 0L)
 
-public actual fun aVIStreamAddRef(pavi: MutPtr<CVoid>): UInt =
+public actual fun aVIStreamAddRef(pavi: MutPtr): UInt =
     windowssysWindowsWin32MediaMultimediaAVIStreamAddRef(pavi.rawAddress.toCPointer<ByteVar>())
 
-public actual fun aVIStreamBeginStreaming(pavi: MutPtr<CVoid>, lstart: Int, lend: Int, lrate: Int): Hresult =
+public actual fun aVIStreamBeginStreaming(pavi: MutPtr, lstart: Int, lend: Int, lrate: Int): Hresult =
     windowssysWindowsWin32MediaMultimediaAVIStreamBeginStreaming(pavi.rawAddress.toCPointer<ByteVar>(), lstart, lend, lrate)
 
-public actual fun aVIStreamCreate(ppavi: MutPtr<MutPtr<CVoid>>, lparam1: Int, lparam2: Int, pclsidhandler: ConstPtr<Guid>): Hresult =
+public actual fun aVIStreamCreate(ppavi: MutPtr, lparam1: Int, lparam2: Int, pclsidhandler: ConstPtr): Hresult =
     windowssysWindowsWin32MediaMultimediaAVIStreamCreate(ppavi.rawAddress.toCPointer<ByteVar>(), lparam1, lparam2, pclsidhandler.rawAddress.toCPointer<ByteVar>())
 
-public actual fun aVIStreamEndStreaming(pavi: MutPtr<CVoid>): Hresult =
+public actual fun aVIStreamEndStreaming(pavi: MutPtr): Hresult =
     windowssysWindowsWin32MediaMultimediaAVIStreamEndStreaming(pavi.rawAddress.toCPointer<ByteVar>())
 
-public actual fun aVIStreamFindSample(pavi: MutPtr<CVoid>, lpos: Int, lflags: Int): Int =
+public actual fun aVIStreamFindSample(pavi: MutPtr, lpos: Int, lflags: Int): Int =
     windowssysWindowsWin32MediaMultimediaAVIStreamFindSample(pavi.rawAddress.toCPointer<ByteVar>(), lpos, lflags)
 
-public actual fun aVIStreamGetFrame(pg: MutPtr<CVoid>, lpos: Int): MutPtr<CVoid> =
+public actual fun aVIStreamGetFrame(pg: MutPtr, lpos: Int): MutPtr =
     MutPtr(windowssysWindowsWin32MediaMultimediaAVIStreamGetFrame(pg.rawAddress.toCPointer<ByteVar>(), lpos)?.toLong() ?: 0L)
 
-public actual fun aVIStreamGetFrameClose(pg: MutPtr<CVoid>): Hresult =
+public actual fun aVIStreamGetFrameClose(pg: MutPtr): Hresult =
     windowssysWindowsWin32MediaMultimediaAVIStreamGetFrameClose(pg.rawAddress.toCPointer<ByteVar>())
 
-public actual fun aVIStreamGetFrameOpen(pavi: MutPtr<CVoid>, lpbiwanted: ConstPtr<Bitmapinfoheader>): MutPtr<CVoid> =
+public actual fun aVIStreamGetFrameOpen(pavi: MutPtr, lpbiwanted: ConstPtr): MutPtr =
     MutPtr(windowssysWindowsWin32MediaMultimediaAVIStreamGetFrameOpen(pavi.rawAddress.toCPointer<ByteVar>(), lpbiwanted.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun aVIStreamInfoA(pavi: MutPtr<CVoid>, psi: MutPtr<Avistreaminfoa>, lsize: Int): Hresult =
+public actual fun aVIStreamInfoA(pavi: MutPtr, psi: MutPtr, lsize: Int): Hresult =
     windowssysWindowsWin32MediaMultimediaAVIStreamInfoA(pavi.rawAddress.toCPointer<ByteVar>(), psi.rawAddress.toCPointer<ByteVar>(), lsize)
 
-public actual fun aVIStreamInfoW(pavi: MutPtr<CVoid>, psi: MutPtr<Avistreaminfow>, lsize: Int): Hresult =
+public actual fun aVIStreamInfoW(pavi: MutPtr, psi: MutPtr, lsize: Int): Hresult =
     windowssysWindowsWin32MediaMultimediaAVIStreamInfoW(pavi.rawAddress.toCPointer<ByteVar>(), psi.rawAddress.toCPointer<ByteVar>(), lsize)
 
-public actual fun aVIStreamLength(pavi: MutPtr<CVoid>): Int =
+public actual fun aVIStreamLength(pavi: MutPtr): Int =
     windowssysWindowsWin32MediaMultimediaAVIStreamLength(pavi.rawAddress.toCPointer<ByteVar>())
 
-public actual fun aVIStreamOpenFromFileA(ppavi: MutPtr<MutPtr<CVoid>>, szfile: Pcstr, fcctype: UInt, lparam: Int, mode: UInt, pclsidhandler: ConstPtr<Guid>): Hresult =
+public actual fun aVIStreamOpenFromFileA(ppavi: MutPtr, szfile: Pcstr, fcctype: UInt, lparam: Int, mode: UInt, pclsidhandler: ConstPtr): Hresult =
     windowssysWindowsWin32MediaMultimediaAVIStreamOpenFromFileA(ppavi.rawAddress.toCPointer<ByteVar>(), szfile.rawAddress.toCPointer<ByteVar>(), fcctype, lparam, mode, pclsidhandler.rawAddress.toCPointer<ByteVar>())
 
-public actual fun aVIStreamOpenFromFileW(ppavi: MutPtr<MutPtr<CVoid>>, szfile: Pcwstr, fcctype: UInt, lparam: Int, mode: UInt, pclsidhandler: ConstPtr<Guid>): Hresult =
+public actual fun aVIStreamOpenFromFileW(ppavi: MutPtr, szfile: Pcwstr, fcctype: UInt, lparam: Int, mode: UInt, pclsidhandler: ConstPtr): Hresult =
     windowssysWindowsWin32MediaMultimediaAVIStreamOpenFromFileW(ppavi.rawAddress.toCPointer<ByteVar>(), szfile.rawAddress.toCPointer<ByteVar>(), fcctype, lparam, mode, pclsidhandler.rawAddress.toCPointer<ByteVar>())
 
-public actual fun aVIStreamRead(pavi: MutPtr<CVoid>, lstart: Int, lsamples: Int, lpbuffer: MutPtr<CVoid>, cbbuffer: Int, plbytes: MutPtr<Int>, plsamples: MutPtr<Int>): Hresult =
+public actual fun aVIStreamRead(pavi: MutPtr, lstart: Int, lsamples: Int, lpbuffer: MutPtr, cbbuffer: Int, plbytes: MutPtr, plsamples: MutPtr): Hresult =
     windowssysWindowsWin32MediaMultimediaAVIStreamRead(pavi.rawAddress.toCPointer<ByteVar>(), lstart, lsamples, lpbuffer.rawAddress.toCPointer<ByteVar>(), cbbuffer, plbytes.rawAddress.toCPointer<ByteVar>(), plsamples.rawAddress.toCPointer<ByteVar>())
 
-public actual fun aVIStreamReadData(pavi: MutPtr<CVoid>, fcc: UInt, lp: MutPtr<CVoid>, lpcb: MutPtr<Int>): Hresult =
+public actual fun aVIStreamReadData(pavi: MutPtr, fcc: UInt, lp: MutPtr, lpcb: MutPtr): Hresult =
     windowssysWindowsWin32MediaMultimediaAVIStreamReadData(pavi.rawAddress.toCPointer<ByteVar>(), fcc, lp.rawAddress.toCPointer<ByteVar>(), lpcb.rawAddress.toCPointer<ByteVar>())
 
-public actual fun aVIStreamReadFormat(pavi: MutPtr<CVoid>, lpos: Int, lpformat: MutPtr<CVoid>, lpcbformat: MutPtr<Int>): Hresult =
+public actual fun aVIStreamReadFormat(pavi: MutPtr, lpos: Int, lpformat: MutPtr, lpcbformat: MutPtr): Hresult =
     windowssysWindowsWin32MediaMultimediaAVIStreamReadFormat(pavi.rawAddress.toCPointer<ByteVar>(), lpos, lpformat.rawAddress.toCPointer<ByteVar>(), lpcbformat.rawAddress.toCPointer<ByteVar>())
 
-public actual fun aVIStreamRelease(pavi: MutPtr<CVoid>): UInt =
+public actual fun aVIStreamRelease(pavi: MutPtr): UInt =
     windowssysWindowsWin32MediaMultimediaAVIStreamRelease(pavi.rawAddress.toCPointer<ByteVar>())
 
-public actual fun aVIStreamSampleToTime(pavi: MutPtr<CVoid>, lsample: Int): Int =
+public actual fun aVIStreamSampleToTime(pavi: MutPtr, lsample: Int): Int =
     windowssysWindowsWin32MediaMultimediaAVIStreamSampleToTime(pavi.rawAddress.toCPointer<ByteVar>(), lsample)
 
-public actual fun aVIStreamSetFormat(pavi: MutPtr<CVoid>, lpos: Int, lpformat: ConstPtr<CVoid>, cbformat: Int): Hresult =
+public actual fun aVIStreamSetFormat(pavi: MutPtr, lpos: Int, lpformat: ConstPtr, cbformat: Int): Hresult =
     windowssysWindowsWin32MediaMultimediaAVIStreamSetFormat(pavi.rawAddress.toCPointer<ByteVar>(), lpos, lpformat.rawAddress.toCPointer<ByteVar>(), cbformat)
 
-public actual fun aVIStreamStart(pavi: MutPtr<CVoid>): Int =
+public actual fun aVIStreamStart(pavi: MutPtr): Int =
     windowssysWindowsWin32MediaMultimediaAVIStreamStart(pavi.rawAddress.toCPointer<ByteVar>())
 
-public actual fun aVIStreamTimeToSample(pavi: MutPtr<CVoid>, ltime: Int): Int =
+public actual fun aVIStreamTimeToSample(pavi: MutPtr, ltime: Int): Int =
     windowssysWindowsWin32MediaMultimediaAVIStreamTimeToSample(pavi.rawAddress.toCPointer<ByteVar>(), ltime)
 
-public actual fun aVIStreamWrite(pavi: MutPtr<CVoid>, lstart: Int, lsamples: Int, lpbuffer: ConstPtr<CVoid>, cbbuffer: Int, dwflags: UInt, plsampwritten: MutPtr<Int>, plbyteswritten: MutPtr<Int>): Hresult =
+public actual fun aVIStreamWrite(pavi: MutPtr, lstart: Int, lsamples: Int, lpbuffer: ConstPtr, cbbuffer: Int, dwflags: UInt, plsampwritten: MutPtr, plbyteswritten: MutPtr): Hresult =
     windowssysWindowsWin32MediaMultimediaAVIStreamWrite(pavi.rawAddress.toCPointer<ByteVar>(), lstart, lsamples, lpbuffer.rawAddress.toCPointer<ByteVar>(), cbbuffer, dwflags, plsampwritten.rawAddress.toCPointer<ByteVar>(), plbyteswritten.rawAddress.toCPointer<ByteVar>())
 
-public actual fun aVIStreamWriteData(pavi: MutPtr<CVoid>, fcc: UInt, lp: ConstPtr<CVoid>, cb: Int): Hresult =
+public actual fun aVIStreamWriteData(pavi: MutPtr, fcc: UInt, lp: ConstPtr, cb: Int): Hresult =
     windowssysWindowsWin32MediaMultimediaAVIStreamWriteData(pavi.rawAddress.toCPointer<ByteVar>(), fcc, lp.rawAddress.toCPointer<ByteVar>(), cb)
 
 public actual fun closeDriver(hdriver: Hdrvr, lparam1: Lparam, lparam2: Lparam): Lresult =
     windowssysWindowsWin32MediaMultimediaCloseDriver(hdriver.rawAddress.toCPointer<ByteVar>(), lparam1, lparam2)
 
-public actual fun createEditableStream(ppseditable: MutPtr<MutPtr<CVoid>>, pssource: MutPtr<CVoid>): Hresult =
+public actual fun createEditableStream(ppseditable: MutPtr, pssource: MutPtr): Hresult =
     windowssysWindowsWin32MediaMultimediaCreateEditableStream(ppseditable.rawAddress.toCPointer<ByteVar>(), pssource.rawAddress.toCPointer<ByteVar>())
 
 public actual fun defDriverProc(dwdriveridentifier: ULong, hdrvr: Hdrvr, umsg: UInt, lparam1: Lparam, lparam2: Lparam): Lresult =
     windowssysWindowsWin32MediaMultimediaDefDriverProc(dwdriveridentifier, hdrvr.rawAddress.toCPointer<ByteVar>(), umsg, lparam1, lparam2)
 
-public actual fun drawDibBegin(hdd: Long, hdc: Hdc, dxdst: Int, dydst: Int, lpbi: ConstPtr<Bitmapinfoheader>, dxsrc: Int, dysrc: Int, wflags: UInt): Bool =
+public actual fun drawDibBegin(hdd: Long, hdc: Hdc, dxdst: Int, dydst: Int, lpbi: ConstPtr, dxsrc: Int, dysrc: Int, wflags: UInt): Bool =
     windowssysWindowsWin32MediaMultimediaDrawDibBegin(hdd, hdc.rawAddress.toCPointer<ByteVar>(), dxdst, dydst, lpbi.rawAddress.toCPointer<ByteVar>(), dxsrc, dysrc, wflags)
 
-public actual fun drawDibChangePalette(hdd: Long, istart: Int, ilen: Int, lppe: ConstPtr<Paletteentry>): Bool =
+public actual fun drawDibChangePalette(hdd: Long, istart: Int, ilen: Int, lppe: ConstPtr): Bool =
     windowssysWindowsWin32MediaMultimediaDrawDibChangePalette(hdd, istart, ilen, lppe.rawAddress.toCPointer<ByteVar>())
 
 public actual fun drawDibClose(hdd: Long): Bool =
     windowssysWindowsWin32MediaMultimediaDrawDibClose(hdd)
 
-public actual fun drawDibDraw(hdd: Long, hdc: Hdc, xdst: Int, ydst: Int, dxdst: Int, dydst: Int, lpbi: ConstPtr<Bitmapinfoheader>, lpbits: ConstPtr<CVoid>, xsrc: Int, ysrc: Int, dxsrc: Int, dysrc: Int, wflags: UInt): Bool =
+public actual fun drawDibDraw(hdd: Long, hdc: Hdc, xdst: Int, ydst: Int, dxdst: Int, dydst: Int, lpbi: ConstPtr, lpbits: ConstPtr, xsrc: Int, ysrc: Int, dxsrc: Int, dysrc: Int, wflags: UInt): Bool =
     windowssysWindowsWin32MediaMultimediaDrawDibDraw(hdd, hdc.rawAddress.toCPointer<ByteVar>(), xdst, ydst, dxdst, dydst, lpbi.rawAddress.toCPointer<ByteVar>(), lpbits.rawAddress.toCPointer<ByteVar>(), xsrc, ysrc, dxsrc, dysrc, wflags)
 
 public actual fun drawDibEnd(hdd: Long): Bool =
     windowssysWindowsWin32MediaMultimediaDrawDibEnd(hdd)
 
-public actual fun drawDibGetBuffer(hdd: Long, lpbi: MutPtr<Bitmapinfoheader>, dwsize: UInt, dwflags: UInt): MutPtr<CVoid> =
+public actual fun drawDibGetBuffer(hdd: Long, lpbi: MutPtr, dwsize: UInt, dwflags: UInt): MutPtr =
     MutPtr(windowssysWindowsWin32MediaMultimediaDrawDibGetBuffer(hdd, lpbi.rawAddress.toCPointer<ByteVar>(), dwsize, dwflags)?.toLong() ?: 0L)
 
 public actual fun drawDibGetPalette(hdd: Long): Hpalette =
@@ -385,7 +378,7 @@ public actual fun drawDibGetPalette(hdd: Long): Hpalette =
 public actual fun drawDibOpen(): Long =
     windowssysWindowsWin32MediaMultimediaDrawDibOpen()
 
-public actual fun drawDibProfileDisplay(lpbi: ConstPtr<Bitmapinfoheader>): Lresult =
+public actual fun drawDibProfileDisplay(lpbi: ConstPtr): Lresult =
     windowssysWindowsWin32MediaMultimediaDrawDibProfileDisplay(lpbi.rawAddress.toCPointer<ByteVar>())
 
 public actual fun drawDibRealize(hdd: Long, hdc: Hdc, fbackground: Bool): UInt =
@@ -400,7 +393,7 @@ public actual fun drawDibStart(hdd: Long, rate: UInt): Bool =
 public actual fun drawDibStop(hdd: Long): Bool =
     windowssysWindowsWin32MediaMultimediaDrawDibStop(hdd)
 
-public actual fun drawDibTime(hdd: Long, lpddtime: MutPtr<Drawdibtime>): Bool =
+public actual fun drawDibTime(hdd: Long, lpddtime: MutPtr): Bool =
     windowssysWindowsWin32MediaMultimediaDrawDibTime(hdd, lpddtime.rawAddress.toCPointer<ByteVar>())
 
 public actual fun driverCallback(dwcallback: ULong, dwflags: UInt, hdevice: Hdrvr, dwmsg: UInt, dwuser: ULong, dwparam1: ULong, dwparam2: ULong): Bool =
@@ -409,86 +402,86 @@ public actual fun driverCallback(dwcallback: ULong, dwflags: UInt, hdevice: Hdrv
 public actual fun drvGetModuleHandle(hdriver: Hdrvr): Hmodule =
     MutPtr(windowssysWindowsWin32MediaMultimediaDrvGetModuleHandle(hdriver.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun editStreamClone(pavi: MutPtr<CVoid>, ppresult: MutPtr<MutPtr<CVoid>>): Hresult =
+public actual fun editStreamClone(pavi: MutPtr, ppresult: MutPtr): Hresult =
     windowssysWindowsWin32MediaMultimediaEditStreamClone(pavi.rawAddress.toCPointer<ByteVar>(), ppresult.rawAddress.toCPointer<ByteVar>())
 
-public actual fun editStreamCopy(pavi: MutPtr<CVoid>, plstart: MutPtr<Int>, pllength: MutPtr<Int>, ppresult: MutPtr<MutPtr<CVoid>>): Hresult =
+public actual fun editStreamCopy(pavi: MutPtr, plstart: MutPtr, pllength: MutPtr, ppresult: MutPtr): Hresult =
     windowssysWindowsWin32MediaMultimediaEditStreamCopy(pavi.rawAddress.toCPointer<ByteVar>(), plstart.rawAddress.toCPointer<ByteVar>(), pllength.rawAddress.toCPointer<ByteVar>(), ppresult.rawAddress.toCPointer<ByteVar>())
 
-public actual fun editStreamCut(pavi: MutPtr<CVoid>, plstart: MutPtr<Int>, pllength: MutPtr<Int>, ppresult: MutPtr<MutPtr<CVoid>>): Hresult =
+public actual fun editStreamCut(pavi: MutPtr, plstart: MutPtr, pllength: MutPtr, ppresult: MutPtr): Hresult =
     windowssysWindowsWin32MediaMultimediaEditStreamCut(pavi.rawAddress.toCPointer<ByteVar>(), plstart.rawAddress.toCPointer<ByteVar>(), pllength.rawAddress.toCPointer<ByteVar>(), ppresult.rawAddress.toCPointer<ByteVar>())
 
-public actual fun editStreamPaste(pavi: MutPtr<CVoid>, plpos: MutPtr<Int>, pllength: MutPtr<Int>, pstream: MutPtr<CVoid>, lstart: Int, lend: Int): Hresult =
+public actual fun editStreamPaste(pavi: MutPtr, plpos: MutPtr, pllength: MutPtr, pstream: MutPtr, lstart: Int, lend: Int): Hresult =
     windowssysWindowsWin32MediaMultimediaEditStreamPaste(pavi.rawAddress.toCPointer<ByteVar>(), plpos.rawAddress.toCPointer<ByteVar>(), pllength.rawAddress.toCPointer<ByteVar>(), pstream.rawAddress.toCPointer<ByteVar>(), lstart, lend)
 
-public actual fun editStreamSetInfoA(pavi: MutPtr<CVoid>, lpinfo: ConstPtr<Avistreaminfoa>, cbinfo: Int): Hresult =
+public actual fun editStreamSetInfoA(pavi: MutPtr, lpinfo: ConstPtr, cbinfo: Int): Hresult =
     windowssysWindowsWin32MediaMultimediaEditStreamSetInfoA(pavi.rawAddress.toCPointer<ByteVar>(), lpinfo.rawAddress.toCPointer<ByteVar>(), cbinfo)
 
-public actual fun editStreamSetInfoW(pavi: MutPtr<CVoid>, lpinfo: ConstPtr<Avistreaminfow>, cbinfo: Int): Hresult =
+public actual fun editStreamSetInfoW(pavi: MutPtr, lpinfo: ConstPtr, cbinfo: Int): Hresult =
     windowssysWindowsWin32MediaMultimediaEditStreamSetInfoW(pavi.rawAddress.toCPointer<ByteVar>(), lpinfo.rawAddress.toCPointer<ByteVar>(), cbinfo)
 
-public actual fun editStreamSetNameA(pavi: MutPtr<CVoid>, lpszname: Pcstr): Hresult =
+public actual fun editStreamSetNameA(pavi: MutPtr, lpszname: Pcstr): Hresult =
     windowssysWindowsWin32MediaMultimediaEditStreamSetNameA(pavi.rawAddress.toCPointer<ByteVar>(), lpszname.rawAddress.toCPointer<ByteVar>())
 
-public actual fun editStreamSetNameW(pavi: MutPtr<CVoid>, lpszname: Pcwstr): Hresult =
+public actual fun editStreamSetNameW(pavi: MutPtr, lpszname: Pcwstr): Hresult =
     windowssysWindowsWin32MediaMultimediaEditStreamSetNameW(pavi.rawAddress.toCPointer<ByteVar>(), lpszname.rawAddress.toCPointer<ByteVar>())
 
 public actual fun getDriverModuleHandle(hdriver: Hdrvr): Hmodule =
     MutPtr(windowssysWindowsWin32MediaMultimediaGetDriverModuleHandle(hdriver.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun getOpenFileNamePreviewA(lpofn: MutPtr<Openfilenamea>): Bool =
+public actual fun getOpenFileNamePreviewA(lpofn: MutPtr): Bool =
     windowssysWindowsWin32MediaMultimediaGetOpenFileNamePreviewA(lpofn.rawAddress.toCPointer<ByteVar>())
 
-public actual fun getOpenFileNamePreviewW(lpofn: MutPtr<Openfilenamew>): Bool =
+public actual fun getOpenFileNamePreviewW(lpofn: MutPtr): Bool =
     windowssysWindowsWin32MediaMultimediaGetOpenFileNamePreviewW(lpofn.rawAddress.toCPointer<ByteVar>())
 
-public actual fun getSaveFileNamePreviewA(lpofn: MutPtr<Openfilenamea>): Bool =
+public actual fun getSaveFileNamePreviewA(lpofn: MutPtr): Bool =
     windowssysWindowsWin32MediaMultimediaGetSaveFileNamePreviewA(lpofn.rawAddress.toCPointer<ByteVar>())
 
-public actual fun getSaveFileNamePreviewW(lpofn: MutPtr<Openfilenamew>): Bool =
+public actual fun getSaveFileNamePreviewW(lpofn: MutPtr): Bool =
     windowssysWindowsWin32MediaMultimediaGetSaveFileNamePreviewW(lpofn.rawAddress.toCPointer<ByteVar>())
 
 public actual fun iCClose(hic: Hic): Lresult =
     windowssysWindowsWin32MediaMultimediaICClose(hic.rawAddress.toCPointer<ByteVar>())
 
-public actual fun iCCompress(hic: Hic, dwflags: UInt, lpbioutput: ConstPtr<Bitmapinfoheader>, lpdata: MutPtr<CVoid>, lpbiinput: ConstPtr<Bitmapinfoheader>, lpbits: ConstPtr<CVoid>, lpckid: MutPtr<UInt>, lpdwflags: MutPtr<UInt>, lframenum: Int, dwframesize: UInt, dwquality: UInt, lpbiprev: ConstPtr<Bitmapinfoheader>, lpprev: ConstPtr<CVoid>): UInt =
+public actual fun iCCompress(hic: Hic, dwflags: UInt, lpbioutput: ConstPtr, lpdata: MutPtr, lpbiinput: ConstPtr, lpbits: ConstPtr, lpckid: MutPtr, lpdwflags: MutPtr, lframenum: Int, dwframesize: UInt, dwquality: UInt, lpbiprev: ConstPtr, lpprev: ConstPtr): UInt =
     windowssysWindowsWin32MediaMultimediaICCompress(hic.rawAddress.toCPointer<ByteVar>(), dwflags, lpbioutput.rawAddress.toCPointer<ByteVar>(), lpdata.rawAddress.toCPointer<ByteVar>(), lpbiinput.rawAddress.toCPointer<ByteVar>(), lpbits.rawAddress.toCPointer<ByteVar>(), lpckid.rawAddress.toCPointer<ByteVar>(), lpdwflags.rawAddress.toCPointer<ByteVar>(), lframenum, dwframesize, dwquality, lpbiprev.rawAddress.toCPointer<ByteVar>(), lpprev.rawAddress.toCPointer<ByteVar>())
 
-public actual fun iCCompressorChoose(hwnd: Hwnd, uiflags: UInt, pvin: ConstPtr<CVoid>, lpdata: ConstPtr<CVoid>, pc: MutPtr<Compvars>, lpsztitle: Pcstr): Bool =
+public actual fun iCCompressorChoose(hwnd: Hwnd, uiflags: UInt, pvin: ConstPtr, lpdata: ConstPtr, pc: MutPtr, lpsztitle: Pcstr): Bool =
     windowssysWindowsWin32MediaMultimediaICCompressorChoose(hwnd.rawAddress.toCPointer<ByteVar>(), uiflags, pvin.rawAddress.toCPointer<ByteVar>(), lpdata.rawAddress.toCPointer<ByteVar>(), pc.rawAddress.toCPointer<ByteVar>(), lpsztitle.rawAddress.toCPointer<ByteVar>())
 
-public actual fun iCCompressorFree(pc: ConstPtr<Compvars>) {
+public actual fun iCCompressorFree(pc: ConstPtr) {
     windowssysWindowsWin32MediaMultimediaICCompressorFree(pc.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun iCDecompress(hic: Hic, dwflags: UInt, lpbiformat: ConstPtr<Bitmapinfoheader>, lpdata: ConstPtr<CVoid>, lpbi: ConstPtr<Bitmapinfoheader>, lpbits: MutPtr<CVoid>): UInt =
+public actual fun iCDecompress(hic: Hic, dwflags: UInt, lpbiformat: ConstPtr, lpdata: ConstPtr, lpbi: ConstPtr, lpbits: MutPtr): UInt =
     windowssysWindowsWin32MediaMultimediaICDecompress(hic.rawAddress.toCPointer<ByteVar>(), dwflags, lpbiformat.rawAddress.toCPointer<ByteVar>(), lpdata.rawAddress.toCPointer<ByteVar>(), lpbi.rawAddress.toCPointer<ByteVar>(), lpbits.rawAddress.toCPointer<ByteVar>())
 
-public actual fun iCDraw(hic: Hic, dwflags: UInt, lpformat: ConstPtr<CVoid>, lpdata: ConstPtr<CVoid>, cbdata: UInt, ltime: Int): UInt =
+public actual fun iCDraw(hic: Hic, dwflags: UInt, lpformat: ConstPtr, lpdata: ConstPtr, cbdata: UInt, ltime: Int): UInt =
     windowssysWindowsWin32MediaMultimediaICDraw(hic.rawAddress.toCPointer<ByteVar>(), dwflags, lpformat.rawAddress.toCPointer<ByteVar>(), lpdata.rawAddress.toCPointer<ByteVar>(), cbdata, ltime)
 
-public actual fun iCDrawBegin(hic: Hic, dwflags: UInt, hpal: Hpalette, hwnd: Hwnd, hdc: Hdc, xdst: Int, ydst: Int, dxdst: Int, dydst: Int, lpbi: ConstPtr<Bitmapinfoheader>, xsrc: Int, ysrc: Int, dxsrc: Int, dysrc: Int, dwrate: UInt, dwscale: UInt): UInt =
+public actual fun iCDrawBegin(hic: Hic, dwflags: UInt, hpal: Hpalette, hwnd: Hwnd, hdc: Hdc, xdst: Int, ydst: Int, dxdst: Int, dydst: Int, lpbi: ConstPtr, xsrc: Int, ysrc: Int, dxsrc: Int, dysrc: Int, dwrate: UInt, dwscale: UInt): UInt =
     windowssysWindowsWin32MediaMultimediaICDrawBegin(hic.rawAddress.toCPointer<ByteVar>(), dwflags, hpal.rawAddress.toCPointer<ByteVar>(), hwnd.rawAddress.toCPointer<ByteVar>(), hdc.rawAddress.toCPointer<ByteVar>(), xdst, ydst, dxdst, dydst, lpbi.rawAddress.toCPointer<ByteVar>(), xsrc, ysrc, dxsrc, dysrc, dwrate, dwscale)
 
-public actual fun iCGetDisplayFormat(hic: Hic, lpbiin: ConstPtr<Bitmapinfoheader>, lpbiout: MutPtr<Bitmapinfoheader>, bitdepth: Int, dx: Int, dy: Int): Hic =
+public actual fun iCGetDisplayFormat(hic: Hic, lpbiin: ConstPtr, lpbiout: MutPtr, bitdepth: Int, dx: Int, dy: Int): Hic =
     MutPtr(windowssysWindowsWin32MediaMultimediaICGetDisplayFormat(hic.rawAddress.toCPointer<ByteVar>(), lpbiin.rawAddress.toCPointer<ByteVar>(), lpbiout.rawAddress.toCPointer<ByteVar>(), bitdepth, dx, dy)?.toLong() ?: 0L)
 
-public actual fun iCGetInfo(hic: Hic, picinfo: MutPtr<Icinfo>, cb: UInt): Lresult =
+public actual fun iCGetInfo(hic: Hic, picinfo: MutPtr, cb: UInt): Lresult =
     windowssysWindowsWin32MediaMultimediaICGetInfo(hic.rawAddress.toCPointer<ByteVar>(), picinfo.rawAddress.toCPointer<ByteVar>(), cb)
 
-public actual fun iCImageCompress(hic: Hic, uiflags: UInt, lpbiin: ConstPtr<Bitmapinfo>, lpbits: ConstPtr<CVoid>, lpbiout: ConstPtr<Bitmapinfo>, lquality: Int, plsize: MutPtr<Int>): Handle =
+public actual fun iCImageCompress(hic: Hic, uiflags: UInt, lpbiin: ConstPtr, lpbits: ConstPtr, lpbiout: ConstPtr, lquality: Int, plsize: MutPtr): Handle =
     MutPtr(windowssysWindowsWin32MediaMultimediaICImageCompress(hic.rawAddress.toCPointer<ByteVar>(), uiflags, lpbiin.rawAddress.toCPointer<ByteVar>(), lpbits.rawAddress.toCPointer<ByteVar>(), lpbiout.rawAddress.toCPointer<ByteVar>(), lquality, plsize.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun iCImageDecompress(hic: Hic, uiflags: UInt, lpbiin: ConstPtr<Bitmapinfo>, lpbits: ConstPtr<CVoid>, lpbiout: ConstPtr<Bitmapinfo>): Handle =
+public actual fun iCImageDecompress(hic: Hic, uiflags: UInt, lpbiin: ConstPtr, lpbits: ConstPtr, lpbiout: ConstPtr): Handle =
     MutPtr(windowssysWindowsWin32MediaMultimediaICImageDecompress(hic.rawAddress.toCPointer<ByteVar>(), uiflags, lpbiin.rawAddress.toCPointer<ByteVar>(), lpbits.rawAddress.toCPointer<ByteVar>(), lpbiout.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun iCInfo(fcctype: UInt, fcchandler: UInt, lpicinfo: MutPtr<Icinfo>): Bool =
+public actual fun iCInfo(fcctype: UInt, fcchandler: UInt, lpicinfo: MutPtr): Bool =
     windowssysWindowsWin32MediaMultimediaICInfo(fcctype, fcchandler, lpicinfo.rawAddress.toCPointer<ByteVar>())
 
 public actual fun iCInstall(fcctype: UInt, fcchandler: UInt, lparam: Lparam, szdesc: Pcstr, wflags: UInt): Bool =
     windowssysWindowsWin32MediaMultimediaICInstall(fcctype, fcchandler, lparam, szdesc.rawAddress.toCPointer<ByteVar>(), wflags)
 
-public actual fun iCLocate(fcctype: UInt, fcchandler: UInt, lpbiin: ConstPtr<Bitmapinfoheader>, lpbiout: ConstPtr<Bitmapinfoheader>, wflags: UShort): Hic =
+public actual fun iCLocate(fcctype: UInt, fcchandler: UInt, lpbiin: ConstPtr, lpbiout: ConstPtr, wflags: UShort): Hic =
     MutPtr(windowssysWindowsWin32MediaMultimediaICLocate(fcctype, fcchandler, lpbiin.rawAddress.toCPointer<ByteVar>(), lpbiout.rawAddress.toCPointer<ByteVar>(), wflags)?.toLong() ?: 0L)
 
 public actual fun iCOpen(fcctype: UInt, fcchandler: UInt, wmode: UInt): Hic =
@@ -503,14 +496,14 @@ public actual fun iCRemove(fcctype: UInt, fcchandler: UInt, wflags: UInt): Bool 
 public actual fun iCSendMessage(hic: Hic, msg: UInt, dw1: ULong, dw2: ULong): Lresult =
     windowssysWindowsWin32MediaMultimediaICSendMessage(hic.rawAddress.toCPointer<ByteVar>(), msg, dw1, dw2)
 
-public actual fun iCSeqCompressFrame(pc: ConstPtr<Compvars>, uiflags: UInt, lpbits: ConstPtr<CVoid>, pfkey: MutPtr<Bool>, plsize: MutPtr<Int>): MutPtr<CVoid> =
+public actual fun iCSeqCompressFrame(pc: ConstPtr, uiflags: UInt, lpbits: ConstPtr, pfkey: MutPtr, plsize: MutPtr): MutPtr =
     MutPtr(windowssysWindowsWin32MediaMultimediaICSeqCompressFrame(pc.rawAddress.toCPointer<ByteVar>(), uiflags, lpbits.rawAddress.toCPointer<ByteVar>(), pfkey.rawAddress.toCPointer<ByteVar>(), plsize.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun iCSeqCompressFrameEnd(pc: ConstPtr<Compvars>) {
+public actual fun iCSeqCompressFrameEnd(pc: ConstPtr) {
     windowssysWindowsWin32MediaMultimediaICSeqCompressFrameEnd(pc.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun iCSeqCompressFrameStart(pc: ConstPtr<Compvars>, lpbiin: ConstPtr<Bitmapinfo>): Bool =
+public actual fun iCSeqCompressFrameStart(pc: ConstPtr, lpbiin: ConstPtr): Bool =
     windowssysWindowsWin32MediaMultimediaICSeqCompressFrameStart(pc.rawAddress.toCPointer<ByteVar>(), lpbiin.rawAddress.toCPointer<ByteVar>())
 
 public actual fun mCIWndCreateA(hwndparent: Hwnd, hinstance: Hinstance, dwstyle: UInt, szfile: Pcstr): Hwnd =
@@ -543,22 +536,22 @@ public actual fun capGetDriverDescriptionA(wdriverindex: UInt, lpszname: Pstr, c
 public actual fun capGetDriverDescriptionW(wdriverindex: UInt, lpszname: Pwstr, cbname: Int, lpszver: Pwstr, cbver: Int): Bool =
     windowssysWindowsWin32MediaMultimediaCapGetDriverDescriptionW(wdriverindex, lpszname.rawAddress.toCPointer<ByteVar>(), cbname, lpszver.rawAddress.toCPointer<ByteVar>(), cbver)
 
-public actual fun joyGetDevCapsA(ujoyid: ULong, pjc: MutPtr<Joycapsa>, cbjc: UInt): UInt =
+public actual fun joyGetDevCapsA(ujoyid: ULong, pjc: MutPtr, cbjc: UInt): UInt =
     windowssysWindowsWin32MediaMultimediaJoyGetDevCapsA(ujoyid, pjc.rawAddress.toCPointer<ByteVar>(), cbjc)
 
-public actual fun joyGetDevCapsW(ujoyid: ULong, pjc: MutPtr<Joycapsw>, cbjc: UInt): UInt =
+public actual fun joyGetDevCapsW(ujoyid: ULong, pjc: MutPtr, cbjc: UInt): UInt =
     windowssysWindowsWin32MediaMultimediaJoyGetDevCapsW(ujoyid, pjc.rawAddress.toCPointer<ByteVar>(), cbjc)
 
 public actual fun joyGetNumDevs(): UInt =
     windowssysWindowsWin32MediaMultimediaJoyGetNumDevs()
 
-public actual fun joyGetPos(ujoyid: UInt, pji: MutPtr<Joyinfo>): UInt =
+public actual fun joyGetPos(ujoyid: UInt, pji: MutPtr): UInt =
     windowssysWindowsWin32MediaMultimediaJoyGetPos(ujoyid, pji.rawAddress.toCPointer<ByteVar>())
 
-public actual fun joyGetPosEx(ujoyid: UInt, pji: MutPtr<Joyinfoex>): UInt =
+public actual fun joyGetPosEx(ujoyid: UInt, pji: MutPtr): UInt =
     windowssysWindowsWin32MediaMultimediaJoyGetPosEx(ujoyid, pji.rawAddress.toCPointer<ByteVar>())
 
-public actual fun joyGetThreshold(ujoyid: UInt, puthreshold: MutPtr<UInt>): UInt =
+public actual fun joyGetThreshold(ujoyid: UInt, puthreshold: MutPtr): UInt =
     windowssysWindowsWin32MediaMultimediaJoyGetThreshold(ujoyid, puthreshold.rawAddress.toCPointer<ByteVar>())
 
 public actual fun joyReleaseCapture(ujoyid: UInt): UInt =
@@ -603,7 +596,7 @@ public actual fun mciGetErrorStringA(mcierr: UInt, psztext: Pstr, cchtext: UInt)
 public actual fun mciGetErrorStringW(mcierr: UInt, psztext: Pwstr, cchtext: UInt): Bool =
     windowssysWindowsWin32MediaMultimediaMciGetErrorStringW(mcierr, psztext.rawAddress.toCPointer<ByteVar>(), cchtext)
 
-public actual fun mciGetYieldProc(mciid: UInt, pdwyielddata: ConstPtr<UInt>): Yieldproc =
+public actual fun mciGetYieldProc(mciid: UInt, pdwyielddata: ConstPtr): Yieldproc =
     null
 
 public actual fun mciLoadCommandResource(hinstance: Handle, lpresname: Pcwstr, wtype: UInt): UInt =
@@ -637,7 +630,7 @@ public actual fun mmTaskBlock(h: UInt) {
     windowssysWindowsWin32MediaMultimediaMmTaskBlock(h)
 }
 
-public actual fun mmTaskCreate(lpfn: Lptaskcallback, lph: MutPtr<Handle>, dwinst: ULong): UInt =
+public actual fun mmTaskCreate(lpfn: Lptaskcallback, lph: MutPtr, dwinst: ULong): UInt =
     windowssysWindowsWin32MediaMultimediaMmTaskCreate(0L.toCPointer<ByteVar>(), lph.rawAddress.toCPointer<ByteVar>(), dwinst)
 
 public actual fun mmTaskSignal(h: UInt): Bool =
@@ -647,25 +640,25 @@ public actual fun mmTaskYield() {
     windowssysWindowsWin32MediaMultimediaMmTaskYield()
 }
 
-public actual fun mmioAdvance(hmmio: Hmmio, pmmioinfo: ConstPtr<Mmioinfo>, fuadvance: UInt): UInt =
+public actual fun mmioAdvance(hmmio: Hmmio, pmmioinfo: ConstPtr, fuadvance: UInt): UInt =
     windowssysWindowsWin32MediaMultimediaMmioAdvance(hmmio.rawAddress.toCPointer<ByteVar>(), pmmioinfo.rawAddress.toCPointer<ByteVar>(), fuadvance)
 
-public actual fun mmioAscend(hmmio: Hmmio, pmmcki: ConstPtr<Mmckinfo>, fuascend: UInt): UInt =
+public actual fun mmioAscend(hmmio: Hmmio, pmmcki: ConstPtr, fuascend: UInt): UInt =
     windowssysWindowsWin32MediaMultimediaMmioAscend(hmmio.rawAddress.toCPointer<ByteVar>(), pmmcki.rawAddress.toCPointer<ByteVar>(), fuascend)
 
 public actual fun mmioClose(hmmio: Hmmio, fuclose: UInt): UInt =
     windowssysWindowsWin32MediaMultimediaMmioClose(hmmio.rawAddress.toCPointer<ByteVar>(), fuclose)
 
-public actual fun mmioCreateChunk(hmmio: Hmmio, pmmcki: ConstPtr<Mmckinfo>, fucreate: UInt): UInt =
+public actual fun mmioCreateChunk(hmmio: Hmmio, pmmcki: ConstPtr, fucreate: UInt): UInt =
     windowssysWindowsWin32MediaMultimediaMmioCreateChunk(hmmio.rawAddress.toCPointer<ByteVar>(), pmmcki.rawAddress.toCPointer<ByteVar>(), fucreate)
 
-public actual fun mmioDescend(hmmio: Hmmio, pmmcki: MutPtr<Mmckinfo>, pmmckiparent: ConstPtr<Mmckinfo>, fudescend: UInt): UInt =
+public actual fun mmioDescend(hmmio: Hmmio, pmmcki: MutPtr, pmmckiparent: ConstPtr, fudescend: UInt): UInt =
     windowssysWindowsWin32MediaMultimediaMmioDescend(hmmio.rawAddress.toCPointer<ByteVar>(), pmmcki.rawAddress.toCPointer<ByteVar>(), pmmckiparent.rawAddress.toCPointer<ByteVar>(), fudescend)
 
 public actual fun mmioFlush(hmmio: Hmmio, fuflush: UInt): UInt =
     windowssysWindowsWin32MediaMultimediaMmioFlush(hmmio.rawAddress.toCPointer<ByteVar>(), fuflush)
 
-public actual fun mmioGetInfo(hmmio: Hmmio, pmmioinfo: MutPtr<Mmioinfo>, fuinfo: UInt): UInt =
+public actual fun mmioGetInfo(hmmio: Hmmio, pmmioinfo: MutPtr, fuinfo: UInt): UInt =
     windowssysWindowsWin32MediaMultimediaMmioGetInfo(hmmio.rawAddress.toCPointer<ByteVar>(), pmmioinfo.rawAddress.toCPointer<ByteVar>(), fuinfo)
 
 public actual fun mmioInstallIOProcA(fccioproc: UInt, pioproc: Lpmmioproc, dwflags: UInt): Lpmmioproc =
@@ -674,19 +667,19 @@ public actual fun mmioInstallIOProcA(fccioproc: UInt, pioproc: Lpmmioproc, dwfla
 public actual fun mmioInstallIOProcW(fccioproc: UInt, pioproc: Lpmmioproc, dwflags: UInt): Lpmmioproc =
     null
 
-public actual fun mmioOpenA(pszfilename: Pstr, pmmioinfo: MutPtr<Mmioinfo>, fdwopen: UInt): Hmmio =
+public actual fun mmioOpenA(pszfilename: Pstr, pmmioinfo: MutPtr, fdwopen: UInt): Hmmio =
     MutPtr(windowssysWindowsWin32MediaMultimediaMmioOpenA(pszfilename.rawAddress.toCPointer<ByteVar>(), pmmioinfo.rawAddress.toCPointer<ByteVar>(), fdwopen)?.toLong() ?: 0L)
 
-public actual fun mmioOpenW(pszfilename: Pwstr, pmmioinfo: MutPtr<Mmioinfo>, fdwopen: UInt): Hmmio =
+public actual fun mmioOpenW(pszfilename: Pwstr, pmmioinfo: MutPtr, fdwopen: UInt): Hmmio =
     MutPtr(windowssysWindowsWin32MediaMultimediaMmioOpenW(pszfilename.rawAddress.toCPointer<ByteVar>(), pmmioinfo.rawAddress.toCPointer<ByteVar>(), fdwopen)?.toLong() ?: 0L)
 
-public actual fun mmioRead(hmmio: Hmmio, pch: MutPtr<Byte>, cch: Int): Int =
+public actual fun mmioRead(hmmio: Hmmio, pch: MutPtr, cch: Int): Int =
     windowssysWindowsWin32MediaMultimediaMmioRead(hmmio.rawAddress.toCPointer<ByteVar>(), pch.rawAddress.toCPointer<ByteVar>(), cch)
 
-public actual fun mmioRenameA(pszfilename: Pcstr, psznewfilename: Pcstr, pmmioinfo: ConstPtr<Mmioinfo>, fdwrename: UInt): UInt =
+public actual fun mmioRenameA(pszfilename: Pcstr, psznewfilename: Pcstr, pmmioinfo: ConstPtr, fdwrename: UInt): UInt =
     windowssysWindowsWin32MediaMultimediaMmioRenameA(pszfilename.rawAddress.toCPointer<ByteVar>(), psznewfilename.rawAddress.toCPointer<ByteVar>(), pmmioinfo.rawAddress.toCPointer<ByteVar>(), fdwrename)
 
-public actual fun mmioRenameW(pszfilename: Pcwstr, psznewfilename: Pcwstr, pmmioinfo: ConstPtr<Mmioinfo>, fdwrename: UInt): UInt =
+public actual fun mmioRenameW(pszfilename: Pcwstr, psznewfilename: Pcwstr, pmmioinfo: ConstPtr, fdwrename: UInt): UInt =
     windowssysWindowsWin32MediaMultimediaMmioRenameW(pszfilename.rawAddress.toCPointer<ByteVar>(), psznewfilename.rawAddress.toCPointer<ByteVar>(), pmmioinfo.rawAddress.toCPointer<ByteVar>(), fdwrename)
 
 public actual fun mmioSeek(hmmio: Hmmio, loffset: Int, iorigin: Int): Int =
@@ -698,7 +691,7 @@ public actual fun mmioSendMessage(hmmio: Hmmio, umsg: UInt, lparam1: Lparam, lpa
 public actual fun mmioSetBuffer(hmmio: Hmmio, pchbuffer: Pstr, cchbuffer: Int, fubuffer: UInt): UInt =
     windowssysWindowsWin32MediaMultimediaMmioSetBuffer(hmmio.rawAddress.toCPointer<ByteVar>(), pchbuffer.rawAddress.toCPointer<ByteVar>(), cchbuffer, fubuffer)
 
-public actual fun mmioSetInfo(hmmio: Hmmio, pmmioinfo: ConstPtr<Mmioinfo>, fuinfo: UInt): UInt =
+public actual fun mmioSetInfo(hmmio: Hmmio, pmmioinfo: ConstPtr, fuinfo: UInt): UInt =
     windowssysWindowsWin32MediaMultimediaMmioSetInfo(hmmio.rawAddress.toCPointer<ByteVar>(), pmmioinfo.rawAddress.toCPointer<ByteVar>(), fuinfo)
 
 public actual fun mmioStringToFOURCCA(sz: Pcstr, uflags: UInt): UInt =
@@ -710,5 +703,5 @@ public actual fun mmioStringToFOURCCW(sz: Pcwstr, uflags: UInt): UInt =
 public actual fun mmioWrite(hmmio: Hmmio, pch: Pcstr, cch: Int): Int =
     windowssysWindowsWin32MediaMultimediaMmioWrite(hmmio.rawAddress.toCPointer<ByteVar>(), pch.rawAddress.toCPointer<ByteVar>(), cch)
 
-public actual fun sndOpenSound(eventname: Pcwstr, appname: Pcwstr, flags: Int, filehandle: MutPtr<Handle>): Int =
+public actual fun sndOpenSound(eventname: Pcwstr, appname: Pcwstr, flags: Int, filehandle: MutPtr): Int =
     windowssysWindowsWin32MediaMultimediaSndOpenSound(eventname.rawAddress.toCPointer<ByteVar>(), appname.rawAddress.toCPointer<ByteVar>(), flags, filehandle.rawAddress.toCPointer<ByteVar>())

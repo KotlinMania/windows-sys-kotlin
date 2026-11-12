@@ -2,7 +2,6 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.networkmanagement.p2p
 
-import io.github.kotlinmania.rustlang.core.ffi.CVoid
 import io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
 import io.github.kotlinmania.rustlang.core.mem.TypeLayout
 import io.github.kotlinmania.rustlang.core.ptr.MutPtr
@@ -11,11 +10,9 @@ import io.github.kotlinmania.windowssys.core.Guid
 import io.github.kotlinmania.windowssys.core.Hresult
 import io.github.kotlinmania.windowssys.core.Pwstr
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Filetime
-import io.github.kotlinmania.windowssys.windows.win32.networking.winsock.Sockaddr
 import io.github.kotlinmania.windowssys.windows.win32.networking.winsock.SockaddrIn6
 import io.github.kotlinmania.windowssys.windows.win32.networking.winsock.SockaddrStorage
 import io.github.kotlinmania.windowssys.windows.win32.networking.winsock.SocketAddress
-import io.github.kotlinmania.windowssys.windows.win32.security.cryptography.CertPublicKeyInfo
 import io.github.kotlinmania.windowssys.windows.win32.system.com.Blob
 
 public data class DrtAddress(
@@ -31,7 +28,7 @@ public data class DrtAddressList(
 )
 
 public class DrtBootstrapProvider internal constructor(
-    pvContextCtorArg: MutPtr<CVoid>,
+    pvContextCtorArg: MutPtr,
     public var attach: Int,
     public var detach: Int,
     public var initResolve: Int,
@@ -40,7 +37,7 @@ public class DrtBootstrapProvider internal constructor(
     public var register: Int,
     public var unregister: Int,
 ) {
-    public var pvContext: MutPtr<CVoid> = pvContextCtorArg
+    public var pvContext: MutPtr = pvContextCtorArg
         internal set
 
     public constructor() : this(
@@ -54,7 +51,7 @@ public class DrtBootstrapProvider internal constructor(
         unregister = 0,
     )
 
-    public operator fun component1(): MutPtr<CVoid> = this.pvContext
+    public operator fun component1(): MutPtr = this.pvContext
 
     public operator fun component2(): Int = this.attach
 
@@ -70,7 +67,7 @@ public class DrtBootstrapProvider internal constructor(
 
     public operator fun component8(): Int = this.unregister
 
-    public fun copy(pvContext: MutPtr<CVoid> = this.pvContext, attach: Int = this.attach, detach: Int = this.detach, initResolve: Int = this.initResolve, issueResolve: Int = this.issueResolve, endResolve: Int = this.endResolve, register: Int = this.register, unregister: Int = this.unregister): DrtBootstrapProvider = DrtBootstrapProvider(pvContextCtorArg = pvContext, attach = attach, detach = detach, initResolve = initResolve, issueResolve = issueResolve, endResolve = endResolve, register = register, unregister = unregister)
+    public fun copy(pvContext: MutPtr = this.pvContext, attach: Int = this.attach, detach: Int = this.detach, initResolve: Int = this.initResolve, issueResolve: Int = this.issueResolve, endResolve: Int = this.endResolve, register: Int = this.register, unregister: Int = this.unregister): DrtBootstrapProvider = DrtBootstrapProvider(pvContextCtorArg = pvContext, attach = attach, detach = detach, initResolve = initResolve, issueResolve = issueResolve, endResolve = endResolve, register = register, unregister = unregister)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -107,7 +104,7 @@ public class DrtBootstrapProvider internal constructor(
                     DrtBootstrapProvider(
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<CVoid>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.ISIZE64).readNative(addr + 8L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.ISIZE64).readNative(addr + 16L),
@@ -120,7 +117,7 @@ public class DrtBootstrapProvider internal constructor(
                 override fun writeNative(addr: Long, value: DrtBootstrapProvider) {
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<CVoid>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr, value.pvContext)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.ISIZE64).writeNative(addr + 8L, value.attach)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.ISIZE64).writeNative(addr + 16L, value.detach)
@@ -133,7 +130,7 @@ public class DrtBootstrapProvider internal constructor(
             }
 
         public operator fun invoke(
-            pvContext: MutPtr<CVoid> = MutPtr(0L),
+            pvContext: MutPtr = MutPtr(0L),
             attach: Int = 0,
             detach: Int = 0,
             initResolve: Int = 0,
@@ -157,9 +154,9 @@ public class DrtBootstrapProvider internal constructor(
 
 public class DrtData internal constructor(
     public var cb: UInt,
-    pbCtorArg: MutPtr<UByte>,
+    pbCtorArg: MutPtr,
 ) {
-    public var pb: MutPtr<UByte> = pbCtorArg
+    public var pb: MutPtr = pbCtorArg
         internal set
 
     public constructor() : this(
@@ -169,9 +166,9 @@ public class DrtData internal constructor(
 
     public operator fun component1(): UInt = this.cb
 
-    public operator fun component2(): MutPtr<UByte> = this.pb
+    public operator fun component2(): MutPtr = this.pb
 
-    public fun copy(cb: UInt = this.cb, pb: MutPtr<UByte> = this.pb): DrtData = DrtData(cb = cb, pbCtorArg = pb)
+    public fun copy(cb: UInt = this.cb, pb: MutPtr = this.pb): DrtData = DrtData(cb = cb, pbCtorArg = pb)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -197,21 +194,21 @@ public class DrtData internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<UByte>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                     )
                 override fun writeNative(addr: Long, value: DrtData) {
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr, value.cb)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<UByte>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.pb)
                 }
             }
 
         public operator fun invoke(
             cb: UInt = 0u,
-            pb: MutPtr<UByte> = MutPtr(0L),
+            pb: MutPtr = MutPtr(0L),
         ): DrtData =
             DrtData(
                 cb = cb,
@@ -223,10 +220,10 @@ public class DrtData internal constructor(
 public class DrtEventData internal constructor(
     public var type: DrtEventType,
     public var hr: Hresult,
-    pvContextCtorArg: MutPtr<CVoid>,
+    pvContextCtorArg: MutPtr,
     public var anonymous: DrtEventData0,
 ) {
-    public var pvContext: MutPtr<CVoid> = pvContextCtorArg
+    public var pvContext: MutPtr = pvContextCtorArg
         internal set
 
     public constructor() : this(
@@ -240,11 +237,11 @@ public class DrtEventData internal constructor(
 
     public operator fun component2(): Hresult = this.hr
 
-    public operator fun component3(): MutPtr<CVoid> = this.pvContext
+    public operator fun component3(): MutPtr = this.pvContext
 
     public operator fun component4(): DrtEventData0 = this.anonymous
 
-    public fun copy(type: DrtEventType = this.type, hr: Hresult = this.hr, pvContext: MutPtr<CVoid> = this.pvContext, anonymous: DrtEventData0 = this.anonymous): DrtEventData = DrtEventData(type = type, hr = hr, pvContextCtorArg = pvContext, anonymous = anonymous)
+    public fun copy(type: DrtEventType = this.type, hr: Hresult = this.hr, pvContext: MutPtr = this.pvContext, anonymous: DrtEventData0 = this.anonymous): DrtEventData = DrtEventData(type = type, hr = hr, pvContextCtorArg = pvContext, anonymous = anonymous)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -268,7 +265,7 @@ public class DrtEventData internal constructor(
         public operator fun invoke(
             type: DrtEventType = 0,
             hr: Hresult = 0,
-            pvContext: MutPtr<CVoid> = MutPtr(0L),
+            pvContext: MutPtr = MutPtr(0L),
             anonymous: DrtEventData0 = DrtEventData0(),
         ): DrtEventData =
             DrtEventData(
@@ -357,9 +354,9 @@ public data class DrtEventData02(
 
 public class DrtEventData020 internal constructor(
     public var cntAddress: UInt,
-    pAddressesCtorArg: MutPtr<SockaddrStorage>,
+    pAddressesCtorArg: MutPtr,
 ) {
-    public var pAddresses: MutPtr<SockaddrStorage> = pAddressesCtorArg
+    public var pAddresses: MutPtr = pAddressesCtorArg
         internal set
 
     public constructor() : this(
@@ -369,9 +366,9 @@ public class DrtEventData020 internal constructor(
 
     public operator fun component1(): UInt = this.cntAddress
 
-    public operator fun component2(): MutPtr<SockaddrStorage> = this.pAddresses
+    public operator fun component2(): MutPtr = this.pAddresses
 
-    public fun copy(cntAddress: UInt = this.cntAddress, pAddresses: MutPtr<SockaddrStorage> = this.pAddresses): DrtEventData020 = DrtEventData020(cntAddress = cntAddress, pAddressesCtorArg = pAddresses)
+    public fun copy(cntAddress: UInt = this.cntAddress, pAddresses: MutPtr = this.pAddresses): DrtEventData020 = DrtEventData020(cntAddress = cntAddress, pAddressesCtorArg = pAddresses)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -397,21 +394,21 @@ public class DrtEventData020 internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<SockaddrStorage>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                     )
                 override fun writeNative(addr: Long, value: DrtEventData020) {
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr, value.cntAddress)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<SockaddrStorage>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.pAddresses)
                 }
             }
 
         public operator fun invoke(
             cntAddress: UInt = 0u,
-            pAddresses: MutPtr<SockaddrStorage> = MutPtr(0L),
+            pAddresses: MutPtr = MutPtr(0L),
         ): DrtEventData020 =
             DrtEventData020(
                 cntAddress = cntAddress,
@@ -448,13 +445,13 @@ public class DrtSearchInfo internal constructor(
     public var fAllowCurrentInstanceMatch: Bool,
     public var fAnyMatchInRange: Bool,
     public var cMaxEndpoints: UInt,
-    pMaximumKeyCtorArg: MutPtr<DrtData>,
-    pMinimumKeyCtorArg: MutPtr<DrtData>,
+    pMaximumKeyCtorArg: MutPtr,
+    pMinimumKeyCtorArg: MutPtr,
 ) {
-    public var pMaximumKey: MutPtr<DrtData> = pMaximumKeyCtorArg
+    public var pMaximumKey: MutPtr = pMaximumKeyCtorArg
         internal set
 
-    public var pMinimumKey: MutPtr<DrtData> = pMinimumKeyCtorArg
+    public var pMinimumKey: MutPtr = pMinimumKeyCtorArg
         internal set
 
     public constructor() : this(
@@ -477,11 +474,11 @@ public class DrtSearchInfo internal constructor(
 
     public operator fun component5(): UInt = this.cMaxEndpoints
 
-    public operator fun component6(): MutPtr<DrtData> = this.pMaximumKey
+    public operator fun component6(): MutPtr = this.pMaximumKey
 
-    public operator fun component7(): MutPtr<DrtData> = this.pMinimumKey
+    public operator fun component7(): MutPtr = this.pMinimumKey
 
-    public fun copy(dwSize: UInt = this.dwSize, fIterative: Bool = this.fIterative, fAllowCurrentInstanceMatch: Bool = this.fAllowCurrentInstanceMatch, fAnyMatchInRange: Bool = this.fAnyMatchInRange, cMaxEndpoints: UInt = this.cMaxEndpoints, pMaximumKey: MutPtr<DrtData> = this.pMaximumKey, pMinimumKey: MutPtr<DrtData> = this.pMinimumKey): DrtSearchInfo = DrtSearchInfo(dwSize = dwSize, fIterative = fIterative, fAllowCurrentInstanceMatch = fAllowCurrentInstanceMatch, fAnyMatchInRange = fAnyMatchInRange, cMaxEndpoints = cMaxEndpoints, pMaximumKeyCtorArg = pMaximumKey, pMinimumKeyCtorArg = pMinimumKey)
+    public fun copy(dwSize: UInt = this.dwSize, fIterative: Bool = this.fIterative, fAllowCurrentInstanceMatch: Bool = this.fAllowCurrentInstanceMatch, fAnyMatchInRange: Bool = this.fAnyMatchInRange, cMaxEndpoints: UInt = this.cMaxEndpoints, pMaximumKey: MutPtr = this.pMaximumKey, pMinimumKey: MutPtr = this.pMinimumKey): DrtSearchInfo = DrtSearchInfo(dwSize = dwSize, fIterative = fIterative, fAllowCurrentInstanceMatch = fAllowCurrentInstanceMatch, fAnyMatchInRange = fAnyMatchInRange, cMaxEndpoints = cMaxEndpoints, pMaximumKeyCtorArg = pMaximumKey, pMinimumKeyCtorArg = pMinimumKey)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -521,11 +518,11 @@ public class DrtSearchInfo internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 16L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<DrtData>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 24L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<DrtData>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 32L),
                     )
                 override fun writeNative(addr: Long, value: DrtSearchInfo) {
@@ -536,11 +533,11 @@ public class DrtSearchInfo internal constructor(
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 16L, value.cMaxEndpoints)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<DrtData>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 24L, value.pMaximumKey)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<DrtData>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 32L, value.pMinimumKey)
                 }
             }
@@ -551,8 +548,8 @@ public class DrtSearchInfo internal constructor(
             fAllowCurrentInstanceMatch: Bool = 0,
             fAnyMatchInRange: Bool = 0,
             cMaxEndpoints: UInt = 0u,
-            pMaximumKey: MutPtr<DrtData> = MutPtr(0L),
-            pMinimumKey: MutPtr<DrtData> = MutPtr(0L),
+            pMaximumKey: MutPtr = MutPtr(0L),
+            pMinimumKey: MutPtr = MutPtr(0L),
         ): DrtSearchInfo =
             DrtSearchInfo(
                 dwSize = dwSize,
@@ -569,10 +566,10 @@ public class DrtSearchInfo internal constructor(
 public class DrtSearchResult internal constructor(
     public var dwSize: UInt,
     public var type: DrtMatchType,
-    pvContextCtorArg: MutPtr<CVoid>,
+    pvContextCtorArg: MutPtr,
     public var registration: DrtRegistration,
 ) {
-    public var pvContext: MutPtr<CVoid> = pvContextCtorArg
+    public var pvContext: MutPtr = pvContextCtorArg
         internal set
 
     public constructor() : this(
@@ -586,11 +583,11 @@ public class DrtSearchResult internal constructor(
 
     public operator fun component2(): DrtMatchType = this.type
 
-    public operator fun component3(): MutPtr<CVoid> = this.pvContext
+    public operator fun component3(): MutPtr = this.pvContext
 
     public operator fun component4(): DrtRegistration = this.registration
 
-    public fun copy(dwSize: UInt = this.dwSize, type: DrtMatchType = this.type, pvContext: MutPtr<CVoid> = this.pvContext, registration: DrtRegistration = this.registration): DrtSearchResult = DrtSearchResult(dwSize = dwSize, type = type, pvContextCtorArg = pvContext, registration = registration)
+    public fun copy(dwSize: UInt = this.dwSize, type: DrtMatchType = this.type, pvContext: MutPtr = this.pvContext, registration: DrtRegistration = this.registration): DrtSearchResult = DrtSearchResult(dwSize = dwSize, type = type, pvContextCtorArg = pvContext, registration = registration)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -621,7 +618,7 @@ public class DrtSearchResult internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr + 4L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<CVoid>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                         (DrtRegistration.typeLayout()).readNative(addr + 16L),
                     )
@@ -630,7 +627,7 @@ public class DrtSearchResult internal constructor(
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr + 4L, value.type)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<CVoid>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.pvContext)
                     (DrtRegistration.typeLayout()).writeNative(addr + 16L, value.registration)
                 }
@@ -639,7 +636,7 @@ public class DrtSearchResult internal constructor(
         public operator fun invoke(
             dwSize: UInt = 0u,
             type: DrtMatchType = 0,
-            pvContext: MutPtr<CVoid> = MutPtr(0L),
+            pvContext: MutPtr = MutPtr(0L),
             registration: DrtRegistration = DrtRegistration(),
         ): DrtSearchResult =
             DrtSearchResult(
@@ -652,7 +649,7 @@ public class DrtSearchResult internal constructor(
 }
 
 public class DrtSecurityProvider internal constructor(
-    pvContextCtorArg: MutPtr<CVoid>,
+    pvContextCtorArg: MutPtr,
     public var attach: Int,
     public var detach: Int,
     public var registerKey: Int,
@@ -667,7 +664,7 @@ public class DrtSecurityProvider internal constructor(
     public var signData: Int,
     public var verifyData: Int,
 ) {
-    public var pvContext: MutPtr<CVoid> = pvContextCtorArg
+    public var pvContext: MutPtr = pvContextCtorArg
         internal set
 
     public constructor() : this(
@@ -687,7 +684,7 @@ public class DrtSecurityProvider internal constructor(
         verifyData = 0,
     )
 
-    public operator fun component1(): MutPtr<CVoid> = this.pvContext
+    public operator fun component1(): MutPtr = this.pvContext
 
     public operator fun component2(): Int = this.attach
 
@@ -715,7 +712,7 @@ public class DrtSecurityProvider internal constructor(
 
     public operator fun component14(): Int = this.verifyData
 
-    public fun copy(pvContext: MutPtr<CVoid> = this.pvContext, attach: Int = this.attach, detach: Int = this.detach, registerKey: Int = this.registerKey, unregisterKey: Int = this.unregisterKey, validateAndUnpackPayload: Int = this.validateAndUnpackPayload, secureAndPackPayload: Int = this.secureAndPackPayload, freeData: Int = this.freeData, encryptData: Int = this.encryptData, decryptData: Int = this.decryptData, getSerializedCredential: Int = this.getSerializedCredential, validateRemoteCredential: Int = this.validateRemoteCredential, signData: Int = this.signData, verifyData: Int = this.verifyData): DrtSecurityProvider = DrtSecurityProvider(pvContextCtorArg = pvContext, attach = attach, detach = detach, registerKey = registerKey, unregisterKey = unregisterKey, validateAndUnpackPayload = validateAndUnpackPayload, secureAndPackPayload = secureAndPackPayload, freeData = freeData, encryptData = encryptData, decryptData = decryptData, getSerializedCredential = getSerializedCredential, validateRemoteCredential = validateRemoteCredential, signData = signData, verifyData = verifyData)
+    public fun copy(pvContext: MutPtr = this.pvContext, attach: Int = this.attach, detach: Int = this.detach, registerKey: Int = this.registerKey, unregisterKey: Int = this.unregisterKey, validateAndUnpackPayload: Int = this.validateAndUnpackPayload, secureAndPackPayload: Int = this.secureAndPackPayload, freeData: Int = this.freeData, encryptData: Int = this.encryptData, decryptData: Int = this.decryptData, getSerializedCredential: Int = this.getSerializedCredential, validateRemoteCredential: Int = this.validateRemoteCredential, signData: Int = this.signData, verifyData: Int = this.verifyData): DrtSecurityProvider = DrtSecurityProvider(pvContextCtorArg = pvContext, attach = attach, detach = detach, registerKey = registerKey, unregisterKey = unregisterKey, validateAndUnpackPayload = validateAndUnpackPayload, secureAndPackPayload = secureAndPackPayload, freeData = freeData, encryptData = encryptData, decryptData = decryptData, getSerializedCredential = getSerializedCredential, validateRemoteCredential = validateRemoteCredential, signData = signData, verifyData = verifyData)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -764,7 +761,7 @@ public class DrtSecurityProvider internal constructor(
                     DrtSecurityProvider(
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<CVoid>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.ISIZE64).readNative(addr + 8L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.ISIZE64).readNative(addr + 16L),
@@ -783,7 +780,7 @@ public class DrtSecurityProvider internal constructor(
                 override fun writeNative(addr: Long, value: DrtSecurityProvider) {
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<CVoid>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr, value.pvContext)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.ISIZE64).writeNative(addr + 8L, value.attach)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.ISIZE64).writeNative(addr + 16L, value.detach)
@@ -802,7 +799,7 @@ public class DrtSecurityProvider internal constructor(
             }
 
         public operator fun invoke(
-            pvContext: MutPtr<CVoid> = MutPtr(0L),
+            pvContext: MutPtr = MutPtr(0L),
             attach: Int = 0,
             detach: Int = 0,
             registerKey: Int = 0,
@@ -843,21 +840,21 @@ public class DrtSettings internal constructor(
     public var bProtocolMinorVersion: UByte,
     public var ulMaxRoutingAddresses: UInt,
     pwzDrtInstancePrefixCtorArg: Pwstr,
-    hTransportCtorArg: MutPtr<CVoid>,
-    pSecurityProviderCtorArg: MutPtr<DrtSecurityProvider>,
-    pBootstrapProviderCtorArg: MutPtr<DrtBootstrapProvider>,
+    hTransportCtorArg: MutPtr,
+    pSecurityProviderCtorArg: MutPtr,
+    pBootstrapProviderCtorArg: MutPtr,
     public var eSecurityMode: DrtSecurityMode,
 ) {
     public var pwzDrtInstancePrefix: Pwstr = pwzDrtInstancePrefixCtorArg
         internal set
 
-    public var hTransport: MutPtr<CVoid> = hTransportCtorArg
+    public var hTransport: MutPtr = hTransportCtorArg
         internal set
 
-    public var pSecurityProvider: MutPtr<DrtSecurityProvider> = pSecurityProviderCtorArg
+    public var pSecurityProvider: MutPtr = pSecurityProviderCtorArg
         internal set
 
-    public var pBootstrapProvider: MutPtr<DrtBootstrapProvider> = pBootstrapProviderCtorArg
+    public var pBootstrapProvider: MutPtr = pBootstrapProviderCtorArg
         internal set
 
     public constructor() : this(
@@ -885,15 +882,15 @@ public class DrtSettings internal constructor(
 
     public operator fun component6(): Pwstr = this.pwzDrtInstancePrefix
 
-    public operator fun component7(): MutPtr<CVoid> = this.hTransport
+    public operator fun component7(): MutPtr = this.hTransport
 
-    public operator fun component8(): MutPtr<DrtSecurityProvider> = this.pSecurityProvider
+    public operator fun component8(): MutPtr = this.pSecurityProvider
 
-    public operator fun component9(): MutPtr<DrtBootstrapProvider> = this.pBootstrapProvider
+    public operator fun component9(): MutPtr = this.pBootstrapProvider
 
     public operator fun component10(): DrtSecurityMode = this.eSecurityMode
 
-    public fun copy(dwSize: UInt = this.dwSize, cbKey: UInt = this.cbKey, bProtocolMajorVersion: UByte = this.bProtocolMajorVersion, bProtocolMinorVersion: UByte = this.bProtocolMinorVersion, ulMaxRoutingAddresses: UInt = this.ulMaxRoutingAddresses, pwzDrtInstancePrefix: Pwstr = this.pwzDrtInstancePrefix, hTransport: MutPtr<CVoid> = this.hTransport, pSecurityProvider: MutPtr<DrtSecurityProvider> = this.pSecurityProvider, pBootstrapProvider: MutPtr<DrtBootstrapProvider> = this.pBootstrapProvider, eSecurityMode: DrtSecurityMode = this.eSecurityMode): DrtSettings = DrtSettings(dwSize = dwSize, cbKey = cbKey, bProtocolMajorVersion = bProtocolMajorVersion, bProtocolMinorVersion = bProtocolMinorVersion, ulMaxRoutingAddresses = ulMaxRoutingAddresses, pwzDrtInstancePrefixCtorArg = pwzDrtInstancePrefix, hTransportCtorArg = hTransport, pSecurityProviderCtorArg = pSecurityProvider, pBootstrapProviderCtorArg = pBootstrapProvider, eSecurityMode = eSecurityMode)
+    public fun copy(dwSize: UInt = this.dwSize, cbKey: UInt = this.cbKey, bProtocolMajorVersion: UByte = this.bProtocolMajorVersion, bProtocolMinorVersion: UByte = this.bProtocolMinorVersion, ulMaxRoutingAddresses: UInt = this.ulMaxRoutingAddresses, pwzDrtInstancePrefix: Pwstr = this.pwzDrtInstancePrefix, hTransport: MutPtr = this.hTransport, pSecurityProvider: MutPtr = this.pSecurityProvider, pBootstrapProvider: MutPtr = this.pBootstrapProvider, eSecurityMode: DrtSecurityMode = this.eSecurityMode): DrtSettings = DrtSettings(dwSize = dwSize, cbKey = cbKey, bProtocolMajorVersion = bProtocolMajorVersion, bProtocolMinorVersion = bProtocolMinorVersion, ulMaxRoutingAddresses = ulMaxRoutingAddresses, pwzDrtInstancePrefixCtorArg = pwzDrtInstancePrefix, hTransportCtorArg = hTransport, pSecurityProviderCtorArg = pSecurityProvider, pBootstrapProviderCtorArg = pBootstrapProvider, eSecurityMode = eSecurityMode)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -933,9 +930,9 @@ public class DrtSettings internal constructor(
             bProtocolMinorVersion: UByte = 0u,
             ulMaxRoutingAddresses: UInt = 0u,
             pwzDrtInstancePrefix: Pwstr = MutPtr(0L),
-            hTransport: MutPtr<CVoid> = MutPtr(0L),
-            pSecurityProvider: MutPtr<DrtSecurityProvider> = MutPtr(0L),
-            pBootstrapProvider: MutPtr<DrtBootstrapProvider> = MutPtr(0L),
+            hTransport: MutPtr = MutPtr(0L),
+            pSecurityProvider: MutPtr = MutPtr(0L),
+            pBootstrapProvider: MutPtr = MutPtr(0L),
             eSecurityMode: DrtSecurityMode = 0,
         ): DrtSettings =
             DrtSettings(
@@ -1205,17 +1202,17 @@ public class PeerApplicationRegistrationInfo internal constructor(
 }
 
 public class PeerAppLaunchInfo internal constructor(
-    pContactCtorArg: MutPtr<PeerContact>,
-    pEndpointCtorArg: MutPtr<PeerEndpoint>,
-    pInvitationCtorArg: MutPtr<PeerInvitation>,
+    pContactCtorArg: MutPtr,
+    pEndpointCtorArg: MutPtr,
+    pInvitationCtorArg: MutPtr,
 ) {
-    public var pContact: MutPtr<PeerContact> = pContactCtorArg
+    public var pContact: MutPtr = pContactCtorArg
         internal set
 
-    public var pEndpoint: MutPtr<PeerEndpoint> = pEndpointCtorArg
+    public var pEndpoint: MutPtr = pEndpointCtorArg
         internal set
 
-    public var pInvitation: MutPtr<PeerInvitation> = pInvitationCtorArg
+    public var pInvitation: MutPtr = pInvitationCtorArg
         internal set
 
     public constructor() : this(
@@ -1224,13 +1221,13 @@ public class PeerAppLaunchInfo internal constructor(
         pInvitationCtorArg = MutPtr(0L),
     )
 
-    public operator fun component1(): MutPtr<PeerContact> = this.pContact
+    public operator fun component1(): MutPtr = this.pContact
 
-    public operator fun component2(): MutPtr<PeerEndpoint> = this.pEndpoint
+    public operator fun component2(): MutPtr = this.pEndpoint
 
-    public operator fun component3(): MutPtr<PeerInvitation> = this.pInvitation
+    public operator fun component3(): MutPtr = this.pInvitation
 
-    public fun copy(pContact: MutPtr<PeerContact> = this.pContact, pEndpoint: MutPtr<PeerEndpoint> = this.pEndpoint, pInvitation: MutPtr<PeerInvitation> = this.pInvitation): PeerAppLaunchInfo = PeerAppLaunchInfo(pContactCtorArg = pContact, pEndpointCtorArg = pEndpoint, pInvitationCtorArg = pInvitation)
+    public fun copy(pContact: MutPtr = this.pContact, pEndpoint: MutPtr = this.pEndpoint, pInvitation: MutPtr = this.pInvitation): PeerAppLaunchInfo = PeerAppLaunchInfo(pContactCtorArg = pContact, pEndpointCtorArg = pEndpoint, pInvitationCtorArg = pInvitation)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -1257,37 +1254,37 @@ public class PeerAppLaunchInfo internal constructor(
                     PeerAppLaunchInfo(
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<PeerContact>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<PeerEndpoint>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<PeerInvitation>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 16L),
                     )
                 override fun writeNative(addr: Long, value: PeerAppLaunchInfo) {
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<PeerContact>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr, value.pContact)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<PeerEndpoint>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.pEndpoint)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<PeerInvitation>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 16L, value.pInvitation)
                 }
             }
 
         public operator fun invoke(
-            pContact: MutPtr<PeerContact> = MutPtr(0L),
-            pEndpoint: MutPtr<PeerEndpoint> = MutPtr(0L),
-            pInvitation: MutPtr<PeerInvitation> = MutPtr(0L),
+            pContact: MutPtr = MutPtr(0L),
+            pEndpoint: MutPtr = MutPtr(0L),
+            pInvitation: MutPtr = MutPtr(0L),
         ): PeerAppLaunchInfo =
             PeerAppLaunchInfo(
                 pContactCtorArg = pContact,
@@ -1314,9 +1311,9 @@ public data class PeerCollabEventData0(
 
 public class PeerCollabEventRegistration internal constructor(
     public var eventType: PeerCollabEventType,
-    pInstanceCtorArg: MutPtr<Guid>,
+    pInstanceCtorArg: MutPtr,
 ) {
-    public var pInstance: MutPtr<Guid> = pInstanceCtorArg
+    public var pInstance: MutPtr = pInstanceCtorArg
         internal set
 
     public constructor() : this(
@@ -1326,9 +1323,9 @@ public class PeerCollabEventRegistration internal constructor(
 
     public operator fun component1(): PeerCollabEventType = this.eventType
 
-    public operator fun component2(): MutPtr<Guid> = this.pInstance
+    public operator fun component2(): MutPtr = this.pInstance
 
-    public fun copy(eventType: PeerCollabEventType = this.eventType, pInstance: MutPtr<Guid> = this.pInstance): PeerCollabEventRegistration = PeerCollabEventRegistration(eventType = eventType, pInstanceCtorArg = pInstance)
+    public fun copy(eventType: PeerCollabEventType = this.eventType, pInstance: MutPtr = this.pInstance): PeerCollabEventRegistration = PeerCollabEventRegistration(eventType = eventType, pInstanceCtorArg = pInstance)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -1354,21 +1351,21 @@ public class PeerCollabEventRegistration internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<Guid>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                     )
                 override fun writeNative(addr: Long, value: PeerCollabEventRegistration) {
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr, value.eventType)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<Guid>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.pInstance)
                 }
             }
 
         public operator fun invoke(
             eventType: PeerCollabEventType = 0,
-            pInstance: MutPtr<Guid> = MutPtr(0L),
+            pInstance: MutPtr = MutPtr(0L),
         ): PeerCollabEventRegistration =
             PeerCollabEventRegistration(
                 eventType = eventType,
@@ -1550,18 +1547,18 @@ public class PeerCredentialInfo internal constructor(
     public var dwSize: UInt,
     public var dwFlags: UInt,
     pwzFriendlyNameCtorArg: Pwstr,
-    pPublicKeyCtorArg: MutPtr<CertPublicKeyInfo>,
+    pPublicKeyCtorArg: MutPtr,
     pwzIssuerPeerNameCtorArg: Pwstr,
     pwzIssuerFriendlyNameCtorArg: Pwstr,
     public var ftValidityStart: Filetime,
     public var ftValidityEnd: Filetime,
     public var cRoles: UInt,
-    pRolesCtorArg: MutPtr<Guid>,
+    pRolesCtorArg: MutPtr,
 ) {
     public var pwzFriendlyName: Pwstr = pwzFriendlyNameCtorArg
         internal set
 
-    public var pPublicKey: MutPtr<CertPublicKeyInfo> = pPublicKeyCtorArg
+    public var pPublicKey: MutPtr = pPublicKeyCtorArg
         internal set
 
     public var pwzIssuerPeerName: Pwstr = pwzIssuerPeerNameCtorArg
@@ -1570,7 +1567,7 @@ public class PeerCredentialInfo internal constructor(
     public var pwzIssuerFriendlyName: Pwstr = pwzIssuerFriendlyNameCtorArg
         internal set
 
-    public var pRoles: MutPtr<Guid> = pRolesCtorArg
+    public var pRoles: MutPtr = pRolesCtorArg
         internal set
 
     public constructor() : this(
@@ -1592,7 +1589,7 @@ public class PeerCredentialInfo internal constructor(
 
     public operator fun component3(): Pwstr = this.pwzFriendlyName
 
-    public operator fun component4(): MutPtr<CertPublicKeyInfo> = this.pPublicKey
+    public operator fun component4(): MutPtr = this.pPublicKey
 
     public operator fun component5(): Pwstr = this.pwzIssuerPeerName
 
@@ -1604,9 +1601,9 @@ public class PeerCredentialInfo internal constructor(
 
     public operator fun component9(): UInt = this.cRoles
 
-    public operator fun component10(): MutPtr<Guid> = this.pRoles
+    public operator fun component10(): MutPtr = this.pRoles
 
-    public fun copy(dwSize: UInt = this.dwSize, dwFlags: UInt = this.dwFlags, pwzFriendlyName: Pwstr = this.pwzFriendlyName, pPublicKey: MutPtr<CertPublicKeyInfo> = this.pPublicKey, pwzIssuerPeerName: Pwstr = this.pwzIssuerPeerName, pwzIssuerFriendlyName: Pwstr = this.pwzIssuerFriendlyName, ftValidityStart: Filetime = this.ftValidityStart, ftValidityEnd: Filetime = this.ftValidityEnd, cRoles: UInt = this.cRoles, pRoles: MutPtr<Guid> = this.pRoles): PeerCredentialInfo = PeerCredentialInfo(dwSize = dwSize, dwFlags = dwFlags, pwzFriendlyNameCtorArg = pwzFriendlyName, pPublicKeyCtorArg = pPublicKey, pwzIssuerPeerNameCtorArg = pwzIssuerPeerName, pwzIssuerFriendlyNameCtorArg = pwzIssuerFriendlyName, ftValidityStart = ftValidityStart, ftValidityEnd = ftValidityEnd, cRoles = cRoles, pRolesCtorArg = pRoles)
+    public fun copy(dwSize: UInt = this.dwSize, dwFlags: UInt = this.dwFlags, pwzFriendlyName: Pwstr = this.pwzFriendlyName, pPublicKey: MutPtr = this.pPublicKey, pwzIssuerPeerName: Pwstr = this.pwzIssuerPeerName, pwzIssuerFriendlyName: Pwstr = this.pwzIssuerFriendlyName, ftValidityStart: Filetime = this.ftValidityStart, ftValidityEnd: Filetime = this.ftValidityEnd, cRoles: UInt = this.cRoles, pRoles: MutPtr = this.pRoles): PeerCredentialInfo = PeerCredentialInfo(dwSize = dwSize, dwFlags = dwFlags, pwzFriendlyNameCtorArg = pwzFriendlyName, pPublicKeyCtorArg = pPublicKey, pwzIssuerPeerNameCtorArg = pwzIssuerPeerName, pwzIssuerFriendlyNameCtorArg = pwzIssuerFriendlyName, ftValidityStart = ftValidityStart, ftValidityEnd = ftValidityEnd, cRoles = cRoles, pRolesCtorArg = pRoles)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -1643,13 +1640,13 @@ public class PeerCredentialInfo internal constructor(
             dwSize: UInt = 0u,
             dwFlags: UInt = 0u,
             pwzFriendlyName: Pwstr = MutPtr(0L),
-            pPublicKey: MutPtr<CertPublicKeyInfo> = MutPtr(0L),
+            pPublicKey: MutPtr = MutPtr(0L),
             pwzIssuerPeerName: Pwstr = MutPtr(0L),
             pwzIssuerFriendlyName: Pwstr = MutPtr(0L),
             ftValidityStart: Filetime = Filetime(),
             ftValidityEnd: Filetime = Filetime(),
             cRoles: UInt = 0u,
-            pRoles: MutPtr<Guid> = MutPtr(0L),
+            pRoles: MutPtr = MutPtr(0L),
         ): PeerCredentialInfo =
             PeerCredentialInfo(
                 dwSize = dwSize,
@@ -1668,9 +1665,9 @@ public class PeerCredentialInfo internal constructor(
 
 public class PeerData internal constructor(
     public var cbData: UInt,
-    pbDataCtorArg: MutPtr<UByte>,
+    pbDataCtorArg: MutPtr,
 ) {
-    public var pbData: MutPtr<UByte> = pbDataCtorArg
+    public var pbData: MutPtr = pbDataCtorArg
         internal set
 
     public constructor() : this(
@@ -1680,9 +1677,9 @@ public class PeerData internal constructor(
 
     public operator fun component1(): UInt = this.cbData
 
-    public operator fun component2(): MutPtr<UByte> = this.pbData
+    public operator fun component2(): MutPtr = this.pbData
 
-    public fun copy(cbData: UInt = this.cbData, pbData: MutPtr<UByte> = this.pbData): PeerData = PeerData(cbData = cbData, pbDataCtorArg = pbData)
+    public fun copy(cbData: UInt = this.cbData, pbData: MutPtr = this.pbData): PeerData = PeerData(cbData = cbData, pbDataCtorArg = pbData)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -1708,21 +1705,21 @@ public class PeerData internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<UByte>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                     )
                 override fun writeNative(addr: Long, value: PeerData) {
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr, value.cbData)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<UByte>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.pbData)
                 }
             }
 
         public operator fun invoke(
             cbData: UInt = 0u,
-            pbData: MutPtr<UByte> = MutPtr(0L),
+            pbData: MutPtr = MutPtr(0L),
         ): PeerData =
             PeerData(
                 cbData = cbData,
@@ -1776,18 +1773,18 @@ public class PeerEndpoint internal constructor(
 }
 
 public class PeerEventApplicationChangedData internal constructor(
-    pContactCtorArg: MutPtr<PeerContact>,
-    pEndpointCtorArg: MutPtr<PeerEndpoint>,
+    pContactCtorArg: MutPtr,
+    pEndpointCtorArg: MutPtr,
     public var changeType: PeerChangeType,
-    pApplicationCtorArg: MutPtr<PeerApplication>,
+    pApplicationCtorArg: MutPtr,
 ) {
-    public var pContact: MutPtr<PeerContact> = pContactCtorArg
+    public var pContact: MutPtr = pContactCtorArg
         internal set
 
-    public var pEndpoint: MutPtr<PeerEndpoint> = pEndpointCtorArg
+    public var pEndpoint: MutPtr = pEndpointCtorArg
         internal set
 
-    public var pApplication: MutPtr<PeerApplication> = pApplicationCtorArg
+    public var pApplication: MutPtr = pApplicationCtorArg
         internal set
 
     public constructor() : this(
@@ -1797,15 +1794,15 @@ public class PeerEventApplicationChangedData internal constructor(
         pApplicationCtorArg = MutPtr(0L),
     )
 
-    public operator fun component1(): MutPtr<PeerContact> = this.pContact
+    public operator fun component1(): MutPtr = this.pContact
 
-    public operator fun component2(): MutPtr<PeerEndpoint> = this.pEndpoint
+    public operator fun component2(): MutPtr = this.pEndpoint
 
     public operator fun component3(): PeerChangeType = this.changeType
 
-    public operator fun component4(): MutPtr<PeerApplication> = this.pApplication
+    public operator fun component4(): MutPtr = this.pApplication
 
-    public fun copy(pContact: MutPtr<PeerContact> = this.pContact, pEndpoint: MutPtr<PeerEndpoint> = this.pEndpoint, changeType: PeerChangeType = this.changeType, pApplication: MutPtr<PeerApplication> = this.pApplication): PeerEventApplicationChangedData = PeerEventApplicationChangedData(pContactCtorArg = pContact, pEndpointCtorArg = pEndpoint, changeType = changeType, pApplicationCtorArg = pApplication)
+    public fun copy(pContact: MutPtr = this.pContact, pEndpoint: MutPtr = this.pEndpoint, changeType: PeerChangeType = this.changeType, pApplication: MutPtr = this.pApplication): PeerEventApplicationChangedData = PeerEventApplicationChangedData(pContactCtorArg = pContact, pEndpointCtorArg = pEndpoint, changeType = changeType, pApplicationCtorArg = pApplication)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -1834,40 +1831,40 @@ public class PeerEventApplicationChangedData internal constructor(
                     PeerEventApplicationChangedData(
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<PeerContact>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<PeerEndpoint>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr + 16L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<PeerApplication>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 24L),
                     )
                 override fun writeNative(addr: Long, value: PeerEventApplicationChangedData) {
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<PeerContact>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr, value.pContact)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<PeerEndpoint>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.pEndpoint)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr + 16L, value.changeType)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<PeerApplication>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 24L, value.pApplication)
                 }
             }
 
         public operator fun invoke(
-            pContact: MutPtr<PeerContact> = MutPtr(0L),
-            pEndpoint: MutPtr<PeerEndpoint> = MutPtr(0L),
+            pContact: MutPtr = MutPtr(0L),
+            pEndpoint: MutPtr = MutPtr(0L),
             changeType: PeerChangeType = 0,
-            pApplication: MutPtr<PeerApplication> = MutPtr(0L),
+            pApplication: MutPtr = MutPtr(0L),
         ): PeerEventApplicationChangedData =
             PeerEventApplicationChangedData(
                 pContactCtorArg = pContact,
@@ -1913,13 +1910,13 @@ public data class PeerEventConnectionChangeData(
 }
 
 public class PeerEventEndpointChangedData internal constructor(
-    pContactCtorArg: MutPtr<PeerContact>,
-    pEndpointCtorArg: MutPtr<PeerEndpoint>,
+    pContactCtorArg: MutPtr,
+    pEndpointCtorArg: MutPtr,
 ) {
-    public var pContact: MutPtr<PeerContact> = pContactCtorArg
+    public var pContact: MutPtr = pContactCtorArg
         internal set
 
-    public var pEndpoint: MutPtr<PeerEndpoint> = pEndpointCtorArg
+    public var pEndpoint: MutPtr = pEndpointCtorArg
         internal set
 
     public constructor() : this(
@@ -1927,11 +1924,11 @@ public class PeerEventEndpointChangedData internal constructor(
         pEndpointCtorArg = MutPtr(0L),
     )
 
-    public operator fun component1(): MutPtr<PeerContact> = this.pContact
+    public operator fun component1(): MutPtr = this.pContact
 
-    public operator fun component2(): MutPtr<PeerEndpoint> = this.pEndpoint
+    public operator fun component2(): MutPtr = this.pEndpoint
 
-    public fun copy(pContact: MutPtr<PeerContact> = this.pContact, pEndpoint: MutPtr<PeerEndpoint> = this.pEndpoint): PeerEventEndpointChangedData = PeerEventEndpointChangedData(pContactCtorArg = pContact, pEndpointCtorArg = pEndpoint)
+    public fun copy(pContact: MutPtr = this.pContact, pEndpoint: MutPtr = this.pEndpoint): PeerEventEndpointChangedData = PeerEventEndpointChangedData(pContactCtorArg = pContact, pEndpointCtorArg = pEndpoint)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -1956,28 +1953,28 @@ public class PeerEventEndpointChangedData internal constructor(
                     PeerEventEndpointChangedData(
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<PeerContact>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<PeerEndpoint>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                     )
                 override fun writeNative(addr: Long, value: PeerEventEndpointChangedData) {
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<PeerContact>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr, value.pContact)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<PeerEndpoint>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.pEndpoint)
                 }
             }
 
         public operator fun invoke(
-            pContact: MutPtr<PeerContact> = MutPtr(0L),
-            pEndpoint: MutPtr<PeerEndpoint> = MutPtr(0L),
+            pContact: MutPtr = MutPtr(0L),
+            pEndpoint: MutPtr = MutPtr(0L),
         ): PeerEventEndpointChangedData =
             PeerEventEndpointChangedData(
                 pContactCtorArg = pContact,
@@ -2106,18 +2103,18 @@ public class PeerEventNodeChangeData internal constructor(
 }
 
 public class PeerEventObjectChangedData internal constructor(
-    pContactCtorArg: MutPtr<PeerContact>,
-    pEndpointCtorArg: MutPtr<PeerEndpoint>,
+    pContactCtorArg: MutPtr,
+    pEndpointCtorArg: MutPtr,
     public var changeType: PeerChangeType,
-    pObjectCtorArg: MutPtr<PeerObject>,
+    pObjectCtorArg: MutPtr,
 ) {
-    public var pContact: MutPtr<PeerContact> = pContactCtorArg
+    public var pContact: MutPtr = pContactCtorArg
         internal set
 
-    public var pEndpoint: MutPtr<PeerEndpoint> = pEndpointCtorArg
+    public var pEndpoint: MutPtr = pEndpointCtorArg
         internal set
 
-    public var pObject: MutPtr<PeerObject> = pObjectCtorArg
+    public var pObject: MutPtr = pObjectCtorArg
         internal set
 
     public constructor() : this(
@@ -2127,15 +2124,15 @@ public class PeerEventObjectChangedData internal constructor(
         pObjectCtorArg = MutPtr(0L),
     )
 
-    public operator fun component1(): MutPtr<PeerContact> = this.pContact
+    public operator fun component1(): MutPtr = this.pContact
 
-    public operator fun component2(): MutPtr<PeerEndpoint> = this.pEndpoint
+    public operator fun component2(): MutPtr = this.pEndpoint
 
     public operator fun component3(): PeerChangeType = this.changeType
 
-    public operator fun component4(): MutPtr<PeerObject> = this.pObject
+    public operator fun component4(): MutPtr = this.pObject
 
-    public fun copy(pContact: MutPtr<PeerContact> = this.pContact, pEndpoint: MutPtr<PeerEndpoint> = this.pEndpoint, changeType: PeerChangeType = this.changeType, pObject: MutPtr<PeerObject> = this.pObject): PeerEventObjectChangedData = PeerEventObjectChangedData(pContactCtorArg = pContact, pEndpointCtorArg = pEndpoint, changeType = changeType, pObjectCtorArg = pObject)
+    public fun copy(pContact: MutPtr = this.pContact, pEndpoint: MutPtr = this.pEndpoint, changeType: PeerChangeType = this.changeType, pObject: MutPtr = this.pObject): PeerEventObjectChangedData = PeerEventObjectChangedData(pContactCtorArg = pContact, pEndpointCtorArg = pEndpoint, changeType = changeType, pObjectCtorArg = pObject)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -2164,40 +2161,40 @@ public class PeerEventObjectChangedData internal constructor(
                     PeerEventObjectChangedData(
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<PeerContact>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<PeerEndpoint>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr + 16L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<PeerObject>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 24L),
                     )
                 override fun writeNative(addr: Long, value: PeerEventObjectChangedData) {
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<PeerContact>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr, value.pContact)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<PeerEndpoint>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.pEndpoint)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr + 16L, value.changeType)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<PeerObject>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 24L, value.pObject)
                 }
             }
 
         public operator fun invoke(
-            pContact: MutPtr<PeerContact> = MutPtr(0L),
-            pEndpoint: MutPtr<PeerEndpoint> = MutPtr(0L),
+            pContact: MutPtr = MutPtr(0L),
+            pEndpoint: MutPtr = MutPtr(0L),
             changeType: PeerChangeType = 0,
-            pObject: MutPtr<PeerObject> = MutPtr(0L),
+            pObject: MutPtr = MutPtr(0L),
         ): PeerEventObjectChangedData =
             PeerEventObjectChangedData(
                 pContactCtorArg = pContact,
@@ -2210,9 +2207,9 @@ public class PeerEventObjectChangedData internal constructor(
 
 public class PeerEventPeopleNearMeChangedData internal constructor(
     public var changeType: PeerChangeType,
-    pPeopleNearMeCtorArg: MutPtr<PeerPeopleNearMe>,
+    pPeopleNearMeCtorArg: MutPtr,
 ) {
-    public var pPeopleNearMe: MutPtr<PeerPeopleNearMe> = pPeopleNearMeCtorArg
+    public var pPeopleNearMe: MutPtr = pPeopleNearMeCtorArg
         internal set
 
     public constructor() : this(
@@ -2222,9 +2219,9 @@ public class PeerEventPeopleNearMeChangedData internal constructor(
 
     public operator fun component1(): PeerChangeType = this.changeType
 
-    public operator fun component2(): MutPtr<PeerPeopleNearMe> = this.pPeopleNearMe
+    public operator fun component2(): MutPtr = this.pPeopleNearMe
 
-    public fun copy(changeType: PeerChangeType = this.changeType, pPeopleNearMe: MutPtr<PeerPeopleNearMe> = this.pPeopleNearMe): PeerEventPeopleNearMeChangedData = PeerEventPeopleNearMeChangedData(changeType = changeType, pPeopleNearMeCtorArg = pPeopleNearMe)
+    public fun copy(changeType: PeerChangeType = this.changeType, pPeopleNearMe: MutPtr = this.pPeopleNearMe): PeerEventPeopleNearMeChangedData = PeerEventPeopleNearMeChangedData(changeType = changeType, pPeopleNearMeCtorArg = pPeopleNearMe)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -2250,21 +2247,21 @@ public class PeerEventPeopleNearMeChangedData internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<PeerPeopleNearMe>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                     )
                 override fun writeNative(addr: Long, value: PeerEventPeopleNearMeChangedData) {
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr, value.changeType)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<PeerPeopleNearMe>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.pPeopleNearMe)
                 }
             }
 
         public operator fun invoke(
             changeType: PeerChangeType = 0,
-            pPeopleNearMe: MutPtr<PeerPeopleNearMe> = MutPtr(0L),
+            pPeopleNearMe: MutPtr = MutPtr(0L),
         ): PeerEventPeopleNearMeChangedData =
             PeerEventPeopleNearMeChangedData(
                 changeType = changeType,
@@ -2274,18 +2271,18 @@ public class PeerEventPeopleNearMeChangedData internal constructor(
 }
 
 public class PeerEventPresenceChangedData internal constructor(
-    pContactCtorArg: MutPtr<PeerContact>,
-    pEndpointCtorArg: MutPtr<PeerEndpoint>,
+    pContactCtorArg: MutPtr,
+    pEndpointCtorArg: MutPtr,
     public var changeType: PeerChangeType,
-    pPresenceInfoCtorArg: MutPtr<PeerPresenceInfo>,
+    pPresenceInfoCtorArg: MutPtr,
 ) {
-    public var pContact: MutPtr<PeerContact> = pContactCtorArg
+    public var pContact: MutPtr = pContactCtorArg
         internal set
 
-    public var pEndpoint: MutPtr<PeerEndpoint> = pEndpointCtorArg
+    public var pEndpoint: MutPtr = pEndpointCtorArg
         internal set
 
-    public var pPresenceInfo: MutPtr<PeerPresenceInfo> = pPresenceInfoCtorArg
+    public var pPresenceInfo: MutPtr = pPresenceInfoCtorArg
         internal set
 
     public constructor() : this(
@@ -2295,15 +2292,15 @@ public class PeerEventPresenceChangedData internal constructor(
         pPresenceInfoCtorArg = MutPtr(0L),
     )
 
-    public operator fun component1(): MutPtr<PeerContact> = this.pContact
+    public operator fun component1(): MutPtr = this.pContact
 
-    public operator fun component2(): MutPtr<PeerEndpoint> = this.pEndpoint
+    public operator fun component2(): MutPtr = this.pEndpoint
 
     public operator fun component3(): PeerChangeType = this.changeType
 
-    public operator fun component4(): MutPtr<PeerPresenceInfo> = this.pPresenceInfo
+    public operator fun component4(): MutPtr = this.pPresenceInfo
 
-    public fun copy(pContact: MutPtr<PeerContact> = this.pContact, pEndpoint: MutPtr<PeerEndpoint> = this.pEndpoint, changeType: PeerChangeType = this.changeType, pPresenceInfo: MutPtr<PeerPresenceInfo> = this.pPresenceInfo): PeerEventPresenceChangedData = PeerEventPresenceChangedData(pContactCtorArg = pContact, pEndpointCtorArg = pEndpoint, changeType = changeType, pPresenceInfoCtorArg = pPresenceInfo)
+    public fun copy(pContact: MutPtr = this.pContact, pEndpoint: MutPtr = this.pEndpoint, changeType: PeerChangeType = this.changeType, pPresenceInfo: MutPtr = this.pPresenceInfo): PeerEventPresenceChangedData = PeerEventPresenceChangedData(pContactCtorArg = pContact, pEndpointCtorArg = pEndpoint, changeType = changeType, pPresenceInfoCtorArg = pPresenceInfo)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -2332,40 +2329,40 @@ public class PeerEventPresenceChangedData internal constructor(
                     PeerEventPresenceChangedData(
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<PeerContact>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<PeerEndpoint>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr + 16L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<PeerPresenceInfo>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 24L),
                     )
                 override fun writeNative(addr: Long, value: PeerEventPresenceChangedData) {
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<PeerContact>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr, value.pContact)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<PeerEndpoint>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.pEndpoint)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr + 16L, value.changeType)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<PeerPresenceInfo>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 24L, value.pPresenceInfo)
                 }
             }
 
         public operator fun invoke(
-            pContact: MutPtr<PeerContact> = MutPtr(0L),
-            pEndpoint: MutPtr<PeerEndpoint> = MutPtr(0L),
+            pContact: MutPtr = MutPtr(0L),
+            pEndpoint: MutPtr = MutPtr(0L),
             changeType: PeerChangeType = 0,
-            pPresenceInfo: MutPtr<PeerPresenceInfo> = MutPtr(0L),
+            pPresenceInfo: MutPtr = MutPtr(0L),
         ): PeerEventPresenceChangedData =
             PeerEventPresenceChangedData(
                 pContactCtorArg = pContact,
@@ -2384,10 +2381,10 @@ public data class PeerEventRecordChangeData(
 )
 
 public class PeerEventRequestStatusChangedData internal constructor(
-    pEndpointCtorArg: MutPtr<PeerEndpoint>,
+    pEndpointCtorArg: MutPtr,
     public var hrChange: Hresult,
 ) {
-    public var pEndpoint: MutPtr<PeerEndpoint> = pEndpointCtorArg
+    public var pEndpoint: MutPtr = pEndpointCtorArg
         internal set
 
     public constructor() : this(
@@ -2395,11 +2392,11 @@ public class PeerEventRequestStatusChangedData internal constructor(
         hrChange = 0,
     )
 
-    public operator fun component1(): MutPtr<PeerEndpoint> = this.pEndpoint
+    public operator fun component1(): MutPtr = this.pEndpoint
 
     public operator fun component2(): Hresult = this.hrChange
 
-    public fun copy(pEndpoint: MutPtr<PeerEndpoint> = this.pEndpoint, hrChange: Hresult = this.hrChange): PeerEventRequestStatusChangedData = PeerEventRequestStatusChangedData(pEndpointCtorArg = pEndpoint, hrChange = hrChange)
+    public fun copy(pEndpoint: MutPtr = this.pEndpoint, hrChange: Hresult = this.hrChange): PeerEventRequestStatusChangedData = PeerEventRequestStatusChangedData(pEndpointCtorArg = pEndpoint, hrChange = hrChange)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -2424,21 +2421,21 @@ public class PeerEventRequestStatusChangedData internal constructor(
                     PeerEventRequestStatusChangedData(
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<PeerEndpoint>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr + 8L),
                     )
                 override fun writeNative(addr: Long, value: PeerEventRequestStatusChangedData) {
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<PeerEndpoint>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr, value.pEndpoint)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr + 8L, value.hrChange)
                 }
             }
 
         public operator fun invoke(
-            pEndpoint: MutPtr<PeerEndpoint> = MutPtr(0L),
+            pEndpoint: MutPtr = MutPtr(0L),
             hrChange: Hresult = 0,
         ): PeerEventRequestStatusChangedData =
             PeerEventRequestStatusChangedData(
@@ -2454,10 +2451,10 @@ public data class PeerEventSynchronizedData(
 )
 
 public class PeerEventWatchlistChangedData internal constructor(
-    pContactCtorArg: MutPtr<PeerContact>,
+    pContactCtorArg: MutPtr,
     public var changeType: PeerChangeType,
 ) {
-    public var pContact: MutPtr<PeerContact> = pContactCtorArg
+    public var pContact: MutPtr = pContactCtorArg
         internal set
 
     public constructor() : this(
@@ -2465,11 +2462,11 @@ public class PeerEventWatchlistChangedData internal constructor(
         changeType = 0,
     )
 
-    public operator fun component1(): MutPtr<PeerContact> = this.pContact
+    public operator fun component1(): MutPtr = this.pContact
 
     public operator fun component2(): PeerChangeType = this.changeType
 
-    public fun copy(pContact: MutPtr<PeerContact> = this.pContact, changeType: PeerChangeType = this.changeType): PeerEventWatchlistChangedData = PeerEventWatchlistChangedData(pContactCtorArg = pContact, changeType = changeType)
+    public fun copy(pContact: MutPtr = this.pContact, changeType: PeerChangeType = this.changeType): PeerEventWatchlistChangedData = PeerEventWatchlistChangedData(pContactCtorArg = pContact, changeType = changeType)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -2494,21 +2491,21 @@ public class PeerEventWatchlistChangedData internal constructor(
                     PeerEventWatchlistChangedData(
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<PeerContact>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr + 8L),
                     )
                 override fun writeNative(addr: Long, value: PeerEventWatchlistChangedData) {
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<PeerContact>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr, value.pContact)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr + 8L, value.changeType)
                 }
             }
 
         public operator fun invoke(
-            pContact: MutPtr<PeerContact> = MutPtr(0L),
+            pContact: MutPtr = MutPtr(0L),
             changeType: PeerChangeType = 0,
         ): PeerEventWatchlistChangedData =
             PeerEventWatchlistChangedData(
@@ -2534,9 +2531,9 @@ public data class PeerGraphEventData0(
 
 public class PeerGraphEventRegistration internal constructor(
     public var eventType: PeerGraphEventType,
-    pTypeCtorArg: MutPtr<Guid>,
+    pTypeCtorArg: MutPtr,
 ) {
-    public var pType: MutPtr<Guid> = pTypeCtorArg
+    public var pType: MutPtr = pTypeCtorArg
         internal set
 
     public constructor() : this(
@@ -2546,9 +2543,9 @@ public class PeerGraphEventRegistration internal constructor(
 
     public operator fun component1(): PeerGraphEventType = this.eventType
 
-    public operator fun component2(): MutPtr<Guid> = this.pType
+    public operator fun component2(): MutPtr = this.pType
 
-    public fun copy(eventType: PeerGraphEventType = this.eventType, pType: MutPtr<Guid> = this.pType): PeerGraphEventRegistration = PeerGraphEventRegistration(eventType = eventType, pTypeCtorArg = pType)
+    public fun copy(eventType: PeerGraphEventType = this.eventType, pType: MutPtr = this.pType): PeerGraphEventRegistration = PeerGraphEventRegistration(eventType = eventType, pTypeCtorArg = pType)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -2574,21 +2571,21 @@ public class PeerGraphEventRegistration internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<Guid>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                     )
                 override fun writeNative(addr: Long, value: PeerGraphEventRegistration) {
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr, value.eventType)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<Guid>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.pType)
                 }
             }
 
         public operator fun invoke(
             eventType: PeerGraphEventType = 0,
-            pType: MutPtr<Guid> = MutPtr(0L),
+            pType: MutPtr = MutPtr(0L),
         ): PeerGraphEventRegistration =
             PeerGraphEventRegistration(
                 eventType = eventType,
@@ -2730,9 +2727,9 @@ public data class PeerGroupEventData0(
 
 public class PeerGroupEventRegistration internal constructor(
     public var eventType: PeerGroupEventType,
-    pTypeCtorArg: MutPtr<Guid>,
+    pTypeCtorArg: MutPtr,
 ) {
-    public var pType: MutPtr<Guid> = pTypeCtorArg
+    public var pType: MutPtr = pTypeCtorArg
         internal set
 
     public constructor() : this(
@@ -2742,9 +2739,9 @@ public class PeerGroupEventRegistration internal constructor(
 
     public operator fun component1(): PeerGroupEventType = this.eventType
 
-    public operator fun component2(): MutPtr<Guid> = this.pType
+    public operator fun component2(): MutPtr = this.pType
 
-    public fun copy(eventType: PeerGroupEventType = this.eventType, pType: MutPtr<Guid> = this.pType): PeerGroupEventRegistration = PeerGroupEventRegistration(eventType = eventType, pTypeCtorArg = pType)
+    public fun copy(eventType: PeerGroupEventType = this.eventType, pType: MutPtr = this.pType): PeerGroupEventRegistration = PeerGroupEventRegistration(eventType = eventType, pTypeCtorArg = pType)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -2770,21 +2767,21 @@ public class PeerGroupEventRegistration internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<Guid>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                     )
                 override fun writeNative(addr: Long, value: PeerGroupEventRegistration) {
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr, value.eventType)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<Guid>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.pType)
                 }
             }
 
         public operator fun invoke(
             eventType: PeerGroupEventType = 0,
-            pType: MutPtr<Guid> = MutPtr(0L),
+            pType: MutPtr = MutPtr(0L),
         ): PeerGroupEventRegistration =
             PeerGroupEventRegistration(
                 eventType = eventType,
@@ -3010,10 +3007,10 @@ public class PeerInvitationInfo internal constructor(
     public var ftValidityStart: Filetime,
     public var ftValidityEnd: Filetime,
     public var cRoles: UInt,
-    pRolesCtorArg: MutPtr<Guid>,
+    pRolesCtorArg: MutPtr,
     public var cClassifiers: UInt,
-    ppwzClassifiersCtorArg: MutPtr<Pwstr>,
-    pSubjectPublicKeyCtorArg: MutPtr<CertPublicKeyInfo>,
+    ppwzClassifiersCtorArg: MutPtr,
+    pSubjectPublicKeyCtorArg: MutPtr,
     public var authScheme: PeerGroupAuthenticationScheme,
 ) {
     public var pwzCloudName: Pwstr = pwzCloudNameCtorArg
@@ -3037,13 +3034,13 @@ public class PeerInvitationInfo internal constructor(
     public var pwzSubjectFriendlyName: Pwstr = pwzSubjectFriendlyNameCtorArg
         internal set
 
-    public var pRoles: MutPtr<Guid> = pRolesCtorArg
+    public var pRoles: MutPtr = pRolesCtorArg
         internal set
 
-    public var ppwzClassifiers: MutPtr<Pwstr> = ppwzClassifiersCtorArg
+    public var ppwzClassifiers: MutPtr = ppwzClassifiersCtorArg
         internal set
 
-    public var pSubjectPublicKey: MutPtr<CertPublicKeyInfo> = pSubjectPublicKeyCtorArg
+    public var pSubjectPublicKey: MutPtr = pSubjectPublicKeyCtorArg
         internal set
 
     public constructor() : this(
@@ -3084,10 +3081,10 @@ public class PeerInvitationInfo internal constructor(
             ftValidityStart: Filetime = Filetime(),
             ftValidityEnd: Filetime = Filetime(),
             cRoles: UInt = 0u,
-            pRoles: MutPtr<Guid> = MutPtr(0L),
+            pRoles: MutPtr = MutPtr(0L),
             cClassifiers: UInt = 0u,
-            ppwzClassifiers: MutPtr<Pwstr> = MutPtr(0L),
-            pSubjectPublicKey: MutPtr<CertPublicKeyInfo> = MutPtr(0L),
+            ppwzClassifiers: MutPtr = MutPtr(0L),
+            pSubjectPublicKey: MutPtr = MutPtr(0L),
             authScheme: PeerGroupAuthenticationScheme = 0,
         ): PeerInvitationInfo =
             PeerInvitationInfo(
@@ -3173,8 +3170,8 @@ public class PeerMember internal constructor(
     pwzAttributesCtorArg: Pwstr,
     public var ullNodeId: ULong,
     public var cAddresses: UInt,
-    pAddressesCtorArg: MutPtr<PeerAddress>,
-    pCredentialInfoCtorArg: MutPtr<PeerCredentialInfo>,
+    pAddressesCtorArg: MutPtr,
+    pCredentialInfoCtorArg: MutPtr,
 ) {
     public var pwzIdentity: Pwstr = pwzIdentityCtorArg
         internal set
@@ -3182,10 +3179,10 @@ public class PeerMember internal constructor(
     public var pwzAttributes: Pwstr = pwzAttributesCtorArg
         internal set
 
-    public var pAddresses: MutPtr<PeerAddress> = pAddressesCtorArg
+    public var pAddresses: MutPtr = pAddressesCtorArg
         internal set
 
-    public var pCredentialInfo: MutPtr<PeerCredentialInfo> = pCredentialInfoCtorArg
+    public var pCredentialInfo: MutPtr = pCredentialInfoCtorArg
         internal set
 
     public constructor() : this(
@@ -3211,11 +3208,11 @@ public class PeerMember internal constructor(
 
     public operator fun component6(): UInt = this.cAddresses
 
-    public operator fun component7(): MutPtr<PeerAddress> = this.pAddresses
+    public operator fun component7(): MutPtr = this.pAddresses
 
-    public operator fun component8(): MutPtr<PeerCredentialInfo> = this.pCredentialInfo
+    public operator fun component8(): MutPtr = this.pCredentialInfo
 
-    public fun copy(dwSize: UInt = this.dwSize, dwFlags: UInt = this.dwFlags, pwzIdentity: Pwstr = this.pwzIdentity, pwzAttributes: Pwstr = this.pwzAttributes, ullNodeId: ULong = this.ullNodeId, cAddresses: UInt = this.cAddresses, pAddresses: MutPtr<PeerAddress> = this.pAddresses, pCredentialInfo: MutPtr<PeerCredentialInfo> = this.pCredentialInfo): PeerMember = PeerMember(dwSize = dwSize, dwFlags = dwFlags, pwzIdentityCtorArg = pwzIdentity, pwzAttributesCtorArg = pwzAttributes, ullNodeId = ullNodeId, cAddresses = cAddresses, pAddressesCtorArg = pAddresses, pCredentialInfoCtorArg = pCredentialInfo)
+    public fun copy(dwSize: UInt = this.dwSize, dwFlags: UInt = this.dwFlags, pwzIdentity: Pwstr = this.pwzIdentity, pwzAttributes: Pwstr = this.pwzAttributes, ullNodeId: ULong = this.ullNodeId, cAddresses: UInt = this.cAddresses, pAddresses: MutPtr = this.pAddresses, pCredentialInfo: MutPtr = this.pCredentialInfo): PeerMember = PeerMember(dwSize = dwSize, dwFlags = dwFlags, pwzIdentityCtorArg = pwzIdentity, pwzAttributesCtorArg = pwzAttributes, ullNodeId = ullNodeId, cAddresses = cAddresses, pAddressesCtorArg = pAddresses, pCredentialInfoCtorArg = pCredentialInfo)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -3251,8 +3248,8 @@ public class PeerMember internal constructor(
             pwzAttributes: Pwstr = MutPtr(0L),
             ullNodeId: ULong = 0uL,
             cAddresses: UInt = 0u,
-            pAddresses: MutPtr<PeerAddress> = MutPtr(0L),
-            pCredentialInfo: MutPtr<PeerCredentialInfo> = MutPtr(0L),
+            pAddresses: MutPtr = MutPtr(0L),
+            pCredentialInfo: MutPtr = MutPtr(0L),
         ): PeerMember =
             PeerMember(
                 dwSize = dwSize,
@@ -3327,13 +3324,13 @@ public class PeerNodeInfo internal constructor(
     public var ullNodeId: ULong,
     pwzPeerIdCtorArg: Pwstr,
     public var cAddresses: UInt,
-    pAddressesCtorArg: MutPtr<PeerAddress>,
+    pAddressesCtorArg: MutPtr,
     pwzAttributesCtorArg: Pwstr,
 ) {
     public var pwzPeerId: Pwstr = pwzPeerIdCtorArg
         internal set
 
-    public var pAddresses: MutPtr<PeerAddress> = pAddressesCtorArg
+    public var pAddresses: MutPtr = pAddressesCtorArg
         internal set
 
     public var pwzAttributes: Pwstr = pwzAttributesCtorArg
@@ -3356,11 +3353,11 @@ public class PeerNodeInfo internal constructor(
 
     public operator fun component4(): UInt = this.cAddresses
 
-    public operator fun component5(): MutPtr<PeerAddress> = this.pAddresses
+    public operator fun component5(): MutPtr = this.pAddresses
 
     public operator fun component6(): Pwstr = this.pwzAttributes
 
-    public fun copy(dwSize: UInt = this.dwSize, ullNodeId: ULong = this.ullNodeId, pwzPeerId: Pwstr = this.pwzPeerId, cAddresses: UInt = this.cAddresses, pAddresses: MutPtr<PeerAddress> = this.pAddresses, pwzAttributes: Pwstr = this.pwzAttributes): PeerNodeInfo = PeerNodeInfo(dwSize = dwSize, ullNodeId = ullNodeId, pwzPeerIdCtorArg = pwzPeerId, cAddresses = cAddresses, pAddressesCtorArg = pAddresses, pwzAttributesCtorArg = pwzAttributes)
+    public fun copy(dwSize: UInt = this.dwSize, ullNodeId: ULong = this.ullNodeId, pwzPeerId: Pwstr = this.pwzPeerId, cAddresses: UInt = this.cAddresses, pAddresses: MutPtr = this.pAddresses, pwzAttributes: Pwstr = this.pwzAttributes): PeerNodeInfo = PeerNodeInfo(dwSize = dwSize, ullNodeId = ullNodeId, pwzPeerIdCtorArg = pwzPeerId, cAddresses = cAddresses, pAddressesCtorArg = pAddresses, pwzAttributesCtorArg = pwzAttributes)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -3390,7 +3387,7 @@ public class PeerNodeInfo internal constructor(
             ullNodeId: ULong = 0uL,
             pwzPeerId: Pwstr = MutPtr(0L),
             cAddresses: UInt = 0u,
-            pAddresses: MutPtr<PeerAddress> = MutPtr(0L),
+            pAddresses: MutPtr = MutPtr(0L),
             pwzAttributes: Pwstr = MutPtr(0L),
         ): PeerNodeInfo =
             PeerNodeInfo(
@@ -3517,14 +3514,14 @@ public class PeerPnrpCloudInfo internal constructor(
 public class PeerPnrpEndpointInfo internal constructor(
     pwzPeerNameCtorArg: Pwstr,
     public var cAddresses: UInt,
-    ppAddressesCtorArg: MutPtr<MutPtr<Sockaddr>>,
+    ppAddressesCtorArg: MutPtr,
     pwzCommentCtorArg: Pwstr,
     public var payload: PeerData,
 ) {
     public var pwzPeerName: Pwstr = pwzPeerNameCtorArg
         internal set
 
-    public var ppAddresses: MutPtr<MutPtr<Sockaddr>> = ppAddressesCtorArg
+    public var ppAddresses: MutPtr = ppAddressesCtorArg
         internal set
 
     public var pwzComment: Pwstr = pwzCommentCtorArg
@@ -3542,13 +3539,13 @@ public class PeerPnrpEndpointInfo internal constructor(
 
     public operator fun component2(): UInt = this.cAddresses
 
-    public operator fun component3(): MutPtr<MutPtr<Sockaddr>> = this.ppAddresses
+    public operator fun component3(): MutPtr = this.ppAddresses
 
     public operator fun component4(): Pwstr = this.pwzComment
 
     public operator fun component5(): PeerData = this.payload
 
-    public fun copy(pwzPeerName: Pwstr = this.pwzPeerName, cAddresses: UInt = this.cAddresses, ppAddresses: MutPtr<MutPtr<Sockaddr>> = this.ppAddresses, pwzComment: Pwstr = this.pwzComment, payload: PeerData = this.payload): PeerPnrpEndpointInfo = PeerPnrpEndpointInfo(pwzPeerNameCtorArg = pwzPeerName, cAddresses = cAddresses, ppAddressesCtorArg = ppAddresses, pwzCommentCtorArg = pwzComment, payload = payload)
+    public fun copy(pwzPeerName: Pwstr = this.pwzPeerName, cAddresses: UInt = this.cAddresses, ppAddresses: MutPtr = this.ppAddresses, pwzComment: Pwstr = this.pwzComment, payload: PeerData = this.payload): PeerPnrpEndpointInfo = PeerPnrpEndpointInfo(pwzPeerNameCtorArg = pwzPeerName, cAddresses = cAddresses, ppAddressesCtorArg = ppAddresses, pwzCommentCtorArg = pwzComment, payload = payload)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -3574,7 +3571,7 @@ public class PeerPnrpEndpointInfo internal constructor(
         public operator fun invoke(
             pwzPeerName: Pwstr = MutPtr(0L),
             cAddresses: UInt = 0u,
-            ppAddresses: MutPtr<MutPtr<Sockaddr>> = MutPtr(0L),
+            ppAddresses: MutPtr = MutPtr(0L),
             pwzComment: Pwstr = MutPtr(0L),
             payload: PeerData = PeerData(),
         ): PeerPnrpEndpointInfo =
@@ -3592,7 +3589,7 @@ public class PeerPnrpRegistrationInfo internal constructor(
     pwzCloudNameCtorArg: Pwstr,
     pwzPublishingIdentityCtorArg: Pwstr,
     public var cAddresses: UInt,
-    ppAddressesCtorArg: MutPtr<MutPtr<Sockaddr>>,
+    ppAddressesCtorArg: MutPtr,
     public var wPort: UShort,
     pwzCommentCtorArg: Pwstr,
     public var payload: PeerData,
@@ -3603,7 +3600,7 @@ public class PeerPnrpRegistrationInfo internal constructor(
     public var pwzPublishingIdentity: Pwstr = pwzPublishingIdentityCtorArg
         internal set
 
-    public var ppAddresses: MutPtr<MutPtr<Sockaddr>> = ppAddressesCtorArg
+    public var ppAddresses: MutPtr = ppAddressesCtorArg
         internal set
 
     public var pwzComment: Pwstr = pwzCommentCtorArg
@@ -3625,7 +3622,7 @@ public class PeerPnrpRegistrationInfo internal constructor(
 
     public operator fun component3(): UInt = this.cAddresses
 
-    public operator fun component4(): MutPtr<MutPtr<Sockaddr>> = this.ppAddresses
+    public operator fun component4(): MutPtr = this.ppAddresses
 
     public operator fun component5(): UShort = this.wPort
 
@@ -3633,7 +3630,7 @@ public class PeerPnrpRegistrationInfo internal constructor(
 
     public operator fun component7(): PeerData = this.payload
 
-    public fun copy(pwzCloudName: Pwstr = this.pwzCloudName, pwzPublishingIdentity: Pwstr = this.pwzPublishingIdentity, cAddresses: UInt = this.cAddresses, ppAddresses: MutPtr<MutPtr<Sockaddr>> = this.ppAddresses, wPort: UShort = this.wPort, pwzComment: Pwstr = this.pwzComment, payload: PeerData = this.payload): PeerPnrpRegistrationInfo = PeerPnrpRegistrationInfo(pwzCloudNameCtorArg = pwzCloudName, pwzPublishingIdentityCtorArg = pwzPublishingIdentity, cAddresses = cAddresses, ppAddressesCtorArg = ppAddresses, wPort = wPort, pwzCommentCtorArg = pwzComment, payload = payload)
+    public fun copy(pwzCloudName: Pwstr = this.pwzCloudName, pwzPublishingIdentity: Pwstr = this.pwzPublishingIdentity, cAddresses: UInt = this.cAddresses, ppAddresses: MutPtr = this.ppAddresses, wPort: UShort = this.wPort, pwzComment: Pwstr = this.pwzComment, payload: PeerData = this.payload): PeerPnrpRegistrationInfo = PeerPnrpRegistrationInfo(pwzCloudNameCtorArg = pwzCloudName, pwzPublishingIdentityCtorArg = pwzPublishingIdentity, cAddresses = cAddresses, ppAddressesCtorArg = ppAddresses, wPort = wPort, pwzCommentCtorArg = pwzComment, payload = payload)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -3664,7 +3661,7 @@ public class PeerPnrpRegistrationInfo internal constructor(
             pwzCloudName: Pwstr = MutPtr(0L),
             pwzPublishingIdentity: Pwstr = MutPtr(0L),
             cAddresses: UInt = 0u,
-            ppAddresses: MutPtr<MutPtr<Sockaddr>> = MutPtr(0L),
+            ppAddresses: MutPtr = MutPtr(0L),
             wPort: UShort = 0u,
             pwzComment: Pwstr = MutPtr(0L),
             payload: PeerData = PeerData(),
@@ -3868,8 +3865,8 @@ public class PeerSecurityInterface internal constructor(
     pwzSspFilenameCtorArg: Pwstr,
     pwzPackageNameCtorArg: Pwstr,
     public var cbSecurityInfo: UInt,
-    pbSecurityInfoCtorArg: MutPtr<UByte>,
-    pvContextCtorArg: MutPtr<CVoid>,
+    pbSecurityInfoCtorArg: MutPtr,
+    pvContextCtorArg: MutPtr,
     public var pfnValidateRecord: PfnpeerValidateRecord,
     public var pfnSecureRecord: PfnpeerSecureRecord,
     public var pfnFreeSecurityData: PfnpeerFreeSecurityData,
@@ -3881,10 +3878,10 @@ public class PeerSecurityInterface internal constructor(
     public var pwzPackageName: Pwstr = pwzPackageNameCtorArg
         internal set
 
-    public var pbSecurityInfo: MutPtr<UByte> = pbSecurityInfoCtorArg
+    public var pbSecurityInfo: MutPtr = pbSecurityInfoCtorArg
         internal set
 
-    public var pvContext: MutPtr<CVoid> = pvContextCtorArg
+    public var pvContext: MutPtr = pvContextCtorArg
         internal set
 
     public constructor() : this(
@@ -3908,9 +3905,9 @@ public class PeerSecurityInterface internal constructor(
 
     public operator fun component4(): UInt = this.cbSecurityInfo
 
-    public operator fun component5(): MutPtr<UByte> = this.pbSecurityInfo
+    public operator fun component5(): MutPtr = this.pbSecurityInfo
 
-    public operator fun component6(): MutPtr<CVoid> = this.pvContext
+    public operator fun component6(): MutPtr = this.pvContext
 
     public operator fun component7(): PfnpeerValidateRecord = this.pfnValidateRecord
 
@@ -3920,7 +3917,7 @@ public class PeerSecurityInterface internal constructor(
 
     public operator fun component10(): PfnpeerOnPasswordAuthFailed = this.pfnAuthFailed
 
-    public fun copy(dwSize: UInt = this.dwSize, pwzSspFilename: Pwstr = this.pwzSspFilename, pwzPackageName: Pwstr = this.pwzPackageName, cbSecurityInfo: UInt = this.cbSecurityInfo, pbSecurityInfo: MutPtr<UByte> = this.pbSecurityInfo, pvContext: MutPtr<CVoid> = this.pvContext, pfnValidateRecord: PfnpeerValidateRecord = this.pfnValidateRecord, pfnSecureRecord: PfnpeerSecureRecord = this.pfnSecureRecord, pfnFreeSecurityData: PfnpeerFreeSecurityData = this.pfnFreeSecurityData, pfnAuthFailed: PfnpeerOnPasswordAuthFailed = this.pfnAuthFailed): PeerSecurityInterface = PeerSecurityInterface(dwSize = dwSize, pwzSspFilenameCtorArg = pwzSspFilename, pwzPackageNameCtorArg = pwzPackageName, cbSecurityInfo = cbSecurityInfo, pbSecurityInfoCtorArg = pbSecurityInfo, pvContextCtorArg = pvContext, pfnValidateRecord = pfnValidateRecord, pfnSecureRecord = pfnSecureRecord, pfnFreeSecurityData = pfnFreeSecurityData, pfnAuthFailed = pfnAuthFailed)
+    public fun copy(dwSize: UInt = this.dwSize, pwzSspFilename: Pwstr = this.pwzSspFilename, pwzPackageName: Pwstr = this.pwzPackageName, cbSecurityInfo: UInt = this.cbSecurityInfo, pbSecurityInfo: MutPtr = this.pbSecurityInfo, pvContext: MutPtr = this.pvContext, pfnValidateRecord: PfnpeerValidateRecord = this.pfnValidateRecord, pfnSecureRecord: PfnpeerSecureRecord = this.pfnSecureRecord, pfnFreeSecurityData: PfnpeerFreeSecurityData = this.pfnFreeSecurityData, pfnAuthFailed: PfnpeerOnPasswordAuthFailed = this.pfnAuthFailed): PeerSecurityInterface = PeerSecurityInterface(dwSize = dwSize, pwzSspFilenameCtorArg = pwzSspFilename, pwzPackageNameCtorArg = pwzPackageName, cbSecurityInfo = cbSecurityInfo, pbSecurityInfoCtorArg = pbSecurityInfo, pvContextCtorArg = pvContext, pfnValidateRecord = pfnValidateRecord, pfnSecureRecord = pfnSecureRecord, pfnFreeSecurityData = pfnFreeSecurityData, pfnAuthFailed = pfnAuthFailed)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -3958,8 +3955,8 @@ public class PeerSecurityInterface internal constructor(
             pwzSspFilename: Pwstr = MutPtr(0L),
             pwzPackageName: Pwstr = MutPtr(0L),
             cbSecurityInfo: UInt = 0u,
-            pbSecurityInfo: MutPtr<UByte> = MutPtr(0L),
-            pvContext: MutPtr<CVoid> = MutPtr(0L),
+            pbSecurityInfo: MutPtr = MutPtr(0L),
+            pvContext: MutPtr = MutPtr(0L),
             pfnValidateRecord: PfnpeerValidateRecord = null,
             pfnSecureRecord: PfnpeerSecureRecord = null,
             pfnFreeSecurityData: PfnpeerFreeSecurityData = null,

@@ -1,6 +1,5 @@
 package io.github.kotlinmania.windowssys.windows.win32.storage.packaging.appx
 
-import io.github.kotlinmania.rustlang.core.ffi.CVoid
 import io.github.kotlinmania.rustlang.core.ptr.MutPtr
 
 public typealias AppxBundleFootprintFileType = Int
@@ -49,9 +48,9 @@ public typealias CreatePackageDependencyOptions = Int
 
 public typealias DxFeatureLevel = Int
 
-public typealias PackagedependencyContext = MutPtr<CVoid>
+public typealias PackagedependencyContext = MutPtr
 
-public typealias PackageVirtualizationContextHandle = MutPtr<CVoid>
+public typealias PackageVirtualizationContextHandle = MutPtr
 
 public typealias PackageDependencyLifetimeKind = Int
 

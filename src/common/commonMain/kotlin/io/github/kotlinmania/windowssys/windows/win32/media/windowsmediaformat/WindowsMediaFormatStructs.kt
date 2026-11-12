@@ -2,7 +2,6 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.media.windowsmediaformat
 
-import io.github.kotlinmania.rustlang.core.ffi.CVoid
 import io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
 import io.github.kotlinmania.rustlang.core.mem.TypeLayout
 import io.github.kotlinmania.rustlang.core.ptr.ConstPtr
@@ -12,15 +11,14 @@ import io.github.kotlinmania.windowssys.core.Guid
 import io.github.kotlinmania.windowssys.core.Hresult
 import io.github.kotlinmania.windowssys.core.Pcwstr
 import io.github.kotlinmania.windowssys.core.Pwstr
-import io.github.kotlinmania.windowssys.windows.win32.foundation.Lparam
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Rect
 import io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.Bitmapinfoheader
 
 public class AmWmtEventData internal constructor(
     public var hrStatus: Hresult,
-    pDataCtorArg: MutPtr<CVoid>,
+    pDataCtorArg: MutPtr,
 ) {
-    public var pData: MutPtr<CVoid> = pDataCtorArg
+    public var pData: MutPtr = pDataCtorArg
         internal set
 
     public constructor() : this(
@@ -30,9 +28,9 @@ public class AmWmtEventData internal constructor(
 
     public operator fun component1(): Hresult = this.hrStatus
 
-    public operator fun component2(): MutPtr<CVoid> = this.pData
+    public operator fun component2(): MutPtr = this.pData
 
-    public fun copy(hrStatus: Hresult = this.hrStatus, pData: MutPtr<CVoid> = this.pData): AmWmtEventData = AmWmtEventData(hrStatus = hrStatus, pDataCtorArg = pData)
+    public fun copy(hrStatus: Hresult = this.hrStatus, pData: MutPtr = this.pData): AmWmtEventData = AmWmtEventData(hrStatus = hrStatus, pDataCtorArg = pData)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -58,21 +56,21 @@ public class AmWmtEventData internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<CVoid>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                     )
                 override fun writeNative(addr: Long, value: AmWmtEventData) {
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr, value.hrStatus)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<CVoid>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.pData)
                 }
             }
 
         public operator fun invoke(
             hrStatus: Hresult = 0,
-            pData: MutPtr<CVoid> = MutPtr(0L),
+            pData: MutPtr = MutPtr(0L),
         ): AmWmtEventData =
             AmWmtEventData(
                 hrStatus = hrStatus,
@@ -139,9 +137,9 @@ public data class DrmMinimumOutputProtectionLevels(
 
 public class DrmOplOutputIds internal constructor(
     public var cIds: UShort,
-    rgIdsCtorArg: MutPtr<Guid>,
+    rgIdsCtorArg: MutPtr,
 ) {
-    public var rgIds: MutPtr<Guid> = rgIdsCtorArg
+    public var rgIds: MutPtr = rgIdsCtorArg
         internal set
 
     public constructor() : this(
@@ -151,9 +149,9 @@ public class DrmOplOutputIds internal constructor(
 
     public operator fun component1(): UShort = this.cIds
 
-    public operator fun component2(): MutPtr<Guid> = this.rgIds
+    public operator fun component2(): MutPtr = this.rgIds
 
-    public fun copy(cIds: UShort = this.cIds, rgIds: MutPtr<Guid> = this.rgIds): DrmOplOutputIds = DrmOplOutputIds(cIds = cIds, rgIdsCtorArg = rgIds)
+    public fun copy(cIds: UShort = this.cIds, rgIds: MutPtr = this.rgIds): DrmOplOutputIds = DrmOplOutputIds(cIds = cIds, rgIdsCtorArg = rgIds)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -179,21 +177,21 @@ public class DrmOplOutputIds internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<Guid>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                     )
                 override fun writeNative(addr: Long, value: DrmOplOutputIds) {
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16).writeNative(addr, value.cIds)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<Guid>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.rgIds)
                 }
             }
 
         public operator fun invoke(
             cIds: UShort = 0u,
-            rgIds: MutPtr<Guid> = MutPtr(0L),
+            rgIds: MutPtr = MutPtr(0L),
         ): DrmOplOutputIds =
             DrmOplOutputIds(
                 cIds = cIds,
@@ -268,9 +266,9 @@ public data class DrmVal16(
 
 public class DrmVideoOutputProtectionIds internal constructor(
     public var cEntries: UShort,
-    rgVopCtorArg: MutPtr<DrmOutputProtection>,
+    rgVopCtorArg: MutPtr,
 ) {
-    public var rgVop: MutPtr<DrmOutputProtection> = rgVopCtorArg
+    public var rgVop: MutPtr = rgVopCtorArg
         internal set
 
     public constructor() : this(
@@ -280,9 +278,9 @@ public class DrmVideoOutputProtectionIds internal constructor(
 
     public operator fun component1(): UShort = this.cEntries
 
-    public operator fun component2(): MutPtr<DrmOutputProtection> = this.rgVop
+    public operator fun component2(): MutPtr = this.rgVop
 
-    public fun copy(cEntries: UShort = this.cEntries, rgVop: MutPtr<DrmOutputProtection> = this.rgVop): DrmVideoOutputProtectionIds = DrmVideoOutputProtectionIds(cEntries = cEntries, rgVopCtorArg = rgVop)
+    public fun copy(cEntries: UShort = this.cEntries, rgVop: MutPtr = this.rgVop): DrmVideoOutputProtectionIds = DrmVideoOutputProtectionIds(cEntries = cEntries, rgVopCtorArg = rgVop)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -308,21 +306,21 @@ public class DrmVideoOutputProtectionIds internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<DrmOutputProtection>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                     )
                 override fun writeNative(addr: Long, value: DrmVideoOutputProtectionIds) {
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16).writeNative(addr, value.cEntries)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<DrmOutputProtection>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.rgVop)
                 }
             }
 
         public operator fun invoke(
             cEntries: UShort = 0u,
-            rgVop: MutPtr<DrmOutputProtection> = MutPtr(0L),
+            rgVop: MutPtr = MutPtr(0L),
         ): DrmVideoOutputProtectionIds =
             DrmVideoOutputProtectionIds(
                 cEntries = cEntries,
@@ -334,14 +332,14 @@ public class DrmVideoOutputProtectionIds internal constructor(
 public class WmdrmImportInitStruct internal constructor(
     public var dwVersion: UInt,
     public var cbEncryptedSessionKeyMessage: UInt,
-    pbEncryptedSessionKeyMessageCtorArg: MutPtr<UByte>,
+    pbEncryptedSessionKeyMessageCtorArg: MutPtr,
     public var cbEncryptedKeyMessage: UInt,
-    pbEncryptedKeyMessageCtorArg: MutPtr<UByte>,
+    pbEncryptedKeyMessageCtorArg: MutPtr,
 ) {
-    public var pbEncryptedSessionKeyMessage: MutPtr<UByte> = pbEncryptedSessionKeyMessageCtorArg
+    public var pbEncryptedSessionKeyMessage: MutPtr = pbEncryptedSessionKeyMessageCtorArg
         internal set
 
-    public var pbEncryptedKeyMessage: MutPtr<UByte> = pbEncryptedKeyMessageCtorArg
+    public var pbEncryptedKeyMessage: MutPtr = pbEncryptedKeyMessageCtorArg
         internal set
 
     public constructor() : this(
@@ -356,13 +354,13 @@ public class WmdrmImportInitStruct internal constructor(
 
     public operator fun component2(): UInt = this.cbEncryptedSessionKeyMessage
 
-    public operator fun component3(): MutPtr<UByte> = this.pbEncryptedSessionKeyMessage
+    public operator fun component3(): MutPtr = this.pbEncryptedSessionKeyMessage
 
     public operator fun component4(): UInt = this.cbEncryptedKeyMessage
 
-    public operator fun component5(): MutPtr<UByte> = this.pbEncryptedKeyMessage
+    public operator fun component5(): MutPtr = this.pbEncryptedKeyMessage
 
-    public fun copy(dwVersion: UInt = this.dwVersion, cbEncryptedSessionKeyMessage: UInt = this.cbEncryptedSessionKeyMessage, pbEncryptedSessionKeyMessage: MutPtr<UByte> = this.pbEncryptedSessionKeyMessage, cbEncryptedKeyMessage: UInt = this.cbEncryptedKeyMessage, pbEncryptedKeyMessage: MutPtr<UByte> = this.pbEncryptedKeyMessage): WmdrmImportInitStruct = WmdrmImportInitStruct(dwVersion = dwVersion, cbEncryptedSessionKeyMessage = cbEncryptedSessionKeyMessage, pbEncryptedSessionKeyMessageCtorArg = pbEncryptedSessionKeyMessage, cbEncryptedKeyMessage = cbEncryptedKeyMessage, pbEncryptedKeyMessageCtorArg = pbEncryptedKeyMessage)
+    public fun copy(dwVersion: UInt = this.dwVersion, cbEncryptedSessionKeyMessage: UInt = this.cbEncryptedSessionKeyMessage, pbEncryptedSessionKeyMessage: MutPtr = this.pbEncryptedSessionKeyMessage, cbEncryptedKeyMessage: UInt = this.cbEncryptedKeyMessage, pbEncryptedKeyMessage: MutPtr = this.pbEncryptedKeyMessage): WmdrmImportInitStruct = WmdrmImportInitStruct(dwVersion = dwVersion, cbEncryptedSessionKeyMessage = cbEncryptedSessionKeyMessage, pbEncryptedSessionKeyMessageCtorArg = pbEncryptedSessionKeyMessage, cbEncryptedKeyMessage = cbEncryptedKeyMessage, pbEncryptedKeyMessageCtorArg = pbEncryptedKeyMessage)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -395,12 +393,12 @@ public class WmdrmImportInitStruct internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 4L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<UByte>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 16L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<UByte>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 24L),
                     )
                 override fun writeNative(addr: Long, value: WmdrmImportInitStruct) {
@@ -408,12 +406,12 @@ public class WmdrmImportInitStruct internal constructor(
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 4L, value.cbEncryptedSessionKeyMessage)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<UByte>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.pbEncryptedSessionKeyMessage)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 16L, value.cbEncryptedKeyMessage)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<UByte>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 24L, value.pbEncryptedKeyMessage)
                 }
             }
@@ -421,9 +419,9 @@ public class WmdrmImportInitStruct internal constructor(
         public operator fun invoke(
             dwVersion: UInt = 0u,
             cbEncryptedSessionKeyMessage: UInt = 0u,
-            pbEncryptedSessionKeyMessage: MutPtr<UByte> = MutPtr(0L),
+            pbEncryptedSessionKeyMessage: MutPtr = MutPtr(0L),
             cbEncryptedKeyMessage: UInt = 0u,
-            pbEncryptedKeyMessage: MutPtr<UByte> = MutPtr(0L),
+            pbEncryptedKeyMessage: MutPtr = MutPtr(0L),
         ): WmdrmImportInitStruct =
             WmdrmImportInitStruct(
                 dwVersion = dwVersion,
@@ -474,11 +472,11 @@ public data class Wmscriptformat(
 )
 
 public class WmtBufferSegment internal constructor(
-    pBufferCtorArg: MutPtr<CVoid>,
+    pBufferCtorArg: MutPtr,
     public var cbOffset: UInt,
     public var cbLength: UInt,
 ) {
-    public var pBuffer: MutPtr<CVoid> = pBufferCtorArg
+    public var pBuffer: MutPtr = pBufferCtorArg
         internal set
 
     public constructor() : this(
@@ -487,13 +485,13 @@ public class WmtBufferSegment internal constructor(
         cbLength = 0u,
     )
 
-    public operator fun component1(): MutPtr<CVoid> = this.pBuffer
+    public operator fun component1(): MutPtr = this.pBuffer
 
     public operator fun component2(): UInt = this.cbOffset
 
     public operator fun component3(): UInt = this.cbLength
 
-    public fun copy(pBuffer: MutPtr<CVoid> = this.pBuffer, cbOffset: UInt = this.cbOffset, cbLength: UInt = this.cbLength): WmtBufferSegment = WmtBufferSegment(pBufferCtorArg = pBuffer, cbOffset = cbOffset, cbLength = cbLength)
+    public fun copy(pBuffer: MutPtr = this.pBuffer, cbOffset: UInt = this.cbOffset, cbLength: UInt = this.cbLength): WmtBufferSegment = WmtBufferSegment(pBufferCtorArg = pBuffer, cbOffset = cbOffset, cbLength = cbLength)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -520,7 +518,7 @@ public class WmtBufferSegment internal constructor(
                     WmtBufferSegment(
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<CVoid>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 8L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 12L),
@@ -528,7 +526,7 @@ public class WmtBufferSegment internal constructor(
                 override fun writeNative(addr: Long, value: WmtBufferSegment) {
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<CVoid>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr, value.pBuffer)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 8L, value.cbOffset)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 12L, value.cbLength)
@@ -536,7 +534,7 @@ public class WmtBufferSegment internal constructor(
             }
 
         public operator fun invoke(
-            pBuffer: MutPtr<CVoid> = MutPtr(0L),
+            pBuffer: MutPtr = MutPtr(0L),
             cbOffset: UInt = 0u,
             cbLength: UInt = 0u,
         ): WmtBufferSegment =
@@ -576,14 +574,14 @@ public data class WmtColorspaceinfoExtensionData(
 public class WmtFilesinkDataUnit internal constructor(
     public var packetHeaderBuffer: WmtBufferSegment,
     public var cPayloads: UInt,
-    pPayloadHeaderBuffersCtorArg: MutPtr<WmtBufferSegment>,
+    pPayloadHeaderBuffersCtorArg: MutPtr,
     public var cPayloadDataFragments: UInt,
-    pPayloadDataFragmentsCtorArg: MutPtr<WmtPayloadFragment>,
+    pPayloadDataFragmentsCtorArg: MutPtr,
 ) {
-    public var pPayloadHeaderBuffers: MutPtr<WmtBufferSegment> = pPayloadHeaderBuffersCtorArg
+    public var pPayloadHeaderBuffers: MutPtr = pPayloadHeaderBuffersCtorArg
         internal set
 
-    public var pPayloadDataFragments: MutPtr<WmtPayloadFragment> = pPayloadDataFragmentsCtorArg
+    public var pPayloadDataFragments: MutPtr = pPayloadDataFragmentsCtorArg
         internal set
 
     public constructor() : this(
@@ -598,13 +596,13 @@ public class WmtFilesinkDataUnit internal constructor(
 
     public operator fun component2(): UInt = this.cPayloads
 
-    public operator fun component3(): MutPtr<WmtBufferSegment> = this.pPayloadHeaderBuffers
+    public operator fun component3(): MutPtr = this.pPayloadHeaderBuffers
 
     public operator fun component4(): UInt = this.cPayloadDataFragments
 
-    public operator fun component5(): MutPtr<WmtPayloadFragment> = this.pPayloadDataFragments
+    public operator fun component5(): MutPtr = this.pPayloadDataFragments
 
-    public fun copy(packetHeaderBuffer: WmtBufferSegment = this.packetHeaderBuffer, cPayloads: UInt = this.cPayloads, pPayloadHeaderBuffers: MutPtr<WmtBufferSegment> = this.pPayloadHeaderBuffers, cPayloadDataFragments: UInt = this.cPayloadDataFragments, pPayloadDataFragments: MutPtr<WmtPayloadFragment> = this.pPayloadDataFragments): WmtFilesinkDataUnit = WmtFilesinkDataUnit(packetHeaderBuffer = packetHeaderBuffer, cPayloads = cPayloads, pPayloadHeaderBuffersCtorArg = pPayloadHeaderBuffers, cPayloadDataFragments = cPayloadDataFragments, pPayloadDataFragmentsCtorArg = pPayloadDataFragments)
+    public fun copy(packetHeaderBuffer: WmtBufferSegment = this.packetHeaderBuffer, cPayloads: UInt = this.cPayloads, pPayloadHeaderBuffers: MutPtr = this.pPayloadHeaderBuffers, cPayloadDataFragments: UInt = this.cPayloadDataFragments, pPayloadDataFragments: MutPtr = this.pPayloadDataFragments): WmtFilesinkDataUnit = WmtFilesinkDataUnit(packetHeaderBuffer = packetHeaderBuffer, cPayloads = cPayloads, pPayloadHeaderBuffersCtorArg = pPayloadHeaderBuffers, cPayloadDataFragments = cPayloadDataFragments, pPayloadDataFragmentsCtorArg = pPayloadDataFragments)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -637,12 +635,12 @@ public class WmtFilesinkDataUnit internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 16L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<WmtBufferSegment>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 24L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 32L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<WmtPayloadFragment>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 40L),
                     )
                 override fun writeNative(addr: Long, value: WmtFilesinkDataUnit) {
@@ -650,12 +648,12 @@ public class WmtFilesinkDataUnit internal constructor(
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 16L, value.cPayloads)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<WmtBufferSegment>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 24L, value.pPayloadHeaderBuffers)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 32L, value.cPayloadDataFragments)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<WmtPayloadFragment>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 40L, value.pPayloadDataFragments)
                 }
             }
@@ -663,9 +661,9 @@ public class WmtFilesinkDataUnit internal constructor(
         public operator fun invoke(
             packetHeaderBuffer: WmtBufferSegment = WmtBufferSegment(),
             cPayloads: UInt = 0u,
-            pPayloadHeaderBuffers: MutPtr<WmtBufferSegment> = MutPtr(0L),
+            pPayloadHeaderBuffers: MutPtr = MutPtr(0L),
             cPayloadDataFragments: UInt = 0u,
-            pPayloadDataFragments: MutPtr<WmtPayloadFragment> = MutPtr(0L),
+            pPayloadDataFragments: MutPtr = MutPtr(0L),
         ): WmtFilesinkDataUnit =
             WmtFilesinkDataUnit(
                 packetHeaderBuffer = packetHeaderBuffer,
@@ -1211,14 +1209,14 @@ public class WmMediaType internal constructor(
     public var bTemporalCompression: Bool,
     public var lSampleSize: UInt,
     public var formattype: Guid,
-    pUnkCtorArg: MutPtr<CVoid>,
+    pUnkCtorArg: MutPtr,
     public var cbFormat: UInt,
-    pbFormatCtorArg: MutPtr<UByte>,
+    pbFormatCtorArg: MutPtr,
 ) {
-    public var pUnk: MutPtr<CVoid> = pUnkCtorArg
+    public var pUnk: MutPtr = pUnkCtorArg
         internal set
 
-    public var pbFormat: MutPtr<UByte> = pbFormatCtorArg
+    public var pbFormat: MutPtr = pbFormatCtorArg
         internal set
 
     public constructor() : this(
@@ -1245,13 +1243,13 @@ public class WmMediaType internal constructor(
 
     public operator fun component6(): Guid = this.formattype
 
-    public operator fun component7(): MutPtr<CVoid> = this.pUnk
+    public operator fun component7(): MutPtr = this.pUnk
 
     public operator fun component8(): UInt = this.cbFormat
 
-    public operator fun component9(): MutPtr<UByte> = this.pbFormat
+    public operator fun component9(): MutPtr = this.pbFormat
 
-    public fun copy(majortype: Guid = this.majortype, subtype: Guid = this.subtype, bFixedSizeSamples: Bool = this.bFixedSizeSamples, bTemporalCompression: Bool = this.bTemporalCompression, lSampleSize: UInt = this.lSampleSize, formattype: Guid = this.formattype, pUnk: MutPtr<CVoid> = this.pUnk, cbFormat: UInt = this.cbFormat, pbFormat: MutPtr<UByte> = this.pbFormat): WmMediaType = WmMediaType(majortype = majortype, subtype = subtype, bFixedSizeSamples = bFixedSizeSamples, bTemporalCompression = bTemporalCompression, lSampleSize = lSampleSize, formattype = formattype, pUnkCtorArg = pUnk, cbFormat = cbFormat, pbFormatCtorArg = pbFormat)
+    public fun copy(majortype: Guid = this.majortype, subtype: Guid = this.subtype, bFixedSizeSamples: Bool = this.bFixedSizeSamples, bTemporalCompression: Bool = this.bTemporalCompression, lSampleSize: UInt = this.lSampleSize, formattype: Guid = this.formattype, pUnk: MutPtr = this.pUnk, cbFormat: UInt = this.cbFormat, pbFormat: MutPtr = this.pbFormat): WmMediaType = WmMediaType(majortype = majortype, subtype = subtype, bFixedSizeSamples = bFixedSizeSamples, bTemporalCompression = bTemporalCompression, lSampleSize = lSampleSize, formattype = formattype, pUnkCtorArg = pUnk, cbFormat = cbFormat, pbFormatCtorArg = pbFormat)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -1289,9 +1287,9 @@ public class WmMediaType internal constructor(
             bTemporalCompression: Bool = 0,
             lSampleSize: UInt = 0u,
             formattype: Guid = Guid(),
-            pUnk: MutPtr<CVoid> = MutPtr(0L),
+            pUnk: MutPtr = MutPtr(0L),
             cbFormat: UInt = 0u,
-            pbFormat: MutPtr<UByte> = MutPtr(0L),
+            pbFormat: MutPtr = MutPtr(0L),
         ): WmMediaType =
             WmMediaType(
                 majortype = majortype,
@@ -1312,7 +1310,7 @@ public class WmPicture internal constructor(
     public var bPictureType: UByte,
     pwszDescriptionCtorArg: Pwstr,
     public var dwDataLen: UInt,
-    pbDataCtorArg: MutPtr<UByte>,
+    pbDataCtorArg: MutPtr,
 ) {
     public var pwszMIMEType: Pwstr = pwszMIMETypeCtorArg
         internal set
@@ -1320,7 +1318,7 @@ public class WmPicture internal constructor(
     public var pwszDescription: Pwstr = pwszDescriptionCtorArg
         internal set
 
-    public var pbData: MutPtr<UByte> = pbDataCtorArg
+    public var pbData: MutPtr = pbDataCtorArg
         internal set
 
     public constructor() : this(
@@ -1339,9 +1337,9 @@ public class WmPicture internal constructor(
 
     public operator fun component4(): UInt = this.dwDataLen
 
-    public operator fun component5(): MutPtr<UByte> = this.pbData
+    public operator fun component5(): MutPtr = this.pbData
 
-    public fun copy(pwszMIMEType: Pwstr = this.pwszMIMEType, bPictureType: UByte = this.bPictureType, pwszDescription: Pwstr = this.pwszDescription, dwDataLen: UInt = this.dwDataLen, pbData: MutPtr<UByte> = this.pbData): WmPicture = WmPicture(pwszMIMETypeCtorArg = pwszMIMEType, bPictureType = bPictureType, pwszDescriptionCtorArg = pwszDescription, dwDataLen = dwDataLen, pbDataCtorArg = pbData)
+    public fun copy(pwszMIMEType: Pwstr = this.pwszMIMEType, bPictureType: UByte = this.bPictureType, pwszDescription: Pwstr = this.pwszDescription, dwDataLen: UInt = this.dwDataLen, pbData: MutPtr = this.pbData): WmPicture = WmPicture(pwszMIMETypeCtorArg = pwszMIMEType, bPictureType = bPictureType, pwszDescriptionCtorArg = pwszDescription, dwDataLen = dwDataLen, pbDataCtorArg = pbData)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -1369,7 +1367,7 @@ public class WmPicture internal constructor(
             bPictureType: UByte = 0u,
             pwszDescription: Pwstr = MutPtr(0L),
             dwDataLen: UInt = 0u,
-            pbData: MutPtr<UByte> = MutPtr(0L),
+            pbData: MutPtr = MutPtr(0L),
         ): WmPicture =
             WmPicture(
                 pwszMIMETypeCtorArg = pwszMIMEType,
@@ -1409,7 +1407,7 @@ public class WmReaderClientinfo internal constructor(
     wszBrowserUserAgentCtorArg: Pwstr,
     wszBrowserWebPageCtorArg: Pwstr,
     public var qwReserved: ULong,
-    pReservedCtorArg: MutPtr<Lparam>,
+    pReservedCtorArg: MutPtr,
     wszHostExeCtorArg: Pwstr,
     public var qwHostVersion: ULong,
     wszPlayerUserAgentCtorArg: Pwstr,
@@ -1423,7 +1421,7 @@ public class WmReaderClientinfo internal constructor(
     public var wszBrowserWebPage: Pwstr = wszBrowserWebPageCtorArg
         internal set
 
-    public var pReserved: MutPtr<Lparam> = pReservedCtorArg
+    public var pReserved: MutPtr = pReservedCtorArg
         internal set
 
     public var wszHostExe: Pwstr = wszHostExeCtorArg
@@ -1454,7 +1452,7 @@ public class WmReaderClientinfo internal constructor(
 
     public operator fun component5(): ULong = this.qwReserved
 
-    public operator fun component6(): MutPtr<Lparam> = this.pReserved
+    public operator fun component6(): MutPtr = this.pReserved
 
     public operator fun component7(): Pwstr = this.wszHostExe
 
@@ -1462,7 +1460,7 @@ public class WmReaderClientinfo internal constructor(
 
     public operator fun component9(): Pwstr = this.wszPlayerUserAgent
 
-    public fun copy(cbSize: UInt = this.cbSize, wszLang: Pwstr = this.wszLang, wszBrowserUserAgent: Pwstr = this.wszBrowserUserAgent, wszBrowserWebPage: Pwstr = this.wszBrowserWebPage, qwReserved: ULong = this.qwReserved, pReserved: MutPtr<Lparam> = this.pReserved, wszHostExe: Pwstr = this.wszHostExe, qwHostVersion: ULong = this.qwHostVersion, wszPlayerUserAgent: Pwstr = this.wszPlayerUserAgent): WmReaderClientinfo = WmReaderClientinfo(cbSize = cbSize, wszLangCtorArg = wszLang, wszBrowserUserAgentCtorArg = wszBrowserUserAgent, wszBrowserWebPageCtorArg = wszBrowserWebPage, qwReserved = qwReserved, pReservedCtorArg = pReserved, wszHostExeCtorArg = wszHostExe, qwHostVersion = qwHostVersion, wszPlayerUserAgentCtorArg = wszPlayerUserAgent)
+    public fun copy(cbSize: UInt = this.cbSize, wszLang: Pwstr = this.wszLang, wszBrowserUserAgent: Pwstr = this.wszBrowserUserAgent, wszBrowserWebPage: Pwstr = this.wszBrowserWebPage, qwReserved: ULong = this.qwReserved, pReserved: MutPtr = this.pReserved, wszHostExe: Pwstr = this.wszHostExe, qwHostVersion: ULong = this.qwHostVersion, wszPlayerUserAgent: Pwstr = this.wszPlayerUserAgent): WmReaderClientinfo = WmReaderClientinfo(cbSize = cbSize, wszLangCtorArg = wszLang, wszBrowserUserAgentCtorArg = wszBrowserUserAgent, wszBrowserWebPageCtorArg = wszBrowserWebPage, qwReserved = qwReserved, pReservedCtorArg = pReserved, wszHostExeCtorArg = wszHostExe, qwHostVersion = qwHostVersion, wszPlayerUserAgentCtorArg = wszPlayerUserAgent)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -1499,7 +1497,7 @@ public class WmReaderClientinfo internal constructor(
             wszBrowserUserAgent: Pwstr = MutPtr(0L),
             wszBrowserWebPage: Pwstr = MutPtr(0L),
             qwReserved: ULong = 0uL,
-            pReserved: MutPtr<Lparam> = MutPtr(0L),
+            pReserved: MutPtr = MutPtr(0L),
             wszHostExe: Pwstr = MutPtr(0L),
             qwHostVersion: ULong = 0uL,
             wszPlayerUserAgent: Pwstr = MutPtr(0L),
@@ -1584,12 +1582,12 @@ public class WmSynchronisedLyrics internal constructor(
     public var bContentType: UByte,
     pwszContentDescriptorCtorArg: Pwstr,
     public var dwLyricsLen: UInt,
-    pbLyricsCtorArg: MutPtr<UByte>,
+    pbLyricsCtorArg: MutPtr,
 ) {
     public var pwszContentDescriptor: Pwstr = pwszContentDescriptorCtorArg
         internal set
 
-    public var pbLyrics: MutPtr<UByte> = pbLyricsCtorArg
+    public var pbLyrics: MutPtr = pbLyricsCtorArg
         internal set
 
     public constructor() : this(
@@ -1608,9 +1606,9 @@ public class WmSynchronisedLyrics internal constructor(
 
     public operator fun component4(): UInt = this.dwLyricsLen
 
-    public operator fun component5(): MutPtr<UByte> = this.pbLyrics
+    public operator fun component5(): MutPtr = this.pbLyrics
 
-    public fun copy(bTimeStampFormat: UByte = this.bTimeStampFormat, bContentType: UByte = this.bContentType, pwszContentDescriptor: Pwstr = this.pwszContentDescriptor, dwLyricsLen: UInt = this.dwLyricsLen, pbLyrics: MutPtr<UByte> = this.pbLyrics): WmSynchronisedLyrics = WmSynchronisedLyrics(bTimeStampFormat = bTimeStampFormat, bContentType = bContentType, pwszContentDescriptorCtorArg = pwszContentDescriptor, dwLyricsLen = dwLyricsLen, pbLyricsCtorArg = pbLyrics)
+    public fun copy(bTimeStampFormat: UByte = this.bTimeStampFormat, bContentType: UByte = this.bContentType, pwszContentDescriptor: Pwstr = this.pwszContentDescriptor, dwLyricsLen: UInt = this.dwLyricsLen, pbLyrics: MutPtr = this.pbLyrics): WmSynchronisedLyrics = WmSynchronisedLyrics(bTimeStampFormat = bTimeStampFormat, bContentType = bContentType, pwszContentDescriptorCtorArg = pwszContentDescriptor, dwLyricsLen = dwLyricsLen, pbLyricsCtorArg = pbLyrics)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -1638,7 +1636,7 @@ public class WmSynchronisedLyrics internal constructor(
             bContentType: UByte = 0u,
             pwszContentDescriptor: Pwstr = MutPtr(0L),
             dwLyricsLen: UInt = 0u,
-            pbLyrics: MutPtr<UByte> = MutPtr(0L),
+            pbLyrics: MutPtr = MutPtr(0L),
         ): WmSynchronisedLyrics =
             WmSynchronisedLyrics(
                 bTimeStampFormat = bTimeStampFormat,

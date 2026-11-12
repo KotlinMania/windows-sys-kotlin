@@ -261,14 +261,14 @@ public data class IpsecTrafficSelector01(
 public class IpsecTrafficSelectorPolicy0 internal constructor(
     public var flags: UInt,
     public var numLocalTrafficSelectors: UInt,
-    localTrafficSelectorsCtorArg: MutPtr<IpsecTrafficSelector0>,
+    localTrafficSelectorsCtorArg: MutPtr,
     public var numRemoteTrafficSelectors: UInt,
-    remoteTrafficSelectorsCtorArg: MutPtr<IpsecTrafficSelector0>,
+    remoteTrafficSelectorsCtorArg: MutPtr,
 ) {
-    public var localTrafficSelectors: MutPtr<IpsecTrafficSelector0> = localTrafficSelectorsCtorArg
+    public var localTrafficSelectors: MutPtr = localTrafficSelectorsCtorArg
         internal set
 
-    public var remoteTrafficSelectors: MutPtr<IpsecTrafficSelector0> = remoteTrafficSelectorsCtorArg
+    public var remoteTrafficSelectors: MutPtr = remoteTrafficSelectorsCtorArg
         internal set
 
     public constructor() : this(
@@ -283,13 +283,13 @@ public class IpsecTrafficSelectorPolicy0 internal constructor(
 
     public operator fun component2(): UInt = this.numLocalTrafficSelectors
 
-    public operator fun component3(): MutPtr<IpsecTrafficSelector0> = this.localTrafficSelectors
+    public operator fun component3(): MutPtr = this.localTrafficSelectors
 
     public operator fun component4(): UInt = this.numRemoteTrafficSelectors
 
-    public operator fun component5(): MutPtr<IpsecTrafficSelector0> = this.remoteTrafficSelectors
+    public operator fun component5(): MutPtr = this.remoteTrafficSelectors
 
-    public fun copy(flags: UInt = this.flags, numLocalTrafficSelectors: UInt = this.numLocalTrafficSelectors, localTrafficSelectors: MutPtr<IpsecTrafficSelector0> = this.localTrafficSelectors, numRemoteTrafficSelectors: UInt = this.numRemoteTrafficSelectors, remoteTrafficSelectors: MutPtr<IpsecTrafficSelector0> = this.remoteTrafficSelectors): IpsecTrafficSelectorPolicy0 = IpsecTrafficSelectorPolicy0(flags = flags, numLocalTrafficSelectors = numLocalTrafficSelectors, localTrafficSelectorsCtorArg = localTrafficSelectors, numRemoteTrafficSelectors = numRemoteTrafficSelectors, remoteTrafficSelectorsCtorArg = remoteTrafficSelectors)
+    public fun copy(flags: UInt = this.flags, numLocalTrafficSelectors: UInt = this.numLocalTrafficSelectors, localTrafficSelectors: MutPtr = this.localTrafficSelectors, numRemoteTrafficSelectors: UInt = this.numRemoteTrafficSelectors, remoteTrafficSelectors: MutPtr = this.remoteTrafficSelectors): IpsecTrafficSelectorPolicy0 = IpsecTrafficSelectorPolicy0(flags = flags, numLocalTrafficSelectors = numLocalTrafficSelectors, localTrafficSelectorsCtorArg = localTrafficSelectors, numRemoteTrafficSelectors = numRemoteTrafficSelectors, remoteTrafficSelectorsCtorArg = remoteTrafficSelectors)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -322,12 +322,12 @@ public class IpsecTrafficSelectorPolicy0 internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 4L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<IpsecTrafficSelector0>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 16L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<IpsecTrafficSelector0>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 24L),
                     )
                 override fun writeNative(addr: Long, value: IpsecTrafficSelectorPolicy0) {
@@ -335,12 +335,12 @@ public class IpsecTrafficSelectorPolicy0 internal constructor(
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 4L, value.numLocalTrafficSelectors)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<IpsecTrafficSelector0>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.localTrafficSelectors)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 16L, value.numRemoteTrafficSelectors)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<IpsecTrafficSelector0>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 24L, value.remoteTrafficSelectors)
                 }
             }
@@ -348,9 +348,9 @@ public class IpsecTrafficSelectorPolicy0 internal constructor(
         public operator fun invoke(
             flags: UInt = 0u,
             numLocalTrafficSelectors: UInt = 0u,
-            localTrafficSelectors: MutPtr<IpsecTrafficSelector0> = MutPtr(0L),
+            localTrafficSelectors: MutPtr = MutPtr(0L),
             numRemoteTrafficSelectors: UInt = 0u,
-            remoteTrafficSelectors: MutPtr<IpsecTrafficSelector0> = MutPtr(0L),
+            remoteTrafficSelectors: MutPtr = MutPtr(0L),
         ): IpsecTrafficSelectorPolicy0 =
             IpsecTrafficSelectorPolicy0(
                 flags = flags,
@@ -435,16 +435,16 @@ public data class IpsecTrafficStatistics1(
 
 public class IpsecTransportPolicy0 internal constructor(
     public var numIpsecProposals: UInt,
-    ipsecProposalsCtorArg: MutPtr<IpsecProposal0>,
+    ipsecProposalsCtorArg: MutPtr,
     public var flags: IpsecPolicyFlag,
     public var ndAllowClearTimeoutSeconds: UInt,
     public var saIdleTimeout: IpsecSaIdleTimeout0,
-    emPolicyCtorArg: MutPtr<IkeextEmPolicy0>,
+    emPolicyCtorArg: MutPtr,
 ) {
-    public var ipsecProposals: MutPtr<IpsecProposal0> = ipsecProposalsCtorArg
+    public var ipsecProposals: MutPtr = ipsecProposalsCtorArg
         internal set
 
-    public var emPolicy: MutPtr<IkeextEmPolicy0> = emPolicyCtorArg
+    public var emPolicy: MutPtr = emPolicyCtorArg
         internal set
 
     public constructor() : this(
@@ -458,7 +458,7 @@ public class IpsecTransportPolicy0 internal constructor(
 
     public operator fun component1(): UInt = this.numIpsecProposals
 
-    public operator fun component2(): MutPtr<IpsecProposal0> = this.ipsecProposals
+    public operator fun component2(): MutPtr = this.ipsecProposals
 
     public operator fun component3(): IpsecPolicyFlag = this.flags
 
@@ -466,9 +466,9 @@ public class IpsecTransportPolicy0 internal constructor(
 
     public operator fun component5(): IpsecSaIdleTimeout0 = this.saIdleTimeout
 
-    public operator fun component6(): MutPtr<IkeextEmPolicy0> = this.emPolicy
+    public operator fun component6(): MutPtr = this.emPolicy
 
-    public fun copy(numIpsecProposals: UInt = this.numIpsecProposals, ipsecProposals: MutPtr<IpsecProposal0> = this.ipsecProposals, flags: IpsecPolicyFlag = this.flags, ndAllowClearTimeoutSeconds: UInt = this.ndAllowClearTimeoutSeconds, saIdleTimeout: IpsecSaIdleTimeout0 = this.saIdleTimeout, emPolicy: MutPtr<IkeextEmPolicy0> = this.emPolicy): IpsecTransportPolicy0 = IpsecTransportPolicy0(numIpsecProposals = numIpsecProposals, ipsecProposalsCtorArg = ipsecProposals, flags = flags, ndAllowClearTimeoutSeconds = ndAllowClearTimeoutSeconds, saIdleTimeout = saIdleTimeout, emPolicyCtorArg = emPolicy)
+    public fun copy(numIpsecProposals: UInt = this.numIpsecProposals, ipsecProposals: MutPtr = this.ipsecProposals, flags: IpsecPolicyFlag = this.flags, ndAllowClearTimeoutSeconds: UInt = this.ndAllowClearTimeoutSeconds, saIdleTimeout: IpsecSaIdleTimeout0 = this.saIdleTimeout, emPolicy: MutPtr = this.emPolicy): IpsecTransportPolicy0 = IpsecTransportPolicy0(numIpsecProposals = numIpsecProposals, ipsecProposalsCtorArg = ipsecProposals, flags = flags, ndAllowClearTimeoutSeconds = ndAllowClearTimeoutSeconds, saIdleTimeout = saIdleTimeout, emPolicyCtorArg = emPolicy)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -502,39 +502,39 @@ public class IpsecTransportPolicy0 internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<IpsecProposal0>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 16L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 20L),
                         (IpsecSaIdleTimeout0.typeLayout()).readNative(addr + 24L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<IkeextEmPolicy0>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 32L),
                     )
                 override fun writeNative(addr: Long, value: IpsecTransportPolicy0) {
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr, value.numIpsecProposals)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<IpsecProposal0>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.ipsecProposals)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 16L, value.flags)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 20L, value.ndAllowClearTimeoutSeconds)
                     (IpsecSaIdleTimeout0.typeLayout()).writeNative(addr + 24L, value.saIdleTimeout)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<IkeextEmPolicy0>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 32L, value.emPolicy)
                 }
             }
 
         public operator fun invoke(
             numIpsecProposals: UInt = 0u,
-            ipsecProposals: MutPtr<IpsecProposal0> = MutPtr(0L),
+            ipsecProposals: MutPtr = MutPtr(0L),
             flags: IpsecPolicyFlag = 0u,
             ndAllowClearTimeoutSeconds: UInt = 0u,
             saIdleTimeout: IpsecSaIdleTimeout0 = IpsecSaIdleTimeout0(),
-            emPolicy: MutPtr<IkeextEmPolicy0> = MutPtr(0L),
+            emPolicy: MutPtr = MutPtr(0L),
         ): IpsecTransportPolicy0 =
             IpsecTransportPolicy0(
                 numIpsecProposals = numIpsecProposals,
@@ -549,16 +549,16 @@ public class IpsecTransportPolicy0 internal constructor(
 
 public class IpsecTransportPolicy1 internal constructor(
     public var numIpsecProposals: UInt,
-    ipsecProposalsCtorArg: MutPtr<IpsecProposal0>,
+    ipsecProposalsCtorArg: MutPtr,
     public var flags: IpsecPolicyFlag,
     public var ndAllowClearTimeoutSeconds: UInt,
     public var saIdleTimeout: IpsecSaIdleTimeout0,
-    emPolicyCtorArg: MutPtr<IkeextEmPolicy1>,
+    emPolicyCtorArg: MutPtr,
 ) {
-    public var ipsecProposals: MutPtr<IpsecProposal0> = ipsecProposalsCtorArg
+    public var ipsecProposals: MutPtr = ipsecProposalsCtorArg
         internal set
 
-    public var emPolicy: MutPtr<IkeextEmPolicy1> = emPolicyCtorArg
+    public var emPolicy: MutPtr = emPolicyCtorArg
         internal set
 
     public constructor() : this(
@@ -572,7 +572,7 @@ public class IpsecTransportPolicy1 internal constructor(
 
     public operator fun component1(): UInt = this.numIpsecProposals
 
-    public operator fun component2(): MutPtr<IpsecProposal0> = this.ipsecProposals
+    public operator fun component2(): MutPtr = this.ipsecProposals
 
     public operator fun component3(): IpsecPolicyFlag = this.flags
 
@@ -580,9 +580,9 @@ public class IpsecTransportPolicy1 internal constructor(
 
     public operator fun component5(): IpsecSaIdleTimeout0 = this.saIdleTimeout
 
-    public operator fun component6(): MutPtr<IkeextEmPolicy1> = this.emPolicy
+    public operator fun component6(): MutPtr = this.emPolicy
 
-    public fun copy(numIpsecProposals: UInt = this.numIpsecProposals, ipsecProposals: MutPtr<IpsecProposal0> = this.ipsecProposals, flags: IpsecPolicyFlag = this.flags, ndAllowClearTimeoutSeconds: UInt = this.ndAllowClearTimeoutSeconds, saIdleTimeout: IpsecSaIdleTimeout0 = this.saIdleTimeout, emPolicy: MutPtr<IkeextEmPolicy1> = this.emPolicy): IpsecTransportPolicy1 = IpsecTransportPolicy1(numIpsecProposals = numIpsecProposals, ipsecProposalsCtorArg = ipsecProposals, flags = flags, ndAllowClearTimeoutSeconds = ndAllowClearTimeoutSeconds, saIdleTimeout = saIdleTimeout, emPolicyCtorArg = emPolicy)
+    public fun copy(numIpsecProposals: UInt = this.numIpsecProposals, ipsecProposals: MutPtr = this.ipsecProposals, flags: IpsecPolicyFlag = this.flags, ndAllowClearTimeoutSeconds: UInt = this.ndAllowClearTimeoutSeconds, saIdleTimeout: IpsecSaIdleTimeout0 = this.saIdleTimeout, emPolicy: MutPtr = this.emPolicy): IpsecTransportPolicy1 = IpsecTransportPolicy1(numIpsecProposals = numIpsecProposals, ipsecProposalsCtorArg = ipsecProposals, flags = flags, ndAllowClearTimeoutSeconds = ndAllowClearTimeoutSeconds, saIdleTimeout = saIdleTimeout, emPolicyCtorArg = emPolicy)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -616,39 +616,39 @@ public class IpsecTransportPolicy1 internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<IpsecProposal0>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 16L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 20L),
                         (IpsecSaIdleTimeout0.typeLayout()).readNative(addr + 24L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<IkeextEmPolicy1>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 32L),
                     )
                 override fun writeNative(addr: Long, value: IpsecTransportPolicy1) {
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr, value.numIpsecProposals)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<IpsecProposal0>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.ipsecProposals)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 16L, value.flags)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 20L, value.ndAllowClearTimeoutSeconds)
                     (IpsecSaIdleTimeout0.typeLayout()).writeNative(addr + 24L, value.saIdleTimeout)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<IkeextEmPolicy1>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 32L, value.emPolicy)
                 }
             }
 
         public operator fun invoke(
             numIpsecProposals: UInt = 0u,
-            ipsecProposals: MutPtr<IpsecProposal0> = MutPtr(0L),
+            ipsecProposals: MutPtr = MutPtr(0L),
             flags: IpsecPolicyFlag = 0u,
             ndAllowClearTimeoutSeconds: UInt = 0u,
             saIdleTimeout: IpsecSaIdleTimeout0 = IpsecSaIdleTimeout0(),
-            emPolicy: MutPtr<IkeextEmPolicy1> = MutPtr(0L),
+            emPolicy: MutPtr = MutPtr(0L),
         ): IpsecTransportPolicy1 =
             IpsecTransportPolicy1(
                 numIpsecProposals = numIpsecProposals,
@@ -663,16 +663,16 @@ public class IpsecTransportPolicy1 internal constructor(
 
 public class IpsecTransportPolicy2 internal constructor(
     public var numIpsecProposals: UInt,
-    ipsecProposalsCtorArg: MutPtr<IpsecProposal0>,
+    ipsecProposalsCtorArg: MutPtr,
     public var flags: IpsecPolicyFlag,
     public var ndAllowClearTimeoutSeconds: UInt,
     public var saIdleTimeout: IpsecSaIdleTimeout0,
-    emPolicyCtorArg: MutPtr<IkeextEmPolicy2>,
+    emPolicyCtorArg: MutPtr,
 ) {
-    public var ipsecProposals: MutPtr<IpsecProposal0> = ipsecProposalsCtorArg
+    public var ipsecProposals: MutPtr = ipsecProposalsCtorArg
         internal set
 
-    public var emPolicy: MutPtr<IkeextEmPolicy2> = emPolicyCtorArg
+    public var emPolicy: MutPtr = emPolicyCtorArg
         internal set
 
     public constructor() : this(
@@ -686,7 +686,7 @@ public class IpsecTransportPolicy2 internal constructor(
 
     public operator fun component1(): UInt = this.numIpsecProposals
 
-    public operator fun component2(): MutPtr<IpsecProposal0> = this.ipsecProposals
+    public operator fun component2(): MutPtr = this.ipsecProposals
 
     public operator fun component3(): IpsecPolicyFlag = this.flags
 
@@ -694,9 +694,9 @@ public class IpsecTransportPolicy2 internal constructor(
 
     public operator fun component5(): IpsecSaIdleTimeout0 = this.saIdleTimeout
 
-    public operator fun component6(): MutPtr<IkeextEmPolicy2> = this.emPolicy
+    public operator fun component6(): MutPtr = this.emPolicy
 
-    public fun copy(numIpsecProposals: UInt = this.numIpsecProposals, ipsecProposals: MutPtr<IpsecProposal0> = this.ipsecProposals, flags: IpsecPolicyFlag = this.flags, ndAllowClearTimeoutSeconds: UInt = this.ndAllowClearTimeoutSeconds, saIdleTimeout: IpsecSaIdleTimeout0 = this.saIdleTimeout, emPolicy: MutPtr<IkeextEmPolicy2> = this.emPolicy): IpsecTransportPolicy2 = IpsecTransportPolicy2(numIpsecProposals = numIpsecProposals, ipsecProposalsCtorArg = ipsecProposals, flags = flags, ndAllowClearTimeoutSeconds = ndAllowClearTimeoutSeconds, saIdleTimeout = saIdleTimeout, emPolicyCtorArg = emPolicy)
+    public fun copy(numIpsecProposals: UInt = this.numIpsecProposals, ipsecProposals: MutPtr = this.ipsecProposals, flags: IpsecPolicyFlag = this.flags, ndAllowClearTimeoutSeconds: UInt = this.ndAllowClearTimeoutSeconds, saIdleTimeout: IpsecSaIdleTimeout0 = this.saIdleTimeout, emPolicy: MutPtr = this.emPolicy): IpsecTransportPolicy2 = IpsecTransportPolicy2(numIpsecProposals = numIpsecProposals, ipsecProposalsCtorArg = ipsecProposals, flags = flags, ndAllowClearTimeoutSeconds = ndAllowClearTimeoutSeconds, saIdleTimeout = saIdleTimeout, emPolicyCtorArg = emPolicy)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -730,39 +730,39 @@ public class IpsecTransportPolicy2 internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<IpsecProposal0>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 16L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 20L),
                         (IpsecSaIdleTimeout0.typeLayout()).readNative(addr + 24L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<IkeextEmPolicy2>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 32L),
                     )
                 override fun writeNative(addr: Long, value: IpsecTransportPolicy2) {
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr, value.numIpsecProposals)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<IpsecProposal0>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.ipsecProposals)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 16L, value.flags)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 20L, value.ndAllowClearTimeoutSeconds)
                     (IpsecSaIdleTimeout0.typeLayout()).writeNative(addr + 24L, value.saIdleTimeout)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<IkeextEmPolicy2>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 32L, value.emPolicy)
                 }
             }
 
         public operator fun invoke(
             numIpsecProposals: UInt = 0u,
-            ipsecProposals: MutPtr<IpsecProposal0> = MutPtr(0L),
+            ipsecProposals: MutPtr = MutPtr(0L),
             flags: IpsecPolicyFlag = 0u,
             ndAllowClearTimeoutSeconds: UInt = 0u,
             saIdleTimeout: IpsecSaIdleTimeout0 = IpsecSaIdleTimeout0(),
-            emPolicy: MutPtr<IkeextEmPolicy2> = MutPtr(0L),
+            emPolicy: MutPtr = MutPtr(0L),
         ): IpsecTransportPolicy2 =
             IpsecTransportPolicy2(
                 numIpsecProposals = numIpsecProposals,
@@ -895,12 +895,12 @@ public class IpsecTunnelEndpoints2 internal constructor(
     public var localIfLuid: ULong,
     remoteFqdnCtorArg: Pwstr,
     public var numAddresses: UInt,
-    remoteAddressesCtorArg: MutPtr<IpsecTunnelEndpoint0>,
+    remoteAddressesCtorArg: MutPtr,
 ) {
     public var remoteFqdn: Pwstr = remoteFqdnCtorArg
         internal set
 
-    public var remoteAddresses: MutPtr<IpsecTunnelEndpoint0> = remoteAddressesCtorArg
+    public var remoteAddresses: MutPtr = remoteAddressesCtorArg
         internal set
 
     public constructor() : this(
@@ -925,9 +925,9 @@ public class IpsecTunnelEndpoints2 internal constructor(
 
     public operator fun component6(): UInt = this.numAddresses
 
-    public operator fun component7(): MutPtr<IpsecTunnelEndpoint0> = this.remoteAddresses
+    public operator fun component7(): MutPtr = this.remoteAddresses
 
-    public fun copy(ipVersion: FwpIpVersion = this.ipVersion, anonymous1: IpsecTunnelEndpoints20 = this.anonymous1, anonymous2: IpsecTunnelEndpoints21 = this.anonymous2, localIfLuid: ULong = this.localIfLuid, remoteFqdn: Pwstr = this.remoteFqdn, numAddresses: UInt = this.numAddresses, remoteAddresses: MutPtr<IpsecTunnelEndpoint0> = this.remoteAddresses): IpsecTunnelEndpoints2 = IpsecTunnelEndpoints2(ipVersion = ipVersion, anonymous1 = anonymous1, anonymous2 = anonymous2, localIfLuid = localIfLuid, remoteFqdnCtorArg = remoteFqdn, numAddresses = numAddresses, remoteAddressesCtorArg = remoteAddresses)
+    public fun copy(ipVersion: FwpIpVersion = this.ipVersion, anonymous1: IpsecTunnelEndpoints20 = this.anonymous1, anonymous2: IpsecTunnelEndpoints21 = this.anonymous2, localIfLuid: ULong = this.localIfLuid, remoteFqdn: Pwstr = this.remoteFqdn, numAddresses: UInt = this.numAddresses, remoteAddresses: MutPtr = this.remoteAddresses): IpsecTunnelEndpoints2 = IpsecTunnelEndpoints2(ipVersion = ipVersion, anonymous1 = anonymous1, anonymous2 = anonymous2, localIfLuid = localIfLuid, remoteFqdnCtorArg = remoteFqdn, numAddresses = numAddresses, remoteAddressesCtorArg = remoteAddresses)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -961,7 +961,7 @@ public class IpsecTunnelEndpoints2 internal constructor(
             localIfLuid: ULong = 0uL,
             remoteFqdn: Pwstr = MutPtr(0L),
             numAddresses: UInt = 0u,
-            remoteAddresses: MutPtr<IpsecTunnelEndpoint0> = MutPtr(0L),
+            remoteAddresses: MutPtr = MutPtr(0L),
         ): IpsecTunnelEndpoints2 =
             IpsecTunnelEndpoints2(
                 ipVersion = ipVersion,
@@ -1016,15 +1016,15 @@ public data class IpsecTunnelEndpoints21(
 public class IpsecTunnelPolicy0 internal constructor(
     public var flags: IpsecPolicyFlag,
     public var numIpsecProposals: UInt,
-    ipsecProposalsCtorArg: MutPtr<IpsecProposal0>,
+    ipsecProposalsCtorArg: MutPtr,
     public var tunnelEndpoints: IpsecTunnelEndpoints0,
     public var saIdleTimeout: IpsecSaIdleTimeout0,
-    emPolicyCtorArg: MutPtr<IkeextEmPolicy0>,
+    emPolicyCtorArg: MutPtr,
 ) {
-    public var ipsecProposals: MutPtr<IpsecProposal0> = ipsecProposalsCtorArg
+    public var ipsecProposals: MutPtr = ipsecProposalsCtorArg
         internal set
 
-    public var emPolicy: MutPtr<IkeextEmPolicy0> = emPolicyCtorArg
+    public var emPolicy: MutPtr = emPolicyCtorArg
         internal set
 
     public constructor() : this(
@@ -1040,15 +1040,15 @@ public class IpsecTunnelPolicy0 internal constructor(
 
     public operator fun component2(): UInt = this.numIpsecProposals
 
-    public operator fun component3(): MutPtr<IpsecProposal0> = this.ipsecProposals
+    public operator fun component3(): MutPtr = this.ipsecProposals
 
     public operator fun component4(): IpsecTunnelEndpoints0 = this.tunnelEndpoints
 
     public operator fun component5(): IpsecSaIdleTimeout0 = this.saIdleTimeout
 
-    public operator fun component6(): MutPtr<IkeextEmPolicy0> = this.emPolicy
+    public operator fun component6(): MutPtr = this.emPolicy
 
-    public fun copy(flags: IpsecPolicyFlag = this.flags, numIpsecProposals: UInt = this.numIpsecProposals, ipsecProposals: MutPtr<IpsecProposal0> = this.ipsecProposals, tunnelEndpoints: IpsecTunnelEndpoints0 = this.tunnelEndpoints, saIdleTimeout: IpsecSaIdleTimeout0 = this.saIdleTimeout, emPolicy: MutPtr<IkeextEmPolicy0> = this.emPolicy): IpsecTunnelPolicy0 = IpsecTunnelPolicy0(flags = flags, numIpsecProposals = numIpsecProposals, ipsecProposalsCtorArg = ipsecProposals, tunnelEndpoints = tunnelEndpoints, saIdleTimeout = saIdleTimeout, emPolicyCtorArg = emPolicy)
+    public fun copy(flags: IpsecPolicyFlag = this.flags, numIpsecProposals: UInt = this.numIpsecProposals, ipsecProposals: MutPtr = this.ipsecProposals, tunnelEndpoints: IpsecTunnelEndpoints0 = this.tunnelEndpoints, saIdleTimeout: IpsecSaIdleTimeout0 = this.saIdleTimeout, emPolicy: MutPtr = this.emPolicy): IpsecTunnelPolicy0 = IpsecTunnelPolicy0(flags = flags, numIpsecProposals = numIpsecProposals, ipsecProposalsCtorArg = ipsecProposals, tunnelEndpoints = tunnelEndpoints, saIdleTimeout = saIdleTimeout, emPolicyCtorArg = emPolicy)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -1076,10 +1076,10 @@ public class IpsecTunnelPolicy0 internal constructor(
         public operator fun invoke(
             flags: IpsecPolicyFlag = 0u,
             numIpsecProposals: UInt = 0u,
-            ipsecProposals: MutPtr<IpsecProposal0> = MutPtr(0L),
+            ipsecProposals: MutPtr = MutPtr(0L),
             tunnelEndpoints: IpsecTunnelEndpoints0 = IpsecTunnelEndpoints0(),
             saIdleTimeout: IpsecSaIdleTimeout0 = IpsecSaIdleTimeout0(),
-            emPolicy: MutPtr<IkeextEmPolicy0> = MutPtr(0L),
+            emPolicy: MutPtr = MutPtr(0L),
         ): IpsecTunnelPolicy0 =
             IpsecTunnelPolicy0(
                 flags = flags,
@@ -1095,15 +1095,15 @@ public class IpsecTunnelPolicy0 internal constructor(
 public class IpsecTunnelPolicy1 internal constructor(
     public var flags: IpsecPolicyFlag,
     public var numIpsecProposals: UInt,
-    ipsecProposalsCtorArg: MutPtr<IpsecProposal0>,
+    ipsecProposalsCtorArg: MutPtr,
     public var tunnelEndpoints: IpsecTunnelEndpoints1,
     public var saIdleTimeout: IpsecSaIdleTimeout0,
-    emPolicyCtorArg: MutPtr<IkeextEmPolicy1>,
+    emPolicyCtorArg: MutPtr,
 ) {
-    public var ipsecProposals: MutPtr<IpsecProposal0> = ipsecProposalsCtorArg
+    public var ipsecProposals: MutPtr = ipsecProposalsCtorArg
         internal set
 
-    public var emPolicy: MutPtr<IkeextEmPolicy1> = emPolicyCtorArg
+    public var emPolicy: MutPtr = emPolicyCtorArg
         internal set
 
     public constructor() : this(
@@ -1119,15 +1119,15 @@ public class IpsecTunnelPolicy1 internal constructor(
 
     public operator fun component2(): UInt = this.numIpsecProposals
 
-    public operator fun component3(): MutPtr<IpsecProposal0> = this.ipsecProposals
+    public operator fun component3(): MutPtr = this.ipsecProposals
 
     public operator fun component4(): IpsecTunnelEndpoints1 = this.tunnelEndpoints
 
     public operator fun component5(): IpsecSaIdleTimeout0 = this.saIdleTimeout
 
-    public operator fun component6(): MutPtr<IkeextEmPolicy1> = this.emPolicy
+    public operator fun component6(): MutPtr = this.emPolicy
 
-    public fun copy(flags: IpsecPolicyFlag = this.flags, numIpsecProposals: UInt = this.numIpsecProposals, ipsecProposals: MutPtr<IpsecProposal0> = this.ipsecProposals, tunnelEndpoints: IpsecTunnelEndpoints1 = this.tunnelEndpoints, saIdleTimeout: IpsecSaIdleTimeout0 = this.saIdleTimeout, emPolicy: MutPtr<IkeextEmPolicy1> = this.emPolicy): IpsecTunnelPolicy1 = IpsecTunnelPolicy1(flags = flags, numIpsecProposals = numIpsecProposals, ipsecProposalsCtorArg = ipsecProposals, tunnelEndpoints = tunnelEndpoints, saIdleTimeout = saIdleTimeout, emPolicyCtorArg = emPolicy)
+    public fun copy(flags: IpsecPolicyFlag = this.flags, numIpsecProposals: UInt = this.numIpsecProposals, ipsecProposals: MutPtr = this.ipsecProposals, tunnelEndpoints: IpsecTunnelEndpoints1 = this.tunnelEndpoints, saIdleTimeout: IpsecSaIdleTimeout0 = this.saIdleTimeout, emPolicy: MutPtr = this.emPolicy): IpsecTunnelPolicy1 = IpsecTunnelPolicy1(flags = flags, numIpsecProposals = numIpsecProposals, ipsecProposalsCtorArg = ipsecProposals, tunnelEndpoints = tunnelEndpoints, saIdleTimeout = saIdleTimeout, emPolicyCtorArg = emPolicy)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -1155,10 +1155,10 @@ public class IpsecTunnelPolicy1 internal constructor(
         public operator fun invoke(
             flags: IpsecPolicyFlag = 0u,
             numIpsecProposals: UInt = 0u,
-            ipsecProposals: MutPtr<IpsecProposal0> = MutPtr(0L),
+            ipsecProposals: MutPtr = MutPtr(0L),
             tunnelEndpoints: IpsecTunnelEndpoints1 = IpsecTunnelEndpoints1(),
             saIdleTimeout: IpsecSaIdleTimeout0 = IpsecSaIdleTimeout0(),
-            emPolicy: MutPtr<IkeextEmPolicy1> = MutPtr(0L),
+            emPolicy: MutPtr = MutPtr(0L),
         ): IpsecTunnelPolicy1 =
             IpsecTunnelPolicy1(
                 flags = flags,
@@ -1174,16 +1174,16 @@ public class IpsecTunnelPolicy1 internal constructor(
 public class IpsecTunnelPolicy2 internal constructor(
     public var flags: IpsecPolicyFlag,
     public var numIpsecProposals: UInt,
-    ipsecProposalsCtorArg: MutPtr<IpsecProposal0>,
+    ipsecProposalsCtorArg: MutPtr,
     public var tunnelEndpoints: IpsecTunnelEndpoints2,
     public var saIdleTimeout: IpsecSaIdleTimeout0,
-    emPolicyCtorArg: MutPtr<IkeextEmPolicy2>,
+    emPolicyCtorArg: MutPtr,
     public var fwdPathSaLifetime: UInt,
 ) {
-    public var ipsecProposals: MutPtr<IpsecProposal0> = ipsecProposalsCtorArg
+    public var ipsecProposals: MutPtr = ipsecProposalsCtorArg
         internal set
 
-    public var emPolicy: MutPtr<IkeextEmPolicy2> = emPolicyCtorArg
+    public var emPolicy: MutPtr = emPolicyCtorArg
         internal set
 
     public constructor() : this(
@@ -1200,17 +1200,17 @@ public class IpsecTunnelPolicy2 internal constructor(
 
     public operator fun component2(): UInt = this.numIpsecProposals
 
-    public operator fun component3(): MutPtr<IpsecProposal0> = this.ipsecProposals
+    public operator fun component3(): MutPtr = this.ipsecProposals
 
     public operator fun component4(): IpsecTunnelEndpoints2 = this.tunnelEndpoints
 
     public operator fun component5(): IpsecSaIdleTimeout0 = this.saIdleTimeout
 
-    public operator fun component6(): MutPtr<IkeextEmPolicy2> = this.emPolicy
+    public operator fun component6(): MutPtr = this.emPolicy
 
     public operator fun component7(): UInt = this.fwdPathSaLifetime
 
-    public fun copy(flags: IpsecPolicyFlag = this.flags, numIpsecProposals: UInt = this.numIpsecProposals, ipsecProposals: MutPtr<IpsecProposal0> = this.ipsecProposals, tunnelEndpoints: IpsecTunnelEndpoints2 = this.tunnelEndpoints, saIdleTimeout: IpsecSaIdleTimeout0 = this.saIdleTimeout, emPolicy: MutPtr<IkeextEmPolicy2> = this.emPolicy, fwdPathSaLifetime: UInt = this.fwdPathSaLifetime): IpsecTunnelPolicy2 = IpsecTunnelPolicy2(flags = flags, numIpsecProposals = numIpsecProposals, ipsecProposalsCtorArg = ipsecProposals, tunnelEndpoints = tunnelEndpoints, saIdleTimeout = saIdleTimeout, emPolicyCtorArg = emPolicy, fwdPathSaLifetime = fwdPathSaLifetime)
+    public fun copy(flags: IpsecPolicyFlag = this.flags, numIpsecProposals: UInt = this.numIpsecProposals, ipsecProposals: MutPtr = this.ipsecProposals, tunnelEndpoints: IpsecTunnelEndpoints2 = this.tunnelEndpoints, saIdleTimeout: IpsecSaIdleTimeout0 = this.saIdleTimeout, emPolicy: MutPtr = this.emPolicy, fwdPathSaLifetime: UInt = this.fwdPathSaLifetime): IpsecTunnelPolicy2 = IpsecTunnelPolicy2(flags = flags, numIpsecProposals = numIpsecProposals, ipsecProposalsCtorArg = ipsecProposals, tunnelEndpoints = tunnelEndpoints, saIdleTimeout = saIdleTimeout, emPolicyCtorArg = emPolicy, fwdPathSaLifetime = fwdPathSaLifetime)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -1240,10 +1240,10 @@ public class IpsecTunnelPolicy2 internal constructor(
         public operator fun invoke(
             flags: IpsecPolicyFlag = 0u,
             numIpsecProposals: UInt = 0u,
-            ipsecProposals: MutPtr<IpsecProposal0> = MutPtr(0L),
+            ipsecProposals: MutPtr = MutPtr(0L),
             tunnelEndpoints: IpsecTunnelEndpoints2 = IpsecTunnelEndpoints2(),
             saIdleTimeout: IpsecSaIdleTimeout0 = IpsecSaIdleTimeout0(),
-            emPolicy: MutPtr<IkeextEmPolicy2> = MutPtr(0L),
+            emPolicy: MutPtr = MutPtr(0L),
             fwdPathSaLifetime: UInt = 0u,
         ): IpsecTunnelPolicy2 =
             IpsecTunnelPolicy2(
@@ -1261,22 +1261,22 @@ public class IpsecTunnelPolicy2 internal constructor(
 public class IpsecTunnelPolicy3 internal constructor(
     public var flags: UInt,
     public var numIpsecProposals: UInt,
-    ipsecProposalsCtorArg: MutPtr<IpsecProposal0>,
+    ipsecProposalsCtorArg: MutPtr,
     public var tunnelEndpoints: IpsecTunnelEndpoints2,
     public var saIdleTimeout: IpsecSaIdleTimeout0,
-    emPolicyCtorArg: MutPtr<IkeextEmPolicy2>,
+    emPolicyCtorArg: MutPtr,
     public var fwdPathSaLifetime: UInt,
     public var compartmentId: UInt,
     public var numTrafficSelectorPolicy: UInt,
-    trafficSelectorPoliciesCtorArg: MutPtr<IpsecTrafficSelectorPolicy0>,
+    trafficSelectorPoliciesCtorArg: MutPtr,
 ) {
-    public var ipsecProposals: MutPtr<IpsecProposal0> = ipsecProposalsCtorArg
+    public var ipsecProposals: MutPtr = ipsecProposalsCtorArg
         internal set
 
-    public var emPolicy: MutPtr<IkeextEmPolicy2> = emPolicyCtorArg
+    public var emPolicy: MutPtr = emPolicyCtorArg
         internal set
 
-    public var trafficSelectorPolicies: MutPtr<IpsecTrafficSelectorPolicy0> = trafficSelectorPoliciesCtorArg
+    public var trafficSelectorPolicies: MutPtr = trafficSelectorPoliciesCtorArg
         internal set
 
     public constructor() : this(
@@ -1296,13 +1296,13 @@ public class IpsecTunnelPolicy3 internal constructor(
 
     public operator fun component2(): UInt = this.numIpsecProposals
 
-    public operator fun component3(): MutPtr<IpsecProposal0> = this.ipsecProposals
+    public operator fun component3(): MutPtr = this.ipsecProposals
 
     public operator fun component4(): IpsecTunnelEndpoints2 = this.tunnelEndpoints
 
     public operator fun component5(): IpsecSaIdleTimeout0 = this.saIdleTimeout
 
-    public operator fun component6(): MutPtr<IkeextEmPolicy2> = this.emPolicy
+    public operator fun component6(): MutPtr = this.emPolicy
 
     public operator fun component7(): UInt = this.fwdPathSaLifetime
 
@@ -1310,9 +1310,9 @@ public class IpsecTunnelPolicy3 internal constructor(
 
     public operator fun component9(): UInt = this.numTrafficSelectorPolicy
 
-    public operator fun component10(): MutPtr<IpsecTrafficSelectorPolicy0> = this.trafficSelectorPolicies
+    public operator fun component10(): MutPtr = this.trafficSelectorPolicies
 
-    public fun copy(flags: UInt = this.flags, numIpsecProposals: UInt = this.numIpsecProposals, ipsecProposals: MutPtr<IpsecProposal0> = this.ipsecProposals, tunnelEndpoints: IpsecTunnelEndpoints2 = this.tunnelEndpoints, saIdleTimeout: IpsecSaIdleTimeout0 = this.saIdleTimeout, emPolicy: MutPtr<IkeextEmPolicy2> = this.emPolicy, fwdPathSaLifetime: UInt = this.fwdPathSaLifetime, compartmentId: UInt = this.compartmentId, numTrafficSelectorPolicy: UInt = this.numTrafficSelectorPolicy, trafficSelectorPolicies: MutPtr<IpsecTrafficSelectorPolicy0> = this.trafficSelectorPolicies): IpsecTunnelPolicy3 = IpsecTunnelPolicy3(flags = flags, numIpsecProposals = numIpsecProposals, ipsecProposalsCtorArg = ipsecProposals, tunnelEndpoints = tunnelEndpoints, saIdleTimeout = saIdleTimeout, emPolicyCtorArg = emPolicy, fwdPathSaLifetime = fwdPathSaLifetime, compartmentId = compartmentId, numTrafficSelectorPolicy = numTrafficSelectorPolicy, trafficSelectorPoliciesCtorArg = trafficSelectorPolicies)
+    public fun copy(flags: UInt = this.flags, numIpsecProposals: UInt = this.numIpsecProposals, ipsecProposals: MutPtr = this.ipsecProposals, tunnelEndpoints: IpsecTunnelEndpoints2 = this.tunnelEndpoints, saIdleTimeout: IpsecSaIdleTimeout0 = this.saIdleTimeout, emPolicy: MutPtr = this.emPolicy, fwdPathSaLifetime: UInt = this.fwdPathSaLifetime, compartmentId: UInt = this.compartmentId, numTrafficSelectorPolicy: UInt = this.numTrafficSelectorPolicy, trafficSelectorPolicies: MutPtr = this.trafficSelectorPolicies): IpsecTunnelPolicy3 = IpsecTunnelPolicy3(flags = flags, numIpsecProposals = numIpsecProposals, ipsecProposalsCtorArg = ipsecProposals, tunnelEndpoints = tunnelEndpoints, saIdleTimeout = saIdleTimeout, emPolicyCtorArg = emPolicy, fwdPathSaLifetime = fwdPathSaLifetime, compartmentId = compartmentId, numTrafficSelectorPolicy = numTrafficSelectorPolicy, trafficSelectorPoliciesCtorArg = trafficSelectorPolicies)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -1348,14 +1348,14 @@ public class IpsecTunnelPolicy3 internal constructor(
         public operator fun invoke(
             flags: UInt = 0u,
             numIpsecProposals: UInt = 0u,
-            ipsecProposals: MutPtr<IpsecProposal0> = MutPtr(0L),
+            ipsecProposals: MutPtr = MutPtr(0L),
             tunnelEndpoints: IpsecTunnelEndpoints2 = IpsecTunnelEndpoints2(),
             saIdleTimeout: IpsecSaIdleTimeout0 = IpsecSaIdleTimeout0(),
-            emPolicy: MutPtr<IkeextEmPolicy2> = MutPtr(0L),
+            emPolicy: MutPtr = MutPtr(0L),
             fwdPathSaLifetime: UInt = 0u,
             compartmentId: UInt = 0u,
             numTrafficSelectorPolicy: UInt = 0u,
-            trafficSelectorPolicies: MutPtr<IpsecTrafficSelectorPolicy0> = MutPtr(0L),
+            trafficSelectorPolicies: MutPtr = MutPtr(0L),
         ): IpsecTunnelPolicy3 =
             IpsecTunnelPolicy3(
                 flags = flags,

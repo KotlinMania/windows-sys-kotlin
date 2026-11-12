@@ -23,7 +23,7 @@ public class SaferCodePropertiesV1 internal constructor(
     public var dwImageHashSize: UInt,
     public var imageSize: Long,
     public var hashAlgorithm: AlgId,
-    pByteBlockCtorArg: MutPtr<UByte>,
+    pByteBlockCtorArg: MutPtr,
     hWndParentCtorArg: Hwnd,
     public var dwWVTUIChoice: UInt,
 ) {
@@ -33,7 +33,7 @@ public class SaferCodePropertiesV1 internal constructor(
     public var hImageFileHandle: Handle = hImageFileHandleCtorArg
         internal set
 
-    public var pByteBlock: MutPtr<UByte> = pByteBlockCtorArg
+    public var pByteBlock: MutPtr = pByteBlockCtorArg
         internal set
 
     public var hWndParent: Hwnd = hWndParentCtorArg
@@ -72,13 +72,13 @@ public class SaferCodePropertiesV1 internal constructor(
 
     public operator fun component9(): AlgId = this.hashAlgorithm
 
-    public operator fun component10(): MutPtr<UByte> = this.pByteBlock
+    public operator fun component10(): MutPtr = this.pByteBlock
 
     public operator fun component11(): Hwnd = this.hWndParent
 
     public operator fun component12(): UInt = this.dwWVTUIChoice
 
-    public fun copy(cbSize: UInt = this.cbSize, dwCheckFlags: UInt = this.dwCheckFlags, imagePath: Pcwstr = this.imagePath, hImageFileHandle: Handle = this.hImageFileHandle, urlZoneId: UInt = this.urlZoneId, imageHash: UByteArray = this.imageHash, dwImageHashSize: UInt = this.dwImageHashSize, imageSize: Long = this.imageSize, hashAlgorithm: AlgId = this.hashAlgorithm, pByteBlock: MutPtr<UByte> = this.pByteBlock, hWndParent: Hwnd = this.hWndParent, dwWVTUIChoice: UInt = this.dwWVTUIChoice): SaferCodePropertiesV1 = SaferCodePropertiesV1(cbSize = cbSize, dwCheckFlags = dwCheckFlags, imagePathCtorArg = imagePath, hImageFileHandleCtorArg = hImageFileHandle, urlZoneId = urlZoneId, imageHash = imageHash, dwImageHashSize = dwImageHashSize, imageSize = imageSize, hashAlgorithm = hashAlgorithm, pByteBlockCtorArg = pByteBlock, hWndParentCtorArg = hWndParent, dwWVTUIChoice = dwWVTUIChoice)
+    public fun copy(cbSize: UInt = this.cbSize, dwCheckFlags: UInt = this.dwCheckFlags, imagePath: Pcwstr = this.imagePath, hImageFileHandle: Handle = this.hImageFileHandle, urlZoneId: UInt = this.urlZoneId, imageHash: UByteArray = this.imageHash, dwImageHashSize: UInt = this.dwImageHashSize, imageSize: Long = this.imageSize, hashAlgorithm: AlgId = this.hashAlgorithm, pByteBlock: MutPtr = this.pByteBlock, hWndParent: Hwnd = this.hWndParent, dwWVTUIChoice: UInt = this.dwWVTUIChoice): SaferCodePropertiesV1 = SaferCodePropertiesV1(cbSize = cbSize, dwCheckFlags = dwCheckFlags, imagePathCtorArg = imagePath, hImageFileHandleCtorArg = hImageFileHandle, urlZoneId = urlZoneId, imageHash = imageHash, dwImageHashSize = dwImageHashSize, imageSize = imageSize, hashAlgorithm = hashAlgorithm, pByteBlockCtorArg = pByteBlock, hWndParentCtorArg = hWndParent, dwWVTUIChoice = dwWVTUIChoice)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -125,7 +125,7 @@ public class SaferCodePropertiesV1 internal constructor(
             dwImageHashSize: UInt = 0u,
             imageSize: Long = 0L,
             hashAlgorithm: AlgId = 0u,
-            pByteBlock: MutPtr<UByte> = MutPtr(0L),
+            pByteBlock: MutPtr = MutPtr(0L),
             hWndParent: Hwnd = MutPtr(0L),
             dwWVTUIChoice: UInt = 0u,
         ): SaferCodePropertiesV1 =
@@ -156,7 +156,7 @@ public class SaferCodePropertiesV2 internal constructor(
     public var dwImageHashSize: UInt,
     public var imageSize: Long,
     public var hashAlgorithm: AlgId,
-    pByteBlockCtorArg: MutPtr<UByte>,
+    pByteBlockCtorArg: MutPtr,
     hWndParentCtorArg: Hwnd,
     public var dwWVTUIChoice: UInt,
     packageMonikerCtorArg: Pcwstr,
@@ -171,7 +171,7 @@ public class SaferCodePropertiesV2 internal constructor(
     public var hImageFileHandle: Handle = hImageFileHandleCtorArg
         internal set
 
-    public var pByteBlock: MutPtr<UByte> = pByteBlockCtorArg
+    public var pByteBlock: MutPtr = pByteBlockCtorArg
         internal set
 
     public var hWndParent: Hwnd = hWndParentCtorArg
@@ -217,7 +217,7 @@ public class SaferCodePropertiesV2 internal constructor(
             dwImageHashSize: UInt = 0u,
             imageSize: Long = 0L,
             hashAlgorithm: AlgId = 0u,
-            pByteBlock: MutPtr<UByte> = MutPtr(0L),
+            pByteBlock: MutPtr = MutPtr(0L),
             hWndParent: Hwnd = MutPtr(0L),
             dwWVTUIChoice: UInt = 0u,
             packageMoniker: Pcwstr = ConstPtr(0L),

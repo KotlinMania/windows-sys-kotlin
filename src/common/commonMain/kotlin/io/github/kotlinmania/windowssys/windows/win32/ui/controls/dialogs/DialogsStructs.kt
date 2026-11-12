@@ -1,6 +1,5 @@
 package io.github.kotlinmania.windowssys.windows.win32.ui.controls.dialogs
 
-import io.github.kotlinmania.rustlang.core.ffi.CVoid
 import io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
 import io.github.kotlinmania.rustlang.core.mem.TypeLayout
 import io.github.kotlinmania.rustlang.core.ptr.ConstPtr
@@ -17,9 +16,6 @@ import io.github.kotlinmania.windowssys.windows.win32.foundation.Lparam
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Point
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Rect
 import io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.Hdc
-import io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.Logfonta
-import io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.Logfontw
-import io.github.kotlinmania.windowssys.windows.win32.ui.controls.Hpropsheetpage
 import io.github.kotlinmania.windowssys.windows.win32.ui.controls.Nmhdr
 
 public class Choosecolora internal constructor(
@@ -27,7 +23,7 @@ public class Choosecolora internal constructor(
     hwndOwnerCtorArg: Hwnd,
     hInstanceCtorArg: Hwnd,
     public var rgbResult: Colorref,
-    lpCustColorsCtorArg: MutPtr<Colorref>,
+    lpCustColorsCtorArg: MutPtr,
     public var flags: ChoosecolorFlags,
     public var lCustData: Lparam,
     public var lpfnHook: Lpcchookproc,
@@ -39,7 +35,7 @@ public class Choosecolora internal constructor(
     public var hInstance: Hwnd = hInstanceCtorArg
         internal set
 
-    public var lpCustColors: MutPtr<Colorref> = lpCustColorsCtorArg
+    public var lpCustColors: MutPtr = lpCustColorsCtorArg
         internal set
 
     public var lpTemplateName: Pcstr = lpTemplateNameCtorArg
@@ -65,7 +61,7 @@ public class Choosecolora internal constructor(
 
     public operator fun component4(): Colorref = this.rgbResult
 
-    public operator fun component5(): MutPtr<Colorref> = this.lpCustColors
+    public operator fun component5(): MutPtr = this.lpCustColors
 
     public operator fun component6(): ChoosecolorFlags = this.flags
 
@@ -75,7 +71,7 @@ public class Choosecolora internal constructor(
 
     public operator fun component9(): Pcstr = this.lpTemplateName
 
-    public fun copy(lStructSize: UInt = this.lStructSize, hwndOwner: Hwnd = this.hwndOwner, hInstance: Hwnd = this.hInstance, rgbResult: Colorref = this.rgbResult, lpCustColors: MutPtr<Colorref> = this.lpCustColors, flags: ChoosecolorFlags = this.flags, lCustData: Lparam = this.lCustData, lpfnHook: Lpcchookproc = this.lpfnHook, lpTemplateName: Pcstr = this.lpTemplateName): Choosecolora = Choosecolora(lStructSize = lStructSize, hwndOwnerCtorArg = hwndOwner, hInstanceCtorArg = hInstance, rgbResult = rgbResult, lpCustColorsCtorArg = lpCustColors, flags = flags, lCustData = lCustData, lpfnHook = lpfnHook, lpTemplateNameCtorArg = lpTemplateName)
+    public fun copy(lStructSize: UInt = this.lStructSize, hwndOwner: Hwnd = this.hwndOwner, hInstance: Hwnd = this.hInstance, rgbResult: Colorref = this.rgbResult, lpCustColors: MutPtr = this.lpCustColors, flags: ChoosecolorFlags = this.flags, lCustData: Lparam = this.lCustData, lpfnHook: Lpcchookproc = this.lpfnHook, lpTemplateName: Pcstr = this.lpTemplateName): Choosecolora = Choosecolora(lStructSize = lStructSize, hwndOwnerCtorArg = hwndOwner, hInstanceCtorArg = hInstance, rgbResult = rgbResult, lpCustColorsCtorArg = lpCustColors, flags = flags, lCustData = lCustData, lpfnHook = lpfnHook, lpTemplateNameCtorArg = lpTemplateName)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -111,7 +107,7 @@ public class Choosecolora internal constructor(
             hwndOwner: Hwnd = MutPtr(0L),
             hInstance: Hwnd = MutPtr(0L),
             rgbResult: Colorref = 0u,
-            lpCustColors: MutPtr<Colorref> = MutPtr(0L),
+            lpCustColors: MutPtr = MutPtr(0L),
             flags: ChoosecolorFlags = 0u,
             lCustData: Lparam = 0L,
             lpfnHook: Lpcchookproc = null,
@@ -136,7 +132,7 @@ public class Choosecolorw internal constructor(
     hwndOwnerCtorArg: Hwnd,
     hInstanceCtorArg: Hwnd,
     public var rgbResult: Colorref,
-    lpCustColorsCtorArg: MutPtr<Colorref>,
+    lpCustColorsCtorArg: MutPtr,
     public var flags: ChoosecolorFlags,
     public var lCustData: Lparam,
     public var lpfnHook: Lpcchookproc,
@@ -148,7 +144,7 @@ public class Choosecolorw internal constructor(
     public var hInstance: Hwnd = hInstanceCtorArg
         internal set
 
-    public var lpCustColors: MutPtr<Colorref> = lpCustColorsCtorArg
+    public var lpCustColors: MutPtr = lpCustColorsCtorArg
         internal set
 
     public var lpTemplateName: Pcwstr = lpTemplateNameCtorArg
@@ -174,7 +170,7 @@ public class Choosecolorw internal constructor(
 
     public operator fun component4(): Colorref = this.rgbResult
 
-    public operator fun component5(): MutPtr<Colorref> = this.lpCustColors
+    public operator fun component5(): MutPtr = this.lpCustColors
 
     public operator fun component6(): ChoosecolorFlags = this.flags
 
@@ -184,7 +180,7 @@ public class Choosecolorw internal constructor(
 
     public operator fun component9(): Pcwstr = this.lpTemplateName
 
-    public fun copy(lStructSize: UInt = this.lStructSize, hwndOwner: Hwnd = this.hwndOwner, hInstance: Hwnd = this.hInstance, rgbResult: Colorref = this.rgbResult, lpCustColors: MutPtr<Colorref> = this.lpCustColors, flags: ChoosecolorFlags = this.flags, lCustData: Lparam = this.lCustData, lpfnHook: Lpcchookproc = this.lpfnHook, lpTemplateName: Pcwstr = this.lpTemplateName): Choosecolorw = Choosecolorw(lStructSize = lStructSize, hwndOwnerCtorArg = hwndOwner, hInstanceCtorArg = hInstance, rgbResult = rgbResult, lpCustColorsCtorArg = lpCustColors, flags = flags, lCustData = lCustData, lpfnHook = lpfnHook, lpTemplateNameCtorArg = lpTemplateName)
+    public fun copy(lStructSize: UInt = this.lStructSize, hwndOwner: Hwnd = this.hwndOwner, hInstance: Hwnd = this.hInstance, rgbResult: Colorref = this.rgbResult, lpCustColors: MutPtr = this.lpCustColors, flags: ChoosecolorFlags = this.flags, lCustData: Lparam = this.lCustData, lpfnHook: Lpcchookproc = this.lpfnHook, lpTemplateName: Pcwstr = this.lpTemplateName): Choosecolorw = Choosecolorw(lStructSize = lStructSize, hwndOwnerCtorArg = hwndOwner, hInstanceCtorArg = hInstance, rgbResult = rgbResult, lpCustColorsCtorArg = lpCustColors, flags = flags, lCustData = lCustData, lpfnHook = lpfnHook, lpTemplateNameCtorArg = lpTemplateName)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -220,7 +216,7 @@ public class Choosecolorw internal constructor(
             hwndOwner: Hwnd = MutPtr(0L),
             hInstance: Hwnd = MutPtr(0L),
             rgbResult: Colorref = 0u,
-            lpCustColors: MutPtr<Colorref> = MutPtr(0L),
+            lpCustColors: MutPtr = MutPtr(0L),
             flags: ChoosecolorFlags = 0u,
             lCustData: Lparam = 0L,
             lpfnHook: Lpcchookproc = null,
@@ -244,7 +240,7 @@ public class Choosefonta internal constructor(
     public var lStructSize: UInt,
     hwndOwnerCtorArg: Hwnd,
     hDCCtorArg: Hdc,
-    lpLogFontCtorArg: MutPtr<Logfonta>,
+    lpLogFontCtorArg: MutPtr,
     public var iPointSize: Int,
     public var flags: ChoosefontFlags,
     public var rgbColors: Colorref,
@@ -264,7 +260,7 @@ public class Choosefonta internal constructor(
     public var hDC: Hdc = hDCCtorArg
         internal set
 
-    public var lpLogFont: MutPtr<Logfonta> = lpLogFontCtorArg
+    public var lpLogFont: MutPtr = lpLogFontCtorArg
         internal set
 
     public var lpTemplateName: Pcstr = lpTemplateNameCtorArg
@@ -301,7 +297,7 @@ public class Choosefonta internal constructor(
 
     public operator fun component3(): Hdc = this.hDC
 
-    public operator fun component4(): MutPtr<Logfonta> = this.lpLogFont
+    public operator fun component4(): MutPtr = this.lpLogFont
 
     public operator fun component5(): Int = this.iPointSize
 
@@ -327,7 +323,7 @@ public class Choosefonta internal constructor(
 
     public operator fun component16(): Int = this.nSizeMax
 
-    public fun copy(lStructSize: UInt = this.lStructSize, hwndOwner: Hwnd = this.hwndOwner, hDC: Hdc = this.hDC, lpLogFont: MutPtr<Logfonta> = this.lpLogFont, iPointSize: Int = this.iPointSize, flags: ChoosefontFlags = this.flags, rgbColors: Colorref = this.rgbColors, lCustData: Lparam = this.lCustData, lpfnHook: Lpcfhookproc = this.lpfnHook, lpTemplateName: Pcstr = this.lpTemplateName, hInstance: Hinstance = this.hInstance, lpszStyle: Pstr = this.lpszStyle, nFontType: ChoosefontFontType = this.nFontType, missingAlignment: UShort = this.missingAlignment, nSizeMin: Int = this.nSizeMin, nSizeMax: Int = this.nSizeMax): Choosefonta = Choosefonta(lStructSize = lStructSize, hwndOwnerCtorArg = hwndOwner, hDCCtorArg = hDC, lpLogFontCtorArg = lpLogFont, iPointSize = iPointSize, flags = flags, rgbColors = rgbColors, lCustData = lCustData, lpfnHook = lpfnHook, lpTemplateNameCtorArg = lpTemplateName, hInstanceCtorArg = hInstance, lpszStyleCtorArg = lpszStyle, nFontType = nFontType, missingAlignment = missingAlignment, nSizeMin = nSizeMin, nSizeMax = nSizeMax)
+    public fun copy(lStructSize: UInt = this.lStructSize, hwndOwner: Hwnd = this.hwndOwner, hDC: Hdc = this.hDC, lpLogFont: MutPtr = this.lpLogFont, iPointSize: Int = this.iPointSize, flags: ChoosefontFlags = this.flags, rgbColors: Colorref = this.rgbColors, lCustData: Lparam = this.lCustData, lpfnHook: Lpcfhookproc = this.lpfnHook, lpTemplateName: Pcstr = this.lpTemplateName, hInstance: Hinstance = this.hInstance, lpszStyle: Pstr = this.lpszStyle, nFontType: ChoosefontFontType = this.nFontType, missingAlignment: UShort = this.missingAlignment, nSizeMin: Int = this.nSizeMin, nSizeMax: Int = this.nSizeMax): Choosefonta = Choosefonta(lStructSize = lStructSize, hwndOwnerCtorArg = hwndOwner, hDCCtorArg = hDC, lpLogFontCtorArg = lpLogFont, iPointSize = iPointSize, flags = flags, rgbColors = rgbColors, lCustData = lCustData, lpfnHook = lpfnHook, lpTemplateNameCtorArg = lpTemplateName, hInstanceCtorArg = hInstance, lpszStyleCtorArg = lpszStyle, nFontType = nFontType, missingAlignment = missingAlignment, nSizeMin = nSizeMin, nSizeMax = nSizeMax)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -376,7 +372,7 @@ public class Choosefonta internal constructor(
             lStructSize: UInt = 0u,
             hwndOwner: Hwnd = MutPtr(0L),
             hDC: Hdc = MutPtr(0L),
-            lpLogFont: MutPtr<Logfonta> = MutPtr(0L),
+            lpLogFont: MutPtr = MutPtr(0L),
             iPointSize: Int = 0,
             flags: ChoosefontFlags = 0u,
             rgbColors: Colorref = 0u,
@@ -415,7 +411,7 @@ public class Choosefontw internal constructor(
     public var lStructSize: UInt,
     hwndOwnerCtorArg: Hwnd,
     hDCCtorArg: Hdc,
-    lpLogFontCtorArg: MutPtr<Logfontw>,
+    lpLogFontCtorArg: MutPtr,
     public var iPointSize: Int,
     public var flags: ChoosefontFlags,
     public var rgbColors: Colorref,
@@ -435,7 +431,7 @@ public class Choosefontw internal constructor(
     public var hDC: Hdc = hDCCtorArg
         internal set
 
-    public var lpLogFont: MutPtr<Logfontw> = lpLogFontCtorArg
+    public var lpLogFont: MutPtr = lpLogFontCtorArg
         internal set
 
     public var lpTemplateName: Pcwstr = lpTemplateNameCtorArg
@@ -472,7 +468,7 @@ public class Choosefontw internal constructor(
 
     public operator fun component3(): Hdc = this.hDC
 
-    public operator fun component4(): MutPtr<Logfontw> = this.lpLogFont
+    public operator fun component4(): MutPtr = this.lpLogFont
 
     public operator fun component5(): Int = this.iPointSize
 
@@ -498,7 +494,7 @@ public class Choosefontw internal constructor(
 
     public operator fun component16(): Int = this.nSizeMax
 
-    public fun copy(lStructSize: UInt = this.lStructSize, hwndOwner: Hwnd = this.hwndOwner, hDC: Hdc = this.hDC, lpLogFont: MutPtr<Logfontw> = this.lpLogFont, iPointSize: Int = this.iPointSize, flags: ChoosefontFlags = this.flags, rgbColors: Colorref = this.rgbColors, lCustData: Lparam = this.lCustData, lpfnHook: Lpcfhookproc = this.lpfnHook, lpTemplateName: Pcwstr = this.lpTemplateName, hInstance: Hinstance = this.hInstance, lpszStyle: Pwstr = this.lpszStyle, nFontType: ChoosefontFontType = this.nFontType, missingAlignment: UShort = this.missingAlignment, nSizeMin: Int = this.nSizeMin, nSizeMax: Int = this.nSizeMax): Choosefontw = Choosefontw(lStructSize = lStructSize, hwndOwnerCtorArg = hwndOwner, hDCCtorArg = hDC, lpLogFontCtorArg = lpLogFont, iPointSize = iPointSize, flags = flags, rgbColors = rgbColors, lCustData = lCustData, lpfnHook = lpfnHook, lpTemplateNameCtorArg = lpTemplateName, hInstanceCtorArg = hInstance, lpszStyleCtorArg = lpszStyle, nFontType = nFontType, missingAlignment = missingAlignment, nSizeMin = nSizeMin, nSizeMax = nSizeMax)
+    public fun copy(lStructSize: UInt = this.lStructSize, hwndOwner: Hwnd = this.hwndOwner, hDC: Hdc = this.hDC, lpLogFont: MutPtr = this.lpLogFont, iPointSize: Int = this.iPointSize, flags: ChoosefontFlags = this.flags, rgbColors: Colorref = this.rgbColors, lCustData: Lparam = this.lCustData, lpfnHook: Lpcfhookproc = this.lpfnHook, lpTemplateName: Pcwstr = this.lpTemplateName, hInstance: Hinstance = this.hInstance, lpszStyle: Pwstr = this.lpszStyle, nFontType: ChoosefontFontType = this.nFontType, missingAlignment: UShort = this.missingAlignment, nSizeMin: Int = this.nSizeMin, nSizeMax: Int = this.nSizeMax): Choosefontw = Choosefontw(lStructSize = lStructSize, hwndOwnerCtorArg = hwndOwner, hDCCtorArg = hDC, lpLogFontCtorArg = lpLogFont, iPointSize = iPointSize, flags = flags, rgbColors = rgbColors, lCustData = lCustData, lpfnHook = lpfnHook, lpTemplateNameCtorArg = lpTemplateName, hInstanceCtorArg = hInstance, lpszStyleCtorArg = lpszStyle, nFontType = nFontType, missingAlignment = missingAlignment, nSizeMin = nSizeMin, nSizeMax = nSizeMax)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -547,7 +543,7 @@ public class Choosefontw internal constructor(
             lStructSize: UInt = 0u,
             hwndOwner: Hwnd = MutPtr(0L),
             hDC: Hdc = MutPtr(0L),
-            lpLogFont: MutPtr<Logfontw> = MutPtr(0L),
+            lpLogFont: MutPtr = MutPtr(0L),
             iPointSize: Int = 0,
             flags: ChoosefontFlags = 0u,
             rgbColors: Colorref = 0u,
@@ -868,10 +864,10 @@ public class Findreplacew internal constructor(
 
 public class Ofnotifya internal constructor(
     public var hdr: Nmhdr,
-    lpOFNCtorArg: MutPtr<Openfilenamea>,
+    lpOFNCtorArg: MutPtr,
     pszFileCtorArg: Pstr,
 ) {
-    public var lpOFN: MutPtr<Openfilenamea> = lpOFNCtorArg
+    public var lpOFN: MutPtr = lpOFNCtorArg
         internal set
 
     public var pszFile: Pstr = pszFileCtorArg
@@ -885,11 +881,11 @@ public class Ofnotifya internal constructor(
 
     public operator fun component1(): Nmhdr = this.hdr
 
-    public operator fun component2(): MutPtr<Openfilenamea> = this.lpOFN
+    public operator fun component2(): MutPtr = this.lpOFN
 
     public operator fun component3(): Pstr = this.pszFile
 
-    public fun copy(hdr: Nmhdr = this.hdr, lpOFN: MutPtr<Openfilenamea> = this.lpOFN, pszFile: Pstr = this.pszFile): Ofnotifya = Ofnotifya(hdr = hdr, lpOFNCtorArg = lpOFN, pszFileCtorArg = pszFile)
+    public fun copy(hdr: Nmhdr = this.hdr, lpOFN: MutPtr = this.lpOFN, pszFile: Pstr = this.pszFile): Ofnotifya = Ofnotifya(hdr = hdr, lpOFNCtorArg = lpOFN, pszFileCtorArg = pszFile)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -910,7 +906,7 @@ public class Ofnotifya internal constructor(
     public companion object {
         public operator fun invoke(
             hdr: Nmhdr = Nmhdr(),
-            lpOFN: MutPtr<Openfilenamea> = MutPtr(0L),
+            lpOFN: MutPtr = MutPtr(0L),
             pszFile: Pstr = MutPtr(0L),
         ): Ofnotifya =
             Ofnotifya(
@@ -923,17 +919,17 @@ public class Ofnotifya internal constructor(
 
 public class Ofnotifyexa internal constructor(
     public var hdr: Nmhdr,
-    lpOFNCtorArg: MutPtr<Openfilenamea>,
-    psfCtorArg: MutPtr<CVoid>,
-    pidlCtorArg: MutPtr<CVoid>,
+    lpOFNCtorArg: MutPtr,
+    psfCtorArg: MutPtr,
+    pidlCtorArg: MutPtr,
 ) {
-    public var lpOFN: MutPtr<Openfilenamea> = lpOFNCtorArg
+    public var lpOFN: MutPtr = lpOFNCtorArg
         internal set
 
-    public var psf: MutPtr<CVoid> = psfCtorArg
+    public var psf: MutPtr = psfCtorArg
         internal set
 
-    public var pidl: MutPtr<CVoid> = pidlCtorArg
+    public var pidl: MutPtr = pidlCtorArg
         internal set
 
     public constructor() : this(
@@ -945,13 +941,13 @@ public class Ofnotifyexa internal constructor(
 
     public operator fun component1(): Nmhdr = this.hdr
 
-    public operator fun component2(): MutPtr<Openfilenamea> = this.lpOFN
+    public operator fun component2(): MutPtr = this.lpOFN
 
-    public operator fun component3(): MutPtr<CVoid> = this.psf
+    public operator fun component3(): MutPtr = this.psf
 
-    public operator fun component4(): MutPtr<CVoid> = this.pidl
+    public operator fun component4(): MutPtr = this.pidl
 
-    public fun copy(hdr: Nmhdr = this.hdr, lpOFN: MutPtr<Openfilenamea> = this.lpOFN, psf: MutPtr<CVoid> = this.psf, pidl: MutPtr<CVoid> = this.pidl): Ofnotifyexa = Ofnotifyexa(hdr = hdr, lpOFNCtorArg = lpOFN, psfCtorArg = psf, pidlCtorArg = pidl)
+    public fun copy(hdr: Nmhdr = this.hdr, lpOFN: MutPtr = this.lpOFN, psf: MutPtr = this.psf, pidl: MutPtr = this.pidl): Ofnotifyexa = Ofnotifyexa(hdr = hdr, lpOFNCtorArg = lpOFN, psfCtorArg = psf, pidlCtorArg = pidl)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -974,9 +970,9 @@ public class Ofnotifyexa internal constructor(
     public companion object {
         public operator fun invoke(
             hdr: Nmhdr = Nmhdr(),
-            lpOFN: MutPtr<Openfilenamea> = MutPtr(0L),
-            psf: MutPtr<CVoid> = MutPtr(0L),
-            pidl: MutPtr<CVoid> = MutPtr(0L),
+            lpOFN: MutPtr = MutPtr(0L),
+            psf: MutPtr = MutPtr(0L),
+            pidl: MutPtr = MutPtr(0L),
         ): Ofnotifyexa =
             Ofnotifyexa(
                 hdr = hdr,
@@ -989,17 +985,17 @@ public class Ofnotifyexa internal constructor(
 
 public class Ofnotifyexw internal constructor(
     public var hdr: Nmhdr,
-    lpOFNCtorArg: MutPtr<Openfilenamew>,
-    psfCtorArg: MutPtr<CVoid>,
-    pidlCtorArg: MutPtr<CVoid>,
+    lpOFNCtorArg: MutPtr,
+    psfCtorArg: MutPtr,
+    pidlCtorArg: MutPtr,
 ) {
-    public var lpOFN: MutPtr<Openfilenamew> = lpOFNCtorArg
+    public var lpOFN: MutPtr = lpOFNCtorArg
         internal set
 
-    public var psf: MutPtr<CVoid> = psfCtorArg
+    public var psf: MutPtr = psfCtorArg
         internal set
 
-    public var pidl: MutPtr<CVoid> = pidlCtorArg
+    public var pidl: MutPtr = pidlCtorArg
         internal set
 
     public constructor() : this(
@@ -1011,13 +1007,13 @@ public class Ofnotifyexw internal constructor(
 
     public operator fun component1(): Nmhdr = this.hdr
 
-    public operator fun component2(): MutPtr<Openfilenamew> = this.lpOFN
+    public operator fun component2(): MutPtr = this.lpOFN
 
-    public operator fun component3(): MutPtr<CVoid> = this.psf
+    public operator fun component3(): MutPtr = this.psf
 
-    public operator fun component4(): MutPtr<CVoid> = this.pidl
+    public operator fun component4(): MutPtr = this.pidl
 
-    public fun copy(hdr: Nmhdr = this.hdr, lpOFN: MutPtr<Openfilenamew> = this.lpOFN, psf: MutPtr<CVoid> = this.psf, pidl: MutPtr<CVoid> = this.pidl): Ofnotifyexw = Ofnotifyexw(hdr = hdr, lpOFNCtorArg = lpOFN, psfCtorArg = psf, pidlCtorArg = pidl)
+    public fun copy(hdr: Nmhdr = this.hdr, lpOFN: MutPtr = this.lpOFN, psf: MutPtr = this.psf, pidl: MutPtr = this.pidl): Ofnotifyexw = Ofnotifyexw(hdr = hdr, lpOFNCtorArg = lpOFN, psfCtorArg = psf, pidlCtorArg = pidl)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -1040,9 +1036,9 @@ public class Ofnotifyexw internal constructor(
     public companion object {
         public operator fun invoke(
             hdr: Nmhdr = Nmhdr(),
-            lpOFN: MutPtr<Openfilenamew> = MutPtr(0L),
-            psf: MutPtr<CVoid> = MutPtr(0L),
-            pidl: MutPtr<CVoid> = MutPtr(0L),
+            lpOFN: MutPtr = MutPtr(0L),
+            psf: MutPtr = MutPtr(0L),
+            pidl: MutPtr = MutPtr(0L),
         ): Ofnotifyexw =
             Ofnotifyexw(
                 hdr = hdr,
@@ -1055,10 +1051,10 @@ public class Ofnotifyexw internal constructor(
 
 public class Ofnotifyw internal constructor(
     public var hdr: Nmhdr,
-    lpOFNCtorArg: MutPtr<Openfilenamew>,
+    lpOFNCtorArg: MutPtr,
     pszFileCtorArg: Pwstr,
 ) {
-    public var lpOFN: MutPtr<Openfilenamew> = lpOFNCtorArg
+    public var lpOFN: MutPtr = lpOFNCtorArg
         internal set
 
     public var pszFile: Pwstr = pszFileCtorArg
@@ -1072,11 +1068,11 @@ public class Ofnotifyw internal constructor(
 
     public operator fun component1(): Nmhdr = this.hdr
 
-    public operator fun component2(): MutPtr<Openfilenamew> = this.lpOFN
+    public operator fun component2(): MutPtr = this.lpOFN
 
     public operator fun component3(): Pwstr = this.pszFile
 
-    public fun copy(hdr: Nmhdr = this.hdr, lpOFN: MutPtr<Openfilenamew> = this.lpOFN, pszFile: Pwstr = this.pszFile): Ofnotifyw = Ofnotifyw(hdr = hdr, lpOFNCtorArg = lpOFN, pszFileCtorArg = pszFile)
+    public fun copy(hdr: Nmhdr = this.hdr, lpOFN: MutPtr = this.lpOFN, pszFile: Pwstr = this.pszFile): Ofnotifyw = Ofnotifyw(hdr = hdr, lpOFNCtorArg = lpOFN, pszFileCtorArg = pszFile)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -1097,7 +1093,7 @@ public class Ofnotifyw internal constructor(
     public companion object {
         public operator fun invoke(
             hdr: Nmhdr = Nmhdr(),
-            lpOFN: MutPtr<Openfilenamew> = MutPtr(0L),
+            lpOFN: MutPtr = MutPtr(0L),
             pszFile: Pwstr = MutPtr(0L),
         ): Ofnotifyw =
             Ofnotifyw(
@@ -1129,7 +1125,7 @@ public class Openfilenamea internal constructor(
     public var lCustData: Lparam,
     public var lpfnHook: Lpofnhookproc,
     lpTemplateNameCtorArg: Pcstr,
-    pvReservedCtorArg: MutPtr<CVoid>,
+    pvReservedCtorArg: MutPtr,
     public var dwReserved: UInt,
     public var flagsEx: OpenFilenameFlagsEx,
 ) {
@@ -1163,7 +1159,7 @@ public class Openfilenamea internal constructor(
     public var lpTemplateName: Pcstr = lpTemplateNameCtorArg
         internal set
 
-    public var pvReserved: MutPtr<CVoid> = pvReservedCtorArg
+    public var pvReserved: MutPtr = pvReservedCtorArg
         internal set
 
     public constructor() : this(
@@ -1214,7 +1210,7 @@ public class Openfilenamea internal constructor(
             lCustData: Lparam = 0L,
             lpfnHook: Lpofnhookproc = null,
             lpTemplateName: Pcstr = ConstPtr(0L),
-            pvReserved: MutPtr<CVoid> = MutPtr(0L),
+            pvReserved: MutPtr = MutPtr(0L),
             dwReserved: UInt = 0u,
             flagsEx: OpenFilenameFlagsEx = 0u,
         ): Openfilenamea =
@@ -1267,7 +1263,7 @@ public class Openfilenamew internal constructor(
     public var lCustData: Lparam,
     public var lpfnHook: Lpofnhookproc,
     lpTemplateNameCtorArg: Pcwstr,
-    pvReservedCtorArg: MutPtr<CVoid>,
+    pvReservedCtorArg: MutPtr,
     public var dwReserved: UInt,
     public var flagsEx: OpenFilenameFlagsEx,
 ) {
@@ -1301,7 +1297,7 @@ public class Openfilenamew internal constructor(
     public var lpTemplateName: Pcwstr = lpTemplateNameCtorArg
         internal set
 
-    public var pvReserved: MutPtr<CVoid> = pvReservedCtorArg
+    public var pvReserved: MutPtr = pvReservedCtorArg
         internal set
 
     public constructor() : this(
@@ -1352,7 +1348,7 @@ public class Openfilenamew internal constructor(
             lCustData: Lparam = 0L,
             lpfnHook: Lpofnhookproc = null,
             lpTemplateName: Pcwstr = ConstPtr(0L),
-            pvReserved: MutPtr<CVoid> = MutPtr(0L),
+            pvReserved: MutPtr = MutPtr(0L),
             dwReserved: UInt = 0u,
             flagsEx: OpenFilenameFlagsEx = 0u,
         ): Openfilenamew =
@@ -2067,15 +2063,15 @@ public class Printdlgexa internal constructor(
     public var exclusionFlags: UInt,
     public var nPageRanges: UInt,
     public var nMaxPageRanges: UInt,
-    lpPageRangesCtorArg: MutPtr<Printpagerange>,
+    lpPageRangesCtorArg: MutPtr,
     public var nMinPage: UInt,
     public var nMaxPage: UInt,
     public var nCopies: UInt,
     hInstanceCtorArg: Hinstance,
     lpPrintTemplateNameCtorArg: Pcstr,
-    lpCallbackCtorArg: MutPtr<CVoid>,
+    lpCallbackCtorArg: MutPtr,
     public var nPropertyPages: UInt,
-    lphPropertyPagesCtorArg: MutPtr<Hpropsheetpage>,
+    lphPropertyPagesCtorArg: MutPtr,
     public var nStartPage: UInt,
     public var dwResultAction: UInt,
 ) {
@@ -2091,7 +2087,7 @@ public class Printdlgexa internal constructor(
     public var hDC: Hdc = hDCCtorArg
         internal set
 
-    public var lpPageRanges: MutPtr<Printpagerange> = lpPageRangesCtorArg
+    public var lpPageRanges: MutPtr = lpPageRangesCtorArg
         internal set
 
     public var hInstance: Hinstance = hInstanceCtorArg
@@ -2100,10 +2096,10 @@ public class Printdlgexa internal constructor(
     public var lpPrintTemplateName: Pcstr = lpPrintTemplateNameCtorArg
         internal set
 
-    public var lpCallback: MutPtr<CVoid> = lpCallbackCtorArg
+    public var lpCallback: MutPtr = lpCallbackCtorArg
         internal set
 
-    public var lphPropertyPages: MutPtr<Hpropsheetpage> = lphPropertyPagesCtorArg
+    public var lphPropertyPages: MutPtr = lphPropertyPagesCtorArg
         internal set
 
     public constructor() : this(
@@ -2142,15 +2138,15 @@ public class Printdlgexa internal constructor(
             exclusionFlags: UInt = 0u,
             nPageRanges: UInt = 0u,
             nMaxPageRanges: UInt = 0u,
-            lpPageRanges: MutPtr<Printpagerange> = MutPtr(0L),
+            lpPageRanges: MutPtr = MutPtr(0L),
             nMinPage: UInt = 0u,
             nMaxPage: UInt = 0u,
             nCopies: UInt = 0u,
             hInstance: Hinstance = MutPtr(0L),
             lpPrintTemplateName: Pcstr = ConstPtr(0L),
-            lpCallback: MutPtr<CVoid> = MutPtr(0L),
+            lpCallback: MutPtr = MutPtr(0L),
             nPropertyPages: UInt = 0u,
-            lphPropertyPages: MutPtr<Hpropsheetpage> = MutPtr(0L),
+            lphPropertyPages: MutPtr = MutPtr(0L),
             nStartPage: UInt = 0u,
             dwResultAction: UInt = 0u,
         ): Printdlgexa =
@@ -2191,15 +2187,15 @@ public class Printdlgexw internal constructor(
     public var exclusionFlags: UInt,
     public var nPageRanges: UInt,
     public var nMaxPageRanges: UInt,
-    lpPageRangesCtorArg: MutPtr<Printpagerange>,
+    lpPageRangesCtorArg: MutPtr,
     public var nMinPage: UInt,
     public var nMaxPage: UInt,
     public var nCopies: UInt,
     hInstanceCtorArg: Hinstance,
     lpPrintTemplateNameCtorArg: Pcwstr,
-    lpCallbackCtorArg: MutPtr<CVoid>,
+    lpCallbackCtorArg: MutPtr,
     public var nPropertyPages: UInt,
-    lphPropertyPagesCtorArg: MutPtr<Hpropsheetpage>,
+    lphPropertyPagesCtorArg: MutPtr,
     public var nStartPage: UInt,
     public var dwResultAction: UInt,
 ) {
@@ -2215,7 +2211,7 @@ public class Printdlgexw internal constructor(
     public var hDC: Hdc = hDCCtorArg
         internal set
 
-    public var lpPageRanges: MutPtr<Printpagerange> = lpPageRangesCtorArg
+    public var lpPageRanges: MutPtr = lpPageRangesCtorArg
         internal set
 
     public var hInstance: Hinstance = hInstanceCtorArg
@@ -2224,10 +2220,10 @@ public class Printdlgexw internal constructor(
     public var lpPrintTemplateName: Pcwstr = lpPrintTemplateNameCtorArg
         internal set
 
-    public var lpCallback: MutPtr<CVoid> = lpCallbackCtorArg
+    public var lpCallback: MutPtr = lpCallbackCtorArg
         internal set
 
-    public var lphPropertyPages: MutPtr<Hpropsheetpage> = lphPropertyPagesCtorArg
+    public var lphPropertyPages: MutPtr = lphPropertyPagesCtorArg
         internal set
 
     public constructor() : this(
@@ -2266,15 +2262,15 @@ public class Printdlgexw internal constructor(
             exclusionFlags: UInt = 0u,
             nPageRanges: UInt = 0u,
             nMaxPageRanges: UInt = 0u,
-            lpPageRanges: MutPtr<Printpagerange> = MutPtr(0L),
+            lpPageRanges: MutPtr = MutPtr(0L),
             nMinPage: UInt = 0u,
             nMaxPage: UInt = 0u,
             nCopies: UInt = 0u,
             hInstance: Hinstance = MutPtr(0L),
             lpPrintTemplateName: Pcwstr = ConstPtr(0L),
-            lpCallback: MutPtr<CVoid> = MutPtr(0L),
+            lpCallback: MutPtr = MutPtr(0L),
             nPropertyPages: UInt = 0u,
-            lphPropertyPages: MutPtr<Hpropsheetpage> = MutPtr(0L),
+            lphPropertyPages: MutPtr = MutPtr(0L),
             nStartPage: UInt = 0u,
             dwResultAction: UInt = 0u,
         ): Printdlgexw =

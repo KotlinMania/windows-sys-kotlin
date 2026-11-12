@@ -38,7 +38,7 @@ public actual fun fhServiceBlockBackup(pipe: FhServicePipeHandle): Hresult =
 public actual fun fhServiceClosePipe(pipe: FhServicePipeHandle): Hresult =
     if (windowsWin32StorageFilehistoryNapiAvailable) wasmWindowssysWindowsWin32StorageFilehistoryFhServiceClosePipe(pipe.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun fhServiceOpenPipe(startserviceifstopped: Bool, pipe: MutPtr<FhServicePipeHandle>): Hresult =
+public actual fun fhServiceOpenPipe(startserviceifstopped: Bool, pipe: MutPtr): Hresult =
     if (windowsWin32StorageFilehistoryNapiAvailable) wasmWindowssysWindowsWin32StorageFilehistoryFhServiceOpenPipe(startserviceifstopped, pipe.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun fhServiceReloadConfiguration(pipe: FhServicePipeHandle): Hresult =

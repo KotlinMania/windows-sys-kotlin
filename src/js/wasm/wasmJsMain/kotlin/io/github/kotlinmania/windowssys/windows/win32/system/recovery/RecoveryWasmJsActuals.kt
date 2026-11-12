@@ -2,7 +2,6 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.system.recovery
 
-import io.github.kotlinmania.rustlang.core.ffi.CVoid
 import io.github.kotlinmania.rustlang.core.ptr.ConstPtr
 import io.github.kotlinmania.rustlang.core.ptr.MutPtr
 import io.github.kotlinmania.windowssys.core.Bool
@@ -49,16 +48,16 @@ public actual fun applicationRecoveryFinished(bsuccess: Bool) {
     }
 }
 
-public actual fun applicationRecoveryInProgress(pbcancelled: MutPtr<Bool>): Hresult =
+public actual fun applicationRecoveryInProgress(pbcancelled: MutPtr): Hresult =
     if (windowsWin32SystemRecoveryNapiAvailable) wasmWindowssysWindowsWin32SystemRecoveryApplicationRecoveryInProgress(pbcancelled.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun getApplicationRecoveryCallback(hprocess: Handle, precoverycallback: MutPtr<ApplicationRecoveryCallback>, ppvparameter: MutPtr<MutPtr<CVoid>>, pdwpinginterval: MutPtr<UInt>, pdwflags: MutPtr<UInt>): Hresult =
+public actual fun getApplicationRecoveryCallback(hprocess: Handle, precoverycallback: MutPtr, ppvparameter: MutPtr, pdwpinginterval: MutPtr, pdwflags: MutPtr): Hresult =
     if (windowsWin32SystemRecoveryNapiAvailable) wasmWindowssysWindowsWin32SystemRecoveryGetApplicationRecoveryCallback(hprocess.rawAddress.toString(), precoverycallback.rawAddress.toString(), ppvparameter.rawAddress.toString(), pdwpinginterval.rawAddress.toString(), pdwflags.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun getApplicationRestartSettings(hprocess: Handle, pwzcommandline: Pwstr, pcchsize: MutPtr<UInt>, pdwflags: MutPtr<UInt>): Hresult =
+public actual fun getApplicationRestartSettings(hprocess: Handle, pwzcommandline: Pwstr, pcchsize: MutPtr, pdwflags: MutPtr): Hresult =
     if (windowsWin32SystemRecoveryNapiAvailable) wasmWindowssysWindowsWin32SystemRecoveryGetApplicationRestartSettings(hprocess.rawAddress.toString(), pwzcommandline.rawAddress.toString(), pcchsize.rawAddress.toString(), pdwflags.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun registerApplicationRecoveryCallback(precoveycallback: ApplicationRecoveryCallback, pvparameter: ConstPtr<CVoid>, dwpinginterval: UInt, dwflags: UInt): Hresult =
+public actual fun registerApplicationRecoveryCallback(precoveycallback: ApplicationRecoveryCallback, pvparameter: ConstPtr, dwpinginterval: UInt, dwflags: UInt): Hresult =
     if (windowsWin32SystemRecoveryNapiAvailable) wasmWindowssysWindowsWin32SystemRecoveryRegisterApplicationRecoveryCallback(0L.toString(), pvparameter.rawAddress.toString(), dwpinginterval.toInt(), dwflags.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun registerApplicationRestart(pwzcommandline: Pcwstr, dwflags: RegisterApplicationRestartFlags): Hresult =

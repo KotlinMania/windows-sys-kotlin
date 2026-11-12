@@ -53,9 +53,9 @@ public data class Cainfo(
 
 public class Certtransblob internal constructor(
     public var cb: UInt,
-    pbCtorArg: MutPtr<UByte>,
+    pbCtorArg: MutPtr,
 ) {
-    public var pb: MutPtr<UByte> = pbCtorArg
+    public var pb: MutPtr = pbCtorArg
         internal set
 
     public constructor() : this(
@@ -65,9 +65,9 @@ public class Certtransblob internal constructor(
 
     public operator fun component1(): UInt = this.cb
 
-    public operator fun component2(): MutPtr<UByte> = this.pb
+    public operator fun component2(): MutPtr = this.pb
 
-    public fun copy(cb: UInt = this.cb, pb: MutPtr<UByte> = this.pb): Certtransblob = Certtransblob(cb = cb, pbCtorArg = pb)
+    public fun copy(cb: UInt = this.cb, pb: MutPtr = this.pb): Certtransblob = Certtransblob(cb = cb, pbCtorArg = pb)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -93,21 +93,21 @@ public class Certtransblob internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<UByte>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                     )
                 override fun writeNative(addr: Long, value: Certtransblob) {
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr, value.cb)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<UByte>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.pb)
                 }
             }
 
         public operator fun invoke(
             cb: UInt = 0u,
-            pb: MutPtr<UByte> = MutPtr(0L),
+            pb: MutPtr = MutPtr(0L),
         ): Certtransblob =
             Certtransblob(
                 cb = cb,
@@ -120,10 +120,10 @@ public class Certviewrestriction internal constructor(
     public var columnIndex: UInt,
     public var seekOperator: Int,
     public var sortOrder: Int,
-    pbValueCtorArg: MutPtr<UByte>,
+    pbValueCtorArg: MutPtr,
     public var cbValue: UInt,
 ) {
-    public var pbValue: MutPtr<UByte> = pbValueCtorArg
+    public var pbValue: MutPtr = pbValueCtorArg
         internal set
 
     public constructor() : this(
@@ -140,11 +140,11 @@ public class Certviewrestriction internal constructor(
 
     public operator fun component3(): Int = this.sortOrder
 
-    public operator fun component4(): MutPtr<UByte> = this.pbValue
+    public operator fun component4(): MutPtr = this.pbValue
 
     public operator fun component5(): UInt = this.cbValue
 
-    public fun copy(columnIndex: UInt = this.columnIndex, seekOperator: Int = this.seekOperator, sortOrder: Int = this.sortOrder, pbValue: MutPtr<UByte> = this.pbValue, cbValue: UInt = this.cbValue): Certviewrestriction = Certviewrestriction(columnIndex = columnIndex, seekOperator = seekOperator, sortOrder = sortOrder, pbValueCtorArg = pbValue, cbValue = cbValue)
+    public fun copy(columnIndex: UInt = this.columnIndex, seekOperator: Int = this.seekOperator, sortOrder: Int = this.sortOrder, pbValue: MutPtr = this.pbValue, cbValue: UInt = this.cbValue): Certviewrestriction = Certviewrestriction(columnIndex = columnIndex, seekOperator = seekOperator, sortOrder = sortOrder, pbValueCtorArg = pbValue, cbValue = cbValue)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -178,7 +178,7 @@ public class Certviewrestriction internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr + 8L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<UByte>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 16L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 24L),
                     )
@@ -188,7 +188,7 @@ public class Certviewrestriction internal constructor(
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr + 8L, value.sortOrder)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<UByte>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 16L, value.pbValue)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 24L, value.cbValue)
                 }
@@ -198,7 +198,7 @@ public class Certviewrestriction internal constructor(
             columnIndex: UInt = 0u,
             seekOperator: Int = 0,
             sortOrder: Int = 0,
-            pbValue: MutPtr<UByte> = MutPtr(0L),
+            pbValue: MutPtr = MutPtr(0L),
             cbValue: UInt = 0u,
         ): Certviewrestriction =
             Certviewrestriction(

@@ -16,8 +16,8 @@ private external fun wasmWindowssysWindowsWin32StorageOperationrecorderOperation
 @JsFun("(p0) => globalThis.__km_napi_windowssys.windowssysWindowsWin32StorageOperationrecorderOperationStart(p0)")
 private external fun wasmWindowssysWindowsWin32StorageOperationrecorderOperationStart(p0: String): Int
 
-public actual fun operationEnd(operationendparams: ConstPtr<OperationEndParameters>): Bool =
+public actual fun operationEnd(operationendparams: ConstPtr): Bool =
     if (windowsWin32StorageOperationrecorderNapiAvailable) wasmWindowssysWindowsWin32StorageOperationrecorderOperationEnd(operationendparams.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun operationStart(operationstartparams: ConstPtr<OperationStartParameters>): Bool =
+public actual fun operationStart(operationstartparams: ConstPtr): Bool =
     if (windowsWin32StorageOperationrecorderNapiAvailable) wasmWindowssysWindowsWin32StorageOperationrecorderOperationStart(operationstartparams.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")

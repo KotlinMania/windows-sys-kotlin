@@ -1,6 +1,5 @@
 package io.github.kotlinmania.windowssys.windows.win32.system.performance
 
-import io.github.kotlinmania.rustlang.core.ffi.CVoid
 import io.github.kotlinmania.rustlang.core.ptr.MutPtr
 import io.github.kotlinmania.windowssys.core.Pcwstr
 
@@ -34,11 +33,11 @@ public typealias PdhDllVersion = UInt
 
 public typealias PdhFmt = UInt
 
-public typealias PdhHcounter = MutPtr<CVoid>
+public typealias PdhHcounter = MutPtr
 
-public typealias PdhHlog = MutPtr<CVoid>
+public typealias PdhHlog = MutPtr
 
-public typealias PdhHquery = MutPtr<CVoid>
+public typealias PdhHquery = MutPtr
 
 public typealias PdhLog = UInt
 
@@ -49,7 +48,7 @@ public typealias PdhPathFlags = UInt
 public typealias PdhSelectDataSourceFlags = UInt
 
 public fun interface PerflibrequestFn {
-    public operator fun invoke(requestcode: UInt, buffer: MutPtr<CVoid>, buffersize: UInt): UInt
+    public operator fun invoke(requestcode: UInt, buffer: MutPtr, buffersize: UInt): UInt
 }
 
 public typealias Perflibrequest = PerflibrequestFn?
@@ -59,19 +58,19 @@ public typealias PerfCounterAggregateFunc = UInt
 public typealias PerfDetail = UInt
 
 public fun interface PerfMemAllocFn {
-    public operator fun invoke(allocsize: ULong, pcontext: MutPtr<CVoid>): MutPtr<CVoid>
+    public operator fun invoke(allocsize: ULong, pcontext: MutPtr): MutPtr
 }
 
 public typealias PerfMemAlloc = PerfMemAllocFn?
 
 public fun interface PerfMemFreeFn {
-    public operator fun invoke(pbuffer: MutPtr<CVoid>, pcontext: MutPtr<CVoid>)
+    public operator fun invoke(pbuffer: MutPtr, pcontext: MutPtr)
 }
 
 public typealias PerfMemFree = PerfMemFreeFn?
 
 public fun interface PlaCabextractCallbackFn {
-    public operator fun invoke(filename: Pcwstr, context: MutPtr<CVoid>)
+    public operator fun invoke(filename: Pcwstr, context: MutPtr)
 }
 
 public typealias PlaCabextractCallback = PlaCabextractCallbackFn?
@@ -83,7 +82,7 @@ public fun interface PmCloseProcFn {
 public typealias PmCloseProc = PmCloseProcFn?
 
 public fun interface PmCollectProcFn {
-    public operator fun invoke(pvaluename: Pcwstr, ppdata: MutPtr<MutPtr<CVoid>>, pcbtotalbytes: MutPtr<UInt>, pnumobjecttypes: MutPtr<UInt>): UInt
+    public operator fun invoke(pvaluename: Pcwstr, ppdata: MutPtr, pcbtotalbytes: MutPtr, pnumobjecttypes: MutPtr): UInt
 }
 
 public typealias PmCollectProc = PmCollectProcFn?

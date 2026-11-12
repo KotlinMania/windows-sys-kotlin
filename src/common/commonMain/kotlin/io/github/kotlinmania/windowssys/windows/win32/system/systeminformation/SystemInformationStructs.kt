@@ -2,7 +2,6 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.system.systeminformation
 
-import io.github.kotlinmania.rustlang.core.ffi.CVoid
 import io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
 import io.github.kotlinmania.rustlang.core.mem.TypeLayout
 import io.github.kotlinmania.rustlang.core.ptr.MutPtr
@@ -766,8 +765,8 @@ public data class SystemCpuSetInformation001(
 public class SystemInfo internal constructor(
     public var anonymous: SystemInfo0,
     public var dwPageSize: UInt,
-    lpMinimumApplicationAddressCtorArg: MutPtr<CVoid>,
-    lpMaximumApplicationAddressCtorArg: MutPtr<CVoid>,
+    lpMinimumApplicationAddressCtorArg: MutPtr,
+    lpMaximumApplicationAddressCtorArg: MutPtr,
     public var dwActiveProcessorMask: Int,
     public var dwNumberOfProcessors: UInt,
     public var dwProcessorType: UInt,
@@ -775,10 +774,10 @@ public class SystemInfo internal constructor(
     public var wProcessorLevel: UShort,
     public var wProcessorRevision: UShort,
 ) {
-    public var lpMinimumApplicationAddress: MutPtr<CVoid> = lpMinimumApplicationAddressCtorArg
+    public var lpMinimumApplicationAddress: MutPtr = lpMinimumApplicationAddressCtorArg
         internal set
 
-    public var lpMaximumApplicationAddress: MutPtr<CVoid> = lpMaximumApplicationAddressCtorArg
+    public var lpMaximumApplicationAddress: MutPtr = lpMaximumApplicationAddressCtorArg
         internal set
 
     public constructor() : this(
@@ -798,9 +797,9 @@ public class SystemInfo internal constructor(
 
     public operator fun component2(): UInt = this.dwPageSize
 
-    public operator fun component3(): MutPtr<CVoid> = this.lpMinimumApplicationAddress
+    public operator fun component3(): MutPtr = this.lpMinimumApplicationAddress
 
-    public operator fun component4(): MutPtr<CVoid> = this.lpMaximumApplicationAddress
+    public operator fun component4(): MutPtr = this.lpMaximumApplicationAddress
 
     public operator fun component5(): Int = this.dwActiveProcessorMask
 
@@ -814,7 +813,7 @@ public class SystemInfo internal constructor(
 
     public operator fun component10(): UShort = this.wProcessorRevision
 
-    public fun copy(anonymous: SystemInfo0 = this.anonymous, dwPageSize: UInt = this.dwPageSize, lpMinimumApplicationAddress: MutPtr<CVoid> = this.lpMinimumApplicationAddress, lpMaximumApplicationAddress: MutPtr<CVoid> = this.lpMaximumApplicationAddress, dwActiveProcessorMask: Int = this.dwActiveProcessorMask, dwNumberOfProcessors: UInt = this.dwNumberOfProcessors, dwProcessorType: UInt = this.dwProcessorType, dwAllocationGranularity: UInt = this.dwAllocationGranularity, wProcessorLevel: UShort = this.wProcessorLevel, wProcessorRevision: UShort = this.wProcessorRevision): SystemInfo = SystemInfo(anonymous = anonymous, dwPageSize = dwPageSize, lpMinimumApplicationAddressCtorArg = lpMinimumApplicationAddress, lpMaximumApplicationAddressCtorArg = lpMaximumApplicationAddress, dwActiveProcessorMask = dwActiveProcessorMask, dwNumberOfProcessors = dwNumberOfProcessors, dwProcessorType = dwProcessorType, dwAllocationGranularity = dwAllocationGranularity, wProcessorLevel = wProcessorLevel, wProcessorRevision = wProcessorRevision)
+    public fun copy(anonymous: SystemInfo0 = this.anonymous, dwPageSize: UInt = this.dwPageSize, lpMinimumApplicationAddress: MutPtr = this.lpMinimumApplicationAddress, lpMaximumApplicationAddress: MutPtr = this.lpMaximumApplicationAddress, dwActiveProcessorMask: Int = this.dwActiveProcessorMask, dwNumberOfProcessors: UInt = this.dwNumberOfProcessors, dwProcessorType: UInt = this.dwProcessorType, dwAllocationGranularity: UInt = this.dwAllocationGranularity, wProcessorLevel: UShort = this.wProcessorLevel, wProcessorRevision: UShort = this.wProcessorRevision): SystemInfo = SystemInfo(anonymous = anonymous, dwPageSize = dwPageSize, lpMinimumApplicationAddressCtorArg = lpMinimumApplicationAddress, lpMaximumApplicationAddressCtorArg = lpMaximumApplicationAddress, dwActiveProcessorMask = dwActiveProcessorMask, dwNumberOfProcessors = dwNumberOfProcessors, dwProcessorType = dwProcessorType, dwAllocationGranularity = dwAllocationGranularity, wProcessorLevel = wProcessorLevel, wProcessorRevision = wProcessorRevision)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -850,8 +849,8 @@ public class SystemInfo internal constructor(
         public operator fun invoke(
             anonymous: SystemInfo0 = SystemInfo0(),
             dwPageSize: UInt = 0u,
-            lpMinimumApplicationAddress: MutPtr<CVoid> = MutPtr(0L),
-            lpMaximumApplicationAddress: MutPtr<CVoid> = MutPtr(0L),
+            lpMinimumApplicationAddress: MutPtr = MutPtr(0L),
+            lpMaximumApplicationAddress: MutPtr = MutPtr(0L),
             dwActiveProcessorMask: Int = 0,
             dwNumberOfProcessors: UInt = 0u,
             dwProcessorType: UInt = 0u,

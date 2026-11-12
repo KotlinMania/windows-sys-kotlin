@@ -2,7 +2,6 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.system.stationsanddesktops
 
-import io.github.kotlinmania.rustlang.core.ffi.CVoid
 import io.github.kotlinmania.rustlang.core.ptr.ConstPtr
 import io.github.kotlinmania.rustlang.core.ptr.MutPtr
 import io.github.kotlinmania.windowssys.core.Bool
@@ -11,22 +10,19 @@ import io.github.kotlinmania.windowssys.core.Pcwstr
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Handle
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Lparam
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Wparam
-import io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.Devmodea
-import io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.Devmodew
-import io.github.kotlinmania.windowssys.windows.win32.security.SecurityAttributes
 import io.github.kotlinmania.windowssys.windows.win32.ui.windowsandmessaging.Wndenumproc
 
 // The host must provide the C companion wrapper exports in import module windowssys.
-public actual fun broadcastSystemMessageA(flags: UInt, lpinfo: MutPtr<UInt>, msg: UInt, wparam: Wparam, lparam: Lparam): Int =
+public actual fun broadcastSystemMessageA(flags: UInt, lpinfo: MutPtr, msg: UInt, wparam: Wparam, lparam: Lparam): Int =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32SystemStationsanddesktopsBroadcastSystemMessageA")
 
-public actual fun broadcastSystemMessageExA(flags: BroadcastSystemMessageFlags, lpinfo: MutPtr<BroadcastSystemMessageInfo>, msg: UInt, wparam: Wparam, lparam: Lparam, pbsminfo: MutPtr<Bsminfo>): Int =
+public actual fun broadcastSystemMessageExA(flags: BroadcastSystemMessageFlags, lpinfo: MutPtr, msg: UInt, wparam: Wparam, lparam: Lparam, pbsminfo: MutPtr): Int =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32SystemStationsanddesktopsBroadcastSystemMessageExA")
 
-public actual fun broadcastSystemMessageExW(flags: BroadcastSystemMessageFlags, lpinfo: MutPtr<BroadcastSystemMessageInfo>, msg: UInt, wparam: Wparam, lparam: Lparam, pbsminfo: MutPtr<Bsminfo>): Int =
+public actual fun broadcastSystemMessageExW(flags: BroadcastSystemMessageFlags, lpinfo: MutPtr, msg: UInt, wparam: Wparam, lparam: Lparam, pbsminfo: MutPtr): Int =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32SystemStationsanddesktopsBroadcastSystemMessageExW")
 
-public actual fun broadcastSystemMessageW(flags: BroadcastSystemMessageFlags, lpinfo: MutPtr<BroadcastSystemMessageInfo>, msg: UInt, wparam: Wparam, lparam: Lparam): Int =
+public actual fun broadcastSystemMessageW(flags: BroadcastSystemMessageFlags, lpinfo: MutPtr, msg: UInt, wparam: Wparam, lparam: Lparam): Int =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32SystemStationsanddesktopsBroadcastSystemMessageW")
 
 public actual fun closeDesktop(hdesktop: Hdesk): Bool =
@@ -35,22 +31,22 @@ public actual fun closeDesktop(hdesktop: Hdesk): Bool =
 public actual fun closeWindowStation(hwinsta: Hwinsta): Bool =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32SystemStationsanddesktopsCloseWindowStation")
 
-public actual fun createDesktopA(lpszdesktop: Pcstr, lpszdevice: Pcstr, pdevmode: ConstPtr<Devmodea>, dwflags: DesktopControlFlags, dwdesiredaccess: UInt, lpsa: ConstPtr<SecurityAttributes>): Hdesk =
+public actual fun createDesktopA(lpszdesktop: Pcstr, lpszdevice: Pcstr, pdevmode: ConstPtr, dwflags: DesktopControlFlags, dwdesiredaccess: UInt, lpsa: ConstPtr): Hdesk =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32SystemStationsanddesktopsCreateDesktopA")
 
-public actual fun createDesktopExA(lpszdesktop: Pcstr, lpszdevice: Pcstr, pdevmode: ConstPtr<Devmodea>, dwflags: DesktopControlFlags, dwdesiredaccess: UInt, lpsa: ConstPtr<SecurityAttributes>, ulheapsize: UInt, pvoid: ConstPtr<CVoid>): Hdesk =
+public actual fun createDesktopExA(lpszdesktop: Pcstr, lpszdevice: Pcstr, pdevmode: ConstPtr, dwflags: DesktopControlFlags, dwdesiredaccess: UInt, lpsa: ConstPtr, ulheapsize: UInt, pvoid: ConstPtr): Hdesk =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32SystemStationsanddesktopsCreateDesktopExA")
 
-public actual fun createDesktopExW(lpszdesktop: Pcwstr, lpszdevice: Pcwstr, pdevmode: ConstPtr<Devmodew>, dwflags: DesktopControlFlags, dwdesiredaccess: UInt, lpsa: ConstPtr<SecurityAttributes>, ulheapsize: UInt, pvoid: ConstPtr<CVoid>): Hdesk =
+public actual fun createDesktopExW(lpszdesktop: Pcwstr, lpszdevice: Pcwstr, pdevmode: ConstPtr, dwflags: DesktopControlFlags, dwdesiredaccess: UInt, lpsa: ConstPtr, ulheapsize: UInt, pvoid: ConstPtr): Hdesk =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32SystemStationsanddesktopsCreateDesktopExW")
 
-public actual fun createDesktopW(lpszdesktop: Pcwstr, lpszdevice: Pcwstr, pdevmode: ConstPtr<Devmodew>, dwflags: DesktopControlFlags, dwdesiredaccess: UInt, lpsa: ConstPtr<SecurityAttributes>): Hdesk =
+public actual fun createDesktopW(lpszdesktop: Pcwstr, lpszdevice: Pcwstr, pdevmode: ConstPtr, dwflags: DesktopControlFlags, dwdesiredaccess: UInt, lpsa: ConstPtr): Hdesk =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32SystemStationsanddesktopsCreateDesktopW")
 
-public actual fun createWindowStationA(lpwinsta: Pcstr, dwflags: UInt, dwdesiredaccess: UInt, lpsa: ConstPtr<SecurityAttributes>): Hwinsta =
+public actual fun createWindowStationA(lpwinsta: Pcstr, dwflags: UInt, dwdesiredaccess: UInt, lpsa: ConstPtr): Hwinsta =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32SystemStationsanddesktopsCreateWindowStationA")
 
-public actual fun createWindowStationW(lpwinsta: Pcwstr, dwflags: UInt, dwdesiredaccess: UInt, lpsa: ConstPtr<SecurityAttributes>): Hwinsta =
+public actual fun createWindowStationW(lpwinsta: Pcwstr, dwflags: UInt, dwdesiredaccess: UInt, lpsa: ConstPtr): Hwinsta =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32SystemStationsanddesktopsCreateWindowStationW")
 
 public actual fun enumDesktopWindows(hdesktop: Hdesk, lpfn: Wndenumproc, lparam: Lparam): Bool =
@@ -74,10 +70,10 @@ public actual fun getProcessWindowStation(): Hwinsta =
 public actual fun getThreadDesktop(dwthreadid: UInt): Hdesk =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32SystemStationsanddesktopsGetThreadDesktop")
 
-public actual fun getUserObjectInformationA(hobj: Handle, nindex: UserObjectInformationIndex, pvinfo: MutPtr<CVoid>, nlength: UInt, lpnlengthneeded: MutPtr<UInt>): Bool =
+public actual fun getUserObjectInformationA(hobj: Handle, nindex: UserObjectInformationIndex, pvinfo: MutPtr, nlength: UInt, lpnlengthneeded: MutPtr): Bool =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32SystemStationsanddesktopsGetUserObjectInformationA")
 
-public actual fun getUserObjectInformationW(hobj: Handle, nindex: UserObjectInformationIndex, pvinfo: MutPtr<CVoid>, nlength: UInt, lpnlengthneeded: MutPtr<UInt>): Bool =
+public actual fun getUserObjectInformationW(hobj: Handle, nindex: UserObjectInformationIndex, pvinfo: MutPtr, nlength: UInt, lpnlengthneeded: MutPtr): Bool =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32SystemStationsanddesktopsGetUserObjectInformationW")
 
 public actual fun openDesktopA(lpszdesktop: Pcstr, dwflags: DesktopControlFlags, finherit: Bool, dwdesiredaccess: UInt): Hdesk =
@@ -101,10 +97,10 @@ public actual fun setProcessWindowStation(hwinsta: Hwinsta): Bool =
 public actual fun setThreadDesktop(hdesktop: Hdesk): Bool =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32SystemStationsanddesktopsSetThreadDesktop")
 
-public actual fun setUserObjectInformationA(hobj: Handle, nindex: Int, pvinfo: ConstPtr<CVoid>, nlength: UInt): Bool =
+public actual fun setUserObjectInformationA(hobj: Handle, nindex: Int, pvinfo: ConstPtr, nlength: UInt): Bool =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32SystemStationsanddesktopsSetUserObjectInformationA")
 
-public actual fun setUserObjectInformationW(hobj: Handle, nindex: Int, pvinfo: ConstPtr<CVoid>, nlength: UInt): Bool =
+public actual fun setUserObjectInformationW(hobj: Handle, nindex: Int, pvinfo: ConstPtr, nlength: UInt): Bool =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32SystemStationsanddesktopsSetUserObjectInformationW")
 
 public actual fun switchDesktop(hdesktop: Hdesk): Bool =

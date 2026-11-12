@@ -2,7 +2,6 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.networkmanagement.dns
 
-import io.github.kotlinmania.rustlang.core.ffi.CVoid
 import io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
 import io.github.kotlinmania.rustlang.core.mem.TypeLayout
 import io.github.kotlinmania.rustlang.core.ptr.ConstPtr
@@ -190,10 +189,10 @@ public class DnsConnectionIfindexEntry internal constructor(
 }
 
 public class DnsConnectionIfindexList internal constructor(
-    pConnectionIfIndexEntriesCtorArg: MutPtr<DnsConnectionIfindexEntry>,
+    pConnectionIfIndexEntriesCtorArg: MutPtr,
     public var nEntries: UInt,
 ) {
-    public var pConnectionIfIndexEntries: MutPtr<DnsConnectionIfindexEntry> = pConnectionIfIndexEntriesCtorArg
+    public var pConnectionIfIndexEntries: MutPtr = pConnectionIfIndexEntriesCtorArg
         internal set
 
     public constructor() : this(
@@ -201,11 +200,11 @@ public class DnsConnectionIfindexList internal constructor(
         nEntries = 0u,
     )
 
-    public operator fun component1(): MutPtr<DnsConnectionIfindexEntry> = this.pConnectionIfIndexEntries
+    public operator fun component1(): MutPtr = this.pConnectionIfIndexEntries
 
     public operator fun component2(): UInt = this.nEntries
 
-    public fun copy(pConnectionIfIndexEntries: MutPtr<DnsConnectionIfindexEntry> = this.pConnectionIfIndexEntries, nEntries: UInt = this.nEntries): DnsConnectionIfindexList = DnsConnectionIfindexList(pConnectionIfIndexEntriesCtorArg = pConnectionIfIndexEntries, nEntries = nEntries)
+    public fun copy(pConnectionIfIndexEntries: MutPtr = this.pConnectionIfIndexEntries, nEntries: UInt = this.nEntries): DnsConnectionIfindexList = DnsConnectionIfindexList(pConnectionIfIndexEntriesCtorArg = pConnectionIfIndexEntries, nEntries = nEntries)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -230,21 +229,21 @@ public class DnsConnectionIfindexList internal constructor(
                     DnsConnectionIfindexList(
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<DnsConnectionIfindexEntry>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 8L),
                     )
                 override fun writeNative(addr: Long, value: DnsConnectionIfindexList) {
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<DnsConnectionIfindexEntry>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr, value.pConnectionIfIndexEntries)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 8L, value.nEntries)
                 }
             }
 
         public operator fun invoke(
-            pConnectionIfIndexEntries: MutPtr<DnsConnectionIfindexEntry> = MutPtr(0L),
+            pConnectionIfIndexEntries: MutPtr = MutPtr(0L),
             nEntries: UInt = 0u,
         ): DnsConnectionIfindexList =
             DnsConnectionIfindexList(
@@ -290,9 +289,9 @@ public data class DnsConnectionName(
 
 public class DnsConnectionNameList internal constructor(
     public var cNames: UInt,
-    pNamesCtorArg: MutPtr<DnsConnectionName>,
+    pNamesCtorArg: MutPtr,
 ) {
-    public var pNames: MutPtr<DnsConnectionName> = pNamesCtorArg
+    public var pNames: MutPtr = pNamesCtorArg
         internal set
 
     public constructor() : this(
@@ -302,9 +301,9 @@ public class DnsConnectionNameList internal constructor(
 
     public operator fun component1(): UInt = this.cNames
 
-    public operator fun component2(): MutPtr<DnsConnectionName> = this.pNames
+    public operator fun component2(): MutPtr = this.pNames
 
-    public fun copy(cNames: UInt = this.cNames, pNames: MutPtr<DnsConnectionName> = this.pNames): DnsConnectionNameList = DnsConnectionNameList(cNames = cNames, pNamesCtorArg = pNames)
+    public fun copy(cNames: UInt = this.cNames, pNames: MutPtr = this.pNames): DnsConnectionNameList = DnsConnectionNameList(cNames = cNames, pNamesCtorArg = pNames)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -330,21 +329,21 @@ public class DnsConnectionNameList internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<DnsConnectionName>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                     )
                 override fun writeNative(addr: Long, value: DnsConnectionNameList) {
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr, value.cNames)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<DnsConnectionName>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.pNames)
                 }
             }
 
         public operator fun invoke(
             cNames: UInt = 0u,
-            pNames: MutPtr<DnsConnectionName> = MutPtr(0L),
+            pNames: MutPtr = MutPtr(0L),
         ): DnsConnectionNameList =
             DnsConnectionNameList(
                 cNames = cNames,
@@ -357,9 +356,9 @@ public class DnsConnectionPolicyEntry internal constructor(
     pwszHostCtorArg: Pcwstr,
     pwszAppIdCtorArg: Pcwstr,
     public var cbAppSid: UInt,
-    pbAppSidCtorArg: MutPtr<UByte>,
+    pbAppSidCtorArg: MutPtr,
     public var nConnections: UInt,
-    ppwszConnectionsCtorArg: ConstPtr<Pcwstr>,
+    ppwszConnectionsCtorArg: ConstPtr,
     public var dwPolicyEntryFlags: UInt,
 ) {
     public var pwszHost: Pcwstr = pwszHostCtorArg
@@ -368,10 +367,10 @@ public class DnsConnectionPolicyEntry internal constructor(
     public var pwszAppId: Pcwstr = pwszAppIdCtorArg
         internal set
 
-    public var pbAppSid: MutPtr<UByte> = pbAppSidCtorArg
+    public var pbAppSid: MutPtr = pbAppSidCtorArg
         internal set
 
-    public var ppwszConnections: ConstPtr<Pcwstr> = ppwszConnectionsCtorArg
+    public var ppwszConnections: ConstPtr = ppwszConnectionsCtorArg
         internal set
 
     public constructor() : this(
@@ -390,15 +389,15 @@ public class DnsConnectionPolicyEntry internal constructor(
 
     public operator fun component3(): UInt = this.cbAppSid
 
-    public operator fun component4(): MutPtr<UByte> = this.pbAppSid
+    public operator fun component4(): MutPtr = this.pbAppSid
 
     public operator fun component5(): UInt = this.nConnections
 
-    public operator fun component6(): ConstPtr<Pcwstr> = this.ppwszConnections
+    public operator fun component6(): ConstPtr = this.ppwszConnections
 
     public operator fun component7(): UInt = this.dwPolicyEntryFlags
 
-    public fun copy(pwszHost: Pcwstr = this.pwszHost, pwszAppId: Pcwstr = this.pwszAppId, cbAppSid: UInt = this.cbAppSid, pbAppSid: MutPtr<UByte> = this.pbAppSid, nConnections: UInt = this.nConnections, ppwszConnections: ConstPtr<Pcwstr> = this.ppwszConnections, dwPolicyEntryFlags: UInt = this.dwPolicyEntryFlags): DnsConnectionPolicyEntry = DnsConnectionPolicyEntry(pwszHostCtorArg = pwszHost, pwszAppIdCtorArg = pwszAppId, cbAppSid = cbAppSid, pbAppSidCtorArg = pbAppSid, nConnections = nConnections, ppwszConnectionsCtorArg = ppwszConnections, dwPolicyEntryFlags = dwPolicyEntryFlags)
+    public fun copy(pwszHost: Pcwstr = this.pwszHost, pwszAppId: Pcwstr = this.pwszAppId, cbAppSid: UInt = this.cbAppSid, pbAppSid: MutPtr = this.pbAppSid, nConnections: UInt = this.nConnections, ppwszConnections: ConstPtr = this.ppwszConnections, dwPolicyEntryFlags: UInt = this.dwPolicyEntryFlags): DnsConnectionPolicyEntry = DnsConnectionPolicyEntry(pwszHostCtorArg = pwszHost, pwszAppIdCtorArg = pwszAppId, cbAppSid = cbAppSid, pbAppSidCtorArg = pbAppSid, nConnections = nConnections, ppwszConnectionsCtorArg = ppwszConnections, dwPolicyEntryFlags = dwPolicyEntryFlags)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -429,9 +428,9 @@ public class DnsConnectionPolicyEntry internal constructor(
             pwszHost: Pcwstr = ConstPtr(0L),
             pwszAppId: Pcwstr = ConstPtr(0L),
             cbAppSid: UInt = 0u,
-            pbAppSid: MutPtr<UByte> = MutPtr(0L),
+            pbAppSid: MutPtr = MutPtr(0L),
             nConnections: UInt = 0u,
-            ppwszConnections: ConstPtr<Pcwstr> = ConstPtr(0L),
+            ppwszConnections: ConstPtr = ConstPtr(0L),
             dwPolicyEntryFlags: UInt = 0u,
         ): DnsConnectionPolicyEntry =
             DnsConnectionPolicyEntry(
@@ -447,10 +446,10 @@ public class DnsConnectionPolicyEntry internal constructor(
 }
 
 public class DnsConnectionPolicyEntryList internal constructor(
-    pPolicyEntriesCtorArg: MutPtr<DnsConnectionPolicyEntry>,
+    pPolicyEntriesCtorArg: MutPtr,
     public var nEntries: UInt,
 ) {
-    public var pPolicyEntries: MutPtr<DnsConnectionPolicyEntry> = pPolicyEntriesCtorArg
+    public var pPolicyEntries: MutPtr = pPolicyEntriesCtorArg
         internal set
 
     public constructor() : this(
@@ -458,11 +457,11 @@ public class DnsConnectionPolicyEntryList internal constructor(
         nEntries = 0u,
     )
 
-    public operator fun component1(): MutPtr<DnsConnectionPolicyEntry> = this.pPolicyEntries
+    public operator fun component1(): MutPtr = this.pPolicyEntries
 
     public operator fun component2(): UInt = this.nEntries
 
-    public fun copy(pPolicyEntries: MutPtr<DnsConnectionPolicyEntry> = this.pPolicyEntries, nEntries: UInt = this.nEntries): DnsConnectionPolicyEntryList = DnsConnectionPolicyEntryList(pPolicyEntriesCtorArg = pPolicyEntries, nEntries = nEntries)
+    public fun copy(pPolicyEntries: MutPtr = this.pPolicyEntries, nEntries: UInt = this.nEntries): DnsConnectionPolicyEntryList = DnsConnectionPolicyEntryList(pPolicyEntriesCtorArg = pPolicyEntries, nEntries = nEntries)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -487,21 +486,21 @@ public class DnsConnectionPolicyEntryList internal constructor(
                     DnsConnectionPolicyEntryList(
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<DnsConnectionPolicyEntry>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 8L),
                     )
                 override fun writeNative(addr: Long, value: DnsConnectionPolicyEntryList) {
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<DnsConnectionPolicyEntry>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr, value.pPolicyEntries)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 8L, value.nEntries)
                 }
             }
 
         public operator fun invoke(
-            pPolicyEntries: MutPtr<DnsConnectionPolicyEntry> = MutPtr(0L),
+            pPolicyEntries: MutPtr = MutPtr(0L),
             nEntries: UInt = 0u,
         ): DnsConnectionPolicyEntryList =
             DnsConnectionPolicyEntryList(
@@ -808,9 +807,9 @@ public class DnsConnectionProxyInfoEx internal constructor(
 
 public class DnsConnectionProxyList internal constructor(
     public var cProxies: UInt,
-    pProxiesCtorArg: MutPtr<DnsConnectionProxyElement>,
+    pProxiesCtorArg: MutPtr,
 ) {
-    public var pProxies: MutPtr<DnsConnectionProxyElement> = pProxiesCtorArg
+    public var pProxies: MutPtr = pProxiesCtorArg
         internal set
 
     public constructor() : this(
@@ -820,9 +819,9 @@ public class DnsConnectionProxyList internal constructor(
 
     public operator fun component1(): UInt = this.cProxies
 
-    public operator fun component2(): MutPtr<DnsConnectionProxyElement> = this.pProxies
+    public operator fun component2(): MutPtr = this.pProxies
 
-    public fun copy(cProxies: UInt = this.cProxies, pProxies: MutPtr<DnsConnectionProxyElement> = this.pProxies): DnsConnectionProxyList = DnsConnectionProxyList(cProxies = cProxies, pProxiesCtorArg = pProxies)
+    public fun copy(cProxies: UInt = this.cProxies, pProxies: MutPtr = this.pProxies): DnsConnectionProxyList = DnsConnectionProxyList(cProxies = cProxies, pProxiesCtorArg = pProxies)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -848,21 +847,21 @@ public class DnsConnectionProxyList internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<DnsConnectionProxyElement>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                     )
                 override fun writeNative(addr: Long, value: DnsConnectionProxyList) {
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr, value.cProxies)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<DnsConnectionProxyElement>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.pProxies)
                 }
             }
 
         public operator fun invoke(
             cProxies: UInt = 0u,
-            pProxies: MutPtr<DnsConnectionProxyElement> = MutPtr(0L),
+            pProxies: MutPtr = MutPtr(0L),
         ): DnsConnectionProxyList =
             DnsConnectionProxyList(
                 cProxies = cProxies,
@@ -2237,29 +2236,29 @@ public class DnsQueryRawRequest internal constructor(
     public var version: UInt,
     public var resultsVersion: UInt,
     public var dnsQueryRawSize: UInt,
-    dnsQueryRawCtorArg: MutPtr<UByte>,
+    dnsQueryRawCtorArg: MutPtr,
     dnsQueryNameCtorArg: Pwstr,
     public var dnsQueryType: UShort,
     public var queryOptions: ULong,
     public var interfaceIndex: UInt,
     public var queryCompletionCallback: DnsQueryRawCompletionRoutine,
-    queryContextCtorArg: MutPtr<CVoid>,
+    queryContextCtorArg: MutPtr,
     public var queryRawOptions: ULong,
     public var customServersSize: UInt,
-    customServersCtorArg: MutPtr<DnsCustomServer>,
+    customServersCtorArg: MutPtr,
     public var protocol: UInt,
     public var anonymous: DnsQueryRawRequest0,
 ) {
-    public var dnsQueryRaw: MutPtr<UByte> = dnsQueryRawCtorArg
+    public var dnsQueryRaw: MutPtr = dnsQueryRawCtorArg
         internal set
 
     public var dnsQueryName: Pwstr = dnsQueryNameCtorArg
         internal set
 
-    public var queryContext: MutPtr<CVoid> = queryContextCtorArg
+    public var queryContext: MutPtr = queryContextCtorArg
         internal set
 
-    public var customServers: MutPtr<DnsCustomServer> = customServersCtorArg
+    public var customServers: MutPtr = customServersCtorArg
         internal set
 
     public constructor() : this(
@@ -2286,7 +2285,7 @@ public class DnsQueryRawRequest internal constructor(
 
     public operator fun component3(): UInt = this.dnsQueryRawSize
 
-    public operator fun component4(): MutPtr<UByte> = this.dnsQueryRaw
+    public operator fun component4(): MutPtr = this.dnsQueryRaw
 
     public operator fun component5(): Pwstr = this.dnsQueryName
 
@@ -2298,19 +2297,19 @@ public class DnsQueryRawRequest internal constructor(
 
     public operator fun component9(): DnsQueryRawCompletionRoutine = this.queryCompletionCallback
 
-    public operator fun component10(): MutPtr<CVoid> = this.queryContext
+    public operator fun component10(): MutPtr = this.queryContext
 
     public operator fun component11(): ULong = this.queryRawOptions
 
     public operator fun component12(): UInt = this.customServersSize
 
-    public operator fun component13(): MutPtr<DnsCustomServer> = this.customServers
+    public operator fun component13(): MutPtr = this.customServers
 
     public operator fun component14(): UInt = this.protocol
 
     public operator fun component15(): DnsQueryRawRequest0 = this.anonymous
 
-    public fun copy(version: UInt = this.version, resultsVersion: UInt = this.resultsVersion, dnsQueryRawSize: UInt = this.dnsQueryRawSize, dnsQueryRaw: MutPtr<UByte> = this.dnsQueryRaw, dnsQueryName: Pwstr = this.dnsQueryName, dnsQueryType: UShort = this.dnsQueryType, queryOptions: ULong = this.queryOptions, interfaceIndex: UInt = this.interfaceIndex, queryCompletionCallback: DnsQueryRawCompletionRoutine = this.queryCompletionCallback, queryContext: MutPtr<CVoid> = this.queryContext, queryRawOptions: ULong = this.queryRawOptions, customServersSize: UInt = this.customServersSize, customServers: MutPtr<DnsCustomServer> = this.customServers, protocol: UInt = this.protocol, anonymous: DnsQueryRawRequest0 = this.anonymous): DnsQueryRawRequest = DnsQueryRawRequest(version = version, resultsVersion = resultsVersion, dnsQueryRawSize = dnsQueryRawSize, dnsQueryRawCtorArg = dnsQueryRaw, dnsQueryNameCtorArg = dnsQueryName, dnsQueryType = dnsQueryType, queryOptions = queryOptions, interfaceIndex = interfaceIndex, queryCompletionCallback = queryCompletionCallback, queryContextCtorArg = queryContext, queryRawOptions = queryRawOptions, customServersSize = customServersSize, customServersCtorArg = customServers, protocol = protocol, anonymous = anonymous)
+    public fun copy(version: UInt = this.version, resultsVersion: UInt = this.resultsVersion, dnsQueryRawSize: UInt = this.dnsQueryRawSize, dnsQueryRaw: MutPtr = this.dnsQueryRaw, dnsQueryName: Pwstr = this.dnsQueryName, dnsQueryType: UShort = this.dnsQueryType, queryOptions: ULong = this.queryOptions, interfaceIndex: UInt = this.interfaceIndex, queryCompletionCallback: DnsQueryRawCompletionRoutine = this.queryCompletionCallback, queryContext: MutPtr = this.queryContext, queryRawOptions: ULong = this.queryRawOptions, customServersSize: UInt = this.customServersSize, customServers: MutPtr = this.customServers, protocol: UInt = this.protocol, anonymous: DnsQueryRawRequest0 = this.anonymous): DnsQueryRawRequest = DnsQueryRawRequest(version = version, resultsVersion = resultsVersion, dnsQueryRawSize = dnsQueryRawSize, dnsQueryRawCtorArg = dnsQueryRaw, dnsQueryNameCtorArg = dnsQueryName, dnsQueryType = dnsQueryType, queryOptions = queryOptions, interfaceIndex = interfaceIndex, queryCompletionCallback = queryCompletionCallback, queryContextCtorArg = queryContext, queryRawOptions = queryRawOptions, customServersSize = customServersSize, customServersCtorArg = customServers, protocol = protocol, anonymous = anonymous)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -2357,16 +2356,16 @@ public class DnsQueryRawRequest internal constructor(
             version: UInt = 0u,
             resultsVersion: UInt = 0u,
             dnsQueryRawSize: UInt = 0u,
-            dnsQueryRaw: MutPtr<UByte> = MutPtr(0L),
+            dnsQueryRaw: MutPtr = MutPtr(0L),
             dnsQueryName: Pwstr = MutPtr(0L),
             dnsQueryType: UShort = 0u,
             queryOptions: ULong = 0uL,
             interfaceIndex: UInt = 0u,
             queryCompletionCallback: DnsQueryRawCompletionRoutine = null,
-            queryContext: MutPtr<CVoid> = MutPtr(0L),
+            queryContext: MutPtr = MutPtr(0L),
             queryRawOptions: ULong = 0uL,
             customServersSize: UInt = 0u,
-            customServers: MutPtr<DnsCustomServer> = MutPtr(0L),
+            customServers: MutPtr = MutPtr(0L),
             protocol: UInt = 0u,
             anonymous: DnsQueryRawRequest0 = DnsQueryRawRequest0(),
         ): DnsQueryRawRequest =
@@ -2410,15 +2409,15 @@ public class DnsQueryRawResult internal constructor(
     public var queryRawOptions: ULong,
     public var responseFlags: ULong,
     public var queryRawResponseSize: UInt,
-    queryRawResponseCtorArg: MutPtr<UByte>,
-    queryRecordsCtorArg: MutPtr<DnsRecorda>,
+    queryRawResponseCtorArg: MutPtr,
+    queryRecordsCtorArg: MutPtr,
     public var protocol: UInt,
     public var anonymous: DnsQueryRawResult0,
 ) {
-    public var queryRawResponse: MutPtr<UByte> = queryRawResponseCtorArg
+    public var queryRawResponse: MutPtr = queryRawResponseCtorArg
         internal set
 
-    public var queryRecords: MutPtr<DnsRecorda> = queryRecordsCtorArg
+    public var queryRecords: MutPtr = queryRecordsCtorArg
         internal set
 
     public constructor() : this(
@@ -2446,15 +2445,15 @@ public class DnsQueryRawResult internal constructor(
 
     public operator fun component6(): UInt = this.queryRawResponseSize
 
-    public operator fun component7(): MutPtr<UByte> = this.queryRawResponse
+    public operator fun component7(): MutPtr = this.queryRawResponse
 
-    public operator fun component8(): MutPtr<DnsRecorda> = this.queryRecords
+    public operator fun component8(): MutPtr = this.queryRecords
 
     public operator fun component9(): UInt = this.protocol
 
     public operator fun component10(): DnsQueryRawResult0 = this.anonymous
 
-    public fun copy(version: UInt = this.version, queryStatus: Int = this.queryStatus, queryOptions: ULong = this.queryOptions, queryRawOptions: ULong = this.queryRawOptions, responseFlags: ULong = this.responseFlags, queryRawResponseSize: UInt = this.queryRawResponseSize, queryRawResponse: MutPtr<UByte> = this.queryRawResponse, queryRecords: MutPtr<DnsRecorda> = this.queryRecords, protocol: UInt = this.protocol, anonymous: DnsQueryRawResult0 = this.anonymous): DnsQueryRawResult = DnsQueryRawResult(version = version, queryStatus = queryStatus, queryOptions = queryOptions, queryRawOptions = queryRawOptions, responseFlags = responseFlags, queryRawResponseSize = queryRawResponseSize, queryRawResponseCtorArg = queryRawResponse, queryRecordsCtorArg = queryRecords, protocol = protocol, anonymous = anonymous)
+    public fun copy(version: UInt = this.version, queryStatus: Int = this.queryStatus, queryOptions: ULong = this.queryOptions, queryRawOptions: ULong = this.queryRawOptions, responseFlags: ULong = this.responseFlags, queryRawResponseSize: UInt = this.queryRawResponseSize, queryRawResponse: MutPtr = this.queryRawResponse, queryRecords: MutPtr = this.queryRecords, protocol: UInt = this.protocol, anonymous: DnsQueryRawResult0 = this.anonymous): DnsQueryRawResult = DnsQueryRawResult(version = version, queryStatus = queryStatus, queryOptions = queryOptions, queryRawOptions = queryRawOptions, responseFlags = responseFlags, queryRawResponseSize = queryRawResponseSize, queryRawResponseCtorArg = queryRawResponse, queryRecordsCtorArg = queryRecords, protocol = protocol, anonymous = anonymous)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -2494,8 +2493,8 @@ public class DnsQueryRawResult internal constructor(
             queryRawOptions: ULong = 0uL,
             responseFlags: ULong = 0uL,
             queryRawResponseSize: UInt = 0u,
-            queryRawResponse: MutPtr<UByte> = MutPtr(0L),
-            queryRecords: MutPtr<DnsRecorda> = MutPtr(0L),
+            queryRawResponse: MutPtr = MutPtr(0L),
+            queryRecords: MutPtr = MutPtr(0L),
             protocol: UInt = 0u,
             anonymous: DnsQueryRawResult0 = DnsQueryRawResult0(),
         ): DnsQueryRawResult =
@@ -2532,18 +2531,18 @@ public class DnsQueryRequest internal constructor(
     queryNameCtorArg: Pcwstr,
     public var queryType: UShort,
     public var queryOptions: ULong,
-    pDnsServerListCtorArg: MutPtr<DnsAddrArray>,
+    pDnsServerListCtorArg: MutPtr,
     public var interfaceIndex: UInt,
     public var pQueryCompletionCallback: PdnsQueryCompletionRoutine,
-    pQueryContextCtorArg: MutPtr<CVoid>,
+    pQueryContextCtorArg: MutPtr,
 ) {
     public var queryName: Pcwstr = queryNameCtorArg
         internal set
 
-    public var pDnsServerList: MutPtr<DnsAddrArray> = pDnsServerListCtorArg
+    public var pDnsServerList: MutPtr = pDnsServerListCtorArg
         internal set
 
-    public var pQueryContext: MutPtr<CVoid> = pQueryContextCtorArg
+    public var pQueryContext: MutPtr = pQueryContextCtorArg
         internal set
 
     public constructor() : this(
@@ -2565,15 +2564,15 @@ public class DnsQueryRequest internal constructor(
 
     public operator fun component4(): ULong = this.queryOptions
 
-    public operator fun component5(): MutPtr<DnsAddrArray> = this.pDnsServerList
+    public operator fun component5(): MutPtr = this.pDnsServerList
 
     public operator fun component6(): UInt = this.interfaceIndex
 
     public operator fun component7(): PdnsQueryCompletionRoutine = this.pQueryCompletionCallback
 
-    public operator fun component8(): MutPtr<CVoid> = this.pQueryContext
+    public operator fun component8(): MutPtr = this.pQueryContext
 
-    public fun copy(version: UInt = this.version, queryName: Pcwstr = this.queryName, queryType: UShort = this.queryType, queryOptions: ULong = this.queryOptions, pDnsServerList: MutPtr<DnsAddrArray> = this.pDnsServerList, interfaceIndex: UInt = this.interfaceIndex, pQueryCompletionCallback: PdnsQueryCompletionRoutine = this.pQueryCompletionCallback, pQueryContext: MutPtr<CVoid> = this.pQueryContext): DnsQueryRequest = DnsQueryRequest(version = version, queryNameCtorArg = queryName, queryType = queryType, queryOptions = queryOptions, pDnsServerListCtorArg = pDnsServerList, interfaceIndex = interfaceIndex, pQueryCompletionCallback = pQueryCompletionCallback, pQueryContextCtorArg = pQueryContext)
+    public fun copy(version: UInt = this.version, queryName: Pcwstr = this.queryName, queryType: UShort = this.queryType, queryOptions: ULong = this.queryOptions, pDnsServerList: MutPtr = this.pDnsServerList, interfaceIndex: UInt = this.interfaceIndex, pQueryCompletionCallback: PdnsQueryCompletionRoutine = this.pQueryCompletionCallback, pQueryContext: MutPtr = this.pQueryContext): DnsQueryRequest = DnsQueryRequest(version = version, queryNameCtorArg = queryName, queryType = queryType, queryOptions = queryOptions, pDnsServerListCtorArg = pDnsServerList, interfaceIndex = interfaceIndex, pQueryCompletionCallback = pQueryCompletionCallback, pQueryContextCtorArg = pQueryContext)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -2607,10 +2606,10 @@ public class DnsQueryRequest internal constructor(
             queryName: Pcwstr = ConstPtr(0L),
             queryType: UShort = 0u,
             queryOptions: ULong = 0uL,
-            pDnsServerList: MutPtr<DnsAddrArray> = MutPtr(0L),
+            pDnsServerList: MutPtr = MutPtr(0L),
             interfaceIndex: UInt = 0u,
             pQueryCompletionCallback: PdnsQueryCompletionRoutine = null,
-            pQueryContext: MutPtr<CVoid> = MutPtr(0L),
+            pQueryContext: MutPtr = MutPtr(0L),
         ): DnsQueryRequest =
             DnsQueryRequest(
                 version = version,
@@ -2630,25 +2629,25 @@ public class DnsQueryRequest3 internal constructor(
     queryNameCtorArg: Pcwstr,
     public var queryType: UShort,
     public var queryOptions: ULong,
-    pDnsServerListCtorArg: MutPtr<DnsAddrArray>,
+    pDnsServerListCtorArg: MutPtr,
     public var interfaceIndex: UInt,
     public var pQueryCompletionCallback: PdnsQueryCompletionRoutine,
-    pQueryContextCtorArg: MutPtr<CVoid>,
+    pQueryContextCtorArg: MutPtr,
     public var isNetworkQueryRequired: Bool,
     public var requiredNetworkIndex: UInt,
     public var cCustomServers: UInt,
-    pCustomServersCtorArg: MutPtr<DnsCustomServer>,
+    pCustomServersCtorArg: MutPtr,
 ) {
     public var queryName: Pcwstr = queryNameCtorArg
         internal set
 
-    public var pDnsServerList: MutPtr<DnsAddrArray> = pDnsServerListCtorArg
+    public var pDnsServerList: MutPtr = pDnsServerListCtorArg
         internal set
 
-    public var pQueryContext: MutPtr<CVoid> = pQueryContextCtorArg
+    public var pQueryContext: MutPtr = pQueryContextCtorArg
         internal set
 
-    public var pCustomServers: MutPtr<DnsCustomServer> = pCustomServersCtorArg
+    public var pCustomServers: MutPtr = pCustomServersCtorArg
         internal set
 
     public constructor() : this(
@@ -2674,13 +2673,13 @@ public class DnsQueryRequest3 internal constructor(
 
     public operator fun component4(): ULong = this.queryOptions
 
-    public operator fun component5(): MutPtr<DnsAddrArray> = this.pDnsServerList
+    public operator fun component5(): MutPtr = this.pDnsServerList
 
     public operator fun component6(): UInt = this.interfaceIndex
 
     public operator fun component7(): PdnsQueryCompletionRoutine = this.pQueryCompletionCallback
 
-    public operator fun component8(): MutPtr<CVoid> = this.pQueryContext
+    public operator fun component8(): MutPtr = this.pQueryContext
 
     public operator fun component9(): Bool = this.isNetworkQueryRequired
 
@@ -2688,9 +2687,9 @@ public class DnsQueryRequest3 internal constructor(
 
     public operator fun component11(): UInt = this.cCustomServers
 
-    public operator fun component12(): MutPtr<DnsCustomServer> = this.pCustomServers
+    public operator fun component12(): MutPtr = this.pCustomServers
 
-    public fun copy(version: UInt = this.version, queryName: Pcwstr = this.queryName, queryType: UShort = this.queryType, queryOptions: ULong = this.queryOptions, pDnsServerList: MutPtr<DnsAddrArray> = this.pDnsServerList, interfaceIndex: UInt = this.interfaceIndex, pQueryCompletionCallback: PdnsQueryCompletionRoutine = this.pQueryCompletionCallback, pQueryContext: MutPtr<CVoid> = this.pQueryContext, isNetworkQueryRequired: Bool = this.isNetworkQueryRequired, requiredNetworkIndex: UInt = this.requiredNetworkIndex, cCustomServers: UInt = this.cCustomServers, pCustomServers: MutPtr<DnsCustomServer> = this.pCustomServers): DnsQueryRequest3 = DnsQueryRequest3(version = version, queryNameCtorArg = queryName, queryType = queryType, queryOptions = queryOptions, pDnsServerListCtorArg = pDnsServerList, interfaceIndex = interfaceIndex, pQueryCompletionCallback = pQueryCompletionCallback, pQueryContextCtorArg = pQueryContext, isNetworkQueryRequired = isNetworkQueryRequired, requiredNetworkIndex = requiredNetworkIndex, cCustomServers = cCustomServers, pCustomServersCtorArg = pCustomServers)
+    public fun copy(version: UInt = this.version, queryName: Pcwstr = this.queryName, queryType: UShort = this.queryType, queryOptions: ULong = this.queryOptions, pDnsServerList: MutPtr = this.pDnsServerList, interfaceIndex: UInt = this.interfaceIndex, pQueryCompletionCallback: PdnsQueryCompletionRoutine = this.pQueryCompletionCallback, pQueryContext: MutPtr = this.pQueryContext, isNetworkQueryRequired: Bool = this.isNetworkQueryRequired, requiredNetworkIndex: UInt = this.requiredNetworkIndex, cCustomServers: UInt = this.cCustomServers, pCustomServers: MutPtr = this.pCustomServers): DnsQueryRequest3 = DnsQueryRequest3(version = version, queryNameCtorArg = queryName, queryType = queryType, queryOptions = queryOptions, pDnsServerListCtorArg = pDnsServerList, interfaceIndex = interfaceIndex, pQueryCompletionCallback = pQueryCompletionCallback, pQueryContextCtorArg = pQueryContext, isNetworkQueryRequired = isNetworkQueryRequired, requiredNetworkIndex = requiredNetworkIndex, cCustomServers = cCustomServers, pCustomServersCtorArg = pCustomServers)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -2732,14 +2731,14 @@ public class DnsQueryRequest3 internal constructor(
             queryName: Pcwstr = ConstPtr(0L),
             queryType: UShort = 0u,
             queryOptions: ULong = 0uL,
-            pDnsServerList: MutPtr<DnsAddrArray> = MutPtr(0L),
+            pDnsServerList: MutPtr = MutPtr(0L),
             interfaceIndex: UInt = 0u,
             pQueryCompletionCallback: PdnsQueryCompletionRoutine = null,
-            pQueryContext: MutPtr<CVoid> = MutPtr(0L),
+            pQueryContext: MutPtr = MutPtr(0L),
             isNetworkQueryRequired: Bool = 0,
             requiredNetworkIndex: UInt = 0u,
             cCustomServers: UInt = 0u,
-            pCustomServers: MutPtr<DnsCustomServer> = MutPtr(0L),
+            pCustomServers: MutPtr = MutPtr(0L),
         ): DnsQueryRequest3 =
             DnsQueryRequest3(
                 version = version,
@@ -2762,13 +2761,13 @@ public class DnsQueryResult internal constructor(
     public var version: UInt,
     public var queryStatus: Int,
     public var queryOptions: ULong,
-    pQueryRecordsCtorArg: MutPtr<DnsRecorda>,
-    reservedCtorArg: MutPtr<CVoid>,
+    pQueryRecordsCtorArg: MutPtr,
+    reservedCtorArg: MutPtr,
 ) {
-    public var pQueryRecords: MutPtr<DnsRecorda> = pQueryRecordsCtorArg
+    public var pQueryRecords: MutPtr = pQueryRecordsCtorArg
         internal set
 
-    public var reserved: MutPtr<CVoid> = reservedCtorArg
+    public var reserved: MutPtr = reservedCtorArg
         internal set
 
     public constructor() : this(
@@ -2785,11 +2784,11 @@ public class DnsQueryResult internal constructor(
 
     public operator fun component3(): ULong = this.queryOptions
 
-    public operator fun component4(): MutPtr<DnsRecorda> = this.pQueryRecords
+    public operator fun component4(): MutPtr = this.pQueryRecords
 
-    public operator fun component5(): MutPtr<CVoid> = this.reserved
+    public operator fun component5(): MutPtr = this.reserved
 
-    public fun copy(version: UInt = this.version, queryStatus: Int = this.queryStatus, queryOptions: ULong = this.queryOptions, pQueryRecords: MutPtr<DnsRecorda> = this.pQueryRecords, reserved: MutPtr<CVoid> = this.reserved): DnsQueryResult = DnsQueryResult(version = version, queryStatus = queryStatus, queryOptions = queryOptions, pQueryRecordsCtorArg = pQueryRecords, reservedCtorArg = reserved)
+    public fun copy(version: UInt = this.version, queryStatus: Int = this.queryStatus, queryOptions: ULong = this.queryOptions, pQueryRecords: MutPtr = this.pQueryRecords, reserved: MutPtr = this.reserved): DnsQueryResult = DnsQueryResult(version = version, queryStatus = queryStatus, queryOptions = queryOptions, pQueryRecordsCtorArg = pQueryRecords, reservedCtorArg = reserved)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -2823,11 +2822,11 @@ public class DnsQueryResult internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U64).readNative(addr + 8L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<DnsRecorda>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 16L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<CVoid>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 24L),
                     )
                 override fun writeNative(addr: Long, value: DnsQueryResult) {
@@ -2836,11 +2835,11 @@ public class DnsQueryResult internal constructor(
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U64).writeNative(addr + 8L, value.queryOptions)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<DnsRecorda>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 16L, value.pQueryRecords)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<CVoid>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 24L, value.reserved)
                 }
             }
@@ -2849,8 +2848,8 @@ public class DnsQueryResult internal constructor(
             version: UInt = 0u,
             queryStatus: Int = 0,
             queryOptions: ULong = 0uL,
-            pQueryRecords: MutPtr<DnsRecorda> = MutPtr(0L),
-            reserved: MutPtr<CVoid> = MutPtr(0L),
+            pQueryRecords: MutPtr = MutPtr(0L),
+            reserved: MutPtr = MutPtr(0L),
         ): DnsQueryResult =
             DnsQueryResult(
                 version = version,
@@ -2863,7 +2862,7 @@ public class DnsQueryResult internal constructor(
 }
 
 public class DnsRecorda internal constructor(
-    pNextCtorArg: MutPtr<DnsRecorda>,
+    pNextCtorArg: MutPtr,
     pNameCtorArg: Pstr,
     public var wType: UShort,
     public var wDataLength: UShort,
@@ -2872,7 +2871,7 @@ public class DnsRecorda internal constructor(
     public var dwReserved: UInt,
     public var data: DnsRecorda1,
 ) {
-    public var pNext: MutPtr<DnsRecorda> = pNextCtorArg
+    public var pNext: MutPtr = pNextCtorArg
         internal set
 
     public var pName: Pstr = pNameCtorArg
@@ -2889,7 +2888,7 @@ public class DnsRecorda internal constructor(
         data = DnsRecorda1(),
     )
 
-    public operator fun component1(): MutPtr<DnsRecorda> = this.pNext
+    public operator fun component1(): MutPtr = this.pNext
 
     public operator fun component2(): Pstr = this.pName
 
@@ -2905,7 +2904,7 @@ public class DnsRecorda internal constructor(
 
     public operator fun component8(): DnsRecorda1 = this.data
 
-    public fun copy(pNext: MutPtr<DnsRecorda> = this.pNext, pName: Pstr = this.pName, wType: UShort = this.wType, wDataLength: UShort = this.wDataLength, flags: DnsRecorda0 = this.flags, dwTtl: UInt = this.dwTtl, dwReserved: UInt = this.dwReserved, data: DnsRecorda1 = this.data): DnsRecorda = DnsRecorda(pNextCtorArg = pNext, pNameCtorArg = pName, wType = wType, wDataLength = wDataLength, flags = flags, dwTtl = dwTtl, dwReserved = dwReserved, data = data)
+    public fun copy(pNext: MutPtr = this.pNext, pName: Pstr = this.pName, wType: UShort = this.wType, wDataLength: UShort = this.wDataLength, flags: DnsRecorda0 = this.flags, dwTtl: UInt = this.dwTtl, dwReserved: UInt = this.dwReserved, data: DnsRecorda1 = this.data): DnsRecorda = DnsRecorda(pNextCtorArg = pNext, pNameCtorArg = pName, wType = wType, wDataLength = wDataLength, flags = flags, dwTtl = dwTtl, dwReserved = dwReserved, data = data)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -2935,7 +2934,7 @@ public class DnsRecorda internal constructor(
 
     public companion object {
         public operator fun invoke(
-            pNext: MutPtr<DnsRecorda> = MutPtr(0L),
+            pNext: MutPtr = MutPtr(0L),
             pName: Pstr = MutPtr(0L),
             wType: UShort = 0u,
             wDataLength: UShort = 0u,
@@ -3005,9 +3004,9 @@ public class DnsRecorda1 internal constructor(
     public var tlsa: DnsTlsaData,
     public var svcb: DnsSvcbData,
     public var unknown: DnsUnknownData,
-    pDataPtrCtorArg: MutPtr<UByte>,
+    pDataPtrCtorArg: MutPtr,
 ) {
-    public var pDataPtr: MutPtr<UByte> = pDataPtrCtorArg
+    public var pDataPtr: MutPtr = pDataPtrCtorArg
         internal set
 
     public constructor() : this(
@@ -3110,7 +3109,7 @@ public class DnsRecorda1 internal constructor(
             tlsa: DnsTlsaData = DnsTlsaData(),
             svcb: DnsSvcbData = DnsSvcbData(),
             unknown: DnsUnknownData = DnsUnknownData(),
-            pDataPtr: MutPtr<UByte> = MutPtr(0L),
+            pDataPtr: MutPtr = MutPtr(0L),
         ): DnsRecorda1 =
             DnsRecorda1(
                 a = a,
@@ -3171,7 +3170,7 @@ public data class DnsRecorda0(
 )
 
 public class DnsRecordw internal constructor(
-    pNextCtorArg: MutPtr<DnsRecordw>,
+    pNextCtorArg: MutPtr,
     pNameCtorArg: Pwstr,
     public var wType: UShort,
     public var wDataLength: UShort,
@@ -3180,7 +3179,7 @@ public class DnsRecordw internal constructor(
     public var dwReserved: UInt,
     public var data: DnsRecordw1,
 ) {
-    public var pNext: MutPtr<DnsRecordw> = pNextCtorArg
+    public var pNext: MutPtr = pNextCtorArg
         internal set
 
     public var pName: Pwstr = pNameCtorArg
@@ -3197,7 +3196,7 @@ public class DnsRecordw internal constructor(
         data = DnsRecordw1(),
     )
 
-    public operator fun component1(): MutPtr<DnsRecordw> = this.pNext
+    public operator fun component1(): MutPtr = this.pNext
 
     public operator fun component2(): Pwstr = this.pName
 
@@ -3213,7 +3212,7 @@ public class DnsRecordw internal constructor(
 
     public operator fun component8(): DnsRecordw1 = this.data
 
-    public fun copy(pNext: MutPtr<DnsRecordw> = this.pNext, pName: Pwstr = this.pName, wType: UShort = this.wType, wDataLength: UShort = this.wDataLength, flags: DnsRecordw0 = this.flags, dwTtl: UInt = this.dwTtl, dwReserved: UInt = this.dwReserved, data: DnsRecordw1 = this.data): DnsRecordw = DnsRecordw(pNextCtorArg = pNext, pNameCtorArg = pName, wType = wType, wDataLength = wDataLength, flags = flags, dwTtl = dwTtl, dwReserved = dwReserved, data = data)
+    public fun copy(pNext: MutPtr = this.pNext, pName: Pwstr = this.pName, wType: UShort = this.wType, wDataLength: UShort = this.wDataLength, flags: DnsRecordw0 = this.flags, dwTtl: UInt = this.dwTtl, dwReserved: UInt = this.dwReserved, data: DnsRecordw1 = this.data): DnsRecordw = DnsRecordw(pNextCtorArg = pNext, pNameCtorArg = pName, wType = wType, wDataLength = wDataLength, flags = flags, dwTtl = dwTtl, dwReserved = dwReserved, data = data)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -3243,7 +3242,7 @@ public class DnsRecordw internal constructor(
 
     public companion object {
         public operator fun invoke(
-            pNext: MutPtr<DnsRecordw> = MutPtr(0L),
+            pNext: MutPtr = MutPtr(0L),
             pName: Pwstr = MutPtr(0L),
             wType: UShort = 0u,
             wDataLength: UShort = 0u,
@@ -3313,9 +3312,9 @@ public class DnsRecordw1 internal constructor(
     public var tlsa: DnsTlsaData,
     public var svcb: DnsSvcbData,
     public var unknown: DnsUnknownData,
-    pDataPtrCtorArg: MutPtr<UByte>,
+    pDataPtrCtorArg: MutPtr,
 ) {
-    public var pDataPtr: MutPtr<UByte> = pDataPtrCtorArg
+    public var pDataPtr: MutPtr = pDataPtrCtorArg
         internal set
 
     public constructor() : this(
@@ -3418,7 +3417,7 @@ public class DnsRecordw1 internal constructor(
             tlsa: DnsTlsaData = DnsTlsaData(),
             svcb: DnsSvcbData = DnsSvcbData(),
             unknown: DnsUnknownData = DnsUnknownData(),
-            pDataPtr: MutPtr<UByte> = MutPtr(0L),
+            pDataPtr: MutPtr = MutPtr(0L),
         ): DnsRecordw1 =
             DnsRecordw1(
                 a = a,
@@ -3498,7 +3497,7 @@ public data class DnsRecordFlags(
 }
 
 public class DnsRecordOptw internal constructor(
-    pNextCtorArg: MutPtr<DnsRecordw>,
+    pNextCtorArg: MutPtr,
     pNameCtorArg: Pwstr,
     public var wType: UShort,
     public var wDataLength: UShort,
@@ -3508,7 +3507,7 @@ public class DnsRecordOptw internal constructor(
     public var wReserved: UShort,
     public var data: DnsRecordOptw1,
 ) {
-    public var pNext: MutPtr<DnsRecordw> = pNextCtorArg
+    public var pNext: MutPtr = pNextCtorArg
         internal set
 
     public var pName: Pwstr = pNameCtorArg
@@ -3526,7 +3525,7 @@ public class DnsRecordOptw internal constructor(
         data = DnsRecordOptw1(),
     )
 
-    public operator fun component1(): MutPtr<DnsRecordw> = this.pNext
+    public operator fun component1(): MutPtr = this.pNext
 
     public operator fun component2(): Pwstr = this.pName
 
@@ -3544,7 +3543,7 @@ public class DnsRecordOptw internal constructor(
 
     public operator fun component9(): DnsRecordOptw1 = this.data
 
-    public fun copy(pNext: MutPtr<DnsRecordw> = this.pNext, pName: Pwstr = this.pName, wType: UShort = this.wType, wDataLength: UShort = this.wDataLength, flags: DnsRecordOptw0 = this.flags, extHeader: DnsHeaderExt = this.extHeader, wPayloadSize: UShort = this.wPayloadSize, wReserved: UShort = this.wReserved, data: DnsRecordOptw1 = this.data): DnsRecordOptw = DnsRecordOptw(pNextCtorArg = pNext, pNameCtorArg = pName, wType = wType, wDataLength = wDataLength, flags = flags, extHeader = extHeader, wPayloadSize = wPayloadSize, wReserved = wReserved, data = data)
+    public fun copy(pNext: MutPtr = this.pNext, pName: Pwstr = this.pName, wType: UShort = this.wType, wDataLength: UShort = this.wDataLength, flags: DnsRecordOptw0 = this.flags, extHeader: DnsHeaderExt = this.extHeader, wPayloadSize: UShort = this.wPayloadSize, wReserved: UShort = this.wReserved, data: DnsRecordOptw1 = this.data): DnsRecordOptw = DnsRecordOptw(pNextCtorArg = pNext, pNameCtorArg = pName, wType = wType, wDataLength = wDataLength, flags = flags, extHeader = extHeader, wPayloadSize = wPayloadSize, wReserved = wReserved, data = data)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -3576,7 +3575,7 @@ public class DnsRecordOptw internal constructor(
 
     public companion object {
         public operator fun invoke(
-            pNext: MutPtr<DnsRecordw> = MutPtr(0L),
+            pNext: MutPtr = MutPtr(0L),
             pName: Pwstr = MutPtr(0L),
             wType: UShort = 0u,
             wDataLength: UShort = 0u,
@@ -3610,13 +3609,13 @@ public data class DnsRecordOptw0(
 )
 
 public class DnsRrset internal constructor(
-    pFirstRRCtorArg: MutPtr<DnsRecorda>,
-    pLastRRCtorArg: MutPtr<DnsRecorda>,
+    pFirstRRCtorArg: MutPtr,
+    pLastRRCtorArg: MutPtr,
 ) {
-    public var pFirstRR: MutPtr<DnsRecorda> = pFirstRRCtorArg
+    public var pFirstRR: MutPtr = pFirstRRCtorArg
         internal set
 
-    public var pLastRR: MutPtr<DnsRecorda> = pLastRRCtorArg
+    public var pLastRR: MutPtr = pLastRRCtorArg
         internal set
 
     public constructor() : this(
@@ -3624,11 +3623,11 @@ public class DnsRrset internal constructor(
         pLastRRCtorArg = MutPtr(0L),
     )
 
-    public operator fun component1(): MutPtr<DnsRecorda> = this.pFirstRR
+    public operator fun component1(): MutPtr = this.pFirstRR
 
-    public operator fun component2(): MutPtr<DnsRecorda> = this.pLastRR
+    public operator fun component2(): MutPtr = this.pLastRR
 
-    public fun copy(pFirstRR: MutPtr<DnsRecorda> = this.pFirstRR, pLastRR: MutPtr<DnsRecorda> = this.pLastRR): DnsRrset = DnsRrset(pFirstRRCtorArg = pFirstRR, pLastRRCtorArg = pLastRR)
+    public fun copy(pFirstRR: MutPtr = this.pFirstRR, pLastRR: MutPtr = this.pLastRR): DnsRrset = DnsRrset(pFirstRRCtorArg = pFirstRR, pLastRRCtorArg = pLastRR)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -3653,28 +3652,28 @@ public class DnsRrset internal constructor(
                     DnsRrset(
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<DnsRecorda>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<DnsRecorda>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                     )
                 override fun writeNative(addr: Long, value: DnsRrset) {
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<DnsRecorda>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr, value.pFirstRR)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<DnsRecorda>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.pLastRR)
                 }
             }
 
         public operator fun invoke(
-            pFirstRR: MutPtr<DnsRecorda> = MutPtr(0L),
-            pLastRR: MutPtr<DnsRecorda> = MutPtr(0L),
+            pFirstRR: MutPtr = MutPtr(0L),
+            pLastRR: MutPtr = MutPtr(0L),
         ): DnsRrset =
             DnsRrset(
                 pFirstRRCtorArg = pFirstRR,
@@ -3688,12 +3687,12 @@ public class DnsServiceBrowseRequest internal constructor(
     public var interfaceIndex: UInt,
     queryNameCtorArg: Pcwstr,
     public var anonymous: DnsServiceBrowseRequest0,
-    pQueryContextCtorArg: MutPtr<CVoid>,
+    pQueryContextCtorArg: MutPtr,
 ) {
     public var queryName: Pcwstr = queryNameCtorArg
         internal set
 
-    public var pQueryContext: MutPtr<CVoid> = pQueryContextCtorArg
+    public var pQueryContext: MutPtr = pQueryContextCtorArg
         internal set
 
     public constructor() : this(
@@ -3712,9 +3711,9 @@ public class DnsServiceBrowseRequest internal constructor(
 
     public operator fun component4(): DnsServiceBrowseRequest0 = this.anonymous
 
-    public operator fun component5(): MutPtr<CVoid> = this.pQueryContext
+    public operator fun component5(): MutPtr = this.pQueryContext
 
-    public fun copy(version: UInt = this.version, interfaceIndex: UInt = this.interfaceIndex, queryName: Pcwstr = this.queryName, anonymous: DnsServiceBrowseRequest0 = this.anonymous, pQueryContext: MutPtr<CVoid> = this.pQueryContext): DnsServiceBrowseRequest = DnsServiceBrowseRequest(version = version, interfaceIndex = interfaceIndex, queryNameCtorArg = queryName, anonymous = anonymous, pQueryContextCtorArg = pQueryContext)
+    public fun copy(version: UInt = this.version, interfaceIndex: UInt = this.interfaceIndex, queryName: Pcwstr = this.queryName, anonymous: DnsServiceBrowseRequest0 = this.anonymous, pQueryContext: MutPtr = this.pQueryContext): DnsServiceBrowseRequest = DnsServiceBrowseRequest(version = version, interfaceIndex = interfaceIndex, queryNameCtorArg = queryName, anonymous = anonymous, pQueryContextCtorArg = pQueryContext)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -3742,7 +3741,7 @@ public class DnsServiceBrowseRequest internal constructor(
             interfaceIndex: UInt = 0u,
             queryName: Pcwstr = ConstPtr(0L),
             anonymous: DnsServiceBrowseRequest0 = DnsServiceBrowseRequest0(),
-            pQueryContext: MutPtr<CVoid> = MutPtr(0L),
+            pQueryContext: MutPtr = MutPtr(0L),
         ): DnsServiceBrowseRequest =
             DnsServiceBrowseRequest(
                 version = version,
@@ -3760,18 +3759,18 @@ public data class DnsServiceBrowseRequest0(
 )
 
 public class DnsServiceCancel internal constructor(
-    reservedCtorArg: MutPtr<CVoid>,
+    reservedCtorArg: MutPtr,
 ) {
-    public var reserved: MutPtr<CVoid> = reservedCtorArg
+    public var reserved: MutPtr = reservedCtorArg
         internal set
 
     public constructor() : this(
         reservedCtorArg = MutPtr(0L),
     )
 
-    public operator fun component1(): MutPtr<CVoid> = this.reserved
+    public operator fun component1(): MutPtr = this.reserved
 
-    public fun copy(reserved: MutPtr<CVoid> = this.reserved): DnsServiceCancel = DnsServiceCancel(reservedCtorArg = reserved)
+    public fun copy(reserved: MutPtr = this.reserved): DnsServiceCancel = DnsServiceCancel(reservedCtorArg = reserved)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -3791,19 +3790,19 @@ public class DnsServiceCancel internal constructor(
                     DnsServiceCancel(
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<CVoid>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr),
                     )
                 override fun writeNative(addr: Long, value: DnsServiceCancel) {
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<CVoid>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr, value.reserved)
                 }
             }
 
         public operator fun invoke(
-            reserved: MutPtr<CVoid> = MutPtr(0L),
+            reserved: MutPtr = MutPtr(0L),
         ): DnsServiceCancel =
             DnsServiceCancel(
                 reservedCtorArg = reserved,
@@ -3814,14 +3813,14 @@ public class DnsServiceCancel internal constructor(
 public class DnsServiceInstance internal constructor(
     pszInstanceNameCtorArg: Pwstr,
     pszHostNameCtorArg: Pwstr,
-    ip4AddressCtorArg: MutPtr<UInt>,
-    ip6AddressCtorArg: MutPtr<Ip6Address>,
+    ip4AddressCtorArg: MutPtr,
+    ip6AddressCtorArg: MutPtr,
     public var wPort: UShort,
     public var wPriority: UShort,
     public var wWeight: UShort,
     public var dwPropertyCount: UInt,
-    keysCtorArg: MutPtr<Pwstr>,
-    valuesCtorArg: MutPtr<Pwstr>,
+    keysCtorArg: MutPtr,
+    valuesCtorArg: MutPtr,
     public var dwInterfaceIndex: UInt,
 ) {
     public var pszInstanceName: Pwstr = pszInstanceNameCtorArg
@@ -3830,16 +3829,16 @@ public class DnsServiceInstance internal constructor(
     public var pszHostName: Pwstr = pszHostNameCtorArg
         internal set
 
-    public var ip4Address: MutPtr<UInt> = ip4AddressCtorArg
+    public var ip4Address: MutPtr = ip4AddressCtorArg
         internal set
 
-    public var ip6Address: MutPtr<Ip6Address> = ip6AddressCtorArg
+    public var ip6Address: MutPtr = ip6AddressCtorArg
         internal set
 
-    public var keys: MutPtr<Pwstr> = keysCtorArg
+    public var keys: MutPtr = keysCtorArg
         internal set
 
-    public var values: MutPtr<Pwstr> = valuesCtorArg
+    public var values: MutPtr = valuesCtorArg
         internal set
 
     public constructor() : this(
@@ -3860,9 +3859,9 @@ public class DnsServiceInstance internal constructor(
 
     public operator fun component2(): Pwstr = this.pszHostName
 
-    public operator fun component3(): MutPtr<UInt> = this.ip4Address
+    public operator fun component3(): MutPtr = this.ip4Address
 
-    public operator fun component4(): MutPtr<Ip6Address> = this.ip6Address
+    public operator fun component4(): MutPtr = this.ip6Address
 
     public operator fun component5(): UShort = this.wPort
 
@@ -3872,13 +3871,13 @@ public class DnsServiceInstance internal constructor(
 
     public operator fun component8(): UInt = this.dwPropertyCount
 
-    public operator fun component9(): MutPtr<Pwstr> = this.keys
+    public operator fun component9(): MutPtr = this.keys
 
-    public operator fun component10(): MutPtr<Pwstr> = this.values
+    public operator fun component10(): MutPtr = this.values
 
     public operator fun component11(): UInt = this.dwInterfaceIndex
 
-    public fun copy(pszInstanceName: Pwstr = this.pszInstanceName, pszHostName: Pwstr = this.pszHostName, ip4Address: MutPtr<UInt> = this.ip4Address, ip6Address: MutPtr<Ip6Address> = this.ip6Address, wPort: UShort = this.wPort, wPriority: UShort = this.wPriority, wWeight: UShort = this.wWeight, dwPropertyCount: UInt = this.dwPropertyCount, keys: MutPtr<Pwstr> = this.keys, values: MutPtr<Pwstr> = this.values, dwInterfaceIndex: UInt = this.dwInterfaceIndex): DnsServiceInstance = DnsServiceInstance(pszInstanceNameCtorArg = pszInstanceName, pszHostNameCtorArg = pszHostName, ip4AddressCtorArg = ip4Address, ip6AddressCtorArg = ip6Address, wPort = wPort, wPriority = wPriority, wWeight = wWeight, dwPropertyCount = dwPropertyCount, keysCtorArg = keys, valuesCtorArg = values, dwInterfaceIndex = dwInterfaceIndex)
+    public fun copy(pszInstanceName: Pwstr = this.pszInstanceName, pszHostName: Pwstr = this.pszHostName, ip4Address: MutPtr = this.ip4Address, ip6Address: MutPtr = this.ip6Address, wPort: UShort = this.wPort, wPriority: UShort = this.wPriority, wWeight: UShort = this.wWeight, dwPropertyCount: UInt = this.dwPropertyCount, keys: MutPtr = this.keys, values: MutPtr = this.values, dwInterfaceIndex: UInt = this.dwInterfaceIndex): DnsServiceInstance = DnsServiceInstance(pszInstanceNameCtorArg = pszInstanceName, pszHostNameCtorArg = pszHostName, ip4AddressCtorArg = ip4Address, ip6AddressCtorArg = ip6Address, wPort = wPort, wPriority = wPriority, wWeight = wWeight, dwPropertyCount = dwPropertyCount, keysCtorArg = keys, valuesCtorArg = values, dwInterfaceIndex = dwInterfaceIndex)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -3916,14 +3915,14 @@ public class DnsServiceInstance internal constructor(
         public operator fun invoke(
             pszInstanceName: Pwstr = MutPtr(0L),
             pszHostName: Pwstr = MutPtr(0L),
-            ip4Address: MutPtr<UInt> = MutPtr(0L),
-            ip6Address: MutPtr<Ip6Address> = MutPtr(0L),
+            ip4Address: MutPtr = MutPtr(0L),
+            ip6Address: MutPtr = MutPtr(0L),
             wPort: UShort = 0u,
             wPriority: UShort = 0u,
             wWeight: UShort = 0u,
             dwPropertyCount: UInt = 0u,
-            keys: MutPtr<Pwstr> = MutPtr(0L),
-            values: MutPtr<Pwstr> = MutPtr(0L),
+            keys: MutPtr = MutPtr(0L),
+            values: MutPtr = MutPtr(0L),
             dwInterfaceIndex: UInt = 0u,
         ): DnsServiceInstance =
             DnsServiceInstance(
@@ -3945,16 +3944,16 @@ public class DnsServiceInstance internal constructor(
 public class DnsServiceRegisterRequest internal constructor(
     public var version: UInt,
     public var interfaceIndex: UInt,
-    pServiceInstanceCtorArg: MutPtr<DnsServiceInstance>,
+    pServiceInstanceCtorArg: MutPtr,
     public var pRegisterCompletionCallback: PdnsServiceRegisterComplete,
-    pQueryContextCtorArg: MutPtr<CVoid>,
+    pQueryContextCtorArg: MutPtr,
     hCredentialsCtorArg: Handle,
     public var unicastEnabled: Bool,
 ) {
-    public var pServiceInstance: MutPtr<DnsServiceInstance> = pServiceInstanceCtorArg
+    public var pServiceInstance: MutPtr = pServiceInstanceCtorArg
         internal set
 
-    public var pQueryContext: MutPtr<CVoid> = pQueryContextCtorArg
+    public var pQueryContext: MutPtr = pQueryContextCtorArg
         internal set
 
     public var hCredentials: Handle = hCredentialsCtorArg
@@ -3974,17 +3973,17 @@ public class DnsServiceRegisterRequest internal constructor(
 
     public operator fun component2(): UInt = this.interfaceIndex
 
-    public operator fun component3(): MutPtr<DnsServiceInstance> = this.pServiceInstance
+    public operator fun component3(): MutPtr = this.pServiceInstance
 
     public operator fun component4(): PdnsServiceRegisterComplete = this.pRegisterCompletionCallback
 
-    public operator fun component5(): MutPtr<CVoid> = this.pQueryContext
+    public operator fun component5(): MutPtr = this.pQueryContext
 
     public operator fun component6(): Handle = this.hCredentials
 
     public operator fun component7(): Bool = this.unicastEnabled
 
-    public fun copy(version: UInt = this.version, interfaceIndex: UInt = this.interfaceIndex, pServiceInstance: MutPtr<DnsServiceInstance> = this.pServiceInstance, pRegisterCompletionCallback: PdnsServiceRegisterComplete = this.pRegisterCompletionCallback, pQueryContext: MutPtr<CVoid> = this.pQueryContext, hCredentials: Handle = this.hCredentials, unicastEnabled: Bool = this.unicastEnabled): DnsServiceRegisterRequest = DnsServiceRegisterRequest(version = version, interfaceIndex = interfaceIndex, pServiceInstanceCtorArg = pServiceInstance, pRegisterCompletionCallback = pRegisterCompletionCallback, pQueryContextCtorArg = pQueryContext, hCredentialsCtorArg = hCredentials, unicastEnabled = unicastEnabled)
+    public fun copy(version: UInt = this.version, interfaceIndex: UInt = this.interfaceIndex, pServiceInstance: MutPtr = this.pServiceInstance, pRegisterCompletionCallback: PdnsServiceRegisterComplete = this.pRegisterCompletionCallback, pQueryContext: MutPtr = this.pQueryContext, hCredentials: Handle = this.hCredentials, unicastEnabled: Bool = this.unicastEnabled): DnsServiceRegisterRequest = DnsServiceRegisterRequest(version = version, interfaceIndex = interfaceIndex, pServiceInstanceCtorArg = pServiceInstance, pRegisterCompletionCallback = pRegisterCompletionCallback, pQueryContextCtorArg = pQueryContext, hCredentialsCtorArg = hCredentials, unicastEnabled = unicastEnabled)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -4014,9 +4013,9 @@ public class DnsServiceRegisterRequest internal constructor(
         public operator fun invoke(
             version: UInt = 0u,
             interfaceIndex: UInt = 0u,
-            pServiceInstance: MutPtr<DnsServiceInstance> = MutPtr(0L),
+            pServiceInstance: MutPtr = MutPtr(0L),
             pRegisterCompletionCallback: PdnsServiceRegisterComplete = null,
-            pQueryContext: MutPtr<CVoid> = MutPtr(0L),
+            pQueryContext: MutPtr = MutPtr(0L),
             hCredentials: Handle = MutPtr(0L),
             unicastEnabled: Bool = 0,
         ): DnsServiceRegisterRequest =
@@ -4037,12 +4036,12 @@ public class DnsServiceResolveRequest internal constructor(
     public var interfaceIndex: UInt,
     queryNameCtorArg: Pwstr,
     public var pResolveCompletionCallback: PdnsServiceResolveComplete,
-    pQueryContextCtorArg: MutPtr<CVoid>,
+    pQueryContextCtorArg: MutPtr,
 ) {
     public var queryName: Pwstr = queryNameCtorArg
         internal set
 
-    public var pQueryContext: MutPtr<CVoid> = pQueryContextCtorArg
+    public var pQueryContext: MutPtr = pQueryContextCtorArg
         internal set
 
     public constructor() : this(
@@ -4061,9 +4060,9 @@ public class DnsServiceResolveRequest internal constructor(
 
     public operator fun component4(): PdnsServiceResolveComplete = this.pResolveCompletionCallback
 
-    public operator fun component5(): MutPtr<CVoid> = this.pQueryContext
+    public operator fun component5(): MutPtr = this.pQueryContext
 
-    public fun copy(version: UInt = this.version, interfaceIndex: UInt = this.interfaceIndex, queryName: Pwstr = this.queryName, pResolveCompletionCallback: PdnsServiceResolveComplete = this.pResolveCompletionCallback, pQueryContext: MutPtr<CVoid> = this.pQueryContext): DnsServiceResolveRequest = DnsServiceResolveRequest(version = version, interfaceIndex = interfaceIndex, queryNameCtorArg = queryName, pResolveCompletionCallback = pResolveCompletionCallback, pQueryContextCtorArg = pQueryContext)
+    public fun copy(version: UInt = this.version, interfaceIndex: UInt = this.interfaceIndex, queryName: Pwstr = this.queryName, pResolveCompletionCallback: PdnsServiceResolveComplete = this.pResolveCompletionCallback, pQueryContext: MutPtr = this.pQueryContext): DnsServiceResolveRequest = DnsServiceResolveRequest(version = version, interfaceIndex = interfaceIndex, queryNameCtorArg = queryName, pResolveCompletionCallback = pResolveCompletionCallback, pQueryContextCtorArg = pQueryContext)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -4091,7 +4090,7 @@ public class DnsServiceResolveRequest internal constructor(
             interfaceIndex: UInt = 0u,
             queryName: Pwstr = MutPtr(0L),
             pResolveCompletionCallback: PdnsServiceResolveComplete = null,
-            pQueryContext: MutPtr<CVoid> = MutPtr(0L),
+            pQueryContext: MutPtr = MutPtr(0L),
         ): DnsServiceResolveRequest =
             DnsServiceResolveRequest(
                 version = version,
@@ -4633,12 +4632,12 @@ public class DnsSvcbData internal constructor(
     public var wSvcPriority: UShort,
     pszTargetNameCtorArg: Pstr,
     public var cSvcParams: UShort,
-    pSvcParamsCtorArg: MutPtr<DnsSvcbParam>,
+    pSvcParamsCtorArg: MutPtr,
 ) {
     public var pszTargetName: Pstr = pszTargetNameCtorArg
         internal set
 
-    public var pSvcParams: MutPtr<DnsSvcbParam> = pSvcParamsCtorArg
+    public var pSvcParams: MutPtr = pSvcParamsCtorArg
         internal set
 
     public constructor() : this(
@@ -4654,9 +4653,9 @@ public class DnsSvcbData internal constructor(
 
     public operator fun component3(): UShort = this.cSvcParams
 
-    public operator fun component4(): MutPtr<DnsSvcbParam> = this.pSvcParams
+    public operator fun component4(): MutPtr = this.pSvcParams
 
-    public fun copy(wSvcPriority: UShort = this.wSvcPriority, pszTargetName: Pstr = this.pszTargetName, cSvcParams: UShort = this.cSvcParams, pSvcParams: MutPtr<DnsSvcbParam> = this.pSvcParams): DnsSvcbData = DnsSvcbData(wSvcPriority = wSvcPriority, pszTargetNameCtorArg = pszTargetName, cSvcParams = cSvcParams, pSvcParamsCtorArg = pSvcParams)
+    public fun copy(wSvcPriority: UShort = this.wSvcPriority, pszTargetName: Pstr = this.pszTargetName, cSvcParams: UShort = this.cSvcParams, pSvcParams: MutPtr = this.pSvcParams): DnsSvcbData = DnsSvcbData(wSvcPriority = wSvcPriority, pszTargetNameCtorArg = pszTargetName, cSvcParams = cSvcParams, pSvcParamsCtorArg = pSvcParams)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -4681,7 +4680,7 @@ public class DnsSvcbData internal constructor(
             wSvcPriority: UShort = 0u,
             pszTargetName: Pstr = MutPtr(0L),
             cSvcParams: UShort = 0u,
-            pSvcParams: MutPtr<DnsSvcbParam> = MutPtr(0L),
+            pSvcParams: MutPtr = MutPtr(0L),
         ): DnsSvcbData =
             DnsSvcbData(
                 wSvcPriority = wSvcPriority,
@@ -4698,34 +4697,34 @@ public data class DnsSvcbParam(
 )
 
 public class DnsSvcbParam0 internal constructor(
-    pIpv4HintsCtorArg: MutPtr<DnsSvcbParamIpv4>,
-    pIpv6HintsCtorArg: MutPtr<DnsSvcbParamIpv6>,
-    pMandatoryCtorArg: MutPtr<DnsSvcbParamMandatory>,
-    pAlpnCtorArg: MutPtr<DnsSvcbParamAlpn>,
+    pIpv4HintsCtorArg: MutPtr,
+    pIpv6HintsCtorArg: MutPtr,
+    pMandatoryCtorArg: MutPtr,
+    pAlpnCtorArg: MutPtr,
     public var wPort: UShort,
-    pUnknownCtorArg: MutPtr<DnsSvcbParamUnknown>,
+    pUnknownCtorArg: MutPtr,
     pszDohPathCtorArg: Pstr,
-    pReservedCtorArg: MutPtr<CVoid>,
+    pReservedCtorArg: MutPtr,
 ) {
-    public var pIpv4Hints: MutPtr<DnsSvcbParamIpv4> = pIpv4HintsCtorArg
+    public var pIpv4Hints: MutPtr = pIpv4HintsCtorArg
         internal set
 
-    public var pIpv6Hints: MutPtr<DnsSvcbParamIpv6> = pIpv6HintsCtorArg
+    public var pIpv6Hints: MutPtr = pIpv6HintsCtorArg
         internal set
 
-    public var pMandatory: MutPtr<DnsSvcbParamMandatory> = pMandatoryCtorArg
+    public var pMandatory: MutPtr = pMandatoryCtorArg
         internal set
 
-    public var pAlpn: MutPtr<DnsSvcbParamAlpn> = pAlpnCtorArg
+    public var pAlpn: MutPtr = pAlpnCtorArg
         internal set
 
-    public var pUnknown: MutPtr<DnsSvcbParamUnknown> = pUnknownCtorArg
+    public var pUnknown: MutPtr = pUnknownCtorArg
         internal set
 
     public var pszDohPath: Pstr = pszDohPathCtorArg
         internal set
 
-    public var pReserved: MutPtr<CVoid> = pReservedCtorArg
+    public var pReserved: MutPtr = pReservedCtorArg
         internal set
 
     public constructor() : this(
@@ -4739,23 +4738,23 @@ public class DnsSvcbParam0 internal constructor(
         pReservedCtorArg = MutPtr(0L),
     )
 
-    public operator fun component1(): MutPtr<DnsSvcbParamIpv4> = this.pIpv4Hints
+    public operator fun component1(): MutPtr = this.pIpv4Hints
 
-    public operator fun component2(): MutPtr<DnsSvcbParamIpv6> = this.pIpv6Hints
+    public operator fun component2(): MutPtr = this.pIpv6Hints
 
-    public operator fun component3(): MutPtr<DnsSvcbParamMandatory> = this.pMandatory
+    public operator fun component3(): MutPtr = this.pMandatory
 
-    public operator fun component4(): MutPtr<DnsSvcbParamAlpn> = this.pAlpn
+    public operator fun component4(): MutPtr = this.pAlpn
 
     public operator fun component5(): UShort = this.wPort
 
-    public operator fun component6(): MutPtr<DnsSvcbParamUnknown> = this.pUnknown
+    public operator fun component6(): MutPtr = this.pUnknown
 
     public operator fun component7(): Pstr = this.pszDohPath
 
-    public operator fun component8(): MutPtr<CVoid> = this.pReserved
+    public operator fun component8(): MutPtr = this.pReserved
 
-    public fun copy(pIpv4Hints: MutPtr<DnsSvcbParamIpv4> = this.pIpv4Hints, pIpv6Hints: MutPtr<DnsSvcbParamIpv6> = this.pIpv6Hints, pMandatory: MutPtr<DnsSvcbParamMandatory> = this.pMandatory, pAlpn: MutPtr<DnsSvcbParamAlpn> = this.pAlpn, wPort: UShort = this.wPort, pUnknown: MutPtr<DnsSvcbParamUnknown> = this.pUnknown, pszDohPath: Pstr = this.pszDohPath, pReserved: MutPtr<CVoid> = this.pReserved): DnsSvcbParam0 = DnsSvcbParam0(pIpv4HintsCtorArg = pIpv4Hints, pIpv6HintsCtorArg = pIpv6Hints, pMandatoryCtorArg = pMandatory, pAlpnCtorArg = pAlpn, wPort = wPort, pUnknownCtorArg = pUnknown, pszDohPathCtorArg = pszDohPath, pReservedCtorArg = pReserved)
+    public fun copy(pIpv4Hints: MutPtr = this.pIpv4Hints, pIpv6Hints: MutPtr = this.pIpv6Hints, pMandatory: MutPtr = this.pMandatory, pAlpn: MutPtr = this.pAlpn, wPort: UShort = this.wPort, pUnknown: MutPtr = this.pUnknown, pszDohPath: Pstr = this.pszDohPath, pReserved: MutPtr = this.pReserved): DnsSvcbParam0 = DnsSvcbParam0(pIpv4HintsCtorArg = pIpv4Hints, pIpv6HintsCtorArg = pIpv6Hints, pMandatoryCtorArg = pMandatory, pAlpnCtorArg = pAlpn, wPort = wPort, pUnknownCtorArg = pUnknown, pszDohPathCtorArg = pszDohPath, pReservedCtorArg = pReserved)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -4785,14 +4784,14 @@ public class DnsSvcbParam0 internal constructor(
 
     public companion object {
         public operator fun invoke(
-            pIpv4Hints: MutPtr<DnsSvcbParamIpv4> = MutPtr(0L),
-            pIpv6Hints: MutPtr<DnsSvcbParamIpv6> = MutPtr(0L),
-            pMandatory: MutPtr<DnsSvcbParamMandatory> = MutPtr(0L),
-            pAlpn: MutPtr<DnsSvcbParamAlpn> = MutPtr(0L),
+            pIpv4Hints: MutPtr = MutPtr(0L),
+            pIpv6Hints: MutPtr = MutPtr(0L),
+            pMandatory: MutPtr = MutPtr(0L),
+            pAlpn: MutPtr = MutPtr(0L),
             wPort: UShort = 0u,
-            pUnknown: MutPtr<DnsSvcbParamUnknown> = MutPtr(0L),
+            pUnknown: MutPtr = MutPtr(0L),
             pszDohPath: Pstr = MutPtr(0L),
-            pReserved: MutPtr<CVoid> = MutPtr(0L),
+            pReserved: MutPtr = MutPtr(0L),
         ): DnsSvcbParam0 =
             DnsSvcbParam0(
                 pIpv4HintsCtorArg = pIpv4Hints,
@@ -4837,9 +4836,9 @@ public data class DnsSvcbParamAlpn(
 
 public class DnsSvcbParamAlpnId internal constructor(
     public var cBytes: UByte,
-    pbIdCtorArg: MutPtr<UByte>,
+    pbIdCtorArg: MutPtr,
 ) {
-    public var pbId: MutPtr<UByte> = pbIdCtorArg
+    public var pbId: MutPtr = pbIdCtorArg
         internal set
 
     public constructor() : this(
@@ -4849,9 +4848,9 @@ public class DnsSvcbParamAlpnId internal constructor(
 
     public operator fun component1(): UByte = this.cBytes
 
-    public operator fun component2(): MutPtr<UByte> = this.pbId
+    public operator fun component2(): MutPtr = this.pbId
 
-    public fun copy(cBytes: UByte = this.cBytes, pbId: MutPtr<UByte> = this.pbId): DnsSvcbParamAlpnId = DnsSvcbParamAlpnId(cBytes = cBytes, pbIdCtorArg = pbId)
+    public fun copy(cBytes: UByte = this.cBytes, pbId: MutPtr = this.pbId): DnsSvcbParamAlpnId = DnsSvcbParamAlpnId(cBytes = cBytes, pbIdCtorArg = pbId)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -4877,21 +4876,21 @@ public class DnsSvcbParamAlpnId internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<UByte>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                     )
                 override fun writeNative(addr: Long, value: DnsSvcbParamAlpnId) {
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8).writeNative(addr, value.cBytes)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<UByte>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.pbId)
                 }
             }
 
         public operator fun invoke(
             cBytes: UByte = 0u,
-            pbId: MutPtr<UByte> = MutPtr(0L),
+            pbId: MutPtr = MutPtr(0L),
         ): DnsSvcbParamAlpnId =
             DnsSvcbParamAlpnId(
                 cBytes = cBytes,
@@ -5033,9 +5032,9 @@ public data class DnsSvcbParamUnknown(
 
 public class DnsTkeyDataa internal constructor(
     pNameAlgorithmCtorArg: Pstr,
-    pAlgorithmPacketCtorArg: MutPtr<UByte>,
-    pKeyCtorArg: MutPtr<UByte>,
-    pOtherDataCtorArg: MutPtr<UByte>,
+    pAlgorithmPacketCtorArg: MutPtr,
+    pKeyCtorArg: MutPtr,
+    pOtherDataCtorArg: MutPtr,
     public var dwCreateTime: UInt,
     public var dwExpireTime: UInt,
     public var wMode: UShort,
@@ -5048,13 +5047,13 @@ public class DnsTkeyDataa internal constructor(
     public var pNameAlgorithm: Pstr = pNameAlgorithmCtorArg
         internal set
 
-    public var pAlgorithmPacket: MutPtr<UByte> = pAlgorithmPacketCtorArg
+    public var pAlgorithmPacket: MutPtr = pAlgorithmPacketCtorArg
         internal set
 
-    public var pKey: MutPtr<UByte> = pKeyCtorArg
+    public var pKey: MutPtr = pKeyCtorArg
         internal set
 
-    public var pOtherData: MutPtr<UByte> = pOtherDataCtorArg
+    public var pOtherData: MutPtr = pOtherDataCtorArg
         internal set
 
     public constructor() : this(
@@ -5074,11 +5073,11 @@ public class DnsTkeyDataa internal constructor(
 
     public operator fun component1(): Pstr = this.pNameAlgorithm
 
-    public operator fun component2(): MutPtr<UByte> = this.pAlgorithmPacket
+    public operator fun component2(): MutPtr = this.pAlgorithmPacket
 
-    public operator fun component3(): MutPtr<UByte> = this.pKey
+    public operator fun component3(): MutPtr = this.pKey
 
-    public operator fun component4(): MutPtr<UByte> = this.pOtherData
+    public operator fun component4(): MutPtr = this.pOtherData
 
     public operator fun component5(): UInt = this.dwCreateTime
 
@@ -5096,7 +5095,7 @@ public class DnsTkeyDataa internal constructor(
 
     public operator fun component12(): Bool = this.bPacketPointers
 
-    public fun copy(pNameAlgorithm: Pstr = this.pNameAlgorithm, pAlgorithmPacket: MutPtr<UByte> = this.pAlgorithmPacket, pKey: MutPtr<UByte> = this.pKey, pOtherData: MutPtr<UByte> = this.pOtherData, dwCreateTime: UInt = this.dwCreateTime, dwExpireTime: UInt = this.dwExpireTime, wMode: UShort = this.wMode, wError: UShort = this.wError, wKeyLength: UShort = this.wKeyLength, wOtherLength: UShort = this.wOtherLength, cAlgNameLength: UByte = this.cAlgNameLength, bPacketPointers: Bool = this.bPacketPointers): DnsTkeyDataa = DnsTkeyDataa(pNameAlgorithmCtorArg = pNameAlgorithm, pAlgorithmPacketCtorArg = pAlgorithmPacket, pKeyCtorArg = pKey, pOtherDataCtorArg = pOtherData, dwCreateTime = dwCreateTime, dwExpireTime = dwExpireTime, wMode = wMode, wError = wError, wKeyLength = wKeyLength, wOtherLength = wOtherLength, cAlgNameLength = cAlgNameLength, bPacketPointers = bPacketPointers)
+    public fun copy(pNameAlgorithm: Pstr = this.pNameAlgorithm, pAlgorithmPacket: MutPtr = this.pAlgorithmPacket, pKey: MutPtr = this.pKey, pOtherData: MutPtr = this.pOtherData, dwCreateTime: UInt = this.dwCreateTime, dwExpireTime: UInt = this.dwExpireTime, wMode: UShort = this.wMode, wError: UShort = this.wError, wKeyLength: UShort = this.wKeyLength, wOtherLength: UShort = this.wOtherLength, cAlgNameLength: UByte = this.cAlgNameLength, bPacketPointers: Bool = this.bPacketPointers): DnsTkeyDataa = DnsTkeyDataa(pNameAlgorithmCtorArg = pNameAlgorithm, pAlgorithmPacketCtorArg = pAlgorithmPacket, pKeyCtorArg = pKey, pOtherDataCtorArg = pOtherData, dwCreateTime = dwCreateTime, dwExpireTime = dwExpireTime, wMode = wMode, wError = wError, wKeyLength = wKeyLength, wOtherLength = wOtherLength, cAlgNameLength = cAlgNameLength, bPacketPointers = bPacketPointers)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -5135,9 +5134,9 @@ public class DnsTkeyDataa internal constructor(
     public companion object {
         public operator fun invoke(
             pNameAlgorithm: Pstr = MutPtr(0L),
-            pAlgorithmPacket: MutPtr<UByte> = MutPtr(0L),
-            pKey: MutPtr<UByte> = MutPtr(0L),
-            pOtherData: MutPtr<UByte> = MutPtr(0L),
+            pAlgorithmPacket: MutPtr = MutPtr(0L),
+            pKey: MutPtr = MutPtr(0L),
+            pOtherData: MutPtr = MutPtr(0L),
             dwCreateTime: UInt = 0u,
             dwExpireTime: UInt = 0u,
             wMode: UShort = 0u,
@@ -5166,9 +5165,9 @@ public class DnsTkeyDataa internal constructor(
 
 public class DnsTkeyDataw internal constructor(
     pNameAlgorithmCtorArg: Pwstr,
-    pAlgorithmPacketCtorArg: MutPtr<UByte>,
-    pKeyCtorArg: MutPtr<UByte>,
-    pOtherDataCtorArg: MutPtr<UByte>,
+    pAlgorithmPacketCtorArg: MutPtr,
+    pKeyCtorArg: MutPtr,
+    pOtherDataCtorArg: MutPtr,
     public var dwCreateTime: UInt,
     public var dwExpireTime: UInt,
     public var wMode: UShort,
@@ -5181,13 +5180,13 @@ public class DnsTkeyDataw internal constructor(
     public var pNameAlgorithm: Pwstr = pNameAlgorithmCtorArg
         internal set
 
-    public var pAlgorithmPacket: MutPtr<UByte> = pAlgorithmPacketCtorArg
+    public var pAlgorithmPacket: MutPtr = pAlgorithmPacketCtorArg
         internal set
 
-    public var pKey: MutPtr<UByte> = pKeyCtorArg
+    public var pKey: MutPtr = pKeyCtorArg
         internal set
 
-    public var pOtherData: MutPtr<UByte> = pOtherDataCtorArg
+    public var pOtherData: MutPtr = pOtherDataCtorArg
         internal set
 
     public constructor() : this(
@@ -5207,11 +5206,11 @@ public class DnsTkeyDataw internal constructor(
 
     public operator fun component1(): Pwstr = this.pNameAlgorithm
 
-    public operator fun component2(): MutPtr<UByte> = this.pAlgorithmPacket
+    public operator fun component2(): MutPtr = this.pAlgorithmPacket
 
-    public operator fun component3(): MutPtr<UByte> = this.pKey
+    public operator fun component3(): MutPtr = this.pKey
 
-    public operator fun component4(): MutPtr<UByte> = this.pOtherData
+    public operator fun component4(): MutPtr = this.pOtherData
 
     public operator fun component5(): UInt = this.dwCreateTime
 
@@ -5229,7 +5228,7 @@ public class DnsTkeyDataw internal constructor(
 
     public operator fun component12(): Bool = this.bPacketPointers
 
-    public fun copy(pNameAlgorithm: Pwstr = this.pNameAlgorithm, pAlgorithmPacket: MutPtr<UByte> = this.pAlgorithmPacket, pKey: MutPtr<UByte> = this.pKey, pOtherData: MutPtr<UByte> = this.pOtherData, dwCreateTime: UInt = this.dwCreateTime, dwExpireTime: UInt = this.dwExpireTime, wMode: UShort = this.wMode, wError: UShort = this.wError, wKeyLength: UShort = this.wKeyLength, wOtherLength: UShort = this.wOtherLength, cAlgNameLength: UByte = this.cAlgNameLength, bPacketPointers: Bool = this.bPacketPointers): DnsTkeyDataw = DnsTkeyDataw(pNameAlgorithmCtorArg = pNameAlgorithm, pAlgorithmPacketCtorArg = pAlgorithmPacket, pKeyCtorArg = pKey, pOtherDataCtorArg = pOtherData, dwCreateTime = dwCreateTime, dwExpireTime = dwExpireTime, wMode = wMode, wError = wError, wKeyLength = wKeyLength, wOtherLength = wOtherLength, cAlgNameLength = cAlgNameLength, bPacketPointers = bPacketPointers)
+    public fun copy(pNameAlgorithm: Pwstr = this.pNameAlgorithm, pAlgorithmPacket: MutPtr = this.pAlgorithmPacket, pKey: MutPtr = this.pKey, pOtherData: MutPtr = this.pOtherData, dwCreateTime: UInt = this.dwCreateTime, dwExpireTime: UInt = this.dwExpireTime, wMode: UShort = this.wMode, wError: UShort = this.wError, wKeyLength: UShort = this.wKeyLength, wOtherLength: UShort = this.wOtherLength, cAlgNameLength: UByte = this.cAlgNameLength, bPacketPointers: Bool = this.bPacketPointers): DnsTkeyDataw = DnsTkeyDataw(pNameAlgorithmCtorArg = pNameAlgorithm, pAlgorithmPacketCtorArg = pAlgorithmPacket, pKeyCtorArg = pKey, pOtherDataCtorArg = pOtherData, dwCreateTime = dwCreateTime, dwExpireTime = dwExpireTime, wMode = wMode, wError = wError, wKeyLength = wKeyLength, wOtherLength = wOtherLength, cAlgNameLength = cAlgNameLength, bPacketPointers = bPacketPointers)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -5268,9 +5267,9 @@ public class DnsTkeyDataw internal constructor(
     public companion object {
         public operator fun invoke(
             pNameAlgorithm: Pwstr = MutPtr(0L),
-            pAlgorithmPacket: MutPtr<UByte> = MutPtr(0L),
-            pKey: MutPtr<UByte> = MutPtr(0L),
-            pOtherData: MutPtr<UByte> = MutPtr(0L),
+            pAlgorithmPacket: MutPtr = MutPtr(0L),
+            pKey: MutPtr = MutPtr(0L),
+            pOtherData: MutPtr = MutPtr(0L),
             dwCreateTime: UInt = 0u,
             dwExpireTime: UInt = 0u,
             wMode: UShort = 0u,
@@ -5367,9 +5366,9 @@ public data class DnsTlsaData(
 
 public class DnsTsigDataa internal constructor(
     pNameAlgorithmCtorArg: Pstr,
-    pAlgorithmPacketCtorArg: MutPtr<UByte>,
-    pSignatureCtorArg: MutPtr<UByte>,
-    pOtherDataCtorArg: MutPtr<UByte>,
+    pAlgorithmPacketCtorArg: MutPtr,
+    pSignatureCtorArg: MutPtr,
+    pOtherDataCtorArg: MutPtr,
     public var i64CreateTime: Long,
     public var wFudgeTime: UShort,
     public var wOriginalXid: UShort,
@@ -5382,13 +5381,13 @@ public class DnsTsigDataa internal constructor(
     public var pNameAlgorithm: Pstr = pNameAlgorithmCtorArg
         internal set
 
-    public var pAlgorithmPacket: MutPtr<UByte> = pAlgorithmPacketCtorArg
+    public var pAlgorithmPacket: MutPtr = pAlgorithmPacketCtorArg
         internal set
 
-    public var pSignature: MutPtr<UByte> = pSignatureCtorArg
+    public var pSignature: MutPtr = pSignatureCtorArg
         internal set
 
-    public var pOtherData: MutPtr<UByte> = pOtherDataCtorArg
+    public var pOtherData: MutPtr = pOtherDataCtorArg
         internal set
 
     public constructor() : this(
@@ -5408,11 +5407,11 @@ public class DnsTsigDataa internal constructor(
 
     public operator fun component1(): Pstr = this.pNameAlgorithm
 
-    public operator fun component2(): MutPtr<UByte> = this.pAlgorithmPacket
+    public operator fun component2(): MutPtr = this.pAlgorithmPacket
 
-    public operator fun component3(): MutPtr<UByte> = this.pSignature
+    public operator fun component3(): MutPtr = this.pSignature
 
-    public operator fun component4(): MutPtr<UByte> = this.pOtherData
+    public operator fun component4(): MutPtr = this.pOtherData
 
     public operator fun component5(): Long = this.i64CreateTime
 
@@ -5430,7 +5429,7 @@ public class DnsTsigDataa internal constructor(
 
     public operator fun component12(): Bool = this.bPacketPointers
 
-    public fun copy(pNameAlgorithm: Pstr = this.pNameAlgorithm, pAlgorithmPacket: MutPtr<UByte> = this.pAlgorithmPacket, pSignature: MutPtr<UByte> = this.pSignature, pOtherData: MutPtr<UByte> = this.pOtherData, i64CreateTime: Long = this.i64CreateTime, wFudgeTime: UShort = this.wFudgeTime, wOriginalXid: UShort = this.wOriginalXid, wError: UShort = this.wError, wSigLength: UShort = this.wSigLength, wOtherLength: UShort = this.wOtherLength, cAlgNameLength: UByte = this.cAlgNameLength, bPacketPointers: Bool = this.bPacketPointers): DnsTsigDataa = DnsTsigDataa(pNameAlgorithmCtorArg = pNameAlgorithm, pAlgorithmPacketCtorArg = pAlgorithmPacket, pSignatureCtorArg = pSignature, pOtherDataCtorArg = pOtherData, i64CreateTime = i64CreateTime, wFudgeTime = wFudgeTime, wOriginalXid = wOriginalXid, wError = wError, wSigLength = wSigLength, wOtherLength = wOtherLength, cAlgNameLength = cAlgNameLength, bPacketPointers = bPacketPointers)
+    public fun copy(pNameAlgorithm: Pstr = this.pNameAlgorithm, pAlgorithmPacket: MutPtr = this.pAlgorithmPacket, pSignature: MutPtr = this.pSignature, pOtherData: MutPtr = this.pOtherData, i64CreateTime: Long = this.i64CreateTime, wFudgeTime: UShort = this.wFudgeTime, wOriginalXid: UShort = this.wOriginalXid, wError: UShort = this.wError, wSigLength: UShort = this.wSigLength, wOtherLength: UShort = this.wOtherLength, cAlgNameLength: UByte = this.cAlgNameLength, bPacketPointers: Bool = this.bPacketPointers): DnsTsigDataa = DnsTsigDataa(pNameAlgorithmCtorArg = pNameAlgorithm, pAlgorithmPacketCtorArg = pAlgorithmPacket, pSignatureCtorArg = pSignature, pOtherDataCtorArg = pOtherData, i64CreateTime = i64CreateTime, wFudgeTime = wFudgeTime, wOriginalXid = wOriginalXid, wError = wError, wSigLength = wSigLength, wOtherLength = wOtherLength, cAlgNameLength = cAlgNameLength, bPacketPointers = bPacketPointers)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -5469,9 +5468,9 @@ public class DnsTsigDataa internal constructor(
     public companion object {
         public operator fun invoke(
             pNameAlgorithm: Pstr = MutPtr(0L),
-            pAlgorithmPacket: MutPtr<UByte> = MutPtr(0L),
-            pSignature: MutPtr<UByte> = MutPtr(0L),
-            pOtherData: MutPtr<UByte> = MutPtr(0L),
+            pAlgorithmPacket: MutPtr = MutPtr(0L),
+            pSignature: MutPtr = MutPtr(0L),
+            pOtherData: MutPtr = MutPtr(0L),
             i64CreateTime: Long = 0L,
             wFudgeTime: UShort = 0u,
             wOriginalXid: UShort = 0u,
@@ -5500,9 +5499,9 @@ public class DnsTsigDataa internal constructor(
 
 public class DnsTsigDataw internal constructor(
     pNameAlgorithmCtorArg: Pwstr,
-    pAlgorithmPacketCtorArg: MutPtr<UByte>,
-    pSignatureCtorArg: MutPtr<UByte>,
-    pOtherDataCtorArg: MutPtr<UByte>,
+    pAlgorithmPacketCtorArg: MutPtr,
+    pSignatureCtorArg: MutPtr,
+    pOtherDataCtorArg: MutPtr,
     public var i64CreateTime: Long,
     public var wFudgeTime: UShort,
     public var wOriginalXid: UShort,
@@ -5515,13 +5514,13 @@ public class DnsTsigDataw internal constructor(
     public var pNameAlgorithm: Pwstr = pNameAlgorithmCtorArg
         internal set
 
-    public var pAlgorithmPacket: MutPtr<UByte> = pAlgorithmPacketCtorArg
+    public var pAlgorithmPacket: MutPtr = pAlgorithmPacketCtorArg
         internal set
 
-    public var pSignature: MutPtr<UByte> = pSignatureCtorArg
+    public var pSignature: MutPtr = pSignatureCtorArg
         internal set
 
-    public var pOtherData: MutPtr<UByte> = pOtherDataCtorArg
+    public var pOtherData: MutPtr = pOtherDataCtorArg
         internal set
 
     public constructor() : this(
@@ -5541,11 +5540,11 @@ public class DnsTsigDataw internal constructor(
 
     public operator fun component1(): Pwstr = this.pNameAlgorithm
 
-    public operator fun component2(): MutPtr<UByte> = this.pAlgorithmPacket
+    public operator fun component2(): MutPtr = this.pAlgorithmPacket
 
-    public operator fun component3(): MutPtr<UByte> = this.pSignature
+    public operator fun component3(): MutPtr = this.pSignature
 
-    public operator fun component4(): MutPtr<UByte> = this.pOtherData
+    public operator fun component4(): MutPtr = this.pOtherData
 
     public operator fun component5(): Long = this.i64CreateTime
 
@@ -5563,7 +5562,7 @@ public class DnsTsigDataw internal constructor(
 
     public operator fun component12(): Bool = this.bPacketPointers
 
-    public fun copy(pNameAlgorithm: Pwstr = this.pNameAlgorithm, pAlgorithmPacket: MutPtr<UByte> = this.pAlgorithmPacket, pSignature: MutPtr<UByte> = this.pSignature, pOtherData: MutPtr<UByte> = this.pOtherData, i64CreateTime: Long = this.i64CreateTime, wFudgeTime: UShort = this.wFudgeTime, wOriginalXid: UShort = this.wOriginalXid, wError: UShort = this.wError, wSigLength: UShort = this.wSigLength, wOtherLength: UShort = this.wOtherLength, cAlgNameLength: UByte = this.cAlgNameLength, bPacketPointers: Bool = this.bPacketPointers): DnsTsigDataw = DnsTsigDataw(pNameAlgorithmCtorArg = pNameAlgorithm, pAlgorithmPacketCtorArg = pAlgorithmPacket, pSignatureCtorArg = pSignature, pOtherDataCtorArg = pOtherData, i64CreateTime = i64CreateTime, wFudgeTime = wFudgeTime, wOriginalXid = wOriginalXid, wError = wError, wSigLength = wSigLength, wOtherLength = wOtherLength, cAlgNameLength = cAlgNameLength, bPacketPointers = bPacketPointers)
+    public fun copy(pNameAlgorithm: Pwstr = this.pNameAlgorithm, pAlgorithmPacket: MutPtr = this.pAlgorithmPacket, pSignature: MutPtr = this.pSignature, pOtherData: MutPtr = this.pOtherData, i64CreateTime: Long = this.i64CreateTime, wFudgeTime: UShort = this.wFudgeTime, wOriginalXid: UShort = this.wOriginalXid, wError: UShort = this.wError, wSigLength: UShort = this.wSigLength, wOtherLength: UShort = this.wOtherLength, cAlgNameLength: UByte = this.cAlgNameLength, bPacketPointers: Bool = this.bPacketPointers): DnsTsigDataw = DnsTsigDataw(pNameAlgorithmCtorArg = pNameAlgorithm, pAlgorithmPacketCtorArg = pAlgorithmPacket, pSignatureCtorArg = pSignature, pOtherDataCtorArg = pOtherData, i64CreateTime = i64CreateTime, wFudgeTime = wFudgeTime, wOriginalXid = wOriginalXid, wError = wError, wSigLength = wSigLength, wOtherLength = wOtherLength, cAlgNameLength = cAlgNameLength, bPacketPointers = bPacketPointers)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -5602,9 +5601,9 @@ public class DnsTsigDataw internal constructor(
     public companion object {
         public operator fun invoke(
             pNameAlgorithm: Pwstr = MutPtr(0L),
-            pAlgorithmPacket: MutPtr<UByte> = MutPtr(0L),
-            pSignature: MutPtr<UByte> = MutPtr(0L),
-            pOtherData: MutPtr<UByte> = MutPtr(0L),
+            pAlgorithmPacket: MutPtr = MutPtr(0L),
+            pSignature: MutPtr = MutPtr(0L),
+            pOtherData: MutPtr = MutPtr(0L),
             i64CreateTime: Long = 0L,
             wFudgeTime: UShort = 0u,
             wOriginalXid: UShort = 0u,
@@ -6105,14 +6104,14 @@ public data class Ip6Address(
 public class MdnsQueryHandle internal constructor(
     public var nameBuf: UShortArray,
     public var wType: UShort,
-    pSubscriptionCtorArg: MutPtr<CVoid>,
-    pWnfCallbackParamsCtorArg: MutPtr<CVoid>,
+    pSubscriptionCtorArg: MutPtr,
+    pWnfCallbackParamsCtorArg: MutPtr,
     public var stateNameData: UIntArray,
 ) {
-    public var pSubscription: MutPtr<CVoid> = pSubscriptionCtorArg
+    public var pSubscription: MutPtr = pSubscriptionCtorArg
         internal set
 
-    public var pWnfCallbackParams: MutPtr<CVoid> = pWnfCallbackParamsCtorArg
+    public var pWnfCallbackParams: MutPtr = pWnfCallbackParamsCtorArg
         internal set
 
     public constructor() : this(
@@ -6127,13 +6126,13 @@ public class MdnsQueryHandle internal constructor(
 
     public operator fun component2(): UShort = this.wType
 
-    public operator fun component3(): MutPtr<CVoid> = this.pSubscription
+    public operator fun component3(): MutPtr = this.pSubscription
 
-    public operator fun component4(): MutPtr<CVoid> = this.pWnfCallbackParams
+    public operator fun component4(): MutPtr = this.pWnfCallbackParams
 
     public operator fun component5(): UIntArray = this.stateNameData
 
-    public fun copy(nameBuf: UShortArray = this.nameBuf, wType: UShort = this.wType, pSubscription: MutPtr<CVoid> = this.pSubscription, pWnfCallbackParams: MutPtr<CVoid> = this.pWnfCallbackParams, stateNameData: UIntArray = this.stateNameData): MdnsQueryHandle = MdnsQueryHandle(nameBuf = nameBuf, wType = wType, pSubscriptionCtorArg = pSubscription, pWnfCallbackParamsCtorArg = pWnfCallbackParams, stateNameData = stateNameData)
+    public fun copy(nameBuf: UShortArray = this.nameBuf, wType: UShort = this.wType, pSubscription: MutPtr = this.pSubscription, pWnfCallbackParams: MutPtr = this.pWnfCallbackParams, stateNameData: UIntArray = this.stateNameData): MdnsQueryHandle = MdnsQueryHandle(nameBuf = nameBuf, wType = wType, pSubscriptionCtorArg = pSubscription, pWnfCallbackParamsCtorArg = pWnfCallbackParams, stateNameData = stateNameData)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -6169,11 +6168,11 @@ public class MdnsQueryHandle internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16).readNative(addr + 512L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<CVoid>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 520L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<CVoid>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 528L),
                         (
                             io.github.kotlinmania.rustlang.core.mem
@@ -6188,11 +6187,11 @@ public class MdnsQueryHandle internal constructor(
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16).writeNative(addr + 512L, value.wType)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<CVoid>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 520L, value.pSubscription)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<CVoid>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 528L, value.pWnfCallbackParams)
                     (
                         io.github.kotlinmania.rustlang.core.mem
@@ -6204,8 +6203,8 @@ public class MdnsQueryHandle internal constructor(
         public operator fun invoke(
             nameBuf: UShortArray = UShortArray(256),
             wType: UShort = 0u,
-            pSubscription: MutPtr<CVoid> = MutPtr(0L),
-            pWnfCallbackParams: MutPtr<CVoid> = MutPtr(0L),
+            pSubscription: MutPtr = MutPtr(0L),
+            pWnfCallbackParams: MutPtr = MutPtr(0L),
             stateNameData: UIntArray = UIntArray(2),
         ): MdnsQueryHandle =
             MdnsQueryHandle(
@@ -6226,14 +6225,14 @@ public class MdnsQueryRequest internal constructor(
     public var queryOptions: ULong,
     public var interfaceIndex: UInt,
     public var pQueryCallback: PmdnsQueryCallback,
-    pQueryContextCtorArg: MutPtr<CVoid>,
+    pQueryContextCtorArg: MutPtr,
     public var fAnswerReceived: Bool,
     public var ulResendCount: UInt,
 ) {
     public var query: Pcwstr = queryCtorArg
         internal set
 
-    public var pQueryContext: MutPtr<CVoid> = pQueryContextCtorArg
+    public var pQueryContext: MutPtr = pQueryContextCtorArg
         internal set
 
     public constructor() : this(
@@ -6263,13 +6262,13 @@ public class MdnsQueryRequest internal constructor(
 
     public operator fun component7(): PmdnsQueryCallback = this.pQueryCallback
 
-    public operator fun component8(): MutPtr<CVoid> = this.pQueryContext
+    public operator fun component8(): MutPtr = this.pQueryContext
 
     public operator fun component9(): Bool = this.fAnswerReceived
 
     public operator fun component10(): UInt = this.ulResendCount
 
-    public fun copy(version: UInt = this.version, ulRefCount: UInt = this.ulRefCount, query: Pcwstr = this.query, queryType: UShort = this.queryType, queryOptions: ULong = this.queryOptions, interfaceIndex: UInt = this.interfaceIndex, pQueryCallback: PmdnsQueryCallback = this.pQueryCallback, pQueryContext: MutPtr<CVoid> = this.pQueryContext, fAnswerReceived: Bool = this.fAnswerReceived, ulResendCount: UInt = this.ulResendCount): MdnsQueryRequest = MdnsQueryRequest(version = version, ulRefCount = ulRefCount, queryCtorArg = query, queryType = queryType, queryOptions = queryOptions, interfaceIndex = interfaceIndex, pQueryCallback = pQueryCallback, pQueryContextCtorArg = pQueryContext, fAnswerReceived = fAnswerReceived, ulResendCount = ulResendCount)
+    public fun copy(version: UInt = this.version, ulRefCount: UInt = this.ulRefCount, query: Pcwstr = this.query, queryType: UShort = this.queryType, queryOptions: ULong = this.queryOptions, interfaceIndex: UInt = this.interfaceIndex, pQueryCallback: PmdnsQueryCallback = this.pQueryCallback, pQueryContext: MutPtr = this.pQueryContext, fAnswerReceived: Bool = this.fAnswerReceived, ulResendCount: UInt = this.ulResendCount): MdnsQueryRequest = MdnsQueryRequest(version = version, ulRefCount = ulRefCount, queryCtorArg = query, queryType = queryType, queryOptions = queryOptions, interfaceIndex = interfaceIndex, pQueryCallback = pQueryCallback, pQueryContextCtorArg = pQueryContext, fAnswerReceived = fAnswerReceived, ulResendCount = ulResendCount)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -6310,7 +6309,7 @@ public class MdnsQueryRequest internal constructor(
             queryOptions: ULong = 0uL,
             interfaceIndex: UInt = 0u,
             pQueryCallback: PmdnsQueryCallback = null,
-            pQueryContext: MutPtr<CVoid> = MutPtr(0L),
+            pQueryContext: MutPtr = MutPtr(0L),
             fAnswerReceived: Bool = 0,
             ulResendCount: UInt = 0u,
         ): MdnsQueryRequest =
@@ -6330,7 +6329,7 @@ public class MdnsQueryRequest internal constructor(
 }
 
 public class DnsRecordOptA internal constructor(
-    pNextCtorArg: MutPtr<DnsRecorda>,
+    pNextCtorArg: MutPtr,
     pNameCtorArg: Pstr,
     public var wType: UShort,
     public var wDataLength: UShort,
@@ -6340,7 +6339,7 @@ public class DnsRecordOptA internal constructor(
     public var wReserved: UShort,
     public var data: DnsRecordOptA1,
 ) {
-    public var pNext: MutPtr<DnsRecorda> = pNextCtorArg
+    public var pNext: MutPtr = pNextCtorArg
         internal set
 
     public var pName: Pstr = pNameCtorArg
@@ -6358,7 +6357,7 @@ public class DnsRecordOptA internal constructor(
         data = DnsRecordOptA1(),
     )
 
-    public operator fun component1(): MutPtr<DnsRecorda> = this.pNext
+    public operator fun component1(): MutPtr = this.pNext
 
     public operator fun component2(): Pstr = this.pName
 
@@ -6376,7 +6375,7 @@ public class DnsRecordOptA internal constructor(
 
     public operator fun component9(): DnsRecordOptA1 = this.data
 
-    public fun copy(pNext: MutPtr<DnsRecorda> = this.pNext, pName: Pstr = this.pName, wType: UShort = this.wType, wDataLength: UShort = this.wDataLength, flags: DnsRecordOptA0 = this.flags, extHeader: DnsHeaderExt = this.extHeader, wPayloadSize: UShort = this.wPayloadSize, wReserved: UShort = this.wReserved, data: DnsRecordOptA1 = this.data): DnsRecordOptA = DnsRecordOptA(pNextCtorArg = pNext, pNameCtorArg = pName, wType = wType, wDataLength = wDataLength, flags = flags, extHeader = extHeader, wPayloadSize = wPayloadSize, wReserved = wReserved, data = data)
+    public fun copy(pNext: MutPtr = this.pNext, pName: Pstr = this.pName, wType: UShort = this.wType, wDataLength: UShort = this.wDataLength, flags: DnsRecordOptA0 = this.flags, extHeader: DnsHeaderExt = this.extHeader, wPayloadSize: UShort = this.wPayloadSize, wReserved: UShort = this.wReserved, data: DnsRecordOptA1 = this.data): DnsRecordOptA = DnsRecordOptA(pNextCtorArg = pNext, pNameCtorArg = pName, wType = wType, wDataLength = wDataLength, flags = flags, extHeader = extHeader, wPayloadSize = wPayloadSize, wReserved = wReserved, data = data)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -6408,7 +6407,7 @@ public class DnsRecordOptA internal constructor(
 
     public companion object {
         public operator fun invoke(
-            pNext: MutPtr<DnsRecorda> = MutPtr(0L),
+            pNext: MutPtr = MutPtr(0L),
             pName: Pstr = MutPtr(0L),
             wType: UShort = 0u,
             wDataLength: UShort = 0u,

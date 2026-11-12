@@ -2,19 +2,15 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.system.clrhosting
 
-import io.github.kotlinmania.rustlang.core.ffi.CVoid
 import io.github.kotlinmania.rustlang.core.ptr.ConstPtr
 import io.github.kotlinmania.rustlang.core.ptr.MutPtr
-import io.github.kotlinmania.windowssys.core.Guid
 import io.github.kotlinmania.windowssys.core.Hresult
 import io.github.kotlinmania.windowssys.core.Pcstr
 import io.github.kotlinmania.windowssys.core.Pcwstr
 import io.github.kotlinmania.windowssys.core.Pwstr
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Handle
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Hinstance
-import io.github.kotlinmania.windowssys.windows.win32.foundation.Hmodule
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Hwnd
-import io.github.kotlinmania.windowssys.windows.win32.system.threading.ProcessInformation
 
 @JsFun("() => { if (typeof globalThis.__km_napi_windowssys !== 'undefined') return globalThis.__km_napi_windowssys !== null; if (typeof process === 'undefined' || !process.versions || !process.versions.node) { globalThis.__km_napi_windowssys = null; return false; } var mod = process.getBuiltinModule ? process.getBuiltinModule('module') : (process.mainModule && process.mainModule.constructor); var req = (mod && mod.createRequire) ? mod.createRequire((process.cwd ? process.cwd() : '.') + '/package.json') : (process.mainModule ? process.mainModule.require : null); if (!req) { globalThis.__km_napi_windowssys = null; return false; } try { globalThis.__km_napi_windowssys = req('@kotlinmania/windowssys-native-bindings'); return true; } catch (_) {} var fs = req('fs'); var path = req('path'); var dir = process.cwd ? process.cwd() : '.'; var rels = ['windowssys_native.node', 'build/node-ffi/windowssys_native.node', 'build/node-ffi/release/windowssys_native.node', 'build/node-ffi/debug/windowssys_native.node', 'src/js/node-windowssys/build/Release/windowssys_native.node', 'src/js/node-windowssys/build/Debug/windowssys_native.node', 'src/js/node-windowssys/dist/build/Release/windowssys_native.node', 'src/js/node-windowssys/dist/build/Debug/windowssys_native.node']; for (var d = 0; d < 8; d++) { for (var i = 0; i < rels.length; i++) { var c = path.resolve(dir, rels[i]); if (fs.existsSync(c)) { globalThis.__km_napi_windowssys = req(c); return true; } } var parent = path.dirname(dir); if (parent === dir) break; dir = parent; } globalThis.__km_napi_windowssys = null; return false; }")
 private external fun initWindowsWin32SystemClrhostingNapiAddon(): Boolean
@@ -102,28 +98,28 @@ private external fun wasmWindowssysWindowsWin32SystemClrhostingLockClrVersion(p0
 @JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemClrhostingRunDll32ShimW(p0, p1, p2, p3)")
 private external fun wasmWindowssysWindowsWin32SystemClrhostingRunDll32ShimW(p0: String, p1: String, p2: String, p3: Int): Int
 
-public actual fun cLRCreateInstance(clsid: ConstPtr<Guid>, riid: ConstPtr<Guid>, ppinterface: MutPtr<MutPtr<CVoid>>): Hresult =
+public actual fun cLRCreateInstance(clsid: ConstPtr, riid: ConstPtr, ppinterface: MutPtr): Hresult =
     if (windowsWin32SystemClrhostingNapiAvailable) wasmWindowssysWindowsWin32SystemClrhostingCLRCreateInstance(clsid.rawAddress.toString(), riid.rawAddress.toString(), ppinterface.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun callFunctionShim(szdllname: Pcwstr, szfunctionname: Pcstr, lpvargument1: MutPtr<CVoid>, lpvargument2: MutPtr<CVoid>, szversion: Pcwstr, pvreserved: MutPtr<CVoid>): Hresult =
+public actual fun callFunctionShim(szdllname: Pcwstr, szfunctionname: Pcstr, lpvargument1: MutPtr, lpvargument2: MutPtr, szversion: Pcwstr, pvreserved: MutPtr): Hresult =
     if (windowsWin32SystemClrhostingNapiAvailable) wasmWindowssysWindowsWin32SystemClrhostingCallFunctionShim(szdllname.rawAddress.toString(), szfunctionname.rawAddress.toString(), lpvargument1.rawAddress.toString(), lpvargument2.rawAddress.toString(), szversion.rawAddress.toString(), pvreserved.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun clrCreateManagedInstance(ptypename: Pcwstr, riid: ConstPtr<Guid>, ppobject: MutPtr<MutPtr<CVoid>>): Hresult =
+public actual fun clrCreateManagedInstance(ptypename: Pcwstr, riid: ConstPtr, ppobject: MutPtr): Hresult =
     if (windowsWin32SystemClrhostingNapiAvailable) wasmWindowssysWindowsWin32SystemClrhostingClrCreateManagedInstance(ptypename.rawAddress.toString(), riid.rawAddress.toString(), ppobject.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun corBindToCurrentRuntime(pwszfilename: Pcwstr, rclsid: ConstPtr<Guid>, riid: ConstPtr<Guid>, ppv: MutPtr<MutPtr<CVoid>>): Hresult =
+public actual fun corBindToCurrentRuntime(pwszfilename: Pcwstr, rclsid: ConstPtr, riid: ConstPtr, ppv: MutPtr): Hresult =
     if (windowsWin32SystemClrhostingNapiAvailable) wasmWindowssysWindowsWin32SystemClrhostingCorBindToCurrentRuntime(pwszfilename.rawAddress.toString(), rclsid.rawAddress.toString(), riid.rawAddress.toString(), ppv.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun corBindToRuntime(pwszversion: Pcwstr, pwszbuildflavor: Pcwstr, rclsid: ConstPtr<Guid>, riid: ConstPtr<Guid>, ppv: MutPtr<MutPtr<CVoid>>): Hresult =
+public actual fun corBindToRuntime(pwszversion: Pcwstr, pwszbuildflavor: Pcwstr, rclsid: ConstPtr, riid: ConstPtr, ppv: MutPtr): Hresult =
     if (windowsWin32SystemClrhostingNapiAvailable) wasmWindowssysWindowsWin32SystemClrhostingCorBindToRuntime(pwszversion.rawAddress.toString(), pwszbuildflavor.rawAddress.toString(), rclsid.rawAddress.toString(), riid.rawAddress.toString(), ppv.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun corBindToRuntimeByCfg(pcfgstream: MutPtr<CVoid>, reserved: UInt, startupflags: UInt, rclsid: ConstPtr<Guid>, riid: ConstPtr<Guid>, ppv: MutPtr<MutPtr<CVoid>>): Hresult =
+public actual fun corBindToRuntimeByCfg(pcfgstream: MutPtr, reserved: UInt, startupflags: UInt, rclsid: ConstPtr, riid: ConstPtr, ppv: MutPtr): Hresult =
     if (windowsWin32SystemClrhostingNapiAvailable) wasmWindowssysWindowsWin32SystemClrhostingCorBindToRuntimeByCfg(pcfgstream.rawAddress.toString(), reserved.toInt(), startupflags.toInt(), rclsid.rawAddress.toString(), riid.rawAddress.toString(), ppv.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun corBindToRuntimeEx(pwszversion: Pcwstr, pwszbuildflavor: Pcwstr, startupflags: UInt, rclsid: ConstPtr<Guid>, riid: ConstPtr<Guid>, ppv: MutPtr<MutPtr<CVoid>>): Hresult =
+public actual fun corBindToRuntimeEx(pwszversion: Pcwstr, pwszbuildflavor: Pcwstr, startupflags: UInt, rclsid: ConstPtr, riid: ConstPtr, ppv: MutPtr): Hresult =
     if (windowsWin32SystemClrhostingNapiAvailable) wasmWindowssysWindowsWin32SystemClrhostingCorBindToRuntimeEx(pwszversion.rawAddress.toString(), pwszbuildflavor.rawAddress.toString(), startupflags.toInt(), rclsid.rawAddress.toString(), riid.rawAddress.toString(), ppv.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun corBindToRuntimeHost(pwszversion: Pcwstr, pwszbuildflavor: Pcwstr, pwszhostconfigfile: Pcwstr, preserved: MutPtr<CVoid>, startupflags: UInt, rclsid: ConstPtr<Guid>, riid: ConstPtr<Guid>, ppv: MutPtr<MutPtr<CVoid>>): Hresult =
+public actual fun corBindToRuntimeHost(pwszversion: Pcwstr, pwszbuildflavor: Pcwstr, pwszhostconfigfile: Pcwstr, preserved: MutPtr, startupflags: UInt, rclsid: ConstPtr, riid: ConstPtr, ppv: MutPtr): Hresult =
     if (windowsWin32SystemClrhostingNapiAvailable) wasmWindowssysWindowsWin32SystemClrhostingCorBindToRuntimeHost(pwszversion.rawAddress.toString(), pwszbuildflavor.rawAddress.toString(), pwszhostconfigfile.rawAddress.toString(), preserved.rawAddress.toString(), startupflags.toInt(), rclsid.rawAddress.toString(), riid.rawAddress.toString(), ppv.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun corExitProcess(exitcode: Int) {
@@ -134,7 +130,7 @@ public actual fun corExitProcess(exitcode: Int) {
     }
 }
 
-public actual fun corLaunchApplication(dwclickoncehost: HostType, pwzappfullname: Pcwstr, dwmanifestpaths: UInt, ppwzmanifestpaths: ConstPtr<Pcwstr>, dwactivationdata: UInt, ppwzactivationdata: ConstPtr<Pcwstr>, lpprocessinformation: MutPtr<ProcessInformation>): Hresult =
+public actual fun corLaunchApplication(dwclickoncehost: HostType, pwzappfullname: Pcwstr, dwmanifestpaths: UInt, ppwzmanifestpaths: ConstPtr, dwactivationdata: UInt, ppwzactivationdata: ConstPtr, lpprocessinformation: MutPtr): Hresult =
     if (windowsWin32SystemClrhostingNapiAvailable) wasmWindowssysWindowsWin32SystemClrhostingCorLaunchApplication(dwclickoncehost, pwzappfullname.rawAddress.toString(), dwmanifestpaths.toInt(), ppwzmanifestpaths.rawAddress.toString(), dwactivationdata.toInt(), ppwzactivationdata.rawAddress.toString(), lpprocessinformation.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun corMarkThreadInThreadPool() {
@@ -145,49 +141,49 @@ public actual fun corMarkThreadInThreadPool() {
     }
 }
 
-public actual fun createDebuggingInterfaceFromVersion(idebuggerversion: Int, szdebuggeeversion: Pcwstr, ppcordb: MutPtr<MutPtr<CVoid>>): Hresult =
+public actual fun createDebuggingInterfaceFromVersion(idebuggerversion: Int, szdebuggeeversion: Pcwstr, ppcordb: MutPtr): Hresult =
     if (windowsWin32SystemClrhostingNapiAvailable) wasmWindowssysWindowsWin32SystemClrhostingCreateDebuggingInterfaceFromVersion(idebuggerversion, szdebuggeeversion.rawAddress.toString(), ppcordb.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun getCLRIdentityManager(riid: ConstPtr<Guid>, ppmanager: MutPtr<MutPtr<CVoid>>): Hresult =
+public actual fun getCLRIdentityManager(riid: ConstPtr, ppmanager: MutPtr): Hresult =
     if (windowsWin32SystemClrhostingNapiAvailable) wasmWindowssysWindowsWin32SystemClrhostingGetCLRIdentityManager(riid.rawAddress.toString(), ppmanager.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun getCORRequiredVersion(pbuffer: Pwstr, cchbuffer: UInt, dwlength: MutPtr<UInt>): Hresult =
+public actual fun getCORRequiredVersion(pbuffer: Pwstr, cchbuffer: UInt, dwlength: MutPtr): Hresult =
     if (windowsWin32SystemClrhostingNapiAvailable) wasmWindowssysWindowsWin32SystemClrhostingGetCORRequiredVersion(pbuffer.rawAddress.toString(), cchbuffer.toInt(), dwlength.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun getCORSystemDirectory(pbuffer: Pwstr, cchbuffer: UInt, dwlength: MutPtr<UInt>): Hresult =
+public actual fun getCORSystemDirectory(pbuffer: Pwstr, cchbuffer: UInt, dwlength: MutPtr): Hresult =
     if (windowsWin32SystemClrhostingNapiAvailable) wasmWindowssysWindowsWin32SystemClrhostingGetCORSystemDirectory(pbuffer.rawAddress.toString(), cchbuffer.toInt(), dwlength.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun getCORVersion(pbbuffer: Pwstr, cchbuffer: UInt, dwlength: MutPtr<UInt>): Hresult =
+public actual fun getCORVersion(pbbuffer: Pwstr, cchbuffer: UInt, dwlength: MutPtr): Hresult =
     if (windowsWin32SystemClrhostingNapiAvailable) wasmWindowssysWindowsWin32SystemClrhostingGetCORVersion(pbbuffer.rawAddress.toString(), cchbuffer.toInt(), dwlength.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun getFileVersion(szfilename: Pcwstr, szbuffer: Pwstr, cchbuffer: UInt, dwlength: MutPtr<UInt>): Hresult =
+public actual fun getFileVersion(szfilename: Pcwstr, szbuffer: Pwstr, cchbuffer: UInt, dwlength: MutPtr): Hresult =
     if (windowsWin32SystemClrhostingNapiAvailable) wasmWindowssysWindowsWin32SystemClrhostingGetFileVersion(szfilename.rawAddress.toString(), szbuffer.rawAddress.toString(), cchbuffer.toInt(), dwlength.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun getRealProcAddress(pwszprocname: Pcstr, ppv: MutPtr<MutPtr<CVoid>>): Hresult =
+public actual fun getRealProcAddress(pwszprocname: Pcstr, ppv: MutPtr): Hresult =
     if (windowsWin32SystemClrhostingNapiAvailable) wasmWindowssysWindowsWin32SystemClrhostingGetRealProcAddress(pwszprocname.rawAddress.toString(), ppv.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun getRequestedRuntimeInfo(pexe: Pcwstr, pwszversion: Pcwstr, pconfigurationfile: Pcwstr, startupflags: UInt, runtimeinfoflags: UInt, pdirectory: Pwstr, dwdirectory: UInt, dwdirectorylength: MutPtr<UInt>, pversion: Pwstr, cchbuffer: UInt, dwlength: MutPtr<UInt>): Hresult =
+public actual fun getRequestedRuntimeInfo(pexe: Pcwstr, pwszversion: Pcwstr, pconfigurationfile: Pcwstr, startupflags: UInt, runtimeinfoflags: UInt, pdirectory: Pwstr, dwdirectory: UInt, dwdirectorylength: MutPtr, pversion: Pwstr, cchbuffer: UInt, dwlength: MutPtr): Hresult =
     if (windowsWin32SystemClrhostingNapiAvailable) wasmWindowssysWindowsWin32SystemClrhostingGetRequestedRuntimeInfo(pexe.rawAddress.toString(), pwszversion.rawAddress.toString(), pconfigurationfile.rawAddress.toString(), startupflags.toInt(), runtimeinfoflags.toInt(), pdirectory.rawAddress.toString(), dwdirectory.toInt(), dwdirectorylength.rawAddress.toString(), pversion.rawAddress.toString(), cchbuffer.toInt(), dwlength.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun getRequestedRuntimeVersion(pexe: Pcwstr, pversion: Pwstr, cchbuffer: UInt, dwlength: MutPtr<UInt>): Hresult =
+public actual fun getRequestedRuntimeVersion(pexe: Pcwstr, pversion: Pwstr, cchbuffer: UInt, dwlength: MutPtr): Hresult =
     if (windowsWin32SystemClrhostingNapiAvailable) wasmWindowssysWindowsWin32SystemClrhostingGetRequestedRuntimeVersion(pexe.rawAddress.toString(), pversion.rawAddress.toString(), cchbuffer.toInt(), dwlength.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun getRequestedRuntimeVersionForCLSID(rclsid: ConstPtr<Guid>, pversion: Pwstr, cchbuffer: UInt, dwlength: MutPtr<UInt>, dwresolutionflags: ClsidResolutionFlags): Hresult =
+public actual fun getRequestedRuntimeVersionForCLSID(rclsid: ConstPtr, pversion: Pwstr, cchbuffer: UInt, dwlength: MutPtr, dwresolutionflags: ClsidResolutionFlags): Hresult =
     if (windowsWin32SystemClrhostingNapiAvailable) wasmWindowssysWindowsWin32SystemClrhostingGetRequestedRuntimeVersionForCLSID(rclsid.rawAddress.toString(), pversion.rawAddress.toString(), cchbuffer.toInt(), dwlength.rawAddress.toString(), dwresolutionflags) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun getVersionFromProcess(hprocess: Handle, pversion: Pwstr, cchbuffer: UInt, dwlength: MutPtr<UInt>): Hresult =
+public actual fun getVersionFromProcess(hprocess: Handle, pversion: Pwstr, cchbuffer: UInt, dwlength: MutPtr): Hresult =
     if (windowsWin32SystemClrhostingNapiAvailable) wasmWindowssysWindowsWin32SystemClrhostingGetVersionFromProcess(hprocess.rawAddress.toString(), pversion.rawAddress.toString(), cchbuffer.toInt(), dwlength.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun loadLibraryShim(szdllname: Pcwstr, szversion: Pcwstr, pvreserved: MutPtr<CVoid>, phmoddll: MutPtr<Hmodule>): Hresult =
+public actual fun loadLibraryShim(szdllname: Pcwstr, szversion: Pcwstr, pvreserved: MutPtr, phmoddll: MutPtr): Hresult =
     if (windowsWin32SystemClrhostingNapiAvailable) wasmWindowssysWindowsWin32SystemClrhostingLoadLibraryShim(szdllname.rawAddress.toString(), szversion.rawAddress.toString(), pvreserved.rawAddress.toString(), phmoddll.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun loadStringRC(iresouceid: UInt, szbuffer: Pwstr, imax: Int, bquiet: Int): Hresult =
     if (windowsWin32SystemClrhostingNapiAvailable) wasmWindowssysWindowsWin32SystemClrhostingLoadStringRC(iresouceid.toInt(), szbuffer.rawAddress.toString(), imax, bquiet) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun loadStringRCEx(lcid: UInt, iresouceid: UInt, szbuffer: Pwstr, imax: Int, bquiet: Int, pcwchused: MutPtr<Int>): Hresult =
+public actual fun loadStringRCEx(lcid: UInt, iresouceid: UInt, szbuffer: Pwstr, imax: Int, bquiet: Int, pcwchused: MutPtr): Hresult =
     if (windowsWin32SystemClrhostingNapiAvailable) wasmWindowssysWindowsWin32SystemClrhostingLoadStringRCEx(lcid.toInt(), iresouceid.toInt(), szbuffer.rawAddress.toString(), imax, bquiet, pcwchused.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun lockClrVersion(hostcallback: FLockClrVersionCallback, pbeginhostsetup: MutPtr<FLockClrVersionCallback>, pendhostsetup: MutPtr<FLockClrVersionCallback>): Hresult =
+public actual fun lockClrVersion(hostcallback: FLockClrVersionCallback, pbeginhostsetup: MutPtr, pendhostsetup: MutPtr): Hresult =
     if (windowsWin32SystemClrhostingNapiAvailable) wasmWindowssysWindowsWin32SystemClrhostingLockClrVersion(0L.toString(), pbeginhostsetup.rawAddress.toString(), pendhostsetup.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun runDll32ShimW(hwnd: Hwnd, hinst: Hinstance, lpszcmdline: Pcwstr, ncmdshow: Int): Hresult =

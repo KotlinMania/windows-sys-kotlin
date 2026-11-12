@@ -2,7 +2,6 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing
 
-import io.github.kotlinmania.rustlang.core.ffi.CVoid
 import io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
 import io.github.kotlinmania.rustlang.core.mem.TypeLayout
 import io.github.kotlinmania.rustlang.core.ptr.ConstPtr
@@ -246,24 +245,24 @@ public class Actctxw internal constructor(
 public class ActctxSectionKeyedData internal constructor(
     public var cbSize: UInt,
     public var ulDataFormatVersion: UInt,
-    lpDataCtorArg: MutPtr<CVoid>,
+    lpDataCtorArg: MutPtr,
     public var ulLength: UInt,
-    lpSectionGlobalDataCtorArg: MutPtr<CVoid>,
+    lpSectionGlobalDataCtorArg: MutPtr,
     public var ulSectionGlobalDataLength: UInt,
-    lpSectionBaseCtorArg: MutPtr<CVoid>,
+    lpSectionBaseCtorArg: MutPtr,
     public var ulSectionTotalLength: UInt,
     hActCtxCtorArg: Handle,
     public var ulAssemblyRosterIndex: UInt,
     public var ulFlags: UInt,
     public var assemblyMetadata: ActctxSectionKeyedDataAssemblyMetadata,
 ) {
-    public var lpData: MutPtr<CVoid> = lpDataCtorArg
+    public var lpData: MutPtr = lpDataCtorArg
         internal set
 
-    public var lpSectionGlobalData: MutPtr<CVoid> = lpSectionGlobalDataCtorArg
+    public var lpSectionGlobalData: MutPtr = lpSectionGlobalDataCtorArg
         internal set
 
-    public var lpSectionBase: MutPtr<CVoid> = lpSectionBaseCtorArg
+    public var lpSectionBase: MutPtr = lpSectionBaseCtorArg
         internal set
 
     public var hActCtx: Handle = hActCtxCtorArg
@@ -288,15 +287,15 @@ public class ActctxSectionKeyedData internal constructor(
 
     public operator fun component2(): UInt = this.ulDataFormatVersion
 
-    public operator fun component3(): MutPtr<CVoid> = this.lpData
+    public operator fun component3(): MutPtr = this.lpData
 
     public operator fun component4(): UInt = this.ulLength
 
-    public operator fun component5(): MutPtr<CVoid> = this.lpSectionGlobalData
+    public operator fun component5(): MutPtr = this.lpSectionGlobalData
 
     public operator fun component6(): UInt = this.ulSectionGlobalDataLength
 
-    public operator fun component7(): MutPtr<CVoid> = this.lpSectionBase
+    public operator fun component7(): MutPtr = this.lpSectionBase
 
     public operator fun component8(): UInt = this.ulSectionTotalLength
 
@@ -308,7 +307,7 @@ public class ActctxSectionKeyedData internal constructor(
 
     public operator fun component12(): ActctxSectionKeyedDataAssemblyMetadata = this.assemblyMetadata
 
-    public fun copy(cbSize: UInt = this.cbSize, ulDataFormatVersion: UInt = this.ulDataFormatVersion, lpData: MutPtr<CVoid> = this.lpData, ulLength: UInt = this.ulLength, lpSectionGlobalData: MutPtr<CVoid> = this.lpSectionGlobalData, ulSectionGlobalDataLength: UInt = this.ulSectionGlobalDataLength, lpSectionBase: MutPtr<CVoid> = this.lpSectionBase, ulSectionTotalLength: UInt = this.ulSectionTotalLength, hActCtx: Handle = this.hActCtx, ulAssemblyRosterIndex: UInt = this.ulAssemblyRosterIndex, ulFlags: UInt = this.ulFlags, assemblyMetadata: ActctxSectionKeyedDataAssemblyMetadata = this.assemblyMetadata): ActctxSectionKeyedData = ActctxSectionKeyedData(cbSize = cbSize, ulDataFormatVersion = ulDataFormatVersion, lpDataCtorArg = lpData, ulLength = ulLength, lpSectionGlobalDataCtorArg = lpSectionGlobalData, ulSectionGlobalDataLength = ulSectionGlobalDataLength, lpSectionBaseCtorArg = lpSectionBase, ulSectionTotalLength = ulSectionTotalLength, hActCtxCtorArg = hActCtx, ulAssemblyRosterIndex = ulAssemblyRosterIndex, ulFlags = ulFlags, assemblyMetadata = assemblyMetadata)
+    public fun copy(cbSize: UInt = this.cbSize, ulDataFormatVersion: UInt = this.ulDataFormatVersion, lpData: MutPtr = this.lpData, ulLength: UInt = this.ulLength, lpSectionGlobalData: MutPtr = this.lpSectionGlobalData, ulSectionGlobalDataLength: UInt = this.ulSectionGlobalDataLength, lpSectionBase: MutPtr = this.lpSectionBase, ulSectionTotalLength: UInt = this.ulSectionTotalLength, hActCtx: Handle = this.hActCtx, ulAssemblyRosterIndex: UInt = this.ulAssemblyRosterIndex, ulFlags: UInt = this.ulFlags, assemblyMetadata: ActctxSectionKeyedDataAssemblyMetadata = this.assemblyMetadata): ActctxSectionKeyedData = ActctxSectionKeyedData(cbSize = cbSize, ulDataFormatVersion = ulDataFormatVersion, lpDataCtorArg = lpData, ulLength = ulLength, lpSectionGlobalDataCtorArg = lpSectionGlobalData, ulSectionGlobalDataLength = ulSectionGlobalDataLength, lpSectionBaseCtorArg = lpSectionBase, ulSectionTotalLength = ulSectionTotalLength, hActCtxCtorArg = hActCtx, ulAssemblyRosterIndex = ulAssemblyRosterIndex, ulFlags = ulFlags, assemblyMetadata = assemblyMetadata)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -348,11 +347,11 @@ public class ActctxSectionKeyedData internal constructor(
         public operator fun invoke(
             cbSize: UInt = 0u,
             ulDataFormatVersion: UInt = 0u,
-            lpData: MutPtr<CVoid> = MutPtr(0L),
+            lpData: MutPtr = MutPtr(0L),
             ulLength: UInt = 0u,
-            lpSectionGlobalData: MutPtr<CVoid> = MutPtr(0L),
+            lpSectionGlobalData: MutPtr = MutPtr(0L),
             ulSectionGlobalDataLength: UInt = 0u,
-            lpSectionBase: MutPtr<CVoid> = MutPtr(0L),
+            lpSectionBase: MutPtr = MutPtr(0L),
             ulSectionTotalLength: UInt = 0u,
             hActCtx: Handle = MutPtr(0L),
             ulAssemblyRosterIndex: UInt = 0u,
@@ -863,13 +862,13 @@ public data class DeltaInput(
 )
 
 public class DeltaInput0 internal constructor(
-    lpcStartCtorArg: ConstPtr<CVoid>,
-    lpStartCtorArg: MutPtr<CVoid>,
+    lpcStartCtorArg: ConstPtr,
+    lpStartCtorArg: MutPtr,
 ) {
-    public var lpcStart: ConstPtr<CVoid> = lpcStartCtorArg
+    public var lpcStart: ConstPtr = lpcStartCtorArg
         internal set
 
-    public var lpStart: MutPtr<CVoid> = lpStartCtorArg
+    public var lpStart: MutPtr = lpStartCtorArg
         internal set
 
     public constructor() : this(
@@ -877,11 +876,11 @@ public class DeltaInput0 internal constructor(
         lpStartCtorArg = MutPtr(0L),
     )
 
-    public operator fun component1(): ConstPtr<CVoid> = this.lpcStart
+    public operator fun component1(): ConstPtr = this.lpcStart
 
-    public operator fun component2(): MutPtr<CVoid> = this.lpStart
+    public operator fun component2(): MutPtr = this.lpStart
 
-    public fun copy(lpcStart: ConstPtr<CVoid> = this.lpcStart, lpStart: MutPtr<CVoid> = this.lpStart): DeltaInput0 = DeltaInput0(lpcStartCtorArg = lpcStart, lpStartCtorArg = lpStart)
+    public fun copy(lpcStart: ConstPtr = this.lpcStart, lpStart: MutPtr = this.lpStart): DeltaInput0 = DeltaInput0(lpcStartCtorArg = lpcStart, lpStartCtorArg = lpStart)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -899,8 +898,8 @@ public class DeltaInput0 internal constructor(
 
     public companion object {
         public operator fun invoke(
-            lpcStart: ConstPtr<CVoid> = ConstPtr(0L),
-            lpStart: MutPtr<CVoid> = MutPtr(0L),
+            lpcStart: ConstPtr = ConstPtr(0L),
+            lpStart: MutPtr = MutPtr(0L),
         ): DeltaInput0 =
             DeltaInput0(
                 lpcStartCtorArg = lpcStart,
@@ -910,10 +909,10 @@ public class DeltaInput0 internal constructor(
 }
 
 public class DeltaOutput internal constructor(
-    lpStartCtorArg: MutPtr<CVoid>,
+    lpStartCtorArg: MutPtr,
     public var uSize: Int,
 ) {
-    public var lpStart: MutPtr<CVoid> = lpStartCtorArg
+    public var lpStart: MutPtr = lpStartCtorArg
         internal set
 
     public constructor() : this(
@@ -921,11 +920,11 @@ public class DeltaOutput internal constructor(
         uSize = 0,
     )
 
-    public operator fun component1(): MutPtr<CVoid> = this.lpStart
+    public operator fun component1(): MutPtr = this.lpStart
 
     public operator fun component2(): Int = this.uSize
 
-    public fun copy(lpStart: MutPtr<CVoid> = this.lpStart, uSize: Int = this.uSize): DeltaOutput = DeltaOutput(lpStartCtorArg = lpStart, uSize = uSize)
+    public fun copy(lpStart: MutPtr = this.lpStart, uSize: Int = this.uSize): DeltaOutput = DeltaOutput(lpStartCtorArg = lpStart, uSize = uSize)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -950,21 +949,21 @@ public class DeltaOutput internal constructor(
                     DeltaOutput(
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<CVoid>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.USIZE64).readNative(addr + 8L),
                     )
                 override fun writeNative(addr: Long, value: DeltaOutput) {
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<CVoid>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr, value.lpStart)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.USIZE64).writeNative(addr + 8L, value.uSize)
                 }
             }
 
         public operator fun invoke(
-            lpStart: MutPtr<CVoid> = MutPtr(0L),
+            lpStart: MutPtr = MutPtr(0L),
             uSize: Int = 0,
         ): DeltaOutput =
             DeltaOutput(
@@ -1286,14 +1285,14 @@ public class PatchOldFileInfo internal constructor(
     public var sizeOfThisStruct: UInt,
     public var anonymous: PatchOldFileInfo0,
     public var ignoreRangeCount: UInt,
-    ignoreRangeArrayCtorArg: MutPtr<PatchIgnoreRange>,
+    ignoreRangeArrayCtorArg: MutPtr,
     public var retainRangeCount: UInt,
-    retainRangeArrayCtorArg: MutPtr<PatchRetainRange>,
+    retainRangeArrayCtorArg: MutPtr,
 ) {
-    public var ignoreRangeArray: MutPtr<PatchIgnoreRange> = ignoreRangeArrayCtorArg
+    public var ignoreRangeArray: MutPtr = ignoreRangeArrayCtorArg
         internal set
 
-    public var retainRangeArray: MutPtr<PatchRetainRange> = retainRangeArrayCtorArg
+    public var retainRangeArray: MutPtr = retainRangeArrayCtorArg
         internal set
 
     public constructor() : this(
@@ -1311,13 +1310,13 @@ public class PatchOldFileInfo internal constructor(
 
     public operator fun component3(): UInt = this.ignoreRangeCount
 
-    public operator fun component4(): MutPtr<PatchIgnoreRange> = this.ignoreRangeArray
+    public operator fun component4(): MutPtr = this.ignoreRangeArray
 
     public operator fun component5(): UInt = this.retainRangeCount
 
-    public operator fun component6(): MutPtr<PatchRetainRange> = this.retainRangeArray
+    public operator fun component6(): MutPtr = this.retainRangeArray
 
-    public fun copy(sizeOfThisStruct: UInt = this.sizeOfThisStruct, anonymous: PatchOldFileInfo0 = this.anonymous, ignoreRangeCount: UInt = this.ignoreRangeCount, ignoreRangeArray: MutPtr<PatchIgnoreRange> = this.ignoreRangeArray, retainRangeCount: UInt = this.retainRangeCount, retainRangeArray: MutPtr<PatchRetainRange> = this.retainRangeArray): PatchOldFileInfo = PatchOldFileInfo(sizeOfThisStruct = sizeOfThisStruct, anonymous = anonymous, ignoreRangeCount = ignoreRangeCount, ignoreRangeArrayCtorArg = ignoreRangeArray, retainRangeCount = retainRangeCount, retainRangeArrayCtorArg = retainRangeArray)
+    public fun copy(sizeOfThisStruct: UInt = this.sizeOfThisStruct, anonymous: PatchOldFileInfo0 = this.anonymous, ignoreRangeCount: UInt = this.ignoreRangeCount, ignoreRangeArray: MutPtr = this.ignoreRangeArray, retainRangeCount: UInt = this.retainRangeCount, retainRangeArray: MutPtr = this.retainRangeArray): PatchOldFileInfo = PatchOldFileInfo(sizeOfThisStruct = sizeOfThisStruct, anonymous = anonymous, ignoreRangeCount = ignoreRangeCount, ignoreRangeArrayCtorArg = ignoreRangeArray, retainRangeCount = retainRangeCount, retainRangeArrayCtorArg = retainRangeArray)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -1346,9 +1345,9 @@ public class PatchOldFileInfo internal constructor(
             sizeOfThisStruct: UInt = 0u,
             anonymous: PatchOldFileInfo0 = PatchOldFileInfo0(),
             ignoreRangeCount: UInt = 0u,
-            ignoreRangeArray: MutPtr<PatchIgnoreRange> = MutPtr(0L),
+            ignoreRangeArray: MutPtr = MutPtr(0L),
             retainRangeCount: UInt = 0u,
-            retainRangeArray: MutPtr<PatchRetainRange> = MutPtr(0L),
+            retainRangeArray: MutPtr = MutPtr(0L),
         ): PatchOldFileInfo =
             PatchOldFileInfo(
                 sizeOfThisStruct = sizeOfThisStruct,
@@ -1423,17 +1422,17 @@ public class PatchOldFileInfoA internal constructor(
     public var sizeOfThisStruct: UInt,
     oldFileNameCtorArg: Pcstr,
     public var ignoreRangeCount: UInt,
-    ignoreRangeArrayCtorArg: MutPtr<PatchIgnoreRange>,
+    ignoreRangeArrayCtorArg: MutPtr,
     public var retainRangeCount: UInt,
-    retainRangeArrayCtorArg: MutPtr<PatchRetainRange>,
+    retainRangeArrayCtorArg: MutPtr,
 ) {
     public var oldFileName: Pcstr = oldFileNameCtorArg
         internal set
 
-    public var ignoreRangeArray: MutPtr<PatchIgnoreRange> = ignoreRangeArrayCtorArg
+    public var ignoreRangeArray: MutPtr = ignoreRangeArrayCtorArg
         internal set
 
-    public var retainRangeArray: MutPtr<PatchRetainRange> = retainRangeArrayCtorArg
+    public var retainRangeArray: MutPtr = retainRangeArrayCtorArg
         internal set
 
     public constructor() : this(
@@ -1451,13 +1450,13 @@ public class PatchOldFileInfoA internal constructor(
 
     public operator fun component3(): UInt = this.ignoreRangeCount
 
-    public operator fun component4(): MutPtr<PatchIgnoreRange> = this.ignoreRangeArray
+    public operator fun component4(): MutPtr = this.ignoreRangeArray
 
     public operator fun component5(): UInt = this.retainRangeCount
 
-    public operator fun component6(): MutPtr<PatchRetainRange> = this.retainRangeArray
+    public operator fun component6(): MutPtr = this.retainRangeArray
 
-    public fun copy(sizeOfThisStruct: UInt = this.sizeOfThisStruct, oldFileName: Pcstr = this.oldFileName, ignoreRangeCount: UInt = this.ignoreRangeCount, ignoreRangeArray: MutPtr<PatchIgnoreRange> = this.ignoreRangeArray, retainRangeCount: UInt = this.retainRangeCount, retainRangeArray: MutPtr<PatchRetainRange> = this.retainRangeArray): PatchOldFileInfoA = PatchOldFileInfoA(sizeOfThisStruct = sizeOfThisStruct, oldFileNameCtorArg = oldFileName, ignoreRangeCount = ignoreRangeCount, ignoreRangeArrayCtorArg = ignoreRangeArray, retainRangeCount = retainRangeCount, retainRangeArrayCtorArg = retainRangeArray)
+    public fun copy(sizeOfThisStruct: UInt = this.sizeOfThisStruct, oldFileName: Pcstr = this.oldFileName, ignoreRangeCount: UInt = this.ignoreRangeCount, ignoreRangeArray: MutPtr = this.ignoreRangeArray, retainRangeCount: UInt = this.retainRangeCount, retainRangeArray: MutPtr = this.retainRangeArray): PatchOldFileInfoA = PatchOldFileInfoA(sizeOfThisStruct = sizeOfThisStruct, oldFileNameCtorArg = oldFileName, ignoreRangeCount = ignoreRangeCount, ignoreRangeArrayCtorArg = ignoreRangeArray, retainRangeCount = retainRangeCount, retainRangeArrayCtorArg = retainRangeArray)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -1486,9 +1485,9 @@ public class PatchOldFileInfoA internal constructor(
             sizeOfThisStruct: UInt = 0u,
             oldFileName: Pcstr = ConstPtr(0L),
             ignoreRangeCount: UInt = 0u,
-            ignoreRangeArray: MutPtr<PatchIgnoreRange> = MutPtr(0L),
+            ignoreRangeArray: MutPtr = MutPtr(0L),
             retainRangeCount: UInt = 0u,
-            retainRangeArray: MutPtr<PatchRetainRange> = MutPtr(0L),
+            retainRangeArray: MutPtr = MutPtr(0L),
         ): PatchOldFileInfoA =
             PatchOldFileInfoA(
                 sizeOfThisStruct = sizeOfThisStruct,
@@ -1505,17 +1504,17 @@ public class PatchOldFileInfoH internal constructor(
     public var sizeOfThisStruct: UInt,
     oldFileHandleCtorArg: Handle,
     public var ignoreRangeCount: UInt,
-    ignoreRangeArrayCtorArg: MutPtr<PatchIgnoreRange>,
+    ignoreRangeArrayCtorArg: MutPtr,
     public var retainRangeCount: UInt,
-    retainRangeArrayCtorArg: MutPtr<PatchRetainRange>,
+    retainRangeArrayCtorArg: MutPtr,
 ) {
     public var oldFileHandle: Handle = oldFileHandleCtorArg
         internal set
 
-    public var ignoreRangeArray: MutPtr<PatchIgnoreRange> = ignoreRangeArrayCtorArg
+    public var ignoreRangeArray: MutPtr = ignoreRangeArrayCtorArg
         internal set
 
-    public var retainRangeArray: MutPtr<PatchRetainRange> = retainRangeArrayCtorArg
+    public var retainRangeArray: MutPtr = retainRangeArrayCtorArg
         internal set
 
     public constructor() : this(
@@ -1533,13 +1532,13 @@ public class PatchOldFileInfoH internal constructor(
 
     public operator fun component3(): UInt = this.ignoreRangeCount
 
-    public operator fun component4(): MutPtr<PatchIgnoreRange> = this.ignoreRangeArray
+    public operator fun component4(): MutPtr = this.ignoreRangeArray
 
     public operator fun component5(): UInt = this.retainRangeCount
 
-    public operator fun component6(): MutPtr<PatchRetainRange> = this.retainRangeArray
+    public operator fun component6(): MutPtr = this.retainRangeArray
 
-    public fun copy(sizeOfThisStruct: UInt = this.sizeOfThisStruct, oldFileHandle: Handle = this.oldFileHandle, ignoreRangeCount: UInt = this.ignoreRangeCount, ignoreRangeArray: MutPtr<PatchIgnoreRange> = this.ignoreRangeArray, retainRangeCount: UInt = this.retainRangeCount, retainRangeArray: MutPtr<PatchRetainRange> = this.retainRangeArray): PatchOldFileInfoH = PatchOldFileInfoH(sizeOfThisStruct = sizeOfThisStruct, oldFileHandleCtorArg = oldFileHandle, ignoreRangeCount = ignoreRangeCount, ignoreRangeArrayCtorArg = ignoreRangeArray, retainRangeCount = retainRangeCount, retainRangeArrayCtorArg = retainRangeArray)
+    public fun copy(sizeOfThisStruct: UInt = this.sizeOfThisStruct, oldFileHandle: Handle = this.oldFileHandle, ignoreRangeCount: UInt = this.ignoreRangeCount, ignoreRangeArray: MutPtr = this.ignoreRangeArray, retainRangeCount: UInt = this.retainRangeCount, retainRangeArray: MutPtr = this.retainRangeArray): PatchOldFileInfoH = PatchOldFileInfoH(sizeOfThisStruct = sizeOfThisStruct, oldFileHandleCtorArg = oldFileHandle, ignoreRangeCount = ignoreRangeCount, ignoreRangeArrayCtorArg = ignoreRangeArray, retainRangeCount = retainRangeCount, retainRangeArrayCtorArg = retainRangeArray)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -1568,9 +1567,9 @@ public class PatchOldFileInfoH internal constructor(
             sizeOfThisStruct: UInt = 0u,
             oldFileHandle: Handle = MutPtr(0L),
             ignoreRangeCount: UInt = 0u,
-            ignoreRangeArray: MutPtr<PatchIgnoreRange> = MutPtr(0L),
+            ignoreRangeArray: MutPtr = MutPtr(0L),
             retainRangeCount: UInt = 0u,
-            retainRangeArray: MutPtr<PatchRetainRange> = MutPtr(0L),
+            retainRangeArray: MutPtr = MutPtr(0L),
         ): PatchOldFileInfoH =
             PatchOldFileInfoH(
                 sizeOfThisStruct = sizeOfThisStruct,
@@ -1587,17 +1586,17 @@ public class PatchOldFileInfoW internal constructor(
     public var sizeOfThisStruct: UInt,
     oldFileNameCtorArg: Pcwstr,
     public var ignoreRangeCount: UInt,
-    ignoreRangeArrayCtorArg: MutPtr<PatchIgnoreRange>,
+    ignoreRangeArrayCtorArg: MutPtr,
     public var retainRangeCount: UInt,
-    retainRangeArrayCtorArg: MutPtr<PatchRetainRange>,
+    retainRangeArrayCtorArg: MutPtr,
 ) {
     public var oldFileName: Pcwstr = oldFileNameCtorArg
         internal set
 
-    public var ignoreRangeArray: MutPtr<PatchIgnoreRange> = ignoreRangeArrayCtorArg
+    public var ignoreRangeArray: MutPtr = ignoreRangeArrayCtorArg
         internal set
 
-    public var retainRangeArray: MutPtr<PatchRetainRange> = retainRangeArrayCtorArg
+    public var retainRangeArray: MutPtr = retainRangeArrayCtorArg
         internal set
 
     public constructor() : this(
@@ -1615,13 +1614,13 @@ public class PatchOldFileInfoW internal constructor(
 
     public operator fun component3(): UInt = this.ignoreRangeCount
 
-    public operator fun component4(): MutPtr<PatchIgnoreRange> = this.ignoreRangeArray
+    public operator fun component4(): MutPtr = this.ignoreRangeArray
 
     public operator fun component5(): UInt = this.retainRangeCount
 
-    public operator fun component6(): MutPtr<PatchRetainRange> = this.retainRangeArray
+    public operator fun component6(): MutPtr = this.retainRangeArray
 
-    public fun copy(sizeOfThisStruct: UInt = this.sizeOfThisStruct, oldFileName: Pcwstr = this.oldFileName, ignoreRangeCount: UInt = this.ignoreRangeCount, ignoreRangeArray: MutPtr<PatchIgnoreRange> = this.ignoreRangeArray, retainRangeCount: UInt = this.retainRangeCount, retainRangeArray: MutPtr<PatchRetainRange> = this.retainRangeArray): PatchOldFileInfoW = PatchOldFileInfoW(sizeOfThisStruct = sizeOfThisStruct, oldFileNameCtorArg = oldFileName, ignoreRangeCount = ignoreRangeCount, ignoreRangeArrayCtorArg = ignoreRangeArray, retainRangeCount = retainRangeCount, retainRangeArrayCtorArg = retainRangeArray)
+    public fun copy(sizeOfThisStruct: UInt = this.sizeOfThisStruct, oldFileName: Pcwstr = this.oldFileName, ignoreRangeCount: UInt = this.ignoreRangeCount, ignoreRangeArray: MutPtr = this.ignoreRangeArray, retainRangeCount: UInt = this.retainRangeCount, retainRangeArray: MutPtr = this.retainRangeArray): PatchOldFileInfoW = PatchOldFileInfoW(sizeOfThisStruct = sizeOfThisStruct, oldFileNameCtorArg = oldFileName, ignoreRangeCount = ignoreRangeCount, ignoreRangeArrayCtorArg = ignoreRangeArray, retainRangeCount = retainRangeCount, retainRangeArrayCtorArg = retainRangeArray)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -1650,9 +1649,9 @@ public class PatchOldFileInfoW internal constructor(
             sizeOfThisStruct: UInt = 0u,
             oldFileName: Pcwstr = ConstPtr(0L),
             ignoreRangeCount: UInt = 0u,
-            ignoreRangeArray: MutPtr<PatchIgnoreRange> = MutPtr(0L),
+            ignoreRangeArray: MutPtr = MutPtr(0L),
             retainRangeCount: UInt = 0u,
-            retainRangeArray: MutPtr<PatchRetainRange> = MutPtr(0L),
+            retainRangeArray: MutPtr = MutPtr(0L),
         ): PatchOldFileInfoW =
             PatchOldFileInfoW(
                 sizeOfThisStruct = sizeOfThisStruct,
@@ -1669,23 +1668,23 @@ public class PatchOptionData internal constructor(
     public var sizeOfThisStruct: UInt,
     public var symbolOptionFlags: UInt,
     newFileSymbolPathCtorArg: Pcstr,
-    oldFileSymbolPathArrayCtorArg: ConstPtr<Pcstr>,
+    oldFileSymbolPathArrayCtorArg: ConstPtr,
     public var extendedOptionFlags: UInt,
     public var symLoadCallback: PpatchSymloadCallback,
-    symLoadContextCtorArg: MutPtr<CVoid>,
-    interleaveMapArrayCtorArg: MutPtr<MutPtr<PatchInterleaveMap>>,
+    symLoadContextCtorArg: MutPtr,
+    interleaveMapArrayCtorArg: MutPtr,
     public var maxLzxWindowSize: UInt,
 ) {
     public var newFileSymbolPath: Pcstr = newFileSymbolPathCtorArg
         internal set
 
-    public var oldFileSymbolPathArray: ConstPtr<Pcstr> = oldFileSymbolPathArrayCtorArg
+    public var oldFileSymbolPathArray: ConstPtr = oldFileSymbolPathArrayCtorArg
         internal set
 
-    public var symLoadContext: MutPtr<CVoid> = symLoadContextCtorArg
+    public var symLoadContext: MutPtr = symLoadContextCtorArg
         internal set
 
-    public var interleaveMapArray: MutPtr<MutPtr<PatchInterleaveMap>> = interleaveMapArrayCtorArg
+    public var interleaveMapArray: MutPtr = interleaveMapArrayCtorArg
         internal set
 
     public constructor() : this(
@@ -1706,19 +1705,19 @@ public class PatchOptionData internal constructor(
 
     public operator fun component3(): Pcstr = this.newFileSymbolPath
 
-    public operator fun component4(): ConstPtr<Pcstr> = this.oldFileSymbolPathArray
+    public operator fun component4(): ConstPtr = this.oldFileSymbolPathArray
 
     public operator fun component5(): UInt = this.extendedOptionFlags
 
     public operator fun component6(): PpatchSymloadCallback = this.symLoadCallback
 
-    public operator fun component7(): MutPtr<CVoid> = this.symLoadContext
+    public operator fun component7(): MutPtr = this.symLoadContext
 
-    public operator fun component8(): MutPtr<MutPtr<PatchInterleaveMap>> = this.interleaveMapArray
+    public operator fun component8(): MutPtr = this.interleaveMapArray
 
     public operator fun component9(): UInt = this.maxLzxWindowSize
 
-    public fun copy(sizeOfThisStruct: UInt = this.sizeOfThisStruct, symbolOptionFlags: UInt = this.symbolOptionFlags, newFileSymbolPath: Pcstr = this.newFileSymbolPath, oldFileSymbolPathArray: ConstPtr<Pcstr> = this.oldFileSymbolPathArray, extendedOptionFlags: UInt = this.extendedOptionFlags, symLoadCallback: PpatchSymloadCallback = this.symLoadCallback, symLoadContext: MutPtr<CVoid> = this.symLoadContext, interleaveMapArray: MutPtr<MutPtr<PatchInterleaveMap>> = this.interleaveMapArray, maxLzxWindowSize: UInt = this.maxLzxWindowSize): PatchOptionData = PatchOptionData(sizeOfThisStruct = sizeOfThisStruct, symbolOptionFlags = symbolOptionFlags, newFileSymbolPathCtorArg = newFileSymbolPath, oldFileSymbolPathArrayCtorArg = oldFileSymbolPathArray, extendedOptionFlags = extendedOptionFlags, symLoadCallback = symLoadCallback, symLoadContextCtorArg = symLoadContext, interleaveMapArrayCtorArg = interleaveMapArray, maxLzxWindowSize = maxLzxWindowSize)
+    public fun copy(sizeOfThisStruct: UInt = this.sizeOfThisStruct, symbolOptionFlags: UInt = this.symbolOptionFlags, newFileSymbolPath: Pcstr = this.newFileSymbolPath, oldFileSymbolPathArray: ConstPtr = this.oldFileSymbolPathArray, extendedOptionFlags: UInt = this.extendedOptionFlags, symLoadCallback: PpatchSymloadCallback = this.symLoadCallback, symLoadContext: MutPtr = this.symLoadContext, interleaveMapArray: MutPtr = this.interleaveMapArray, maxLzxWindowSize: UInt = this.maxLzxWindowSize): PatchOptionData = PatchOptionData(sizeOfThisStruct = sizeOfThisStruct, symbolOptionFlags = symbolOptionFlags, newFileSymbolPathCtorArg = newFileSymbolPath, oldFileSymbolPathArrayCtorArg = oldFileSymbolPathArray, extendedOptionFlags = extendedOptionFlags, symLoadCallback = symLoadCallback, symLoadContextCtorArg = symLoadContext, interleaveMapArrayCtorArg = interleaveMapArray, maxLzxWindowSize = maxLzxWindowSize)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -1753,11 +1752,11 @@ public class PatchOptionData internal constructor(
             sizeOfThisStruct: UInt = 0u,
             symbolOptionFlags: UInt = 0u,
             newFileSymbolPath: Pcstr = ConstPtr(0L),
-            oldFileSymbolPathArray: ConstPtr<Pcstr> = ConstPtr(0L),
+            oldFileSymbolPathArray: ConstPtr = ConstPtr(0L),
             extendedOptionFlags: UInt = 0u,
             symLoadCallback: PpatchSymloadCallback = null,
-            symLoadContext: MutPtr<CVoid> = MutPtr(0L),
-            interleaveMapArray: MutPtr<MutPtr<PatchInterleaveMap>> = MutPtr(0L),
+            symLoadContext: MutPtr = MutPtr(0L),
+            interleaveMapArray: MutPtr = MutPtr(0L),
             maxLzxWindowSize: UInt = 0u,
         ): PatchOptionData =
             PatchOptionData(
@@ -2057,7 +2056,7 @@ public class PmInstallinfo internal constructor(
     public var productID: Guid,
     packagePathCtorArg: Bstr,
     public var instanceID: Guid,
-    pbLicenseCtorArg: MutPtr<UByte>,
+    pbLicenseCtorArg: MutPtr,
     public var cbLicense: UInt,
     public var isUninstallDisabled: Bool,
     public var deploymentOptions: UInt,
@@ -2067,7 +2066,7 @@ public class PmInstallinfo internal constructor(
     public var packagePath: Bstr = packagePathCtorArg
         internal set
 
-    public var pbLicense: MutPtr<UByte> = pbLicenseCtorArg
+    public var pbLicense: MutPtr = pbLicenseCtorArg
         internal set
 
     public var marketplaceAppVersion: Bstr = marketplaceAppVersionCtorArg
@@ -2091,7 +2090,7 @@ public class PmInstallinfo internal constructor(
 
     public operator fun component3(): Guid = this.instanceID
 
-    public operator fun component4(): MutPtr<UByte> = this.pbLicense
+    public operator fun component4(): MutPtr = this.pbLicense
 
     public operator fun component5(): UInt = this.cbLicense
 
@@ -2103,7 +2102,7 @@ public class PmInstallinfo internal constructor(
 
     public operator fun component9(): Bstr = this.marketplaceAppVersion
 
-    public fun copy(productID: Guid = this.productID, packagePath: Bstr = this.packagePath, instanceID: Guid = this.instanceID, pbLicense: MutPtr<UByte> = this.pbLicense, cbLicense: UInt = this.cbLicense, isUninstallDisabled: Bool = this.isUninstallDisabled, deploymentOptions: UInt = this.deploymentOptions, offerID: Guid = this.offerID, marketplaceAppVersion: Bstr = this.marketplaceAppVersion): PmInstallinfo = PmInstallinfo(productID = productID, packagePathCtorArg = packagePath, instanceID = instanceID, pbLicenseCtorArg = pbLicense, cbLicense = cbLicense, isUninstallDisabled = isUninstallDisabled, deploymentOptions = deploymentOptions, offerID = offerID, marketplaceAppVersionCtorArg = marketplaceAppVersion)
+    public fun copy(productID: Guid = this.productID, packagePath: Bstr = this.packagePath, instanceID: Guid = this.instanceID, pbLicense: MutPtr = this.pbLicense, cbLicense: UInt = this.cbLicense, isUninstallDisabled: Bool = this.isUninstallDisabled, deploymentOptions: UInt = this.deploymentOptions, offerID: Guid = this.offerID, marketplaceAppVersion: Bstr = this.marketplaceAppVersion): PmInstallinfo = PmInstallinfo(productID = productID, packagePathCtorArg = packagePath, instanceID = instanceID, pbLicenseCtorArg = pbLicense, cbLicense = cbLicense, isUninstallDisabled = isUninstallDisabled, deploymentOptions = deploymentOptions, offerID = offerID, marketplaceAppVersionCtorArg = marketplaceAppVersion)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -2138,7 +2137,7 @@ public class PmInstallinfo internal constructor(
             productID: Guid = Guid(),
             packagePath: Bstr = ConstPtr(0L),
             instanceID: Guid = Guid(),
-            pbLicense: MutPtr<UByte> = MutPtr(0L),
+            pbLicense: MutPtr = MutPtr(0L),
             cbLicense: UInt = 0u,
             isUninstallDisabled: Bool = 0,
             deploymentOptions: UInt = 0u,
@@ -2334,7 +2333,7 @@ public class PmStarttileblob internal constructor(
     public var hubVisibilityBitmask: UInt,
     public var isDefault: Bool,
     public var tileType: PmStarttileType,
-    pbPropBlobCtorArg: MutPtr<UByte>,
+    pbPropBlobCtorArg: MutPtr,
     public var cbPropBlob: UInt,
     public var isRestoring: Bool,
     public var isModern: Bool,
@@ -2343,7 +2342,7 @@ public class PmStarttileblob internal constructor(
     public var tileID: Bstr = tileIDCtorArg
         internal set
 
-    public var pbPropBlob: MutPtr<UByte> = pbPropBlobCtorArg
+    public var pbPropBlob: MutPtr = pbPropBlobCtorArg
         internal set
 
     public constructor() : this(
@@ -2378,7 +2377,7 @@ public class PmStarttileblob internal constructor(
 
     public operator fun component8(): PmStarttileType = this.tileType
 
-    public operator fun component9(): MutPtr<UByte> = this.pbPropBlob
+    public operator fun component9(): MutPtr = this.pbPropBlob
 
     public operator fun component10(): UInt = this.cbPropBlob
 
@@ -2388,7 +2387,7 @@ public class PmStarttileblob internal constructor(
 
     public operator fun component13(): PmInvocationinfo = this.invocationInfo
 
-    public fun copy(cbSize: UInt = this.cbSize, productID: Guid = this.productID, tileID: Bstr = this.tileID, templateType: TileTemplateType = this.templateType, hubPosition: UIntArray = this.hubPosition, hubVisibilityBitmask: UInt = this.hubVisibilityBitmask, isDefault: Bool = this.isDefault, tileType: PmStarttileType = this.tileType, pbPropBlob: MutPtr<UByte> = this.pbPropBlob, cbPropBlob: UInt = this.cbPropBlob, isRestoring: Bool = this.isRestoring, isModern: Bool = this.isModern, invocationInfo: PmInvocationinfo = this.invocationInfo): PmStarttileblob = PmStarttileblob(cbSize = cbSize, productID = productID, tileIDCtorArg = tileID, templateType = templateType, hubPosition = hubPosition, hubVisibilityBitmask = hubVisibilityBitmask, isDefault = isDefault, tileType = tileType, pbPropBlobCtorArg = pbPropBlob, cbPropBlob = cbPropBlob, isRestoring = isRestoring, isModern = isModern, invocationInfo = invocationInfo)
+    public fun copy(cbSize: UInt = this.cbSize, productID: Guid = this.productID, tileID: Bstr = this.tileID, templateType: TileTemplateType = this.templateType, hubPosition: UIntArray = this.hubPosition, hubVisibilityBitmask: UInt = this.hubVisibilityBitmask, isDefault: Bool = this.isDefault, tileType: PmStarttileType = this.tileType, pbPropBlob: MutPtr = this.pbPropBlob, cbPropBlob: UInt = this.cbPropBlob, isRestoring: Bool = this.isRestoring, isModern: Bool = this.isModern, invocationInfo: PmInvocationinfo = this.invocationInfo): PmStarttileblob = PmStarttileblob(cbSize = cbSize, productID = productID, tileIDCtorArg = tileID, templateType = templateType, hubPosition = hubPosition, hubVisibilityBitmask = hubVisibilityBitmask, isDefault = isDefault, tileType = tileType, pbPropBlobCtorArg = pbPropBlob, cbPropBlob = cbPropBlob, isRestoring = isRestoring, isModern = isModern, invocationInfo = invocationInfo)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -2436,7 +2435,7 @@ public class PmStarttileblob internal constructor(
             hubVisibilityBitmask: UInt = 0u,
             isDefault: Bool = 0,
             tileType: PmStarttileType = 0,
-            pbPropBlob: MutPtr<UByte> = MutPtr(0L),
+            pbPropBlob: MutPtr = MutPtr(0L),
             cbPropBlob: UInt = 0u,
             isRestoring: Bool = 0,
             isModern: Bool = 0,
@@ -2464,7 +2463,7 @@ public class PmUpdateinfo internal constructor(
     public var productID: Guid,
     packagePathCtorArg: Bstr,
     public var instanceID: Guid,
-    pbLicenseCtorArg: MutPtr<UByte>,
+    pbLicenseCtorArg: MutPtr,
     public var cbLicense: UInt,
     marketplaceAppVersionCtorArg: Bstr,
     public var deploymentOptions: UInt,
@@ -2472,7 +2471,7 @@ public class PmUpdateinfo internal constructor(
     public var packagePath: Bstr = packagePathCtorArg
         internal set
 
-    public var pbLicense: MutPtr<UByte> = pbLicenseCtorArg
+    public var pbLicense: MutPtr = pbLicenseCtorArg
         internal set
 
     public var marketplaceAppVersion: Bstr = marketplaceAppVersionCtorArg
@@ -2494,7 +2493,7 @@ public class PmUpdateinfo internal constructor(
 
     public operator fun component3(): Guid = this.instanceID
 
-    public operator fun component4(): MutPtr<UByte> = this.pbLicense
+    public operator fun component4(): MutPtr = this.pbLicense
 
     public operator fun component5(): UInt = this.cbLicense
 
@@ -2502,7 +2501,7 @@ public class PmUpdateinfo internal constructor(
 
     public operator fun component7(): UInt = this.deploymentOptions
 
-    public fun copy(productID: Guid = this.productID, packagePath: Bstr = this.packagePath, instanceID: Guid = this.instanceID, pbLicense: MutPtr<UByte> = this.pbLicense, cbLicense: UInt = this.cbLicense, marketplaceAppVersion: Bstr = this.marketplaceAppVersion, deploymentOptions: UInt = this.deploymentOptions): PmUpdateinfo = PmUpdateinfo(productID = productID, packagePathCtorArg = packagePath, instanceID = instanceID, pbLicenseCtorArg = pbLicense, cbLicense = cbLicense, marketplaceAppVersionCtorArg = marketplaceAppVersion, deploymentOptions = deploymentOptions)
+    public fun copy(productID: Guid = this.productID, packagePath: Bstr = this.packagePath, instanceID: Guid = this.instanceID, pbLicense: MutPtr = this.pbLicense, cbLicense: UInt = this.cbLicense, marketplaceAppVersion: Bstr = this.marketplaceAppVersion, deploymentOptions: UInt = this.deploymentOptions): PmUpdateinfo = PmUpdateinfo(productID = productID, packagePathCtorArg = packagePath, instanceID = instanceID, pbLicenseCtorArg = pbLicense, cbLicense = cbLicense, marketplaceAppVersionCtorArg = marketplaceAppVersion, deploymentOptions = deploymentOptions)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -2533,7 +2532,7 @@ public class PmUpdateinfo internal constructor(
             productID: Guid = Guid(),
             packagePath: Bstr = ConstPtr(0L),
             instanceID: Guid = Guid(),
-            pbLicense: MutPtr<UByte> = MutPtr(0L),
+            pbLicense: MutPtr = MutPtr(0L),
             cbLicense: UInt = 0u,
             marketplaceAppVersion: Bstr = ConstPtr(0L),
             deploymentOptions: UInt = 0u,
@@ -2554,14 +2553,14 @@ public class PmUpdateinfoLegacy internal constructor(
     public var productID: Guid,
     packagePathCtorArg: Bstr,
     public var instanceID: Guid,
-    pbLicenseCtorArg: MutPtr<UByte>,
+    pbLicenseCtorArg: MutPtr,
     public var cbLicense: UInt,
     marketplaceAppVersionCtorArg: Bstr,
 ) {
     public var packagePath: Bstr = packagePathCtorArg
         internal set
 
-    public var pbLicense: MutPtr<UByte> = pbLicenseCtorArg
+    public var pbLicense: MutPtr = pbLicenseCtorArg
         internal set
 
     public var marketplaceAppVersion: Bstr = marketplaceAppVersionCtorArg
@@ -2582,13 +2581,13 @@ public class PmUpdateinfoLegacy internal constructor(
 
     public operator fun component3(): Guid = this.instanceID
 
-    public operator fun component4(): MutPtr<UByte> = this.pbLicense
+    public operator fun component4(): MutPtr = this.pbLicense
 
     public operator fun component5(): UInt = this.cbLicense
 
     public operator fun component6(): Bstr = this.marketplaceAppVersion
 
-    public fun copy(productID: Guid = this.productID, packagePath: Bstr = this.packagePath, instanceID: Guid = this.instanceID, pbLicense: MutPtr<UByte> = this.pbLicense, cbLicense: UInt = this.cbLicense, marketplaceAppVersion: Bstr = this.marketplaceAppVersion): PmUpdateinfoLegacy = PmUpdateinfoLegacy(productID = productID, packagePathCtorArg = packagePath, instanceID = instanceID, pbLicenseCtorArg = pbLicense, cbLicense = cbLicense, marketplaceAppVersionCtorArg = marketplaceAppVersion)
+    public fun copy(productID: Guid = this.productID, packagePath: Bstr = this.packagePath, instanceID: Guid = this.instanceID, pbLicense: MutPtr = this.pbLicense, cbLicense: UInt = this.cbLicense, marketplaceAppVersion: Bstr = this.marketplaceAppVersion): PmUpdateinfoLegacy = PmUpdateinfoLegacy(productID = productID, packagePathCtorArg = packagePath, instanceID = instanceID, pbLicenseCtorArg = pbLicense, cbLicense = cbLicense, marketplaceAppVersionCtorArg = marketplaceAppVersion)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -2617,7 +2616,7 @@ public class PmUpdateinfoLegacy internal constructor(
             productID: Guid = Guid(),
             packagePath: Bstr = ConstPtr(0L),
             instanceID: Guid = Guid(),
-            pbLicense: MutPtr<UByte> = MutPtr(0L),
+            pbLicense: MutPtr = MutPtr(0L),
             cbLicense: UInt = 0u,
             marketplaceAppVersion: Bstr = ConstPtr(0L),
         ): PmUpdateinfoLegacy =

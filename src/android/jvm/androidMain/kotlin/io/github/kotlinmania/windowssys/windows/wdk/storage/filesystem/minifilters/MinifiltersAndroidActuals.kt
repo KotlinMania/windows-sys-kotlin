@@ -2,51 +2,29 @@
 
 package io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.minifilters
 
-import io.github.kotlinmania.rustlang.core.ffi.CVoid
 import io.github.kotlinmania.rustlang.core.ptr.ConstPtr
 import io.github.kotlinmania.rustlang.core.ptr.MutPtr
-import io.github.kotlinmania.windowssys.core.Guid
 import io.github.kotlinmania.windowssys.core.Pcstr
 import io.github.kotlinmania.windowssys.core.Pcwstr
 import io.github.kotlinmania.windowssys.core.Pstr
-import io.github.kotlinmania.windowssys.windows.wdk.foundation.DeviceObject
-import io.github.kotlinmania.windowssys.windows.wdk.foundation.DriverObject
-import io.github.kotlinmania.windowssys.windows.wdk.foundation.EcpList
-import io.github.kotlinmania.windowssys.windows.wdk.foundation.Eresource
-import io.github.kotlinmania.windowssys.windows.wdk.foundation.FileObject
 import io.github.kotlinmania.windowssys.windows.wdk.foundation.IoPriorityHint
-import io.github.kotlinmania.windowssys.windows.wdk.foundation.Ktransaction
-import io.github.kotlinmania.windowssys.windows.wdk.foundation.KwaitBlock
-import io.github.kotlinmania.windowssys.windows.wdk.foundation.Mdl
-import io.github.kotlinmania.windowssys.windows.wdk.foundation.ObjectAttributes
 import io.github.kotlinmania.windowssys.windows.wdk.foundation.Peprocess
 import io.github.kotlinmania.windowssys.windows.wdk.foundation.Pethread
 import io.github.kotlinmania.windowssys.windows.wdk.foundation.PnotifySync
 import io.github.kotlinmania.windowssys.windows.wdk.foundation.PoolType
-import io.github.kotlinmania.windowssys.windows.wdk.foundation.SecuritySubjectContext
 import io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.FileInformationClass
-import io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.FileLock
 import io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.FsInformationClass
-import io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.IoPriorityInfo
-import io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.OpenReparseListEntry
 import io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.PcheckForTraverseAccess
 import io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.PfilterReportChange
 import io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.PfsrtlExtraCreateParameterCleanupCallback
 import io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.PunlockRoutine
-import io.github.kotlinmania.windowssys.windows.wdk.system.systemservices.IoCsqIrpContext
-import io.github.kotlinmania.windowssys.windows.wdk.system.systemservices.IoDriverCreateContext
-import io.github.kotlinmania.windowssys.windows.wdk.system.systemservices.LockOperation
 import io.github.kotlinmania.windowssys.windows.wdk.system.systemservices.WorkQueueType
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Handle
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Ntstatus
-import io.github.kotlinmania.windowssys.windows.win32.foundation.UnicodeString
 import io.github.kotlinmania.windowssys.windows.win32.security.PsecurityDescriptor
 import io.github.kotlinmania.windowssys.windows.win32.storage.installablefilesystems.FilterInformationClass
 import io.github.kotlinmania.windowssys.windows.win32.storage.installablefilesystems.FilterVolumeInformationClass
-import io.github.kotlinmania.windowssys.windows.win32.storage.installablefilesystems.FltFilesystemType
 import io.github.kotlinmania.windowssys.windows.win32.storage.installablefilesystems.InstanceInformationClass
-import io.github.kotlinmania.windowssys.windows.win32.system.io.IoStatusBlock
-import io.github.kotlinmania.windowssys.windows.win32.system.kernel.ListEntry
 import io.github.kotlinmania.windowssys.windows.win32.system.kernel.WaitType
 
 private object WindowsWdkStorageFilesystemMinifiltersJniBridge {
@@ -850,141 +828,141 @@ private object WindowsWdkStorageFilesystemMinifiltersJniBridge {
     external fun windowssysWindowsWdkStorageFilesystemMinifiltersFltpTraceRedirectedFileIo(originatingfileobject: Long, childcallbackdata: Long): Int
 }
 
-public actual fun fltAcknowledgeEcp(filter: PfltFilter, ecpcontext: ConstPtr<CVoid>) {
+public actual fun fltAcknowledgeEcp(filter: PfltFilter, ecpcontext: ConstPtr) {
     WindowsWdkStorageFilesystemMinifiltersJniBridge.windowssysWindowsWdkStorageFilesystemMinifiltersFltAcknowledgeEcp(filter, ecpcontext.rawAddress)
 }
 
-public actual fun fltAcquirePushLockExclusive(pushlock: MutPtr<ULong>) {
+public actual fun fltAcquirePushLockExclusive(pushlock: MutPtr) {
     WindowsWdkStorageFilesystemMinifiltersJniBridge.windowssysWindowsWdkStorageFilesystemMinifiltersFltAcquirePushLockExclusive(pushlock.rawAddress)
 }
 
-public actual fun fltAcquirePushLockExclusiveEx(pushlock: MutPtr<ULong>, flags: UInt) {
+public actual fun fltAcquirePushLockExclusiveEx(pushlock: MutPtr, flags: UInt) {
     WindowsWdkStorageFilesystemMinifiltersJniBridge.windowssysWindowsWdkStorageFilesystemMinifiltersFltAcquirePushLockExclusiveEx(pushlock.rawAddress, flags.toInt())
 }
 
-public actual fun fltAcquirePushLockShared(pushlock: MutPtr<ULong>) {
+public actual fun fltAcquirePushLockShared(pushlock: MutPtr) {
     WindowsWdkStorageFilesystemMinifiltersJniBridge.windowssysWindowsWdkStorageFilesystemMinifiltersFltAcquirePushLockShared(pushlock.rawAddress)
 }
 
-public actual fun fltAcquirePushLockSharedEx(pushlock: MutPtr<ULong>, flags: UInt) {
+public actual fun fltAcquirePushLockSharedEx(pushlock: MutPtr, flags: UInt) {
     WindowsWdkStorageFilesystemMinifiltersJniBridge.windowssysWindowsWdkStorageFilesystemMinifiltersFltAcquirePushLockSharedEx(pushlock.rawAddress, flags.toInt())
 }
 
-public actual fun fltAcquireResourceExclusive(resource: MutPtr<Eresource>) {
+public actual fun fltAcquireResourceExclusive(resource: MutPtr) {
     WindowsWdkStorageFilesystemMinifiltersJniBridge.windowssysWindowsWdkStorageFilesystemMinifiltersFltAcquireResourceExclusive(resource.rawAddress)
 }
 
-public actual fun fltAcquireResourceShared(resource: MutPtr<Eresource>) {
+public actual fun fltAcquireResourceShared(resource: MutPtr) {
     WindowsWdkStorageFilesystemMinifiltersJniBridge.windowssysWindowsWdkStorageFilesystemMinifiltersFltAcquireResourceShared(resource.rawAddress)
 }
 
-public actual fun fltAddOpenReparseEntry(filter: PfltFilter, data: ConstPtr<FltCallbackData>, openreparseentry: ConstPtr<OpenReparseListEntry>): Ntstatus =
+public actual fun fltAddOpenReparseEntry(filter: PfltFilter, data: ConstPtr, openreparseentry: ConstPtr): Ntstatus =
     WindowsWdkStorageFilesystemMinifiltersJniBridge.windowssysWindowsWdkStorageFilesystemMinifiltersFltAddOpenReparseEntry(filter, data.rawAddress, openreparseentry.rawAddress)
 
-public actual fun fltAdjustDeviceStackSizeForIoRedirection(sourceinstance: PfltInstance, targetinstance: PfltInstance, sourcedevicestacksizemodified: MutPtr<Boolean>): Ntstatus =
+public actual fun fltAdjustDeviceStackSizeForIoRedirection(sourceinstance: PfltInstance, targetinstance: PfltInstance, sourcedevicestacksizemodified: MutPtr): Ntstatus =
     WindowsWdkStorageFilesystemMinifiltersJniBridge.windowssysWindowsWdkStorageFilesystemMinifiltersFltAdjustDeviceStackSizeForIoRedirection(sourceinstance, targetinstance, sourcedevicestacksizemodified.rawAddress)
 
-public actual fun fltAllocateCallbackData(instance: PfltInstance, fileobject: ConstPtr<FileObject>, retnewcallbackdata: MutPtr<MutPtr<FltCallbackData>>): Ntstatus =
+public actual fun fltAllocateCallbackData(instance: PfltInstance, fileobject: ConstPtr, retnewcallbackdata: MutPtr): Ntstatus =
     WindowsWdkStorageFilesystemMinifiltersJniBridge.windowssysWindowsWdkStorageFilesystemMinifiltersFltAllocateCallbackData(instance, fileobject.rawAddress, retnewcallbackdata.rawAddress)
 
-public actual fun fltAllocateCallbackDataEx(instance: PfltInstance, fileobject: ConstPtr<FileObject>, flags: UInt, retnewcallbackdata: MutPtr<MutPtr<FltCallbackData>>): Ntstatus =
+public actual fun fltAllocateCallbackDataEx(instance: PfltInstance, fileobject: ConstPtr, flags: UInt, retnewcallbackdata: MutPtr): Ntstatus =
     WindowsWdkStorageFilesystemMinifiltersJniBridge.windowssysWindowsWdkStorageFilesystemMinifiltersFltAllocateCallbackDataEx(instance, fileobject.rawAddress, flags.toInt(), retnewcallbackdata.rawAddress)
 
-public actual fun fltAllocateContext(filter: PfltFilter, contexttype: UShort, contextsize: ULong, pooltype: PoolType, returnedcontext: MutPtr<PfltContext>): Ntstatus =
+public actual fun fltAllocateContext(filter: PfltFilter, contexttype: UShort, contextsize: ULong, pooltype: PoolType, returnedcontext: MutPtr): Ntstatus =
     WindowsWdkStorageFilesystemMinifiltersJniBridge.windowssysWindowsWdkStorageFilesystemMinifiltersFltAllocateContext(filter, contexttype.toShort(), contextsize.toLong(), pooltype, returnedcontext.rawAddress)
 
 public actual fun fltAllocateDeferredIoWorkItem(): PfltDeferredIoWorkitem =
     WindowsWdkStorageFilesystemMinifiltersJniBridge.windowssysWindowsWdkStorageFilesystemMinifiltersFltAllocateDeferredIoWorkItem()
 
-public actual fun fltAllocateExtraCreateParameter(filter: PfltFilter, ecptype: ConstPtr<Guid>, sizeofcontext: UInt, flags: UInt, cleanupcallback: PfsrtlExtraCreateParameterCleanupCallback, pooltag: UInt, ecpcontext: MutPtr<MutPtr<CVoid>>): Ntstatus =
+public actual fun fltAllocateExtraCreateParameter(filter: PfltFilter, ecptype: ConstPtr, sizeofcontext: UInt, flags: UInt, cleanupcallback: PfsrtlExtraCreateParameterCleanupCallback, pooltag: UInt, ecpcontext: MutPtr): Ntstatus =
     WindowsWdkStorageFilesystemMinifiltersJniBridge.windowssysWindowsWdkStorageFilesystemMinifiltersFltAllocateExtraCreateParameter(filter, ecptype.rawAddress, sizeofcontext.toInt(), flags.toInt(), 0L, pooltag.toInt(), ecpcontext.rawAddress)
 
-public actual fun fltAllocateExtraCreateParameterFromLookasideList(filter: PfltFilter, ecptype: ConstPtr<Guid>, sizeofcontext: UInt, flags: UInt, cleanupcallback: PfsrtlExtraCreateParameterCleanupCallback, lookasidelist: MutPtr<CVoid>, ecpcontext: MutPtr<MutPtr<CVoid>>): Ntstatus =
+public actual fun fltAllocateExtraCreateParameterFromLookasideList(filter: PfltFilter, ecptype: ConstPtr, sizeofcontext: UInt, flags: UInt, cleanupcallback: PfsrtlExtraCreateParameterCleanupCallback, lookasidelist: MutPtr, ecpcontext: MutPtr): Ntstatus =
     WindowsWdkStorageFilesystemMinifiltersJniBridge.windowssysWindowsWdkStorageFilesystemMinifiltersFltAllocateExtraCreateParameterFromLookasideList(filter, ecptype.rawAddress, sizeofcontext.toInt(), flags.toInt(), 0L, lookasidelist.rawAddress, ecpcontext.rawAddress)
 
-public actual fun fltAllocateExtraCreateParameterList(filter: PfltFilter, flags: UInt, ecplist: MutPtr<MutPtr<EcpList>>): Ntstatus =
+public actual fun fltAllocateExtraCreateParameterList(filter: PfltFilter, flags: UInt, ecplist: MutPtr): Ntstatus =
     WindowsWdkStorageFilesystemMinifiltersJniBridge.windowssysWindowsWdkStorageFilesystemMinifiltersFltAllocateExtraCreateParameterList(filter, flags.toInt(), ecplist.rawAddress)
 
-public actual fun fltAllocateFileLock(completelockcallbackdataroutine: PfltCompleteLockCallbackDataRoutine, unlockroutine: PunlockRoutine): MutPtr<FileLock> =
+public actual fun fltAllocateFileLock(completelockcallbackdataroutine: PfltCompleteLockCallbackDataRoutine, unlockroutine: PunlockRoutine): MutPtr =
     MutPtr(WindowsWdkStorageFilesystemMinifiltersJniBridge.windowssysWindowsWdkStorageFilesystemMinifiltersFltAllocateFileLock(0L, 0L))
 
 public actual fun fltAllocateGenericWorkItem(): PfltGenericWorkitem =
     WindowsWdkStorageFilesystemMinifiltersJniBridge.windowssysWindowsWdkStorageFilesystemMinifiltersFltAllocateGenericWorkItem()
 
-public actual fun fltAllocatePoolAlignedWithTag(instance: PfltInstance, pooltype: PoolType, numberofbytes: ULong, tag: UInt): MutPtr<CVoid> =
+public actual fun fltAllocatePoolAlignedWithTag(instance: PfltInstance, pooltype: PoolType, numberofbytes: ULong, tag: UInt): MutPtr =
     MutPtr(WindowsWdkStorageFilesystemMinifiltersJniBridge.windowssysWindowsWdkStorageFilesystemMinifiltersFltAllocatePoolAlignedWithTag(instance, pooltype, numberofbytes.toLong(), tag.toInt()))
 
-public actual fun fltApplyPriorityInfoThread(inputpriorityinfo: ConstPtr<IoPriorityInfo>, outputpriorityinfo: MutPtr<IoPriorityInfo>, thread: Pethread): Ntstatus =
+public actual fun fltApplyPriorityInfoThread(inputpriorityinfo: ConstPtr, outputpriorityinfo: MutPtr, thread: Pethread): Ntstatus =
     WindowsWdkStorageFilesystemMinifiltersJniBridge.windowssysWindowsWdkStorageFilesystemMinifiltersFltApplyPriorityInfoThread(inputpriorityinfo.rawAddress, outputpriorityinfo.rawAddress, thread)
 
-public actual fun fltAttachVolume(filter: PfltFilter, volume: PfltVolume, instancename: ConstPtr<UnicodeString>, retinstance: MutPtr<PfltInstance>): Ntstatus =
+public actual fun fltAttachVolume(filter: PfltFilter, volume: PfltVolume, instancename: ConstPtr, retinstance: MutPtr): Ntstatus =
     WindowsWdkStorageFilesystemMinifiltersJniBridge.windowssysWindowsWdkStorageFilesystemMinifiltersFltAttachVolume(filter, volume, instancename.rawAddress, retinstance.rawAddress)
 
-public actual fun fltAttachVolumeAtAltitude(filter: PfltFilter, volume: PfltVolume, altitude: ConstPtr<UnicodeString>, instancename: ConstPtr<UnicodeString>, retinstance: MutPtr<PfltInstance>): Ntstatus =
+public actual fun fltAttachVolumeAtAltitude(filter: PfltFilter, volume: PfltVolume, altitude: ConstPtr, instancename: ConstPtr, retinstance: MutPtr): Ntstatus =
     WindowsWdkStorageFilesystemMinifiltersJniBridge.windowssysWindowsWdkStorageFilesystemMinifiltersFltAttachVolumeAtAltitude(filter, volume, altitude.rawAddress, instancename.rawAddress, retinstance.rawAddress)
 
-public actual fun fltBuildDefaultSecurityDescriptor(securitydescriptor: MutPtr<PsecurityDescriptor>, desiredaccess: UInt): Ntstatus =
+public actual fun fltBuildDefaultSecurityDescriptor(securitydescriptor: MutPtr, desiredaccess: UInt): Ntstatus =
     WindowsWdkStorageFilesystemMinifiltersJniBridge.windowssysWindowsWdkStorageFilesystemMinifiltersFltBuildDefaultSecurityDescriptor(securitydescriptor.rawAddress, desiredaccess.toInt())
 
-public actual fun fltCancelFileOpen(instance: PfltInstance, fileobject: ConstPtr<FileObject>) {
+public actual fun fltCancelFileOpen(instance: PfltInstance, fileobject: ConstPtr) {
     WindowsWdkStorageFilesystemMinifiltersJniBridge.windowssysWindowsWdkStorageFilesystemMinifiltersFltCancelFileOpen(instance, fileobject.rawAddress)
 }
 
-public actual fun fltCancelIo(callbackdata: ConstPtr<FltCallbackData>): Boolean =
+public actual fun fltCancelIo(callbackdata: ConstPtr): Boolean =
     WindowsWdkStorageFilesystemMinifiltersJniBridge.windowssysWindowsWdkStorageFilesystemMinifiltersFltCancelIo(callbackdata.rawAddress)
 
-public actual fun fltCancellableWaitForMultipleObjects(count: UInt, objectarray: ConstPtr<ConstPtr<CVoid>>, waittype: WaitType, timeout: ConstPtr<Long>, waitblockarray: ConstPtr<KwaitBlock>, callbackdata: ConstPtr<FltCallbackData>): Ntstatus =
+public actual fun fltCancellableWaitForMultipleObjects(count: UInt, objectarray: ConstPtr, waittype: WaitType, timeout: ConstPtr, waitblockarray: ConstPtr, callbackdata: ConstPtr): Ntstatus =
     WindowsWdkStorageFilesystemMinifiltersJniBridge.windowssysWindowsWdkStorageFilesystemMinifiltersFltCancellableWaitForMultipleObjects(count.toInt(), objectarray.rawAddress, waittype, timeout.rawAddress, waitblockarray.rawAddress, callbackdata.rawAddress)
 
-public actual fun fltCancellableWaitForSingleObject(obj: ConstPtr<CVoid>, timeout: ConstPtr<Long>, callbackdata: ConstPtr<FltCallbackData>): Ntstatus =
+public actual fun fltCancellableWaitForSingleObject(obj: ConstPtr, timeout: ConstPtr, callbackdata: ConstPtr): Ntstatus =
     WindowsWdkStorageFilesystemMinifiltersJniBridge.windowssysWindowsWdkStorageFilesystemMinifiltersFltCancellableWaitForSingleObject(obj.rawAddress, timeout.rawAddress, callbackdata.rawAddress)
 
-public actual fun fltCbdqDisable(cbdq: MutPtr<FltCallbackDataQueue>) {
+public actual fun fltCbdqDisable(cbdq: MutPtr) {
     WindowsWdkStorageFilesystemMinifiltersJniBridge.windowssysWindowsWdkStorageFilesystemMinifiltersFltCbdqDisable(cbdq.rawAddress)
 }
 
-public actual fun fltCbdqEnable(cbdq: MutPtr<FltCallbackDataQueue>) {
+public actual fun fltCbdqEnable(cbdq: MutPtr) {
     WindowsWdkStorageFilesystemMinifiltersJniBridge.windowssysWindowsWdkStorageFilesystemMinifiltersFltCbdqEnable(cbdq.rawAddress)
 }
 
-public actual fun fltCbdqInitialize(instance: PfltInstance, cbdq: MutPtr<FltCallbackDataQueue>, cbdqinsertio: PfltCallbackDataQueueInsertIo, cbdqremoveio: PfltCallbackDataQueueRemoveIo, cbdqpeeknextio: PfltCallbackDataQueuePeekNextIo, cbdqacquire: PfltCallbackDataQueueAcquire, cbdqrelease: PfltCallbackDataQueueRelease, cbdqcompletecanceledio: PfltCallbackDataQueueCompleteCanceledIo): Ntstatus =
+public actual fun fltCbdqInitialize(instance: PfltInstance, cbdq: MutPtr, cbdqinsertio: PfltCallbackDataQueueInsertIo, cbdqremoveio: PfltCallbackDataQueueRemoveIo, cbdqpeeknextio: PfltCallbackDataQueuePeekNextIo, cbdqacquire: PfltCallbackDataQueueAcquire, cbdqrelease: PfltCallbackDataQueueRelease, cbdqcompletecanceledio: PfltCallbackDataQueueCompleteCanceledIo): Ntstatus =
     WindowsWdkStorageFilesystemMinifiltersJniBridge.windowssysWindowsWdkStorageFilesystemMinifiltersFltCbdqInitialize(instance, cbdq.rawAddress, 0L, 0L, 0L, 0L, 0L, 0L)
 
-public actual fun fltCbdqInsertIo(cbdq: MutPtr<FltCallbackDataQueue>, cbd: ConstPtr<FltCallbackData>, context: ConstPtr<IoCsqIrpContext>, insertcontext: ConstPtr<CVoid>): Ntstatus =
+public actual fun fltCbdqInsertIo(cbdq: MutPtr, cbd: ConstPtr, context: ConstPtr, insertcontext: ConstPtr): Ntstatus =
     WindowsWdkStorageFilesystemMinifiltersJniBridge.windowssysWindowsWdkStorageFilesystemMinifiltersFltCbdqInsertIo(cbdq.rawAddress, cbd.rawAddress, context.rawAddress, insertcontext.rawAddress)
 
-public actual fun fltCbdqRemoveIo(cbdq: MutPtr<FltCallbackDataQueue>, context: ConstPtr<IoCsqIrpContext>): MutPtr<FltCallbackData> =
+public actual fun fltCbdqRemoveIo(cbdq: MutPtr, context: ConstPtr): MutPtr =
     MutPtr(WindowsWdkStorageFilesystemMinifiltersJniBridge.windowssysWindowsWdkStorageFilesystemMinifiltersFltCbdqRemoveIo(cbdq.rawAddress, context.rawAddress))
 
-public actual fun fltCbdqRemoveNextIo(cbdq: MutPtr<FltCallbackDataQueue>, peekcontext: ConstPtr<CVoid>): MutPtr<FltCallbackData> =
+public actual fun fltCbdqRemoveNextIo(cbdq: MutPtr, peekcontext: ConstPtr): MutPtr =
     MutPtr(WindowsWdkStorageFilesystemMinifiltersJniBridge.windowssysWindowsWdkStorageFilesystemMinifiltersFltCbdqRemoveNextIo(cbdq.rawAddress, peekcontext.rawAddress))
 
-public actual fun fltCheckAndGrowNameControl(namectrl: MutPtr<FltNameControl>, newsize: UShort): Ntstatus =
+public actual fun fltCheckAndGrowNameControl(namectrl: MutPtr, newsize: UShort): Ntstatus =
     WindowsWdkStorageFilesystemMinifiltersJniBridge.windowssysWindowsWdkStorageFilesystemMinifiltersFltCheckAndGrowNameControl(namectrl.rawAddress, newsize.toShort())
 
-public actual fun fltCheckLockForReadAccess(filelock: ConstPtr<FileLock>, callbackdata: ConstPtr<FltCallbackData>): Boolean =
+public actual fun fltCheckLockForReadAccess(filelock: ConstPtr, callbackdata: ConstPtr): Boolean =
     WindowsWdkStorageFilesystemMinifiltersJniBridge.windowssysWindowsWdkStorageFilesystemMinifiltersFltCheckLockForReadAccess(filelock.rawAddress, callbackdata.rawAddress)
 
-public actual fun fltCheckLockForWriteAccess(filelock: ConstPtr<FileLock>, callbackdata: ConstPtr<FltCallbackData>): Boolean =
+public actual fun fltCheckLockForWriteAccess(filelock: ConstPtr, callbackdata: ConstPtr): Boolean =
     WindowsWdkStorageFilesystemMinifiltersJniBridge.windowssysWindowsWdkStorageFilesystemMinifiltersFltCheckLockForWriteAccess(filelock.rawAddress, callbackdata.rawAddress)
 
-public actual fun fltCheckOplock(oplock: ConstPtr<ConstPtr<CVoid>>, callbackdata: ConstPtr<FltCallbackData>, context: ConstPtr<CVoid>, waitcompletionroutine: PfltoplockWaitCompleteRoutine, prepostcallbackdataroutine: PfltoplockPrepostCallbackdataRoutine): FltPreopCallbackStatus =
+public actual fun fltCheckOplock(oplock: ConstPtr, callbackdata: ConstPtr, context: ConstPtr, waitcompletionroutine: PfltoplockWaitCompleteRoutine, prepostcallbackdataroutine: PfltoplockPrepostCallbackdataRoutine): FltPreopCallbackStatus =
     WindowsWdkStorageFilesystemMinifiltersJniBridge.windowssysWindowsWdkStorageFilesystemMinifiltersFltCheckOplock(oplock.rawAddress, callbackdata.rawAddress, context.rawAddress, 0L, 0L)
 
-public actual fun fltCheckOplockEx(oplock: ConstPtr<ConstPtr<CVoid>>, callbackdata: ConstPtr<FltCallbackData>, flags: UInt, context: ConstPtr<CVoid>, waitcompletionroutine: PfltoplockWaitCompleteRoutine, prepostcallbackdataroutine: PfltoplockPrepostCallbackdataRoutine): FltPreopCallbackStatus =
+public actual fun fltCheckOplockEx(oplock: ConstPtr, callbackdata: ConstPtr, flags: UInt, context: ConstPtr, waitcompletionroutine: PfltoplockWaitCompleteRoutine, prepostcallbackdataroutine: PfltoplockPrepostCallbackdataRoutine): FltPreopCallbackStatus =
     WindowsWdkStorageFilesystemMinifiltersJniBridge.windowssysWindowsWdkStorageFilesystemMinifiltersFltCheckOplockEx(oplock.rawAddress, callbackdata.rawAddress, flags.toInt(), context.rawAddress, 0L, 0L)
 
-public actual fun fltClearCallbackDataDirty(data: MutPtr<FltCallbackData>) {
+public actual fun fltClearCallbackDataDirty(data: MutPtr) {
     WindowsWdkStorageFilesystemMinifiltersJniBridge.windowssysWindowsWdkStorageFilesystemMinifiltersFltClearCallbackDataDirty(data.rawAddress)
 }
 
-public actual fun fltClearCancelCompletion(callbackdata: ConstPtr<FltCallbackData>): Ntstatus =
+public actual fun fltClearCancelCompletion(callbackdata: ConstPtr): Ntstatus =
     WindowsWdkStorageFilesystemMinifiltersJniBridge.windowssysWindowsWdkStorageFilesystemMinifiltersFltClearCancelCompletion(callbackdata.rawAddress)
 
 public actual fun fltClose(filehandle: Handle): Ntstatus =
     WindowsWdkStorageFilesystemMinifiltersJniBridge.windowssysWindowsWdkStorageFilesystemMinifiltersFltClose(filehandle.rawAddress)
 
-public actual fun fltCloseClientPort(filter: PfltFilter, clientport: MutPtr<PfltPort>) {
+public actual fun fltCloseClientPort(filter: PfltFilter, clientport: MutPtr) {
     WindowsWdkStorageFilesystemMinifiltersJniBridge.windowssysWindowsWdkStorageFilesystemMinifiltersFltCloseClientPort(filter, clientport.rawAddress)
 }
 
@@ -995,153 +973,153 @@ public actual fun fltCloseCommunicationPort(serverport: PfltPort) {
 public actual fun fltCloseSectionForDataScan(sectioncontext: PfltContext): Ntstatus =
     WindowsWdkStorageFilesystemMinifiltersJniBridge.windowssysWindowsWdkStorageFilesystemMinifiltersFltCloseSectionForDataScan(sectioncontext.rawAddress)
 
-public actual fun fltCommitComplete(instance: PfltInstance, transaction: ConstPtr<Ktransaction>, transactioncontext: PfltContext): Ntstatus =
+public actual fun fltCommitComplete(instance: PfltInstance, transaction: ConstPtr, transactioncontext: PfltContext): Ntstatus =
     WindowsWdkStorageFilesystemMinifiltersJniBridge.windowssysWindowsWdkStorageFilesystemMinifiltersFltCommitComplete(instance, transaction.rawAddress, transactioncontext.rawAddress)
 
-public actual fun fltCommitFinalizeComplete(instance: PfltInstance, transaction: ConstPtr<Ktransaction>, transactioncontext: PfltContext): Ntstatus =
+public actual fun fltCommitFinalizeComplete(instance: PfltInstance, transaction: ConstPtr, transactioncontext: PfltContext): Ntstatus =
     WindowsWdkStorageFilesystemMinifiltersJniBridge.windowssysWindowsWdkStorageFilesystemMinifiltersFltCommitFinalizeComplete(instance, transaction.rawAddress, transactioncontext.rawAddress)
 
 public actual fun fltCompareInstanceAltitudes(instance1: PfltInstance, instance2: PfltInstance): Int =
     WindowsWdkStorageFilesystemMinifiltersJniBridge.windowssysWindowsWdkStorageFilesystemMinifiltersFltCompareInstanceAltitudes(instance1, instance2)
 
-public actual fun fltCompletePendedPostOperation(callbackdata: ConstPtr<FltCallbackData>) {
+public actual fun fltCompletePendedPostOperation(callbackdata: ConstPtr) {
     WindowsWdkStorageFilesystemMinifiltersJniBridge.windowssysWindowsWdkStorageFilesystemMinifiltersFltCompletePendedPostOperation(callbackdata.rawAddress)
 }
 
-public actual fun fltCompletePendedPreOperation(callbackdata: ConstPtr<FltCallbackData>, callbackstatus: FltPreopCallbackStatus, context: ConstPtr<CVoid>) {
+public actual fun fltCompletePendedPreOperation(callbackdata: ConstPtr, callbackstatus: FltPreopCallbackStatus, context: ConstPtr) {
     WindowsWdkStorageFilesystemMinifiltersJniBridge.windowssysWindowsWdkStorageFilesystemMinifiltersFltCompletePendedPreOperation(callbackdata.rawAddress, callbackstatus, context.rawAddress)
 }
 
-public actual fun fltCopyOpenReparseList(filter: PfltFilter, data: ConstPtr<FltCallbackData>, ecplist: MutPtr<EcpList>): Ntstatus =
+public actual fun fltCopyOpenReparseList(filter: PfltFilter, data: ConstPtr, ecplist: MutPtr): Ntstatus =
     WindowsWdkStorageFilesystemMinifiltersJniBridge.windowssysWindowsWdkStorageFilesystemMinifiltersFltCopyOpenReparseList(filter, data.rawAddress, ecplist.rawAddress)
 
-public actual fun fltCreateCommunicationPort(filter: PfltFilter, serverport: MutPtr<PfltPort>, objectattributes: ConstPtr<ObjectAttributes>, serverportcookie: ConstPtr<CVoid>, connectnotifycallback: PfltConnectNotify, disconnectnotifycallback: PfltDisconnectNotify, messagenotifycallback: PfltMessageNotify, maxconnections: Int): Ntstatus =
+public actual fun fltCreateCommunicationPort(filter: PfltFilter, serverport: MutPtr, objectattributes: ConstPtr, serverportcookie: ConstPtr, connectnotifycallback: PfltConnectNotify, disconnectnotifycallback: PfltDisconnectNotify, messagenotifycallback: PfltMessageNotify, maxconnections: Int): Ntstatus =
     WindowsWdkStorageFilesystemMinifiltersJniBridge.windowssysWindowsWdkStorageFilesystemMinifiltersFltCreateCommunicationPort(filter, serverport.rawAddress, objectattributes.rawAddress, serverportcookie.rawAddress, 0L, 0L, 0L, maxconnections)
 
-public actual fun fltCreateFile(filter: PfltFilter, instance: PfltInstance, filehandle: MutPtr<Handle>, desiredaccess: UInt, objectattributes: ConstPtr<ObjectAttributes>, iostatusblock: MutPtr<IoStatusBlock>, allocationsize: ConstPtr<Long>, fileattributes: UInt, shareaccess: UInt, createdisposition: UInt, createoptions: UInt, eabuffer: ConstPtr<CVoid>, ealength: UInt, flags: UInt): Ntstatus =
+public actual fun fltCreateFile(filter: PfltFilter, instance: PfltInstance, filehandle: MutPtr, desiredaccess: UInt, objectattributes: ConstPtr, iostatusblock: MutPtr, allocationsize: ConstPtr, fileattributes: UInt, shareaccess: UInt, createdisposition: UInt, createoptions: UInt, eabuffer: ConstPtr, ealength: UInt, flags: UInt): Ntstatus =
     WindowsWdkStorageFilesystemMinifiltersJniBridge.windowssysWindowsWdkStorageFilesystemMinifiltersFltCreateFile(filter, instance, filehandle.rawAddress, desiredaccess.toInt(), objectattributes.rawAddress, iostatusblock.rawAddress, allocationsize.rawAddress, fileattributes.toInt(), shareaccess.toInt(), createdisposition.toInt(), createoptions.toInt(), eabuffer.rawAddress, ealength.toInt(), flags.toInt())
 
-public actual fun fltCreateFileEx(filter: PfltFilter, instance: PfltInstance, filehandle: MutPtr<Handle>, fileobject: MutPtr<MutPtr<FileObject>>, desiredaccess: UInt, objectattributes: ConstPtr<ObjectAttributes>, iostatusblock: MutPtr<IoStatusBlock>, allocationsize: ConstPtr<Long>, fileattributes: UInt, shareaccess: UInt, createdisposition: UInt, createoptions: UInt, eabuffer: ConstPtr<CVoid>, ealength: UInt, flags: UInt): Ntstatus =
+public actual fun fltCreateFileEx(filter: PfltFilter, instance: PfltInstance, filehandle: MutPtr, fileobject: MutPtr, desiredaccess: UInt, objectattributes: ConstPtr, iostatusblock: MutPtr, allocationsize: ConstPtr, fileattributes: UInt, shareaccess: UInt, createdisposition: UInt, createoptions: UInt, eabuffer: ConstPtr, ealength: UInt, flags: UInt): Ntstatus =
     WindowsWdkStorageFilesystemMinifiltersJniBridge.windowssysWindowsWdkStorageFilesystemMinifiltersFltCreateFileEx(filter, instance, filehandle.rawAddress, fileobject.rawAddress, desiredaccess.toInt(), objectattributes.rawAddress, iostatusblock.rawAddress, allocationsize.rawAddress, fileattributes.toInt(), shareaccess.toInt(), createdisposition.toInt(), createoptions.toInt(), eabuffer.rawAddress, ealength.toInt(), flags.toInt())
 
-public actual fun fltCreateFileEx2(filter: PfltFilter, instance: PfltInstance, filehandle: MutPtr<Handle>, fileobject: MutPtr<MutPtr<FileObject>>, desiredaccess: UInt, objectattributes: ConstPtr<ObjectAttributes>, iostatusblock: MutPtr<IoStatusBlock>, allocationsize: ConstPtr<Long>, fileattributes: UInt, shareaccess: UInt, createdisposition: UInt, createoptions: UInt, eabuffer: ConstPtr<CVoid>, ealength: UInt, flags: UInt, drivercontext: ConstPtr<IoDriverCreateContext>): Ntstatus =
+public actual fun fltCreateFileEx2(filter: PfltFilter, instance: PfltInstance, filehandle: MutPtr, fileobject: MutPtr, desiredaccess: UInt, objectattributes: ConstPtr, iostatusblock: MutPtr, allocationsize: ConstPtr, fileattributes: UInt, shareaccess: UInt, createdisposition: UInt, createoptions: UInt, eabuffer: ConstPtr, ealength: UInt, flags: UInt, drivercontext: ConstPtr): Ntstatus =
     WindowsWdkStorageFilesystemMinifiltersJniBridge.windowssysWindowsWdkStorageFilesystemMinifiltersFltCreateFileEx2(filter, instance, filehandle.rawAddress, fileobject.rawAddress, desiredaccess.toInt(), objectattributes.rawAddress, iostatusblock.rawAddress, allocationsize.rawAddress, fileattributes.toInt(), shareaccess.toInt(), createdisposition.toInt(), createoptions.toInt(), eabuffer.rawAddress, ealength.toInt(), flags.toInt(), drivercontext.rawAddress)
 
-public actual fun fltCreateMailslotFile(filter: PfltFilter, instance: PfltInstance, filehandle: MutPtr<Handle>, fileobject: MutPtr<MutPtr<FileObject>>, desiredaccess: UInt, objectattributes: ConstPtr<ObjectAttributes>, iostatusblock: MutPtr<IoStatusBlock>, createoptions: UInt, mailslotquota: UInt, maximummessagesize: UInt, readtimeout: ConstPtr<Long>, drivercontext: ConstPtr<IoDriverCreateContext>): Ntstatus =
+public actual fun fltCreateMailslotFile(filter: PfltFilter, instance: PfltInstance, filehandle: MutPtr, fileobject: MutPtr, desiredaccess: UInt, objectattributes: ConstPtr, iostatusblock: MutPtr, createoptions: UInt, mailslotquota: UInt, maximummessagesize: UInt, readtimeout: ConstPtr, drivercontext: ConstPtr): Ntstatus =
     WindowsWdkStorageFilesystemMinifiltersJniBridge.windowssysWindowsWdkStorageFilesystemMinifiltersFltCreateMailslotFile(filter, instance, filehandle.rawAddress, fileobject.rawAddress, desiredaccess.toInt(), objectattributes.rawAddress, iostatusblock.rawAddress, createoptions.toInt(), mailslotquota.toInt(), maximummessagesize.toInt(), readtimeout.rawAddress, drivercontext.rawAddress)
 
-public actual fun fltCreateNamedPipeFile(filter: PfltFilter, instance: PfltInstance, filehandle: MutPtr<Handle>, fileobject: MutPtr<MutPtr<FileObject>>, desiredaccess: UInt, objectattributes: ConstPtr<ObjectAttributes>, iostatusblock: MutPtr<IoStatusBlock>, shareaccess: UInt, createdisposition: UInt, createoptions: UInt, namedpipetype: UInt, readmode: UInt, completionmode: UInt, maximuminstances: UInt, inboundquota: UInt, outboundquota: UInt, defaulttimeout: ConstPtr<Long>, drivercontext: ConstPtr<IoDriverCreateContext>): Ntstatus =
+public actual fun fltCreateNamedPipeFile(filter: PfltFilter, instance: PfltInstance, filehandle: MutPtr, fileobject: MutPtr, desiredaccess: UInt, objectattributes: ConstPtr, iostatusblock: MutPtr, shareaccess: UInt, createdisposition: UInt, createoptions: UInt, namedpipetype: UInt, readmode: UInt, completionmode: UInt, maximuminstances: UInt, inboundquota: UInt, outboundquota: UInt, defaulttimeout: ConstPtr, drivercontext: ConstPtr): Ntstatus =
     WindowsWdkStorageFilesystemMinifiltersJniBridge.windowssysWindowsWdkStorageFilesystemMinifiltersFltCreateNamedPipeFile(filter, instance, filehandle.rawAddress, fileobject.rawAddress, desiredaccess.toInt(), objectattributes.rawAddress, iostatusblock.rawAddress, shareaccess.toInt(), createdisposition.toInt(), createoptions.toInt(), namedpipetype.toInt(), readmode.toInt(), completionmode.toInt(), maximuminstances.toInt(), inboundquota.toInt(), outboundquota.toInt(), defaulttimeout.rawAddress, drivercontext.rawAddress)
 
-public actual fun fltCreateSectionForDataScan(instance: PfltInstance, fileobject: ConstPtr<FileObject>, sectioncontext: PfltContext, desiredaccess: UInt, objectattributes: ConstPtr<ObjectAttributes>, maximumsize: ConstPtr<Long>, sectionpageprotection: UInt, allocationattributes: UInt, flags: UInt, sectionhandle: MutPtr<Handle>, sectionobject: MutPtr<MutPtr<CVoid>>, sectionfilesize: MutPtr<Long>): Ntstatus =
+public actual fun fltCreateSectionForDataScan(instance: PfltInstance, fileobject: ConstPtr, sectioncontext: PfltContext, desiredaccess: UInt, objectattributes: ConstPtr, maximumsize: ConstPtr, sectionpageprotection: UInt, allocationattributes: UInt, flags: UInt, sectionhandle: MutPtr, sectionobject: MutPtr, sectionfilesize: MutPtr): Ntstatus =
     WindowsWdkStorageFilesystemMinifiltersJniBridge.windowssysWindowsWdkStorageFilesystemMinifiltersFltCreateSectionForDataScan(instance, fileobject.rawAddress, sectioncontext.rawAddress, desiredaccess.toInt(), objectattributes.rawAddress, maximumsize.rawAddress, sectionpageprotection.toInt(), allocationattributes.toInt(), flags.toInt(), sectionhandle.rawAddress, sectionobject.rawAddress, sectionfilesize.rawAddress)
 
 public actual fun fltCreateSystemVolumeInformationFolder(instance: PfltInstance): Ntstatus =
     WindowsWdkStorageFilesystemMinifiltersJniBridge.windowssysWindowsWdkStorageFilesystemMinifiltersFltCreateSystemVolumeInformationFolder(instance)
 
-public actual fun fltCurrentBatchOplock(oplock: ConstPtr<ConstPtr<CVoid>>): Boolean =
+public actual fun fltCurrentBatchOplock(oplock: ConstPtr): Boolean =
     WindowsWdkStorageFilesystemMinifiltersJniBridge.windowssysWindowsWdkStorageFilesystemMinifiltersFltCurrentBatchOplock(oplock.rawAddress)
 
-public actual fun fltCurrentOplock(oplock: ConstPtr<ConstPtr<CVoid>>): Boolean =
+public actual fun fltCurrentOplock(oplock: ConstPtr): Boolean =
     WindowsWdkStorageFilesystemMinifiltersJniBridge.windowssysWindowsWdkStorageFilesystemMinifiltersFltCurrentOplock(oplock.rawAddress)
 
-public actual fun fltCurrentOplockH(oplock: ConstPtr<ConstPtr<CVoid>>): Boolean =
+public actual fun fltCurrentOplockH(oplock: ConstPtr): Boolean =
     WindowsWdkStorageFilesystemMinifiltersJniBridge.windowssysWindowsWdkStorageFilesystemMinifiltersFltCurrentOplockH(oplock.rawAddress)
 
-public actual fun fltDecodeParameters(callbackdata: ConstPtr<FltCallbackData>, mdladdresspointer: MutPtr<MutPtr<MutPtr<Mdl>>>, buffer: MutPtr<MutPtr<MutPtr<CVoid>>>, length: MutPtr<MutPtr<UInt>>, desiredaccess: MutPtr<LockOperation>): Ntstatus =
+public actual fun fltDecodeParameters(callbackdata: ConstPtr, mdladdresspointer: MutPtr, buffer: MutPtr, length: MutPtr, desiredaccess: MutPtr): Ntstatus =
     WindowsWdkStorageFilesystemMinifiltersJniBridge.windowssysWindowsWdkStorageFilesystemMinifiltersFltDecodeParameters(callbackdata.rawAddress, mdladdresspointer.rawAddress, buffer.rawAddress, length.rawAddress, desiredaccess.rawAddress)
 
 public actual fun fltDeleteContext(context: PfltContext) {
     WindowsWdkStorageFilesystemMinifiltersJniBridge.windowssysWindowsWdkStorageFilesystemMinifiltersFltDeleteContext(context.rawAddress)
 }
 
-public actual fun fltDeleteExtraCreateParameterLookasideList(filter: PfltFilter, lookaside: MutPtr<CVoid>, flags: UInt) {
+public actual fun fltDeleteExtraCreateParameterLookasideList(filter: PfltFilter, lookaside: MutPtr, flags: UInt) {
     WindowsWdkStorageFilesystemMinifiltersJniBridge.windowssysWindowsWdkStorageFilesystemMinifiltersFltDeleteExtraCreateParameterLookasideList(filter, lookaside.rawAddress, flags.toInt())
 }
 
-public actual fun fltDeleteFileContext(instance: PfltInstance, fileobject: ConstPtr<FileObject>, oldcontext: MutPtr<PfltContext>): Ntstatus =
+public actual fun fltDeleteFileContext(instance: PfltInstance, fileobject: ConstPtr, oldcontext: MutPtr): Ntstatus =
     WindowsWdkStorageFilesystemMinifiltersJniBridge.windowssysWindowsWdkStorageFilesystemMinifiltersFltDeleteFileContext(instance, fileobject.rawAddress, oldcontext.rawAddress)
 
-public actual fun fltDeleteInstanceContext(instance: PfltInstance, oldcontext: MutPtr<PfltContext>): Ntstatus =
+public actual fun fltDeleteInstanceContext(instance: PfltInstance, oldcontext: MutPtr): Ntstatus =
     WindowsWdkStorageFilesystemMinifiltersJniBridge.windowssysWindowsWdkStorageFilesystemMinifiltersFltDeleteInstanceContext(instance, oldcontext.rawAddress)
 
-public actual fun fltDeletePushLock(pushlock: ConstPtr<ULong>) {
+public actual fun fltDeletePushLock(pushlock: ConstPtr) {
     WindowsWdkStorageFilesystemMinifiltersJniBridge.windowssysWindowsWdkStorageFilesystemMinifiltersFltDeletePushLock(pushlock.rawAddress)
 }
 
-public actual fun fltDeleteStreamContext(instance: PfltInstance, fileobject: ConstPtr<FileObject>, oldcontext: MutPtr<PfltContext>): Ntstatus =
+public actual fun fltDeleteStreamContext(instance: PfltInstance, fileobject: ConstPtr, oldcontext: MutPtr): Ntstatus =
     WindowsWdkStorageFilesystemMinifiltersJniBridge.windowssysWindowsWdkStorageFilesystemMinifiltersFltDeleteStreamContext(instance, fileobject.rawAddress, oldcontext.rawAddress)
 
-public actual fun fltDeleteStreamHandleContext(instance: PfltInstance, fileobject: ConstPtr<FileObject>, oldcontext: MutPtr<PfltContext>): Ntstatus =
+public actual fun fltDeleteStreamHandleContext(instance: PfltInstance, fileobject: ConstPtr, oldcontext: MutPtr): Ntstatus =
     WindowsWdkStorageFilesystemMinifiltersJniBridge.windowssysWindowsWdkStorageFilesystemMinifiltersFltDeleteStreamHandleContext(instance, fileobject.rawAddress, oldcontext.rawAddress)
 
-public actual fun fltDeleteTransactionContext(instance: PfltInstance, transaction: ConstPtr<Ktransaction>, oldcontext: MutPtr<PfltContext>): Ntstatus =
+public actual fun fltDeleteTransactionContext(instance: PfltInstance, transaction: ConstPtr, oldcontext: MutPtr): Ntstatus =
     WindowsWdkStorageFilesystemMinifiltersJniBridge.windowssysWindowsWdkStorageFilesystemMinifiltersFltDeleteTransactionContext(instance, transaction.rawAddress, oldcontext.rawAddress)
 
-public actual fun fltDeleteVolumeContext(filter: PfltFilter, volume: PfltVolume, oldcontext: MutPtr<PfltContext>): Ntstatus =
+public actual fun fltDeleteVolumeContext(filter: PfltFilter, volume: PfltVolume, oldcontext: MutPtr): Ntstatus =
     WindowsWdkStorageFilesystemMinifiltersJniBridge.windowssysWindowsWdkStorageFilesystemMinifiltersFltDeleteVolumeContext(filter, volume, oldcontext.rawAddress)
 
-public actual fun fltDetachVolume(filter: PfltFilter, volume: PfltVolume, instancename: ConstPtr<UnicodeString>): Ntstatus =
+public actual fun fltDetachVolume(filter: PfltFilter, volume: PfltVolume, instancename: ConstPtr): Ntstatus =
     WindowsWdkStorageFilesystemMinifiltersJniBridge.windowssysWindowsWdkStorageFilesystemMinifiltersFltDetachVolume(filter, volume, instancename.rawAddress)
 
-public actual fun fltDeviceIoControlFile(instance: PfltInstance, fileobject: ConstPtr<FileObject>, iocontrolcode: UInt, inputbuffer: ConstPtr<CVoid>, inputbufferlength: UInt, outputbuffer: MutPtr<CVoid>, outputbufferlength: UInt, lengthreturned: MutPtr<UInt>): Ntstatus =
+public actual fun fltDeviceIoControlFile(instance: PfltInstance, fileobject: ConstPtr, iocontrolcode: UInt, inputbuffer: ConstPtr, inputbufferlength: UInt, outputbuffer: MutPtr, outputbufferlength: UInt, lengthreturned: MutPtr): Ntstatus =
     WindowsWdkStorageFilesystemMinifiltersJniBridge.windowssysWindowsWdkStorageFilesystemMinifiltersFltDeviceIoControlFile(instance, fileobject.rawAddress, iocontrolcode.toInt(), inputbuffer.rawAddress, inputbufferlength.toInt(), outputbuffer.rawAddress, outputbufferlength.toInt(), lengthreturned.rawAddress)
 
-public actual fun fltDoCompletionProcessingWhenSafe(data: ConstPtr<FltCallbackData>, fltobjects: ConstPtr<FltRelatedObjects>, completioncontext: ConstPtr<CVoid>, flags: UInt, safepostcallback: PfltPostOperationCallback, retpostoperationstatus: MutPtr<FltPostopCallbackStatus>): Boolean =
+public actual fun fltDoCompletionProcessingWhenSafe(data: ConstPtr, fltobjects: ConstPtr, completioncontext: ConstPtr, flags: UInt, safepostcallback: PfltPostOperationCallback, retpostoperationstatus: MutPtr): Boolean =
     WindowsWdkStorageFilesystemMinifiltersJniBridge.windowssysWindowsWdkStorageFilesystemMinifiltersFltDoCompletionProcessingWhenSafe(data.rawAddress, fltobjects.rawAddress, completioncontext.rawAddress, flags.toInt(), 0L, retpostoperationstatus.rawAddress)
 
-public actual fun fltEnlistInTransaction(instance: PfltInstance, transaction: ConstPtr<Ktransaction>, transactioncontext: PfltContext, notificationmask: UInt): Ntstatus =
+public actual fun fltEnlistInTransaction(instance: PfltInstance, transaction: ConstPtr, transactioncontext: PfltContext, notificationmask: UInt): Ntstatus =
     WindowsWdkStorageFilesystemMinifiltersJniBridge.windowssysWindowsWdkStorageFilesystemMinifiltersFltEnlistInTransaction(instance, transaction.rawAddress, transactioncontext.rawAddress, notificationmask.toInt())
 
-public actual fun fltEnumerateFilterInformation(index: UInt, informationclass: FilterInformationClass, buffer: MutPtr<CVoid>, buffersize: UInt, bytesreturned: MutPtr<UInt>): Ntstatus =
+public actual fun fltEnumerateFilterInformation(index: UInt, informationclass: FilterInformationClass, buffer: MutPtr, buffersize: UInt, bytesreturned: MutPtr): Ntstatus =
     WindowsWdkStorageFilesystemMinifiltersJniBridge.windowssysWindowsWdkStorageFilesystemMinifiltersFltEnumerateFilterInformation(index.toInt(), informationclass, buffer.rawAddress, buffersize.toInt(), bytesreturned.rawAddress)
 
-public actual fun fltEnumerateFilters(filterlist: MutPtr<PfltFilter>, filterlistsize: UInt, numberfiltersreturned: MutPtr<UInt>): Ntstatus =
+public actual fun fltEnumerateFilters(filterlist: MutPtr, filterlistsize: UInt, numberfiltersreturned: MutPtr): Ntstatus =
     WindowsWdkStorageFilesystemMinifiltersJniBridge.windowssysWindowsWdkStorageFilesystemMinifiltersFltEnumerateFilters(filterlist.rawAddress, filterlistsize.toInt(), numberfiltersreturned.rawAddress)
 
-public actual fun fltEnumerateInstanceInformationByDeviceObject(deviceobject: ConstPtr<DeviceObject>, index: UInt, informationclass: InstanceInformationClass, buffer: MutPtr<CVoid>, buffersize: UInt, bytesreturned: MutPtr<UInt>): Ntstatus =
+public actual fun fltEnumerateInstanceInformationByDeviceObject(deviceobject: ConstPtr, index: UInt, informationclass: InstanceInformationClass, buffer: MutPtr, buffersize: UInt, bytesreturned: MutPtr): Ntstatus =
     WindowsWdkStorageFilesystemMinifiltersJniBridge.windowssysWindowsWdkStorageFilesystemMinifiltersFltEnumerateInstanceInformationByDeviceObject(deviceobject.rawAddress, index.toInt(), informationclass, buffer.rawAddress, buffersize.toInt(), bytesreturned.rawAddress)
 
-public actual fun fltEnumerateInstanceInformationByFilter(filter: PfltFilter, index: UInt, informationclass: InstanceInformationClass, buffer: MutPtr<CVoid>, buffersize: UInt, bytesreturned: MutPtr<UInt>): Ntstatus =
+public actual fun fltEnumerateInstanceInformationByFilter(filter: PfltFilter, index: UInt, informationclass: InstanceInformationClass, buffer: MutPtr, buffersize: UInt, bytesreturned: MutPtr): Ntstatus =
     WindowsWdkStorageFilesystemMinifiltersJniBridge.windowssysWindowsWdkStorageFilesystemMinifiltersFltEnumerateInstanceInformationByFilter(filter, index.toInt(), informationclass, buffer.rawAddress, buffersize.toInt(), bytesreturned.rawAddress)
 
-public actual fun fltEnumerateInstanceInformationByVolume(volume: PfltVolume, index: UInt, informationclass: InstanceInformationClass, buffer: MutPtr<CVoid>, buffersize: UInt, bytesreturned: MutPtr<UInt>): Ntstatus =
+public actual fun fltEnumerateInstanceInformationByVolume(volume: PfltVolume, index: UInt, informationclass: InstanceInformationClass, buffer: MutPtr, buffersize: UInt, bytesreturned: MutPtr): Ntstatus =
     WindowsWdkStorageFilesystemMinifiltersJniBridge.windowssysWindowsWdkStorageFilesystemMinifiltersFltEnumerateInstanceInformationByVolume(volume, index.toInt(), informationclass, buffer.rawAddress, buffersize.toInt(), bytesreturned.rawAddress)
 
-public actual fun fltEnumerateInstanceInformationByVolumeName(volumename: ConstPtr<UnicodeString>, index: UInt, informationclass: InstanceInformationClass, buffer: MutPtr<CVoid>, buffersize: UInt, bytesreturned: MutPtr<UInt>): Ntstatus =
+public actual fun fltEnumerateInstanceInformationByVolumeName(volumename: ConstPtr, index: UInt, informationclass: InstanceInformationClass, buffer: MutPtr, buffersize: UInt, bytesreturned: MutPtr): Ntstatus =
     WindowsWdkStorageFilesystemMinifiltersJniBridge.windowssysWindowsWdkStorageFilesystemMinifiltersFltEnumerateInstanceInformationByVolumeName(volumename.rawAddress, index.toInt(), informationclass, buffer.rawAddress, buffersize.toInt(), bytesreturned.rawAddress)
 
-public actual fun fltEnumerateInstances(volume: PfltVolume, filter: PfltFilter, instancelist: MutPtr<PfltInstance>, instancelistsize: UInt, numberinstancesreturned: MutPtr<UInt>): Ntstatus =
+public actual fun fltEnumerateInstances(volume: PfltVolume, filter: PfltFilter, instancelist: MutPtr, instancelistsize: UInt, numberinstancesreturned: MutPtr): Ntstatus =
     WindowsWdkStorageFilesystemMinifiltersJniBridge.windowssysWindowsWdkStorageFilesystemMinifiltersFltEnumerateInstances(volume, filter, instancelist.rawAddress, instancelistsize.toInt(), numberinstancesreturned.rawAddress)
 
-public actual fun fltEnumerateVolumeInformation(filter: PfltFilter, index: UInt, informationclass: FilterVolumeInformationClass, buffer: MutPtr<CVoid>, buffersize: UInt, bytesreturned: MutPtr<UInt>): Ntstatus =
+public actual fun fltEnumerateVolumeInformation(filter: PfltFilter, index: UInt, informationclass: FilterVolumeInformationClass, buffer: MutPtr, buffersize: UInt, bytesreturned: MutPtr): Ntstatus =
     WindowsWdkStorageFilesystemMinifiltersJniBridge.windowssysWindowsWdkStorageFilesystemMinifiltersFltEnumerateVolumeInformation(filter, index.toInt(), informationclass, buffer.rawAddress, buffersize.toInt(), bytesreturned.rawAddress)
 
-public actual fun fltEnumerateVolumes(filter: PfltFilter, volumelist: MutPtr<PfltVolume>, volumelistsize: UInt, numbervolumesreturned: MutPtr<UInt>): Ntstatus =
+public actual fun fltEnumerateVolumes(filter: PfltFilter, volumelist: MutPtr, volumelistsize: UInt, numbervolumesreturned: MutPtr): Ntstatus =
     WindowsWdkStorageFilesystemMinifiltersJniBridge.windowssysWindowsWdkStorageFilesystemMinifiltersFltEnumerateVolumes(filter, volumelist.rawAddress, volumelistsize.toInt(), numbervolumesreturned.rawAddress)
 
-public actual fun fltFastIoMdlRead(initiatinginstance: PfltInstance, fileobject: ConstPtr<FileObject>, fileoffset: ConstPtr<Long>, length: UInt, lockkey: UInt, mdlchain: MutPtr<MutPtr<Mdl>>, iostatus: MutPtr<IoStatusBlock>): Boolean =
+public actual fun fltFastIoMdlRead(initiatinginstance: PfltInstance, fileobject: ConstPtr, fileoffset: ConstPtr, length: UInt, lockkey: UInt, mdlchain: MutPtr, iostatus: MutPtr): Boolean =
     WindowsWdkStorageFilesystemMinifiltersJniBridge.windowssysWindowsWdkStorageFilesystemMinifiltersFltFastIoMdlRead(initiatinginstance, fileobject.rawAddress, fileoffset.rawAddress, length.toInt(), lockkey.toInt(), mdlchain.rawAddress, iostatus.rawAddress)
 
-public actual fun fltFastIoMdlReadComplete(initiatinginstance: PfltInstance, fileobject: ConstPtr<FileObject>, mdlchain: ConstPtr<Mdl>): Boolean =
+public actual fun fltFastIoMdlReadComplete(initiatinginstance: PfltInstance, fileobject: ConstPtr, mdlchain: ConstPtr): Boolean =
     WindowsWdkStorageFilesystemMinifiltersJniBridge.windowssysWindowsWdkStorageFilesystemMinifiltersFltFastIoMdlReadComplete(initiatinginstance, fileobject.rawAddress, mdlchain.rawAddress)
 
-public actual fun fltFastIoMdlWriteComplete(initiatinginstance: PfltInstance, fileobject: ConstPtr<FileObject>, fileoffset: ConstPtr<Long>, mdlchain: ConstPtr<Mdl>): Boolean =
+public actual fun fltFastIoMdlWriteComplete(initiatinginstance: PfltInstance, fileobject: ConstPtr, fileoffset: ConstPtr, mdlchain: ConstPtr): Boolean =
     WindowsWdkStorageFilesystemMinifiltersJniBridge.windowssysWindowsWdkStorageFilesystemMinifiltersFltFastIoMdlWriteComplete(initiatinginstance, fileobject.rawAddress, fileoffset.rawAddress, mdlchain.rawAddress)
 
-public actual fun fltFastIoPrepareMdlWrite(initiatinginstance: PfltInstance, fileobject: ConstPtr<FileObject>, fileoffset: ConstPtr<Long>, length: UInt, lockkey: UInt, mdlchain: MutPtr<MutPtr<Mdl>>, iostatus: MutPtr<IoStatusBlock>): Boolean =
+public actual fun fltFastIoPrepareMdlWrite(initiatinginstance: PfltInstance, fileobject: ConstPtr, fileoffset: ConstPtr, length: UInt, lockkey: UInt, mdlchain: MutPtr, iostatus: MutPtr): Boolean =
     WindowsWdkStorageFilesystemMinifiltersJniBridge.windowssysWindowsWdkStorageFilesystemMinifiltersFltFastIoPrepareMdlWrite(initiatinginstance, fileobject.rawAddress, fileoffset.rawAddress, length.toInt(), lockkey.toInt(), mdlchain.rawAddress, iostatus.rawAddress)
 
-public actual fun fltFindExtraCreateParameter(filter: PfltFilter, ecplist: ConstPtr<EcpList>, ecptype: ConstPtr<Guid>, ecpcontext: MutPtr<MutPtr<CVoid>>, ecpcontextsize: MutPtr<UInt>): Ntstatus =
+public actual fun fltFindExtraCreateParameter(filter: PfltFilter, ecplist: ConstPtr, ecptype: ConstPtr, ecpcontext: MutPtr, ecpcontextsize: MutPtr): Ntstatus =
     WindowsWdkStorageFilesystemMinifiltersJniBridge.windowssysWindowsWdkStorageFilesystemMinifiltersFltFindExtraCreateParameter(filter, ecplist.rawAddress, ecptype.rawAddress, ecpcontext.rawAddress, ecpcontextsize.rawAddress)
 
-public actual fun fltFlushBuffers(instance: PfltInstance, fileobject: ConstPtr<FileObject>): Ntstatus =
+public actual fun fltFlushBuffers(instance: PfltInstance, fileobject: ConstPtr): Ntstatus =
     WindowsWdkStorageFilesystemMinifiltersJniBridge.windowssysWindowsWdkStorageFilesystemMinifiltersFltFlushBuffers(instance, fileobject.rawAddress)
 
-public actual fun fltFlushBuffers2(instance: PfltInstance, fileobject: ConstPtr<FileObject>, flushtype: UInt, callbackdata: ConstPtr<FltCallbackData>): Ntstatus =
+public actual fun fltFlushBuffers2(instance: PfltInstance, fileobject: ConstPtr, flushtype: UInt, callbackdata: ConstPtr): Ntstatus =
     WindowsWdkStorageFilesystemMinifiltersJniBridge.windowssysWindowsWdkStorageFilesystemMinifiltersFltFlushBuffers2(instance, fileobject.rawAddress, flushtype.toInt(), callbackdata.rawAddress)
 
-public actual fun fltFreeCallbackData(callbackdata: ConstPtr<FltCallbackData>) {
+public actual fun fltFreeCallbackData(callbackdata: ConstPtr) {
     WindowsWdkStorageFilesystemMinifiltersJniBridge.windowssysWindowsWdkStorageFilesystemMinifiltersFltFreeCallbackData(callbackdata.rawAddress)
 }
 
@@ -1149,15 +1127,15 @@ public actual fun fltFreeDeferredIoWorkItem(fltworkitem: PfltDeferredIoWorkitem)
     WindowsWdkStorageFilesystemMinifiltersJniBridge.windowssysWindowsWdkStorageFilesystemMinifiltersFltFreeDeferredIoWorkItem(fltworkitem)
 }
 
-public actual fun fltFreeExtraCreateParameter(filter: PfltFilter, ecpcontext: ConstPtr<CVoid>) {
+public actual fun fltFreeExtraCreateParameter(filter: PfltFilter, ecpcontext: ConstPtr) {
     WindowsWdkStorageFilesystemMinifiltersJniBridge.windowssysWindowsWdkStorageFilesystemMinifiltersFltFreeExtraCreateParameter(filter, ecpcontext.rawAddress)
 }
 
-public actual fun fltFreeExtraCreateParameterList(filter: PfltFilter, ecplist: ConstPtr<EcpList>) {
+public actual fun fltFreeExtraCreateParameterList(filter: PfltFilter, ecplist: ConstPtr) {
     WindowsWdkStorageFilesystemMinifiltersJniBridge.windowssysWindowsWdkStorageFilesystemMinifiltersFltFreeExtraCreateParameterList(filter, ecplist.rawAddress)
 }
 
-public actual fun fltFreeFileLock(filelock: ConstPtr<FileLock>) {
+public actual fun fltFreeFileLock(filelock: ConstPtr) {
     WindowsWdkStorageFilesystemMinifiltersJniBridge.windowssysWindowsWdkStorageFilesystemMinifiltersFltFreeFileLock(filelock.rawAddress)
 }
 
@@ -1165,11 +1143,11 @@ public actual fun fltFreeGenericWorkItem(fltworkitem: PfltGenericWorkitem) {
     WindowsWdkStorageFilesystemMinifiltersJniBridge.windowssysWindowsWdkStorageFilesystemMinifiltersFltFreeGenericWorkItem(fltworkitem)
 }
 
-public actual fun fltFreeOpenReparseList(filter: PfltFilter, ecplist: ConstPtr<EcpList>) {
+public actual fun fltFreeOpenReparseList(filter: PfltFilter, ecplist: ConstPtr) {
     WindowsWdkStorageFilesystemMinifiltersJniBridge.windowssysWindowsWdkStorageFilesystemMinifiltersFltFreeOpenReparseList(filter, ecplist.rawAddress)
 }
 
-public actual fun fltFreePoolAlignedWithTag(instance: PfltInstance, buffer: ConstPtr<CVoid>, tag: UInt) {
+public actual fun fltFreePoolAlignedWithTag(instance: PfltInstance, buffer: ConstPtr, tag: UInt) {
     WindowsWdkStorageFilesystemMinifiltersJniBridge.windowssysWindowsWdkStorageFilesystemMinifiltersFltFreePoolAlignedWithTag(instance, buffer.rawAddress, tag.toInt())
 }
 
@@ -1177,74 +1155,74 @@ public actual fun fltFreeSecurityDescriptor(securitydescriptor: PsecurityDescrip
     WindowsWdkStorageFilesystemMinifiltersJniBridge.windowssysWindowsWdkStorageFilesystemMinifiltersFltFreeSecurityDescriptor(securitydescriptor.rawAddress)
 }
 
-public actual fun fltFsControlFile(instance: PfltInstance, fileobject: ConstPtr<FileObject>, fscontrolcode: UInt, inputbuffer: ConstPtr<CVoid>, inputbufferlength: UInt, outputbuffer: MutPtr<CVoid>, outputbufferlength: UInt, lengthreturned: MutPtr<UInt>): Ntstatus =
+public actual fun fltFsControlFile(instance: PfltInstance, fileobject: ConstPtr, fscontrolcode: UInt, inputbuffer: ConstPtr, inputbufferlength: UInt, outputbuffer: MutPtr, outputbufferlength: UInt, lengthreturned: MutPtr): Ntstatus =
     WindowsWdkStorageFilesystemMinifiltersJniBridge.windowssysWindowsWdkStorageFilesystemMinifiltersFltFsControlFile(instance, fileobject.rawAddress, fscontrolcode.toInt(), inputbuffer.rawAddress, inputbufferlength.toInt(), outputbuffer.rawAddress, outputbufferlength.toInt(), lengthreturned.rawAddress)
 
-public actual fun fltGetActivityIdCallbackData(callbackdata: ConstPtr<FltCallbackData>, guid: MutPtr<Guid>): Ntstatus =
+public actual fun fltGetActivityIdCallbackData(callbackdata: ConstPtr, guid: MutPtr): Ntstatus =
     WindowsWdkStorageFilesystemMinifiltersJniBridge.windowssysWindowsWdkStorageFilesystemMinifiltersFltGetActivityIdCallbackData(callbackdata.rawAddress, guid.rawAddress)
 
-public actual fun fltGetBottomInstance(volume: PfltVolume, instance: MutPtr<PfltInstance>): Ntstatus =
+public actual fun fltGetBottomInstance(volume: PfltVolume, instance: MutPtr): Ntstatus =
     WindowsWdkStorageFilesystemMinifiltersJniBridge.windowssysWindowsWdkStorageFilesystemMinifiltersFltGetBottomInstance(volume, instance.rawAddress)
 
-public actual fun fltGetContexts(fltobjects: ConstPtr<FltRelatedObjects>, desiredcontexts: UShort, contexts: MutPtr<FltRelatedContexts>) {
+public actual fun fltGetContexts(fltobjects: ConstPtr, desiredcontexts: UShort, contexts: MutPtr) {
     WindowsWdkStorageFilesystemMinifiltersJniBridge.windowssysWindowsWdkStorageFilesystemMinifiltersFltGetContexts(fltobjects.rawAddress, desiredcontexts.toShort(), contexts.rawAddress)
 }
 
-public actual fun fltGetContextsEx(fltobjects: ConstPtr<FltRelatedObjects>, desiredcontexts: UShort, contextssize: ULong, contexts: MutPtr<FltRelatedContextsEx>): Ntstatus =
+public actual fun fltGetContextsEx(fltobjects: ConstPtr, desiredcontexts: UShort, contextssize: ULong, contexts: MutPtr): Ntstatus =
     WindowsWdkStorageFilesystemMinifiltersJniBridge.windowssysWindowsWdkStorageFilesystemMinifiltersFltGetContextsEx(fltobjects.rawAddress, desiredcontexts.toShort(), contextssize.toLong(), contexts.rawAddress)
 
-public actual fun fltGetDestinationFileNameInformation(instance: PfltInstance, fileobject: ConstPtr<FileObject>, rootdirectory: Handle, filename: Pcwstr, filenamelength: UInt, nameoptions: UInt, retfilenameinformation: MutPtr<MutPtr<FltFileNameInformation>>): Ntstatus =
+public actual fun fltGetDestinationFileNameInformation(instance: PfltInstance, fileobject: ConstPtr, rootdirectory: Handle, filename: Pcwstr, filenamelength: UInt, nameoptions: UInt, retfilenameinformation: MutPtr): Ntstatus =
     WindowsWdkStorageFilesystemMinifiltersJniBridge.windowssysWindowsWdkStorageFilesystemMinifiltersFltGetDestinationFileNameInformation(instance, fileobject.rawAddress, rootdirectory.rawAddress, filename.rawAddress, filenamelength.toInt(), nameoptions.toInt(), retfilenameinformation.rawAddress)
 
-public actual fun fltGetDeviceObject(volume: PfltVolume, deviceobject: MutPtr<MutPtr<DeviceObject>>): Ntstatus =
+public actual fun fltGetDeviceObject(volume: PfltVolume, deviceobject: MutPtr): Ntstatus =
     WindowsWdkStorageFilesystemMinifiltersJniBridge.windowssysWindowsWdkStorageFilesystemMinifiltersFltGetDeviceObject(volume, deviceobject.rawAddress)
 
-public actual fun fltGetDiskDeviceObject(volume: PfltVolume, diskdeviceobject: MutPtr<MutPtr<DeviceObject>>): Ntstatus =
+public actual fun fltGetDiskDeviceObject(volume: PfltVolume, diskdeviceobject: MutPtr): Ntstatus =
     WindowsWdkStorageFilesystemMinifiltersJniBridge.windowssysWindowsWdkStorageFilesystemMinifiltersFltGetDiskDeviceObject(volume, diskdeviceobject.rawAddress)
 
-public actual fun fltGetEcpListFromCallbackData(filter: PfltFilter, callbackdata: ConstPtr<FltCallbackData>, ecplist: MutPtr<MutPtr<EcpList>>): Ntstatus =
+public actual fun fltGetEcpListFromCallbackData(filter: PfltFilter, callbackdata: ConstPtr, ecplist: MutPtr): Ntstatus =
     WindowsWdkStorageFilesystemMinifiltersJniBridge.windowssysWindowsWdkStorageFilesystemMinifiltersFltGetEcpListFromCallbackData(filter, callbackdata.rawAddress, ecplist.rawAddress)
 
-public actual fun fltGetFileContext(instance: PfltInstance, fileobject: ConstPtr<FileObject>, context: MutPtr<PfltContext>): Ntstatus =
+public actual fun fltGetFileContext(instance: PfltInstance, fileobject: ConstPtr, context: MutPtr): Ntstatus =
     WindowsWdkStorageFilesystemMinifiltersJniBridge.windowssysWindowsWdkStorageFilesystemMinifiltersFltGetFileContext(instance, fileobject.rawAddress, context.rawAddress)
 
-public actual fun fltGetFileNameInformation(callbackdata: ConstPtr<FltCallbackData>, nameoptions: UInt, filenameinformation: MutPtr<MutPtr<FltFileNameInformation>>): Ntstatus =
+public actual fun fltGetFileNameInformation(callbackdata: ConstPtr, nameoptions: UInt, filenameinformation: MutPtr): Ntstatus =
     WindowsWdkStorageFilesystemMinifiltersJniBridge.windowssysWindowsWdkStorageFilesystemMinifiltersFltGetFileNameInformation(callbackdata.rawAddress, nameoptions.toInt(), filenameinformation.rawAddress)
 
-public actual fun fltGetFileNameInformationUnsafe(fileobject: ConstPtr<FileObject>, instance: PfltInstance, nameoptions: UInt, filenameinformation: MutPtr<MutPtr<FltFileNameInformation>>): Ntstatus =
+public actual fun fltGetFileNameInformationUnsafe(fileobject: ConstPtr, instance: PfltInstance, nameoptions: UInt, filenameinformation: MutPtr): Ntstatus =
     WindowsWdkStorageFilesystemMinifiltersJniBridge.windowssysWindowsWdkStorageFilesystemMinifiltersFltGetFileNameInformationUnsafe(fileobject.rawAddress, instance, nameoptions.toInt(), filenameinformation.rawAddress)
 
-public actual fun fltGetFileSystemType(fltobject: ConstPtr<CVoid>, filesystemtype: MutPtr<FltFilesystemType>): Ntstatus =
+public actual fun fltGetFileSystemType(fltobject: ConstPtr, filesystemtype: MutPtr): Ntstatus =
     WindowsWdkStorageFilesystemMinifiltersJniBridge.windowssysWindowsWdkStorageFilesystemMinifiltersFltGetFileSystemType(fltobject.rawAddress, filesystemtype.rawAddress)
 
-public actual fun fltGetFilterFromInstance(instance: PfltInstance, retfilter: MutPtr<PfltFilter>): Ntstatus =
+public actual fun fltGetFilterFromInstance(instance: PfltInstance, retfilter: MutPtr): Ntstatus =
     WindowsWdkStorageFilesystemMinifiltersJniBridge.windowssysWindowsWdkStorageFilesystemMinifiltersFltGetFilterFromInstance(instance, retfilter.rawAddress)
 
-public actual fun fltGetFilterFromName(filtername: ConstPtr<UnicodeString>, retfilter: MutPtr<PfltFilter>): Ntstatus =
+public actual fun fltGetFilterFromName(filtername: ConstPtr, retfilter: MutPtr): Ntstatus =
     WindowsWdkStorageFilesystemMinifiltersJniBridge.windowssysWindowsWdkStorageFilesystemMinifiltersFltGetFilterFromName(filtername.rawAddress, retfilter.rawAddress)
 
-public actual fun fltGetFilterInformation(filter: PfltFilter, informationclass: FilterInformationClass, buffer: MutPtr<CVoid>, buffersize: UInt, bytesreturned: MutPtr<UInt>): Ntstatus =
+public actual fun fltGetFilterInformation(filter: PfltFilter, informationclass: FilterInformationClass, buffer: MutPtr, buffersize: UInt, bytesreturned: MutPtr): Ntstatus =
     WindowsWdkStorageFilesystemMinifiltersJniBridge.windowssysWindowsWdkStorageFilesystemMinifiltersFltGetFilterInformation(filter, informationclass, buffer.rawAddress, buffersize.toInt(), bytesreturned.rawAddress)
 
-public actual fun fltGetFsZeroingOffset(data: ConstPtr<FltCallbackData>, zeroingoffset: MutPtr<UInt>): Ntstatus =
+public actual fun fltGetFsZeroingOffset(data: ConstPtr, zeroingoffset: MutPtr): Ntstatus =
     WindowsWdkStorageFilesystemMinifiltersJniBridge.windowssysWindowsWdkStorageFilesystemMinifiltersFltGetFsZeroingOffset(data.rawAddress, zeroingoffset.rawAddress)
 
-public actual fun fltGetInstanceContext(instance: PfltInstance, context: MutPtr<PfltContext>): Ntstatus =
+public actual fun fltGetInstanceContext(instance: PfltInstance, context: MutPtr): Ntstatus =
     WindowsWdkStorageFilesystemMinifiltersJniBridge.windowssysWindowsWdkStorageFilesystemMinifiltersFltGetInstanceContext(instance, context.rawAddress)
 
-public actual fun fltGetInstanceInformation(instance: PfltInstance, informationclass: InstanceInformationClass, buffer: MutPtr<CVoid>, buffersize: UInt, bytesreturned: MutPtr<UInt>): Ntstatus =
+public actual fun fltGetInstanceInformation(instance: PfltInstance, informationclass: InstanceInformationClass, buffer: MutPtr, buffersize: UInt, bytesreturned: MutPtr): Ntstatus =
     WindowsWdkStorageFilesystemMinifiltersJniBridge.windowssysWindowsWdkStorageFilesystemMinifiltersFltGetInstanceInformation(instance, informationclass, buffer.rawAddress, buffersize.toInt(), bytesreturned.rawAddress)
 
-public actual fun fltGetIoAttributionHandleFromCallbackData(data: ConstPtr<FltCallbackData>): MutPtr<CVoid> =
+public actual fun fltGetIoAttributionHandleFromCallbackData(data: ConstPtr): MutPtr =
     MutPtr(WindowsWdkStorageFilesystemMinifiltersJniBridge.windowssysWindowsWdkStorageFilesystemMinifiltersFltGetIoAttributionHandleFromCallbackData(data.rawAddress))
 
-public actual fun fltGetIoPriorityHint(data: ConstPtr<FltCallbackData>): IoPriorityHint =
+public actual fun fltGetIoPriorityHint(data: ConstPtr): IoPriorityHint =
     WindowsWdkStorageFilesystemMinifiltersJniBridge.windowssysWindowsWdkStorageFilesystemMinifiltersFltGetIoPriorityHint(data.rawAddress)
 
-public actual fun fltGetIoPriorityHintFromCallbackData(data: ConstPtr<FltCallbackData>): IoPriorityHint =
+public actual fun fltGetIoPriorityHintFromCallbackData(data: ConstPtr): IoPriorityHint =
     WindowsWdkStorageFilesystemMinifiltersJniBridge.windowssysWindowsWdkStorageFilesystemMinifiltersFltGetIoPriorityHintFromCallbackData(data.rawAddress)
 
-public actual fun fltGetIoPriorityHintFromFileObject(fileobject: ConstPtr<FileObject>): IoPriorityHint =
+public actual fun fltGetIoPriorityHintFromFileObject(fileobject: ConstPtr): IoPriorityHint =
     WindowsWdkStorageFilesystemMinifiltersJniBridge.windowssysWindowsWdkStorageFilesystemMinifiltersFltGetIoPriorityHintFromFileObject(fileobject.rawAddress)
 
 public actual fun fltGetIoPriorityHintFromThread(thread: Pethread): IoPriorityHint =
@@ -1253,271 +1231,271 @@ public actual fun fltGetIoPriorityHintFromThread(thread: Pethread): IoPriorityHi
 public actual fun fltGetIrpName(irpmajorcode: UByte): Pstr =
     MutPtr(WindowsWdkStorageFilesystemMinifiltersJniBridge.windowssysWindowsWdkStorageFilesystemMinifiltersFltGetIrpName(irpmajorcode.toByte()))
 
-public actual fun fltGetLowerInstance(currentinstance: PfltInstance, lowerinstance: MutPtr<PfltInstance>): Ntstatus =
+public actual fun fltGetLowerInstance(currentinstance: PfltInstance, lowerinstance: MutPtr): Ntstatus =
     WindowsWdkStorageFilesystemMinifiltersJniBridge.windowssysWindowsWdkStorageFilesystemMinifiltersFltGetLowerInstance(currentinstance, lowerinstance.rawAddress)
 
-public actual fun fltGetNewSystemBufferAddress(callbackdata: ConstPtr<FltCallbackData>): MutPtr<CVoid> =
+public actual fun fltGetNewSystemBufferAddress(callbackdata: ConstPtr): MutPtr =
     MutPtr(WindowsWdkStorageFilesystemMinifiltersJniBridge.windowssysWindowsWdkStorageFilesystemMinifiltersFltGetNewSystemBufferAddress(callbackdata.rawAddress))
 
-public actual fun fltGetNextExtraCreateParameter(filter: PfltFilter, ecplist: ConstPtr<EcpList>, currentecpcontext: ConstPtr<CVoid>, nextecptype: MutPtr<Guid>, nextecpcontext: MutPtr<MutPtr<CVoid>>, nextecpcontextsize: MutPtr<UInt>): Ntstatus =
+public actual fun fltGetNextExtraCreateParameter(filter: PfltFilter, ecplist: ConstPtr, currentecpcontext: ConstPtr, nextecptype: MutPtr, nextecpcontext: MutPtr, nextecpcontextsize: MutPtr): Ntstatus =
     WindowsWdkStorageFilesystemMinifiltersJniBridge.windowssysWindowsWdkStorageFilesystemMinifiltersFltGetNextExtraCreateParameter(filter, ecplist.rawAddress, currentecpcontext.rawAddress, nextecptype.rawAddress, nextecpcontext.rawAddress, nextecpcontextsize.rawAddress)
 
-public actual fun fltGetRequestorProcess(callbackdata: ConstPtr<FltCallbackData>): Peprocess =
+public actual fun fltGetRequestorProcess(callbackdata: ConstPtr): Peprocess =
     WindowsWdkStorageFilesystemMinifiltersJniBridge.windowssysWindowsWdkStorageFilesystemMinifiltersFltGetRequestorProcess(callbackdata.rawAddress)
 
-public actual fun fltGetRequestorProcessId(callbackdata: ConstPtr<FltCallbackData>): UInt =
+public actual fun fltGetRequestorProcessId(callbackdata: ConstPtr): UInt =
     WindowsWdkStorageFilesystemMinifiltersJniBridge.windowssysWindowsWdkStorageFilesystemMinifiltersFltGetRequestorProcessId(callbackdata.rawAddress).toUInt()
 
-public actual fun fltGetRequestorProcessIdEx(callbackdata: ConstPtr<FltCallbackData>): Handle =
+public actual fun fltGetRequestorProcessIdEx(callbackdata: ConstPtr): Handle =
     MutPtr(WindowsWdkStorageFilesystemMinifiltersJniBridge.windowssysWindowsWdkStorageFilesystemMinifiltersFltGetRequestorProcessIdEx(callbackdata.rawAddress))
 
-public actual fun fltGetRequestorSessionId(callbackdata: ConstPtr<FltCallbackData>, sessionid: MutPtr<UInt>): Ntstatus =
+public actual fun fltGetRequestorSessionId(callbackdata: ConstPtr, sessionid: MutPtr): Ntstatus =
     WindowsWdkStorageFilesystemMinifiltersJniBridge.windowssysWindowsWdkStorageFilesystemMinifiltersFltGetRequestorSessionId(callbackdata.rawAddress, sessionid.rawAddress)
 
-public actual fun fltGetRoutineAddress(fltmgrroutinename: Pcstr): MutPtr<CVoid> =
+public actual fun fltGetRoutineAddress(fltmgrroutinename: Pcstr): MutPtr =
     MutPtr(WindowsWdkStorageFilesystemMinifiltersJniBridge.windowssysWindowsWdkStorageFilesystemMinifiltersFltGetRoutineAddress(fltmgrroutinename.rawAddress))
 
-public actual fun fltGetSectionContext(instance: PfltInstance, fileobject: ConstPtr<FileObject>, context: MutPtr<PfltContext>): Ntstatus =
+public actual fun fltGetSectionContext(instance: PfltInstance, fileobject: ConstPtr, context: MutPtr): Ntstatus =
     WindowsWdkStorageFilesystemMinifiltersJniBridge.windowssysWindowsWdkStorageFilesystemMinifiltersFltGetSectionContext(instance, fileobject.rawAddress, context.rawAddress)
 
-public actual fun fltGetStreamContext(instance: PfltInstance, fileobject: ConstPtr<FileObject>, context: MutPtr<PfltContext>): Ntstatus =
+public actual fun fltGetStreamContext(instance: PfltInstance, fileobject: ConstPtr, context: MutPtr): Ntstatus =
     WindowsWdkStorageFilesystemMinifiltersJniBridge.windowssysWindowsWdkStorageFilesystemMinifiltersFltGetStreamContext(instance, fileobject.rawAddress, context.rawAddress)
 
-public actual fun fltGetStreamHandleContext(instance: PfltInstance, fileobject: ConstPtr<FileObject>, context: MutPtr<PfltContext>): Ntstatus =
+public actual fun fltGetStreamHandleContext(instance: PfltInstance, fileobject: ConstPtr, context: MutPtr): Ntstatus =
     WindowsWdkStorageFilesystemMinifiltersJniBridge.windowssysWindowsWdkStorageFilesystemMinifiltersFltGetStreamHandleContext(instance, fileobject.rawAddress, context.rawAddress)
 
-public actual fun fltGetSwappedBufferMdlAddress(callbackdata: ConstPtr<FltCallbackData>): MutPtr<Mdl> =
+public actual fun fltGetSwappedBufferMdlAddress(callbackdata: ConstPtr): MutPtr =
     MutPtr(WindowsWdkStorageFilesystemMinifiltersJniBridge.windowssysWindowsWdkStorageFilesystemMinifiltersFltGetSwappedBufferMdlAddress(callbackdata.rawAddress))
 
-public actual fun fltGetTopInstance(volume: PfltVolume, instance: MutPtr<PfltInstance>): Ntstatus =
+public actual fun fltGetTopInstance(volume: PfltVolume, instance: MutPtr): Ntstatus =
     WindowsWdkStorageFilesystemMinifiltersJniBridge.windowssysWindowsWdkStorageFilesystemMinifiltersFltGetTopInstance(volume, instance.rawAddress)
 
-public actual fun fltGetTransactionContext(instance: PfltInstance, transaction: ConstPtr<Ktransaction>, context: MutPtr<PfltContext>): Ntstatus =
+public actual fun fltGetTransactionContext(instance: PfltInstance, transaction: ConstPtr, context: MutPtr): Ntstatus =
     WindowsWdkStorageFilesystemMinifiltersJniBridge.windowssysWindowsWdkStorageFilesystemMinifiltersFltGetTransactionContext(instance, transaction.rawAddress, context.rawAddress)
 
-public actual fun fltGetTunneledName(callbackdata: ConstPtr<FltCallbackData>, filenameinformation: ConstPtr<FltFileNameInformation>, rettunneledfilenameinformation: MutPtr<MutPtr<FltFileNameInformation>>): Ntstatus =
+public actual fun fltGetTunneledName(callbackdata: ConstPtr, filenameinformation: ConstPtr, rettunneledfilenameinformation: MutPtr): Ntstatus =
     WindowsWdkStorageFilesystemMinifiltersJniBridge.windowssysWindowsWdkStorageFilesystemMinifiltersFltGetTunneledName(callbackdata.rawAddress, filenameinformation.rawAddress, rettunneledfilenameinformation.rawAddress)
 
-public actual fun fltGetUpperInstance(currentinstance: PfltInstance, upperinstance: MutPtr<PfltInstance>): Ntstatus =
+public actual fun fltGetUpperInstance(currentinstance: PfltInstance, upperinstance: MutPtr): Ntstatus =
     WindowsWdkStorageFilesystemMinifiltersJniBridge.windowssysWindowsWdkStorageFilesystemMinifiltersFltGetUpperInstance(currentinstance, upperinstance.rawAddress)
 
-public actual fun fltGetVolumeContext(filter: PfltFilter, volume: PfltVolume, context: MutPtr<PfltContext>): Ntstatus =
+public actual fun fltGetVolumeContext(filter: PfltFilter, volume: PfltVolume, context: MutPtr): Ntstatus =
     WindowsWdkStorageFilesystemMinifiltersJniBridge.windowssysWindowsWdkStorageFilesystemMinifiltersFltGetVolumeContext(filter, volume, context.rawAddress)
 
-public actual fun fltGetVolumeFromDeviceObject(filter: PfltFilter, deviceobject: ConstPtr<DeviceObject>, retvolume: MutPtr<PfltVolume>): Ntstatus =
+public actual fun fltGetVolumeFromDeviceObject(filter: PfltFilter, deviceobject: ConstPtr, retvolume: MutPtr): Ntstatus =
     WindowsWdkStorageFilesystemMinifiltersJniBridge.windowssysWindowsWdkStorageFilesystemMinifiltersFltGetVolumeFromDeviceObject(filter, deviceobject.rawAddress, retvolume.rawAddress)
 
-public actual fun fltGetVolumeFromFileObject(filter: PfltFilter, fileobject: ConstPtr<FileObject>, retvolume: MutPtr<PfltVolume>): Ntstatus =
+public actual fun fltGetVolumeFromFileObject(filter: PfltFilter, fileobject: ConstPtr, retvolume: MutPtr): Ntstatus =
     WindowsWdkStorageFilesystemMinifiltersJniBridge.windowssysWindowsWdkStorageFilesystemMinifiltersFltGetVolumeFromFileObject(filter, fileobject.rawAddress, retvolume.rawAddress)
 
-public actual fun fltGetVolumeFromInstance(instance: PfltInstance, retvolume: MutPtr<PfltVolume>): Ntstatus =
+public actual fun fltGetVolumeFromInstance(instance: PfltInstance, retvolume: MutPtr): Ntstatus =
     WindowsWdkStorageFilesystemMinifiltersJniBridge.windowssysWindowsWdkStorageFilesystemMinifiltersFltGetVolumeFromInstance(instance, retvolume.rawAddress)
 
-public actual fun fltGetVolumeFromName(filter: PfltFilter, volumename: ConstPtr<UnicodeString>, retvolume: MutPtr<PfltVolume>): Ntstatus =
+public actual fun fltGetVolumeFromName(filter: PfltFilter, volumename: ConstPtr, retvolume: MutPtr): Ntstatus =
     WindowsWdkStorageFilesystemMinifiltersJniBridge.windowssysWindowsWdkStorageFilesystemMinifiltersFltGetVolumeFromName(filter, volumename.rawAddress, retvolume.rawAddress)
 
-public actual fun fltGetVolumeGuidName(volume: PfltVolume, volumeguidname: MutPtr<UnicodeString>, buffersizeneeded: MutPtr<UInt>): Ntstatus =
+public actual fun fltGetVolumeGuidName(volume: PfltVolume, volumeguidname: MutPtr, buffersizeneeded: MutPtr): Ntstatus =
     WindowsWdkStorageFilesystemMinifiltersJniBridge.windowssysWindowsWdkStorageFilesystemMinifiltersFltGetVolumeGuidName(volume, volumeguidname.rawAddress, buffersizeneeded.rawAddress)
 
-public actual fun fltGetVolumeInformation(volume: PfltVolume, informationclass: FilterVolumeInformationClass, buffer: MutPtr<CVoid>, buffersize: UInt, bytesreturned: MutPtr<UInt>): Ntstatus =
+public actual fun fltGetVolumeInformation(volume: PfltVolume, informationclass: FilterVolumeInformationClass, buffer: MutPtr, buffersize: UInt, bytesreturned: MutPtr): Ntstatus =
     WindowsWdkStorageFilesystemMinifiltersJniBridge.windowssysWindowsWdkStorageFilesystemMinifiltersFltGetVolumeInformation(volume, informationclass, buffer.rawAddress, buffersize.toInt(), bytesreturned.rawAddress)
 
-public actual fun fltGetVolumeInstanceFromName(filter: PfltFilter, volume: PfltVolume, instancename: ConstPtr<UnicodeString>, retinstance: MutPtr<PfltInstance>): Ntstatus =
+public actual fun fltGetVolumeInstanceFromName(filter: PfltFilter, volume: PfltVolume, instancename: ConstPtr, retinstance: MutPtr): Ntstatus =
     WindowsWdkStorageFilesystemMinifiltersJniBridge.windowssysWindowsWdkStorageFilesystemMinifiltersFltGetVolumeInstanceFromName(filter, volume, instancename.rawAddress, retinstance.rawAddress)
 
-public actual fun fltGetVolumeName(volume: PfltVolume, volumename: MutPtr<UnicodeString>, buffersizeneeded: MutPtr<UInt>): Ntstatus =
+public actual fun fltGetVolumeName(volume: PfltVolume, volumename: MutPtr, buffersizeneeded: MutPtr): Ntstatus =
     WindowsWdkStorageFilesystemMinifiltersJniBridge.windowssysWindowsWdkStorageFilesystemMinifiltersFltGetVolumeName(volume, volumename.rawAddress, buffersizeneeded.rawAddress)
 
-public actual fun fltGetVolumeProperties(volume: PfltVolume, volumeproperties: MutPtr<FltVolumeProperties>, volumepropertieslength: UInt, lengthreturned: MutPtr<UInt>): Ntstatus =
+public actual fun fltGetVolumeProperties(volume: PfltVolume, volumeproperties: MutPtr, volumepropertieslength: UInt, lengthreturned: MutPtr): Ntstatus =
     WindowsWdkStorageFilesystemMinifiltersJniBridge.windowssysWindowsWdkStorageFilesystemMinifiltersFltGetVolumeProperties(volume, volumeproperties.rawAddress, volumepropertieslength.toInt(), lengthreturned.rawAddress)
 
-public actual fun fltInitExtraCreateParameterLookasideList(filter: PfltFilter, lookaside: MutPtr<CVoid>, flags: UInt, size: ULong, tag: UInt) {
+public actual fun fltInitExtraCreateParameterLookasideList(filter: PfltFilter, lookaside: MutPtr, flags: UInt, size: ULong, tag: UInt) {
     WindowsWdkStorageFilesystemMinifiltersJniBridge.windowssysWindowsWdkStorageFilesystemMinifiltersFltInitExtraCreateParameterLookasideList(filter, lookaside.rawAddress, flags.toInt(), size.toLong(), tag.toInt())
 }
 
-public actual fun fltInitializeFileLock(filelock: MutPtr<FileLock>) {
+public actual fun fltInitializeFileLock(filelock: MutPtr) {
     WindowsWdkStorageFilesystemMinifiltersJniBridge.windowssysWindowsWdkStorageFilesystemMinifiltersFltInitializeFileLock(filelock.rawAddress)
 }
 
-public actual fun fltInitializeOplock(oplock: MutPtr<MutPtr<CVoid>>) {
+public actual fun fltInitializeOplock(oplock: MutPtr) {
     WindowsWdkStorageFilesystemMinifiltersJniBridge.windowssysWindowsWdkStorageFilesystemMinifiltersFltInitializeOplock(oplock.rawAddress)
 }
 
-public actual fun fltInitializePushLock(pushlock: MutPtr<ULong>) {
+public actual fun fltInitializePushLock(pushlock: MutPtr) {
     WindowsWdkStorageFilesystemMinifiltersJniBridge.windowssysWindowsWdkStorageFilesystemMinifiltersFltInitializePushLock(pushlock.rawAddress)
 }
 
-public actual fun fltInsertExtraCreateParameter(filter: PfltFilter, ecplist: MutPtr<EcpList>, ecpcontext: MutPtr<CVoid>): Ntstatus =
+public actual fun fltInsertExtraCreateParameter(filter: PfltFilter, ecplist: MutPtr, ecpcontext: MutPtr): Ntstatus =
     WindowsWdkStorageFilesystemMinifiltersJniBridge.windowssysWindowsWdkStorageFilesystemMinifiltersFltInsertExtraCreateParameter(filter, ecplist.rawAddress, ecpcontext.rawAddress)
 
-public actual fun fltIs32bitProcess(callbackdata: ConstPtr<FltCallbackData>): Boolean =
+public actual fun fltIs32bitProcess(callbackdata: ConstPtr): Boolean =
     WindowsWdkStorageFilesystemMinifiltersJniBridge.windowssysWindowsWdkStorageFilesystemMinifiltersFltIs32bitProcess(callbackdata.rawAddress)
 
-public actual fun fltIsCallbackDataDirty(data: ConstPtr<FltCallbackData>): Boolean =
+public actual fun fltIsCallbackDataDirty(data: ConstPtr): Boolean =
     WindowsWdkStorageFilesystemMinifiltersJniBridge.windowssysWindowsWdkStorageFilesystemMinifiltersFltIsCallbackDataDirty(data.rawAddress)
 
-public actual fun fltIsDirectory(fileobject: ConstPtr<FileObject>, instance: PfltInstance, isdirectory: MutPtr<Boolean>): Ntstatus =
+public actual fun fltIsDirectory(fileobject: ConstPtr, instance: PfltInstance, isdirectory: MutPtr): Ntstatus =
     WindowsWdkStorageFilesystemMinifiltersJniBridge.windowssysWindowsWdkStorageFilesystemMinifiltersFltIsDirectory(fileobject.rawAddress, instance, isdirectory.rawAddress)
 
-public actual fun fltIsEcpAcknowledged(filter: PfltFilter, ecpcontext: ConstPtr<CVoid>): Boolean =
+public actual fun fltIsEcpAcknowledged(filter: PfltFilter, ecpcontext: ConstPtr): Boolean =
     WindowsWdkStorageFilesystemMinifiltersJniBridge.windowssysWindowsWdkStorageFilesystemMinifiltersFltIsEcpAcknowledged(filter, ecpcontext.rawAddress)
 
-public actual fun fltIsEcpFromUserMode(filter: PfltFilter, ecpcontext: ConstPtr<CVoid>): Boolean =
+public actual fun fltIsEcpFromUserMode(filter: PfltFilter, ecpcontext: ConstPtr): Boolean =
     WindowsWdkStorageFilesystemMinifiltersJniBridge.windowssysWindowsWdkStorageFilesystemMinifiltersFltIsEcpFromUserMode(filter, ecpcontext.rawAddress)
 
-public actual fun fltIsFltMgrVolumeDeviceObject(deviceobject: ConstPtr<DeviceObject>): Boolean =
+public actual fun fltIsFltMgrVolumeDeviceObject(deviceobject: ConstPtr): Boolean =
     WindowsWdkStorageFilesystemMinifiltersJniBridge.windowssysWindowsWdkStorageFilesystemMinifiltersFltIsFltMgrVolumeDeviceObject(deviceobject.rawAddress)
 
-public actual fun fltIsIoCanceled(callbackdata: ConstPtr<FltCallbackData>): Boolean =
+public actual fun fltIsIoCanceled(callbackdata: ConstPtr): Boolean =
     WindowsWdkStorageFilesystemMinifiltersJniBridge.windowssysWindowsWdkStorageFilesystemMinifiltersFltIsIoCanceled(callbackdata.rawAddress)
 
-public actual fun fltIsIoRedirectionAllowed(sourceinstance: PfltInstance, targetinstance: PfltInstance, redirectionallowed: MutPtr<Boolean>): Ntstatus =
+public actual fun fltIsIoRedirectionAllowed(sourceinstance: PfltInstance, targetinstance: PfltInstance, redirectionallowed: MutPtr): Ntstatus =
     WindowsWdkStorageFilesystemMinifiltersJniBridge.windowssysWindowsWdkStorageFilesystemMinifiltersFltIsIoRedirectionAllowed(sourceinstance, targetinstance, redirectionallowed.rawAddress)
 
-public actual fun fltIsIoRedirectionAllowedForOperation(data: ConstPtr<FltCallbackData>, targetinstance: PfltInstance, redirectionallowedthisio: MutPtr<Boolean>, redirectionallowedallio: MutPtr<Boolean>): Ntstatus =
+public actual fun fltIsIoRedirectionAllowedForOperation(data: ConstPtr, targetinstance: PfltInstance, redirectionallowedthisio: MutPtr, redirectionallowedallio: MutPtr): Ntstatus =
     WindowsWdkStorageFilesystemMinifiltersJniBridge.windowssysWindowsWdkStorageFilesystemMinifiltersFltIsIoRedirectionAllowedForOperation(data.rawAddress, targetinstance, redirectionallowedthisio.rawAddress, redirectionallowedallio.rawAddress)
 
-public actual fun fltIsOperationSynchronous(callbackdata: ConstPtr<FltCallbackData>): Boolean =
+public actual fun fltIsOperationSynchronous(callbackdata: ConstPtr): Boolean =
     WindowsWdkStorageFilesystemMinifiltersJniBridge.windowssysWindowsWdkStorageFilesystemMinifiltersFltIsOperationSynchronous(callbackdata.rawAddress)
 
-public actual fun fltIsVolumeSnapshot(fltobject: ConstPtr<CVoid>, issnapshotvolume: MutPtr<Boolean>): Ntstatus =
+public actual fun fltIsVolumeSnapshot(fltobject: ConstPtr, issnapshotvolume: MutPtr): Ntstatus =
     WindowsWdkStorageFilesystemMinifiltersJniBridge.windowssysWindowsWdkStorageFilesystemMinifiltersFltIsVolumeSnapshot(fltobject.rawAddress, issnapshotvolume.rawAddress)
 
-public actual fun fltIsVolumeWritable(fltobject: ConstPtr<CVoid>, iswritable: MutPtr<Boolean>): Ntstatus =
+public actual fun fltIsVolumeWritable(fltobject: ConstPtr, iswritable: MutPtr): Ntstatus =
     WindowsWdkStorageFilesystemMinifiltersJniBridge.windowssysWindowsWdkStorageFilesystemMinifiltersFltIsVolumeWritable(fltobject.rawAddress, iswritable.rawAddress)
 
-public actual fun fltLoadFilter(filtername: ConstPtr<UnicodeString>): Ntstatus =
+public actual fun fltLoadFilter(filtername: ConstPtr): Ntstatus =
     WindowsWdkStorageFilesystemMinifiltersJniBridge.windowssysWindowsWdkStorageFilesystemMinifiltersFltLoadFilter(filtername.rawAddress)
 
-public actual fun fltLockUserBuffer(callbackdata: ConstPtr<FltCallbackData>): Ntstatus =
+public actual fun fltLockUserBuffer(callbackdata: ConstPtr): Ntstatus =
     WindowsWdkStorageFilesystemMinifiltersJniBridge.windowssysWindowsWdkStorageFilesystemMinifiltersFltLockUserBuffer(callbackdata.rawAddress)
 
-public actual fun fltNotifyFilterChangeDirectory(notifysync: PnotifySync, notifylist: MutPtr<ListEntry>, fscontext: ConstPtr<CVoid>, fulldirectoryname: ConstPtr<io.github.kotlinmania.windowssys.windows.win32.system.kernel.String>, watchtree: Boolean, ignorebuffer: Boolean, completionfilter: UInt, notifycallbackdata: ConstPtr<FltCallbackData>, traversecallback: PcheckForTraverseAccess, subjectcontext: ConstPtr<SecuritySubjectContext>, filtercallback: PfilterReportChange) {
+public actual fun fltNotifyFilterChangeDirectory(notifysync: PnotifySync, notifylist: MutPtr, fscontext: ConstPtr, fulldirectoryname: ConstPtr, watchtree: Boolean, ignorebuffer: Boolean, completionfilter: UInt, notifycallbackdata: ConstPtr, traversecallback: PcheckForTraverseAccess, subjectcontext: ConstPtr, filtercallback: PfilterReportChange) {
 }
 
-public actual fun fltObjectDereference(fltobject: MutPtr<CVoid>) {
+public actual fun fltObjectDereference(fltobject: MutPtr) {
     WindowsWdkStorageFilesystemMinifiltersJniBridge.windowssysWindowsWdkStorageFilesystemMinifiltersFltObjectDereference(fltobject.rawAddress)
 }
 
-public actual fun fltObjectReference(fltobject: MutPtr<CVoid>): Ntstatus =
+public actual fun fltObjectReference(fltobject: MutPtr): Ntstatus =
     WindowsWdkStorageFilesystemMinifiltersJniBridge.windowssysWindowsWdkStorageFilesystemMinifiltersFltObjectReference(fltobject.rawAddress)
 
-public actual fun fltOpenVolume(instance: PfltInstance, volumehandle: MutPtr<Handle>, volumefileobject: MutPtr<MutPtr<FileObject>>): Ntstatus =
+public actual fun fltOpenVolume(instance: PfltInstance, volumehandle: MutPtr, volumefileobject: MutPtr): Ntstatus =
     WindowsWdkStorageFilesystemMinifiltersJniBridge.windowssysWindowsWdkStorageFilesystemMinifiltersFltOpenVolume(instance, volumehandle.rawAddress, volumefileobject.rawAddress)
 
-public actual fun fltOplockBreakH(oplock: ConstPtr<ConstPtr<CVoid>>, callbackdata: ConstPtr<FltCallbackData>, flags: UInt, context: ConstPtr<CVoid>, waitcompletionroutine: PfltoplockWaitCompleteRoutine, prepostcallbackdataroutine: PfltoplockPrepostCallbackdataRoutine): FltPreopCallbackStatus =
+public actual fun fltOplockBreakH(oplock: ConstPtr, callbackdata: ConstPtr, flags: UInt, context: ConstPtr, waitcompletionroutine: PfltoplockWaitCompleteRoutine, prepostcallbackdataroutine: PfltoplockPrepostCallbackdataRoutine): FltPreopCallbackStatus =
     WindowsWdkStorageFilesystemMinifiltersJniBridge.windowssysWindowsWdkStorageFilesystemMinifiltersFltOplockBreakH(oplock.rawAddress, callbackdata.rawAddress, flags.toInt(), context.rawAddress, 0L, 0L)
 
-public actual fun fltOplockBreakToNone(oplock: ConstPtr<ConstPtr<CVoid>>, callbackdata: ConstPtr<FltCallbackData>, context: ConstPtr<CVoid>, waitcompletionroutine: PfltoplockWaitCompleteRoutine, prepostcallbackdataroutine: PfltoplockPrepostCallbackdataRoutine): FltPreopCallbackStatus =
+public actual fun fltOplockBreakToNone(oplock: ConstPtr, callbackdata: ConstPtr, context: ConstPtr, waitcompletionroutine: PfltoplockWaitCompleteRoutine, prepostcallbackdataroutine: PfltoplockPrepostCallbackdataRoutine): FltPreopCallbackStatus =
     WindowsWdkStorageFilesystemMinifiltersJniBridge.windowssysWindowsWdkStorageFilesystemMinifiltersFltOplockBreakToNone(oplock.rawAddress, callbackdata.rawAddress, context.rawAddress, 0L, 0L)
 
-public actual fun fltOplockBreakToNoneEx(oplock: ConstPtr<ConstPtr<CVoid>>, callbackdata: ConstPtr<FltCallbackData>, flags: UInt, context: ConstPtr<CVoid>, waitcompletionroutine: PfltoplockWaitCompleteRoutine, prepostcallbackdataroutine: PfltoplockPrepostCallbackdataRoutine): FltPreopCallbackStatus =
+public actual fun fltOplockBreakToNoneEx(oplock: ConstPtr, callbackdata: ConstPtr, flags: UInt, context: ConstPtr, waitcompletionroutine: PfltoplockWaitCompleteRoutine, prepostcallbackdataroutine: PfltoplockPrepostCallbackdataRoutine): FltPreopCallbackStatus =
     WindowsWdkStorageFilesystemMinifiltersJniBridge.windowssysWindowsWdkStorageFilesystemMinifiltersFltOplockBreakToNoneEx(oplock.rawAddress, callbackdata.rawAddress, flags.toInt(), context.rawAddress, 0L, 0L)
 
-public actual fun fltOplockFsctrl(oplock: ConstPtr<ConstPtr<CVoid>>, callbackdata: ConstPtr<FltCallbackData>, opencount: UInt): FltPreopCallbackStatus =
+public actual fun fltOplockFsctrl(oplock: ConstPtr, callbackdata: ConstPtr, opencount: UInt): FltPreopCallbackStatus =
     WindowsWdkStorageFilesystemMinifiltersJniBridge.windowssysWindowsWdkStorageFilesystemMinifiltersFltOplockFsctrl(oplock.rawAddress, callbackdata.rawAddress, opencount.toInt())
 
-public actual fun fltOplockFsctrlEx(oplock: ConstPtr<ConstPtr<CVoid>>, callbackdata: ConstPtr<FltCallbackData>, opencount: UInt, flags: UInt): FltPreopCallbackStatus =
+public actual fun fltOplockFsctrlEx(oplock: ConstPtr, callbackdata: ConstPtr, opencount: UInt, flags: UInt): FltPreopCallbackStatus =
     WindowsWdkStorageFilesystemMinifiltersJniBridge.windowssysWindowsWdkStorageFilesystemMinifiltersFltOplockFsctrlEx(oplock.rawAddress, callbackdata.rawAddress, opencount.toInt(), flags.toInt())
 
-public actual fun fltOplockIsFastIoPossible(oplock: ConstPtr<ConstPtr<CVoid>>): Boolean =
+public actual fun fltOplockIsFastIoPossible(oplock: ConstPtr): Boolean =
     WindowsWdkStorageFilesystemMinifiltersJniBridge.windowssysWindowsWdkStorageFilesystemMinifiltersFltOplockIsFastIoPossible(oplock.rawAddress)
 
-public actual fun fltOplockIsSharedRequest(callbackdata: ConstPtr<FltCallbackData>): Boolean =
+public actual fun fltOplockIsSharedRequest(callbackdata: ConstPtr): Boolean =
     WindowsWdkStorageFilesystemMinifiltersJniBridge.windowssysWindowsWdkStorageFilesystemMinifiltersFltOplockIsSharedRequest(callbackdata.rawAddress)
 
-public actual fun fltOplockKeysEqual(fo1: ConstPtr<FileObject>, fo2: ConstPtr<FileObject>): Boolean =
+public actual fun fltOplockKeysEqual(fo1: ConstPtr, fo2: ConstPtr): Boolean =
     WindowsWdkStorageFilesystemMinifiltersJniBridge.windowssysWindowsWdkStorageFilesystemMinifiltersFltOplockKeysEqual(fo1.rawAddress, fo2.rawAddress)
 
-public actual fun fltParseFileName(filename: ConstPtr<UnicodeString>, extension: MutPtr<UnicodeString>, stream: MutPtr<UnicodeString>, finalcomponent: MutPtr<UnicodeString>): Ntstatus =
+public actual fun fltParseFileName(filename: ConstPtr, extension: MutPtr, stream: MutPtr, finalcomponent: MutPtr): Ntstatus =
     WindowsWdkStorageFilesystemMinifiltersJniBridge.windowssysWindowsWdkStorageFilesystemMinifiltersFltParseFileName(filename.rawAddress, extension.rawAddress, stream.rawAddress, finalcomponent.rawAddress)
 
-public actual fun fltParseFileNameInformation(filenameinformation: MutPtr<FltFileNameInformation>): Ntstatus =
+public actual fun fltParseFileNameInformation(filenameinformation: MutPtr): Ntstatus =
     WindowsWdkStorageFilesystemMinifiltersJniBridge.windowssysWindowsWdkStorageFilesystemMinifiltersFltParseFileNameInformation(filenameinformation.rawAddress)
 
-public actual fun fltPerformAsynchronousIo(callbackdata: MutPtr<FltCallbackData>, callbackroutine: PfltCompletedAsyncIoCallback, callbackcontext: ConstPtr<CVoid>): Ntstatus =
+public actual fun fltPerformAsynchronousIo(callbackdata: MutPtr, callbackroutine: PfltCompletedAsyncIoCallback, callbackcontext: ConstPtr): Ntstatus =
     WindowsWdkStorageFilesystemMinifiltersJniBridge.windowssysWindowsWdkStorageFilesystemMinifiltersFltPerformAsynchronousIo(callbackdata.rawAddress, 0L, callbackcontext.rawAddress)
 
-public actual fun fltPerformSynchronousIo(callbackdata: MutPtr<FltCallbackData>) {
+public actual fun fltPerformSynchronousIo(callbackdata: MutPtr) {
     WindowsWdkStorageFilesystemMinifiltersJniBridge.windowssysWindowsWdkStorageFilesystemMinifiltersFltPerformSynchronousIo(callbackdata.rawAddress)
 }
 
-public actual fun fltPrePrepareComplete(instance: PfltInstance, transaction: ConstPtr<Ktransaction>, transactioncontext: PfltContext): Ntstatus =
+public actual fun fltPrePrepareComplete(instance: PfltInstance, transaction: ConstPtr, transactioncontext: PfltContext): Ntstatus =
     WindowsWdkStorageFilesystemMinifiltersJniBridge.windowssysWindowsWdkStorageFilesystemMinifiltersFltPrePrepareComplete(instance, transaction.rawAddress, transactioncontext.rawAddress)
 
-public actual fun fltPrepareComplete(instance: PfltInstance, transaction: ConstPtr<Ktransaction>, transactioncontext: PfltContext): Ntstatus =
+public actual fun fltPrepareComplete(instance: PfltInstance, transaction: ConstPtr, transactioncontext: PfltContext): Ntstatus =
     WindowsWdkStorageFilesystemMinifiltersJniBridge.windowssysWindowsWdkStorageFilesystemMinifiltersFltPrepareComplete(instance, transaction.rawAddress, transactioncontext.rawAddress)
 
-public actual fun fltPrepareToReuseEcp(filter: PfltFilter, ecpcontext: ConstPtr<CVoid>) {
+public actual fun fltPrepareToReuseEcp(filter: PfltFilter, ecpcontext: ConstPtr) {
     WindowsWdkStorageFilesystemMinifiltersJniBridge.windowssysWindowsWdkStorageFilesystemMinifiltersFltPrepareToReuseEcp(filter, ecpcontext.rawAddress)
 }
 
-public actual fun fltProcessFileLock(filelock: ConstPtr<FileLock>, callbackdata: ConstPtr<FltCallbackData>, context: ConstPtr<CVoid>): FltPreopCallbackStatus =
+public actual fun fltProcessFileLock(filelock: ConstPtr, callbackdata: ConstPtr, context: ConstPtr): FltPreopCallbackStatus =
     WindowsWdkStorageFilesystemMinifiltersJniBridge.windowssysWindowsWdkStorageFilesystemMinifiltersFltProcessFileLock(filelock.rawAddress, callbackdata.rawAddress, context.rawAddress)
 
-public actual fun fltPropagateActivityIdToThread(callbackdata: ConstPtr<FltCallbackData>, propagateid: MutPtr<Guid>, originalid: MutPtr<MutPtr<Guid>>): Ntstatus =
+public actual fun fltPropagateActivityIdToThread(callbackdata: ConstPtr, propagateid: MutPtr, originalid: MutPtr): Ntstatus =
     WindowsWdkStorageFilesystemMinifiltersJniBridge.windowssysWindowsWdkStorageFilesystemMinifiltersFltPropagateActivityIdToThread(callbackdata.rawAddress, propagateid.rawAddress, originalid.rawAddress)
 
-public actual fun fltPropagateIrpExtension(sourcedata: ConstPtr<FltCallbackData>, targetdata: MutPtr<FltCallbackData>, flags: UInt): Ntstatus =
+public actual fun fltPropagateIrpExtension(sourcedata: ConstPtr, targetdata: MutPtr, flags: UInt): Ntstatus =
     WindowsWdkStorageFilesystemMinifiltersJniBridge.windowssysWindowsWdkStorageFilesystemMinifiltersFltPropagateIrpExtension(sourcedata.rawAddress, targetdata.rawAddress, flags.toInt())
 
-public actual fun fltPurgeFileNameInformationCache(instance: PfltInstance, fileobject: ConstPtr<FileObject>): Ntstatus =
+public actual fun fltPurgeFileNameInformationCache(instance: PfltInstance, fileobject: ConstPtr): Ntstatus =
     WindowsWdkStorageFilesystemMinifiltersJniBridge.windowssysWindowsWdkStorageFilesystemMinifiltersFltPurgeFileNameInformationCache(instance, fileobject.rawAddress)
 
-public actual fun fltQueryDirectoryFile(instance: PfltInstance, fileobject: ConstPtr<FileObject>, fileinformation: MutPtr<CVoid>, length: UInt, fileinformationclass: FileInformationClass, returnsingleentry: Boolean, filename: ConstPtr<UnicodeString>, restartscan: Boolean, lengthreturned: MutPtr<UInt>): Ntstatus =
+public actual fun fltQueryDirectoryFile(instance: PfltInstance, fileobject: ConstPtr, fileinformation: MutPtr, length: UInt, fileinformationclass: FileInformationClass, returnsingleentry: Boolean, filename: ConstPtr, restartscan: Boolean, lengthreturned: MutPtr): Ntstatus =
     WindowsWdkStorageFilesystemMinifiltersJniBridge.windowssysWindowsWdkStorageFilesystemMinifiltersFltQueryDirectoryFile(instance, fileobject.rawAddress, fileinformation.rawAddress, length.toInt(), fileinformationclass, returnsingleentry, filename.rawAddress, restartscan, lengthreturned.rawAddress)
 
-public actual fun fltQueryDirectoryFileEx(instance: PfltInstance, fileobject: ConstPtr<FileObject>, fileinformation: MutPtr<CVoid>, length: UInt, fileinformationclass: FileInformationClass, queryflags: UInt, filename: ConstPtr<UnicodeString>, lengthreturned: MutPtr<UInt>): Ntstatus =
+public actual fun fltQueryDirectoryFileEx(instance: PfltInstance, fileobject: ConstPtr, fileinformation: MutPtr, length: UInt, fileinformationclass: FileInformationClass, queryflags: UInt, filename: ConstPtr, lengthreturned: MutPtr): Ntstatus =
     WindowsWdkStorageFilesystemMinifiltersJniBridge.windowssysWindowsWdkStorageFilesystemMinifiltersFltQueryDirectoryFileEx(instance, fileobject.rawAddress, fileinformation.rawAddress, length.toInt(), fileinformationclass, queryflags.toInt(), filename.rawAddress, lengthreturned.rawAddress)
 
-public actual fun fltQueryEaFile(instance: PfltInstance, fileobject: ConstPtr<FileObject>, returnedeadata: MutPtr<CVoid>, length: UInt, returnsingleentry: Boolean, ealist: ConstPtr<CVoid>, ealistlength: UInt, eaindex: ConstPtr<UInt>, restartscan: Boolean, lengthreturned: MutPtr<UInt>): Ntstatus =
+public actual fun fltQueryEaFile(instance: PfltInstance, fileobject: ConstPtr, returnedeadata: MutPtr, length: UInt, returnsingleentry: Boolean, ealist: ConstPtr, ealistlength: UInt, eaindex: ConstPtr, restartscan: Boolean, lengthreturned: MutPtr): Ntstatus =
     WindowsWdkStorageFilesystemMinifiltersJniBridge.windowssysWindowsWdkStorageFilesystemMinifiltersFltQueryEaFile(instance, fileobject.rawAddress, returnedeadata.rawAddress, length.toInt(), returnsingleentry, ealist.rawAddress, ealistlength.toInt(), eaindex.rawAddress, restartscan, lengthreturned.rawAddress)
 
-public actual fun fltQueryInformationByName(filter: PfltFilter, instance: PfltInstance, objectattributes: ConstPtr<ObjectAttributes>, iostatusblock: MutPtr<IoStatusBlock>, fileinformation: MutPtr<CVoid>, length: UInt, fileinformationclass: FileInformationClass, drivercontext: ConstPtr<IoDriverCreateContext>): Ntstatus =
+public actual fun fltQueryInformationByName(filter: PfltFilter, instance: PfltInstance, objectattributes: ConstPtr, iostatusblock: MutPtr, fileinformation: MutPtr, length: UInt, fileinformationclass: FileInformationClass, drivercontext: ConstPtr): Ntstatus =
     WindowsWdkStorageFilesystemMinifiltersJniBridge.windowssysWindowsWdkStorageFilesystemMinifiltersFltQueryInformationByName(filter, instance, objectattributes.rawAddress, iostatusblock.rawAddress, fileinformation.rawAddress, length.toInt(), fileinformationclass, drivercontext.rawAddress)
 
-public actual fun fltQueryInformationFile(instance: PfltInstance, fileobject: ConstPtr<FileObject>, fileinformation: MutPtr<CVoid>, length: UInt, fileinformationclass: FileInformationClass, lengthreturned: MutPtr<UInt>): Ntstatus =
+public actual fun fltQueryInformationFile(instance: PfltInstance, fileobject: ConstPtr, fileinformation: MutPtr, length: UInt, fileinformationclass: FileInformationClass, lengthreturned: MutPtr): Ntstatus =
     WindowsWdkStorageFilesystemMinifiltersJniBridge.windowssysWindowsWdkStorageFilesystemMinifiltersFltQueryInformationFile(instance, fileobject.rawAddress, fileinformation.rawAddress, length.toInt(), fileinformationclass, lengthreturned.rawAddress)
 
-public actual fun fltQueryQuotaInformationFile(instance: PfltInstance, fileobject: ConstPtr<FileObject>, iostatusblock: MutPtr<IoStatusBlock>, buffer: MutPtr<CVoid>, length: UInt, returnsingleentry: Boolean, sidlist: ConstPtr<CVoid>, sidlistlength: UInt, startsid: ConstPtr<UInt>, restartscan: Boolean, lengthreturned: MutPtr<UInt>): Ntstatus =
+public actual fun fltQueryQuotaInformationFile(instance: PfltInstance, fileobject: ConstPtr, iostatusblock: MutPtr, buffer: MutPtr, length: UInt, returnsingleentry: Boolean, sidlist: ConstPtr, sidlistlength: UInt, startsid: ConstPtr, restartscan: Boolean, lengthreturned: MutPtr): Ntstatus =
     WindowsWdkStorageFilesystemMinifiltersJniBridge.windowssysWindowsWdkStorageFilesystemMinifiltersFltQueryQuotaInformationFile(instance, fileobject.rawAddress, iostatusblock.rawAddress, buffer.rawAddress, length.toInt(), returnsingleentry, sidlist.rawAddress, sidlistlength.toInt(), startsid.rawAddress, restartscan, lengthreturned.rawAddress)
 
-public actual fun fltQuerySecurityObject(instance: PfltInstance, fileobject: ConstPtr<FileObject>, securityinformation: UInt, securitydescriptor: PsecurityDescriptor, length: UInt, lengthneeded: MutPtr<UInt>): Ntstatus =
+public actual fun fltQuerySecurityObject(instance: PfltInstance, fileobject: ConstPtr, securityinformation: UInt, securitydescriptor: PsecurityDescriptor, length: UInt, lengthneeded: MutPtr): Ntstatus =
     WindowsWdkStorageFilesystemMinifiltersJniBridge.windowssysWindowsWdkStorageFilesystemMinifiltersFltQuerySecurityObject(instance, fileobject.rawAddress, securityinformation.toInt(), securitydescriptor.rawAddress, length.toInt(), lengthneeded.rawAddress)
 
-public actual fun fltQueryVolumeInformation(instance: PfltInstance, iosb: MutPtr<IoStatusBlock>, fsinformation: MutPtr<CVoid>, length: UInt, fsinformationclass: FsInformationClass): Ntstatus =
+public actual fun fltQueryVolumeInformation(instance: PfltInstance, iosb: MutPtr, fsinformation: MutPtr, length: UInt, fsinformationclass: FsInformationClass): Ntstatus =
     WindowsWdkStorageFilesystemMinifiltersJniBridge.windowssysWindowsWdkStorageFilesystemMinifiltersFltQueryVolumeInformation(instance, iosb.rawAddress, fsinformation.rawAddress, length.toInt(), fsinformationclass)
 
-public actual fun fltQueryVolumeInformationFile(instance: PfltInstance, fileobject: ConstPtr<FileObject>, fsinformation: MutPtr<CVoid>, length: UInt, fsinformationclass: FsInformationClass, lengthreturned: MutPtr<UInt>): Ntstatus =
+public actual fun fltQueryVolumeInformationFile(instance: PfltInstance, fileobject: ConstPtr, fsinformation: MutPtr, length: UInt, fsinformationclass: FsInformationClass, lengthreturned: MutPtr): Ntstatus =
     WindowsWdkStorageFilesystemMinifiltersJniBridge.windowssysWindowsWdkStorageFilesystemMinifiltersFltQueryVolumeInformationFile(instance, fileobject.rawAddress, fsinformation.rawAddress, length.toInt(), fsinformationclass, lengthreturned.rawAddress)
 
-public actual fun fltQueueDeferredIoWorkItem(fltworkitem: PfltDeferredIoWorkitem, data: ConstPtr<FltCallbackData>, workerroutine: PfltDeferredIoWorkitemRoutine, queuetype: WorkQueueType, context: ConstPtr<CVoid>): Ntstatus =
+public actual fun fltQueueDeferredIoWorkItem(fltworkitem: PfltDeferredIoWorkitem, data: ConstPtr, workerroutine: PfltDeferredIoWorkitemRoutine, queuetype: WorkQueueType, context: ConstPtr): Ntstatus =
     WindowsWdkStorageFilesystemMinifiltersJniBridge.windowssysWindowsWdkStorageFilesystemMinifiltersFltQueueDeferredIoWorkItem(fltworkitem, data.rawAddress, 0L, queuetype, context.rawAddress)
 
-public actual fun fltQueueGenericWorkItem(fltworkitem: PfltGenericWorkitem, fltobject: ConstPtr<CVoid>, workerroutine: PfltGenericWorkitemRoutine, queuetype: WorkQueueType, context: ConstPtr<CVoid>): Ntstatus =
+public actual fun fltQueueGenericWorkItem(fltworkitem: PfltGenericWorkitem, fltobject: ConstPtr, workerroutine: PfltGenericWorkitemRoutine, queuetype: WorkQueueType, context: ConstPtr): Ntstatus =
     WindowsWdkStorageFilesystemMinifiltersJniBridge.windowssysWindowsWdkStorageFilesystemMinifiltersFltQueueGenericWorkItem(fltworkitem, fltobject.rawAddress, 0L, queuetype, context.rawAddress)
 
-public actual fun fltReadFile(initiatinginstance: PfltInstance, fileobject: ConstPtr<FileObject>, byteoffset: ConstPtr<Long>, length: UInt, buffer: MutPtr<CVoid>, flags: UInt, bytesread: MutPtr<UInt>, callbackroutine: PfltCompletedAsyncIoCallback, callbackcontext: ConstPtr<CVoid>): Ntstatus =
+public actual fun fltReadFile(initiatinginstance: PfltInstance, fileobject: ConstPtr, byteoffset: ConstPtr, length: UInt, buffer: MutPtr, flags: UInt, bytesread: MutPtr, callbackroutine: PfltCompletedAsyncIoCallback, callbackcontext: ConstPtr): Ntstatus =
     WindowsWdkStorageFilesystemMinifiltersJniBridge.windowssysWindowsWdkStorageFilesystemMinifiltersFltReadFile(initiatinginstance, fileobject.rawAddress, byteoffset.rawAddress, length.toInt(), buffer.rawAddress, flags.toInt(), bytesread.rawAddress, 0L, callbackcontext.rawAddress)
 
-public actual fun fltReadFileEx(initiatinginstance: PfltInstance, fileobject: ConstPtr<FileObject>, byteoffset: ConstPtr<Long>, length: UInt, buffer: MutPtr<CVoid>, flags: UInt, bytesread: MutPtr<UInt>, callbackroutine: PfltCompletedAsyncIoCallback, callbackcontext: ConstPtr<CVoid>, key: ConstPtr<UInt>, mdl: ConstPtr<Mdl>): Ntstatus =
+public actual fun fltReadFileEx(initiatinginstance: PfltInstance, fileobject: ConstPtr, byteoffset: ConstPtr, length: UInt, buffer: MutPtr, flags: UInt, bytesread: MutPtr, callbackroutine: PfltCompletedAsyncIoCallback, callbackcontext: ConstPtr, key: ConstPtr, mdl: ConstPtr): Ntstatus =
     WindowsWdkStorageFilesystemMinifiltersJniBridge.windowssysWindowsWdkStorageFilesystemMinifiltersFltReadFileEx(initiatinginstance, fileobject.rawAddress, byteoffset.rawAddress, length.toInt(), buffer.rawAddress, flags.toInt(), bytesread.rawAddress, 0L, callbackcontext.rawAddress, key.rawAddress, mdl.rawAddress)
 
 public actual fun fltReferenceContext(context: PfltContext) {
     WindowsWdkStorageFilesystemMinifiltersJniBridge.windowssysWindowsWdkStorageFilesystemMinifiltersFltReferenceContext(context.rawAddress)
 }
 
-public actual fun fltReferenceFileNameInformation(filenameinformation: ConstPtr<FltFileNameInformation>) {
+public actual fun fltReferenceFileNameInformation(filenameinformation: ConstPtr) {
     WindowsWdkStorageFilesystemMinifiltersJniBridge.windowssysWindowsWdkStorageFilesystemMinifiltersFltReferenceFileNameInformation(filenameinformation.rawAddress)
 }
 
-public actual fun fltRegisterFilter(driver: ConstPtr<DriverObject>, registration: ConstPtr<FltRegistration>, retfilter: MutPtr<PfltFilter>): Ntstatus =
+public actual fun fltRegisterFilter(driver: ConstPtr, registration: ConstPtr, retfilter: MutPtr): Ntstatus =
     WindowsWdkStorageFilesystemMinifiltersJniBridge.windowssysWindowsWdkStorageFilesystemMinifiltersFltRegisterFilter(driver.rawAddress, registration.rawAddress, retfilter.rawAddress)
 
 public actual fun fltRegisterForDataScan(instance: PfltInstance): Ntstatus =
     WindowsWdkStorageFilesystemMinifiltersJniBridge.windowssysWindowsWdkStorageFilesystemMinifiltersFltRegisterForDataScan(instance)
 
-public actual fun fltReissueSynchronousIo(initiatinginstance: PfltInstance, callbackdata: ConstPtr<FltCallbackData>) {
+public actual fun fltReissueSynchronousIo(initiatinginstance: PfltInstance, callbackdata: ConstPtr) {
     WindowsWdkStorageFilesystemMinifiltersJniBridge.windowssysWindowsWdkStorageFilesystemMinifiltersFltReissueSynchronousIo(initiatinginstance, callbackdata.rawAddress)
 }
 
@@ -1525,177 +1503,177 @@ public actual fun fltReleaseContext(context: PfltContext) {
     WindowsWdkStorageFilesystemMinifiltersJniBridge.windowssysWindowsWdkStorageFilesystemMinifiltersFltReleaseContext(context.rawAddress)
 }
 
-public actual fun fltReleaseContexts(contexts: ConstPtr<FltRelatedContexts>) {
+public actual fun fltReleaseContexts(contexts: ConstPtr) {
     WindowsWdkStorageFilesystemMinifiltersJniBridge.windowssysWindowsWdkStorageFilesystemMinifiltersFltReleaseContexts(contexts.rawAddress)
 }
 
-public actual fun fltReleaseContextsEx(contextssize: ULong, contexts: ConstPtr<FltRelatedContextsEx>) {
+public actual fun fltReleaseContextsEx(contextssize: ULong, contexts: ConstPtr) {
     WindowsWdkStorageFilesystemMinifiltersJniBridge.windowssysWindowsWdkStorageFilesystemMinifiltersFltReleaseContextsEx(contextssize.toLong(), contexts.rawAddress)
 }
 
-public actual fun fltReleaseFileNameInformation(filenameinformation: ConstPtr<FltFileNameInformation>) {
+public actual fun fltReleaseFileNameInformation(filenameinformation: ConstPtr) {
     WindowsWdkStorageFilesystemMinifiltersJniBridge.windowssysWindowsWdkStorageFilesystemMinifiltersFltReleaseFileNameInformation(filenameinformation.rawAddress)
 }
 
-public actual fun fltReleasePushLock(pushlock: MutPtr<ULong>) {
+public actual fun fltReleasePushLock(pushlock: MutPtr) {
     WindowsWdkStorageFilesystemMinifiltersJniBridge.windowssysWindowsWdkStorageFilesystemMinifiltersFltReleasePushLock(pushlock.rawAddress)
 }
 
-public actual fun fltReleasePushLockEx(pushlock: MutPtr<ULong>, flags: UInt) {
+public actual fun fltReleasePushLockEx(pushlock: MutPtr, flags: UInt) {
     WindowsWdkStorageFilesystemMinifiltersJniBridge.windowssysWindowsWdkStorageFilesystemMinifiltersFltReleasePushLockEx(pushlock.rawAddress, flags.toInt())
 }
 
-public actual fun fltReleaseResource(resource: MutPtr<Eresource>) {
+public actual fun fltReleaseResource(resource: MutPtr) {
     WindowsWdkStorageFilesystemMinifiltersJniBridge.windowssysWindowsWdkStorageFilesystemMinifiltersFltReleaseResource(resource.rawAddress)
 }
 
-public actual fun fltRemoveExtraCreateParameter(filter: PfltFilter, ecplist: MutPtr<EcpList>, ecptype: ConstPtr<Guid>, ecpcontext: MutPtr<MutPtr<CVoid>>, ecpcontextsize: MutPtr<UInt>): Ntstatus =
+public actual fun fltRemoveExtraCreateParameter(filter: PfltFilter, ecplist: MutPtr, ecptype: ConstPtr, ecpcontext: MutPtr, ecpcontextsize: MutPtr): Ntstatus =
     WindowsWdkStorageFilesystemMinifiltersJniBridge.windowssysWindowsWdkStorageFilesystemMinifiltersFltRemoveExtraCreateParameter(filter, ecplist.rawAddress, ecptype.rawAddress, ecpcontext.rawAddress, ecpcontextsize.rawAddress)
 
-public actual fun fltRemoveOpenReparseEntry(filter: PfltFilter, data: ConstPtr<FltCallbackData>, openreparseentry: ConstPtr<OpenReparseListEntry>) {
+public actual fun fltRemoveOpenReparseEntry(filter: PfltFilter, data: ConstPtr, openreparseentry: ConstPtr) {
     WindowsWdkStorageFilesystemMinifiltersJniBridge.windowssysWindowsWdkStorageFilesystemMinifiltersFltRemoveOpenReparseEntry(filter, data.rawAddress, openreparseentry.rawAddress)
 }
 
-public actual fun fltRequestFileInfoOnCreateCompletion(filter: PfltFilter, data: ConstPtr<FltCallbackData>, infoclassflags: UInt): Ntstatus =
+public actual fun fltRequestFileInfoOnCreateCompletion(filter: PfltFilter, data: ConstPtr, infoclassflags: UInt): Ntstatus =
     WindowsWdkStorageFilesystemMinifiltersJniBridge.windowssysWindowsWdkStorageFilesystemMinifiltersFltRequestFileInfoOnCreateCompletion(filter, data.rawAddress, infoclassflags.toInt())
 
-public actual fun fltRequestOperationStatusCallback(data: ConstPtr<FltCallbackData>, callbackroutine: PfltGetOperationStatusCallback, requestercontext: ConstPtr<CVoid>): Ntstatus =
+public actual fun fltRequestOperationStatusCallback(data: ConstPtr, callbackroutine: PfltGetOperationStatusCallback, requestercontext: ConstPtr): Ntstatus =
     WindowsWdkStorageFilesystemMinifiltersJniBridge.windowssysWindowsWdkStorageFilesystemMinifiltersFltRequestOperationStatusCallback(data.rawAddress, 0L, requestercontext.rawAddress)
 
-public actual fun fltRetainSwappedBufferMdlAddress(callbackdata: ConstPtr<FltCallbackData>) {
+public actual fun fltRetainSwappedBufferMdlAddress(callbackdata: ConstPtr) {
     WindowsWdkStorageFilesystemMinifiltersJniBridge.windowssysWindowsWdkStorageFilesystemMinifiltersFltRetainSwappedBufferMdlAddress(callbackdata.rawAddress)
 }
 
-public actual fun fltRetrieveFileInfoOnCreateCompletion(filter: PfltFilter, data: ConstPtr<FltCallbackData>, infoclass: UInt, size: MutPtr<UInt>): MutPtr<CVoid> =
+public actual fun fltRetrieveFileInfoOnCreateCompletion(filter: PfltFilter, data: ConstPtr, infoclass: UInt, size: MutPtr): MutPtr =
     MutPtr(WindowsWdkStorageFilesystemMinifiltersJniBridge.windowssysWindowsWdkStorageFilesystemMinifiltersFltRetrieveFileInfoOnCreateCompletion(filter, data.rawAddress, infoclass.toInt(), size.rawAddress))
 
-public actual fun fltRetrieveFileInfoOnCreateCompletionEx(filter: PfltFilter, data: ConstPtr<FltCallbackData>, infoclass: UInt, retinfosize: MutPtr<UInt>, retinfobuffer: MutPtr<MutPtr<CVoid>>): Ntstatus =
+public actual fun fltRetrieveFileInfoOnCreateCompletionEx(filter: PfltFilter, data: ConstPtr, infoclass: UInt, retinfosize: MutPtr, retinfobuffer: MutPtr): Ntstatus =
     WindowsWdkStorageFilesystemMinifiltersJniBridge.windowssysWindowsWdkStorageFilesystemMinifiltersFltRetrieveFileInfoOnCreateCompletionEx(filter, data.rawAddress, infoclass.toInt(), retinfosize.rawAddress, retinfobuffer.rawAddress)
 
-public actual fun fltRetrieveIoPriorityInfo(data: ConstPtr<FltCallbackData>, fileobject: ConstPtr<FileObject>, thread: Pethread, priorityinfo: MutPtr<IoPriorityInfo>): Ntstatus =
+public actual fun fltRetrieveIoPriorityInfo(data: ConstPtr, fileobject: ConstPtr, thread: Pethread, priorityinfo: MutPtr): Ntstatus =
     WindowsWdkStorageFilesystemMinifiltersJniBridge.windowssysWindowsWdkStorageFilesystemMinifiltersFltRetrieveIoPriorityInfo(data.rawAddress, fileobject.rawAddress, thread, priorityinfo.rawAddress)
 
-public actual fun fltReuseCallbackData(callbackdata: MutPtr<FltCallbackData>) {
+public actual fun fltReuseCallbackData(callbackdata: MutPtr) {
     WindowsWdkStorageFilesystemMinifiltersJniBridge.windowssysWindowsWdkStorageFilesystemMinifiltersFltReuseCallbackData(callbackdata.rawAddress)
 }
 
-public actual fun fltRollbackComplete(instance: PfltInstance, transaction: ConstPtr<Ktransaction>, transactioncontext: PfltContext): Ntstatus =
+public actual fun fltRollbackComplete(instance: PfltInstance, transaction: ConstPtr, transactioncontext: PfltContext): Ntstatus =
     WindowsWdkStorageFilesystemMinifiltersJniBridge.windowssysWindowsWdkStorageFilesystemMinifiltersFltRollbackComplete(instance, transaction.rawAddress, transactioncontext.rawAddress)
 
-public actual fun fltRollbackEnlistment(instance: PfltInstance, transaction: ConstPtr<Ktransaction>, transactioncontext: PfltContext): Ntstatus =
+public actual fun fltRollbackEnlistment(instance: PfltInstance, transaction: ConstPtr, transactioncontext: PfltContext): Ntstatus =
     WindowsWdkStorageFilesystemMinifiltersJniBridge.windowssysWindowsWdkStorageFilesystemMinifiltersFltRollbackEnlistment(instance, transaction.rawAddress, transactioncontext.rawAddress)
 
-public actual fun fltSendMessage(filter: PfltFilter, clientport: ConstPtr<PfltPort>, senderbuffer: ConstPtr<CVoid>, senderbufferlength: UInt, replybuffer: MutPtr<CVoid>, replylength: MutPtr<UInt>, timeout: ConstPtr<Long>): Ntstatus =
+public actual fun fltSendMessage(filter: PfltFilter, clientport: ConstPtr, senderbuffer: ConstPtr, senderbufferlength: UInt, replybuffer: MutPtr, replylength: MutPtr, timeout: ConstPtr): Ntstatus =
     WindowsWdkStorageFilesystemMinifiltersJniBridge.windowssysWindowsWdkStorageFilesystemMinifiltersFltSendMessage(filter, clientport.rawAddress, senderbuffer.rawAddress, senderbufferlength.toInt(), replybuffer.rawAddress, replylength.rawAddress, timeout.rawAddress)
 
-public actual fun fltSetActivityIdCallbackData(callbackdata: MutPtr<FltCallbackData>, guid: ConstPtr<Guid>): Ntstatus =
+public actual fun fltSetActivityIdCallbackData(callbackdata: MutPtr, guid: ConstPtr): Ntstatus =
     WindowsWdkStorageFilesystemMinifiltersJniBridge.windowssysWindowsWdkStorageFilesystemMinifiltersFltSetActivityIdCallbackData(callbackdata.rawAddress, guid.rawAddress)
 
-public actual fun fltSetCallbackDataDirty(data: MutPtr<FltCallbackData>) {
+public actual fun fltSetCallbackDataDirty(data: MutPtr) {
     WindowsWdkStorageFilesystemMinifiltersJniBridge.windowssysWindowsWdkStorageFilesystemMinifiltersFltSetCallbackDataDirty(data.rawAddress)
 }
 
-public actual fun fltSetCancelCompletion(callbackdata: ConstPtr<FltCallbackData>, canceledcallback: PfltCompleteCanceledCallback): Ntstatus =
+public actual fun fltSetCancelCompletion(callbackdata: ConstPtr, canceledcallback: PfltCompleteCanceledCallback): Ntstatus =
     WindowsWdkStorageFilesystemMinifiltersJniBridge.windowssysWindowsWdkStorageFilesystemMinifiltersFltSetCancelCompletion(callbackdata.rawAddress, 0L)
 
-public actual fun fltSetEaFile(instance: PfltInstance, fileobject: ConstPtr<FileObject>, eabuffer: ConstPtr<CVoid>, length: UInt): Ntstatus =
+public actual fun fltSetEaFile(instance: PfltInstance, fileobject: ConstPtr, eabuffer: ConstPtr, length: UInt): Ntstatus =
     WindowsWdkStorageFilesystemMinifiltersJniBridge.windowssysWindowsWdkStorageFilesystemMinifiltersFltSetEaFile(instance, fileobject.rawAddress, eabuffer.rawAddress, length.toInt())
 
-public actual fun fltSetEcpListIntoCallbackData(filter: PfltFilter, callbackdata: ConstPtr<FltCallbackData>, ecplist: ConstPtr<EcpList>): Ntstatus =
+public actual fun fltSetEcpListIntoCallbackData(filter: PfltFilter, callbackdata: ConstPtr, ecplist: ConstPtr): Ntstatus =
     WindowsWdkStorageFilesystemMinifiltersJniBridge.windowssysWindowsWdkStorageFilesystemMinifiltersFltSetEcpListIntoCallbackData(filter, callbackdata.rawAddress, ecplist.rawAddress)
 
-public actual fun fltSetFileContext(instance: PfltInstance, fileobject: ConstPtr<FileObject>, operation: FltSetContextOperation, newcontext: PfltContext, oldcontext: MutPtr<PfltContext>): Ntstatus =
+public actual fun fltSetFileContext(instance: PfltInstance, fileobject: ConstPtr, operation: FltSetContextOperation, newcontext: PfltContext, oldcontext: MutPtr): Ntstatus =
     WindowsWdkStorageFilesystemMinifiltersJniBridge.windowssysWindowsWdkStorageFilesystemMinifiltersFltSetFileContext(instance, fileobject.rawAddress, operation, newcontext.rawAddress, oldcontext.rawAddress)
 
-public actual fun fltSetFsZeroingOffset(data: ConstPtr<FltCallbackData>, zeroingoffset: UInt): Ntstatus =
+public actual fun fltSetFsZeroingOffset(data: ConstPtr, zeroingoffset: UInt): Ntstatus =
     WindowsWdkStorageFilesystemMinifiltersJniBridge.windowssysWindowsWdkStorageFilesystemMinifiltersFltSetFsZeroingOffset(data.rawAddress, zeroingoffset.toInt())
 
-public actual fun fltSetFsZeroingOffsetRequired(data: ConstPtr<FltCallbackData>): Ntstatus =
+public actual fun fltSetFsZeroingOffsetRequired(data: ConstPtr): Ntstatus =
     WindowsWdkStorageFilesystemMinifiltersJniBridge.windowssysWindowsWdkStorageFilesystemMinifiltersFltSetFsZeroingOffsetRequired(data.rawAddress)
 
-public actual fun fltSetInformationFile(instance: PfltInstance, fileobject: ConstPtr<FileObject>, fileinformation: ConstPtr<CVoid>, length: UInt, fileinformationclass: FileInformationClass): Ntstatus =
+public actual fun fltSetInformationFile(instance: PfltInstance, fileobject: ConstPtr, fileinformation: ConstPtr, length: UInt, fileinformationclass: FileInformationClass): Ntstatus =
     WindowsWdkStorageFilesystemMinifiltersJniBridge.windowssysWindowsWdkStorageFilesystemMinifiltersFltSetInformationFile(instance, fileobject.rawAddress, fileinformation.rawAddress, length.toInt(), fileinformationclass)
 
-public actual fun fltSetInstanceContext(instance: PfltInstance, operation: FltSetContextOperation, newcontext: PfltContext, oldcontext: MutPtr<PfltContext>): Ntstatus =
+public actual fun fltSetInstanceContext(instance: PfltInstance, operation: FltSetContextOperation, newcontext: PfltContext, oldcontext: MutPtr): Ntstatus =
     WindowsWdkStorageFilesystemMinifiltersJniBridge.windowssysWindowsWdkStorageFilesystemMinifiltersFltSetInstanceContext(instance, operation, newcontext.rawAddress, oldcontext.rawAddress)
 
-public actual fun fltSetIoPriorityHintIntoCallbackData(data: ConstPtr<FltCallbackData>, priorityhint: IoPriorityHint): Ntstatus =
+public actual fun fltSetIoPriorityHintIntoCallbackData(data: ConstPtr, priorityhint: IoPriorityHint): Ntstatus =
     WindowsWdkStorageFilesystemMinifiltersJniBridge.windowssysWindowsWdkStorageFilesystemMinifiltersFltSetIoPriorityHintIntoCallbackData(data.rawAddress, priorityhint)
 
-public actual fun fltSetIoPriorityHintIntoFileObject(fileobject: ConstPtr<FileObject>, priorityhint: IoPriorityHint): Ntstatus =
+public actual fun fltSetIoPriorityHintIntoFileObject(fileobject: ConstPtr, priorityhint: IoPriorityHint): Ntstatus =
     WindowsWdkStorageFilesystemMinifiltersJniBridge.windowssysWindowsWdkStorageFilesystemMinifiltersFltSetIoPriorityHintIntoFileObject(fileobject.rawAddress, priorityhint)
 
 public actual fun fltSetIoPriorityHintIntoThread(thread: Pethread, priorityhint: IoPriorityHint): Ntstatus =
     WindowsWdkStorageFilesystemMinifiltersJniBridge.windowssysWindowsWdkStorageFilesystemMinifiltersFltSetIoPriorityHintIntoThread(thread, priorityhint)
 
-public actual fun fltSetQuotaInformationFile(instance: PfltInstance, fileobject: ConstPtr<FileObject>, buffer: ConstPtr<CVoid>, length: UInt): Ntstatus =
+public actual fun fltSetQuotaInformationFile(instance: PfltInstance, fileobject: ConstPtr, buffer: ConstPtr, length: UInt): Ntstatus =
     WindowsWdkStorageFilesystemMinifiltersJniBridge.windowssysWindowsWdkStorageFilesystemMinifiltersFltSetQuotaInformationFile(instance, fileobject.rawAddress, buffer.rawAddress, length.toInt())
 
-public actual fun fltSetSecurityObject(instance: PfltInstance, fileobject: ConstPtr<FileObject>, securityinformation: UInt, securitydescriptor: PsecurityDescriptor): Ntstatus =
+public actual fun fltSetSecurityObject(instance: PfltInstance, fileobject: ConstPtr, securityinformation: UInt, securitydescriptor: PsecurityDescriptor): Ntstatus =
     WindowsWdkStorageFilesystemMinifiltersJniBridge.windowssysWindowsWdkStorageFilesystemMinifiltersFltSetSecurityObject(instance, fileobject.rawAddress, securityinformation.toInt(), securitydescriptor.rawAddress)
 
-public actual fun fltSetStreamContext(instance: PfltInstance, fileobject: ConstPtr<FileObject>, operation: FltSetContextOperation, newcontext: PfltContext, oldcontext: MutPtr<PfltContext>): Ntstatus =
+public actual fun fltSetStreamContext(instance: PfltInstance, fileobject: ConstPtr, operation: FltSetContextOperation, newcontext: PfltContext, oldcontext: MutPtr): Ntstatus =
     WindowsWdkStorageFilesystemMinifiltersJniBridge.windowssysWindowsWdkStorageFilesystemMinifiltersFltSetStreamContext(instance, fileobject.rawAddress, operation, newcontext.rawAddress, oldcontext.rawAddress)
 
-public actual fun fltSetStreamHandleContext(instance: PfltInstance, fileobject: ConstPtr<FileObject>, operation: FltSetContextOperation, newcontext: PfltContext, oldcontext: MutPtr<PfltContext>): Ntstatus =
+public actual fun fltSetStreamHandleContext(instance: PfltInstance, fileobject: ConstPtr, operation: FltSetContextOperation, newcontext: PfltContext, oldcontext: MutPtr): Ntstatus =
     WindowsWdkStorageFilesystemMinifiltersJniBridge.windowssysWindowsWdkStorageFilesystemMinifiltersFltSetStreamHandleContext(instance, fileobject.rawAddress, operation, newcontext.rawAddress, oldcontext.rawAddress)
 
-public actual fun fltSetTransactionContext(instance: PfltInstance, transaction: ConstPtr<Ktransaction>, operation: FltSetContextOperation, newcontext: PfltContext, oldcontext: MutPtr<PfltContext>): Ntstatus =
+public actual fun fltSetTransactionContext(instance: PfltInstance, transaction: ConstPtr, operation: FltSetContextOperation, newcontext: PfltContext, oldcontext: MutPtr): Ntstatus =
     WindowsWdkStorageFilesystemMinifiltersJniBridge.windowssysWindowsWdkStorageFilesystemMinifiltersFltSetTransactionContext(instance, transaction.rawAddress, operation, newcontext.rawAddress, oldcontext.rawAddress)
 
-public actual fun fltSetVolumeContext(volume: PfltVolume, operation: FltSetContextOperation, newcontext: PfltContext, oldcontext: MutPtr<PfltContext>): Ntstatus =
+public actual fun fltSetVolumeContext(volume: PfltVolume, operation: FltSetContextOperation, newcontext: PfltContext, oldcontext: MutPtr): Ntstatus =
     WindowsWdkStorageFilesystemMinifiltersJniBridge.windowssysWindowsWdkStorageFilesystemMinifiltersFltSetVolumeContext(volume, operation, newcontext.rawAddress, oldcontext.rawAddress)
 
-public actual fun fltSetVolumeInformation(instance: PfltInstance, iosb: MutPtr<IoStatusBlock>, fsinformation: MutPtr<CVoid>, length: UInt, fsinformationclass: FsInformationClass): Ntstatus =
+public actual fun fltSetVolumeInformation(instance: PfltInstance, iosb: MutPtr, fsinformation: MutPtr, length: UInt, fsinformationclass: FsInformationClass): Ntstatus =
     WindowsWdkStorageFilesystemMinifiltersJniBridge.windowssysWindowsWdkStorageFilesystemMinifiltersFltSetVolumeInformation(instance, iosb.rawAddress, fsinformation.rawAddress, length.toInt(), fsinformationclass)
 
 public actual fun fltStartFiltering(filter: PfltFilter): Ntstatus =
     WindowsWdkStorageFilesystemMinifiltersJniBridge.windowssysWindowsWdkStorageFilesystemMinifiltersFltStartFiltering(filter)
 
-public actual fun fltSupportsFileContexts(fileobject: ConstPtr<FileObject>): Boolean =
+public actual fun fltSupportsFileContexts(fileobject: ConstPtr): Boolean =
     WindowsWdkStorageFilesystemMinifiltersJniBridge.windowssysWindowsWdkStorageFilesystemMinifiltersFltSupportsFileContexts(fileobject.rawAddress)
 
-public actual fun fltSupportsFileContextsEx(fileobject: ConstPtr<FileObject>, instance: PfltInstance): Boolean =
+public actual fun fltSupportsFileContextsEx(fileobject: ConstPtr, instance: PfltInstance): Boolean =
     WindowsWdkStorageFilesystemMinifiltersJniBridge.windowssysWindowsWdkStorageFilesystemMinifiltersFltSupportsFileContextsEx(fileobject.rawAddress, instance)
 
-public actual fun fltSupportsStreamContexts(fileobject: ConstPtr<FileObject>): Boolean =
+public actual fun fltSupportsStreamContexts(fileobject: ConstPtr): Boolean =
     WindowsWdkStorageFilesystemMinifiltersJniBridge.windowssysWindowsWdkStorageFilesystemMinifiltersFltSupportsStreamContexts(fileobject.rawAddress)
 
-public actual fun fltSupportsStreamHandleContexts(fileobject: ConstPtr<FileObject>): Boolean =
+public actual fun fltSupportsStreamHandleContexts(fileobject: ConstPtr): Boolean =
     WindowsWdkStorageFilesystemMinifiltersJniBridge.windowssysWindowsWdkStorageFilesystemMinifiltersFltSupportsStreamHandleContexts(fileobject.rawAddress)
 
-public actual fun fltTagFile(initiatinginstance: PfltInstance, fileobject: ConstPtr<FileObject>, filetag: UInt, guid: ConstPtr<Guid>, databuffer: ConstPtr<CVoid>, databufferlength: UShort): Ntstatus =
+public actual fun fltTagFile(initiatinginstance: PfltInstance, fileobject: ConstPtr, filetag: UInt, guid: ConstPtr, databuffer: ConstPtr, databufferlength: UShort): Ntstatus =
     WindowsWdkStorageFilesystemMinifiltersJniBridge.windowssysWindowsWdkStorageFilesystemMinifiltersFltTagFile(initiatinginstance, fileobject.rawAddress, filetag.toInt(), guid.rawAddress, databuffer.rawAddress, databufferlength.toShort())
 
-public actual fun fltTagFileEx(initiatinginstance: PfltInstance, fileobject: ConstPtr<FileObject>, filetag: UInt, guid: ConstPtr<Guid>, databuffer: ConstPtr<CVoid>, databufferlength: UShort, existingfiletag: UInt, existingguid: ConstPtr<Guid>, flags: UInt): Ntstatus =
+public actual fun fltTagFileEx(initiatinginstance: PfltInstance, fileobject: ConstPtr, filetag: UInt, guid: ConstPtr, databuffer: ConstPtr, databufferlength: UShort, existingfiletag: UInt, existingguid: ConstPtr, flags: UInt): Ntstatus =
     WindowsWdkStorageFilesystemMinifiltersJniBridge.windowssysWindowsWdkStorageFilesystemMinifiltersFltTagFileEx(initiatinginstance, fileobject.rawAddress, filetag.toInt(), guid.rawAddress, databuffer.rawAddress, databufferlength.toShort(), existingfiletag.toInt(), existingguid.rawAddress, flags.toInt())
 
-public actual fun fltUninitializeFileLock(filelock: ConstPtr<FileLock>) {
+public actual fun fltUninitializeFileLock(filelock: ConstPtr) {
     WindowsWdkStorageFilesystemMinifiltersJniBridge.windowssysWindowsWdkStorageFilesystemMinifiltersFltUninitializeFileLock(filelock.rawAddress)
 }
 
-public actual fun fltUninitializeOplock(oplock: ConstPtr<ConstPtr<CVoid>>) {
+public actual fun fltUninitializeOplock(oplock: ConstPtr) {
     WindowsWdkStorageFilesystemMinifiltersJniBridge.windowssysWindowsWdkStorageFilesystemMinifiltersFltUninitializeOplock(oplock.rawAddress)
 }
 
-public actual fun fltUnloadFilter(filtername: ConstPtr<UnicodeString>): Ntstatus =
+public actual fun fltUnloadFilter(filtername: ConstPtr): Ntstatus =
     WindowsWdkStorageFilesystemMinifiltersJniBridge.windowssysWindowsWdkStorageFilesystemMinifiltersFltUnloadFilter(filtername.rawAddress)
 
 public actual fun fltUnregisterFilter(filter: PfltFilter) {
     WindowsWdkStorageFilesystemMinifiltersJniBridge.windowssysWindowsWdkStorageFilesystemMinifiltersFltUnregisterFilter(filter)
 }
 
-public actual fun fltUntagFile(initiatinginstance: PfltInstance, fileobject: ConstPtr<FileObject>, filetag: UInt, guid: ConstPtr<Guid>): Ntstatus =
+public actual fun fltUntagFile(initiatinginstance: PfltInstance, fileobject: ConstPtr, filetag: UInt, guid: ConstPtr): Ntstatus =
     WindowsWdkStorageFilesystemMinifiltersJniBridge.windowssysWindowsWdkStorageFilesystemMinifiltersFltUntagFile(initiatinginstance, fileobject.rawAddress, filetag.toInt(), guid.rawAddress)
 
-public actual fun fltVetoBypassIo(callbackdata: ConstPtr<FltCallbackData>, fltobjects: ConstPtr<FltRelatedObjects>, operationstatus: Ntstatus, failurereason: ConstPtr<UnicodeString>): Ntstatus =
+public actual fun fltVetoBypassIo(callbackdata: ConstPtr, fltobjects: ConstPtr, operationstatus: Ntstatus, failurereason: ConstPtr): Ntstatus =
     WindowsWdkStorageFilesystemMinifiltersJniBridge.windowssysWindowsWdkStorageFilesystemMinifiltersFltVetoBypassIo(callbackdata.rawAddress, fltobjects.rawAddress, operationstatus, failurereason.rawAddress)
 
-public actual fun fltWriteFile(initiatinginstance: PfltInstance, fileobject: ConstPtr<FileObject>, byteoffset: ConstPtr<Long>, length: UInt, buffer: ConstPtr<CVoid>, flags: UInt, byteswritten: MutPtr<UInt>, callbackroutine: PfltCompletedAsyncIoCallback, callbackcontext: ConstPtr<CVoid>): Ntstatus =
+public actual fun fltWriteFile(initiatinginstance: PfltInstance, fileobject: ConstPtr, byteoffset: ConstPtr, length: UInt, buffer: ConstPtr, flags: UInt, byteswritten: MutPtr, callbackroutine: PfltCompletedAsyncIoCallback, callbackcontext: ConstPtr): Ntstatus =
     WindowsWdkStorageFilesystemMinifiltersJniBridge.windowssysWindowsWdkStorageFilesystemMinifiltersFltWriteFile(initiatinginstance, fileobject.rawAddress, byteoffset.rawAddress, length.toInt(), buffer.rawAddress, flags.toInt(), byteswritten.rawAddress, 0L, callbackcontext.rawAddress)
 
-public actual fun fltWriteFileEx(initiatinginstance: PfltInstance, fileobject: ConstPtr<FileObject>, byteoffset: ConstPtr<Long>, length: UInt, buffer: ConstPtr<CVoid>, flags: UInt, byteswritten: MutPtr<UInt>, callbackroutine: PfltCompletedAsyncIoCallback, callbackcontext: ConstPtr<CVoid>, key: ConstPtr<UInt>, mdl: ConstPtr<Mdl>): Ntstatus =
+public actual fun fltWriteFileEx(initiatinginstance: PfltInstance, fileobject: ConstPtr, byteoffset: ConstPtr, length: UInt, buffer: ConstPtr, flags: UInt, byteswritten: MutPtr, callbackroutine: PfltCompletedAsyncIoCallback, callbackcontext: ConstPtr, key: ConstPtr, mdl: ConstPtr): Ntstatus =
     WindowsWdkStorageFilesystemMinifiltersJniBridge.windowssysWindowsWdkStorageFilesystemMinifiltersFltWriteFileEx(initiatinginstance, fileobject.rawAddress, byteoffset.rawAddress, length.toInt(), buffer.rawAddress, flags.toInt(), byteswritten.rawAddress, 0L, callbackcontext.rawAddress, key.rawAddress, mdl.rawAddress)
 
-public actual fun fltpTraceRedirectedFileIo(originatingfileobject: ConstPtr<FileObject>, childcallbackdata: MutPtr<FltCallbackData>): Ntstatus =
+public actual fun fltpTraceRedirectedFileIo(originatingfileobject: ConstPtr, childcallbackdata: MutPtr): Ntstatus =
     WindowsWdkStorageFilesystemMinifiltersJniBridge.windowssysWindowsWdkStorageFilesystemMinifiltersFltpTraceRedirectedFileIo(originatingfileobject.rawAddress, childcallbackdata.rawAddress)

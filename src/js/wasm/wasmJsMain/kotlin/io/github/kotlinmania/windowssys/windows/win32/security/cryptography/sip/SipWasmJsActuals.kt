@@ -5,7 +5,6 @@ package io.github.kotlinmania.windowssys.windows.win32.security.cryptography.sip
 import io.github.kotlinmania.rustlang.core.ptr.ConstPtr
 import io.github.kotlinmania.rustlang.core.ptr.MutPtr
 import io.github.kotlinmania.windowssys.core.Bool
-import io.github.kotlinmania.windowssys.core.Guid
 import io.github.kotlinmania.windowssys.core.Pcwstr
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Handle
 import io.github.kotlinmania.windowssys.windows.win32.security.cryptography.CertQueryEncodingType
@@ -51,38 +50,38 @@ private external fun wasmWindowssysWindowsWin32SecurityCryptographySipCryptSIPRe
 @JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SecurityCryptographySipCryptSIPVerifyIndirectData(p0, p1)")
 private external fun wasmWindowssysWindowsWin32SecurityCryptographySipCryptSIPVerifyIndirectData(p0: String, p1: String): Int
 
-public actual fun cryptSIPAddProvider(psnewprov: MutPtr<SipAddNewprovider>): Bool =
+public actual fun cryptSIPAddProvider(psnewprov: MutPtr): Bool =
     if (windowsWin32SecurityCryptographySipNapiAvailable) wasmWindowssysWindowsWin32SecurityCryptographySipCryptSIPAddProvider(psnewprov.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun cryptSIPCreateIndirectData(psubjectinfo: MutPtr<SipSubjectinfo>, pcbindirectdata: MutPtr<UInt>, pindirectdata: MutPtr<SipIndirectData>): Bool =
+public actual fun cryptSIPCreateIndirectData(psubjectinfo: MutPtr, pcbindirectdata: MutPtr, pindirectdata: MutPtr): Bool =
     if (windowsWin32SecurityCryptographySipNapiAvailable) wasmWindowssysWindowsWin32SecurityCryptographySipCryptSIPCreateIndirectData(psubjectinfo.rawAddress.toString(), pcbindirectdata.rawAddress.toString(), pindirectdata.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun cryptSIPGetCaps(psubjinfo: ConstPtr<SipSubjectinfo>, pcaps: MutPtr<SipCapSetV3>): Bool =
+public actual fun cryptSIPGetCaps(psubjinfo: ConstPtr, pcaps: MutPtr): Bool =
     if (windowsWin32SecurityCryptographySipNapiAvailable) wasmWindowssysWindowsWin32SecurityCryptographySipCryptSIPGetCaps(psubjinfo.rawAddress.toString(), pcaps.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun cryptSIPGetSealedDigest(psubjectinfo: ConstPtr<SipSubjectinfo>, psig: ConstPtr<UByte>, dwsig: UInt, pbdigest: MutPtr<UByte>, pcbdigest: MutPtr<UInt>): Bool =
+public actual fun cryptSIPGetSealedDigest(psubjectinfo: ConstPtr, psig: ConstPtr, dwsig: UInt, pbdigest: MutPtr, pcbdigest: MutPtr): Bool =
     if (windowsWin32SecurityCryptographySipNapiAvailable) wasmWindowssysWindowsWin32SecurityCryptographySipCryptSIPGetSealedDigest(psubjectinfo.rawAddress.toString(), psig.rawAddress.toString(), dwsig.toInt(), pbdigest.rawAddress.toString(), pcbdigest.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun cryptSIPGetSignedDataMsg(psubjectinfo: MutPtr<SipSubjectinfo>, pdwencodingtype: MutPtr<CertQueryEncodingType>, dwindex: UInt, pcbsigneddatamsg: MutPtr<UInt>, pbsigneddatamsg: MutPtr<UByte>): Bool =
+public actual fun cryptSIPGetSignedDataMsg(psubjectinfo: MutPtr, pdwencodingtype: MutPtr, dwindex: UInt, pcbsigneddatamsg: MutPtr, pbsigneddatamsg: MutPtr): Bool =
     if (windowsWin32SecurityCryptographySipNapiAvailable) wasmWindowssysWindowsWin32SecurityCryptographySipCryptSIPGetSignedDataMsg(psubjectinfo.rawAddress.toString(), pdwencodingtype.rawAddress.toString(), dwindex.toInt(), pcbsigneddatamsg.rawAddress.toString(), pbsigneddatamsg.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun cryptSIPLoad(pgsubject: ConstPtr<Guid>, dwflags: UInt, psipdispatch: MutPtr<SipDispatchInfo>): Bool =
+public actual fun cryptSIPLoad(pgsubject: ConstPtr, dwflags: UInt, psipdispatch: MutPtr): Bool =
     if (windowsWin32SecurityCryptographySipNapiAvailable) wasmWindowssysWindowsWin32SecurityCryptographySipCryptSIPLoad(pgsubject.rawAddress.toString(), dwflags.toInt(), psipdispatch.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun cryptSIPPutSignedDataMsg(psubjectinfo: MutPtr<SipSubjectinfo>, dwencodingtype: CertQueryEncodingType, pdwindex: MutPtr<UInt>, cbsigneddatamsg: UInt, pbsigneddatamsg: MutPtr<UByte>): Bool =
+public actual fun cryptSIPPutSignedDataMsg(psubjectinfo: MutPtr, dwencodingtype: CertQueryEncodingType, pdwindex: MutPtr, cbsigneddatamsg: UInt, pbsigneddatamsg: MutPtr): Bool =
     if (windowsWin32SecurityCryptographySipNapiAvailable) wasmWindowssysWindowsWin32SecurityCryptographySipCryptSIPPutSignedDataMsg(psubjectinfo.rawAddress.toString(), dwencodingtype.toInt(), pdwindex.rawAddress.toString(), cbsigneddatamsg.toInt(), pbsigneddatamsg.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun cryptSIPRemoveProvider(pgprov: MutPtr<Guid>): Bool =
+public actual fun cryptSIPRemoveProvider(pgprov: MutPtr): Bool =
     if (windowsWin32SecurityCryptographySipNapiAvailable) wasmWindowssysWindowsWin32SecurityCryptographySipCryptSIPRemoveProvider(pgprov.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun cryptSIPRemoveSignedDataMsg(psubjectinfo: MutPtr<SipSubjectinfo>, dwindex: UInt): Bool =
+public actual fun cryptSIPRemoveSignedDataMsg(psubjectinfo: MutPtr, dwindex: UInt): Bool =
     if (windowsWin32SecurityCryptographySipNapiAvailable) wasmWindowssysWindowsWin32SecurityCryptographySipCryptSIPRemoveSignedDataMsg(psubjectinfo.rawAddress.toString(), dwindex.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun cryptSIPRetrieveSubjectGuid(filename: Pcwstr, hfilein: Handle, pgsubject: MutPtr<Guid>): Bool =
+public actual fun cryptSIPRetrieveSubjectGuid(filename: Pcwstr, hfilein: Handle, pgsubject: MutPtr): Bool =
     if (windowsWin32SecurityCryptographySipNapiAvailable) wasmWindowssysWindowsWin32SecurityCryptographySipCryptSIPRetrieveSubjectGuid(filename.rawAddress.toString(), hfilein.rawAddress.toString(), pgsubject.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun cryptSIPRetrieveSubjectGuidForCatalogFile(filename: Pcwstr, hfilein: Handle, pgsubject: MutPtr<Guid>): Bool =
+public actual fun cryptSIPRetrieveSubjectGuidForCatalogFile(filename: Pcwstr, hfilein: Handle, pgsubject: MutPtr): Bool =
     if (windowsWin32SecurityCryptographySipNapiAvailable) wasmWindowssysWindowsWin32SecurityCryptographySipCryptSIPRetrieveSubjectGuidForCatalogFile(filename.rawAddress.toString(), hfilein.rawAddress.toString(), pgsubject.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun cryptSIPVerifyIndirectData(psubjectinfo: MutPtr<SipSubjectinfo>, pindirectdata: MutPtr<SipIndirectData>): Bool =
+public actual fun cryptSIPVerifyIndirectData(psubjectinfo: MutPtr, pindirectdata: MutPtr): Bool =
     if (windowsWin32SecurityCryptographySipNapiAvailable) wasmWindowssysWindowsWin32SecurityCryptographySipCryptSIPVerifyIndirectData(psubjectinfo.rawAddress.toString(), pindirectdata.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")

@@ -38,19 +38,19 @@ public expect fun getKeyState(nvirtkey: Int): Short
 
 public expect fun getKeyboardLayout(idthread: UInt): Hkl
 
-public expect fun getKeyboardLayoutList(nbuff: Int, lplist: MutPtr<Hkl>): Int
+public expect fun getKeyboardLayoutList(nbuff: Int, lplist: MutPtr): Int
 
 public expect fun getKeyboardLayoutNameA(pwszklid: Pstr): Bool
 
 public expect fun getKeyboardLayoutNameW(pwszklid: Pwstr): Bool
 
-public expect fun getKeyboardState(lpkeystate: MutPtr<UByte>): Bool
+public expect fun getKeyboardState(lpkeystate: MutPtr): Bool
 
 public expect fun getKeyboardType(ntypeflag: Int): Int
 
-public expect fun getLastInputInfo(plii: MutPtr<Lastinputinfo>): Bool
+public expect fun getLastInputInfo(plii: MutPtr): Bool
 
-public expect fun getMouseMovePointsEx(cbsize: UInt, lppt: ConstPtr<Mousemovepoint>, lpptbuf: MutPtr<Mousemovepoint>, nbufpoints: Int, resolution: GetMouseMovePointsExResolution): Int
+public expect fun getMouseMovePointsEx(cbsize: UInt, lppt: ConstPtr, lpptbuf: MutPtr, nbufpoints: Int, resolution: GetMouseMovePointsExResolution): Int
 
 public expect fun isWindowEnabled(hwnd: Hwnd): Bool
 
@@ -72,7 +72,7 @@ public expect fun registerHotKey(hwnd: Hwnd, id: Int, fsmodifiers: HotKeyModifie
 
 public expect fun releaseCapture(): Bool
 
-public expect fun sendInput(cinputs: UInt, pinputs: ConstPtr<Input>, cbsize: Int): UInt
+public expect fun sendInput(cinputs: UInt, pinputs: ConstPtr, cbsize: Int): UInt
 
 public expect fun setActiveWindow(hwnd: Hwnd): Hwnd
 
@@ -82,19 +82,19 @@ public expect fun setDoubleClickTime(param0: UInt): Bool
 
 public expect fun setFocus(hwnd: Hwnd): Hwnd
 
-public expect fun setKeyboardState(lpkeystate: ConstPtr<UByte>): Bool
+public expect fun setKeyboardState(lpkeystate: ConstPtr): Bool
 
 public expect fun swapMouseButton(fswap: Bool): Bool
 
-public expect fun toAscii(uvirtkey: UInt, uscancode: UInt, lpkeystate: ConstPtr<UByte>, lpchar: MutPtr<UShort>, uflags: UInt): Int
+public expect fun toAscii(uvirtkey: UInt, uscancode: UInt, lpkeystate: ConstPtr, lpchar: MutPtr, uflags: UInt): Int
 
-public expect fun toAsciiEx(uvirtkey: UInt, uscancode: UInt, lpkeystate: ConstPtr<UByte>, lpchar: MutPtr<UShort>, uflags: UInt, dwhkl: Hkl): Int
+public expect fun toAsciiEx(uvirtkey: UInt, uscancode: UInt, lpkeystate: ConstPtr, lpchar: MutPtr, uflags: UInt, dwhkl: Hkl): Int
 
-public expect fun toUnicode(wvirtkey: UInt, wscancode: UInt, lpkeystate: ConstPtr<UByte>, pwszbuff: Pwstr, cchbuff: Int, wflags: UInt): Int
+public expect fun toUnicode(wvirtkey: UInt, wscancode: UInt, lpkeystate: ConstPtr, pwszbuff: Pwstr, cchbuff: Int, wflags: UInt): Int
 
-public expect fun toUnicodeEx(wvirtkey: UInt, wscancode: UInt, lpkeystate: ConstPtr<UByte>, pwszbuff: Pwstr, cchbuff: Int, wflags: UInt, dwhkl: Hkl): Int
+public expect fun toUnicodeEx(wvirtkey: UInt, wscancode: UInt, lpkeystate: ConstPtr, pwszbuff: Pwstr, cchbuff: Int, wflags: UInt, dwhkl: Hkl): Int
 
-public expect fun trackMouseEvent(lpeventtrack: MutPtr<Trackmouseevent>): Bool
+public expect fun trackMouseEvent(lpeventtrack: MutPtr): Bool
 
 public expect fun unloadKeyboardLayout(hkl: Hkl): Bool
 

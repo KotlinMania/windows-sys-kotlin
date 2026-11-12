@@ -18,20 +18,20 @@ public actual fun xInputEnable(enable: Bool) {
     }
 }
 
-public actual fun xInputGetAudioDeviceIds(dwuserindex: UInt, prenderdeviceid: Pwstr, prendercount: MutPtr<UInt>, pcapturedeviceid: Pwstr, pcapturecount: MutPtr<UInt>): UInt =
+public actual fun xInputGetAudioDeviceIds(dwuserindex: UInt, prenderdeviceid: Pwstr, prendercount: MutPtr, pcapturedeviceid: Pwstr, pcapturecount: MutPtr): UInt =
     if (windowsWin32UiInputXboxcontrollerNapiAddon != null) (windowsWin32UiInputXboxcontrollerNapiAddon.windowssysWindowsWin32UiInputXboxcontrollerXInputGetAudioDeviceIds(dwuserindex.toInt(), prenderdeviceid.rawAddress.toString(), prendercount.rawAddress.toString(), pcapturedeviceid.rawAddress.toString(), pcapturecount.rawAddress.toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun xInputGetBatteryInformation(dwuserindex: UInt, devtype: BatteryDevtype, pbatteryinformation: MutPtr<XinputBatteryInformation>): UInt =
+public actual fun xInputGetBatteryInformation(dwuserindex: UInt, devtype: BatteryDevtype, pbatteryinformation: MutPtr): UInt =
     if (windowsWin32UiInputXboxcontrollerNapiAddon != null) (windowsWin32UiInputXboxcontrollerNapiAddon.windowssysWindowsWin32UiInputXboxcontrollerXInputGetBatteryInformation(dwuserindex.toInt(), devtype.toInt(), pbatteryinformation.rawAddress.toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun xInputGetCapabilities(dwuserindex: UInt, dwflags: XinputFlag, pcapabilities: MutPtr<XinputCapabilities>): UInt =
+public actual fun xInputGetCapabilities(dwuserindex: UInt, dwflags: XinputFlag, pcapabilities: MutPtr): UInt =
     if (windowsWin32UiInputXboxcontrollerNapiAddon != null) (windowsWin32UiInputXboxcontrollerNapiAddon.windowssysWindowsWin32UiInputXboxcontrollerXInputGetCapabilities(dwuserindex.toInt(), dwflags.toInt(), pcapabilities.rawAddress.toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun xInputGetKeystroke(dwuserindex: UInt, dwreserved: UInt, pkeystroke: MutPtr<XinputKeystroke>): UInt =
+public actual fun xInputGetKeystroke(dwuserindex: UInt, dwreserved: UInt, pkeystroke: MutPtr): UInt =
     if (windowsWin32UiInputXboxcontrollerNapiAddon != null) (windowsWin32UiInputXboxcontrollerNapiAddon.windowssysWindowsWin32UiInputXboxcontrollerXInputGetKeystroke(dwuserindex.toInt(), dwreserved.toInt(), pkeystroke.rawAddress.toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun xInputGetState(dwuserindex: UInt, pstate: MutPtr<XinputState>): UInt =
+public actual fun xInputGetState(dwuserindex: UInt, pstate: MutPtr): UInt =
     if (windowsWin32UiInputXboxcontrollerNapiAddon != null) (windowsWin32UiInputXboxcontrollerNapiAddon.windowssysWindowsWin32UiInputXboxcontrollerXInputGetState(dwuserindex.toInt(), pstate.rawAddress.toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun xInputSetState(dwuserindex: UInt, pvibration: ConstPtr<XinputVibration>): UInt =
+public actual fun xInputSetState(dwuserindex: UInt, pvibration: ConstPtr): UInt =
     if (windowsWin32UiInputXboxcontrollerNapiAddon != null) (windowsWin32UiInputXboxcontrollerNapiAddon.windowssysWindowsWin32UiInputXboxcontrollerXInputSetState(dwuserindex.toInt(), pvibration.rawAddress.toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")

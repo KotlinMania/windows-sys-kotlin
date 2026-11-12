@@ -1,14 +1,13 @@
 package io.github.kotlinmania.windowssys.windows.win32.storage.compression
 
-import io.github.kotlinmania.rustlang.core.ffi.CVoid
 import io.github.kotlinmania.rustlang.core.ptr.MutPtr
 
 public class CompressAllocationRoutines internal constructor(
     public var allocate: PfnCompressAllocate,
     public var free: PfnCompressFree,
-    userContextCtorArg: MutPtr<CVoid>,
+    userContextCtorArg: MutPtr,
 ) {
-    public var userContext: MutPtr<CVoid> = userContextCtorArg
+    public var userContext: MutPtr = userContextCtorArg
         internal set
 
     public constructor() : this(
@@ -21,9 +20,9 @@ public class CompressAllocationRoutines internal constructor(
 
     public operator fun component2(): PfnCompressFree = this.free
 
-    public operator fun component3(): MutPtr<CVoid> = this.userContext
+    public operator fun component3(): MutPtr = this.userContext
 
-    public fun copy(allocate: PfnCompressAllocate = this.allocate, free: PfnCompressFree = this.free, userContext: MutPtr<CVoid> = this.userContext): CompressAllocationRoutines = CompressAllocationRoutines(allocate = allocate, free = free, userContextCtorArg = userContext)
+    public fun copy(allocate: PfnCompressAllocate = this.allocate, free: PfnCompressFree = this.free, userContext: MutPtr = this.userContext): CompressAllocationRoutines = CompressAllocationRoutines(allocate = allocate, free = free, userContextCtorArg = userContext)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -45,7 +44,7 @@ public class CompressAllocationRoutines internal constructor(
         public operator fun invoke(
             allocate: PfnCompressAllocate = null,
             free: PfnCompressFree = null,
-            userContext: MutPtr<CVoid> = MutPtr(0L),
+            userContext: MutPtr = MutPtr(0L),
         ): CompressAllocationRoutines =
             CompressAllocationRoutines(
                 allocate = allocate,

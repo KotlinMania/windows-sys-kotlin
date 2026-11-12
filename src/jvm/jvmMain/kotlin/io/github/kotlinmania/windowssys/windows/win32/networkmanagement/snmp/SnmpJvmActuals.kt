@@ -2,13 +2,11 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.networkmanagement.snmp
 
-import io.github.kotlinmania.rustlang.core.ffi.CVoid
 import io.github.kotlinmania.rustlang.core.ptr.ConstPtr
 import io.github.kotlinmania.rustlang.core.ptr.MutPtr
 import io.github.kotlinmania.windowssys.core.Bool
 import io.github.kotlinmania.windowssys.core.Pcstr
 import io.github.kotlinmania.windowssys.core.Pstr
-import io.github.kotlinmania.windowssys.windows.win32.foundation.Handle
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Hwnd
 
 private object WindowsWin32NetworkmanagementSnmpJniBridge {
@@ -332,7 +330,7 @@ public actual fun snmpCleanupEx(): UInt =
 public actual fun snmpClose(session: Long): UInt =
     WindowsWin32NetworkmanagementSnmpJniBridge.windowssysWindowsWin32NetworkmanagementSnmpSnmpClose(session).toUInt()
 
-public actual fun snmpContextToStr(context: Long, string: MutPtr<SmiOctets>): UInt =
+public actual fun snmpContextToStr(context: Long, string: MutPtr): UInt =
     WindowsWin32NetworkmanagementSnmpJniBridge.windowssysWindowsWin32NetworkmanagementSnmpSnmpContextToStr(context, string.rawAddress).toUInt()
 
 public actual fun snmpCountVbl(vbl: Long): UInt =
@@ -341,13 +339,13 @@ public actual fun snmpCountVbl(vbl: Long): UInt =
 public actual fun snmpCreatePdu(session: Long, pduType: SnmpPduType, requestId: Int, errorStatus: Int, errorIndex: Int, varbindlist: Long): Long =
     WindowsWin32NetworkmanagementSnmpJniBridge.windowssysWindowsWin32NetworkmanagementSnmpSnmpCreatePdu(session, pduType.toInt(), requestId, errorStatus, errorIndex, varbindlist)
 
-public actual fun snmpCreateSession(hwnd: Hwnd, wmsg: UInt, fcallback: SnmpapiCallback, lpclientdata: MutPtr<CVoid>): Long =
+public actual fun snmpCreateSession(hwnd: Hwnd, wmsg: UInt, fcallback: SnmpapiCallback, lpclientdata: MutPtr): Long =
     WindowsWin32NetworkmanagementSnmpJniBridge.windowssysWindowsWin32NetworkmanagementSnmpSnmpCreateSession(hwnd.rawAddress, wmsg.toInt(), 0L, lpclientdata.rawAddress)
 
-public actual fun snmpCreateVbl(session: Long, name: MutPtr<SmiOid>, value: MutPtr<SmiValue>): Long =
+public actual fun snmpCreateVbl(session: Long, name: MutPtr, value: MutPtr): Long =
     WindowsWin32NetworkmanagementSnmpJniBridge.windowssysWindowsWin32NetworkmanagementSnmpSnmpCreateVbl(session, name.rawAddress, value.rawAddress)
 
-public actual fun snmpDecodeMsg(session: Long, srcentity: MutPtr<Long>, dstentity: MutPtr<Long>, context: MutPtr<Long>, pdu: MutPtr<Long>, msgbufdesc: MutPtr<SmiOctets>): UInt =
+public actual fun snmpDecodeMsg(session: Long, srcentity: MutPtr, dstentity: MutPtr, context: MutPtr, pdu: MutPtr, msgbufdesc: MutPtr): UInt =
     WindowsWin32NetworkmanagementSnmpJniBridge.windowssysWindowsWin32NetworkmanagementSnmpSnmpDecodeMsg(session, srcentity.rawAddress, dstentity.rawAddress, context.rawAddress, pdu.rawAddress, msgbufdesc.rawAddress).toUInt()
 
 public actual fun snmpDeleteVb(vbl: Long, index: UInt): UInt =
@@ -359,7 +357,7 @@ public actual fun snmpDuplicatePdu(session: Long, pdu: Long): Long =
 public actual fun snmpDuplicateVbl(session: Long, vbl: Long): Long =
     WindowsWin32NetworkmanagementSnmpJniBridge.windowssysWindowsWin32NetworkmanagementSnmpSnmpDuplicateVbl(session, vbl)
 
-public actual fun snmpEncodeMsg(session: Long, srcentity: Long, dstentity: Long, context: Long, pdu: Long, msgbufdesc: MutPtr<SmiOctets>): UInt =
+public actual fun snmpEncodeMsg(session: Long, srcentity: Long, dstentity: Long, context: Long, pdu: Long, msgbufdesc: MutPtr): UInt =
     WindowsWin32NetworkmanagementSnmpJniBridge.windowssysWindowsWin32NetworkmanagementSnmpSnmpEncodeMsg(session, srcentity, dstentity, context, pdu, msgbufdesc.rawAddress).toUInt()
 
 public actual fun snmpEntityToStr(entity: Long, size: UInt, string: Pstr): UInt =
@@ -368,7 +366,7 @@ public actual fun snmpEntityToStr(entity: Long, size: UInt, string: Pstr): UInt 
 public actual fun snmpFreeContext(context: Long): UInt =
     WindowsWin32NetworkmanagementSnmpJniBridge.windowssysWindowsWin32NetworkmanagementSnmpSnmpFreeContext(context).toUInt()
 
-public actual fun snmpFreeDescriptor(syntax: UInt, descriptor: MutPtr<SmiOctets>): UInt =
+public actual fun snmpFreeDescriptor(syntax: UInt, descriptor: MutPtr): UInt =
     WindowsWin32NetworkmanagementSnmpJniBridge.windowssysWindowsWin32NetworkmanagementSnmpSnmpFreeDescriptor(syntax.toInt(), descriptor.rawAddress).toUInt()
 
 public actual fun snmpFreeEntity(entity: Long): UInt =
@@ -383,25 +381,25 @@ public actual fun snmpFreeVbl(vbl: Long): UInt =
 public actual fun snmpGetLastError(session: Long): UInt =
     WindowsWin32NetworkmanagementSnmpJniBridge.windowssysWindowsWin32NetworkmanagementSnmpSnmpGetLastError(session).toUInt()
 
-public actual fun snmpGetPduData(pdu: Long, pduType: MutPtr<SnmpPduType>, requestId: MutPtr<Int>, errorStatus: MutPtr<SnmpError>, errorIndex: MutPtr<Int>, varbindlist: MutPtr<Long>): UInt =
+public actual fun snmpGetPduData(pdu: Long, pduType: MutPtr, requestId: MutPtr, errorStatus: MutPtr, errorIndex: MutPtr, varbindlist: MutPtr): UInt =
     WindowsWin32NetworkmanagementSnmpJniBridge.windowssysWindowsWin32NetworkmanagementSnmpSnmpGetPduData(pdu, pduType.rawAddress, requestId.rawAddress, errorStatus.rawAddress, errorIndex.rawAddress, varbindlist.rawAddress).toUInt()
 
-public actual fun snmpGetRetransmitMode(nretransmitmode: MutPtr<SnmpStatus>): UInt =
+public actual fun snmpGetRetransmitMode(nretransmitmode: MutPtr): UInt =
     WindowsWin32NetworkmanagementSnmpJniBridge.windowssysWindowsWin32NetworkmanagementSnmpSnmpGetRetransmitMode(nretransmitmode.rawAddress).toUInt()
 
-public actual fun snmpGetRetry(hentity: Long, npolicyretry: MutPtr<UInt>, nactualretry: MutPtr<UInt>): UInt =
+public actual fun snmpGetRetry(hentity: Long, npolicyretry: MutPtr, nactualretry: MutPtr): UInt =
     WindowsWin32NetworkmanagementSnmpJniBridge.windowssysWindowsWin32NetworkmanagementSnmpSnmpGetRetry(hentity, npolicyretry.rawAddress, nactualretry.rawAddress).toUInt()
 
-public actual fun snmpGetTimeout(hentity: Long, npolicytimeout: MutPtr<UInt>, nactualtimeout: MutPtr<UInt>): UInt =
+public actual fun snmpGetTimeout(hentity: Long, npolicytimeout: MutPtr, nactualtimeout: MutPtr): UInt =
     WindowsWin32NetworkmanagementSnmpJniBridge.windowssysWindowsWin32NetworkmanagementSnmpSnmpGetTimeout(hentity, npolicytimeout.rawAddress, nactualtimeout.rawAddress).toUInt()
 
-public actual fun snmpGetTranslateMode(ntranslatemode: MutPtr<SnmpApiTranslateMode>): UInt =
+public actual fun snmpGetTranslateMode(ntranslatemode: MutPtr): UInt =
     WindowsWin32NetworkmanagementSnmpJniBridge.windowssysWindowsWin32NetworkmanagementSnmpSnmpGetTranslateMode(ntranslatemode.rawAddress).toUInt()
 
-public actual fun snmpGetVb(vbl: Long, index: UInt, name: MutPtr<SmiOid>, value: MutPtr<SmiValue>): UInt =
+public actual fun snmpGetVb(vbl: Long, index: UInt, name: MutPtr, value: MutPtr): UInt =
     WindowsWin32NetworkmanagementSnmpJniBridge.windowssysWindowsWin32NetworkmanagementSnmpSnmpGetVb(vbl, index.toInt(), name.rawAddress, value.rawAddress).toUInt()
 
-public actual fun snmpGetVendorInfo(vendorinfo: MutPtr<SmiVendorinfo>): UInt =
+public actual fun snmpGetVendorInfo(vendorinfo: MutPtr): UInt =
     WindowsWin32NetworkmanagementSnmpJniBridge.windowssysWindowsWin32NetworkmanagementSnmpSnmpGetVendorInfo(vendorinfo.rawAddress).toUInt()
 
 public actual fun snmpListen(hentity: Long, lstatus: SnmpStatus): UInt =
@@ -410,55 +408,55 @@ public actual fun snmpListen(hentity: Long, lstatus: SnmpStatus): UInt =
 public actual fun snmpListenEx(hentity: Long, lstatus: UInt, nuseentityaddr: UInt): UInt =
     WindowsWin32NetworkmanagementSnmpJniBridge.windowssysWindowsWin32NetworkmanagementSnmpSnmpListenEx(hentity, lstatus.toInt(), nuseentityaddr.toInt()).toUInt()
 
-public actual fun snmpMgrClose(session: MutPtr<CVoid>): Bool =
+public actual fun snmpMgrClose(session: MutPtr): Bool =
     WindowsWin32NetworkmanagementSnmpJniBridge.windowssysWindowsWin32NetworkmanagementSnmpSnmpMgrClose(session.rawAddress)
 
-public actual fun snmpMgrCtl(session: MutPtr<CVoid>, dwctlcode: UInt, lpvinbuffer: MutPtr<CVoid>, cbinbuffer: UInt, lpvoutbuffer: MutPtr<CVoid>, cboutbuffer: UInt, lpcbbytesreturned: MutPtr<UInt>): Bool =
+public actual fun snmpMgrCtl(session: MutPtr, dwctlcode: UInt, lpvinbuffer: MutPtr, cbinbuffer: UInt, lpvoutbuffer: MutPtr, cboutbuffer: UInt, lpcbbytesreturned: MutPtr): Bool =
     WindowsWin32NetworkmanagementSnmpJniBridge.windowssysWindowsWin32NetworkmanagementSnmpSnmpMgrCtl(session.rawAddress, dwctlcode.toInt(), lpvinbuffer.rawAddress, cbinbuffer.toInt(), lpvoutbuffer.rawAddress, cboutbuffer.toInt(), lpcbbytesreturned.rawAddress)
 
-public actual fun snmpMgrGetTrap(enterprise: MutPtr<AsnObjectIdentifier>, ipaddress: MutPtr<AsnOctetString>, generictrap: MutPtr<SnmpGenerictrap>, specifictrap: MutPtr<Int>, timestamp: MutPtr<UInt>, variablebindings: MutPtr<SnmpVarBindList>): Bool =
+public actual fun snmpMgrGetTrap(enterprise: MutPtr, ipaddress: MutPtr, generictrap: MutPtr, specifictrap: MutPtr, timestamp: MutPtr, variablebindings: MutPtr): Bool =
     WindowsWin32NetworkmanagementSnmpJniBridge.windowssysWindowsWin32NetworkmanagementSnmpSnmpMgrGetTrap(enterprise.rawAddress, ipaddress.rawAddress, generictrap.rawAddress, specifictrap.rawAddress, timestamp.rawAddress, variablebindings.rawAddress)
 
-public actual fun snmpMgrGetTrapEx(enterprise: MutPtr<AsnObjectIdentifier>, agentaddress: MutPtr<AsnOctetString>, sourceaddress: MutPtr<AsnOctetString>, generictrap: MutPtr<SnmpGenerictrap>, specifictrap: MutPtr<Int>, community: MutPtr<AsnOctetString>, timestamp: MutPtr<UInt>, variablebindings: MutPtr<SnmpVarBindList>): Bool =
+public actual fun snmpMgrGetTrapEx(enterprise: MutPtr, agentaddress: MutPtr, sourceaddress: MutPtr, generictrap: MutPtr, specifictrap: MutPtr, community: MutPtr, timestamp: MutPtr, variablebindings: MutPtr): Bool =
     WindowsWin32NetworkmanagementSnmpJniBridge.windowssysWindowsWin32NetworkmanagementSnmpSnmpMgrGetTrapEx(enterprise.rawAddress, agentaddress.rawAddress, sourceaddress.rawAddress, generictrap.rawAddress, specifictrap.rawAddress, community.rawAddress, timestamp.rawAddress, variablebindings.rawAddress)
 
-public actual fun snmpMgrOidToStr(oid: MutPtr<AsnObjectIdentifier>, string: MutPtr<Pstr>): Bool =
+public actual fun snmpMgrOidToStr(oid: MutPtr, string: MutPtr): Bool =
     WindowsWin32NetworkmanagementSnmpJniBridge.windowssysWindowsWin32NetworkmanagementSnmpSnmpMgrOidToStr(oid.rawAddress, string.rawAddress)
 
-public actual fun snmpMgrOpen(lpagentaddress: Pcstr, lpagentcommunity: Pcstr, ntimeout: Int, nretries: Int): MutPtr<CVoid> =
+public actual fun snmpMgrOpen(lpagentaddress: Pcstr, lpagentcommunity: Pcstr, ntimeout: Int, nretries: Int): MutPtr =
     MutPtr(WindowsWin32NetworkmanagementSnmpJniBridge.windowssysWindowsWin32NetworkmanagementSnmpSnmpMgrOpen(lpagentaddress.rawAddress, lpagentcommunity.rawAddress, ntimeout, nretries))
 
-public actual fun snmpMgrRequest(session: MutPtr<CVoid>, requesttype: UByte, variablebindings: MutPtr<SnmpVarBindList>, errorstatus: MutPtr<SnmpErrorStatus>, errorindex: MutPtr<Int>): Int =
+public actual fun snmpMgrRequest(session: MutPtr, requesttype: UByte, variablebindings: MutPtr, errorstatus: MutPtr, errorindex: MutPtr): Int =
     WindowsWin32NetworkmanagementSnmpJniBridge.windowssysWindowsWin32NetworkmanagementSnmpSnmpMgrRequest(session.rawAddress, requesttype.toByte(), variablebindings.rawAddress, errorstatus.rawAddress, errorindex.rawAddress)
 
-public actual fun snmpMgrStrToOid(string: Pcstr, oid: MutPtr<AsnObjectIdentifier>): Bool =
+public actual fun snmpMgrStrToOid(string: Pcstr, oid: MutPtr): Bool =
     WindowsWin32NetworkmanagementSnmpJniBridge.windowssysWindowsWin32NetworkmanagementSnmpSnmpMgrStrToOid(string.rawAddress, oid.rawAddress)
 
-public actual fun snmpMgrTrapListen(phtrapavailable: MutPtr<Handle>): Bool =
+public actual fun snmpMgrTrapListen(phtrapavailable: MutPtr): Bool =
     WindowsWin32NetworkmanagementSnmpJniBridge.windowssysWindowsWin32NetworkmanagementSnmpSnmpMgrTrapListen(phtrapavailable.rawAddress)
 
-public actual fun snmpOidCompare(xoid: MutPtr<SmiOid>, yoid: MutPtr<SmiOid>, maxlen: UInt, result: MutPtr<Int>): UInt =
+public actual fun snmpOidCompare(xoid: MutPtr, yoid: MutPtr, maxlen: UInt, result: MutPtr): UInt =
     WindowsWin32NetworkmanagementSnmpJniBridge.windowssysWindowsWin32NetworkmanagementSnmpSnmpOidCompare(xoid.rawAddress, yoid.rawAddress, maxlen.toInt(), result.rawAddress).toUInt()
 
-public actual fun snmpOidCopy(srcoid: MutPtr<SmiOid>, dstoid: MutPtr<SmiOid>): UInt =
+public actual fun snmpOidCopy(srcoid: MutPtr, dstoid: MutPtr): UInt =
     WindowsWin32NetworkmanagementSnmpJniBridge.windowssysWindowsWin32NetworkmanagementSnmpSnmpOidCopy(srcoid.rawAddress, dstoid.rawAddress).toUInt()
 
-public actual fun snmpOidToStr(srcoid: ConstPtr<SmiOid>, size: UInt, string: Pstr): UInt =
+public actual fun snmpOidToStr(srcoid: ConstPtr, size: UInt, string: Pstr): UInt =
     WindowsWin32NetworkmanagementSnmpJniBridge.windowssysWindowsWin32NetworkmanagementSnmpSnmpOidToStr(srcoid.rawAddress, size.toInt(), string.rawAddress).toUInt()
 
 public actual fun snmpOpen(hwnd: Hwnd, wmsg: UInt): Long =
     WindowsWin32NetworkmanagementSnmpJniBridge.windowssysWindowsWin32NetworkmanagementSnmpSnmpOpen(hwnd.rawAddress, wmsg.toInt())
 
-public actual fun snmpRecvMsg(session: Long, srcentity: MutPtr<Long>, dstentity: MutPtr<Long>, context: MutPtr<Long>, pdu: MutPtr<Long>): UInt =
+public actual fun snmpRecvMsg(session: Long, srcentity: MutPtr, dstentity: MutPtr, context: MutPtr, pdu: MutPtr): UInt =
     WindowsWin32NetworkmanagementSnmpJniBridge.windowssysWindowsWin32NetworkmanagementSnmpSnmpRecvMsg(session, srcentity.rawAddress, dstentity.rawAddress, context.rawAddress, pdu.rawAddress).toUInt()
 
-public actual fun snmpRegister(session: Long, srcentity: Long, dstentity: Long, context: Long, notification: MutPtr<SmiOid>, state: SnmpStatus): UInt =
+public actual fun snmpRegister(session: Long, srcentity: Long, dstentity: Long, context: Long, notification: MutPtr, state: SnmpStatus): UInt =
     WindowsWin32NetworkmanagementSnmpJniBridge.windowssysWindowsWin32NetworkmanagementSnmpSnmpRegister(session, srcentity, dstentity, context, notification.rawAddress, state.toInt()).toUInt()
 
 public actual fun snmpSendMsg(session: Long, srcentity: Long, dstentity: Long, context: Long, pdu: Long): UInt =
     WindowsWin32NetworkmanagementSnmpJniBridge.windowssysWindowsWin32NetworkmanagementSnmpSnmpSendMsg(session, srcentity, dstentity, context, pdu).toUInt()
 
-public actual fun snmpSetPduData(pdu: Long, pduType: ConstPtr<Int>, requestId: ConstPtr<Int>, nonRepeaters: ConstPtr<Int>, maxRepetitions: ConstPtr<Int>, varbindlist: ConstPtr<Long>): UInt =
+public actual fun snmpSetPduData(pdu: Long, pduType: ConstPtr, requestId: ConstPtr, nonRepeaters: ConstPtr, maxRepetitions: ConstPtr, varbindlist: ConstPtr): UInt =
     WindowsWin32NetworkmanagementSnmpJniBridge.windowssysWindowsWin32NetworkmanagementSnmpSnmpSetPduData(pdu, pduType.rawAddress, requestId.rawAddress, nonRepeaters.rawAddress, maxRepetitions.rawAddress, varbindlist.rawAddress).toUInt()
 
 public actual fun snmpSetPort(hentity: Long, nport: UInt): UInt =
@@ -476,22 +474,22 @@ public actual fun snmpSetTimeout(hentity: Long, npolicytimeout: UInt): UInt =
 public actual fun snmpSetTranslateMode(ntranslatemode: SnmpApiTranslateMode): UInt =
     WindowsWin32NetworkmanagementSnmpJniBridge.windowssysWindowsWin32NetworkmanagementSnmpSnmpSetTranslateMode(ntranslatemode.toInt()).toUInt()
 
-public actual fun snmpSetVb(vbl: Long, index: UInt, name: MutPtr<SmiOid>, value: MutPtr<SmiValue>): UInt =
+public actual fun snmpSetVb(vbl: Long, index: UInt, name: MutPtr, value: MutPtr): UInt =
     WindowsWin32NetworkmanagementSnmpJniBridge.windowssysWindowsWin32NetworkmanagementSnmpSnmpSetVb(vbl, index.toInt(), name.rawAddress, value.rawAddress).toUInt()
 
-public actual fun snmpStartup(nmajorversion: MutPtr<UInt>, nminorversion: MutPtr<UInt>, nlevel: MutPtr<UInt>, ntranslatemode: MutPtr<SnmpApiTranslateMode>, nretransmitmode: MutPtr<SnmpStatus>): UInt =
+public actual fun snmpStartup(nmajorversion: MutPtr, nminorversion: MutPtr, nlevel: MutPtr, ntranslatemode: MutPtr, nretransmitmode: MutPtr): UInt =
     WindowsWin32NetworkmanagementSnmpJniBridge.windowssysWindowsWin32NetworkmanagementSnmpSnmpStartup(nmajorversion.rawAddress, nminorversion.rawAddress, nlevel.rawAddress, ntranslatemode.rawAddress, nretransmitmode.rawAddress).toUInt()
 
-public actual fun snmpStartupEx(nmajorversion: MutPtr<UInt>, nminorversion: MutPtr<UInt>, nlevel: MutPtr<UInt>, ntranslatemode: MutPtr<SnmpApiTranslateMode>, nretransmitmode: MutPtr<SnmpStatus>): UInt =
+public actual fun snmpStartupEx(nmajorversion: MutPtr, nminorversion: MutPtr, nlevel: MutPtr, ntranslatemode: MutPtr, nretransmitmode: MutPtr): UInt =
     WindowsWin32NetworkmanagementSnmpJniBridge.windowssysWindowsWin32NetworkmanagementSnmpSnmpStartupEx(nmajorversion.rawAddress, nminorversion.rawAddress, nlevel.rawAddress, ntranslatemode.rawAddress, nretransmitmode.rawAddress).toUInt()
 
-public actual fun snmpStrToContext(session: Long, string: MutPtr<SmiOctets>): Long =
+public actual fun snmpStrToContext(session: Long, string: MutPtr): Long =
     WindowsWin32NetworkmanagementSnmpJniBridge.windowssysWindowsWin32NetworkmanagementSnmpSnmpStrToContext(session, string.rawAddress)
 
 public actual fun snmpStrToEntity(session: Long, string: Pcstr): Long =
     WindowsWin32NetworkmanagementSnmpJniBridge.windowssysWindowsWin32NetworkmanagementSnmpSnmpStrToEntity(session, string.rawAddress)
 
-public actual fun snmpStrToOid(string: Pcstr, dstoid: MutPtr<SmiOid>): UInt =
+public actual fun snmpStrToOid(string: Pcstr, dstoid: MutPtr): UInt =
     WindowsWin32NetworkmanagementSnmpJniBridge.windowssysWindowsWin32NetworkmanagementSnmpSnmpStrToOid(string.rawAddress, dstoid.rawAddress).toUInt()
 
 public actual fun snmpSvcGetUptime(): UInt =
@@ -505,10 +503,10 @@ public actual fun snmpSvcSetLogType(nlogtype: Int) {
     WindowsWin32NetworkmanagementSnmpJniBridge.windowssysWindowsWin32NetworkmanagementSnmpSnmpSvcSetLogType(nlogtype)
 }
 
-public actual fun snmpUtilAsnAnyCpy(panydst: MutPtr<AsnAny>, panysrc: MutPtr<AsnAny>): Int =
+public actual fun snmpUtilAsnAnyCpy(panydst: MutPtr, panysrc: MutPtr): Int =
     WindowsWin32NetworkmanagementSnmpJniBridge.windowssysWindowsWin32NetworkmanagementSnmpSnmpUtilAsnAnyCpy(panydst.rawAddress, panysrc.rawAddress)
 
-public actual fun snmpUtilAsnAnyFree(pany: MutPtr<AsnAny>) {
+public actual fun snmpUtilAsnAnyFree(pany: MutPtr) {
     WindowsWin32NetworkmanagementSnmpJniBridge.windowssysWindowsWin32NetworkmanagementSnmpSnmpUtilAsnAnyFree(pany.rawAddress)
 }
 
@@ -516,69 +514,69 @@ public actual fun snmpUtilDbgPrint(nloglevel: SnmpLog, szformat: Pcstr, vararg v
     WindowsWin32NetworkmanagementSnmpJniBridge.windowssysWindowsWin32NetworkmanagementSnmpSnmpUtilDbgPrint(nloglevel, szformat.rawAddress, variadicArgs.size.coerceAtMost(4), if (variadicArgs.size > 0) variadicArgs[0] else 0L, if (variadicArgs.size > 1) variadicArgs[1] else 0L, if (variadicArgs.size > 2) variadicArgs[2] else 0L, if (variadicArgs.size > 3) variadicArgs[3] else 0L)
 }
 
-public actual fun snmpUtilIdsToA(ids: MutPtr<UInt>, idlength: UInt): Pstr =
+public actual fun snmpUtilIdsToA(ids: MutPtr, idlength: UInt): Pstr =
     MutPtr(WindowsWin32NetworkmanagementSnmpJniBridge.windowssysWindowsWin32NetworkmanagementSnmpSnmpUtilIdsToA(ids.rawAddress, idlength.toInt()))
 
-public actual fun snmpUtilMemAlloc(nbytes: UInt): MutPtr<CVoid> =
+public actual fun snmpUtilMemAlloc(nbytes: UInt): MutPtr =
     MutPtr(WindowsWin32NetworkmanagementSnmpJniBridge.windowssysWindowsWin32NetworkmanagementSnmpSnmpUtilMemAlloc(nbytes.toInt()))
 
-public actual fun snmpUtilMemFree(pmem: MutPtr<CVoid>) {
+public actual fun snmpUtilMemFree(pmem: MutPtr) {
     WindowsWin32NetworkmanagementSnmpJniBridge.windowssysWindowsWin32NetworkmanagementSnmpSnmpUtilMemFree(pmem.rawAddress)
 }
 
-public actual fun snmpUtilMemReAlloc(pmem: MutPtr<CVoid>, nbytes: UInt): MutPtr<CVoid> =
+public actual fun snmpUtilMemReAlloc(pmem: MutPtr, nbytes: UInt): MutPtr =
     MutPtr(WindowsWin32NetworkmanagementSnmpJniBridge.windowssysWindowsWin32NetworkmanagementSnmpSnmpUtilMemReAlloc(pmem.rawAddress, nbytes.toInt()))
 
-public actual fun snmpUtilOctetsCmp(poctets1: MutPtr<AsnOctetString>, poctets2: MutPtr<AsnOctetString>): Int =
+public actual fun snmpUtilOctetsCmp(poctets1: MutPtr, poctets2: MutPtr): Int =
     WindowsWin32NetworkmanagementSnmpJniBridge.windowssysWindowsWin32NetworkmanagementSnmpSnmpUtilOctetsCmp(poctets1.rawAddress, poctets2.rawAddress)
 
-public actual fun snmpUtilOctetsCpy(poctetsdst: MutPtr<AsnOctetString>, poctetssrc: MutPtr<AsnOctetString>): Int =
+public actual fun snmpUtilOctetsCpy(poctetsdst: MutPtr, poctetssrc: MutPtr): Int =
     WindowsWin32NetworkmanagementSnmpJniBridge.windowssysWindowsWin32NetworkmanagementSnmpSnmpUtilOctetsCpy(poctetsdst.rawAddress, poctetssrc.rawAddress)
 
-public actual fun snmpUtilOctetsFree(poctets: MutPtr<AsnOctetString>) {
+public actual fun snmpUtilOctetsFree(poctets: MutPtr) {
     WindowsWin32NetworkmanagementSnmpJniBridge.windowssysWindowsWin32NetworkmanagementSnmpSnmpUtilOctetsFree(poctets.rawAddress)
 }
 
-public actual fun snmpUtilOctetsNCmp(poctets1: MutPtr<AsnOctetString>, poctets2: MutPtr<AsnOctetString>, nchars: UInt): Int =
+public actual fun snmpUtilOctetsNCmp(poctets1: MutPtr, poctets2: MutPtr, nchars: UInt): Int =
     WindowsWin32NetworkmanagementSnmpJniBridge.windowssysWindowsWin32NetworkmanagementSnmpSnmpUtilOctetsNCmp(poctets1.rawAddress, poctets2.rawAddress, nchars.toInt())
 
-public actual fun snmpUtilOidAppend(poiddst: MutPtr<AsnObjectIdentifier>, poidsrc: MutPtr<AsnObjectIdentifier>): Int =
+public actual fun snmpUtilOidAppend(poiddst: MutPtr, poidsrc: MutPtr): Int =
     WindowsWin32NetworkmanagementSnmpJniBridge.windowssysWindowsWin32NetworkmanagementSnmpSnmpUtilOidAppend(poiddst.rawAddress, poidsrc.rawAddress)
 
-public actual fun snmpUtilOidCmp(poid1: MutPtr<AsnObjectIdentifier>, poid2: MutPtr<AsnObjectIdentifier>): Int =
+public actual fun snmpUtilOidCmp(poid1: MutPtr, poid2: MutPtr): Int =
     WindowsWin32NetworkmanagementSnmpJniBridge.windowssysWindowsWin32NetworkmanagementSnmpSnmpUtilOidCmp(poid1.rawAddress, poid2.rawAddress)
 
-public actual fun snmpUtilOidCpy(poiddst: MutPtr<AsnObjectIdentifier>, poidsrc: MutPtr<AsnObjectIdentifier>): Int =
+public actual fun snmpUtilOidCpy(poiddst: MutPtr, poidsrc: MutPtr): Int =
     WindowsWin32NetworkmanagementSnmpJniBridge.windowssysWindowsWin32NetworkmanagementSnmpSnmpUtilOidCpy(poiddst.rawAddress, poidsrc.rawAddress)
 
-public actual fun snmpUtilOidFree(poid: MutPtr<AsnObjectIdentifier>) {
+public actual fun snmpUtilOidFree(poid: MutPtr) {
     WindowsWin32NetworkmanagementSnmpJniBridge.windowssysWindowsWin32NetworkmanagementSnmpSnmpUtilOidFree(poid.rawAddress)
 }
 
-public actual fun snmpUtilOidNCmp(poid1: MutPtr<AsnObjectIdentifier>, poid2: MutPtr<AsnObjectIdentifier>, nsubids: UInt): Int =
+public actual fun snmpUtilOidNCmp(poid1: MutPtr, poid2: MutPtr, nsubids: UInt): Int =
     WindowsWin32NetworkmanagementSnmpJniBridge.windowssysWindowsWin32NetworkmanagementSnmpSnmpUtilOidNCmp(poid1.rawAddress, poid2.rawAddress, nsubids.toInt())
 
-public actual fun snmpUtilOidToA(oid: MutPtr<AsnObjectIdentifier>): Pstr =
+public actual fun snmpUtilOidToA(oid: MutPtr): Pstr =
     MutPtr(WindowsWin32NetworkmanagementSnmpJniBridge.windowssysWindowsWin32NetworkmanagementSnmpSnmpUtilOidToA(oid.rawAddress))
 
-public actual fun snmpUtilPrintAsnAny(pany: MutPtr<AsnAny>) {
+public actual fun snmpUtilPrintAsnAny(pany: MutPtr) {
     WindowsWin32NetworkmanagementSnmpJniBridge.windowssysWindowsWin32NetworkmanagementSnmpSnmpUtilPrintAsnAny(pany.rawAddress)
 }
 
-public actual fun snmpUtilPrintOid(oid: MutPtr<AsnObjectIdentifier>) {
+public actual fun snmpUtilPrintOid(oid: MutPtr) {
     WindowsWin32NetworkmanagementSnmpJniBridge.windowssysWindowsWin32NetworkmanagementSnmpSnmpUtilPrintOid(oid.rawAddress)
 }
 
-public actual fun snmpUtilVarBindCpy(pvbdst: MutPtr<SnmpVarBind>, pvbsrc: MutPtr<SnmpVarBind>): Int =
+public actual fun snmpUtilVarBindCpy(pvbdst: MutPtr, pvbsrc: MutPtr): Int =
     WindowsWin32NetworkmanagementSnmpJniBridge.windowssysWindowsWin32NetworkmanagementSnmpSnmpUtilVarBindCpy(pvbdst.rawAddress, pvbsrc.rawAddress)
 
-public actual fun snmpUtilVarBindFree(pvb: MutPtr<SnmpVarBind>) {
+public actual fun snmpUtilVarBindFree(pvb: MutPtr) {
     WindowsWin32NetworkmanagementSnmpJniBridge.windowssysWindowsWin32NetworkmanagementSnmpSnmpUtilVarBindFree(pvb.rawAddress)
 }
 
-public actual fun snmpUtilVarBindListCpy(pvbldst: MutPtr<SnmpVarBindList>, pvblsrc: MutPtr<SnmpVarBindList>): Int =
+public actual fun snmpUtilVarBindListCpy(pvbldst: MutPtr, pvblsrc: MutPtr): Int =
     WindowsWin32NetworkmanagementSnmpJniBridge.windowssysWindowsWin32NetworkmanagementSnmpSnmpUtilVarBindListCpy(pvbldst.rawAddress, pvblsrc.rawAddress)
 
-public actual fun snmpUtilVarBindListFree(pvbl: MutPtr<SnmpVarBindList>) {
+public actual fun snmpUtilVarBindListFree(pvbl: MutPtr) {
     WindowsWin32NetworkmanagementSnmpJniBridge.windowssysWindowsWin32NetworkmanagementSnmpSnmpUtilVarBindListFree(pvbl.rawAddress)
 }

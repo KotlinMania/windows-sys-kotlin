@@ -1,6 +1,5 @@
 package io.github.kotlinmania.windowssys.windows.win32.ui.accessibility
 
-import io.github.kotlinmania.rustlang.core.ffi.CVoid
 import io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
 import io.github.kotlinmania.rustlang.core.mem.TypeLayout
 import io.github.kotlinmania.rustlang.core.ptr.ConstPtr
@@ -12,7 +11,6 @@ import io.github.kotlinmania.windowssys.core.Pcwstr
 import io.github.kotlinmania.windowssys.core.Pstr
 import io.github.kotlinmania.windowssys.core.Pwstr
 import io.github.kotlinmania.windowssys.windows.win32.system.Variant
-import io.github.kotlinmania.windowssys.windows.win32.system.com.Safearray
 
 public data class Accesstimeout(
     public var cbSize: UInt = 0u,
@@ -828,16 +826,16 @@ public class UIAutomationMethodInfo internal constructor(
     public var doSetFocus: Bool,
     public var cInParameters: UInt,
     public var cOutParameters: UInt,
-    pParameterTypesCtorArg: MutPtr<UIAutomationType>,
-    pParameterNamesCtorArg: ConstPtr<Pcwstr>,
+    pParameterTypesCtorArg: MutPtr,
+    pParameterNamesCtorArg: ConstPtr,
 ) {
     public var pProgrammaticName: Pcwstr = pProgrammaticNameCtorArg
         internal set
 
-    public var pParameterTypes: MutPtr<UIAutomationType> = pParameterTypesCtorArg
+    public var pParameterTypes: MutPtr = pParameterTypesCtorArg
         internal set
 
-    public var pParameterNames: ConstPtr<Pcwstr> = pParameterNamesCtorArg
+    public var pParameterNames: ConstPtr = pParameterNamesCtorArg
         internal set
 
     public constructor() : this(
@@ -857,11 +855,11 @@ public class UIAutomationMethodInfo internal constructor(
 
     public operator fun component4(): UInt = this.cOutParameters
 
-    public operator fun component5(): MutPtr<UIAutomationType> = this.pParameterTypes
+    public operator fun component5(): MutPtr = this.pParameterTypes
 
-    public operator fun component6(): ConstPtr<Pcwstr> = this.pParameterNames
+    public operator fun component6(): ConstPtr = this.pParameterNames
 
-    public fun copy(pProgrammaticName: Pcwstr = this.pProgrammaticName, doSetFocus: Bool = this.doSetFocus, cInParameters: UInt = this.cInParameters, cOutParameters: UInt = this.cOutParameters, pParameterTypes: MutPtr<UIAutomationType> = this.pParameterTypes, pParameterNames: ConstPtr<Pcwstr> = this.pParameterNames): UIAutomationMethodInfo = UIAutomationMethodInfo(pProgrammaticNameCtorArg = pProgrammaticName, doSetFocus = doSetFocus, cInParameters = cInParameters, cOutParameters = cOutParameters, pParameterTypesCtorArg = pParameterTypes, pParameterNamesCtorArg = pParameterNames)
+    public fun copy(pProgrammaticName: Pcwstr = this.pProgrammaticName, doSetFocus: Bool = this.doSetFocus, cInParameters: UInt = this.cInParameters, cOutParameters: UInt = this.cOutParameters, pParameterTypes: MutPtr = this.pParameterTypes, pParameterNames: ConstPtr = this.pParameterNames): UIAutomationMethodInfo = UIAutomationMethodInfo(pProgrammaticNameCtorArg = pProgrammaticName, doSetFocus = doSetFocus, cInParameters = cInParameters, cOutParameters = cOutParameters, pParameterTypesCtorArg = pParameterTypes, pParameterNamesCtorArg = pParameterNames)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -891,8 +889,8 @@ public class UIAutomationMethodInfo internal constructor(
             doSetFocus: Bool = 0,
             cInParameters: UInt = 0u,
             cOutParameters: UInt = 0u,
-            pParameterTypes: MutPtr<UIAutomationType> = MutPtr(0L),
-            pParameterNames: ConstPtr<Pcwstr> = ConstPtr(0L),
+            pParameterTypes: MutPtr = MutPtr(0L),
+            pParameterNames: ConstPtr = ConstPtr(0L),
         ): UIAutomationMethodInfo =
             UIAutomationMethodInfo(
                 pProgrammaticNameCtorArg = pProgrammaticName,
@@ -907,9 +905,9 @@ public class UIAutomationMethodInfo internal constructor(
 
 public class UIAutomationParameter internal constructor(
     public var type: UIAutomationType,
-    pDataCtorArg: MutPtr<CVoid>,
+    pDataCtorArg: MutPtr,
 ) {
-    public var pData: MutPtr<CVoid> = pDataCtorArg
+    public var pData: MutPtr = pDataCtorArg
         internal set
 
     public constructor() : this(
@@ -919,9 +917,9 @@ public class UIAutomationParameter internal constructor(
 
     public operator fun component1(): UIAutomationType = this.type
 
-    public operator fun component2(): MutPtr<CVoid> = this.pData
+    public operator fun component2(): MutPtr = this.pData
 
-    public fun copy(type: UIAutomationType = this.type, pData: MutPtr<CVoid> = this.pData): UIAutomationParameter = UIAutomationParameter(type = type, pDataCtorArg = pData)
+    public fun copy(type: UIAutomationType = this.type, pData: MutPtr = this.pData): UIAutomationParameter = UIAutomationParameter(type = type, pDataCtorArg = pData)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -947,21 +945,21 @@ public class UIAutomationParameter internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<CVoid>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                     )
                 override fun writeNative(addr: Long, value: UIAutomationParameter) {
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr, value.type)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<CVoid>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.pData)
                 }
             }
 
         public operator fun invoke(
             type: UIAutomationType = 0,
-            pData: MutPtr<CVoid> = MutPtr(0L),
+            pData: MutPtr = MutPtr(0L),
         ): UIAutomationParameter =
             UIAutomationParameter(
                 type = type,
@@ -976,26 +974,26 @@ public class UIAutomationPatternInfo internal constructor(
     public var providerInterfaceId: Guid,
     public var clientInterfaceId: Guid,
     public var cProperties: UInt,
-    pPropertiesCtorArg: MutPtr<UIAutomationPropertyInfo>,
+    pPropertiesCtorArg: MutPtr,
     public var cMethods: UInt,
-    pMethodsCtorArg: MutPtr<UIAutomationMethodInfo>,
+    pMethodsCtorArg: MutPtr,
     public var cEvents: UInt,
-    pEventsCtorArg: MutPtr<UIAutomationEventInfo>,
-    pPatternHandlerCtorArg: MutPtr<CVoid>,
+    pEventsCtorArg: MutPtr,
+    pPatternHandlerCtorArg: MutPtr,
 ) {
     public var pProgrammaticName: Pcwstr = pProgrammaticNameCtorArg
         internal set
 
-    public var pProperties: MutPtr<UIAutomationPropertyInfo> = pPropertiesCtorArg
+    public var pProperties: MutPtr = pPropertiesCtorArg
         internal set
 
-    public var pMethods: MutPtr<UIAutomationMethodInfo> = pMethodsCtorArg
+    public var pMethods: MutPtr = pMethodsCtorArg
         internal set
 
-    public var pEvents: MutPtr<UIAutomationEventInfo> = pEventsCtorArg
+    public var pEvents: MutPtr = pEventsCtorArg
         internal set
 
-    public var pPatternHandler: MutPtr<CVoid> = pPatternHandlerCtorArg
+    public var pPatternHandler: MutPtr = pPatternHandlerCtorArg
         internal set
 
     public constructor() : this(
@@ -1022,19 +1020,19 @@ public class UIAutomationPatternInfo internal constructor(
 
     public operator fun component5(): UInt = this.cProperties
 
-    public operator fun component6(): MutPtr<UIAutomationPropertyInfo> = this.pProperties
+    public operator fun component6(): MutPtr = this.pProperties
 
     public operator fun component7(): UInt = this.cMethods
 
-    public operator fun component8(): MutPtr<UIAutomationMethodInfo> = this.pMethods
+    public operator fun component8(): MutPtr = this.pMethods
 
     public operator fun component9(): UInt = this.cEvents
 
-    public operator fun component10(): MutPtr<UIAutomationEventInfo> = this.pEvents
+    public operator fun component10(): MutPtr = this.pEvents
 
-    public operator fun component11(): MutPtr<CVoid> = this.pPatternHandler
+    public operator fun component11(): MutPtr = this.pPatternHandler
 
-    public fun copy(guid: Guid = this.guid, pProgrammaticName: Pcwstr = this.pProgrammaticName, providerInterfaceId: Guid = this.providerInterfaceId, clientInterfaceId: Guid = this.clientInterfaceId, cProperties: UInt = this.cProperties, pProperties: MutPtr<UIAutomationPropertyInfo> = this.pProperties, cMethods: UInt = this.cMethods, pMethods: MutPtr<UIAutomationMethodInfo> = this.pMethods, cEvents: UInt = this.cEvents, pEvents: MutPtr<UIAutomationEventInfo> = this.pEvents, pPatternHandler: MutPtr<CVoid> = this.pPatternHandler): UIAutomationPatternInfo = UIAutomationPatternInfo(guid = guid, pProgrammaticNameCtorArg = pProgrammaticName, providerInterfaceId = providerInterfaceId, clientInterfaceId = clientInterfaceId, cProperties = cProperties, pPropertiesCtorArg = pProperties, cMethods = cMethods, pMethodsCtorArg = pMethods, cEvents = cEvents, pEventsCtorArg = pEvents, pPatternHandlerCtorArg = pPatternHandler)
+    public fun copy(guid: Guid = this.guid, pProgrammaticName: Pcwstr = this.pProgrammaticName, providerInterfaceId: Guid = this.providerInterfaceId, clientInterfaceId: Guid = this.clientInterfaceId, cProperties: UInt = this.cProperties, pProperties: MutPtr = this.pProperties, cMethods: UInt = this.cMethods, pMethods: MutPtr = this.pMethods, cEvents: UInt = this.cEvents, pEvents: MutPtr = this.pEvents, pPatternHandler: MutPtr = this.pPatternHandler): UIAutomationPatternInfo = UIAutomationPatternInfo(guid = guid, pProgrammaticNameCtorArg = pProgrammaticName, providerInterfaceId = providerInterfaceId, clientInterfaceId = clientInterfaceId, cProperties = cProperties, pPropertiesCtorArg = pProperties, cMethods = cMethods, pMethodsCtorArg = pMethods, cEvents = cEvents, pEventsCtorArg = pEvents, pPatternHandlerCtorArg = pPatternHandler)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -1075,12 +1073,12 @@ public class UIAutomationPatternInfo internal constructor(
             providerInterfaceId: Guid = Guid(),
             clientInterfaceId: Guid = Guid(),
             cProperties: UInt = 0u,
-            pProperties: MutPtr<UIAutomationPropertyInfo> = MutPtr(0L),
+            pProperties: MutPtr = MutPtr(0L),
             cMethods: UInt = 0u,
-            pMethods: MutPtr<UIAutomationMethodInfo> = MutPtr(0L),
+            pMethods: MutPtr = MutPtr(0L),
             cEvents: UInt = 0u,
-            pEvents: MutPtr<UIAutomationEventInfo> = MutPtr(0L),
-            pPatternHandler: MutPtr<CVoid> = MutPtr(0L),
+            pEvents: MutPtr = MutPtr(0L),
+            pPatternHandler: MutPtr = MutPtr(0L),
         ): UIAutomationPatternInfo =
             UIAutomationPatternInfo(
                 guid = guid,
@@ -1152,10 +1150,10 @@ public class UIAutomationPropertyInfo internal constructor(
 
 public class UiaAndOrCondition internal constructor(
     public var conditionType: ConditionType,
-    ppConditionsCtorArg: MutPtr<MutPtr<UiaCondition>>,
+    ppConditionsCtorArg: MutPtr,
     public var cConditions: Int,
 ) {
-    public var ppConditions: MutPtr<MutPtr<UiaCondition>> = ppConditionsCtorArg
+    public var ppConditions: MutPtr = ppConditionsCtorArg
         internal set
 
     public constructor() : this(
@@ -1166,11 +1164,11 @@ public class UiaAndOrCondition internal constructor(
 
     public operator fun component1(): ConditionType = this.conditionType
 
-    public operator fun component2(): MutPtr<MutPtr<UiaCondition>> = this.ppConditions
+    public operator fun component2(): MutPtr = this.ppConditions
 
     public operator fun component3(): Int = this.cConditions
 
-    public fun copy(conditionType: ConditionType = this.conditionType, ppConditions: MutPtr<MutPtr<UiaCondition>> = this.ppConditions, cConditions: Int = this.cConditions): UiaAndOrCondition = UiaAndOrCondition(conditionType = conditionType, ppConditionsCtorArg = ppConditions, cConditions = cConditions)
+    public fun copy(conditionType: ConditionType = this.conditionType, ppConditions: MutPtr = this.ppConditions, cConditions: Int = this.cConditions): UiaAndOrCondition = UiaAndOrCondition(conditionType = conditionType, ppConditionsCtorArg = ppConditions, cConditions = cConditions)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -1198,7 +1196,7 @@ public class UiaAndOrCondition internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<MutPtr<UiaCondition>>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr + 16L),
                     )
@@ -1206,7 +1204,7 @@ public class UiaAndOrCondition internal constructor(
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr, value.conditionType)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<MutPtr<UiaCondition>>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.ppConditions)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr + 16L, value.cConditions)
                 }
@@ -1214,7 +1212,7 @@ public class UiaAndOrCondition internal constructor(
 
         public operator fun invoke(
             conditionType: ConditionType = 0,
-            ppConditions: MutPtr<MutPtr<UiaCondition>> = MutPtr(0L),
+            ppConditions: MutPtr = MutPtr(0L),
             cConditions: Int = 0,
         ): UiaAndOrCondition =
             UiaAndOrCondition(
@@ -1254,21 +1252,21 @@ public data class UiaAsyncContentLoadedEventArgs(
 }
 
 public class UiaCacheRequest internal constructor(
-    pViewConditionCtorArg: MutPtr<UiaCondition>,
+    pViewConditionCtorArg: MutPtr,
     public var scope: TreeScope,
-    pPropertiesCtorArg: MutPtr<Int>,
+    pPropertiesCtorArg: MutPtr,
     public var cProperties: Int,
-    pPatternsCtorArg: MutPtr<Int>,
+    pPatternsCtorArg: MutPtr,
     public var cPatterns: Int,
     public var automationElementMode: AutomationElementMode,
 ) {
-    public var pViewCondition: MutPtr<UiaCondition> = pViewConditionCtorArg
+    public var pViewCondition: MutPtr = pViewConditionCtorArg
         internal set
 
-    public var pProperties: MutPtr<Int> = pPropertiesCtorArg
+    public var pProperties: MutPtr = pPropertiesCtorArg
         internal set
 
-    public var pPatterns: MutPtr<Int> = pPatternsCtorArg
+    public var pPatterns: MutPtr = pPatternsCtorArg
         internal set
 
     public constructor() : this(
@@ -1281,21 +1279,21 @@ public class UiaCacheRequest internal constructor(
         automationElementMode = 0,
     )
 
-    public operator fun component1(): MutPtr<UiaCondition> = this.pViewCondition
+    public operator fun component1(): MutPtr = this.pViewCondition
 
     public operator fun component2(): TreeScope = this.scope
 
-    public operator fun component3(): MutPtr<Int> = this.pProperties
+    public operator fun component3(): MutPtr = this.pProperties
 
     public operator fun component4(): Int = this.cProperties
 
-    public operator fun component5(): MutPtr<Int> = this.pPatterns
+    public operator fun component5(): MutPtr = this.pPatterns
 
     public operator fun component6(): Int = this.cPatterns
 
     public operator fun component7(): AutomationElementMode = this.automationElementMode
 
-    public fun copy(pViewCondition: MutPtr<UiaCondition> = this.pViewCondition, scope: TreeScope = this.scope, pProperties: MutPtr<Int> = this.pProperties, cProperties: Int = this.cProperties, pPatterns: MutPtr<Int> = this.pPatterns, cPatterns: Int = this.cPatterns, automationElementMode: AutomationElementMode = this.automationElementMode): UiaCacheRequest = UiaCacheRequest(pViewConditionCtorArg = pViewCondition, scope = scope, pPropertiesCtorArg = pProperties, cProperties = cProperties, pPatternsCtorArg = pPatterns, cPatterns = cPatterns, automationElementMode = automationElementMode)
+    public fun copy(pViewCondition: MutPtr = this.pViewCondition, scope: TreeScope = this.scope, pProperties: MutPtr = this.pProperties, cProperties: Int = this.cProperties, pPatterns: MutPtr = this.pPatterns, cPatterns: Int = this.cPatterns, automationElementMode: AutomationElementMode = this.automationElementMode): UiaCacheRequest = UiaCacheRequest(pViewConditionCtorArg = pViewCondition, scope = scope, pPropertiesCtorArg = pProperties, cProperties = cProperties, pPatternsCtorArg = pPatterns, cPatterns = cPatterns, automationElementMode = automationElementMode)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -1330,17 +1328,17 @@ public class UiaCacheRequest internal constructor(
                     UiaCacheRequest(
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<UiaCondition>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr + 8L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<Int>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 16L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr + 24L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<Int>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 32L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr + 40L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr + 44L),
@@ -1348,17 +1346,17 @@ public class UiaCacheRequest internal constructor(
                 override fun writeNative(addr: Long, value: UiaCacheRequest) {
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<UiaCondition>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr, value.pViewCondition)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr + 8L, value.scope)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<Int>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 16L, value.pProperties)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr + 24L, value.cProperties)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<Int>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 32L, value.pPatterns)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr + 40L, value.cPatterns)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr + 44L, value.automationElementMode)
@@ -1366,11 +1364,11 @@ public class UiaCacheRequest internal constructor(
             }
 
         public operator fun invoke(
-            pViewCondition: MutPtr<UiaCondition> = MutPtr(0L),
+            pViewCondition: MutPtr = MutPtr(0L),
             scope: TreeScope = 0,
-            pProperties: MutPtr<Int> = MutPtr(0L),
+            pProperties: MutPtr = MutPtr(0L),
             cProperties: Int = 0,
-            pPatterns: MutPtr<Int> = MutPtr(0L),
+            pPatterns: MutPtr = MutPtr(0L),
             cPatterns: Int = 0,
             automationElementMode: AutomationElementMode = 0,
         ): UiaCacheRequest =
@@ -1396,9 +1394,9 @@ public class UiaChangesEventArgs internal constructor(
     public var type: EventArgsType,
     public var eventId: Int,
     public var eventIdCount: Int,
-    pUiaChangesCtorArg: MutPtr<UiaChangeInfo>,
+    pUiaChangesCtorArg: MutPtr,
 ) {
-    public var pUiaChanges: MutPtr<UiaChangeInfo> = pUiaChangesCtorArg
+    public var pUiaChanges: MutPtr = pUiaChangesCtorArg
         internal set
 
     public constructor() : this(
@@ -1414,9 +1412,9 @@ public class UiaChangesEventArgs internal constructor(
 
     public operator fun component3(): Int = this.eventIdCount
 
-    public operator fun component4(): MutPtr<UiaChangeInfo> = this.pUiaChanges
+    public operator fun component4(): MutPtr = this.pUiaChanges
 
-    public fun copy(type: EventArgsType = this.type, eventId: Int = this.eventId, eventIdCount: Int = this.eventIdCount, pUiaChanges: MutPtr<UiaChangeInfo> = this.pUiaChanges): UiaChangesEventArgs = UiaChangesEventArgs(type = type, eventId = eventId, eventIdCount = eventIdCount, pUiaChangesCtorArg = pUiaChanges)
+    public fun copy(type: EventArgsType = this.type, eventId: Int = this.eventId, eventIdCount: Int = this.eventIdCount, pUiaChanges: MutPtr = this.pUiaChanges): UiaChangesEventArgs = UiaChangesEventArgs(type = type, eventId = eventId, eventIdCount = eventIdCount, pUiaChangesCtorArg = pUiaChanges)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -1448,7 +1446,7 @@ public class UiaChangesEventArgs internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr + 8L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<UiaChangeInfo>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 16L),
                     )
                 override fun writeNative(addr: Long, value: UiaChangesEventArgs) {
@@ -1457,7 +1455,7 @@ public class UiaChangesEventArgs internal constructor(
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr + 8L, value.eventIdCount)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<UiaChangeInfo>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 16L, value.pUiaChanges)
                 }
             }
@@ -1466,7 +1464,7 @@ public class UiaChangesEventArgs internal constructor(
             type: EventArgsType = 0,
             eventId: Int = 0,
             eventIdCount: Int = 0,
-            pUiaChanges: MutPtr<UiaChangeInfo> = MutPtr(0L),
+            pUiaChanges: MutPtr = MutPtr(0L),
         ): UiaChangesEventArgs =
             UiaChangesEventArgs(
                 type = type,
@@ -1522,9 +1520,9 @@ public class UiaFindParams internal constructor(
     public var maxDepth: Int,
     public var findFirst: Bool,
     public var excludeRoot: Bool,
-    pFindConditionCtorArg: MutPtr<UiaCondition>,
+    pFindConditionCtorArg: MutPtr,
 ) {
-    public var pFindCondition: MutPtr<UiaCondition> = pFindConditionCtorArg
+    public var pFindCondition: MutPtr = pFindConditionCtorArg
         internal set
 
     public constructor() : this(
@@ -1540,9 +1538,9 @@ public class UiaFindParams internal constructor(
 
     public operator fun component3(): Bool = this.excludeRoot
 
-    public operator fun component4(): MutPtr<UiaCondition> = this.pFindCondition
+    public operator fun component4(): MutPtr = this.pFindCondition
 
-    public fun copy(maxDepth: Int = this.maxDepth, findFirst: Bool = this.findFirst, excludeRoot: Bool = this.excludeRoot, pFindCondition: MutPtr<UiaCondition> = this.pFindCondition): UiaFindParams = UiaFindParams(maxDepth = maxDepth, findFirst = findFirst, excludeRoot = excludeRoot, pFindConditionCtorArg = pFindCondition)
+    public fun copy(maxDepth: Int = this.maxDepth, findFirst: Bool = this.findFirst, excludeRoot: Bool = this.excludeRoot, pFindCondition: MutPtr = this.pFindCondition): UiaFindParams = UiaFindParams(maxDepth = maxDepth, findFirst = findFirst, excludeRoot = excludeRoot, pFindConditionCtorArg = pFindCondition)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -1574,7 +1572,7 @@ public class UiaFindParams internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr + 8L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<UiaCondition>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 16L),
                     )
                 override fun writeNative(addr: Long, value: UiaFindParams) {
@@ -1583,7 +1581,7 @@ public class UiaFindParams internal constructor(
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr + 8L, value.excludeRoot)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<UiaCondition>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 16L, value.pFindCondition)
                 }
             }
@@ -1592,7 +1590,7 @@ public class UiaFindParams internal constructor(
             maxDepth: Int = 0,
             findFirst: Bool = 0,
             excludeRoot: Bool = 0,
-            pFindCondition: MutPtr<UiaCondition> = MutPtr(0L),
+            pFindCondition: MutPtr = MutPtr(0L),
         ): UiaFindParams =
             UiaFindParams(
                 maxDepth = maxDepth,
@@ -1605,9 +1603,9 @@ public class UiaFindParams internal constructor(
 
 public class UiaNotCondition internal constructor(
     public var conditionType: ConditionType,
-    pConditionCtorArg: MutPtr<UiaCondition>,
+    pConditionCtorArg: MutPtr,
 ) {
-    public var pCondition: MutPtr<UiaCondition> = pConditionCtorArg
+    public var pCondition: MutPtr = pConditionCtorArg
         internal set
 
     public constructor() : this(
@@ -1617,9 +1615,9 @@ public class UiaNotCondition internal constructor(
 
     public operator fun component1(): ConditionType = this.conditionType
 
-    public operator fun component2(): MutPtr<UiaCondition> = this.pCondition
+    public operator fun component2(): MutPtr = this.pCondition
 
-    public fun copy(conditionType: ConditionType = this.conditionType, pCondition: MutPtr<UiaCondition> = this.pCondition): UiaNotCondition = UiaNotCondition(conditionType = conditionType, pConditionCtorArg = pCondition)
+    public fun copy(conditionType: ConditionType = this.conditionType, pCondition: MutPtr = this.pCondition): UiaNotCondition = UiaNotCondition(conditionType = conditionType, pConditionCtorArg = pCondition)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -1645,21 +1643,21 @@ public class UiaNotCondition internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<UiaCondition>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                     )
                 override fun writeNative(addr: Long, value: UiaNotCondition) {
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr, value.conditionType)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<UiaCondition>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.pCondition)
                 }
             }
 
         public operator fun invoke(
             conditionType: ConditionType = 0,
-            pCondition: MutPtr<UiaCondition> = MutPtr(0L),
+            pCondition: MutPtr = MutPtr(0L),
         ): UiaNotCondition =
             UiaNotCondition(
                 conditionType = conditionType,
@@ -1737,10 +1735,10 @@ public class UiaStructureChangedEventArgs internal constructor(
     public var type: EventArgsType,
     public var eventId: Int,
     public var structureChangeType: StructureChangeType,
-    pRuntimeIdCtorArg: MutPtr<Int>,
+    pRuntimeIdCtorArg: MutPtr,
     public var cRuntimeIdLen: Int,
 ) {
-    public var pRuntimeId: MutPtr<Int> = pRuntimeIdCtorArg
+    public var pRuntimeId: MutPtr = pRuntimeIdCtorArg
         internal set
 
     public constructor() : this(
@@ -1757,11 +1755,11 @@ public class UiaStructureChangedEventArgs internal constructor(
 
     public operator fun component3(): StructureChangeType = this.structureChangeType
 
-    public operator fun component4(): MutPtr<Int> = this.pRuntimeId
+    public operator fun component4(): MutPtr = this.pRuntimeId
 
     public operator fun component5(): Int = this.cRuntimeIdLen
 
-    public fun copy(type: EventArgsType = this.type, eventId: Int = this.eventId, structureChangeType: StructureChangeType = this.structureChangeType, pRuntimeId: MutPtr<Int> = this.pRuntimeId, cRuntimeIdLen: Int = this.cRuntimeIdLen): UiaStructureChangedEventArgs = UiaStructureChangedEventArgs(type = type, eventId = eventId, structureChangeType = structureChangeType, pRuntimeIdCtorArg = pRuntimeId, cRuntimeIdLen = cRuntimeIdLen)
+    public fun copy(type: EventArgsType = this.type, eventId: Int = this.eventId, structureChangeType: StructureChangeType = this.structureChangeType, pRuntimeId: MutPtr = this.pRuntimeId, cRuntimeIdLen: Int = this.cRuntimeIdLen): UiaStructureChangedEventArgs = UiaStructureChangedEventArgs(type = type, eventId = eventId, structureChangeType = structureChangeType, pRuntimeIdCtorArg = pRuntimeId, cRuntimeIdLen = cRuntimeIdLen)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -1795,7 +1793,7 @@ public class UiaStructureChangedEventArgs internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr + 8L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<Int>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 16L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr + 24L),
                     )
@@ -1805,7 +1803,7 @@ public class UiaStructureChangedEventArgs internal constructor(
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr + 8L, value.structureChangeType)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<Int>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 16L, value.pRuntimeId)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr + 24L, value.cRuntimeIdLen)
                 }
@@ -1815,7 +1813,7 @@ public class UiaStructureChangedEventArgs internal constructor(
             type: EventArgsType = 0,
             eventId: Int = 0,
             structureChangeType: StructureChangeType = 0,
-            pRuntimeId: MutPtr<Int> = MutPtr(0L),
+            pRuntimeId: MutPtr = MutPtr(0L),
             cRuntimeIdLen: Int = 0,
         ): UiaStructureChangedEventArgs =
             UiaStructureChangedEventArgs(
@@ -1832,9 +1830,9 @@ public class UiaTextEditTextChangedEventArgs internal constructor(
     public var type: EventArgsType,
     public var eventId: Int,
     public var textEditChangeType: TextEditChangeType,
-    pTextChangeCtorArg: MutPtr<Safearray>,
+    pTextChangeCtorArg: MutPtr,
 ) {
-    public var pTextChange: MutPtr<Safearray> = pTextChangeCtorArg
+    public var pTextChange: MutPtr = pTextChangeCtorArg
         internal set
 
     public constructor() : this(
@@ -1850,9 +1848,9 @@ public class UiaTextEditTextChangedEventArgs internal constructor(
 
     public operator fun component3(): TextEditChangeType = this.textEditChangeType
 
-    public operator fun component4(): MutPtr<Safearray> = this.pTextChange
+    public operator fun component4(): MutPtr = this.pTextChange
 
-    public fun copy(type: EventArgsType = this.type, eventId: Int = this.eventId, textEditChangeType: TextEditChangeType = this.textEditChangeType, pTextChange: MutPtr<Safearray> = this.pTextChange): UiaTextEditTextChangedEventArgs = UiaTextEditTextChangedEventArgs(type = type, eventId = eventId, textEditChangeType = textEditChangeType, pTextChangeCtorArg = pTextChange)
+    public fun copy(type: EventArgsType = this.type, eventId: Int = this.eventId, textEditChangeType: TextEditChangeType = this.textEditChangeType, pTextChange: MutPtr = this.pTextChange): UiaTextEditTextChangedEventArgs = UiaTextEditTextChangedEventArgs(type = type, eventId = eventId, textEditChangeType = textEditChangeType, pTextChangeCtorArg = pTextChange)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -1884,7 +1882,7 @@ public class UiaTextEditTextChangedEventArgs internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr + 8L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<Safearray>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 16L),
                     )
                 override fun writeNative(addr: Long, value: UiaTextEditTextChangedEventArgs) {
@@ -1893,7 +1891,7 @@ public class UiaTextEditTextChangedEventArgs internal constructor(
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr + 8L, value.textEditChangeType)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<Safearray>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 16L, value.pTextChange)
                 }
             }
@@ -1902,7 +1900,7 @@ public class UiaTextEditTextChangedEventArgs internal constructor(
             type: EventArgsType = 0,
             eventId: Int = 0,
             textEditChangeType: TextEditChangeType = 0,
-            pTextChange: MutPtr<Safearray> = MutPtr(0L),
+            pTextChange: MutPtr = MutPtr(0L),
         ): UiaTextEditTextChangedEventArgs =
             UiaTextEditTextChangedEventArgs(
                 type = type,
@@ -1916,10 +1914,10 @@ public class UiaTextEditTextChangedEventArgs internal constructor(
 public class UiaWindowClosedEventArgs internal constructor(
     public var type: EventArgsType,
     public var eventId: Int,
-    pRuntimeIdCtorArg: MutPtr<Int>,
+    pRuntimeIdCtorArg: MutPtr,
     public var cRuntimeIdLen: Int,
 ) {
-    public var pRuntimeId: MutPtr<Int> = pRuntimeIdCtorArg
+    public var pRuntimeId: MutPtr = pRuntimeIdCtorArg
         internal set
 
     public constructor() : this(
@@ -1933,11 +1931,11 @@ public class UiaWindowClosedEventArgs internal constructor(
 
     public operator fun component2(): Int = this.eventId
 
-    public operator fun component3(): MutPtr<Int> = this.pRuntimeId
+    public operator fun component3(): MutPtr = this.pRuntimeId
 
     public operator fun component4(): Int = this.cRuntimeIdLen
 
-    public fun copy(type: EventArgsType = this.type, eventId: Int = this.eventId, pRuntimeId: MutPtr<Int> = this.pRuntimeId, cRuntimeIdLen: Int = this.cRuntimeIdLen): UiaWindowClosedEventArgs = UiaWindowClosedEventArgs(type = type, eventId = eventId, pRuntimeIdCtorArg = pRuntimeId, cRuntimeIdLen = cRuntimeIdLen)
+    public fun copy(type: EventArgsType = this.type, eventId: Int = this.eventId, pRuntimeId: MutPtr = this.pRuntimeId, cRuntimeIdLen: Int = this.cRuntimeIdLen): UiaWindowClosedEventArgs = UiaWindowClosedEventArgs(type = type, eventId = eventId, pRuntimeIdCtorArg = pRuntimeId, cRuntimeIdLen = cRuntimeIdLen)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -1968,7 +1966,7 @@ public class UiaWindowClosedEventArgs internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr + 4L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<Int>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr + 16L),
                     )
@@ -1977,7 +1975,7 @@ public class UiaWindowClosedEventArgs internal constructor(
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr + 4L, value.eventId)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<Int>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.pRuntimeId)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr + 16L, value.cRuntimeIdLen)
                 }
@@ -1986,7 +1984,7 @@ public class UiaWindowClosedEventArgs internal constructor(
         public operator fun invoke(
             type: EventArgsType = 0,
             eventId: Int = 0,
-            pRuntimeId: MutPtr<Int> = MutPtr(0L),
+            pRuntimeId: MutPtr = MutPtr(0L),
             cRuntimeIdLen: Int = 0,
         ): UiaWindowClosedEventArgs =
             UiaWindowClosedEventArgs(

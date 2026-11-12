@@ -2,7 +2,6 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.ui.interactioncontext
 
-import io.github.kotlinmania.rustlang.core.ffi.CVoid
 import io.github.kotlinmania.rustlang.core.ptr.ConstPtr
 import io.github.kotlinmania.rustlang.core.ptr.MutPtr
 import io.github.kotlinmania.windowssys.core.Hresult
@@ -42,40 +41,40 @@ import kotlinx.cinterop.toCPointer
 public actual fun addPointerInteractionContext(interactioncontext: Hinteractioncontext, pointerid: UInt): Hresult =
     windowssysWindowsWin32UiInteractioncontextAddPointerInteractionContext(interactioncontext.rawAddress.toCPointer<ByteVar>(), pointerid)
 
-public actual fun bufferPointerPacketsInteractionContext(interactioncontext: Hinteractioncontext, entriescount: UInt, pointerinfo: ConstPtr<Input.Pointer.PointerInfo>): Hresult =
+public actual fun bufferPointerPacketsInteractionContext(interactioncontext: Hinteractioncontext, entriescount: UInt, pointerinfo: ConstPtr): Hresult =
     windowssysWindowsWin32UiInteractioncontextBufferPointerPacketsInteractionContext(interactioncontext.rawAddress.toCPointer<ByteVar>(), entriescount, pointerinfo.rawAddress.toCPointer<ByteVar>())
 
-public actual fun createInteractionContext(interactioncontext: MutPtr<Hinteractioncontext>): Hresult =
+public actual fun createInteractionContext(interactioncontext: MutPtr): Hresult =
     windowssysWindowsWin32UiInteractioncontextCreateInteractionContext(interactioncontext.rawAddress.toCPointer<ByteVar>())
 
 public actual fun destroyInteractionContext(interactioncontext: Hinteractioncontext): Hresult =
     windowssysWindowsWin32UiInteractioncontextDestroyInteractionContext(interactioncontext.rawAddress.toCPointer<ByteVar>())
 
-public actual fun getCrossSlideParameterInteractionContext(interactioncontext: Hinteractioncontext, threshold: CrossSlideThreshold, distance: MutPtr<Float>): Hresult =
+public actual fun getCrossSlideParameterInteractionContext(interactioncontext: Hinteractioncontext, threshold: CrossSlideThreshold, distance: MutPtr): Hresult =
     windowssysWindowsWin32UiInteractioncontextGetCrossSlideParameterInteractionContext(interactioncontext.rawAddress.toCPointer<ByteVar>(), threshold, distance.rawAddress.toCPointer<ByteVar>())
 
-public actual fun getHoldParameterInteractionContext(interactioncontext: Hinteractioncontext, parameter: HoldParameter, value: MutPtr<Float>): Hresult =
+public actual fun getHoldParameterInteractionContext(interactioncontext: Hinteractioncontext, parameter: HoldParameter, value: MutPtr): Hresult =
     windowssysWindowsWin32UiInteractioncontextGetHoldParameterInteractionContext(interactioncontext.rawAddress.toCPointer<ByteVar>(), parameter, value.rawAddress.toCPointer<ByteVar>())
 
-public actual fun getInertiaParameterInteractionContext(interactioncontext: Hinteractioncontext, inertiaparameter: InertiaParameter, value: MutPtr<Float>): Hresult =
+public actual fun getInertiaParameterInteractionContext(interactioncontext: Hinteractioncontext, inertiaparameter: InertiaParameter, value: MutPtr): Hresult =
     windowssysWindowsWin32UiInteractioncontextGetInertiaParameterInteractionContext(interactioncontext.rawAddress.toCPointer<ByteVar>(), inertiaparameter, value.rawAddress.toCPointer<ByteVar>())
 
-public actual fun getInteractionConfigurationInteractionContext(interactioncontext: Hinteractioncontext, configurationcount: UInt, configuration: MutPtr<InteractionContextConfiguration>): Hresult =
+public actual fun getInteractionConfigurationInteractionContext(interactioncontext: Hinteractioncontext, configurationcount: UInt, configuration: MutPtr): Hresult =
     windowssysWindowsWin32UiInteractioncontextGetInteractionConfigurationInteractionContext(interactioncontext.rawAddress.toCPointer<ByteVar>(), configurationcount, configuration.rawAddress.toCPointer<ByteVar>())
 
-public actual fun getMouseWheelParameterInteractionContext(interactioncontext: Hinteractioncontext, parameter: MouseWheelParameter, value: MutPtr<Float>): Hresult =
+public actual fun getMouseWheelParameterInteractionContext(interactioncontext: Hinteractioncontext, parameter: MouseWheelParameter, value: MutPtr): Hresult =
     windowssysWindowsWin32UiInteractioncontextGetMouseWheelParameterInteractionContext(interactioncontext.rawAddress.toCPointer<ByteVar>(), parameter, value.rawAddress.toCPointer<ByteVar>())
 
-public actual fun getPropertyInteractionContext(interactioncontext: Hinteractioncontext, contextproperty: InteractionContextProperty, value: MutPtr<UInt>): Hresult =
+public actual fun getPropertyInteractionContext(interactioncontext: Hinteractioncontext, contextproperty: InteractionContextProperty, value: MutPtr): Hresult =
     windowssysWindowsWin32UiInteractioncontextGetPropertyInteractionContext(interactioncontext.rawAddress.toCPointer<ByteVar>(), contextproperty, value.rawAddress.toCPointer<ByteVar>())
 
-public actual fun getStateInteractionContext(interactioncontext: Hinteractioncontext, pointerinfo: ConstPtr<Input.Pointer.PointerInfo>, state: MutPtr<InteractionState>): Hresult =
+public actual fun getStateInteractionContext(interactioncontext: Hinteractioncontext, pointerinfo: ConstPtr, state: MutPtr): Hresult =
     windowssysWindowsWin32UiInteractioncontextGetStateInteractionContext(interactioncontext.rawAddress.toCPointer<ByteVar>(), pointerinfo.rawAddress.toCPointer<ByteVar>(), state.rawAddress.toCPointer<ByteVar>())
 
-public actual fun getTapParameterInteractionContext(interactioncontext: Hinteractioncontext, parameter: TapParameter, value: MutPtr<Float>): Hresult =
+public actual fun getTapParameterInteractionContext(interactioncontext: Hinteractioncontext, parameter: TapParameter, value: MutPtr): Hresult =
     windowssysWindowsWin32UiInteractioncontextGetTapParameterInteractionContext(interactioncontext.rawAddress.toCPointer<ByteVar>(), parameter, value.rawAddress.toCPointer<ByteVar>())
 
-public actual fun getTranslationParameterInteractionContext(interactioncontext: Hinteractioncontext, parameter: TranslationParameter, value: MutPtr<Float>): Hresult =
+public actual fun getTranslationParameterInteractionContext(interactioncontext: Hinteractioncontext, parameter: TranslationParameter, value: MutPtr): Hresult =
     windowssysWindowsWin32UiInteractioncontextGetTranslationParameterInteractionContext(interactioncontext.rawAddress.toCPointer<ByteVar>(), parameter, value.rawAddress.toCPointer<ByteVar>())
 
 public actual fun processBufferedPacketsInteractionContext(interactioncontext: Hinteractioncontext): Hresult =
@@ -84,13 +83,13 @@ public actual fun processBufferedPacketsInteractionContext(interactioncontext: H
 public actual fun processInertiaInteractionContext(interactioncontext: Hinteractioncontext): Hresult =
     windowssysWindowsWin32UiInteractioncontextProcessInertiaInteractionContext(interactioncontext.rawAddress.toCPointer<ByteVar>())
 
-public actual fun processPointerFramesInteractionContext(interactioncontext: Hinteractioncontext, entriescount: UInt, pointercount: UInt, pointerinfo: ConstPtr<Input.Pointer.PointerInfo>): Hresult =
+public actual fun processPointerFramesInteractionContext(interactioncontext: Hinteractioncontext, entriescount: UInt, pointercount: UInt, pointerinfo: ConstPtr): Hresult =
     windowssysWindowsWin32UiInteractioncontextProcessPointerFramesInteractionContext(interactioncontext.rawAddress.toCPointer<ByteVar>(), entriescount, pointercount, pointerinfo.rawAddress.toCPointer<ByteVar>())
 
-public actual fun registerOutputCallbackInteractionContext(interactioncontext: Hinteractioncontext, outputcallback: InteractionContextOutputCallback, clientdata: ConstPtr<CVoid>): Hresult =
+public actual fun registerOutputCallbackInteractionContext(interactioncontext: Hinteractioncontext, outputcallback: InteractionContextOutputCallback, clientdata: ConstPtr): Hresult =
     windowssysWindowsWin32UiInteractioncontextRegisterOutputCallbackInteractionContext(interactioncontext.rawAddress.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>(), clientdata.rawAddress.toCPointer<ByteVar>())
 
-public actual fun registerOutputCallbackInteractionContext2(interactioncontext: Hinteractioncontext, outputcallback: InteractionContextOutputCallback2, clientdata: ConstPtr<CVoid>): Hresult =
+public actual fun registerOutputCallbackInteractionContext2(interactioncontext: Hinteractioncontext, outputcallback: InteractionContextOutputCallback2, clientdata: ConstPtr): Hresult =
     windowssysWindowsWin32UiInteractioncontextRegisterOutputCallbackInteractionContext2(interactioncontext.rawAddress.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>(), clientdata.rawAddress.toCPointer<ByteVar>())
 
 public actual fun removePointerInteractionContext(interactioncontext: Hinteractioncontext, pointerid: UInt): Hresult =
@@ -99,7 +98,7 @@ public actual fun removePointerInteractionContext(interactioncontext: Hinteracti
 public actual fun resetInteractionContext(interactioncontext: Hinteractioncontext): Hresult =
     windowssysWindowsWin32UiInteractioncontextResetInteractionContext(interactioncontext.rawAddress.toCPointer<ByteVar>())
 
-public actual fun setCrossSlideParametersInteractionContext(interactioncontext: Hinteractioncontext, parametercount: UInt, crossslideparameters: ConstPtr<CrossSlideParameter>): Hresult =
+public actual fun setCrossSlideParametersInteractionContext(interactioncontext: Hinteractioncontext, parametercount: UInt, crossslideparameters: ConstPtr): Hresult =
     windowssysWindowsWin32UiInteractioncontextSetCrossSlideParametersInteractionContext(interactioncontext.rawAddress.toCPointer<ByteVar>(), parametercount, crossslideparameters.rawAddress.toCPointer<ByteVar>())
 
 public actual fun setHoldParameterInteractionContext(interactioncontext: Hinteractioncontext, parameter: HoldParameter, value: Float): Hresult =
@@ -108,7 +107,7 @@ public actual fun setHoldParameterInteractionContext(interactioncontext: Hintera
 public actual fun setInertiaParameterInteractionContext(interactioncontext: Hinteractioncontext, inertiaparameter: InertiaParameter, value: Float): Hresult =
     windowssysWindowsWin32UiInteractioncontextSetInertiaParameterInteractionContext(interactioncontext.rawAddress.toCPointer<ByteVar>(), inertiaparameter, value)
 
-public actual fun setInteractionConfigurationInteractionContext(interactioncontext: Hinteractioncontext, configurationcount: UInt, configuration: ConstPtr<InteractionContextConfiguration>): Hresult =
+public actual fun setInteractionConfigurationInteractionContext(interactioncontext: Hinteractioncontext, configurationcount: UInt, configuration: ConstPtr): Hresult =
     windowssysWindowsWin32UiInteractioncontextSetInteractionConfigurationInteractionContext(interactioncontext.rawAddress.toCPointer<ByteVar>(), configurationcount, configuration.rawAddress.toCPointer<ByteVar>())
 
 public actual fun setMouseWheelParameterInteractionContext(interactioncontext: Hinteractioncontext, parameter: MouseWheelParameter, value: Float): Hresult =

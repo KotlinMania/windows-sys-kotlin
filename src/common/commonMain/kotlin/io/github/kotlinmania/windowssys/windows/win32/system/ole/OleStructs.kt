@@ -2,7 +2,6 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.system.ole
 
-import io.github.kotlinmania.rustlang.core.ffi.CVoid
 import io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
 import io.github.kotlinmania.rustlang.core.mem.TypeLayout
 import io.github.kotlinmania.rustlang.core.ptr.ConstPtr
@@ -32,17 +31,12 @@ import io.github.kotlinmania.windowssys.windows.win32.system.com.ByteSizedarr
 import io.github.kotlinmania.windowssys.windows.win32.system.com.CY
 import io.github.kotlinmania.windowssys.windows.win32.system.com.Callconv
 import io.github.kotlinmania.windowssys.windows.win32.system.com.DwordSizedarr
-import io.github.kotlinmania.windowssys.windows.win32.system.com.FlaggedWordBlob
 import io.github.kotlinmania.windowssys.windows.win32.system.com.Formatetc
 import io.github.kotlinmania.windowssys.windows.win32.system.com.HyperSizedarr
 import io.github.kotlinmania.windowssys.windows.win32.system.com.Safearraybound
 import io.github.kotlinmania.windowssys.windows.win32.system.com.Typedesc
 import io.github.kotlinmania.windowssys.windows.win32.system.com.WordSizedarr
 import io.github.kotlinmania.windowssys.windows.win32.system.variant.Variant
-import io.github.kotlinmania.windowssys.windows.win32.ui.controls.PropsheetheaderaV2
-import io.github.kotlinmania.windowssys.windows.win32.ui.controls.PropsheetheaderwV2
-import io.github.kotlinmania.windowssys.windows.win32.ui.controls.dialogs.Openfilenamea
-import io.github.kotlinmania.windowssys.windows.win32.ui.controls.dialogs.Openfilenamew
 import io.github.kotlinmania.windowssys.windows.win32.ui.windowsandmessaging.Haccel
 import io.github.kotlinmania.windowssys.windows.win32.ui.windowsandmessaging.Hicon
 import io.github.kotlinmania.windowssys.windows.win32.ui.windowsandmessaging.MenuItemFlags
@@ -55,9 +49,9 @@ public data class Arraydesc(
 
 public class Cadword internal constructor(
     public var cElems: UInt,
-    pElemsCtorArg: MutPtr<UInt>,
+    pElemsCtorArg: MutPtr,
 ) {
-    public var pElems: MutPtr<UInt> = pElemsCtorArg
+    public var pElems: MutPtr = pElemsCtorArg
         internal set
 
     public constructor() : this(
@@ -67,9 +61,9 @@ public class Cadword internal constructor(
 
     public operator fun component1(): UInt = this.cElems
 
-    public operator fun component2(): MutPtr<UInt> = this.pElems
+    public operator fun component2(): MutPtr = this.pElems
 
-    public fun copy(cElems: UInt = this.cElems, pElems: MutPtr<UInt> = this.pElems): Cadword = Cadword(cElems = cElems, pElemsCtorArg = pElems)
+    public fun copy(cElems: UInt = this.cElems, pElems: MutPtr = this.pElems): Cadword = Cadword(cElems = cElems, pElemsCtorArg = pElems)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -95,21 +89,21 @@ public class Cadword internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<UInt>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                     )
                 override fun writeNative(addr: Long, value: Cadword) {
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr, value.cElems)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<UInt>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.pElems)
                 }
             }
 
         public operator fun invoke(
             cElems: UInt = 0u,
-            pElems: MutPtr<UInt> = MutPtr(0L),
+            pElems: MutPtr = MutPtr(0L),
         ): Cadword =
             Cadword(
                 cElems = cElems,
@@ -120,9 +114,9 @@ public class Cadword internal constructor(
 
 public class Calpolestr internal constructor(
     public var cElems: UInt,
-    pElemsCtorArg: MutPtr<Pwstr>,
+    pElemsCtorArg: MutPtr,
 ) {
-    public var pElems: MutPtr<Pwstr> = pElemsCtorArg
+    public var pElems: MutPtr = pElemsCtorArg
         internal set
 
     public constructor() : this(
@@ -132,9 +126,9 @@ public class Calpolestr internal constructor(
 
     public operator fun component1(): UInt = this.cElems
 
-    public operator fun component2(): MutPtr<Pwstr> = this.pElems
+    public operator fun component2(): MutPtr = this.pElems
 
-    public fun copy(cElems: UInt = this.cElems, pElems: MutPtr<Pwstr> = this.pElems): Calpolestr = Calpolestr(cElems = cElems, pElemsCtorArg = pElems)
+    public fun copy(cElems: UInt = this.cElems, pElems: MutPtr = this.pElems): Calpolestr = Calpolestr(cElems = cElems, pElemsCtorArg = pElems)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -160,21 +154,21 @@ public class Calpolestr internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<Pwstr>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                     )
                 override fun writeNative(addr: Long, value: Calpolestr) {
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr, value.cElems)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<Pwstr>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.pElems)
                 }
             }
 
         public operator fun invoke(
             cElems: UInt = 0u,
-            pElems: MutPtr<Pwstr> = MutPtr(0L),
+            pElems: MutPtr = MutPtr(0L),
         ): Calpolestr =
             Calpolestr(
                 cElems = cElems,
@@ -185,9 +179,9 @@ public class Calpolestr internal constructor(
 
 public class Cauuid internal constructor(
     public var cElems: UInt,
-    pElemsCtorArg: MutPtr<Guid>,
+    pElemsCtorArg: MutPtr,
 ) {
-    public var pElems: MutPtr<Guid> = pElemsCtorArg
+    public var pElems: MutPtr = pElemsCtorArg
         internal set
 
     public constructor() : this(
@@ -197,9 +191,9 @@ public class Cauuid internal constructor(
 
     public operator fun component1(): UInt = this.cElems
 
-    public operator fun component2(): MutPtr<Guid> = this.pElems
+    public operator fun component2(): MutPtr = this.pElems
 
-    public fun copy(cElems: UInt = this.cElems, pElems: MutPtr<Guid> = this.pElems): Cauuid = Cauuid(cElems = cElems, pElemsCtorArg = pElems)
+    public fun copy(cElems: UInt = this.cElems, pElems: MutPtr = this.pElems): Cauuid = Cauuid(cElems = cElems, pElemsCtorArg = pElems)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -225,21 +219,21 @@ public class Cauuid internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<Guid>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                     )
                 override fun writeNative(addr: Long, value: Cauuid) {
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr, value.cElems)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<Guid>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.pElems)
                 }
             }
 
         public operator fun invoke(
             cElems: UInt = 0u,
-            pElems: MutPtr<Guid> = MutPtr(0L),
+            pElems: MutPtr = MutPtr(0L),
         ): Cauuid =
             Cauuid(
                 cElems = cElems,
@@ -249,14 +243,14 @@ public class Cauuid internal constructor(
 }
 
 public class Cleanlocalstorage internal constructor(
-    pInterfaceCtorArg: MutPtr<CVoid>,
-    pStorageCtorArg: MutPtr<CVoid>,
+    pInterfaceCtorArg: MutPtr,
+    pStorageCtorArg: MutPtr,
     public var flags: UInt,
 ) {
-    public var pInterface: MutPtr<CVoid> = pInterfaceCtorArg
+    public var pInterface: MutPtr = pInterfaceCtorArg
         internal set
 
-    public var pStorage: MutPtr<CVoid> = pStorageCtorArg
+    public var pStorage: MutPtr = pStorageCtorArg
         internal set
 
     public constructor() : this(
@@ -265,13 +259,13 @@ public class Cleanlocalstorage internal constructor(
         flags = 0u,
     )
 
-    public operator fun component1(): MutPtr<CVoid> = this.pInterface
+    public operator fun component1(): MutPtr = this.pInterface
 
-    public operator fun component2(): MutPtr<CVoid> = this.pStorage
+    public operator fun component2(): MutPtr = this.pStorage
 
     public operator fun component3(): UInt = this.flags
 
-    public fun copy(pInterface: MutPtr<CVoid> = this.pInterface, pStorage: MutPtr<CVoid> = this.pStorage, flags: UInt = this.flags): Cleanlocalstorage = Cleanlocalstorage(pInterfaceCtorArg = pInterface, pStorageCtorArg = pStorage, flags = flags)
+    public fun copy(pInterface: MutPtr = this.pInterface, pStorage: MutPtr = this.pStorage, flags: UInt = this.flags): Cleanlocalstorage = Cleanlocalstorage(pInterfaceCtorArg = pInterface, pStorageCtorArg = pStorage, flags = flags)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -298,30 +292,30 @@ public class Cleanlocalstorage internal constructor(
                     Cleanlocalstorage(
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<CVoid>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<CVoid>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 16L),
                     )
                 override fun writeNative(addr: Long, value: Cleanlocalstorage) {
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<CVoid>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr, value.pInterface)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<CVoid>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.pStorage)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 16L, value.flags)
                 }
             }
 
         public operator fun invoke(
-            pInterface: MutPtr<CVoid> = MutPtr(0L),
-            pStorage: MutPtr<CVoid> = MutPtr(0L),
+            pInterface: MutPtr = MutPtr(0L),
+            pStorage: MutPtr = MutPtr(0L),
             flags: UInt = 0u,
         ): Cleanlocalstorage =
             Cleanlocalstorage(
@@ -513,10 +507,10 @@ public class Fontdesc internal constructor(
 }
 
 public class Interfacedata internal constructor(
-    pmethdataCtorArg: MutPtr<Methoddata>,
+    pmethdataCtorArg: MutPtr,
     public var cMembers: UInt,
 ) {
-    public var pmethdata: MutPtr<Methoddata> = pmethdataCtorArg
+    public var pmethdata: MutPtr = pmethdataCtorArg
         internal set
 
     public constructor() : this(
@@ -524,11 +518,11 @@ public class Interfacedata internal constructor(
         cMembers = 0u,
     )
 
-    public operator fun component1(): MutPtr<Methoddata> = this.pmethdata
+    public operator fun component1(): MutPtr = this.pmethdata
 
     public operator fun component2(): UInt = this.cMembers
 
-    public fun copy(pmethdata: MutPtr<Methoddata> = this.pmethdata, cMembers: UInt = this.cMembers): Interfacedata = Interfacedata(pmethdataCtorArg = pmethdata, cMembers = cMembers)
+    public fun copy(pmethdata: MutPtr = this.pmethdata, cMembers: UInt = this.cMembers): Interfacedata = Interfacedata(pmethdataCtorArg = pmethdata, cMembers = cMembers)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -553,21 +547,21 @@ public class Interfacedata internal constructor(
                     Interfacedata(
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<Methoddata>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 8L),
                     )
                 override fun writeNative(addr: Long, value: Interfacedata) {
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<Methoddata>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr, value.pmethdata)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 8L, value.cMembers)
                 }
             }
 
         public operator fun invoke(
-            pmethdata: MutPtr<Methoddata> = MutPtr(0L),
+            pmethdata: MutPtr = MutPtr(0L),
             cMembers: UInt = 0u,
         ): Interfacedata =
             Interfacedata(
@@ -604,7 +598,7 @@ public data class Licinfo(
 
 public class Methoddata internal constructor(
     szNameCtorArg: Pwstr,
-    ppdataCtorArg: MutPtr<Paramdata>,
+    ppdataCtorArg: MutPtr,
     public var dispid: Int,
     public var iMeth: UInt,
     public var cc: Callconv,
@@ -615,7 +609,7 @@ public class Methoddata internal constructor(
     public var szName: Pwstr = szNameCtorArg
         internal set
 
-    public var ppdata: MutPtr<Paramdata> = ppdataCtorArg
+    public var ppdata: MutPtr = ppdataCtorArg
         internal set
 
     public constructor() : this(
@@ -631,7 +625,7 @@ public class Methoddata internal constructor(
 
     public operator fun component1(): Pwstr = this.szName
 
-    public operator fun component2(): MutPtr<Paramdata> = this.ppdata
+    public operator fun component2(): MutPtr = this.ppdata
 
     public operator fun component3(): Int = this.dispid
 
@@ -645,7 +639,7 @@ public class Methoddata internal constructor(
 
     public operator fun component8(): Variant.Varenum = this.vtReturn
 
-    public fun copy(szName: Pwstr = this.szName, ppdata: MutPtr<Paramdata> = this.ppdata, dispid: Int = this.dispid, iMeth: UInt = this.iMeth, cc: Callconv = this.cc, cArgs: UInt = this.cArgs, wFlags: UShort = this.wFlags, vtReturn: Variant.Varenum = this.vtReturn): Methoddata = Methoddata(szNameCtorArg = szName, ppdataCtorArg = ppdata, dispid = dispid, iMeth = iMeth, cc = cc, cArgs = cArgs, wFlags = wFlags, vtReturn = vtReturn)
+    public fun copy(szName: Pwstr = this.szName, ppdata: MutPtr = this.ppdata, dispid: Int = this.dispid, iMeth: UInt = this.iMeth, cc: Callconv = this.cc, cArgs: UInt = this.cArgs, wFlags: UShort = this.wFlags, vtReturn: Variant.Varenum = this.vtReturn): Methoddata = Methoddata(szNameCtorArg = szName, ppdataCtorArg = ppdata, dispid = dispid, iMeth = iMeth, cc = cc, cArgs = cArgs, wFlags = wFlags, vtReturn = vtReturn)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -676,7 +670,7 @@ public class Methoddata internal constructor(
     public companion object {
         public operator fun invoke(
             szName: Pwstr = MutPtr(0L),
-            ppdata: MutPtr<Paramdata> = MutPtr(0L),
+            ppdata: MutPtr = MutPtr(0L),
             dispid: Int = 0,
             iMeth: UInt = 0u,
             cc: Callconv = 0,
@@ -749,9 +743,9 @@ public class Ocpfiparams internal constructor(
     public var y: Int,
     lpszCaptionCtorArg: Pcwstr,
     public var cObjects: UInt,
-    lplpUnkCtorArg: MutPtr<MutPtr<CVoid>>,
+    lplpUnkCtorArg: MutPtr,
     public var cPages: UInt,
-    lpPagesCtorArg: MutPtr<Guid>,
+    lpPagesCtorArg: MutPtr,
     public var lcid: UInt,
     public var dispidInitialProperty: Int,
 ) {
@@ -761,10 +755,10 @@ public class Ocpfiparams internal constructor(
     public var lpszCaption: Pcwstr = lpszCaptionCtorArg
         internal set
 
-    public var lplpUnk: MutPtr<MutPtr<CVoid>> = lplpUnkCtorArg
+    public var lplpUnk: MutPtr = lplpUnkCtorArg
         internal set
 
-    public var lpPages: MutPtr<Guid> = lpPagesCtorArg
+    public var lpPages: MutPtr = lpPagesCtorArg
         internal set
 
     public constructor() : this(
@@ -793,17 +787,17 @@ public class Ocpfiparams internal constructor(
 
     public operator fun component6(): UInt = this.cObjects
 
-    public operator fun component7(): MutPtr<MutPtr<CVoid>> = this.lplpUnk
+    public operator fun component7(): MutPtr = this.lplpUnk
 
     public operator fun component8(): UInt = this.cPages
 
-    public operator fun component9(): MutPtr<Guid> = this.lpPages
+    public operator fun component9(): MutPtr = this.lpPages
 
     public operator fun component10(): UInt = this.lcid
 
     public operator fun component11(): Int = this.dispidInitialProperty
 
-    public fun copy(cbStructSize: UInt = this.cbStructSize, hWndOwner: Hwnd = this.hWndOwner, x: Int = this.x, y: Int = this.y, lpszCaption: Pcwstr = this.lpszCaption, cObjects: UInt = this.cObjects, lplpUnk: MutPtr<MutPtr<CVoid>> = this.lplpUnk, cPages: UInt = this.cPages, lpPages: MutPtr<Guid> = this.lpPages, lcid: UInt = this.lcid, dispidInitialProperty: Int = this.dispidInitialProperty): Ocpfiparams = Ocpfiparams(cbStructSize = cbStructSize, hWndOwnerCtorArg = hWndOwner, x = x, y = y, lpszCaptionCtorArg = lpszCaption, cObjects = cObjects, lplpUnkCtorArg = lplpUnk, cPages = cPages, lpPagesCtorArg = lpPages, lcid = lcid, dispidInitialProperty = dispidInitialProperty)
+    public fun copy(cbStructSize: UInt = this.cbStructSize, hWndOwner: Hwnd = this.hWndOwner, x: Int = this.x, y: Int = this.y, lpszCaption: Pcwstr = this.lpszCaption, cObjects: UInt = this.cObjects, lplpUnk: MutPtr = this.lplpUnk, cPages: UInt = this.cPages, lpPages: MutPtr = this.lpPages, lcid: UInt = this.lcid, dispidInitialProperty: Int = this.dispidInitialProperty): Ocpfiparams = Ocpfiparams(cbStructSize = cbStructSize, hWndOwnerCtorArg = hWndOwner, x = x, y = y, lpszCaptionCtorArg = lpszCaption, cObjects = cObjects, lplpUnkCtorArg = lplpUnk, cPages = cPages, lpPagesCtorArg = lpPages, lcid = lcid, dispidInitialProperty = dispidInitialProperty)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -845,9 +839,9 @@ public class Ocpfiparams internal constructor(
             y: Int = 0,
             lpszCaption: Pcwstr = ConstPtr(0L),
             cObjects: UInt = 0u,
-            lplpUnk: MutPtr<MutPtr<CVoid>> = MutPtr(0L),
+            lplpUnk: MutPtr = MutPtr(0L),
             cPages: UInt = 0u,
-            lpPages: MutPtr<Guid> = MutPtr(0L),
+            lpPages: MutPtr = MutPtr(0L),
             lcid: UInt = 0u,
             dispidInitialProperty: Int = 0,
         ): Ocpfiparams =
@@ -1057,7 +1051,7 @@ public class Oleuibusya internal constructor(
     lpszTemplateCtorArg: Pcstr,
     hResourceCtorArg: Hrsrc,
     hTaskCtorArg: Htask,
-    lphWndDialogCtorArg: MutPtr<Hwnd>,
+    lphWndDialogCtorArg: MutPtr,
 ) {
     public var hWndOwner: Hwnd = hWndOwnerCtorArg
         internal set
@@ -1077,7 +1071,7 @@ public class Oleuibusya internal constructor(
     public var hTask: Htask = hTaskCtorArg
         internal set
 
-    public var lphWndDialog: MutPtr<Hwnd> = lphWndDialogCtorArg
+    public var lphWndDialog: MutPtr = lphWndDialogCtorArg
         internal set
 
     public constructor() : this(
@@ -1114,9 +1108,9 @@ public class Oleuibusya internal constructor(
 
     public operator fun component10(): Htask = this.hTask
 
-    public operator fun component11(): MutPtr<Hwnd> = this.lphWndDialog
+    public operator fun component11(): MutPtr = this.lphWndDialog
 
-    public fun copy(cbStruct: UInt = this.cbStruct, dwFlags: BusyDialogFlags = this.dwFlags, hWndOwner: Hwnd = this.hWndOwner, lpszCaption: Pcstr = this.lpszCaption, lpfnHook: Lpfnoleuihook = this.lpfnHook, lCustData: Lparam = this.lCustData, hInstance: Hinstance = this.hInstance, lpszTemplate: Pcstr = this.lpszTemplate, hResource: Hrsrc = this.hResource, hTask: Htask = this.hTask, lphWndDialog: MutPtr<Hwnd> = this.lphWndDialog): Oleuibusya = Oleuibusya(cbStruct = cbStruct, dwFlags = dwFlags, hWndOwnerCtorArg = hWndOwner, lpszCaptionCtorArg = lpszCaption, lpfnHook = lpfnHook, lCustData = lCustData, hInstanceCtorArg = hInstance, lpszTemplateCtorArg = lpszTemplate, hResourceCtorArg = hResource, hTaskCtorArg = hTask, lphWndDialogCtorArg = lphWndDialog)
+    public fun copy(cbStruct: UInt = this.cbStruct, dwFlags: BusyDialogFlags = this.dwFlags, hWndOwner: Hwnd = this.hWndOwner, lpszCaption: Pcstr = this.lpszCaption, lpfnHook: Lpfnoleuihook = this.lpfnHook, lCustData: Lparam = this.lCustData, hInstance: Hinstance = this.hInstance, lpszTemplate: Pcstr = this.lpszTemplate, hResource: Hrsrc = this.hResource, hTask: Htask = this.hTask, lphWndDialog: MutPtr = this.lphWndDialog): Oleuibusya = Oleuibusya(cbStruct = cbStruct, dwFlags = dwFlags, hWndOwnerCtorArg = hWndOwner, lpszCaptionCtorArg = lpszCaption, lpfnHook = lpfnHook, lCustData = lCustData, hInstanceCtorArg = hInstance, lpszTemplateCtorArg = lpszTemplate, hResourceCtorArg = hResource, hTaskCtorArg = hTask, lphWndDialogCtorArg = lphWndDialog)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -1162,7 +1156,7 @@ public class Oleuibusya internal constructor(
             lpszTemplate: Pcstr = ConstPtr(0L),
             hResource: Hrsrc = MutPtr(0L),
             hTask: Htask = MutPtr(0L),
-            lphWndDialog: MutPtr<Hwnd> = MutPtr(0L),
+            lphWndDialog: MutPtr = MutPtr(0L),
         ): Oleuibusya =
             Oleuibusya(
                 cbStruct = cbStruct,
@@ -1191,7 +1185,7 @@ public class Oleuibusyw internal constructor(
     lpszTemplateCtorArg: Pcwstr,
     hResourceCtorArg: Hrsrc,
     hTaskCtorArg: Htask,
-    lphWndDialogCtorArg: MutPtr<Hwnd>,
+    lphWndDialogCtorArg: MutPtr,
 ) {
     public var hWndOwner: Hwnd = hWndOwnerCtorArg
         internal set
@@ -1211,7 +1205,7 @@ public class Oleuibusyw internal constructor(
     public var hTask: Htask = hTaskCtorArg
         internal set
 
-    public var lphWndDialog: MutPtr<Hwnd> = lphWndDialogCtorArg
+    public var lphWndDialog: MutPtr = lphWndDialogCtorArg
         internal set
 
     public constructor() : this(
@@ -1248,9 +1242,9 @@ public class Oleuibusyw internal constructor(
 
     public operator fun component10(): Htask = this.hTask
 
-    public operator fun component11(): MutPtr<Hwnd> = this.lphWndDialog
+    public operator fun component11(): MutPtr = this.lphWndDialog
 
-    public fun copy(cbStruct: UInt = this.cbStruct, dwFlags: BusyDialogFlags = this.dwFlags, hWndOwner: Hwnd = this.hWndOwner, lpszCaption: Pcwstr = this.lpszCaption, lpfnHook: Lpfnoleuihook = this.lpfnHook, lCustData: Lparam = this.lCustData, hInstance: Hinstance = this.hInstance, lpszTemplate: Pcwstr = this.lpszTemplate, hResource: Hrsrc = this.hResource, hTask: Htask = this.hTask, lphWndDialog: MutPtr<Hwnd> = this.lphWndDialog): Oleuibusyw = Oleuibusyw(cbStruct = cbStruct, dwFlags = dwFlags, hWndOwnerCtorArg = hWndOwner, lpszCaptionCtorArg = lpszCaption, lpfnHook = lpfnHook, lCustData = lCustData, hInstanceCtorArg = hInstance, lpszTemplateCtorArg = lpszTemplate, hResourceCtorArg = hResource, hTaskCtorArg = hTask, lphWndDialogCtorArg = lphWndDialog)
+    public fun copy(cbStruct: UInt = this.cbStruct, dwFlags: BusyDialogFlags = this.dwFlags, hWndOwner: Hwnd = this.hWndOwner, lpszCaption: Pcwstr = this.lpszCaption, lpfnHook: Lpfnoleuihook = this.lpfnHook, lCustData: Lparam = this.lCustData, hInstance: Hinstance = this.hInstance, lpszTemplate: Pcwstr = this.lpszTemplate, hResource: Hrsrc = this.hResource, hTask: Htask = this.hTask, lphWndDialog: MutPtr = this.lphWndDialog): Oleuibusyw = Oleuibusyw(cbStruct = cbStruct, dwFlags = dwFlags, hWndOwnerCtorArg = hWndOwner, lpszCaptionCtorArg = lpszCaption, lpfnHook = lpfnHook, lCustData = lCustData, hInstanceCtorArg = hInstance, lpszTemplateCtorArg = lpszTemplate, hResourceCtorArg = hResource, hTaskCtorArg = hTask, lphWndDialogCtorArg = lphWndDialog)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -1296,7 +1290,7 @@ public class Oleuibusyw internal constructor(
             lpszTemplate: Pcwstr = ConstPtr(0L),
             hResource: Hrsrc = MutPtr(0L),
             hTask: Htask = MutPtr(0L),
-            lphWndDialog: MutPtr<Hwnd> = MutPtr(0L),
+            lphWndDialog: MutPtr = MutPtr(0L),
         ): Oleuibusyw =
             Oleuibusyw(
                 cbStruct = cbStruct,
@@ -1618,9 +1612,9 @@ public class Oleuichangesourcea internal constructor(
     hInstanceCtorArg: Hinstance,
     lpszTemplateCtorArg: Pcstr,
     hResourceCtorArg: Hrsrc,
-    lpOFNCtorArg: MutPtr<Openfilenamea>,
+    lpOFNCtorArg: MutPtr,
     public var dwReserved1: UIntArray,
-    lpOleUILinkContainerCtorArg: MutPtr<CVoid>,
+    lpOleUILinkContainerCtorArg: MutPtr,
     public var dwLink: UInt,
     lpszDisplayNameCtorArg: Pstr,
     public var nFileLength: UInt,
@@ -1642,10 +1636,10 @@ public class Oleuichangesourcea internal constructor(
     public var hResource: Hrsrc = hResourceCtorArg
         internal set
 
-    public var lpOFN: MutPtr<Openfilenamea> = lpOFNCtorArg
+    public var lpOFN: MutPtr = lpOFNCtorArg
         internal set
 
-    public var lpOleUILinkContainer: MutPtr<CVoid> = lpOleUILinkContainerCtorArg
+    public var lpOleUILinkContainer: MutPtr = lpOleUILinkContainerCtorArg
         internal set
 
     public var lpszDisplayName: Pstr = lpszDisplayNameCtorArg
@@ -1688,9 +1682,9 @@ public class Oleuichangesourcea internal constructor(
             hInstance: Hinstance = MutPtr(0L),
             lpszTemplate: Pcstr = ConstPtr(0L),
             hResource: Hrsrc = MutPtr(0L),
-            lpOFN: MutPtr<Openfilenamea> = MutPtr(0L),
+            lpOFN: MutPtr = MutPtr(0L),
             dwReserved1: UIntArray = UIntArray(4),
-            lpOleUILinkContainer: MutPtr<CVoid> = MutPtr(0L),
+            lpOleUILinkContainer: MutPtr = MutPtr(0L),
             dwLink: UInt = 0u,
             lpszDisplayName: Pstr = MutPtr(0L),
             nFileLength: UInt = 0u,
@@ -1729,9 +1723,9 @@ public class Oleuichangesourcew internal constructor(
     hInstanceCtorArg: Hinstance,
     lpszTemplateCtorArg: Pcwstr,
     hResourceCtorArg: Hrsrc,
-    lpOFNCtorArg: MutPtr<Openfilenamew>,
+    lpOFNCtorArg: MutPtr,
     public var dwReserved1: UIntArray,
-    lpOleUILinkContainerCtorArg: MutPtr<CVoid>,
+    lpOleUILinkContainerCtorArg: MutPtr,
     public var dwLink: UInt,
     lpszDisplayNameCtorArg: Pwstr,
     public var nFileLength: UInt,
@@ -1753,10 +1747,10 @@ public class Oleuichangesourcew internal constructor(
     public var hResource: Hrsrc = hResourceCtorArg
         internal set
 
-    public var lpOFN: MutPtr<Openfilenamew> = lpOFNCtorArg
+    public var lpOFN: MutPtr = lpOFNCtorArg
         internal set
 
-    public var lpOleUILinkContainer: MutPtr<CVoid> = lpOleUILinkContainerCtorArg
+    public var lpOleUILinkContainer: MutPtr = lpOleUILinkContainerCtorArg
         internal set
 
     public var lpszDisplayName: Pwstr = lpszDisplayNameCtorArg
@@ -1799,9 +1793,9 @@ public class Oleuichangesourcew internal constructor(
             hInstance: Hinstance = MutPtr(0L),
             lpszTemplate: Pcwstr = ConstPtr(0L),
             hResource: Hrsrc = MutPtr(0L),
-            lpOFN: MutPtr<Openfilenamew> = MutPtr(0L),
+            lpOFN: MutPtr = MutPtr(0L),
             dwReserved1: UIntArray = UIntArray(4),
-            lpOleUILinkContainer: MutPtr<CVoid> = MutPtr(0L),
+            lpOleUILinkContainer: MutPtr = MutPtr(0L),
             dwLink: UInt = 0u,
             lpszDisplayName: Pwstr = MutPtr(0L),
             nFileLength: UInt = 0u,
@@ -1852,7 +1846,7 @@ public class Oleuiconverta internal constructor(
     public var fObjectsIconChanged: Bool,
     lpszDefLabelCtorArg: Pstr,
     public var cClsidExclude: UInt,
-    lpClsidExcludeCtorArg: MutPtr<Guid>,
+    lpClsidExcludeCtorArg: MutPtr,
 ) {
     public var hWndOwner: Hwnd = hWndOwnerCtorArg
         internal set
@@ -1878,7 +1872,7 @@ public class Oleuiconverta internal constructor(
     public var lpszDefLabel: Pstr = lpszDefLabelCtorArg
         internal set
 
-    public var lpClsidExclude: MutPtr<Guid> = lpClsidExcludeCtorArg
+    public var lpClsidExclude: MutPtr = lpClsidExcludeCtorArg
         internal set
 
     public constructor() : this(
@@ -1929,7 +1923,7 @@ public class Oleuiconverta internal constructor(
             fObjectsIconChanged: Bool = 0,
             lpszDefLabel: Pstr = MutPtr(0L),
             cClsidExclude: UInt = 0u,
-            lpClsidExclude: MutPtr<Guid> = MutPtr(0L),
+            lpClsidExclude: MutPtr = MutPtr(0L),
         ): Oleuiconverta =
             Oleuiconverta(
                 cbStruct = cbStruct,
@@ -1980,7 +1974,7 @@ public class Oleuiconvertw internal constructor(
     public var fObjectsIconChanged: Bool,
     lpszDefLabelCtorArg: Pwstr,
     public var cClsidExclude: UInt,
-    lpClsidExcludeCtorArg: MutPtr<Guid>,
+    lpClsidExcludeCtorArg: MutPtr,
 ) {
     public var hWndOwner: Hwnd = hWndOwnerCtorArg
         internal set
@@ -2006,7 +2000,7 @@ public class Oleuiconvertw internal constructor(
     public var lpszDefLabel: Pwstr = lpszDefLabelCtorArg
         internal set
 
-    public var lpClsidExclude: MutPtr<Guid> = lpClsidExcludeCtorArg
+    public var lpClsidExclude: MutPtr = lpClsidExcludeCtorArg
         internal set
 
     public constructor() : this(
@@ -2057,7 +2051,7 @@ public class Oleuiconvertw internal constructor(
             fObjectsIconChanged: Bool = 0,
             lpszDefLabel: Pwstr = MutPtr(0L),
             cClsidExclude: UInt = 0u,
-            lpClsidExclude: MutPtr<Guid> = MutPtr(0L),
+            lpClsidExclude: MutPtr = MutPtr(0L),
         ): Oleuiconvertw =
             Oleuiconvertw(
                 cbStruct = cbStruct,
@@ -2096,7 +2090,7 @@ public class Oleuieditlinksa internal constructor(
     hInstanceCtorArg: Hinstance,
     lpszTemplateCtorArg: Pcstr,
     hResourceCtorArg: Hrsrc,
-    lpOleUILinkContainerCtorArg: MutPtr<CVoid>,
+    lpOleUILinkContainerCtorArg: MutPtr,
 ) {
     public var hWndOwner: Hwnd = hWndOwnerCtorArg
         internal set
@@ -2113,7 +2107,7 @@ public class Oleuieditlinksa internal constructor(
     public var hResource: Hrsrc = hResourceCtorArg
         internal set
 
-    public var lpOleUILinkContainer: MutPtr<CVoid> = lpOleUILinkContainerCtorArg
+    public var lpOleUILinkContainer: MutPtr = lpOleUILinkContainerCtorArg
         internal set
 
     public constructor() : this(
@@ -2147,9 +2141,9 @@ public class Oleuieditlinksa internal constructor(
 
     public operator fun component9(): Hrsrc = this.hResource
 
-    public operator fun component10(): MutPtr<CVoid> = this.lpOleUILinkContainer
+    public operator fun component10(): MutPtr = this.lpOleUILinkContainer
 
-    public fun copy(cbStruct: UInt = this.cbStruct, dwFlags: EditLinksFlags = this.dwFlags, hWndOwner: Hwnd = this.hWndOwner, lpszCaption: Pcstr = this.lpszCaption, lpfnHook: Lpfnoleuihook = this.lpfnHook, lCustData: Lparam = this.lCustData, hInstance: Hinstance = this.hInstance, lpszTemplate: Pcstr = this.lpszTemplate, hResource: Hrsrc = this.hResource, lpOleUILinkContainer: MutPtr<CVoid> = this.lpOleUILinkContainer): Oleuieditlinksa = Oleuieditlinksa(cbStruct = cbStruct, dwFlags = dwFlags, hWndOwnerCtorArg = hWndOwner, lpszCaptionCtorArg = lpszCaption, lpfnHook = lpfnHook, lCustData = lCustData, hInstanceCtorArg = hInstance, lpszTemplateCtorArg = lpszTemplate, hResourceCtorArg = hResource, lpOleUILinkContainerCtorArg = lpOleUILinkContainer)
+    public fun copy(cbStruct: UInt = this.cbStruct, dwFlags: EditLinksFlags = this.dwFlags, hWndOwner: Hwnd = this.hWndOwner, lpszCaption: Pcstr = this.lpszCaption, lpfnHook: Lpfnoleuihook = this.lpfnHook, lCustData: Lparam = this.lCustData, hInstance: Hinstance = this.hInstance, lpszTemplate: Pcstr = this.lpszTemplate, hResource: Hrsrc = this.hResource, lpOleUILinkContainer: MutPtr = this.lpOleUILinkContainer): Oleuieditlinksa = Oleuieditlinksa(cbStruct = cbStruct, dwFlags = dwFlags, hWndOwnerCtorArg = hWndOwner, lpszCaptionCtorArg = lpszCaption, lpfnHook = lpfnHook, lCustData = lCustData, hInstanceCtorArg = hInstance, lpszTemplateCtorArg = lpszTemplate, hResourceCtorArg = hResource, lpOleUILinkContainerCtorArg = lpOleUILinkContainer)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -2192,7 +2186,7 @@ public class Oleuieditlinksa internal constructor(
             hInstance: Hinstance = MutPtr(0L),
             lpszTemplate: Pcstr = ConstPtr(0L),
             hResource: Hrsrc = MutPtr(0L),
-            lpOleUILinkContainer: MutPtr<CVoid> = MutPtr(0L),
+            lpOleUILinkContainer: MutPtr = MutPtr(0L),
         ): Oleuieditlinksa =
             Oleuieditlinksa(
                 cbStruct = cbStruct,
@@ -2219,7 +2213,7 @@ public class Oleuieditlinksw internal constructor(
     hInstanceCtorArg: Hinstance,
     lpszTemplateCtorArg: Pcwstr,
     hResourceCtorArg: Hrsrc,
-    lpOleUILinkContainerCtorArg: MutPtr<CVoid>,
+    lpOleUILinkContainerCtorArg: MutPtr,
 ) {
     public var hWndOwner: Hwnd = hWndOwnerCtorArg
         internal set
@@ -2236,7 +2230,7 @@ public class Oleuieditlinksw internal constructor(
     public var hResource: Hrsrc = hResourceCtorArg
         internal set
 
-    public var lpOleUILinkContainer: MutPtr<CVoid> = lpOleUILinkContainerCtorArg
+    public var lpOleUILinkContainer: MutPtr = lpOleUILinkContainerCtorArg
         internal set
 
     public constructor() : this(
@@ -2270,9 +2264,9 @@ public class Oleuieditlinksw internal constructor(
 
     public operator fun component9(): Hrsrc = this.hResource
 
-    public operator fun component10(): MutPtr<CVoid> = this.lpOleUILinkContainer
+    public operator fun component10(): MutPtr = this.lpOleUILinkContainer
 
-    public fun copy(cbStruct: UInt = this.cbStruct, dwFlags: EditLinksFlags = this.dwFlags, hWndOwner: Hwnd = this.hWndOwner, lpszCaption: Pcwstr = this.lpszCaption, lpfnHook: Lpfnoleuihook = this.lpfnHook, lCustData: Lparam = this.lCustData, hInstance: Hinstance = this.hInstance, lpszTemplate: Pcwstr = this.lpszTemplate, hResource: Hrsrc = this.hResource, lpOleUILinkContainer: MutPtr<CVoid> = this.lpOleUILinkContainer): Oleuieditlinksw = Oleuieditlinksw(cbStruct = cbStruct, dwFlags = dwFlags, hWndOwnerCtorArg = hWndOwner, lpszCaptionCtorArg = lpszCaption, lpfnHook = lpfnHook, lCustData = lCustData, hInstanceCtorArg = hInstance, lpszTemplateCtorArg = lpszTemplate, hResourceCtorArg = hResource, lpOleUILinkContainerCtorArg = lpOleUILinkContainer)
+    public fun copy(cbStruct: UInt = this.cbStruct, dwFlags: EditLinksFlags = this.dwFlags, hWndOwner: Hwnd = this.hWndOwner, lpszCaption: Pcwstr = this.lpszCaption, lpfnHook: Lpfnoleuihook = this.lpfnHook, lCustData: Lparam = this.lCustData, hInstance: Hinstance = this.hInstance, lpszTemplate: Pcwstr = this.lpszTemplate, hResource: Hrsrc = this.hResource, lpOleUILinkContainer: MutPtr = this.lpOleUILinkContainer): Oleuieditlinksw = Oleuieditlinksw(cbStruct = cbStruct, dwFlags = dwFlags, hWndOwnerCtorArg = hWndOwner, lpszCaptionCtorArg = lpszCaption, lpfnHook = lpfnHook, lCustData = lCustData, hInstanceCtorArg = hInstance, lpszTemplateCtorArg = lpszTemplate, hResourceCtorArg = hResource, lpOleUILinkContainerCtorArg = lpOleUILinkContainer)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -2315,7 +2309,7 @@ public class Oleuieditlinksw internal constructor(
             hInstance: Hinstance = MutPtr(0L),
             lpszTemplate: Pcwstr = ConstPtr(0L),
             hResource: Hrsrc = MutPtr(0L),
-            lpOleUILinkContainer: MutPtr<CVoid> = MutPtr(0L),
+            lpOleUILinkContainer: MutPtr = MutPtr(0L),
         ): Oleuieditlinksw =
             Oleuieditlinksw(
                 cbStruct = cbStruct,
@@ -2339,9 +2333,9 @@ public class Oleuignrlpropsa internal constructor(
     public var lpfnHook: Lpfnoleuihook,
     public var lCustData: Lparam,
     public var dwReserved2: UIntArray,
-    lpOPCtorArg: MutPtr<Oleuiobjectpropsa>,
+    lpOPCtorArg: MutPtr,
 ) {
-    public var lpOP: MutPtr<Oleuiobjectpropsa> = lpOPCtorArg
+    public var lpOP: MutPtr = lpOPCtorArg
         internal set
 
     public constructor() : this(
@@ -2366,9 +2360,9 @@ public class Oleuignrlpropsa internal constructor(
 
     public operator fun component6(): UIntArray = this.dwReserved2
 
-    public operator fun component7(): MutPtr<Oleuiobjectpropsa> = this.lpOP
+    public operator fun component7(): MutPtr = this.lpOP
 
-    public fun copy(cbStruct: UInt = this.cbStruct, dwFlags: UInt = this.dwFlags, dwReserved1: UIntArray = this.dwReserved1, lpfnHook: Lpfnoleuihook = this.lpfnHook, lCustData: Lparam = this.lCustData, dwReserved2: UIntArray = this.dwReserved2, lpOP: MutPtr<Oleuiobjectpropsa> = this.lpOP): Oleuignrlpropsa = Oleuignrlpropsa(cbStruct = cbStruct, dwFlags = dwFlags, dwReserved1 = dwReserved1, lpfnHook = lpfnHook, lCustData = lCustData, dwReserved2 = dwReserved2, lpOPCtorArg = lpOP)
+    public fun copy(cbStruct: UInt = this.cbStruct, dwFlags: UInt = this.dwFlags, dwReserved1: UIntArray = this.dwReserved1, lpfnHook: Lpfnoleuihook = this.lpfnHook, lCustData: Lparam = this.lCustData, dwReserved2: UIntArray = this.dwReserved2, lpOP: MutPtr = this.lpOP): Oleuignrlpropsa = Oleuignrlpropsa(cbStruct = cbStruct, dwFlags = dwFlags, dwReserved1 = dwReserved1, lpfnHook = lpfnHook, lCustData = lCustData, dwReserved2 = dwReserved2, lpOPCtorArg = lpOP)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -2402,7 +2396,7 @@ public class Oleuignrlpropsa internal constructor(
             lpfnHook: Lpfnoleuihook = null,
             lCustData: Lparam = 0L,
             dwReserved2: UIntArray = UIntArray(3),
-            lpOP: MutPtr<Oleuiobjectpropsa> = MutPtr(0L),
+            lpOP: MutPtr = MutPtr(0L),
         ): Oleuignrlpropsa =
             Oleuignrlpropsa(
                 cbStruct = cbStruct,
@@ -2423,9 +2417,9 @@ public class Oleuignrlpropsw internal constructor(
     public var lpfnHook: Lpfnoleuihook,
     public var lCustData: Lparam,
     public var dwReserved2: UIntArray,
-    lpOPCtorArg: MutPtr<Oleuiobjectpropsw>,
+    lpOPCtorArg: MutPtr,
 ) {
-    public var lpOP: MutPtr<Oleuiobjectpropsw> = lpOPCtorArg
+    public var lpOP: MutPtr = lpOPCtorArg
         internal set
 
     public constructor() : this(
@@ -2450,9 +2444,9 @@ public class Oleuignrlpropsw internal constructor(
 
     public operator fun component6(): UIntArray = this.dwReserved2
 
-    public operator fun component7(): MutPtr<Oleuiobjectpropsw> = this.lpOP
+    public operator fun component7(): MutPtr = this.lpOP
 
-    public fun copy(cbStruct: UInt = this.cbStruct, dwFlags: UInt = this.dwFlags, dwReserved1: UIntArray = this.dwReserved1, lpfnHook: Lpfnoleuihook = this.lpfnHook, lCustData: Lparam = this.lCustData, dwReserved2: UIntArray = this.dwReserved2, lpOP: MutPtr<Oleuiobjectpropsw> = this.lpOP): Oleuignrlpropsw = Oleuignrlpropsw(cbStruct = cbStruct, dwFlags = dwFlags, dwReserved1 = dwReserved1, lpfnHook = lpfnHook, lCustData = lCustData, dwReserved2 = dwReserved2, lpOPCtorArg = lpOP)
+    public fun copy(cbStruct: UInt = this.cbStruct, dwFlags: UInt = this.dwFlags, dwReserved1: UIntArray = this.dwReserved1, lpfnHook: Lpfnoleuihook = this.lpfnHook, lCustData: Lparam = this.lCustData, dwReserved2: UIntArray = this.dwReserved2, lpOP: MutPtr = this.lpOP): Oleuignrlpropsw = Oleuignrlpropsw(cbStruct = cbStruct, dwFlags = dwFlags, dwReserved1 = dwReserved1, lpfnHook = lpfnHook, lCustData = lCustData, dwReserved2 = dwReserved2, lpOPCtorArg = lpOP)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -2486,7 +2480,7 @@ public class Oleuignrlpropsw internal constructor(
             lpfnHook: Lpfnoleuihook = null,
             lCustData: Lparam = 0L,
             dwReserved2: UIntArray = UIntArray(3),
-            lpOP: MutPtr<Oleuiobjectpropsw> = MutPtr(0L),
+            lpOP: MutPtr = MutPtr(0L),
         ): Oleuignrlpropsw =
             Oleuignrlpropsw(
                 cbStruct = cbStruct,
@@ -2514,13 +2508,13 @@ public class Oleuiinsertobjecta internal constructor(
     lpszFileCtorArg: Pstr,
     public var cchFile: UInt,
     public var cClsidExclude: UInt,
-    lpClsidExcludeCtorArg: MutPtr<Guid>,
+    lpClsidExcludeCtorArg: MutPtr,
     public var iid: Guid,
     public var oleRender: UInt,
-    lpFormatEtcCtorArg: MutPtr<Formatetc>,
-    lpIOleClientSiteCtorArg: MutPtr<CVoid>,
-    lpIStorageCtorArg: MutPtr<CVoid>,
-    ppvObjCtorArg: MutPtr<MutPtr<CVoid>>,
+    lpFormatEtcCtorArg: MutPtr,
+    lpIOleClientSiteCtorArg: MutPtr,
+    lpIStorageCtorArg: MutPtr,
+    ppvObjCtorArg: MutPtr,
     public var sc: Int,
     hMetaPictCtorArg: Hglobal,
 ) {
@@ -2542,19 +2536,19 @@ public class Oleuiinsertobjecta internal constructor(
     public var lpszFile: Pstr = lpszFileCtorArg
         internal set
 
-    public var lpClsidExclude: MutPtr<Guid> = lpClsidExcludeCtorArg
+    public var lpClsidExclude: MutPtr = lpClsidExcludeCtorArg
         internal set
 
-    public var lpFormatEtc: MutPtr<Formatetc> = lpFormatEtcCtorArg
+    public var lpFormatEtc: MutPtr = lpFormatEtcCtorArg
         internal set
 
-    public var lpIOleClientSite: MutPtr<CVoid> = lpIOleClientSiteCtorArg
+    public var lpIOleClientSite: MutPtr = lpIOleClientSiteCtorArg
         internal set
 
-    public var lpIStorage: MutPtr<CVoid> = lpIStorageCtorArg
+    public var lpIStorage: MutPtr = lpIStorageCtorArg
         internal set
 
-    public var ppvObj: MutPtr<MutPtr<CVoid>> = ppvObjCtorArg
+    public var ppvObj: MutPtr = ppvObjCtorArg
         internal set
 
     public var hMetaPict: Hglobal = hMetaPictCtorArg
@@ -2600,13 +2594,13 @@ public class Oleuiinsertobjecta internal constructor(
             lpszFile: Pstr = MutPtr(0L),
             cchFile: UInt = 0u,
             cClsidExclude: UInt = 0u,
-            lpClsidExclude: MutPtr<Guid> = MutPtr(0L),
+            lpClsidExclude: MutPtr = MutPtr(0L),
             iid: Guid = Guid(),
             oleRender: UInt = 0u,
-            lpFormatEtc: MutPtr<Formatetc> = MutPtr(0L),
-            lpIOleClientSite: MutPtr<CVoid> = MutPtr(0L),
-            lpIStorage: MutPtr<CVoid> = MutPtr(0L),
-            ppvObj: MutPtr<MutPtr<CVoid>> = MutPtr(0L),
+            lpFormatEtc: MutPtr = MutPtr(0L),
+            lpIOleClientSite: MutPtr = MutPtr(0L),
+            lpIStorage: MutPtr = MutPtr(0L),
+            ppvObj: MutPtr = MutPtr(0L),
             sc: Int = 0,
             hMetaPict: Hglobal = MutPtr(0L),
         ): Oleuiinsertobjecta =
@@ -2651,13 +2645,13 @@ public class Oleuiinsertobjectw internal constructor(
     lpszFileCtorArg: Pwstr,
     public var cchFile: UInt,
     public var cClsidExclude: UInt,
-    lpClsidExcludeCtorArg: MutPtr<Guid>,
+    lpClsidExcludeCtorArg: MutPtr,
     public var iid: Guid,
     public var oleRender: UInt,
-    lpFormatEtcCtorArg: MutPtr<Formatetc>,
-    lpIOleClientSiteCtorArg: MutPtr<CVoid>,
-    lpIStorageCtorArg: MutPtr<CVoid>,
-    ppvObjCtorArg: MutPtr<MutPtr<CVoid>>,
+    lpFormatEtcCtorArg: MutPtr,
+    lpIOleClientSiteCtorArg: MutPtr,
+    lpIStorageCtorArg: MutPtr,
+    ppvObjCtorArg: MutPtr,
     public var sc: Int,
     hMetaPictCtorArg: Hglobal,
 ) {
@@ -2679,19 +2673,19 @@ public class Oleuiinsertobjectw internal constructor(
     public var lpszFile: Pwstr = lpszFileCtorArg
         internal set
 
-    public var lpClsidExclude: MutPtr<Guid> = lpClsidExcludeCtorArg
+    public var lpClsidExclude: MutPtr = lpClsidExcludeCtorArg
         internal set
 
-    public var lpFormatEtc: MutPtr<Formatetc> = lpFormatEtcCtorArg
+    public var lpFormatEtc: MutPtr = lpFormatEtcCtorArg
         internal set
 
-    public var lpIOleClientSite: MutPtr<CVoid> = lpIOleClientSiteCtorArg
+    public var lpIOleClientSite: MutPtr = lpIOleClientSiteCtorArg
         internal set
 
-    public var lpIStorage: MutPtr<CVoid> = lpIStorageCtorArg
+    public var lpIStorage: MutPtr = lpIStorageCtorArg
         internal set
 
-    public var ppvObj: MutPtr<MutPtr<CVoid>> = ppvObjCtorArg
+    public var ppvObj: MutPtr = ppvObjCtorArg
         internal set
 
     public var hMetaPict: Hglobal = hMetaPictCtorArg
@@ -2737,13 +2731,13 @@ public class Oleuiinsertobjectw internal constructor(
             lpszFile: Pwstr = MutPtr(0L),
             cchFile: UInt = 0u,
             cClsidExclude: UInt = 0u,
-            lpClsidExclude: MutPtr<Guid> = MutPtr(0L),
+            lpClsidExclude: MutPtr = MutPtr(0L),
             iid: Guid = Guid(),
             oleRender: UInt = 0u,
-            lpFormatEtc: MutPtr<Formatetc> = MutPtr(0L),
-            lpIOleClientSite: MutPtr<CVoid> = MutPtr(0L),
-            lpIStorage: MutPtr<CVoid> = MutPtr(0L),
-            ppvObj: MutPtr<MutPtr<CVoid>> = MutPtr(0L),
+            lpFormatEtc: MutPtr = MutPtr(0L),
+            lpIOleClientSite: MutPtr = MutPtr(0L),
+            lpIStorage: MutPtr = MutPtr(0L),
+            ppvObj: MutPtr = MutPtr(0L),
             sc: Int = 0,
             hMetaPict: Hglobal = MutPtr(0L),
         ): Oleuiinsertobjectw =
@@ -2781,9 +2775,9 @@ public class Oleuilinkpropsa internal constructor(
     public var lpfnHook: Lpfnoleuihook,
     public var lCustData: Lparam,
     public var dwReserved2: UIntArray,
-    lpOPCtorArg: MutPtr<Oleuiobjectpropsa>,
+    lpOPCtorArg: MutPtr,
 ) {
-    public var lpOP: MutPtr<Oleuiobjectpropsa> = lpOPCtorArg
+    public var lpOP: MutPtr = lpOPCtorArg
         internal set
 
     public constructor() : this(
@@ -2808,9 +2802,9 @@ public class Oleuilinkpropsa internal constructor(
 
     public operator fun component6(): UIntArray = this.dwReserved2
 
-    public operator fun component7(): MutPtr<Oleuiobjectpropsa> = this.lpOP
+    public operator fun component7(): MutPtr = this.lpOP
 
-    public fun copy(cbStruct: UInt = this.cbStruct, dwFlags: UInt = this.dwFlags, dwReserved1: UIntArray = this.dwReserved1, lpfnHook: Lpfnoleuihook = this.lpfnHook, lCustData: Lparam = this.lCustData, dwReserved2: UIntArray = this.dwReserved2, lpOP: MutPtr<Oleuiobjectpropsa> = this.lpOP): Oleuilinkpropsa = Oleuilinkpropsa(cbStruct = cbStruct, dwFlags = dwFlags, dwReserved1 = dwReserved1, lpfnHook = lpfnHook, lCustData = lCustData, dwReserved2 = dwReserved2, lpOPCtorArg = lpOP)
+    public fun copy(cbStruct: UInt = this.cbStruct, dwFlags: UInt = this.dwFlags, dwReserved1: UIntArray = this.dwReserved1, lpfnHook: Lpfnoleuihook = this.lpfnHook, lCustData: Lparam = this.lCustData, dwReserved2: UIntArray = this.dwReserved2, lpOP: MutPtr = this.lpOP): Oleuilinkpropsa = Oleuilinkpropsa(cbStruct = cbStruct, dwFlags = dwFlags, dwReserved1 = dwReserved1, lpfnHook = lpfnHook, lCustData = lCustData, dwReserved2 = dwReserved2, lpOPCtorArg = lpOP)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -2844,7 +2838,7 @@ public class Oleuilinkpropsa internal constructor(
             lpfnHook: Lpfnoleuihook = null,
             lCustData: Lparam = 0L,
             dwReserved2: UIntArray = UIntArray(3),
-            lpOP: MutPtr<Oleuiobjectpropsa> = MutPtr(0L),
+            lpOP: MutPtr = MutPtr(0L),
         ): Oleuilinkpropsa =
             Oleuilinkpropsa(
                 cbStruct = cbStruct,
@@ -2865,9 +2859,9 @@ public class Oleuilinkpropsw internal constructor(
     public var lpfnHook: Lpfnoleuihook,
     public var lCustData: Lparam,
     public var dwReserved2: UIntArray,
-    lpOPCtorArg: MutPtr<Oleuiobjectpropsw>,
+    lpOPCtorArg: MutPtr,
 ) {
-    public var lpOP: MutPtr<Oleuiobjectpropsw> = lpOPCtorArg
+    public var lpOP: MutPtr = lpOPCtorArg
         internal set
 
     public constructor() : this(
@@ -2892,9 +2886,9 @@ public class Oleuilinkpropsw internal constructor(
 
     public operator fun component6(): UIntArray = this.dwReserved2
 
-    public operator fun component7(): MutPtr<Oleuiobjectpropsw> = this.lpOP
+    public operator fun component7(): MutPtr = this.lpOP
 
-    public fun copy(cbStruct: UInt = this.cbStruct, dwFlags: UInt = this.dwFlags, dwReserved1: UIntArray = this.dwReserved1, lpfnHook: Lpfnoleuihook = this.lpfnHook, lCustData: Lparam = this.lCustData, dwReserved2: UIntArray = this.dwReserved2, lpOP: MutPtr<Oleuiobjectpropsw> = this.lpOP): Oleuilinkpropsw = Oleuilinkpropsw(cbStruct = cbStruct, dwFlags = dwFlags, dwReserved1 = dwReserved1, lpfnHook = lpfnHook, lCustData = lCustData, dwReserved2 = dwReserved2, lpOPCtorArg = lpOP)
+    public fun copy(cbStruct: UInt = this.cbStruct, dwFlags: UInt = this.dwFlags, dwReserved1: UIntArray = this.dwReserved1, lpfnHook: Lpfnoleuihook = this.lpfnHook, lCustData: Lparam = this.lCustData, dwReserved2: UIntArray = this.dwReserved2, lpOP: MutPtr = this.lpOP): Oleuilinkpropsw = Oleuilinkpropsw(cbStruct = cbStruct, dwFlags = dwFlags, dwReserved1 = dwReserved1, lpfnHook = lpfnHook, lCustData = lCustData, dwReserved2 = dwReserved2, lpOPCtorArg = lpOP)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -2928,7 +2922,7 @@ public class Oleuilinkpropsw internal constructor(
             lpfnHook: Lpfnoleuihook = null,
             lCustData: Lparam = 0L,
             dwReserved2: UIntArray = UIntArray(3),
-            lpOP: MutPtr<Oleuiobjectpropsw> = MutPtr(0L),
+            lpOP: MutPtr = MutPtr(0L),
         ): Oleuilinkpropsw =
             Oleuilinkpropsw(
                 cbStruct = cbStruct,
@@ -2945,31 +2939,31 @@ public class Oleuilinkpropsw internal constructor(
 public class Oleuiobjectpropsa internal constructor(
     public var cbStruct: UInt,
     public var dwFlags: ObjectPropertiesFlags,
-    lpPSCtorArg: MutPtr<PropsheetheaderaV2>,
+    lpPSCtorArg: MutPtr,
     public var dwObject: UInt,
-    lpObjInfoCtorArg: MutPtr<CVoid>,
+    lpObjInfoCtorArg: MutPtr,
     public var dwLink: UInt,
-    lpLinkInfoCtorArg: MutPtr<CVoid>,
-    lpGPCtorArg: MutPtr<Oleuignrlpropsa>,
-    lpVPCtorArg: MutPtr<Oleuiviewpropsa>,
-    lpLPCtorArg: MutPtr<Oleuilinkpropsa>,
+    lpLinkInfoCtorArg: MutPtr,
+    lpGPCtorArg: MutPtr,
+    lpVPCtorArg: MutPtr,
+    lpLPCtorArg: MutPtr,
 ) {
-    public var lpPS: MutPtr<PropsheetheaderaV2> = lpPSCtorArg
+    public var lpPS: MutPtr = lpPSCtorArg
         internal set
 
-    public var lpObjInfo: MutPtr<CVoid> = lpObjInfoCtorArg
+    public var lpObjInfo: MutPtr = lpObjInfoCtorArg
         internal set
 
-    public var lpLinkInfo: MutPtr<CVoid> = lpLinkInfoCtorArg
+    public var lpLinkInfo: MutPtr = lpLinkInfoCtorArg
         internal set
 
-    public var lpGP: MutPtr<Oleuignrlpropsa> = lpGPCtorArg
+    public var lpGP: MutPtr = lpGPCtorArg
         internal set
 
-    public var lpVP: MutPtr<Oleuiviewpropsa> = lpVPCtorArg
+    public var lpVP: MutPtr = lpVPCtorArg
         internal set
 
-    public var lpLP: MutPtr<Oleuilinkpropsa> = lpLPCtorArg
+    public var lpLP: MutPtr = lpLPCtorArg
         internal set
 
     public constructor() : this(
@@ -2989,23 +2983,23 @@ public class Oleuiobjectpropsa internal constructor(
 
     public operator fun component2(): ObjectPropertiesFlags = this.dwFlags
 
-    public operator fun component3(): MutPtr<PropsheetheaderaV2> = this.lpPS
+    public operator fun component3(): MutPtr = this.lpPS
 
     public operator fun component4(): UInt = this.dwObject
 
-    public operator fun component5(): MutPtr<CVoid> = this.lpObjInfo
+    public operator fun component5(): MutPtr = this.lpObjInfo
 
     public operator fun component6(): UInt = this.dwLink
 
-    public operator fun component7(): MutPtr<CVoid> = this.lpLinkInfo
+    public operator fun component7(): MutPtr = this.lpLinkInfo
 
-    public operator fun component8(): MutPtr<Oleuignrlpropsa> = this.lpGP
+    public operator fun component8(): MutPtr = this.lpGP
 
-    public operator fun component9(): MutPtr<Oleuiviewpropsa> = this.lpVP
+    public operator fun component9(): MutPtr = this.lpVP
 
-    public operator fun component10(): MutPtr<Oleuilinkpropsa> = this.lpLP
+    public operator fun component10(): MutPtr = this.lpLP
 
-    public fun copy(cbStruct: UInt = this.cbStruct, dwFlags: ObjectPropertiesFlags = this.dwFlags, lpPS: MutPtr<PropsheetheaderaV2> = this.lpPS, dwObject: UInt = this.dwObject, lpObjInfo: MutPtr<CVoid> = this.lpObjInfo, dwLink: UInt = this.dwLink, lpLinkInfo: MutPtr<CVoid> = this.lpLinkInfo, lpGP: MutPtr<Oleuignrlpropsa> = this.lpGP, lpVP: MutPtr<Oleuiviewpropsa> = this.lpVP, lpLP: MutPtr<Oleuilinkpropsa> = this.lpLP): Oleuiobjectpropsa = Oleuiobjectpropsa(cbStruct = cbStruct, dwFlags = dwFlags, lpPSCtorArg = lpPS, dwObject = dwObject, lpObjInfoCtorArg = lpObjInfo, dwLink = dwLink, lpLinkInfoCtorArg = lpLinkInfo, lpGPCtorArg = lpGP, lpVPCtorArg = lpVP, lpLPCtorArg = lpLP)
+    public fun copy(cbStruct: UInt = this.cbStruct, dwFlags: ObjectPropertiesFlags = this.dwFlags, lpPS: MutPtr = this.lpPS, dwObject: UInt = this.dwObject, lpObjInfo: MutPtr = this.lpObjInfo, dwLink: UInt = this.dwLink, lpLinkInfo: MutPtr = this.lpLinkInfo, lpGP: MutPtr = this.lpGP, lpVP: MutPtr = this.lpVP, lpLP: MutPtr = this.lpLP): Oleuiobjectpropsa = Oleuiobjectpropsa(cbStruct = cbStruct, dwFlags = dwFlags, lpPSCtorArg = lpPS, dwObject = dwObject, lpObjInfoCtorArg = lpObjInfo, dwLink = dwLink, lpLinkInfoCtorArg = lpLinkInfo, lpGPCtorArg = lpGP, lpVPCtorArg = lpVP, lpLPCtorArg = lpLP)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -3048,29 +3042,29 @@ public class Oleuiobjectpropsa internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 4L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<PropsheetheaderaV2>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 16L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<CVoid>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 24L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 32L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<CVoid>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 40L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<Oleuignrlpropsa>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 48L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<Oleuiviewpropsa>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 56L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<Oleuilinkpropsa>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 64L),
                     )
                 override fun writeNative(addr: Long, value: Oleuiobjectpropsa) {
@@ -3078,29 +3072,29 @@ public class Oleuiobjectpropsa internal constructor(
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 4L, value.dwFlags)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<PropsheetheaderaV2>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.lpPS)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 16L, value.dwObject)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<CVoid>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 24L, value.lpObjInfo)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 32L, value.dwLink)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<CVoid>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 40L, value.lpLinkInfo)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<Oleuignrlpropsa>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 48L, value.lpGP)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<Oleuiviewpropsa>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 56L, value.lpVP)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<Oleuilinkpropsa>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 64L, value.lpLP)
                 }
             }
@@ -3108,14 +3102,14 @@ public class Oleuiobjectpropsa internal constructor(
         public operator fun invoke(
             cbStruct: UInt = 0u,
             dwFlags: ObjectPropertiesFlags = 0u,
-            lpPS: MutPtr<PropsheetheaderaV2> = MutPtr(0L),
+            lpPS: MutPtr = MutPtr(0L),
             dwObject: UInt = 0u,
-            lpObjInfo: MutPtr<CVoid> = MutPtr(0L),
+            lpObjInfo: MutPtr = MutPtr(0L),
             dwLink: UInt = 0u,
-            lpLinkInfo: MutPtr<CVoid> = MutPtr(0L),
-            lpGP: MutPtr<Oleuignrlpropsa> = MutPtr(0L),
-            lpVP: MutPtr<Oleuiviewpropsa> = MutPtr(0L),
-            lpLP: MutPtr<Oleuilinkpropsa> = MutPtr(0L),
+            lpLinkInfo: MutPtr = MutPtr(0L),
+            lpGP: MutPtr = MutPtr(0L),
+            lpVP: MutPtr = MutPtr(0L),
+            lpLP: MutPtr = MutPtr(0L),
         ): Oleuiobjectpropsa =
             Oleuiobjectpropsa(
                 cbStruct = cbStruct,
@@ -3135,31 +3129,31 @@ public class Oleuiobjectpropsa internal constructor(
 public class Oleuiobjectpropsw internal constructor(
     public var cbStruct: UInt,
     public var dwFlags: ObjectPropertiesFlags,
-    lpPSCtorArg: MutPtr<PropsheetheaderwV2>,
+    lpPSCtorArg: MutPtr,
     public var dwObject: UInt,
-    lpObjInfoCtorArg: MutPtr<CVoid>,
+    lpObjInfoCtorArg: MutPtr,
     public var dwLink: UInt,
-    lpLinkInfoCtorArg: MutPtr<CVoid>,
-    lpGPCtorArg: MutPtr<Oleuignrlpropsw>,
-    lpVPCtorArg: MutPtr<Oleuiviewpropsw>,
-    lpLPCtorArg: MutPtr<Oleuilinkpropsw>,
+    lpLinkInfoCtorArg: MutPtr,
+    lpGPCtorArg: MutPtr,
+    lpVPCtorArg: MutPtr,
+    lpLPCtorArg: MutPtr,
 ) {
-    public var lpPS: MutPtr<PropsheetheaderwV2> = lpPSCtorArg
+    public var lpPS: MutPtr = lpPSCtorArg
         internal set
 
-    public var lpObjInfo: MutPtr<CVoid> = lpObjInfoCtorArg
+    public var lpObjInfo: MutPtr = lpObjInfoCtorArg
         internal set
 
-    public var lpLinkInfo: MutPtr<CVoid> = lpLinkInfoCtorArg
+    public var lpLinkInfo: MutPtr = lpLinkInfoCtorArg
         internal set
 
-    public var lpGP: MutPtr<Oleuignrlpropsw> = lpGPCtorArg
+    public var lpGP: MutPtr = lpGPCtorArg
         internal set
 
-    public var lpVP: MutPtr<Oleuiviewpropsw> = lpVPCtorArg
+    public var lpVP: MutPtr = lpVPCtorArg
         internal set
 
-    public var lpLP: MutPtr<Oleuilinkpropsw> = lpLPCtorArg
+    public var lpLP: MutPtr = lpLPCtorArg
         internal set
 
     public constructor() : this(
@@ -3179,23 +3173,23 @@ public class Oleuiobjectpropsw internal constructor(
 
     public operator fun component2(): ObjectPropertiesFlags = this.dwFlags
 
-    public operator fun component3(): MutPtr<PropsheetheaderwV2> = this.lpPS
+    public operator fun component3(): MutPtr = this.lpPS
 
     public operator fun component4(): UInt = this.dwObject
 
-    public operator fun component5(): MutPtr<CVoid> = this.lpObjInfo
+    public operator fun component5(): MutPtr = this.lpObjInfo
 
     public operator fun component6(): UInt = this.dwLink
 
-    public operator fun component7(): MutPtr<CVoid> = this.lpLinkInfo
+    public operator fun component7(): MutPtr = this.lpLinkInfo
 
-    public operator fun component8(): MutPtr<Oleuignrlpropsw> = this.lpGP
+    public operator fun component8(): MutPtr = this.lpGP
 
-    public operator fun component9(): MutPtr<Oleuiviewpropsw> = this.lpVP
+    public operator fun component9(): MutPtr = this.lpVP
 
-    public operator fun component10(): MutPtr<Oleuilinkpropsw> = this.lpLP
+    public operator fun component10(): MutPtr = this.lpLP
 
-    public fun copy(cbStruct: UInt = this.cbStruct, dwFlags: ObjectPropertiesFlags = this.dwFlags, lpPS: MutPtr<PropsheetheaderwV2> = this.lpPS, dwObject: UInt = this.dwObject, lpObjInfo: MutPtr<CVoid> = this.lpObjInfo, dwLink: UInt = this.dwLink, lpLinkInfo: MutPtr<CVoid> = this.lpLinkInfo, lpGP: MutPtr<Oleuignrlpropsw> = this.lpGP, lpVP: MutPtr<Oleuiviewpropsw> = this.lpVP, lpLP: MutPtr<Oleuilinkpropsw> = this.lpLP): Oleuiobjectpropsw = Oleuiobjectpropsw(cbStruct = cbStruct, dwFlags = dwFlags, lpPSCtorArg = lpPS, dwObject = dwObject, lpObjInfoCtorArg = lpObjInfo, dwLink = dwLink, lpLinkInfoCtorArg = lpLinkInfo, lpGPCtorArg = lpGP, lpVPCtorArg = lpVP, lpLPCtorArg = lpLP)
+    public fun copy(cbStruct: UInt = this.cbStruct, dwFlags: ObjectPropertiesFlags = this.dwFlags, lpPS: MutPtr = this.lpPS, dwObject: UInt = this.dwObject, lpObjInfo: MutPtr = this.lpObjInfo, dwLink: UInt = this.dwLink, lpLinkInfo: MutPtr = this.lpLinkInfo, lpGP: MutPtr = this.lpGP, lpVP: MutPtr = this.lpVP, lpLP: MutPtr = this.lpLP): Oleuiobjectpropsw = Oleuiobjectpropsw(cbStruct = cbStruct, dwFlags = dwFlags, lpPSCtorArg = lpPS, dwObject = dwObject, lpObjInfoCtorArg = lpObjInfo, dwLink = dwLink, lpLinkInfoCtorArg = lpLinkInfo, lpGPCtorArg = lpGP, lpVPCtorArg = lpVP, lpLPCtorArg = lpLP)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -3238,29 +3232,29 @@ public class Oleuiobjectpropsw internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 4L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<PropsheetheaderwV2>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 16L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<CVoid>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 24L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 32L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<CVoid>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 40L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<Oleuignrlpropsw>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 48L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<Oleuiviewpropsw>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 56L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<Oleuilinkpropsw>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 64L),
                     )
                 override fun writeNative(addr: Long, value: Oleuiobjectpropsw) {
@@ -3268,29 +3262,29 @@ public class Oleuiobjectpropsw internal constructor(
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 4L, value.dwFlags)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<PropsheetheaderwV2>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.lpPS)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 16L, value.dwObject)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<CVoid>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 24L, value.lpObjInfo)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 32L, value.dwLink)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<CVoid>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 40L, value.lpLinkInfo)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<Oleuignrlpropsw>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 48L, value.lpGP)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<Oleuiviewpropsw>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 56L, value.lpVP)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<Oleuilinkpropsw>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 64L, value.lpLP)
                 }
             }
@@ -3298,14 +3292,14 @@ public class Oleuiobjectpropsw internal constructor(
         public operator fun invoke(
             cbStruct: UInt = 0u,
             dwFlags: ObjectPropertiesFlags = 0u,
-            lpPS: MutPtr<PropsheetheaderwV2> = MutPtr(0L),
+            lpPS: MutPtr = MutPtr(0L),
             dwObject: UInt = 0u,
-            lpObjInfo: MutPtr<CVoid> = MutPtr(0L),
+            lpObjInfo: MutPtr = MutPtr(0L),
             dwLink: UInt = 0u,
-            lpLinkInfo: MutPtr<CVoid> = MutPtr(0L),
-            lpGP: MutPtr<Oleuignrlpropsw> = MutPtr(0L),
-            lpVP: MutPtr<Oleuiviewpropsw> = MutPtr(0L),
-            lpLP: MutPtr<Oleuilinkpropsw> = MutPtr(0L),
+            lpLinkInfo: MutPtr = MutPtr(0L),
+            lpGP: MutPtr = MutPtr(0L),
+            lpVP: MutPtr = MutPtr(0L),
+            lpLP: MutPtr = MutPtr(0L),
         ): Oleuiobjectpropsw =
             Oleuiobjectpropsw(
                 cbStruct = cbStruct,
@@ -3474,13 +3468,13 @@ public class Oleuipastespeciala internal constructor(
     hInstanceCtorArg: Hinstance,
     lpszTemplateCtorArg: Pcstr,
     hResourceCtorArg: Hrsrc,
-    lpSrcDataObjCtorArg: MutPtr<CVoid>,
-    arrPasteEntriesCtorArg: MutPtr<Oleuipasteentrya>,
+    lpSrcDataObjCtorArg: MutPtr,
+    arrPasteEntriesCtorArg: MutPtr,
     public var cPasteEntries: Int,
-    arrLinkTypesCtorArg: MutPtr<UInt>,
+    arrLinkTypesCtorArg: MutPtr,
     public var cLinkTypes: Int,
     public var cClsidExclude: UInt,
-    lpClsidExcludeCtorArg: MutPtr<Guid>,
+    lpClsidExcludeCtorArg: MutPtr,
     public var nSelectedIndex: Int,
     public var fLink: Bool,
     hMetaPictCtorArg: Hglobal,
@@ -3501,16 +3495,16 @@ public class Oleuipastespeciala internal constructor(
     public var hResource: Hrsrc = hResourceCtorArg
         internal set
 
-    public var lpSrcDataObj: MutPtr<CVoid> = lpSrcDataObjCtorArg
+    public var lpSrcDataObj: MutPtr = lpSrcDataObjCtorArg
         internal set
 
-    public var arrPasteEntries: MutPtr<Oleuipasteentrya> = arrPasteEntriesCtorArg
+    public var arrPasteEntries: MutPtr = arrPasteEntriesCtorArg
         internal set
 
-    public var arrLinkTypes: MutPtr<UInt> = arrLinkTypesCtorArg
+    public var arrLinkTypes: MutPtr = arrLinkTypesCtorArg
         internal set
 
-    public var lpClsidExclude: MutPtr<Guid> = lpClsidExcludeCtorArg
+    public var lpClsidExclude: MutPtr = lpClsidExcludeCtorArg
         internal set
 
     public var hMetaPict: Hglobal = hMetaPictCtorArg
@@ -3550,13 +3544,13 @@ public class Oleuipastespeciala internal constructor(
             hInstance: Hinstance = MutPtr(0L),
             lpszTemplate: Pcstr = ConstPtr(0L),
             hResource: Hrsrc = MutPtr(0L),
-            lpSrcDataObj: MutPtr<CVoid> = MutPtr(0L),
-            arrPasteEntries: MutPtr<Oleuipasteentrya> = MutPtr(0L),
+            lpSrcDataObj: MutPtr = MutPtr(0L),
+            arrPasteEntries: MutPtr = MutPtr(0L),
             cPasteEntries: Int = 0,
-            arrLinkTypes: MutPtr<UInt> = MutPtr(0L),
+            arrLinkTypes: MutPtr = MutPtr(0L),
             cLinkTypes: Int = 0,
             cClsidExclude: UInt = 0u,
-            lpClsidExclude: MutPtr<Guid> = MutPtr(0L),
+            lpClsidExclude: MutPtr = MutPtr(0L),
             nSelectedIndex: Int = 0,
             fLink: Bool = 0,
             hMetaPict: Hglobal = MutPtr(0L),
@@ -3597,13 +3591,13 @@ public class Oleuipastespecialw internal constructor(
     hInstanceCtorArg: Hinstance,
     lpszTemplateCtorArg: Pcwstr,
     hResourceCtorArg: Hrsrc,
-    lpSrcDataObjCtorArg: MutPtr<CVoid>,
-    arrPasteEntriesCtorArg: MutPtr<Oleuipasteentryw>,
+    lpSrcDataObjCtorArg: MutPtr,
+    arrPasteEntriesCtorArg: MutPtr,
     public var cPasteEntries: Int,
-    arrLinkTypesCtorArg: MutPtr<UInt>,
+    arrLinkTypesCtorArg: MutPtr,
     public var cLinkTypes: Int,
     public var cClsidExclude: UInt,
-    lpClsidExcludeCtorArg: MutPtr<Guid>,
+    lpClsidExcludeCtorArg: MutPtr,
     public var nSelectedIndex: Int,
     public var fLink: Bool,
     hMetaPictCtorArg: Hglobal,
@@ -3624,16 +3618,16 @@ public class Oleuipastespecialw internal constructor(
     public var hResource: Hrsrc = hResourceCtorArg
         internal set
 
-    public var lpSrcDataObj: MutPtr<CVoid> = lpSrcDataObjCtorArg
+    public var lpSrcDataObj: MutPtr = lpSrcDataObjCtorArg
         internal set
 
-    public var arrPasteEntries: MutPtr<Oleuipasteentryw> = arrPasteEntriesCtorArg
+    public var arrPasteEntries: MutPtr = arrPasteEntriesCtorArg
         internal set
 
-    public var arrLinkTypes: MutPtr<UInt> = arrLinkTypesCtorArg
+    public var arrLinkTypes: MutPtr = arrLinkTypesCtorArg
         internal set
 
-    public var lpClsidExclude: MutPtr<Guid> = lpClsidExcludeCtorArg
+    public var lpClsidExclude: MutPtr = lpClsidExcludeCtorArg
         internal set
 
     public var hMetaPict: Hglobal = hMetaPictCtorArg
@@ -3673,13 +3667,13 @@ public class Oleuipastespecialw internal constructor(
             hInstance: Hinstance = MutPtr(0L),
             lpszTemplate: Pcwstr = ConstPtr(0L),
             hResource: Hrsrc = MutPtr(0L),
-            lpSrcDataObj: MutPtr<CVoid> = MutPtr(0L),
-            arrPasteEntries: MutPtr<Oleuipasteentryw> = MutPtr(0L),
+            lpSrcDataObj: MutPtr = MutPtr(0L),
+            arrPasteEntries: MutPtr = MutPtr(0L),
             cPasteEntries: Int = 0,
-            arrLinkTypes: MutPtr<UInt> = MutPtr(0L),
+            arrLinkTypes: MutPtr = MutPtr(0L),
             cLinkTypes: Int = 0,
             cClsidExclude: UInt = 0u,
-            lpClsidExclude: MutPtr<Guid> = MutPtr(0L),
+            lpClsidExclude: MutPtr = MutPtr(0L),
             nSelectedIndex: Int = 0,
             fLink: Bool = 0,
             hMetaPict: Hglobal = MutPtr(0L),
@@ -3717,11 +3711,11 @@ public class Oleuiviewpropsa internal constructor(
     public var lpfnHook: Lpfnoleuihook,
     public var lCustData: Lparam,
     public var dwReserved2: UIntArray,
-    lpOPCtorArg: MutPtr<Oleuiobjectpropsa>,
+    lpOPCtorArg: MutPtr,
     public var nScaleMin: Int,
     public var nScaleMax: Int,
 ) {
-    public var lpOP: MutPtr<Oleuiobjectpropsa> = lpOPCtorArg
+    public var lpOP: MutPtr = lpOPCtorArg
         internal set
 
     public constructor() : this(
@@ -3748,13 +3742,13 @@ public class Oleuiviewpropsa internal constructor(
 
     public operator fun component6(): UIntArray = this.dwReserved2
 
-    public operator fun component7(): MutPtr<Oleuiobjectpropsa> = this.lpOP
+    public operator fun component7(): MutPtr = this.lpOP
 
     public operator fun component8(): Int = this.nScaleMin
 
     public operator fun component9(): Int = this.nScaleMax
 
-    public fun copy(cbStruct: UInt = this.cbStruct, dwFlags: ViewObjectPropertiesFlags = this.dwFlags, dwReserved1: UIntArray = this.dwReserved1, lpfnHook: Lpfnoleuihook = this.lpfnHook, lCustData: Lparam = this.lCustData, dwReserved2: UIntArray = this.dwReserved2, lpOP: MutPtr<Oleuiobjectpropsa> = this.lpOP, nScaleMin: Int = this.nScaleMin, nScaleMax: Int = this.nScaleMax): Oleuiviewpropsa = Oleuiviewpropsa(cbStruct = cbStruct, dwFlags = dwFlags, dwReserved1 = dwReserved1, lpfnHook = lpfnHook, lCustData = lCustData, dwReserved2 = dwReserved2, lpOPCtorArg = lpOP, nScaleMin = nScaleMin, nScaleMax = nScaleMax)
+    public fun copy(cbStruct: UInt = this.cbStruct, dwFlags: ViewObjectPropertiesFlags = this.dwFlags, dwReserved1: UIntArray = this.dwReserved1, lpfnHook: Lpfnoleuihook = this.lpfnHook, lCustData: Lparam = this.lCustData, dwReserved2: UIntArray = this.dwReserved2, lpOP: MutPtr = this.lpOP, nScaleMin: Int = this.nScaleMin, nScaleMax: Int = this.nScaleMax): Oleuiviewpropsa = Oleuiviewpropsa(cbStruct = cbStruct, dwFlags = dwFlags, dwReserved1 = dwReserved1, lpfnHook = lpfnHook, lCustData = lCustData, dwReserved2 = dwReserved2, lpOPCtorArg = lpOP, nScaleMin = nScaleMin, nScaleMax = nScaleMax)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -3792,7 +3786,7 @@ public class Oleuiviewpropsa internal constructor(
             lpfnHook: Lpfnoleuihook = null,
             lCustData: Lparam = 0L,
             dwReserved2: UIntArray = UIntArray(3),
-            lpOP: MutPtr<Oleuiobjectpropsa> = MutPtr(0L),
+            lpOP: MutPtr = MutPtr(0L),
             nScaleMin: Int = 0,
             nScaleMax: Int = 0,
         ): Oleuiviewpropsa =
@@ -3817,11 +3811,11 @@ public class Oleuiviewpropsw internal constructor(
     public var lpfnHook: Lpfnoleuihook,
     public var lCustData: Lparam,
     public var dwReserved2: UIntArray,
-    lpOPCtorArg: MutPtr<Oleuiobjectpropsw>,
+    lpOPCtorArg: MutPtr,
     public var nScaleMin: Int,
     public var nScaleMax: Int,
 ) {
-    public var lpOP: MutPtr<Oleuiobjectpropsw> = lpOPCtorArg
+    public var lpOP: MutPtr = lpOPCtorArg
         internal set
 
     public constructor() : this(
@@ -3848,13 +3842,13 @@ public class Oleuiviewpropsw internal constructor(
 
     public operator fun component6(): UIntArray = this.dwReserved2
 
-    public operator fun component7(): MutPtr<Oleuiobjectpropsw> = this.lpOP
+    public operator fun component7(): MutPtr = this.lpOP
 
     public operator fun component8(): Int = this.nScaleMin
 
     public operator fun component9(): Int = this.nScaleMax
 
-    public fun copy(cbStruct: UInt = this.cbStruct, dwFlags: ViewObjectPropertiesFlags = this.dwFlags, dwReserved1: UIntArray = this.dwReserved1, lpfnHook: Lpfnoleuihook = this.lpfnHook, lCustData: Lparam = this.lCustData, dwReserved2: UIntArray = this.dwReserved2, lpOP: MutPtr<Oleuiobjectpropsw> = this.lpOP, nScaleMin: Int = this.nScaleMin, nScaleMax: Int = this.nScaleMax): Oleuiviewpropsw = Oleuiviewpropsw(cbStruct = cbStruct, dwFlags = dwFlags, dwReserved1 = dwReserved1, lpfnHook = lpfnHook, lCustData = lCustData, dwReserved2 = dwReserved2, lpOPCtorArg = lpOP, nScaleMin = nScaleMin, nScaleMax = nScaleMax)
+    public fun copy(cbStruct: UInt = this.cbStruct, dwFlags: ViewObjectPropertiesFlags = this.dwFlags, dwReserved1: UIntArray = this.dwReserved1, lpfnHook: Lpfnoleuihook = this.lpfnHook, lCustData: Lparam = this.lCustData, dwReserved2: UIntArray = this.dwReserved2, lpOP: MutPtr = this.lpOP, nScaleMin: Int = this.nScaleMin, nScaleMax: Int = this.nScaleMax): Oleuiviewpropsw = Oleuiviewpropsw(cbStruct = cbStruct, dwFlags = dwFlags, dwReserved1 = dwReserved1, lpfnHook = lpfnHook, lCustData = lCustData, dwReserved2 = dwReserved2, lpOPCtorArg = lpOP, nScaleMin = nScaleMin, nScaleMax = nScaleMax)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -3892,7 +3886,7 @@ public class Oleuiviewpropsw internal constructor(
             lpfnHook: Lpfnoleuihook = null,
             lCustData: Lparam = 0L,
             dwReserved2: UIntArray = UIntArray(3),
-            lpOP: MutPtr<Oleuiobjectpropsw> = MutPtr(0L),
+            lpOP: MutPtr = MutPtr(0L),
             nScaleMin: Int = 0,
             nScaleMax: Int = 0,
         ): Oleuiviewpropsw =
@@ -4074,10 +4068,10 @@ public class Paramdata internal constructor(
 }
 
 public class Paramdesc internal constructor(
-    pparamdescexCtorArg: MutPtr<Paramdescex>,
+    pparamdescexCtorArg: MutPtr,
     public var wParamFlags: Paramflags,
 ) {
-    public var pparamdescex: MutPtr<Paramdescex> = pparamdescexCtorArg
+    public var pparamdescex: MutPtr = pparamdescexCtorArg
         internal set
 
     public constructor() : this(
@@ -4085,11 +4079,11 @@ public class Paramdesc internal constructor(
         wParamFlags = 0u,
     )
 
-    public operator fun component1(): MutPtr<Paramdescex> = this.pparamdescex
+    public operator fun component1(): MutPtr = this.pparamdescex
 
     public operator fun component2(): Paramflags = this.wParamFlags
 
-    public fun copy(pparamdescex: MutPtr<Paramdescex> = this.pparamdescex, wParamFlags: Paramflags = this.wParamFlags): Paramdesc = Paramdesc(pparamdescexCtorArg = pparamdescex, wParamFlags = wParamFlags)
+    public fun copy(pparamdescex: MutPtr = this.pparamdescex, wParamFlags: Paramflags = this.wParamFlags): Paramdesc = Paramdesc(pparamdescexCtorArg = pparamdescex, wParamFlags = wParamFlags)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -4114,21 +4108,21 @@ public class Paramdesc internal constructor(
                     Paramdesc(
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<Paramdescex>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16).readNative(addr + 8L),
                     )
                 override fun writeNative(addr: Long, value: Paramdesc) {
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<Paramdescex>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr, value.pparamdescex)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16).writeNative(addr + 8L, value.wParamFlags)
                 }
             }
 
         public operator fun invoke(
-            pparamdescex: MutPtr<Paramdescex> = MutPtr(0L),
+            pparamdescex: MutPtr = MutPtr(0L),
             wParamFlags: Paramflags = 0u,
         ): Paramdesc =
             Paramdesc(
@@ -4427,50 +4421,50 @@ public class Proppageinfo internal constructor(
 
 public class Qacontainer internal constructor(
     public var cbSize: UInt,
-    pClientSiteCtorArg: MutPtr<CVoid>,
-    pAdviseSinkCtorArg: MutPtr<CVoid>,
-    pPropertyNotifySinkCtorArg: MutPtr<CVoid>,
-    pUnkEventSinkCtorArg: MutPtr<CVoid>,
+    pClientSiteCtorArg: MutPtr,
+    pAdviseSinkCtorArg: MutPtr,
+    pPropertyNotifySinkCtorArg: MutPtr,
+    pUnkEventSinkCtorArg: MutPtr,
     public var dwAmbientFlags: UInt,
     public var colorFore: UInt,
     public var colorBack: UInt,
-    pFontCtorArg: MutPtr<CVoid>,
-    pUndoMgrCtorArg: MutPtr<CVoid>,
+    pFontCtorArg: MutPtr,
+    pUndoMgrCtorArg: MutPtr,
     public var dwAppearance: UInt,
     public var lcid: Int,
     hpalCtorArg: Hpalette,
-    pBindHostCtorArg: MutPtr<CVoid>,
-    pOleControlSiteCtorArg: MutPtr<CVoid>,
-    pServiceProviderCtorArg: MutPtr<CVoid>,
+    pBindHostCtorArg: MutPtr,
+    pOleControlSiteCtorArg: MutPtr,
+    pServiceProviderCtorArg: MutPtr,
 ) {
-    public var pClientSite: MutPtr<CVoid> = pClientSiteCtorArg
+    public var pClientSite: MutPtr = pClientSiteCtorArg
         internal set
 
-    public var pAdviseSink: MutPtr<CVoid> = pAdviseSinkCtorArg
+    public var pAdviseSink: MutPtr = pAdviseSinkCtorArg
         internal set
 
-    public var pPropertyNotifySink: MutPtr<CVoid> = pPropertyNotifySinkCtorArg
+    public var pPropertyNotifySink: MutPtr = pPropertyNotifySinkCtorArg
         internal set
 
-    public var pUnkEventSink: MutPtr<CVoid> = pUnkEventSinkCtorArg
+    public var pUnkEventSink: MutPtr = pUnkEventSinkCtorArg
         internal set
 
-    public var pFont: MutPtr<CVoid> = pFontCtorArg
+    public var pFont: MutPtr = pFontCtorArg
         internal set
 
-    public var pUndoMgr: MutPtr<CVoid> = pUndoMgrCtorArg
+    public var pUndoMgr: MutPtr = pUndoMgrCtorArg
         internal set
 
     public var hpal: Hpalette = hpalCtorArg
         internal set
 
-    public var pBindHost: MutPtr<CVoid> = pBindHostCtorArg
+    public var pBindHost: MutPtr = pBindHostCtorArg
         internal set
 
-    public var pOleControlSite: MutPtr<CVoid> = pOleControlSiteCtorArg
+    public var pOleControlSite: MutPtr = pOleControlSiteCtorArg
         internal set
 
-    public var pServiceProvider: MutPtr<CVoid> = pServiceProviderCtorArg
+    public var pServiceProvider: MutPtr = pServiceProviderCtorArg
         internal set
 
     public constructor() : this(
@@ -4494,13 +4488,13 @@ public class Qacontainer internal constructor(
 
     public operator fun component1(): UInt = this.cbSize
 
-    public operator fun component2(): MutPtr<CVoid> = this.pClientSite
+    public operator fun component2(): MutPtr = this.pClientSite
 
-    public operator fun component3(): MutPtr<CVoid> = this.pAdviseSink
+    public operator fun component3(): MutPtr = this.pAdviseSink
 
-    public operator fun component4(): MutPtr<CVoid> = this.pPropertyNotifySink
+    public operator fun component4(): MutPtr = this.pPropertyNotifySink
 
-    public operator fun component5(): MutPtr<CVoid> = this.pUnkEventSink
+    public operator fun component5(): MutPtr = this.pUnkEventSink
 
     public operator fun component6(): UInt = this.dwAmbientFlags
 
@@ -4508,9 +4502,9 @@ public class Qacontainer internal constructor(
 
     public operator fun component8(): UInt = this.colorBack
 
-    public operator fun component9(): MutPtr<CVoid> = this.pFont
+    public operator fun component9(): MutPtr = this.pFont
 
-    public operator fun component10(): MutPtr<CVoid> = this.pUndoMgr
+    public operator fun component10(): MutPtr = this.pUndoMgr
 
     public operator fun component11(): UInt = this.dwAppearance
 
@@ -4518,13 +4512,13 @@ public class Qacontainer internal constructor(
 
     public operator fun component13(): Hpalette = this.hpal
 
-    public operator fun component14(): MutPtr<CVoid> = this.pBindHost
+    public operator fun component14(): MutPtr = this.pBindHost
 
-    public operator fun component15(): MutPtr<CVoid> = this.pOleControlSite
+    public operator fun component15(): MutPtr = this.pOleControlSite
 
-    public operator fun component16(): MutPtr<CVoid> = this.pServiceProvider
+    public operator fun component16(): MutPtr = this.pServiceProvider
 
-    public fun copy(cbSize: UInt = this.cbSize, pClientSite: MutPtr<CVoid> = this.pClientSite, pAdviseSink: MutPtr<CVoid> = this.pAdviseSink, pPropertyNotifySink: MutPtr<CVoid> = this.pPropertyNotifySink, pUnkEventSink: MutPtr<CVoid> = this.pUnkEventSink, dwAmbientFlags: UInt = this.dwAmbientFlags, colorFore: UInt = this.colorFore, colorBack: UInt = this.colorBack, pFont: MutPtr<CVoid> = this.pFont, pUndoMgr: MutPtr<CVoid> = this.pUndoMgr, dwAppearance: UInt = this.dwAppearance, lcid: Int = this.lcid, hpal: Hpalette = this.hpal, pBindHost: MutPtr<CVoid> = this.pBindHost, pOleControlSite: MutPtr<CVoid> = this.pOleControlSite, pServiceProvider: MutPtr<CVoid> = this.pServiceProvider): Qacontainer = Qacontainer(cbSize = cbSize, pClientSiteCtorArg = pClientSite, pAdviseSinkCtorArg = pAdviseSink, pPropertyNotifySinkCtorArg = pPropertyNotifySink, pUnkEventSinkCtorArg = pUnkEventSink, dwAmbientFlags = dwAmbientFlags, colorFore = colorFore, colorBack = colorBack, pFontCtorArg = pFont, pUndoMgrCtorArg = pUndoMgr, dwAppearance = dwAppearance, lcid = lcid, hpalCtorArg = hpal, pBindHostCtorArg = pBindHost, pOleControlSiteCtorArg = pOleControlSite, pServiceProviderCtorArg = pServiceProvider)
+    public fun copy(cbSize: UInt = this.cbSize, pClientSite: MutPtr = this.pClientSite, pAdviseSink: MutPtr = this.pAdviseSink, pPropertyNotifySink: MutPtr = this.pPropertyNotifySink, pUnkEventSink: MutPtr = this.pUnkEventSink, dwAmbientFlags: UInt = this.dwAmbientFlags, colorFore: UInt = this.colorFore, colorBack: UInt = this.colorBack, pFont: MutPtr = this.pFont, pUndoMgr: MutPtr = this.pUndoMgr, dwAppearance: UInt = this.dwAppearance, lcid: Int = this.lcid, hpal: Hpalette = this.hpal, pBindHost: MutPtr = this.pBindHost, pOleControlSite: MutPtr = this.pOleControlSite, pServiceProvider: MutPtr = this.pServiceProvider): Qacontainer = Qacontainer(cbSize = cbSize, pClientSiteCtorArg = pClientSite, pAdviseSinkCtorArg = pAdviseSink, pPropertyNotifySinkCtorArg = pPropertyNotifySink, pUnkEventSinkCtorArg = pUnkEventSink, dwAmbientFlags = dwAmbientFlags, colorFore = colorFore, colorBack = colorBack, pFontCtorArg = pFont, pUndoMgrCtorArg = pUndoMgr, dwAppearance = dwAppearance, lcid = lcid, hpalCtorArg = hpal, pBindHostCtorArg = pBindHost, pOleControlSiteCtorArg = pOleControlSite, pServiceProviderCtorArg = pServiceProvider)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -4571,21 +4565,21 @@ public class Qacontainer internal constructor(
     public companion object {
         public operator fun invoke(
             cbSize: UInt = 0u,
-            pClientSite: MutPtr<CVoid> = MutPtr(0L),
-            pAdviseSink: MutPtr<CVoid> = MutPtr(0L),
-            pPropertyNotifySink: MutPtr<CVoid> = MutPtr(0L),
-            pUnkEventSink: MutPtr<CVoid> = MutPtr(0L),
+            pClientSite: MutPtr = MutPtr(0L),
+            pAdviseSink: MutPtr = MutPtr(0L),
+            pPropertyNotifySink: MutPtr = MutPtr(0L),
+            pUnkEventSink: MutPtr = MutPtr(0L),
             dwAmbientFlags: UInt = 0u,
             colorFore: UInt = 0u,
             colorBack: UInt = 0u,
-            pFont: MutPtr<CVoid> = MutPtr(0L),
-            pUndoMgr: MutPtr<CVoid> = MutPtr(0L),
+            pFont: MutPtr = MutPtr(0L),
+            pUndoMgr: MutPtr = MutPtr(0L),
             dwAppearance: UInt = 0u,
             lcid: Int = 0,
             hpal: Hpalette = MutPtr(0L),
-            pBindHost: MutPtr<CVoid> = MutPtr(0L),
-            pOleControlSite: MutPtr<CVoid> = MutPtr(0L),
-            pServiceProvider: MutPtr<CVoid> = MutPtr(0L),
+            pBindHost: MutPtr = MutPtr(0L),
+            pOleControlSite: MutPtr = MutPtr(0L),
+            pServiceProvider: MutPtr = MutPtr(0L),
         ): Qacontainer =
             Qacontainer(
                 cbSize = cbSize,
@@ -4662,9 +4656,9 @@ public data class Safearrayunion0(
 
 public class SafearrBrecord internal constructor(
     public var size: UInt,
-    aRecordCtorArg: MutPtr<MutPtr<WireBrecord>>,
+    aRecordCtorArg: MutPtr,
 ) {
-    public var aRecord: MutPtr<MutPtr<WireBrecord>> = aRecordCtorArg
+    public var aRecord: MutPtr = aRecordCtorArg
         internal set
 
     public constructor() : this(
@@ -4674,9 +4668,9 @@ public class SafearrBrecord internal constructor(
 
     public operator fun component1(): UInt = this.size
 
-    public operator fun component2(): MutPtr<MutPtr<WireBrecord>> = this.aRecord
+    public operator fun component2(): MutPtr = this.aRecord
 
-    public fun copy(size: UInt = this.size, aRecord: MutPtr<MutPtr<WireBrecord>> = this.aRecord): SafearrBrecord = SafearrBrecord(size = size, aRecordCtorArg = aRecord)
+    public fun copy(size: UInt = this.size, aRecord: MutPtr = this.aRecord): SafearrBrecord = SafearrBrecord(size = size, aRecordCtorArg = aRecord)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -4702,21 +4696,21 @@ public class SafearrBrecord internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<MutPtr<WireBrecord>>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                     )
                 override fun writeNative(addr: Long, value: SafearrBrecord) {
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr, value.size)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<MutPtr<WireBrecord>>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.aRecord)
                 }
             }
 
         public operator fun invoke(
             size: UInt = 0u,
-            aRecord: MutPtr<MutPtr<WireBrecord>> = MutPtr(0L),
+            aRecord: MutPtr = MutPtr(0L),
         ): SafearrBrecord =
             SafearrBrecord(
                 size = size,
@@ -4727,9 +4721,9 @@ public class SafearrBrecord internal constructor(
 
 public class SafearrBstr internal constructor(
     public var size: UInt,
-    aBstrCtorArg: MutPtr<MutPtr<FlaggedWordBlob>>,
+    aBstrCtorArg: MutPtr,
 ) {
-    public var aBstr: MutPtr<MutPtr<FlaggedWordBlob>> = aBstrCtorArg
+    public var aBstr: MutPtr = aBstrCtorArg
         internal set
 
     public constructor() : this(
@@ -4739,9 +4733,9 @@ public class SafearrBstr internal constructor(
 
     public operator fun component1(): UInt = this.size
 
-    public operator fun component2(): MutPtr<MutPtr<FlaggedWordBlob>> = this.aBstr
+    public operator fun component2(): MutPtr = this.aBstr
 
-    public fun copy(size: UInt = this.size, aBstr: MutPtr<MutPtr<FlaggedWordBlob>> = this.aBstr): SafearrBstr = SafearrBstr(size = size, aBstrCtorArg = aBstr)
+    public fun copy(size: UInt = this.size, aBstr: MutPtr = this.aBstr): SafearrBstr = SafearrBstr(size = size, aBstrCtorArg = aBstr)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -4767,21 +4761,21 @@ public class SafearrBstr internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<MutPtr<FlaggedWordBlob>>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                     )
                 override fun writeNative(addr: Long, value: SafearrBstr) {
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr, value.size)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<MutPtr<FlaggedWordBlob>>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.aBstr)
                 }
             }
 
         public operator fun invoke(
             size: UInt = 0u,
-            aBstr: MutPtr<MutPtr<FlaggedWordBlob>> = MutPtr(0L),
+            aBstr: MutPtr = MutPtr(0L),
         ): SafearrBstr =
             SafearrBstr(
                 size = size,
@@ -4792,9 +4786,9 @@ public class SafearrBstr internal constructor(
 
 public class SafearrDispatch internal constructor(
     public var size: UInt,
-    apDispatchCtorArg: MutPtr<MutPtr<CVoid>>,
+    apDispatchCtorArg: MutPtr,
 ) {
-    public var apDispatch: MutPtr<MutPtr<CVoid>> = apDispatchCtorArg
+    public var apDispatch: MutPtr = apDispatchCtorArg
         internal set
 
     public constructor() : this(
@@ -4804,9 +4798,9 @@ public class SafearrDispatch internal constructor(
 
     public operator fun component1(): UInt = this.size
 
-    public operator fun component2(): MutPtr<MutPtr<CVoid>> = this.apDispatch
+    public operator fun component2(): MutPtr = this.apDispatch
 
-    public fun copy(size: UInt = this.size, apDispatch: MutPtr<MutPtr<CVoid>> = this.apDispatch): SafearrDispatch = SafearrDispatch(size = size, apDispatchCtorArg = apDispatch)
+    public fun copy(size: UInt = this.size, apDispatch: MutPtr = this.apDispatch): SafearrDispatch = SafearrDispatch(size = size, apDispatchCtorArg = apDispatch)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -4832,21 +4826,21 @@ public class SafearrDispatch internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<MutPtr<CVoid>>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                     )
                 override fun writeNative(addr: Long, value: SafearrDispatch) {
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr, value.size)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<MutPtr<CVoid>>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.apDispatch)
                 }
             }
 
         public operator fun invoke(
             size: UInt = 0u,
-            apDispatch: MutPtr<MutPtr<CVoid>> = MutPtr(0L),
+            apDispatch: MutPtr = MutPtr(0L),
         ): SafearrDispatch =
             SafearrDispatch(
                 size = size,
@@ -4857,10 +4851,10 @@ public class SafearrDispatch internal constructor(
 
 public class SafearrHaveiid internal constructor(
     public var size: UInt,
-    apUnknownCtorArg: MutPtr<MutPtr<CVoid>>,
+    apUnknownCtorArg: MutPtr,
     public var iid: Guid,
 ) {
-    public var apUnknown: MutPtr<MutPtr<CVoid>> = apUnknownCtorArg
+    public var apUnknown: MutPtr = apUnknownCtorArg
         internal set
 
     public constructor() : this(
@@ -4871,11 +4865,11 @@ public class SafearrHaveiid internal constructor(
 
     public operator fun component1(): UInt = this.size
 
-    public operator fun component2(): MutPtr<MutPtr<CVoid>> = this.apUnknown
+    public operator fun component2(): MutPtr = this.apUnknown
 
     public operator fun component3(): Guid = this.iid
 
-    public fun copy(size: UInt = this.size, apUnknown: MutPtr<MutPtr<CVoid>> = this.apUnknown, iid: Guid = this.iid): SafearrHaveiid = SafearrHaveiid(size = size, apUnknownCtorArg = apUnknown, iid = iid)
+    public fun copy(size: UInt = this.size, apUnknown: MutPtr = this.apUnknown, iid: Guid = this.iid): SafearrHaveiid = SafearrHaveiid(size = size, apUnknownCtorArg = apUnknown, iid = iid)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -4896,7 +4890,7 @@ public class SafearrHaveiid internal constructor(
     public companion object {
         public operator fun invoke(
             size: UInt = 0u,
-            apUnknown: MutPtr<MutPtr<CVoid>> = MutPtr(0L),
+            apUnknown: MutPtr = MutPtr(0L),
             iid: Guid = Guid(),
         ): SafearrHaveiid =
             SafearrHaveiid(
@@ -4909,9 +4903,9 @@ public class SafearrHaveiid internal constructor(
 
 public class SafearrUnknown internal constructor(
     public var size: UInt,
-    apUnknownCtorArg: MutPtr<MutPtr<CVoid>>,
+    apUnknownCtorArg: MutPtr,
 ) {
-    public var apUnknown: MutPtr<MutPtr<CVoid>> = apUnknownCtorArg
+    public var apUnknown: MutPtr = apUnknownCtorArg
         internal set
 
     public constructor() : this(
@@ -4921,9 +4915,9 @@ public class SafearrUnknown internal constructor(
 
     public operator fun component1(): UInt = this.size
 
-    public operator fun component2(): MutPtr<MutPtr<CVoid>> = this.apUnknown
+    public operator fun component2(): MutPtr = this.apUnknown
 
-    public fun copy(size: UInt = this.size, apUnknown: MutPtr<MutPtr<CVoid>> = this.apUnknown): SafearrUnknown = SafearrUnknown(size = size, apUnknownCtorArg = apUnknown)
+    public fun copy(size: UInt = this.size, apUnknown: MutPtr = this.apUnknown): SafearrUnknown = SafearrUnknown(size = size, apUnknownCtorArg = apUnknown)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -4949,21 +4943,21 @@ public class SafearrUnknown internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<MutPtr<CVoid>>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                     )
                 override fun writeNative(addr: Long, value: SafearrUnknown) {
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr, value.size)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<MutPtr<CVoid>>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.apUnknown)
                 }
             }
 
         public operator fun invoke(
             size: UInt = 0u,
-            apUnknown: MutPtr<MutPtr<CVoid>> = MutPtr(0L),
+            apUnknown: MutPtr = MutPtr(0L),
         ): SafearrUnknown =
             SafearrUnknown(
                 size = size,
@@ -4974,9 +4968,9 @@ public class SafearrUnknown internal constructor(
 
 public class SafearrVariant internal constructor(
     public var size: UInt,
-    aVariantCtorArg: MutPtr<MutPtr<WireVariant>>,
+    aVariantCtorArg: MutPtr,
 ) {
-    public var aVariant: MutPtr<MutPtr<WireVariant>> = aVariantCtorArg
+    public var aVariant: MutPtr = aVariantCtorArg
         internal set
 
     public constructor() : this(
@@ -4986,9 +4980,9 @@ public class SafearrVariant internal constructor(
 
     public operator fun component1(): UInt = this.size
 
-    public operator fun component2(): MutPtr<MutPtr<WireVariant>> = this.aVariant
+    public operator fun component2(): MutPtr = this.aVariant
 
-    public fun copy(size: UInt = this.size, aVariant: MutPtr<MutPtr<WireVariant>> = this.aVariant): SafearrVariant = SafearrVariant(size = size, aVariantCtorArg = aVariant)
+    public fun copy(size: UInt = this.size, aVariant: MutPtr = this.aVariant): SafearrVariant = SafearrVariant(size = size, aVariantCtorArg = aVariant)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -5014,21 +5008,21 @@ public class SafearrVariant internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<MutPtr<WireVariant>>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                     )
                 override fun writeNative(addr: Long, value: SafearrVariant) {
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr, value.size)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<MutPtr<WireVariant>>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.aVariant)
                 }
             }
 
         public operator fun invoke(
             size: UInt = 0u,
-            aVariant: MutPtr<MutPtr<WireVariant>> = MutPtr(0L),
+            aVariant: MutPtr = MutPtr(0L),
         ): SafearrVariant =
             SafearrVariant(
                 size = size,
@@ -5045,13 +5039,13 @@ public data class Udate(
 public class WireBrecord internal constructor(
     public var fFlags: UInt,
     public var clSize: UInt,
-    pRecInfoCtorArg: MutPtr<CVoid>,
-    pRecordCtorArg: MutPtr<UByte>,
+    pRecInfoCtorArg: MutPtr,
+    pRecordCtorArg: MutPtr,
 ) {
-    public var pRecInfo: MutPtr<CVoid> = pRecInfoCtorArg
+    public var pRecInfo: MutPtr = pRecInfoCtorArg
         internal set
 
-    public var pRecord: MutPtr<UByte> = pRecordCtorArg
+    public var pRecord: MutPtr = pRecordCtorArg
         internal set
 
     public constructor() : this(
@@ -5065,11 +5059,11 @@ public class WireBrecord internal constructor(
 
     public operator fun component2(): UInt = this.clSize
 
-    public operator fun component3(): MutPtr<CVoid> = this.pRecInfo
+    public operator fun component3(): MutPtr = this.pRecInfo
 
-    public operator fun component4(): MutPtr<UByte> = this.pRecord
+    public operator fun component4(): MutPtr = this.pRecord
 
-    public fun copy(fFlags: UInt = this.fFlags, clSize: UInt = this.clSize, pRecInfo: MutPtr<CVoid> = this.pRecInfo, pRecord: MutPtr<UByte> = this.pRecord): WireBrecord = WireBrecord(fFlags = fFlags, clSize = clSize, pRecInfoCtorArg = pRecInfo, pRecordCtorArg = pRecord)
+    public fun copy(fFlags: UInt = this.fFlags, clSize: UInt = this.clSize, pRecInfo: MutPtr = this.pRecInfo, pRecord: MutPtr = this.pRecord): WireBrecord = WireBrecord(fFlags = fFlags, clSize = clSize, pRecInfoCtorArg = pRecInfo, pRecordCtorArg = pRecord)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -5100,11 +5094,11 @@ public class WireBrecord internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 4L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<CVoid>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<UByte>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 16L),
                     )
                 override fun writeNative(addr: Long, value: WireBrecord) {
@@ -5112,11 +5106,11 @@ public class WireBrecord internal constructor(
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 4L, value.clSize)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<CVoid>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.pRecInfo)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<UByte>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 16L, value.pRecord)
                 }
             }
@@ -5124,8 +5118,8 @@ public class WireBrecord internal constructor(
         public operator fun invoke(
             fFlags: UInt = 0u,
             clSize: UInt = 0u,
-            pRecInfo: MutPtr<CVoid> = MutPtr(0L),
-            pRecord: MutPtr<UByte> = MutPtr(0L),
+            pRecInfo: MutPtr = MutPtr(0L),
+            pRecord: MutPtr = MutPtr(0L),
         ): WireBrecord =
             WireBrecord(
                 fFlags = fFlags,
@@ -5166,26 +5160,26 @@ public class WireVariant0 internal constructor(
     public var scode: Int,
     public var cyVal: CY,
     public var date: Double,
-    bstrValCtorArg: MutPtr<FlaggedWordBlob>,
-    punkValCtorArg: MutPtr<CVoid>,
-    pdispValCtorArg: MutPtr<CVoid>,
-    parrayCtorArg: MutPtr<MutPtr<WireSafearray>>,
-    brecValCtorArg: MutPtr<WireBrecord>,
-    pbValCtorArg: MutPtr<UByte>,
-    piValCtorArg: MutPtr<Short>,
-    plValCtorArg: MutPtr<Int>,
-    pllValCtorArg: MutPtr<Long>,
-    pfltValCtorArg: MutPtr<Float>,
-    pdblValCtorArg: MutPtr<Double>,
-    pboolValCtorArg: MutPtr<VariantBool>,
-    pscodeCtorArg: MutPtr<Int>,
-    pcyValCtorArg: MutPtr<CY>,
-    pdateCtorArg: MutPtr<Double>,
-    pbstrValCtorArg: MutPtr<MutPtr<FlaggedWordBlob>>,
-    ppunkValCtorArg: MutPtr<MutPtr<CVoid>>,
-    ppdispValCtorArg: MutPtr<MutPtr<CVoid>>,
-    pparrayCtorArg: MutPtr<MutPtr<MutPtr<WireSafearray>>>,
-    pvarValCtorArg: MutPtr<MutPtr<WireVariant>>,
+    bstrValCtorArg: MutPtr,
+    punkValCtorArg: MutPtr,
+    pdispValCtorArg: MutPtr,
+    parrayCtorArg: MutPtr,
+    brecValCtorArg: MutPtr,
+    pbValCtorArg: MutPtr,
+    piValCtorArg: MutPtr,
+    plValCtorArg: MutPtr,
+    pllValCtorArg: MutPtr,
+    pfltValCtorArg: MutPtr,
+    pdblValCtorArg: MutPtr,
+    pboolValCtorArg: MutPtr,
+    pscodeCtorArg: MutPtr,
+    pcyValCtorArg: MutPtr,
+    pdateCtorArg: MutPtr,
+    pbstrValCtorArg: MutPtr,
+    ppunkValCtorArg: MutPtr,
+    ppdispValCtorArg: MutPtr,
+    pparrayCtorArg: MutPtr,
+    pvarValCtorArg: MutPtr,
     public var cVal: Byte,
     public var uiVal: UShort,
     public var ulVal: UInt,
@@ -5193,93 +5187,93 @@ public class WireVariant0 internal constructor(
     public var intVal: Int,
     public var uintVal: UInt,
     public var decVal: Decimal,
-    pdecValCtorArg: MutPtr<Decimal>,
+    pdecValCtorArg: MutPtr,
     pcValCtorArg: Pstr,
-    puiValCtorArg: MutPtr<UShort>,
-    pulValCtorArg: MutPtr<UInt>,
-    pullValCtorArg: MutPtr<ULong>,
-    pintValCtorArg: MutPtr<Int>,
-    puintValCtorArg: MutPtr<UInt>,
+    puiValCtorArg: MutPtr,
+    pulValCtorArg: MutPtr,
+    pullValCtorArg: MutPtr,
+    pintValCtorArg: MutPtr,
+    puintValCtorArg: MutPtr,
 ) {
-    public var bstrVal: MutPtr<FlaggedWordBlob> = bstrValCtorArg
+    public var bstrVal: MutPtr = bstrValCtorArg
         internal set
 
-    public var punkVal: MutPtr<CVoid> = punkValCtorArg
+    public var punkVal: MutPtr = punkValCtorArg
         internal set
 
-    public var pdispVal: MutPtr<CVoid> = pdispValCtorArg
+    public var pdispVal: MutPtr = pdispValCtorArg
         internal set
 
-    public var parray: MutPtr<MutPtr<WireSafearray>> = parrayCtorArg
+    public var parray: MutPtr = parrayCtorArg
         internal set
 
-    public var brecVal: MutPtr<WireBrecord> = brecValCtorArg
+    public var brecVal: MutPtr = brecValCtorArg
         internal set
 
-    public var pbVal: MutPtr<UByte> = pbValCtorArg
+    public var pbVal: MutPtr = pbValCtorArg
         internal set
 
-    public var piVal: MutPtr<Short> = piValCtorArg
+    public var piVal: MutPtr = piValCtorArg
         internal set
 
-    public var plVal: MutPtr<Int> = plValCtorArg
+    public var plVal: MutPtr = plValCtorArg
         internal set
 
-    public var pllVal: MutPtr<Long> = pllValCtorArg
+    public var pllVal: MutPtr = pllValCtorArg
         internal set
 
-    public var pfltVal: MutPtr<Float> = pfltValCtorArg
+    public var pfltVal: MutPtr = pfltValCtorArg
         internal set
 
-    public var pdblVal: MutPtr<Double> = pdblValCtorArg
+    public var pdblVal: MutPtr = pdblValCtorArg
         internal set
 
-    public var pboolVal: MutPtr<VariantBool> = pboolValCtorArg
+    public var pboolVal: MutPtr = pboolValCtorArg
         internal set
 
-    public var pscode: MutPtr<Int> = pscodeCtorArg
+    public var pscode: MutPtr = pscodeCtorArg
         internal set
 
-    public var pcyVal: MutPtr<CY> = pcyValCtorArg
+    public var pcyVal: MutPtr = pcyValCtorArg
         internal set
 
-    public var pdate: MutPtr<Double> = pdateCtorArg
+    public var pdate: MutPtr = pdateCtorArg
         internal set
 
-    public var pbstrVal: MutPtr<MutPtr<FlaggedWordBlob>> = pbstrValCtorArg
+    public var pbstrVal: MutPtr = pbstrValCtorArg
         internal set
 
-    public var ppunkVal: MutPtr<MutPtr<CVoid>> = ppunkValCtorArg
+    public var ppunkVal: MutPtr = ppunkValCtorArg
         internal set
 
-    public var ppdispVal: MutPtr<MutPtr<CVoid>> = ppdispValCtorArg
+    public var ppdispVal: MutPtr = ppdispValCtorArg
         internal set
 
-    public var pparray: MutPtr<MutPtr<MutPtr<WireSafearray>>> = pparrayCtorArg
+    public var pparray: MutPtr = pparrayCtorArg
         internal set
 
-    public var pvarVal: MutPtr<MutPtr<WireVariant>> = pvarValCtorArg
+    public var pvarVal: MutPtr = pvarValCtorArg
         internal set
 
-    public var pdecVal: MutPtr<Decimal> = pdecValCtorArg
+    public var pdecVal: MutPtr = pdecValCtorArg
         internal set
 
     public var pcVal: Pstr = pcValCtorArg
         internal set
 
-    public var puiVal: MutPtr<UShort> = puiValCtorArg
+    public var puiVal: MutPtr = puiValCtorArg
         internal set
 
-    public var pulVal: MutPtr<UInt> = pulValCtorArg
+    public var pulVal: MutPtr = pulValCtorArg
         internal set
 
-    public var pullVal: MutPtr<ULong> = pullValCtorArg
+    public var pullVal: MutPtr = pullValCtorArg
         internal set
 
-    public var pintVal: MutPtr<Int> = pintValCtorArg
+    public var pintVal: MutPtr = pintValCtorArg
         internal set
 
-    public var puintVal: MutPtr<UInt> = puintValCtorArg
+    public var puintVal: MutPtr = puintValCtorArg
         internal set
 
     public constructor() : this(
@@ -5341,26 +5335,26 @@ public class WireVariant0 internal constructor(
             scode: Int = 0,
             cyVal: CY = CY(),
             date: Double = 0.0,
-            bstrVal: MutPtr<FlaggedWordBlob> = MutPtr(0L),
-            punkVal: MutPtr<CVoid> = MutPtr(0L),
-            pdispVal: MutPtr<CVoid> = MutPtr(0L),
-            parray: MutPtr<MutPtr<WireSafearray>> = MutPtr(0L),
-            brecVal: MutPtr<WireBrecord> = MutPtr(0L),
-            pbVal: MutPtr<UByte> = MutPtr(0L),
-            piVal: MutPtr<Short> = MutPtr(0L),
-            plVal: MutPtr<Int> = MutPtr(0L),
-            pllVal: MutPtr<Long> = MutPtr(0L),
-            pfltVal: MutPtr<Float> = MutPtr(0L),
-            pdblVal: MutPtr<Double> = MutPtr(0L),
-            pboolVal: MutPtr<VariantBool> = MutPtr(0L),
-            pscode: MutPtr<Int> = MutPtr(0L),
-            pcyVal: MutPtr<CY> = MutPtr(0L),
-            pdate: MutPtr<Double> = MutPtr(0L),
-            pbstrVal: MutPtr<MutPtr<FlaggedWordBlob>> = MutPtr(0L),
-            ppunkVal: MutPtr<MutPtr<CVoid>> = MutPtr(0L),
-            ppdispVal: MutPtr<MutPtr<CVoid>> = MutPtr(0L),
-            pparray: MutPtr<MutPtr<MutPtr<WireSafearray>>> = MutPtr(0L),
-            pvarVal: MutPtr<MutPtr<WireVariant>> = MutPtr(0L),
+            bstrVal: MutPtr = MutPtr(0L),
+            punkVal: MutPtr = MutPtr(0L),
+            pdispVal: MutPtr = MutPtr(0L),
+            parray: MutPtr = MutPtr(0L),
+            brecVal: MutPtr = MutPtr(0L),
+            pbVal: MutPtr = MutPtr(0L),
+            piVal: MutPtr = MutPtr(0L),
+            plVal: MutPtr = MutPtr(0L),
+            pllVal: MutPtr = MutPtr(0L),
+            pfltVal: MutPtr = MutPtr(0L),
+            pdblVal: MutPtr = MutPtr(0L),
+            pboolVal: MutPtr = MutPtr(0L),
+            pscode: MutPtr = MutPtr(0L),
+            pcyVal: MutPtr = MutPtr(0L),
+            pdate: MutPtr = MutPtr(0L),
+            pbstrVal: MutPtr = MutPtr(0L),
+            ppunkVal: MutPtr = MutPtr(0L),
+            ppdispVal: MutPtr = MutPtr(0L),
+            pparray: MutPtr = MutPtr(0L),
+            pvarVal: MutPtr = MutPtr(0L),
             cVal: Byte = 0,
             uiVal: UShort = 0u,
             ulVal: UInt = 0u,
@@ -5368,13 +5362,13 @@ public class WireVariant0 internal constructor(
             intVal: Int = 0,
             uintVal: UInt = 0u,
             decVal: Decimal = Decimal(),
-            pdecVal: MutPtr<Decimal> = MutPtr(0L),
+            pdecVal: MutPtr = MutPtr(0L),
             pcVal: Pstr = MutPtr(0L),
-            puiVal: MutPtr<UShort> = MutPtr(0L),
-            pulVal: MutPtr<UInt> = MutPtr(0L),
-            pullVal: MutPtr<ULong> = MutPtr(0L),
-            pintVal: MutPtr<Int> = MutPtr(0L),
-            puintVal: MutPtr<UInt> = MutPtr(0L),
+            puiVal: MutPtr = MutPtr(0L),
+            pulVal: MutPtr = MutPtr(0L),
+            pullVal: MutPtr = MutPtr(0L),
+            pintVal: MutPtr = MutPtr(0L),
+            puintVal: MutPtr = MutPtr(0L),
         ): WireVariant0 =
             WireVariant0(
                 llVal = llVal,

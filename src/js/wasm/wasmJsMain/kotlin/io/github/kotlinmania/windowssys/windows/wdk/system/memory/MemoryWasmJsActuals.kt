@@ -2,10 +2,8 @@
 
 package io.github.kotlinmania.windowssys.windows.wdk.system.memory
 
-import io.github.kotlinmania.rustlang.core.ffi.CVoid
 import io.github.kotlinmania.rustlang.core.ptr.ConstPtr
 import io.github.kotlinmania.rustlang.core.ptr.MutPtr
-import io.github.kotlinmania.windowssys.windows.wdk.foundation.ObjectAttributes
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Handle
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Ntstatus
 
@@ -32,20 +30,20 @@ private external fun wasmWindowssysWindowsWdkSystemMemoryZwOpenSection(p0: Strin
 @JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWdkSystemMemoryZwUnmapViewOfSection(p0, p1)")
 private external fun wasmWindowssysWindowsWdkSystemMemoryZwUnmapViewOfSection(p0: String, p1: String): Int
 
-public actual fun ntMapViewOfSection(sectionhandle: Handle, processhandle: Handle, baseaddress: MutPtr<MutPtr<CVoid>>, zerobits: ULong, commitsize: ULong, sectionoffset: MutPtr<Long>, viewsize: MutPtr<ULong>, inheritdisposition: SectionInherit, allocationtype: UInt, win32protect: UInt): Ntstatus =
+public actual fun ntMapViewOfSection(sectionhandle: Handle, processhandle: Handle, baseaddress: MutPtr, zerobits: ULong, commitsize: ULong, sectionoffset: MutPtr, viewsize: MutPtr, inheritdisposition: SectionInherit, allocationtype: UInt, win32protect: UInt): Ntstatus =
     if (windowsWdkSystemMemoryNapiAvailable) wasmWindowssysWindowsWdkSystemMemoryNtMapViewOfSection(sectionhandle.rawAddress.toString(), processhandle.rawAddress.toString(), baseaddress.rawAddress.toString(), zerobits.toString(), commitsize.toString(), sectionoffset.rawAddress.toString(), viewsize.rawAddress.toString(), inheritdisposition, allocationtype.toInt(), win32protect.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ntOpenSection(sectionhandle: MutPtr<Handle>, desiredaccess: UInt, objectattributes: ConstPtr<ObjectAttributes>): Ntstatus =
+public actual fun ntOpenSection(sectionhandle: MutPtr, desiredaccess: UInt, objectattributes: ConstPtr): Ntstatus =
     if (windowsWdkSystemMemoryNapiAvailable) wasmWindowssysWindowsWdkSystemMemoryNtOpenSection(sectionhandle.rawAddress.toString(), desiredaccess.toInt(), objectattributes.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ntUnmapViewOfSection(processhandle: Handle, baseaddress: ConstPtr<CVoid>): Ntstatus =
+public actual fun ntUnmapViewOfSection(processhandle: Handle, baseaddress: ConstPtr): Ntstatus =
     if (windowsWdkSystemMemoryNapiAvailable) wasmWindowssysWindowsWdkSystemMemoryNtUnmapViewOfSection(processhandle.rawAddress.toString(), baseaddress.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun zwMapViewOfSection(sectionhandle: Handle, processhandle: Handle, baseaddress: MutPtr<MutPtr<CVoid>>, zerobits: ULong, commitsize: ULong, sectionoffset: MutPtr<Long>, viewsize: MutPtr<ULong>, inheritdisposition: SectionInherit, allocationtype: UInt, win32protect: UInt): Ntstatus =
+public actual fun zwMapViewOfSection(sectionhandle: Handle, processhandle: Handle, baseaddress: MutPtr, zerobits: ULong, commitsize: ULong, sectionoffset: MutPtr, viewsize: MutPtr, inheritdisposition: SectionInherit, allocationtype: UInt, win32protect: UInt): Ntstatus =
     if (windowsWdkSystemMemoryNapiAvailable) wasmWindowssysWindowsWdkSystemMemoryZwMapViewOfSection(sectionhandle.rawAddress.toString(), processhandle.rawAddress.toString(), baseaddress.rawAddress.toString(), zerobits.toString(), commitsize.toString(), sectionoffset.rawAddress.toString(), viewsize.rawAddress.toString(), inheritdisposition, allocationtype.toInt(), win32protect.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun zwOpenSection(sectionhandle: MutPtr<Handle>, desiredaccess: UInt, objectattributes: ConstPtr<ObjectAttributes>): Ntstatus =
+public actual fun zwOpenSection(sectionhandle: MutPtr, desiredaccess: UInt, objectattributes: ConstPtr): Ntstatus =
     if (windowsWdkSystemMemoryNapiAvailable) wasmWindowssysWindowsWdkSystemMemoryZwOpenSection(sectionhandle.rawAddress.toString(), desiredaccess.toInt(), objectattributes.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun zwUnmapViewOfSection(processhandle: Handle, baseaddress: ConstPtr<CVoid>): Ntstatus =
+public actual fun zwUnmapViewOfSection(processhandle: Handle, baseaddress: ConstPtr): Ntstatus =
     if (windowsWdkSystemMemoryNapiAvailable) wasmWindowssysWindowsWdkSystemMemoryZwUnmapViewOfSection(processhandle.rawAddress.toString(), baseaddress.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")

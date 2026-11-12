@@ -62,7 +62,7 @@ public actual fun abortSystemShutdownA(lpmachinename: Pcstr): Bool =
 public actual fun abortSystemShutdownW(lpmachinename: Pcwstr): Bool =
     if (windowsWin32SystemShutdownNapiAvailable) wasmWindowssysWindowsWin32SystemShutdownAbortSystemShutdownW(lpmachinename.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun checkForHiberboot(phiberboot: MutPtr<Boolean>, bclearflag: Boolean): UInt =
+public actual fun checkForHiberboot(phiberboot: MutPtr, bclearflag: Boolean): UInt =
     if (windowsWin32SystemShutdownNapiAvailable) wasmWindowssysWindowsWin32SystemShutdownCheckForHiberboot(phiberboot.rawAddress.toString(), bclearflag).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun exitWindowsEx(uflags: ExitWindowsFlags, dwreason: ShutdownReason): Bool =
@@ -95,5 +95,5 @@ public actual fun shutdownBlockReasonCreate(hwnd: Hwnd, pwszreason: Pcwstr): Boo
 public actual fun shutdownBlockReasonDestroy(hwnd: Hwnd): Bool =
     if (windowsWin32SystemShutdownNapiAvailable) wasmWindowssysWindowsWin32SystemShutdownShutdownBlockReasonDestroy(hwnd.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun shutdownBlockReasonQuery(hwnd: Hwnd, pwszbuff: Pwstr, pcchbuff: MutPtr<UInt>): Bool =
+public actual fun shutdownBlockReasonQuery(hwnd: Hwnd, pwszbuff: Pwstr, pcchbuff: MutPtr): Bool =
     if (windowsWin32SystemShutdownNapiAvailable) wasmWindowssysWindowsWin32SystemShutdownShutdownBlockReasonQuery(hwnd.rawAddress.toString(), pwszbuff.rawAddress.toString(), pcchbuff.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")

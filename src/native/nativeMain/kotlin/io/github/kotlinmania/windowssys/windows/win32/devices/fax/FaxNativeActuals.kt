@@ -2,7 +2,6 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.devices.fax
 
-import io.github.kotlinmania.rustlang.core.ffi.CVoid
 import io.github.kotlinmania.rustlang.core.ptr.ConstPtr
 import io.github.kotlinmania.rustlang.core.ptr.MutPtr
 import io.github.kotlinmania.windowssys.core.Bool
@@ -86,16 +85,16 @@ public actual fun faxAccessCheck(faxhandle: Handle, accessmask: UInt): Bool =
 public actual fun faxClose(faxhandle: Handle): Bool =
     windowssysWindowsWin32DevicesFaxFaxClose(faxhandle.rawAddress.toCPointer<ByteVar>())
 
-public actual fun faxCompleteJobParamsA(jobparams: MutPtr<MutPtr<FaxJobParama>>, coverpageinfo: MutPtr<MutPtr<FaxCoverpageInfoa>>): Bool =
+public actual fun faxCompleteJobParamsA(jobparams: MutPtr, coverpageinfo: MutPtr): Bool =
     windowssysWindowsWin32DevicesFaxFaxCompleteJobParamsA(jobparams.rawAddress.toCPointer<ByteVar>(), coverpageinfo.rawAddress.toCPointer<ByteVar>())
 
-public actual fun faxCompleteJobParamsW(jobparams: MutPtr<MutPtr<FaxJobParamw>>, coverpageinfo: MutPtr<MutPtr<FaxCoverpageInfow>>): Bool =
+public actual fun faxCompleteJobParamsW(jobparams: MutPtr, coverpageinfo: MutPtr): Bool =
     windowssysWindowsWin32DevicesFaxFaxCompleteJobParamsW(jobparams.rawAddress.toCPointer<ByteVar>(), coverpageinfo.rawAddress.toCPointer<ByteVar>())
 
-public actual fun faxConnectFaxServerA(machinename: Pcstr, faxhandle: MutPtr<Handle>): Bool =
+public actual fun faxConnectFaxServerA(machinename: Pcstr, faxhandle: MutPtr): Bool =
     windowssysWindowsWin32DevicesFaxFaxConnectFaxServerA(machinename.rawAddress.toCPointer<ByteVar>(), faxhandle.rawAddress.toCPointer<ByteVar>())
 
-public actual fun faxConnectFaxServerW(machinename: Pcwstr, faxhandle: MutPtr<Handle>): Bool =
+public actual fun faxConnectFaxServerW(machinename: Pcwstr, faxhandle: MutPtr): Bool =
     windowssysWindowsWin32DevicesFaxFaxConnectFaxServerW(machinename.rawAddress.toCPointer<ByteVar>(), faxhandle.rawAddress.toCPointer<ByteVar>())
 
 public actual fun faxEnableRoutingMethodA(faxporthandle: Handle, routingguid: Pcstr, enabled: Bool): Bool =
@@ -104,143 +103,143 @@ public actual fun faxEnableRoutingMethodA(faxporthandle: Handle, routingguid: Pc
 public actual fun faxEnableRoutingMethodW(faxporthandle: Handle, routingguid: Pcwstr, enabled: Bool): Bool =
     windowssysWindowsWin32DevicesFaxFaxEnableRoutingMethodW(faxporthandle.rawAddress.toCPointer<ByteVar>(), routingguid.rawAddress.toCPointer<ByteVar>(), enabled)
 
-public actual fun faxEnumGlobalRoutingInfoA(faxhandle: Handle, routinginfo: MutPtr<MutPtr<FaxGlobalRoutingInfoa>>, methodsreturned: MutPtr<UInt>): Bool =
+public actual fun faxEnumGlobalRoutingInfoA(faxhandle: Handle, routinginfo: MutPtr, methodsreturned: MutPtr): Bool =
     windowssysWindowsWin32DevicesFaxFaxEnumGlobalRoutingInfoA(faxhandle.rawAddress.toCPointer<ByteVar>(), routinginfo.rawAddress.toCPointer<ByteVar>(), methodsreturned.rawAddress.toCPointer<ByteVar>())
 
-public actual fun faxEnumGlobalRoutingInfoW(faxhandle: Handle, routinginfo: MutPtr<MutPtr<FaxGlobalRoutingInfow>>, methodsreturned: MutPtr<UInt>): Bool =
+public actual fun faxEnumGlobalRoutingInfoW(faxhandle: Handle, routinginfo: MutPtr, methodsreturned: MutPtr): Bool =
     windowssysWindowsWin32DevicesFaxFaxEnumGlobalRoutingInfoW(faxhandle.rawAddress.toCPointer<ByteVar>(), routinginfo.rawAddress.toCPointer<ByteVar>(), methodsreturned.rawAddress.toCPointer<ByteVar>())
 
-public actual fun faxEnumJobsA(faxhandle: Handle, jobentry: MutPtr<MutPtr<FaxJobEntrya>>, jobsreturned: MutPtr<UInt>): Bool =
+public actual fun faxEnumJobsA(faxhandle: Handle, jobentry: MutPtr, jobsreturned: MutPtr): Bool =
     windowssysWindowsWin32DevicesFaxFaxEnumJobsA(faxhandle.rawAddress.toCPointer<ByteVar>(), jobentry.rawAddress.toCPointer<ByteVar>(), jobsreturned.rawAddress.toCPointer<ByteVar>())
 
-public actual fun faxEnumJobsW(faxhandle: Handle, jobentry: MutPtr<MutPtr<FaxJobEntryw>>, jobsreturned: MutPtr<UInt>): Bool =
+public actual fun faxEnumJobsW(faxhandle: Handle, jobentry: MutPtr, jobsreturned: MutPtr): Bool =
     windowssysWindowsWin32DevicesFaxFaxEnumJobsW(faxhandle.rawAddress.toCPointer<ByteVar>(), jobentry.rawAddress.toCPointer<ByteVar>(), jobsreturned.rawAddress.toCPointer<ByteVar>())
 
-public actual fun faxEnumPortsA(faxhandle: Handle, portinfo: MutPtr<MutPtr<FaxPortInfoa>>, portsreturned: MutPtr<UInt>): Bool =
+public actual fun faxEnumPortsA(faxhandle: Handle, portinfo: MutPtr, portsreturned: MutPtr): Bool =
     windowssysWindowsWin32DevicesFaxFaxEnumPortsA(faxhandle.rawAddress.toCPointer<ByteVar>(), portinfo.rawAddress.toCPointer<ByteVar>(), portsreturned.rawAddress.toCPointer<ByteVar>())
 
-public actual fun faxEnumPortsW(faxhandle: Handle, portinfo: MutPtr<MutPtr<FaxPortInfow>>, portsreturned: MutPtr<UInt>): Bool =
+public actual fun faxEnumPortsW(faxhandle: Handle, portinfo: MutPtr, portsreturned: MutPtr): Bool =
     windowssysWindowsWin32DevicesFaxFaxEnumPortsW(faxhandle.rawAddress.toCPointer<ByteVar>(), portinfo.rawAddress.toCPointer<ByteVar>(), portsreturned.rawAddress.toCPointer<ByteVar>())
 
-public actual fun faxEnumRoutingMethodsA(faxporthandle: Handle, routingmethod: MutPtr<MutPtr<FaxRoutingMethoda>>, methodsreturned: MutPtr<UInt>): Bool =
+public actual fun faxEnumRoutingMethodsA(faxporthandle: Handle, routingmethod: MutPtr, methodsreturned: MutPtr): Bool =
     windowssysWindowsWin32DevicesFaxFaxEnumRoutingMethodsA(faxporthandle.rawAddress.toCPointer<ByteVar>(), routingmethod.rawAddress.toCPointer<ByteVar>(), methodsreturned.rawAddress.toCPointer<ByteVar>())
 
-public actual fun faxEnumRoutingMethodsW(faxporthandle: Handle, routingmethod: MutPtr<MutPtr<FaxRoutingMethodw>>, methodsreturned: MutPtr<UInt>): Bool =
+public actual fun faxEnumRoutingMethodsW(faxporthandle: Handle, routingmethod: MutPtr, methodsreturned: MutPtr): Bool =
     windowssysWindowsWin32DevicesFaxFaxEnumRoutingMethodsW(faxporthandle.rawAddress.toCPointer<ByteVar>(), routingmethod.rawAddress.toCPointer<ByteVar>(), methodsreturned.rawAddress.toCPointer<ByteVar>())
 
-public actual fun faxFreeBuffer(buffer: MutPtr<CVoid>) {
+public actual fun faxFreeBuffer(buffer: MutPtr) {
     windowssysWindowsWin32DevicesFaxFaxFreeBuffer(buffer.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun faxGetConfigurationA(faxhandle: Handle, faxconfig: MutPtr<MutPtr<FaxConfigurationa>>): Bool =
+public actual fun faxGetConfigurationA(faxhandle: Handle, faxconfig: MutPtr): Bool =
     windowssysWindowsWin32DevicesFaxFaxGetConfigurationA(faxhandle.rawAddress.toCPointer<ByteVar>(), faxconfig.rawAddress.toCPointer<ByteVar>())
 
-public actual fun faxGetConfigurationW(faxhandle: Handle, faxconfig: MutPtr<MutPtr<FaxConfigurationw>>): Bool =
+public actual fun faxGetConfigurationW(faxhandle: Handle, faxconfig: MutPtr): Bool =
     windowssysWindowsWin32DevicesFaxFaxGetConfigurationW(faxhandle.rawAddress.toCPointer<ByteVar>(), faxconfig.rawAddress.toCPointer<ByteVar>())
 
-public actual fun faxGetDeviceStatusA(faxporthandle: Handle, devicestatus: MutPtr<MutPtr<FaxDeviceStatusa>>): Bool =
+public actual fun faxGetDeviceStatusA(faxporthandle: Handle, devicestatus: MutPtr): Bool =
     windowssysWindowsWin32DevicesFaxFaxGetDeviceStatusA(faxporthandle.rawAddress.toCPointer<ByteVar>(), devicestatus.rawAddress.toCPointer<ByteVar>())
 
-public actual fun faxGetDeviceStatusW(faxporthandle: Handle, devicestatus: MutPtr<MutPtr<FaxDeviceStatusw>>): Bool =
+public actual fun faxGetDeviceStatusW(faxporthandle: Handle, devicestatus: MutPtr): Bool =
     windowssysWindowsWin32DevicesFaxFaxGetDeviceStatusW(faxporthandle.rawAddress.toCPointer<ByteVar>(), devicestatus.rawAddress.toCPointer<ByteVar>())
 
-public actual fun faxGetJobA(faxhandle: Handle, jobid: UInt, jobentry: MutPtr<MutPtr<FaxJobEntrya>>): Bool =
+public actual fun faxGetJobA(faxhandle: Handle, jobid: UInt, jobentry: MutPtr): Bool =
     windowssysWindowsWin32DevicesFaxFaxGetJobA(faxhandle.rawAddress.toCPointer<ByteVar>(), jobid, jobentry.rawAddress.toCPointer<ByteVar>())
 
-public actual fun faxGetJobW(faxhandle: Handle, jobid: UInt, jobentry: MutPtr<MutPtr<FaxJobEntryw>>): Bool =
+public actual fun faxGetJobW(faxhandle: Handle, jobid: UInt, jobentry: MutPtr): Bool =
     windowssysWindowsWin32DevicesFaxFaxGetJobW(faxhandle.rawAddress.toCPointer<ByteVar>(), jobid, jobentry.rawAddress.toCPointer<ByteVar>())
 
-public actual fun faxGetLoggingCategoriesA(faxhandle: Handle, categories: MutPtr<MutPtr<FaxLogCategorya>>, numbercategories: MutPtr<UInt>): Bool =
+public actual fun faxGetLoggingCategoriesA(faxhandle: Handle, categories: MutPtr, numbercategories: MutPtr): Bool =
     windowssysWindowsWin32DevicesFaxFaxGetLoggingCategoriesA(faxhandle.rawAddress.toCPointer<ByteVar>(), categories.rawAddress.toCPointer<ByteVar>(), numbercategories.rawAddress.toCPointer<ByteVar>())
 
-public actual fun faxGetLoggingCategoriesW(faxhandle: Handle, categories: MutPtr<MutPtr<FaxLogCategoryw>>, numbercategories: MutPtr<UInt>): Bool =
+public actual fun faxGetLoggingCategoriesW(faxhandle: Handle, categories: MutPtr, numbercategories: MutPtr): Bool =
     windowssysWindowsWin32DevicesFaxFaxGetLoggingCategoriesW(faxhandle.rawAddress.toCPointer<ByteVar>(), categories.rawAddress.toCPointer<ByteVar>(), numbercategories.rawAddress.toCPointer<ByteVar>())
 
-public actual fun faxGetPageData(faxhandle: Handle, jobid: UInt, buffer: MutPtr<MutPtr<UByte>>, buffersize: MutPtr<UInt>, imagewidth: MutPtr<UInt>, imageheight: MutPtr<UInt>): Bool =
+public actual fun faxGetPageData(faxhandle: Handle, jobid: UInt, buffer: MutPtr, buffersize: MutPtr, imagewidth: MutPtr, imageheight: MutPtr): Bool =
     windowssysWindowsWin32DevicesFaxFaxGetPageData(faxhandle.rawAddress.toCPointer<ByteVar>(), jobid, buffer.rawAddress.toCPointer<ByteVar>(), buffersize.rawAddress.toCPointer<ByteVar>(), imagewidth.rawAddress.toCPointer<ByteVar>(), imageheight.rawAddress.toCPointer<ByteVar>())
 
-public actual fun faxGetPortA(faxporthandle: Handle, portinfo: MutPtr<MutPtr<FaxPortInfoa>>): Bool =
+public actual fun faxGetPortA(faxporthandle: Handle, portinfo: MutPtr): Bool =
     windowssysWindowsWin32DevicesFaxFaxGetPortA(faxporthandle.rawAddress.toCPointer<ByteVar>(), portinfo.rawAddress.toCPointer<ByteVar>())
 
-public actual fun faxGetPortW(faxporthandle: Handle, portinfo: MutPtr<MutPtr<FaxPortInfow>>): Bool =
+public actual fun faxGetPortW(faxporthandle: Handle, portinfo: MutPtr): Bool =
     windowssysWindowsWin32DevicesFaxFaxGetPortW(faxporthandle.rawAddress.toCPointer<ByteVar>(), portinfo.rawAddress.toCPointer<ByteVar>())
 
-public actual fun faxGetRoutingInfoA(faxporthandle: Handle, routingguid: Pcstr, routinginfobuffer: MutPtr<MutPtr<UByte>>, routinginfobuffersize: MutPtr<UInt>): Bool =
+public actual fun faxGetRoutingInfoA(faxporthandle: Handle, routingguid: Pcstr, routinginfobuffer: MutPtr, routinginfobuffersize: MutPtr): Bool =
     windowssysWindowsWin32DevicesFaxFaxGetRoutingInfoA(faxporthandle.rawAddress.toCPointer<ByteVar>(), routingguid.rawAddress.toCPointer<ByteVar>(), routinginfobuffer.rawAddress.toCPointer<ByteVar>(), routinginfobuffersize.rawAddress.toCPointer<ByteVar>())
 
-public actual fun faxGetRoutingInfoW(faxporthandle: Handle, routingguid: Pcwstr, routinginfobuffer: MutPtr<MutPtr<UByte>>, routinginfobuffersize: MutPtr<UInt>): Bool =
+public actual fun faxGetRoutingInfoW(faxporthandle: Handle, routingguid: Pcwstr, routinginfobuffer: MutPtr, routinginfobuffersize: MutPtr): Bool =
     windowssysWindowsWin32DevicesFaxFaxGetRoutingInfoW(faxporthandle.rawAddress.toCPointer<ByteVar>(), routingguid.rawAddress.toCPointer<ByteVar>(), routinginfobuffer.rawAddress.toCPointer<ByteVar>(), routinginfobuffersize.rawAddress.toCPointer<ByteVar>())
 
 public actual fun faxInitializeEventQueue(faxhandle: Handle, completionport: Handle, completionkey: ULong, hwnd: Hwnd, messagestart: UInt): Bool =
     windowssysWindowsWin32DevicesFaxFaxInitializeEventQueue(faxhandle.rawAddress.toCPointer<ByteVar>(), completionport.rawAddress.toCPointer<ByteVar>(), completionkey, hwnd.rawAddress.toCPointer<ByteVar>(), messagestart)
 
-public actual fun faxOpenPort(faxhandle: Handle, deviceid: UInt, flags: UInt, faxporthandle: MutPtr<Handle>): Bool =
+public actual fun faxOpenPort(faxhandle: Handle, deviceid: UInt, flags: UInt, faxporthandle: MutPtr): Bool =
     windowssysWindowsWin32DevicesFaxFaxOpenPort(faxhandle.rawAddress.toCPointer<ByteVar>(), deviceid, flags, faxporthandle.rawAddress.toCPointer<ByteVar>())
 
-public actual fun faxPrintCoverPageA(faxcontextinfo: ConstPtr<FaxContextInfoa>, coverpageinfo: ConstPtr<FaxCoverpageInfoa>): Bool =
+public actual fun faxPrintCoverPageA(faxcontextinfo: ConstPtr, coverpageinfo: ConstPtr): Bool =
     windowssysWindowsWin32DevicesFaxFaxPrintCoverPageA(faxcontextinfo.rawAddress.toCPointer<ByteVar>(), coverpageinfo.rawAddress.toCPointer<ByteVar>())
 
-public actual fun faxPrintCoverPageW(faxcontextinfo: ConstPtr<FaxContextInfow>, coverpageinfo: ConstPtr<FaxCoverpageInfow>): Bool =
+public actual fun faxPrintCoverPageW(faxcontextinfo: ConstPtr, coverpageinfo: ConstPtr): Bool =
     windowssysWindowsWin32DevicesFaxFaxPrintCoverPageW(faxcontextinfo.rawAddress.toCPointer<ByteVar>(), coverpageinfo.rawAddress.toCPointer<ByteVar>())
 
-public actual fun faxRegisterRoutingExtensionW(faxhandle: Handle, extensionname: Pcwstr, friendlyname: Pcwstr, imagename: Pcwstr, callback: PfaxRoutingInstallationCallbackw, context: ConstPtr<CVoid>): Bool =
+public actual fun faxRegisterRoutingExtensionW(faxhandle: Handle, extensionname: Pcwstr, friendlyname: Pcwstr, imagename: Pcwstr, callback: PfaxRoutingInstallationCallbackw, context: ConstPtr): Bool =
     windowssysWindowsWin32DevicesFaxFaxRegisterRoutingExtensionW(faxhandle.rawAddress.toCPointer<ByteVar>(), extensionname.rawAddress.toCPointer<ByteVar>(), friendlyname.rawAddress.toCPointer<ByteVar>(), imagename.rawAddress.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>(), context.rawAddress.toCPointer<ByteVar>())
 
 public actual fun faxRegisterServiceProviderW(deviceprovider: Pcwstr, friendlyname: Pcwstr, imagename: Pcwstr, tspname: Pcwstr): Bool =
     windowssysWindowsWin32DevicesFaxFaxRegisterServiceProviderW(deviceprovider.rawAddress.toCPointer<ByteVar>(), friendlyname.rawAddress.toCPointer<ByteVar>(), imagename.rawAddress.toCPointer<ByteVar>(), tspname.rawAddress.toCPointer<ByteVar>())
 
-public actual fun faxSendDocumentA(faxhandle: Handle, filename: Pcstr, jobparams: ConstPtr<FaxJobParama>, coverpageinfo: ConstPtr<FaxCoverpageInfoa>, faxjobid: MutPtr<UInt>): Bool =
+public actual fun faxSendDocumentA(faxhandle: Handle, filename: Pcstr, jobparams: ConstPtr, coverpageinfo: ConstPtr, faxjobid: MutPtr): Bool =
     windowssysWindowsWin32DevicesFaxFaxSendDocumentA(faxhandle.rawAddress.toCPointer<ByteVar>(), filename.rawAddress.toCPointer<ByteVar>(), jobparams.rawAddress.toCPointer<ByteVar>(), coverpageinfo.rawAddress.toCPointer<ByteVar>(), faxjobid.rawAddress.toCPointer<ByteVar>())
 
-public actual fun faxSendDocumentForBroadcastA(faxhandle: Handle, filename: Pcstr, faxjobid: MutPtr<UInt>, faxrecipientcallback: PfaxRecipientCallbacka, context: ConstPtr<CVoid>): Bool =
+public actual fun faxSendDocumentForBroadcastA(faxhandle: Handle, filename: Pcstr, faxjobid: MutPtr, faxrecipientcallback: PfaxRecipientCallbacka, context: ConstPtr): Bool =
     windowssysWindowsWin32DevicesFaxFaxSendDocumentForBroadcastA(faxhandle.rawAddress.toCPointer<ByteVar>(), filename.rawAddress.toCPointer<ByteVar>(), faxjobid.rawAddress.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>(), context.rawAddress.toCPointer<ByteVar>())
 
-public actual fun faxSendDocumentForBroadcastW(faxhandle: Handle, filename: Pcwstr, faxjobid: MutPtr<UInt>, faxrecipientcallback: PfaxRecipientCallbackw, context: ConstPtr<CVoid>): Bool =
+public actual fun faxSendDocumentForBroadcastW(faxhandle: Handle, filename: Pcwstr, faxjobid: MutPtr, faxrecipientcallback: PfaxRecipientCallbackw, context: ConstPtr): Bool =
     windowssysWindowsWin32DevicesFaxFaxSendDocumentForBroadcastW(faxhandle.rawAddress.toCPointer<ByteVar>(), filename.rawAddress.toCPointer<ByteVar>(), faxjobid.rawAddress.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>(), context.rawAddress.toCPointer<ByteVar>())
 
-public actual fun faxSendDocumentW(faxhandle: Handle, filename: Pcwstr, jobparams: ConstPtr<FaxJobParamw>, coverpageinfo: ConstPtr<FaxCoverpageInfow>, faxjobid: MutPtr<UInt>): Bool =
+public actual fun faxSendDocumentW(faxhandle: Handle, filename: Pcwstr, jobparams: ConstPtr, coverpageinfo: ConstPtr, faxjobid: MutPtr): Bool =
     windowssysWindowsWin32DevicesFaxFaxSendDocumentW(faxhandle.rawAddress.toCPointer<ByteVar>(), filename.rawAddress.toCPointer<ByteVar>(), jobparams.rawAddress.toCPointer<ByteVar>(), coverpageinfo.rawAddress.toCPointer<ByteVar>(), faxjobid.rawAddress.toCPointer<ByteVar>())
 
-public actual fun faxSetConfigurationA(faxhandle: Handle, faxconfig: ConstPtr<FaxConfigurationa>): Bool =
+public actual fun faxSetConfigurationA(faxhandle: Handle, faxconfig: ConstPtr): Bool =
     windowssysWindowsWin32DevicesFaxFaxSetConfigurationA(faxhandle.rawAddress.toCPointer<ByteVar>(), faxconfig.rawAddress.toCPointer<ByteVar>())
 
-public actual fun faxSetConfigurationW(faxhandle: Handle, faxconfig: ConstPtr<FaxConfigurationw>): Bool =
+public actual fun faxSetConfigurationW(faxhandle: Handle, faxconfig: ConstPtr): Bool =
     windowssysWindowsWin32DevicesFaxFaxSetConfigurationW(faxhandle.rawAddress.toCPointer<ByteVar>(), faxconfig.rawAddress.toCPointer<ByteVar>())
 
-public actual fun faxSetGlobalRoutingInfoA(faxhandle: Handle, routinginfo: ConstPtr<FaxGlobalRoutingInfoa>): Bool =
+public actual fun faxSetGlobalRoutingInfoA(faxhandle: Handle, routinginfo: ConstPtr): Bool =
     windowssysWindowsWin32DevicesFaxFaxSetGlobalRoutingInfoA(faxhandle.rawAddress.toCPointer<ByteVar>(), routinginfo.rawAddress.toCPointer<ByteVar>())
 
-public actual fun faxSetGlobalRoutingInfoW(faxhandle: Handle, routinginfo: ConstPtr<FaxGlobalRoutingInfow>): Bool =
+public actual fun faxSetGlobalRoutingInfoW(faxhandle: Handle, routinginfo: ConstPtr): Bool =
     windowssysWindowsWin32DevicesFaxFaxSetGlobalRoutingInfoW(faxhandle.rawAddress.toCPointer<ByteVar>(), routinginfo.rawAddress.toCPointer<ByteVar>())
 
-public actual fun faxSetJobA(faxhandle: Handle, jobid: UInt, command: UInt, jobentry: ConstPtr<FaxJobEntrya>): Bool =
+public actual fun faxSetJobA(faxhandle: Handle, jobid: UInt, command: UInt, jobentry: ConstPtr): Bool =
     windowssysWindowsWin32DevicesFaxFaxSetJobA(faxhandle.rawAddress.toCPointer<ByteVar>(), jobid, command, jobentry.rawAddress.toCPointer<ByteVar>())
 
-public actual fun faxSetJobW(faxhandle: Handle, jobid: UInt, command: UInt, jobentry: ConstPtr<FaxJobEntryw>): Bool =
+public actual fun faxSetJobW(faxhandle: Handle, jobid: UInt, command: UInt, jobentry: ConstPtr): Bool =
     windowssysWindowsWin32DevicesFaxFaxSetJobW(faxhandle.rawAddress.toCPointer<ByteVar>(), jobid, command, jobentry.rawAddress.toCPointer<ByteVar>())
 
-public actual fun faxSetLoggingCategoriesA(faxhandle: Handle, categories: ConstPtr<FaxLogCategorya>, numbercategories: UInt): Bool =
+public actual fun faxSetLoggingCategoriesA(faxhandle: Handle, categories: ConstPtr, numbercategories: UInt): Bool =
     windowssysWindowsWin32DevicesFaxFaxSetLoggingCategoriesA(faxhandle.rawAddress.toCPointer<ByteVar>(), categories.rawAddress.toCPointer<ByteVar>(), numbercategories)
 
-public actual fun faxSetLoggingCategoriesW(faxhandle: Handle, categories: ConstPtr<FaxLogCategoryw>, numbercategories: UInt): Bool =
+public actual fun faxSetLoggingCategoriesW(faxhandle: Handle, categories: ConstPtr, numbercategories: UInt): Bool =
     windowssysWindowsWin32DevicesFaxFaxSetLoggingCategoriesW(faxhandle.rawAddress.toCPointer<ByteVar>(), categories.rawAddress.toCPointer<ByteVar>(), numbercategories)
 
-public actual fun faxSetPortA(faxporthandle: Handle, portinfo: ConstPtr<FaxPortInfoa>): Bool =
+public actual fun faxSetPortA(faxporthandle: Handle, portinfo: ConstPtr): Bool =
     windowssysWindowsWin32DevicesFaxFaxSetPortA(faxporthandle.rawAddress.toCPointer<ByteVar>(), portinfo.rawAddress.toCPointer<ByteVar>())
 
-public actual fun faxSetPortW(faxporthandle: Handle, portinfo: ConstPtr<FaxPortInfow>): Bool =
+public actual fun faxSetPortW(faxporthandle: Handle, portinfo: ConstPtr): Bool =
     windowssysWindowsWin32DevicesFaxFaxSetPortW(faxporthandle.rawAddress.toCPointer<ByteVar>(), portinfo.rawAddress.toCPointer<ByteVar>())
 
-public actual fun faxSetRoutingInfoA(faxporthandle: Handle, routingguid: Pcstr, routinginfobuffer: ConstPtr<UByte>, routinginfobuffersize: UInt): Bool =
+public actual fun faxSetRoutingInfoA(faxporthandle: Handle, routingguid: Pcstr, routinginfobuffer: ConstPtr, routinginfobuffersize: UInt): Bool =
     windowssysWindowsWin32DevicesFaxFaxSetRoutingInfoA(faxporthandle.rawAddress.toCPointer<ByteVar>(), routingguid.rawAddress.toCPointer<ByteVar>(), routinginfobuffer.rawAddress.toCPointer<ByteVar>(), routinginfobuffersize)
 
-public actual fun faxSetRoutingInfoW(faxporthandle: Handle, routingguid: Pcwstr, routinginfobuffer: ConstPtr<UByte>, routinginfobuffersize: UInt): Bool =
+public actual fun faxSetRoutingInfoW(faxporthandle: Handle, routingguid: Pcwstr, routinginfobuffer: ConstPtr, routinginfobuffersize: UInt): Bool =
     windowssysWindowsWin32DevicesFaxFaxSetRoutingInfoW(faxporthandle.rawAddress.toCPointer<ByteVar>(), routingguid.rawAddress.toCPointer<ByteVar>(), routinginfobuffer.rawAddress.toCPointer<ByteVar>(), routinginfobuffersize)
 
-public actual fun faxStartPrintJobA(printername: Pcstr, printinfo: ConstPtr<FaxPrintInfoa>, faxjobid: MutPtr<UInt>, faxcontextinfo: MutPtr<FaxContextInfoa>): Bool =
+public actual fun faxStartPrintJobA(printername: Pcstr, printinfo: ConstPtr, faxjobid: MutPtr, faxcontextinfo: MutPtr): Bool =
     windowssysWindowsWin32DevicesFaxFaxStartPrintJobA(printername.rawAddress.toCPointer<ByteVar>(), printinfo.rawAddress.toCPointer<ByteVar>(), faxjobid.rawAddress.toCPointer<ByteVar>(), faxcontextinfo.rawAddress.toCPointer<ByteVar>())
 
-public actual fun faxStartPrintJobW(printername: Pcwstr, printinfo: ConstPtr<FaxPrintInfow>, faxjobid: MutPtr<UInt>, faxcontextinfo: MutPtr<FaxContextInfow>): Bool =
+public actual fun faxStartPrintJobW(printername: Pcwstr, printinfo: ConstPtr, faxjobid: MutPtr, faxcontextinfo: MutPtr): Bool =
     windowssysWindowsWin32DevicesFaxFaxStartPrintJobW(printername.rawAddress.toCPointer<ByteVar>(), printinfo.rawAddress.toCPointer<ByteVar>(), faxjobid.rawAddress.toCPointer<ByteVar>(), faxcontextinfo.rawAddress.toCPointer<ByteVar>())
 
 public actual fun faxUnregisterServiceProviderW(deviceprovider: Pcwstr): Bool =
@@ -249,5 +248,5 @@ public actual fun faxUnregisterServiceProviderW(deviceprovider: Pcwstr): Bool =
 public actual fun sendToFaxRecipient(sndmode: SendToMode, lpfilename: Pcwstr): UInt =
     windowssysWindowsWin32DevicesFaxSendToFaxRecipient(sndmode, lpfilename.rawAddress.toCPointer<ByteVar>())
 
-public actual fun stiCreateInstanceW(hinst: Hinstance, dwver: UInt, ppsti: MutPtr<MutPtr<CVoid>>, punkouter: MutPtr<CVoid>): Hresult =
+public actual fun stiCreateInstanceW(hinst: Hinstance, dwver: UInt, ppsti: MutPtr, punkouter: MutPtr): Hresult =
     windowssysWindowsWin32DevicesFaxStiCreateInstanceW(hinst.rawAddress.toCPointer<ByteVar>(), dwver, ppsti.rawAddress.toCPointer<ByteVar>(), punkouter.rawAddress.toCPointer<ByteVar>())

@@ -2,12 +2,10 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.system.js
 
-import io.github.kotlinmania.rustlang.core.ffi.CVoid
 import io.github.kotlinmania.rustlang.core.ptr.ConstPtr
 import io.github.kotlinmania.rustlang.core.ptr.MutPtr
 import io.github.kotlinmania.windowssys.core.Hresult
 import io.github.kotlinmania.windowssys.core.Pcwstr
-import io.github.kotlinmania.windowssys.windows.win32.system.variant.Variant
 
 @JsFun("() => { if (typeof globalThis.__km_napi_windowssys !== 'undefined') return globalThis.__km_napi_windowssys !== null; if (typeof process === 'undefined' || !process.versions || !process.versions.node) { globalThis.__km_napi_windowssys = null; return false; } var mod = process.getBuiltinModule ? process.getBuiltinModule('module') : (process.mainModule && process.mainModule.constructor); var req = (mod && mod.createRequire) ? mod.createRequire((process.cwd ? process.cwd() : '.') + '/package.json') : (process.mainModule ? process.mainModule.require : null); if (!req) { globalThis.__km_napi_windowssys = null; return false; } try { globalThis.__km_napi_windowssys = req('@kotlinmania/windowssys-native-bindings'); return true; } catch (_) {} var fs = req('fs'); var path = req('path'); var dir = process.cwd ? process.cwd() : '.'; var rels = ['windowssys_native.node', 'build/node-ffi/windowssys_native.node', 'build/node-ffi/release/windowssys_native.node', 'build/node-ffi/debug/windowssys_native.node', 'src/js/node-windowssys/build/Release/windowssys_native.node', 'src/js/node-windowssys/build/Debug/windowssys_native.node', 'src/js/node-windowssys/dist/build/Release/windowssys_native.node', 'src/js/node-windowssys/dist/build/Debug/windowssys_native.node']; for (var d = 0; d < 8; d++) { for (var i = 0; i < rels.length; i++) { var c = path.resolve(dir, rels[i]); if (fs.existsSync(c)) { globalThis.__km_napi_windowssys = req(c); return true; } } var parent = path.dirname(dir); if (parent === dir) break; dir = parent; } globalThis.__km_napi_windowssys = null; return false; }")
 private external fun initWindowsWin32SystemJsNapiAddon(): Boolean
@@ -257,245 +255,245 @@ private external fun wasmWindowssysWindowsWin32SystemJsJsValueToVariant(p0: Stri
 @JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemJsJsVariantToValue(p0, p1)")
 private external fun wasmWindowssysWindowsWin32SystemJsJsVariantToValue(p0: String, p1: String): Int
 
-public actual fun jsAddRef(ref: ConstPtr<CVoid>, count: MutPtr<UInt>): JsErrorCode =
+public actual fun jsAddRef(ref: ConstPtr, count: MutPtr): JsErrorCode =
     if (windowsWin32SystemJsNapiAvailable) wasmWindowssysWindowsWin32SystemJsJsAddRef(ref.rawAddress.toString(), count.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun jsBoolToBoolean(value: UByte, booleanvalue: MutPtr<MutPtr<CVoid>>): JsErrorCode =
+public actual fun jsBoolToBoolean(value: UByte, booleanvalue: MutPtr): JsErrorCode =
     if (windowsWin32SystemJsNapiAvailable) wasmWindowssysWindowsWin32SystemJsJsBoolToBoolean(value.toInt(), booleanvalue.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun jsBooleanToBool(value: ConstPtr<CVoid>, boolvalue: MutPtr<Boolean>): JsErrorCode =
+public actual fun jsBooleanToBool(value: ConstPtr, boolvalue: MutPtr): JsErrorCode =
     if (windowsWin32SystemJsNapiAvailable) wasmWindowssysWindowsWin32SystemJsJsBooleanToBool(value.rawAddress.toString(), boolvalue.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun jsCallFunction(function: ConstPtr<CVoid>, arguments: ConstPtr<ConstPtr<CVoid>>, argumentcount: UShort, result: MutPtr<MutPtr<CVoid>>): JsErrorCode =
+public actual fun jsCallFunction(function: ConstPtr, arguments: ConstPtr, argumentcount: UShort, result: MutPtr): JsErrorCode =
     if (windowsWin32SystemJsNapiAvailable) wasmWindowssysWindowsWin32SystemJsJsCallFunction(function.rawAddress.toString(), arguments.rawAddress.toString(), argumentcount.toInt(), result.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun jsCollectGarbage(runtime: ConstPtr<CVoid>): JsErrorCode =
+public actual fun jsCollectGarbage(runtime: ConstPtr): JsErrorCode =
     if (windowsWin32SystemJsNapiAvailable) wasmWindowssysWindowsWin32SystemJsJsCollectGarbage(runtime.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun jsConstructObject(function: ConstPtr<CVoid>, arguments: ConstPtr<ConstPtr<CVoid>>, argumentcount: UShort, result: MutPtr<MutPtr<CVoid>>): JsErrorCode =
+public actual fun jsConstructObject(function: ConstPtr, arguments: ConstPtr, argumentcount: UShort, result: MutPtr): JsErrorCode =
     if (windowsWin32SystemJsNapiAvailable) wasmWindowssysWindowsWin32SystemJsJsConstructObject(function.rawAddress.toString(), arguments.rawAddress.toString(), argumentcount.toInt(), result.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun jsConvertValueToBoolean(value: ConstPtr<CVoid>, booleanvalue: MutPtr<MutPtr<CVoid>>): JsErrorCode =
+public actual fun jsConvertValueToBoolean(value: ConstPtr, booleanvalue: MutPtr): JsErrorCode =
     if (windowsWin32SystemJsNapiAvailable) wasmWindowssysWindowsWin32SystemJsJsConvertValueToBoolean(value.rawAddress.toString(), booleanvalue.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun jsConvertValueToNumber(value: ConstPtr<CVoid>, numbervalue: MutPtr<MutPtr<CVoid>>): JsErrorCode =
+public actual fun jsConvertValueToNumber(value: ConstPtr, numbervalue: MutPtr): JsErrorCode =
     if (windowsWin32SystemJsNapiAvailable) wasmWindowssysWindowsWin32SystemJsJsConvertValueToNumber(value.rawAddress.toString(), numbervalue.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun jsConvertValueToObject(value: ConstPtr<CVoid>, obj: MutPtr<MutPtr<CVoid>>): JsErrorCode =
+public actual fun jsConvertValueToObject(value: ConstPtr, obj: MutPtr): JsErrorCode =
     if (windowsWin32SystemJsNapiAvailable) wasmWindowssysWindowsWin32SystemJsJsConvertValueToObject(value.rawAddress.toString(), obj.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun jsConvertValueToString(value: ConstPtr<CVoid>, stringvalue: MutPtr<MutPtr<CVoid>>): JsErrorCode =
+public actual fun jsConvertValueToString(value: ConstPtr, stringvalue: MutPtr): JsErrorCode =
     if (windowsWin32SystemJsNapiAvailable) wasmWindowssysWindowsWin32SystemJsJsConvertValueToString(value.rawAddress.toString(), stringvalue.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun jsCreateArray(length: UInt, result: MutPtr<MutPtr<CVoid>>): JsErrorCode =
+public actual fun jsCreateArray(length: UInt, result: MutPtr): JsErrorCode =
     if (windowsWin32SystemJsNapiAvailable) wasmWindowssysWindowsWin32SystemJsJsCreateArray(length.toInt(), result.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun jsCreateError(message: ConstPtr<CVoid>, error: MutPtr<MutPtr<CVoid>>): JsErrorCode =
+public actual fun jsCreateError(message: ConstPtr, error: MutPtr): JsErrorCode =
     if (windowsWin32SystemJsNapiAvailable) wasmWindowssysWindowsWin32SystemJsJsCreateError(message.rawAddress.toString(), error.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun jsCreateExternalObject(data: ConstPtr<CVoid>, finalizecallback: JsFinalizeCallback, obj: MutPtr<MutPtr<CVoid>>): JsErrorCode =
+public actual fun jsCreateExternalObject(data: ConstPtr, finalizecallback: JsFinalizeCallback, obj: MutPtr): JsErrorCode =
     if (windowsWin32SystemJsNapiAvailable) wasmWindowssysWindowsWin32SystemJsJsCreateExternalObject(data.rawAddress.toString(), 0L.toString(), obj.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun jsCreateFunction(nativefunction: JsNativeFunction, callbackstate: ConstPtr<CVoid>, function: MutPtr<MutPtr<CVoid>>): JsErrorCode =
+public actual fun jsCreateFunction(nativefunction: JsNativeFunction, callbackstate: ConstPtr, function: MutPtr): JsErrorCode =
     if (windowsWin32SystemJsNapiAvailable) wasmWindowssysWindowsWin32SystemJsJsCreateFunction(0L.toString(), callbackstate.rawAddress.toString(), function.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun jsCreateObject(obj: MutPtr<MutPtr<CVoid>>): JsErrorCode =
+public actual fun jsCreateObject(obj: MutPtr): JsErrorCode =
     if (windowsWin32SystemJsNapiAvailable) wasmWindowssysWindowsWin32SystemJsJsCreateObject(obj.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun jsCreateRangeError(message: ConstPtr<CVoid>, error: MutPtr<MutPtr<CVoid>>): JsErrorCode =
+public actual fun jsCreateRangeError(message: ConstPtr, error: MutPtr): JsErrorCode =
     if (windowsWin32SystemJsNapiAvailable) wasmWindowssysWindowsWin32SystemJsJsCreateRangeError(message.rawAddress.toString(), error.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun jsCreateReferenceError(message: ConstPtr<CVoid>, error: MutPtr<MutPtr<CVoid>>): JsErrorCode =
+public actual fun jsCreateReferenceError(message: ConstPtr, error: MutPtr): JsErrorCode =
     if (windowsWin32SystemJsNapiAvailable) wasmWindowssysWindowsWin32SystemJsJsCreateReferenceError(message.rawAddress.toString(), error.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun jsCreateRuntime(attributes: JsRuntimeAttributes, runtimeversion: JsRuntimeVersion, threadservice: JsThreadServiceCallback, runtime: MutPtr<MutPtr<CVoid>>): JsErrorCode =
+public actual fun jsCreateRuntime(attributes: JsRuntimeAttributes, runtimeversion: JsRuntimeVersion, threadservice: JsThreadServiceCallback, runtime: MutPtr): JsErrorCode =
     if (windowsWin32SystemJsNapiAvailable) wasmWindowssysWindowsWin32SystemJsJsCreateRuntime(attributes, runtimeversion, 0L.toString(), runtime.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun jsCreateSyntaxError(message: ConstPtr<CVoid>, error: MutPtr<MutPtr<CVoid>>): JsErrorCode =
+public actual fun jsCreateSyntaxError(message: ConstPtr, error: MutPtr): JsErrorCode =
     if (windowsWin32SystemJsNapiAvailable) wasmWindowssysWindowsWin32SystemJsJsCreateSyntaxError(message.rawAddress.toString(), error.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun jsCreateTypeError(message: ConstPtr<CVoid>, error: MutPtr<MutPtr<CVoid>>): JsErrorCode =
+public actual fun jsCreateTypeError(message: ConstPtr, error: MutPtr): JsErrorCode =
     if (windowsWin32SystemJsNapiAvailable) wasmWindowssysWindowsWin32SystemJsJsCreateTypeError(message.rawAddress.toString(), error.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun jsCreateURIError(message: ConstPtr<CVoid>, error: MutPtr<MutPtr<CVoid>>): JsErrorCode =
+public actual fun jsCreateURIError(message: ConstPtr, error: MutPtr): JsErrorCode =
     if (windowsWin32SystemJsNapiAvailable) wasmWindowssysWindowsWin32SystemJsJsCreateURIError(message.rawAddress.toString(), error.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun jsDefineProperty(obj: ConstPtr<CVoid>, propertyid: ConstPtr<CVoid>, propertydescriptor: ConstPtr<CVoid>, result: MutPtr<Boolean>): JsErrorCode =
+public actual fun jsDefineProperty(obj: ConstPtr, propertyid: ConstPtr, propertydescriptor: ConstPtr, result: MutPtr): JsErrorCode =
     if (windowsWin32SystemJsNapiAvailable) wasmWindowssysWindowsWin32SystemJsJsDefineProperty(obj.rawAddress.toString(), propertyid.rawAddress.toString(), propertydescriptor.rawAddress.toString(), result.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun jsDeleteIndexedProperty(obj: ConstPtr<CVoid>, index: ConstPtr<CVoid>): JsErrorCode =
+public actual fun jsDeleteIndexedProperty(obj: ConstPtr, index: ConstPtr): JsErrorCode =
     if (windowsWin32SystemJsNapiAvailable) wasmWindowssysWindowsWin32SystemJsJsDeleteIndexedProperty(obj.rawAddress.toString(), index.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun jsDeleteProperty(obj: ConstPtr<CVoid>, propertyid: ConstPtr<CVoid>, usestrictrules: UByte, result: MutPtr<MutPtr<CVoid>>): JsErrorCode =
+public actual fun jsDeleteProperty(obj: ConstPtr, propertyid: ConstPtr, usestrictrules: UByte, result: MutPtr): JsErrorCode =
     if (windowsWin32SystemJsNapiAvailable) wasmWindowssysWindowsWin32SystemJsJsDeleteProperty(obj.rawAddress.toString(), propertyid.rawAddress.toString(), usestrictrules.toInt(), result.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun jsDisableRuntimeExecution(runtime: ConstPtr<CVoid>): JsErrorCode =
+public actual fun jsDisableRuntimeExecution(runtime: ConstPtr): JsErrorCode =
     if (windowsWin32SystemJsNapiAvailable) wasmWindowssysWindowsWin32SystemJsJsDisableRuntimeExecution(runtime.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun jsDisposeRuntime(runtime: ConstPtr<CVoid>): JsErrorCode =
+public actual fun jsDisposeRuntime(runtime: ConstPtr): JsErrorCode =
     if (windowsWin32SystemJsNapiAvailable) wasmWindowssysWindowsWin32SystemJsJsDisposeRuntime(runtime.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun jsDoubleToNumber(doublevalue: Double, value: MutPtr<MutPtr<CVoid>>): JsErrorCode =
+public actual fun jsDoubleToNumber(doublevalue: Double, value: MutPtr): JsErrorCode =
     if (windowsWin32SystemJsNapiAvailable) wasmWindowssysWindowsWin32SystemJsJsDoubleToNumber(doublevalue, value.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun jsEnableRuntimeExecution(runtime: ConstPtr<CVoid>): JsErrorCode =
+public actual fun jsEnableRuntimeExecution(runtime: ConstPtr): JsErrorCode =
     if (windowsWin32SystemJsNapiAvailable) wasmWindowssysWindowsWin32SystemJsJsEnableRuntimeExecution(runtime.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun jsEquals(object1: ConstPtr<CVoid>, object2: ConstPtr<CVoid>, result: MutPtr<Boolean>): JsErrorCode =
+public actual fun jsEquals(object1: ConstPtr, object2: ConstPtr, result: MutPtr): JsErrorCode =
     if (windowsWin32SystemJsNapiAvailable) wasmWindowssysWindowsWin32SystemJsJsEquals(object1.rawAddress.toString(), object2.rawAddress.toString(), result.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun jsGetAndClearException(exception: MutPtr<MutPtr<CVoid>>): JsErrorCode =
+public actual fun jsGetAndClearException(exception: MutPtr): JsErrorCode =
     if (windowsWin32SystemJsNapiAvailable) wasmWindowssysWindowsWin32SystemJsJsGetAndClearException(exception.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun jsGetCurrentContext(currentcontext: MutPtr<MutPtr<CVoid>>): JsErrorCode =
+public actual fun jsGetCurrentContext(currentcontext: MutPtr): JsErrorCode =
     if (windowsWin32SystemJsNapiAvailable) wasmWindowssysWindowsWin32SystemJsJsGetCurrentContext(currentcontext.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun jsGetExtensionAllowed(obj: ConstPtr<CVoid>, value: MutPtr<Boolean>): JsErrorCode =
+public actual fun jsGetExtensionAllowed(obj: ConstPtr, value: MutPtr): JsErrorCode =
     if (windowsWin32SystemJsNapiAvailable) wasmWindowssysWindowsWin32SystemJsJsGetExtensionAllowed(obj.rawAddress.toString(), value.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun jsGetExternalData(obj: ConstPtr<CVoid>, externaldata: MutPtr<MutPtr<CVoid>>): JsErrorCode =
+public actual fun jsGetExternalData(obj: ConstPtr, externaldata: MutPtr): JsErrorCode =
     if (windowsWin32SystemJsNapiAvailable) wasmWindowssysWindowsWin32SystemJsJsGetExternalData(obj.rawAddress.toString(), externaldata.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun jsGetFalseValue(falsevalue: MutPtr<MutPtr<CVoid>>): JsErrorCode =
+public actual fun jsGetFalseValue(falsevalue: MutPtr): JsErrorCode =
     if (windowsWin32SystemJsNapiAvailable) wasmWindowssysWindowsWin32SystemJsJsGetFalseValue(falsevalue.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun jsGetGlobalObject(globalobject: MutPtr<MutPtr<CVoid>>): JsErrorCode =
+public actual fun jsGetGlobalObject(globalobject: MutPtr): JsErrorCode =
     if (windowsWin32SystemJsNapiAvailable) wasmWindowssysWindowsWin32SystemJsJsGetGlobalObject(globalobject.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun jsGetIndexedProperty(obj: ConstPtr<CVoid>, index: ConstPtr<CVoid>, result: MutPtr<MutPtr<CVoid>>): JsErrorCode =
+public actual fun jsGetIndexedProperty(obj: ConstPtr, index: ConstPtr, result: MutPtr): JsErrorCode =
     if (windowsWin32SystemJsNapiAvailable) wasmWindowssysWindowsWin32SystemJsJsGetIndexedProperty(obj.rawAddress.toString(), index.rawAddress.toString(), result.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun jsGetNullValue(nullvalue: MutPtr<MutPtr<CVoid>>): JsErrorCode =
+public actual fun jsGetNullValue(nullvalue: MutPtr): JsErrorCode =
     if (windowsWin32SystemJsNapiAvailable) wasmWindowssysWindowsWin32SystemJsJsGetNullValue(nullvalue.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun jsGetOwnPropertyDescriptor(obj: ConstPtr<CVoid>, propertyid: ConstPtr<CVoid>, propertydescriptor: MutPtr<MutPtr<CVoid>>): JsErrorCode =
+public actual fun jsGetOwnPropertyDescriptor(obj: ConstPtr, propertyid: ConstPtr, propertydescriptor: MutPtr): JsErrorCode =
     if (windowsWin32SystemJsNapiAvailable) wasmWindowssysWindowsWin32SystemJsJsGetOwnPropertyDescriptor(obj.rawAddress.toString(), propertyid.rawAddress.toString(), propertydescriptor.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun jsGetOwnPropertyNames(obj: ConstPtr<CVoid>, propertynames: MutPtr<MutPtr<CVoid>>): JsErrorCode =
+public actual fun jsGetOwnPropertyNames(obj: ConstPtr, propertynames: MutPtr): JsErrorCode =
     if (windowsWin32SystemJsNapiAvailable) wasmWindowssysWindowsWin32SystemJsJsGetOwnPropertyNames(obj.rawAddress.toString(), propertynames.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun jsGetProperty(obj: ConstPtr<CVoid>, propertyid: ConstPtr<CVoid>, value: MutPtr<MutPtr<CVoid>>): JsErrorCode =
+public actual fun jsGetProperty(obj: ConstPtr, propertyid: ConstPtr, value: MutPtr): JsErrorCode =
     if (windowsWin32SystemJsNapiAvailable) wasmWindowssysWindowsWin32SystemJsJsGetProperty(obj.rawAddress.toString(), propertyid.rawAddress.toString(), value.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun jsGetPropertyIdFromName(name: Pcwstr, propertyid: MutPtr<MutPtr<CVoid>>): JsErrorCode =
+public actual fun jsGetPropertyIdFromName(name: Pcwstr, propertyid: MutPtr): JsErrorCode =
     if (windowsWin32SystemJsNapiAvailable) wasmWindowssysWindowsWin32SystemJsJsGetPropertyIdFromName(name.rawAddress.toString(), propertyid.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun jsGetPropertyNameFromId(propertyid: ConstPtr<CVoid>, name: MutPtr<MutPtr<UShort>>): JsErrorCode =
+public actual fun jsGetPropertyNameFromId(propertyid: ConstPtr, name: MutPtr): JsErrorCode =
     if (windowsWin32SystemJsNapiAvailable) wasmWindowssysWindowsWin32SystemJsJsGetPropertyNameFromId(propertyid.rawAddress.toString(), name.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun jsGetPrototype(obj: ConstPtr<CVoid>, prototypeobject: MutPtr<MutPtr<CVoid>>): JsErrorCode =
+public actual fun jsGetPrototype(obj: ConstPtr, prototypeobject: MutPtr): JsErrorCode =
     if (windowsWin32SystemJsNapiAvailable) wasmWindowssysWindowsWin32SystemJsJsGetPrototype(obj.rawAddress.toString(), prototypeobject.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun jsGetRuntime(context: ConstPtr<CVoid>, runtime: MutPtr<MutPtr<CVoid>>): JsErrorCode =
+public actual fun jsGetRuntime(context: ConstPtr, runtime: MutPtr): JsErrorCode =
     if (windowsWin32SystemJsNapiAvailable) wasmWindowssysWindowsWin32SystemJsJsGetRuntime(context.rawAddress.toString(), runtime.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun jsGetRuntimeMemoryLimit(runtime: ConstPtr<CVoid>, memorylimit: MutPtr<ULong>): JsErrorCode =
+public actual fun jsGetRuntimeMemoryLimit(runtime: ConstPtr, memorylimit: MutPtr): JsErrorCode =
     if (windowsWin32SystemJsNapiAvailable) wasmWindowssysWindowsWin32SystemJsJsGetRuntimeMemoryLimit(runtime.rawAddress.toString(), memorylimit.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun jsGetRuntimeMemoryUsage(runtime: ConstPtr<CVoid>, memoryusage: MutPtr<ULong>): JsErrorCode =
+public actual fun jsGetRuntimeMemoryUsage(runtime: ConstPtr, memoryusage: MutPtr): JsErrorCode =
     if (windowsWin32SystemJsNapiAvailable) wasmWindowssysWindowsWin32SystemJsJsGetRuntimeMemoryUsage(runtime.rawAddress.toString(), memoryusage.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun jsGetStringLength(stringvalue: ConstPtr<CVoid>, length: MutPtr<Int>): JsErrorCode =
+public actual fun jsGetStringLength(stringvalue: ConstPtr, length: MutPtr): JsErrorCode =
     if (windowsWin32SystemJsNapiAvailable) wasmWindowssysWindowsWin32SystemJsJsGetStringLength(stringvalue.rawAddress.toString(), length.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun jsGetTrueValue(truevalue: MutPtr<MutPtr<CVoid>>): JsErrorCode =
+public actual fun jsGetTrueValue(truevalue: MutPtr): JsErrorCode =
     if (windowsWin32SystemJsNapiAvailable) wasmWindowssysWindowsWin32SystemJsJsGetTrueValue(truevalue.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun jsGetUndefinedValue(undefinedvalue: MutPtr<MutPtr<CVoid>>): JsErrorCode =
+public actual fun jsGetUndefinedValue(undefinedvalue: MutPtr): JsErrorCode =
     if (windowsWin32SystemJsNapiAvailable) wasmWindowssysWindowsWin32SystemJsJsGetUndefinedValue(undefinedvalue.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun jsGetValueType(value: ConstPtr<CVoid>, type: MutPtr<JsValueType>): JsErrorCode =
+public actual fun jsGetValueType(value: ConstPtr, type: MutPtr): JsErrorCode =
     if (windowsWin32SystemJsNapiAvailable) wasmWindowssysWindowsWin32SystemJsJsGetValueType(value.rawAddress.toString(), type.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun jsHasException(hasexception: MutPtr<Boolean>): JsErrorCode =
+public actual fun jsHasException(hasexception: MutPtr): JsErrorCode =
     if (windowsWin32SystemJsNapiAvailable) wasmWindowssysWindowsWin32SystemJsJsHasException(hasexception.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun jsHasExternalData(obj: ConstPtr<CVoid>, value: MutPtr<Boolean>): JsErrorCode =
+public actual fun jsHasExternalData(obj: ConstPtr, value: MutPtr): JsErrorCode =
     if (windowsWin32SystemJsNapiAvailable) wasmWindowssysWindowsWin32SystemJsJsHasExternalData(obj.rawAddress.toString(), value.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun jsHasIndexedProperty(obj: ConstPtr<CVoid>, index: ConstPtr<CVoid>, result: MutPtr<Boolean>): JsErrorCode =
+public actual fun jsHasIndexedProperty(obj: ConstPtr, index: ConstPtr, result: MutPtr): JsErrorCode =
     if (windowsWin32SystemJsNapiAvailable) wasmWindowssysWindowsWin32SystemJsJsHasIndexedProperty(obj.rawAddress.toString(), index.rawAddress.toString(), result.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun jsHasProperty(obj: ConstPtr<CVoid>, propertyid: ConstPtr<CVoid>, hasproperty: MutPtr<Boolean>): JsErrorCode =
+public actual fun jsHasProperty(obj: ConstPtr, propertyid: ConstPtr, hasproperty: MutPtr): JsErrorCode =
     if (windowsWin32SystemJsNapiAvailable) wasmWindowssysWindowsWin32SystemJsJsHasProperty(obj.rawAddress.toString(), propertyid.rawAddress.toString(), hasproperty.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun jsIdle(nextidletick: MutPtr<UInt>): JsErrorCode =
+public actual fun jsIdle(nextidletick: MutPtr): JsErrorCode =
     if (windowsWin32SystemJsNapiAvailable) wasmWindowssysWindowsWin32SystemJsJsIdle(nextidletick.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun jsIntToNumber(intvalue: Int, value: MutPtr<MutPtr<CVoid>>): JsErrorCode =
+public actual fun jsIntToNumber(intvalue: Int, value: MutPtr): JsErrorCode =
     if (windowsWin32SystemJsNapiAvailable) wasmWindowssysWindowsWin32SystemJsJsIntToNumber(intvalue, value.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun jsIsEnumeratingHeap(isenumeratingheap: MutPtr<Boolean>): JsErrorCode =
+public actual fun jsIsEnumeratingHeap(isenumeratingheap: MutPtr): JsErrorCode =
     if (windowsWin32SystemJsNapiAvailable) wasmWindowssysWindowsWin32SystemJsJsIsEnumeratingHeap(isenumeratingheap.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun jsIsRuntimeExecutionDisabled(runtime: ConstPtr<CVoid>, isdisabled: MutPtr<Boolean>): JsErrorCode =
+public actual fun jsIsRuntimeExecutionDisabled(runtime: ConstPtr, isdisabled: MutPtr): JsErrorCode =
     if (windowsWin32SystemJsNapiAvailable) wasmWindowssysWindowsWin32SystemJsJsIsRuntimeExecutionDisabled(runtime.rawAddress.toString(), isdisabled.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun jsNumberToDouble(value: ConstPtr<CVoid>, doublevalue: MutPtr<Double>): JsErrorCode =
+public actual fun jsNumberToDouble(value: ConstPtr, doublevalue: MutPtr): JsErrorCode =
     if (windowsWin32SystemJsNapiAvailable) wasmWindowssysWindowsWin32SystemJsJsNumberToDouble(value.rawAddress.toString(), doublevalue.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun jsParseScript(script: Pcwstr, sourcecontext: ULong, sourceurl: Pcwstr, result: MutPtr<MutPtr<CVoid>>): JsErrorCode =
+public actual fun jsParseScript(script: Pcwstr, sourcecontext: ULong, sourceurl: Pcwstr, result: MutPtr): JsErrorCode =
     if (windowsWin32SystemJsNapiAvailable) wasmWindowssysWindowsWin32SystemJsJsParseScript(script.rawAddress.toString(), sourcecontext.toString(), sourceurl.rawAddress.toString(), result.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun jsParseSerializedScript(script: Pcwstr, buffer: ConstPtr<UByte>, sourcecontext: ULong, sourceurl: Pcwstr, result: MutPtr<MutPtr<CVoid>>): JsErrorCode =
+public actual fun jsParseSerializedScript(script: Pcwstr, buffer: ConstPtr, sourcecontext: ULong, sourceurl: Pcwstr, result: MutPtr): JsErrorCode =
     if (windowsWin32SystemJsNapiAvailable) wasmWindowssysWindowsWin32SystemJsJsParseSerializedScript(script.rawAddress.toString(), buffer.rawAddress.toString(), sourcecontext.toString(), sourceurl.rawAddress.toString(), result.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun jsPointerToString(stringvalue: Pcwstr, stringlength: ULong, value: MutPtr<MutPtr<CVoid>>): JsErrorCode =
+public actual fun jsPointerToString(stringvalue: Pcwstr, stringlength: ULong, value: MutPtr): JsErrorCode =
     if (windowsWin32SystemJsNapiAvailable) wasmWindowssysWindowsWin32SystemJsJsPointerToString(stringvalue.rawAddress.toString(), stringlength.toString(), value.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun jsPreventExtension(obj: ConstPtr<CVoid>): JsErrorCode =
+public actual fun jsPreventExtension(obj: ConstPtr): JsErrorCode =
     if (windowsWin32SystemJsNapiAvailable) wasmWindowssysWindowsWin32SystemJsJsPreventExtension(obj.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun jsRelease(ref: ConstPtr<CVoid>, count: MutPtr<UInt>): JsErrorCode =
+public actual fun jsRelease(ref: ConstPtr, count: MutPtr): JsErrorCode =
     if (windowsWin32SystemJsNapiAvailable) wasmWindowssysWindowsWin32SystemJsJsRelease(ref.rawAddress.toString(), count.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun jsRunScript(script: Pcwstr, sourcecontext: ULong, sourceurl: Pcwstr, result: MutPtr<MutPtr<CVoid>>): JsErrorCode =
+public actual fun jsRunScript(script: Pcwstr, sourcecontext: ULong, sourceurl: Pcwstr, result: MutPtr): JsErrorCode =
     if (windowsWin32SystemJsNapiAvailable) wasmWindowssysWindowsWin32SystemJsJsRunScript(script.rawAddress.toString(), sourcecontext.toString(), sourceurl.rawAddress.toString(), result.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun jsRunSerializedScript(script: Pcwstr, buffer: ConstPtr<UByte>, sourcecontext: ULong, sourceurl: Pcwstr, result: MutPtr<MutPtr<CVoid>>): JsErrorCode =
+public actual fun jsRunSerializedScript(script: Pcwstr, buffer: ConstPtr, sourcecontext: ULong, sourceurl: Pcwstr, result: MutPtr): JsErrorCode =
     if (windowsWin32SystemJsNapiAvailable) wasmWindowssysWindowsWin32SystemJsJsRunSerializedScript(script.rawAddress.toString(), buffer.rawAddress.toString(), sourcecontext.toString(), sourceurl.rawAddress.toString(), result.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun jsSerializeScript(script: Pcwstr, buffer: MutPtr<UByte>, buffersize: MutPtr<UInt>): JsErrorCode =
+public actual fun jsSerializeScript(script: Pcwstr, buffer: MutPtr, buffersize: MutPtr): JsErrorCode =
     if (windowsWin32SystemJsNapiAvailable) wasmWindowssysWindowsWin32SystemJsJsSerializeScript(script.rawAddress.toString(), buffer.rawAddress.toString(), buffersize.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun jsSetCurrentContext(context: ConstPtr<CVoid>): JsErrorCode =
+public actual fun jsSetCurrentContext(context: ConstPtr): JsErrorCode =
     if (windowsWin32SystemJsNapiAvailable) wasmWindowssysWindowsWin32SystemJsJsSetCurrentContext(context.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun jsSetException(exception: ConstPtr<CVoid>): JsErrorCode =
+public actual fun jsSetException(exception: ConstPtr): JsErrorCode =
     if (windowsWin32SystemJsNapiAvailable) wasmWindowssysWindowsWin32SystemJsJsSetException(exception.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun jsSetExternalData(obj: ConstPtr<CVoid>, externaldata: ConstPtr<CVoid>): JsErrorCode =
+public actual fun jsSetExternalData(obj: ConstPtr, externaldata: ConstPtr): JsErrorCode =
     if (windowsWin32SystemJsNapiAvailable) wasmWindowssysWindowsWin32SystemJsJsSetExternalData(obj.rawAddress.toString(), externaldata.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun jsSetIndexedProperty(obj: ConstPtr<CVoid>, index: ConstPtr<CVoid>, value: ConstPtr<CVoid>): JsErrorCode =
+public actual fun jsSetIndexedProperty(obj: ConstPtr, index: ConstPtr, value: ConstPtr): JsErrorCode =
     if (windowsWin32SystemJsNapiAvailable) wasmWindowssysWindowsWin32SystemJsJsSetIndexedProperty(obj.rawAddress.toString(), index.rawAddress.toString(), value.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun jsSetProperty(obj: ConstPtr<CVoid>, propertyid: ConstPtr<CVoid>, value: ConstPtr<CVoid>, usestrictrules: UByte): JsErrorCode =
+public actual fun jsSetProperty(obj: ConstPtr, propertyid: ConstPtr, value: ConstPtr, usestrictrules: UByte): JsErrorCode =
     if (windowsWin32SystemJsNapiAvailable) wasmWindowssysWindowsWin32SystemJsJsSetProperty(obj.rawAddress.toString(), propertyid.rawAddress.toString(), value.rawAddress.toString(), usestrictrules.toInt()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun jsSetPrototype(obj: ConstPtr<CVoid>, prototypeobject: ConstPtr<CVoid>): JsErrorCode =
+public actual fun jsSetPrototype(obj: ConstPtr, prototypeobject: ConstPtr): JsErrorCode =
     if (windowsWin32SystemJsNapiAvailable) wasmWindowssysWindowsWin32SystemJsJsSetPrototype(obj.rawAddress.toString(), prototypeobject.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun jsSetRuntimeBeforeCollectCallback(runtime: ConstPtr<CVoid>, callbackstate: ConstPtr<CVoid>, beforecollectcallback: JsBeforeCollectCallback): JsErrorCode =
+public actual fun jsSetRuntimeBeforeCollectCallback(runtime: ConstPtr, callbackstate: ConstPtr, beforecollectcallback: JsBeforeCollectCallback): JsErrorCode =
     if (windowsWin32SystemJsNapiAvailable) wasmWindowssysWindowsWin32SystemJsJsSetRuntimeBeforeCollectCallback(runtime.rawAddress.toString(), callbackstate.rawAddress.toString(), 0L.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun jsSetRuntimeMemoryAllocationCallback(runtime: ConstPtr<CVoid>, callbackstate: ConstPtr<CVoid>, allocationcallback: JsMemoryAllocationCallback): JsErrorCode =
+public actual fun jsSetRuntimeMemoryAllocationCallback(runtime: ConstPtr, callbackstate: ConstPtr, allocationcallback: JsMemoryAllocationCallback): JsErrorCode =
     if (windowsWin32SystemJsNapiAvailable) wasmWindowssysWindowsWin32SystemJsJsSetRuntimeMemoryAllocationCallback(runtime.rawAddress.toString(), callbackstate.rawAddress.toString(), 0L.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun jsSetRuntimeMemoryLimit(runtime: ConstPtr<CVoid>, memorylimit: ULong): JsErrorCode =
+public actual fun jsSetRuntimeMemoryLimit(runtime: ConstPtr, memorylimit: ULong): JsErrorCode =
     if (windowsWin32SystemJsNapiAvailable) wasmWindowssysWindowsWin32SystemJsJsSetRuntimeMemoryLimit(runtime.rawAddress.toString(), memorylimit.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun jsStopProfiling(reason: Hresult): JsErrorCode =
     if (windowsWin32SystemJsNapiAvailable) wasmWindowssysWindowsWin32SystemJsJsStopProfiling(reason).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun jsStrictEquals(object1: ConstPtr<CVoid>, object2: ConstPtr<CVoid>, result: MutPtr<Boolean>): JsErrorCode =
+public actual fun jsStrictEquals(object1: ConstPtr, object2: ConstPtr, result: MutPtr): JsErrorCode =
     if (windowsWin32SystemJsNapiAvailable) wasmWindowssysWindowsWin32SystemJsJsStrictEquals(object1.rawAddress.toString(), object2.rawAddress.toString(), result.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun jsStringToPointer(value: ConstPtr<CVoid>, stringvalue: MutPtr<MutPtr<UShort>>, stringlength: MutPtr<ULong>): JsErrorCode =
+public actual fun jsStringToPointer(value: ConstPtr, stringvalue: MutPtr, stringlength: MutPtr): JsErrorCode =
     if (windowsWin32SystemJsNapiAvailable) wasmWindowssysWindowsWin32SystemJsJsStringToPointer(value.rawAddress.toString(), stringvalue.rawAddress.toString(), stringlength.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun jsValueToVariant(obj: ConstPtr<CVoid>, variant: MutPtr<Variant.Variant>): JsErrorCode =
+public actual fun jsValueToVariant(obj: ConstPtr, variant: MutPtr): JsErrorCode =
     if (windowsWin32SystemJsNapiAvailable) wasmWindowssysWindowsWin32SystemJsJsValueToVariant(obj.rawAddress.toString(), variant.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun jsVariantToValue(variant: ConstPtr<Variant.Variant>, value: MutPtr<MutPtr<CVoid>>): JsErrorCode =
+public actual fun jsVariantToValue(variant: ConstPtr, value: MutPtr): JsErrorCode =
     if (windowsWin32SystemJsNapiAvailable) wasmWindowssysWindowsWin32SystemJsJsVariantToValue(variant.rawAddress.toString(), value.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")

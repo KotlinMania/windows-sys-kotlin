@@ -7,5 +7,5 @@ import io.github.kotlinmania.windowssys.windows.win32.networkmanagement.netbios.
 import kotlinx.cinterop.ByteVar
 import kotlinx.cinterop.toCPointer
 
-public actual fun netbios(pncb: MutPtr<Ncb>): UByte =
+public actual fun netbios(pncb: MutPtr): UByte =
     windowssysWindowsWin32NetworkmanagementNetbiosNetbios(pncb.rawAddress.toCPointer<ByteVar>())

@@ -2,7 +2,6 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.system.hypervisor
 
-import io.github.kotlinmania.rustlang.core.ffi.CVoid
 import io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
 import io.github.kotlinmania.rustlang.core.mem.TypeLayout
 import io.github.kotlinmania.rustlang.core.ptr.ConstPtr
@@ -1830,9 +1829,9 @@ public class WhvVpciMmioMapping internal constructor(
     public var flags: WhvVpciMmioRangeFlags,
     public var sizeInBytes: ULong,
     public var offsetInBytes: ULong,
-    virtualAddressCtorArg: MutPtr<CVoid>,
+    virtualAddressCtorArg: MutPtr,
 ) {
-    public var virtualAddress: MutPtr<CVoid> = virtualAddressCtorArg
+    public var virtualAddress: MutPtr = virtualAddressCtorArg
         internal set
 
     public constructor() : this(
@@ -1851,9 +1850,9 @@ public class WhvVpciMmioMapping internal constructor(
 
     public operator fun component4(): ULong = this.offsetInBytes
 
-    public operator fun component5(): MutPtr<CVoid> = this.virtualAddress
+    public operator fun component5(): MutPtr = this.virtualAddress
 
-    public fun copy(location: WhvVpciDeviceRegisterSpace = this.location, flags: WhvVpciMmioRangeFlags = this.flags, sizeInBytes: ULong = this.sizeInBytes, offsetInBytes: ULong = this.offsetInBytes, virtualAddress: MutPtr<CVoid> = this.virtualAddress): WhvVpciMmioMapping = WhvVpciMmioMapping(location = location, flags = flags, sizeInBytes = sizeInBytes, offsetInBytes = offsetInBytes, virtualAddressCtorArg = virtualAddress)
+    public fun copy(location: WhvVpciDeviceRegisterSpace = this.location, flags: WhvVpciMmioRangeFlags = this.flags, sizeInBytes: ULong = this.sizeInBytes, offsetInBytes: ULong = this.offsetInBytes, virtualAddress: MutPtr = this.virtualAddress): WhvVpciMmioMapping = WhvVpciMmioMapping(location = location, flags = flags, sizeInBytes = sizeInBytes, offsetInBytes = offsetInBytes, virtualAddressCtorArg = virtualAddress)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -1888,7 +1887,7 @@ public class WhvVpciMmioMapping internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U64).readNative(addr + 16L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<CVoid>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 24L),
                     )
                 override fun writeNative(addr: Long, value: WhvVpciMmioMapping) {
@@ -1898,7 +1897,7 @@ public class WhvVpciMmioMapping internal constructor(
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U64).writeNative(addr + 16L, value.offsetInBytes)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<CVoid>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 24L, value.virtualAddress)
                 }
             }
@@ -1908,7 +1907,7 @@ public class WhvVpciMmioMapping internal constructor(
             flags: WhvVpciMmioRangeFlags = 0,
             sizeInBytes: ULong = 0uL,
             offsetInBytes: ULong = 0uL,
-            virtualAddress: MutPtr<CVoid> = MutPtr(0L),
+            virtualAddress: MutPtr = MutPtr(0L),
         ): WhvVpciMmioMapping =
             WhvVpciMmioMapping(
                 location = location,

@@ -2,7 +2,6 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.storage.cabinets
 
-import io.github.kotlinmania.rustlang.core.ffi.CVoid
 import io.github.kotlinmania.rustlang.core.ptr.ConstPtr
 import io.github.kotlinmania.rustlang.core.ptr.MutPtr
 import io.github.kotlinmania.windowssys.core.Bool
@@ -95,32 +94,32 @@ private object WindowsWin32StorageCabinetsJniBridge {
     external fun windowssysWindowsWin32StorageCabinetsFDITruncateCabinet(hfdi: Long, pszcabinetname: Long, ifoldertodelete: Short): Int
 }
 
-public actual fun fCIAddFile(hfci: ConstPtr<CVoid>, pszsourcefile: Pcstr, pszfilename: Pcstr, fexecute: Bool, pfnfcignc: Pfnfcigetnextcabinet, pfnfcis: Pfnfcistatus, pfnfcigoi: Pfnfcigetopeninfo, typecompress: UShort): Bool =
+public actual fun fCIAddFile(hfci: ConstPtr, pszsourcefile: Pcstr, pszfilename: Pcstr, fexecute: Bool, pfnfcignc: Pfnfcigetnextcabinet, pfnfcis: Pfnfcistatus, pfnfcigoi: Pfnfcigetopeninfo, typecompress: UShort): Bool =
     WindowsWin32StorageCabinetsJniBridge.windowssysWindowsWin32StorageCabinetsFCIAddFile(hfci.rawAddress, pszsourcefile.rawAddress, pszfilename.rawAddress, fexecute, 0L, 0L, 0L, typecompress.toShort())
 
-public actual fun fCICreate(perf: ConstPtr<Erf>, pfnfcifp: Pfnfcifileplaced, pfna: Pfnfcialloc, pfnf: Pfnfcifree, pfnopen: Pfnfciopen, pfnread: Pfnfciread, pfnwrite: Pfnfciwrite, pfnclose: Pfnfciclose, pfnseek: Pfnfciseek, pfndelete: Pfnfcidelete, pfnfcigtf: Pfnfcigettempfile, pccab: ConstPtr<Ccab>, pv: ConstPtr<CVoid>): MutPtr<CVoid> =
+public actual fun fCICreate(perf: ConstPtr, pfnfcifp: Pfnfcifileplaced, pfna: Pfnfcialloc, pfnf: Pfnfcifree, pfnopen: Pfnfciopen, pfnread: Pfnfciread, pfnwrite: Pfnfciwrite, pfnclose: Pfnfciclose, pfnseek: Pfnfciseek, pfndelete: Pfnfcidelete, pfnfcigtf: Pfnfcigettempfile, pccab: ConstPtr, pv: ConstPtr): MutPtr =
     MutPtr(WindowsWin32StorageCabinetsJniBridge.windowssysWindowsWin32StorageCabinetsFCICreate(perf.rawAddress, 0L, 0L, 0L, 0L, 0L, 0L, 0L, 0L, 0L, 0L, pccab.rawAddress, pv.rawAddress))
 
-public actual fun fCIDestroy(hfci: ConstPtr<CVoid>): Bool =
+public actual fun fCIDestroy(hfci: ConstPtr): Bool =
     WindowsWin32StorageCabinetsJniBridge.windowssysWindowsWin32StorageCabinetsFCIDestroy(hfci.rawAddress)
 
-public actual fun fCIFlushCabinet(hfci: ConstPtr<CVoid>, fgetnextcab: Bool, pfnfcignc: Pfnfcigetnextcabinet, pfnfcis: Pfnfcistatus): Bool =
+public actual fun fCIFlushCabinet(hfci: ConstPtr, fgetnextcab: Bool, pfnfcignc: Pfnfcigetnextcabinet, pfnfcis: Pfnfcistatus): Bool =
     WindowsWin32StorageCabinetsJniBridge.windowssysWindowsWin32StorageCabinetsFCIFlushCabinet(hfci.rawAddress, fgetnextcab, 0L, 0L)
 
-public actual fun fCIFlushFolder(hfci: ConstPtr<CVoid>, pfnfcignc: Pfnfcigetnextcabinet, pfnfcis: Pfnfcistatus): Bool =
+public actual fun fCIFlushFolder(hfci: ConstPtr, pfnfcignc: Pfnfcigetnextcabinet, pfnfcis: Pfnfcistatus): Bool =
     WindowsWin32StorageCabinetsJniBridge.windowssysWindowsWin32StorageCabinetsFCIFlushFolder(hfci.rawAddress, 0L, 0L)
 
-public actual fun fDICopy(hfdi: ConstPtr<CVoid>, pszcabinet: Pcstr, pszcabpath: Pcstr, flags: Int, pfnfdin: Pfnfdinotify, pfnfdid: Pfnfdidecrypt, pvuser: ConstPtr<CVoid>): Bool =
+public actual fun fDICopy(hfdi: ConstPtr, pszcabinet: Pcstr, pszcabpath: Pcstr, flags: Int, pfnfdin: Pfnfdinotify, pfnfdid: Pfnfdidecrypt, pvuser: ConstPtr): Bool =
     WindowsWin32StorageCabinetsJniBridge.windowssysWindowsWin32StorageCabinetsFDICopy(hfdi.rawAddress, pszcabinet.rawAddress, pszcabpath.rawAddress, flags, 0L, 0L, pvuser.rawAddress)
 
-public actual fun fDICreate(pfnalloc: Pfnalloc, pfnfree: Pfnfree, pfnopen: Pfnopen, pfnread: Pfnread, pfnwrite: Pfnwrite, pfnclose: Pfnclose, pfnseek: Pfnseek, cputype: FdicreateCpuType, perf: MutPtr<Erf>): MutPtr<CVoid> =
+public actual fun fDICreate(pfnalloc: Pfnalloc, pfnfree: Pfnfree, pfnopen: Pfnopen, pfnread: Pfnread, pfnwrite: Pfnwrite, pfnclose: Pfnclose, pfnseek: Pfnseek, cputype: FdicreateCpuType, perf: MutPtr): MutPtr =
     MutPtr(WindowsWin32StorageCabinetsJniBridge.windowssysWindowsWin32StorageCabinetsFDICreate(0L, 0L, 0L, 0L, 0L, 0L, 0L, cputype, perf.rawAddress))
 
-public actual fun fDIDestroy(hfdi: ConstPtr<CVoid>): Bool =
+public actual fun fDIDestroy(hfdi: ConstPtr): Bool =
     WindowsWin32StorageCabinetsJniBridge.windowssysWindowsWin32StorageCabinetsFDIDestroy(hfdi.rawAddress)
 
-public actual fun fDIIsCabinet(hfdi: ConstPtr<CVoid>, hf: Long, pfdici: MutPtr<Fdicabinetinfo>): Bool =
+public actual fun fDIIsCabinet(hfdi: ConstPtr, hf: Long, pfdici: MutPtr): Bool =
     WindowsWin32StorageCabinetsJniBridge.windowssysWindowsWin32StorageCabinetsFDIIsCabinet(hfdi.rawAddress, hf, pfdici.rawAddress)
 
-public actual fun fDITruncateCabinet(hfdi: ConstPtr<CVoid>, pszcabinetname: Pcstr, ifoldertodelete: UShort): Bool =
+public actual fun fDITruncateCabinet(hfdi: ConstPtr, pszcabinetname: Pcstr, ifoldertodelete: UShort): Bool =
     WindowsWin32StorageCabinetsJniBridge.windowssysWindowsWin32StorageCabinetsFDITruncateCabinet(hfdi.rawAddress, pszcabinetname.rawAddress, ifoldertodelete.toShort())

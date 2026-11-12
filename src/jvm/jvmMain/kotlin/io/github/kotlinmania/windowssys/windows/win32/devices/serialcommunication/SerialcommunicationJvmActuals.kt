@@ -83,19 +83,19 @@ private object WindowsWin32DevicesSerialcommunicationJniBridge {
     external fun windowssysWindowsWin32DevicesSerialcommunicationComDBResizeDatabase(hcomdb: Long, newsize: Int): Int
 }
 
-public actual fun comDBClaimNextFreePort(hcomdb: Hcomdb, comnumber: MutPtr<UInt>): Int =
+public actual fun comDBClaimNextFreePort(hcomdb: Hcomdb, comnumber: MutPtr): Int =
     WindowsWin32DevicesSerialcommunicationJniBridge.windowssysWindowsWin32DevicesSerialcommunicationComDBClaimNextFreePort(hcomdb.rawAddress, comnumber.rawAddress)
 
-public actual fun comDBClaimPort(hcomdb: Hcomdb, comnumber: UInt, forceclaim: Bool, forced: MutPtr<Bool>): Int =
+public actual fun comDBClaimPort(hcomdb: Hcomdb, comnumber: UInt, forceclaim: Bool, forced: MutPtr): Int =
     WindowsWin32DevicesSerialcommunicationJniBridge.windowssysWindowsWin32DevicesSerialcommunicationComDBClaimPort(hcomdb.rawAddress, comnumber.toInt(), forceclaim, forced.rawAddress)
 
 public actual fun comDBClose(hcomdb: Hcomdb): Int =
     WindowsWin32DevicesSerialcommunicationJniBridge.windowssysWindowsWin32DevicesSerialcommunicationComDBClose(hcomdb.rawAddress)
 
-public actual fun comDBGetCurrentPortUsage(hcomdb: Hcomdb, buffer: MutPtr<UByte>, buffersize: UInt, reporttype: UInt, maxportsreported: MutPtr<UInt>): Int =
+public actual fun comDBGetCurrentPortUsage(hcomdb: Hcomdb, buffer: MutPtr, buffersize: UInt, reporttype: UInt, maxportsreported: MutPtr): Int =
     WindowsWin32DevicesSerialcommunicationJniBridge.windowssysWindowsWin32DevicesSerialcommunicationComDBGetCurrentPortUsage(hcomdb.rawAddress, buffer.rawAddress, buffersize.toInt(), reporttype.toInt(), maxportsreported.rawAddress)
 
-public actual fun comDBOpen(phcomdb: MutPtr<Hcomdb>): Int =
+public actual fun comDBOpen(phcomdb: MutPtr): Int =
     WindowsWin32DevicesSerialcommunicationJniBridge.windowssysWindowsWin32DevicesSerialcommunicationComDBOpen(phcomdb.rawAddress)
 
 public actual fun comDBReleasePort(hcomdb: Hcomdb, comnumber: UInt): Int =

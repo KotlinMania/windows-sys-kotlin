@@ -142,13 +142,13 @@ public class Moduleentry32 internal constructor(
     public var th32ProcessID: UInt,
     public var glblcntUsage: UInt,
     public var proccntUsage: UInt,
-    modBaseAddrCtorArg: MutPtr<UByte>,
+    modBaseAddrCtorArg: MutPtr,
     public var modBaseSize: UInt,
     hModuleCtorArg: Hmodule,
     public var szModule: ByteArray,
     public var szExePath: ByteArray,
 ) {
-    public var modBaseAddr: MutPtr<UByte> = modBaseAddrCtorArg
+    public var modBaseAddr: MutPtr = modBaseAddrCtorArg
         internal set
 
     public var hModule: Hmodule = hModuleCtorArg
@@ -177,7 +177,7 @@ public class Moduleentry32 internal constructor(
 
     public operator fun component5(): UInt = this.proccntUsage
 
-    public operator fun component6(): MutPtr<UByte> = this.modBaseAddr
+    public operator fun component6(): MutPtr = this.modBaseAddr
 
     public operator fun component7(): UInt = this.modBaseSize
 
@@ -187,7 +187,7 @@ public class Moduleentry32 internal constructor(
 
     public operator fun component10(): ByteArray = this.szExePath
 
-    public fun copy(dwSize: UInt = this.dwSize, th32ModuleID: UInt = this.th32ModuleID, th32ProcessID: UInt = this.th32ProcessID, glblcntUsage: UInt = this.glblcntUsage, proccntUsage: UInt = this.proccntUsage, modBaseAddr: MutPtr<UByte> = this.modBaseAddr, modBaseSize: UInt = this.modBaseSize, hModule: Hmodule = this.hModule, szModule: ByteArray = this.szModule, szExePath: ByteArray = this.szExePath): Moduleentry32 = Moduleentry32(dwSize = dwSize, th32ModuleID = th32ModuleID, th32ProcessID = th32ProcessID, glblcntUsage = glblcntUsage, proccntUsage = proccntUsage, modBaseAddrCtorArg = modBaseAddr, modBaseSize = modBaseSize, hModuleCtorArg = hModule, szModule = szModule, szExePath = szExePath)
+    public fun copy(dwSize: UInt = this.dwSize, th32ModuleID: UInt = this.th32ModuleID, th32ProcessID: UInt = this.th32ProcessID, glblcntUsage: UInt = this.glblcntUsage, proccntUsage: UInt = this.proccntUsage, modBaseAddr: MutPtr = this.modBaseAddr, modBaseSize: UInt = this.modBaseSize, hModule: Hmodule = this.hModule, szModule: ByteArray = this.szModule, szExePath: ByteArray = this.szExePath): Moduleentry32 = Moduleentry32(dwSize = dwSize, th32ModuleID = th32ModuleID, th32ProcessID = th32ProcessID, glblcntUsage = glblcntUsage, proccntUsage = proccntUsage, modBaseAddrCtorArg = modBaseAddr, modBaseSize = modBaseSize, hModuleCtorArg = hModule, szModule = szModule, szExePath = szExePath)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -226,7 +226,7 @@ public class Moduleentry32 internal constructor(
             th32ProcessID: UInt = 0u,
             glblcntUsage: UInt = 0u,
             proccntUsage: UInt = 0u,
-            modBaseAddr: MutPtr<UByte> = MutPtr(0L),
+            modBaseAddr: MutPtr = MutPtr(0L),
             modBaseSize: UInt = 0u,
             hModule: Hmodule = MutPtr(0L),
             szModule: ByteArray = ByteArray(256),
@@ -253,13 +253,13 @@ public class Moduleentry32w internal constructor(
     public var th32ProcessID: UInt,
     public var glblcntUsage: UInt,
     public var proccntUsage: UInt,
-    modBaseAddrCtorArg: MutPtr<UByte>,
+    modBaseAddrCtorArg: MutPtr,
     public var modBaseSize: UInt,
     hModuleCtorArg: Hmodule,
     public var szModule: UShortArray,
     public var szExePath: UShortArray,
 ) {
-    public var modBaseAddr: MutPtr<UByte> = modBaseAddrCtorArg
+    public var modBaseAddr: MutPtr = modBaseAddrCtorArg
         internal set
 
     public var hModule: Hmodule = hModuleCtorArg
@@ -288,7 +288,7 @@ public class Moduleentry32w internal constructor(
 
     public operator fun component5(): UInt = this.proccntUsage
 
-    public operator fun component6(): MutPtr<UByte> = this.modBaseAddr
+    public operator fun component6(): MutPtr = this.modBaseAddr
 
     public operator fun component7(): UInt = this.modBaseSize
 
@@ -298,7 +298,7 @@ public class Moduleentry32w internal constructor(
 
     public operator fun component10(): UShortArray = this.szExePath
 
-    public fun copy(dwSize: UInt = this.dwSize, th32ModuleID: UInt = this.th32ModuleID, th32ProcessID: UInt = this.th32ProcessID, glblcntUsage: UInt = this.glblcntUsage, proccntUsage: UInt = this.proccntUsage, modBaseAddr: MutPtr<UByte> = this.modBaseAddr, modBaseSize: UInt = this.modBaseSize, hModule: Hmodule = this.hModule, szModule: UShortArray = this.szModule, szExePath: UShortArray = this.szExePath): Moduleentry32w = Moduleentry32w(dwSize = dwSize, th32ModuleID = th32ModuleID, th32ProcessID = th32ProcessID, glblcntUsage = glblcntUsage, proccntUsage = proccntUsage, modBaseAddrCtorArg = modBaseAddr, modBaseSize = modBaseSize, hModuleCtorArg = hModule, szModule = szModule, szExePath = szExePath)
+    public fun copy(dwSize: UInt = this.dwSize, th32ModuleID: UInt = this.th32ModuleID, th32ProcessID: UInt = this.th32ProcessID, glblcntUsage: UInt = this.glblcntUsage, proccntUsage: UInt = this.proccntUsage, modBaseAddr: MutPtr = this.modBaseAddr, modBaseSize: UInt = this.modBaseSize, hModule: Hmodule = this.hModule, szModule: UShortArray = this.szModule, szExePath: UShortArray = this.szExePath): Moduleentry32w = Moduleentry32w(dwSize = dwSize, th32ModuleID = th32ModuleID, th32ProcessID = th32ProcessID, glblcntUsage = glblcntUsage, proccntUsage = proccntUsage, modBaseAddrCtorArg = modBaseAddr, modBaseSize = modBaseSize, hModuleCtorArg = hModule, szModule = szModule, szExePath = szExePath)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -337,7 +337,7 @@ public class Moduleentry32w internal constructor(
             th32ProcessID: UInt = 0u,
             glblcntUsage: UInt = 0u,
             proccntUsage: UInt = 0u,
-            modBaseAddr: MutPtr<UByte> = MutPtr(0L),
+            modBaseAddr: MutPtr = MutPtr(0L),
             modBaseSize: UInt = 0u,
             hModule: Hmodule = MutPtr(0L),
             szModule: UShortArray = UShortArray(256),

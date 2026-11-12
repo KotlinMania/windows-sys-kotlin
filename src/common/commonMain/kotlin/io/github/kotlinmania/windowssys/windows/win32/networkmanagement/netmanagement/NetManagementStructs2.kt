@@ -1,6 +1,5 @@
 package io.github.kotlinmania.windowssys.windows.win32.networkmanagement.netmanagement
 
-import io.github.kotlinmania.rustlang.core.ffi.CVoid
 import io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
 import io.github.kotlinmania.rustlang.core.mem.TypeLayout
 import io.github.kotlinmania.rustlang.core.ptr.MutPtr
@@ -15,9 +14,9 @@ public data class UseInfo3(
 public class UseInfo4 internal constructor(
     public var ui4Ui3: UseInfo3,
     public var ui4AuthIdentityLength: UInt,
-    ui4AuthIdentityCtorArg: MutPtr<UByte>,
+    ui4AuthIdentityCtorArg: MutPtr,
 ) {
-    public var ui4AuthIdentity: MutPtr<UByte> = ui4AuthIdentityCtorArg
+    public var ui4AuthIdentity: MutPtr = ui4AuthIdentityCtorArg
         internal set
 
     public constructor() : this(
@@ -30,9 +29,9 @@ public class UseInfo4 internal constructor(
 
     public operator fun component2(): UInt = this.ui4AuthIdentityLength
 
-    public operator fun component3(): MutPtr<UByte> = this.ui4AuthIdentity
+    public operator fun component3(): MutPtr = this.ui4AuthIdentity
 
-    public fun copy(ui4Ui3: UseInfo3 = this.ui4Ui3, ui4AuthIdentityLength: UInt = this.ui4AuthIdentityLength, ui4AuthIdentity: MutPtr<UByte> = this.ui4AuthIdentity): UseInfo4 = UseInfo4(ui4Ui3 = ui4Ui3, ui4AuthIdentityLength = ui4AuthIdentityLength, ui4AuthIdentityCtorArg = ui4AuthIdentity)
+    public fun copy(ui4Ui3: UseInfo3 = this.ui4Ui3, ui4AuthIdentityLength: UInt = this.ui4AuthIdentityLength, ui4AuthIdentity: MutPtr = this.ui4AuthIdentity): UseInfo4 = UseInfo4(ui4Ui3 = ui4Ui3, ui4AuthIdentityLength = ui4AuthIdentityLength, ui4AuthIdentityCtorArg = ui4AuthIdentity)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -54,7 +53,7 @@ public class UseInfo4 internal constructor(
         public operator fun invoke(
             ui4Ui3: UseInfo3 = UseInfo3(),
             ui4AuthIdentityLength: UInt = 0u,
-            ui4AuthIdentity: MutPtr<UByte> = MutPtr(0L),
+            ui4AuthIdentity: MutPtr = MutPtr(0L),
         ): UseInfo4 =
             UseInfo4(
                 ui4Ui3 = ui4Ui3,
@@ -67,19 +66,19 @@ public class UseInfo4 internal constructor(
 public class UseInfo5 internal constructor(
     public var ui4Ui3: UseInfo3,
     public var ui4AuthIdentityLength: UInt,
-    ui4AuthIdentityCtorArg: MutPtr<UByte>,
+    ui4AuthIdentityCtorArg: MutPtr,
     public var ui5SecurityDescriptorLength: UInt,
-    ui5SecurityDescriptorCtorArg: MutPtr<UByte>,
+    ui5SecurityDescriptorCtorArg: MutPtr,
     public var ui5UseOptionsLength: UInt,
-    ui5UseOptionsCtorArg: MutPtr<UByte>,
+    ui5UseOptionsCtorArg: MutPtr,
 ) {
-    public var ui4AuthIdentity: MutPtr<UByte> = ui4AuthIdentityCtorArg
+    public var ui4AuthIdentity: MutPtr = ui4AuthIdentityCtorArg
         internal set
 
-    public var ui5SecurityDescriptor: MutPtr<UByte> = ui5SecurityDescriptorCtorArg
+    public var ui5SecurityDescriptor: MutPtr = ui5SecurityDescriptorCtorArg
         internal set
 
-    public var ui5UseOptions: MutPtr<UByte> = ui5UseOptionsCtorArg
+    public var ui5UseOptions: MutPtr = ui5UseOptionsCtorArg
         internal set
 
     public constructor() : this(
@@ -96,17 +95,17 @@ public class UseInfo5 internal constructor(
 
     public operator fun component2(): UInt = this.ui4AuthIdentityLength
 
-    public operator fun component3(): MutPtr<UByte> = this.ui4AuthIdentity
+    public operator fun component3(): MutPtr = this.ui4AuthIdentity
 
     public operator fun component4(): UInt = this.ui5SecurityDescriptorLength
 
-    public operator fun component5(): MutPtr<UByte> = this.ui5SecurityDescriptor
+    public operator fun component5(): MutPtr = this.ui5SecurityDescriptor
 
     public operator fun component6(): UInt = this.ui5UseOptionsLength
 
-    public operator fun component7(): MutPtr<UByte> = this.ui5UseOptions
+    public operator fun component7(): MutPtr = this.ui5UseOptions
 
-    public fun copy(ui4Ui3: UseInfo3 = this.ui4Ui3, ui4AuthIdentityLength: UInt = this.ui4AuthIdentityLength, ui4AuthIdentity: MutPtr<UByte> = this.ui4AuthIdentity, ui5SecurityDescriptorLength: UInt = this.ui5SecurityDescriptorLength, ui5SecurityDescriptor: MutPtr<UByte> = this.ui5SecurityDescriptor, ui5UseOptionsLength: UInt = this.ui5UseOptionsLength, ui5UseOptions: MutPtr<UByte> = this.ui5UseOptions): UseInfo5 = UseInfo5(ui4Ui3 = ui4Ui3, ui4AuthIdentityLength = ui4AuthIdentityLength, ui4AuthIdentityCtorArg = ui4AuthIdentity, ui5SecurityDescriptorLength = ui5SecurityDescriptorLength, ui5SecurityDescriptorCtorArg = ui5SecurityDescriptor, ui5UseOptionsLength = ui5UseOptionsLength, ui5UseOptionsCtorArg = ui5UseOptions)
+    public fun copy(ui4Ui3: UseInfo3 = this.ui4Ui3, ui4AuthIdentityLength: UInt = this.ui4AuthIdentityLength, ui4AuthIdentity: MutPtr = this.ui4AuthIdentity, ui5SecurityDescriptorLength: UInt = this.ui5SecurityDescriptorLength, ui5SecurityDescriptor: MutPtr = this.ui5SecurityDescriptor, ui5UseOptionsLength: UInt = this.ui5UseOptionsLength, ui5UseOptions: MutPtr = this.ui5UseOptions): UseInfo5 = UseInfo5(ui4Ui3 = ui4Ui3, ui4AuthIdentityLength = ui4AuthIdentityLength, ui4AuthIdentityCtorArg = ui4AuthIdentity, ui5SecurityDescriptorLength = ui5SecurityDescriptorLength, ui5SecurityDescriptorCtorArg = ui5SecurityDescriptor, ui5UseOptionsLength = ui5UseOptionsLength, ui5UseOptionsCtorArg = ui5UseOptions)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -136,11 +135,11 @@ public class UseInfo5 internal constructor(
         public operator fun invoke(
             ui4Ui3: UseInfo3 = UseInfo3(),
             ui4AuthIdentityLength: UInt = 0u,
-            ui4AuthIdentity: MutPtr<UByte> = MutPtr(0L),
+            ui4AuthIdentity: MutPtr = MutPtr(0L),
             ui5SecurityDescriptorLength: UInt = 0u,
-            ui5SecurityDescriptor: MutPtr<UByte> = MutPtr(0L),
+            ui5SecurityDescriptor: MutPtr = MutPtr(0L),
             ui5UseOptionsLength: UInt = 0u,
-            ui5UseOptions: MutPtr<UByte> = MutPtr(0L),
+            ui5UseOptions: MutPtr = MutPtr(0L),
         ): UseInfo5 =
             UseInfo5(
                 ui4Ui3 = ui4Ui3,
@@ -206,10 +205,10 @@ public data class UseOptionGeneric(
 
 public class UseOptionProperties internal constructor(
     public var tag: UInt,
-    pInfoCtorArg: MutPtr<CVoid>,
+    pInfoCtorArg: MutPtr,
     public var length: Int,
 ) {
-    public var pInfo: MutPtr<CVoid> = pInfoCtorArg
+    public var pInfo: MutPtr = pInfoCtorArg
         internal set
 
     public constructor() : this(
@@ -220,11 +219,11 @@ public class UseOptionProperties internal constructor(
 
     public operator fun component1(): UInt = this.tag
 
-    public operator fun component2(): MutPtr<CVoid> = this.pInfo
+    public operator fun component2(): MutPtr = this.pInfo
 
     public operator fun component3(): Int = this.length
 
-    public fun copy(tag: UInt = this.tag, pInfo: MutPtr<CVoid> = this.pInfo, length: Int = this.length): UseOptionProperties = UseOptionProperties(tag = tag, pInfoCtorArg = pInfo, length = length)
+    public fun copy(tag: UInt = this.tag, pInfo: MutPtr = this.pInfo, length: Int = this.length): UseOptionProperties = UseOptionProperties(tag = tag, pInfoCtorArg = pInfo, length = length)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -252,7 +251,7 @@ public class UseOptionProperties internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<CVoid>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.USIZE64).readNative(addr + 16L),
                     )
@@ -260,7 +259,7 @@ public class UseOptionProperties internal constructor(
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr, value.tag)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<CVoid>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.pInfo)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.USIZE64).writeNative(addr + 16L, value.length)
                 }
@@ -268,7 +267,7 @@ public class UseOptionProperties internal constructor(
 
         public operator fun invoke(
             tag: UInt = 0u,
-            pInfo: MutPtr<CVoid> = MutPtr(0L),
+            pInfo: MutPtr = MutPtr(0L),
             length: Int = 0,
         ): UseOptionProperties =
             UseOptionProperties(

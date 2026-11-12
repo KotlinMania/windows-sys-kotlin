@@ -27,10 +27,10 @@ public data class IpngAddress(
 }
 
 public class McastClientUid internal constructor(
-    clientUIDCtorArg: MutPtr<UByte>,
+    clientUIDCtorArg: MutPtr,
     public var clientUIDLength: UInt,
 ) {
-    public var clientUID: MutPtr<UByte> = clientUIDCtorArg
+    public var clientUID: MutPtr = clientUIDCtorArg
         internal set
 
     public constructor() : this(
@@ -38,11 +38,11 @@ public class McastClientUid internal constructor(
         clientUIDLength = 0u,
     )
 
-    public operator fun component1(): MutPtr<UByte> = this.clientUID
+    public operator fun component1(): MutPtr = this.clientUID
 
     public operator fun component2(): UInt = this.clientUIDLength
 
-    public fun copy(clientUID: MutPtr<UByte> = this.clientUID, clientUIDLength: UInt = this.clientUIDLength): McastClientUid = McastClientUid(clientUIDCtorArg = clientUID, clientUIDLength = clientUIDLength)
+    public fun copy(clientUID: MutPtr = this.clientUID, clientUIDLength: UInt = this.clientUIDLength): McastClientUid = McastClientUid(clientUIDCtorArg = clientUID, clientUIDLength = clientUIDLength)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -67,21 +67,21 @@ public class McastClientUid internal constructor(
                     McastClientUid(
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<UByte>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 8L),
                     )
                 override fun writeNative(addr: Long, value: McastClientUid) {
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<UByte>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr, value.clientUID)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 8L, value.clientUIDLength)
                 }
             }
 
         public operator fun invoke(
-            clientUID: MutPtr<UByte> = MutPtr(0L),
+            clientUID: MutPtr = MutPtr(0L),
             clientUIDLength: UInt = 0u,
         ): McastClientUid =
             McastClientUid(
@@ -99,9 +99,9 @@ public class McastLeaseRequest internal constructor(
     public var serverAddress: IpngAddress,
     public var minAddrCount: UShort,
     public var addrCount: UShort,
-    pAddrBufCtorArg: MutPtr<UByte>,
+    pAddrBufCtorArg: MutPtr,
 ) {
-    public var pAddrBuf: MutPtr<UByte> = pAddrBufCtorArg
+    public var pAddrBuf: MutPtr = pAddrBufCtorArg
         internal set
 
     public constructor() : this(
@@ -129,9 +129,9 @@ public class McastLeaseRequest internal constructor(
 
     public operator fun component7(): UShort = this.addrCount
 
-    public operator fun component8(): MutPtr<UByte> = this.pAddrBuf
+    public operator fun component8(): MutPtr = this.pAddrBuf
 
-    public fun copy(leaseStartTime: Int = this.leaseStartTime, maxLeaseStartTime: Int = this.maxLeaseStartTime, leaseDuration: UInt = this.leaseDuration, minLeaseDuration: UInt = this.minLeaseDuration, serverAddress: IpngAddress = this.serverAddress, minAddrCount: UShort = this.minAddrCount, addrCount: UShort = this.addrCount, pAddrBuf: MutPtr<UByte> = this.pAddrBuf): McastLeaseRequest = McastLeaseRequest(leaseStartTime = leaseStartTime, maxLeaseStartTime = maxLeaseStartTime, leaseDuration = leaseDuration, minLeaseDuration = minLeaseDuration, serverAddress = serverAddress, minAddrCount = minAddrCount, addrCount = addrCount, pAddrBufCtorArg = pAddrBuf)
+    public fun copy(leaseStartTime: Int = this.leaseStartTime, maxLeaseStartTime: Int = this.maxLeaseStartTime, leaseDuration: UInt = this.leaseDuration, minLeaseDuration: UInt = this.minLeaseDuration, serverAddress: IpngAddress = this.serverAddress, minAddrCount: UShort = this.minAddrCount, addrCount: UShort = this.addrCount, pAddrBuf: MutPtr = this.pAddrBuf): McastLeaseRequest = McastLeaseRequest(leaseStartTime = leaseStartTime, maxLeaseStartTime = maxLeaseStartTime, leaseDuration = leaseDuration, minLeaseDuration = minLeaseDuration, serverAddress = serverAddress, minAddrCount = minAddrCount, addrCount = addrCount, pAddrBufCtorArg = pAddrBuf)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -168,7 +168,7 @@ public class McastLeaseRequest internal constructor(
             serverAddress: IpngAddress = IpngAddress(),
             minAddrCount: UShort = 0u,
             addrCount: UShort = 0u,
-            pAddrBuf: MutPtr<UByte> = MutPtr(0L),
+            pAddrBuf: MutPtr = MutPtr(0L),
         ): McastLeaseRequest =
             McastLeaseRequest(
                 leaseStartTime = leaseStartTime,
@@ -188,9 +188,9 @@ public class McastLeaseResponse internal constructor(
     public var leaseEndTime: Int,
     public var serverAddress: IpngAddress,
     public var addrCount: UShort,
-    pAddrBufCtorArg: MutPtr<UByte>,
+    pAddrBufCtorArg: MutPtr,
 ) {
-    public var pAddrBuf: MutPtr<UByte> = pAddrBufCtorArg
+    public var pAddrBuf: MutPtr = pAddrBufCtorArg
         internal set
 
     public constructor() : this(
@@ -209,9 +209,9 @@ public class McastLeaseResponse internal constructor(
 
     public operator fun component4(): UShort = this.addrCount
 
-    public operator fun component5(): MutPtr<UByte> = this.pAddrBuf
+    public operator fun component5(): MutPtr = this.pAddrBuf
 
-    public fun copy(leaseStartTime: Int = this.leaseStartTime, leaseEndTime: Int = this.leaseEndTime, serverAddress: IpngAddress = this.serverAddress, addrCount: UShort = this.addrCount, pAddrBuf: MutPtr<UByte> = this.pAddrBuf): McastLeaseResponse = McastLeaseResponse(leaseStartTime = leaseStartTime, leaseEndTime = leaseEndTime, serverAddress = serverAddress, addrCount = addrCount, pAddrBufCtorArg = pAddrBuf)
+    public fun copy(leaseStartTime: Int = this.leaseStartTime, leaseEndTime: Int = this.leaseEndTime, serverAddress: IpngAddress = this.serverAddress, addrCount: UShort = this.addrCount, pAddrBuf: MutPtr = this.pAddrBuf): McastLeaseResponse = McastLeaseResponse(leaseStartTime = leaseStartTime, leaseEndTime = leaseEndTime, serverAddress = serverAddress, addrCount = addrCount, pAddrBufCtorArg = pAddrBuf)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -239,7 +239,7 @@ public class McastLeaseResponse internal constructor(
             leaseEndTime: Int = 0,
             serverAddress: IpngAddress = IpngAddress(),
             addrCount: UShort = 0u,
-            pAddrBuf: MutPtr<UByte> = MutPtr(0L),
+            pAddrBuf: MutPtr = MutPtr(0L),
         ): McastLeaseResponse =
             McastLeaseResponse(
                 leaseStartTime = leaseStartTime,

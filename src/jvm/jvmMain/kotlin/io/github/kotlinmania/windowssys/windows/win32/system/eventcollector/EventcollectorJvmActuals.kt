@@ -115,19 +115,19 @@ public actual fun ecClose(obj: Long): Bool =
 public actual fun ecDeleteSubscription(subscriptionname: Pcwstr, flags: UInt): Bool =
     WindowsWin32SystemEventcollectorJniBridge.windowssysWindowsWin32SystemEventcollectorEcDeleteSubscription(subscriptionname.rawAddress, flags.toInt())
 
-public actual fun ecEnumNextSubscription(subscriptionenum: Long, subscriptionnamebuffersize: UInt, subscriptionnamebuffer: Pwstr, subscriptionnamebufferused: MutPtr<UInt>): Bool =
+public actual fun ecEnumNextSubscription(subscriptionenum: Long, subscriptionnamebuffersize: UInt, subscriptionnamebuffer: Pwstr, subscriptionnamebufferused: MutPtr): Bool =
     WindowsWin32SystemEventcollectorJniBridge.windowssysWindowsWin32SystemEventcollectorEcEnumNextSubscription(subscriptionenum, subscriptionnamebuffersize.toInt(), subscriptionnamebuffer.rawAddress, subscriptionnamebufferused.rawAddress)
 
-public actual fun ecGetObjectArrayProperty(objectarray: Long, propertyid: EcSubscriptionPropertyId, arrayindex: UInt, flags: UInt, propertyvaluebuffersize: UInt, propertyvaluebuffer: MutPtr<EcVariant>, propertyvaluebufferused: MutPtr<UInt>): Bool =
+public actual fun ecGetObjectArrayProperty(objectarray: Long, propertyid: EcSubscriptionPropertyId, arrayindex: UInt, flags: UInt, propertyvaluebuffersize: UInt, propertyvaluebuffer: MutPtr, propertyvaluebufferused: MutPtr): Bool =
     WindowsWin32SystemEventcollectorJniBridge.windowssysWindowsWin32SystemEventcollectorEcGetObjectArrayProperty(objectarray, propertyid, arrayindex.toInt(), flags.toInt(), propertyvaluebuffersize.toInt(), propertyvaluebuffer.rawAddress, propertyvaluebufferused.rawAddress)
 
-public actual fun ecGetObjectArraySize(objectarray: Long, objectarraysize: MutPtr<UInt>): Bool =
+public actual fun ecGetObjectArraySize(objectarray: Long, objectarraysize: MutPtr): Bool =
     WindowsWin32SystemEventcollectorJniBridge.windowssysWindowsWin32SystemEventcollectorEcGetObjectArraySize(objectarray, objectarraysize.rawAddress)
 
-public actual fun ecGetSubscriptionProperty(subscription: Long, propertyid: EcSubscriptionPropertyId, flags: UInt, propertyvaluebuffersize: UInt, propertyvaluebuffer: MutPtr<EcVariant>, propertyvaluebufferused: MutPtr<UInt>): Bool =
+public actual fun ecGetSubscriptionProperty(subscription: Long, propertyid: EcSubscriptionPropertyId, flags: UInt, propertyvaluebuffersize: UInt, propertyvaluebuffer: MutPtr, propertyvaluebufferused: MutPtr): Bool =
     WindowsWin32SystemEventcollectorJniBridge.windowssysWindowsWin32SystemEventcollectorEcGetSubscriptionProperty(subscription, propertyid, flags.toInt(), propertyvaluebuffersize.toInt(), propertyvaluebuffer.rawAddress, propertyvaluebufferused.rawAddress)
 
-public actual fun ecGetSubscriptionRunTimeStatus(subscriptionname: Pcwstr, statusinfoid: EcSubscriptionRuntimeStatusInfoId, eventsourcename: Pcwstr, flags: UInt, statusvaluebuffersize: UInt, statusvaluebuffer: MutPtr<EcVariant>, statusvaluebufferused: MutPtr<UInt>): Bool =
+public actual fun ecGetSubscriptionRunTimeStatus(subscriptionname: Pcwstr, statusinfoid: EcSubscriptionRuntimeStatusInfoId, eventsourcename: Pcwstr, flags: UInt, statusvaluebuffersize: UInt, statusvaluebuffer: MutPtr, statusvaluebufferused: MutPtr): Bool =
     WindowsWin32SystemEventcollectorJniBridge.windowssysWindowsWin32SystemEventcollectorEcGetSubscriptionRunTimeStatus(subscriptionname.rawAddress, statusinfoid, eventsourcename.rawAddress, flags.toInt(), statusvaluebuffersize.toInt(), statusvaluebuffer.rawAddress, statusvaluebufferused.rawAddress)
 
 public actual fun ecInsertObjectArrayElement(objectarray: Long, arrayindex: UInt): Bool =
@@ -148,8 +148,8 @@ public actual fun ecRetrySubscription(subscriptionname: Pcwstr, eventsourcename:
 public actual fun ecSaveSubscription(subscription: Long, flags: UInt): Bool =
     WindowsWin32SystemEventcollectorJniBridge.windowssysWindowsWin32SystemEventcollectorEcSaveSubscription(subscription, flags.toInt())
 
-public actual fun ecSetObjectArrayProperty(objectarray: Long, propertyid: EcSubscriptionPropertyId, arrayindex: UInt, flags: UInt, propertyvalue: MutPtr<EcVariant>): Bool =
+public actual fun ecSetObjectArrayProperty(objectarray: Long, propertyid: EcSubscriptionPropertyId, arrayindex: UInt, flags: UInt, propertyvalue: MutPtr): Bool =
     WindowsWin32SystemEventcollectorJniBridge.windowssysWindowsWin32SystemEventcollectorEcSetObjectArrayProperty(objectarray, propertyid, arrayindex.toInt(), flags.toInt(), propertyvalue.rawAddress)
 
-public actual fun ecSetSubscriptionProperty(subscription: Long, propertyid: EcSubscriptionPropertyId, flags: UInt, propertyvalue: MutPtr<EcVariant>): Bool =
+public actual fun ecSetSubscriptionProperty(subscription: Long, propertyid: EcSubscriptionPropertyId, flags: UInt, propertyvalue: MutPtr): Bool =
     WindowsWin32SystemEventcollectorJniBridge.windowssysWindowsWin32SystemEventcollectorEcSetSubscriptionProperty(subscription, propertyid, flags.toInt(), propertyvalue.rawAddress)

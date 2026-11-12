@@ -4,7 +4,6 @@ package io.github.kotlinmania.windowssys.windows.win32.networkmanagement.windows
 
 import io.github.kotlinmania.rustlang.core.ptr.MutPtr
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Handle
-import io.github.kotlinmania.windowssys.windows.win32.system.io.Overlapped
 
 private object WindowsWin32NetworkmanagementWindowsnetworkvirtualizationJniBridge {
     init {
@@ -72,5 +71,5 @@ private object WindowsWin32NetworkmanagementWindowsnetworkvirtualizationJniBridg
 public actual fun wnvOpen(): Handle =
     MutPtr(WindowsWin32NetworkmanagementWindowsnetworkvirtualizationJniBridge.windowssysWindowsWin32NetworkmanagementWindowsnetworkvirtualizationWnvOpen())
 
-public actual fun wnvRequestNotification(wnvhandle: Handle, notificationparam: MutPtr<WnvNotificationParam>, overlapped: MutPtr<Overlapped>, bytestransferred: MutPtr<UInt>): UInt =
+public actual fun wnvRequestNotification(wnvhandle: Handle, notificationparam: MutPtr, overlapped: MutPtr, bytestransferred: MutPtr): UInt =
     WindowsWin32NetworkmanagementWindowsnetworkvirtualizationJniBridge.windowssysWindowsWin32NetworkmanagementWindowsnetworkvirtualizationWnvRequestNotification(wnvhandle.rawAddress, notificationparam.rawAddress, overlapped.rawAddress, bytestransferred.rawAddress).toUInt()

@@ -2,11 +2,9 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.system.diagnostics.debug
 
-import io.github.kotlinmania.rustlang.core.ffi.CVoid
 import io.github.kotlinmania.rustlang.core.ptr.ConstPtr
 import io.github.kotlinmania.rustlang.core.ptr.MutPtr
 import io.github.kotlinmania.windowssys.core.Bool
-import io.github.kotlinmania.windowssys.core.Guid
 import io.github.kotlinmania.windowssys.core.Hresult
 import io.github.kotlinmania.windowssys.core.Pcstr
 import io.github.kotlinmania.windowssys.core.Pcwstr
@@ -16,8 +14,6 @@ import io.github.kotlinmania.windowssys.windows.win32.foundation.Handle
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Hmodule
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Hwnd
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Ntstatus
-import io.github.kotlinmania.windowssys.windows.win32.foundation.Systemtime
-import io.github.kotlinmania.windowssys.windows.win32.security.wintrust.WinCertificate
 import io.github.kotlinmania.windowssys.windows.win32.system.kernel.ExceptionRoutine
 import io.github.kotlinmania.windowssys.windows.win32.ui.windowsandmessaging.MessageboxStyle
 
@@ -951,10 +947,10 @@ private object WindowsWin32SystemDiagnosticsDebugJniBridge {
     external fun windowssysWindowsWin32SystemDiagnosticsDebugWriteProcessMemory(hprocess: Long, lpbaseaddress: Long, lpbuffer: Long, nsize: Long, lpnumberofbyteswritten: Long): Int
 }
 
-public actual fun addVectoredContinueHandler(first: UInt, handler: PvectoredExceptionHandler): MutPtr<CVoid> =
+public actual fun addVectoredContinueHandler(first: UInt, handler: PvectoredExceptionHandler): MutPtr =
     MutPtr(WindowsWin32SystemDiagnosticsDebugJniBridge.windowssysWindowsWin32SystemDiagnosticsDebugAddVectoredContinueHandler(first.toInt(), 0L))
 
-public actual fun addVectoredExceptionHandler(first: UInt, handler: PvectoredExceptionHandler): MutPtr<CVoid> =
+public actual fun addVectoredExceptionHandler(first: UInt, handler: PvectoredExceptionHandler): MutPtr =
     MutPtr(WindowsWin32SystemDiagnosticsDebugJniBridge.windowssysWindowsWin32SystemDiagnosticsDebugAddVectoredExceptionHandler(first.toInt(), 0L))
 
 public actual fun beep(dwfreq: UInt, dwduration: UInt): Bool =
@@ -966,26 +962,26 @@ public actual fun bindImage(imagename: Pcstr, dllpath: Pcstr, symbolpath: Pcstr)
 public actual fun bindImageEx(flags: UInt, imagename: Pcstr, dllpath: Pcstr, symbolpath: Pcstr, statusroutine: PimagehlpStatusRoutine): Bool =
     WindowsWin32SystemDiagnosticsDebugJniBridge.windowssysWindowsWin32SystemDiagnosticsDebugBindImageEx(flags.toInt(), imagename.rawAddress, dllpath.rawAddress, symbolpath.rawAddress, 0L)
 
-public actual fun checkRemoteDebuggerPresent(hprocess: Handle, pbdebuggerpresent: MutPtr<Bool>): Bool =
+public actual fun checkRemoteDebuggerPresent(hprocess: Handle, pbdebuggerpresent: MutPtr): Bool =
     WindowsWin32SystemDiagnosticsDebugJniBridge.windowssysWindowsWin32SystemDiagnosticsDebugCheckRemoteDebuggerPresent(hprocess.rawAddress, pbdebuggerpresent.rawAddress)
 
-public actual fun checkSumMappedFile(baseaddress: ConstPtr<CVoid>, filelength: UInt, headersum: MutPtr<UInt>, checksum: MutPtr<UInt>): MutPtr<ImageNtHeaders64> =
+public actual fun checkSumMappedFile(baseaddress: ConstPtr, filelength: UInt, headersum: MutPtr, checksum: MutPtr): MutPtr =
     MutPtr(WindowsWin32SystemDiagnosticsDebugJniBridge.windowssysWindowsWin32SystemDiagnosticsDebugCheckSumMappedFile(baseaddress.rawAddress, filelength.toInt(), headersum.rawAddress, checksum.rawAddress))
 
-public actual fun closeThreadWaitChainSession(wcthandle: ConstPtr<CVoid>) {
+public actual fun closeThreadWaitChainSession(wcthandle: ConstPtr) {
     WindowsWin32SystemDiagnosticsDebugJniBridge.windowssysWindowsWin32SystemDiagnosticsDebugCloseThreadWaitChainSession(wcthandle.rawAddress)
 }
 
 public actual fun continueDebugEvent(dwprocessid: UInt, dwthreadid: UInt, dwcontinuestatus: Ntstatus): Bool =
     WindowsWin32SystemDiagnosticsDebugJniBridge.windowssysWindowsWin32SystemDiagnosticsDebugContinueDebugEvent(dwprocessid.toInt(), dwthreadid.toInt(), dwcontinuestatus)
 
-public actual fun copyContext(destination: MutPtr<Context>, contextflags: ContextFlags, source: ConstPtr<Context>): Bool =
+public actual fun copyContext(destination: MutPtr, contextflags: ContextFlags, source: ConstPtr): Bool =
     WindowsWin32SystemDiagnosticsDebugJniBridge.windowssysWindowsWin32SystemDiagnosticsDebugCopyContext(destination.rawAddress, contextflags.toInt(), source.rawAddress)
 
-public actual fun dbgHelpCreateUserDump(filename: Pcstr, callback: PdbghelpCreateUserDumpCallback, userdata: ConstPtr<CVoid>): Bool =
+public actual fun dbgHelpCreateUserDump(filename: Pcstr, callback: PdbghelpCreateUserDumpCallback, userdata: ConstPtr): Bool =
     WindowsWin32SystemDiagnosticsDebugJniBridge.windowssysWindowsWin32SystemDiagnosticsDebugDbgHelpCreateUserDump(filename.rawAddress, 0L, userdata.rawAddress)
 
-public actual fun dbgHelpCreateUserDumpW(filename: Pcwstr, callback: PdbghelpCreateUserDumpCallback, userdata: ConstPtr<CVoid>): Bool =
+public actual fun dbgHelpCreateUserDumpW(filename: Pcwstr, callback: PdbghelpCreateUserDumpCallback, userdata: ConstPtr): Bool =
     WindowsWin32SystemDiagnosticsDebugJniBridge.windowssysWindowsWin32SystemDiagnosticsDebugDbgHelpCreateUserDumpW(filename.rawAddress, 0L, userdata.rawAddress)
 
 public actual fun debugActiveProcess(dwprocessid: UInt): Bool =
@@ -1004,40 +1000,40 @@ public actual fun debugBreakProcess(process: Handle): Bool =
 public actual fun debugSetProcessKillOnExit(killonexit: Bool): Bool =
     WindowsWin32SystemDiagnosticsDebugJniBridge.windowssysWindowsWin32SystemDiagnosticsDebugDebugSetProcessKillOnExit(killonexit)
 
-public actual fun decodePointer(ptr: ConstPtr<CVoid>): MutPtr<CVoid> =
+public actual fun decodePointer(ptr: ConstPtr): MutPtr =
     MutPtr(WindowsWin32SystemDiagnosticsDebugJniBridge.windowssysWindowsWin32SystemDiagnosticsDebugDecodePointer(ptr.rawAddress))
 
-public actual fun decodeRemotePointer(processhandle: Handle, ptr: ConstPtr<CVoid>, decodedptr: MutPtr<MutPtr<CVoid>>): Hresult =
+public actual fun decodeRemotePointer(processhandle: Handle, ptr: ConstPtr, decodedptr: MutPtr): Hresult =
     WindowsWin32SystemDiagnosticsDebugJniBridge.windowssysWindowsWin32SystemDiagnosticsDebugDecodeRemotePointer(processhandle.rawAddress, ptr.rawAddress, decodedptr.rawAddress)
 
-public actual fun decodeSystemPointer(ptr: ConstPtr<CVoid>): MutPtr<CVoid> =
+public actual fun decodeSystemPointer(ptr: ConstPtr): MutPtr =
     MutPtr(WindowsWin32SystemDiagnosticsDebugJniBridge.windowssysWindowsWin32SystemDiagnosticsDebugDecodeSystemPointer(ptr.rawAddress))
 
-public actual fun encodePointer(ptr: ConstPtr<CVoid>): MutPtr<CVoid> =
+public actual fun encodePointer(ptr: ConstPtr): MutPtr =
     MutPtr(WindowsWin32SystemDiagnosticsDebugJniBridge.windowssysWindowsWin32SystemDiagnosticsDebugEncodePointer(ptr.rawAddress))
 
-public actual fun encodeRemotePointer(processhandle: Handle, ptr: ConstPtr<CVoid>, encodedptr: MutPtr<MutPtr<CVoid>>): Hresult =
+public actual fun encodeRemotePointer(processhandle: Handle, ptr: ConstPtr, encodedptr: MutPtr): Hresult =
     WindowsWin32SystemDiagnosticsDebugJniBridge.windowssysWindowsWin32SystemDiagnosticsDebugEncodeRemotePointer(processhandle.rawAddress, ptr.rawAddress, encodedptr.rawAddress)
 
-public actual fun encodeSystemPointer(ptr: ConstPtr<CVoid>): MutPtr<CVoid> =
+public actual fun encodeSystemPointer(ptr: ConstPtr): MutPtr =
     MutPtr(WindowsWin32SystemDiagnosticsDebugJniBridge.windowssysWindowsWin32SystemDiagnosticsDebugEncodeSystemPointer(ptr.rawAddress))
 
-public actual fun enumDirTree(hprocess: Handle, rootpath: Pcstr, inputpathname: Pcstr, outputpathbuffer: Pstr, cb: PenumdirtreeCallback, data: ConstPtr<CVoid>): Bool =
+public actual fun enumDirTree(hprocess: Handle, rootpath: Pcstr, inputpathname: Pcstr, outputpathbuffer: Pstr, cb: PenumdirtreeCallback, data: ConstPtr): Bool =
     WindowsWin32SystemDiagnosticsDebugJniBridge.windowssysWindowsWin32SystemDiagnosticsDebugEnumDirTree(hprocess.rawAddress, rootpath.rawAddress, inputpathname.rawAddress, outputpathbuffer.rawAddress, 0L, data.rawAddress)
 
-public actual fun enumDirTreeW(hprocess: Handle, rootpath: Pcwstr, inputpathname: Pcwstr, outputpathbuffer: Pwstr, cb: PenumdirtreeCallbackw, data: ConstPtr<CVoid>): Bool =
+public actual fun enumDirTreeW(hprocess: Handle, rootpath: Pcwstr, inputpathname: Pcwstr, outputpathbuffer: Pwstr, cb: PenumdirtreeCallbackw, data: ConstPtr): Bool =
     WindowsWin32SystemDiagnosticsDebugJniBridge.windowssysWindowsWin32SystemDiagnosticsDebugEnumDirTreeW(hprocess.rawAddress, rootpath.rawAddress, inputpathname.rawAddress, outputpathbuffer.rawAddress, 0L, data.rawAddress)
 
-public actual fun enumerateLoadedModules64(hprocess: Handle, enumloadedmodulescallback: PenumloadedModulesCallback64, usercontext: ConstPtr<CVoid>): Bool =
+public actual fun enumerateLoadedModules64(hprocess: Handle, enumloadedmodulescallback: PenumloadedModulesCallback64, usercontext: ConstPtr): Bool =
     WindowsWin32SystemDiagnosticsDebugJniBridge.windowssysWindowsWin32SystemDiagnosticsDebugEnumerateLoadedModules64(hprocess.rawAddress, 0L, usercontext.rawAddress)
 
-public actual fun enumerateLoadedModulesEx(hprocess: Handle, enumloadedmodulescallback: PenumloadedModulesCallback64, usercontext: ConstPtr<CVoid>): Bool =
+public actual fun enumerateLoadedModulesEx(hprocess: Handle, enumloadedmodulescallback: PenumloadedModulesCallback64, usercontext: ConstPtr): Bool =
     WindowsWin32SystemDiagnosticsDebugJniBridge.windowssysWindowsWin32SystemDiagnosticsDebugEnumerateLoadedModulesEx(hprocess.rawAddress, 0L, usercontext.rawAddress)
 
-public actual fun enumerateLoadedModulesExW(hprocess: Handle, enumloadedmodulescallback: PenumloadedModulesCallbackw64, usercontext: ConstPtr<CVoid>): Bool =
+public actual fun enumerateLoadedModulesExW(hprocess: Handle, enumloadedmodulescallback: PenumloadedModulesCallbackw64, usercontext: ConstPtr): Bool =
     WindowsWin32SystemDiagnosticsDebugJniBridge.windowssysWindowsWin32SystemDiagnosticsDebugEnumerateLoadedModulesExW(hprocess.rawAddress, 0L, usercontext.rawAddress)
 
-public actual fun enumerateLoadedModulesW64(hprocess: Handle, enumloadedmodulescallback: PenumloadedModulesCallbackw64, usercontext: ConstPtr<CVoid>): Bool =
+public actual fun enumerateLoadedModulesW64(hprocess: Handle, enumloadedmodulescallback: PenumloadedModulesCallbackw64, usercontext: ConstPtr): Bool =
     WindowsWin32SystemDiagnosticsDebugJniBridge.windowssysWindowsWin32SystemDiagnosticsDebugEnumerateLoadedModulesW64(hprocess.rawAddress, 0L, usercontext.rawAddress)
 
 public actual fun fatalAppExitA(uaction: UInt, lpmessagetext: Pcstr) {
@@ -1056,34 +1052,34 @@ public actual fun fatalExit(exitcode: Int): Nothing {
 public actual fun findDebugInfoFile(filename: Pcstr, symbolpath: Pcstr, debugfilepath: Pstr): Handle =
     MutPtr(WindowsWin32SystemDiagnosticsDebugJniBridge.windowssysWindowsWin32SystemDiagnosticsDebugFindDebugInfoFile(filename.rawAddress, symbolpath.rawAddress, debugfilepath.rawAddress))
 
-public actual fun findDebugInfoFileEx(filename: Pcstr, symbolpath: Pcstr, debugfilepath: Pstr, callback: PfindDebugFileCallback, callerdata: ConstPtr<CVoid>): Handle =
+public actual fun findDebugInfoFileEx(filename: Pcstr, symbolpath: Pcstr, debugfilepath: Pstr, callback: PfindDebugFileCallback, callerdata: ConstPtr): Handle =
     MutPtr(WindowsWin32SystemDiagnosticsDebugJniBridge.windowssysWindowsWin32SystemDiagnosticsDebugFindDebugInfoFileEx(filename.rawAddress, symbolpath.rawAddress, debugfilepath.rawAddress, 0L, callerdata.rawAddress))
 
-public actual fun findDebugInfoFileExW(filename: Pcwstr, symbolpath: Pcwstr, debugfilepath: Pwstr, callback: PfindDebugFileCallbackw, callerdata: ConstPtr<CVoid>): Handle =
+public actual fun findDebugInfoFileExW(filename: Pcwstr, symbolpath: Pcwstr, debugfilepath: Pwstr, callback: PfindDebugFileCallbackw, callerdata: ConstPtr): Handle =
     MutPtr(WindowsWin32SystemDiagnosticsDebugJniBridge.windowssysWindowsWin32SystemDiagnosticsDebugFindDebugInfoFileExW(filename.rawAddress, symbolpath.rawAddress, debugfilepath.rawAddress, 0L, callerdata.rawAddress))
 
 public actual fun findExecutableImage(filename: Pcstr, symbolpath: Pcstr, imagefilepath: Pstr): Handle =
     MutPtr(WindowsWin32SystemDiagnosticsDebugJniBridge.windowssysWindowsWin32SystemDiagnosticsDebugFindExecutableImage(filename.rawAddress, symbolpath.rawAddress, imagefilepath.rawAddress))
 
-public actual fun findExecutableImageEx(filename: Pcstr, symbolpath: Pcstr, imagefilepath: Pstr, callback: PfindExeFileCallback, callerdata: ConstPtr<CVoid>): Handle =
+public actual fun findExecutableImageEx(filename: Pcstr, symbolpath: Pcstr, imagefilepath: Pstr, callback: PfindExeFileCallback, callerdata: ConstPtr): Handle =
     MutPtr(WindowsWin32SystemDiagnosticsDebugJniBridge.windowssysWindowsWin32SystemDiagnosticsDebugFindExecutableImageEx(filename.rawAddress, symbolpath.rawAddress, imagefilepath.rawAddress, 0L, callerdata.rawAddress))
 
-public actual fun findExecutableImageExW(filename: Pcwstr, symbolpath: Pcwstr, imagefilepath: Pwstr, callback: PfindExeFileCallbackw, callerdata: ConstPtr<CVoid>): Handle =
+public actual fun findExecutableImageExW(filename: Pcwstr, symbolpath: Pcwstr, imagefilepath: Pwstr, callback: PfindExeFileCallbackw, callerdata: ConstPtr): Handle =
     MutPtr(WindowsWin32SystemDiagnosticsDebugJniBridge.windowssysWindowsWin32SystemDiagnosticsDebugFindExecutableImageExW(filename.rawAddress, symbolpath.rawAddress, imagefilepath.rawAddress, 0L, callerdata.rawAddress))
 
-public actual fun findFileInPath(hprocess: Handle, searchpatha: Pcstr, filename: Pcstr, id: ConstPtr<CVoid>, two: UInt, three: UInt, flags: UInt, filepath: Pstr): Bool =
+public actual fun findFileInPath(hprocess: Handle, searchpatha: Pcstr, filename: Pcstr, id: ConstPtr, two: UInt, three: UInt, flags: UInt, filepath: Pstr): Bool =
     WindowsWin32SystemDiagnosticsDebugJniBridge.windowssysWindowsWin32SystemDiagnosticsDebugFindFileInPath(hprocess.rawAddress, searchpatha.rawAddress, filename.rawAddress, id.rawAddress, two.toInt(), three.toInt(), flags.toInt(), filepath.rawAddress)
 
 public actual fun findFileInSearchPath(hprocess: Handle, searchpatha: Pcstr, filename: Pcstr, one: UInt, two: UInt, three: UInt, filepath: Pstr): Bool =
     WindowsWin32SystemDiagnosticsDebugJniBridge.windowssysWindowsWin32SystemDiagnosticsDebugFindFileInSearchPath(hprocess.rawAddress, searchpatha.rawAddress, filename.rawAddress, one.toInt(), two.toInt(), three.toInt(), filepath.rawAddress)
 
-public actual fun flushInstructionCache(hprocess: Handle, lpbaseaddress: ConstPtr<CVoid>, dwsize: ULong): Bool =
+public actual fun flushInstructionCache(hprocess: Handle, lpbaseaddress: ConstPtr, dwsize: ULong): Bool =
     WindowsWin32SystemDiagnosticsDebugJniBridge.windowssysWindowsWin32SystemDiagnosticsDebugFlushInstructionCache(hprocess.rawAddress, lpbaseaddress.rawAddress, dwsize.toLong())
 
-public actual fun formatMessageA(dwflags: FormatMessageOptions, lpsource: ConstPtr<CVoid>, dwmessageid: UInt, dwlanguageid: UInt, lpbuffer: Pstr, nsize: UInt, arguments: ConstPtr<ConstPtr<Byte>>): UInt =
+public actual fun formatMessageA(dwflags: FormatMessageOptions, lpsource: ConstPtr, dwmessageid: UInt, dwlanguageid: UInt, lpbuffer: Pstr, nsize: UInt, arguments: ConstPtr): UInt =
     WindowsWin32SystemDiagnosticsDebugJniBridge.windowssysWindowsWin32SystemDiagnosticsDebugFormatMessageA(dwflags.toInt(), lpsource.rawAddress, dwmessageid.toInt(), dwlanguageid.toInt(), lpbuffer.rawAddress, nsize.toInt(), arguments.rawAddress).toUInt()
 
-public actual fun formatMessageW(dwflags: FormatMessageOptions, lpsource: ConstPtr<CVoid>, dwmessageid: UInt, dwlanguageid: UInt, lpbuffer: Pwstr, nsize: UInt, arguments: ConstPtr<ConstPtr<Byte>>): UInt =
+public actual fun formatMessageW(dwflags: FormatMessageOptions, lpsource: ConstPtr, dwmessageid: UInt, dwlanguageid: UInt, lpbuffer: Pwstr, nsize: UInt, arguments: ConstPtr): UInt =
     WindowsWin32SystemDiagnosticsDebugJniBridge.windowssysWindowsWin32SystemDiagnosticsDebugFormatMessageW(dwflags.toInt(), lpsource.rawAddress, dwmessageid.toInt(), dwlanguageid.toInt(), lpbuffer.rawAddress, nsize.toInt(), arguments.rawAddress).toUInt()
 
 public actual fun getEnabledXStateFeatures(): ULong =
@@ -1092,112 +1088,112 @@ public actual fun getEnabledXStateFeatures(): ULong =
 public actual fun getErrorMode(): UInt =
     WindowsWin32SystemDiagnosticsDebugJniBridge.windowssysWindowsWin32SystemDiagnosticsDebugGetErrorMode().toUInt()
 
-public actual fun getImageConfigInformation(loadedimage: ConstPtr<LoadedImage>, imageconfiginformation: MutPtr<ImageLoadConfigDirectory64>): Bool =
+public actual fun getImageConfigInformation(loadedimage: ConstPtr, imageconfiginformation: MutPtr): Bool =
     WindowsWin32SystemDiagnosticsDebugJniBridge.windowssysWindowsWin32SystemDiagnosticsDebugGetImageConfigInformation(loadedimage.rawAddress, imageconfiginformation.rawAddress)
 
-public actual fun getImageUnusedHeaderBytes(loadedimage: ConstPtr<LoadedImage>, sizeunusedheaderbytes: MutPtr<UInt>): UInt =
+public actual fun getImageUnusedHeaderBytes(loadedimage: ConstPtr, sizeunusedheaderbytes: MutPtr): UInt =
     WindowsWin32SystemDiagnosticsDebugJniBridge.windowssysWindowsWin32SystemDiagnosticsDebugGetImageUnusedHeaderBytes(loadedimage.rawAddress, sizeunusedheaderbytes.rawAddress).toUInt()
 
 public actual fun getSymLoadError(): UInt =
     WindowsWin32SystemDiagnosticsDebugJniBridge.windowssysWindowsWin32SystemDiagnosticsDebugGetSymLoadError().toUInt()
 
-public actual fun getThreadContext(hthread: Handle, lpcontext: MutPtr<Context>): Bool =
+public actual fun getThreadContext(hthread: Handle, lpcontext: MutPtr): Bool =
     WindowsWin32SystemDiagnosticsDebugJniBridge.windowssysWindowsWin32SystemDiagnosticsDebugGetThreadContext(hthread.rawAddress, lpcontext.rawAddress)
 
 public actual fun getThreadErrorMode(): UInt =
     WindowsWin32SystemDiagnosticsDebugJniBridge.windowssysWindowsWin32SystemDiagnosticsDebugGetThreadErrorMode().toUInt()
 
-public actual fun getThreadSelectorEntry(hthread: Handle, dwselector: UInt, lpselectorentry: MutPtr<LdtEntry>): Bool =
+public actual fun getThreadSelectorEntry(hthread: Handle, dwselector: UInt, lpselectorentry: MutPtr): Bool =
     WindowsWin32SystemDiagnosticsDebugJniBridge.windowssysWindowsWin32SystemDiagnosticsDebugGetThreadSelectorEntry(hthread.rawAddress, dwselector.toInt(), lpselectorentry.rawAddress)
 
-public actual fun getThreadWaitChain(wcthandle: ConstPtr<CVoid>, context: ULong, flags: WaitChainThreadOptions, threadid: UInt, nodecount: MutPtr<UInt>, nodeinfoarray: MutPtr<WaitchainNodeInfo>, iscycle: MutPtr<Bool>): Bool =
+public actual fun getThreadWaitChain(wcthandle: ConstPtr, context: ULong, flags: WaitChainThreadOptions, threadid: UInt, nodecount: MutPtr, nodeinfoarray: MutPtr, iscycle: MutPtr): Bool =
     WindowsWin32SystemDiagnosticsDebugJniBridge.windowssysWindowsWin32SystemDiagnosticsDebugGetThreadWaitChain(wcthandle.rawAddress, context.toLong(), flags.toInt(), threadid.toInt(), nodecount.rawAddress, nodeinfoarray.rawAddress, iscycle.rawAddress)
 
 public actual fun getTimestampForLoadedLibrary(module: Hmodule): UInt =
     WindowsWin32SystemDiagnosticsDebugJniBridge.windowssysWindowsWin32SystemDiagnosticsDebugGetTimestampForLoadedLibrary(module.rawAddress).toUInt()
 
-public actual fun getXStateFeaturesMask(context: ConstPtr<Context>, featuremask: MutPtr<ULong>): Bool =
+public actual fun getXStateFeaturesMask(context: ConstPtr, featuremask: MutPtr): Bool =
     WindowsWin32SystemDiagnosticsDebugJniBridge.windowssysWindowsWin32SystemDiagnosticsDebugGetXStateFeaturesMask(context.rawAddress, featuremask.rawAddress)
 
-public actual fun imageAddCertificate(filehandle: Handle, certificate: ConstPtr<WinCertificate>, index: MutPtr<UInt>): Bool =
+public actual fun imageAddCertificate(filehandle: Handle, certificate: ConstPtr, index: MutPtr): Bool =
     WindowsWin32SystemDiagnosticsDebugJniBridge.windowssysWindowsWin32SystemDiagnosticsDebugImageAddCertificate(filehandle.rawAddress, certificate.rawAddress, index.rawAddress)
 
-public actual fun imageDirectoryEntryToData(base: ConstPtr<CVoid>, mappedasimage: Boolean, directoryentry: ImageDirectoryEntry, size: MutPtr<UInt>): MutPtr<CVoid> =
+public actual fun imageDirectoryEntryToData(base: ConstPtr, mappedasimage: Boolean, directoryentry: ImageDirectoryEntry, size: MutPtr): MutPtr =
     MutPtr(WindowsWin32SystemDiagnosticsDebugJniBridge.windowssysWindowsWin32SystemDiagnosticsDebugImageDirectoryEntryToData(base.rawAddress, mappedasimage, directoryentry.toShort(), size.rawAddress))
 
-public actual fun imageDirectoryEntryToDataEx(base: ConstPtr<CVoid>, mappedasimage: Boolean, directoryentry: ImageDirectoryEntry, size: MutPtr<UInt>, foundheader: MutPtr<MutPtr<ImageSectionHeader>>): MutPtr<CVoid> =
+public actual fun imageDirectoryEntryToDataEx(base: ConstPtr, mappedasimage: Boolean, directoryentry: ImageDirectoryEntry, size: MutPtr, foundheader: MutPtr): MutPtr =
     MutPtr(WindowsWin32SystemDiagnosticsDebugJniBridge.windowssysWindowsWin32SystemDiagnosticsDebugImageDirectoryEntryToDataEx(base.rawAddress, mappedasimage, directoryentry.toShort(), size.rawAddress, foundheader.rawAddress))
 
-public actual fun imageEnumerateCertificates(filehandle: Handle, typefilter: UShort, certificatecount: MutPtr<UInt>, indices: MutPtr<UInt>, indexcount: UInt): Bool =
+public actual fun imageEnumerateCertificates(filehandle: Handle, typefilter: UShort, certificatecount: MutPtr, indices: MutPtr, indexcount: UInt): Bool =
     WindowsWin32SystemDiagnosticsDebugJniBridge.windowssysWindowsWin32SystemDiagnosticsDebugImageEnumerateCertificates(filehandle.rawAddress, typefilter.toShort(), certificatecount.rawAddress, indices.rawAddress, indexcount.toInt())
 
-public actual fun imageGetCertificateData(filehandle: Handle, certificateindex: UInt, certificate: MutPtr<WinCertificate>, requiredlength: MutPtr<UInt>): Bool =
+public actual fun imageGetCertificateData(filehandle: Handle, certificateindex: UInt, certificate: MutPtr, requiredlength: MutPtr): Bool =
     WindowsWin32SystemDiagnosticsDebugJniBridge.windowssysWindowsWin32SystemDiagnosticsDebugImageGetCertificateData(filehandle.rawAddress, certificateindex.toInt(), certificate.rawAddress, requiredlength.rawAddress)
 
-public actual fun imageGetCertificateHeader(filehandle: Handle, certificateindex: UInt, certificateheader: MutPtr<WinCertificate>): Bool =
+public actual fun imageGetCertificateHeader(filehandle: Handle, certificateindex: UInt, certificateheader: MutPtr): Bool =
     WindowsWin32SystemDiagnosticsDebugJniBridge.windowssysWindowsWin32SystemDiagnosticsDebugImageGetCertificateHeader(filehandle.rawAddress, certificateindex.toInt(), certificateheader.rawAddress)
 
-public actual fun imageGetDigestStream(filehandle: Handle, digestlevel: UInt, digestfunction: DigestFunction, digesthandle: ConstPtr<CVoid>): Bool =
+public actual fun imageGetDigestStream(filehandle: Handle, digestlevel: UInt, digestfunction: DigestFunction, digesthandle: ConstPtr): Bool =
     WindowsWin32SystemDiagnosticsDebugJniBridge.windowssysWindowsWin32SystemDiagnosticsDebugImageGetDigestStream(filehandle.rawAddress, digestlevel.toInt(), 0L, digesthandle.rawAddress)
 
-public actual fun imageLoad(dllname: Pcstr, dllpath: Pcstr): MutPtr<LoadedImage> =
+public actual fun imageLoad(dllname: Pcstr, dllpath: Pcstr): MutPtr =
     MutPtr(WindowsWin32SystemDiagnosticsDebugJniBridge.windowssysWindowsWin32SystemDiagnosticsDebugImageLoad(dllname.rawAddress, dllpath.rawAddress))
 
-public actual fun imageNtHeader(base: ConstPtr<CVoid>): MutPtr<ImageNtHeaders64> =
+public actual fun imageNtHeader(base: ConstPtr): MutPtr =
     MutPtr(WindowsWin32SystemDiagnosticsDebugJniBridge.windowssysWindowsWin32SystemDiagnosticsDebugImageNtHeader(base.rawAddress))
 
 public actual fun imageRemoveCertificate(filehandle: Handle, index: UInt): Bool =
     WindowsWin32SystemDiagnosticsDebugJniBridge.windowssysWindowsWin32SystemDiagnosticsDebugImageRemoveCertificate(filehandle.rawAddress, index.toInt())
 
-public actual fun imageRvaToSection(ntheaders: ConstPtr<ImageNtHeaders64>, base: ConstPtr<CVoid>, rva: UInt): MutPtr<ImageSectionHeader> =
+public actual fun imageRvaToSection(ntheaders: ConstPtr, base: ConstPtr, rva: UInt): MutPtr =
     MutPtr(WindowsWin32SystemDiagnosticsDebugJniBridge.windowssysWindowsWin32SystemDiagnosticsDebugImageRvaToSection(ntheaders.rawAddress, base.rawAddress, rva.toInt()))
 
-public actual fun imageRvaToVa(ntheaders: ConstPtr<ImageNtHeaders64>, base: ConstPtr<CVoid>, rva: UInt, lastrvasection: ConstPtr<ConstPtr<ImageSectionHeader>>): MutPtr<CVoid> =
+public actual fun imageRvaToVa(ntheaders: ConstPtr, base: ConstPtr, rva: UInt, lastrvasection: ConstPtr): MutPtr =
     MutPtr(WindowsWin32SystemDiagnosticsDebugJniBridge.windowssysWindowsWin32SystemDiagnosticsDebugImageRvaToVa(ntheaders.rawAddress, base.rawAddress, rva.toInt(), lastrvasection.rawAddress))
 
-public actual fun imageUnload(loadedimage: MutPtr<LoadedImage>): Bool =
+public actual fun imageUnload(loadedimage: MutPtr): Bool =
     WindowsWin32SystemDiagnosticsDebugJniBridge.windowssysWindowsWin32SystemDiagnosticsDebugImageUnload(loadedimage.rawAddress)
 
-public actual fun imagehlpApiVersion(): MutPtr<ApiVersion> =
+public actual fun imagehlpApiVersion(): MutPtr =
     MutPtr(WindowsWin32SystemDiagnosticsDebugJniBridge.windowssysWindowsWin32SystemDiagnosticsDebugImagehlpApiVersion())
 
-public actual fun imagehlpApiVersionEx(appversion: ConstPtr<ApiVersion>): MutPtr<ApiVersion> =
+public actual fun imagehlpApiVersionEx(appversion: ConstPtr): MutPtr =
     MutPtr(WindowsWin32SystemDiagnosticsDebugJniBridge.windowssysWindowsWin32SystemDiagnosticsDebugImagehlpApiVersionEx(appversion.rawAddress))
 
-public actual fun initializeContext(buffer: MutPtr<CVoid>, contextflags: ContextFlags, context: MutPtr<MutPtr<Context>>, contextlength: MutPtr<UInt>): Bool =
+public actual fun initializeContext(buffer: MutPtr, contextflags: ContextFlags, context: MutPtr, contextlength: MutPtr): Bool =
     WindowsWin32SystemDiagnosticsDebugJniBridge.windowssysWindowsWin32SystemDiagnosticsDebugInitializeContext(buffer.rawAddress, contextflags.toInt(), context.rawAddress, contextlength.rawAddress)
 
-public actual fun initializeContext2(buffer: MutPtr<CVoid>, contextflags: ContextFlags, context: MutPtr<MutPtr<Context>>, contextlength: MutPtr<UInt>, xstatecompactionmask: ULong): Bool =
+public actual fun initializeContext2(buffer: MutPtr, contextflags: ContextFlags, context: MutPtr, contextlength: MutPtr, xstatecompactionmask: ULong): Bool =
     WindowsWin32SystemDiagnosticsDebugJniBridge.windowssysWindowsWin32SystemDiagnosticsDebugInitializeContext2(buffer.rawAddress, contextflags.toInt(), context.rawAddress, contextlength.rawAddress, xstatecompactionmask.toLong())
 
 public actual fun isDebuggerPresent(): Bool =
     WindowsWin32SystemDiagnosticsDebugJniBridge.windowssysWindowsWin32SystemDiagnosticsDebugIsDebuggerPresent()
 
-public actual fun locateXStateFeature(context: ConstPtr<Context>, featureid: UInt, length: MutPtr<UInt>): MutPtr<CVoid> =
+public actual fun locateXStateFeature(context: ConstPtr, featureid: UInt, length: MutPtr): MutPtr =
     MutPtr(WindowsWin32SystemDiagnosticsDebugJniBridge.windowssysWindowsWin32SystemDiagnosticsDebugLocateXStateFeature(context.rawAddress, featureid.toInt(), length.rawAddress))
 
 public actual fun makeSureDirectoryPathExists(dirpath: Pcstr): Bool =
     WindowsWin32SystemDiagnosticsDebugJniBridge.windowssysWindowsWin32SystemDiagnosticsDebugMakeSureDirectoryPathExists(dirpath.rawAddress)
 
-public actual fun mapAndLoad(imagename: Pcstr, dllpath: Pcstr, loadedimage: MutPtr<LoadedImage>, dotdll: Bool, readonly: Bool): Bool =
+public actual fun mapAndLoad(imagename: Pcstr, dllpath: Pcstr, loadedimage: MutPtr, dotdll: Bool, readonly: Bool): Bool =
     WindowsWin32SystemDiagnosticsDebugJniBridge.windowssysWindowsWin32SystemDiagnosticsDebugMapAndLoad(imagename.rawAddress, dllpath.rawAddress, loadedimage.rawAddress, dotdll, readonly)
 
-public actual fun mapFileAndCheckSumA(filename: Pcstr, headersum: MutPtr<UInt>, checksum: MutPtr<UInt>): UInt =
+public actual fun mapFileAndCheckSumA(filename: Pcstr, headersum: MutPtr, checksum: MutPtr): UInt =
     WindowsWin32SystemDiagnosticsDebugJniBridge.windowssysWindowsWin32SystemDiagnosticsDebugMapFileAndCheckSumA(filename.rawAddress, headersum.rawAddress, checksum.rawAddress).toUInt()
 
-public actual fun mapFileAndCheckSumW(filename: Pcwstr, headersum: MutPtr<UInt>, checksum: MutPtr<UInt>): UInt =
+public actual fun mapFileAndCheckSumW(filename: Pcwstr, headersum: MutPtr, checksum: MutPtr): UInt =
     WindowsWin32SystemDiagnosticsDebugJniBridge.windowssysWindowsWin32SystemDiagnosticsDebugMapFileAndCheckSumW(filename.rawAddress, headersum.rawAddress, checksum.rawAddress).toUInt()
 
 public actual fun messageBeep(utype: MessageboxStyle): Bool =
     WindowsWin32SystemDiagnosticsDebugJniBridge.windowssysWindowsWin32SystemDiagnosticsDebugMessageBeep(utype.toInt())
 
-public actual fun miniDumpReadDumpStream(baseofdump: ConstPtr<CVoid>, streamnumber: UInt, dir: MutPtr<MutPtr<MinidumpDirectory>>, streampointer: MutPtr<MutPtr<CVoid>>, streamsize: MutPtr<UInt>): Bool =
+public actual fun miniDumpReadDumpStream(baseofdump: ConstPtr, streamnumber: UInt, dir: MutPtr, streampointer: MutPtr, streamsize: MutPtr): Bool =
     WindowsWin32SystemDiagnosticsDebugJniBridge.windowssysWindowsWin32SystemDiagnosticsDebugMiniDumpReadDumpStream(baseofdump.rawAddress, streamnumber.toInt(), dir.rawAddress, streampointer.rawAddress, streamsize.rawAddress)
 
-public actual fun miniDumpWriteDump(hprocess: Handle, processid: UInt, hfile: Handle, dumptype: MinidumpType, exceptionparam: ConstPtr<MinidumpExceptionInformation>, userstreamparam: ConstPtr<MinidumpUserStreamInformation>, callbackparam: ConstPtr<MinidumpCallbackInformation>): Bool =
+public actual fun miniDumpWriteDump(hprocess: Handle, processid: UInt, hfile: Handle, dumptype: MinidumpType, exceptionparam: ConstPtr, userstreamparam: ConstPtr, callbackparam: ConstPtr): Bool =
     WindowsWin32SystemDiagnosticsDebugJniBridge.windowssysWindowsWin32SystemDiagnosticsDebugMiniDumpWriteDump(hprocess.rawAddress, processid.toInt(), hfile.rawAddress, dumptype, exceptionparam.rawAddress, userstreamparam.rawAddress, callbackparam.rawAddress)
 
-public actual fun openThreadWaitChainSession(flags: OpenThreadWaitChainSessionFlags, callback: Pwaitchaincallback): MutPtr<CVoid> =
+public actual fun openThreadWaitChainSession(flags: OpenThreadWaitChainSessionFlags, callback: Pwaitchaincallback): MutPtr =
     MutPtr(WindowsWin32SystemDiagnosticsDebugJniBridge.windowssysWindowsWin32SystemDiagnosticsDebugOpenThreadWaitChainSession(flags.toInt(), 0L))
 
 public actual fun outputDebugStringA(lpoutputstring: Pcstr) {
@@ -1208,40 +1204,40 @@ public actual fun outputDebugStringW(lpoutputstring: Pcwstr) {
     WindowsWin32SystemDiagnosticsDebugJniBridge.windowssysWindowsWin32SystemDiagnosticsDebugOutputDebugStringW(lpoutputstring.rawAddress)
 }
 
-public actual fun raiseException(dwexceptioncode: UInt, dwexceptionflags: UInt, nnumberofarguments: UInt, lparguments: ConstPtr<ULong>) {
+public actual fun raiseException(dwexceptioncode: UInt, dwexceptionflags: UInt, nnumberofarguments: UInt, lparguments: ConstPtr) {
     WindowsWin32SystemDiagnosticsDebugJniBridge.windowssysWindowsWin32SystemDiagnosticsDebugRaiseException(dwexceptioncode.toInt(), dwexceptionflags.toInt(), nnumberofarguments.toInt(), lparguments.rawAddress)
 }
 
-public actual fun raiseFailFastException(pexceptionrecord: ConstPtr<ExceptionRecord>, pcontextrecord: ConstPtr<Context>, dwflags: UInt) {
+public actual fun raiseFailFastException(pexceptionrecord: ConstPtr, pcontextrecord: ConstPtr, dwflags: UInt) {
     WindowsWin32SystemDiagnosticsDebugJniBridge.windowssysWindowsWin32SystemDiagnosticsDebugRaiseFailFastException(pexceptionrecord.rawAddress, pcontextrecord.rawAddress, dwflags.toInt())
 }
 
-public actual fun rangeMapAddPeImageSections(rmaphandle: ConstPtr<CVoid>, imagename: Pcwstr, mappedimage: ConstPtr<CVoid>, mappingbytes: UInt, imagebase: ULong, usertag: ULong, mappingflags: UInt): Bool =
+public actual fun rangeMapAddPeImageSections(rmaphandle: ConstPtr, imagename: Pcwstr, mappedimage: ConstPtr, mappingbytes: UInt, imagebase: ULong, usertag: ULong, mappingflags: UInt): Bool =
     WindowsWin32SystemDiagnosticsDebugJniBridge.windowssysWindowsWin32SystemDiagnosticsDebugRangeMapAddPeImageSections(rmaphandle.rawAddress, imagename.rawAddress, mappedimage.rawAddress, mappingbytes.toInt(), imagebase.toLong(), usertag.toLong(), mappingflags.toInt())
 
-public actual fun rangeMapCreate(): MutPtr<CVoid> =
+public actual fun rangeMapCreate(): MutPtr =
     MutPtr(WindowsWin32SystemDiagnosticsDebugJniBridge.windowssysWindowsWin32SystemDiagnosticsDebugRangeMapCreate())
 
-public actual fun rangeMapFree(rmaphandle: ConstPtr<CVoid>) {
+public actual fun rangeMapFree(rmaphandle: ConstPtr) {
     WindowsWin32SystemDiagnosticsDebugJniBridge.windowssysWindowsWin32SystemDiagnosticsDebugRangeMapFree(rmaphandle.rawAddress)
 }
 
-public actual fun rangeMapRead(rmaphandle: ConstPtr<CVoid>, offset: ULong, buffer: MutPtr<CVoid>, requestbytes: UInt, flags: UInt, donebytes: MutPtr<UInt>): Bool =
+public actual fun rangeMapRead(rmaphandle: ConstPtr, offset: ULong, buffer: MutPtr, requestbytes: UInt, flags: UInt, donebytes: MutPtr): Bool =
     WindowsWin32SystemDiagnosticsDebugJniBridge.windowssysWindowsWin32SystemDiagnosticsDebugRangeMapRead(rmaphandle.rawAddress, offset.toLong(), buffer.rawAddress, requestbytes.toInt(), flags.toInt(), donebytes.rawAddress)
 
-public actual fun rangeMapRemove(rmaphandle: ConstPtr<CVoid>, usertag: ULong): Bool =
+public actual fun rangeMapRemove(rmaphandle: ConstPtr, usertag: ULong): Bool =
     WindowsWin32SystemDiagnosticsDebugJniBridge.windowssysWindowsWin32SystemDiagnosticsDebugRangeMapRemove(rmaphandle.rawAddress, usertag.toLong())
 
-public actual fun rangeMapWrite(rmaphandle: ConstPtr<CVoid>, offset: ULong, buffer: ConstPtr<CVoid>, requestbytes: UInt, flags: UInt, donebytes: MutPtr<UInt>): Bool =
+public actual fun rangeMapWrite(rmaphandle: ConstPtr, offset: ULong, buffer: ConstPtr, requestbytes: UInt, flags: UInt, donebytes: MutPtr): Bool =
     WindowsWin32SystemDiagnosticsDebugJniBridge.windowssysWindowsWin32SystemDiagnosticsDebugRangeMapWrite(rmaphandle.rawAddress, offset.toLong(), buffer.rawAddress, requestbytes.toInt(), flags.toInt(), donebytes.rawAddress)
 
-public actual fun reBaseImage(currentimagename: Pcstr, symbolpath: Pcstr, frebase: Bool, frebasesysfileok: Bool, fgoingdown: Bool, checkimagesize: UInt, oldimagesize: MutPtr<UInt>, oldimagebase: MutPtr<ULong>, newimagesize: MutPtr<UInt>, newimagebase: MutPtr<ULong>, timestamp: UInt): Bool =
+public actual fun reBaseImage(currentimagename: Pcstr, symbolpath: Pcstr, frebase: Bool, frebasesysfileok: Bool, fgoingdown: Bool, checkimagesize: UInt, oldimagesize: MutPtr, oldimagebase: MutPtr, newimagesize: MutPtr, newimagebase: MutPtr, timestamp: UInt): Bool =
     WindowsWin32SystemDiagnosticsDebugJniBridge.windowssysWindowsWin32SystemDiagnosticsDebugReBaseImage(currentimagename.rawAddress, symbolpath.rawAddress, frebase, frebasesysfileok, fgoingdown, checkimagesize.toInt(), oldimagesize.rawAddress, oldimagebase.rawAddress, newimagesize.rawAddress, newimagebase.rawAddress, timestamp.toInt())
 
-public actual fun reBaseImage64(currentimagename: Pcstr, symbolpath: Pcstr, frebase: Bool, frebasesysfileok: Bool, fgoingdown: Bool, checkimagesize: UInt, oldimagesize: MutPtr<UInt>, oldimagebase: MutPtr<ULong>, newimagesize: MutPtr<UInt>, newimagebase: MutPtr<ULong>, timestamp: UInt): Bool =
+public actual fun reBaseImage64(currentimagename: Pcstr, symbolpath: Pcstr, frebase: Bool, frebasesysfileok: Bool, fgoingdown: Bool, checkimagesize: UInt, oldimagesize: MutPtr, oldimagebase: MutPtr, newimagesize: MutPtr, newimagebase: MutPtr, timestamp: UInt): Bool =
     WindowsWin32SystemDiagnosticsDebugJniBridge.windowssysWindowsWin32SystemDiagnosticsDebugReBaseImage64(currentimagename.rawAddress, symbolpath.rawAddress, frebase, frebasesysfileok, fgoingdown, checkimagesize.toInt(), oldimagesize.rawAddress, oldimagebase.rawAddress, newimagesize.rawAddress, newimagebase.rawAddress, timestamp.toInt())
 
-public actual fun readProcessMemory(hprocess: Handle, lpbaseaddress: ConstPtr<CVoid>, lpbuffer: MutPtr<CVoid>, nsize: ULong, lpnumberofbytesread: MutPtr<ULong>): Bool =
+public actual fun readProcessMemory(hprocess: Handle, lpbaseaddress: ConstPtr, lpbuffer: MutPtr, nsize: ULong, lpnumberofbytesread: MutPtr): Bool =
     WindowsWin32SystemDiagnosticsDebugJniBridge.windowssysWindowsWin32SystemDiagnosticsDebugReadProcessMemory(hprocess.rawAddress, lpbaseaddress.rawAddress, lpbuffer.rawAddress, nsize.toLong(), lpnumberofbytesread.rawAddress)
 
 public actual fun registerWaitChainCOMCallback(callstatecallback: Pcogetcallstate, activationstatecallback: Pcogetactivationstate) {
@@ -1252,69 +1248,69 @@ public actual fun removeInvalidModuleList(hprocess: Handle) {
     WindowsWin32SystemDiagnosticsDebugJniBridge.windowssysWindowsWin32SystemDiagnosticsDebugRemoveInvalidModuleList(hprocess.rawAddress)
 }
 
-public actual fun removeVectoredContinueHandler(handle: ConstPtr<CVoid>): UInt =
+public actual fun removeVectoredContinueHandler(handle: ConstPtr): UInt =
     WindowsWin32SystemDiagnosticsDebugJniBridge.windowssysWindowsWin32SystemDiagnosticsDebugRemoveVectoredContinueHandler(handle.rawAddress).toUInt()
 
-public actual fun removeVectoredExceptionHandler(handle: ConstPtr<CVoid>): UInt =
+public actual fun removeVectoredExceptionHandler(handle: ConstPtr): UInt =
     WindowsWin32SystemDiagnosticsDebugJniBridge.windowssysWindowsWin32SystemDiagnosticsDebugRemoveVectoredExceptionHandler(handle.rawAddress).toUInt()
 
-public actual fun reportSymbolLoadSummary(hprocess: Handle, ploadmodule: Pcwstr, psymboldata: ConstPtr<DbghelpDataReportStruct>): Bool =
+public actual fun reportSymbolLoadSummary(hprocess: Handle, ploadmodule: Pcwstr, psymboldata: ConstPtr): Bool =
     WindowsWin32SystemDiagnosticsDebugJniBridge.windowssysWindowsWin32SystemDiagnosticsDebugReportSymbolLoadSummary(hprocess.rawAddress, ploadmodule.rawAddress, psymboldata.rawAddress)
 
-public actual fun rtlAddFunctionTable(functiontable: ConstPtr<ImageRuntimeFunctionEntry>, entrycount: UInt, baseaddress: ULong): Boolean =
+public actual fun rtlAddFunctionTable(functiontable: ConstPtr, entrycount: UInt, baseaddress: ULong): Boolean =
     WindowsWin32SystemDiagnosticsDebugJniBridge.windowssysWindowsWin32SystemDiagnosticsDebugRtlAddFunctionTable(functiontable.rawAddress, entrycount.toInt(), baseaddress.toLong())
 
-public actual fun rtlAddGrowableFunctionTable(dynamictable: MutPtr<MutPtr<CVoid>>, functiontable: ConstPtr<ImageRuntimeFunctionEntry>, entrycount: UInt, maximumentrycount: UInt, rangebase: ULong, rangeend: ULong): UInt =
+public actual fun rtlAddGrowableFunctionTable(dynamictable: MutPtr, functiontable: ConstPtr, entrycount: UInt, maximumentrycount: UInt, rangebase: ULong, rangeend: ULong): UInt =
     WindowsWin32SystemDiagnosticsDebugJniBridge.windowssysWindowsWin32SystemDiagnosticsDebugRtlAddGrowableFunctionTable(dynamictable.rawAddress, functiontable.rawAddress, entrycount.toInt(), maximumentrycount.toInt(), rangebase.toLong(), rangeend.toLong()).toUInt()
 
-public actual fun rtlCaptureContext(contextrecord: MutPtr<Context>) {
+public actual fun rtlCaptureContext(contextrecord: MutPtr) {
     WindowsWin32SystemDiagnosticsDebugJniBridge.windowssysWindowsWin32SystemDiagnosticsDebugRtlCaptureContext(contextrecord.rawAddress)
 }
 
-public actual fun rtlCaptureContext2(contextrecord: MutPtr<Context>) {
+public actual fun rtlCaptureContext2(contextrecord: MutPtr) {
     WindowsWin32SystemDiagnosticsDebugJniBridge.windowssysWindowsWin32SystemDiagnosticsDebugRtlCaptureContext2(contextrecord.rawAddress)
 }
 
-public actual fun rtlCaptureStackBackTrace(framestoskip: UInt, framestocapture: UInt, backtrace: MutPtr<MutPtr<CVoid>>, backtracehash: MutPtr<UInt>): UShort =
+public actual fun rtlCaptureStackBackTrace(framestoskip: UInt, framestocapture: UInt, backtrace: MutPtr, backtracehash: MutPtr): UShort =
     WindowsWin32SystemDiagnosticsDebugJniBridge.windowssysWindowsWin32SystemDiagnosticsDebugRtlCaptureStackBackTrace(framestoskip.toInt(), framestocapture.toInt(), backtrace.rawAddress, backtracehash.rawAddress).toUShort()
 
-public actual fun rtlDeleteFunctionTable(functiontable: ConstPtr<ImageRuntimeFunctionEntry>): Boolean =
+public actual fun rtlDeleteFunctionTable(functiontable: ConstPtr): Boolean =
     WindowsWin32SystemDiagnosticsDebugJniBridge.windowssysWindowsWin32SystemDiagnosticsDebugRtlDeleteFunctionTable(functiontable.rawAddress)
 
-public actual fun rtlDeleteGrowableFunctionTable(dynamictable: ConstPtr<CVoid>) {
+public actual fun rtlDeleteGrowableFunctionTable(dynamictable: ConstPtr) {
     WindowsWin32SystemDiagnosticsDebugJniBridge.windowssysWindowsWin32SystemDiagnosticsDebugRtlDeleteGrowableFunctionTable(dynamictable.rawAddress)
 }
 
-public actual fun rtlGrowFunctionTable(dynamictable: MutPtr<CVoid>, newentrycount: UInt) {
+public actual fun rtlGrowFunctionTable(dynamictable: MutPtr, newentrycount: UInt) {
     WindowsWin32SystemDiagnosticsDebugJniBridge.windowssysWindowsWin32SystemDiagnosticsDebugRtlGrowFunctionTable(dynamictable.rawAddress, newentrycount.toInt())
 }
 
-public actual fun rtlInstallFunctionTableCallback(tableidentifier: ULong, baseaddress: ULong, length: UInt, callback: PgetRuntimeFunctionCallback, context: ConstPtr<CVoid>, outofprocesscallbackdll: Pcwstr): Boolean =
+public actual fun rtlInstallFunctionTableCallback(tableidentifier: ULong, baseaddress: ULong, length: UInt, callback: PgetRuntimeFunctionCallback, context: ConstPtr, outofprocesscallbackdll: Pcwstr): Boolean =
     WindowsWin32SystemDiagnosticsDebugJniBridge.windowssysWindowsWin32SystemDiagnosticsDebugRtlInstallFunctionTableCallback(tableidentifier.toLong(), baseaddress.toLong(), length.toInt(), 0L, context.rawAddress, outofprocesscallbackdll.rawAddress)
 
-public actual fun rtlLookupFunctionEntry(controlpc: ULong, imagebase: MutPtr<ULong>, historytable: MutPtr<UnwindHistoryTable>): MutPtr<ImageRuntimeFunctionEntry> =
+public actual fun rtlLookupFunctionEntry(controlpc: ULong, imagebase: MutPtr, historytable: MutPtr): MutPtr =
     MutPtr(WindowsWin32SystemDiagnosticsDebugJniBridge.windowssysWindowsWin32SystemDiagnosticsDebugRtlLookupFunctionEntry(controlpc.toLong(), imagebase.rawAddress, historytable.rawAddress))
 
-public actual fun rtlPcToFileHeader(pcvalue: ConstPtr<CVoid>, baseofimage: MutPtr<MutPtr<CVoid>>): MutPtr<CVoid> =
+public actual fun rtlPcToFileHeader(pcvalue: ConstPtr, baseofimage: MutPtr): MutPtr =
     MutPtr(WindowsWin32SystemDiagnosticsDebugJniBridge.windowssysWindowsWin32SystemDiagnosticsDebugRtlPcToFileHeader(pcvalue.rawAddress, baseofimage.rawAddress))
 
-public actual fun rtlRaiseException(exceptionrecord: ConstPtr<ExceptionRecord>) {
+public actual fun rtlRaiseException(exceptionrecord: ConstPtr) {
     WindowsWin32SystemDiagnosticsDebugJniBridge.windowssysWindowsWin32SystemDiagnosticsDebugRtlRaiseException(exceptionrecord.rawAddress)
 }
 
-public actual fun rtlRestoreContext(contextrecord: ConstPtr<Context>, exceptionrecord: ConstPtr<ExceptionRecord>) {
+public actual fun rtlRestoreContext(contextrecord: ConstPtr, exceptionrecord: ConstPtr) {
     WindowsWin32SystemDiagnosticsDebugJniBridge.windowssysWindowsWin32SystemDiagnosticsDebugRtlRestoreContext(contextrecord.rawAddress, exceptionrecord.rawAddress)
 }
 
-public actual fun rtlUnwind(targetframe: ConstPtr<CVoid>, targetip: ConstPtr<CVoid>, exceptionrecord: ConstPtr<ExceptionRecord>, returnvalue: ConstPtr<CVoid>) {
+public actual fun rtlUnwind(targetframe: ConstPtr, targetip: ConstPtr, exceptionrecord: ConstPtr, returnvalue: ConstPtr) {
     WindowsWin32SystemDiagnosticsDebugJniBridge.windowssysWindowsWin32SystemDiagnosticsDebugRtlUnwind(targetframe.rawAddress, targetip.rawAddress, exceptionrecord.rawAddress, returnvalue.rawAddress)
 }
 
-public actual fun rtlUnwindEx(targetframe: ConstPtr<CVoid>, targetip: ConstPtr<CVoid>, exceptionrecord: ConstPtr<ExceptionRecord>, returnvalue: ConstPtr<CVoid>, contextrecord: ConstPtr<Context>, historytable: ConstPtr<UnwindHistoryTable>) {
+public actual fun rtlUnwindEx(targetframe: ConstPtr, targetip: ConstPtr, exceptionrecord: ConstPtr, returnvalue: ConstPtr, contextrecord: ConstPtr, historytable: ConstPtr) {
     WindowsWin32SystemDiagnosticsDebugJniBridge.windowssysWindowsWin32SystemDiagnosticsDebugRtlUnwindEx(targetframe.rawAddress, targetip.rawAddress, exceptionrecord.rawAddress, returnvalue.rawAddress, contextrecord.rawAddress, historytable.rawAddress)
 }
 
-public actual fun rtlVirtualUnwind(handlertype: RtlVirtualUnwindHandlerType, imagebase: ULong, controlpc: ULong, functionentry: ConstPtr<ImageRuntimeFunctionEntry>, contextrecord: MutPtr<Context>, handlerdata: MutPtr<MutPtr<CVoid>>, establisherframe: MutPtr<ULong>, contextpointers: MutPtr<KnonvolatileContextPointers>): ExceptionRoutine =
+public actual fun rtlVirtualUnwind(handlertype: RtlVirtualUnwindHandlerType, imagebase: ULong, controlpc: ULong, functionentry: ConstPtr, contextrecord: MutPtr, handlerdata: MutPtr, establisherframe: MutPtr, contextpointers: MutPtr): ExceptionRoutine =
     null
 
 public actual fun searchTreeForFile(rootpath: Pcstr, inputpathname: Pcstr, outputpathbuffer: Pstr): Bool =
@@ -1330,41 +1326,41 @@ public actual fun setCheckUserInterruptShared(lpstartaddress: LpcallBackUserInte
 public actual fun setErrorMode(umode: ThreadErrorMode): ThreadErrorMode =
     WindowsWin32SystemDiagnosticsDebugJniBridge.windowssysWindowsWin32SystemDiagnosticsDebugSetErrorMode(umode.toInt()).toUInt()
 
-public actual fun setImageConfigInformation(loadedimage: MutPtr<LoadedImage>, imageconfiginformation: ConstPtr<ImageLoadConfigDirectory64>): Bool =
+public actual fun setImageConfigInformation(loadedimage: MutPtr, imageconfiginformation: ConstPtr): Bool =
     WindowsWin32SystemDiagnosticsDebugJniBridge.windowssysWindowsWin32SystemDiagnosticsDebugSetImageConfigInformation(loadedimage.rawAddress, imageconfiginformation.rawAddress)
 
 public actual fun setSymLoadError(error: UInt) {
     WindowsWin32SystemDiagnosticsDebugJniBridge.windowssysWindowsWin32SystemDiagnosticsDebugSetSymLoadError(error.toInt())
 }
 
-public actual fun setThreadContext(hthread: Handle, lpcontext: ConstPtr<Context>): Bool =
+public actual fun setThreadContext(hthread: Handle, lpcontext: ConstPtr): Bool =
     WindowsWin32SystemDiagnosticsDebugJniBridge.windowssysWindowsWin32SystemDiagnosticsDebugSetThreadContext(hthread.rawAddress, lpcontext.rawAddress)
 
-public actual fun setThreadErrorMode(dwnewmode: ThreadErrorMode, lpoldmode: MutPtr<ThreadErrorMode>): Bool =
+public actual fun setThreadErrorMode(dwnewmode: ThreadErrorMode, lpoldmode: MutPtr): Bool =
     WindowsWin32SystemDiagnosticsDebugJniBridge.windowssysWindowsWin32SystemDiagnosticsDebugSetThreadErrorMode(dwnewmode.toInt(), lpoldmode.rawAddress)
 
 public actual fun setUnhandledExceptionFilter(lptoplevelexceptionfilter: LptopLevelExceptionFilter): LptopLevelExceptionFilter =
     null
 
-public actual fun setXStateFeaturesMask(context: MutPtr<Context>, featuremask: ULong): Bool =
+public actual fun setXStateFeaturesMask(context: MutPtr, featuremask: ULong): Bool =
     WindowsWin32SystemDiagnosticsDebugJniBridge.windowssysWindowsWin32SystemDiagnosticsDebugSetXStateFeaturesMask(context.rawAddress, featuremask.toLong())
 
-public actual fun stackWalk2(machinetype: UInt, hprocess: Handle, hthread: Handle, stackframe: MutPtr<StackframeEx>, contextrecord: MutPtr<CVoid>, readmemoryroutine: PreadProcessMemoryRoutine64, functiontableaccessroutine: PfunctionTableAccessRoutine64, getmodulebaseroutine: PgetModuleBaseRoutine64, translateaddress: PtranslateAddressRoutine64, gettargetattributevalue: PgetTargetAttributeValue64, flags: UInt): Bool =
+public actual fun stackWalk2(machinetype: UInt, hprocess: Handle, hthread: Handle, stackframe: MutPtr, contextrecord: MutPtr, readmemoryroutine: PreadProcessMemoryRoutine64, functiontableaccessroutine: PfunctionTableAccessRoutine64, getmodulebaseroutine: PgetModuleBaseRoutine64, translateaddress: PtranslateAddressRoutine64, gettargetattributevalue: PgetTargetAttributeValue64, flags: UInt): Bool =
     WindowsWin32SystemDiagnosticsDebugJniBridge.windowssysWindowsWin32SystemDiagnosticsDebugStackWalk2(machinetype.toInt(), hprocess.rawAddress, hthread.rawAddress, stackframe.rawAddress, contextrecord.rawAddress, 0L, 0L, 0L, 0L, 0L, flags.toInt())
 
-public actual fun stackWalk64(machinetype: UInt, hprocess: Handle, hthread: Handle, stackframe: MutPtr<Stackframe64>, contextrecord: MutPtr<CVoid>, readmemoryroutine: PreadProcessMemoryRoutine64, functiontableaccessroutine: PfunctionTableAccessRoutine64, getmodulebaseroutine: PgetModuleBaseRoutine64, translateaddress: PtranslateAddressRoutine64): Bool =
+public actual fun stackWalk64(machinetype: UInt, hprocess: Handle, hthread: Handle, stackframe: MutPtr, contextrecord: MutPtr, readmemoryroutine: PreadProcessMemoryRoutine64, functiontableaccessroutine: PfunctionTableAccessRoutine64, getmodulebaseroutine: PgetModuleBaseRoutine64, translateaddress: PtranslateAddressRoutine64): Bool =
     WindowsWin32SystemDiagnosticsDebugJniBridge.windowssysWindowsWin32SystemDiagnosticsDebugStackWalk64(machinetype.toInt(), hprocess.rawAddress, hthread.rawAddress, stackframe.rawAddress, contextrecord.rawAddress, 0L, 0L, 0L, 0L)
 
-public actual fun stackWalkEx(machinetype: UInt, hprocess: Handle, hthread: Handle, stackframe: MutPtr<StackframeEx>, contextrecord: MutPtr<CVoid>, readmemoryroutine: PreadProcessMemoryRoutine64, functiontableaccessroutine: PfunctionTableAccessRoutine64, getmodulebaseroutine: PgetModuleBaseRoutine64, translateaddress: PtranslateAddressRoutine64, flags: UInt): Bool =
+public actual fun stackWalkEx(machinetype: UInt, hprocess: Handle, hthread: Handle, stackframe: MutPtr, contextrecord: MutPtr, readmemoryroutine: PreadProcessMemoryRoutine64, functiontableaccessroutine: PfunctionTableAccessRoutine64, getmodulebaseroutine: PgetModuleBaseRoutine64, translateaddress: PtranslateAddressRoutine64, flags: UInt): Bool =
     WindowsWin32SystemDiagnosticsDebugJniBridge.windowssysWindowsWin32SystemDiagnosticsDebugStackWalkEx(machinetype.toInt(), hprocess.rawAddress, hthread.rawAddress, stackframe.rawAddress, contextrecord.rawAddress, 0L, 0L, 0L, 0L, flags.toInt())
 
-public actual fun symAddSourceStream(hprocess: Handle, base: ULong, streamfile: Pcstr, buffer: ConstPtr<UByte>, size: ULong): Bool =
+public actual fun symAddSourceStream(hprocess: Handle, base: ULong, streamfile: Pcstr, buffer: ConstPtr, size: ULong): Bool =
     WindowsWin32SystemDiagnosticsDebugJniBridge.windowssysWindowsWin32SystemDiagnosticsDebugSymAddSourceStream(hprocess.rawAddress, base.toLong(), streamfile.rawAddress, buffer.rawAddress, size.toLong())
 
-public actual fun symAddSourceStreamA(hprocess: Handle, base: ULong, streamfile: Pcstr, buffer: ConstPtr<UByte>, size: ULong): Bool =
+public actual fun symAddSourceStreamA(hprocess: Handle, base: ULong, streamfile: Pcstr, buffer: ConstPtr, size: ULong): Bool =
     WindowsWin32SystemDiagnosticsDebugJniBridge.windowssysWindowsWin32SystemDiagnosticsDebugSymAddSourceStreamA(hprocess.rawAddress, base.toLong(), streamfile.rawAddress, buffer.rawAddress, size.toLong())
 
-public actual fun symAddSourceStreamW(hprocess: Handle, base: ULong, filespec: Pcwstr, buffer: ConstPtr<UByte>, size: ULong): Bool =
+public actual fun symAddSourceStreamW(hprocess: Handle, base: ULong, filespec: Pcwstr, buffer: ConstPtr, size: ULong): Bool =
     WindowsWin32SystemDiagnosticsDebugJniBridge.windowssysWindowsWin32SystemDiagnosticsDebugSymAddSourceStreamW(hprocess.rawAddress, base.toLong(), filespec.rawAddress, buffer.rawAddress, size.toLong())
 
 public actual fun symAddSymbol(hprocess: Handle, baseofdll: ULong, name: Pcstr, address: ULong, size: UInt, flags: UInt): Bool =
@@ -1388,133 +1384,133 @@ public actual fun symDeleteSymbol(hprocess: Handle, baseofdll: ULong, name: Pcst
 public actual fun symDeleteSymbolW(hprocess: Handle, baseofdll: ULong, name: Pcwstr, address: ULong, flags: UInt): Bool =
     WindowsWin32SystemDiagnosticsDebugJniBridge.windowssysWindowsWin32SystemDiagnosticsDebugSymDeleteSymbolW(hprocess.rawAddress, baseofdll.toLong(), name.rawAddress, address.toLong(), flags.toInt())
 
-public actual fun symEnumLines(hprocess: Handle, base: ULong, obj: Pcstr, file: Pcstr, enumlinescallback: PsymEnumlinesCallback, usercontext: ConstPtr<CVoid>): Bool =
+public actual fun symEnumLines(hprocess: Handle, base: ULong, obj: Pcstr, file: Pcstr, enumlinescallback: PsymEnumlinesCallback, usercontext: ConstPtr): Bool =
     WindowsWin32SystemDiagnosticsDebugJniBridge.windowssysWindowsWin32SystemDiagnosticsDebugSymEnumLines(hprocess.rawAddress, base.toLong(), obj.rawAddress, file.rawAddress, 0L, usercontext.rawAddress)
 
-public actual fun symEnumLinesW(hprocess: Handle, base: ULong, obj: Pcwstr, file: Pcwstr, enumlinescallback: PsymEnumlinesCallbackw, usercontext: ConstPtr<CVoid>): Bool =
+public actual fun symEnumLinesW(hprocess: Handle, base: ULong, obj: Pcwstr, file: Pcwstr, enumlinescallback: PsymEnumlinesCallbackw, usercontext: ConstPtr): Bool =
     WindowsWin32SystemDiagnosticsDebugJniBridge.windowssysWindowsWin32SystemDiagnosticsDebugSymEnumLinesW(hprocess.rawAddress, base.toLong(), obj.rawAddress, file.rawAddress, 0L, usercontext.rawAddress)
 
-public actual fun symEnumProcesses(enumprocessescallback: PsymEnumprocessesCallback, usercontext: ConstPtr<CVoid>): Bool =
+public actual fun symEnumProcesses(enumprocessescallback: PsymEnumprocessesCallback, usercontext: ConstPtr): Bool =
     WindowsWin32SystemDiagnosticsDebugJniBridge.windowssysWindowsWin32SystemDiagnosticsDebugSymEnumProcesses(0L, usercontext.rawAddress)
 
 public actual fun symEnumSourceFileTokens(hprocess: Handle, base: ULong, callback: Penumsourcefiletokenscallback): Bool =
     WindowsWin32SystemDiagnosticsDebugJniBridge.windowssysWindowsWin32SystemDiagnosticsDebugSymEnumSourceFileTokens(hprocess.rawAddress, base.toLong(), 0L)
 
-public actual fun symEnumSourceFiles(hprocess: Handle, modbase: ULong, mask: Pcstr, cbsrcfiles: PsymEnumsourcefilesCallback, usercontext: ConstPtr<CVoid>): Bool =
+public actual fun symEnumSourceFiles(hprocess: Handle, modbase: ULong, mask: Pcstr, cbsrcfiles: PsymEnumsourcefilesCallback, usercontext: ConstPtr): Bool =
     WindowsWin32SystemDiagnosticsDebugJniBridge.windowssysWindowsWin32SystemDiagnosticsDebugSymEnumSourceFiles(hprocess.rawAddress, modbase.toLong(), mask.rawAddress, 0L, usercontext.rawAddress)
 
-public actual fun symEnumSourceFilesW(hprocess: Handle, modbase: ULong, mask: Pcwstr, cbsrcfiles: PsymEnumsourcefilesCallbackw, usercontext: ConstPtr<CVoid>): Bool =
+public actual fun symEnumSourceFilesW(hprocess: Handle, modbase: ULong, mask: Pcwstr, cbsrcfiles: PsymEnumsourcefilesCallbackw, usercontext: ConstPtr): Bool =
     WindowsWin32SystemDiagnosticsDebugJniBridge.windowssysWindowsWin32SystemDiagnosticsDebugSymEnumSourceFilesW(hprocess.rawAddress, modbase.toLong(), mask.rawAddress, 0L, usercontext.rawAddress)
 
-public actual fun symEnumSourceLines(hprocess: Handle, base: ULong, obj: Pcstr, file: Pcstr, line: UInt, flags: UInt, enumlinescallback: PsymEnumlinesCallback, usercontext: ConstPtr<CVoid>): Bool =
+public actual fun symEnumSourceLines(hprocess: Handle, base: ULong, obj: Pcstr, file: Pcstr, line: UInt, flags: UInt, enumlinescallback: PsymEnumlinesCallback, usercontext: ConstPtr): Bool =
     WindowsWin32SystemDiagnosticsDebugJniBridge.windowssysWindowsWin32SystemDiagnosticsDebugSymEnumSourceLines(hprocess.rawAddress, base.toLong(), obj.rawAddress, file.rawAddress, line.toInt(), flags.toInt(), 0L, usercontext.rawAddress)
 
-public actual fun symEnumSourceLinesW(hprocess: Handle, base: ULong, obj: Pcwstr, file: Pcwstr, line: UInt, flags: UInt, enumlinescallback: PsymEnumlinesCallbackw, usercontext: ConstPtr<CVoid>): Bool =
+public actual fun symEnumSourceLinesW(hprocess: Handle, base: ULong, obj: Pcwstr, file: Pcwstr, line: UInt, flags: UInt, enumlinescallback: PsymEnumlinesCallbackw, usercontext: ConstPtr): Bool =
     WindowsWin32SystemDiagnosticsDebugJniBridge.windowssysWindowsWin32SystemDiagnosticsDebugSymEnumSourceLinesW(hprocess.rawAddress, base.toLong(), obj.rawAddress, file.rawAddress, line.toInt(), flags.toInt(), 0L, usercontext.rawAddress)
 
-public actual fun symEnumSym(hprocess: Handle, baseofdll: ULong, enumsymbolscallback: PsymEnumeratesymbolsCallback, usercontext: ConstPtr<CVoid>): Bool =
+public actual fun symEnumSym(hprocess: Handle, baseofdll: ULong, enumsymbolscallback: PsymEnumeratesymbolsCallback, usercontext: ConstPtr): Bool =
     WindowsWin32SystemDiagnosticsDebugJniBridge.windowssysWindowsWin32SystemDiagnosticsDebugSymEnumSym(hprocess.rawAddress, baseofdll.toLong(), 0L, usercontext.rawAddress)
 
-public actual fun symEnumSymbols(hprocess: Handle, baseofdll: ULong, mask: Pcstr, enumsymbolscallback: PsymEnumeratesymbolsCallback, usercontext: ConstPtr<CVoid>): Bool =
+public actual fun symEnumSymbols(hprocess: Handle, baseofdll: ULong, mask: Pcstr, enumsymbolscallback: PsymEnumeratesymbolsCallback, usercontext: ConstPtr): Bool =
     WindowsWin32SystemDiagnosticsDebugJniBridge.windowssysWindowsWin32SystemDiagnosticsDebugSymEnumSymbols(hprocess.rawAddress, baseofdll.toLong(), mask.rawAddress, 0L, usercontext.rawAddress)
 
-public actual fun symEnumSymbolsEx(hprocess: Handle, baseofdll: ULong, mask: Pcstr, enumsymbolscallback: PsymEnumeratesymbolsCallback, usercontext: ConstPtr<CVoid>, options: UInt): Bool =
+public actual fun symEnumSymbolsEx(hprocess: Handle, baseofdll: ULong, mask: Pcstr, enumsymbolscallback: PsymEnumeratesymbolsCallback, usercontext: ConstPtr, options: UInt): Bool =
     WindowsWin32SystemDiagnosticsDebugJniBridge.windowssysWindowsWin32SystemDiagnosticsDebugSymEnumSymbolsEx(hprocess.rawAddress, baseofdll.toLong(), mask.rawAddress, 0L, usercontext.rawAddress, options.toInt())
 
-public actual fun symEnumSymbolsExW(hprocess: Handle, baseofdll: ULong, mask: Pcwstr, enumsymbolscallback: PsymEnumeratesymbolsCallbackw, usercontext: ConstPtr<CVoid>, options: UInt): Bool =
+public actual fun symEnumSymbolsExW(hprocess: Handle, baseofdll: ULong, mask: Pcwstr, enumsymbolscallback: PsymEnumeratesymbolsCallbackw, usercontext: ConstPtr, options: UInt): Bool =
     WindowsWin32SystemDiagnosticsDebugJniBridge.windowssysWindowsWin32SystemDiagnosticsDebugSymEnumSymbolsExW(hprocess.rawAddress, baseofdll.toLong(), mask.rawAddress, 0L, usercontext.rawAddress, options.toInt())
 
-public actual fun symEnumSymbolsForAddr(hprocess: Handle, address: ULong, enumsymbolscallback: PsymEnumeratesymbolsCallback, usercontext: ConstPtr<CVoid>): Bool =
+public actual fun symEnumSymbolsForAddr(hprocess: Handle, address: ULong, enumsymbolscallback: PsymEnumeratesymbolsCallback, usercontext: ConstPtr): Bool =
     WindowsWin32SystemDiagnosticsDebugJniBridge.windowssysWindowsWin32SystemDiagnosticsDebugSymEnumSymbolsForAddr(hprocess.rawAddress, address.toLong(), 0L, usercontext.rawAddress)
 
-public actual fun symEnumSymbolsForAddrW(hprocess: Handle, address: ULong, enumsymbolscallback: PsymEnumeratesymbolsCallbackw, usercontext: ConstPtr<CVoid>): Bool =
+public actual fun symEnumSymbolsForAddrW(hprocess: Handle, address: ULong, enumsymbolscallback: PsymEnumeratesymbolsCallbackw, usercontext: ConstPtr): Bool =
     WindowsWin32SystemDiagnosticsDebugJniBridge.windowssysWindowsWin32SystemDiagnosticsDebugSymEnumSymbolsForAddrW(hprocess.rawAddress, address.toLong(), 0L, usercontext.rawAddress)
 
-public actual fun symEnumSymbolsW(hprocess: Handle, baseofdll: ULong, mask: Pcwstr, enumsymbolscallback: PsymEnumeratesymbolsCallbackw, usercontext: ConstPtr<CVoid>): Bool =
+public actual fun symEnumSymbolsW(hprocess: Handle, baseofdll: ULong, mask: Pcwstr, enumsymbolscallback: PsymEnumeratesymbolsCallbackw, usercontext: ConstPtr): Bool =
     WindowsWin32SystemDiagnosticsDebugJniBridge.windowssysWindowsWin32SystemDiagnosticsDebugSymEnumSymbolsW(hprocess.rawAddress, baseofdll.toLong(), mask.rawAddress, 0L, usercontext.rawAddress)
 
-public actual fun symEnumTypes(hprocess: Handle, baseofdll: ULong, enumsymbolscallback: PsymEnumeratesymbolsCallback, usercontext: ConstPtr<CVoid>): Bool =
+public actual fun symEnumTypes(hprocess: Handle, baseofdll: ULong, enumsymbolscallback: PsymEnumeratesymbolsCallback, usercontext: ConstPtr): Bool =
     WindowsWin32SystemDiagnosticsDebugJniBridge.windowssysWindowsWin32SystemDiagnosticsDebugSymEnumTypes(hprocess.rawAddress, baseofdll.toLong(), 0L, usercontext.rawAddress)
 
-public actual fun symEnumTypesByName(hprocess: Handle, baseofdll: ULong, mask: Pcstr, enumsymbolscallback: PsymEnumeratesymbolsCallback, usercontext: ConstPtr<CVoid>): Bool =
+public actual fun symEnumTypesByName(hprocess: Handle, baseofdll: ULong, mask: Pcstr, enumsymbolscallback: PsymEnumeratesymbolsCallback, usercontext: ConstPtr): Bool =
     WindowsWin32SystemDiagnosticsDebugJniBridge.windowssysWindowsWin32SystemDiagnosticsDebugSymEnumTypesByName(hprocess.rawAddress, baseofdll.toLong(), mask.rawAddress, 0L, usercontext.rawAddress)
 
-public actual fun symEnumTypesByNameW(hprocess: Handle, baseofdll: ULong, mask: Pcwstr, enumsymbolscallback: PsymEnumeratesymbolsCallbackw, usercontext: ConstPtr<CVoid>): Bool =
+public actual fun symEnumTypesByNameW(hprocess: Handle, baseofdll: ULong, mask: Pcwstr, enumsymbolscallback: PsymEnumeratesymbolsCallbackw, usercontext: ConstPtr): Bool =
     WindowsWin32SystemDiagnosticsDebugJniBridge.windowssysWindowsWin32SystemDiagnosticsDebugSymEnumTypesByNameW(hprocess.rawAddress, baseofdll.toLong(), mask.rawAddress, 0L, usercontext.rawAddress)
 
-public actual fun symEnumTypesW(hprocess: Handle, baseofdll: ULong, enumsymbolscallback: PsymEnumeratesymbolsCallbackw, usercontext: ConstPtr<CVoid>): Bool =
+public actual fun symEnumTypesW(hprocess: Handle, baseofdll: ULong, enumsymbolscallback: PsymEnumeratesymbolsCallbackw, usercontext: ConstPtr): Bool =
     WindowsWin32SystemDiagnosticsDebugJniBridge.windowssysWindowsWin32SystemDiagnosticsDebugSymEnumTypesW(hprocess.rawAddress, baseofdll.toLong(), 0L, usercontext.rawAddress)
 
-public actual fun symEnumerateModules64(hprocess: Handle, enummodulescallback: PsymEnummodulesCallback64, usercontext: ConstPtr<CVoid>): Bool =
+public actual fun symEnumerateModules64(hprocess: Handle, enummodulescallback: PsymEnummodulesCallback64, usercontext: ConstPtr): Bool =
     WindowsWin32SystemDiagnosticsDebugJniBridge.windowssysWindowsWin32SystemDiagnosticsDebugSymEnumerateModules64(hprocess.rawAddress, 0L, usercontext.rawAddress)
 
-public actual fun symEnumerateModulesW64(hprocess: Handle, enummodulescallback: PsymEnummodulesCallbackw64, usercontext: ConstPtr<CVoid>): Bool =
+public actual fun symEnumerateModulesW64(hprocess: Handle, enummodulescallback: PsymEnummodulesCallbackw64, usercontext: ConstPtr): Bool =
     WindowsWin32SystemDiagnosticsDebugJniBridge.windowssysWindowsWin32SystemDiagnosticsDebugSymEnumerateModulesW64(hprocess.rawAddress, 0L, usercontext.rawAddress)
 
-public actual fun symEnumerateSymbols64(hprocess: Handle, baseofdll: ULong, enumsymbolscallback: PsymEnumsymbolsCallback64, usercontext: ConstPtr<CVoid>): Bool =
+public actual fun symEnumerateSymbols64(hprocess: Handle, baseofdll: ULong, enumsymbolscallback: PsymEnumsymbolsCallback64, usercontext: ConstPtr): Bool =
     WindowsWin32SystemDiagnosticsDebugJniBridge.windowssysWindowsWin32SystemDiagnosticsDebugSymEnumerateSymbols64(hprocess.rawAddress, baseofdll.toLong(), 0L, usercontext.rawAddress)
 
-public actual fun symEnumerateSymbolsW64(hprocess: Handle, baseofdll: ULong, enumsymbolscallback: PsymEnumsymbolsCallback64w, usercontext: ConstPtr<CVoid>): Bool =
+public actual fun symEnumerateSymbolsW64(hprocess: Handle, baseofdll: ULong, enumsymbolscallback: PsymEnumsymbolsCallback64w, usercontext: ConstPtr): Bool =
     WindowsWin32SystemDiagnosticsDebugJniBridge.windowssysWindowsWin32SystemDiagnosticsDebugSymEnumerateSymbolsW64(hprocess.rawAddress, baseofdll.toLong(), 0L, usercontext.rawAddress)
 
-public actual fun symFindDebugInfoFile(hprocess: Handle, filename: Pcstr, debugfilepath: Pstr, callback: PfindDebugFileCallback, callerdata: ConstPtr<CVoid>): Handle =
+public actual fun symFindDebugInfoFile(hprocess: Handle, filename: Pcstr, debugfilepath: Pstr, callback: PfindDebugFileCallback, callerdata: ConstPtr): Handle =
     MutPtr(WindowsWin32SystemDiagnosticsDebugJniBridge.windowssysWindowsWin32SystemDiagnosticsDebugSymFindDebugInfoFile(hprocess.rawAddress, filename.rawAddress, debugfilepath.rawAddress, 0L, callerdata.rawAddress))
 
-public actual fun symFindDebugInfoFileW(hprocess: Handle, filename: Pcwstr, debugfilepath: Pwstr, callback: PfindDebugFileCallbackw, callerdata: ConstPtr<CVoid>): Handle =
+public actual fun symFindDebugInfoFileW(hprocess: Handle, filename: Pcwstr, debugfilepath: Pwstr, callback: PfindDebugFileCallbackw, callerdata: ConstPtr): Handle =
     MutPtr(WindowsWin32SystemDiagnosticsDebugJniBridge.windowssysWindowsWin32SystemDiagnosticsDebugSymFindDebugInfoFileW(hprocess.rawAddress, filename.rawAddress, debugfilepath.rawAddress, 0L, callerdata.rawAddress))
 
-public actual fun symFindExecutableImage(hprocess: Handle, filename: Pcstr, imagefilepath: Pstr, callback: PfindExeFileCallback, callerdata: ConstPtr<CVoid>): Handle =
+public actual fun symFindExecutableImage(hprocess: Handle, filename: Pcstr, imagefilepath: Pstr, callback: PfindExeFileCallback, callerdata: ConstPtr): Handle =
     MutPtr(WindowsWin32SystemDiagnosticsDebugJniBridge.windowssysWindowsWin32SystemDiagnosticsDebugSymFindExecutableImage(hprocess.rawAddress, filename.rawAddress, imagefilepath.rawAddress, 0L, callerdata.rawAddress))
 
-public actual fun symFindExecutableImageW(hprocess: Handle, filename: Pcwstr, imagefilepath: Pwstr, callback: PfindExeFileCallbackw, callerdata: ConstPtr<CVoid>): Handle =
+public actual fun symFindExecutableImageW(hprocess: Handle, filename: Pcwstr, imagefilepath: Pwstr, callback: PfindExeFileCallbackw, callerdata: ConstPtr): Handle =
     MutPtr(WindowsWin32SystemDiagnosticsDebugJniBridge.windowssysWindowsWin32SystemDiagnosticsDebugSymFindExecutableImageW(hprocess.rawAddress, filename.rawAddress, imagefilepath.rawAddress, 0L, callerdata.rawAddress))
 
-public actual fun symFindFileInPath(hprocess: Handle, searchpatha: Pcstr, filename: Pcstr, id: ConstPtr<CVoid>, two: UInt, three: UInt, flags: SymFindIdOption, foundfile: Pstr, callback: Pfindfileinpathcallback, context: ConstPtr<CVoid>): Bool =
+public actual fun symFindFileInPath(hprocess: Handle, searchpatha: Pcstr, filename: Pcstr, id: ConstPtr, two: UInt, three: UInt, flags: SymFindIdOption, foundfile: Pstr, callback: Pfindfileinpathcallback, context: ConstPtr): Bool =
     WindowsWin32SystemDiagnosticsDebugJniBridge.windowssysWindowsWin32SystemDiagnosticsDebugSymFindFileInPath(hprocess.rawAddress, searchpatha.rawAddress, filename.rawAddress, id.rawAddress, two.toInt(), three.toInt(), flags.toInt(), foundfile.rawAddress, 0L, context.rawAddress)
 
-public actual fun symFindFileInPathW(hprocess: Handle, searchpatha: Pcwstr, filename: Pcwstr, id: ConstPtr<CVoid>, two: UInt, three: UInt, flags: SymFindIdOption, foundfile: Pwstr, callback: Pfindfileinpathcallbackw, context: ConstPtr<CVoid>): Bool =
+public actual fun symFindFileInPathW(hprocess: Handle, searchpatha: Pcwstr, filename: Pcwstr, id: ConstPtr, two: UInt, three: UInt, flags: SymFindIdOption, foundfile: Pwstr, callback: Pfindfileinpathcallbackw, context: ConstPtr): Bool =
     WindowsWin32SystemDiagnosticsDebugJniBridge.windowssysWindowsWin32SystemDiagnosticsDebugSymFindFileInPathW(hprocess.rawAddress, searchpatha.rawAddress, filename.rawAddress, id.rawAddress, two.toInt(), three.toInt(), flags.toInt(), foundfile.rawAddress, 0L, context.rawAddress)
 
-public actual fun symFromAddr(hprocess: Handle, address: ULong, displacement: MutPtr<ULong>, symbol: MutPtr<SymbolInfo>): Bool =
+public actual fun symFromAddr(hprocess: Handle, address: ULong, displacement: MutPtr, symbol: MutPtr): Bool =
     WindowsWin32SystemDiagnosticsDebugJniBridge.windowssysWindowsWin32SystemDiagnosticsDebugSymFromAddr(hprocess.rawAddress, address.toLong(), displacement.rawAddress, symbol.rawAddress)
 
-public actual fun symFromAddrW(hprocess: Handle, address: ULong, displacement: MutPtr<ULong>, symbol: MutPtr<SymbolInfow>): Bool =
+public actual fun symFromAddrW(hprocess: Handle, address: ULong, displacement: MutPtr, symbol: MutPtr): Bool =
     WindowsWin32SystemDiagnosticsDebugJniBridge.windowssysWindowsWin32SystemDiagnosticsDebugSymFromAddrW(hprocess.rawAddress, address.toLong(), displacement.rawAddress, symbol.rawAddress)
 
-public actual fun symFromIndex(hprocess: Handle, baseofdll: ULong, index: UInt, symbol: MutPtr<SymbolInfo>): Bool =
+public actual fun symFromIndex(hprocess: Handle, baseofdll: ULong, index: UInt, symbol: MutPtr): Bool =
     WindowsWin32SystemDiagnosticsDebugJniBridge.windowssysWindowsWin32SystemDiagnosticsDebugSymFromIndex(hprocess.rawAddress, baseofdll.toLong(), index.toInt(), symbol.rawAddress)
 
-public actual fun symFromIndexW(hprocess: Handle, baseofdll: ULong, index: UInt, symbol: MutPtr<SymbolInfow>): Bool =
+public actual fun symFromIndexW(hprocess: Handle, baseofdll: ULong, index: UInt, symbol: MutPtr): Bool =
     WindowsWin32SystemDiagnosticsDebugJniBridge.windowssysWindowsWin32SystemDiagnosticsDebugSymFromIndexW(hprocess.rawAddress, baseofdll.toLong(), index.toInt(), symbol.rawAddress)
 
-public actual fun symFromInlineContext(hprocess: Handle, address: ULong, inlinecontext: UInt, displacement: MutPtr<ULong>, symbol: MutPtr<SymbolInfo>): Bool =
+public actual fun symFromInlineContext(hprocess: Handle, address: ULong, inlinecontext: UInt, displacement: MutPtr, symbol: MutPtr): Bool =
     WindowsWin32SystemDiagnosticsDebugJniBridge.windowssysWindowsWin32SystemDiagnosticsDebugSymFromInlineContext(hprocess.rawAddress, address.toLong(), inlinecontext.toInt(), displacement.rawAddress, symbol.rawAddress)
 
-public actual fun symFromInlineContextW(hprocess: Handle, address: ULong, inlinecontext: UInt, displacement: MutPtr<ULong>, symbol: MutPtr<SymbolInfow>): Bool =
+public actual fun symFromInlineContextW(hprocess: Handle, address: ULong, inlinecontext: UInt, displacement: MutPtr, symbol: MutPtr): Bool =
     WindowsWin32SystemDiagnosticsDebugJniBridge.windowssysWindowsWin32SystemDiagnosticsDebugSymFromInlineContextW(hprocess.rawAddress, address.toLong(), inlinecontext.toInt(), displacement.rawAddress, symbol.rawAddress)
 
-public actual fun symFromName(hprocess: Handle, name: Pcstr, symbol: MutPtr<SymbolInfo>): Bool =
+public actual fun symFromName(hprocess: Handle, name: Pcstr, symbol: MutPtr): Bool =
     WindowsWin32SystemDiagnosticsDebugJniBridge.windowssysWindowsWin32SystemDiagnosticsDebugSymFromName(hprocess.rawAddress, name.rawAddress, symbol.rawAddress)
 
-public actual fun symFromNameW(hprocess: Handle, name: Pcwstr, symbol: MutPtr<SymbolInfow>): Bool =
+public actual fun symFromNameW(hprocess: Handle, name: Pcwstr, symbol: MutPtr): Bool =
     WindowsWin32SystemDiagnosticsDebugJniBridge.windowssysWindowsWin32SystemDiagnosticsDebugSymFromNameW(hprocess.rawAddress, name.rawAddress, symbol.rawAddress)
 
-public actual fun symFromToken(hprocess: Handle, base: ULong, token: UInt, symbol: MutPtr<SymbolInfo>): Bool =
+public actual fun symFromToken(hprocess: Handle, base: ULong, token: UInt, symbol: MutPtr): Bool =
     WindowsWin32SystemDiagnosticsDebugJniBridge.windowssysWindowsWin32SystemDiagnosticsDebugSymFromToken(hprocess.rawAddress, base.toLong(), token.toInt(), symbol.rawAddress)
 
-public actual fun symFromTokenW(hprocess: Handle, base: ULong, token: UInt, symbol: MutPtr<SymbolInfow>): Bool =
+public actual fun symFromTokenW(hprocess: Handle, base: ULong, token: UInt, symbol: MutPtr): Bool =
     WindowsWin32SystemDiagnosticsDebugJniBridge.windowssysWindowsWin32SystemDiagnosticsDebugSymFromTokenW(hprocess.rawAddress, base.toLong(), token.toInt(), symbol.rawAddress)
 
-public actual fun symFunctionTableAccess64(hprocess: Handle, addrbase: ULong): MutPtr<CVoid> =
+public actual fun symFunctionTableAccess64(hprocess: Handle, addrbase: ULong): MutPtr =
     MutPtr(WindowsWin32SystemDiagnosticsDebugJniBridge.windowssysWindowsWin32SystemDiagnosticsDebugSymFunctionTableAccess64(hprocess.rawAddress, addrbase.toLong()))
 
-public actual fun symFunctionTableAccess64AccessRoutines(hprocess: Handle, addrbase: ULong, readmemoryroutine: PreadProcessMemoryRoutine64, getmodulebaseroutine: PgetModuleBaseRoutine64): MutPtr<CVoid> =
+public actual fun symFunctionTableAccess64AccessRoutines(hprocess: Handle, addrbase: ULong, readmemoryroutine: PreadProcessMemoryRoutine64, getmodulebaseroutine: PgetModuleBaseRoutine64): MutPtr =
     MutPtr(WindowsWin32SystemDiagnosticsDebugJniBridge.windowssysWindowsWin32SystemDiagnosticsDebugSymFunctionTableAccess64AccessRoutines(hprocess.rawAddress, addrbase.toLong(), 0L, 0L))
 
 public actual fun symGetExtendedOption(option: ImagehlpExtendedOptions): Bool =
     WindowsWin32SystemDiagnosticsDebugJniBridge.windowssysWindowsWin32SystemDiagnosticsDebugSymGetExtendedOption(option)
 
-public actual fun symGetFileLineOffsets64(hprocess: Handle, modulename: Pcstr, filename: Pcstr, buffer: MutPtr<ULong>, bufferlines: UInt): UInt =
+public actual fun symGetFileLineOffsets64(hprocess: Handle, modulename: Pcstr, filename: Pcstr, buffer: MutPtr, bufferlines: UInt): UInt =
     WindowsWin32SystemDiagnosticsDebugJniBridge.windowssysWindowsWin32SystemDiagnosticsDebugSymGetFileLineOffsets64(hprocess.rawAddress, modulename.rawAddress, filename.rawAddress, buffer.rawAddress, bufferlines.toInt()).toUInt()
 
 public actual fun symGetHomeDirectory(type: UInt, dir: Pstr, size: ULong): Pstr =
@@ -1523,55 +1519,55 @@ public actual fun symGetHomeDirectory(type: UInt, dir: Pstr, size: ULong): Pstr 
 public actual fun symGetHomeDirectoryW(type: UInt, dir: Pwstr, size: ULong): Pwstr =
     MutPtr(WindowsWin32SystemDiagnosticsDebugJniBridge.windowssysWindowsWin32SystemDiagnosticsDebugSymGetHomeDirectoryW(type.toInt(), dir.rawAddress, size.toLong()))
 
-public actual fun symGetLineFromAddr64(hprocess: Handle, qwaddr: ULong, pdwdisplacement: MutPtr<UInt>, line64: MutPtr<ImagehlpLine64>): Bool =
+public actual fun symGetLineFromAddr64(hprocess: Handle, qwaddr: ULong, pdwdisplacement: MutPtr, line64: MutPtr): Bool =
     WindowsWin32SystemDiagnosticsDebugJniBridge.windowssysWindowsWin32SystemDiagnosticsDebugSymGetLineFromAddr64(hprocess.rawAddress, qwaddr.toLong(), pdwdisplacement.rawAddress, line64.rawAddress)
 
-public actual fun symGetLineFromAddrW64(hprocess: Handle, dwaddr: ULong, pdwdisplacement: MutPtr<UInt>, line: MutPtr<ImagehlpLinew64>): Bool =
+public actual fun symGetLineFromAddrW64(hprocess: Handle, dwaddr: ULong, pdwdisplacement: MutPtr, line: MutPtr): Bool =
     WindowsWin32SystemDiagnosticsDebugJniBridge.windowssysWindowsWin32SystemDiagnosticsDebugSymGetLineFromAddrW64(hprocess.rawAddress, dwaddr.toLong(), pdwdisplacement.rawAddress, line.rawAddress)
 
-public actual fun symGetLineFromInlineContext(hprocess: Handle, qwaddr: ULong, inlinecontext: UInt, qwmodulebaseaddress: ULong, pdwdisplacement: MutPtr<UInt>, line64: MutPtr<ImagehlpLine64>): Bool =
+public actual fun symGetLineFromInlineContext(hprocess: Handle, qwaddr: ULong, inlinecontext: UInt, qwmodulebaseaddress: ULong, pdwdisplacement: MutPtr, line64: MutPtr): Bool =
     WindowsWin32SystemDiagnosticsDebugJniBridge.windowssysWindowsWin32SystemDiagnosticsDebugSymGetLineFromInlineContext(hprocess.rawAddress, qwaddr.toLong(), inlinecontext.toInt(), qwmodulebaseaddress.toLong(), pdwdisplacement.rawAddress, line64.rawAddress)
 
-public actual fun symGetLineFromInlineContextW(hprocess: Handle, dwaddr: ULong, inlinecontext: UInt, qwmodulebaseaddress: ULong, pdwdisplacement: MutPtr<UInt>, line: MutPtr<ImagehlpLinew64>): Bool =
+public actual fun symGetLineFromInlineContextW(hprocess: Handle, dwaddr: ULong, inlinecontext: UInt, qwmodulebaseaddress: ULong, pdwdisplacement: MutPtr, line: MutPtr): Bool =
     WindowsWin32SystemDiagnosticsDebugJniBridge.windowssysWindowsWin32SystemDiagnosticsDebugSymGetLineFromInlineContextW(hprocess.rawAddress, dwaddr.toLong(), inlinecontext.toInt(), qwmodulebaseaddress.toLong(), pdwdisplacement.rawAddress, line.rawAddress)
 
-public actual fun symGetLineFromName64(hprocess: Handle, modulename: Pcstr, filename: Pcstr, dwlinenumber: UInt, pldisplacement: MutPtr<Int>, line: MutPtr<ImagehlpLine64>): Bool =
+public actual fun symGetLineFromName64(hprocess: Handle, modulename: Pcstr, filename: Pcstr, dwlinenumber: UInt, pldisplacement: MutPtr, line: MutPtr): Bool =
     WindowsWin32SystemDiagnosticsDebugJniBridge.windowssysWindowsWin32SystemDiagnosticsDebugSymGetLineFromName64(hprocess.rawAddress, modulename.rawAddress, filename.rawAddress, dwlinenumber.toInt(), pldisplacement.rawAddress, line.rawAddress)
 
-public actual fun symGetLineFromNameW64(hprocess: Handle, modulename: Pcwstr, filename: Pcwstr, dwlinenumber: UInt, pldisplacement: MutPtr<Int>, line: MutPtr<ImagehlpLinew64>): Bool =
+public actual fun symGetLineFromNameW64(hprocess: Handle, modulename: Pcwstr, filename: Pcwstr, dwlinenumber: UInt, pldisplacement: MutPtr, line: MutPtr): Bool =
     WindowsWin32SystemDiagnosticsDebugJniBridge.windowssysWindowsWin32SystemDiagnosticsDebugSymGetLineFromNameW64(hprocess.rawAddress, modulename.rawAddress, filename.rawAddress, dwlinenumber.toInt(), pldisplacement.rawAddress, line.rawAddress)
 
-public actual fun symGetLineNext64(hprocess: Handle, line: MutPtr<ImagehlpLine64>): Bool =
+public actual fun symGetLineNext64(hprocess: Handle, line: MutPtr): Bool =
     WindowsWin32SystemDiagnosticsDebugJniBridge.windowssysWindowsWin32SystemDiagnosticsDebugSymGetLineNext64(hprocess.rawAddress, line.rawAddress)
 
-public actual fun symGetLineNextW64(hprocess: Handle, line: MutPtr<ImagehlpLinew64>): Bool =
+public actual fun symGetLineNextW64(hprocess: Handle, line: MutPtr): Bool =
     WindowsWin32SystemDiagnosticsDebugJniBridge.windowssysWindowsWin32SystemDiagnosticsDebugSymGetLineNextW64(hprocess.rawAddress, line.rawAddress)
 
-public actual fun symGetLinePrev64(hprocess: Handle, line: MutPtr<ImagehlpLine64>): Bool =
+public actual fun symGetLinePrev64(hprocess: Handle, line: MutPtr): Bool =
     WindowsWin32SystemDiagnosticsDebugJniBridge.windowssysWindowsWin32SystemDiagnosticsDebugSymGetLinePrev64(hprocess.rawAddress, line.rawAddress)
 
-public actual fun symGetLinePrevW64(hprocess: Handle, line: MutPtr<ImagehlpLinew64>): Bool =
+public actual fun symGetLinePrevW64(hprocess: Handle, line: MutPtr): Bool =
     WindowsWin32SystemDiagnosticsDebugJniBridge.windowssysWindowsWin32SystemDiagnosticsDebugSymGetLinePrevW64(hprocess.rawAddress, line.rawAddress)
 
 public actual fun symGetModuleBase64(hprocess: Handle, qwaddr: ULong): ULong =
     WindowsWin32SystemDiagnosticsDebugJniBridge.windowssysWindowsWin32SystemDiagnosticsDebugSymGetModuleBase64(hprocess.rawAddress, qwaddr.toLong()).toULong()
 
-public actual fun symGetModuleInfo64(hprocess: Handle, qwaddr: ULong, moduleinfo: MutPtr<ImagehlpModule64>): Bool =
+public actual fun symGetModuleInfo64(hprocess: Handle, qwaddr: ULong, moduleinfo: MutPtr): Bool =
     WindowsWin32SystemDiagnosticsDebugJniBridge.windowssysWindowsWin32SystemDiagnosticsDebugSymGetModuleInfo64(hprocess.rawAddress, qwaddr.toLong(), moduleinfo.rawAddress)
 
-public actual fun symGetModuleInfoW64(hprocess: Handle, qwaddr: ULong, moduleinfo: MutPtr<ImagehlpModulew64>): Bool =
+public actual fun symGetModuleInfoW64(hprocess: Handle, qwaddr: ULong, moduleinfo: MutPtr): Bool =
     WindowsWin32SystemDiagnosticsDebugJniBridge.windowssysWindowsWin32SystemDiagnosticsDebugSymGetModuleInfoW64(hprocess.rawAddress, qwaddr.toLong(), moduleinfo.rawAddress)
 
-public actual fun symGetOmaps(hprocess: Handle, baseofdll: ULong, omapto: MutPtr<MutPtr<Omap>>, comapto: MutPtr<ULong>, omapfrom: MutPtr<MutPtr<Omap>>, comapfrom: MutPtr<ULong>): Bool =
+public actual fun symGetOmaps(hprocess: Handle, baseofdll: ULong, omapto: MutPtr, comapto: MutPtr, omapfrom: MutPtr, comapfrom: MutPtr): Bool =
     WindowsWin32SystemDiagnosticsDebugJniBridge.windowssysWindowsWin32SystemDiagnosticsDebugSymGetOmaps(hprocess.rawAddress, baseofdll.toLong(), omapto.rawAddress, comapto.rawAddress, omapfrom.rawAddress, comapfrom.rawAddress)
 
 public actual fun symGetOptions(): UInt =
     WindowsWin32SystemDiagnosticsDebugJniBridge.windowssysWindowsWin32SystemDiagnosticsDebugSymGetOptions().toUInt()
 
-public actual fun symGetScope(hprocess: Handle, baseofdll: ULong, index: UInt, symbol: MutPtr<SymbolInfo>): Bool =
+public actual fun symGetScope(hprocess: Handle, baseofdll: ULong, index: UInt, symbol: MutPtr): Bool =
     WindowsWin32SystemDiagnosticsDebugJniBridge.windowssysWindowsWin32SystemDiagnosticsDebugSymGetScope(hprocess.rawAddress, baseofdll.toLong(), index.toInt(), symbol.rawAddress)
 
-public actual fun symGetScopeW(hprocess: Handle, baseofdll: ULong, index: UInt, symbol: MutPtr<SymbolInfow>): Bool =
+public actual fun symGetScopeW(hprocess: Handle, baseofdll: ULong, index: UInt, symbol: MutPtr): Bool =
     WindowsWin32SystemDiagnosticsDebugJniBridge.windowssysWindowsWin32SystemDiagnosticsDebugSymGetScopeW(hprocess.rawAddress, baseofdll.toLong(), index.toInt(), symbol.rawAddress)
 
 public actual fun symGetSearchPath(hprocess: Handle, searchpatha: Pstr, searchpathlength: UInt): Bool =
@@ -1583,55 +1579,55 @@ public actual fun symGetSearchPathW(hprocess: Handle, searchpatha: Pwstr, search
 public actual fun symGetSourceFile(hprocess: Handle, base: ULong, params: Pcstr, filespec: Pcstr, filepath: Pstr, size: UInt): Bool =
     WindowsWin32SystemDiagnosticsDebugJniBridge.windowssysWindowsWin32SystemDiagnosticsDebugSymGetSourceFile(hprocess.rawAddress, base.toLong(), params.rawAddress, filespec.rawAddress, filepath.rawAddress, size.toInt())
 
-public actual fun symGetSourceFileChecksum(hprocess: Handle, base: ULong, filespec: Pcstr, pchecksumtype: MutPtr<UInt>, pchecksum: MutPtr<UByte>, checksumsize: UInt, pactualbyteswritten: MutPtr<UInt>): Bool =
+public actual fun symGetSourceFileChecksum(hprocess: Handle, base: ULong, filespec: Pcstr, pchecksumtype: MutPtr, pchecksum: MutPtr, checksumsize: UInt, pactualbyteswritten: MutPtr): Bool =
     WindowsWin32SystemDiagnosticsDebugJniBridge.windowssysWindowsWin32SystemDiagnosticsDebugSymGetSourceFileChecksum(hprocess.rawAddress, base.toLong(), filespec.rawAddress, pchecksumtype.rawAddress, pchecksum.rawAddress, checksumsize.toInt(), pactualbyteswritten.rawAddress)
 
-public actual fun symGetSourceFileChecksumW(hprocess: Handle, base: ULong, filespec: Pcwstr, pchecksumtype: MutPtr<UInt>, pchecksum: MutPtr<UByte>, checksumsize: UInt, pactualbyteswritten: MutPtr<UInt>): Bool =
+public actual fun symGetSourceFileChecksumW(hprocess: Handle, base: ULong, filespec: Pcwstr, pchecksumtype: MutPtr, pchecksum: MutPtr, checksumsize: UInt, pactualbyteswritten: MutPtr): Bool =
     WindowsWin32SystemDiagnosticsDebugJniBridge.windowssysWindowsWin32SystemDiagnosticsDebugSymGetSourceFileChecksumW(hprocess.rawAddress, base.toLong(), filespec.rawAddress, pchecksumtype.rawAddress, pchecksum.rawAddress, checksumsize.toInt(), pactualbyteswritten.rawAddress)
 
-public actual fun symGetSourceFileFromToken(hprocess: Handle, token: ConstPtr<CVoid>, params: Pcstr, filepath: Pstr, size: UInt): Bool =
+public actual fun symGetSourceFileFromToken(hprocess: Handle, token: ConstPtr, params: Pcstr, filepath: Pstr, size: UInt): Bool =
     WindowsWin32SystemDiagnosticsDebugJniBridge.windowssysWindowsWin32SystemDiagnosticsDebugSymGetSourceFileFromToken(hprocess.rawAddress, token.rawAddress, params.rawAddress, filepath.rawAddress, size.toInt())
 
-public actual fun symGetSourceFileFromTokenByTokenName(hprocess: Handle, token: ConstPtr<CVoid>, tokenname: Pcstr, params: Pcstr, filepath: Pstr, size: UInt): Bool =
+public actual fun symGetSourceFileFromTokenByTokenName(hprocess: Handle, token: ConstPtr, tokenname: Pcstr, params: Pcstr, filepath: Pstr, size: UInt): Bool =
     WindowsWin32SystemDiagnosticsDebugJniBridge.windowssysWindowsWin32SystemDiagnosticsDebugSymGetSourceFileFromTokenByTokenName(hprocess.rawAddress, token.rawAddress, tokenname.rawAddress, params.rawAddress, filepath.rawAddress, size.toInt())
 
-public actual fun symGetSourceFileFromTokenByTokenNameW(hprocess: Handle, token: ConstPtr<CVoid>, tokenname: Pcwstr, params: Pcwstr, filepath: Pwstr, size: UInt): Bool =
+public actual fun symGetSourceFileFromTokenByTokenNameW(hprocess: Handle, token: ConstPtr, tokenname: Pcwstr, params: Pcwstr, filepath: Pwstr, size: UInt): Bool =
     WindowsWin32SystemDiagnosticsDebugJniBridge.windowssysWindowsWin32SystemDiagnosticsDebugSymGetSourceFileFromTokenByTokenNameW(hprocess.rawAddress, token.rawAddress, tokenname.rawAddress, params.rawAddress, filepath.rawAddress, size.toInt())
 
-public actual fun symGetSourceFileFromTokenW(hprocess: Handle, token: ConstPtr<CVoid>, params: Pcwstr, filepath: Pwstr, size: UInt): Bool =
+public actual fun symGetSourceFileFromTokenW(hprocess: Handle, token: ConstPtr, params: Pcwstr, filepath: Pwstr, size: UInt): Bool =
     WindowsWin32SystemDiagnosticsDebugJniBridge.windowssysWindowsWin32SystemDiagnosticsDebugSymGetSourceFileFromTokenW(hprocess.rawAddress, token.rawAddress, params.rawAddress, filepath.rawAddress, size.toInt())
 
-public actual fun symGetSourceFileToken(hprocess: Handle, base: ULong, filespec: Pcstr, token: MutPtr<MutPtr<CVoid>>, size: MutPtr<UInt>): Bool =
+public actual fun symGetSourceFileToken(hprocess: Handle, base: ULong, filespec: Pcstr, token: MutPtr, size: MutPtr): Bool =
     WindowsWin32SystemDiagnosticsDebugJniBridge.windowssysWindowsWin32SystemDiagnosticsDebugSymGetSourceFileToken(hprocess.rawAddress, base.toLong(), filespec.rawAddress, token.rawAddress, size.rawAddress)
 
-public actual fun symGetSourceFileTokenByTokenName(hprocess: Handle, base: ULong, filespec: Pcstr, tokenname: Pcstr, tokenparameters: Pcstr, token: MutPtr<MutPtr<CVoid>>, size: MutPtr<UInt>): Bool =
+public actual fun symGetSourceFileTokenByTokenName(hprocess: Handle, base: ULong, filespec: Pcstr, tokenname: Pcstr, tokenparameters: Pcstr, token: MutPtr, size: MutPtr): Bool =
     WindowsWin32SystemDiagnosticsDebugJniBridge.windowssysWindowsWin32SystemDiagnosticsDebugSymGetSourceFileTokenByTokenName(hprocess.rawAddress, base.toLong(), filespec.rawAddress, tokenname.rawAddress, tokenparameters.rawAddress, token.rawAddress, size.rawAddress)
 
-public actual fun symGetSourceFileTokenByTokenNameW(hprocess: Handle, base: ULong, filespec: Pcwstr, tokenname: Pcwstr, tokenparameters: Pcwstr, token: MutPtr<MutPtr<CVoid>>, size: MutPtr<UInt>): Bool =
+public actual fun symGetSourceFileTokenByTokenNameW(hprocess: Handle, base: ULong, filespec: Pcwstr, tokenname: Pcwstr, tokenparameters: Pcwstr, token: MutPtr, size: MutPtr): Bool =
     WindowsWin32SystemDiagnosticsDebugJniBridge.windowssysWindowsWin32SystemDiagnosticsDebugSymGetSourceFileTokenByTokenNameW(hprocess.rawAddress, base.toLong(), filespec.rawAddress, tokenname.rawAddress, tokenparameters.rawAddress, token.rawAddress, size.rawAddress)
 
-public actual fun symGetSourceFileTokenW(hprocess: Handle, base: ULong, filespec: Pcwstr, token: MutPtr<MutPtr<CVoid>>, size: MutPtr<UInt>): Bool =
+public actual fun symGetSourceFileTokenW(hprocess: Handle, base: ULong, filespec: Pcwstr, token: MutPtr, size: MutPtr): Bool =
     WindowsWin32SystemDiagnosticsDebugJniBridge.windowssysWindowsWin32SystemDiagnosticsDebugSymGetSourceFileTokenW(hprocess.rawAddress, base.toLong(), filespec.rawAddress, token.rawAddress, size.rawAddress)
 
 public actual fun symGetSourceFileW(hprocess: Handle, base: ULong, params: Pcwstr, filespec: Pcwstr, filepath: Pwstr, size: UInt): Bool =
     WindowsWin32SystemDiagnosticsDebugJniBridge.windowssysWindowsWin32SystemDiagnosticsDebugSymGetSourceFileW(hprocess.rawAddress, base.toLong(), params.rawAddress, filespec.rawAddress, filepath.rawAddress, size.toInt())
 
-public actual fun symGetSourceVarFromToken(hprocess: Handle, token: ConstPtr<CVoid>, params: Pcstr, varname: Pcstr, value: Pstr, size: UInt): Bool =
+public actual fun symGetSourceVarFromToken(hprocess: Handle, token: ConstPtr, params: Pcstr, varname: Pcstr, value: Pstr, size: UInt): Bool =
     WindowsWin32SystemDiagnosticsDebugJniBridge.windowssysWindowsWin32SystemDiagnosticsDebugSymGetSourceVarFromToken(hprocess.rawAddress, token.rawAddress, params.rawAddress, varname.rawAddress, value.rawAddress, size.toInt())
 
-public actual fun symGetSourceVarFromTokenW(hprocess: Handle, token: ConstPtr<CVoid>, params: Pcwstr, varname: Pcwstr, value: Pwstr, size: UInt): Bool =
+public actual fun symGetSourceVarFromTokenW(hprocess: Handle, token: ConstPtr, params: Pcwstr, varname: Pcwstr, value: Pwstr, size: UInt): Bool =
     WindowsWin32SystemDiagnosticsDebugJniBridge.windowssysWindowsWin32SystemDiagnosticsDebugSymGetSourceVarFromTokenW(hprocess.rawAddress, token.rawAddress, params.rawAddress, varname.rawAddress, value.rawAddress, size.toInt())
 
-public actual fun symGetSymFromAddr64(hprocess: Handle, qwaddr: ULong, pdwdisplacement: MutPtr<ULong>, symbol: MutPtr<ImagehlpSymbol64>): Bool =
+public actual fun symGetSymFromAddr64(hprocess: Handle, qwaddr: ULong, pdwdisplacement: MutPtr, symbol: MutPtr): Bool =
     WindowsWin32SystemDiagnosticsDebugJniBridge.windowssysWindowsWin32SystemDiagnosticsDebugSymGetSymFromAddr64(hprocess.rawAddress, qwaddr.toLong(), pdwdisplacement.rawAddress, symbol.rawAddress)
 
-public actual fun symGetSymFromName64(hprocess: Handle, name: Pcstr, symbol: MutPtr<ImagehlpSymbol64>): Bool =
+public actual fun symGetSymFromName64(hprocess: Handle, name: Pcstr, symbol: MutPtr): Bool =
     WindowsWin32SystemDiagnosticsDebugJniBridge.windowssysWindowsWin32SystemDiagnosticsDebugSymGetSymFromName64(hprocess.rawAddress, name.rawAddress, symbol.rawAddress)
 
-public actual fun symGetSymNext64(hprocess: Handle, symbol: MutPtr<ImagehlpSymbol64>): Bool =
+public actual fun symGetSymNext64(hprocess: Handle, symbol: MutPtr): Bool =
     WindowsWin32SystemDiagnosticsDebugJniBridge.windowssysWindowsWin32SystemDiagnosticsDebugSymGetSymNext64(hprocess.rawAddress, symbol.rawAddress)
 
-public actual fun symGetSymPrev64(hprocess: Handle, symbol: MutPtr<ImagehlpSymbol64>): Bool =
+public actual fun symGetSymPrev64(hprocess: Handle, symbol: MutPtr): Bool =
     WindowsWin32SystemDiagnosticsDebugJniBridge.windowssysWindowsWin32SystemDiagnosticsDebugSymGetSymPrev64(hprocess.rawAddress, symbol.rawAddress)
 
 public actual fun symGetSymbolFile(hprocess: Handle, sympath: Pcstr, imagefile: Pcstr, type: UInt, symbolfile: Pstr, csymbolfile: ULong, dbgfile: Pstr, cdbgfile: ULong): Bool =
@@ -1640,19 +1636,19 @@ public actual fun symGetSymbolFile(hprocess: Handle, sympath: Pcstr, imagefile: 
 public actual fun symGetSymbolFileW(hprocess: Handle, sympath: Pcwstr, imagefile: Pcwstr, type: UInt, symbolfile: Pwstr, csymbolfile: ULong, dbgfile: Pwstr, cdbgfile: ULong): Bool =
     WindowsWin32SystemDiagnosticsDebugJniBridge.windowssysWindowsWin32SystemDiagnosticsDebugSymGetSymbolFileW(hprocess.rawAddress, sympath.rawAddress, imagefile.rawAddress, type.toInt(), symbolfile.rawAddress, csymbolfile.toLong(), dbgfile.rawAddress, cdbgfile.toLong())
 
-public actual fun symGetTypeFromName(hprocess: Handle, baseofdll: ULong, name: Pcstr, symbol: MutPtr<SymbolInfo>): Bool =
+public actual fun symGetTypeFromName(hprocess: Handle, baseofdll: ULong, name: Pcstr, symbol: MutPtr): Bool =
     WindowsWin32SystemDiagnosticsDebugJniBridge.windowssysWindowsWin32SystemDiagnosticsDebugSymGetTypeFromName(hprocess.rawAddress, baseofdll.toLong(), name.rawAddress, symbol.rawAddress)
 
-public actual fun symGetTypeFromNameW(hprocess: Handle, baseofdll: ULong, name: Pcwstr, symbol: MutPtr<SymbolInfow>): Bool =
+public actual fun symGetTypeFromNameW(hprocess: Handle, baseofdll: ULong, name: Pcwstr, symbol: MutPtr): Bool =
     WindowsWin32SystemDiagnosticsDebugJniBridge.windowssysWindowsWin32SystemDiagnosticsDebugSymGetTypeFromNameW(hprocess.rawAddress, baseofdll.toLong(), name.rawAddress, symbol.rawAddress)
 
-public actual fun symGetTypeInfo(hprocess: Handle, modbase: ULong, typeid: UInt, gettype: ImagehlpSymbolTypeInfo, pinfo: MutPtr<CVoid>): Bool =
+public actual fun symGetTypeInfo(hprocess: Handle, modbase: ULong, typeid: UInt, gettype: ImagehlpSymbolTypeInfo, pinfo: MutPtr): Bool =
     WindowsWin32SystemDiagnosticsDebugJniBridge.windowssysWindowsWin32SystemDiagnosticsDebugSymGetTypeInfo(hprocess.rawAddress, modbase.toLong(), typeid.toInt(), gettype, pinfo.rawAddress)
 
-public actual fun symGetTypeInfoEx(hprocess: Handle, modbase: ULong, params: MutPtr<ImagehlpGetTypeInfoParams>): Bool =
+public actual fun symGetTypeInfoEx(hprocess: Handle, modbase: ULong, params: MutPtr): Bool =
     WindowsWin32SystemDiagnosticsDebugJniBridge.windowssysWindowsWin32SystemDiagnosticsDebugSymGetTypeInfoEx(hprocess.rawAddress, modbase.toLong(), params.rawAddress)
 
-public actual fun symGetUnwindInfo(hprocess: Handle, address: ULong, buffer: MutPtr<CVoid>, size: MutPtr<UInt>): Bool =
+public actual fun symGetUnwindInfo(hprocess: Handle, address: ULong, buffer: MutPtr, size: MutPtr): Bool =
     WindowsWin32SystemDiagnosticsDebugJniBridge.windowssysWindowsWin32SystemDiagnosticsDebugSymGetUnwindInfo(hprocess.rawAddress, address.toLong(), buffer.rawAddress, size.rawAddress)
 
 public actual fun symInitialize(hprocess: Handle, usersearchpath: Pcstr, finvadeprocess: Bool): Bool =
@@ -1664,16 +1660,16 @@ public actual fun symInitializeW(hprocess: Handle, usersearchpath: Pcwstr, finva
 public actual fun symLoadModule64(hprocess: Handle, hfile: Handle, imagename: Pcstr, modulename: Pcstr, baseofdll: ULong, sizeofdll: UInt): ULong =
     WindowsWin32SystemDiagnosticsDebugJniBridge.windowssysWindowsWin32SystemDiagnosticsDebugSymLoadModule64(hprocess.rawAddress, hfile.rawAddress, imagename.rawAddress, modulename.rawAddress, baseofdll.toLong(), sizeofdll.toInt()).toULong()
 
-public actual fun symLoadModuleEx(hprocess: Handle, hfile: Handle, imagename: Pcstr, modulename: Pcstr, baseofdll: ULong, dllsize: UInt, data: ConstPtr<ModloadData>, flags: SymLoadFlags): ULong =
+public actual fun symLoadModuleEx(hprocess: Handle, hfile: Handle, imagename: Pcstr, modulename: Pcstr, baseofdll: ULong, dllsize: UInt, data: ConstPtr, flags: SymLoadFlags): ULong =
     WindowsWin32SystemDiagnosticsDebugJniBridge.windowssysWindowsWin32SystemDiagnosticsDebugSymLoadModuleEx(hprocess.rawAddress, hfile.rawAddress, imagename.rawAddress, modulename.rawAddress, baseofdll.toLong(), dllsize.toInt(), data.rawAddress, flags.toInt()).toULong()
 
-public actual fun symLoadModuleExW(hprocess: Handle, hfile: Handle, imagename: Pcwstr, modulename: Pcwstr, baseofdll: ULong, dllsize: UInt, data: ConstPtr<ModloadData>, flags: SymLoadFlags): ULong =
+public actual fun symLoadModuleExW(hprocess: Handle, hfile: Handle, imagename: Pcwstr, modulename: Pcwstr, baseofdll: ULong, dllsize: UInt, data: ConstPtr, flags: SymLoadFlags): ULong =
     WindowsWin32SystemDiagnosticsDebugJniBridge.windowssysWindowsWin32SystemDiagnosticsDebugSymLoadModuleExW(hprocess.rawAddress, hfile.rawAddress, imagename.rawAddress, modulename.rawAddress, baseofdll.toLong(), dllsize.toInt(), data.rawAddress, flags.toInt()).toULong()
 
-public actual fun symMatchFileName(filename: Pcstr, match: Pcstr, filenamestop: MutPtr<Pstr>, matchstop: MutPtr<Pstr>): Bool =
+public actual fun symMatchFileName(filename: Pcstr, match: Pcstr, filenamestop: MutPtr, matchstop: MutPtr): Bool =
     WindowsWin32SystemDiagnosticsDebugJniBridge.windowssysWindowsWin32SystemDiagnosticsDebugSymMatchFileName(filename.rawAddress, match.rawAddress, filenamestop.rawAddress, matchstop.rawAddress)
 
-public actual fun symMatchFileNameW(filename: Pcwstr, match: Pcwstr, filenamestop: MutPtr<Pwstr>, matchstop: MutPtr<Pwstr>): Bool =
+public actual fun symMatchFileNameW(filename: Pcwstr, match: Pcwstr, filenamestop: MutPtr, matchstop: MutPtr): Bool =
     WindowsWin32SystemDiagnosticsDebugJniBridge.windowssysWindowsWin32SystemDiagnosticsDebugSymMatchFileNameW(filename.rawAddress, match.rawAddress, filenamestop.rawAddress, matchstop.rawAddress)
 
 public actual fun symMatchString(string: Pcstr, expression: Pcstr, fcase: Bool): Bool =
@@ -1685,19 +1681,19 @@ public actual fun symMatchStringA(string: Pcstr, expression: Pcstr, fcase: Bool)
 public actual fun symMatchStringW(string: Pcwstr, expression: Pcwstr, fcase: Bool): Bool =
     WindowsWin32SystemDiagnosticsDebugJniBridge.windowssysWindowsWin32SystemDiagnosticsDebugSymMatchStringW(string.rawAddress, expression.rawAddress, fcase)
 
-public actual fun symNext(hprocess: Handle, si: MutPtr<SymbolInfo>): Bool =
+public actual fun symNext(hprocess: Handle, si: MutPtr): Bool =
     WindowsWin32SystemDiagnosticsDebugJniBridge.windowssysWindowsWin32SystemDiagnosticsDebugSymNext(hprocess.rawAddress, si.rawAddress)
 
-public actual fun symNextW(hprocess: Handle, siw: MutPtr<SymbolInfow>): Bool =
+public actual fun symNextW(hprocess: Handle, siw: MutPtr): Bool =
     WindowsWin32SystemDiagnosticsDebugJniBridge.windowssysWindowsWin32SystemDiagnosticsDebugSymNextW(hprocess.rawAddress, siw.rawAddress)
 
-public actual fun symPrev(hprocess: Handle, si: MutPtr<SymbolInfo>): Bool =
+public actual fun symPrev(hprocess: Handle, si: MutPtr): Bool =
     WindowsWin32SystemDiagnosticsDebugJniBridge.windowssysWindowsWin32SystemDiagnosticsDebugSymPrev(hprocess.rawAddress, si.rawAddress)
 
-public actual fun symPrevW(hprocess: Handle, siw: MutPtr<SymbolInfow>): Bool =
+public actual fun symPrevW(hprocess: Handle, siw: MutPtr): Bool =
     WindowsWin32SystemDiagnosticsDebugJniBridge.windowssysWindowsWin32SystemDiagnosticsDebugSymPrevW(hprocess.rawAddress, siw.rawAddress)
 
-public actual fun symQueryInlineTrace(hprocess: Handle, startaddress: ULong, startcontext: UInt, startretaddress: ULong, curaddress: ULong, curcontext: MutPtr<UInt>, curframeindex: MutPtr<UInt>): Bool =
+public actual fun symQueryInlineTrace(hprocess: Handle, startaddress: ULong, startcontext: UInt, startretaddress: ULong, curaddress: ULong, curcontext: MutPtr, curframeindex: MutPtr): Bool =
     WindowsWin32SystemDiagnosticsDebugJniBridge.windowssysWindowsWin32SystemDiagnosticsDebugSymQueryInlineTrace(hprocess.rawAddress, startaddress.toLong(), startcontext.toInt(), startretaddress.toLong(), curaddress.toLong(), curcontext.rawAddress, curframeindex.rawAddress)
 
 public actual fun symRefreshModuleList(hprocess: Handle): Bool =
@@ -1712,13 +1708,13 @@ public actual fun symRegisterCallbackW64(hprocess: Handle, callbackfunction: Psy
 public actual fun symRegisterFunctionEntryCallback64(hprocess: Handle, callbackfunction: PsymbolFuncentryCallback64, usercontext: ULong): Bool =
     WindowsWin32SystemDiagnosticsDebugJniBridge.windowssysWindowsWin32SystemDiagnosticsDebugSymRegisterFunctionEntryCallback64(hprocess.rawAddress, 0L, usercontext.toLong())
 
-public actual fun symSearch(hprocess: Handle, baseofdll: ULong, index: UInt, symtag: UInt, mask: Pcstr, address: ULong, enumsymbolscallback: PsymEnumeratesymbolsCallback, usercontext: ConstPtr<CVoid>, options: UInt): Bool =
+public actual fun symSearch(hprocess: Handle, baseofdll: ULong, index: UInt, symtag: UInt, mask: Pcstr, address: ULong, enumsymbolscallback: PsymEnumeratesymbolsCallback, usercontext: ConstPtr, options: UInt): Bool =
     WindowsWin32SystemDiagnosticsDebugJniBridge.windowssysWindowsWin32SystemDiagnosticsDebugSymSearch(hprocess.rawAddress, baseofdll.toLong(), index.toInt(), symtag.toInt(), mask.rawAddress, address.toLong(), 0L, usercontext.rawAddress, options.toInt())
 
-public actual fun symSearchW(hprocess: Handle, baseofdll: ULong, index: UInt, symtag: UInt, mask: Pcwstr, address: ULong, enumsymbolscallback: PsymEnumeratesymbolsCallbackw, usercontext: ConstPtr<CVoid>, options: UInt): Bool =
+public actual fun symSearchW(hprocess: Handle, baseofdll: ULong, index: UInt, symtag: UInt, mask: Pcwstr, address: ULong, enumsymbolscallback: PsymEnumeratesymbolsCallbackw, usercontext: ConstPtr, options: UInt): Bool =
     WindowsWin32SystemDiagnosticsDebugJniBridge.windowssysWindowsWin32SystemDiagnosticsDebugSymSearchW(hprocess.rawAddress, baseofdll.toLong(), index.toInt(), symtag.toInt(), mask.rawAddress, address.toLong(), 0L, usercontext.rawAddress, options.toInt())
 
-public actual fun symSetContext(hprocess: Handle, stackframe: ConstPtr<ImagehlpStackFrame>, context: ConstPtr<CVoid>): Bool =
+public actual fun symSetContext(hprocess: Handle, stackframe: ConstPtr, context: ConstPtr): Bool =
     WindowsWin32SystemDiagnosticsDebugJniBridge.windowssysWindowsWin32SystemDiagnosticsDebugSymSetContext(hprocess.rawAddress, stackframe.rawAddress, context.rawAddress)
 
 public actual fun symSetExtendedOption(option: ImagehlpExtendedOptions, value: Bool): Bool =
@@ -1757,10 +1753,10 @@ public actual fun symSrvDeltaName(hprocess: Handle, sympath: Pcstr, type: Pcstr,
 public actual fun symSrvDeltaNameW(hprocess: Handle, sympath: Pcwstr, type: Pcwstr, file1: Pcwstr, file2: Pcwstr): Pcwstr =
     ConstPtr(WindowsWin32SystemDiagnosticsDebugJniBridge.windowssysWindowsWin32SystemDiagnosticsDebugSymSrvDeltaNameW(hprocess.rawAddress, sympath.rawAddress, type.rawAddress, file1.rawAddress, file2.rawAddress))
 
-public actual fun symSrvGetFileIndexInfo(file: Pcstr, info: MutPtr<SymsrvIndexInfo>, flags: UInt): Bool =
+public actual fun symSrvGetFileIndexInfo(file: Pcstr, info: MutPtr, flags: UInt): Bool =
     WindowsWin32SystemDiagnosticsDebugJniBridge.windowssysWindowsWin32SystemDiagnosticsDebugSymSrvGetFileIndexInfo(file.rawAddress, info.rawAddress, flags.toInt())
 
-public actual fun symSrvGetFileIndexInfoW(file: Pcwstr, info: MutPtr<SymsrvIndexInfow>, flags: UInt): Bool =
+public actual fun symSrvGetFileIndexInfoW(file: Pcwstr, info: MutPtr, flags: UInt): Bool =
     WindowsWin32SystemDiagnosticsDebugJniBridge.windowssysWindowsWin32SystemDiagnosticsDebugSymSrvGetFileIndexInfoW(file.rawAddress, info.rawAddress, flags.toInt())
 
 public actual fun symSrvGetFileIndexString(hprocess: Handle, srvpath: Pcstr, file: Pcstr, index: Pstr, size: ULong, flags: UInt): Bool =
@@ -1769,10 +1765,10 @@ public actual fun symSrvGetFileIndexString(hprocess: Handle, srvpath: Pcstr, fil
 public actual fun symSrvGetFileIndexStringW(hprocess: Handle, srvpath: Pcwstr, file: Pcwstr, index: Pwstr, size: ULong, flags: UInt): Bool =
     WindowsWin32SystemDiagnosticsDebugJniBridge.windowssysWindowsWin32SystemDiagnosticsDebugSymSrvGetFileIndexStringW(hprocess.rawAddress, srvpath.rawAddress, file.rawAddress, index.rawAddress, size.toLong(), flags.toInt())
 
-public actual fun symSrvGetFileIndexes(file: Pcstr, id: MutPtr<Guid>, val1: MutPtr<UInt>, val2: MutPtr<UInt>, flags: UInt): Bool =
+public actual fun symSrvGetFileIndexes(file: Pcstr, id: MutPtr, val1: MutPtr, val2: MutPtr, flags: UInt): Bool =
     WindowsWin32SystemDiagnosticsDebugJniBridge.windowssysWindowsWin32SystemDiagnosticsDebugSymSrvGetFileIndexes(file.rawAddress, id.rawAddress, val1.rawAddress, val2.rawAddress, flags.toInt())
 
-public actual fun symSrvGetFileIndexesW(file: Pcwstr, id: MutPtr<Guid>, val1: MutPtr<UInt>, val2: MutPtr<UInt>, flags: UInt): Bool =
+public actual fun symSrvGetFileIndexesW(file: Pcwstr, id: MutPtr, val1: MutPtr, val2: MutPtr, flags: UInt): Bool =
     WindowsWin32SystemDiagnosticsDebugJniBridge.windowssysWindowsWin32SystemDiagnosticsDebugSymSrvGetFileIndexesW(file.rawAddress, id.rawAddress, val1.rawAddress, val2.rawAddress, flags.toInt())
 
 public actual fun symSrvGetSupplement(hprocess: Handle, sympath: Pcstr, node: Pcstr, file: Pcstr): Pcstr =
@@ -1799,7 +1795,7 @@ public actual fun symSrvStoreSupplement(hprocess: Handle, srvpath: Pcstr, node: 
 public actual fun symSrvStoreSupplementW(hprocess: Handle, sympath: Pcwstr, node: Pcwstr, file: Pcwstr, flags: UInt): Pcwstr =
     ConstPtr(WindowsWin32SystemDiagnosticsDebugJniBridge.windowssysWindowsWin32SystemDiagnosticsDebugSymSrvStoreSupplementW(hprocess.rawAddress, sympath.rawAddress, node.rawAddress, file.rawAddress, flags.toInt()))
 
-public actual fun symUnDName64(sym: ConstPtr<ImagehlpSymbol64>, undecname: Pstr, undecnamelength: UInt): Bool =
+public actual fun symUnDName64(sym: ConstPtr, undecname: Pstr, undecnamelength: UInt): Bool =
     WindowsWin32SystemDiagnosticsDebugJniBridge.windowssysWindowsWin32SystemDiagnosticsDebugSymUnDName64(sym.rawAddress, undecname.rawAddress, undecnamelength.toInt())
 
 public actual fun symUnloadModule64(hprocess: Handle, baseofdll: ULong): Bool =
@@ -1809,7 +1805,7 @@ public actual fun terminateProcessOnMemoryExhaustion(failedallocationsize: ULong
     WindowsWin32SystemDiagnosticsDebugJniBridge.windowssysWindowsWin32SystemDiagnosticsDebugTerminateProcessOnMemoryExhaustion(failedallocationsize.toLong())
 }
 
-public actual fun touchFileTimes(filehandle: Handle, psystemtime: ConstPtr<Systemtime>): Bool =
+public actual fun touchFileTimes(filehandle: Handle, psystemtime: ConstPtr): Bool =
     WindowsWin32SystemDiagnosticsDebugJniBridge.windowssysWindowsWin32SystemDiagnosticsDebugTouchFileTimes(filehandle.rawAddress, psystemtime.rawAddress)
 
 public actual fun unDecorateSymbolName(name: Pcstr, outputstring: Pstr, maxstringlength: UInt, flags: UInt): UInt =
@@ -1818,32 +1814,32 @@ public actual fun unDecorateSymbolName(name: Pcstr, outputstring: Pstr, maxstrin
 public actual fun unDecorateSymbolNameW(name: Pcwstr, outputstring: Pwstr, maxstringlength: UInt, flags: UInt): UInt =
     WindowsWin32SystemDiagnosticsDebugJniBridge.windowssysWindowsWin32SystemDiagnosticsDebugUnDecorateSymbolNameW(name.rawAddress, outputstring.rawAddress, maxstringlength.toInt(), flags.toInt()).toUInt()
 
-public actual fun unMapAndLoad(loadedimage: MutPtr<LoadedImage>): Bool =
+public actual fun unMapAndLoad(loadedimage: MutPtr): Bool =
     WindowsWin32SystemDiagnosticsDebugJniBridge.windowssysWindowsWin32SystemDiagnosticsDebugUnMapAndLoad(loadedimage.rawAddress)
 
-public actual fun unhandledExceptionFilter(exceptioninfo: ConstPtr<ExceptionPointers>): Int =
+public actual fun unhandledExceptionFilter(exceptioninfo: ConstPtr): Int =
     WindowsWin32SystemDiagnosticsDebugJniBridge.windowssysWindowsWin32SystemDiagnosticsDebugUnhandledExceptionFilter(exceptioninfo.rawAddress)
 
-public actual fun updateDebugInfoFile(imagefilename: Pcstr, symbolpath: Pcstr, debugfilepath: Pstr, ntheaders: ConstPtr<ImageNtHeaders32>): Bool =
+public actual fun updateDebugInfoFile(imagefilename: Pcstr, symbolpath: Pcstr, debugfilepath: Pstr, ntheaders: ConstPtr): Bool =
     WindowsWin32SystemDiagnosticsDebugJniBridge.windowssysWindowsWin32SystemDiagnosticsDebugUpdateDebugInfoFile(imagefilename.rawAddress, symbolpath.rawAddress, debugfilepath.rawAddress, ntheaders.rawAddress)
 
-public actual fun updateDebugInfoFileEx(imagefilename: Pcstr, symbolpath: Pcstr, debugfilepath: Pstr, ntheaders: ConstPtr<ImageNtHeaders32>, oldchecksum: UInt): Bool =
+public actual fun updateDebugInfoFileEx(imagefilename: Pcstr, symbolpath: Pcstr, debugfilepath: Pstr, ntheaders: ConstPtr, oldchecksum: UInt): Bool =
     WindowsWin32SystemDiagnosticsDebugJniBridge.windowssysWindowsWin32SystemDiagnosticsDebugUpdateDebugInfoFileEx(imagefilename.rawAddress, symbolpath.rawAddress, debugfilepath.rawAddress, ntheaders.rawAddress, oldchecksum.toInt())
 
-public actual fun waitForDebugEvent(lpdebugevent: MutPtr<DebugEvent>, dwmilliseconds: UInt): Bool =
+public actual fun waitForDebugEvent(lpdebugevent: MutPtr, dwmilliseconds: UInt): Bool =
     WindowsWin32SystemDiagnosticsDebugJniBridge.windowssysWindowsWin32SystemDiagnosticsDebugWaitForDebugEvent(lpdebugevent.rawAddress, dwmilliseconds.toInt())
 
-public actual fun waitForDebugEventEx(lpdebugevent: MutPtr<DebugEvent>, dwmilliseconds: UInt): Bool =
+public actual fun waitForDebugEventEx(lpdebugevent: MutPtr, dwmilliseconds: UInt): Bool =
     WindowsWin32SystemDiagnosticsDebugJniBridge.windowssysWindowsWin32SystemDiagnosticsDebugWaitForDebugEventEx(lpdebugevent.rawAddress, dwmilliseconds.toInt())
 
-public actual fun wow64GetThreadContext(hthread: Handle, lpcontext: MutPtr<Wow64Context>): Bool =
+public actual fun wow64GetThreadContext(hthread: Handle, lpcontext: MutPtr): Bool =
     WindowsWin32SystemDiagnosticsDebugJniBridge.windowssysWindowsWin32SystemDiagnosticsDebugWow64GetThreadContext(hthread.rawAddress, lpcontext.rawAddress)
 
-public actual fun wow64GetThreadSelectorEntry(hthread: Handle, dwselector: UInt, lpselectorentry: MutPtr<Wow64LdtEntry>): Bool =
+public actual fun wow64GetThreadSelectorEntry(hthread: Handle, dwselector: UInt, lpselectorentry: MutPtr): Bool =
     WindowsWin32SystemDiagnosticsDebugJniBridge.windowssysWindowsWin32SystemDiagnosticsDebugWow64GetThreadSelectorEntry(hthread.rawAddress, dwselector.toInt(), lpselectorentry.rawAddress)
 
-public actual fun wow64SetThreadContext(hthread: Handle, lpcontext: ConstPtr<Wow64Context>): Bool =
+public actual fun wow64SetThreadContext(hthread: Handle, lpcontext: ConstPtr): Bool =
     WindowsWin32SystemDiagnosticsDebugJniBridge.windowssysWindowsWin32SystemDiagnosticsDebugWow64SetThreadContext(hthread.rawAddress, lpcontext.rawAddress)
 
-public actual fun writeProcessMemory(hprocess: Handle, lpbaseaddress: ConstPtr<CVoid>, lpbuffer: ConstPtr<CVoid>, nsize: ULong, lpnumberofbyteswritten: MutPtr<ULong>): Bool =
+public actual fun writeProcessMemory(hprocess: Handle, lpbaseaddress: ConstPtr, lpbuffer: ConstPtr, nsize: ULong, lpnumberofbyteswritten: MutPtr): Bool =
     WindowsWin32SystemDiagnosticsDebugJniBridge.windowssysWindowsWin32SystemDiagnosticsDebugWriteProcessMemory(hprocess.rawAddress, lpbaseaddress.rawAddress, lpbuffer.rawAddress, nsize.toLong(), lpnumberofbyteswritten.rawAddress)

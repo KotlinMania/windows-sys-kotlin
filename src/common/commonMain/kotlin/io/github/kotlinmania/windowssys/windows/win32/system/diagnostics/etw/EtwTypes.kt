@@ -1,10 +1,8 @@
 package io.github.kotlinmania.windowssys.windows.win32.system.diagnostics.etw
 
-import io.github.kotlinmania.rustlang.core.ffi.CVoid
 import io.github.kotlinmania.rustlang.core.ptr.ConstPtr
 import io.github.kotlinmania.rustlang.core.ptr.MutPtr
 import io.github.kotlinmania.windowssys.core.Bool
-import io.github.kotlinmania.windowssys.core.Guid
 
 public typealias DecodingSource = Int
 
@@ -37,43 +35,43 @@ public typealias MapValuetype = Int
 public typealias PayloadOperator = Int
 
 public fun interface PenablecallbackFn {
-    public operator fun invoke(sourceid: ConstPtr<Guid>, isenabled: EnablecallbackEnabledState, level: UByte, matchanykeyword: ULong, matchallkeyword: ULong, filterdata: ConstPtr<EventFilterDescriptor>, callbackcontext: MutPtr<CVoid>)
+    public operator fun invoke(sourceid: ConstPtr, isenabled: EnablecallbackEnabledState, level: UByte, matchanykeyword: ULong, matchallkeyword: ULong, filterdata: ConstPtr, callbackcontext: MutPtr)
 }
 
 public typealias Penablecallback = PenablecallbackFn?
 
 public fun interface PetwBufferCallbackFn {
-    public operator fun invoke(buffer: ConstPtr<EtwBufferHeader>, buffersize: UInt, consumerinfo: ConstPtr<EtwBufferCallbackInformation>, callbackcontext: ConstPtr<CVoid>): Bool
+    public operator fun invoke(buffer: ConstPtr, buffersize: UInt, consumerinfo: ConstPtr, callbackcontext: ConstPtr): Bool
 }
 
 public typealias PetwBufferCallback = PetwBufferCallbackFn?
 
 public fun interface PetwBufferCompletionCallbackFn {
-    public operator fun invoke(buffer: ConstPtr<EtwBufferHeader>, callbackcontext: ConstPtr<CVoid>)
+    public operator fun invoke(buffer: ConstPtr, callbackcontext: ConstPtr)
 }
 
 public typealias PetwBufferCompletionCallback = PetwBufferCompletionCallbackFn?
 
 public fun interface PeventCallbackFn {
-    public operator fun invoke(pevent: MutPtr<EventTrace>)
+    public operator fun invoke(pevent: MutPtr)
 }
 
 public typealias PeventCallback = PeventCallbackFn?
 
 public fun interface PeventRecordCallbackFn {
-    public operator fun invoke(eventrecord: MutPtr<EventRecord>)
+    public operator fun invoke(eventrecord: MutPtr)
 }
 
 public typealias PeventRecordCallback = PeventRecordCallbackFn?
 
 public fun interface PeventTraceBufferCallbackaFn {
-    public operator fun invoke(logfile: MutPtr<EventTraceLogfilea>): UInt
+    public operator fun invoke(logfile: MutPtr): UInt
 }
 
 public typealias PeventTraceBufferCallbacka = PeventTraceBufferCallbackaFn?
 
 public fun interface PeventTraceBufferCallbackwFn {
-    public operator fun invoke(logfile: MutPtr<EventTraceLogfilew>): UInt
+    public operator fun invoke(logfile: MutPtr): UInt
 }
 
 public typealias PeventTraceBufferCallbackw = PeventTraceBufferCallbackwFn?
@@ -93,7 +91,7 @@ public typealias TraceMessageFlags = UInt
 public typealias TraceQueryInfoClass = Int
 
 public fun interface WmidprequestFn {
-    public operator fun invoke(requestcode: Wmidprequestcode, requestcontext: ConstPtr<CVoid>, buffersize: MutPtr<UInt>, buffer: MutPtr<CVoid>): UInt
+    public operator fun invoke(requestcode: Wmidprequestcode, requestcontext: ConstPtr, buffersize: MutPtr, buffer: MutPtr): UInt
 }
 
 public typealias Wmidprequest = WmidprequestFn?

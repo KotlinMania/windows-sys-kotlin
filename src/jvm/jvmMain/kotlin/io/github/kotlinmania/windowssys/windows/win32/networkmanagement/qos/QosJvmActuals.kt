@@ -2,19 +2,15 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.networkmanagement.qos
 
-import io.github.kotlinmania.rustlang.core.ffi.CVoid
 import io.github.kotlinmania.rustlang.core.ptr.ConstPtr
 import io.github.kotlinmania.rustlang.core.ptr.MutPtr
 import io.github.kotlinmania.windowssys.core.Bool
-import io.github.kotlinmania.windowssys.core.Guid
 import io.github.kotlinmania.windowssys.core.Pcstr
 import io.github.kotlinmania.windowssys.core.Pcwstr
 import io.github.kotlinmania.windowssys.core.Pstr
 import io.github.kotlinmania.windowssys.core.Pwstr
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Handle
-import io.github.kotlinmania.windowssys.windows.win32.networking.winsock.Sockaddr
 import io.github.kotlinmania.windowssys.windows.win32.networking.winsock.Socket
-import io.github.kotlinmania.windowssys.windows.win32.system.io.Overlapped
 
 private object WindowsWin32NetworkmanagementQosJniBridge {
     init {
@@ -166,43 +162,43 @@ private object WindowsWin32NetworkmanagementQosJniBridge {
     external fun windowssysWindowsWin32NetworkmanagementQosTcSetInterface(ifchandle: Long, pguidparam: Long, buffersize: Int, buffer: Long): Int
 }
 
-public actual fun qOSAddSocketToFlow(qoshandle: Handle, socket: Socket, destaddr: ConstPtr<Sockaddr>, traffictype: QosTrafficType, flags: UInt, flowid: MutPtr<UInt>): Bool =
+public actual fun qOSAddSocketToFlow(qoshandle: Handle, socket: Socket, destaddr: ConstPtr, traffictype: QosTrafficType, flags: UInt, flowid: MutPtr): Bool =
     WindowsWin32NetworkmanagementQosJniBridge.windowssysWindowsWin32NetworkmanagementQosQOSAddSocketToFlow(qoshandle.rawAddress, socket.toLong(), destaddr.rawAddress, traffictype, flags.toInt(), flowid.rawAddress)
 
-public actual fun qOSCancel(qoshandle: Handle, overlapped: ConstPtr<Overlapped>): Bool =
+public actual fun qOSCancel(qoshandle: Handle, overlapped: ConstPtr): Bool =
     WindowsWin32NetworkmanagementQosJniBridge.windowssysWindowsWin32NetworkmanagementQosQOSCancel(qoshandle.rawAddress, overlapped.rawAddress)
 
 public actual fun qOSCloseHandle(qoshandle: Handle): Bool =
     WindowsWin32NetworkmanagementQosJniBridge.windowssysWindowsWin32NetworkmanagementQosQOSCloseHandle(qoshandle.rawAddress)
 
-public actual fun qOSCreateHandle(version: ConstPtr<QosVersion>, qoshandle: MutPtr<Handle>): Bool =
+public actual fun qOSCreateHandle(version: ConstPtr, qoshandle: MutPtr): Bool =
     WindowsWin32NetworkmanagementQosJniBridge.windowssysWindowsWin32NetworkmanagementQosQOSCreateHandle(version.rawAddress, qoshandle.rawAddress)
 
-public actual fun qOSEnumerateFlows(qoshandle: Handle, size: MutPtr<UInt>, buffer: MutPtr<CVoid>): Bool =
+public actual fun qOSEnumerateFlows(qoshandle: Handle, size: MutPtr, buffer: MutPtr): Bool =
     WindowsWin32NetworkmanagementQosJniBridge.windowssysWindowsWin32NetworkmanagementQosQOSEnumerateFlows(qoshandle.rawAddress, size.rawAddress, buffer.rawAddress)
 
-public actual fun qOSNotifyFlow(qoshandle: Handle, flowid: UInt, operation: QosNotifyFlow, size: MutPtr<UInt>, buffer: MutPtr<CVoid>, flags: UInt, overlapped: MutPtr<Overlapped>): Bool =
+public actual fun qOSNotifyFlow(qoshandle: Handle, flowid: UInt, operation: QosNotifyFlow, size: MutPtr, buffer: MutPtr, flags: UInt, overlapped: MutPtr): Bool =
     WindowsWin32NetworkmanagementQosJniBridge.windowssysWindowsWin32NetworkmanagementQosQOSNotifyFlow(qoshandle.rawAddress, flowid.toInt(), operation, size.rawAddress, buffer.rawAddress, flags.toInt(), overlapped.rawAddress)
 
-public actual fun qOSQueryFlow(qoshandle: Handle, flowid: UInt, operation: QosQueryFlow, size: MutPtr<UInt>, buffer: MutPtr<CVoid>, flags: UInt, overlapped: MutPtr<Overlapped>): Bool =
+public actual fun qOSQueryFlow(qoshandle: Handle, flowid: UInt, operation: QosQueryFlow, size: MutPtr, buffer: MutPtr, flags: UInt, overlapped: MutPtr): Bool =
     WindowsWin32NetworkmanagementQosJniBridge.windowssysWindowsWin32NetworkmanagementQosQOSQueryFlow(qoshandle.rawAddress, flowid.toInt(), operation, size.rawAddress, buffer.rawAddress, flags.toInt(), overlapped.rawAddress)
 
 public actual fun qOSRemoveSocketFromFlow(qoshandle: Handle, socket: Socket, flowid: UInt, flags: UInt): Bool =
     WindowsWin32NetworkmanagementQosJniBridge.windowssysWindowsWin32NetworkmanagementQosQOSRemoveSocketFromFlow(qoshandle.rawAddress, socket.toLong(), flowid.toInt(), flags.toInt())
 
-public actual fun qOSSetFlow(qoshandle: Handle, flowid: UInt, operation: QosSetFlow, size: UInt, buffer: ConstPtr<CVoid>, flags: UInt, overlapped: MutPtr<Overlapped>): Bool =
+public actual fun qOSSetFlow(qoshandle: Handle, flowid: UInt, operation: QosSetFlow, size: UInt, buffer: ConstPtr, flags: UInt, overlapped: MutPtr): Bool =
     WindowsWin32NetworkmanagementQosJniBridge.windowssysWindowsWin32NetworkmanagementQosQOSSetFlow(qoshandle.rawAddress, flowid.toInt(), operation, size.toInt(), buffer.rawAddress, flags.toInt(), overlapped.rawAddress)
 
-public actual fun qOSStartTrackingClient(qoshandle: Handle, destaddr: ConstPtr<Sockaddr>, flags: UInt): Bool =
+public actual fun qOSStartTrackingClient(qoshandle: Handle, destaddr: ConstPtr, flags: UInt): Bool =
     WindowsWin32NetworkmanagementQosJniBridge.windowssysWindowsWin32NetworkmanagementQosQOSStartTrackingClient(qoshandle.rawAddress, destaddr.rawAddress, flags.toInt())
 
-public actual fun qOSStopTrackingClient(qoshandle: Handle, destaddr: ConstPtr<Sockaddr>, flags: UInt): Bool =
+public actual fun qOSStopTrackingClient(qoshandle: Handle, destaddr: ConstPtr, flags: UInt): Bool =
     WindowsWin32NetworkmanagementQosJniBridge.windowssysWindowsWin32NetworkmanagementQosQOSStopTrackingClient(qoshandle.rawAddress, destaddr.rawAddress, flags.toInt())
 
-public actual fun tcAddFilter(flowhandle: Handle, pgenericfilter: ConstPtr<TcGenFilter>, pfilterhandle: MutPtr<Handle>): UInt =
+public actual fun tcAddFilter(flowhandle: Handle, pgenericfilter: ConstPtr, pfilterhandle: MutPtr): UInt =
     WindowsWin32NetworkmanagementQosJniBridge.windowssysWindowsWin32NetworkmanagementQosTcAddFilter(flowhandle.rawAddress, pgenericfilter.rawAddress, pfilterhandle.rawAddress).toUInt()
 
-public actual fun tcAddFlow(ifchandle: Handle, clflowctx: Handle, flags: UInt, pgenericflow: ConstPtr<TcGenFlow>, pflowhandle: MutPtr<Handle>): UInt =
+public actual fun tcAddFlow(ifchandle: Handle, clflowctx: Handle, flags: UInt, pgenericflow: ConstPtr, pflowhandle: MutPtr): UInt =
     WindowsWin32NetworkmanagementQosJniBridge.windowssysWindowsWin32NetworkmanagementQosTcAddFlow(ifchandle.rawAddress, clflowctx.rawAddress, flags.toInt(), pgenericflow.rawAddress, pflowhandle.rawAddress).toUInt()
 
 public actual fun tcCloseInterface(ifchandle: Handle): UInt =
@@ -217,10 +213,10 @@ public actual fun tcDeleteFlow(flowhandle: Handle): UInt =
 public actual fun tcDeregisterClient(clienthandle: Handle): UInt =
     WindowsWin32NetworkmanagementQosJniBridge.windowssysWindowsWin32NetworkmanagementQosTcDeregisterClient(clienthandle.rawAddress).toUInt()
 
-public actual fun tcEnumerateFlows(ifchandle: Handle, penumhandle: MutPtr<Handle>, pflowcount: MutPtr<UInt>, pbufsize: MutPtr<UInt>, buffer: MutPtr<EnumerationBuffer>): UInt =
+public actual fun tcEnumerateFlows(ifchandle: Handle, penumhandle: MutPtr, pflowcount: MutPtr, pbufsize: MutPtr, buffer: MutPtr): UInt =
     WindowsWin32NetworkmanagementQosJniBridge.windowssysWindowsWin32NetworkmanagementQosTcEnumerateFlows(ifchandle.rawAddress, penumhandle.rawAddress, pflowcount.rawAddress, pbufsize.rawAddress, buffer.rawAddress).toUInt()
 
-public actual fun tcEnumerateInterfaces(clienthandle: Handle, pbuffersize: MutPtr<UInt>, interfacebuffer: MutPtr<TcIfcDescriptor>): UInt =
+public actual fun tcEnumerateInterfaces(clienthandle: Handle, pbuffersize: MutPtr, interfacebuffer: MutPtr): UInt =
     WindowsWin32NetworkmanagementQosJniBridge.windowssysWindowsWin32NetworkmanagementQosTcEnumerateInterfaces(clienthandle.rawAddress, pbuffersize.rawAddress, interfacebuffer.rawAddress).toUInt()
 
 public actual fun tcGetFlowNameA(flowhandle: Handle, strsize: UInt, pflowname: Pstr): UInt =
@@ -229,32 +225,32 @@ public actual fun tcGetFlowNameA(flowhandle: Handle, strsize: UInt, pflowname: P
 public actual fun tcGetFlowNameW(flowhandle: Handle, strsize: UInt, pflowname: Pwstr): UInt =
     WindowsWin32NetworkmanagementQosJniBridge.windowssysWindowsWin32NetworkmanagementQosTcGetFlowNameW(flowhandle.rawAddress, strsize.toInt(), pflowname.rawAddress).toUInt()
 
-public actual fun tcModifyFlow(flowhandle: Handle, pgenericflow: ConstPtr<TcGenFlow>): UInt =
+public actual fun tcModifyFlow(flowhandle: Handle, pgenericflow: ConstPtr): UInt =
     WindowsWin32NetworkmanagementQosJniBridge.windowssysWindowsWin32NetworkmanagementQosTcModifyFlow(flowhandle.rawAddress, pgenericflow.rawAddress).toUInt()
 
-public actual fun tcOpenInterfaceA(pinterfacename: Pcstr, clienthandle: Handle, clifcctx: Handle, pifchandle: MutPtr<Handle>): UInt =
+public actual fun tcOpenInterfaceA(pinterfacename: Pcstr, clienthandle: Handle, clifcctx: Handle, pifchandle: MutPtr): UInt =
     WindowsWin32NetworkmanagementQosJniBridge.windowssysWindowsWin32NetworkmanagementQosTcOpenInterfaceA(pinterfacename.rawAddress, clienthandle.rawAddress, clifcctx.rawAddress, pifchandle.rawAddress).toUInt()
 
-public actual fun tcOpenInterfaceW(pinterfacename: Pcwstr, clienthandle: Handle, clifcctx: Handle, pifchandle: MutPtr<Handle>): UInt =
+public actual fun tcOpenInterfaceW(pinterfacename: Pcwstr, clienthandle: Handle, clifcctx: Handle, pifchandle: MutPtr): UInt =
     WindowsWin32NetworkmanagementQosJniBridge.windowssysWindowsWin32NetworkmanagementQosTcOpenInterfaceW(pinterfacename.rawAddress, clienthandle.rawAddress, clifcctx.rawAddress, pifchandle.rawAddress).toUInt()
 
-public actual fun tcQueryFlowA(pflowname: Pcstr, pguidparam: ConstPtr<Guid>, pbuffersize: MutPtr<UInt>, buffer: MutPtr<CVoid>): UInt =
+public actual fun tcQueryFlowA(pflowname: Pcstr, pguidparam: ConstPtr, pbuffersize: MutPtr, buffer: MutPtr): UInt =
     WindowsWin32NetworkmanagementQosJniBridge.windowssysWindowsWin32NetworkmanagementQosTcQueryFlowA(pflowname.rawAddress, pguidparam.rawAddress, pbuffersize.rawAddress, buffer.rawAddress).toUInt()
 
-public actual fun tcQueryFlowW(pflowname: Pcwstr, pguidparam: ConstPtr<Guid>, pbuffersize: MutPtr<UInt>, buffer: MutPtr<CVoid>): UInt =
+public actual fun tcQueryFlowW(pflowname: Pcwstr, pguidparam: ConstPtr, pbuffersize: MutPtr, buffer: MutPtr): UInt =
     WindowsWin32NetworkmanagementQosJniBridge.windowssysWindowsWin32NetworkmanagementQosTcQueryFlowW(pflowname.rawAddress, pguidparam.rawAddress, pbuffersize.rawAddress, buffer.rawAddress).toUInt()
 
-public actual fun tcQueryInterface(ifchandle: Handle, pguidparam: ConstPtr<Guid>, notifychange: Boolean, pbuffersize: MutPtr<UInt>, buffer: MutPtr<CVoid>): UInt =
+public actual fun tcQueryInterface(ifchandle: Handle, pguidparam: ConstPtr, notifychange: Boolean, pbuffersize: MutPtr, buffer: MutPtr): UInt =
     WindowsWin32NetworkmanagementQosJniBridge.windowssysWindowsWin32NetworkmanagementQosTcQueryInterface(ifchandle.rawAddress, pguidparam.rawAddress, notifychange, pbuffersize.rawAddress, buffer.rawAddress).toUInt()
 
-public actual fun tcRegisterClient(tciversion: UInt, clregctx: Handle, clienthandlerlist: ConstPtr<TciClientFuncList>, pclienthandle: MutPtr<Handle>): UInt =
+public actual fun tcRegisterClient(tciversion: UInt, clregctx: Handle, clienthandlerlist: ConstPtr, pclienthandle: MutPtr): UInt =
     WindowsWin32NetworkmanagementQosJniBridge.windowssysWindowsWin32NetworkmanagementQosTcRegisterClient(tciversion.toInt(), clregctx.rawAddress, clienthandlerlist.rawAddress, pclienthandle.rawAddress).toUInt()
 
-public actual fun tcSetFlowA(pflowname: Pcstr, pguidparam: ConstPtr<Guid>, buffersize: UInt, buffer: ConstPtr<CVoid>): UInt =
+public actual fun tcSetFlowA(pflowname: Pcstr, pguidparam: ConstPtr, buffersize: UInt, buffer: ConstPtr): UInt =
     WindowsWin32NetworkmanagementQosJniBridge.windowssysWindowsWin32NetworkmanagementQosTcSetFlowA(pflowname.rawAddress, pguidparam.rawAddress, buffersize.toInt(), buffer.rawAddress).toUInt()
 
-public actual fun tcSetFlowW(pflowname: Pcwstr, pguidparam: ConstPtr<Guid>, buffersize: UInt, buffer: ConstPtr<CVoid>): UInt =
+public actual fun tcSetFlowW(pflowname: Pcwstr, pguidparam: ConstPtr, buffersize: UInt, buffer: ConstPtr): UInt =
     WindowsWin32NetworkmanagementQosJniBridge.windowssysWindowsWin32NetworkmanagementQosTcSetFlowW(pflowname.rawAddress, pguidparam.rawAddress, buffersize.toInt(), buffer.rawAddress).toUInt()
 
-public actual fun tcSetInterface(ifchandle: Handle, pguidparam: ConstPtr<Guid>, buffersize: UInt, buffer: ConstPtr<CVoid>): UInt =
+public actual fun tcSetInterface(ifchandle: Handle, pguidparam: ConstPtr, buffersize: UInt, buffer: ConstPtr): UInt =
     WindowsWin32NetworkmanagementQosJniBridge.windowssysWindowsWin32NetworkmanagementQosTcSetInterface(ifchandle.rawAddress, pguidparam.rawAddress, buffersize.toInt(), buffer.rawAddress).toUInt()

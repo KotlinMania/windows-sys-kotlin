@@ -7,8 +7,6 @@ import io.github.kotlinmania.rustlang.core.ptr.MutPtr
 import io.github.kotlinmania.windowssys.core.Guid
 import io.github.kotlinmania.windowssys.core.Pcwstr
 import io.github.kotlinmania.windowssys.core.Pwstr
-import io.github.kotlinmania.windowssys.windows.win32.security.Sid
-import io.github.kotlinmania.windowssys.windows.win32.security.SidAndAttributes
 
 public class FwDynamicKeywordAddress0 internal constructor(
     public var id: Guid,
@@ -75,11 +73,11 @@ public class FwDynamicKeywordAddress0 internal constructor(
 
 public class FwDynamicKeywordAddressData0 internal constructor(
     public var dynamicKeywordAddress: FwDynamicKeywordAddress0,
-    nextCtorArg: MutPtr<FwDynamicKeywordAddressData0>,
+    nextCtorArg: MutPtr,
     public var schemaVersion: UShort,
     public var originType: FwDynamicKeywordOriginType,
 ) {
-    public var next: MutPtr<FwDynamicKeywordAddressData0> = nextCtorArg
+    public var next: MutPtr = nextCtorArg
         internal set
 
     public constructor() : this(
@@ -91,13 +89,13 @@ public class FwDynamicKeywordAddressData0 internal constructor(
 
     public operator fun component1(): FwDynamicKeywordAddress0 = this.dynamicKeywordAddress
 
-    public operator fun component2(): MutPtr<FwDynamicKeywordAddressData0> = this.next
+    public operator fun component2(): MutPtr = this.next
 
     public operator fun component3(): UShort = this.schemaVersion
 
     public operator fun component4(): FwDynamicKeywordOriginType = this.originType
 
-    public fun copy(dynamicKeywordAddress: FwDynamicKeywordAddress0 = this.dynamicKeywordAddress, next: MutPtr<FwDynamicKeywordAddressData0> = this.next, schemaVersion: UShort = this.schemaVersion, originType: FwDynamicKeywordOriginType = this.originType): FwDynamicKeywordAddressData0 = FwDynamicKeywordAddressData0(dynamicKeywordAddress = dynamicKeywordAddress, nextCtorArg = next, schemaVersion = schemaVersion, originType = originType)
+    public fun copy(dynamicKeywordAddress: FwDynamicKeywordAddress0 = this.dynamicKeywordAddress, next: MutPtr = this.next, schemaVersion: UShort = this.schemaVersion, originType: FwDynamicKeywordOriginType = this.originType): FwDynamicKeywordAddressData0 = FwDynamicKeywordAddressData0(dynamicKeywordAddress = dynamicKeywordAddress, nextCtorArg = next, schemaVersion = schemaVersion, originType = originType)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -120,7 +118,7 @@ public class FwDynamicKeywordAddressData0 internal constructor(
     public companion object {
         public operator fun invoke(
             dynamicKeywordAddress: FwDynamicKeywordAddress0 = FwDynamicKeywordAddress0(),
-            next: MutPtr<FwDynamicKeywordAddressData0> = MutPtr(0L),
+            next: MutPtr = MutPtr(0L),
             schemaVersion: UShort = 0u,
             originType: FwDynamicKeywordOriginType = 0,
         ): FwDynamicKeywordAddressData0 =
@@ -135,9 +133,9 @@ public class FwDynamicKeywordAddressData0 internal constructor(
 
 public class InetFirewallAcBinaries internal constructor(
     public var count: UInt,
-    binariesCtorArg: MutPtr<Pwstr>,
+    binariesCtorArg: MutPtr,
 ) {
-    public var binaries: MutPtr<Pwstr> = binariesCtorArg
+    public var binaries: MutPtr = binariesCtorArg
         internal set
 
     public constructor() : this(
@@ -147,9 +145,9 @@ public class InetFirewallAcBinaries internal constructor(
 
     public operator fun component1(): UInt = this.count
 
-    public operator fun component2(): MutPtr<Pwstr> = this.binaries
+    public operator fun component2(): MutPtr = this.binaries
 
-    public fun copy(count: UInt = this.count, binaries: MutPtr<Pwstr> = this.binaries): InetFirewallAcBinaries = InetFirewallAcBinaries(count = count, binariesCtorArg = binaries)
+    public fun copy(count: UInt = this.count, binaries: MutPtr = this.binaries): InetFirewallAcBinaries = InetFirewallAcBinaries(count = count, binariesCtorArg = binaries)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -175,21 +173,21 @@ public class InetFirewallAcBinaries internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<Pwstr>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                     )
                 override fun writeNative(addr: Long, value: InetFirewallAcBinaries) {
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr, value.count)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<Pwstr>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.binaries)
                 }
             }
 
         public operator fun invoke(
             count: UInt = 0u,
-            binaries: MutPtr<Pwstr> = MutPtr(0L),
+            binaries: MutPtr = MutPtr(0L),
         ): InetFirewallAcBinaries =
             InetFirewallAcBinaries(
                 count = count,
@@ -200,9 +198,9 @@ public class InetFirewallAcBinaries internal constructor(
 
 public class InetFirewallAcCapabilities internal constructor(
     public var count: UInt,
-    capabilitiesCtorArg: MutPtr<SidAndAttributes>,
+    capabilitiesCtorArg: MutPtr,
 ) {
-    public var capabilities: MutPtr<SidAndAttributes> = capabilitiesCtorArg
+    public var capabilities: MutPtr = capabilitiesCtorArg
         internal set
 
     public constructor() : this(
@@ -212,9 +210,9 @@ public class InetFirewallAcCapabilities internal constructor(
 
     public operator fun component1(): UInt = this.count
 
-    public operator fun component2(): MutPtr<SidAndAttributes> = this.capabilities
+    public operator fun component2(): MutPtr = this.capabilities
 
-    public fun copy(count: UInt = this.count, capabilities: MutPtr<SidAndAttributes> = this.capabilities): InetFirewallAcCapabilities = InetFirewallAcCapabilities(count = count, capabilitiesCtorArg = capabilities)
+    public fun copy(count: UInt = this.count, capabilities: MutPtr = this.capabilities): InetFirewallAcCapabilities = InetFirewallAcCapabilities(count = count, capabilitiesCtorArg = capabilities)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -240,21 +238,21 @@ public class InetFirewallAcCapabilities internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<SidAndAttributes>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                     )
                 override fun writeNative(addr: Long, value: InetFirewallAcCapabilities) {
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr, value.count)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<SidAndAttributes>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.capabilities)
                 }
             }
 
         public operator fun invoke(
             count: UInt = 0u,
-            capabilities: MutPtr<SidAndAttributes> = MutPtr(0L),
+            capabilities: MutPtr = MutPtr(0L),
         ): InetFirewallAcCapabilities =
             InetFirewallAcCapabilities(
                 count = count,
@@ -266,15 +264,15 @@ public class InetFirewallAcCapabilities internal constructor(
 public class InetFirewallAcChange internal constructor(
     public var changeType: InetFirewallAcChangeType,
     public var createType: InetFirewallAcCreationType,
-    appContainerSidCtorArg: MutPtr<Sid>,
-    userSidCtorArg: MutPtr<Sid>,
+    appContainerSidCtorArg: MutPtr,
+    userSidCtorArg: MutPtr,
     displayNameCtorArg: Pwstr,
     public var anonymous: InetFirewallAcChange0,
 ) {
-    public var appContainerSid: MutPtr<Sid> = appContainerSidCtorArg
+    public var appContainerSid: MutPtr = appContainerSidCtorArg
         internal set
 
-    public var userSid: MutPtr<Sid> = userSidCtorArg
+    public var userSid: MutPtr = userSidCtorArg
         internal set
 
     public var displayName: Pwstr = displayNameCtorArg
@@ -293,15 +291,15 @@ public class InetFirewallAcChange internal constructor(
 
     public operator fun component2(): InetFirewallAcCreationType = this.createType
 
-    public operator fun component3(): MutPtr<Sid> = this.appContainerSid
+    public operator fun component3(): MutPtr = this.appContainerSid
 
-    public operator fun component4(): MutPtr<Sid> = this.userSid
+    public operator fun component4(): MutPtr = this.userSid
 
     public operator fun component5(): Pwstr = this.displayName
 
     public operator fun component6(): InetFirewallAcChange0 = this.anonymous
 
-    public fun copy(changeType: InetFirewallAcChangeType = this.changeType, createType: InetFirewallAcCreationType = this.createType, appContainerSid: MutPtr<Sid> = this.appContainerSid, userSid: MutPtr<Sid> = this.userSid, displayName: Pwstr = this.displayName, anonymous: InetFirewallAcChange0 = this.anonymous): InetFirewallAcChange = InetFirewallAcChange(changeType = changeType, createType = createType, appContainerSidCtorArg = appContainerSid, userSidCtorArg = userSid, displayNameCtorArg = displayName, anonymous = anonymous)
+    public fun copy(changeType: InetFirewallAcChangeType = this.changeType, createType: InetFirewallAcCreationType = this.createType, appContainerSid: MutPtr = this.appContainerSid, userSid: MutPtr = this.userSid, displayName: Pwstr = this.displayName, anonymous: InetFirewallAcChange0 = this.anonymous): InetFirewallAcChange = InetFirewallAcChange(changeType = changeType, createType = createType, appContainerSidCtorArg = appContainerSid, userSidCtorArg = userSid, displayNameCtorArg = displayName, anonymous = anonymous)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -329,8 +327,8 @@ public class InetFirewallAcChange internal constructor(
         public operator fun invoke(
             changeType: InetFirewallAcChangeType = 0,
             createType: InetFirewallAcCreationType = 0,
-            appContainerSid: MutPtr<Sid> = MutPtr(0L),
-            userSid: MutPtr<Sid> = MutPtr(0L),
+            appContainerSid: MutPtr = MutPtr(0L),
+            userSid: MutPtr = MutPtr(0L),
             displayName: Pwstr = MutPtr(0L),
             anonymous: InetFirewallAcChange0 = InetFirewallAcChange0(),
         ): InetFirewallAcChange =
@@ -351,8 +349,8 @@ public data class InetFirewallAcChange0(
 )
 
 public class InetFirewallAppContainer internal constructor(
-    appContainerSidCtorArg: MutPtr<Sid>,
-    userSidCtorArg: MutPtr<Sid>,
+    appContainerSidCtorArg: MutPtr,
+    userSidCtorArg: MutPtr,
     appContainerNameCtorArg: Pwstr,
     displayNameCtorArg: Pwstr,
     descriptionCtorArg: Pwstr,
@@ -361,10 +359,10 @@ public class InetFirewallAppContainer internal constructor(
     workingDirectoryCtorArg: Pwstr,
     packageFullNameCtorArg: Pwstr,
 ) {
-    public var appContainerSid: MutPtr<Sid> = appContainerSidCtorArg
+    public var appContainerSid: MutPtr = appContainerSidCtorArg
         internal set
 
-    public var userSid: MutPtr<Sid> = userSidCtorArg
+    public var userSid: MutPtr = userSidCtorArg
         internal set
 
     public var appContainerName: Pwstr = appContainerNameCtorArg
@@ -394,9 +392,9 @@ public class InetFirewallAppContainer internal constructor(
         packageFullNameCtorArg = MutPtr(0L),
     )
 
-    public operator fun component1(): MutPtr<Sid> = this.appContainerSid
+    public operator fun component1(): MutPtr = this.appContainerSid
 
-    public operator fun component2(): MutPtr<Sid> = this.userSid
+    public operator fun component2(): MutPtr = this.userSid
 
     public operator fun component3(): Pwstr = this.appContainerName
 
@@ -412,7 +410,7 @@ public class InetFirewallAppContainer internal constructor(
 
     public operator fun component9(): Pwstr = this.packageFullName
 
-    public fun copy(appContainerSid: MutPtr<Sid> = this.appContainerSid, userSid: MutPtr<Sid> = this.userSid, appContainerName: Pwstr = this.appContainerName, displayName: Pwstr = this.displayName, description: Pwstr = this.description, capabilities: InetFirewallAcCapabilities = this.capabilities, binaries: InetFirewallAcBinaries = this.binaries, workingDirectory: Pwstr = this.workingDirectory, packageFullName: Pwstr = this.packageFullName): InetFirewallAppContainer = InetFirewallAppContainer(appContainerSidCtorArg = appContainerSid, userSidCtorArg = userSid, appContainerNameCtorArg = appContainerName, displayNameCtorArg = displayName, descriptionCtorArg = description, capabilities = capabilities, binaries = binaries, workingDirectoryCtorArg = workingDirectory, packageFullNameCtorArg = packageFullName)
+    public fun copy(appContainerSid: MutPtr = this.appContainerSid, userSid: MutPtr = this.userSid, appContainerName: Pwstr = this.appContainerName, displayName: Pwstr = this.displayName, description: Pwstr = this.description, capabilities: InetFirewallAcCapabilities = this.capabilities, binaries: InetFirewallAcBinaries = this.binaries, workingDirectory: Pwstr = this.workingDirectory, packageFullName: Pwstr = this.packageFullName): InetFirewallAppContainer = InetFirewallAppContainer(appContainerSidCtorArg = appContainerSid, userSidCtorArg = userSid, appContainerNameCtorArg = appContainerName, displayNameCtorArg = displayName, descriptionCtorArg = description, capabilities = capabilities, binaries = binaries, workingDirectoryCtorArg = workingDirectory, packageFullNameCtorArg = packageFullName)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -444,8 +442,8 @@ public class InetFirewallAppContainer internal constructor(
 
     public companion object {
         public operator fun invoke(
-            appContainerSid: MutPtr<Sid> = MutPtr(0L),
-            userSid: MutPtr<Sid> = MutPtr(0L),
+            appContainerSid: MutPtr = MutPtr(0L),
+            userSid: MutPtr = MutPtr(0L),
             appContainerName: Pwstr = MutPtr(0L),
             displayName: Pwstr = MutPtr(0L),
             description: Pwstr = MutPtr(0L),

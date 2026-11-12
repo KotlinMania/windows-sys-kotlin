@@ -2,10 +2,8 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.media.dxmediaobjects
 
-import io.github.kotlinmania.rustlang.core.ffi.CVoid
 import io.github.kotlinmania.rustlang.core.ptr.ConstPtr
 import io.github.kotlinmania.rustlang.core.ptr.MutPtr
-import io.github.kotlinmania.windowssys.core.Guid
 import io.github.kotlinmania.windowssys.core.Hresult
 import io.github.kotlinmania.windowssys.core.Pcwstr
 import io.github.kotlinmania.windowssys.core.Pwstr
@@ -48,35 +46,35 @@ private external fun wasmWindowssysWindowsWin32MediaDxmediaobjectsMoFreeMediaTyp
 @JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWin32MediaDxmediaobjectsMoInitMediaType(p0, p1)")
 private external fun wasmWindowssysWindowsWin32MediaDxmediaobjectsMoInitMediaType(p0: String, p1: Int): Int
 
-public actual fun dMOEnum(guidcategory: ConstPtr<Guid>, dwflags: UInt, cintypes: UInt, pintypes: ConstPtr<DmoPartialMediatype>, couttypes: UInt, pouttypes: ConstPtr<DmoPartialMediatype>, ppenum: MutPtr<MutPtr<CVoid>>): Hresult =
+public actual fun dMOEnum(guidcategory: ConstPtr, dwflags: UInt, cintypes: UInt, pintypes: ConstPtr, couttypes: UInt, pouttypes: ConstPtr, ppenum: MutPtr): Hresult =
     if (windowsWin32MediaDxmediaobjectsNapiAvailable) wasmWindowssysWindowsWin32MediaDxmediaobjectsDMOEnum(guidcategory.rawAddress.toString(), dwflags.toInt(), cintypes.toInt(), pintypes.rawAddress.toString(), couttypes.toInt(), pouttypes.rawAddress.toString(), ppenum.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun dMOGetName(clsiddmo: ConstPtr<Guid>, szname: Pwstr): Hresult =
+public actual fun dMOGetName(clsiddmo: ConstPtr, szname: Pwstr): Hresult =
     if (windowsWin32MediaDxmediaobjectsNapiAvailable) wasmWindowssysWindowsWin32MediaDxmediaobjectsDMOGetName(clsiddmo.rawAddress.toString(), szname.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun dMOGetTypes(clsiddmo: ConstPtr<Guid>, ulinputtypesrequested: UInt, pulinputtypessupplied: MutPtr<UInt>, pinputtypes: MutPtr<DmoPartialMediatype>, uloutputtypesrequested: UInt, puloutputtypessupplied: MutPtr<UInt>, poutputtypes: MutPtr<DmoPartialMediatype>): Hresult =
+public actual fun dMOGetTypes(clsiddmo: ConstPtr, ulinputtypesrequested: UInt, pulinputtypessupplied: MutPtr, pinputtypes: MutPtr, uloutputtypesrequested: UInt, puloutputtypessupplied: MutPtr, poutputtypes: MutPtr): Hresult =
     if (windowsWin32MediaDxmediaobjectsNapiAvailable) wasmWindowssysWindowsWin32MediaDxmediaobjectsDMOGetTypes(clsiddmo.rawAddress.toString(), ulinputtypesrequested.toInt(), pulinputtypessupplied.rawAddress.toString(), pinputtypes.rawAddress.toString(), uloutputtypesrequested.toInt(), puloutputtypessupplied.rawAddress.toString(), poutputtypes.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun dMORegister(szname: Pcwstr, clsiddmo: ConstPtr<Guid>, guidcategory: ConstPtr<Guid>, dwflags: UInt, cintypes: UInt, pintypes: ConstPtr<DmoPartialMediatype>, couttypes: UInt, pouttypes: ConstPtr<DmoPartialMediatype>): Hresult =
+public actual fun dMORegister(szname: Pcwstr, clsiddmo: ConstPtr, guidcategory: ConstPtr, dwflags: UInt, cintypes: UInt, pintypes: ConstPtr, couttypes: UInt, pouttypes: ConstPtr): Hresult =
     if (windowsWin32MediaDxmediaobjectsNapiAvailable) wasmWindowssysWindowsWin32MediaDxmediaobjectsDMORegister(szname.rawAddress.toString(), clsiddmo.rawAddress.toString(), guidcategory.rawAddress.toString(), dwflags.toInt(), cintypes.toInt(), pintypes.rawAddress.toString(), couttypes.toInt(), pouttypes.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun dMOUnregister(clsiddmo: ConstPtr<Guid>, guidcategory: ConstPtr<Guid>): Hresult =
+public actual fun dMOUnregister(clsiddmo: ConstPtr, guidcategory: ConstPtr): Hresult =
     if (windowsWin32MediaDxmediaobjectsNapiAvailable) wasmWindowssysWindowsWin32MediaDxmediaobjectsDMOUnregister(clsiddmo.rawAddress.toString(), guidcategory.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun moCopyMediaType(pmtdest: MutPtr<DmoMediaType>, pmtsrc: ConstPtr<DmoMediaType>): Hresult =
+public actual fun moCopyMediaType(pmtdest: MutPtr, pmtsrc: ConstPtr): Hresult =
     if (windowsWin32MediaDxmediaobjectsNapiAvailable) wasmWindowssysWindowsWin32MediaDxmediaobjectsMoCopyMediaType(pmtdest.rawAddress.toString(), pmtsrc.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun moCreateMediaType(ppmt: MutPtr<MutPtr<DmoMediaType>>, cbformat: UInt): Hresult =
+public actual fun moCreateMediaType(ppmt: MutPtr, cbformat: UInt): Hresult =
     if (windowsWin32MediaDxmediaobjectsNapiAvailable) wasmWindowssysWindowsWin32MediaDxmediaobjectsMoCreateMediaType(ppmt.rawAddress.toString(), cbformat.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun moDeleteMediaType(pmt: MutPtr<DmoMediaType>): Hresult =
+public actual fun moDeleteMediaType(pmt: MutPtr): Hresult =
     if (windowsWin32MediaDxmediaobjectsNapiAvailable) wasmWindowssysWindowsWin32MediaDxmediaobjectsMoDeleteMediaType(pmt.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun moDuplicateMediaType(ppmtdest: MutPtr<MutPtr<DmoMediaType>>, pmtsrc: ConstPtr<DmoMediaType>): Hresult =
+public actual fun moDuplicateMediaType(ppmtdest: MutPtr, pmtsrc: ConstPtr): Hresult =
     if (windowsWin32MediaDxmediaobjectsNapiAvailable) wasmWindowssysWindowsWin32MediaDxmediaobjectsMoDuplicateMediaType(ppmtdest.rawAddress.toString(), pmtsrc.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun moFreeMediaType(pmt: MutPtr<DmoMediaType>): Hresult =
+public actual fun moFreeMediaType(pmt: MutPtr): Hresult =
     if (windowsWin32MediaDxmediaobjectsNapiAvailable) wasmWindowssysWindowsWin32MediaDxmediaobjectsMoFreeMediaType(pmt.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun moInitMediaType(pmt: MutPtr<DmoMediaType>, cbformat: UInt): Hresult =
+public actual fun moInitMediaType(pmt: MutPtr, cbformat: UInt): Hresult =
     if (windowsWin32MediaDxmediaobjectsNapiAvailable) wasmWindowssysWindowsWin32MediaDxmediaobjectsMoInitMediaType(pmt.rawAddress.toString(), cbformat.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")

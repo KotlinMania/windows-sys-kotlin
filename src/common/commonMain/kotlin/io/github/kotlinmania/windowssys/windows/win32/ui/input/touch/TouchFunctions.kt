@@ -9,18 +9,18 @@ public expect fun closeGestureInfoHandle(hgestureinfo: Hgestureinfo): Bool
 
 public expect fun closeTouchInputHandle(htouchinput: Htouchinput): Bool
 
-public expect fun getGestureConfig(hwnd: Hwnd, dwreserved: UInt, dwflags: UInt, pcids: ConstPtr<UInt>, pgestureconfig: MutPtr<Gestureconfig>, cbsize: UInt): Bool
+public expect fun getGestureConfig(hwnd: Hwnd, dwreserved: UInt, dwflags: UInt, pcids: ConstPtr, pgestureconfig: MutPtr, cbsize: UInt): Bool
 
-public expect fun getGestureExtraArgs(hgestureinfo: Hgestureinfo, cbextraargs: UInt, pextraargs: MutPtr<UByte>): Bool
+public expect fun getGestureExtraArgs(hgestureinfo: Hgestureinfo, cbextraargs: UInt, pextraargs: MutPtr): Bool
 
-public expect fun getGestureInfo(hgestureinfo: Hgestureinfo, pgestureinfo: MutPtr<Gestureinfo>): Bool
+public expect fun getGestureInfo(hgestureinfo: Hgestureinfo, pgestureinfo: MutPtr): Bool
 
-public expect fun getTouchInputInfo(htouchinput: Htouchinput, cinputs: UInt, pinputs: MutPtr<Touchinput>, cbsize: Int): Bool
+public expect fun getTouchInputInfo(htouchinput: Htouchinput, cinputs: UInt, pinputs: MutPtr, cbsize: Int): Bool
 
-public expect fun isTouchWindow(hwnd: Hwnd, pulflags: MutPtr<UInt>): Bool
+public expect fun isTouchWindow(hwnd: Hwnd, pulflags: MutPtr): Bool
 
 public expect fun registerTouchWindow(hwnd: Hwnd, ulflags: RegisterTouchWindowFlags): Bool
 
-public expect fun setGestureConfig(hwnd: Hwnd, dwreserved: UInt, cids: UInt, pgestureconfig: ConstPtr<Gestureconfig>, cbsize: UInt): Bool
+public expect fun setGestureConfig(hwnd: Hwnd, dwreserved: UInt, cids: UInt, pgestureconfig: ConstPtr, cbsize: UInt): Bool
 
 public expect fun unregisterTouchWindow(hwnd: Hwnd): Bool

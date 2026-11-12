@@ -2,16 +2,12 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.storage.cloudfilters
 
-import io.github.kotlinmania.rustlang.core.ffi.CVoid
 import io.github.kotlinmania.rustlang.core.ptr.ConstPtr
 import io.github.kotlinmania.rustlang.core.ptr.MutPtr
 import io.github.kotlinmania.windowssys.core.Hresult
 import io.github.kotlinmania.windowssys.core.Pcwstr
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Handle
 import io.github.kotlinmania.windowssys.windows.win32.storage.filesystem.FileInfoByHandleClass
-import io.github.kotlinmania.windowssys.windows.win32.storage.filesystem.Win32FindDataa
-import io.github.kotlinmania.windowssys.windows.win32.system.CorrelationVector
-import io.github.kotlinmania.windowssys.windows.win32.system.io.Overlapped
 
 @JsFun("() => { if (typeof globalThis.__km_napi_windowssys !== 'undefined') return globalThis.__km_napi_windowssys !== null; if (typeof process === 'undefined' || !process.versions || !process.versions.node) { globalThis.__km_napi_windowssys = null; return false; } var mod = process.getBuiltinModule ? process.getBuiltinModule('module') : (process.mainModule && process.mainModule.constructor); var req = (mod && mod.createRequire) ? mod.createRequire((process.cwd ? process.cwd() : '.') + '/package.json') : (process.mainModule ? process.mainModule.require : null); if (!req) { globalThis.__km_napi_windowssys = null; return false; } try { globalThis.__km_napi_windowssys = req('@kotlinmania/windowssys-native-bindings'); return true; } catch (_) {} var fs = req('fs'); var path = req('path'); var dir = process.cwd ? process.cwd() : '.'; var rels = ['windowssys_native.node', 'build/node-ffi/windowssys_native.node', 'build/node-ffi/release/windowssys_native.node', 'build/node-ffi/debug/windowssys_native.node', 'src/js/node-windowssys/build/Release/windowssys_native.node', 'src/js/node-windowssys/build/Debug/windowssys_native.node', 'src/js/node-windowssys/dist/build/Release/windowssys_native.node', 'src/js/node-windowssys/dist/build/Debug/windowssys_native.node']; for (var d = 0; d < 8; d++) { for (var i = 0; i < rels.length; i++) { var c = path.resolve(dir, rels[i]); if (fs.existsSync(c)) { globalThis.__km_napi_windowssys = req(c); return true; } } var parent = path.dirname(dir); if (parent === dir) break; dir = parent; } globalThis.__km_napi_windowssys = null; return false; }")
 private external fun initWindowsWin32StorageCloudfiltersNapiAddon(): Boolean
@@ -134,73 +130,73 @@ public actual fun cfCloseHandle(filehandle: Handle) {
     }
 }
 
-public actual fun cfConnectSyncRoot(syncrootpath: Pcwstr, callbacktable: ConstPtr<CfCallbackRegistration>, callbackcontext: ConstPtr<CVoid>, connectflags: CfConnectFlags, connectionkey: MutPtr<CfConnectionKey>): Hresult =
+public actual fun cfConnectSyncRoot(syncrootpath: Pcwstr, callbacktable: ConstPtr, callbackcontext: ConstPtr, connectflags: CfConnectFlags, connectionkey: MutPtr): Hresult =
     if (windowsWin32StorageCloudfiltersNapiAvailable) wasmWindowssysWindowsWin32StorageCloudfiltersCfConnectSyncRoot(syncrootpath.rawAddress.toString(), callbacktable.rawAddress.toString(), callbackcontext.rawAddress.toString(), connectflags, connectionkey.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun cfConvertToPlaceholder(filehandle: Handle, fileidentity: ConstPtr<CVoid>, fileidentitylength: UInt, convertflags: CfConvertFlags, convertusn: MutPtr<Long>, overlapped: MutPtr<Overlapped>): Hresult =
+public actual fun cfConvertToPlaceholder(filehandle: Handle, fileidentity: ConstPtr, fileidentitylength: UInt, convertflags: CfConvertFlags, convertusn: MutPtr, overlapped: MutPtr): Hresult =
     if (windowsWin32StorageCloudfiltersNapiAvailable) wasmWindowssysWindowsWin32StorageCloudfiltersCfConvertToPlaceholder(filehandle.rawAddress.toString(), fileidentity.rawAddress.toString(), fileidentitylength.toInt(), convertflags, convertusn.rawAddress.toString(), overlapped.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun cfCreatePlaceholders(basedirectorypath: Pcwstr, placeholderarray: MutPtr<CfPlaceholderCreateInfo>, placeholdercount: UInt, createflags: CfCreateFlags, entriesprocessed: MutPtr<UInt>): Hresult =
+public actual fun cfCreatePlaceholders(basedirectorypath: Pcwstr, placeholderarray: MutPtr, placeholdercount: UInt, createflags: CfCreateFlags, entriesprocessed: MutPtr): Hresult =
     if (windowsWin32StorageCloudfiltersNapiAvailable) wasmWindowssysWindowsWin32StorageCloudfiltersCfCreatePlaceholders(basedirectorypath.rawAddress.toString(), placeholderarray.rawAddress.toString(), placeholdercount.toInt(), createflags, entriesprocessed.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun cfDehydratePlaceholder(filehandle: Handle, startingoffset: Long, length: Long, dehydrateflags: CfDehydrateFlags, overlapped: MutPtr<Overlapped>): Hresult =
+public actual fun cfDehydratePlaceholder(filehandle: Handle, startingoffset: Long, length: Long, dehydrateflags: CfDehydrateFlags, overlapped: MutPtr): Hresult =
     if (windowsWin32StorageCloudfiltersNapiAvailable) wasmWindowssysWindowsWin32StorageCloudfiltersCfDehydratePlaceholder(filehandle.rawAddress.toString(), startingoffset.toString(), length.toString(), dehydrateflags, overlapped.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun cfDisconnectSyncRoot(connectionkey: CfConnectionKey): Hresult =
     if (windowsWin32StorageCloudfiltersNapiAvailable) wasmWindowssysWindowsWin32StorageCloudfiltersCfDisconnectSyncRoot(connectionkey.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun cfExecute(opinfo: ConstPtr<CfOperationInfo>, opparams: MutPtr<CfOperationParameters>): Hresult =
+public actual fun cfExecute(opinfo: ConstPtr, opparams: MutPtr): Hresult =
     if (windowsWin32StorageCloudfiltersNapiAvailable) wasmWindowssysWindowsWin32StorageCloudfiltersCfExecute(opinfo.rawAddress.toString(), opparams.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun cfGetCorrelationVector(filehandle: Handle, correlationvector: MutPtr<CorrelationVector.CorrelationVector>): Hresult =
+public actual fun cfGetCorrelationVector(filehandle: Handle, correlationvector: MutPtr): Hresult =
     if (windowsWin32StorageCloudfiltersNapiAvailable) wasmWindowssysWindowsWin32StorageCloudfiltersCfGetCorrelationVector(filehandle.rawAddress.toString(), correlationvector.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun cfGetPlaceholderInfo(filehandle: Handle, infoclass: CfPlaceholderInfoClass, infobuffer: MutPtr<CVoid>, infobufferlength: UInt, returnedlength: MutPtr<UInt>): Hresult =
+public actual fun cfGetPlaceholderInfo(filehandle: Handle, infoclass: CfPlaceholderInfoClass, infobuffer: MutPtr, infobufferlength: UInt, returnedlength: MutPtr): Hresult =
     if (windowsWin32StorageCloudfiltersNapiAvailable) wasmWindowssysWindowsWin32StorageCloudfiltersCfGetPlaceholderInfo(filehandle.rawAddress.toString(), infoclass, infobuffer.rawAddress.toString(), infobufferlength.toInt(), returnedlength.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun cfGetPlaceholderRangeInfo(filehandle: Handle, infoclass: CfPlaceholderRangeInfoClass, startingoffset: Long, length: Long, infobuffer: MutPtr<CVoid>, infobufferlength: UInt, returnedlength: MutPtr<UInt>): Hresult =
+public actual fun cfGetPlaceholderRangeInfo(filehandle: Handle, infoclass: CfPlaceholderRangeInfoClass, startingoffset: Long, length: Long, infobuffer: MutPtr, infobufferlength: UInt, returnedlength: MutPtr): Hresult =
     if (windowsWin32StorageCloudfiltersNapiAvailable) wasmWindowssysWindowsWin32StorageCloudfiltersCfGetPlaceholderRangeInfo(filehandle.rawAddress.toString(), infoclass, startingoffset.toString(), length.toString(), infobuffer.rawAddress.toString(), infobufferlength.toInt(), returnedlength.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun cfGetPlaceholderRangeInfoForHydration(connectionkey: CfConnectionKey, transferkey: Long, fileid: Long, infoclass: CfPlaceholderRangeInfoClass, startingoffset: Long, rangelength: Long, infobuffer: MutPtr<CVoid>, infobuffersize: UInt, infobufferwritten: MutPtr<UInt>): Hresult =
+public actual fun cfGetPlaceholderRangeInfoForHydration(connectionkey: CfConnectionKey, transferkey: Long, fileid: Long, infoclass: CfPlaceholderRangeInfoClass, startingoffset: Long, rangelength: Long, infobuffer: MutPtr, infobuffersize: UInt, infobufferwritten: MutPtr): Hresult =
     if (windowsWin32StorageCloudfiltersNapiAvailable) wasmWindowssysWindowsWin32StorageCloudfiltersCfGetPlaceholderRangeInfoForHydration(connectionkey.toString(), transferkey.toString(), fileid.toString(), infoclass, startingoffset.toString(), rangelength.toString(), infobuffer.rawAddress.toString(), infobuffersize.toInt(), infobufferwritten.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun cfGetPlaceholderStateFromAttributeTag(fileattributes: UInt, reparsetag: UInt): CfPlaceholderState =
     if (windowsWin32StorageCloudfiltersNapiAvailable) wasmWindowssysWindowsWin32StorageCloudfiltersCfGetPlaceholderStateFromAttributeTag(fileattributes.toInt(), reparsetag.toInt()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun cfGetPlaceholderStateFromFileInfo(infobuffer: ConstPtr<CVoid>, infoclass: FileInfoByHandleClass): CfPlaceholderState =
+public actual fun cfGetPlaceholderStateFromFileInfo(infobuffer: ConstPtr, infoclass: FileInfoByHandleClass): CfPlaceholderState =
     if (windowsWin32StorageCloudfiltersNapiAvailable) wasmWindowssysWindowsWin32StorageCloudfiltersCfGetPlaceholderStateFromFileInfo(infobuffer.rawAddress.toString(), infoclass).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun cfGetPlaceholderStateFromFindData(finddata: ConstPtr<Win32FindDataa>): CfPlaceholderState =
+public actual fun cfGetPlaceholderStateFromFindData(finddata: ConstPtr): CfPlaceholderState =
     if (windowsWin32StorageCloudfiltersNapiAvailable) wasmWindowssysWindowsWin32StorageCloudfiltersCfGetPlaceholderStateFromFindData(finddata.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun cfGetPlatformInfo(platformversion: MutPtr<CfPlatformInfo>): Hresult =
+public actual fun cfGetPlatformInfo(platformversion: MutPtr): Hresult =
     if (windowsWin32StorageCloudfiltersNapiAvailable) wasmWindowssysWindowsWin32StorageCloudfiltersCfGetPlatformInfo(platformversion.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun cfGetSyncRootInfoByHandle(filehandle: Handle, infoclass: CfSyncRootInfoClass, infobuffer: MutPtr<CVoid>, infobufferlength: UInt, returnedlength: MutPtr<UInt>): Hresult =
+public actual fun cfGetSyncRootInfoByHandle(filehandle: Handle, infoclass: CfSyncRootInfoClass, infobuffer: MutPtr, infobufferlength: UInt, returnedlength: MutPtr): Hresult =
     if (windowsWin32StorageCloudfiltersNapiAvailable) wasmWindowssysWindowsWin32StorageCloudfiltersCfGetSyncRootInfoByHandle(filehandle.rawAddress.toString(), infoclass, infobuffer.rawAddress.toString(), infobufferlength.toInt(), returnedlength.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun cfGetSyncRootInfoByPath(filepath: Pcwstr, infoclass: CfSyncRootInfoClass, infobuffer: MutPtr<CVoid>, infobufferlength: UInt, returnedlength: MutPtr<UInt>): Hresult =
+public actual fun cfGetSyncRootInfoByPath(filepath: Pcwstr, infoclass: CfSyncRootInfoClass, infobuffer: MutPtr, infobufferlength: UInt, returnedlength: MutPtr): Hresult =
     if (windowsWin32StorageCloudfiltersNapiAvailable) wasmWindowssysWindowsWin32StorageCloudfiltersCfGetSyncRootInfoByPath(filepath.rawAddress.toString(), infoclass, infobuffer.rawAddress.toString(), infobufferlength.toInt(), returnedlength.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun cfGetTransferKey(filehandle: Handle, transferkey: MutPtr<Long>): Hresult =
+public actual fun cfGetTransferKey(filehandle: Handle, transferkey: MutPtr): Hresult =
     if (windowsWin32StorageCloudfiltersNapiAvailable) wasmWindowssysWindowsWin32StorageCloudfiltersCfGetTransferKey(filehandle.rawAddress.toString(), transferkey.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun cfGetWin32HandleFromProtectedHandle(protectedhandle: Handle): Handle =
     if (windowsWin32StorageCloudfiltersNapiAvailable) MutPtr(wasmWindowssysWindowsWin32StorageCloudfiltersCfGetWin32HandleFromProtectedHandle(protectedhandle.rawAddress.toString()).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun cfHydratePlaceholder(filehandle: Handle, startingoffset: Long, length: Long, hydrateflags: CfHydrateFlags, overlapped: MutPtr<Overlapped>): Hresult =
+public actual fun cfHydratePlaceholder(filehandle: Handle, startingoffset: Long, length: Long, hydrateflags: CfHydrateFlags, overlapped: MutPtr): Hresult =
     if (windowsWin32StorageCloudfiltersNapiAvailable) wasmWindowssysWindowsWin32StorageCloudfiltersCfHydratePlaceholder(filehandle.rawAddress.toString(), startingoffset.toString(), length.toString(), hydrateflags, overlapped.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun cfOpenFileWithOplock(filepath: Pcwstr, flags: CfOpenFileFlags, protectedhandle: MutPtr<Handle>): Hresult =
+public actual fun cfOpenFileWithOplock(filepath: Pcwstr, flags: CfOpenFileFlags, protectedhandle: MutPtr): Hresult =
     if (windowsWin32StorageCloudfiltersNapiAvailable) wasmWindowssysWindowsWin32StorageCloudfiltersCfOpenFileWithOplock(filepath.rawAddress.toString(), flags, protectedhandle.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun cfQuerySyncProviderStatus(connectionkey: CfConnectionKey, providerstatus: MutPtr<CfSyncProviderStatus>): Hresult =
+public actual fun cfQuerySyncProviderStatus(connectionkey: CfConnectionKey, providerstatus: MutPtr): Hresult =
     if (windowsWin32StorageCloudfiltersNapiAvailable) wasmWindowssysWindowsWin32StorageCloudfiltersCfQuerySyncProviderStatus(connectionkey.toString(), providerstatus.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun cfReferenceProtectedHandle(protectedhandle: Handle): Boolean =
     if (windowsWin32StorageCloudfiltersNapiAvailable) wasmWindowssysWindowsWin32StorageCloudfiltersCfReferenceProtectedHandle(protectedhandle.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun cfRegisterSyncRoot(syncrootpath: Pcwstr, registration: ConstPtr<CfSyncRegistration>, policies: ConstPtr<CfSyncPolicies>, registerflags: CfRegisterFlags): Hresult =
+public actual fun cfRegisterSyncRoot(syncrootpath: Pcwstr, registration: ConstPtr, policies: ConstPtr, registerflags: CfRegisterFlags): Hresult =
     if (windowsWin32StorageCloudfiltersNapiAvailable) wasmWindowssysWindowsWin32StorageCloudfiltersCfRegisterSyncRoot(syncrootpath.rawAddress.toString(), registration.rawAddress.toString(), policies.rawAddress.toString(), registerflags) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun cfReleaseProtectedHandle(protectedhandle: Handle) {
@@ -211,7 +207,7 @@ public actual fun cfReleaseProtectedHandle(protectedhandle: Handle) {
     }
 }
 
-public actual fun cfReleaseTransferKey(filehandle: Handle, transferkey: ConstPtr<Long>) {
+public actual fun cfReleaseTransferKey(filehandle: Handle, transferkey: ConstPtr) {
     if (windowsWin32StorageCloudfiltersNapiAvailable) {
         wasmWindowssysWindowsWin32StorageCloudfiltersCfReleaseTransferKey(filehandle.rawAddress.toString(), transferkey.rawAddress.toString())
     } else {
@@ -225,25 +221,25 @@ public actual fun cfReportProviderProgress(connectionkey: CfConnectionKey, trans
 public actual fun cfReportProviderProgress2(connectionkey: CfConnectionKey, transferkey: Long, requestkey: Long, providerprogresstotal: Long, providerprogresscompleted: Long, targetsessionid: UInt): Hresult =
     if (windowsWin32StorageCloudfiltersNapiAvailable) wasmWindowssysWindowsWin32StorageCloudfiltersCfReportProviderProgress2(connectionkey.toString(), transferkey.toString(), requestkey.toString(), providerprogresstotal.toString(), providerprogresscompleted.toString(), targetsessionid.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun cfReportSyncStatus(syncrootpath: Pcwstr, syncstatus: ConstPtr<CfSyncStatus>): Hresult =
+public actual fun cfReportSyncStatus(syncrootpath: Pcwstr, syncstatus: ConstPtr): Hresult =
     if (windowsWin32StorageCloudfiltersNapiAvailable) wasmWindowssysWindowsWin32StorageCloudfiltersCfReportSyncStatus(syncrootpath.rawAddress.toString(), syncstatus.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun cfRevertPlaceholder(filehandle: Handle, revertflags: CfRevertFlags, overlapped: MutPtr<Overlapped>): Hresult =
+public actual fun cfRevertPlaceholder(filehandle: Handle, revertflags: CfRevertFlags, overlapped: MutPtr): Hresult =
     if (windowsWin32StorageCloudfiltersNapiAvailable) wasmWindowssysWindowsWin32StorageCloudfiltersCfRevertPlaceholder(filehandle.rawAddress.toString(), revertflags, overlapped.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun cfSetCorrelationVector(filehandle: Handle, correlationvector: ConstPtr<CorrelationVector.CorrelationVector>): Hresult =
+public actual fun cfSetCorrelationVector(filehandle: Handle, correlationvector: ConstPtr): Hresult =
     if (windowsWin32StorageCloudfiltersNapiAvailable) wasmWindowssysWindowsWin32StorageCloudfiltersCfSetCorrelationVector(filehandle.rawAddress.toString(), correlationvector.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun cfSetInSyncState(filehandle: Handle, insyncstate: CfInSyncState, insyncflags: CfSetInSyncFlags, insyncusn: MutPtr<Long>): Hresult =
+public actual fun cfSetInSyncState(filehandle: Handle, insyncstate: CfInSyncState, insyncflags: CfSetInSyncFlags, insyncusn: MutPtr): Hresult =
     if (windowsWin32StorageCloudfiltersNapiAvailable) wasmWindowssysWindowsWin32StorageCloudfiltersCfSetInSyncState(filehandle.rawAddress.toString(), insyncstate, insyncflags, insyncusn.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun cfSetPinState(filehandle: Handle, pinstate: CfPinState, pinflags: CfSetPinFlags, overlapped: MutPtr<Overlapped>): Hresult =
+public actual fun cfSetPinState(filehandle: Handle, pinstate: CfPinState, pinflags: CfSetPinFlags, overlapped: MutPtr): Hresult =
     if (windowsWin32StorageCloudfiltersNapiAvailable) wasmWindowssysWindowsWin32StorageCloudfiltersCfSetPinState(filehandle.rawAddress.toString(), pinstate, pinflags, overlapped.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun cfUnregisterSyncRoot(syncrootpath: Pcwstr): Hresult =
     if (windowsWin32StorageCloudfiltersNapiAvailable) wasmWindowssysWindowsWin32StorageCloudfiltersCfUnregisterSyncRoot(syncrootpath.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun cfUpdatePlaceholder(filehandle: Handle, fsmetadata: ConstPtr<CfFsMetadata>, fileidentity: ConstPtr<CVoid>, fileidentitylength: UInt, dehydraterangearray: ConstPtr<CfFileRange>, dehydraterangecount: UInt, updateflags: CfUpdateFlags, updateusn: MutPtr<Long>, overlapped: MutPtr<Overlapped>): Hresult =
+public actual fun cfUpdatePlaceholder(filehandle: Handle, fsmetadata: ConstPtr, fileidentity: ConstPtr, fileidentitylength: UInt, dehydraterangearray: ConstPtr, dehydraterangecount: UInt, updateflags: CfUpdateFlags, updateusn: MutPtr, overlapped: MutPtr): Hresult =
     if (windowsWin32StorageCloudfiltersNapiAvailable) wasmWindowssysWindowsWin32StorageCloudfiltersCfUpdatePlaceholder(filehandle.rawAddress.toString(), fsmetadata.rawAddress.toString(), fileidentity.rawAddress.toString(), fileidentitylength.toInt(), dehydraterangearray.rawAddress.toString(), dehydraterangecount.toInt(), updateflags, updateusn.rawAddress.toString(), overlapped.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun cfUpdateSyncProviderStatus(connectionkey: CfConnectionKey, providerstatus: CfSyncProviderStatus): Hresult =

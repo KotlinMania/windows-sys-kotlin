@@ -2,7 +2,6 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.system.deploymentservices
 
-import io.github.kotlinmania.rustlang.core.ffi.CVoid
 import io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
 import io.github.kotlinmania.rustlang.core.mem.TypeLayout
 import io.github.kotlinmania.rustlang.core.ptr.ConstPtr
@@ -119,15 +118,15 @@ public data class PxeDhcpv6MessageHeader(
 }
 
 public class PxeDhcpv6NestedRelayMessage internal constructor(
-    pRelayMessageCtorArg: MutPtr<PxeDhcpv6RelayMessage>,
+    pRelayMessageCtorArg: MutPtr,
     public var cbRelayMessage: UInt,
-    pInterfaceIdOptionCtorArg: MutPtr<CVoid>,
+    pInterfaceIdOptionCtorArg: MutPtr,
     public var cbInterfaceIdOption: UShort,
 ) {
-    public var pRelayMessage: MutPtr<PxeDhcpv6RelayMessage> = pRelayMessageCtorArg
+    public var pRelayMessage: MutPtr = pRelayMessageCtorArg
         internal set
 
-    public var pInterfaceIdOption: MutPtr<CVoid> = pInterfaceIdOptionCtorArg
+    public var pInterfaceIdOption: MutPtr = pInterfaceIdOptionCtorArg
         internal set
 
     public constructor() : this(
@@ -137,15 +136,15 @@ public class PxeDhcpv6NestedRelayMessage internal constructor(
         cbInterfaceIdOption = 0u,
     )
 
-    public operator fun component1(): MutPtr<PxeDhcpv6RelayMessage> = this.pRelayMessage
+    public operator fun component1(): MutPtr = this.pRelayMessage
 
     public operator fun component2(): UInt = this.cbRelayMessage
 
-    public operator fun component3(): MutPtr<CVoid> = this.pInterfaceIdOption
+    public operator fun component3(): MutPtr = this.pInterfaceIdOption
 
     public operator fun component4(): UShort = this.cbInterfaceIdOption
 
-    public fun copy(pRelayMessage: MutPtr<PxeDhcpv6RelayMessage> = this.pRelayMessage, cbRelayMessage: UInt = this.cbRelayMessage, pInterfaceIdOption: MutPtr<CVoid> = this.pInterfaceIdOption, cbInterfaceIdOption: UShort = this.cbInterfaceIdOption): PxeDhcpv6NestedRelayMessage = PxeDhcpv6NestedRelayMessage(pRelayMessageCtorArg = pRelayMessage, cbRelayMessage = cbRelayMessage, pInterfaceIdOptionCtorArg = pInterfaceIdOption, cbInterfaceIdOption = cbInterfaceIdOption)
+    public fun copy(pRelayMessage: MutPtr = this.pRelayMessage, cbRelayMessage: UInt = this.cbRelayMessage, pInterfaceIdOption: MutPtr = this.pInterfaceIdOption, cbInterfaceIdOption: UShort = this.cbInterfaceIdOption): PxeDhcpv6NestedRelayMessage = PxeDhcpv6NestedRelayMessage(pRelayMessageCtorArg = pRelayMessage, cbRelayMessage = cbRelayMessage, pInterfaceIdOptionCtorArg = pInterfaceIdOption, cbInterfaceIdOption = cbInterfaceIdOption)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -174,33 +173,33 @@ public class PxeDhcpv6NestedRelayMessage internal constructor(
                     PxeDhcpv6NestedRelayMessage(
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<PxeDhcpv6RelayMessage>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 8L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<CVoid>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 16L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16).readNative(addr + 24L),
                     )
                 override fun writeNative(addr: Long, value: PxeDhcpv6NestedRelayMessage) {
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<PxeDhcpv6RelayMessage>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr, value.pRelayMessage)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 8L, value.cbRelayMessage)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<CVoid>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 16L, value.pInterfaceIdOption)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16).writeNative(addr + 24L, value.cbInterfaceIdOption)
                 }
             }
 
         public operator fun invoke(
-            pRelayMessage: MutPtr<PxeDhcpv6RelayMessage> = MutPtr(0L),
+            pRelayMessage: MutPtr = MutPtr(0L),
             cbRelayMessage: UInt = 0u,
-            pInterfaceIdOption: MutPtr<CVoid> = MutPtr(0L),
+            pInterfaceIdOption: MutPtr = MutPtr(0L),
             cbInterfaceIdOption: UShort = 0u,
         ): PxeDhcpv6NestedRelayMessage =
             PxeDhcpv6NestedRelayMessage(
@@ -627,7 +626,7 @@ public class WdsTransportclientRequest internal constructor(
     pwszObjectNameCtorArg: Pcwstr,
     public var ulCacheSize: UInt,
     public var ulProtocol: UInt,
-    pvProtocolDataCtorArg: MutPtr<CVoid>,
+    pvProtocolDataCtorArg: MutPtr,
     public var ulProtocolDataLength: UInt,
 ) {
     public var pwszServer: Pcwstr = pwszServerCtorArg
@@ -639,7 +638,7 @@ public class WdsTransportclientRequest internal constructor(
     public var pwszObjectName: Pcwstr = pwszObjectNameCtorArg
         internal set
 
-    public var pvProtocolData: MutPtr<CVoid> = pvProtocolDataCtorArg
+    public var pvProtocolData: MutPtr = pvProtocolDataCtorArg
         internal set
 
     public constructor() : this(
@@ -671,11 +670,11 @@ public class WdsTransportclientRequest internal constructor(
 
     public operator fun component8(): UInt = this.ulProtocol
 
-    public operator fun component9(): MutPtr<CVoid> = this.pvProtocolData
+    public operator fun component9(): MutPtr = this.pvProtocolData
 
     public operator fun component10(): UInt = this.ulProtocolDataLength
 
-    public fun copy(ulLength: UInt = this.ulLength, ulApiVersion: UInt = this.ulApiVersion, ulAuthLevel: WdsTransportclientRequestAuthLevel = this.ulAuthLevel, pwszServer: Pcwstr = this.pwszServer, pwszNamespace: Pcwstr = this.pwszNamespace, pwszObjectName: Pcwstr = this.pwszObjectName, ulCacheSize: UInt = this.ulCacheSize, ulProtocol: UInt = this.ulProtocol, pvProtocolData: MutPtr<CVoid> = this.pvProtocolData, ulProtocolDataLength: UInt = this.ulProtocolDataLength): WdsTransportclientRequest = WdsTransportclientRequest(ulLength = ulLength, ulApiVersion = ulApiVersion, ulAuthLevel = ulAuthLevel, pwszServerCtorArg = pwszServer, pwszNamespaceCtorArg = pwszNamespace, pwszObjectNameCtorArg = pwszObjectName, ulCacheSize = ulCacheSize, ulProtocol = ulProtocol, pvProtocolDataCtorArg = pvProtocolData, ulProtocolDataLength = ulProtocolDataLength)
+    public fun copy(ulLength: UInt = this.ulLength, ulApiVersion: UInt = this.ulApiVersion, ulAuthLevel: WdsTransportclientRequestAuthLevel = this.ulAuthLevel, pwszServer: Pcwstr = this.pwszServer, pwszNamespace: Pcwstr = this.pwszNamespace, pwszObjectName: Pcwstr = this.pwszObjectName, ulCacheSize: UInt = this.ulCacheSize, ulProtocol: UInt = this.ulProtocol, pvProtocolData: MutPtr = this.pvProtocolData, ulProtocolDataLength: UInt = this.ulProtocolDataLength): WdsTransportclientRequest = WdsTransportclientRequest(ulLength = ulLength, ulApiVersion = ulApiVersion, ulAuthLevel = ulAuthLevel, pwszServerCtorArg = pwszServer, pwszNamespaceCtorArg = pwszNamespace, pwszObjectNameCtorArg = pwszObjectName, ulCacheSize = ulCacheSize, ulProtocol = ulProtocol, pvProtocolDataCtorArg = pvProtocolData, ulProtocolDataLength = ulProtocolDataLength)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -717,7 +716,7 @@ public class WdsTransportclientRequest internal constructor(
             pwszObjectName: Pcwstr = ConstPtr(0L),
             ulCacheSize: UInt = 0u,
             ulProtocol: UInt = 0u,
-            pvProtocolData: MutPtr<CVoid> = MutPtr(0L),
+            pvProtocolData: MutPtr = MutPtr(0L),
             ulProtocolDataLength: UInt = 0u,
         ): WdsTransportclientRequest =
             WdsTransportclientRequest(

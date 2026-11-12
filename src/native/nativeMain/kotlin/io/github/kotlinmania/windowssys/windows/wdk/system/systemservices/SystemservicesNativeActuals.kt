@@ -2,36 +2,17 @@
 
 package io.github.kotlinmania.windowssys.windows.wdk.system.systemservices
 
-import io.github.kotlinmania.rustlang.core.ffi.CVoid
 import io.github.kotlinmania.rustlang.core.ptr.ConstPtr
 import io.github.kotlinmania.rustlang.core.ptr.MutPtr
-import io.github.kotlinmania.windowssys.core.Guid
 import io.github.kotlinmania.windowssys.core.Pcstr
 import io.github.kotlinmania.windowssys.core.Pcwstr
 import io.github.kotlinmania.windowssys.core.Pstr
 import io.github.kotlinmania.windowssys.core.Pwstr
-import io.github.kotlinmania.windowssys.windows.wdk.foundation.DeviceObject
 import io.github.kotlinmania.windowssys.windows.wdk.foundation.DriverCancel
 import io.github.kotlinmania.windowssys.windows.wdk.foundation.DriverControl
 import io.github.kotlinmania.windowssys.windows.wdk.foundation.DriverNotificationCallbackRoutine
-import io.github.kotlinmania.windowssys.windows.wdk.foundation.DriverObject
 import io.github.kotlinmania.windowssys.windows.wdk.foundation.DriverReinitialize
-import io.github.kotlinmania.windowssys.windows.wdk.foundation.Eresource
-import io.github.kotlinmania.windowssys.windows.wdk.foundation.FastMutex
-import io.github.kotlinmania.windowssys.windows.wdk.foundation.FileObject
 import io.github.kotlinmania.windowssys.windows.wdk.foundation.IoPriorityHint
-import io.github.kotlinmania.windowssys.windows.wdk.foundation.Irp
-import io.github.kotlinmania.windowssys.windows.wdk.foundation.KdeviceQueue
-import io.github.kotlinmania.windowssys.windows.wdk.foundation.Kdpc
-import io.github.kotlinmania.windowssys.windows.wdk.foundation.Kenlistment
-import io.github.kotlinmania.windowssys.windows.wdk.foundation.Kevent
-import io.github.kotlinmania.windowssys.windows.wdk.foundation.Kmutant
-import io.github.kotlinmania.windowssys.windows.wdk.foundation.Kresourcemanager
-import io.github.kotlinmania.windowssys.windows.wdk.foundation.Ktm
-import io.github.kotlinmania.windowssys.windows.wdk.foundation.Ktransaction
-import io.github.kotlinmania.windowssys.windows.wdk.foundation.KwaitBlock
-import io.github.kotlinmania.windowssys.windows.wdk.foundation.Mdl
-import io.github.kotlinmania.windowssys.windows.wdk.foundation.ObjectAttributes
 import io.github.kotlinmania.windowssys.windows.wdk.foundation.PaffinityToken
 import io.github.kotlinmania.windowssys.windows.wdk.foundation.PcallbackObject
 import io.github.kotlinmania.windowssys.windows.wdk.foundation.Pejob
@@ -53,10 +34,6 @@ import io.github.kotlinmania.windowssys.windows.wdk.foundation.PpcwBuffer
 import io.github.kotlinmania.windowssys.windows.wdk.foundation.PpcwInstance
 import io.github.kotlinmania.windowssys.windows.wdk.foundation.PpcwRegistration
 import io.github.kotlinmania.windowssys.windows.wdk.foundation.PsiloMonitor
-import io.github.kotlinmania.windowssys.windows.wdk.foundation.RtlSplayLinks
-import io.github.kotlinmania.windowssys.windows.wdk.foundation.SecuritySubjectContext
-import io.github.kotlinmania.windowssys.windows.wdk.foundation.Vpb
-import io.github.kotlinmania.windowssys.windows.wdk.foundation.WorkQueueItem
 import io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.FileInformationClass
 import io.github.kotlinmania.windowssys.windows.wdk.system.systemservices.cinterop.windowssysWindowsWdkSystemSystemservicesClfsAddLogContainer
 import io.github.kotlinmania.windowssys.windows.wdk.system.systemservices.cinterop.windowssysWindowsWdkSystemSystemservicesClfsAddLogContainerSet
@@ -1200,50 +1177,24 @@ import io.github.kotlinmania.windowssys.windows.wdk.system.systemservices.cinter
 import io.github.kotlinmania.windowssys.windows.wdk.system.systemservices.cinterop.windowssysWindowsWdkSystemSystemservicesZwSinglePhaseReject
 import io.github.kotlinmania.windowssys.windows.wdk.system.systemservices.cinterop.windowssysWindowsWdkSystemSystemservicesZwUnloadDriver
 import io.github.kotlinmania.windowssys.windows.wdk.system.systemservices.cinterop.windowssysWindowsWdkSystemSystemservicesZwWriteFile
-import io.github.kotlinmania.windowssys.windows.win32.devices.properties.Devproptype
-import io.github.kotlinmania.windowssys.windows.win32.foundation.Devpropkey
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Handle
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Luid
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Ntstatus
-import io.github.kotlinmania.windowssys.windows.win32.foundation.UnicodeString
-import io.github.kotlinmania.windowssys.windows.win32.security.Acl
-import io.github.kotlinmania.windowssys.windows.win32.security.GenericMapping
-import io.github.kotlinmania.windowssys.windows.win32.security.PrivilegeSet
 import io.github.kotlinmania.windowssys.windows.win32.security.PsecurityDescriptor
 import io.github.kotlinmania.windowssys.windows.win32.security.Psid
-import io.github.kotlinmania.windowssys.windows.win32.security.authentication.identity.SeAdtParameterArray
 import io.github.kotlinmania.windowssys.windows.win32.security.authentication.identity.SeAdtParameterType
 import io.github.kotlinmania.windowssys.windows.win32.storage.filesystem.ClfsContextMode
 import io.github.kotlinmania.windowssys.windows.win32.storage.filesystem.ClfsIostatsClass
-import io.github.kotlinmania.windowssys.windows.win32.storage.filesystem.ClfsMgmtPolicy
 import io.github.kotlinmania.windowssys.windows.win32.storage.filesystem.ClfsMgmtPolicyType
-import io.github.kotlinmania.windowssys.windows.win32.storage.filesystem.ClsInformation
 import io.github.kotlinmania.windowssys.windows.win32.storage.filesystem.ClsLogInformationClass
 import io.github.kotlinmania.windowssys.windows.win32.storage.filesystem.ClsLsn
-import io.github.kotlinmania.windowssys.windows.win32.storage.filesystem.ClsScanContext
-import io.github.kotlinmania.windowssys.windows.win32.storage.filesystem.ClsWriteEntry
-import io.github.kotlinmania.windowssys.windows.win32.storage.filesystem.FileSegmentElement
-import io.github.kotlinmania.windowssys.windows.win32.storage.filesystem.TransactionNotification
-import io.github.kotlinmania.windowssys.windows.win32.storage.iscsidisc.AdapterObject
 import io.github.kotlinmania.windowssys.windows.win32.system.diagnostics.debug.BugcheckError
-import io.github.kotlinmania.windowssys.windows.win32.system.diagnostics.debug.WheaDriverBufferSet
-import io.github.kotlinmania.windowssys.windows.win32.system.diagnostics.debug.WheaErrorSourceConfigurationDeviceDriver
-import io.github.kotlinmania.windowssys.windows.win32.system.diagnostics.debug.WheaErrorSourceDescriptor
 import io.github.kotlinmania.windowssys.windows.win32.system.diagnostics.debug.WheaErrorSourceState
 import io.github.kotlinmania.windowssys.windows.win32.system.diagnostics.debug.WheaErrorSourceType
-import io.github.kotlinmania.windowssys.windows.win32.system.diagnostics.etw.EventDataDescriptor
-import io.github.kotlinmania.windowssys.windows.win32.system.diagnostics.etw.EventDescriptor
 import io.github.kotlinmania.windowssys.windows.win32.system.diagnostics.etw.EventInfoClass
 import io.github.kotlinmania.windowssys.windows.win32.system.diagnostics.etw.Reghandle
-import io.github.kotlinmania.windowssys.windows.win32.system.io.IoStatusBlock
 import io.github.kotlinmania.windowssys.windows.win32.system.io.PioApcRoutine
-import io.github.kotlinmania.windowssys.windows.win32.system.ioctl.CreateDisk
-import io.github.kotlinmania.windowssys.windows.win32.system.ioctl.DriveLayoutInformation
-import io.github.kotlinmania.windowssys.windows.win32.system.ioctl.DriveLayoutInformationEx
-import io.github.kotlinmania.windowssys.windows.win32.system.ioctl.SetPartitionInformationEx
 import io.github.kotlinmania.windowssys.windows.win32.system.kernel.EventType
-import io.github.kotlinmania.windowssys.windows.win32.system.kernel.NtProductType
-import io.github.kotlinmania.windowssys.windows.win32.system.kernel.ProcessorNumber
 import io.github.kotlinmania.windowssys.windows.win32.system.kernel.SuiteType
 import io.github.kotlinmania.windowssys.windows.win32.system.kernel.TimerType
 import io.github.kotlinmania.windowssys.windows.win32.system.kernel.WaitType
@@ -1251,223 +1202,216 @@ import io.github.kotlinmania.windowssys.windows.win32.system.power.DevicePowerSt
 import io.github.kotlinmania.windowssys.windows.win32.system.power.PowerInformationLevel
 import io.github.kotlinmania.windowssys.windows.win32.system.power.PowerRequestType
 import io.github.kotlinmania.windowssys.windows.win32.system.systeminformation.FirmwareType
-import io.github.kotlinmania.windowssys.windows.win32.system.systeminformation.GroupAffinity
 import io.github.kotlinmania.windowssys.windows.win32.system.systeminformation.LogicalProcessorRelationship
-import io.github.kotlinmania.windowssys.windows.win32.system.systeminformation.Osversioninfoexw
-import io.github.kotlinmania.windowssys.windows.win32.system.systeminformation.Osversioninfow
 import io.github.kotlinmania.windowssys.windows.win32.system.systeminformation.RtlSystemGlobalDataId
-import io.github.kotlinmania.windowssys.windows.win32.system.systeminformation.SystemLogicalProcessorInformationEx
 import io.github.kotlinmania.windowssys.windows.win32.system.systemservices.EnlistmentInformationClass
-import io.github.kotlinmania.windowssys.windows.win32.system.systemservices.KtmobjectCursor
 import io.github.kotlinmania.windowssys.windows.win32.system.systemservices.KtmobjectType
 import io.github.kotlinmania.windowssys.windows.win32.system.systemservices.ResourcemanagerInformationClass
 import io.github.kotlinmania.windowssys.windows.win32.system.systemservices.TransactionInformationClass
 import io.github.kotlinmania.windowssys.windows.win32.system.systemservices.TransactionmanagerInformationClass
-import io.github.kotlinmania.windowssys.windows.win32.system.threading.InitOnce
-import io.github.kotlinmania.windowssys.windows.win32.system.windowsprogramming.ClientId
 import kotlinx.cinterop.ByteVar
 import kotlinx.cinterop.toCPointer
 import kotlinx.cinterop.toLong
 
-public actual fun clfsAddLogContainer(plfolog: ConstPtr<FileObject>, pcbcontainer: ConstPtr<ULong>, puszcontainerpath: ConstPtr<UnicodeString>): Ntstatus =
+public actual fun clfsAddLogContainer(plfolog: ConstPtr, pcbcontainer: ConstPtr, puszcontainerpath: ConstPtr): Ntstatus =
     windowssysWindowsWdkSystemSystemservicesClfsAddLogContainer(plfolog.rawAddress.toCPointer<ByteVar>(), pcbcontainer.rawAddress.toCPointer<ByteVar>(), puszcontainerpath.rawAddress.toCPointer<ByteVar>())
 
-public actual fun clfsAddLogContainerSet(plfolog: ConstPtr<FileObject>, ccontainers: UShort, pcbcontainer: ConstPtr<ULong>, rguszcontainerpath: ConstPtr<UnicodeString>): Ntstatus =
+public actual fun clfsAddLogContainerSet(plfolog: ConstPtr, ccontainers: UShort, pcbcontainer: ConstPtr, rguszcontainerpath: ConstPtr): Ntstatus =
     windowssysWindowsWdkSystemSystemservicesClfsAddLogContainerSet(plfolog.rawAddress.toCPointer<ByteVar>(), ccontainers, pcbcontainer.rawAddress.toCPointer<ByteVar>(), rguszcontainerpath.rawAddress.toCPointer<ByteVar>())
 
-public actual fun clfsAdvanceLogBase(pvmarshalcontext: MutPtr<CVoid>, plsnbase: ConstPtr<ClsLsn>, fflags: UInt): Ntstatus =
+public actual fun clfsAdvanceLogBase(pvmarshalcontext: MutPtr, plsnbase: ConstPtr, fflags: UInt): Ntstatus =
     windowssysWindowsWdkSystemSystemservicesClfsAdvanceLogBase(pvmarshalcontext.rawAddress.toCPointer<ByteVar>(), plsnbase.rawAddress.toCPointer<ByteVar>(), fflags)
 
-public actual fun clfsAlignReservedLog(pvmarshalcontext: ConstPtr<CVoid>, crecords: UInt, rgcbreservation: ConstPtr<Long>, pcbalignreservation: MutPtr<Long>): Ntstatus =
+public actual fun clfsAlignReservedLog(pvmarshalcontext: ConstPtr, crecords: UInt, rgcbreservation: ConstPtr, pcbalignreservation: MutPtr): Ntstatus =
     windowssysWindowsWdkSystemSystemservicesClfsAlignReservedLog(pvmarshalcontext.rawAddress.toCPointer<ByteVar>(), crecords, rgcbreservation.rawAddress.toCPointer<ByteVar>(), pcbalignreservation.rawAddress.toCPointer<ByteVar>())
 
-public actual fun clfsAllocReservedLog(pvmarshalcontext: ConstPtr<CVoid>, crecords: UInt, pcbadjustment: ConstPtr<Long>): Ntstatus =
+public actual fun clfsAllocReservedLog(pvmarshalcontext: ConstPtr, crecords: UInt, pcbadjustment: ConstPtr): Ntstatus =
     windowssysWindowsWdkSystemSystemservicesClfsAllocReservedLog(pvmarshalcontext.rawAddress.toCPointer<ByteVar>(), crecords, pcbadjustment.rawAddress.toCPointer<ByteVar>())
 
-public actual fun clfsCloseAndResetLogFile(plfolog: ConstPtr<FileObject>): Ntstatus =
+public actual fun clfsCloseAndResetLogFile(plfolog: ConstPtr): Ntstatus =
     windowssysWindowsWdkSystemSystemservicesClfsCloseAndResetLogFile(plfolog.rawAddress.toCPointer<ByteVar>())
 
-public actual fun clfsCloseLogFileObject(plfolog: ConstPtr<FileObject>): Ntstatus =
+public actual fun clfsCloseLogFileObject(plfolog: ConstPtr): Ntstatus =
     windowssysWindowsWdkSystemSystemservicesClfsCloseLogFileObject(plfolog.rawAddress.toCPointer<ByteVar>())
 
-public actual fun clfsCreateLogFile(pplfolog: MutPtr<MutPtr<FileObject>>, puszlogfilename: ConstPtr<UnicodeString>, fdesiredaccess: UInt, dwsharemode: UInt, psdlogfile: PsecurityDescriptor, fcreatedisposition: UInt, fcreateoptions: UInt, fflagsandattributes: UInt, flogoptionflag: UInt, pvcontext: ConstPtr<CVoid>, cbcontext: UInt): Ntstatus =
+public actual fun clfsCreateLogFile(pplfolog: MutPtr, puszlogfilename: ConstPtr, fdesiredaccess: UInt, dwsharemode: UInt, psdlogfile: PsecurityDescriptor, fcreatedisposition: UInt, fcreateoptions: UInt, fflagsandattributes: UInt, flogoptionflag: UInt, pvcontext: ConstPtr, cbcontext: UInt): Ntstatus =
     windowssysWindowsWdkSystemSystemservicesClfsCreateLogFile(pplfolog.rawAddress.toCPointer<ByteVar>(), puszlogfilename.rawAddress.toCPointer<ByteVar>(), fdesiredaccess, dwsharemode, psdlogfile.rawAddress.toCPointer<ByteVar>(), fcreatedisposition, fcreateoptions, fflagsandattributes, flogoptionflag, pvcontext.rawAddress.toCPointer<ByteVar>(), cbcontext)
 
-public actual fun clfsCreateMarshallingArea(plfolog: ConstPtr<FileObject>, epooltype: PoolType, pfnallocbuffer: PallocateFunction, pfnfreebuffer: PfreeFunction, cbmarshallingbuffer: UInt, cmaxwritebuffers: UInt, cmaxreadbuffers: UInt, ppvmarshalcontext: MutPtr<MutPtr<CVoid>>): Ntstatus =
+public actual fun clfsCreateMarshallingArea(plfolog: ConstPtr, epooltype: PoolType, pfnallocbuffer: PallocateFunction, pfnfreebuffer: PfreeFunction, cbmarshallingbuffer: UInt, cmaxwritebuffers: UInt, cmaxreadbuffers: UInt, ppvmarshalcontext: MutPtr): Ntstatus =
     0
 
-public actual fun clfsCreateMarshallingAreaEx(plfolog: ConstPtr<FileObject>, epooltype: PoolType, pfnallocbuffer: PallocateFunction, pfnfreebuffer: PfreeFunction, cbmarshallingbuffer: UInt, cmaxwritebuffers: UInt, cmaxreadbuffers: UInt, calignmentsize: UInt, fflags: ULong, ppvmarshalcontext: MutPtr<MutPtr<CVoid>>): Ntstatus =
+public actual fun clfsCreateMarshallingAreaEx(plfolog: ConstPtr, epooltype: PoolType, pfnallocbuffer: PallocateFunction, pfnfreebuffer: PfreeFunction, cbmarshallingbuffer: UInt, cmaxwritebuffers: UInt, cmaxreadbuffers: UInt, calignmentsize: UInt, fflags: ULong, ppvmarshalcontext: MutPtr): Ntstatus =
     0
 
-public actual fun clfsCreateScanContext(plfolog: ConstPtr<FileObject>, cfromcontainer: UInt, ccontainers: UInt, escanmode: UByte, pcxscan: MutPtr<ClsScanContext>): Ntstatus =
+public actual fun clfsCreateScanContext(plfolog: ConstPtr, cfromcontainer: UInt, ccontainers: UInt, escanmode: UByte, pcxscan: MutPtr): Ntstatus =
     windowssysWindowsWdkSystemSystemservicesClfsCreateScanContext(plfolog.rawAddress.toCPointer<ByteVar>(), cfromcontainer, ccontainers, escanmode, pcxscan.rawAddress.toCPointer<ByteVar>())
 
-public actual fun clfsDeleteLogByPointer(plfolog: ConstPtr<FileObject>): Ntstatus =
+public actual fun clfsDeleteLogByPointer(plfolog: ConstPtr): Ntstatus =
     windowssysWindowsWdkSystemSystemservicesClfsDeleteLogByPointer(plfolog.rawAddress.toCPointer<ByteVar>())
 
-public actual fun clfsDeleteLogFile(puszlogfilename: ConstPtr<UnicodeString>, pvreserved: ConstPtr<CVoid>, flogoptionflag: UInt, pvcontext: ConstPtr<CVoid>, cbcontext: UInt): Ntstatus =
+public actual fun clfsDeleteLogFile(puszlogfilename: ConstPtr, pvreserved: ConstPtr, flogoptionflag: UInt, pvcontext: ConstPtr, cbcontext: UInt): Ntstatus =
     windowssysWindowsWdkSystemSystemservicesClfsDeleteLogFile(puszlogfilename.rawAddress.toCPointer<ByteVar>(), pvreserved.rawAddress.toCPointer<ByteVar>(), flogoptionflag, pvcontext.rawAddress.toCPointer<ByteVar>(), cbcontext)
 
-public actual fun clfsDeleteMarshallingArea(pvmarshalcontext: ConstPtr<CVoid>): Ntstatus =
+public actual fun clfsDeleteMarshallingArea(pvmarshalcontext: ConstPtr): Ntstatus =
     windowssysWindowsWdkSystemSystemservicesClfsDeleteMarshallingArea(pvmarshalcontext.rawAddress.toCPointer<ByteVar>())
 
-public actual fun clfsEarlierLsn(plsn: ConstPtr<ClsLsn>): ClsLsn =
+public actual fun clfsEarlierLsn(plsn: ConstPtr): ClsLsn =
     ClsLsn()
 
 public actual fun clfsFinalize() {
     windowssysWindowsWdkSystemSystemservicesClfsFinalize()
 }
 
-public actual fun clfsFlushBuffers(pvmarshalcontext: ConstPtr<CVoid>): Ntstatus =
+public actual fun clfsFlushBuffers(pvmarshalcontext: ConstPtr): Ntstatus =
     windowssysWindowsWdkSystemSystemservicesClfsFlushBuffers(pvmarshalcontext.rawAddress.toCPointer<ByteVar>())
 
-public actual fun clfsFlushToLsn(pvmarshalcontext: ConstPtr<CVoid>, plsnflush: ConstPtr<ClsLsn>, plsnlastflushed: MutPtr<ClsLsn>): Ntstatus =
+public actual fun clfsFlushToLsn(pvmarshalcontext: ConstPtr, plsnflush: ConstPtr, plsnlastflushed: MutPtr): Ntstatus =
     windowssysWindowsWdkSystemSystemservicesClfsFlushToLsn(pvmarshalcontext.rawAddress.toCPointer<ByteVar>(), plsnflush.rawAddress.toCPointer<ByteVar>(), plsnlastflushed.rawAddress.toCPointer<ByteVar>())
 
-public actual fun clfsFreeReservedLog(pvmarshalcontext: ConstPtr<CVoid>, crecords: UInt, pcbadjustment: ConstPtr<Long>): Ntstatus =
+public actual fun clfsFreeReservedLog(pvmarshalcontext: ConstPtr, crecords: UInt, pcbadjustment: ConstPtr): Ntstatus =
     windowssysWindowsWdkSystemSystemservicesClfsFreeReservedLog(pvmarshalcontext.rawAddress.toCPointer<ByteVar>(), crecords, pcbadjustment.rawAddress.toCPointer<ByteVar>())
 
-public actual fun clfsGetContainerName(plfolog: ConstPtr<FileObject>, cidlogicalcontainer: UInt, puszcontainername: MutPtr<UnicodeString>, pcactuallencontainername: MutPtr<UInt>): Ntstatus =
+public actual fun clfsGetContainerName(plfolog: ConstPtr, cidlogicalcontainer: UInt, puszcontainername: MutPtr, pcactuallencontainername: MutPtr): Ntstatus =
     windowssysWindowsWdkSystemSystemservicesClfsGetContainerName(plfolog.rawAddress.toCPointer<ByteVar>(), cidlogicalcontainer, puszcontainername.rawAddress.toCPointer<ByteVar>(), pcactuallencontainername.rawAddress.toCPointer<ByteVar>())
 
-public actual fun clfsGetIoStatistics(plfolog: ConstPtr<FileObject>, pvstatsbuffer: MutPtr<CVoid>, cbstatsbuffer: UInt, estatsclass: ClfsIostatsClass, pcbstatswritten: MutPtr<UInt>): Ntstatus =
+public actual fun clfsGetIoStatistics(plfolog: ConstPtr, pvstatsbuffer: MutPtr, cbstatsbuffer: UInt, estatsclass: ClfsIostatsClass, pcbstatswritten: MutPtr): Ntstatus =
     windowssysWindowsWdkSystemSystemservicesClfsGetIoStatistics(plfolog.rawAddress.toCPointer<ByteVar>(), pvstatsbuffer.rawAddress.toCPointer<ByteVar>(), cbstatsbuffer, estatsclass, pcbstatswritten.rawAddress.toCPointer<ByteVar>())
 
-public actual fun clfsGetLogFileInformation(plfolog: ConstPtr<FileObject>, pinfobuffer: MutPtr<ClsInformation>, pcbinfobuffer: MutPtr<UInt>): Ntstatus =
+public actual fun clfsGetLogFileInformation(plfolog: ConstPtr, pinfobuffer: MutPtr, pcbinfobuffer: MutPtr): Ntstatus =
     windowssysWindowsWdkSystemSystemservicesClfsGetLogFileInformation(plfolog.rawAddress.toCPointer<ByteVar>(), pinfobuffer.rawAddress.toCPointer<ByteVar>(), pcbinfobuffer.rawAddress.toCPointer<ByteVar>())
 
 public actual fun clfsInitialize(): Ntstatus =
     windowssysWindowsWdkSystemSystemservicesClfsInitialize()
 
-public actual fun clfsLaterLsn(plsn: ConstPtr<ClsLsn>): ClsLsn =
+public actual fun clfsLaterLsn(plsn: ConstPtr): ClsLsn =
     ClsLsn()
 
-public actual fun clfsLsnBlockOffset(plsn: ConstPtr<ClsLsn>): UInt =
+public actual fun clfsLsnBlockOffset(plsn: ConstPtr): UInt =
     windowssysWindowsWdkSystemSystemservicesClfsLsnBlockOffset(plsn.rawAddress.toCPointer<ByteVar>())
 
-public actual fun clfsLsnContainer(plsn: ConstPtr<ClsLsn>): UInt =
+public actual fun clfsLsnContainer(plsn: ConstPtr): UInt =
     windowssysWindowsWdkSystemSystemservicesClfsLsnContainer(plsn.rawAddress.toCPointer<ByteVar>())
 
 public actual fun clfsLsnCreate(cidcontainer: UInt, offblock: UInt, crecord: UInt): ClsLsn =
     ClsLsn()
 
-public actual fun clfsLsnDifference(plsnstart: ConstPtr<ClsLsn>, plsnfinish: ConstPtr<ClsLsn>, cbcontainer: UInt, cbmaxblock: UInt, pcbdifference: MutPtr<Long>): Ntstatus =
+public actual fun clfsLsnDifference(plsnstart: ConstPtr, plsnfinish: ConstPtr, cbcontainer: UInt, cbmaxblock: UInt, pcbdifference: MutPtr): Ntstatus =
     windowssysWindowsWdkSystemSystemservicesClfsLsnDifference(plsnstart.rawAddress.toCPointer<ByteVar>(), plsnfinish.rawAddress.toCPointer<ByteVar>(), cbcontainer, cbmaxblock, pcbdifference.rawAddress.toCPointer<ByteVar>())
 
-public actual fun clfsLsnEqual(plsn1: ConstPtr<ClsLsn>, plsn2: ConstPtr<ClsLsn>): Boolean =
+public actual fun clfsLsnEqual(plsn1: ConstPtr, plsn2: ConstPtr): Boolean =
     windowssysWindowsWdkSystemSystemservicesClfsLsnEqual(plsn1.rawAddress.toCPointer<ByteVar>(), plsn2.rawAddress.toCPointer<ByteVar>())
 
-public actual fun clfsLsnGreater(plsn1: ConstPtr<ClsLsn>, plsn2: ConstPtr<ClsLsn>): Boolean =
+public actual fun clfsLsnGreater(plsn1: ConstPtr, plsn2: ConstPtr): Boolean =
     windowssysWindowsWdkSystemSystemservicesClfsLsnGreater(plsn1.rawAddress.toCPointer<ByteVar>(), plsn2.rawAddress.toCPointer<ByteVar>())
 
-public actual fun clfsLsnInvalid(plsn: ConstPtr<ClsLsn>): Boolean =
+public actual fun clfsLsnInvalid(plsn: ConstPtr): Boolean =
     windowssysWindowsWdkSystemSystemservicesClfsLsnInvalid(plsn.rawAddress.toCPointer<ByteVar>())
 
-public actual fun clfsLsnLess(plsn1: ConstPtr<ClsLsn>, plsn2: ConstPtr<ClsLsn>): Boolean =
+public actual fun clfsLsnLess(plsn1: ConstPtr, plsn2: ConstPtr): Boolean =
     windowssysWindowsWdkSystemSystemservicesClfsLsnLess(plsn1.rawAddress.toCPointer<ByteVar>(), plsn2.rawAddress.toCPointer<ByteVar>())
 
-public actual fun clfsLsnNull(plsn: ConstPtr<ClsLsn>): Boolean =
+public actual fun clfsLsnNull(plsn: ConstPtr): Boolean =
     windowssysWindowsWdkSystemSystemservicesClfsLsnNull(plsn.rawAddress.toCPointer<ByteVar>())
 
-public actual fun clfsLsnRecordSequence(plsn: ConstPtr<ClsLsn>): UInt =
+public actual fun clfsLsnRecordSequence(plsn: ConstPtr): UInt =
     windowssysWindowsWdkSystemSystemservicesClfsLsnRecordSequence(plsn.rawAddress.toCPointer<ByteVar>())
 
-public actual fun clfsMgmtDeregisterManagedClient(clientcookie: ConstPtr<CVoid>): Ntstatus =
+public actual fun clfsMgmtDeregisterManagedClient(clientcookie: ConstPtr): Ntstatus =
     windowssysWindowsWdkSystemSystemservicesClfsMgmtDeregisterManagedClient(clientcookie.rawAddress.toCPointer<ByteVar>())
 
-public actual fun clfsMgmtHandleLogFileFull(client: ConstPtr<CVoid>): Ntstatus =
+public actual fun clfsMgmtHandleLogFileFull(client: ConstPtr): Ntstatus =
     windowssysWindowsWdkSystemSystemservicesClfsMgmtHandleLogFileFull(client.rawAddress.toCPointer<ByteVar>())
 
-public actual fun clfsMgmtInstallPolicy(logfile: ConstPtr<FileObject>, policy: ConstPtr<ClfsMgmtPolicy>, policylength: UInt): Ntstatus =
+public actual fun clfsMgmtInstallPolicy(logfile: ConstPtr, policy: ConstPtr, policylength: UInt): Ntstatus =
     windowssysWindowsWdkSystemSystemservicesClfsMgmtInstallPolicy(logfile.rawAddress.toCPointer<ByteVar>(), policy.rawAddress.toCPointer<ByteVar>(), policylength)
 
-public actual fun clfsMgmtQueryPolicy(logfile: ConstPtr<FileObject>, policytype: ClfsMgmtPolicyType, policy: MutPtr<ClfsMgmtPolicy>, policylength: MutPtr<UInt>): Ntstatus =
+public actual fun clfsMgmtQueryPolicy(logfile: ConstPtr, policytype: ClfsMgmtPolicyType, policy: MutPtr, policylength: MutPtr): Ntstatus =
     windowssysWindowsWdkSystemSystemservicesClfsMgmtQueryPolicy(logfile.rawAddress.toCPointer<ByteVar>(), policytype, policy.rawAddress.toCPointer<ByteVar>(), policylength.rawAddress.toCPointer<ByteVar>())
 
-public actual fun clfsMgmtRegisterManagedClient(logfile: ConstPtr<FileObject>, registrationdata: ConstPtr<ClfsMgmtClientRegistration>, clientcookie: MutPtr<MutPtr<CVoid>>): Ntstatus =
+public actual fun clfsMgmtRegisterManagedClient(logfile: ConstPtr, registrationdata: ConstPtr, clientcookie: MutPtr): Ntstatus =
     windowssysWindowsWdkSystemSystemservicesClfsMgmtRegisterManagedClient(logfile.rawAddress.toCPointer<ByteVar>(), registrationdata.rawAddress.toCPointer<ByteVar>(), clientcookie.rawAddress.toCPointer<ByteVar>())
 
-public actual fun clfsMgmtRemovePolicy(logfile: ConstPtr<FileObject>, policytype: ClfsMgmtPolicyType): Ntstatus =
+public actual fun clfsMgmtRemovePolicy(logfile: ConstPtr, policytype: ClfsMgmtPolicyType): Ntstatus =
     windowssysWindowsWdkSystemSystemservicesClfsMgmtRemovePolicy(logfile.rawAddress.toCPointer<ByteVar>(), policytype)
 
-public actual fun clfsMgmtSetLogFileSize(logfile: ConstPtr<FileObject>, newsizeincontainers: ConstPtr<ULong>, resultingsizeincontainers: MutPtr<ULong>, completionroutine: PclfsSetLogSizeCompleteCallback, completionroutinedata: ConstPtr<CVoid>): Ntstatus =
+public actual fun clfsMgmtSetLogFileSize(logfile: ConstPtr, newsizeincontainers: ConstPtr, resultingsizeincontainers: MutPtr, completionroutine: PclfsSetLogSizeCompleteCallback, completionroutinedata: ConstPtr): Ntstatus =
     windowssysWindowsWdkSystemSystemservicesClfsMgmtSetLogFileSize(logfile.rawAddress.toCPointer<ByteVar>(), newsizeincontainers.rawAddress.toCPointer<ByteVar>(), resultingsizeincontainers.rawAddress.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>(), completionroutinedata.rawAddress.toCPointer<ByteVar>())
 
-public actual fun clfsMgmtSetLogFileSizeAsClient(logfile: ConstPtr<FileObject>, clientcookie: ConstPtr<ConstPtr<CVoid>>, newsizeincontainers: ConstPtr<ULong>, resultingsizeincontainers: MutPtr<ULong>, completionroutine: PclfsSetLogSizeCompleteCallback, completionroutinedata: ConstPtr<CVoid>): Ntstatus =
+public actual fun clfsMgmtSetLogFileSizeAsClient(logfile: ConstPtr, clientcookie: ConstPtr, newsizeincontainers: ConstPtr, resultingsizeincontainers: MutPtr, completionroutine: PclfsSetLogSizeCompleteCallback, completionroutinedata: ConstPtr): Ntstatus =
     windowssysWindowsWdkSystemSystemservicesClfsMgmtSetLogFileSizeAsClient(logfile.rawAddress.toCPointer<ByteVar>(), clientcookie.rawAddress.toCPointer<ByteVar>(), newsizeincontainers.rawAddress.toCPointer<ByteVar>(), resultingsizeincontainers.rawAddress.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>(), completionroutinedata.rawAddress.toCPointer<ByteVar>())
 
-public actual fun clfsMgmtTailAdvanceFailure(client: ConstPtr<CVoid>, reason: Ntstatus): Ntstatus =
+public actual fun clfsMgmtTailAdvanceFailure(client: ConstPtr, reason: Ntstatus): Ntstatus =
     windowssysWindowsWdkSystemSystemservicesClfsMgmtTailAdvanceFailure(client.rawAddress.toCPointer<ByteVar>(), reason)
 
-public actual fun clfsQueryLogFileInformation(plfolog: ConstPtr<FileObject>, einformationclass: ClsLogInformationClass, pinfoinputbuffer: ConstPtr<CVoid>, cbinfoinputbuffer: UInt, pinfobuffer: MutPtr<CVoid>, pcbinfobuffer: MutPtr<UInt>): Ntstatus =
+public actual fun clfsQueryLogFileInformation(plfolog: ConstPtr, einformationclass: ClsLogInformationClass, pinfoinputbuffer: ConstPtr, cbinfoinputbuffer: UInt, pinfobuffer: MutPtr, pcbinfobuffer: MutPtr): Ntstatus =
     windowssysWindowsWdkSystemSystemservicesClfsQueryLogFileInformation(plfolog.rawAddress.toCPointer<ByteVar>(), einformationclass, pinfoinputbuffer.rawAddress.toCPointer<ByteVar>(), cbinfoinputbuffer, pinfobuffer.rawAddress.toCPointer<ByteVar>(), pcbinfobuffer.rawAddress.toCPointer<ByteVar>())
 
-public actual fun clfsReadLogRecord(pvmarshalcontext: ConstPtr<CVoid>, plsnfirst: MutPtr<ClsLsn>, pecontextmode: ClfsContextMode, ppvreadbuffer: MutPtr<MutPtr<CVoid>>, pcbreadbuffer: MutPtr<UInt>, perecordtype: MutPtr<UByte>, plsnundonext: MutPtr<ClsLsn>, plsnprevious: MutPtr<ClsLsn>, ppvreadcontext: MutPtr<MutPtr<CVoid>>): Ntstatus =
+public actual fun clfsReadLogRecord(pvmarshalcontext: ConstPtr, plsnfirst: MutPtr, pecontextmode: ClfsContextMode, ppvreadbuffer: MutPtr, pcbreadbuffer: MutPtr, perecordtype: MutPtr, plsnundonext: MutPtr, plsnprevious: MutPtr, ppvreadcontext: MutPtr): Ntstatus =
     windowssysWindowsWdkSystemSystemservicesClfsReadLogRecord(pvmarshalcontext.rawAddress.toCPointer<ByteVar>(), plsnfirst.rawAddress.toCPointer<ByteVar>(), pecontextmode, ppvreadbuffer.rawAddress.toCPointer<ByteVar>(), pcbreadbuffer.rawAddress.toCPointer<ByteVar>(), perecordtype.rawAddress.toCPointer<ByteVar>(), plsnundonext.rawAddress.toCPointer<ByteVar>(), plsnprevious.rawAddress.toCPointer<ByteVar>(), ppvreadcontext.rawAddress.toCPointer<ByteVar>())
 
-public actual fun clfsReadNextLogRecord(pvreadcontext: MutPtr<CVoid>, ppvbuffer: MutPtr<MutPtr<CVoid>>, pcbbuffer: MutPtr<UInt>, perecordtype: MutPtr<UByte>, plsnuser: ConstPtr<ClsLsn>, plsnundonext: MutPtr<ClsLsn>, plsnprevious: MutPtr<ClsLsn>, plsnrecord: MutPtr<ClsLsn>): Ntstatus =
+public actual fun clfsReadNextLogRecord(pvreadcontext: MutPtr, ppvbuffer: MutPtr, pcbbuffer: MutPtr, perecordtype: MutPtr, plsnuser: ConstPtr, plsnundonext: MutPtr, plsnprevious: MutPtr, plsnrecord: MutPtr): Ntstatus =
     windowssysWindowsWdkSystemSystemservicesClfsReadNextLogRecord(pvreadcontext.rawAddress.toCPointer<ByteVar>(), ppvbuffer.rawAddress.toCPointer<ByteVar>(), pcbbuffer.rawAddress.toCPointer<ByteVar>(), perecordtype.rawAddress.toCPointer<ByteVar>(), plsnuser.rawAddress.toCPointer<ByteVar>(), plsnundonext.rawAddress.toCPointer<ByteVar>(), plsnprevious.rawAddress.toCPointer<ByteVar>(), plsnrecord.rawAddress.toCPointer<ByteVar>())
 
-public actual fun clfsReadPreviousRestartArea(pvreadcontext: ConstPtr<CVoid>, ppvrestartbuffer: MutPtr<MutPtr<CVoid>>, pcbrestartbuffer: MutPtr<UInt>, plsnrestart: MutPtr<ClsLsn>): Ntstatus =
+public actual fun clfsReadPreviousRestartArea(pvreadcontext: ConstPtr, ppvrestartbuffer: MutPtr, pcbrestartbuffer: MutPtr, plsnrestart: MutPtr): Ntstatus =
     windowssysWindowsWdkSystemSystemservicesClfsReadPreviousRestartArea(pvreadcontext.rawAddress.toCPointer<ByteVar>(), ppvrestartbuffer.rawAddress.toCPointer<ByteVar>(), pcbrestartbuffer.rawAddress.toCPointer<ByteVar>(), plsnrestart.rawAddress.toCPointer<ByteVar>())
 
-public actual fun clfsReadRestartArea(pvmarshalcontext: MutPtr<CVoid>, ppvrestartbuffer: MutPtr<MutPtr<CVoid>>, pcbrestartbuffer: MutPtr<UInt>, plsn: MutPtr<ClsLsn>, ppvreadcontext: MutPtr<MutPtr<CVoid>>): Ntstatus =
+public actual fun clfsReadRestartArea(pvmarshalcontext: MutPtr, ppvrestartbuffer: MutPtr, pcbrestartbuffer: MutPtr, plsn: MutPtr, ppvreadcontext: MutPtr): Ntstatus =
     windowssysWindowsWdkSystemSystemservicesClfsReadRestartArea(pvmarshalcontext.rawAddress.toCPointer<ByteVar>(), ppvrestartbuffer.rawAddress.toCPointer<ByteVar>(), pcbrestartbuffer.rawAddress.toCPointer<ByteVar>(), plsn.rawAddress.toCPointer<ByteVar>(), ppvreadcontext.rawAddress.toCPointer<ByteVar>())
 
-public actual fun clfsRemoveLogContainer(plfolog: ConstPtr<FileObject>, puszcontainerpath: ConstPtr<UnicodeString>, fforce: Boolean): Ntstatus =
+public actual fun clfsRemoveLogContainer(plfolog: ConstPtr, puszcontainerpath: ConstPtr, fforce: Boolean): Ntstatus =
     windowssysWindowsWdkSystemSystemservicesClfsRemoveLogContainer(plfolog.rawAddress.toCPointer<ByteVar>(), puszcontainerpath.rawAddress.toCPointer<ByteVar>(), fforce)
 
-public actual fun clfsRemoveLogContainerSet(plfolog: ConstPtr<FileObject>, ccontainers: UShort, rgwszcontainerpath: ConstPtr<UnicodeString>, fforce: Boolean): Ntstatus =
+public actual fun clfsRemoveLogContainerSet(plfolog: ConstPtr, ccontainers: UShort, rgwszcontainerpath: ConstPtr, fforce: Boolean): Ntstatus =
     windowssysWindowsWdkSystemSystemservicesClfsRemoveLogContainerSet(plfolog.rawAddress.toCPointer<ByteVar>(), ccontainers, rgwszcontainerpath.rawAddress.toCPointer<ByteVar>(), fforce)
 
-public actual fun clfsReserveAndAppendLog(pvmarshalcontext: ConstPtr<CVoid>, rgwriteentries: ConstPtr<ClsWriteEntry>, cwriteentries: UInt, plsnundonext: ConstPtr<ClsLsn>, plsnprevious: ConstPtr<ClsLsn>, creserverecords: UInt, rgcbreservation: MutPtr<Long>, fflags: UInt, plsn: MutPtr<ClsLsn>): Ntstatus =
+public actual fun clfsReserveAndAppendLog(pvmarshalcontext: ConstPtr, rgwriteentries: ConstPtr, cwriteentries: UInt, plsnundonext: ConstPtr, plsnprevious: ConstPtr, creserverecords: UInt, rgcbreservation: MutPtr, fflags: UInt, plsn: MutPtr): Ntstatus =
     windowssysWindowsWdkSystemSystemservicesClfsReserveAndAppendLog(pvmarshalcontext.rawAddress.toCPointer<ByteVar>(), rgwriteentries.rawAddress.toCPointer<ByteVar>(), cwriteentries, plsnundonext.rawAddress.toCPointer<ByteVar>(), plsnprevious.rawAddress.toCPointer<ByteVar>(), creserverecords, rgcbreservation.rawAddress.toCPointer<ByteVar>(), fflags, plsn.rawAddress.toCPointer<ByteVar>())
 
-public actual fun clfsReserveAndAppendLogAligned(pvmarshalcontext: ConstPtr<CVoid>, rgwriteentries: ConstPtr<ClsWriteEntry>, cwriteentries: UInt, cbentryalignment: UInt, plsnundonext: ConstPtr<ClsLsn>, plsnprevious: ConstPtr<ClsLsn>, creserverecords: UInt, rgcbreservation: MutPtr<Long>, fflags: UInt, plsn: MutPtr<ClsLsn>): Ntstatus =
+public actual fun clfsReserveAndAppendLogAligned(pvmarshalcontext: ConstPtr, rgwriteentries: ConstPtr, cwriteentries: UInt, cbentryalignment: UInt, plsnundonext: ConstPtr, plsnprevious: ConstPtr, creserverecords: UInt, rgcbreservation: MutPtr, fflags: UInt, plsn: MutPtr): Ntstatus =
     windowssysWindowsWdkSystemSystemservicesClfsReserveAndAppendLogAligned(pvmarshalcontext.rawAddress.toCPointer<ByteVar>(), rgwriteentries.rawAddress.toCPointer<ByteVar>(), cwriteentries, cbentryalignment, plsnundonext.rawAddress.toCPointer<ByteVar>(), plsnprevious.rawAddress.toCPointer<ByteVar>(), creserverecords, rgcbreservation.rawAddress.toCPointer<ByteVar>(), fflags, plsn.rawAddress.toCPointer<ByteVar>())
 
-public actual fun clfsScanLogContainers(pcxscan: MutPtr<ClsScanContext>, escanmode: UByte): Ntstatus =
+public actual fun clfsScanLogContainers(pcxscan: MutPtr, escanmode: UByte): Ntstatus =
     windowssysWindowsWdkSystemSystemservicesClfsScanLogContainers(pcxscan.rawAddress.toCPointer<ByteVar>(), escanmode)
 
-public actual fun clfsSetArchiveTail(plfolog: ConstPtr<FileObject>, plsnarchivetail: ConstPtr<ClsLsn>): Ntstatus =
+public actual fun clfsSetArchiveTail(plfolog: ConstPtr, plsnarchivetail: ConstPtr): Ntstatus =
     windowssysWindowsWdkSystemSystemservicesClfsSetArchiveTail(plfolog.rawAddress.toCPointer<ByteVar>(), plsnarchivetail.rawAddress.toCPointer<ByteVar>())
 
-public actual fun clfsSetEndOfLog(plfolog: ConstPtr<FileObject>, plsnend: ConstPtr<ClsLsn>): Ntstatus =
+public actual fun clfsSetEndOfLog(plfolog: ConstPtr, plsnend: ConstPtr): Ntstatus =
     windowssysWindowsWdkSystemSystemservicesClfsSetEndOfLog(plfolog.rawAddress.toCPointer<ByteVar>(), plsnend.rawAddress.toCPointer<ByteVar>())
 
-public actual fun clfsSetLogFileInformation(plfolog: ConstPtr<FileObject>, einformationclass: ClsLogInformationClass, pinfobuffer: ConstPtr<CVoid>, cbbuffer: UInt): Ntstatus =
+public actual fun clfsSetLogFileInformation(plfolog: ConstPtr, einformationclass: ClsLogInformationClass, pinfobuffer: ConstPtr, cbbuffer: UInt): Ntstatus =
     windowssysWindowsWdkSystemSystemservicesClfsSetLogFileInformation(plfolog.rawAddress.toCPointer<ByteVar>(), einformationclass, pinfobuffer.rawAddress.toCPointer<ByteVar>(), cbbuffer)
 
-public actual fun clfsTerminateReadLog(pvcursorcontext: ConstPtr<CVoid>): Ntstatus =
+public actual fun clfsTerminateReadLog(pvcursorcontext: ConstPtr): Ntstatus =
     windowssysWindowsWdkSystemSystemservicesClfsTerminateReadLog(pvcursorcontext.rawAddress.toCPointer<ByteVar>())
 
-public actual fun clfsWriteRestartArea(pvmarshalcontext: MutPtr<CVoid>, pvrestartbuffer: ConstPtr<CVoid>, cbrestartbuffer: UInt, plsnbase: ConstPtr<ClsLsn>, fflags: UInt, pcbwritten: MutPtr<UInt>, plsnnext: MutPtr<ClsLsn>): Ntstatus =
+public actual fun clfsWriteRestartArea(pvmarshalcontext: MutPtr, pvrestartbuffer: ConstPtr, cbrestartbuffer: UInt, plsnbase: ConstPtr, fflags: UInt, pcbwritten: MutPtr, plsnnext: MutPtr): Ntstatus =
     windowssysWindowsWdkSystemSystemservicesClfsWriteRestartArea(pvmarshalcontext.rawAddress.toCPointer<ByteVar>(), pvrestartbuffer.rawAddress.toCPointer<ByteVar>(), cbrestartbuffer, plsnbase.rawAddress.toCPointer<ByteVar>(), fflags, pcbwritten.rawAddress.toCPointer<ByteVar>(), plsnnext.rawAddress.toCPointer<ByteVar>())
 
-public actual fun cmCallbackGetKeyObjectID(cookie: ConstPtr<Long>, obj: ConstPtr<CVoid>, objectid: MutPtr<ULong>, objectname: MutPtr<MutPtr<UnicodeString>>): Ntstatus =
+public actual fun cmCallbackGetKeyObjectID(cookie: ConstPtr, obj: ConstPtr, objectid: MutPtr, objectname: MutPtr): Ntstatus =
     windowssysWindowsWdkSystemSystemservicesCmCallbackGetKeyObjectID(cookie.rawAddress.toCPointer<ByteVar>(), obj.rawAddress.toCPointer<ByteVar>(), objectid.rawAddress.toCPointer<ByteVar>(), objectname.rawAddress.toCPointer<ByteVar>())
 
-public actual fun cmCallbackGetKeyObjectIDEx(cookie: ConstPtr<Long>, obj: ConstPtr<CVoid>, objectid: MutPtr<ULong>, objectname: MutPtr<MutPtr<UnicodeString>>, flags: UInt): Ntstatus =
+public actual fun cmCallbackGetKeyObjectIDEx(cookie: ConstPtr, obj: ConstPtr, objectid: MutPtr, objectname: MutPtr, flags: UInt): Ntstatus =
     windowssysWindowsWdkSystemSystemservicesCmCallbackGetKeyObjectIDEx(cookie.rawAddress.toCPointer<ByteVar>(), obj.rawAddress.toCPointer<ByteVar>(), objectid.rawAddress.toCPointer<ByteVar>(), objectname.rawAddress.toCPointer<ByteVar>(), flags)
 
-public actual fun cmCallbackReleaseKeyObjectIDEx(objectname: ConstPtr<UnicodeString>) {
+public actual fun cmCallbackReleaseKeyObjectIDEx(objectname: ConstPtr) {
     windowssysWindowsWdkSystemSystemservicesCmCallbackReleaseKeyObjectIDEx(objectname.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun cmGetBoundTransaction(cookie: ConstPtr<Long>, obj: ConstPtr<CVoid>): MutPtr<CVoid> =
+public actual fun cmGetBoundTransaction(cookie: ConstPtr, obj: ConstPtr): MutPtr =
     MutPtr(windowssysWindowsWdkSystemSystemservicesCmGetBoundTransaction(cookie.rawAddress.toCPointer<ByteVar>(), obj.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun cmGetCallbackVersion(major: MutPtr<UInt>, minor: MutPtr<UInt>) {
+public actual fun cmGetCallbackVersion(major: MutPtr, minor: MutPtr) {
     windowssysWindowsWdkSystemSystemservicesCmGetCallbackVersion(major.rawAddress.toCPointer<ByteVar>(), minor.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun cmRegisterCallback(function: PexCallbackFunction, context: ConstPtr<CVoid>, cookie: MutPtr<Long>): Ntstatus =
+public actual fun cmRegisterCallback(function: PexCallbackFunction, context: ConstPtr, cookie: MutPtr): Ntstatus =
     windowssysWindowsWdkSystemSystemservicesCmRegisterCallback(0L.toCPointer<ByteVar>(), context.rawAddress.toCPointer<ByteVar>(), cookie.rawAddress.toCPointer<ByteVar>())
 
-public actual fun cmRegisterCallbackEx(function: PexCallbackFunction, altitude: ConstPtr<UnicodeString>, driver: ConstPtr<CVoid>, context: ConstPtr<CVoid>, cookie: MutPtr<Long>, reserved: ConstPtr<CVoid>): Ntstatus =
+public actual fun cmRegisterCallbackEx(function: PexCallbackFunction, altitude: ConstPtr, driver: ConstPtr, context: ConstPtr, cookie: MutPtr, reserved: ConstPtr): Ntstatus =
     windowssysWindowsWdkSystemSystemservicesCmRegisterCallbackEx(0L.toCPointer<ByteVar>(), altitude.rawAddress.toCPointer<ByteVar>(), driver.rawAddress.toCPointer<ByteVar>(), context.rawAddress.toCPointer<ByteVar>(), cookie.rawAddress.toCPointer<ByteVar>(), reserved.rawAddress.toCPointer<ByteVar>())
 
-public actual fun cmSetCallbackObjectContext(obj: MutPtr<CVoid>, cookie: ConstPtr<Long>, newcontext: ConstPtr<CVoid>, oldcontext: MutPtr<MutPtr<CVoid>>): Ntstatus =
+public actual fun cmSetCallbackObjectContext(obj: MutPtr, cookie: ConstPtr, newcontext: ConstPtr, oldcontext: MutPtr): Ntstatus =
     windowssysWindowsWdkSystemSystemservicesCmSetCallbackObjectContext(obj.rawAddress.toCPointer<ByteVar>(), cookie.rawAddress.toCPointer<ByteVar>(), newcontext.rawAddress.toCPointer<ByteVar>(), oldcontext.rawAddress.toCPointer<ByteVar>())
 
 public actual fun cmUnRegisterCallback(cookie: Long): Ntstatus =
@@ -1498,59 +1442,59 @@ public actual fun dbgSetDebugFilterState(componentid: UInt, level: UInt, state: 
 public actual fun dbgSetDebugPrintCallback(debugprintcallback: PdebugPrintCallback, enable: Boolean): Ntstatus =
     windowssysWindowsWdkSystemSystemservicesDbgSetDebugPrintCallback(0L.toCPointer<ByteVar>(), enable)
 
-public actual fun etwActivityIdControl(controlcode: UInt, activityid: MutPtr<Guid>): Ntstatus =
+public actual fun etwActivityIdControl(controlcode: UInt, activityid: MutPtr): Ntstatus =
     windowssysWindowsWdkSystemSystemservicesEtwActivityIdControl(controlcode, activityid.rawAddress.toCPointer<ByteVar>())
 
-public actual fun etwEventEnabled(reghandle: Reghandle, eventdescriptor: ConstPtr<EventDescriptor>): Boolean =
+public actual fun etwEventEnabled(reghandle: Reghandle, eventdescriptor: ConstPtr): Boolean =
     windowssysWindowsWdkSystemSystemservicesEtwEventEnabled(reghandle, eventdescriptor.rawAddress.toCPointer<ByteVar>())
 
 public actual fun etwProviderEnabled(reghandle: Reghandle, level: UByte, keyword: ULong): Boolean =
     windowssysWindowsWdkSystemSystemservicesEtwProviderEnabled(reghandle, level, keyword)
 
-public actual fun etwRegister(providerid: ConstPtr<Guid>, enablecallback: Petwenablecallback, callbackcontext: ConstPtr<CVoid>, reghandle: MutPtr<Reghandle>): Ntstatus =
+public actual fun etwRegister(providerid: ConstPtr, enablecallback: Petwenablecallback, callbackcontext: ConstPtr, reghandle: MutPtr): Ntstatus =
     windowssysWindowsWdkSystemSystemservicesEtwRegister(providerid.rawAddress.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>(), callbackcontext.rawAddress.toCPointer<ByteVar>(), reghandle.rawAddress.toCPointer<ByteVar>())
 
-public actual fun etwSetInformation(reghandle: Reghandle, informationclass: EventInfoClass, eventinformation: ConstPtr<CVoid>, informationlength: UInt): Ntstatus =
+public actual fun etwSetInformation(reghandle: Reghandle, informationclass: EventInfoClass, eventinformation: ConstPtr, informationlength: UInt): Ntstatus =
     windowssysWindowsWdkSystemSystemservicesEtwSetInformation(reghandle, informationclass, eventinformation.rawAddress.toCPointer<ByteVar>(), informationlength)
 
 public actual fun etwUnregister(reghandle: Reghandle): Ntstatus =
     windowssysWindowsWdkSystemSystemservicesEtwUnregister(reghandle)
 
-public actual fun etwWrite(reghandle: Reghandle, eventdescriptor: ConstPtr<EventDescriptor>, activityid: ConstPtr<Guid>, userdatacount: UInt, userdata: ConstPtr<EventDataDescriptor>): Ntstatus =
+public actual fun etwWrite(reghandle: Reghandle, eventdescriptor: ConstPtr, activityid: ConstPtr, userdatacount: UInt, userdata: ConstPtr): Ntstatus =
     windowssysWindowsWdkSystemSystemservicesEtwWrite(reghandle, eventdescriptor.rawAddress.toCPointer<ByteVar>(), activityid.rawAddress.toCPointer<ByteVar>(), userdatacount, userdata.rawAddress.toCPointer<ByteVar>())
 
-public actual fun etwWriteEx(reghandle: Reghandle, eventdescriptor: ConstPtr<EventDescriptor>, filter: ULong, flags: UInt, activityid: ConstPtr<Guid>, relatedactivityid: ConstPtr<Guid>, userdatacount: UInt, userdata: ConstPtr<EventDataDescriptor>): Ntstatus =
+public actual fun etwWriteEx(reghandle: Reghandle, eventdescriptor: ConstPtr, filter: ULong, flags: UInt, activityid: ConstPtr, relatedactivityid: ConstPtr, userdatacount: UInt, userdata: ConstPtr): Ntstatus =
     windowssysWindowsWdkSystemSystemservicesEtwWriteEx(reghandle, eventdescriptor.rawAddress.toCPointer<ByteVar>(), filter, flags, activityid.rawAddress.toCPointer<ByteVar>(), relatedactivityid.rawAddress.toCPointer<ByteVar>(), userdatacount, userdata.rawAddress.toCPointer<ByteVar>())
 
-public actual fun etwWriteString(reghandle: Reghandle, level: UByte, keyword: ULong, activityid: ConstPtr<Guid>, string: Pcwstr): Ntstatus =
+public actual fun etwWriteString(reghandle: Reghandle, level: UByte, keyword: ULong, activityid: ConstPtr, string: Pcwstr): Ntstatus =
     windowssysWindowsWdkSystemSystemservicesEtwWriteString(reghandle, level, keyword, activityid.rawAddress.toCPointer<ByteVar>(), string.rawAddress.toCPointer<ByteVar>())
 
-public actual fun etwWriteTransfer(reghandle: Reghandle, eventdescriptor: ConstPtr<EventDescriptor>, activityid: ConstPtr<Guid>, relatedactivityid: ConstPtr<Guid>, userdatacount: UInt, userdata: ConstPtr<EventDataDescriptor>): Ntstatus =
+public actual fun etwWriteTransfer(reghandle: Reghandle, eventdescriptor: ConstPtr, activityid: ConstPtr, relatedactivityid: ConstPtr, userdatacount: UInt, userdata: ConstPtr): Ntstatus =
     windowssysWindowsWdkSystemSystemservicesEtwWriteTransfer(reghandle, eventdescriptor.rawAddress.toCPointer<ByteVar>(), activityid.rawAddress.toCPointer<ByteVar>(), relatedactivityid.rawAddress.toCPointer<ByteVar>(), userdatacount, userdata.rawAddress.toCPointer<ByteVar>())
 
-public actual fun exAcquireFastMutex(fastmutex: MutPtr<FastMutex>) {
+public actual fun exAcquireFastMutex(fastmutex: MutPtr) {
     windowssysWindowsWdkSystemSystemservicesExAcquireFastMutex(fastmutex.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun exAcquireFastMutexUnsafe(fastmutex: MutPtr<FastMutex>) {
+public actual fun exAcquireFastMutexUnsafe(fastmutex: MutPtr) {
     windowssysWindowsWdkSystemSystemservicesExAcquireFastMutexUnsafe(fastmutex.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun exAcquirePushLockExclusiveEx(pushlock: MutPtr<ULong>, flags: UInt) {
+public actual fun exAcquirePushLockExclusiveEx(pushlock: MutPtr, flags: UInt) {
     windowssysWindowsWdkSystemSystemservicesExAcquirePushLockExclusiveEx(pushlock.rawAddress.toCPointer<ByteVar>(), flags)
 }
 
-public actual fun exAcquirePushLockSharedEx(pushlock: MutPtr<ULong>, flags: UInt) {
+public actual fun exAcquirePushLockSharedEx(pushlock: MutPtr, flags: UInt) {
     windowssysWindowsWdkSystemSystemservicesExAcquirePushLockSharedEx(pushlock.rawAddress.toCPointer<ByteVar>(), flags)
 }
 
-public actual fun exAcquireResourceExclusiveLite(resource: MutPtr<Eresource>, wait: Boolean): Boolean =
+public actual fun exAcquireResourceExclusiveLite(resource: MutPtr, wait: Boolean): Boolean =
     windowssysWindowsWdkSystemSystemservicesExAcquireResourceExclusiveLite(resource.rawAddress.toCPointer<ByteVar>(), wait)
 
-public actual fun exAcquireResourceSharedLite(resource: MutPtr<Eresource>, wait: Boolean): Boolean =
+public actual fun exAcquireResourceSharedLite(resource: MutPtr, wait: Boolean): Boolean =
     windowssysWindowsWdkSystemSystemservicesExAcquireResourceSharedLite(resource.rawAddress.toCPointer<ByteVar>(), wait)
 
-public actual fun exAcquireRundownProtection(runref: MutPtr<ExRundownRef>): Boolean =
+public actual fun exAcquireRundownProtection(runref: MutPtr): Boolean =
     windowssysWindowsWdkSystemSystemservicesExAcquireRundownProtection(runref.rawAddress.toCPointer<ByteVar>())
 
 public actual fun exAcquireRundownProtectionCacheAware(runrefcacheaware: PexRundownRefCacheAware): Boolean =
@@ -1559,118 +1503,118 @@ public actual fun exAcquireRundownProtectionCacheAware(runrefcacheaware: PexRund
 public actual fun exAcquireRundownProtectionCacheAwareEx(runrefcacheaware: PexRundownRefCacheAware, count: UInt): Boolean =
     windowssysWindowsWdkSystemSystemservicesExAcquireRundownProtectionCacheAwareEx(runrefcacheaware, count)
 
-public actual fun exAcquireRundownProtectionEx(runref: MutPtr<ExRundownRef>, count: UInt): Boolean =
+public actual fun exAcquireRundownProtectionEx(runref: MutPtr, count: UInt): Boolean =
     windowssysWindowsWdkSystemSystemservicesExAcquireRundownProtectionEx(runref.rawAddress.toCPointer<ByteVar>(), count)
 
-public actual fun exAcquireSharedStarveExclusive(resource: MutPtr<Eresource>, wait: Boolean): Boolean =
+public actual fun exAcquireSharedStarveExclusive(resource: MutPtr, wait: Boolean): Boolean =
     windowssysWindowsWdkSystemSystemservicesExAcquireSharedStarveExclusive(resource.rawAddress.toCPointer<ByteVar>(), wait)
 
-public actual fun exAcquireSharedWaitForExclusive(resource: MutPtr<Eresource>, wait: Boolean): Boolean =
+public actual fun exAcquireSharedWaitForExclusive(resource: MutPtr, wait: Boolean): Boolean =
     windowssysWindowsWdkSystemSystemservicesExAcquireSharedWaitForExclusive(resource.rawAddress.toCPointer<ByteVar>(), wait)
 
-public actual fun exAcquireSpinLockExclusive(spinlock: MutPtr<Int>): UByte =
+public actual fun exAcquireSpinLockExclusive(spinlock: MutPtr): UByte =
     windowssysWindowsWdkSystemSystemservicesExAcquireSpinLockExclusive(spinlock.rawAddress.toCPointer<ByteVar>())
 
-public actual fun exAcquireSpinLockExclusiveAtDpcLevel(spinlock: MutPtr<Int>) {
+public actual fun exAcquireSpinLockExclusiveAtDpcLevel(spinlock: MutPtr) {
     windowssysWindowsWdkSystemSystemservicesExAcquireSpinLockExclusiveAtDpcLevel(spinlock.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun exAcquireSpinLockShared(spinlock: MutPtr<Int>): UByte =
+public actual fun exAcquireSpinLockShared(spinlock: MutPtr): UByte =
     windowssysWindowsWdkSystemSystemservicesExAcquireSpinLockShared(spinlock.rawAddress.toCPointer<ByteVar>())
 
-public actual fun exAcquireSpinLockSharedAtDpcLevel(spinlock: MutPtr<Int>) {
+public actual fun exAcquireSpinLockSharedAtDpcLevel(spinlock: MutPtr) {
     windowssysWindowsWdkSystemSystemservicesExAcquireSpinLockSharedAtDpcLevel(spinlock.rawAddress.toCPointer<ByteVar>())
 }
 
 public actual fun exAllocateCacheAwareRundownProtection(pooltype: PoolType, pooltag: UInt): PexRundownRefCacheAware =
     windowssysWindowsWdkSystemSystemservicesExAllocateCacheAwareRundownProtection(pooltype, pooltag)
 
-public actual fun exAllocatePool(pooltype: PoolType, numberofbytes: ULong): MutPtr<CVoid> =
+public actual fun exAllocatePool(pooltype: PoolType, numberofbytes: ULong): MutPtr =
     MutPtr(windowssysWindowsWdkSystemSystemservicesExAllocatePool(pooltype, numberofbytes)?.toLong() ?: 0L)
 
-public actual fun exAllocatePool2(flags: ULong, numberofbytes: ULong, tag: UInt): MutPtr<CVoid> =
+public actual fun exAllocatePool2(flags: ULong, numberofbytes: ULong, tag: UInt): MutPtr =
     MutPtr(windowssysWindowsWdkSystemSystemservicesExAllocatePool2(flags, numberofbytes, tag)?.toLong() ?: 0L)
 
-public actual fun exAllocatePool3(flags: ULong, numberofbytes: ULong, tag: UInt, extendedparameters: ConstPtr<PoolExtendedParameter>, extendedparameterscount: UInt): MutPtr<CVoid> =
+public actual fun exAllocatePool3(flags: ULong, numberofbytes: ULong, tag: UInt, extendedparameters: ConstPtr, extendedparameterscount: UInt): MutPtr =
     MutPtr(windowssysWindowsWdkSystemSystemservicesExAllocatePool3(flags, numberofbytes, tag, extendedparameters.rawAddress.toCPointer<ByteVar>(), extendedparameterscount)?.toLong() ?: 0L)
 
-public actual fun exAllocatePoolWithQuota(pooltype: PoolType, numberofbytes: ULong): MutPtr<CVoid> =
+public actual fun exAllocatePoolWithQuota(pooltype: PoolType, numberofbytes: ULong): MutPtr =
     MutPtr(windowssysWindowsWdkSystemSystemservicesExAllocatePoolWithQuota(pooltype, numberofbytes)?.toLong() ?: 0L)
 
-public actual fun exAllocatePoolWithQuotaTag(pooltype: PoolType, numberofbytes: ULong, tag: UInt): MutPtr<CVoid> =
+public actual fun exAllocatePoolWithQuotaTag(pooltype: PoolType, numberofbytes: ULong, tag: UInt): MutPtr =
     MutPtr(windowssysWindowsWdkSystemSystemservicesExAllocatePoolWithQuotaTag(pooltype, numberofbytes, tag)?.toLong() ?: 0L)
 
-public actual fun exAllocatePoolWithTag(pooltype: PoolType, numberofbytes: ULong, tag: UInt): MutPtr<CVoid> =
+public actual fun exAllocatePoolWithTag(pooltype: PoolType, numberofbytes: ULong, tag: UInt): MutPtr =
     MutPtr(windowssysWindowsWdkSystemSystemservicesExAllocatePoolWithTag(pooltype, numberofbytes, tag)?.toLong() ?: 0L)
 
-public actual fun exAllocatePoolWithTagPriority(pooltype: PoolType, numberofbytes: ULong, tag: UInt, priority: ExPoolPriority): MutPtr<CVoid> =
+public actual fun exAllocatePoolWithTagPriority(pooltype: PoolType, numberofbytes: ULong, tag: UInt, priority: ExPoolPriority): MutPtr =
     MutPtr(windowssysWindowsWdkSystemSystemservicesExAllocatePoolWithTagPriority(pooltype, numberofbytes, tag, priority)?.toLong() ?: 0L)
 
-public actual fun exAllocateTimer(callback: PextCallback, callbackcontext: ConstPtr<CVoid>, attributes: UInt): PexTimer =
+public actual fun exAllocateTimer(callback: PextCallback, callbackcontext: ConstPtr, attributes: UInt): PexTimer =
     windowssysWindowsWdkSystemSystemservicesExAllocateTimer(0L.toCPointer<ByteVar>(), callbackcontext.rawAddress.toCPointer<ByteVar>(), attributes)
 
-public actual fun exCancelTimer(timer: PexTimer, parameters: ConstPtr<CVoid>): Boolean =
+public actual fun exCancelTimer(timer: PexTimer, parameters: ConstPtr): Boolean =
     windowssysWindowsWdkSystemSystemservicesExCancelTimer(timer, parameters.rawAddress.toCPointer<ByteVar>())
 
 public actual fun exCleanupRundownProtectionCacheAware(runrefcacheaware: PexRundownRefCacheAware) {
     windowssysWindowsWdkSystemSystemservicesExCleanupRundownProtectionCacheAware(runrefcacheaware)
 }
 
-public actual fun exConvertExclusiveToSharedLite(resource: MutPtr<Eresource>) {
+public actual fun exConvertExclusiveToSharedLite(resource: MutPtr) {
     windowssysWindowsWdkSystemSystemservicesExConvertExclusiveToSharedLite(resource.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun exCreateCallback(callbackobject: MutPtr<PcallbackObject>, objectattributes: ConstPtr<ObjectAttributes>, create: Boolean, allowmultiplecallbacks: Boolean): Ntstatus =
+public actual fun exCreateCallback(callbackobject: MutPtr, objectattributes: ConstPtr, create: Boolean, allowmultiplecallbacks: Boolean): Ntstatus =
     windowssysWindowsWdkSystemSystemservicesExCreateCallback(callbackobject.rawAddress.toCPointer<ByteVar>(), objectattributes.rawAddress.toCPointer<ByteVar>(), create, allowmultiplecallbacks)
 
-public actual fun exCreatePool(flags: UInt, tag: ULong, params: ConstPtr<PoolCreateExtendedParams>, poolhandle: MutPtr<Handle>): Ntstatus =
+public actual fun exCreatePool(flags: UInt, tag: ULong, params: ConstPtr, poolhandle: MutPtr): Ntstatus =
     windowssysWindowsWdkSystemSystemservicesExCreatePool(flags, tag, params.rawAddress.toCPointer<ByteVar>(), poolhandle.rawAddress.toCPointer<ByteVar>())
 
-public actual fun exDeleteResourceLite(resource: MutPtr<Eresource>): Ntstatus =
+public actual fun exDeleteResourceLite(resource: MutPtr): Ntstatus =
     windowssysWindowsWdkSystemSystemservicesExDeleteResourceLite(resource.rawAddress.toCPointer<ByteVar>())
 
-public actual fun exDeleteTimer(timer: PexTimer, cancel: Boolean, wait: Boolean, parameters: ConstPtr<ExtDeleteParameters>): Boolean =
+public actual fun exDeleteTimer(timer: PexTimer, cancel: Boolean, wait: Boolean, parameters: ConstPtr): Boolean =
     windowssysWindowsWdkSystemSystemservicesExDeleteTimer(timer, cancel, wait, parameters.rawAddress.toCPointer<ByteVar>())
 
 public actual fun exDestroyPool(poolhandle: Handle) {
     windowssysWindowsWdkSystemSystemservicesExDestroyPool(poolhandle.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun exEnterCriticalRegionAndAcquireResourceExclusive(resource: MutPtr<Eresource>): MutPtr<CVoid> =
+public actual fun exEnterCriticalRegionAndAcquireResourceExclusive(resource: MutPtr): MutPtr =
     MutPtr(windowssysWindowsWdkSystemSystemservicesExEnterCriticalRegionAndAcquireResourceExclusive(resource.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun exEnterCriticalRegionAndAcquireResourceShared(resource: MutPtr<Eresource>): MutPtr<CVoid> =
+public actual fun exEnterCriticalRegionAndAcquireResourceShared(resource: MutPtr): MutPtr =
     MutPtr(windowssysWindowsWdkSystemSystemservicesExEnterCriticalRegionAndAcquireResourceShared(resource.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun exEnterCriticalRegionAndAcquireSharedWaitForExclusive(resource: MutPtr<Eresource>): MutPtr<CVoid> =
+public actual fun exEnterCriticalRegionAndAcquireSharedWaitForExclusive(resource: MutPtr): MutPtr =
     MutPtr(windowssysWindowsWdkSystemSystemservicesExEnterCriticalRegionAndAcquireSharedWaitForExclusive(resource.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun exEnumerateSystemFirmwareTables(firmwaretableprovidersignature: UInt, firmwaretablebuffer: MutPtr<CVoid>, bufferlength: UInt, returnlength: MutPtr<UInt>): Ntstatus =
+public actual fun exEnumerateSystemFirmwareTables(firmwaretableprovidersignature: UInt, firmwaretablebuffer: MutPtr, bufferlength: UInt, returnlength: MutPtr): Ntstatus =
     windowssysWindowsWdkSystemSystemservicesExEnumerateSystemFirmwareTables(firmwaretableprovidersignature, firmwaretablebuffer.rawAddress.toCPointer<ByteVar>(), bufferlength, returnlength.rawAddress.toCPointer<ByteVar>())
 
-public actual fun exExtendZone(zone: MutPtr<ZoneHeader>, segment: MutPtr<CVoid>, segmentsize: UInt): Ntstatus =
+public actual fun exExtendZone(zone: MutPtr, segment: MutPtr, segmentsize: UInt): Ntstatus =
     windowssysWindowsWdkSystemSystemservicesExExtendZone(zone.rawAddress.toCPointer<ByteVar>(), segment.rawAddress.toCPointer<ByteVar>(), segmentsize)
 
 public actual fun exFreeCacheAwareRundownProtection(runrefcacheaware: PexRundownRefCacheAware) {
     windowssysWindowsWdkSystemSystemservicesExFreeCacheAwareRundownProtection(runrefcacheaware)
 }
 
-public actual fun exFreePool(p: MutPtr<CVoid>) {
+public actual fun exFreePool(p: MutPtr) {
     windowssysWindowsWdkSystemSystemservicesExFreePool(p.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun exFreePool2(p: MutPtr<CVoid>, tag: UInt, extendedparameters: ConstPtr<PoolExtendedParameter>, extendedparameterscount: UInt) {
+public actual fun exFreePool2(p: MutPtr, tag: UInt, extendedparameters: ConstPtr, extendedparameterscount: UInt) {
     windowssysWindowsWdkSystemSystemservicesExFreePool2(p.rawAddress.toCPointer<ByteVar>(), tag, extendedparameters.rawAddress.toCPointer<ByteVar>(), extendedparameterscount)
 }
 
-public actual fun exFreePoolWithTag(p: MutPtr<CVoid>, tag: UInt) {
+public actual fun exFreePoolWithTag(p: MutPtr, tag: UInt) {
     windowssysWindowsWdkSystemSystemservicesExFreePoolWithTag(p.rawAddress.toCPointer<ByteVar>(), tag)
 }
 
-public actual fun exGetExclusiveWaiterCount(resource: ConstPtr<Eresource>): UInt =
+public actual fun exGetExclusiveWaiterCount(resource: ConstPtr): UInt =
     windowssysWindowsWdkSystemSystemservicesExGetExclusiveWaiterCount(resource.rawAddress.toCPointer<ByteVar>())
 
-public actual fun exGetFirmwareEnvironmentVariable(variablename: ConstPtr<UnicodeString>, vendorguid: ConstPtr<Guid>, value: MutPtr<CVoid>, valuelength: MutPtr<UInt>, attributes: MutPtr<UInt>): Ntstatus =
+public actual fun exGetFirmwareEnvironmentVariable(variablename: ConstPtr, vendorguid: ConstPtr, value: MutPtr, valuelength: MutPtr, attributes: MutPtr): Ntstatus =
     windowssysWindowsWdkSystemSystemservicesExGetFirmwareEnvironmentVariable(variablename.rawAddress.toCPointer<ByteVar>(), vendorguid.rawAddress.toCPointer<ByteVar>(), value.rawAddress.toCPointer<ByteVar>(), valuelength.rawAddress.toCPointer<ByteVar>(), attributes.rawAddress.toCPointer<ByteVar>())
 
 public actual fun exGetFirmwareType(): FirmwareType =
@@ -1679,20 +1623,20 @@ public actual fun exGetFirmwareType(): FirmwareType =
 public actual fun exGetPreviousMode(): Byte =
     windowssysWindowsWdkSystemSystemservicesExGetPreviousMode()
 
-public actual fun exGetSharedWaiterCount(resource: ConstPtr<Eresource>): UInt =
+public actual fun exGetSharedWaiterCount(resource: ConstPtr): UInt =
     windowssysWindowsWdkSystemSystemservicesExGetSharedWaiterCount(resource.rawAddress.toCPointer<ByteVar>())
 
-public actual fun exGetSystemFirmwareTable(firmwaretableprovidersignature: UInt, firmwaretableid: UInt, firmwaretablebuffer: MutPtr<CVoid>, bufferlength: UInt, returnlength: MutPtr<UInt>): Ntstatus =
+public actual fun exGetSystemFirmwareTable(firmwaretableprovidersignature: UInt, firmwaretableid: UInt, firmwaretablebuffer: MutPtr, bufferlength: UInt, returnlength: MutPtr): Ntstatus =
     windowssysWindowsWdkSystemSystemservicesExGetSystemFirmwareTable(firmwaretableprovidersignature, firmwaretableid, firmwaretablebuffer.rawAddress.toCPointer<ByteVar>(), bufferlength, returnlength.rawAddress.toCPointer<ByteVar>())
 
-public actual fun exInitializePushLock(pushlock: MutPtr<ULong>) {
+public actual fun exInitializePushLock(pushlock: MutPtr) {
     windowssysWindowsWdkSystemSystemservicesExInitializePushLock(pushlock.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun exInitializeResourceLite(resource: MutPtr<Eresource>): Ntstatus =
+public actual fun exInitializeResourceLite(resource: MutPtr): Ntstatus =
     windowssysWindowsWdkSystemSystemservicesExInitializeResourceLite(resource.rawAddress.toCPointer<ByteVar>())
 
-public actual fun exInitializeRundownProtection(runref: MutPtr<ExRundownRef>) {
+public actual fun exInitializeRundownProtection(runref: MutPtr) {
     windowssysWindowsWdkSystemSystemservicesExInitializeRundownProtection(runref.rawAddress.toCPointer<ByteVar>())
 }
 
@@ -1704,13 +1648,13 @@ public actual fun exInitializeRundownProtectionCacheAwareEx(runrefcacheaware: Pe
     windowssysWindowsWdkSystemSystemservicesExInitializeRundownProtectionCacheAwareEx(runrefcacheaware, flags)
 }
 
-public actual fun exInitializeZone(zone: MutPtr<ZoneHeader>, blocksize: UInt, initialsegment: MutPtr<CVoid>, initialsegmentsize: UInt): Ntstatus =
+public actual fun exInitializeZone(zone: MutPtr, blocksize: UInt, initialsegment: MutPtr, initialsegmentsize: UInt): Ntstatus =
     windowssysWindowsWdkSystemSystemservicesExInitializeZone(zone.rawAddress.toCPointer<ByteVar>(), blocksize, initialsegment.rawAddress.toCPointer<ByteVar>(), initialsegmentsize)
 
-public actual fun exInterlockedAddLargeInteger(addend: MutPtr<Long>, increment: Long, lock: MutPtr<ULong>): Long =
+public actual fun exInterlockedAddLargeInteger(addend: MutPtr, increment: Long, lock: MutPtr): Long =
     windowssysWindowsWdkSystemSystemservicesExInterlockedAddLargeInteger(addend.rawAddress.toCPointer<ByteVar>(), increment, lock.rawAddress.toCPointer<ByteVar>())
 
-public actual fun exInterlockedExtendZone(zone: MutPtr<ZoneHeader>, segment: MutPtr<CVoid>, segmentsize: UInt, lock: MutPtr<ULong>): Ntstatus =
+public actual fun exInterlockedExtendZone(zone: MutPtr, segment: MutPtr, segmentsize: UInt, lock: MutPtr): Ntstatus =
     windowssysWindowsWdkSystemSystemservicesExInterlockedExtendZone(zone.rawAddress.toCPointer<ByteVar>(), segment.rawAddress.toCPointer<ByteVar>(), segmentsize, lock.rawAddress.toCPointer<ByteVar>())
 
 public actual fun exIsManufacturingModeEnabled(): Boolean =
@@ -1719,28 +1663,28 @@ public actual fun exIsManufacturingModeEnabled(): Boolean =
 public actual fun exIsProcessorFeaturePresent(processorfeature: UInt): Boolean =
     windowssysWindowsWdkSystemSystemservicesExIsProcessorFeaturePresent(processorfeature)
 
-public actual fun exIsResourceAcquiredExclusiveLite(resource: ConstPtr<Eresource>): Boolean =
+public actual fun exIsResourceAcquiredExclusiveLite(resource: ConstPtr): Boolean =
     windowssysWindowsWdkSystemSystemservicesExIsResourceAcquiredExclusiveLite(resource.rawAddress.toCPointer<ByteVar>())
 
-public actual fun exIsResourceAcquiredSharedLite(resource: ConstPtr<Eresource>): UInt =
+public actual fun exIsResourceAcquiredSharedLite(resource: ConstPtr): UInt =
     windowssysWindowsWdkSystemSystemservicesExIsResourceAcquiredSharedLite(resource.rawAddress.toCPointer<ByteVar>())
 
 public actual fun exIsSoftBoot(): Boolean =
     windowssysWindowsWdkSystemSystemservicesExIsSoftBoot()
 
-public actual fun exLocalTimeToSystemTime(localtime: ConstPtr<Long>, systemtime: MutPtr<Long>) {
+public actual fun exLocalTimeToSystemTime(localtime: ConstPtr, systemtime: MutPtr) {
     windowssysWindowsWdkSystemSystemservicesExLocalTimeToSystemTime(localtime.rawAddress.toCPointer<ByteVar>(), systemtime.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun exNotifyCallback(callbackobject: ConstPtr<CVoid>, argument1: ConstPtr<CVoid>, argument2: ConstPtr<CVoid>) {
+public actual fun exNotifyCallback(callbackobject: ConstPtr, argument1: ConstPtr, argument2: ConstPtr) {
     windowssysWindowsWdkSystemSystemservicesExNotifyCallback(callbackobject.rawAddress.toCPointer<ByteVar>(), argument1.rawAddress.toCPointer<ByteVar>(), argument2.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun exQueryTimerResolution(maximumtime: MutPtr<UInt>, minimumtime: MutPtr<UInt>, currenttime: MutPtr<UInt>) {
+public actual fun exQueryTimerResolution(maximumtime: MutPtr, minimumtime: MutPtr, currenttime: MutPtr) {
     windowssysWindowsWdkSystemSystemservicesExQueryTimerResolution(maximumtime.rawAddress.toCPointer<ByteVar>(), minimumtime.rawAddress.toCPointer<ByteVar>(), currenttime.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun exQueueWorkItem(workitem: MutPtr<WorkQueueItem>, queuetype: WorkQueueType) {
+public actual fun exQueueWorkItem(workitem: MutPtr, queuetype: WorkQueueType) {
     windowssysWindowsWdkSystemSystemservicesExQueueWorkItem(workitem.rawAddress.toCPointer<ByteVar>(), queuetype)
 }
 
@@ -1756,7 +1700,7 @@ public actual fun exRaiseStatus(status: Ntstatus) {
     windowssysWindowsWdkSystemSystemservicesExRaiseStatus(status)
 }
 
-public actual fun exReInitializeRundownProtection(runref: MutPtr<ExRundownRef>) {
+public actual fun exReInitializeRundownProtection(runref: MutPtr) {
     windowssysWindowsWdkSystemSystemservicesExReInitializeRundownProtection(runref.rawAddress.toCPointer<ByteVar>())
 }
 
@@ -1764,41 +1708,41 @@ public actual fun exReInitializeRundownProtectionCacheAware(runrefcacheaware: Pe
     windowssysWindowsWdkSystemSystemservicesExReInitializeRundownProtectionCacheAware(runrefcacheaware)
 }
 
-public actual fun exRegisterCallback(callbackobject: PcallbackObject, callbackfunction: PcallbackFunction, callbackcontext: ConstPtr<CVoid>): MutPtr<CVoid> =
+public actual fun exRegisterCallback(callbackobject: PcallbackObject, callbackfunction: PcallbackFunction, callbackcontext: ConstPtr): MutPtr =
     MutPtr(windowssysWindowsWdkSystemSystemservicesExRegisterCallback(callbackobject, 0L.toCPointer<ByteVar>(), callbackcontext.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun exReinitializeResourceLite(resource: MutPtr<Eresource>): Ntstatus =
+public actual fun exReinitializeResourceLite(resource: MutPtr): Ntstatus =
     windowssysWindowsWdkSystemSystemservicesExReinitializeResourceLite(resource.rawAddress.toCPointer<ByteVar>())
 
-public actual fun exReleaseFastMutex(fastmutex: MutPtr<FastMutex>) {
+public actual fun exReleaseFastMutex(fastmutex: MutPtr) {
     windowssysWindowsWdkSystemSystemservicesExReleaseFastMutex(fastmutex.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun exReleaseFastMutexUnsafe(fastmutex: MutPtr<FastMutex>) {
+public actual fun exReleaseFastMutexUnsafe(fastmutex: MutPtr) {
     windowssysWindowsWdkSystemSystemservicesExReleaseFastMutexUnsafe(fastmutex.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun exReleasePushLockExclusiveEx(pushlock: MutPtr<ULong>, flags: UInt) {
+public actual fun exReleasePushLockExclusiveEx(pushlock: MutPtr, flags: UInt) {
     windowssysWindowsWdkSystemSystemservicesExReleasePushLockExclusiveEx(pushlock.rawAddress.toCPointer<ByteVar>(), flags)
 }
 
-public actual fun exReleasePushLockSharedEx(pushlock: MutPtr<ULong>, flags: UInt) {
+public actual fun exReleasePushLockSharedEx(pushlock: MutPtr, flags: UInt) {
     windowssysWindowsWdkSystemSystemservicesExReleasePushLockSharedEx(pushlock.rawAddress.toCPointer<ByteVar>(), flags)
 }
 
-public actual fun exReleaseResourceAndLeaveCriticalRegion(resource: MutPtr<Eresource>) {
+public actual fun exReleaseResourceAndLeaveCriticalRegion(resource: MutPtr) {
     windowssysWindowsWdkSystemSystemservicesExReleaseResourceAndLeaveCriticalRegion(resource.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun exReleaseResourceForThreadLite(resource: MutPtr<Eresource>, resourcethreadid: ULong) {
+public actual fun exReleaseResourceForThreadLite(resource: MutPtr, resourcethreadid: ULong) {
     windowssysWindowsWdkSystemSystemservicesExReleaseResourceForThreadLite(resource.rawAddress.toCPointer<ByteVar>(), resourcethreadid)
 }
 
-public actual fun exReleaseResourceLite(resource: MutPtr<Eresource>) {
+public actual fun exReleaseResourceLite(resource: MutPtr) {
     windowssysWindowsWdkSystemSystemservicesExReleaseResourceLite(resource.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun exReleaseRundownProtection(runref: MutPtr<ExRundownRef>) {
+public actual fun exReleaseRundownProtection(runref: MutPtr) {
     windowssysWindowsWdkSystemSystemservicesExReleaseRundownProtection(runref.rawAddress.toCPointer<ByteVar>())
 }
 
@@ -1810,27 +1754,27 @@ public actual fun exReleaseRundownProtectionCacheAwareEx(runref: PexRundownRefCa
     windowssysWindowsWdkSystemSystemservicesExReleaseRundownProtectionCacheAwareEx(runref, count)
 }
 
-public actual fun exReleaseRundownProtectionEx(runref: MutPtr<ExRundownRef>, count: UInt) {
+public actual fun exReleaseRundownProtectionEx(runref: MutPtr, count: UInt) {
     windowssysWindowsWdkSystemSystemservicesExReleaseRundownProtectionEx(runref.rawAddress.toCPointer<ByteVar>(), count)
 }
 
-public actual fun exReleaseSpinLockExclusive(spinlock: MutPtr<Int>, oldirql: UByte) {
+public actual fun exReleaseSpinLockExclusive(spinlock: MutPtr, oldirql: UByte) {
     windowssysWindowsWdkSystemSystemservicesExReleaseSpinLockExclusive(spinlock.rawAddress.toCPointer<ByteVar>(), oldirql)
 }
 
-public actual fun exReleaseSpinLockExclusiveFromDpcLevel(spinlock: MutPtr<Int>) {
+public actual fun exReleaseSpinLockExclusiveFromDpcLevel(spinlock: MutPtr) {
     windowssysWindowsWdkSystemSystemservicesExReleaseSpinLockExclusiveFromDpcLevel(spinlock.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun exReleaseSpinLockShared(spinlock: MutPtr<Int>, oldirql: UByte) {
+public actual fun exReleaseSpinLockShared(spinlock: MutPtr, oldirql: UByte) {
     windowssysWindowsWdkSystemSystemservicesExReleaseSpinLockShared(spinlock.rawAddress.toCPointer<ByteVar>(), oldirql)
 }
 
-public actual fun exReleaseSpinLockSharedFromDpcLevel(spinlock: MutPtr<Int>) {
+public actual fun exReleaseSpinLockSharedFromDpcLevel(spinlock: MutPtr) {
     windowssysWindowsWdkSystemSystemservicesExReleaseSpinLockSharedFromDpcLevel(spinlock.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun exRundownCompleted(runref: MutPtr<ExRundownRef>) {
+public actual fun exRundownCompleted(runref: MutPtr) {
     windowssysWindowsWdkSystemSystemservicesExRundownCompleted(runref.rawAddress.toCPointer<ByteVar>())
 }
 
@@ -1838,24 +1782,24 @@ public actual fun exRundownCompletedCacheAware(runrefcacheaware: PexRundownRefCa
     windowssysWindowsWdkSystemSystemservicesExRundownCompletedCacheAware(runrefcacheaware)
 }
 
-public actual fun exSecurePoolUpdate(securepoolhandle: Handle, tag: UInt, allocation: ConstPtr<CVoid>, cookie: ULong, offset: ULong, size: ULong, buffer: ConstPtr<CVoid>): Ntstatus =
+public actual fun exSecurePoolUpdate(securepoolhandle: Handle, tag: UInt, allocation: ConstPtr, cookie: ULong, offset: ULong, size: ULong, buffer: ConstPtr): Ntstatus =
     windowssysWindowsWdkSystemSystemservicesExSecurePoolUpdate(securepoolhandle.rawAddress.toCPointer<ByteVar>(), tag, allocation.rawAddress.toCPointer<ByteVar>(), cookie, offset, size, buffer.rawAddress.toCPointer<ByteVar>())
 
-public actual fun exSecurePoolValidate(securepoolhandle: Handle, tag: UInt, allocation: ConstPtr<CVoid>, cookie: ULong): UInt =
+public actual fun exSecurePoolValidate(securepoolhandle: Handle, tag: UInt, allocation: ConstPtr, cookie: ULong): UInt =
     windowssysWindowsWdkSystemSystemservicesExSecurePoolValidate(securepoolhandle.rawAddress.toCPointer<ByteVar>(), tag, allocation.rawAddress.toCPointer<ByteVar>(), cookie)
 
-public actual fun exSetFirmwareEnvironmentVariable(variablename: ConstPtr<UnicodeString>, vendorguid: ConstPtr<Guid>, value: ConstPtr<CVoid>, valuelength: UInt, attributes: UInt): Ntstatus =
+public actual fun exSetFirmwareEnvironmentVariable(variablename: ConstPtr, vendorguid: ConstPtr, value: ConstPtr, valuelength: UInt, attributes: UInt): Ntstatus =
     windowssysWindowsWdkSystemSystemservicesExSetFirmwareEnvironmentVariable(variablename.rawAddress.toCPointer<ByteVar>(), vendorguid.rawAddress.toCPointer<ByteVar>(), value.rawAddress.toCPointer<ByteVar>(), valuelength, attributes)
 
-public actual fun exSetResourceOwnerPointer(resource: MutPtr<Eresource>, ownerpointer: ConstPtr<CVoid>) {
+public actual fun exSetResourceOwnerPointer(resource: MutPtr, ownerpointer: ConstPtr) {
     windowssysWindowsWdkSystemSystemservicesExSetResourceOwnerPointer(resource.rawAddress.toCPointer<ByteVar>(), ownerpointer.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun exSetResourceOwnerPointerEx(resource: MutPtr<Eresource>, ownerpointer: ConstPtr<CVoid>, flags: UInt) {
+public actual fun exSetResourceOwnerPointerEx(resource: MutPtr, ownerpointer: ConstPtr, flags: UInt) {
     windowssysWindowsWdkSystemSystemservicesExSetResourceOwnerPointerEx(resource.rawAddress.toCPointer<ByteVar>(), ownerpointer.rawAddress.toCPointer<ByteVar>(), flags)
 }
 
-public actual fun exSetTimer(timer: PexTimer, duetime: Long, period: Long, parameters: ConstPtr<ExtSetParametersV0>): Boolean =
+public actual fun exSetTimer(timer: PexTimer, duetime: Long, period: Long, parameters: ConstPtr): Boolean =
     windowssysWindowsWdkSystemSystemservicesExSetTimer(timer, duetime, period, parameters.rawAddress.toCPointer<ByteVar>())
 
 public actual fun exSetTimerResolution(desiredtime: UInt, setresolution: Boolean): UInt =
@@ -1864,33 +1808,33 @@ public actual fun exSetTimerResolution(desiredtime: UInt, setresolution: Boolean
 public actual fun exSizeOfRundownProtectionCacheAware(): ULong =
     windowssysWindowsWdkSystemSystemservicesExSizeOfRundownProtectionCacheAware()
 
-public actual fun exSystemTimeToLocalTime(systemtime: ConstPtr<Long>, localtime: MutPtr<Long>) {
+public actual fun exSystemTimeToLocalTime(systemtime: ConstPtr, localtime: MutPtr) {
     windowssysWindowsWdkSystemSystemservicesExSystemTimeToLocalTime(systemtime.rawAddress.toCPointer<ByteVar>(), localtime.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun exTryAcquireSpinLockExclusiveAtDpcLevel(spinlock: MutPtr<Int>): UInt =
+public actual fun exTryAcquireSpinLockExclusiveAtDpcLevel(spinlock: MutPtr): UInt =
     windowssysWindowsWdkSystemSystemservicesExTryAcquireSpinLockExclusiveAtDpcLevel(spinlock.rawAddress.toCPointer<ByteVar>())
 
-public actual fun exTryAcquireSpinLockSharedAtDpcLevel(spinlock: MutPtr<Int>): UInt =
+public actual fun exTryAcquireSpinLockSharedAtDpcLevel(spinlock: MutPtr): UInt =
     windowssysWindowsWdkSystemSystemservicesExTryAcquireSpinLockSharedAtDpcLevel(spinlock.rawAddress.toCPointer<ByteVar>())
 
-public actual fun exTryConvertSharedSpinLockExclusive(spinlock: MutPtr<Int>): UInt =
+public actual fun exTryConvertSharedSpinLockExclusive(spinlock: MutPtr): UInt =
     windowssysWindowsWdkSystemSystemservicesExTryConvertSharedSpinLockExclusive(spinlock.rawAddress.toCPointer<ByteVar>())
 
-public actual fun exTryToAcquireFastMutex(fastmutex: MutPtr<FastMutex>): Boolean =
+public actual fun exTryToAcquireFastMutex(fastmutex: MutPtr): Boolean =
     windowssysWindowsWdkSystemSystemservicesExTryToAcquireFastMutex(fastmutex.rawAddress.toCPointer<ByteVar>())
 
-public actual fun exUnregisterCallback(callbackregistration: MutPtr<CVoid>) {
+public actual fun exUnregisterCallback(callbackregistration: MutPtr) {
     windowssysWindowsWdkSystemSystemservicesExUnregisterCallback(callbackregistration.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun exUuidCreate(uuid: MutPtr<Guid>): Ntstatus =
+public actual fun exUuidCreate(uuid: MutPtr): Ntstatus =
     windowssysWindowsWdkSystemSystemservicesExUuidCreate(uuid.rawAddress.toCPointer<ByteVar>())
 
 public actual fun exVerifySuite(suitetype: SuiteType): Boolean =
     windowssysWindowsWdkSystemSystemservicesExVerifySuite(suitetype)
 
-public actual fun exWaitForRundownProtectionRelease(runref: MutPtr<ExRundownRef>) {
+public actual fun exWaitForRundownProtectionRelease(runref: MutPtr) {
     windowssysWindowsWdkSystemSystemservicesExWaitForRundownProtectionRelease(runref.rawAddress.toCPointer<ByteVar>())
 }
 
@@ -1905,67 +1849,67 @@ public actual fun halAcquireDisplayOwnership(resetdisplayparameters: PhalResetDi
     windowssysWindowsWdkSystemSystemservicesHalAcquireDisplayOwnership(0L.toCPointer<ByteVar>())
 }
 
-public actual fun halAllocateAdapterChannel(adapterobject: ConstPtr<AdapterObject>, wcb: ConstPtr<WaitContextBlock>, numberofmapregisters: UInt, executionroutine: DriverControl): Ntstatus =
+public actual fun halAllocateAdapterChannel(adapterobject: ConstPtr, wcb: ConstPtr, numberofmapregisters: UInt, executionroutine: DriverControl): Ntstatus =
     0
 
-public actual fun halAllocateCommonBuffer(adapterobject: ConstPtr<AdapterObject>, length: UInt, logicaladdress: MutPtr<Long>, cacheenabled: Boolean): MutPtr<CVoid> =
+public actual fun halAllocateCommonBuffer(adapterobject: ConstPtr, length: UInt, logicaladdress: MutPtr, cacheenabled: Boolean): MutPtr =
     MutPtr(windowssysWindowsWdkSystemSystemservicesHalAllocateCommonBuffer(adapterobject.rawAddress.toCPointer<ByteVar>(), length, logicaladdress.rawAddress.toCPointer<ByteVar>(), cacheenabled)?.toLong() ?: 0L)
 
-public actual fun halAllocateCrashDumpRegisters(adapterobject: ConstPtr<AdapterObject>, numberofmapregisters: MutPtr<UInt>): MutPtr<CVoid> =
+public actual fun halAllocateCrashDumpRegisters(adapterobject: ConstPtr, numberofmapregisters: MutPtr): MutPtr =
     MutPtr(windowssysWindowsWdkSystemSystemservicesHalAllocateCrashDumpRegisters(adapterobject.rawAddress.toCPointer<ByteVar>(), numberofmapregisters.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun halAllocateHardwareCounters(groupaffinty: ConstPtr<GroupAffinity>, groupcount: UInt, resourcelist: ConstPtr<PhysicalCounterResourceList>, countersethandle: MutPtr<Handle>): Ntstatus =
+public actual fun halAllocateHardwareCounters(groupaffinty: ConstPtr, groupcount: UInt, resourcelist: ConstPtr, countersethandle: MutPtr): Ntstatus =
     windowssysWindowsWdkSystemSystemservicesHalAllocateHardwareCounters(groupaffinty.rawAddress.toCPointer<ByteVar>(), groupcount, resourcelist.rawAddress.toCPointer<ByteVar>(), countersethandle.rawAddress.toCPointer<ByteVar>())
 
-public actual fun halAssignSlotResources(registrypath: ConstPtr<UnicodeString>, driverclassname: ConstPtr<UnicodeString>, driverobject: ConstPtr<DriverObject>, deviceobject: ConstPtr<DeviceObject>, bustype: InterfaceType, busnumber: UInt, slotnumber: UInt, allocatedresources: MutPtr<MutPtr<CmResourceList>>): Ntstatus =
+public actual fun halAssignSlotResources(registrypath: ConstPtr, driverclassname: ConstPtr, driverobject: ConstPtr, deviceobject: ConstPtr, bustype: InterfaceType, busnumber: UInt, slotnumber: UInt, allocatedresources: MutPtr): Ntstatus =
     windowssysWindowsWdkSystemSystemservicesHalAssignSlotResources(registrypath.rawAddress.toCPointer<ByteVar>(), driverclassname.rawAddress.toCPointer<ByteVar>(), driverobject.rawAddress.toCPointer<ByteVar>(), deviceobject.rawAddress.toCPointer<ByteVar>(), bustype, busnumber, slotnumber, allocatedresources.rawAddress.toCPointer<ByteVar>())
 
-public actual fun halBugCheckSystem(errorsource: ConstPtr<WheaErrorSourceDescriptor>, errorrecord: ConstPtr<WheaErrorRecord>) {
+public actual fun halBugCheckSystem(errorsource: ConstPtr, errorrecord: ConstPtr) {
     windowssysWindowsWdkSystemSystemservicesHalBugCheckSystem(errorsource.rawAddress.toCPointer<ByteVar>(), errorrecord.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun halDmaAllocateCrashDumpRegistersEx(adapter: ConstPtr<AdapterObject>, numberofmapregisters: UInt, type: HalDmaCrashDumpRegisterType, mapregisterbase: MutPtr<MutPtr<CVoid>>, mapregistersavailable: MutPtr<UInt>): Ntstatus =
+public actual fun halDmaAllocateCrashDumpRegistersEx(adapter: ConstPtr, numberofmapregisters: UInt, type: HalDmaCrashDumpRegisterType, mapregisterbase: MutPtr, mapregistersavailable: MutPtr): Ntstatus =
     windowssysWindowsWdkSystemSystemservicesHalDmaAllocateCrashDumpRegistersEx(adapter.rawAddress.toCPointer<ByteVar>(), numberofmapregisters, type, mapregisterbase.rawAddress.toCPointer<ByteVar>(), mapregistersavailable.rawAddress.toCPointer<ByteVar>())
 
-public actual fun halDmaFreeCrashDumpRegistersEx(adapter: ConstPtr<AdapterObject>, type: HalDmaCrashDumpRegisterType): Ntstatus =
+public actual fun halDmaFreeCrashDumpRegistersEx(adapter: ConstPtr, type: HalDmaCrashDumpRegisterType): Ntstatus =
     windowssysWindowsWdkSystemSystemservicesHalDmaFreeCrashDumpRegistersEx(adapter.rawAddress.toCPointer<ByteVar>(), type)
 
-public actual fun halExamineMBR(deviceobject: ConstPtr<DeviceObject>, sectorsize: UInt, mbrtypeidentifier: UInt, buffer: MutPtr<MutPtr<CVoid>>) {
+public actual fun halExamineMBR(deviceobject: ConstPtr, sectorsize: UInt, mbrtypeidentifier: UInt, buffer: MutPtr) {
     windowssysWindowsWdkSystemSystemservicesHalExamineMBR(deviceobject.rawAddress.toCPointer<ByteVar>(), sectorsize, mbrtypeidentifier, buffer.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun halFreeCommonBuffer(adapterobject: ConstPtr<AdapterObject>, length: UInt, logicaladdress: Long, virtualaddress: ConstPtr<CVoid>, cacheenabled: Boolean) {
+public actual fun halFreeCommonBuffer(adapterobject: ConstPtr, length: UInt, logicaladdress: Long, virtualaddress: ConstPtr, cacheenabled: Boolean) {
     windowssysWindowsWdkSystemSystemservicesHalFreeCommonBuffer(adapterobject.rawAddress.toCPointer<ByteVar>(), length, logicaladdress, virtualaddress.rawAddress.toCPointer<ByteVar>(), cacheenabled)
 }
 
 public actual fun halFreeHardwareCounters(countersethandle: Handle): Ntstatus =
     windowssysWindowsWdkSystemSystemservicesHalFreeHardwareCounters(countersethandle.rawAddress.toCPointer<ByteVar>())
 
-public actual fun halGetAdapter(devicedescription: ConstPtr<DeviceDescription>, numberofmapregisters: MutPtr<UInt>): MutPtr<AdapterObject> =
+public actual fun halGetAdapter(devicedescription: ConstPtr, numberofmapregisters: MutPtr): MutPtr =
     MutPtr(windowssysWindowsWdkSystemSystemservicesHalGetAdapter(devicedescription.rawAddress.toCPointer<ByteVar>(), numberofmapregisters.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun halGetBusData(busdatatype: BusDataType, busnumber: UInt, slotnumber: UInt, buffer: MutPtr<CVoid>, length: UInt): UInt =
+public actual fun halGetBusData(busdatatype: BusDataType, busnumber: UInt, slotnumber: UInt, buffer: MutPtr, length: UInt): UInt =
     windowssysWindowsWdkSystemSystemservicesHalGetBusData(busdatatype, busnumber, slotnumber, buffer.rawAddress.toCPointer<ByteVar>(), length)
 
-public actual fun halGetBusDataByOffset(busdatatype: BusDataType, busnumber: UInt, slotnumber: UInt, buffer: MutPtr<CVoid>, offset: UInt, length: UInt): UInt =
+public actual fun halGetBusDataByOffset(busdatatype: BusDataType, busnumber: UInt, slotnumber: UInt, buffer: MutPtr, offset: UInt, length: UInt): UInt =
     windowssysWindowsWdkSystemSystemservicesHalGetBusDataByOffset(busdatatype, busnumber, slotnumber, buffer.rawAddress.toCPointer<ByteVar>(), offset, length)
 
-public actual fun halGetInterruptVector(interfacetype: InterfaceType, busnumber: UInt, businterruptlevel: UInt, businterruptvector: UInt, irql: MutPtr<UByte>, affinity: MutPtr<ULong>): UInt =
+public actual fun halGetInterruptVector(interfacetype: InterfaceType, busnumber: UInt, businterruptlevel: UInt, businterruptvector: UInt, irql: MutPtr, affinity: MutPtr): UInt =
     windowssysWindowsWdkSystemSystemservicesHalGetInterruptVector(interfacetype, busnumber, businterruptlevel, businterruptvector, irql.rawAddress.toCPointer<ByteVar>(), affinity.rawAddress.toCPointer<ByteVar>())
 
 public actual fun halMakeBeep(frequency: UInt): Boolean =
     windowssysWindowsWdkSystemSystemservicesHalMakeBeep(frequency)
 
-public actual fun halReadDmaCounter(adapterobject: ConstPtr<AdapterObject>): UInt =
+public actual fun halReadDmaCounter(adapterobject: ConstPtr): UInt =
     windowssysWindowsWdkSystemSystemservicesHalReadDmaCounter(adapterobject.rawAddress.toCPointer<ByteVar>())
 
-public actual fun halSetBusData(busdatatype: BusDataType, busnumber: UInt, slotnumber: UInt, buffer: ConstPtr<CVoid>, length: UInt): UInt =
+public actual fun halSetBusData(busdatatype: BusDataType, busnumber: UInt, slotnumber: UInt, buffer: ConstPtr, length: UInt): UInt =
     windowssysWindowsWdkSystemSystemservicesHalSetBusData(busdatatype, busnumber, slotnumber, buffer.rawAddress.toCPointer<ByteVar>(), length)
 
-public actual fun halSetBusDataByOffset(busdatatype: BusDataType, busnumber: UInt, slotnumber: UInt, buffer: ConstPtr<CVoid>, offset: UInt, length: UInt): UInt =
+public actual fun halSetBusDataByOffset(busdatatype: BusDataType, busnumber: UInt, slotnumber: UInt, buffer: ConstPtr, offset: UInt, length: UInt): UInt =
     windowssysWindowsWdkSystemSystemservicesHalSetBusDataByOffset(busdatatype, busnumber, slotnumber, buffer.rawAddress.toCPointer<ByteVar>(), offset, length)
 
-public actual fun halTranslateBusAddress(interfacetype: InterfaceType, busnumber: UInt, busaddress: Long, addressspace: MutPtr<UInt>, translatedaddress: MutPtr<Long>): Boolean =
+public actual fun halTranslateBusAddress(interfacetype: InterfaceType, busnumber: UInt, busaddress: Long, addressspace: MutPtr, translatedaddress: MutPtr): Boolean =
     windowssysWindowsWdkSystemSystemservicesHalTranslateBusAddress(interfacetype, busnumber, busaddress, addressspace.rawAddress.toCPointer<ByteVar>(), translatedaddress.rawAddress.toCPointer<ByteVar>())
 
 public actual fun hvlRegisterWheaErrorNotification(callback: PhvlWheaErrorNotification): Ntstatus =
@@ -1974,175 +1918,175 @@ public actual fun hvlRegisterWheaErrorNotification(callback: PhvlWheaErrorNotifi
 public actual fun hvlUnregisterWheaErrorNotification(callback: PhvlWheaErrorNotification): Ntstatus =
     windowssysWindowsWdkSystemSystemservicesHvlUnregisterWheaErrorNotification(0L.toCPointer<ByteVar>())
 
-public actual fun ioAcquireCancelSpinLock(irql: MutPtr<UByte>) {
+public actual fun ioAcquireCancelSpinLock(irql: MutPtr) {
     windowssysWindowsWdkSystemSystemservicesIoAcquireCancelSpinLock(irql.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun ioAcquireKsrPersistentMemory(driverobject: ConstPtr<DriverObject>, physicaldeviceobject: ConstPtr<DeviceObject>, buffer: MutPtr<CVoid>, size: MutPtr<ULong>): Ntstatus =
+public actual fun ioAcquireKsrPersistentMemory(driverobject: ConstPtr, physicaldeviceobject: ConstPtr, buffer: MutPtr, size: MutPtr): Ntstatus =
     windowssysWindowsWdkSystemSystemservicesIoAcquireKsrPersistentMemory(driverobject.rawAddress.toCPointer<ByteVar>(), physicaldeviceobject.rawAddress.toCPointer<ByteVar>(), buffer.rawAddress.toCPointer<ByteVar>(), size.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ioAcquireKsrPersistentMemoryEx(driverobject: ConstPtr<DriverObject>, physicaldeviceobject: ConstPtr<DeviceObject>, physicaldeviceid: ConstPtr<UnicodeString>, datatag: ConstPtr<UShort>, dataversion: MutPtr<UInt>, buffer: MutPtr<CVoid>, size: MutPtr<ULong>): Ntstatus =
+public actual fun ioAcquireKsrPersistentMemoryEx(driverobject: ConstPtr, physicaldeviceobject: ConstPtr, physicaldeviceid: ConstPtr, datatag: ConstPtr, dataversion: MutPtr, buffer: MutPtr, size: MutPtr): Ntstatus =
     windowssysWindowsWdkSystemSystemservicesIoAcquireKsrPersistentMemoryEx(driverobject.rawAddress.toCPointer<ByteVar>(), physicaldeviceobject.rawAddress.toCPointer<ByteVar>(), physicaldeviceid.rawAddress.toCPointer<ByteVar>(), datatag.rawAddress.toCPointer<ByteVar>(), dataversion.rawAddress.toCPointer<ByteVar>(), buffer.rawAddress.toCPointer<ByteVar>(), size.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ioAcquireRemoveLockEx(removelock: MutPtr<IoRemoveLock>, tag: ConstPtr<CVoid>, file: Pcstr, line: UInt, remlocksize: UInt): Ntstatus =
+public actual fun ioAcquireRemoveLockEx(removelock: MutPtr, tag: ConstPtr, file: Pcstr, line: UInt, remlocksize: UInt): Ntstatus =
     windowssysWindowsWdkSystemSystemservicesIoAcquireRemoveLockEx(removelock.rawAddress.toCPointer<ByteVar>(), tag.rawAddress.toCPointer<ByteVar>(), file.rawAddress.toCPointer<ByteVar>(), line, remlocksize)
 
-public actual fun ioAllocateAdapterChannel(adapterobject: ConstPtr<AdapterObject>, deviceobject: ConstPtr<DeviceObject>, numberofmapregisters: UInt, executionroutine: DriverControl, context: ConstPtr<CVoid>): Ntstatus =
+public actual fun ioAllocateAdapterChannel(adapterobject: ConstPtr, deviceobject: ConstPtr, numberofmapregisters: UInt, executionroutine: DriverControl, context: ConstPtr): Ntstatus =
     0
 
-public actual fun ioAllocateController(controllerobject: ConstPtr<ControllerObject>, deviceobject: ConstPtr<DeviceObject>, executionroutine: DriverControl, context: ConstPtr<CVoid>) {
+public actual fun ioAllocateController(controllerobject: ConstPtr, deviceobject: ConstPtr, executionroutine: DriverControl, context: ConstPtr) {
 }
 
-public actual fun ioAllocateDriverObjectExtension(driverobject: ConstPtr<DriverObject>, clientidentificationaddress: ConstPtr<CVoid>, driverobjectextensionsize: UInt, driverobjectextension: MutPtr<MutPtr<CVoid>>): Ntstatus =
+public actual fun ioAllocateDriverObjectExtension(driverobject: ConstPtr, clientidentificationaddress: ConstPtr, driverobjectextensionsize: UInt, driverobjectextension: MutPtr): Ntstatus =
     windowssysWindowsWdkSystemSystemservicesIoAllocateDriverObjectExtension(driverobject.rawAddress.toCPointer<ByteVar>(), clientidentificationaddress.rawAddress.toCPointer<ByteVar>(), driverobjectextensionsize, driverobjectextension.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ioAllocateErrorLogEntry(ioobject: ConstPtr<CVoid>, entrysize: UByte): MutPtr<CVoid> =
+public actual fun ioAllocateErrorLogEntry(ioobject: ConstPtr, entrysize: UByte): MutPtr =
     MutPtr(windowssysWindowsWdkSystemSystemservicesIoAllocateErrorLogEntry(ioobject.rawAddress.toCPointer<ByteVar>(), entrysize)?.toLong() ?: 0L)
 
-public actual fun ioAllocateIrp(stacksize: Byte, chargequota: Boolean): MutPtr<Irp> =
+public actual fun ioAllocateIrp(stacksize: Byte, chargequota: Boolean): MutPtr =
     MutPtr(windowssysWindowsWdkSystemSystemservicesIoAllocateIrp(stacksize, chargequota)?.toLong() ?: 0L)
 
-public actual fun ioAllocateIrpEx(deviceobject: ConstPtr<DeviceObject>, stacksize: Byte, chargequota: Boolean): MutPtr<Irp> =
+public actual fun ioAllocateIrpEx(deviceobject: ConstPtr, stacksize: Byte, chargequota: Boolean): MutPtr =
     MutPtr(windowssysWindowsWdkSystemSystemservicesIoAllocateIrpEx(deviceobject.rawAddress.toCPointer<ByteVar>(), stacksize, chargequota)?.toLong() ?: 0L)
 
-public actual fun ioAllocateMdl(virtualaddress: ConstPtr<CVoid>, length: UInt, secondarybuffer: Boolean, chargequota: Boolean, irp: MutPtr<Irp>): MutPtr<Mdl> =
+public actual fun ioAllocateMdl(virtualaddress: ConstPtr, length: UInt, secondarybuffer: Boolean, chargequota: Boolean, irp: MutPtr): MutPtr =
     MutPtr(windowssysWindowsWdkSystemSystemservicesIoAllocateMdl(virtualaddress.rawAddress.toCPointer<ByteVar>(), length, secondarybuffer, chargequota, irp.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun ioAllocateSfioStreamIdentifier(fileobject: ConstPtr<FileObject>, length: UInt, signature: ConstPtr<CVoid>, streamidentifier: MutPtr<MutPtr<CVoid>>): Ntstatus =
+public actual fun ioAllocateSfioStreamIdentifier(fileobject: ConstPtr, length: UInt, signature: ConstPtr, streamidentifier: MutPtr): Ntstatus =
     windowssysWindowsWdkSystemSystemservicesIoAllocateSfioStreamIdentifier(fileobject.rawAddress.toCPointer<ByteVar>(), length, signature.rawAddress.toCPointer<ByteVar>(), streamidentifier.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ioAllocateWorkItem(deviceobject: ConstPtr<DeviceObject>): PioWorkitem =
+public actual fun ioAllocateWorkItem(deviceobject: ConstPtr): PioWorkitem =
     windowssysWindowsWdkSystemSystemservicesIoAllocateWorkItem(deviceobject.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ioAssignResources(registrypath: ConstPtr<UnicodeString>, driverclassname: ConstPtr<UnicodeString>, driverobject: ConstPtr<DriverObject>, deviceobject: ConstPtr<DeviceObject>, requestedresources: ConstPtr<IoResourceRequirementsList>, allocatedresources: MutPtr<MutPtr<CmResourceList>>): Ntstatus =
+public actual fun ioAssignResources(registrypath: ConstPtr, driverclassname: ConstPtr, driverobject: ConstPtr, deviceobject: ConstPtr, requestedresources: ConstPtr, allocatedresources: MutPtr): Ntstatus =
     windowssysWindowsWdkSystemSystemservicesIoAssignResources(registrypath.rawAddress.toCPointer<ByteVar>(), driverclassname.rawAddress.toCPointer<ByteVar>(), driverobject.rawAddress.toCPointer<ByteVar>(), deviceobject.rawAddress.toCPointer<ByteVar>(), requestedresources.rawAddress.toCPointer<ByteVar>(), allocatedresources.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ioAttachDevice(sourcedevice: ConstPtr<DeviceObject>, targetdevice: ConstPtr<UnicodeString>, attacheddevice: MutPtr<MutPtr<DeviceObject>>): Ntstatus =
+public actual fun ioAttachDevice(sourcedevice: ConstPtr, targetdevice: ConstPtr, attacheddevice: MutPtr): Ntstatus =
     windowssysWindowsWdkSystemSystemservicesIoAttachDevice(sourcedevice.rawAddress.toCPointer<ByteVar>(), targetdevice.rawAddress.toCPointer<ByteVar>(), attacheddevice.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ioAttachDeviceByPointer(sourcedevice: ConstPtr<DeviceObject>, targetdevice: ConstPtr<DeviceObject>): Ntstatus =
+public actual fun ioAttachDeviceByPointer(sourcedevice: ConstPtr, targetdevice: ConstPtr): Ntstatus =
     windowssysWindowsWdkSystemSystemservicesIoAttachDeviceByPointer(sourcedevice.rawAddress.toCPointer<ByteVar>(), targetdevice.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ioAttachDeviceToDeviceStack(sourcedevice: ConstPtr<DeviceObject>, targetdevice: ConstPtr<DeviceObject>): MutPtr<DeviceObject> =
+public actual fun ioAttachDeviceToDeviceStack(sourcedevice: ConstPtr, targetdevice: ConstPtr): MutPtr =
     MutPtr(windowssysWindowsWdkSystemSystemservicesIoAttachDeviceToDeviceStack(sourcedevice.rawAddress.toCPointer<ByteVar>(), targetdevice.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun ioAttachDeviceToDeviceStackSafe(sourcedevice: ConstPtr<DeviceObject>, targetdevice: ConstPtr<DeviceObject>, attachedtodeviceobject: MutPtr<MutPtr<DeviceObject>>): Ntstatus =
+public actual fun ioAttachDeviceToDeviceStackSafe(sourcedevice: ConstPtr, targetdevice: ConstPtr, attachedtodeviceobject: MutPtr): Ntstatus =
     windowssysWindowsWdkSystemSystemservicesIoAttachDeviceToDeviceStackSafe(sourcedevice.rawAddress.toCPointer<ByteVar>(), targetdevice.rawAddress.toCPointer<ByteVar>(), attachedtodeviceobject.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ioBuildAsynchronousFsdRequest(majorfunction: UInt, deviceobject: ConstPtr<DeviceObject>, buffer: MutPtr<CVoid>, length: UInt, startingoffset: ConstPtr<Long>, iostatusblock: ConstPtr<IoStatusBlock>): MutPtr<Irp> =
+public actual fun ioBuildAsynchronousFsdRequest(majorfunction: UInt, deviceobject: ConstPtr, buffer: MutPtr, length: UInt, startingoffset: ConstPtr, iostatusblock: ConstPtr): MutPtr =
     MutPtr(windowssysWindowsWdkSystemSystemservicesIoBuildAsynchronousFsdRequest(majorfunction, deviceobject.rawAddress.toCPointer<ByteVar>(), buffer.rawAddress.toCPointer<ByteVar>(), length, startingoffset.rawAddress.toCPointer<ByteVar>(), iostatusblock.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun ioBuildDeviceIoControlRequest(iocontrolcode: UInt, deviceobject: ConstPtr<DeviceObject>, inputbuffer: ConstPtr<CVoid>, inputbufferlength: UInt, outputbuffer: MutPtr<CVoid>, outputbufferlength: UInt, internaldeviceiocontrol: Boolean, event: ConstPtr<Kevent>, iostatusblock: MutPtr<IoStatusBlock>): MutPtr<Irp> =
+public actual fun ioBuildDeviceIoControlRequest(iocontrolcode: UInt, deviceobject: ConstPtr, inputbuffer: ConstPtr, inputbufferlength: UInt, outputbuffer: MutPtr, outputbufferlength: UInt, internaldeviceiocontrol: Boolean, event: ConstPtr, iostatusblock: MutPtr): MutPtr =
     MutPtr(windowssysWindowsWdkSystemSystemservicesIoBuildDeviceIoControlRequest(iocontrolcode, deviceobject.rawAddress.toCPointer<ByteVar>(), inputbuffer.rawAddress.toCPointer<ByteVar>(), inputbufferlength, outputbuffer.rawAddress.toCPointer<ByteVar>(), outputbufferlength, internaldeviceiocontrol, event.rawAddress.toCPointer<ByteVar>(), iostatusblock.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun ioBuildPartialMdl(sourcemdl: ConstPtr<Mdl>, targetmdl: MutPtr<Mdl>, virtualaddress: MutPtr<CVoid>, length: UInt) {
+public actual fun ioBuildPartialMdl(sourcemdl: ConstPtr, targetmdl: MutPtr, virtualaddress: MutPtr, length: UInt) {
     windowssysWindowsWdkSystemSystemservicesIoBuildPartialMdl(sourcemdl.rawAddress.toCPointer<ByteVar>(), targetmdl.rawAddress.toCPointer<ByteVar>(), virtualaddress.rawAddress.toCPointer<ByteVar>(), length)
 }
 
-public actual fun ioBuildSynchronousFsdRequest(majorfunction: UInt, deviceobject: ConstPtr<DeviceObject>, buffer: MutPtr<CVoid>, length: UInt, startingoffset: ConstPtr<Long>, event: ConstPtr<Kevent>, iostatusblock: MutPtr<IoStatusBlock>): MutPtr<Irp> =
+public actual fun ioBuildSynchronousFsdRequest(majorfunction: UInt, deviceobject: ConstPtr, buffer: MutPtr, length: UInt, startingoffset: ConstPtr, event: ConstPtr, iostatusblock: MutPtr): MutPtr =
     MutPtr(windowssysWindowsWdkSystemSystemservicesIoBuildSynchronousFsdRequest(majorfunction, deviceobject.rawAddress.toCPointer<ByteVar>(), buffer.rawAddress.toCPointer<ByteVar>(), length, startingoffset.rawAddress.toCPointer<ByteVar>(), event.rawAddress.toCPointer<ByteVar>(), iostatusblock.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun ioCancelFileOpen(deviceobject: ConstPtr<DeviceObject>, fileobject: ConstPtr<FileObject>) {
+public actual fun ioCancelFileOpen(deviceobject: ConstPtr, fileobject: ConstPtr) {
     windowssysWindowsWdkSystemSystemservicesIoCancelFileOpen(deviceobject.rawAddress.toCPointer<ByteVar>(), fileobject.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun ioCancelIrp(irp: ConstPtr<Irp>): Boolean =
+public actual fun ioCancelIrp(irp: ConstPtr): Boolean =
     windowssysWindowsWdkSystemSystemservicesIoCancelIrp(irp.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ioCheckLinkShareAccess(desiredaccess: UInt, desiredshareaccess: UInt, fileobject: MutPtr<FileObject>, shareaccess: MutPtr<ShareAccess>, linkshareaccess: MutPtr<LinkShareAccess>, ioshareaccessflags: UInt): Ntstatus =
+public actual fun ioCheckLinkShareAccess(desiredaccess: UInt, desiredshareaccess: UInt, fileobject: MutPtr, shareaccess: MutPtr, linkshareaccess: MutPtr, ioshareaccessflags: UInt): Ntstatus =
     windowssysWindowsWdkSystemSystemservicesIoCheckLinkShareAccess(desiredaccess, desiredshareaccess, fileobject.rawAddress.toCPointer<ByteVar>(), shareaccess.rawAddress.toCPointer<ByteVar>(), linkshareaccess.rawAddress.toCPointer<ByteVar>(), ioshareaccessflags)
 
-public actual fun ioCheckShareAccess(desiredaccess: UInt, desiredshareaccess: UInt, fileobject: MutPtr<FileObject>, shareaccess: MutPtr<ShareAccess>, update: Boolean): Ntstatus =
+public actual fun ioCheckShareAccess(desiredaccess: UInt, desiredshareaccess: UInt, fileobject: MutPtr, shareaccess: MutPtr, update: Boolean): Ntstatus =
     windowssysWindowsWdkSystemSystemservicesIoCheckShareAccess(desiredaccess, desiredshareaccess, fileobject.rawAddress.toCPointer<ByteVar>(), shareaccess.rawAddress.toCPointer<ByteVar>(), update)
 
-public actual fun ioCheckShareAccessEx(desiredaccess: UInt, desiredshareaccess: UInt, fileobject: MutPtr<FileObject>, shareaccess: MutPtr<ShareAccess>, update: Boolean, writepermission: ConstPtr<Boolean>): Ntstatus =
+public actual fun ioCheckShareAccessEx(desiredaccess: UInt, desiredshareaccess: UInt, fileobject: MutPtr, shareaccess: MutPtr, update: Boolean, writepermission: ConstPtr): Ntstatus =
     windowssysWindowsWdkSystemSystemservicesIoCheckShareAccessEx(desiredaccess, desiredshareaccess, fileobject.rawAddress.toCPointer<ByteVar>(), shareaccess.rawAddress.toCPointer<ByteVar>(), update, writepermission.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ioCleanupIrp(irp: MutPtr<Irp>) {
+public actual fun ioCleanupIrp(irp: MutPtr) {
     windowssysWindowsWdkSystemSystemservicesIoCleanupIrp(irp.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun ioClearActivityIdThread(originalid: ConstPtr<Guid>) {
+public actual fun ioClearActivityIdThread(originalid: ConstPtr) {
     windowssysWindowsWdkSystemSystemservicesIoClearActivityIdThread(originalid.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun ioClearIrpExtraCreateParameter(irp: MutPtr<Irp>) {
+public actual fun ioClearIrpExtraCreateParameter(irp: MutPtr) {
     windowssysWindowsWdkSystemSystemservicesIoClearIrpExtraCreateParameter(irp.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun ioConnectInterrupt(interruptobject: MutPtr<Pkinterrupt>, serviceroutine: PkserviceRoutine, servicecontext: ConstPtr<CVoid>, spinlock: ConstPtr<ULong>, vector: UInt, irql: UByte, synchronizeirql: UByte, interruptmode: KinterruptMode, sharevector: Boolean, processorenablemask: ULong, floatingsave: Boolean): Ntstatus =
+public actual fun ioConnectInterrupt(interruptobject: MutPtr, serviceroutine: PkserviceRoutine, servicecontext: ConstPtr, spinlock: ConstPtr, vector: UInt, irql: UByte, synchronizeirql: UByte, interruptmode: KinterruptMode, sharevector: Boolean, processorenablemask: ULong, floatingsave: Boolean): Ntstatus =
     windowssysWindowsWdkSystemSystemservicesIoConnectInterrupt(interruptobject.rawAddress.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>(), servicecontext.rawAddress.toCPointer<ByteVar>(), spinlock.rawAddress.toCPointer<ByteVar>(), vector, irql, synchronizeirql, interruptmode, sharevector, processorenablemask, floatingsave)
 
-public actual fun ioConnectInterruptEx(parameters: MutPtr<IoConnectInterruptParameters>): Ntstatus =
+public actual fun ioConnectInterruptEx(parameters: MutPtr): Ntstatus =
     windowssysWindowsWdkSystemSystemservicesIoConnectInterruptEx(parameters.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ioCreateController(size: UInt): MutPtr<ControllerObject> =
+public actual fun ioCreateController(size: UInt): MutPtr =
     MutPtr(windowssysWindowsWdkSystemSystemservicesIoCreateController(size)?.toLong() ?: 0L)
 
-public actual fun ioCreateDevice(driverobject: ConstPtr<DriverObject>, deviceextensionsize: UInt, devicename: ConstPtr<UnicodeString>, devicetype: UInt, devicecharacteristics: UInt, exclusive: Boolean, deviceobject: MutPtr<MutPtr<DeviceObject>>): Ntstatus =
+public actual fun ioCreateDevice(driverobject: ConstPtr, deviceextensionsize: UInt, devicename: ConstPtr, devicetype: UInt, devicecharacteristics: UInt, exclusive: Boolean, deviceobject: MutPtr): Ntstatus =
     windowssysWindowsWdkSystemSystemservicesIoCreateDevice(driverobject.rawAddress.toCPointer<ByteVar>(), deviceextensionsize, devicename.rawAddress.toCPointer<ByteVar>(), devicetype, devicecharacteristics, exclusive, deviceobject.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ioCreateDisk(deviceobject: ConstPtr<DeviceObject>, disk: ConstPtr<CreateDisk>): Ntstatus =
+public actual fun ioCreateDisk(deviceobject: ConstPtr, disk: ConstPtr): Ntstatus =
     windowssysWindowsWdkSystemSystemservicesIoCreateDisk(deviceobject.rawAddress.toCPointer<ByteVar>(), disk.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ioCreateFile(filehandle: MutPtr<Handle>, desiredaccess: UInt, objectattributes: ConstPtr<ObjectAttributes>, iostatusblock: MutPtr<IoStatusBlock>, allocationsize: ConstPtr<Long>, fileattributes: UInt, shareaccess: UInt, disposition: UInt, createoptions: UInt, eabuffer: ConstPtr<CVoid>, ealength: UInt, createfiletype: CreateFileType, internalparameters: ConstPtr<CVoid>, options: UInt): Ntstatus =
+public actual fun ioCreateFile(filehandle: MutPtr, desiredaccess: UInt, objectattributes: ConstPtr, iostatusblock: MutPtr, allocationsize: ConstPtr, fileattributes: UInt, shareaccess: UInt, disposition: UInt, createoptions: UInt, eabuffer: ConstPtr, ealength: UInt, createfiletype: CreateFileType, internalparameters: ConstPtr, options: UInt): Ntstatus =
     windowssysWindowsWdkSystemSystemservicesIoCreateFile(filehandle.rawAddress.toCPointer<ByteVar>(), desiredaccess, objectattributes.rawAddress.toCPointer<ByteVar>(), iostatusblock.rawAddress.toCPointer<ByteVar>(), allocationsize.rawAddress.toCPointer<ByteVar>(), fileattributes, shareaccess, disposition, createoptions, eabuffer.rawAddress.toCPointer<ByteVar>(), ealength, createfiletype, internalparameters.rawAddress.toCPointer<ByteVar>(), options)
 
-public actual fun ioCreateFileEx(filehandle: MutPtr<Handle>, desiredaccess: UInt, objectattributes: ConstPtr<ObjectAttributes>, iostatusblock: MutPtr<IoStatusBlock>, allocationsize: ConstPtr<Long>, fileattributes: UInt, shareaccess: UInt, disposition: UInt, createoptions: UInt, eabuffer: ConstPtr<CVoid>, ealength: UInt, createfiletype: CreateFileType, internalparameters: ConstPtr<CVoid>, options: UInt, drivercontext: ConstPtr<IoDriverCreateContext>): Ntstatus =
+public actual fun ioCreateFileEx(filehandle: MutPtr, desiredaccess: UInt, objectattributes: ConstPtr, iostatusblock: MutPtr, allocationsize: ConstPtr, fileattributes: UInt, shareaccess: UInt, disposition: UInt, createoptions: UInt, eabuffer: ConstPtr, ealength: UInt, createfiletype: CreateFileType, internalparameters: ConstPtr, options: UInt, drivercontext: ConstPtr): Ntstatus =
     windowssysWindowsWdkSystemSystemservicesIoCreateFileEx(filehandle.rawAddress.toCPointer<ByteVar>(), desiredaccess, objectattributes.rawAddress.toCPointer<ByteVar>(), iostatusblock.rawAddress.toCPointer<ByteVar>(), allocationsize.rawAddress.toCPointer<ByteVar>(), fileattributes, shareaccess, disposition, createoptions, eabuffer.rawAddress.toCPointer<ByteVar>(), ealength, createfiletype, internalparameters.rawAddress.toCPointer<ByteVar>(), options, drivercontext.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ioCreateFileSpecifyDeviceObjectHint(filehandle: MutPtr<Handle>, desiredaccess: UInt, objectattributes: ConstPtr<ObjectAttributes>, iostatusblock: MutPtr<IoStatusBlock>, allocationsize: ConstPtr<Long>, fileattributes: UInt, shareaccess: UInt, disposition: UInt, createoptions: UInt, eabuffer: ConstPtr<CVoid>, ealength: UInt, createfiletype: CreateFileType, internalparameters: ConstPtr<CVoid>, options: UInt, deviceobject: ConstPtr<CVoid>): Ntstatus =
+public actual fun ioCreateFileSpecifyDeviceObjectHint(filehandle: MutPtr, desiredaccess: UInt, objectattributes: ConstPtr, iostatusblock: MutPtr, allocationsize: ConstPtr, fileattributes: UInt, shareaccess: UInt, disposition: UInt, createoptions: UInt, eabuffer: ConstPtr, ealength: UInt, createfiletype: CreateFileType, internalparameters: ConstPtr, options: UInt, deviceobject: ConstPtr): Ntstatus =
     windowssysWindowsWdkSystemSystemservicesIoCreateFileSpecifyDeviceObjectHint(filehandle.rawAddress.toCPointer<ByteVar>(), desiredaccess, objectattributes.rawAddress.toCPointer<ByteVar>(), iostatusblock.rawAddress.toCPointer<ByteVar>(), allocationsize.rawAddress.toCPointer<ByteVar>(), fileattributes, shareaccess, disposition, createoptions, eabuffer.rawAddress.toCPointer<ByteVar>(), ealength, createfiletype, internalparameters.rawAddress.toCPointer<ByteVar>(), options, deviceobject.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ioCreateNotificationEvent(eventname: ConstPtr<UnicodeString>, eventhandle: MutPtr<Handle>): MutPtr<Kevent> =
+public actual fun ioCreateNotificationEvent(eventname: ConstPtr, eventhandle: MutPtr): MutPtr =
     MutPtr(windowssysWindowsWdkSystemSystemservicesIoCreateNotificationEvent(eventname.rawAddress.toCPointer<ByteVar>(), eventhandle.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun ioCreateSymbolicLink(symboliclinkname: ConstPtr<UnicodeString>, devicename: ConstPtr<UnicodeString>): Ntstatus =
+public actual fun ioCreateSymbolicLink(symboliclinkname: ConstPtr, devicename: ConstPtr): Ntstatus =
     windowssysWindowsWdkSystemSystemservicesIoCreateSymbolicLink(symboliclinkname.rawAddress.toCPointer<ByteVar>(), devicename.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ioCreateSynchronizationEvent(eventname: ConstPtr<UnicodeString>, eventhandle: MutPtr<Handle>): MutPtr<Kevent> =
+public actual fun ioCreateSynchronizationEvent(eventname: ConstPtr, eventhandle: MutPtr): MutPtr =
     MutPtr(windowssysWindowsWdkSystemSystemservicesIoCreateSynchronizationEvent(eventname.rawAddress.toCPointer<ByteVar>(), eventhandle.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun ioCreateSystemThread(ioobject: MutPtr<CVoid>, threadhandle: MutPtr<Handle>, desiredaccess: UInt, objectattributes: ConstPtr<ObjectAttributes>, processhandle: Handle, clientid: MutPtr<ClientId>, startroutine: PkstartRoutine, startcontext: ConstPtr<CVoid>): Ntstatus =
+public actual fun ioCreateSystemThread(ioobject: MutPtr, threadhandle: MutPtr, desiredaccess: UInt, objectattributes: ConstPtr, processhandle: Handle, clientid: MutPtr, startroutine: PkstartRoutine, startcontext: ConstPtr): Ntstatus =
     windowssysWindowsWdkSystemSystemservicesIoCreateSystemThread(ioobject.rawAddress.toCPointer<ByteVar>(), threadhandle.rawAddress.toCPointer<ByteVar>(), desiredaccess, objectattributes.rawAddress.toCPointer<ByteVar>(), processhandle.rawAddress.toCPointer<ByteVar>(), clientid.rawAddress.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>(), startcontext.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ioCreateUnprotectedSymbolicLink(symboliclinkname: ConstPtr<UnicodeString>, devicename: ConstPtr<UnicodeString>): Ntstatus =
+public actual fun ioCreateUnprotectedSymbolicLink(symboliclinkname: ConstPtr, devicename: ConstPtr): Ntstatus =
     windowssysWindowsWdkSystemSystemservicesIoCreateUnprotectedSymbolicLink(symboliclinkname.rawAddress.toCPointer<ByteVar>(), devicename.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ioCsqInitialize(csq: MutPtr<IoCsq>, csqinsertirp: PioCsqInsertIrp, csqremoveirp: PioCsqRemoveIrp, csqpeeknextirp: PioCsqPeekNextIrp, csqacquirelock: PioCsqAcquireLock, csqreleaselock: PioCsqReleaseLock, csqcompletecanceledirp: PioCsqCompleteCanceledIrp): Ntstatus =
+public actual fun ioCsqInitialize(csq: MutPtr, csqinsertirp: PioCsqInsertIrp, csqremoveirp: PioCsqRemoveIrp, csqpeeknextirp: PioCsqPeekNextIrp, csqacquirelock: PioCsqAcquireLock, csqreleaselock: PioCsqReleaseLock, csqcompletecanceledirp: PioCsqCompleteCanceledIrp): Ntstatus =
     windowssysWindowsWdkSystemSystemservicesIoCsqInitialize(csq.rawAddress.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>())
 
-public actual fun ioCsqInitializeEx(csq: MutPtr<IoCsq>, csqinsertirp: PioCsqInsertIrpEx, csqremoveirp: PioCsqRemoveIrp, csqpeeknextirp: PioCsqPeekNextIrp, csqacquirelock: PioCsqAcquireLock, csqreleaselock: PioCsqReleaseLock, csqcompletecanceledirp: PioCsqCompleteCanceledIrp): Ntstatus =
+public actual fun ioCsqInitializeEx(csq: MutPtr, csqinsertirp: PioCsqInsertIrpEx, csqremoveirp: PioCsqRemoveIrp, csqpeeknextirp: PioCsqPeekNextIrp, csqacquirelock: PioCsqAcquireLock, csqreleaselock: PioCsqReleaseLock, csqcompletecanceledirp: PioCsqCompleteCanceledIrp): Ntstatus =
     windowssysWindowsWdkSystemSystemservicesIoCsqInitializeEx(csq.rawAddress.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>())
 
-public actual fun ioCsqInsertIrp(csq: MutPtr<IoCsq>, irp: MutPtr<Irp>, context: MutPtr<IoCsqIrpContext>) {
+public actual fun ioCsqInsertIrp(csq: MutPtr, irp: MutPtr, context: MutPtr) {
     windowssysWindowsWdkSystemSystemservicesIoCsqInsertIrp(csq.rawAddress.toCPointer<ByteVar>(), irp.rawAddress.toCPointer<ByteVar>(), context.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun ioCsqInsertIrpEx(csq: MutPtr<IoCsq>, irp: MutPtr<Irp>, context: MutPtr<IoCsqIrpContext>, insertcontext: ConstPtr<CVoid>): Ntstatus =
+public actual fun ioCsqInsertIrpEx(csq: MutPtr, irp: MutPtr, context: MutPtr, insertcontext: ConstPtr): Ntstatus =
     windowssysWindowsWdkSystemSystemservicesIoCsqInsertIrpEx(csq.rawAddress.toCPointer<ByteVar>(), irp.rawAddress.toCPointer<ByteVar>(), context.rawAddress.toCPointer<ByteVar>(), insertcontext.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ioCsqRemoveIrp(csq: MutPtr<IoCsq>, context: MutPtr<IoCsqIrpContext>): MutPtr<Irp> =
+public actual fun ioCsqRemoveIrp(csq: MutPtr, context: MutPtr): MutPtr =
     MutPtr(windowssysWindowsWdkSystemSystemservicesIoCsqRemoveIrp(csq.rawAddress.toCPointer<ByteVar>(), context.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun ioCsqRemoveNextIrp(csq: MutPtr<IoCsq>, peekcontext: ConstPtr<CVoid>): MutPtr<Irp> =
+public actual fun ioCsqRemoveNextIrp(csq: MutPtr, peekcontext: ConstPtr): MutPtr =
     MutPtr(windowssysWindowsWdkSystemSystemservicesIoCsqRemoveNextIrp(csq.rawAddress.toCPointer<ByteVar>(), peekcontext.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun ioDecrementKeepAliveCount(fileobject: MutPtr<FileObject>, process: Peprocess): Ntstatus =
+public actual fun ioDecrementKeepAliveCount(fileobject: MutPtr, process: Peprocess): Ntstatus =
     windowssysWindowsWdkSystemSystemservicesIoDecrementKeepAliveCount(fileobject.rawAddress.toCPointer<ByteVar>(), process)
 
-public actual fun ioDeleteController(controllerobject: ConstPtr<ControllerObject>) {
+public actual fun ioDeleteController(controllerobject: ConstPtr) {
     windowssysWindowsWdkSystemSystemservicesIoDeleteController(controllerobject.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun ioDeleteDevice(deviceobject: ConstPtr<DeviceObject>) {
+public actual fun ioDeleteDevice(deviceobject: ConstPtr) {
     windowssysWindowsWdkSystemSystemservicesIoDeleteDevice(deviceobject.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun ioDeleteSymbolicLink(symboliclinkname: ConstPtr<UnicodeString>): Ntstatus =
+public actual fun ioDeleteSymbolicLink(symboliclinkname: ConstPtr): Ntstatus =
     windowssysWindowsWdkSystemSystemservicesIoDeleteSymbolicLink(symboliclinkname.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ioDetachDevice(targetdevice: MutPtr<DeviceObject>) {
+public actual fun ioDetachDevice(targetdevice: MutPtr) {
     windowssysWindowsWdkSystemSystemservicesIoDetachDevice(targetdevice.rawAddress.toCPointer<ByteVar>())
 }
 
@@ -2150,205 +2094,205 @@ public actual fun ioDisconnectInterrupt(interruptobject: Pkinterrupt) {
     windowssysWindowsWdkSystemSystemservicesIoDisconnectInterrupt(interruptobject)
 }
 
-public actual fun ioDisconnectInterruptEx(parameters: ConstPtr<IoDisconnectInterruptParameters>) {
+public actual fun ioDisconnectInterruptEx(parameters: ConstPtr) {
     windowssysWindowsWdkSystemSystemservicesIoDisconnectInterruptEx(parameters.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun ioEnumerateKsrPersistentMemoryEx(driverobject: ConstPtr<DriverObject>, physicaldeviceobject: ConstPtr<DeviceObject>, physicaldeviceid: ConstPtr<UnicodeString>, callback: PioPersistedMemoryEnumerationCallback, callbackcontext: ConstPtr<CVoid>): Ntstatus =
+public actual fun ioEnumerateKsrPersistentMemoryEx(driverobject: ConstPtr, physicaldeviceobject: ConstPtr, physicaldeviceid: ConstPtr, callback: PioPersistedMemoryEnumerationCallback, callbackcontext: ConstPtr): Ntstatus =
     windowssysWindowsWdkSystemSystemservicesIoEnumerateKsrPersistentMemoryEx(driverobject.rawAddress.toCPointer<ByteVar>(), physicaldeviceobject.rawAddress.toCPointer<ByteVar>(), physicaldeviceid.rawAddress.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>(), callbackcontext.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ioFlushAdapterBuffers(adapterobject: ConstPtr<AdapterObject>, mdl: ConstPtr<Mdl>, mapregisterbase: ConstPtr<CVoid>, currentva: ConstPtr<CVoid>, length: UInt, writetodevice: Boolean): Boolean =
+public actual fun ioFlushAdapterBuffers(adapterobject: ConstPtr, mdl: ConstPtr, mapregisterbase: ConstPtr, currentva: ConstPtr, length: UInt, writetodevice: Boolean): Boolean =
     windowssysWindowsWdkSystemSystemservicesIoFlushAdapterBuffers(adapterobject.rawAddress.toCPointer<ByteVar>(), mdl.rawAddress.toCPointer<ByteVar>(), mapregisterbase.rawAddress.toCPointer<ByteVar>(), currentva.rawAddress.toCPointer<ByteVar>(), length, writetodevice)
 
-public actual fun ioForwardIrpSynchronously(deviceobject: ConstPtr<DeviceObject>, irp: ConstPtr<Irp>): Boolean =
+public actual fun ioForwardIrpSynchronously(deviceobject: ConstPtr, irp: ConstPtr): Boolean =
     windowssysWindowsWdkSystemSystemservicesIoForwardIrpSynchronously(deviceobject.rawAddress.toCPointer<ByteVar>(), irp.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ioFreeAdapterChannel(adapterobject: ConstPtr<AdapterObject>) {
+public actual fun ioFreeAdapterChannel(adapterobject: ConstPtr) {
     windowssysWindowsWdkSystemSystemservicesIoFreeAdapterChannel(adapterobject.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun ioFreeController(controllerobject: ConstPtr<ControllerObject>) {
+public actual fun ioFreeController(controllerobject: ConstPtr) {
     windowssysWindowsWdkSystemSystemservicesIoFreeController(controllerobject.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun ioFreeErrorLogEntry(elentry: ConstPtr<CVoid>) {
+public actual fun ioFreeErrorLogEntry(elentry: ConstPtr) {
     windowssysWindowsWdkSystemSystemservicesIoFreeErrorLogEntry(elentry.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun ioFreeIrp(irp: ConstPtr<Irp>) {
+public actual fun ioFreeIrp(irp: ConstPtr) {
     windowssysWindowsWdkSystemSystemservicesIoFreeIrp(irp.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun ioFreeKsrPersistentMemory(datahandle: ConstPtr<CVoid>): Ntstatus =
+public actual fun ioFreeKsrPersistentMemory(datahandle: ConstPtr): Ntstatus =
     windowssysWindowsWdkSystemSystemservicesIoFreeKsrPersistentMemory(datahandle.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ioFreeMapRegisters(adapterobject: ConstPtr<AdapterObject>, mapregisterbase: ConstPtr<CVoid>, numberofmapregisters: UInt) {
+public actual fun ioFreeMapRegisters(adapterobject: ConstPtr, mapregisterbase: ConstPtr, numberofmapregisters: UInt) {
     windowssysWindowsWdkSystemSystemservicesIoFreeMapRegisters(adapterobject.rawAddress.toCPointer<ByteVar>(), mapregisterbase.rawAddress.toCPointer<ByteVar>(), numberofmapregisters)
 }
 
-public actual fun ioFreeMdl(mdl: MutPtr<Mdl>) {
+public actual fun ioFreeMdl(mdl: MutPtr) {
     windowssysWindowsWdkSystemSystemservicesIoFreeMdl(mdl.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun ioFreeSfioStreamIdentifier(fileobject: ConstPtr<FileObject>, signature: ConstPtr<CVoid>): Ntstatus =
+public actual fun ioFreeSfioStreamIdentifier(fileobject: ConstPtr, signature: ConstPtr): Ntstatus =
     windowssysWindowsWdkSystemSystemservicesIoFreeSfioStreamIdentifier(fileobject.rawAddress.toCPointer<ByteVar>(), signature.rawAddress.toCPointer<ByteVar>())
 
 public actual fun ioFreeWorkItem(ioworkitem: PioWorkitem) {
     windowssysWindowsWdkSystemSystemservicesIoFreeWorkItem(ioworkitem)
 }
 
-public actual fun ioGetActivityIdIrp(irp: ConstPtr<Irp>, guid: MutPtr<Guid>): Ntstatus =
+public actual fun ioGetActivityIdIrp(irp: ConstPtr, guid: MutPtr): Ntstatus =
     windowssysWindowsWdkSystemSystemservicesIoGetActivityIdIrp(irp.rawAddress.toCPointer<ByteVar>(), guid.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ioGetActivityIdThread(): MutPtr<Guid> =
+public actual fun ioGetActivityIdThread(): MutPtr =
     MutPtr(windowssysWindowsWdkSystemSystemservicesIoGetActivityIdThread()?.toLong() ?: 0L)
 
-public actual fun ioGetAffinityInterrupt(interruptobject: Pkinterrupt, groupaffinity: MutPtr<GroupAffinity>): Ntstatus =
+public actual fun ioGetAffinityInterrupt(interruptobject: Pkinterrupt, groupaffinity: MutPtr): Ntstatus =
     windowssysWindowsWdkSystemSystemservicesIoGetAffinityInterrupt(interruptobject, groupaffinity.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ioGetAttachedDeviceReference(deviceobject: ConstPtr<DeviceObject>): MutPtr<DeviceObject> =
+public actual fun ioGetAttachedDeviceReference(deviceobject: ConstPtr): MutPtr =
     MutPtr(windowssysWindowsWdkSystemSystemservicesIoGetAttachedDeviceReference(deviceobject.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun ioGetBootDiskInformation(bootdiskinformation: MutPtr<BootdiskInformation>, size: UInt): Ntstatus =
+public actual fun ioGetBootDiskInformation(bootdiskinformation: MutPtr, size: UInt): Ntstatus =
     windowssysWindowsWdkSystemSystemservicesIoGetBootDiskInformation(bootdiskinformation.rawAddress.toCPointer<ByteVar>(), size)
 
-public actual fun ioGetBootDiskInformationLite(bootdiskinformation: MutPtr<MutPtr<BootdiskInformationLite>>): Ntstatus =
+public actual fun ioGetBootDiskInformationLite(bootdiskinformation: MutPtr): Ntstatus =
     windowssysWindowsWdkSystemSystemservicesIoGetBootDiskInformationLite(bootdiskinformation.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ioGetConfigurationInformation(): MutPtr<ConfigurationInformation> =
+public actual fun ioGetConfigurationInformation(): MutPtr =
     MutPtr(windowssysWindowsWdkSystemSystemservicesIoGetConfigurationInformation()?.toLong() ?: 0L)
 
-public actual fun ioGetContainerInformation(informationclass: IoContainerInformationClass, containerobject: ConstPtr<CVoid>, buffer: MutPtr<CVoid>, bufferlength: UInt): Ntstatus =
+public actual fun ioGetContainerInformation(informationclass: IoContainerInformationClass, containerobject: ConstPtr, buffer: MutPtr, bufferlength: UInt): Ntstatus =
     windowssysWindowsWdkSystemSystemservicesIoGetContainerInformation(informationclass, containerobject.rawAddress.toCPointer<ByteVar>(), buffer.rawAddress.toCPointer<ByteVar>(), bufferlength)
 
 public actual fun ioGetCurrentProcess(): Peprocess =
     windowssysWindowsWdkSystemSystemservicesIoGetCurrentProcess()
 
-public actual fun ioGetDeviceDirectory(physicaldeviceobject: ConstPtr<DeviceObject>, directorytype: DeviceDirectoryType, flags: UInt, reserved: ConstPtr<CVoid>, devicedirectoryhandle: MutPtr<Handle>): Ntstatus =
+public actual fun ioGetDeviceDirectory(physicaldeviceobject: ConstPtr, directorytype: DeviceDirectoryType, flags: UInt, reserved: ConstPtr, devicedirectoryhandle: MutPtr): Ntstatus =
     windowssysWindowsWdkSystemSystemservicesIoGetDeviceDirectory(physicaldeviceobject.rawAddress.toCPointer<ByteVar>(), directorytype, flags, reserved.rawAddress.toCPointer<ByteVar>(), devicedirectoryhandle.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ioGetDeviceInterfaceAlias(symboliclinkname: ConstPtr<UnicodeString>, aliasinterfaceclassguid: ConstPtr<Guid>, aliassymboliclinkname: MutPtr<UnicodeString>): Ntstatus =
+public actual fun ioGetDeviceInterfaceAlias(symboliclinkname: ConstPtr, aliasinterfaceclassguid: ConstPtr, aliassymboliclinkname: MutPtr): Ntstatus =
     windowssysWindowsWdkSystemSystemservicesIoGetDeviceInterfaceAlias(symboliclinkname.rawAddress.toCPointer<ByteVar>(), aliasinterfaceclassguid.rawAddress.toCPointer<ByteVar>(), aliassymboliclinkname.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ioGetDeviceInterfacePropertyData(symboliclinkname: ConstPtr<UnicodeString>, propertykey: ConstPtr<Devpropkey>, lcid: UInt, flags: UInt, size: UInt, data: MutPtr<CVoid>, requiredsize: MutPtr<UInt>, type: MutPtr<Devproptype>): Ntstatus =
+public actual fun ioGetDeviceInterfacePropertyData(symboliclinkname: ConstPtr, propertykey: ConstPtr, lcid: UInt, flags: UInt, size: UInt, data: MutPtr, requiredsize: MutPtr, type: MutPtr): Ntstatus =
     windowssysWindowsWdkSystemSystemservicesIoGetDeviceInterfacePropertyData(symboliclinkname.rawAddress.toCPointer<ByteVar>(), propertykey.rawAddress.toCPointer<ByteVar>(), lcid, flags, size, data.rawAddress.toCPointer<ByteVar>(), requiredsize.rawAddress.toCPointer<ByteVar>(), type.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ioGetDeviceInterfaces(interfaceclassguid: ConstPtr<Guid>, physicaldeviceobject: ConstPtr<DeviceObject>, flags: UInt, symboliclinklist: MutPtr<Pwstr>): Ntstatus =
+public actual fun ioGetDeviceInterfaces(interfaceclassguid: ConstPtr, physicaldeviceobject: ConstPtr, flags: UInt, symboliclinklist: MutPtr): Ntstatus =
     windowssysWindowsWdkSystemSystemservicesIoGetDeviceInterfaces(interfaceclassguid.rawAddress.toCPointer<ByteVar>(), physicaldeviceobject.rawAddress.toCPointer<ByteVar>(), flags, symboliclinklist.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ioGetDeviceNumaNode(pdo: ConstPtr<DeviceObject>, nodenumber: MutPtr<UShort>): Ntstatus =
+public actual fun ioGetDeviceNumaNode(pdo: ConstPtr, nodenumber: MutPtr): Ntstatus =
     windowssysWindowsWdkSystemSystemservicesIoGetDeviceNumaNode(pdo.rawAddress.toCPointer<ByteVar>(), nodenumber.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ioGetDeviceObjectPointer(objectname: ConstPtr<UnicodeString>, desiredaccess: UInt, fileobject: MutPtr<MutPtr<FileObject>>, deviceobject: MutPtr<MutPtr<DeviceObject>>): Ntstatus =
+public actual fun ioGetDeviceObjectPointer(objectname: ConstPtr, desiredaccess: UInt, fileobject: MutPtr, deviceobject: MutPtr): Ntstatus =
     windowssysWindowsWdkSystemSystemservicesIoGetDeviceObjectPointer(objectname.rawAddress.toCPointer<ByteVar>(), desiredaccess, fileobject.rawAddress.toCPointer<ByteVar>(), deviceobject.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ioGetDeviceProperty(deviceobject: ConstPtr<DeviceObject>, deviceproperty: DeviceRegistryProperty, bufferlength: UInt, propertybuffer: MutPtr<CVoid>, resultlength: MutPtr<UInt>): Ntstatus =
+public actual fun ioGetDeviceProperty(deviceobject: ConstPtr, deviceproperty: DeviceRegistryProperty, bufferlength: UInt, propertybuffer: MutPtr, resultlength: MutPtr): Ntstatus =
     windowssysWindowsWdkSystemSystemservicesIoGetDeviceProperty(deviceobject.rawAddress.toCPointer<ByteVar>(), deviceproperty, bufferlength, propertybuffer.rawAddress.toCPointer<ByteVar>(), resultlength.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ioGetDevicePropertyData(pdo: ConstPtr<DeviceObject>, propertykey: ConstPtr<Devpropkey>, lcid: UInt, flags: UInt, size: UInt, data: MutPtr<CVoid>, requiredsize: MutPtr<UInt>, type: MutPtr<Devproptype>): Ntstatus =
+public actual fun ioGetDevicePropertyData(pdo: ConstPtr, propertykey: ConstPtr, lcid: UInt, flags: UInt, size: UInt, data: MutPtr, requiredsize: MutPtr, type: MutPtr): Ntstatus =
     windowssysWindowsWdkSystemSystemservicesIoGetDevicePropertyData(pdo.rawAddress.toCPointer<ByteVar>(), propertykey.rawAddress.toCPointer<ByteVar>(), lcid, flags, size, data.rawAddress.toCPointer<ByteVar>(), requiredsize.rawAddress.toCPointer<ByteVar>(), type.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ioGetDmaAdapter(physicaldeviceobject: ConstPtr<DeviceObject>, devicedescription: ConstPtr<DeviceDescription>, numberofmapregisters: MutPtr<UInt>): MutPtr<DmaAdapter> =
+public actual fun ioGetDmaAdapter(physicaldeviceobject: ConstPtr, devicedescription: ConstPtr, numberofmapregisters: MutPtr): MutPtr =
     MutPtr(windowssysWindowsWdkSystemSystemservicesIoGetDmaAdapter(physicaldeviceobject.rawAddress.toCPointer<ByteVar>(), devicedescription.rawAddress.toCPointer<ByteVar>(), numberofmapregisters.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun ioGetDriverDirectory(driverobject: ConstPtr<DriverObject>, directorytype: DriverDirectoryType, flags: UInt, driverdirectoryhandle: MutPtr<Handle>): Ntstatus =
+public actual fun ioGetDriverDirectory(driverobject: ConstPtr, directorytype: DriverDirectoryType, flags: UInt, driverdirectoryhandle: MutPtr): Ntstatus =
     windowssysWindowsWdkSystemSystemservicesIoGetDriverDirectory(driverobject.rawAddress.toCPointer<ByteVar>(), directorytype, flags, driverdirectoryhandle.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ioGetDriverObjectExtension(driverobject: ConstPtr<DriverObject>, clientidentificationaddress: ConstPtr<CVoid>): MutPtr<CVoid> =
+public actual fun ioGetDriverObjectExtension(driverobject: ConstPtr, clientidentificationaddress: ConstPtr): MutPtr =
     MutPtr(windowssysWindowsWdkSystemSystemservicesIoGetDriverObjectExtension(driverobject.rawAddress.toCPointer<ByteVar>(), clientidentificationaddress.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun ioGetFileObjectGenericMapping(): MutPtr<GenericMapping> =
+public actual fun ioGetFileObjectGenericMapping(): MutPtr =
     MutPtr(windowssysWindowsWdkSystemSystemservicesIoGetFileObjectGenericMapping()?.toLong() ?: 0L)
 
-public actual fun ioGetFsZeroingOffset(irp: ConstPtr<Irp>, zeroingoffset: MutPtr<UInt>): Ntstatus =
+public actual fun ioGetFsZeroingOffset(irp: ConstPtr, zeroingoffset: MutPtr): Ntstatus =
     windowssysWindowsWdkSystemSystemservicesIoGetFsZeroingOffset(irp.rawAddress.toCPointer<ByteVar>(), zeroingoffset.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ioGetInitialStack(): MutPtr<CVoid> =
+public actual fun ioGetInitialStack(): MutPtr =
     MutPtr(windowssysWindowsWdkSystemSystemservicesIoGetInitialStack()?.toLong() ?: 0L)
 
-public actual fun ioGetInitiatorProcess(fileobject: ConstPtr<FileObject>): Peprocess =
+public actual fun ioGetInitiatorProcess(fileobject: ConstPtr): Peprocess =
     windowssysWindowsWdkSystemSystemservicesIoGetInitiatorProcess(fileobject.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ioGetIoAttributionHandle(irp: ConstPtr<Irp>, ioattributionhandle: MutPtr<MutPtr<CVoid>>): Ntstatus =
+public actual fun ioGetIoAttributionHandle(irp: ConstPtr, ioattributionhandle: MutPtr): Ntstatus =
     windowssysWindowsWdkSystemSystemservicesIoGetIoAttributionHandle(irp.rawAddress.toCPointer<ByteVar>(), ioattributionhandle.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ioGetIoPriorityHint(irp: ConstPtr<Irp>): IoPriorityHint =
+public actual fun ioGetIoPriorityHint(irp: ConstPtr): IoPriorityHint =
     windowssysWindowsWdkSystemSystemservicesIoGetIoPriorityHint(irp.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ioGetIommuInterface(version: UInt, interfaceout: MutPtr<DmaIommuInterface>): Ntstatus =
+public actual fun ioGetIommuInterface(version: UInt, interfaceout: MutPtr): Ntstatus =
     windowssysWindowsWdkSystemSystemservicesIoGetIommuInterface(version, interfaceout.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ioGetIommuInterfaceEx(version: UInt, flags: ULong, interfaceout: MutPtr<DmaIommuInterfaceEx>): Ntstatus =
+public actual fun ioGetIommuInterfaceEx(version: UInt, flags: ULong, interfaceout: MutPtr): Ntstatus =
     windowssysWindowsWdkSystemSystemservicesIoGetIommuInterfaceEx(version, flags, interfaceout.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ioGetIrpExtraCreateParameter(irp: ConstPtr<Irp>, extracreateparameter: MutPtr<MutPtr<Long>>): Ntstatus =
+public actual fun ioGetIrpExtraCreateParameter(irp: ConstPtr, extracreateparameter: MutPtr): Ntstatus =
     windowssysWindowsWdkSystemSystemservicesIoGetIrpExtraCreateParameter(irp.rawAddress.toCPointer<ByteVar>(), extracreateparameter.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ioGetPagingIoPriority(irp: ConstPtr<Irp>): IoPagingPriority =
+public actual fun ioGetPagingIoPriority(irp: ConstPtr): IoPagingPriority =
     windowssysWindowsWdkSystemSystemservicesIoGetPagingIoPriority(irp.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ioGetRelatedDeviceObject(fileobject: ConstPtr<FileObject>): MutPtr<DeviceObject> =
+public actual fun ioGetRelatedDeviceObject(fileobject: ConstPtr): MutPtr =
     MutPtr(windowssysWindowsWdkSystemSystemservicesIoGetRelatedDeviceObject(fileobject.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun ioGetSfioStreamIdentifier(fileobject: ConstPtr<FileObject>, signature: ConstPtr<CVoid>): MutPtr<CVoid> =
+public actual fun ioGetSfioStreamIdentifier(fileobject: ConstPtr, signature: ConstPtr): MutPtr =
     MutPtr(windowssysWindowsWdkSystemSystemservicesIoGetSfioStreamIdentifier(fileobject.rawAddress.toCPointer<ByteVar>(), signature.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun ioGetSilo(fileobject: ConstPtr<FileObject>): Pesilo =
+public actual fun ioGetSilo(fileobject: ConstPtr): Pesilo =
     windowssysWindowsWdkSystemSystemservicesIoGetSilo(fileobject.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ioGetSiloParameters(fileobject: ConstPtr<FileObject>): MutPtr<IoFoextSiloParameters> =
+public actual fun ioGetSiloParameters(fileobject: ConstPtr): MutPtr =
     MutPtr(windowssysWindowsWdkSystemSystemservicesIoGetSiloParameters(fileobject.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun ioGetStackLimits(lowlimit: MutPtr<ULong>, highlimit: MutPtr<ULong>) {
+public actual fun ioGetStackLimits(lowlimit: MutPtr, highlimit: MutPtr) {
     windowssysWindowsWdkSystemSystemservicesIoGetStackLimits(lowlimit.rawAddress.toCPointer<ByteVar>(), highlimit.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun ioGetTopLevelIrp(): MutPtr<Irp> =
+public actual fun ioGetTopLevelIrp(): MutPtr =
     MutPtr(windowssysWindowsWdkSystemSystemservicesIoGetTopLevelIrp()?.toLong() ?: 0L)
 
-public actual fun ioGetTransactionParameterBlock(fileobject: ConstPtr<FileObject>): MutPtr<TxnParameterBlock> =
+public actual fun ioGetTransactionParameterBlock(fileobject: ConstPtr): MutPtr =
     MutPtr(windowssysWindowsWdkSystemSystemservicesIoGetTransactionParameterBlock(fileobject.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun ioIncrementKeepAliveCount(fileobject: MutPtr<FileObject>, process: Peprocess): Ntstatus =
+public actual fun ioIncrementKeepAliveCount(fileobject: MutPtr, process: Peprocess): Ntstatus =
     windowssysWindowsWdkSystemSystemservicesIoIncrementKeepAliveCount(fileobject.rawAddress.toCPointer<ByteVar>(), process)
 
-public actual fun ioInitializeIrp(irp: MutPtr<Irp>, packetsize: UShort, stacksize: Byte) {
+public actual fun ioInitializeIrp(irp: MutPtr, packetsize: UShort, stacksize: Byte) {
     windowssysWindowsWdkSystemSystemservicesIoInitializeIrp(irp.rawAddress.toCPointer<ByteVar>(), packetsize, stacksize)
 }
 
-public actual fun ioInitializeIrpEx(irp: MutPtr<Irp>, deviceobject: ConstPtr<DeviceObject>, packetsize: UShort, stacksize: Byte) {
+public actual fun ioInitializeIrpEx(irp: MutPtr, deviceobject: ConstPtr, packetsize: UShort, stacksize: Byte) {
     windowssysWindowsWdkSystemSystemservicesIoInitializeIrpEx(irp.rawAddress.toCPointer<ByteVar>(), deviceobject.rawAddress.toCPointer<ByteVar>(), packetsize, stacksize)
 }
 
-public actual fun ioInitializeRemoveLockEx(lock: MutPtr<IoRemoveLock>, allocatetag: UInt, maxlockedminutes: UInt, highwatermark: UInt, remlocksize: UInt) {
+public actual fun ioInitializeRemoveLockEx(lock: MutPtr, allocatetag: UInt, maxlockedminutes: UInt, highwatermark: UInt, remlocksize: UInt) {
     windowssysWindowsWdkSystemSystemservicesIoInitializeRemoveLockEx(lock.rawAddress.toCPointer<ByteVar>(), allocatetag, maxlockedminutes, highwatermark, remlocksize)
 }
 
-public actual fun ioInitializeTimer(deviceobject: ConstPtr<DeviceObject>, timerroutine: PioTimerRoutine, context: ConstPtr<CVoid>): Ntstatus =
+public actual fun ioInitializeTimer(deviceobject: ConstPtr, timerroutine: PioTimerRoutine, context: ConstPtr): Ntstatus =
     windowssysWindowsWdkSystemSystemservicesIoInitializeTimer(deviceobject.rawAddress.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>(), context.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ioInitializeWorkItem(ioobject: ConstPtr<CVoid>, ioworkitem: PioWorkitem) {
+public actual fun ioInitializeWorkItem(ioobject: ConstPtr, ioworkitem: PioWorkitem) {
     windowssysWindowsWdkSystemSystemservicesIoInitializeWorkItem(ioobject.rawAddress.toCPointer<ByteVar>(), ioworkitem)
 }
 
-public actual fun ioInvalidateDeviceRelations(deviceobject: ConstPtr<DeviceObject>, type: DeviceRelationType) {
+public actual fun ioInvalidateDeviceRelations(deviceobject: ConstPtr, type: DeviceRelationType) {
     windowssysWindowsWdkSystemSystemservicesIoInvalidateDeviceRelations(deviceobject.rawAddress.toCPointer<ByteVar>(), type)
 }
 
-public actual fun ioInvalidateDeviceState(physicaldeviceobject: ConstPtr<DeviceObject>) {
+public actual fun ioInvalidateDeviceState(physicaldeviceobject: ConstPtr) {
     windowssysWindowsWdkSystemSystemservicesIoInvalidateDeviceState(physicaldeviceobject.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun ioIs32bitProcess(irp: ConstPtr<Irp>): Boolean =
+public actual fun ioIs32bitProcess(irp: ConstPtr): Boolean =
     windowssysWindowsWdkSystemSystemservicesIoIs32bitProcess(irp.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ioIsFileObjectIgnoringSharing(fileobject: ConstPtr<FileObject>): Boolean =
+public actual fun ioIsFileObjectIgnoringSharing(fileobject: ConstPtr): Boolean =
     windowssysWindowsWdkSystemSystemservicesIoIsFileObjectIgnoringSharing(fileobject.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ioIsFileOriginRemote(fileobject: ConstPtr<FileObject>): Boolean =
+public actual fun ioIsFileOriginRemote(fileobject: ConstPtr): Boolean =
     windowssysWindowsWdkSystemSystemservicesIoIsFileOriginRemote(fileobject.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ioIsInitiator32bitProcess(irp: ConstPtr<Irp>): Boolean =
+public actual fun ioIsInitiator32bitProcess(irp: ConstPtr): Boolean =
     windowssysWindowsWdkSystemSystemservicesIoIsInitiator32bitProcess(irp.rawAddress.toCPointer<ByteVar>())
 
 public actual fun ioIsValidIrpStatus(status: Ntstatus): UInt =
@@ -2357,404 +2301,404 @@ public actual fun ioIsValidIrpStatus(status: Ntstatus): UInt =
 public actual fun ioIsWdmVersionAvailable(majorversion: UByte, minorversion: UByte): Boolean =
     windowssysWindowsWdkSystemSystemservicesIoIsWdmVersionAvailable(majorversion, minorversion)
 
-public actual fun ioMakeAssociatedIrp(irp: ConstPtr<Irp>, stacksize: Byte): MutPtr<Irp> =
+public actual fun ioMakeAssociatedIrp(irp: ConstPtr, stacksize: Byte): MutPtr =
     MutPtr(windowssysWindowsWdkSystemSystemservicesIoMakeAssociatedIrp(irp.rawAddress.toCPointer<ByteVar>(), stacksize)?.toLong() ?: 0L)
 
-public actual fun ioMakeAssociatedIrpEx(irp: ConstPtr<Irp>, deviceobject: ConstPtr<DeviceObject>, stacksize: Byte): MutPtr<Irp> =
+public actual fun ioMakeAssociatedIrpEx(irp: ConstPtr, deviceobject: ConstPtr, stacksize: Byte): MutPtr =
     MutPtr(windowssysWindowsWdkSystemSystemservicesIoMakeAssociatedIrpEx(irp.rawAddress.toCPointer<ByteVar>(), deviceobject.rawAddress.toCPointer<ByteVar>(), stacksize)?.toLong() ?: 0L)
 
-public actual fun ioMapTransfer(adapterobject: ConstPtr<AdapterObject>, mdl: ConstPtr<Mdl>, mapregisterbase: ConstPtr<CVoid>, currentva: ConstPtr<CVoid>, length: MutPtr<UInt>, writetodevice: Boolean): Long =
+public actual fun ioMapTransfer(adapterobject: ConstPtr, mdl: ConstPtr, mapregisterbase: ConstPtr, currentva: ConstPtr, length: MutPtr, writetodevice: Boolean): Long =
     windowssysWindowsWdkSystemSystemservicesIoMapTransfer(adapterobject.rawAddress.toCPointer<ByteVar>(), mdl.rawAddress.toCPointer<ByteVar>(), mapregisterbase.rawAddress.toCPointer<ByteVar>(), currentva.rawAddress.toCPointer<ByteVar>(), length.rawAddress.toCPointer<ByteVar>(), writetodevice)
 
-public actual fun ioOpenDeviceInterfaceRegistryKey(symboliclinkname: ConstPtr<UnicodeString>, desiredaccess: UInt, deviceinterfaceregkey: MutPtr<Handle>): Ntstatus =
+public actual fun ioOpenDeviceInterfaceRegistryKey(symboliclinkname: ConstPtr, desiredaccess: UInt, deviceinterfaceregkey: MutPtr): Ntstatus =
     windowssysWindowsWdkSystemSystemservicesIoOpenDeviceInterfaceRegistryKey(symboliclinkname.rawAddress.toCPointer<ByteVar>(), desiredaccess, deviceinterfaceregkey.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ioOpenDeviceRegistryKey(deviceobject: ConstPtr<DeviceObject>, devinstkeytype: UInt, desiredaccess: UInt, deviceregkey: MutPtr<Handle>): Ntstatus =
+public actual fun ioOpenDeviceRegistryKey(deviceobject: ConstPtr, devinstkeytype: UInt, desiredaccess: UInt, deviceregkey: MutPtr): Ntstatus =
     windowssysWindowsWdkSystemSystemservicesIoOpenDeviceRegistryKey(deviceobject.rawAddress.toCPointer<ByteVar>(), devinstkeytype, desiredaccess, deviceregkey.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ioOpenDriverRegistryKey(driverobject: ConstPtr<DriverObject>, regkeytype: DriverRegkeyType, desiredaccess: UInt, flags: UInt, driverregkey: MutPtr<Handle>): Ntstatus =
+public actual fun ioOpenDriverRegistryKey(driverobject: ConstPtr, regkeytype: DriverRegkeyType, desiredaccess: UInt, flags: UInt, driverregkey: MutPtr): Ntstatus =
     windowssysWindowsWdkSystemSystemservicesIoOpenDriverRegistryKey(driverobject.rawAddress.toCPointer<ByteVar>(), regkeytype, desiredaccess, flags, driverregkey.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ioPropagateActivityIdToThread(irp: ConstPtr<Irp>, propagatedid: MutPtr<Guid>, originalid: MutPtr<MutPtr<Guid>>): Ntstatus =
+public actual fun ioPropagateActivityIdToThread(irp: ConstPtr, propagatedid: MutPtr, originalid: MutPtr): Ntstatus =
     windowssysWindowsWdkSystemSystemservicesIoPropagateActivityIdToThread(irp.rawAddress.toCPointer<ByteVar>(), propagatedid.rawAddress.toCPointer<ByteVar>(), originalid.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ioQueryDeviceDescription(bustype: ConstPtr<InterfaceType>, busnumber: ConstPtr<UInt>, controllertype: ConstPtr<ConfigurationType>, controllernumber: ConstPtr<UInt>, peripheraltype: ConstPtr<ConfigurationType>, peripheralnumber: ConstPtr<UInt>, calloutroutine: PioQueryDeviceRoutine, context: MutPtr<CVoid>): Ntstatus =
+public actual fun ioQueryDeviceDescription(bustype: ConstPtr, busnumber: ConstPtr, controllertype: ConstPtr, controllernumber: ConstPtr, peripheraltype: ConstPtr, peripheralnumber: ConstPtr, calloutroutine: PioQueryDeviceRoutine, context: MutPtr): Ntstatus =
     windowssysWindowsWdkSystemSystemservicesIoQueryDeviceDescription(bustype.rawAddress.toCPointer<ByteVar>(), busnumber.rawAddress.toCPointer<ByteVar>(), controllertype.rawAddress.toCPointer<ByteVar>(), controllernumber.rawAddress.toCPointer<ByteVar>(), peripheraltype.rawAddress.toCPointer<ByteVar>(), peripheralnumber.rawAddress.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>(), context.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ioQueryFullDriverPath(driverobject: ConstPtr<DriverObject>, fullpath: MutPtr<UnicodeString>): Ntstatus =
+public actual fun ioQueryFullDriverPath(driverobject: ConstPtr, fullpath: MutPtr): Ntstatus =
     windowssysWindowsWdkSystemSystemservicesIoQueryFullDriverPath(driverobject.rawAddress.toCPointer<ByteVar>(), fullpath.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ioQueryInformationByName(objectattributes: ConstPtr<ObjectAttributes>, iostatusblock: MutPtr<IoStatusBlock>, fileinformation: MutPtr<CVoid>, length: UInt, fileinformationclass: FileInformationClass, options: UInt, drivercontext: ConstPtr<IoDriverCreateContext>): Ntstatus =
+public actual fun ioQueryInformationByName(objectattributes: ConstPtr, iostatusblock: MutPtr, fileinformation: MutPtr, length: UInt, fileinformationclass: FileInformationClass, options: UInt, drivercontext: ConstPtr): Ntstatus =
     windowssysWindowsWdkSystemSystemservicesIoQueryInformationByName(objectattributes.rawAddress.toCPointer<ByteVar>(), iostatusblock.rawAddress.toCPointer<ByteVar>(), fileinformation.rawAddress.toCPointer<ByteVar>(), length, fileinformationclass, options, drivercontext.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ioQueryKsrPersistentMemorySize(driverobject: ConstPtr<DriverObject>, physicaldeviceobject: ConstPtr<DeviceObject>, buffersize: MutPtr<ULong>): Ntstatus =
+public actual fun ioQueryKsrPersistentMemorySize(driverobject: ConstPtr, physicaldeviceobject: ConstPtr, buffersize: MutPtr): Ntstatus =
     windowssysWindowsWdkSystemSystemservicesIoQueryKsrPersistentMemorySize(driverobject.rawAddress.toCPointer<ByteVar>(), physicaldeviceobject.rawAddress.toCPointer<ByteVar>(), buffersize.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ioQueryKsrPersistentMemorySizeEx(driverobject: ConstPtr<DriverObject>, physicaldeviceobject: ConstPtr<DeviceObject>, physicaldeviceid: ConstPtr<UnicodeString>, datatag: ConstPtr<UShort>, dataversion: MutPtr<UInt>, buffersize: MutPtr<ULong>): Ntstatus =
+public actual fun ioQueryKsrPersistentMemorySizeEx(driverobject: ConstPtr, physicaldeviceobject: ConstPtr, physicaldeviceid: ConstPtr, datatag: ConstPtr, dataversion: MutPtr, buffersize: MutPtr): Ntstatus =
     windowssysWindowsWdkSystemSystemservicesIoQueryKsrPersistentMemorySizeEx(driverobject.rawAddress.toCPointer<ByteVar>(), physicaldeviceobject.rawAddress.toCPointer<ByteVar>(), physicaldeviceid.rawAddress.toCPointer<ByteVar>(), datatag.rawAddress.toCPointer<ByteVar>(), dataversion.rawAddress.toCPointer<ByteVar>(), buffersize.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ioQueueWorkItem(ioworkitem: PioWorkitem, workerroutine: PioWorkitemRoutine, queuetype: WorkQueueType, context: ConstPtr<CVoid>) {
+public actual fun ioQueueWorkItem(ioworkitem: PioWorkitem, workerroutine: PioWorkitemRoutine, queuetype: WorkQueueType, context: ConstPtr) {
     windowssysWindowsWdkSystemSystemservicesIoQueueWorkItem(ioworkitem, 0L.toCPointer<ByteVar>(), queuetype, context.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun ioQueueWorkItemEx(ioworkitem: PioWorkitem, workerroutine: PioWorkitemRoutineEx, queuetype: WorkQueueType, context: ConstPtr<CVoid>) {
+public actual fun ioQueueWorkItemEx(ioworkitem: PioWorkitem, workerroutine: PioWorkitemRoutineEx, queuetype: WorkQueueType, context: ConstPtr) {
     windowssysWindowsWdkSystemSystemservicesIoQueueWorkItemEx(ioworkitem, 0L.toCPointer<ByteVar>(), queuetype, context.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun ioRaiseHardError(irp: ConstPtr<Irp>, vpb: ConstPtr<Vpb>, realdeviceobject: ConstPtr<DeviceObject>) {
+public actual fun ioRaiseHardError(irp: ConstPtr, vpb: ConstPtr, realdeviceobject: ConstPtr) {
     windowssysWindowsWdkSystemSystemservicesIoRaiseHardError(irp.rawAddress.toCPointer<ByteVar>(), vpb.rawAddress.toCPointer<ByteVar>(), realdeviceobject.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun ioRaiseInformationalHardError(errorstatus: Ntstatus, string: ConstPtr<UnicodeString>, thread: Pkthread): Boolean =
+public actual fun ioRaiseInformationalHardError(errorstatus: Ntstatus, string: ConstPtr, thread: Pkthread): Boolean =
     windowssysWindowsWdkSystemSystemservicesIoRaiseInformationalHardError(errorstatus, string.rawAddress.toCPointer<ByteVar>(), thread)
 
-public actual fun ioReadDiskSignature(deviceobject: ConstPtr<DeviceObject>, bytespersector: UInt, signature: MutPtr<DiskSignature>): Ntstatus =
+public actual fun ioReadDiskSignature(deviceobject: ConstPtr, bytespersector: UInt, signature: MutPtr): Ntstatus =
     windowssysWindowsWdkSystemSystemservicesIoReadDiskSignature(deviceobject.rawAddress.toCPointer<ByteVar>(), bytespersector, signature.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ioReadPartitionTable(deviceobject: ConstPtr<DeviceObject>, sectorsize: UInt, returnrecognizedpartitions: Boolean, partitionbuffer: MutPtr<MutPtr<DriveLayoutInformation>>): Ntstatus =
+public actual fun ioReadPartitionTable(deviceobject: ConstPtr, sectorsize: UInt, returnrecognizedpartitions: Boolean, partitionbuffer: MutPtr): Ntstatus =
     windowssysWindowsWdkSystemSystemservicesIoReadPartitionTable(deviceobject.rawAddress.toCPointer<ByteVar>(), sectorsize, returnrecognizedpartitions, partitionbuffer.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ioReadPartitionTableEx(deviceobject: ConstPtr<DeviceObject>, drivelayout: MutPtr<MutPtr<DriveLayoutInformationEx>>): Ntstatus =
+public actual fun ioReadPartitionTableEx(deviceobject: ConstPtr, drivelayout: MutPtr): Ntstatus =
     windowssysWindowsWdkSystemSystemservicesIoReadPartitionTableEx(deviceobject.rawAddress.toCPointer<ByteVar>(), drivelayout.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ioRecordIoAttribution(opaquehandle: MutPtr<CVoid>, attributioninformation: ConstPtr<IoAttributionInformation>): Ntstatus =
+public actual fun ioRecordIoAttribution(opaquehandle: MutPtr, attributioninformation: ConstPtr): Ntstatus =
     windowssysWindowsWdkSystemSystemservicesIoRecordIoAttribution(opaquehandle.rawAddress.toCPointer<ByteVar>(), attributioninformation.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ioRegisterBootDriverCallback(callbackfunction: PbootDriverCallbackFunction, callbackcontext: ConstPtr<CVoid>): MutPtr<CVoid> =
+public actual fun ioRegisterBootDriverCallback(callbackfunction: PbootDriverCallbackFunction, callbackcontext: ConstPtr): MutPtr =
     MutPtr(windowssysWindowsWdkSystemSystemservicesIoRegisterBootDriverCallback(0L.toCPointer<ByteVar>(), callbackcontext.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun ioRegisterBootDriverReinitialization(driverobject: ConstPtr<DriverObject>, driverreinitializationroutine: DriverReinitialize, context: ConstPtr<CVoid>) {
+public actual fun ioRegisterBootDriverReinitialization(driverobject: ConstPtr, driverreinitializationroutine: DriverReinitialize, context: ConstPtr) {
 }
 
-public actual fun ioRegisterContainerNotification(notificationclass: IoContainerNotificationClass, callbackfunction: PioContainerNotificationFunction, notificationinformation: ConstPtr<CVoid>, notificationinformationlength: UInt, callbackregistration: MutPtr<CVoid>): Ntstatus =
+public actual fun ioRegisterContainerNotification(notificationclass: IoContainerNotificationClass, callbackfunction: PioContainerNotificationFunction, notificationinformation: ConstPtr, notificationinformationlength: UInt, callbackregistration: MutPtr): Ntstatus =
     windowssysWindowsWdkSystemSystemservicesIoRegisterContainerNotification(notificationclass, 0L.toCPointer<ByteVar>(), notificationinformation.rawAddress.toCPointer<ByteVar>(), notificationinformationlength, callbackregistration.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ioRegisterDeviceInterface(physicaldeviceobject: ConstPtr<DeviceObject>, interfaceclassguid: ConstPtr<Guid>, referencestring: ConstPtr<UnicodeString>, symboliclinkname: MutPtr<UnicodeString>): Ntstatus =
+public actual fun ioRegisterDeviceInterface(physicaldeviceobject: ConstPtr, interfaceclassguid: ConstPtr, referencestring: ConstPtr, symboliclinkname: MutPtr): Ntstatus =
     windowssysWindowsWdkSystemSystemservicesIoRegisterDeviceInterface(physicaldeviceobject.rawAddress.toCPointer<ByteVar>(), interfaceclassguid.rawAddress.toCPointer<ByteVar>(), referencestring.rawAddress.toCPointer<ByteVar>(), symboliclinkname.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ioRegisterDriverReinitialization(driverobject: ConstPtr<DriverObject>, driverreinitializationroutine: DriverReinitialize, context: ConstPtr<CVoid>) {
+public actual fun ioRegisterDriverReinitialization(driverobject: ConstPtr, driverreinitializationroutine: DriverReinitialize, context: ConstPtr) {
 }
 
-public actual fun ioRegisterLastChanceShutdownNotification(deviceobject: ConstPtr<DeviceObject>): Ntstatus =
+public actual fun ioRegisterLastChanceShutdownNotification(deviceobject: ConstPtr): Ntstatus =
     windowssysWindowsWdkSystemSystemservicesIoRegisterLastChanceShutdownNotification(deviceobject.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ioRegisterPlugPlayNotification(eventcategory: IoNotificationEventCategory, eventcategoryflags: UInt, eventcategorydata: ConstPtr<CVoid>, driverobject: ConstPtr<DriverObject>, callbackroutine: DriverNotificationCallbackRoutine, context: MutPtr<CVoid>, notificationentry: MutPtr<MutPtr<CVoid>>): Ntstatus =
+public actual fun ioRegisterPlugPlayNotification(eventcategory: IoNotificationEventCategory, eventcategoryflags: UInt, eventcategorydata: ConstPtr, driverobject: ConstPtr, callbackroutine: DriverNotificationCallbackRoutine, context: MutPtr, notificationentry: MutPtr): Ntstatus =
     windowssysWindowsWdkSystemSystemservicesIoRegisterPlugPlayNotification(eventcategory, eventcategoryflags, eventcategorydata.rawAddress.toCPointer<ByteVar>(), driverobject.rawAddress.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>(), context.rawAddress.toCPointer<ByteVar>(), notificationentry.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ioRegisterShutdownNotification(deviceobject: ConstPtr<DeviceObject>): Ntstatus =
+public actual fun ioRegisterShutdownNotification(deviceobject: ConstPtr): Ntstatus =
     windowssysWindowsWdkSystemSystemservicesIoRegisterShutdownNotification(deviceobject.rawAddress.toCPointer<ByteVar>())
 
 public actual fun ioReleaseCancelSpinLock(irql: UByte) {
     windowssysWindowsWdkSystemSystemservicesIoReleaseCancelSpinLock(irql)
 }
 
-public actual fun ioReleaseRemoveLockAndWaitEx(removelock: MutPtr<IoRemoveLock>, tag: ConstPtr<CVoid>, remlocksize: UInt) {
+public actual fun ioReleaseRemoveLockAndWaitEx(removelock: MutPtr, tag: ConstPtr, remlocksize: UInt) {
     windowssysWindowsWdkSystemSystemservicesIoReleaseRemoveLockAndWaitEx(removelock.rawAddress.toCPointer<ByteVar>(), tag.rawAddress.toCPointer<ByteVar>(), remlocksize)
 }
 
-public actual fun ioReleaseRemoveLockEx(removelock: MutPtr<IoRemoveLock>, tag: ConstPtr<CVoid>, remlocksize: UInt) {
+public actual fun ioReleaseRemoveLockEx(removelock: MutPtr, tag: ConstPtr, remlocksize: UInt) {
     windowssysWindowsWdkSystemSystemservicesIoReleaseRemoveLockEx(removelock.rawAddress.toCPointer<ByteVar>(), tag.rawAddress.toCPointer<ByteVar>(), remlocksize)
 }
 
-public actual fun ioRemoveLinkShareAccess(fileobject: ConstPtr<FileObject>, shareaccess: MutPtr<ShareAccess>, linkshareaccess: MutPtr<LinkShareAccess>) {
+public actual fun ioRemoveLinkShareAccess(fileobject: ConstPtr, shareaccess: MutPtr, linkshareaccess: MutPtr) {
     windowssysWindowsWdkSystemSystemservicesIoRemoveLinkShareAccess(fileobject.rawAddress.toCPointer<ByteVar>(), shareaccess.rawAddress.toCPointer<ByteVar>(), linkshareaccess.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun ioRemoveLinkShareAccessEx(fileobject: ConstPtr<FileObject>, shareaccess: MutPtr<ShareAccess>, linkshareaccess: MutPtr<LinkShareAccess>, ioshareaccessflags: UInt) {
+public actual fun ioRemoveLinkShareAccessEx(fileobject: ConstPtr, shareaccess: MutPtr, linkshareaccess: MutPtr, ioshareaccessflags: UInt) {
     windowssysWindowsWdkSystemSystemservicesIoRemoveLinkShareAccessEx(fileobject.rawAddress.toCPointer<ByteVar>(), shareaccess.rawAddress.toCPointer<ByteVar>(), linkshareaccess.rawAddress.toCPointer<ByteVar>(), ioshareaccessflags)
 }
 
-public actual fun ioRemoveShareAccess(fileobject: ConstPtr<FileObject>, shareaccess: MutPtr<ShareAccess>) {
+public actual fun ioRemoveShareAccess(fileobject: ConstPtr, shareaccess: MutPtr) {
     windowssysWindowsWdkSystemSystemservicesIoRemoveShareAccess(fileobject.rawAddress.toCPointer<ByteVar>(), shareaccess.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun ioReplacePartitionUnit(targetpdo: ConstPtr<DeviceObject>, sparepdo: ConstPtr<DeviceObject>, flags: UInt): Ntstatus =
+public actual fun ioReplacePartitionUnit(targetpdo: ConstPtr, sparepdo: ConstPtr, flags: UInt): Ntstatus =
     windowssysWindowsWdkSystemSystemservicesIoReplacePartitionUnit(targetpdo.rawAddress.toCPointer<ByteVar>(), sparepdo.rawAddress.toCPointer<ByteVar>(), flags)
 
-public actual fun ioReportDetectedDevice(driverobject: ConstPtr<DriverObject>, legacybustype: InterfaceType, busnumber: UInt, slotnumber: UInt, resourcelist: ConstPtr<CmResourceList>, resourcerequirements: ConstPtr<IoResourceRequirementsList>, resourceassigned: Boolean, deviceobject: MutPtr<MutPtr<DeviceObject>>): Ntstatus =
+public actual fun ioReportDetectedDevice(driverobject: ConstPtr, legacybustype: InterfaceType, busnumber: UInt, slotnumber: UInt, resourcelist: ConstPtr, resourcerequirements: ConstPtr, resourceassigned: Boolean, deviceobject: MutPtr): Ntstatus =
     windowssysWindowsWdkSystemSystemservicesIoReportDetectedDevice(driverobject.rawAddress.toCPointer<ByteVar>(), legacybustype, busnumber, slotnumber, resourcelist.rawAddress.toCPointer<ByteVar>(), resourcerequirements.rawAddress.toCPointer<ByteVar>(), resourceassigned, deviceobject.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ioReportInterruptActive(parameters: ConstPtr<IoReportInterruptActiveStateParameters>) {
+public actual fun ioReportInterruptActive(parameters: ConstPtr) {
     windowssysWindowsWdkSystemSystemservicesIoReportInterruptActive(parameters.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun ioReportInterruptInactive(parameters: ConstPtr<IoReportInterruptActiveStateParameters>) {
+public actual fun ioReportInterruptInactive(parameters: ConstPtr) {
     windowssysWindowsWdkSystemSystemservicesIoReportInterruptInactive(parameters.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun ioReportResourceForDetection(driverobject: ConstPtr<DriverObject>, driverlist: ConstPtr<CmResourceList>, driverlistsize: UInt, deviceobject: ConstPtr<DeviceObject>, devicelist: ConstPtr<CmResourceList>, devicelistsize: UInt, conflictdetected: MutPtr<Boolean>): Ntstatus =
+public actual fun ioReportResourceForDetection(driverobject: ConstPtr, driverlist: ConstPtr, driverlistsize: UInt, deviceobject: ConstPtr, devicelist: ConstPtr, devicelistsize: UInt, conflictdetected: MutPtr): Ntstatus =
     windowssysWindowsWdkSystemSystemservicesIoReportResourceForDetection(driverobject.rawAddress.toCPointer<ByteVar>(), driverlist.rawAddress.toCPointer<ByteVar>(), driverlistsize, deviceobject.rawAddress.toCPointer<ByteVar>(), devicelist.rawAddress.toCPointer<ByteVar>(), devicelistsize, conflictdetected.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ioReportResourceUsage(driverclassname: ConstPtr<UnicodeString>, driverobject: ConstPtr<DriverObject>, driverlist: ConstPtr<CmResourceList>, driverlistsize: UInt, deviceobject: ConstPtr<DeviceObject>, devicelist: ConstPtr<CmResourceList>, devicelistsize: UInt, overrideconflict: Boolean, conflictdetected: MutPtr<Boolean>): Ntstatus =
+public actual fun ioReportResourceUsage(driverclassname: ConstPtr, driverobject: ConstPtr, driverlist: ConstPtr, driverlistsize: UInt, deviceobject: ConstPtr, devicelist: ConstPtr, devicelistsize: UInt, overrideconflict: Boolean, conflictdetected: MutPtr): Ntstatus =
     windowssysWindowsWdkSystemSystemservicesIoReportResourceUsage(driverclassname.rawAddress.toCPointer<ByteVar>(), driverobject.rawAddress.toCPointer<ByteVar>(), driverlist.rawAddress.toCPointer<ByteVar>(), driverlistsize, deviceobject.rawAddress.toCPointer<ByteVar>(), devicelist.rawAddress.toCPointer<ByteVar>(), devicelistsize, overrideconflict, conflictdetected.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ioReportRootDevice(driverobject: ConstPtr<DriverObject>): Ntstatus =
+public actual fun ioReportRootDevice(driverobject: ConstPtr): Ntstatus =
     windowssysWindowsWdkSystemSystemservicesIoReportRootDevice(driverobject.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ioReportTargetDeviceChange(physicaldeviceobject: ConstPtr<DeviceObject>, notificationstructure: ConstPtr<CVoid>): Ntstatus =
+public actual fun ioReportTargetDeviceChange(physicaldeviceobject: ConstPtr, notificationstructure: ConstPtr): Ntstatus =
     windowssysWindowsWdkSystemSystemservicesIoReportTargetDeviceChange(physicaldeviceobject.rawAddress.toCPointer<ByteVar>(), notificationstructure.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ioReportTargetDeviceChangeAsynchronous(physicaldeviceobject: ConstPtr<DeviceObject>, notificationstructure: ConstPtr<CVoid>, callback: PdeviceChangeCompleteCallback, context: ConstPtr<CVoid>): Ntstatus =
+public actual fun ioReportTargetDeviceChangeAsynchronous(physicaldeviceobject: ConstPtr, notificationstructure: ConstPtr, callback: PdeviceChangeCompleteCallback, context: ConstPtr): Ntstatus =
     windowssysWindowsWdkSystemSystemservicesIoReportTargetDeviceChangeAsynchronous(physicaldeviceobject.rawAddress.toCPointer<ByteVar>(), notificationstructure.rawAddress.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>(), context.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ioRequestDeviceEject(physicaldeviceobject: ConstPtr<DeviceObject>) {
+public actual fun ioRequestDeviceEject(physicaldeviceobject: ConstPtr) {
     windowssysWindowsWdkSystemSystemservicesIoRequestDeviceEject(physicaldeviceobject.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun ioRequestDeviceEjectEx(physicaldeviceobject: ConstPtr<DeviceObject>, callback: PioDeviceEjectCallback, context: ConstPtr<CVoid>, driverobject: ConstPtr<DriverObject>): Ntstatus =
+public actual fun ioRequestDeviceEjectEx(physicaldeviceobject: ConstPtr, callback: PioDeviceEjectCallback, context: ConstPtr, driverobject: ConstPtr): Ntstatus =
     windowssysWindowsWdkSystemSystemservicesIoRequestDeviceEjectEx(physicaldeviceobject.rawAddress.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>(), context.rawAddress.toCPointer<ByteVar>(), driverobject.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ioReserveKsrPersistentMemory(driverobject: ConstPtr<DriverObject>, physicaldeviceobject: ConstPtr<DeviceObject>, size: ULong, flags: UInt, datahandle: MutPtr<MutPtr<CVoid>>): Ntstatus =
+public actual fun ioReserveKsrPersistentMemory(driverobject: ConstPtr, physicaldeviceobject: ConstPtr, size: ULong, flags: UInt, datahandle: MutPtr): Ntstatus =
     windowssysWindowsWdkSystemSystemservicesIoReserveKsrPersistentMemory(driverobject.rawAddress.toCPointer<ByteVar>(), physicaldeviceobject.rawAddress.toCPointer<ByteVar>(), size, flags, datahandle.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ioReserveKsrPersistentMemoryEx(driverobject: ConstPtr<DriverObject>, physicaldeviceobject: ConstPtr<DeviceObject>, physicaldeviceid: ConstPtr<UnicodeString>, datatag: ConstPtr<UShort>, dataversion: UInt, size: ULong, flags: UInt, datahandle: MutPtr<MutPtr<CVoid>>): Ntstatus =
+public actual fun ioReserveKsrPersistentMemoryEx(driverobject: ConstPtr, physicaldeviceobject: ConstPtr, physicaldeviceid: ConstPtr, datatag: ConstPtr, dataversion: UInt, size: ULong, flags: UInt, datahandle: MutPtr): Ntstatus =
     windowssysWindowsWdkSystemSystemservicesIoReserveKsrPersistentMemoryEx(driverobject.rawAddress.toCPointer<ByteVar>(), physicaldeviceobject.rawAddress.toCPointer<ByteVar>(), physicaldeviceid.rawAddress.toCPointer<ByteVar>(), datatag.rawAddress.toCPointer<ByteVar>(), dataversion, size, flags, datahandle.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ioReuseIrp(irp: MutPtr<Irp>, iostatus: Ntstatus) {
+public actual fun ioReuseIrp(irp: MutPtr, iostatus: Ntstatus) {
     windowssysWindowsWdkSystemSystemservicesIoReuseIrp(irp.rawAddress.toCPointer<ByteVar>(), iostatus)
 }
 
-public actual fun ioSetActivityIdIrp(irp: MutPtr<Irp>, guid: ConstPtr<Guid>): Ntstatus =
+public actual fun ioSetActivityIdIrp(irp: MutPtr, guid: ConstPtr): Ntstatus =
     windowssysWindowsWdkSystemSystemservicesIoSetActivityIdIrp(irp.rawAddress.toCPointer<ByteVar>(), guid.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ioSetActivityIdThread(activityid: ConstPtr<Guid>): MutPtr<Guid> =
+public actual fun ioSetActivityIdThread(activityid: ConstPtr): MutPtr =
     MutPtr(windowssysWindowsWdkSystemSystemservicesIoSetActivityIdThread(activityid.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun ioSetCompletionRoutineEx(deviceobject: ConstPtr<DeviceObject>, irp: ConstPtr<Irp>, completionroutine: PioCompletionRoutine, context: ConstPtr<CVoid>, invokeonsuccess: Boolean, invokeonerror: Boolean, invokeoncancel: Boolean): Ntstatus =
+public actual fun ioSetCompletionRoutineEx(deviceobject: ConstPtr, irp: ConstPtr, completionroutine: PioCompletionRoutine, context: ConstPtr, invokeonsuccess: Boolean, invokeonerror: Boolean, invokeoncancel: Boolean): Ntstatus =
     windowssysWindowsWdkSystemSystemservicesIoSetCompletionRoutineEx(deviceobject.rawAddress.toCPointer<ByteVar>(), irp.rawAddress.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>(), context.rawAddress.toCPointer<ByteVar>(), invokeonsuccess, invokeonerror, invokeoncancel)
 
-public actual fun ioSetDeviceInterfacePropertyData(symboliclinkname: ConstPtr<UnicodeString>, propertykey: ConstPtr<Devpropkey>, lcid: UInt, flags: UInt, type: UInt, size: UInt, data: ConstPtr<CVoid>): Ntstatus =
+public actual fun ioSetDeviceInterfacePropertyData(symboliclinkname: ConstPtr, propertykey: ConstPtr, lcid: UInt, flags: UInt, type: UInt, size: UInt, data: ConstPtr): Ntstatus =
     windowssysWindowsWdkSystemSystemservicesIoSetDeviceInterfacePropertyData(symboliclinkname.rawAddress.toCPointer<ByteVar>(), propertykey.rawAddress.toCPointer<ByteVar>(), lcid, flags, type, size, data.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ioSetDeviceInterfaceState(symboliclinkname: ConstPtr<UnicodeString>, enable: Boolean): Ntstatus =
+public actual fun ioSetDeviceInterfaceState(symboliclinkname: ConstPtr, enable: Boolean): Ntstatus =
     windowssysWindowsWdkSystemSystemservicesIoSetDeviceInterfaceState(symboliclinkname.rawAddress.toCPointer<ByteVar>(), enable)
 
-public actual fun ioSetDevicePropertyData(pdo: ConstPtr<DeviceObject>, propertykey: ConstPtr<Devpropkey>, lcid: UInt, flags: UInt, type: UInt, size: UInt, data: ConstPtr<CVoid>): Ntstatus =
+public actual fun ioSetDevicePropertyData(pdo: ConstPtr, propertykey: ConstPtr, lcid: UInt, flags: UInt, type: UInt, size: UInt, data: ConstPtr): Ntstatus =
     windowssysWindowsWdkSystemSystemservicesIoSetDevicePropertyData(pdo.rawAddress.toCPointer<ByteVar>(), propertykey.rawAddress.toCPointer<ByteVar>(), lcid, flags, type, size, data.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ioSetFileObjectIgnoreSharing(fileobject: ConstPtr<FileObject>): Ntstatus =
+public actual fun ioSetFileObjectIgnoreSharing(fileobject: ConstPtr): Ntstatus =
     windowssysWindowsWdkSystemSystemservicesIoSetFileObjectIgnoreSharing(fileobject.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ioSetFileOrigin(fileobject: ConstPtr<FileObject>, remote: Boolean): Ntstatus =
+public actual fun ioSetFileOrigin(fileobject: ConstPtr, remote: Boolean): Ntstatus =
     windowssysWindowsWdkSystemSystemservicesIoSetFileOrigin(fileobject.rawAddress.toCPointer<ByteVar>(), remote)
 
-public actual fun ioSetFsZeroingOffset(irp: MutPtr<Irp>, zeroingoffset: UInt): Ntstatus =
+public actual fun ioSetFsZeroingOffset(irp: MutPtr, zeroingoffset: UInt): Ntstatus =
     windowssysWindowsWdkSystemSystemservicesIoSetFsZeroingOffset(irp.rawAddress.toCPointer<ByteVar>(), zeroingoffset)
 
-public actual fun ioSetFsZeroingOffsetRequired(irp: MutPtr<Irp>): Ntstatus =
+public actual fun ioSetFsZeroingOffsetRequired(irp: MutPtr): Ntstatus =
     windowssysWindowsWdkSystemSystemservicesIoSetFsZeroingOffsetRequired(irp.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ioSetHardErrorOrVerifyDevice(irp: ConstPtr<Irp>, deviceobject: ConstPtr<DeviceObject>) {
+public actual fun ioSetHardErrorOrVerifyDevice(irp: ConstPtr, deviceobject: ConstPtr) {
     windowssysWindowsWdkSystemSystemservicesIoSetHardErrorOrVerifyDevice(irp.rawAddress.toCPointer<ByteVar>(), deviceobject.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun ioSetIoAttributionIrp(irp: MutPtr<Irp>, attributionsource: ConstPtr<CVoid>, flags: UInt): Ntstatus =
+public actual fun ioSetIoAttributionIrp(irp: MutPtr, attributionsource: ConstPtr, flags: UInt): Ntstatus =
     windowssysWindowsWdkSystemSystemservicesIoSetIoAttributionIrp(irp.rawAddress.toCPointer<ByteVar>(), attributionsource.rawAddress.toCPointer<ByteVar>(), flags)
 
-public actual fun ioSetIoPriorityHint(irp: ConstPtr<Irp>, priorityhint: IoPriorityHint): Ntstatus =
+public actual fun ioSetIoPriorityHint(irp: ConstPtr, priorityhint: IoPriorityHint): Ntstatus =
     windowssysWindowsWdkSystemSystemservicesIoSetIoPriorityHint(irp.rawAddress.toCPointer<ByteVar>(), priorityhint)
 
-public actual fun ioSetIrpExtraCreateParameter(irp: MutPtr<Irp>, extracreateparameter: ConstPtr<Long>): Ntstatus =
+public actual fun ioSetIrpExtraCreateParameter(irp: MutPtr, extracreateparameter: ConstPtr): Ntstatus =
     windowssysWindowsWdkSystemSystemservicesIoSetIrpExtraCreateParameter(irp.rawAddress.toCPointer<ByteVar>(), extracreateparameter.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ioSetLinkShareAccess(desiredaccess: UInt, desiredshareaccess: UInt, fileobject: MutPtr<FileObject>, shareaccess: MutPtr<ShareAccess>, linkshareaccess: MutPtr<LinkShareAccess>, ioshareaccessflags: UInt) {
+public actual fun ioSetLinkShareAccess(desiredaccess: UInt, desiredshareaccess: UInt, fileobject: MutPtr, shareaccess: MutPtr, linkshareaccess: MutPtr, ioshareaccessflags: UInt) {
     windowssysWindowsWdkSystemSystemservicesIoSetLinkShareAccess(desiredaccess, desiredshareaccess, fileobject.rawAddress.toCPointer<ByteVar>(), shareaccess.rawAddress.toCPointer<ByteVar>(), linkshareaccess.rawAddress.toCPointer<ByteVar>(), ioshareaccessflags)
 }
 
-public actual fun ioSetMasterIrpStatus(masterirp: MutPtr<Irp>, status: Ntstatus) {
+public actual fun ioSetMasterIrpStatus(masterirp: MutPtr, status: Ntstatus) {
     windowssysWindowsWdkSystemSystemservicesIoSetMasterIrpStatus(masterirp.rawAddress.toCPointer<ByteVar>(), status)
 }
 
-public actual fun ioSetPartitionInformation(deviceobject: ConstPtr<DeviceObject>, sectorsize: UInt, partitionnumber: UInt, partitiontype: UInt): Ntstatus =
+public actual fun ioSetPartitionInformation(deviceobject: ConstPtr, sectorsize: UInt, partitionnumber: UInt, partitiontype: UInt): Ntstatus =
     windowssysWindowsWdkSystemSystemservicesIoSetPartitionInformation(deviceobject.rawAddress.toCPointer<ByteVar>(), sectorsize, partitionnumber, partitiontype)
 
-public actual fun ioSetPartitionInformationEx(deviceobject: ConstPtr<DeviceObject>, partitionnumber: UInt, partitioninfo: ConstPtr<SetPartitionInformationEx>): Ntstatus =
+public actual fun ioSetPartitionInformationEx(deviceobject: ConstPtr, partitionnumber: UInt, partitioninfo: ConstPtr): Ntstatus =
     windowssysWindowsWdkSystemSystemservicesIoSetPartitionInformationEx(deviceobject.rawAddress.toCPointer<ByteVar>(), partitionnumber, partitioninfo.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ioSetShareAccess(desiredaccess: UInt, desiredshareaccess: UInt, fileobject: MutPtr<FileObject>, shareaccess: MutPtr<ShareAccess>) {
+public actual fun ioSetShareAccess(desiredaccess: UInt, desiredshareaccess: UInt, fileobject: MutPtr, shareaccess: MutPtr) {
     windowssysWindowsWdkSystemSystemservicesIoSetShareAccess(desiredaccess, desiredshareaccess, fileobject.rawAddress.toCPointer<ByteVar>(), shareaccess.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun ioSetShareAccessEx(desiredaccess: UInt, desiredshareaccess: UInt, fileobject: MutPtr<FileObject>, shareaccess: MutPtr<ShareAccess>, writepermission: ConstPtr<Boolean>) {
+public actual fun ioSetShareAccessEx(desiredaccess: UInt, desiredshareaccess: UInt, fileobject: MutPtr, shareaccess: MutPtr, writepermission: ConstPtr) {
     windowssysWindowsWdkSystemSystemservicesIoSetShareAccessEx(desiredaccess, desiredshareaccess, fileobject.rawAddress.toCPointer<ByteVar>(), shareaccess.rawAddress.toCPointer<ByteVar>(), writepermission.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun ioSetStartIoAttributes(deviceobject: ConstPtr<DeviceObject>, deferredstartio: Boolean, noncancelable: Boolean) {
+public actual fun ioSetStartIoAttributes(deviceobject: ConstPtr, deferredstartio: Boolean, noncancelable: Boolean) {
     windowssysWindowsWdkSystemSystemservicesIoSetStartIoAttributes(deviceobject.rawAddress.toCPointer<ByteVar>(), deferredstartio, noncancelable)
 }
 
-public actual fun ioSetSystemPartition(volumenamestring: ConstPtr<UnicodeString>): Ntstatus =
+public actual fun ioSetSystemPartition(volumenamestring: ConstPtr): Ntstatus =
     windowssysWindowsWdkSystemSystemservicesIoSetSystemPartition(volumenamestring.rawAddress.toCPointer<ByteVar>())
 
 public actual fun ioSetThreadHardErrorMode(enableharderrors: Boolean): Boolean =
     windowssysWindowsWdkSystemSystemservicesIoSetThreadHardErrorMode(enableharderrors)
 
-public actual fun ioSetTopLevelIrp(irp: ConstPtr<Irp>) {
+public actual fun ioSetTopLevelIrp(irp: ConstPtr) {
     windowssysWindowsWdkSystemSystemservicesIoSetTopLevelIrp(irp.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun ioSizeOfIrpEx(deviceobject: ConstPtr<DeviceObject>, stacksize: Byte): UShort =
+public actual fun ioSizeOfIrpEx(deviceobject: ConstPtr, stacksize: Byte): UShort =
     windowssysWindowsWdkSystemSystemservicesIoSizeOfIrpEx(deviceobject.rawAddress.toCPointer<ByteVar>(), stacksize)
 
 public actual fun ioSizeofWorkItem(): UInt =
     windowssysWindowsWdkSystemSystemservicesIoSizeofWorkItem()
 
-public actual fun ioStartNextPacket(deviceobject: ConstPtr<DeviceObject>, cancelable: Boolean) {
+public actual fun ioStartNextPacket(deviceobject: ConstPtr, cancelable: Boolean) {
     windowssysWindowsWdkSystemSystemservicesIoStartNextPacket(deviceobject.rawAddress.toCPointer<ByteVar>(), cancelable)
 }
 
-public actual fun ioStartNextPacketByKey(deviceobject: ConstPtr<DeviceObject>, cancelable: Boolean, key: UInt) {
+public actual fun ioStartNextPacketByKey(deviceobject: ConstPtr, cancelable: Boolean, key: UInt) {
     windowssysWindowsWdkSystemSystemservicesIoStartNextPacketByKey(deviceobject.rawAddress.toCPointer<ByteVar>(), cancelable, key)
 }
 
-public actual fun ioStartPacket(deviceobject: ConstPtr<DeviceObject>, irp: ConstPtr<Irp>, key: ConstPtr<UInt>, cancelfunction: DriverCancel) {
+public actual fun ioStartPacket(deviceobject: ConstPtr, irp: ConstPtr, key: ConstPtr, cancelfunction: DriverCancel) {
 }
 
-public actual fun ioStartTimer(deviceobject: ConstPtr<DeviceObject>) {
+public actual fun ioStartTimer(deviceobject: ConstPtr) {
     windowssysWindowsWdkSystemSystemservicesIoStartTimer(deviceobject.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun ioStopTimer(deviceobject: ConstPtr<DeviceObject>) {
+public actual fun ioStopTimer(deviceobject: ConstPtr) {
     windowssysWindowsWdkSystemSystemservicesIoStopTimer(deviceobject.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun ioSynchronousCallDriver(deviceobject: ConstPtr<DeviceObject>, irp: ConstPtr<Irp>): Ntstatus =
+public actual fun ioSynchronousCallDriver(deviceobject: ConstPtr, irp: ConstPtr): Ntstatus =
     windowssysWindowsWdkSystemSystemservicesIoSynchronousCallDriver(deviceobject.rawAddress.toCPointer<ByteVar>(), irp.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ioTransferActivityId(activityid: ConstPtr<Guid>, relatedactivityid: ConstPtr<Guid>) {
+public actual fun ioTransferActivityId(activityid: ConstPtr, relatedactivityid: ConstPtr) {
     windowssysWindowsWdkSystemSystemservicesIoTransferActivityId(activityid.rawAddress.toCPointer<ByteVar>(), relatedactivityid.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun ioTranslateBusAddress(interfacetype: InterfaceType, busnumber: UInt, busaddress: Long, addressspace: MutPtr<UInt>, translatedaddress: MutPtr<Long>): Boolean =
+public actual fun ioTranslateBusAddress(interfacetype: InterfaceType, busnumber: UInt, busaddress: Long, addressspace: MutPtr, translatedaddress: MutPtr): Boolean =
     windowssysWindowsWdkSystemSystemservicesIoTranslateBusAddress(interfacetype, busnumber, busaddress, addressspace.rawAddress.toCPointer<ByteVar>(), translatedaddress.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ioTryQueueWorkItem(ioworkitem: PioWorkitem, workerroutine: PioWorkitemRoutineEx, queuetype: WorkQueueType, context: ConstPtr<CVoid>): Boolean =
+public actual fun ioTryQueueWorkItem(ioworkitem: PioWorkitem, workerroutine: PioWorkitemRoutineEx, queuetype: WorkQueueType, context: ConstPtr): Boolean =
     windowssysWindowsWdkSystemSystemservicesIoTryQueueWorkItem(ioworkitem, 0L.toCPointer<ByteVar>(), queuetype, context.rawAddress.toCPointer<ByteVar>())
 
 public actual fun ioUninitializeWorkItem(ioworkitem: PioWorkitem) {
     windowssysWindowsWdkSystemSystemservicesIoUninitializeWorkItem(ioworkitem)
 }
 
-public actual fun ioUnregisterBootDriverCallback(callbackhandle: ConstPtr<CVoid>) {
+public actual fun ioUnregisterBootDriverCallback(callbackhandle: ConstPtr) {
     windowssysWindowsWdkSystemSystemservicesIoUnregisterBootDriverCallback(callbackhandle.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun ioUnregisterContainerNotification(callbackregistration: ConstPtr<CVoid>) {
+public actual fun ioUnregisterContainerNotification(callbackregistration: ConstPtr) {
     windowssysWindowsWdkSystemSystemservicesIoUnregisterContainerNotification(callbackregistration.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun ioUnregisterPlugPlayNotification(notificationentry: ConstPtr<CVoid>): Ntstatus =
+public actual fun ioUnregisterPlugPlayNotification(notificationentry: ConstPtr): Ntstatus =
     windowssysWindowsWdkSystemSystemservicesIoUnregisterPlugPlayNotification(notificationentry.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ioUnregisterPlugPlayNotificationEx(notificationentry: ConstPtr<CVoid>): Ntstatus =
+public actual fun ioUnregisterPlugPlayNotificationEx(notificationentry: ConstPtr): Ntstatus =
     windowssysWindowsWdkSystemSystemservicesIoUnregisterPlugPlayNotificationEx(notificationentry.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ioUnregisterShutdownNotification(deviceobject: ConstPtr<DeviceObject>) {
+public actual fun ioUnregisterShutdownNotification(deviceobject: ConstPtr) {
     windowssysWindowsWdkSystemSystemservicesIoUnregisterShutdownNotification(deviceobject.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun ioUpdateLinkShareAccess(fileobject: ConstPtr<FileObject>, shareaccess: MutPtr<ShareAccess>, linkshareaccess: MutPtr<LinkShareAccess>) {
+public actual fun ioUpdateLinkShareAccess(fileobject: ConstPtr, shareaccess: MutPtr, linkshareaccess: MutPtr) {
     windowssysWindowsWdkSystemSystemservicesIoUpdateLinkShareAccess(fileobject.rawAddress.toCPointer<ByteVar>(), shareaccess.rawAddress.toCPointer<ByteVar>(), linkshareaccess.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun ioUpdateLinkShareAccessEx(fileobject: ConstPtr<FileObject>, shareaccess: MutPtr<ShareAccess>, linkshareaccess: MutPtr<LinkShareAccess>, ioshareaccessflags: UInt) {
+public actual fun ioUpdateLinkShareAccessEx(fileobject: ConstPtr, shareaccess: MutPtr, linkshareaccess: MutPtr, ioshareaccessflags: UInt) {
     windowssysWindowsWdkSystemSystemservicesIoUpdateLinkShareAccessEx(fileobject.rawAddress.toCPointer<ByteVar>(), shareaccess.rawAddress.toCPointer<ByteVar>(), linkshareaccess.rawAddress.toCPointer<ByteVar>(), ioshareaccessflags)
 }
 
-public actual fun ioUpdateShareAccess(fileobject: ConstPtr<FileObject>, shareaccess: MutPtr<ShareAccess>) {
+public actual fun ioUpdateShareAccess(fileobject: ConstPtr, shareaccess: MutPtr) {
     windowssysWindowsWdkSystemSystemservicesIoUpdateShareAccess(fileobject.rawAddress.toCPointer<ByteVar>(), shareaccess.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun ioValidateDeviceIoControlAccess(irp: ConstPtr<Irp>, requiredaccess: UInt): Ntstatus =
+public actual fun ioValidateDeviceIoControlAccess(irp: ConstPtr, requiredaccess: UInt): Ntstatus =
     windowssysWindowsWdkSystemSystemservicesIoValidateDeviceIoControlAccess(irp.rawAddress.toCPointer<ByteVar>(), requiredaccess)
 
-public actual fun ioVerifyPartitionTable(deviceobject: ConstPtr<DeviceObject>, fixerrors: Boolean): Ntstatus =
+public actual fun ioVerifyPartitionTable(deviceobject: ConstPtr, fixerrors: Boolean): Ntstatus =
     windowssysWindowsWdkSystemSystemservicesIoVerifyPartitionTable(deviceobject.rawAddress.toCPointer<ByteVar>(), fixerrors)
 
-public actual fun ioVolumeDeviceNameToGuid(volumedevicename: ConstPtr<UnicodeString>, guid: MutPtr<Guid>): Ntstatus =
+public actual fun ioVolumeDeviceNameToGuid(volumedevicename: ConstPtr, guid: MutPtr): Ntstatus =
     windowssysWindowsWdkSystemSystemservicesIoVolumeDeviceNameToGuid(volumedevicename.rawAddress.toCPointer<ByteVar>(), guid.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ioVolumeDeviceNameToGuidPath(volumedevicename: ConstPtr<UnicodeString>, guidpath: MutPtr<UnicodeString>): Ntstatus =
+public actual fun ioVolumeDeviceNameToGuidPath(volumedevicename: ConstPtr, guidpath: MutPtr): Ntstatus =
     windowssysWindowsWdkSystemSystemservicesIoVolumeDeviceNameToGuidPath(volumedevicename.rawAddress.toCPointer<ByteVar>(), guidpath.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ioVolumeDeviceToDosName(volumedeviceobject: ConstPtr<CVoid>, dosname: MutPtr<UnicodeString>): Ntstatus =
+public actual fun ioVolumeDeviceToDosName(volumedeviceobject: ConstPtr, dosname: MutPtr): Ntstatus =
     windowssysWindowsWdkSystemSystemservicesIoVolumeDeviceToDosName(volumedeviceobject.rawAddress.toCPointer<ByteVar>(), dosname.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ioVolumeDeviceToGuid(volumedeviceobject: ConstPtr<CVoid>, guid: MutPtr<Guid>): Ntstatus =
+public actual fun ioVolumeDeviceToGuid(volumedeviceobject: ConstPtr, guid: MutPtr): Ntstatus =
     windowssysWindowsWdkSystemSystemservicesIoVolumeDeviceToGuid(volumedeviceobject.rawAddress.toCPointer<ByteVar>(), guid.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ioVolumeDeviceToGuidPath(volumedeviceobject: ConstPtr<CVoid>, guidpath: MutPtr<UnicodeString>): Ntstatus =
+public actual fun ioVolumeDeviceToGuidPath(volumedeviceobject: ConstPtr, guidpath: MutPtr): Ntstatus =
     windowssysWindowsWdkSystemSystemservicesIoVolumeDeviceToGuidPath(volumedeviceobject.rawAddress.toCPointer<ByteVar>(), guidpath.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ioWMIAllocateInstanceIds(guid: ConstPtr<Guid>, instancecount: UInt, firstinstanceid: MutPtr<UInt>): Ntstatus =
+public actual fun ioWMIAllocateInstanceIds(guid: ConstPtr, instancecount: UInt, firstinstanceid: MutPtr): Ntstatus =
     windowssysWindowsWdkSystemSystemservicesIoWMIAllocateInstanceIds(guid.rawAddress.toCPointer<ByteVar>(), instancecount, firstinstanceid.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ioWMIDeviceObjectToInstanceName(datablockobject: ConstPtr<CVoid>, deviceobject: ConstPtr<DeviceObject>, instancename: MutPtr<UnicodeString>): Ntstatus =
+public actual fun ioWMIDeviceObjectToInstanceName(datablockobject: ConstPtr, deviceobject: ConstPtr, instancename: MutPtr): Ntstatus =
     windowssysWindowsWdkSystemSystemservicesIoWMIDeviceObjectToInstanceName(datablockobject.rawAddress.toCPointer<ByteVar>(), deviceobject.rawAddress.toCPointer<ByteVar>(), instancename.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ioWMIExecuteMethod(datablockobject: ConstPtr<CVoid>, instancename: ConstPtr<UnicodeString>, methodid: UInt, inbuffersize: UInt, outbuffersize: MutPtr<UInt>, inoutbuffer: MutPtr<UByte>): Ntstatus =
+public actual fun ioWMIExecuteMethod(datablockobject: ConstPtr, instancename: ConstPtr, methodid: UInt, inbuffersize: UInt, outbuffersize: MutPtr, inoutbuffer: MutPtr): Ntstatus =
     windowssysWindowsWdkSystemSystemservicesIoWMIExecuteMethod(datablockobject.rawAddress.toCPointer<ByteVar>(), instancename.rawAddress.toCPointer<ByteVar>(), methodid, inbuffersize, outbuffersize.rawAddress.toCPointer<ByteVar>(), inoutbuffer.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ioWMIHandleToInstanceName(datablockobject: ConstPtr<CVoid>, filehandle: Handle, instancename: MutPtr<UnicodeString>): Ntstatus =
+public actual fun ioWMIHandleToInstanceName(datablockobject: ConstPtr, filehandle: Handle, instancename: MutPtr): Ntstatus =
     windowssysWindowsWdkSystemSystemservicesIoWMIHandleToInstanceName(datablockobject.rawAddress.toCPointer<ByteVar>(), filehandle.rawAddress.toCPointer<ByteVar>(), instancename.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ioWMIOpenBlock(guid: ConstPtr<Guid>, desiredaccess: UInt, datablockobject: MutPtr<MutPtr<CVoid>>): Ntstatus =
+public actual fun ioWMIOpenBlock(guid: ConstPtr, desiredaccess: UInt, datablockobject: MutPtr): Ntstatus =
     windowssysWindowsWdkSystemSystemservicesIoWMIOpenBlock(guid.rawAddress.toCPointer<ByteVar>(), desiredaccess, datablockobject.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ioWMIQueryAllData(datablockobject: ConstPtr<CVoid>, inoutbuffersize: MutPtr<UInt>, outbuffer: MutPtr<CVoid>): Ntstatus =
+public actual fun ioWMIQueryAllData(datablockobject: ConstPtr, inoutbuffersize: MutPtr, outbuffer: MutPtr): Ntstatus =
     windowssysWindowsWdkSystemSystemservicesIoWMIQueryAllData(datablockobject.rawAddress.toCPointer<ByteVar>(), inoutbuffersize.rawAddress.toCPointer<ByteVar>(), outbuffer.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ioWMIQueryAllDataMultiple(datablockobjectlist: ConstPtr<ConstPtr<CVoid>>, objectcount: UInt, inoutbuffersize: MutPtr<UInt>, outbuffer: MutPtr<CVoid>): Ntstatus =
+public actual fun ioWMIQueryAllDataMultiple(datablockobjectlist: ConstPtr, objectcount: UInt, inoutbuffersize: MutPtr, outbuffer: MutPtr): Ntstatus =
     windowssysWindowsWdkSystemSystemservicesIoWMIQueryAllDataMultiple(datablockobjectlist.rawAddress.toCPointer<ByteVar>(), objectcount, inoutbuffersize.rawAddress.toCPointer<ByteVar>(), outbuffer.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ioWMIQuerySingleInstance(datablockobject: ConstPtr<CVoid>, instancename: ConstPtr<UnicodeString>, inoutbuffersize: MutPtr<UInt>, outbuffer: MutPtr<CVoid>): Ntstatus =
+public actual fun ioWMIQuerySingleInstance(datablockobject: ConstPtr, instancename: ConstPtr, inoutbuffersize: MutPtr, outbuffer: MutPtr): Ntstatus =
     windowssysWindowsWdkSystemSystemservicesIoWMIQuerySingleInstance(datablockobject.rawAddress.toCPointer<ByteVar>(), instancename.rawAddress.toCPointer<ByteVar>(), inoutbuffersize.rawAddress.toCPointer<ByteVar>(), outbuffer.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ioWMIQuerySingleInstanceMultiple(datablockobjectlist: ConstPtr<ConstPtr<CVoid>>, instancenames: ConstPtr<UnicodeString>, objectcount: UInt, inoutbuffersize: MutPtr<UInt>, outbuffer: MutPtr<CVoid>): Ntstatus =
+public actual fun ioWMIQuerySingleInstanceMultiple(datablockobjectlist: ConstPtr, instancenames: ConstPtr, objectcount: UInt, inoutbuffersize: MutPtr, outbuffer: MutPtr): Ntstatus =
     windowssysWindowsWdkSystemSystemservicesIoWMIQuerySingleInstanceMultiple(datablockobjectlist.rawAddress.toCPointer<ByteVar>(), instancenames.rawAddress.toCPointer<ByteVar>(), objectcount, inoutbuffersize.rawAddress.toCPointer<ByteVar>(), outbuffer.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ioWMIRegistrationControl(deviceobject: ConstPtr<DeviceObject>, action: UInt): Ntstatus =
+public actual fun ioWMIRegistrationControl(deviceobject: ConstPtr, action: UInt): Ntstatus =
     windowssysWindowsWdkSystemSystemservicesIoWMIRegistrationControl(deviceobject.rawAddress.toCPointer<ByteVar>(), action)
 
-public actual fun ioWMISetNotificationCallback(obj: MutPtr<CVoid>, callback: WmiNotificationCallback, context: ConstPtr<CVoid>): Ntstatus =
+public actual fun ioWMISetNotificationCallback(obj: MutPtr, callback: WmiNotificationCallback, context: ConstPtr): Ntstatus =
     windowssysWindowsWdkSystemSystemservicesIoWMISetNotificationCallback(obj.rawAddress.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>(), context.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ioWMISetSingleInstance(datablockobject: ConstPtr<CVoid>, instancename: ConstPtr<UnicodeString>, version: UInt, valuebuffersize: UInt, valuebuffer: ConstPtr<CVoid>): Ntstatus =
+public actual fun ioWMISetSingleInstance(datablockobject: ConstPtr, instancename: ConstPtr, version: UInt, valuebuffersize: UInt, valuebuffer: ConstPtr): Ntstatus =
     windowssysWindowsWdkSystemSystemservicesIoWMISetSingleInstance(datablockobject.rawAddress.toCPointer<ByteVar>(), instancename.rawAddress.toCPointer<ByteVar>(), version, valuebuffersize, valuebuffer.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ioWMISetSingleItem(datablockobject: ConstPtr<CVoid>, instancename: ConstPtr<UnicodeString>, dataitemid: UInt, version: UInt, valuebuffersize: UInt, valuebuffer: ConstPtr<CVoid>): Ntstatus =
+public actual fun ioWMISetSingleItem(datablockobject: ConstPtr, instancename: ConstPtr, dataitemid: UInt, version: UInt, valuebuffersize: UInt, valuebuffer: ConstPtr): Ntstatus =
     windowssysWindowsWdkSystemSystemservicesIoWMISetSingleItem(datablockobject.rawAddress.toCPointer<ByteVar>(), instancename.rawAddress.toCPointer<ByteVar>(), dataitemid, version, valuebuffersize, valuebuffer.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ioWMISuggestInstanceName(physicaldeviceobject: ConstPtr<DeviceObject>, symboliclinkname: ConstPtr<UnicodeString>, combinenames: Boolean, suggestedinstancename: MutPtr<UnicodeString>): Ntstatus =
+public actual fun ioWMISuggestInstanceName(physicaldeviceobject: ConstPtr, symboliclinkname: ConstPtr, combinenames: Boolean, suggestedinstancename: MutPtr): Ntstatus =
     windowssysWindowsWdkSystemSystemservicesIoWMISuggestInstanceName(physicaldeviceobject.rawAddress.toCPointer<ByteVar>(), symboliclinkname.rawAddress.toCPointer<ByteVar>(), combinenames, suggestedinstancename.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ioWMIWriteEvent(wnodeeventitem: MutPtr<CVoid>): Ntstatus =
+public actual fun ioWMIWriteEvent(wnodeeventitem: MutPtr): Ntstatus =
     windowssysWindowsWdkSystemSystemservicesIoWMIWriteEvent(wnodeeventitem.rawAddress.toCPointer<ByteVar>())
 
 public actual fun ioWithinStackLimits(regionstart: ULong, regionsize: ULong): UInt =
     windowssysWindowsWdkSystemSystemservicesIoWithinStackLimits(regionstart, regionsize)
 
-public actual fun ioWriteErrorLogEntry(elentry: ConstPtr<CVoid>) {
+public actual fun ioWriteErrorLogEntry(elentry: ConstPtr) {
     windowssysWindowsWdkSystemSystemservicesIoWriteErrorLogEntry(elentry.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun ioWriteKsrPersistentMemory(datahandle: ConstPtr<CVoid>, buffer: ConstPtr<CVoid>, size: ULong): Ntstatus =
+public actual fun ioWriteKsrPersistentMemory(datahandle: ConstPtr, buffer: ConstPtr, size: ULong): Ntstatus =
     windowssysWindowsWdkSystemSystemservicesIoWriteKsrPersistentMemory(datahandle.rawAddress.toCPointer<ByteVar>(), buffer.rawAddress.toCPointer<ByteVar>(), size)
 
-public actual fun ioWritePartitionTable(deviceobject: ConstPtr<DeviceObject>, sectorsize: UInt, sectorspertrack: UInt, numberofheads: UInt, partitionbuffer: ConstPtr<DriveLayoutInformation>): Ntstatus =
+public actual fun ioWritePartitionTable(deviceobject: ConstPtr, sectorsize: UInt, sectorspertrack: UInt, numberofheads: UInt, partitionbuffer: ConstPtr): Ntstatus =
     windowssysWindowsWdkSystemSystemservicesIoWritePartitionTable(deviceobject.rawAddress.toCPointer<ByteVar>(), sectorsize, sectorspertrack, numberofheads, partitionbuffer.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ioWritePartitionTableEx(deviceobject: ConstPtr<DeviceObject>, drivelayout: ConstPtr<DriveLayoutInformationEx>): Ntstatus =
+public actual fun ioWritePartitionTableEx(deviceobject: ConstPtr, drivelayout: ConstPtr): Ntstatus =
     windowssysWindowsWdkSystemSystemservicesIoWritePartitionTableEx(deviceobject.rawAddress.toCPointer<ByteVar>(), drivelayout.rawAddress.toCPointer<ByteVar>())
 
-public actual fun iofCallDriver(deviceobject: ConstPtr<DeviceObject>, irp: MutPtr<Irp>): Ntstatus =
+public actual fun iofCallDriver(deviceobject: ConstPtr, irp: MutPtr): Ntstatus =
     windowssysWindowsWdkSystemSystemservicesIofCallDriver(deviceobject.rawAddress.toCPointer<ByteVar>(), irp.rawAddress.toCPointer<ByteVar>())
 
-public actual fun iofCompleteRequest(irp: ConstPtr<Irp>, priorityboost: Byte) {
+public actual fun iofCompleteRequest(irp: ConstPtr, priorityboost: Byte) {
     windowssysWindowsWdkSystemSystemservicesIofCompleteRequest(irp.rawAddress.toCPointer<ByteVar>(), priorityboost)
 }
 
-public actual fun kdChangeOption(option: KdOption, inbufferbytes: UInt, inbuffer: ConstPtr<CVoid>, outbufferbytes: UInt, outbuffer: MutPtr<CVoid>, outbufferneeded: MutPtr<UInt>): Ntstatus =
+public actual fun kdChangeOption(option: KdOption, inbufferbytes: UInt, inbuffer: ConstPtr, outbufferbytes: UInt, outbuffer: MutPtr, outbufferneeded: MutPtr): Ntstatus =
     windowssysWindowsWdkSystemSystemservicesKdChangeOption(option, inbufferbytes, inbuffer.rawAddress.toCPointer<ByteVar>(), outbufferbytes, outbuffer.rawAddress.toCPointer<ByteVar>(), outbufferneeded.rawAddress.toCPointer<ByteVar>())
 
 public actual fun kdDisableDebugger(): Ntstatus =
@@ -2766,33 +2710,33 @@ public actual fun kdEnableDebugger(): Ntstatus =
 public actual fun kdRefreshDebuggerNotPresent(): Boolean =
     windowssysWindowsWdkSystemSystemservicesKdRefreshDebuggerNotPresent()
 
-public actual fun keAcquireGuardedMutex(mutex: MutPtr<FastMutex>) {
+public actual fun keAcquireGuardedMutex(mutex: MutPtr) {
     windowssysWindowsWdkSystemSystemservicesKeAcquireGuardedMutex(mutex.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun keAcquireGuardedMutexUnsafe(fastmutex: MutPtr<FastMutex>) {
+public actual fun keAcquireGuardedMutexUnsafe(fastmutex: MutPtr) {
     windowssysWindowsWdkSystemSystemservicesKeAcquireGuardedMutexUnsafe(fastmutex.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun keAcquireInStackQueuedSpinLock(spinlock: MutPtr<ULong>, lockhandle: MutPtr<KlockQueueHandle>) {
+public actual fun keAcquireInStackQueuedSpinLock(spinlock: MutPtr, lockhandle: MutPtr) {
     windowssysWindowsWdkSystemSystemservicesKeAcquireInStackQueuedSpinLock(spinlock.rawAddress.toCPointer<ByteVar>(), lockhandle.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun keAcquireInStackQueuedSpinLockAtDpcLevel(spinlock: MutPtr<ULong>, lockhandle: MutPtr<KlockQueueHandle>) {
+public actual fun keAcquireInStackQueuedSpinLockAtDpcLevel(spinlock: MutPtr, lockhandle: MutPtr) {
     windowssysWindowsWdkSystemSystemservicesKeAcquireInStackQueuedSpinLockAtDpcLevel(spinlock.rawAddress.toCPointer<ByteVar>(), lockhandle.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun keAcquireInStackQueuedSpinLockForDpc(spinlock: MutPtr<ULong>, lockhandle: MutPtr<KlockQueueHandle>) {
+public actual fun keAcquireInStackQueuedSpinLockForDpc(spinlock: MutPtr, lockhandle: MutPtr) {
     windowssysWindowsWdkSystemSystemservicesKeAcquireInStackQueuedSpinLockForDpc(spinlock.rawAddress.toCPointer<ByteVar>(), lockhandle.rawAddress.toCPointer<ByteVar>())
 }
 
 public actual fun keAcquireInterruptSpinLock(interrupt: Pkinterrupt): UByte =
     windowssysWindowsWdkSystemSystemservicesKeAcquireInterruptSpinLock(interrupt)
 
-public actual fun keAcquireSpinLockForDpc(spinlock: MutPtr<ULong>): UByte =
+public actual fun keAcquireSpinLockForDpc(spinlock: MutPtr): UByte =
     windowssysWindowsWdkSystemSystemservicesKeAcquireSpinLockForDpc(spinlock.rawAddress.toCPointer<ByteVar>())
 
-public actual fun keAddTriageDumpDataBlock(ktriagedumpdataarray: MutPtr<KtriageDumpDataArray>, address: ConstPtr<CVoid>, size: ULong): Ntstatus =
+public actual fun keAddTriageDumpDataBlock(ktriagedumpdataarray: MutPtr, address: ConstPtr, size: ULong): Ntstatus =
     windowssysWindowsWdkSystemSystemservicesKeAddTriageDumpDataBlock(ktriagedumpdataarray.rawAddress.toCPointer<ByteVar>(), address.rawAddress.toCPointer<ByteVar>(), size)
 
 public actual fun keAreAllApcsDisabled(): Boolean =
@@ -2809,35 +2753,35 @@ public actual fun keBugCheckEx(bugcheckcode: BugcheckError, bugcheckparameter1: 
     windowssysWindowsWdkSystemSystemservicesKeBugCheckEx(bugcheckcode, bugcheckparameter1, bugcheckparameter2, bugcheckparameter3, bugcheckparameter4)
 }
 
-public actual fun keCancelTimer(param0: MutPtr<Ktimer>): Boolean =
+public actual fun keCancelTimer(param0: MutPtr): Boolean =
     windowssysWindowsWdkSystemSystemservicesKeCancelTimer(param0.rawAddress.toCPointer<ByteVar>())
 
-public actual fun keClearEvent(event: MutPtr<Kevent>) {
+public actual fun keClearEvent(event: MutPtr) {
     windowssysWindowsWdkSystemSystemservicesKeClearEvent(event.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun keConvertAuxiliaryCounterToPerformanceCounter(auxiliarycountervalue: ULong, performancecountervalue: MutPtr<ULong>, conversionerror: MutPtr<ULong>): Ntstatus =
+public actual fun keConvertAuxiliaryCounterToPerformanceCounter(auxiliarycountervalue: ULong, performancecountervalue: MutPtr, conversionerror: MutPtr): Ntstatus =
     windowssysWindowsWdkSystemSystemservicesKeConvertAuxiliaryCounterToPerformanceCounter(auxiliarycountervalue, performancecountervalue.rawAddress.toCPointer<ByteVar>(), conversionerror.rawAddress.toCPointer<ByteVar>())
 
-public actual fun keConvertPerformanceCounterToAuxiliaryCounter(performancecountervalue: ULong, auxiliarycountervalue: MutPtr<ULong>, conversionerror: MutPtr<ULong>): Ntstatus =
+public actual fun keConvertPerformanceCounterToAuxiliaryCounter(performancecountervalue: ULong, auxiliarycountervalue: MutPtr, conversionerror: MutPtr): Ntstatus =
     windowssysWindowsWdkSystemSystemservicesKeConvertPerformanceCounterToAuxiliaryCounter(performancecountervalue, auxiliarycountervalue.rawAddress.toCPointer<ByteVar>(), conversionerror.rawAddress.toCPointer<ByteVar>())
 
-public actual fun keDelayExecutionThread(waitmode: Byte, alertable: Boolean, interval: ConstPtr<Long>): Ntstatus =
+public actual fun keDelayExecutionThread(waitmode: Byte, alertable: Boolean, interval: ConstPtr): Ntstatus =
     windowssysWindowsWdkSystemSystemservicesKeDelayExecutionThread(waitmode, alertable, interval.rawAddress.toCPointer<ByteVar>())
 
-public actual fun keDeregisterBoundCallback(handle: ConstPtr<CVoid>): Ntstatus =
+public actual fun keDeregisterBoundCallback(handle: ConstPtr): Ntstatus =
     windowssysWindowsWdkSystemSystemservicesKeDeregisterBoundCallback(handle.rawAddress.toCPointer<ByteVar>())
 
-public actual fun keDeregisterBugCheckCallback(callbackrecord: MutPtr<KbugcheckCallbackRecord>): Boolean =
+public actual fun keDeregisterBugCheckCallback(callbackrecord: MutPtr): Boolean =
     windowssysWindowsWdkSystemSystemservicesKeDeregisterBugCheckCallback(callbackrecord.rawAddress.toCPointer<ByteVar>())
 
-public actual fun keDeregisterBugCheckReasonCallback(callbackrecord: MutPtr<KbugcheckReasonCallbackRecord>): Boolean =
+public actual fun keDeregisterBugCheckReasonCallback(callbackrecord: MutPtr): Boolean =
     windowssysWindowsWdkSystemSystemservicesKeDeregisterBugCheckReasonCallback(callbackrecord.rawAddress.toCPointer<ByteVar>())
 
-public actual fun keDeregisterNmiCallback(handle: ConstPtr<CVoid>): Ntstatus =
+public actual fun keDeregisterNmiCallback(handle: ConstPtr): Ntstatus =
     windowssysWindowsWdkSystemSystemservicesKeDeregisterNmiCallback(handle.rawAddress.toCPointer<ByteVar>())
 
-public actual fun keDeregisterProcessorChangeCallback(callbackhandle: ConstPtr<CVoid>) {
+public actual fun keDeregisterProcessorChangeCallback(callbackhandle: ConstPtr) {
     windowssysWindowsWdkSystemSystemservicesKeDeregisterProcessorChangeCallback(callbackhandle.rawAddress.toCPointer<ByteVar>())
 }
 
@@ -2849,13 +2793,13 @@ public actual fun keEnterGuardedRegion() {
     windowssysWindowsWdkSystemSystemservicesKeEnterGuardedRegion()
 }
 
-public actual fun keExpandKernelStackAndCallout(callout: PexpandStackCallout, parameter: ConstPtr<CVoid>, size: ULong): Ntstatus =
+public actual fun keExpandKernelStackAndCallout(callout: PexpandStackCallout, parameter: ConstPtr, size: ULong): Ntstatus =
     windowssysWindowsWdkSystemSystemservicesKeExpandKernelStackAndCallout(0L.toCPointer<ByteVar>(), parameter.rawAddress.toCPointer<ByteVar>(), size)
 
-public actual fun keExpandKernelStackAndCalloutEx(callout: PexpandStackCallout, parameter: ConstPtr<CVoid>, size: ULong, wait: Boolean, context: ConstPtr<CVoid>): Ntstatus =
+public actual fun keExpandKernelStackAndCalloutEx(callout: PexpandStackCallout, parameter: ConstPtr, size: ULong, wait: Boolean, context: ConstPtr): Ntstatus =
     windowssysWindowsWdkSystemSystemservicesKeExpandKernelStackAndCalloutEx(0L.toCPointer<ByteVar>(), parameter.rawAddress.toCPointer<ByteVar>(), size, wait, context.rawAddress.toCPointer<ByteVar>())
 
-public actual fun keFlushIoBuffers(mdl: ConstPtr<Mdl>, readoperation: Boolean, dmaoperation: Boolean) {
+public actual fun keFlushIoBuffers(mdl: ConstPtr, readoperation: Boolean, dmaoperation: Boolean) {
     windowssysWindowsWdkSystemSystemservicesKeFlushIoBuffers(mdl.rawAddress.toCPointer<ByteVar>(), readoperation, dmaoperation)
 }
 
@@ -2873,77 +2817,77 @@ public actual fun keGetCurrentIrql(): UByte =
 public actual fun keGetCurrentNodeNumber(): UShort =
     windowssysWindowsWdkSystemSystemservicesKeGetCurrentNodeNumber()
 
-public actual fun keGetCurrentProcessorNumberEx(procnumber: MutPtr<ProcessorNumber>): UInt =
+public actual fun keGetCurrentProcessorNumberEx(procnumber: MutPtr): UInt =
     windowssysWindowsWdkSystemSystemservicesKeGetCurrentProcessorNumberEx(procnumber.rawAddress.toCPointer<ByteVar>())
 
-public actual fun keGetProcessorIndexFromNumber(procnumber: ConstPtr<ProcessorNumber>): UInt =
+public actual fun keGetProcessorIndexFromNumber(procnumber: ConstPtr): UInt =
     windowssysWindowsWdkSystemSystemservicesKeGetProcessorIndexFromNumber(procnumber.rawAddress.toCPointer<ByteVar>())
 
-public actual fun keGetProcessorNumberFromIndex(procindex: UInt, procnumber: MutPtr<ProcessorNumber>): Ntstatus =
+public actual fun keGetProcessorNumberFromIndex(procindex: UInt, procnumber: MutPtr): Ntstatus =
     windowssysWindowsWdkSystemSystemservicesKeGetProcessorNumberFromIndex(procindex, procnumber.rawAddress.toCPointer<ByteVar>())
 
 public actual fun keGetRecommendedSharedDataAlignment(): UInt =
     windowssysWindowsWdkSystemSystemservicesKeGetRecommendedSharedDataAlignment()
 
-public actual fun keInitializeCrashDumpHeader(dumptype: UInt, flags: UInt, buffer: MutPtr<CVoid>, buffersize: UInt, bufferneeded: MutPtr<UInt>): Ntstatus =
+public actual fun keInitializeCrashDumpHeader(dumptype: UInt, flags: UInt, buffer: MutPtr, buffersize: UInt, bufferneeded: MutPtr): Ntstatus =
     windowssysWindowsWdkSystemSystemservicesKeInitializeCrashDumpHeader(dumptype, flags, buffer.rawAddress.toCPointer<ByteVar>(), buffersize, bufferneeded.rawAddress.toCPointer<ByteVar>())
 
-public actual fun keInitializeDeviceQueue(devicequeue: MutPtr<KdeviceQueue>) {
+public actual fun keInitializeDeviceQueue(devicequeue: MutPtr) {
     windowssysWindowsWdkSystemSystemservicesKeInitializeDeviceQueue(devicequeue.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun keInitializeDpc(dpc: MutPtr<Kdpc>, deferredroutine: PkdeferredRoutine, deferredcontext: ConstPtr<CVoid>) {
+public actual fun keInitializeDpc(dpc: MutPtr, deferredroutine: PkdeferredRoutine, deferredcontext: ConstPtr) {
     windowssysWindowsWdkSystemSystemservicesKeInitializeDpc(dpc.rawAddress.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>(), deferredcontext.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun keInitializeEvent(event: MutPtr<Kevent>, type: EventType, state: Boolean) {
+public actual fun keInitializeEvent(event: MutPtr, type: EventType, state: Boolean) {
     windowssysWindowsWdkSystemSystemservicesKeInitializeEvent(event.rawAddress.toCPointer<ByteVar>(), type, state)
 }
 
-public actual fun keInitializeGuardedMutex(mutex: MutPtr<FastMutex>) {
+public actual fun keInitializeGuardedMutex(mutex: MutPtr) {
     windowssysWindowsWdkSystemSystemservicesKeInitializeGuardedMutex(mutex.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun keInitializeMutex(mutex: MutPtr<Kmutant>, level: UInt) {
+public actual fun keInitializeMutex(mutex: MutPtr, level: UInt) {
     windowssysWindowsWdkSystemSystemservicesKeInitializeMutex(mutex.rawAddress.toCPointer<ByteVar>(), level)
 }
 
-public actual fun keInitializeSemaphore(semaphore: MutPtr<Ksemaphore>, count: Int, limit: Int) {
+public actual fun keInitializeSemaphore(semaphore: MutPtr, count: Int, limit: Int) {
     windowssysWindowsWdkSystemSystemservicesKeInitializeSemaphore(semaphore.rawAddress.toCPointer<ByteVar>(), count, limit)
 }
 
-public actual fun keInitializeSpinLock(spinlock: MutPtr<ULong>) {
+public actual fun keInitializeSpinLock(spinlock: MutPtr) {
     windowssysWindowsWdkSystemSystemservicesKeInitializeSpinLock(spinlock.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun keInitializeThreadedDpc(dpc: MutPtr<Kdpc>, deferredroutine: PkdeferredRoutine, deferredcontext: ConstPtr<CVoid>) {
+public actual fun keInitializeThreadedDpc(dpc: MutPtr, deferredroutine: PkdeferredRoutine, deferredcontext: ConstPtr) {
     windowssysWindowsWdkSystemSystemservicesKeInitializeThreadedDpc(dpc.rawAddress.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>(), deferredcontext.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun keInitializeTimer(timer: MutPtr<Ktimer>) {
+public actual fun keInitializeTimer(timer: MutPtr) {
     windowssysWindowsWdkSystemSystemservicesKeInitializeTimer(timer.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun keInitializeTimerEx(timer: MutPtr<Ktimer>, type: TimerType) {
+public actual fun keInitializeTimerEx(timer: MutPtr, type: TimerType) {
     windowssysWindowsWdkSystemSystemservicesKeInitializeTimerEx(timer.rawAddress.toCPointer<ByteVar>(), type)
 }
 
-public actual fun keInitializeTriageDumpDataArray(ktriagedumpdataarray: MutPtr<KtriageDumpDataArray>, size: UInt): Ntstatus =
+public actual fun keInitializeTriageDumpDataArray(ktriagedumpdataarray: MutPtr, size: UInt): Ntstatus =
     windowssysWindowsWdkSystemSystemservicesKeInitializeTriageDumpDataArray(ktriagedumpdataarray.rawAddress.toCPointer<ByteVar>(), size)
 
-public actual fun keInsertByKeyDeviceQueue(devicequeue: MutPtr<KdeviceQueue>, devicequeueentry: MutPtr<KdeviceQueueEntry>, sortkey: UInt): Boolean =
+public actual fun keInsertByKeyDeviceQueue(devicequeue: MutPtr, devicequeueentry: MutPtr, sortkey: UInt): Boolean =
     windowssysWindowsWdkSystemSystemservicesKeInsertByKeyDeviceQueue(devicequeue.rawAddress.toCPointer<ByteVar>(), devicequeueentry.rawAddress.toCPointer<ByteVar>(), sortkey)
 
-public actual fun keInsertDeviceQueue(devicequeue: MutPtr<KdeviceQueue>, devicequeueentry: MutPtr<KdeviceQueueEntry>): Boolean =
+public actual fun keInsertDeviceQueue(devicequeue: MutPtr, devicequeueentry: MutPtr): Boolean =
     windowssysWindowsWdkSystemSystemservicesKeInsertDeviceQueue(devicequeue.rawAddress.toCPointer<ByteVar>(), devicequeueentry.rawAddress.toCPointer<ByteVar>())
 
-public actual fun keInsertQueueDpc(dpc: MutPtr<Kdpc>, systemargument1: ConstPtr<CVoid>, systemargument2: ConstPtr<CVoid>): Boolean =
+public actual fun keInsertQueueDpc(dpc: MutPtr, systemargument1: ConstPtr, systemargument2: ConstPtr): Boolean =
     windowssysWindowsWdkSystemSystemservicesKeInsertQueueDpc(dpc.rawAddress.toCPointer<ByteVar>(), systemargument1.rawAddress.toCPointer<ByteVar>(), systemargument2.rawAddress.toCPointer<ByteVar>())
 
 public actual fun keInvalidateAllCaches(): Boolean =
     windowssysWindowsWdkSystemSystemservicesKeInvalidateAllCaches()
 
-public actual fun keInvalidateRangeAllCaches(baseaddress: ConstPtr<CVoid>, length: UInt) {
+public actual fun keInvalidateRangeAllCaches(baseaddress: ConstPtr, length: UInt) {
     windowssysWindowsWdkSystemSystemservicesKeInvalidateRangeAllCaches(baseaddress.rawAddress.toCPointer<ByteVar>(), length)
 }
 
@@ -2961,13 +2905,13 @@ public actual fun keLeaveGuardedRegion() {
     windowssysWindowsWdkSystemSystemservicesKeLeaveGuardedRegion()
 }
 
-public actual fun kePulseEvent(event: MutPtr<Kevent>, increment: Int, wait: Boolean): Int =
+public actual fun kePulseEvent(event: MutPtr, increment: Int, wait: Boolean): Int =
     windowssysWindowsWdkSystemSystemservicesKePulseEvent(event.rawAddress.toCPointer<ByteVar>(), increment, wait)
 
 public actual fun keQueryActiveGroupCount(): UShort =
     windowssysWindowsWdkSystemSystemservicesKeQueryActiveGroupCount()
 
-public actual fun keQueryActiveProcessorCount(activeprocessors: MutPtr<ULong>): UInt =
+public actual fun keQueryActiveProcessorCount(activeprocessors: MutPtr): UInt =
     windowssysWindowsWdkSystemSystemservicesKeQueryActiveProcessorCount(activeprocessors.rawAddress.toCPointer<ByteVar>())
 
 public actual fun keQueryActiveProcessorCountEx(groupnumber: UShort): UInt =
@@ -2976,25 +2920,25 @@ public actual fun keQueryActiveProcessorCountEx(groupnumber: UShort): UInt =
 public actual fun keQueryActiveProcessors(): ULong =
     windowssysWindowsWdkSystemSystemservicesKeQueryActiveProcessors()
 
-public actual fun keQueryAuxiliaryCounterFrequency(auxiliarycounterfrequency: MutPtr<ULong>): Ntstatus =
+public actual fun keQueryAuxiliaryCounterFrequency(auxiliarycounterfrequency: MutPtr): Ntstatus =
     windowssysWindowsWdkSystemSystemservicesKeQueryAuxiliaryCounterFrequency(auxiliarycounterfrequency.rawAddress.toCPointer<ByteVar>())
 
-public actual fun keQueryDpcWatchdogInformation(watchdoginformation: MutPtr<KdpcWatchdogInformation>): Ntstatus =
+public actual fun keQueryDpcWatchdogInformation(watchdoginformation: MutPtr): Ntstatus =
     windowssysWindowsWdkSystemSystemservicesKeQueryDpcWatchdogInformation(watchdoginformation.rawAddress.toCPointer<ByteVar>())
 
 public actual fun keQueryGroupAffinity(groupnumber: UShort): ULong =
     windowssysWindowsWdkSystemSystemservicesKeQueryGroupAffinity(groupnumber)
 
-public actual fun keQueryHardwareCounterConfiguration(counterarray: MutPtr<HardwareCounter>, maximumcount: UInt, count: MutPtr<UInt>): Ntstatus =
+public actual fun keQueryHardwareCounterConfiguration(counterarray: MutPtr, maximumcount: UInt, count: MutPtr): Ntstatus =
     windowssysWindowsWdkSystemSystemservicesKeQueryHardwareCounterConfiguration(counterarray.rawAddress.toCPointer<ByteVar>(), maximumcount, count.rawAddress.toCPointer<ByteVar>())
 
 public actual fun keQueryHighestNodeNumber(): UShort =
     windowssysWindowsWdkSystemSystemservicesKeQueryHighestNodeNumber()
 
-public actual fun keQueryInterruptTimePrecise(qpctimestamp: MutPtr<ULong>): ULong =
+public actual fun keQueryInterruptTimePrecise(qpctimestamp: MutPtr): ULong =
     windowssysWindowsWdkSystemSystemservicesKeQueryInterruptTimePrecise(qpctimestamp.rawAddress.toCPointer<ByteVar>())
 
-public actual fun keQueryLogicalProcessorRelationship(processornumber: ConstPtr<ProcessorNumber>, relationshiptype: LogicalProcessorRelationship, information: MutPtr<SystemLogicalProcessorInformationEx>, length: MutPtr<UInt>): Ntstatus =
+public actual fun keQueryLogicalProcessorRelationship(processornumber: ConstPtr, relationshiptype: LogicalProcessorRelationship, information: MutPtr, length: MutPtr): Ntstatus =
     windowssysWindowsWdkSystemSystemservicesKeQueryLogicalProcessorRelationship(processornumber.rawAddress.toCPointer<ByteVar>(), relationshiptype, information.rawAddress.toCPointer<ByteVar>(), length.rawAddress.toCPointer<ByteVar>())
 
 public actual fun keQueryMaximumGroupCount(): UShort =
@@ -3006,11 +2950,11 @@ public actual fun keQueryMaximumProcessorCount(): UInt =
 public actual fun keQueryMaximumProcessorCountEx(groupnumber: UShort): UInt =
     windowssysWindowsWdkSystemSystemservicesKeQueryMaximumProcessorCountEx(groupnumber)
 
-public actual fun keQueryNodeActiveAffinity(nodenumber: UShort, affinity: MutPtr<GroupAffinity>, count: MutPtr<UShort>) {
+public actual fun keQueryNodeActiveAffinity(nodenumber: UShort, affinity: MutPtr, count: MutPtr) {
     windowssysWindowsWdkSystemSystemservicesKeQueryNodeActiveAffinity(nodenumber, affinity.rawAddress.toCPointer<ByteVar>(), count.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun keQueryNodeActiveAffinity2(nodenumber: UShort, groupaffinities: MutPtr<GroupAffinity>, groupaffinitiescount: UShort, groupaffinitiesrequired: MutPtr<UShort>): Ntstatus =
+public actual fun keQueryNodeActiveAffinity2(nodenumber: UShort, groupaffinities: MutPtr, groupaffinitiescount: UShort, groupaffinitiesrequired: MutPtr): Ntstatus =
     windowssysWindowsWdkSystemSystemservicesKeQueryNodeActiveAffinity2(nodenumber, groupaffinities.rawAddress.toCPointer<ByteVar>(), groupaffinitiescount, groupaffinitiesrequired.rawAddress.toCPointer<ByteVar>())
 
 public actual fun keQueryNodeActiveProcessorCount(nodenumber: UShort): UInt =
@@ -3019,75 +2963,75 @@ public actual fun keQueryNodeActiveProcessorCount(nodenumber: UShort): UInt =
 public actual fun keQueryNodeMaximumProcessorCount(nodenumber: UShort): UShort =
     windowssysWindowsWdkSystemSystemservicesKeQueryNodeMaximumProcessorCount(nodenumber)
 
-public actual fun keQueryPerformanceCounter(performancefrequency: MutPtr<Long>): Long =
+public actual fun keQueryPerformanceCounter(performancefrequency: MutPtr): Long =
     windowssysWindowsWdkSystemSystemservicesKeQueryPerformanceCounter(performancefrequency.rawAddress.toCPointer<ByteVar>())
 
 public actual fun keQueryPriorityThread(thread: Pkthread): Int =
     windowssysWindowsWdkSystemSystemservicesKeQueryPriorityThread(thread)
 
-public actual fun keQueryRuntimeThread(thread: Pkthread, usertime: MutPtr<UInt>): UInt =
+public actual fun keQueryRuntimeThread(thread: Pkthread, usertime: MutPtr): UInt =
     windowssysWindowsWdkSystemSystemservicesKeQueryRuntimeThread(thread, usertime.rawAddress.toCPointer<ByteVar>())
 
-public actual fun keQuerySystemTimePrecise(currenttime: MutPtr<Long>) {
+public actual fun keQuerySystemTimePrecise(currenttime: MutPtr) {
     windowssysWindowsWdkSystemSystemservicesKeQuerySystemTimePrecise(currenttime.rawAddress.toCPointer<ByteVar>())
 }
 
 public actual fun keQueryTimeIncrement(): UInt =
     windowssysWindowsWdkSystemSystemservicesKeQueryTimeIncrement()
 
-public actual fun keQueryTotalCycleTimeThread(thread: Pkthread, cycletimestamp: MutPtr<ULong>): ULong =
+public actual fun keQueryTotalCycleTimeThread(thread: Pkthread, cycletimestamp: MutPtr): ULong =
     windowssysWindowsWdkSystemSystemservicesKeQueryTotalCycleTimeThread(thread, cycletimestamp.rawAddress.toCPointer<ByteVar>())
 
 public actual fun keQueryUnbiasedInterruptTime(): ULong =
     windowssysWindowsWdkSystemSystemservicesKeQueryUnbiasedInterruptTime()
 
-public actual fun keQueryUnbiasedInterruptTimePrecise(qpctimestamp: MutPtr<ULong>): ULong =
+public actual fun keQueryUnbiasedInterruptTimePrecise(qpctimestamp: MutPtr): ULong =
     windowssysWindowsWdkSystemSystemservicesKeQueryUnbiasedInterruptTimePrecise(qpctimestamp.rawAddress.toCPointer<ByteVar>())
 
-public actual fun keReadStateEvent(event: ConstPtr<Kevent>): Int =
+public actual fun keReadStateEvent(event: ConstPtr): Int =
     windowssysWindowsWdkSystemSystemservicesKeReadStateEvent(event.rawAddress.toCPointer<ByteVar>())
 
-public actual fun keReadStateMutex(mutex: ConstPtr<Kmutant>): Int =
+public actual fun keReadStateMutex(mutex: ConstPtr): Int =
     windowssysWindowsWdkSystemSystemservicesKeReadStateMutex(mutex.rawAddress.toCPointer<ByteVar>())
 
-public actual fun keReadStateSemaphore(semaphore: ConstPtr<Ksemaphore>): Int =
+public actual fun keReadStateSemaphore(semaphore: ConstPtr): Int =
     windowssysWindowsWdkSystemSystemservicesKeReadStateSemaphore(semaphore.rawAddress.toCPointer<ByteVar>())
 
-public actual fun keReadStateTimer(timer: ConstPtr<Ktimer>): Boolean =
+public actual fun keReadStateTimer(timer: ConstPtr): Boolean =
     windowssysWindowsWdkSystemSystemservicesKeReadStateTimer(timer.rawAddress.toCPointer<ByteVar>())
 
-public actual fun keRegisterBoundCallback(callbackroutine: PboundCallback): MutPtr<CVoid> =
+public actual fun keRegisterBoundCallback(callbackroutine: PboundCallback): MutPtr =
     MutPtr(windowssysWindowsWdkSystemSystemservicesKeRegisterBoundCallback(0L.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun keRegisterBugCheckCallback(callbackrecord: MutPtr<KbugcheckCallbackRecord>, callbackroutine: PkbugcheckCallbackRoutine, buffer: ConstPtr<CVoid>, length: UInt, component: ConstPtr<UByte>): Boolean =
+public actual fun keRegisterBugCheckCallback(callbackrecord: MutPtr, callbackroutine: PkbugcheckCallbackRoutine, buffer: ConstPtr, length: UInt, component: ConstPtr): Boolean =
     windowssysWindowsWdkSystemSystemservicesKeRegisterBugCheckCallback(callbackrecord.rawAddress.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>(), buffer.rawAddress.toCPointer<ByteVar>(), length, component.rawAddress.toCPointer<ByteVar>())
 
-public actual fun keRegisterBugCheckReasonCallback(callbackrecord: MutPtr<KbugcheckReasonCallbackRecord>, callbackroutine: PkbugcheckReasonCallbackRoutine, reason: KbugcheckCallbackReason, component: ConstPtr<UByte>): Boolean =
+public actual fun keRegisterBugCheckReasonCallback(callbackrecord: MutPtr, callbackroutine: PkbugcheckReasonCallbackRoutine, reason: KbugcheckCallbackReason, component: ConstPtr): Boolean =
     windowssysWindowsWdkSystemSystemservicesKeRegisterBugCheckReasonCallback(callbackrecord.rawAddress.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>(), reason, component.rawAddress.toCPointer<ByteVar>())
 
-public actual fun keRegisterNmiCallback(callbackroutine: PnmiCallback, context: ConstPtr<CVoid>): MutPtr<CVoid> =
+public actual fun keRegisterNmiCallback(callbackroutine: PnmiCallback, context: ConstPtr): MutPtr =
     MutPtr(windowssysWindowsWdkSystemSystemservicesKeRegisterNmiCallback(0L.toCPointer<ByteVar>(), context.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun keRegisterProcessorChangeCallback(callbackfunction: PprocessorCallbackFunction, callbackcontext: ConstPtr<CVoid>, flags: UInt): MutPtr<CVoid> =
+public actual fun keRegisterProcessorChangeCallback(callbackfunction: PprocessorCallbackFunction, callbackcontext: ConstPtr, flags: UInt): MutPtr =
     MutPtr(windowssysWindowsWdkSystemSystemservicesKeRegisterProcessorChangeCallback(0L.toCPointer<ByteVar>(), callbackcontext.rawAddress.toCPointer<ByteVar>(), flags)?.toLong() ?: 0L)
 
-public actual fun keReleaseGuardedMutex(mutex: MutPtr<FastMutex>) {
+public actual fun keReleaseGuardedMutex(mutex: MutPtr) {
     windowssysWindowsWdkSystemSystemservicesKeReleaseGuardedMutex(mutex.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun keReleaseGuardedMutexUnsafe(fastmutex: MutPtr<FastMutex>) {
+public actual fun keReleaseGuardedMutexUnsafe(fastmutex: MutPtr) {
     windowssysWindowsWdkSystemSystemservicesKeReleaseGuardedMutexUnsafe(fastmutex.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun keReleaseInStackQueuedSpinLock(lockhandle: ConstPtr<KlockQueueHandle>) {
+public actual fun keReleaseInStackQueuedSpinLock(lockhandle: ConstPtr) {
     windowssysWindowsWdkSystemSystemservicesKeReleaseInStackQueuedSpinLock(lockhandle.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun keReleaseInStackQueuedSpinLockForDpc(lockhandle: ConstPtr<KlockQueueHandle>) {
+public actual fun keReleaseInStackQueuedSpinLockForDpc(lockhandle: ConstPtr) {
     windowssysWindowsWdkSystemSystemservicesKeReleaseInStackQueuedSpinLockForDpc(lockhandle.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun keReleaseInStackQueuedSpinLockFromDpcLevel(lockhandle: ConstPtr<KlockQueueHandle>) {
+public actual fun keReleaseInStackQueuedSpinLockFromDpcLevel(lockhandle: ConstPtr) {
     windowssysWindowsWdkSystemSystemservicesKeReleaseInStackQueuedSpinLockFromDpcLevel(lockhandle.rawAddress.toCPointer<ByteVar>())
 }
 
@@ -3095,38 +3039,38 @@ public actual fun keReleaseInterruptSpinLock(interrupt: Pkinterrupt, oldirql: UB
     windowssysWindowsWdkSystemSystemservicesKeReleaseInterruptSpinLock(interrupt, oldirql)
 }
 
-public actual fun keReleaseMutex(mutex: MutPtr<Kmutant>, wait: Boolean): Int =
+public actual fun keReleaseMutex(mutex: MutPtr, wait: Boolean): Int =
     windowssysWindowsWdkSystemSystemservicesKeReleaseMutex(mutex.rawAddress.toCPointer<ByteVar>(), wait)
 
-public actual fun keReleaseSemaphore(semaphore: MutPtr<Ksemaphore>, increment: Int, adjustment: Int, wait: Boolean): Int =
+public actual fun keReleaseSemaphore(semaphore: MutPtr, increment: Int, adjustment: Int, wait: Boolean): Int =
     windowssysWindowsWdkSystemSystemservicesKeReleaseSemaphore(semaphore.rawAddress.toCPointer<ByteVar>(), increment, adjustment, wait)
 
-public actual fun keReleaseSpinLockForDpc(spinlock: MutPtr<ULong>, oldirql: UByte) {
+public actual fun keReleaseSpinLockForDpc(spinlock: MutPtr, oldirql: UByte) {
     windowssysWindowsWdkSystemSystemservicesKeReleaseSpinLockForDpc(spinlock.rawAddress.toCPointer<ByteVar>(), oldirql)
 }
 
-public actual fun keRemoveByKeyDeviceQueue(devicequeue: MutPtr<KdeviceQueue>, sortkey: UInt): MutPtr<KdeviceQueueEntry> =
+public actual fun keRemoveByKeyDeviceQueue(devicequeue: MutPtr, sortkey: UInt): MutPtr =
     MutPtr(windowssysWindowsWdkSystemSystemservicesKeRemoveByKeyDeviceQueue(devicequeue.rawAddress.toCPointer<ByteVar>(), sortkey)?.toLong() ?: 0L)
 
-public actual fun keRemoveByKeyDeviceQueueIfBusy(devicequeue: MutPtr<KdeviceQueue>, sortkey: UInt): MutPtr<KdeviceQueueEntry> =
+public actual fun keRemoveByKeyDeviceQueueIfBusy(devicequeue: MutPtr, sortkey: UInt): MutPtr =
     MutPtr(windowssysWindowsWdkSystemSystemservicesKeRemoveByKeyDeviceQueueIfBusy(devicequeue.rawAddress.toCPointer<ByteVar>(), sortkey)?.toLong() ?: 0L)
 
-public actual fun keRemoveDeviceQueue(devicequeue: MutPtr<KdeviceQueue>): MutPtr<KdeviceQueueEntry> =
+public actual fun keRemoveDeviceQueue(devicequeue: MutPtr): MutPtr =
     MutPtr(windowssysWindowsWdkSystemSystemservicesKeRemoveDeviceQueue(devicequeue.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun keRemoveEntryDeviceQueue(devicequeue: MutPtr<KdeviceQueue>, devicequeueentry: MutPtr<KdeviceQueueEntry>): Boolean =
+public actual fun keRemoveEntryDeviceQueue(devicequeue: MutPtr, devicequeueentry: MutPtr): Boolean =
     windowssysWindowsWdkSystemSystemservicesKeRemoveEntryDeviceQueue(devicequeue.rawAddress.toCPointer<ByteVar>(), devicequeueentry.rawAddress.toCPointer<ByteVar>())
 
-public actual fun keRemoveQueueDpc(dpc: MutPtr<Kdpc>): Boolean =
+public actual fun keRemoveQueueDpc(dpc: MutPtr): Boolean =
     windowssysWindowsWdkSystemSystemservicesKeRemoveQueueDpc(dpc.rawAddress.toCPointer<ByteVar>())
 
-public actual fun keRemoveQueueDpcEx(dpc: MutPtr<Kdpc>, waitifactive: Boolean): Boolean =
+public actual fun keRemoveQueueDpcEx(dpc: MutPtr, waitifactive: Boolean): Boolean =
     windowssysWindowsWdkSystemSystemservicesKeRemoveQueueDpcEx(dpc.rawAddress.toCPointer<ByteVar>(), waitifactive)
 
-public actual fun keResetEvent(event: MutPtr<Kevent>): Int =
+public actual fun keResetEvent(event: MutPtr): Int =
     windowssysWindowsWdkSystemSystemservicesKeResetEvent(event.rawAddress.toCPointer<ByteVar>())
 
-public actual fun keRestoreExtendedProcessorState(xstatesave: ConstPtr<XstateSave>) {
+public actual fun keRestoreExtendedProcessorState(xstatesave: ConstPtr) {
     windowssysWindowsWdkSystemSystemservicesKeRestoreExtendedProcessorState(xstatesave.rawAddress.toCPointer<ByteVar>())
 }
 
@@ -3138,26 +3082,26 @@ public actual fun keRevertToUserAffinityThreadEx(affinity: ULong) {
     windowssysWindowsWdkSystemSystemservicesKeRevertToUserAffinityThreadEx(affinity)
 }
 
-public actual fun keRevertToUserGroupAffinityThread(previousaffinity: ConstPtr<GroupAffinity>) {
+public actual fun keRevertToUserGroupAffinityThread(previousaffinity: ConstPtr) {
     windowssysWindowsWdkSystemSystemservicesKeRevertToUserGroupAffinityThread(previousaffinity.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun keSaveExtendedProcessorState(mask: ULong, xstatesave: MutPtr<XstateSave>): Ntstatus =
+public actual fun keSaveExtendedProcessorState(mask: ULong, xstatesave: MutPtr): Ntstatus =
     windowssysWindowsWdkSystemSystemservicesKeSaveExtendedProcessorState(mask, xstatesave.rawAddress.toCPointer<ByteVar>())
 
 public actual fun keSetBasePriorityThread(thread: Pkthread, increment: Int): Int =
     windowssysWindowsWdkSystemSystemservicesKeSetBasePriorityThread(thread, increment)
 
-public actual fun keSetCoalescableTimer(timer: MutPtr<Ktimer>, duetime: Long, period: UInt, tolerabledelay: UInt, dpc: ConstPtr<Kdpc>): Boolean =
+public actual fun keSetCoalescableTimer(timer: MutPtr, duetime: Long, period: UInt, tolerabledelay: UInt, dpc: ConstPtr): Boolean =
     windowssysWindowsWdkSystemSystemservicesKeSetCoalescableTimer(timer.rawAddress.toCPointer<ByteVar>(), duetime, period, tolerabledelay, dpc.rawAddress.toCPointer<ByteVar>())
 
-public actual fun keSetEvent(event: MutPtr<Kevent>, increment: Int, wait: Boolean): Int =
+public actual fun keSetEvent(event: MutPtr, increment: Int, wait: Boolean): Int =
     windowssysWindowsWdkSystemSystemservicesKeSetEvent(event.rawAddress.toCPointer<ByteVar>(), increment, wait)
 
-public actual fun keSetHardwareCounterConfiguration(counterarray: ConstPtr<HardwareCounter>, count: UInt): Ntstatus =
+public actual fun keSetHardwareCounterConfiguration(counterarray: ConstPtr, count: UInt): Ntstatus =
     windowssysWindowsWdkSystemSystemservicesKeSetHardwareCounterConfiguration(counterarray.rawAddress.toCPointer<ByteVar>(), count)
 
-public actual fun keSetImportanceDpc(dpc: MutPtr<Kdpc>, importance: KdpcImportance) {
+public actual fun keSetImportanceDpc(dpc: MutPtr, importance: KdpcImportance) {
     windowssysWindowsWdkSystemSystemservicesKeSetImportanceDpc(dpc.rawAddress.toCPointer<ByteVar>(), importance)
 }
 
@@ -3171,21 +3115,21 @@ public actual fun keSetSystemAffinityThread(affinity: ULong) {
 public actual fun keSetSystemAffinityThreadEx(affinity: ULong): ULong =
     windowssysWindowsWdkSystemSystemservicesKeSetSystemAffinityThreadEx(affinity)
 
-public actual fun keSetSystemGroupAffinityThread(affinity: ConstPtr<GroupAffinity>, previousaffinity: MutPtr<GroupAffinity>) {
+public actual fun keSetSystemGroupAffinityThread(affinity: ConstPtr, previousaffinity: MutPtr) {
     windowssysWindowsWdkSystemSystemservicesKeSetSystemGroupAffinityThread(affinity.rawAddress.toCPointer<ByteVar>(), previousaffinity.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun keSetTargetProcessorDpc(dpc: MutPtr<Kdpc>, number: Byte) {
+public actual fun keSetTargetProcessorDpc(dpc: MutPtr, number: Byte) {
     windowssysWindowsWdkSystemSystemservicesKeSetTargetProcessorDpc(dpc.rawAddress.toCPointer<ByteVar>(), number)
 }
 
-public actual fun keSetTargetProcessorDpcEx(dpc: MutPtr<Kdpc>, procnumber: ConstPtr<ProcessorNumber>): Ntstatus =
+public actual fun keSetTargetProcessorDpcEx(dpc: MutPtr, procnumber: ConstPtr): Ntstatus =
     windowssysWindowsWdkSystemSystemservicesKeSetTargetProcessorDpcEx(dpc.rawAddress.toCPointer<ByteVar>(), procnumber.rawAddress.toCPointer<ByteVar>())
 
-public actual fun keSetTimer(timer: MutPtr<Ktimer>, duetime: Long, dpc: ConstPtr<Kdpc>): Boolean =
+public actual fun keSetTimer(timer: MutPtr, duetime: Long, dpc: ConstPtr): Boolean =
     windowssysWindowsWdkSystemSystemservicesKeSetTimer(timer.rawAddress.toCPointer<ByteVar>(), duetime, dpc.rawAddress.toCPointer<ByteVar>())
 
-public actual fun keSetTimerEx(timer: MutPtr<Ktimer>, duetime: Long, period: Int, dpc: ConstPtr<Kdpc>): Boolean =
+public actual fun keSetTimerEx(timer: MutPtr, duetime: Long, period: Int, dpc: ConstPtr): Boolean =
     windowssysWindowsWdkSystemSystemservicesKeSetTimerEx(timer.rawAddress.toCPointer<ByteVar>(), duetime, period, dpc.rawAddress.toCPointer<ByteVar>())
 
 public actual fun keShouldYieldProcessor(): UInt =
@@ -3195,386 +3139,386 @@ public actual fun keStallExecutionProcessor(microseconds: UInt) {
     windowssysWindowsWdkSystemSystemservicesKeStallExecutionProcessor(microseconds)
 }
 
-public actual fun keSynchronizeExecution(interrupt: Pkinterrupt, synchronizeroutine: PksynchronizeRoutine, synchronizecontext: ConstPtr<CVoid>): Boolean =
+public actual fun keSynchronizeExecution(interrupt: Pkinterrupt, synchronizeroutine: PksynchronizeRoutine, synchronizecontext: ConstPtr): Boolean =
     windowssysWindowsWdkSystemSystemservicesKeSynchronizeExecution(interrupt, 0L.toCPointer<ByteVar>(), synchronizecontext.rawAddress.toCPointer<ByteVar>())
 
-public actual fun keTestSpinLock(spinlock: ConstPtr<ULong>): Boolean =
+public actual fun keTestSpinLock(spinlock: ConstPtr): Boolean =
     windowssysWindowsWdkSystemSystemservicesKeTestSpinLock(spinlock.rawAddress.toCPointer<ByteVar>())
 
-public actual fun keTryToAcquireGuardedMutex(mutex: MutPtr<FastMutex>): Boolean =
+public actual fun keTryToAcquireGuardedMutex(mutex: MutPtr): Boolean =
     windowssysWindowsWdkSystemSystemservicesKeTryToAcquireGuardedMutex(mutex.rawAddress.toCPointer<ByteVar>())
 
-public actual fun keTryToAcquireSpinLockAtDpcLevel(spinlock: MutPtr<ULong>): Boolean =
+public actual fun keTryToAcquireSpinLockAtDpcLevel(spinlock: MutPtr): Boolean =
     windowssysWindowsWdkSystemSystemservicesKeTryToAcquireSpinLockAtDpcLevel(spinlock.rawAddress.toCPointer<ByteVar>())
 
-public actual fun keWaitForMultipleObjects(count: UInt, obj: ConstPtr<ConstPtr<CVoid>>, waittype: WaitType, waitreason: KwaitReason, waitmode: Byte, alertable: Boolean, timeout: ConstPtr<Long>, waitblockarray: MutPtr<KwaitBlock>): Ntstatus =
+public actual fun keWaitForMultipleObjects(count: UInt, obj: ConstPtr, waittype: WaitType, waitreason: KwaitReason, waitmode: Byte, alertable: Boolean, timeout: ConstPtr, waitblockarray: MutPtr): Ntstatus =
     windowssysWindowsWdkSystemSystemservicesKeWaitForMultipleObjects(count, obj.rawAddress.toCPointer<ByteVar>(), waittype, waitreason, waitmode, alertable, timeout.rawAddress.toCPointer<ByteVar>(), waitblockarray.rawAddress.toCPointer<ByteVar>())
 
-public actual fun keWaitForSingleObject(obj: ConstPtr<CVoid>, waitreason: KwaitReason, waitmode: Byte, alertable: Boolean, timeout: ConstPtr<Long>): Ntstatus =
+public actual fun keWaitForSingleObject(obj: ConstPtr, waitreason: KwaitReason, waitmode: Byte, alertable: Boolean, timeout: ConstPtr): Ntstatus =
     windowssysWindowsWdkSystemSystemservicesKeWaitForSingleObject(obj.rawAddress.toCPointer<ByteVar>(), waitreason, waitmode, alertable, timeout.rawAddress.toCPointer<ByteVar>())
 
 public actual fun kfRaiseIrql(newirql: UByte): UByte =
     windowssysWindowsWdkSystemSystemservicesKfRaiseIrql(newirql)
 
-public actual fun mmAddPhysicalMemory(startaddress: ConstPtr<Long>, numberofbytes: MutPtr<Long>): Ntstatus =
+public actual fun mmAddPhysicalMemory(startaddress: ConstPtr, numberofbytes: MutPtr): Ntstatus =
     windowssysWindowsWdkSystemSystemservicesMmAddPhysicalMemory(startaddress.rawAddress.toCPointer<ByteVar>(), numberofbytes.rawAddress.toCPointer<ByteVar>())
 
-public actual fun mmAddVerifierSpecialThunks(entryroutine: ULong, thunkbuffer: ConstPtr<CVoid>, thunkbuffersize: UInt): Ntstatus =
+public actual fun mmAddVerifierSpecialThunks(entryroutine: ULong, thunkbuffer: ConstPtr, thunkbuffersize: UInt): Ntstatus =
     windowssysWindowsWdkSystemSystemservicesMmAddVerifierSpecialThunks(entryroutine, thunkbuffer.rawAddress.toCPointer<ByteVar>(), thunkbuffersize)
 
-public actual fun mmAddVerifierThunks(thunkbuffer: ConstPtr<CVoid>, thunkbuffersize: UInt): Ntstatus =
+public actual fun mmAddVerifierThunks(thunkbuffer: ConstPtr, thunkbuffersize: UInt): Ntstatus =
     windowssysWindowsWdkSystemSystemservicesMmAddVerifierThunks(thunkbuffer.rawAddress.toCPointer<ByteVar>(), thunkbuffersize)
 
-public actual fun mmAdvanceMdl(mdl: MutPtr<Mdl>, numberofbytes: UInt): Ntstatus =
+public actual fun mmAdvanceMdl(mdl: MutPtr, numberofbytes: UInt): Ntstatus =
     windowssysWindowsWdkSystemSystemservicesMmAdvanceMdl(mdl.rawAddress.toCPointer<ByteVar>(), numberofbytes)
 
-public actual fun mmAllocateContiguousMemory(numberofbytes: ULong, highestacceptableaddress: Long): MutPtr<CVoid> =
+public actual fun mmAllocateContiguousMemory(numberofbytes: ULong, highestacceptableaddress: Long): MutPtr =
     MutPtr(windowssysWindowsWdkSystemSystemservicesMmAllocateContiguousMemory(numberofbytes, highestacceptableaddress)?.toLong() ?: 0L)
 
-public actual fun mmAllocateContiguousMemoryEx(numberofbytes: ConstPtr<ULong>, lowestacceptableaddress: Long, highestacceptableaddress: Long, boundaryaddressmultiple: Long, preferrednode: UInt, protect: UInt, partitionobject: ConstPtr<CVoid>, tag: UInt, flags: UInt, baseaddress: MutPtr<MutPtr<CVoid>>): Ntstatus =
+public actual fun mmAllocateContiguousMemoryEx(numberofbytes: ConstPtr, lowestacceptableaddress: Long, highestacceptableaddress: Long, boundaryaddressmultiple: Long, preferrednode: UInt, protect: UInt, partitionobject: ConstPtr, tag: UInt, flags: UInt, baseaddress: MutPtr): Ntstatus =
     windowssysWindowsWdkSystemSystemservicesMmAllocateContiguousMemoryEx(numberofbytes.rawAddress.toCPointer<ByteVar>(), lowestacceptableaddress, highestacceptableaddress, boundaryaddressmultiple, preferrednode, protect, partitionobject.rawAddress.toCPointer<ByteVar>(), tag, flags, baseaddress.rawAddress.toCPointer<ByteVar>())
 
-public actual fun mmAllocateContiguousMemorySpecifyCache(numberofbytes: ULong, lowestacceptableaddress: Long, highestacceptableaddress: Long, boundaryaddressmultiple: Long, cachetype: MemoryCachingType): MutPtr<CVoid> =
+public actual fun mmAllocateContiguousMemorySpecifyCache(numberofbytes: ULong, lowestacceptableaddress: Long, highestacceptableaddress: Long, boundaryaddressmultiple: Long, cachetype: MemoryCachingType): MutPtr =
     MutPtr(windowssysWindowsWdkSystemSystemservicesMmAllocateContiguousMemorySpecifyCache(numberofbytes, lowestacceptableaddress, highestacceptableaddress, boundaryaddressmultiple, cachetype)?.toLong() ?: 0L)
 
-public actual fun mmAllocateContiguousMemorySpecifyCacheNode(numberofbytes: ULong, lowestacceptableaddress: Long, highestacceptableaddress: Long, boundaryaddressmultiple: Long, cachetype: MemoryCachingType, preferrednode: UInt): MutPtr<CVoid> =
+public actual fun mmAllocateContiguousMemorySpecifyCacheNode(numberofbytes: ULong, lowestacceptableaddress: Long, highestacceptableaddress: Long, boundaryaddressmultiple: Long, cachetype: MemoryCachingType, preferrednode: UInt): MutPtr =
     MutPtr(windowssysWindowsWdkSystemSystemservicesMmAllocateContiguousMemorySpecifyCacheNode(numberofbytes, lowestacceptableaddress, highestacceptableaddress, boundaryaddressmultiple, cachetype, preferrednode)?.toLong() ?: 0L)
 
-public actual fun mmAllocateContiguousNodeMemory(numberofbytes: ULong, lowestacceptableaddress: Long, highestacceptableaddress: Long, boundaryaddressmultiple: Long, protect: UInt, preferrednode: UInt): MutPtr<CVoid> =
+public actual fun mmAllocateContiguousNodeMemory(numberofbytes: ULong, lowestacceptableaddress: Long, highestacceptableaddress: Long, boundaryaddressmultiple: Long, protect: UInt, preferrednode: UInt): MutPtr =
     MutPtr(windowssysWindowsWdkSystemSystemservicesMmAllocateContiguousNodeMemory(numberofbytes, lowestacceptableaddress, highestacceptableaddress, boundaryaddressmultiple, protect, preferrednode)?.toLong() ?: 0L)
 
-public actual fun mmAllocateMappingAddress(numberofbytes: ULong, pooltag: UInt): MutPtr<CVoid> =
+public actual fun mmAllocateMappingAddress(numberofbytes: ULong, pooltag: UInt): MutPtr =
     MutPtr(windowssysWindowsWdkSystemSystemservicesMmAllocateMappingAddress(numberofbytes, pooltag)?.toLong() ?: 0L)
 
-public actual fun mmAllocateMappingAddressEx(numberofbytes: ULong, pooltag: UInt, flags: UInt): MutPtr<CVoid> =
+public actual fun mmAllocateMappingAddressEx(numberofbytes: ULong, pooltag: UInt, flags: UInt): MutPtr =
     MutPtr(windowssysWindowsWdkSystemSystemservicesMmAllocateMappingAddressEx(numberofbytes, pooltag, flags)?.toLong() ?: 0L)
 
-public actual fun mmAllocateMdlForIoSpace(physicaladdresslist: ConstPtr<MmPhysicalAddressList>, numberofentries: ULong, newmdl: MutPtr<MutPtr<Mdl>>): Ntstatus =
+public actual fun mmAllocateMdlForIoSpace(physicaladdresslist: ConstPtr, numberofentries: ULong, newmdl: MutPtr): Ntstatus =
     windowssysWindowsWdkSystemSystemservicesMmAllocateMdlForIoSpace(physicaladdresslist.rawAddress.toCPointer<ByteVar>(), numberofentries, newmdl.rawAddress.toCPointer<ByteVar>())
 
-public actual fun mmAllocateNodePagesForMdlEx(lowaddress: Long, highaddress: Long, skipbytes: Long, totalbytes: ULong, cachetype: MemoryCachingType, idealnode: UInt, flags: UInt): MutPtr<Mdl> =
+public actual fun mmAllocateNodePagesForMdlEx(lowaddress: Long, highaddress: Long, skipbytes: Long, totalbytes: ULong, cachetype: MemoryCachingType, idealnode: UInt, flags: UInt): MutPtr =
     MutPtr(windowssysWindowsWdkSystemSystemservicesMmAllocateNodePagesForMdlEx(lowaddress, highaddress, skipbytes, totalbytes, cachetype, idealnode, flags)?.toLong() ?: 0L)
 
-public actual fun mmAllocateNonCachedMemory(numberofbytes: ULong): MutPtr<CVoid> =
+public actual fun mmAllocateNonCachedMemory(numberofbytes: ULong): MutPtr =
     MutPtr(windowssysWindowsWdkSystemSystemservicesMmAllocateNonCachedMemory(numberofbytes)?.toLong() ?: 0L)
 
-public actual fun mmAllocatePagesForMdl(lowaddress: Long, highaddress: Long, skipbytes: Long, totalbytes: ULong): MutPtr<Mdl> =
+public actual fun mmAllocatePagesForMdl(lowaddress: Long, highaddress: Long, skipbytes: Long, totalbytes: ULong): MutPtr =
     MutPtr(windowssysWindowsWdkSystemSystemservicesMmAllocatePagesForMdl(lowaddress, highaddress, skipbytes, totalbytes)?.toLong() ?: 0L)
 
-public actual fun mmAllocatePagesForMdlEx(lowaddress: Long, highaddress: Long, skipbytes: Long, totalbytes: ULong, cachetype: MemoryCachingType, flags: UInt): MutPtr<Mdl> =
+public actual fun mmAllocatePagesForMdlEx(lowaddress: Long, highaddress: Long, skipbytes: Long, totalbytes: ULong, cachetype: MemoryCachingType, flags: UInt): MutPtr =
     MutPtr(windowssysWindowsWdkSystemSystemservicesMmAllocatePagesForMdlEx(lowaddress, highaddress, skipbytes, totalbytes, cachetype, flags)?.toLong() ?: 0L)
 
-public actual fun mmAllocatePartitionNodePagesForMdlEx(lowaddress: Long, highaddress: Long, skipbytes: Long, totalbytes: ULong, cachetype: MemoryCachingType, idealnode: UInt, flags: UInt, partitionobject: ConstPtr<CVoid>): MutPtr<Mdl> =
+public actual fun mmAllocatePartitionNodePagesForMdlEx(lowaddress: Long, highaddress: Long, skipbytes: Long, totalbytes: ULong, cachetype: MemoryCachingType, idealnode: UInt, flags: UInt, partitionobject: ConstPtr): MutPtr =
     MutPtr(windowssysWindowsWdkSystemSystemservicesMmAllocatePartitionNodePagesForMdlEx(lowaddress, highaddress, skipbytes, totalbytes, cachetype, idealnode, flags, partitionobject.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun mmAreMdlPagesCached(memorydescriptorlist: ConstPtr<Mdl>): UInt =
+public actual fun mmAreMdlPagesCached(memorydescriptorlist: ConstPtr): UInt =
     windowssysWindowsWdkSystemSystemservicesMmAreMdlPagesCached(memorydescriptorlist.rawAddress.toCPointer<ByteVar>())
 
-public actual fun mmBuildMdlForNonPagedPool(memorydescriptorlist: MutPtr<Mdl>) {
+public actual fun mmBuildMdlForNonPagedPool(memorydescriptorlist: MutPtr) {
     windowssysWindowsWdkSystemSystemservicesMmBuildMdlForNonPagedPool(memorydescriptorlist.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun mmCopyMemory(targetaddress: ConstPtr<CVoid>, sourceaddress: MmCopyAddress, numberofbytes: ULong, flags: UInt, numberofbytestransferred: MutPtr<ULong>): Ntstatus =
+public actual fun mmCopyMemory(targetaddress: ConstPtr, sourceaddress: MmCopyAddress, numberofbytes: ULong, flags: UInt, numberofbytestransferred: MutPtr): Ntstatus =
     0
 
-public actual fun mmCreateMdl(memorydescriptorlist: MutPtr<Mdl>, base: ConstPtr<CVoid>, length: ULong): MutPtr<Mdl> =
+public actual fun mmCreateMdl(memorydescriptorlist: MutPtr, base: ConstPtr, length: ULong): MutPtr =
     MutPtr(windowssysWindowsWdkSystemSystemservicesMmCreateMdl(memorydescriptorlist.rawAddress.toCPointer<ByteVar>(), base.rawAddress.toCPointer<ByteVar>(), length)?.toLong() ?: 0L)
 
 public actual fun mmCreateMirror(): Ntstatus =
     windowssysWindowsWdkSystemSystemservicesMmCreateMirror()
 
-public actual fun mmFreeContiguousMemory(baseaddress: ConstPtr<CVoid>) {
+public actual fun mmFreeContiguousMemory(baseaddress: ConstPtr) {
     windowssysWindowsWdkSystemSystemservicesMmFreeContiguousMemory(baseaddress.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun mmFreeContiguousMemorySpecifyCache(baseaddress: ConstPtr<CVoid>, numberofbytes: ULong, cachetype: MemoryCachingType) {
+public actual fun mmFreeContiguousMemorySpecifyCache(baseaddress: ConstPtr, numberofbytes: ULong, cachetype: MemoryCachingType) {
     windowssysWindowsWdkSystemSystemservicesMmFreeContiguousMemorySpecifyCache(baseaddress.rawAddress.toCPointer<ByteVar>(), numberofbytes, cachetype)
 }
 
-public actual fun mmFreeMappingAddress(baseaddress: ConstPtr<CVoid>, pooltag: UInt) {
+public actual fun mmFreeMappingAddress(baseaddress: ConstPtr, pooltag: UInt) {
     windowssysWindowsWdkSystemSystemservicesMmFreeMappingAddress(baseaddress.rawAddress.toCPointer<ByteVar>(), pooltag)
 }
 
-public actual fun mmFreeNonCachedMemory(baseaddress: ConstPtr<CVoid>, numberofbytes: ULong) {
+public actual fun mmFreeNonCachedMemory(baseaddress: ConstPtr, numberofbytes: ULong) {
     windowssysWindowsWdkSystemSystemservicesMmFreeNonCachedMemory(baseaddress.rawAddress.toCPointer<ByteVar>(), numberofbytes)
 }
 
-public actual fun mmFreePagesFromMdl(memorydescriptorlist: MutPtr<Mdl>) {
+public actual fun mmFreePagesFromMdl(memorydescriptorlist: MutPtr) {
     windowssysWindowsWdkSystemSystemservicesMmFreePagesFromMdl(memorydescriptorlist.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun mmFreePagesFromMdlEx(memorydescriptorlist: MutPtr<Mdl>, flags: UInt) {
+public actual fun mmFreePagesFromMdlEx(memorydescriptorlist: MutPtr, flags: UInt) {
     windowssysWindowsWdkSystemSystemservicesMmFreePagesFromMdlEx(memorydescriptorlist.rawAddress.toCPointer<ByteVar>(), flags)
 }
 
-public actual fun mmGetCacheAttribute(physicaladdress: Long, cachetype: MutPtr<MemoryCachingType>): Ntstatus =
+public actual fun mmGetCacheAttribute(physicaladdress: Long, cachetype: MutPtr): Ntstatus =
     windowssysWindowsWdkSystemSystemservicesMmGetCacheAttribute(physicaladdress, cachetype.rawAddress.toCPointer<ByteVar>())
 
-public actual fun mmGetCacheAttributeEx(physicaladdress: Long, flags: UInt, cachetype: MutPtr<MemoryCachingType>): Ntstatus =
+public actual fun mmGetCacheAttributeEx(physicaladdress: Long, flags: UInt, cachetype: MutPtr): Ntstatus =
     windowssysWindowsWdkSystemSystemservicesMmGetCacheAttributeEx(physicaladdress, flags, cachetype.rawAddress.toCPointer<ByteVar>())
 
-public actual fun mmGetPhysicalAddress(baseaddress: ConstPtr<CVoid>): Long =
+public actual fun mmGetPhysicalAddress(baseaddress: ConstPtr): Long =
     windowssysWindowsWdkSystemSystemservicesMmGetPhysicalAddress(baseaddress.rawAddress.toCPointer<ByteVar>())
 
-public actual fun mmGetPhysicalMemoryRanges(): MutPtr<PhysicalMemoryRange> =
+public actual fun mmGetPhysicalMemoryRanges(): MutPtr =
     MutPtr(windowssysWindowsWdkSystemSystemservicesMmGetPhysicalMemoryRanges()?.toLong() ?: 0L)
 
-public actual fun mmGetPhysicalMemoryRangesEx(partitionobject: ConstPtr<CVoid>): MutPtr<PhysicalMemoryRange> =
+public actual fun mmGetPhysicalMemoryRangesEx(partitionobject: ConstPtr): MutPtr =
     MutPtr(windowssysWindowsWdkSystemSystemservicesMmGetPhysicalMemoryRangesEx(partitionobject.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun mmGetPhysicalMemoryRangesEx2(partitionobject: ConstPtr<CVoid>, flags: UInt): MutPtr<PhysicalMemoryRange> =
+public actual fun mmGetPhysicalMemoryRangesEx2(partitionobject: ConstPtr, flags: UInt): MutPtr =
     MutPtr(windowssysWindowsWdkSystemSystemservicesMmGetPhysicalMemoryRangesEx2(partitionobject.rawAddress.toCPointer<ByteVar>(), flags)?.toLong() ?: 0L)
 
-public actual fun mmGetSystemRoutineAddress(systemroutinename: ConstPtr<UnicodeString>): MutPtr<CVoid> =
+public actual fun mmGetSystemRoutineAddress(systemroutinename: ConstPtr): MutPtr =
     MutPtr(windowssysWindowsWdkSystemSystemservicesMmGetSystemRoutineAddress(systemroutinename.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun mmGetVirtualForPhysical(physicaladdress: Long): MutPtr<CVoid> =
+public actual fun mmGetVirtualForPhysical(physicaladdress: Long): MutPtr =
     MutPtr(windowssysWindowsWdkSystemSystemservicesMmGetVirtualForPhysical(physicaladdress)?.toLong() ?: 0L)
 
-public actual fun mmIsAddressValid(virtualaddress: ConstPtr<CVoid>): Boolean =
+public actual fun mmIsAddressValid(virtualaddress: ConstPtr): Boolean =
     windowssysWindowsWdkSystemSystemservicesMmIsAddressValid(virtualaddress.rawAddress.toCPointer<ByteVar>())
 
-public actual fun mmIsDriverSuspectForVerifier(driverobject: ConstPtr<DriverObject>): UInt =
+public actual fun mmIsDriverSuspectForVerifier(driverobject: ConstPtr): UInt =
     windowssysWindowsWdkSystemSystemservicesMmIsDriverSuspectForVerifier(driverobject.rawAddress.toCPointer<ByteVar>())
 
-public actual fun mmIsDriverVerifying(driverobject: ConstPtr<DriverObject>): UInt =
+public actual fun mmIsDriverVerifying(driverobject: ConstPtr): UInt =
     windowssysWindowsWdkSystemSystemservicesMmIsDriverVerifying(driverobject.rawAddress.toCPointer<ByteVar>())
 
-public actual fun mmIsDriverVerifyingByAddress(addresswithinsection: ConstPtr<CVoid>): UInt =
+public actual fun mmIsDriverVerifyingByAddress(addresswithinsection: ConstPtr): UInt =
     windowssysWindowsWdkSystemSystemservicesMmIsDriverVerifyingByAddress(addresswithinsection.rawAddress.toCPointer<ByteVar>())
 
 public actual fun mmIsIoSpaceActive(startaddress: Long, numberofbytes: ULong): UInt =
     windowssysWindowsWdkSystemSystemservicesMmIsIoSpaceActive(startaddress, numberofbytes)
 
-public actual fun mmIsNonPagedSystemAddressValid(virtualaddress: ConstPtr<CVoid>): Boolean =
+public actual fun mmIsNonPagedSystemAddressValid(virtualaddress: ConstPtr): Boolean =
     windowssysWindowsWdkSystemSystemservicesMmIsNonPagedSystemAddressValid(virtualaddress.rawAddress.toCPointer<ByteVar>())
 
 public actual fun mmIsThisAnNtAsSystem(): Boolean =
     windowssysWindowsWdkSystemSystemservicesMmIsThisAnNtAsSystem()
 
-public actual fun mmIsVerifierEnabled(verifierflags: MutPtr<UInt>): Ntstatus =
+public actual fun mmIsVerifierEnabled(verifierflags: MutPtr): Ntstatus =
     windowssysWindowsWdkSystemSystemservicesMmIsVerifierEnabled(verifierflags.rawAddress.toCPointer<ByteVar>())
 
-public actual fun mmLockPagableDataSection(addresswithinsection: ConstPtr<CVoid>): MutPtr<CVoid> =
+public actual fun mmLockPagableDataSection(addresswithinsection: ConstPtr): MutPtr =
     MutPtr(windowssysWindowsWdkSystemSystemservicesMmLockPagableDataSection(addresswithinsection.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun mmLockPagableSectionByHandle(imagesectionhandle: ConstPtr<CVoid>) {
+public actual fun mmLockPagableSectionByHandle(imagesectionhandle: ConstPtr) {
     windowssysWindowsWdkSystemSystemservicesMmLockPagableSectionByHandle(imagesectionhandle.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun mmMapIoSpace(physicaladdress: Long, numberofbytes: ULong, cachetype: MemoryCachingType): MutPtr<CVoid> =
+public actual fun mmMapIoSpace(physicaladdress: Long, numberofbytes: ULong, cachetype: MemoryCachingType): MutPtr =
     MutPtr(windowssysWindowsWdkSystemSystemservicesMmMapIoSpace(physicaladdress, numberofbytes, cachetype)?.toLong() ?: 0L)
 
-public actual fun mmMapIoSpaceEx(physicaladdress: Long, numberofbytes: ULong, protect: UInt): MutPtr<CVoid> =
+public actual fun mmMapIoSpaceEx(physicaladdress: Long, numberofbytes: ULong, protect: UInt): MutPtr =
     MutPtr(windowssysWindowsWdkSystemSystemservicesMmMapIoSpaceEx(physicaladdress, numberofbytes, protect)?.toLong() ?: 0L)
 
-public actual fun mmMapLockedPages(memorydescriptorlist: MutPtr<Mdl>, accessmode: Byte): MutPtr<CVoid> =
+public actual fun mmMapLockedPages(memorydescriptorlist: MutPtr, accessmode: Byte): MutPtr =
     MutPtr(windowssysWindowsWdkSystemSystemservicesMmMapLockedPages(memorydescriptorlist.rawAddress.toCPointer<ByteVar>(), accessmode)?.toLong() ?: 0L)
 
-public actual fun mmMapLockedPagesSpecifyCache(memorydescriptorlist: MutPtr<Mdl>, accessmode: Byte, cachetype: MemoryCachingType, requestedaddress: ConstPtr<CVoid>, bugcheckonfailure: UInt, priority: UInt): MutPtr<CVoid> =
+public actual fun mmMapLockedPagesSpecifyCache(memorydescriptorlist: MutPtr, accessmode: Byte, cachetype: MemoryCachingType, requestedaddress: ConstPtr, bugcheckonfailure: UInt, priority: UInt): MutPtr =
     MutPtr(windowssysWindowsWdkSystemSystemservicesMmMapLockedPagesSpecifyCache(memorydescriptorlist.rawAddress.toCPointer<ByteVar>(), accessmode, cachetype, requestedaddress.rawAddress.toCPointer<ByteVar>(), bugcheckonfailure, priority)?.toLong() ?: 0L)
 
-public actual fun mmMapLockedPagesWithReservedMapping(mappingaddress: ConstPtr<CVoid>, pooltag: UInt, memorydescriptorlist: MutPtr<Mdl>, cachetype: MemoryCachingType): MutPtr<CVoid> =
+public actual fun mmMapLockedPagesWithReservedMapping(mappingaddress: ConstPtr, pooltag: UInt, memorydescriptorlist: MutPtr, cachetype: MemoryCachingType): MutPtr =
     MutPtr(windowssysWindowsWdkSystemSystemservicesMmMapLockedPagesWithReservedMapping(mappingaddress.rawAddress.toCPointer<ByteVar>(), pooltag, memorydescriptorlist.rawAddress.toCPointer<ByteVar>(), cachetype)?.toLong() ?: 0L)
 
-public actual fun mmMapMdl(memorydescriptorlist: MutPtr<Mdl>, protection: UInt, driverroutine: PmmMdlRoutine, drivercontext: ConstPtr<CVoid>): Ntstatus =
+public actual fun mmMapMdl(memorydescriptorlist: MutPtr, protection: UInt, driverroutine: PmmMdlRoutine, drivercontext: ConstPtr): Ntstatus =
     windowssysWindowsWdkSystemSystemservicesMmMapMdl(memorydescriptorlist.rawAddress.toCPointer<ByteVar>(), protection, 0L.toCPointer<ByteVar>(), drivercontext.rawAddress.toCPointer<ByteVar>())
 
-public actual fun mmMapMemoryDumpMdlEx(va: ConstPtr<CVoid>, pagetotal: UInt, memorydumpmdl: MutPtr<Mdl>, flags: UInt): Ntstatus =
+public actual fun mmMapMemoryDumpMdlEx(va: ConstPtr, pagetotal: UInt, memorydumpmdl: MutPtr, flags: UInt): Ntstatus =
     windowssysWindowsWdkSystemSystemservicesMmMapMemoryDumpMdlEx(va.rawAddress.toCPointer<ByteVar>(), pagetotal, memorydumpmdl.rawAddress.toCPointer<ByteVar>(), flags)
 
-public actual fun mmMapUserAddressesToPage(baseaddress: ConstPtr<CVoid>, numberofbytes: ULong, pageaddress: ConstPtr<CVoid>): Ntstatus =
+public actual fun mmMapUserAddressesToPage(baseaddress: ConstPtr, numberofbytes: ULong, pageaddress: ConstPtr): Ntstatus =
     windowssysWindowsWdkSystemSystemservicesMmMapUserAddressesToPage(baseaddress.rawAddress.toCPointer<ByteVar>(), numberofbytes, pageaddress.rawAddress.toCPointer<ByteVar>())
 
-public actual fun mmMapVideoDisplay(physicaladdress: Long, numberofbytes: ULong, cachetype: MemoryCachingType): MutPtr<CVoid> =
+public actual fun mmMapVideoDisplay(physicaladdress: Long, numberofbytes: ULong, cachetype: MemoryCachingType): MutPtr =
     MutPtr(windowssysWindowsWdkSystemSystemservicesMmMapVideoDisplay(physicaladdress, numberofbytes, cachetype)?.toLong() ?: 0L)
 
-public actual fun mmMapViewInSessionSpace(section: ConstPtr<CVoid>, mappedbase: MutPtr<MutPtr<CVoid>>, viewsize: MutPtr<ULong>): Ntstatus =
+public actual fun mmMapViewInSessionSpace(section: ConstPtr, mappedbase: MutPtr, viewsize: MutPtr): Ntstatus =
     windowssysWindowsWdkSystemSystemservicesMmMapViewInSessionSpace(section.rawAddress.toCPointer<ByteVar>(), mappedbase.rawAddress.toCPointer<ByteVar>(), viewsize.rawAddress.toCPointer<ByteVar>())
 
-public actual fun mmMapViewInSessionSpaceEx(section: ConstPtr<CVoid>, mappedbase: MutPtr<MutPtr<CVoid>>, viewsize: MutPtr<ULong>, sectionoffset: MutPtr<Long>, flags: ULong): Ntstatus =
+public actual fun mmMapViewInSessionSpaceEx(section: ConstPtr, mappedbase: MutPtr, viewsize: MutPtr, sectionoffset: MutPtr, flags: ULong): Ntstatus =
     windowssysWindowsWdkSystemSystemservicesMmMapViewInSessionSpaceEx(section.rawAddress.toCPointer<ByteVar>(), mappedbase.rawAddress.toCPointer<ByteVar>(), viewsize.rawAddress.toCPointer<ByteVar>(), sectionoffset.rawAddress.toCPointer<ByteVar>(), flags)
 
-public actual fun mmMapViewInSystemSpace(section: ConstPtr<CVoid>, mappedbase: MutPtr<MutPtr<CVoid>>, viewsize: MutPtr<ULong>): Ntstatus =
+public actual fun mmMapViewInSystemSpace(section: ConstPtr, mappedbase: MutPtr, viewsize: MutPtr): Ntstatus =
     windowssysWindowsWdkSystemSystemservicesMmMapViewInSystemSpace(section.rawAddress.toCPointer<ByteVar>(), mappedbase.rawAddress.toCPointer<ByteVar>(), viewsize.rawAddress.toCPointer<ByteVar>())
 
-public actual fun mmMapViewInSystemSpaceEx(section: ConstPtr<CVoid>, mappedbase: MutPtr<MutPtr<CVoid>>, viewsize: MutPtr<ULong>, sectionoffset: MutPtr<Long>, flags: ULong): Ntstatus =
+public actual fun mmMapViewInSystemSpaceEx(section: ConstPtr, mappedbase: MutPtr, viewsize: MutPtr, sectionoffset: MutPtr, flags: ULong): Ntstatus =
     windowssysWindowsWdkSystemSystemservicesMmMapViewInSystemSpaceEx(section.rawAddress.toCPointer<ByteVar>(), mappedbase.rawAddress.toCPointer<ByteVar>(), viewsize.rawAddress.toCPointer<ByteVar>(), sectionoffset.rawAddress.toCPointer<ByteVar>(), flags)
 
-public actual fun mmMdlPageContentsState(memorydescriptorlist: MutPtr<Mdl>, state: MmMdlPageContentsState): MmMdlPageContentsState =
+public actual fun mmMdlPageContentsState(memorydescriptorlist: MutPtr, state: MmMdlPageContentsState): MmMdlPageContentsState =
     windowssysWindowsWdkSystemSystemservicesMmMdlPageContentsState(memorydescriptorlist.rawAddress.toCPointer<ByteVar>(), state)
 
-public actual fun mmPageEntireDriver(addresswithinsection: ConstPtr<CVoid>): MutPtr<CVoid> =
+public actual fun mmPageEntireDriver(addresswithinsection: ConstPtr): MutPtr =
     MutPtr(windowssysWindowsWdkSystemSystemservicesMmPageEntireDriver(addresswithinsection.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun mmProbeAndLockPages(memorydescriptorlist: MutPtr<Mdl>, accessmode: Byte, operation: LockOperation) {
+public actual fun mmProbeAndLockPages(memorydescriptorlist: MutPtr, accessmode: Byte, operation: LockOperation) {
     windowssysWindowsWdkSystemSystemservicesMmProbeAndLockPages(memorydescriptorlist.rawAddress.toCPointer<ByteVar>(), accessmode, operation)
 }
 
-public actual fun mmProbeAndLockProcessPages(memorydescriptorlist: MutPtr<Mdl>, process: Peprocess, accessmode: Byte, operation: LockOperation) {
+public actual fun mmProbeAndLockProcessPages(memorydescriptorlist: MutPtr, process: Peprocess, accessmode: Byte, operation: LockOperation) {
     windowssysWindowsWdkSystemSystemservicesMmProbeAndLockProcessPages(memorydescriptorlist.rawAddress.toCPointer<ByteVar>(), process, accessmode, operation)
 }
 
-public actual fun mmProbeAndLockSelectedPages(memorydescriptorlist: MutPtr<Mdl>, segmentarray: ConstPtr<FileSegmentElement>, accessmode: Byte, operation: LockOperation) {
+public actual fun mmProbeAndLockSelectedPages(memorydescriptorlist: MutPtr, segmentarray: ConstPtr, accessmode: Byte, operation: LockOperation) {
     windowssysWindowsWdkSystemSystemservicesMmProbeAndLockSelectedPages(memorydescriptorlist.rawAddress.toCPointer<ByteVar>(), segmentarray.rawAddress.toCPointer<ByteVar>(), accessmode, operation)
 }
 
-public actual fun mmProtectDriverSection(addresswithinsection: ConstPtr<CVoid>, size: ULong, flags: UInt): Ntstatus =
+public actual fun mmProtectDriverSection(addresswithinsection: ConstPtr, size: ULong, flags: UInt): Ntstatus =
     windowssysWindowsWdkSystemSystemservicesMmProtectDriverSection(addresswithinsection.rawAddress.toCPointer<ByteVar>(), size, flags)
 
-public actual fun mmProtectMdlSystemAddress(memorydescriptorlist: ConstPtr<Mdl>, newprotect: UInt): Ntstatus =
+public actual fun mmProtectMdlSystemAddress(memorydescriptorlist: ConstPtr, newprotect: UInt): Ntstatus =
     windowssysWindowsWdkSystemSystemservicesMmProtectMdlSystemAddress(memorydescriptorlist.rawAddress.toCPointer<ByteVar>(), newprotect)
 
 public actual fun mmQuerySystemSize(): MmSystemsize =
     windowssysWindowsWdkSystemSystemservicesMmQuerySystemSize()
 
-public actual fun mmRemovePhysicalMemory(startaddress: ConstPtr<Long>, numberofbytes: MutPtr<Long>): Ntstatus =
+public actual fun mmRemovePhysicalMemory(startaddress: ConstPtr, numberofbytes: MutPtr): Ntstatus =
     windowssysWindowsWdkSystemSystemservicesMmRemovePhysicalMemory(startaddress.rawAddress.toCPointer<ByteVar>(), numberofbytes.rawAddress.toCPointer<ByteVar>())
 
-public actual fun mmResetDriverPaging(addresswithinsection: ConstPtr<CVoid>) {
+public actual fun mmResetDriverPaging(addresswithinsection: ConstPtr) {
     windowssysWindowsWdkSystemSystemservicesMmResetDriverPaging(addresswithinsection.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun mmRotatePhysicalView(virtualaddress: ConstPtr<CVoid>, numberofbytes: MutPtr<ULong>, newmdl: ConstPtr<Mdl>, direction: MmRotateDirection, copyfunction: PmmRotateCopyCallbackFunction, context: ConstPtr<CVoid>): Ntstatus =
+public actual fun mmRotatePhysicalView(virtualaddress: ConstPtr, numberofbytes: MutPtr, newmdl: ConstPtr, direction: MmRotateDirection, copyfunction: PmmRotateCopyCallbackFunction, context: ConstPtr): Ntstatus =
     windowssysWindowsWdkSystemSystemservicesMmRotatePhysicalView(virtualaddress.rawAddress.toCPointer<ByteVar>(), numberofbytes.rawAddress.toCPointer<ByteVar>(), newmdl.rawAddress.toCPointer<ByteVar>(), direction, 0L.toCPointer<ByteVar>(), context.rawAddress.toCPointer<ByteVar>())
 
-public actual fun mmSecureVirtualMemory(address: ConstPtr<CVoid>, size: ULong, probemode: UInt): Handle =
+public actual fun mmSecureVirtualMemory(address: ConstPtr, size: ULong, probemode: UInt): Handle =
     MutPtr(windowssysWindowsWdkSystemSystemservicesMmSecureVirtualMemory(address.rawAddress.toCPointer<ByteVar>(), size, probemode)?.toLong() ?: 0L)
 
-public actual fun mmSecureVirtualMemoryEx(address: ConstPtr<CVoid>, size: ULong, probemode: UInt, flags: UInt): Handle =
+public actual fun mmSecureVirtualMemoryEx(address: ConstPtr, size: ULong, probemode: UInt, flags: UInt): Handle =
     MutPtr(windowssysWindowsWdkSystemSystemservicesMmSecureVirtualMemoryEx(address.rawAddress.toCPointer<ByteVar>(), size, probemode, flags)?.toLong() ?: 0L)
 
 public actual fun mmSetPermanentCacheAttribute(startaddress: Long, numberofbytes: Long, cachetype: MemoryCachingType, flags: UInt): Ntstatus =
     windowssysWindowsWdkSystemSystemservicesMmSetPermanentCacheAttribute(startaddress, numberofbytes, cachetype, flags)
 
-public actual fun mmSizeOfMdl(base: ConstPtr<CVoid>, length: ULong): ULong =
+public actual fun mmSizeOfMdl(base: ConstPtr, length: ULong): ULong =
     windowssysWindowsWdkSystemSystemservicesMmSizeOfMdl(base.rawAddress.toCPointer<ByteVar>(), length)
 
-public actual fun mmUnlockPagableImageSection(imagesectionhandle: ConstPtr<CVoid>) {
+public actual fun mmUnlockPagableImageSection(imagesectionhandle: ConstPtr) {
     windowssysWindowsWdkSystemSystemservicesMmUnlockPagableImageSection(imagesectionhandle.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun mmUnlockPages(memorydescriptorlist: MutPtr<Mdl>) {
+public actual fun mmUnlockPages(memorydescriptorlist: MutPtr) {
     windowssysWindowsWdkSystemSystemservicesMmUnlockPages(memorydescriptorlist.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun mmUnmapIoSpace(baseaddress: ConstPtr<CVoid>, numberofbytes: ULong) {
+public actual fun mmUnmapIoSpace(baseaddress: ConstPtr, numberofbytes: ULong) {
     windowssysWindowsWdkSystemSystemservicesMmUnmapIoSpace(baseaddress.rawAddress.toCPointer<ByteVar>(), numberofbytes)
 }
 
-public actual fun mmUnmapLockedPages(baseaddress: ConstPtr<CVoid>, memorydescriptorlist: MutPtr<Mdl>) {
+public actual fun mmUnmapLockedPages(baseaddress: ConstPtr, memorydescriptorlist: MutPtr) {
     windowssysWindowsWdkSystemSystemservicesMmUnmapLockedPages(baseaddress.rawAddress.toCPointer<ByteVar>(), memorydescriptorlist.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun mmUnmapReservedMapping(baseaddress: ConstPtr<CVoid>, pooltag: UInt, memorydescriptorlist: MutPtr<Mdl>) {
+public actual fun mmUnmapReservedMapping(baseaddress: ConstPtr, pooltag: UInt, memorydescriptorlist: MutPtr) {
     windowssysWindowsWdkSystemSystemservicesMmUnmapReservedMapping(baseaddress.rawAddress.toCPointer<ByteVar>(), pooltag, memorydescriptorlist.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun mmUnmapVideoDisplay(baseaddress: ConstPtr<CVoid>, numberofbytes: ULong) {
+public actual fun mmUnmapVideoDisplay(baseaddress: ConstPtr, numberofbytes: ULong) {
     windowssysWindowsWdkSystemSystemservicesMmUnmapVideoDisplay(baseaddress.rawAddress.toCPointer<ByteVar>(), numberofbytes)
 }
 
-public actual fun mmUnmapViewInSessionSpace(mappedbase: ConstPtr<CVoid>): Ntstatus =
+public actual fun mmUnmapViewInSessionSpace(mappedbase: ConstPtr): Ntstatus =
     windowssysWindowsWdkSystemSystemservicesMmUnmapViewInSessionSpace(mappedbase.rawAddress.toCPointer<ByteVar>())
 
-public actual fun mmUnmapViewInSystemSpace(mappedbase: ConstPtr<CVoid>): Ntstatus =
+public actual fun mmUnmapViewInSystemSpace(mappedbase: ConstPtr): Ntstatus =
     windowssysWindowsWdkSystemSystemservicesMmUnmapViewInSystemSpace(mappedbase.rawAddress.toCPointer<ByteVar>())
 
 public actual fun mmUnsecureVirtualMemory(securehandle: Handle) {
     windowssysWindowsWdkSystemSystemservicesMmUnsecureVirtualMemory(securehandle.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun ntAllocateLocallyUniqueId(luid: MutPtr<Luid>): Ntstatus =
+public actual fun ntAllocateLocallyUniqueId(luid: MutPtr): Ntstatus =
     windowssysWindowsWdkSystemSystemservicesNtAllocateLocallyUniqueId(luid.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ntCommitComplete(enlistmenthandle: Handle, tmvirtualclock: ConstPtr<Long>): Ntstatus =
+public actual fun ntCommitComplete(enlistmenthandle: Handle, tmvirtualclock: ConstPtr): Ntstatus =
     windowssysWindowsWdkSystemSystemservicesNtCommitComplete(enlistmenthandle.rawAddress.toCPointer<ByteVar>(), tmvirtualclock.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ntCommitEnlistment(enlistmenthandle: Handle, tmvirtualclock: ConstPtr<Long>): Ntstatus =
+public actual fun ntCommitEnlistment(enlistmenthandle: Handle, tmvirtualclock: ConstPtr): Ntstatus =
     windowssysWindowsWdkSystemSystemservicesNtCommitEnlistment(enlistmenthandle.rawAddress.toCPointer<ByteVar>(), tmvirtualclock.rawAddress.toCPointer<ByteVar>())
 
 public actual fun ntCommitTransaction(transactionhandle: Handle, wait: Boolean): Ntstatus =
     windowssysWindowsWdkSystemSystemservicesNtCommitTransaction(transactionhandle.rawAddress.toCPointer<ByteVar>(), wait)
 
-public actual fun ntCreateEnlistment(enlistmenthandle: MutPtr<Handle>, desiredaccess: UInt, resourcemanagerhandle: Handle, transactionhandle: Handle, objectattributes: ConstPtr<ObjectAttributes>, createoptions: UInt, notificationmask: UInt, enlistmentkey: ConstPtr<CVoid>): Ntstatus =
+public actual fun ntCreateEnlistment(enlistmenthandle: MutPtr, desiredaccess: UInt, resourcemanagerhandle: Handle, transactionhandle: Handle, objectattributes: ConstPtr, createoptions: UInt, notificationmask: UInt, enlistmentkey: ConstPtr): Ntstatus =
     windowssysWindowsWdkSystemSystemservicesNtCreateEnlistment(enlistmenthandle.rawAddress.toCPointer<ByteVar>(), desiredaccess, resourcemanagerhandle.rawAddress.toCPointer<ByteVar>(), transactionhandle.rawAddress.toCPointer<ByteVar>(), objectattributes.rawAddress.toCPointer<ByteVar>(), createoptions, notificationmask, enlistmentkey.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ntCreateResourceManager(resourcemanagerhandle: MutPtr<Handle>, desiredaccess: UInt, tmhandle: Handle, rmguid: ConstPtr<Guid>, objectattributes: ConstPtr<ObjectAttributes>, createoptions: UInt, description: ConstPtr<UnicodeString>): Ntstatus =
+public actual fun ntCreateResourceManager(resourcemanagerhandle: MutPtr, desiredaccess: UInt, tmhandle: Handle, rmguid: ConstPtr, objectattributes: ConstPtr, createoptions: UInt, description: ConstPtr): Ntstatus =
     windowssysWindowsWdkSystemSystemservicesNtCreateResourceManager(resourcemanagerhandle.rawAddress.toCPointer<ByteVar>(), desiredaccess, tmhandle.rawAddress.toCPointer<ByteVar>(), rmguid.rawAddress.toCPointer<ByteVar>(), objectattributes.rawAddress.toCPointer<ByteVar>(), createoptions, description.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ntCreateTransaction(transactionhandle: MutPtr<Handle>, desiredaccess: UInt, objectattributes: ConstPtr<ObjectAttributes>, uow: ConstPtr<Guid>, tmhandle: Handle, createoptions: UInt, isolationlevel: UInt, isolationflags: UInt, timeout: ConstPtr<Long>, description: ConstPtr<UnicodeString>): Ntstatus =
+public actual fun ntCreateTransaction(transactionhandle: MutPtr, desiredaccess: UInt, objectattributes: ConstPtr, uow: ConstPtr, tmhandle: Handle, createoptions: UInt, isolationlevel: UInt, isolationflags: UInt, timeout: ConstPtr, description: ConstPtr): Ntstatus =
     windowssysWindowsWdkSystemSystemservicesNtCreateTransaction(transactionhandle.rawAddress.toCPointer<ByteVar>(), desiredaccess, objectattributes.rawAddress.toCPointer<ByteVar>(), uow.rawAddress.toCPointer<ByteVar>(), tmhandle.rawAddress.toCPointer<ByteVar>(), createoptions, isolationlevel, isolationflags, timeout.rawAddress.toCPointer<ByteVar>(), description.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ntCreateTransactionManager(tmhandle: MutPtr<Handle>, desiredaccess: UInt, objectattributes: ConstPtr<ObjectAttributes>, logfilename: ConstPtr<UnicodeString>, createoptions: UInt, commitstrength: UInt): Ntstatus =
+public actual fun ntCreateTransactionManager(tmhandle: MutPtr, desiredaccess: UInt, objectattributes: ConstPtr, logfilename: ConstPtr, createoptions: UInt, commitstrength: UInt): Ntstatus =
     windowssysWindowsWdkSystemSystemservicesNtCreateTransactionManager(tmhandle.rawAddress.toCPointer<ByteVar>(), desiredaccess, objectattributes.rawAddress.toCPointer<ByteVar>(), logfilename.rawAddress.toCPointer<ByteVar>(), createoptions, commitstrength)
 
-public actual fun ntDisplayString(string: ConstPtr<UnicodeString>): Ntstatus =
+public actual fun ntDisplayString(string: ConstPtr): Ntstatus =
     windowssysWindowsWdkSystemSystemservicesNtDisplayString(string.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ntEnumerateTransactionObject(rootobjecthandle: Handle, querytype: KtmobjectType, objectcursor: MutPtr<KtmobjectCursor>, objectcursorlength: UInt, returnlength: MutPtr<UInt>): Ntstatus =
+public actual fun ntEnumerateTransactionObject(rootobjecthandle: Handle, querytype: KtmobjectType, objectcursor: MutPtr, objectcursorlength: UInt, returnlength: MutPtr): Ntstatus =
     windowssysWindowsWdkSystemSystemservicesNtEnumerateTransactionObject(rootobjecthandle.rawAddress.toCPointer<ByteVar>(), querytype, objectcursor.rawAddress.toCPointer<ByteVar>(), objectcursorlength, returnlength.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ntGetNotificationResourceManager(resourcemanagerhandle: Handle, transactionnotification: MutPtr<TransactionNotification>, notificationlength: UInt, timeout: ConstPtr<Long>, returnlength: MutPtr<UInt>, asynchronous: UInt, asynchronouscontext: ULong): Ntstatus =
+public actual fun ntGetNotificationResourceManager(resourcemanagerhandle: Handle, transactionnotification: MutPtr, notificationlength: UInt, timeout: ConstPtr, returnlength: MutPtr, asynchronous: UInt, asynchronouscontext: ULong): Ntstatus =
     windowssysWindowsWdkSystemSystemservicesNtGetNotificationResourceManager(resourcemanagerhandle.rawAddress.toCPointer<ByteVar>(), transactionnotification.rawAddress.toCPointer<ByteVar>(), notificationlength, timeout.rawAddress.toCPointer<ByteVar>(), returnlength.rawAddress.toCPointer<ByteVar>(), asynchronous, asynchronouscontext)
 
-public actual fun ntLoadDriver(driverservicename: ConstPtr<UnicodeString>): Ntstatus =
+public actual fun ntLoadDriver(driverservicename: ConstPtr): Ntstatus =
     windowssysWindowsWdkSystemSystemservicesNtLoadDriver(driverservicename.rawAddress.toCPointer<ByteVar>())
 
 public actual fun ntMakeTemporaryObject(handle: Handle): Ntstatus =
     windowssysWindowsWdkSystemSystemservicesNtMakeTemporaryObject(handle.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ntManagePartition(targethandle: Handle, sourcehandle: Handle, partitioninformationclass: PartitionInformationClass, partitioninformation: MutPtr<CVoid>, partitioninformationlength: UInt): Ntstatus =
+public actual fun ntManagePartition(targethandle: Handle, sourcehandle: Handle, partitioninformationclass: PartitionInformationClass, partitioninformation: MutPtr, partitioninformationlength: UInt): Ntstatus =
     windowssysWindowsWdkSystemSystemservicesNtManagePartition(targethandle.rawAddress.toCPointer<ByteVar>(), sourcehandle.rawAddress.toCPointer<ByteVar>(), partitioninformationclass, partitioninformation.rawAddress.toCPointer<ByteVar>(), partitioninformationlength)
 
-public actual fun ntOpenEnlistment(enlistmenthandle: MutPtr<Handle>, desiredaccess: UInt, resourcemanagerhandle: Handle, enlistmentguid: ConstPtr<Guid>, objectattributes: ConstPtr<ObjectAttributes>): Ntstatus =
+public actual fun ntOpenEnlistment(enlistmenthandle: MutPtr, desiredaccess: UInt, resourcemanagerhandle: Handle, enlistmentguid: ConstPtr, objectattributes: ConstPtr): Ntstatus =
     windowssysWindowsWdkSystemSystemservicesNtOpenEnlistment(enlistmenthandle.rawAddress.toCPointer<ByteVar>(), desiredaccess, resourcemanagerhandle.rawAddress.toCPointer<ByteVar>(), enlistmentguid.rawAddress.toCPointer<ByteVar>(), objectattributes.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ntOpenResourceManager(resourcemanagerhandle: MutPtr<Handle>, desiredaccess: UInt, tmhandle: Handle, resourcemanagerguid: ConstPtr<Guid>, objectattributes: ConstPtr<ObjectAttributes>): Ntstatus =
+public actual fun ntOpenResourceManager(resourcemanagerhandle: MutPtr, desiredaccess: UInt, tmhandle: Handle, resourcemanagerguid: ConstPtr, objectattributes: ConstPtr): Ntstatus =
     windowssysWindowsWdkSystemSystemservicesNtOpenResourceManager(resourcemanagerhandle.rawAddress.toCPointer<ByteVar>(), desiredaccess, tmhandle.rawAddress.toCPointer<ByteVar>(), resourcemanagerguid.rawAddress.toCPointer<ByteVar>(), objectattributes.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ntOpenTransaction(transactionhandle: MutPtr<Handle>, desiredaccess: UInt, objectattributes: ConstPtr<ObjectAttributes>, uow: ConstPtr<Guid>, tmhandle: Handle): Ntstatus =
+public actual fun ntOpenTransaction(transactionhandle: MutPtr, desiredaccess: UInt, objectattributes: ConstPtr, uow: ConstPtr, tmhandle: Handle): Ntstatus =
     windowssysWindowsWdkSystemSystemservicesNtOpenTransaction(transactionhandle.rawAddress.toCPointer<ByteVar>(), desiredaccess, objectattributes.rawAddress.toCPointer<ByteVar>(), uow.rawAddress.toCPointer<ByteVar>(), tmhandle.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ntOpenTransactionManager(tmhandle: MutPtr<Handle>, desiredaccess: UInt, objectattributes: ConstPtr<ObjectAttributes>, logfilename: ConstPtr<UnicodeString>, tmidentity: ConstPtr<Guid>, openoptions: UInt): Ntstatus =
+public actual fun ntOpenTransactionManager(tmhandle: MutPtr, desiredaccess: UInt, objectattributes: ConstPtr, logfilename: ConstPtr, tmidentity: ConstPtr, openoptions: UInt): Ntstatus =
     windowssysWindowsWdkSystemSystemservicesNtOpenTransactionManager(tmhandle.rawAddress.toCPointer<ByteVar>(), desiredaccess, objectattributes.rawAddress.toCPointer<ByteVar>(), logfilename.rawAddress.toCPointer<ByteVar>(), tmidentity.rawAddress.toCPointer<ByteVar>(), openoptions)
 
-public actual fun ntPowerInformation(informationlevel: PowerInformationLevel, inputbuffer: ConstPtr<CVoid>, inputbufferlength: UInt, outputbuffer: MutPtr<CVoid>, outputbufferlength: UInt): Ntstatus =
+public actual fun ntPowerInformation(informationlevel: PowerInformationLevel, inputbuffer: ConstPtr, inputbufferlength: UInt, outputbuffer: MutPtr, outputbufferlength: UInt): Ntstatus =
     windowssysWindowsWdkSystemSystemservicesNtPowerInformation(informationlevel, inputbuffer.rawAddress.toCPointer<ByteVar>(), inputbufferlength, outputbuffer.rawAddress.toCPointer<ByteVar>(), outputbufferlength)
 
-public actual fun ntPrePrepareComplete(enlistmenthandle: Handle, tmvirtualclock: ConstPtr<Long>): Ntstatus =
+public actual fun ntPrePrepareComplete(enlistmenthandle: Handle, tmvirtualclock: ConstPtr): Ntstatus =
     windowssysWindowsWdkSystemSystemservicesNtPrePrepareComplete(enlistmenthandle.rawAddress.toCPointer<ByteVar>(), tmvirtualclock.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ntPrePrepareEnlistment(enlistmenthandle: Handle, tmvirtualclock: ConstPtr<Long>): Ntstatus =
+public actual fun ntPrePrepareEnlistment(enlistmenthandle: Handle, tmvirtualclock: ConstPtr): Ntstatus =
     windowssysWindowsWdkSystemSystemservicesNtPrePrepareEnlistment(enlistmenthandle.rawAddress.toCPointer<ByteVar>(), tmvirtualclock.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ntPrepareComplete(enlistmenthandle: Handle, tmvirtualclock: ConstPtr<Long>): Ntstatus =
+public actual fun ntPrepareComplete(enlistmenthandle: Handle, tmvirtualclock: ConstPtr): Ntstatus =
     windowssysWindowsWdkSystemSystemservicesNtPrepareComplete(enlistmenthandle.rawAddress.toCPointer<ByteVar>(), tmvirtualclock.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ntPrepareEnlistment(enlistmenthandle: Handle, tmvirtualclock: ConstPtr<Long>): Ntstatus =
+public actual fun ntPrepareEnlistment(enlistmenthandle: Handle, tmvirtualclock: ConstPtr): Ntstatus =
     windowssysWindowsWdkSystemSystemservicesNtPrepareEnlistment(enlistmenthandle.rawAddress.toCPointer<ByteVar>(), tmvirtualclock.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ntPropagationComplete(resourcemanagerhandle: Handle, requestcookie: UInt, bufferlength: UInt, buffer: ConstPtr<CVoid>): Ntstatus =
+public actual fun ntPropagationComplete(resourcemanagerhandle: Handle, requestcookie: UInt, bufferlength: UInt, buffer: ConstPtr): Ntstatus =
     windowssysWindowsWdkSystemSystemservicesNtPropagationComplete(resourcemanagerhandle.rawAddress.toCPointer<ByteVar>(), requestcookie, bufferlength, buffer.rawAddress.toCPointer<ByteVar>())
 
 public actual fun ntPropagationFailed(resourcemanagerhandle: Handle, requestcookie: UInt, propstatus: Ntstatus): Ntstatus =
     windowssysWindowsWdkSystemSystemservicesNtPropagationFailed(resourcemanagerhandle.rawAddress.toCPointer<ByteVar>(), requestcookie, propstatus)
 
-public actual fun ntQueryInformationEnlistment(enlistmenthandle: Handle, enlistmentinformationclass: EnlistmentInformationClass, enlistmentinformation: MutPtr<CVoid>, enlistmentinformationlength: UInt, returnlength: MutPtr<UInt>): Ntstatus =
+public actual fun ntQueryInformationEnlistment(enlistmenthandle: Handle, enlistmentinformationclass: EnlistmentInformationClass, enlistmentinformation: MutPtr, enlistmentinformationlength: UInt, returnlength: MutPtr): Ntstatus =
     windowssysWindowsWdkSystemSystemservicesNtQueryInformationEnlistment(enlistmenthandle.rawAddress.toCPointer<ByteVar>(), enlistmentinformationclass, enlistmentinformation.rawAddress.toCPointer<ByteVar>(), enlistmentinformationlength, returnlength.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ntQueryInformationResourceManager(resourcemanagerhandle: Handle, resourcemanagerinformationclass: ResourcemanagerInformationClass, resourcemanagerinformation: MutPtr<CVoid>, resourcemanagerinformationlength: UInt, returnlength: MutPtr<UInt>): Ntstatus =
+public actual fun ntQueryInformationResourceManager(resourcemanagerhandle: Handle, resourcemanagerinformationclass: ResourcemanagerInformationClass, resourcemanagerinformation: MutPtr, resourcemanagerinformationlength: UInt, returnlength: MutPtr): Ntstatus =
     windowssysWindowsWdkSystemSystemservicesNtQueryInformationResourceManager(resourcemanagerhandle.rawAddress.toCPointer<ByteVar>(), resourcemanagerinformationclass, resourcemanagerinformation.rawAddress.toCPointer<ByteVar>(), resourcemanagerinformationlength, returnlength.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ntQueryInformationTransaction(transactionhandle: Handle, transactioninformationclass: TransactionInformationClass, transactioninformation: MutPtr<CVoid>, transactioninformationlength: UInt, returnlength: MutPtr<UInt>): Ntstatus =
+public actual fun ntQueryInformationTransaction(transactionhandle: Handle, transactioninformationclass: TransactionInformationClass, transactioninformation: MutPtr, transactioninformationlength: UInt, returnlength: MutPtr): Ntstatus =
     windowssysWindowsWdkSystemSystemservicesNtQueryInformationTransaction(transactionhandle.rawAddress.toCPointer<ByteVar>(), transactioninformationclass, transactioninformation.rawAddress.toCPointer<ByteVar>(), transactioninformationlength, returnlength.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ntQueryInformationTransactionManager(transactionmanagerhandle: Handle, transactionmanagerinformationclass: TransactionmanagerInformationClass, transactionmanagerinformation: MutPtr<CVoid>, transactionmanagerinformationlength: UInt, returnlength: MutPtr<UInt>): Ntstatus =
+public actual fun ntQueryInformationTransactionManager(transactionmanagerhandle: Handle, transactionmanagerinformationclass: TransactionmanagerInformationClass, transactionmanagerinformation: MutPtr, transactionmanagerinformationlength: UInt, returnlength: MutPtr): Ntstatus =
     windowssysWindowsWdkSystemSystemservicesNtQueryInformationTransactionManager(transactionmanagerhandle.rawAddress.toCPointer<ByteVar>(), transactionmanagerinformationclass, transactionmanagerinformation.rawAddress.toCPointer<ByteVar>(), transactionmanagerinformationlength, returnlength.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ntReadOnlyEnlistment(enlistmenthandle: Handle, tmvirtualclock: ConstPtr<Long>): Ntstatus =
+public actual fun ntReadOnlyEnlistment(enlistmenthandle: Handle, tmvirtualclock: ConstPtr): Ntstatus =
     windowssysWindowsWdkSystemSystemservicesNtReadOnlyEnlistment(enlistmenthandle.rawAddress.toCPointer<ByteVar>(), tmvirtualclock.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ntRecoverEnlistment(enlistmenthandle: Handle, enlistmentkey: ConstPtr<CVoid>): Ntstatus =
+public actual fun ntRecoverEnlistment(enlistmenthandle: Handle, enlistmentkey: ConstPtr): Ntstatus =
     windowssysWindowsWdkSystemSystemservicesNtRecoverEnlistment(enlistmenthandle.rawAddress.toCPointer<ByteVar>(), enlistmentkey.rawAddress.toCPointer<ByteVar>())
 
 public actual fun ntRecoverResourceManager(resourcemanagerhandle: Handle): Ntstatus =
@@ -3583,138 +3527,138 @@ public actual fun ntRecoverResourceManager(resourcemanagerhandle: Handle): Ntsta
 public actual fun ntRecoverTransactionManager(transactionmanagerhandle: Handle): Ntstatus =
     windowssysWindowsWdkSystemSystemservicesNtRecoverTransactionManager(transactionmanagerhandle.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ntRegisterProtocolAddressInformation(resourcemanager: Handle, protocolid: ConstPtr<Guid>, protocolinformationsize: UInt, protocolinformation: ConstPtr<CVoid>, createoptions: UInt): Ntstatus =
+public actual fun ntRegisterProtocolAddressInformation(resourcemanager: Handle, protocolid: ConstPtr, protocolinformationsize: UInt, protocolinformation: ConstPtr, createoptions: UInt): Ntstatus =
     windowssysWindowsWdkSystemSystemservicesNtRegisterProtocolAddressInformation(resourcemanager.rawAddress.toCPointer<ByteVar>(), protocolid.rawAddress.toCPointer<ByteVar>(), protocolinformationsize, protocolinformation.rawAddress.toCPointer<ByteVar>(), createoptions)
 
-public actual fun ntRenameTransactionManager(logfilename: ConstPtr<UnicodeString>, existingtransactionmanagerguid: ConstPtr<Guid>): Ntstatus =
+public actual fun ntRenameTransactionManager(logfilename: ConstPtr, existingtransactionmanagerguid: ConstPtr): Ntstatus =
     windowssysWindowsWdkSystemSystemservicesNtRenameTransactionManager(logfilename.rawAddress.toCPointer<ByteVar>(), existingtransactionmanagerguid.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ntRollbackComplete(enlistmenthandle: Handle, tmvirtualclock: ConstPtr<Long>): Ntstatus =
+public actual fun ntRollbackComplete(enlistmenthandle: Handle, tmvirtualclock: ConstPtr): Ntstatus =
     windowssysWindowsWdkSystemSystemservicesNtRollbackComplete(enlistmenthandle.rawAddress.toCPointer<ByteVar>(), tmvirtualclock.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ntRollbackEnlistment(enlistmenthandle: Handle, tmvirtualclock: ConstPtr<Long>): Ntstatus =
+public actual fun ntRollbackEnlistment(enlistmenthandle: Handle, tmvirtualclock: ConstPtr): Ntstatus =
     windowssysWindowsWdkSystemSystemservicesNtRollbackEnlistment(enlistmenthandle.rawAddress.toCPointer<ByteVar>(), tmvirtualclock.rawAddress.toCPointer<ByteVar>())
 
 public actual fun ntRollbackTransaction(transactionhandle: Handle, wait: Boolean): Ntstatus =
     windowssysWindowsWdkSystemSystemservicesNtRollbackTransaction(transactionhandle.rawAddress.toCPointer<ByteVar>(), wait)
 
-public actual fun ntRollforwardTransactionManager(transactionmanagerhandle: Handle, tmvirtualclock: ConstPtr<Long>): Ntstatus =
+public actual fun ntRollforwardTransactionManager(transactionmanagerhandle: Handle, tmvirtualclock: ConstPtr): Ntstatus =
     windowssysWindowsWdkSystemSystemservicesNtRollforwardTransactionManager(transactionmanagerhandle.rawAddress.toCPointer<ByteVar>(), tmvirtualclock.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ntSetInformationEnlistment(enlistmenthandle: Handle, enlistmentinformationclass: EnlistmentInformationClass, enlistmentinformation: ConstPtr<CVoid>, enlistmentinformationlength: UInt): Ntstatus =
+public actual fun ntSetInformationEnlistment(enlistmenthandle: Handle, enlistmentinformationclass: EnlistmentInformationClass, enlistmentinformation: ConstPtr, enlistmentinformationlength: UInt): Ntstatus =
     windowssysWindowsWdkSystemSystemservicesNtSetInformationEnlistment(enlistmenthandle.rawAddress.toCPointer<ByteVar>(), enlistmentinformationclass, enlistmentinformation.rawAddress.toCPointer<ByteVar>(), enlistmentinformationlength)
 
-public actual fun ntSetInformationResourceManager(resourcemanagerhandle: Handle, resourcemanagerinformationclass: ResourcemanagerInformationClass, resourcemanagerinformation: ConstPtr<CVoid>, resourcemanagerinformationlength: UInt): Ntstatus =
+public actual fun ntSetInformationResourceManager(resourcemanagerhandle: Handle, resourcemanagerinformationclass: ResourcemanagerInformationClass, resourcemanagerinformation: ConstPtr, resourcemanagerinformationlength: UInt): Ntstatus =
     windowssysWindowsWdkSystemSystemservicesNtSetInformationResourceManager(resourcemanagerhandle.rawAddress.toCPointer<ByteVar>(), resourcemanagerinformationclass, resourcemanagerinformation.rawAddress.toCPointer<ByteVar>(), resourcemanagerinformationlength)
 
-public actual fun ntSetInformationTransaction(transactionhandle: Handle, transactioninformationclass: TransactionInformationClass, transactioninformation: ConstPtr<CVoid>, transactioninformationlength: UInt): Ntstatus =
+public actual fun ntSetInformationTransaction(transactionhandle: Handle, transactioninformationclass: TransactionInformationClass, transactioninformation: ConstPtr, transactioninformationlength: UInt): Ntstatus =
     windowssysWindowsWdkSystemSystemservicesNtSetInformationTransaction(transactionhandle.rawAddress.toCPointer<ByteVar>(), transactioninformationclass, transactioninformation.rawAddress.toCPointer<ByteVar>(), transactioninformationlength)
 
-public actual fun ntSetInformationTransactionManager(tmhandle: Handle, transactionmanagerinformationclass: TransactionmanagerInformationClass, transactionmanagerinformation: ConstPtr<CVoid>, transactionmanagerinformationlength: UInt): Ntstatus =
+public actual fun ntSetInformationTransactionManager(tmhandle: Handle, transactionmanagerinformationclass: TransactionmanagerInformationClass, transactionmanagerinformation: ConstPtr, transactionmanagerinformationlength: UInt): Ntstatus =
     windowssysWindowsWdkSystemSystemservicesNtSetInformationTransactionManager(tmhandle.rawAddress.toCPointer<ByteVar>(), transactionmanagerinformationclass, transactionmanagerinformation.rawAddress.toCPointer<ByteVar>(), transactionmanagerinformationlength)
 
-public actual fun ntSinglePhaseReject(enlistmenthandle: Handle, tmvirtualclock: ConstPtr<Long>): Ntstatus =
+public actual fun ntSinglePhaseReject(enlistmenthandle: Handle, tmvirtualclock: ConstPtr): Ntstatus =
     windowssysWindowsWdkSystemSystemservicesNtSinglePhaseReject(enlistmenthandle.rawAddress.toCPointer<ByteVar>(), tmvirtualclock.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ntUnloadDriver(driverservicename: ConstPtr<UnicodeString>): Ntstatus =
+public actual fun ntUnloadDriver(driverservicename: ConstPtr): Ntstatus =
     windowssysWindowsWdkSystemSystemservicesNtUnloadDriver(driverservicename.rawAddress.toCPointer<ByteVar>())
 
 public actual fun obCloseHandle(handle: Handle, previousmode: Byte): Ntstatus =
     windowssysWindowsWdkSystemSystemservicesObCloseHandle(handle.rawAddress.toCPointer<ByteVar>(), previousmode)
 
-public actual fun obDereferenceObjectDeferDelete(obj: ConstPtr<CVoid>) {
+public actual fun obDereferenceObjectDeferDelete(obj: ConstPtr) {
     windowssysWindowsWdkSystemSystemservicesObDereferenceObjectDeferDelete(obj.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun obDereferenceObjectDeferDeleteWithTag(obj: ConstPtr<CVoid>, tag: UInt) {
+public actual fun obDereferenceObjectDeferDeleteWithTag(obj: ConstPtr, tag: UInt) {
     windowssysWindowsWdkSystemSystemservicesObDereferenceObjectDeferDeleteWithTag(obj.rawAddress.toCPointer<ByteVar>(), tag)
 }
 
 public actual fun obGetFilterVersion(): UShort =
     windowssysWindowsWdkSystemSystemservicesObGetFilterVersion()
 
-public actual fun obGetObjectSecurity(obj: ConstPtr<CVoid>, securitydescriptor: MutPtr<PsecurityDescriptor>, memoryallocated: MutPtr<Boolean>): Ntstatus =
+public actual fun obGetObjectSecurity(obj: ConstPtr, securitydescriptor: MutPtr, memoryallocated: MutPtr): Ntstatus =
     windowssysWindowsWdkSystemSystemservicesObGetObjectSecurity(obj.rawAddress.toCPointer<ByteVar>(), securitydescriptor.rawAddress.toCPointer<ByteVar>(), memoryallocated.rawAddress.toCPointer<ByteVar>())
 
-public actual fun obReferenceObjectByHandle(handle: Handle, desiredaccess: UInt, objecttype: PobjectType, accessmode: Byte, obj: MutPtr<MutPtr<CVoid>>, handleinformation: MutPtr<ObjectHandleInformation>): Ntstatus =
+public actual fun obReferenceObjectByHandle(handle: Handle, desiredaccess: UInt, objecttype: PobjectType, accessmode: Byte, obj: MutPtr, handleinformation: MutPtr): Ntstatus =
     windowssysWindowsWdkSystemSystemservicesObReferenceObjectByHandle(handle.rawAddress.toCPointer<ByteVar>(), desiredaccess, objecttype, accessmode, obj.rawAddress.toCPointer<ByteVar>(), handleinformation.rawAddress.toCPointer<ByteVar>())
 
-public actual fun obReferenceObjectByHandleWithTag(handle: Handle, desiredaccess: UInt, objecttype: PobjectType, accessmode: Byte, tag: UInt, obj: MutPtr<MutPtr<CVoid>>, handleinformation: MutPtr<ObjectHandleInformation>): Ntstatus =
+public actual fun obReferenceObjectByHandleWithTag(handle: Handle, desiredaccess: UInt, objecttype: PobjectType, accessmode: Byte, tag: UInt, obj: MutPtr, handleinformation: MutPtr): Ntstatus =
     windowssysWindowsWdkSystemSystemservicesObReferenceObjectByHandleWithTag(handle.rawAddress.toCPointer<ByteVar>(), desiredaccess, objecttype, accessmode, tag, obj.rawAddress.toCPointer<ByteVar>(), handleinformation.rawAddress.toCPointer<ByteVar>())
 
-public actual fun obReferenceObjectByPointer(obj: ConstPtr<CVoid>, desiredaccess: UInt, objecttype: PobjectType, accessmode: Byte): Ntstatus =
+public actual fun obReferenceObjectByPointer(obj: ConstPtr, desiredaccess: UInt, objecttype: PobjectType, accessmode: Byte): Ntstatus =
     windowssysWindowsWdkSystemSystemservicesObReferenceObjectByPointer(obj.rawAddress.toCPointer<ByteVar>(), desiredaccess, objecttype, accessmode)
 
-public actual fun obReferenceObjectByPointerWithTag(obj: ConstPtr<CVoid>, desiredaccess: UInt, objecttype: PobjectType, accessmode: Byte, tag: UInt): Ntstatus =
+public actual fun obReferenceObjectByPointerWithTag(obj: ConstPtr, desiredaccess: UInt, objecttype: PobjectType, accessmode: Byte, tag: UInt): Ntstatus =
     windowssysWindowsWdkSystemSystemservicesObReferenceObjectByPointerWithTag(obj.rawAddress.toCPointer<ByteVar>(), desiredaccess, objecttype, accessmode, tag)
 
-public actual fun obReferenceObjectSafe(obj: ConstPtr<CVoid>): Boolean =
+public actual fun obReferenceObjectSafe(obj: ConstPtr): Boolean =
     windowssysWindowsWdkSystemSystemservicesObReferenceObjectSafe(obj.rawAddress.toCPointer<ByteVar>())
 
-public actual fun obReferenceObjectSafeWithTag(obj: ConstPtr<CVoid>, tag: UInt): Boolean =
+public actual fun obReferenceObjectSafeWithTag(obj: ConstPtr, tag: UInt): Boolean =
     windowssysWindowsWdkSystemSystemservicesObReferenceObjectSafeWithTag(obj.rawAddress.toCPointer<ByteVar>(), tag)
 
-public actual fun obRegisterCallbacks(callbackregistration: ConstPtr<ObCallbackRegistration>, registrationhandle: MutPtr<MutPtr<CVoid>>): Ntstatus =
+public actual fun obRegisterCallbacks(callbackregistration: ConstPtr, registrationhandle: MutPtr): Ntstatus =
     windowssysWindowsWdkSystemSystemservicesObRegisterCallbacks(callbackregistration.rawAddress.toCPointer<ByteVar>(), registrationhandle.rawAddress.toCPointer<ByteVar>())
 
 public actual fun obReleaseObjectSecurity(securitydescriptor: PsecurityDescriptor, memoryallocated: Boolean) {
     windowssysWindowsWdkSystemSystemservicesObReleaseObjectSecurity(securitydescriptor.rawAddress.toCPointer<ByteVar>(), memoryallocated)
 }
 
-public actual fun obUnRegisterCallbacks(registrationhandle: ConstPtr<CVoid>) {
+public actual fun obUnRegisterCallbacks(registrationhandle: ConstPtr) {
     windowssysWindowsWdkSystemSystemservicesObUnRegisterCallbacks(registrationhandle.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun obfDereferenceObject(obj: ConstPtr<CVoid>): Long =
+public actual fun obfDereferenceObject(obj: ConstPtr): Long =
     windowssysWindowsWdkSystemSystemservicesObfDereferenceObject(obj.rawAddress.toCPointer<ByteVar>())
 
-public actual fun obfDereferenceObjectWithTag(obj: ConstPtr<CVoid>, tag: UInt): Long =
+public actual fun obfDereferenceObjectWithTag(obj: ConstPtr, tag: UInt): Long =
     windowssysWindowsWdkSystemSystemservicesObfDereferenceObjectWithTag(obj.rawAddress.toCPointer<ByteVar>(), tag)
 
-public actual fun obfReferenceObject(obj: ConstPtr<CVoid>): Long =
+public actual fun obfReferenceObject(obj: ConstPtr): Long =
     windowssysWindowsWdkSystemSystemservicesObfReferenceObject(obj.rawAddress.toCPointer<ByteVar>())
 
-public actual fun obfReferenceObjectWithTag(obj: ConstPtr<CVoid>, tag: UInt): Long =
+public actual fun obfReferenceObjectWithTag(obj: ConstPtr, tag: UInt): Long =
     windowssysWindowsWdkSystemSystemservicesObfReferenceObjectWithTag(obj.rawAddress.toCPointer<ByteVar>(), tag)
 
-public actual fun pcwAddInstance(buffer: PpcwBuffer, name: ConstPtr<UnicodeString>, id: UInt, count: UInt, data: ConstPtr<PcwData>): Ntstatus =
+public actual fun pcwAddInstance(buffer: PpcwBuffer, name: ConstPtr, id: UInt, count: UInt, data: ConstPtr): Ntstatus =
     windowssysWindowsWdkSystemSystemservicesPcwAddInstance(buffer, name.rawAddress.toCPointer<ByteVar>(), id, count, data.rawAddress.toCPointer<ByteVar>())
 
 public actual fun pcwCloseInstance(instance: PpcwInstance) {
     windowssysWindowsWdkSystemSystemservicesPcwCloseInstance(instance)
 }
 
-public actual fun pcwCreateInstance(instance: MutPtr<PpcwInstance>, registration: PpcwRegistration, name: ConstPtr<UnicodeString>, count: UInt, data: ConstPtr<PcwData>): Ntstatus =
+public actual fun pcwCreateInstance(instance: MutPtr, registration: PpcwRegistration, name: ConstPtr, count: UInt, data: ConstPtr): Ntstatus =
     windowssysWindowsWdkSystemSystemservicesPcwCreateInstance(instance.rawAddress.toCPointer<ByteVar>(), registration, name.rawAddress.toCPointer<ByteVar>(), count, data.rawAddress.toCPointer<ByteVar>())
 
-public actual fun pcwRegister(registration: MutPtr<PpcwRegistration>, info: ConstPtr<PcwRegistrationInformation>): Ntstatus =
+public actual fun pcwRegister(registration: MutPtr, info: ConstPtr): Ntstatus =
     windowssysWindowsWdkSystemSystemservicesPcwRegister(registration.rawAddress.toCPointer<ByteVar>(), info.rawAddress.toCPointer<ByteVar>())
 
 public actual fun pcwUnregister(registration: PpcwRegistration) {
     windowssysWindowsWdkSystemSystemservicesPcwUnregister(registration)
 }
 
-public actual fun poCallDriver(deviceobject: ConstPtr<DeviceObject>, irp: MutPtr<Irp>): Ntstatus =
+public actual fun poCallDriver(deviceobject: ConstPtr, irp: MutPtr): Ntstatus =
     windowssysWindowsWdkSystemSystemservicesPoCallDriver(deviceobject.rawAddress.toCPointer<ByteVar>(), irp.rawAddress.toCPointer<ByteVar>())
 
-public actual fun poClearPowerRequest(powerrequest: MutPtr<CVoid>, type: PowerRequestType): Ntstatus =
+public actual fun poClearPowerRequest(powerrequest: MutPtr, type: PowerRequestType): Ntstatus =
     windowssysWindowsWdkSystemSystemservicesPoClearPowerRequest(powerrequest.rawAddress.toCPointer<ByteVar>(), type)
 
-public actual fun poCreatePowerRequest(powerrequest: MutPtr<MutPtr<CVoid>>, deviceobject: ConstPtr<DeviceObject>, context: ConstPtr<CountedReasonContext>): Ntstatus =
+public actual fun poCreatePowerRequest(powerrequest: MutPtr, deviceobject: ConstPtr, context: ConstPtr): Ntstatus =
     windowssysWindowsWdkSystemSystemservicesPoCreatePowerRequest(powerrequest.rawAddress.toCPointer<ByteVar>(), deviceobject.rawAddress.toCPointer<ByteVar>(), context.rawAddress.toCPointer<ByteVar>())
 
-public actual fun poCreateThermalRequest(thermalrequest: MutPtr<MutPtr<CVoid>>, targetdeviceobject: ConstPtr<DeviceObject>, policydeviceobject: ConstPtr<DeviceObject>, context: ConstPtr<CountedReasonContext>, flags: UInt): Ntstatus =
+public actual fun poCreateThermalRequest(thermalrequest: MutPtr, targetdeviceobject: ConstPtr, policydeviceobject: ConstPtr, context: ConstPtr, flags: UInt): Ntstatus =
     windowssysWindowsWdkSystemSystemservicesPoCreateThermalRequest(thermalrequest.rawAddress.toCPointer<ByteVar>(), targetdeviceobject.rawAddress.toCPointer<ByteVar>(), policydeviceobject.rawAddress.toCPointer<ByteVar>(), context.rawAddress.toCPointer<ByteVar>(), flags)
 
-public actual fun poDeletePowerRequest(powerrequest: MutPtr<CVoid>) {
+public actual fun poDeletePowerRequest(powerrequest: MutPtr) {
     windowssysWindowsWdkSystemSystemservicesPoDeletePowerRequest(powerrequest.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun poDeleteThermalRequest(thermalrequest: MutPtr<CVoid>) {
+public actual fun poDeleteThermalRequest(thermalrequest: MutPtr) {
     windowssysWindowsWdkSystemSystemservicesPoDeleteThermalRequest(thermalrequest.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun poEndDeviceBusy(idlepointer: MutPtr<UInt>) {
+public actual fun poEndDeviceBusy(idlepointer: MutPtr) {
     windowssysWindowsWdkSystemSystemservicesPoEndDeviceBusy(idlepointer.rawAddress.toCPointer<ByteVar>())
 }
 
@@ -3742,37 +3686,37 @@ public actual fun poFxIdleComponent(handle: Pohandle, component: UInt, flags: UI
     windowssysWindowsWdkSystemSystemservicesPoFxIdleComponent(handle.rawAddress.toCPointer<ByteVar>(), component, flags)
 }
 
-public actual fun poFxIssueComponentPerfStateChange(handle: Pohandle, flags: UInt, component: UInt, perfchange: ConstPtr<PoFxPerfStateChange>, context: ConstPtr<CVoid>) {
+public actual fun poFxIssueComponentPerfStateChange(handle: Pohandle, flags: UInt, component: UInt, perfchange: ConstPtr, context: ConstPtr) {
     windowssysWindowsWdkSystemSystemservicesPoFxIssueComponentPerfStateChange(handle.rawAddress.toCPointer<ByteVar>(), flags, component, perfchange.rawAddress.toCPointer<ByteVar>(), context.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun poFxIssueComponentPerfStateChangeMultiple(handle: Pohandle, flags: UInt, component: UInt, perfchangescount: UInt, perfchanges: ConstPtr<PoFxPerfStateChange>, context: ConstPtr<CVoid>) {
+public actual fun poFxIssueComponentPerfStateChangeMultiple(handle: Pohandle, flags: UInt, component: UInt, perfchangescount: UInt, perfchanges: ConstPtr, context: ConstPtr) {
     windowssysWindowsWdkSystemSystemservicesPoFxIssueComponentPerfStateChangeMultiple(handle.rawAddress.toCPointer<ByteVar>(), flags, component, perfchangescount, perfchanges.rawAddress.toCPointer<ByteVar>(), context.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun poFxNotifySurprisePowerOn(pdo: ConstPtr<DeviceObject>) {
+public actual fun poFxNotifySurprisePowerOn(pdo: ConstPtr) {
     windowssysWindowsWdkSystemSystemservicesPoFxNotifySurprisePowerOn(pdo.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun poFxPowerControl(handle: Pohandle, powercontrolcode: ConstPtr<Guid>, inbuffer: ConstPtr<CVoid>, inbuffersize: ULong, outbuffer: MutPtr<CVoid>, outbuffersize: ULong, bytesreturned: MutPtr<ULong>): Ntstatus =
+public actual fun poFxPowerControl(handle: Pohandle, powercontrolcode: ConstPtr, inbuffer: ConstPtr, inbuffersize: ULong, outbuffer: MutPtr, outbuffersize: ULong, bytesreturned: MutPtr): Ntstatus =
     windowssysWindowsWdkSystemSystemservicesPoFxPowerControl(handle.rawAddress.toCPointer<ByteVar>(), powercontrolcode.rawAddress.toCPointer<ByteVar>(), inbuffer.rawAddress.toCPointer<ByteVar>(), inbuffersize, outbuffer.rawAddress.toCPointer<ByteVar>(), outbuffersize, bytesreturned.rawAddress.toCPointer<ByteVar>())
 
-public actual fun poFxPowerOnCrashdumpDevice(handle: Pohandle, context: ConstPtr<CVoid>): Ntstatus =
+public actual fun poFxPowerOnCrashdumpDevice(handle: Pohandle, context: ConstPtr): Ntstatus =
     windowssysWindowsWdkSystemSystemservicesPoFxPowerOnCrashdumpDevice(handle.rawAddress.toCPointer<ByteVar>(), context.rawAddress.toCPointer<ByteVar>())
 
-public actual fun poFxQueryCurrentComponentPerfState(handle: Pohandle, flags: UInt, component: UInt, setindex: UInt, currentperf: MutPtr<ULong>): Ntstatus =
+public actual fun poFxQueryCurrentComponentPerfState(handle: Pohandle, flags: UInt, component: UInt, setindex: UInt, currentperf: MutPtr): Ntstatus =
     windowssysWindowsWdkSystemSystemservicesPoFxQueryCurrentComponentPerfState(handle.rawAddress.toCPointer<ByteVar>(), flags, component, setindex, currentperf.rawAddress.toCPointer<ByteVar>())
 
-public actual fun poFxRegisterComponentPerfStates(handle: Pohandle, component: UInt, flags: ULong, componentperfstatecallback: PpoFxComponentPerfStateCallback, inputstateinfo: ConstPtr<PoFxComponentPerfInfo>, outputstateinfo: MutPtr<MutPtr<PoFxComponentPerfInfo>>): Ntstatus =
+public actual fun poFxRegisterComponentPerfStates(handle: Pohandle, component: UInt, flags: ULong, componentperfstatecallback: PpoFxComponentPerfStateCallback, inputstateinfo: ConstPtr, outputstateinfo: MutPtr): Ntstatus =
     windowssysWindowsWdkSystemSystemservicesPoFxRegisterComponentPerfStates(handle.rawAddress.toCPointer<ByteVar>(), component, flags, 0L.toCPointer<ByteVar>(), inputstateinfo.rawAddress.toCPointer<ByteVar>(), outputstateinfo.rawAddress.toCPointer<ByteVar>())
 
 public actual fun poFxRegisterCrashdumpDevice(handle: Pohandle): Ntstatus =
     windowssysWindowsWdkSystemSystemservicesPoFxRegisterCrashdumpDevice(handle.rawAddress.toCPointer<ByteVar>())
 
-public actual fun poFxRegisterDevice(pdo: ConstPtr<DeviceObject>, device: ConstPtr<PoFxDeviceV1>, handle: MutPtr<Pohandle>): Ntstatus =
+public actual fun poFxRegisterDevice(pdo: ConstPtr, device: ConstPtr, handle: MutPtr): Ntstatus =
     windowssysWindowsWdkSystemSystemservicesPoFxRegisterDevice(pdo.rawAddress.toCPointer<ByteVar>(), device.rawAddress.toCPointer<ByteVar>(), handle.rawAddress.toCPointer<ByteVar>())
 
-public actual fun poFxRegisterDripsWatchdogCallback(handle: Pohandle, callback: PpoFxDripsWatchdogCallback, includechilddevices: Boolean, matchingdriverobject: ConstPtr<DriverObject>) {
+public actual fun poFxRegisterDripsWatchdogCallback(handle: Pohandle, callback: PpoFxDripsWatchdogCallback, includechilddevices: Boolean, matchingdriverobject: ConstPtr) {
     windowssysWindowsWdkSystemSystemservicesPoFxRegisterDripsWatchdogCallback(handle.rawAddress.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>(), includechilddevices, matchingdriverobject.rawAddress.toCPointer<ByteVar>())
 }
 
@@ -3807,101 +3751,101 @@ public actual fun poFxUnregisterDevice(handle: Pohandle) {
     windowssysWindowsWdkSystemSystemservicesPoFxUnregisterDevice(handle.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun poGetSystemWake(irp: ConstPtr<Irp>): Boolean =
+public actual fun poGetSystemWake(irp: ConstPtr): Boolean =
     windowssysWindowsWdkSystemSystemservicesPoGetSystemWake(irp.rawAddress.toCPointer<ByteVar>())
 
-public actual fun poGetThermalRequestSupport(thermalrequest: ConstPtr<CVoid>, type: PoThermalRequestType): Boolean =
+public actual fun poGetThermalRequestSupport(thermalrequest: ConstPtr, type: PoThermalRequestType): Boolean =
     windowssysWindowsWdkSystemSystemservicesPoGetThermalRequestSupport(thermalrequest.rawAddress.toCPointer<ByteVar>(), type)
 
-public actual fun poQueryWatchdogTime(pdo: ConstPtr<DeviceObject>, secondsremaining: MutPtr<UInt>): Boolean =
+public actual fun poQueryWatchdogTime(pdo: ConstPtr, secondsremaining: MutPtr): Boolean =
     windowssysWindowsWdkSystemSystemservicesPoQueryWatchdogTime(pdo.rawAddress.toCPointer<ByteVar>(), secondsremaining.rawAddress.toCPointer<ByteVar>())
 
-public actual fun poRegisterDeviceForIdleDetection(deviceobject: ConstPtr<DeviceObject>, conservationidletime: UInt, performanceidletime: UInt, state: DevicePowerState): MutPtr<UInt> =
+public actual fun poRegisterDeviceForIdleDetection(deviceobject: ConstPtr, conservationidletime: UInt, performanceidletime: UInt, state: DevicePowerState): MutPtr =
     MutPtr(windowssysWindowsWdkSystemSystemservicesPoRegisterDeviceForIdleDetection(deviceobject.rawAddress.toCPointer<ByteVar>(), conservationidletime, performanceidletime, state)?.toLong() ?: 0L)
 
-public actual fun poRegisterPowerSettingCallback(deviceobject: ConstPtr<DeviceObject>, settingguid: ConstPtr<Guid>, callback: PpowerSettingCallback, context: ConstPtr<CVoid>, handle: MutPtr<MutPtr<CVoid>>): Ntstatus =
+public actual fun poRegisterPowerSettingCallback(deviceobject: ConstPtr, settingguid: ConstPtr, callback: PpowerSettingCallback, context: ConstPtr, handle: MutPtr): Ntstatus =
     windowssysWindowsWdkSystemSystemservicesPoRegisterPowerSettingCallback(deviceobject.rawAddress.toCPointer<ByteVar>(), settingguid.rawAddress.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>(), context.rawAddress.toCPointer<ByteVar>(), handle.rawAddress.toCPointer<ByteVar>())
 
-public actual fun poRegisterSystemState(statehandle: MutPtr<CVoid>, flags: UInt): MutPtr<CVoid> =
+public actual fun poRegisterSystemState(statehandle: MutPtr, flags: UInt): MutPtr =
     MutPtr(windowssysWindowsWdkSystemSystemservicesPoRegisterSystemState(statehandle.rawAddress.toCPointer<ByteVar>(), flags)?.toLong() ?: 0L)
 
-public actual fun poRequestPowerIrp(deviceobject: ConstPtr<DeviceObject>, minorfunction: UByte, powerstate: PowerState, completionfunction: PrequestPowerComplete, context: ConstPtr<CVoid>, irp: MutPtr<MutPtr<Irp>>): Ntstatus =
+public actual fun poRequestPowerIrp(deviceobject: ConstPtr, minorfunction: UByte, powerstate: PowerState, completionfunction: PrequestPowerComplete, context: ConstPtr, irp: MutPtr): Ntstatus =
     0
 
-public actual fun poSetDeviceBusyEx(idlepointer: MutPtr<UInt>) {
+public actual fun poSetDeviceBusyEx(idlepointer: MutPtr) {
     windowssysWindowsWdkSystemSystemservicesPoSetDeviceBusyEx(idlepointer.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun poSetHiberRange(memorymap: ConstPtr<CVoid>, flags: UInt, address: ConstPtr<CVoid>, length: ULong, tag: UInt) {
+public actual fun poSetHiberRange(memorymap: ConstPtr, flags: UInt, address: ConstPtr, length: ULong, tag: UInt) {
     windowssysWindowsWdkSystemSystemservicesPoSetHiberRange(memorymap.rawAddress.toCPointer<ByteVar>(), flags, address.rawAddress.toCPointer<ByteVar>(), length, tag)
 }
 
-public actual fun poSetPowerRequest(powerrequest: MutPtr<CVoid>, type: PowerRequestType): Ntstatus =
+public actual fun poSetPowerRequest(powerrequest: MutPtr, type: PowerRequestType): Ntstatus =
     windowssysWindowsWdkSystemSystemservicesPoSetPowerRequest(powerrequest.rawAddress.toCPointer<ByteVar>(), type)
 
-public actual fun poSetPowerState(deviceobject: ConstPtr<DeviceObject>, type: PowerStateType, state: PowerState): PowerState =
+public actual fun poSetPowerState(deviceobject: ConstPtr, type: PowerStateType, state: PowerState): PowerState =
     PowerState()
 
 public actual fun poSetSystemState(flags: UInt) {
     windowssysWindowsWdkSystemSystemservicesPoSetSystemState(flags)
 }
 
-public actual fun poSetSystemWake(irp: MutPtr<Irp>) {
+public actual fun poSetSystemWake(irp: MutPtr) {
     windowssysWindowsWdkSystemSystemservicesPoSetSystemWake(irp.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun poSetSystemWakeDevice(deviceobject: ConstPtr<DeviceObject>) {
+public actual fun poSetSystemWakeDevice(deviceobject: ConstPtr) {
     windowssysWindowsWdkSystemSystemservicesPoSetSystemWakeDevice(deviceobject.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun poSetThermalActiveCooling(thermalrequest: MutPtr<CVoid>, engaged: Boolean): Ntstatus =
+public actual fun poSetThermalActiveCooling(thermalrequest: MutPtr, engaged: Boolean): Ntstatus =
     windowssysWindowsWdkSystemSystemservicesPoSetThermalActiveCooling(thermalrequest.rawAddress.toCPointer<ByteVar>(), engaged)
 
-public actual fun poSetThermalPassiveCooling(thermalrequest: MutPtr<CVoid>, throttle: UByte): Ntstatus =
+public actual fun poSetThermalPassiveCooling(thermalrequest: MutPtr, throttle: UByte): Ntstatus =
     windowssysWindowsWdkSystemSystemservicesPoSetThermalPassiveCooling(thermalrequest.rawAddress.toCPointer<ByteVar>(), throttle)
 
-public actual fun poStartDeviceBusy(idlepointer: MutPtr<UInt>) {
+public actual fun poStartDeviceBusy(idlepointer: MutPtr) {
     windowssysWindowsWdkSystemSystemservicesPoStartDeviceBusy(idlepointer.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun poStartNextPowerIrp(irp: MutPtr<Irp>) {
+public actual fun poStartNextPowerIrp(irp: MutPtr) {
     windowssysWindowsWdkSystemSystemservicesPoStartNextPowerIrp(irp.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun poUnregisterPowerSettingCallback(handle: MutPtr<CVoid>): Ntstatus =
+public actual fun poUnregisterPowerSettingCallback(handle: MutPtr): Ntstatus =
     windowssysWindowsWdkSystemSystemservicesPoUnregisterPowerSettingCallback(handle.rawAddress.toCPointer<ByteVar>())
 
-public actual fun poUnregisterSystemState(statehandle: MutPtr<CVoid>) {
+public actual fun poUnregisterSystemState(statehandle: MutPtr) {
     windowssysWindowsWdkSystemSystemservicesPoUnregisterSystemState(statehandle.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun probeForRead(address: ConstPtr<CVoid>, length: ULong, alignment: UInt) {
+public actual fun probeForRead(address: ConstPtr, length: ULong, alignment: UInt) {
     windowssysWindowsWdkSystemSystemservicesProbeForRead(address.rawAddress.toCPointer<ByteVar>(), length, alignment)
 }
 
-public actual fun probeForWrite(address: MutPtr<CVoid>, length: ULong, alignment: UInt) {
+public actual fun probeForWrite(address: MutPtr, length: ULong, alignment: UInt) {
     windowssysWindowsWdkSystemSystemservicesProbeForWrite(address.rawAddress.toCPointer<ByteVar>(), length, alignment)
 }
 
 public actual fun psAcquireSiloHardReference(silo: Pesilo): Ntstatus =
     windowssysWindowsWdkSystemSystemservicesPsAcquireSiloHardReference(silo)
 
-public actual fun psAllocSiloContextSlot(reserved: ULong, returnedcontextslot: MutPtr<UInt>): Ntstatus =
+public actual fun psAllocSiloContextSlot(reserved: ULong, returnedcontextslot: MutPtr): Ntstatus =
     windowssysWindowsWdkSystemSystemservicesPsAllocSiloContextSlot(reserved, returnedcontextslot.rawAddress.toCPointer<ByteVar>())
 
-public actual fun psAllocateAffinityToken(affinitytoken: MutPtr<PaffinityToken>): Ntstatus =
+public actual fun psAllocateAffinityToken(affinitytoken: MutPtr): Ntstatus =
     windowssysWindowsWdkSystemSystemservicesPsAllocateAffinityToken(affinitytoken.rawAddress.toCPointer<ByteVar>())
 
 public actual fun psAttachSiloToCurrentThread(silo: Pesilo): Pesilo =
     windowssysWindowsWdkSystemSystemservicesPsAttachSiloToCurrentThread(silo)
 
-public actual fun psCreateSiloContext(silo: Pesilo, size: UInt, pooltype: PoolType, contextcleanupcallback: SiloContextCleanupCallback, returnedsilocontext: MutPtr<MutPtr<CVoid>>): Ntstatus =
+public actual fun psCreateSiloContext(silo: Pesilo, size: UInt, pooltype: PoolType, contextcleanupcallback: SiloContextCleanupCallback, returnedsilocontext: MutPtr): Ntstatus =
     windowssysWindowsWdkSystemSystemservicesPsCreateSiloContext(silo, size, pooltype, 0L.toCPointer<ByteVar>(), returnedsilocontext.rawAddress.toCPointer<ByteVar>())
 
-public actual fun psCreateSystemThread(threadhandle: MutPtr<Handle>, desiredaccess: UInt, objectattributes: ConstPtr<ObjectAttributes>, processhandle: Handle, clientid: MutPtr<ClientId>, startroutine: PkstartRoutine, startcontext: ConstPtr<CVoid>): Ntstatus =
+public actual fun psCreateSystemThread(threadhandle: MutPtr, desiredaccess: UInt, objectattributes: ConstPtr, processhandle: Handle, clientid: MutPtr, startroutine: PkstartRoutine, startcontext: ConstPtr): Ntstatus =
     windowssysWindowsWdkSystemSystemservicesPsCreateSystemThread(threadhandle.rawAddress.toCPointer<ByteVar>(), desiredaccess, objectattributes.rawAddress.toCPointer<ByteVar>(), processhandle.rawAddress.toCPointer<ByteVar>(), clientid.rawAddress.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>(), startcontext.rawAddress.toCPointer<ByteVar>())
 
-public actual fun psDereferenceSiloContext(silocontext: ConstPtr<CVoid>) {
+public actual fun psDereferenceSiloContext(silocontext: ConstPtr) {
     windowssysWindowsWdkSystemSystemservicesPsDereferenceSiloContext(silocontext.rawAddress.toCPointer<ByteVar>())
 }
 
@@ -3922,7 +3866,7 @@ public actual fun psGetCurrentProcessId(): Handle =
 public actual fun psGetCurrentServerSilo(): Pesilo =
     windowssysWindowsWdkSystemSystemservicesPsGetCurrentServerSilo()
 
-public actual fun psGetCurrentServerSiloName(): MutPtr<UnicodeString> =
+public actual fun psGetCurrentServerSiloName(): MutPtr =
     MutPtr(windowssysWindowsWdkSystemSystemservicesPsGetCurrentServerSiloName()?.toLong() ?: 0L)
 
 public actual fun psGetCurrentSilo(): Pesilo =
@@ -3931,7 +3875,7 @@ public actual fun psGetCurrentSilo(): Pesilo =
 public actual fun psGetCurrentThreadId(): Handle =
     MutPtr(windowssysWindowsWdkSystemSystemservicesPsGetCurrentThreadId()?.toLong() ?: 0L)
 
-public actual fun psGetCurrentThreadTeb(): MutPtr<CVoid> =
+public actual fun psGetCurrentThreadTeb(): MutPtr =
     MutPtr(windowssysWindowsWdkSystemSystemservicesPsGetCurrentThreadTeb()?.toLong() ?: 0L)
 
 public actual fun psGetEffectiveServerSilo(silo: Pesilo): Pesilo =
@@ -3940,16 +3884,16 @@ public actual fun psGetEffectiveServerSilo(silo: Pesilo): Pesilo =
 public actual fun psGetHostSilo(): Pesilo =
     windowssysWindowsWdkSystemSystemservicesPsGetHostSilo()
 
-public actual fun psGetJobServerSilo(job: Pejob, serversilo: MutPtr<Pesilo>): Ntstatus =
+public actual fun psGetJobServerSilo(job: Pejob, serversilo: MutPtr): Ntstatus =
     windowssysWindowsWdkSystemSystemservicesPsGetJobServerSilo(job, serversilo.rawAddress.toCPointer<ByteVar>())
 
-public actual fun psGetJobSilo(job: Pejob, silo: MutPtr<Pesilo>): Ntstatus =
+public actual fun psGetJobSilo(job: Pejob, silo: MutPtr): Ntstatus =
     windowssysWindowsWdkSystemSystemservicesPsGetJobSilo(job, silo.rawAddress.toCPointer<ByteVar>())
 
 public actual fun psGetParentSilo(job: Pejob): Pesilo =
     windowssysWindowsWdkSystemSystemservicesPsGetParentSilo(job)
 
-public actual fun psGetPermanentSiloContext(silo: Pesilo, contextslot: UInt, returnedsilocontext: MutPtr<MutPtr<CVoid>>): Ntstatus =
+public actual fun psGetPermanentSiloContext(silo: Pesilo, contextslot: UInt, returnedsilocontext: MutPtr): Ntstatus =
     windowssysWindowsWdkSystemSystemservicesPsGetPermanentSiloContext(silo, contextslot, returnedsilocontext.rawAddress.toCPointer<ByteVar>())
 
 public actual fun psGetProcessCreateTimeQuadPart(process: Peprocess): Long =
@@ -3967,10 +3911,10 @@ public actual fun psGetProcessStartKey(process: Peprocess): ULong =
 public actual fun psGetServerSiloServiceSessionId(silo: Pesilo): UInt =
     windowssysWindowsWdkSystemSystemservicesPsGetServerSiloServiceSessionId(silo)
 
-public actual fun psGetSiloContainerId(silo: Pesilo): MutPtr<Guid> =
+public actual fun psGetSiloContainerId(silo: Pesilo): MutPtr =
     MutPtr(windowssysWindowsWdkSystemSystemservicesPsGetSiloContainerId(silo)?.toLong() ?: 0L)
 
-public actual fun psGetSiloContext(silo: Pesilo, contextslot: UInt, returnedsilocontext: MutPtr<MutPtr<CVoid>>): Ntstatus =
+public actual fun psGetSiloContext(silo: Pesilo, contextslot: UInt, returnedsilocontext: MutPtr): Ntstatus =
     windowssysWindowsWdkSystemSystemservicesPsGetSiloContext(silo, contextslot, returnedsilocontext.rawAddress.toCPointer<ByteVar>())
 
 public actual fun psGetSiloMonitorContextSlot(monitor: PsiloMonitor): UInt =
@@ -3988,19 +3932,19 @@ public actual fun psGetThreadId(thread: Pethread): Handle =
 public actual fun psGetThreadProcessId(thread: Pethread): Handle =
     MutPtr(windowssysWindowsWdkSystemSystemservicesPsGetThreadProcessId(thread)?.toLong() ?: 0L)
 
-public actual fun psGetThreadProperty(thread: Pethread, key: ULong, flags: UInt): MutPtr<CVoid> =
+public actual fun psGetThreadProperty(thread: Pethread, key: ULong, flags: UInt): MutPtr =
     MutPtr(windowssysWindowsWdkSystemSystemservicesPsGetThreadProperty(thread, key, flags)?.toLong() ?: 0L)
 
 public actual fun psGetThreadServerSilo(thread: Pethread): Pesilo =
     windowssysWindowsWdkSystemSystemservicesPsGetThreadServerSilo(thread)
 
-public actual fun psGetVersion(majorversion: MutPtr<UInt>, minorversion: MutPtr<UInt>, buildnumber: MutPtr<UInt>, csdversion: MutPtr<UnicodeString>): Boolean =
+public actual fun psGetVersion(majorversion: MutPtr, minorversion: MutPtr, buildnumber: MutPtr, csdversion: MutPtr): Boolean =
     windowssysWindowsWdkSystemSystemservicesPsGetVersion(majorversion.rawAddress.toCPointer<ByteVar>(), minorversion.rawAddress.toCPointer<ByteVar>(), buildnumber.rawAddress.toCPointer<ByteVar>(), csdversion.rawAddress.toCPointer<ByteVar>())
 
-public actual fun psInsertPermanentSiloContext(silo: Pesilo, contextslot: UInt, silocontext: ConstPtr<CVoid>): Ntstatus =
+public actual fun psInsertPermanentSiloContext(silo: Pesilo, contextslot: UInt, silocontext: ConstPtr): Ntstatus =
     windowssysWindowsWdkSystemSystemservicesPsInsertPermanentSiloContext(silo, contextslot, silocontext.rawAddress.toCPointer<ByteVar>())
 
-public actual fun psInsertSiloContext(silo: Pesilo, contextslot: UInt, silocontext: ConstPtr<CVoid>): Ntstatus =
+public actual fun psInsertSiloContext(silo: Pesilo, contextslot: UInt, silocontext: ConstPtr): Ntstatus =
     windowssysWindowsWdkSystemSystemservicesPsInsertSiloContext(silo, contextslot, silocontext.rawAddress.toCPointer<ByteVar>())
 
 public actual fun psIsCurrentThreadInServerSilo(): Boolean =
@@ -4015,14 +3959,14 @@ public actual fun psIsHostSilo(silo: Pesilo): Boolean =
 public actual fun psMakeSiloContextPermanent(silo: Pesilo, contextslot: UInt): Ntstatus =
     windowssysWindowsWdkSystemSystemservicesPsMakeSiloContextPermanent(silo, contextslot)
 
-public actual fun psQueryTotalCycleTimeProcess(process: Peprocess, cycletimestamp: MutPtr<ULong>): ULong =
+public actual fun psQueryTotalCycleTimeProcess(process: Peprocess, cycletimestamp: MutPtr): ULong =
     windowssysWindowsWdkSystemSystemservicesPsQueryTotalCycleTimeProcess(process, cycletimestamp.rawAddress.toCPointer<ByteVar>())
 
-public actual fun psReferenceSiloContext(silocontext: ConstPtr<CVoid>) {
+public actual fun psReferenceSiloContext(silocontext: ConstPtr) {
     windowssysWindowsWdkSystemSystemservicesPsReferenceSiloContext(silocontext.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun psRegisterSiloMonitor(registration: ConstPtr<SiloMonitorRegistration>, returnedmonitor: MutPtr<PsiloMonitor>): Ntstatus =
+public actual fun psRegisterSiloMonitor(registration: ConstPtr, returnedmonitor: MutPtr): Ntstatus =
     windowssysWindowsWdkSystemSystemservicesPsRegisterSiloMonitor(registration.rawAddress.toCPointer<ByteVar>(), returnedmonitor.rawAddress.toCPointer<ByteVar>())
 
 public actual fun psReleaseSiloHardReference(silo: Pesilo) {
@@ -4035,10 +3979,10 @@ public actual fun psRemoveCreateThreadNotifyRoutine(notifyroutine: PcreateThread
 public actual fun psRemoveLoadImageNotifyRoutine(notifyroutine: PloadImageNotifyRoutine): Ntstatus =
     windowssysWindowsWdkSystemSystemservicesPsRemoveLoadImageNotifyRoutine(0L.toCPointer<ByteVar>())
 
-public actual fun psRemoveSiloContext(silo: Pesilo, contextslot: UInt, removedsilocontext: MutPtr<MutPtr<CVoid>>): Ntstatus =
+public actual fun psRemoveSiloContext(silo: Pesilo, contextslot: UInt, removedsilocontext: MutPtr): Ntstatus =
     windowssysWindowsWdkSystemSystemservicesPsRemoveSiloContext(silo, contextslot, removedsilocontext.rawAddress.toCPointer<ByteVar>())
 
-public actual fun psReplaceSiloContext(silo: Pesilo, contextslot: UInt, newsilocontext: ConstPtr<CVoid>, oldsilocontext: MutPtr<MutPtr<CVoid>>): Ntstatus =
+public actual fun psReplaceSiloContext(silo: Pesilo, contextslot: UInt, newsilocontext: ConstPtr, oldsilocontext: MutPtr): Ntstatus =
     windowssysWindowsWdkSystemSystemservicesPsReplaceSiloContext(silo, contextslot, newsilocontext.rawAddress.toCPointer<ByteVar>(), oldsilocontext.rawAddress.toCPointer<ByteVar>())
 
 public actual fun psRevertToUserMultipleGroupAffinityThread(affinitytoken: PaffinityToken) {
@@ -4051,13 +3995,13 @@ public actual fun psSetCreateProcessNotifyRoutine(notifyroutine: PcreateProcessN
 public actual fun psSetCreateProcessNotifyRoutineEx(notifyroutine: PcreateProcessNotifyRoutineEx, remove: Boolean): Ntstatus =
     windowssysWindowsWdkSystemSystemservicesPsSetCreateProcessNotifyRoutineEx(0L.toCPointer<ByteVar>(), remove)
 
-public actual fun psSetCreateProcessNotifyRoutineEx2(notifytype: Pscreateprocessnotifytype, notifyinformation: ConstPtr<CVoid>, remove: Boolean): Ntstatus =
+public actual fun psSetCreateProcessNotifyRoutineEx2(notifytype: Pscreateprocessnotifytype, notifyinformation: ConstPtr, remove: Boolean): Ntstatus =
     windowssysWindowsWdkSystemSystemservicesPsSetCreateProcessNotifyRoutineEx2(notifytype, notifyinformation.rawAddress.toCPointer<ByteVar>(), remove)
 
 public actual fun psSetCreateThreadNotifyRoutine(notifyroutine: PcreateThreadNotifyRoutine): Ntstatus =
     windowssysWindowsWdkSystemSystemservicesPsSetCreateThreadNotifyRoutine(0L.toCPointer<ByteVar>())
 
-public actual fun psSetCreateThreadNotifyRoutineEx(notifytype: Pscreatethreadnotifytype, notifyinformation: ConstPtr<CVoid>): Ntstatus =
+public actual fun psSetCreateThreadNotifyRoutineEx(notifytype: Pscreatethreadnotifytype, notifyinformation: ConstPtr): Ntstatus =
     windowssysWindowsWdkSystemSystemservicesPsSetCreateThreadNotifyRoutineEx(notifytype, notifyinformation.rawAddress.toCPointer<ByteVar>())
 
 public actual fun psSetCurrentThreadPrefetching(prefetching: Boolean): Boolean =
@@ -4069,7 +4013,7 @@ public actual fun psSetLoadImageNotifyRoutine(notifyroutine: PloadImageNotifyRou
 public actual fun psSetLoadImageNotifyRoutineEx(notifyroutine: PloadImageNotifyRoutine, flags: ULong): Ntstatus =
     windowssysWindowsWdkSystemSystemservicesPsSetLoadImageNotifyRoutineEx(0L.toCPointer<ByteVar>(), flags)
 
-public actual fun psSetSystemMultipleGroupAffinityThread(groupaffinities: ConstPtr<GroupAffinity>, groupcount: UShort, affinitytoken: PaffinityToken): Ntstatus =
+public actual fun psSetSystemMultipleGroupAffinityThread(groupaffinities: ConstPtr, groupcount: UShort, affinitytoken: PaffinityToken): Ntstatus =
     windowssysWindowsWdkSystemSystemservicesPsSetSystemMultipleGroupAffinityThread(groupaffinities.rawAddress.toCPointer<ByteVar>(), groupcount, affinitytoken)
 
 public actual fun psStartSiloMonitor(monitor: PsiloMonitor): Ntstatus =
@@ -4086,94 +4030,94 @@ public actual fun psUnregisterSiloMonitor(monitor: PsiloMonitor) {
     windowssysWindowsWdkSystemSystemservicesPsUnregisterSiloMonitor(monitor)
 }
 
-public actual fun psWrapApcWow64Thread(apccontext: MutPtr<MutPtr<CVoid>>, apcroutine: MutPtr<MutPtr<CVoid>>): Ntstatus =
+public actual fun psWrapApcWow64Thread(apccontext: MutPtr, apcroutine: MutPtr): Ntstatus =
     windowssysWindowsWdkSystemSystemservicesPsWrapApcWow64Thread(apccontext.rawAddress.toCPointer<ByteVar>(), apcroutine.rawAddress.toCPointer<ByteVar>())
 
-public actual fun pshedAllocateMemory(size: UInt): MutPtr<CVoid> =
+public actual fun pshedAllocateMemory(size: UInt): MutPtr =
     MutPtr(windowssysWindowsWdkSystemSystemservicesPshedAllocateMemory(size)?.toLong() ?: 0L)
 
-public actual fun pshedFreeMemory(address: ConstPtr<CVoid>) {
+public actual fun pshedFreeMemory(address: ConstPtr) {
     windowssysWindowsWdkSystemSystemservicesPshedFreeMemory(address.rawAddress.toCPointer<ByteVar>())
 }
 
 public actual fun pshedIsSystemWheaEnabled(): Boolean =
     windowssysWindowsWdkSystemSystemservicesPshedIsSystemWheaEnabled()
 
-public actual fun pshedRegisterPlugin(packet: MutPtr<WheaPshedPluginRegistrationPacketV2>): Ntstatus =
+public actual fun pshedRegisterPlugin(packet: MutPtr): Ntstatus =
     windowssysWindowsWdkSystemSystemservicesPshedRegisterPlugin(packet.rawAddress.toCPointer<ByteVar>())
 
-public actual fun pshedSynchronizeExecution(errorsource: ConstPtr<WheaErrorSourceDescriptor>, synchronizeroutine: PksynchronizeRoutine, synchronizecontext: ConstPtr<CVoid>): Boolean =
+public actual fun pshedSynchronizeExecution(errorsource: ConstPtr, synchronizeroutine: PksynchronizeRoutine, synchronizecontext: ConstPtr): Boolean =
     windowssysWindowsWdkSystemSystemservicesPshedSynchronizeExecution(errorsource.rawAddress.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>(), synchronizecontext.rawAddress.toCPointer<ByteVar>())
 
-public actual fun pshedUnregisterPlugin(pluginhandle: ConstPtr<CVoid>) {
+public actual fun pshedUnregisterPlugin(pluginhandle: ConstPtr) {
     windowssysWindowsWdkSystemSystemservicesPshedUnregisterPlugin(pluginhandle.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun rtlAppendUnicodeStringToString(destination: MutPtr<UnicodeString>, source: ConstPtr<UnicodeString>): Ntstatus =
+public actual fun rtlAppendUnicodeStringToString(destination: MutPtr, source: ConstPtr): Ntstatus =
     windowssysWindowsWdkSystemSystemservicesRtlAppendUnicodeStringToString(destination.rawAddress.toCPointer<ByteVar>(), source.rawAddress.toCPointer<ByteVar>())
 
-public actual fun rtlAppendUnicodeToString(destination: MutPtr<UnicodeString>, source: Pcwstr): Ntstatus =
+public actual fun rtlAppendUnicodeToString(destination: MutPtr, source: Pcwstr): Ntstatus =
     windowssysWindowsWdkSystemSystemservicesRtlAppendUnicodeToString(destination.rawAddress.toCPointer<ByteVar>(), source.rawAddress.toCPointer<ByteVar>())
 
-public actual fun rtlAreBitsClear(bitmapheader: ConstPtr<RtlBitmap>, startingindex: UInt, length: UInt): Boolean =
+public actual fun rtlAreBitsClear(bitmapheader: ConstPtr, startingindex: UInt, length: UInt): Boolean =
     windowssysWindowsWdkSystemSystemservicesRtlAreBitsClear(bitmapheader.rawAddress.toCPointer<ByteVar>(), startingindex, length)
 
-public actual fun rtlAreBitsSet(bitmapheader: ConstPtr<RtlBitmap>, startingindex: UInt, length: UInt): Boolean =
+public actual fun rtlAreBitsSet(bitmapheader: ConstPtr, startingindex: UInt, length: UInt): Boolean =
     windowssysWindowsWdkSystemSystemservicesRtlAreBitsSet(bitmapheader.rawAddress.toCPointer<ByteVar>(), startingindex, length)
 
-public actual fun rtlAssert(voidfailedassertion: ConstPtr<CVoid>, voidfilename: ConstPtr<CVoid>, linenumber: UInt, mutablemessage: Pcstr) {
+public actual fun rtlAssert(voidfailedassertion: ConstPtr, voidfilename: ConstPtr, linenumber: UInt, mutablemessage: Pcstr) {
     windowssysWindowsWdkSystemSystemservicesRtlAssert(voidfailedassertion.rawAddress.toCPointer<ByteVar>(), voidfilename.rawAddress.toCPointer<ByteVar>(), linenumber, mutablemessage.rawAddress.toCPointer<ByteVar>())
 }
 
 public actual fun rtlCheckRegistryKey(relativeto: UInt, path: Pcwstr): Ntstatus =
     windowssysWindowsWdkSystemSystemservicesRtlCheckRegistryKey(relativeto, path.rawAddress.toCPointer<ByteVar>())
 
-public actual fun rtlClearAllBits(bitmapheader: ConstPtr<RtlBitmap>) {
+public actual fun rtlClearAllBits(bitmapheader: ConstPtr) {
     windowssysWindowsWdkSystemSystemservicesRtlClearAllBits(bitmapheader.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun rtlClearBit(bitmapheader: ConstPtr<RtlBitmap>, bitnumber: UInt) {
+public actual fun rtlClearBit(bitmapheader: ConstPtr, bitnumber: UInt) {
     windowssysWindowsWdkSystemSystemservicesRtlClearBit(bitmapheader.rawAddress.toCPointer<ByteVar>(), bitnumber)
 }
 
-public actual fun rtlClearBits(bitmapheader: ConstPtr<RtlBitmap>, startingindex: UInt, numbertoclear: UInt) {
+public actual fun rtlClearBits(bitmapheader: ConstPtr, startingindex: UInt, numbertoclear: UInt) {
     windowssysWindowsWdkSystemSystemservicesRtlClearBits(bitmapheader.rawAddress.toCPointer<ByteVar>(), startingindex, numbertoclear)
 }
 
-public actual fun rtlCmDecodeMemIoResource(descriptor: ConstPtr<CmPartialResourceDescriptor>, start: MutPtr<ULong>): ULong =
+public actual fun rtlCmDecodeMemIoResource(descriptor: ConstPtr, start: MutPtr): ULong =
     windowssysWindowsWdkSystemSystemservicesRtlCmDecodeMemIoResource(descriptor.rawAddress.toCPointer<ByteVar>(), start.rawAddress.toCPointer<ByteVar>())
 
-public actual fun rtlCmEncodeMemIoResource(descriptor: ConstPtr<CmPartialResourceDescriptor>, type: UByte, length: ULong, start: ULong): Ntstatus =
+public actual fun rtlCmEncodeMemIoResource(descriptor: ConstPtr, type: UByte, length: ULong, start: ULong): Ntstatus =
     windowssysWindowsWdkSystemSystemservicesRtlCmEncodeMemIoResource(descriptor.rawAddress.toCPointer<ByteVar>(), type, length, start)
 
-public actual fun rtlCompareString(string1: ConstPtr<io.github.kotlinmania.windowssys.windows.win32.system.kernel.String>, string2: ConstPtr<io.github.kotlinmania.windowssys.windows.win32.system.kernel.String>, caseinsensitive: Boolean): Int =
+public actual fun rtlCompareString(string1: ConstPtr, string2: ConstPtr, caseinsensitive: Boolean): Int =
     windowssysWindowsWdkSystemSystemservicesRtlCompareString(string1.rawAddress.toCPointer<ByteVar>(), string2.rawAddress.toCPointer<ByteVar>(), caseinsensitive)
 
-public actual fun rtlCompareUnicodeString(string1: ConstPtr<UnicodeString>, string2: ConstPtr<UnicodeString>, caseinsensitive: Boolean): Int =
+public actual fun rtlCompareUnicodeString(string1: ConstPtr, string2: ConstPtr, caseinsensitive: Boolean): Int =
     windowssysWindowsWdkSystemSystemservicesRtlCompareUnicodeString(string1.rawAddress.toCPointer<ByteVar>(), string2.rawAddress.toCPointer<ByteVar>(), caseinsensitive)
 
-public actual fun rtlCompareUnicodeStrings(string1: ConstPtr<UShort>, string1length: ULong, string2: ConstPtr<UShort>, string2length: ULong, caseinsensitive: Boolean): Int =
+public actual fun rtlCompareUnicodeStrings(string1: ConstPtr, string1length: ULong, string2: ConstPtr, string2length: ULong, caseinsensitive: Boolean): Int =
     windowssysWindowsWdkSystemSystemservicesRtlCompareUnicodeStrings(string1.rawAddress.toCPointer<ByteVar>(), string1length, string2.rawAddress.toCPointer<ByteVar>(), string2length, caseinsensitive)
 
-public actual fun rtlContractHashTable(hashtable: ConstPtr<RtlDynamicHashTable>): Boolean =
+public actual fun rtlContractHashTable(hashtable: ConstPtr): Boolean =
     windowssysWindowsWdkSystemSystemservicesRtlContractHashTable(hashtable.rawAddress.toCPointer<ByteVar>())
 
-public actual fun rtlCopyBitMap(source: ConstPtr<RtlBitmap>, destination: ConstPtr<RtlBitmap>, targetbit: UInt) {
+public actual fun rtlCopyBitMap(source: ConstPtr, destination: ConstPtr, targetbit: UInt) {
     windowssysWindowsWdkSystemSystemservicesRtlCopyBitMap(source.rawAddress.toCPointer<ByteVar>(), destination.rawAddress.toCPointer<ByteVar>(), targetbit)
 }
 
-public actual fun rtlCopyString(destinationstring: MutPtr<io.github.kotlinmania.windowssys.windows.win32.system.kernel.String>, sourcestring: ConstPtr<io.github.kotlinmania.windowssys.windows.win32.system.kernel.String>) {
+public actual fun rtlCopyString(destinationstring: MutPtr, sourcestring: ConstPtr) {
     windowssysWindowsWdkSystemSystemservicesRtlCopyString(destinationstring.rawAddress.toCPointer<ByteVar>(), sourcestring.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun rtlCopyUnicodeString(destinationstring: MutPtr<UnicodeString>, sourcestring: ConstPtr<UnicodeString>) {
+public actual fun rtlCopyUnicodeString(destinationstring: MutPtr, sourcestring: ConstPtr) {
     windowssysWindowsWdkSystemSystemservicesRtlCopyUnicodeString(destinationstring.rawAddress.toCPointer<ByteVar>(), sourcestring.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun rtlCreateHashTable(hashtable: MutPtr<MutPtr<RtlDynamicHashTable>>, shift: UInt, flags: UInt): Boolean =
+public actual fun rtlCreateHashTable(hashtable: MutPtr, shift: UInt, flags: UInt): Boolean =
     windowssysWindowsWdkSystemSystemservicesRtlCreateHashTable(hashtable.rawAddress.toCPointer<ByteVar>(), shift, flags)
 
-public actual fun rtlCreateHashTableEx(hashtable: MutPtr<MutPtr<RtlDynamicHashTable>>, initialsize: UInt, shift: UInt, flags: UInt): Boolean =
+public actual fun rtlCreateHashTableEx(hashtable: MutPtr, initialsize: UInt, shift: UInt, flags: UInt): Boolean =
     windowssysWindowsWdkSystemSystemservicesRtlCreateHashTableEx(hashtable.rawAddress.toCPointer<ByteVar>(), initialsize, shift, flags)
 
 public actual fun rtlCreateRegistryKey(relativeto: UInt, path: Pcwstr): Ntstatus =
@@ -4182,24 +4126,24 @@ public actual fun rtlCreateRegistryKey(relativeto: UInt, path: Pcwstr): Ntstatus
 public actual fun rtlCreateSecurityDescriptor(securitydescriptor: PsecurityDescriptor, revision: UInt): Ntstatus =
     windowssysWindowsWdkSystemSystemservicesRtlCreateSecurityDescriptor(securitydescriptor.rawAddress.toCPointer<ByteVar>(), revision)
 
-public actual fun rtlDelete(links: ConstPtr<RtlSplayLinks>): MutPtr<RtlSplayLinks> =
+public actual fun rtlDelete(links: ConstPtr): MutPtr =
     MutPtr(windowssysWindowsWdkSystemSystemservicesRtlDelete(links.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun rtlDeleteElementGenericTable(table: ConstPtr<RtlGenericTable>, buffer: ConstPtr<CVoid>): Boolean =
+public actual fun rtlDeleteElementGenericTable(table: ConstPtr, buffer: ConstPtr): Boolean =
     windowssysWindowsWdkSystemSystemservicesRtlDeleteElementGenericTable(table.rawAddress.toCPointer<ByteVar>(), buffer.rawAddress.toCPointer<ByteVar>())
 
-public actual fun rtlDeleteElementGenericTableAvl(table: ConstPtr<RtlAvlTable>, buffer: ConstPtr<CVoid>): Boolean =
+public actual fun rtlDeleteElementGenericTableAvl(table: ConstPtr, buffer: ConstPtr): Boolean =
     windowssysWindowsWdkSystemSystemservicesRtlDeleteElementGenericTableAvl(table.rawAddress.toCPointer<ByteVar>(), buffer.rawAddress.toCPointer<ByteVar>())
 
-public actual fun rtlDeleteElementGenericTableAvlEx(table: ConstPtr<RtlAvlTable>, nodeorparent: ConstPtr<CVoid>) {
+public actual fun rtlDeleteElementGenericTableAvlEx(table: ConstPtr, nodeorparent: ConstPtr) {
     windowssysWindowsWdkSystemSystemservicesRtlDeleteElementGenericTableAvlEx(table.rawAddress.toCPointer<ByteVar>(), nodeorparent.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun rtlDeleteHashTable(hashtable: ConstPtr<RtlDynamicHashTable>) {
+public actual fun rtlDeleteHashTable(hashtable: ConstPtr) {
     windowssysWindowsWdkSystemSystemservicesRtlDeleteHashTable(hashtable.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun rtlDeleteNoSplay(links: ConstPtr<RtlSplayLinks>, root: MutPtr<MutPtr<RtlSplayLinks>>) {
+public actual fun rtlDeleteNoSplay(links: ConstPtr, root: MutPtr) {
     windowssysWindowsWdkSystemSystemservicesRtlDeleteNoSplay(links.rawAddress.toCPointer<ByteVar>(), root.rawAddress.toCPointer<ByteVar>())
 }
 
@@ -4209,197 +4153,197 @@ public actual fun rtlDeleteRegistryValue(relativeto: UInt, path: Pcwstr, valuena
 public actual fun rtlDowncaseUnicodeChar(sourcecharacter: UShort): UShort =
     windowssysWindowsWdkSystemSystemservicesRtlDowncaseUnicodeChar(sourcecharacter)
 
-public actual fun rtlEndEnumerationHashTable(hashtable: ConstPtr<RtlDynamicHashTable>, enumerator: MutPtr<RtlDynamicHashTableEnumerator>) {
+public actual fun rtlEndEnumerationHashTable(hashtable: ConstPtr, enumerator: MutPtr) {
     windowssysWindowsWdkSystemSystemservicesRtlEndEnumerationHashTable(hashtable.rawAddress.toCPointer<ByteVar>(), enumerator.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun rtlEndStrongEnumerationHashTable(hashtable: ConstPtr<RtlDynamicHashTable>, enumerator: MutPtr<RtlDynamicHashTableEnumerator>) {
+public actual fun rtlEndStrongEnumerationHashTable(hashtable: ConstPtr, enumerator: MutPtr) {
     windowssysWindowsWdkSystemSystemservicesRtlEndStrongEnumerationHashTable(hashtable.rawAddress.toCPointer<ByteVar>(), enumerator.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun rtlEndWeakEnumerationHashTable(hashtable: ConstPtr<RtlDynamicHashTable>, enumerator: MutPtr<RtlDynamicHashTableEnumerator>) {
+public actual fun rtlEndWeakEnumerationHashTable(hashtable: ConstPtr, enumerator: MutPtr) {
     windowssysWindowsWdkSystemSystemservicesRtlEndWeakEnumerationHashTable(hashtable.rawAddress.toCPointer<ByteVar>(), enumerator.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun rtlEnumerateEntryHashTable(hashtable: ConstPtr<RtlDynamicHashTable>, enumerator: MutPtr<RtlDynamicHashTableEnumerator>): MutPtr<RtlDynamicHashTableEntry> =
+public actual fun rtlEnumerateEntryHashTable(hashtable: ConstPtr, enumerator: MutPtr): MutPtr =
     MutPtr(windowssysWindowsWdkSystemSystemservicesRtlEnumerateEntryHashTable(hashtable.rawAddress.toCPointer<ByteVar>(), enumerator.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun rtlEnumerateGenericTable(table: ConstPtr<RtlGenericTable>, restart: Boolean): MutPtr<CVoid> =
+public actual fun rtlEnumerateGenericTable(table: ConstPtr, restart: Boolean): MutPtr =
     MutPtr(windowssysWindowsWdkSystemSystemservicesRtlEnumerateGenericTable(table.rawAddress.toCPointer<ByteVar>(), restart)?.toLong() ?: 0L)
 
-public actual fun rtlEnumerateGenericTableAvl(table: ConstPtr<RtlAvlTable>, restart: Boolean): MutPtr<CVoid> =
+public actual fun rtlEnumerateGenericTableAvl(table: ConstPtr, restart: Boolean): MutPtr =
     MutPtr(windowssysWindowsWdkSystemSystemservicesRtlEnumerateGenericTableAvl(table.rawAddress.toCPointer<ByteVar>(), restart)?.toLong() ?: 0L)
 
-public actual fun rtlEnumerateGenericTableLikeADirectory(table: ConstPtr<RtlAvlTable>, matchfunction: PrtlAvlMatchFunction, matchdata: ConstPtr<CVoid>, nextflag: UInt, restartkey: MutPtr<MutPtr<CVoid>>, deletecount: MutPtr<UInt>, buffer: ConstPtr<CVoid>): MutPtr<CVoid> =
+public actual fun rtlEnumerateGenericTableLikeADirectory(table: ConstPtr, matchfunction: PrtlAvlMatchFunction, matchdata: ConstPtr, nextflag: UInt, restartkey: MutPtr, deletecount: MutPtr, buffer: ConstPtr): MutPtr =
     MutPtr(windowssysWindowsWdkSystemSystemservicesRtlEnumerateGenericTableLikeADirectory(table.rawAddress.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>(), matchdata.rawAddress.toCPointer<ByteVar>(), nextflag, restartkey.rawAddress.toCPointer<ByteVar>(), deletecount.rawAddress.toCPointer<ByteVar>(), buffer.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun rtlEnumerateGenericTableWithoutSplaying(table: ConstPtr<RtlGenericTable>, restartkey: MutPtr<MutPtr<CVoid>>): MutPtr<CVoid> =
+public actual fun rtlEnumerateGenericTableWithoutSplaying(table: ConstPtr, restartkey: MutPtr): MutPtr =
     MutPtr(windowssysWindowsWdkSystemSystemservicesRtlEnumerateGenericTableWithoutSplaying(table.rawAddress.toCPointer<ByteVar>(), restartkey.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun rtlEnumerateGenericTableWithoutSplayingAvl(table: ConstPtr<RtlAvlTable>, restartkey: MutPtr<MutPtr<CVoid>>): MutPtr<CVoid> =
+public actual fun rtlEnumerateGenericTableWithoutSplayingAvl(table: ConstPtr, restartkey: MutPtr): MutPtr =
     MutPtr(windowssysWindowsWdkSystemSystemservicesRtlEnumerateGenericTableWithoutSplayingAvl(table.rawAddress.toCPointer<ByteVar>(), restartkey.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun rtlEqualString(string1: ConstPtr<io.github.kotlinmania.windowssys.windows.win32.system.kernel.String>, string2: ConstPtr<io.github.kotlinmania.windowssys.windows.win32.system.kernel.String>, caseinsensitive: Boolean): Boolean =
+public actual fun rtlEqualString(string1: ConstPtr, string2: ConstPtr, caseinsensitive: Boolean): Boolean =
     windowssysWindowsWdkSystemSystemservicesRtlEqualString(string1.rawAddress.toCPointer<ByteVar>(), string2.rawAddress.toCPointer<ByteVar>(), caseinsensitive)
 
-public actual fun rtlEqualUnicodeString(string1: ConstPtr<UnicodeString>, string2: ConstPtr<UnicodeString>, caseinsensitive: Boolean): Boolean =
+public actual fun rtlEqualUnicodeString(string1: ConstPtr, string2: ConstPtr, caseinsensitive: Boolean): Boolean =
     windowssysWindowsWdkSystemSystemservicesRtlEqualUnicodeString(string1.rawAddress.toCPointer<ByteVar>(), string2.rawAddress.toCPointer<ByteVar>(), caseinsensitive)
 
-public actual fun rtlExpandHashTable(hashtable: ConstPtr<RtlDynamicHashTable>): Boolean =
+public actual fun rtlExpandHashTable(hashtable: ConstPtr): Boolean =
     windowssysWindowsWdkSystemSystemservicesRtlExpandHashTable(hashtable.rawAddress.toCPointer<ByteVar>())
 
-public actual fun rtlExtractBitMap(source: ConstPtr<RtlBitmap>, destination: ConstPtr<RtlBitmap>, targetbit: UInt, numberofbits: UInt) {
+public actual fun rtlExtractBitMap(source: ConstPtr, destination: ConstPtr, targetbit: UInt, numberofbits: UInt) {
     windowssysWindowsWdkSystemSystemservicesRtlExtractBitMap(source.rawAddress.toCPointer<ByteVar>(), destination.rawAddress.toCPointer<ByteVar>(), targetbit, numberofbits)
 }
 
-public actual fun rtlFindClearBits(bitmapheader: ConstPtr<RtlBitmap>, numbertofind: UInt, hintindex: UInt): UInt =
+public actual fun rtlFindClearBits(bitmapheader: ConstPtr, numbertofind: UInt, hintindex: UInt): UInt =
     windowssysWindowsWdkSystemSystemservicesRtlFindClearBits(bitmapheader.rawAddress.toCPointer<ByteVar>(), numbertofind, hintindex)
 
-public actual fun rtlFindClearBitsAndSet(bitmapheader: ConstPtr<RtlBitmap>, numbertofind: UInt, hintindex: UInt): UInt =
+public actual fun rtlFindClearBitsAndSet(bitmapheader: ConstPtr, numbertofind: UInt, hintindex: UInt): UInt =
     windowssysWindowsWdkSystemSystemservicesRtlFindClearBitsAndSet(bitmapheader.rawAddress.toCPointer<ByteVar>(), numbertofind, hintindex)
 
-public actual fun rtlFindClearRuns(bitmapheader: ConstPtr<RtlBitmap>, runarray: MutPtr<RtlBitmapRun>, sizeofrunarray: UInt, locatelongestruns: Boolean): UInt =
+public actual fun rtlFindClearRuns(bitmapheader: ConstPtr, runarray: MutPtr, sizeofrunarray: UInt, locatelongestruns: Boolean): UInt =
     windowssysWindowsWdkSystemSystemservicesRtlFindClearRuns(bitmapheader.rawAddress.toCPointer<ByteVar>(), runarray.rawAddress.toCPointer<ByteVar>(), sizeofrunarray, locatelongestruns)
 
-public actual fun rtlFindClosestEncodableLength(sourcelength: ULong, targetlength: MutPtr<ULong>): Ntstatus =
+public actual fun rtlFindClosestEncodableLength(sourcelength: ULong, targetlength: MutPtr): Ntstatus =
     windowssysWindowsWdkSystemSystemservicesRtlFindClosestEncodableLength(sourcelength, targetlength.rawAddress.toCPointer<ByteVar>())
 
-public actual fun rtlFindFirstRunClear(bitmapheader: ConstPtr<RtlBitmap>, startingindex: MutPtr<UInt>): UInt =
+public actual fun rtlFindFirstRunClear(bitmapheader: ConstPtr, startingindex: MutPtr): UInt =
     windowssysWindowsWdkSystemSystemservicesRtlFindFirstRunClear(bitmapheader.rawAddress.toCPointer<ByteVar>(), startingindex.rawAddress.toCPointer<ByteVar>())
 
-public actual fun rtlFindLastBackwardRunClear(bitmapheader: ConstPtr<RtlBitmap>, fromindex: UInt, startingrunindex: MutPtr<UInt>): UInt =
+public actual fun rtlFindLastBackwardRunClear(bitmapheader: ConstPtr, fromindex: UInt, startingrunindex: MutPtr): UInt =
     windowssysWindowsWdkSystemSystemservicesRtlFindLastBackwardRunClear(bitmapheader.rawAddress.toCPointer<ByteVar>(), fromindex, startingrunindex.rawAddress.toCPointer<ByteVar>())
 
 public actual fun rtlFindLeastSignificantBit(set: ULong): Byte =
     windowssysWindowsWdkSystemSystemservicesRtlFindLeastSignificantBit(set)
 
-public actual fun rtlFindLongestRunClear(bitmapheader: ConstPtr<RtlBitmap>, startingindex: MutPtr<UInt>): UInt =
+public actual fun rtlFindLongestRunClear(bitmapheader: ConstPtr, startingindex: MutPtr): UInt =
     windowssysWindowsWdkSystemSystemservicesRtlFindLongestRunClear(bitmapheader.rawAddress.toCPointer<ByteVar>(), startingindex.rawAddress.toCPointer<ByteVar>())
 
 public actual fun rtlFindMostSignificantBit(set: ULong): Byte =
     windowssysWindowsWdkSystemSystemservicesRtlFindMostSignificantBit(set)
 
-public actual fun rtlFindNextForwardRunClear(bitmapheader: ConstPtr<RtlBitmap>, fromindex: UInt, startingrunindex: MutPtr<UInt>): UInt =
+public actual fun rtlFindNextForwardRunClear(bitmapheader: ConstPtr, fromindex: UInt, startingrunindex: MutPtr): UInt =
     windowssysWindowsWdkSystemSystemservicesRtlFindNextForwardRunClear(bitmapheader.rawAddress.toCPointer<ByteVar>(), fromindex, startingrunindex.rawAddress.toCPointer<ByteVar>())
 
-public actual fun rtlFindSetBits(bitmapheader: ConstPtr<RtlBitmap>, numbertofind: UInt, hintindex: UInt): UInt =
+public actual fun rtlFindSetBits(bitmapheader: ConstPtr, numbertofind: UInt, hintindex: UInt): UInt =
     windowssysWindowsWdkSystemSystemservicesRtlFindSetBits(bitmapheader.rawAddress.toCPointer<ByteVar>(), numbertofind, hintindex)
 
-public actual fun rtlFindSetBitsAndClear(bitmapheader: ConstPtr<RtlBitmap>, numbertofind: UInt, hintindex: UInt): UInt =
+public actual fun rtlFindSetBitsAndClear(bitmapheader: ConstPtr, numbertofind: UInt, hintindex: UInt): UInt =
     windowssysWindowsWdkSystemSystemservicesRtlFindSetBitsAndClear(bitmapheader.rawAddress.toCPointer<ByteVar>(), numbertofind, hintindex)
 
-public actual fun rtlFreeUTF8String(utf8string: MutPtr<io.github.kotlinmania.windowssys.windows.win32.system.kernel.String>) {
+public actual fun rtlFreeUTF8String(utf8string: MutPtr) {
     windowssysWindowsWdkSystemSystemservicesRtlFreeUTF8String(utf8string.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun rtlGUIDFromString(guidstring: ConstPtr<UnicodeString>, guid: MutPtr<Guid>): Ntstatus =
+public actual fun rtlGUIDFromString(guidstring: ConstPtr, guid: MutPtr): Ntstatus =
     windowssysWindowsWdkSystemSystemservicesRtlGUIDFromString(guidstring.rawAddress.toCPointer<ByteVar>(), guid.rawAddress.toCPointer<ByteVar>())
 
-public actual fun rtlGenerateClass5Guid(namespaceguid: ConstPtr<Guid>, buffer: ConstPtr<CVoid>, buffersize: UInt, guid: MutPtr<Guid>): Ntstatus =
+public actual fun rtlGenerateClass5Guid(namespaceguid: ConstPtr, buffer: ConstPtr, buffersize: UInt, guid: MutPtr): Ntstatus =
     windowssysWindowsWdkSystemSystemservicesRtlGenerateClass5Guid(namespaceguid.rawAddress.toCPointer<ByteVar>(), buffer.rawAddress.toCPointer<ByteVar>(), buffersize, guid.rawAddress.toCPointer<ByteVar>())
 
 public actual fun rtlGetActiveConsoleId(): UInt =
     windowssysWindowsWdkSystemSystemservicesRtlGetActiveConsoleId()
 
-public actual fun rtlGetCallersAddress(callersaddress: MutPtr<MutPtr<CVoid>>, callerscaller: MutPtr<MutPtr<CVoid>>) {
+public actual fun rtlGetCallersAddress(callersaddress: MutPtr, callerscaller: MutPtr) {
     windowssysWindowsWdkSystemSystemservicesRtlGetCallersAddress(callersaddress.rawAddress.toCPointer<ByteVar>(), callerscaller.rawAddress.toCPointer<ByteVar>())
 }
 
 public actual fun rtlGetConsoleSessionForegroundProcessId(): ULong =
     windowssysWindowsWdkSystemSystemservicesRtlGetConsoleSessionForegroundProcessId()
 
-public actual fun rtlGetElementGenericTable(table: ConstPtr<RtlGenericTable>, i: UInt): MutPtr<CVoid> =
+public actual fun rtlGetElementGenericTable(table: ConstPtr, i: UInt): MutPtr =
     MutPtr(windowssysWindowsWdkSystemSystemservicesRtlGetElementGenericTable(table.rawAddress.toCPointer<ByteVar>(), i)?.toLong() ?: 0L)
 
-public actual fun rtlGetElementGenericTableAvl(table: ConstPtr<RtlAvlTable>, i: UInt): MutPtr<CVoid> =
+public actual fun rtlGetElementGenericTableAvl(table: ConstPtr, i: UInt): MutPtr =
     MutPtr(windowssysWindowsWdkSystemSystemservicesRtlGetElementGenericTableAvl(table.rawAddress.toCPointer<ByteVar>(), i)?.toLong() ?: 0L)
 
 public actual fun rtlGetEnabledExtendedFeatures(featuremask: ULong): ULong =
     windowssysWindowsWdkSystemSystemservicesRtlGetEnabledExtendedFeatures(featuremask)
 
-public actual fun rtlGetNextEntryHashTable(hashtable: ConstPtr<RtlDynamicHashTable>, context: ConstPtr<RtlDynamicHashTableContext>): MutPtr<RtlDynamicHashTableEntry> =
+public actual fun rtlGetNextEntryHashTable(hashtable: ConstPtr, context: ConstPtr): MutPtr =
     MutPtr(windowssysWindowsWdkSystemSystemservicesRtlGetNextEntryHashTable(hashtable.rawAddress.toCPointer<ByteVar>(), context.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun rtlGetNtProductType(ntproducttype: MutPtr<NtProductType>): Boolean =
+public actual fun rtlGetNtProductType(ntproducttype: MutPtr): Boolean =
     windowssysWindowsWdkSystemSystemservicesRtlGetNtProductType(ntproducttype.rawAddress.toCPointer<ByteVar>())
 
 public actual fun rtlGetNtSystemRoot(): Pcwstr =
     ConstPtr(windowssysWindowsWdkSystemSystemservicesRtlGetNtSystemRoot()?.toLong() ?: 0L)
 
-public actual fun rtlGetPersistedStateLocation(sourceid: Pcwstr, customvalue: Pcwstr, defaultpath: Pcwstr, statelocationtype: StateLocationType, targetpath: Pwstr, bufferlengthin: UInt, bufferlengthout: MutPtr<UInt>): Ntstatus =
+public actual fun rtlGetPersistedStateLocation(sourceid: Pcwstr, customvalue: Pcwstr, defaultpath: Pcwstr, statelocationtype: StateLocationType, targetpath: Pwstr, bufferlengthin: UInt, bufferlengthout: MutPtr): Ntstatus =
     windowssysWindowsWdkSystemSystemservicesRtlGetPersistedStateLocation(sourceid.rawAddress.toCPointer<ByteVar>(), customvalue.rawAddress.toCPointer<ByteVar>(), defaultpath.rawAddress.toCPointer<ByteVar>(), statelocationtype, targetpath.rawAddress.toCPointer<ByteVar>(), bufferlengthin, bufferlengthout.rawAddress.toCPointer<ByteVar>())
 
 public actual fun rtlGetSuiteMask(): UInt =
     windowssysWindowsWdkSystemSystemservicesRtlGetSuiteMask()
 
-public actual fun rtlGetVersion(lpversioninformation: MutPtr<Osversioninfow>): Ntstatus =
+public actual fun rtlGetVersion(lpversioninformation: MutPtr): Ntstatus =
     windowssysWindowsWdkSystemSystemservicesRtlGetVersion(lpversioninformation.rawAddress.toCPointer<ByteVar>())
 
-public actual fun rtlHashUnicodeString(string: ConstPtr<UnicodeString>, caseinsensitive: Boolean, hashalgorithm: UInt, hashvalue: MutPtr<UInt>): Ntstatus =
+public actual fun rtlHashUnicodeString(string: ConstPtr, caseinsensitive: Boolean, hashalgorithm: UInt, hashvalue: MutPtr): Ntstatus =
     windowssysWindowsWdkSystemSystemservicesRtlHashUnicodeString(string.rawAddress.toCPointer<ByteVar>(), caseinsensitive, hashalgorithm, hashvalue.rawAddress.toCPointer<ByteVar>())
 
-public actual fun rtlInitEnumerationHashTable(hashtable: ConstPtr<RtlDynamicHashTable>, enumerator: MutPtr<RtlDynamicHashTableEnumerator>): Boolean =
+public actual fun rtlInitEnumerationHashTable(hashtable: ConstPtr, enumerator: MutPtr): Boolean =
     windowssysWindowsWdkSystemSystemservicesRtlInitEnumerationHashTable(hashtable.rawAddress.toCPointer<ByteVar>(), enumerator.rawAddress.toCPointer<ByteVar>())
 
-public actual fun rtlInitStrongEnumerationHashTable(hashtable: ConstPtr<RtlDynamicHashTable>, enumerator: MutPtr<RtlDynamicHashTableEnumerator>): Boolean =
+public actual fun rtlInitStrongEnumerationHashTable(hashtable: ConstPtr, enumerator: MutPtr): Boolean =
     windowssysWindowsWdkSystemSystemservicesRtlInitStrongEnumerationHashTable(hashtable.rawAddress.toCPointer<ByteVar>(), enumerator.rawAddress.toCPointer<ByteVar>())
 
-public actual fun rtlInitUTF8String(destinationstring: MutPtr<io.github.kotlinmania.windowssys.windows.win32.system.kernel.String>, sourcestring: ConstPtr<Byte>) {
+public actual fun rtlInitUTF8String(destinationstring: MutPtr, sourcestring: ConstPtr) {
     windowssysWindowsWdkSystemSystemservicesRtlInitUTF8String(destinationstring.rawAddress.toCPointer<ByteVar>(), sourcestring.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun rtlInitUTF8StringEx(destinationstring: MutPtr<io.github.kotlinmania.windowssys.windows.win32.system.kernel.String>, sourcestring: ConstPtr<Byte>): Ntstatus =
+public actual fun rtlInitUTF8StringEx(destinationstring: MutPtr, sourcestring: ConstPtr): Ntstatus =
     windowssysWindowsWdkSystemSystemservicesRtlInitUTF8StringEx(destinationstring.rawAddress.toCPointer<ByteVar>(), sourcestring.rawAddress.toCPointer<ByteVar>())
 
-public actual fun rtlInitWeakEnumerationHashTable(hashtable: ConstPtr<RtlDynamicHashTable>, enumerator: MutPtr<RtlDynamicHashTableEnumerator>): Boolean =
+public actual fun rtlInitWeakEnumerationHashTable(hashtable: ConstPtr, enumerator: MutPtr): Boolean =
     windowssysWindowsWdkSystemSystemservicesRtlInitWeakEnumerationHashTable(hashtable.rawAddress.toCPointer<ByteVar>(), enumerator.rawAddress.toCPointer<ByteVar>())
 
-public actual fun rtlInitializeBitMap(bitmapheader: MutPtr<RtlBitmap>, bitmapbuffer: ConstPtr<UInt>, sizeofbitmap: UInt) {
+public actual fun rtlInitializeBitMap(bitmapheader: MutPtr, bitmapbuffer: ConstPtr, sizeofbitmap: UInt) {
     windowssysWindowsWdkSystemSystemservicesRtlInitializeBitMap(bitmapheader.rawAddress.toCPointer<ByteVar>(), bitmapbuffer.rawAddress.toCPointer<ByteVar>(), sizeofbitmap)
 }
 
-public actual fun rtlInitializeGenericTable(table: MutPtr<RtlGenericTable>, compareroutine: PrtlGenericCompareRoutine, allocateroutine: PrtlGenericAllocateRoutine, freeroutine: PrtlGenericFreeRoutine, tablecontext: ConstPtr<CVoid>) {
+public actual fun rtlInitializeGenericTable(table: MutPtr, compareroutine: PrtlGenericCompareRoutine, allocateroutine: PrtlGenericAllocateRoutine, freeroutine: PrtlGenericFreeRoutine, tablecontext: ConstPtr) {
     windowssysWindowsWdkSystemSystemservicesRtlInitializeGenericTable(table.rawAddress.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>(), tablecontext.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun rtlInitializeGenericTableAvl(table: MutPtr<RtlAvlTable>, compareroutine: PrtlAvlCompareRoutine, allocateroutine: PrtlAvlAllocateRoutine, freeroutine: PrtlAvlFreeRoutine, tablecontext: ConstPtr<CVoid>) {
+public actual fun rtlInitializeGenericTableAvl(table: MutPtr, compareroutine: PrtlAvlCompareRoutine, allocateroutine: PrtlAvlAllocateRoutine, freeroutine: PrtlAvlFreeRoutine, tablecontext: ConstPtr) {
     windowssysWindowsWdkSystemSystemservicesRtlInitializeGenericTableAvl(table.rawAddress.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>(), tablecontext.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun rtlInsertElementGenericTable(table: ConstPtr<RtlGenericTable>, buffer: ConstPtr<CVoid>, buffersize: UInt, newelement: MutPtr<Boolean>): MutPtr<CVoid> =
+public actual fun rtlInsertElementGenericTable(table: ConstPtr, buffer: ConstPtr, buffersize: UInt, newelement: MutPtr): MutPtr =
     MutPtr(windowssysWindowsWdkSystemSystemservicesRtlInsertElementGenericTable(table.rawAddress.toCPointer<ByteVar>(), buffer.rawAddress.toCPointer<ByteVar>(), buffersize, newelement.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun rtlInsertElementGenericTableAvl(table: ConstPtr<RtlAvlTable>, buffer: ConstPtr<CVoid>, buffersize: UInt, newelement: MutPtr<Boolean>): MutPtr<CVoid> =
+public actual fun rtlInsertElementGenericTableAvl(table: ConstPtr, buffer: ConstPtr, buffersize: UInt, newelement: MutPtr): MutPtr =
     MutPtr(windowssysWindowsWdkSystemSystemservicesRtlInsertElementGenericTableAvl(table.rawAddress.toCPointer<ByteVar>(), buffer.rawAddress.toCPointer<ByteVar>(), buffersize, newelement.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun rtlInsertElementGenericTableFull(table: ConstPtr<RtlGenericTable>, buffer: ConstPtr<CVoid>, buffersize: UInt, newelement: MutPtr<Boolean>, nodeorparent: ConstPtr<CVoid>, searchresult: TableSearchResult): MutPtr<CVoid> =
+public actual fun rtlInsertElementGenericTableFull(table: ConstPtr, buffer: ConstPtr, buffersize: UInt, newelement: MutPtr, nodeorparent: ConstPtr, searchresult: TableSearchResult): MutPtr =
     MutPtr(windowssysWindowsWdkSystemSystemservicesRtlInsertElementGenericTableFull(table.rawAddress.toCPointer<ByteVar>(), buffer.rawAddress.toCPointer<ByteVar>(), buffersize, newelement.rawAddress.toCPointer<ByteVar>(), nodeorparent.rawAddress.toCPointer<ByteVar>(), searchresult)?.toLong() ?: 0L)
 
-public actual fun rtlInsertElementGenericTableFullAvl(table: ConstPtr<RtlAvlTable>, buffer: ConstPtr<CVoid>, buffersize: UInt, newelement: MutPtr<Boolean>, nodeorparent: ConstPtr<CVoid>, searchresult: TableSearchResult): MutPtr<CVoid> =
+public actual fun rtlInsertElementGenericTableFullAvl(table: ConstPtr, buffer: ConstPtr, buffersize: UInt, newelement: MutPtr, nodeorparent: ConstPtr, searchresult: TableSearchResult): MutPtr =
     MutPtr(windowssysWindowsWdkSystemSystemservicesRtlInsertElementGenericTableFullAvl(table.rawAddress.toCPointer<ByteVar>(), buffer.rawAddress.toCPointer<ByteVar>(), buffersize, newelement.rawAddress.toCPointer<ByteVar>(), nodeorparent.rawAddress.toCPointer<ByteVar>(), searchresult)?.toLong() ?: 0L)
 
-public actual fun rtlInsertEntryHashTable(hashtable: ConstPtr<RtlDynamicHashTable>, entry: ConstPtr<RtlDynamicHashTableEntry>, signature: ULong, context: MutPtr<RtlDynamicHashTableContext>): Boolean =
+public actual fun rtlInsertEntryHashTable(hashtable: ConstPtr, entry: ConstPtr, signature: ULong, context: MutPtr): Boolean =
     windowssysWindowsWdkSystemSystemservicesRtlInsertEntryHashTable(hashtable.rawAddress.toCPointer<ByteVar>(), entry.rawAddress.toCPointer<ByteVar>(), signature, context.rawAddress.toCPointer<ByteVar>())
 
-public actual fun rtlInt64ToUnicodeString(value: ULong, base: UInt, string: MutPtr<UnicodeString>): Ntstatus =
+public actual fun rtlInt64ToUnicodeString(value: ULong, base: UInt, string: MutPtr): Ntstatus =
     windowssysWindowsWdkSystemSystemservicesRtlInt64ToUnicodeString(value, base, string.rawAddress.toCPointer<ByteVar>())
 
-public actual fun rtlIntegerToUnicodeString(value: UInt, base: UInt, string: MutPtr<UnicodeString>): Ntstatus =
+public actual fun rtlIntegerToUnicodeString(value: UInt, base: UInt, string: MutPtr): Ntstatus =
     windowssysWindowsWdkSystemSystemservicesRtlIntegerToUnicodeString(value, base, string.rawAddress.toCPointer<ByteVar>())
 
-public actual fun rtlIoDecodeMemIoResource(descriptor: ConstPtr<IoResourceDescriptor>, alignment: MutPtr<ULong>, minimumaddress: MutPtr<ULong>, maximumaddress: MutPtr<ULong>): ULong =
+public actual fun rtlIoDecodeMemIoResource(descriptor: ConstPtr, alignment: MutPtr, minimumaddress: MutPtr, maximumaddress: MutPtr): ULong =
     windowssysWindowsWdkSystemSystemservicesRtlIoDecodeMemIoResource(descriptor.rawAddress.toCPointer<ByteVar>(), alignment.rawAddress.toCPointer<ByteVar>(), minimumaddress.rawAddress.toCPointer<ByteVar>(), maximumaddress.rawAddress.toCPointer<ByteVar>())
 
-public actual fun rtlIoEncodeMemIoResource(descriptor: ConstPtr<IoResourceDescriptor>, type: UByte, length: ULong, alignment: ULong, minimumaddress: ULong, maximumaddress: ULong): Ntstatus =
+public actual fun rtlIoEncodeMemIoResource(descriptor: ConstPtr, type: UByte, length: ULong, alignment: ULong, minimumaddress: ULong, maximumaddress: ULong): Ntstatus =
     windowssysWindowsWdkSystemSystemservicesRtlIoEncodeMemIoResource(descriptor.rawAddress.toCPointer<ByteVar>(), type, length, alignment, minimumaddress, maximumaddress)
 
 public actual fun rtlIsApiSetImplemented(apisetname: Pcstr): Ntstatus =
     windowssysWindowsWdkSystemSystemservicesRtlIsApiSetImplemented(apisetname.rawAddress.toCPointer<ByteVar>())
 
-public actual fun rtlIsGenericTableEmpty(table: ConstPtr<RtlGenericTable>): Boolean =
+public actual fun rtlIsGenericTableEmpty(table: ConstPtr): Boolean =
     windowssysWindowsWdkSystemSystemservicesRtlIsGenericTableEmpty(table.rawAddress.toCPointer<ByteVar>())
 
-public actual fun rtlIsGenericTableEmptyAvl(table: ConstPtr<RtlAvlTable>): Boolean =
+public actual fun rtlIsGenericTableEmptyAvl(table: ConstPtr): Boolean =
     windowssysWindowsWdkSystemSystemservicesRtlIsGenericTableEmptyAvl(table.rawAddress.toCPointer<ByteVar>())
 
 public actual fun rtlIsMultiSessionSku(): Boolean =
@@ -4417,170 +4361,170 @@ public actual fun rtlIsServicePackVersionInstalled(version: UInt): Boolean =
 public actual fun rtlIsStateSeparationEnabled(): Boolean =
     windowssysWindowsWdkSystemSystemservicesRtlIsStateSeparationEnabled()
 
-public actual fun rtlIsUntrustedObject(handle: Handle, obj: ConstPtr<CVoid>, untrustedobject: MutPtr<Boolean>): Ntstatus =
+public actual fun rtlIsUntrustedObject(handle: Handle, obj: ConstPtr, untrustedobject: MutPtr): Ntstatus =
     windowssysWindowsWdkSystemSystemservicesRtlIsUntrustedObject(handle.rawAddress.toCPointer<ByteVar>(), obj.rawAddress.toCPointer<ByteVar>(), untrustedobject.rawAddress.toCPointer<ByteVar>())
 
 public actual fun rtlLengthSecurityDescriptor(securitydescriptor: PsecurityDescriptor): UInt =
     windowssysWindowsWdkSystemSystemservicesRtlLengthSecurityDescriptor(securitydescriptor.rawAddress.toCPointer<ByteVar>())
 
-public actual fun rtlLookupElementGenericTable(table: ConstPtr<RtlGenericTable>, buffer: ConstPtr<CVoid>): MutPtr<CVoid> =
+public actual fun rtlLookupElementGenericTable(table: ConstPtr, buffer: ConstPtr): MutPtr =
     MutPtr(windowssysWindowsWdkSystemSystemservicesRtlLookupElementGenericTable(table.rawAddress.toCPointer<ByteVar>(), buffer.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun rtlLookupElementGenericTableAvl(table: ConstPtr<RtlAvlTable>, buffer: ConstPtr<CVoid>): MutPtr<CVoid> =
+public actual fun rtlLookupElementGenericTableAvl(table: ConstPtr, buffer: ConstPtr): MutPtr =
     MutPtr(windowssysWindowsWdkSystemSystemservicesRtlLookupElementGenericTableAvl(table.rawAddress.toCPointer<ByteVar>(), buffer.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun rtlLookupElementGenericTableFull(table: ConstPtr<RtlGenericTable>, buffer: ConstPtr<CVoid>, nodeorparent: MutPtr<MutPtr<CVoid>>, searchresult: MutPtr<TableSearchResult>): MutPtr<CVoid> =
+public actual fun rtlLookupElementGenericTableFull(table: ConstPtr, buffer: ConstPtr, nodeorparent: MutPtr, searchresult: MutPtr): MutPtr =
     MutPtr(windowssysWindowsWdkSystemSystemservicesRtlLookupElementGenericTableFull(table.rawAddress.toCPointer<ByteVar>(), buffer.rawAddress.toCPointer<ByteVar>(), nodeorparent.rawAddress.toCPointer<ByteVar>(), searchresult.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun rtlLookupElementGenericTableFullAvl(table: ConstPtr<RtlAvlTable>, buffer: ConstPtr<CVoid>, nodeorparent: MutPtr<MutPtr<CVoid>>, searchresult: MutPtr<TableSearchResult>): MutPtr<CVoid> =
+public actual fun rtlLookupElementGenericTableFullAvl(table: ConstPtr, buffer: ConstPtr, nodeorparent: MutPtr, searchresult: MutPtr): MutPtr =
     MutPtr(windowssysWindowsWdkSystemSystemservicesRtlLookupElementGenericTableFullAvl(table.rawAddress.toCPointer<ByteVar>(), buffer.rawAddress.toCPointer<ByteVar>(), nodeorparent.rawAddress.toCPointer<ByteVar>(), searchresult.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun rtlLookupEntryHashTable(hashtable: ConstPtr<RtlDynamicHashTable>, signature: ULong, context: MutPtr<RtlDynamicHashTableContext>): MutPtr<RtlDynamicHashTableEntry> =
+public actual fun rtlLookupEntryHashTable(hashtable: ConstPtr, signature: ULong, context: MutPtr): MutPtr =
     MutPtr(windowssysWindowsWdkSystemSystemservicesRtlLookupEntryHashTable(hashtable.rawAddress.toCPointer<ByteVar>(), signature, context.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun rtlLookupFirstMatchingElementGenericTableAvl(table: ConstPtr<RtlAvlTable>, buffer: ConstPtr<CVoid>, restartkey: MutPtr<MutPtr<CVoid>>): MutPtr<CVoid> =
+public actual fun rtlLookupFirstMatchingElementGenericTableAvl(table: ConstPtr, buffer: ConstPtr, restartkey: MutPtr): MutPtr =
     MutPtr(windowssysWindowsWdkSystemSystemservicesRtlLookupFirstMatchingElementGenericTableAvl(table.rawAddress.toCPointer<ByteVar>(), buffer.rawAddress.toCPointer<ByteVar>(), restartkey.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun rtlMapGenericMask(accessmask: MutPtr<UInt>, genericmapping: ConstPtr<GenericMapping>) {
+public actual fun rtlMapGenericMask(accessmask: MutPtr, genericmapping: ConstPtr) {
     windowssysWindowsWdkSystemSystemservicesRtlMapGenericMask(accessmask.rawAddress.toCPointer<ByteVar>(), genericmapping.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun rtlNormalizeSecurityDescriptor(securitydescriptor: MutPtr<PsecurityDescriptor>, securitydescriptorlength: UInt, newsecuritydescriptor: MutPtr<PsecurityDescriptor>, newsecuritydescriptorlength: MutPtr<UInt>, checkonly: Boolean): Boolean =
+public actual fun rtlNormalizeSecurityDescriptor(securitydescriptor: MutPtr, securitydescriptorlength: UInt, newsecuritydescriptor: MutPtr, newsecuritydescriptorlength: MutPtr, checkonly: Boolean): Boolean =
     windowssysWindowsWdkSystemSystemservicesRtlNormalizeSecurityDescriptor(securitydescriptor.rawAddress.toCPointer<ByteVar>(), securitydescriptorlength, newsecuritydescriptor.rawAddress.toCPointer<ByteVar>(), newsecuritydescriptorlength.rawAddress.toCPointer<ByteVar>(), checkonly)
 
-public actual fun rtlNumberGenericTableElements(table: ConstPtr<RtlGenericTable>): UInt =
+public actual fun rtlNumberGenericTableElements(table: ConstPtr): UInt =
     windowssysWindowsWdkSystemSystemservicesRtlNumberGenericTableElements(table.rawAddress.toCPointer<ByteVar>())
 
-public actual fun rtlNumberGenericTableElementsAvl(table: ConstPtr<RtlAvlTable>): UInt =
+public actual fun rtlNumberGenericTableElementsAvl(table: ConstPtr): UInt =
     windowssysWindowsWdkSystemSystemservicesRtlNumberGenericTableElementsAvl(table.rawAddress.toCPointer<ByteVar>())
 
-public actual fun rtlNumberOfClearBits(bitmapheader: ConstPtr<RtlBitmap>): UInt =
+public actual fun rtlNumberOfClearBits(bitmapheader: ConstPtr): UInt =
     windowssysWindowsWdkSystemSystemservicesRtlNumberOfClearBits(bitmapheader.rawAddress.toCPointer<ByteVar>())
 
-public actual fun rtlNumberOfClearBitsInRange(bitmapheader: ConstPtr<RtlBitmap>, startingindex: UInt, length: UInt): UInt =
+public actual fun rtlNumberOfClearBitsInRange(bitmapheader: ConstPtr, startingindex: UInt, length: UInt): UInt =
     windowssysWindowsWdkSystemSystemservicesRtlNumberOfClearBitsInRange(bitmapheader.rawAddress.toCPointer<ByteVar>(), startingindex, length)
 
-public actual fun rtlNumberOfSetBits(bitmapheader: ConstPtr<RtlBitmap>): UInt =
+public actual fun rtlNumberOfSetBits(bitmapheader: ConstPtr): UInt =
     windowssysWindowsWdkSystemSystemservicesRtlNumberOfSetBits(bitmapheader.rawAddress.toCPointer<ByteVar>())
 
-public actual fun rtlNumberOfSetBitsInRange(bitmapheader: ConstPtr<RtlBitmap>, startingindex: UInt, length: UInt): UInt =
+public actual fun rtlNumberOfSetBitsInRange(bitmapheader: ConstPtr, startingindex: UInt, length: UInt): UInt =
     windowssysWindowsWdkSystemSystemservicesRtlNumberOfSetBitsInRange(bitmapheader.rawAddress.toCPointer<ByteVar>(), startingindex, length)
 
 public actual fun rtlNumberOfSetBitsUlongPtr(target: ULong): UInt =
     windowssysWindowsWdkSystemSystemservicesRtlNumberOfSetBitsUlongPtr(target)
 
-public actual fun rtlPrefetchMemoryNonTemporal(source: ConstPtr<CVoid>, length: ULong) {
+public actual fun rtlPrefetchMemoryNonTemporal(source: ConstPtr, length: ULong) {
     windowssysWindowsWdkSystemSystemservicesRtlPrefetchMemoryNonTemporal(source.rawAddress.toCPointer<ByteVar>(), length)
 }
 
-public actual fun rtlPrefixUnicodeString(string1: ConstPtr<UnicodeString>, string2: ConstPtr<UnicodeString>, caseinsensitive: Boolean): Boolean =
+public actual fun rtlPrefixUnicodeString(string1: ConstPtr, string2: ConstPtr, caseinsensitive: Boolean): Boolean =
     windowssysWindowsWdkSystemSystemservicesRtlPrefixUnicodeString(string1.rawAddress.toCPointer<ByteVar>(), string2.rawAddress.toCPointer<ByteVar>(), caseinsensitive)
 
-public actual fun rtlQueryRegistryValueWithFallback(primaryhandle: Handle, fallbackhandle: Handle, valuename: ConstPtr<UnicodeString>, valuelength: UInt, valuetype: MutPtr<UInt>, valuedata: MutPtr<CVoid>, resultlength: MutPtr<UInt>): Ntstatus =
+public actual fun rtlQueryRegistryValueWithFallback(primaryhandle: Handle, fallbackhandle: Handle, valuename: ConstPtr, valuelength: UInt, valuetype: MutPtr, valuedata: MutPtr, resultlength: MutPtr): Ntstatus =
     windowssysWindowsWdkSystemSystemservicesRtlQueryRegistryValueWithFallback(primaryhandle.rawAddress.toCPointer<ByteVar>(), fallbackhandle.rawAddress.toCPointer<ByteVar>(), valuename.rawAddress.toCPointer<ByteVar>(), valuelength, valuetype.rawAddress.toCPointer<ByteVar>(), valuedata.rawAddress.toCPointer<ByteVar>(), resultlength.rawAddress.toCPointer<ByteVar>())
 
-public actual fun rtlQueryRegistryValues(relativeto: UInt, path: Pcwstr, querytable: MutPtr<RtlQueryRegistryTable>, context: ConstPtr<CVoid>, environment: ConstPtr<CVoid>): Ntstatus =
+public actual fun rtlQueryRegistryValues(relativeto: UInt, path: Pcwstr, querytable: MutPtr, context: ConstPtr, environment: ConstPtr): Ntstatus =
     windowssysWindowsWdkSystemSystemservicesRtlQueryRegistryValues(relativeto, path.rawAddress.toCPointer<ByteVar>(), querytable.rawAddress.toCPointer<ByteVar>(), context.rawAddress.toCPointer<ByteVar>(), environment.rawAddress.toCPointer<ByteVar>())
 
-public actual fun rtlQueryValidationRunlevel(componentname: ConstPtr<UnicodeString>): UInt =
+public actual fun rtlQueryValidationRunlevel(componentname: ConstPtr): UInt =
     windowssysWindowsWdkSystemSystemservicesRtlQueryValidationRunlevel(componentname.rawAddress.toCPointer<ByteVar>())
 
-public actual fun rtlRealPredecessor(links: ConstPtr<RtlSplayLinks>): MutPtr<RtlSplayLinks> =
+public actual fun rtlRealPredecessor(links: ConstPtr): MutPtr =
     MutPtr(windowssysWindowsWdkSystemSystemservicesRtlRealPredecessor(links.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun rtlRealSuccessor(links: ConstPtr<RtlSplayLinks>): MutPtr<RtlSplayLinks> =
+public actual fun rtlRealSuccessor(links: ConstPtr): MutPtr =
     MutPtr(windowssysWindowsWdkSystemSystemservicesRtlRealSuccessor(links.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun rtlRemoveEntryHashTable(hashtable: ConstPtr<RtlDynamicHashTable>, entry: ConstPtr<RtlDynamicHashTableEntry>, context: MutPtr<RtlDynamicHashTableContext>): Boolean =
+public actual fun rtlRemoveEntryHashTable(hashtable: ConstPtr, entry: ConstPtr, context: MutPtr): Boolean =
     windowssysWindowsWdkSystemSystemservicesRtlRemoveEntryHashTable(hashtable.rawAddress.toCPointer<ByteVar>(), entry.rawAddress.toCPointer<ByteVar>(), context.rawAddress.toCPointer<ByteVar>())
 
-public actual fun rtlRunOnceBeginInitialize(runonce: MutPtr<InitOnce>, flags: UInt, context: MutPtr<MutPtr<CVoid>>): Ntstatus =
+public actual fun rtlRunOnceBeginInitialize(runonce: MutPtr, flags: UInt, context: MutPtr): Ntstatus =
     windowssysWindowsWdkSystemSystemservicesRtlRunOnceBeginInitialize(runonce.rawAddress.toCPointer<ByteVar>(), flags, context.rawAddress.toCPointer<ByteVar>())
 
-public actual fun rtlRunOnceComplete(runonce: MutPtr<InitOnce>, flags: UInt, context: ConstPtr<CVoid>): Ntstatus =
+public actual fun rtlRunOnceComplete(runonce: MutPtr, flags: UInt, context: ConstPtr): Ntstatus =
     windowssysWindowsWdkSystemSystemservicesRtlRunOnceComplete(runonce.rawAddress.toCPointer<ByteVar>(), flags, context.rawAddress.toCPointer<ByteVar>())
 
-public actual fun rtlRunOnceExecuteOnce(runonce: MutPtr<InitOnce>, initfn: PrtlRunOnceInitFn, parameter: MutPtr<CVoid>, context: MutPtr<MutPtr<CVoid>>): Ntstatus =
+public actual fun rtlRunOnceExecuteOnce(runonce: MutPtr, initfn: PrtlRunOnceInitFn, parameter: MutPtr, context: MutPtr): Ntstatus =
     windowssysWindowsWdkSystemSystemservicesRtlRunOnceExecuteOnce(runonce.rawAddress.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>(), parameter.rawAddress.toCPointer<ByteVar>(), context.rawAddress.toCPointer<ByteVar>())
 
-public actual fun rtlRunOnceInitialize(runonce: MutPtr<InitOnce>) {
+public actual fun rtlRunOnceInitialize(runonce: MutPtr) {
     windowssysWindowsWdkSystemSystemservicesRtlRunOnceInitialize(runonce.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun rtlSetAllBits(bitmapheader: ConstPtr<RtlBitmap>) {
+public actual fun rtlSetAllBits(bitmapheader: ConstPtr) {
     windowssysWindowsWdkSystemSystemservicesRtlSetAllBits(bitmapheader.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun rtlSetBit(bitmapheader: ConstPtr<RtlBitmap>, bitnumber: UInt) {
+public actual fun rtlSetBit(bitmapheader: ConstPtr, bitnumber: UInt) {
     windowssysWindowsWdkSystemSystemservicesRtlSetBit(bitmapheader.rawAddress.toCPointer<ByteVar>(), bitnumber)
 }
 
-public actual fun rtlSetBits(bitmapheader: ConstPtr<RtlBitmap>, startingindex: UInt, numbertoset: UInt) {
+public actual fun rtlSetBits(bitmapheader: ConstPtr, startingindex: UInt, numbertoset: UInt) {
     windowssysWindowsWdkSystemSystemservicesRtlSetBits(bitmapheader.rawAddress.toCPointer<ByteVar>(), startingindex, numbertoset)
 }
 
-public actual fun rtlSetDaclSecurityDescriptor(securitydescriptor: PsecurityDescriptor, daclpresent: Boolean, dacl: ConstPtr<Acl>, dacldefaulted: Boolean): Ntstatus =
+public actual fun rtlSetDaclSecurityDescriptor(securitydescriptor: PsecurityDescriptor, daclpresent: Boolean, dacl: ConstPtr, dacldefaulted: Boolean): Ntstatus =
     windowssysWindowsWdkSystemSystemservicesRtlSetDaclSecurityDescriptor(securitydescriptor.rawAddress.toCPointer<ByteVar>(), daclpresent, dacl.rawAddress.toCPointer<ByteVar>(), dacldefaulted)
 
-public actual fun rtlSetSystemGlobalData(dataid: RtlSystemGlobalDataId, buffer: ConstPtr<CVoid>, size: UInt): Ntstatus =
+public actual fun rtlSetSystemGlobalData(dataid: RtlSystemGlobalDataId, buffer: ConstPtr, size: UInt): Ntstatus =
     windowssysWindowsWdkSystemSystemservicesRtlSetSystemGlobalData(dataid, buffer.rawAddress.toCPointer<ByteVar>(), size)
 
-public actual fun rtlSplay(links: MutPtr<RtlSplayLinks>): MutPtr<RtlSplayLinks> =
+public actual fun rtlSplay(links: MutPtr): MutPtr =
     MutPtr(windowssysWindowsWdkSystemSystemservicesRtlSplay(links.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun rtlStringFromGUID(guid: ConstPtr<Guid>, guidstring: MutPtr<UnicodeString>): Ntstatus =
+public actual fun rtlStringFromGUID(guid: ConstPtr, guidstring: MutPtr): Ntstatus =
     windowssysWindowsWdkSystemSystemservicesRtlStringFromGUID(guid.rawAddress.toCPointer<ByteVar>(), guidstring.rawAddress.toCPointer<ByteVar>())
 
-public actual fun rtlStronglyEnumerateEntryHashTable(hashtable: ConstPtr<RtlDynamicHashTable>, enumerator: MutPtr<RtlDynamicHashTableEnumerator>): MutPtr<RtlDynamicHashTableEntry> =
+public actual fun rtlStronglyEnumerateEntryHashTable(hashtable: ConstPtr, enumerator: MutPtr): MutPtr =
     MutPtr(windowssysWindowsWdkSystemSystemservicesRtlStronglyEnumerateEntryHashTable(hashtable.rawAddress.toCPointer<ByteVar>(), enumerator.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun rtlSubtreePredecessor(links: ConstPtr<RtlSplayLinks>): MutPtr<RtlSplayLinks> =
+public actual fun rtlSubtreePredecessor(links: ConstPtr): MutPtr =
     MutPtr(windowssysWindowsWdkSystemSystemservicesRtlSubtreePredecessor(links.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun rtlSubtreeSuccessor(links: ConstPtr<RtlSplayLinks>): MutPtr<RtlSplayLinks> =
+public actual fun rtlSubtreeSuccessor(links: ConstPtr): MutPtr =
     MutPtr(windowssysWindowsWdkSystemSystemservicesRtlSubtreeSuccessor(links.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun rtlSuffixUnicodeString(string1: ConstPtr<UnicodeString>, string2: ConstPtr<UnicodeString>, caseinsensitive: Boolean): Boolean =
+public actual fun rtlSuffixUnicodeString(string1: ConstPtr, string2: ConstPtr, caseinsensitive: Boolean): Boolean =
     windowssysWindowsWdkSystemSystemservicesRtlSuffixUnicodeString(string1.rawAddress.toCPointer<ByteVar>(), string2.rawAddress.toCPointer<ByteVar>(), caseinsensitive)
 
-public actual fun rtlTestBit(bitmapheader: ConstPtr<RtlBitmap>, bitnumber: UInt): Boolean =
+public actual fun rtlTestBit(bitmapheader: ConstPtr, bitnumber: UInt): Boolean =
     windowssysWindowsWdkSystemSystemservicesRtlTestBit(bitmapheader.rawAddress.toCPointer<ByteVar>(), bitnumber)
 
-public actual fun rtlTimeFieldsToTime(timefields: ConstPtr<TimeFields>, time: MutPtr<Long>): Boolean =
+public actual fun rtlTimeFieldsToTime(timefields: ConstPtr, time: MutPtr): Boolean =
     windowssysWindowsWdkSystemSystemservicesRtlTimeFieldsToTime(timefields.rawAddress.toCPointer<ByteVar>(), time.rawAddress.toCPointer<ByteVar>())
 
-public actual fun rtlTimeToTimeFields(time: ConstPtr<Long>, timefields: MutPtr<TimeFields>) {
+public actual fun rtlTimeToTimeFields(time: ConstPtr, timefields: MutPtr) {
     windowssysWindowsWdkSystemSystemservicesRtlTimeToTimeFields(time.rawAddress.toCPointer<ByteVar>(), timefields.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun rtlUTF8StringToUnicodeString(destinationstring: MutPtr<UnicodeString>, sourcestring: ConstPtr<io.github.kotlinmania.windowssys.windows.win32.system.kernel.String>, allocatedestinationstring: Boolean): Ntstatus =
+public actual fun rtlUTF8StringToUnicodeString(destinationstring: MutPtr, sourcestring: ConstPtr, allocatedestinationstring: Boolean): Ntstatus =
     windowssysWindowsWdkSystemSystemservicesRtlUTF8StringToUnicodeString(destinationstring.rawAddress.toCPointer<ByteVar>(), sourcestring.rawAddress.toCPointer<ByteVar>(), allocatedestinationstring)
 
-public actual fun rtlUTF8ToUnicodeN(unicodestringdestination: Pwstr, unicodestringmaxbytecount: UInt, unicodestringactualbytecount: MutPtr<UInt>, utf8stringsource: Pcstr, utf8stringbytecount: UInt): Ntstatus =
+public actual fun rtlUTF8ToUnicodeN(unicodestringdestination: Pwstr, unicodestringmaxbytecount: UInt, unicodestringactualbytecount: MutPtr, utf8stringsource: Pcstr, utf8stringbytecount: UInt): Ntstatus =
     windowssysWindowsWdkSystemSystemservicesRtlUTF8ToUnicodeN(unicodestringdestination.rawAddress.toCPointer<ByteVar>(), unicodestringmaxbytecount, unicodestringactualbytecount.rawAddress.toCPointer<ByteVar>(), utf8stringsource.rawAddress.toCPointer<ByteVar>(), utf8stringbytecount)
 
-public actual fun rtlUnicodeStringToInt64(string: ConstPtr<UnicodeString>, base: UInt, number: MutPtr<Long>, endpointer: MutPtr<Pwstr>): Ntstatus =
+public actual fun rtlUnicodeStringToInt64(string: ConstPtr, base: UInt, number: MutPtr, endpointer: MutPtr): Ntstatus =
     windowssysWindowsWdkSystemSystemservicesRtlUnicodeStringToInt64(string.rawAddress.toCPointer<ByteVar>(), base, number.rawAddress.toCPointer<ByteVar>(), endpointer.rawAddress.toCPointer<ByteVar>())
 
-public actual fun rtlUnicodeStringToInteger(string: ConstPtr<UnicodeString>, base: UInt, value: MutPtr<UInt>): Ntstatus =
+public actual fun rtlUnicodeStringToInteger(string: ConstPtr, base: UInt, value: MutPtr): Ntstatus =
     windowssysWindowsWdkSystemSystemservicesRtlUnicodeStringToInteger(string.rawAddress.toCPointer<ByteVar>(), base, value.rawAddress.toCPointer<ByteVar>())
 
-public actual fun rtlUnicodeStringToUTF8String(destinationstring: MutPtr<io.github.kotlinmania.windowssys.windows.win32.system.kernel.String>, sourcestring: ConstPtr<UnicodeString>, allocatedestinationstring: Boolean): Ntstatus =
+public actual fun rtlUnicodeStringToUTF8String(destinationstring: MutPtr, sourcestring: ConstPtr, allocatedestinationstring: Boolean): Ntstatus =
     windowssysWindowsWdkSystemSystemservicesRtlUnicodeStringToUTF8String(destinationstring.rawAddress.toCPointer<ByteVar>(), sourcestring.rawAddress.toCPointer<ByteVar>(), allocatedestinationstring)
 
-public actual fun rtlUnicodeToUTF8N(utf8stringdestination: Pstr, utf8stringmaxbytecount: UInt, utf8stringactualbytecount: MutPtr<UInt>, unicodestringsource: ConstPtr<UShort>, unicodestringbytecount: UInt): Ntstatus =
+public actual fun rtlUnicodeToUTF8N(utf8stringdestination: Pstr, utf8stringmaxbytecount: UInt, utf8stringactualbytecount: MutPtr, unicodestringsource: ConstPtr, unicodestringbytecount: UInt): Ntstatus =
     windowssysWindowsWdkSystemSystemservicesRtlUnicodeToUTF8N(utf8stringdestination.rawAddress.toCPointer<ByteVar>(), utf8stringmaxbytecount, utf8stringactualbytecount.rawAddress.toCPointer<ByteVar>(), unicodestringsource.rawAddress.toCPointer<ByteVar>(), unicodestringbytecount)
 
 public actual fun rtlUpcaseUnicodeChar(sourcecharacter: UShort): UShort =
     windowssysWindowsWdkSystemSystemservicesRtlUpcaseUnicodeChar(sourcecharacter)
 
-public actual fun rtlUpcaseUnicodeString(destinationstring: MutPtr<UnicodeString>, sourcestring: ConstPtr<UnicodeString>, allocatedestinationstring: Boolean): Ntstatus =
+public actual fun rtlUpcaseUnicodeString(destinationstring: MutPtr, sourcestring: ConstPtr, allocatedestinationstring: Boolean): Ntstatus =
     windowssysWindowsWdkSystemSystemservicesRtlUpcaseUnicodeString(destinationstring.rawAddress.toCPointer<ByteVar>(), sourcestring.rawAddress.toCPointer<ByteVar>(), allocatedestinationstring)
 
 public actual fun rtlUpperChar(character: Byte): Byte =
     windowssysWindowsWdkSystemSystemservicesRtlUpperChar(character)
 
-public actual fun rtlUpperString(destinationstring: MutPtr<io.github.kotlinmania.windowssys.windows.win32.system.kernel.String>, sourcestring: ConstPtr<io.github.kotlinmania.windowssys.windows.win32.system.kernel.String>) {
+public actual fun rtlUpperString(destinationstring: MutPtr, sourcestring: ConstPtr) {
     windowssysWindowsWdkSystemSystemservicesRtlUpperString(destinationstring.rawAddress.toCPointer<ByteVar>(), sourcestring.rawAddress.toCPointer<ByteVar>())
 }
 
@@ -4590,181 +4534,181 @@ public actual fun rtlValidRelativeSecurityDescriptor(securitydescriptorinput: Ps
 public actual fun rtlValidSecurityDescriptor(securitydescriptor: PsecurityDescriptor): Boolean =
     windowssysWindowsWdkSystemSystemservicesRtlValidSecurityDescriptor(securitydescriptor.rawAddress.toCPointer<ByteVar>())
 
-public actual fun rtlVerifyVersionInfo(versioninfo: ConstPtr<Osversioninfoexw>, typemask: UInt, conditionmask: ULong): Ntstatus =
+public actual fun rtlVerifyVersionInfo(versioninfo: ConstPtr, typemask: UInt, conditionmask: ULong): Ntstatus =
     windowssysWindowsWdkSystemSystemservicesRtlVerifyVersionInfo(versioninfo.rawAddress.toCPointer<ByteVar>(), typemask, conditionmask)
 
-public actual fun rtlVolumeDeviceToDosName(volumedeviceobject: ConstPtr<CVoid>, dosname: MutPtr<UnicodeString>): Ntstatus =
+public actual fun rtlVolumeDeviceToDosName(volumedeviceobject: ConstPtr, dosname: MutPtr): Ntstatus =
     windowssysWindowsWdkSystemSystemservicesRtlVolumeDeviceToDosName(volumedeviceobject.rawAddress.toCPointer<ByteVar>(), dosname.rawAddress.toCPointer<ByteVar>())
 
-public actual fun rtlWalkFrameChain(callers: MutPtr<MutPtr<CVoid>>, count: UInt, flags: UInt): UInt =
+public actual fun rtlWalkFrameChain(callers: MutPtr, count: UInt, flags: UInt): UInt =
     windowssysWindowsWdkSystemSystemservicesRtlWalkFrameChain(callers.rawAddress.toCPointer<ByteVar>(), count, flags)
 
-public actual fun rtlWeaklyEnumerateEntryHashTable(hashtable: ConstPtr<RtlDynamicHashTable>, enumerator: MutPtr<RtlDynamicHashTableEnumerator>): MutPtr<RtlDynamicHashTableEntry> =
+public actual fun rtlWeaklyEnumerateEntryHashTable(hashtable: ConstPtr, enumerator: MutPtr): MutPtr =
     MutPtr(windowssysWindowsWdkSystemSystemservicesRtlWeaklyEnumerateEntryHashTable(hashtable.rawAddress.toCPointer<ByteVar>(), enumerator.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun rtlWriteRegistryValue(relativeto: UInt, path: Pcwstr, valuename: Pcwstr, valuetype: UInt, valuedata: ConstPtr<CVoid>, valuelength: UInt): Ntstatus =
+public actual fun rtlWriteRegistryValue(relativeto: UInt, path: Pcwstr, valuename: Pcwstr, valuetype: UInt, valuedata: ConstPtr, valuelength: UInt): Ntstatus =
     windowssysWindowsWdkSystemSystemservicesRtlWriteRegistryValue(relativeto, path.rawAddress.toCPointer<ByteVar>(), valuename.rawAddress.toCPointer<ByteVar>(), valuetype, valuedata.rawAddress.toCPointer<ByteVar>(), valuelength)
 
-public actual fun rtlxAnsiStringToUnicodeSize(ansistring: ConstPtr<io.github.kotlinmania.windowssys.windows.win32.system.kernel.String>): UInt =
+public actual fun rtlxAnsiStringToUnicodeSize(ansistring: ConstPtr): UInt =
     windowssysWindowsWdkSystemSystemservicesRtlxAnsiStringToUnicodeSize(ansistring.rawAddress.toCPointer<ByteVar>())
 
-public actual fun rtlxUnicodeStringToAnsiSize(unicodestring: ConstPtr<UnicodeString>): UInt =
+public actual fun rtlxUnicodeStringToAnsiSize(unicodestring: ConstPtr): UInt =
     windowssysWindowsWdkSystemSystemservicesRtlxUnicodeStringToAnsiSize(unicodestring.rawAddress.toCPointer<ByteVar>())
 
-public actual fun seAccessCheck(securitydescriptor: PsecurityDescriptor, subjectsecuritycontext: ConstPtr<SecuritySubjectContext>, subjectcontextlocked: Boolean, desiredaccess: UInt, previouslygrantedaccess: UInt, privileges: MutPtr<MutPtr<PrivilegeSet>>, genericmapping: ConstPtr<GenericMapping>, accessmode: Byte, grantedaccess: MutPtr<UInt>, accessstatus: MutPtr<Int>): Boolean =
+public actual fun seAccessCheck(securitydescriptor: PsecurityDescriptor, subjectsecuritycontext: ConstPtr, subjectcontextlocked: Boolean, desiredaccess: UInt, previouslygrantedaccess: UInt, privileges: MutPtr, genericmapping: ConstPtr, accessmode: Byte, grantedaccess: MutPtr, accessstatus: MutPtr): Boolean =
     windowssysWindowsWdkSystemSystemservicesSeAccessCheck(securitydescriptor.rawAddress.toCPointer<ByteVar>(), subjectsecuritycontext.rawAddress.toCPointer<ByteVar>(), subjectcontextlocked, desiredaccess, previouslygrantedaccess, privileges.rawAddress.toCPointer<ByteVar>(), genericmapping.rawAddress.toCPointer<ByteVar>(), accessmode, grantedaccess.rawAddress.toCPointer<ByteVar>(), accessstatus.rawAddress.toCPointer<ByteVar>())
 
-public actual fun seAssignSecurity(parentdescriptor: PsecurityDescriptor, explicitdescriptor: PsecurityDescriptor, newdescriptor: MutPtr<PsecurityDescriptor>, isdirectoryobject: Boolean, subjectcontext: ConstPtr<SecuritySubjectContext>, genericmapping: ConstPtr<GenericMapping>, pooltype: PoolType): Ntstatus =
+public actual fun seAssignSecurity(parentdescriptor: PsecurityDescriptor, explicitdescriptor: PsecurityDescriptor, newdescriptor: MutPtr, isdirectoryobject: Boolean, subjectcontext: ConstPtr, genericmapping: ConstPtr, pooltype: PoolType): Ntstatus =
     windowssysWindowsWdkSystemSystemservicesSeAssignSecurity(parentdescriptor.rawAddress.toCPointer<ByteVar>(), explicitdescriptor.rawAddress.toCPointer<ByteVar>(), newdescriptor.rawAddress.toCPointer<ByteVar>(), isdirectoryobject, subjectcontext.rawAddress.toCPointer<ByteVar>(), genericmapping.rawAddress.toCPointer<ByteVar>(), pooltype)
 
-public actual fun seAssignSecurityEx(parentdescriptor: PsecurityDescriptor, explicitdescriptor: PsecurityDescriptor, newdescriptor: MutPtr<PsecurityDescriptor>, objecttype: ConstPtr<Guid>, isdirectoryobject: Boolean, autoinheritflags: UInt, subjectcontext: ConstPtr<SecuritySubjectContext>, genericmapping: ConstPtr<GenericMapping>, pooltype: PoolType): Ntstatus =
+public actual fun seAssignSecurityEx(parentdescriptor: PsecurityDescriptor, explicitdescriptor: PsecurityDescriptor, newdescriptor: MutPtr, objecttype: ConstPtr, isdirectoryobject: Boolean, autoinheritflags: UInt, subjectcontext: ConstPtr, genericmapping: ConstPtr, pooltype: PoolType): Ntstatus =
     windowssysWindowsWdkSystemSystemservicesSeAssignSecurityEx(parentdescriptor.rawAddress.toCPointer<ByteVar>(), explicitdescriptor.rawAddress.toCPointer<ByteVar>(), newdescriptor.rawAddress.toCPointer<ByteVar>(), objecttype.rawAddress.toCPointer<ByteVar>(), isdirectoryobject, autoinheritflags, subjectcontext.rawAddress.toCPointer<ByteVar>(), genericmapping.rawAddress.toCPointer<ByteVar>(), pooltype)
 
-public actual fun seCaptureSubjectContext(subjectcontext: MutPtr<SecuritySubjectContext>) {
+public actual fun seCaptureSubjectContext(subjectcontext: MutPtr) {
     windowssysWindowsWdkSystemSystemservicesSeCaptureSubjectContext(subjectcontext.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun seComputeAutoInheritByObjectType(objecttype: ConstPtr<CVoid>, securitydescriptor: PsecurityDescriptor, parentsecuritydescriptor: PsecurityDescriptor): UInt =
+public actual fun seComputeAutoInheritByObjectType(objecttype: ConstPtr, securitydescriptor: PsecurityDescriptor, parentsecuritydescriptor: PsecurityDescriptor): UInt =
     windowssysWindowsWdkSystemSystemservicesSeComputeAutoInheritByObjectType(objecttype.rawAddress.toCPointer<ByteVar>(), securitydescriptor.rawAddress.toCPointer<ByteVar>(), parentsecuritydescriptor.rawAddress.toCPointer<ByteVar>())
 
-public actual fun seDeassignSecurity(securitydescriptor: MutPtr<PsecurityDescriptor>): Ntstatus =
+public actual fun seDeassignSecurity(securitydescriptor: MutPtr): Ntstatus =
     windowssysWindowsWdkSystemSystemservicesSeDeassignSecurity(securitydescriptor.rawAddress.toCPointer<ByteVar>())
 
-public actual fun seEtwWriteKMCveEvent(cveid: ConstPtr<UnicodeString>, additionaldetails: ConstPtr<UnicodeString>): Ntstatus =
+public actual fun seEtwWriteKMCveEvent(cveid: ConstPtr, additionaldetails: ConstPtr): Ntstatus =
     windowssysWindowsWdkSystemSystemservicesSeEtwWriteKMCveEvent(cveid.rawAddress.toCPointer<ByteVar>(), additionaldetails.rawAddress.toCPointer<ByteVar>())
 
-public actual fun seLockSubjectContext(subjectcontext: ConstPtr<SecuritySubjectContext>) {
+public actual fun seLockSubjectContext(subjectcontext: ConstPtr) {
     windowssysWindowsWdkSystemSystemservicesSeLockSubjectContext(subjectcontext.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun seRegisterImageVerificationCallback(imagetype: SeImageType, callbacktype: SeImageVerificationCallbackType, callbackfunction: PseImageVerificationCallbackFunction, callbackcontext: ConstPtr<CVoid>, token: ConstPtr<CVoid>, callbackhandle: MutPtr<MutPtr<CVoid>>): Ntstatus =
+public actual fun seRegisterImageVerificationCallback(imagetype: SeImageType, callbacktype: SeImageVerificationCallbackType, callbackfunction: PseImageVerificationCallbackFunction, callbackcontext: ConstPtr, token: ConstPtr, callbackhandle: MutPtr): Ntstatus =
     windowssysWindowsWdkSystemSystemservicesSeRegisterImageVerificationCallback(imagetype, callbacktype, 0L.toCPointer<ByteVar>(), callbackcontext.rawAddress.toCPointer<ByteVar>(), token.rawAddress.toCPointer<ByteVar>(), callbackhandle.rawAddress.toCPointer<ByteVar>())
 
-public actual fun seReleaseSubjectContext(subjectcontext: MutPtr<SecuritySubjectContext>) {
+public actual fun seReleaseSubjectContext(subjectcontext: MutPtr) {
     windowssysWindowsWdkSystemSystemservicesSeReleaseSubjectContext(subjectcontext.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun seReportSecurityEvent(flags: UInt, sourcename: ConstPtr<UnicodeString>, usersid: Psid, auditparameters: ConstPtr<SeAdtParameterArray>): Ntstatus =
+public actual fun seReportSecurityEvent(flags: UInt, sourcename: ConstPtr, usersid: Psid, auditparameters: ConstPtr): Ntstatus =
     windowssysWindowsWdkSystemSystemservicesSeReportSecurityEvent(flags, sourcename.rawAddress.toCPointer<ByteVar>(), usersid.rawAddress.toCPointer<ByteVar>(), auditparameters.rawAddress.toCPointer<ByteVar>())
 
-public actual fun seSetAuditParameter(auditparameters: MutPtr<SeAdtParameterArray>, type: SeAdtParameterType, index: UInt, data: ConstPtr<CVoid>): Ntstatus =
+public actual fun seSetAuditParameter(auditparameters: MutPtr, type: SeAdtParameterType, index: UInt, data: ConstPtr): Ntstatus =
     windowssysWindowsWdkSystemSystemservicesSeSetAuditParameter(auditparameters.rawAddress.toCPointer<ByteVar>(), type, index, data.rawAddress.toCPointer<ByteVar>())
 
 public actual fun seSinglePrivilegeCheck(privilegevalue: Luid, previousmode: Byte): Boolean =
     false
 
-public actual fun seUnlockSubjectContext(subjectcontext: ConstPtr<SecuritySubjectContext>) {
+public actual fun seUnlockSubjectContext(subjectcontext: ConstPtr) {
     windowssysWindowsWdkSystemSystemservicesSeUnlockSubjectContext(subjectcontext.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun seUnregisterImageVerificationCallback(callbackhandle: ConstPtr<CVoid>) {
+public actual fun seUnregisterImageVerificationCallback(callbackhandle: ConstPtr) {
     windowssysWindowsWdkSystemSystemservicesSeUnregisterImageVerificationCallback(callbackhandle.rawAddress.toCPointer<ByteVar>())
 }
 
 public actual fun seValidSecurityDescriptor(length: UInt, securitydescriptor: PsecurityDescriptor): Boolean =
     windowssysWindowsWdkSystemSystemservicesSeValidSecurityDescriptor(length, securitydescriptor.rawAddress.toCPointer<ByteVar>())
 
-public actual fun tmCommitComplete(enlistment: ConstPtr<Kenlistment>, tmvirtualclock: ConstPtr<Long>): Ntstatus =
+public actual fun tmCommitComplete(enlistment: ConstPtr, tmvirtualclock: ConstPtr): Ntstatus =
     windowssysWindowsWdkSystemSystemservicesTmCommitComplete(enlistment.rawAddress.toCPointer<ByteVar>(), tmvirtualclock.rawAddress.toCPointer<ByteVar>())
 
-public actual fun tmCommitEnlistment(enlistment: ConstPtr<Kenlistment>, tmvirtualclock: ConstPtr<Long>): Ntstatus =
+public actual fun tmCommitEnlistment(enlistment: ConstPtr, tmvirtualclock: ConstPtr): Ntstatus =
     windowssysWindowsWdkSystemSystemservicesTmCommitEnlistment(enlistment.rawAddress.toCPointer<ByteVar>(), tmvirtualclock.rawAddress.toCPointer<ByteVar>())
 
-public actual fun tmCommitTransaction(transaction: ConstPtr<Ktransaction>, wait: Boolean): Ntstatus =
+public actual fun tmCommitTransaction(transaction: ConstPtr, wait: Boolean): Ntstatus =
     windowssysWindowsWdkSystemSystemservicesTmCommitTransaction(transaction.rawAddress.toCPointer<ByteVar>(), wait)
 
-public actual fun tmCreateEnlistment(enlistmenthandle: MutPtr<Handle>, previousmode: Byte, desiredaccess: UInt, objectattributes: ConstPtr<ObjectAttributes>, resourcemanager: ConstPtr<Long>, transaction: ConstPtr<Ktransaction>, createoptions: UInt, notificationmask: UInt, enlistmentkey: ConstPtr<CVoid>): Ntstatus =
+public actual fun tmCreateEnlistment(enlistmenthandle: MutPtr, previousmode: Byte, desiredaccess: UInt, objectattributes: ConstPtr, resourcemanager: ConstPtr, transaction: ConstPtr, createoptions: UInt, notificationmask: UInt, enlistmentkey: ConstPtr): Ntstatus =
     windowssysWindowsWdkSystemSystemservicesTmCreateEnlistment(enlistmenthandle.rawAddress.toCPointer<ByteVar>(), previousmode, desiredaccess, objectattributes.rawAddress.toCPointer<ByteVar>(), resourcemanager.rawAddress.toCPointer<ByteVar>(), transaction.rawAddress.toCPointer<ByteVar>(), createoptions, notificationmask, enlistmentkey.rawAddress.toCPointer<ByteVar>())
 
-public actual fun tmDereferenceEnlistmentKey(enlistment: ConstPtr<Kenlistment>, lastreference: MutPtr<Boolean>): Ntstatus =
+public actual fun tmDereferenceEnlistmentKey(enlistment: ConstPtr, lastreference: MutPtr): Ntstatus =
     windowssysWindowsWdkSystemSystemservicesTmDereferenceEnlistmentKey(enlistment.rawAddress.toCPointer<ByteVar>(), lastreference.rawAddress.toCPointer<ByteVar>())
 
-public actual fun tmEnableCallbacks(resourcemanager: ConstPtr<Kresourcemanager>, callbackroutine: PtmRmNotification, rmkey: ConstPtr<CVoid>): Ntstatus =
+public actual fun tmEnableCallbacks(resourcemanager: ConstPtr, callbackroutine: PtmRmNotification, rmkey: ConstPtr): Ntstatus =
     windowssysWindowsWdkSystemSystemservicesTmEnableCallbacks(resourcemanager.rawAddress.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>(), rmkey.rawAddress.toCPointer<ByteVar>())
 
-public actual fun tmGetTransactionId(transaction: ConstPtr<Ktransaction>, transactionid: MutPtr<Guid>) {
+public actual fun tmGetTransactionId(transaction: ConstPtr, transactionid: MutPtr) {
     windowssysWindowsWdkSystemSystemservicesTmGetTransactionId(transaction.rawAddress.toCPointer<ByteVar>(), transactionid.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun tmInitializeTransactionManager(transactionmanager: ConstPtr<Long>, logfilename: ConstPtr<UnicodeString>, tmid: ConstPtr<Guid>, createoptions: UInt): Ntstatus =
+public actual fun tmInitializeTransactionManager(transactionmanager: ConstPtr, logfilename: ConstPtr, tmid: ConstPtr, createoptions: UInt): Ntstatus =
     windowssysWindowsWdkSystemSystemservicesTmInitializeTransactionManager(transactionmanager.rawAddress.toCPointer<ByteVar>(), logfilename.rawAddress.toCPointer<ByteVar>(), tmid.rawAddress.toCPointer<ByteVar>(), createoptions)
 
-public actual fun tmIsTransactionActive(transaction: ConstPtr<Ktransaction>): Boolean =
+public actual fun tmIsTransactionActive(transaction: ConstPtr): Boolean =
     windowssysWindowsWdkSystemSystemservicesTmIsTransactionActive(transaction.rawAddress.toCPointer<ByteVar>())
 
-public actual fun tmPrePrepareComplete(enlistment: ConstPtr<Kenlistment>, tmvirtualclock: ConstPtr<Long>): Ntstatus =
+public actual fun tmPrePrepareComplete(enlistment: ConstPtr, tmvirtualclock: ConstPtr): Ntstatus =
     windowssysWindowsWdkSystemSystemservicesTmPrePrepareComplete(enlistment.rawAddress.toCPointer<ByteVar>(), tmvirtualclock.rawAddress.toCPointer<ByteVar>())
 
-public actual fun tmPrePrepareEnlistment(enlistment: ConstPtr<Kenlistment>, tmvirtualclock: ConstPtr<Long>): Ntstatus =
+public actual fun tmPrePrepareEnlistment(enlistment: ConstPtr, tmvirtualclock: ConstPtr): Ntstatus =
     windowssysWindowsWdkSystemSystemservicesTmPrePrepareEnlistment(enlistment.rawAddress.toCPointer<ByteVar>(), tmvirtualclock.rawAddress.toCPointer<ByteVar>())
 
-public actual fun tmPrepareComplete(enlistment: ConstPtr<Kenlistment>, tmvirtualclock: ConstPtr<Long>): Ntstatus =
+public actual fun tmPrepareComplete(enlistment: ConstPtr, tmvirtualclock: ConstPtr): Ntstatus =
     windowssysWindowsWdkSystemSystemservicesTmPrepareComplete(enlistment.rawAddress.toCPointer<ByteVar>(), tmvirtualclock.rawAddress.toCPointer<ByteVar>())
 
-public actual fun tmPrepareEnlistment(enlistment: ConstPtr<Kenlistment>, tmvirtualclock: ConstPtr<Long>): Ntstatus =
+public actual fun tmPrepareEnlistment(enlistment: ConstPtr, tmvirtualclock: ConstPtr): Ntstatus =
     windowssysWindowsWdkSystemSystemservicesTmPrepareEnlistment(enlistment.rawAddress.toCPointer<ByteVar>(), tmvirtualclock.rawAddress.toCPointer<ByteVar>())
 
-public actual fun tmPropagationComplete(resourcemanager: ConstPtr<Kresourcemanager>, requestcookie: UInt, bufferlength: UInt, buffer: ConstPtr<CVoid>): Ntstatus =
+public actual fun tmPropagationComplete(resourcemanager: ConstPtr, requestcookie: UInt, bufferlength: UInt, buffer: ConstPtr): Ntstatus =
     windowssysWindowsWdkSystemSystemservicesTmPropagationComplete(resourcemanager.rawAddress.toCPointer<ByteVar>(), requestcookie, bufferlength, buffer.rawAddress.toCPointer<ByteVar>())
 
-public actual fun tmPropagationFailed(resourcemanager: ConstPtr<Kresourcemanager>, requestcookie: UInt, status: Ntstatus): Ntstatus =
+public actual fun tmPropagationFailed(resourcemanager: ConstPtr, requestcookie: UInt, status: Ntstatus): Ntstatus =
     windowssysWindowsWdkSystemSystemservicesTmPropagationFailed(resourcemanager.rawAddress.toCPointer<ByteVar>(), requestcookie, status)
 
-public actual fun tmReadOnlyEnlistment(enlistment: ConstPtr<Kenlistment>, tmvirtualclock: ConstPtr<Long>): Ntstatus =
+public actual fun tmReadOnlyEnlistment(enlistment: ConstPtr, tmvirtualclock: ConstPtr): Ntstatus =
     windowssysWindowsWdkSystemSystemservicesTmReadOnlyEnlistment(enlistment.rawAddress.toCPointer<ByteVar>(), tmvirtualclock.rawAddress.toCPointer<ByteVar>())
 
-public actual fun tmRecoverEnlistment(enlistment: ConstPtr<Kenlistment>, enlistmentkey: ConstPtr<CVoid>): Ntstatus =
+public actual fun tmRecoverEnlistment(enlistment: ConstPtr, enlistmentkey: ConstPtr): Ntstatus =
     windowssysWindowsWdkSystemSystemservicesTmRecoverEnlistment(enlistment.rawAddress.toCPointer<ByteVar>(), enlistmentkey.rawAddress.toCPointer<ByteVar>())
 
-public actual fun tmRecoverResourceManager(resourcemanager: ConstPtr<Kresourcemanager>): Ntstatus =
+public actual fun tmRecoverResourceManager(resourcemanager: ConstPtr): Ntstatus =
     windowssysWindowsWdkSystemSystemservicesTmRecoverResourceManager(resourcemanager.rawAddress.toCPointer<ByteVar>())
 
-public actual fun tmRecoverTransactionManager(tm: ConstPtr<Ktm>, targetvirtualclock: ConstPtr<Long>): Ntstatus =
+public actual fun tmRecoverTransactionManager(tm: ConstPtr, targetvirtualclock: ConstPtr): Ntstatus =
     windowssysWindowsWdkSystemSystemservicesTmRecoverTransactionManager(tm.rawAddress.toCPointer<ByteVar>(), targetvirtualclock.rawAddress.toCPointer<ByteVar>())
 
-public actual fun tmReferenceEnlistmentKey(enlistment: ConstPtr<Kenlistment>, key: MutPtr<MutPtr<CVoid>>): Ntstatus =
+public actual fun tmReferenceEnlistmentKey(enlistment: ConstPtr, key: MutPtr): Ntstatus =
     windowssysWindowsWdkSystemSystemservicesTmReferenceEnlistmentKey(enlistment.rawAddress.toCPointer<ByteVar>(), key.rawAddress.toCPointer<ByteVar>())
 
-public actual fun tmRenameTransactionManager(logfilename: ConstPtr<UnicodeString>, existingtransactionmanagerguid: ConstPtr<Guid>): Ntstatus =
+public actual fun tmRenameTransactionManager(logfilename: ConstPtr, existingtransactionmanagerguid: ConstPtr): Ntstatus =
     windowssysWindowsWdkSystemSystemservicesTmRenameTransactionManager(logfilename.rawAddress.toCPointer<ByteVar>(), existingtransactionmanagerguid.rawAddress.toCPointer<ByteVar>())
 
-public actual fun tmRequestOutcomeEnlistment(enlistment: ConstPtr<Kenlistment>, tmvirtualclock: ConstPtr<Long>): Ntstatus =
+public actual fun tmRequestOutcomeEnlistment(enlistment: ConstPtr, tmvirtualclock: ConstPtr): Ntstatus =
     windowssysWindowsWdkSystemSystemservicesTmRequestOutcomeEnlistment(enlistment.rawAddress.toCPointer<ByteVar>(), tmvirtualclock.rawAddress.toCPointer<ByteVar>())
 
-public actual fun tmRollbackComplete(enlistment: ConstPtr<Kenlistment>, tmvirtualclock: ConstPtr<Long>): Ntstatus =
+public actual fun tmRollbackComplete(enlistment: ConstPtr, tmvirtualclock: ConstPtr): Ntstatus =
     windowssysWindowsWdkSystemSystemservicesTmRollbackComplete(enlistment.rawAddress.toCPointer<ByteVar>(), tmvirtualclock.rawAddress.toCPointer<ByteVar>())
 
-public actual fun tmRollbackEnlistment(enlistment: ConstPtr<Kenlistment>, tmvirtualclock: ConstPtr<Long>): Ntstatus =
+public actual fun tmRollbackEnlistment(enlistment: ConstPtr, tmvirtualclock: ConstPtr): Ntstatus =
     windowssysWindowsWdkSystemSystemservicesTmRollbackEnlistment(enlistment.rawAddress.toCPointer<ByteVar>(), tmvirtualclock.rawAddress.toCPointer<ByteVar>())
 
-public actual fun tmRollbackTransaction(transaction: ConstPtr<Ktransaction>, wait: Boolean): Ntstatus =
+public actual fun tmRollbackTransaction(transaction: ConstPtr, wait: Boolean): Ntstatus =
     windowssysWindowsWdkSystemSystemservicesTmRollbackTransaction(transaction.rawAddress.toCPointer<ByteVar>(), wait)
 
-public actual fun tmSinglePhaseReject(enlistment: ConstPtr<Kenlistment>, tmvirtualclock: ConstPtr<Long>): Ntstatus =
+public actual fun tmSinglePhaseReject(enlistment: ConstPtr, tmvirtualclock: ConstPtr): Ntstatus =
     windowssysWindowsWdkSystemSystemservicesTmSinglePhaseReject(enlistment.rawAddress.toCPointer<ByteVar>(), tmvirtualclock.rawAddress.toCPointer<ByteVar>())
 
-public actual fun vslCreateSecureSection(handle: MutPtr<Handle>, targetprocess: Peprocess, mdl: ConstPtr<Mdl>, devicepageprotection: UInt, attributes: UInt): Ntstatus =
+public actual fun vslCreateSecureSection(handle: MutPtr, targetprocess: Peprocess, mdl: ConstPtr, devicepageprotection: UInt, attributes: UInt): Ntstatus =
     windowssysWindowsWdkSystemSystemservicesVslCreateSecureSection(handle.rawAddress.toCPointer<ByteVar>(), targetprocess, mdl.rawAddress.toCPointer<ByteVar>(), devicepageprotection, attributes)
 
 public actual fun vslDeleteSecureSection(globalhandle: Handle): Ntstatus =
     windowssysWindowsWdkSystemSystemservicesVslDeleteSecureSection(globalhandle.rawAddress.toCPointer<ByteVar>())
 
-public actual fun wheaAddErrorSource(errorsource: ConstPtr<WheaErrorSourceDescriptor>, context: ConstPtr<CVoid>): Ntstatus =
+public actual fun wheaAddErrorSource(errorsource: ConstPtr, context: ConstPtr): Ntstatus =
     windowssysWindowsWdkSystemSystemservicesWheaAddErrorSource(errorsource.rawAddress.toCPointer<ByteVar>(), context.rawAddress.toCPointer<ByteVar>())
 
-public actual fun wheaAddErrorSourceDeviceDriver(context: MutPtr<CVoid>, configuration: ConstPtr<WheaErrorSourceConfigurationDeviceDriver>, numberpreallocatederrorreports: UInt): Ntstatus =
+public actual fun wheaAddErrorSourceDeviceDriver(context: MutPtr, configuration: ConstPtr, numberpreallocatederrorreports: UInt): Ntstatus =
     windowssysWindowsWdkSystemSystemservicesWheaAddErrorSourceDeviceDriver(context.rawAddress.toCPointer<ByteVar>(), configuration.rawAddress.toCPointer<ByteVar>(), numberpreallocatederrorreports)
 
-public actual fun wheaAddErrorSourceDeviceDriverV1(context: MutPtr<CVoid>, configuration: ConstPtr<WheaErrorSourceConfigurationDeviceDriver>, numbufferstopreallocate: UInt, maxdatalength: UInt): Ntstatus =
+public actual fun wheaAddErrorSourceDeviceDriverV1(context: MutPtr, configuration: ConstPtr, numbufferstopreallocate: UInt, maxdatalength: UInt): Ntstatus =
     windowssysWindowsWdkSystemSystemservicesWheaAddErrorSourceDeviceDriverV1(context.rawAddress.toCPointer<ByteVar>(), configuration.rawAddress.toCPointer<ByteVar>(), numbufferstopreallocate, maxdatalength)
 
-public actual fun wheaAddHwErrorReportSectionDeviceDriver(errorhandle: ConstPtr<CVoid>, sectiondatalength: UInt, bufferset: MutPtr<WheaDriverBufferSet>): Ntstatus =
+public actual fun wheaAddHwErrorReportSectionDeviceDriver(errorhandle: ConstPtr, sectiondatalength: UInt, bufferset: MutPtr): Ntstatus =
     windowssysWindowsWdkSystemSystemservicesWheaAddHwErrorReportSectionDeviceDriver(errorhandle.rawAddress.toCPointer<ByteVar>(), sectiondatalength, bufferset.rawAddress.toCPointer<ByteVar>())
 
-public actual fun wheaConfigureErrorSource(sourcetype: WheaErrorSourceType, configuration: ConstPtr<WheaErrorSourceConfiguration>): Ntstatus =
+public actual fun wheaConfigureErrorSource(sourcetype: WheaErrorSourceType, configuration: ConstPtr): Ntstatus =
     windowssysWindowsWdkSystemSystemservicesWheaConfigureErrorSource(sourcetype, configuration.rawAddress.toCPointer<ByteVar>())
 
-public actual fun wheaCreateHwErrorReportDeviceDriver(errorsourceid: UInt, deviceobject: ConstPtr<DeviceObject>): MutPtr<CVoid> =
+public actual fun wheaCreateHwErrorReportDeviceDriver(errorsourceid: UInt, deviceobject: ConstPtr): MutPtr =
     MutPtr(windowssysWindowsWdkSystemSystemservicesWheaCreateHwErrorReportDeviceDriver(errorsourceid, deviceobject.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
 public actual fun wheaErrorSourceGetState(errorsourceid: UInt): WheaErrorSourceState =
@@ -4773,36 +4717,36 @@ public actual fun wheaErrorSourceGetState(errorsourceid: UInt): WheaErrorSourceS
 public actual fun wheaGetNotifyAllOfflinesPolicy(): Boolean =
     windowssysWindowsWdkSystemSystemservicesWheaGetNotifyAllOfflinesPolicy()
 
-public actual fun wheaHighIrqlLogSelEventHandlerRegister(handler: PfnWheaHighIrqlLogSelEventHandler, context: ConstPtr<CVoid>): Boolean =
+public actual fun wheaHighIrqlLogSelEventHandlerRegister(handler: PfnWheaHighIrqlLogSelEventHandler, context: ConstPtr): Boolean =
     windowssysWindowsWdkSystemSystemservicesWheaHighIrqlLogSelEventHandlerRegister(0L.toCPointer<ByteVar>(), context.rawAddress.toCPointer<ByteVar>())
 
 public actual fun wheaHighIrqlLogSelEventHandlerUnregister() {
     windowssysWindowsWdkSystemSystemservicesWheaHighIrqlLogSelEventHandlerUnregister()
 }
 
-public actual fun wheaHwErrorReportAbandonDeviceDriver(errorhandle: ConstPtr<CVoid>): Ntstatus =
+public actual fun wheaHwErrorReportAbandonDeviceDriver(errorhandle: ConstPtr): Ntstatus =
     windowssysWindowsWdkSystemSystemservicesWheaHwErrorReportAbandonDeviceDriver(errorhandle.rawAddress.toCPointer<ByteVar>())
 
-public actual fun wheaHwErrorReportSetSectionNameDeviceDriver(bufferset: ConstPtr<WheaDriverBufferSet>, namelength: UInt, name: ConstPtr<UByte>): Ntstatus =
+public actual fun wheaHwErrorReportSetSectionNameDeviceDriver(bufferset: ConstPtr, namelength: UInt, name: ConstPtr): Ntstatus =
     windowssysWindowsWdkSystemSystemservicesWheaHwErrorReportSetSectionNameDeviceDriver(bufferset.rawAddress.toCPointer<ByteVar>(), namelength, name.rawAddress.toCPointer<ByteVar>())
 
-public actual fun wheaHwErrorReportSetSeverityDeviceDriver(errorhandle: ConstPtr<CVoid>, errorseverity: WheaErrorSeverity): Ntstatus =
+public actual fun wheaHwErrorReportSetSeverityDeviceDriver(errorhandle: ConstPtr, errorseverity: WheaErrorSeverity): Ntstatus =
     windowssysWindowsWdkSystemSystemservicesWheaHwErrorReportSetSeverityDeviceDriver(errorhandle.rawAddress.toCPointer<ByteVar>(), errorseverity)
 
-public actual fun wheaHwErrorReportSubmitDeviceDriver(errorhandle: ConstPtr<CVoid>): Ntstatus =
+public actual fun wheaHwErrorReportSubmitDeviceDriver(errorhandle: ConstPtr): Ntstatus =
     windowssysWindowsWdkSystemSystemservicesWheaHwErrorReportSubmitDeviceDriver(errorhandle.rawAddress.toCPointer<ByteVar>())
 
-public actual fun wheaInitializeRecordHeader(header: MutPtr<WheaErrorRecordHeader>): Ntstatus =
+public actual fun wheaInitializeRecordHeader(header: MutPtr): Ntstatus =
     windowssysWindowsWdkSystemSystemservicesWheaInitializeRecordHeader(header.rawAddress.toCPointer<ByteVar>())
 
 public actual fun wheaIsCriticalState(): Boolean =
     windowssysWindowsWdkSystemSystemservicesWheaIsCriticalState()
 
-public actual fun wheaLogInternalEvent(entry: ConstPtr<WheaEventLogEntry>) {
+public actual fun wheaLogInternalEvent(entry: ConstPtr) {
     windowssysWindowsWdkSystemSystemservicesWheaLogInternalEvent(entry.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun wheaRegisterInUsePageOfflineNotification(callback: PfnInUsePageOfflineNotify, context: ConstPtr<CVoid>): Ntstatus =
+public actual fun wheaRegisterInUsePageOfflineNotification(callback: PfnInUsePageOfflineNotify, context: ConstPtr): Ntstatus =
     windowssysWindowsWdkSystemSystemservicesWheaRegisterInUsePageOfflineNotification(0L.toCPointer<ByteVar>(), context.rawAddress.toCPointer<ByteVar>())
 
 public actual fun wheaRemoveErrorSource(errorsourceid: UInt) {
@@ -4812,10 +4756,10 @@ public actual fun wheaRemoveErrorSource(errorsourceid: UInt) {
 public actual fun wheaRemoveErrorSourceDeviceDriver(errorsourceid: UInt): Ntstatus =
     windowssysWindowsWdkSystemSystemservicesWheaRemoveErrorSourceDeviceDriver(errorsourceid)
 
-public actual fun wheaReportHwError(errorpacket: MutPtr<WheaErrorPacketV2>): Ntstatus =
+public actual fun wheaReportHwError(errorpacket: MutPtr): Ntstatus =
     windowssysWindowsWdkSystemSystemservicesWheaReportHwError(errorpacket.rawAddress.toCPointer<ByteVar>())
 
-public actual fun wheaReportHwErrorDeviceDriver(errorsourceid: UInt, deviceobject: ConstPtr<DeviceObject>, errordata: ConstPtr<UByte>, errordatalength: UInt, sectiontypeguid: ConstPtr<Guid>, errorseverity: WheaErrorSeverity, devicefriendlyname: Pcstr): Ntstatus =
+public actual fun wheaReportHwErrorDeviceDriver(errorsourceid: UInt, deviceobject: ConstPtr, errordata: ConstPtr, errordatalength: UInt, sectiontypeguid: ConstPtr, errorseverity: WheaErrorSeverity, devicefriendlyname: Pcstr): Ntstatus =
     windowssysWindowsWdkSystemSystemservicesWheaReportHwErrorDeviceDriver(errorsourceid, deviceobject.rawAddress.toCPointer<ByteVar>(), errordata.rawAddress.toCPointer<ByteVar>(), errordatalength, sectiontypeguid.rawAddress.toCPointer<ByteVar>(), errorseverity, devicefriendlyname.rawAddress.toCPointer<ByteVar>())
 
 public actual fun wheaUnconfigureErrorSource(sourcetype: WheaErrorSourceType): Ntstatus =
@@ -4824,130 +4768,130 @@ public actual fun wheaUnconfigureErrorSource(sourcetype: WheaErrorSourceType): N
 public actual fun wheaUnregisterInUsePageOfflineNotification(callback: PfnInUsePageOfflineNotify): Ntstatus =
     windowssysWindowsWdkSystemSystemservicesWheaUnregisterInUsePageOfflineNotification(0L.toCPointer<ByteVar>())
 
-public actual fun wmiQueryTraceInformation(traceinformationclass: TraceInformationClass, traceinformation: MutPtr<CVoid>, traceinformationlength: UInt, requiredlength: MutPtr<UInt>, buffer: ConstPtr<CVoid>): Ntstatus =
+public actual fun wmiQueryTraceInformation(traceinformationclass: TraceInformationClass, traceinformation: MutPtr, traceinformationlength: UInt, requiredlength: MutPtr, buffer: ConstPtr): Ntstatus =
     windowssysWindowsWdkSystemSystemservicesWmiQueryTraceInformation(traceinformationclass, traceinformation.rawAddress.toCPointer<ByteVar>(), traceinformationlength, requiredlength.rawAddress.toCPointer<ByteVar>(), buffer.rawAddress.toCPointer<ByteVar>())
 
-public actual fun zwAllocateLocallyUniqueId(luid: MutPtr<Luid>): Ntstatus =
+public actual fun zwAllocateLocallyUniqueId(luid: MutPtr): Ntstatus =
     windowssysWindowsWdkSystemSystemservicesZwAllocateLocallyUniqueId(luid.rawAddress.toCPointer<ByteVar>())
 
 public actual fun zwClose(handle: Handle): Ntstatus =
     windowssysWindowsWdkSystemSystemservicesZwClose(handle.rawAddress.toCPointer<ByteVar>())
 
-public actual fun zwCommitComplete(enlistmenthandle: Handle, tmvirtualclock: ConstPtr<Long>): Ntstatus =
+public actual fun zwCommitComplete(enlistmenthandle: Handle, tmvirtualclock: ConstPtr): Ntstatus =
     windowssysWindowsWdkSystemSystemservicesZwCommitComplete(enlistmenthandle.rawAddress.toCPointer<ByteVar>(), tmvirtualclock.rawAddress.toCPointer<ByteVar>())
 
-public actual fun zwCommitEnlistment(enlistmenthandle: Handle, tmvirtualclock: ConstPtr<Long>): Ntstatus =
+public actual fun zwCommitEnlistment(enlistmenthandle: Handle, tmvirtualclock: ConstPtr): Ntstatus =
     windowssysWindowsWdkSystemSystemservicesZwCommitEnlistment(enlistmenthandle.rawAddress.toCPointer<ByteVar>(), tmvirtualclock.rawAddress.toCPointer<ByteVar>())
 
 public actual fun zwCommitTransaction(transactionhandle: Handle, wait: Boolean): Ntstatus =
     windowssysWindowsWdkSystemSystemservicesZwCommitTransaction(transactionhandle.rawAddress.toCPointer<ByteVar>(), wait)
 
-public actual fun zwCreateEnlistment(enlistmenthandle: MutPtr<Handle>, desiredaccess: UInt, resourcemanagerhandle: Handle, transactionhandle: Handle, objectattributes: ConstPtr<ObjectAttributes>, createoptions: UInt, notificationmask: UInt, enlistmentkey: ConstPtr<CVoid>): Ntstatus =
+public actual fun zwCreateEnlistment(enlistmenthandle: MutPtr, desiredaccess: UInt, resourcemanagerhandle: Handle, transactionhandle: Handle, objectattributes: ConstPtr, createoptions: UInt, notificationmask: UInt, enlistmentkey: ConstPtr): Ntstatus =
     windowssysWindowsWdkSystemSystemservicesZwCreateEnlistment(enlistmenthandle.rawAddress.toCPointer<ByteVar>(), desiredaccess, resourcemanagerhandle.rawAddress.toCPointer<ByteVar>(), transactionhandle.rawAddress.toCPointer<ByteVar>(), objectattributes.rawAddress.toCPointer<ByteVar>(), createoptions, notificationmask, enlistmentkey.rawAddress.toCPointer<ByteVar>())
 
-public actual fun zwCreateFile(filehandle: MutPtr<Handle>, desiredaccess: UInt, objectattributes: ConstPtr<ObjectAttributes>, iostatusblock: MutPtr<IoStatusBlock>, allocationsize: ConstPtr<Long>, fileattributes: UInt, shareaccess: UInt, createdisposition: UInt, createoptions: UInt, eabuffer: ConstPtr<CVoid>, ealength: UInt): Ntstatus =
+public actual fun zwCreateFile(filehandle: MutPtr, desiredaccess: UInt, objectattributes: ConstPtr, iostatusblock: MutPtr, allocationsize: ConstPtr, fileattributes: UInt, shareaccess: UInt, createdisposition: UInt, createoptions: UInt, eabuffer: ConstPtr, ealength: UInt): Ntstatus =
     windowssysWindowsWdkSystemSystemservicesZwCreateFile(filehandle.rawAddress.toCPointer<ByteVar>(), desiredaccess, objectattributes.rawAddress.toCPointer<ByteVar>(), iostatusblock.rawAddress.toCPointer<ByteVar>(), allocationsize.rawAddress.toCPointer<ByteVar>(), fileattributes, shareaccess, createdisposition, createoptions, eabuffer.rawAddress.toCPointer<ByteVar>(), ealength)
 
-public actual fun zwCreateResourceManager(resourcemanagerhandle: MutPtr<Handle>, desiredaccess: UInt, tmhandle: Handle, resourcemanagerguid: ConstPtr<Guid>, objectattributes: ConstPtr<ObjectAttributes>, createoptions: UInt, description: ConstPtr<UnicodeString>): Ntstatus =
+public actual fun zwCreateResourceManager(resourcemanagerhandle: MutPtr, desiredaccess: UInt, tmhandle: Handle, resourcemanagerguid: ConstPtr, objectattributes: ConstPtr, createoptions: UInt, description: ConstPtr): Ntstatus =
     windowssysWindowsWdkSystemSystemservicesZwCreateResourceManager(resourcemanagerhandle.rawAddress.toCPointer<ByteVar>(), desiredaccess, tmhandle.rawAddress.toCPointer<ByteVar>(), resourcemanagerguid.rawAddress.toCPointer<ByteVar>(), objectattributes.rawAddress.toCPointer<ByteVar>(), createoptions, description.rawAddress.toCPointer<ByteVar>())
 
-public actual fun zwCreateSection(sectionhandle: MutPtr<Handle>, desiredaccess: UInt, objectattributes: ConstPtr<ObjectAttributes>, maximumsize: ConstPtr<Long>, sectionpageprotection: UInt, allocationattributes: UInt, filehandle: Handle): Ntstatus =
+public actual fun zwCreateSection(sectionhandle: MutPtr, desiredaccess: UInt, objectattributes: ConstPtr, maximumsize: ConstPtr, sectionpageprotection: UInt, allocationattributes: UInt, filehandle: Handle): Ntstatus =
     windowssysWindowsWdkSystemSystemservicesZwCreateSection(sectionhandle.rawAddress.toCPointer<ByteVar>(), desiredaccess, objectattributes.rawAddress.toCPointer<ByteVar>(), maximumsize.rawAddress.toCPointer<ByteVar>(), sectionpageprotection, allocationattributes, filehandle.rawAddress.toCPointer<ByteVar>())
 
-public actual fun zwCreateTransaction(transactionhandle: MutPtr<Handle>, desiredaccess: UInt, objectattributes: ConstPtr<ObjectAttributes>, uow: ConstPtr<Guid>, tmhandle: Handle, createoptions: UInt, isolationlevel: UInt, isolationflags: UInt, timeout: ConstPtr<Long>, description: ConstPtr<UnicodeString>): Ntstatus =
+public actual fun zwCreateTransaction(transactionhandle: MutPtr, desiredaccess: UInt, objectattributes: ConstPtr, uow: ConstPtr, tmhandle: Handle, createoptions: UInt, isolationlevel: UInt, isolationflags: UInt, timeout: ConstPtr, description: ConstPtr): Ntstatus =
     windowssysWindowsWdkSystemSystemservicesZwCreateTransaction(transactionhandle.rawAddress.toCPointer<ByteVar>(), desiredaccess, objectattributes.rawAddress.toCPointer<ByteVar>(), uow.rawAddress.toCPointer<ByteVar>(), tmhandle.rawAddress.toCPointer<ByteVar>(), createoptions, isolationlevel, isolationflags, timeout.rawAddress.toCPointer<ByteVar>(), description.rawAddress.toCPointer<ByteVar>())
 
-public actual fun zwCreateTransactionManager(tmhandle: MutPtr<Handle>, desiredaccess: UInt, objectattributes: ConstPtr<ObjectAttributes>, logfilename: ConstPtr<UnicodeString>, createoptions: UInt, commitstrength: UInt): Ntstatus =
+public actual fun zwCreateTransactionManager(tmhandle: MutPtr, desiredaccess: UInt, objectattributes: ConstPtr, logfilename: ConstPtr, createoptions: UInt, commitstrength: UInt): Ntstatus =
     windowssysWindowsWdkSystemSystemservicesZwCreateTransactionManager(tmhandle.rawAddress.toCPointer<ByteVar>(), desiredaccess, objectattributes.rawAddress.toCPointer<ByteVar>(), logfilename.rawAddress.toCPointer<ByteVar>(), createoptions, commitstrength)
 
-public actual fun zwDeviceIoControlFile(filehandle: Handle, event: Handle, apcroutine: PioApcRoutine, apccontext: ConstPtr<CVoid>, iostatusblock: MutPtr<IoStatusBlock>, iocontrolcode: UInt, inputbuffer: ConstPtr<CVoid>, inputbufferlength: UInt, outputbuffer: MutPtr<CVoid>, outputbufferlength: UInt): Ntstatus =
+public actual fun zwDeviceIoControlFile(filehandle: Handle, event: Handle, apcroutine: PioApcRoutine, apccontext: ConstPtr, iostatusblock: MutPtr, iocontrolcode: UInt, inputbuffer: ConstPtr, inputbufferlength: UInt, outputbuffer: MutPtr, outputbufferlength: UInt): Ntstatus =
     windowssysWindowsWdkSystemSystemservicesZwDeviceIoControlFile(filehandle.rawAddress.toCPointer<ByteVar>(), event.rawAddress.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>(), apccontext.rawAddress.toCPointer<ByteVar>(), iostatusblock.rawAddress.toCPointer<ByteVar>(), iocontrolcode, inputbuffer.rawAddress.toCPointer<ByteVar>(), inputbufferlength, outputbuffer.rawAddress.toCPointer<ByteVar>(), outputbufferlength)
 
-public actual fun zwDisplayString(string: ConstPtr<UnicodeString>): Ntstatus =
+public actual fun zwDisplayString(string: ConstPtr): Ntstatus =
     windowssysWindowsWdkSystemSystemservicesZwDisplayString(string.rawAddress.toCPointer<ByteVar>())
 
-public actual fun zwEnumerateTransactionObject(rootobjecthandle: Handle, querytype: KtmobjectType, objectcursor: MutPtr<KtmobjectCursor>, objectcursorlength: UInt, returnlength: MutPtr<UInt>): Ntstatus =
+public actual fun zwEnumerateTransactionObject(rootobjecthandle: Handle, querytype: KtmobjectType, objectcursor: MutPtr, objectcursorlength: UInt, returnlength: MutPtr): Ntstatus =
     windowssysWindowsWdkSystemSystemservicesZwEnumerateTransactionObject(rootobjecthandle.rawAddress.toCPointer<ByteVar>(), querytype, objectcursor.rawAddress.toCPointer<ByteVar>(), objectcursorlength, returnlength.rawAddress.toCPointer<ByteVar>())
 
-public actual fun zwGetNotificationResourceManager(resourcemanagerhandle: Handle, transactionnotification: MutPtr<TransactionNotification>, notificationlength: UInt, timeout: ConstPtr<Long>, returnlength: MutPtr<UInt>, asynchronous: UInt, asynchronouscontext: ULong): Ntstatus =
+public actual fun zwGetNotificationResourceManager(resourcemanagerhandle: Handle, transactionnotification: MutPtr, notificationlength: UInt, timeout: ConstPtr, returnlength: MutPtr, asynchronous: UInt, asynchronouscontext: ULong): Ntstatus =
     windowssysWindowsWdkSystemSystemservicesZwGetNotificationResourceManager(resourcemanagerhandle.rawAddress.toCPointer<ByteVar>(), transactionnotification.rawAddress.toCPointer<ByteVar>(), notificationlength, timeout.rawAddress.toCPointer<ByteVar>(), returnlength.rawAddress.toCPointer<ByteVar>(), asynchronous, asynchronouscontext)
 
-public actual fun zwLoadDriver(driverservicename: ConstPtr<UnicodeString>): Ntstatus =
+public actual fun zwLoadDriver(driverservicename: ConstPtr): Ntstatus =
     windowssysWindowsWdkSystemSystemservicesZwLoadDriver(driverservicename.rawAddress.toCPointer<ByteVar>())
 
 public actual fun zwMakeTemporaryObject(handle: Handle): Ntstatus =
     windowssysWindowsWdkSystemSystemservicesZwMakeTemporaryObject(handle.rawAddress.toCPointer<ByteVar>())
 
-public actual fun zwManagePartition(targethandle: Handle, sourcehandle: Handle, partitioninformationclass: PartitionInformationClass, partitioninformation: MutPtr<CVoid>, partitioninformationlength: UInt): Ntstatus =
+public actual fun zwManagePartition(targethandle: Handle, sourcehandle: Handle, partitioninformationclass: PartitionInformationClass, partitioninformation: MutPtr, partitioninformationlength: UInt): Ntstatus =
     windowssysWindowsWdkSystemSystemservicesZwManagePartition(targethandle.rawAddress.toCPointer<ByteVar>(), sourcehandle.rawAddress.toCPointer<ByteVar>(), partitioninformationclass, partitioninformation.rawAddress.toCPointer<ByteVar>(), partitioninformationlength)
 
-public actual fun zwOpenEnlistment(enlistmenthandle: MutPtr<Handle>, desiredaccess: UInt, rmhandle: Handle, enlistmentguid: ConstPtr<Guid>, objectattributes: ConstPtr<ObjectAttributes>): Ntstatus =
+public actual fun zwOpenEnlistment(enlistmenthandle: MutPtr, desiredaccess: UInt, rmhandle: Handle, enlistmentguid: ConstPtr, objectattributes: ConstPtr): Ntstatus =
     windowssysWindowsWdkSystemSystemservicesZwOpenEnlistment(enlistmenthandle.rawAddress.toCPointer<ByteVar>(), desiredaccess, rmhandle.rawAddress.toCPointer<ByteVar>(), enlistmentguid.rawAddress.toCPointer<ByteVar>(), objectattributes.rawAddress.toCPointer<ByteVar>())
 
-public actual fun zwOpenFile(filehandle: MutPtr<Handle>, desiredaccess: UInt, objectattributes: ConstPtr<ObjectAttributes>, iostatusblock: MutPtr<IoStatusBlock>, shareaccess: UInt, openoptions: UInt): Ntstatus =
+public actual fun zwOpenFile(filehandle: MutPtr, desiredaccess: UInt, objectattributes: ConstPtr, iostatusblock: MutPtr, shareaccess: UInt, openoptions: UInt): Ntstatus =
     windowssysWindowsWdkSystemSystemservicesZwOpenFile(filehandle.rawAddress.toCPointer<ByteVar>(), desiredaccess, objectattributes.rawAddress.toCPointer<ByteVar>(), iostatusblock.rawAddress.toCPointer<ByteVar>(), shareaccess, openoptions)
 
-public actual fun zwOpenResourceManager(resourcemanagerhandle: MutPtr<Handle>, desiredaccess: UInt, tmhandle: Handle, resourcemanagerguid: ConstPtr<Guid>, objectattributes: ConstPtr<ObjectAttributes>): Ntstatus =
+public actual fun zwOpenResourceManager(resourcemanagerhandle: MutPtr, desiredaccess: UInt, tmhandle: Handle, resourcemanagerguid: ConstPtr, objectattributes: ConstPtr): Ntstatus =
     windowssysWindowsWdkSystemSystemservicesZwOpenResourceManager(resourcemanagerhandle.rawAddress.toCPointer<ByteVar>(), desiredaccess, tmhandle.rawAddress.toCPointer<ByteVar>(), resourcemanagerguid.rawAddress.toCPointer<ByteVar>(), objectattributes.rawAddress.toCPointer<ByteVar>())
 
-public actual fun zwOpenSymbolicLinkObject(linkhandle: MutPtr<Handle>, desiredaccess: UInt, objectattributes: ConstPtr<ObjectAttributes>): Ntstatus =
+public actual fun zwOpenSymbolicLinkObject(linkhandle: MutPtr, desiredaccess: UInt, objectattributes: ConstPtr): Ntstatus =
     windowssysWindowsWdkSystemSystemservicesZwOpenSymbolicLinkObject(linkhandle.rawAddress.toCPointer<ByteVar>(), desiredaccess, objectattributes.rawAddress.toCPointer<ByteVar>())
 
-public actual fun zwOpenTransaction(transactionhandle: MutPtr<Handle>, desiredaccess: UInt, objectattributes: ConstPtr<ObjectAttributes>, uow: ConstPtr<Guid>, tmhandle: Handle): Ntstatus =
+public actual fun zwOpenTransaction(transactionhandle: MutPtr, desiredaccess: UInt, objectattributes: ConstPtr, uow: ConstPtr, tmhandle: Handle): Ntstatus =
     windowssysWindowsWdkSystemSystemservicesZwOpenTransaction(transactionhandle.rawAddress.toCPointer<ByteVar>(), desiredaccess, objectattributes.rawAddress.toCPointer<ByteVar>(), uow.rawAddress.toCPointer<ByteVar>(), tmhandle.rawAddress.toCPointer<ByteVar>())
 
-public actual fun zwOpenTransactionManager(tmhandle: MutPtr<Handle>, desiredaccess: UInt, objectattributes: ConstPtr<ObjectAttributes>, logfilename: ConstPtr<UnicodeString>, tmidentity: ConstPtr<Guid>, openoptions: UInt): Ntstatus =
+public actual fun zwOpenTransactionManager(tmhandle: MutPtr, desiredaccess: UInt, objectattributes: ConstPtr, logfilename: ConstPtr, tmidentity: ConstPtr, openoptions: UInt): Ntstatus =
     windowssysWindowsWdkSystemSystemservicesZwOpenTransactionManager(tmhandle.rawAddress.toCPointer<ByteVar>(), desiredaccess, objectattributes.rawAddress.toCPointer<ByteVar>(), logfilename.rawAddress.toCPointer<ByteVar>(), tmidentity.rawAddress.toCPointer<ByteVar>(), openoptions)
 
-public actual fun zwPowerInformation(informationlevel: PowerInformationLevel, inputbuffer: ConstPtr<CVoid>, inputbufferlength: UInt, outputbuffer: MutPtr<CVoid>, outputbufferlength: UInt): Ntstatus =
+public actual fun zwPowerInformation(informationlevel: PowerInformationLevel, inputbuffer: ConstPtr, inputbufferlength: UInt, outputbuffer: MutPtr, outputbufferlength: UInt): Ntstatus =
     windowssysWindowsWdkSystemSystemservicesZwPowerInformation(informationlevel, inputbuffer.rawAddress.toCPointer<ByteVar>(), inputbufferlength, outputbuffer.rawAddress.toCPointer<ByteVar>(), outputbufferlength)
 
-public actual fun zwPrePrepareComplete(enlistmenthandle: Handle, tmvirtualclock: ConstPtr<Long>): Ntstatus =
+public actual fun zwPrePrepareComplete(enlistmenthandle: Handle, tmvirtualclock: ConstPtr): Ntstatus =
     windowssysWindowsWdkSystemSystemservicesZwPrePrepareComplete(enlistmenthandle.rawAddress.toCPointer<ByteVar>(), tmvirtualclock.rawAddress.toCPointer<ByteVar>())
 
-public actual fun zwPrePrepareEnlistment(enlistmenthandle: Handle, tmvirtualclock: ConstPtr<Long>): Ntstatus =
+public actual fun zwPrePrepareEnlistment(enlistmenthandle: Handle, tmvirtualclock: ConstPtr): Ntstatus =
     windowssysWindowsWdkSystemSystemservicesZwPrePrepareEnlistment(enlistmenthandle.rawAddress.toCPointer<ByteVar>(), tmvirtualclock.rawAddress.toCPointer<ByteVar>())
 
-public actual fun zwPrepareComplete(enlistmenthandle: Handle, tmvirtualclock: ConstPtr<Long>): Ntstatus =
+public actual fun zwPrepareComplete(enlistmenthandle: Handle, tmvirtualclock: ConstPtr): Ntstatus =
     windowssysWindowsWdkSystemSystemservicesZwPrepareComplete(enlistmenthandle.rawAddress.toCPointer<ByteVar>(), tmvirtualclock.rawAddress.toCPointer<ByteVar>())
 
-public actual fun zwPrepareEnlistment(enlistmenthandle: Handle, tmvirtualclock: ConstPtr<Long>): Ntstatus =
+public actual fun zwPrepareEnlistment(enlistmenthandle: Handle, tmvirtualclock: ConstPtr): Ntstatus =
     windowssysWindowsWdkSystemSystemservicesZwPrepareEnlistment(enlistmenthandle.rawAddress.toCPointer<ByteVar>(), tmvirtualclock.rawAddress.toCPointer<ByteVar>())
 
-public actual fun zwPropagationComplete(resourcemanagerhandle: Handle, requestcookie: UInt, bufferlength: UInt, buffer: ConstPtr<CVoid>): Ntstatus =
+public actual fun zwPropagationComplete(resourcemanagerhandle: Handle, requestcookie: UInt, bufferlength: UInt, buffer: ConstPtr): Ntstatus =
     windowssysWindowsWdkSystemSystemservicesZwPropagationComplete(resourcemanagerhandle.rawAddress.toCPointer<ByteVar>(), requestcookie, bufferlength, buffer.rawAddress.toCPointer<ByteVar>())
 
 public actual fun zwPropagationFailed(resourcemanagerhandle: Handle, requestcookie: UInt, propstatus: Ntstatus): Ntstatus =
     windowssysWindowsWdkSystemSystemservicesZwPropagationFailed(resourcemanagerhandle.rawAddress.toCPointer<ByteVar>(), requestcookie, propstatus)
 
-public actual fun zwQueryInformationByName(objectattributes: ConstPtr<ObjectAttributes>, iostatusblock: MutPtr<IoStatusBlock>, fileinformation: MutPtr<CVoid>, length: UInt, fileinformationclass: FileInformationClass): Ntstatus =
+public actual fun zwQueryInformationByName(objectattributes: ConstPtr, iostatusblock: MutPtr, fileinformation: MutPtr, length: UInt, fileinformationclass: FileInformationClass): Ntstatus =
     windowssysWindowsWdkSystemSystemservicesZwQueryInformationByName(objectattributes.rawAddress.toCPointer<ByteVar>(), iostatusblock.rawAddress.toCPointer<ByteVar>(), fileinformation.rawAddress.toCPointer<ByteVar>(), length, fileinformationclass)
 
-public actual fun zwQueryInformationEnlistment(enlistmenthandle: Handle, enlistmentinformationclass: EnlistmentInformationClass, enlistmentinformation: MutPtr<CVoid>, enlistmentinformationlength: UInt, returnlength: MutPtr<UInt>): Ntstatus =
+public actual fun zwQueryInformationEnlistment(enlistmenthandle: Handle, enlistmentinformationclass: EnlistmentInformationClass, enlistmentinformation: MutPtr, enlistmentinformationlength: UInt, returnlength: MutPtr): Ntstatus =
     windowssysWindowsWdkSystemSystemservicesZwQueryInformationEnlistment(enlistmenthandle.rawAddress.toCPointer<ByteVar>(), enlistmentinformationclass, enlistmentinformation.rawAddress.toCPointer<ByteVar>(), enlistmentinformationlength, returnlength.rawAddress.toCPointer<ByteVar>())
 
-public actual fun zwQueryInformationFile(filehandle: Handle, iostatusblock: MutPtr<IoStatusBlock>, fileinformation: MutPtr<CVoid>, length: UInt, fileinformationclass: FileInformationClass): Ntstatus =
+public actual fun zwQueryInformationFile(filehandle: Handle, iostatusblock: MutPtr, fileinformation: MutPtr, length: UInt, fileinformationclass: FileInformationClass): Ntstatus =
     windowssysWindowsWdkSystemSystemservicesZwQueryInformationFile(filehandle.rawAddress.toCPointer<ByteVar>(), iostatusblock.rawAddress.toCPointer<ByteVar>(), fileinformation.rawAddress.toCPointer<ByteVar>(), length, fileinformationclass)
 
-public actual fun zwQueryInformationResourceManager(resourcemanagerhandle: Handle, resourcemanagerinformationclass: ResourcemanagerInformationClass, resourcemanagerinformation: MutPtr<CVoid>, resourcemanagerinformationlength: UInt, returnlength: MutPtr<UInt>): Ntstatus =
+public actual fun zwQueryInformationResourceManager(resourcemanagerhandle: Handle, resourcemanagerinformationclass: ResourcemanagerInformationClass, resourcemanagerinformation: MutPtr, resourcemanagerinformationlength: UInt, returnlength: MutPtr): Ntstatus =
     windowssysWindowsWdkSystemSystemservicesZwQueryInformationResourceManager(resourcemanagerhandle.rawAddress.toCPointer<ByteVar>(), resourcemanagerinformationclass, resourcemanagerinformation.rawAddress.toCPointer<ByteVar>(), resourcemanagerinformationlength, returnlength.rawAddress.toCPointer<ByteVar>())
 
-public actual fun zwQueryInformationTransaction(transactionhandle: Handle, transactioninformationclass: TransactionInformationClass, transactioninformation: MutPtr<CVoid>, transactioninformationlength: UInt, returnlength: MutPtr<UInt>): Ntstatus =
+public actual fun zwQueryInformationTransaction(transactionhandle: Handle, transactioninformationclass: TransactionInformationClass, transactioninformation: MutPtr, transactioninformationlength: UInt, returnlength: MutPtr): Ntstatus =
     windowssysWindowsWdkSystemSystemservicesZwQueryInformationTransaction(transactionhandle.rawAddress.toCPointer<ByteVar>(), transactioninformationclass, transactioninformation.rawAddress.toCPointer<ByteVar>(), transactioninformationlength, returnlength.rawAddress.toCPointer<ByteVar>())
 
-public actual fun zwQueryInformationTransactionManager(transactionmanagerhandle: Handle, transactionmanagerinformationclass: TransactionmanagerInformationClass, transactionmanagerinformation: MutPtr<CVoid>, transactionmanagerinformationlength: UInt, returnlength: MutPtr<UInt>): Ntstatus =
+public actual fun zwQueryInformationTransactionManager(transactionmanagerhandle: Handle, transactionmanagerinformationclass: TransactionmanagerInformationClass, transactionmanagerinformation: MutPtr, transactionmanagerinformationlength: UInt, returnlength: MutPtr): Ntstatus =
     windowssysWindowsWdkSystemSystemservicesZwQueryInformationTransactionManager(transactionmanagerhandle.rawAddress.toCPointer<ByteVar>(), transactionmanagerinformationclass, transactionmanagerinformation.rawAddress.toCPointer<ByteVar>(), transactionmanagerinformationlength, returnlength.rawAddress.toCPointer<ByteVar>())
 
-public actual fun zwQuerySymbolicLinkObject(linkhandle: Handle, linktarget: MutPtr<UnicodeString>, returnedlength: MutPtr<UInt>): Ntstatus =
+public actual fun zwQuerySymbolicLinkObject(linkhandle: Handle, linktarget: MutPtr, returnedlength: MutPtr): Ntstatus =
     windowssysWindowsWdkSystemSystemservicesZwQuerySymbolicLinkObject(linkhandle.rawAddress.toCPointer<ByteVar>(), linktarget.rawAddress.toCPointer<ByteVar>(), returnedlength.rawAddress.toCPointer<ByteVar>())
 
-public actual fun zwReadFile(filehandle: Handle, event: Handle, apcroutine: PioApcRoutine, apccontext: ConstPtr<CVoid>, iostatusblock: MutPtr<IoStatusBlock>, buffer: MutPtr<CVoid>, length: UInt, byteoffset: ConstPtr<Long>, key: ConstPtr<UInt>): Ntstatus =
+public actual fun zwReadFile(filehandle: Handle, event: Handle, apcroutine: PioApcRoutine, apccontext: ConstPtr, iostatusblock: MutPtr, buffer: MutPtr, length: UInt, byteoffset: ConstPtr, key: ConstPtr): Ntstatus =
     windowssysWindowsWdkSystemSystemservicesZwReadFile(filehandle.rawAddress.toCPointer<ByteVar>(), event.rawAddress.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>(), apccontext.rawAddress.toCPointer<ByteVar>(), iostatusblock.rawAddress.toCPointer<ByteVar>(), buffer.rawAddress.toCPointer<ByteVar>(), length, byteoffset.rawAddress.toCPointer<ByteVar>(), key.rawAddress.toCPointer<ByteVar>())
 
-public actual fun zwReadOnlyEnlistment(enlistmenthandle: Handle, tmvirtualclock: ConstPtr<Long>): Ntstatus =
+public actual fun zwReadOnlyEnlistment(enlistmenthandle: Handle, tmvirtualclock: ConstPtr): Ntstatus =
     windowssysWindowsWdkSystemSystemservicesZwReadOnlyEnlistment(enlistmenthandle.rawAddress.toCPointer<ByteVar>(), tmvirtualclock.rawAddress.toCPointer<ByteVar>())
 
-public actual fun zwRecoverEnlistment(enlistmenthandle: Handle, enlistmentkey: ConstPtr<CVoid>): Ntstatus =
+public actual fun zwRecoverEnlistment(enlistmenthandle: Handle, enlistmentkey: ConstPtr): Ntstatus =
     windowssysWindowsWdkSystemSystemservicesZwRecoverEnlistment(enlistmenthandle.rawAddress.toCPointer<ByteVar>(), enlistmentkey.rawAddress.toCPointer<ByteVar>())
 
 public actual fun zwRecoverResourceManager(resourcemanagerhandle: Handle): Ntstatus =
@@ -4956,50 +4900,50 @@ public actual fun zwRecoverResourceManager(resourcemanagerhandle: Handle): Ntsta
 public actual fun zwRecoverTransactionManager(transactionmanagerhandle: Handle): Ntstatus =
     windowssysWindowsWdkSystemSystemservicesZwRecoverTransactionManager(transactionmanagerhandle.rawAddress.toCPointer<ByteVar>())
 
-public actual fun zwRegisterProtocolAddressInformation(resourcemanager: Handle, protocolid: ConstPtr<Guid>, protocolinformationsize: UInt, protocolinformation: ConstPtr<CVoid>, createoptions: UInt): Ntstatus =
+public actual fun zwRegisterProtocolAddressInformation(resourcemanager: Handle, protocolid: ConstPtr, protocolinformationsize: UInt, protocolinformation: ConstPtr, createoptions: UInt): Ntstatus =
     windowssysWindowsWdkSystemSystemservicesZwRegisterProtocolAddressInformation(resourcemanager.rawAddress.toCPointer<ByteVar>(), protocolid.rawAddress.toCPointer<ByteVar>(), protocolinformationsize, protocolinformation.rawAddress.toCPointer<ByteVar>(), createoptions)
 
-public actual fun zwRenameTransactionManager(logfilename: ConstPtr<UnicodeString>, existingtransactionmanagerguid: ConstPtr<Guid>): Ntstatus =
+public actual fun zwRenameTransactionManager(logfilename: ConstPtr, existingtransactionmanagerguid: ConstPtr): Ntstatus =
     windowssysWindowsWdkSystemSystemservicesZwRenameTransactionManager(logfilename.rawAddress.toCPointer<ByteVar>(), existingtransactionmanagerguid.rawAddress.toCPointer<ByteVar>())
 
-public actual fun zwRollbackComplete(enlistmenthandle: Handle, tmvirtualclock: ConstPtr<Long>): Ntstatus =
+public actual fun zwRollbackComplete(enlistmenthandle: Handle, tmvirtualclock: ConstPtr): Ntstatus =
     windowssysWindowsWdkSystemSystemservicesZwRollbackComplete(enlistmenthandle.rawAddress.toCPointer<ByteVar>(), tmvirtualclock.rawAddress.toCPointer<ByteVar>())
 
-public actual fun zwRollbackEnlistment(enlistmenthandle: Handle, tmvirtualclock: ConstPtr<Long>): Ntstatus =
+public actual fun zwRollbackEnlistment(enlistmenthandle: Handle, tmvirtualclock: ConstPtr): Ntstatus =
     windowssysWindowsWdkSystemSystemservicesZwRollbackEnlistment(enlistmenthandle.rawAddress.toCPointer<ByteVar>(), tmvirtualclock.rawAddress.toCPointer<ByteVar>())
 
 public actual fun zwRollbackTransaction(transactionhandle: Handle, wait: Boolean): Ntstatus =
     windowssysWindowsWdkSystemSystemservicesZwRollbackTransaction(transactionhandle.rawAddress.toCPointer<ByteVar>(), wait)
 
-public actual fun zwRollforwardTransactionManager(transactionmanagerhandle: Handle, tmvirtualclock: ConstPtr<Long>): Ntstatus =
+public actual fun zwRollforwardTransactionManager(transactionmanagerhandle: Handle, tmvirtualclock: ConstPtr): Ntstatus =
     windowssysWindowsWdkSystemSystemservicesZwRollforwardTransactionManager(transactionmanagerhandle.rawAddress.toCPointer<ByteVar>(), tmvirtualclock.rawAddress.toCPointer<ByteVar>())
 
-public actual fun zwSetInformationEnlistment(enlistmenthandle: Handle, enlistmentinformationclass: EnlistmentInformationClass, enlistmentinformation: ConstPtr<CVoid>, enlistmentinformationlength: UInt): Ntstatus =
+public actual fun zwSetInformationEnlistment(enlistmenthandle: Handle, enlistmentinformationclass: EnlistmentInformationClass, enlistmentinformation: ConstPtr, enlistmentinformationlength: UInt): Ntstatus =
     windowssysWindowsWdkSystemSystemservicesZwSetInformationEnlistment(enlistmenthandle.rawAddress.toCPointer<ByteVar>(), enlistmentinformationclass, enlistmentinformation.rawAddress.toCPointer<ByteVar>(), enlistmentinformationlength)
 
-public actual fun zwSetInformationFile(filehandle: Handle, iostatusblock: MutPtr<IoStatusBlock>, fileinformation: ConstPtr<CVoid>, length: UInt, fileinformationclass: FileInformationClass): Ntstatus =
+public actual fun zwSetInformationFile(filehandle: Handle, iostatusblock: MutPtr, fileinformation: ConstPtr, length: UInt, fileinformationclass: FileInformationClass): Ntstatus =
     windowssysWindowsWdkSystemSystemservicesZwSetInformationFile(filehandle.rawAddress.toCPointer<ByteVar>(), iostatusblock.rawAddress.toCPointer<ByteVar>(), fileinformation.rawAddress.toCPointer<ByteVar>(), length, fileinformationclass)
 
-public actual fun zwSetInformationResourceManager(resourcemanagerhandle: Handle, resourcemanagerinformationclass: ResourcemanagerInformationClass, resourcemanagerinformation: ConstPtr<CVoid>, resourcemanagerinformationlength: UInt): Ntstatus =
+public actual fun zwSetInformationResourceManager(resourcemanagerhandle: Handle, resourcemanagerinformationclass: ResourcemanagerInformationClass, resourcemanagerinformation: ConstPtr, resourcemanagerinformationlength: UInt): Ntstatus =
     windowssysWindowsWdkSystemSystemservicesZwSetInformationResourceManager(resourcemanagerhandle.rawAddress.toCPointer<ByteVar>(), resourcemanagerinformationclass, resourcemanagerinformation.rawAddress.toCPointer<ByteVar>(), resourcemanagerinformationlength)
 
-public actual fun zwSetInformationTransaction(transactionhandle: Handle, transactioninformationclass: TransactionInformationClass, transactioninformation: ConstPtr<CVoid>, transactioninformationlength: UInt): Ntstatus =
+public actual fun zwSetInformationTransaction(transactionhandle: Handle, transactioninformationclass: TransactionInformationClass, transactioninformation: ConstPtr, transactioninformationlength: UInt): Ntstatus =
     windowssysWindowsWdkSystemSystemservicesZwSetInformationTransaction(transactionhandle.rawAddress.toCPointer<ByteVar>(), transactioninformationclass, transactioninformation.rawAddress.toCPointer<ByteVar>(), transactioninformationlength)
 
-public actual fun zwSetInformationTransactionManager(tmhandle: Handle, transactionmanagerinformationclass: TransactionmanagerInformationClass, transactionmanagerinformation: ConstPtr<CVoid>, transactionmanagerinformationlength: UInt): Ntstatus =
+public actual fun zwSetInformationTransactionManager(tmhandle: Handle, transactionmanagerinformationclass: TransactionmanagerInformationClass, transactionmanagerinformation: ConstPtr, transactionmanagerinformationlength: UInt): Ntstatus =
     windowssysWindowsWdkSystemSystemservicesZwSetInformationTransactionManager(tmhandle.rawAddress.toCPointer<ByteVar>(), transactionmanagerinformationclass, transactionmanagerinformation.rawAddress.toCPointer<ByteVar>(), transactionmanagerinformationlength)
 
-public actual fun zwSinglePhaseReject(enlistmenthandle: Handle, tmvirtualclock: ConstPtr<Long>): Ntstatus =
+public actual fun zwSinglePhaseReject(enlistmenthandle: Handle, tmvirtualclock: ConstPtr): Ntstatus =
     windowssysWindowsWdkSystemSystemservicesZwSinglePhaseReject(enlistmenthandle.rawAddress.toCPointer<ByteVar>(), tmvirtualclock.rawAddress.toCPointer<ByteVar>())
 
-public actual fun zwUnloadDriver(driverservicename: ConstPtr<UnicodeString>): Ntstatus =
+public actual fun zwUnloadDriver(driverservicename: ConstPtr): Ntstatus =
     windowssysWindowsWdkSystemSystemservicesZwUnloadDriver(driverservicename.rawAddress.toCPointer<ByteVar>())
 
-public actual fun zwWriteFile(filehandle: Handle, event: Handle, apcroutine: PioApcRoutine, apccontext: ConstPtr<CVoid>, iostatusblock: MutPtr<IoStatusBlock>, buffer: ConstPtr<CVoid>, length: UInt, byteoffset: ConstPtr<Long>, key: ConstPtr<UInt>): Ntstatus =
+public actual fun zwWriteFile(filehandle: Handle, event: Handle, apcroutine: PioApcRoutine, apccontext: ConstPtr, iostatusblock: MutPtr, buffer: ConstPtr, length: UInt, byteoffset: ConstPtr, key: ConstPtr): Ntstatus =
     windowssysWindowsWdkSystemSystemservicesZwWriteFile(filehandle.rawAddress.toCPointer<ByteVar>(), event.rawAddress.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>(), apccontext.rawAddress.toCPointer<ByteVar>(), iostatusblock.rawAddress.toCPointer<ByteVar>(), buffer.rawAddress.toCPointer<ByteVar>(), length, byteoffset.rawAddress.toCPointer<ByteVar>(), key.rawAddress.toCPointer<ByteVar>())
 
-public actual fun vDbgPrintEx(componentid: UInt, level: UInt, format: Pcstr, arglist: ConstPtr<Byte>): UInt =
+public actual fun vDbgPrintEx(componentid: UInt, level: UInt, format: Pcstr, arglist: ConstPtr): UInt =
     windowssysWindowsWdkSystemSystemservicesVDbgPrintEx(componentid, level, format.rawAddress.toCPointer<ByteVar>(), arglist.rawAddress.toCPointer<ByteVar>())
 
-public actual fun vDbgPrintExWithPrefix(prefix: Pcstr, componentid: UInt, level: UInt, format: Pcstr, arglist: ConstPtr<Byte>): UInt =
+public actual fun vDbgPrintExWithPrefix(prefix: Pcstr, componentid: UInt, level: UInt, format: Pcstr, arglist: ConstPtr): UInt =
     windowssysWindowsWdkSystemSystemservicesVDbgPrintExWithPrefix(prefix.rawAddress.toCPointer<ByteVar>(), componentid, level, format.rawAddress.toCPointer<ByteVar>(), arglist.rawAddress.toCPointer<ByteVar>())

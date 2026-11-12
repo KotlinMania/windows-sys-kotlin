@@ -83,24 +83,24 @@ private object WindowsWin32SystemKernelJniBridge {
     external fun windowssysWindowsWin32SystemKernelRtlQueryDepthSList(listhead: Long): Short
 }
 
-public actual fun rtlFirstEntrySList(listhead: ConstPtr<SlistHeader>): MutPtr<SlistEntry> =
+public actual fun rtlFirstEntrySList(listhead: ConstPtr): MutPtr =
     MutPtr(WindowsWin32SystemKernelJniBridge.windowssysWindowsWin32SystemKernelRtlFirstEntrySList(listhead.rawAddress))
 
-public actual fun rtlInitializeSListHead(listhead: MutPtr<SlistHeader>) {
+public actual fun rtlInitializeSListHead(listhead: MutPtr) {
     WindowsWin32SystemKernelJniBridge.windowssysWindowsWin32SystemKernelRtlInitializeSListHead(listhead.rawAddress)
 }
 
-public actual fun rtlInterlockedFlushSList(listhead: MutPtr<SlistHeader>): MutPtr<SlistEntry> =
+public actual fun rtlInterlockedFlushSList(listhead: MutPtr): MutPtr =
     MutPtr(WindowsWin32SystemKernelJniBridge.windowssysWindowsWin32SystemKernelRtlInterlockedFlushSList(listhead.rawAddress))
 
-public actual fun rtlInterlockedPopEntrySList(listhead: MutPtr<SlistHeader>): MutPtr<SlistEntry> =
+public actual fun rtlInterlockedPopEntrySList(listhead: MutPtr): MutPtr =
     MutPtr(WindowsWin32SystemKernelJniBridge.windowssysWindowsWin32SystemKernelRtlInterlockedPopEntrySList(listhead.rawAddress))
 
-public actual fun rtlInterlockedPushEntrySList(listhead: MutPtr<SlistHeader>, listentry: MutPtr<SlistEntry>): MutPtr<SlistEntry> =
+public actual fun rtlInterlockedPushEntrySList(listhead: MutPtr, listentry: MutPtr): MutPtr =
     MutPtr(WindowsWin32SystemKernelJniBridge.windowssysWindowsWin32SystemKernelRtlInterlockedPushEntrySList(listhead.rawAddress, listentry.rawAddress))
 
-public actual fun rtlInterlockedPushListSListEx(listhead: MutPtr<SlistHeader>, list: MutPtr<SlistEntry>, listend: MutPtr<SlistEntry>, count: UInt): MutPtr<SlistEntry> =
+public actual fun rtlInterlockedPushListSListEx(listhead: MutPtr, list: MutPtr, listend: MutPtr, count: UInt): MutPtr =
     MutPtr(WindowsWin32SystemKernelJniBridge.windowssysWindowsWin32SystemKernelRtlInterlockedPushListSListEx(listhead.rawAddress, list.rawAddress, listend.rawAddress, count.toInt()))
 
-public actual fun rtlQueryDepthSList(listhead: ConstPtr<SlistHeader>): UShort =
+public actual fun rtlQueryDepthSList(listhead: ConstPtr): UShort =
     WindowsWin32SystemKernelJniBridge.windowssysWindowsWin32SystemKernelRtlQueryDepthSList(listhead.rawAddress).toUShort()

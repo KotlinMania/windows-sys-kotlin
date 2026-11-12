@@ -2,21 +2,18 @@
 
 package io.github.kotlinmania.windowssys.windows.wdk.graphics.direct3d
 
-import io.github.kotlinmania.rustlang.core.ffi.CVoid
 import io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
 import io.github.kotlinmania.rustlang.core.mem.TypeLayout
 import io.github.kotlinmania.rustlang.core.ptr.ConstPtr
 import io.github.kotlinmania.rustlang.core.ptr.MutPtr
 import io.github.kotlinmania.windowssys.core.Bool
 import io.github.kotlinmania.windowssys.core.Pcwstr
-import io.github.kotlinmania.windowssys.windows.wdk.foundation.ObjectAttributes
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Handle
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Hwnd
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Luid
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Point
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Rect
 import io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.Hdc
-import io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.Paletteentry
 
 public data class D3dkmtAdapterVerifierOption(
     public var type: D3dkmtAdapterVerifierOptionType = 0,
@@ -258,10 +255,10 @@ public data class D3dkmtBrightnessPossibleLevels(
 }
 
 public class D3dkmtBudgetchangenotification internal constructor(
-    contextCtorArg: MutPtr<CVoid>,
+    contextCtorArg: MutPtr,
     public var budget: ULong,
 ) {
-    public var context: MutPtr<CVoid> = contextCtorArg
+    public var context: MutPtr = contextCtorArg
         internal set
 
     public constructor() : this(
@@ -269,11 +266,11 @@ public class D3dkmtBudgetchangenotification internal constructor(
         budget = 0uL,
     )
 
-    public operator fun component1(): MutPtr<CVoid> = this.context
+    public operator fun component1(): MutPtr = this.context
 
     public operator fun component2(): ULong = this.budget
 
-    public fun copy(context: MutPtr<CVoid> = this.context, budget: ULong = this.budget): D3dkmtBudgetchangenotification = D3dkmtBudgetchangenotification(contextCtorArg = context, budget = budget)
+    public fun copy(context: MutPtr = this.context, budget: ULong = this.budget): D3dkmtBudgetchangenotification = D3dkmtBudgetchangenotification(contextCtorArg = context, budget = budget)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -298,21 +295,21 @@ public class D3dkmtBudgetchangenotification internal constructor(
                     D3dkmtBudgetchangenotification(
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<CVoid>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U64).readNative(addr + 8L),
                     )
                 override fun writeNative(addr: Long, value: D3dkmtBudgetchangenotification) {
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<CVoid>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr, value.context)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U64).writeNative(addr + 8L, value.budget)
                 }
             }
 
         public operator fun invoke(
-            context: MutPtr<CVoid> = MutPtr(0L),
+            context: MutPtr = MutPtr(0L),
             budget: ULong = 0uL,
         ): D3dkmtBudgetchangenotification =
             D3dkmtBudgetchangenotification(
@@ -363,7 +360,7 @@ public data class D3dkmtCancelPresentsFlags00(
 public class D3dkmtChangesurfacepointer internal constructor(
     hDCCtorArg: Hdc,
     hBitmapCtorArg: Handle,
-    pSurfacePointerCtorArg: MutPtr<CVoid>,
+    pSurfacePointerCtorArg: MutPtr,
     public var width: UInt,
     public var height: UInt,
     public var pitch: UInt,
@@ -374,7 +371,7 @@ public class D3dkmtChangesurfacepointer internal constructor(
     public var hBitmap: Handle = hBitmapCtorArg
         internal set
 
-    public var pSurfacePointer: MutPtr<CVoid> = pSurfacePointerCtorArg
+    public var pSurfacePointer: MutPtr = pSurfacePointerCtorArg
         internal set
 
     public constructor() : this(
@@ -390,7 +387,7 @@ public class D3dkmtChangesurfacepointer internal constructor(
 
     public operator fun component2(): Handle = this.hBitmap
 
-    public operator fun component3(): MutPtr<CVoid> = this.pSurfacePointer
+    public operator fun component3(): MutPtr = this.pSurfacePointer
 
     public operator fun component4(): UInt = this.width
 
@@ -398,7 +395,7 @@ public class D3dkmtChangesurfacepointer internal constructor(
 
     public operator fun component6(): UInt = this.pitch
 
-    public fun copy(hDC: Hdc = this.hDC, hBitmap: Handle = this.hBitmap, pSurfacePointer: MutPtr<CVoid> = this.pSurfacePointer, width: UInt = this.width, height: UInt = this.height, pitch: UInt = this.pitch): D3dkmtChangesurfacepointer = D3dkmtChangesurfacepointer(hDCCtorArg = hDC, hBitmapCtorArg = hBitmap, pSurfacePointerCtorArg = pSurfacePointer, width = width, height = height, pitch = pitch)
+    public fun copy(hDC: Hdc = this.hDC, hBitmap: Handle = this.hBitmap, pSurfacePointer: MutPtr = this.pSurfacePointer, width: UInt = this.width, height: UInt = this.height, pitch: UInt = this.pitch): D3dkmtChangesurfacepointer = D3dkmtChangesurfacepointer(hDCCtorArg = hDC, hBitmapCtorArg = hBitmap, pSurfacePointerCtorArg = pSurfacePointer, width = width, height = height, pitch = pitch)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -426,7 +423,7 @@ public class D3dkmtChangesurfacepointer internal constructor(
         public operator fun invoke(
             hDC: Hdc = MutPtr(0L),
             hBitmap: Handle = MutPtr(0L),
-            pSurfacePointer: MutPtr<CVoid> = MutPtr(0L),
+            pSurfacePointer: MutPtr = MutPtr(0L),
             width: UInt = 0u,
             height: UInt = 0u,
             pitch: UInt = 0u,
@@ -535,11 +532,11 @@ public data class D3dkmtCheckmonitorpowerstate(
 public class D3dkmtCheckmultiplaneoverlaysupport internal constructor(
     public var hDevice: UInt,
     public var planeCount: UInt,
-    pOverlayPlanesCtorArg: MutPtr<D3dkmtCheckMultiplaneOverlayPlane>,
+    pOverlayPlanesCtorArg: MutPtr,
     public var supported: Bool,
     public var returnInfo: D3dkmtCheckMultiplaneOverlaySupportReturnInfo,
 ) {
-    public var pOverlayPlanes: MutPtr<D3dkmtCheckMultiplaneOverlayPlane> = pOverlayPlanesCtorArg
+    public var pOverlayPlanes: MutPtr = pOverlayPlanesCtorArg
         internal set
 
     public constructor() : this(
@@ -554,13 +551,13 @@ public class D3dkmtCheckmultiplaneoverlaysupport internal constructor(
 
     public operator fun component2(): UInt = this.planeCount
 
-    public operator fun component3(): MutPtr<D3dkmtCheckMultiplaneOverlayPlane> = this.pOverlayPlanes
+    public operator fun component3(): MutPtr = this.pOverlayPlanes
 
     public operator fun component4(): Bool = this.supported
 
     public operator fun component5(): D3dkmtCheckMultiplaneOverlaySupportReturnInfo = this.returnInfo
 
-    public fun copy(hDevice: UInt = this.hDevice, planeCount: UInt = this.planeCount, pOverlayPlanes: MutPtr<D3dkmtCheckMultiplaneOverlayPlane> = this.pOverlayPlanes, supported: Bool = this.supported, returnInfo: D3dkmtCheckMultiplaneOverlaySupportReturnInfo = this.returnInfo): D3dkmtCheckmultiplaneoverlaysupport = D3dkmtCheckmultiplaneoverlaysupport(hDevice = hDevice, planeCount = planeCount, pOverlayPlanesCtorArg = pOverlayPlanes, supported = supported, returnInfo = returnInfo)
+    public fun copy(hDevice: UInt = this.hDevice, planeCount: UInt = this.planeCount, pOverlayPlanes: MutPtr = this.pOverlayPlanes, supported: Bool = this.supported, returnInfo: D3dkmtCheckMultiplaneOverlaySupportReturnInfo = this.returnInfo): D3dkmtCheckmultiplaneoverlaysupport = D3dkmtCheckmultiplaneoverlaysupport(hDevice = hDevice, planeCount = planeCount, pOverlayPlanesCtorArg = pOverlayPlanes, supported = supported, returnInfo = returnInfo)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -586,7 +583,7 @@ public class D3dkmtCheckmultiplaneoverlaysupport internal constructor(
         public operator fun invoke(
             hDevice: UInt = 0u,
             planeCount: UInt = 0u,
-            pOverlayPlanes: MutPtr<D3dkmtCheckMultiplaneOverlayPlane> = MutPtr(0L),
+            pOverlayPlanes: MutPtr = MutPtr(0L),
             supported: Bool = 0,
             returnInfo: D3dkmtCheckMultiplaneOverlaySupportReturnInfo = D3dkmtCheckMultiplaneOverlaySupportReturnInfo(),
         ): D3dkmtCheckmultiplaneoverlaysupport =
@@ -604,11 +601,11 @@ public class D3dkmtCheckmultiplaneoverlaysupport2 internal constructor(
     public var hAdapter: UInt,
     public var hDevice: UInt,
     public var planeCount: UInt,
-    pOverlayPlanesCtorArg: MutPtr<D3dkmtCheckMultiplaneOverlayPlane2>,
+    pOverlayPlanesCtorArg: MutPtr,
     public var supported: Bool,
     public var returnInfo: D3dkmtCheckMultiplaneOverlaySupportReturnInfo,
 ) {
-    public var pOverlayPlanes: MutPtr<D3dkmtCheckMultiplaneOverlayPlane2> = pOverlayPlanesCtorArg
+    public var pOverlayPlanes: MutPtr = pOverlayPlanesCtorArg
         internal set
 
     public constructor() : this(
@@ -626,13 +623,13 @@ public class D3dkmtCheckmultiplaneoverlaysupport2 internal constructor(
 
     public operator fun component3(): UInt = this.planeCount
 
-    public operator fun component4(): MutPtr<D3dkmtCheckMultiplaneOverlayPlane2> = this.pOverlayPlanes
+    public operator fun component4(): MutPtr = this.pOverlayPlanes
 
     public operator fun component5(): Bool = this.supported
 
     public operator fun component6(): D3dkmtCheckMultiplaneOverlaySupportReturnInfo = this.returnInfo
 
-    public fun copy(hAdapter: UInt = this.hAdapter, hDevice: UInt = this.hDevice, planeCount: UInt = this.planeCount, pOverlayPlanes: MutPtr<D3dkmtCheckMultiplaneOverlayPlane2> = this.pOverlayPlanes, supported: Bool = this.supported, returnInfo: D3dkmtCheckMultiplaneOverlaySupportReturnInfo = this.returnInfo): D3dkmtCheckmultiplaneoverlaysupport2 = D3dkmtCheckmultiplaneoverlaysupport2(hAdapter = hAdapter, hDevice = hDevice, planeCount = planeCount, pOverlayPlanesCtorArg = pOverlayPlanes, supported = supported, returnInfo = returnInfo)
+    public fun copy(hAdapter: UInt = this.hAdapter, hDevice: UInt = this.hDevice, planeCount: UInt = this.planeCount, pOverlayPlanes: MutPtr = this.pOverlayPlanes, supported: Bool = this.supported, returnInfo: D3dkmtCheckMultiplaneOverlaySupportReturnInfo = this.returnInfo): D3dkmtCheckmultiplaneoverlaysupport2 = D3dkmtCheckmultiplaneoverlaysupport2(hAdapter = hAdapter, hDevice = hDevice, planeCount = planeCount, pOverlayPlanesCtorArg = pOverlayPlanes, supported = supported, returnInfo = returnInfo)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -661,7 +658,7 @@ public class D3dkmtCheckmultiplaneoverlaysupport2 internal constructor(
             hAdapter: UInt = 0u,
             hDevice: UInt = 0u,
             planeCount: UInt = 0u,
-            pOverlayPlanes: MutPtr<D3dkmtCheckMultiplaneOverlayPlane2> = MutPtr(0L),
+            pOverlayPlanes: MutPtr = MutPtr(0L),
             supported: Bool = 0,
             returnInfo: D3dkmtCheckMultiplaneOverlaySupportReturnInfo = D3dkmtCheckMultiplaneOverlaySupportReturnInfo(),
         ): D3dkmtCheckmultiplaneoverlaysupport2 =
@@ -680,16 +677,16 @@ public class D3dkmtCheckmultiplaneoverlaysupport3 internal constructor(
     public var hAdapter: UInt,
     public var hDevice: UInt,
     public var planeCount: UInt,
-    ppOverlayPlanesCtorArg: MutPtr<MutPtr<D3dkmtCheckMultiplaneOverlayPlane3>>,
+    ppOverlayPlanesCtorArg: MutPtr,
     public var postCompositionCount: UInt,
-    ppPostCompositionCtorArg: MutPtr<MutPtr<D3dkmtMultiplaneOverlayPostCompositionWithSource>>,
+    ppPostCompositionCtorArg: MutPtr,
     public var supported: Bool,
     public var returnInfo: D3dkmtCheckMultiplaneOverlaySupportReturnInfo,
 ) {
-    public var ppOverlayPlanes: MutPtr<MutPtr<D3dkmtCheckMultiplaneOverlayPlane3>> = ppOverlayPlanesCtorArg
+    public var ppOverlayPlanes: MutPtr = ppOverlayPlanesCtorArg
         internal set
 
-    public var ppPostComposition: MutPtr<MutPtr<D3dkmtMultiplaneOverlayPostCompositionWithSource>> = ppPostCompositionCtorArg
+    public var ppPostComposition: MutPtr = ppPostCompositionCtorArg
         internal set
 
     public constructor() : this(
@@ -709,17 +706,17 @@ public class D3dkmtCheckmultiplaneoverlaysupport3 internal constructor(
 
     public operator fun component3(): UInt = this.planeCount
 
-    public operator fun component4(): MutPtr<MutPtr<D3dkmtCheckMultiplaneOverlayPlane3>> = this.ppOverlayPlanes
+    public operator fun component4(): MutPtr = this.ppOverlayPlanes
 
     public operator fun component5(): UInt = this.postCompositionCount
 
-    public operator fun component6(): MutPtr<MutPtr<D3dkmtMultiplaneOverlayPostCompositionWithSource>> = this.ppPostComposition
+    public operator fun component6(): MutPtr = this.ppPostComposition
 
     public operator fun component7(): Bool = this.supported
 
     public operator fun component8(): D3dkmtCheckMultiplaneOverlaySupportReturnInfo = this.returnInfo
 
-    public fun copy(hAdapter: UInt = this.hAdapter, hDevice: UInt = this.hDevice, planeCount: UInt = this.planeCount, ppOverlayPlanes: MutPtr<MutPtr<D3dkmtCheckMultiplaneOverlayPlane3>> = this.ppOverlayPlanes, postCompositionCount: UInt = this.postCompositionCount, ppPostComposition: MutPtr<MutPtr<D3dkmtMultiplaneOverlayPostCompositionWithSource>> = this.ppPostComposition, supported: Bool = this.supported, returnInfo: D3dkmtCheckMultiplaneOverlaySupportReturnInfo = this.returnInfo): D3dkmtCheckmultiplaneoverlaysupport3 = D3dkmtCheckmultiplaneoverlaysupport3(hAdapter = hAdapter, hDevice = hDevice, planeCount = planeCount, ppOverlayPlanesCtorArg = ppOverlayPlanes, postCompositionCount = postCompositionCount, ppPostCompositionCtorArg = ppPostComposition, supported = supported, returnInfo = returnInfo)
+    public fun copy(hAdapter: UInt = this.hAdapter, hDevice: UInt = this.hDevice, planeCount: UInt = this.planeCount, ppOverlayPlanes: MutPtr = this.ppOverlayPlanes, postCompositionCount: UInt = this.postCompositionCount, ppPostComposition: MutPtr = this.ppPostComposition, supported: Bool = this.supported, returnInfo: D3dkmtCheckMultiplaneOverlaySupportReturnInfo = this.returnInfo): D3dkmtCheckmultiplaneoverlaysupport3 = D3dkmtCheckmultiplaneoverlaysupport3(hAdapter = hAdapter, hDevice = hDevice, planeCount = planeCount, ppOverlayPlanesCtorArg = ppOverlayPlanes, postCompositionCount = postCompositionCount, ppPostCompositionCtorArg = ppPostComposition, supported = supported, returnInfo = returnInfo)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -752,9 +749,9 @@ public class D3dkmtCheckmultiplaneoverlaysupport3 internal constructor(
             hAdapter: UInt = 0u,
             hDevice: UInt = 0u,
             planeCount: UInt = 0u,
-            ppOverlayPlanes: MutPtr<MutPtr<D3dkmtCheckMultiplaneOverlayPlane3>> = MutPtr(0L),
+            ppOverlayPlanes: MutPtr = MutPtr(0L),
             postCompositionCount: UInt = 0u,
-            ppPostComposition: MutPtr<MutPtr<D3dkmtMultiplaneOverlayPostCompositionWithSource>> = MutPtr(0L),
+            ppPostComposition: MutPtr = MutPtr(0L),
             supported: Bool = 0,
             returnInfo: D3dkmtCheckMultiplaneOverlaySupportReturnInfo = D3dkmtCheckMultiplaneOverlaySupportReturnInfo(),
         ): D3dkmtCheckmultiplaneoverlaysupport3 =
@@ -868,9 +865,9 @@ public class D3dkmtCheckMultiplaneOverlayPlane3 internal constructor(
     public var hResource: UInt,
     public var compSurfaceLuid: Luid,
     public var vidPnSourceId: UInt,
-    pPlaneAttributesCtorArg: MutPtr<D3dkmtMultiplaneOverlayAttributes3>,
+    pPlaneAttributesCtorArg: MutPtr,
 ) {
-    public var pPlaneAttributes: MutPtr<D3dkmtMultiplaneOverlayAttributes3> = pPlaneAttributesCtorArg
+    public var pPlaneAttributes: MutPtr = pPlaneAttributesCtorArg
         internal set
 
     public constructor() : this(
@@ -889,9 +886,9 @@ public class D3dkmtCheckMultiplaneOverlayPlane3 internal constructor(
 
     public operator fun component4(): UInt = this.vidPnSourceId
 
-    public operator fun component5(): MutPtr<D3dkmtMultiplaneOverlayAttributes3> = this.pPlaneAttributes
+    public operator fun component5(): MutPtr = this.pPlaneAttributes
 
-    public fun copy(layerIndex: UInt = this.layerIndex, hResource: UInt = this.hResource, compSurfaceLuid: Luid = this.compSurfaceLuid, vidPnSourceId: UInt = this.vidPnSourceId, pPlaneAttributes: MutPtr<D3dkmtMultiplaneOverlayAttributes3> = this.pPlaneAttributes): D3dkmtCheckMultiplaneOverlayPlane3 = D3dkmtCheckMultiplaneOverlayPlane3(layerIndex = layerIndex, hResource = hResource, compSurfaceLuid = compSurfaceLuid, vidPnSourceId = vidPnSourceId, pPlaneAttributesCtorArg = pPlaneAttributes)
+    public fun copy(layerIndex: UInt = this.layerIndex, hResource: UInt = this.hResource, compSurfaceLuid: Luid = this.compSurfaceLuid, vidPnSourceId: UInt = this.vidPnSourceId, pPlaneAttributes: MutPtr = this.pPlaneAttributes): D3dkmtCheckMultiplaneOverlayPlane3 = D3dkmtCheckMultiplaneOverlayPlane3(layerIndex = layerIndex, hResource = hResource, compSurfaceLuid = compSurfaceLuid, vidPnSourceId = vidPnSourceId, pPlaneAttributesCtorArg = pPlaneAttributes)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -919,7 +916,7 @@ public class D3dkmtCheckMultiplaneOverlayPlane3 internal constructor(
             hResource: UInt = 0u,
             compSurfaceLuid: Luid = Luid(),
             vidPnSourceId: UInt = 0u,
-            pPlaneAttributes: MutPtr<D3dkmtMultiplaneOverlayAttributes3> = MutPtr(0L),
+            pPlaneAttributes: MutPtr = MutPtr(0L),
         ): D3dkmtCheckMultiplaneOverlayPlane3 =
             D3dkmtCheckMultiplaneOverlayPlane3(
                 layerIndex = layerIndex,
@@ -1136,7 +1133,7 @@ public class D3dkmtCreateallocation internal constructor(
     public var hDevice: UInt,
     public var hResource: UInt,
     public var hGlobalShare: UInt,
-    pPrivateRuntimeDataCtorArg: ConstPtr<CVoid>,
+    pPrivateRuntimeDataCtorArg: ConstPtr,
     public var privateRuntimeDataSize: UInt,
     public var anonymous1: D3dkmtCreateallocation0,
     public var privateDriverDataSize: UInt,
@@ -1145,7 +1142,7 @@ public class D3dkmtCreateallocation internal constructor(
     public var flags: D3dkmtCreateallocationflags,
     hPrivateRuntimeResourceHandleCtorArg: Handle,
 ) {
-    public var pPrivateRuntimeData: ConstPtr<CVoid> = pPrivateRuntimeDataCtorArg
+    public var pPrivateRuntimeData: ConstPtr = pPrivateRuntimeDataCtorArg
         internal set
 
     public var hPrivateRuntimeResourceHandle: Handle = hPrivateRuntimeResourceHandleCtorArg
@@ -1171,7 +1168,7 @@ public class D3dkmtCreateallocation internal constructor(
 
     public operator fun component3(): UInt = this.hGlobalShare
 
-    public operator fun component4(): ConstPtr<CVoid> = this.pPrivateRuntimeData
+    public operator fun component4(): ConstPtr = this.pPrivateRuntimeData
 
     public operator fun component5(): UInt = this.privateRuntimeDataSize
 
@@ -1187,7 +1184,7 @@ public class D3dkmtCreateallocation internal constructor(
 
     public operator fun component11(): Handle = this.hPrivateRuntimeResourceHandle
 
-    public fun copy(hDevice: UInt = this.hDevice, hResource: UInt = this.hResource, hGlobalShare: UInt = this.hGlobalShare, pPrivateRuntimeData: ConstPtr<CVoid> = this.pPrivateRuntimeData, privateRuntimeDataSize: UInt = this.privateRuntimeDataSize, anonymous1: D3dkmtCreateallocation0 = this.anonymous1, privateDriverDataSize: UInt = this.privateDriverDataSize, numAllocations: UInt = this.numAllocations, anonymous2: D3dkmtCreateallocation1 = this.anonymous2, flags: D3dkmtCreateallocationflags = this.flags, hPrivateRuntimeResourceHandle: Handle = this.hPrivateRuntimeResourceHandle): D3dkmtCreateallocation = D3dkmtCreateallocation(hDevice = hDevice, hResource = hResource, hGlobalShare = hGlobalShare, pPrivateRuntimeDataCtorArg = pPrivateRuntimeData, privateRuntimeDataSize = privateRuntimeDataSize, anonymous1 = anonymous1, privateDriverDataSize = privateDriverDataSize, numAllocations = numAllocations, anonymous2 = anonymous2, flags = flags, hPrivateRuntimeResourceHandleCtorArg = hPrivateRuntimeResourceHandle)
+    public fun copy(hDevice: UInt = this.hDevice, hResource: UInt = this.hResource, hGlobalShare: UInt = this.hGlobalShare, pPrivateRuntimeData: ConstPtr = this.pPrivateRuntimeData, privateRuntimeDataSize: UInt = this.privateRuntimeDataSize, anonymous1: D3dkmtCreateallocation0 = this.anonymous1, privateDriverDataSize: UInt = this.privateDriverDataSize, numAllocations: UInt = this.numAllocations, anonymous2: D3dkmtCreateallocation1 = this.anonymous2, flags: D3dkmtCreateallocationflags = this.flags, hPrivateRuntimeResourceHandle: Handle = this.hPrivateRuntimeResourceHandle): D3dkmtCreateallocation = D3dkmtCreateallocation(hDevice = hDevice, hResource = hResource, hGlobalShare = hGlobalShare, pPrivateRuntimeDataCtorArg = pPrivateRuntimeData, privateRuntimeDataSize = privateRuntimeDataSize, anonymous1 = anonymous1, privateDriverDataSize = privateDriverDataSize, numAllocations = numAllocations, anonymous2 = anonymous2, flags = flags, hPrivateRuntimeResourceHandleCtorArg = hPrivateRuntimeResourceHandle)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -1226,7 +1223,7 @@ public class D3dkmtCreateallocation internal constructor(
             hDevice: UInt = 0u,
             hResource: UInt = 0u,
             hGlobalShare: UInt = 0u,
-            pPrivateRuntimeData: ConstPtr<CVoid> = ConstPtr(0L),
+            pPrivateRuntimeData: ConstPtr = ConstPtr(0L),
             privateRuntimeDataSize: UInt = 0u,
             anonymous1: D3dkmtCreateallocation0 = D3dkmtCreateallocation0(),
             privateDriverDataSize: UInt = 0u,
@@ -1252,13 +1249,13 @@ public class D3dkmtCreateallocation internal constructor(
 }
 
 public class D3dkmtCreateallocation0 internal constructor(
-    pStandardAllocationCtorArg: MutPtr<D3dkmtCreatestandardallocation>,
-    pPrivateDriverDataCtorArg: ConstPtr<CVoid>,
+    pStandardAllocationCtorArg: MutPtr,
+    pPrivateDriverDataCtorArg: ConstPtr,
 ) {
-    public var pStandardAllocation: MutPtr<D3dkmtCreatestandardallocation> = pStandardAllocationCtorArg
+    public var pStandardAllocation: MutPtr = pStandardAllocationCtorArg
         internal set
 
-    public var pPrivateDriverData: ConstPtr<CVoid> = pPrivateDriverDataCtorArg
+    public var pPrivateDriverData: ConstPtr = pPrivateDriverDataCtorArg
         internal set
 
     public constructor() : this(
@@ -1266,11 +1263,11 @@ public class D3dkmtCreateallocation0 internal constructor(
         pPrivateDriverDataCtorArg = ConstPtr(0L),
     )
 
-    public operator fun component1(): MutPtr<D3dkmtCreatestandardallocation> = this.pStandardAllocation
+    public operator fun component1(): MutPtr = this.pStandardAllocation
 
-    public operator fun component2(): ConstPtr<CVoid> = this.pPrivateDriverData
+    public operator fun component2(): ConstPtr = this.pPrivateDriverData
 
-    public fun copy(pStandardAllocation: MutPtr<D3dkmtCreatestandardallocation> = this.pStandardAllocation, pPrivateDriverData: ConstPtr<CVoid> = this.pPrivateDriverData): D3dkmtCreateallocation0 = D3dkmtCreateallocation0(pStandardAllocationCtorArg = pStandardAllocation, pPrivateDriverDataCtorArg = pPrivateDriverData)
+    public fun copy(pStandardAllocation: MutPtr = this.pStandardAllocation, pPrivateDriverData: ConstPtr = this.pPrivateDriverData): D3dkmtCreateallocation0 = D3dkmtCreateallocation0(pStandardAllocationCtorArg = pStandardAllocation, pPrivateDriverDataCtorArg = pPrivateDriverData)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -1288,8 +1285,8 @@ public class D3dkmtCreateallocation0 internal constructor(
 
     public companion object {
         public operator fun invoke(
-            pStandardAllocation: MutPtr<D3dkmtCreatestandardallocation> = MutPtr(0L),
-            pPrivateDriverData: ConstPtr<CVoid> = ConstPtr(0L),
+            pStandardAllocation: MutPtr = MutPtr(0L),
+            pPrivateDriverData: ConstPtr = ConstPtr(0L),
         ): D3dkmtCreateallocation0 =
             D3dkmtCreateallocation0(
                 pStandardAllocationCtorArg = pStandardAllocation,
@@ -1299,13 +1296,13 @@ public class D3dkmtCreateallocation0 internal constructor(
 }
 
 public class D3dkmtCreateallocation1 internal constructor(
-    pAllocationInfoCtorArg: MutPtr<D3dddiAllocationinfo>,
-    pAllocationInfo2CtorArg: MutPtr<D3dddiAllocationinfo2>,
+    pAllocationInfoCtorArg: MutPtr,
+    pAllocationInfo2CtorArg: MutPtr,
 ) {
-    public var pAllocationInfo: MutPtr<D3dddiAllocationinfo> = pAllocationInfoCtorArg
+    public var pAllocationInfo: MutPtr = pAllocationInfoCtorArg
         internal set
 
-    public var pAllocationInfo2: MutPtr<D3dddiAllocationinfo2> = pAllocationInfo2CtorArg
+    public var pAllocationInfo2: MutPtr = pAllocationInfo2CtorArg
         internal set
 
     public constructor() : this(
@@ -1313,11 +1310,11 @@ public class D3dkmtCreateallocation1 internal constructor(
         pAllocationInfo2CtorArg = MutPtr(0L),
     )
 
-    public operator fun component1(): MutPtr<D3dddiAllocationinfo> = this.pAllocationInfo
+    public operator fun component1(): MutPtr = this.pAllocationInfo
 
-    public operator fun component2(): MutPtr<D3dddiAllocationinfo2> = this.pAllocationInfo2
+    public operator fun component2(): MutPtr = this.pAllocationInfo2
 
-    public fun copy(pAllocationInfo: MutPtr<D3dddiAllocationinfo> = this.pAllocationInfo, pAllocationInfo2: MutPtr<D3dddiAllocationinfo2> = this.pAllocationInfo2): D3dkmtCreateallocation1 = D3dkmtCreateallocation1(pAllocationInfoCtorArg = pAllocationInfo, pAllocationInfo2CtorArg = pAllocationInfo2)
+    public fun copy(pAllocationInfo: MutPtr = this.pAllocationInfo, pAllocationInfo2: MutPtr = this.pAllocationInfo2): D3dkmtCreateallocation1 = D3dkmtCreateallocation1(pAllocationInfoCtorArg = pAllocationInfo, pAllocationInfo2CtorArg = pAllocationInfo2)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -1335,8 +1332,8 @@ public class D3dkmtCreateallocation1 internal constructor(
 
     public companion object {
         public operator fun invoke(
-            pAllocationInfo: MutPtr<D3dddiAllocationinfo> = MutPtr(0L),
-            pAllocationInfo2: MutPtr<D3dddiAllocationinfo2> = MutPtr(0L),
+            pAllocationInfo: MutPtr = MutPtr(0L),
+            pAllocationInfo2: MutPtr = MutPtr(0L),
         ): D3dkmtCreateallocation1 =
             D3dkmtCreateallocation1(
                 pAllocationInfoCtorArg = pAllocationInfo,
@@ -1369,28 +1366,28 @@ public class D3dkmtCreatecontext internal constructor(
     public var nodeOrdinal: UInt,
     public var engineAffinity: UInt,
     public var flags: D3dddiCreatecontextflags,
-    pPrivateDriverDataCtorArg: MutPtr<CVoid>,
+    pPrivateDriverDataCtorArg: MutPtr,
     public var privateDriverDataSize: UInt,
     public var clientHint: D3dkmtClienthint,
     public var hContext: UInt,
-    pCommandBufferCtorArg: MutPtr<CVoid>,
+    pCommandBufferCtorArg: MutPtr,
     public var commandBufferSize: UInt,
-    pAllocationListCtorArg: MutPtr<D3dddiAllocationlist>,
+    pAllocationListCtorArg: MutPtr,
     public var allocationListSize: UInt,
-    pPatchLocationListCtorArg: MutPtr<D3dddiPatchlocationlist>,
+    pPatchLocationListCtorArg: MutPtr,
     public var patchLocationListSize: UInt,
     public var commandBuffer: ULong,
 ) {
-    public var pPrivateDriverData: MutPtr<CVoid> = pPrivateDriverDataCtorArg
+    public var pPrivateDriverData: MutPtr = pPrivateDriverDataCtorArg
         internal set
 
-    public var pCommandBuffer: MutPtr<CVoid> = pCommandBufferCtorArg
+    public var pCommandBuffer: MutPtr = pCommandBufferCtorArg
         internal set
 
-    public var pAllocationList: MutPtr<D3dddiAllocationlist> = pAllocationListCtorArg
+    public var pAllocationList: MutPtr = pAllocationListCtorArg
         internal set
 
-    public var pPatchLocationList: MutPtr<D3dddiPatchlocationlist> = pPatchLocationListCtorArg
+    public var pPatchLocationList: MutPtr = pPatchLocationListCtorArg
         internal set
 
     public constructor() : this(
@@ -1419,7 +1416,7 @@ public class D3dkmtCreatecontext internal constructor(
 
     public operator fun component4(): D3dddiCreatecontextflags = this.flags
 
-    public operator fun component5(): MutPtr<CVoid> = this.pPrivateDriverData
+    public operator fun component5(): MutPtr = this.pPrivateDriverData
 
     public operator fun component6(): UInt = this.privateDriverDataSize
 
@@ -1427,21 +1424,21 @@ public class D3dkmtCreatecontext internal constructor(
 
     public operator fun component8(): UInt = this.hContext
 
-    public operator fun component9(): MutPtr<CVoid> = this.pCommandBuffer
+    public operator fun component9(): MutPtr = this.pCommandBuffer
 
     public operator fun component10(): UInt = this.commandBufferSize
 
-    public operator fun component11(): MutPtr<D3dddiAllocationlist> = this.pAllocationList
+    public operator fun component11(): MutPtr = this.pAllocationList
 
     public operator fun component12(): UInt = this.allocationListSize
 
-    public operator fun component13(): MutPtr<D3dddiPatchlocationlist> = this.pPatchLocationList
+    public operator fun component13(): MutPtr = this.pPatchLocationList
 
     public operator fun component14(): UInt = this.patchLocationListSize
 
     public operator fun component15(): ULong = this.commandBuffer
 
-    public fun copy(hDevice: UInt = this.hDevice, nodeOrdinal: UInt = this.nodeOrdinal, engineAffinity: UInt = this.engineAffinity, flags: D3dddiCreatecontextflags = this.flags, pPrivateDriverData: MutPtr<CVoid> = this.pPrivateDriverData, privateDriverDataSize: UInt = this.privateDriverDataSize, clientHint: D3dkmtClienthint = this.clientHint, hContext: UInt = this.hContext, pCommandBuffer: MutPtr<CVoid> = this.pCommandBuffer, commandBufferSize: UInt = this.commandBufferSize, pAllocationList: MutPtr<D3dddiAllocationlist> = this.pAllocationList, allocationListSize: UInt = this.allocationListSize, pPatchLocationList: MutPtr<D3dddiPatchlocationlist> = this.pPatchLocationList, patchLocationListSize: UInt = this.patchLocationListSize, commandBuffer: ULong = this.commandBuffer): D3dkmtCreatecontext = D3dkmtCreatecontext(hDevice = hDevice, nodeOrdinal = nodeOrdinal, engineAffinity = engineAffinity, flags = flags, pPrivateDriverDataCtorArg = pPrivateDriverData, privateDriverDataSize = privateDriverDataSize, clientHint = clientHint, hContext = hContext, pCommandBufferCtorArg = pCommandBuffer, commandBufferSize = commandBufferSize, pAllocationListCtorArg = pAllocationList, allocationListSize = allocationListSize, pPatchLocationListCtorArg = pPatchLocationList, patchLocationListSize = patchLocationListSize, commandBuffer = commandBuffer)
+    public fun copy(hDevice: UInt = this.hDevice, nodeOrdinal: UInt = this.nodeOrdinal, engineAffinity: UInt = this.engineAffinity, flags: D3dddiCreatecontextflags = this.flags, pPrivateDriverData: MutPtr = this.pPrivateDriverData, privateDriverDataSize: UInt = this.privateDriverDataSize, clientHint: D3dkmtClienthint = this.clientHint, hContext: UInt = this.hContext, pCommandBuffer: MutPtr = this.pCommandBuffer, commandBufferSize: UInt = this.commandBufferSize, pAllocationList: MutPtr = this.pAllocationList, allocationListSize: UInt = this.allocationListSize, pPatchLocationList: MutPtr = this.pPatchLocationList, patchLocationListSize: UInt = this.patchLocationListSize, commandBuffer: ULong = this.commandBuffer): D3dkmtCreatecontext = D3dkmtCreatecontext(hDevice = hDevice, nodeOrdinal = nodeOrdinal, engineAffinity = engineAffinity, flags = flags, pPrivateDriverDataCtorArg = pPrivateDriverData, privateDriverDataSize = privateDriverDataSize, clientHint = clientHint, hContext = hContext, pCommandBufferCtorArg = pCommandBuffer, commandBufferSize = commandBufferSize, pAllocationListCtorArg = pAllocationList, allocationListSize = allocationListSize, pPatchLocationListCtorArg = pPatchLocationList, patchLocationListSize = patchLocationListSize, commandBuffer = commandBuffer)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -1489,15 +1486,15 @@ public class D3dkmtCreatecontext internal constructor(
             nodeOrdinal: UInt = 0u,
             engineAffinity: UInt = 0u,
             flags: D3dddiCreatecontextflags = D3dddiCreatecontextflags(),
-            pPrivateDriverData: MutPtr<CVoid> = MutPtr(0L),
+            pPrivateDriverData: MutPtr = MutPtr(0L),
             privateDriverDataSize: UInt = 0u,
             clientHint: D3dkmtClienthint = 0,
             hContext: UInt = 0u,
-            pCommandBuffer: MutPtr<CVoid> = MutPtr(0L),
+            pCommandBuffer: MutPtr = MutPtr(0L),
             commandBufferSize: UInt = 0u,
-            pAllocationList: MutPtr<D3dddiAllocationlist> = MutPtr(0L),
+            pAllocationList: MutPtr = MutPtr(0L),
             allocationListSize: UInt = 0u,
-            pPatchLocationList: MutPtr<D3dddiPatchlocationlist> = MutPtr(0L),
+            pPatchLocationList: MutPtr = MutPtr(0L),
             patchLocationListSize: UInt = 0u,
             commandBuffer: ULong = 0uL,
         ): D3dkmtCreatecontext =
@@ -1526,12 +1523,12 @@ public class D3dkmtCreatecontextvirtual internal constructor(
     public var nodeOrdinal: UInt,
     public var engineAffinity: UInt,
     public var flags: D3dddiCreatecontextflags,
-    pPrivateDriverDataCtorArg: MutPtr<CVoid>,
+    pPrivateDriverDataCtorArg: MutPtr,
     public var privateDriverDataSize: UInt,
     public var clientHint: D3dkmtClienthint,
     public var hContext: UInt,
 ) {
-    public var pPrivateDriverData: MutPtr<CVoid> = pPrivateDriverDataCtorArg
+    public var pPrivateDriverData: MutPtr = pPrivateDriverDataCtorArg
         internal set
 
     public constructor() : this(
@@ -1553,7 +1550,7 @@ public class D3dkmtCreatecontextvirtual internal constructor(
 
     public operator fun component4(): D3dddiCreatecontextflags = this.flags
 
-    public operator fun component5(): MutPtr<CVoid> = this.pPrivateDriverData
+    public operator fun component5(): MutPtr = this.pPrivateDriverData
 
     public operator fun component6(): UInt = this.privateDriverDataSize
 
@@ -1561,7 +1558,7 @@ public class D3dkmtCreatecontextvirtual internal constructor(
 
     public operator fun component8(): UInt = this.hContext
 
-    public fun copy(hDevice: UInt = this.hDevice, nodeOrdinal: UInt = this.nodeOrdinal, engineAffinity: UInt = this.engineAffinity, flags: D3dddiCreatecontextflags = this.flags, pPrivateDriverData: MutPtr<CVoid> = this.pPrivateDriverData, privateDriverDataSize: UInt = this.privateDriverDataSize, clientHint: D3dkmtClienthint = this.clientHint, hContext: UInt = this.hContext): D3dkmtCreatecontextvirtual = D3dkmtCreatecontextvirtual(hDevice = hDevice, nodeOrdinal = nodeOrdinal, engineAffinity = engineAffinity, flags = flags, pPrivateDriverDataCtorArg = pPrivateDriverData, privateDriverDataSize = privateDriverDataSize, clientHint = clientHint, hContext = hContext)
+    public fun copy(hDevice: UInt = this.hDevice, nodeOrdinal: UInt = this.nodeOrdinal, engineAffinity: UInt = this.engineAffinity, flags: D3dddiCreatecontextflags = this.flags, pPrivateDriverData: MutPtr = this.pPrivateDriverData, privateDriverDataSize: UInt = this.privateDriverDataSize, clientHint: D3dkmtClienthint = this.clientHint, hContext: UInt = this.hContext): D3dkmtCreatecontextvirtual = D3dkmtCreatecontextvirtual(hDevice = hDevice, nodeOrdinal = nodeOrdinal, engineAffinity = engineAffinity, flags = flags, pPrivateDriverDataCtorArg = pPrivateDriverData, privateDriverDataSize = privateDriverDataSize, clientHint = clientHint, hContext = hContext)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -1595,7 +1592,7 @@ public class D3dkmtCreatecontextvirtual internal constructor(
             nodeOrdinal: UInt = 0u,
             engineAffinity: UInt = 0u,
             flags: D3dddiCreatecontextflags = D3dddiCreatecontextflags(),
-            pPrivateDriverData: MutPtr<CVoid> = MutPtr(0L),
+            pPrivateDriverData: MutPtr = MutPtr(0L),
             privateDriverDataSize: UInt = 0u,
             clientHint: D3dkmtClienthint = 0,
             hContext: UInt = 0u,
@@ -1614,23 +1611,23 @@ public class D3dkmtCreatecontextvirtual internal constructor(
 }
 
 public class D3dkmtCreatedcfrommemory internal constructor(
-    pMemoryCtorArg: MutPtr<CVoid>,
+    pMemoryCtorArg: MutPtr,
     public var format: D3dddiformat,
     public var width: UInt,
     public var height: UInt,
     public var pitch: UInt,
     hDeviceDcCtorArg: Hdc,
-    pColorTableCtorArg: MutPtr<Paletteentry>,
+    pColorTableCtorArg: MutPtr,
     hDcCtorArg: Hdc,
     hBitmapCtorArg: Handle,
 ) {
-    public var pMemory: MutPtr<CVoid> = pMemoryCtorArg
+    public var pMemory: MutPtr = pMemoryCtorArg
         internal set
 
     public var hDeviceDc: Hdc = hDeviceDcCtorArg
         internal set
 
-    public var pColorTable: MutPtr<Paletteentry> = pColorTableCtorArg
+    public var pColorTable: MutPtr = pColorTableCtorArg
         internal set
 
     public var hDc: Hdc = hDcCtorArg
@@ -1651,7 +1648,7 @@ public class D3dkmtCreatedcfrommemory internal constructor(
         hBitmapCtorArg = MutPtr(0L),
     )
 
-    public operator fun component1(): MutPtr<CVoid> = this.pMemory
+    public operator fun component1(): MutPtr = this.pMemory
 
     public operator fun component2(): D3dddiformat = this.format
 
@@ -1663,13 +1660,13 @@ public class D3dkmtCreatedcfrommemory internal constructor(
 
     public operator fun component6(): Hdc = this.hDeviceDc
 
-    public operator fun component7(): MutPtr<Paletteentry> = this.pColorTable
+    public operator fun component7(): MutPtr = this.pColorTable
 
     public operator fun component8(): Hdc = this.hDc
 
     public operator fun component9(): Handle = this.hBitmap
 
-    public fun copy(pMemory: MutPtr<CVoid> = this.pMemory, format: D3dddiformat = this.format, width: UInt = this.width, height: UInt = this.height, pitch: UInt = this.pitch, hDeviceDc: Hdc = this.hDeviceDc, pColorTable: MutPtr<Paletteentry> = this.pColorTable, hDc: Hdc = this.hDc, hBitmap: Handle = this.hBitmap): D3dkmtCreatedcfrommemory = D3dkmtCreatedcfrommemory(pMemoryCtorArg = pMemory, format = format, width = width, height = height, pitch = pitch, hDeviceDcCtorArg = hDeviceDc, pColorTableCtorArg = pColorTable, hDcCtorArg = hDc, hBitmapCtorArg = hBitmap)
+    public fun copy(pMemory: MutPtr = this.pMemory, format: D3dddiformat = this.format, width: UInt = this.width, height: UInt = this.height, pitch: UInt = this.pitch, hDeviceDc: Hdc = this.hDeviceDc, pColorTable: MutPtr = this.pColorTable, hDc: Hdc = this.hDc, hBitmap: Handle = this.hBitmap): D3dkmtCreatedcfrommemory = D3dkmtCreatedcfrommemory(pMemoryCtorArg = pMemory, format = format, width = width, height = height, pitch = pitch, hDeviceDcCtorArg = hDeviceDc, pColorTableCtorArg = pColorTable, hDcCtorArg = hDc, hBitmapCtorArg = hBitmap)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -1701,13 +1698,13 @@ public class D3dkmtCreatedcfrommemory internal constructor(
 
     public companion object {
         public operator fun invoke(
-            pMemory: MutPtr<CVoid> = MutPtr(0L),
+            pMemory: MutPtr = MutPtr(0L),
             format: D3dddiformat = 0u,
             width: UInt = 0u,
             height: UInt = 0u,
             pitch: UInt = 0u,
             hDeviceDc: Hdc = MutPtr(0L),
-            pColorTable: MutPtr<Paletteentry> = MutPtr(0L),
+            pColorTable: MutPtr = MutPtr(0L),
             hDc: Hdc = MutPtr(0L),
             hBitmap: Handle = MutPtr(0L),
         ): D3dkmtCreatedcfrommemory =
@@ -1729,20 +1726,20 @@ public class D3dkmtCreatedevice internal constructor(
     public var anonymous: D3dkmtCreatedevice0,
     public var flags: D3dkmtCreatedeviceflags,
     public var hDevice: UInt,
-    pCommandBufferCtorArg: MutPtr<CVoid>,
+    pCommandBufferCtorArg: MutPtr,
     public var commandBufferSize: UInt,
-    pAllocationListCtorArg: MutPtr<D3dddiAllocationlist>,
+    pAllocationListCtorArg: MutPtr,
     public var allocationListSize: UInt,
-    pPatchLocationListCtorArg: MutPtr<D3dddiPatchlocationlist>,
+    pPatchLocationListCtorArg: MutPtr,
     public var patchLocationListSize: UInt,
 ) {
-    public var pCommandBuffer: MutPtr<CVoid> = pCommandBufferCtorArg
+    public var pCommandBuffer: MutPtr = pCommandBufferCtorArg
         internal set
 
-    public var pAllocationList: MutPtr<D3dddiAllocationlist> = pAllocationListCtorArg
+    public var pAllocationList: MutPtr = pAllocationListCtorArg
         internal set
 
-    public var pPatchLocationList: MutPtr<D3dddiPatchlocationlist> = pPatchLocationListCtorArg
+    public var pPatchLocationList: MutPtr = pPatchLocationListCtorArg
         internal set
 
     public constructor() : this(
@@ -1763,19 +1760,19 @@ public class D3dkmtCreatedevice internal constructor(
 
     public operator fun component3(): UInt = this.hDevice
 
-    public operator fun component4(): MutPtr<CVoid> = this.pCommandBuffer
+    public operator fun component4(): MutPtr = this.pCommandBuffer
 
     public operator fun component5(): UInt = this.commandBufferSize
 
-    public operator fun component6(): MutPtr<D3dddiAllocationlist> = this.pAllocationList
+    public operator fun component6(): MutPtr = this.pAllocationList
 
     public operator fun component7(): UInt = this.allocationListSize
 
-    public operator fun component8(): MutPtr<D3dddiPatchlocationlist> = this.pPatchLocationList
+    public operator fun component8(): MutPtr = this.pPatchLocationList
 
     public operator fun component9(): UInt = this.patchLocationListSize
 
-    public fun copy(anonymous: D3dkmtCreatedevice0 = this.anonymous, flags: D3dkmtCreatedeviceflags = this.flags, hDevice: UInt = this.hDevice, pCommandBuffer: MutPtr<CVoid> = this.pCommandBuffer, commandBufferSize: UInt = this.commandBufferSize, pAllocationList: MutPtr<D3dddiAllocationlist> = this.pAllocationList, allocationListSize: UInt = this.allocationListSize, pPatchLocationList: MutPtr<D3dddiPatchlocationlist> = this.pPatchLocationList, patchLocationListSize: UInt = this.patchLocationListSize): D3dkmtCreatedevice = D3dkmtCreatedevice(anonymous = anonymous, flags = flags, hDevice = hDevice, pCommandBufferCtorArg = pCommandBuffer, commandBufferSize = commandBufferSize, pAllocationListCtorArg = pAllocationList, allocationListSize = allocationListSize, pPatchLocationListCtorArg = pPatchLocationList, patchLocationListSize = patchLocationListSize)
+    public fun copy(anonymous: D3dkmtCreatedevice0 = this.anonymous, flags: D3dkmtCreatedeviceflags = this.flags, hDevice: UInt = this.hDevice, pCommandBuffer: MutPtr = this.pCommandBuffer, commandBufferSize: UInt = this.commandBufferSize, pAllocationList: MutPtr = this.pAllocationList, allocationListSize: UInt = this.allocationListSize, pPatchLocationList: MutPtr = this.pPatchLocationList, patchLocationListSize: UInt = this.patchLocationListSize): D3dkmtCreatedevice = D3dkmtCreatedevice(anonymous = anonymous, flags = flags, hDevice = hDevice, pCommandBufferCtorArg = pCommandBuffer, commandBufferSize = commandBufferSize, pAllocationListCtorArg = pAllocationList, allocationListSize = allocationListSize, pPatchLocationListCtorArg = pPatchLocationList, patchLocationListSize = patchLocationListSize)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -1810,11 +1807,11 @@ public class D3dkmtCreatedevice internal constructor(
             anonymous: D3dkmtCreatedevice0 = D3dkmtCreatedevice0(),
             flags: D3dkmtCreatedeviceflags = D3dkmtCreatedeviceflags(),
             hDevice: UInt = 0u,
-            pCommandBuffer: MutPtr<CVoid> = MutPtr(0L),
+            pCommandBuffer: MutPtr = MutPtr(0L),
             commandBufferSize: UInt = 0u,
-            pAllocationList: MutPtr<D3dddiAllocationlist> = MutPtr(0L),
+            pAllocationList: MutPtr = MutPtr(0L),
             allocationListSize: UInt = 0u,
-            pPatchLocationList: MutPtr<D3dddiPatchlocationlist> = MutPtr(0L),
+            pPatchLocationList: MutPtr = MutPtr(0L),
             patchLocationListSize: UInt = 0u,
         ): D3dkmtCreatedevice =
             D3dkmtCreatedevice(
@@ -1833,9 +1830,9 @@ public class D3dkmtCreatedevice internal constructor(
 
 public class D3dkmtCreatedevice0 internal constructor(
     public var hAdapter: UInt,
-    pAdapterCtorArg: MutPtr<CVoid>,
+    pAdapterCtorArg: MutPtr,
 ) {
-    public var pAdapter: MutPtr<CVoid> = pAdapterCtorArg
+    public var pAdapter: MutPtr = pAdapterCtorArg
         internal set
 
     public constructor() : this(
@@ -1845,9 +1842,9 @@ public class D3dkmtCreatedevice0 internal constructor(
 
     public operator fun component1(): UInt = this.hAdapter
 
-    public operator fun component2(): MutPtr<CVoid> = this.pAdapter
+    public operator fun component2(): MutPtr = this.pAdapter
 
-    public fun copy(hAdapter: UInt = this.hAdapter, pAdapter: MutPtr<CVoid> = this.pAdapter): D3dkmtCreatedevice0 = D3dkmtCreatedevice0(hAdapter = hAdapter, pAdapterCtorArg = pAdapter)
+    public fun copy(hAdapter: UInt = this.hAdapter, pAdapter: MutPtr = this.pAdapter): D3dkmtCreatedevice0 = D3dkmtCreatedevice0(hAdapter = hAdapter, pAdapterCtorArg = pAdapter)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -1866,7 +1863,7 @@ public class D3dkmtCreatedevice0 internal constructor(
     public companion object {
         public operator fun invoke(
             hAdapter: UInt = 0u,
-            pAdapter: MutPtr<CVoid> = MutPtr(0L),
+            pAdapter: MutPtr = MutPtr(0L),
         ): D3dkmtCreatedevice0 =
             D3dkmtCreatedevice0(
                 hAdapter = hAdapter,
@@ -1900,10 +1897,10 @@ public class D3dkmtCreatehwcontext internal constructor(
     public var engineAffinity: UInt,
     public var flags: D3dddiCreatehwcontextflags,
     public var privateDriverDataSize: UInt,
-    pPrivateDriverDataCtorArg: MutPtr<CVoid>,
+    pPrivateDriverDataCtorArg: MutPtr,
     public var hHwContext: UInt,
 ) {
-    public var pPrivateDriverData: MutPtr<CVoid> = pPrivateDriverDataCtorArg
+    public var pPrivateDriverData: MutPtr = pPrivateDriverDataCtorArg
         internal set
 
     public constructor() : this(
@@ -1926,11 +1923,11 @@ public class D3dkmtCreatehwcontext internal constructor(
 
     public operator fun component5(): UInt = this.privateDriverDataSize
 
-    public operator fun component6(): MutPtr<CVoid> = this.pPrivateDriverData
+    public operator fun component6(): MutPtr = this.pPrivateDriverData
 
     public operator fun component7(): UInt = this.hHwContext
 
-    public fun copy(hDevice: UInt = this.hDevice, nodeOrdinal: UInt = this.nodeOrdinal, engineAffinity: UInt = this.engineAffinity, flags: D3dddiCreatehwcontextflags = this.flags, privateDriverDataSize: UInt = this.privateDriverDataSize, pPrivateDriverData: MutPtr<CVoid> = this.pPrivateDriverData, hHwContext: UInt = this.hHwContext): D3dkmtCreatehwcontext = D3dkmtCreatehwcontext(hDevice = hDevice, nodeOrdinal = nodeOrdinal, engineAffinity = engineAffinity, flags = flags, privateDriverDataSize = privateDriverDataSize, pPrivateDriverDataCtorArg = pPrivateDriverData, hHwContext = hHwContext)
+    public fun copy(hDevice: UInt = this.hDevice, nodeOrdinal: UInt = this.nodeOrdinal, engineAffinity: UInt = this.engineAffinity, flags: D3dddiCreatehwcontextflags = this.flags, privateDriverDataSize: UInt = this.privateDriverDataSize, pPrivateDriverData: MutPtr = this.pPrivateDriverData, hHwContext: UInt = this.hHwContext): D3dkmtCreatehwcontext = D3dkmtCreatehwcontext(hDevice = hDevice, nodeOrdinal = nodeOrdinal, engineAffinity = engineAffinity, flags = flags, privateDriverDataSize = privateDriverDataSize, pPrivateDriverDataCtorArg = pPrivateDriverData, hHwContext = hHwContext)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -1963,7 +1960,7 @@ public class D3dkmtCreatehwcontext internal constructor(
             engineAffinity: UInt = 0u,
             flags: D3dddiCreatehwcontextflags = D3dddiCreatehwcontextflags(),
             privateDriverDataSize: UInt = 0u,
-            pPrivateDriverData: MutPtr<CVoid> = MutPtr(0L),
+            pPrivateDriverData: MutPtr = MutPtr(0L),
             hHwContext: UInt = 0u,
         ): D3dkmtCreatehwcontext =
             D3dkmtCreatehwcontext(
@@ -1982,16 +1979,16 @@ public class D3dkmtCreatehwqueue internal constructor(
     public var hHwContext: UInt,
     public var flags: D3dddiCreatehwqueueflags,
     public var privateDriverDataSize: UInt,
-    pPrivateDriverDataCtorArg: MutPtr<CVoid>,
+    pPrivateDriverDataCtorArg: MutPtr,
     public var hHwQueue: UInt,
     public var hHwQueueProgressFence: UInt,
-    hwQueueProgressFenceCPUVirtualAddressCtorArg: MutPtr<CVoid>,
+    hwQueueProgressFenceCPUVirtualAddressCtorArg: MutPtr,
     public var hwQueueProgressFenceGPUVirtualAddress: ULong,
 ) {
-    public var pPrivateDriverData: MutPtr<CVoid> = pPrivateDriverDataCtorArg
+    public var pPrivateDriverData: MutPtr = pPrivateDriverDataCtorArg
         internal set
 
-    public var hwQueueProgressFenceCPUVirtualAddress: MutPtr<CVoid> = hwQueueProgressFenceCPUVirtualAddressCtorArg
+    public var hwQueueProgressFenceCPUVirtualAddress: MutPtr = hwQueueProgressFenceCPUVirtualAddressCtorArg
         internal set
 
     public constructor() : this(
@@ -2011,17 +2008,17 @@ public class D3dkmtCreatehwqueue internal constructor(
 
     public operator fun component3(): UInt = this.privateDriverDataSize
 
-    public operator fun component4(): MutPtr<CVoid> = this.pPrivateDriverData
+    public operator fun component4(): MutPtr = this.pPrivateDriverData
 
     public operator fun component5(): UInt = this.hHwQueue
 
     public operator fun component6(): UInt = this.hHwQueueProgressFence
 
-    public operator fun component7(): MutPtr<CVoid> = this.hwQueueProgressFenceCPUVirtualAddress
+    public operator fun component7(): MutPtr = this.hwQueueProgressFenceCPUVirtualAddress
 
     public operator fun component8(): ULong = this.hwQueueProgressFenceGPUVirtualAddress
 
-    public fun copy(hHwContext: UInt = this.hHwContext, flags: D3dddiCreatehwqueueflags = this.flags, privateDriverDataSize: UInt = this.privateDriverDataSize, pPrivateDriverData: MutPtr<CVoid> = this.pPrivateDriverData, hHwQueue: UInt = this.hHwQueue, hHwQueueProgressFence: UInt = this.hHwQueueProgressFence, hwQueueProgressFenceCPUVirtualAddress: MutPtr<CVoid> = this.hwQueueProgressFenceCPUVirtualAddress, hwQueueProgressFenceGPUVirtualAddress: ULong = this.hwQueueProgressFenceGPUVirtualAddress): D3dkmtCreatehwqueue = D3dkmtCreatehwqueue(hHwContext = hHwContext, flags = flags, privateDriverDataSize = privateDriverDataSize, pPrivateDriverDataCtorArg = pPrivateDriverData, hHwQueue = hHwQueue, hHwQueueProgressFence = hHwQueueProgressFence, hwQueueProgressFenceCPUVirtualAddressCtorArg = hwQueueProgressFenceCPUVirtualAddress, hwQueueProgressFenceGPUVirtualAddress = hwQueueProgressFenceGPUVirtualAddress)
+    public fun copy(hHwContext: UInt = this.hHwContext, flags: D3dddiCreatehwqueueflags = this.flags, privateDriverDataSize: UInt = this.privateDriverDataSize, pPrivateDriverData: MutPtr = this.pPrivateDriverData, hHwQueue: UInt = this.hHwQueue, hHwQueueProgressFence: UInt = this.hHwQueueProgressFence, hwQueueProgressFenceCPUVirtualAddress: MutPtr = this.hwQueueProgressFenceCPUVirtualAddress, hwQueueProgressFenceGPUVirtualAddress: ULong = this.hwQueueProgressFenceGPUVirtualAddress): D3dkmtCreatehwqueue = D3dkmtCreatehwqueue(hHwContext = hHwContext, flags = flags, privateDriverDataSize = privateDriverDataSize, pPrivateDriverDataCtorArg = pPrivateDriverData, hHwQueue = hHwQueue, hHwQueueProgressFence = hHwQueueProgressFence, hwQueueProgressFenceCPUVirtualAddressCtorArg = hwQueueProgressFenceCPUVirtualAddress, hwQueueProgressFenceGPUVirtualAddress = hwQueueProgressFenceGPUVirtualAddress)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -2054,10 +2051,10 @@ public class D3dkmtCreatehwqueue internal constructor(
             hHwContext: UInt = 0u,
             flags: D3dddiCreatehwqueueflags = D3dddiCreatehwqueueflags(),
             privateDriverDataSize: UInt = 0u,
-            pPrivateDriverData: MutPtr<CVoid> = MutPtr(0L),
+            pPrivateDriverData: MutPtr = MutPtr(0L),
             hHwQueue: UInt = 0u,
             hHwQueueProgressFence: UInt = 0u,
-            hwQueueProgressFenceCPUVirtualAddress: MutPtr<CVoid> = MutPtr(0L),
+            hwQueueProgressFenceCPUVirtualAddress: MutPtr = MutPtr(0L),
             hwQueueProgressFenceGPUVirtualAddress: ULong = 0uL,
         ): D3dkmtCreatehwqueue =
             D3dkmtCreatehwqueue(
@@ -2102,11 +2099,11 @@ public class D3dkmtCreatekeyedmutex2 internal constructor(
     public var initialValue: ULong,
     public var hSharedHandle: UInt,
     public var hKeyedMutex: UInt,
-    pPrivateRuntimeDataCtorArg: MutPtr<CVoid>,
+    pPrivateRuntimeDataCtorArg: MutPtr,
     public var privateRuntimeDataSize: UInt,
     public var flags: D3dkmtCreatekeyedmutex2Flags,
 ) {
-    public var pPrivateRuntimeData: MutPtr<CVoid> = pPrivateRuntimeDataCtorArg
+    public var pPrivateRuntimeData: MutPtr = pPrivateRuntimeDataCtorArg
         internal set
 
     public constructor() : this(
@@ -2124,13 +2121,13 @@ public class D3dkmtCreatekeyedmutex2 internal constructor(
 
     public operator fun component3(): UInt = this.hKeyedMutex
 
-    public operator fun component4(): MutPtr<CVoid> = this.pPrivateRuntimeData
+    public operator fun component4(): MutPtr = this.pPrivateRuntimeData
 
     public operator fun component5(): UInt = this.privateRuntimeDataSize
 
     public operator fun component6(): D3dkmtCreatekeyedmutex2Flags = this.flags
 
-    public fun copy(initialValue: ULong = this.initialValue, hSharedHandle: UInt = this.hSharedHandle, hKeyedMutex: UInt = this.hKeyedMutex, pPrivateRuntimeData: MutPtr<CVoid> = this.pPrivateRuntimeData, privateRuntimeDataSize: UInt = this.privateRuntimeDataSize, flags: D3dkmtCreatekeyedmutex2Flags = this.flags): D3dkmtCreatekeyedmutex2 = D3dkmtCreatekeyedmutex2(initialValue = initialValue, hSharedHandle = hSharedHandle, hKeyedMutex = hKeyedMutex, pPrivateRuntimeDataCtorArg = pPrivateRuntimeData, privateRuntimeDataSize = privateRuntimeDataSize, flags = flags)
+    public fun copy(initialValue: ULong = this.initialValue, hSharedHandle: UInt = this.hSharedHandle, hKeyedMutex: UInt = this.hKeyedMutex, pPrivateRuntimeData: MutPtr = this.pPrivateRuntimeData, privateRuntimeDataSize: UInt = this.privateRuntimeDataSize, flags: D3dkmtCreatekeyedmutex2Flags = this.flags): D3dkmtCreatekeyedmutex2 = D3dkmtCreatekeyedmutex2(initialValue = initialValue, hSharedHandle = hSharedHandle, hKeyedMutex = hKeyedMutex, pPrivateRuntimeDataCtorArg = pPrivateRuntimeData, privateRuntimeDataSize = privateRuntimeDataSize, flags = flags)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -2159,7 +2156,7 @@ public class D3dkmtCreatekeyedmutex2 internal constructor(
             initialValue: ULong = 0uL,
             hSharedHandle: UInt = 0u,
             hKeyedMutex: UInt = 0u,
-            pPrivateRuntimeData: MutPtr<CVoid> = MutPtr(0L),
+            pPrivateRuntimeData: MutPtr = MutPtr(0L),
             privateRuntimeDataSize: UInt = 0u,
             flags: D3dkmtCreatekeyedmutex2Flags = D3dkmtCreatekeyedmutex2Flags(),
         ): D3dkmtCreatekeyedmutex2 =
@@ -2240,10 +2237,10 @@ public class D3dkmtCreatepagingqueue internal constructor(
     public var priority: D3dddiPagingqueuePriority,
     public var hPagingQueue: UInt,
     public var hSyncObject: UInt,
-    fenceValueCPUVirtualAddressCtorArg: MutPtr<CVoid>,
+    fenceValueCPUVirtualAddressCtorArg: MutPtr,
     public var physicalAdapterIndex: UInt,
 ) {
-    public var fenceValueCPUVirtualAddress: MutPtr<CVoid> = fenceValueCPUVirtualAddressCtorArg
+    public var fenceValueCPUVirtualAddress: MutPtr = fenceValueCPUVirtualAddressCtorArg
         internal set
 
     public constructor() : this(
@@ -2263,11 +2260,11 @@ public class D3dkmtCreatepagingqueue internal constructor(
 
     public operator fun component4(): UInt = this.hSyncObject
 
-    public operator fun component5(): MutPtr<CVoid> = this.fenceValueCPUVirtualAddress
+    public operator fun component5(): MutPtr = this.fenceValueCPUVirtualAddress
 
     public operator fun component6(): UInt = this.physicalAdapterIndex
 
-    public fun copy(hDevice: UInt = this.hDevice, priority: D3dddiPagingqueuePriority = this.priority, hPagingQueue: UInt = this.hPagingQueue, hSyncObject: UInt = this.hSyncObject, fenceValueCPUVirtualAddress: MutPtr<CVoid> = this.fenceValueCPUVirtualAddress, physicalAdapterIndex: UInt = this.physicalAdapterIndex): D3dkmtCreatepagingqueue = D3dkmtCreatepagingqueue(hDevice = hDevice, priority = priority, hPagingQueue = hPagingQueue, hSyncObject = hSyncObject, fenceValueCPUVirtualAddressCtorArg = fenceValueCPUVirtualAddress, physicalAdapterIndex = physicalAdapterIndex)
+    public fun copy(hDevice: UInt = this.hDevice, priority: D3dddiPagingqueuePriority = this.priority, hPagingQueue: UInt = this.hPagingQueue, hSyncObject: UInt = this.hSyncObject, fenceValueCPUVirtualAddress: MutPtr = this.fenceValueCPUVirtualAddress, physicalAdapterIndex: UInt = this.physicalAdapterIndex): D3dkmtCreatepagingqueue = D3dkmtCreatepagingqueue(hDevice = hDevice, priority = priority, hPagingQueue = hPagingQueue, hSyncObject = hSyncObject, fenceValueCPUVirtualAddressCtorArg = fenceValueCPUVirtualAddress, physicalAdapterIndex = physicalAdapterIndex)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -2304,7 +2301,7 @@ public class D3dkmtCreatepagingqueue internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 12L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<CVoid>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 16L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 24L),
                     )
@@ -2315,7 +2312,7 @@ public class D3dkmtCreatepagingqueue internal constructor(
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 12L, value.hSyncObject)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<CVoid>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 16L, value.fenceValueCPUVirtualAddress)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 24L, value.physicalAdapterIndex)
                 }
@@ -2326,7 +2323,7 @@ public class D3dkmtCreatepagingqueue internal constructor(
             priority: D3dddiPagingqueuePriority = 0,
             hPagingQueue: UInt = 0u,
             hSyncObject: UInt = 0u,
-            fenceValueCPUVirtualAddress: MutPtr<CVoid> = MutPtr(0L),
+            fenceValueCPUVirtualAddress: MutPtr = MutPtr(0L),
             physicalAdapterIndex: UInt = 0u,
         ): D3dkmtCreatepagingqueue =
             D3dkmtCreatepagingqueue(
@@ -2343,16 +2340,16 @@ public class D3dkmtCreatepagingqueue internal constructor(
 public class D3dkmtCreateprotectedsession internal constructor(
     public var hDevice: UInt,
     public var hSyncObject: UInt,
-    pPrivateDriverDataCtorArg: ConstPtr<CVoid>,
+    pPrivateDriverDataCtorArg: ConstPtr,
     public var privateDriverDataSize: UInt,
-    pPrivateRuntimeDataCtorArg: ConstPtr<CVoid>,
+    pPrivateRuntimeDataCtorArg: ConstPtr,
     public var privateRuntimeDataSize: UInt,
     public var hHandle: UInt,
 ) {
-    public var pPrivateDriverData: ConstPtr<CVoid> = pPrivateDriverDataCtorArg
+    public var pPrivateDriverData: ConstPtr = pPrivateDriverDataCtorArg
         internal set
 
-    public var pPrivateRuntimeData: ConstPtr<CVoid> = pPrivateRuntimeDataCtorArg
+    public var pPrivateRuntimeData: ConstPtr = pPrivateRuntimeDataCtorArg
         internal set
 
     public constructor() : this(
@@ -2369,17 +2366,17 @@ public class D3dkmtCreateprotectedsession internal constructor(
 
     public operator fun component2(): UInt = this.hSyncObject
 
-    public operator fun component3(): ConstPtr<CVoid> = this.pPrivateDriverData
+    public operator fun component3(): ConstPtr = this.pPrivateDriverData
 
     public operator fun component4(): UInt = this.privateDriverDataSize
 
-    public operator fun component5(): ConstPtr<CVoid> = this.pPrivateRuntimeData
+    public operator fun component5(): ConstPtr = this.pPrivateRuntimeData
 
     public operator fun component6(): UInt = this.privateRuntimeDataSize
 
     public operator fun component7(): UInt = this.hHandle
 
-    public fun copy(hDevice: UInt = this.hDevice, hSyncObject: UInt = this.hSyncObject, pPrivateDriverData: ConstPtr<CVoid> = this.pPrivateDriverData, privateDriverDataSize: UInt = this.privateDriverDataSize, pPrivateRuntimeData: ConstPtr<CVoid> = this.pPrivateRuntimeData, privateRuntimeDataSize: UInt = this.privateRuntimeDataSize, hHandle: UInt = this.hHandle): D3dkmtCreateprotectedsession = D3dkmtCreateprotectedsession(hDevice = hDevice, hSyncObject = hSyncObject, pPrivateDriverDataCtorArg = pPrivateDriverData, privateDriverDataSize = privateDriverDataSize, pPrivateRuntimeDataCtorArg = pPrivateRuntimeData, privateRuntimeDataSize = privateRuntimeDataSize, hHandle = hHandle)
+    public fun copy(hDevice: UInt = this.hDevice, hSyncObject: UInt = this.hSyncObject, pPrivateDriverData: ConstPtr = this.pPrivateDriverData, privateDriverDataSize: UInt = this.privateDriverDataSize, pPrivateRuntimeData: ConstPtr = this.pPrivateRuntimeData, privateRuntimeDataSize: UInt = this.privateRuntimeDataSize, hHandle: UInt = this.hHandle): D3dkmtCreateprotectedsession = D3dkmtCreateprotectedsession(hDevice = hDevice, hSyncObject = hSyncObject, pPrivateDriverDataCtorArg = pPrivateDriverData, privateDriverDataSize = privateDriverDataSize, pPrivateRuntimeDataCtorArg = pPrivateRuntimeData, privateRuntimeDataSize = privateRuntimeDataSize, hHandle = hHandle)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -2416,12 +2413,12 @@ public class D3dkmtCreateprotectedsession internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 4L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .constPtrLayout<CVoid>(64)
+                                .constPtrLayout(64)
                         ).readNative(addr + 8L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 16L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .constPtrLayout<CVoid>(64)
+                                .constPtrLayout(64)
                         ).readNative(addr + 24L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 32L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 36L),
@@ -2431,12 +2428,12 @@ public class D3dkmtCreateprotectedsession internal constructor(
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 4L, value.hSyncObject)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .constPtrLayout<CVoid>(64)
+                            .constPtrLayout(64)
                     ).writeNative(addr + 8L, value.pPrivateDriverData)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 16L, value.privateDriverDataSize)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .constPtrLayout<CVoid>(64)
+                            .constPtrLayout(64)
                     ).writeNative(addr + 24L, value.pPrivateRuntimeData)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 32L, value.privateRuntimeDataSize)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 36L, value.hHandle)
@@ -2446,9 +2443,9 @@ public class D3dkmtCreateprotectedsession internal constructor(
         public operator fun invoke(
             hDevice: UInt = 0u,
             hSyncObject: UInt = 0u,
-            pPrivateDriverData: ConstPtr<CVoid> = ConstPtr(0L),
+            pPrivateDriverData: ConstPtr = ConstPtr(0L),
             privateDriverDataSize: UInt = 0u,
-            pPrivateRuntimeData: ConstPtr<CVoid> = ConstPtr(0L),
+            pPrivateRuntimeData: ConstPtr = ConstPtr(0L),
             privateRuntimeDataSize: UInt = 0u,
             hHandle: UInt = 0u,
         ): D3dkmtCreateprotectedsession =
@@ -2548,21 +2545,21 @@ public class D3dkmtCreateDoorbell internal constructor(
     public var hRingBufferControl: UInt,
     public var flags: D3dkmtCreateDoorbellFlags,
     public var privateDriverDataSize: UInt,
-    privateDriverDataCtorArg: MutPtr<CVoid>,
-    doorbellCPUVirtualAddressCtorArg: MutPtr<CVoid>,
-    doorbellSecondaryCPUVirtualAddressCtorArg: MutPtr<CVoid>,
-    doorbellStatusCPUVirtualAddressCtorArg: MutPtr<CVoid>,
+    privateDriverDataCtorArg: MutPtr,
+    doorbellCPUVirtualAddressCtorArg: MutPtr,
+    doorbellSecondaryCPUVirtualAddressCtorArg: MutPtr,
+    doorbellStatusCPUVirtualAddressCtorArg: MutPtr,
 ) {
-    public var privateDriverData: MutPtr<CVoid> = privateDriverDataCtorArg
+    public var privateDriverData: MutPtr = privateDriverDataCtorArg
         internal set
 
-    public var doorbellCPUVirtualAddress: MutPtr<CVoid> = doorbellCPUVirtualAddressCtorArg
+    public var doorbellCPUVirtualAddress: MutPtr = doorbellCPUVirtualAddressCtorArg
         internal set
 
-    public var doorbellSecondaryCPUVirtualAddress: MutPtr<CVoid> = doorbellSecondaryCPUVirtualAddressCtorArg
+    public var doorbellSecondaryCPUVirtualAddress: MutPtr = doorbellSecondaryCPUVirtualAddressCtorArg
         internal set
 
-    public var doorbellStatusCPUVirtualAddress: MutPtr<CVoid> = doorbellStatusCPUVirtualAddressCtorArg
+    public var doorbellStatusCPUVirtualAddress: MutPtr = doorbellStatusCPUVirtualAddressCtorArg
         internal set
 
     public constructor() : this(
@@ -2587,15 +2584,15 @@ public class D3dkmtCreateDoorbell internal constructor(
 
     public operator fun component5(): UInt = this.privateDriverDataSize
 
-    public operator fun component6(): MutPtr<CVoid> = this.privateDriverData
+    public operator fun component6(): MutPtr = this.privateDriverData
 
-    public operator fun component7(): MutPtr<CVoid> = this.doorbellCPUVirtualAddress
+    public operator fun component7(): MutPtr = this.doorbellCPUVirtualAddress
 
-    public operator fun component8(): MutPtr<CVoid> = this.doorbellSecondaryCPUVirtualAddress
+    public operator fun component8(): MutPtr = this.doorbellSecondaryCPUVirtualAddress
 
-    public operator fun component9(): MutPtr<CVoid> = this.doorbellStatusCPUVirtualAddress
+    public operator fun component9(): MutPtr = this.doorbellStatusCPUVirtualAddress
 
-    public fun copy(hHwQueue: UInt = this.hHwQueue, hRingBuffer: UInt = this.hRingBuffer, hRingBufferControl: UInt = this.hRingBufferControl, flags: D3dkmtCreateDoorbellFlags = this.flags, privateDriverDataSize: UInt = this.privateDriverDataSize, privateDriverData: MutPtr<CVoid> = this.privateDriverData, doorbellCPUVirtualAddress: MutPtr<CVoid> = this.doorbellCPUVirtualAddress, doorbellSecondaryCPUVirtualAddress: MutPtr<CVoid> = this.doorbellSecondaryCPUVirtualAddress, doorbellStatusCPUVirtualAddress: MutPtr<CVoid> = this.doorbellStatusCPUVirtualAddress): D3dkmtCreateDoorbell = D3dkmtCreateDoorbell(hHwQueue = hHwQueue, hRingBuffer = hRingBuffer, hRingBufferControl = hRingBufferControl, flags = flags, privateDriverDataSize = privateDriverDataSize, privateDriverDataCtorArg = privateDriverData, doorbellCPUVirtualAddressCtorArg = doorbellCPUVirtualAddress, doorbellSecondaryCPUVirtualAddressCtorArg = doorbellSecondaryCPUVirtualAddress, doorbellStatusCPUVirtualAddressCtorArg = doorbellStatusCPUVirtualAddress)
+    public fun copy(hHwQueue: UInt = this.hHwQueue, hRingBuffer: UInt = this.hRingBuffer, hRingBufferControl: UInt = this.hRingBufferControl, flags: D3dkmtCreateDoorbellFlags = this.flags, privateDriverDataSize: UInt = this.privateDriverDataSize, privateDriverData: MutPtr = this.privateDriverData, doorbellCPUVirtualAddress: MutPtr = this.doorbellCPUVirtualAddress, doorbellSecondaryCPUVirtualAddress: MutPtr = this.doorbellSecondaryCPUVirtualAddress, doorbellStatusCPUVirtualAddress: MutPtr = this.doorbellStatusCPUVirtualAddress): D3dkmtCreateDoorbell = D3dkmtCreateDoorbell(hHwQueue = hHwQueue, hRingBuffer = hRingBuffer, hRingBufferControl = hRingBufferControl, flags = flags, privateDriverDataSize = privateDriverDataSize, privateDriverDataCtorArg = privateDriverData, doorbellCPUVirtualAddressCtorArg = doorbellCPUVirtualAddress, doorbellSecondaryCPUVirtualAddressCtorArg = doorbellSecondaryCPUVirtualAddress, doorbellStatusCPUVirtualAddressCtorArg = doorbellStatusCPUVirtualAddress)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -2632,10 +2629,10 @@ public class D3dkmtCreateDoorbell internal constructor(
             hRingBufferControl: UInt = 0u,
             flags: D3dkmtCreateDoorbellFlags = D3dkmtCreateDoorbellFlags(),
             privateDriverDataSize: UInt = 0u,
-            privateDriverData: MutPtr<CVoid> = MutPtr(0L),
-            doorbellCPUVirtualAddress: MutPtr<CVoid> = MutPtr(0L),
-            doorbellSecondaryCPUVirtualAddress: MutPtr<CVoid> = MutPtr(0L),
-            doorbellStatusCPUVirtualAddress: MutPtr<CVoid> = MutPtr(0L),
+            privateDriverData: MutPtr = MutPtr(0L),
+            doorbellCPUVirtualAddress: MutPtr = MutPtr(0L),
+            doorbellSecondaryCPUVirtualAddress: MutPtr = MutPtr(0L),
+            doorbellStatusCPUVirtualAddress: MutPtr = MutPtr(0L),
         ): D3dkmtCreateDoorbell =
             D3dkmtCreateDoorbell(
                 hHwQueue = hHwQueue,
@@ -2774,10 +2771,10 @@ public data class D3dkmtDebugSnapshotEscape(
 public class D3dkmtDestroyallocation internal constructor(
     public var hDevice: UInt,
     public var hResource: UInt,
-    phAllocationListCtorArg: ConstPtr<UInt>,
+    phAllocationListCtorArg: ConstPtr,
     public var allocationCount: UInt,
 ) {
-    public var phAllocationList: ConstPtr<UInt> = phAllocationListCtorArg
+    public var phAllocationList: ConstPtr = phAllocationListCtorArg
         internal set
 
     public constructor() : this(
@@ -2791,11 +2788,11 @@ public class D3dkmtDestroyallocation internal constructor(
 
     public operator fun component2(): UInt = this.hResource
 
-    public operator fun component3(): ConstPtr<UInt> = this.phAllocationList
+    public operator fun component3(): ConstPtr = this.phAllocationList
 
     public operator fun component4(): UInt = this.allocationCount
 
-    public fun copy(hDevice: UInt = this.hDevice, hResource: UInt = this.hResource, phAllocationList: ConstPtr<UInt> = this.phAllocationList, allocationCount: UInt = this.allocationCount): D3dkmtDestroyallocation = D3dkmtDestroyallocation(hDevice = hDevice, hResource = hResource, phAllocationListCtorArg = phAllocationList, allocationCount = allocationCount)
+    public fun copy(hDevice: UInt = this.hDevice, hResource: UInt = this.hResource, phAllocationList: ConstPtr = this.phAllocationList, allocationCount: UInt = this.allocationCount): D3dkmtDestroyallocation = D3dkmtDestroyallocation(hDevice = hDevice, hResource = hResource, phAllocationListCtorArg = phAllocationList, allocationCount = allocationCount)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -2826,7 +2823,7 @@ public class D3dkmtDestroyallocation internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 4L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .constPtrLayout<UInt>(64)
+                                .constPtrLayout(64)
                         ).readNative(addr + 8L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 16L),
                     )
@@ -2835,7 +2832,7 @@ public class D3dkmtDestroyallocation internal constructor(
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 4L, value.hResource)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .constPtrLayout<UInt>(64)
+                            .constPtrLayout(64)
                     ).writeNative(addr + 8L, value.phAllocationList)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 16L, value.allocationCount)
                 }
@@ -2844,7 +2841,7 @@ public class D3dkmtDestroyallocation internal constructor(
         public operator fun invoke(
             hDevice: UInt = 0u,
             hResource: UInt = 0u,
-            phAllocationList: ConstPtr<UInt> = ConstPtr(0L),
+            phAllocationList: ConstPtr = ConstPtr(0L),
             allocationCount: UInt = 0u,
         ): D3dkmtDestroyallocation =
             D3dkmtDestroyallocation(
@@ -2859,11 +2856,11 @@ public class D3dkmtDestroyallocation internal constructor(
 public class D3dkmtDestroyallocation2 internal constructor(
     public var hDevice: UInt,
     public var hResource: UInt,
-    phAllocationListCtorArg: ConstPtr<UInt>,
+    phAllocationListCtorArg: ConstPtr,
     public var allocationCount: UInt,
     public var flags: D3dddicbDestroyallocation2flags,
 ) {
-    public var phAllocationList: ConstPtr<UInt> = phAllocationListCtorArg
+    public var phAllocationList: ConstPtr = phAllocationListCtorArg
         internal set
 
     public constructor() : this(
@@ -2878,13 +2875,13 @@ public class D3dkmtDestroyallocation2 internal constructor(
 
     public operator fun component2(): UInt = this.hResource
 
-    public operator fun component3(): ConstPtr<UInt> = this.phAllocationList
+    public operator fun component3(): ConstPtr = this.phAllocationList
 
     public operator fun component4(): UInt = this.allocationCount
 
     public operator fun component5(): D3dddicbDestroyallocation2flags = this.flags
 
-    public fun copy(hDevice: UInt = this.hDevice, hResource: UInt = this.hResource, phAllocationList: ConstPtr<UInt> = this.phAllocationList, allocationCount: UInt = this.allocationCount, flags: D3dddicbDestroyallocation2flags = this.flags): D3dkmtDestroyallocation2 = D3dkmtDestroyallocation2(hDevice = hDevice, hResource = hResource, phAllocationListCtorArg = phAllocationList, allocationCount = allocationCount, flags = flags)
+    public fun copy(hDevice: UInt = this.hDevice, hResource: UInt = this.hResource, phAllocationList: ConstPtr = this.phAllocationList, allocationCount: UInt = this.allocationCount, flags: D3dddicbDestroyallocation2flags = this.flags): D3dkmtDestroyallocation2 = D3dkmtDestroyallocation2(hDevice = hDevice, hResource = hResource, phAllocationListCtorArg = phAllocationList, allocationCount = allocationCount, flags = flags)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -2910,7 +2907,7 @@ public class D3dkmtDestroyallocation2 internal constructor(
         public operator fun invoke(
             hDevice: UInt = 0u,
             hResource: UInt = 0u,
-            phAllocationList: ConstPtr<UInt> = ConstPtr(0L),
+            phAllocationList: ConstPtr = ConstPtr(0L),
             allocationCount: UInt = 0u,
             flags: D3dddicbDestroyallocation2flags = D3dddicbDestroyallocation2flags(),
         ): D3dkmtDestroyallocation2 =
@@ -3680,9 +3677,9 @@ public data class D3dkmtEnumadapters(
 
 public class D3dkmtEnumadapters2 internal constructor(
     public var numAdapters: UInt,
-    pAdaptersCtorArg: MutPtr<D3dkmtAdapterinfo>,
+    pAdaptersCtorArg: MutPtr,
 ) {
-    public var pAdapters: MutPtr<D3dkmtAdapterinfo> = pAdaptersCtorArg
+    public var pAdapters: MutPtr = pAdaptersCtorArg
         internal set
 
     public constructor() : this(
@@ -3692,9 +3689,9 @@ public class D3dkmtEnumadapters2 internal constructor(
 
     public operator fun component1(): UInt = this.numAdapters
 
-    public operator fun component2(): MutPtr<D3dkmtAdapterinfo> = this.pAdapters
+    public operator fun component2(): MutPtr = this.pAdapters
 
-    public fun copy(numAdapters: UInt = this.numAdapters, pAdapters: MutPtr<D3dkmtAdapterinfo> = this.pAdapters): D3dkmtEnumadapters2 = D3dkmtEnumadapters2(numAdapters = numAdapters, pAdaptersCtorArg = pAdapters)
+    public fun copy(numAdapters: UInt = this.numAdapters, pAdapters: MutPtr = this.pAdapters): D3dkmtEnumadapters2 = D3dkmtEnumadapters2(numAdapters = numAdapters, pAdaptersCtorArg = pAdapters)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -3720,21 +3717,21 @@ public class D3dkmtEnumadapters2 internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<D3dkmtAdapterinfo>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                     )
                 override fun writeNative(addr: Long, value: D3dkmtEnumadapters2) {
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr, value.numAdapters)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<D3dkmtAdapterinfo>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.pAdapters)
                 }
             }
 
         public operator fun invoke(
             numAdapters: UInt = 0u,
-            pAdapters: MutPtr<D3dkmtAdapterinfo> = MutPtr(0L),
+            pAdapters: MutPtr = MutPtr(0L),
         ): D3dkmtEnumadapters2 =
             D3dkmtEnumadapters2(
                 numAdapters = numAdapters,
@@ -3746,9 +3743,9 @@ public class D3dkmtEnumadapters2 internal constructor(
 public class D3dkmtEnumadapters3 internal constructor(
     public var filter: D3dkmtEnumadaptersFilter,
     public var numAdapters: UInt,
-    pAdaptersCtorArg: MutPtr<D3dkmtAdapterinfo>,
+    pAdaptersCtorArg: MutPtr,
 ) {
-    public var pAdapters: MutPtr<D3dkmtAdapterinfo> = pAdaptersCtorArg
+    public var pAdapters: MutPtr = pAdaptersCtorArg
         internal set
 
     public constructor() : this(
@@ -3761,9 +3758,9 @@ public class D3dkmtEnumadapters3 internal constructor(
 
     public operator fun component2(): UInt = this.numAdapters
 
-    public operator fun component3(): MutPtr<D3dkmtAdapterinfo> = this.pAdapters
+    public operator fun component3(): MutPtr = this.pAdapters
 
-    public fun copy(filter: D3dkmtEnumadaptersFilter = this.filter, numAdapters: UInt = this.numAdapters, pAdapters: MutPtr<D3dkmtAdapterinfo> = this.pAdapters): D3dkmtEnumadapters3 = D3dkmtEnumadapters3(filter = filter, numAdapters = numAdapters, pAdaptersCtorArg = pAdapters)
+    public fun copy(filter: D3dkmtEnumadaptersFilter = this.filter, numAdapters: UInt = this.numAdapters, pAdapters: MutPtr = this.pAdapters): D3dkmtEnumadapters3 = D3dkmtEnumadapters3(filter = filter, numAdapters = numAdapters, pAdaptersCtorArg = pAdapters)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -3785,7 +3782,7 @@ public class D3dkmtEnumadapters3 internal constructor(
         public operator fun invoke(
             filter: D3dkmtEnumadaptersFilter = D3dkmtEnumadaptersFilter(),
             numAdapters: UInt = 0u,
-            pAdapters: MutPtr<D3dkmtAdapterinfo> = MutPtr(0L),
+            pAdapters: MutPtr = MutPtr(0L),
         ): D3dkmtEnumadapters3 =
             D3dkmtEnumadapters3(
                 filter = filter,
@@ -3824,11 +3821,11 @@ public class D3dkmtEscape internal constructor(
     public var hDevice: UInt,
     public var type: D3dkmtEscapetype,
     public var flags: D3dddiEscapeflags,
-    pPrivateDriverDataCtorArg: MutPtr<CVoid>,
+    pPrivateDriverDataCtorArg: MutPtr,
     public var privateDriverDataSize: UInt,
     public var hContext: UInt,
 ) {
-    public var pPrivateDriverData: MutPtr<CVoid> = pPrivateDriverDataCtorArg
+    public var pPrivateDriverData: MutPtr = pPrivateDriverDataCtorArg
         internal set
 
     public constructor() : this(
@@ -3849,13 +3846,13 @@ public class D3dkmtEscape internal constructor(
 
     public operator fun component4(): D3dddiEscapeflags = this.flags
 
-    public operator fun component5(): MutPtr<CVoid> = this.pPrivateDriverData
+    public operator fun component5(): MutPtr = this.pPrivateDriverData
 
     public operator fun component6(): UInt = this.privateDriverDataSize
 
     public operator fun component7(): UInt = this.hContext
 
-    public fun copy(hAdapter: UInt = this.hAdapter, hDevice: UInt = this.hDevice, type: D3dkmtEscapetype = this.type, flags: D3dddiEscapeflags = this.flags, pPrivateDriverData: MutPtr<CVoid> = this.pPrivateDriverData, privateDriverDataSize: UInt = this.privateDriverDataSize, hContext: UInt = this.hContext): D3dkmtEscape = D3dkmtEscape(hAdapter = hAdapter, hDevice = hDevice, type = type, flags = flags, pPrivateDriverDataCtorArg = pPrivateDriverData, privateDriverDataSize = privateDriverDataSize, hContext = hContext)
+    public fun copy(hAdapter: UInt = this.hAdapter, hDevice: UInt = this.hDevice, type: D3dkmtEscapetype = this.type, flags: D3dddiEscapeflags = this.flags, pPrivateDriverData: MutPtr = this.pPrivateDriverData, privateDriverDataSize: UInt = this.privateDriverDataSize, hContext: UInt = this.hContext): D3dkmtEscape = D3dkmtEscape(hAdapter = hAdapter, hDevice = hDevice, type = type, flags = flags, pPrivateDriverDataCtorArg = pPrivateDriverData, privateDriverDataSize = privateDriverDataSize, hContext = hContext)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -3887,7 +3884,7 @@ public class D3dkmtEscape internal constructor(
             hDevice: UInt = 0u,
             type: D3dkmtEscapetype = 0,
             flags: D3dddiEscapeflags = D3dddiEscapeflags(),
-            pPrivateDriverData: MutPtr<CVoid> = MutPtr(0L),
+            pPrivateDriverData: MutPtr = MutPtr(0L),
             privateDriverDataSize: UInt = 0u,
             hContext: UInt = 0u,
         ): D3dkmtEscape =
@@ -3968,11 +3965,11 @@ public data class D3dkmtEscapeVirtualRefreshRate(
 public class D3dkmtEvict internal constructor(
     public var hDevice: UInt,
     public var numAllocations: UInt,
-    allocationListCtorArg: ConstPtr<UInt>,
+    allocationListCtorArg: ConstPtr,
     public var flags: D3dddiEvictFlags,
     public var numBytesToTrim: ULong,
 ) {
-    public var allocationList: ConstPtr<UInt> = allocationListCtorArg
+    public var allocationList: ConstPtr = allocationListCtorArg
         internal set
 
     public constructor() : this(
@@ -3987,13 +3984,13 @@ public class D3dkmtEvict internal constructor(
 
     public operator fun component2(): UInt = this.numAllocations
 
-    public operator fun component3(): ConstPtr<UInt> = this.allocationList
+    public operator fun component3(): ConstPtr = this.allocationList
 
     public operator fun component4(): D3dddiEvictFlags = this.flags
 
     public operator fun component5(): ULong = this.numBytesToTrim
 
-    public fun copy(hDevice: UInt = this.hDevice, numAllocations: UInt = this.numAllocations, allocationList: ConstPtr<UInt> = this.allocationList, flags: D3dddiEvictFlags = this.flags, numBytesToTrim: ULong = this.numBytesToTrim): D3dkmtEvict = D3dkmtEvict(hDevice = hDevice, numAllocations = numAllocations, allocationListCtorArg = allocationList, flags = flags, numBytesToTrim = numBytesToTrim)
+    public fun copy(hDevice: UInt = this.hDevice, numAllocations: UInt = this.numAllocations, allocationList: ConstPtr = this.allocationList, flags: D3dddiEvictFlags = this.flags, numBytesToTrim: ULong = this.numBytesToTrim): D3dkmtEvict = D3dkmtEvict(hDevice = hDevice, numAllocations = numAllocations, allocationListCtorArg = allocationList, flags = flags, numBytesToTrim = numBytesToTrim)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -4019,7 +4016,7 @@ public class D3dkmtEvict internal constructor(
         public operator fun invoke(
             hDevice: UInt = 0u,
             numAllocations: UInt = 0u,
-            allocationList: ConstPtr<UInt> = ConstPtr(0L),
+            allocationList: ConstPtr = ConstPtr(0L),
             flags: D3dddiEvictFlags = D3dddiEvictFlags(),
             numBytesToTrim: ULong = 0uL,
         ): D3dkmtEvict =
@@ -4275,10 +4272,10 @@ public class D3dkmtFlipoverlay internal constructor(
     public var hDevice: UInt,
     public var hOverlay: UInt,
     public var hSource: UInt,
-    pPrivateDriverDataCtorArg: MutPtr<CVoid>,
+    pPrivateDriverDataCtorArg: MutPtr,
     public var privateDriverDataSize: UInt,
 ) {
-    public var pPrivateDriverData: MutPtr<CVoid> = pPrivateDriverDataCtorArg
+    public var pPrivateDriverData: MutPtr = pPrivateDriverDataCtorArg
         internal set
 
     public constructor() : this(
@@ -4295,11 +4292,11 @@ public class D3dkmtFlipoverlay internal constructor(
 
     public operator fun component3(): UInt = this.hSource
 
-    public operator fun component4(): MutPtr<CVoid> = this.pPrivateDriverData
+    public operator fun component4(): MutPtr = this.pPrivateDriverData
 
     public operator fun component5(): UInt = this.privateDriverDataSize
 
-    public fun copy(hDevice: UInt = this.hDevice, hOverlay: UInt = this.hOverlay, hSource: UInt = this.hSource, pPrivateDriverData: MutPtr<CVoid> = this.pPrivateDriverData, privateDriverDataSize: UInt = this.privateDriverDataSize): D3dkmtFlipoverlay = D3dkmtFlipoverlay(hDevice = hDevice, hOverlay = hOverlay, hSource = hSource, pPrivateDriverDataCtorArg = pPrivateDriverData, privateDriverDataSize = privateDriverDataSize)
+    public fun copy(hDevice: UInt = this.hDevice, hOverlay: UInt = this.hOverlay, hSource: UInt = this.hSource, pPrivateDriverData: MutPtr = this.pPrivateDriverData, privateDriverDataSize: UInt = this.privateDriverDataSize): D3dkmtFlipoverlay = D3dkmtFlipoverlay(hDevice = hDevice, hOverlay = hOverlay, hSource = hSource, pPrivateDriverDataCtorArg = pPrivateDriverData, privateDriverDataSize = privateDriverDataSize)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -4333,7 +4330,7 @@ public class D3dkmtFlipoverlay internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 8L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<CVoid>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 16L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 24L),
                     )
@@ -4343,7 +4340,7 @@ public class D3dkmtFlipoverlay internal constructor(
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 8L, value.hSource)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<CVoid>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 16L, value.pPrivateDriverData)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 24L, value.privateDriverDataSize)
                 }
@@ -4353,7 +4350,7 @@ public class D3dkmtFlipoverlay internal constructor(
             hDevice: UInt = 0u,
             hOverlay: UInt = 0u,
             hSource: UInt = 0u,
-            pPrivateDriverData: MutPtr<CVoid> = MutPtr(0L),
+            pPrivateDriverData: MutPtr = MutPtr(0L),
             privateDriverDataSize: UInt = 0u,
         ): D3dkmtFlipoverlay =
             D3dkmtFlipoverlay(
@@ -4471,14 +4468,14 @@ public data class D3dkmtGdimodelSysmemPresenthistorytoken(
 public class D3dkmtGetallocationpriority internal constructor(
     public var hDevice: UInt,
     public var hResource: UInt,
-    phAllocationListCtorArg: ConstPtr<UInt>,
+    phAllocationListCtorArg: ConstPtr,
     public var allocationCount: UInt,
-    pPrioritiesCtorArg: MutPtr<UInt>,
+    pPrioritiesCtorArg: MutPtr,
 ) {
-    public var phAllocationList: ConstPtr<UInt> = phAllocationListCtorArg
+    public var phAllocationList: ConstPtr = phAllocationListCtorArg
         internal set
 
-    public var pPriorities: MutPtr<UInt> = pPrioritiesCtorArg
+    public var pPriorities: MutPtr = pPrioritiesCtorArg
         internal set
 
     public constructor() : this(
@@ -4493,13 +4490,13 @@ public class D3dkmtGetallocationpriority internal constructor(
 
     public operator fun component2(): UInt = this.hResource
 
-    public operator fun component3(): ConstPtr<UInt> = this.phAllocationList
+    public operator fun component3(): ConstPtr = this.phAllocationList
 
     public operator fun component4(): UInt = this.allocationCount
 
-    public operator fun component5(): MutPtr<UInt> = this.pPriorities
+    public operator fun component5(): MutPtr = this.pPriorities
 
-    public fun copy(hDevice: UInt = this.hDevice, hResource: UInt = this.hResource, phAllocationList: ConstPtr<UInt> = this.phAllocationList, allocationCount: UInt = this.allocationCount, pPriorities: MutPtr<UInt> = this.pPriorities): D3dkmtGetallocationpriority = D3dkmtGetallocationpriority(hDevice = hDevice, hResource = hResource, phAllocationListCtorArg = phAllocationList, allocationCount = allocationCount, pPrioritiesCtorArg = pPriorities)
+    public fun copy(hDevice: UInt = this.hDevice, hResource: UInt = this.hResource, phAllocationList: ConstPtr = this.phAllocationList, allocationCount: UInt = this.allocationCount, pPriorities: MutPtr = this.pPriorities): D3dkmtGetallocationpriority = D3dkmtGetallocationpriority(hDevice = hDevice, hResource = hResource, phAllocationListCtorArg = phAllocationList, allocationCount = allocationCount, pPrioritiesCtorArg = pPriorities)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -4532,12 +4529,12 @@ public class D3dkmtGetallocationpriority internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 4L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .constPtrLayout<UInt>(64)
+                                .constPtrLayout(64)
                         ).readNative(addr + 8L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 16L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<UInt>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 24L),
                     )
                 override fun writeNative(addr: Long, value: D3dkmtGetallocationpriority) {
@@ -4545,12 +4542,12 @@ public class D3dkmtGetallocationpriority internal constructor(
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 4L, value.hResource)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .constPtrLayout<UInt>(64)
+                            .constPtrLayout(64)
                     ).writeNative(addr + 8L, value.phAllocationList)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 16L, value.allocationCount)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<UInt>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 24L, value.pPriorities)
                 }
             }
@@ -4558,9 +4555,9 @@ public class D3dkmtGetallocationpriority internal constructor(
         public operator fun invoke(
             hDevice: UInt = 0u,
             hResource: UInt = 0u,
-            phAllocationList: ConstPtr<UInt> = ConstPtr(0L),
+            phAllocationList: ConstPtr = ConstPtr(0L),
             allocationCount: UInt = 0u,
-            pPriorities: MutPtr<UInt> = MutPtr(0L),
+            pPriorities: MutPtr = MutPtr(0L),
         ): D3dkmtGetallocationpriority =
             D3dkmtGetallocationpriority(
                 hDevice = hDevice,
@@ -4634,10 +4631,10 @@ public data class D3dkmtGetdevicestate0(
 public class D3dkmtGetdisplaymodelist internal constructor(
     public var hAdapter: UInt,
     public var vidPnSourceId: UInt,
-    pModeListCtorArg: MutPtr<D3dkmtDisplaymode>,
+    pModeListCtorArg: MutPtr,
     public var modeCount: UInt,
 ) {
-    public var pModeList: MutPtr<D3dkmtDisplaymode> = pModeListCtorArg
+    public var pModeList: MutPtr = pModeListCtorArg
         internal set
 
     public constructor() : this(
@@ -4651,11 +4648,11 @@ public class D3dkmtGetdisplaymodelist internal constructor(
 
     public operator fun component2(): UInt = this.vidPnSourceId
 
-    public operator fun component3(): MutPtr<D3dkmtDisplaymode> = this.pModeList
+    public operator fun component3(): MutPtr = this.pModeList
 
     public operator fun component4(): UInt = this.modeCount
 
-    public fun copy(hAdapter: UInt = this.hAdapter, vidPnSourceId: UInt = this.vidPnSourceId, pModeList: MutPtr<D3dkmtDisplaymode> = this.pModeList, modeCount: UInt = this.modeCount): D3dkmtGetdisplaymodelist = D3dkmtGetdisplaymodelist(hAdapter = hAdapter, vidPnSourceId = vidPnSourceId, pModeListCtorArg = pModeList, modeCount = modeCount)
+    public fun copy(hAdapter: UInt = this.hAdapter, vidPnSourceId: UInt = this.vidPnSourceId, pModeList: MutPtr = this.pModeList, modeCount: UInt = this.modeCount): D3dkmtGetdisplaymodelist = D3dkmtGetdisplaymodelist(hAdapter = hAdapter, vidPnSourceId = vidPnSourceId, pModeListCtorArg = pModeList, modeCount = modeCount)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -4686,7 +4683,7 @@ public class D3dkmtGetdisplaymodelist internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 4L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<D3dkmtDisplaymode>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 16L),
                     )
@@ -4695,7 +4692,7 @@ public class D3dkmtGetdisplaymodelist internal constructor(
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 4L, value.vidPnSourceId)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<D3dkmtDisplaymode>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.pModeList)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 16L, value.modeCount)
                 }
@@ -4704,7 +4701,7 @@ public class D3dkmtGetdisplaymodelist internal constructor(
         public operator fun invoke(
             hAdapter: UInt = 0u,
             vidPnSourceId: UInt = 0u,
-            pModeList: MutPtr<D3dkmtDisplaymode> = MutPtr(0L),
+            pModeList: MutPtr = MutPtr(0L),
             modeCount: UInt = 0u,
         ): D3dkmtGetdisplaymodelist =
             D3dkmtGetdisplaymodelist(
@@ -4722,10 +4719,10 @@ public class D3dkmtGetmultisamplemethodlist internal constructor(
     public var width: UInt,
     public var height: UInt,
     public var format: D3dddiformat,
-    pMethodListCtorArg: MutPtr<D3dkmtMultisamplemethod>,
+    pMethodListCtorArg: MutPtr,
     public var methodCount: UInt,
 ) {
-    public var pMethodList: MutPtr<D3dkmtMultisamplemethod> = pMethodListCtorArg
+    public var pMethodList: MutPtr = pMethodListCtorArg
         internal set
 
     public constructor() : this(
@@ -4748,11 +4745,11 @@ public class D3dkmtGetmultisamplemethodlist internal constructor(
 
     public operator fun component5(): D3dddiformat = this.format
 
-    public operator fun component6(): MutPtr<D3dkmtMultisamplemethod> = this.pMethodList
+    public operator fun component6(): MutPtr = this.pMethodList
 
     public operator fun component7(): UInt = this.methodCount
 
-    public fun copy(hAdapter: UInt = this.hAdapter, vidPnSourceId: UInt = this.vidPnSourceId, width: UInt = this.width, height: UInt = this.height, format: D3dddiformat = this.format, pMethodList: MutPtr<D3dkmtMultisamplemethod> = this.pMethodList, methodCount: UInt = this.methodCount): D3dkmtGetmultisamplemethodlist = D3dkmtGetmultisamplemethodlist(hAdapter = hAdapter, vidPnSourceId = vidPnSourceId, width = width, height = height, format = format, pMethodListCtorArg = pMethodList, methodCount = methodCount)
+    public fun copy(hAdapter: UInt = this.hAdapter, vidPnSourceId: UInt = this.vidPnSourceId, width: UInt = this.width, height: UInt = this.height, format: D3dddiformat = this.format, pMethodList: MutPtr = this.pMethodList, methodCount: UInt = this.methodCount): D3dkmtGetmultisamplemethodlist = D3dkmtGetmultisamplemethodlist(hAdapter = hAdapter, vidPnSourceId = vidPnSourceId, width = width, height = height, format = format, pMethodListCtorArg = pMethodList, methodCount = methodCount)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -4792,7 +4789,7 @@ public class D3dkmtGetmultisamplemethodlist internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 16L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<D3dkmtMultisamplemethod>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 24L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 32L),
                     )
@@ -4804,7 +4801,7 @@ public class D3dkmtGetmultisamplemethodlist internal constructor(
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 16L, value.format)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<D3dkmtMultisamplemethod>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 24L, value.pMethodList)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 32L, value.methodCount)
                 }
@@ -4816,7 +4813,7 @@ public class D3dkmtGetmultisamplemethodlist internal constructor(
             width: UInt = 0u,
             height: UInt = 0u,
             format: D3dddiformat = 0u,
-            pMethodList: MutPtr<D3dkmtMultisamplemethod> = MutPtr(0L),
+            pMethodList: MutPtr = MutPtr(0L),
             methodCount: UInt = 0u,
         ): D3dkmtGetmultisamplemethodlist =
             D3dkmtGetmultisamplemethodlist(
@@ -4860,10 +4857,10 @@ public class D3dkmtGetpresenthistory internal constructor(
     public var hAdapter: UInt,
     public var providedSize: UInt,
     public var writtenSize: UInt,
-    pTokensCtorArg: MutPtr<D3dkmtPresenthistorytoken>,
+    pTokensCtorArg: MutPtr,
     public var numTokens: UInt,
 ) {
-    public var pTokens: MutPtr<D3dkmtPresenthistorytoken> = pTokensCtorArg
+    public var pTokens: MutPtr = pTokensCtorArg
         internal set
 
     public constructor() : this(
@@ -4880,11 +4877,11 @@ public class D3dkmtGetpresenthistory internal constructor(
 
     public operator fun component3(): UInt = this.writtenSize
 
-    public operator fun component4(): MutPtr<D3dkmtPresenthistorytoken> = this.pTokens
+    public operator fun component4(): MutPtr = this.pTokens
 
     public operator fun component5(): UInt = this.numTokens
 
-    public fun copy(hAdapter: UInt = this.hAdapter, providedSize: UInt = this.providedSize, writtenSize: UInt = this.writtenSize, pTokens: MutPtr<D3dkmtPresenthistorytoken> = this.pTokens, numTokens: UInt = this.numTokens): D3dkmtGetpresenthistory = D3dkmtGetpresenthistory(hAdapter = hAdapter, providedSize = providedSize, writtenSize = writtenSize, pTokensCtorArg = pTokens, numTokens = numTokens)
+    public fun copy(hAdapter: UInt = this.hAdapter, providedSize: UInt = this.providedSize, writtenSize: UInt = this.writtenSize, pTokens: MutPtr = this.pTokens, numTokens: UInt = this.numTokens): D3dkmtGetpresenthistory = D3dkmtGetpresenthistory(hAdapter = hAdapter, providedSize = providedSize, writtenSize = writtenSize, pTokensCtorArg = pTokens, numTokens = numTokens)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -4918,7 +4915,7 @@ public class D3dkmtGetpresenthistory internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 8L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<D3dkmtPresenthistorytoken>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 16L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 24L),
                     )
@@ -4928,7 +4925,7 @@ public class D3dkmtGetpresenthistory internal constructor(
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 8L, value.writtenSize)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<D3dkmtPresenthistorytoken>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 16L, value.pTokens)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 24L, value.numTokens)
                 }
@@ -4938,7 +4935,7 @@ public class D3dkmtGetpresenthistory internal constructor(
             hAdapter: UInt = 0u,
             providedSize: UInt = 0u,
             writtenSize: UInt = 0u,
-            pTokens: MutPtr<D3dkmtPresenthistorytoken> = MutPtr(0L),
+            pTokens: MutPtr = MutPtr(0L),
             numTokens: UInt = 0u,
         ): D3dkmtGetpresenthistory =
             D3dkmtGetpresenthistory(
@@ -5006,10 +5003,10 @@ public class D3dkmtGetprocessdeviceremovalsupport internal constructor(
 public class D3dkmtGetruntimedata internal constructor(
     public var hAdapter: UInt,
     public var hGlobalShare: UInt,
-    pRuntimeDataCtorArg: MutPtr<CVoid>,
+    pRuntimeDataCtorArg: MutPtr,
     public var runtimeDataSize: UInt,
 ) {
-    public var pRuntimeData: MutPtr<CVoid> = pRuntimeDataCtorArg
+    public var pRuntimeData: MutPtr = pRuntimeDataCtorArg
         internal set
 
     public constructor() : this(
@@ -5023,11 +5020,11 @@ public class D3dkmtGetruntimedata internal constructor(
 
     public operator fun component2(): UInt = this.hGlobalShare
 
-    public operator fun component3(): MutPtr<CVoid> = this.pRuntimeData
+    public operator fun component3(): MutPtr = this.pRuntimeData
 
     public operator fun component4(): UInt = this.runtimeDataSize
 
-    public fun copy(hAdapter: UInt = this.hAdapter, hGlobalShare: UInt = this.hGlobalShare, pRuntimeData: MutPtr<CVoid> = this.pRuntimeData, runtimeDataSize: UInt = this.runtimeDataSize): D3dkmtGetruntimedata = D3dkmtGetruntimedata(hAdapter = hAdapter, hGlobalShare = hGlobalShare, pRuntimeDataCtorArg = pRuntimeData, runtimeDataSize = runtimeDataSize)
+    public fun copy(hAdapter: UInt = this.hAdapter, hGlobalShare: UInt = this.hGlobalShare, pRuntimeData: MutPtr = this.pRuntimeData, runtimeDataSize: UInt = this.runtimeDataSize): D3dkmtGetruntimedata = D3dkmtGetruntimedata(hAdapter = hAdapter, hGlobalShare = hGlobalShare, pRuntimeDataCtorArg = pRuntimeData, runtimeDataSize = runtimeDataSize)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -5058,7 +5055,7 @@ public class D3dkmtGetruntimedata internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 4L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<CVoid>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 16L),
                     )
@@ -5067,7 +5064,7 @@ public class D3dkmtGetruntimedata internal constructor(
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 4L, value.hGlobalShare)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<CVoid>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.pRuntimeData)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 16L, value.runtimeDataSize)
                 }
@@ -5076,7 +5073,7 @@ public class D3dkmtGetruntimedata internal constructor(
         public operator fun invoke(
             hAdapter: UInt = 0u,
             hGlobalShare: UInt = 0u,
-            pRuntimeData: MutPtr<CVoid> = MutPtr(0L),
+            pRuntimeData: MutPtr = MutPtr(0L),
             runtimeDataSize: UInt = 0u,
         ): D3dkmtGetruntimedata =
             D3dkmtGetruntimedata(
@@ -5197,9 +5194,9 @@ public class D3dkmtGetverticalblankevent internal constructor(
     public var hAdapter: UInt,
     public var hDevice: UInt,
     public var vidPnSourceId: UInt,
-    phEventCtorArg: MutPtr<Int>,
+    phEventCtorArg: MutPtr,
 ) {
-    public var phEvent: MutPtr<Int> = phEventCtorArg
+    public var phEvent: MutPtr = phEventCtorArg
         internal set
 
     public constructor() : this(
@@ -5215,9 +5212,9 @@ public class D3dkmtGetverticalblankevent internal constructor(
 
     public operator fun component3(): UInt = this.vidPnSourceId
 
-    public operator fun component4(): MutPtr<Int> = this.phEvent
+    public operator fun component4(): MutPtr = this.phEvent
 
-    public fun copy(hAdapter: UInt = this.hAdapter, hDevice: UInt = this.hDevice, vidPnSourceId: UInt = this.vidPnSourceId, phEvent: MutPtr<Int> = this.phEvent): D3dkmtGetverticalblankevent = D3dkmtGetverticalblankevent(hAdapter = hAdapter, hDevice = hDevice, vidPnSourceId = vidPnSourceId, phEventCtorArg = phEvent)
+    public fun copy(hAdapter: UInt = this.hAdapter, hDevice: UInt = this.hDevice, vidPnSourceId: UInt = this.vidPnSourceId, phEvent: MutPtr = this.phEvent): D3dkmtGetverticalblankevent = D3dkmtGetverticalblankevent(hAdapter = hAdapter, hDevice = hDevice, vidPnSourceId = vidPnSourceId, phEventCtorArg = phEvent)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -5249,7 +5246,7 @@ public class D3dkmtGetverticalblankevent internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 8L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<Int>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 16L),
                     )
                 override fun writeNative(addr: Long, value: D3dkmtGetverticalblankevent) {
@@ -5258,7 +5255,7 @@ public class D3dkmtGetverticalblankevent internal constructor(
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 8L, value.vidPnSourceId)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<Int>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 16L, value.phEvent)
                 }
             }
@@ -5267,7 +5264,7 @@ public class D3dkmtGetverticalblankevent internal constructor(
             hAdapter: UInt = 0u,
             hDevice: UInt = 0u,
             vidPnSourceId: UInt = 0u,
-            phEvent: MutPtr<Int> = MutPtr(0L),
+            phEvent: MutPtr = MutPtr(0L),
         ): D3dkmtGetverticalblankevent =
             D3dkmtGetverticalblankevent(
                 hAdapter = hAdapter,
@@ -5615,10 +5612,10 @@ public data class D3dkmtIndependentflipSupport(
 
 public class D3dkmtInvalidateactivevidpn internal constructor(
     public var hAdapter: UInt,
-    pPrivateDriverDataCtorArg: MutPtr<CVoid>,
+    pPrivateDriverDataCtorArg: MutPtr,
     public var privateDriverDataSize: UInt,
 ) {
-    public var pPrivateDriverData: MutPtr<CVoid> = pPrivateDriverDataCtorArg
+    public var pPrivateDriverData: MutPtr = pPrivateDriverDataCtorArg
         internal set
 
     public constructor() : this(
@@ -5629,11 +5626,11 @@ public class D3dkmtInvalidateactivevidpn internal constructor(
 
     public operator fun component1(): UInt = this.hAdapter
 
-    public operator fun component2(): MutPtr<CVoid> = this.pPrivateDriverData
+    public operator fun component2(): MutPtr = this.pPrivateDriverData
 
     public operator fun component3(): UInt = this.privateDriverDataSize
 
-    public fun copy(hAdapter: UInt = this.hAdapter, pPrivateDriverData: MutPtr<CVoid> = this.pPrivateDriverData, privateDriverDataSize: UInt = this.privateDriverDataSize): D3dkmtInvalidateactivevidpn = D3dkmtInvalidateactivevidpn(hAdapter = hAdapter, pPrivateDriverDataCtorArg = pPrivateDriverData, privateDriverDataSize = privateDriverDataSize)
+    public fun copy(hAdapter: UInt = this.hAdapter, pPrivateDriverData: MutPtr = this.pPrivateDriverData, privateDriverDataSize: UInt = this.privateDriverDataSize): D3dkmtInvalidateactivevidpn = D3dkmtInvalidateactivevidpn(hAdapter = hAdapter, pPrivateDriverDataCtorArg = pPrivateDriverData, privateDriverDataSize = privateDriverDataSize)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -5661,7 +5658,7 @@ public class D3dkmtInvalidateactivevidpn internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<CVoid>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 16L),
                     )
@@ -5669,7 +5666,7 @@ public class D3dkmtInvalidateactivevidpn internal constructor(
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr, value.hAdapter)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<CVoid>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.pPrivateDriverData)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 16L, value.privateDriverDataSize)
                 }
@@ -5677,7 +5674,7 @@ public class D3dkmtInvalidateactivevidpn internal constructor(
 
         public operator fun invoke(
             hAdapter: UInt = 0u,
-            pPrivateDriverData: MutPtr<CVoid> = MutPtr(0L),
+            pPrivateDriverData: MutPtr = MutPtr(0L),
             privateDriverDataSize: UInt = 0u,
         ): D3dkmtInvalidateactivevidpn =
             D3dkmtInvalidateactivevidpn(
@@ -5759,15 +5756,15 @@ public class D3dkmtLock internal constructor(
     public var hAllocation: UInt,
     public var privateDriverData: UInt,
     public var numPages: UInt,
-    pPagesCtorArg: ConstPtr<UInt>,
-    pDataCtorArg: MutPtr<CVoid>,
+    pPagesCtorArg: ConstPtr,
+    pDataCtorArg: MutPtr,
     public var flags: D3dddicbLockflags,
     public var gpuVirtualAddress: ULong,
 ) {
-    public var pPages: ConstPtr<UInt> = pPagesCtorArg
+    public var pPages: ConstPtr = pPagesCtorArg
         internal set
 
-    public var pData: MutPtr<CVoid> = pDataCtorArg
+    public var pData: MutPtr = pDataCtorArg
         internal set
 
     public constructor() : this(
@@ -5789,15 +5786,15 @@ public class D3dkmtLock internal constructor(
 
     public operator fun component4(): UInt = this.numPages
 
-    public operator fun component5(): ConstPtr<UInt> = this.pPages
+    public operator fun component5(): ConstPtr = this.pPages
 
-    public operator fun component6(): MutPtr<CVoid> = this.pData
+    public operator fun component6(): MutPtr = this.pData
 
     public operator fun component7(): D3dddicbLockflags = this.flags
 
     public operator fun component8(): ULong = this.gpuVirtualAddress
 
-    public fun copy(hDevice: UInt = this.hDevice, hAllocation: UInt = this.hAllocation, privateDriverData: UInt = this.privateDriverData, numPages: UInt = this.numPages, pPages: ConstPtr<UInt> = this.pPages, pData: MutPtr<CVoid> = this.pData, flags: D3dddicbLockflags = this.flags, gpuVirtualAddress: ULong = this.gpuVirtualAddress): D3dkmtLock = D3dkmtLock(hDevice = hDevice, hAllocation = hAllocation, privateDriverData = privateDriverData, numPages = numPages, pPagesCtorArg = pPages, pDataCtorArg = pData, flags = flags, gpuVirtualAddress = gpuVirtualAddress)
+    public fun copy(hDevice: UInt = this.hDevice, hAllocation: UInt = this.hAllocation, privateDriverData: UInt = this.privateDriverData, numPages: UInt = this.numPages, pPages: ConstPtr = this.pPages, pData: MutPtr = this.pData, flags: D3dddicbLockflags = this.flags, gpuVirtualAddress: ULong = this.gpuVirtualAddress): D3dkmtLock = D3dkmtLock(hDevice = hDevice, hAllocation = hAllocation, privateDriverData = privateDriverData, numPages = numPages, pPagesCtorArg = pPages, pDataCtorArg = pData, flags = flags, gpuVirtualAddress = gpuVirtualAddress)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -5831,8 +5828,8 @@ public class D3dkmtLock internal constructor(
             hAllocation: UInt = 0u,
             privateDriverData: UInt = 0u,
             numPages: UInt = 0u,
-            pPages: ConstPtr<UInt> = ConstPtr(0L),
-            pData: MutPtr<CVoid> = MutPtr(0L),
+            pPages: ConstPtr = ConstPtr(0L),
+            pData: MutPtr = MutPtr(0L),
             flags: D3dddicbLockflags = D3dddicbLockflags(),
             gpuVirtualAddress: ULong = 0uL,
         ): D3dkmtLock =
@@ -5853,9 +5850,9 @@ public class D3dkmtLock2 internal constructor(
     public var hDevice: UInt,
     public var hAllocation: UInt,
     public var flags: D3dddicbLock2flags,
-    pDataCtorArg: MutPtr<CVoid>,
+    pDataCtorArg: MutPtr,
 ) {
-    public var pData: MutPtr<CVoid> = pDataCtorArg
+    public var pData: MutPtr = pDataCtorArg
         internal set
 
     public constructor() : this(
@@ -5871,9 +5868,9 @@ public class D3dkmtLock2 internal constructor(
 
     public operator fun component3(): D3dddicbLock2flags = this.flags
 
-    public operator fun component4(): MutPtr<CVoid> = this.pData
+    public operator fun component4(): MutPtr = this.pData
 
-    public fun copy(hDevice: UInt = this.hDevice, hAllocation: UInt = this.hAllocation, flags: D3dddicbLock2flags = this.flags, pData: MutPtr<CVoid> = this.pData): D3dkmtLock2 = D3dkmtLock2(hDevice = hDevice, hAllocation = hAllocation, flags = flags, pDataCtorArg = pData)
+    public fun copy(hDevice: UInt = this.hDevice, hAllocation: UInt = this.hAllocation, flags: D3dddicbLock2flags = this.flags, pData: MutPtr = this.pData): D3dkmtLock2 = D3dkmtLock2(hDevice = hDevice, hAllocation = hAllocation, flags = flags, pDataCtorArg = pData)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -5898,7 +5895,7 @@ public class D3dkmtLock2 internal constructor(
             hDevice: UInt = 0u,
             hAllocation: UInt = 0u,
             flags: D3dddicbLock2flags = D3dddicbLock2flags(),
-            pData: MutPtr<CVoid> = MutPtr(0L),
+            pData: MutPtr = MutPtr(0L),
         ): D3dkmtLock2 =
             D3dkmtLock2(
                 hDevice = hDevice,
@@ -6210,22 +6207,22 @@ public class D3dkmtMultiplaneOverlay3 internal constructor(
     public var flipInterval: D3dddiFlipintervalType,
     public var maxImmediateFlipLine: UInt,
     public var allocationCount: UInt,
-    pAllocationListCtorArg: MutPtr<UInt>,
+    pAllocationListCtorArg: MutPtr,
     public var driverPrivateDataSize: UInt,
-    pDriverPrivateDataCtorArg: MutPtr<CVoid>,
-    pPlaneAttributesCtorArg: ConstPtr<D3dkmtMultiplaneOverlayAttributes3>,
+    pDriverPrivateDataCtorArg: MutPtr,
+    pPlaneAttributesCtorArg: ConstPtr,
     public var hFlipToFence: UInt,
     public var hFlipAwayFence: UInt,
     public var flipToFenceValue: ULong,
     public var flipAwayFenceValue: ULong,
 ) {
-    public var pAllocationList: MutPtr<UInt> = pAllocationListCtorArg
+    public var pAllocationList: MutPtr = pAllocationListCtorArg
         internal set
 
-    public var pDriverPrivateData: MutPtr<CVoid> = pDriverPrivateDataCtorArg
+    public var pDriverPrivateData: MutPtr = pDriverPrivateDataCtorArg
         internal set
 
-    public var pPlaneAttributes: ConstPtr<D3dkmtMultiplaneOverlayAttributes3> = pPlaneAttributesCtorArg
+    public var pPlaneAttributes: ConstPtr = pPlaneAttributesCtorArg
         internal set
 
     public constructor() : this(
@@ -6254,13 +6251,13 @@ public class D3dkmtMultiplaneOverlay3 internal constructor(
 
     public operator fun component5(): UInt = this.allocationCount
 
-    public operator fun component6(): MutPtr<UInt> = this.pAllocationList
+    public operator fun component6(): MutPtr = this.pAllocationList
 
     public operator fun component7(): UInt = this.driverPrivateDataSize
 
-    public operator fun component8(): MutPtr<CVoid> = this.pDriverPrivateData
+    public operator fun component8(): MutPtr = this.pDriverPrivateData
 
-    public operator fun component9(): ConstPtr<D3dkmtMultiplaneOverlayAttributes3> = this.pPlaneAttributes
+    public operator fun component9(): ConstPtr = this.pPlaneAttributes
 
     public operator fun component10(): UInt = this.hFlipToFence
 
@@ -6270,7 +6267,7 @@ public class D3dkmtMultiplaneOverlay3 internal constructor(
 
     public operator fun component13(): ULong = this.flipAwayFenceValue
 
-    public fun copy(layerIndex: UInt = this.layerIndex, inputFlags: D3dkmtPlaneSpecificInputFlags = this.inputFlags, flipInterval: D3dddiFlipintervalType = this.flipInterval, maxImmediateFlipLine: UInt = this.maxImmediateFlipLine, allocationCount: UInt = this.allocationCount, pAllocationList: MutPtr<UInt> = this.pAllocationList, driverPrivateDataSize: UInt = this.driverPrivateDataSize, pDriverPrivateData: MutPtr<CVoid> = this.pDriverPrivateData, pPlaneAttributes: ConstPtr<D3dkmtMultiplaneOverlayAttributes3> = this.pPlaneAttributes, hFlipToFence: UInt = this.hFlipToFence, hFlipAwayFence: UInt = this.hFlipAwayFence, flipToFenceValue: ULong = this.flipToFenceValue, flipAwayFenceValue: ULong = this.flipAwayFenceValue): D3dkmtMultiplaneOverlay3 = D3dkmtMultiplaneOverlay3(layerIndex = layerIndex, inputFlags = inputFlags, flipInterval = flipInterval, maxImmediateFlipLine = maxImmediateFlipLine, allocationCount = allocationCount, pAllocationListCtorArg = pAllocationList, driverPrivateDataSize = driverPrivateDataSize, pDriverPrivateDataCtorArg = pDriverPrivateData, pPlaneAttributesCtorArg = pPlaneAttributes, hFlipToFence = hFlipToFence, hFlipAwayFence = hFlipAwayFence, flipToFenceValue = flipToFenceValue, flipAwayFenceValue = flipAwayFenceValue)
+    public fun copy(layerIndex: UInt = this.layerIndex, inputFlags: D3dkmtPlaneSpecificInputFlags = this.inputFlags, flipInterval: D3dddiFlipintervalType = this.flipInterval, maxImmediateFlipLine: UInt = this.maxImmediateFlipLine, allocationCount: UInt = this.allocationCount, pAllocationList: MutPtr = this.pAllocationList, driverPrivateDataSize: UInt = this.driverPrivateDataSize, pDriverPrivateData: MutPtr = this.pDriverPrivateData, pPlaneAttributes: ConstPtr = this.pPlaneAttributes, hFlipToFence: UInt = this.hFlipToFence, hFlipAwayFence: UInt = this.hFlipAwayFence, flipToFenceValue: ULong = this.flipToFenceValue, flipAwayFenceValue: ULong = this.flipAwayFenceValue): D3dkmtMultiplaneOverlay3 = D3dkmtMultiplaneOverlay3(layerIndex = layerIndex, inputFlags = inputFlags, flipInterval = flipInterval, maxImmediateFlipLine = maxImmediateFlipLine, allocationCount = allocationCount, pAllocationListCtorArg = pAllocationList, driverPrivateDataSize = driverPrivateDataSize, pDriverPrivateDataCtorArg = pDriverPrivateData, pPlaneAttributesCtorArg = pPlaneAttributes, hFlipToFence = hFlipToFence, hFlipAwayFence = hFlipAwayFence, flipToFenceValue = flipToFenceValue, flipAwayFenceValue = flipAwayFenceValue)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -6315,10 +6312,10 @@ public class D3dkmtMultiplaneOverlay3 internal constructor(
             flipInterval: D3dddiFlipintervalType = 0,
             maxImmediateFlipLine: UInt = 0u,
             allocationCount: UInt = 0u,
-            pAllocationList: MutPtr<UInt> = MutPtr(0L),
+            pAllocationList: MutPtr = MutPtr(0L),
             driverPrivateDataSize: UInt = 0u,
-            pDriverPrivateData: MutPtr<CVoid> = MutPtr(0L),
-            pPlaneAttributes: ConstPtr<D3dkmtMultiplaneOverlayAttributes3> = ConstPtr(0L),
+            pDriverPrivateData: MutPtr = MutPtr(0L),
+            pPlaneAttributes: ConstPtr = ConstPtr(0L),
             hFlipToFence: UInt = 0u,
             hFlipAwayFence: UInt = 0u,
             flipToFenceValue: ULong = 0uL,
@@ -6350,7 +6347,7 @@ public class D3dkmtMultiplaneOverlayAttributes internal constructor(
     public var rotation: D3dddiRotation,
     public var blend: D3dkmtMultiplaneOverlayBlend,
     public var dirtyRectCount: UInt,
-    pDirtyRectsCtorArg: MutPtr<Rect>,
+    pDirtyRectsCtorArg: MutPtr,
     public var videoFrameFormat: D3dkmtMultiplaneOverlayVideoFrameFormat,
     public var yCbCrFlags: UInt,
     public var stereoFormat: D3dkmtMultiplaneOverlayStereoFormat,
@@ -6359,7 +6356,7 @@ public class D3dkmtMultiplaneOverlayAttributes internal constructor(
     public var stereoFlipMode: DxgkmtMultiplaneOverlayStereoFlipMode,
     public var stretchQuality: DxgkmtMultiplaneOverlayStretchQuality,
 ) {
-    public var pDirtyRects: MutPtr<Rect> = pDirtyRectsCtorArg
+    public var pDirtyRects: MutPtr = pDirtyRectsCtorArg
         internal set
 
     public constructor() : this(
@@ -6394,7 +6391,7 @@ public class D3dkmtMultiplaneOverlayAttributes internal constructor(
 
     public operator fun component7(): UInt = this.dirtyRectCount
 
-    public operator fun component8(): MutPtr<Rect> = this.pDirtyRects
+    public operator fun component8(): MutPtr = this.pDirtyRects
 
     public operator fun component9(): D3dkmtMultiplaneOverlayVideoFrameFormat = this.videoFrameFormat
 
@@ -6410,7 +6407,7 @@ public class D3dkmtMultiplaneOverlayAttributes internal constructor(
 
     public operator fun component15(): DxgkmtMultiplaneOverlayStretchQuality = this.stretchQuality
 
-    public fun copy(flags: UInt = this.flags, srcRect: Rect = this.srcRect, dstRect: Rect = this.dstRect, clipRect: Rect = this.clipRect, rotation: D3dddiRotation = this.rotation, blend: D3dkmtMultiplaneOverlayBlend = this.blend, dirtyRectCount: UInt = this.dirtyRectCount, pDirtyRects: MutPtr<Rect> = this.pDirtyRects, videoFrameFormat: D3dkmtMultiplaneOverlayVideoFrameFormat = this.videoFrameFormat, yCbCrFlags: UInt = this.yCbCrFlags, stereoFormat: D3dkmtMultiplaneOverlayStereoFormat = this.stereoFormat, stereoLeftViewFrame0: Bool = this.stereoLeftViewFrame0, stereoBaseViewFrame0: Bool = this.stereoBaseViewFrame0, stereoFlipMode: DxgkmtMultiplaneOverlayStereoFlipMode = this.stereoFlipMode, stretchQuality: DxgkmtMultiplaneOverlayStretchQuality = this.stretchQuality): D3dkmtMultiplaneOverlayAttributes = D3dkmtMultiplaneOverlayAttributes(flags = flags, srcRect = srcRect, dstRect = dstRect, clipRect = clipRect, rotation = rotation, blend = blend, dirtyRectCount = dirtyRectCount, pDirtyRectsCtorArg = pDirtyRects, videoFrameFormat = videoFrameFormat, yCbCrFlags = yCbCrFlags, stereoFormat = stereoFormat, stereoLeftViewFrame0 = stereoLeftViewFrame0, stereoBaseViewFrame0 = stereoBaseViewFrame0, stereoFlipMode = stereoFlipMode, stretchQuality = stretchQuality)
+    public fun copy(flags: UInt = this.flags, srcRect: Rect = this.srcRect, dstRect: Rect = this.dstRect, clipRect: Rect = this.clipRect, rotation: D3dddiRotation = this.rotation, blend: D3dkmtMultiplaneOverlayBlend = this.blend, dirtyRectCount: UInt = this.dirtyRectCount, pDirtyRects: MutPtr = this.pDirtyRects, videoFrameFormat: D3dkmtMultiplaneOverlayVideoFrameFormat = this.videoFrameFormat, yCbCrFlags: UInt = this.yCbCrFlags, stereoFormat: D3dkmtMultiplaneOverlayStereoFormat = this.stereoFormat, stereoLeftViewFrame0: Bool = this.stereoLeftViewFrame0, stereoBaseViewFrame0: Bool = this.stereoBaseViewFrame0, stereoFlipMode: DxgkmtMultiplaneOverlayStereoFlipMode = this.stereoFlipMode, stretchQuality: DxgkmtMultiplaneOverlayStretchQuality = this.stretchQuality): D3dkmtMultiplaneOverlayAttributes = D3dkmtMultiplaneOverlayAttributes(flags = flags, srcRect = srcRect, dstRect = dstRect, clipRect = clipRect, rotation = rotation, blend = blend, dirtyRectCount = dirtyRectCount, pDirtyRectsCtorArg = pDirtyRects, videoFrameFormat = videoFrameFormat, yCbCrFlags = yCbCrFlags, stereoFormat = stereoFormat, stereoLeftViewFrame0 = stereoLeftViewFrame0, stereoBaseViewFrame0 = stereoBaseViewFrame0, stereoFlipMode = stereoFlipMode, stretchQuality = stretchQuality)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -6461,7 +6458,7 @@ public class D3dkmtMultiplaneOverlayAttributes internal constructor(
             rotation: D3dddiRotation = 0,
             blend: D3dkmtMultiplaneOverlayBlend = 0,
             dirtyRectCount: UInt = 0u,
-            pDirtyRects: MutPtr<Rect> = MutPtr(0L),
+            pDirtyRects: MutPtr = MutPtr(0L),
             videoFrameFormat: D3dkmtMultiplaneOverlayVideoFrameFormat = 0,
             yCbCrFlags: UInt = 0u,
             stereoFormat: D3dkmtMultiplaneOverlayStereoFormat = 0,
@@ -6498,7 +6495,7 @@ public class D3dkmtMultiplaneOverlayAttributes2 internal constructor(
     public var rotation: D3dddiRotation,
     public var blend: D3dkmtMultiplaneOverlayBlend,
     public var dirtyRectCount: UInt,
-    pDirtyRectsCtorArg: MutPtr<Rect>,
+    pDirtyRectsCtorArg: MutPtr,
     public var videoFrameFormat: D3dkmtMultiplaneOverlayVideoFrameFormat,
     public var colorSpace: D3dddiColorSpaceType,
     public var stereoFormat: D3dkmtMultiplaneOverlayStereoFormat,
@@ -6508,7 +6505,7 @@ public class D3dkmtMultiplaneOverlayAttributes2 internal constructor(
     public var stretchQuality: DxgkmtMultiplaneOverlayStretchQuality,
     public var reserved1: UInt,
 ) {
-    public var pDirtyRects: MutPtr<Rect> = pDirtyRectsCtorArg
+    public var pDirtyRects: MutPtr = pDirtyRectsCtorArg
         internal set
 
     public constructor() : this(
@@ -6544,7 +6541,7 @@ public class D3dkmtMultiplaneOverlayAttributes2 internal constructor(
 
     public operator fun component7(): UInt = this.dirtyRectCount
 
-    public operator fun component8(): MutPtr<Rect> = this.pDirtyRects
+    public operator fun component8(): MutPtr = this.pDirtyRects
 
     public operator fun component9(): D3dkmtMultiplaneOverlayVideoFrameFormat = this.videoFrameFormat
 
@@ -6562,7 +6559,7 @@ public class D3dkmtMultiplaneOverlayAttributes2 internal constructor(
 
     public operator fun component16(): UInt = this.reserved1
 
-    public fun copy(flags: UInt = this.flags, srcRect: Rect = this.srcRect, dstRect: Rect = this.dstRect, clipRect: Rect = this.clipRect, rotation: D3dddiRotation = this.rotation, blend: D3dkmtMultiplaneOverlayBlend = this.blend, dirtyRectCount: UInt = this.dirtyRectCount, pDirtyRects: MutPtr<Rect> = this.pDirtyRects, videoFrameFormat: D3dkmtMultiplaneOverlayVideoFrameFormat = this.videoFrameFormat, colorSpace: D3dddiColorSpaceType = this.colorSpace, stereoFormat: D3dkmtMultiplaneOverlayStereoFormat = this.stereoFormat, stereoLeftViewFrame0: Bool = this.stereoLeftViewFrame0, stereoBaseViewFrame0: Bool = this.stereoBaseViewFrame0, stereoFlipMode: DxgkmtMultiplaneOverlayStereoFlipMode = this.stereoFlipMode, stretchQuality: DxgkmtMultiplaneOverlayStretchQuality = this.stretchQuality, reserved1: UInt = this.reserved1): D3dkmtMultiplaneOverlayAttributes2 = D3dkmtMultiplaneOverlayAttributes2(flags = flags, srcRect = srcRect, dstRect = dstRect, clipRect = clipRect, rotation = rotation, blend = blend, dirtyRectCount = dirtyRectCount, pDirtyRectsCtorArg = pDirtyRects, videoFrameFormat = videoFrameFormat, colorSpace = colorSpace, stereoFormat = stereoFormat, stereoLeftViewFrame0 = stereoLeftViewFrame0, stereoBaseViewFrame0 = stereoBaseViewFrame0, stereoFlipMode = stereoFlipMode, stretchQuality = stretchQuality, reserved1 = reserved1)
+    public fun copy(flags: UInt = this.flags, srcRect: Rect = this.srcRect, dstRect: Rect = this.dstRect, clipRect: Rect = this.clipRect, rotation: D3dddiRotation = this.rotation, blend: D3dkmtMultiplaneOverlayBlend = this.blend, dirtyRectCount: UInt = this.dirtyRectCount, pDirtyRects: MutPtr = this.pDirtyRects, videoFrameFormat: D3dkmtMultiplaneOverlayVideoFrameFormat = this.videoFrameFormat, colorSpace: D3dddiColorSpaceType = this.colorSpace, stereoFormat: D3dkmtMultiplaneOverlayStereoFormat = this.stereoFormat, stereoLeftViewFrame0: Bool = this.stereoLeftViewFrame0, stereoBaseViewFrame0: Bool = this.stereoBaseViewFrame0, stereoFlipMode: DxgkmtMultiplaneOverlayStereoFlipMode = this.stereoFlipMode, stretchQuality: DxgkmtMultiplaneOverlayStretchQuality = this.stretchQuality, reserved1: UInt = this.reserved1): D3dkmtMultiplaneOverlayAttributes2 = D3dkmtMultiplaneOverlayAttributes2(flags = flags, srcRect = srcRect, dstRect = dstRect, clipRect = clipRect, rotation = rotation, blend = blend, dirtyRectCount = dirtyRectCount, pDirtyRectsCtorArg = pDirtyRects, videoFrameFormat = videoFrameFormat, colorSpace = colorSpace, stereoFormat = stereoFormat, stereoLeftViewFrame0 = stereoLeftViewFrame0, stereoBaseViewFrame0 = stereoBaseViewFrame0, stereoFlipMode = stereoFlipMode, stretchQuality = stretchQuality, reserved1 = reserved1)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -6615,7 +6612,7 @@ public class D3dkmtMultiplaneOverlayAttributes2 internal constructor(
             rotation: D3dddiRotation = 0,
             blend: D3dkmtMultiplaneOverlayBlend = 0,
             dirtyRectCount: UInt = 0u,
-            pDirtyRects: MutPtr<Rect> = MutPtr(0L),
+            pDirtyRects: MutPtr = MutPtr(0L),
             videoFrameFormat: D3dkmtMultiplaneOverlayVideoFrameFormat = 0,
             colorSpace: D3dddiColorSpaceType = 0,
             stereoFormat: D3dkmtMultiplaneOverlayStereoFormat = 0,
@@ -6654,12 +6651,12 @@ public class D3dkmtMultiplaneOverlayAttributes3 internal constructor(
     public var rotation: D3dddiRotation,
     public var blend: D3dkmtMultiplaneOverlayBlend,
     public var dirtyRectCount: UInt,
-    pDirtyRectsCtorArg: MutPtr<Rect>,
+    pDirtyRectsCtorArg: MutPtr,
     public var colorSpace: D3dddiColorSpaceType,
     public var stretchQuality: DxgkmtMultiplaneOverlayStretchQuality,
     public var sDRWhiteLevel: UInt,
 ) {
-    public var pDirtyRects: MutPtr<Rect> = pDirtyRectsCtorArg
+    public var pDirtyRects: MutPtr = pDirtyRectsCtorArg
         internal set
 
     public constructor() : this(
@@ -6690,7 +6687,7 @@ public class D3dkmtMultiplaneOverlayAttributes3 internal constructor(
 
     public operator fun component7(): UInt = this.dirtyRectCount
 
-    public operator fun component8(): MutPtr<Rect> = this.pDirtyRects
+    public operator fun component8(): MutPtr = this.pDirtyRects
 
     public operator fun component9(): D3dddiColorSpaceType = this.colorSpace
 
@@ -6698,7 +6695,7 @@ public class D3dkmtMultiplaneOverlayAttributes3 internal constructor(
 
     public operator fun component11(): UInt = this.sDRWhiteLevel
 
-    public fun copy(flags: UInt = this.flags, srcRect: Rect = this.srcRect, dstRect: Rect = this.dstRect, clipRect: Rect = this.clipRect, rotation: D3dddiRotation = this.rotation, blend: D3dkmtMultiplaneOverlayBlend = this.blend, dirtyRectCount: UInt = this.dirtyRectCount, pDirtyRects: MutPtr<Rect> = this.pDirtyRects, colorSpace: D3dddiColorSpaceType = this.colorSpace, stretchQuality: DxgkmtMultiplaneOverlayStretchQuality = this.stretchQuality, sDRWhiteLevel: UInt = this.sDRWhiteLevel): D3dkmtMultiplaneOverlayAttributes3 = D3dkmtMultiplaneOverlayAttributes3(flags = flags, srcRect = srcRect, dstRect = dstRect, clipRect = clipRect, rotation = rotation, blend = blend, dirtyRectCount = dirtyRectCount, pDirtyRectsCtorArg = pDirtyRects, colorSpace = colorSpace, stretchQuality = stretchQuality, sDRWhiteLevel = sDRWhiteLevel)
+    public fun copy(flags: UInt = this.flags, srcRect: Rect = this.srcRect, dstRect: Rect = this.dstRect, clipRect: Rect = this.clipRect, rotation: D3dddiRotation = this.rotation, blend: D3dkmtMultiplaneOverlayBlend = this.blend, dirtyRectCount: UInt = this.dirtyRectCount, pDirtyRects: MutPtr = this.pDirtyRects, colorSpace: D3dddiColorSpaceType = this.colorSpace, stretchQuality: DxgkmtMultiplaneOverlayStretchQuality = this.stretchQuality, sDRWhiteLevel: UInt = this.sDRWhiteLevel): D3dkmtMultiplaneOverlayAttributes3 = D3dkmtMultiplaneOverlayAttributes3(flags = flags, srcRect = srcRect, dstRect = dstRect, clipRect = clipRect, rotation = rotation, blend = blend, dirtyRectCount = dirtyRectCount, pDirtyRectsCtorArg = pDirtyRects, colorSpace = colorSpace, stretchQuality = stretchQuality, sDRWhiteLevel = sDRWhiteLevel)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -6741,7 +6738,7 @@ public class D3dkmtMultiplaneOverlayAttributes3 internal constructor(
             rotation: D3dddiRotation = 0,
             blend: D3dkmtMultiplaneOverlayBlend = 0,
             dirtyRectCount: UInt = 0u,
-            pDirtyRects: MutPtr<Rect> = MutPtr(0L),
+            pDirtyRects: MutPtr = MutPtr(0L),
             colorSpace: D3dddiColorSpaceType = 0,
             stretchQuality: DxgkmtMultiplaneOverlayStretchQuality = 0,
             sDRWhiteLevel: UInt = 0u,
@@ -6938,16 +6935,16 @@ public data class D3dkmtNotifyWorkSubmissionFlags00(
 
 public class D3dkmtOfferallocations internal constructor(
     public var hDevice: UInt,
-    pResourcesCtorArg: MutPtr<UInt>,
-    handleListCtorArg: ConstPtr<UInt>,
+    pResourcesCtorArg: MutPtr,
+    handleListCtorArg: ConstPtr,
     public var numAllocations: UInt,
     public var priority: D3dkmtOfferPriority,
     public var flags: D3dkmtOfferFlags,
 ) {
-    public var pResources: MutPtr<UInt> = pResourcesCtorArg
+    public var pResources: MutPtr = pResourcesCtorArg
         internal set
 
-    public var handleList: ConstPtr<UInt> = handleListCtorArg
+    public var handleList: ConstPtr = handleListCtorArg
         internal set
 
     public constructor() : this(
@@ -6961,9 +6958,9 @@ public class D3dkmtOfferallocations internal constructor(
 
     public operator fun component1(): UInt = this.hDevice
 
-    public operator fun component2(): MutPtr<UInt> = this.pResources
+    public operator fun component2(): MutPtr = this.pResources
 
-    public operator fun component3(): ConstPtr<UInt> = this.handleList
+    public operator fun component3(): ConstPtr = this.handleList
 
     public operator fun component4(): UInt = this.numAllocations
 
@@ -6971,7 +6968,7 @@ public class D3dkmtOfferallocations internal constructor(
 
     public operator fun component6(): D3dkmtOfferFlags = this.flags
 
-    public fun copy(hDevice: UInt = this.hDevice, pResources: MutPtr<UInt> = this.pResources, handleList: ConstPtr<UInt> = this.handleList, numAllocations: UInt = this.numAllocations, priority: D3dkmtOfferPriority = this.priority, flags: D3dkmtOfferFlags = this.flags): D3dkmtOfferallocations = D3dkmtOfferallocations(hDevice = hDevice, pResourcesCtorArg = pResources, handleListCtorArg = handleList, numAllocations = numAllocations, priority = priority, flags = flags)
+    public fun copy(hDevice: UInt = this.hDevice, pResources: MutPtr = this.pResources, handleList: ConstPtr = this.handleList, numAllocations: UInt = this.numAllocations, priority: D3dkmtOfferPriority = this.priority, flags: D3dkmtOfferFlags = this.flags): D3dkmtOfferallocations = D3dkmtOfferallocations(hDevice = hDevice, pResourcesCtorArg = pResources, handleListCtorArg = handleList, numAllocations = numAllocations, priority = priority, flags = flags)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -6998,8 +6995,8 @@ public class D3dkmtOfferallocations internal constructor(
     public companion object {
         public operator fun invoke(
             hDevice: UInt = 0u,
-            pResources: MutPtr<UInt> = MutPtr(0L),
-            handleList: ConstPtr<UInt> = ConstPtr(0L),
+            pResources: MutPtr = MutPtr(0L),
+            handleList: ConstPtr = ConstPtr(0L),
             numAllocations: UInt = 0u,
             priority: D3dkmtOfferPriority = 0,
             flags: D3dkmtOfferFlags = D3dkmtOfferFlags(),
@@ -7257,10 +7254,10 @@ public data class D3dkmtOpenkeyedmutex(
 public class D3dkmtOpenkeyedmutex2 internal constructor(
     public var hSharedHandle: UInt,
     public var hKeyedMutex: UInt,
-    pPrivateRuntimeDataCtorArg: MutPtr<CVoid>,
+    pPrivateRuntimeDataCtorArg: MutPtr,
     public var privateRuntimeDataSize: UInt,
 ) {
-    public var pPrivateRuntimeData: MutPtr<CVoid> = pPrivateRuntimeDataCtorArg
+    public var pPrivateRuntimeData: MutPtr = pPrivateRuntimeDataCtorArg
         internal set
 
     public constructor() : this(
@@ -7274,11 +7271,11 @@ public class D3dkmtOpenkeyedmutex2 internal constructor(
 
     public operator fun component2(): UInt = this.hKeyedMutex
 
-    public operator fun component3(): MutPtr<CVoid> = this.pPrivateRuntimeData
+    public operator fun component3(): MutPtr = this.pPrivateRuntimeData
 
     public operator fun component4(): UInt = this.privateRuntimeDataSize
 
-    public fun copy(hSharedHandle: UInt = this.hSharedHandle, hKeyedMutex: UInt = this.hKeyedMutex, pPrivateRuntimeData: MutPtr<CVoid> = this.pPrivateRuntimeData, privateRuntimeDataSize: UInt = this.privateRuntimeDataSize): D3dkmtOpenkeyedmutex2 = D3dkmtOpenkeyedmutex2(hSharedHandle = hSharedHandle, hKeyedMutex = hKeyedMutex, pPrivateRuntimeDataCtorArg = pPrivateRuntimeData, privateRuntimeDataSize = privateRuntimeDataSize)
+    public fun copy(hSharedHandle: UInt = this.hSharedHandle, hKeyedMutex: UInt = this.hKeyedMutex, pPrivateRuntimeData: MutPtr = this.pPrivateRuntimeData, privateRuntimeDataSize: UInt = this.privateRuntimeDataSize): D3dkmtOpenkeyedmutex2 = D3dkmtOpenkeyedmutex2(hSharedHandle = hSharedHandle, hKeyedMutex = hKeyedMutex, pPrivateRuntimeDataCtorArg = pPrivateRuntimeData, privateRuntimeDataSize = privateRuntimeDataSize)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -7309,7 +7306,7 @@ public class D3dkmtOpenkeyedmutex2 internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 4L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<CVoid>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 16L),
                     )
@@ -7318,7 +7315,7 @@ public class D3dkmtOpenkeyedmutex2 internal constructor(
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 4L, value.hKeyedMutex)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<CVoid>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.pPrivateRuntimeData)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 16L, value.privateRuntimeDataSize)
                 }
@@ -7327,7 +7324,7 @@ public class D3dkmtOpenkeyedmutex2 internal constructor(
         public operator fun invoke(
             hSharedHandle: UInt = 0u,
             hKeyedMutex: UInt = 0u,
-            pPrivateRuntimeData: MutPtr<CVoid> = MutPtr(0L),
+            pPrivateRuntimeData: MutPtr = MutPtr(0L),
             privateRuntimeDataSize: UInt = 0u,
         ): D3dkmtOpenkeyedmutex2 =
             D3dkmtOpenkeyedmutex2(
@@ -7342,13 +7339,13 @@ public class D3dkmtOpenkeyedmutex2 internal constructor(
 public class D3dkmtOpenkeyedmutexfromnthandle internal constructor(
     hNtHandleCtorArg: Handle,
     public var hKeyedMutex: UInt,
-    pPrivateRuntimeDataCtorArg: MutPtr<CVoid>,
+    pPrivateRuntimeDataCtorArg: MutPtr,
     public var privateRuntimeDataSize: UInt,
 ) {
     public var hNtHandle: Handle = hNtHandleCtorArg
         internal set
 
-    public var pPrivateRuntimeData: MutPtr<CVoid> = pPrivateRuntimeDataCtorArg
+    public var pPrivateRuntimeData: MutPtr = pPrivateRuntimeDataCtorArg
         internal set
 
     public constructor() : this(
@@ -7362,11 +7359,11 @@ public class D3dkmtOpenkeyedmutexfromnthandle internal constructor(
 
     public operator fun component2(): UInt = this.hKeyedMutex
 
-    public operator fun component3(): MutPtr<CVoid> = this.pPrivateRuntimeData
+    public operator fun component3(): MutPtr = this.pPrivateRuntimeData
 
     public operator fun component4(): UInt = this.privateRuntimeDataSize
 
-    public fun copy(hNtHandle: Handle = this.hNtHandle, hKeyedMutex: UInt = this.hKeyedMutex, pPrivateRuntimeData: MutPtr<CVoid> = this.pPrivateRuntimeData, privateRuntimeDataSize: UInt = this.privateRuntimeDataSize): D3dkmtOpenkeyedmutexfromnthandle = D3dkmtOpenkeyedmutexfromnthandle(hNtHandleCtorArg = hNtHandle, hKeyedMutex = hKeyedMutex, pPrivateRuntimeDataCtorArg = pPrivateRuntimeData, privateRuntimeDataSize = privateRuntimeDataSize)
+    public fun copy(hNtHandle: Handle = this.hNtHandle, hKeyedMutex: UInt = this.hKeyedMutex, pPrivateRuntimeData: MutPtr = this.pPrivateRuntimeData, privateRuntimeDataSize: UInt = this.privateRuntimeDataSize): D3dkmtOpenkeyedmutexfromnthandle = D3dkmtOpenkeyedmutexfromnthandle(hNtHandleCtorArg = hNtHandle, hKeyedMutex = hKeyedMutex, pPrivateRuntimeDataCtorArg = pPrivateRuntimeData, privateRuntimeDataSize = privateRuntimeDataSize)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -7390,7 +7387,7 @@ public class D3dkmtOpenkeyedmutexfromnthandle internal constructor(
         public operator fun invoke(
             hNtHandle: Handle = MutPtr(0L),
             hKeyedMutex: UInt = 0u,
-            pPrivateRuntimeData: MutPtr<CVoid> = MutPtr(0L),
+            pPrivateRuntimeData: MutPtr = MutPtr(0L),
             privateRuntimeDataSize: UInt = 0u,
         ): D3dkmtOpenkeyedmutexfromnthandle =
             D3dkmtOpenkeyedmutexfromnthandle(
@@ -7480,10 +7477,10 @@ public class D3dkmtOpennativefencefromnthandle internal constructor(
 
 public class D3dkmtOpennthandlefromname internal constructor(
     public var dwDesiredAccess: UInt,
-    pObjAttribCtorArg: MutPtr<ObjectAttributes>,
+    pObjAttribCtorArg: MutPtr,
     hNtHandleCtorArg: Handle,
 ) {
-    public var pObjAttrib: MutPtr<ObjectAttributes> = pObjAttribCtorArg
+    public var pObjAttrib: MutPtr = pObjAttribCtorArg
         internal set
 
     public var hNtHandle: Handle = hNtHandleCtorArg
@@ -7497,11 +7494,11 @@ public class D3dkmtOpennthandlefromname internal constructor(
 
     public operator fun component1(): UInt = this.dwDesiredAccess
 
-    public operator fun component2(): MutPtr<ObjectAttributes> = this.pObjAttrib
+    public operator fun component2(): MutPtr = this.pObjAttrib
 
     public operator fun component3(): Handle = this.hNtHandle
 
-    public fun copy(dwDesiredAccess: UInt = this.dwDesiredAccess, pObjAttrib: MutPtr<ObjectAttributes> = this.pObjAttrib, hNtHandle: Handle = this.hNtHandle): D3dkmtOpennthandlefromname = D3dkmtOpennthandlefromname(dwDesiredAccess = dwDesiredAccess, pObjAttribCtorArg = pObjAttrib, hNtHandleCtorArg = hNtHandle)
+    public fun copy(dwDesiredAccess: UInt = this.dwDesiredAccess, pObjAttrib: MutPtr = this.pObjAttrib, hNtHandle: Handle = this.hNtHandle): D3dkmtOpennthandlefromname = D3dkmtOpennthandlefromname(dwDesiredAccess = dwDesiredAccess, pObjAttribCtorArg = pObjAttrib, hNtHandleCtorArg = hNtHandle)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -7522,7 +7519,7 @@ public class D3dkmtOpennthandlefromname internal constructor(
     public companion object {
         public operator fun invoke(
             dwDesiredAccess: UInt = 0u,
-            pObjAttrib: MutPtr<ObjectAttributes> = MutPtr(0L),
+            pObjAttrib: MutPtr = MutPtr(0L),
             hNtHandle: Handle = MutPtr(0L),
         ): D3dkmtOpennthandlefromname =
             D3dkmtOpennthandlefromname(
@@ -7582,21 +7579,21 @@ public class D3dkmtOpenresource internal constructor(
     public var hGlobalShare: UInt,
     public var numAllocations: UInt,
     public var anonymous: D3dkmtOpenresource0,
-    pPrivateRuntimeDataCtorArg: MutPtr<CVoid>,
+    pPrivateRuntimeDataCtorArg: MutPtr,
     public var privateRuntimeDataSize: UInt,
-    pResourcePrivateDriverDataCtorArg: MutPtr<CVoid>,
+    pResourcePrivateDriverDataCtorArg: MutPtr,
     public var resourcePrivateDriverDataSize: UInt,
-    pTotalPrivateDriverDataBufferCtorArg: MutPtr<CVoid>,
+    pTotalPrivateDriverDataBufferCtorArg: MutPtr,
     public var totalPrivateDriverDataBufferSize: UInt,
     public var hResource: UInt,
 ) {
-    public var pPrivateRuntimeData: MutPtr<CVoid> = pPrivateRuntimeDataCtorArg
+    public var pPrivateRuntimeData: MutPtr = pPrivateRuntimeDataCtorArg
         internal set
 
-    public var pResourcePrivateDriverData: MutPtr<CVoid> = pResourcePrivateDriverDataCtorArg
+    public var pResourcePrivateDriverData: MutPtr = pResourcePrivateDriverDataCtorArg
         internal set
 
-    public var pTotalPrivateDriverDataBuffer: MutPtr<CVoid> = pTotalPrivateDriverDataBufferCtorArg
+    public var pTotalPrivateDriverDataBuffer: MutPtr = pTotalPrivateDriverDataBufferCtorArg
         internal set
 
     public constructor() : this(
@@ -7621,21 +7618,21 @@ public class D3dkmtOpenresource internal constructor(
 
     public operator fun component4(): D3dkmtOpenresource0 = this.anonymous
 
-    public operator fun component5(): MutPtr<CVoid> = this.pPrivateRuntimeData
+    public operator fun component5(): MutPtr = this.pPrivateRuntimeData
 
     public operator fun component6(): UInt = this.privateRuntimeDataSize
 
-    public operator fun component7(): MutPtr<CVoid> = this.pResourcePrivateDriverData
+    public operator fun component7(): MutPtr = this.pResourcePrivateDriverData
 
     public operator fun component8(): UInt = this.resourcePrivateDriverDataSize
 
-    public operator fun component9(): MutPtr<CVoid> = this.pTotalPrivateDriverDataBuffer
+    public operator fun component9(): MutPtr = this.pTotalPrivateDriverDataBuffer
 
     public operator fun component10(): UInt = this.totalPrivateDriverDataBufferSize
 
     public operator fun component11(): UInt = this.hResource
 
-    public fun copy(hDevice: UInt = this.hDevice, hGlobalShare: UInt = this.hGlobalShare, numAllocations: UInt = this.numAllocations, anonymous: D3dkmtOpenresource0 = this.anonymous, pPrivateRuntimeData: MutPtr<CVoid> = this.pPrivateRuntimeData, privateRuntimeDataSize: UInt = this.privateRuntimeDataSize, pResourcePrivateDriverData: MutPtr<CVoid> = this.pResourcePrivateDriverData, resourcePrivateDriverDataSize: UInt = this.resourcePrivateDriverDataSize, pTotalPrivateDriverDataBuffer: MutPtr<CVoid> = this.pTotalPrivateDriverDataBuffer, totalPrivateDriverDataBufferSize: UInt = this.totalPrivateDriverDataBufferSize, hResource: UInt = this.hResource): D3dkmtOpenresource = D3dkmtOpenresource(hDevice = hDevice, hGlobalShare = hGlobalShare, numAllocations = numAllocations, anonymous = anonymous, pPrivateRuntimeDataCtorArg = pPrivateRuntimeData, privateRuntimeDataSize = privateRuntimeDataSize, pResourcePrivateDriverDataCtorArg = pResourcePrivateDriverData, resourcePrivateDriverDataSize = resourcePrivateDriverDataSize, pTotalPrivateDriverDataBufferCtorArg = pTotalPrivateDriverDataBuffer, totalPrivateDriverDataBufferSize = totalPrivateDriverDataBufferSize, hResource = hResource)
+    public fun copy(hDevice: UInt = this.hDevice, hGlobalShare: UInt = this.hGlobalShare, numAllocations: UInt = this.numAllocations, anonymous: D3dkmtOpenresource0 = this.anonymous, pPrivateRuntimeData: MutPtr = this.pPrivateRuntimeData, privateRuntimeDataSize: UInt = this.privateRuntimeDataSize, pResourcePrivateDriverData: MutPtr = this.pResourcePrivateDriverData, resourcePrivateDriverDataSize: UInt = this.resourcePrivateDriverDataSize, pTotalPrivateDriverDataBuffer: MutPtr = this.pTotalPrivateDriverDataBuffer, totalPrivateDriverDataBufferSize: UInt = this.totalPrivateDriverDataBufferSize, hResource: UInt = this.hResource): D3dkmtOpenresource = D3dkmtOpenresource(hDevice = hDevice, hGlobalShare = hGlobalShare, numAllocations = numAllocations, anonymous = anonymous, pPrivateRuntimeDataCtorArg = pPrivateRuntimeData, privateRuntimeDataSize = privateRuntimeDataSize, pResourcePrivateDriverDataCtorArg = pResourcePrivateDriverData, resourcePrivateDriverDataSize = resourcePrivateDriverDataSize, pTotalPrivateDriverDataBufferCtorArg = pTotalPrivateDriverDataBuffer, totalPrivateDriverDataBufferSize = totalPrivateDriverDataBufferSize, hResource = hResource)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -7675,11 +7672,11 @@ public class D3dkmtOpenresource internal constructor(
             hGlobalShare: UInt = 0u,
             numAllocations: UInt = 0u,
             anonymous: D3dkmtOpenresource0 = D3dkmtOpenresource0(),
-            pPrivateRuntimeData: MutPtr<CVoid> = MutPtr(0L),
+            pPrivateRuntimeData: MutPtr = MutPtr(0L),
             privateRuntimeDataSize: UInt = 0u,
-            pResourcePrivateDriverData: MutPtr<CVoid> = MutPtr(0L),
+            pResourcePrivateDriverData: MutPtr = MutPtr(0L),
             resourcePrivateDriverDataSize: UInt = 0u,
-            pTotalPrivateDriverDataBuffer: MutPtr<CVoid> = MutPtr(0L),
+            pTotalPrivateDriverDataBuffer: MutPtr = MutPtr(0L),
             totalPrivateDriverDataBufferSize: UInt = 0u,
             hResource: UInt = 0u,
         ): D3dkmtOpenresource =
@@ -7700,13 +7697,13 @@ public class D3dkmtOpenresource internal constructor(
 }
 
 public class D3dkmtOpenresource0 internal constructor(
-    pOpenAllocationInfoCtorArg: MutPtr<D3dddiOpenallocationinfo>,
-    pOpenAllocationInfo2CtorArg: MutPtr<D3dddiOpenallocationinfo2>,
+    pOpenAllocationInfoCtorArg: MutPtr,
+    pOpenAllocationInfo2CtorArg: MutPtr,
 ) {
-    public var pOpenAllocationInfo: MutPtr<D3dddiOpenallocationinfo> = pOpenAllocationInfoCtorArg
+    public var pOpenAllocationInfo: MutPtr = pOpenAllocationInfoCtorArg
         internal set
 
-    public var pOpenAllocationInfo2: MutPtr<D3dddiOpenallocationinfo2> = pOpenAllocationInfo2CtorArg
+    public var pOpenAllocationInfo2: MutPtr = pOpenAllocationInfo2CtorArg
         internal set
 
     public constructor() : this(
@@ -7714,11 +7711,11 @@ public class D3dkmtOpenresource0 internal constructor(
         pOpenAllocationInfo2CtorArg = MutPtr(0L),
     )
 
-    public operator fun component1(): MutPtr<D3dddiOpenallocationinfo> = this.pOpenAllocationInfo
+    public operator fun component1(): MutPtr = this.pOpenAllocationInfo
 
-    public operator fun component2(): MutPtr<D3dddiOpenallocationinfo2> = this.pOpenAllocationInfo2
+    public operator fun component2(): MutPtr = this.pOpenAllocationInfo2
 
-    public fun copy(pOpenAllocationInfo: MutPtr<D3dddiOpenallocationinfo> = this.pOpenAllocationInfo, pOpenAllocationInfo2: MutPtr<D3dddiOpenallocationinfo2> = this.pOpenAllocationInfo2): D3dkmtOpenresource0 = D3dkmtOpenresource0(pOpenAllocationInfoCtorArg = pOpenAllocationInfo, pOpenAllocationInfo2CtorArg = pOpenAllocationInfo2)
+    public fun copy(pOpenAllocationInfo: MutPtr = this.pOpenAllocationInfo, pOpenAllocationInfo2: MutPtr = this.pOpenAllocationInfo2): D3dkmtOpenresource0 = D3dkmtOpenresource0(pOpenAllocationInfoCtorArg = pOpenAllocationInfo, pOpenAllocationInfo2CtorArg = pOpenAllocationInfo2)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -7736,8 +7733,8 @@ public class D3dkmtOpenresource0 internal constructor(
 
     public companion object {
         public operator fun invoke(
-            pOpenAllocationInfo: MutPtr<D3dddiOpenallocationinfo> = MutPtr(0L),
-            pOpenAllocationInfo2: MutPtr<D3dddiOpenallocationinfo2> = MutPtr(0L),
+            pOpenAllocationInfo: MutPtr = MutPtr(0L),
+            pOpenAllocationInfo2: MutPtr = MutPtr(0L),
         ): D3dkmtOpenresource0 =
             D3dkmtOpenresource0(
                 pOpenAllocationInfoCtorArg = pOpenAllocationInfo,
@@ -7750,35 +7747,35 @@ public class D3dkmtOpenresourcefromnthandle internal constructor(
     public var hDevice: UInt,
     hNtHandleCtorArg: Handle,
     public var numAllocations: UInt,
-    pOpenAllocationInfo2CtorArg: MutPtr<D3dddiOpenallocationinfo2>,
+    pOpenAllocationInfo2CtorArg: MutPtr,
     public var privateRuntimeDataSize: UInt,
-    pPrivateRuntimeDataCtorArg: MutPtr<CVoid>,
+    pPrivateRuntimeDataCtorArg: MutPtr,
     public var resourcePrivateDriverDataSize: UInt,
-    pResourcePrivateDriverDataCtorArg: MutPtr<CVoid>,
+    pResourcePrivateDriverDataCtorArg: MutPtr,
     public var totalPrivateDriverDataBufferSize: UInt,
-    pTotalPrivateDriverDataBufferCtorArg: MutPtr<CVoid>,
+    pTotalPrivateDriverDataBufferCtorArg: MutPtr,
     public var hResource: UInt,
     public var hKeyedMutex: UInt,
-    pKeyedMutexPrivateRuntimeDataCtorArg: MutPtr<CVoid>,
+    pKeyedMutexPrivateRuntimeDataCtorArg: MutPtr,
     public var keyedMutexPrivateRuntimeDataSize: UInt,
     public var hSyncObject: UInt,
 ) {
     public var hNtHandle: Handle = hNtHandleCtorArg
         internal set
 
-    public var pOpenAllocationInfo2: MutPtr<D3dddiOpenallocationinfo2> = pOpenAllocationInfo2CtorArg
+    public var pOpenAllocationInfo2: MutPtr = pOpenAllocationInfo2CtorArg
         internal set
 
-    public var pPrivateRuntimeData: MutPtr<CVoid> = pPrivateRuntimeDataCtorArg
+    public var pPrivateRuntimeData: MutPtr = pPrivateRuntimeDataCtorArg
         internal set
 
-    public var pResourcePrivateDriverData: MutPtr<CVoid> = pResourcePrivateDriverDataCtorArg
+    public var pResourcePrivateDriverData: MutPtr = pResourcePrivateDriverDataCtorArg
         internal set
 
-    public var pTotalPrivateDriverDataBuffer: MutPtr<CVoid> = pTotalPrivateDriverDataBufferCtorArg
+    public var pTotalPrivateDriverDataBuffer: MutPtr = pTotalPrivateDriverDataBufferCtorArg
         internal set
 
-    public var pKeyedMutexPrivateRuntimeData: MutPtr<CVoid> = pKeyedMutexPrivateRuntimeDataCtorArg
+    public var pKeyedMutexPrivateRuntimeData: MutPtr = pKeyedMutexPrivateRuntimeDataCtorArg
         internal set
 
     public constructor() : this(
@@ -7805,31 +7802,31 @@ public class D3dkmtOpenresourcefromnthandle internal constructor(
 
     public operator fun component3(): UInt = this.numAllocations
 
-    public operator fun component4(): MutPtr<D3dddiOpenallocationinfo2> = this.pOpenAllocationInfo2
+    public operator fun component4(): MutPtr = this.pOpenAllocationInfo2
 
     public operator fun component5(): UInt = this.privateRuntimeDataSize
 
-    public operator fun component6(): MutPtr<CVoid> = this.pPrivateRuntimeData
+    public operator fun component6(): MutPtr = this.pPrivateRuntimeData
 
     public operator fun component7(): UInt = this.resourcePrivateDriverDataSize
 
-    public operator fun component8(): MutPtr<CVoid> = this.pResourcePrivateDriverData
+    public operator fun component8(): MutPtr = this.pResourcePrivateDriverData
 
     public operator fun component9(): UInt = this.totalPrivateDriverDataBufferSize
 
-    public operator fun component10(): MutPtr<CVoid> = this.pTotalPrivateDriverDataBuffer
+    public operator fun component10(): MutPtr = this.pTotalPrivateDriverDataBuffer
 
     public operator fun component11(): UInt = this.hResource
 
     public operator fun component12(): UInt = this.hKeyedMutex
 
-    public operator fun component13(): MutPtr<CVoid> = this.pKeyedMutexPrivateRuntimeData
+    public operator fun component13(): MutPtr = this.pKeyedMutexPrivateRuntimeData
 
     public operator fun component14(): UInt = this.keyedMutexPrivateRuntimeDataSize
 
     public operator fun component15(): UInt = this.hSyncObject
 
-    public fun copy(hDevice: UInt = this.hDevice, hNtHandle: Handle = this.hNtHandle, numAllocations: UInt = this.numAllocations, pOpenAllocationInfo2: MutPtr<D3dddiOpenallocationinfo2> = this.pOpenAllocationInfo2, privateRuntimeDataSize: UInt = this.privateRuntimeDataSize, pPrivateRuntimeData: MutPtr<CVoid> = this.pPrivateRuntimeData, resourcePrivateDriverDataSize: UInt = this.resourcePrivateDriverDataSize, pResourcePrivateDriverData: MutPtr<CVoid> = this.pResourcePrivateDriverData, totalPrivateDriverDataBufferSize: UInt = this.totalPrivateDriverDataBufferSize, pTotalPrivateDriverDataBuffer: MutPtr<CVoid> = this.pTotalPrivateDriverDataBuffer, hResource: UInt = this.hResource, hKeyedMutex: UInt = this.hKeyedMutex, pKeyedMutexPrivateRuntimeData: MutPtr<CVoid> = this.pKeyedMutexPrivateRuntimeData, keyedMutexPrivateRuntimeDataSize: UInt = this.keyedMutexPrivateRuntimeDataSize, hSyncObject: UInt = this.hSyncObject): D3dkmtOpenresourcefromnthandle = D3dkmtOpenresourcefromnthandle(hDevice = hDevice, hNtHandleCtorArg = hNtHandle, numAllocations = numAllocations, pOpenAllocationInfo2CtorArg = pOpenAllocationInfo2, privateRuntimeDataSize = privateRuntimeDataSize, pPrivateRuntimeDataCtorArg = pPrivateRuntimeData, resourcePrivateDriverDataSize = resourcePrivateDriverDataSize, pResourcePrivateDriverDataCtorArg = pResourcePrivateDriverData, totalPrivateDriverDataBufferSize = totalPrivateDriverDataBufferSize, pTotalPrivateDriverDataBufferCtorArg = pTotalPrivateDriverDataBuffer, hResource = hResource, hKeyedMutex = hKeyedMutex, pKeyedMutexPrivateRuntimeDataCtorArg = pKeyedMutexPrivateRuntimeData, keyedMutexPrivateRuntimeDataSize = keyedMutexPrivateRuntimeDataSize, hSyncObject = hSyncObject)
+    public fun copy(hDevice: UInt = this.hDevice, hNtHandle: Handle = this.hNtHandle, numAllocations: UInt = this.numAllocations, pOpenAllocationInfo2: MutPtr = this.pOpenAllocationInfo2, privateRuntimeDataSize: UInt = this.privateRuntimeDataSize, pPrivateRuntimeData: MutPtr = this.pPrivateRuntimeData, resourcePrivateDriverDataSize: UInt = this.resourcePrivateDriverDataSize, pResourcePrivateDriverData: MutPtr = this.pResourcePrivateDriverData, totalPrivateDriverDataBufferSize: UInt = this.totalPrivateDriverDataBufferSize, pTotalPrivateDriverDataBuffer: MutPtr = this.pTotalPrivateDriverDataBuffer, hResource: UInt = this.hResource, hKeyedMutex: UInt = this.hKeyedMutex, pKeyedMutexPrivateRuntimeData: MutPtr = this.pKeyedMutexPrivateRuntimeData, keyedMutexPrivateRuntimeDataSize: UInt = this.keyedMutexPrivateRuntimeDataSize, hSyncObject: UInt = this.hSyncObject): D3dkmtOpenresourcefromnthandle = D3dkmtOpenresourcefromnthandle(hDevice = hDevice, hNtHandleCtorArg = hNtHandle, numAllocations = numAllocations, pOpenAllocationInfo2CtorArg = pOpenAllocationInfo2, privateRuntimeDataSize = privateRuntimeDataSize, pPrivateRuntimeDataCtorArg = pPrivateRuntimeData, resourcePrivateDriverDataSize = resourcePrivateDriverDataSize, pResourcePrivateDriverDataCtorArg = pResourcePrivateDriverData, totalPrivateDriverDataBufferSize = totalPrivateDriverDataBufferSize, pTotalPrivateDriverDataBufferCtorArg = pTotalPrivateDriverDataBuffer, hResource = hResource, hKeyedMutex = hKeyedMutex, pKeyedMutexPrivateRuntimeDataCtorArg = pKeyedMutexPrivateRuntimeData, keyedMutexPrivateRuntimeDataSize = keyedMutexPrivateRuntimeDataSize, hSyncObject = hSyncObject)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -7876,16 +7873,16 @@ public class D3dkmtOpenresourcefromnthandle internal constructor(
             hDevice: UInt = 0u,
             hNtHandle: Handle = MutPtr(0L),
             numAllocations: UInt = 0u,
-            pOpenAllocationInfo2: MutPtr<D3dddiOpenallocationinfo2> = MutPtr(0L),
+            pOpenAllocationInfo2: MutPtr = MutPtr(0L),
             privateRuntimeDataSize: UInt = 0u,
-            pPrivateRuntimeData: MutPtr<CVoid> = MutPtr(0L),
+            pPrivateRuntimeData: MutPtr = MutPtr(0L),
             resourcePrivateDriverDataSize: UInt = 0u,
-            pResourcePrivateDriverData: MutPtr<CVoid> = MutPtr(0L),
+            pResourcePrivateDriverData: MutPtr = MutPtr(0L),
             totalPrivateDriverDataBufferSize: UInt = 0u,
-            pTotalPrivateDriverDataBuffer: MutPtr<CVoid> = MutPtr(0L),
+            pTotalPrivateDriverDataBuffer: MutPtr = MutPtr(0L),
             hResource: UInt = 0u,
             hKeyedMutex: UInt = 0u,
-            pKeyedMutexPrivateRuntimeData: MutPtr<CVoid> = MutPtr(0L),
+            pKeyedMutexPrivateRuntimeData: MutPtr = MutPtr(0L),
             keyedMutexPrivateRuntimeDataSize: UInt = 0u,
             hSyncObject: UInt = 0u,
         ): D3dkmtOpenresourcefromnthandle =
@@ -8088,11 +8085,11 @@ public data class D3dkmtOpensyncobjectfromnthandle20(
 }
 
 public class D3dkmtOpensyncobjectfromnthandle200 internal constructor(
-    fenceValueCPUVirtualAddressCtorArg: MutPtr<CVoid>,
+    fenceValueCPUVirtualAddressCtorArg: MutPtr,
     public var fenceValueGPUVirtualAddress: ULong,
     public var engineAffinity: UInt,
 ) {
-    public var fenceValueCPUVirtualAddress: MutPtr<CVoid> = fenceValueCPUVirtualAddressCtorArg
+    public var fenceValueCPUVirtualAddress: MutPtr = fenceValueCPUVirtualAddressCtorArg
         internal set
 
     public constructor() : this(
@@ -8101,13 +8098,13 @@ public class D3dkmtOpensyncobjectfromnthandle200 internal constructor(
         engineAffinity = 0u,
     )
 
-    public operator fun component1(): MutPtr<CVoid> = this.fenceValueCPUVirtualAddress
+    public operator fun component1(): MutPtr = this.fenceValueCPUVirtualAddress
 
     public operator fun component2(): ULong = this.fenceValueGPUVirtualAddress
 
     public operator fun component3(): UInt = this.engineAffinity
 
-    public fun copy(fenceValueCPUVirtualAddress: MutPtr<CVoid> = this.fenceValueCPUVirtualAddress, fenceValueGPUVirtualAddress: ULong = this.fenceValueGPUVirtualAddress, engineAffinity: UInt = this.engineAffinity): D3dkmtOpensyncobjectfromnthandle200 = D3dkmtOpensyncobjectfromnthandle200(fenceValueCPUVirtualAddressCtorArg = fenceValueCPUVirtualAddress, fenceValueGPUVirtualAddress = fenceValueGPUVirtualAddress, engineAffinity = engineAffinity)
+    public fun copy(fenceValueCPUVirtualAddress: MutPtr = this.fenceValueCPUVirtualAddress, fenceValueGPUVirtualAddress: ULong = this.fenceValueGPUVirtualAddress, engineAffinity: UInt = this.engineAffinity): D3dkmtOpensyncobjectfromnthandle200 = D3dkmtOpensyncobjectfromnthandle200(fenceValueCPUVirtualAddressCtorArg = fenceValueCPUVirtualAddress, fenceValueGPUVirtualAddress = fenceValueGPUVirtualAddress, engineAffinity = engineAffinity)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -8134,7 +8131,7 @@ public class D3dkmtOpensyncobjectfromnthandle200 internal constructor(
                     D3dkmtOpensyncobjectfromnthandle200(
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<CVoid>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U64).readNative(addr + 8L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 16L),
@@ -8142,7 +8139,7 @@ public class D3dkmtOpensyncobjectfromnthandle200 internal constructor(
                 override fun writeNative(addr: Long, value: D3dkmtOpensyncobjectfromnthandle200) {
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<CVoid>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr, value.fenceValueCPUVirtualAddress)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U64).writeNative(addr + 8L, value.fenceValueGPUVirtualAddress)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 16L, value.engineAffinity)
@@ -8150,7 +8147,7 @@ public class D3dkmtOpensyncobjectfromnthandle200 internal constructor(
             }
 
         public operator fun invoke(
-            fenceValueCPUVirtualAddress: MutPtr<CVoid> = MutPtr(0L),
+            fenceValueCPUVirtualAddress: MutPtr = MutPtr(0L),
             fenceValueGPUVirtualAddress: ULong = 0uL,
             engineAffinity: UInt = 0u,
         ): D3dkmtOpensyncobjectfromnthandle200 =
@@ -8164,10 +8161,10 @@ public class D3dkmtOpensyncobjectfromnthandle200 internal constructor(
 
 public class D3dkmtOpensyncobjectnthandlefromname internal constructor(
     public var dwDesiredAccess: UInt,
-    pObjAttribCtorArg: MutPtr<ObjectAttributes>,
+    pObjAttribCtorArg: MutPtr,
     hNtHandleCtorArg: Handle,
 ) {
-    public var pObjAttrib: MutPtr<ObjectAttributes> = pObjAttribCtorArg
+    public var pObjAttrib: MutPtr = pObjAttribCtorArg
         internal set
 
     public var hNtHandle: Handle = hNtHandleCtorArg
@@ -8181,11 +8178,11 @@ public class D3dkmtOpensyncobjectnthandlefromname internal constructor(
 
     public operator fun component1(): UInt = this.dwDesiredAccess
 
-    public operator fun component2(): MutPtr<ObjectAttributes> = this.pObjAttrib
+    public operator fun component2(): MutPtr = this.pObjAttrib
 
     public operator fun component3(): Handle = this.hNtHandle
 
-    public fun copy(dwDesiredAccess: UInt = this.dwDesiredAccess, pObjAttrib: MutPtr<ObjectAttributes> = this.pObjAttrib, hNtHandle: Handle = this.hNtHandle): D3dkmtOpensyncobjectnthandlefromname = D3dkmtOpensyncobjectnthandlefromname(dwDesiredAccess = dwDesiredAccess, pObjAttribCtorArg = pObjAttrib, hNtHandleCtorArg = hNtHandle)
+    public fun copy(dwDesiredAccess: UInt = this.dwDesiredAccess, pObjAttrib: MutPtr = this.pObjAttrib, hNtHandle: Handle = this.hNtHandle): D3dkmtOpensyncobjectnthandlefromname = D3dkmtOpensyncobjectnthandlefromname(dwDesiredAccess = dwDesiredAccess, pObjAttribCtorArg = pObjAttrib, hNtHandleCtorArg = hNtHandle)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -8206,7 +8203,7 @@ public class D3dkmtOpensyncobjectnthandlefromname internal constructor(
     public companion object {
         public operator fun invoke(
             dwDesiredAccess: UInt = 0u,
-            pObjAttrib: MutPtr<ObjectAttributes> = MutPtr(0L),
+            pObjAttrib: MutPtr = MutPtr(0L),
             hNtHandle: Handle = MutPtr(0L),
         ): D3dkmtOpensyncobjectnthandlefromname =
             D3dkmtOpensyncobjectnthandlefromname(

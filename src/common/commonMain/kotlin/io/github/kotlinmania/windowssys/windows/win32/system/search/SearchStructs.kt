@@ -2,7 +2,6 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.system.search
 
-import io.github.kotlinmania.rustlang.core.ffi.CVoid
 import io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
 import io.github.kotlinmania.rustlang.core.mem.TypeLayout
 import io.github.kotlinmania.rustlang.core.ptr.ConstPtr
@@ -18,7 +17,6 @@ import io.github.kotlinmania.windowssys.windows.win32.foundation.Filetime
 import io.github.kotlinmania.windowssys.windows.win32.foundation.VariantBool
 import io.github.kotlinmania.windowssys.windows.win32.storage.indexserver.Dbid
 import io.github.kotlinmania.windowssys.windows.win32.storage.indexserver.Fullpropspec
-import io.github.kotlinmania.windowssys.windows.win32.system.com.Blob
 import io.github.kotlinmania.windowssys.windows.win32.system.com.CY
 import io.github.kotlinmania.windowssys.windows.win32.system.com.structuredstorage.Propvariant
 import io.github.kotlinmania.windowssys.windows.win32.system.variant.Variant
@@ -122,9 +120,9 @@ public data class Categorization0(
 
 public class Categorizationset internal constructor(
     public var cCat: UInt,
-    aCatCtorArg: MutPtr<Categorization>,
+    aCatCtorArg: MutPtr,
 ) {
-    public var aCat: MutPtr<Categorization> = aCatCtorArg
+    public var aCat: MutPtr = aCatCtorArg
         internal set
 
     public constructor() : this(
@@ -134,9 +132,9 @@ public class Categorizationset internal constructor(
 
     public operator fun component1(): UInt = this.cCat
 
-    public operator fun component2(): MutPtr<Categorization> = this.aCat
+    public operator fun component2(): MutPtr = this.aCat
 
-    public fun copy(cCat: UInt = this.cCat, aCat: MutPtr<Categorization> = this.aCat): Categorizationset = Categorizationset(cCat = cCat, aCatCtorArg = aCat)
+    public fun copy(cCat: UInt = this.cCat, aCat: MutPtr = this.aCat): Categorizationset = Categorizationset(cCat = cCat, aCatCtorArg = aCat)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -162,21 +160,21 @@ public class Categorizationset internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<Categorization>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                     )
                 override fun writeNative(addr: Long, value: Categorizationset) {
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr, value.cCat)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<Categorization>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.aCat)
                 }
             }
 
         public operator fun invoke(
             cCat: UInt = 0u,
-            aCat: MutPtr<Categorization> = MutPtr(0L),
+            aCat: MutPtr = MutPtr(0L),
         ): Categorizationset =
             Categorizationset(
                 cCat = cCat,
@@ -187,9 +185,9 @@ public class Categorizationset internal constructor(
 
 public class Columnset internal constructor(
     public var cCol: UInt,
-    aColCtorArg: MutPtr<Fullpropspec>,
+    aColCtorArg: MutPtr,
 ) {
-    public var aCol: MutPtr<Fullpropspec> = aColCtorArg
+    public var aCol: MutPtr = aColCtorArg
         internal set
 
     public constructor() : this(
@@ -199,9 +197,9 @@ public class Columnset internal constructor(
 
     public operator fun component1(): UInt = this.cCol
 
-    public operator fun component2(): MutPtr<Fullpropspec> = this.aCol
+    public operator fun component2(): MutPtr = this.aCol
 
-    public fun copy(cCol: UInt = this.cCol, aCol: MutPtr<Fullpropspec> = this.aCol): Columnset = Columnset(cCol = cCol, aColCtorArg = aCol)
+    public fun copy(cCol: UInt = this.cCol, aCol: MutPtr = this.aCol): Columnset = Columnset(cCol = cCol, aColCtorArg = aCol)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -227,21 +225,21 @@ public class Columnset internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<Fullpropspec>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                     )
                 override fun writeNative(addr: Long, value: Columnset) {
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr, value.cCol)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<Fullpropspec>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.aCol)
                 }
             }
 
         public operator fun invoke(
             cCol: UInt = 0u,
-            aCol: MutPtr<Fullpropspec> = MutPtr(0L),
+            aCol: MutPtr = MutPtr(0L),
         ): Columnset =
             Columnset(
                 cCol = cCol,
@@ -336,10 +334,10 @@ public data class DateStruct(
 }
 
 public class Dbbindext internal constructor(
-    pExtensionCtorArg: MutPtr<UByte>,
+    pExtensionCtorArg: MutPtr,
     public var ulExtension: Int,
 ) {
-    public var pExtension: MutPtr<UByte> = pExtensionCtorArg
+    public var pExtension: MutPtr = pExtensionCtorArg
         internal set
 
     public constructor() : this(
@@ -347,11 +345,11 @@ public class Dbbindext internal constructor(
         ulExtension = 0,
     )
 
-    public operator fun component1(): MutPtr<UByte> = this.pExtension
+    public operator fun component1(): MutPtr = this.pExtension
 
     public operator fun component2(): Int = this.ulExtension
 
-    public fun copy(pExtension: MutPtr<UByte> = this.pExtension, ulExtension: Int = this.ulExtension): Dbbindext = Dbbindext(pExtensionCtorArg = pExtension, ulExtension = ulExtension)
+    public fun copy(pExtension: MutPtr = this.pExtension, ulExtension: Int = this.ulExtension): Dbbindext = Dbbindext(pExtensionCtorArg = pExtension, ulExtension = ulExtension)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -376,21 +374,21 @@ public class Dbbindext internal constructor(
                     Dbbindext(
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<UByte>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.USIZE64).readNative(addr + 8L),
                     )
                 override fun writeNative(addr: Long, value: Dbbindext) {
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<UByte>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr, value.pExtension)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.USIZE64).writeNative(addr + 8L, value.ulExtension)
                 }
             }
 
         public operator fun invoke(
-            pExtension: MutPtr<UByte> = MutPtr(0L),
+            pExtension: MutPtr = MutPtr(0L),
             ulExtension: Int = 0,
         ): Dbbindext =
             Dbbindext(
@@ -405,9 +403,9 @@ public class Dbbinding internal constructor(
     public var obValue: Int,
     public var obLength: Int,
     public var obStatus: Int,
-    pTypeInfoCtorArg: MutPtr<CVoid>,
-    pObjectCtorArg: MutPtr<Dbobject>,
-    pBindExtCtorArg: MutPtr<Dbbindext>,
+    pTypeInfoCtorArg: MutPtr,
+    pObjectCtorArg: MutPtr,
+    pBindExtCtorArg: MutPtr,
     public var dwPart: UInt,
     public var dwMemOwner: UInt,
     public var eParamIO: UInt,
@@ -417,13 +415,13 @@ public class Dbbinding internal constructor(
     public var bPrecision: UByte,
     public var bScale: UByte,
 ) {
-    public var pTypeInfo: MutPtr<CVoid> = pTypeInfoCtorArg
+    public var pTypeInfo: MutPtr = pTypeInfoCtorArg
         internal set
 
-    public var pObject: MutPtr<Dbobject> = pObjectCtorArg
+    public var pObject: MutPtr = pObjectCtorArg
         internal set
 
-    public var pBindExt: MutPtr<Dbbindext> = pBindExtCtorArg
+    public var pBindExt: MutPtr = pBindExtCtorArg
         internal set
 
     public constructor() : this(
@@ -452,11 +450,11 @@ public class Dbbinding internal constructor(
 
     public operator fun component4(): Int = this.obStatus
 
-    public operator fun component5(): MutPtr<CVoid> = this.pTypeInfo
+    public operator fun component5(): MutPtr = this.pTypeInfo
 
-    public operator fun component6(): MutPtr<Dbobject> = this.pObject
+    public operator fun component6(): MutPtr = this.pObject
 
-    public operator fun component7(): MutPtr<Dbbindext> = this.pBindExt
+    public operator fun component7(): MutPtr = this.pBindExt
 
     public operator fun component8(): UInt = this.dwPart
 
@@ -474,7 +472,7 @@ public class Dbbinding internal constructor(
 
     public operator fun component15(): UByte = this.bScale
 
-    public fun copy(iOrdinal: Int = this.iOrdinal, obValue: Int = this.obValue, obLength: Int = this.obLength, obStatus: Int = this.obStatus, pTypeInfo: MutPtr<CVoid> = this.pTypeInfo, pObject: MutPtr<Dbobject> = this.pObject, pBindExt: MutPtr<Dbbindext> = this.pBindExt, dwPart: UInt = this.dwPart, dwMemOwner: UInt = this.dwMemOwner, eParamIO: UInt = this.eParamIO, cbMaxLen: Int = this.cbMaxLen, dwFlags: UInt = this.dwFlags, wType: UShort = this.wType, bPrecision: UByte = this.bPrecision, bScale: UByte = this.bScale): Dbbinding = Dbbinding(iOrdinal = iOrdinal, obValue = obValue, obLength = obLength, obStatus = obStatus, pTypeInfoCtorArg = pTypeInfo, pObjectCtorArg = pObject, pBindExtCtorArg = pBindExt, dwPart = dwPart, dwMemOwner = dwMemOwner, eParamIO = eParamIO, cbMaxLen = cbMaxLen, dwFlags = dwFlags, wType = wType, bPrecision = bPrecision, bScale = bScale)
+    public fun copy(iOrdinal: Int = this.iOrdinal, obValue: Int = this.obValue, obLength: Int = this.obLength, obStatus: Int = this.obStatus, pTypeInfo: MutPtr = this.pTypeInfo, pObject: MutPtr = this.pObject, pBindExt: MutPtr = this.pBindExt, dwPart: UInt = this.dwPart, dwMemOwner: UInt = this.dwMemOwner, eParamIO: UInt = this.eParamIO, cbMaxLen: Int = this.cbMaxLen, dwFlags: UInt = this.dwFlags, wType: UShort = this.wType, bPrecision: UByte = this.bPrecision, bScale: UByte = this.bScale): Dbbinding = Dbbinding(iOrdinal = iOrdinal, obValue = obValue, obLength = obLength, obStatus = obStatus, pTypeInfoCtorArg = pTypeInfo, pObjectCtorArg = pObject, pBindExtCtorArg = pBindExt, dwPart = dwPart, dwMemOwner = dwMemOwner, eParamIO = eParamIO, cbMaxLen = cbMaxLen, dwFlags = dwFlags, wType = wType, bPrecision = bPrecision, bScale = bScale)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -529,15 +527,15 @@ public class Dbbinding internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.USIZE64).readNative(addr + 24L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<CVoid>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 32L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<Dbobject>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 40L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<Dbbindext>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 48L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 56L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 60L),
@@ -555,15 +553,15 @@ public class Dbbinding internal constructor(
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.USIZE64).writeNative(addr + 24L, value.obStatus)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<CVoid>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 32L, value.pTypeInfo)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<Dbobject>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 40L, value.pObject)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<Dbbindext>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 48L, value.pBindExt)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 56L, value.dwPart)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 60L, value.dwMemOwner)
@@ -581,9 +579,9 @@ public class Dbbinding internal constructor(
             obValue: Int = 0,
             obLength: Int = 0,
             obStatus: Int = 0,
-            pTypeInfo: MutPtr<CVoid> = MutPtr(0L),
-            pObject: MutPtr<Dbobject> = MutPtr(0L),
-            pBindExt: MutPtr<Dbbindext> = MutPtr(0L),
+            pTypeInfo: MutPtr = MutPtr(0L),
+            pObject: MutPtr = MutPtr(0L),
+            pBindExt: MutPtr = MutPtr(0L),
             dwPart: UInt = 0u,
             dwMemOwner: UInt = 0u,
             eParamIO: UInt = 0u,
@@ -614,7 +612,7 @@ public class Dbbinding internal constructor(
 }
 
 public class Dbcolumnaccess internal constructor(
-    pDataCtorArg: MutPtr<CVoid>,
+    pDataCtorArg: MutPtr,
     public var columnid: Dbid,
     public var cbDataLen: Int,
     public var dwStatus: UInt,
@@ -624,7 +622,7 @@ public class Dbcolumnaccess internal constructor(
     public var bPrecision: UByte,
     public var bScale: UByte,
 ) {
-    public var pData: MutPtr<CVoid> = pDataCtorArg
+    public var pData: MutPtr = pDataCtorArg
         internal set
 
     public constructor() : this(
@@ -639,7 +637,7 @@ public class Dbcolumnaccess internal constructor(
         bScale = 0u,
     )
 
-    public operator fun component1(): MutPtr<CVoid> = this.pData
+    public operator fun component1(): MutPtr = this.pData
 
     public operator fun component2(): Dbid = this.columnid
 
@@ -657,7 +655,7 @@ public class Dbcolumnaccess internal constructor(
 
     public operator fun component9(): UByte = this.bScale
 
-    public fun copy(pData: MutPtr<CVoid> = this.pData, columnid: Dbid = this.columnid, cbDataLen: Int = this.cbDataLen, dwStatus: UInt = this.dwStatus, cbMaxLen: Int = this.cbMaxLen, dwReserved: Int = this.dwReserved, wType: UShort = this.wType, bPrecision: UByte = this.bPrecision, bScale: UByte = this.bScale): Dbcolumnaccess = Dbcolumnaccess(pDataCtorArg = pData, columnid = columnid, cbDataLen = cbDataLen, dwStatus = dwStatus, cbMaxLen = cbMaxLen, dwReserved = dwReserved, wType = wType, bPrecision = bPrecision, bScale = bScale)
+    public fun copy(pData: MutPtr = this.pData, columnid: Dbid = this.columnid, cbDataLen: Int = this.cbDataLen, dwStatus: UInt = this.dwStatus, cbMaxLen: Int = this.cbMaxLen, dwReserved: Int = this.dwReserved, wType: UShort = this.wType, bPrecision: UByte = this.bPrecision, bScale: UByte = this.bScale): Dbcolumnaccess = Dbcolumnaccess(pDataCtorArg = pData, columnid = columnid, cbDataLen = cbDataLen, dwStatus = dwStatus, cbMaxLen = cbMaxLen, dwReserved = dwReserved, wType = wType, bPrecision = bPrecision, bScale = bScale)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -689,7 +687,7 @@ public class Dbcolumnaccess internal constructor(
 
     public companion object {
         public operator fun invoke(
-            pData: MutPtr<CVoid> = MutPtr(0L),
+            pData: MutPtr = MutPtr(0L),
             columnid: Dbid = Dbid(),
             cbDataLen: Int = 0,
             dwStatus: UInt = 0u,
@@ -715,9 +713,9 @@ public class Dbcolumnaccess internal constructor(
 
 public class Dbcolumndesc internal constructor(
     pwszTypeNameCtorArg: Pwstr,
-    pTypeInfoCtorArg: MutPtr<CVoid>,
-    rgPropertySetsCtorArg: MutPtr<Dbpropset>,
-    pclsidCtorArg: MutPtr<Guid>,
+    pTypeInfoCtorArg: MutPtr,
+    rgPropertySetsCtorArg: MutPtr,
+    pclsidCtorArg: MutPtr,
     public var cPropertySets: UInt,
     public var ulColumnSize: Int,
     public var dbcid: Dbid,
@@ -728,13 +726,13 @@ public class Dbcolumndesc internal constructor(
     public var pwszTypeName: Pwstr = pwszTypeNameCtorArg
         internal set
 
-    public var pTypeInfo: MutPtr<CVoid> = pTypeInfoCtorArg
+    public var pTypeInfo: MutPtr = pTypeInfoCtorArg
         internal set
 
-    public var rgPropertySets: MutPtr<Dbpropset> = rgPropertySetsCtorArg
+    public var rgPropertySets: MutPtr = rgPropertySetsCtorArg
         internal set
 
-    public var pclsid: MutPtr<Guid> = pclsidCtorArg
+    public var pclsid: MutPtr = pclsidCtorArg
         internal set
 
     public constructor() : this(
@@ -752,11 +750,11 @@ public class Dbcolumndesc internal constructor(
 
     public operator fun component1(): Pwstr = this.pwszTypeName
 
-    public operator fun component2(): MutPtr<CVoid> = this.pTypeInfo
+    public operator fun component2(): MutPtr = this.pTypeInfo
 
-    public operator fun component3(): MutPtr<Dbpropset> = this.rgPropertySets
+    public operator fun component3(): MutPtr = this.rgPropertySets
 
-    public operator fun component4(): MutPtr<Guid> = this.pclsid
+    public operator fun component4(): MutPtr = this.pclsid
 
     public operator fun component5(): UInt = this.cPropertySets
 
@@ -770,7 +768,7 @@ public class Dbcolumndesc internal constructor(
 
     public operator fun component10(): UByte = this.bScale
 
-    public fun copy(pwszTypeName: Pwstr = this.pwszTypeName, pTypeInfo: MutPtr<CVoid> = this.pTypeInfo, rgPropertySets: MutPtr<Dbpropset> = this.rgPropertySets, pclsid: MutPtr<Guid> = this.pclsid, cPropertySets: UInt = this.cPropertySets, ulColumnSize: Int = this.ulColumnSize, dbcid: Dbid = this.dbcid, wType: UShort = this.wType, bPrecision: UByte = this.bPrecision, bScale: UByte = this.bScale): Dbcolumndesc = Dbcolumndesc(pwszTypeNameCtorArg = pwszTypeName, pTypeInfoCtorArg = pTypeInfo, rgPropertySetsCtorArg = rgPropertySets, pclsidCtorArg = pclsid, cPropertySets = cPropertySets, ulColumnSize = ulColumnSize, dbcid = dbcid, wType = wType, bPrecision = bPrecision, bScale = bScale)
+    public fun copy(pwszTypeName: Pwstr = this.pwszTypeName, pTypeInfo: MutPtr = this.pTypeInfo, rgPropertySets: MutPtr = this.rgPropertySets, pclsid: MutPtr = this.pclsid, cPropertySets: UInt = this.cPropertySets, ulColumnSize: Int = this.ulColumnSize, dbcid: Dbid = this.dbcid, wType: UShort = this.wType, bPrecision: UByte = this.bPrecision, bScale: UByte = this.bScale): Dbcolumndesc = Dbcolumndesc(pwszTypeNameCtorArg = pwszTypeName, pTypeInfoCtorArg = pTypeInfo, rgPropertySetsCtorArg = rgPropertySets, pclsidCtorArg = pclsid, cPropertySets = cPropertySets, ulColumnSize = ulColumnSize, dbcid = dbcid, wType = wType, bPrecision = bPrecision, bScale = bScale)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -805,9 +803,9 @@ public class Dbcolumndesc internal constructor(
     public companion object {
         public operator fun invoke(
             pwszTypeName: Pwstr = MutPtr(0L),
-            pTypeInfo: MutPtr<CVoid> = MutPtr(0L),
-            rgPropertySets: MutPtr<Dbpropset> = MutPtr(0L),
-            pclsid: MutPtr<Guid> = MutPtr(0L),
+            pTypeInfo: MutPtr = MutPtr(0L),
+            rgPropertySets: MutPtr = MutPtr(0L),
+            pclsid: MutPtr = MutPtr(0L),
             cPropertySets: UInt = 0u,
             ulColumnSize: Int = 0,
             dbcid: Dbid = Dbid(),
@@ -832,7 +830,7 @@ public class Dbcolumndesc internal constructor(
 
 public class Dbcolumninfo internal constructor(
     pwszNameCtorArg: Pwstr,
-    pTypeInfoCtorArg: MutPtr<CVoid>,
+    pTypeInfoCtorArg: MutPtr,
     public var iOrdinal: Int,
     public var dwFlags: UInt,
     public var ulColumnSize: Int,
@@ -844,7 +842,7 @@ public class Dbcolumninfo internal constructor(
     public var pwszName: Pwstr = pwszNameCtorArg
         internal set
 
-    public var pTypeInfo: MutPtr<CVoid> = pTypeInfoCtorArg
+    public var pTypeInfo: MutPtr = pTypeInfoCtorArg
         internal set
 
     public constructor() : this(
@@ -861,7 +859,7 @@ public class Dbcolumninfo internal constructor(
 
     public operator fun component1(): Pwstr = this.pwszName
 
-    public operator fun component2(): MutPtr<CVoid> = this.pTypeInfo
+    public operator fun component2(): MutPtr = this.pTypeInfo
 
     public operator fun component3(): Int = this.iOrdinal
 
@@ -877,7 +875,7 @@ public class Dbcolumninfo internal constructor(
 
     public operator fun component9(): Dbid = this.columnid
 
-    public fun copy(pwszName: Pwstr = this.pwszName, pTypeInfo: MutPtr<CVoid> = this.pTypeInfo, iOrdinal: Int = this.iOrdinal, dwFlags: UInt = this.dwFlags, ulColumnSize: Int = this.ulColumnSize, wType: UShort = this.wType, bPrecision: UByte = this.bPrecision, bScale: UByte = this.bScale, columnid: Dbid = this.columnid): Dbcolumninfo = Dbcolumninfo(pwszNameCtorArg = pwszName, pTypeInfoCtorArg = pTypeInfo, iOrdinal = iOrdinal, dwFlags = dwFlags, ulColumnSize = ulColumnSize, wType = wType, bPrecision = bPrecision, bScale = bScale, columnid = columnid)
+    public fun copy(pwszName: Pwstr = this.pwszName, pTypeInfo: MutPtr = this.pTypeInfo, iOrdinal: Int = this.iOrdinal, dwFlags: UInt = this.dwFlags, ulColumnSize: Int = this.ulColumnSize, wType: UShort = this.wType, bPrecision: UByte = this.bPrecision, bScale: UByte = this.bScale, columnid: Dbid = this.columnid): Dbcolumninfo = Dbcolumninfo(pwszNameCtorArg = pwszName, pTypeInfoCtorArg = pTypeInfo, iOrdinal = iOrdinal, dwFlags = dwFlags, ulColumnSize = ulColumnSize, wType = wType, bPrecision = bPrecision, bScale = bScale, columnid = columnid)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -910,7 +908,7 @@ public class Dbcolumninfo internal constructor(
     public companion object {
         public operator fun invoke(
             pwszName: Pwstr = MutPtr(0L),
-            pTypeInfo: MutPtr<CVoid> = MutPtr(0L),
+            pTypeInfo: MutPtr = MutPtr(0L),
             iOrdinal: Int = 0,
             dwFlags: UInt = 0u,
             ulColumnSize: Int = 0,
@@ -934,37 +932,37 @@ public class Dbcolumninfo internal constructor(
 }
 
 public class Dbconstraintdesc internal constructor(
-    pConstraintIDCtorArg: MutPtr<Dbid>,
+    pConstraintIDCtorArg: MutPtr,
     public var constraintType: UInt,
     public var cColumns: Int,
-    rgColumnListCtorArg: MutPtr<Dbid>,
-    pReferencedTableIDCtorArg: MutPtr<Dbid>,
+    rgColumnListCtorArg: MutPtr,
+    pReferencedTableIDCtorArg: MutPtr,
     public var cForeignKeyColumns: Int,
-    rgForeignKeyColumnListCtorArg: MutPtr<Dbid>,
+    rgForeignKeyColumnListCtorArg: MutPtr,
     pwszConstraintTextCtorArg: Pwstr,
     public var updateRule: UInt,
     public var deleteRule: UInt,
     public var matchType: UInt,
     public var deferrability: UInt,
     public var cReserved: Int,
-    rgReservedCtorArg: MutPtr<Dbpropset>,
+    rgReservedCtorArg: MutPtr,
 ) {
-    public var pConstraintID: MutPtr<Dbid> = pConstraintIDCtorArg
+    public var pConstraintID: MutPtr = pConstraintIDCtorArg
         internal set
 
-    public var rgColumnList: MutPtr<Dbid> = rgColumnListCtorArg
+    public var rgColumnList: MutPtr = rgColumnListCtorArg
         internal set
 
-    public var pReferencedTableID: MutPtr<Dbid> = pReferencedTableIDCtorArg
+    public var pReferencedTableID: MutPtr = pReferencedTableIDCtorArg
         internal set
 
-    public var rgForeignKeyColumnList: MutPtr<Dbid> = rgForeignKeyColumnListCtorArg
+    public var rgForeignKeyColumnList: MutPtr = rgForeignKeyColumnListCtorArg
         internal set
 
     public var pwszConstraintText: Pwstr = pwszConstraintTextCtorArg
         internal set
 
-    public var rgReserved: MutPtr<Dbpropset> = rgReservedCtorArg
+    public var rgReserved: MutPtr = rgReservedCtorArg
         internal set
 
     public constructor() : this(
@@ -984,19 +982,19 @@ public class Dbconstraintdesc internal constructor(
         rgReservedCtorArg = MutPtr(0L),
     )
 
-    public operator fun component1(): MutPtr<Dbid> = this.pConstraintID
+    public operator fun component1(): MutPtr = this.pConstraintID
 
     public operator fun component2(): UInt = this.constraintType
 
     public operator fun component3(): Int = this.cColumns
 
-    public operator fun component4(): MutPtr<Dbid> = this.rgColumnList
+    public operator fun component4(): MutPtr = this.rgColumnList
 
-    public operator fun component5(): MutPtr<Dbid> = this.pReferencedTableID
+    public operator fun component5(): MutPtr = this.pReferencedTableID
 
     public operator fun component6(): Int = this.cForeignKeyColumns
 
-    public operator fun component7(): MutPtr<Dbid> = this.rgForeignKeyColumnList
+    public operator fun component7(): MutPtr = this.rgForeignKeyColumnList
 
     public operator fun component8(): Pwstr = this.pwszConstraintText
 
@@ -1010,9 +1008,9 @@ public class Dbconstraintdesc internal constructor(
 
     public operator fun component13(): Int = this.cReserved
 
-    public operator fun component14(): MutPtr<Dbpropset> = this.rgReserved
+    public operator fun component14(): MutPtr = this.rgReserved
 
-    public fun copy(pConstraintID: MutPtr<Dbid> = this.pConstraintID, constraintType: UInt = this.constraintType, cColumns: Int = this.cColumns, rgColumnList: MutPtr<Dbid> = this.rgColumnList, pReferencedTableID: MutPtr<Dbid> = this.pReferencedTableID, cForeignKeyColumns: Int = this.cForeignKeyColumns, rgForeignKeyColumnList: MutPtr<Dbid> = this.rgForeignKeyColumnList, pwszConstraintText: Pwstr = this.pwszConstraintText, updateRule: UInt = this.updateRule, deleteRule: UInt = this.deleteRule, matchType: UInt = this.matchType, deferrability: UInt = this.deferrability, cReserved: Int = this.cReserved, rgReserved: MutPtr<Dbpropset> = this.rgReserved): Dbconstraintdesc = Dbconstraintdesc(pConstraintIDCtorArg = pConstraintID, constraintType = constraintType, cColumns = cColumns, rgColumnListCtorArg = rgColumnList, pReferencedTableIDCtorArg = pReferencedTableID, cForeignKeyColumns = cForeignKeyColumns, rgForeignKeyColumnListCtorArg = rgForeignKeyColumnList, pwszConstraintTextCtorArg = pwszConstraintText, updateRule = updateRule, deleteRule = deleteRule, matchType = matchType, deferrability = deferrability, cReserved = cReserved, rgReservedCtorArg = rgReserved)
+    public fun copy(pConstraintID: MutPtr = this.pConstraintID, constraintType: UInt = this.constraintType, cColumns: Int = this.cColumns, rgColumnList: MutPtr = this.rgColumnList, pReferencedTableID: MutPtr = this.pReferencedTableID, cForeignKeyColumns: Int = this.cForeignKeyColumns, rgForeignKeyColumnList: MutPtr = this.rgForeignKeyColumnList, pwszConstraintText: Pwstr = this.pwszConstraintText, updateRule: UInt = this.updateRule, deleteRule: UInt = this.deleteRule, matchType: UInt = this.matchType, deferrability: UInt = this.deferrability, cReserved: Int = this.cReserved, rgReserved: MutPtr = this.rgReserved): Dbconstraintdesc = Dbconstraintdesc(pConstraintIDCtorArg = pConstraintID, constraintType = constraintType, cColumns = cColumns, rgColumnListCtorArg = rgColumnList, pReferencedTableIDCtorArg = pReferencedTableID, cForeignKeyColumns = cForeignKeyColumns, rgForeignKeyColumnListCtorArg = rgForeignKeyColumnList, pwszConstraintTextCtorArg = pwszConstraintText, updateRule = updateRule, deleteRule = deleteRule, matchType = matchType, deferrability = deferrability, cReserved = cReserved, rgReservedCtorArg = rgReserved)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -1054,20 +1052,20 @@ public class Dbconstraintdesc internal constructor(
 
     public companion object {
         public operator fun invoke(
-            pConstraintID: MutPtr<Dbid> = MutPtr(0L),
+            pConstraintID: MutPtr = MutPtr(0L),
             constraintType: UInt = 0u,
             cColumns: Int = 0,
-            rgColumnList: MutPtr<Dbid> = MutPtr(0L),
-            pReferencedTableID: MutPtr<Dbid> = MutPtr(0L),
+            rgColumnList: MutPtr = MutPtr(0L),
+            pReferencedTableID: MutPtr = MutPtr(0L),
             cForeignKeyColumns: Int = 0,
-            rgForeignKeyColumnList: MutPtr<Dbid> = MutPtr(0L),
+            rgForeignKeyColumnList: MutPtr = MutPtr(0L),
             pwszConstraintText: Pwstr = MutPtr(0L),
             updateRule: UInt = 0u,
             deleteRule: UInt = 0u,
             matchType: UInt = 0u,
             deferrability: UInt = 0u,
             cReserved: Int = 0,
-            rgReserved: MutPtr<Dbpropset> = MutPtr(0L),
+            rgReserved: MutPtr = MutPtr(0L),
         ): Dbconstraintdesc =
             Dbconstraintdesc(
                 pConstraintIDCtorArg = pConstraintID,
@@ -1208,17 +1206,17 @@ public data class Dbfailureinfo(
 }
 
 public class Dbimplicitsession internal constructor(
-    pUnkOuterCtorArg: MutPtr<CVoid>,
-    piidCtorArg: MutPtr<Guid>,
-    pSessionCtorArg: MutPtr<CVoid>,
+    pUnkOuterCtorArg: MutPtr,
+    piidCtorArg: MutPtr,
+    pSessionCtorArg: MutPtr,
 ) {
-    public var pUnkOuter: MutPtr<CVoid> = pUnkOuterCtorArg
+    public var pUnkOuter: MutPtr = pUnkOuterCtorArg
         internal set
 
-    public var piid: MutPtr<Guid> = piidCtorArg
+    public var piid: MutPtr = piidCtorArg
         internal set
 
-    public var pSession: MutPtr<CVoid> = pSessionCtorArg
+    public var pSession: MutPtr = pSessionCtorArg
         internal set
 
     public constructor() : this(
@@ -1227,13 +1225,13 @@ public class Dbimplicitsession internal constructor(
         pSessionCtorArg = MutPtr(0L),
     )
 
-    public operator fun component1(): MutPtr<CVoid> = this.pUnkOuter
+    public operator fun component1(): MutPtr = this.pUnkOuter
 
-    public operator fun component2(): MutPtr<Guid> = this.piid
+    public operator fun component2(): MutPtr = this.piid
 
-    public operator fun component3(): MutPtr<CVoid> = this.pSession
+    public operator fun component3(): MutPtr = this.pSession
 
-    public fun copy(pUnkOuter: MutPtr<CVoid> = this.pUnkOuter, piid: MutPtr<Guid> = this.piid, pSession: MutPtr<CVoid> = this.pSession): Dbimplicitsession = Dbimplicitsession(pUnkOuterCtorArg = pUnkOuter, piidCtorArg = piid, pSessionCtorArg = pSession)
+    public fun copy(pUnkOuter: MutPtr = this.pUnkOuter, piid: MutPtr = this.piid, pSession: MutPtr = this.pSession): Dbimplicitsession = Dbimplicitsession(pUnkOuterCtorArg = pUnkOuter, piidCtorArg = piid, pSessionCtorArg = pSession)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -1260,37 +1258,37 @@ public class Dbimplicitsession internal constructor(
                     Dbimplicitsession(
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<CVoid>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<Guid>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<CVoid>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 16L),
                     )
                 override fun writeNative(addr: Long, value: Dbimplicitsession) {
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<CVoid>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr, value.pUnkOuter)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<Guid>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.piid)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<CVoid>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 16L, value.pSession)
                 }
             }
 
         public operator fun invoke(
-            pUnkOuter: MutPtr<CVoid> = MutPtr(0L),
-            piid: MutPtr<Guid> = MutPtr(0L),
-            pSession: MutPtr<CVoid> = MutPtr(0L),
+            pUnkOuter: MutPtr = MutPtr(0L),
+            piid: MutPtr = MutPtr(0L),
+            pSession: MutPtr = MutPtr(0L),
         ): Dbimplicitsession =
             Dbimplicitsession(
                 pUnkOuterCtorArg = pUnkOuter,
@@ -1301,10 +1299,10 @@ public class Dbimplicitsession internal constructor(
 }
 
 public class Dbindexcolumndesc internal constructor(
-    pColumnIDCtorArg: MutPtr<Dbid>,
+    pColumnIDCtorArg: MutPtr,
     public var eIndexColOrder: UInt,
 ) {
-    public var pColumnID: MutPtr<Dbid> = pColumnIDCtorArg
+    public var pColumnID: MutPtr = pColumnIDCtorArg
         internal set
 
     public constructor() : this(
@@ -1312,11 +1310,11 @@ public class Dbindexcolumndesc internal constructor(
         eIndexColOrder = 0u,
     )
 
-    public operator fun component1(): MutPtr<Dbid> = this.pColumnID
+    public operator fun component1(): MutPtr = this.pColumnID
 
     public operator fun component2(): UInt = this.eIndexColOrder
 
-    public fun copy(pColumnID: MutPtr<Dbid> = this.pColumnID, eIndexColOrder: UInt = this.eIndexColOrder): Dbindexcolumndesc = Dbindexcolumndesc(pColumnIDCtorArg = pColumnID, eIndexColOrder = eIndexColOrder)
+    public fun copy(pColumnID: MutPtr = this.pColumnID, eIndexColOrder: UInt = this.eIndexColOrder): Dbindexcolumndesc = Dbindexcolumndesc(pColumnIDCtorArg = pColumnID, eIndexColOrder = eIndexColOrder)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -1341,21 +1339,21 @@ public class Dbindexcolumndesc internal constructor(
                     Dbindexcolumndesc(
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<Dbid>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 8L),
                     )
                 override fun writeNative(addr: Long, value: Dbindexcolumndesc) {
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<Dbid>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr, value.pColumnID)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 8L, value.eIndexColOrder)
                 }
             }
 
         public operator fun invoke(
-            pColumnID: MutPtr<Dbid> = MutPtr(0L),
+            pColumnID: MutPtr = MutPtr(0L),
             eIndexColOrder: UInt = 0u,
         ): Dbindexcolumndesc =
             Dbindexcolumndesc(
@@ -1557,7 +1555,7 @@ public class Dbparaminfo internal constructor(
     public var dwFlags: UInt,
     public var iOrdinal: Int,
     pwszNameCtorArg: Pwstr,
-    pTypeInfoCtorArg: MutPtr<CVoid>,
+    pTypeInfoCtorArg: MutPtr,
     public var ulParamSize: Int,
     public var wType: UShort,
     public var bPrecision: UByte,
@@ -1566,7 +1564,7 @@ public class Dbparaminfo internal constructor(
     public var pwszName: Pwstr = pwszNameCtorArg
         internal set
 
-    public var pTypeInfo: MutPtr<CVoid> = pTypeInfoCtorArg
+    public var pTypeInfo: MutPtr = pTypeInfoCtorArg
         internal set
 
     public constructor() : this(
@@ -1586,7 +1584,7 @@ public class Dbparaminfo internal constructor(
 
     public operator fun component3(): Pwstr = this.pwszName
 
-    public operator fun component4(): MutPtr<CVoid> = this.pTypeInfo
+    public operator fun component4(): MutPtr = this.pTypeInfo
 
     public operator fun component5(): Int = this.ulParamSize
 
@@ -1596,7 +1594,7 @@ public class Dbparaminfo internal constructor(
 
     public operator fun component8(): UByte = this.bScale
 
-    public fun copy(dwFlags: UInt = this.dwFlags, iOrdinal: Int = this.iOrdinal, pwszName: Pwstr = this.pwszName, pTypeInfo: MutPtr<CVoid> = this.pTypeInfo, ulParamSize: Int = this.ulParamSize, wType: UShort = this.wType, bPrecision: UByte = this.bPrecision, bScale: UByte = this.bScale): Dbparaminfo = Dbparaminfo(dwFlags = dwFlags, iOrdinal = iOrdinal, pwszNameCtorArg = pwszName, pTypeInfoCtorArg = pTypeInfo, ulParamSize = ulParamSize, wType = wType, bPrecision = bPrecision, bScale = bScale)
+    public fun copy(dwFlags: UInt = this.dwFlags, iOrdinal: Int = this.iOrdinal, pwszName: Pwstr = this.pwszName, pTypeInfo: MutPtr = this.pTypeInfo, ulParamSize: Int = this.ulParamSize, wType: UShort = this.wType, bPrecision: UByte = this.bPrecision, bScale: UByte = this.bScale): Dbparaminfo = Dbparaminfo(dwFlags = dwFlags, iOrdinal = iOrdinal, pwszNameCtorArg = pwszName, pTypeInfoCtorArg = pTypeInfo, ulParamSize = ulParamSize, wType = wType, bPrecision = bPrecision, bScale = bScale)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -1629,7 +1627,7 @@ public class Dbparaminfo internal constructor(
             dwFlags: UInt = 0u,
             iOrdinal: Int = 0,
             pwszName: Pwstr = MutPtr(0L),
-            pTypeInfo: MutPtr<CVoid> = MutPtr(0L),
+            pTypeInfo: MutPtr = MutPtr(0L),
             ulParamSize: Int = 0,
             wType: UShort = 0u,
             bPrecision: UByte = 0u,
@@ -1649,11 +1647,11 @@ public class Dbparaminfo internal constructor(
 }
 
 public class Dbparams internal constructor(
-    pDataCtorArg: MutPtr<CVoid>,
+    pDataCtorArg: MutPtr,
     public var cParamSets: Int,
     public var hAccessor: Haccessor,
 ) {
-    public var pData: MutPtr<CVoid> = pDataCtorArg
+    public var pData: MutPtr = pDataCtorArg
         internal set
 
     public constructor() : this(
@@ -1662,13 +1660,13 @@ public class Dbparams internal constructor(
         hAccessor = 0,
     )
 
-    public operator fun component1(): MutPtr<CVoid> = this.pData
+    public operator fun component1(): MutPtr = this.pData
 
     public operator fun component2(): Int = this.cParamSets
 
     public operator fun component3(): Haccessor = this.hAccessor
 
-    public fun copy(pData: MutPtr<CVoid> = this.pData, cParamSets: Int = this.cParamSets, hAccessor: Haccessor = this.hAccessor): Dbparams = Dbparams(pDataCtorArg = pData, cParamSets = cParamSets, hAccessor = hAccessor)
+    public fun copy(pData: MutPtr = this.pData, cParamSets: Int = this.cParamSets, hAccessor: Haccessor = this.hAccessor): Dbparams = Dbparams(pDataCtorArg = pData, cParamSets = cParamSets, hAccessor = hAccessor)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -1695,7 +1693,7 @@ public class Dbparams internal constructor(
                     Dbparams(
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<CVoid>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.USIZE64).readNative(addr + 8L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.USIZE64).readNative(addr + 16L),
@@ -1703,7 +1701,7 @@ public class Dbparams internal constructor(
                 override fun writeNative(addr: Long, value: Dbparams) {
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<CVoid>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr, value.pData)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.USIZE64).writeNative(addr + 8L, value.cParamSets)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.USIZE64).writeNative(addr + 16L, value.hAccessor)
@@ -1711,7 +1709,7 @@ public class Dbparams internal constructor(
             }
 
         public operator fun invoke(
-            pData: MutPtr<CVoid> = MutPtr(0L),
+            pData: MutPtr = MutPtr(0L),
             cParamSets: Int = 0,
             hAccessor: Haccessor = 0,
         ): Dbparams =
@@ -1732,11 +1730,11 @@ public data class Dbprop(
 )
 
 public class Dbpropidset internal constructor(
-    rgPropertyIDsCtorArg: MutPtr<UInt>,
+    rgPropertyIDsCtorArg: MutPtr,
     public var cPropertyIDs: UInt,
     public var guidPropertySet: Guid,
 ) {
-    public var rgPropertyIDs: MutPtr<UInt> = rgPropertyIDsCtorArg
+    public var rgPropertyIDs: MutPtr = rgPropertyIDsCtorArg
         internal set
 
     public constructor() : this(
@@ -1745,13 +1743,13 @@ public class Dbpropidset internal constructor(
         guidPropertySet = Guid(),
     )
 
-    public operator fun component1(): MutPtr<UInt> = this.rgPropertyIDs
+    public operator fun component1(): MutPtr = this.rgPropertyIDs
 
     public operator fun component2(): UInt = this.cPropertyIDs
 
     public operator fun component3(): Guid = this.guidPropertySet
 
-    public fun copy(rgPropertyIDs: MutPtr<UInt> = this.rgPropertyIDs, cPropertyIDs: UInt = this.cPropertyIDs, guidPropertySet: Guid = this.guidPropertySet): Dbpropidset = Dbpropidset(rgPropertyIDsCtorArg = rgPropertyIDs, cPropertyIDs = cPropertyIDs, guidPropertySet = guidPropertySet)
+    public fun copy(rgPropertyIDs: MutPtr = this.rgPropertyIDs, cPropertyIDs: UInt = this.cPropertyIDs, guidPropertySet: Guid = this.guidPropertySet): Dbpropidset = Dbpropidset(rgPropertyIDsCtorArg = rgPropertyIDs, cPropertyIDs = cPropertyIDs, guidPropertySet = guidPropertySet)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -1771,7 +1769,7 @@ public class Dbpropidset internal constructor(
 
     public companion object {
         public operator fun invoke(
-            rgPropertyIDs: MutPtr<UInt> = MutPtr(0L),
+            rgPropertyIDs: MutPtr = MutPtr(0L),
             cPropertyIDs: UInt = 0u,
             guidPropertySet: Guid = Guid(),
         ): Dbpropidset =
@@ -1852,11 +1850,11 @@ public class Dbpropinfo internal constructor(
 }
 
 public class Dbpropinfoset internal constructor(
-    rgPropertyInfosCtorArg: MutPtr<Dbpropinfo>,
+    rgPropertyInfosCtorArg: MutPtr,
     public var cPropertyInfos: UInt,
     public var guidPropertySet: Guid,
 ) {
-    public var rgPropertyInfos: MutPtr<Dbpropinfo> = rgPropertyInfosCtorArg
+    public var rgPropertyInfos: MutPtr = rgPropertyInfosCtorArg
         internal set
 
     public constructor() : this(
@@ -1865,13 +1863,13 @@ public class Dbpropinfoset internal constructor(
         guidPropertySet = Guid(),
     )
 
-    public operator fun component1(): MutPtr<Dbpropinfo> = this.rgPropertyInfos
+    public operator fun component1(): MutPtr = this.rgPropertyInfos
 
     public operator fun component2(): UInt = this.cPropertyInfos
 
     public operator fun component3(): Guid = this.guidPropertySet
 
-    public fun copy(rgPropertyInfos: MutPtr<Dbpropinfo> = this.rgPropertyInfos, cPropertyInfos: UInt = this.cPropertyInfos, guidPropertySet: Guid = this.guidPropertySet): Dbpropinfoset = Dbpropinfoset(rgPropertyInfosCtorArg = rgPropertyInfos, cPropertyInfos = cPropertyInfos, guidPropertySet = guidPropertySet)
+    public fun copy(rgPropertyInfos: MutPtr = this.rgPropertyInfos, cPropertyInfos: UInt = this.cPropertyInfos, guidPropertySet: Guid = this.guidPropertySet): Dbpropinfoset = Dbpropinfoset(rgPropertyInfosCtorArg = rgPropertyInfos, cPropertyInfos = cPropertyInfos, guidPropertySet = guidPropertySet)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -1891,7 +1889,7 @@ public class Dbpropinfoset internal constructor(
 
     public companion object {
         public operator fun invoke(
-            rgPropertyInfos: MutPtr<Dbpropinfo> = MutPtr(0L),
+            rgPropertyInfos: MutPtr = MutPtr(0L),
             cPropertyInfos: UInt = 0u,
             guidPropertySet: Guid = Guid(),
         ): Dbpropinfoset =
@@ -1904,11 +1902,11 @@ public class Dbpropinfoset internal constructor(
 }
 
 public class Dbpropset internal constructor(
-    rgPropertiesCtorArg: MutPtr<Dbprop>,
+    rgPropertiesCtorArg: MutPtr,
     public var cProperties: UInt,
     public var guidPropertySet: Guid,
 ) {
-    public var rgProperties: MutPtr<Dbprop> = rgPropertiesCtorArg
+    public var rgProperties: MutPtr = rgPropertiesCtorArg
         internal set
 
     public constructor() : this(
@@ -1917,13 +1915,13 @@ public class Dbpropset internal constructor(
         guidPropertySet = Guid(),
     )
 
-    public operator fun component1(): MutPtr<Dbprop> = this.rgProperties
+    public operator fun component1(): MutPtr = this.rgProperties
 
     public operator fun component2(): UInt = this.cProperties
 
     public operator fun component3(): Guid = this.guidPropertySet
 
-    public fun copy(rgProperties: MutPtr<Dbprop> = this.rgProperties, cProperties: UInt = this.cProperties, guidPropertySet: Guid = this.guidPropertySet): Dbpropset = Dbpropset(rgPropertiesCtorArg = rgProperties, cProperties = cProperties, guidPropertySet = guidPropertySet)
+    public fun copy(rgProperties: MutPtr = this.rgProperties, cProperties: UInt = this.cProperties, guidPropertySet: Guid = this.guidPropertySet): Dbpropset = Dbpropset(rgPropertiesCtorArg = rgProperties, cProperties = cProperties, guidPropertySet = guidPropertySet)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -1943,7 +1941,7 @@ public class Dbpropset internal constructor(
 
     public companion object {
         public operator fun invoke(
-            rgProperties: MutPtr<Dbprop> = MutPtr(0L),
+            rgProperties: MutPtr = MutPtr(0L),
             cProperties: UInt = 0u,
             guidPropertySet: Guid = Guid(),
         ): Dbpropset =
@@ -2131,9 +2129,9 @@ public data class Dbvarychar(
 
 public class Dbvector internal constructor(
     public var size: Int,
-    ptrCtorArg: MutPtr<CVoid>,
+    ptrCtorArg: MutPtr,
 ) {
-    public var ptr: MutPtr<CVoid> = ptrCtorArg
+    public var ptr: MutPtr = ptrCtorArg
         internal set
 
     public constructor() : this(
@@ -2143,9 +2141,9 @@ public class Dbvector internal constructor(
 
     public operator fun component1(): Int = this.size
 
-    public operator fun component2(): MutPtr<CVoid> = this.ptr
+    public operator fun component2(): MutPtr = this.ptr
 
-    public fun copy(size: Int = this.size, ptr: MutPtr<CVoid> = this.ptr): Dbvector = Dbvector(size = size, ptrCtorArg = ptr)
+    public fun copy(size: Int = this.size, ptr: MutPtr = this.ptr): Dbvector = Dbvector(size = size, ptrCtorArg = ptr)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -2171,21 +2169,21 @@ public class Dbvector internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.USIZE64).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<CVoid>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                     )
                 override fun writeNative(addr: Long, value: Dbvector) {
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.USIZE64).writeNative(addr, value.size)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<CVoid>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.ptr)
                 }
             }
 
         public operator fun invoke(
             size: Int = 0,
-            ptr: MutPtr<CVoid> = MutPtr(0L),
+            ptr: MutPtr = MutPtr(0L),
         ): Dbvector =
             Dbvector(
                 size = size,
@@ -2314,7 +2312,7 @@ public data class Errorinfo(
 public class FilteredDataSources internal constructor(
     pwcsExtensionCtorArg: Pcwstr,
     pwcsMimeCtorArg: Pcwstr,
-    pClsidCtorArg: ConstPtr<Guid>,
+    pClsidCtorArg: ConstPtr,
     pwcsOverrideCtorArg: Pcwstr,
 ) {
     public var pwcsExtension: Pcwstr = pwcsExtensionCtorArg
@@ -2323,7 +2321,7 @@ public class FilteredDataSources internal constructor(
     public var pwcsMime: Pcwstr = pwcsMimeCtorArg
         internal set
 
-    public var pClsid: ConstPtr<Guid> = pClsidCtorArg
+    public var pClsid: ConstPtr = pClsidCtorArg
         internal set
 
     public var pwcsOverride: Pcwstr = pwcsOverrideCtorArg
@@ -2340,11 +2338,11 @@ public class FilteredDataSources internal constructor(
 
     public operator fun component2(): Pcwstr = this.pwcsMime
 
-    public operator fun component3(): ConstPtr<Guid> = this.pClsid
+    public operator fun component3(): ConstPtr = this.pClsid
 
     public operator fun component4(): Pcwstr = this.pwcsOverride
 
-    public fun copy(pwcsExtension: Pcwstr = this.pwcsExtension, pwcsMime: Pcwstr = this.pwcsMime, pClsid: ConstPtr<Guid> = this.pClsid, pwcsOverride: Pcwstr = this.pwcsOverride): FilteredDataSources = FilteredDataSources(pwcsExtensionCtorArg = pwcsExtension, pwcsMimeCtorArg = pwcsMime, pClsidCtorArg = pClsid, pwcsOverrideCtorArg = pwcsOverride)
+    public fun copy(pwcsExtension: Pcwstr = this.pwcsExtension, pwcsMime: Pcwstr = this.pwcsMime, pClsid: ConstPtr = this.pClsid, pwcsOverride: Pcwstr = this.pwcsOverride): FilteredDataSources = FilteredDataSources(pwcsExtensionCtorArg = pwcsExtension, pwcsMimeCtorArg = pwcsMime, pClsidCtorArg = pClsid, pwcsOverrideCtorArg = pwcsOverride)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -2368,7 +2366,7 @@ public class FilteredDataSources internal constructor(
         public operator fun invoke(
             pwcsExtension: Pcwstr = ConstPtr(0L),
             pwcsMime: Pcwstr = ConstPtr(0L),
-            pClsid: ConstPtr<Guid> = ConstPtr(0L),
+            pClsid: ConstPtr = ConstPtr(0L),
             pwcsOverride: Pcwstr = ConstPtr(0L),
         ): FilteredDataSources =
             FilteredDataSources(
@@ -2564,13 +2562,13 @@ public class Mdaxisinfo internal constructor(
     public var iAxis: Int,
     public var cDimensions: Int,
     public var cCoordinates: Int,
-    rgcColumnsCtorArg: MutPtr<Int>,
-    rgpwszDimensionNamesCtorArg: MutPtr<Pwstr>,
+    rgcColumnsCtorArg: MutPtr,
+    rgpwszDimensionNamesCtorArg: MutPtr,
 ) {
-    public var rgcColumns: MutPtr<Int> = rgcColumnsCtorArg
+    public var rgcColumns: MutPtr = rgcColumnsCtorArg
         internal set
 
-    public var rgpwszDimensionNames: MutPtr<Pwstr> = rgpwszDimensionNamesCtorArg
+    public var rgpwszDimensionNames: MutPtr = rgpwszDimensionNamesCtorArg
         internal set
 
     public constructor() : this(
@@ -2590,11 +2588,11 @@ public class Mdaxisinfo internal constructor(
 
     public operator fun component4(): Int = this.cCoordinates
 
-    public operator fun component5(): MutPtr<Int> = this.rgcColumns
+    public operator fun component5(): MutPtr = this.rgcColumns
 
-    public operator fun component6(): MutPtr<Pwstr> = this.rgpwszDimensionNames
+    public operator fun component6(): MutPtr = this.rgpwszDimensionNames
 
-    public fun copy(cbSize: Int = this.cbSize, iAxis: Int = this.iAxis, cDimensions: Int = this.cDimensions, cCoordinates: Int = this.cCoordinates, rgcColumns: MutPtr<Int> = this.rgcColumns, rgpwszDimensionNames: MutPtr<Pwstr> = this.rgpwszDimensionNames): Mdaxisinfo = Mdaxisinfo(cbSize = cbSize, iAxis = iAxis, cDimensions = cDimensions, cCoordinates = cCoordinates, rgcColumnsCtorArg = rgcColumns, rgpwszDimensionNamesCtorArg = rgpwszDimensionNames)
+    public fun copy(cbSize: Int = this.cbSize, iAxis: Int = this.iAxis, cDimensions: Int = this.cDimensions, cCoordinates: Int = this.cCoordinates, rgcColumns: MutPtr = this.rgcColumns, rgpwszDimensionNames: MutPtr = this.rgpwszDimensionNames): Mdaxisinfo = Mdaxisinfo(cbSize = cbSize, iAxis = iAxis, cDimensions = cDimensions, cCoordinates = cCoordinates, rgcColumnsCtorArg = rgcColumns, rgpwszDimensionNamesCtorArg = rgpwszDimensionNames)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -2631,11 +2629,11 @@ public class Mdaxisinfo internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.USIZE64).readNative(addr + 24L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<Int>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 32L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<Pwstr>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 40L),
                     )
                 override fun writeNative(addr: Long, value: Mdaxisinfo) {
@@ -2645,11 +2643,11 @@ public class Mdaxisinfo internal constructor(
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.USIZE64).writeNative(addr + 24L, value.cCoordinates)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<Int>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 32L, value.rgcColumns)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<Pwstr>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 40L, value.rgpwszDimensionNames)
                 }
             }
@@ -2659,8 +2657,8 @@ public class Mdaxisinfo internal constructor(
             iAxis: Int = 0,
             cDimensions: Int = 0,
             cCoordinates: Int = 0,
-            rgcColumns: MutPtr<Int> = MutPtr(0L),
-            rgpwszDimensionNames: MutPtr<Pwstr> = MutPtr(0L),
+            rgcColumns: MutPtr = MutPtr(0L),
+            rgpwszDimensionNames: MutPtr = MutPtr(0L),
         ): Mdaxisinfo =
             Mdaxisinfo(
                 cbSize = cbSize,
@@ -2727,10 +2725,10 @@ public class Natlanguagerestriction internal constructor(
 
 public class Noderestriction internal constructor(
     public var cRes: UInt,
-    paResCtorArg: MutPtr<MutPtr<Restriction>>,
+    paResCtorArg: MutPtr,
     public var reserved: UInt,
 ) {
-    public var paRes: MutPtr<MutPtr<Restriction>> = paResCtorArg
+    public var paRes: MutPtr = paResCtorArg
         internal set
 
     public constructor() : this(
@@ -2741,11 +2739,11 @@ public class Noderestriction internal constructor(
 
     public operator fun component1(): UInt = this.cRes
 
-    public operator fun component2(): MutPtr<MutPtr<Restriction>> = this.paRes
+    public operator fun component2(): MutPtr = this.paRes
 
     public operator fun component3(): UInt = this.reserved
 
-    public fun copy(cRes: UInt = this.cRes, paRes: MutPtr<MutPtr<Restriction>> = this.paRes, reserved: UInt = this.reserved): Noderestriction = Noderestriction(cRes = cRes, paResCtorArg = paRes, reserved = reserved)
+    public fun copy(cRes: UInt = this.cRes, paRes: MutPtr = this.paRes, reserved: UInt = this.reserved): Noderestriction = Noderestriction(cRes = cRes, paResCtorArg = paRes, reserved = reserved)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -2773,7 +2771,7 @@ public class Noderestriction internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<MutPtr<Restriction>>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 16L),
                     )
@@ -2781,7 +2779,7 @@ public class Noderestriction internal constructor(
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr, value.cRes)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<MutPtr<Restriction>>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.paRes)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 16L, value.reserved)
                 }
@@ -2789,7 +2787,7 @@ public class Noderestriction internal constructor(
 
         public operator fun invoke(
             cRes: UInt = 0u,
-            paRes: MutPtr<MutPtr<Restriction>> = MutPtr(0L),
+            paRes: MutPtr = MutPtr(0L),
             reserved: UInt = 0u,
         ): Noderestriction =
             Noderestriction(
@@ -2801,18 +2799,18 @@ public class Noderestriction internal constructor(
 }
 
 public class Notrestriction internal constructor(
-    pResCtorArg: MutPtr<Restriction>,
+    pResCtorArg: MutPtr,
 ) {
-    public var pRes: MutPtr<Restriction> = pResCtorArg
+    public var pRes: MutPtr = pResCtorArg
         internal set
 
     public constructor() : this(
         pResCtorArg = MutPtr(0L),
     )
 
-    public operator fun component1(): MutPtr<Restriction> = this.pRes
+    public operator fun component1(): MutPtr = this.pRes
 
-    public fun copy(pRes: MutPtr<Restriction> = this.pRes): Notrestriction = Notrestriction(pResCtorArg = pRes)
+    public fun copy(pRes: MutPtr = this.pRes): Notrestriction = Notrestriction(pResCtorArg = pRes)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -2832,19 +2830,19 @@ public class Notrestriction internal constructor(
                     Notrestriction(
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<Restriction>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr),
                     )
                 override fun writeNative(addr: Long, value: Notrestriction) {
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<Restriction>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr, value.pRes)
                 }
             }
 
         public operator fun invoke(
-            pRes: MutPtr<Restriction> = MutPtr(0L),
+            pRes: MutPtr = MutPtr(0L),
         ): Notrestriction =
             Notrestriction(
                 pResCtorArg = pRes,
@@ -2853,13 +2851,13 @@ public class Notrestriction internal constructor(
 }
 
 public class OdbcVsArgs internal constructor(
-    pguidEventCtorArg: ConstPtr<Guid>,
+    pguidEventCtorArg: ConstPtr,
     public var dwFlags: UInt,
     public var anonymous1: OdbcVsArgs0,
     public var anonymous2: OdbcVsArgs1,
     public var retCode: Short,
 ) {
-    public var pguidEvent: ConstPtr<Guid> = pguidEventCtorArg
+    public var pguidEvent: ConstPtr = pguidEventCtorArg
         internal set
 
     public constructor() : this(
@@ -2870,7 +2868,7 @@ public class OdbcVsArgs internal constructor(
         retCode = 0,
     )
 
-    public operator fun component1(): ConstPtr<Guid> = this.pguidEvent
+    public operator fun component1(): ConstPtr = this.pguidEvent
 
     public operator fun component2(): UInt = this.dwFlags
 
@@ -2880,7 +2878,7 @@ public class OdbcVsArgs internal constructor(
 
     public operator fun component5(): Short = this.retCode
 
-    public fun copy(pguidEvent: ConstPtr<Guid> = this.pguidEvent, dwFlags: UInt = this.dwFlags, anonymous1: OdbcVsArgs0 = this.anonymous1, anonymous2: OdbcVsArgs1 = this.anonymous2, retCode: Short = this.retCode): OdbcVsArgs = OdbcVsArgs(pguidEventCtorArg = pguidEvent, dwFlags = dwFlags, anonymous1 = anonymous1, anonymous2 = anonymous2, retCode = retCode)
+    public fun copy(pguidEvent: ConstPtr = this.pguidEvent, dwFlags: UInt = this.dwFlags, anonymous1: OdbcVsArgs0 = this.anonymous1, anonymous2: OdbcVsArgs1 = this.anonymous2, retCode: Short = this.retCode): OdbcVsArgs = OdbcVsArgs(pguidEventCtorArg = pguidEvent, dwFlags = dwFlags, anonymous1 = anonymous1, anonymous2 = anonymous2, retCode = retCode)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -2904,7 +2902,7 @@ public class OdbcVsArgs internal constructor(
 
     public companion object {
         public operator fun invoke(
-            pguidEvent: ConstPtr<Guid> = ConstPtr(0L),
+            pguidEvent: ConstPtr = ConstPtr(0L),
             dwFlags: UInt = 0u,
             anonymous1: OdbcVsArgs0 = OdbcVsArgs0(),
             anonymous2: OdbcVsArgs1 = OdbcVsArgs1(),
@@ -3112,9 +3110,9 @@ public class ProxyInfo internal constructor(
 
 public class Rangecategorize internal constructor(
     public var cRange: UInt,
-    aRangeBeginCtorArg: MutPtr<Propvariant>,
+    aRangeBeginCtorArg: MutPtr,
 ) {
-    public var aRangeBegin: MutPtr<Propvariant> = aRangeBeginCtorArg
+    public var aRangeBegin: MutPtr = aRangeBeginCtorArg
         internal set
 
     public constructor() : this(
@@ -3124,9 +3122,9 @@ public class Rangecategorize internal constructor(
 
     public operator fun component1(): UInt = this.cRange
 
-    public operator fun component2(): MutPtr<Propvariant> = this.aRangeBegin
+    public operator fun component2(): MutPtr = this.aRangeBegin
 
-    public fun copy(cRange: UInt = this.cRange, aRangeBegin: MutPtr<Propvariant> = this.aRangeBegin): Rangecategorize = Rangecategorize(cRange = cRange, aRangeBeginCtorArg = aRangeBegin)
+    public fun copy(cRange: UInt = this.cRange, aRangeBegin: MutPtr = this.aRangeBegin): Rangecategorize = Rangecategorize(cRange = cRange, aRangeBeginCtorArg = aRangeBegin)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -3152,21 +3150,21 @@ public class Rangecategorize internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<Propvariant>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                     )
                 override fun writeNative(addr: Long, value: Rangecategorize) {
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr, value.cRange)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<Propvariant>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.aRangeBegin)
                 }
             }
 
         public operator fun invoke(
             cRange: UInt = 0u,
-            aRangeBegin: MutPtr<Propvariant> = MutPtr(0L),
+            aRangeBegin: MutPtr = MutPtr(0L),
         ): Rangecategorize =
             Rangecategorize(
                 cRange = cRange,
@@ -3193,40 +3191,40 @@ public data class Restriction0(
 )
 
 public class Rmtpack internal constructor(
-    pISeqStreamCtorArg: MutPtr<CVoid>,
+    pISeqStreamCtorArg: MutPtr,
     public var cbData: UInt,
     public var cBSTR: UInt,
-    rgBSTRCtorArg: MutPtr<Bstr>,
+    rgBSTRCtorArg: MutPtr,
     public var cVARIANT: UInt,
-    rgVARIANTCtorArg: MutPtr<Variant.Variant>,
+    rgVARIANTCtorArg: MutPtr,
     public var cIDISPATCH: UInt,
-    rgIDISPATCHCtorArg: MutPtr<MutPtr<CVoid>>,
+    rgIDISPATCHCtorArg: MutPtr,
     public var cIUNKNOWN: UInt,
-    rgIUNKNOWNCtorArg: MutPtr<MutPtr<CVoid>>,
+    rgIUNKNOWNCtorArg: MutPtr,
     public var cPROPVARIANT: UInt,
-    rgPROPVARIANTCtorArg: MutPtr<Propvariant>,
+    rgPROPVARIANTCtorArg: MutPtr,
     public var cArray: UInt,
-    rgArrayCtorArg: MutPtr<Variant.Variant>,
+    rgArrayCtorArg: MutPtr,
 ) {
-    public var pISeqStream: MutPtr<CVoid> = pISeqStreamCtorArg
+    public var pISeqStream: MutPtr = pISeqStreamCtorArg
         internal set
 
-    public var rgBSTR: MutPtr<Bstr> = rgBSTRCtorArg
+    public var rgBSTR: MutPtr = rgBSTRCtorArg
         internal set
 
-    public var rgVARIANT: MutPtr<Variant.Variant> = rgVARIANTCtorArg
+    public var rgVARIANT: MutPtr = rgVARIANTCtorArg
         internal set
 
-    public var rgIDISPATCH: MutPtr<MutPtr<CVoid>> = rgIDISPATCHCtorArg
+    public var rgIDISPATCH: MutPtr = rgIDISPATCHCtorArg
         internal set
 
-    public var rgIUNKNOWN: MutPtr<MutPtr<CVoid>> = rgIUNKNOWNCtorArg
+    public var rgIUNKNOWN: MutPtr = rgIUNKNOWNCtorArg
         internal set
 
-    public var rgPROPVARIANT: MutPtr<Propvariant> = rgPROPVARIANTCtorArg
+    public var rgPROPVARIANT: MutPtr = rgPROPVARIANTCtorArg
         internal set
 
-    public var rgArray: MutPtr<Variant.Variant> = rgArrayCtorArg
+    public var rgArray: MutPtr = rgArrayCtorArg
         internal set
 
     public constructor() : this(
@@ -3246,35 +3244,35 @@ public class Rmtpack internal constructor(
         rgArrayCtorArg = MutPtr(0L),
     )
 
-    public operator fun component1(): MutPtr<CVoid> = this.pISeqStream
+    public operator fun component1(): MutPtr = this.pISeqStream
 
     public operator fun component2(): UInt = this.cbData
 
     public operator fun component3(): UInt = this.cBSTR
 
-    public operator fun component4(): MutPtr<Bstr> = this.rgBSTR
+    public operator fun component4(): MutPtr = this.rgBSTR
 
     public operator fun component5(): UInt = this.cVARIANT
 
-    public operator fun component6(): MutPtr<Variant.Variant> = this.rgVARIANT
+    public operator fun component6(): MutPtr = this.rgVARIANT
 
     public operator fun component7(): UInt = this.cIDISPATCH
 
-    public operator fun component8(): MutPtr<MutPtr<CVoid>> = this.rgIDISPATCH
+    public operator fun component8(): MutPtr = this.rgIDISPATCH
 
     public operator fun component9(): UInt = this.cIUNKNOWN
 
-    public operator fun component10(): MutPtr<MutPtr<CVoid>> = this.rgIUNKNOWN
+    public operator fun component10(): MutPtr = this.rgIUNKNOWN
 
     public operator fun component11(): UInt = this.cPROPVARIANT
 
-    public operator fun component12(): MutPtr<Propvariant> = this.rgPROPVARIANT
+    public operator fun component12(): MutPtr = this.rgPROPVARIANT
 
     public operator fun component13(): UInt = this.cArray
 
-    public operator fun component14(): MutPtr<Variant.Variant> = this.rgArray
+    public operator fun component14(): MutPtr = this.rgArray
 
-    public fun copy(pISeqStream: MutPtr<CVoid> = this.pISeqStream, cbData: UInt = this.cbData, cBSTR: UInt = this.cBSTR, rgBSTR: MutPtr<Bstr> = this.rgBSTR, cVARIANT: UInt = this.cVARIANT, rgVARIANT: MutPtr<Variant.Variant> = this.rgVARIANT, cIDISPATCH: UInt = this.cIDISPATCH, rgIDISPATCH: MutPtr<MutPtr<CVoid>> = this.rgIDISPATCH, cIUNKNOWN: UInt = this.cIUNKNOWN, rgIUNKNOWN: MutPtr<MutPtr<CVoid>> = this.rgIUNKNOWN, cPROPVARIANT: UInt = this.cPROPVARIANT, rgPROPVARIANT: MutPtr<Propvariant> = this.rgPROPVARIANT, cArray: UInt = this.cArray, rgArray: MutPtr<Variant.Variant> = this.rgArray): Rmtpack = Rmtpack(pISeqStreamCtorArg = pISeqStream, cbData = cbData, cBSTR = cBSTR, rgBSTRCtorArg = rgBSTR, cVARIANT = cVARIANT, rgVARIANTCtorArg = rgVARIANT, cIDISPATCH = cIDISPATCH, rgIDISPATCHCtorArg = rgIDISPATCH, cIUNKNOWN = cIUNKNOWN, rgIUNKNOWNCtorArg = rgIUNKNOWN, cPROPVARIANT = cPROPVARIANT, rgPROPVARIANTCtorArg = rgPROPVARIANT, cArray = cArray, rgArrayCtorArg = rgArray)
+    public fun copy(pISeqStream: MutPtr = this.pISeqStream, cbData: UInt = this.cbData, cBSTR: UInt = this.cBSTR, rgBSTR: MutPtr = this.rgBSTR, cVARIANT: UInt = this.cVARIANT, rgVARIANT: MutPtr = this.rgVARIANT, cIDISPATCH: UInt = this.cIDISPATCH, rgIDISPATCH: MutPtr = this.rgIDISPATCH, cIUNKNOWN: UInt = this.cIUNKNOWN, rgIUNKNOWN: MutPtr = this.rgIUNKNOWN, cPROPVARIANT: UInt = this.cPROPVARIANT, rgPROPVARIANT: MutPtr = this.rgPROPVARIANT, cArray: UInt = this.cArray, rgArray: MutPtr = this.rgArray): Rmtpack = Rmtpack(pISeqStreamCtorArg = pISeqStream, cbData = cbData, cBSTR = cBSTR, rgBSTRCtorArg = rgBSTR, cVARIANT = cVARIANT, rgVARIANTCtorArg = rgVARIANT, cIDISPATCH = cIDISPATCH, rgIDISPATCHCtorArg = rgIDISPATCH, cIUNKNOWN = cIUNKNOWN, rgIUNKNOWNCtorArg = rgIUNKNOWN, cPROPVARIANT = cPROPVARIANT, rgPROPVARIANTCtorArg = rgPROPVARIANT, cArray = cArray, rgArrayCtorArg = rgArray)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -3323,94 +3321,94 @@ public class Rmtpack internal constructor(
                     Rmtpack(
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<CVoid>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 8L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 12L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<Bstr>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 16L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 24L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<Variant.Variant>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 32L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 40L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<MutPtr<CVoid>>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 48L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 56L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<MutPtr<CVoid>>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 64L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 72L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<Propvariant>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 80L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 88L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<Variant.Variant>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 96L),
                     )
                 override fun writeNative(addr: Long, value: Rmtpack) {
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<CVoid>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr, value.pISeqStream)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 8L, value.cbData)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 12L, value.cBSTR)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<Bstr>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 16L, value.rgBSTR)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 24L, value.cVARIANT)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<Variant.Variant>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 32L, value.rgVARIANT)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 40L, value.cIDISPATCH)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<MutPtr<CVoid>>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 48L, value.rgIDISPATCH)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 56L, value.cIUNKNOWN)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<MutPtr<CVoid>>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 64L, value.rgIUNKNOWN)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 72L, value.cPROPVARIANT)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<Propvariant>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 80L, value.rgPROPVARIANT)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 88L, value.cArray)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<Variant.Variant>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 96L, value.rgArray)
                 }
             }
 
         public operator fun invoke(
-            pISeqStream: MutPtr<CVoid> = MutPtr(0L),
+            pISeqStream: MutPtr = MutPtr(0L),
             cbData: UInt = 0u,
             cBSTR: UInt = 0u,
-            rgBSTR: MutPtr<Bstr> = MutPtr(0L),
+            rgBSTR: MutPtr = MutPtr(0L),
             cVARIANT: UInt = 0u,
-            rgVARIANT: MutPtr<Variant.Variant> = MutPtr(0L),
+            rgVARIANT: MutPtr = MutPtr(0L),
             cIDISPATCH: UInt = 0u,
-            rgIDISPATCH: MutPtr<MutPtr<CVoid>> = MutPtr(0L),
+            rgIDISPATCH: MutPtr = MutPtr(0L),
             cIUNKNOWN: UInt = 0u,
-            rgIUNKNOWN: MutPtr<MutPtr<CVoid>> = MutPtr(0L),
+            rgIUNKNOWN: MutPtr = MutPtr(0L),
             cPROPVARIANT: UInt = 0u,
-            rgPROPVARIANT: MutPtr<Propvariant> = MutPtr(0L),
+            rgPROPVARIANT: MutPtr = MutPtr(0L),
             cArray: UInt = 0u,
-            rgArray: MutPtr<Variant.Variant> = MutPtr(0L),
+            rgArray: MutPtr = MutPtr(0L),
         ): Rmtpack =
             Rmtpack(
                 pISeqStreamCtorArg = pISeqStream,
@@ -3439,11 +3437,11 @@ public data class SearchColumnProperties(
 public class SearchItemChange internal constructor(
     public var change: SearchKindOfChange,
     public var priority: SearchNotificationPriority,
-    pUserDataCtorArg: MutPtr<Blob>,
+    pUserDataCtorArg: MutPtr,
     lpwszURLCtorArg: Pwstr,
     lpwszOldURLCtorArg: Pwstr,
 ) {
-    public var pUserData: MutPtr<Blob> = pUserDataCtorArg
+    public var pUserData: MutPtr = pUserDataCtorArg
         internal set
 
     public var lpwszURL: Pwstr = lpwszURLCtorArg
@@ -3464,13 +3462,13 @@ public class SearchItemChange internal constructor(
 
     public operator fun component2(): SearchNotificationPriority = this.priority
 
-    public operator fun component3(): MutPtr<Blob> = this.pUserData
+    public operator fun component3(): MutPtr = this.pUserData
 
     public operator fun component4(): Pwstr = this.lpwszURL
 
     public operator fun component5(): Pwstr = this.lpwszOldURL
 
-    public fun copy(change: SearchKindOfChange = this.change, priority: SearchNotificationPriority = this.priority, pUserData: MutPtr<Blob> = this.pUserData, lpwszURL: Pwstr = this.lpwszURL, lpwszOldURL: Pwstr = this.lpwszOldURL): SearchItemChange = SearchItemChange(change = change, priority = priority, pUserDataCtorArg = pUserData, lpwszURLCtorArg = lpwszURL, lpwszOldURLCtorArg = lpwszOldURL)
+    public fun copy(change: SearchKindOfChange = this.change, priority: SearchNotificationPriority = this.priority, pUserData: MutPtr = this.pUserData, lpwszURL: Pwstr = this.lpwszURL, lpwszOldURL: Pwstr = this.lpwszOldURL): SearchItemChange = SearchItemChange(change = change, priority = priority, pUserDataCtorArg = pUserData, lpwszURLCtorArg = lpwszURL, lpwszOldURLCtorArg = lpwszOldURL)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -3496,7 +3494,7 @@ public class SearchItemChange internal constructor(
         public operator fun invoke(
             change: SearchKindOfChange = 0,
             priority: SearchNotificationPriority = 0,
-            pUserData: MutPtr<Blob> = MutPtr(0L),
+            pUserData: MutPtr = MutPtr(0L),
             lpwszURL: Pwstr = MutPtr(0L),
             lpwszOldURL: Pwstr = MutPtr(0L),
         ): SearchItemChange =
@@ -3597,9 +3595,9 @@ public class SearchItemPersistentChange internal constructor(
 
 public class SecObject internal constructor(
     public var cObjects: UInt,
-    prgObjectsCtorArg: MutPtr<SecObjectElement>,
+    prgObjectsCtorArg: MutPtr,
 ) {
-    public var prgObjects: MutPtr<SecObjectElement> = prgObjectsCtorArg
+    public var prgObjects: MutPtr = prgObjectsCtorArg
         internal set
 
     public constructor() : this(
@@ -3609,9 +3607,9 @@ public class SecObject internal constructor(
 
     public operator fun component1(): UInt = this.cObjects
 
-    public operator fun component2(): MutPtr<SecObjectElement> = this.prgObjects
+    public operator fun component2(): MutPtr = this.prgObjects
 
-    public fun copy(cObjects: UInt = this.cObjects, prgObjects: MutPtr<SecObjectElement> = this.prgObjects): SecObject = SecObject(cObjects = cObjects, prgObjectsCtorArg = prgObjects)
+    public fun copy(cObjects: UInt = this.cObjects, prgObjects: MutPtr = this.prgObjects): SecObject = SecObject(cObjects = cObjects, prgObjectsCtorArg = prgObjects)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -3637,21 +3635,21 @@ public class SecObject internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<SecObjectElement>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                     )
                 override fun writeNative(addr: Long, value: SecObject) {
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr, value.cObjects)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<SecObjectElement>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.prgObjects)
                 }
             }
 
         public operator fun invoke(
             cObjects: UInt = 0u,
-            prgObjects: MutPtr<SecObjectElement> = MutPtr(0L),
+            prgObjects: MutPtr = MutPtr(0L),
         ): SecObject =
             SecObject(
                 cObjects = cObjects,
@@ -3673,9 +3671,9 @@ public data class Sortkey(
 
 public class Sortset internal constructor(
     public var cCol: UInt,
-    aColCtorArg: MutPtr<Sortkey>,
+    aColCtorArg: MutPtr,
 ) {
-    public var aCol: MutPtr<Sortkey> = aColCtorArg
+    public var aCol: MutPtr = aColCtorArg
         internal set
 
     public constructor() : this(
@@ -3685,9 +3683,9 @@ public class Sortset internal constructor(
 
     public operator fun component1(): UInt = this.cCol
 
-    public operator fun component2(): MutPtr<Sortkey> = this.aCol
+    public operator fun component2(): MutPtr = this.aCol
 
-    public fun copy(cCol: UInt = this.cCol, aCol: MutPtr<Sortkey> = this.aCol): Sortset = Sortset(cCol = cCol, aColCtorArg = aCol)
+    public fun copy(cCol: UInt = this.cCol, aCol: MutPtr = this.aCol): Sortset = Sortset(cCol = cCol, aColCtorArg = aCol)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -3713,21 +3711,21 @@ public class Sortset internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<Sortkey>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                     )
                 override fun writeNative(addr: Long, value: Sortset) {
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr, value.cCol)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<Sortkey>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.aCol)
                 }
             }
 
         public operator fun invoke(
             cCol: UInt = 0u,
-            aCol: MutPtr<Sortkey> = MutPtr(0L),
+            aCol: MutPtr = MutPtr(0L),
         ): Sortset =
             Sortset(
                 cCol = cCol,
@@ -4127,9 +4125,9 @@ public data class Ssvariant0(
 
 public class Ssvariant04 internal constructor(
     public var dbobj: Dbobject,
-    pUnkCtorArg: MutPtr<CVoid>,
+    pUnkCtorArg: MutPtr,
 ) {
-    public var pUnk: MutPtr<CVoid> = pUnkCtorArg
+    public var pUnk: MutPtr = pUnkCtorArg
         internal set
 
     public constructor() : this(
@@ -4139,9 +4137,9 @@ public class Ssvariant04 internal constructor(
 
     public operator fun component1(): Dbobject = this.dbobj
 
-    public operator fun component2(): MutPtr<CVoid> = this.pUnk
+    public operator fun component2(): MutPtr = this.pUnk
 
-    public fun copy(dbobj: Dbobject = this.dbobj, pUnk: MutPtr<CVoid> = this.pUnk): Ssvariant04 = Ssvariant04(dbobj = dbobj, pUnkCtorArg = pUnk)
+    public fun copy(dbobj: Dbobject = this.dbobj, pUnk: MutPtr = this.pUnk): Ssvariant04 = Ssvariant04(dbobj = dbobj, pUnkCtorArg = pUnk)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -4160,7 +4158,7 @@ public class Ssvariant04 internal constructor(
     public companion object {
         public operator fun invoke(
             dbobj: Dbobject = Dbobject(),
-            pUnk: MutPtr<CVoid> = MutPtr(0L),
+            pUnk: MutPtr = MutPtr(0L),
         ): Ssvariant04 =
             Ssvariant04(
                 dbobj = dbobj,
@@ -4172,10 +4170,10 @@ public class Ssvariant04 internal constructor(
 public class Ssvariant02 internal constructor(
     public var sActualLength: Short,
     public var sMaxLength: Short,
-    prgbBinaryValCtorArg: MutPtr<UByte>,
+    prgbBinaryValCtorArg: MutPtr,
     public var dwReserved: UInt,
 ) {
-    public var prgbBinaryVal: MutPtr<UByte> = prgbBinaryValCtorArg
+    public var prgbBinaryVal: MutPtr = prgbBinaryValCtorArg
         internal set
 
     public constructor() : this(
@@ -4189,11 +4187,11 @@ public class Ssvariant02 internal constructor(
 
     public operator fun component2(): Short = this.sMaxLength
 
-    public operator fun component3(): MutPtr<UByte> = this.prgbBinaryVal
+    public operator fun component3(): MutPtr = this.prgbBinaryVal
 
     public operator fun component4(): UInt = this.dwReserved
 
-    public fun copy(sActualLength: Short = this.sActualLength, sMaxLength: Short = this.sMaxLength, prgbBinaryVal: MutPtr<UByte> = this.prgbBinaryVal, dwReserved: UInt = this.dwReserved): Ssvariant02 = Ssvariant02(sActualLength = sActualLength, sMaxLength = sMaxLength, prgbBinaryValCtorArg = prgbBinaryVal, dwReserved = dwReserved)
+    public fun copy(sActualLength: Short = this.sActualLength, sMaxLength: Short = this.sMaxLength, prgbBinaryVal: MutPtr = this.prgbBinaryVal, dwReserved: UInt = this.dwReserved): Ssvariant02 = Ssvariant02(sActualLength = sActualLength, sMaxLength = sMaxLength, prgbBinaryValCtorArg = prgbBinaryVal, dwReserved = dwReserved)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -4224,7 +4222,7 @@ public class Ssvariant02 internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I16).readNative(addr + 2L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<UByte>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 16L),
                     )
@@ -4233,7 +4231,7 @@ public class Ssvariant02 internal constructor(
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I16).writeNative(addr + 2L, value.sMaxLength)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<UByte>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.prgbBinaryVal)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 16L, value.dwReserved)
                 }
@@ -4242,7 +4240,7 @@ public class Ssvariant02 internal constructor(
         public operator fun invoke(
             sActualLength: Short = 0,
             sMaxLength: Short = 0,
-            prgbBinaryVal: MutPtr<UByte> = MutPtr(0L),
+            prgbBinaryVal: MutPtr = MutPtr(0L),
             dwReserved: UInt = 0u,
         ): Ssvariant02 =
             Ssvariant02(
@@ -4415,9 +4413,9 @@ public class Ssvariant00 internal constructor(
 public class Ssvariant03 internal constructor(
     public var dwActualLength: UInt,
     public var rgMetadata: UByteArray,
-    pUnknownDataCtorArg: MutPtr<UByte>,
+    pUnknownDataCtorArg: MutPtr,
 ) {
-    public var pUnknownData: MutPtr<UByte> = pUnknownDataCtorArg
+    public var pUnknownData: MutPtr = pUnknownDataCtorArg
         internal set
 
     public constructor() : this(
@@ -4430,9 +4428,9 @@ public class Ssvariant03 internal constructor(
 
     public operator fun component2(): UByteArray = this.rgMetadata
 
-    public operator fun component3(): MutPtr<UByte> = this.pUnknownData
+    public operator fun component3(): MutPtr = this.pUnknownData
 
-    public fun copy(dwActualLength: UInt = this.dwActualLength, rgMetadata: UByteArray = this.rgMetadata, pUnknownData: MutPtr<UByte> = this.pUnknownData): Ssvariant03 = Ssvariant03(dwActualLength = dwActualLength, rgMetadata = rgMetadata, pUnknownDataCtorArg = pUnknownData)
+    public fun copy(dwActualLength: UInt = this.dwActualLength, rgMetadata: UByteArray = this.rgMetadata, pUnknownData: MutPtr = this.pUnknownData): Ssvariant03 = Ssvariant03(dwActualLength = dwActualLength, rgMetadata = rgMetadata, pUnknownDataCtorArg = pUnknownData)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -4464,7 +4462,7 @@ public class Ssvariant03 internal constructor(
                         ).readNative(addr + 4L).toUByteArray(),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<UByte>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 24L),
                     )
                 override fun writeNative(addr: Long, value: Ssvariant03) {
@@ -4475,7 +4473,7 @@ public class Ssvariant03 internal constructor(
                     ).writeNative(addr + 4L, value.rgMetadata.toList())
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<UByte>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 24L, value.pUnknownData)
                 }
             }
@@ -4483,7 +4481,7 @@ public class Ssvariant03 internal constructor(
         public operator fun invoke(
             dwActualLength: UInt = 0u,
             rgMetadata: UByteArray = UByteArray(16),
-            pUnknownData: MutPtr<UByte> = MutPtr(0L),
+            pUnknownData: MutPtr = MutPtr(0L),
         ): Ssvariant03 =
             Ssvariant03(
                 dwActualLength = dwActualLength,
@@ -4498,7 +4496,7 @@ public class Subscriptioninfo internal constructor(
     public var fUpdateFlags: UInt,
     public var schedule: Subscriptionschedule,
     public var customGroupCookie: Guid,
-    pTriggerCtorArg: MutPtr<CVoid>,
+    pTriggerCtorArg: MutPtr,
     public var dwRecurseLevels: UInt,
     public var fWebcrawlerFlags: UInt,
     public var bMailNotification: Bool,
@@ -4514,7 +4512,7 @@ public class Subscriptioninfo internal constructor(
     public var fTaskFlags: UInt,
     public var dwReserved: UInt,
 ) {
-    public var pTrigger: MutPtr<CVoid> = pTriggerCtorArg
+    public var pTrigger: MutPtr = pTriggerCtorArg
         internal set
 
     public var bstrUserName: Bstr = bstrUserNameCtorArg
@@ -4554,7 +4552,7 @@ public class Subscriptioninfo internal constructor(
             fUpdateFlags: UInt = 0u,
             schedule: Subscriptionschedule = 0,
             customGroupCookie: Guid = Guid(),
-            pTrigger: MutPtr<CVoid> = MutPtr(0L),
+            pTrigger: MutPtr = MutPtr(0L),
             dwRecurseLevels: UInt = 0u,
             fWebcrawlerFlags: UInt = 0u,
             bMailNotification: Bool = 0,

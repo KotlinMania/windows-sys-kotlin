@@ -2,7 +2,6 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.security.authorization
 
-import io.github.kotlinmania.rustlang.core.ffi.CVoid
 import io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
 import io.github.kotlinmania.rustlang.core.mem.TypeLayout
 import io.github.kotlinmania.rustlang.core.ptr.ConstPtr
@@ -14,16 +13,14 @@ import io.github.kotlinmania.windowssys.core.Pwstr
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Handle
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Luid
 import io.github.kotlinmania.windowssys.windows.win32.security.AceFlags
-import io.github.kotlinmania.windowssys.windows.win32.security.ObjectTypeList
 import io.github.kotlinmania.windowssys.windows.win32.security.Psid
-import io.github.kotlinmania.windowssys.windows.win32.security.Sid
 import io.github.kotlinmania.windowssys.windows.win32.security.SystemAuditObjectAceFlags
 
 public class ActrlAccessa internal constructor(
     public var cEntries: UInt,
-    pPropertyAccessListCtorArg: MutPtr<ActrlPropertyEntrya>,
+    pPropertyAccessListCtorArg: MutPtr,
 ) {
-    public var pPropertyAccessList: MutPtr<ActrlPropertyEntrya> = pPropertyAccessListCtorArg
+    public var pPropertyAccessList: MutPtr = pPropertyAccessListCtorArg
         internal set
 
     public constructor() : this(
@@ -33,9 +30,9 @@ public class ActrlAccessa internal constructor(
 
     public operator fun component1(): UInt = this.cEntries
 
-    public operator fun component2(): MutPtr<ActrlPropertyEntrya> = this.pPropertyAccessList
+    public operator fun component2(): MutPtr = this.pPropertyAccessList
 
-    public fun copy(cEntries: UInt = this.cEntries, pPropertyAccessList: MutPtr<ActrlPropertyEntrya> = this.pPropertyAccessList): ActrlAccessa = ActrlAccessa(cEntries = cEntries, pPropertyAccessListCtorArg = pPropertyAccessList)
+    public fun copy(cEntries: UInt = this.cEntries, pPropertyAccessList: MutPtr = this.pPropertyAccessList): ActrlAccessa = ActrlAccessa(cEntries = cEntries, pPropertyAccessListCtorArg = pPropertyAccessList)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -61,21 +58,21 @@ public class ActrlAccessa internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<ActrlPropertyEntrya>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                     )
                 override fun writeNative(addr: Long, value: ActrlAccessa) {
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr, value.cEntries)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<ActrlPropertyEntrya>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.pPropertyAccessList)
                 }
             }
 
         public operator fun invoke(
             cEntries: UInt = 0u,
-            pPropertyAccessList: MutPtr<ActrlPropertyEntrya> = MutPtr(0L),
+            pPropertyAccessList: MutPtr = MutPtr(0L),
         ): ActrlAccessa =
             ActrlAccessa(
                 cEntries = cEntries,
@@ -86,9 +83,9 @@ public class ActrlAccessa internal constructor(
 
 public class ActrlAccessw internal constructor(
     public var cEntries: UInt,
-    pPropertyAccessListCtorArg: MutPtr<ActrlPropertyEntryw>,
+    pPropertyAccessListCtorArg: MutPtr,
 ) {
-    public var pPropertyAccessList: MutPtr<ActrlPropertyEntryw> = pPropertyAccessListCtorArg
+    public var pPropertyAccessList: MutPtr = pPropertyAccessListCtorArg
         internal set
 
     public constructor() : this(
@@ -98,9 +95,9 @@ public class ActrlAccessw internal constructor(
 
     public operator fun component1(): UInt = this.cEntries
 
-    public operator fun component2(): MutPtr<ActrlPropertyEntryw> = this.pPropertyAccessList
+    public operator fun component2(): MutPtr = this.pPropertyAccessList
 
-    public fun copy(cEntries: UInt = this.cEntries, pPropertyAccessList: MutPtr<ActrlPropertyEntryw> = this.pPropertyAccessList): ActrlAccessw = ActrlAccessw(cEntries = cEntries, pPropertyAccessListCtorArg = pPropertyAccessList)
+    public fun copy(cEntries: UInt = this.cEntries, pPropertyAccessList: MutPtr = this.pPropertyAccessList): ActrlAccessw = ActrlAccessw(cEntries = cEntries, pPropertyAccessListCtorArg = pPropertyAccessList)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -126,21 +123,21 @@ public class ActrlAccessw internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<ActrlPropertyEntryw>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                     )
                 override fun writeNative(addr: Long, value: ActrlAccessw) {
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr, value.cEntries)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<ActrlPropertyEntryw>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.pPropertyAccessList)
                 }
             }
 
         public operator fun invoke(
             cEntries: UInt = 0u,
-            pPropertyAccessList: MutPtr<ActrlPropertyEntryw> = MutPtr(0L),
+            pPropertyAccessList: MutPtr = MutPtr(0L),
         ): ActrlAccessw =
             ActrlAccessw(
                 cEntries = cEntries,
@@ -303,9 +300,9 @@ public class ActrlAccessEntryw internal constructor(
 
 public class ActrlAccessEntryLista internal constructor(
     public var cEntries: UInt,
-    pAccessListCtorArg: MutPtr<ActrlAccessEntrya>,
+    pAccessListCtorArg: MutPtr,
 ) {
-    public var pAccessList: MutPtr<ActrlAccessEntrya> = pAccessListCtorArg
+    public var pAccessList: MutPtr = pAccessListCtorArg
         internal set
 
     public constructor() : this(
@@ -315,9 +312,9 @@ public class ActrlAccessEntryLista internal constructor(
 
     public operator fun component1(): UInt = this.cEntries
 
-    public operator fun component2(): MutPtr<ActrlAccessEntrya> = this.pAccessList
+    public operator fun component2(): MutPtr = this.pAccessList
 
-    public fun copy(cEntries: UInt = this.cEntries, pAccessList: MutPtr<ActrlAccessEntrya> = this.pAccessList): ActrlAccessEntryLista = ActrlAccessEntryLista(cEntries = cEntries, pAccessListCtorArg = pAccessList)
+    public fun copy(cEntries: UInt = this.cEntries, pAccessList: MutPtr = this.pAccessList): ActrlAccessEntryLista = ActrlAccessEntryLista(cEntries = cEntries, pAccessListCtorArg = pAccessList)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -343,21 +340,21 @@ public class ActrlAccessEntryLista internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<ActrlAccessEntrya>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                     )
                 override fun writeNative(addr: Long, value: ActrlAccessEntryLista) {
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr, value.cEntries)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<ActrlAccessEntrya>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.pAccessList)
                 }
             }
 
         public operator fun invoke(
             cEntries: UInt = 0u,
-            pAccessList: MutPtr<ActrlAccessEntrya> = MutPtr(0L),
+            pAccessList: MutPtr = MutPtr(0L),
         ): ActrlAccessEntryLista =
             ActrlAccessEntryLista(
                 cEntries = cEntries,
@@ -368,9 +365,9 @@ public class ActrlAccessEntryLista internal constructor(
 
 public class ActrlAccessEntryListw internal constructor(
     public var cEntries: UInt,
-    pAccessListCtorArg: MutPtr<ActrlAccessEntryw>,
+    pAccessListCtorArg: MutPtr,
 ) {
-    public var pAccessList: MutPtr<ActrlAccessEntryw> = pAccessListCtorArg
+    public var pAccessList: MutPtr = pAccessListCtorArg
         internal set
 
     public constructor() : this(
@@ -380,9 +377,9 @@ public class ActrlAccessEntryListw internal constructor(
 
     public operator fun component1(): UInt = this.cEntries
 
-    public operator fun component2(): MutPtr<ActrlAccessEntryw> = this.pAccessList
+    public operator fun component2(): MutPtr = this.pAccessList
 
-    public fun copy(cEntries: UInt = this.cEntries, pAccessList: MutPtr<ActrlAccessEntryw> = this.pAccessList): ActrlAccessEntryListw = ActrlAccessEntryListw(cEntries = cEntries, pAccessListCtorArg = pAccessList)
+    public fun copy(cEntries: UInt = this.cEntries, pAccessList: MutPtr = this.pAccessList): ActrlAccessEntryListw = ActrlAccessEntryListw(cEntries = cEntries, pAccessListCtorArg = pAccessList)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -408,21 +405,21 @@ public class ActrlAccessEntryListw internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<ActrlAccessEntryw>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                     )
                 override fun writeNative(addr: Long, value: ActrlAccessEntryListw) {
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr, value.cEntries)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<ActrlAccessEntryw>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.pAccessList)
                 }
             }
 
         public operator fun invoke(
             cEntries: UInt = 0u,
-            pAccessList: MutPtr<ActrlAccessEntryw> = MutPtr(0L),
+            pAccessList: MutPtr = MutPtr(0L),
         ): ActrlAccessEntryListw =
             ActrlAccessEntryListw(
                 cEntries = cEntries,
@@ -666,10 +663,10 @@ public class ActrlOverlapped internal constructor(
 }
 
 public class ActrlOverlapped0 internal constructor(
-    providerCtorArg: MutPtr<CVoid>,
+    providerCtorArg: MutPtr,
     public var reserved1: UInt,
 ) {
-    public var provider: MutPtr<CVoid> = providerCtorArg
+    public var provider: MutPtr = providerCtorArg
         internal set
 
     public constructor() : this(
@@ -677,11 +674,11 @@ public class ActrlOverlapped0 internal constructor(
         reserved1 = 0u,
     )
 
-    public operator fun component1(): MutPtr<CVoid> = this.provider
+    public operator fun component1(): MutPtr = this.provider
 
     public operator fun component2(): UInt = this.reserved1
 
-    public fun copy(provider: MutPtr<CVoid> = this.provider, reserved1: UInt = this.reserved1): ActrlOverlapped0 = ActrlOverlapped0(providerCtorArg = provider, reserved1 = reserved1)
+    public fun copy(provider: MutPtr = this.provider, reserved1: UInt = this.reserved1): ActrlOverlapped0 = ActrlOverlapped0(providerCtorArg = provider, reserved1 = reserved1)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -699,7 +696,7 @@ public class ActrlOverlapped0 internal constructor(
 
     public companion object {
         public operator fun invoke(
-            provider: MutPtr<CVoid> = MutPtr(0L),
+            provider: MutPtr = MutPtr(0L),
             reserved1: UInt = 0u,
         ): ActrlOverlapped0 =
             ActrlOverlapped0(
@@ -711,13 +708,13 @@ public class ActrlOverlapped0 internal constructor(
 
 public class ActrlPropertyEntrya internal constructor(
     lpPropertyCtorArg: Pstr,
-    pAccessEntryListCtorArg: MutPtr<ActrlAccessEntryLista>,
+    pAccessEntryListCtorArg: MutPtr,
     public var fListFlags: UInt,
 ) {
     public var lpProperty: Pstr = lpPropertyCtorArg
         internal set
 
-    public var pAccessEntryList: MutPtr<ActrlAccessEntryLista> = pAccessEntryListCtorArg
+    public var pAccessEntryList: MutPtr = pAccessEntryListCtorArg
         internal set
 
     public constructor() : this(
@@ -728,11 +725,11 @@ public class ActrlPropertyEntrya internal constructor(
 
     public operator fun component1(): Pstr = this.lpProperty
 
-    public operator fun component2(): MutPtr<ActrlAccessEntryLista> = this.pAccessEntryList
+    public operator fun component2(): MutPtr = this.pAccessEntryList
 
     public operator fun component3(): UInt = this.fListFlags
 
-    public fun copy(lpProperty: Pstr = this.lpProperty, pAccessEntryList: MutPtr<ActrlAccessEntryLista> = this.pAccessEntryList, fListFlags: UInt = this.fListFlags): ActrlPropertyEntrya = ActrlPropertyEntrya(lpPropertyCtorArg = lpProperty, pAccessEntryListCtorArg = pAccessEntryList, fListFlags = fListFlags)
+    public fun copy(lpProperty: Pstr = this.lpProperty, pAccessEntryList: MutPtr = this.pAccessEntryList, fListFlags: UInt = this.fListFlags): ActrlPropertyEntrya = ActrlPropertyEntrya(lpPropertyCtorArg = lpProperty, pAccessEntryListCtorArg = pAccessEntryList, fListFlags = fListFlags)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -753,7 +750,7 @@ public class ActrlPropertyEntrya internal constructor(
     public companion object {
         public operator fun invoke(
             lpProperty: Pstr = MutPtr(0L),
-            pAccessEntryList: MutPtr<ActrlAccessEntryLista> = MutPtr(0L),
+            pAccessEntryList: MutPtr = MutPtr(0L),
             fListFlags: UInt = 0u,
         ): ActrlPropertyEntrya =
             ActrlPropertyEntrya(
@@ -766,13 +763,13 @@ public class ActrlPropertyEntrya internal constructor(
 
 public class ActrlPropertyEntryw internal constructor(
     lpPropertyCtorArg: Pwstr,
-    pAccessEntryListCtorArg: MutPtr<ActrlAccessEntryListw>,
+    pAccessEntryListCtorArg: MutPtr,
     public var fListFlags: UInt,
 ) {
     public var lpProperty: Pwstr = lpPropertyCtorArg
         internal set
 
-    public var pAccessEntryList: MutPtr<ActrlAccessEntryListw> = pAccessEntryListCtorArg
+    public var pAccessEntryList: MutPtr = pAccessEntryListCtorArg
         internal set
 
     public constructor() : this(
@@ -783,11 +780,11 @@ public class ActrlPropertyEntryw internal constructor(
 
     public operator fun component1(): Pwstr = this.lpProperty
 
-    public operator fun component2(): MutPtr<ActrlAccessEntryListw> = this.pAccessEntryList
+    public operator fun component2(): MutPtr = this.pAccessEntryList
 
     public operator fun component3(): UInt = this.fListFlags
 
-    public fun copy(lpProperty: Pwstr = this.lpProperty, pAccessEntryList: MutPtr<ActrlAccessEntryListw> = this.pAccessEntryList, fListFlags: UInt = this.fListFlags): ActrlPropertyEntryw = ActrlPropertyEntryw(lpPropertyCtorArg = lpProperty, pAccessEntryListCtorArg = pAccessEntryList, fListFlags = fListFlags)
+    public fun copy(lpProperty: Pwstr = this.lpProperty, pAccessEntryList: MutPtr = this.pAccessEntryList, fListFlags: UInt = this.fListFlags): ActrlPropertyEntryw = ActrlPropertyEntryw(lpPropertyCtorArg = lpProperty, pAccessEntryListCtorArg = pAccessEntryList, fListFlags = fListFlags)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -808,7 +805,7 @@ public class ActrlPropertyEntryw internal constructor(
     public companion object {
         public operator fun invoke(
             lpProperty: Pwstr = MutPtr(0L),
-            pAccessEntryList: MutPtr<ActrlAccessEntryListw> = MutPtr(0L),
+            pAccessEntryList: MutPtr = MutPtr(0L),
             fListFlags: UInt = 0u,
         ): ActrlPropertyEntryw =
             ActrlPropertyEntryw(
@@ -863,9 +860,9 @@ public data class AuditObjectType(
 public class AuditObjectTypes internal constructor(
     public var count: UShort,
     public var flags: UShort,
-    pObjectTypesCtorArg: MutPtr<AuditObjectType>,
+    pObjectTypesCtorArg: MutPtr,
 ) {
-    public var pObjectTypes: MutPtr<AuditObjectType> = pObjectTypesCtorArg
+    public var pObjectTypes: MutPtr = pObjectTypesCtorArg
         internal set
 
     public constructor() : this(
@@ -878,9 +875,9 @@ public class AuditObjectTypes internal constructor(
 
     public operator fun component2(): UShort = this.flags
 
-    public operator fun component3(): MutPtr<AuditObjectType> = this.pObjectTypes
+    public operator fun component3(): MutPtr = this.pObjectTypes
 
-    public fun copy(count: UShort = this.count, flags: UShort = this.flags, pObjectTypes: MutPtr<AuditObjectType> = this.pObjectTypes): AuditObjectTypes = AuditObjectTypes(count = count, flags = flags, pObjectTypesCtorArg = pObjectTypes)
+    public fun copy(count: UShort = this.count, flags: UShort = this.flags, pObjectTypes: MutPtr = this.pObjectTypes): AuditObjectTypes = AuditObjectTypes(count = count, flags = flags, pObjectTypesCtorArg = pObjectTypes)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -909,7 +906,7 @@ public class AuditObjectTypes internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16).readNative(addr + 2L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<AuditObjectType>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                     )
                 override fun writeNative(addr: Long, value: AuditObjectTypes) {
@@ -917,7 +914,7 @@ public class AuditObjectTypes internal constructor(
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16).writeNative(addr + 2L, value.flags)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<AuditObjectType>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.pObjectTypes)
                 }
             }
@@ -925,7 +922,7 @@ public class AuditObjectTypes internal constructor(
         public operator fun invoke(
             count: UShort = 0u,
             flags: UShort = 0u,
-            pObjectTypes: MutPtr<AuditObjectType> = MutPtr(0L),
+            pObjectTypes: MutPtr = MutPtr(0L),
         ): AuditObjectTypes =
             AuditObjectTypes(
                 count = count,
@@ -947,25 +944,25 @@ public class AuditParam0 internal constructor(
     public var data0: Int,
     stringCtorArg: Pwstr,
     public var u: Int,
-    psidCtorArg: MutPtr<Sid>,
-    pguidCtorArg: MutPtr<Guid>,
+    psidCtorArg: MutPtr,
+    pguidCtorArg: MutPtr,
     public var logonIdLowPart: UInt,
-    pObjectTypesCtorArg: MutPtr<AuditObjectTypes>,
-    pIpAddressCtorArg: MutPtr<AuditIpAddress>,
+    pObjectTypesCtorArg: MutPtr,
+    pIpAddressCtorArg: MutPtr,
 ) {
     public var string: Pwstr = stringCtorArg
         internal set
 
-    public var psid: MutPtr<Sid> = psidCtorArg
+    public var psid: MutPtr = psidCtorArg
         internal set
 
-    public var pguid: MutPtr<Guid> = pguidCtorArg
+    public var pguid: MutPtr = pguidCtorArg
         internal set
 
-    public var pObjectTypes: MutPtr<AuditObjectTypes> = pObjectTypesCtorArg
+    public var pObjectTypes: MutPtr = pObjectTypesCtorArg
         internal set
 
-    public var pIpAddress: MutPtr<AuditIpAddress> = pIpAddressCtorArg
+    public var pIpAddress: MutPtr = pIpAddressCtorArg
         internal set
 
     public constructor() : this(
@@ -985,17 +982,17 @@ public class AuditParam0 internal constructor(
 
     public operator fun component3(): Int = this.u
 
-    public operator fun component4(): MutPtr<Sid> = this.psid
+    public operator fun component4(): MutPtr = this.psid
 
-    public operator fun component5(): MutPtr<Guid> = this.pguid
+    public operator fun component5(): MutPtr = this.pguid
 
     public operator fun component6(): UInt = this.logonIdLowPart
 
-    public operator fun component7(): MutPtr<AuditObjectTypes> = this.pObjectTypes
+    public operator fun component7(): MutPtr = this.pObjectTypes
 
-    public operator fun component8(): MutPtr<AuditIpAddress> = this.pIpAddress
+    public operator fun component8(): MutPtr = this.pIpAddress
 
-    public fun copy(data0: Int = this.data0, string: Pwstr = this.string, u: Int = this.u, psid: MutPtr<Sid> = this.psid, pguid: MutPtr<Guid> = this.pguid, logonIdLowPart: UInt = this.logonIdLowPart, pObjectTypes: MutPtr<AuditObjectTypes> = this.pObjectTypes, pIpAddress: MutPtr<AuditIpAddress> = this.pIpAddress): AuditParam0 = AuditParam0(data0 = data0, stringCtorArg = string, u = u, psidCtorArg = psid, pguidCtorArg = pguid, logonIdLowPart = logonIdLowPart, pObjectTypesCtorArg = pObjectTypes, pIpAddressCtorArg = pIpAddress)
+    public fun copy(data0: Int = this.data0, string: Pwstr = this.string, u: Int = this.u, psid: MutPtr = this.psid, pguid: MutPtr = this.pguid, logonIdLowPart: UInt = this.logonIdLowPart, pObjectTypes: MutPtr = this.pObjectTypes, pIpAddress: MutPtr = this.pIpAddress): AuditParam0 = AuditParam0(data0 = data0, stringCtorArg = string, u = u, psidCtorArg = psid, pguidCtorArg = pguid, logonIdLowPart = logonIdLowPart, pObjectTypesCtorArg = pObjectTypes, pIpAddressCtorArg = pIpAddress)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -1028,11 +1025,11 @@ public class AuditParam0 internal constructor(
             data0: Int = 0,
             string: Pwstr = MutPtr(0L),
             u: Int = 0,
-            psid: MutPtr<Sid> = MutPtr(0L),
-            pguid: MutPtr<Guid> = MutPtr(0L),
+            psid: MutPtr = MutPtr(0L),
+            pguid: MutPtr = MutPtr(0L),
             logonIdLowPart: UInt = 0u,
-            pObjectTypes: MutPtr<AuditObjectTypes> = MutPtr(0L),
-            pIpAddress: MutPtr<AuditIpAddress> = MutPtr(0L),
+            pObjectTypes: MutPtr = MutPtr(0L),
+            pIpAddress: MutPtr = MutPtr(0L),
         ): AuditParam0 =
             AuditParam0(
                 data0 = data0,
@@ -1056,9 +1053,9 @@ public class AuditParams internal constructor(
     public var length: UInt,
     public var flags: UInt,
     public var count: UShort,
-    parametersCtorArg: MutPtr<AuditParam>,
+    parametersCtorArg: MutPtr,
 ) {
-    public var parameters: MutPtr<AuditParam> = parametersCtorArg
+    public var parameters: MutPtr = parametersCtorArg
         internal set
 
     public constructor() : this(
@@ -1074,9 +1071,9 @@ public class AuditParams internal constructor(
 
     public operator fun component3(): UShort = this.count
 
-    public operator fun component4(): MutPtr<AuditParam> = this.parameters
+    public operator fun component4(): MutPtr = this.parameters
 
-    public fun copy(length: UInt = this.length, flags: UInt = this.flags, count: UShort = this.count, parameters: MutPtr<AuditParam> = this.parameters): AuditParams = AuditParams(length = length, flags = flags, count = count, parametersCtorArg = parameters)
+    public fun copy(length: UInt = this.length, flags: UInt = this.flags, count: UShort = this.count, parameters: MutPtr = this.parameters): AuditParams = AuditParams(length = length, flags = flags, count = count, parametersCtorArg = parameters)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -1108,7 +1105,7 @@ public class AuditParams internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16).readNative(addr + 8L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<AuditParam>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 16L),
                     )
                 override fun writeNative(addr: Long, value: AuditParams) {
@@ -1117,7 +1114,7 @@ public class AuditParams internal constructor(
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16).writeNative(addr + 8L, value.count)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<AuditParam>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 16L, value.parameters)
                 }
             }
@@ -1126,7 +1123,7 @@ public class AuditParams internal constructor(
             length: UInt = 0u,
             flags: UInt = 0u,
             count: UShort = 0u,
-            parameters: MutPtr<AuditParam> = MutPtr(0L),
+            parameters: MutPtr = MutPtr(0L),
         ): AuditParams =
             AuditParams(
                 length = length,
@@ -1139,17 +1136,17 @@ public class AuditParams internal constructor(
 
 public class AuthzAccessReply internal constructor(
     public var resultListLength: UInt,
-    grantedAccessMaskCtorArg: MutPtr<UInt>,
-    saclEvaluationResultsCtorArg: MutPtr<AuthzGenerateResults>,
-    errorCtorArg: MutPtr<UInt>,
+    grantedAccessMaskCtorArg: MutPtr,
+    saclEvaluationResultsCtorArg: MutPtr,
+    errorCtorArg: MutPtr,
 ) {
-    public var grantedAccessMask: MutPtr<UInt> = grantedAccessMaskCtorArg
+    public var grantedAccessMask: MutPtr = grantedAccessMaskCtorArg
         internal set
 
-    public var saclEvaluationResults: MutPtr<AuthzGenerateResults> = saclEvaluationResultsCtorArg
+    public var saclEvaluationResults: MutPtr = saclEvaluationResultsCtorArg
         internal set
 
-    public var error: MutPtr<UInt> = errorCtorArg
+    public var error: MutPtr = errorCtorArg
         internal set
 
     public constructor() : this(
@@ -1161,13 +1158,13 @@ public class AuthzAccessReply internal constructor(
 
     public operator fun component1(): UInt = this.resultListLength
 
-    public operator fun component2(): MutPtr<UInt> = this.grantedAccessMask
+    public operator fun component2(): MutPtr = this.grantedAccessMask
 
-    public operator fun component3(): MutPtr<AuthzGenerateResults> = this.saclEvaluationResults
+    public operator fun component3(): MutPtr = this.saclEvaluationResults
 
-    public operator fun component4(): MutPtr<UInt> = this.error
+    public operator fun component4(): MutPtr = this.error
 
-    public fun copy(resultListLength: UInt = this.resultListLength, grantedAccessMask: MutPtr<UInt> = this.grantedAccessMask, saclEvaluationResults: MutPtr<AuthzGenerateResults> = this.saclEvaluationResults, error: MutPtr<UInt> = this.error): AuthzAccessReply = AuthzAccessReply(resultListLength = resultListLength, grantedAccessMaskCtorArg = grantedAccessMask, saclEvaluationResultsCtorArg = saclEvaluationResults, errorCtorArg = error)
+    public fun copy(resultListLength: UInt = this.resultListLength, grantedAccessMask: MutPtr = this.grantedAccessMask, saclEvaluationResults: MutPtr = this.saclEvaluationResults, error: MutPtr = this.error): AuthzAccessReply = AuthzAccessReply(resultListLength = resultListLength, grantedAccessMaskCtorArg = grantedAccessMask, saclEvaluationResultsCtorArg = saclEvaluationResults, errorCtorArg = error)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -1197,39 +1194,39 @@ public class AuthzAccessReply internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<UInt>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<AuthzGenerateResults>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 16L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<UInt>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 24L),
                     )
                 override fun writeNative(addr: Long, value: AuthzAccessReply) {
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr, value.resultListLength)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<UInt>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.grantedAccessMask)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<AuthzGenerateResults>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 16L, value.saclEvaluationResults)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<UInt>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 24L, value.error)
                 }
             }
 
         public operator fun invoke(
             resultListLength: UInt = 0u,
-            grantedAccessMask: MutPtr<UInt> = MutPtr(0L),
-            saclEvaluationResults: MutPtr<AuthzGenerateResults> = MutPtr(0L),
-            error: MutPtr<UInt> = MutPtr(0L),
+            grantedAccessMask: MutPtr = MutPtr(0L),
+            saclEvaluationResults: MutPtr = MutPtr(0L),
+            error: MutPtr = MutPtr(0L),
         ): AuthzAccessReply =
             AuthzAccessReply(
                 resultListLength = resultListLength,
@@ -1243,17 +1240,17 @@ public class AuthzAccessReply internal constructor(
 public class AuthzAccessRequest internal constructor(
     public var desiredAccess: UInt,
     principalSelfSidCtorArg: Psid,
-    objectTypeListCtorArg: MutPtr<ObjectTypeList>,
+    objectTypeListCtorArg: MutPtr,
     public var objectTypeListLength: UInt,
-    optionalArgumentsCtorArg: MutPtr<CVoid>,
+    optionalArgumentsCtorArg: MutPtr,
 ) {
     public var principalSelfSid: Psid = principalSelfSidCtorArg
         internal set
 
-    public var objectTypeList: MutPtr<ObjectTypeList> = objectTypeListCtorArg
+    public var objectTypeList: MutPtr = objectTypeListCtorArg
         internal set
 
-    public var optionalArguments: MutPtr<CVoid> = optionalArgumentsCtorArg
+    public var optionalArguments: MutPtr = optionalArgumentsCtorArg
         internal set
 
     public constructor() : this(
@@ -1268,13 +1265,13 @@ public class AuthzAccessRequest internal constructor(
 
     public operator fun component2(): Psid = this.principalSelfSid
 
-    public operator fun component3(): MutPtr<ObjectTypeList> = this.objectTypeList
+    public operator fun component3(): MutPtr = this.objectTypeList
 
     public operator fun component4(): UInt = this.objectTypeListLength
 
-    public operator fun component5(): MutPtr<CVoid> = this.optionalArguments
+    public operator fun component5(): MutPtr = this.optionalArguments
 
-    public fun copy(desiredAccess: UInt = this.desiredAccess, principalSelfSid: Psid = this.principalSelfSid, objectTypeList: MutPtr<ObjectTypeList> = this.objectTypeList, objectTypeListLength: UInt = this.objectTypeListLength, optionalArguments: MutPtr<CVoid> = this.optionalArguments): AuthzAccessRequest = AuthzAccessRequest(desiredAccess = desiredAccess, principalSelfSidCtorArg = principalSelfSid, objectTypeListCtorArg = objectTypeList, objectTypeListLength = objectTypeListLength, optionalArgumentsCtorArg = optionalArguments)
+    public fun copy(desiredAccess: UInt = this.desiredAccess, principalSelfSid: Psid = this.principalSelfSid, objectTypeList: MutPtr = this.objectTypeList, objectTypeListLength: UInt = this.objectTypeListLength, optionalArguments: MutPtr = this.optionalArguments): AuthzAccessRequest = AuthzAccessRequest(desiredAccess = desiredAccess, principalSelfSidCtorArg = principalSelfSid, objectTypeListCtorArg = objectTypeList, objectTypeListLength = objectTypeListLength, optionalArgumentsCtorArg = optionalArguments)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -1300,9 +1297,9 @@ public class AuthzAccessRequest internal constructor(
         public operator fun invoke(
             desiredAccess: UInt = 0u,
             principalSelfSid: Psid = MutPtr(0L),
-            objectTypeList: MutPtr<ObjectTypeList> = MutPtr(0L),
+            objectTypeList: MutPtr = MutPtr(0L),
             objectTypeListLength: UInt = 0u,
-            optionalArguments: MutPtr<CVoid> = MutPtr(0L),
+            optionalArguments: MutPtr = MutPtr(0L),
         ): AuthzAccessRequest =
             AuthzAccessRequest(
                 desiredAccess = desiredAccess,
@@ -1587,18 +1584,18 @@ public data class AuthzSecurityAttributesInformation(
 )
 
 public class AuthzSecurityAttributesInformation0 internal constructor(
-    pAttributeV1CtorArg: MutPtr<AuthzSecurityAttributeV1>,
+    pAttributeV1CtorArg: MutPtr,
 ) {
-    public var pAttributeV1: MutPtr<AuthzSecurityAttributeV1> = pAttributeV1CtorArg
+    public var pAttributeV1: MutPtr = pAttributeV1CtorArg
         internal set
 
     public constructor() : this(
         pAttributeV1CtorArg = MutPtr(0L),
     )
 
-    public operator fun component1(): MutPtr<AuthzSecurityAttributeV1> = this.pAttributeV1
+    public operator fun component1(): MutPtr = this.pAttributeV1
 
-    public fun copy(pAttributeV1: MutPtr<AuthzSecurityAttributeV1> = this.pAttributeV1): AuthzSecurityAttributesInformation0 = AuthzSecurityAttributesInformation0(pAttributeV1CtorArg = pAttributeV1)
+    public fun copy(pAttributeV1: MutPtr = this.pAttributeV1): AuthzSecurityAttributesInformation0 = AuthzSecurityAttributesInformation0(pAttributeV1CtorArg = pAttributeV1)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -1611,7 +1608,7 @@ public class AuthzSecurityAttributesInformation0 internal constructor(
 
     public companion object {
         public operator fun invoke(
-            pAttributeV1: MutPtr<AuthzSecurityAttributeV1> = MutPtr(0L),
+            pAttributeV1: MutPtr = MutPtr(0L),
         ): AuthzSecurityAttributesInformation0 =
             AuthzSecurityAttributesInformation0(
                 pAttributeV1CtorArg = pAttributeV1,
@@ -1664,10 +1661,10 @@ public class AuthzSecurityAttributeFqbnValue internal constructor(
 }
 
 public class AuthzSecurityAttributeOctetStringValue internal constructor(
-    pValueCtorArg: MutPtr<CVoid>,
+    pValueCtorArg: MutPtr,
     public var valueLength: UInt,
 ) {
-    public var pValue: MutPtr<CVoid> = pValueCtorArg
+    public var pValue: MutPtr = pValueCtorArg
         internal set
 
     public constructor() : this(
@@ -1675,11 +1672,11 @@ public class AuthzSecurityAttributeOctetStringValue internal constructor(
         valueLength = 0u,
     )
 
-    public operator fun component1(): MutPtr<CVoid> = this.pValue
+    public operator fun component1(): MutPtr = this.pValue
 
     public operator fun component2(): UInt = this.valueLength
 
-    public fun copy(pValue: MutPtr<CVoid> = this.pValue, valueLength: UInt = this.valueLength): AuthzSecurityAttributeOctetStringValue = AuthzSecurityAttributeOctetStringValue(pValueCtorArg = pValue, valueLength = valueLength)
+    public fun copy(pValue: MutPtr = this.pValue, valueLength: UInt = this.valueLength): AuthzSecurityAttributeOctetStringValue = AuthzSecurityAttributeOctetStringValue(pValueCtorArg = pValue, valueLength = valueLength)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -1704,21 +1701,21 @@ public class AuthzSecurityAttributeOctetStringValue internal constructor(
                     AuthzSecurityAttributeOctetStringValue(
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<CVoid>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 8L),
                     )
                 override fun writeNative(addr: Long, value: AuthzSecurityAttributeOctetStringValue) {
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<CVoid>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr, value.pValue)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 8L, value.valueLength)
                 }
             }
 
         public operator fun invoke(
-            pValue: MutPtr<CVoid> = MutPtr(0L),
+            pValue: MutPtr = MutPtr(0L),
             valueLength: UInt = 0u,
         ): AuthzSecurityAttributeOctetStringValue =
             AuthzSecurityAttributeOctetStringValue(
@@ -1805,25 +1802,25 @@ public class AuthzSecurityAttributeV1 internal constructor(
 }
 
 public class AuthzSecurityAttributeV10 internal constructor(
-    pInt64CtorArg: MutPtr<Long>,
-    pUint64CtorArg: MutPtr<ULong>,
-    ppStringCtorArg: MutPtr<Pwstr>,
-    pFqbnCtorArg: MutPtr<AuthzSecurityAttributeFqbnValue>,
-    pOctetStringCtorArg: MutPtr<AuthzSecurityAttributeOctetStringValue>,
+    pInt64CtorArg: MutPtr,
+    pUint64CtorArg: MutPtr,
+    ppStringCtorArg: MutPtr,
+    pFqbnCtorArg: MutPtr,
+    pOctetStringCtorArg: MutPtr,
 ) {
-    public var pInt64: MutPtr<Long> = pInt64CtorArg
+    public var pInt64: MutPtr = pInt64CtorArg
         internal set
 
-    public var pUint64: MutPtr<ULong> = pUint64CtorArg
+    public var pUint64: MutPtr = pUint64CtorArg
         internal set
 
-    public var ppString: MutPtr<Pwstr> = ppStringCtorArg
+    public var ppString: MutPtr = ppStringCtorArg
         internal set
 
-    public var pFqbn: MutPtr<AuthzSecurityAttributeFqbnValue> = pFqbnCtorArg
+    public var pFqbn: MutPtr = pFqbnCtorArg
         internal set
 
-    public var pOctetString: MutPtr<AuthzSecurityAttributeOctetStringValue> = pOctetStringCtorArg
+    public var pOctetString: MutPtr = pOctetStringCtorArg
         internal set
 
     public constructor() : this(
@@ -1834,17 +1831,17 @@ public class AuthzSecurityAttributeV10 internal constructor(
         pOctetStringCtorArg = MutPtr(0L),
     )
 
-    public operator fun component1(): MutPtr<Long> = this.pInt64
+    public operator fun component1(): MutPtr = this.pInt64
 
-    public operator fun component2(): MutPtr<ULong> = this.pUint64
+    public operator fun component2(): MutPtr = this.pUint64
 
-    public operator fun component3(): MutPtr<Pwstr> = this.ppString
+    public operator fun component3(): MutPtr = this.ppString
 
-    public operator fun component4(): MutPtr<AuthzSecurityAttributeFqbnValue> = this.pFqbn
+    public operator fun component4(): MutPtr = this.pFqbn
 
-    public operator fun component5(): MutPtr<AuthzSecurityAttributeOctetStringValue> = this.pOctetString
+    public operator fun component5(): MutPtr = this.pOctetString
 
-    public fun copy(pInt64: MutPtr<Long> = this.pInt64, pUint64: MutPtr<ULong> = this.pUint64, ppString: MutPtr<Pwstr> = this.ppString, pFqbn: MutPtr<AuthzSecurityAttributeFqbnValue> = this.pFqbn, pOctetString: MutPtr<AuthzSecurityAttributeOctetStringValue> = this.pOctetString): AuthzSecurityAttributeV10 = AuthzSecurityAttributeV10(pInt64CtorArg = pInt64, pUint64CtorArg = pUint64, ppStringCtorArg = ppString, pFqbnCtorArg = pFqbn, pOctetStringCtorArg = pOctetString)
+    public fun copy(pInt64: MutPtr = this.pInt64, pUint64: MutPtr = this.pUint64, ppString: MutPtr = this.ppString, pFqbn: MutPtr = this.pFqbn, pOctetString: MutPtr = this.pOctetString): AuthzSecurityAttributeV10 = AuthzSecurityAttributeV10(pInt64CtorArg = pInt64, pUint64CtorArg = pUint64, ppStringCtorArg = ppString, pFqbnCtorArg = pFqbn, pOctetStringCtorArg = pOctetString)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -1868,11 +1865,11 @@ public class AuthzSecurityAttributeV10 internal constructor(
 
     public companion object {
         public operator fun invoke(
-            pInt64: MutPtr<Long> = MutPtr(0L),
-            pUint64: MutPtr<ULong> = MutPtr(0L),
-            ppString: MutPtr<Pwstr> = MutPtr(0L),
-            pFqbn: MutPtr<AuthzSecurityAttributeFqbnValue> = MutPtr(0L),
-            pOctetString: MutPtr<AuthzSecurityAttributeOctetStringValue> = MutPtr(0L),
+            pInt64: MutPtr = MutPtr(0L),
+            pUint64: MutPtr = MutPtr(0L),
+            ppString: MutPtr = MutPtr(0L),
+            pFqbn: MutPtr = MutPtr(0L),
+            pOctetString: MutPtr = MutPtr(0L),
         ): AuthzSecurityAttributeV10 =
             AuthzSecurityAttributeV10(
                 pInt64CtorArg = pInt64,
@@ -1997,13 +1994,13 @@ public class AuthzSourceSchemaRegistration internal constructor(
 }
 
 public class AuthzSourceSchemaRegistration0 internal constructor(
-    pReservedCtorArg: MutPtr<CVoid>,
-    pProviderGuidCtorArg: MutPtr<Guid>,
+    pReservedCtorArg: MutPtr,
+    pProviderGuidCtorArg: MutPtr,
 ) {
-    public var pReserved: MutPtr<CVoid> = pReservedCtorArg
+    public var pReserved: MutPtr = pReservedCtorArg
         internal set
 
-    public var pProviderGuid: MutPtr<Guid> = pProviderGuidCtorArg
+    public var pProviderGuid: MutPtr = pProviderGuidCtorArg
         internal set
 
     public constructor() : this(
@@ -2011,11 +2008,11 @@ public class AuthzSourceSchemaRegistration0 internal constructor(
         pProviderGuidCtorArg = MutPtr(0L),
     )
 
-    public operator fun component1(): MutPtr<CVoid> = this.pReserved
+    public operator fun component1(): MutPtr = this.pReserved
 
-    public operator fun component2(): MutPtr<Guid> = this.pProviderGuid
+    public operator fun component2(): MutPtr = this.pProviderGuid
 
-    public fun copy(pReserved: MutPtr<CVoid> = this.pReserved, pProviderGuid: MutPtr<Guid> = this.pProviderGuid): AuthzSourceSchemaRegistration0 = AuthzSourceSchemaRegistration0(pReservedCtorArg = pReserved, pProviderGuidCtorArg = pProviderGuid)
+    public fun copy(pReserved: MutPtr = this.pReserved, pProviderGuid: MutPtr = this.pProviderGuid): AuthzSourceSchemaRegistration0 = AuthzSourceSchemaRegistration0(pReservedCtorArg = pReserved, pProviderGuidCtorArg = pProviderGuid)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -2033,8 +2030,8 @@ public class AuthzSourceSchemaRegistration0 internal constructor(
 
     public companion object {
         public operator fun invoke(
-            pReserved: MutPtr<CVoid> = MutPtr(0L),
-            pProviderGuid: MutPtr<Guid> = MutPtr(0L),
+            pReserved: MutPtr = MutPtr(0L),
+            pProviderGuid: MutPtr = MutPtr(0L),
         ): AuthzSourceSchemaRegistration0 =
             AuthzSourceSchemaRegistration0(
                 pReservedCtorArg = pReserved,
@@ -2316,9 +2313,9 @@ public class ObjectsAndSid internal constructor(
     public var objectsPresent: SystemAuditObjectAceFlags,
     public var objectTypeGuid: Guid,
     public var inheritedObjectTypeGuid: Guid,
-    pSidCtorArg: MutPtr<Sid>,
+    pSidCtorArg: MutPtr,
 ) {
-    public var pSid: MutPtr<Sid> = pSidCtorArg
+    public var pSid: MutPtr = pSidCtorArg
         internal set
 
     public constructor() : this(
@@ -2334,9 +2331,9 @@ public class ObjectsAndSid internal constructor(
 
     public operator fun component3(): Guid = this.inheritedObjectTypeGuid
 
-    public operator fun component4(): MutPtr<Sid> = this.pSid
+    public operator fun component4(): MutPtr = this.pSid
 
-    public fun copy(objectsPresent: SystemAuditObjectAceFlags = this.objectsPresent, objectTypeGuid: Guid = this.objectTypeGuid, inheritedObjectTypeGuid: Guid = this.inheritedObjectTypeGuid, pSid: MutPtr<Sid> = this.pSid): ObjectsAndSid = ObjectsAndSid(objectsPresent = objectsPresent, objectTypeGuid = objectTypeGuid, inheritedObjectTypeGuid = inheritedObjectTypeGuid, pSidCtorArg = pSid)
+    public fun copy(objectsPresent: SystemAuditObjectAceFlags = this.objectsPresent, objectTypeGuid: Guid = this.objectTypeGuid, inheritedObjectTypeGuid: Guid = this.inheritedObjectTypeGuid, pSid: MutPtr = this.pSid): ObjectsAndSid = ObjectsAndSid(objectsPresent = objectsPresent, objectTypeGuid = objectTypeGuid, inheritedObjectTypeGuid = inheritedObjectTypeGuid, pSidCtorArg = pSid)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -2361,7 +2358,7 @@ public class ObjectsAndSid internal constructor(
             objectsPresent: SystemAuditObjectAceFlags = 0u,
             objectTypeGuid: Guid = Guid(),
             inheritedObjectTypeGuid: Guid = Guid(),
-            pSid: MutPtr<Sid> = MutPtr(0L),
+            pSid: MutPtr = MutPtr(0L),
         ): ObjectsAndSid =
             ObjectsAndSid(
                 objectsPresent = objectsPresent,
@@ -2373,13 +2370,13 @@ public class ObjectsAndSid internal constructor(
 }
 
 public class TrusteeA internal constructor(
-    pMultipleTrusteeCtorArg: MutPtr<TrusteeA>,
+    pMultipleTrusteeCtorArg: MutPtr,
     public var multipleTrusteeOperation: MultipleTrusteeOperation,
     public var trusteeForm: TrusteeForm,
     public var trusteeType: TrusteeType,
     ptstrNameCtorArg: Pstr,
 ) {
-    public var pMultipleTrustee: MutPtr<TrusteeA> = pMultipleTrusteeCtorArg
+    public var pMultipleTrustee: MutPtr = pMultipleTrusteeCtorArg
         internal set
 
     public var ptstrName: Pstr = ptstrNameCtorArg
@@ -2393,7 +2390,7 @@ public class TrusteeA internal constructor(
         ptstrNameCtorArg = MutPtr(0L),
     )
 
-    public operator fun component1(): MutPtr<TrusteeA> = this.pMultipleTrustee
+    public operator fun component1(): MutPtr = this.pMultipleTrustee
 
     public operator fun component2(): MultipleTrusteeOperation = this.multipleTrusteeOperation
 
@@ -2403,7 +2400,7 @@ public class TrusteeA internal constructor(
 
     public operator fun component5(): Pstr = this.ptstrName
 
-    public fun copy(pMultipleTrustee: MutPtr<TrusteeA> = this.pMultipleTrustee, multipleTrusteeOperation: MultipleTrusteeOperation = this.multipleTrusteeOperation, trusteeForm: TrusteeForm = this.trusteeForm, trusteeType: TrusteeType = this.trusteeType, ptstrName: Pstr = this.ptstrName): TrusteeA = TrusteeA(pMultipleTrusteeCtorArg = pMultipleTrustee, multipleTrusteeOperation = multipleTrusteeOperation, trusteeForm = trusteeForm, trusteeType = trusteeType, ptstrNameCtorArg = ptstrName)
+    public fun copy(pMultipleTrustee: MutPtr = this.pMultipleTrustee, multipleTrusteeOperation: MultipleTrusteeOperation = this.multipleTrusteeOperation, trusteeForm: TrusteeForm = this.trusteeForm, trusteeType: TrusteeType = this.trusteeType, ptstrName: Pstr = this.ptstrName): TrusteeA = TrusteeA(pMultipleTrusteeCtorArg = pMultipleTrustee, multipleTrusteeOperation = multipleTrusteeOperation, trusteeForm = trusteeForm, trusteeType = trusteeType, ptstrNameCtorArg = ptstrName)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -2427,7 +2424,7 @@ public class TrusteeA internal constructor(
 
     public companion object {
         public operator fun invoke(
-            pMultipleTrustee: MutPtr<TrusteeA> = MutPtr(0L),
+            pMultipleTrustee: MutPtr = MutPtr(0L),
             multipleTrusteeOperation: MultipleTrusteeOperation = 0,
             trusteeForm: TrusteeForm = 0,
             trusteeType: TrusteeType = 0,
@@ -2564,13 +2561,13 @@ public class TrusteeAccessw internal constructor(
 }
 
 public class TrusteeW internal constructor(
-    pMultipleTrusteeCtorArg: MutPtr<TrusteeW>,
+    pMultipleTrusteeCtorArg: MutPtr,
     public var multipleTrusteeOperation: MultipleTrusteeOperation,
     public var trusteeForm: TrusteeForm,
     public var trusteeType: TrusteeType,
     ptstrNameCtorArg: Pwstr,
 ) {
-    public var pMultipleTrustee: MutPtr<TrusteeW> = pMultipleTrusteeCtorArg
+    public var pMultipleTrustee: MutPtr = pMultipleTrusteeCtorArg
         internal set
 
     public var ptstrName: Pwstr = ptstrNameCtorArg
@@ -2584,7 +2581,7 @@ public class TrusteeW internal constructor(
         ptstrNameCtorArg = MutPtr(0L),
     )
 
-    public operator fun component1(): MutPtr<TrusteeW> = this.pMultipleTrustee
+    public operator fun component1(): MutPtr = this.pMultipleTrustee
 
     public operator fun component2(): MultipleTrusteeOperation = this.multipleTrusteeOperation
 
@@ -2594,7 +2591,7 @@ public class TrusteeW internal constructor(
 
     public operator fun component5(): Pwstr = this.ptstrName
 
-    public fun copy(pMultipleTrustee: MutPtr<TrusteeW> = this.pMultipleTrustee, multipleTrusteeOperation: MultipleTrusteeOperation = this.multipleTrusteeOperation, trusteeForm: TrusteeForm = this.trusteeForm, trusteeType: TrusteeType = this.trusteeType, ptstrName: Pwstr = this.ptstrName): TrusteeW = TrusteeW(pMultipleTrusteeCtorArg = pMultipleTrustee, multipleTrusteeOperation = multipleTrusteeOperation, trusteeForm = trusteeForm, trusteeType = trusteeType, ptstrNameCtorArg = ptstrName)
+    public fun copy(pMultipleTrustee: MutPtr = this.pMultipleTrustee, multipleTrusteeOperation: MultipleTrusteeOperation = this.multipleTrusteeOperation, trusteeForm: TrusteeForm = this.trusteeForm, trusteeType: TrusteeType = this.trusteeType, ptstrName: Pwstr = this.ptstrName): TrusteeW = TrusteeW(pMultipleTrusteeCtorArg = pMultipleTrustee, multipleTrusteeOperation = multipleTrusteeOperation, trusteeForm = trusteeForm, trusteeType = trusteeType, ptstrNameCtorArg = ptstrName)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -2618,7 +2615,7 @@ public class TrusteeW internal constructor(
 
     public companion object {
         public operator fun invoke(
-            pMultipleTrustee: MutPtr<TrusteeW> = MutPtr(0L),
+            pMultipleTrustee: MutPtr = MutPtr(0L),
             multipleTrusteeOperation: MultipleTrusteeOperation = 0,
             trusteeForm: TrusteeForm = 0,
             trusteeType: TrusteeType = 0,

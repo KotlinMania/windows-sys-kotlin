@@ -21,11 +21,11 @@ private external fun wasmWindowssysWindowsWin32SystemEventnotificationserviceIsD
 @JsFun("(p0) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemEventnotificationserviceIsNetworkAlive(p0)")
 private external fun wasmWindowssysWindowsWin32SystemEventnotificationserviceIsNetworkAlive(p0: String): Int
 
-public actual fun isDestinationReachableA(lpszdestination: Pcstr, lpqocinfo: MutPtr<Qocinfo>): Bool =
+public actual fun isDestinationReachableA(lpszdestination: Pcstr, lpqocinfo: MutPtr): Bool =
     if (windowsWin32SystemEventnotificationserviceNapiAvailable) wasmWindowssysWindowsWin32SystemEventnotificationserviceIsDestinationReachableA(lpszdestination.rawAddress.toString(), lpqocinfo.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun isDestinationReachableW(lpszdestination: Pcwstr, lpqocinfo: MutPtr<Qocinfo>): Bool =
+public actual fun isDestinationReachableW(lpszdestination: Pcwstr, lpqocinfo: MutPtr): Bool =
     if (windowsWin32SystemEventnotificationserviceNapiAvailable) wasmWindowssysWindowsWin32SystemEventnotificationserviceIsDestinationReachableW(lpszdestination.rawAddress.toString(), lpqocinfo.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun isNetworkAlive(lpdwflags: MutPtr<UInt>): Bool =
+public actual fun isNetworkAlive(lpdwflags: MutPtr): Bool =
     if (windowsWin32SystemEventnotificationserviceNapiAvailable) wasmWindowssysWindowsWin32SystemEventnotificationserviceIsNetworkAlive(lpdwflags.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")

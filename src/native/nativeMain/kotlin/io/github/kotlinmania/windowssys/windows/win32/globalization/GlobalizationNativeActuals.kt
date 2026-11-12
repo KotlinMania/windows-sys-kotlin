@@ -2,7 +2,6 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.globalization
 
-import io.github.kotlinmania.rustlang.core.ffi.CVoid
 import io.github.kotlinmania.rustlang.core.ptr.ConstPtr
 import io.github.kotlinmania.rustlang.core.ptr.MutPtr
 import io.github.kotlinmania.windowssys.core.Bool
@@ -13,9 +12,6 @@ import io.github.kotlinmania.windowssys.core.Pstr
 import io.github.kotlinmania.windowssys.core.Pwstr
 import io.github.kotlinmania.windowssys.core.s
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Lparam
-import io.github.kotlinmania.windowssys.windows.win32.foundation.Rect
-import io.github.kotlinmania.windowssys.windows.win32.foundation.Size
-import io.github.kotlinmania.windowssys.windows.win32.foundation.Systemtime
 import io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssysWindowsWin32GlobalizationAdjustCalendarDate
 import io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssysWindowsWin32GlobalizationCompareStringA
 import io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssysWindowsWin32GlobalizationCompareStringEx
@@ -1235,20 +1231,19 @@ import io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.win
 import io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssysWindowsWin32GlobalizationUtransUnregisterId
 import io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssysWindowsWin32GlobalizationVerifyScripts
 import io.github.kotlinmania.windowssys.windows.win32.globalization.cinterop.windowssysWindowsWin32GlobalizationWideCharToMultiByte
-import io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.Abc
 import io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.EtoOptions
 import io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.Hdc
 import kotlinx.cinterop.ByteVar
 import kotlinx.cinterop.toCPointer
 import kotlinx.cinterop.toLong
 
-public actual fun adjustCalendarDate(lpcaldatetime: MutPtr<Caldatetime>, calunit: CaldatetimeDateunit, amount: Int): Bool =
+public actual fun adjustCalendarDate(lpcaldatetime: MutPtr, calunit: CaldatetimeDateunit, amount: Int): Bool =
     windowssysWindowsWin32GlobalizationAdjustCalendarDate(lpcaldatetime.rawAddress.toCPointer<ByteVar>(), calunit, amount)
 
-public actual fun compareStringA(locale: UInt, dwcmpflags: UInt, lpstring1: ConstPtr<Byte>, cchcount1: Int, lpstring2: ConstPtr<Byte>, cchcount2: Int): ComparestringResult =
+public actual fun compareStringA(locale: UInt, dwcmpflags: UInt, lpstring1: ConstPtr, cchcount1: Int, lpstring2: ConstPtr, cchcount2: Int): ComparestringResult =
     windowssysWindowsWin32GlobalizationCompareStringA(locale, dwcmpflags, lpstring1.rawAddress.toCPointer<ByteVar>(), cchcount1, lpstring2.rawAddress.toCPointer<ByteVar>(), cchcount2)
 
-public actual fun compareStringEx(lplocalename: Pcwstr, dwcmpflags: CompareStringFlags, lpstring1: Pcwstr, cchcount1: Int, lpstring2: Pcwstr, cchcount2: Int, lpversioninformation: ConstPtr<Nlsversioninfo>, lpreserved: ConstPtr<CVoid>, lparam: Lparam): ComparestringResult =
+public actual fun compareStringEx(lplocalename: Pcwstr, dwcmpflags: CompareStringFlags, lpstring1: Pcwstr, cchcount1: Int, lpstring2: Pcwstr, cchcount2: Int, lpversioninformation: ConstPtr, lpreserved: ConstPtr, lparam: Lparam): ComparestringResult =
     windowssysWindowsWin32GlobalizationCompareStringEx(lplocalename.rawAddress.toCPointer<ByteVar>(), dwcmpflags, lpstring1.rawAddress.toCPointer<ByteVar>(), cchcount1, lpstring2.rawAddress.toCPointer<ByteVar>(), cchcount2, lpversioninformation.rawAddress.toCPointer<ByteVar>(), lpreserved.rawAddress.toCPointer<ByteVar>(), lparam)
 
 public actual fun compareStringOrdinal(lpstring1: Pcwstr, cchcount1: Int, lpstring2: Pcwstr, cchcount2: Int, bignorecase: Bool): ComparestringResult =
@@ -1257,13 +1252,13 @@ public actual fun compareStringOrdinal(lpstring1: Pcwstr, cchcount1: Int, lpstri
 public actual fun compareStringW(locale: UInt, dwcmpflags: UInt, lpstring1: Pcwstr, cchcount1: Int, lpstring2: Pcwstr, cchcount2: Int): ComparestringResult =
     windowssysWindowsWin32GlobalizationCompareStringW(locale, dwcmpflags, lpstring1.rawAddress.toCPointer<ByteVar>(), cchcount1, lpstring2.rawAddress.toCPointer<ByteVar>(), cchcount2)
 
-public actual fun convertCalDateTimeToSystemTime(lpcaldatetime: ConstPtr<Caldatetime>, lpsystime: MutPtr<Systemtime>): Bool =
+public actual fun convertCalDateTimeToSystemTime(lpcaldatetime: ConstPtr, lpsystime: MutPtr): Bool =
     windowssysWindowsWin32GlobalizationConvertCalDateTimeToSystemTime(lpcaldatetime.rawAddress.toCPointer<ByteVar>(), lpsystime.rawAddress.toCPointer<ByteVar>())
 
 public actual fun convertDefaultLocale(locale: UInt): UInt =
     windowssysWindowsWin32GlobalizationConvertDefaultLocale(locale)
 
-public actual fun convertSystemTimeToCalDateTime(lpsystime: ConstPtr<Systemtime>, calid: UInt, lpcaldatetime: MutPtr<Caldatetime>): Bool =
+public actual fun convertSystemTimeToCalDateTime(lpsystime: ConstPtr, calid: UInt, lpcaldatetime: MutPtr): Bool =
     windowssysWindowsWin32GlobalizationConvertSystemTimeToCalDateTime(lpsystime.rawAddress.toCPointer<ByteVar>(), calid, lpcaldatetime.rawAddress.toCPointer<ByteVar>())
 
 public actual fun enumCalendarInfoA(lpcalinfoenumproc: CalinfoEnumproca, locale: UInt, calendar: UInt, caltype: UInt): Bool =
@@ -1323,7 +1318,7 @@ public actual fun enumSystemLanguageGroupsW(lplanguagegroupenumproc: Languagegro
 public actual fun enumSystemLocalesA(lplocaleenumproc: LocaleEnumproca, dwflags: UInt): Bool =
     windowssysWindowsWin32GlobalizationEnumSystemLocalesA(0L.toCPointer<ByteVar>(), dwflags)
 
-public actual fun enumSystemLocalesEx(lplocaleenumprocex: LocaleEnumprocex, dwflags: UInt, lparam: Lparam, lpreserved: ConstPtr<CVoid>): Bool =
+public actual fun enumSystemLocalesEx(lplocaleenumprocex: LocaleEnumprocex, dwflags: UInt, lparam: Lparam, lpreserved: ConstPtr): Bool =
     windowssysWindowsWin32GlobalizationEnumSystemLocalesEx(0L.toCPointer<ByteVar>(), dwflags, lparam, lpreserved.rawAddress.toCPointer<ByteVar>())
 
 public actual fun enumSystemLocalesW(lplocaleenumproc: LocaleEnumprocw, dwflags: UInt): Bool =
@@ -1344,10 +1339,10 @@ public actual fun enumUILanguagesA(lpuilanguageenumproc: UilanguageEnumproca, dw
 public actual fun enumUILanguagesW(lpuilanguageenumproc: UilanguageEnumprocw, dwflags: UInt, lparam: Long): Bool =
     windowssysWindowsWin32GlobalizationEnumUILanguagesW(0L.toCPointer<ByteVar>(), dwflags, lparam)
 
-public actual fun findNLSString(locale: UInt, dwfindnlsstringflags: UInt, lpstringsource: Pcwstr, cchsource: Int, lpstringvalue: Pcwstr, cchvalue: Int, pcchfound: MutPtr<Int>): Int =
+public actual fun findNLSString(locale: UInt, dwfindnlsstringflags: UInt, lpstringsource: Pcwstr, cchsource: Int, lpstringvalue: Pcwstr, cchvalue: Int, pcchfound: MutPtr): Int =
     windowssysWindowsWin32GlobalizationFindNLSString(locale, dwfindnlsstringflags, lpstringsource.rawAddress.toCPointer<ByteVar>(), cchsource, lpstringvalue.rawAddress.toCPointer<ByteVar>(), cchvalue, pcchfound.rawAddress.toCPointer<ByteVar>())
 
-public actual fun findNLSStringEx(lplocalename: Pcwstr, dwfindnlsstringflags: UInt, lpstringsource: Pcwstr, cchsource: Int, lpstringvalue: Pcwstr, cchvalue: Int, pcchfound: MutPtr<Int>, lpversioninformation: ConstPtr<Nlsversioninfo>, lpreserved: ConstPtr<CVoid>, sorthandle: Lparam): Int =
+public actual fun findNLSStringEx(lplocalename: Pcwstr, dwfindnlsstringflags: UInt, lpstringsource: Pcwstr, cchsource: Int, lpstringvalue: Pcwstr, cchvalue: Int, pcchfound: MutPtr, lpversioninformation: ConstPtr, lpreserved: ConstPtr, sorthandle: Lparam): Int =
     windowssysWindowsWin32GlobalizationFindNLSStringEx(lplocalename.rawAddress.toCPointer<ByteVar>(), dwfindnlsstringflags, lpstringsource.rawAddress.toCPointer<ByteVar>(), cchsource, lpstringvalue.rawAddress.toCPointer<ByteVar>(), cchvalue, pcchfound.rawAddress.toCPointer<ByteVar>(), lpversioninformation.rawAddress.toCPointer<ByteVar>(), lpreserved.rawAddress.toCPointer<ByteVar>(), sorthandle)
 
 public actual fun findStringOrdinal(dwfindstringordinalflags: UInt, lpstringsource: Pcwstr, cchsource: Int, lpstringvalue: Pcwstr, cchvalue: Int, bignorecase: Bool): Int =
@@ -1362,61 +1357,61 @@ public actual fun foldStringW(dwmapflags: FoldStringMapFlags, lpsrcstr: Pcwstr, 
 public actual fun getACP(): UInt =
     windowssysWindowsWin32GlobalizationGetACP()
 
-public actual fun getCPInfo(codepage: UInt, lpcpinfo: MutPtr<Cpinfo>): Bool =
+public actual fun getCPInfo(codepage: UInt, lpcpinfo: MutPtr): Bool =
     windowssysWindowsWin32GlobalizationGetCPInfo(codepage, lpcpinfo.rawAddress.toCPointer<ByteVar>())
 
-public actual fun getCPInfoExA(codepage: UInt, dwflags: UInt, lpcpinfoex: MutPtr<Cpinfoexa>): Bool =
+public actual fun getCPInfoExA(codepage: UInt, dwflags: UInt, lpcpinfoex: MutPtr): Bool =
     windowssysWindowsWin32GlobalizationGetCPInfoExA(codepage, dwflags, lpcpinfoex.rawAddress.toCPointer<ByteVar>())
 
-public actual fun getCPInfoExW(codepage: UInt, dwflags: UInt, lpcpinfoex: MutPtr<Cpinfoexw>): Bool =
+public actual fun getCPInfoExW(codepage: UInt, dwflags: UInt, lpcpinfoex: MutPtr): Bool =
     windowssysWindowsWin32GlobalizationGetCPInfoExW(codepage, dwflags, lpcpinfoex.rawAddress.toCPointer<ByteVar>())
 
-public actual fun getCalendarDateFormatEx(lpszlocale: Pcwstr, dwflags: UInt, lpcaldatetime: ConstPtr<Caldatetime>, lpformat: Pcwstr, lpdatestr: Pwstr, cchdate: Int): Bool =
+public actual fun getCalendarDateFormatEx(lpszlocale: Pcwstr, dwflags: UInt, lpcaldatetime: ConstPtr, lpformat: Pcwstr, lpdatestr: Pwstr, cchdate: Int): Bool =
     windowssysWindowsWin32GlobalizationGetCalendarDateFormatEx(lpszlocale.rawAddress.toCPointer<ByteVar>(), dwflags, lpcaldatetime.rawAddress.toCPointer<ByteVar>(), lpformat.rawAddress.toCPointer<ByteVar>(), lpdatestr.rawAddress.toCPointer<ByteVar>(), cchdate)
 
-public actual fun getCalendarInfoA(locale: UInt, calendar: UInt, caltype: UInt, lpcaldata: Pstr, cchdata: Int, lpvalue: MutPtr<UInt>): Int =
+public actual fun getCalendarInfoA(locale: UInt, calendar: UInt, caltype: UInt, lpcaldata: Pstr, cchdata: Int, lpvalue: MutPtr): Int =
     windowssysWindowsWin32GlobalizationGetCalendarInfoA(locale, calendar, caltype, lpcaldata.rawAddress.toCPointer<ByteVar>(), cchdata, lpvalue.rawAddress.toCPointer<ByteVar>())
 
-public actual fun getCalendarInfoEx(lplocalename: Pcwstr, calendar: UInt, lpreserved: Pcwstr, caltype: UInt, lpcaldata: Pwstr, cchdata: Int, lpvalue: MutPtr<UInt>): Int =
+public actual fun getCalendarInfoEx(lplocalename: Pcwstr, calendar: UInt, lpreserved: Pcwstr, caltype: UInt, lpcaldata: Pwstr, cchdata: Int, lpvalue: MutPtr): Int =
     windowssysWindowsWin32GlobalizationGetCalendarInfoEx(lplocalename.rawAddress.toCPointer<ByteVar>(), calendar, lpreserved.rawAddress.toCPointer<ByteVar>(), caltype, lpcaldata.rawAddress.toCPointer<ByteVar>(), cchdata, lpvalue.rawAddress.toCPointer<ByteVar>())
 
-public actual fun getCalendarInfoW(locale: UInt, calendar: UInt, caltype: UInt, lpcaldata: Pwstr, cchdata: Int, lpvalue: MutPtr<UInt>): Int =
+public actual fun getCalendarInfoW(locale: UInt, calendar: UInt, caltype: UInt, lpcaldata: Pwstr, cchdata: Int, lpvalue: MutPtr): Int =
     windowssysWindowsWin32GlobalizationGetCalendarInfoW(locale, calendar, caltype, lpcaldata.rawAddress.toCPointer<ByteVar>(), cchdata, lpvalue.rawAddress.toCPointer<ByteVar>())
 
-public actual fun getCalendarSupportedDateRange(calendar: UInt, lpcalmindatetime: MutPtr<Caldatetime>, lpcalmaxdatetime: MutPtr<Caldatetime>): Bool =
+public actual fun getCalendarSupportedDateRange(calendar: UInt, lpcalmindatetime: MutPtr, lpcalmaxdatetime: MutPtr): Bool =
     windowssysWindowsWin32GlobalizationGetCalendarSupportedDateRange(calendar, lpcalmindatetime.rawAddress.toCPointer<ByteVar>(), lpcalmaxdatetime.rawAddress.toCPointer<ByteVar>())
 
-public actual fun getCurrencyFormatA(locale: UInt, dwflags: UInt, lpvalue: Pcstr, lpformat: ConstPtr<Currencyfmta>, lpcurrencystr: Pstr, cchcurrency: Int): Int =
+public actual fun getCurrencyFormatA(locale: UInt, dwflags: UInt, lpvalue: Pcstr, lpformat: ConstPtr, lpcurrencystr: Pstr, cchcurrency: Int): Int =
     windowssysWindowsWin32GlobalizationGetCurrencyFormatA(locale, dwflags, lpvalue.rawAddress.toCPointer<ByteVar>(), lpformat.rawAddress.toCPointer<ByteVar>(), lpcurrencystr.rawAddress.toCPointer<ByteVar>(), cchcurrency)
 
-public actual fun getCurrencyFormatEx(lplocalename: Pcwstr, dwflags: UInt, lpvalue: Pcwstr, lpformat: ConstPtr<Currencyfmtw>, lpcurrencystr: Pwstr, cchcurrency: Int): Int =
+public actual fun getCurrencyFormatEx(lplocalename: Pcwstr, dwflags: UInt, lpvalue: Pcwstr, lpformat: ConstPtr, lpcurrencystr: Pwstr, cchcurrency: Int): Int =
     windowssysWindowsWin32GlobalizationGetCurrencyFormatEx(lplocalename.rawAddress.toCPointer<ByteVar>(), dwflags, lpvalue.rawAddress.toCPointer<ByteVar>(), lpformat.rawAddress.toCPointer<ByteVar>(), lpcurrencystr.rawAddress.toCPointer<ByteVar>(), cchcurrency)
 
-public actual fun getCurrencyFormatW(locale: UInt, dwflags: UInt, lpvalue: Pcwstr, lpformat: ConstPtr<Currencyfmtw>, lpcurrencystr: Pwstr, cchcurrency: Int): Int =
+public actual fun getCurrencyFormatW(locale: UInt, dwflags: UInt, lpvalue: Pcwstr, lpformat: ConstPtr, lpcurrencystr: Pwstr, cchcurrency: Int): Int =
     windowssysWindowsWin32GlobalizationGetCurrencyFormatW(locale, dwflags, lpvalue.rawAddress.toCPointer<ByteVar>(), lpformat.rawAddress.toCPointer<ByteVar>(), lpcurrencystr.rawAddress.toCPointer<ByteVar>(), cchcurrency)
 
-public actual fun getDateFormatA(locale: UInt, dwflags: UInt, lpdate: ConstPtr<Systemtime>, lpformat: Pcstr, lpdatestr: Pstr, cchdate: Int): Int =
+public actual fun getDateFormatA(locale: UInt, dwflags: UInt, lpdate: ConstPtr, lpformat: Pcstr, lpdatestr: Pstr, cchdate: Int): Int =
     windowssysWindowsWin32GlobalizationGetDateFormatA(locale, dwflags, lpdate.rawAddress.toCPointer<ByteVar>(), lpformat.rawAddress.toCPointer<ByteVar>(), lpdatestr.rawAddress.toCPointer<ByteVar>(), cchdate)
 
-public actual fun getDateFormatEx(lplocalename: Pcwstr, dwflags: EnumDateFormatsFlags, lpdate: ConstPtr<Systemtime>, lpformat: Pcwstr, lpdatestr: Pwstr, cchdate: Int, lpcalendar: Pcwstr): Int =
+public actual fun getDateFormatEx(lplocalename: Pcwstr, dwflags: EnumDateFormatsFlags, lpdate: ConstPtr, lpformat: Pcwstr, lpdatestr: Pwstr, cchdate: Int, lpcalendar: Pcwstr): Int =
     windowssysWindowsWin32GlobalizationGetDateFormatEx(lplocalename.rawAddress.toCPointer<ByteVar>(), dwflags, lpdate.rawAddress.toCPointer<ByteVar>(), lpformat.rawAddress.toCPointer<ByteVar>(), lpdatestr.rawAddress.toCPointer<ByteVar>(), cchdate, lpcalendar.rawAddress.toCPointer<ByteVar>())
 
-public actual fun getDateFormatW(locale: UInt, dwflags: UInt, lpdate: ConstPtr<Systemtime>, lpformat: Pcwstr, lpdatestr: Pwstr, cchdate: Int): Int =
+public actual fun getDateFormatW(locale: UInt, dwflags: UInt, lpdate: ConstPtr, lpformat: Pcwstr, lpdatestr: Pwstr, cchdate: Int): Int =
     windowssysWindowsWin32GlobalizationGetDateFormatW(locale, dwflags, lpdate.rawAddress.toCPointer<ByteVar>(), lpformat.rawAddress.toCPointer<ByteVar>(), lpdatestr.rawAddress.toCPointer<ByteVar>(), cchdate)
 
-public actual fun getDistanceOfClosestLanguageInList(pszlanguage: Pcwstr, pszlanguageslist: Pcwstr, wchlistdelimiter: UShort, pclosestdistance: MutPtr<Double>): Hresult =
+public actual fun getDistanceOfClosestLanguageInList(pszlanguage: Pcwstr, pszlanguageslist: Pcwstr, wchlistdelimiter: UShort, pclosestdistance: MutPtr): Hresult =
     windowssysWindowsWin32GlobalizationGetDistanceOfClosestLanguageInList(pszlanguage.rawAddress.toCPointer<ByteVar>(), pszlanguageslist.rawAddress.toCPointer<ByteVar>(), wchlistdelimiter, pclosestdistance.rawAddress.toCPointer<ByteVar>())
 
-public actual fun getDurationFormat(locale: UInt, dwflags: UInt, lpduration: ConstPtr<Systemtime>, ullduration: ULong, lpformat: Pcwstr, lpdurationstr: Pwstr, cchduration: Int): Int =
+public actual fun getDurationFormat(locale: UInt, dwflags: UInt, lpduration: ConstPtr, ullduration: ULong, lpformat: Pcwstr, lpdurationstr: Pwstr, cchduration: Int): Int =
     windowssysWindowsWin32GlobalizationGetDurationFormat(locale, dwflags, lpduration.rawAddress.toCPointer<ByteVar>(), ullduration, lpformat.rawAddress.toCPointer<ByteVar>(), lpdurationstr.rawAddress.toCPointer<ByteVar>(), cchduration)
 
-public actual fun getDurationFormatEx(lplocalename: Pcwstr, dwflags: UInt, lpduration: ConstPtr<Systemtime>, ullduration: ULong, lpformat: Pcwstr, lpdurationstr: Pwstr, cchduration: Int): Int =
+public actual fun getDurationFormatEx(lplocalename: Pcwstr, dwflags: UInt, lpduration: ConstPtr, ullduration: ULong, lpformat: Pcwstr, lpdurationstr: Pwstr, cchduration: Int): Int =
     windowssysWindowsWin32GlobalizationGetDurationFormatEx(lplocalename.rawAddress.toCPointer<ByteVar>(), dwflags, lpduration.rawAddress.toCPointer<ByteVar>(), ullduration, lpformat.rawAddress.toCPointer<ByteVar>(), lpdurationstr.rawAddress.toCPointer<ByteVar>(), cchduration)
 
-public actual fun getFileMUIInfo(dwflags: UInt, pcwszfilepath: Pcwstr, pfilemuiinfo: MutPtr<Filemuiinfo>, pcbfilemuiinfo: MutPtr<UInt>): Bool =
+public actual fun getFileMUIInfo(dwflags: UInt, pcwszfilepath: Pcwstr, pfilemuiinfo: MutPtr, pcbfilemuiinfo: MutPtr): Bool =
     windowssysWindowsWin32GlobalizationGetFileMUIInfo(dwflags, pcwszfilepath.rawAddress.toCPointer<ByteVar>(), pfilemuiinfo.rawAddress.toCPointer<ByteVar>(), pcbfilemuiinfo.rawAddress.toCPointer<ByteVar>())
 
-public actual fun getFileMUIPath(dwflags: UInt, pcwszfilepath: Pcwstr, pwszlanguage: Pwstr, pcchlanguage: MutPtr<UInt>, pwszfilemuipath: Pwstr, pcchfilemuipath: MutPtr<UInt>, pululenumerator: MutPtr<ULong>): Bool =
+public actual fun getFileMUIPath(dwflags: UInt, pcwszfilepath: Pcwstr, pwszlanguage: Pwstr, pcchlanguage: MutPtr, pwszfilemuipath: Pwstr, pcchfilemuipath: MutPtr, pululenumerator: MutPtr): Bool =
     windowssysWindowsWin32GlobalizationGetFileMUIPath(dwflags, pcwszfilepath.rawAddress.toCPointer<ByteVar>(), pwszlanguage.rawAddress.toCPointer<ByteVar>(), pcchlanguage.rawAddress.toCPointer<ByteVar>(), pwszfilemuipath.rawAddress.toCPointer<ByteVar>(), pcchfilemuipath.rawAddress.toCPointer<ByteVar>(), pululenumerator.rawAddress.toCPointer<ByteVar>())
 
 public actual fun getGeoInfoA(location: Int, geotype: Sysgeotype, lpgeodata: Pstr, cchdata: Int, langid: UShort): Int =
@@ -1437,40 +1432,40 @@ public actual fun getLocaleInfoEx(lplocalename: Pcwstr, lctype: UInt, lplcdata: 
 public actual fun getLocaleInfoW(locale: UInt, lctype: UInt, lplcdata: Pwstr, cchdata: Int): Int =
     windowssysWindowsWin32GlobalizationGetLocaleInfoW(locale, lctype, lplcdata.rawAddress.toCPointer<ByteVar>(), cchdata)
 
-public actual fun getNLSVersion(function: UInt, locale: UInt, lpversioninformation: MutPtr<Nlsversioninfo>): Bool =
+public actual fun getNLSVersion(function: UInt, locale: UInt, lpversioninformation: MutPtr): Bool =
     windowssysWindowsWin32GlobalizationGetNLSVersion(function, locale, lpversioninformation.rawAddress.toCPointer<ByteVar>())
 
-public actual fun getNLSVersionEx(function: UInt, lplocalename: Pcwstr, lpversioninformation: MutPtr<Nlsversioninfoex>): Bool =
+public actual fun getNLSVersionEx(function: UInt, lplocalename: Pcwstr, lpversioninformation: MutPtr): Bool =
     windowssysWindowsWin32GlobalizationGetNLSVersionEx(function, lplocalename.rawAddress.toCPointer<ByteVar>(), lpversioninformation.rawAddress.toCPointer<ByteVar>())
 
-public actual fun getNumberFormatA(locale: UInt, dwflags: UInt, lpvalue: Pcstr, lpformat: ConstPtr<Numberfmta>, lpnumberstr: Pstr, cchnumber: Int): Int =
+public actual fun getNumberFormatA(locale: UInt, dwflags: UInt, lpvalue: Pcstr, lpformat: ConstPtr, lpnumberstr: Pstr, cchnumber: Int): Int =
     windowssysWindowsWin32GlobalizationGetNumberFormatA(locale, dwflags, lpvalue.rawAddress.toCPointer<ByteVar>(), lpformat.rawAddress.toCPointer<ByteVar>(), lpnumberstr.rawAddress.toCPointer<ByteVar>(), cchnumber)
 
-public actual fun getNumberFormatEx(lplocalename: Pcwstr, dwflags: UInt, lpvalue: Pcwstr, lpformat: ConstPtr<Numberfmtw>, lpnumberstr: Pwstr, cchnumber: Int): Int =
+public actual fun getNumberFormatEx(lplocalename: Pcwstr, dwflags: UInt, lpvalue: Pcwstr, lpformat: ConstPtr, lpnumberstr: Pwstr, cchnumber: Int): Int =
     windowssysWindowsWin32GlobalizationGetNumberFormatEx(lplocalename.rawAddress.toCPointer<ByteVar>(), dwflags, lpvalue.rawAddress.toCPointer<ByteVar>(), lpformat.rawAddress.toCPointer<ByteVar>(), lpnumberstr.rawAddress.toCPointer<ByteVar>(), cchnumber)
 
-public actual fun getNumberFormatW(locale: UInt, dwflags: UInt, lpvalue: Pcwstr, lpformat: ConstPtr<Numberfmtw>, lpnumberstr: Pwstr, cchnumber: Int): Int =
+public actual fun getNumberFormatW(locale: UInt, dwflags: UInt, lpvalue: Pcwstr, lpformat: ConstPtr, lpnumberstr: Pwstr, cchnumber: Int): Int =
     windowssysWindowsWin32GlobalizationGetNumberFormatW(locale, dwflags, lpvalue.rawAddress.toCPointer<ByteVar>(), lpformat.rawAddress.toCPointer<ByteVar>(), lpnumberstr.rawAddress.toCPointer<ByteVar>(), cchnumber)
 
 public actual fun getOEMCP(): UInt =
     windowssysWindowsWin32GlobalizationGetOEMCP()
 
-public actual fun getProcessPreferredUILanguages(dwflags: UInt, pulnumlanguages: MutPtr<UInt>, pwszlanguagesbuffer: Pwstr, pcchlanguagesbuffer: MutPtr<UInt>): Bool =
+public actual fun getProcessPreferredUILanguages(dwflags: UInt, pulnumlanguages: MutPtr, pwszlanguagesbuffer: Pwstr, pcchlanguagesbuffer: MutPtr): Bool =
     windowssysWindowsWin32GlobalizationGetProcessPreferredUILanguages(dwflags, pulnumlanguages.rawAddress.toCPointer<ByteVar>(), pwszlanguagesbuffer.rawAddress.toCPointer<ByteVar>(), pcchlanguagesbuffer.rawAddress.toCPointer<ByteVar>())
 
 public actual fun getStringScripts(dwflags: UInt, lpstring: Pcwstr, cchstring: Int, lpscripts: Pwstr, cchscripts: Int): Int =
     windowssysWindowsWin32GlobalizationGetStringScripts(dwflags, lpstring.rawAddress.toCPointer<ByteVar>(), cchstring, lpscripts.rawAddress.toCPointer<ByteVar>(), cchscripts)
 
-public actual fun getStringTypeA(locale: UInt, dwinfotype: UInt, lpsrcstr: Pcstr, cchsrc: Int, lpchartype: MutPtr<UShort>): Bool =
+public actual fun getStringTypeA(locale: UInt, dwinfotype: UInt, lpsrcstr: Pcstr, cchsrc: Int, lpchartype: MutPtr): Bool =
     windowssysWindowsWin32GlobalizationGetStringTypeA(locale, dwinfotype, lpsrcstr.rawAddress.toCPointer<ByteVar>(), cchsrc, lpchartype.rawAddress.toCPointer<ByteVar>())
 
-public actual fun getStringTypeExA(locale: UInt, dwinfotype: UInt, lpsrcstr: Pcstr, cchsrc: Int, lpchartype: MutPtr<UShort>): Bool =
+public actual fun getStringTypeExA(locale: UInt, dwinfotype: UInt, lpsrcstr: Pcstr, cchsrc: Int, lpchartype: MutPtr): Bool =
     windowssysWindowsWin32GlobalizationGetStringTypeExA(locale, dwinfotype, lpsrcstr.rawAddress.toCPointer<ByteVar>(), cchsrc, lpchartype.rawAddress.toCPointer<ByteVar>())
 
-public actual fun getStringTypeExW(locale: UInt, dwinfotype: UInt, lpsrcstr: Pcwstr, cchsrc: Int, lpchartype: MutPtr<UShort>): Bool =
+public actual fun getStringTypeExW(locale: UInt, dwinfotype: UInt, lpsrcstr: Pcwstr, cchsrc: Int, lpchartype: MutPtr): Bool =
     windowssysWindowsWin32GlobalizationGetStringTypeExW(locale, dwinfotype, lpsrcstr.rawAddress.toCPointer<ByteVar>(), cchsrc, lpchartype.rawAddress.toCPointer<ByteVar>())
 
-public actual fun getStringTypeW(dwinfotype: UInt, lpsrcstr: Pcwstr, cchsrc: Int, lpchartype: MutPtr<UShort>): Bool =
+public actual fun getStringTypeW(dwinfotype: UInt, lpsrcstr: Pcwstr, cchsrc: Int, lpchartype: MutPtr): Bool =
     windowssysWindowsWin32GlobalizationGetStringTypeW(dwinfotype, lpsrcstr.rawAddress.toCPointer<ByteVar>(), cchsrc, lpchartype.rawAddress.toCPointer<ByteVar>())
 
 public actual fun getSystemDefaultLCID(): UInt =
@@ -1485,34 +1480,34 @@ public actual fun getSystemDefaultLocaleName(lplocalename: Pwstr, cchlocalename:
 public actual fun getSystemDefaultUILanguage(): UShort =
     windowssysWindowsWin32GlobalizationGetSystemDefaultUILanguage()
 
-public actual fun getSystemPreferredUILanguages(dwflags: UInt, pulnumlanguages: MutPtr<UInt>, pwszlanguagesbuffer: Pwstr, pcchlanguagesbuffer: MutPtr<UInt>): Bool =
+public actual fun getSystemPreferredUILanguages(dwflags: UInt, pulnumlanguages: MutPtr, pwszlanguagesbuffer: Pwstr, pcchlanguagesbuffer: MutPtr): Bool =
     windowssysWindowsWin32GlobalizationGetSystemPreferredUILanguages(dwflags, pulnumlanguages.rawAddress.toCPointer<ByteVar>(), pwszlanguagesbuffer.rawAddress.toCPointer<ByteVar>(), pcchlanguagesbuffer.rawAddress.toCPointer<ByteVar>())
 
 public actual fun getTextCharset(hdc: Hdc): Int =
     windowssysWindowsWin32GlobalizationGetTextCharset(hdc.rawAddress.toCPointer<ByteVar>())
 
-public actual fun getTextCharsetInfo(hdc: Hdc, lpsig: MutPtr<Fontsignature>, dwflags: UInt): Int =
+public actual fun getTextCharsetInfo(hdc: Hdc, lpsig: MutPtr, dwflags: UInt): Int =
     windowssysWindowsWin32GlobalizationGetTextCharsetInfo(hdc.rawAddress.toCPointer<ByteVar>(), lpsig.rawAddress.toCPointer<ByteVar>(), dwflags)
 
 public actual fun getThreadLocale(): UInt =
     windowssysWindowsWin32GlobalizationGetThreadLocale()
 
-public actual fun getThreadPreferredUILanguages(dwflags: UInt, pulnumlanguages: MutPtr<UInt>, pwszlanguagesbuffer: Pwstr, pcchlanguagesbuffer: MutPtr<UInt>): Bool =
+public actual fun getThreadPreferredUILanguages(dwflags: UInt, pulnumlanguages: MutPtr, pwszlanguagesbuffer: Pwstr, pcchlanguagesbuffer: MutPtr): Bool =
     windowssysWindowsWin32GlobalizationGetThreadPreferredUILanguages(dwflags, pulnumlanguages.rawAddress.toCPointer<ByteVar>(), pwszlanguagesbuffer.rawAddress.toCPointer<ByteVar>(), pcchlanguagesbuffer.rawAddress.toCPointer<ByteVar>())
 
 public actual fun getThreadUILanguage(): UShort =
     windowssysWindowsWin32GlobalizationGetThreadUILanguage()
 
-public actual fun getTimeFormatA(locale: UInt, dwflags: UInt, lptime: ConstPtr<Systemtime>, lpformat: Pcstr, lptimestr: Pstr, cchtime: Int): Int =
+public actual fun getTimeFormatA(locale: UInt, dwflags: UInt, lptime: ConstPtr, lpformat: Pcstr, lptimestr: Pstr, cchtime: Int): Int =
     windowssysWindowsWin32GlobalizationGetTimeFormatA(locale, dwflags, lptime.rawAddress.toCPointer<ByteVar>(), lpformat.rawAddress.toCPointer<ByteVar>(), lptimestr.rawAddress.toCPointer<ByteVar>(), cchtime)
 
-public actual fun getTimeFormatEx(lplocalename: Pcwstr, dwflags: TimeFormatFlags, lptime: ConstPtr<Systemtime>, lpformat: Pcwstr, lptimestr: Pwstr, cchtime: Int): Int =
+public actual fun getTimeFormatEx(lplocalename: Pcwstr, dwflags: TimeFormatFlags, lptime: ConstPtr, lpformat: Pcwstr, lptimestr: Pwstr, cchtime: Int): Int =
     windowssysWindowsWin32GlobalizationGetTimeFormatEx(lplocalename.rawAddress.toCPointer<ByteVar>(), dwflags, lptime.rawAddress.toCPointer<ByteVar>(), lpformat.rawAddress.toCPointer<ByteVar>(), lptimestr.rawAddress.toCPointer<ByteVar>(), cchtime)
 
-public actual fun getTimeFormatW(locale: UInt, dwflags: UInt, lptime: ConstPtr<Systemtime>, lpformat: Pcwstr, lptimestr: Pwstr, cchtime: Int): Int =
+public actual fun getTimeFormatW(locale: UInt, dwflags: UInt, lptime: ConstPtr, lpformat: Pcwstr, lptimestr: Pwstr, cchtime: Int): Int =
     windowssysWindowsWin32GlobalizationGetTimeFormatW(locale, dwflags, lptime.rawAddress.toCPointer<ByteVar>(), lpformat.rawAddress.toCPointer<ByteVar>(), lptimestr.rawAddress.toCPointer<ByteVar>(), cchtime)
 
-public actual fun getUILanguageInfo(dwflags: UInt, pwmszlanguage: Pcwstr, pwszfallbacklanguages: Pwstr, pcchfallbacklanguages: MutPtr<UInt>, pattributes: MutPtr<UInt>): Bool =
+public actual fun getUILanguageInfo(dwflags: UInt, pwmszlanguage: Pcwstr, pwszfallbacklanguages: Pwstr, pcchfallbacklanguages: MutPtr, pattributes: MutPtr): Bool =
     windowssysWindowsWin32GlobalizationGetUILanguageInfo(dwflags, pwmszlanguage.rawAddress.toCPointer<ByteVar>(), pwszfallbacklanguages.rawAddress.toCPointer<ByteVar>(), pcchfallbacklanguages.rawAddress.toCPointer<ByteVar>(), pattributes.rawAddress.toCPointer<ByteVar>())
 
 public actual fun getUserDefaultGeoName(geoname: Pwstr, geonamecount: Int): Int =
@@ -1533,7 +1528,7 @@ public actual fun getUserDefaultUILanguage(): UShort =
 public actual fun getUserGeoID(geoclass: Sysgeoclass): Int =
     windowssysWindowsWin32GlobalizationGetUserGeoID(geoclass)
 
-public actual fun getUserPreferredUILanguages(dwflags: UInt, pulnumlanguages: MutPtr<UInt>, pwszlanguagesbuffer: Pwstr, pcchlanguagesbuffer: MutPtr<UInt>): Bool =
+public actual fun getUserPreferredUILanguages(dwflags: UInt, pulnumlanguages: MutPtr, pwszlanguagesbuffer: Pwstr, pcchlanguagesbuffer: MutPtr): Bool =
     windowssysWindowsWin32GlobalizationGetUserPreferredUILanguages(dwflags, pulnumlanguages.rawAddress.toCPointer<ByteVar>(), pwszlanguagesbuffer.rawAddress.toCPointer<ByteVar>(), pcchlanguagesbuffer.rawAddress.toCPointer<ByteVar>())
 
 public actual fun idnToAscii(dwflags: UInt, lpunicodecharstr: Pcwstr, cchunicodechar: Int, lpasciicharstr: Pwstr, cchasciichar: Int): Int =
@@ -1554,13 +1549,13 @@ public actual fun isDBCSLeadByte(testchar: UByte): Bool =
 public actual fun isDBCSLeadByteEx(codepage: UInt, testchar: UByte): Bool =
     windowssysWindowsWin32GlobalizationIsDBCSLeadByteEx(codepage, testchar)
 
-public actual fun isNLSDefinedString(function: UInt, dwflags: UInt, lpversioninformation: ConstPtr<Nlsversioninfo>, lpstring: Pcwstr, cchstr: Int): Bool =
+public actual fun isNLSDefinedString(function: UInt, dwflags: UInt, lpversioninformation: ConstPtr, lpstring: Pcwstr, cchstr: Int): Bool =
     windowssysWindowsWin32GlobalizationIsNLSDefinedString(function, dwflags, lpversioninformation.rawAddress.toCPointer<ByteVar>(), lpstring.rawAddress.toCPointer<ByteVar>(), cchstr)
 
 public actual fun isNormalizedString(normform: NormForm, lpstring: Pcwstr, cwlength: Int): Bool =
     windowssysWindowsWin32GlobalizationIsNormalizedString(normform, lpstring.rawAddress.toCPointer<ByteVar>(), cwlength)
 
-public actual fun isTextUnicode(lpv: ConstPtr<CVoid>, isize: Int, lpiresult: MutPtr<IsTextUnicodeResult>): Bool =
+public actual fun isTextUnicode(lpv: ConstPtr, isize: Int, lpiresult: MutPtr): Bool =
     windowssysWindowsWin32GlobalizationIsTextUnicode(lpv.rawAddress.toCPointer<ByteVar>(), isize, lpiresult.rawAddress.toCPointer<ByteVar>())
 
 public actual fun isValidCodePage(codepage: UInt): Bool =
@@ -1575,7 +1570,7 @@ public actual fun isValidLocale(locale: UInt, dwflags: IsValidLocaleFlags): Bool
 public actual fun isValidLocaleName(lplocalename: Pcwstr): Bool =
     windowssysWindowsWin32GlobalizationIsValidLocaleName(lplocalename.rawAddress.toCPointer<ByteVar>())
 
-public actual fun isValidNLSVersion(function: UInt, lplocalename: Pcwstr, lpversioninformation: ConstPtr<Nlsversioninfoex>): UInt =
+public actual fun isValidNLSVersion(function: UInt, lplocalename: Pcwstr, lpversioninformation: ConstPtr): UInt =
     windowssysWindowsWin32GlobalizationIsValidNLSVersion(function, lplocalename.rawAddress.toCPointer<ByteVar>(), lpversioninformation.rawAddress.toCPointer<ByteVar>())
 
 public actual fun isWellFormedTag(psztag: Pcwstr): UByte =
@@ -1587,7 +1582,7 @@ public actual fun lCIDToLocaleName(locale: UInt, lpname: Pwstr, cchname: Int, dw
 public actual fun lCMapStringA(locale: UInt, dwmapflags: UInt, lpsrcstr: Pcstr, cchsrc: Int, lpdeststr: Pstr, cchdest: Int): Int =
     windowssysWindowsWin32GlobalizationLCMapStringA(locale, dwmapflags, lpsrcstr.rawAddress.toCPointer<ByteVar>(), cchsrc, lpdeststr.rawAddress.toCPointer<ByteVar>(), cchdest)
 
-public actual fun lCMapStringEx(lplocalename: Pcwstr, dwmapflags: UInt, lpsrcstr: Pcwstr, cchsrc: Int, lpdeststr: Pwstr, cchdest: Int, lpversioninformation: ConstPtr<Nlsversioninfo>, lpreserved: ConstPtr<CVoid>, sorthandle: Lparam): Int =
+public actual fun lCMapStringEx(lplocalename: Pcwstr, dwmapflags: UInt, lpsrcstr: Pcwstr, cchsrc: Int, lpdeststr: Pwstr, cchdest: Int, lpversioninformation: ConstPtr, lpreserved: ConstPtr, sorthandle: Lparam): Int =
     windowssysWindowsWin32GlobalizationLCMapStringEx(lplocalename.rawAddress.toCPointer<ByteVar>(), dwmapflags, lpsrcstr.rawAddress.toCPointer<ByteVar>(), cchsrc, lpdeststr.rawAddress.toCPointer<ByteVar>(), cchdest, lpversioninformation.rawAddress.toCPointer<ByteVar>(), lpreserved.rawAddress.toCPointer<ByteVar>(), sorthandle)
 
 public actual fun lCMapStringW(locale: UInt, dwmapflags: UInt, lpsrcstr: Pcwstr, cchsrc: Int, lpdeststr: Pwstr, cchdest: Int): Int =
@@ -1596,19 +1591,19 @@ public actual fun lCMapStringW(locale: UInt, dwmapflags: UInt, lpsrcstr: Pcwstr,
 public actual fun localeNameToLCID(lpname: Pcwstr, dwflags: UInt): UInt =
     windowssysWindowsWin32GlobalizationLocaleNameToLCID(lpname.rawAddress.toCPointer<ByteVar>(), dwflags)
 
-public actual fun mappingDoAction(pbag: MutPtr<MappingPropertyBag>, dwrangeindex: UInt, pszactionid: Pcwstr): Hresult =
+public actual fun mappingDoAction(pbag: MutPtr, dwrangeindex: UInt, pszactionid: Pcwstr): Hresult =
     windowssysWindowsWin32GlobalizationMappingDoAction(pbag.rawAddress.toCPointer<ByteVar>(), dwrangeindex, pszactionid.rawAddress.toCPointer<ByteVar>())
 
-public actual fun mappingFreePropertyBag(pbag: ConstPtr<MappingPropertyBag>): Hresult =
+public actual fun mappingFreePropertyBag(pbag: ConstPtr): Hresult =
     windowssysWindowsWin32GlobalizationMappingFreePropertyBag(pbag.rawAddress.toCPointer<ByteVar>())
 
-public actual fun mappingFreeServices(pserviceinfo: ConstPtr<MappingServiceInfo>): Hresult =
+public actual fun mappingFreeServices(pserviceinfo: ConstPtr): Hresult =
     windowssysWindowsWin32GlobalizationMappingFreeServices(pserviceinfo.rawAddress.toCPointer<ByteVar>())
 
-public actual fun mappingGetServices(poptions: ConstPtr<MappingEnumOptions>, prgservices: MutPtr<MutPtr<MappingServiceInfo>>, pdwservicescount: MutPtr<UInt>): Hresult =
+public actual fun mappingGetServices(poptions: ConstPtr, prgservices: MutPtr, pdwservicescount: MutPtr): Hresult =
     windowssysWindowsWin32GlobalizationMappingGetServices(poptions.rawAddress.toCPointer<ByteVar>(), prgservices.rawAddress.toCPointer<ByteVar>(), pdwservicescount.rawAddress.toCPointer<ByteVar>())
 
-public actual fun mappingRecognizeText(pserviceinfo: ConstPtr<MappingServiceInfo>, psztext: Pcwstr, dwlength: UInt, dwindex: UInt, poptions: ConstPtr<MappingOptions>, pbag: MutPtr<MappingPropertyBag>): Hresult =
+public actual fun mappingRecognizeText(pserviceinfo: ConstPtr, psztext: Pcwstr, dwlength: UInt, dwindex: UInt, poptions: ConstPtr, pbag: MutPtr): Hresult =
     windowssysWindowsWin32GlobalizationMappingRecognizeText(pserviceinfo.rawAddress.toCPointer<ByteVar>(), psztext.rawAddress.toCPointer<ByteVar>(), dwlength, dwindex, poptions.rawAddress.toCPointer<ByteVar>(), pbag.rawAddress.toCPointer<ByteVar>())
 
 public actual fun multiByteToWideChar(codepage: UInt, dwflags: MultiByteToWideCharFlags, lpmultibytestr: Pcstr, cbmultibyte: Int, lpwidecharstr: Pwstr, cchwidechar: Int): Int =
@@ -1617,7 +1612,7 @@ public actual fun multiByteToWideChar(codepage: UInt, dwflags: MultiByteToWideCh
 public actual fun normalizeString(normform: NormForm, lpsrcstring: Pcwstr, cwsrclength: Int, lpdststring: Pwstr, cwdstlength: Int): Int =
     windowssysWindowsWin32GlobalizationNormalizeString(normform, lpsrcstring.rawAddress.toCPointer<ByteVar>(), cwsrclength, lpdststring.rawAddress.toCPointer<ByteVar>(), cwdstlength)
 
-public actual fun notifyUILanguageChange(dwflags: UInt, pcwstrnewlanguage: Pcwstr, pcwstrpreviouslanguage: Pcwstr, dwreserved: UInt, pdwstatusrtrn: MutPtr<UInt>): Bool =
+public actual fun notifyUILanguageChange(dwflags: UInt, pcwstrnewlanguage: Pcwstr, pcwstrpreviouslanguage: Pcwstr, dwreserved: UInt, pdwstatusrtrn: MutPtr): Bool =
     windowssysWindowsWin32GlobalizationNotifyUILanguageChange(dwflags, pcwstrnewlanguage.rawAddress.toCPointer<ByteVar>(), pcwstrpreviouslanguage.rawAddress.toCPointer<ByteVar>(), dwreserved, pdwstatusrtrn.rawAddress.toCPointer<ByteVar>())
 
 public actual fun resolveLocaleName(lpnametoresolve: Pcwstr, lplocalename: Pwstr, cchlocalename: Int): Int =
@@ -1627,124 +1622,124 @@ public actual fun restoreThreadPreferredUILanguages(snapshot: Hsaveduilanguages)
     windowssysWindowsWin32GlobalizationRestoreThreadPreferredUILanguages(snapshot.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun scriptApplyDigitSubstitution(psds: ConstPtr<ScriptDigitsubstitute>, psc: MutPtr<ScriptControl>, pss: MutPtr<ScriptState>): Hresult =
+public actual fun scriptApplyDigitSubstitution(psds: ConstPtr, psc: MutPtr, pss: MutPtr): Hresult =
     windowssysWindowsWin32GlobalizationScriptApplyDigitSubstitution(psds.rawAddress.toCPointer<ByteVar>(), psc.rawAddress.toCPointer<ByteVar>(), pss.rawAddress.toCPointer<ByteVar>())
 
-public actual fun scriptApplyLogicalWidth(pidx: ConstPtr<Int>, cchars: Int, cglyphs: Int, pwlogclust: ConstPtr<UShort>, psva: ConstPtr<ScriptVisattr>, piadvance: ConstPtr<Int>, psa: ConstPtr<ScriptAnalysis>, pabc: MutPtr<Abc>, pijustify: MutPtr<Int>): Hresult =
+public actual fun scriptApplyLogicalWidth(pidx: ConstPtr, cchars: Int, cglyphs: Int, pwlogclust: ConstPtr, psva: ConstPtr, piadvance: ConstPtr, psa: ConstPtr, pabc: MutPtr, pijustify: MutPtr): Hresult =
     windowssysWindowsWin32GlobalizationScriptApplyLogicalWidth(pidx.rawAddress.toCPointer<ByteVar>(), cchars, cglyphs, pwlogclust.rawAddress.toCPointer<ByteVar>(), psva.rawAddress.toCPointer<ByteVar>(), piadvance.rawAddress.toCPointer<ByteVar>(), psa.rawAddress.toCPointer<ByteVar>(), pabc.rawAddress.toCPointer<ByteVar>(), pijustify.rawAddress.toCPointer<ByteVar>())
 
-public actual fun scriptBreak(pwcchars: Pcwstr, cchars: Int, psa: ConstPtr<ScriptAnalysis>, psla: MutPtr<ScriptLogattr>): Hresult =
+public actual fun scriptBreak(pwcchars: Pcwstr, cchars: Int, psa: ConstPtr, psla: MutPtr): Hresult =
     windowssysWindowsWin32GlobalizationScriptBreak(pwcchars.rawAddress.toCPointer<ByteVar>(), cchars, psa.rawAddress.toCPointer<ByteVar>(), psla.rawAddress.toCPointer<ByteVar>())
 
-public actual fun scriptCPtoX(icp: Int, ftrailing: Bool, cchars: Int, cglyphs: Int, pwlogclust: ConstPtr<UShort>, psva: ConstPtr<ScriptVisattr>, piadvance: ConstPtr<Int>, psa: ConstPtr<ScriptAnalysis>, pix: MutPtr<Int>): Hresult =
+public actual fun scriptCPtoX(icp: Int, ftrailing: Bool, cchars: Int, cglyphs: Int, pwlogclust: ConstPtr, psva: ConstPtr, piadvance: ConstPtr, psa: ConstPtr, pix: MutPtr): Hresult =
     windowssysWindowsWin32GlobalizationScriptCPtoX(icp, ftrailing, cchars, cglyphs, pwlogclust.rawAddress.toCPointer<ByteVar>(), psva.rawAddress.toCPointer<ByteVar>(), piadvance.rawAddress.toCPointer<ByteVar>(), psa.rawAddress.toCPointer<ByteVar>(), pix.rawAddress.toCPointer<ByteVar>())
 
-public actual fun scriptCacheGetHeight(hdc: Hdc, psc: MutPtr<MutPtr<CVoid>>, tmheight: MutPtr<Int>): Hresult =
+public actual fun scriptCacheGetHeight(hdc: Hdc, psc: MutPtr, tmheight: MutPtr): Hresult =
     windowssysWindowsWin32GlobalizationScriptCacheGetHeight(hdc.rawAddress.toCPointer<ByteVar>(), psc.rawAddress.toCPointer<ByteVar>(), tmheight.rawAddress.toCPointer<ByteVar>())
 
-public actual fun scriptFreeCache(psc: MutPtr<MutPtr<CVoid>>): Hresult =
+public actual fun scriptFreeCache(psc: MutPtr): Hresult =
     windowssysWindowsWin32GlobalizationScriptFreeCache(psc.rawAddress.toCPointer<ByteVar>())
 
-public actual fun scriptGetCMap(hdc: Hdc, psc: MutPtr<MutPtr<CVoid>>, pwcinchars: Pcwstr, cchars: Int, dwflags: UInt, pwoutglyphs: MutPtr<UShort>): Hresult =
+public actual fun scriptGetCMap(hdc: Hdc, psc: MutPtr, pwcinchars: Pcwstr, cchars: Int, dwflags: UInt, pwoutglyphs: MutPtr): Hresult =
     windowssysWindowsWin32GlobalizationScriptGetCMap(hdc.rawAddress.toCPointer<ByteVar>(), psc.rawAddress.toCPointer<ByteVar>(), pwcinchars.rawAddress.toCPointer<ByteVar>(), cchars, dwflags, pwoutglyphs.rawAddress.toCPointer<ByteVar>())
 
-public actual fun scriptGetFontAlternateGlyphs(hdc: Hdc, psc: MutPtr<MutPtr<CVoid>>, psa: ConstPtr<ScriptAnalysis>, tagscript: UInt, taglangsys: UInt, tagfeature: UInt, wglyphid: UShort, cmaxalternates: Int, palternateglyphs: MutPtr<UShort>, pcalternates: MutPtr<Int>): Hresult =
+public actual fun scriptGetFontAlternateGlyphs(hdc: Hdc, psc: MutPtr, psa: ConstPtr, tagscript: UInt, taglangsys: UInt, tagfeature: UInt, wglyphid: UShort, cmaxalternates: Int, palternateglyphs: MutPtr, pcalternates: MutPtr): Hresult =
     windowssysWindowsWin32GlobalizationScriptGetFontAlternateGlyphs(hdc.rawAddress.toCPointer<ByteVar>(), psc.rawAddress.toCPointer<ByteVar>(), psa.rawAddress.toCPointer<ByteVar>(), tagscript, taglangsys, tagfeature, wglyphid, cmaxalternates, palternateglyphs.rawAddress.toCPointer<ByteVar>(), pcalternates.rawAddress.toCPointer<ByteVar>())
 
-public actual fun scriptGetFontFeatureTags(hdc: Hdc, psc: MutPtr<MutPtr<CVoid>>, psa: ConstPtr<ScriptAnalysis>, tagscript: UInt, taglangsys: UInt, cmaxtags: Int, pfeaturetags: MutPtr<UInt>, pctags: MutPtr<Int>): Hresult =
+public actual fun scriptGetFontFeatureTags(hdc: Hdc, psc: MutPtr, psa: ConstPtr, tagscript: UInt, taglangsys: UInt, cmaxtags: Int, pfeaturetags: MutPtr, pctags: MutPtr): Hresult =
     windowssysWindowsWin32GlobalizationScriptGetFontFeatureTags(hdc.rawAddress.toCPointer<ByteVar>(), psc.rawAddress.toCPointer<ByteVar>(), psa.rawAddress.toCPointer<ByteVar>(), tagscript, taglangsys, cmaxtags, pfeaturetags.rawAddress.toCPointer<ByteVar>(), pctags.rawAddress.toCPointer<ByteVar>())
 
-public actual fun scriptGetFontLanguageTags(hdc: Hdc, psc: MutPtr<MutPtr<CVoid>>, psa: ConstPtr<ScriptAnalysis>, tagscript: UInt, cmaxtags: Int, plangsystags: MutPtr<UInt>, pctags: MutPtr<Int>): Hresult =
+public actual fun scriptGetFontLanguageTags(hdc: Hdc, psc: MutPtr, psa: ConstPtr, tagscript: UInt, cmaxtags: Int, plangsystags: MutPtr, pctags: MutPtr): Hresult =
     windowssysWindowsWin32GlobalizationScriptGetFontLanguageTags(hdc.rawAddress.toCPointer<ByteVar>(), psc.rawAddress.toCPointer<ByteVar>(), psa.rawAddress.toCPointer<ByteVar>(), tagscript, cmaxtags, plangsystags.rawAddress.toCPointer<ByteVar>(), pctags.rawAddress.toCPointer<ByteVar>())
 
-public actual fun scriptGetFontProperties(hdc: Hdc, psc: MutPtr<MutPtr<CVoid>>, sfp: MutPtr<ScriptFontproperties>): Hresult =
+public actual fun scriptGetFontProperties(hdc: Hdc, psc: MutPtr, sfp: MutPtr): Hresult =
     windowssysWindowsWin32GlobalizationScriptGetFontProperties(hdc.rawAddress.toCPointer<ByteVar>(), psc.rawAddress.toCPointer<ByteVar>(), sfp.rawAddress.toCPointer<ByteVar>())
 
-public actual fun scriptGetFontScriptTags(hdc: Hdc, psc: MutPtr<MutPtr<CVoid>>, psa: ConstPtr<ScriptAnalysis>, cmaxtags: Int, pscripttags: MutPtr<UInt>, pctags: MutPtr<Int>): Hresult =
+public actual fun scriptGetFontScriptTags(hdc: Hdc, psc: MutPtr, psa: ConstPtr, cmaxtags: Int, pscripttags: MutPtr, pctags: MutPtr): Hresult =
     windowssysWindowsWin32GlobalizationScriptGetFontScriptTags(hdc.rawAddress.toCPointer<ByteVar>(), psc.rawAddress.toCPointer<ByteVar>(), psa.rawAddress.toCPointer<ByteVar>(), cmaxtags, pscripttags.rawAddress.toCPointer<ByteVar>(), pctags.rawAddress.toCPointer<ByteVar>())
 
-public actual fun scriptGetGlyphABCWidth(hdc: Hdc, psc: MutPtr<MutPtr<CVoid>>, wglyph: UShort, pabc: MutPtr<Abc>): Hresult =
+public actual fun scriptGetGlyphABCWidth(hdc: Hdc, psc: MutPtr, wglyph: UShort, pabc: MutPtr): Hresult =
     windowssysWindowsWin32GlobalizationScriptGetGlyphABCWidth(hdc.rawAddress.toCPointer<ByteVar>(), psc.rawAddress.toCPointer<ByteVar>(), wglyph, pabc.rawAddress.toCPointer<ByteVar>())
 
-public actual fun scriptGetLogicalWidths(psa: ConstPtr<ScriptAnalysis>, cchars: Int, cglyphs: Int, piglyphwidth: ConstPtr<Int>, pwlogclust: ConstPtr<UShort>, psva: ConstPtr<ScriptVisattr>, pidx: ConstPtr<Int>): Hresult =
+public actual fun scriptGetLogicalWidths(psa: ConstPtr, cchars: Int, cglyphs: Int, piglyphwidth: ConstPtr, pwlogclust: ConstPtr, psva: ConstPtr, pidx: ConstPtr): Hresult =
     windowssysWindowsWin32GlobalizationScriptGetLogicalWidths(psa.rawAddress.toCPointer<ByteVar>(), cchars, cglyphs, piglyphwidth.rawAddress.toCPointer<ByteVar>(), pwlogclust.rawAddress.toCPointer<ByteVar>(), psva.rawAddress.toCPointer<ByteVar>(), pidx.rawAddress.toCPointer<ByteVar>())
 
-public actual fun scriptGetProperties(ppsp: MutPtr<MutPtr<MutPtr<ScriptProperties>>>, pinumscripts: MutPtr<Int>): Hresult =
+public actual fun scriptGetProperties(ppsp: MutPtr, pinumscripts: MutPtr): Hresult =
     windowssysWindowsWin32GlobalizationScriptGetProperties(ppsp.rawAddress.toCPointer<ByteVar>(), pinumscripts.rawAddress.toCPointer<ByteVar>())
 
 public actual fun scriptIsComplex(pwcinchars: Pcwstr, cinchars: Int, dwflags: ScriptIsComplexFlags): Hresult =
     windowssysWindowsWin32GlobalizationScriptIsComplex(pwcinchars.rawAddress.toCPointer<ByteVar>(), cinchars, dwflags)
 
-public actual fun scriptItemize(pwcinchars: Pcwstr, cinchars: Int, cmaxitems: Int, pscontrol: ConstPtr<ScriptControl>, psstate: ConstPtr<ScriptState>, pitems: MutPtr<ScriptItem>, pcitems: MutPtr<Int>): Hresult =
+public actual fun scriptItemize(pwcinchars: Pcwstr, cinchars: Int, cmaxitems: Int, pscontrol: ConstPtr, psstate: ConstPtr, pitems: MutPtr, pcitems: MutPtr): Hresult =
     windowssysWindowsWin32GlobalizationScriptItemize(pwcinchars.rawAddress.toCPointer<ByteVar>(), cinchars, cmaxitems, pscontrol.rawAddress.toCPointer<ByteVar>(), psstate.rawAddress.toCPointer<ByteVar>(), pitems.rawAddress.toCPointer<ByteVar>(), pcitems.rawAddress.toCPointer<ByteVar>())
 
-public actual fun scriptItemizeOpenType(pwcinchars: Pcwstr, cinchars: Int, cmaxitems: Int, pscontrol: ConstPtr<ScriptControl>, psstate: ConstPtr<ScriptState>, pitems: MutPtr<ScriptItem>, pscripttags: MutPtr<UInt>, pcitems: MutPtr<Int>): Hresult =
+public actual fun scriptItemizeOpenType(pwcinchars: Pcwstr, cinchars: Int, cmaxitems: Int, pscontrol: ConstPtr, psstate: ConstPtr, pitems: MutPtr, pscripttags: MutPtr, pcitems: MutPtr): Hresult =
     windowssysWindowsWin32GlobalizationScriptItemizeOpenType(pwcinchars.rawAddress.toCPointer<ByteVar>(), cinchars, cmaxitems, pscontrol.rawAddress.toCPointer<ByteVar>(), psstate.rawAddress.toCPointer<ByteVar>(), pitems.rawAddress.toCPointer<ByteVar>(), pscripttags.rawAddress.toCPointer<ByteVar>(), pcitems.rawAddress.toCPointer<ByteVar>())
 
-public actual fun scriptJustify(psva: ConstPtr<ScriptVisattr>, piadvance: ConstPtr<Int>, cglyphs: Int, idx: Int, iminkashida: Int, pijustify: MutPtr<Int>): Hresult =
+public actual fun scriptJustify(psva: ConstPtr, piadvance: ConstPtr, cglyphs: Int, idx: Int, iminkashida: Int, pijustify: MutPtr): Hresult =
     windowssysWindowsWin32GlobalizationScriptJustify(psva.rawAddress.toCPointer<ByteVar>(), piadvance.rawAddress.toCPointer<ByteVar>(), cglyphs, idx, iminkashida, pijustify.rawAddress.toCPointer<ByteVar>())
 
-public actual fun scriptLayout(cruns: Int, pblevel: ConstPtr<UByte>, pivisualtological: MutPtr<Int>, pilogicaltovisual: MutPtr<Int>): Hresult =
+public actual fun scriptLayout(cruns: Int, pblevel: ConstPtr, pivisualtological: MutPtr, pilogicaltovisual: MutPtr): Hresult =
     windowssysWindowsWin32GlobalizationScriptLayout(cruns, pblevel.rawAddress.toCPointer<ByteVar>(), pivisualtological.rawAddress.toCPointer<ByteVar>(), pilogicaltovisual.rawAddress.toCPointer<ByteVar>())
 
-public actual fun scriptPlace(hdc: Hdc, psc: MutPtr<MutPtr<CVoid>>, pwglyphs: ConstPtr<UShort>, cglyphs: Int, psva: ConstPtr<ScriptVisattr>, psa: MutPtr<ScriptAnalysis>, piadvance: MutPtr<Int>, pgoffset: MutPtr<Goffset>, pabc: MutPtr<Abc>): Hresult =
+public actual fun scriptPlace(hdc: Hdc, psc: MutPtr, pwglyphs: ConstPtr, cglyphs: Int, psva: ConstPtr, psa: MutPtr, piadvance: MutPtr, pgoffset: MutPtr, pabc: MutPtr): Hresult =
     windowssysWindowsWin32GlobalizationScriptPlace(hdc.rawAddress.toCPointer<ByteVar>(), psc.rawAddress.toCPointer<ByteVar>(), pwglyphs.rawAddress.toCPointer<ByteVar>(), cglyphs, psva.rawAddress.toCPointer<ByteVar>(), psa.rawAddress.toCPointer<ByteVar>(), piadvance.rawAddress.toCPointer<ByteVar>(), pgoffset.rawAddress.toCPointer<ByteVar>(), pabc.rawAddress.toCPointer<ByteVar>())
 
-public actual fun scriptPlaceOpenType(hdc: Hdc, psc: MutPtr<MutPtr<CVoid>>, psa: MutPtr<ScriptAnalysis>, tagscript: UInt, taglangsys: UInt, rcrangechars: ConstPtr<Int>, rprangeproperties: ConstPtr<ConstPtr<TextrangeProperties>>, cranges: Int, pwcchars: Pcwstr, pwlogclust: ConstPtr<UShort>, pcharprops: ConstPtr<ScriptCharprop>, cchars: Int, pwglyphs: ConstPtr<UShort>, pglyphprops: ConstPtr<ScriptGlyphprop>, cglyphs: Int, piadvance: MutPtr<Int>, pgoffset: MutPtr<Goffset>, pabc: MutPtr<Abc>): Hresult =
+public actual fun scriptPlaceOpenType(hdc: Hdc, psc: MutPtr, psa: MutPtr, tagscript: UInt, taglangsys: UInt, rcrangechars: ConstPtr, rprangeproperties: ConstPtr, cranges: Int, pwcchars: Pcwstr, pwlogclust: ConstPtr, pcharprops: ConstPtr, cchars: Int, pwglyphs: ConstPtr, pglyphprops: ConstPtr, cglyphs: Int, piadvance: MutPtr, pgoffset: MutPtr, pabc: MutPtr): Hresult =
     windowssysWindowsWin32GlobalizationScriptPlaceOpenType(hdc.rawAddress.toCPointer<ByteVar>(), psc.rawAddress.toCPointer<ByteVar>(), psa.rawAddress.toCPointer<ByteVar>(), tagscript, taglangsys, rcrangechars.rawAddress.toCPointer<ByteVar>(), rprangeproperties.rawAddress.toCPointer<ByteVar>(), cranges, pwcchars.rawAddress.toCPointer<ByteVar>(), pwlogclust.rawAddress.toCPointer<ByteVar>(), pcharprops.rawAddress.toCPointer<ByteVar>(), cchars, pwglyphs.rawAddress.toCPointer<ByteVar>(), pglyphprops.rawAddress.toCPointer<ByteVar>(), cglyphs, piadvance.rawAddress.toCPointer<ByteVar>(), pgoffset.rawAddress.toCPointer<ByteVar>(), pabc.rawAddress.toCPointer<ByteVar>())
 
-public actual fun scriptPositionSingleGlyph(hdc: Hdc, psc: MutPtr<MutPtr<CVoid>>, psa: ConstPtr<ScriptAnalysis>, tagscript: UInt, taglangsys: UInt, tagfeature: UInt, lparameter: Int, wglyphid: UShort, iadvance: Int, goffset: Goffset, pioutadvance: MutPtr<Int>, poutgoffset: MutPtr<Goffset>): Hresult =
+public actual fun scriptPositionSingleGlyph(hdc: Hdc, psc: MutPtr, psa: ConstPtr, tagscript: UInt, taglangsys: UInt, tagfeature: UInt, lparameter: Int, wglyphid: UShort, iadvance: Int, goffset: Goffset, pioutadvance: MutPtr, poutgoffset: MutPtr): Hresult =
     0
 
-public actual fun scriptRecordDigitSubstitution(locale: UInt, psds: MutPtr<ScriptDigitsubstitute>): Hresult =
+public actual fun scriptRecordDigitSubstitution(locale: UInt, psds: MutPtr): Hresult =
     windowssysWindowsWin32GlobalizationScriptRecordDigitSubstitution(locale, psds.rawAddress.toCPointer<ByteVar>())
 
-public actual fun scriptShape(hdc: Hdc, psc: MutPtr<MutPtr<CVoid>>, pwcchars: Pcwstr, cchars: Int, cmaxglyphs: Int, psa: MutPtr<ScriptAnalysis>, pwoutglyphs: MutPtr<UShort>, pwlogclust: MutPtr<UShort>, psva: MutPtr<ScriptVisattr>, pcglyphs: MutPtr<Int>): Hresult =
+public actual fun scriptShape(hdc: Hdc, psc: MutPtr, pwcchars: Pcwstr, cchars: Int, cmaxglyphs: Int, psa: MutPtr, pwoutglyphs: MutPtr, pwlogclust: MutPtr, psva: MutPtr, pcglyphs: MutPtr): Hresult =
     windowssysWindowsWin32GlobalizationScriptShape(hdc.rawAddress.toCPointer<ByteVar>(), psc.rawAddress.toCPointer<ByteVar>(), pwcchars.rawAddress.toCPointer<ByteVar>(), cchars, cmaxglyphs, psa.rawAddress.toCPointer<ByteVar>(), pwoutglyphs.rawAddress.toCPointer<ByteVar>(), pwlogclust.rawAddress.toCPointer<ByteVar>(), psva.rawAddress.toCPointer<ByteVar>(), pcglyphs.rawAddress.toCPointer<ByteVar>())
 
-public actual fun scriptShapeOpenType(hdc: Hdc, psc: MutPtr<MutPtr<CVoid>>, psa: MutPtr<ScriptAnalysis>, tagscript: UInt, taglangsys: UInt, rcrangechars: ConstPtr<Int>, rprangeproperties: ConstPtr<ConstPtr<TextrangeProperties>>, cranges: Int, pwcchars: Pcwstr, cchars: Int, cmaxglyphs: Int, pwlogclust: MutPtr<UShort>, pcharprops: MutPtr<ScriptCharprop>, pwoutglyphs: MutPtr<UShort>, poutglyphprops: MutPtr<ScriptGlyphprop>, pcglyphs: MutPtr<Int>): Hresult =
+public actual fun scriptShapeOpenType(hdc: Hdc, psc: MutPtr, psa: MutPtr, tagscript: UInt, taglangsys: UInt, rcrangechars: ConstPtr, rprangeproperties: ConstPtr, cranges: Int, pwcchars: Pcwstr, cchars: Int, cmaxglyphs: Int, pwlogclust: MutPtr, pcharprops: MutPtr, pwoutglyphs: MutPtr, poutglyphprops: MutPtr, pcglyphs: MutPtr): Hresult =
     windowssysWindowsWin32GlobalizationScriptShapeOpenType(hdc.rawAddress.toCPointer<ByteVar>(), psc.rawAddress.toCPointer<ByteVar>(), psa.rawAddress.toCPointer<ByteVar>(), tagscript, taglangsys, rcrangechars.rawAddress.toCPointer<ByteVar>(), rprangeproperties.rawAddress.toCPointer<ByteVar>(), cranges, pwcchars.rawAddress.toCPointer<ByteVar>(), cchars, cmaxglyphs, pwlogclust.rawAddress.toCPointer<ByteVar>(), pcharprops.rawAddress.toCPointer<ByteVar>(), pwoutglyphs.rawAddress.toCPointer<ByteVar>(), poutglyphprops.rawAddress.toCPointer<ByteVar>(), pcglyphs.rawAddress.toCPointer<ByteVar>())
 
-public actual fun scriptStringAnalyse(hdc: Hdc, pstring: ConstPtr<CVoid>, cstring: Int, cglyphs: Int, icharset: Int, dwflags: UInt, ireqwidth: Int, pscontrol: ConstPtr<ScriptControl>, psstate: ConstPtr<ScriptState>, pidx: ConstPtr<Int>, ptabdef: ConstPtr<ScriptTabdef>, pbinclass: ConstPtr<UByte>, pssa: MutPtr<MutPtr<CVoid>>): Hresult =
+public actual fun scriptStringAnalyse(hdc: Hdc, pstring: ConstPtr, cstring: Int, cglyphs: Int, icharset: Int, dwflags: UInt, ireqwidth: Int, pscontrol: ConstPtr, psstate: ConstPtr, pidx: ConstPtr, ptabdef: ConstPtr, pbinclass: ConstPtr, pssa: MutPtr): Hresult =
     windowssysWindowsWin32GlobalizationScriptStringAnalyse(hdc.rawAddress.toCPointer<ByteVar>(), pstring.rawAddress.toCPointer<ByteVar>(), cstring, cglyphs, icharset, dwflags, ireqwidth, pscontrol.rawAddress.toCPointer<ByteVar>(), psstate.rawAddress.toCPointer<ByteVar>(), pidx.rawAddress.toCPointer<ByteVar>(), ptabdef.rawAddress.toCPointer<ByteVar>(), pbinclass.rawAddress.toCPointer<ByteVar>(), pssa.rawAddress.toCPointer<ByteVar>())
 
-public actual fun scriptStringCPtoX(ssa: ConstPtr<CVoid>, icp: Int, ftrailing: Bool, px: MutPtr<Int>): Hresult =
+public actual fun scriptStringCPtoX(ssa: ConstPtr, icp: Int, ftrailing: Bool, px: MutPtr): Hresult =
     windowssysWindowsWin32GlobalizationScriptStringCPtoX(ssa.rawAddress.toCPointer<ByteVar>(), icp, ftrailing, px.rawAddress.toCPointer<ByteVar>())
 
-public actual fun scriptStringFree(pssa: MutPtr<MutPtr<CVoid>>): Hresult =
+public actual fun scriptStringFree(pssa: MutPtr): Hresult =
     windowssysWindowsWin32GlobalizationScriptStringFree(pssa.rawAddress.toCPointer<ByteVar>())
 
-public actual fun scriptStringGetLogicalWidths(ssa: ConstPtr<CVoid>, pidx: MutPtr<Int>): Hresult =
+public actual fun scriptStringGetLogicalWidths(ssa: ConstPtr, pidx: MutPtr): Hresult =
     windowssysWindowsWin32GlobalizationScriptStringGetLogicalWidths(ssa.rawAddress.toCPointer<ByteVar>(), pidx.rawAddress.toCPointer<ByteVar>())
 
-public actual fun scriptStringGetOrder(ssa: ConstPtr<CVoid>, puorder: MutPtr<UInt>): Hresult =
+public actual fun scriptStringGetOrder(ssa: ConstPtr, puorder: MutPtr): Hresult =
     windowssysWindowsWin32GlobalizationScriptStringGetOrder(ssa.rawAddress.toCPointer<ByteVar>(), puorder.rawAddress.toCPointer<ByteVar>())
 
-public actual fun scriptStringOut(ssa: ConstPtr<CVoid>, ix: Int, iy: Int, uoptions: EtoOptions, prc: ConstPtr<Rect>, iminsel: Int, imaxsel: Int, fdisabled: Bool): Hresult =
+public actual fun scriptStringOut(ssa: ConstPtr, ix: Int, iy: Int, uoptions: EtoOptions, prc: ConstPtr, iminsel: Int, imaxsel: Int, fdisabled: Bool): Hresult =
     windowssysWindowsWin32GlobalizationScriptStringOut(ssa.rawAddress.toCPointer<ByteVar>(), ix, iy, uoptions, prc.rawAddress.toCPointer<ByteVar>(), iminsel, imaxsel, fdisabled)
 
-public actual fun scriptStringValidate(ssa: ConstPtr<CVoid>): Hresult =
+public actual fun scriptStringValidate(ssa: ConstPtr): Hresult =
     windowssysWindowsWin32GlobalizationScriptStringValidate(ssa.rawAddress.toCPointer<ByteVar>())
 
-public actual fun scriptStringXtoCP(ssa: ConstPtr<CVoid>, ix: Int, pich: MutPtr<Int>, pitrailing: MutPtr<Int>): Hresult =
+public actual fun scriptStringXtoCP(ssa: ConstPtr, ix: Int, pich: MutPtr, pitrailing: MutPtr): Hresult =
     windowssysWindowsWin32GlobalizationScriptStringXtoCP(ssa.rawAddress.toCPointer<ByteVar>(), ix, pich.rawAddress.toCPointer<ByteVar>(), pitrailing.rawAddress.toCPointer<ByteVar>())
 
-public actual fun scriptStringPLogAttr(ssa: ConstPtr<CVoid>): MutPtr<ScriptLogattr> =
+public actual fun scriptStringPLogAttr(ssa: ConstPtr): MutPtr =
     MutPtr(windowssysWindowsWin32GlobalizationScriptStringPLogAttr(ssa.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun scriptStringPSize(ssa: ConstPtr<CVoid>): MutPtr<Size> =
+public actual fun scriptStringPSize(ssa: ConstPtr): MutPtr =
     MutPtr(windowssysWindowsWin32GlobalizationScriptStringPSize(ssa.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun scriptStringPcOutChars(ssa: ConstPtr<CVoid>): MutPtr<Int> =
+public actual fun scriptStringPcOutChars(ssa: ConstPtr): MutPtr =
     MutPtr(windowssysWindowsWin32GlobalizationScriptStringPcOutChars(ssa.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun scriptSubstituteSingleGlyph(hdc: Hdc, psc: MutPtr<MutPtr<CVoid>>, psa: ConstPtr<ScriptAnalysis>, tagscript: UInt, taglangsys: UInt, tagfeature: UInt, lparameter: Int, wglyphid: UShort, pwoutglyphid: MutPtr<UShort>): Hresult =
+public actual fun scriptSubstituteSingleGlyph(hdc: Hdc, psc: MutPtr, psa: ConstPtr, tagscript: UInt, taglangsys: UInt, tagfeature: UInt, lparameter: Int, wglyphid: UShort, pwoutglyphid: MutPtr): Hresult =
     windowssysWindowsWin32GlobalizationScriptSubstituteSingleGlyph(hdc.rawAddress.toCPointer<ByteVar>(), psc.rawAddress.toCPointer<ByteVar>(), psa.rawAddress.toCPointer<ByteVar>(), tagscript, taglangsys, tagfeature, lparameter, wglyphid, pwoutglyphid.rawAddress.toCPointer<ByteVar>())
 
-public actual fun scriptTextOut(hdc: Hdc, psc: MutPtr<MutPtr<CVoid>>, x: Int, y: Int, fuoptions: UInt, lprc: ConstPtr<Rect>, psa: ConstPtr<ScriptAnalysis>, pwcreserved: Pcwstr, ireserved: Int, pwglyphs: ConstPtr<UShort>, cglyphs: Int, piadvance: ConstPtr<Int>, pijustify: ConstPtr<Int>, pgoffset: ConstPtr<Goffset>): Hresult =
+public actual fun scriptTextOut(hdc: Hdc, psc: MutPtr, x: Int, y: Int, fuoptions: UInt, lprc: ConstPtr, psa: ConstPtr, pwcreserved: Pcwstr, ireserved: Int, pwglyphs: ConstPtr, cglyphs: Int, piadvance: ConstPtr, pijustify: ConstPtr, pgoffset: ConstPtr): Hresult =
     windowssysWindowsWin32GlobalizationScriptTextOut(hdc.rawAddress.toCPointer<ByteVar>(), psc.rawAddress.toCPointer<ByteVar>(), x, y, fuoptions, lprc.rawAddress.toCPointer<ByteVar>(), psa.rawAddress.toCPointer<ByteVar>(), pwcreserved.rawAddress.toCPointer<ByteVar>(), ireserved, pwglyphs.rawAddress.toCPointer<ByteVar>(), cglyphs, piadvance.rawAddress.toCPointer<ByteVar>(), pijustify.rawAddress.toCPointer<ByteVar>(), pgoffset.rawAddress.toCPointer<ByteVar>())
 
-public actual fun scriptXtoCP(ix: Int, cchars: Int, cglyphs: Int, pwlogclust: ConstPtr<UShort>, psva: ConstPtr<ScriptVisattr>, piadvance: ConstPtr<Int>, psa: ConstPtr<ScriptAnalysis>, picp: MutPtr<Int>, pitrailing: MutPtr<Int>): Hresult =
+public actual fun scriptXtoCP(ix: Int, cchars: Int, cglyphs: Int, pwlogclust: ConstPtr, psva: ConstPtr, piadvance: ConstPtr, psa: ConstPtr, picp: MutPtr, pitrailing: MutPtr): Hresult =
     windowssysWindowsWin32GlobalizationScriptXtoCP(ix, cchars, cglyphs, pwlogclust.rawAddress.toCPointer<ByteVar>(), psva.rawAddress.toCPointer<ByteVar>(), piadvance.rawAddress.toCPointer<ByteVar>(), psa.rawAddress.toCPointer<ByteVar>(), picp.rawAddress.toCPointer<ByteVar>(), pitrailing.rawAddress.toCPointer<ByteVar>())
 
 public actual fun setCalendarInfoA(locale: UInt, calendar: UInt, caltype: UInt, lpcaldata: Pcstr): Bool =
@@ -1759,16 +1754,16 @@ public actual fun setLocaleInfoA(locale: UInt, lctype: UInt, lplcdata: Pcstr): B
 public actual fun setLocaleInfoW(locale: UInt, lctype: UInt, lplcdata: Pcwstr): Bool =
     windowssysWindowsWin32GlobalizationSetLocaleInfoW(locale, lctype, lplcdata.rawAddress.toCPointer<ByteVar>())
 
-public actual fun setProcessPreferredUILanguages(dwflags: UInt, pwszlanguagesbuffer: Pcwstr, pulnumlanguages: MutPtr<UInt>): Bool =
+public actual fun setProcessPreferredUILanguages(dwflags: UInt, pwszlanguagesbuffer: Pcwstr, pulnumlanguages: MutPtr): Bool =
     windowssysWindowsWin32GlobalizationSetProcessPreferredUILanguages(dwflags, pwszlanguagesbuffer.rawAddress.toCPointer<ByteVar>(), pulnumlanguages.rawAddress.toCPointer<ByteVar>())
 
 public actual fun setThreadLocale(locale: UInt): Bool =
     windowssysWindowsWin32GlobalizationSetThreadLocale(locale)
 
-public actual fun setThreadPreferredUILanguages(dwflags: UInt, pwszlanguagesbuffer: Pcwstr, pulnumlanguages: MutPtr<UInt>): Bool =
+public actual fun setThreadPreferredUILanguages(dwflags: UInt, pwszlanguagesbuffer: Pcwstr, pulnumlanguages: MutPtr): Bool =
     windowssysWindowsWin32GlobalizationSetThreadPreferredUILanguages(dwflags, pwszlanguagesbuffer.rawAddress.toCPointer<ByteVar>(), pulnumlanguages.rawAddress.toCPointer<ByteVar>())
 
-public actual fun setThreadPreferredUILanguages2(flags: UInt, languages: Pcwstr, numlanguagesset: MutPtr<UInt>, snapshot: MutPtr<Hsaveduilanguages>): Bool =
+public actual fun setThreadPreferredUILanguages2(flags: UInt, languages: Pcwstr, numlanguagesset: MutPtr, snapshot: MutPtr): Bool =
     windowssysWindowsWin32GlobalizationSetThreadPreferredUILanguages2(flags, languages.rawAddress.toCPointer<ByteVar>(), numlanguagesset.rawAddress.toCPointer<ByteVar>(), snapshot.rawAddress.toCPointer<ByteVar>())
 
 public actual fun setThreadUILanguage(langid: UShort): UShort =
@@ -1780,48 +1775,48 @@ public actual fun setUserGeoID(geoid: Int): Bool =
 public actual fun setUserGeoName(geoname: Pcwstr): Bool =
     windowssysWindowsWin32GlobalizationSetUserGeoName(geoname.rawAddress.toCPointer<ByteVar>())
 
-public actual fun translateCharsetInfo(lpsrc: MutPtr<UInt>, lpcs: MutPtr<Charsetinfo>, dwflags: TranslateCharsetInfoFlags): Bool =
+public actual fun translateCharsetInfo(lpsrc: MutPtr, lpcs: MutPtr, dwflags: TranslateCharsetInfoFlags): Bool =
     windowssysWindowsWin32GlobalizationTranslateCharsetInfo(lpsrc.rawAddress.toCPointer<ByteVar>(), lpcs.rawAddress.toCPointer<ByteVar>(), dwflags)
 
-public actual fun ucnvFromUCallbackEscape(context: ConstPtr<CVoid>, fromuargs: MutPtr<UConverterFromUnicodeArgs>, codeunits: ConstPtr<UShort>, length: Int, codepoint: Int, reason: UConverterCallbackReason, err: MutPtr<UErrorCode>) {
+public actual fun ucnvFromUCallbackEscape(context: ConstPtr, fromuargs: MutPtr, codeunits: ConstPtr, length: Int, codepoint: Int, reason: UConverterCallbackReason, err: MutPtr) {
     windowssysWindowsWin32GlobalizationUcnvFromUCallbackEscape(context.rawAddress.toCPointer<ByteVar>(), fromuargs.rawAddress.toCPointer<ByteVar>(), codeunits.rawAddress.toCPointer<ByteVar>(), length, codepoint, reason, err.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun ucnvFromUCallbackSkip(context: ConstPtr<CVoid>, fromuargs: MutPtr<UConverterFromUnicodeArgs>, codeunits: ConstPtr<UShort>, length: Int, codepoint: Int, reason: UConverterCallbackReason, err: MutPtr<UErrorCode>) {
+public actual fun ucnvFromUCallbackSkip(context: ConstPtr, fromuargs: MutPtr, codeunits: ConstPtr, length: Int, codepoint: Int, reason: UConverterCallbackReason, err: MutPtr) {
     windowssysWindowsWin32GlobalizationUcnvFromUCallbackSkip(context.rawAddress.toCPointer<ByteVar>(), fromuargs.rawAddress.toCPointer<ByteVar>(), codeunits.rawAddress.toCPointer<ByteVar>(), length, codepoint, reason, err.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun ucnvFromUCallbackStop(context: ConstPtr<CVoid>, fromuargs: MutPtr<UConverterFromUnicodeArgs>, codeunits: ConstPtr<UShort>, length: Int, codepoint: Int, reason: UConverterCallbackReason, err: MutPtr<UErrorCode>) {
+public actual fun ucnvFromUCallbackStop(context: ConstPtr, fromuargs: MutPtr, codeunits: ConstPtr, length: Int, codepoint: Int, reason: UConverterCallbackReason, err: MutPtr) {
     windowssysWindowsWin32GlobalizationUcnvFromUCallbackStop(context.rawAddress.toCPointer<ByteVar>(), fromuargs.rawAddress.toCPointer<ByteVar>(), codeunits.rawAddress.toCPointer<ByteVar>(), length, codepoint, reason, err.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun ucnvFromUCallbackSubstitute(context: ConstPtr<CVoid>, fromuargs: MutPtr<UConverterFromUnicodeArgs>, codeunits: ConstPtr<UShort>, length: Int, codepoint: Int, reason: UConverterCallbackReason, err: MutPtr<UErrorCode>) {
+public actual fun ucnvFromUCallbackSubstitute(context: ConstPtr, fromuargs: MutPtr, codeunits: ConstPtr, length: Int, codepoint: Int, reason: UConverterCallbackReason, err: MutPtr) {
     windowssysWindowsWin32GlobalizationUcnvFromUCallbackSubstitute(context.rawAddress.toCPointer<ByteVar>(), fromuargs.rawAddress.toCPointer<ByteVar>(), codeunits.rawAddress.toCPointer<ByteVar>(), length, codepoint, reason, err.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun ucnvToUCallbackEscape(context: ConstPtr<CVoid>, touargs: MutPtr<UConverterToUnicodeArgs>, codeunits: Pcstr, length: Int, reason: UConverterCallbackReason, err: MutPtr<UErrorCode>) {
+public actual fun ucnvToUCallbackEscape(context: ConstPtr, touargs: MutPtr, codeunits: Pcstr, length: Int, reason: UConverterCallbackReason, err: MutPtr) {
     windowssysWindowsWin32GlobalizationUcnvToUCallbackEscape(context.rawAddress.toCPointer<ByteVar>(), touargs.rawAddress.toCPointer<ByteVar>(), codeunits.rawAddress.toCPointer<ByteVar>(), length, reason, err.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun ucnvToUCallbackSkip(context: ConstPtr<CVoid>, touargs: MutPtr<UConverterToUnicodeArgs>, codeunits: Pcstr, length: Int, reason: UConverterCallbackReason, err: MutPtr<UErrorCode>) {
+public actual fun ucnvToUCallbackSkip(context: ConstPtr, touargs: MutPtr, codeunits: Pcstr, length: Int, reason: UConverterCallbackReason, err: MutPtr) {
     windowssysWindowsWin32GlobalizationUcnvToUCallbackSkip(context.rawAddress.toCPointer<ByteVar>(), touargs.rawAddress.toCPointer<ByteVar>(), codeunits.rawAddress.toCPointer<ByteVar>(), length, reason, err.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun ucnvToUCallbackStop(context: ConstPtr<CVoid>, touargs: MutPtr<UConverterToUnicodeArgs>, codeunits: Pcstr, length: Int, reason: UConverterCallbackReason, err: MutPtr<UErrorCode>) {
+public actual fun ucnvToUCallbackStop(context: ConstPtr, touargs: MutPtr, codeunits: Pcstr, length: Int, reason: UConverterCallbackReason, err: MutPtr) {
     windowssysWindowsWin32GlobalizationUcnvToUCallbackStop(context.rawAddress.toCPointer<ByteVar>(), touargs.rawAddress.toCPointer<ByteVar>(), codeunits.rawAddress.toCPointer<ByteVar>(), length, reason, err.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun ucnvToUCallbackSubstitute(context: ConstPtr<CVoid>, touargs: MutPtr<UConverterToUnicodeArgs>, codeunits: Pcstr, length: Int, reason: UConverterCallbackReason, err: MutPtr<UErrorCode>) {
+public actual fun ucnvToUCallbackSubstitute(context: ConstPtr, touargs: MutPtr, codeunits: Pcstr, length: Int, reason: UConverterCallbackReason, err: MutPtr) {
     windowssysWindowsWin32GlobalizationUcnvToUCallbackSubstitute(context.rawAddress.toCPointer<ByteVar>(), touargs.rawAddress.toCPointer<ByteVar>(), codeunits.rawAddress.toCPointer<ByteVar>(), length, reason, err.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun updateCalendarDayOfWeek(lpcaldatetime: MutPtr<Caldatetime>): Bool =
+public actual fun updateCalendarDayOfWeek(lpcaldatetime: MutPtr): Bool =
     windowssysWindowsWin32GlobalizationUpdateCalendarDayOfWeek(lpcaldatetime.rawAddress.toCPointer<ByteVar>())
 
 public actual fun verifyScripts(dwflags: UInt, lplocalescripts: Pcwstr, cchlocalescripts: Int, lptestscripts: Pcwstr, cchtestscripts: Int): Bool =
     windowssysWindowsWin32GlobalizationVerifyScripts(dwflags, lplocalescripts.rawAddress.toCPointer<ByteVar>(), cchlocalescripts, lptestscripts.rawAddress.toCPointer<ByteVar>(), cchtestscripts)
 
-public actual fun wideCharToMultiByte(codepage: UInt, dwflags: UInt, lpwidecharstr: Pcwstr, cchwidechar: Int, lpmultibytestr: Pstr, cbmultibyte: Int, lpdefaultchar: Pcstr, lpuseddefaultchar: MutPtr<Bool>): Int =
+public actual fun wideCharToMultiByte(codepage: UInt, dwflags: UInt, lpwidecharstr: Pcwstr, cchwidechar: Int, lpmultibytestr: Pstr, cbmultibyte: Int, lpdefaultchar: Pcstr, lpuseddefaultchar: MutPtr): Int =
     windowssysWindowsWin32GlobalizationWideCharToMultiByte(codepage, dwflags, lpwidecharstr.rawAddress.toCPointer<ByteVar>(), cchwidechar, lpmultibytestr.rawAddress.toCPointer<ByteVar>(), cbmultibyte, lpdefaultchar.rawAddress.toCPointer<ByteVar>(), lpuseddefaultchar.rawAddress.toCPointer<ByteVar>())
 
 public actual fun lstrcatA(lpstring1: Pstr, lpstring2: Pcstr): Pstr =
@@ -1860,27 +1855,27 @@ public actual fun lstrlenA(lpstring: Pcstr): Int =
 public actual fun lstrlenW(lpstring: Pcwstr): Int =
     windowssysWindowsWin32GlobalizationLstrlenW(lpstring.rawAddress.toCPointer<ByteVar>())
 
-public actual fun uUcharsToChars(us: ConstPtr<UShort>, cs: Pcstr, length: Int) {
+public actual fun uUcharsToChars(us: ConstPtr, cs: Pcstr, length: Int) {
     windowssysWindowsWin32GlobalizationUUcharsToChars(us.rawAddress.toCPointer<ByteVar>(), cs.rawAddress.toCPointer<ByteVar>(), length)
 }
 
-public actual fun uAustrcpy(dst: Pcstr, src: ConstPtr<UShort>): Pstr =
+public actual fun uAustrcpy(dst: Pcstr, src: ConstPtr): Pstr =
     MutPtr(windowssysWindowsWin32GlobalizationUAustrcpy(dst.rawAddress.toCPointer<ByteVar>(), src.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun uAustrncpy(dst: Pcstr, src: ConstPtr<UShort>, n: Int): Pstr =
+public actual fun uAustrncpy(dst: Pcstr, src: ConstPtr, n: Int): Pstr =
     MutPtr(windowssysWindowsWin32GlobalizationUAustrncpy(dst.rawAddress.toCPointer<ByteVar>(), src.rawAddress.toCPointer<ByteVar>(), n)?.toLong() ?: 0L)
 
-public actual fun uCatclose(catd: MutPtr<UResourceBundle>) {
+public actual fun uCatclose(catd: MutPtr) {
     windowssysWindowsWin32GlobalizationUCatclose(catd.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun uCatgets(catd: MutPtr<UResourceBundle>, setNum: Int, msgNum: Int, s: ConstPtr<UShort>, len: MutPtr<Int>, ec: MutPtr<UErrorCode>): MutPtr<UShort> =
+public actual fun uCatgets(catd: MutPtr, setNum: Int, msgNum: Int, s: ConstPtr, len: MutPtr, ec: MutPtr): MutPtr =
     MutPtr(windowssysWindowsWin32GlobalizationUCatgets(catd.rawAddress.toCPointer<ByteVar>(), setNum, msgNum, s.rawAddress.toCPointer<ByteVar>(), len.rawAddress.toCPointer<ByteVar>(), ec.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun uCatopen(name: Pcstr, locale: Pcstr, ec: MutPtr<UErrorCode>): MutPtr<UResourceBundle> =
+public actual fun uCatopen(name: Pcstr, locale: Pcstr, ec: MutPtr): MutPtr =
     MutPtr(windowssysWindowsWin32GlobalizationUCatopen(name.rawAddress.toCPointer<ByteVar>(), locale.rawAddress.toCPointer<ByteVar>(), ec.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun uCharAge(c: Int, versionarray: MutPtr<UByte>) {
+public actual fun uCharAge(c: Int, versionarray: MutPtr) {
     windowssysWindowsWin32GlobalizationUCharAge(c, versionarray.rawAddress.toCPointer<ByteVar>())
 }
 
@@ -1890,19 +1885,19 @@ public actual fun uCharDigitValue(c: Int): Int =
 public actual fun uCharDirection(c: Int): UCharDirection =
     windowssysWindowsWin32GlobalizationUCharDirection(c)
 
-public actual fun uCharFromName(namechoice: UCharNameChoice, name: Pcstr, perrorcode: MutPtr<UErrorCode>): Int =
+public actual fun uCharFromName(namechoice: UCharNameChoice, name: Pcstr, perrorcode: MutPtr): Int =
     windowssysWindowsWin32GlobalizationUCharFromName(namechoice, name.rawAddress.toCPointer<ByteVar>(), perrorcode.rawAddress.toCPointer<ByteVar>())
 
 public actual fun uCharMirror(c: Int): Int =
     windowssysWindowsWin32GlobalizationUCharMirror(c)
 
-public actual fun uCharName(code: Int, namechoice: UCharNameChoice, buffer: Pcstr, bufferlength: Int, perrorcode: MutPtr<UErrorCode>): Int =
+public actual fun uCharName(code: Int, namechoice: UCharNameChoice, buffer: Pcstr, bufferlength: Int, perrorcode: MutPtr): Int =
     windowssysWindowsWin32GlobalizationUCharName(code, namechoice, buffer.rawAddress.toCPointer<ByteVar>(), bufferlength, perrorcode.rawAddress.toCPointer<ByteVar>())
 
 public actual fun uCharType(c: Int): Byte =
     windowssysWindowsWin32GlobalizationUCharType(c)
 
-public actual fun uCharsToUchars(cs: Pcstr, us: MutPtr<UShort>, length: Int) {
+public actual fun uCharsToUchars(cs: Pcstr, us: MutPtr, length: Int) {
     windowssysWindowsWin32GlobalizationUCharsToUchars(cs.rawAddress.toCPointer<ByteVar>(), us.rawAddress.toCPointer<ByteVar>(), length)
 }
 
@@ -1910,17 +1905,17 @@ public actual fun uCleanup() {
     windowssysWindowsWin32GlobalizationUCleanup()
 }
 
-public actual fun uCountChar32(s: ConstPtr<UShort>, length: Int): Int =
+public actual fun uCountChar32(s: ConstPtr, length: Int): Int =
     windowssysWindowsWin32GlobalizationUCountChar32(s.rawAddress.toCPointer<ByteVar>(), length)
 
 public actual fun uDigit(ch: Int, radix: Byte): Int =
     windowssysWindowsWin32GlobalizationUDigit(ch, radix)
 
-public actual fun uEnumCharNames(start: Int, limit: Int, fn: MutPtr<UEnumCharNamesFn>, context: MutPtr<CVoid>, namechoice: UCharNameChoice, perrorcode: MutPtr<UErrorCode>) {
+public actual fun uEnumCharNames(start: Int, limit: Int, fn: MutPtr, context: MutPtr, namechoice: UCharNameChoice, perrorcode: MutPtr) {
     windowssysWindowsWin32GlobalizationUEnumCharNames(start, limit, fn.rawAddress.toCPointer<ByteVar>(), context.rawAddress.toCPointer<ByteVar>(), namechoice, perrorcode.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun uEnumCharTypes(enumrange: MutPtr<UCharEnumTypeRange>, context: ConstPtr<CVoid>) {
+public actual fun uEnumCharTypes(enumrange: MutPtr, context: ConstPtr) {
     windowssysWindowsWin32GlobalizationUEnumCharTypes(enumrange.rawAddress.toCPointer<ByteVar>(), context.rawAddress.toCPointer<ByteVar>())
 }
 
@@ -1933,29 +1928,29 @@ public actual fun uFoldCase(c: Int, options: UInt): Int =
 public actual fun uForDigit(digit: Int, radix: Byte): Int =
     windowssysWindowsWin32GlobalizationUForDigit(digit, radix)
 
-public actual fun uFormatMessage(locale: Pcstr, pattern: ConstPtr<UShort>, patternlength: Int, result: MutPtr<UShort>, resultlength: Int, status: MutPtr<UErrorCode>, vararg variadicArgs: Long): Int =
+public actual fun uFormatMessage(locale: Pcstr, pattern: ConstPtr, patternlength: Int, result: MutPtr, resultlength: Int, status: MutPtr, vararg variadicArgs: Long): Int =
     windowssysWindowsWin32GlobalizationUFormatMessage(locale.rawAddress.toCPointer<ByteVar>(), pattern.rawAddress.toCPointer<ByteVar>(), patternlength, result.rawAddress.toCPointer<ByteVar>(), resultlength, status.rawAddress.toCPointer<ByteVar>(), variadicArgs.size.coerceAtMost(4), if (variadicArgs.size > 0) variadicArgs[0] else 0L, if (variadicArgs.size > 1) variadicArgs[1] else 0L, if (variadicArgs.size > 2) variadicArgs[2] else 0L, if (variadicArgs.size > 3) variadicArgs[3] else 0L)
 
-public actual fun uFormatMessageWithError(locale: Pcstr, pattern: ConstPtr<UShort>, patternlength: Int, result: MutPtr<UShort>, resultlength: Int, parseerror: MutPtr<UParseError>, status: MutPtr<UErrorCode>, vararg variadicArgs: Long): Int =
+public actual fun uFormatMessageWithError(locale: Pcstr, pattern: ConstPtr, patternlength: Int, result: MutPtr, resultlength: Int, parseerror: MutPtr, status: MutPtr, vararg variadicArgs: Long): Int =
     windowssysWindowsWin32GlobalizationUFormatMessageWithError(locale.rawAddress.toCPointer<ByteVar>(), pattern.rawAddress.toCPointer<ByteVar>(), patternlength, result.rawAddress.toCPointer<ByteVar>(), resultlength, parseerror.rawAddress.toCPointer<ByteVar>(), status.rawAddress.toCPointer<ByteVar>(), variadicArgs.size.coerceAtMost(4), if (variadicArgs.size > 0) variadicArgs[0] else 0L, if (variadicArgs.size > 1) variadicArgs[1] else 0L, if (variadicArgs.size > 2) variadicArgs[2] else 0L, if (variadicArgs.size > 3) variadicArgs[3] else 0L)
 
 public actual fun uGetBidiPairedBracket(c: Int): Int =
     windowssysWindowsWin32GlobalizationUGetBidiPairedBracket(c)
 
-public actual fun uGetBinaryPropertySet(property: UProperty, perrorcode: MutPtr<UErrorCode>): MutPtr<USet> =
+public actual fun uGetBinaryPropertySet(property: UProperty, perrorcode: MutPtr): MutPtr =
     MutPtr(windowssysWindowsWin32GlobalizationUGetBinaryPropertySet(property, perrorcode.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
 public actual fun uGetCombiningClass(c: Int): UByte =
     windowssysWindowsWin32GlobalizationUGetCombiningClass(c)
 
-public actual fun uGetDataVersion(dataversionfillin: MutPtr<UByte>, status: MutPtr<UErrorCode>) {
+public actual fun uGetDataVersion(dataversionfillin: MutPtr, status: MutPtr) {
     windowssysWindowsWin32GlobalizationUGetDataVersion(dataversionfillin.rawAddress.toCPointer<ByteVar>(), status.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun uGetFcNfkcClosure(c: Int, dest: MutPtr<UShort>, destcapacity: Int, perrorcode: MutPtr<UErrorCode>): Int =
+public actual fun uGetFcNfkcClosure(c: Int, dest: MutPtr, destcapacity: Int, perrorcode: MutPtr): Int =
     windowssysWindowsWin32GlobalizationUGetFcNfkcClosure(c, dest.rawAddress.toCPointer<ByteVar>(), destcapacity, perrorcode.rawAddress.toCPointer<ByteVar>())
 
-public actual fun uGetIntPropertyMap(property: UProperty, perrorcode: MutPtr<UErrorCode>): MutPtr<UCPMap> =
+public actual fun uGetIntPropertyMap(property: UProperty, perrorcode: MutPtr): MutPtr =
     MutPtr(windowssysWindowsWin32GlobalizationUGetIntPropertyMap(property, perrorcode.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
 public actual fun uGetIntPropertyMaxValue(which: UProperty): Int =
@@ -1982,18 +1977,18 @@ public actual fun uGetPropertyValueEnum(property: UProperty, alias: Pcstr): Int 
 public actual fun uGetPropertyValueName(property: UProperty, value: Int, namechoice: UPropertyNameChoice): Pcstr =
     ConstPtr(windowssysWindowsWin32GlobalizationUGetPropertyValueName(property, value, namechoice)?.toLong() ?: 0L)
 
-public actual fun uGetUnicodeVersion(versionarray: MutPtr<UByte>) {
+public actual fun uGetUnicodeVersion(versionarray: MutPtr) {
     windowssysWindowsWin32GlobalizationUGetUnicodeVersion(versionarray.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun uGetVersion(versionarray: MutPtr<UByte>) {
+public actual fun uGetVersion(versionarray: MutPtr) {
     windowssysWindowsWin32GlobalizationUGetVersion(versionarray.rawAddress.toCPointer<ByteVar>())
 }
 
 public actual fun uHasBinaryProperty(c: Int, which: UProperty): Byte =
     windowssysWindowsWin32GlobalizationUHasBinaryProperty(c, which)
 
-public actual fun uInit(status: MutPtr<UErrorCode>) {
+public actual fun uInit(status: MutPtr) {
     windowssysWindowsWin32GlobalizationUInit(status.rawAddress.toCPointer<ByteVar>())
 }
 
@@ -2081,181 +2076,181 @@ public actual fun uIsupper(c: Int): Byte =
 public actual fun uIsxdigit(c: Int): Byte =
     windowssysWindowsWin32GlobalizationUIsxdigit(c)
 
-public actual fun uMemcasecmp(s1: ConstPtr<UShort>, s2: ConstPtr<UShort>, length: Int, options: UInt): Int =
+public actual fun uMemcasecmp(s1: ConstPtr, s2: ConstPtr, length: Int, options: UInt): Int =
     windowssysWindowsWin32GlobalizationUMemcasecmp(s1.rawAddress.toCPointer<ByteVar>(), s2.rawAddress.toCPointer<ByteVar>(), length, options)
 
-public actual fun uMemchr(s: ConstPtr<UShort>, c: UShort, count: Int): MutPtr<UShort> =
+public actual fun uMemchr(s: ConstPtr, c: UShort, count: Int): MutPtr =
     MutPtr(windowssysWindowsWin32GlobalizationUMemchr(s.rawAddress.toCPointer<ByteVar>(), c, count)?.toLong() ?: 0L)
 
-public actual fun uMemchr32(s: ConstPtr<UShort>, c: Int, count: Int): MutPtr<UShort> =
+public actual fun uMemchr32(s: ConstPtr, c: Int, count: Int): MutPtr =
     MutPtr(windowssysWindowsWin32GlobalizationUMemchr32(s.rawAddress.toCPointer<ByteVar>(), c, count)?.toLong() ?: 0L)
 
-public actual fun uMemcmp(buf1: ConstPtr<UShort>, buf2: ConstPtr<UShort>, count: Int): Int =
+public actual fun uMemcmp(buf1: ConstPtr, buf2: ConstPtr, count: Int): Int =
     windowssysWindowsWin32GlobalizationUMemcmp(buf1.rawAddress.toCPointer<ByteVar>(), buf2.rawAddress.toCPointer<ByteVar>(), count)
 
-public actual fun uMemcmpCodePointOrder(s1: ConstPtr<UShort>, s2: ConstPtr<UShort>, count: Int): Int =
+public actual fun uMemcmpCodePointOrder(s1: ConstPtr, s2: ConstPtr, count: Int): Int =
     windowssysWindowsWin32GlobalizationUMemcmpCodePointOrder(s1.rawAddress.toCPointer<ByteVar>(), s2.rawAddress.toCPointer<ByteVar>(), count)
 
-public actual fun uMemcpy(dest: MutPtr<UShort>, src: ConstPtr<UShort>, count: Int): MutPtr<UShort> =
+public actual fun uMemcpy(dest: MutPtr, src: ConstPtr, count: Int): MutPtr =
     MutPtr(windowssysWindowsWin32GlobalizationUMemcpy(dest.rawAddress.toCPointer<ByteVar>(), src.rawAddress.toCPointer<ByteVar>(), count)?.toLong() ?: 0L)
 
-public actual fun uMemmove(dest: MutPtr<UShort>, src: ConstPtr<UShort>, count: Int): MutPtr<UShort> =
+public actual fun uMemmove(dest: MutPtr, src: ConstPtr, count: Int): MutPtr =
     MutPtr(windowssysWindowsWin32GlobalizationUMemmove(dest.rawAddress.toCPointer<ByteVar>(), src.rawAddress.toCPointer<ByteVar>(), count)?.toLong() ?: 0L)
 
-public actual fun uMemrchr(s: ConstPtr<UShort>, c: UShort, count: Int): MutPtr<UShort> =
+public actual fun uMemrchr(s: ConstPtr, c: UShort, count: Int): MutPtr =
     MutPtr(windowssysWindowsWin32GlobalizationUMemrchr(s.rawAddress.toCPointer<ByteVar>(), c, count)?.toLong() ?: 0L)
 
-public actual fun uMemrchr32(s: ConstPtr<UShort>, c: Int, count: Int): MutPtr<UShort> =
+public actual fun uMemrchr32(s: ConstPtr, c: Int, count: Int): MutPtr =
     MutPtr(windowssysWindowsWin32GlobalizationUMemrchr32(s.rawAddress.toCPointer<ByteVar>(), c, count)?.toLong() ?: 0L)
 
-public actual fun uMemset(dest: MutPtr<UShort>, c: UShort, count: Int): MutPtr<UShort> =
+public actual fun uMemset(dest: MutPtr, c: UShort, count: Int): MutPtr =
     MutPtr(windowssysWindowsWin32GlobalizationUMemset(dest.rawAddress.toCPointer<ByteVar>(), c, count)?.toLong() ?: 0L)
 
-public actual fun uParseMessage(locale: Pcstr, pattern: ConstPtr<UShort>, patternlength: Int, source: ConstPtr<UShort>, sourcelength: Int, status: MutPtr<UErrorCode>, vararg variadicArgs: Long) {
+public actual fun uParseMessage(locale: Pcstr, pattern: ConstPtr, patternlength: Int, source: ConstPtr, sourcelength: Int, status: MutPtr, vararg variadicArgs: Long) {
     windowssysWindowsWin32GlobalizationUParseMessage(locale.rawAddress.toCPointer<ByteVar>(), pattern.rawAddress.toCPointer<ByteVar>(), patternlength, source.rawAddress.toCPointer<ByteVar>(), sourcelength, status.rawAddress.toCPointer<ByteVar>(), variadicArgs.size.coerceAtMost(4), if (variadicArgs.size > 0) variadicArgs[0] else 0L, if (variadicArgs.size > 1) variadicArgs[1] else 0L, if (variadicArgs.size > 2) variadicArgs[2] else 0L, if (variadicArgs.size > 3) variadicArgs[3] else 0L)
 }
 
-public actual fun uParseMessageWithError(locale: Pcstr, pattern: ConstPtr<UShort>, patternlength: Int, source: ConstPtr<UShort>, sourcelength: Int, parseerror: MutPtr<UParseError>, status: MutPtr<UErrorCode>, vararg variadicArgs: Long) {
+public actual fun uParseMessageWithError(locale: Pcstr, pattern: ConstPtr, patternlength: Int, source: ConstPtr, sourcelength: Int, parseerror: MutPtr, status: MutPtr, vararg variadicArgs: Long) {
     windowssysWindowsWin32GlobalizationUParseMessageWithError(locale.rawAddress.toCPointer<ByteVar>(), pattern.rawAddress.toCPointer<ByteVar>(), patternlength, source.rawAddress.toCPointer<ByteVar>(), sourcelength, parseerror.rawAddress.toCPointer<ByteVar>(), status.rawAddress.toCPointer<ByteVar>(), variadicArgs.size.coerceAtMost(4), if (variadicArgs.size > 0) variadicArgs[0] else 0L, if (variadicArgs.size > 1) variadicArgs[1] else 0L, if (variadicArgs.size > 2) variadicArgs[2] else 0L, if (variadicArgs.size > 3) variadicArgs[3] else 0L)
 }
 
-public actual fun uSetMemoryFunctions(context: ConstPtr<CVoid>, a: MutPtr<UMemAllocFn>, r: MutPtr<UMemReallocFn>, f: MutPtr<UMemFreeFn>, status: MutPtr<UErrorCode>) {
+public actual fun uSetMemoryFunctions(context: ConstPtr, a: MutPtr, r: MutPtr, f: MutPtr, status: MutPtr) {
     windowssysWindowsWin32GlobalizationUSetMemoryFunctions(context.rawAddress.toCPointer<ByteVar>(), a.rawAddress.toCPointer<ByteVar>(), r.rawAddress.toCPointer<ByteVar>(), f.rawAddress.toCPointer<ByteVar>(), status.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun uShapeArabic(source: ConstPtr<UShort>, sourcelength: Int, dest: MutPtr<UShort>, destsize: Int, options: UInt, perrorcode: MutPtr<UErrorCode>): Int =
+public actual fun uShapeArabic(source: ConstPtr, sourcelength: Int, dest: MutPtr, destsize: Int, options: UInt, perrorcode: MutPtr): Int =
     windowssysWindowsWin32GlobalizationUShapeArabic(source.rawAddress.toCPointer<ByteVar>(), sourcelength, dest.rawAddress.toCPointer<ByteVar>(), destsize, options, perrorcode.rawAddress.toCPointer<ByteVar>())
 
-public actual fun uStrCaseCompare(s1: ConstPtr<UShort>, length1: Int, s2: ConstPtr<UShort>, length2: Int, options: UInt, perrorcode: MutPtr<UErrorCode>): Int =
+public actual fun uStrCaseCompare(s1: ConstPtr, length1: Int, s2: ConstPtr, length2: Int, options: UInt, perrorcode: MutPtr): Int =
     windowssysWindowsWin32GlobalizationUStrCaseCompare(s1.rawAddress.toCPointer<ByteVar>(), length1, s2.rawAddress.toCPointer<ByteVar>(), length2, options, perrorcode.rawAddress.toCPointer<ByteVar>())
 
-public actual fun uStrCompare(s1: ConstPtr<UShort>, length1: Int, s2: ConstPtr<UShort>, length2: Int, codepointorder: Byte): Int =
+public actual fun uStrCompare(s1: ConstPtr, length1: Int, s2: ConstPtr, length2: Int, codepointorder: Byte): Int =
     windowssysWindowsWin32GlobalizationUStrCompare(s1.rawAddress.toCPointer<ByteVar>(), length1, s2.rawAddress.toCPointer<ByteVar>(), length2, codepointorder)
 
-public actual fun uStrCompareIter(iter1: MutPtr<UCharIterator>, iter2: MutPtr<UCharIterator>, codepointorder: Byte): Int =
+public actual fun uStrCompareIter(iter1: MutPtr, iter2: MutPtr, codepointorder: Byte): Int =
     windowssysWindowsWin32GlobalizationUStrCompareIter(iter1.rawAddress.toCPointer<ByteVar>(), iter2.rawAddress.toCPointer<ByteVar>(), codepointorder)
 
-public actual fun uStrFindFirst(s: ConstPtr<UShort>, length: Int, substring: ConstPtr<UShort>, sublength: Int): MutPtr<UShort> =
+public actual fun uStrFindFirst(s: ConstPtr, length: Int, substring: ConstPtr, sublength: Int): MutPtr =
     MutPtr(windowssysWindowsWin32GlobalizationUStrFindFirst(s.rawAddress.toCPointer<ByteVar>(), length, substring.rawAddress.toCPointer<ByteVar>(), sublength)?.toLong() ?: 0L)
 
-public actual fun uStrFindLast(s: ConstPtr<UShort>, length: Int, substring: ConstPtr<UShort>, sublength: Int): MutPtr<UShort> =
+public actual fun uStrFindLast(s: ConstPtr, length: Int, substring: ConstPtr, sublength: Int): MutPtr =
     MutPtr(windowssysWindowsWin32GlobalizationUStrFindLast(s.rawAddress.toCPointer<ByteVar>(), length, substring.rawAddress.toCPointer<ByteVar>(), sublength)?.toLong() ?: 0L)
 
-public actual fun uStrFoldCase(dest: MutPtr<UShort>, destcapacity: Int, src: ConstPtr<UShort>, srclength: Int, options: UInt, perrorcode: MutPtr<UErrorCode>): Int =
+public actual fun uStrFoldCase(dest: MutPtr, destcapacity: Int, src: ConstPtr, srclength: Int, options: UInt, perrorcode: MutPtr): Int =
     windowssysWindowsWin32GlobalizationUStrFoldCase(dest.rawAddress.toCPointer<ByteVar>(), destcapacity, src.rawAddress.toCPointer<ByteVar>(), srclength, options, perrorcode.rawAddress.toCPointer<ByteVar>())
 
-public actual fun uStrFromJavaModifiedUtf8WithSub(dest: MutPtr<UShort>, destcapacity: Int, pdestlength: MutPtr<Int>, src: Pcstr, srclength: Int, subchar: Int, pnumsubstitutions: MutPtr<Int>, perrorcode: MutPtr<UErrorCode>): MutPtr<UShort> =
+public actual fun uStrFromJavaModifiedUtf8WithSub(dest: MutPtr, destcapacity: Int, pdestlength: MutPtr, src: Pcstr, srclength: Int, subchar: Int, pnumsubstitutions: MutPtr, perrorcode: MutPtr): MutPtr =
     MutPtr(windowssysWindowsWin32GlobalizationUStrFromJavaModifiedUtf8WithSub(dest.rawAddress.toCPointer<ByteVar>(), destcapacity, pdestlength.rawAddress.toCPointer<ByteVar>(), src.rawAddress.toCPointer<ByteVar>(), srclength, subchar, pnumsubstitutions.rawAddress.toCPointer<ByteVar>(), perrorcode.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun uStrFromUtf32(dest: MutPtr<UShort>, destcapacity: Int, pdestlength: MutPtr<Int>, src: ConstPtr<Int>, srclength: Int, perrorcode: MutPtr<UErrorCode>): MutPtr<UShort> =
+public actual fun uStrFromUtf32(dest: MutPtr, destcapacity: Int, pdestlength: MutPtr, src: ConstPtr, srclength: Int, perrorcode: MutPtr): MutPtr =
     MutPtr(windowssysWindowsWin32GlobalizationUStrFromUtf32(dest.rawAddress.toCPointer<ByteVar>(), destcapacity, pdestlength.rawAddress.toCPointer<ByteVar>(), src.rawAddress.toCPointer<ByteVar>(), srclength, perrorcode.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun uStrFromUtf32WithSub(dest: MutPtr<UShort>, destcapacity: Int, pdestlength: MutPtr<Int>, src: ConstPtr<Int>, srclength: Int, subchar: Int, pnumsubstitutions: MutPtr<Int>, perrorcode: MutPtr<UErrorCode>): MutPtr<UShort> =
+public actual fun uStrFromUtf32WithSub(dest: MutPtr, destcapacity: Int, pdestlength: MutPtr, src: ConstPtr, srclength: Int, subchar: Int, pnumsubstitutions: MutPtr, perrorcode: MutPtr): MutPtr =
     MutPtr(windowssysWindowsWin32GlobalizationUStrFromUtf32WithSub(dest.rawAddress.toCPointer<ByteVar>(), destcapacity, pdestlength.rawAddress.toCPointer<ByteVar>(), src.rawAddress.toCPointer<ByteVar>(), srclength, subchar, pnumsubstitutions.rawAddress.toCPointer<ByteVar>(), perrorcode.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun uStrFromUtf8(dest: MutPtr<UShort>, destcapacity: Int, pdestlength: MutPtr<Int>, src: Pcstr, srclength: Int, perrorcode: MutPtr<UErrorCode>): MutPtr<UShort> =
+public actual fun uStrFromUtf8(dest: MutPtr, destcapacity: Int, pdestlength: MutPtr, src: Pcstr, srclength: Int, perrorcode: MutPtr): MutPtr =
     MutPtr(windowssysWindowsWin32GlobalizationUStrFromUtf8(dest.rawAddress.toCPointer<ByteVar>(), destcapacity, pdestlength.rawAddress.toCPointer<ByteVar>(), src.rawAddress.toCPointer<ByteVar>(), srclength, perrorcode.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun uStrFromUtf8Lenient(dest: MutPtr<UShort>, destcapacity: Int, pdestlength: MutPtr<Int>, src: Pcstr, srclength: Int, perrorcode: MutPtr<UErrorCode>): MutPtr<UShort> =
+public actual fun uStrFromUtf8Lenient(dest: MutPtr, destcapacity: Int, pdestlength: MutPtr, src: Pcstr, srclength: Int, perrorcode: MutPtr): MutPtr =
     MutPtr(windowssysWindowsWin32GlobalizationUStrFromUtf8Lenient(dest.rawAddress.toCPointer<ByteVar>(), destcapacity, pdestlength.rawAddress.toCPointer<ByteVar>(), src.rawAddress.toCPointer<ByteVar>(), srclength, perrorcode.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun uStrFromUtf8WithSub(dest: MutPtr<UShort>, destcapacity: Int, pdestlength: MutPtr<Int>, src: Pcstr, srclength: Int, subchar: Int, pnumsubstitutions: MutPtr<Int>, perrorcode: MutPtr<UErrorCode>): MutPtr<UShort> =
+public actual fun uStrFromUtf8WithSub(dest: MutPtr, destcapacity: Int, pdestlength: MutPtr, src: Pcstr, srclength: Int, subchar: Int, pnumsubstitutions: MutPtr, perrorcode: MutPtr): MutPtr =
     MutPtr(windowssysWindowsWin32GlobalizationUStrFromUtf8WithSub(dest.rawAddress.toCPointer<ByteVar>(), destcapacity, pdestlength.rawAddress.toCPointer<ByteVar>(), src.rawAddress.toCPointer<ByteVar>(), srclength, subchar, pnumsubstitutions.rawAddress.toCPointer<ByteVar>(), perrorcode.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun uStrFromWcs(dest: MutPtr<UShort>, destcapacity: Int, pdestlength: MutPtr<Int>, src: Pcwstr, srclength: Int, perrorcode: MutPtr<UErrorCode>): MutPtr<UShort> =
+public actual fun uStrFromWcs(dest: MutPtr, destcapacity: Int, pdestlength: MutPtr, src: Pcwstr, srclength: Int, perrorcode: MutPtr): MutPtr =
     MutPtr(windowssysWindowsWin32GlobalizationUStrFromWcs(dest.rawAddress.toCPointer<ByteVar>(), destcapacity, pdestlength.rawAddress.toCPointer<ByteVar>(), src.rawAddress.toCPointer<ByteVar>(), srclength, perrorcode.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun uStrHasMoreChar32Than(s: ConstPtr<UShort>, length: Int, number: Int): Byte =
+public actual fun uStrHasMoreChar32Than(s: ConstPtr, length: Int, number: Int): Byte =
     windowssysWindowsWin32GlobalizationUStrHasMoreChar32Than(s.rawAddress.toCPointer<ByteVar>(), length, number)
 
-public actual fun uStrToJavaModifiedUtf8(dest: Pcstr, destcapacity: Int, pdestlength: MutPtr<Int>, src: ConstPtr<UShort>, srclength: Int, perrorcode: MutPtr<UErrorCode>): Pstr =
+public actual fun uStrToJavaModifiedUtf8(dest: Pcstr, destcapacity: Int, pdestlength: MutPtr, src: ConstPtr, srclength: Int, perrorcode: MutPtr): Pstr =
     MutPtr(windowssysWindowsWin32GlobalizationUStrToJavaModifiedUtf8(dest.rawAddress.toCPointer<ByteVar>(), destcapacity, pdestlength.rawAddress.toCPointer<ByteVar>(), src.rawAddress.toCPointer<ByteVar>(), srclength, perrorcode.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun uStrToLower(dest: MutPtr<UShort>, destcapacity: Int, src: ConstPtr<UShort>, srclength: Int, locale: Pcstr, perrorcode: MutPtr<UErrorCode>): Int =
+public actual fun uStrToLower(dest: MutPtr, destcapacity: Int, src: ConstPtr, srclength: Int, locale: Pcstr, perrorcode: MutPtr): Int =
     windowssysWindowsWin32GlobalizationUStrToLower(dest.rawAddress.toCPointer<ByteVar>(), destcapacity, src.rawAddress.toCPointer<ByteVar>(), srclength, locale.rawAddress.toCPointer<ByteVar>(), perrorcode.rawAddress.toCPointer<ByteVar>())
 
-public actual fun uStrToTitle(dest: MutPtr<UShort>, destcapacity: Int, src: ConstPtr<UShort>, srclength: Int, titleiter: MutPtr<UBreakIterator>, locale: Pcstr, perrorcode: MutPtr<UErrorCode>): Int =
+public actual fun uStrToTitle(dest: MutPtr, destcapacity: Int, src: ConstPtr, srclength: Int, titleiter: MutPtr, locale: Pcstr, perrorcode: MutPtr): Int =
     windowssysWindowsWin32GlobalizationUStrToTitle(dest.rawAddress.toCPointer<ByteVar>(), destcapacity, src.rawAddress.toCPointer<ByteVar>(), srclength, titleiter.rawAddress.toCPointer<ByteVar>(), locale.rawAddress.toCPointer<ByteVar>(), perrorcode.rawAddress.toCPointer<ByteVar>())
 
-public actual fun uStrToUtf32(dest: MutPtr<Int>, destcapacity: Int, pdestlength: MutPtr<Int>, src: ConstPtr<UShort>, srclength: Int, perrorcode: MutPtr<UErrorCode>): MutPtr<Int> =
+public actual fun uStrToUtf32(dest: MutPtr, destcapacity: Int, pdestlength: MutPtr, src: ConstPtr, srclength: Int, perrorcode: MutPtr): MutPtr =
     MutPtr(windowssysWindowsWin32GlobalizationUStrToUtf32(dest.rawAddress.toCPointer<ByteVar>(), destcapacity, pdestlength.rawAddress.toCPointer<ByteVar>(), src.rawAddress.toCPointer<ByteVar>(), srclength, perrorcode.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun uStrToUtf32WithSub(dest: MutPtr<Int>, destcapacity: Int, pdestlength: MutPtr<Int>, src: ConstPtr<UShort>, srclength: Int, subchar: Int, pnumsubstitutions: MutPtr<Int>, perrorcode: MutPtr<UErrorCode>): MutPtr<Int> =
+public actual fun uStrToUtf32WithSub(dest: MutPtr, destcapacity: Int, pdestlength: MutPtr, src: ConstPtr, srclength: Int, subchar: Int, pnumsubstitutions: MutPtr, perrorcode: MutPtr): MutPtr =
     MutPtr(windowssysWindowsWin32GlobalizationUStrToUtf32WithSub(dest.rawAddress.toCPointer<ByteVar>(), destcapacity, pdestlength.rawAddress.toCPointer<ByteVar>(), src.rawAddress.toCPointer<ByteVar>(), srclength, subchar, pnumsubstitutions.rawAddress.toCPointer<ByteVar>(), perrorcode.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun uStrToUtf8(dest: Pcstr, destcapacity: Int, pdestlength: MutPtr<Int>, src: ConstPtr<UShort>, srclength: Int, perrorcode: MutPtr<UErrorCode>): Pstr =
+public actual fun uStrToUtf8(dest: Pcstr, destcapacity: Int, pdestlength: MutPtr, src: ConstPtr, srclength: Int, perrorcode: MutPtr): Pstr =
     MutPtr(windowssysWindowsWin32GlobalizationUStrToUtf8(dest.rawAddress.toCPointer<ByteVar>(), destcapacity, pdestlength.rawAddress.toCPointer<ByteVar>(), src.rawAddress.toCPointer<ByteVar>(), srclength, perrorcode.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun uStrToUtf8WithSub(dest: Pcstr, destcapacity: Int, pdestlength: MutPtr<Int>, src: ConstPtr<UShort>, srclength: Int, subchar: Int, pnumsubstitutions: MutPtr<Int>, perrorcode: MutPtr<UErrorCode>): Pstr =
+public actual fun uStrToUtf8WithSub(dest: Pcstr, destcapacity: Int, pdestlength: MutPtr, src: ConstPtr, srclength: Int, subchar: Int, pnumsubstitutions: MutPtr, perrorcode: MutPtr): Pstr =
     MutPtr(windowssysWindowsWin32GlobalizationUStrToUtf8WithSub(dest.rawAddress.toCPointer<ByteVar>(), destcapacity, pdestlength.rawAddress.toCPointer<ByteVar>(), src.rawAddress.toCPointer<ByteVar>(), srclength, subchar, pnumsubstitutions.rawAddress.toCPointer<ByteVar>(), perrorcode.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun uStrToUpper(dest: MutPtr<UShort>, destcapacity: Int, src: ConstPtr<UShort>, srclength: Int, locale: Pcstr, perrorcode: MutPtr<UErrorCode>): Int =
+public actual fun uStrToUpper(dest: MutPtr, destcapacity: Int, src: ConstPtr, srclength: Int, locale: Pcstr, perrorcode: MutPtr): Int =
     windowssysWindowsWin32GlobalizationUStrToUpper(dest.rawAddress.toCPointer<ByteVar>(), destcapacity, src.rawAddress.toCPointer<ByteVar>(), srclength, locale.rawAddress.toCPointer<ByteVar>(), perrorcode.rawAddress.toCPointer<ByteVar>())
 
-public actual fun uStrToWcs(dest: Pcwstr, destcapacity: Int, pdestlength: MutPtr<Int>, src: ConstPtr<UShort>, srclength: Int, perrorcode: MutPtr<UErrorCode>): Pwstr =
+public actual fun uStrToWcs(dest: Pcwstr, destcapacity: Int, pdestlength: MutPtr, src: ConstPtr, srclength: Int, perrorcode: MutPtr): Pwstr =
     MutPtr(windowssysWindowsWin32GlobalizationUStrToWcs(dest.rawAddress.toCPointer<ByteVar>(), destcapacity, pdestlength.rawAddress.toCPointer<ByteVar>(), src.rawAddress.toCPointer<ByteVar>(), srclength, perrorcode.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun uStrcasecmp(s1: ConstPtr<UShort>, s2: ConstPtr<UShort>, options: UInt): Int =
+public actual fun uStrcasecmp(s1: ConstPtr, s2: ConstPtr, options: UInt): Int =
     windowssysWindowsWin32GlobalizationUStrcasecmp(s1.rawAddress.toCPointer<ByteVar>(), s2.rawAddress.toCPointer<ByteVar>(), options)
 
-public actual fun uStrcat(dst: MutPtr<UShort>, src: ConstPtr<UShort>): MutPtr<UShort> =
+public actual fun uStrcat(dst: MutPtr, src: ConstPtr): MutPtr =
     MutPtr(windowssysWindowsWin32GlobalizationUStrcat(dst.rawAddress.toCPointer<ByteVar>(), src.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun uStrchr(s: ConstPtr<UShort>, c: UShort): MutPtr<UShort> =
+public actual fun uStrchr(s: ConstPtr, c: UShort): MutPtr =
     MutPtr(windowssysWindowsWin32GlobalizationUStrchr(s.rawAddress.toCPointer<ByteVar>(), c)?.toLong() ?: 0L)
 
-public actual fun uStrchr32(s: ConstPtr<UShort>, c: Int): MutPtr<UShort> =
+public actual fun uStrchr32(s: ConstPtr, c: Int): MutPtr =
     MutPtr(windowssysWindowsWin32GlobalizationUStrchr32(s.rawAddress.toCPointer<ByteVar>(), c)?.toLong() ?: 0L)
 
-public actual fun uStrcmp(s1: ConstPtr<UShort>, s2: ConstPtr<UShort>): Int =
+public actual fun uStrcmp(s1: ConstPtr, s2: ConstPtr): Int =
     windowssysWindowsWin32GlobalizationUStrcmp(s1.rawAddress.toCPointer<ByteVar>(), s2.rawAddress.toCPointer<ByteVar>())
 
-public actual fun uStrcmpCodePointOrder(s1: ConstPtr<UShort>, s2: ConstPtr<UShort>): Int =
+public actual fun uStrcmpCodePointOrder(s1: ConstPtr, s2: ConstPtr): Int =
     windowssysWindowsWin32GlobalizationUStrcmpCodePointOrder(s1.rawAddress.toCPointer<ByteVar>(), s2.rawAddress.toCPointer<ByteVar>())
 
-public actual fun uStrcpy(dst: MutPtr<UShort>, src: ConstPtr<UShort>): MutPtr<UShort> =
+public actual fun uStrcpy(dst: MutPtr, src: ConstPtr): MutPtr =
     MutPtr(windowssysWindowsWin32GlobalizationUStrcpy(dst.rawAddress.toCPointer<ByteVar>(), src.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun uStrcspn(string: ConstPtr<UShort>, matchset: ConstPtr<UShort>): Int =
+public actual fun uStrcspn(string: ConstPtr, matchset: ConstPtr): Int =
     windowssysWindowsWin32GlobalizationUStrcspn(string.rawAddress.toCPointer<ByteVar>(), matchset.rawAddress.toCPointer<ByteVar>())
 
-public actual fun uStrlen(s: ConstPtr<UShort>): Int =
+public actual fun uStrlen(s: ConstPtr): Int =
     windowssysWindowsWin32GlobalizationUStrlen(s.rawAddress.toCPointer<ByteVar>())
 
-public actual fun uStrncasecmp(s1: ConstPtr<UShort>, s2: ConstPtr<UShort>, n: Int, options: UInt): Int =
+public actual fun uStrncasecmp(s1: ConstPtr, s2: ConstPtr, n: Int, options: UInt): Int =
     windowssysWindowsWin32GlobalizationUStrncasecmp(s1.rawAddress.toCPointer<ByteVar>(), s2.rawAddress.toCPointer<ByteVar>(), n, options)
 
-public actual fun uStrncat(dst: MutPtr<UShort>, src: ConstPtr<UShort>, n: Int): MutPtr<UShort> =
+public actual fun uStrncat(dst: MutPtr, src: ConstPtr, n: Int): MutPtr =
     MutPtr(windowssysWindowsWin32GlobalizationUStrncat(dst.rawAddress.toCPointer<ByteVar>(), src.rawAddress.toCPointer<ByteVar>(), n)?.toLong() ?: 0L)
 
-public actual fun uStrncmp(ucs1: ConstPtr<UShort>, ucs2: ConstPtr<UShort>, n: Int): Int =
+public actual fun uStrncmp(ucs1: ConstPtr, ucs2: ConstPtr, n: Int): Int =
     windowssysWindowsWin32GlobalizationUStrncmp(ucs1.rawAddress.toCPointer<ByteVar>(), ucs2.rawAddress.toCPointer<ByteVar>(), n)
 
-public actual fun uStrncmpCodePointOrder(s1: ConstPtr<UShort>, s2: ConstPtr<UShort>, n: Int): Int =
+public actual fun uStrncmpCodePointOrder(s1: ConstPtr, s2: ConstPtr, n: Int): Int =
     windowssysWindowsWin32GlobalizationUStrncmpCodePointOrder(s1.rawAddress.toCPointer<ByteVar>(), s2.rawAddress.toCPointer<ByteVar>(), n)
 
-public actual fun uStrncpy(dst: MutPtr<UShort>, src: ConstPtr<UShort>, n: Int): MutPtr<UShort> =
+public actual fun uStrncpy(dst: MutPtr, src: ConstPtr, n: Int): MutPtr =
     MutPtr(windowssysWindowsWin32GlobalizationUStrncpy(dst.rawAddress.toCPointer<ByteVar>(), src.rawAddress.toCPointer<ByteVar>(), n)?.toLong() ?: 0L)
 
-public actual fun uStrpbrk(string: ConstPtr<UShort>, matchset: ConstPtr<UShort>): MutPtr<UShort> =
+public actual fun uStrpbrk(string: ConstPtr, matchset: ConstPtr): MutPtr =
     MutPtr(windowssysWindowsWin32GlobalizationUStrpbrk(string.rawAddress.toCPointer<ByteVar>(), matchset.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun uStrrchr(s: ConstPtr<UShort>, c: UShort): MutPtr<UShort> =
+public actual fun uStrrchr(s: ConstPtr, c: UShort): MutPtr =
     MutPtr(windowssysWindowsWin32GlobalizationUStrrchr(s.rawAddress.toCPointer<ByteVar>(), c)?.toLong() ?: 0L)
 
-public actual fun uStrrchr32(s: ConstPtr<UShort>, c: Int): MutPtr<UShort> =
+public actual fun uStrrchr32(s: ConstPtr, c: Int): MutPtr =
     MutPtr(windowssysWindowsWin32GlobalizationUStrrchr32(s.rawAddress.toCPointer<ByteVar>(), c)?.toLong() ?: 0L)
 
-public actual fun uStrrstr(s: ConstPtr<UShort>, substring: ConstPtr<UShort>): MutPtr<UShort> =
+public actual fun uStrrstr(s: ConstPtr, substring: ConstPtr): MutPtr =
     MutPtr(windowssysWindowsWin32GlobalizationUStrrstr(s.rawAddress.toCPointer<ByteVar>(), substring.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun uStrspn(string: ConstPtr<UShort>, matchset: ConstPtr<UShort>): Int =
+public actual fun uStrspn(string: ConstPtr, matchset: ConstPtr): Int =
     windowssysWindowsWin32GlobalizationUStrspn(string.rawAddress.toCPointer<ByteVar>(), matchset.rawAddress.toCPointer<ByteVar>())
 
-public actual fun uStrstr(s: ConstPtr<UShort>, substring: ConstPtr<UShort>): MutPtr<UShort> =
+public actual fun uStrstr(s: ConstPtr, substring: ConstPtr): MutPtr =
     MutPtr(windowssysWindowsWin32GlobalizationUStrstr(s.rawAddress.toCPointer<ByteVar>(), substring.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun uStrtokR(src: MutPtr<UShort>, delim: ConstPtr<UShort>, savestate: MutPtr<MutPtr<UShort>>): MutPtr<UShort> =
+public actual fun uStrtokR(src: MutPtr, delim: ConstPtr, savestate: MutPtr): MutPtr =
     MutPtr(windowssysWindowsWin32GlobalizationUStrtokR(src.rawAddress.toCPointer<ByteVar>(), delim.rawAddress.toCPointer<ByteVar>(), savestate.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
 public actual fun uTolower(c: Int): Int =
@@ -2267,539 +2262,539 @@ public actual fun uTotitle(c: Int): Int =
 public actual fun uToupper(c: Int): Int =
     windowssysWindowsWin32GlobalizationUToupper(c)
 
-public actual fun uUastrcpy(dst: MutPtr<UShort>, src: Pcstr): MutPtr<UShort> =
+public actual fun uUastrcpy(dst: MutPtr, src: Pcstr): MutPtr =
     MutPtr(windowssysWindowsWin32GlobalizationUUastrcpy(dst.rawAddress.toCPointer<ByteVar>(), src.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun uUastrncpy(dst: MutPtr<UShort>, src: Pcstr, n: Int): MutPtr<UShort> =
+public actual fun uUastrncpy(dst: MutPtr, src: Pcstr, n: Int): MutPtr =
     MutPtr(windowssysWindowsWin32GlobalizationUUastrncpy(dst.rawAddress.toCPointer<ByteVar>(), src.rawAddress.toCPointer<ByteVar>(), n)?.toLong() ?: 0L)
 
-public actual fun uUnescape(src: Pcstr, dest: MutPtr<UShort>, destcapacity: Int): Int =
+public actual fun uUnescape(src: Pcstr, dest: MutPtr, destcapacity: Int): Int =
     windowssysWindowsWin32GlobalizationUUnescape(src.rawAddress.toCPointer<ByteVar>(), dest.rawAddress.toCPointer<ByteVar>(), destcapacity)
 
-public actual fun uUnescapeAt(charat: UnescapeCharAt, offset: MutPtr<Int>, length: Int, context: MutPtr<CVoid>): Int =
+public actual fun uUnescapeAt(charat: UnescapeCharAt, offset: MutPtr, length: Int, context: MutPtr): Int =
     windowssysWindowsWin32GlobalizationUUnescapeAt(0L.toCPointer<ByteVar>(), offset.rawAddress.toCPointer<ByteVar>(), length, context.rawAddress.toCPointer<ByteVar>())
 
-public actual fun uVersionFromString(versionarray: MutPtr<UByte>, versionstring: Pcstr) {
+public actual fun uVersionFromString(versionarray: MutPtr, versionstring: Pcstr) {
     windowssysWindowsWin32GlobalizationUVersionFromString(versionarray.rawAddress.toCPointer<ByteVar>(), versionstring.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun uVersionFromUstring(versionarray: MutPtr<UByte>, versionstring: ConstPtr<UShort>) {
+public actual fun uVersionFromUstring(versionarray: MutPtr, versionstring: ConstPtr) {
     windowssysWindowsWin32GlobalizationUVersionFromUstring(versionarray.rawAddress.toCPointer<ByteVar>(), versionstring.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun uVersionToString(versionarray: ConstPtr<UByte>, versionstring: Pcstr) {
+public actual fun uVersionToString(versionarray: ConstPtr, versionstring: Pcstr) {
     windowssysWindowsWin32GlobalizationUVersionToString(versionarray.rawAddress.toCPointer<ByteVar>(), versionstring.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun uVformatMessage(locale: Pcstr, pattern: ConstPtr<UShort>, patternlength: Int, result: MutPtr<UShort>, resultlength: Int, ap: MutPtr<Byte>, status: MutPtr<UErrorCode>): Int =
+public actual fun uVformatMessage(locale: Pcstr, pattern: ConstPtr, patternlength: Int, result: MutPtr, resultlength: Int, ap: MutPtr, status: MutPtr): Int =
     windowssysWindowsWin32GlobalizationUVformatMessage(locale.rawAddress.toCPointer<ByteVar>(), pattern.rawAddress.toCPointer<ByteVar>(), patternlength, result.rawAddress.toCPointer<ByteVar>(), resultlength, ap.rawAddress.toCPointer<ByteVar>(), status.rawAddress.toCPointer<ByteVar>())
 
-public actual fun uVformatMessageWithError(locale: Pcstr, pattern: ConstPtr<UShort>, patternlength: Int, result: MutPtr<UShort>, resultlength: Int, parseerror: MutPtr<UParseError>, ap: MutPtr<Byte>, status: MutPtr<UErrorCode>): Int =
+public actual fun uVformatMessageWithError(locale: Pcstr, pattern: ConstPtr, patternlength: Int, result: MutPtr, resultlength: Int, parseerror: MutPtr, ap: MutPtr, status: MutPtr): Int =
     windowssysWindowsWin32GlobalizationUVformatMessageWithError(locale.rawAddress.toCPointer<ByteVar>(), pattern.rawAddress.toCPointer<ByteVar>(), patternlength, result.rawAddress.toCPointer<ByteVar>(), resultlength, parseerror.rawAddress.toCPointer<ByteVar>(), ap.rawAddress.toCPointer<ByteVar>(), status.rawAddress.toCPointer<ByteVar>())
 
-public actual fun uVparseMessage(locale: Pcstr, pattern: ConstPtr<UShort>, patternlength: Int, source: ConstPtr<UShort>, sourcelength: Int, ap: MutPtr<Byte>, status: MutPtr<UErrorCode>) {
+public actual fun uVparseMessage(locale: Pcstr, pattern: ConstPtr, patternlength: Int, source: ConstPtr, sourcelength: Int, ap: MutPtr, status: MutPtr) {
     windowssysWindowsWin32GlobalizationUVparseMessage(locale.rawAddress.toCPointer<ByteVar>(), pattern.rawAddress.toCPointer<ByteVar>(), patternlength, source.rawAddress.toCPointer<ByteVar>(), sourcelength, ap.rawAddress.toCPointer<ByteVar>(), status.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun uVparseMessageWithError(locale: Pcstr, pattern: ConstPtr<UShort>, patternlength: Int, source: ConstPtr<UShort>, sourcelength: Int, ap: MutPtr<Byte>, parseerror: MutPtr<UParseError>, status: MutPtr<UErrorCode>) {
+public actual fun uVparseMessageWithError(locale: Pcstr, pattern: ConstPtr, patternlength: Int, source: ConstPtr, sourcelength: Int, ap: MutPtr, parseerror: MutPtr, status: MutPtr) {
     windowssysWindowsWin32GlobalizationUVparseMessageWithError(locale.rawAddress.toCPointer<ByteVar>(), pattern.rawAddress.toCPointer<ByteVar>(), patternlength, source.rawAddress.toCPointer<ByteVar>(), sourcelength, ap.rawAddress.toCPointer<ByteVar>(), parseerror.rawAddress.toCPointer<ByteVar>(), status.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun ubidiClose(pbidi: MutPtr<UBiDi>) {
+public actual fun ubidiClose(pbidi: MutPtr) {
     windowssysWindowsWin32GlobalizationUbidiClose(pbidi.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun ubidiCountParagraphs(pbidi: MutPtr<UBiDi>): Int =
+public actual fun ubidiCountParagraphs(pbidi: MutPtr): Int =
     windowssysWindowsWin32GlobalizationUbidiCountParagraphs(pbidi.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ubidiCountRuns(pbidi: MutPtr<UBiDi>, perrorcode: MutPtr<UErrorCode>): Int =
+public actual fun ubidiCountRuns(pbidi: MutPtr, perrorcode: MutPtr): Int =
     windowssysWindowsWin32GlobalizationUbidiCountRuns(pbidi.rawAddress.toCPointer<ByteVar>(), perrorcode.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ubidiGetBaseDirection(text: ConstPtr<UShort>, length: Int): UBiDiDirection =
+public actual fun ubidiGetBaseDirection(text: ConstPtr, length: Int): UBiDiDirection =
     windowssysWindowsWin32GlobalizationUbidiGetBaseDirection(text.rawAddress.toCPointer<ByteVar>(), length)
 
-public actual fun ubidiGetClassCallback(pbidi: MutPtr<UBiDi>, fn: MutPtr<UBiDiClassCallback>, context: ConstPtr<ConstPtr<CVoid>>) {
+public actual fun ubidiGetClassCallback(pbidi: MutPtr, fn: MutPtr, context: ConstPtr) {
     windowssysWindowsWin32GlobalizationUbidiGetClassCallback(pbidi.rawAddress.toCPointer<ByteVar>(), fn.rawAddress.toCPointer<ByteVar>(), context.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun ubidiGetCustomizedClass(pbidi: MutPtr<UBiDi>, c: Int): UCharDirection =
+public actual fun ubidiGetCustomizedClass(pbidi: MutPtr, c: Int): UCharDirection =
     windowssysWindowsWin32GlobalizationUbidiGetCustomizedClass(pbidi.rawAddress.toCPointer<ByteVar>(), c)
 
-public actual fun ubidiGetDirection(pbidi: ConstPtr<UBiDi>): UBiDiDirection =
+public actual fun ubidiGetDirection(pbidi: ConstPtr): UBiDiDirection =
     windowssysWindowsWin32GlobalizationUbidiGetDirection(pbidi.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ubidiGetLength(pbidi: ConstPtr<UBiDi>): Int =
+public actual fun ubidiGetLength(pbidi: ConstPtr): Int =
     windowssysWindowsWin32GlobalizationUbidiGetLength(pbidi.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ubidiGetLevelAt(pbidi: ConstPtr<UBiDi>, charindex: Int): UByte =
+public actual fun ubidiGetLevelAt(pbidi: ConstPtr, charindex: Int): UByte =
     windowssysWindowsWin32GlobalizationUbidiGetLevelAt(pbidi.rawAddress.toCPointer<ByteVar>(), charindex)
 
-public actual fun ubidiGetLevels(pbidi: MutPtr<UBiDi>, perrorcode: MutPtr<UErrorCode>): MutPtr<UByte> =
+public actual fun ubidiGetLevels(pbidi: MutPtr, perrorcode: MutPtr): MutPtr =
     MutPtr(windowssysWindowsWin32GlobalizationUbidiGetLevels(pbidi.rawAddress.toCPointer<ByteVar>(), perrorcode.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun ubidiGetLogicalIndex(pbidi: MutPtr<UBiDi>, visualindex: Int, perrorcode: MutPtr<UErrorCode>): Int =
+public actual fun ubidiGetLogicalIndex(pbidi: MutPtr, visualindex: Int, perrorcode: MutPtr): Int =
     windowssysWindowsWin32GlobalizationUbidiGetLogicalIndex(pbidi.rawAddress.toCPointer<ByteVar>(), visualindex, perrorcode.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ubidiGetLogicalMap(pbidi: MutPtr<UBiDi>, indexmap: MutPtr<Int>, perrorcode: MutPtr<UErrorCode>) {
+public actual fun ubidiGetLogicalMap(pbidi: MutPtr, indexmap: MutPtr, perrorcode: MutPtr) {
     windowssysWindowsWin32GlobalizationUbidiGetLogicalMap(pbidi.rawAddress.toCPointer<ByteVar>(), indexmap.rawAddress.toCPointer<ByteVar>(), perrorcode.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun ubidiGetLogicalRun(pbidi: ConstPtr<UBiDi>, logicalposition: Int, plogicallimit: MutPtr<Int>, plevel: MutPtr<UByte>) {
+public actual fun ubidiGetLogicalRun(pbidi: ConstPtr, logicalposition: Int, plogicallimit: MutPtr, plevel: MutPtr) {
     windowssysWindowsWin32GlobalizationUbidiGetLogicalRun(pbidi.rawAddress.toCPointer<ByteVar>(), logicalposition, plogicallimit.rawAddress.toCPointer<ByteVar>(), plevel.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun ubidiGetParaLevel(pbidi: ConstPtr<UBiDi>): UByte =
+public actual fun ubidiGetParaLevel(pbidi: ConstPtr): UByte =
     windowssysWindowsWin32GlobalizationUbidiGetParaLevel(pbidi.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ubidiGetParagraph(pbidi: ConstPtr<UBiDi>, charindex: Int, pparastart: MutPtr<Int>, pparalimit: MutPtr<Int>, pparalevel: MutPtr<UByte>, perrorcode: MutPtr<UErrorCode>): Int =
+public actual fun ubidiGetParagraph(pbidi: ConstPtr, charindex: Int, pparastart: MutPtr, pparalimit: MutPtr, pparalevel: MutPtr, perrorcode: MutPtr): Int =
     windowssysWindowsWin32GlobalizationUbidiGetParagraph(pbidi.rawAddress.toCPointer<ByteVar>(), charindex, pparastart.rawAddress.toCPointer<ByteVar>(), pparalimit.rawAddress.toCPointer<ByteVar>(), pparalevel.rawAddress.toCPointer<ByteVar>(), perrorcode.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ubidiGetParagraphByIndex(pbidi: ConstPtr<UBiDi>, paraindex: Int, pparastart: MutPtr<Int>, pparalimit: MutPtr<Int>, pparalevel: MutPtr<UByte>, perrorcode: MutPtr<UErrorCode>) {
+public actual fun ubidiGetParagraphByIndex(pbidi: ConstPtr, paraindex: Int, pparastart: MutPtr, pparalimit: MutPtr, pparalevel: MutPtr, perrorcode: MutPtr) {
     windowssysWindowsWin32GlobalizationUbidiGetParagraphByIndex(pbidi.rawAddress.toCPointer<ByteVar>(), paraindex, pparastart.rawAddress.toCPointer<ByteVar>(), pparalimit.rawAddress.toCPointer<ByteVar>(), pparalevel.rawAddress.toCPointer<ByteVar>(), perrorcode.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun ubidiGetProcessedLength(pbidi: ConstPtr<UBiDi>): Int =
+public actual fun ubidiGetProcessedLength(pbidi: ConstPtr): Int =
     windowssysWindowsWin32GlobalizationUbidiGetProcessedLength(pbidi.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ubidiGetReorderingMode(pbidi: MutPtr<UBiDi>): UBiDiReorderingMode =
+public actual fun ubidiGetReorderingMode(pbidi: MutPtr): UBiDiReorderingMode =
     windowssysWindowsWin32GlobalizationUbidiGetReorderingMode(pbidi.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ubidiGetReorderingOptions(pbidi: MutPtr<UBiDi>): UInt =
+public actual fun ubidiGetReorderingOptions(pbidi: MutPtr): UInt =
     windowssysWindowsWin32GlobalizationUbidiGetReorderingOptions(pbidi.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ubidiGetResultLength(pbidi: ConstPtr<UBiDi>): Int =
+public actual fun ubidiGetResultLength(pbidi: ConstPtr): Int =
     windowssysWindowsWin32GlobalizationUbidiGetResultLength(pbidi.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ubidiGetText(pbidi: ConstPtr<UBiDi>): MutPtr<UShort> =
+public actual fun ubidiGetText(pbidi: ConstPtr): MutPtr =
     MutPtr(windowssysWindowsWin32GlobalizationUbidiGetText(pbidi.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun ubidiGetVisualIndex(pbidi: MutPtr<UBiDi>, logicalindex: Int, perrorcode: MutPtr<UErrorCode>): Int =
+public actual fun ubidiGetVisualIndex(pbidi: MutPtr, logicalindex: Int, perrorcode: MutPtr): Int =
     windowssysWindowsWin32GlobalizationUbidiGetVisualIndex(pbidi.rawAddress.toCPointer<ByteVar>(), logicalindex, perrorcode.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ubidiGetVisualMap(pbidi: MutPtr<UBiDi>, indexmap: MutPtr<Int>, perrorcode: MutPtr<UErrorCode>) {
+public actual fun ubidiGetVisualMap(pbidi: MutPtr, indexmap: MutPtr, perrorcode: MutPtr) {
     windowssysWindowsWin32GlobalizationUbidiGetVisualMap(pbidi.rawAddress.toCPointer<ByteVar>(), indexmap.rawAddress.toCPointer<ByteVar>(), perrorcode.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun ubidiGetVisualRun(pbidi: MutPtr<UBiDi>, runindex: Int, plogicalstart: MutPtr<Int>, plength: MutPtr<Int>): UBiDiDirection =
+public actual fun ubidiGetVisualRun(pbidi: MutPtr, runindex: Int, plogicalstart: MutPtr, plength: MutPtr): UBiDiDirection =
     windowssysWindowsWin32GlobalizationUbidiGetVisualRun(pbidi.rawAddress.toCPointer<ByteVar>(), runindex, plogicalstart.rawAddress.toCPointer<ByteVar>(), plength.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ubidiInvertMap(srcmap: ConstPtr<Int>, destmap: MutPtr<Int>, length: Int) {
+public actual fun ubidiInvertMap(srcmap: ConstPtr, destmap: MutPtr, length: Int) {
     windowssysWindowsWin32GlobalizationUbidiInvertMap(srcmap.rawAddress.toCPointer<ByteVar>(), destmap.rawAddress.toCPointer<ByteVar>(), length)
 }
 
-public actual fun ubidiIsInverse(pbidi: MutPtr<UBiDi>): Byte =
+public actual fun ubidiIsInverse(pbidi: MutPtr): Byte =
     windowssysWindowsWin32GlobalizationUbidiIsInverse(pbidi.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ubidiIsOrderParagraphsLtr(pbidi: MutPtr<UBiDi>): Byte =
+public actual fun ubidiIsOrderParagraphsLtr(pbidi: MutPtr): Byte =
     windowssysWindowsWin32GlobalizationUbidiIsOrderParagraphsLtr(pbidi.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ubidiOpen(): MutPtr<UBiDi> =
+public actual fun ubidiOpen(): MutPtr =
     MutPtr(windowssysWindowsWin32GlobalizationUbidiOpen()?.toLong() ?: 0L)
 
-public actual fun ubidiOpenSized(maxlength: Int, maxruncount: Int, perrorcode: MutPtr<UErrorCode>): MutPtr<UBiDi> =
+public actual fun ubidiOpenSized(maxlength: Int, maxruncount: Int, perrorcode: MutPtr): MutPtr =
     MutPtr(windowssysWindowsWin32GlobalizationUbidiOpenSized(maxlength, maxruncount, perrorcode.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun ubidiOrderParagraphsLtr(pbidi: MutPtr<UBiDi>, orderparagraphsltr: Byte) {
+public actual fun ubidiOrderParagraphsLtr(pbidi: MutPtr, orderparagraphsltr: Byte) {
     windowssysWindowsWin32GlobalizationUbidiOrderParagraphsLtr(pbidi.rawAddress.toCPointer<ByteVar>(), orderparagraphsltr)
 }
 
-public actual fun ubidiReorderLogical(levels: ConstPtr<UByte>, length: Int, indexmap: MutPtr<Int>) {
+public actual fun ubidiReorderLogical(levels: ConstPtr, length: Int, indexmap: MutPtr) {
     windowssysWindowsWin32GlobalizationUbidiReorderLogical(levels.rawAddress.toCPointer<ByteVar>(), length, indexmap.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun ubidiReorderVisual(levels: ConstPtr<UByte>, length: Int, indexmap: MutPtr<Int>) {
+public actual fun ubidiReorderVisual(levels: ConstPtr, length: Int, indexmap: MutPtr) {
     windowssysWindowsWin32GlobalizationUbidiReorderVisual(levels.rawAddress.toCPointer<ByteVar>(), length, indexmap.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun ubidiSetClassCallback(pbidi: MutPtr<UBiDi>, newfn: UBiDiClassCallback, newcontext: ConstPtr<CVoid>, oldfn: MutPtr<UBiDiClassCallback>, oldcontext: ConstPtr<ConstPtr<CVoid>>, perrorcode: MutPtr<UErrorCode>) {
+public actual fun ubidiSetClassCallback(pbidi: MutPtr, newfn: UBiDiClassCallback, newcontext: ConstPtr, oldfn: MutPtr, oldcontext: ConstPtr, perrorcode: MutPtr) {
     windowssysWindowsWin32GlobalizationUbidiSetClassCallback(pbidi.rawAddress.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>(), newcontext.rawAddress.toCPointer<ByteVar>(), oldfn.rawAddress.toCPointer<ByteVar>(), oldcontext.rawAddress.toCPointer<ByteVar>(), perrorcode.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun ubidiSetContext(pbidi: MutPtr<UBiDi>, prologue: ConstPtr<UShort>, prolength: Int, epilogue: ConstPtr<UShort>, epilength: Int, perrorcode: MutPtr<UErrorCode>) {
+public actual fun ubidiSetContext(pbidi: MutPtr, prologue: ConstPtr, prolength: Int, epilogue: ConstPtr, epilength: Int, perrorcode: MutPtr) {
     windowssysWindowsWin32GlobalizationUbidiSetContext(pbidi.rawAddress.toCPointer<ByteVar>(), prologue.rawAddress.toCPointer<ByteVar>(), prolength, epilogue.rawAddress.toCPointer<ByteVar>(), epilength, perrorcode.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun ubidiSetInverse(pbidi: MutPtr<UBiDi>, isinverse: Byte) {
+public actual fun ubidiSetInverse(pbidi: MutPtr, isinverse: Byte) {
     windowssysWindowsWin32GlobalizationUbidiSetInverse(pbidi.rawAddress.toCPointer<ByteVar>(), isinverse)
 }
 
-public actual fun ubidiSetLine(pparabidi: ConstPtr<UBiDi>, start: Int, limit: Int, plinebidi: MutPtr<UBiDi>, perrorcode: MutPtr<UErrorCode>) {
+public actual fun ubidiSetLine(pparabidi: ConstPtr, start: Int, limit: Int, plinebidi: MutPtr, perrorcode: MutPtr) {
     windowssysWindowsWin32GlobalizationUbidiSetLine(pparabidi.rawAddress.toCPointer<ByteVar>(), start, limit, plinebidi.rawAddress.toCPointer<ByteVar>(), perrorcode.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun ubidiSetPara(pbidi: MutPtr<UBiDi>, text: ConstPtr<UShort>, length: Int, paralevel: UByte, embeddinglevels: MutPtr<UByte>, perrorcode: MutPtr<UErrorCode>) {
+public actual fun ubidiSetPara(pbidi: MutPtr, text: ConstPtr, length: Int, paralevel: UByte, embeddinglevels: MutPtr, perrorcode: MutPtr) {
     windowssysWindowsWin32GlobalizationUbidiSetPara(pbidi.rawAddress.toCPointer<ByteVar>(), text.rawAddress.toCPointer<ByteVar>(), length, paralevel, embeddinglevels.rawAddress.toCPointer<ByteVar>(), perrorcode.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun ubidiSetReorderingMode(pbidi: MutPtr<UBiDi>, reorderingmode: UBiDiReorderingMode) {
+public actual fun ubidiSetReorderingMode(pbidi: MutPtr, reorderingmode: UBiDiReorderingMode) {
     windowssysWindowsWin32GlobalizationUbidiSetReorderingMode(pbidi.rawAddress.toCPointer<ByteVar>(), reorderingmode)
 }
 
-public actual fun ubidiSetReorderingOptions(pbidi: MutPtr<UBiDi>, reorderingoptions: UInt) {
+public actual fun ubidiSetReorderingOptions(pbidi: MutPtr, reorderingoptions: UInt) {
     windowssysWindowsWin32GlobalizationUbidiSetReorderingOptions(pbidi.rawAddress.toCPointer<ByteVar>(), reorderingoptions)
 }
 
-public actual fun ubidiWriteReordered(pbidi: MutPtr<UBiDi>, dest: MutPtr<UShort>, destsize: Int, options: UShort, perrorcode: MutPtr<UErrorCode>): Int =
+public actual fun ubidiWriteReordered(pbidi: MutPtr, dest: MutPtr, destsize: Int, options: UShort, perrorcode: MutPtr): Int =
     windowssysWindowsWin32GlobalizationUbidiWriteReordered(pbidi.rawAddress.toCPointer<ByteVar>(), dest.rawAddress.toCPointer<ByteVar>(), destsize, options, perrorcode.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ubidiWriteReverse(src: ConstPtr<UShort>, srclength: Int, dest: MutPtr<UShort>, destsize: Int, options: UShort, perrorcode: MutPtr<UErrorCode>): Int =
+public actual fun ubidiWriteReverse(src: ConstPtr, srclength: Int, dest: MutPtr, destsize: Int, options: UShort, perrorcode: MutPtr): Int =
     windowssysWindowsWin32GlobalizationUbidiWriteReverse(src.rawAddress.toCPointer<ByteVar>(), srclength, dest.rawAddress.toCPointer<ByteVar>(), destsize, options, perrorcode.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ubiditransformClose(pbiditransform: MutPtr<UBiDiTransform>) {
+public actual fun ubiditransformClose(pbiditransform: MutPtr) {
     windowssysWindowsWin32GlobalizationUbiditransformClose(pbiditransform.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun ubiditransformOpen(perrorcode: MutPtr<UErrorCode>): MutPtr<UBiDiTransform> =
+public actual fun ubiditransformOpen(perrorcode: MutPtr): MutPtr =
     MutPtr(windowssysWindowsWin32GlobalizationUbiditransformOpen(perrorcode.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun ubiditransformTransform(pbiditransform: MutPtr<UBiDiTransform>, src: ConstPtr<UShort>, srclength: Int, dest: MutPtr<UShort>, destsize: Int, inparalevel: UByte, inorder: UBiDiOrder, outparalevel: UByte, outorder: UBiDiOrder, domirroring: UBiDiMirroring, shapingoptions: UInt, perrorcode: MutPtr<UErrorCode>): UInt =
+public actual fun ubiditransformTransform(pbiditransform: MutPtr, src: ConstPtr, srclength: Int, dest: MutPtr, destsize: Int, inparalevel: UByte, inorder: UBiDiOrder, outparalevel: UByte, outorder: UBiDiOrder, domirroring: UBiDiMirroring, shapingoptions: UInt, perrorcode: MutPtr): UInt =
     windowssysWindowsWin32GlobalizationUbiditransformTransform(pbiditransform.rawAddress.toCPointer<ByteVar>(), src.rawAddress.toCPointer<ByteVar>(), srclength, dest.rawAddress.toCPointer<ByteVar>(), destsize, inparalevel, inorder, outparalevel, outorder, domirroring, shapingoptions, perrorcode.rawAddress.toCPointer<ByteVar>())
 
 public actual fun ublockGetCode(c: Int): UBlockCode =
     windowssysWindowsWin32GlobalizationUblockGetCode(c)
 
-public actual fun ubrkClose(bi: MutPtr<UBreakIterator>) {
+public actual fun ubrkClose(bi: MutPtr) {
     windowssysWindowsWin32GlobalizationUbrkClose(bi.rawAddress.toCPointer<ByteVar>())
 }
 
 public actual fun ubrkCountAvailable(): Int =
     windowssysWindowsWin32GlobalizationUbrkCountAvailable()
 
-public actual fun ubrkCurrent(bi: ConstPtr<UBreakIterator>): Int =
+public actual fun ubrkCurrent(bi: ConstPtr): Int =
     windowssysWindowsWin32GlobalizationUbrkCurrent(bi.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ubrkFirst(bi: MutPtr<UBreakIterator>): Int =
+public actual fun ubrkFirst(bi: MutPtr): Int =
     windowssysWindowsWin32GlobalizationUbrkFirst(bi.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ubrkFollowing(bi: MutPtr<UBreakIterator>, offset: Int): Int =
+public actual fun ubrkFollowing(bi: MutPtr, offset: Int): Int =
     windowssysWindowsWin32GlobalizationUbrkFollowing(bi.rawAddress.toCPointer<ByteVar>(), offset)
 
 public actual fun ubrkGetAvailable(index: Int): Pcstr =
     ConstPtr(windowssysWindowsWin32GlobalizationUbrkGetAvailable(index)?.toLong() ?: 0L)
 
-public actual fun ubrkGetBinaryRules(bi: MutPtr<UBreakIterator>, binaryrules: MutPtr<UByte>, rulescapacity: Int, status: MutPtr<UErrorCode>): Int =
+public actual fun ubrkGetBinaryRules(bi: MutPtr, binaryrules: MutPtr, rulescapacity: Int, status: MutPtr): Int =
     windowssysWindowsWin32GlobalizationUbrkGetBinaryRules(bi.rawAddress.toCPointer<ByteVar>(), binaryrules.rawAddress.toCPointer<ByteVar>(), rulescapacity, status.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ubrkGetLocaleByType(bi: ConstPtr<UBreakIterator>, type: ULocDataLocaleType, status: MutPtr<UErrorCode>): Pcstr =
+public actual fun ubrkGetLocaleByType(bi: ConstPtr, type: ULocDataLocaleType, status: MutPtr): Pcstr =
     ConstPtr(windowssysWindowsWin32GlobalizationUbrkGetLocaleByType(bi.rawAddress.toCPointer<ByteVar>(), type, status.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun ubrkGetRuleStatus(bi: MutPtr<UBreakIterator>): Int =
+public actual fun ubrkGetRuleStatus(bi: MutPtr): Int =
     windowssysWindowsWin32GlobalizationUbrkGetRuleStatus(bi.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ubrkGetRuleStatusVec(bi: MutPtr<UBreakIterator>, fillinvec: MutPtr<Int>, capacity: Int, status: MutPtr<UErrorCode>): Int =
+public actual fun ubrkGetRuleStatusVec(bi: MutPtr, fillinvec: MutPtr, capacity: Int, status: MutPtr): Int =
     windowssysWindowsWin32GlobalizationUbrkGetRuleStatusVec(bi.rawAddress.toCPointer<ByteVar>(), fillinvec.rawAddress.toCPointer<ByteVar>(), capacity, status.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ubrkIsBoundary(bi: MutPtr<UBreakIterator>, offset: Int): Byte =
+public actual fun ubrkIsBoundary(bi: MutPtr, offset: Int): Byte =
     windowssysWindowsWin32GlobalizationUbrkIsBoundary(bi.rawAddress.toCPointer<ByteVar>(), offset)
 
-public actual fun ubrkLast(bi: MutPtr<UBreakIterator>): Int =
+public actual fun ubrkLast(bi: MutPtr): Int =
     windowssysWindowsWin32GlobalizationUbrkLast(bi.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ubrkNext(bi: MutPtr<UBreakIterator>): Int =
+public actual fun ubrkNext(bi: MutPtr): Int =
     windowssysWindowsWin32GlobalizationUbrkNext(bi.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ubrkOpen(type: UBreakIteratorType, locale: Pcstr, text: ConstPtr<UShort>, textlength: Int, status: MutPtr<UErrorCode>): MutPtr<UBreakIterator> =
+public actual fun ubrkOpen(type: UBreakIteratorType, locale: Pcstr, text: ConstPtr, textlength: Int, status: MutPtr): MutPtr =
     MutPtr(windowssysWindowsWin32GlobalizationUbrkOpen(type, locale.rawAddress.toCPointer<ByteVar>(), text.rawAddress.toCPointer<ByteVar>(), textlength, status.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun ubrkOpenBinaryRules(binaryrules: ConstPtr<UByte>, ruleslength: Int, text: ConstPtr<UShort>, textlength: Int, status: MutPtr<UErrorCode>): MutPtr<UBreakIterator> =
+public actual fun ubrkOpenBinaryRules(binaryrules: ConstPtr, ruleslength: Int, text: ConstPtr, textlength: Int, status: MutPtr): MutPtr =
     MutPtr(windowssysWindowsWin32GlobalizationUbrkOpenBinaryRules(binaryrules.rawAddress.toCPointer<ByteVar>(), ruleslength, text.rawAddress.toCPointer<ByteVar>(), textlength, status.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun ubrkOpenRules(rules: ConstPtr<UShort>, ruleslength: Int, text: ConstPtr<UShort>, textlength: Int, parseerr: MutPtr<UParseError>, status: MutPtr<UErrorCode>): MutPtr<UBreakIterator> =
+public actual fun ubrkOpenRules(rules: ConstPtr, ruleslength: Int, text: ConstPtr, textlength: Int, parseerr: MutPtr, status: MutPtr): MutPtr =
     MutPtr(windowssysWindowsWin32GlobalizationUbrkOpenRules(rules.rawAddress.toCPointer<ByteVar>(), ruleslength, text.rawAddress.toCPointer<ByteVar>(), textlength, parseerr.rawAddress.toCPointer<ByteVar>(), status.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun ubrkPreceding(bi: MutPtr<UBreakIterator>, offset: Int): Int =
+public actual fun ubrkPreceding(bi: MutPtr, offset: Int): Int =
     windowssysWindowsWin32GlobalizationUbrkPreceding(bi.rawAddress.toCPointer<ByteVar>(), offset)
 
-public actual fun ubrkPrevious(bi: MutPtr<UBreakIterator>): Int =
+public actual fun ubrkPrevious(bi: MutPtr): Int =
     windowssysWindowsWin32GlobalizationUbrkPrevious(bi.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ubrkRefreshUtext(bi: MutPtr<UBreakIterator>, text: MutPtr<UText>, status: MutPtr<UErrorCode>) {
+public actual fun ubrkRefreshUtext(bi: MutPtr, text: MutPtr, status: MutPtr) {
     windowssysWindowsWin32GlobalizationUbrkRefreshUtext(bi.rawAddress.toCPointer<ByteVar>(), text.rawAddress.toCPointer<ByteVar>(), status.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun ubrkSafeClone(bi: ConstPtr<UBreakIterator>, stackbuffer: MutPtr<CVoid>, pbuffersize: MutPtr<Int>, status: MutPtr<UErrorCode>): MutPtr<UBreakIterator> =
+public actual fun ubrkSafeClone(bi: ConstPtr, stackbuffer: MutPtr, pbuffersize: MutPtr, status: MutPtr): MutPtr =
     MutPtr(windowssysWindowsWin32GlobalizationUbrkSafeClone(bi.rawAddress.toCPointer<ByteVar>(), stackbuffer.rawAddress.toCPointer<ByteVar>(), pbuffersize.rawAddress.toCPointer<ByteVar>(), status.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun ubrkSetText(bi: MutPtr<UBreakIterator>, text: ConstPtr<UShort>, textlength: Int, status: MutPtr<UErrorCode>) {
+public actual fun ubrkSetText(bi: MutPtr, text: ConstPtr, textlength: Int, status: MutPtr) {
     windowssysWindowsWin32GlobalizationUbrkSetText(bi.rawAddress.toCPointer<ByteVar>(), text.rawAddress.toCPointer<ByteVar>(), textlength, status.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun ubrkSetUtext(bi: MutPtr<UBreakIterator>, text: MutPtr<UText>, status: MutPtr<UErrorCode>) {
+public actual fun ubrkSetUtext(bi: MutPtr, text: MutPtr, status: MutPtr) {
     windowssysWindowsWin32GlobalizationUbrkSetUtext(bi.rawAddress.toCPointer<ByteVar>(), text.rawAddress.toCPointer<ByteVar>(), status.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun ucalAdd(cal: MutPtr<MutPtr<CVoid>>, field: UCalendarDateFields, amount: Int, status: MutPtr<UErrorCode>) {
+public actual fun ucalAdd(cal: MutPtr, field: UCalendarDateFields, amount: Int, status: MutPtr) {
     windowssysWindowsWin32GlobalizationUcalAdd(cal.rawAddress.toCPointer<ByteVar>(), field, amount, status.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun ucalClear(calendar: MutPtr<MutPtr<CVoid>>) {
+public actual fun ucalClear(calendar: MutPtr) {
     windowssysWindowsWin32GlobalizationUcalClear(calendar.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun ucalClearField(cal: MutPtr<MutPtr<CVoid>>, field: UCalendarDateFields) {
+public actual fun ucalClearField(cal: MutPtr, field: UCalendarDateFields) {
     windowssysWindowsWin32GlobalizationUcalClearField(cal.rawAddress.toCPointer<ByteVar>(), field)
 }
 
-public actual fun ucalClone(cal: ConstPtr<ConstPtr<CVoid>>, status: MutPtr<UErrorCode>): MutPtr<MutPtr<CVoid>> =
+public actual fun ucalClone(cal: ConstPtr, status: MutPtr): MutPtr =
     MutPtr(windowssysWindowsWin32GlobalizationUcalClone(cal.rawAddress.toCPointer<ByteVar>(), status.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun ucalClose(cal: MutPtr<MutPtr<CVoid>>) {
+public actual fun ucalClose(cal: MutPtr) {
     windowssysWindowsWin32GlobalizationUcalClose(cal.rawAddress.toCPointer<ByteVar>())
 }
 
 public actual fun ucalCountAvailable(): Int =
     windowssysWindowsWin32GlobalizationUcalCountAvailable()
 
-public actual fun ucalEquivalentTo(cal1: ConstPtr<ConstPtr<CVoid>>, cal2: ConstPtr<ConstPtr<CVoid>>): Byte =
+public actual fun ucalEquivalentTo(cal1: ConstPtr, cal2: ConstPtr): Byte =
     windowssysWindowsWin32GlobalizationUcalEquivalentTo(cal1.rawAddress.toCPointer<ByteVar>(), cal2.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ucalGet(cal: ConstPtr<ConstPtr<CVoid>>, field: UCalendarDateFields, status: MutPtr<UErrorCode>): Int =
+public actual fun ucalGet(cal: ConstPtr, field: UCalendarDateFields, status: MutPtr): Int =
     windowssysWindowsWin32GlobalizationUcalGet(cal.rawAddress.toCPointer<ByteVar>(), field, status.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ucalGetAttribute(cal: ConstPtr<ConstPtr<CVoid>>, attr: UCalendarAttribute): Int =
+public actual fun ucalGetAttribute(cal: ConstPtr, attr: UCalendarAttribute): Int =
     windowssysWindowsWin32GlobalizationUcalGetAttribute(cal.rawAddress.toCPointer<ByteVar>(), attr)
 
 public actual fun ucalGetAvailable(localeindex: Int): Pcstr =
     ConstPtr(windowssysWindowsWin32GlobalizationUcalGetAvailable(localeindex)?.toLong() ?: 0L)
 
-public actual fun ucalGetCanonicalTimeZoneId(id: ConstPtr<UShort>, len: Int, result: MutPtr<UShort>, resultcapacity: Int, issystemid: MutPtr<Byte>, status: MutPtr<UErrorCode>): Int =
+public actual fun ucalGetCanonicalTimeZoneId(id: ConstPtr, len: Int, result: MutPtr, resultcapacity: Int, issystemid: MutPtr, status: MutPtr): Int =
     windowssysWindowsWin32GlobalizationUcalGetCanonicalTimeZoneId(id.rawAddress.toCPointer<ByteVar>(), len, result.rawAddress.toCPointer<ByteVar>(), resultcapacity, issystemid.rawAddress.toCPointer<ByteVar>(), status.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ucalGetDstsavings(zoneid: ConstPtr<UShort>, ec: MutPtr<UErrorCode>): Int =
+public actual fun ucalGetDstsavings(zoneid: ConstPtr, ec: MutPtr): Int =
     windowssysWindowsWin32GlobalizationUcalGetDstsavings(zoneid.rawAddress.toCPointer<ByteVar>(), ec.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ucalGetDayOfWeekType(cal: ConstPtr<ConstPtr<CVoid>>, dayofweek: UCalendarDaysOfWeek, status: MutPtr<UErrorCode>): UCalendarWeekdayType =
+public actual fun ucalGetDayOfWeekType(cal: ConstPtr, dayofweek: UCalendarDaysOfWeek, status: MutPtr): UCalendarWeekdayType =
     windowssysWindowsWin32GlobalizationUcalGetDayOfWeekType(cal.rawAddress.toCPointer<ByteVar>(), dayofweek, status.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ucalGetDefaultTimeZone(result: MutPtr<UShort>, resultcapacity: Int, ec: MutPtr<UErrorCode>): Int =
+public actual fun ucalGetDefaultTimeZone(result: MutPtr, resultcapacity: Int, ec: MutPtr): Int =
     windowssysWindowsWin32GlobalizationUcalGetDefaultTimeZone(result.rawAddress.toCPointer<ByteVar>(), resultcapacity, ec.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ucalGetFieldDifference(cal: MutPtr<MutPtr<CVoid>>, target: Double, field: UCalendarDateFields, status: MutPtr<UErrorCode>): Int =
+public actual fun ucalGetFieldDifference(cal: MutPtr, target: Double, field: UCalendarDateFields, status: MutPtr): Int =
     windowssysWindowsWin32GlobalizationUcalGetFieldDifference(cal.rawAddress.toCPointer<ByteVar>(), target, field, status.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ucalGetGregorianChange(cal: ConstPtr<ConstPtr<CVoid>>, perrorcode: MutPtr<UErrorCode>): Double =
+public actual fun ucalGetGregorianChange(cal: ConstPtr, perrorcode: MutPtr): Double =
     windowssysWindowsWin32GlobalizationUcalGetGregorianChange(cal.rawAddress.toCPointer<ByteVar>(), perrorcode.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ucalGetHostTimeZone(result: MutPtr<UShort>, resultcapacity: Int, ec: MutPtr<UErrorCode>): Int =
+public actual fun ucalGetHostTimeZone(result: MutPtr, resultcapacity: Int, ec: MutPtr): Int =
     windowssysWindowsWin32GlobalizationUcalGetHostTimeZone(result.rawAddress.toCPointer<ByteVar>(), resultcapacity, ec.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ucalGetKeywordValuesForLocale(key: Pcstr, locale: Pcstr, commonlyused: Byte, status: MutPtr<UErrorCode>): MutPtr<UEnumeration> =
+public actual fun ucalGetKeywordValuesForLocale(key: Pcstr, locale: Pcstr, commonlyused: Byte, status: MutPtr): MutPtr =
     MutPtr(windowssysWindowsWin32GlobalizationUcalGetKeywordValuesForLocale(key.rawAddress.toCPointer<ByteVar>(), locale.rawAddress.toCPointer<ByteVar>(), commonlyused, status.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun ucalGetLimit(cal: ConstPtr<ConstPtr<CVoid>>, field: UCalendarDateFields, type: UCalendarLimitType, status: MutPtr<UErrorCode>): Int =
+public actual fun ucalGetLimit(cal: ConstPtr, field: UCalendarDateFields, type: UCalendarLimitType, status: MutPtr): Int =
     windowssysWindowsWin32GlobalizationUcalGetLimit(cal.rawAddress.toCPointer<ByteVar>(), field, type, status.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ucalGetLocaleByType(cal: ConstPtr<ConstPtr<CVoid>>, type: ULocDataLocaleType, status: MutPtr<UErrorCode>): Pcstr =
+public actual fun ucalGetLocaleByType(cal: ConstPtr, type: ULocDataLocaleType, status: MutPtr): Pcstr =
     ConstPtr(windowssysWindowsWin32GlobalizationUcalGetLocaleByType(cal.rawAddress.toCPointer<ByteVar>(), type, status.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun ucalGetMillis(cal: ConstPtr<ConstPtr<CVoid>>, status: MutPtr<UErrorCode>): Double =
+public actual fun ucalGetMillis(cal: ConstPtr, status: MutPtr): Double =
     windowssysWindowsWin32GlobalizationUcalGetMillis(cal.rawAddress.toCPointer<ByteVar>(), status.rawAddress.toCPointer<ByteVar>())
 
 public actual fun ucalGetNow(): Double =
     windowssysWindowsWin32GlobalizationUcalGetNow()
 
-public actual fun ucalGetTzdataVersion(status: MutPtr<UErrorCode>): Pcstr =
+public actual fun ucalGetTzdataVersion(status: MutPtr): Pcstr =
     ConstPtr(windowssysWindowsWin32GlobalizationUcalGetTzdataVersion(status.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun ucalGetTimeZoneDisplayName(cal: ConstPtr<ConstPtr<CVoid>>, type: UCalendarDisplayNameType, locale: Pcstr, result: MutPtr<UShort>, resultlength: Int, status: MutPtr<UErrorCode>): Int =
+public actual fun ucalGetTimeZoneDisplayName(cal: ConstPtr, type: UCalendarDisplayNameType, locale: Pcstr, result: MutPtr, resultlength: Int, status: MutPtr): Int =
     windowssysWindowsWin32GlobalizationUcalGetTimeZoneDisplayName(cal.rawAddress.toCPointer<ByteVar>(), type, locale.rawAddress.toCPointer<ByteVar>(), result.rawAddress.toCPointer<ByteVar>(), resultlength, status.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ucalGetTimeZoneId(cal: ConstPtr<ConstPtr<CVoid>>, result: MutPtr<UShort>, resultlength: Int, status: MutPtr<UErrorCode>): Int =
+public actual fun ucalGetTimeZoneId(cal: ConstPtr, result: MutPtr, resultlength: Int, status: MutPtr): Int =
     windowssysWindowsWin32GlobalizationUcalGetTimeZoneId(cal.rawAddress.toCPointer<ByteVar>(), result.rawAddress.toCPointer<ByteVar>(), resultlength, status.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ucalGetTimeZoneIdforWindowsId(winid: ConstPtr<UShort>, len: Int, region: Pcstr, id: MutPtr<UShort>, idcapacity: Int, status: MutPtr<UErrorCode>): Int =
+public actual fun ucalGetTimeZoneIdforWindowsId(winid: ConstPtr, len: Int, region: Pcstr, id: MutPtr, idcapacity: Int, status: MutPtr): Int =
     windowssysWindowsWin32GlobalizationUcalGetTimeZoneIdforWindowsId(winid.rawAddress.toCPointer<ByteVar>(), len, region.rawAddress.toCPointer<ByteVar>(), id.rawAddress.toCPointer<ByteVar>(), idcapacity, status.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ucalGetTimeZoneTransitionDate(cal: ConstPtr<ConstPtr<CVoid>>, type: UTimeZoneTransitionType, transition: MutPtr<Double>, status: MutPtr<UErrorCode>): Byte =
+public actual fun ucalGetTimeZoneTransitionDate(cal: ConstPtr, type: UTimeZoneTransitionType, transition: MutPtr, status: MutPtr): Byte =
     windowssysWindowsWin32GlobalizationUcalGetTimeZoneTransitionDate(cal.rawAddress.toCPointer<ByteVar>(), type, transition.rawAddress.toCPointer<ByteVar>(), status.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ucalGetType(cal: ConstPtr<ConstPtr<CVoid>>, status: MutPtr<UErrorCode>): Pcstr =
+public actual fun ucalGetType(cal: ConstPtr, status: MutPtr): Pcstr =
     ConstPtr(windowssysWindowsWin32GlobalizationUcalGetType(cal.rawAddress.toCPointer<ByteVar>(), status.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun ucalGetWeekendTransition(cal: ConstPtr<ConstPtr<CVoid>>, dayofweek: UCalendarDaysOfWeek, status: MutPtr<UErrorCode>): Int =
+public actual fun ucalGetWeekendTransition(cal: ConstPtr, dayofweek: UCalendarDaysOfWeek, status: MutPtr): Int =
     windowssysWindowsWin32GlobalizationUcalGetWeekendTransition(cal.rawAddress.toCPointer<ByteVar>(), dayofweek, status.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ucalGetWindowsTimeZoneId(id: ConstPtr<UShort>, len: Int, winid: MutPtr<UShort>, winidcapacity: Int, status: MutPtr<UErrorCode>): Int =
+public actual fun ucalGetWindowsTimeZoneId(id: ConstPtr, len: Int, winid: MutPtr, winidcapacity: Int, status: MutPtr): Int =
     windowssysWindowsWin32GlobalizationUcalGetWindowsTimeZoneId(id.rawAddress.toCPointer<ByteVar>(), len, winid.rawAddress.toCPointer<ByteVar>(), winidcapacity, status.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ucalInDaylightTime(cal: ConstPtr<ConstPtr<CVoid>>, status: MutPtr<UErrorCode>): Byte =
+public actual fun ucalInDaylightTime(cal: ConstPtr, status: MutPtr): Byte =
     windowssysWindowsWin32GlobalizationUcalInDaylightTime(cal.rawAddress.toCPointer<ByteVar>(), status.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ucalIsSet(cal: ConstPtr<ConstPtr<CVoid>>, field: UCalendarDateFields): Byte =
+public actual fun ucalIsSet(cal: ConstPtr, field: UCalendarDateFields): Byte =
     windowssysWindowsWin32GlobalizationUcalIsSet(cal.rawAddress.toCPointer<ByteVar>(), field)
 
-public actual fun ucalIsWeekend(cal: ConstPtr<ConstPtr<CVoid>>, date: Double, status: MutPtr<UErrorCode>): Byte =
+public actual fun ucalIsWeekend(cal: ConstPtr, date: Double, status: MutPtr): Byte =
     windowssysWindowsWin32GlobalizationUcalIsWeekend(cal.rawAddress.toCPointer<ByteVar>(), date, status.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ucalOpen(zoneid: ConstPtr<UShort>, len: Int, locale: Pcstr, type: UCalendarType, status: MutPtr<UErrorCode>): MutPtr<MutPtr<CVoid>> =
+public actual fun ucalOpen(zoneid: ConstPtr, len: Int, locale: Pcstr, type: UCalendarType, status: MutPtr): MutPtr =
     MutPtr(windowssysWindowsWin32GlobalizationUcalOpen(zoneid.rawAddress.toCPointer<ByteVar>(), len, locale.rawAddress.toCPointer<ByteVar>(), type, status.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun ucalOpenCountryTimeZones(country: Pcstr, ec: MutPtr<UErrorCode>): MutPtr<UEnumeration> =
+public actual fun ucalOpenCountryTimeZones(country: Pcstr, ec: MutPtr): MutPtr =
     MutPtr(windowssysWindowsWin32GlobalizationUcalOpenCountryTimeZones(country.rawAddress.toCPointer<ByteVar>(), ec.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun ucalOpenTimeZoneIdenumeration(zonetype: USystemTimeZoneType, region: Pcstr, rawoffset: ConstPtr<Int>, ec: MutPtr<UErrorCode>): MutPtr<UEnumeration> =
+public actual fun ucalOpenTimeZoneIdenumeration(zonetype: USystemTimeZoneType, region: Pcstr, rawoffset: ConstPtr, ec: MutPtr): MutPtr =
     MutPtr(windowssysWindowsWin32GlobalizationUcalOpenTimeZoneIdenumeration(zonetype, region.rawAddress.toCPointer<ByteVar>(), rawoffset.rawAddress.toCPointer<ByteVar>(), ec.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun ucalOpenTimeZones(ec: MutPtr<UErrorCode>): MutPtr<UEnumeration> =
+public actual fun ucalOpenTimeZones(ec: MutPtr): MutPtr =
     MutPtr(windowssysWindowsWin32GlobalizationUcalOpenTimeZones(ec.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun ucalRoll(cal: MutPtr<MutPtr<CVoid>>, field: UCalendarDateFields, amount: Int, status: MutPtr<UErrorCode>) {
+public actual fun ucalRoll(cal: MutPtr, field: UCalendarDateFields, amount: Int, status: MutPtr) {
     windowssysWindowsWin32GlobalizationUcalRoll(cal.rawAddress.toCPointer<ByteVar>(), field, amount, status.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun ucalSet(cal: MutPtr<MutPtr<CVoid>>, field: UCalendarDateFields, value: Int) {
+public actual fun ucalSet(cal: MutPtr, field: UCalendarDateFields, value: Int) {
     windowssysWindowsWin32GlobalizationUcalSet(cal.rawAddress.toCPointer<ByteVar>(), field, value)
 }
 
-public actual fun ucalSetAttribute(cal: MutPtr<MutPtr<CVoid>>, attr: UCalendarAttribute, newvalue: Int) {
+public actual fun ucalSetAttribute(cal: MutPtr, attr: UCalendarAttribute, newvalue: Int) {
     windowssysWindowsWin32GlobalizationUcalSetAttribute(cal.rawAddress.toCPointer<ByteVar>(), attr, newvalue)
 }
 
-public actual fun ucalSetDate(cal: MutPtr<MutPtr<CVoid>>, year: Int, month: Int, date: Int, status: MutPtr<UErrorCode>) {
+public actual fun ucalSetDate(cal: MutPtr, year: Int, month: Int, date: Int, status: MutPtr) {
     windowssysWindowsWin32GlobalizationUcalSetDate(cal.rawAddress.toCPointer<ByteVar>(), year, month, date, status.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun ucalSetDateTime(cal: MutPtr<MutPtr<CVoid>>, year: Int, month: Int, date: Int, hour: Int, minute: Int, second: Int, status: MutPtr<UErrorCode>) {
+public actual fun ucalSetDateTime(cal: MutPtr, year: Int, month: Int, date: Int, hour: Int, minute: Int, second: Int, status: MutPtr) {
     windowssysWindowsWin32GlobalizationUcalSetDateTime(cal.rawAddress.toCPointer<ByteVar>(), year, month, date, hour, minute, second, status.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun ucalSetDefaultTimeZone(zoneid: ConstPtr<UShort>, ec: MutPtr<UErrorCode>) {
+public actual fun ucalSetDefaultTimeZone(zoneid: ConstPtr, ec: MutPtr) {
     windowssysWindowsWin32GlobalizationUcalSetDefaultTimeZone(zoneid.rawAddress.toCPointer<ByteVar>(), ec.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun ucalSetGregorianChange(cal: MutPtr<MutPtr<CVoid>>, date: Double, perrorcode: MutPtr<UErrorCode>) {
+public actual fun ucalSetGregorianChange(cal: MutPtr, date: Double, perrorcode: MutPtr) {
     windowssysWindowsWin32GlobalizationUcalSetGregorianChange(cal.rawAddress.toCPointer<ByteVar>(), date, perrorcode.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun ucalSetMillis(cal: MutPtr<MutPtr<CVoid>>, datetime: Double, status: MutPtr<UErrorCode>) {
+public actual fun ucalSetMillis(cal: MutPtr, datetime: Double, status: MutPtr) {
     windowssysWindowsWin32GlobalizationUcalSetMillis(cal.rawAddress.toCPointer<ByteVar>(), datetime, status.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun ucalSetTimeZone(cal: MutPtr<MutPtr<CVoid>>, zoneid: ConstPtr<UShort>, len: Int, status: MutPtr<UErrorCode>) {
+public actual fun ucalSetTimeZone(cal: MutPtr, zoneid: ConstPtr, len: Int, status: MutPtr) {
     windowssysWindowsWin32GlobalizationUcalSetTimeZone(cal.rawAddress.toCPointer<ByteVar>(), zoneid.rawAddress.toCPointer<ByteVar>(), len, status.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun ucasemapClose(csm: MutPtr<UCaseMap>) {
+public actual fun ucasemapClose(csm: MutPtr) {
     windowssysWindowsWin32GlobalizationUcasemapClose(csm.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun ucasemapGetBreakIterator(csm: ConstPtr<UCaseMap>): MutPtr<UBreakIterator> =
+public actual fun ucasemapGetBreakIterator(csm: ConstPtr): MutPtr =
     MutPtr(windowssysWindowsWin32GlobalizationUcasemapGetBreakIterator(csm.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun ucasemapGetLocale(csm: ConstPtr<UCaseMap>): Pcstr =
+public actual fun ucasemapGetLocale(csm: ConstPtr): Pcstr =
     ConstPtr(windowssysWindowsWin32GlobalizationUcasemapGetLocale(csm.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun ucasemapGetOptions(csm: ConstPtr<UCaseMap>): UInt =
+public actual fun ucasemapGetOptions(csm: ConstPtr): UInt =
     windowssysWindowsWin32GlobalizationUcasemapGetOptions(csm.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ucasemapOpen(locale: Pcstr, options: UInt, perrorcode: MutPtr<UErrorCode>): MutPtr<UCaseMap> =
+public actual fun ucasemapOpen(locale: Pcstr, options: UInt, perrorcode: MutPtr): MutPtr =
     MutPtr(windowssysWindowsWin32GlobalizationUcasemapOpen(locale.rawAddress.toCPointer<ByteVar>(), options, perrorcode.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun ucasemapSetBreakIterator(csm: MutPtr<UCaseMap>, itertoadopt: MutPtr<UBreakIterator>, perrorcode: MutPtr<UErrorCode>) {
+public actual fun ucasemapSetBreakIterator(csm: MutPtr, itertoadopt: MutPtr, perrorcode: MutPtr) {
     windowssysWindowsWin32GlobalizationUcasemapSetBreakIterator(csm.rawAddress.toCPointer<ByteVar>(), itertoadopt.rawAddress.toCPointer<ByteVar>(), perrorcode.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun ucasemapSetLocale(csm: MutPtr<UCaseMap>, locale: Pcstr, perrorcode: MutPtr<UErrorCode>) {
+public actual fun ucasemapSetLocale(csm: MutPtr, locale: Pcstr, perrorcode: MutPtr) {
     windowssysWindowsWin32GlobalizationUcasemapSetLocale(csm.rawAddress.toCPointer<ByteVar>(), locale.rawAddress.toCPointer<ByteVar>(), perrorcode.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun ucasemapSetOptions(csm: MutPtr<UCaseMap>, options: UInt, perrorcode: MutPtr<UErrorCode>) {
+public actual fun ucasemapSetOptions(csm: MutPtr, options: UInt, perrorcode: MutPtr) {
     windowssysWindowsWin32GlobalizationUcasemapSetOptions(csm.rawAddress.toCPointer<ByteVar>(), options, perrorcode.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun ucasemapToTitle(csm: MutPtr<UCaseMap>, dest: MutPtr<UShort>, destcapacity: Int, src: ConstPtr<UShort>, srclength: Int, perrorcode: MutPtr<UErrorCode>): Int =
+public actual fun ucasemapToTitle(csm: MutPtr, dest: MutPtr, destcapacity: Int, src: ConstPtr, srclength: Int, perrorcode: MutPtr): Int =
     windowssysWindowsWin32GlobalizationUcasemapToTitle(csm.rawAddress.toCPointer<ByteVar>(), dest.rawAddress.toCPointer<ByteVar>(), destcapacity, src.rawAddress.toCPointer<ByteVar>(), srclength, perrorcode.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ucasemapUtf8FoldCase(csm: ConstPtr<UCaseMap>, dest: Pcstr, destcapacity: Int, src: Pcstr, srclength: Int, perrorcode: MutPtr<UErrorCode>): Int =
+public actual fun ucasemapUtf8FoldCase(csm: ConstPtr, dest: Pcstr, destcapacity: Int, src: Pcstr, srclength: Int, perrorcode: MutPtr): Int =
     windowssysWindowsWin32GlobalizationUcasemapUtf8FoldCase(csm.rawAddress.toCPointer<ByteVar>(), dest.rawAddress.toCPointer<ByteVar>(), destcapacity, src.rawAddress.toCPointer<ByteVar>(), srclength, perrorcode.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ucasemapUtf8ToLower(csm: ConstPtr<UCaseMap>, dest: Pcstr, destcapacity: Int, src: Pcstr, srclength: Int, perrorcode: MutPtr<UErrorCode>): Int =
+public actual fun ucasemapUtf8ToLower(csm: ConstPtr, dest: Pcstr, destcapacity: Int, src: Pcstr, srclength: Int, perrorcode: MutPtr): Int =
     windowssysWindowsWin32GlobalizationUcasemapUtf8ToLower(csm.rawAddress.toCPointer<ByteVar>(), dest.rawAddress.toCPointer<ByteVar>(), destcapacity, src.rawAddress.toCPointer<ByteVar>(), srclength, perrorcode.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ucasemapUtf8ToTitle(csm: MutPtr<UCaseMap>, dest: Pcstr, destcapacity: Int, src: Pcstr, srclength: Int, perrorcode: MutPtr<UErrorCode>): Int =
+public actual fun ucasemapUtf8ToTitle(csm: MutPtr, dest: Pcstr, destcapacity: Int, src: Pcstr, srclength: Int, perrorcode: MutPtr): Int =
     windowssysWindowsWin32GlobalizationUcasemapUtf8ToTitle(csm.rawAddress.toCPointer<ByteVar>(), dest.rawAddress.toCPointer<ByteVar>(), destcapacity, src.rawAddress.toCPointer<ByteVar>(), srclength, perrorcode.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ucasemapUtf8ToUpper(csm: ConstPtr<UCaseMap>, dest: Pcstr, destcapacity: Int, src: Pcstr, srclength: Int, perrorcode: MutPtr<UErrorCode>): Int =
+public actual fun ucasemapUtf8ToUpper(csm: ConstPtr, dest: Pcstr, destcapacity: Int, src: Pcstr, srclength: Int, perrorcode: MutPtr): Int =
     windowssysWindowsWin32GlobalizationUcasemapUtf8ToUpper(csm.rawAddress.toCPointer<ByteVar>(), dest.rawAddress.toCPointer<ByteVar>(), destcapacity, src.rawAddress.toCPointer<ByteVar>(), srclength, perrorcode.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ucfposClose(ucfpos: MutPtr<UConstrainedFieldPosition>) {
+public actual fun ucfposClose(ucfpos: MutPtr) {
     windowssysWindowsWin32GlobalizationUcfposClose(ucfpos.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun ucfposConstrainCategory(ucfpos: MutPtr<UConstrainedFieldPosition>, category: Int, ec: MutPtr<UErrorCode>) {
+public actual fun ucfposConstrainCategory(ucfpos: MutPtr, category: Int, ec: MutPtr) {
     windowssysWindowsWin32GlobalizationUcfposConstrainCategory(ucfpos.rawAddress.toCPointer<ByteVar>(), category, ec.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun ucfposConstrainField(ucfpos: MutPtr<UConstrainedFieldPosition>, category: Int, field: Int, ec: MutPtr<UErrorCode>) {
+public actual fun ucfposConstrainField(ucfpos: MutPtr, category: Int, field: Int, ec: MutPtr) {
     windowssysWindowsWin32GlobalizationUcfposConstrainField(ucfpos.rawAddress.toCPointer<ByteVar>(), category, field, ec.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun ucfposGetCategory(ucfpos: ConstPtr<UConstrainedFieldPosition>, ec: MutPtr<UErrorCode>): Int =
+public actual fun ucfposGetCategory(ucfpos: ConstPtr, ec: MutPtr): Int =
     windowssysWindowsWin32GlobalizationUcfposGetCategory(ucfpos.rawAddress.toCPointer<ByteVar>(), ec.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ucfposGetField(ucfpos: ConstPtr<UConstrainedFieldPosition>, ec: MutPtr<UErrorCode>): Int =
+public actual fun ucfposGetField(ucfpos: ConstPtr, ec: MutPtr): Int =
     windowssysWindowsWin32GlobalizationUcfposGetField(ucfpos.rawAddress.toCPointer<ByteVar>(), ec.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ucfposGetIndexes(ucfpos: ConstPtr<UConstrainedFieldPosition>, pstart: MutPtr<Int>, plimit: MutPtr<Int>, ec: MutPtr<UErrorCode>) {
+public actual fun ucfposGetIndexes(ucfpos: ConstPtr, pstart: MutPtr, plimit: MutPtr, ec: MutPtr) {
     windowssysWindowsWin32GlobalizationUcfposGetIndexes(ucfpos.rawAddress.toCPointer<ByteVar>(), pstart.rawAddress.toCPointer<ByteVar>(), plimit.rawAddress.toCPointer<ByteVar>(), ec.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun ucfposGetInt64IterationContext(ucfpos: ConstPtr<UConstrainedFieldPosition>, ec: MutPtr<UErrorCode>): Long =
+public actual fun ucfposGetInt64IterationContext(ucfpos: ConstPtr, ec: MutPtr): Long =
     windowssysWindowsWin32GlobalizationUcfposGetInt64IterationContext(ucfpos.rawAddress.toCPointer<ByteVar>(), ec.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ucfposMatchesField(ucfpos: ConstPtr<UConstrainedFieldPosition>, category: Int, field: Int, ec: MutPtr<UErrorCode>): Byte =
+public actual fun ucfposMatchesField(ucfpos: ConstPtr, category: Int, field: Int, ec: MutPtr): Byte =
     windowssysWindowsWin32GlobalizationUcfposMatchesField(ucfpos.rawAddress.toCPointer<ByteVar>(), category, field, ec.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ucfposOpen(ec: MutPtr<UErrorCode>): MutPtr<UConstrainedFieldPosition> =
+public actual fun ucfposOpen(ec: MutPtr): MutPtr =
     MutPtr(windowssysWindowsWin32GlobalizationUcfposOpen(ec.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun ucfposReset(ucfpos: MutPtr<UConstrainedFieldPosition>, ec: MutPtr<UErrorCode>) {
+public actual fun ucfposReset(ucfpos: MutPtr, ec: MutPtr) {
     windowssysWindowsWin32GlobalizationUcfposReset(ucfpos.rawAddress.toCPointer<ByteVar>(), ec.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun ucfposSetInt64IterationContext(ucfpos: MutPtr<UConstrainedFieldPosition>, context: Long, ec: MutPtr<UErrorCode>) {
+public actual fun ucfposSetInt64IterationContext(ucfpos: MutPtr, context: Long, ec: MutPtr) {
     windowssysWindowsWin32GlobalizationUcfposSetInt64IterationContext(ucfpos.rawAddress.toCPointer<ByteVar>(), context, ec.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun ucfposSetState(ucfpos: MutPtr<UConstrainedFieldPosition>, category: Int, field: Int, start: Int, limit: Int, ec: MutPtr<UErrorCode>) {
+public actual fun ucfposSetState(ucfpos: MutPtr, category: Int, field: Int, start: Int, limit: Int, ec: MutPtr) {
     windowssysWindowsWin32GlobalizationUcfposSetState(ucfpos.rawAddress.toCPointer<ByteVar>(), category, field, start, limit, ec.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun ucnvCbFromUwriteBytes(args: MutPtr<UConverterFromUnicodeArgs>, source: Pcstr, length: Int, offsetindex: Int, err: MutPtr<UErrorCode>) {
+public actual fun ucnvCbFromUwriteBytes(args: MutPtr, source: Pcstr, length: Int, offsetindex: Int, err: MutPtr) {
     windowssysWindowsWin32GlobalizationUcnvCbFromUwriteBytes(args.rawAddress.toCPointer<ByteVar>(), source.rawAddress.toCPointer<ByteVar>(), length, offsetindex, err.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun ucnvCbFromUwriteSub(args: MutPtr<UConverterFromUnicodeArgs>, offsetindex: Int, err: MutPtr<UErrorCode>) {
+public actual fun ucnvCbFromUwriteSub(args: MutPtr, offsetindex: Int, err: MutPtr) {
     windowssysWindowsWin32GlobalizationUcnvCbFromUwriteSub(args.rawAddress.toCPointer<ByteVar>(), offsetindex, err.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun ucnvCbFromUwriteUchars(args: MutPtr<UConverterFromUnicodeArgs>, source: ConstPtr<ConstPtr<UShort>>, sourcelimit: ConstPtr<UShort>, offsetindex: Int, err: MutPtr<UErrorCode>) {
+public actual fun ucnvCbFromUwriteUchars(args: MutPtr, source: ConstPtr, sourcelimit: ConstPtr, offsetindex: Int, err: MutPtr) {
     windowssysWindowsWin32GlobalizationUcnvCbFromUwriteUchars(args.rawAddress.toCPointer<ByteVar>(), source.rawAddress.toCPointer<ByteVar>(), sourcelimit.rawAddress.toCPointer<ByteVar>(), offsetindex, err.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun ucnvCbToUwriteSub(args: MutPtr<UConverterToUnicodeArgs>, offsetindex: Int, err: MutPtr<UErrorCode>) {
+public actual fun ucnvCbToUwriteSub(args: MutPtr, offsetindex: Int, err: MutPtr) {
     windowssysWindowsWin32GlobalizationUcnvCbToUwriteSub(args.rawAddress.toCPointer<ByteVar>(), offsetindex, err.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun ucnvCbToUwriteUchars(args: MutPtr<UConverterToUnicodeArgs>, source: ConstPtr<UShort>, length: Int, offsetindex: Int, err: MutPtr<UErrorCode>) {
+public actual fun ucnvCbToUwriteUchars(args: MutPtr, source: ConstPtr, length: Int, offsetindex: Int, err: MutPtr) {
     windowssysWindowsWin32GlobalizationUcnvCbToUwriteUchars(args.rawAddress.toCPointer<ByteVar>(), source.rawAddress.toCPointer<ByteVar>(), length, offsetindex, err.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun ucnvClose(converter: MutPtr<UConverter>) {
+public actual fun ucnvClose(converter: MutPtr) {
     windowssysWindowsWin32GlobalizationUcnvClose(converter.rawAddress.toCPointer<ByteVar>())
 }
 
 public actual fun ucnvCompareNames(name1: Pcstr, name2: Pcstr): Int =
     windowssysWindowsWin32GlobalizationUcnvCompareNames(name1.rawAddress.toCPointer<ByteVar>(), name2.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ucnvConvert(toconvertername: Pcstr, fromconvertername: Pcstr, target: Pcstr, targetcapacity: Int, source: Pcstr, sourcelength: Int, perrorcode: MutPtr<UErrorCode>): Int =
+public actual fun ucnvConvert(toconvertername: Pcstr, fromconvertername: Pcstr, target: Pcstr, targetcapacity: Int, source: Pcstr, sourcelength: Int, perrorcode: MutPtr): Int =
     windowssysWindowsWin32GlobalizationUcnvConvert(toconvertername.rawAddress.toCPointer<ByteVar>(), fromconvertername.rawAddress.toCPointer<ByteVar>(), target.rawAddress.toCPointer<ByteVar>(), targetcapacity, source.rawAddress.toCPointer<ByteVar>(), sourcelength, perrorcode.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ucnvConvertEx(targetcnv: MutPtr<UConverter>, sourcecnv: MutPtr<UConverter>, target: MutPtr<MutPtr<Byte>>, targetlimit: Pcstr, source: ConstPtr<ConstPtr<Byte>>, sourcelimit: Pcstr, pivotstart: MutPtr<UShort>, pivotsource: MutPtr<MutPtr<UShort>>, pivottarget: MutPtr<MutPtr<UShort>>, pivotlimit: ConstPtr<UShort>, reset: Byte, flush: Byte, perrorcode: MutPtr<UErrorCode>) {
+public actual fun ucnvConvertEx(targetcnv: MutPtr, sourcecnv: MutPtr, target: MutPtr, targetlimit: Pcstr, source: ConstPtr, sourcelimit: Pcstr, pivotstart: MutPtr, pivotsource: MutPtr, pivottarget: MutPtr, pivotlimit: ConstPtr, reset: Byte, flush: Byte, perrorcode: MutPtr) {
     windowssysWindowsWin32GlobalizationUcnvConvertEx(targetcnv.rawAddress.toCPointer<ByteVar>(), sourcecnv.rawAddress.toCPointer<ByteVar>(), target.rawAddress.toCPointer<ByteVar>(), targetlimit.rawAddress.toCPointer<ByteVar>(), source.rawAddress.toCPointer<ByteVar>(), sourcelimit.rawAddress.toCPointer<ByteVar>(), pivotstart.rawAddress.toCPointer<ByteVar>(), pivotsource.rawAddress.toCPointer<ByteVar>(), pivottarget.rawAddress.toCPointer<ByteVar>(), pivotlimit.rawAddress.toCPointer<ByteVar>(), reset, flush, perrorcode.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun ucnvCountAliases(alias: Pcstr, perrorcode: MutPtr<UErrorCode>): UShort =
+public actual fun ucnvCountAliases(alias: Pcstr, perrorcode: MutPtr): UShort =
     windowssysWindowsWin32GlobalizationUcnvCountAliases(alias.rawAddress.toCPointer<ByteVar>(), perrorcode.rawAddress.toCPointer<ByteVar>())
 
 public actual fun ucnvCountAvailable(): Int =
@@ -2808,970 +2803,970 @@ public actual fun ucnvCountAvailable(): Int =
 public actual fun ucnvCountStandards(): UShort =
     windowssysWindowsWin32GlobalizationUcnvCountStandards()
 
-public actual fun ucnvDetectUnicodeSignature(source: Pcstr, sourcelength: Int, signaturelength: MutPtr<Int>, perrorcode: MutPtr<UErrorCode>): Pcstr =
+public actual fun ucnvDetectUnicodeSignature(source: Pcstr, sourcelength: Int, signaturelength: MutPtr, perrorcode: MutPtr): Pcstr =
     ConstPtr(windowssysWindowsWin32GlobalizationUcnvDetectUnicodeSignature(source.rawAddress.toCPointer<ByteVar>(), sourcelength, signaturelength.rawAddress.toCPointer<ByteVar>(), perrorcode.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun ucnvFixFileSeparator(cnv: ConstPtr<UConverter>, source: MutPtr<UShort>, sourcelen: Int) {
+public actual fun ucnvFixFileSeparator(cnv: ConstPtr, source: MutPtr, sourcelen: Int) {
     windowssysWindowsWin32GlobalizationUcnvFixFileSeparator(cnv.rawAddress.toCPointer<ByteVar>(), source.rawAddress.toCPointer<ByteVar>(), sourcelen)
 }
 
 public actual fun ucnvFlushCache(): Int =
     windowssysWindowsWin32GlobalizationUcnvFlushCache()
 
-public actual fun ucnvFromAlgorithmic(cnv: MutPtr<UConverter>, algorithmictype: UConverterType, target: Pcstr, targetcapacity: Int, source: Pcstr, sourcelength: Int, perrorcode: MutPtr<UErrorCode>): Int =
+public actual fun ucnvFromAlgorithmic(cnv: MutPtr, algorithmictype: UConverterType, target: Pcstr, targetcapacity: Int, source: Pcstr, sourcelength: Int, perrorcode: MutPtr): Int =
     windowssysWindowsWin32GlobalizationUcnvFromAlgorithmic(cnv.rawAddress.toCPointer<ByteVar>(), algorithmictype, target.rawAddress.toCPointer<ByteVar>(), targetcapacity, source.rawAddress.toCPointer<ByteVar>(), sourcelength, perrorcode.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ucnvFromUchars(cnv: MutPtr<UConverter>, dest: Pcstr, destcapacity: Int, src: ConstPtr<UShort>, srclength: Int, perrorcode: MutPtr<UErrorCode>): Int =
+public actual fun ucnvFromUchars(cnv: MutPtr, dest: Pcstr, destcapacity: Int, src: ConstPtr, srclength: Int, perrorcode: MutPtr): Int =
     windowssysWindowsWin32GlobalizationUcnvFromUchars(cnv.rawAddress.toCPointer<ByteVar>(), dest.rawAddress.toCPointer<ByteVar>(), destcapacity, src.rawAddress.toCPointer<ByteVar>(), srclength, perrorcode.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ucnvFromUcountPending(cnv: ConstPtr<UConverter>, status: MutPtr<UErrorCode>): Int =
+public actual fun ucnvFromUcountPending(cnv: ConstPtr, status: MutPtr): Int =
     windowssysWindowsWin32GlobalizationUcnvFromUcountPending(cnv.rawAddress.toCPointer<ByteVar>(), status.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ucnvFromUnicode(converter: MutPtr<UConverter>, target: MutPtr<MutPtr<Byte>>, targetlimit: Pcstr, source: ConstPtr<ConstPtr<UShort>>, sourcelimit: ConstPtr<UShort>, offsets: MutPtr<Int>, flush: Byte, err: MutPtr<UErrorCode>) {
+public actual fun ucnvFromUnicode(converter: MutPtr, target: MutPtr, targetlimit: Pcstr, source: ConstPtr, sourcelimit: ConstPtr, offsets: MutPtr, flush: Byte, err: MutPtr) {
     windowssysWindowsWin32GlobalizationUcnvFromUnicode(converter.rawAddress.toCPointer<ByteVar>(), target.rawAddress.toCPointer<ByteVar>(), targetlimit.rawAddress.toCPointer<ByteVar>(), source.rawAddress.toCPointer<ByteVar>(), sourcelimit.rawAddress.toCPointer<ByteVar>(), offsets.rawAddress.toCPointer<ByteVar>(), flush, err.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun ucnvGetAlias(alias: Pcstr, n: UShort, perrorcode: MutPtr<UErrorCode>): Pcstr =
+public actual fun ucnvGetAlias(alias: Pcstr, n: UShort, perrorcode: MutPtr): Pcstr =
     ConstPtr(windowssysWindowsWin32GlobalizationUcnvGetAlias(alias.rawAddress.toCPointer<ByteVar>(), n, perrorcode.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun ucnvGetAliases(alias: Pcstr, aliases: ConstPtr<ConstPtr<Byte>>, perrorcode: MutPtr<UErrorCode>) {
+public actual fun ucnvGetAliases(alias: Pcstr, aliases: ConstPtr, perrorcode: MutPtr) {
     windowssysWindowsWin32GlobalizationUcnvGetAliases(alias.rawAddress.toCPointer<ByteVar>(), aliases.rawAddress.toCPointer<ByteVar>(), perrorcode.rawAddress.toCPointer<ByteVar>())
 }
 
 public actual fun ucnvGetAvailableName(n: Int): Pcstr =
     ConstPtr(windowssysWindowsWin32GlobalizationUcnvGetAvailableName(n)?.toLong() ?: 0L)
 
-public actual fun ucnvGetCcsid(converter: ConstPtr<UConverter>, err: MutPtr<UErrorCode>): Int =
+public actual fun ucnvGetCcsid(converter: ConstPtr, err: MutPtr): Int =
     windowssysWindowsWin32GlobalizationUcnvGetCcsid(converter.rawAddress.toCPointer<ByteVar>(), err.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ucnvGetCanonicalName(alias: Pcstr, standard: Pcstr, perrorcode: MutPtr<UErrorCode>): Pcstr =
+public actual fun ucnvGetCanonicalName(alias: Pcstr, standard: Pcstr, perrorcode: MutPtr): Pcstr =
     ConstPtr(windowssysWindowsWin32GlobalizationUcnvGetCanonicalName(alias.rawAddress.toCPointer<ByteVar>(), standard.rawAddress.toCPointer<ByteVar>(), perrorcode.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
 public actual fun ucnvGetDefaultName(): Pcstr =
     ConstPtr(windowssysWindowsWin32GlobalizationUcnvGetDefaultName()?.toLong() ?: 0L)
 
-public actual fun ucnvGetDisplayName(converter: ConstPtr<UConverter>, displaylocale: Pcstr, displayname: MutPtr<UShort>, displaynamecapacity: Int, err: MutPtr<UErrorCode>): Int =
+public actual fun ucnvGetDisplayName(converter: ConstPtr, displaylocale: Pcstr, displayname: MutPtr, displaynamecapacity: Int, err: MutPtr): Int =
     windowssysWindowsWin32GlobalizationUcnvGetDisplayName(converter.rawAddress.toCPointer<ByteVar>(), displaylocale.rawAddress.toCPointer<ByteVar>(), displayname.rawAddress.toCPointer<ByteVar>(), displaynamecapacity, err.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ucnvGetFromUcallBack(converter: ConstPtr<UConverter>, action: MutPtr<UConverterFromUCallback>, context: ConstPtr<ConstPtr<CVoid>>) {
+public actual fun ucnvGetFromUcallBack(converter: ConstPtr, action: MutPtr, context: ConstPtr) {
     windowssysWindowsWin32GlobalizationUcnvGetFromUcallBack(converter.rawAddress.toCPointer<ByteVar>(), action.rawAddress.toCPointer<ByteVar>(), context.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun ucnvGetInvalidChars(converter: ConstPtr<UConverter>, errbytes: Pcstr, len: MutPtr<Byte>, err: MutPtr<UErrorCode>) {
+public actual fun ucnvGetInvalidChars(converter: ConstPtr, errbytes: Pcstr, len: MutPtr, err: MutPtr) {
     windowssysWindowsWin32GlobalizationUcnvGetInvalidChars(converter.rawAddress.toCPointer<ByteVar>(), errbytes.rawAddress.toCPointer<ByteVar>(), len.rawAddress.toCPointer<ByteVar>(), err.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun ucnvGetInvalidUchars(converter: ConstPtr<UConverter>, erruchars: MutPtr<UShort>, len: MutPtr<Byte>, err: MutPtr<UErrorCode>) {
+public actual fun ucnvGetInvalidUchars(converter: ConstPtr, erruchars: MutPtr, len: MutPtr, err: MutPtr) {
     windowssysWindowsWin32GlobalizationUcnvGetInvalidUchars(converter.rawAddress.toCPointer<ByteVar>(), erruchars.rawAddress.toCPointer<ByteVar>(), len.rawAddress.toCPointer<ByteVar>(), err.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun ucnvGetMaxCharSize(converter: ConstPtr<UConverter>): Byte =
+public actual fun ucnvGetMaxCharSize(converter: ConstPtr): Byte =
     windowssysWindowsWin32GlobalizationUcnvGetMaxCharSize(converter.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ucnvGetMinCharSize(converter: ConstPtr<UConverter>): Byte =
+public actual fun ucnvGetMinCharSize(converter: ConstPtr): Byte =
     windowssysWindowsWin32GlobalizationUcnvGetMinCharSize(converter.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ucnvGetName(converter: ConstPtr<UConverter>, err: MutPtr<UErrorCode>): Pcstr =
+public actual fun ucnvGetName(converter: ConstPtr, err: MutPtr): Pcstr =
     ConstPtr(windowssysWindowsWin32GlobalizationUcnvGetName(converter.rawAddress.toCPointer<ByteVar>(), err.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun ucnvGetNextUchar(converter: MutPtr<UConverter>, source: ConstPtr<ConstPtr<Byte>>, sourcelimit: Pcstr, err: MutPtr<UErrorCode>): Int =
+public actual fun ucnvGetNextUchar(converter: MutPtr, source: ConstPtr, sourcelimit: Pcstr, err: MutPtr): Int =
     windowssysWindowsWin32GlobalizationUcnvGetNextUchar(converter.rawAddress.toCPointer<ByteVar>(), source.rawAddress.toCPointer<ByteVar>(), sourcelimit.rawAddress.toCPointer<ByteVar>(), err.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ucnvGetPlatform(converter: ConstPtr<UConverter>, err: MutPtr<UErrorCode>): UConverterPlatform =
+public actual fun ucnvGetPlatform(converter: ConstPtr, err: MutPtr): UConverterPlatform =
     windowssysWindowsWin32GlobalizationUcnvGetPlatform(converter.rawAddress.toCPointer<ByteVar>(), err.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ucnvGetStandard(n: UShort, perrorcode: MutPtr<UErrorCode>): Pcstr =
+public actual fun ucnvGetStandard(n: UShort, perrorcode: MutPtr): Pcstr =
     ConstPtr(windowssysWindowsWin32GlobalizationUcnvGetStandard(n, perrorcode.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun ucnvGetStandardName(name: Pcstr, standard: Pcstr, perrorcode: MutPtr<UErrorCode>): Pcstr =
+public actual fun ucnvGetStandardName(name: Pcstr, standard: Pcstr, perrorcode: MutPtr): Pcstr =
     ConstPtr(windowssysWindowsWin32GlobalizationUcnvGetStandardName(name.rawAddress.toCPointer<ByteVar>(), standard.rawAddress.toCPointer<ByteVar>(), perrorcode.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun ucnvGetStarters(converter: ConstPtr<UConverter>, starters: MutPtr<Byte>, err: MutPtr<UErrorCode>) {
+public actual fun ucnvGetStarters(converter: ConstPtr, starters: MutPtr, err: MutPtr) {
     windowssysWindowsWin32GlobalizationUcnvGetStarters(converter.rawAddress.toCPointer<ByteVar>(), starters.rawAddress.toCPointer<ByteVar>(), err.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun ucnvGetSubstChars(converter: ConstPtr<UConverter>, subchars: Pcstr, len: MutPtr<Byte>, err: MutPtr<UErrorCode>) {
+public actual fun ucnvGetSubstChars(converter: ConstPtr, subchars: Pcstr, len: MutPtr, err: MutPtr) {
     windowssysWindowsWin32GlobalizationUcnvGetSubstChars(converter.rawAddress.toCPointer<ByteVar>(), subchars.rawAddress.toCPointer<ByteVar>(), len.rawAddress.toCPointer<ByteVar>(), err.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun ucnvGetToUcallBack(converter: ConstPtr<UConverter>, action: MutPtr<UConverterToUCallback>, context: ConstPtr<ConstPtr<CVoid>>) {
+public actual fun ucnvGetToUcallBack(converter: ConstPtr, action: MutPtr, context: ConstPtr) {
     windowssysWindowsWin32GlobalizationUcnvGetToUcallBack(converter.rawAddress.toCPointer<ByteVar>(), action.rawAddress.toCPointer<ByteVar>(), context.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun ucnvGetType(converter: ConstPtr<UConverter>): UConverterType =
+public actual fun ucnvGetType(converter: ConstPtr): UConverterType =
     windowssysWindowsWin32GlobalizationUcnvGetType(converter.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ucnvGetUnicodeSet(cnv: ConstPtr<UConverter>, setfillin: MutPtr<USet>, whichset: UConverterUnicodeSet, perrorcode: MutPtr<UErrorCode>) {
+public actual fun ucnvGetUnicodeSet(cnv: ConstPtr, setfillin: MutPtr, whichset: UConverterUnicodeSet, perrorcode: MutPtr) {
     windowssysWindowsWin32GlobalizationUcnvGetUnicodeSet(cnv.rawAddress.toCPointer<ByteVar>(), setfillin.rawAddress.toCPointer<ByteVar>(), whichset, perrorcode.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun ucnvIsAmbiguous(cnv: ConstPtr<UConverter>): Byte =
+public actual fun ucnvIsAmbiguous(cnv: ConstPtr): Byte =
     windowssysWindowsWin32GlobalizationUcnvIsAmbiguous(cnv.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ucnvIsFixedWidth(cnv: MutPtr<UConverter>, status: MutPtr<UErrorCode>): Byte =
+public actual fun ucnvIsFixedWidth(cnv: MutPtr, status: MutPtr): Byte =
     windowssysWindowsWin32GlobalizationUcnvIsFixedWidth(cnv.rawAddress.toCPointer<ByteVar>(), status.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ucnvOpen(convertername: Pcstr, err: MutPtr<UErrorCode>): MutPtr<UConverter> =
+public actual fun ucnvOpen(convertername: Pcstr, err: MutPtr): MutPtr =
     MutPtr(windowssysWindowsWin32GlobalizationUcnvOpen(convertername.rawAddress.toCPointer<ByteVar>(), err.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun ucnvOpenAllNames(perrorcode: MutPtr<UErrorCode>): MutPtr<UEnumeration> =
+public actual fun ucnvOpenAllNames(perrorcode: MutPtr): MutPtr =
     MutPtr(windowssysWindowsWin32GlobalizationUcnvOpenAllNames(perrorcode.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun ucnvOpenCcsid(codepage: Int, platform: UConverterPlatform, err: MutPtr<UErrorCode>): MutPtr<UConverter> =
+public actual fun ucnvOpenCcsid(codepage: Int, platform: UConverterPlatform, err: MutPtr): MutPtr =
     MutPtr(windowssysWindowsWin32GlobalizationUcnvOpenCcsid(codepage, platform, err.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun ucnvOpenPackage(packagename: Pcstr, convertername: Pcstr, err: MutPtr<UErrorCode>): MutPtr<UConverter> =
+public actual fun ucnvOpenPackage(packagename: Pcstr, convertername: Pcstr, err: MutPtr): MutPtr =
     MutPtr(windowssysWindowsWin32GlobalizationUcnvOpenPackage(packagename.rawAddress.toCPointer<ByteVar>(), convertername.rawAddress.toCPointer<ByteVar>(), err.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun ucnvOpenStandardNames(convname: Pcstr, standard: Pcstr, perrorcode: MutPtr<UErrorCode>): MutPtr<UEnumeration> =
+public actual fun ucnvOpenStandardNames(convname: Pcstr, standard: Pcstr, perrorcode: MutPtr): MutPtr =
     MutPtr(windowssysWindowsWin32GlobalizationUcnvOpenStandardNames(convname.rawAddress.toCPointer<ByteVar>(), standard.rawAddress.toCPointer<ByteVar>(), perrorcode.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun ucnvOpenU(name: ConstPtr<UShort>, err: MutPtr<UErrorCode>): MutPtr<UConverter> =
+public actual fun ucnvOpenU(name: ConstPtr, err: MutPtr): MutPtr =
     MutPtr(windowssysWindowsWin32GlobalizationUcnvOpenU(name.rawAddress.toCPointer<ByteVar>(), err.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun ucnvReset(converter: MutPtr<UConverter>) {
+public actual fun ucnvReset(converter: MutPtr) {
     windowssysWindowsWin32GlobalizationUcnvReset(converter.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun ucnvResetFromUnicode(converter: MutPtr<UConverter>) {
+public actual fun ucnvResetFromUnicode(converter: MutPtr) {
     windowssysWindowsWin32GlobalizationUcnvResetFromUnicode(converter.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun ucnvResetToUnicode(converter: MutPtr<UConverter>) {
+public actual fun ucnvResetToUnicode(converter: MutPtr) {
     windowssysWindowsWin32GlobalizationUcnvResetToUnicode(converter.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun ucnvSafeClone(cnv: ConstPtr<UConverter>, stackbuffer: MutPtr<CVoid>, pbuffersize: MutPtr<Int>, status: MutPtr<UErrorCode>): MutPtr<UConverter> =
+public actual fun ucnvSafeClone(cnv: ConstPtr, stackbuffer: MutPtr, pbuffersize: MutPtr, status: MutPtr): MutPtr =
     MutPtr(windowssysWindowsWin32GlobalizationUcnvSafeClone(cnv.rawAddress.toCPointer<ByteVar>(), stackbuffer.rawAddress.toCPointer<ByteVar>(), pbuffersize.rawAddress.toCPointer<ByteVar>(), status.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
 public actual fun ucnvSetDefaultName(name: Pcstr) {
     windowssysWindowsWin32GlobalizationUcnvSetDefaultName(name.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun ucnvSetFallback(cnv: MutPtr<UConverter>, usesfallback: Byte) {
+public actual fun ucnvSetFallback(cnv: MutPtr, usesfallback: Byte) {
     windowssysWindowsWin32GlobalizationUcnvSetFallback(cnv.rawAddress.toCPointer<ByteVar>(), usesfallback)
 }
 
-public actual fun ucnvSetFromUcallBack(converter: MutPtr<UConverter>, newaction: UConverterFromUCallback, newcontext: ConstPtr<CVoid>, oldaction: MutPtr<UConverterFromUCallback>, oldcontext: ConstPtr<ConstPtr<CVoid>>, err: MutPtr<UErrorCode>) {
+public actual fun ucnvSetFromUcallBack(converter: MutPtr, newaction: UConverterFromUCallback, newcontext: ConstPtr, oldaction: MutPtr, oldcontext: ConstPtr, err: MutPtr) {
     windowssysWindowsWin32GlobalizationUcnvSetFromUcallBack(converter.rawAddress.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>(), newcontext.rawAddress.toCPointer<ByteVar>(), oldaction.rawAddress.toCPointer<ByteVar>(), oldcontext.rawAddress.toCPointer<ByteVar>(), err.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun ucnvSetSubstChars(converter: MutPtr<UConverter>, subchars: Pcstr, len: Byte, err: MutPtr<UErrorCode>) {
+public actual fun ucnvSetSubstChars(converter: MutPtr, subchars: Pcstr, len: Byte, err: MutPtr) {
     windowssysWindowsWin32GlobalizationUcnvSetSubstChars(converter.rawAddress.toCPointer<ByteVar>(), subchars.rawAddress.toCPointer<ByteVar>(), len, err.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun ucnvSetSubstString(cnv: MutPtr<UConverter>, s: ConstPtr<UShort>, length: Int, err: MutPtr<UErrorCode>) {
+public actual fun ucnvSetSubstString(cnv: MutPtr, s: ConstPtr, length: Int, err: MutPtr) {
     windowssysWindowsWin32GlobalizationUcnvSetSubstString(cnv.rawAddress.toCPointer<ByteVar>(), s.rawAddress.toCPointer<ByteVar>(), length, err.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun ucnvSetToUcallBack(converter: MutPtr<UConverter>, newaction: UConverterToUCallback, newcontext: ConstPtr<CVoid>, oldaction: MutPtr<UConverterToUCallback>, oldcontext: ConstPtr<ConstPtr<CVoid>>, err: MutPtr<UErrorCode>) {
+public actual fun ucnvSetToUcallBack(converter: MutPtr, newaction: UConverterToUCallback, newcontext: ConstPtr, oldaction: MutPtr, oldcontext: ConstPtr, err: MutPtr) {
     windowssysWindowsWin32GlobalizationUcnvSetToUcallBack(converter.rawAddress.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>(), newcontext.rawAddress.toCPointer<ByteVar>(), oldaction.rawAddress.toCPointer<ByteVar>(), oldcontext.rawAddress.toCPointer<ByteVar>(), err.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun ucnvToAlgorithmic(algorithmictype: UConverterType, cnv: MutPtr<UConverter>, target: Pcstr, targetcapacity: Int, source: Pcstr, sourcelength: Int, perrorcode: MutPtr<UErrorCode>): Int =
+public actual fun ucnvToAlgorithmic(algorithmictype: UConverterType, cnv: MutPtr, target: Pcstr, targetcapacity: Int, source: Pcstr, sourcelength: Int, perrorcode: MutPtr): Int =
     windowssysWindowsWin32GlobalizationUcnvToAlgorithmic(algorithmictype, cnv.rawAddress.toCPointer<ByteVar>(), target.rawAddress.toCPointer<ByteVar>(), targetcapacity, source.rawAddress.toCPointer<ByteVar>(), sourcelength, perrorcode.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ucnvToUchars(cnv: MutPtr<UConverter>, dest: MutPtr<UShort>, destcapacity: Int, src: Pcstr, srclength: Int, perrorcode: MutPtr<UErrorCode>): Int =
+public actual fun ucnvToUchars(cnv: MutPtr, dest: MutPtr, destcapacity: Int, src: Pcstr, srclength: Int, perrorcode: MutPtr): Int =
     windowssysWindowsWin32GlobalizationUcnvToUchars(cnv.rawAddress.toCPointer<ByteVar>(), dest.rawAddress.toCPointer<ByteVar>(), destcapacity, src.rawAddress.toCPointer<ByteVar>(), srclength, perrorcode.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ucnvToUcountPending(cnv: ConstPtr<UConverter>, status: MutPtr<UErrorCode>): Int =
+public actual fun ucnvToUcountPending(cnv: ConstPtr, status: MutPtr): Int =
     windowssysWindowsWin32GlobalizationUcnvToUcountPending(cnv.rawAddress.toCPointer<ByteVar>(), status.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ucnvToUnicode(converter: MutPtr<UConverter>, target: MutPtr<MutPtr<UShort>>, targetlimit: ConstPtr<UShort>, source: ConstPtr<ConstPtr<Byte>>, sourcelimit: Pcstr, offsets: MutPtr<Int>, flush: Byte, err: MutPtr<UErrorCode>) {
+public actual fun ucnvToUnicode(converter: MutPtr, target: MutPtr, targetlimit: ConstPtr, source: ConstPtr, sourcelimit: Pcstr, offsets: MutPtr, flush: Byte, err: MutPtr) {
     windowssysWindowsWin32GlobalizationUcnvToUnicode(converter.rawAddress.toCPointer<ByteVar>(), target.rawAddress.toCPointer<ByteVar>(), targetlimit.rawAddress.toCPointer<ByteVar>(), source.rawAddress.toCPointer<ByteVar>(), sourcelimit.rawAddress.toCPointer<ByteVar>(), offsets.rawAddress.toCPointer<ByteVar>(), flush, err.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun ucnvUsesFallback(cnv: ConstPtr<UConverter>): Byte =
+public actual fun ucnvUsesFallback(cnv: ConstPtr): Byte =
     windowssysWindowsWin32GlobalizationUcnvUsesFallback(cnv.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ucnvselClose(sel: MutPtr<UConverterSelector>) {
+public actual fun ucnvselClose(sel: MutPtr) {
     windowssysWindowsWin32GlobalizationUcnvselClose(sel.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun ucnvselOpen(converterlist: ConstPtr<ConstPtr<Byte>>, converterlistsize: Int, excludedcodepoints: ConstPtr<USet>, whichset: UConverterUnicodeSet, status: MutPtr<UErrorCode>): MutPtr<UConverterSelector> =
+public actual fun ucnvselOpen(converterlist: ConstPtr, converterlistsize: Int, excludedcodepoints: ConstPtr, whichset: UConverterUnicodeSet, status: MutPtr): MutPtr =
     MutPtr(windowssysWindowsWin32GlobalizationUcnvselOpen(converterlist.rawAddress.toCPointer<ByteVar>(), converterlistsize, excludedcodepoints.rawAddress.toCPointer<ByteVar>(), whichset, status.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun ucnvselOpenFromSerialized(buffer: ConstPtr<CVoid>, length: Int, status: MutPtr<UErrorCode>): MutPtr<UConverterSelector> =
+public actual fun ucnvselOpenFromSerialized(buffer: ConstPtr, length: Int, status: MutPtr): MutPtr =
     MutPtr(windowssysWindowsWin32GlobalizationUcnvselOpenFromSerialized(buffer.rawAddress.toCPointer<ByteVar>(), length, status.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun ucnvselSelectForString(sel: ConstPtr<UConverterSelector>, s: ConstPtr<UShort>, length: Int, status: MutPtr<UErrorCode>): MutPtr<UEnumeration> =
+public actual fun ucnvselSelectForString(sel: ConstPtr, s: ConstPtr, length: Int, status: MutPtr): MutPtr =
     MutPtr(windowssysWindowsWin32GlobalizationUcnvselSelectForString(sel.rawAddress.toCPointer<ByteVar>(), s.rawAddress.toCPointer<ByteVar>(), length, status.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun ucnvselSelectForUtf8(sel: ConstPtr<UConverterSelector>, s: Pcstr, length: Int, status: MutPtr<UErrorCode>): MutPtr<UEnumeration> =
+public actual fun ucnvselSelectForUtf8(sel: ConstPtr, s: Pcstr, length: Int, status: MutPtr): MutPtr =
     MutPtr(windowssysWindowsWin32GlobalizationUcnvselSelectForUtf8(sel.rawAddress.toCPointer<ByteVar>(), s.rawAddress.toCPointer<ByteVar>(), length, status.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun ucnvselSerialize(sel: ConstPtr<UConverterSelector>, buffer: MutPtr<CVoid>, buffercapacity: Int, status: MutPtr<UErrorCode>): Int =
+public actual fun ucnvselSerialize(sel: ConstPtr, buffer: MutPtr, buffercapacity: Int, status: MutPtr): Int =
     windowssysWindowsWin32GlobalizationUcnvselSerialize(sel.rawAddress.toCPointer<ByteVar>(), buffer.rawAddress.toCPointer<ByteVar>(), buffercapacity, status.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ucolCloneBinary(coll: ConstPtr<UCollator>, buffer: MutPtr<UByte>, capacity: Int, status: MutPtr<UErrorCode>): Int =
+public actual fun ucolCloneBinary(coll: ConstPtr, buffer: MutPtr, capacity: Int, status: MutPtr): Int =
     windowssysWindowsWin32GlobalizationUcolCloneBinary(coll.rawAddress.toCPointer<ByteVar>(), buffer.rawAddress.toCPointer<ByteVar>(), capacity, status.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ucolClose(coll: MutPtr<UCollator>) {
+public actual fun ucolClose(coll: MutPtr) {
     windowssysWindowsWin32GlobalizationUcolClose(coll.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun ucolCloseElements(elems: MutPtr<UCollationElements>) {
+public actual fun ucolCloseElements(elems: MutPtr) {
     windowssysWindowsWin32GlobalizationUcolCloseElements(elems.rawAddress.toCPointer<ByteVar>())
 }
 
 public actual fun ucolCountAvailable(): Int =
     windowssysWindowsWin32GlobalizationUcolCountAvailable()
 
-public actual fun ucolEqual(coll: ConstPtr<UCollator>, source: ConstPtr<UShort>, sourcelength: Int, target: ConstPtr<UShort>, targetlength: Int): Byte =
+public actual fun ucolEqual(coll: ConstPtr, source: ConstPtr, sourcelength: Int, target: ConstPtr, targetlength: Int): Byte =
     windowssysWindowsWin32GlobalizationUcolEqual(coll.rawAddress.toCPointer<ByteVar>(), source.rawAddress.toCPointer<ByteVar>(), sourcelength, target.rawAddress.toCPointer<ByteVar>(), targetlength)
 
-public actual fun ucolGetAttribute(coll: ConstPtr<UCollator>, attr: UColAttribute, status: MutPtr<UErrorCode>): UColAttributeValue =
+public actual fun ucolGetAttribute(coll: ConstPtr, attr: UColAttribute, status: MutPtr): UColAttributeValue =
     windowssysWindowsWin32GlobalizationUcolGetAttribute(coll.rawAddress.toCPointer<ByteVar>(), attr, status.rawAddress.toCPointer<ByteVar>())
 
 public actual fun ucolGetAvailable(localeindex: Int): Pcstr =
     ConstPtr(windowssysWindowsWin32GlobalizationUcolGetAvailable(localeindex)?.toLong() ?: 0L)
 
-public actual fun ucolGetBound(source: ConstPtr<UByte>, sourcelength: Int, boundtype: UColBoundMode, nooflevels: UInt, result: MutPtr<UByte>, resultlength: Int, status: MutPtr<UErrorCode>): Int =
+public actual fun ucolGetBound(source: ConstPtr, sourcelength: Int, boundtype: UColBoundMode, nooflevels: UInt, result: MutPtr, resultlength: Int, status: MutPtr): Int =
     windowssysWindowsWin32GlobalizationUcolGetBound(source.rawAddress.toCPointer<ByteVar>(), sourcelength, boundtype, nooflevels, result.rawAddress.toCPointer<ByteVar>(), resultlength, status.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ucolGetContractionsAndExpansions(coll: ConstPtr<UCollator>, contractions: MutPtr<USet>, expansions: MutPtr<USet>, addprefixes: Byte, status: MutPtr<UErrorCode>) {
+public actual fun ucolGetContractionsAndExpansions(coll: ConstPtr, contractions: MutPtr, expansions: MutPtr, addprefixes: Byte, status: MutPtr) {
     windowssysWindowsWin32GlobalizationUcolGetContractionsAndExpansions(coll.rawAddress.toCPointer<ByteVar>(), contractions.rawAddress.toCPointer<ByteVar>(), expansions.rawAddress.toCPointer<ByteVar>(), addprefixes, status.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun ucolGetDisplayName(objloc: Pcstr, disploc: Pcstr, result: MutPtr<UShort>, resultlength: Int, status: MutPtr<UErrorCode>): Int =
+public actual fun ucolGetDisplayName(objloc: Pcstr, disploc: Pcstr, result: MutPtr, resultlength: Int, status: MutPtr): Int =
     windowssysWindowsWin32GlobalizationUcolGetDisplayName(objloc.rawAddress.toCPointer<ByteVar>(), disploc.rawAddress.toCPointer<ByteVar>(), result.rawAddress.toCPointer<ByteVar>(), resultlength, status.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ucolGetEquivalentReorderCodes(reordercode: Int, dest: MutPtr<Int>, destcapacity: Int, perrorcode: MutPtr<UErrorCode>): Int =
+public actual fun ucolGetEquivalentReorderCodes(reordercode: Int, dest: MutPtr, destcapacity: Int, perrorcode: MutPtr): Int =
     windowssysWindowsWin32GlobalizationUcolGetEquivalentReorderCodes(reordercode, dest.rawAddress.toCPointer<ByteVar>(), destcapacity, perrorcode.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ucolGetFunctionalEquivalent(result: Pcstr, resultcapacity: Int, keyword: Pcstr, locale: Pcstr, isavailable: MutPtr<Byte>, status: MutPtr<UErrorCode>): Int =
+public actual fun ucolGetFunctionalEquivalent(result: Pcstr, resultcapacity: Int, keyword: Pcstr, locale: Pcstr, isavailable: MutPtr, status: MutPtr): Int =
     windowssysWindowsWin32GlobalizationUcolGetFunctionalEquivalent(result.rawAddress.toCPointer<ByteVar>(), resultcapacity, keyword.rawAddress.toCPointer<ByteVar>(), locale.rawAddress.toCPointer<ByteVar>(), isavailable.rawAddress.toCPointer<ByteVar>(), status.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ucolGetKeywordValues(keyword: Pcstr, status: MutPtr<UErrorCode>): MutPtr<UEnumeration> =
+public actual fun ucolGetKeywordValues(keyword: Pcstr, status: MutPtr): MutPtr =
     MutPtr(windowssysWindowsWin32GlobalizationUcolGetKeywordValues(keyword.rawAddress.toCPointer<ByteVar>(), status.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun ucolGetKeywordValuesForLocale(key: Pcstr, locale: Pcstr, commonlyused: Byte, status: MutPtr<UErrorCode>): MutPtr<UEnumeration> =
+public actual fun ucolGetKeywordValuesForLocale(key: Pcstr, locale: Pcstr, commonlyused: Byte, status: MutPtr): MutPtr =
     MutPtr(windowssysWindowsWin32GlobalizationUcolGetKeywordValuesForLocale(key.rawAddress.toCPointer<ByteVar>(), locale.rawAddress.toCPointer<ByteVar>(), commonlyused, status.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun ucolGetKeywords(status: MutPtr<UErrorCode>): MutPtr<UEnumeration> =
+public actual fun ucolGetKeywords(status: MutPtr): MutPtr =
     MutPtr(windowssysWindowsWin32GlobalizationUcolGetKeywords(status.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun ucolGetLocaleByType(coll: ConstPtr<UCollator>, type: ULocDataLocaleType, status: MutPtr<UErrorCode>): Pcstr =
+public actual fun ucolGetLocaleByType(coll: ConstPtr, type: ULocDataLocaleType, status: MutPtr): Pcstr =
     ConstPtr(windowssysWindowsWin32GlobalizationUcolGetLocaleByType(coll.rawAddress.toCPointer<ByteVar>(), type, status.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun ucolGetMaxExpansion(elems: ConstPtr<UCollationElements>, order: Int): Int =
+public actual fun ucolGetMaxExpansion(elems: ConstPtr, order: Int): Int =
     windowssysWindowsWin32GlobalizationUcolGetMaxExpansion(elems.rawAddress.toCPointer<ByteVar>(), order)
 
-public actual fun ucolGetMaxVariable(coll: ConstPtr<UCollator>): UColReorderCode =
+public actual fun ucolGetMaxVariable(coll: ConstPtr): UColReorderCode =
     windowssysWindowsWin32GlobalizationUcolGetMaxVariable(coll.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ucolGetOffset(elems: ConstPtr<UCollationElements>): Int =
+public actual fun ucolGetOffset(elems: ConstPtr): Int =
     windowssysWindowsWin32GlobalizationUcolGetOffset(elems.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ucolGetReorderCodes(coll: ConstPtr<UCollator>, dest: MutPtr<Int>, destcapacity: Int, perrorcode: MutPtr<UErrorCode>): Int =
+public actual fun ucolGetReorderCodes(coll: ConstPtr, dest: MutPtr, destcapacity: Int, perrorcode: MutPtr): Int =
     windowssysWindowsWin32GlobalizationUcolGetReorderCodes(coll.rawAddress.toCPointer<ByteVar>(), dest.rawAddress.toCPointer<ByteVar>(), destcapacity, perrorcode.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ucolGetRules(coll: ConstPtr<UCollator>, length: MutPtr<Int>): MutPtr<UShort> =
+public actual fun ucolGetRules(coll: ConstPtr, length: MutPtr): MutPtr =
     MutPtr(windowssysWindowsWin32GlobalizationUcolGetRules(coll.rawAddress.toCPointer<ByteVar>(), length.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun ucolGetRulesEx(coll: ConstPtr<UCollator>, delta: UColRuleOption, buffer: MutPtr<UShort>, bufferlen: Int): Int =
+public actual fun ucolGetRulesEx(coll: ConstPtr, delta: UColRuleOption, buffer: MutPtr, bufferlen: Int): Int =
     windowssysWindowsWin32GlobalizationUcolGetRulesEx(coll.rawAddress.toCPointer<ByteVar>(), delta, buffer.rawAddress.toCPointer<ByteVar>(), bufferlen)
 
-public actual fun ucolGetSortKey(coll: ConstPtr<UCollator>, source: ConstPtr<UShort>, sourcelength: Int, result: MutPtr<UByte>, resultlength: Int): Int =
+public actual fun ucolGetSortKey(coll: ConstPtr, source: ConstPtr, sourcelength: Int, result: MutPtr, resultlength: Int): Int =
     windowssysWindowsWin32GlobalizationUcolGetSortKey(coll.rawAddress.toCPointer<ByteVar>(), source.rawAddress.toCPointer<ByteVar>(), sourcelength, result.rawAddress.toCPointer<ByteVar>(), resultlength)
 
-public actual fun ucolGetStrength(coll: ConstPtr<UCollator>): UColAttributeValue =
+public actual fun ucolGetStrength(coll: ConstPtr): UColAttributeValue =
     windowssysWindowsWin32GlobalizationUcolGetStrength(coll.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ucolGetTailoredSet(coll: ConstPtr<UCollator>, status: MutPtr<UErrorCode>): MutPtr<USet> =
+public actual fun ucolGetTailoredSet(coll: ConstPtr, status: MutPtr): MutPtr =
     MutPtr(windowssysWindowsWin32GlobalizationUcolGetTailoredSet(coll.rawAddress.toCPointer<ByteVar>(), status.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun ucolGetUcaversion(coll: ConstPtr<UCollator>, info: MutPtr<UByte>) {
+public actual fun ucolGetUcaversion(coll: ConstPtr, info: MutPtr) {
     windowssysWindowsWin32GlobalizationUcolGetUcaversion(coll.rawAddress.toCPointer<ByteVar>(), info.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun ucolGetVariableTop(coll: ConstPtr<UCollator>, status: MutPtr<UErrorCode>): UInt =
+public actual fun ucolGetVariableTop(coll: ConstPtr, status: MutPtr): UInt =
     windowssysWindowsWin32GlobalizationUcolGetVariableTop(coll.rawAddress.toCPointer<ByteVar>(), status.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ucolGetVersion(coll: ConstPtr<UCollator>, info: MutPtr<UByte>) {
+public actual fun ucolGetVersion(coll: ConstPtr, info: MutPtr) {
     windowssysWindowsWin32GlobalizationUcolGetVersion(coll.rawAddress.toCPointer<ByteVar>(), info.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun ucolGreater(coll: ConstPtr<UCollator>, source: ConstPtr<UShort>, sourcelength: Int, target: ConstPtr<UShort>, targetlength: Int): Byte =
+public actual fun ucolGreater(coll: ConstPtr, source: ConstPtr, sourcelength: Int, target: ConstPtr, targetlength: Int): Byte =
     windowssysWindowsWin32GlobalizationUcolGreater(coll.rawAddress.toCPointer<ByteVar>(), source.rawAddress.toCPointer<ByteVar>(), sourcelength, target.rawAddress.toCPointer<ByteVar>(), targetlength)
 
-public actual fun ucolGreaterOrEqual(coll: ConstPtr<UCollator>, source: ConstPtr<UShort>, sourcelength: Int, target: ConstPtr<UShort>, targetlength: Int): Byte =
+public actual fun ucolGreaterOrEqual(coll: ConstPtr, source: ConstPtr, sourcelength: Int, target: ConstPtr, targetlength: Int): Byte =
     windowssysWindowsWin32GlobalizationUcolGreaterOrEqual(coll.rawAddress.toCPointer<ByteVar>(), source.rawAddress.toCPointer<ByteVar>(), sourcelength, target.rawAddress.toCPointer<ByteVar>(), targetlength)
 
-public actual fun ucolKeyHashCode(key: ConstPtr<UByte>, length: Int): Int =
+public actual fun ucolKeyHashCode(key: ConstPtr, length: Int): Int =
     windowssysWindowsWin32GlobalizationUcolKeyHashCode(key.rawAddress.toCPointer<ByteVar>(), length)
 
-public actual fun ucolMergeSortkeys(src1: ConstPtr<UByte>, src1length: Int, src2: ConstPtr<UByte>, src2length: Int, dest: MutPtr<UByte>, destcapacity: Int): Int =
+public actual fun ucolMergeSortkeys(src1: ConstPtr, src1length: Int, src2: ConstPtr, src2length: Int, dest: MutPtr, destcapacity: Int): Int =
     windowssysWindowsWin32GlobalizationUcolMergeSortkeys(src1.rawAddress.toCPointer<ByteVar>(), src1length, src2.rawAddress.toCPointer<ByteVar>(), src2length, dest.rawAddress.toCPointer<ByteVar>(), destcapacity)
 
-public actual fun ucolNext(elems: MutPtr<UCollationElements>, status: MutPtr<UErrorCode>): Int =
+public actual fun ucolNext(elems: MutPtr, status: MutPtr): Int =
     windowssysWindowsWin32GlobalizationUcolNext(elems.rawAddress.toCPointer<ByteVar>(), status.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ucolNextSortKeyPart(coll: ConstPtr<UCollator>, iter: MutPtr<UCharIterator>, state: MutPtr<UInt>, dest: MutPtr<UByte>, count: Int, status: MutPtr<UErrorCode>): Int =
+public actual fun ucolNextSortKeyPart(coll: ConstPtr, iter: MutPtr, state: MutPtr, dest: MutPtr, count: Int, status: MutPtr): Int =
     windowssysWindowsWin32GlobalizationUcolNextSortKeyPart(coll.rawAddress.toCPointer<ByteVar>(), iter.rawAddress.toCPointer<ByteVar>(), state.rawAddress.toCPointer<ByteVar>(), dest.rawAddress.toCPointer<ByteVar>(), count, status.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ucolOpen(loc: Pcstr, status: MutPtr<UErrorCode>): MutPtr<UCollator> =
+public actual fun ucolOpen(loc: Pcstr, status: MutPtr): MutPtr =
     MutPtr(windowssysWindowsWin32GlobalizationUcolOpen(loc.rawAddress.toCPointer<ByteVar>(), status.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun ucolOpenAvailableLocales(status: MutPtr<UErrorCode>): MutPtr<UEnumeration> =
+public actual fun ucolOpenAvailableLocales(status: MutPtr): MutPtr =
     MutPtr(windowssysWindowsWin32GlobalizationUcolOpenAvailableLocales(status.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun ucolOpenBinary(bin: ConstPtr<UByte>, length: Int, base: ConstPtr<UCollator>, status: MutPtr<UErrorCode>): MutPtr<UCollator> =
+public actual fun ucolOpenBinary(bin: ConstPtr, length: Int, base: ConstPtr, status: MutPtr): MutPtr =
     MutPtr(windowssysWindowsWin32GlobalizationUcolOpenBinary(bin.rawAddress.toCPointer<ByteVar>(), length, base.rawAddress.toCPointer<ByteVar>(), status.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun ucolOpenElements(coll: ConstPtr<UCollator>, text: ConstPtr<UShort>, textlength: Int, status: MutPtr<UErrorCode>): MutPtr<UCollationElements> =
+public actual fun ucolOpenElements(coll: ConstPtr, text: ConstPtr, textlength: Int, status: MutPtr): MutPtr =
     MutPtr(windowssysWindowsWin32GlobalizationUcolOpenElements(coll.rawAddress.toCPointer<ByteVar>(), text.rawAddress.toCPointer<ByteVar>(), textlength, status.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun ucolOpenRules(rules: ConstPtr<UShort>, ruleslength: Int, normalizationmode: UColAttributeValue, strength: UColAttributeValue, parseerror: MutPtr<UParseError>, status: MutPtr<UErrorCode>): MutPtr<UCollator> =
+public actual fun ucolOpenRules(rules: ConstPtr, ruleslength: Int, normalizationmode: UColAttributeValue, strength: UColAttributeValue, parseerror: MutPtr, status: MutPtr): MutPtr =
     MutPtr(windowssysWindowsWin32GlobalizationUcolOpenRules(rules.rawAddress.toCPointer<ByteVar>(), ruleslength, normalizationmode, strength, parseerror.rawAddress.toCPointer<ByteVar>(), status.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun ucolPrevious(elems: MutPtr<UCollationElements>, status: MutPtr<UErrorCode>): Int =
+public actual fun ucolPrevious(elems: MutPtr, status: MutPtr): Int =
     windowssysWindowsWin32GlobalizationUcolPrevious(elems.rawAddress.toCPointer<ByteVar>(), status.rawAddress.toCPointer<ByteVar>())
 
 public actual fun ucolPrimaryOrder(order: Int): Int =
     windowssysWindowsWin32GlobalizationUcolPrimaryOrder(order)
 
-public actual fun ucolReset(elems: MutPtr<UCollationElements>) {
+public actual fun ucolReset(elems: MutPtr) {
     windowssysWindowsWin32GlobalizationUcolReset(elems.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun ucolSafeClone(coll: ConstPtr<UCollator>, stackbuffer: MutPtr<CVoid>, pbuffersize: MutPtr<Int>, status: MutPtr<UErrorCode>): MutPtr<UCollator> =
+public actual fun ucolSafeClone(coll: ConstPtr, stackbuffer: MutPtr, pbuffersize: MutPtr, status: MutPtr): MutPtr =
     MutPtr(windowssysWindowsWin32GlobalizationUcolSafeClone(coll.rawAddress.toCPointer<ByteVar>(), stackbuffer.rawAddress.toCPointer<ByteVar>(), pbuffersize.rawAddress.toCPointer<ByteVar>(), status.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
 public actual fun ucolSecondaryOrder(order: Int): Int =
     windowssysWindowsWin32GlobalizationUcolSecondaryOrder(order)
 
-public actual fun ucolSetAttribute(coll: MutPtr<UCollator>, attr: UColAttribute, value: UColAttributeValue, status: MutPtr<UErrorCode>) {
+public actual fun ucolSetAttribute(coll: MutPtr, attr: UColAttribute, value: UColAttributeValue, status: MutPtr) {
     windowssysWindowsWin32GlobalizationUcolSetAttribute(coll.rawAddress.toCPointer<ByteVar>(), attr, value, status.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun ucolSetMaxVariable(coll: MutPtr<UCollator>, group: UColReorderCode, perrorcode: MutPtr<UErrorCode>) {
+public actual fun ucolSetMaxVariable(coll: MutPtr, group: UColReorderCode, perrorcode: MutPtr) {
     windowssysWindowsWin32GlobalizationUcolSetMaxVariable(coll.rawAddress.toCPointer<ByteVar>(), group, perrorcode.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun ucolSetOffset(elems: MutPtr<UCollationElements>, offset: Int, status: MutPtr<UErrorCode>) {
+public actual fun ucolSetOffset(elems: MutPtr, offset: Int, status: MutPtr) {
     windowssysWindowsWin32GlobalizationUcolSetOffset(elems.rawAddress.toCPointer<ByteVar>(), offset, status.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun ucolSetReorderCodes(coll: MutPtr<UCollator>, reordercodes: ConstPtr<Int>, reordercodeslength: Int, perrorcode: MutPtr<UErrorCode>) {
+public actual fun ucolSetReorderCodes(coll: MutPtr, reordercodes: ConstPtr, reordercodeslength: Int, perrorcode: MutPtr) {
     windowssysWindowsWin32GlobalizationUcolSetReorderCodes(coll.rawAddress.toCPointer<ByteVar>(), reordercodes.rawAddress.toCPointer<ByteVar>(), reordercodeslength, perrorcode.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun ucolSetStrength(coll: MutPtr<UCollator>, strength: UColAttributeValue) {
+public actual fun ucolSetStrength(coll: MutPtr, strength: UColAttributeValue) {
     windowssysWindowsWin32GlobalizationUcolSetStrength(coll.rawAddress.toCPointer<ByteVar>(), strength)
 }
 
-public actual fun ucolSetText(elems: MutPtr<UCollationElements>, text: ConstPtr<UShort>, textlength: Int, status: MutPtr<UErrorCode>) {
+public actual fun ucolSetText(elems: MutPtr, text: ConstPtr, textlength: Int, status: MutPtr) {
     windowssysWindowsWin32GlobalizationUcolSetText(elems.rawAddress.toCPointer<ByteVar>(), text.rawAddress.toCPointer<ByteVar>(), textlength, status.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun ucolStrcoll(coll: ConstPtr<UCollator>, source: ConstPtr<UShort>, sourcelength: Int, target: ConstPtr<UShort>, targetlength: Int): UCollationResult =
+public actual fun ucolStrcoll(coll: ConstPtr, source: ConstPtr, sourcelength: Int, target: ConstPtr, targetlength: Int): UCollationResult =
     windowssysWindowsWin32GlobalizationUcolStrcoll(coll.rawAddress.toCPointer<ByteVar>(), source.rawAddress.toCPointer<ByteVar>(), sourcelength, target.rawAddress.toCPointer<ByteVar>(), targetlength)
 
-public actual fun ucolStrcollIter(coll: ConstPtr<UCollator>, siter: MutPtr<UCharIterator>, titer: MutPtr<UCharIterator>, status: MutPtr<UErrorCode>): UCollationResult =
+public actual fun ucolStrcollIter(coll: ConstPtr, siter: MutPtr, titer: MutPtr, status: MutPtr): UCollationResult =
     windowssysWindowsWin32GlobalizationUcolStrcollIter(coll.rawAddress.toCPointer<ByteVar>(), siter.rawAddress.toCPointer<ByteVar>(), titer.rawAddress.toCPointer<ByteVar>(), status.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ucolStrcollUtf8(coll: ConstPtr<UCollator>, source: Pcstr, sourcelength: Int, target: Pcstr, targetlength: Int, status: MutPtr<UErrorCode>): UCollationResult =
+public actual fun ucolStrcollUtf8(coll: ConstPtr, source: Pcstr, sourcelength: Int, target: Pcstr, targetlength: Int, status: MutPtr): UCollationResult =
     windowssysWindowsWin32GlobalizationUcolStrcollUtf8(coll.rawAddress.toCPointer<ByteVar>(), source.rawAddress.toCPointer<ByteVar>(), sourcelength, target.rawAddress.toCPointer<ByteVar>(), targetlength, status.rawAddress.toCPointer<ByteVar>())
 
 public actual fun ucolTertiaryOrder(order: Int): Int =
     windowssysWindowsWin32GlobalizationUcolTertiaryOrder(order)
 
-public actual fun ucpmapGet(map: ConstPtr<UCPMap>, c: Int): UInt =
+public actual fun ucpmapGet(map: ConstPtr, c: Int): UInt =
     windowssysWindowsWin32GlobalizationUcpmapGet(map.rawAddress.toCPointer<ByteVar>(), c)
 
-public actual fun ucpmapGetRange(map: ConstPtr<UCPMap>, start: Int, option: UCPMapRangeOption, surrogatevalue: UInt, filter: MutPtr<UCPMapValueFilter>, context: ConstPtr<CVoid>, pvalue: MutPtr<UInt>): Int =
+public actual fun ucpmapGetRange(map: ConstPtr, start: Int, option: UCPMapRangeOption, surrogatevalue: UInt, filter: MutPtr, context: ConstPtr, pvalue: MutPtr): Int =
     windowssysWindowsWin32GlobalizationUcpmapGetRange(map.rawAddress.toCPointer<ByteVar>(), start, option, surrogatevalue, filter.rawAddress.toCPointer<ByteVar>(), context.rawAddress.toCPointer<ByteVar>(), pvalue.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ucptrieClose(trie: MutPtr<UCPTrie>) {
+public actual fun ucptrieClose(trie: MutPtr) {
     windowssysWindowsWin32GlobalizationUcptrieClose(trie.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun ucptrieGet(trie: ConstPtr<UCPTrie>, c: Int): UInt =
+public actual fun ucptrieGet(trie: ConstPtr, c: Int): UInt =
     windowssysWindowsWin32GlobalizationUcptrieGet(trie.rawAddress.toCPointer<ByteVar>(), c)
 
-public actual fun ucptrieGetRange(trie: ConstPtr<UCPTrie>, start: Int, option: UCPMapRangeOption, surrogatevalue: UInt, filter: MutPtr<UCPMapValueFilter>, context: ConstPtr<CVoid>, pvalue: MutPtr<UInt>): Int =
+public actual fun ucptrieGetRange(trie: ConstPtr, start: Int, option: UCPMapRangeOption, surrogatevalue: UInt, filter: MutPtr, context: ConstPtr, pvalue: MutPtr): Int =
     windowssysWindowsWin32GlobalizationUcptrieGetRange(trie.rawAddress.toCPointer<ByteVar>(), start, option, surrogatevalue, filter.rawAddress.toCPointer<ByteVar>(), context.rawAddress.toCPointer<ByteVar>(), pvalue.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ucptrieGetType(trie: ConstPtr<UCPTrie>): UCPTrieType =
+public actual fun ucptrieGetType(trie: ConstPtr): UCPTrieType =
     windowssysWindowsWin32GlobalizationUcptrieGetType(trie.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ucptrieGetValueWidth(trie: ConstPtr<UCPTrie>): UCPTrieValueWidth =
+public actual fun ucptrieGetValueWidth(trie: ConstPtr): UCPTrieValueWidth =
     windowssysWindowsWin32GlobalizationUcptrieGetValueWidth(trie.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ucptrieInternalSmallIndex(trie: ConstPtr<UCPTrie>, c: Int): Int =
+public actual fun ucptrieInternalSmallIndex(trie: ConstPtr, c: Int): Int =
     windowssysWindowsWin32GlobalizationUcptrieInternalSmallIndex(trie.rawAddress.toCPointer<ByteVar>(), c)
 
-public actual fun ucptrieInternalSmallU8Index(trie: ConstPtr<UCPTrie>, lt1: Int, t2: UByte, t3: UByte): Int =
+public actual fun ucptrieInternalSmallU8Index(trie: ConstPtr, lt1: Int, t2: UByte, t3: UByte): Int =
     windowssysWindowsWin32GlobalizationUcptrieInternalSmallU8Index(trie.rawAddress.toCPointer<ByteVar>(), lt1, t2, t3)
 
-public actual fun ucptrieInternalU8PrevIndex(trie: ConstPtr<UCPTrie>, c: Int, start: ConstPtr<UByte>, src: ConstPtr<UByte>): Int =
+public actual fun ucptrieInternalU8PrevIndex(trie: ConstPtr, c: Int, start: ConstPtr, src: ConstPtr): Int =
     windowssysWindowsWin32GlobalizationUcptrieInternalU8PrevIndex(trie.rawAddress.toCPointer<ByteVar>(), c, start.rawAddress.toCPointer<ByteVar>(), src.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ucptrieOpenFromBinary(type: UCPTrieType, valuewidth: UCPTrieValueWidth, data: ConstPtr<CVoid>, length: Int, pactuallength: MutPtr<Int>, perrorcode: MutPtr<UErrorCode>): MutPtr<UCPTrie> =
+public actual fun ucptrieOpenFromBinary(type: UCPTrieType, valuewidth: UCPTrieValueWidth, data: ConstPtr, length: Int, pactuallength: MutPtr, perrorcode: MutPtr): MutPtr =
     MutPtr(windowssysWindowsWin32GlobalizationUcptrieOpenFromBinary(type, valuewidth, data.rawAddress.toCPointer<ByteVar>(), length, pactuallength.rawAddress.toCPointer<ByteVar>(), perrorcode.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun ucptrieToBinary(trie: ConstPtr<UCPTrie>, data: MutPtr<CVoid>, capacity: Int, perrorcode: MutPtr<UErrorCode>): Int =
+public actual fun ucptrieToBinary(trie: ConstPtr, data: MutPtr, capacity: Int, perrorcode: MutPtr): Int =
     windowssysWindowsWin32GlobalizationUcptrieToBinary(trie.rawAddress.toCPointer<ByteVar>(), data.rawAddress.toCPointer<ByteVar>(), capacity, perrorcode.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ucsdetClose(ucsd: MutPtr<UCharsetDetector>) {
+public actual fun ucsdetClose(ucsd: MutPtr) {
     windowssysWindowsWin32GlobalizationUcsdetClose(ucsd.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun ucsdetDetect(ucsd: MutPtr<UCharsetDetector>, status: MutPtr<UErrorCode>): MutPtr<UCharsetMatch> =
+public actual fun ucsdetDetect(ucsd: MutPtr, status: MutPtr): MutPtr =
     MutPtr(windowssysWindowsWin32GlobalizationUcsdetDetect(ucsd.rawAddress.toCPointer<ByteVar>(), status.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun ucsdetDetectAll(ucsd: MutPtr<UCharsetDetector>, matchesfound: MutPtr<Int>, status: MutPtr<UErrorCode>): MutPtr<MutPtr<UCharsetMatch>> =
+public actual fun ucsdetDetectAll(ucsd: MutPtr, matchesfound: MutPtr, status: MutPtr): MutPtr =
     MutPtr(windowssysWindowsWin32GlobalizationUcsdetDetectAll(ucsd.rawAddress.toCPointer<ByteVar>(), matchesfound.rawAddress.toCPointer<ByteVar>(), status.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun ucsdetEnableInputFilter(ucsd: MutPtr<UCharsetDetector>, filter: Byte): Byte =
+public actual fun ucsdetEnableInputFilter(ucsd: MutPtr, filter: Byte): Byte =
     windowssysWindowsWin32GlobalizationUcsdetEnableInputFilter(ucsd.rawAddress.toCPointer<ByteVar>(), filter)
 
-public actual fun ucsdetGetAllDetectableCharsets(ucsd: ConstPtr<UCharsetDetector>, status: MutPtr<UErrorCode>): MutPtr<UEnumeration> =
+public actual fun ucsdetGetAllDetectableCharsets(ucsd: ConstPtr, status: MutPtr): MutPtr =
     MutPtr(windowssysWindowsWin32GlobalizationUcsdetGetAllDetectableCharsets(ucsd.rawAddress.toCPointer<ByteVar>(), status.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun ucsdetGetConfidence(ucsm: ConstPtr<UCharsetMatch>, status: MutPtr<UErrorCode>): Int =
+public actual fun ucsdetGetConfidence(ucsm: ConstPtr, status: MutPtr): Int =
     windowssysWindowsWin32GlobalizationUcsdetGetConfidence(ucsm.rawAddress.toCPointer<ByteVar>(), status.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ucsdetGetLanguage(ucsm: ConstPtr<UCharsetMatch>, status: MutPtr<UErrorCode>): Pcstr =
+public actual fun ucsdetGetLanguage(ucsm: ConstPtr, status: MutPtr): Pcstr =
     ConstPtr(windowssysWindowsWin32GlobalizationUcsdetGetLanguage(ucsm.rawAddress.toCPointer<ByteVar>(), status.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun ucsdetGetName(ucsm: ConstPtr<UCharsetMatch>, status: MutPtr<UErrorCode>): Pcstr =
+public actual fun ucsdetGetName(ucsm: ConstPtr, status: MutPtr): Pcstr =
     ConstPtr(windowssysWindowsWin32GlobalizationUcsdetGetName(ucsm.rawAddress.toCPointer<ByteVar>(), status.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun ucsdetGetUchars(ucsm: ConstPtr<UCharsetMatch>, buf: MutPtr<UShort>, cap: Int, status: MutPtr<UErrorCode>): Int =
+public actual fun ucsdetGetUchars(ucsm: ConstPtr, buf: MutPtr, cap: Int, status: MutPtr): Int =
     windowssysWindowsWin32GlobalizationUcsdetGetUchars(ucsm.rawAddress.toCPointer<ByteVar>(), buf.rawAddress.toCPointer<ByteVar>(), cap, status.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ucsdetIsInputFilterEnabled(ucsd: ConstPtr<UCharsetDetector>): Byte =
+public actual fun ucsdetIsInputFilterEnabled(ucsd: ConstPtr): Byte =
     windowssysWindowsWin32GlobalizationUcsdetIsInputFilterEnabled(ucsd.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ucsdetOpen(status: MutPtr<UErrorCode>): MutPtr<UCharsetDetector> =
+public actual fun ucsdetOpen(status: MutPtr): MutPtr =
     MutPtr(windowssysWindowsWin32GlobalizationUcsdetOpen(status.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun ucsdetSetDeclaredEncoding(ucsd: MutPtr<UCharsetDetector>, encoding: Pcstr, length: Int, status: MutPtr<UErrorCode>) {
+public actual fun ucsdetSetDeclaredEncoding(ucsd: MutPtr, encoding: Pcstr, length: Int, status: MutPtr) {
     windowssysWindowsWin32GlobalizationUcsdetSetDeclaredEncoding(ucsd.rawAddress.toCPointer<ByteVar>(), encoding.rawAddress.toCPointer<ByteVar>(), length, status.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun ucsdetSetText(ucsd: MutPtr<UCharsetDetector>, textin: Pcstr, len: Int, status: MutPtr<UErrorCode>) {
+public actual fun ucsdetSetText(ucsd: MutPtr, textin: Pcstr, len: Int, status: MutPtr) {
     windowssysWindowsWin32GlobalizationUcsdetSetText(ucsd.rawAddress.toCPointer<ByteVar>(), textin.rawAddress.toCPointer<ByteVar>(), len, status.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun ucurrCountCurrencies(locale: Pcstr, date: Double, ec: MutPtr<UErrorCode>): Int =
+public actual fun ucurrCountCurrencies(locale: Pcstr, date: Double, ec: MutPtr): Int =
     windowssysWindowsWin32GlobalizationUcurrCountCurrencies(locale.rawAddress.toCPointer<ByteVar>(), date, ec.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ucurrForLocale(locale: Pcstr, buff: MutPtr<UShort>, buffcapacity: Int, ec: MutPtr<UErrorCode>): Int =
+public actual fun ucurrForLocale(locale: Pcstr, buff: MutPtr, buffcapacity: Int, ec: MutPtr): Int =
     windowssysWindowsWin32GlobalizationUcurrForLocale(locale.rawAddress.toCPointer<ByteVar>(), buff.rawAddress.toCPointer<ByteVar>(), buffcapacity, ec.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ucurrForLocaleAndDate(locale: Pcstr, date: Double, index: Int, buff: MutPtr<UShort>, buffcapacity: Int, ec: MutPtr<UErrorCode>): Int =
+public actual fun ucurrForLocaleAndDate(locale: Pcstr, date: Double, index: Int, buff: MutPtr, buffcapacity: Int, ec: MutPtr): Int =
     windowssysWindowsWin32GlobalizationUcurrForLocaleAndDate(locale.rawAddress.toCPointer<ByteVar>(), date, index, buff.rawAddress.toCPointer<ByteVar>(), buffcapacity, ec.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ucurrGetDefaultFractionDigits(currency: ConstPtr<UShort>, ec: MutPtr<UErrorCode>): Int =
+public actual fun ucurrGetDefaultFractionDigits(currency: ConstPtr, ec: MutPtr): Int =
     windowssysWindowsWin32GlobalizationUcurrGetDefaultFractionDigits(currency.rawAddress.toCPointer<ByteVar>(), ec.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ucurrGetDefaultFractionDigitsForUsage(currency: ConstPtr<UShort>, usage: UCurrencyUsage, ec: MutPtr<UErrorCode>): Int =
+public actual fun ucurrGetDefaultFractionDigitsForUsage(currency: ConstPtr, usage: UCurrencyUsage, ec: MutPtr): Int =
     windowssysWindowsWin32GlobalizationUcurrGetDefaultFractionDigitsForUsage(currency.rawAddress.toCPointer<ByteVar>(), usage, ec.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ucurrGetKeywordValuesForLocale(key: Pcstr, locale: Pcstr, commonlyused: Byte, status: MutPtr<UErrorCode>): MutPtr<UEnumeration> =
+public actual fun ucurrGetKeywordValuesForLocale(key: Pcstr, locale: Pcstr, commonlyused: Byte, status: MutPtr): MutPtr =
     MutPtr(windowssysWindowsWin32GlobalizationUcurrGetKeywordValuesForLocale(key.rawAddress.toCPointer<ByteVar>(), locale.rawAddress.toCPointer<ByteVar>(), commonlyused, status.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun ucurrGetName(currency: ConstPtr<UShort>, locale: Pcstr, namestyle: UCurrNameStyle, ischoiceformat: MutPtr<Byte>, len: MutPtr<Int>, ec: MutPtr<UErrorCode>): MutPtr<UShort> =
+public actual fun ucurrGetName(currency: ConstPtr, locale: Pcstr, namestyle: UCurrNameStyle, ischoiceformat: MutPtr, len: MutPtr, ec: MutPtr): MutPtr =
     MutPtr(windowssysWindowsWin32GlobalizationUcurrGetName(currency.rawAddress.toCPointer<ByteVar>(), locale.rawAddress.toCPointer<ByteVar>(), namestyle, ischoiceformat.rawAddress.toCPointer<ByteVar>(), len.rawAddress.toCPointer<ByteVar>(), ec.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun ucurrGetNumericCode(currency: ConstPtr<UShort>): Int =
+public actual fun ucurrGetNumericCode(currency: ConstPtr): Int =
     windowssysWindowsWin32GlobalizationUcurrGetNumericCode(currency.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ucurrGetPluralName(currency: ConstPtr<UShort>, locale: Pcstr, ischoiceformat: MutPtr<Byte>, pluralcount: Pcstr, len: MutPtr<Int>, ec: MutPtr<UErrorCode>): MutPtr<UShort> =
+public actual fun ucurrGetPluralName(currency: ConstPtr, locale: Pcstr, ischoiceformat: MutPtr, pluralcount: Pcstr, len: MutPtr, ec: MutPtr): MutPtr =
     MutPtr(windowssysWindowsWin32GlobalizationUcurrGetPluralName(currency.rawAddress.toCPointer<ByteVar>(), locale.rawAddress.toCPointer<ByteVar>(), ischoiceformat.rawAddress.toCPointer<ByteVar>(), pluralcount.rawAddress.toCPointer<ByteVar>(), len.rawAddress.toCPointer<ByteVar>(), ec.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun ucurrGetRoundingIncrement(currency: ConstPtr<UShort>, ec: MutPtr<UErrorCode>): Double =
+public actual fun ucurrGetRoundingIncrement(currency: ConstPtr, ec: MutPtr): Double =
     windowssysWindowsWin32GlobalizationUcurrGetRoundingIncrement(currency.rawAddress.toCPointer<ByteVar>(), ec.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ucurrGetRoundingIncrementForUsage(currency: ConstPtr<UShort>, usage: UCurrencyUsage, ec: MutPtr<UErrorCode>): Double =
+public actual fun ucurrGetRoundingIncrementForUsage(currency: ConstPtr, usage: UCurrencyUsage, ec: MutPtr): Double =
     windowssysWindowsWin32GlobalizationUcurrGetRoundingIncrementForUsage(currency.rawAddress.toCPointer<ByteVar>(), usage, ec.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ucurrIsAvailable(isocode: ConstPtr<UShort>, from: Double, to: Double, errorcode: MutPtr<UErrorCode>): Byte =
+public actual fun ucurrIsAvailable(isocode: ConstPtr, from: Double, to: Double, errorcode: MutPtr): Byte =
     windowssysWindowsWin32GlobalizationUcurrIsAvailable(isocode.rawAddress.toCPointer<ByteVar>(), from, to, errorcode.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ucurrOpenIsocurrencies(currtype: UInt, perrorcode: MutPtr<UErrorCode>): MutPtr<UEnumeration> =
+public actual fun ucurrOpenIsocurrencies(currtype: UInt, perrorcode: MutPtr): MutPtr =
     MutPtr(windowssysWindowsWin32GlobalizationUcurrOpenIsocurrencies(currtype, perrorcode.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun ucurrRegister(isocode: ConstPtr<UShort>, locale: Pcstr, status: MutPtr<UErrorCode>): MutPtr<CVoid> =
+public actual fun ucurrRegister(isocode: ConstPtr, locale: Pcstr, status: MutPtr): MutPtr =
     MutPtr(windowssysWindowsWin32GlobalizationUcurrRegister(isocode.rawAddress.toCPointer<ByteVar>(), locale.rawAddress.toCPointer<ByteVar>(), status.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun ucurrUnregister(key: MutPtr<CVoid>, status: MutPtr<UErrorCode>): Byte =
+public actual fun ucurrUnregister(key: MutPtr, status: MutPtr): Byte =
     windowssysWindowsWin32GlobalizationUcurrUnregister(key.rawAddress.toCPointer<ByteVar>(), status.rawAddress.toCPointer<ByteVar>())
 
-public actual fun udatAdoptNumberFormat(fmt: MutPtr<MutPtr<CVoid>>, numberformattoadopt: MutPtr<MutPtr<CVoid>>) {
+public actual fun udatAdoptNumberFormat(fmt: MutPtr, numberformattoadopt: MutPtr) {
     windowssysWindowsWin32GlobalizationUdatAdoptNumberFormat(fmt.rawAddress.toCPointer<ByteVar>(), numberformattoadopt.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun udatAdoptNumberFormatForFields(fmt: MutPtr<MutPtr<CVoid>>, fields: ConstPtr<UShort>, numberformattoset: MutPtr<MutPtr<CVoid>>, status: MutPtr<UErrorCode>) {
+public actual fun udatAdoptNumberFormatForFields(fmt: MutPtr, fields: ConstPtr, numberformattoset: MutPtr, status: MutPtr) {
     windowssysWindowsWin32GlobalizationUdatAdoptNumberFormatForFields(fmt.rawAddress.toCPointer<ByteVar>(), fields.rawAddress.toCPointer<ByteVar>(), numberformattoset.rawAddress.toCPointer<ByteVar>(), status.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun udatApplyPattern(format: MutPtr<MutPtr<CVoid>>, localized: Byte, pattern: ConstPtr<UShort>, patternlength: Int) {
+public actual fun udatApplyPattern(format: MutPtr, localized: Byte, pattern: ConstPtr, patternlength: Int) {
     windowssysWindowsWin32GlobalizationUdatApplyPattern(format.rawAddress.toCPointer<ByteVar>(), localized, pattern.rawAddress.toCPointer<ByteVar>(), patternlength)
 }
 
-public actual fun udatClone(fmt: ConstPtr<ConstPtr<CVoid>>, status: MutPtr<UErrorCode>): MutPtr<MutPtr<CVoid>> =
+public actual fun udatClone(fmt: ConstPtr, status: MutPtr): MutPtr =
     MutPtr(windowssysWindowsWin32GlobalizationUdatClone(fmt.rawAddress.toCPointer<ByteVar>(), status.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun udatClose(format: MutPtr<MutPtr<CVoid>>) {
+public actual fun udatClose(format: MutPtr) {
     windowssysWindowsWin32GlobalizationUdatClose(format.rawAddress.toCPointer<ByteVar>())
 }
 
 public actual fun udatCountAvailable(): Int =
     windowssysWindowsWin32GlobalizationUdatCountAvailable()
 
-public actual fun udatCountSymbols(fmt: ConstPtr<ConstPtr<CVoid>>, type: UDateFormatSymbolType): Int =
+public actual fun udatCountSymbols(fmt: ConstPtr, type: UDateFormatSymbolType): Int =
     windowssysWindowsWin32GlobalizationUdatCountSymbols(fmt.rawAddress.toCPointer<ByteVar>(), type)
 
-public actual fun udatFormat(format: ConstPtr<ConstPtr<CVoid>>, datetoformat: Double, result: MutPtr<UShort>, resultlength: Int, position: MutPtr<UFieldPosition>, status: MutPtr<UErrorCode>): Int =
+public actual fun udatFormat(format: ConstPtr, datetoformat: Double, result: MutPtr, resultlength: Int, position: MutPtr, status: MutPtr): Int =
     windowssysWindowsWin32GlobalizationUdatFormat(format.rawAddress.toCPointer<ByteVar>(), datetoformat, result.rawAddress.toCPointer<ByteVar>(), resultlength, position.rawAddress.toCPointer<ByteVar>(), status.rawAddress.toCPointer<ByteVar>())
 
-public actual fun udatFormatCalendar(format: ConstPtr<ConstPtr<CVoid>>, calendar: MutPtr<MutPtr<CVoid>>, result: MutPtr<UShort>, capacity: Int, position: MutPtr<UFieldPosition>, status: MutPtr<UErrorCode>): Int =
+public actual fun udatFormatCalendar(format: ConstPtr, calendar: MutPtr, result: MutPtr, capacity: Int, position: MutPtr, status: MutPtr): Int =
     windowssysWindowsWin32GlobalizationUdatFormatCalendar(format.rawAddress.toCPointer<ByteVar>(), calendar.rawAddress.toCPointer<ByteVar>(), result.rawAddress.toCPointer<ByteVar>(), capacity, position.rawAddress.toCPointer<ByteVar>(), status.rawAddress.toCPointer<ByteVar>())
 
-public actual fun udatFormatCalendarForFields(format: ConstPtr<ConstPtr<CVoid>>, calendar: MutPtr<MutPtr<CVoid>>, result: MutPtr<UShort>, capacity: Int, fpositer: MutPtr<UFieldPositionIterator>, status: MutPtr<UErrorCode>): Int =
+public actual fun udatFormatCalendarForFields(format: ConstPtr, calendar: MutPtr, result: MutPtr, capacity: Int, fpositer: MutPtr, status: MutPtr): Int =
     windowssysWindowsWin32GlobalizationUdatFormatCalendarForFields(format.rawAddress.toCPointer<ByteVar>(), calendar.rawAddress.toCPointer<ByteVar>(), result.rawAddress.toCPointer<ByteVar>(), capacity, fpositer.rawAddress.toCPointer<ByteVar>(), status.rawAddress.toCPointer<ByteVar>())
 
-public actual fun udatFormatForFields(format: ConstPtr<ConstPtr<CVoid>>, datetoformat: Double, result: MutPtr<UShort>, resultlength: Int, fpositer: MutPtr<UFieldPositionIterator>, status: MutPtr<UErrorCode>): Int =
+public actual fun udatFormatForFields(format: ConstPtr, datetoformat: Double, result: MutPtr, resultlength: Int, fpositer: MutPtr, status: MutPtr): Int =
     windowssysWindowsWin32GlobalizationUdatFormatForFields(format.rawAddress.toCPointer<ByteVar>(), datetoformat, result.rawAddress.toCPointer<ByteVar>(), resultlength, fpositer.rawAddress.toCPointer<ByteVar>(), status.rawAddress.toCPointer<ByteVar>())
 
-public actual fun udatGet2DigitYearStart(fmt: ConstPtr<ConstPtr<CVoid>>, status: MutPtr<UErrorCode>): Double =
+public actual fun udatGet2DigitYearStart(fmt: ConstPtr, status: MutPtr): Double =
     windowssysWindowsWin32GlobalizationUdatGet2DigitYearStart(fmt.rawAddress.toCPointer<ByteVar>(), status.rawAddress.toCPointer<ByteVar>())
 
 public actual fun udatGetAvailable(localeindex: Int): Pcstr =
     ConstPtr(windowssysWindowsWin32GlobalizationUdatGetAvailable(localeindex)?.toLong() ?: 0L)
 
-public actual fun udatGetBooleanAttribute(fmt: ConstPtr<ConstPtr<CVoid>>, attr: UDateFormatBooleanAttribute, status: MutPtr<UErrorCode>): Byte =
+public actual fun udatGetBooleanAttribute(fmt: ConstPtr, attr: UDateFormatBooleanAttribute, status: MutPtr): Byte =
     windowssysWindowsWin32GlobalizationUdatGetBooleanAttribute(fmt.rawAddress.toCPointer<ByteVar>(), attr, status.rawAddress.toCPointer<ByteVar>())
 
-public actual fun udatGetCalendar(fmt: ConstPtr<ConstPtr<CVoid>>): MutPtr<MutPtr<CVoid>> =
+public actual fun udatGetCalendar(fmt: ConstPtr): MutPtr =
     MutPtr(windowssysWindowsWin32GlobalizationUdatGetCalendar(fmt.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun udatGetContext(fmt: ConstPtr<ConstPtr<CVoid>>, type: UDisplayContextType, status: MutPtr<UErrorCode>): UDisplayContext =
+public actual fun udatGetContext(fmt: ConstPtr, type: UDisplayContextType, status: MutPtr): UDisplayContext =
     windowssysWindowsWin32GlobalizationUdatGetContext(fmt.rawAddress.toCPointer<ByteVar>(), type, status.rawAddress.toCPointer<ByteVar>())
 
-public actual fun udatGetLocaleByType(fmt: ConstPtr<ConstPtr<CVoid>>, type: ULocDataLocaleType, status: MutPtr<UErrorCode>): Pcstr =
+public actual fun udatGetLocaleByType(fmt: ConstPtr, type: ULocDataLocaleType, status: MutPtr): Pcstr =
     ConstPtr(windowssysWindowsWin32GlobalizationUdatGetLocaleByType(fmt.rawAddress.toCPointer<ByteVar>(), type, status.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun udatGetNumberFormat(fmt: ConstPtr<ConstPtr<CVoid>>): MutPtr<MutPtr<CVoid>> =
+public actual fun udatGetNumberFormat(fmt: ConstPtr): MutPtr =
     MutPtr(windowssysWindowsWin32GlobalizationUdatGetNumberFormat(fmt.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun udatGetNumberFormatForField(fmt: ConstPtr<ConstPtr<CVoid>>, field: UShort): MutPtr<MutPtr<CVoid>> =
+public actual fun udatGetNumberFormatForField(fmt: ConstPtr, field: UShort): MutPtr =
     MutPtr(windowssysWindowsWin32GlobalizationUdatGetNumberFormatForField(fmt.rawAddress.toCPointer<ByteVar>(), field)?.toLong() ?: 0L)
 
-public actual fun udatGetSymbols(fmt: ConstPtr<ConstPtr<CVoid>>, type: UDateFormatSymbolType, symbolindex: Int, result: MutPtr<UShort>, resultlength: Int, status: MutPtr<UErrorCode>): Int =
+public actual fun udatGetSymbols(fmt: ConstPtr, type: UDateFormatSymbolType, symbolindex: Int, result: MutPtr, resultlength: Int, status: MutPtr): Int =
     windowssysWindowsWin32GlobalizationUdatGetSymbols(fmt.rawAddress.toCPointer<ByteVar>(), type, symbolindex, result.rawAddress.toCPointer<ByteVar>(), resultlength, status.rawAddress.toCPointer<ByteVar>())
 
-public actual fun udatIsLenient(fmt: ConstPtr<ConstPtr<CVoid>>): Byte =
+public actual fun udatIsLenient(fmt: ConstPtr): Byte =
     windowssysWindowsWin32GlobalizationUdatIsLenient(fmt.rawAddress.toCPointer<ByteVar>())
 
-public actual fun udatOpen(timestyle: UDateFormatStyle, datestyle: UDateFormatStyle, locale: Pcstr, tzid: ConstPtr<UShort>, tzidlength: Int, pattern: ConstPtr<UShort>, patternlength: Int, status: MutPtr<UErrorCode>): MutPtr<MutPtr<CVoid>> =
+public actual fun udatOpen(timestyle: UDateFormatStyle, datestyle: UDateFormatStyle, locale: Pcstr, tzid: ConstPtr, tzidlength: Int, pattern: ConstPtr, patternlength: Int, status: MutPtr): MutPtr =
     MutPtr(windowssysWindowsWin32GlobalizationUdatOpen(timestyle, datestyle, locale.rawAddress.toCPointer<ByteVar>(), tzid.rawAddress.toCPointer<ByteVar>(), tzidlength, pattern.rawAddress.toCPointer<ByteVar>(), patternlength, status.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun udatParse(format: ConstPtr<ConstPtr<CVoid>>, text: ConstPtr<UShort>, textlength: Int, parsepos: MutPtr<Int>, status: MutPtr<UErrorCode>): Double =
+public actual fun udatParse(format: ConstPtr, text: ConstPtr, textlength: Int, parsepos: MutPtr, status: MutPtr): Double =
     windowssysWindowsWin32GlobalizationUdatParse(format.rawAddress.toCPointer<ByteVar>(), text.rawAddress.toCPointer<ByteVar>(), textlength, parsepos.rawAddress.toCPointer<ByteVar>(), status.rawAddress.toCPointer<ByteVar>())
 
-public actual fun udatParseCalendar(format: ConstPtr<ConstPtr<CVoid>>, calendar: MutPtr<MutPtr<CVoid>>, text: ConstPtr<UShort>, textlength: Int, parsepos: MutPtr<Int>, status: MutPtr<UErrorCode>) {
+public actual fun udatParseCalendar(format: ConstPtr, calendar: MutPtr, text: ConstPtr, textlength: Int, parsepos: MutPtr, status: MutPtr) {
     windowssysWindowsWin32GlobalizationUdatParseCalendar(format.rawAddress.toCPointer<ByteVar>(), calendar.rawAddress.toCPointer<ByteVar>(), text.rawAddress.toCPointer<ByteVar>(), textlength, parsepos.rawAddress.toCPointer<ByteVar>(), status.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun udatSet2DigitYearStart(fmt: MutPtr<MutPtr<CVoid>>, d: Double, status: MutPtr<UErrorCode>) {
+public actual fun udatSet2DigitYearStart(fmt: MutPtr, d: Double, status: MutPtr) {
     windowssysWindowsWin32GlobalizationUdatSet2DigitYearStart(fmt.rawAddress.toCPointer<ByteVar>(), d, status.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun udatSetBooleanAttribute(fmt: MutPtr<MutPtr<CVoid>>, attr: UDateFormatBooleanAttribute, newvalue: Byte, status: MutPtr<UErrorCode>) {
+public actual fun udatSetBooleanAttribute(fmt: MutPtr, attr: UDateFormatBooleanAttribute, newvalue: Byte, status: MutPtr) {
     windowssysWindowsWin32GlobalizationUdatSetBooleanAttribute(fmt.rawAddress.toCPointer<ByteVar>(), attr, newvalue, status.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun udatSetCalendar(fmt: MutPtr<MutPtr<CVoid>>, calendartoset: ConstPtr<ConstPtr<CVoid>>) {
+public actual fun udatSetCalendar(fmt: MutPtr, calendartoset: ConstPtr) {
     windowssysWindowsWin32GlobalizationUdatSetCalendar(fmt.rawAddress.toCPointer<ByteVar>(), calendartoset.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun udatSetContext(fmt: MutPtr<MutPtr<CVoid>>, value: UDisplayContext, status: MutPtr<UErrorCode>) {
+public actual fun udatSetContext(fmt: MutPtr, value: UDisplayContext, status: MutPtr) {
     windowssysWindowsWin32GlobalizationUdatSetContext(fmt.rawAddress.toCPointer<ByteVar>(), value, status.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun udatSetLenient(fmt: MutPtr<MutPtr<CVoid>>, islenient: Byte) {
+public actual fun udatSetLenient(fmt: MutPtr, islenient: Byte) {
     windowssysWindowsWin32GlobalizationUdatSetLenient(fmt.rawAddress.toCPointer<ByteVar>(), islenient)
 }
 
-public actual fun udatSetNumberFormat(fmt: MutPtr<MutPtr<CVoid>>, numberformattoset: ConstPtr<ConstPtr<CVoid>>) {
+public actual fun udatSetNumberFormat(fmt: MutPtr, numberformattoset: ConstPtr) {
     windowssysWindowsWin32GlobalizationUdatSetNumberFormat(fmt.rawAddress.toCPointer<ByteVar>(), numberformattoset.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun udatSetSymbols(format: MutPtr<MutPtr<CVoid>>, type: UDateFormatSymbolType, symbolindex: Int, value: MutPtr<UShort>, valuelength: Int, status: MutPtr<UErrorCode>) {
+public actual fun udatSetSymbols(format: MutPtr, type: UDateFormatSymbolType, symbolindex: Int, value: MutPtr, valuelength: Int, status: MutPtr) {
     windowssysWindowsWin32GlobalizationUdatSetSymbols(format.rawAddress.toCPointer<ByteVar>(), type, symbolindex, value.rawAddress.toCPointer<ByteVar>(), valuelength, status.rawAddress.toCPointer<ByteVar>())
 }
 
 public actual fun udatToCalendarDateField(field: UDateFormatField): UCalendarDateFields =
     windowssysWindowsWin32GlobalizationUdatToCalendarDateField(field)
 
-public actual fun udatToPattern(fmt: ConstPtr<ConstPtr<CVoid>>, localized: Byte, result: MutPtr<UShort>, resultlength: Int, status: MutPtr<UErrorCode>): Int =
+public actual fun udatToPattern(fmt: ConstPtr, localized: Byte, result: MutPtr, resultlength: Int, status: MutPtr): Int =
     windowssysWindowsWin32GlobalizationUdatToPattern(fmt.rawAddress.toCPointer<ByteVar>(), localized, result.rawAddress.toCPointer<ByteVar>(), resultlength, status.rawAddress.toCPointer<ByteVar>())
 
-public actual fun udatpgAddPattern(dtpg: MutPtr<MutPtr<CVoid>>, pattern: ConstPtr<UShort>, patternlength: Int, override: Byte, conflictingpattern: MutPtr<UShort>, capacity: Int, plength: MutPtr<Int>, perrorcode: MutPtr<UErrorCode>): UDateTimePatternConflict =
+public actual fun udatpgAddPattern(dtpg: MutPtr, pattern: ConstPtr, patternlength: Int, override: Byte, conflictingpattern: MutPtr, capacity: Int, plength: MutPtr, perrorcode: MutPtr): UDateTimePatternConflict =
     windowssysWindowsWin32GlobalizationUdatpgAddPattern(dtpg.rawAddress.toCPointer<ByteVar>(), pattern.rawAddress.toCPointer<ByteVar>(), patternlength, override, conflictingpattern.rawAddress.toCPointer<ByteVar>(), capacity, plength.rawAddress.toCPointer<ByteVar>(), perrorcode.rawAddress.toCPointer<ByteVar>())
 
-public actual fun udatpgClone(dtpg: ConstPtr<ConstPtr<CVoid>>, perrorcode: MutPtr<UErrorCode>): MutPtr<MutPtr<CVoid>> =
+public actual fun udatpgClone(dtpg: ConstPtr, perrorcode: MutPtr): MutPtr =
     MutPtr(windowssysWindowsWin32GlobalizationUdatpgClone(dtpg.rawAddress.toCPointer<ByteVar>(), perrorcode.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun udatpgClose(dtpg: MutPtr<MutPtr<CVoid>>) {
+public actual fun udatpgClose(dtpg: MutPtr) {
     windowssysWindowsWin32GlobalizationUdatpgClose(dtpg.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun udatpgGetAppendItemFormat(dtpg: ConstPtr<ConstPtr<CVoid>>, field: UDateTimePatternField, plength: MutPtr<Int>): MutPtr<UShort> =
+public actual fun udatpgGetAppendItemFormat(dtpg: ConstPtr, field: UDateTimePatternField, plength: MutPtr): MutPtr =
     MutPtr(windowssysWindowsWin32GlobalizationUdatpgGetAppendItemFormat(dtpg.rawAddress.toCPointer<ByteVar>(), field, plength.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun udatpgGetAppendItemName(dtpg: ConstPtr<ConstPtr<CVoid>>, field: UDateTimePatternField, plength: MutPtr<Int>): MutPtr<UShort> =
+public actual fun udatpgGetAppendItemName(dtpg: ConstPtr, field: UDateTimePatternField, plength: MutPtr): MutPtr =
     MutPtr(windowssysWindowsWin32GlobalizationUdatpgGetAppendItemName(dtpg.rawAddress.toCPointer<ByteVar>(), field, plength.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun udatpgGetBaseSkeleton(unuseddtpg: MutPtr<MutPtr<CVoid>>, pattern: ConstPtr<UShort>, length: Int, baseskeleton: MutPtr<UShort>, capacity: Int, perrorcode: MutPtr<UErrorCode>): Int =
+public actual fun udatpgGetBaseSkeleton(unuseddtpg: MutPtr, pattern: ConstPtr, length: Int, baseskeleton: MutPtr, capacity: Int, perrorcode: MutPtr): Int =
     windowssysWindowsWin32GlobalizationUdatpgGetBaseSkeleton(unuseddtpg.rawAddress.toCPointer<ByteVar>(), pattern.rawAddress.toCPointer<ByteVar>(), length, baseskeleton.rawAddress.toCPointer<ByteVar>(), capacity, perrorcode.rawAddress.toCPointer<ByteVar>())
 
-public actual fun udatpgGetBestPattern(dtpg: MutPtr<MutPtr<CVoid>>, skeleton: ConstPtr<UShort>, length: Int, bestpattern: MutPtr<UShort>, capacity: Int, perrorcode: MutPtr<UErrorCode>): Int =
+public actual fun udatpgGetBestPattern(dtpg: MutPtr, skeleton: ConstPtr, length: Int, bestpattern: MutPtr, capacity: Int, perrorcode: MutPtr): Int =
     windowssysWindowsWin32GlobalizationUdatpgGetBestPattern(dtpg.rawAddress.toCPointer<ByteVar>(), skeleton.rawAddress.toCPointer<ByteVar>(), length, bestpattern.rawAddress.toCPointer<ByteVar>(), capacity, perrorcode.rawAddress.toCPointer<ByteVar>())
 
-public actual fun udatpgGetBestPatternWithOptions(dtpg: MutPtr<MutPtr<CVoid>>, skeleton: ConstPtr<UShort>, length: Int, options: UDateTimePatternMatchOptions, bestpattern: MutPtr<UShort>, capacity: Int, perrorcode: MutPtr<UErrorCode>): Int =
+public actual fun udatpgGetBestPatternWithOptions(dtpg: MutPtr, skeleton: ConstPtr, length: Int, options: UDateTimePatternMatchOptions, bestpattern: MutPtr, capacity: Int, perrorcode: MutPtr): Int =
     windowssysWindowsWin32GlobalizationUdatpgGetBestPatternWithOptions(dtpg.rawAddress.toCPointer<ByteVar>(), skeleton.rawAddress.toCPointer<ByteVar>(), length, options, bestpattern.rawAddress.toCPointer<ByteVar>(), capacity, perrorcode.rawAddress.toCPointer<ByteVar>())
 
-public actual fun udatpgGetDateTimeFormat(dtpg: ConstPtr<ConstPtr<CVoid>>, plength: MutPtr<Int>): MutPtr<UShort> =
+public actual fun udatpgGetDateTimeFormat(dtpg: ConstPtr, plength: MutPtr): MutPtr =
     MutPtr(windowssysWindowsWin32GlobalizationUdatpgGetDateTimeFormat(dtpg.rawAddress.toCPointer<ByteVar>(), plength.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun udatpgGetDecimal(dtpg: ConstPtr<ConstPtr<CVoid>>, plength: MutPtr<Int>): MutPtr<UShort> =
+public actual fun udatpgGetDecimal(dtpg: ConstPtr, plength: MutPtr): MutPtr =
     MutPtr(windowssysWindowsWin32GlobalizationUdatpgGetDecimal(dtpg.rawAddress.toCPointer<ByteVar>(), plength.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun udatpgGetFieldDisplayName(dtpg: ConstPtr<ConstPtr<CVoid>>, field: UDateTimePatternField, width: UDateTimePGDisplayWidth, fieldname: MutPtr<UShort>, capacity: Int, perrorcode: MutPtr<UErrorCode>): Int =
+public actual fun udatpgGetFieldDisplayName(dtpg: ConstPtr, field: UDateTimePatternField, width: UDateTimePGDisplayWidth, fieldname: MutPtr, capacity: Int, perrorcode: MutPtr): Int =
     windowssysWindowsWin32GlobalizationUdatpgGetFieldDisplayName(dtpg.rawAddress.toCPointer<ByteVar>(), field, width, fieldname.rawAddress.toCPointer<ByteVar>(), capacity, perrorcode.rawAddress.toCPointer<ByteVar>())
 
-public actual fun udatpgGetPatternForSkeleton(dtpg: ConstPtr<ConstPtr<CVoid>>, skeleton: ConstPtr<UShort>, skeletonlength: Int, plength: MutPtr<Int>): MutPtr<UShort> =
+public actual fun udatpgGetPatternForSkeleton(dtpg: ConstPtr, skeleton: ConstPtr, skeletonlength: Int, plength: MutPtr): MutPtr =
     MutPtr(windowssysWindowsWin32GlobalizationUdatpgGetPatternForSkeleton(dtpg.rawAddress.toCPointer<ByteVar>(), skeleton.rawAddress.toCPointer<ByteVar>(), skeletonlength, plength.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun udatpgGetSkeleton(unuseddtpg: MutPtr<MutPtr<CVoid>>, pattern: ConstPtr<UShort>, length: Int, skeleton: MutPtr<UShort>, capacity: Int, perrorcode: MutPtr<UErrorCode>): Int =
+public actual fun udatpgGetSkeleton(unuseddtpg: MutPtr, pattern: ConstPtr, length: Int, skeleton: MutPtr, capacity: Int, perrorcode: MutPtr): Int =
     windowssysWindowsWin32GlobalizationUdatpgGetSkeleton(unuseddtpg.rawAddress.toCPointer<ByteVar>(), pattern.rawAddress.toCPointer<ByteVar>(), length, skeleton.rawAddress.toCPointer<ByteVar>(), capacity, perrorcode.rawAddress.toCPointer<ByteVar>())
 
-public actual fun udatpgOpen(locale: Pcstr, perrorcode: MutPtr<UErrorCode>): MutPtr<MutPtr<CVoid>> =
+public actual fun udatpgOpen(locale: Pcstr, perrorcode: MutPtr): MutPtr =
     MutPtr(windowssysWindowsWin32GlobalizationUdatpgOpen(locale.rawAddress.toCPointer<ByteVar>(), perrorcode.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun udatpgOpenBaseSkeletons(dtpg: ConstPtr<ConstPtr<CVoid>>, perrorcode: MutPtr<UErrorCode>): MutPtr<UEnumeration> =
+public actual fun udatpgOpenBaseSkeletons(dtpg: ConstPtr, perrorcode: MutPtr): MutPtr =
     MutPtr(windowssysWindowsWin32GlobalizationUdatpgOpenBaseSkeletons(dtpg.rawAddress.toCPointer<ByteVar>(), perrorcode.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun udatpgOpenEmpty(perrorcode: MutPtr<UErrorCode>): MutPtr<MutPtr<CVoid>> =
+public actual fun udatpgOpenEmpty(perrorcode: MutPtr): MutPtr =
     MutPtr(windowssysWindowsWin32GlobalizationUdatpgOpenEmpty(perrorcode.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun udatpgOpenSkeletons(dtpg: ConstPtr<ConstPtr<CVoid>>, perrorcode: MutPtr<UErrorCode>): MutPtr<UEnumeration> =
+public actual fun udatpgOpenSkeletons(dtpg: ConstPtr, perrorcode: MutPtr): MutPtr =
     MutPtr(windowssysWindowsWin32GlobalizationUdatpgOpenSkeletons(dtpg.rawAddress.toCPointer<ByteVar>(), perrorcode.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun udatpgReplaceFieldTypes(dtpg: MutPtr<MutPtr<CVoid>>, pattern: ConstPtr<UShort>, patternlength: Int, skeleton: ConstPtr<UShort>, skeletonlength: Int, dest: MutPtr<UShort>, destcapacity: Int, perrorcode: MutPtr<UErrorCode>): Int =
+public actual fun udatpgReplaceFieldTypes(dtpg: MutPtr, pattern: ConstPtr, patternlength: Int, skeleton: ConstPtr, skeletonlength: Int, dest: MutPtr, destcapacity: Int, perrorcode: MutPtr): Int =
     windowssysWindowsWin32GlobalizationUdatpgReplaceFieldTypes(dtpg.rawAddress.toCPointer<ByteVar>(), pattern.rawAddress.toCPointer<ByteVar>(), patternlength, skeleton.rawAddress.toCPointer<ByteVar>(), skeletonlength, dest.rawAddress.toCPointer<ByteVar>(), destcapacity, perrorcode.rawAddress.toCPointer<ByteVar>())
 
-public actual fun udatpgReplaceFieldTypesWithOptions(dtpg: MutPtr<MutPtr<CVoid>>, pattern: ConstPtr<UShort>, patternlength: Int, skeleton: ConstPtr<UShort>, skeletonlength: Int, options: UDateTimePatternMatchOptions, dest: MutPtr<UShort>, destcapacity: Int, perrorcode: MutPtr<UErrorCode>): Int =
+public actual fun udatpgReplaceFieldTypesWithOptions(dtpg: MutPtr, pattern: ConstPtr, patternlength: Int, skeleton: ConstPtr, skeletonlength: Int, options: UDateTimePatternMatchOptions, dest: MutPtr, destcapacity: Int, perrorcode: MutPtr): Int =
     windowssysWindowsWin32GlobalizationUdatpgReplaceFieldTypesWithOptions(dtpg.rawAddress.toCPointer<ByteVar>(), pattern.rawAddress.toCPointer<ByteVar>(), patternlength, skeleton.rawAddress.toCPointer<ByteVar>(), skeletonlength, options, dest.rawAddress.toCPointer<ByteVar>(), destcapacity, perrorcode.rawAddress.toCPointer<ByteVar>())
 
-public actual fun udatpgSetAppendItemFormat(dtpg: MutPtr<MutPtr<CVoid>>, field: UDateTimePatternField, value: ConstPtr<UShort>, length: Int) {
+public actual fun udatpgSetAppendItemFormat(dtpg: MutPtr, field: UDateTimePatternField, value: ConstPtr, length: Int) {
     windowssysWindowsWin32GlobalizationUdatpgSetAppendItemFormat(dtpg.rawAddress.toCPointer<ByteVar>(), field, value.rawAddress.toCPointer<ByteVar>(), length)
 }
 
-public actual fun udatpgSetAppendItemName(dtpg: MutPtr<MutPtr<CVoid>>, field: UDateTimePatternField, value: ConstPtr<UShort>, length: Int) {
+public actual fun udatpgSetAppendItemName(dtpg: MutPtr, field: UDateTimePatternField, value: ConstPtr, length: Int) {
     windowssysWindowsWin32GlobalizationUdatpgSetAppendItemName(dtpg.rawAddress.toCPointer<ByteVar>(), field, value.rawAddress.toCPointer<ByteVar>(), length)
 }
 
-public actual fun udatpgSetDateTimeFormat(dtpg: ConstPtr<ConstPtr<CVoid>>, dtformat: ConstPtr<UShort>, length: Int) {
+public actual fun udatpgSetDateTimeFormat(dtpg: ConstPtr, dtformat: ConstPtr, length: Int) {
     windowssysWindowsWin32GlobalizationUdatpgSetDateTimeFormat(dtpg.rawAddress.toCPointer<ByteVar>(), dtformat.rawAddress.toCPointer<ByteVar>(), length)
 }
 
-public actual fun udatpgSetDecimal(dtpg: MutPtr<MutPtr<CVoid>>, decimal: ConstPtr<UShort>, length: Int) {
+public actual fun udatpgSetDecimal(dtpg: MutPtr, decimal: ConstPtr, length: Int) {
     windowssysWindowsWin32GlobalizationUdatpgSetDecimal(dtpg.rawAddress.toCPointer<ByteVar>(), decimal.rawAddress.toCPointer<ByteVar>(), length)
 }
 
-public actual fun udtitvfmtClose(formatter: MutPtr<UDateIntervalFormat>) {
+public actual fun udtitvfmtClose(formatter: MutPtr) {
     windowssysWindowsWin32GlobalizationUdtitvfmtClose(formatter.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun udtitvfmtCloseResult(uresult: MutPtr<UFormattedDateInterval>) {
+public actual fun udtitvfmtCloseResult(uresult: MutPtr) {
     windowssysWindowsWin32GlobalizationUdtitvfmtCloseResult(uresult.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun udtitvfmtFormat(formatter: ConstPtr<UDateIntervalFormat>, fromdate: Double, todate: Double, result: MutPtr<UShort>, resultcapacity: Int, position: MutPtr<UFieldPosition>, status: MutPtr<UErrorCode>): Int =
+public actual fun udtitvfmtFormat(formatter: ConstPtr, fromdate: Double, todate: Double, result: MutPtr, resultcapacity: Int, position: MutPtr, status: MutPtr): Int =
     windowssysWindowsWin32GlobalizationUdtitvfmtFormat(formatter.rawAddress.toCPointer<ByteVar>(), fromdate, todate, result.rawAddress.toCPointer<ByteVar>(), resultcapacity, position.rawAddress.toCPointer<ByteVar>(), status.rawAddress.toCPointer<ByteVar>())
 
-public actual fun udtitvfmtOpen(locale: Pcstr, skeleton: ConstPtr<UShort>, skeletonlength: Int, tzid: ConstPtr<UShort>, tzidlength: Int, status: MutPtr<UErrorCode>): MutPtr<UDateIntervalFormat> =
+public actual fun udtitvfmtOpen(locale: Pcstr, skeleton: ConstPtr, skeletonlength: Int, tzid: ConstPtr, tzidlength: Int, status: MutPtr): MutPtr =
     MutPtr(windowssysWindowsWin32GlobalizationUdtitvfmtOpen(locale.rawAddress.toCPointer<ByteVar>(), skeleton.rawAddress.toCPointer<ByteVar>(), skeletonlength, tzid.rawAddress.toCPointer<ByteVar>(), tzidlength, status.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun udtitvfmtOpenResult(ec: MutPtr<UErrorCode>): MutPtr<UFormattedDateInterval> =
+public actual fun udtitvfmtOpenResult(ec: MutPtr): MutPtr =
     MutPtr(windowssysWindowsWin32GlobalizationUdtitvfmtOpenResult(ec.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun udtitvfmtResultAsValue(uresult: ConstPtr<UFormattedDateInterval>, ec: MutPtr<UErrorCode>): MutPtr<UFormattedValue> =
+public actual fun udtitvfmtResultAsValue(uresult: ConstPtr, ec: MutPtr): MutPtr =
     MutPtr(windowssysWindowsWin32GlobalizationUdtitvfmtResultAsValue(uresult.rawAddress.toCPointer<ByteVar>(), ec.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun uenumClose(en: MutPtr<UEnumeration>) {
+public actual fun uenumClose(en: MutPtr) {
     windowssysWindowsWin32GlobalizationUenumClose(en.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun uenumCount(en: MutPtr<UEnumeration>, status: MutPtr<UErrorCode>): Int =
+public actual fun uenumCount(en: MutPtr, status: MutPtr): Int =
     windowssysWindowsWin32GlobalizationUenumCount(en.rawAddress.toCPointer<ByteVar>(), status.rawAddress.toCPointer<ByteVar>())
 
-public actual fun uenumNext(en: MutPtr<UEnumeration>, resultlength: MutPtr<Int>, status: MutPtr<UErrorCode>): Pcstr =
+public actual fun uenumNext(en: MutPtr, resultlength: MutPtr, status: MutPtr): Pcstr =
     ConstPtr(windowssysWindowsWin32GlobalizationUenumNext(en.rawAddress.toCPointer<ByteVar>(), resultlength.rawAddress.toCPointer<ByteVar>(), status.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun uenumOpenCharStringsEnumeration(strings: ConstPtr<ConstPtr<Byte>>, count: Int, ec: MutPtr<UErrorCode>): MutPtr<UEnumeration> =
+public actual fun uenumOpenCharStringsEnumeration(strings: ConstPtr, count: Int, ec: MutPtr): MutPtr =
     MutPtr(windowssysWindowsWin32GlobalizationUenumOpenCharStringsEnumeration(strings.rawAddress.toCPointer<ByteVar>(), count, ec.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun uenumOpenUcharStringsEnumeration(strings: ConstPtr<ConstPtr<UShort>>, count: Int, ec: MutPtr<UErrorCode>): MutPtr<UEnumeration> =
+public actual fun uenumOpenUcharStringsEnumeration(strings: ConstPtr, count: Int, ec: MutPtr): MutPtr =
     MutPtr(windowssysWindowsWin32GlobalizationUenumOpenUcharStringsEnumeration(strings.rawAddress.toCPointer<ByteVar>(), count, ec.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun uenumReset(en: MutPtr<UEnumeration>, status: MutPtr<UErrorCode>) {
+public actual fun uenumReset(en: MutPtr, status: MutPtr) {
     windowssysWindowsWin32GlobalizationUenumReset(en.rawAddress.toCPointer<ByteVar>(), status.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun uenumUnext(en: MutPtr<UEnumeration>, resultlength: MutPtr<Int>, status: MutPtr<UErrorCode>): MutPtr<UShort> =
+public actual fun uenumUnext(en: MutPtr, resultlength: MutPtr, status: MutPtr): MutPtr =
     MutPtr(windowssysWindowsWin32GlobalizationUenumUnext(en.rawAddress.toCPointer<ByteVar>(), resultlength.rawAddress.toCPointer<ByteVar>(), status.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun ufieldpositerClose(fpositer: MutPtr<UFieldPositionIterator>) {
+public actual fun ufieldpositerClose(fpositer: MutPtr) {
     windowssysWindowsWin32GlobalizationUfieldpositerClose(fpositer.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun ufieldpositerNext(fpositer: MutPtr<UFieldPositionIterator>, beginindex: MutPtr<Int>, endindex: MutPtr<Int>): Int =
+public actual fun ufieldpositerNext(fpositer: MutPtr, beginindex: MutPtr, endindex: MutPtr): Int =
     windowssysWindowsWin32GlobalizationUfieldpositerNext(fpositer.rawAddress.toCPointer<ByteVar>(), beginindex.rawAddress.toCPointer<ByteVar>(), endindex.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ufieldpositerOpen(status: MutPtr<UErrorCode>): MutPtr<UFieldPositionIterator> =
+public actual fun ufieldpositerOpen(status: MutPtr): MutPtr =
     MutPtr(windowssysWindowsWin32GlobalizationUfieldpositerOpen(status.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun ufmtClose(fmt: MutPtr<MutPtr<CVoid>>) {
+public actual fun ufmtClose(fmt: MutPtr) {
     windowssysWindowsWin32GlobalizationUfmtClose(fmt.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun ufmtGetArrayItemByIndex(fmt: MutPtr<MutPtr<CVoid>>, n: Int, status: MutPtr<UErrorCode>): MutPtr<MutPtr<CVoid>> =
+public actual fun ufmtGetArrayItemByIndex(fmt: MutPtr, n: Int, status: MutPtr): MutPtr =
     MutPtr(windowssysWindowsWin32GlobalizationUfmtGetArrayItemByIndex(fmt.rawAddress.toCPointer<ByteVar>(), n, status.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun ufmtGetArrayLength(fmt: ConstPtr<ConstPtr<CVoid>>, status: MutPtr<UErrorCode>): Int =
+public actual fun ufmtGetArrayLength(fmt: ConstPtr, status: MutPtr): Int =
     windowssysWindowsWin32GlobalizationUfmtGetArrayLength(fmt.rawAddress.toCPointer<ByteVar>(), status.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ufmtGetDate(fmt: ConstPtr<ConstPtr<CVoid>>, status: MutPtr<UErrorCode>): Double =
+public actual fun ufmtGetDate(fmt: ConstPtr, status: MutPtr): Double =
     windowssysWindowsWin32GlobalizationUfmtGetDate(fmt.rawAddress.toCPointer<ByteVar>(), status.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ufmtGetDecNumChars(fmt: MutPtr<MutPtr<CVoid>>, len: MutPtr<Int>, status: MutPtr<UErrorCode>): Pcstr =
+public actual fun ufmtGetDecNumChars(fmt: MutPtr, len: MutPtr, status: MutPtr): Pcstr =
     ConstPtr(windowssysWindowsWin32GlobalizationUfmtGetDecNumChars(fmt.rawAddress.toCPointer<ByteVar>(), len.rawAddress.toCPointer<ByteVar>(), status.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun ufmtGetDouble(fmt: MutPtr<MutPtr<CVoid>>, status: MutPtr<UErrorCode>): Double =
+public actual fun ufmtGetDouble(fmt: MutPtr, status: MutPtr): Double =
     windowssysWindowsWin32GlobalizationUfmtGetDouble(fmt.rawAddress.toCPointer<ByteVar>(), status.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ufmtGetInt64(fmt: MutPtr<MutPtr<CVoid>>, status: MutPtr<UErrorCode>): Long =
+public actual fun ufmtGetInt64(fmt: MutPtr, status: MutPtr): Long =
     windowssysWindowsWin32GlobalizationUfmtGetInt64(fmt.rawAddress.toCPointer<ByteVar>(), status.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ufmtGetLong(fmt: MutPtr<MutPtr<CVoid>>, status: MutPtr<UErrorCode>): Int =
+public actual fun ufmtGetLong(fmt: MutPtr, status: MutPtr): Int =
     windowssysWindowsWin32GlobalizationUfmtGetLong(fmt.rawAddress.toCPointer<ByteVar>(), status.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ufmtGetObject(fmt: ConstPtr<ConstPtr<CVoid>>, status: MutPtr<UErrorCode>): MutPtr<CVoid> =
+public actual fun ufmtGetObject(fmt: ConstPtr, status: MutPtr): MutPtr =
     MutPtr(windowssysWindowsWin32GlobalizationUfmtGetObject(fmt.rawAddress.toCPointer<ByteVar>(), status.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun ufmtGetType(fmt: ConstPtr<ConstPtr<CVoid>>, status: MutPtr<UErrorCode>): UFormattableType =
+public actual fun ufmtGetType(fmt: ConstPtr, status: MutPtr): UFormattableType =
     windowssysWindowsWin32GlobalizationUfmtGetType(fmt.rawAddress.toCPointer<ByteVar>(), status.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ufmtGetUchars(fmt: MutPtr<MutPtr<CVoid>>, len: MutPtr<Int>, status: MutPtr<UErrorCode>): MutPtr<UShort> =
+public actual fun ufmtGetUchars(fmt: MutPtr, len: MutPtr, status: MutPtr): MutPtr =
     MutPtr(windowssysWindowsWin32GlobalizationUfmtGetUchars(fmt.rawAddress.toCPointer<ByteVar>(), len.rawAddress.toCPointer<ByteVar>(), status.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun ufmtIsNumeric(fmt: ConstPtr<ConstPtr<CVoid>>): Byte =
+public actual fun ufmtIsNumeric(fmt: ConstPtr): Byte =
     windowssysWindowsWin32GlobalizationUfmtIsNumeric(fmt.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ufmtOpen(status: MutPtr<UErrorCode>): MutPtr<MutPtr<CVoid>> =
+public actual fun ufmtOpen(status: MutPtr): MutPtr =
     MutPtr(windowssysWindowsWin32GlobalizationUfmtOpen(status.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun ufmtvalGetString(ufmtval: ConstPtr<UFormattedValue>, plength: MutPtr<Int>, ec: MutPtr<UErrorCode>): MutPtr<UShort> =
+public actual fun ufmtvalGetString(ufmtval: ConstPtr, plength: MutPtr, ec: MutPtr): MutPtr =
     MutPtr(windowssysWindowsWin32GlobalizationUfmtvalGetString(ufmtval.rawAddress.toCPointer<ByteVar>(), plength.rawAddress.toCPointer<ByteVar>(), ec.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun ufmtvalNextPosition(ufmtval: ConstPtr<UFormattedValue>, ucfpos: MutPtr<UConstrainedFieldPosition>, ec: MutPtr<UErrorCode>): Byte =
+public actual fun ufmtvalNextPosition(ufmtval: ConstPtr, ucfpos: MutPtr, ec: MutPtr): Byte =
     windowssysWindowsWin32GlobalizationUfmtvalNextPosition(ufmtval.rawAddress.toCPointer<ByteVar>(), ucfpos.rawAddress.toCPointer<ByteVar>(), ec.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ugenderGetInstance(locale: Pcstr, status: MutPtr<UErrorCode>): MutPtr<UGenderInfo> =
+public actual fun ugenderGetInstance(locale: Pcstr, status: MutPtr): MutPtr =
     MutPtr(windowssysWindowsWin32GlobalizationUgenderGetInstance(locale.rawAddress.toCPointer<ByteVar>(), status.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun ugenderGetListGender(genderinfo: ConstPtr<UGenderInfo>, genders: ConstPtr<UGender>, size: Int, status: MutPtr<UErrorCode>): UGender =
+public actual fun ugenderGetListGender(genderinfo: ConstPtr, genders: ConstPtr, size: Int, status: MutPtr): UGender =
     windowssysWindowsWin32GlobalizationUgenderGetListGender(genderinfo.rawAddress.toCPointer<ByteVar>(), genders.rawAddress.toCPointer<ByteVar>(), size, status.rawAddress.toCPointer<ByteVar>())
 
-public actual fun uidnaClose(idna: MutPtr<Uidna>) {
+public actual fun uidnaClose(idna: MutPtr) {
     windowssysWindowsWin32GlobalizationUidnaClose(idna.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun uidnaLabelToAscii(idna: ConstPtr<Uidna>, label: ConstPtr<UShort>, length: Int, dest: MutPtr<UShort>, capacity: Int, pinfo: MutPtr<UIDNAInfo>, perrorcode: MutPtr<UErrorCode>): Int =
+public actual fun uidnaLabelToAscii(idna: ConstPtr, label: ConstPtr, length: Int, dest: MutPtr, capacity: Int, pinfo: MutPtr, perrorcode: MutPtr): Int =
     windowssysWindowsWin32GlobalizationUidnaLabelToAscii(idna.rawAddress.toCPointer<ByteVar>(), label.rawAddress.toCPointer<ByteVar>(), length, dest.rawAddress.toCPointer<ByteVar>(), capacity, pinfo.rawAddress.toCPointer<ByteVar>(), perrorcode.rawAddress.toCPointer<ByteVar>())
 
-public actual fun uidnaLabelToAsciiUtf8(idna: ConstPtr<Uidna>, label: Pcstr, length: Int, dest: Pcstr, capacity: Int, pinfo: MutPtr<UIDNAInfo>, perrorcode: MutPtr<UErrorCode>): Int =
+public actual fun uidnaLabelToAsciiUtf8(idna: ConstPtr, label: Pcstr, length: Int, dest: Pcstr, capacity: Int, pinfo: MutPtr, perrorcode: MutPtr): Int =
     windowssysWindowsWin32GlobalizationUidnaLabelToAsciiUtf8(idna.rawAddress.toCPointer<ByteVar>(), label.rawAddress.toCPointer<ByteVar>(), length, dest.rawAddress.toCPointer<ByteVar>(), capacity, pinfo.rawAddress.toCPointer<ByteVar>(), perrorcode.rawAddress.toCPointer<ByteVar>())
 
-public actual fun uidnaLabelToUnicode(idna: ConstPtr<Uidna>, label: ConstPtr<UShort>, length: Int, dest: MutPtr<UShort>, capacity: Int, pinfo: MutPtr<UIDNAInfo>, perrorcode: MutPtr<UErrorCode>): Int =
+public actual fun uidnaLabelToUnicode(idna: ConstPtr, label: ConstPtr, length: Int, dest: MutPtr, capacity: Int, pinfo: MutPtr, perrorcode: MutPtr): Int =
     windowssysWindowsWin32GlobalizationUidnaLabelToUnicode(idna.rawAddress.toCPointer<ByteVar>(), label.rawAddress.toCPointer<ByteVar>(), length, dest.rawAddress.toCPointer<ByteVar>(), capacity, pinfo.rawAddress.toCPointer<ByteVar>(), perrorcode.rawAddress.toCPointer<ByteVar>())
 
-public actual fun uidnaLabelToUnicodeUtf8(idna: ConstPtr<Uidna>, label: Pcstr, length: Int, dest: Pcstr, capacity: Int, pinfo: MutPtr<UIDNAInfo>, perrorcode: MutPtr<UErrorCode>): Int =
+public actual fun uidnaLabelToUnicodeUtf8(idna: ConstPtr, label: Pcstr, length: Int, dest: Pcstr, capacity: Int, pinfo: MutPtr, perrorcode: MutPtr): Int =
     windowssysWindowsWin32GlobalizationUidnaLabelToUnicodeUtf8(idna.rawAddress.toCPointer<ByteVar>(), label.rawAddress.toCPointer<ByteVar>(), length, dest.rawAddress.toCPointer<ByteVar>(), capacity, pinfo.rawAddress.toCPointer<ByteVar>(), perrorcode.rawAddress.toCPointer<ByteVar>())
 
-public actual fun uidnaNameToAscii(idna: ConstPtr<Uidna>, name: ConstPtr<UShort>, length: Int, dest: MutPtr<UShort>, capacity: Int, pinfo: MutPtr<UIDNAInfo>, perrorcode: MutPtr<UErrorCode>): Int =
+public actual fun uidnaNameToAscii(idna: ConstPtr, name: ConstPtr, length: Int, dest: MutPtr, capacity: Int, pinfo: MutPtr, perrorcode: MutPtr): Int =
     windowssysWindowsWin32GlobalizationUidnaNameToAscii(idna.rawAddress.toCPointer<ByteVar>(), name.rawAddress.toCPointer<ByteVar>(), length, dest.rawAddress.toCPointer<ByteVar>(), capacity, pinfo.rawAddress.toCPointer<ByteVar>(), perrorcode.rawAddress.toCPointer<ByteVar>())
 
-public actual fun uidnaNameToAsciiUtf8(idna: ConstPtr<Uidna>, name: Pcstr, length: Int, dest: Pcstr, capacity: Int, pinfo: MutPtr<UIDNAInfo>, perrorcode: MutPtr<UErrorCode>): Int =
+public actual fun uidnaNameToAsciiUtf8(idna: ConstPtr, name: Pcstr, length: Int, dest: Pcstr, capacity: Int, pinfo: MutPtr, perrorcode: MutPtr): Int =
     windowssysWindowsWin32GlobalizationUidnaNameToAsciiUtf8(idna.rawAddress.toCPointer<ByteVar>(), name.rawAddress.toCPointer<ByteVar>(), length, dest.rawAddress.toCPointer<ByteVar>(), capacity, pinfo.rawAddress.toCPointer<ByteVar>(), perrorcode.rawAddress.toCPointer<ByteVar>())
 
-public actual fun uidnaNameToUnicode(idna: ConstPtr<Uidna>, name: ConstPtr<UShort>, length: Int, dest: MutPtr<UShort>, capacity: Int, pinfo: MutPtr<UIDNAInfo>, perrorcode: MutPtr<UErrorCode>): Int =
+public actual fun uidnaNameToUnicode(idna: ConstPtr, name: ConstPtr, length: Int, dest: MutPtr, capacity: Int, pinfo: MutPtr, perrorcode: MutPtr): Int =
     windowssysWindowsWin32GlobalizationUidnaNameToUnicode(idna.rawAddress.toCPointer<ByteVar>(), name.rawAddress.toCPointer<ByteVar>(), length, dest.rawAddress.toCPointer<ByteVar>(), capacity, pinfo.rawAddress.toCPointer<ByteVar>(), perrorcode.rawAddress.toCPointer<ByteVar>())
 
-public actual fun uidnaNameToUnicodeUtf8(idna: ConstPtr<Uidna>, name: Pcstr, length: Int, dest: Pcstr, capacity: Int, pinfo: MutPtr<UIDNAInfo>, perrorcode: MutPtr<UErrorCode>): Int =
+public actual fun uidnaNameToUnicodeUtf8(idna: ConstPtr, name: Pcstr, length: Int, dest: Pcstr, capacity: Int, pinfo: MutPtr, perrorcode: MutPtr): Int =
     windowssysWindowsWin32GlobalizationUidnaNameToUnicodeUtf8(idna.rawAddress.toCPointer<ByteVar>(), name.rawAddress.toCPointer<ByteVar>(), length, dest.rawAddress.toCPointer<ByteVar>(), capacity, pinfo.rawAddress.toCPointer<ByteVar>(), perrorcode.rawAddress.toCPointer<ByteVar>())
 
-public actual fun uidnaOpenUts46(options: UInt, perrorcode: MutPtr<UErrorCode>): MutPtr<Uidna> =
+public actual fun uidnaOpenUts46(options: UInt, perrorcode: MutPtr): MutPtr =
     MutPtr(windowssysWindowsWin32GlobalizationUidnaOpenUts46(options, perrorcode.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun uiterCurrent32(iter: MutPtr<UCharIterator>): Int =
+public actual fun uiterCurrent32(iter: MutPtr): Int =
     windowssysWindowsWin32GlobalizationUiterCurrent32(iter.rawAddress.toCPointer<ByteVar>())
 
-public actual fun uiterGetState(iter: ConstPtr<UCharIterator>): UInt =
+public actual fun uiterGetState(iter: ConstPtr): UInt =
     windowssysWindowsWin32GlobalizationUiterGetState(iter.rawAddress.toCPointer<ByteVar>())
 
-public actual fun uiterNext32(iter: MutPtr<UCharIterator>): Int =
+public actual fun uiterNext32(iter: MutPtr): Int =
     windowssysWindowsWin32GlobalizationUiterNext32(iter.rawAddress.toCPointer<ByteVar>())
 
-public actual fun uiterPrevious32(iter: MutPtr<UCharIterator>): Int =
+public actual fun uiterPrevious32(iter: MutPtr): Int =
     windowssysWindowsWin32GlobalizationUiterPrevious32(iter.rawAddress.toCPointer<ByteVar>())
 
-public actual fun uiterSetState(iter: MutPtr<UCharIterator>, state: UInt, perrorcode: MutPtr<UErrorCode>) {
+public actual fun uiterSetState(iter: MutPtr, state: UInt, perrorcode: MutPtr) {
     windowssysWindowsWin32GlobalizationUiterSetState(iter.rawAddress.toCPointer<ByteVar>(), state, perrorcode.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun uiterSetString(iter: MutPtr<UCharIterator>, s: ConstPtr<UShort>, length: Int) {
+public actual fun uiterSetString(iter: MutPtr, s: ConstPtr, length: Int) {
     windowssysWindowsWin32GlobalizationUiterSetString(iter.rawAddress.toCPointer<ByteVar>(), s.rawAddress.toCPointer<ByteVar>(), length)
 }
 
-public actual fun uiterSetUtf16Be(iter: MutPtr<UCharIterator>, s: Pcstr, length: Int) {
+public actual fun uiterSetUtf16Be(iter: MutPtr, s: Pcstr, length: Int) {
     windowssysWindowsWin32GlobalizationUiterSetUtf16Be(iter.rawAddress.toCPointer<ByteVar>(), s.rawAddress.toCPointer<ByteVar>(), length)
 }
 
-public actual fun uiterSetUtf8(iter: MutPtr<UCharIterator>, s: Pcstr, length: Int) {
+public actual fun uiterSetUtf8(iter: MutPtr, s: Pcstr, length: Int) {
     windowssysWindowsWin32GlobalizationUiterSetUtf8(iter.rawAddress.toCPointer<ByteVar>(), s.rawAddress.toCPointer<ByteVar>(), length)
 }
 
-public actual fun uldnClose(ldn: MutPtr<ULocaleDisplayNames>) {
+public actual fun uldnClose(ldn: MutPtr) {
     windowssysWindowsWin32GlobalizationUldnClose(ldn.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun uldnGetContext(ldn: ConstPtr<ULocaleDisplayNames>, type: UDisplayContextType, perrorcode: MutPtr<UErrorCode>): UDisplayContext =
+public actual fun uldnGetContext(ldn: ConstPtr, type: UDisplayContextType, perrorcode: MutPtr): UDisplayContext =
     windowssysWindowsWin32GlobalizationUldnGetContext(ldn.rawAddress.toCPointer<ByteVar>(), type, perrorcode.rawAddress.toCPointer<ByteVar>())
 
-public actual fun uldnGetDialectHandling(ldn: ConstPtr<ULocaleDisplayNames>): UDialectHandling =
+public actual fun uldnGetDialectHandling(ldn: ConstPtr): UDialectHandling =
     windowssysWindowsWin32GlobalizationUldnGetDialectHandling(ldn.rawAddress.toCPointer<ByteVar>())
 
-public actual fun uldnGetLocale(ldn: ConstPtr<ULocaleDisplayNames>): Pcstr =
+public actual fun uldnGetLocale(ldn: ConstPtr): Pcstr =
     ConstPtr(windowssysWindowsWin32GlobalizationUldnGetLocale(ldn.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun uldnKeyDisplayName(ldn: ConstPtr<ULocaleDisplayNames>, key: Pcstr, result: MutPtr<UShort>, maxresultsize: Int, perrorcode: MutPtr<UErrorCode>): Int =
+public actual fun uldnKeyDisplayName(ldn: ConstPtr, key: Pcstr, result: MutPtr, maxresultsize: Int, perrorcode: MutPtr): Int =
     windowssysWindowsWin32GlobalizationUldnKeyDisplayName(ldn.rawAddress.toCPointer<ByteVar>(), key.rawAddress.toCPointer<ByteVar>(), result.rawAddress.toCPointer<ByteVar>(), maxresultsize, perrorcode.rawAddress.toCPointer<ByteVar>())
 
-public actual fun uldnKeyValueDisplayName(ldn: ConstPtr<ULocaleDisplayNames>, key: Pcstr, value: Pcstr, result: MutPtr<UShort>, maxresultsize: Int, perrorcode: MutPtr<UErrorCode>): Int =
+public actual fun uldnKeyValueDisplayName(ldn: ConstPtr, key: Pcstr, value: Pcstr, result: MutPtr, maxresultsize: Int, perrorcode: MutPtr): Int =
     windowssysWindowsWin32GlobalizationUldnKeyValueDisplayName(ldn.rawAddress.toCPointer<ByteVar>(), key.rawAddress.toCPointer<ByteVar>(), value.rawAddress.toCPointer<ByteVar>(), result.rawAddress.toCPointer<ByteVar>(), maxresultsize, perrorcode.rawAddress.toCPointer<ByteVar>())
 
-public actual fun uldnLanguageDisplayName(ldn: ConstPtr<ULocaleDisplayNames>, lang: Pcstr, result: MutPtr<UShort>, maxresultsize: Int, perrorcode: MutPtr<UErrorCode>): Int =
+public actual fun uldnLanguageDisplayName(ldn: ConstPtr, lang: Pcstr, result: MutPtr, maxresultsize: Int, perrorcode: MutPtr): Int =
     windowssysWindowsWin32GlobalizationUldnLanguageDisplayName(ldn.rawAddress.toCPointer<ByteVar>(), lang.rawAddress.toCPointer<ByteVar>(), result.rawAddress.toCPointer<ByteVar>(), maxresultsize, perrorcode.rawAddress.toCPointer<ByteVar>())
 
-public actual fun uldnLocaleDisplayName(ldn: ConstPtr<ULocaleDisplayNames>, locale: Pcstr, result: MutPtr<UShort>, maxresultsize: Int, perrorcode: MutPtr<UErrorCode>): Int =
+public actual fun uldnLocaleDisplayName(ldn: ConstPtr, locale: Pcstr, result: MutPtr, maxresultsize: Int, perrorcode: MutPtr): Int =
     windowssysWindowsWin32GlobalizationUldnLocaleDisplayName(ldn.rawAddress.toCPointer<ByteVar>(), locale.rawAddress.toCPointer<ByteVar>(), result.rawAddress.toCPointer<ByteVar>(), maxresultsize, perrorcode.rawAddress.toCPointer<ByteVar>())
 
-public actual fun uldnOpen(locale: Pcstr, dialecthandling: UDialectHandling, perrorcode: MutPtr<UErrorCode>): MutPtr<ULocaleDisplayNames> =
+public actual fun uldnOpen(locale: Pcstr, dialecthandling: UDialectHandling, perrorcode: MutPtr): MutPtr =
     MutPtr(windowssysWindowsWin32GlobalizationUldnOpen(locale.rawAddress.toCPointer<ByteVar>(), dialecthandling, perrorcode.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun uldnOpenForContext(locale: Pcstr, contexts: MutPtr<UDisplayContext>, length: Int, perrorcode: MutPtr<UErrorCode>): MutPtr<ULocaleDisplayNames> =
+public actual fun uldnOpenForContext(locale: Pcstr, contexts: MutPtr, length: Int, perrorcode: MutPtr): MutPtr =
     MutPtr(windowssysWindowsWin32GlobalizationUldnOpenForContext(locale.rawAddress.toCPointer<ByteVar>(), contexts.rawAddress.toCPointer<ByteVar>(), length, perrorcode.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun uldnRegionDisplayName(ldn: ConstPtr<ULocaleDisplayNames>, region: Pcstr, result: MutPtr<UShort>, maxresultsize: Int, perrorcode: MutPtr<UErrorCode>): Int =
+public actual fun uldnRegionDisplayName(ldn: ConstPtr, region: Pcstr, result: MutPtr, maxresultsize: Int, perrorcode: MutPtr): Int =
     windowssysWindowsWin32GlobalizationUldnRegionDisplayName(ldn.rawAddress.toCPointer<ByteVar>(), region.rawAddress.toCPointer<ByteVar>(), result.rawAddress.toCPointer<ByteVar>(), maxresultsize, perrorcode.rawAddress.toCPointer<ByteVar>())
 
-public actual fun uldnScriptCodeDisplayName(ldn: ConstPtr<ULocaleDisplayNames>, scriptcode: UScriptCode, result: MutPtr<UShort>, maxresultsize: Int, perrorcode: MutPtr<UErrorCode>): Int =
+public actual fun uldnScriptCodeDisplayName(ldn: ConstPtr, scriptcode: UScriptCode, result: MutPtr, maxresultsize: Int, perrorcode: MutPtr): Int =
     windowssysWindowsWin32GlobalizationUldnScriptCodeDisplayName(ldn.rawAddress.toCPointer<ByteVar>(), scriptcode, result.rawAddress.toCPointer<ByteVar>(), maxresultsize, perrorcode.rawAddress.toCPointer<ByteVar>())
 
-public actual fun uldnScriptDisplayName(ldn: ConstPtr<ULocaleDisplayNames>, script: Pcstr, result: MutPtr<UShort>, maxresultsize: Int, perrorcode: MutPtr<UErrorCode>): Int =
+public actual fun uldnScriptDisplayName(ldn: ConstPtr, script: Pcstr, result: MutPtr, maxresultsize: Int, perrorcode: MutPtr): Int =
     windowssysWindowsWin32GlobalizationUldnScriptDisplayName(ldn.rawAddress.toCPointer<ByteVar>(), script.rawAddress.toCPointer<ByteVar>(), result.rawAddress.toCPointer<ByteVar>(), maxresultsize, perrorcode.rawAddress.toCPointer<ByteVar>())
 
-public actual fun uldnVariantDisplayName(ldn: ConstPtr<ULocaleDisplayNames>, variant: Pcstr, result: MutPtr<UShort>, maxresultsize: Int, perrorcode: MutPtr<UErrorCode>): Int =
+public actual fun uldnVariantDisplayName(ldn: ConstPtr, variant: Pcstr, result: MutPtr, maxresultsize: Int, perrorcode: MutPtr): Int =
     windowssysWindowsWin32GlobalizationUldnVariantDisplayName(ldn.rawAddress.toCPointer<ByteVar>(), variant.rawAddress.toCPointer<ByteVar>(), result.rawAddress.toCPointer<ByteVar>(), maxresultsize, perrorcode.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ulistfmtClose(listfmt: MutPtr<UListFormatter>) {
+public actual fun ulistfmtClose(listfmt: MutPtr) {
     windowssysWindowsWin32GlobalizationUlistfmtClose(listfmt.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun ulistfmtCloseResult(uresult: MutPtr<UFormattedList>) {
+public actual fun ulistfmtCloseResult(uresult: MutPtr) {
     windowssysWindowsWin32GlobalizationUlistfmtCloseResult(uresult.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun ulistfmtFormat(listfmt: ConstPtr<UListFormatter>, strings: ConstPtr<ConstPtr<UShort>>, stringlengths: ConstPtr<Int>, stringcount: Int, result: MutPtr<UShort>, resultcapacity: Int, status: MutPtr<UErrorCode>): Int =
+public actual fun ulistfmtFormat(listfmt: ConstPtr, strings: ConstPtr, stringlengths: ConstPtr, stringcount: Int, result: MutPtr, resultcapacity: Int, status: MutPtr): Int =
     windowssysWindowsWin32GlobalizationUlistfmtFormat(listfmt.rawAddress.toCPointer<ByteVar>(), strings.rawAddress.toCPointer<ByteVar>(), stringlengths.rawAddress.toCPointer<ByteVar>(), stringcount, result.rawAddress.toCPointer<ByteVar>(), resultcapacity, status.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ulistfmtFormatStringsToResult(listfmt: ConstPtr<UListFormatter>, strings: ConstPtr<ConstPtr<UShort>>, stringlengths: ConstPtr<Int>, stringcount: Int, uresult: MutPtr<UFormattedList>, status: MutPtr<UErrorCode>) {
+public actual fun ulistfmtFormatStringsToResult(listfmt: ConstPtr, strings: ConstPtr, stringlengths: ConstPtr, stringcount: Int, uresult: MutPtr, status: MutPtr) {
     windowssysWindowsWin32GlobalizationUlistfmtFormatStringsToResult(listfmt.rawAddress.toCPointer<ByteVar>(), strings.rawAddress.toCPointer<ByteVar>(), stringlengths.rawAddress.toCPointer<ByteVar>(), stringcount, uresult.rawAddress.toCPointer<ByteVar>(), status.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun ulistfmtOpen(locale: Pcstr, status: MutPtr<UErrorCode>): MutPtr<UListFormatter> =
+public actual fun ulistfmtOpen(locale: Pcstr, status: MutPtr): MutPtr =
     MutPtr(windowssysWindowsWin32GlobalizationUlistfmtOpen(locale.rawAddress.toCPointer<ByteVar>(), status.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun ulistfmtOpenForType(locale: Pcstr, type: UListFormatterType, width: UListFormatterWidth, status: MutPtr<UErrorCode>): MutPtr<UListFormatter> =
+public actual fun ulistfmtOpenForType(locale: Pcstr, type: UListFormatterType, width: UListFormatterWidth, status: MutPtr): MutPtr =
     MutPtr(windowssysWindowsWin32GlobalizationUlistfmtOpenForType(locale.rawAddress.toCPointer<ByteVar>(), type, width, status.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun ulistfmtOpenResult(ec: MutPtr<UErrorCode>): MutPtr<UFormattedList> =
+public actual fun ulistfmtOpenResult(ec: MutPtr): MutPtr =
     MutPtr(windowssysWindowsWin32GlobalizationUlistfmtOpenResult(ec.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun ulistfmtResultAsValue(uresult: ConstPtr<UFormattedList>, ec: MutPtr<UErrorCode>): MutPtr<UFormattedValue> =
+public actual fun ulistfmtResultAsValue(uresult: ConstPtr, ec: MutPtr): MutPtr =
     MutPtr(windowssysWindowsWin32GlobalizationUlistfmtResultAsValue(uresult.rawAddress.toCPointer<ByteVar>(), ec.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun ulocAcceptLanguage(result: Pcstr, resultavailable: Int, outresult: MutPtr<UAcceptResult>, acceptlist: ConstPtr<ConstPtr<Byte>>, acceptlistcount: Int, availablelocales: MutPtr<UEnumeration>, status: MutPtr<UErrorCode>): Int =
+public actual fun ulocAcceptLanguage(result: Pcstr, resultavailable: Int, outresult: MutPtr, acceptlist: ConstPtr, acceptlistcount: Int, availablelocales: MutPtr, status: MutPtr): Int =
     windowssysWindowsWin32GlobalizationUlocAcceptLanguage(result.rawAddress.toCPointer<ByteVar>(), resultavailable, outresult.rawAddress.toCPointer<ByteVar>(), acceptlist.rawAddress.toCPointer<ByteVar>(), acceptlistcount, availablelocales.rawAddress.toCPointer<ByteVar>(), status.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ulocAcceptLanguageFromHttp(result: Pcstr, resultavailable: Int, outresult: MutPtr<UAcceptResult>, httpacceptlanguage: Pcstr, availablelocales: MutPtr<UEnumeration>, status: MutPtr<UErrorCode>): Int =
+public actual fun ulocAcceptLanguageFromHttp(result: Pcstr, resultavailable: Int, outresult: MutPtr, httpacceptlanguage: Pcstr, availablelocales: MutPtr, status: MutPtr): Int =
     windowssysWindowsWin32GlobalizationUlocAcceptLanguageFromHttp(result.rawAddress.toCPointer<ByteVar>(), resultavailable, outresult.rawAddress.toCPointer<ByteVar>(), httpacceptlanguage.rawAddress.toCPointer<ByteVar>(), availablelocales.rawAddress.toCPointer<ByteVar>(), status.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ulocAddLikelySubtags(localeid: Pcstr, maximizedlocaleid: Pcstr, maximizedlocaleidcapacity: Int, err: MutPtr<UErrorCode>): Int =
+public actual fun ulocAddLikelySubtags(localeid: Pcstr, maximizedlocaleid: Pcstr, maximizedlocaleidcapacity: Int, err: MutPtr): Int =
     windowssysWindowsWin32GlobalizationUlocAddLikelySubtags(localeid.rawAddress.toCPointer<ByteVar>(), maximizedlocaleid.rawAddress.toCPointer<ByteVar>(), maximizedlocaleidcapacity, err.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ulocCanonicalize(localeid: Pcstr, name: Pcstr, namecapacity: Int, err: MutPtr<UErrorCode>): Int =
+public actual fun ulocCanonicalize(localeid: Pcstr, name: Pcstr, namecapacity: Int, err: MutPtr): Int =
     windowssysWindowsWin32GlobalizationUlocCanonicalize(localeid.rawAddress.toCPointer<ByteVar>(), name.rawAddress.toCPointer<ByteVar>(), namecapacity, err.rawAddress.toCPointer<ByteVar>())
 
 public actual fun ulocCountAvailable(): Int =
     windowssysWindowsWin32GlobalizationUlocCountAvailable()
 
-public actual fun ulocForLanguageTag(langtag: Pcstr, localeid: Pcstr, localeidcapacity: Int, parsedlength: MutPtr<Int>, err: MutPtr<UErrorCode>): Int =
+public actual fun ulocForLanguageTag(langtag: Pcstr, localeid: Pcstr, localeidcapacity: Int, parsedlength: MutPtr, err: MutPtr): Int =
     windowssysWindowsWin32GlobalizationUlocForLanguageTag(langtag.rawAddress.toCPointer<ByteVar>(), localeid.rawAddress.toCPointer<ByteVar>(), localeidcapacity, parsedlength.rawAddress.toCPointer<ByteVar>(), err.rawAddress.toCPointer<ByteVar>())
 
 public actual fun ulocGetAvailable(n: Int): Pcstr =
     ConstPtr(windowssysWindowsWin32GlobalizationUlocGetAvailable(n)?.toLong() ?: 0L)
 
-public actual fun ulocGetBaseName(localeid: Pcstr, name: Pcstr, namecapacity: Int, err: MutPtr<UErrorCode>): Int =
+public actual fun ulocGetBaseName(localeid: Pcstr, name: Pcstr, namecapacity: Int, err: MutPtr): Int =
     windowssysWindowsWin32GlobalizationUlocGetBaseName(localeid.rawAddress.toCPointer<ByteVar>(), name.rawAddress.toCPointer<ByteVar>(), namecapacity, err.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ulocGetCharacterOrientation(localeid: Pcstr, status: MutPtr<UErrorCode>): ULayoutType =
+public actual fun ulocGetCharacterOrientation(localeid: Pcstr, status: MutPtr): ULayoutType =
     windowssysWindowsWin32GlobalizationUlocGetCharacterOrientation(localeid.rawAddress.toCPointer<ByteVar>(), status.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ulocGetCountry(localeid: Pcstr, country: Pcstr, countrycapacity: Int, err: MutPtr<UErrorCode>): Int =
+public actual fun ulocGetCountry(localeid: Pcstr, country: Pcstr, countrycapacity: Int, err: MutPtr): Int =
     windowssysWindowsWin32GlobalizationUlocGetCountry(localeid.rawAddress.toCPointer<ByteVar>(), country.rawAddress.toCPointer<ByteVar>(), countrycapacity, err.rawAddress.toCPointer<ByteVar>())
 
 public actual fun ulocGetDefault(): Pcstr =
     ConstPtr(windowssysWindowsWin32GlobalizationUlocGetDefault()?.toLong() ?: 0L)
 
-public actual fun ulocGetDisplayCountry(locale: Pcstr, displaylocale: Pcstr, country: MutPtr<UShort>, countrycapacity: Int, status: MutPtr<UErrorCode>): Int =
+public actual fun ulocGetDisplayCountry(locale: Pcstr, displaylocale: Pcstr, country: MutPtr, countrycapacity: Int, status: MutPtr): Int =
     windowssysWindowsWin32GlobalizationUlocGetDisplayCountry(locale.rawAddress.toCPointer<ByteVar>(), displaylocale.rawAddress.toCPointer<ByteVar>(), country.rawAddress.toCPointer<ByteVar>(), countrycapacity, status.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ulocGetDisplayKeyword(keyword: Pcstr, displaylocale: Pcstr, dest: MutPtr<UShort>, destcapacity: Int, status: MutPtr<UErrorCode>): Int =
+public actual fun ulocGetDisplayKeyword(keyword: Pcstr, displaylocale: Pcstr, dest: MutPtr, destcapacity: Int, status: MutPtr): Int =
     windowssysWindowsWin32GlobalizationUlocGetDisplayKeyword(keyword.rawAddress.toCPointer<ByteVar>(), displaylocale.rawAddress.toCPointer<ByteVar>(), dest.rawAddress.toCPointer<ByteVar>(), destcapacity, status.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ulocGetDisplayKeywordValue(locale: Pcstr, keyword: Pcstr, displaylocale: Pcstr, dest: MutPtr<UShort>, destcapacity: Int, status: MutPtr<UErrorCode>): Int =
+public actual fun ulocGetDisplayKeywordValue(locale: Pcstr, keyword: Pcstr, displaylocale: Pcstr, dest: MutPtr, destcapacity: Int, status: MutPtr): Int =
     windowssysWindowsWin32GlobalizationUlocGetDisplayKeywordValue(locale.rawAddress.toCPointer<ByteVar>(), keyword.rawAddress.toCPointer<ByteVar>(), displaylocale.rawAddress.toCPointer<ByteVar>(), dest.rawAddress.toCPointer<ByteVar>(), destcapacity, status.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ulocGetDisplayLanguage(locale: Pcstr, displaylocale: Pcstr, language: MutPtr<UShort>, languagecapacity: Int, status: MutPtr<UErrorCode>): Int =
+public actual fun ulocGetDisplayLanguage(locale: Pcstr, displaylocale: Pcstr, language: MutPtr, languagecapacity: Int, status: MutPtr): Int =
     windowssysWindowsWin32GlobalizationUlocGetDisplayLanguage(locale.rawAddress.toCPointer<ByteVar>(), displaylocale.rawAddress.toCPointer<ByteVar>(), language.rawAddress.toCPointer<ByteVar>(), languagecapacity, status.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ulocGetDisplayName(localeid: Pcstr, inlocaleid: Pcstr, result: MutPtr<UShort>, maxresultsize: Int, err: MutPtr<UErrorCode>): Int =
+public actual fun ulocGetDisplayName(localeid: Pcstr, inlocaleid: Pcstr, result: MutPtr, maxresultsize: Int, err: MutPtr): Int =
     windowssysWindowsWin32GlobalizationUlocGetDisplayName(localeid.rawAddress.toCPointer<ByteVar>(), inlocaleid.rawAddress.toCPointer<ByteVar>(), result.rawAddress.toCPointer<ByteVar>(), maxresultsize, err.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ulocGetDisplayScript(locale: Pcstr, displaylocale: Pcstr, script: MutPtr<UShort>, scriptcapacity: Int, status: MutPtr<UErrorCode>): Int =
+public actual fun ulocGetDisplayScript(locale: Pcstr, displaylocale: Pcstr, script: MutPtr, scriptcapacity: Int, status: MutPtr): Int =
     windowssysWindowsWin32GlobalizationUlocGetDisplayScript(locale.rawAddress.toCPointer<ByteVar>(), displaylocale.rawAddress.toCPointer<ByteVar>(), script.rawAddress.toCPointer<ByteVar>(), scriptcapacity, status.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ulocGetDisplayVariant(locale: Pcstr, displaylocale: Pcstr, variant: MutPtr<UShort>, variantcapacity: Int, status: MutPtr<UErrorCode>): Int =
+public actual fun ulocGetDisplayVariant(locale: Pcstr, displaylocale: Pcstr, variant: MutPtr, variantcapacity: Int, status: MutPtr): Int =
     windowssysWindowsWin32GlobalizationUlocGetDisplayVariant(locale.rawAddress.toCPointer<ByteVar>(), displaylocale.rawAddress.toCPointer<ByteVar>(), variant.rawAddress.toCPointer<ByteVar>(), variantcapacity, status.rawAddress.toCPointer<ByteVar>())
 
 public actual fun ulocGetIso3Country(localeid: Pcstr): Pcstr =
@@ -3780,59 +3775,59 @@ public actual fun ulocGetIso3Country(localeid: Pcstr): Pcstr =
 public actual fun ulocGetIso3Language(localeid: Pcstr): Pcstr =
     ConstPtr(windowssysWindowsWin32GlobalizationUlocGetIso3Language(localeid.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun ulocGetIsocountries(): MutPtr<MutPtr<Byte>> =
+public actual fun ulocGetIsocountries(): MutPtr =
     MutPtr(windowssysWindowsWin32GlobalizationUlocGetIsocountries()?.toLong() ?: 0L)
 
-public actual fun ulocGetIsolanguages(): MutPtr<MutPtr<Byte>> =
+public actual fun ulocGetIsolanguages(): MutPtr =
     MutPtr(windowssysWindowsWin32GlobalizationUlocGetIsolanguages()?.toLong() ?: 0L)
 
-public actual fun ulocGetKeywordValue(localeid: Pcstr, keywordname: Pcstr, buffer: Pcstr, buffercapacity: Int, status: MutPtr<UErrorCode>): Int =
+public actual fun ulocGetKeywordValue(localeid: Pcstr, keywordname: Pcstr, buffer: Pcstr, buffercapacity: Int, status: MutPtr): Int =
     windowssysWindowsWin32GlobalizationUlocGetKeywordValue(localeid.rawAddress.toCPointer<ByteVar>(), keywordname.rawAddress.toCPointer<ByteVar>(), buffer.rawAddress.toCPointer<ByteVar>(), buffercapacity, status.rawAddress.toCPointer<ByteVar>())
 
 public actual fun ulocGetLcid(localeid: Pcstr): UInt =
     windowssysWindowsWin32GlobalizationUlocGetLcid(localeid.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ulocGetLanguage(localeid: Pcstr, language: Pcstr, languagecapacity: Int, err: MutPtr<UErrorCode>): Int =
+public actual fun ulocGetLanguage(localeid: Pcstr, language: Pcstr, languagecapacity: Int, err: MutPtr): Int =
     windowssysWindowsWin32GlobalizationUlocGetLanguage(localeid.rawAddress.toCPointer<ByteVar>(), language.rawAddress.toCPointer<ByteVar>(), languagecapacity, err.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ulocGetLineOrientation(localeid: Pcstr, status: MutPtr<UErrorCode>): ULayoutType =
+public actual fun ulocGetLineOrientation(localeid: Pcstr, status: MutPtr): ULayoutType =
     windowssysWindowsWin32GlobalizationUlocGetLineOrientation(localeid.rawAddress.toCPointer<ByteVar>(), status.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ulocGetLocaleForLcid(hostid: UInt, locale: Pcstr, localecapacity: Int, status: MutPtr<UErrorCode>): Int =
+public actual fun ulocGetLocaleForLcid(hostid: UInt, locale: Pcstr, localecapacity: Int, status: MutPtr): Int =
     windowssysWindowsWin32GlobalizationUlocGetLocaleForLcid(hostid, locale.rawAddress.toCPointer<ByteVar>(), localecapacity, status.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ulocGetName(localeid: Pcstr, name: Pcstr, namecapacity: Int, err: MutPtr<UErrorCode>): Int =
+public actual fun ulocGetName(localeid: Pcstr, name: Pcstr, namecapacity: Int, err: MutPtr): Int =
     windowssysWindowsWin32GlobalizationUlocGetName(localeid.rawAddress.toCPointer<ByteVar>(), name.rawAddress.toCPointer<ByteVar>(), namecapacity, err.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ulocGetParent(localeid: Pcstr, parent: Pcstr, parentcapacity: Int, err: MutPtr<UErrorCode>): Int =
+public actual fun ulocGetParent(localeid: Pcstr, parent: Pcstr, parentcapacity: Int, err: MutPtr): Int =
     windowssysWindowsWin32GlobalizationUlocGetParent(localeid.rawAddress.toCPointer<ByteVar>(), parent.rawAddress.toCPointer<ByteVar>(), parentcapacity, err.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ulocGetScript(localeid: Pcstr, script: Pcstr, scriptcapacity: Int, err: MutPtr<UErrorCode>): Int =
+public actual fun ulocGetScript(localeid: Pcstr, script: Pcstr, scriptcapacity: Int, err: MutPtr): Int =
     windowssysWindowsWin32GlobalizationUlocGetScript(localeid.rawAddress.toCPointer<ByteVar>(), script.rawAddress.toCPointer<ByteVar>(), scriptcapacity, err.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ulocGetVariant(localeid: Pcstr, variant: Pcstr, variantcapacity: Int, err: MutPtr<UErrorCode>): Int =
+public actual fun ulocGetVariant(localeid: Pcstr, variant: Pcstr, variantcapacity: Int, err: MutPtr): Int =
     windowssysWindowsWin32GlobalizationUlocGetVariant(localeid.rawAddress.toCPointer<ByteVar>(), variant.rawAddress.toCPointer<ByteVar>(), variantcapacity, err.rawAddress.toCPointer<ByteVar>())
 
 public actual fun ulocIsRightToLeft(locale: Pcstr): Byte =
     windowssysWindowsWin32GlobalizationUlocIsRightToLeft(locale.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ulocMinimizeSubtags(localeid: Pcstr, minimizedlocaleid: Pcstr, minimizedlocaleidcapacity: Int, err: MutPtr<UErrorCode>): Int =
+public actual fun ulocMinimizeSubtags(localeid: Pcstr, minimizedlocaleid: Pcstr, minimizedlocaleidcapacity: Int, err: MutPtr): Int =
     windowssysWindowsWin32GlobalizationUlocMinimizeSubtags(localeid.rawAddress.toCPointer<ByteVar>(), minimizedlocaleid.rawAddress.toCPointer<ByteVar>(), minimizedlocaleidcapacity, err.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ulocOpenAvailableByType(type: ULocAvailableType, status: MutPtr<UErrorCode>): MutPtr<UEnumeration> =
+public actual fun ulocOpenAvailableByType(type: ULocAvailableType, status: MutPtr): MutPtr =
     MutPtr(windowssysWindowsWin32GlobalizationUlocOpenAvailableByType(type, status.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun ulocOpenKeywords(localeid: Pcstr, status: MutPtr<UErrorCode>): MutPtr<UEnumeration> =
+public actual fun ulocOpenKeywords(localeid: Pcstr, status: MutPtr): MutPtr =
     MutPtr(windowssysWindowsWin32GlobalizationUlocOpenKeywords(localeid.rawAddress.toCPointer<ByteVar>(), status.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun ulocSetDefault(localeid: Pcstr, status: MutPtr<UErrorCode>) {
+public actual fun ulocSetDefault(localeid: Pcstr, status: MutPtr) {
     windowssysWindowsWin32GlobalizationUlocSetDefault(localeid.rawAddress.toCPointer<ByteVar>(), status.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun ulocSetKeywordValue(keywordname: Pcstr, keywordvalue: Pcstr, buffer: Pcstr, buffercapacity: Int, status: MutPtr<UErrorCode>): Int =
+public actual fun ulocSetKeywordValue(keywordname: Pcstr, keywordvalue: Pcstr, buffer: Pcstr, buffercapacity: Int, status: MutPtr): Int =
     windowssysWindowsWin32GlobalizationUlocSetKeywordValue(keywordname.rawAddress.toCPointer<ByteVar>(), keywordvalue.rawAddress.toCPointer<ByteVar>(), buffer.rawAddress.toCPointer<ByteVar>(), buffercapacity, status.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ulocToLanguageTag(localeid: Pcstr, langtag: Pcstr, langtagcapacity: Int, strict: Byte, err: MutPtr<UErrorCode>): Int =
+public actual fun ulocToLanguageTag(localeid: Pcstr, langtag: Pcstr, langtagcapacity: Int, strict: Byte, err: MutPtr): Int =
     windowssysWindowsWin32GlobalizationUlocToLanguageTag(localeid.rawAddress.toCPointer<ByteVar>(), langtag.rawAddress.toCPointer<ByteVar>(), langtagcapacity, strict, err.rawAddress.toCPointer<ByteVar>())
 
 public actual fun ulocToLegacyKey(keyword: Pcstr): Pcstr =
@@ -3847,744 +3842,744 @@ public actual fun ulocToUnicodeLocaleKey(keyword: Pcstr): Pcstr =
 public actual fun ulocToUnicodeLocaleType(keyword: Pcstr, value: Pcstr): Pcstr =
     ConstPtr(windowssysWindowsWin32GlobalizationUlocToUnicodeLocaleType(keyword.rawAddress.toCPointer<ByteVar>(), value.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun ulocdataClose(uld: MutPtr<ULocaleData>) {
+public actual fun ulocdataClose(uld: MutPtr) {
     windowssysWindowsWin32GlobalizationUlocdataClose(uld.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun ulocdataGetCldrversion(versionarray: MutPtr<UByte>, status: MutPtr<UErrorCode>) {
+public actual fun ulocdataGetCldrversion(versionarray: MutPtr, status: MutPtr) {
     windowssysWindowsWin32GlobalizationUlocdataGetCldrversion(versionarray.rawAddress.toCPointer<ByteVar>(), status.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun ulocdataGetDelimiter(uld: MutPtr<ULocaleData>, type: ULocaleDataDelimiterType, result: MutPtr<UShort>, resultlength: Int, status: MutPtr<UErrorCode>): Int =
+public actual fun ulocdataGetDelimiter(uld: MutPtr, type: ULocaleDataDelimiterType, result: MutPtr, resultlength: Int, status: MutPtr): Int =
     windowssysWindowsWin32GlobalizationUlocdataGetDelimiter(uld.rawAddress.toCPointer<ByteVar>(), type, result.rawAddress.toCPointer<ByteVar>(), resultlength, status.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ulocdataGetExemplarSet(uld: MutPtr<ULocaleData>, fillin: MutPtr<USet>, options: UInt, extype: ULocaleDataExemplarSetType, status: MutPtr<UErrorCode>): MutPtr<USet> =
+public actual fun ulocdataGetExemplarSet(uld: MutPtr, fillin: MutPtr, options: UInt, extype: ULocaleDataExemplarSetType, status: MutPtr): MutPtr =
     MutPtr(windowssysWindowsWin32GlobalizationUlocdataGetExemplarSet(uld.rawAddress.toCPointer<ByteVar>(), fillin.rawAddress.toCPointer<ByteVar>(), options, extype, status.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun ulocdataGetLocaleDisplayPattern(uld: MutPtr<ULocaleData>, pattern: MutPtr<UShort>, patterncapacity: Int, status: MutPtr<UErrorCode>): Int =
+public actual fun ulocdataGetLocaleDisplayPattern(uld: MutPtr, pattern: MutPtr, patterncapacity: Int, status: MutPtr): Int =
     windowssysWindowsWin32GlobalizationUlocdataGetLocaleDisplayPattern(uld.rawAddress.toCPointer<ByteVar>(), pattern.rawAddress.toCPointer<ByteVar>(), patterncapacity, status.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ulocdataGetLocaleSeparator(uld: MutPtr<ULocaleData>, separator: MutPtr<UShort>, separatorcapacity: Int, status: MutPtr<UErrorCode>): Int =
+public actual fun ulocdataGetLocaleSeparator(uld: MutPtr, separator: MutPtr, separatorcapacity: Int, status: MutPtr): Int =
     windowssysWindowsWin32GlobalizationUlocdataGetLocaleSeparator(uld.rawAddress.toCPointer<ByteVar>(), separator.rawAddress.toCPointer<ByteVar>(), separatorcapacity, status.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ulocdataGetMeasurementSystem(localeid: Pcstr, status: MutPtr<UErrorCode>): UMeasurementSystem =
+public actual fun ulocdataGetMeasurementSystem(localeid: Pcstr, status: MutPtr): UMeasurementSystem =
     windowssysWindowsWin32GlobalizationUlocdataGetMeasurementSystem(localeid.rawAddress.toCPointer<ByteVar>(), status.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ulocdataGetNoSubstitute(uld: MutPtr<ULocaleData>): Byte =
+public actual fun ulocdataGetNoSubstitute(uld: MutPtr): Byte =
     windowssysWindowsWin32GlobalizationUlocdataGetNoSubstitute(uld.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ulocdataGetPaperSize(localeid: Pcstr, height: MutPtr<Int>, width: MutPtr<Int>, status: MutPtr<UErrorCode>) {
+public actual fun ulocdataGetPaperSize(localeid: Pcstr, height: MutPtr, width: MutPtr, status: MutPtr) {
     windowssysWindowsWin32GlobalizationUlocdataGetPaperSize(localeid.rawAddress.toCPointer<ByteVar>(), height.rawAddress.toCPointer<ByteVar>(), width.rawAddress.toCPointer<ByteVar>(), status.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun ulocdataOpen(localeid: Pcstr, status: MutPtr<UErrorCode>): MutPtr<ULocaleData> =
+public actual fun ulocdataOpen(localeid: Pcstr, status: MutPtr): MutPtr =
     MutPtr(windowssysWindowsWin32GlobalizationUlocdataOpen(localeid.rawAddress.toCPointer<ByteVar>(), status.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun ulocdataSetNoSubstitute(uld: MutPtr<ULocaleData>, setting: Byte) {
+public actual fun ulocdataSetNoSubstitute(uld: MutPtr, setting: Byte) {
     windowssysWindowsWin32GlobalizationUlocdataSetNoSubstitute(uld.rawAddress.toCPointer<ByteVar>(), setting)
 }
 
-public actual fun umsgApplyPattern(fmt: MutPtr<MutPtr<CVoid>>, pattern: ConstPtr<UShort>, patternlength: Int, parseerror: MutPtr<UParseError>, status: MutPtr<UErrorCode>) {
+public actual fun umsgApplyPattern(fmt: MutPtr, pattern: ConstPtr, patternlength: Int, parseerror: MutPtr, status: MutPtr) {
     windowssysWindowsWin32GlobalizationUmsgApplyPattern(fmt.rawAddress.toCPointer<ByteVar>(), pattern.rawAddress.toCPointer<ByteVar>(), patternlength, parseerror.rawAddress.toCPointer<ByteVar>(), status.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun umsgAutoQuoteApostrophe(pattern: ConstPtr<UShort>, patternlength: Int, dest: MutPtr<UShort>, destcapacity: Int, ec: MutPtr<UErrorCode>): Int =
+public actual fun umsgAutoQuoteApostrophe(pattern: ConstPtr, patternlength: Int, dest: MutPtr, destcapacity: Int, ec: MutPtr): Int =
     windowssysWindowsWin32GlobalizationUmsgAutoQuoteApostrophe(pattern.rawAddress.toCPointer<ByteVar>(), patternlength, dest.rawAddress.toCPointer<ByteVar>(), destcapacity, ec.rawAddress.toCPointer<ByteVar>())
 
-public actual fun umsgClone(fmt: ConstPtr<ConstPtr<CVoid>>, status: MutPtr<UErrorCode>): MutPtr<CVoid> =
+public actual fun umsgClone(fmt: ConstPtr, status: MutPtr): MutPtr =
     MutPtr(windowssysWindowsWin32GlobalizationUmsgClone(fmt.rawAddress.toCPointer<ByteVar>(), status.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun umsgClose(format: MutPtr<MutPtr<CVoid>>) {
+public actual fun umsgClose(format: MutPtr) {
     windowssysWindowsWin32GlobalizationUmsgClose(format.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun umsgFormat(fmt: ConstPtr<ConstPtr<CVoid>>, result: MutPtr<UShort>, resultlength: Int, status: MutPtr<UErrorCode>, vararg variadicArgs: Long): Int =
+public actual fun umsgFormat(fmt: ConstPtr, result: MutPtr, resultlength: Int, status: MutPtr, vararg variadicArgs: Long): Int =
     windowssysWindowsWin32GlobalizationUmsgFormat(fmt.rawAddress.toCPointer<ByteVar>(), result.rawAddress.toCPointer<ByteVar>(), resultlength, status.rawAddress.toCPointer<ByteVar>(), variadicArgs.size.coerceAtMost(4), if (variadicArgs.size > 0) variadicArgs[0] else 0L, if (variadicArgs.size > 1) variadicArgs[1] else 0L, if (variadicArgs.size > 2) variadicArgs[2] else 0L, if (variadicArgs.size > 3) variadicArgs[3] else 0L)
 
-public actual fun umsgGetLocale(fmt: ConstPtr<ConstPtr<CVoid>>): Pcstr =
+public actual fun umsgGetLocale(fmt: ConstPtr): Pcstr =
     ConstPtr(windowssysWindowsWin32GlobalizationUmsgGetLocale(fmt.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun umsgOpen(pattern: ConstPtr<UShort>, patternlength: Int, locale: Pcstr, parseerror: MutPtr<UParseError>, status: MutPtr<UErrorCode>): MutPtr<MutPtr<CVoid>> =
+public actual fun umsgOpen(pattern: ConstPtr, patternlength: Int, locale: Pcstr, parseerror: MutPtr, status: MutPtr): MutPtr =
     MutPtr(windowssysWindowsWin32GlobalizationUmsgOpen(pattern.rawAddress.toCPointer<ByteVar>(), patternlength, locale.rawAddress.toCPointer<ByteVar>(), parseerror.rawAddress.toCPointer<ByteVar>(), status.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun umsgParse(fmt: ConstPtr<ConstPtr<CVoid>>, source: ConstPtr<UShort>, sourcelength: Int, count: MutPtr<Int>, status: MutPtr<UErrorCode>, vararg variadicArgs: Long) {
+public actual fun umsgParse(fmt: ConstPtr, source: ConstPtr, sourcelength: Int, count: MutPtr, status: MutPtr, vararg variadicArgs: Long) {
     windowssysWindowsWin32GlobalizationUmsgParse(fmt.rawAddress.toCPointer<ByteVar>(), source.rawAddress.toCPointer<ByteVar>(), sourcelength, count.rawAddress.toCPointer<ByteVar>(), status.rawAddress.toCPointer<ByteVar>(), variadicArgs.size.coerceAtMost(4), if (variadicArgs.size > 0) variadicArgs[0] else 0L, if (variadicArgs.size > 1) variadicArgs[1] else 0L, if (variadicArgs.size > 2) variadicArgs[2] else 0L, if (variadicArgs.size > 3) variadicArgs[3] else 0L)
 }
 
-public actual fun umsgSetLocale(fmt: MutPtr<MutPtr<CVoid>>, locale: Pcstr) {
+public actual fun umsgSetLocale(fmt: MutPtr, locale: Pcstr) {
     windowssysWindowsWin32GlobalizationUmsgSetLocale(fmt.rawAddress.toCPointer<ByteVar>(), locale.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun umsgToPattern(fmt: ConstPtr<ConstPtr<CVoid>>, result: MutPtr<UShort>, resultlength: Int, status: MutPtr<UErrorCode>): Int =
+public actual fun umsgToPattern(fmt: ConstPtr, result: MutPtr, resultlength: Int, status: MutPtr): Int =
     windowssysWindowsWin32GlobalizationUmsgToPattern(fmt.rawAddress.toCPointer<ByteVar>(), result.rawAddress.toCPointer<ByteVar>(), resultlength, status.rawAddress.toCPointer<ByteVar>())
 
-public actual fun umsgVformat(fmt: ConstPtr<ConstPtr<CVoid>>, result: MutPtr<UShort>, resultlength: Int, ap: MutPtr<Byte>, status: MutPtr<UErrorCode>): Int =
+public actual fun umsgVformat(fmt: ConstPtr, result: MutPtr, resultlength: Int, ap: MutPtr, status: MutPtr): Int =
     windowssysWindowsWin32GlobalizationUmsgVformat(fmt.rawAddress.toCPointer<ByteVar>(), result.rawAddress.toCPointer<ByteVar>(), resultlength, ap.rawAddress.toCPointer<ByteVar>(), status.rawAddress.toCPointer<ByteVar>())
 
-public actual fun umsgVparse(fmt: ConstPtr<ConstPtr<CVoid>>, source: ConstPtr<UShort>, sourcelength: Int, count: MutPtr<Int>, ap: MutPtr<Byte>, status: MutPtr<UErrorCode>) {
+public actual fun umsgVparse(fmt: ConstPtr, source: ConstPtr, sourcelength: Int, count: MutPtr, ap: MutPtr, status: MutPtr) {
     windowssysWindowsWin32GlobalizationUmsgVparse(fmt.rawAddress.toCPointer<ByteVar>(), source.rawAddress.toCPointer<ByteVar>(), sourcelength, count.rawAddress.toCPointer<ByteVar>(), ap.rawAddress.toCPointer<ByteVar>(), status.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun umutablecptrieBuildImmutable(trie: MutPtr<UMutableCPTrie>, type: UCPTrieType, valuewidth: UCPTrieValueWidth, perrorcode: MutPtr<UErrorCode>): MutPtr<UCPTrie> =
+public actual fun umutablecptrieBuildImmutable(trie: MutPtr, type: UCPTrieType, valuewidth: UCPTrieValueWidth, perrorcode: MutPtr): MutPtr =
     MutPtr(windowssysWindowsWin32GlobalizationUmutablecptrieBuildImmutable(trie.rawAddress.toCPointer<ByteVar>(), type, valuewidth, perrorcode.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun umutablecptrieClone(other: ConstPtr<UMutableCPTrie>, perrorcode: MutPtr<UErrorCode>): MutPtr<UMutableCPTrie> =
+public actual fun umutablecptrieClone(other: ConstPtr, perrorcode: MutPtr): MutPtr =
     MutPtr(windowssysWindowsWin32GlobalizationUmutablecptrieClone(other.rawAddress.toCPointer<ByteVar>(), perrorcode.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun umutablecptrieClose(trie: MutPtr<UMutableCPTrie>) {
+public actual fun umutablecptrieClose(trie: MutPtr) {
     windowssysWindowsWin32GlobalizationUmutablecptrieClose(trie.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun umutablecptrieFromUcpmap(map: ConstPtr<UCPMap>, perrorcode: MutPtr<UErrorCode>): MutPtr<UMutableCPTrie> =
+public actual fun umutablecptrieFromUcpmap(map: ConstPtr, perrorcode: MutPtr): MutPtr =
     MutPtr(windowssysWindowsWin32GlobalizationUmutablecptrieFromUcpmap(map.rawAddress.toCPointer<ByteVar>(), perrorcode.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun umutablecptrieFromUcptrie(trie: ConstPtr<UCPTrie>, perrorcode: MutPtr<UErrorCode>): MutPtr<UMutableCPTrie> =
+public actual fun umutablecptrieFromUcptrie(trie: ConstPtr, perrorcode: MutPtr): MutPtr =
     MutPtr(windowssysWindowsWin32GlobalizationUmutablecptrieFromUcptrie(trie.rawAddress.toCPointer<ByteVar>(), perrorcode.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun umutablecptrieGet(trie: ConstPtr<UMutableCPTrie>, c: Int): UInt =
+public actual fun umutablecptrieGet(trie: ConstPtr, c: Int): UInt =
     windowssysWindowsWin32GlobalizationUmutablecptrieGet(trie.rawAddress.toCPointer<ByteVar>(), c)
 
-public actual fun umutablecptrieGetRange(trie: ConstPtr<UMutableCPTrie>, start: Int, option: UCPMapRangeOption, surrogatevalue: UInt, filter: MutPtr<UCPMapValueFilter>, context: ConstPtr<CVoid>, pvalue: MutPtr<UInt>): Int =
+public actual fun umutablecptrieGetRange(trie: ConstPtr, start: Int, option: UCPMapRangeOption, surrogatevalue: UInt, filter: MutPtr, context: ConstPtr, pvalue: MutPtr): Int =
     windowssysWindowsWin32GlobalizationUmutablecptrieGetRange(trie.rawAddress.toCPointer<ByteVar>(), start, option, surrogatevalue, filter.rawAddress.toCPointer<ByteVar>(), context.rawAddress.toCPointer<ByteVar>(), pvalue.rawAddress.toCPointer<ByteVar>())
 
-public actual fun umutablecptrieOpen(initialvalue: UInt, errorvalue: UInt, perrorcode: MutPtr<UErrorCode>): MutPtr<UMutableCPTrie> =
+public actual fun umutablecptrieOpen(initialvalue: UInt, errorvalue: UInt, perrorcode: MutPtr): MutPtr =
     MutPtr(windowssysWindowsWin32GlobalizationUmutablecptrieOpen(initialvalue, errorvalue, perrorcode.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun umutablecptrieSet(trie: MutPtr<UMutableCPTrie>, c: Int, value: UInt, perrorcode: MutPtr<UErrorCode>) {
+public actual fun umutablecptrieSet(trie: MutPtr, c: Int, value: UInt, perrorcode: MutPtr) {
     windowssysWindowsWin32GlobalizationUmutablecptrieSet(trie.rawAddress.toCPointer<ByteVar>(), c, value, perrorcode.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun umutablecptrieSetRange(trie: MutPtr<UMutableCPTrie>, start: Int, end: Int, value: UInt, perrorcode: MutPtr<UErrorCode>) {
+public actual fun umutablecptrieSetRange(trie: MutPtr, start: Int, end: Int, value: UInt, perrorcode: MutPtr) {
     windowssysWindowsWin32GlobalizationUmutablecptrieSetRange(trie.rawAddress.toCPointer<ByteVar>(), start, end, value, perrorcode.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun unorm2Append(norm2: ConstPtr<UNormalizer2>, first: MutPtr<UShort>, firstlength: Int, firstcapacity: Int, second: ConstPtr<UShort>, secondlength: Int, perrorcode: MutPtr<UErrorCode>): Int =
+public actual fun unorm2Append(norm2: ConstPtr, first: MutPtr, firstlength: Int, firstcapacity: Int, second: ConstPtr, secondlength: Int, perrorcode: MutPtr): Int =
     windowssysWindowsWin32GlobalizationUnorm2Append(norm2.rawAddress.toCPointer<ByteVar>(), first.rawAddress.toCPointer<ByteVar>(), firstlength, firstcapacity, second.rawAddress.toCPointer<ByteVar>(), secondlength, perrorcode.rawAddress.toCPointer<ByteVar>())
 
-public actual fun unorm2Close(norm2: MutPtr<UNormalizer2>) {
+public actual fun unorm2Close(norm2: MutPtr) {
     windowssysWindowsWin32GlobalizationUnorm2Close(norm2.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun unorm2ComposePair(norm2: ConstPtr<UNormalizer2>, a: Int, b: Int): Int =
+public actual fun unorm2ComposePair(norm2: ConstPtr, a: Int, b: Int): Int =
     windowssysWindowsWin32GlobalizationUnorm2ComposePair(norm2.rawAddress.toCPointer<ByteVar>(), a, b)
 
-public actual fun unorm2GetCombiningClass(norm2: ConstPtr<UNormalizer2>, c: Int): UByte =
+public actual fun unorm2GetCombiningClass(norm2: ConstPtr, c: Int): UByte =
     windowssysWindowsWin32GlobalizationUnorm2GetCombiningClass(norm2.rawAddress.toCPointer<ByteVar>(), c)
 
-public actual fun unorm2GetDecomposition(norm2: ConstPtr<UNormalizer2>, c: Int, decomposition: MutPtr<UShort>, capacity: Int, perrorcode: MutPtr<UErrorCode>): Int =
+public actual fun unorm2GetDecomposition(norm2: ConstPtr, c: Int, decomposition: MutPtr, capacity: Int, perrorcode: MutPtr): Int =
     windowssysWindowsWin32GlobalizationUnorm2GetDecomposition(norm2.rawAddress.toCPointer<ByteVar>(), c, decomposition.rawAddress.toCPointer<ByteVar>(), capacity, perrorcode.rawAddress.toCPointer<ByteVar>())
 
-public actual fun unorm2GetInstance(packagename: Pcstr, name: Pcstr, mode: UNormalization2Mode, perrorcode: MutPtr<UErrorCode>): MutPtr<UNormalizer2> =
+public actual fun unorm2GetInstance(packagename: Pcstr, name: Pcstr, mode: UNormalization2Mode, perrorcode: MutPtr): MutPtr =
     MutPtr(windowssysWindowsWin32GlobalizationUnorm2GetInstance(packagename.rawAddress.toCPointer<ByteVar>(), name.rawAddress.toCPointer<ByteVar>(), mode, perrorcode.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun unorm2GetNfcinstance(perrorcode: MutPtr<UErrorCode>): MutPtr<UNormalizer2> =
+public actual fun unorm2GetNfcinstance(perrorcode: MutPtr): MutPtr =
     MutPtr(windowssysWindowsWin32GlobalizationUnorm2GetNfcinstance(perrorcode.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun unorm2GetNfdinstance(perrorcode: MutPtr<UErrorCode>): MutPtr<UNormalizer2> =
+public actual fun unorm2GetNfdinstance(perrorcode: MutPtr): MutPtr =
     MutPtr(windowssysWindowsWin32GlobalizationUnorm2GetNfdinstance(perrorcode.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun unorm2GetNfkccasefoldInstance(perrorcode: MutPtr<UErrorCode>): MutPtr<UNormalizer2> =
+public actual fun unorm2GetNfkccasefoldInstance(perrorcode: MutPtr): MutPtr =
     MutPtr(windowssysWindowsWin32GlobalizationUnorm2GetNfkccasefoldInstance(perrorcode.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun unorm2GetNfkcinstance(perrorcode: MutPtr<UErrorCode>): MutPtr<UNormalizer2> =
+public actual fun unorm2GetNfkcinstance(perrorcode: MutPtr): MutPtr =
     MutPtr(windowssysWindowsWin32GlobalizationUnorm2GetNfkcinstance(perrorcode.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun unorm2GetNfkdinstance(perrorcode: MutPtr<UErrorCode>): MutPtr<UNormalizer2> =
+public actual fun unorm2GetNfkdinstance(perrorcode: MutPtr): MutPtr =
     MutPtr(windowssysWindowsWin32GlobalizationUnorm2GetNfkdinstance(perrorcode.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun unorm2GetRawDecomposition(norm2: ConstPtr<UNormalizer2>, c: Int, decomposition: MutPtr<UShort>, capacity: Int, perrorcode: MutPtr<UErrorCode>): Int =
+public actual fun unorm2GetRawDecomposition(norm2: ConstPtr, c: Int, decomposition: MutPtr, capacity: Int, perrorcode: MutPtr): Int =
     windowssysWindowsWin32GlobalizationUnorm2GetRawDecomposition(norm2.rawAddress.toCPointer<ByteVar>(), c, decomposition.rawAddress.toCPointer<ByteVar>(), capacity, perrorcode.rawAddress.toCPointer<ByteVar>())
 
-public actual fun unorm2HasBoundaryAfter(norm2: ConstPtr<UNormalizer2>, c: Int): Byte =
+public actual fun unorm2HasBoundaryAfter(norm2: ConstPtr, c: Int): Byte =
     windowssysWindowsWin32GlobalizationUnorm2HasBoundaryAfter(norm2.rawAddress.toCPointer<ByteVar>(), c)
 
-public actual fun unorm2HasBoundaryBefore(norm2: ConstPtr<UNormalizer2>, c: Int): Byte =
+public actual fun unorm2HasBoundaryBefore(norm2: ConstPtr, c: Int): Byte =
     windowssysWindowsWin32GlobalizationUnorm2HasBoundaryBefore(norm2.rawAddress.toCPointer<ByteVar>(), c)
 
-public actual fun unorm2IsInert(norm2: ConstPtr<UNormalizer2>, c: Int): Byte =
+public actual fun unorm2IsInert(norm2: ConstPtr, c: Int): Byte =
     windowssysWindowsWin32GlobalizationUnorm2IsInert(norm2.rawAddress.toCPointer<ByteVar>(), c)
 
-public actual fun unorm2IsNormalized(norm2: ConstPtr<UNormalizer2>, s: ConstPtr<UShort>, length: Int, perrorcode: MutPtr<UErrorCode>): Byte =
+public actual fun unorm2IsNormalized(norm2: ConstPtr, s: ConstPtr, length: Int, perrorcode: MutPtr): Byte =
     windowssysWindowsWin32GlobalizationUnorm2IsNormalized(norm2.rawAddress.toCPointer<ByteVar>(), s.rawAddress.toCPointer<ByteVar>(), length, perrorcode.rawAddress.toCPointer<ByteVar>())
 
-public actual fun unorm2Normalize(norm2: ConstPtr<UNormalizer2>, src: ConstPtr<UShort>, length: Int, dest: MutPtr<UShort>, capacity: Int, perrorcode: MutPtr<UErrorCode>): Int =
+public actual fun unorm2Normalize(norm2: ConstPtr, src: ConstPtr, length: Int, dest: MutPtr, capacity: Int, perrorcode: MutPtr): Int =
     windowssysWindowsWin32GlobalizationUnorm2Normalize(norm2.rawAddress.toCPointer<ByteVar>(), src.rawAddress.toCPointer<ByteVar>(), length, dest.rawAddress.toCPointer<ByteVar>(), capacity, perrorcode.rawAddress.toCPointer<ByteVar>())
 
-public actual fun unorm2NormalizeSecondAndAppend(norm2: ConstPtr<UNormalizer2>, first: MutPtr<UShort>, firstlength: Int, firstcapacity: Int, second: ConstPtr<UShort>, secondlength: Int, perrorcode: MutPtr<UErrorCode>): Int =
+public actual fun unorm2NormalizeSecondAndAppend(norm2: ConstPtr, first: MutPtr, firstlength: Int, firstcapacity: Int, second: ConstPtr, secondlength: Int, perrorcode: MutPtr): Int =
     windowssysWindowsWin32GlobalizationUnorm2NormalizeSecondAndAppend(norm2.rawAddress.toCPointer<ByteVar>(), first.rawAddress.toCPointer<ByteVar>(), firstlength, firstcapacity, second.rawAddress.toCPointer<ByteVar>(), secondlength, perrorcode.rawAddress.toCPointer<ByteVar>())
 
-public actual fun unorm2OpenFiltered(norm2: ConstPtr<UNormalizer2>, filterset: ConstPtr<USet>, perrorcode: MutPtr<UErrorCode>): MutPtr<UNormalizer2> =
+public actual fun unorm2OpenFiltered(norm2: ConstPtr, filterset: ConstPtr, perrorcode: MutPtr): MutPtr =
     MutPtr(windowssysWindowsWin32GlobalizationUnorm2OpenFiltered(norm2.rawAddress.toCPointer<ByteVar>(), filterset.rawAddress.toCPointer<ByteVar>(), perrorcode.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun unorm2QuickCheck(norm2: ConstPtr<UNormalizer2>, s: ConstPtr<UShort>, length: Int, perrorcode: MutPtr<UErrorCode>): UNormalizationCheckResult =
+public actual fun unorm2QuickCheck(norm2: ConstPtr, s: ConstPtr, length: Int, perrorcode: MutPtr): UNormalizationCheckResult =
     windowssysWindowsWin32GlobalizationUnorm2QuickCheck(norm2.rawAddress.toCPointer<ByteVar>(), s.rawAddress.toCPointer<ByteVar>(), length, perrorcode.rawAddress.toCPointer<ByteVar>())
 
-public actual fun unorm2SpanQuickCheckYes(norm2: ConstPtr<UNormalizer2>, s: ConstPtr<UShort>, length: Int, perrorcode: MutPtr<UErrorCode>): Int =
+public actual fun unorm2SpanQuickCheckYes(norm2: ConstPtr, s: ConstPtr, length: Int, perrorcode: MutPtr): Int =
     windowssysWindowsWin32GlobalizationUnorm2SpanQuickCheckYes(norm2.rawAddress.toCPointer<ByteVar>(), s.rawAddress.toCPointer<ByteVar>(), length, perrorcode.rawAddress.toCPointer<ByteVar>())
 
-public actual fun unormCompare(s1: ConstPtr<UShort>, length1: Int, s2: ConstPtr<UShort>, length2: Int, options: UInt, perrorcode: MutPtr<UErrorCode>): Int =
+public actual fun unormCompare(s1: ConstPtr, length1: Int, s2: ConstPtr, length2: Int, options: UInt, perrorcode: MutPtr): Int =
     windowssysWindowsWin32GlobalizationUnormCompare(s1.rawAddress.toCPointer<ByteVar>(), length1, s2.rawAddress.toCPointer<ByteVar>(), length2, options, perrorcode.rawAddress.toCPointer<ByteVar>())
 
-public actual fun unumApplyPattern(format: MutPtr<MutPtr<CVoid>>, localized: Byte, pattern: ConstPtr<UShort>, patternlength: Int, parseerror: MutPtr<UParseError>, status: MutPtr<UErrorCode>) {
+public actual fun unumApplyPattern(format: MutPtr, localized: Byte, pattern: ConstPtr, patternlength: Int, parseerror: MutPtr, status: MutPtr) {
     windowssysWindowsWin32GlobalizationUnumApplyPattern(format.rawAddress.toCPointer<ByteVar>(), localized, pattern.rawAddress.toCPointer<ByteVar>(), patternlength, parseerror.rawAddress.toCPointer<ByteVar>(), status.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun unumClone(fmt: ConstPtr<ConstPtr<CVoid>>, status: MutPtr<UErrorCode>): MutPtr<MutPtr<CVoid>> =
+public actual fun unumClone(fmt: ConstPtr, status: MutPtr): MutPtr =
     MutPtr(windowssysWindowsWin32GlobalizationUnumClone(fmt.rawAddress.toCPointer<ByteVar>(), status.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun unumClose(fmt: MutPtr<MutPtr<CVoid>>) {
+public actual fun unumClose(fmt: MutPtr) {
     windowssysWindowsWin32GlobalizationUnumClose(fmt.rawAddress.toCPointer<ByteVar>())
 }
 
 public actual fun unumCountAvailable(): Int =
     windowssysWindowsWin32GlobalizationUnumCountAvailable()
 
-public actual fun unumFormat(fmt: ConstPtr<ConstPtr<CVoid>>, number: Int, result: MutPtr<UShort>, resultlength: Int, pos: MutPtr<UFieldPosition>, status: MutPtr<UErrorCode>): Int =
+public actual fun unumFormat(fmt: ConstPtr, number: Int, result: MutPtr, resultlength: Int, pos: MutPtr, status: MutPtr): Int =
     windowssysWindowsWin32GlobalizationUnumFormat(fmt.rawAddress.toCPointer<ByteVar>(), number, result.rawAddress.toCPointer<ByteVar>(), resultlength, pos.rawAddress.toCPointer<ByteVar>(), status.rawAddress.toCPointer<ByteVar>())
 
-public actual fun unumFormatDecimal(fmt: ConstPtr<ConstPtr<CVoid>>, number: Pcstr, length: Int, result: MutPtr<UShort>, resultlength: Int, pos: MutPtr<UFieldPosition>, status: MutPtr<UErrorCode>): Int =
+public actual fun unumFormatDecimal(fmt: ConstPtr, number: Pcstr, length: Int, result: MutPtr, resultlength: Int, pos: MutPtr, status: MutPtr): Int =
     windowssysWindowsWin32GlobalizationUnumFormatDecimal(fmt.rawAddress.toCPointer<ByteVar>(), number.rawAddress.toCPointer<ByteVar>(), length, result.rawAddress.toCPointer<ByteVar>(), resultlength, pos.rawAddress.toCPointer<ByteVar>(), status.rawAddress.toCPointer<ByteVar>())
 
-public actual fun unumFormatDouble(fmt: ConstPtr<ConstPtr<CVoid>>, number: Double, result: MutPtr<UShort>, resultlength: Int, pos: MutPtr<UFieldPosition>, status: MutPtr<UErrorCode>): Int =
+public actual fun unumFormatDouble(fmt: ConstPtr, number: Double, result: MutPtr, resultlength: Int, pos: MutPtr, status: MutPtr): Int =
     windowssysWindowsWin32GlobalizationUnumFormatDouble(fmt.rawAddress.toCPointer<ByteVar>(), number, result.rawAddress.toCPointer<ByteVar>(), resultlength, pos.rawAddress.toCPointer<ByteVar>(), status.rawAddress.toCPointer<ByteVar>())
 
-public actual fun unumFormatDoubleCurrency(fmt: ConstPtr<ConstPtr<CVoid>>, number: Double, currency: MutPtr<UShort>, result: MutPtr<UShort>, resultlength: Int, pos: MutPtr<UFieldPosition>, status: MutPtr<UErrorCode>): Int =
+public actual fun unumFormatDoubleCurrency(fmt: ConstPtr, number: Double, currency: MutPtr, result: MutPtr, resultlength: Int, pos: MutPtr, status: MutPtr): Int =
     windowssysWindowsWin32GlobalizationUnumFormatDoubleCurrency(fmt.rawAddress.toCPointer<ByteVar>(), number, currency.rawAddress.toCPointer<ByteVar>(), result.rawAddress.toCPointer<ByteVar>(), resultlength, pos.rawAddress.toCPointer<ByteVar>(), status.rawAddress.toCPointer<ByteVar>())
 
-public actual fun unumFormatDoubleForFields(format: ConstPtr<ConstPtr<CVoid>>, number: Double, result: MutPtr<UShort>, resultlength: Int, fpositer: MutPtr<UFieldPositionIterator>, status: MutPtr<UErrorCode>): Int =
+public actual fun unumFormatDoubleForFields(format: ConstPtr, number: Double, result: MutPtr, resultlength: Int, fpositer: MutPtr, status: MutPtr): Int =
     windowssysWindowsWin32GlobalizationUnumFormatDoubleForFields(format.rawAddress.toCPointer<ByteVar>(), number, result.rawAddress.toCPointer<ByteVar>(), resultlength, fpositer.rawAddress.toCPointer<ByteVar>(), status.rawAddress.toCPointer<ByteVar>())
 
-public actual fun unumFormatInt64(fmt: ConstPtr<ConstPtr<CVoid>>, number: Long, result: MutPtr<UShort>, resultlength: Int, pos: MutPtr<UFieldPosition>, status: MutPtr<UErrorCode>): Int =
+public actual fun unumFormatInt64(fmt: ConstPtr, number: Long, result: MutPtr, resultlength: Int, pos: MutPtr, status: MutPtr): Int =
     windowssysWindowsWin32GlobalizationUnumFormatInt64(fmt.rawAddress.toCPointer<ByteVar>(), number, result.rawAddress.toCPointer<ByteVar>(), resultlength, pos.rawAddress.toCPointer<ByteVar>(), status.rawAddress.toCPointer<ByteVar>())
 
-public actual fun unumFormatUformattable(fmt: ConstPtr<ConstPtr<CVoid>>, number: ConstPtr<ConstPtr<CVoid>>, result: MutPtr<UShort>, resultlength: Int, pos: MutPtr<UFieldPosition>, status: MutPtr<UErrorCode>): Int =
+public actual fun unumFormatUformattable(fmt: ConstPtr, number: ConstPtr, result: MutPtr, resultlength: Int, pos: MutPtr, status: MutPtr): Int =
     windowssysWindowsWin32GlobalizationUnumFormatUformattable(fmt.rawAddress.toCPointer<ByteVar>(), number.rawAddress.toCPointer<ByteVar>(), result.rawAddress.toCPointer<ByteVar>(), resultlength, pos.rawAddress.toCPointer<ByteVar>(), status.rawAddress.toCPointer<ByteVar>())
 
-public actual fun unumGetAttribute(fmt: ConstPtr<ConstPtr<CVoid>>, attr: UNumberFormatAttribute): Int =
+public actual fun unumGetAttribute(fmt: ConstPtr, attr: UNumberFormatAttribute): Int =
     windowssysWindowsWin32GlobalizationUnumGetAttribute(fmt.rawAddress.toCPointer<ByteVar>(), attr)
 
 public actual fun unumGetAvailable(localeindex: Int): Pcstr =
     ConstPtr(windowssysWindowsWin32GlobalizationUnumGetAvailable(localeindex)?.toLong() ?: 0L)
 
-public actual fun unumGetContext(fmt: ConstPtr<ConstPtr<CVoid>>, type: UDisplayContextType, status: MutPtr<UErrorCode>): UDisplayContext =
+public actual fun unumGetContext(fmt: ConstPtr, type: UDisplayContextType, status: MutPtr): UDisplayContext =
     windowssysWindowsWin32GlobalizationUnumGetContext(fmt.rawAddress.toCPointer<ByteVar>(), type, status.rawAddress.toCPointer<ByteVar>())
 
-public actual fun unumGetDoubleAttribute(fmt: ConstPtr<ConstPtr<CVoid>>, attr: UNumberFormatAttribute): Double =
+public actual fun unumGetDoubleAttribute(fmt: ConstPtr, attr: UNumberFormatAttribute): Double =
     windowssysWindowsWin32GlobalizationUnumGetDoubleAttribute(fmt.rawAddress.toCPointer<ByteVar>(), attr)
 
-public actual fun unumGetLocaleByType(fmt: ConstPtr<ConstPtr<CVoid>>, type: ULocDataLocaleType, status: MutPtr<UErrorCode>): Pcstr =
+public actual fun unumGetLocaleByType(fmt: ConstPtr, type: ULocDataLocaleType, status: MutPtr): Pcstr =
     ConstPtr(windowssysWindowsWin32GlobalizationUnumGetLocaleByType(fmt.rawAddress.toCPointer<ByteVar>(), type, status.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun unumGetSymbol(fmt: ConstPtr<ConstPtr<CVoid>>, symbol: UNumberFormatSymbol, buffer: MutPtr<UShort>, size: Int, status: MutPtr<UErrorCode>): Int =
+public actual fun unumGetSymbol(fmt: ConstPtr, symbol: UNumberFormatSymbol, buffer: MutPtr, size: Int, status: MutPtr): Int =
     windowssysWindowsWin32GlobalizationUnumGetSymbol(fmt.rawAddress.toCPointer<ByteVar>(), symbol, buffer.rawAddress.toCPointer<ByteVar>(), size, status.rawAddress.toCPointer<ByteVar>())
 
-public actual fun unumGetTextAttribute(fmt: ConstPtr<ConstPtr<CVoid>>, tag: UNumberFormatTextAttribute, result: MutPtr<UShort>, resultlength: Int, status: MutPtr<UErrorCode>): Int =
+public actual fun unumGetTextAttribute(fmt: ConstPtr, tag: UNumberFormatTextAttribute, result: MutPtr, resultlength: Int, status: MutPtr): Int =
     windowssysWindowsWin32GlobalizationUnumGetTextAttribute(fmt.rawAddress.toCPointer<ByteVar>(), tag, result.rawAddress.toCPointer<ByteVar>(), resultlength, status.rawAddress.toCPointer<ByteVar>())
 
-public actual fun unumOpen(style: UNumberFormatStyle, pattern: ConstPtr<UShort>, patternlength: Int, locale: Pcstr, parseerr: MutPtr<UParseError>, status: MutPtr<UErrorCode>): MutPtr<MutPtr<CVoid>> =
+public actual fun unumOpen(style: UNumberFormatStyle, pattern: ConstPtr, patternlength: Int, locale: Pcstr, parseerr: MutPtr, status: MutPtr): MutPtr =
     MutPtr(windowssysWindowsWin32GlobalizationUnumOpen(style, pattern.rawAddress.toCPointer<ByteVar>(), patternlength, locale.rawAddress.toCPointer<ByteVar>(), parseerr.rawAddress.toCPointer<ByteVar>(), status.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun unumParse(fmt: ConstPtr<ConstPtr<CVoid>>, text: ConstPtr<UShort>, textlength: Int, parsepos: MutPtr<Int>, status: MutPtr<UErrorCode>): Int =
+public actual fun unumParse(fmt: ConstPtr, text: ConstPtr, textlength: Int, parsepos: MutPtr, status: MutPtr): Int =
     windowssysWindowsWin32GlobalizationUnumParse(fmt.rawAddress.toCPointer<ByteVar>(), text.rawAddress.toCPointer<ByteVar>(), textlength, parsepos.rawAddress.toCPointer<ByteVar>(), status.rawAddress.toCPointer<ByteVar>())
 
-public actual fun unumParseDecimal(fmt: ConstPtr<ConstPtr<CVoid>>, text: ConstPtr<UShort>, textlength: Int, parsepos: MutPtr<Int>, outbuf: Pcstr, outbuflength: Int, status: MutPtr<UErrorCode>): Int =
+public actual fun unumParseDecimal(fmt: ConstPtr, text: ConstPtr, textlength: Int, parsepos: MutPtr, outbuf: Pcstr, outbuflength: Int, status: MutPtr): Int =
     windowssysWindowsWin32GlobalizationUnumParseDecimal(fmt.rawAddress.toCPointer<ByteVar>(), text.rawAddress.toCPointer<ByteVar>(), textlength, parsepos.rawAddress.toCPointer<ByteVar>(), outbuf.rawAddress.toCPointer<ByteVar>(), outbuflength, status.rawAddress.toCPointer<ByteVar>())
 
-public actual fun unumParseDouble(fmt: ConstPtr<ConstPtr<CVoid>>, text: ConstPtr<UShort>, textlength: Int, parsepos: MutPtr<Int>, status: MutPtr<UErrorCode>): Double =
+public actual fun unumParseDouble(fmt: ConstPtr, text: ConstPtr, textlength: Int, parsepos: MutPtr, status: MutPtr): Double =
     windowssysWindowsWin32GlobalizationUnumParseDouble(fmt.rawAddress.toCPointer<ByteVar>(), text.rawAddress.toCPointer<ByteVar>(), textlength, parsepos.rawAddress.toCPointer<ByteVar>(), status.rawAddress.toCPointer<ByteVar>())
 
-public actual fun unumParseDoubleCurrency(fmt: ConstPtr<ConstPtr<CVoid>>, text: ConstPtr<UShort>, textlength: Int, parsepos: MutPtr<Int>, currency: MutPtr<UShort>, status: MutPtr<UErrorCode>): Double =
+public actual fun unumParseDoubleCurrency(fmt: ConstPtr, text: ConstPtr, textlength: Int, parsepos: MutPtr, currency: MutPtr, status: MutPtr): Double =
     windowssysWindowsWin32GlobalizationUnumParseDoubleCurrency(fmt.rawAddress.toCPointer<ByteVar>(), text.rawAddress.toCPointer<ByteVar>(), textlength, parsepos.rawAddress.toCPointer<ByteVar>(), currency.rawAddress.toCPointer<ByteVar>(), status.rawAddress.toCPointer<ByteVar>())
 
-public actual fun unumParseInt64(fmt: ConstPtr<ConstPtr<CVoid>>, text: ConstPtr<UShort>, textlength: Int, parsepos: MutPtr<Int>, status: MutPtr<UErrorCode>): Long =
+public actual fun unumParseInt64(fmt: ConstPtr, text: ConstPtr, textlength: Int, parsepos: MutPtr, status: MutPtr): Long =
     windowssysWindowsWin32GlobalizationUnumParseInt64(fmt.rawAddress.toCPointer<ByteVar>(), text.rawAddress.toCPointer<ByteVar>(), textlength, parsepos.rawAddress.toCPointer<ByteVar>(), status.rawAddress.toCPointer<ByteVar>())
 
-public actual fun unumParseToUformattable(fmt: ConstPtr<ConstPtr<CVoid>>, result: MutPtr<MutPtr<CVoid>>, text: ConstPtr<UShort>, textlength: Int, parsepos: MutPtr<Int>, status: MutPtr<UErrorCode>): MutPtr<MutPtr<CVoid>> =
+public actual fun unumParseToUformattable(fmt: ConstPtr, result: MutPtr, text: ConstPtr, textlength: Int, parsepos: MutPtr, status: MutPtr): MutPtr =
     MutPtr(windowssysWindowsWin32GlobalizationUnumParseToUformattable(fmt.rawAddress.toCPointer<ByteVar>(), result.rawAddress.toCPointer<ByteVar>(), text.rawAddress.toCPointer<ByteVar>(), textlength, parsepos.rawAddress.toCPointer<ByteVar>(), status.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun unumSetAttribute(fmt: MutPtr<MutPtr<CVoid>>, attr: UNumberFormatAttribute, newvalue: Int) {
+public actual fun unumSetAttribute(fmt: MutPtr, attr: UNumberFormatAttribute, newvalue: Int) {
     windowssysWindowsWin32GlobalizationUnumSetAttribute(fmt.rawAddress.toCPointer<ByteVar>(), attr, newvalue)
 }
 
-public actual fun unumSetContext(fmt: MutPtr<MutPtr<CVoid>>, value: UDisplayContext, status: MutPtr<UErrorCode>) {
+public actual fun unumSetContext(fmt: MutPtr, value: UDisplayContext, status: MutPtr) {
     windowssysWindowsWin32GlobalizationUnumSetContext(fmt.rawAddress.toCPointer<ByteVar>(), value, status.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun unumSetDoubleAttribute(fmt: MutPtr<MutPtr<CVoid>>, attr: UNumberFormatAttribute, newvalue: Double) {
+public actual fun unumSetDoubleAttribute(fmt: MutPtr, attr: UNumberFormatAttribute, newvalue: Double) {
     windowssysWindowsWin32GlobalizationUnumSetDoubleAttribute(fmt.rawAddress.toCPointer<ByteVar>(), attr, newvalue)
 }
 
-public actual fun unumSetSymbol(fmt: MutPtr<MutPtr<CVoid>>, symbol: UNumberFormatSymbol, value: ConstPtr<UShort>, length: Int, status: MutPtr<UErrorCode>) {
+public actual fun unumSetSymbol(fmt: MutPtr, symbol: UNumberFormatSymbol, value: ConstPtr, length: Int, status: MutPtr) {
     windowssysWindowsWin32GlobalizationUnumSetSymbol(fmt.rawAddress.toCPointer<ByteVar>(), symbol, value.rawAddress.toCPointer<ByteVar>(), length, status.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun unumSetTextAttribute(fmt: MutPtr<MutPtr<CVoid>>, tag: UNumberFormatTextAttribute, newvalue: ConstPtr<UShort>, newvaluelength: Int, status: MutPtr<UErrorCode>) {
+public actual fun unumSetTextAttribute(fmt: MutPtr, tag: UNumberFormatTextAttribute, newvalue: ConstPtr, newvaluelength: Int, status: MutPtr) {
     windowssysWindowsWin32GlobalizationUnumSetTextAttribute(fmt.rawAddress.toCPointer<ByteVar>(), tag, newvalue.rawAddress.toCPointer<ByteVar>(), newvaluelength, status.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun unumToPattern(fmt: ConstPtr<ConstPtr<CVoid>>, ispatternlocalized: Byte, result: MutPtr<UShort>, resultlength: Int, status: MutPtr<UErrorCode>): Int =
+public actual fun unumToPattern(fmt: ConstPtr, ispatternlocalized: Byte, result: MutPtr, resultlength: Int, status: MutPtr): Int =
     windowssysWindowsWin32GlobalizationUnumToPattern(fmt.rawAddress.toCPointer<ByteVar>(), ispatternlocalized, result.rawAddress.toCPointer<ByteVar>(), resultlength, status.rawAddress.toCPointer<ByteVar>())
 
-public actual fun unumfClose(uformatter: MutPtr<UNumberFormatter>) {
+public actual fun unumfClose(uformatter: MutPtr) {
     windowssysWindowsWin32GlobalizationUnumfClose(uformatter.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun unumfCloseResult(uresult: MutPtr<UFormattedNumber>) {
+public actual fun unumfCloseResult(uresult: MutPtr) {
     windowssysWindowsWin32GlobalizationUnumfCloseResult(uresult.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun unumfFormatDecimal(uformatter: ConstPtr<UNumberFormatter>, value: Pcstr, valuelen: Int, uresult: MutPtr<UFormattedNumber>, ec: MutPtr<UErrorCode>) {
+public actual fun unumfFormatDecimal(uformatter: ConstPtr, value: Pcstr, valuelen: Int, uresult: MutPtr, ec: MutPtr) {
     windowssysWindowsWin32GlobalizationUnumfFormatDecimal(uformatter.rawAddress.toCPointer<ByteVar>(), value.rawAddress.toCPointer<ByteVar>(), valuelen, uresult.rawAddress.toCPointer<ByteVar>(), ec.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun unumfFormatDouble(uformatter: ConstPtr<UNumberFormatter>, value: Double, uresult: MutPtr<UFormattedNumber>, ec: MutPtr<UErrorCode>) {
+public actual fun unumfFormatDouble(uformatter: ConstPtr, value: Double, uresult: MutPtr, ec: MutPtr) {
     windowssysWindowsWin32GlobalizationUnumfFormatDouble(uformatter.rawAddress.toCPointer<ByteVar>(), value, uresult.rawAddress.toCPointer<ByteVar>(), ec.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun unumfFormatInt(uformatter: ConstPtr<UNumberFormatter>, value: Long, uresult: MutPtr<UFormattedNumber>, ec: MutPtr<UErrorCode>) {
+public actual fun unumfFormatInt(uformatter: ConstPtr, value: Long, uresult: MutPtr, ec: MutPtr) {
     windowssysWindowsWin32GlobalizationUnumfFormatInt(uformatter.rawAddress.toCPointer<ByteVar>(), value, uresult.rawAddress.toCPointer<ByteVar>(), ec.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun unumfOpenForSkeletonAndLocale(skeleton: ConstPtr<UShort>, skeletonlen: Int, locale: Pcstr, ec: MutPtr<UErrorCode>): MutPtr<UNumberFormatter> =
+public actual fun unumfOpenForSkeletonAndLocale(skeleton: ConstPtr, skeletonlen: Int, locale: Pcstr, ec: MutPtr): MutPtr =
     MutPtr(windowssysWindowsWin32GlobalizationUnumfOpenForSkeletonAndLocale(skeleton.rawAddress.toCPointer<ByteVar>(), skeletonlen, locale.rawAddress.toCPointer<ByteVar>(), ec.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun unumfOpenForSkeletonAndLocaleWithError(skeleton: ConstPtr<UShort>, skeletonlen: Int, locale: Pcstr, perror: MutPtr<UParseError>, ec: MutPtr<UErrorCode>): MutPtr<UNumberFormatter> =
+public actual fun unumfOpenForSkeletonAndLocaleWithError(skeleton: ConstPtr, skeletonlen: Int, locale: Pcstr, perror: MutPtr, ec: MutPtr): MutPtr =
     MutPtr(windowssysWindowsWin32GlobalizationUnumfOpenForSkeletonAndLocaleWithError(skeleton.rawAddress.toCPointer<ByteVar>(), skeletonlen, locale.rawAddress.toCPointer<ByteVar>(), perror.rawAddress.toCPointer<ByteVar>(), ec.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun unumfOpenResult(ec: MutPtr<UErrorCode>): MutPtr<UFormattedNumber> =
+public actual fun unumfOpenResult(ec: MutPtr): MutPtr =
     MutPtr(windowssysWindowsWin32GlobalizationUnumfOpenResult(ec.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun unumfResultAsValue(uresult: ConstPtr<UFormattedNumber>, ec: MutPtr<UErrorCode>): MutPtr<UFormattedValue> =
+public actual fun unumfResultAsValue(uresult: ConstPtr, ec: MutPtr): MutPtr =
     MutPtr(windowssysWindowsWin32GlobalizationUnumfResultAsValue(uresult.rawAddress.toCPointer<ByteVar>(), ec.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun unumfResultGetAllFieldPositions(uresult: ConstPtr<UFormattedNumber>, ufpositer: MutPtr<UFieldPositionIterator>, ec: MutPtr<UErrorCode>) {
+public actual fun unumfResultGetAllFieldPositions(uresult: ConstPtr, ufpositer: MutPtr, ec: MutPtr) {
     windowssysWindowsWin32GlobalizationUnumfResultGetAllFieldPositions(uresult.rawAddress.toCPointer<ByteVar>(), ufpositer.rawAddress.toCPointer<ByteVar>(), ec.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun unumfResultNextFieldPosition(uresult: ConstPtr<UFormattedNumber>, ufpos: MutPtr<UFieldPosition>, ec: MutPtr<UErrorCode>): Byte =
+public actual fun unumfResultNextFieldPosition(uresult: ConstPtr, ufpos: MutPtr, ec: MutPtr): Byte =
     windowssysWindowsWin32GlobalizationUnumfResultNextFieldPosition(uresult.rawAddress.toCPointer<ByteVar>(), ufpos.rawAddress.toCPointer<ByteVar>(), ec.rawAddress.toCPointer<ByteVar>())
 
-public actual fun unumfResultToString(uresult: ConstPtr<UFormattedNumber>, buffer: MutPtr<UShort>, buffercapacity: Int, ec: MutPtr<UErrorCode>): Int =
+public actual fun unumfResultToString(uresult: ConstPtr, buffer: MutPtr, buffercapacity: Int, ec: MutPtr): Int =
     windowssysWindowsWin32GlobalizationUnumfResultToString(uresult.rawAddress.toCPointer<ByteVar>(), buffer.rawAddress.toCPointer<ByteVar>(), buffercapacity, ec.rawAddress.toCPointer<ByteVar>())
 
-public actual fun unumsysClose(unumsys: MutPtr<UNumberingSystem>) {
+public actual fun unumsysClose(unumsys: MutPtr) {
     windowssysWindowsWin32GlobalizationUnumsysClose(unumsys.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun unumsysGetDescription(unumsys: ConstPtr<UNumberingSystem>, result: MutPtr<UShort>, resultlength: Int, status: MutPtr<UErrorCode>): Int =
+public actual fun unumsysGetDescription(unumsys: ConstPtr, result: MutPtr, resultlength: Int, status: MutPtr): Int =
     windowssysWindowsWin32GlobalizationUnumsysGetDescription(unumsys.rawAddress.toCPointer<ByteVar>(), result.rawAddress.toCPointer<ByteVar>(), resultlength, status.rawAddress.toCPointer<ByteVar>())
 
-public actual fun unumsysGetName(unumsys: ConstPtr<UNumberingSystem>): Pcstr =
+public actual fun unumsysGetName(unumsys: ConstPtr): Pcstr =
     ConstPtr(windowssysWindowsWin32GlobalizationUnumsysGetName(unumsys.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun unumsysGetRadix(unumsys: ConstPtr<UNumberingSystem>): Int =
+public actual fun unumsysGetRadix(unumsys: ConstPtr): Int =
     windowssysWindowsWin32GlobalizationUnumsysGetRadix(unumsys.rawAddress.toCPointer<ByteVar>())
 
-public actual fun unumsysIsAlgorithmic(unumsys: ConstPtr<UNumberingSystem>): Byte =
+public actual fun unumsysIsAlgorithmic(unumsys: ConstPtr): Byte =
     windowssysWindowsWin32GlobalizationUnumsysIsAlgorithmic(unumsys.rawAddress.toCPointer<ByteVar>())
 
-public actual fun unumsysOpen(locale: Pcstr, status: MutPtr<UErrorCode>): MutPtr<UNumberingSystem> =
+public actual fun unumsysOpen(locale: Pcstr, status: MutPtr): MutPtr =
     MutPtr(windowssysWindowsWin32GlobalizationUnumsysOpen(locale.rawAddress.toCPointer<ByteVar>(), status.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun unumsysOpenAvailableNames(status: MutPtr<UErrorCode>): MutPtr<UEnumeration> =
+public actual fun unumsysOpenAvailableNames(status: MutPtr): MutPtr =
     MutPtr(windowssysWindowsWin32GlobalizationUnumsysOpenAvailableNames(status.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun unumsysOpenByName(name: Pcstr, status: MutPtr<UErrorCode>): MutPtr<UNumberingSystem> =
+public actual fun unumsysOpenByName(name: Pcstr, status: MutPtr): MutPtr =
     MutPtr(windowssysWindowsWin32GlobalizationUnumsysOpenByName(name.rawAddress.toCPointer<ByteVar>(), status.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun uplrulesClose(uplrules: MutPtr<UPluralRules>) {
+public actual fun uplrulesClose(uplrules: MutPtr) {
     windowssysWindowsWin32GlobalizationUplrulesClose(uplrules.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun uplrulesGetKeywords(uplrules: ConstPtr<UPluralRules>, status: MutPtr<UErrorCode>): MutPtr<UEnumeration> =
+public actual fun uplrulesGetKeywords(uplrules: ConstPtr, status: MutPtr): MutPtr =
     MutPtr(windowssysWindowsWin32GlobalizationUplrulesGetKeywords(uplrules.rawAddress.toCPointer<ByteVar>(), status.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun uplrulesOpen(locale: Pcstr, status: MutPtr<UErrorCode>): MutPtr<UPluralRules> =
+public actual fun uplrulesOpen(locale: Pcstr, status: MutPtr): MutPtr =
     MutPtr(windowssysWindowsWin32GlobalizationUplrulesOpen(locale.rawAddress.toCPointer<ByteVar>(), status.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun uplrulesOpenForType(locale: Pcstr, type: UPluralType, status: MutPtr<UErrorCode>): MutPtr<UPluralRules> =
+public actual fun uplrulesOpenForType(locale: Pcstr, type: UPluralType, status: MutPtr): MutPtr =
     MutPtr(windowssysWindowsWin32GlobalizationUplrulesOpenForType(locale.rawAddress.toCPointer<ByteVar>(), type, status.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun uplrulesSelect(uplrules: ConstPtr<UPluralRules>, number: Double, keyword: MutPtr<UShort>, capacity: Int, status: MutPtr<UErrorCode>): Int =
+public actual fun uplrulesSelect(uplrules: ConstPtr, number: Double, keyword: MutPtr, capacity: Int, status: MutPtr): Int =
     windowssysWindowsWin32GlobalizationUplrulesSelect(uplrules.rawAddress.toCPointer<ByteVar>(), number, keyword.rawAddress.toCPointer<ByteVar>(), capacity, status.rawAddress.toCPointer<ByteVar>())
 
-public actual fun uplrulesSelectFormatted(uplrules: ConstPtr<UPluralRules>, number: ConstPtr<UFormattedNumber>, keyword: MutPtr<UShort>, capacity: Int, status: MutPtr<UErrorCode>): Int =
+public actual fun uplrulesSelectFormatted(uplrules: ConstPtr, number: ConstPtr, keyword: MutPtr, capacity: Int, status: MutPtr): Int =
     windowssysWindowsWin32GlobalizationUplrulesSelectFormatted(uplrules.rawAddress.toCPointer<ByteVar>(), number.rawAddress.toCPointer<ByteVar>(), keyword.rawAddress.toCPointer<ByteVar>(), capacity, status.rawAddress.toCPointer<ByteVar>())
 
-public actual fun uregexAppendReplacement(regexp: MutPtr<URegularExpression>, replacementtext: ConstPtr<UShort>, replacementlength: Int, destbuf: MutPtr<MutPtr<UShort>>, destcapacity: MutPtr<Int>, status: MutPtr<UErrorCode>): Int =
+public actual fun uregexAppendReplacement(regexp: MutPtr, replacementtext: ConstPtr, replacementlength: Int, destbuf: MutPtr, destcapacity: MutPtr, status: MutPtr): Int =
     windowssysWindowsWin32GlobalizationUregexAppendReplacement(regexp.rawAddress.toCPointer<ByteVar>(), replacementtext.rawAddress.toCPointer<ByteVar>(), replacementlength, destbuf.rawAddress.toCPointer<ByteVar>(), destcapacity.rawAddress.toCPointer<ByteVar>(), status.rawAddress.toCPointer<ByteVar>())
 
-public actual fun uregexAppendReplacementUtext(regexp: MutPtr<URegularExpression>, replacementtext: MutPtr<UText>, dest: MutPtr<UText>, status: MutPtr<UErrorCode>) {
+public actual fun uregexAppendReplacementUtext(regexp: MutPtr, replacementtext: MutPtr, dest: MutPtr, status: MutPtr) {
     windowssysWindowsWin32GlobalizationUregexAppendReplacementUtext(regexp.rawAddress.toCPointer<ByteVar>(), replacementtext.rawAddress.toCPointer<ByteVar>(), dest.rawAddress.toCPointer<ByteVar>(), status.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun uregexAppendTail(regexp: MutPtr<URegularExpression>, destbuf: MutPtr<MutPtr<UShort>>, destcapacity: MutPtr<Int>, status: MutPtr<UErrorCode>): Int =
+public actual fun uregexAppendTail(regexp: MutPtr, destbuf: MutPtr, destcapacity: MutPtr, status: MutPtr): Int =
     windowssysWindowsWin32GlobalizationUregexAppendTail(regexp.rawAddress.toCPointer<ByteVar>(), destbuf.rawAddress.toCPointer<ByteVar>(), destcapacity.rawAddress.toCPointer<ByteVar>(), status.rawAddress.toCPointer<ByteVar>())
 
-public actual fun uregexAppendTailUtext(regexp: MutPtr<URegularExpression>, dest: MutPtr<UText>, status: MutPtr<UErrorCode>): MutPtr<UText> =
+public actual fun uregexAppendTailUtext(regexp: MutPtr, dest: MutPtr, status: MutPtr): MutPtr =
     MutPtr(windowssysWindowsWin32GlobalizationUregexAppendTailUtext(regexp.rawAddress.toCPointer<ByteVar>(), dest.rawAddress.toCPointer<ByteVar>(), status.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun uregexClone(regexp: ConstPtr<URegularExpression>, status: MutPtr<UErrorCode>): MutPtr<URegularExpression> =
+public actual fun uregexClone(regexp: ConstPtr, status: MutPtr): MutPtr =
     MutPtr(windowssysWindowsWin32GlobalizationUregexClone(regexp.rawAddress.toCPointer<ByteVar>(), status.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun uregexClose(regexp: MutPtr<URegularExpression>) {
+public actual fun uregexClose(regexp: MutPtr) {
     windowssysWindowsWin32GlobalizationUregexClose(regexp.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun uregexEnd(regexp: MutPtr<URegularExpression>, groupnum: Int, status: MutPtr<UErrorCode>): Int =
+public actual fun uregexEnd(regexp: MutPtr, groupnum: Int, status: MutPtr): Int =
     windowssysWindowsWin32GlobalizationUregexEnd(regexp.rawAddress.toCPointer<ByteVar>(), groupnum, status.rawAddress.toCPointer<ByteVar>())
 
-public actual fun uregexEnd64(regexp: MutPtr<URegularExpression>, groupnum: Int, status: MutPtr<UErrorCode>): Long =
+public actual fun uregexEnd64(regexp: MutPtr, groupnum: Int, status: MutPtr): Long =
     windowssysWindowsWin32GlobalizationUregexEnd64(regexp.rawAddress.toCPointer<ByteVar>(), groupnum, status.rawAddress.toCPointer<ByteVar>())
 
-public actual fun uregexFind(regexp: MutPtr<URegularExpression>, startindex: Int, status: MutPtr<UErrorCode>): Byte =
+public actual fun uregexFind(regexp: MutPtr, startindex: Int, status: MutPtr): Byte =
     windowssysWindowsWin32GlobalizationUregexFind(regexp.rawAddress.toCPointer<ByteVar>(), startindex, status.rawAddress.toCPointer<ByteVar>())
 
-public actual fun uregexFind64(regexp: MutPtr<URegularExpression>, startindex: Long, status: MutPtr<UErrorCode>): Byte =
+public actual fun uregexFind64(regexp: MutPtr, startindex: Long, status: MutPtr): Byte =
     windowssysWindowsWin32GlobalizationUregexFind64(regexp.rawAddress.toCPointer<ByteVar>(), startindex, status.rawAddress.toCPointer<ByteVar>())
 
-public actual fun uregexFindNext(regexp: MutPtr<URegularExpression>, status: MutPtr<UErrorCode>): Byte =
+public actual fun uregexFindNext(regexp: MutPtr, status: MutPtr): Byte =
     windowssysWindowsWin32GlobalizationUregexFindNext(regexp.rawAddress.toCPointer<ByteVar>(), status.rawAddress.toCPointer<ByteVar>())
 
-public actual fun uregexFlags(regexp: ConstPtr<URegularExpression>, status: MutPtr<UErrorCode>): Int =
+public actual fun uregexFlags(regexp: ConstPtr, status: MutPtr): Int =
     windowssysWindowsWin32GlobalizationUregexFlags(regexp.rawAddress.toCPointer<ByteVar>(), status.rawAddress.toCPointer<ByteVar>())
 
-public actual fun uregexGetFindProgressCallback(regexp: ConstPtr<URegularExpression>, callback: MutPtr<URegexFindProgressCallback>, context: ConstPtr<ConstPtr<CVoid>>, status: MutPtr<UErrorCode>) {
+public actual fun uregexGetFindProgressCallback(regexp: ConstPtr, callback: MutPtr, context: ConstPtr, status: MutPtr) {
     windowssysWindowsWin32GlobalizationUregexGetFindProgressCallback(regexp.rawAddress.toCPointer<ByteVar>(), callback.rawAddress.toCPointer<ByteVar>(), context.rawAddress.toCPointer<ByteVar>(), status.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun uregexGetMatchCallback(regexp: ConstPtr<URegularExpression>, callback: MutPtr<URegexMatchCallback>, context: ConstPtr<ConstPtr<CVoid>>, status: MutPtr<UErrorCode>) {
+public actual fun uregexGetMatchCallback(regexp: ConstPtr, callback: MutPtr, context: ConstPtr, status: MutPtr) {
     windowssysWindowsWin32GlobalizationUregexGetMatchCallback(regexp.rawAddress.toCPointer<ByteVar>(), callback.rawAddress.toCPointer<ByteVar>(), context.rawAddress.toCPointer<ByteVar>(), status.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun uregexGetStackLimit(regexp: ConstPtr<URegularExpression>, status: MutPtr<UErrorCode>): Int =
+public actual fun uregexGetStackLimit(regexp: ConstPtr, status: MutPtr): Int =
     windowssysWindowsWin32GlobalizationUregexGetStackLimit(regexp.rawAddress.toCPointer<ByteVar>(), status.rawAddress.toCPointer<ByteVar>())
 
-public actual fun uregexGetText(regexp: MutPtr<URegularExpression>, textlength: MutPtr<Int>, status: MutPtr<UErrorCode>): MutPtr<UShort> =
+public actual fun uregexGetText(regexp: MutPtr, textlength: MutPtr, status: MutPtr): MutPtr =
     MutPtr(windowssysWindowsWin32GlobalizationUregexGetText(regexp.rawAddress.toCPointer<ByteVar>(), textlength.rawAddress.toCPointer<ByteVar>(), status.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun uregexGetTimeLimit(regexp: ConstPtr<URegularExpression>, status: MutPtr<UErrorCode>): Int =
+public actual fun uregexGetTimeLimit(regexp: ConstPtr, status: MutPtr): Int =
     windowssysWindowsWin32GlobalizationUregexGetTimeLimit(regexp.rawAddress.toCPointer<ByteVar>(), status.rawAddress.toCPointer<ByteVar>())
 
-public actual fun uregexGetUtext(regexp: MutPtr<URegularExpression>, dest: MutPtr<UText>, status: MutPtr<UErrorCode>): MutPtr<UText> =
+public actual fun uregexGetUtext(regexp: MutPtr, dest: MutPtr, status: MutPtr): MutPtr =
     MutPtr(windowssysWindowsWin32GlobalizationUregexGetUtext(regexp.rawAddress.toCPointer<ByteVar>(), dest.rawAddress.toCPointer<ByteVar>(), status.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun uregexGroup(regexp: MutPtr<URegularExpression>, groupnum: Int, dest: MutPtr<UShort>, destcapacity: Int, status: MutPtr<UErrorCode>): Int =
+public actual fun uregexGroup(regexp: MutPtr, groupnum: Int, dest: MutPtr, destcapacity: Int, status: MutPtr): Int =
     windowssysWindowsWin32GlobalizationUregexGroup(regexp.rawAddress.toCPointer<ByteVar>(), groupnum, dest.rawAddress.toCPointer<ByteVar>(), destcapacity, status.rawAddress.toCPointer<ByteVar>())
 
-public actual fun uregexGroupCount(regexp: MutPtr<URegularExpression>, status: MutPtr<UErrorCode>): Int =
+public actual fun uregexGroupCount(regexp: MutPtr, status: MutPtr): Int =
     windowssysWindowsWin32GlobalizationUregexGroupCount(regexp.rawAddress.toCPointer<ByteVar>(), status.rawAddress.toCPointer<ByteVar>())
 
-public actual fun uregexGroupNumberFromCname(regexp: MutPtr<URegularExpression>, groupname: Pcstr, namelength: Int, status: MutPtr<UErrorCode>): Int =
+public actual fun uregexGroupNumberFromCname(regexp: MutPtr, groupname: Pcstr, namelength: Int, status: MutPtr): Int =
     windowssysWindowsWin32GlobalizationUregexGroupNumberFromCname(regexp.rawAddress.toCPointer<ByteVar>(), groupname.rawAddress.toCPointer<ByteVar>(), namelength, status.rawAddress.toCPointer<ByteVar>())
 
-public actual fun uregexGroupNumberFromName(regexp: MutPtr<URegularExpression>, groupname: ConstPtr<UShort>, namelength: Int, status: MutPtr<UErrorCode>): Int =
+public actual fun uregexGroupNumberFromName(regexp: MutPtr, groupname: ConstPtr, namelength: Int, status: MutPtr): Int =
     windowssysWindowsWin32GlobalizationUregexGroupNumberFromName(regexp.rawAddress.toCPointer<ByteVar>(), groupname.rawAddress.toCPointer<ByteVar>(), namelength, status.rawAddress.toCPointer<ByteVar>())
 
-public actual fun uregexGroupUtext(regexp: MutPtr<URegularExpression>, groupnum: Int, dest: MutPtr<UText>, grouplength: MutPtr<Long>, status: MutPtr<UErrorCode>): MutPtr<UText> =
+public actual fun uregexGroupUtext(regexp: MutPtr, groupnum: Int, dest: MutPtr, grouplength: MutPtr, status: MutPtr): MutPtr =
     MutPtr(windowssysWindowsWin32GlobalizationUregexGroupUtext(regexp.rawAddress.toCPointer<ByteVar>(), groupnum, dest.rawAddress.toCPointer<ByteVar>(), grouplength.rawAddress.toCPointer<ByteVar>(), status.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun uregexHasAnchoringBounds(regexp: ConstPtr<URegularExpression>, status: MutPtr<UErrorCode>): Byte =
+public actual fun uregexHasAnchoringBounds(regexp: ConstPtr, status: MutPtr): Byte =
     windowssysWindowsWin32GlobalizationUregexHasAnchoringBounds(regexp.rawAddress.toCPointer<ByteVar>(), status.rawAddress.toCPointer<ByteVar>())
 
-public actual fun uregexHasTransparentBounds(regexp: ConstPtr<URegularExpression>, status: MutPtr<UErrorCode>): Byte =
+public actual fun uregexHasTransparentBounds(regexp: ConstPtr, status: MutPtr): Byte =
     windowssysWindowsWin32GlobalizationUregexHasTransparentBounds(regexp.rawAddress.toCPointer<ByteVar>(), status.rawAddress.toCPointer<ByteVar>())
 
-public actual fun uregexHitEnd(regexp: ConstPtr<URegularExpression>, status: MutPtr<UErrorCode>): Byte =
+public actual fun uregexHitEnd(regexp: ConstPtr, status: MutPtr): Byte =
     windowssysWindowsWin32GlobalizationUregexHitEnd(regexp.rawAddress.toCPointer<ByteVar>(), status.rawAddress.toCPointer<ByteVar>())
 
-public actual fun uregexLookingAt(regexp: MutPtr<URegularExpression>, startindex: Int, status: MutPtr<UErrorCode>): Byte =
+public actual fun uregexLookingAt(regexp: MutPtr, startindex: Int, status: MutPtr): Byte =
     windowssysWindowsWin32GlobalizationUregexLookingAt(regexp.rawAddress.toCPointer<ByteVar>(), startindex, status.rawAddress.toCPointer<ByteVar>())
 
-public actual fun uregexLookingAt64(regexp: MutPtr<URegularExpression>, startindex: Long, status: MutPtr<UErrorCode>): Byte =
+public actual fun uregexLookingAt64(regexp: MutPtr, startindex: Long, status: MutPtr): Byte =
     windowssysWindowsWin32GlobalizationUregexLookingAt64(regexp.rawAddress.toCPointer<ByteVar>(), startindex, status.rawAddress.toCPointer<ByteVar>())
 
-public actual fun uregexMatches(regexp: MutPtr<URegularExpression>, startindex: Int, status: MutPtr<UErrorCode>): Byte =
+public actual fun uregexMatches(regexp: MutPtr, startindex: Int, status: MutPtr): Byte =
     windowssysWindowsWin32GlobalizationUregexMatches(regexp.rawAddress.toCPointer<ByteVar>(), startindex, status.rawAddress.toCPointer<ByteVar>())
 
-public actual fun uregexMatches64(regexp: MutPtr<URegularExpression>, startindex: Long, status: MutPtr<UErrorCode>): Byte =
+public actual fun uregexMatches64(regexp: MutPtr, startindex: Long, status: MutPtr): Byte =
     windowssysWindowsWin32GlobalizationUregexMatches64(regexp.rawAddress.toCPointer<ByteVar>(), startindex, status.rawAddress.toCPointer<ByteVar>())
 
-public actual fun uregexOpen(pattern: ConstPtr<UShort>, patternlength: Int, flags: UInt, pe: MutPtr<UParseError>, status: MutPtr<UErrorCode>): MutPtr<URegularExpression> =
+public actual fun uregexOpen(pattern: ConstPtr, patternlength: Int, flags: UInt, pe: MutPtr, status: MutPtr): MutPtr =
     MutPtr(windowssysWindowsWin32GlobalizationUregexOpen(pattern.rawAddress.toCPointer<ByteVar>(), patternlength, flags, pe.rawAddress.toCPointer<ByteVar>(), status.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun uregexOpenC(pattern: Pcstr, flags: UInt, pe: MutPtr<UParseError>, status: MutPtr<UErrorCode>): MutPtr<URegularExpression> =
+public actual fun uregexOpenC(pattern: Pcstr, flags: UInt, pe: MutPtr, status: MutPtr): MutPtr =
     MutPtr(windowssysWindowsWin32GlobalizationUregexOpenC(pattern.rawAddress.toCPointer<ByteVar>(), flags, pe.rawAddress.toCPointer<ByteVar>(), status.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun uregexOpenUtext(pattern: MutPtr<UText>, flags: UInt, pe: MutPtr<UParseError>, status: MutPtr<UErrorCode>): MutPtr<URegularExpression> =
+public actual fun uregexOpenUtext(pattern: MutPtr, flags: UInt, pe: MutPtr, status: MutPtr): MutPtr =
     MutPtr(windowssysWindowsWin32GlobalizationUregexOpenUtext(pattern.rawAddress.toCPointer<ByteVar>(), flags, pe.rawAddress.toCPointer<ByteVar>(), status.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun uregexPattern(regexp: ConstPtr<URegularExpression>, patlength: MutPtr<Int>, status: MutPtr<UErrorCode>): MutPtr<UShort> =
+public actual fun uregexPattern(regexp: ConstPtr, patlength: MutPtr, status: MutPtr): MutPtr =
     MutPtr(windowssysWindowsWin32GlobalizationUregexPattern(regexp.rawAddress.toCPointer<ByteVar>(), patlength.rawAddress.toCPointer<ByteVar>(), status.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun uregexPatternUtext(regexp: ConstPtr<URegularExpression>, status: MutPtr<UErrorCode>): MutPtr<UText> =
+public actual fun uregexPatternUtext(regexp: ConstPtr, status: MutPtr): MutPtr =
     MutPtr(windowssysWindowsWin32GlobalizationUregexPatternUtext(regexp.rawAddress.toCPointer<ByteVar>(), status.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun uregexRefreshUtext(regexp: MutPtr<URegularExpression>, text: MutPtr<UText>, status: MutPtr<UErrorCode>) {
+public actual fun uregexRefreshUtext(regexp: MutPtr, text: MutPtr, status: MutPtr) {
     windowssysWindowsWin32GlobalizationUregexRefreshUtext(regexp.rawAddress.toCPointer<ByteVar>(), text.rawAddress.toCPointer<ByteVar>(), status.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun uregexRegionEnd(regexp: ConstPtr<URegularExpression>, status: MutPtr<UErrorCode>): Int =
+public actual fun uregexRegionEnd(regexp: ConstPtr, status: MutPtr): Int =
     windowssysWindowsWin32GlobalizationUregexRegionEnd(regexp.rawAddress.toCPointer<ByteVar>(), status.rawAddress.toCPointer<ByteVar>())
 
-public actual fun uregexRegionEnd64(regexp: ConstPtr<URegularExpression>, status: MutPtr<UErrorCode>): Long =
+public actual fun uregexRegionEnd64(regexp: ConstPtr, status: MutPtr): Long =
     windowssysWindowsWin32GlobalizationUregexRegionEnd64(regexp.rawAddress.toCPointer<ByteVar>(), status.rawAddress.toCPointer<ByteVar>())
 
-public actual fun uregexRegionStart(regexp: ConstPtr<URegularExpression>, status: MutPtr<UErrorCode>): Int =
+public actual fun uregexRegionStart(regexp: ConstPtr, status: MutPtr): Int =
     windowssysWindowsWin32GlobalizationUregexRegionStart(regexp.rawAddress.toCPointer<ByteVar>(), status.rawAddress.toCPointer<ByteVar>())
 
-public actual fun uregexRegionStart64(regexp: ConstPtr<URegularExpression>, status: MutPtr<UErrorCode>): Long =
+public actual fun uregexRegionStart64(regexp: ConstPtr, status: MutPtr): Long =
     windowssysWindowsWin32GlobalizationUregexRegionStart64(regexp.rawAddress.toCPointer<ByteVar>(), status.rawAddress.toCPointer<ByteVar>())
 
-public actual fun uregexReplaceAll(regexp: MutPtr<URegularExpression>, replacementtext: ConstPtr<UShort>, replacementlength: Int, destbuf: MutPtr<UShort>, destcapacity: Int, status: MutPtr<UErrorCode>): Int =
+public actual fun uregexReplaceAll(regexp: MutPtr, replacementtext: ConstPtr, replacementlength: Int, destbuf: MutPtr, destcapacity: Int, status: MutPtr): Int =
     windowssysWindowsWin32GlobalizationUregexReplaceAll(regexp.rawAddress.toCPointer<ByteVar>(), replacementtext.rawAddress.toCPointer<ByteVar>(), replacementlength, destbuf.rawAddress.toCPointer<ByteVar>(), destcapacity, status.rawAddress.toCPointer<ByteVar>())
 
-public actual fun uregexReplaceAllUtext(regexp: MutPtr<URegularExpression>, replacement: MutPtr<UText>, dest: MutPtr<UText>, status: MutPtr<UErrorCode>): MutPtr<UText> =
+public actual fun uregexReplaceAllUtext(regexp: MutPtr, replacement: MutPtr, dest: MutPtr, status: MutPtr): MutPtr =
     MutPtr(windowssysWindowsWin32GlobalizationUregexReplaceAllUtext(regexp.rawAddress.toCPointer<ByteVar>(), replacement.rawAddress.toCPointer<ByteVar>(), dest.rawAddress.toCPointer<ByteVar>(), status.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun uregexReplaceFirst(regexp: MutPtr<URegularExpression>, replacementtext: ConstPtr<UShort>, replacementlength: Int, destbuf: MutPtr<UShort>, destcapacity: Int, status: MutPtr<UErrorCode>): Int =
+public actual fun uregexReplaceFirst(regexp: MutPtr, replacementtext: ConstPtr, replacementlength: Int, destbuf: MutPtr, destcapacity: Int, status: MutPtr): Int =
     windowssysWindowsWin32GlobalizationUregexReplaceFirst(regexp.rawAddress.toCPointer<ByteVar>(), replacementtext.rawAddress.toCPointer<ByteVar>(), replacementlength, destbuf.rawAddress.toCPointer<ByteVar>(), destcapacity, status.rawAddress.toCPointer<ByteVar>())
 
-public actual fun uregexReplaceFirstUtext(regexp: MutPtr<URegularExpression>, replacement: MutPtr<UText>, dest: MutPtr<UText>, status: MutPtr<UErrorCode>): MutPtr<UText> =
+public actual fun uregexReplaceFirstUtext(regexp: MutPtr, replacement: MutPtr, dest: MutPtr, status: MutPtr): MutPtr =
     MutPtr(windowssysWindowsWin32GlobalizationUregexReplaceFirstUtext(regexp.rawAddress.toCPointer<ByteVar>(), replacement.rawAddress.toCPointer<ByteVar>(), dest.rawAddress.toCPointer<ByteVar>(), status.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun uregexRequireEnd(regexp: ConstPtr<URegularExpression>, status: MutPtr<UErrorCode>): Byte =
+public actual fun uregexRequireEnd(regexp: ConstPtr, status: MutPtr): Byte =
     windowssysWindowsWin32GlobalizationUregexRequireEnd(regexp.rawAddress.toCPointer<ByteVar>(), status.rawAddress.toCPointer<ByteVar>())
 
-public actual fun uregexReset(regexp: MutPtr<URegularExpression>, index: Int, status: MutPtr<UErrorCode>) {
+public actual fun uregexReset(regexp: MutPtr, index: Int, status: MutPtr) {
     windowssysWindowsWin32GlobalizationUregexReset(regexp.rawAddress.toCPointer<ByteVar>(), index, status.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun uregexReset64(regexp: MutPtr<URegularExpression>, index: Long, status: MutPtr<UErrorCode>) {
+public actual fun uregexReset64(regexp: MutPtr, index: Long, status: MutPtr) {
     windowssysWindowsWin32GlobalizationUregexReset64(regexp.rawAddress.toCPointer<ByteVar>(), index, status.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun uregexSetFindProgressCallback(regexp: MutPtr<URegularExpression>, callback: URegexFindProgressCallback, context: ConstPtr<CVoid>, status: MutPtr<UErrorCode>) {
+public actual fun uregexSetFindProgressCallback(regexp: MutPtr, callback: URegexFindProgressCallback, context: ConstPtr, status: MutPtr) {
     windowssysWindowsWin32GlobalizationUregexSetFindProgressCallback(regexp.rawAddress.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>(), context.rawAddress.toCPointer<ByteVar>(), status.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun uregexSetMatchCallback(regexp: MutPtr<URegularExpression>, callback: URegexMatchCallback, context: ConstPtr<CVoid>, status: MutPtr<UErrorCode>) {
+public actual fun uregexSetMatchCallback(regexp: MutPtr, callback: URegexMatchCallback, context: ConstPtr, status: MutPtr) {
     windowssysWindowsWin32GlobalizationUregexSetMatchCallback(regexp.rawAddress.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>(), context.rawAddress.toCPointer<ByteVar>(), status.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun uregexSetRegion(regexp: MutPtr<URegularExpression>, regionstart: Int, regionlimit: Int, status: MutPtr<UErrorCode>) {
+public actual fun uregexSetRegion(regexp: MutPtr, regionstart: Int, regionlimit: Int, status: MutPtr) {
     windowssysWindowsWin32GlobalizationUregexSetRegion(regexp.rawAddress.toCPointer<ByteVar>(), regionstart, regionlimit, status.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun uregexSetRegion64(regexp: MutPtr<URegularExpression>, regionstart: Long, regionlimit: Long, status: MutPtr<UErrorCode>) {
+public actual fun uregexSetRegion64(regexp: MutPtr, regionstart: Long, regionlimit: Long, status: MutPtr) {
     windowssysWindowsWin32GlobalizationUregexSetRegion64(regexp.rawAddress.toCPointer<ByteVar>(), regionstart, regionlimit, status.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun uregexSetRegionAndStart(regexp: MutPtr<URegularExpression>, regionstart: Long, regionlimit: Long, startindex: Long, status: MutPtr<UErrorCode>) {
+public actual fun uregexSetRegionAndStart(regexp: MutPtr, regionstart: Long, regionlimit: Long, startindex: Long, status: MutPtr) {
     windowssysWindowsWin32GlobalizationUregexSetRegionAndStart(regexp.rawAddress.toCPointer<ByteVar>(), regionstart, regionlimit, startindex, status.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun uregexSetStackLimit(regexp: MutPtr<URegularExpression>, limit: Int, status: MutPtr<UErrorCode>) {
+public actual fun uregexSetStackLimit(regexp: MutPtr, limit: Int, status: MutPtr) {
     windowssysWindowsWin32GlobalizationUregexSetStackLimit(regexp.rawAddress.toCPointer<ByteVar>(), limit, status.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun uregexSetText(regexp: MutPtr<URegularExpression>, text: ConstPtr<UShort>, textlength: Int, status: MutPtr<UErrorCode>) {
+public actual fun uregexSetText(regexp: MutPtr, text: ConstPtr, textlength: Int, status: MutPtr) {
     windowssysWindowsWin32GlobalizationUregexSetText(regexp.rawAddress.toCPointer<ByteVar>(), text.rawAddress.toCPointer<ByteVar>(), textlength, status.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun uregexSetTimeLimit(regexp: MutPtr<URegularExpression>, limit: Int, status: MutPtr<UErrorCode>) {
+public actual fun uregexSetTimeLimit(regexp: MutPtr, limit: Int, status: MutPtr) {
     windowssysWindowsWin32GlobalizationUregexSetTimeLimit(regexp.rawAddress.toCPointer<ByteVar>(), limit, status.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun uregexSetUtext(regexp: MutPtr<URegularExpression>, text: MutPtr<UText>, status: MutPtr<UErrorCode>) {
+public actual fun uregexSetUtext(regexp: MutPtr, text: MutPtr, status: MutPtr) {
     windowssysWindowsWin32GlobalizationUregexSetUtext(regexp.rawAddress.toCPointer<ByteVar>(), text.rawAddress.toCPointer<ByteVar>(), status.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun uregexSplit(regexp: MutPtr<URegularExpression>, destbuf: MutPtr<UShort>, destcapacity: Int, requiredcapacity: MutPtr<Int>, destfields: MutPtr<MutPtr<UShort>>, destfieldscapacity: Int, status: MutPtr<UErrorCode>): Int =
+public actual fun uregexSplit(regexp: MutPtr, destbuf: MutPtr, destcapacity: Int, requiredcapacity: MutPtr, destfields: MutPtr, destfieldscapacity: Int, status: MutPtr): Int =
     windowssysWindowsWin32GlobalizationUregexSplit(regexp.rawAddress.toCPointer<ByteVar>(), destbuf.rawAddress.toCPointer<ByteVar>(), destcapacity, requiredcapacity.rawAddress.toCPointer<ByteVar>(), destfields.rawAddress.toCPointer<ByteVar>(), destfieldscapacity, status.rawAddress.toCPointer<ByteVar>())
 
-public actual fun uregexSplitUtext(regexp: MutPtr<URegularExpression>, destfields: MutPtr<MutPtr<UText>>, destfieldscapacity: Int, status: MutPtr<UErrorCode>): Int =
+public actual fun uregexSplitUtext(regexp: MutPtr, destfields: MutPtr, destfieldscapacity: Int, status: MutPtr): Int =
     windowssysWindowsWin32GlobalizationUregexSplitUtext(regexp.rawAddress.toCPointer<ByteVar>(), destfields.rawAddress.toCPointer<ByteVar>(), destfieldscapacity, status.rawAddress.toCPointer<ByteVar>())
 
-public actual fun uregexStart(regexp: MutPtr<URegularExpression>, groupnum: Int, status: MutPtr<UErrorCode>): Int =
+public actual fun uregexStart(regexp: MutPtr, groupnum: Int, status: MutPtr): Int =
     windowssysWindowsWin32GlobalizationUregexStart(regexp.rawAddress.toCPointer<ByteVar>(), groupnum, status.rawAddress.toCPointer<ByteVar>())
 
-public actual fun uregexStart64(regexp: MutPtr<URegularExpression>, groupnum: Int, status: MutPtr<UErrorCode>): Long =
+public actual fun uregexStart64(regexp: MutPtr, groupnum: Int, status: MutPtr): Long =
     windowssysWindowsWin32GlobalizationUregexStart64(regexp.rawAddress.toCPointer<ByteVar>(), groupnum, status.rawAddress.toCPointer<ByteVar>())
 
-public actual fun uregexUseAnchoringBounds(regexp: MutPtr<URegularExpression>, b: Byte, status: MutPtr<UErrorCode>) {
+public actual fun uregexUseAnchoringBounds(regexp: MutPtr, b: Byte, status: MutPtr) {
     windowssysWindowsWin32GlobalizationUregexUseAnchoringBounds(regexp.rawAddress.toCPointer<ByteVar>(), b, status.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun uregexUseTransparentBounds(regexp: MutPtr<URegularExpression>, b: Byte, status: MutPtr<UErrorCode>) {
+public actual fun uregexUseTransparentBounds(regexp: MutPtr, b: Byte, status: MutPtr) {
     windowssysWindowsWin32GlobalizationUregexUseTransparentBounds(regexp.rawAddress.toCPointer<ByteVar>(), b, status.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun uregionAreEqual(uregion: ConstPtr<URegion>, otherregion: ConstPtr<URegion>): Byte =
+public actual fun uregionAreEqual(uregion: ConstPtr, otherregion: ConstPtr): Byte =
     windowssysWindowsWin32GlobalizationUregionAreEqual(uregion.rawAddress.toCPointer<ByteVar>(), otherregion.rawAddress.toCPointer<ByteVar>())
 
-public actual fun uregionContains(uregion: ConstPtr<URegion>, otherregion: ConstPtr<URegion>): Byte =
+public actual fun uregionContains(uregion: ConstPtr, otherregion: ConstPtr): Byte =
     windowssysWindowsWin32GlobalizationUregionContains(uregion.rawAddress.toCPointer<ByteVar>(), otherregion.rawAddress.toCPointer<ByteVar>())
 
-public actual fun uregionGetAvailable(type: URegionType, status: MutPtr<UErrorCode>): MutPtr<UEnumeration> =
+public actual fun uregionGetAvailable(type: URegionType, status: MutPtr): MutPtr =
     MutPtr(windowssysWindowsWin32GlobalizationUregionGetAvailable(type, status.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun uregionGetContainedRegions(uregion: ConstPtr<URegion>, status: MutPtr<UErrorCode>): MutPtr<UEnumeration> =
+public actual fun uregionGetContainedRegions(uregion: ConstPtr, status: MutPtr): MutPtr =
     MutPtr(windowssysWindowsWin32GlobalizationUregionGetContainedRegions(uregion.rawAddress.toCPointer<ByteVar>(), status.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun uregionGetContainedRegionsOfType(uregion: ConstPtr<URegion>, type: URegionType, status: MutPtr<UErrorCode>): MutPtr<UEnumeration> =
+public actual fun uregionGetContainedRegionsOfType(uregion: ConstPtr, type: URegionType, status: MutPtr): MutPtr =
     MutPtr(windowssysWindowsWin32GlobalizationUregionGetContainedRegionsOfType(uregion.rawAddress.toCPointer<ByteVar>(), type, status.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun uregionGetContainingRegion(uregion: ConstPtr<URegion>): MutPtr<URegion> =
+public actual fun uregionGetContainingRegion(uregion: ConstPtr): MutPtr =
     MutPtr(windowssysWindowsWin32GlobalizationUregionGetContainingRegion(uregion.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun uregionGetContainingRegionOfType(uregion: ConstPtr<URegion>, type: URegionType): MutPtr<URegion> =
+public actual fun uregionGetContainingRegionOfType(uregion: ConstPtr, type: URegionType): MutPtr =
     MutPtr(windowssysWindowsWin32GlobalizationUregionGetContainingRegionOfType(uregion.rawAddress.toCPointer<ByteVar>(), type)?.toLong() ?: 0L)
 
-public actual fun uregionGetNumericCode(uregion: ConstPtr<URegion>): Int =
+public actual fun uregionGetNumericCode(uregion: ConstPtr): Int =
     windowssysWindowsWin32GlobalizationUregionGetNumericCode(uregion.rawAddress.toCPointer<ByteVar>())
 
-public actual fun uregionGetPreferredValues(uregion: ConstPtr<URegion>, status: MutPtr<UErrorCode>): MutPtr<UEnumeration> =
+public actual fun uregionGetPreferredValues(uregion: ConstPtr, status: MutPtr): MutPtr =
     MutPtr(windowssysWindowsWin32GlobalizationUregionGetPreferredValues(uregion.rawAddress.toCPointer<ByteVar>(), status.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun uregionGetRegionCode(uregion: ConstPtr<URegion>): Pcstr =
+public actual fun uregionGetRegionCode(uregion: ConstPtr): Pcstr =
     ConstPtr(windowssysWindowsWin32GlobalizationUregionGetRegionCode(uregion.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun uregionGetRegionFromCode(regioncode: Pcstr, status: MutPtr<UErrorCode>): MutPtr<URegion> =
+public actual fun uregionGetRegionFromCode(regioncode: Pcstr, status: MutPtr): MutPtr =
     MutPtr(windowssysWindowsWin32GlobalizationUregionGetRegionFromCode(regioncode.rawAddress.toCPointer<ByteVar>(), status.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun uregionGetRegionFromNumericCode(code: Int, status: MutPtr<UErrorCode>): MutPtr<URegion> =
+public actual fun uregionGetRegionFromNumericCode(code: Int, status: MutPtr): MutPtr =
     MutPtr(windowssysWindowsWin32GlobalizationUregionGetRegionFromNumericCode(code, status.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun uregionGetType(uregion: ConstPtr<URegion>): URegionType =
+public actual fun uregionGetType(uregion: ConstPtr): URegionType =
     windowssysWindowsWin32GlobalizationUregionGetType(uregion.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ureldatefmtClose(reldatefmt: MutPtr<URelativeDateTimeFormatter>) {
+public actual fun ureldatefmtClose(reldatefmt: MutPtr) {
     windowssysWindowsWin32GlobalizationUreldatefmtClose(reldatefmt.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun ureldatefmtCloseResult(ufrdt: MutPtr<UFormattedRelativeDateTime>) {
+public actual fun ureldatefmtCloseResult(ufrdt: MutPtr) {
     windowssysWindowsWin32GlobalizationUreldatefmtCloseResult(ufrdt.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun ureldatefmtCombineDateAndTime(reldatefmt: ConstPtr<URelativeDateTimeFormatter>, relativedatestring: ConstPtr<UShort>, relativedatestringlen: Int, timestring: ConstPtr<UShort>, timestringlen: Int, result: MutPtr<UShort>, resultcapacity: Int, status: MutPtr<UErrorCode>): Int =
+public actual fun ureldatefmtCombineDateAndTime(reldatefmt: ConstPtr, relativedatestring: ConstPtr, relativedatestringlen: Int, timestring: ConstPtr, timestringlen: Int, result: MutPtr, resultcapacity: Int, status: MutPtr): Int =
     windowssysWindowsWin32GlobalizationUreldatefmtCombineDateAndTime(reldatefmt.rawAddress.toCPointer<ByteVar>(), relativedatestring.rawAddress.toCPointer<ByteVar>(), relativedatestringlen, timestring.rawAddress.toCPointer<ByteVar>(), timestringlen, result.rawAddress.toCPointer<ByteVar>(), resultcapacity, status.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ureldatefmtFormat(reldatefmt: ConstPtr<URelativeDateTimeFormatter>, offset: Double, unit: URelativeDateTimeUnit, result: MutPtr<UShort>, resultcapacity: Int, status: MutPtr<UErrorCode>): Int =
+public actual fun ureldatefmtFormat(reldatefmt: ConstPtr, offset: Double, unit: URelativeDateTimeUnit, result: MutPtr, resultcapacity: Int, status: MutPtr): Int =
     windowssysWindowsWin32GlobalizationUreldatefmtFormat(reldatefmt.rawAddress.toCPointer<ByteVar>(), offset, unit, result.rawAddress.toCPointer<ByteVar>(), resultcapacity, status.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ureldatefmtFormatNumeric(reldatefmt: ConstPtr<URelativeDateTimeFormatter>, offset: Double, unit: URelativeDateTimeUnit, result: MutPtr<UShort>, resultcapacity: Int, status: MutPtr<UErrorCode>): Int =
+public actual fun ureldatefmtFormatNumeric(reldatefmt: ConstPtr, offset: Double, unit: URelativeDateTimeUnit, result: MutPtr, resultcapacity: Int, status: MutPtr): Int =
     windowssysWindowsWin32GlobalizationUreldatefmtFormatNumeric(reldatefmt.rawAddress.toCPointer<ByteVar>(), offset, unit, result.rawAddress.toCPointer<ByteVar>(), resultcapacity, status.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ureldatefmtFormatNumericToResult(reldatefmt: ConstPtr<URelativeDateTimeFormatter>, offset: Double, unit: URelativeDateTimeUnit, result: MutPtr<UFormattedRelativeDateTime>, status: MutPtr<UErrorCode>) {
+public actual fun ureldatefmtFormatNumericToResult(reldatefmt: ConstPtr, offset: Double, unit: URelativeDateTimeUnit, result: MutPtr, status: MutPtr) {
     windowssysWindowsWin32GlobalizationUreldatefmtFormatNumericToResult(reldatefmt.rawAddress.toCPointer<ByteVar>(), offset, unit, result.rawAddress.toCPointer<ByteVar>(), status.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun ureldatefmtFormatToResult(reldatefmt: ConstPtr<URelativeDateTimeFormatter>, offset: Double, unit: URelativeDateTimeUnit, result: MutPtr<UFormattedRelativeDateTime>, status: MutPtr<UErrorCode>) {
+public actual fun ureldatefmtFormatToResult(reldatefmt: ConstPtr, offset: Double, unit: URelativeDateTimeUnit, result: MutPtr, status: MutPtr) {
     windowssysWindowsWin32GlobalizationUreldatefmtFormatToResult(reldatefmt.rawAddress.toCPointer<ByteVar>(), offset, unit, result.rawAddress.toCPointer<ByteVar>(), status.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun ureldatefmtOpen(locale: Pcstr, nftoadopt: MutPtr<MutPtr<CVoid>>, width: UDateRelativeDateTimeFormatterStyle, capitalizationcontext: UDisplayContext, status: MutPtr<UErrorCode>): MutPtr<URelativeDateTimeFormatter> =
+public actual fun ureldatefmtOpen(locale: Pcstr, nftoadopt: MutPtr, width: UDateRelativeDateTimeFormatterStyle, capitalizationcontext: UDisplayContext, status: MutPtr): MutPtr =
     MutPtr(windowssysWindowsWin32GlobalizationUreldatefmtOpen(locale.rawAddress.toCPointer<ByteVar>(), nftoadopt.rawAddress.toCPointer<ByteVar>(), width, capitalizationcontext, status.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun ureldatefmtOpenResult(ec: MutPtr<UErrorCode>): MutPtr<UFormattedRelativeDateTime> =
+public actual fun ureldatefmtOpenResult(ec: MutPtr): MutPtr =
     MutPtr(windowssysWindowsWin32GlobalizationUreldatefmtOpenResult(ec.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun ureldatefmtResultAsValue(ufrdt: ConstPtr<UFormattedRelativeDateTime>, ec: MutPtr<UErrorCode>): MutPtr<UFormattedValue> =
+public actual fun ureldatefmtResultAsValue(ufrdt: ConstPtr, ec: MutPtr): MutPtr =
     MutPtr(windowssysWindowsWin32GlobalizationUreldatefmtResultAsValue(ufrdt.rawAddress.toCPointer<ByteVar>(), ec.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun uresClose(resourcebundle: MutPtr<UResourceBundle>) {
+public actual fun uresClose(resourcebundle: MutPtr) {
     windowssysWindowsWin32GlobalizationUresClose(resourcebundle.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun uresGetBinary(resourcebundle: ConstPtr<UResourceBundle>, len: MutPtr<Int>, status: MutPtr<UErrorCode>): MutPtr<UByte> =
+public actual fun uresGetBinary(resourcebundle: ConstPtr, len: MutPtr, status: MutPtr): MutPtr =
     MutPtr(windowssysWindowsWin32GlobalizationUresGetBinary(resourcebundle.rawAddress.toCPointer<ByteVar>(), len.rawAddress.toCPointer<ByteVar>(), status.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun uresGetByIndex(resourcebundle: ConstPtr<UResourceBundle>, indexr: Int, fillin: MutPtr<UResourceBundle>, status: MutPtr<UErrorCode>): MutPtr<UResourceBundle> =
+public actual fun uresGetByIndex(resourcebundle: ConstPtr, indexr: Int, fillin: MutPtr, status: MutPtr): MutPtr =
     MutPtr(windowssysWindowsWin32GlobalizationUresGetByIndex(resourcebundle.rawAddress.toCPointer<ByteVar>(), indexr, fillin.rawAddress.toCPointer<ByteVar>(), status.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun uresGetByKey(resourcebundle: ConstPtr<UResourceBundle>, key: Pcstr, fillin: MutPtr<UResourceBundle>, status: MutPtr<UErrorCode>): MutPtr<UResourceBundle> =
+public actual fun uresGetByKey(resourcebundle: ConstPtr, key: Pcstr, fillin: MutPtr, status: MutPtr): MutPtr =
     MutPtr(windowssysWindowsWin32GlobalizationUresGetByKey(resourcebundle.rawAddress.toCPointer<ByteVar>(), key.rawAddress.toCPointer<ByteVar>(), fillin.rawAddress.toCPointer<ByteVar>(), status.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun uresGetInt(resourcebundle: ConstPtr<UResourceBundle>, status: MutPtr<UErrorCode>): Int =
+public actual fun uresGetInt(resourcebundle: ConstPtr, status: MutPtr): Int =
     windowssysWindowsWin32GlobalizationUresGetInt(resourcebundle.rawAddress.toCPointer<ByteVar>(), status.rawAddress.toCPointer<ByteVar>())
 
-public actual fun uresGetIntVector(resourcebundle: ConstPtr<UResourceBundle>, len: MutPtr<Int>, status: MutPtr<UErrorCode>): MutPtr<Int> =
+public actual fun uresGetIntVector(resourcebundle: ConstPtr, len: MutPtr, status: MutPtr): MutPtr =
     MutPtr(windowssysWindowsWin32GlobalizationUresGetIntVector(resourcebundle.rawAddress.toCPointer<ByteVar>(), len.rawAddress.toCPointer<ByteVar>(), status.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun uresGetKey(resourcebundle: ConstPtr<UResourceBundle>): Pcstr =
+public actual fun uresGetKey(resourcebundle: ConstPtr): Pcstr =
     ConstPtr(windowssysWindowsWin32GlobalizationUresGetKey(resourcebundle.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun uresGetLocaleByType(resourcebundle: ConstPtr<UResourceBundle>, type: ULocDataLocaleType, status: MutPtr<UErrorCode>): Pcstr =
+public actual fun uresGetLocaleByType(resourcebundle: ConstPtr, type: ULocDataLocaleType, status: MutPtr): Pcstr =
     ConstPtr(windowssysWindowsWin32GlobalizationUresGetLocaleByType(resourcebundle.rawAddress.toCPointer<ByteVar>(), type, status.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun uresGetNextResource(resourcebundle: MutPtr<UResourceBundle>, fillin: MutPtr<UResourceBundle>, status: MutPtr<UErrorCode>): MutPtr<UResourceBundle> =
+public actual fun uresGetNextResource(resourcebundle: MutPtr, fillin: MutPtr, status: MutPtr): MutPtr =
     MutPtr(windowssysWindowsWin32GlobalizationUresGetNextResource(resourcebundle.rawAddress.toCPointer<ByteVar>(), fillin.rawAddress.toCPointer<ByteVar>(), status.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun uresGetNextString(resourcebundle: MutPtr<UResourceBundle>, len: MutPtr<Int>, key: ConstPtr<ConstPtr<Byte>>, status: MutPtr<UErrorCode>): MutPtr<UShort> =
+public actual fun uresGetNextString(resourcebundle: MutPtr, len: MutPtr, key: ConstPtr, status: MutPtr): MutPtr =
     MutPtr(windowssysWindowsWin32GlobalizationUresGetNextString(resourcebundle.rawAddress.toCPointer<ByteVar>(), len.rawAddress.toCPointer<ByteVar>(), key.rawAddress.toCPointer<ByteVar>(), status.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun uresGetSize(resourcebundle: ConstPtr<UResourceBundle>): Int =
+public actual fun uresGetSize(resourcebundle: ConstPtr): Int =
     windowssysWindowsWin32GlobalizationUresGetSize(resourcebundle.rawAddress.toCPointer<ByteVar>())
 
-public actual fun uresGetString(resourcebundle: ConstPtr<UResourceBundle>, len: MutPtr<Int>, status: MutPtr<UErrorCode>): MutPtr<UShort> =
+public actual fun uresGetString(resourcebundle: ConstPtr, len: MutPtr, status: MutPtr): MutPtr =
     MutPtr(windowssysWindowsWin32GlobalizationUresGetString(resourcebundle.rawAddress.toCPointer<ByteVar>(), len.rawAddress.toCPointer<ByteVar>(), status.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun uresGetStringByIndex(resourcebundle: ConstPtr<UResourceBundle>, indexs: Int, len: MutPtr<Int>, status: MutPtr<UErrorCode>): MutPtr<UShort> =
+public actual fun uresGetStringByIndex(resourcebundle: ConstPtr, indexs: Int, len: MutPtr, status: MutPtr): MutPtr =
     MutPtr(windowssysWindowsWin32GlobalizationUresGetStringByIndex(resourcebundle.rawAddress.toCPointer<ByteVar>(), indexs, len.rawAddress.toCPointer<ByteVar>(), status.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun uresGetStringByKey(resb: ConstPtr<UResourceBundle>, key: Pcstr, len: MutPtr<Int>, status: MutPtr<UErrorCode>): MutPtr<UShort> =
+public actual fun uresGetStringByKey(resb: ConstPtr, key: Pcstr, len: MutPtr, status: MutPtr): MutPtr =
     MutPtr(windowssysWindowsWin32GlobalizationUresGetStringByKey(resb.rawAddress.toCPointer<ByteVar>(), key.rawAddress.toCPointer<ByteVar>(), len.rawAddress.toCPointer<ByteVar>(), status.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun uresGetType(resourcebundle: ConstPtr<UResourceBundle>): UResType =
+public actual fun uresGetType(resourcebundle: ConstPtr): UResType =
     windowssysWindowsWin32GlobalizationUresGetType(resourcebundle.rawAddress.toCPointer<ByteVar>())
 
-public actual fun uresGetUint(resourcebundle: ConstPtr<UResourceBundle>, status: MutPtr<UErrorCode>): UInt =
+public actual fun uresGetUint(resourcebundle: ConstPtr, status: MutPtr): UInt =
     windowssysWindowsWin32GlobalizationUresGetUint(resourcebundle.rawAddress.toCPointer<ByteVar>(), status.rawAddress.toCPointer<ByteVar>())
 
-public actual fun uresGetUtf8String(resb: ConstPtr<UResourceBundle>, dest: Pcstr, length: MutPtr<Int>, forcecopy: Byte, status: MutPtr<UErrorCode>): Pcstr =
+public actual fun uresGetUtf8String(resb: ConstPtr, dest: Pcstr, length: MutPtr, forcecopy: Byte, status: MutPtr): Pcstr =
     ConstPtr(windowssysWindowsWin32GlobalizationUresGetUtf8String(resb.rawAddress.toCPointer<ByteVar>(), dest.rawAddress.toCPointer<ByteVar>(), length.rawAddress.toCPointer<ByteVar>(), forcecopy, status.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun uresGetUtf8StringByIndex(resb: ConstPtr<UResourceBundle>, stringindex: Int, dest: Pcstr, plength: MutPtr<Int>, forcecopy: Byte, status: MutPtr<UErrorCode>): Pcstr =
+public actual fun uresGetUtf8StringByIndex(resb: ConstPtr, stringindex: Int, dest: Pcstr, plength: MutPtr, forcecopy: Byte, status: MutPtr): Pcstr =
     ConstPtr(windowssysWindowsWin32GlobalizationUresGetUtf8StringByIndex(resb.rawAddress.toCPointer<ByteVar>(), stringindex, dest.rawAddress.toCPointer<ByteVar>(), plength.rawAddress.toCPointer<ByteVar>(), forcecopy, status.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun uresGetUtf8StringByKey(resb: ConstPtr<UResourceBundle>, key: Pcstr, dest: Pcstr, plength: MutPtr<Int>, forcecopy: Byte, status: MutPtr<UErrorCode>): Pcstr =
+public actual fun uresGetUtf8StringByKey(resb: ConstPtr, key: Pcstr, dest: Pcstr, plength: MutPtr, forcecopy: Byte, status: MutPtr): Pcstr =
     ConstPtr(windowssysWindowsWin32GlobalizationUresGetUtf8StringByKey(resb.rawAddress.toCPointer<ByteVar>(), key.rawAddress.toCPointer<ByteVar>(), dest.rawAddress.toCPointer<ByteVar>(), plength.rawAddress.toCPointer<ByteVar>(), forcecopy, status.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun uresGetVersion(resb: ConstPtr<UResourceBundle>, versioninfo: MutPtr<UByte>) {
+public actual fun uresGetVersion(resb: ConstPtr, versioninfo: MutPtr) {
     windowssysWindowsWin32GlobalizationUresGetVersion(resb.rawAddress.toCPointer<ByteVar>(), versioninfo.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun uresHasNext(resourcebundle: ConstPtr<UResourceBundle>): Byte =
+public actual fun uresHasNext(resourcebundle: ConstPtr): Byte =
     windowssysWindowsWin32GlobalizationUresHasNext(resourcebundle.rawAddress.toCPointer<ByteVar>())
 
-public actual fun uresOpen(packagename: Pcstr, locale: Pcstr, status: MutPtr<UErrorCode>): MutPtr<UResourceBundle> =
+public actual fun uresOpen(packagename: Pcstr, locale: Pcstr, status: MutPtr): MutPtr =
     MutPtr(windowssysWindowsWin32GlobalizationUresOpen(packagename.rawAddress.toCPointer<ByteVar>(), locale.rawAddress.toCPointer<ByteVar>(), status.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun uresOpenAvailableLocales(packagename: Pcstr, status: MutPtr<UErrorCode>): MutPtr<UEnumeration> =
+public actual fun uresOpenAvailableLocales(packagename: Pcstr, status: MutPtr): MutPtr =
     MutPtr(windowssysWindowsWin32GlobalizationUresOpenAvailableLocales(packagename.rawAddress.toCPointer<ByteVar>(), status.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun uresOpenDirect(packagename: Pcstr, locale: Pcstr, status: MutPtr<UErrorCode>): MutPtr<UResourceBundle> =
+public actual fun uresOpenDirect(packagename: Pcstr, locale: Pcstr, status: MutPtr): MutPtr =
     MutPtr(windowssysWindowsWin32GlobalizationUresOpenDirect(packagename.rawAddress.toCPointer<ByteVar>(), locale.rawAddress.toCPointer<ByteVar>(), status.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun uresOpenU(packagename: ConstPtr<UShort>, locale: Pcstr, status: MutPtr<UErrorCode>): MutPtr<UResourceBundle> =
+public actual fun uresOpenU(packagename: ConstPtr, locale: Pcstr, status: MutPtr): MutPtr =
     MutPtr(windowssysWindowsWin32GlobalizationUresOpenU(packagename.rawAddress.toCPointer<ByteVar>(), locale.rawAddress.toCPointer<ByteVar>(), status.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun uresResetIterator(resourcebundle: MutPtr<UResourceBundle>) {
+public actual fun uresResetIterator(resourcebundle: MutPtr) {
     windowssysWindowsWin32GlobalizationUresResetIterator(resourcebundle.rawAddress.toCPointer<ByteVar>())
 }
 
 public actual fun uscriptBreaksBetweenLetters(script: UScriptCode): Byte =
     windowssysWindowsWin32GlobalizationUscriptBreaksBetweenLetters(script)
 
-public actual fun uscriptGetCode(nameorabbrorlocale: Pcstr, fillin: MutPtr<UScriptCode>, capacity: Int, err: MutPtr<UErrorCode>): Int =
+public actual fun uscriptGetCode(nameorabbrorlocale: Pcstr, fillin: MutPtr, capacity: Int, err: MutPtr): Int =
     windowssysWindowsWin32GlobalizationUscriptGetCode(nameorabbrorlocale.rawAddress.toCPointer<ByteVar>(), fillin.rawAddress.toCPointer<ByteVar>(), capacity, err.rawAddress.toCPointer<ByteVar>())
 
 public actual fun uscriptGetName(scriptcode: UScriptCode): Pcstr =
     ConstPtr(windowssysWindowsWin32GlobalizationUscriptGetName(scriptcode)?.toLong() ?: 0L)
 
-public actual fun uscriptGetSampleString(script: UScriptCode, dest: MutPtr<UShort>, capacity: Int, perrorcode: MutPtr<UErrorCode>): Int =
+public actual fun uscriptGetSampleString(script: UScriptCode, dest: MutPtr, capacity: Int, perrorcode: MutPtr): Int =
     windowssysWindowsWin32GlobalizationUscriptGetSampleString(script, dest.rawAddress.toCPointer<ByteVar>(), capacity, perrorcode.rawAddress.toCPointer<ByteVar>())
 
-public actual fun uscriptGetScript(codepoint: Int, err: MutPtr<UErrorCode>): UScriptCode =
+public actual fun uscriptGetScript(codepoint: Int, err: MutPtr): UScriptCode =
     windowssysWindowsWin32GlobalizationUscriptGetScript(codepoint, err.rawAddress.toCPointer<ByteVar>())
 
-public actual fun uscriptGetScriptExtensions(c: Int, scripts: MutPtr<UScriptCode>, capacity: Int, errorcode: MutPtr<UErrorCode>): Int =
+public actual fun uscriptGetScriptExtensions(c: Int, scripts: MutPtr, capacity: Int, errorcode: MutPtr): Int =
     windowssysWindowsWin32GlobalizationUscriptGetScriptExtensions(c, scripts.rawAddress.toCPointer<ByteVar>(), capacity, errorcode.rawAddress.toCPointer<ByteVar>())
 
 public actual fun uscriptGetShortName(scriptcode: UScriptCode): Pcstr =
@@ -4602,480 +4597,480 @@ public actual fun uscriptIsCased(script: UScriptCode): Byte =
 public actual fun uscriptIsRightToLeft(script: UScriptCode): Byte =
     windowssysWindowsWin32GlobalizationUscriptIsRightToLeft(script)
 
-public actual fun usearchClose(searchiter: MutPtr<UStringSearch>) {
+public actual fun usearchClose(searchiter: MutPtr) {
     windowssysWindowsWin32GlobalizationUsearchClose(searchiter.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun usearchFirst(strsrch: MutPtr<UStringSearch>, status: MutPtr<UErrorCode>): Int =
+public actual fun usearchFirst(strsrch: MutPtr, status: MutPtr): Int =
     windowssysWindowsWin32GlobalizationUsearchFirst(strsrch.rawAddress.toCPointer<ByteVar>(), status.rawAddress.toCPointer<ByteVar>())
 
-public actual fun usearchFollowing(strsrch: MutPtr<UStringSearch>, position: Int, status: MutPtr<UErrorCode>): Int =
+public actual fun usearchFollowing(strsrch: MutPtr, position: Int, status: MutPtr): Int =
     windowssysWindowsWin32GlobalizationUsearchFollowing(strsrch.rawAddress.toCPointer<ByteVar>(), position, status.rawAddress.toCPointer<ByteVar>())
 
-public actual fun usearchGetAttribute(strsrch: ConstPtr<UStringSearch>, attribute: USearchAttribute): USearchAttributeValue =
+public actual fun usearchGetAttribute(strsrch: ConstPtr, attribute: USearchAttribute): USearchAttributeValue =
     windowssysWindowsWin32GlobalizationUsearchGetAttribute(strsrch.rawAddress.toCPointer<ByteVar>(), attribute)
 
-public actual fun usearchGetBreakIterator(strsrch: ConstPtr<UStringSearch>): MutPtr<UBreakIterator> =
+public actual fun usearchGetBreakIterator(strsrch: ConstPtr): MutPtr =
     MutPtr(windowssysWindowsWin32GlobalizationUsearchGetBreakIterator(strsrch.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun usearchGetCollator(strsrch: ConstPtr<UStringSearch>): MutPtr<UCollator> =
+public actual fun usearchGetCollator(strsrch: ConstPtr): MutPtr =
     MutPtr(windowssysWindowsWin32GlobalizationUsearchGetCollator(strsrch.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun usearchGetMatchedLength(strsrch: ConstPtr<UStringSearch>): Int =
+public actual fun usearchGetMatchedLength(strsrch: ConstPtr): Int =
     windowssysWindowsWin32GlobalizationUsearchGetMatchedLength(strsrch.rawAddress.toCPointer<ByteVar>())
 
-public actual fun usearchGetMatchedStart(strsrch: ConstPtr<UStringSearch>): Int =
+public actual fun usearchGetMatchedStart(strsrch: ConstPtr): Int =
     windowssysWindowsWin32GlobalizationUsearchGetMatchedStart(strsrch.rawAddress.toCPointer<ByteVar>())
 
-public actual fun usearchGetMatchedText(strsrch: ConstPtr<UStringSearch>, result: MutPtr<UShort>, resultcapacity: Int, status: MutPtr<UErrorCode>): Int =
+public actual fun usearchGetMatchedText(strsrch: ConstPtr, result: MutPtr, resultcapacity: Int, status: MutPtr): Int =
     windowssysWindowsWin32GlobalizationUsearchGetMatchedText(strsrch.rawAddress.toCPointer<ByteVar>(), result.rawAddress.toCPointer<ByteVar>(), resultcapacity, status.rawAddress.toCPointer<ByteVar>())
 
-public actual fun usearchGetOffset(strsrch: ConstPtr<UStringSearch>): Int =
+public actual fun usearchGetOffset(strsrch: ConstPtr): Int =
     windowssysWindowsWin32GlobalizationUsearchGetOffset(strsrch.rawAddress.toCPointer<ByteVar>())
 
-public actual fun usearchGetPattern(strsrch: ConstPtr<UStringSearch>, length: MutPtr<Int>): MutPtr<UShort> =
+public actual fun usearchGetPattern(strsrch: ConstPtr, length: MutPtr): MutPtr =
     MutPtr(windowssysWindowsWin32GlobalizationUsearchGetPattern(strsrch.rawAddress.toCPointer<ByteVar>(), length.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun usearchGetText(strsrch: ConstPtr<UStringSearch>, length: MutPtr<Int>): MutPtr<UShort> =
+public actual fun usearchGetText(strsrch: ConstPtr, length: MutPtr): MutPtr =
     MutPtr(windowssysWindowsWin32GlobalizationUsearchGetText(strsrch.rawAddress.toCPointer<ByteVar>(), length.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun usearchLast(strsrch: MutPtr<UStringSearch>, status: MutPtr<UErrorCode>): Int =
+public actual fun usearchLast(strsrch: MutPtr, status: MutPtr): Int =
     windowssysWindowsWin32GlobalizationUsearchLast(strsrch.rawAddress.toCPointer<ByteVar>(), status.rawAddress.toCPointer<ByteVar>())
 
-public actual fun usearchNext(strsrch: MutPtr<UStringSearch>, status: MutPtr<UErrorCode>): Int =
+public actual fun usearchNext(strsrch: MutPtr, status: MutPtr): Int =
     windowssysWindowsWin32GlobalizationUsearchNext(strsrch.rawAddress.toCPointer<ByteVar>(), status.rawAddress.toCPointer<ByteVar>())
 
-public actual fun usearchOpen(pattern: ConstPtr<UShort>, patternlength: Int, text: ConstPtr<UShort>, textlength: Int, locale: Pcstr, breakiter: MutPtr<UBreakIterator>, status: MutPtr<UErrorCode>): MutPtr<UStringSearch> =
+public actual fun usearchOpen(pattern: ConstPtr, patternlength: Int, text: ConstPtr, textlength: Int, locale: Pcstr, breakiter: MutPtr, status: MutPtr): MutPtr =
     MutPtr(windowssysWindowsWin32GlobalizationUsearchOpen(pattern.rawAddress.toCPointer<ByteVar>(), patternlength, text.rawAddress.toCPointer<ByteVar>(), textlength, locale.rawAddress.toCPointer<ByteVar>(), breakiter.rawAddress.toCPointer<ByteVar>(), status.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun usearchOpenFromCollator(pattern: ConstPtr<UShort>, patternlength: Int, text: ConstPtr<UShort>, textlength: Int, collator: ConstPtr<UCollator>, breakiter: MutPtr<UBreakIterator>, status: MutPtr<UErrorCode>): MutPtr<UStringSearch> =
+public actual fun usearchOpenFromCollator(pattern: ConstPtr, patternlength: Int, text: ConstPtr, textlength: Int, collator: ConstPtr, breakiter: MutPtr, status: MutPtr): MutPtr =
     MutPtr(windowssysWindowsWin32GlobalizationUsearchOpenFromCollator(pattern.rawAddress.toCPointer<ByteVar>(), patternlength, text.rawAddress.toCPointer<ByteVar>(), textlength, collator.rawAddress.toCPointer<ByteVar>(), breakiter.rawAddress.toCPointer<ByteVar>(), status.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun usearchPreceding(strsrch: MutPtr<UStringSearch>, position: Int, status: MutPtr<UErrorCode>): Int =
+public actual fun usearchPreceding(strsrch: MutPtr, position: Int, status: MutPtr): Int =
     windowssysWindowsWin32GlobalizationUsearchPreceding(strsrch.rawAddress.toCPointer<ByteVar>(), position, status.rawAddress.toCPointer<ByteVar>())
 
-public actual fun usearchPrevious(strsrch: MutPtr<UStringSearch>, status: MutPtr<UErrorCode>): Int =
+public actual fun usearchPrevious(strsrch: MutPtr, status: MutPtr): Int =
     windowssysWindowsWin32GlobalizationUsearchPrevious(strsrch.rawAddress.toCPointer<ByteVar>(), status.rawAddress.toCPointer<ByteVar>())
 
-public actual fun usearchReset(strsrch: MutPtr<UStringSearch>) {
+public actual fun usearchReset(strsrch: MutPtr) {
     windowssysWindowsWin32GlobalizationUsearchReset(strsrch.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun usearchSetAttribute(strsrch: MutPtr<UStringSearch>, attribute: USearchAttribute, value: USearchAttributeValue, status: MutPtr<UErrorCode>) {
+public actual fun usearchSetAttribute(strsrch: MutPtr, attribute: USearchAttribute, value: USearchAttributeValue, status: MutPtr) {
     windowssysWindowsWin32GlobalizationUsearchSetAttribute(strsrch.rawAddress.toCPointer<ByteVar>(), attribute, value, status.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun usearchSetBreakIterator(strsrch: MutPtr<UStringSearch>, breakiter: MutPtr<UBreakIterator>, status: MutPtr<UErrorCode>) {
+public actual fun usearchSetBreakIterator(strsrch: MutPtr, breakiter: MutPtr, status: MutPtr) {
     windowssysWindowsWin32GlobalizationUsearchSetBreakIterator(strsrch.rawAddress.toCPointer<ByteVar>(), breakiter.rawAddress.toCPointer<ByteVar>(), status.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun usearchSetCollator(strsrch: MutPtr<UStringSearch>, collator: ConstPtr<UCollator>, status: MutPtr<UErrorCode>) {
+public actual fun usearchSetCollator(strsrch: MutPtr, collator: ConstPtr, status: MutPtr) {
     windowssysWindowsWin32GlobalizationUsearchSetCollator(strsrch.rawAddress.toCPointer<ByteVar>(), collator.rawAddress.toCPointer<ByteVar>(), status.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun usearchSetOffset(strsrch: MutPtr<UStringSearch>, position: Int, status: MutPtr<UErrorCode>) {
+public actual fun usearchSetOffset(strsrch: MutPtr, position: Int, status: MutPtr) {
     windowssysWindowsWin32GlobalizationUsearchSetOffset(strsrch.rawAddress.toCPointer<ByteVar>(), position, status.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun usearchSetPattern(strsrch: MutPtr<UStringSearch>, pattern: ConstPtr<UShort>, patternlength: Int, status: MutPtr<UErrorCode>) {
+public actual fun usearchSetPattern(strsrch: MutPtr, pattern: ConstPtr, patternlength: Int, status: MutPtr) {
     windowssysWindowsWin32GlobalizationUsearchSetPattern(strsrch.rawAddress.toCPointer<ByteVar>(), pattern.rawAddress.toCPointer<ByteVar>(), patternlength, status.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun usearchSetText(strsrch: MutPtr<UStringSearch>, text: ConstPtr<UShort>, textlength: Int, status: MutPtr<UErrorCode>) {
+public actual fun usearchSetText(strsrch: MutPtr, text: ConstPtr, textlength: Int, status: MutPtr) {
     windowssysWindowsWin32GlobalizationUsearchSetText(strsrch.rawAddress.toCPointer<ByteVar>(), text.rawAddress.toCPointer<ByteVar>(), textlength, status.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun usetAdd(set: MutPtr<USet>, c: Int) {
+public actual fun usetAdd(set: MutPtr, c: Int) {
     windowssysWindowsWin32GlobalizationUsetAdd(set.rawAddress.toCPointer<ByteVar>(), c)
 }
 
-public actual fun usetAddAll(set: MutPtr<USet>, additionalset: ConstPtr<USet>) {
+public actual fun usetAddAll(set: MutPtr, additionalset: ConstPtr) {
     windowssysWindowsWin32GlobalizationUsetAddAll(set.rawAddress.toCPointer<ByteVar>(), additionalset.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun usetAddAllCodePoints(set: MutPtr<USet>, str: ConstPtr<UShort>, strlen: Int) {
+public actual fun usetAddAllCodePoints(set: MutPtr, str: ConstPtr, strlen: Int) {
     windowssysWindowsWin32GlobalizationUsetAddAllCodePoints(set.rawAddress.toCPointer<ByteVar>(), str.rawAddress.toCPointer<ByteVar>(), strlen)
 }
 
-public actual fun usetAddRange(set: MutPtr<USet>, start: Int, end: Int) {
+public actual fun usetAddRange(set: MutPtr, start: Int, end: Int) {
     windowssysWindowsWin32GlobalizationUsetAddRange(set.rawAddress.toCPointer<ByteVar>(), start, end)
 }
 
-public actual fun usetAddString(set: MutPtr<USet>, str: ConstPtr<UShort>, strlen: Int) {
+public actual fun usetAddString(set: MutPtr, str: ConstPtr, strlen: Int) {
     windowssysWindowsWin32GlobalizationUsetAddString(set.rawAddress.toCPointer<ByteVar>(), str.rawAddress.toCPointer<ByteVar>(), strlen)
 }
 
-public actual fun usetApplyIntPropertyValue(set: MutPtr<USet>, prop: UProperty, value: Int, ec: MutPtr<UErrorCode>) {
+public actual fun usetApplyIntPropertyValue(set: MutPtr, prop: UProperty, value: Int, ec: MutPtr) {
     windowssysWindowsWin32GlobalizationUsetApplyIntPropertyValue(set.rawAddress.toCPointer<ByteVar>(), prop, value, ec.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun usetApplyPattern(set: MutPtr<USet>, pattern: ConstPtr<UShort>, patternlength: Int, options: UInt, status: MutPtr<UErrorCode>): Int =
+public actual fun usetApplyPattern(set: MutPtr, pattern: ConstPtr, patternlength: Int, options: UInt, status: MutPtr): Int =
     windowssysWindowsWin32GlobalizationUsetApplyPattern(set.rawAddress.toCPointer<ByteVar>(), pattern.rawAddress.toCPointer<ByteVar>(), patternlength, options, status.rawAddress.toCPointer<ByteVar>())
 
-public actual fun usetApplyPropertyAlias(set: MutPtr<USet>, prop: ConstPtr<UShort>, proplength: Int, value: ConstPtr<UShort>, valuelength: Int, ec: MutPtr<UErrorCode>) {
+public actual fun usetApplyPropertyAlias(set: MutPtr, prop: ConstPtr, proplength: Int, value: ConstPtr, valuelength: Int, ec: MutPtr) {
     windowssysWindowsWin32GlobalizationUsetApplyPropertyAlias(set.rawAddress.toCPointer<ByteVar>(), prop.rawAddress.toCPointer<ByteVar>(), proplength, value.rawAddress.toCPointer<ByteVar>(), valuelength, ec.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun usetCharAt(set: ConstPtr<USet>, charindex: Int): Int =
+public actual fun usetCharAt(set: ConstPtr, charindex: Int): Int =
     windowssysWindowsWin32GlobalizationUsetCharAt(set.rawAddress.toCPointer<ByteVar>(), charindex)
 
-public actual fun usetClear(set: MutPtr<USet>) {
+public actual fun usetClear(set: MutPtr) {
     windowssysWindowsWin32GlobalizationUsetClear(set.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun usetClone(set: ConstPtr<USet>): MutPtr<USet> =
+public actual fun usetClone(set: ConstPtr): MutPtr =
     MutPtr(windowssysWindowsWin32GlobalizationUsetClone(set.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun usetCloneAsThawed(set: ConstPtr<USet>): MutPtr<USet> =
+public actual fun usetCloneAsThawed(set: ConstPtr): MutPtr =
     MutPtr(windowssysWindowsWin32GlobalizationUsetCloneAsThawed(set.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun usetClose(set: MutPtr<USet>) {
+public actual fun usetClose(set: MutPtr) {
     windowssysWindowsWin32GlobalizationUsetClose(set.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun usetCloseOver(set: MutPtr<USet>, attributes: Int) {
+public actual fun usetCloseOver(set: MutPtr, attributes: Int) {
     windowssysWindowsWin32GlobalizationUsetCloseOver(set.rawAddress.toCPointer<ByteVar>(), attributes)
 }
 
-public actual fun usetCompact(set: MutPtr<USet>) {
+public actual fun usetCompact(set: MutPtr) {
     windowssysWindowsWin32GlobalizationUsetCompact(set.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun usetComplement(set: MutPtr<USet>) {
+public actual fun usetComplement(set: MutPtr) {
     windowssysWindowsWin32GlobalizationUsetComplement(set.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun usetComplementAll(set: MutPtr<USet>, complement: ConstPtr<USet>) {
+public actual fun usetComplementAll(set: MutPtr, complement: ConstPtr) {
     windowssysWindowsWin32GlobalizationUsetComplementAll(set.rawAddress.toCPointer<ByteVar>(), complement.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun usetContains(set: ConstPtr<USet>, c: Int): Byte =
+public actual fun usetContains(set: ConstPtr, c: Int): Byte =
     windowssysWindowsWin32GlobalizationUsetContains(set.rawAddress.toCPointer<ByteVar>(), c)
 
-public actual fun usetContainsAll(set1: ConstPtr<USet>, set2: ConstPtr<USet>): Byte =
+public actual fun usetContainsAll(set1: ConstPtr, set2: ConstPtr): Byte =
     windowssysWindowsWin32GlobalizationUsetContainsAll(set1.rawAddress.toCPointer<ByteVar>(), set2.rawAddress.toCPointer<ByteVar>())
 
-public actual fun usetContainsAllCodePoints(set: ConstPtr<USet>, str: ConstPtr<UShort>, strlen: Int): Byte =
+public actual fun usetContainsAllCodePoints(set: ConstPtr, str: ConstPtr, strlen: Int): Byte =
     windowssysWindowsWin32GlobalizationUsetContainsAllCodePoints(set.rawAddress.toCPointer<ByteVar>(), str.rawAddress.toCPointer<ByteVar>(), strlen)
 
-public actual fun usetContainsNone(set1: ConstPtr<USet>, set2: ConstPtr<USet>): Byte =
+public actual fun usetContainsNone(set1: ConstPtr, set2: ConstPtr): Byte =
     windowssysWindowsWin32GlobalizationUsetContainsNone(set1.rawAddress.toCPointer<ByteVar>(), set2.rawAddress.toCPointer<ByteVar>())
 
-public actual fun usetContainsRange(set: ConstPtr<USet>, start: Int, end: Int): Byte =
+public actual fun usetContainsRange(set: ConstPtr, start: Int, end: Int): Byte =
     windowssysWindowsWin32GlobalizationUsetContainsRange(set.rawAddress.toCPointer<ByteVar>(), start, end)
 
-public actual fun usetContainsSome(set1: ConstPtr<USet>, set2: ConstPtr<USet>): Byte =
+public actual fun usetContainsSome(set1: ConstPtr, set2: ConstPtr): Byte =
     windowssysWindowsWin32GlobalizationUsetContainsSome(set1.rawAddress.toCPointer<ByteVar>(), set2.rawAddress.toCPointer<ByteVar>())
 
-public actual fun usetContainsString(set: ConstPtr<USet>, str: ConstPtr<UShort>, strlen: Int): Byte =
+public actual fun usetContainsString(set: ConstPtr, str: ConstPtr, strlen: Int): Byte =
     windowssysWindowsWin32GlobalizationUsetContainsString(set.rawAddress.toCPointer<ByteVar>(), str.rawAddress.toCPointer<ByteVar>(), strlen)
 
-public actual fun usetEquals(set1: ConstPtr<USet>, set2: ConstPtr<USet>): Byte =
+public actual fun usetEquals(set1: ConstPtr, set2: ConstPtr): Byte =
     windowssysWindowsWin32GlobalizationUsetEquals(set1.rawAddress.toCPointer<ByteVar>(), set2.rawAddress.toCPointer<ByteVar>())
 
-public actual fun usetFreeze(set: MutPtr<USet>) {
+public actual fun usetFreeze(set: MutPtr) {
     windowssysWindowsWin32GlobalizationUsetFreeze(set.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun usetGetItem(set: ConstPtr<USet>, itemindex: Int, start: MutPtr<Int>, end: MutPtr<Int>, str: MutPtr<UShort>, strcapacity: Int, ec: MutPtr<UErrorCode>): Int =
+public actual fun usetGetItem(set: ConstPtr, itemindex: Int, start: MutPtr, end: MutPtr, str: MutPtr, strcapacity: Int, ec: MutPtr): Int =
     windowssysWindowsWin32GlobalizationUsetGetItem(set.rawAddress.toCPointer<ByteVar>(), itemindex, start.rawAddress.toCPointer<ByteVar>(), end.rawAddress.toCPointer<ByteVar>(), str.rawAddress.toCPointer<ByteVar>(), strcapacity, ec.rawAddress.toCPointer<ByteVar>())
 
-public actual fun usetGetItemCount(set: ConstPtr<USet>): Int =
+public actual fun usetGetItemCount(set: ConstPtr): Int =
     windowssysWindowsWin32GlobalizationUsetGetItemCount(set.rawAddress.toCPointer<ByteVar>())
 
-public actual fun usetGetSerializedRange(set: ConstPtr<USerializedSet>, rangeindex: Int, pstart: MutPtr<Int>, pend: MutPtr<Int>): Byte =
+public actual fun usetGetSerializedRange(set: ConstPtr, rangeindex: Int, pstart: MutPtr, pend: MutPtr): Byte =
     windowssysWindowsWin32GlobalizationUsetGetSerializedRange(set.rawAddress.toCPointer<ByteVar>(), rangeindex, pstart.rawAddress.toCPointer<ByteVar>(), pend.rawAddress.toCPointer<ByteVar>())
 
-public actual fun usetGetSerializedRangeCount(set: ConstPtr<USerializedSet>): Int =
+public actual fun usetGetSerializedRangeCount(set: ConstPtr): Int =
     windowssysWindowsWin32GlobalizationUsetGetSerializedRangeCount(set.rawAddress.toCPointer<ByteVar>())
 
-public actual fun usetGetSerializedSet(fillset: MutPtr<USerializedSet>, src: ConstPtr<UShort>, srclength: Int): Byte =
+public actual fun usetGetSerializedSet(fillset: MutPtr, src: ConstPtr, srclength: Int): Byte =
     windowssysWindowsWin32GlobalizationUsetGetSerializedSet(fillset.rawAddress.toCPointer<ByteVar>(), src.rawAddress.toCPointer<ByteVar>(), srclength)
 
-public actual fun usetIndexOf(set: ConstPtr<USet>, c: Int): Int =
+public actual fun usetIndexOf(set: ConstPtr, c: Int): Int =
     windowssysWindowsWin32GlobalizationUsetIndexOf(set.rawAddress.toCPointer<ByteVar>(), c)
 
-public actual fun usetIsEmpty(set: ConstPtr<USet>): Byte =
+public actual fun usetIsEmpty(set: ConstPtr): Byte =
     windowssysWindowsWin32GlobalizationUsetIsEmpty(set.rawAddress.toCPointer<ByteVar>())
 
-public actual fun usetIsFrozen(set: ConstPtr<USet>): Byte =
+public actual fun usetIsFrozen(set: ConstPtr): Byte =
     windowssysWindowsWin32GlobalizationUsetIsFrozen(set.rawAddress.toCPointer<ByteVar>())
 
-public actual fun usetOpen(start: Int, end: Int): MutPtr<USet> =
+public actual fun usetOpen(start: Int, end: Int): MutPtr =
     MutPtr(windowssysWindowsWin32GlobalizationUsetOpen(start, end)?.toLong() ?: 0L)
 
-public actual fun usetOpenEmpty(): MutPtr<USet> =
+public actual fun usetOpenEmpty(): MutPtr =
     MutPtr(windowssysWindowsWin32GlobalizationUsetOpenEmpty()?.toLong() ?: 0L)
 
-public actual fun usetOpenPattern(pattern: ConstPtr<UShort>, patternlength: Int, ec: MutPtr<UErrorCode>): MutPtr<USet> =
+public actual fun usetOpenPattern(pattern: ConstPtr, patternlength: Int, ec: MutPtr): MutPtr =
     MutPtr(windowssysWindowsWin32GlobalizationUsetOpenPattern(pattern.rawAddress.toCPointer<ByteVar>(), patternlength, ec.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun usetOpenPatternOptions(pattern: ConstPtr<UShort>, patternlength: Int, options: UInt, ec: MutPtr<UErrorCode>): MutPtr<USet> =
+public actual fun usetOpenPatternOptions(pattern: ConstPtr, patternlength: Int, options: UInt, ec: MutPtr): MutPtr =
     MutPtr(windowssysWindowsWin32GlobalizationUsetOpenPatternOptions(pattern.rawAddress.toCPointer<ByteVar>(), patternlength, options, ec.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun usetRemove(set: MutPtr<USet>, c: Int) {
+public actual fun usetRemove(set: MutPtr, c: Int) {
     windowssysWindowsWin32GlobalizationUsetRemove(set.rawAddress.toCPointer<ByteVar>(), c)
 }
 
-public actual fun usetRemoveAll(set: MutPtr<USet>, removeset: ConstPtr<USet>) {
+public actual fun usetRemoveAll(set: MutPtr, removeset: ConstPtr) {
     windowssysWindowsWin32GlobalizationUsetRemoveAll(set.rawAddress.toCPointer<ByteVar>(), removeset.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun usetRemoveAllStrings(set: MutPtr<USet>) {
+public actual fun usetRemoveAllStrings(set: MutPtr) {
     windowssysWindowsWin32GlobalizationUsetRemoveAllStrings(set.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun usetRemoveRange(set: MutPtr<USet>, start: Int, end: Int) {
+public actual fun usetRemoveRange(set: MutPtr, start: Int, end: Int) {
     windowssysWindowsWin32GlobalizationUsetRemoveRange(set.rawAddress.toCPointer<ByteVar>(), start, end)
 }
 
-public actual fun usetRemoveString(set: MutPtr<USet>, str: ConstPtr<UShort>, strlen: Int) {
+public actual fun usetRemoveString(set: MutPtr, str: ConstPtr, strlen: Int) {
     windowssysWindowsWin32GlobalizationUsetRemoveString(set.rawAddress.toCPointer<ByteVar>(), str.rawAddress.toCPointer<ByteVar>(), strlen)
 }
 
-public actual fun usetResemblesPattern(pattern: ConstPtr<UShort>, patternlength: Int, pos: Int): Byte =
+public actual fun usetResemblesPattern(pattern: ConstPtr, patternlength: Int, pos: Int): Byte =
     windowssysWindowsWin32GlobalizationUsetResemblesPattern(pattern.rawAddress.toCPointer<ByteVar>(), patternlength, pos)
 
-public actual fun usetRetain(set: MutPtr<USet>, start: Int, end: Int) {
+public actual fun usetRetain(set: MutPtr, start: Int, end: Int) {
     windowssysWindowsWin32GlobalizationUsetRetain(set.rawAddress.toCPointer<ByteVar>(), start, end)
 }
 
-public actual fun usetRetainAll(set: MutPtr<USet>, retain: ConstPtr<USet>) {
+public actual fun usetRetainAll(set: MutPtr, retain: ConstPtr) {
     windowssysWindowsWin32GlobalizationUsetRetainAll(set.rawAddress.toCPointer<ByteVar>(), retain.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun usetSerialize(set: ConstPtr<USet>, dest: MutPtr<UShort>, destcapacity: Int, perrorcode: MutPtr<UErrorCode>): Int =
+public actual fun usetSerialize(set: ConstPtr, dest: MutPtr, destcapacity: Int, perrorcode: MutPtr): Int =
     windowssysWindowsWin32GlobalizationUsetSerialize(set.rawAddress.toCPointer<ByteVar>(), dest.rawAddress.toCPointer<ByteVar>(), destcapacity, perrorcode.rawAddress.toCPointer<ByteVar>())
 
-public actual fun usetSerializedContains(set: ConstPtr<USerializedSet>, c: Int): Byte =
+public actual fun usetSerializedContains(set: ConstPtr, c: Int): Byte =
     windowssysWindowsWin32GlobalizationUsetSerializedContains(set.rawAddress.toCPointer<ByteVar>(), c)
 
-public actual fun usetSet(set: MutPtr<USet>, start: Int, end: Int) {
+public actual fun usetSet(set: MutPtr, start: Int, end: Int) {
     windowssysWindowsWin32GlobalizationUsetSet(set.rawAddress.toCPointer<ByteVar>(), start, end)
 }
 
-public actual fun usetSetSerializedToOne(fillset: MutPtr<USerializedSet>, c: Int) {
+public actual fun usetSetSerializedToOne(fillset: MutPtr, c: Int) {
     windowssysWindowsWin32GlobalizationUsetSetSerializedToOne(fillset.rawAddress.toCPointer<ByteVar>(), c)
 }
 
-public actual fun usetSize(set: ConstPtr<USet>): Int =
+public actual fun usetSize(set: ConstPtr): Int =
     windowssysWindowsWin32GlobalizationUsetSize(set.rawAddress.toCPointer<ByteVar>())
 
-public actual fun usetSpan(set: ConstPtr<USet>, s: ConstPtr<UShort>, length: Int, spancondition: USetSpanCondition): Int =
+public actual fun usetSpan(set: ConstPtr, s: ConstPtr, length: Int, spancondition: USetSpanCondition): Int =
     windowssysWindowsWin32GlobalizationUsetSpan(set.rawAddress.toCPointer<ByteVar>(), s.rawAddress.toCPointer<ByteVar>(), length, spancondition)
 
-public actual fun usetSpanBack(set: ConstPtr<USet>, s: ConstPtr<UShort>, length: Int, spancondition: USetSpanCondition): Int =
+public actual fun usetSpanBack(set: ConstPtr, s: ConstPtr, length: Int, spancondition: USetSpanCondition): Int =
     windowssysWindowsWin32GlobalizationUsetSpanBack(set.rawAddress.toCPointer<ByteVar>(), s.rawAddress.toCPointer<ByteVar>(), length, spancondition)
 
-public actual fun usetSpanBackUtf8(set: ConstPtr<USet>, s: Pcstr, length: Int, spancondition: USetSpanCondition): Int =
+public actual fun usetSpanBackUtf8(set: ConstPtr, s: Pcstr, length: Int, spancondition: USetSpanCondition): Int =
     windowssysWindowsWin32GlobalizationUsetSpanBackUtf8(set.rawAddress.toCPointer<ByteVar>(), s.rawAddress.toCPointer<ByteVar>(), length, spancondition)
 
-public actual fun usetSpanUtf8(set: ConstPtr<USet>, s: Pcstr, length: Int, spancondition: USetSpanCondition): Int =
+public actual fun usetSpanUtf8(set: ConstPtr, s: Pcstr, length: Int, spancondition: USetSpanCondition): Int =
     windowssysWindowsWin32GlobalizationUsetSpanUtf8(set.rawAddress.toCPointer<ByteVar>(), s.rawAddress.toCPointer<ByteVar>(), length, spancondition)
 
-public actual fun usetToPattern(set: ConstPtr<USet>, result: MutPtr<UShort>, resultcapacity: Int, escapeunprintable: Byte, ec: MutPtr<UErrorCode>): Int =
+public actual fun usetToPattern(set: ConstPtr, result: MutPtr, resultcapacity: Int, escapeunprintable: Byte, ec: MutPtr): Int =
     windowssysWindowsWin32GlobalizationUsetToPattern(set.rawAddress.toCPointer<ByteVar>(), result.rawAddress.toCPointer<ByteVar>(), resultcapacity, escapeunprintable, ec.rawAddress.toCPointer<ByteVar>())
 
-public actual fun uspoofAreConfusable(sc: ConstPtr<USpoofChecker>, id1: ConstPtr<UShort>, length1: Int, id2: ConstPtr<UShort>, length2: Int, status: MutPtr<UErrorCode>): Int =
+public actual fun uspoofAreConfusable(sc: ConstPtr, id1: ConstPtr, length1: Int, id2: ConstPtr, length2: Int, status: MutPtr): Int =
     windowssysWindowsWin32GlobalizationUspoofAreConfusable(sc.rawAddress.toCPointer<ByteVar>(), id1.rawAddress.toCPointer<ByteVar>(), length1, id2.rawAddress.toCPointer<ByteVar>(), length2, status.rawAddress.toCPointer<ByteVar>())
 
-public actual fun uspoofAreConfusableUtf8(sc: ConstPtr<USpoofChecker>, id1: Pcstr, length1: Int, id2: Pcstr, length2: Int, status: MutPtr<UErrorCode>): Int =
+public actual fun uspoofAreConfusableUtf8(sc: ConstPtr, id1: Pcstr, length1: Int, id2: Pcstr, length2: Int, status: MutPtr): Int =
     windowssysWindowsWin32GlobalizationUspoofAreConfusableUtf8(sc.rawAddress.toCPointer<ByteVar>(), id1.rawAddress.toCPointer<ByteVar>(), length1, id2.rawAddress.toCPointer<ByteVar>(), length2, status.rawAddress.toCPointer<ByteVar>())
 
-public actual fun uspoofCheck(sc: ConstPtr<USpoofChecker>, id: ConstPtr<UShort>, length: Int, position: MutPtr<Int>, status: MutPtr<UErrorCode>): Int =
+public actual fun uspoofCheck(sc: ConstPtr, id: ConstPtr, length: Int, position: MutPtr, status: MutPtr): Int =
     windowssysWindowsWin32GlobalizationUspoofCheck(sc.rawAddress.toCPointer<ByteVar>(), id.rawAddress.toCPointer<ByteVar>(), length, position.rawAddress.toCPointer<ByteVar>(), status.rawAddress.toCPointer<ByteVar>())
 
-public actual fun uspoofCheck2(sc: ConstPtr<USpoofChecker>, id: ConstPtr<UShort>, length: Int, checkresult: MutPtr<USpoofCheckResult>, status: MutPtr<UErrorCode>): Int =
+public actual fun uspoofCheck2(sc: ConstPtr, id: ConstPtr, length: Int, checkresult: MutPtr, status: MutPtr): Int =
     windowssysWindowsWin32GlobalizationUspoofCheck2(sc.rawAddress.toCPointer<ByteVar>(), id.rawAddress.toCPointer<ByteVar>(), length, checkresult.rawAddress.toCPointer<ByteVar>(), status.rawAddress.toCPointer<ByteVar>())
 
-public actual fun uspoofCheck2Utf8(sc: ConstPtr<USpoofChecker>, id: Pcstr, length: Int, checkresult: MutPtr<USpoofCheckResult>, status: MutPtr<UErrorCode>): Int =
+public actual fun uspoofCheck2Utf8(sc: ConstPtr, id: Pcstr, length: Int, checkresult: MutPtr, status: MutPtr): Int =
     windowssysWindowsWin32GlobalizationUspoofCheck2Utf8(sc.rawAddress.toCPointer<ByteVar>(), id.rawAddress.toCPointer<ByteVar>(), length, checkresult.rawAddress.toCPointer<ByteVar>(), status.rawAddress.toCPointer<ByteVar>())
 
-public actual fun uspoofCheckUtf8(sc: ConstPtr<USpoofChecker>, id: Pcstr, length: Int, position: MutPtr<Int>, status: MutPtr<UErrorCode>): Int =
+public actual fun uspoofCheckUtf8(sc: ConstPtr, id: Pcstr, length: Int, position: MutPtr, status: MutPtr): Int =
     windowssysWindowsWin32GlobalizationUspoofCheckUtf8(sc.rawAddress.toCPointer<ByteVar>(), id.rawAddress.toCPointer<ByteVar>(), length, position.rawAddress.toCPointer<ByteVar>(), status.rawAddress.toCPointer<ByteVar>())
 
-public actual fun uspoofClone(sc: ConstPtr<USpoofChecker>, status: MutPtr<UErrorCode>): MutPtr<USpoofChecker> =
+public actual fun uspoofClone(sc: ConstPtr, status: MutPtr): MutPtr =
     MutPtr(windowssysWindowsWin32GlobalizationUspoofClone(sc.rawAddress.toCPointer<ByteVar>(), status.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun uspoofClose(sc: MutPtr<USpoofChecker>) {
+public actual fun uspoofClose(sc: MutPtr) {
     windowssysWindowsWin32GlobalizationUspoofClose(sc.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun uspoofCloseCheckResult(checkresult: MutPtr<USpoofCheckResult>) {
+public actual fun uspoofCloseCheckResult(checkresult: MutPtr) {
     windowssysWindowsWin32GlobalizationUspoofCloseCheckResult(checkresult.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun uspoofGetAllowedChars(sc: ConstPtr<USpoofChecker>, status: MutPtr<UErrorCode>): MutPtr<USet> =
+public actual fun uspoofGetAllowedChars(sc: ConstPtr, status: MutPtr): MutPtr =
     MutPtr(windowssysWindowsWin32GlobalizationUspoofGetAllowedChars(sc.rawAddress.toCPointer<ByteVar>(), status.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun uspoofGetAllowedLocales(sc: MutPtr<USpoofChecker>, status: MutPtr<UErrorCode>): Pcstr =
+public actual fun uspoofGetAllowedLocales(sc: MutPtr, status: MutPtr): Pcstr =
     ConstPtr(windowssysWindowsWin32GlobalizationUspoofGetAllowedLocales(sc.rawAddress.toCPointer<ByteVar>(), status.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun uspoofGetCheckResultChecks(checkresult: ConstPtr<USpoofCheckResult>, status: MutPtr<UErrorCode>): Int =
+public actual fun uspoofGetCheckResultChecks(checkresult: ConstPtr, status: MutPtr): Int =
     windowssysWindowsWin32GlobalizationUspoofGetCheckResultChecks(checkresult.rawAddress.toCPointer<ByteVar>(), status.rawAddress.toCPointer<ByteVar>())
 
-public actual fun uspoofGetCheckResultNumerics(checkresult: ConstPtr<USpoofCheckResult>, status: MutPtr<UErrorCode>): MutPtr<USet> =
+public actual fun uspoofGetCheckResultNumerics(checkresult: ConstPtr, status: MutPtr): MutPtr =
     MutPtr(windowssysWindowsWin32GlobalizationUspoofGetCheckResultNumerics(checkresult.rawAddress.toCPointer<ByteVar>(), status.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun uspoofGetCheckResultRestrictionLevel(checkresult: ConstPtr<USpoofCheckResult>, status: MutPtr<UErrorCode>): URestrictionLevel =
+public actual fun uspoofGetCheckResultRestrictionLevel(checkresult: ConstPtr, status: MutPtr): URestrictionLevel =
     windowssysWindowsWin32GlobalizationUspoofGetCheckResultRestrictionLevel(checkresult.rawAddress.toCPointer<ByteVar>(), status.rawAddress.toCPointer<ByteVar>())
 
-public actual fun uspoofGetChecks(sc: ConstPtr<USpoofChecker>, status: MutPtr<UErrorCode>): Int =
+public actual fun uspoofGetChecks(sc: ConstPtr, status: MutPtr): Int =
     windowssysWindowsWin32GlobalizationUspoofGetChecks(sc.rawAddress.toCPointer<ByteVar>(), status.rawAddress.toCPointer<ByteVar>())
 
-public actual fun uspoofGetInclusionSet(status: MutPtr<UErrorCode>): MutPtr<USet> =
+public actual fun uspoofGetInclusionSet(status: MutPtr): MutPtr =
     MutPtr(windowssysWindowsWin32GlobalizationUspoofGetInclusionSet(status.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun uspoofGetRecommendedSet(status: MutPtr<UErrorCode>): MutPtr<USet> =
+public actual fun uspoofGetRecommendedSet(status: MutPtr): MutPtr =
     MutPtr(windowssysWindowsWin32GlobalizationUspoofGetRecommendedSet(status.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun uspoofGetRestrictionLevel(sc: ConstPtr<USpoofChecker>): URestrictionLevel =
+public actual fun uspoofGetRestrictionLevel(sc: ConstPtr): URestrictionLevel =
     windowssysWindowsWin32GlobalizationUspoofGetRestrictionLevel(sc.rawAddress.toCPointer<ByteVar>())
 
-public actual fun uspoofGetSkeleton(sc: ConstPtr<USpoofChecker>, type: UInt, id: ConstPtr<UShort>, length: Int, dest: MutPtr<UShort>, destcapacity: Int, status: MutPtr<UErrorCode>): Int =
+public actual fun uspoofGetSkeleton(sc: ConstPtr, type: UInt, id: ConstPtr, length: Int, dest: MutPtr, destcapacity: Int, status: MutPtr): Int =
     windowssysWindowsWin32GlobalizationUspoofGetSkeleton(sc.rawAddress.toCPointer<ByteVar>(), type, id.rawAddress.toCPointer<ByteVar>(), length, dest.rawAddress.toCPointer<ByteVar>(), destcapacity, status.rawAddress.toCPointer<ByteVar>())
 
-public actual fun uspoofGetSkeletonUtf8(sc: ConstPtr<USpoofChecker>, type: UInt, id: Pcstr, length: Int, dest: Pcstr, destcapacity: Int, status: MutPtr<UErrorCode>): Int =
+public actual fun uspoofGetSkeletonUtf8(sc: ConstPtr, type: UInt, id: Pcstr, length: Int, dest: Pcstr, destcapacity: Int, status: MutPtr): Int =
     windowssysWindowsWin32GlobalizationUspoofGetSkeletonUtf8(sc.rawAddress.toCPointer<ByteVar>(), type, id.rawAddress.toCPointer<ByteVar>(), length, dest.rawAddress.toCPointer<ByteVar>(), destcapacity, status.rawAddress.toCPointer<ByteVar>())
 
-public actual fun uspoofOpen(status: MutPtr<UErrorCode>): MutPtr<USpoofChecker> =
+public actual fun uspoofOpen(status: MutPtr): MutPtr =
     MutPtr(windowssysWindowsWin32GlobalizationUspoofOpen(status.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun uspoofOpenCheckResult(status: MutPtr<UErrorCode>): MutPtr<USpoofCheckResult> =
+public actual fun uspoofOpenCheckResult(status: MutPtr): MutPtr =
     MutPtr(windowssysWindowsWin32GlobalizationUspoofOpenCheckResult(status.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun uspoofOpenFromSerialized(data: ConstPtr<CVoid>, length: Int, pactuallength: MutPtr<Int>, perrorcode: MutPtr<UErrorCode>): MutPtr<USpoofChecker> =
+public actual fun uspoofOpenFromSerialized(data: ConstPtr, length: Int, pactuallength: MutPtr, perrorcode: MutPtr): MutPtr =
     MutPtr(windowssysWindowsWin32GlobalizationUspoofOpenFromSerialized(data.rawAddress.toCPointer<ByteVar>(), length, pactuallength.rawAddress.toCPointer<ByteVar>(), perrorcode.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun uspoofOpenFromSource(confusables: Pcstr, confusableslen: Int, confusableswholescript: Pcstr, confusableswholescriptlen: Int, errtype: MutPtr<Int>, pe: MutPtr<UParseError>, status: MutPtr<UErrorCode>): MutPtr<USpoofChecker> =
+public actual fun uspoofOpenFromSource(confusables: Pcstr, confusableslen: Int, confusableswholescript: Pcstr, confusableswholescriptlen: Int, errtype: MutPtr, pe: MutPtr, status: MutPtr): MutPtr =
     MutPtr(windowssysWindowsWin32GlobalizationUspoofOpenFromSource(confusables.rawAddress.toCPointer<ByteVar>(), confusableslen, confusableswholescript.rawAddress.toCPointer<ByteVar>(), confusableswholescriptlen, errtype.rawAddress.toCPointer<ByteVar>(), pe.rawAddress.toCPointer<ByteVar>(), status.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun uspoofSerialize(sc: MutPtr<USpoofChecker>, data: MutPtr<CVoid>, capacity: Int, status: MutPtr<UErrorCode>): Int =
+public actual fun uspoofSerialize(sc: MutPtr, data: MutPtr, capacity: Int, status: MutPtr): Int =
     windowssysWindowsWin32GlobalizationUspoofSerialize(sc.rawAddress.toCPointer<ByteVar>(), data.rawAddress.toCPointer<ByteVar>(), capacity, status.rawAddress.toCPointer<ByteVar>())
 
-public actual fun uspoofSetAllowedChars(sc: MutPtr<USpoofChecker>, chars: ConstPtr<USet>, status: MutPtr<UErrorCode>) {
+public actual fun uspoofSetAllowedChars(sc: MutPtr, chars: ConstPtr, status: MutPtr) {
     windowssysWindowsWin32GlobalizationUspoofSetAllowedChars(sc.rawAddress.toCPointer<ByteVar>(), chars.rawAddress.toCPointer<ByteVar>(), status.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun uspoofSetAllowedLocales(sc: MutPtr<USpoofChecker>, localeslist: Pcstr, status: MutPtr<UErrorCode>) {
+public actual fun uspoofSetAllowedLocales(sc: MutPtr, localeslist: Pcstr, status: MutPtr) {
     windowssysWindowsWin32GlobalizationUspoofSetAllowedLocales(sc.rawAddress.toCPointer<ByteVar>(), localeslist.rawAddress.toCPointer<ByteVar>(), status.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun uspoofSetChecks(sc: MutPtr<USpoofChecker>, checks: Int, status: MutPtr<UErrorCode>) {
+public actual fun uspoofSetChecks(sc: MutPtr, checks: Int, status: MutPtr) {
     windowssysWindowsWin32GlobalizationUspoofSetChecks(sc.rawAddress.toCPointer<ByteVar>(), checks, status.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun uspoofSetRestrictionLevel(sc: MutPtr<USpoofChecker>, restrictionlevel: URestrictionLevel) {
+public actual fun uspoofSetRestrictionLevel(sc: MutPtr, restrictionlevel: URestrictionLevel) {
     windowssysWindowsWin32GlobalizationUspoofSetRestrictionLevel(sc.rawAddress.toCPointer<ByteVar>(), restrictionlevel)
 }
 
-public actual fun usprepClose(profile: MutPtr<UStringPrepProfile>) {
+public actual fun usprepClose(profile: MutPtr) {
     windowssysWindowsWin32GlobalizationUsprepClose(profile.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun usprepOpen(path: Pcstr, filename: Pcstr, status: MutPtr<UErrorCode>): MutPtr<UStringPrepProfile> =
+public actual fun usprepOpen(path: Pcstr, filename: Pcstr, status: MutPtr): MutPtr =
     MutPtr(windowssysWindowsWin32GlobalizationUsprepOpen(path.rawAddress.toCPointer<ByteVar>(), filename.rawAddress.toCPointer<ByteVar>(), status.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun usprepOpenByType(type: UStringPrepProfileType, status: MutPtr<UErrorCode>): MutPtr<UStringPrepProfile> =
+public actual fun usprepOpenByType(type: UStringPrepProfileType, status: MutPtr): MutPtr =
     MutPtr(windowssysWindowsWin32GlobalizationUsprepOpenByType(type, status.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun usprepPrepare(prep: ConstPtr<UStringPrepProfile>, src: ConstPtr<UShort>, srclength: Int, dest: MutPtr<UShort>, destcapacity: Int, options: Int, parseerror: MutPtr<UParseError>, status: MutPtr<UErrorCode>): Int =
+public actual fun usprepPrepare(prep: ConstPtr, src: ConstPtr, srclength: Int, dest: MutPtr, destcapacity: Int, options: Int, parseerror: MutPtr, status: MutPtr): Int =
     windowssysWindowsWin32GlobalizationUsprepPrepare(prep.rawAddress.toCPointer<ByteVar>(), src.rawAddress.toCPointer<ByteVar>(), srclength, dest.rawAddress.toCPointer<ByteVar>(), destcapacity, options, parseerror.rawAddress.toCPointer<ByteVar>(), status.rawAddress.toCPointer<ByteVar>())
 
-public actual fun utextChar32At(ut: MutPtr<UText>, nativeindex: Long): Int =
+public actual fun utextChar32At(ut: MutPtr, nativeindex: Long): Int =
     windowssysWindowsWin32GlobalizationUtextChar32At(ut.rawAddress.toCPointer<ByteVar>(), nativeindex)
 
-public actual fun utextClone(dest: MutPtr<UText>, src: ConstPtr<UText>, deep: Byte, readonly: Byte, status: MutPtr<UErrorCode>): MutPtr<UText> =
+public actual fun utextClone(dest: MutPtr, src: ConstPtr, deep: Byte, readonly: Byte, status: MutPtr): MutPtr =
     MutPtr(windowssysWindowsWin32GlobalizationUtextClone(dest.rawAddress.toCPointer<ByteVar>(), src.rawAddress.toCPointer<ByteVar>(), deep, readonly, status.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun utextClose(ut: MutPtr<UText>): MutPtr<UText> =
+public actual fun utextClose(ut: MutPtr): MutPtr =
     MutPtr(windowssysWindowsWin32GlobalizationUtextClose(ut.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun utextCopy(ut: MutPtr<UText>, nativestart: Long, nativelimit: Long, destindex: Long, move: Byte, status: MutPtr<UErrorCode>) {
+public actual fun utextCopy(ut: MutPtr, nativestart: Long, nativelimit: Long, destindex: Long, move: Byte, status: MutPtr) {
     windowssysWindowsWin32GlobalizationUtextCopy(ut.rawAddress.toCPointer<ByteVar>(), nativestart, nativelimit, destindex, move, status.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun utextCurrent32(ut: MutPtr<UText>): Int =
+public actual fun utextCurrent32(ut: MutPtr): Int =
     windowssysWindowsWin32GlobalizationUtextCurrent32(ut.rawAddress.toCPointer<ByteVar>())
 
-public actual fun utextEquals(a: ConstPtr<UText>, b: ConstPtr<UText>): Byte =
+public actual fun utextEquals(a: ConstPtr, b: ConstPtr): Byte =
     windowssysWindowsWin32GlobalizationUtextEquals(a.rawAddress.toCPointer<ByteVar>(), b.rawAddress.toCPointer<ByteVar>())
 
-public actual fun utextExtract(ut: MutPtr<UText>, nativestart: Long, nativelimit: Long, dest: MutPtr<UShort>, destcapacity: Int, status: MutPtr<UErrorCode>): Int =
+public actual fun utextExtract(ut: MutPtr, nativestart: Long, nativelimit: Long, dest: MutPtr, destcapacity: Int, status: MutPtr): Int =
     windowssysWindowsWin32GlobalizationUtextExtract(ut.rawAddress.toCPointer<ByteVar>(), nativestart, nativelimit, dest.rawAddress.toCPointer<ByteVar>(), destcapacity, status.rawAddress.toCPointer<ByteVar>())
 
-public actual fun utextFreeze(ut: MutPtr<UText>) {
+public actual fun utextFreeze(ut: MutPtr) {
     windowssysWindowsWin32GlobalizationUtextFreeze(ut.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun utextGetNativeIndex(ut: ConstPtr<UText>): Long =
+public actual fun utextGetNativeIndex(ut: ConstPtr): Long =
     windowssysWindowsWin32GlobalizationUtextGetNativeIndex(ut.rawAddress.toCPointer<ByteVar>())
 
-public actual fun utextGetPreviousNativeIndex(ut: MutPtr<UText>): Long =
+public actual fun utextGetPreviousNativeIndex(ut: MutPtr): Long =
     windowssysWindowsWin32GlobalizationUtextGetPreviousNativeIndex(ut.rawAddress.toCPointer<ByteVar>())
 
-public actual fun utextHasMetaData(ut: ConstPtr<UText>): Byte =
+public actual fun utextHasMetaData(ut: ConstPtr): Byte =
     windowssysWindowsWin32GlobalizationUtextHasMetaData(ut.rawAddress.toCPointer<ByteVar>())
 
-public actual fun utextIsLengthExpensive(ut: ConstPtr<UText>): Byte =
+public actual fun utextIsLengthExpensive(ut: ConstPtr): Byte =
     windowssysWindowsWin32GlobalizationUtextIsLengthExpensive(ut.rawAddress.toCPointer<ByteVar>())
 
-public actual fun utextIsWritable(ut: ConstPtr<UText>): Byte =
+public actual fun utextIsWritable(ut: ConstPtr): Byte =
     windowssysWindowsWin32GlobalizationUtextIsWritable(ut.rawAddress.toCPointer<ByteVar>())
 
-public actual fun utextMoveIndex32(ut: MutPtr<UText>, delta: Int): Byte =
+public actual fun utextMoveIndex32(ut: MutPtr, delta: Int): Byte =
     windowssysWindowsWin32GlobalizationUtextMoveIndex32(ut.rawAddress.toCPointer<ByteVar>(), delta)
 
-public actual fun utextNativeLength(ut: MutPtr<UText>): Long =
+public actual fun utextNativeLength(ut: MutPtr): Long =
     windowssysWindowsWin32GlobalizationUtextNativeLength(ut.rawAddress.toCPointer<ByteVar>())
 
-public actual fun utextNext32(ut: MutPtr<UText>): Int =
+public actual fun utextNext32(ut: MutPtr): Int =
     windowssysWindowsWin32GlobalizationUtextNext32(ut.rawAddress.toCPointer<ByteVar>())
 
-public actual fun utextNext32From(ut: MutPtr<UText>, nativeindex: Long): Int =
+public actual fun utextNext32From(ut: MutPtr, nativeindex: Long): Int =
     windowssysWindowsWin32GlobalizationUtextNext32From(ut.rawAddress.toCPointer<ByteVar>(), nativeindex)
 
-public actual fun utextOpenUchars(ut: MutPtr<UText>, s: ConstPtr<UShort>, length: Long, status: MutPtr<UErrorCode>): MutPtr<UText> =
+public actual fun utextOpenUchars(ut: MutPtr, s: ConstPtr, length: Long, status: MutPtr): MutPtr =
     MutPtr(windowssysWindowsWin32GlobalizationUtextOpenUchars(ut.rawAddress.toCPointer<ByteVar>(), s.rawAddress.toCPointer<ByteVar>(), length, status.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun utextOpenUtf8(ut: MutPtr<UText>, s: Pcstr, length: Long, status: MutPtr<UErrorCode>): MutPtr<UText> =
+public actual fun utextOpenUtf8(ut: MutPtr, s: Pcstr, length: Long, status: MutPtr): MutPtr =
     MutPtr(windowssysWindowsWin32GlobalizationUtextOpenUtf8(ut.rawAddress.toCPointer<ByteVar>(), s.rawAddress.toCPointer<ByteVar>(), length, status.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun utextPrevious32(ut: MutPtr<UText>): Int =
+public actual fun utextPrevious32(ut: MutPtr): Int =
     windowssysWindowsWin32GlobalizationUtextPrevious32(ut.rawAddress.toCPointer<ByteVar>())
 
-public actual fun utextPrevious32From(ut: MutPtr<UText>, nativeindex: Long): Int =
+public actual fun utextPrevious32From(ut: MutPtr, nativeindex: Long): Int =
     windowssysWindowsWin32GlobalizationUtextPrevious32From(ut.rawAddress.toCPointer<ByteVar>(), nativeindex)
 
-public actual fun utextReplace(ut: MutPtr<UText>, nativestart: Long, nativelimit: Long, replacementtext: ConstPtr<UShort>, replacementlength: Int, status: MutPtr<UErrorCode>): Int =
+public actual fun utextReplace(ut: MutPtr, nativestart: Long, nativelimit: Long, replacementtext: ConstPtr, replacementlength: Int, status: MutPtr): Int =
     windowssysWindowsWin32GlobalizationUtextReplace(ut.rawAddress.toCPointer<ByteVar>(), nativestart, nativelimit, replacementtext.rawAddress.toCPointer<ByteVar>(), replacementlength, status.rawAddress.toCPointer<ByteVar>())
 
-public actual fun utextSetNativeIndex(ut: MutPtr<UText>, nativeindex: Long) {
+public actual fun utextSetNativeIndex(ut: MutPtr, nativeindex: Long) {
     windowssysWindowsWin32GlobalizationUtextSetNativeIndex(ut.rawAddress.toCPointer<ByteVar>(), nativeindex)
 }
 
-public actual fun utextSetup(ut: MutPtr<UText>, extraspace: Int, status: MutPtr<UErrorCode>): MutPtr<UText> =
+public actual fun utextSetup(ut: MutPtr, extraspace: Int, status: MutPtr): MutPtr =
     MutPtr(windowssysWindowsWin32GlobalizationUtextSetup(ut.rawAddress.toCPointer<ByteVar>(), extraspace, status.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun utf8AppendCharSafeBody(s: MutPtr<UByte>, i: Int, length: Int, c: Int, piserror: MutPtr<Byte>): Int =
+public actual fun utf8AppendCharSafeBody(s: MutPtr, i: Int, length: Int, c: Int, piserror: MutPtr): Int =
     windowssysWindowsWin32GlobalizationUtf8AppendCharSafeBody(s.rawAddress.toCPointer<ByteVar>(), i, length, c, piserror.rawAddress.toCPointer<ByteVar>())
 
-public actual fun utf8Back1SafeBody(s: ConstPtr<UByte>, start: Int, i: Int): Int =
+public actual fun utf8Back1SafeBody(s: ConstPtr, start: Int, i: Int): Int =
     windowssysWindowsWin32GlobalizationUtf8Back1SafeBody(s.rawAddress.toCPointer<ByteVar>(), start, i)
 
-public actual fun utf8NextCharSafeBody(s: ConstPtr<UByte>, pi: MutPtr<Int>, length: Int, c: Int, strict: Byte): Int =
+public actual fun utf8NextCharSafeBody(s: ConstPtr, pi: MutPtr, length: Int, c: Int, strict: Byte): Int =
     windowssysWindowsWin32GlobalizationUtf8NextCharSafeBody(s.rawAddress.toCPointer<ByteVar>(), pi.rawAddress.toCPointer<ByteVar>(), length, c, strict)
 
-public actual fun utf8PrevCharSafeBody(s: ConstPtr<UByte>, start: Int, pi: MutPtr<Int>, c: Int, strict: Byte): Int =
+public actual fun utf8PrevCharSafeBody(s: ConstPtr, start: Int, pi: MutPtr, c: Int, strict: Byte): Int =
     windowssysWindowsWin32GlobalizationUtf8PrevCharSafeBody(s.rawAddress.toCPointer<ByteVar>(), start, pi.rawAddress.toCPointer<ByteVar>(), c, strict)
 
-public actual fun utmscaleFromInt64(othertime: Long, timescale: UDateTimeScale, status: MutPtr<UErrorCode>): Long =
+public actual fun utmscaleFromInt64(othertime: Long, timescale: UDateTimeScale, status: MutPtr): Long =
     windowssysWindowsWin32GlobalizationUtmscaleFromInt64(othertime, timescale, status.rawAddress.toCPointer<ByteVar>())
 
-public actual fun utmscaleGetTimeScaleValue(timescale: UDateTimeScale, value: UTimeScaleValue, status: MutPtr<UErrorCode>): Long =
+public actual fun utmscaleGetTimeScaleValue(timescale: UDateTimeScale, value: UTimeScaleValue, status: MutPtr): Long =
     windowssysWindowsWin32GlobalizationUtmscaleGetTimeScaleValue(timescale, value, status.rawAddress.toCPointer<ByteVar>())
 
-public actual fun utmscaleToInt64(universaltime: Long, timescale: UDateTimeScale, status: MutPtr<UErrorCode>): Long =
+public actual fun utmscaleToInt64(universaltime: Long, timescale: UDateTimeScale, status: MutPtr): Long =
     windowssysWindowsWin32GlobalizationUtmscaleToInt64(universaltime, timescale, status.rawAddress.toCPointer<ByteVar>())
 
 public actual fun utraceFormat(outbuf: Pcstr, capacity: Int, indent: Int, fmt: Pcstr, vararg variadicArgs: Long): Int =
@@ -5084,14 +5079,14 @@ public actual fun utraceFormat(outbuf: Pcstr, capacity: Int, indent: Int, fmt: P
 public actual fun utraceFunctionName(fnnumber: Int): Pcstr =
     ConstPtr(windowssysWindowsWin32GlobalizationUtraceFunctionName(fnnumber)?.toLong() ?: 0L)
 
-public actual fun utraceGetFunctions(context: ConstPtr<ConstPtr<CVoid>>, e: MutPtr<UTraceEntry>, x: MutPtr<UTraceExit>, d: MutPtr<UTraceData>) {
+public actual fun utraceGetFunctions(context: ConstPtr, e: MutPtr, x: MutPtr, d: MutPtr) {
     windowssysWindowsWin32GlobalizationUtraceGetFunctions(context.rawAddress.toCPointer<ByteVar>(), e.rawAddress.toCPointer<ByteVar>(), x.rawAddress.toCPointer<ByteVar>(), d.rawAddress.toCPointer<ByteVar>())
 }
 
 public actual fun utraceGetLevel(): Int =
     windowssysWindowsWin32GlobalizationUtraceGetLevel()
 
-public actual fun utraceSetFunctions(context: ConstPtr<CVoid>, e: UTraceEntry, x: UTraceExit, d: UTraceData) {
+public actual fun utraceSetFunctions(context: ConstPtr, e: UTraceEntry, x: UTraceExit, d: UTraceData) {
     windowssysWindowsWin32GlobalizationUtraceSetFunctions(context.rawAddress.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>())
 }
 
@@ -5099,61 +5094,61 @@ public actual fun utraceSetLevel(tracelevel: Int) {
     windowssysWindowsWin32GlobalizationUtraceSetLevel(tracelevel)
 }
 
-public actual fun utraceVformat(outbuf: Pcstr, capacity: Int, indent: Int, fmt: Pcstr, args: MutPtr<Byte>): Int =
+public actual fun utraceVformat(outbuf: Pcstr, capacity: Int, indent: Int, fmt: Pcstr, args: MutPtr): Int =
     windowssysWindowsWin32GlobalizationUtraceVformat(outbuf.rawAddress.toCPointer<ByteVar>(), capacity, indent, fmt.rawAddress.toCPointer<ByteVar>(), args.rawAddress.toCPointer<ByteVar>())
 
-public actual fun utransClone(trans: ConstPtr<ConstPtr<CVoid>>, status: MutPtr<UErrorCode>): MutPtr<MutPtr<CVoid>> =
+public actual fun utransClone(trans: ConstPtr, status: MutPtr): MutPtr =
     MutPtr(windowssysWindowsWin32GlobalizationUtransClone(trans.rawAddress.toCPointer<ByteVar>(), status.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun utransClose(trans: MutPtr<MutPtr<CVoid>>) {
+public actual fun utransClose(trans: MutPtr) {
     windowssysWindowsWin32GlobalizationUtransClose(trans.rawAddress.toCPointer<ByteVar>())
 }
 
 public actual fun utransCountAvailableIds(): Int =
     windowssysWindowsWin32GlobalizationUtransCountAvailableIds()
 
-public actual fun utransGetSourceSet(trans: ConstPtr<ConstPtr<CVoid>>, ignorefilter: Byte, fillin: MutPtr<USet>, status: MutPtr<UErrorCode>): MutPtr<USet> =
+public actual fun utransGetSourceSet(trans: ConstPtr, ignorefilter: Byte, fillin: MutPtr, status: MutPtr): MutPtr =
     MutPtr(windowssysWindowsWin32GlobalizationUtransGetSourceSet(trans.rawAddress.toCPointer<ByteVar>(), ignorefilter, fillin.rawAddress.toCPointer<ByteVar>(), status.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun utransGetUnicodeId(trans: ConstPtr<ConstPtr<CVoid>>, resultlength: MutPtr<Int>): MutPtr<UShort> =
+public actual fun utransGetUnicodeId(trans: ConstPtr, resultlength: MutPtr): MutPtr =
     MutPtr(windowssysWindowsWin32GlobalizationUtransGetUnicodeId(trans.rawAddress.toCPointer<ByteVar>(), resultlength.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun utransOpenIds(perrorcode: MutPtr<UErrorCode>): MutPtr<UEnumeration> =
+public actual fun utransOpenIds(perrorcode: MutPtr): MutPtr =
     MutPtr(windowssysWindowsWin32GlobalizationUtransOpenIds(perrorcode.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun utransOpenInverse(trans: ConstPtr<ConstPtr<CVoid>>, status: MutPtr<UErrorCode>): MutPtr<MutPtr<CVoid>> =
+public actual fun utransOpenInverse(trans: ConstPtr, status: MutPtr): MutPtr =
     MutPtr(windowssysWindowsWin32GlobalizationUtransOpenInverse(trans.rawAddress.toCPointer<ByteVar>(), status.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun utransOpenU(id: ConstPtr<UShort>, idlength: Int, dir: UTransDirection, rules: ConstPtr<UShort>, ruleslength: Int, parseerror: MutPtr<UParseError>, perrorcode: MutPtr<UErrorCode>): MutPtr<MutPtr<CVoid>> =
+public actual fun utransOpenU(id: ConstPtr, idlength: Int, dir: UTransDirection, rules: ConstPtr, ruleslength: Int, parseerror: MutPtr, perrorcode: MutPtr): MutPtr =
     MutPtr(windowssysWindowsWin32GlobalizationUtransOpenU(id.rawAddress.toCPointer<ByteVar>(), idlength, dir, rules.rawAddress.toCPointer<ByteVar>(), ruleslength, parseerror.rawAddress.toCPointer<ByteVar>(), perrorcode.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun utransRegister(adoptedtrans: MutPtr<MutPtr<CVoid>>, status: MutPtr<UErrorCode>) {
+public actual fun utransRegister(adoptedtrans: MutPtr, status: MutPtr) {
     windowssysWindowsWin32GlobalizationUtransRegister(adoptedtrans.rawAddress.toCPointer<ByteVar>(), status.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun utransSetFilter(trans: MutPtr<MutPtr<CVoid>>, filterpattern: ConstPtr<UShort>, filterpatternlen: Int, status: MutPtr<UErrorCode>) {
+public actual fun utransSetFilter(trans: MutPtr, filterpattern: ConstPtr, filterpatternlen: Int, status: MutPtr) {
     windowssysWindowsWin32GlobalizationUtransSetFilter(trans.rawAddress.toCPointer<ByteVar>(), filterpattern.rawAddress.toCPointer<ByteVar>(), filterpatternlen, status.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun utransToRules(trans: ConstPtr<ConstPtr<CVoid>>, escapeunprintable: Byte, result: MutPtr<UShort>, resultlength: Int, status: MutPtr<UErrorCode>): Int =
+public actual fun utransToRules(trans: ConstPtr, escapeunprintable: Byte, result: MutPtr, resultlength: Int, status: MutPtr): Int =
     windowssysWindowsWin32GlobalizationUtransToRules(trans.rawAddress.toCPointer<ByteVar>(), escapeunprintable, result.rawAddress.toCPointer<ByteVar>(), resultlength, status.rawAddress.toCPointer<ByteVar>())
 
-public actual fun utransTrans(trans: ConstPtr<ConstPtr<CVoid>>, rep: MutPtr<MutPtr<CVoid>>, repfunc: ConstPtr<UReplaceableCallbacks>, start: Int, limit: MutPtr<Int>, status: MutPtr<UErrorCode>) {
+public actual fun utransTrans(trans: ConstPtr, rep: MutPtr, repfunc: ConstPtr, start: Int, limit: MutPtr, status: MutPtr) {
     windowssysWindowsWin32GlobalizationUtransTrans(trans.rawAddress.toCPointer<ByteVar>(), rep.rawAddress.toCPointer<ByteVar>(), repfunc.rawAddress.toCPointer<ByteVar>(), start, limit.rawAddress.toCPointer<ByteVar>(), status.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun utransTransIncremental(trans: ConstPtr<ConstPtr<CVoid>>, rep: MutPtr<MutPtr<CVoid>>, repfunc: ConstPtr<UReplaceableCallbacks>, pos: MutPtr<UTransPosition>, status: MutPtr<UErrorCode>) {
+public actual fun utransTransIncremental(trans: ConstPtr, rep: MutPtr, repfunc: ConstPtr, pos: MutPtr, status: MutPtr) {
     windowssysWindowsWin32GlobalizationUtransTransIncremental(trans.rawAddress.toCPointer<ByteVar>(), rep.rawAddress.toCPointer<ByteVar>(), repfunc.rawAddress.toCPointer<ByteVar>(), pos.rawAddress.toCPointer<ByteVar>(), status.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun utransTransIncrementalUchars(trans: ConstPtr<ConstPtr<CVoid>>, text: MutPtr<UShort>, textlength: MutPtr<Int>, textcapacity: Int, pos: MutPtr<UTransPosition>, status: MutPtr<UErrorCode>) {
+public actual fun utransTransIncrementalUchars(trans: ConstPtr, text: MutPtr, textlength: MutPtr, textcapacity: Int, pos: MutPtr, status: MutPtr) {
     windowssysWindowsWin32GlobalizationUtransTransIncrementalUchars(trans.rawAddress.toCPointer<ByteVar>(), text.rawAddress.toCPointer<ByteVar>(), textlength.rawAddress.toCPointer<ByteVar>(), textcapacity, pos.rawAddress.toCPointer<ByteVar>(), status.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun utransTransUchars(trans: ConstPtr<ConstPtr<CVoid>>, text: MutPtr<UShort>, textlength: MutPtr<Int>, textcapacity: Int, start: Int, limit: MutPtr<Int>, status: MutPtr<UErrorCode>) {
+public actual fun utransTransUchars(trans: ConstPtr, text: MutPtr, textlength: MutPtr, textcapacity: Int, start: Int, limit: MutPtr, status: MutPtr) {
     windowssysWindowsWin32GlobalizationUtransTransUchars(trans.rawAddress.toCPointer<ByteVar>(), text.rawAddress.toCPointer<ByteVar>(), textlength.rawAddress.toCPointer<ByteVar>(), textcapacity, start, limit.rawAddress.toCPointer<ByteVar>(), status.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun utransUnregisterId(id: ConstPtr<UShort>, idlength: Int) {
+public actual fun utransUnregisterId(id: ConstPtr, idlength: Int) {
     windowssysWindowsWin32GlobalizationUtransUnregisterId(id.rawAddress.toCPointer<ByteVar>(), idlength)
 }

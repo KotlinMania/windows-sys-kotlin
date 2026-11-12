@@ -2,7 +2,6 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus
 
-import io.github.kotlinmania.rustlang.core.ffi.CVoid
 import io.github.kotlinmania.rustlang.core.ptr.ConstPtr
 import io.github.kotlinmania.rustlang.core.ptr.MutPtr
 import io.github.kotlinmania.windowssys.core.Bool
@@ -12,15 +11,12 @@ import io.github.kotlinmania.windowssys.core.Pwstr
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Handle
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Hinstance
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Hwnd
-import io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.Bitmapinfo
 import io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.Hbitmap
 import io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.Hdc
 import io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.Henhmetafile
 import io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.Hmetafile
 import io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.Hpalette
 import io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.Hrgn
-import io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.Logfonta
-import io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.Logfontw
 import io.github.kotlinmania.windowssys.windows.win32.ui.windowsandmessaging.Hicon
 
 @JsFun("() => { if (typeof globalThis.__km_napi_windowssys !== 'undefined') return globalThis.__km_napi_windowssys !== null; if (typeof process === 'undefined' || !process.versions || !process.versions.node) { globalThis.__km_napi_windowssys = null; return false; } var mod = process.getBuiltinModule ? process.getBuiltinModule('module') : (process.mainModule && process.mainModule.constructor); var req = (mod && mod.createRequire) ? mod.createRequire((process.cwd ? process.cwd() : '.') + '/package.json') : (process.mainModule ? process.mainModule.require : null); if (!req) { globalThis.__km_napi_windowssys = null; return false; } try { globalThis.__km_napi_windowssys = req('@kotlinmania/windowssys-native-bindings'); return true; } catch (_) {} var fs = req('fs'); var path = req('path'); var dir = process.cwd ? process.cwd() : '.'; var rels = ['windowssys_native.node', 'build/node-ffi/windowssys_native.node', 'build/node-ffi/release/windowssys_native.node', 'build/node-ffi/debug/windowssys_native.node', 'src/js/node-windowssys/build/Release/windowssys_native.node', 'src/js/node-windowssys/build/Debug/windowssys_native.node', 'src/js/node-windowssys/dist/build/Release/windowssys_native.node', 'src/js/node-windowssys/dist/build/Debug/windowssys_native.node']; for (var d = 0; d < 8; d++) { for (var i = 0; i < rels.length; i++) { var c = path.resolve(dir, rels[i]); if (fs.existsSync(c)) { globalThis.__km_napi_windowssys = req(c); return true; } } var parent = path.dirname(dir); if (parent === dir) break; dir = parent; } globalThis.__km_napi_windowssys = null; return false; }")
@@ -1909,715 +1905,715 @@ private external fun wasmWindowssysWindowsWin32GraphicsGdiplusGdiplusShutdown(p0
 @JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssysWindowsWin32GraphicsGdiplusGdiplusStartup(p0, p1, p2)")
 private external fun wasmWindowssysWindowsWin32GraphicsGdiplusGdiplusStartup(p0: String, p1: String, p2: String): Int
 
-public actual fun gdipAddPathArc(path: MutPtr<GpPath>, x: Float, y: Float, width: Float, height: Float, startangle: Float, sweepangle: Float): Status =
+public actual fun gdipAddPathArc(path: MutPtr, x: Float, y: Float, width: Float, height: Float, startangle: Float, sweepangle: Float): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipAddPathArc(path.rawAddress.toString(), x.toDouble(), y.toDouble(), width.toDouble(), height.toDouble(), startangle.toDouble(), sweepangle.toDouble()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipAddPathArcI(path: MutPtr<GpPath>, x: Int, y: Int, width: Int, height: Int, startangle: Float, sweepangle: Float): Status =
+public actual fun gdipAddPathArcI(path: MutPtr, x: Int, y: Int, width: Int, height: Int, startangle: Float, sweepangle: Float): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipAddPathArcI(path.rawAddress.toString(), x, y, width, height, startangle.toDouble(), sweepangle.toDouble()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipAddPathBezier(path: MutPtr<GpPath>, x1: Float, y1: Float, x2: Float, y2: Float, x3: Float, y3: Float, x4: Float, y4: Float): Status =
+public actual fun gdipAddPathBezier(path: MutPtr, x1: Float, y1: Float, x2: Float, y2: Float, x3: Float, y3: Float, x4: Float, y4: Float): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipAddPathBezier(path.rawAddress.toString(), x1.toDouble(), y1.toDouble(), x2.toDouble(), y2.toDouble(), x3.toDouble(), y3.toDouble(), x4.toDouble(), y4.toDouble()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipAddPathBezierI(path: MutPtr<GpPath>, x1: Int, y1: Int, x2: Int, y2: Int, x3: Int, y3: Int, x4: Int, y4: Int): Status =
+public actual fun gdipAddPathBezierI(path: MutPtr, x1: Int, y1: Int, x2: Int, y2: Int, x3: Int, y3: Int, x4: Int, y4: Int): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipAddPathBezierI(path.rawAddress.toString(), x1, y1, x2, y2, x3, y3, x4, y4) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipAddPathBeziers(path: MutPtr<GpPath>, points: ConstPtr<PointF>, count: Int): Status =
+public actual fun gdipAddPathBeziers(path: MutPtr, points: ConstPtr, count: Int): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipAddPathBeziers(path.rawAddress.toString(), points.rawAddress.toString(), count) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipAddPathBeziersI(path: MutPtr<GpPath>, points: ConstPtr<Point>, count: Int): Status =
+public actual fun gdipAddPathBeziersI(path: MutPtr, points: ConstPtr, count: Int): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipAddPathBeziersI(path.rawAddress.toString(), points.rawAddress.toString(), count) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipAddPathClosedCurve(path: MutPtr<GpPath>, points: ConstPtr<PointF>, count: Int): Status =
+public actual fun gdipAddPathClosedCurve(path: MutPtr, points: ConstPtr, count: Int): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipAddPathClosedCurve(path.rawAddress.toString(), points.rawAddress.toString(), count) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipAddPathClosedCurve2(path: MutPtr<GpPath>, points: ConstPtr<PointF>, count: Int, tension: Float): Status =
+public actual fun gdipAddPathClosedCurve2(path: MutPtr, points: ConstPtr, count: Int, tension: Float): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipAddPathClosedCurve2(path.rawAddress.toString(), points.rawAddress.toString(), count, tension.toDouble()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipAddPathClosedCurve2I(path: MutPtr<GpPath>, points: ConstPtr<Point>, count: Int, tension: Float): Status =
+public actual fun gdipAddPathClosedCurve2I(path: MutPtr, points: ConstPtr, count: Int, tension: Float): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipAddPathClosedCurve2I(path.rawAddress.toString(), points.rawAddress.toString(), count, tension.toDouble()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipAddPathClosedCurveI(path: MutPtr<GpPath>, points: ConstPtr<Point>, count: Int): Status =
+public actual fun gdipAddPathClosedCurveI(path: MutPtr, points: ConstPtr, count: Int): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipAddPathClosedCurveI(path.rawAddress.toString(), points.rawAddress.toString(), count) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipAddPathCurve(path: MutPtr<GpPath>, points: ConstPtr<PointF>, count: Int): Status =
+public actual fun gdipAddPathCurve(path: MutPtr, points: ConstPtr, count: Int): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipAddPathCurve(path.rawAddress.toString(), points.rawAddress.toString(), count) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipAddPathCurve2(path: MutPtr<GpPath>, points: ConstPtr<PointF>, count: Int, tension: Float): Status =
+public actual fun gdipAddPathCurve2(path: MutPtr, points: ConstPtr, count: Int, tension: Float): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipAddPathCurve2(path.rawAddress.toString(), points.rawAddress.toString(), count, tension.toDouble()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipAddPathCurve2I(path: MutPtr<GpPath>, points: ConstPtr<Point>, count: Int, tension: Float): Status =
+public actual fun gdipAddPathCurve2I(path: MutPtr, points: ConstPtr, count: Int, tension: Float): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipAddPathCurve2I(path.rawAddress.toString(), points.rawAddress.toString(), count, tension.toDouble()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipAddPathCurve3(path: MutPtr<GpPath>, points: ConstPtr<PointF>, count: Int, offset: Int, numberofsegments: Int, tension: Float): Status =
+public actual fun gdipAddPathCurve3(path: MutPtr, points: ConstPtr, count: Int, offset: Int, numberofsegments: Int, tension: Float): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipAddPathCurve3(path.rawAddress.toString(), points.rawAddress.toString(), count, offset, numberofsegments, tension.toDouble()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipAddPathCurve3I(path: MutPtr<GpPath>, points: ConstPtr<Point>, count: Int, offset: Int, numberofsegments: Int, tension: Float): Status =
+public actual fun gdipAddPathCurve3I(path: MutPtr, points: ConstPtr, count: Int, offset: Int, numberofsegments: Int, tension: Float): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipAddPathCurve3I(path.rawAddress.toString(), points.rawAddress.toString(), count, offset, numberofsegments, tension.toDouble()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipAddPathCurveI(path: MutPtr<GpPath>, points: ConstPtr<Point>, count: Int): Status =
+public actual fun gdipAddPathCurveI(path: MutPtr, points: ConstPtr, count: Int): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipAddPathCurveI(path.rawAddress.toString(), points.rawAddress.toString(), count) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipAddPathEllipse(path: MutPtr<GpPath>, x: Float, y: Float, width: Float, height: Float): Status =
+public actual fun gdipAddPathEllipse(path: MutPtr, x: Float, y: Float, width: Float, height: Float): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipAddPathEllipse(path.rawAddress.toString(), x.toDouble(), y.toDouble(), width.toDouble(), height.toDouble()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipAddPathEllipseI(path: MutPtr<GpPath>, x: Int, y: Int, width: Int, height: Int): Status =
+public actual fun gdipAddPathEllipseI(path: MutPtr, x: Int, y: Int, width: Int, height: Int): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipAddPathEllipseI(path.rawAddress.toString(), x, y, width, height) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipAddPathLine(path: MutPtr<GpPath>, x1: Float, y1: Float, x2: Float, y2: Float): Status =
+public actual fun gdipAddPathLine(path: MutPtr, x1: Float, y1: Float, x2: Float, y2: Float): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipAddPathLine(path.rawAddress.toString(), x1.toDouble(), y1.toDouble(), x2.toDouble(), y2.toDouble()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipAddPathLine2(path: MutPtr<GpPath>, points: ConstPtr<PointF>, count: Int): Status =
+public actual fun gdipAddPathLine2(path: MutPtr, points: ConstPtr, count: Int): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipAddPathLine2(path.rawAddress.toString(), points.rawAddress.toString(), count) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipAddPathLine2I(path: MutPtr<GpPath>, points: ConstPtr<Point>, count: Int): Status =
+public actual fun gdipAddPathLine2I(path: MutPtr, points: ConstPtr, count: Int): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipAddPathLine2I(path.rawAddress.toString(), points.rawAddress.toString(), count) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipAddPathLineI(path: MutPtr<GpPath>, x1: Int, y1: Int, x2: Int, y2: Int): Status =
+public actual fun gdipAddPathLineI(path: MutPtr, x1: Int, y1: Int, x2: Int, y2: Int): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipAddPathLineI(path.rawAddress.toString(), x1, y1, x2, y2) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipAddPathPath(path: MutPtr<GpPath>, addingpath: ConstPtr<GpPath>, connect: Bool): Status =
+public actual fun gdipAddPathPath(path: MutPtr, addingpath: ConstPtr, connect: Bool): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipAddPathPath(path.rawAddress.toString(), addingpath.rawAddress.toString(), connect) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipAddPathPie(path: MutPtr<GpPath>, x: Float, y: Float, width: Float, height: Float, startangle: Float, sweepangle: Float): Status =
+public actual fun gdipAddPathPie(path: MutPtr, x: Float, y: Float, width: Float, height: Float, startangle: Float, sweepangle: Float): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipAddPathPie(path.rawAddress.toString(), x.toDouble(), y.toDouble(), width.toDouble(), height.toDouble(), startangle.toDouble(), sweepangle.toDouble()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipAddPathPieI(path: MutPtr<GpPath>, x: Int, y: Int, width: Int, height: Int, startangle: Float, sweepangle: Float): Status =
+public actual fun gdipAddPathPieI(path: MutPtr, x: Int, y: Int, width: Int, height: Int, startangle: Float, sweepangle: Float): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipAddPathPieI(path.rawAddress.toString(), x, y, width, height, startangle.toDouble(), sweepangle.toDouble()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipAddPathPolygon(path: MutPtr<GpPath>, points: ConstPtr<PointF>, count: Int): Status =
+public actual fun gdipAddPathPolygon(path: MutPtr, points: ConstPtr, count: Int): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipAddPathPolygon(path.rawAddress.toString(), points.rawAddress.toString(), count) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipAddPathPolygonI(path: MutPtr<GpPath>, points: ConstPtr<Point>, count: Int): Status =
+public actual fun gdipAddPathPolygonI(path: MutPtr, points: ConstPtr, count: Int): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipAddPathPolygonI(path.rawAddress.toString(), points.rawAddress.toString(), count) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipAddPathRectangle(path: MutPtr<GpPath>, x: Float, y: Float, width: Float, height: Float): Status =
+public actual fun gdipAddPathRectangle(path: MutPtr, x: Float, y: Float, width: Float, height: Float): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipAddPathRectangle(path.rawAddress.toString(), x.toDouble(), y.toDouble(), width.toDouble(), height.toDouble()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipAddPathRectangleI(path: MutPtr<GpPath>, x: Int, y: Int, width: Int, height: Int): Status =
+public actual fun gdipAddPathRectangleI(path: MutPtr, x: Int, y: Int, width: Int, height: Int): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipAddPathRectangleI(path.rawAddress.toString(), x, y, width, height) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipAddPathRectangles(path: MutPtr<GpPath>, rects: ConstPtr<RectF>, count: Int): Status =
+public actual fun gdipAddPathRectangles(path: MutPtr, rects: ConstPtr, count: Int): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipAddPathRectangles(path.rawAddress.toString(), rects.rawAddress.toString(), count) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipAddPathRectanglesI(path: MutPtr<GpPath>, rects: ConstPtr<Rect>, count: Int): Status =
+public actual fun gdipAddPathRectanglesI(path: MutPtr, rects: ConstPtr, count: Int): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipAddPathRectanglesI(path.rawAddress.toString(), rects.rawAddress.toString(), count) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipAddPathString(path: MutPtr<GpPath>, string: Pcwstr, length: Int, family: ConstPtr<GpFontFamily>, style: Int, emsize: Float, layoutrect: ConstPtr<RectF>, format: ConstPtr<GpStringFormat>): Status =
+public actual fun gdipAddPathString(path: MutPtr, string: Pcwstr, length: Int, family: ConstPtr, style: Int, emsize: Float, layoutrect: ConstPtr, format: ConstPtr): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipAddPathString(path.rawAddress.toString(), string.rawAddress.toString(), length, family.rawAddress.toString(), style, emsize.toDouble(), layoutrect.rawAddress.toString(), format.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipAddPathStringI(path: MutPtr<GpPath>, string: Pcwstr, length: Int, family: ConstPtr<GpFontFamily>, style: Int, emsize: Float, layoutrect: ConstPtr<Rect>, format: ConstPtr<GpStringFormat>): Status =
+public actual fun gdipAddPathStringI(path: MutPtr, string: Pcwstr, length: Int, family: ConstPtr, style: Int, emsize: Float, layoutrect: ConstPtr, format: ConstPtr): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipAddPathStringI(path.rawAddress.toString(), string.rawAddress.toString(), length, family.rawAddress.toString(), style, emsize.toDouble(), layoutrect.rawAddress.toString(), format.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipAlloc(size: ULong): MutPtr<CVoid> =
+public actual fun gdipAlloc(size: ULong): MutPtr =
     if (windowsWin32GraphicsGdiplusNapiAvailable) MutPtr(wasmWindowssysWindowsWin32GraphicsGdiplusGdipAlloc(size.toString()).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipBeginContainer(graphics: MutPtr<GpGraphics>, dstrect: ConstPtr<RectF>, srcrect: ConstPtr<RectF>, unit: Unit, state: MutPtr<UInt>): Status =
+public actual fun gdipBeginContainer(graphics: MutPtr, dstrect: ConstPtr, srcrect: ConstPtr, unit: Unit, state: MutPtr): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipBeginContainer(graphics.rawAddress.toString(), dstrect.rawAddress.toString(), srcrect.rawAddress.toString(), unit, state.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipBeginContainer2(graphics: MutPtr<GpGraphics>, state: MutPtr<UInt>): Status =
+public actual fun gdipBeginContainer2(graphics: MutPtr, state: MutPtr): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipBeginContainer2(graphics.rawAddress.toString(), state.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipBeginContainerI(graphics: MutPtr<GpGraphics>, dstrect: ConstPtr<Rect>, srcrect: ConstPtr<Rect>, unit: Unit, state: MutPtr<UInt>): Status =
+public actual fun gdipBeginContainerI(graphics: MutPtr, dstrect: ConstPtr, srcrect: ConstPtr, unit: Unit, state: MutPtr): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipBeginContainerI(graphics.rawAddress.toString(), dstrect.rawAddress.toString(), srcrect.rawAddress.toString(), unit, state.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipBitmapApplyEffect(bitmap: MutPtr<GpBitmap>, effect: MutPtr<CGpEffect>, roi: MutPtr<io.github.kotlinmania.windowssys.windows.win32.foundation.Rect>, useauxdata: Bool, auxdata: MutPtr<MutPtr<CVoid>>, auxdatasize: MutPtr<Int>): Status =
+public actual fun gdipBitmapApplyEffect(bitmap: MutPtr, effect: MutPtr, roi: MutPtr, useauxdata: Bool, auxdata: MutPtr, auxdatasize: MutPtr): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipBitmapApplyEffect(bitmap.rawAddress.toString(), effect.rawAddress.toString(), roi.rawAddress.toString(), useauxdata, auxdata.rawAddress.toString(), auxdatasize.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipBitmapConvertFormat(pinputbitmap: MutPtr<GpBitmap>, format: Int, dithertype: DitherType, palettetype: PaletteType, palette: MutPtr<ColorPalette>, alphathresholdpercent: Float): Status =
+public actual fun gdipBitmapConvertFormat(pinputbitmap: MutPtr, format: Int, dithertype: DitherType, palettetype: PaletteType, palette: MutPtr, alphathresholdpercent: Float): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipBitmapConvertFormat(pinputbitmap.rawAddress.toString(), format, dithertype, palettetype, palette.rawAddress.toString(), alphathresholdpercent.toDouble()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipBitmapCreateApplyEffect(inputbitmaps: MutPtr<MutPtr<GpBitmap>>, numinputs: Int, effect: MutPtr<CGpEffect>, roi: MutPtr<io.github.kotlinmania.windowssys.windows.win32.foundation.Rect>, outputrect: MutPtr<io.github.kotlinmania.windowssys.windows.win32.foundation.Rect>, outputbitmap: MutPtr<MutPtr<GpBitmap>>, useauxdata: Bool, auxdata: MutPtr<MutPtr<CVoid>>, auxdatasize: MutPtr<Int>): Status =
+public actual fun gdipBitmapCreateApplyEffect(inputbitmaps: MutPtr, numinputs: Int, effect: MutPtr, roi: MutPtr, outputrect: MutPtr, outputbitmap: MutPtr, useauxdata: Bool, auxdata: MutPtr, auxdatasize: MutPtr): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipBitmapCreateApplyEffect(inputbitmaps.rawAddress.toString(), numinputs, effect.rawAddress.toString(), roi.rawAddress.toString(), outputrect.rawAddress.toString(), outputbitmap.rawAddress.toString(), useauxdata, auxdata.rawAddress.toString(), auxdatasize.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipBitmapGetHistogram(bitmap: MutPtr<GpBitmap>, format: HistogramFormat, numberofentries: UInt, channel0: MutPtr<UInt>, channel1: MutPtr<UInt>, channel2: MutPtr<UInt>, channel3: MutPtr<UInt>): Status =
+public actual fun gdipBitmapGetHistogram(bitmap: MutPtr, format: HistogramFormat, numberofentries: UInt, channel0: MutPtr, channel1: MutPtr, channel2: MutPtr, channel3: MutPtr): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipBitmapGetHistogram(bitmap.rawAddress.toString(), format, numberofentries.toInt(), channel0.rawAddress.toString(), channel1.rawAddress.toString(), channel2.rawAddress.toString(), channel3.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipBitmapGetHistogramSize(format: HistogramFormat, numberofentries: MutPtr<UInt>): Status =
+public actual fun gdipBitmapGetHistogramSize(format: HistogramFormat, numberofentries: MutPtr): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipBitmapGetHistogramSize(format, numberofentries.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipBitmapGetPixel(bitmap: MutPtr<GpBitmap>, x: Int, y: Int, color: MutPtr<UInt>): Status =
+public actual fun gdipBitmapGetPixel(bitmap: MutPtr, x: Int, y: Int, color: MutPtr): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipBitmapGetPixel(bitmap.rawAddress.toString(), x, y, color.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipBitmapLockBits(bitmap: MutPtr<GpBitmap>, rect: ConstPtr<Rect>, flags: UInt, format: Int, lockedbitmapdata: MutPtr<BitmapData>): Status =
+public actual fun gdipBitmapLockBits(bitmap: MutPtr, rect: ConstPtr, flags: UInt, format: Int, lockedbitmapdata: MutPtr): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipBitmapLockBits(bitmap.rawAddress.toString(), rect.rawAddress.toString(), flags.toInt(), format, lockedbitmapdata.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipBitmapSetPixel(bitmap: MutPtr<GpBitmap>, x: Int, y: Int, color: UInt): Status =
+public actual fun gdipBitmapSetPixel(bitmap: MutPtr, x: Int, y: Int, color: UInt): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipBitmapSetPixel(bitmap.rawAddress.toString(), x, y, color.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipBitmapSetResolution(bitmap: MutPtr<GpBitmap>, xdpi: Float, ydpi: Float): Status =
+public actual fun gdipBitmapSetResolution(bitmap: MutPtr, xdpi: Float, ydpi: Float): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipBitmapSetResolution(bitmap.rawAddress.toString(), xdpi.toDouble(), ydpi.toDouble()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipBitmapUnlockBits(bitmap: MutPtr<GpBitmap>, lockedbitmapdata: MutPtr<BitmapData>): Status =
+public actual fun gdipBitmapUnlockBits(bitmap: MutPtr, lockedbitmapdata: MutPtr): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipBitmapUnlockBits(bitmap.rawAddress.toString(), lockedbitmapdata.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipClearPathMarkers(path: MutPtr<GpPath>): Status =
+public actual fun gdipClearPathMarkers(path: MutPtr): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipClearPathMarkers(path.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipCloneBitmapArea(x: Float, y: Float, width: Float, height: Float, format: Int, srcbitmap: MutPtr<GpBitmap>, dstbitmap: MutPtr<MutPtr<GpBitmap>>): Status =
+public actual fun gdipCloneBitmapArea(x: Float, y: Float, width: Float, height: Float, format: Int, srcbitmap: MutPtr, dstbitmap: MutPtr): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipCloneBitmapArea(x.toDouble(), y.toDouble(), width.toDouble(), height.toDouble(), format, srcbitmap.rawAddress.toString(), dstbitmap.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipCloneBitmapAreaI(x: Int, y: Int, width: Int, height: Int, format: Int, srcbitmap: MutPtr<GpBitmap>, dstbitmap: MutPtr<MutPtr<GpBitmap>>): Status =
+public actual fun gdipCloneBitmapAreaI(x: Int, y: Int, width: Int, height: Int, format: Int, srcbitmap: MutPtr, dstbitmap: MutPtr): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipCloneBitmapAreaI(x, y, width, height, format, srcbitmap.rawAddress.toString(), dstbitmap.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipCloneBrush(brush: MutPtr<GpBrush>, clonebrush: MutPtr<MutPtr<GpBrush>>): Status =
+public actual fun gdipCloneBrush(brush: MutPtr, clonebrush: MutPtr): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipCloneBrush(brush.rawAddress.toString(), clonebrush.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipCloneCustomLineCap(customcap: MutPtr<GpCustomLineCap>, clonedcap: MutPtr<MutPtr<GpCustomLineCap>>): Status =
+public actual fun gdipCloneCustomLineCap(customcap: MutPtr, clonedcap: MutPtr): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipCloneCustomLineCap(customcap.rawAddress.toString(), clonedcap.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipCloneFont(font: MutPtr<GpFont>, clonefont: MutPtr<MutPtr<GpFont>>): Status =
+public actual fun gdipCloneFont(font: MutPtr, clonefont: MutPtr): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipCloneFont(font.rawAddress.toString(), clonefont.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipCloneFontFamily(fontfamily: MutPtr<GpFontFamily>, clonedfontfamily: MutPtr<MutPtr<GpFontFamily>>): Status =
+public actual fun gdipCloneFontFamily(fontfamily: MutPtr, clonedfontfamily: MutPtr): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipCloneFontFamily(fontfamily.rawAddress.toString(), clonedfontfamily.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipCloneImage(image: MutPtr<GpImage>, cloneimage: MutPtr<MutPtr<GpImage>>): Status =
+public actual fun gdipCloneImage(image: MutPtr, cloneimage: MutPtr): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipCloneImage(image.rawAddress.toString(), cloneimage.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipCloneImageAttributes(imageattr: ConstPtr<GpImageAttributes>, cloneimageattr: MutPtr<MutPtr<GpImageAttributes>>): Status =
+public actual fun gdipCloneImageAttributes(imageattr: ConstPtr, cloneimageattr: MutPtr): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipCloneImageAttributes(imageattr.rawAddress.toString(), cloneimageattr.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipCloneMatrix(matrix: MutPtr<Matrix>, clonematrix: MutPtr<MutPtr<Matrix>>): Status =
+public actual fun gdipCloneMatrix(matrix: MutPtr, clonematrix: MutPtr): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipCloneMatrix(matrix.rawAddress.toString(), clonematrix.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipClonePath(path: MutPtr<GpPath>, clonepath: MutPtr<MutPtr<GpPath>>): Status =
+public actual fun gdipClonePath(path: MutPtr, clonepath: MutPtr): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipClonePath(path.rawAddress.toString(), clonepath.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipClonePen(pen: MutPtr<GpPen>, clonepen: MutPtr<MutPtr<GpPen>>): Status =
+public actual fun gdipClonePen(pen: MutPtr, clonepen: MutPtr): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipClonePen(pen.rawAddress.toString(), clonepen.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipCloneRegion(region: MutPtr<GpRegion>, cloneregion: MutPtr<MutPtr<GpRegion>>): Status =
+public actual fun gdipCloneRegion(region: MutPtr, cloneregion: MutPtr): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipCloneRegion(region.rawAddress.toString(), cloneregion.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipCloneStringFormat(format: ConstPtr<GpStringFormat>, newformat: MutPtr<MutPtr<GpStringFormat>>): Status =
+public actual fun gdipCloneStringFormat(format: ConstPtr, newformat: MutPtr): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipCloneStringFormat(format.rawAddress.toString(), newformat.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipClosePathFigure(path: MutPtr<GpPath>): Status =
+public actual fun gdipClosePathFigure(path: MutPtr): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipClosePathFigure(path.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipClosePathFigures(path: MutPtr<GpPath>): Status =
+public actual fun gdipClosePathFigures(path: MutPtr): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipClosePathFigures(path.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipCombineRegionPath(region: MutPtr<GpRegion>, path: MutPtr<GpPath>, combinemode: CombineMode): Status =
+public actual fun gdipCombineRegionPath(region: MutPtr, path: MutPtr, combinemode: CombineMode): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipCombineRegionPath(region.rawAddress.toString(), path.rawAddress.toString(), combinemode) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipCombineRegionRect(region: MutPtr<GpRegion>, rect: ConstPtr<RectF>, combinemode: CombineMode): Status =
+public actual fun gdipCombineRegionRect(region: MutPtr, rect: ConstPtr, combinemode: CombineMode): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipCombineRegionRect(region.rawAddress.toString(), rect.rawAddress.toString(), combinemode) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipCombineRegionRectI(region: MutPtr<GpRegion>, rect: ConstPtr<Rect>, combinemode: CombineMode): Status =
+public actual fun gdipCombineRegionRectI(region: MutPtr, rect: ConstPtr, combinemode: CombineMode): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipCombineRegionRectI(region.rawAddress.toString(), rect.rawAddress.toString(), combinemode) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipCombineRegionRegion(region: MutPtr<GpRegion>, region2: MutPtr<GpRegion>, combinemode: CombineMode): Status =
+public actual fun gdipCombineRegionRegion(region: MutPtr, region2: MutPtr, combinemode: CombineMode): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipCombineRegionRegion(region.rawAddress.toString(), region2.rawAddress.toString(), combinemode) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipComment(graphics: MutPtr<GpGraphics>, sizedata: UInt, data: ConstPtr<UByte>): Status =
+public actual fun gdipComment(graphics: MutPtr, sizedata: UInt, data: ConstPtr): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipComment(graphics.rawAddress.toString(), sizedata.toInt(), data.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipConvertToEmfPlus(refgraphics: ConstPtr<GpGraphics>, metafile: MutPtr<GpMetafile>, conversionfailureflag: MutPtr<Int>, emftype: EmfType, description: Pcwstr, outMetafile: MutPtr<MutPtr<GpMetafile>>): Status =
+public actual fun gdipConvertToEmfPlus(refgraphics: ConstPtr, metafile: MutPtr, conversionfailureflag: MutPtr, emftype: EmfType, description: Pcwstr, outMetafile: MutPtr): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipConvertToEmfPlus(refgraphics.rawAddress.toString(), metafile.rawAddress.toString(), conversionfailureflag.rawAddress.toString(), emftype, description.rawAddress.toString(), outMetafile.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipConvertToEmfPlusToFile(refgraphics: ConstPtr<GpGraphics>, metafile: MutPtr<GpMetafile>, conversionfailureflag: MutPtr<Int>, filename: Pcwstr, emftype: EmfType, description: Pcwstr, outMetafile: MutPtr<MutPtr<GpMetafile>>): Status =
+public actual fun gdipConvertToEmfPlusToFile(refgraphics: ConstPtr, metafile: MutPtr, conversionfailureflag: MutPtr, filename: Pcwstr, emftype: EmfType, description: Pcwstr, outMetafile: MutPtr): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipConvertToEmfPlusToFile(refgraphics.rawAddress.toString(), metafile.rawAddress.toString(), conversionfailureflag.rawAddress.toString(), filename.rawAddress.toString(), emftype, description.rawAddress.toString(), outMetafile.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipConvertToEmfPlusToStream(refgraphics: ConstPtr<GpGraphics>, metafile: MutPtr<GpMetafile>, conversionfailureflag: MutPtr<Int>, stream: MutPtr<CVoid>, emftype: EmfType, description: Pcwstr, outMetafile: MutPtr<MutPtr<GpMetafile>>): Status =
+public actual fun gdipConvertToEmfPlusToStream(refgraphics: ConstPtr, metafile: MutPtr, conversionfailureflag: MutPtr, stream: MutPtr, emftype: EmfType, description: Pcwstr, outMetafile: MutPtr): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipConvertToEmfPlusToStream(refgraphics.rawAddress.toString(), metafile.rawAddress.toString(), conversionfailureflag.rawAddress.toString(), stream.rawAddress.toString(), emftype, description.rawAddress.toString(), outMetafile.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipCreateAdjustableArrowCap(height: Float, width: Float, isfilled: Bool, cap: MutPtr<MutPtr<GpAdjustableArrowCap>>): Status =
+public actual fun gdipCreateAdjustableArrowCap(height: Float, width: Float, isfilled: Bool, cap: MutPtr): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipCreateAdjustableArrowCap(height.toDouble(), width.toDouble(), isfilled, cap.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipCreateBitmapFromFile(filename: Pcwstr, bitmap: MutPtr<MutPtr<GpBitmap>>): Status =
+public actual fun gdipCreateBitmapFromFile(filename: Pcwstr, bitmap: MutPtr): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipCreateBitmapFromFile(filename.rawAddress.toString(), bitmap.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipCreateBitmapFromFileICM(filename: Pcwstr, bitmap: MutPtr<MutPtr<GpBitmap>>): Status =
+public actual fun gdipCreateBitmapFromFileICM(filename: Pcwstr, bitmap: MutPtr): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipCreateBitmapFromFileICM(filename.rawAddress.toString(), bitmap.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipCreateBitmapFromGdiDib(gdibitmapinfo: ConstPtr<Bitmapinfo>, gdibitmapdata: MutPtr<CVoid>, bitmap: MutPtr<MutPtr<GpBitmap>>): Status =
+public actual fun gdipCreateBitmapFromGdiDib(gdibitmapinfo: ConstPtr, gdibitmapdata: MutPtr, bitmap: MutPtr): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipCreateBitmapFromGdiDib(gdibitmapinfo.rawAddress.toString(), gdibitmapdata.rawAddress.toString(), bitmap.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipCreateBitmapFromGraphics(width: Int, height: Int, target: MutPtr<GpGraphics>, bitmap: MutPtr<MutPtr<GpBitmap>>): Status =
+public actual fun gdipCreateBitmapFromGraphics(width: Int, height: Int, target: MutPtr, bitmap: MutPtr): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipCreateBitmapFromGraphics(width, height, target.rawAddress.toString(), bitmap.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipCreateBitmapFromHBITMAP(hbm: Hbitmap, hpal: Hpalette, bitmap: MutPtr<MutPtr<GpBitmap>>): Status =
+public actual fun gdipCreateBitmapFromHBITMAP(hbm: Hbitmap, hpal: Hpalette, bitmap: MutPtr): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipCreateBitmapFromHBITMAP(hbm.rawAddress.toString(), hpal.rawAddress.toString(), bitmap.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipCreateBitmapFromHICON(hicon: Hicon, bitmap: MutPtr<MutPtr<GpBitmap>>): Status =
+public actual fun gdipCreateBitmapFromHICON(hicon: Hicon, bitmap: MutPtr): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipCreateBitmapFromHICON(hicon.rawAddress.toString(), bitmap.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipCreateBitmapFromResource(hinstance: Hinstance, lpbitmapname: Pcwstr, bitmap: MutPtr<MutPtr<GpBitmap>>): Status =
+public actual fun gdipCreateBitmapFromResource(hinstance: Hinstance, lpbitmapname: Pcwstr, bitmap: MutPtr): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipCreateBitmapFromResource(hinstance.rawAddress.toString(), lpbitmapname.rawAddress.toString(), bitmap.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipCreateBitmapFromScan0(width: Int, height: Int, stride: Int, format: Int, scan0: ConstPtr<UByte>, bitmap: MutPtr<MutPtr<GpBitmap>>): Status =
+public actual fun gdipCreateBitmapFromScan0(width: Int, height: Int, stride: Int, format: Int, scan0: ConstPtr, bitmap: MutPtr): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipCreateBitmapFromScan0(width, height, stride, format, scan0.rawAddress.toString(), bitmap.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipCreateBitmapFromStream(stream: MutPtr<CVoid>, bitmap: MutPtr<MutPtr<GpBitmap>>): Status =
+public actual fun gdipCreateBitmapFromStream(stream: MutPtr, bitmap: MutPtr): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipCreateBitmapFromStream(stream.rawAddress.toString(), bitmap.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipCreateBitmapFromStreamICM(stream: MutPtr<CVoid>, bitmap: MutPtr<MutPtr<GpBitmap>>): Status =
+public actual fun gdipCreateBitmapFromStreamICM(stream: MutPtr, bitmap: MutPtr): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipCreateBitmapFromStreamICM(stream.rawAddress.toString(), bitmap.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipCreateCachedBitmap(bitmap: MutPtr<GpBitmap>, graphics: MutPtr<GpGraphics>, cachedbitmap: MutPtr<MutPtr<GpCachedBitmap>>): Status =
+public actual fun gdipCreateCachedBitmap(bitmap: MutPtr, graphics: MutPtr, cachedbitmap: MutPtr): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipCreateCachedBitmap(bitmap.rawAddress.toString(), graphics.rawAddress.toString(), cachedbitmap.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipCreateCustomLineCap(fillpath: MutPtr<GpPath>, strokepath: MutPtr<GpPath>, basecap: LineCap, baseinset: Float, customcap: MutPtr<MutPtr<GpCustomLineCap>>): Status =
+public actual fun gdipCreateCustomLineCap(fillpath: MutPtr, strokepath: MutPtr, basecap: LineCap, baseinset: Float, customcap: MutPtr): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipCreateCustomLineCap(fillpath.rawAddress.toString(), strokepath.rawAddress.toString(), basecap, baseinset.toDouble(), customcap.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipCreateEffect(guid: Guid, effect: MutPtr<MutPtr<CGpEffect>>): Status =
+public actual fun gdipCreateEffect(guid: Guid, effect: MutPtr): Status =
     throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipCreateFont(fontfamily: ConstPtr<GpFontFamily>, emsize: Float, style: Int, unit: Unit, font: MutPtr<MutPtr<GpFont>>): Status =
+public actual fun gdipCreateFont(fontfamily: ConstPtr, emsize: Float, style: Int, unit: Unit, font: MutPtr): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipCreateFont(fontfamily.rawAddress.toString(), emsize.toDouble(), style, unit, font.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipCreateFontFamilyFromName(name: Pcwstr, fontcollection: MutPtr<GpFontCollection>, fontfamily: MutPtr<MutPtr<GpFontFamily>>): Status =
+public actual fun gdipCreateFontFamilyFromName(name: Pcwstr, fontcollection: MutPtr, fontfamily: MutPtr): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipCreateFontFamilyFromName(name.rawAddress.toString(), fontcollection.rawAddress.toString(), fontfamily.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipCreateFontFromDC(hdc: Hdc, font: MutPtr<MutPtr<GpFont>>): Status =
+public actual fun gdipCreateFontFromDC(hdc: Hdc, font: MutPtr): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipCreateFontFromDC(hdc.rawAddress.toString(), font.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipCreateFontFromLogfontA(hdc: Hdc, logfont: ConstPtr<Logfonta>, font: MutPtr<MutPtr<GpFont>>): Status =
+public actual fun gdipCreateFontFromLogfontA(hdc: Hdc, logfont: ConstPtr, font: MutPtr): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipCreateFontFromLogfontA(hdc.rawAddress.toString(), logfont.rawAddress.toString(), font.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipCreateFontFromLogfontW(hdc: Hdc, logfont: ConstPtr<Logfontw>, font: MutPtr<MutPtr<GpFont>>): Status =
+public actual fun gdipCreateFontFromLogfontW(hdc: Hdc, logfont: ConstPtr, font: MutPtr): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipCreateFontFromLogfontW(hdc.rawAddress.toString(), logfont.rawAddress.toString(), font.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipCreateFromHDC(hdc: Hdc, graphics: MutPtr<MutPtr<GpGraphics>>): Status =
+public actual fun gdipCreateFromHDC(hdc: Hdc, graphics: MutPtr): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipCreateFromHDC(hdc.rawAddress.toString(), graphics.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipCreateFromHDC2(hdc: Hdc, hdevice: Handle, graphics: MutPtr<MutPtr<GpGraphics>>): Status =
+public actual fun gdipCreateFromHDC2(hdc: Hdc, hdevice: Handle, graphics: MutPtr): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipCreateFromHDC2(hdc.rawAddress.toString(), hdevice.rawAddress.toString(), graphics.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipCreateFromHWND(hwnd: Hwnd, graphics: MutPtr<MutPtr<GpGraphics>>): Status =
+public actual fun gdipCreateFromHWND(hwnd: Hwnd, graphics: MutPtr): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipCreateFromHWND(hwnd.rawAddress.toString(), graphics.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipCreateFromHWNDICM(hwnd: Hwnd, graphics: MutPtr<MutPtr<GpGraphics>>): Status =
+public actual fun gdipCreateFromHWNDICM(hwnd: Hwnd, graphics: MutPtr): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipCreateFromHWNDICM(hwnd.rawAddress.toString(), graphics.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipCreateHBITMAPFromBitmap(bitmap: MutPtr<GpBitmap>, hbmreturn: MutPtr<Hbitmap>, background: UInt): Status =
+public actual fun gdipCreateHBITMAPFromBitmap(bitmap: MutPtr, hbmreturn: MutPtr, background: UInt): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipCreateHBITMAPFromBitmap(bitmap.rawAddress.toString(), hbmreturn.rawAddress.toString(), background.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipCreateHICONFromBitmap(bitmap: MutPtr<GpBitmap>, hbmreturn: MutPtr<Hicon>): Status =
+public actual fun gdipCreateHICONFromBitmap(bitmap: MutPtr, hbmreturn: MutPtr): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipCreateHICONFromBitmap(bitmap.rawAddress.toString(), hbmreturn.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun gdipCreateHalftonePalette(): Hpalette =
     if (windowsWin32GraphicsGdiplusNapiAvailable) MutPtr(wasmWindowssysWindowsWin32GraphicsGdiplusGdipCreateHalftonePalette().toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipCreateHatchBrush(hatchstyle: HatchStyle, forecol: UInt, backcol: UInt, brush: MutPtr<MutPtr<GpHatch>>): Status =
+public actual fun gdipCreateHatchBrush(hatchstyle: HatchStyle, forecol: UInt, backcol: UInt, brush: MutPtr): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipCreateHatchBrush(hatchstyle, forecol.toInt(), backcol.toInt(), brush.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipCreateImageAttributes(imageattr: MutPtr<MutPtr<GpImageAttributes>>): Status =
+public actual fun gdipCreateImageAttributes(imageattr: MutPtr): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipCreateImageAttributes(imageattr.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipCreateLineBrush(point1: ConstPtr<PointF>, point2: ConstPtr<PointF>, color1: UInt, color2: UInt, wrapmode: WrapMode, linegradient: MutPtr<MutPtr<GpLineGradient>>): Status =
+public actual fun gdipCreateLineBrush(point1: ConstPtr, point2: ConstPtr, color1: UInt, color2: UInt, wrapmode: WrapMode, linegradient: MutPtr): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipCreateLineBrush(point1.rawAddress.toString(), point2.rawAddress.toString(), color1.toInt(), color2.toInt(), wrapmode, linegradient.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipCreateLineBrushFromRect(rect: ConstPtr<RectF>, color1: UInt, color2: UInt, mode: LinearGradientMode, wrapmode: WrapMode, linegradient: MutPtr<MutPtr<GpLineGradient>>): Status =
+public actual fun gdipCreateLineBrushFromRect(rect: ConstPtr, color1: UInt, color2: UInt, mode: LinearGradientMode, wrapmode: WrapMode, linegradient: MutPtr): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipCreateLineBrushFromRect(rect.rawAddress.toString(), color1.toInt(), color2.toInt(), mode, wrapmode, linegradient.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipCreateLineBrushFromRectI(rect: ConstPtr<Rect>, color1: UInt, color2: UInt, mode: LinearGradientMode, wrapmode: WrapMode, linegradient: MutPtr<MutPtr<GpLineGradient>>): Status =
+public actual fun gdipCreateLineBrushFromRectI(rect: ConstPtr, color1: UInt, color2: UInt, mode: LinearGradientMode, wrapmode: WrapMode, linegradient: MutPtr): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipCreateLineBrushFromRectI(rect.rawAddress.toString(), color1.toInt(), color2.toInt(), mode, wrapmode, linegradient.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipCreateLineBrushFromRectWithAngle(rect: ConstPtr<RectF>, color1: UInt, color2: UInt, angle: Float, isanglescalable: Bool, wrapmode: WrapMode, linegradient: MutPtr<MutPtr<GpLineGradient>>): Status =
+public actual fun gdipCreateLineBrushFromRectWithAngle(rect: ConstPtr, color1: UInt, color2: UInt, angle: Float, isanglescalable: Bool, wrapmode: WrapMode, linegradient: MutPtr): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipCreateLineBrushFromRectWithAngle(rect.rawAddress.toString(), color1.toInt(), color2.toInt(), angle.toDouble(), isanglescalable, wrapmode, linegradient.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipCreateLineBrushFromRectWithAngleI(rect: ConstPtr<Rect>, color1: UInt, color2: UInt, angle: Float, isanglescalable: Bool, wrapmode: WrapMode, linegradient: MutPtr<MutPtr<GpLineGradient>>): Status =
+public actual fun gdipCreateLineBrushFromRectWithAngleI(rect: ConstPtr, color1: UInt, color2: UInt, angle: Float, isanglescalable: Bool, wrapmode: WrapMode, linegradient: MutPtr): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipCreateLineBrushFromRectWithAngleI(rect.rawAddress.toString(), color1.toInt(), color2.toInt(), angle.toDouble(), isanglescalable, wrapmode, linegradient.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipCreateLineBrushI(point1: ConstPtr<Point>, point2: ConstPtr<Point>, color1: UInt, color2: UInt, wrapmode: WrapMode, linegradient: MutPtr<MutPtr<GpLineGradient>>): Status =
+public actual fun gdipCreateLineBrushI(point1: ConstPtr, point2: ConstPtr, color1: UInt, color2: UInt, wrapmode: WrapMode, linegradient: MutPtr): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipCreateLineBrushI(point1.rawAddress.toString(), point2.rawAddress.toString(), color1.toInt(), color2.toInt(), wrapmode, linegradient.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipCreateMatrix(matrix: MutPtr<MutPtr<Matrix>>): Status =
+public actual fun gdipCreateMatrix(matrix: MutPtr): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipCreateMatrix(matrix.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipCreateMatrix2(m11: Float, m12: Float, m21: Float, m22: Float, dx: Float, dy: Float, matrix: MutPtr<MutPtr<Matrix>>): Status =
+public actual fun gdipCreateMatrix2(m11: Float, m12: Float, m21: Float, m22: Float, dx: Float, dy: Float, matrix: MutPtr): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipCreateMatrix2(m11.toDouble(), m12.toDouble(), m21.toDouble(), m22.toDouble(), dx.toDouble(), dy.toDouble(), matrix.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipCreateMatrix3(rect: ConstPtr<RectF>, dstplg: ConstPtr<PointF>, matrix: MutPtr<MutPtr<Matrix>>): Status =
+public actual fun gdipCreateMatrix3(rect: ConstPtr, dstplg: ConstPtr, matrix: MutPtr): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipCreateMatrix3(rect.rawAddress.toString(), dstplg.rawAddress.toString(), matrix.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipCreateMatrix3I(rect: ConstPtr<Rect>, dstplg: ConstPtr<Point>, matrix: MutPtr<MutPtr<Matrix>>): Status =
+public actual fun gdipCreateMatrix3I(rect: ConstPtr, dstplg: ConstPtr, matrix: MutPtr): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipCreateMatrix3I(rect.rawAddress.toString(), dstplg.rawAddress.toString(), matrix.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipCreateMetafileFromEmf(hemf: Henhmetafile, deleteemf: Bool, metafile: MutPtr<MutPtr<GpMetafile>>): Status =
+public actual fun gdipCreateMetafileFromEmf(hemf: Henhmetafile, deleteemf: Bool, metafile: MutPtr): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipCreateMetafileFromEmf(hemf.rawAddress.toString(), deleteemf, metafile.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipCreateMetafileFromFile(file: Pcwstr, metafile: MutPtr<MutPtr<GpMetafile>>): Status =
+public actual fun gdipCreateMetafileFromFile(file: Pcwstr, metafile: MutPtr): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipCreateMetafileFromFile(file.rawAddress.toString(), metafile.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipCreateMetafileFromStream(stream: MutPtr<CVoid>, metafile: MutPtr<MutPtr<GpMetafile>>): Status =
+public actual fun gdipCreateMetafileFromStream(stream: MutPtr, metafile: MutPtr): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipCreateMetafileFromStream(stream.rawAddress.toString(), metafile.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipCreateMetafileFromWmf(hwmf: Hmetafile, deletewmf: Bool, wmfplaceablefileheader: ConstPtr<WmfPlaceableFileHeader>, metafile: MutPtr<MutPtr<GpMetafile>>): Status =
+public actual fun gdipCreateMetafileFromWmf(hwmf: Hmetafile, deletewmf: Bool, wmfplaceablefileheader: ConstPtr, metafile: MutPtr): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipCreateMetafileFromWmf(hwmf.rawAddress.toString(), deletewmf, wmfplaceablefileheader.rawAddress.toString(), metafile.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipCreateMetafileFromWmfFile(file: Pcwstr, wmfplaceablefileheader: ConstPtr<WmfPlaceableFileHeader>, metafile: MutPtr<MutPtr<GpMetafile>>): Status =
+public actual fun gdipCreateMetafileFromWmfFile(file: Pcwstr, wmfplaceablefileheader: ConstPtr, metafile: MutPtr): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipCreateMetafileFromWmfFile(file.rawAddress.toString(), wmfplaceablefileheader.rawAddress.toString(), metafile.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipCreatePath(brushmode: FillMode, path: MutPtr<MutPtr<GpPath>>): Status =
+public actual fun gdipCreatePath(brushmode: FillMode, path: MutPtr): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipCreatePath(brushmode, path.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipCreatePath2(param0: ConstPtr<PointF>, param1: ConstPtr<UByte>, param2: Int, param3: FillMode, path: MutPtr<MutPtr<GpPath>>): Status =
+public actual fun gdipCreatePath2(param0: ConstPtr, param1: ConstPtr, param2: Int, param3: FillMode, path: MutPtr): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipCreatePath2(param0.rawAddress.toString(), param1.rawAddress.toString(), param2, param3, path.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipCreatePath2I(param0: ConstPtr<Point>, param1: ConstPtr<UByte>, param2: Int, param3: FillMode, path: MutPtr<MutPtr<GpPath>>): Status =
+public actual fun gdipCreatePath2I(param0: ConstPtr, param1: ConstPtr, param2: Int, param3: FillMode, path: MutPtr): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipCreatePath2I(param0.rawAddress.toString(), param1.rawAddress.toString(), param2, param3, path.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipCreatePathGradient(points: ConstPtr<PointF>, count: Int, wrapmode: WrapMode, polygradient: MutPtr<MutPtr<GpPathGradient>>): Status =
+public actual fun gdipCreatePathGradient(points: ConstPtr, count: Int, wrapmode: WrapMode, polygradient: MutPtr): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipCreatePathGradient(points.rawAddress.toString(), count, wrapmode, polygradient.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipCreatePathGradientFromPath(path: ConstPtr<GpPath>, polygradient: MutPtr<MutPtr<GpPathGradient>>): Status =
+public actual fun gdipCreatePathGradientFromPath(path: ConstPtr, polygradient: MutPtr): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipCreatePathGradientFromPath(path.rawAddress.toString(), polygradient.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipCreatePathGradientI(points: ConstPtr<Point>, count: Int, wrapmode: WrapMode, polygradient: MutPtr<MutPtr<GpPathGradient>>): Status =
+public actual fun gdipCreatePathGradientI(points: ConstPtr, count: Int, wrapmode: WrapMode, polygradient: MutPtr): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipCreatePathGradientI(points.rawAddress.toString(), count, wrapmode, polygradient.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipCreatePathIter(iterator: MutPtr<MutPtr<GpPathIterator>>, path: MutPtr<GpPath>): Status =
+public actual fun gdipCreatePathIter(iterator: MutPtr, path: MutPtr): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipCreatePathIter(iterator.rawAddress.toString(), path.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipCreatePen1(color: UInt, width: Float, unit: Unit, pen: MutPtr<MutPtr<GpPen>>): Status =
+public actual fun gdipCreatePen1(color: UInt, width: Float, unit: Unit, pen: MutPtr): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipCreatePen1(color.toInt(), width.toDouble(), unit, pen.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipCreatePen2(brush: MutPtr<GpBrush>, width: Float, unit: Unit, pen: MutPtr<MutPtr<GpPen>>): Status =
+public actual fun gdipCreatePen2(brush: MutPtr, width: Float, unit: Unit, pen: MutPtr): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipCreatePen2(brush.rawAddress.toString(), width.toDouble(), unit, pen.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipCreateRegion(region: MutPtr<MutPtr<GpRegion>>): Status =
+public actual fun gdipCreateRegion(region: MutPtr): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipCreateRegion(region.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipCreateRegionHrgn(hrgn: Hrgn, region: MutPtr<MutPtr<GpRegion>>): Status =
+public actual fun gdipCreateRegionHrgn(hrgn: Hrgn, region: MutPtr): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipCreateRegionHrgn(hrgn.rawAddress.toString(), region.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipCreateRegionPath(path: MutPtr<GpPath>, region: MutPtr<MutPtr<GpRegion>>): Status =
+public actual fun gdipCreateRegionPath(path: MutPtr, region: MutPtr): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipCreateRegionPath(path.rawAddress.toString(), region.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipCreateRegionRect(rect: ConstPtr<RectF>, region: MutPtr<MutPtr<GpRegion>>): Status =
+public actual fun gdipCreateRegionRect(rect: ConstPtr, region: MutPtr): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipCreateRegionRect(rect.rawAddress.toString(), region.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipCreateRegionRectI(rect: ConstPtr<Rect>, region: MutPtr<MutPtr<GpRegion>>): Status =
+public actual fun gdipCreateRegionRectI(rect: ConstPtr, region: MutPtr): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipCreateRegionRectI(rect.rawAddress.toString(), region.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipCreateRegionRgnData(regiondata: ConstPtr<UByte>, size: Int, region: MutPtr<MutPtr<GpRegion>>): Status =
+public actual fun gdipCreateRegionRgnData(regiondata: ConstPtr, size: Int, region: MutPtr): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipCreateRegionRgnData(regiondata.rawAddress.toString(), size, region.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipCreateSolidFill(color: UInt, brush: MutPtr<MutPtr<GpSolidFill>>): Status =
+public actual fun gdipCreateSolidFill(color: UInt, brush: MutPtr): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipCreateSolidFill(color.toInt(), brush.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipCreateStreamOnFile(filename: Pcwstr, access: UInt, stream: MutPtr<MutPtr<CVoid>>): Status =
+public actual fun gdipCreateStreamOnFile(filename: Pcwstr, access: UInt, stream: MutPtr): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipCreateStreamOnFile(filename.rawAddress.toString(), access.toInt(), stream.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipCreateStringFormat(formatattributes: Int, language: UShort, format: MutPtr<MutPtr<GpStringFormat>>): Status =
+public actual fun gdipCreateStringFormat(formatattributes: Int, language: UShort, format: MutPtr): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipCreateStringFormat(formatattributes, language.toInt(), format.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipCreateTexture(image: MutPtr<GpImage>, wrapmode: WrapMode, texture: MutPtr<MutPtr<GpTexture>>): Status =
+public actual fun gdipCreateTexture(image: MutPtr, wrapmode: WrapMode, texture: MutPtr): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipCreateTexture(image.rawAddress.toString(), wrapmode, texture.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipCreateTexture2(image: MutPtr<GpImage>, wrapmode: WrapMode, x: Float, y: Float, width: Float, height: Float, texture: MutPtr<MutPtr<GpTexture>>): Status =
+public actual fun gdipCreateTexture2(image: MutPtr, wrapmode: WrapMode, x: Float, y: Float, width: Float, height: Float, texture: MutPtr): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipCreateTexture2(image.rawAddress.toString(), wrapmode, x.toDouble(), y.toDouble(), width.toDouble(), height.toDouble(), texture.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipCreateTexture2I(image: MutPtr<GpImage>, wrapmode: WrapMode, x: Int, y: Int, width: Int, height: Int, texture: MutPtr<MutPtr<GpTexture>>): Status =
+public actual fun gdipCreateTexture2I(image: MutPtr, wrapmode: WrapMode, x: Int, y: Int, width: Int, height: Int, texture: MutPtr): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipCreateTexture2I(image.rawAddress.toString(), wrapmode, x, y, width, height, texture.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipCreateTextureIA(image: MutPtr<GpImage>, imageattributes: ConstPtr<GpImageAttributes>, x: Float, y: Float, width: Float, height: Float, texture: MutPtr<MutPtr<GpTexture>>): Status =
+public actual fun gdipCreateTextureIA(image: MutPtr, imageattributes: ConstPtr, x: Float, y: Float, width: Float, height: Float, texture: MutPtr): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipCreateTextureIA(image.rawAddress.toString(), imageattributes.rawAddress.toString(), x.toDouble(), y.toDouble(), width.toDouble(), height.toDouble(), texture.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipCreateTextureIAI(image: MutPtr<GpImage>, imageattributes: ConstPtr<GpImageAttributes>, x: Int, y: Int, width: Int, height: Int, texture: MutPtr<MutPtr<GpTexture>>): Status =
+public actual fun gdipCreateTextureIAI(image: MutPtr, imageattributes: ConstPtr, x: Int, y: Int, width: Int, height: Int, texture: MutPtr): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipCreateTextureIAI(image.rawAddress.toString(), imageattributes.rawAddress.toString(), x, y, width, height, texture.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipDeleteBrush(brush: MutPtr<GpBrush>): Status =
+public actual fun gdipDeleteBrush(brush: MutPtr): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipDeleteBrush(brush.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipDeleteCachedBitmap(cachedbitmap: MutPtr<GpCachedBitmap>): Status =
+public actual fun gdipDeleteCachedBitmap(cachedbitmap: MutPtr): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipDeleteCachedBitmap(cachedbitmap.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipDeleteCustomLineCap(customcap: MutPtr<GpCustomLineCap>): Status =
+public actual fun gdipDeleteCustomLineCap(customcap: MutPtr): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipDeleteCustomLineCap(customcap.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipDeleteEffect(effect: MutPtr<CGpEffect>): Status =
+public actual fun gdipDeleteEffect(effect: MutPtr): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipDeleteEffect(effect.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipDeleteFont(font: MutPtr<GpFont>): Status =
+public actual fun gdipDeleteFont(font: MutPtr): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipDeleteFont(font.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipDeleteFontFamily(fontfamily: MutPtr<GpFontFamily>): Status =
+public actual fun gdipDeleteFontFamily(fontfamily: MutPtr): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipDeleteFontFamily(fontfamily.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipDeleteGraphics(graphics: MutPtr<GpGraphics>): Status =
+public actual fun gdipDeleteGraphics(graphics: MutPtr): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipDeleteGraphics(graphics.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipDeleteMatrix(matrix: MutPtr<Matrix>): Status =
+public actual fun gdipDeleteMatrix(matrix: MutPtr): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipDeleteMatrix(matrix.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipDeletePath(path: MutPtr<GpPath>): Status =
+public actual fun gdipDeletePath(path: MutPtr): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipDeletePath(path.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipDeletePathIter(iterator: MutPtr<GpPathIterator>): Status =
+public actual fun gdipDeletePathIter(iterator: MutPtr): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipDeletePathIter(iterator.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipDeletePen(pen: MutPtr<GpPen>): Status =
+public actual fun gdipDeletePen(pen: MutPtr): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipDeletePen(pen.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipDeletePrivateFontCollection(fontcollection: MutPtr<MutPtr<GpFontCollection>>): Status =
+public actual fun gdipDeletePrivateFontCollection(fontcollection: MutPtr): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipDeletePrivateFontCollection(fontcollection.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipDeleteRegion(region: MutPtr<GpRegion>): Status =
+public actual fun gdipDeleteRegion(region: MutPtr): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipDeleteRegion(region.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipDeleteStringFormat(format: MutPtr<GpStringFormat>): Status =
+public actual fun gdipDeleteStringFormat(format: MutPtr): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipDeleteStringFormat(format.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipDisposeImage(image: MutPtr<GpImage>): Status =
+public actual fun gdipDisposeImage(image: MutPtr): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipDisposeImage(image.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipDisposeImageAttributes(imageattr: MutPtr<GpImageAttributes>): Status =
+public actual fun gdipDisposeImageAttributes(imageattr: MutPtr): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipDisposeImageAttributes(imageattr.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipDrawArc(graphics: MutPtr<GpGraphics>, pen: MutPtr<GpPen>, x: Float, y: Float, width: Float, height: Float, startangle: Float, sweepangle: Float): Status =
+public actual fun gdipDrawArc(graphics: MutPtr, pen: MutPtr, x: Float, y: Float, width: Float, height: Float, startangle: Float, sweepangle: Float): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipDrawArc(graphics.rawAddress.toString(), pen.rawAddress.toString(), x.toDouble(), y.toDouble(), width.toDouble(), height.toDouble(), startangle.toDouble(), sweepangle.toDouble()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipDrawArcI(graphics: MutPtr<GpGraphics>, pen: MutPtr<GpPen>, x: Int, y: Int, width: Int, height: Int, startangle: Float, sweepangle: Float): Status =
+public actual fun gdipDrawArcI(graphics: MutPtr, pen: MutPtr, x: Int, y: Int, width: Int, height: Int, startangle: Float, sweepangle: Float): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipDrawArcI(graphics.rawAddress.toString(), pen.rawAddress.toString(), x, y, width, height, startangle.toDouble(), sweepangle.toDouble()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipDrawBezier(graphics: MutPtr<GpGraphics>, pen: MutPtr<GpPen>, x1: Float, y1: Float, x2: Float, y2: Float, x3: Float, y3: Float, x4: Float, y4: Float): Status =
+public actual fun gdipDrawBezier(graphics: MutPtr, pen: MutPtr, x1: Float, y1: Float, x2: Float, y2: Float, x3: Float, y3: Float, x4: Float, y4: Float): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipDrawBezier(graphics.rawAddress.toString(), pen.rawAddress.toString(), x1.toDouble(), y1.toDouble(), x2.toDouble(), y2.toDouble(), x3.toDouble(), y3.toDouble(), x4.toDouble(), y4.toDouble()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipDrawBezierI(graphics: MutPtr<GpGraphics>, pen: MutPtr<GpPen>, x1: Int, y1: Int, x2: Int, y2: Int, x3: Int, y3: Int, x4: Int, y4: Int): Status =
+public actual fun gdipDrawBezierI(graphics: MutPtr, pen: MutPtr, x1: Int, y1: Int, x2: Int, y2: Int, x3: Int, y3: Int, x4: Int, y4: Int): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipDrawBezierI(graphics.rawAddress.toString(), pen.rawAddress.toString(), x1, y1, x2, y2, x3, y3, x4, y4) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipDrawBeziers(graphics: MutPtr<GpGraphics>, pen: MutPtr<GpPen>, points: ConstPtr<PointF>, count: Int): Status =
+public actual fun gdipDrawBeziers(graphics: MutPtr, pen: MutPtr, points: ConstPtr, count: Int): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipDrawBeziers(graphics.rawAddress.toString(), pen.rawAddress.toString(), points.rawAddress.toString(), count) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipDrawBeziersI(graphics: MutPtr<GpGraphics>, pen: MutPtr<GpPen>, points: ConstPtr<Point>, count: Int): Status =
+public actual fun gdipDrawBeziersI(graphics: MutPtr, pen: MutPtr, points: ConstPtr, count: Int): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipDrawBeziersI(graphics.rawAddress.toString(), pen.rawAddress.toString(), points.rawAddress.toString(), count) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipDrawCachedBitmap(graphics: MutPtr<GpGraphics>, cachedbitmap: MutPtr<GpCachedBitmap>, x: Int, y: Int): Status =
+public actual fun gdipDrawCachedBitmap(graphics: MutPtr, cachedbitmap: MutPtr, x: Int, y: Int): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipDrawCachedBitmap(graphics.rawAddress.toString(), cachedbitmap.rawAddress.toString(), x, y) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipDrawClosedCurve(graphics: MutPtr<GpGraphics>, pen: MutPtr<GpPen>, points: ConstPtr<PointF>, count: Int): Status =
+public actual fun gdipDrawClosedCurve(graphics: MutPtr, pen: MutPtr, points: ConstPtr, count: Int): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipDrawClosedCurve(graphics.rawAddress.toString(), pen.rawAddress.toString(), points.rawAddress.toString(), count) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipDrawClosedCurve2(graphics: MutPtr<GpGraphics>, pen: MutPtr<GpPen>, points: ConstPtr<PointF>, count: Int, tension: Float): Status =
+public actual fun gdipDrawClosedCurve2(graphics: MutPtr, pen: MutPtr, points: ConstPtr, count: Int, tension: Float): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipDrawClosedCurve2(graphics.rawAddress.toString(), pen.rawAddress.toString(), points.rawAddress.toString(), count, tension.toDouble()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipDrawClosedCurve2I(graphics: MutPtr<GpGraphics>, pen: MutPtr<GpPen>, points: ConstPtr<Point>, count: Int, tension: Float): Status =
+public actual fun gdipDrawClosedCurve2I(graphics: MutPtr, pen: MutPtr, points: ConstPtr, count: Int, tension: Float): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipDrawClosedCurve2I(graphics.rawAddress.toString(), pen.rawAddress.toString(), points.rawAddress.toString(), count, tension.toDouble()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipDrawClosedCurveI(graphics: MutPtr<GpGraphics>, pen: MutPtr<GpPen>, points: ConstPtr<Point>, count: Int): Status =
+public actual fun gdipDrawClosedCurveI(graphics: MutPtr, pen: MutPtr, points: ConstPtr, count: Int): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipDrawClosedCurveI(graphics.rawAddress.toString(), pen.rawAddress.toString(), points.rawAddress.toString(), count) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipDrawCurve(graphics: MutPtr<GpGraphics>, pen: MutPtr<GpPen>, points: ConstPtr<PointF>, count: Int): Status =
+public actual fun gdipDrawCurve(graphics: MutPtr, pen: MutPtr, points: ConstPtr, count: Int): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipDrawCurve(graphics.rawAddress.toString(), pen.rawAddress.toString(), points.rawAddress.toString(), count) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipDrawCurve2(graphics: MutPtr<GpGraphics>, pen: MutPtr<GpPen>, points: ConstPtr<PointF>, count: Int, tension: Float): Status =
+public actual fun gdipDrawCurve2(graphics: MutPtr, pen: MutPtr, points: ConstPtr, count: Int, tension: Float): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipDrawCurve2(graphics.rawAddress.toString(), pen.rawAddress.toString(), points.rawAddress.toString(), count, tension.toDouble()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipDrawCurve2I(graphics: MutPtr<GpGraphics>, pen: MutPtr<GpPen>, points: ConstPtr<Point>, count: Int, tension: Float): Status =
+public actual fun gdipDrawCurve2I(graphics: MutPtr, pen: MutPtr, points: ConstPtr, count: Int, tension: Float): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipDrawCurve2I(graphics.rawAddress.toString(), pen.rawAddress.toString(), points.rawAddress.toString(), count, tension.toDouble()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipDrawCurve3(graphics: MutPtr<GpGraphics>, pen: MutPtr<GpPen>, points: ConstPtr<PointF>, count: Int, offset: Int, numberofsegments: Int, tension: Float): Status =
+public actual fun gdipDrawCurve3(graphics: MutPtr, pen: MutPtr, points: ConstPtr, count: Int, offset: Int, numberofsegments: Int, tension: Float): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipDrawCurve3(graphics.rawAddress.toString(), pen.rawAddress.toString(), points.rawAddress.toString(), count, offset, numberofsegments, tension.toDouble()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipDrawCurve3I(graphics: MutPtr<GpGraphics>, pen: MutPtr<GpPen>, points: ConstPtr<Point>, count: Int, offset: Int, numberofsegments: Int, tension: Float): Status =
+public actual fun gdipDrawCurve3I(graphics: MutPtr, pen: MutPtr, points: ConstPtr, count: Int, offset: Int, numberofsegments: Int, tension: Float): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipDrawCurve3I(graphics.rawAddress.toString(), pen.rawAddress.toString(), points.rawAddress.toString(), count, offset, numberofsegments, tension.toDouble()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipDrawCurveI(graphics: MutPtr<GpGraphics>, pen: MutPtr<GpPen>, points: ConstPtr<Point>, count: Int): Status =
+public actual fun gdipDrawCurveI(graphics: MutPtr, pen: MutPtr, points: ConstPtr, count: Int): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipDrawCurveI(graphics.rawAddress.toString(), pen.rawAddress.toString(), points.rawAddress.toString(), count) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipDrawDriverString(graphics: MutPtr<GpGraphics>, text: ConstPtr<UShort>, length: Int, font: ConstPtr<GpFont>, brush: ConstPtr<GpBrush>, positions: ConstPtr<PointF>, flags: Int, matrix: ConstPtr<Matrix>): Status =
+public actual fun gdipDrawDriverString(graphics: MutPtr, text: ConstPtr, length: Int, font: ConstPtr, brush: ConstPtr, positions: ConstPtr, flags: Int, matrix: ConstPtr): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipDrawDriverString(graphics.rawAddress.toString(), text.rawAddress.toString(), length, font.rawAddress.toString(), brush.rawAddress.toString(), positions.rawAddress.toString(), flags, matrix.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipDrawEllipse(graphics: MutPtr<GpGraphics>, pen: MutPtr<GpPen>, x: Float, y: Float, width: Float, height: Float): Status =
+public actual fun gdipDrawEllipse(graphics: MutPtr, pen: MutPtr, x: Float, y: Float, width: Float, height: Float): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipDrawEllipse(graphics.rawAddress.toString(), pen.rawAddress.toString(), x.toDouble(), y.toDouble(), width.toDouble(), height.toDouble()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipDrawEllipseI(graphics: MutPtr<GpGraphics>, pen: MutPtr<GpPen>, x: Int, y: Int, width: Int, height: Int): Status =
+public actual fun gdipDrawEllipseI(graphics: MutPtr, pen: MutPtr, x: Int, y: Int, width: Int, height: Int): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipDrawEllipseI(graphics.rawAddress.toString(), pen.rawAddress.toString(), x, y, width, height) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipDrawImage(graphics: MutPtr<GpGraphics>, image: MutPtr<GpImage>, x: Float, y: Float): Status =
+public actual fun gdipDrawImage(graphics: MutPtr, image: MutPtr, x: Float, y: Float): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipDrawImage(graphics.rawAddress.toString(), image.rawAddress.toString(), x.toDouble(), y.toDouble()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipDrawImageFX(graphics: MutPtr<GpGraphics>, image: MutPtr<GpImage>, source: MutPtr<RectF>, xform: MutPtr<Matrix>, effect: MutPtr<CGpEffect>, imageattributes: MutPtr<GpImageAttributes>, srcunit: Unit): Status =
+public actual fun gdipDrawImageFX(graphics: MutPtr, image: MutPtr, source: MutPtr, xform: MutPtr, effect: MutPtr, imageattributes: MutPtr, srcunit: Unit): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipDrawImageFX(graphics.rawAddress.toString(), image.rawAddress.toString(), source.rawAddress.toString(), xform.rawAddress.toString(), effect.rawAddress.toString(), imageattributes.rawAddress.toString(), srcunit) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipDrawImageI(graphics: MutPtr<GpGraphics>, image: MutPtr<GpImage>, x: Int, y: Int): Status =
+public actual fun gdipDrawImageI(graphics: MutPtr, image: MutPtr, x: Int, y: Int): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipDrawImageI(graphics.rawAddress.toString(), image.rawAddress.toString(), x, y) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipDrawImagePointRect(graphics: MutPtr<GpGraphics>, image: MutPtr<GpImage>, x: Float, y: Float, srcx: Float, srcy: Float, srcwidth: Float, srcheight: Float, srcunit: Unit): Status =
+public actual fun gdipDrawImagePointRect(graphics: MutPtr, image: MutPtr, x: Float, y: Float, srcx: Float, srcy: Float, srcwidth: Float, srcheight: Float, srcunit: Unit): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipDrawImagePointRect(graphics.rawAddress.toString(), image.rawAddress.toString(), x.toDouble(), y.toDouble(), srcx.toDouble(), srcy.toDouble(), srcwidth.toDouble(), srcheight.toDouble(), srcunit) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipDrawImagePointRectI(graphics: MutPtr<GpGraphics>, image: MutPtr<GpImage>, x: Int, y: Int, srcx: Int, srcy: Int, srcwidth: Int, srcheight: Int, srcunit: Unit): Status =
+public actual fun gdipDrawImagePointRectI(graphics: MutPtr, image: MutPtr, x: Int, y: Int, srcx: Int, srcy: Int, srcwidth: Int, srcheight: Int, srcunit: Unit): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipDrawImagePointRectI(graphics.rawAddress.toString(), image.rawAddress.toString(), x, y, srcx, srcy, srcwidth, srcheight, srcunit) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipDrawImagePoints(graphics: MutPtr<GpGraphics>, image: MutPtr<GpImage>, dstpoints: ConstPtr<PointF>, count: Int): Status =
+public actual fun gdipDrawImagePoints(graphics: MutPtr, image: MutPtr, dstpoints: ConstPtr, count: Int): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipDrawImagePoints(graphics.rawAddress.toString(), image.rawAddress.toString(), dstpoints.rawAddress.toString(), count) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipDrawImagePointsI(graphics: MutPtr<GpGraphics>, image: MutPtr<GpImage>, dstpoints: ConstPtr<Point>, count: Int): Status =
+public actual fun gdipDrawImagePointsI(graphics: MutPtr, image: MutPtr, dstpoints: ConstPtr, count: Int): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipDrawImagePointsI(graphics.rawAddress.toString(), image.rawAddress.toString(), dstpoints.rawAddress.toString(), count) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipDrawImagePointsRect(graphics: MutPtr<GpGraphics>, image: MutPtr<GpImage>, points: ConstPtr<PointF>, count: Int, srcx: Float, srcy: Float, srcwidth: Float, srcheight: Float, srcunit: Unit, imageattributes: ConstPtr<GpImageAttributes>, callback: Long, callbackdata: MutPtr<CVoid>): Status =
+public actual fun gdipDrawImagePointsRect(graphics: MutPtr, image: MutPtr, points: ConstPtr, count: Int, srcx: Float, srcy: Float, srcwidth: Float, srcheight: Float, srcunit: Unit, imageattributes: ConstPtr, callback: Long, callbackdata: MutPtr): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipDrawImagePointsRect(graphics.rawAddress.toString(), image.rawAddress.toString(), points.rawAddress.toString(), count, srcx.toDouble(), srcy.toDouble(), srcwidth.toDouble(), srcheight.toDouble(), srcunit, imageattributes.rawAddress.toString(), callback.toString(), callbackdata.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipDrawImagePointsRectI(graphics: MutPtr<GpGraphics>, image: MutPtr<GpImage>, points: ConstPtr<Point>, count: Int, srcx: Int, srcy: Int, srcwidth: Int, srcheight: Int, srcunit: Unit, imageattributes: ConstPtr<GpImageAttributes>, callback: Long, callbackdata: MutPtr<CVoid>): Status =
+public actual fun gdipDrawImagePointsRectI(graphics: MutPtr, image: MutPtr, points: ConstPtr, count: Int, srcx: Int, srcy: Int, srcwidth: Int, srcheight: Int, srcunit: Unit, imageattributes: ConstPtr, callback: Long, callbackdata: MutPtr): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipDrawImagePointsRectI(graphics.rawAddress.toString(), image.rawAddress.toString(), points.rawAddress.toString(), count, srcx, srcy, srcwidth, srcheight, srcunit, imageattributes.rawAddress.toString(), callback.toString(), callbackdata.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipDrawImageRect(graphics: MutPtr<GpGraphics>, image: MutPtr<GpImage>, x: Float, y: Float, width: Float, height: Float): Status =
+public actual fun gdipDrawImageRect(graphics: MutPtr, image: MutPtr, x: Float, y: Float, width: Float, height: Float): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipDrawImageRect(graphics.rawAddress.toString(), image.rawAddress.toString(), x.toDouble(), y.toDouble(), width.toDouble(), height.toDouble()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipDrawImageRectI(graphics: MutPtr<GpGraphics>, image: MutPtr<GpImage>, x: Int, y: Int, width: Int, height: Int): Status =
+public actual fun gdipDrawImageRectI(graphics: MutPtr, image: MutPtr, x: Int, y: Int, width: Int, height: Int): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipDrawImageRectI(graphics.rawAddress.toString(), image.rawAddress.toString(), x, y, width, height) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipDrawImageRectRect(graphics: MutPtr<GpGraphics>, image: MutPtr<GpImage>, dstx: Float, dsty: Float, dstwidth: Float, dstheight: Float, srcx: Float, srcy: Float, srcwidth: Float, srcheight: Float, srcunit: Unit, imageattributes: ConstPtr<GpImageAttributes>, callback: Long, callbackdata: MutPtr<CVoid>): Status =
+public actual fun gdipDrawImageRectRect(graphics: MutPtr, image: MutPtr, dstx: Float, dsty: Float, dstwidth: Float, dstheight: Float, srcx: Float, srcy: Float, srcwidth: Float, srcheight: Float, srcunit: Unit, imageattributes: ConstPtr, callback: Long, callbackdata: MutPtr): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipDrawImageRectRect(graphics.rawAddress.toString(), image.rawAddress.toString(), dstx.toDouble(), dsty.toDouble(), dstwidth.toDouble(), dstheight.toDouble(), srcx.toDouble(), srcy.toDouble(), srcwidth.toDouble(), srcheight.toDouble(), srcunit, imageattributes.rawAddress.toString(), callback.toString(), callbackdata.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipDrawImageRectRectI(graphics: MutPtr<GpGraphics>, image: MutPtr<GpImage>, dstx: Int, dsty: Int, dstwidth: Int, dstheight: Int, srcx: Int, srcy: Int, srcwidth: Int, srcheight: Int, srcunit: Unit, imageattributes: ConstPtr<GpImageAttributes>, callback: Long, callbackdata: MutPtr<CVoid>): Status =
+public actual fun gdipDrawImageRectRectI(graphics: MutPtr, image: MutPtr, dstx: Int, dsty: Int, dstwidth: Int, dstheight: Int, srcx: Int, srcy: Int, srcwidth: Int, srcheight: Int, srcunit: Unit, imageattributes: ConstPtr, callback: Long, callbackdata: MutPtr): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipDrawImageRectRectI(graphics.rawAddress.toString(), image.rawAddress.toString(), dstx, dsty, dstwidth, dstheight, srcx, srcy, srcwidth, srcheight, srcunit, imageattributes.rawAddress.toString(), callback.toString(), callbackdata.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipDrawLine(graphics: MutPtr<GpGraphics>, pen: MutPtr<GpPen>, x1: Float, y1: Float, x2: Float, y2: Float): Status =
+public actual fun gdipDrawLine(graphics: MutPtr, pen: MutPtr, x1: Float, y1: Float, x2: Float, y2: Float): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipDrawLine(graphics.rawAddress.toString(), pen.rawAddress.toString(), x1.toDouble(), y1.toDouble(), x2.toDouble(), y2.toDouble()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipDrawLineI(graphics: MutPtr<GpGraphics>, pen: MutPtr<GpPen>, x1: Int, y1: Int, x2: Int, y2: Int): Status =
+public actual fun gdipDrawLineI(graphics: MutPtr, pen: MutPtr, x1: Int, y1: Int, x2: Int, y2: Int): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipDrawLineI(graphics.rawAddress.toString(), pen.rawAddress.toString(), x1, y1, x2, y2) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipDrawLines(graphics: MutPtr<GpGraphics>, pen: MutPtr<GpPen>, points: ConstPtr<PointF>, count: Int): Status =
+public actual fun gdipDrawLines(graphics: MutPtr, pen: MutPtr, points: ConstPtr, count: Int): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipDrawLines(graphics.rawAddress.toString(), pen.rawAddress.toString(), points.rawAddress.toString(), count) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipDrawLinesI(graphics: MutPtr<GpGraphics>, pen: MutPtr<GpPen>, points: ConstPtr<Point>, count: Int): Status =
+public actual fun gdipDrawLinesI(graphics: MutPtr, pen: MutPtr, points: ConstPtr, count: Int): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipDrawLinesI(graphics.rawAddress.toString(), pen.rawAddress.toString(), points.rawAddress.toString(), count) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipDrawPath(graphics: MutPtr<GpGraphics>, pen: MutPtr<GpPen>, path: MutPtr<GpPath>): Status =
+public actual fun gdipDrawPath(graphics: MutPtr, pen: MutPtr, path: MutPtr): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipDrawPath(graphics.rawAddress.toString(), pen.rawAddress.toString(), path.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipDrawPie(graphics: MutPtr<GpGraphics>, pen: MutPtr<GpPen>, x: Float, y: Float, width: Float, height: Float, startangle: Float, sweepangle: Float): Status =
+public actual fun gdipDrawPie(graphics: MutPtr, pen: MutPtr, x: Float, y: Float, width: Float, height: Float, startangle: Float, sweepangle: Float): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipDrawPie(graphics.rawAddress.toString(), pen.rawAddress.toString(), x.toDouble(), y.toDouble(), width.toDouble(), height.toDouble(), startangle.toDouble(), sweepangle.toDouble()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipDrawPieI(graphics: MutPtr<GpGraphics>, pen: MutPtr<GpPen>, x: Int, y: Int, width: Int, height: Int, startangle: Float, sweepangle: Float): Status =
+public actual fun gdipDrawPieI(graphics: MutPtr, pen: MutPtr, x: Int, y: Int, width: Int, height: Int, startangle: Float, sweepangle: Float): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipDrawPieI(graphics.rawAddress.toString(), pen.rawAddress.toString(), x, y, width, height, startangle.toDouble(), sweepangle.toDouble()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipDrawPolygon(graphics: MutPtr<GpGraphics>, pen: MutPtr<GpPen>, points: ConstPtr<PointF>, count: Int): Status =
+public actual fun gdipDrawPolygon(graphics: MutPtr, pen: MutPtr, points: ConstPtr, count: Int): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipDrawPolygon(graphics.rawAddress.toString(), pen.rawAddress.toString(), points.rawAddress.toString(), count) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipDrawPolygonI(graphics: MutPtr<GpGraphics>, pen: MutPtr<GpPen>, points: ConstPtr<Point>, count: Int): Status =
+public actual fun gdipDrawPolygonI(graphics: MutPtr, pen: MutPtr, points: ConstPtr, count: Int): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipDrawPolygonI(graphics.rawAddress.toString(), pen.rawAddress.toString(), points.rawAddress.toString(), count) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipDrawRectangle(graphics: MutPtr<GpGraphics>, pen: MutPtr<GpPen>, x: Float, y: Float, width: Float, height: Float): Status =
+public actual fun gdipDrawRectangle(graphics: MutPtr, pen: MutPtr, x: Float, y: Float, width: Float, height: Float): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipDrawRectangle(graphics.rawAddress.toString(), pen.rawAddress.toString(), x.toDouble(), y.toDouble(), width.toDouble(), height.toDouble()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipDrawRectangleI(graphics: MutPtr<GpGraphics>, pen: MutPtr<GpPen>, x: Int, y: Int, width: Int, height: Int): Status =
+public actual fun gdipDrawRectangleI(graphics: MutPtr, pen: MutPtr, x: Int, y: Int, width: Int, height: Int): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipDrawRectangleI(graphics.rawAddress.toString(), pen.rawAddress.toString(), x, y, width, height) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipDrawRectangles(graphics: MutPtr<GpGraphics>, pen: MutPtr<GpPen>, rects: ConstPtr<RectF>, count: Int): Status =
+public actual fun gdipDrawRectangles(graphics: MutPtr, pen: MutPtr, rects: ConstPtr, count: Int): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipDrawRectangles(graphics.rawAddress.toString(), pen.rawAddress.toString(), rects.rawAddress.toString(), count) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipDrawRectanglesI(graphics: MutPtr<GpGraphics>, pen: MutPtr<GpPen>, rects: ConstPtr<Rect>, count: Int): Status =
+public actual fun gdipDrawRectanglesI(graphics: MutPtr, pen: MutPtr, rects: ConstPtr, count: Int): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipDrawRectanglesI(graphics.rawAddress.toString(), pen.rawAddress.toString(), rects.rawAddress.toString(), count) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipDrawString(graphics: MutPtr<GpGraphics>, string: Pcwstr, length: Int, font: ConstPtr<GpFont>, layoutrect: ConstPtr<RectF>, stringformat: ConstPtr<GpStringFormat>, brush: ConstPtr<GpBrush>): Status =
+public actual fun gdipDrawString(graphics: MutPtr, string: Pcwstr, length: Int, font: ConstPtr, layoutrect: ConstPtr, stringformat: ConstPtr, brush: ConstPtr): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipDrawString(graphics.rawAddress.toString(), string.rawAddress.toString(), length, font.rawAddress.toString(), layoutrect.rawAddress.toString(), stringformat.rawAddress.toString(), brush.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipEmfToWmfBits(hemf: Henhmetafile, cbdata16: UInt, pdata16: MutPtr<UByte>, imapmode: Int, eflags: Int): UInt =
+public actual fun gdipEmfToWmfBits(hemf: Henhmetafile, cbdata16: UInt, pdata16: MutPtr, imapmode: Int, eflags: Int): UInt =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipEmfToWmfBits(hemf.rawAddress.toString(), cbdata16.toInt(), pdata16.rawAddress.toString(), imapmode, eflags).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipEndContainer(graphics: MutPtr<GpGraphics>, state: UInt): Status =
+public actual fun gdipEndContainer(graphics: MutPtr, state: UInt): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipEndContainer(graphics.rawAddress.toString(), state.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipEnumerateMetafileDestPoint(graphics: MutPtr<GpGraphics>, metafile: ConstPtr<GpMetafile>, destpoint: ConstPtr<PointF>, callback: Long, callbackdata: MutPtr<CVoid>, imageattributes: ConstPtr<GpImageAttributes>): Status =
+public actual fun gdipEnumerateMetafileDestPoint(graphics: MutPtr, metafile: ConstPtr, destpoint: ConstPtr, callback: Long, callbackdata: MutPtr, imageattributes: ConstPtr): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipEnumerateMetafileDestPoint(graphics.rawAddress.toString(), metafile.rawAddress.toString(), destpoint.rawAddress.toString(), callback.toString(), callbackdata.rawAddress.toString(), imageattributes.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipEnumerateMetafileDestPointI(graphics: MutPtr<GpGraphics>, metafile: ConstPtr<GpMetafile>, destpoint: ConstPtr<Point>, callback: Long, callbackdata: MutPtr<CVoid>, imageattributes: ConstPtr<GpImageAttributes>): Status =
+public actual fun gdipEnumerateMetafileDestPointI(graphics: MutPtr, metafile: ConstPtr, destpoint: ConstPtr, callback: Long, callbackdata: MutPtr, imageattributes: ConstPtr): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipEnumerateMetafileDestPointI(graphics.rawAddress.toString(), metafile.rawAddress.toString(), destpoint.rawAddress.toString(), callback.toString(), callbackdata.rawAddress.toString(), imageattributes.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipEnumerateMetafileDestPoints(graphics: MutPtr<GpGraphics>, metafile: ConstPtr<GpMetafile>, destpoints: ConstPtr<PointF>, count: Int, callback: Long, callbackdata: MutPtr<CVoid>, imageattributes: ConstPtr<GpImageAttributes>): Status =
+public actual fun gdipEnumerateMetafileDestPoints(graphics: MutPtr, metafile: ConstPtr, destpoints: ConstPtr, count: Int, callback: Long, callbackdata: MutPtr, imageattributes: ConstPtr): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipEnumerateMetafileDestPoints(graphics.rawAddress.toString(), metafile.rawAddress.toString(), destpoints.rawAddress.toString(), count, callback.toString(), callbackdata.rawAddress.toString(), imageattributes.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipEnumerateMetafileDestPointsI(graphics: MutPtr<GpGraphics>, metafile: ConstPtr<GpMetafile>, destpoints: ConstPtr<Point>, count: Int, callback: Long, callbackdata: MutPtr<CVoid>, imageattributes: ConstPtr<GpImageAttributes>): Status =
+public actual fun gdipEnumerateMetafileDestPointsI(graphics: MutPtr, metafile: ConstPtr, destpoints: ConstPtr, count: Int, callback: Long, callbackdata: MutPtr, imageattributes: ConstPtr): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipEnumerateMetafileDestPointsI(graphics.rawAddress.toString(), metafile.rawAddress.toString(), destpoints.rawAddress.toString(), count, callback.toString(), callbackdata.rawAddress.toString(), imageattributes.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipEnumerateMetafileDestRect(graphics: MutPtr<GpGraphics>, metafile: ConstPtr<GpMetafile>, destrect: ConstPtr<RectF>, callback: Long, callbackdata: MutPtr<CVoid>, imageattributes: ConstPtr<GpImageAttributes>): Status =
+public actual fun gdipEnumerateMetafileDestRect(graphics: MutPtr, metafile: ConstPtr, destrect: ConstPtr, callback: Long, callbackdata: MutPtr, imageattributes: ConstPtr): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipEnumerateMetafileDestRect(graphics.rawAddress.toString(), metafile.rawAddress.toString(), destrect.rawAddress.toString(), callback.toString(), callbackdata.rawAddress.toString(), imageattributes.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipEnumerateMetafileDestRectI(graphics: MutPtr<GpGraphics>, metafile: ConstPtr<GpMetafile>, destrect: ConstPtr<Rect>, callback: Long, callbackdata: MutPtr<CVoid>, imageattributes: ConstPtr<GpImageAttributes>): Status =
+public actual fun gdipEnumerateMetafileDestRectI(graphics: MutPtr, metafile: ConstPtr, destrect: ConstPtr, callback: Long, callbackdata: MutPtr, imageattributes: ConstPtr): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipEnumerateMetafileDestRectI(graphics.rawAddress.toString(), metafile.rawAddress.toString(), destrect.rawAddress.toString(), callback.toString(), callbackdata.rawAddress.toString(), imageattributes.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipEnumerateMetafileSrcRectDestPoint(graphics: MutPtr<GpGraphics>, metafile: ConstPtr<GpMetafile>, destpoint: ConstPtr<PointF>, srcrect: ConstPtr<RectF>, srcunit: Unit, callback: Long, callbackdata: MutPtr<CVoid>, imageattributes: ConstPtr<GpImageAttributes>): Status =
+public actual fun gdipEnumerateMetafileSrcRectDestPoint(graphics: MutPtr, metafile: ConstPtr, destpoint: ConstPtr, srcrect: ConstPtr, srcunit: Unit, callback: Long, callbackdata: MutPtr, imageattributes: ConstPtr): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipEnumerateMetafileSrcRectDestPoint(graphics.rawAddress.toString(), metafile.rawAddress.toString(), destpoint.rawAddress.toString(), srcrect.rawAddress.toString(), srcunit, callback.toString(), callbackdata.rawAddress.toString(), imageattributes.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipEnumerateMetafileSrcRectDestPointI(graphics: MutPtr<GpGraphics>, metafile: ConstPtr<GpMetafile>, destpoint: ConstPtr<Point>, srcrect: ConstPtr<Rect>, srcunit: Unit, callback: Long, callbackdata: MutPtr<CVoid>, imageattributes: ConstPtr<GpImageAttributes>): Status =
+public actual fun gdipEnumerateMetafileSrcRectDestPointI(graphics: MutPtr, metafile: ConstPtr, destpoint: ConstPtr, srcrect: ConstPtr, srcunit: Unit, callback: Long, callbackdata: MutPtr, imageattributes: ConstPtr): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipEnumerateMetafileSrcRectDestPointI(graphics.rawAddress.toString(), metafile.rawAddress.toString(), destpoint.rawAddress.toString(), srcrect.rawAddress.toString(), srcunit, callback.toString(), callbackdata.rawAddress.toString(), imageattributes.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipEnumerateMetafileSrcRectDestPoints(graphics: MutPtr<GpGraphics>, metafile: ConstPtr<GpMetafile>, destpoints: ConstPtr<PointF>, count: Int, srcrect: ConstPtr<RectF>, srcunit: Unit, callback: Long, callbackdata: MutPtr<CVoid>, imageattributes: ConstPtr<GpImageAttributes>): Status =
+public actual fun gdipEnumerateMetafileSrcRectDestPoints(graphics: MutPtr, metafile: ConstPtr, destpoints: ConstPtr, count: Int, srcrect: ConstPtr, srcunit: Unit, callback: Long, callbackdata: MutPtr, imageattributes: ConstPtr): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipEnumerateMetafileSrcRectDestPoints(graphics.rawAddress.toString(), metafile.rawAddress.toString(), destpoints.rawAddress.toString(), count, srcrect.rawAddress.toString(), srcunit, callback.toString(), callbackdata.rawAddress.toString(), imageattributes.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipEnumerateMetafileSrcRectDestPointsI(graphics: MutPtr<GpGraphics>, metafile: ConstPtr<GpMetafile>, destpoints: ConstPtr<Point>, count: Int, srcrect: ConstPtr<Rect>, srcunit: Unit, callback: Long, callbackdata: MutPtr<CVoid>, imageattributes: ConstPtr<GpImageAttributes>): Status =
+public actual fun gdipEnumerateMetafileSrcRectDestPointsI(graphics: MutPtr, metafile: ConstPtr, destpoints: ConstPtr, count: Int, srcrect: ConstPtr, srcunit: Unit, callback: Long, callbackdata: MutPtr, imageattributes: ConstPtr): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipEnumerateMetafileSrcRectDestPointsI(graphics.rawAddress.toString(), metafile.rawAddress.toString(), destpoints.rawAddress.toString(), count, srcrect.rawAddress.toString(), srcunit, callback.toString(), callbackdata.rawAddress.toString(), imageattributes.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipEnumerateMetafileSrcRectDestRect(graphics: MutPtr<GpGraphics>, metafile: ConstPtr<GpMetafile>, destrect: ConstPtr<RectF>, srcrect: ConstPtr<RectF>, srcunit: Unit, callback: Long, callbackdata: MutPtr<CVoid>, imageattributes: ConstPtr<GpImageAttributes>): Status =
+public actual fun gdipEnumerateMetafileSrcRectDestRect(graphics: MutPtr, metafile: ConstPtr, destrect: ConstPtr, srcrect: ConstPtr, srcunit: Unit, callback: Long, callbackdata: MutPtr, imageattributes: ConstPtr): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipEnumerateMetafileSrcRectDestRect(graphics.rawAddress.toString(), metafile.rawAddress.toString(), destrect.rawAddress.toString(), srcrect.rawAddress.toString(), srcunit, callback.toString(), callbackdata.rawAddress.toString(), imageattributes.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipEnumerateMetafileSrcRectDestRectI(graphics: MutPtr<GpGraphics>, metafile: ConstPtr<GpMetafile>, destrect: ConstPtr<Rect>, srcrect: ConstPtr<Rect>, srcunit: Unit, callback: Long, callbackdata: MutPtr<CVoid>, imageattributes: ConstPtr<GpImageAttributes>): Status =
+public actual fun gdipEnumerateMetafileSrcRectDestRectI(graphics: MutPtr, metafile: ConstPtr, destrect: ConstPtr, srcrect: ConstPtr, srcunit: Unit, callback: Long, callbackdata: MutPtr, imageattributes: ConstPtr): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipEnumerateMetafileSrcRectDestRectI(graphics.rawAddress.toString(), metafile.rawAddress.toString(), destrect.rawAddress.toString(), srcrect.rawAddress.toString(), srcunit, callback.toString(), callbackdata.rawAddress.toString(), imageattributes.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipFillClosedCurve(graphics: MutPtr<GpGraphics>, brush: MutPtr<GpBrush>, points: ConstPtr<PointF>, count: Int): Status =
+public actual fun gdipFillClosedCurve(graphics: MutPtr, brush: MutPtr, points: ConstPtr, count: Int): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipFillClosedCurve(graphics.rawAddress.toString(), brush.rawAddress.toString(), points.rawAddress.toString(), count) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipFillClosedCurve2(graphics: MutPtr<GpGraphics>, brush: MutPtr<GpBrush>, points: ConstPtr<PointF>, count: Int, tension: Float, fillmode: FillMode): Status =
+public actual fun gdipFillClosedCurve2(graphics: MutPtr, brush: MutPtr, points: ConstPtr, count: Int, tension: Float, fillmode: FillMode): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipFillClosedCurve2(graphics.rawAddress.toString(), brush.rawAddress.toString(), points.rawAddress.toString(), count, tension.toDouble(), fillmode) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipFillClosedCurve2I(graphics: MutPtr<GpGraphics>, brush: MutPtr<GpBrush>, points: ConstPtr<Point>, count: Int, tension: Float, fillmode: FillMode): Status =
+public actual fun gdipFillClosedCurve2I(graphics: MutPtr, brush: MutPtr, points: ConstPtr, count: Int, tension: Float, fillmode: FillMode): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipFillClosedCurve2I(graphics.rawAddress.toString(), brush.rawAddress.toString(), points.rawAddress.toString(), count, tension.toDouble(), fillmode) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipFillClosedCurveI(graphics: MutPtr<GpGraphics>, brush: MutPtr<GpBrush>, points: ConstPtr<Point>, count: Int): Status =
+public actual fun gdipFillClosedCurveI(graphics: MutPtr, brush: MutPtr, points: ConstPtr, count: Int): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipFillClosedCurveI(graphics.rawAddress.toString(), brush.rawAddress.toString(), points.rawAddress.toString(), count) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipFillEllipse(graphics: MutPtr<GpGraphics>, brush: MutPtr<GpBrush>, x: Float, y: Float, width: Float, height: Float): Status =
+public actual fun gdipFillEllipse(graphics: MutPtr, brush: MutPtr, x: Float, y: Float, width: Float, height: Float): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipFillEllipse(graphics.rawAddress.toString(), brush.rawAddress.toString(), x.toDouble(), y.toDouble(), width.toDouble(), height.toDouble()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipFillEllipseI(graphics: MutPtr<GpGraphics>, brush: MutPtr<GpBrush>, x: Int, y: Int, width: Int, height: Int): Status =
+public actual fun gdipFillEllipseI(graphics: MutPtr, brush: MutPtr, x: Int, y: Int, width: Int, height: Int): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipFillEllipseI(graphics.rawAddress.toString(), brush.rawAddress.toString(), x, y, width, height) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipFillPath(graphics: MutPtr<GpGraphics>, brush: MutPtr<GpBrush>, path: MutPtr<GpPath>): Status =
+public actual fun gdipFillPath(graphics: MutPtr, brush: MutPtr, path: MutPtr): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipFillPath(graphics.rawAddress.toString(), brush.rawAddress.toString(), path.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipFillPie(graphics: MutPtr<GpGraphics>, brush: MutPtr<GpBrush>, x: Float, y: Float, width: Float, height: Float, startangle: Float, sweepangle: Float): Status =
+public actual fun gdipFillPie(graphics: MutPtr, brush: MutPtr, x: Float, y: Float, width: Float, height: Float, startangle: Float, sweepangle: Float): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipFillPie(graphics.rawAddress.toString(), brush.rawAddress.toString(), x.toDouble(), y.toDouble(), width.toDouble(), height.toDouble(), startangle.toDouble(), sweepangle.toDouble()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipFillPieI(graphics: MutPtr<GpGraphics>, brush: MutPtr<GpBrush>, x: Int, y: Int, width: Int, height: Int, startangle: Float, sweepangle: Float): Status =
+public actual fun gdipFillPieI(graphics: MutPtr, brush: MutPtr, x: Int, y: Int, width: Int, height: Int, startangle: Float, sweepangle: Float): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipFillPieI(graphics.rawAddress.toString(), brush.rawAddress.toString(), x, y, width, height, startangle.toDouble(), sweepangle.toDouble()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipFillPolygon(graphics: MutPtr<GpGraphics>, brush: MutPtr<GpBrush>, points: ConstPtr<PointF>, count: Int, fillmode: FillMode): Status =
+public actual fun gdipFillPolygon(graphics: MutPtr, brush: MutPtr, points: ConstPtr, count: Int, fillmode: FillMode): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipFillPolygon(graphics.rawAddress.toString(), brush.rawAddress.toString(), points.rawAddress.toString(), count, fillmode) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipFillPolygon2(graphics: MutPtr<GpGraphics>, brush: MutPtr<GpBrush>, points: ConstPtr<PointF>, count: Int): Status =
+public actual fun gdipFillPolygon2(graphics: MutPtr, brush: MutPtr, points: ConstPtr, count: Int): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipFillPolygon2(graphics.rawAddress.toString(), brush.rawAddress.toString(), points.rawAddress.toString(), count) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipFillPolygon2I(graphics: MutPtr<GpGraphics>, brush: MutPtr<GpBrush>, points: ConstPtr<Point>, count: Int): Status =
+public actual fun gdipFillPolygon2I(graphics: MutPtr, brush: MutPtr, points: ConstPtr, count: Int): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipFillPolygon2I(graphics.rawAddress.toString(), brush.rawAddress.toString(), points.rawAddress.toString(), count) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipFillPolygonI(graphics: MutPtr<GpGraphics>, brush: MutPtr<GpBrush>, points: ConstPtr<Point>, count: Int, fillmode: FillMode): Status =
+public actual fun gdipFillPolygonI(graphics: MutPtr, brush: MutPtr, points: ConstPtr, count: Int, fillmode: FillMode): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipFillPolygonI(graphics.rawAddress.toString(), brush.rawAddress.toString(), points.rawAddress.toString(), count, fillmode) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipFillRectangle(graphics: MutPtr<GpGraphics>, brush: MutPtr<GpBrush>, x: Float, y: Float, width: Float, height: Float): Status =
+public actual fun gdipFillRectangle(graphics: MutPtr, brush: MutPtr, x: Float, y: Float, width: Float, height: Float): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipFillRectangle(graphics.rawAddress.toString(), brush.rawAddress.toString(), x.toDouble(), y.toDouble(), width.toDouble(), height.toDouble()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipFillRectangleI(graphics: MutPtr<GpGraphics>, brush: MutPtr<GpBrush>, x: Int, y: Int, width: Int, height: Int): Status =
+public actual fun gdipFillRectangleI(graphics: MutPtr, brush: MutPtr, x: Int, y: Int, width: Int, height: Int): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipFillRectangleI(graphics.rawAddress.toString(), brush.rawAddress.toString(), x, y, width, height) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipFillRectangles(graphics: MutPtr<GpGraphics>, brush: MutPtr<GpBrush>, rects: ConstPtr<RectF>, count: Int): Status =
+public actual fun gdipFillRectangles(graphics: MutPtr, brush: MutPtr, rects: ConstPtr, count: Int): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipFillRectangles(graphics.rawAddress.toString(), brush.rawAddress.toString(), rects.rawAddress.toString(), count) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipFillRectanglesI(graphics: MutPtr<GpGraphics>, brush: MutPtr<GpBrush>, rects: ConstPtr<Rect>, count: Int): Status =
+public actual fun gdipFillRectanglesI(graphics: MutPtr, brush: MutPtr, rects: ConstPtr, count: Int): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipFillRectanglesI(graphics.rawAddress.toString(), brush.rawAddress.toString(), rects.rawAddress.toString(), count) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipFillRegion(graphics: MutPtr<GpGraphics>, brush: MutPtr<GpBrush>, region: MutPtr<GpRegion>): Status =
+public actual fun gdipFillRegion(graphics: MutPtr, brush: MutPtr, region: MutPtr): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipFillRegion(graphics.rawAddress.toString(), brush.rawAddress.toString(), region.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipFindFirstImageItem(image: MutPtr<GpImage>, item: MutPtr<ImageItemData>): Status =
+public actual fun gdipFindFirstImageItem(image: MutPtr, item: MutPtr): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipFindFirstImageItem(image.rawAddress.toString(), item.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipFindNextImageItem(image: MutPtr<GpImage>, item: MutPtr<ImageItemData>): Status =
+public actual fun gdipFindNextImageItem(image: MutPtr, item: MutPtr): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipFindNextImageItem(image.rawAddress.toString(), item.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipFlattenPath(path: MutPtr<GpPath>, matrix: MutPtr<Matrix>, flatness: Float): Status =
+public actual fun gdipFlattenPath(path: MutPtr, matrix: MutPtr, flatness: Float): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipFlattenPath(path.rawAddress.toString(), matrix.rawAddress.toString(), flatness.toDouble()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipFlush(graphics: MutPtr<GpGraphics>, intention: FlushIntention): Status =
+public actual fun gdipFlush(graphics: MutPtr, intention: FlushIntention): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipFlush(graphics.rawAddress.toString(), intention) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipFree(ptr: MutPtr<CVoid>) {
+public actual fun gdipFree(ptr: MutPtr) {
     if (windowsWin32GraphicsGdiplusNapiAvailable) {
         wasmWindowssysWindowsWin32GraphicsGdiplusGdipFree(ptr.rawAddress.toString())
     } else {
@@ -2625,1168 +2621,1168 @@ public actual fun gdipFree(ptr: MutPtr<CVoid>) {
     }
 }
 
-public actual fun gdipGetAdjustableArrowCapFillState(cap: MutPtr<GpAdjustableArrowCap>, fillstate: MutPtr<Bool>): Status =
+public actual fun gdipGetAdjustableArrowCapFillState(cap: MutPtr, fillstate: MutPtr): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipGetAdjustableArrowCapFillState(cap.rawAddress.toString(), fillstate.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipGetAdjustableArrowCapHeight(cap: MutPtr<GpAdjustableArrowCap>, height: MutPtr<Float>): Status =
+public actual fun gdipGetAdjustableArrowCapHeight(cap: MutPtr, height: MutPtr): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipGetAdjustableArrowCapHeight(cap.rawAddress.toString(), height.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipGetAdjustableArrowCapMiddleInset(cap: MutPtr<GpAdjustableArrowCap>, middleinset: MutPtr<Float>): Status =
+public actual fun gdipGetAdjustableArrowCapMiddleInset(cap: MutPtr, middleinset: MutPtr): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipGetAdjustableArrowCapMiddleInset(cap.rawAddress.toString(), middleinset.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipGetAdjustableArrowCapWidth(cap: MutPtr<GpAdjustableArrowCap>, width: MutPtr<Float>): Status =
+public actual fun gdipGetAdjustableArrowCapWidth(cap: MutPtr, width: MutPtr): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipGetAdjustableArrowCapWidth(cap.rawAddress.toString(), width.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipGetAllPropertyItems(image: MutPtr<GpImage>, totalbuffersize: UInt, numproperties: UInt, allitems: MutPtr<PropertyItem>): Status =
+public actual fun gdipGetAllPropertyItems(image: MutPtr, totalbuffersize: UInt, numproperties: UInt, allitems: MutPtr): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipGetAllPropertyItems(image.rawAddress.toString(), totalbuffersize.toInt(), numproperties.toInt(), allitems.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipGetBrushType(brush: MutPtr<GpBrush>, type: MutPtr<BrushType>): Status =
+public actual fun gdipGetBrushType(brush: MutPtr, type: MutPtr): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipGetBrushType(brush.rawAddress.toString(), type.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipGetCellAscent(family: ConstPtr<GpFontFamily>, style: Int, cellascent: MutPtr<UShort>): Status =
+public actual fun gdipGetCellAscent(family: ConstPtr, style: Int, cellascent: MutPtr): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipGetCellAscent(family.rawAddress.toString(), style, cellascent.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipGetCellDescent(family: ConstPtr<GpFontFamily>, style: Int, celldescent: MutPtr<UShort>): Status =
+public actual fun gdipGetCellDescent(family: ConstPtr, style: Int, celldescent: MutPtr): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipGetCellDescent(family.rawAddress.toString(), style, celldescent.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipGetClip(graphics: MutPtr<GpGraphics>, region: MutPtr<GpRegion>): Status =
+public actual fun gdipGetClip(graphics: MutPtr, region: MutPtr): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipGetClip(graphics.rawAddress.toString(), region.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipGetClipBounds(graphics: MutPtr<GpGraphics>, rect: MutPtr<RectF>): Status =
+public actual fun gdipGetClipBounds(graphics: MutPtr, rect: MutPtr): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipGetClipBounds(graphics.rawAddress.toString(), rect.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipGetClipBoundsI(graphics: MutPtr<GpGraphics>, rect: MutPtr<Rect>): Status =
+public actual fun gdipGetClipBoundsI(graphics: MutPtr, rect: MutPtr): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipGetClipBoundsI(graphics.rawAddress.toString(), rect.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipGetCompositingMode(graphics: MutPtr<GpGraphics>, compositingmode: MutPtr<CompositingMode>): Status =
+public actual fun gdipGetCompositingMode(graphics: MutPtr, compositingmode: MutPtr): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipGetCompositingMode(graphics.rawAddress.toString(), compositingmode.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipGetCompositingQuality(graphics: MutPtr<GpGraphics>, compositingquality: MutPtr<CompositingQuality>): Status =
+public actual fun gdipGetCompositingQuality(graphics: MutPtr, compositingquality: MutPtr): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipGetCompositingQuality(graphics.rawAddress.toString(), compositingquality.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipGetCustomLineCapBaseCap(customcap: MutPtr<GpCustomLineCap>, basecap: MutPtr<LineCap>): Status =
+public actual fun gdipGetCustomLineCapBaseCap(customcap: MutPtr, basecap: MutPtr): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipGetCustomLineCapBaseCap(customcap.rawAddress.toString(), basecap.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipGetCustomLineCapBaseInset(customcap: MutPtr<GpCustomLineCap>, inset: MutPtr<Float>): Status =
+public actual fun gdipGetCustomLineCapBaseInset(customcap: MutPtr, inset: MutPtr): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipGetCustomLineCapBaseInset(customcap.rawAddress.toString(), inset.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipGetCustomLineCapStrokeCaps(customcap: MutPtr<GpCustomLineCap>, startcap: MutPtr<LineCap>, endcap: MutPtr<LineCap>): Status =
+public actual fun gdipGetCustomLineCapStrokeCaps(customcap: MutPtr, startcap: MutPtr, endcap: MutPtr): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipGetCustomLineCapStrokeCaps(customcap.rawAddress.toString(), startcap.rawAddress.toString(), endcap.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipGetCustomLineCapStrokeJoin(customcap: MutPtr<GpCustomLineCap>, linejoin: MutPtr<LineJoin>): Status =
+public actual fun gdipGetCustomLineCapStrokeJoin(customcap: MutPtr, linejoin: MutPtr): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipGetCustomLineCapStrokeJoin(customcap.rawAddress.toString(), linejoin.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipGetCustomLineCapType(customcap: MutPtr<GpCustomLineCap>, captype: MutPtr<CustomLineCapType>): Status =
+public actual fun gdipGetCustomLineCapType(customcap: MutPtr, captype: MutPtr): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipGetCustomLineCapType(customcap.rawAddress.toString(), captype.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipGetCustomLineCapWidthScale(customcap: MutPtr<GpCustomLineCap>, widthscale: MutPtr<Float>): Status =
+public actual fun gdipGetCustomLineCapWidthScale(customcap: MutPtr, widthscale: MutPtr): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipGetCustomLineCapWidthScale(customcap.rawAddress.toString(), widthscale.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipGetDC(graphics: MutPtr<GpGraphics>, hdc: MutPtr<Hdc>): Status =
+public actual fun gdipGetDC(graphics: MutPtr, hdc: MutPtr): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipGetDC(graphics.rawAddress.toString(), hdc.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipGetDpiX(graphics: MutPtr<GpGraphics>, dpi: MutPtr<Float>): Status =
+public actual fun gdipGetDpiX(graphics: MutPtr, dpi: MutPtr): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipGetDpiX(graphics.rawAddress.toString(), dpi.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipGetDpiY(graphics: MutPtr<GpGraphics>, dpi: MutPtr<Float>): Status =
+public actual fun gdipGetDpiY(graphics: MutPtr, dpi: MutPtr): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipGetDpiY(graphics.rawAddress.toString(), dpi.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipGetEffectParameterSize(effect: MutPtr<CGpEffect>, size: MutPtr<UInt>): Status =
+public actual fun gdipGetEffectParameterSize(effect: MutPtr, size: MutPtr): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipGetEffectParameterSize(effect.rawAddress.toString(), size.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipGetEffectParameters(effect: MutPtr<CGpEffect>, size: MutPtr<UInt>, params: MutPtr<CVoid>): Status =
+public actual fun gdipGetEffectParameters(effect: MutPtr, size: MutPtr, params: MutPtr): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipGetEffectParameters(effect.rawAddress.toString(), size.rawAddress.toString(), params.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipGetEmHeight(family: ConstPtr<GpFontFamily>, style: Int, emheight: MutPtr<UShort>): Status =
+public actual fun gdipGetEmHeight(family: ConstPtr, style: Int, emheight: MutPtr): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipGetEmHeight(family.rawAddress.toString(), style, emheight.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipGetEncoderParameterList(image: MutPtr<GpImage>, clsidencoder: ConstPtr<Guid>, size: UInt, buffer: MutPtr<EncoderParameters>): Status =
+public actual fun gdipGetEncoderParameterList(image: MutPtr, clsidencoder: ConstPtr, size: UInt, buffer: MutPtr): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipGetEncoderParameterList(image.rawAddress.toString(), clsidencoder.rawAddress.toString(), size.toInt(), buffer.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipGetEncoderParameterListSize(image: MutPtr<GpImage>, clsidencoder: ConstPtr<Guid>, size: MutPtr<UInt>): Status =
+public actual fun gdipGetEncoderParameterListSize(image: MutPtr, clsidencoder: ConstPtr, size: MutPtr): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipGetEncoderParameterListSize(image.rawAddress.toString(), clsidencoder.rawAddress.toString(), size.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipGetFamily(font: MutPtr<GpFont>, family: MutPtr<MutPtr<GpFontFamily>>): Status =
+public actual fun gdipGetFamily(font: MutPtr, family: MutPtr): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipGetFamily(font.rawAddress.toString(), family.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipGetFamilyName(family: ConstPtr<GpFontFamily>, name: Pwstr, language: UShort): Status =
+public actual fun gdipGetFamilyName(family: ConstPtr, name: Pwstr, language: UShort): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipGetFamilyName(family.rawAddress.toString(), name.rawAddress.toString(), language.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipGetFontCollectionFamilyCount(fontcollection: MutPtr<GpFontCollection>, numfound: MutPtr<Int>): Status =
+public actual fun gdipGetFontCollectionFamilyCount(fontcollection: MutPtr, numfound: MutPtr): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipGetFontCollectionFamilyCount(fontcollection.rawAddress.toString(), numfound.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipGetFontCollectionFamilyList(fontcollection: ConstPtr<GpFontCollection>, numsought: Int, gpfamilies: MutPtr<MutPtr<GpFontFamily>>, numfound: MutPtr<Int>): Status =
+public actual fun gdipGetFontCollectionFamilyList(fontcollection: ConstPtr, numsought: Int, gpfamilies: MutPtr, numfound: MutPtr): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipGetFontCollectionFamilyList(fontcollection.rawAddress.toString(), numsought, gpfamilies.rawAddress.toString(), numfound.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipGetFontHeight(font: ConstPtr<GpFont>, graphics: ConstPtr<GpGraphics>, height: MutPtr<Float>): Status =
+public actual fun gdipGetFontHeight(font: ConstPtr, graphics: ConstPtr, height: MutPtr): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipGetFontHeight(font.rawAddress.toString(), graphics.rawAddress.toString(), height.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipGetFontHeightGivenDPI(font: ConstPtr<GpFont>, dpi: Float, height: MutPtr<Float>): Status =
+public actual fun gdipGetFontHeightGivenDPI(font: ConstPtr, dpi: Float, height: MutPtr): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipGetFontHeightGivenDPI(font.rawAddress.toString(), dpi.toDouble(), height.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipGetFontSize(font: MutPtr<GpFont>, size: MutPtr<Float>): Status =
+public actual fun gdipGetFontSize(font: MutPtr, size: MutPtr): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipGetFontSize(font.rawAddress.toString(), size.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipGetFontStyle(font: MutPtr<GpFont>, style: MutPtr<Int>): Status =
+public actual fun gdipGetFontStyle(font: MutPtr, style: MutPtr): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipGetFontStyle(font.rawAddress.toString(), style.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipGetFontUnit(font: MutPtr<GpFont>, unit: MutPtr<Unit>): Status =
+public actual fun gdipGetFontUnit(font: MutPtr, unit: MutPtr): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipGetFontUnit(font.rawAddress.toString(), unit.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipGetGenericFontFamilyMonospace(nativefamily: MutPtr<MutPtr<GpFontFamily>>): Status =
+public actual fun gdipGetGenericFontFamilyMonospace(nativefamily: MutPtr): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipGetGenericFontFamilyMonospace(nativefamily.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipGetGenericFontFamilySansSerif(nativefamily: MutPtr<MutPtr<GpFontFamily>>): Status =
+public actual fun gdipGetGenericFontFamilySansSerif(nativefamily: MutPtr): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipGetGenericFontFamilySansSerif(nativefamily.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipGetGenericFontFamilySerif(nativefamily: MutPtr<MutPtr<GpFontFamily>>): Status =
+public actual fun gdipGetGenericFontFamilySerif(nativefamily: MutPtr): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipGetGenericFontFamilySerif(nativefamily.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipGetHatchBackgroundColor(brush: MutPtr<GpHatch>, backcol: MutPtr<UInt>): Status =
+public actual fun gdipGetHatchBackgroundColor(brush: MutPtr, backcol: MutPtr): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipGetHatchBackgroundColor(brush.rawAddress.toString(), backcol.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipGetHatchForegroundColor(brush: MutPtr<GpHatch>, forecol: MutPtr<UInt>): Status =
+public actual fun gdipGetHatchForegroundColor(brush: MutPtr, forecol: MutPtr): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipGetHatchForegroundColor(brush.rawAddress.toString(), forecol.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipGetHatchStyle(brush: MutPtr<GpHatch>, hatchstyle: MutPtr<HatchStyle>): Status =
+public actual fun gdipGetHatchStyle(brush: MutPtr, hatchstyle: MutPtr): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipGetHatchStyle(brush.rawAddress.toString(), hatchstyle.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipGetHemfFromMetafile(metafile: MutPtr<GpMetafile>, hemf: MutPtr<Henhmetafile>): Status =
+public actual fun gdipGetHemfFromMetafile(metafile: MutPtr, hemf: MutPtr): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipGetHemfFromMetafile(metafile.rawAddress.toString(), hemf.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipGetImageAttributesAdjustedPalette(imageattr: MutPtr<GpImageAttributes>, colorpalette: MutPtr<ColorPalette>, coloradjusttype: ColorAdjustType): Status =
+public actual fun gdipGetImageAttributesAdjustedPalette(imageattr: MutPtr, colorpalette: MutPtr, coloradjusttype: ColorAdjustType): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipGetImageAttributesAdjustedPalette(imageattr.rawAddress.toString(), colorpalette.rawAddress.toString(), coloradjusttype) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipGetImageBounds(image: MutPtr<GpImage>, srcrect: MutPtr<RectF>, srcunit: MutPtr<Unit>): Status =
+public actual fun gdipGetImageBounds(image: MutPtr, srcrect: MutPtr, srcunit: MutPtr): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipGetImageBounds(image.rawAddress.toString(), srcrect.rawAddress.toString(), srcunit.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipGetImageDecoders(numdecoders: UInt, size: UInt, decoders: MutPtr<ImageCodecInfo>): Status =
+public actual fun gdipGetImageDecoders(numdecoders: UInt, size: UInt, decoders: MutPtr): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipGetImageDecoders(numdecoders.toInt(), size.toInt(), decoders.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipGetImageDecodersSize(numdecoders: MutPtr<UInt>, size: MutPtr<UInt>): Status =
+public actual fun gdipGetImageDecodersSize(numdecoders: MutPtr, size: MutPtr): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipGetImageDecodersSize(numdecoders.rawAddress.toString(), size.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipGetImageDimension(image: MutPtr<GpImage>, width: MutPtr<Float>, height: MutPtr<Float>): Status =
+public actual fun gdipGetImageDimension(image: MutPtr, width: MutPtr, height: MutPtr): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipGetImageDimension(image.rawAddress.toString(), width.rawAddress.toString(), height.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipGetImageEncoders(numencoders: UInt, size: UInt, encoders: MutPtr<ImageCodecInfo>): Status =
+public actual fun gdipGetImageEncoders(numencoders: UInt, size: UInt, encoders: MutPtr): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipGetImageEncoders(numencoders.toInt(), size.toInt(), encoders.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipGetImageEncodersSize(numencoders: MutPtr<UInt>, size: MutPtr<UInt>): Status =
+public actual fun gdipGetImageEncodersSize(numencoders: MutPtr, size: MutPtr): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipGetImageEncodersSize(numencoders.rawAddress.toString(), size.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipGetImageFlags(image: MutPtr<GpImage>, flags: MutPtr<UInt>): Status =
+public actual fun gdipGetImageFlags(image: MutPtr, flags: MutPtr): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipGetImageFlags(image.rawAddress.toString(), flags.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipGetImageGraphicsContext(image: MutPtr<GpImage>, graphics: MutPtr<MutPtr<GpGraphics>>): Status =
+public actual fun gdipGetImageGraphicsContext(image: MutPtr, graphics: MutPtr): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipGetImageGraphicsContext(image.rawAddress.toString(), graphics.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipGetImageHeight(image: MutPtr<GpImage>, height: MutPtr<UInt>): Status =
+public actual fun gdipGetImageHeight(image: MutPtr, height: MutPtr): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipGetImageHeight(image.rawAddress.toString(), height.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipGetImageHorizontalResolution(image: MutPtr<GpImage>, resolution: MutPtr<Float>): Status =
+public actual fun gdipGetImageHorizontalResolution(image: MutPtr, resolution: MutPtr): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipGetImageHorizontalResolution(image.rawAddress.toString(), resolution.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipGetImageItemData(image: MutPtr<GpImage>, item: MutPtr<ImageItemData>): Status =
+public actual fun gdipGetImageItemData(image: MutPtr, item: MutPtr): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipGetImageItemData(image.rawAddress.toString(), item.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipGetImagePalette(image: MutPtr<GpImage>, palette: MutPtr<ColorPalette>, size: Int): Status =
+public actual fun gdipGetImagePalette(image: MutPtr, palette: MutPtr, size: Int): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipGetImagePalette(image.rawAddress.toString(), palette.rawAddress.toString(), size) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipGetImagePaletteSize(image: MutPtr<GpImage>, size: MutPtr<Int>): Status =
+public actual fun gdipGetImagePaletteSize(image: MutPtr, size: MutPtr): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipGetImagePaletteSize(image.rawAddress.toString(), size.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipGetImagePixelFormat(image: MutPtr<GpImage>, format: MutPtr<Int>): Status =
+public actual fun gdipGetImagePixelFormat(image: MutPtr, format: MutPtr): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipGetImagePixelFormat(image.rawAddress.toString(), format.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipGetImageRawFormat(image: MutPtr<GpImage>, format: MutPtr<Guid>): Status =
+public actual fun gdipGetImageRawFormat(image: MutPtr, format: MutPtr): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipGetImageRawFormat(image.rawAddress.toString(), format.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipGetImageThumbnail(image: MutPtr<GpImage>, thumbwidth: UInt, thumbheight: UInt, thumbimage: MutPtr<MutPtr<GpImage>>, callback: Long, callbackdata: MutPtr<CVoid>): Status =
+public actual fun gdipGetImageThumbnail(image: MutPtr, thumbwidth: UInt, thumbheight: UInt, thumbimage: MutPtr, callback: Long, callbackdata: MutPtr): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipGetImageThumbnail(image.rawAddress.toString(), thumbwidth.toInt(), thumbheight.toInt(), thumbimage.rawAddress.toString(), callback.toString(), callbackdata.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipGetImageType(image: MutPtr<GpImage>, type: MutPtr<ImageType>): Status =
+public actual fun gdipGetImageType(image: MutPtr, type: MutPtr): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipGetImageType(image.rawAddress.toString(), type.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipGetImageVerticalResolution(image: MutPtr<GpImage>, resolution: MutPtr<Float>): Status =
+public actual fun gdipGetImageVerticalResolution(image: MutPtr, resolution: MutPtr): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipGetImageVerticalResolution(image.rawAddress.toString(), resolution.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipGetImageWidth(image: MutPtr<GpImage>, width: MutPtr<UInt>): Status =
+public actual fun gdipGetImageWidth(image: MutPtr, width: MutPtr): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipGetImageWidth(image.rawAddress.toString(), width.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipGetInterpolationMode(graphics: MutPtr<GpGraphics>, interpolationmode: MutPtr<InterpolationMode>): Status =
+public actual fun gdipGetInterpolationMode(graphics: MutPtr, interpolationmode: MutPtr): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipGetInterpolationMode(graphics.rawAddress.toString(), interpolationmode.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipGetLineBlend(brush: MutPtr<GpLineGradient>, blend: MutPtr<Float>, positions: MutPtr<Float>, count: Int): Status =
+public actual fun gdipGetLineBlend(brush: MutPtr, blend: MutPtr, positions: MutPtr, count: Int): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipGetLineBlend(brush.rawAddress.toString(), blend.rawAddress.toString(), positions.rawAddress.toString(), count) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipGetLineBlendCount(brush: MutPtr<GpLineGradient>, count: MutPtr<Int>): Status =
+public actual fun gdipGetLineBlendCount(brush: MutPtr, count: MutPtr): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipGetLineBlendCount(brush.rawAddress.toString(), count.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipGetLineColors(brush: MutPtr<GpLineGradient>, colors: MutPtr<UInt>): Status =
+public actual fun gdipGetLineColors(brush: MutPtr, colors: MutPtr): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipGetLineColors(brush.rawAddress.toString(), colors.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipGetLineGammaCorrection(brush: MutPtr<GpLineGradient>, usegammacorrection: MutPtr<Bool>): Status =
+public actual fun gdipGetLineGammaCorrection(brush: MutPtr, usegammacorrection: MutPtr): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipGetLineGammaCorrection(brush.rawAddress.toString(), usegammacorrection.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipGetLinePresetBlend(brush: MutPtr<GpLineGradient>, blend: MutPtr<UInt>, positions: MutPtr<Float>, count: Int): Status =
+public actual fun gdipGetLinePresetBlend(brush: MutPtr, blend: MutPtr, positions: MutPtr, count: Int): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipGetLinePresetBlend(brush.rawAddress.toString(), blend.rawAddress.toString(), positions.rawAddress.toString(), count) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipGetLinePresetBlendCount(brush: MutPtr<GpLineGradient>, count: MutPtr<Int>): Status =
+public actual fun gdipGetLinePresetBlendCount(brush: MutPtr, count: MutPtr): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipGetLinePresetBlendCount(brush.rawAddress.toString(), count.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipGetLineRect(brush: MutPtr<GpLineGradient>, rect: MutPtr<RectF>): Status =
+public actual fun gdipGetLineRect(brush: MutPtr, rect: MutPtr): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipGetLineRect(brush.rawAddress.toString(), rect.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipGetLineRectI(brush: MutPtr<GpLineGradient>, rect: MutPtr<Rect>): Status =
+public actual fun gdipGetLineRectI(brush: MutPtr, rect: MutPtr): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipGetLineRectI(brush.rawAddress.toString(), rect.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipGetLineSpacing(family: ConstPtr<GpFontFamily>, style: Int, linespacing: MutPtr<UShort>): Status =
+public actual fun gdipGetLineSpacing(family: ConstPtr, style: Int, linespacing: MutPtr): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipGetLineSpacing(family.rawAddress.toString(), style, linespacing.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipGetLineTransform(brush: MutPtr<GpLineGradient>, matrix: MutPtr<Matrix>): Status =
+public actual fun gdipGetLineTransform(brush: MutPtr, matrix: MutPtr): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipGetLineTransform(brush.rawAddress.toString(), matrix.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipGetLineWrapMode(brush: MutPtr<GpLineGradient>, wrapmode: MutPtr<WrapMode>): Status =
+public actual fun gdipGetLineWrapMode(brush: MutPtr, wrapmode: MutPtr): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipGetLineWrapMode(brush.rawAddress.toString(), wrapmode.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipGetLogFontA(font: MutPtr<GpFont>, graphics: MutPtr<GpGraphics>, logfonta: MutPtr<Logfonta>): Status =
+public actual fun gdipGetLogFontA(font: MutPtr, graphics: MutPtr, logfonta: MutPtr): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipGetLogFontA(font.rawAddress.toString(), graphics.rawAddress.toString(), logfonta.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipGetLogFontW(font: MutPtr<GpFont>, graphics: MutPtr<GpGraphics>, logfontw: MutPtr<Logfontw>): Status =
+public actual fun gdipGetLogFontW(font: MutPtr, graphics: MutPtr, logfontw: MutPtr): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipGetLogFontW(font.rawAddress.toString(), graphics.rawAddress.toString(), logfontw.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipGetMatrixElements(matrix: ConstPtr<Matrix>, matrixout: MutPtr<Float>): Status =
+public actual fun gdipGetMatrixElements(matrix: ConstPtr, matrixout: MutPtr): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipGetMatrixElements(matrix.rawAddress.toString(), matrixout.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipGetMetafileDownLevelRasterizationLimit(metafile: ConstPtr<GpMetafile>, metafilerasterizationlimitdpi: MutPtr<UInt>): Status =
+public actual fun gdipGetMetafileDownLevelRasterizationLimit(metafile: ConstPtr, metafilerasterizationlimitdpi: MutPtr): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipGetMetafileDownLevelRasterizationLimit(metafile.rawAddress.toString(), metafilerasterizationlimitdpi.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipGetMetafileHeaderFromEmf(hemf: Henhmetafile, header: MutPtr<MetafileHeader>): Status =
+public actual fun gdipGetMetafileHeaderFromEmf(hemf: Henhmetafile, header: MutPtr): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipGetMetafileHeaderFromEmf(hemf.rawAddress.toString(), header.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipGetMetafileHeaderFromFile(filename: Pcwstr, header: MutPtr<MetafileHeader>): Status =
+public actual fun gdipGetMetafileHeaderFromFile(filename: Pcwstr, header: MutPtr): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipGetMetafileHeaderFromFile(filename.rawAddress.toString(), header.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipGetMetafileHeaderFromMetafile(metafile: MutPtr<GpMetafile>, header: MutPtr<MetafileHeader>): Status =
+public actual fun gdipGetMetafileHeaderFromMetafile(metafile: MutPtr, header: MutPtr): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipGetMetafileHeaderFromMetafile(metafile.rawAddress.toString(), header.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipGetMetafileHeaderFromStream(stream: MutPtr<CVoid>, header: MutPtr<MetafileHeader>): Status =
+public actual fun gdipGetMetafileHeaderFromStream(stream: MutPtr, header: MutPtr): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipGetMetafileHeaderFromStream(stream.rawAddress.toString(), header.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipGetMetafileHeaderFromWmf(hwmf: Hmetafile, wmfplaceablefileheader: ConstPtr<WmfPlaceableFileHeader>, header: MutPtr<MetafileHeader>): Status =
+public actual fun gdipGetMetafileHeaderFromWmf(hwmf: Hmetafile, wmfplaceablefileheader: ConstPtr, header: MutPtr): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipGetMetafileHeaderFromWmf(hwmf.rawAddress.toString(), wmfplaceablefileheader.rawAddress.toString(), header.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipGetNearestColor(graphics: MutPtr<GpGraphics>, argb: MutPtr<UInt>): Status =
+public actual fun gdipGetNearestColor(graphics: MutPtr, argb: MutPtr): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipGetNearestColor(graphics.rawAddress.toString(), argb.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipGetPageScale(graphics: MutPtr<GpGraphics>, scale: MutPtr<Float>): Status =
+public actual fun gdipGetPageScale(graphics: MutPtr, scale: MutPtr): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipGetPageScale(graphics.rawAddress.toString(), scale.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipGetPageUnit(graphics: MutPtr<GpGraphics>, unit: MutPtr<Unit>): Status =
+public actual fun gdipGetPageUnit(graphics: MutPtr, unit: MutPtr): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipGetPageUnit(graphics.rawAddress.toString(), unit.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipGetPathData(path: MutPtr<GpPath>, pathdata: MutPtr<PathData>): Status =
+public actual fun gdipGetPathData(path: MutPtr, pathdata: MutPtr): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipGetPathData(path.rawAddress.toString(), pathdata.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipGetPathFillMode(path: MutPtr<GpPath>, fillmode: MutPtr<FillMode>): Status =
+public actual fun gdipGetPathFillMode(path: MutPtr, fillmode: MutPtr): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipGetPathFillMode(path.rawAddress.toString(), fillmode.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipGetPathGradientBlend(brush: MutPtr<GpPathGradient>, blend: MutPtr<Float>, positions: MutPtr<Float>, count: Int): Status =
+public actual fun gdipGetPathGradientBlend(brush: MutPtr, blend: MutPtr, positions: MutPtr, count: Int): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipGetPathGradientBlend(brush.rawAddress.toString(), blend.rawAddress.toString(), positions.rawAddress.toString(), count) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipGetPathGradientBlendCount(brush: MutPtr<GpPathGradient>, count: MutPtr<Int>): Status =
+public actual fun gdipGetPathGradientBlendCount(brush: MutPtr, count: MutPtr): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipGetPathGradientBlendCount(brush.rawAddress.toString(), count.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipGetPathGradientCenterColor(brush: MutPtr<GpPathGradient>, colors: MutPtr<UInt>): Status =
+public actual fun gdipGetPathGradientCenterColor(brush: MutPtr, colors: MutPtr): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipGetPathGradientCenterColor(brush.rawAddress.toString(), colors.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipGetPathGradientCenterPoint(brush: MutPtr<GpPathGradient>, points: MutPtr<PointF>): Status =
+public actual fun gdipGetPathGradientCenterPoint(brush: MutPtr, points: MutPtr): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipGetPathGradientCenterPoint(brush.rawAddress.toString(), points.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipGetPathGradientCenterPointI(brush: MutPtr<GpPathGradient>, points: MutPtr<Point>): Status =
+public actual fun gdipGetPathGradientCenterPointI(brush: MutPtr, points: MutPtr): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipGetPathGradientCenterPointI(brush.rawAddress.toString(), points.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipGetPathGradientFocusScales(brush: MutPtr<GpPathGradient>, xscale: MutPtr<Float>, yscale: MutPtr<Float>): Status =
+public actual fun gdipGetPathGradientFocusScales(brush: MutPtr, xscale: MutPtr, yscale: MutPtr): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipGetPathGradientFocusScales(brush.rawAddress.toString(), xscale.rawAddress.toString(), yscale.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipGetPathGradientGammaCorrection(brush: MutPtr<GpPathGradient>, usegammacorrection: MutPtr<Bool>): Status =
+public actual fun gdipGetPathGradientGammaCorrection(brush: MutPtr, usegammacorrection: MutPtr): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipGetPathGradientGammaCorrection(brush.rawAddress.toString(), usegammacorrection.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipGetPathGradientPath(brush: MutPtr<GpPathGradient>, path: MutPtr<GpPath>): Status =
+public actual fun gdipGetPathGradientPath(brush: MutPtr, path: MutPtr): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipGetPathGradientPath(brush.rawAddress.toString(), path.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipGetPathGradientPointCount(brush: MutPtr<GpPathGradient>, count: MutPtr<Int>): Status =
+public actual fun gdipGetPathGradientPointCount(brush: MutPtr, count: MutPtr): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipGetPathGradientPointCount(brush.rawAddress.toString(), count.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipGetPathGradientPresetBlend(brush: MutPtr<GpPathGradient>, blend: MutPtr<UInt>, positions: MutPtr<Float>, count: Int): Status =
+public actual fun gdipGetPathGradientPresetBlend(brush: MutPtr, blend: MutPtr, positions: MutPtr, count: Int): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipGetPathGradientPresetBlend(brush.rawAddress.toString(), blend.rawAddress.toString(), positions.rawAddress.toString(), count) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipGetPathGradientPresetBlendCount(brush: MutPtr<GpPathGradient>, count: MutPtr<Int>): Status =
+public actual fun gdipGetPathGradientPresetBlendCount(brush: MutPtr, count: MutPtr): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipGetPathGradientPresetBlendCount(brush.rawAddress.toString(), count.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipGetPathGradientRect(brush: MutPtr<GpPathGradient>, rect: MutPtr<RectF>): Status =
+public actual fun gdipGetPathGradientRect(brush: MutPtr, rect: MutPtr): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipGetPathGradientRect(brush.rawAddress.toString(), rect.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipGetPathGradientRectI(brush: MutPtr<GpPathGradient>, rect: MutPtr<Rect>): Status =
+public actual fun gdipGetPathGradientRectI(brush: MutPtr, rect: MutPtr): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipGetPathGradientRectI(brush.rawAddress.toString(), rect.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipGetPathGradientSurroundColorCount(brush: MutPtr<GpPathGradient>, count: MutPtr<Int>): Status =
+public actual fun gdipGetPathGradientSurroundColorCount(brush: MutPtr, count: MutPtr): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipGetPathGradientSurroundColorCount(brush.rawAddress.toString(), count.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipGetPathGradientSurroundColorsWithCount(brush: ConstPtr<GpPathGradient>, color: MutPtr<UInt>, count: MutPtr<Int>): Status =
+public actual fun gdipGetPathGradientSurroundColorsWithCount(brush: ConstPtr, color: MutPtr, count: MutPtr): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipGetPathGradientSurroundColorsWithCount(brush.rawAddress.toString(), color.rawAddress.toString(), count.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipGetPathGradientTransform(brush: MutPtr<GpPathGradient>, matrix: MutPtr<Matrix>): Status =
+public actual fun gdipGetPathGradientTransform(brush: MutPtr, matrix: MutPtr): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipGetPathGradientTransform(brush.rawAddress.toString(), matrix.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipGetPathGradientWrapMode(brush: MutPtr<GpPathGradient>, wrapmode: MutPtr<WrapMode>): Status =
+public actual fun gdipGetPathGradientWrapMode(brush: MutPtr, wrapmode: MutPtr): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipGetPathGradientWrapMode(brush.rawAddress.toString(), wrapmode.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipGetPathLastPoint(path: MutPtr<GpPath>, lastpoint: MutPtr<PointF>): Status =
+public actual fun gdipGetPathLastPoint(path: MutPtr, lastpoint: MutPtr): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipGetPathLastPoint(path.rawAddress.toString(), lastpoint.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipGetPathPoints(param0: MutPtr<GpPath>, points: MutPtr<PointF>, count: Int): Status =
+public actual fun gdipGetPathPoints(param0: MutPtr, points: MutPtr, count: Int): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipGetPathPoints(param0.rawAddress.toString(), points.rawAddress.toString(), count) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipGetPathPointsI(param0: MutPtr<GpPath>, points: MutPtr<Point>, count: Int): Status =
+public actual fun gdipGetPathPointsI(param0: MutPtr, points: MutPtr, count: Int): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipGetPathPointsI(param0.rawAddress.toString(), points.rawAddress.toString(), count) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipGetPathTypes(path: ConstPtr<GpPath>, types: MutPtr<UByte>, count: Int): Status =
+public actual fun gdipGetPathTypes(path: ConstPtr, types: MutPtr, count: Int): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipGetPathTypes(path.rawAddress.toString(), types.rawAddress.toString(), count) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipGetPathWorldBounds(path: MutPtr<GpPath>, bounds: MutPtr<RectF>, matrix: ConstPtr<Matrix>, pen: ConstPtr<GpPen>): Status =
+public actual fun gdipGetPathWorldBounds(path: MutPtr, bounds: MutPtr, matrix: ConstPtr, pen: ConstPtr): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipGetPathWorldBounds(path.rawAddress.toString(), bounds.rawAddress.toString(), matrix.rawAddress.toString(), pen.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipGetPathWorldBoundsI(path: MutPtr<GpPath>, bounds: MutPtr<Rect>, matrix: ConstPtr<Matrix>, pen: ConstPtr<GpPen>): Status =
+public actual fun gdipGetPathWorldBoundsI(path: MutPtr, bounds: MutPtr, matrix: ConstPtr, pen: ConstPtr): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipGetPathWorldBoundsI(path.rawAddress.toString(), bounds.rawAddress.toString(), matrix.rawAddress.toString(), pen.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipGetPenBrushFill(pen: MutPtr<GpPen>, brush: MutPtr<MutPtr<GpBrush>>): Status =
+public actual fun gdipGetPenBrushFill(pen: MutPtr, brush: MutPtr): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipGetPenBrushFill(pen.rawAddress.toString(), brush.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipGetPenColor(pen: MutPtr<GpPen>, argb: MutPtr<UInt>): Status =
+public actual fun gdipGetPenColor(pen: MutPtr, argb: MutPtr): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipGetPenColor(pen.rawAddress.toString(), argb.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipGetPenCompoundArray(pen: MutPtr<GpPen>, dash: MutPtr<Float>, count: Int): Status =
+public actual fun gdipGetPenCompoundArray(pen: MutPtr, dash: MutPtr, count: Int): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipGetPenCompoundArray(pen.rawAddress.toString(), dash.rawAddress.toString(), count) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipGetPenCompoundCount(pen: MutPtr<GpPen>, count: MutPtr<Int>): Status =
+public actual fun gdipGetPenCompoundCount(pen: MutPtr, count: MutPtr): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipGetPenCompoundCount(pen.rawAddress.toString(), count.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipGetPenCustomEndCap(pen: MutPtr<GpPen>, customcap: MutPtr<MutPtr<GpCustomLineCap>>): Status =
+public actual fun gdipGetPenCustomEndCap(pen: MutPtr, customcap: MutPtr): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipGetPenCustomEndCap(pen.rawAddress.toString(), customcap.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipGetPenCustomStartCap(pen: MutPtr<GpPen>, customcap: MutPtr<MutPtr<GpCustomLineCap>>): Status =
+public actual fun gdipGetPenCustomStartCap(pen: MutPtr, customcap: MutPtr): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipGetPenCustomStartCap(pen.rawAddress.toString(), customcap.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipGetPenDashArray(pen: MutPtr<GpPen>, dash: MutPtr<Float>, count: Int): Status =
+public actual fun gdipGetPenDashArray(pen: MutPtr, dash: MutPtr, count: Int): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipGetPenDashArray(pen.rawAddress.toString(), dash.rawAddress.toString(), count) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipGetPenDashCap197819(pen: MutPtr<GpPen>, dashcap: MutPtr<DashCap>): Status =
+public actual fun gdipGetPenDashCap197819(pen: MutPtr, dashcap: MutPtr): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipGetPenDashCap197819(pen.rawAddress.toString(), dashcap.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipGetPenDashCount(pen: MutPtr<GpPen>, count: MutPtr<Int>): Status =
+public actual fun gdipGetPenDashCount(pen: MutPtr, count: MutPtr): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipGetPenDashCount(pen.rawAddress.toString(), count.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipGetPenDashOffset(pen: MutPtr<GpPen>, offset: MutPtr<Float>): Status =
+public actual fun gdipGetPenDashOffset(pen: MutPtr, offset: MutPtr): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipGetPenDashOffset(pen.rawAddress.toString(), offset.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipGetPenDashStyle(pen: MutPtr<GpPen>, dashstyle: MutPtr<DashStyle>): Status =
+public actual fun gdipGetPenDashStyle(pen: MutPtr, dashstyle: MutPtr): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipGetPenDashStyle(pen.rawAddress.toString(), dashstyle.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipGetPenEndCap(pen: MutPtr<GpPen>, endcap: MutPtr<LineCap>): Status =
+public actual fun gdipGetPenEndCap(pen: MutPtr, endcap: MutPtr): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipGetPenEndCap(pen.rawAddress.toString(), endcap.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipGetPenFillType(pen: MutPtr<GpPen>, type: MutPtr<PenType>): Status =
+public actual fun gdipGetPenFillType(pen: MutPtr, type: MutPtr): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipGetPenFillType(pen.rawAddress.toString(), type.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipGetPenLineJoin(pen: MutPtr<GpPen>, linejoin: MutPtr<LineJoin>): Status =
+public actual fun gdipGetPenLineJoin(pen: MutPtr, linejoin: MutPtr): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipGetPenLineJoin(pen.rawAddress.toString(), linejoin.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipGetPenMiterLimit(pen: MutPtr<GpPen>, miterlimit: MutPtr<Float>): Status =
+public actual fun gdipGetPenMiterLimit(pen: MutPtr, miterlimit: MutPtr): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipGetPenMiterLimit(pen.rawAddress.toString(), miterlimit.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipGetPenMode(pen: MutPtr<GpPen>, penmode: MutPtr<PenAlignment>): Status =
+public actual fun gdipGetPenMode(pen: MutPtr, penmode: MutPtr): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipGetPenMode(pen.rawAddress.toString(), penmode.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipGetPenStartCap(pen: MutPtr<GpPen>, startcap: MutPtr<LineCap>): Status =
+public actual fun gdipGetPenStartCap(pen: MutPtr, startcap: MutPtr): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipGetPenStartCap(pen.rawAddress.toString(), startcap.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipGetPenTransform(pen: MutPtr<GpPen>, matrix: MutPtr<Matrix>): Status =
+public actual fun gdipGetPenTransform(pen: MutPtr, matrix: MutPtr): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipGetPenTransform(pen.rawAddress.toString(), matrix.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipGetPenUnit(pen: MutPtr<GpPen>, unit: MutPtr<Unit>): Status =
+public actual fun gdipGetPenUnit(pen: MutPtr, unit: MutPtr): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipGetPenUnit(pen.rawAddress.toString(), unit.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipGetPenWidth(pen: MutPtr<GpPen>, width: MutPtr<Float>): Status =
+public actual fun gdipGetPenWidth(pen: MutPtr, width: MutPtr): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipGetPenWidth(pen.rawAddress.toString(), width.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipGetPixelOffsetMode(graphics: MutPtr<GpGraphics>, pixeloffsetmode: MutPtr<PixelOffsetMode>): Status =
+public actual fun gdipGetPixelOffsetMode(graphics: MutPtr, pixeloffsetmode: MutPtr): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipGetPixelOffsetMode(graphics.rawAddress.toString(), pixeloffsetmode.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipGetPointCount(path: MutPtr<GpPath>, count: MutPtr<Int>): Status =
+public actual fun gdipGetPointCount(path: MutPtr, count: MutPtr): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipGetPointCount(path.rawAddress.toString(), count.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipGetPropertyCount(image: MutPtr<GpImage>, numofproperty: MutPtr<UInt>): Status =
+public actual fun gdipGetPropertyCount(image: MutPtr, numofproperty: MutPtr): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipGetPropertyCount(image.rawAddress.toString(), numofproperty.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipGetPropertyIdList(image: MutPtr<GpImage>, numofproperty: UInt, list: MutPtr<UInt>): Status =
+public actual fun gdipGetPropertyIdList(image: MutPtr, numofproperty: UInt, list: MutPtr): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipGetPropertyIdList(image.rawAddress.toString(), numofproperty.toInt(), list.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipGetPropertyItem(image: MutPtr<GpImage>, propid: UInt, propsize: UInt, buffer: MutPtr<PropertyItem>): Status =
+public actual fun gdipGetPropertyItem(image: MutPtr, propid: UInt, propsize: UInt, buffer: MutPtr): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipGetPropertyItem(image.rawAddress.toString(), propid.toInt(), propsize.toInt(), buffer.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipGetPropertyItemSize(image: MutPtr<GpImage>, propid: UInt, size: MutPtr<UInt>): Status =
+public actual fun gdipGetPropertyItemSize(image: MutPtr, propid: UInt, size: MutPtr): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipGetPropertyItemSize(image.rawAddress.toString(), propid.toInt(), size.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipGetPropertySize(image: MutPtr<GpImage>, totalbuffersize: MutPtr<UInt>, numproperties: MutPtr<UInt>): Status =
+public actual fun gdipGetPropertySize(image: MutPtr, totalbuffersize: MutPtr, numproperties: MutPtr): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipGetPropertySize(image.rawAddress.toString(), totalbuffersize.rawAddress.toString(), numproperties.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipGetRegionBounds(region: MutPtr<GpRegion>, graphics: MutPtr<GpGraphics>, rect: MutPtr<RectF>): Status =
+public actual fun gdipGetRegionBounds(region: MutPtr, graphics: MutPtr, rect: MutPtr): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipGetRegionBounds(region.rawAddress.toString(), graphics.rawAddress.toString(), rect.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipGetRegionBoundsI(region: MutPtr<GpRegion>, graphics: MutPtr<GpGraphics>, rect: MutPtr<Rect>): Status =
+public actual fun gdipGetRegionBoundsI(region: MutPtr, graphics: MutPtr, rect: MutPtr): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipGetRegionBoundsI(region.rawAddress.toString(), graphics.rawAddress.toString(), rect.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipGetRegionData(region: MutPtr<GpRegion>, buffer: MutPtr<UByte>, buffersize: UInt, sizefilled: MutPtr<UInt>): Status =
+public actual fun gdipGetRegionData(region: MutPtr, buffer: MutPtr, buffersize: UInt, sizefilled: MutPtr): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipGetRegionData(region.rawAddress.toString(), buffer.rawAddress.toString(), buffersize.toInt(), sizefilled.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipGetRegionDataSize(region: MutPtr<GpRegion>, buffersize: MutPtr<UInt>): Status =
+public actual fun gdipGetRegionDataSize(region: MutPtr, buffersize: MutPtr): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipGetRegionDataSize(region.rawAddress.toString(), buffersize.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipGetRegionHRgn(region: MutPtr<GpRegion>, graphics: MutPtr<GpGraphics>, hrgn: MutPtr<Hrgn>): Status =
+public actual fun gdipGetRegionHRgn(region: MutPtr, graphics: MutPtr, hrgn: MutPtr): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipGetRegionHRgn(region.rawAddress.toString(), graphics.rawAddress.toString(), hrgn.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipGetRegionScans(region: MutPtr<GpRegion>, rects: MutPtr<RectF>, count: MutPtr<Int>, matrix: MutPtr<Matrix>): Status =
+public actual fun gdipGetRegionScans(region: MutPtr, rects: MutPtr, count: MutPtr, matrix: MutPtr): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipGetRegionScans(region.rawAddress.toString(), rects.rawAddress.toString(), count.rawAddress.toString(), matrix.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipGetRegionScansCount(region: MutPtr<GpRegion>, count: MutPtr<UInt>, matrix: MutPtr<Matrix>): Status =
+public actual fun gdipGetRegionScansCount(region: MutPtr, count: MutPtr, matrix: MutPtr): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipGetRegionScansCount(region.rawAddress.toString(), count.rawAddress.toString(), matrix.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipGetRegionScansI(region: MutPtr<GpRegion>, rects: MutPtr<Rect>, count: MutPtr<Int>, matrix: MutPtr<Matrix>): Status =
+public actual fun gdipGetRegionScansI(region: MutPtr, rects: MutPtr, count: MutPtr, matrix: MutPtr): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipGetRegionScansI(region.rawAddress.toString(), rects.rawAddress.toString(), count.rawAddress.toString(), matrix.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipGetRenderingOrigin(graphics: MutPtr<GpGraphics>, x: MutPtr<Int>, y: MutPtr<Int>): Status =
+public actual fun gdipGetRenderingOrigin(graphics: MutPtr, x: MutPtr, y: MutPtr): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipGetRenderingOrigin(graphics.rawAddress.toString(), x.rawAddress.toString(), y.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipGetSmoothingMode(graphics: MutPtr<GpGraphics>, smoothingmode: MutPtr<SmoothingMode>): Status =
+public actual fun gdipGetSmoothingMode(graphics: MutPtr, smoothingmode: MutPtr): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipGetSmoothingMode(graphics.rawAddress.toString(), smoothingmode.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipGetSolidFillColor(brush: MutPtr<GpSolidFill>, color: MutPtr<UInt>): Status =
+public actual fun gdipGetSolidFillColor(brush: MutPtr, color: MutPtr): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipGetSolidFillColor(brush.rawAddress.toString(), color.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipGetStringFormatAlign(format: ConstPtr<GpStringFormat>, align: MutPtr<StringAlignment>): Status =
+public actual fun gdipGetStringFormatAlign(format: ConstPtr, align: MutPtr): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipGetStringFormatAlign(format.rawAddress.toString(), align.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipGetStringFormatDigitSubstitution(format: ConstPtr<GpStringFormat>, language: MutPtr<UShort>, substitute: MutPtr<StringDigitSubstitute>): Status =
+public actual fun gdipGetStringFormatDigitSubstitution(format: ConstPtr, language: MutPtr, substitute: MutPtr): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipGetStringFormatDigitSubstitution(format.rawAddress.toString(), language.rawAddress.toString(), substitute.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipGetStringFormatFlags(format: ConstPtr<GpStringFormat>, flags: MutPtr<Int>): Status =
+public actual fun gdipGetStringFormatFlags(format: ConstPtr, flags: MutPtr): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipGetStringFormatFlags(format.rawAddress.toString(), flags.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipGetStringFormatHotkeyPrefix(format: ConstPtr<GpStringFormat>, hotkeyprefix: MutPtr<Int>): Status =
+public actual fun gdipGetStringFormatHotkeyPrefix(format: ConstPtr, hotkeyprefix: MutPtr): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipGetStringFormatHotkeyPrefix(format.rawAddress.toString(), hotkeyprefix.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipGetStringFormatLineAlign(format: ConstPtr<GpStringFormat>, align: MutPtr<StringAlignment>): Status =
+public actual fun gdipGetStringFormatLineAlign(format: ConstPtr, align: MutPtr): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipGetStringFormatLineAlign(format.rawAddress.toString(), align.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipGetStringFormatMeasurableCharacterRangeCount(format: ConstPtr<GpStringFormat>, count: MutPtr<Int>): Status =
+public actual fun gdipGetStringFormatMeasurableCharacterRangeCount(format: ConstPtr, count: MutPtr): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipGetStringFormatMeasurableCharacterRangeCount(format.rawAddress.toString(), count.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipGetStringFormatTabStopCount(format: ConstPtr<GpStringFormat>, count: MutPtr<Int>): Status =
+public actual fun gdipGetStringFormatTabStopCount(format: ConstPtr, count: MutPtr): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipGetStringFormatTabStopCount(format.rawAddress.toString(), count.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipGetStringFormatTabStops(format: ConstPtr<GpStringFormat>, count: Int, firsttaboffset: MutPtr<Float>, tabstops: MutPtr<Float>): Status =
+public actual fun gdipGetStringFormatTabStops(format: ConstPtr, count: Int, firsttaboffset: MutPtr, tabstops: MutPtr): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipGetStringFormatTabStops(format.rawAddress.toString(), count, firsttaboffset.rawAddress.toString(), tabstops.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipGetStringFormatTrimming(format: ConstPtr<GpStringFormat>, trimming: MutPtr<StringTrimming>): Status =
+public actual fun gdipGetStringFormatTrimming(format: ConstPtr, trimming: MutPtr): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipGetStringFormatTrimming(format.rawAddress.toString(), trimming.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipGetTextContrast(graphics: MutPtr<GpGraphics>, contrast: MutPtr<UInt>): Status =
+public actual fun gdipGetTextContrast(graphics: MutPtr, contrast: MutPtr): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipGetTextContrast(graphics.rawAddress.toString(), contrast.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipGetTextRenderingHint(graphics: MutPtr<GpGraphics>, mode: MutPtr<TextRenderingHint>): Status =
+public actual fun gdipGetTextRenderingHint(graphics: MutPtr, mode: MutPtr): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipGetTextRenderingHint(graphics.rawAddress.toString(), mode.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipGetTextureImage(brush: MutPtr<GpTexture>, image: MutPtr<MutPtr<GpImage>>): Status =
+public actual fun gdipGetTextureImage(brush: MutPtr, image: MutPtr): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipGetTextureImage(brush.rawAddress.toString(), image.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipGetTextureTransform(brush: MutPtr<GpTexture>, matrix: MutPtr<Matrix>): Status =
+public actual fun gdipGetTextureTransform(brush: MutPtr, matrix: MutPtr): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipGetTextureTransform(brush.rawAddress.toString(), matrix.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipGetTextureWrapMode(brush: MutPtr<GpTexture>, wrapmode: MutPtr<WrapMode>): Status =
+public actual fun gdipGetTextureWrapMode(brush: MutPtr, wrapmode: MutPtr): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipGetTextureWrapMode(brush.rawAddress.toString(), wrapmode.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipGetVisibleClipBounds(graphics: MutPtr<GpGraphics>, rect: MutPtr<RectF>): Status =
+public actual fun gdipGetVisibleClipBounds(graphics: MutPtr, rect: MutPtr): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipGetVisibleClipBounds(graphics.rawAddress.toString(), rect.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipGetVisibleClipBoundsI(graphics: MutPtr<GpGraphics>, rect: MutPtr<Rect>): Status =
+public actual fun gdipGetVisibleClipBoundsI(graphics: MutPtr, rect: MutPtr): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipGetVisibleClipBoundsI(graphics.rawAddress.toString(), rect.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipGetWorldTransform(graphics: MutPtr<GpGraphics>, matrix: MutPtr<Matrix>): Status =
+public actual fun gdipGetWorldTransform(graphics: MutPtr, matrix: MutPtr): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipGetWorldTransform(graphics.rawAddress.toString(), matrix.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipGraphicsClear(graphics: MutPtr<GpGraphics>, color: UInt): Status =
+public actual fun gdipGraphicsClear(graphics: MutPtr, color: UInt): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipGraphicsClear(graphics.rawAddress.toString(), color.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipGraphicsSetAbort(pgraphics: MutPtr<GpGraphics>, piabort: MutPtr<CVoid>): Status =
+public actual fun gdipGraphicsSetAbort(pgraphics: MutPtr, piabort: MutPtr): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipGraphicsSetAbort(pgraphics.rawAddress.toString(), piabort.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipImageForceValidation(image: MutPtr<GpImage>): Status =
+public actual fun gdipImageForceValidation(image: MutPtr): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipImageForceValidation(image.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipImageGetFrameCount(image: MutPtr<GpImage>, dimensionid: ConstPtr<Guid>, count: MutPtr<UInt>): Status =
+public actual fun gdipImageGetFrameCount(image: MutPtr, dimensionid: ConstPtr, count: MutPtr): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipImageGetFrameCount(image.rawAddress.toString(), dimensionid.rawAddress.toString(), count.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipImageGetFrameDimensionsCount(image: MutPtr<GpImage>, count: MutPtr<UInt>): Status =
+public actual fun gdipImageGetFrameDimensionsCount(image: MutPtr, count: MutPtr): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipImageGetFrameDimensionsCount(image.rawAddress.toString(), count.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipImageGetFrameDimensionsList(image: MutPtr<GpImage>, dimensionids: MutPtr<Guid>, count: UInt): Status =
+public actual fun gdipImageGetFrameDimensionsList(image: MutPtr, dimensionids: MutPtr, count: UInt): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipImageGetFrameDimensionsList(image.rawAddress.toString(), dimensionids.rawAddress.toString(), count.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipImageRotateFlip(image: MutPtr<GpImage>, rftype: RotateFlipType): Status =
+public actual fun gdipImageRotateFlip(image: MutPtr, rftype: RotateFlipType): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipImageRotateFlip(image.rawAddress.toString(), rftype) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipImageSelectActiveFrame(image: MutPtr<GpImage>, dimensionid: ConstPtr<Guid>, frameindex: UInt): Status =
+public actual fun gdipImageSelectActiveFrame(image: MutPtr, dimensionid: ConstPtr, frameindex: UInt): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipImageSelectActiveFrame(image.rawAddress.toString(), dimensionid.rawAddress.toString(), frameindex.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipImageSetAbort(pimage: MutPtr<GpImage>, piabort: MutPtr<CVoid>): Status =
+public actual fun gdipImageSetAbort(pimage: MutPtr, piabort: MutPtr): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipImageSetAbort(pimage.rawAddress.toString(), piabort.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipInitializePalette(palette: MutPtr<ColorPalette>, palettetype: PaletteType, optimalcolors: Int, usetransparentcolor: Bool, bitmap: MutPtr<GpBitmap>): Status =
+public actual fun gdipInitializePalette(palette: MutPtr, palettetype: PaletteType, optimalcolors: Int, usetransparentcolor: Bool, bitmap: MutPtr): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipInitializePalette(palette.rawAddress.toString(), palettetype, optimalcolors, usetransparentcolor, bitmap.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipInvertMatrix(matrix: MutPtr<Matrix>): Status =
+public actual fun gdipInvertMatrix(matrix: MutPtr): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipInvertMatrix(matrix.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipIsClipEmpty(graphics: MutPtr<GpGraphics>, result: MutPtr<Bool>): Status =
+public actual fun gdipIsClipEmpty(graphics: MutPtr, result: MutPtr): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipIsClipEmpty(graphics.rawAddress.toString(), result.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipIsEmptyRegion(region: MutPtr<GpRegion>, graphics: MutPtr<GpGraphics>, result: MutPtr<Bool>): Status =
+public actual fun gdipIsEmptyRegion(region: MutPtr, graphics: MutPtr, result: MutPtr): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipIsEmptyRegion(region.rawAddress.toString(), graphics.rawAddress.toString(), result.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipIsEqualRegion(region: MutPtr<GpRegion>, region2: MutPtr<GpRegion>, graphics: MutPtr<GpGraphics>, result: MutPtr<Bool>): Status =
+public actual fun gdipIsEqualRegion(region: MutPtr, region2: MutPtr, graphics: MutPtr, result: MutPtr): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipIsEqualRegion(region.rawAddress.toString(), region2.rawAddress.toString(), graphics.rawAddress.toString(), result.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipIsInfiniteRegion(region: MutPtr<GpRegion>, graphics: MutPtr<GpGraphics>, result: MutPtr<Bool>): Status =
+public actual fun gdipIsInfiniteRegion(region: MutPtr, graphics: MutPtr, result: MutPtr): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipIsInfiniteRegion(region.rawAddress.toString(), graphics.rawAddress.toString(), result.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipIsMatrixEqual(matrix: ConstPtr<Matrix>, matrix2: ConstPtr<Matrix>, result: MutPtr<Bool>): Status =
+public actual fun gdipIsMatrixEqual(matrix: ConstPtr, matrix2: ConstPtr, result: MutPtr): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipIsMatrixEqual(matrix.rawAddress.toString(), matrix2.rawAddress.toString(), result.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipIsMatrixIdentity(matrix: ConstPtr<Matrix>, result: MutPtr<Bool>): Status =
+public actual fun gdipIsMatrixIdentity(matrix: ConstPtr, result: MutPtr): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipIsMatrixIdentity(matrix.rawAddress.toString(), result.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipIsMatrixInvertible(matrix: ConstPtr<Matrix>, result: MutPtr<Bool>): Status =
+public actual fun gdipIsMatrixInvertible(matrix: ConstPtr, result: MutPtr): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipIsMatrixInvertible(matrix.rawAddress.toString(), result.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipIsOutlineVisiblePathPoint(path: MutPtr<GpPath>, x: Float, y: Float, pen: MutPtr<GpPen>, graphics: MutPtr<GpGraphics>, result: MutPtr<Bool>): Status =
+public actual fun gdipIsOutlineVisiblePathPoint(path: MutPtr, x: Float, y: Float, pen: MutPtr, graphics: MutPtr, result: MutPtr): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipIsOutlineVisiblePathPoint(path.rawAddress.toString(), x.toDouble(), y.toDouble(), pen.rawAddress.toString(), graphics.rawAddress.toString(), result.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipIsOutlineVisiblePathPointI(path: MutPtr<GpPath>, x: Int, y: Int, pen: MutPtr<GpPen>, graphics: MutPtr<GpGraphics>, result: MutPtr<Bool>): Status =
+public actual fun gdipIsOutlineVisiblePathPointI(path: MutPtr, x: Int, y: Int, pen: MutPtr, graphics: MutPtr, result: MutPtr): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipIsOutlineVisiblePathPointI(path.rawAddress.toString(), x, y, pen.rawAddress.toString(), graphics.rawAddress.toString(), result.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipIsStyleAvailable(family: ConstPtr<GpFontFamily>, style: Int, isstyleavailable: MutPtr<Bool>): Status =
+public actual fun gdipIsStyleAvailable(family: ConstPtr, style: Int, isstyleavailable: MutPtr): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipIsStyleAvailable(family.rawAddress.toString(), style, isstyleavailable.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipIsVisibleClipEmpty(graphics: MutPtr<GpGraphics>, result: MutPtr<Bool>): Status =
+public actual fun gdipIsVisibleClipEmpty(graphics: MutPtr, result: MutPtr): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipIsVisibleClipEmpty(graphics.rawAddress.toString(), result.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipIsVisiblePathPoint(path: MutPtr<GpPath>, x: Float, y: Float, graphics: MutPtr<GpGraphics>, result: MutPtr<Bool>): Status =
+public actual fun gdipIsVisiblePathPoint(path: MutPtr, x: Float, y: Float, graphics: MutPtr, result: MutPtr): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipIsVisiblePathPoint(path.rawAddress.toString(), x.toDouble(), y.toDouble(), graphics.rawAddress.toString(), result.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipIsVisiblePathPointI(path: MutPtr<GpPath>, x: Int, y: Int, graphics: MutPtr<GpGraphics>, result: MutPtr<Bool>): Status =
+public actual fun gdipIsVisiblePathPointI(path: MutPtr, x: Int, y: Int, graphics: MutPtr, result: MutPtr): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipIsVisiblePathPointI(path.rawAddress.toString(), x, y, graphics.rawAddress.toString(), result.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipIsVisiblePoint(graphics: MutPtr<GpGraphics>, x: Float, y: Float, result: MutPtr<Bool>): Status =
+public actual fun gdipIsVisiblePoint(graphics: MutPtr, x: Float, y: Float, result: MutPtr): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipIsVisiblePoint(graphics.rawAddress.toString(), x.toDouble(), y.toDouble(), result.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipIsVisiblePointI(graphics: MutPtr<GpGraphics>, x: Int, y: Int, result: MutPtr<Bool>): Status =
+public actual fun gdipIsVisiblePointI(graphics: MutPtr, x: Int, y: Int, result: MutPtr): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipIsVisiblePointI(graphics.rawAddress.toString(), x, y, result.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipIsVisibleRect(graphics: MutPtr<GpGraphics>, x: Float, y: Float, width: Float, height: Float, result: MutPtr<Bool>): Status =
+public actual fun gdipIsVisibleRect(graphics: MutPtr, x: Float, y: Float, width: Float, height: Float, result: MutPtr): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipIsVisibleRect(graphics.rawAddress.toString(), x.toDouble(), y.toDouble(), width.toDouble(), height.toDouble(), result.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipIsVisibleRectI(graphics: MutPtr<GpGraphics>, x: Int, y: Int, width: Int, height: Int, result: MutPtr<Bool>): Status =
+public actual fun gdipIsVisibleRectI(graphics: MutPtr, x: Int, y: Int, width: Int, height: Int, result: MutPtr): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipIsVisibleRectI(graphics.rawAddress.toString(), x, y, width, height, result.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipIsVisibleRegionPoint(region: MutPtr<GpRegion>, x: Float, y: Float, graphics: MutPtr<GpGraphics>, result: MutPtr<Bool>): Status =
+public actual fun gdipIsVisibleRegionPoint(region: MutPtr, x: Float, y: Float, graphics: MutPtr, result: MutPtr): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipIsVisibleRegionPoint(region.rawAddress.toString(), x.toDouble(), y.toDouble(), graphics.rawAddress.toString(), result.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipIsVisibleRegionPointI(region: MutPtr<GpRegion>, x: Int, y: Int, graphics: MutPtr<GpGraphics>, result: MutPtr<Bool>): Status =
+public actual fun gdipIsVisibleRegionPointI(region: MutPtr, x: Int, y: Int, graphics: MutPtr, result: MutPtr): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipIsVisibleRegionPointI(region.rawAddress.toString(), x, y, graphics.rawAddress.toString(), result.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipIsVisibleRegionRect(region: MutPtr<GpRegion>, x: Float, y: Float, width: Float, height: Float, graphics: MutPtr<GpGraphics>, result: MutPtr<Bool>): Status =
+public actual fun gdipIsVisibleRegionRect(region: MutPtr, x: Float, y: Float, width: Float, height: Float, graphics: MutPtr, result: MutPtr): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipIsVisibleRegionRect(region.rawAddress.toString(), x.toDouble(), y.toDouble(), width.toDouble(), height.toDouble(), graphics.rawAddress.toString(), result.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipIsVisibleRegionRectI(region: MutPtr<GpRegion>, x: Int, y: Int, width: Int, height: Int, graphics: MutPtr<GpGraphics>, result: MutPtr<Bool>): Status =
+public actual fun gdipIsVisibleRegionRectI(region: MutPtr, x: Int, y: Int, width: Int, height: Int, graphics: MutPtr, result: MutPtr): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipIsVisibleRegionRectI(region.rawAddress.toString(), x, y, width, height, graphics.rawAddress.toString(), result.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipLoadImageFromFile(filename: Pcwstr, image: MutPtr<MutPtr<GpImage>>): Status =
+public actual fun gdipLoadImageFromFile(filename: Pcwstr, image: MutPtr): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipLoadImageFromFile(filename.rawAddress.toString(), image.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipLoadImageFromFileICM(filename: Pcwstr, image: MutPtr<MutPtr<GpImage>>): Status =
+public actual fun gdipLoadImageFromFileICM(filename: Pcwstr, image: MutPtr): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipLoadImageFromFileICM(filename.rawAddress.toString(), image.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipLoadImageFromStream(stream: MutPtr<CVoid>, image: MutPtr<MutPtr<GpImage>>): Status =
+public actual fun gdipLoadImageFromStream(stream: MutPtr, image: MutPtr): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipLoadImageFromStream(stream.rawAddress.toString(), image.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipLoadImageFromStreamICM(stream: MutPtr<CVoid>, image: MutPtr<MutPtr<GpImage>>): Status =
+public actual fun gdipLoadImageFromStreamICM(stream: MutPtr, image: MutPtr): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipLoadImageFromStreamICM(stream.rawAddress.toString(), image.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipMeasureCharacterRanges(graphics: MutPtr<GpGraphics>, string: Pcwstr, length: Int, font: ConstPtr<GpFont>, layoutrect: ConstPtr<RectF>, stringformat: ConstPtr<GpStringFormat>, regioncount: Int, regions: MutPtr<MutPtr<GpRegion>>): Status =
+public actual fun gdipMeasureCharacterRanges(graphics: MutPtr, string: Pcwstr, length: Int, font: ConstPtr, layoutrect: ConstPtr, stringformat: ConstPtr, regioncount: Int, regions: MutPtr): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipMeasureCharacterRanges(graphics.rawAddress.toString(), string.rawAddress.toString(), length, font.rawAddress.toString(), layoutrect.rawAddress.toString(), stringformat.rawAddress.toString(), regioncount, regions.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipMeasureDriverString(graphics: MutPtr<GpGraphics>, text: ConstPtr<UShort>, length: Int, font: ConstPtr<GpFont>, positions: ConstPtr<PointF>, flags: Int, matrix: ConstPtr<Matrix>, boundingbox: MutPtr<RectF>): Status =
+public actual fun gdipMeasureDriverString(graphics: MutPtr, text: ConstPtr, length: Int, font: ConstPtr, positions: ConstPtr, flags: Int, matrix: ConstPtr, boundingbox: MutPtr): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipMeasureDriverString(graphics.rawAddress.toString(), text.rawAddress.toString(), length, font.rawAddress.toString(), positions.rawAddress.toString(), flags, matrix.rawAddress.toString(), boundingbox.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipMeasureString(graphics: MutPtr<GpGraphics>, string: Pcwstr, length: Int, font: ConstPtr<GpFont>, layoutrect: ConstPtr<RectF>, stringformat: ConstPtr<GpStringFormat>, boundingbox: MutPtr<RectF>, codepointsfitted: MutPtr<Int>, linesfilled: MutPtr<Int>): Status =
+public actual fun gdipMeasureString(graphics: MutPtr, string: Pcwstr, length: Int, font: ConstPtr, layoutrect: ConstPtr, stringformat: ConstPtr, boundingbox: MutPtr, codepointsfitted: MutPtr, linesfilled: MutPtr): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipMeasureString(graphics.rawAddress.toString(), string.rawAddress.toString(), length, font.rawAddress.toString(), layoutrect.rawAddress.toString(), stringformat.rawAddress.toString(), boundingbox.rawAddress.toString(), codepointsfitted.rawAddress.toString(), linesfilled.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipMultiplyLineTransform(brush: MutPtr<GpLineGradient>, matrix: ConstPtr<Matrix>, order: MatrixOrder): Status =
+public actual fun gdipMultiplyLineTransform(brush: MutPtr, matrix: ConstPtr, order: MatrixOrder): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipMultiplyLineTransform(brush.rawAddress.toString(), matrix.rawAddress.toString(), order) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipMultiplyMatrix(matrix: MutPtr<Matrix>, matrix2: MutPtr<Matrix>, order: MatrixOrder): Status =
+public actual fun gdipMultiplyMatrix(matrix: MutPtr, matrix2: MutPtr, order: MatrixOrder): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipMultiplyMatrix(matrix.rawAddress.toString(), matrix2.rawAddress.toString(), order) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipMultiplyPathGradientTransform(brush: MutPtr<GpPathGradient>, matrix: ConstPtr<Matrix>, order: MatrixOrder): Status =
+public actual fun gdipMultiplyPathGradientTransform(brush: MutPtr, matrix: ConstPtr, order: MatrixOrder): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipMultiplyPathGradientTransform(brush.rawAddress.toString(), matrix.rawAddress.toString(), order) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipMultiplyPenTransform(pen: MutPtr<GpPen>, matrix: ConstPtr<Matrix>, order: MatrixOrder): Status =
+public actual fun gdipMultiplyPenTransform(pen: MutPtr, matrix: ConstPtr, order: MatrixOrder): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipMultiplyPenTransform(pen.rawAddress.toString(), matrix.rawAddress.toString(), order) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipMultiplyTextureTransform(brush: MutPtr<GpTexture>, matrix: ConstPtr<Matrix>, order: MatrixOrder): Status =
+public actual fun gdipMultiplyTextureTransform(brush: MutPtr, matrix: ConstPtr, order: MatrixOrder): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipMultiplyTextureTransform(brush.rawAddress.toString(), matrix.rawAddress.toString(), order) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipMultiplyWorldTransform(graphics: MutPtr<GpGraphics>, matrix: ConstPtr<Matrix>, order: MatrixOrder): Status =
+public actual fun gdipMultiplyWorldTransform(graphics: MutPtr, matrix: ConstPtr, order: MatrixOrder): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipMultiplyWorldTransform(graphics.rawAddress.toString(), matrix.rawAddress.toString(), order) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipNewInstalledFontCollection(fontcollection: MutPtr<MutPtr<GpFontCollection>>): Status =
+public actual fun gdipNewInstalledFontCollection(fontcollection: MutPtr): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipNewInstalledFontCollection(fontcollection.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipNewPrivateFontCollection(fontcollection: MutPtr<MutPtr<GpFontCollection>>): Status =
+public actual fun gdipNewPrivateFontCollection(fontcollection: MutPtr): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipNewPrivateFontCollection(fontcollection.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipPathIterCopyData(iterator: MutPtr<GpPathIterator>, resultcount: MutPtr<Int>, points: MutPtr<PointF>, types: MutPtr<UByte>, startindex: Int, endindex: Int): Status =
+public actual fun gdipPathIterCopyData(iterator: MutPtr, resultcount: MutPtr, points: MutPtr, types: MutPtr, startindex: Int, endindex: Int): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipPathIterCopyData(iterator.rawAddress.toString(), resultcount.rawAddress.toString(), points.rawAddress.toString(), types.rawAddress.toString(), startindex, endindex) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipPathIterEnumerate(iterator: MutPtr<GpPathIterator>, resultcount: MutPtr<Int>, points: MutPtr<PointF>, types: MutPtr<UByte>, count: Int): Status =
+public actual fun gdipPathIterEnumerate(iterator: MutPtr, resultcount: MutPtr, points: MutPtr, types: MutPtr, count: Int): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipPathIterEnumerate(iterator.rawAddress.toString(), resultcount.rawAddress.toString(), points.rawAddress.toString(), types.rawAddress.toString(), count) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipPathIterGetCount(iterator: MutPtr<GpPathIterator>, count: MutPtr<Int>): Status =
+public actual fun gdipPathIterGetCount(iterator: MutPtr, count: MutPtr): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipPathIterGetCount(iterator.rawAddress.toString(), count.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipPathIterGetSubpathCount(iterator: MutPtr<GpPathIterator>, count: MutPtr<Int>): Status =
+public actual fun gdipPathIterGetSubpathCount(iterator: MutPtr, count: MutPtr): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipPathIterGetSubpathCount(iterator.rawAddress.toString(), count.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipPathIterHasCurve(iterator: MutPtr<GpPathIterator>, hascurve: MutPtr<Bool>): Status =
+public actual fun gdipPathIterHasCurve(iterator: MutPtr, hascurve: MutPtr): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipPathIterHasCurve(iterator.rawAddress.toString(), hascurve.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipPathIterIsValid(iterator: MutPtr<GpPathIterator>, valid: MutPtr<Bool>): Status =
+public actual fun gdipPathIterIsValid(iterator: MutPtr, valid: MutPtr): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipPathIterIsValid(iterator.rawAddress.toString(), valid.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipPathIterNextMarker(iterator: MutPtr<GpPathIterator>, resultcount: MutPtr<Int>, startindex: MutPtr<Int>, endindex: MutPtr<Int>): Status =
+public actual fun gdipPathIterNextMarker(iterator: MutPtr, resultcount: MutPtr, startindex: MutPtr, endindex: MutPtr): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipPathIterNextMarker(iterator.rawAddress.toString(), resultcount.rawAddress.toString(), startindex.rawAddress.toString(), endindex.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipPathIterNextMarkerPath(iterator: MutPtr<GpPathIterator>, resultcount: MutPtr<Int>, path: MutPtr<GpPath>): Status =
+public actual fun gdipPathIterNextMarkerPath(iterator: MutPtr, resultcount: MutPtr, path: MutPtr): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipPathIterNextMarkerPath(iterator.rawAddress.toString(), resultcount.rawAddress.toString(), path.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipPathIterNextPathType(iterator: MutPtr<GpPathIterator>, resultcount: MutPtr<Int>, pathtype: MutPtr<UByte>, startindex: MutPtr<Int>, endindex: MutPtr<Int>): Status =
+public actual fun gdipPathIterNextPathType(iterator: MutPtr, resultcount: MutPtr, pathtype: MutPtr, startindex: MutPtr, endindex: MutPtr): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipPathIterNextPathType(iterator.rawAddress.toString(), resultcount.rawAddress.toString(), pathtype.rawAddress.toString(), startindex.rawAddress.toString(), endindex.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipPathIterNextSubpath(iterator: MutPtr<GpPathIterator>, resultcount: MutPtr<Int>, startindex: MutPtr<Int>, endindex: MutPtr<Int>, isclosed: MutPtr<Bool>): Status =
+public actual fun gdipPathIterNextSubpath(iterator: MutPtr, resultcount: MutPtr, startindex: MutPtr, endindex: MutPtr, isclosed: MutPtr): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipPathIterNextSubpath(iterator.rawAddress.toString(), resultcount.rawAddress.toString(), startindex.rawAddress.toString(), endindex.rawAddress.toString(), isclosed.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipPathIterNextSubpathPath(iterator: MutPtr<GpPathIterator>, resultcount: MutPtr<Int>, path: MutPtr<GpPath>, isclosed: MutPtr<Bool>): Status =
+public actual fun gdipPathIterNextSubpathPath(iterator: MutPtr, resultcount: MutPtr, path: MutPtr, isclosed: MutPtr): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipPathIterNextSubpathPath(iterator.rawAddress.toString(), resultcount.rawAddress.toString(), path.rawAddress.toString(), isclosed.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipPathIterRewind(iterator: MutPtr<GpPathIterator>): Status =
+public actual fun gdipPathIterRewind(iterator: MutPtr): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipPathIterRewind(iterator.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipPlayMetafileRecord(metafile: ConstPtr<GpMetafile>, recordtype: EmfPlusRecordType, flags: UInt, datasize: UInt, data: ConstPtr<UByte>): Status =
+public actual fun gdipPlayMetafileRecord(metafile: ConstPtr, recordtype: EmfPlusRecordType, flags: UInt, datasize: UInt, data: ConstPtr): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipPlayMetafileRecord(metafile.rawAddress.toString(), recordtype, flags.toInt(), datasize.toInt(), data.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipPrivateAddFontFile(fontcollection: MutPtr<GpFontCollection>, filename: Pcwstr): Status =
+public actual fun gdipPrivateAddFontFile(fontcollection: MutPtr, filename: Pcwstr): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipPrivateAddFontFile(fontcollection.rawAddress.toString(), filename.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipPrivateAddMemoryFont(fontcollection: MutPtr<GpFontCollection>, memory: ConstPtr<CVoid>, length: Int): Status =
+public actual fun gdipPrivateAddMemoryFont(fontcollection: MutPtr, memory: ConstPtr, length: Int): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipPrivateAddMemoryFont(fontcollection.rawAddress.toString(), memory.rawAddress.toString(), length) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipRecordMetafile(referencehdc: Hdc, type: EmfType, framerect: ConstPtr<RectF>, frameunit: MetafileFrameUnit, description: Pcwstr, metafile: MutPtr<MutPtr<GpMetafile>>): Status =
+public actual fun gdipRecordMetafile(referencehdc: Hdc, type: EmfType, framerect: ConstPtr, frameunit: MetafileFrameUnit, description: Pcwstr, metafile: MutPtr): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipRecordMetafile(referencehdc.rawAddress.toString(), type, framerect.rawAddress.toString(), frameunit, description.rawAddress.toString(), metafile.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipRecordMetafileFileName(filename: Pcwstr, referencehdc: Hdc, type: EmfType, framerect: ConstPtr<RectF>, frameunit: MetafileFrameUnit, description: Pcwstr, metafile: MutPtr<MutPtr<GpMetafile>>): Status =
+public actual fun gdipRecordMetafileFileName(filename: Pcwstr, referencehdc: Hdc, type: EmfType, framerect: ConstPtr, frameunit: MetafileFrameUnit, description: Pcwstr, metafile: MutPtr): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipRecordMetafileFileName(filename.rawAddress.toString(), referencehdc.rawAddress.toString(), type, framerect.rawAddress.toString(), frameunit, description.rawAddress.toString(), metafile.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipRecordMetafileFileNameI(filename: Pcwstr, referencehdc: Hdc, type: EmfType, framerect: ConstPtr<Rect>, frameunit: MetafileFrameUnit, description: Pcwstr, metafile: MutPtr<MutPtr<GpMetafile>>): Status =
+public actual fun gdipRecordMetafileFileNameI(filename: Pcwstr, referencehdc: Hdc, type: EmfType, framerect: ConstPtr, frameunit: MetafileFrameUnit, description: Pcwstr, metafile: MutPtr): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipRecordMetafileFileNameI(filename.rawAddress.toString(), referencehdc.rawAddress.toString(), type, framerect.rawAddress.toString(), frameunit, description.rawAddress.toString(), metafile.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipRecordMetafileI(referencehdc: Hdc, type: EmfType, framerect: ConstPtr<Rect>, frameunit: MetafileFrameUnit, description: Pcwstr, metafile: MutPtr<MutPtr<GpMetafile>>): Status =
+public actual fun gdipRecordMetafileI(referencehdc: Hdc, type: EmfType, framerect: ConstPtr, frameunit: MetafileFrameUnit, description: Pcwstr, metafile: MutPtr): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipRecordMetafileI(referencehdc.rawAddress.toString(), type, framerect.rawAddress.toString(), frameunit, description.rawAddress.toString(), metafile.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipRecordMetafileStream(stream: MutPtr<CVoid>, referencehdc: Hdc, type: EmfType, framerect: ConstPtr<RectF>, frameunit: MetafileFrameUnit, description: Pcwstr, metafile: MutPtr<MutPtr<GpMetafile>>): Status =
+public actual fun gdipRecordMetafileStream(stream: MutPtr, referencehdc: Hdc, type: EmfType, framerect: ConstPtr, frameunit: MetafileFrameUnit, description: Pcwstr, metafile: MutPtr): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipRecordMetafileStream(stream.rawAddress.toString(), referencehdc.rawAddress.toString(), type, framerect.rawAddress.toString(), frameunit, description.rawAddress.toString(), metafile.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipRecordMetafileStreamI(stream: MutPtr<CVoid>, referencehdc: Hdc, type: EmfType, framerect: ConstPtr<Rect>, frameunit: MetafileFrameUnit, description: Pcwstr, metafile: MutPtr<MutPtr<GpMetafile>>): Status =
+public actual fun gdipRecordMetafileStreamI(stream: MutPtr, referencehdc: Hdc, type: EmfType, framerect: ConstPtr, frameunit: MetafileFrameUnit, description: Pcwstr, metafile: MutPtr): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipRecordMetafileStreamI(stream.rawAddress.toString(), referencehdc.rawAddress.toString(), type, framerect.rawAddress.toString(), frameunit, description.rawAddress.toString(), metafile.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipReleaseDC(graphics: MutPtr<GpGraphics>, hdc: Hdc): Status =
+public actual fun gdipReleaseDC(graphics: MutPtr, hdc: Hdc): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipReleaseDC(graphics.rawAddress.toString(), hdc.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipRemovePropertyItem(image: MutPtr<GpImage>, propid: UInt): Status =
+public actual fun gdipRemovePropertyItem(image: MutPtr, propid: UInt): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipRemovePropertyItem(image.rawAddress.toString(), propid.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipResetClip(graphics: MutPtr<GpGraphics>): Status =
+public actual fun gdipResetClip(graphics: MutPtr): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipResetClip(graphics.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipResetImageAttributes(imageattr: MutPtr<GpImageAttributes>, type: ColorAdjustType): Status =
+public actual fun gdipResetImageAttributes(imageattr: MutPtr, type: ColorAdjustType): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipResetImageAttributes(imageattr.rawAddress.toString(), type) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipResetLineTransform(brush: MutPtr<GpLineGradient>): Status =
+public actual fun gdipResetLineTransform(brush: MutPtr): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipResetLineTransform(brush.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipResetPageTransform(graphics: MutPtr<GpGraphics>): Status =
+public actual fun gdipResetPageTransform(graphics: MutPtr): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipResetPageTransform(graphics.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipResetPath(path: MutPtr<GpPath>): Status =
+public actual fun gdipResetPath(path: MutPtr): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipResetPath(path.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipResetPathGradientTransform(brush: MutPtr<GpPathGradient>): Status =
+public actual fun gdipResetPathGradientTransform(brush: MutPtr): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipResetPathGradientTransform(brush.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipResetPenTransform(pen: MutPtr<GpPen>): Status =
+public actual fun gdipResetPenTransform(pen: MutPtr): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipResetPenTransform(pen.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipResetTextureTransform(brush: MutPtr<GpTexture>): Status =
+public actual fun gdipResetTextureTransform(brush: MutPtr): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipResetTextureTransform(brush.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipResetWorldTransform(graphics: MutPtr<GpGraphics>): Status =
+public actual fun gdipResetWorldTransform(graphics: MutPtr): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipResetWorldTransform(graphics.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipRestoreGraphics(graphics: MutPtr<GpGraphics>, state: UInt): Status =
+public actual fun gdipRestoreGraphics(graphics: MutPtr, state: UInt): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipRestoreGraphics(graphics.rawAddress.toString(), state.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipReversePath(path: MutPtr<GpPath>): Status =
+public actual fun gdipReversePath(path: MutPtr): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipReversePath(path.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipRotateLineTransform(brush: MutPtr<GpLineGradient>, angle: Float, order: MatrixOrder): Status =
+public actual fun gdipRotateLineTransform(brush: MutPtr, angle: Float, order: MatrixOrder): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipRotateLineTransform(brush.rawAddress.toString(), angle.toDouble(), order) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipRotateMatrix(matrix: MutPtr<Matrix>, angle: Float, order: MatrixOrder): Status =
+public actual fun gdipRotateMatrix(matrix: MutPtr, angle: Float, order: MatrixOrder): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipRotateMatrix(matrix.rawAddress.toString(), angle.toDouble(), order) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipRotatePathGradientTransform(brush: MutPtr<GpPathGradient>, angle: Float, order: MatrixOrder): Status =
+public actual fun gdipRotatePathGradientTransform(brush: MutPtr, angle: Float, order: MatrixOrder): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipRotatePathGradientTransform(brush.rawAddress.toString(), angle.toDouble(), order) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipRotatePenTransform(pen: MutPtr<GpPen>, angle: Float, order: MatrixOrder): Status =
+public actual fun gdipRotatePenTransform(pen: MutPtr, angle: Float, order: MatrixOrder): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipRotatePenTransform(pen.rawAddress.toString(), angle.toDouble(), order) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipRotateTextureTransform(brush: MutPtr<GpTexture>, angle: Float, order: MatrixOrder): Status =
+public actual fun gdipRotateTextureTransform(brush: MutPtr, angle: Float, order: MatrixOrder): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipRotateTextureTransform(brush.rawAddress.toString(), angle.toDouble(), order) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipRotateWorldTransform(graphics: MutPtr<GpGraphics>, angle: Float, order: MatrixOrder): Status =
+public actual fun gdipRotateWorldTransform(graphics: MutPtr, angle: Float, order: MatrixOrder): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipRotateWorldTransform(graphics.rawAddress.toString(), angle.toDouble(), order) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipSaveAdd(image: MutPtr<GpImage>, encoderparams: ConstPtr<EncoderParameters>): Status =
+public actual fun gdipSaveAdd(image: MutPtr, encoderparams: ConstPtr): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipSaveAdd(image.rawAddress.toString(), encoderparams.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipSaveAddImage(image: MutPtr<GpImage>, newimage: MutPtr<GpImage>, encoderparams: ConstPtr<EncoderParameters>): Status =
+public actual fun gdipSaveAddImage(image: MutPtr, newimage: MutPtr, encoderparams: ConstPtr): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipSaveAddImage(image.rawAddress.toString(), newimage.rawAddress.toString(), encoderparams.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipSaveGraphics(graphics: MutPtr<GpGraphics>, state: MutPtr<UInt>): Status =
+public actual fun gdipSaveGraphics(graphics: MutPtr, state: MutPtr): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipSaveGraphics(graphics.rawAddress.toString(), state.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipSaveImageToFile(image: MutPtr<GpImage>, filename: Pcwstr, clsidencoder: ConstPtr<Guid>, encoderparams: ConstPtr<EncoderParameters>): Status =
+public actual fun gdipSaveImageToFile(image: MutPtr, filename: Pcwstr, clsidencoder: ConstPtr, encoderparams: ConstPtr): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipSaveImageToFile(image.rawAddress.toString(), filename.rawAddress.toString(), clsidencoder.rawAddress.toString(), encoderparams.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipSaveImageToStream(image: MutPtr<GpImage>, stream: MutPtr<CVoid>, clsidencoder: ConstPtr<Guid>, encoderparams: ConstPtr<EncoderParameters>): Status =
+public actual fun gdipSaveImageToStream(image: MutPtr, stream: MutPtr, clsidencoder: ConstPtr, encoderparams: ConstPtr): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipSaveImageToStream(image.rawAddress.toString(), stream.rawAddress.toString(), clsidencoder.rawAddress.toString(), encoderparams.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipScaleLineTransform(brush: MutPtr<GpLineGradient>, sx: Float, sy: Float, order: MatrixOrder): Status =
+public actual fun gdipScaleLineTransform(brush: MutPtr, sx: Float, sy: Float, order: MatrixOrder): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipScaleLineTransform(brush.rawAddress.toString(), sx.toDouble(), sy.toDouble(), order) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipScaleMatrix(matrix: MutPtr<Matrix>, scalex: Float, scaley: Float, order: MatrixOrder): Status =
+public actual fun gdipScaleMatrix(matrix: MutPtr, scalex: Float, scaley: Float, order: MatrixOrder): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipScaleMatrix(matrix.rawAddress.toString(), scalex.toDouble(), scaley.toDouble(), order) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipScalePathGradientTransform(brush: MutPtr<GpPathGradient>, sx: Float, sy: Float, order: MatrixOrder): Status =
+public actual fun gdipScalePathGradientTransform(brush: MutPtr, sx: Float, sy: Float, order: MatrixOrder): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipScalePathGradientTransform(brush.rawAddress.toString(), sx.toDouble(), sy.toDouble(), order) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipScalePenTransform(pen: MutPtr<GpPen>, sx: Float, sy: Float, order: MatrixOrder): Status =
+public actual fun gdipScalePenTransform(pen: MutPtr, sx: Float, sy: Float, order: MatrixOrder): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipScalePenTransform(pen.rawAddress.toString(), sx.toDouble(), sy.toDouble(), order) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipScaleTextureTransform(brush: MutPtr<GpTexture>, sx: Float, sy: Float, order: MatrixOrder): Status =
+public actual fun gdipScaleTextureTransform(brush: MutPtr, sx: Float, sy: Float, order: MatrixOrder): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipScaleTextureTransform(brush.rawAddress.toString(), sx.toDouble(), sy.toDouble(), order) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipScaleWorldTransform(graphics: MutPtr<GpGraphics>, sx: Float, sy: Float, order: MatrixOrder): Status =
+public actual fun gdipScaleWorldTransform(graphics: MutPtr, sx: Float, sy: Float, order: MatrixOrder): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipScaleWorldTransform(graphics.rawAddress.toString(), sx.toDouble(), sy.toDouble(), order) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipSetAdjustableArrowCapFillState(cap: MutPtr<GpAdjustableArrowCap>, fillstate: Bool): Status =
+public actual fun gdipSetAdjustableArrowCapFillState(cap: MutPtr, fillstate: Bool): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipSetAdjustableArrowCapFillState(cap.rawAddress.toString(), fillstate) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipSetAdjustableArrowCapHeight(cap: MutPtr<GpAdjustableArrowCap>, height: Float): Status =
+public actual fun gdipSetAdjustableArrowCapHeight(cap: MutPtr, height: Float): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipSetAdjustableArrowCapHeight(cap.rawAddress.toString(), height.toDouble()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipSetAdjustableArrowCapMiddleInset(cap: MutPtr<GpAdjustableArrowCap>, middleinset: Float): Status =
+public actual fun gdipSetAdjustableArrowCapMiddleInset(cap: MutPtr, middleinset: Float): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipSetAdjustableArrowCapMiddleInset(cap.rawAddress.toString(), middleinset.toDouble()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipSetAdjustableArrowCapWidth(cap: MutPtr<GpAdjustableArrowCap>, width: Float): Status =
+public actual fun gdipSetAdjustableArrowCapWidth(cap: MutPtr, width: Float): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipSetAdjustableArrowCapWidth(cap.rawAddress.toString(), width.toDouble()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipSetClipGraphics(graphics: MutPtr<GpGraphics>, srcgraphics: MutPtr<GpGraphics>, combinemode: CombineMode): Status =
+public actual fun gdipSetClipGraphics(graphics: MutPtr, srcgraphics: MutPtr, combinemode: CombineMode): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipSetClipGraphics(graphics.rawAddress.toString(), srcgraphics.rawAddress.toString(), combinemode) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipSetClipHrgn(graphics: MutPtr<GpGraphics>, hrgn: Hrgn, combinemode: CombineMode): Status =
+public actual fun gdipSetClipHrgn(graphics: MutPtr, hrgn: Hrgn, combinemode: CombineMode): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipSetClipHrgn(graphics.rawAddress.toString(), hrgn.rawAddress.toString(), combinemode) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipSetClipPath(graphics: MutPtr<GpGraphics>, path: MutPtr<GpPath>, combinemode: CombineMode): Status =
+public actual fun gdipSetClipPath(graphics: MutPtr, path: MutPtr, combinemode: CombineMode): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipSetClipPath(graphics.rawAddress.toString(), path.rawAddress.toString(), combinemode) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipSetClipRect(graphics: MutPtr<GpGraphics>, x: Float, y: Float, width: Float, height: Float, combinemode: CombineMode): Status =
+public actual fun gdipSetClipRect(graphics: MutPtr, x: Float, y: Float, width: Float, height: Float, combinemode: CombineMode): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipSetClipRect(graphics.rawAddress.toString(), x.toDouble(), y.toDouble(), width.toDouble(), height.toDouble(), combinemode) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipSetClipRectI(graphics: MutPtr<GpGraphics>, x: Int, y: Int, width: Int, height: Int, combinemode: CombineMode): Status =
+public actual fun gdipSetClipRectI(graphics: MutPtr, x: Int, y: Int, width: Int, height: Int, combinemode: CombineMode): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipSetClipRectI(graphics.rawAddress.toString(), x, y, width, height, combinemode) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipSetClipRegion(graphics: MutPtr<GpGraphics>, region: MutPtr<GpRegion>, combinemode: CombineMode): Status =
+public actual fun gdipSetClipRegion(graphics: MutPtr, region: MutPtr, combinemode: CombineMode): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipSetClipRegion(graphics.rawAddress.toString(), region.rawAddress.toString(), combinemode) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipSetCompositingMode(graphics: MutPtr<GpGraphics>, compositingmode: CompositingMode): Status =
+public actual fun gdipSetCompositingMode(graphics: MutPtr, compositingmode: CompositingMode): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipSetCompositingMode(graphics.rawAddress.toString(), compositingmode) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipSetCompositingQuality(graphics: MutPtr<GpGraphics>, compositingquality: CompositingQuality): Status =
+public actual fun gdipSetCompositingQuality(graphics: MutPtr, compositingquality: CompositingQuality): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipSetCompositingQuality(graphics.rawAddress.toString(), compositingquality) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipSetCustomLineCapBaseCap(customcap: MutPtr<GpCustomLineCap>, basecap: LineCap): Status =
+public actual fun gdipSetCustomLineCapBaseCap(customcap: MutPtr, basecap: LineCap): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipSetCustomLineCapBaseCap(customcap.rawAddress.toString(), basecap) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipSetCustomLineCapBaseInset(customcap: MutPtr<GpCustomLineCap>, inset: Float): Status =
+public actual fun gdipSetCustomLineCapBaseInset(customcap: MutPtr, inset: Float): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipSetCustomLineCapBaseInset(customcap.rawAddress.toString(), inset.toDouble()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipSetCustomLineCapStrokeCaps(customcap: MutPtr<GpCustomLineCap>, startcap: LineCap, endcap: LineCap): Status =
+public actual fun gdipSetCustomLineCapStrokeCaps(customcap: MutPtr, startcap: LineCap, endcap: LineCap): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipSetCustomLineCapStrokeCaps(customcap.rawAddress.toString(), startcap, endcap) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipSetCustomLineCapStrokeJoin(customcap: MutPtr<GpCustomLineCap>, linejoin: LineJoin): Status =
+public actual fun gdipSetCustomLineCapStrokeJoin(customcap: MutPtr, linejoin: LineJoin): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipSetCustomLineCapStrokeJoin(customcap.rawAddress.toString(), linejoin) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipSetCustomLineCapWidthScale(customcap: MutPtr<GpCustomLineCap>, widthscale: Float): Status =
+public actual fun gdipSetCustomLineCapWidthScale(customcap: MutPtr, widthscale: Float): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipSetCustomLineCapWidthScale(customcap.rawAddress.toString(), widthscale.toDouble()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipSetEffectParameters(effect: MutPtr<CGpEffect>, params: ConstPtr<CVoid>, size: UInt): Status =
+public actual fun gdipSetEffectParameters(effect: MutPtr, params: ConstPtr, size: UInt): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipSetEffectParameters(effect.rawAddress.toString(), params.rawAddress.toString(), size.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipSetEmpty(region: MutPtr<GpRegion>): Status =
+public actual fun gdipSetEmpty(region: MutPtr): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipSetEmpty(region.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipSetImageAttributesCachedBackground(imageattr: MutPtr<GpImageAttributes>, enableflag: Bool): Status =
+public actual fun gdipSetImageAttributesCachedBackground(imageattr: MutPtr, enableflag: Bool): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipSetImageAttributesCachedBackground(imageattr.rawAddress.toString(), enableflag) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipSetImageAttributesColorKeys(imageattr: MutPtr<GpImageAttributes>, type: ColorAdjustType, enableflag: Bool, colorlow: UInt, colorhigh: UInt): Status =
+public actual fun gdipSetImageAttributesColorKeys(imageattr: MutPtr, type: ColorAdjustType, enableflag: Bool, colorlow: UInt, colorhigh: UInt): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipSetImageAttributesColorKeys(imageattr.rawAddress.toString(), type, enableflag, colorlow.toInt(), colorhigh.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipSetImageAttributesColorMatrix(imageattr: MutPtr<GpImageAttributes>, type: ColorAdjustType, enableflag: Bool, colormatrix: ConstPtr<ColorMatrix>, graymatrix: ConstPtr<ColorMatrix>, flags: ColorMatrixFlags): Status =
+public actual fun gdipSetImageAttributesColorMatrix(imageattr: MutPtr, type: ColorAdjustType, enableflag: Bool, colormatrix: ConstPtr, graymatrix: ConstPtr, flags: ColorMatrixFlags): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipSetImageAttributesColorMatrix(imageattr.rawAddress.toString(), type, enableflag, colormatrix.rawAddress.toString(), graymatrix.rawAddress.toString(), flags) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipSetImageAttributesGamma(imageattr: MutPtr<GpImageAttributes>, type: ColorAdjustType, enableflag: Bool, gamma: Float): Status =
+public actual fun gdipSetImageAttributesGamma(imageattr: MutPtr, type: ColorAdjustType, enableflag: Bool, gamma: Float): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipSetImageAttributesGamma(imageattr.rawAddress.toString(), type, enableflag, gamma.toDouble()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipSetImageAttributesNoOp(imageattr: MutPtr<GpImageAttributes>, type: ColorAdjustType, enableflag: Bool): Status =
+public actual fun gdipSetImageAttributesNoOp(imageattr: MutPtr, type: ColorAdjustType, enableflag: Bool): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipSetImageAttributesNoOp(imageattr.rawAddress.toString(), type, enableflag) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipSetImageAttributesOutputChannel(imageattr: MutPtr<GpImageAttributes>, type: ColorAdjustType, enableflag: Bool, channelflags: ColorChannelFlags): Status =
+public actual fun gdipSetImageAttributesOutputChannel(imageattr: MutPtr, type: ColorAdjustType, enableflag: Bool, channelflags: ColorChannelFlags): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipSetImageAttributesOutputChannel(imageattr.rawAddress.toString(), type, enableflag, channelflags) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipSetImageAttributesOutputChannelColorProfile(imageattr: MutPtr<GpImageAttributes>, type: ColorAdjustType, enableflag: Bool, colorprofilefilename: Pcwstr): Status =
+public actual fun gdipSetImageAttributesOutputChannelColorProfile(imageattr: MutPtr, type: ColorAdjustType, enableflag: Bool, colorprofilefilename: Pcwstr): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipSetImageAttributesOutputChannelColorProfile(imageattr.rawAddress.toString(), type, enableflag, colorprofilefilename.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipSetImageAttributesRemapTable(imageattr: MutPtr<GpImageAttributes>, type: ColorAdjustType, enableflag: Bool, mapsize: UInt, map: ConstPtr<ColorMap>): Status =
+public actual fun gdipSetImageAttributesRemapTable(imageattr: MutPtr, type: ColorAdjustType, enableflag: Bool, mapsize: UInt, map: ConstPtr): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipSetImageAttributesRemapTable(imageattr.rawAddress.toString(), type, enableflag, mapsize.toInt(), map.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipSetImageAttributesThreshold(imageattr: MutPtr<GpImageAttributes>, type: ColorAdjustType, enableflag: Bool, threshold: Float): Status =
+public actual fun gdipSetImageAttributesThreshold(imageattr: MutPtr, type: ColorAdjustType, enableflag: Bool, threshold: Float): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipSetImageAttributesThreshold(imageattr.rawAddress.toString(), type, enableflag, threshold.toDouble()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipSetImageAttributesToIdentity(imageattr: MutPtr<GpImageAttributes>, type: ColorAdjustType): Status =
+public actual fun gdipSetImageAttributesToIdentity(imageattr: MutPtr, type: ColorAdjustType): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipSetImageAttributesToIdentity(imageattr.rawAddress.toString(), type) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipSetImageAttributesWrapMode(imageattr: MutPtr<GpImageAttributes>, wrap: WrapMode, argb: UInt, clamp: Bool): Status =
+public actual fun gdipSetImageAttributesWrapMode(imageattr: MutPtr, wrap: WrapMode, argb: UInt, clamp: Bool): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipSetImageAttributesWrapMode(imageattr.rawAddress.toString(), wrap, argb.toInt(), clamp) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipSetImagePalette(image: MutPtr<GpImage>, palette: ConstPtr<ColorPalette>): Status =
+public actual fun gdipSetImagePalette(image: MutPtr, palette: ConstPtr): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipSetImagePalette(image.rawAddress.toString(), palette.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipSetInfinite(region: MutPtr<GpRegion>): Status =
+public actual fun gdipSetInfinite(region: MutPtr): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipSetInfinite(region.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipSetInterpolationMode(graphics: MutPtr<GpGraphics>, interpolationmode: InterpolationMode): Status =
+public actual fun gdipSetInterpolationMode(graphics: MutPtr, interpolationmode: InterpolationMode): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipSetInterpolationMode(graphics.rawAddress.toString(), interpolationmode) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipSetLineBlend(brush: MutPtr<GpLineGradient>, blend: ConstPtr<Float>, positions: ConstPtr<Float>, count: Int): Status =
+public actual fun gdipSetLineBlend(brush: MutPtr, blend: ConstPtr, positions: ConstPtr, count: Int): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipSetLineBlend(brush.rawAddress.toString(), blend.rawAddress.toString(), positions.rawAddress.toString(), count) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipSetLineColors(brush: MutPtr<GpLineGradient>, color1: UInt, color2: UInt): Status =
+public actual fun gdipSetLineColors(brush: MutPtr, color1: UInt, color2: UInt): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipSetLineColors(brush.rawAddress.toString(), color1.toInt(), color2.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipSetLineGammaCorrection(brush: MutPtr<GpLineGradient>, usegammacorrection: Bool): Status =
+public actual fun gdipSetLineGammaCorrection(brush: MutPtr, usegammacorrection: Bool): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipSetLineGammaCorrection(brush.rawAddress.toString(), usegammacorrection) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipSetLineLinearBlend(brush: MutPtr<GpLineGradient>, focus: Float, scale: Float): Status =
+public actual fun gdipSetLineLinearBlend(brush: MutPtr, focus: Float, scale: Float): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipSetLineLinearBlend(brush.rawAddress.toString(), focus.toDouble(), scale.toDouble()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipSetLinePresetBlend(brush: MutPtr<GpLineGradient>, blend: ConstPtr<UInt>, positions: ConstPtr<Float>, count: Int): Status =
+public actual fun gdipSetLinePresetBlend(brush: MutPtr, blend: ConstPtr, positions: ConstPtr, count: Int): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipSetLinePresetBlend(brush.rawAddress.toString(), blend.rawAddress.toString(), positions.rawAddress.toString(), count) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipSetLineSigmaBlend(brush: MutPtr<GpLineGradient>, focus: Float, scale: Float): Status =
+public actual fun gdipSetLineSigmaBlend(brush: MutPtr, focus: Float, scale: Float): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipSetLineSigmaBlend(brush.rawAddress.toString(), focus.toDouble(), scale.toDouble()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipSetLineTransform(brush: MutPtr<GpLineGradient>, matrix: ConstPtr<Matrix>): Status =
+public actual fun gdipSetLineTransform(brush: MutPtr, matrix: ConstPtr): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipSetLineTransform(brush.rawAddress.toString(), matrix.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipSetLineWrapMode(brush: MutPtr<GpLineGradient>, wrapmode: WrapMode): Status =
+public actual fun gdipSetLineWrapMode(brush: MutPtr, wrapmode: WrapMode): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipSetLineWrapMode(brush.rawAddress.toString(), wrapmode) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipSetMatrixElements(matrix: MutPtr<Matrix>, m11: Float, m12: Float, m21: Float, m22: Float, dx: Float, dy: Float): Status =
+public actual fun gdipSetMatrixElements(matrix: MutPtr, m11: Float, m12: Float, m21: Float, m22: Float, dx: Float, dy: Float): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipSetMatrixElements(matrix.rawAddress.toString(), m11.toDouble(), m12.toDouble(), m21.toDouble(), m22.toDouble(), dx.toDouble(), dy.toDouble()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipSetMetafileDownLevelRasterizationLimit(metafile: MutPtr<GpMetafile>, metafilerasterizationlimitdpi: UInt): Status =
+public actual fun gdipSetMetafileDownLevelRasterizationLimit(metafile: MutPtr, metafilerasterizationlimitdpi: UInt): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipSetMetafileDownLevelRasterizationLimit(metafile.rawAddress.toString(), metafilerasterizationlimitdpi.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipSetPageScale(graphics: MutPtr<GpGraphics>, scale: Float): Status =
+public actual fun gdipSetPageScale(graphics: MutPtr, scale: Float): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipSetPageScale(graphics.rawAddress.toString(), scale.toDouble()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipSetPageUnit(graphics: MutPtr<GpGraphics>, unit: Unit): Status =
+public actual fun gdipSetPageUnit(graphics: MutPtr, unit: Unit): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipSetPageUnit(graphics.rawAddress.toString(), unit) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipSetPathFillMode(path: MutPtr<GpPath>, fillmode: FillMode): Status =
+public actual fun gdipSetPathFillMode(path: MutPtr, fillmode: FillMode): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipSetPathFillMode(path.rawAddress.toString(), fillmode) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipSetPathGradientBlend(brush: MutPtr<GpPathGradient>, blend: ConstPtr<Float>, positions: ConstPtr<Float>, count: Int): Status =
+public actual fun gdipSetPathGradientBlend(brush: MutPtr, blend: ConstPtr, positions: ConstPtr, count: Int): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipSetPathGradientBlend(brush.rawAddress.toString(), blend.rawAddress.toString(), positions.rawAddress.toString(), count) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipSetPathGradientCenterColor(brush: MutPtr<GpPathGradient>, colors: UInt): Status =
+public actual fun gdipSetPathGradientCenterColor(brush: MutPtr, colors: UInt): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipSetPathGradientCenterColor(brush.rawAddress.toString(), colors.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipSetPathGradientCenterPoint(brush: MutPtr<GpPathGradient>, points: ConstPtr<PointF>): Status =
+public actual fun gdipSetPathGradientCenterPoint(brush: MutPtr, points: ConstPtr): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipSetPathGradientCenterPoint(brush.rawAddress.toString(), points.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipSetPathGradientCenterPointI(brush: MutPtr<GpPathGradient>, points: ConstPtr<Point>): Status =
+public actual fun gdipSetPathGradientCenterPointI(brush: MutPtr, points: ConstPtr): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipSetPathGradientCenterPointI(brush.rawAddress.toString(), points.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipSetPathGradientFocusScales(brush: MutPtr<GpPathGradient>, xscale: Float, yscale: Float): Status =
+public actual fun gdipSetPathGradientFocusScales(brush: MutPtr, xscale: Float, yscale: Float): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipSetPathGradientFocusScales(brush.rawAddress.toString(), xscale.toDouble(), yscale.toDouble()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipSetPathGradientGammaCorrection(brush: MutPtr<GpPathGradient>, usegammacorrection: Bool): Status =
+public actual fun gdipSetPathGradientGammaCorrection(brush: MutPtr, usegammacorrection: Bool): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipSetPathGradientGammaCorrection(brush.rawAddress.toString(), usegammacorrection) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipSetPathGradientLinearBlend(brush: MutPtr<GpPathGradient>, focus: Float, scale: Float): Status =
+public actual fun gdipSetPathGradientLinearBlend(brush: MutPtr, focus: Float, scale: Float): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipSetPathGradientLinearBlend(brush.rawAddress.toString(), focus.toDouble(), scale.toDouble()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipSetPathGradientPath(brush: MutPtr<GpPathGradient>, path: ConstPtr<GpPath>): Status =
+public actual fun gdipSetPathGradientPath(brush: MutPtr, path: ConstPtr): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipSetPathGradientPath(brush.rawAddress.toString(), path.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipSetPathGradientPresetBlend(brush: MutPtr<GpPathGradient>, blend: ConstPtr<UInt>, positions: ConstPtr<Float>, count: Int): Status =
+public actual fun gdipSetPathGradientPresetBlend(brush: MutPtr, blend: ConstPtr, positions: ConstPtr, count: Int): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipSetPathGradientPresetBlend(brush.rawAddress.toString(), blend.rawAddress.toString(), positions.rawAddress.toString(), count) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipSetPathGradientSigmaBlend(brush: MutPtr<GpPathGradient>, focus: Float, scale: Float): Status =
+public actual fun gdipSetPathGradientSigmaBlend(brush: MutPtr, focus: Float, scale: Float): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipSetPathGradientSigmaBlend(brush.rawAddress.toString(), focus.toDouble(), scale.toDouble()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipSetPathGradientSurroundColorsWithCount(brush: MutPtr<GpPathGradient>, color: ConstPtr<UInt>, count: MutPtr<Int>): Status =
+public actual fun gdipSetPathGradientSurroundColorsWithCount(brush: MutPtr, color: ConstPtr, count: MutPtr): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipSetPathGradientSurroundColorsWithCount(brush.rawAddress.toString(), color.rawAddress.toString(), count.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipSetPathGradientTransform(brush: MutPtr<GpPathGradient>, matrix: MutPtr<Matrix>): Status =
+public actual fun gdipSetPathGradientTransform(brush: MutPtr, matrix: MutPtr): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipSetPathGradientTransform(brush.rawAddress.toString(), matrix.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipSetPathGradientWrapMode(brush: MutPtr<GpPathGradient>, wrapmode: WrapMode): Status =
+public actual fun gdipSetPathGradientWrapMode(brush: MutPtr, wrapmode: WrapMode): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipSetPathGradientWrapMode(brush.rawAddress.toString(), wrapmode) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipSetPathMarker(path: MutPtr<GpPath>): Status =
+public actual fun gdipSetPathMarker(path: MutPtr): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipSetPathMarker(path.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipSetPenBrushFill(pen: MutPtr<GpPen>, brush: MutPtr<GpBrush>): Status =
+public actual fun gdipSetPenBrushFill(pen: MutPtr, brush: MutPtr): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipSetPenBrushFill(pen.rawAddress.toString(), brush.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipSetPenColor(pen: MutPtr<GpPen>, argb: UInt): Status =
+public actual fun gdipSetPenColor(pen: MutPtr, argb: UInt): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipSetPenColor(pen.rawAddress.toString(), argb.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipSetPenCompoundArray(pen: MutPtr<GpPen>, dash: ConstPtr<Float>, count: Int): Status =
+public actual fun gdipSetPenCompoundArray(pen: MutPtr, dash: ConstPtr, count: Int): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipSetPenCompoundArray(pen.rawAddress.toString(), dash.rawAddress.toString(), count) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipSetPenCustomEndCap(pen: MutPtr<GpPen>, customcap: MutPtr<GpCustomLineCap>): Status =
+public actual fun gdipSetPenCustomEndCap(pen: MutPtr, customcap: MutPtr): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipSetPenCustomEndCap(pen.rawAddress.toString(), customcap.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipSetPenCustomStartCap(pen: MutPtr<GpPen>, customcap: MutPtr<GpCustomLineCap>): Status =
+public actual fun gdipSetPenCustomStartCap(pen: MutPtr, customcap: MutPtr): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipSetPenCustomStartCap(pen.rawAddress.toString(), customcap.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipSetPenDashArray(pen: MutPtr<GpPen>, dash: ConstPtr<Float>, count: Int): Status =
+public actual fun gdipSetPenDashArray(pen: MutPtr, dash: ConstPtr, count: Int): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipSetPenDashArray(pen.rawAddress.toString(), dash.rawAddress.toString(), count) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipSetPenDashCap197819(pen: MutPtr<GpPen>, dashcap: DashCap): Status =
+public actual fun gdipSetPenDashCap197819(pen: MutPtr, dashcap: DashCap): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipSetPenDashCap197819(pen.rawAddress.toString(), dashcap) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipSetPenDashOffset(pen: MutPtr<GpPen>, offset: Float): Status =
+public actual fun gdipSetPenDashOffset(pen: MutPtr, offset: Float): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipSetPenDashOffset(pen.rawAddress.toString(), offset.toDouble()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipSetPenDashStyle(pen: MutPtr<GpPen>, dashstyle: DashStyle): Status =
+public actual fun gdipSetPenDashStyle(pen: MutPtr, dashstyle: DashStyle): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipSetPenDashStyle(pen.rawAddress.toString(), dashstyle) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipSetPenEndCap(pen: MutPtr<GpPen>, endcap: LineCap): Status =
+public actual fun gdipSetPenEndCap(pen: MutPtr, endcap: LineCap): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipSetPenEndCap(pen.rawAddress.toString(), endcap) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipSetPenLineCap197819(pen: MutPtr<GpPen>, startcap: LineCap, endcap: LineCap, dashcap: DashCap): Status =
+public actual fun gdipSetPenLineCap197819(pen: MutPtr, startcap: LineCap, endcap: LineCap, dashcap: DashCap): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipSetPenLineCap197819(pen.rawAddress.toString(), startcap, endcap, dashcap) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipSetPenLineJoin(pen: MutPtr<GpPen>, linejoin: LineJoin): Status =
+public actual fun gdipSetPenLineJoin(pen: MutPtr, linejoin: LineJoin): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipSetPenLineJoin(pen.rawAddress.toString(), linejoin) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipSetPenMiterLimit(pen: MutPtr<GpPen>, miterlimit: Float): Status =
+public actual fun gdipSetPenMiterLimit(pen: MutPtr, miterlimit: Float): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipSetPenMiterLimit(pen.rawAddress.toString(), miterlimit.toDouble()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipSetPenMode(pen: MutPtr<GpPen>, penmode: PenAlignment): Status =
+public actual fun gdipSetPenMode(pen: MutPtr, penmode: PenAlignment): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipSetPenMode(pen.rawAddress.toString(), penmode) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipSetPenStartCap(pen: MutPtr<GpPen>, startcap: LineCap): Status =
+public actual fun gdipSetPenStartCap(pen: MutPtr, startcap: LineCap): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipSetPenStartCap(pen.rawAddress.toString(), startcap) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipSetPenTransform(pen: MutPtr<GpPen>, matrix: MutPtr<Matrix>): Status =
+public actual fun gdipSetPenTransform(pen: MutPtr, matrix: MutPtr): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipSetPenTransform(pen.rawAddress.toString(), matrix.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipSetPenUnit(pen: MutPtr<GpPen>, unit: Unit): Status =
+public actual fun gdipSetPenUnit(pen: MutPtr, unit: Unit): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipSetPenUnit(pen.rawAddress.toString(), unit) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipSetPenWidth(pen: MutPtr<GpPen>, width: Float): Status =
+public actual fun gdipSetPenWidth(pen: MutPtr, width: Float): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipSetPenWidth(pen.rawAddress.toString(), width.toDouble()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipSetPixelOffsetMode(graphics: MutPtr<GpGraphics>, pixeloffsetmode: PixelOffsetMode): Status =
+public actual fun gdipSetPixelOffsetMode(graphics: MutPtr, pixeloffsetmode: PixelOffsetMode): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipSetPixelOffsetMode(graphics.rawAddress.toString(), pixeloffsetmode) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipSetPropertyItem(image: MutPtr<GpImage>, item: ConstPtr<PropertyItem>): Status =
+public actual fun gdipSetPropertyItem(image: MutPtr, item: ConstPtr): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipSetPropertyItem(image.rawAddress.toString(), item.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipSetRenderingOrigin(graphics: MutPtr<GpGraphics>, x: Int, y: Int): Status =
+public actual fun gdipSetRenderingOrigin(graphics: MutPtr, x: Int, y: Int): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipSetRenderingOrigin(graphics.rawAddress.toString(), x, y) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipSetSmoothingMode(graphics: MutPtr<GpGraphics>, smoothingmode: SmoothingMode): Status =
+public actual fun gdipSetSmoothingMode(graphics: MutPtr, smoothingmode: SmoothingMode): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipSetSmoothingMode(graphics.rawAddress.toString(), smoothingmode) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipSetSolidFillColor(brush: MutPtr<GpSolidFill>, color: UInt): Status =
+public actual fun gdipSetSolidFillColor(brush: MutPtr, color: UInt): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipSetSolidFillColor(brush.rawAddress.toString(), color.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipSetStringFormatAlign(format: MutPtr<GpStringFormat>, align: StringAlignment): Status =
+public actual fun gdipSetStringFormatAlign(format: MutPtr, align: StringAlignment): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipSetStringFormatAlign(format.rawAddress.toString(), align) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipSetStringFormatDigitSubstitution(format: MutPtr<GpStringFormat>, language: UShort, substitute: StringDigitSubstitute): Status =
+public actual fun gdipSetStringFormatDigitSubstitution(format: MutPtr, language: UShort, substitute: StringDigitSubstitute): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipSetStringFormatDigitSubstitution(format.rawAddress.toString(), language.toInt(), substitute) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipSetStringFormatFlags(format: MutPtr<GpStringFormat>, flags: Int): Status =
+public actual fun gdipSetStringFormatFlags(format: MutPtr, flags: Int): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipSetStringFormatFlags(format.rawAddress.toString(), flags) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipSetStringFormatHotkeyPrefix(format: MutPtr<GpStringFormat>, hotkeyprefix: Int): Status =
+public actual fun gdipSetStringFormatHotkeyPrefix(format: MutPtr, hotkeyprefix: Int): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipSetStringFormatHotkeyPrefix(format.rawAddress.toString(), hotkeyprefix) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipSetStringFormatLineAlign(format: MutPtr<GpStringFormat>, align: StringAlignment): Status =
+public actual fun gdipSetStringFormatLineAlign(format: MutPtr, align: StringAlignment): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipSetStringFormatLineAlign(format.rawAddress.toString(), align) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipSetStringFormatMeasurableCharacterRanges(format: MutPtr<GpStringFormat>, rangecount: Int, ranges: ConstPtr<CharacterRange>): Status =
+public actual fun gdipSetStringFormatMeasurableCharacterRanges(format: MutPtr, rangecount: Int, ranges: ConstPtr): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipSetStringFormatMeasurableCharacterRanges(format.rawAddress.toString(), rangecount, ranges.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipSetStringFormatTabStops(format: MutPtr<GpStringFormat>, firsttaboffset: Float, count: Int, tabstops: ConstPtr<Float>): Status =
+public actual fun gdipSetStringFormatTabStops(format: MutPtr, firsttaboffset: Float, count: Int, tabstops: ConstPtr): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipSetStringFormatTabStops(format.rawAddress.toString(), firsttaboffset.toDouble(), count, tabstops.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipSetStringFormatTrimming(format: MutPtr<GpStringFormat>, trimming: StringTrimming): Status =
+public actual fun gdipSetStringFormatTrimming(format: MutPtr, trimming: StringTrimming): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipSetStringFormatTrimming(format.rawAddress.toString(), trimming) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipSetTextContrast(graphics: MutPtr<GpGraphics>, contrast: UInt): Status =
+public actual fun gdipSetTextContrast(graphics: MutPtr, contrast: UInt): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipSetTextContrast(graphics.rawAddress.toString(), contrast.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipSetTextRenderingHint(graphics: MutPtr<GpGraphics>, mode: TextRenderingHint): Status =
+public actual fun gdipSetTextRenderingHint(graphics: MutPtr, mode: TextRenderingHint): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipSetTextRenderingHint(graphics.rawAddress.toString(), mode) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipSetTextureTransform(brush: MutPtr<GpTexture>, matrix: ConstPtr<Matrix>): Status =
+public actual fun gdipSetTextureTransform(brush: MutPtr, matrix: ConstPtr): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipSetTextureTransform(brush.rawAddress.toString(), matrix.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipSetTextureWrapMode(brush: MutPtr<GpTexture>, wrapmode: WrapMode): Status =
+public actual fun gdipSetTextureWrapMode(brush: MutPtr, wrapmode: WrapMode): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipSetTextureWrapMode(brush.rawAddress.toString(), wrapmode) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipSetWorldTransform(graphics: MutPtr<GpGraphics>, matrix: MutPtr<Matrix>): Status =
+public actual fun gdipSetWorldTransform(graphics: MutPtr, matrix: MutPtr): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipSetWorldTransform(graphics.rawAddress.toString(), matrix.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipShearMatrix(matrix: MutPtr<Matrix>, shearx: Float, sheary: Float, order: MatrixOrder): Status =
+public actual fun gdipShearMatrix(matrix: MutPtr, shearx: Float, sheary: Float, order: MatrixOrder): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipShearMatrix(matrix.rawAddress.toString(), shearx.toDouble(), sheary.toDouble(), order) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipStartPathFigure(path: MutPtr<GpPath>): Status =
+public actual fun gdipStartPathFigure(path: MutPtr): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipStartPathFigure(path.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipStringFormatGetGenericDefault(format: MutPtr<MutPtr<GpStringFormat>>): Status =
+public actual fun gdipStringFormatGetGenericDefault(format: MutPtr): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipStringFormatGetGenericDefault(format.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipStringFormatGetGenericTypographic(format: MutPtr<MutPtr<GpStringFormat>>): Status =
+public actual fun gdipStringFormatGetGenericTypographic(format: MutPtr): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipStringFormatGetGenericTypographic(format.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipTestControl(control: GpTestControlEnum, param1: MutPtr<CVoid>): Status =
+public actual fun gdipTestControl(control: GpTestControlEnum, param1: MutPtr): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipTestControl(control, param1.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipTransformMatrixPoints(matrix: MutPtr<Matrix>, pts: MutPtr<PointF>, count: Int): Status =
+public actual fun gdipTransformMatrixPoints(matrix: MutPtr, pts: MutPtr, count: Int): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipTransformMatrixPoints(matrix.rawAddress.toString(), pts.rawAddress.toString(), count) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipTransformMatrixPointsI(matrix: MutPtr<Matrix>, pts: MutPtr<Point>, count: Int): Status =
+public actual fun gdipTransformMatrixPointsI(matrix: MutPtr, pts: MutPtr, count: Int): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipTransformMatrixPointsI(matrix.rawAddress.toString(), pts.rawAddress.toString(), count) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipTransformPath(path: MutPtr<GpPath>, matrix: MutPtr<Matrix>): Status =
+public actual fun gdipTransformPath(path: MutPtr, matrix: MutPtr): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipTransformPath(path.rawAddress.toString(), matrix.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipTransformPoints(graphics: MutPtr<GpGraphics>, destspace: CoordinateSpace, srcspace: CoordinateSpace, points: MutPtr<PointF>, count: Int): Status =
+public actual fun gdipTransformPoints(graphics: MutPtr, destspace: CoordinateSpace, srcspace: CoordinateSpace, points: MutPtr, count: Int): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipTransformPoints(graphics.rawAddress.toString(), destspace, srcspace, points.rawAddress.toString(), count) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipTransformPointsI(graphics: MutPtr<GpGraphics>, destspace: CoordinateSpace, srcspace: CoordinateSpace, points: MutPtr<Point>, count: Int): Status =
+public actual fun gdipTransformPointsI(graphics: MutPtr, destspace: CoordinateSpace, srcspace: CoordinateSpace, points: MutPtr, count: Int): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipTransformPointsI(graphics.rawAddress.toString(), destspace, srcspace, points.rawAddress.toString(), count) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipTransformRegion(region: MutPtr<GpRegion>, matrix: MutPtr<Matrix>): Status =
+public actual fun gdipTransformRegion(region: MutPtr, matrix: MutPtr): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipTransformRegion(region.rawAddress.toString(), matrix.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipTranslateClip(graphics: MutPtr<GpGraphics>, dx: Float, dy: Float): Status =
+public actual fun gdipTranslateClip(graphics: MutPtr, dx: Float, dy: Float): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipTranslateClip(graphics.rawAddress.toString(), dx.toDouble(), dy.toDouble()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipTranslateClipI(graphics: MutPtr<GpGraphics>, dx: Int, dy: Int): Status =
+public actual fun gdipTranslateClipI(graphics: MutPtr, dx: Int, dy: Int): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipTranslateClipI(graphics.rawAddress.toString(), dx, dy) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipTranslateLineTransform(brush: MutPtr<GpLineGradient>, dx: Float, dy: Float, order: MatrixOrder): Status =
+public actual fun gdipTranslateLineTransform(brush: MutPtr, dx: Float, dy: Float, order: MatrixOrder): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipTranslateLineTransform(brush.rawAddress.toString(), dx.toDouble(), dy.toDouble(), order) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipTranslateMatrix(matrix: MutPtr<Matrix>, offsetx: Float, offsety: Float, order: MatrixOrder): Status =
+public actual fun gdipTranslateMatrix(matrix: MutPtr, offsetx: Float, offsety: Float, order: MatrixOrder): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipTranslateMatrix(matrix.rawAddress.toString(), offsetx.toDouble(), offsety.toDouble(), order) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipTranslatePathGradientTransform(brush: MutPtr<GpPathGradient>, dx: Float, dy: Float, order: MatrixOrder): Status =
+public actual fun gdipTranslatePathGradientTransform(brush: MutPtr, dx: Float, dy: Float, order: MatrixOrder): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipTranslatePathGradientTransform(brush.rawAddress.toString(), dx.toDouble(), dy.toDouble(), order) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipTranslatePenTransform(pen: MutPtr<GpPen>, dx: Float, dy: Float, order: MatrixOrder): Status =
+public actual fun gdipTranslatePenTransform(pen: MutPtr, dx: Float, dy: Float, order: MatrixOrder): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipTranslatePenTransform(pen.rawAddress.toString(), dx.toDouble(), dy.toDouble(), order) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipTranslateRegion(region: MutPtr<GpRegion>, dx: Float, dy: Float): Status =
+public actual fun gdipTranslateRegion(region: MutPtr, dx: Float, dy: Float): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipTranslateRegion(region.rawAddress.toString(), dx.toDouble(), dy.toDouble()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipTranslateRegionI(region: MutPtr<GpRegion>, dx: Int, dy: Int): Status =
+public actual fun gdipTranslateRegionI(region: MutPtr, dx: Int, dy: Int): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipTranslateRegionI(region.rawAddress.toString(), dx, dy) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipTranslateTextureTransform(brush: MutPtr<GpTexture>, dx: Float, dy: Float, order: MatrixOrder): Status =
+public actual fun gdipTranslateTextureTransform(brush: MutPtr, dx: Float, dy: Float, order: MatrixOrder): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipTranslateTextureTransform(brush.rawAddress.toString(), dx.toDouble(), dy.toDouble(), order) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipTranslateWorldTransform(graphics: MutPtr<GpGraphics>, dx: Float, dy: Float, order: MatrixOrder): Status =
+public actual fun gdipTranslateWorldTransform(graphics: MutPtr, dx: Float, dy: Float, order: MatrixOrder): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipTranslateWorldTransform(graphics.rawAddress.toString(), dx.toDouble(), dy.toDouble(), order) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipVectorTransformMatrixPoints(matrix: MutPtr<Matrix>, pts: MutPtr<PointF>, count: Int): Status =
+public actual fun gdipVectorTransformMatrixPoints(matrix: MutPtr, pts: MutPtr, count: Int): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipVectorTransformMatrixPoints(matrix.rawAddress.toString(), pts.rawAddress.toString(), count) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipVectorTransformMatrixPointsI(matrix: MutPtr<Matrix>, pts: MutPtr<Point>, count: Int): Status =
+public actual fun gdipVectorTransformMatrixPointsI(matrix: MutPtr, pts: MutPtr, count: Int): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipVectorTransformMatrixPointsI(matrix.rawAddress.toString(), pts.rawAddress.toString(), count) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipWarpPath(path: MutPtr<GpPath>, matrix: MutPtr<Matrix>, points: ConstPtr<PointF>, count: Int, srcx: Float, srcy: Float, srcwidth: Float, srcheight: Float, warpmode: WarpMode, flatness: Float): Status =
+public actual fun gdipWarpPath(path: MutPtr, matrix: MutPtr, points: ConstPtr, count: Int, srcx: Float, srcy: Float, srcwidth: Float, srcheight: Float, warpmode: WarpMode, flatness: Float): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipWarpPath(path.rawAddress.toString(), matrix.rawAddress.toString(), points.rawAddress.toString(), count, srcx.toDouble(), srcy.toDouble(), srcwidth.toDouble(), srcheight.toDouble(), warpmode, flatness.toDouble()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipWidenPath(nativepath: MutPtr<GpPath>, pen: MutPtr<GpPen>, matrix: MutPtr<Matrix>, flatness: Float): Status =
+public actual fun gdipWidenPath(nativepath: MutPtr, pen: MutPtr, matrix: MutPtr, flatness: Float): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipWidenPath(nativepath.rawAddress.toString(), pen.rawAddress.toString(), matrix.rawAddress.toString(), flatness.toDouble()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdipWindingModeOutline(path: MutPtr<GpPath>, matrix: MutPtr<Matrix>, flatness: Float): Status =
+public actual fun gdipWindingModeOutline(path: MutPtr, matrix: MutPtr, flatness: Float): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdipWindingModeOutline(path.rawAddress.toString(), matrix.rawAddress.toString(), flatness.toDouble()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun gdiplusNotificationHook(token: MutPtr<ULong>): Status =
+public actual fun gdiplusNotificationHook(token: MutPtr): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdiplusNotificationHook(token.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun gdiplusNotificationUnhook(token: ULong) {
@@ -3805,5 +3801,5 @@ public actual fun gdiplusShutdown(token: ULong) {
     }
 }
 
-public actual fun gdiplusStartup(token: MutPtr<ULong>, input: ConstPtr<GdiplusStartupInput>, output: MutPtr<GdiplusStartupOutput>): Status =
+public actual fun gdiplusStartup(token: MutPtr, input: ConstPtr, output: MutPtr): Status =
     if (windowsWin32GraphicsGdiplusNapiAvailable) wasmWindowssysWindowsWin32GraphicsGdiplusGdiplusStartup(token.rawAddress.toString(), input.rawAddress.toString(), output.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")

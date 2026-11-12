@@ -2,7 +2,6 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.networking.httpserver
 
-import io.github.kotlinmania.rustlang.core.ffi.CVoid
 import io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
 import io.github.kotlinmania.rustlang.core.mem.TypeLayout
 import io.github.kotlinmania.rustlang.core.ptr.ConstPtr
@@ -14,7 +13,6 @@ import io.github.kotlinmania.windowssys.core.Pcwstr
 import io.github.kotlinmania.windowssys.core.Pstr
 import io.github.kotlinmania.windowssys.core.Pwstr
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Handle
-import io.github.kotlinmania.windowssys.windows.win32.networking.winsock.Sockaddr
 import io.github.kotlinmania.windowssys.windows.win32.networking.winsock.SockaddrStorage
 import io.github.kotlinmania.windowssys.windows.win32.security.PsecurityDescriptor
 
@@ -194,10 +192,10 @@ public data class HttpCachePolicy(
 public class HttpChannelBindInfo internal constructor(
     public var hardening: HttpAuthenticationHardeningLevels,
     public var flags: UInt,
-    serviceNamesCtorArg: MutPtr<MutPtr<HttpServiceBindingBase>>,
+    serviceNamesCtorArg: MutPtr,
     public var numberOfServiceNames: UInt,
 ) {
-    public var serviceNames: MutPtr<MutPtr<HttpServiceBindingBase>> = serviceNamesCtorArg
+    public var serviceNames: MutPtr = serviceNamesCtorArg
         internal set
 
     public constructor() : this(
@@ -211,11 +209,11 @@ public class HttpChannelBindInfo internal constructor(
 
     public operator fun component2(): UInt = this.flags
 
-    public operator fun component3(): MutPtr<MutPtr<HttpServiceBindingBase>> = this.serviceNames
+    public operator fun component3(): MutPtr = this.serviceNames
 
     public operator fun component4(): UInt = this.numberOfServiceNames
 
-    public fun copy(hardening: HttpAuthenticationHardeningLevels = this.hardening, flags: UInt = this.flags, serviceNames: MutPtr<MutPtr<HttpServiceBindingBase>> = this.serviceNames, numberOfServiceNames: UInt = this.numberOfServiceNames): HttpChannelBindInfo = HttpChannelBindInfo(hardening = hardening, flags = flags, serviceNamesCtorArg = serviceNames, numberOfServiceNames = numberOfServiceNames)
+    public fun copy(hardening: HttpAuthenticationHardeningLevels = this.hardening, flags: UInt = this.flags, serviceNames: MutPtr = this.serviceNames, numberOfServiceNames: UInt = this.numberOfServiceNames): HttpChannelBindInfo = HttpChannelBindInfo(hardening = hardening, flags = flags, serviceNamesCtorArg = serviceNames, numberOfServiceNames = numberOfServiceNames)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -246,7 +244,7 @@ public class HttpChannelBindInfo internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 4L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<MutPtr<HttpServiceBindingBase>>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 16L),
                     )
@@ -255,7 +253,7 @@ public class HttpChannelBindInfo internal constructor(
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 4L, value.flags)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<MutPtr<HttpServiceBindingBase>>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.serviceNames)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 16L, value.numberOfServiceNames)
                 }
@@ -264,7 +262,7 @@ public class HttpChannelBindInfo internal constructor(
         public operator fun invoke(
             hardening: HttpAuthenticationHardeningLevels = 0,
             flags: UInt = 0u,
-            serviceNames: MutPtr<MutPtr<HttpServiceBindingBase>> = MutPtr(0L),
+            serviceNames: MutPtr = MutPtr(0L),
             numberOfServiceNames: UInt = 0u,
         ): HttpChannelBindInfo =
             HttpChannelBindInfo(
@@ -402,9 +400,9 @@ public class HttpCookedUrl internal constructor(
 public class HttpCreateRequestQueuePropertyInfo internal constructor(
     public var propertyId: HttpCreateRequestQueuePropertyId,
     public var propertyInfoLength: UInt,
-    propertyInfoCtorArg: MutPtr<CVoid>,
+    propertyInfoCtorArg: MutPtr,
 ) {
-    public var propertyInfo: MutPtr<CVoid> = propertyInfoCtorArg
+    public var propertyInfo: MutPtr = propertyInfoCtorArg
         internal set
 
     public constructor() : this(
@@ -417,9 +415,9 @@ public class HttpCreateRequestQueuePropertyInfo internal constructor(
 
     public operator fun component2(): UInt = this.propertyInfoLength
 
-    public operator fun component3(): MutPtr<CVoid> = this.propertyInfo
+    public operator fun component3(): MutPtr = this.propertyInfo
 
-    public fun copy(propertyId: HttpCreateRequestQueuePropertyId = this.propertyId, propertyInfoLength: UInt = this.propertyInfoLength, propertyInfo: MutPtr<CVoid> = this.propertyInfo): HttpCreateRequestQueuePropertyInfo = HttpCreateRequestQueuePropertyInfo(propertyId = propertyId, propertyInfoLength = propertyInfoLength, propertyInfoCtorArg = propertyInfo)
+    public fun copy(propertyId: HttpCreateRequestQueuePropertyId = this.propertyId, propertyInfoLength: UInt = this.propertyInfoLength, propertyInfo: MutPtr = this.propertyInfo): HttpCreateRequestQueuePropertyInfo = HttpCreateRequestQueuePropertyInfo(propertyId = propertyId, propertyInfoLength = propertyInfoLength, propertyInfoCtorArg = propertyInfo)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -448,7 +446,7 @@ public class HttpCreateRequestQueuePropertyInfo internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 4L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<CVoid>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                     )
                 override fun writeNative(addr: Long, value: HttpCreateRequestQueuePropertyInfo) {
@@ -456,7 +454,7 @@ public class HttpCreateRequestQueuePropertyInfo internal constructor(
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 4L, value.propertyInfoLength)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<CVoid>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.propertyInfo)
                 }
             }
@@ -464,7 +462,7 @@ public class HttpCreateRequestQueuePropertyInfo internal constructor(
         public operator fun invoke(
             propertyId: HttpCreateRequestQueuePropertyId = 0,
             propertyInfoLength: UInt = 0u,
-            propertyInfo: MutPtr<CVoid> = MutPtr(0L),
+            propertyInfo: MutPtr = MutPtr(0L),
         ): HttpCreateRequestQueuePropertyInfo =
             HttpCreateRequestQueuePropertyInfo(
                 propertyId = propertyId,
@@ -620,10 +618,10 @@ public class HttpDataChunk02 internal constructor(
 }
 
 public class HttpDataChunk00 internal constructor(
-    pBufferCtorArg: MutPtr<CVoid>,
+    pBufferCtorArg: MutPtr,
     public var bufferLength: UInt,
 ) {
-    public var pBuffer: MutPtr<CVoid> = pBufferCtorArg
+    public var pBuffer: MutPtr = pBufferCtorArg
         internal set
 
     public constructor() : this(
@@ -631,11 +629,11 @@ public class HttpDataChunk00 internal constructor(
         bufferLength = 0u,
     )
 
-    public operator fun component1(): MutPtr<CVoid> = this.pBuffer
+    public operator fun component1(): MutPtr = this.pBuffer
 
     public operator fun component2(): UInt = this.bufferLength
 
-    public fun copy(pBuffer: MutPtr<CVoid> = this.pBuffer, bufferLength: UInt = this.bufferLength): HttpDataChunk00 = HttpDataChunk00(pBufferCtorArg = pBuffer, bufferLength = bufferLength)
+    public fun copy(pBuffer: MutPtr = this.pBuffer, bufferLength: UInt = this.bufferLength): HttpDataChunk00 = HttpDataChunk00(pBufferCtorArg = pBuffer, bufferLength = bufferLength)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -660,21 +658,21 @@ public class HttpDataChunk00 internal constructor(
                     HttpDataChunk00(
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<CVoid>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 8L),
                     )
                 override fun writeNative(addr: Long, value: HttpDataChunk00) {
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<CVoid>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr, value.pBuffer)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 8L, value.bufferLength)
                 }
             }
 
         public operator fun invoke(
-            pBuffer: MutPtr<CVoid> = MutPtr(0L),
+            pBuffer: MutPtr = MutPtr(0L),
             bufferLength: UInt = 0u,
         ): HttpDataChunk00 =
             HttpDataChunk00(
@@ -686,9 +684,9 @@ public class HttpDataChunk00 internal constructor(
 
 public class HttpDataChunk04 internal constructor(
     public var trailerCount: UShort,
-    pTrailersCtorArg: MutPtr<HttpUnknownHeader>,
+    pTrailersCtorArg: MutPtr,
 ) {
-    public var pTrailers: MutPtr<HttpUnknownHeader> = pTrailersCtorArg
+    public var pTrailers: MutPtr = pTrailersCtorArg
         internal set
 
     public constructor() : this(
@@ -698,9 +696,9 @@ public class HttpDataChunk04 internal constructor(
 
     public operator fun component1(): UShort = this.trailerCount
 
-    public operator fun component2(): MutPtr<HttpUnknownHeader> = this.pTrailers
+    public operator fun component2(): MutPtr = this.pTrailers
 
-    public fun copy(trailerCount: UShort = this.trailerCount, pTrailers: MutPtr<HttpUnknownHeader> = this.pTrailers): HttpDataChunk04 = HttpDataChunk04(trailerCount = trailerCount, pTrailersCtorArg = pTrailers)
+    public fun copy(trailerCount: UShort = this.trailerCount, pTrailers: MutPtr = this.pTrailers): HttpDataChunk04 = HttpDataChunk04(trailerCount = trailerCount, pTrailersCtorArg = pTrailers)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -726,21 +724,21 @@ public class HttpDataChunk04 internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<HttpUnknownHeader>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                     )
                 override fun writeNative(addr: Long, value: HttpDataChunk04) {
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16).writeNative(addr, value.trailerCount)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<HttpUnknownHeader>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.pTrailers)
                 }
             }
 
         public operator fun invoke(
             trailerCount: UShort = 0u,
-            pTrailers: MutPtr<HttpUnknownHeader> = MutPtr(0L),
+            pTrailers: MutPtr = MutPtr(0L),
         ): HttpDataChunk04 =
             HttpDataChunk04(
                 trailerCount = trailerCount,
@@ -752,9 +750,9 @@ public class HttpDataChunk04 internal constructor(
 public class HttpDelegateRequestPropertyInfo internal constructor(
     public var propertyId: HttpDelegateRequestPropertyId,
     public var propertyInfoLength: UInt,
-    propertyInfoCtorArg: MutPtr<CVoid>,
+    propertyInfoCtorArg: MutPtr,
 ) {
-    public var propertyInfo: MutPtr<CVoid> = propertyInfoCtorArg
+    public var propertyInfo: MutPtr = propertyInfoCtorArg
         internal set
 
     public constructor() : this(
@@ -767,9 +765,9 @@ public class HttpDelegateRequestPropertyInfo internal constructor(
 
     public operator fun component2(): UInt = this.propertyInfoLength
 
-    public operator fun component3(): MutPtr<CVoid> = this.propertyInfo
+    public operator fun component3(): MutPtr = this.propertyInfo
 
-    public fun copy(propertyId: HttpDelegateRequestPropertyId = this.propertyId, propertyInfoLength: UInt = this.propertyInfoLength, propertyInfo: MutPtr<CVoid> = this.propertyInfo): HttpDelegateRequestPropertyInfo = HttpDelegateRequestPropertyInfo(propertyId = propertyId, propertyInfoLength = propertyInfoLength, propertyInfoCtorArg = propertyInfo)
+    public fun copy(propertyId: HttpDelegateRequestPropertyId = this.propertyId, propertyInfoLength: UInt = this.propertyInfoLength, propertyInfo: MutPtr = this.propertyInfo): HttpDelegateRequestPropertyInfo = HttpDelegateRequestPropertyInfo(propertyId = propertyId, propertyInfoLength = propertyInfoLength, propertyInfoCtorArg = propertyInfo)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -798,7 +796,7 @@ public class HttpDelegateRequestPropertyInfo internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 4L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<CVoid>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                     )
                 override fun writeNative(addr: Long, value: HttpDelegateRequestPropertyInfo) {
@@ -806,7 +804,7 @@ public class HttpDelegateRequestPropertyInfo internal constructor(
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 4L, value.propertyInfoLength)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<CVoid>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.propertyInfo)
                 }
             }
@@ -814,7 +812,7 @@ public class HttpDelegateRequestPropertyInfo internal constructor(
         public operator fun invoke(
             propertyId: HttpDelegateRequestPropertyId = 0,
             propertyInfoLength: UInt = 0u,
-            propertyInfo: MutPtr<CVoid> = MutPtr(0L),
+            propertyInfo: MutPtr = MutPtr(0L),
         ): HttpDelegateRequestPropertyInfo =
             HttpDelegateRequestPropertyInfo(
                 propertyId = propertyId,
@@ -827,9 +825,9 @@ public class HttpDelegateRequestPropertyInfo internal constructor(
 public class HttpErrorHeadersParam internal constructor(
     public var statusCode: UShort,
     public var headerCount: UShort,
-    headersCtorArg: MutPtr<HttpUnknownHeader>,
+    headersCtorArg: MutPtr,
 ) {
-    public var headers: MutPtr<HttpUnknownHeader> = headersCtorArg
+    public var headers: MutPtr = headersCtorArg
         internal set
 
     public constructor() : this(
@@ -842,9 +840,9 @@ public class HttpErrorHeadersParam internal constructor(
 
     public operator fun component2(): UShort = this.headerCount
 
-    public operator fun component3(): MutPtr<HttpUnknownHeader> = this.headers
+    public operator fun component3(): MutPtr = this.headers
 
-    public fun copy(statusCode: UShort = this.statusCode, headerCount: UShort = this.headerCount, headers: MutPtr<HttpUnknownHeader> = this.headers): HttpErrorHeadersParam = HttpErrorHeadersParam(statusCode = statusCode, headerCount = headerCount, headersCtorArg = headers)
+    public fun copy(statusCode: UShort = this.statusCode, headerCount: UShort = this.headerCount, headers: MutPtr = this.headers): HttpErrorHeadersParam = HttpErrorHeadersParam(statusCode = statusCode, headerCount = headerCount, headersCtorArg = headers)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -873,7 +871,7 @@ public class HttpErrorHeadersParam internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16).readNative(addr + 2L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<HttpUnknownHeader>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                     )
                 override fun writeNative(addr: Long, value: HttpErrorHeadersParam) {
@@ -881,7 +879,7 @@ public class HttpErrorHeadersParam internal constructor(
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16).writeNative(addr + 2L, value.headerCount)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<HttpUnknownHeader>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.headers)
                 }
             }
@@ -889,7 +887,7 @@ public class HttpErrorHeadersParam internal constructor(
         public operator fun invoke(
             statusCode: UShort = 0u,
             headerCount: UShort = 0u,
-            headers: MutPtr<HttpUnknownHeader> = MutPtr(0L),
+            headers: MutPtr = MutPtr(0L),
         ): HttpErrorHeadersParam =
             HttpErrorHeadersParam(
                 statusCode = statusCode,
@@ -1002,7 +1000,7 @@ public class HttpLoggingInfo internal constructor(
     directoryNameCtorArg: Pcwstr,
     public var format: HttpLoggingType,
     public var fields: UInt,
-    pExtFieldsCtorArg: MutPtr<CVoid>,
+    pExtFieldsCtorArg: MutPtr,
     public var numOfExtFields: UShort,
     public var maxRecordSize: UShort,
     public var rolloverType: HttpLoggingRolloverType,
@@ -1015,7 +1013,7 @@ public class HttpLoggingInfo internal constructor(
     public var directoryName: Pcwstr = directoryNameCtorArg
         internal set
 
-    public var pExtFields: MutPtr<CVoid> = pExtFieldsCtorArg
+    public var pExtFields: MutPtr = pExtFieldsCtorArg
         internal set
 
     public var pSecurityDescriptor: PsecurityDescriptor = pSecurityDescriptorCtorArg
@@ -1054,7 +1052,7 @@ public class HttpLoggingInfo internal constructor(
 
     public operator fun component8(): UInt = this.fields
 
-    public operator fun component9(): MutPtr<CVoid> = this.pExtFields
+    public operator fun component9(): MutPtr = this.pExtFields
 
     public operator fun component10(): UShort = this.numOfExtFields
 
@@ -1066,7 +1064,7 @@ public class HttpLoggingInfo internal constructor(
 
     public operator fun component14(): PsecurityDescriptor = this.pSecurityDescriptor
 
-    public fun copy(flags: HttpPropertyFlags = this.flags, loggingFlags: UInt = this.loggingFlags, softwareName: Pcwstr = this.softwareName, softwareNameLength: UShort = this.softwareNameLength, directoryNameLength: UShort = this.directoryNameLength, directoryName: Pcwstr = this.directoryName, format: HttpLoggingType = this.format, fields: UInt = this.fields, pExtFields: MutPtr<CVoid> = this.pExtFields, numOfExtFields: UShort = this.numOfExtFields, maxRecordSize: UShort = this.maxRecordSize, rolloverType: HttpLoggingRolloverType = this.rolloverType, rolloverSize: UInt = this.rolloverSize, pSecurityDescriptor: PsecurityDescriptor = this.pSecurityDescriptor): HttpLoggingInfo = HttpLoggingInfo(flags = flags, loggingFlags = loggingFlags, softwareNameCtorArg = softwareName, softwareNameLength = softwareNameLength, directoryNameLength = directoryNameLength, directoryNameCtorArg = directoryName, format = format, fields = fields, pExtFieldsCtorArg = pExtFields, numOfExtFields = numOfExtFields, maxRecordSize = maxRecordSize, rolloverType = rolloverType, rolloverSize = rolloverSize, pSecurityDescriptorCtorArg = pSecurityDescriptor)
+    public fun copy(flags: HttpPropertyFlags = this.flags, loggingFlags: UInt = this.loggingFlags, softwareName: Pcwstr = this.softwareName, softwareNameLength: UShort = this.softwareNameLength, directoryNameLength: UShort = this.directoryNameLength, directoryName: Pcwstr = this.directoryName, format: HttpLoggingType = this.format, fields: UInt = this.fields, pExtFields: MutPtr = this.pExtFields, numOfExtFields: UShort = this.numOfExtFields, maxRecordSize: UShort = this.maxRecordSize, rolloverType: HttpLoggingRolloverType = this.rolloverType, rolloverSize: UInt = this.rolloverSize, pSecurityDescriptor: PsecurityDescriptor = this.pSecurityDescriptor): HttpLoggingInfo = HttpLoggingInfo(flags = flags, loggingFlags = loggingFlags, softwareNameCtorArg = softwareName, softwareNameLength = softwareNameLength, directoryNameLength = directoryNameLength, directoryNameCtorArg = directoryName, format = format, fields = fields, pExtFieldsCtorArg = pExtFields, numOfExtFields = numOfExtFields, maxRecordSize = maxRecordSize, rolloverType = rolloverType, rolloverSize = rolloverSize, pSecurityDescriptorCtorArg = pSecurityDescriptor)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -1116,7 +1114,7 @@ public class HttpLoggingInfo internal constructor(
             directoryName: Pcwstr = ConstPtr(0L),
             format: HttpLoggingType = 0,
             fields: UInt = 0u,
-            pExtFields: MutPtr<CVoid> = MutPtr(0L),
+            pExtFields: MutPtr = MutPtr(0L),
             numOfExtFields: UShort = 0u,
             maxRecordSize: UShort = 0u,
             rolloverType: HttpLoggingRolloverType = 0,
@@ -1334,9 +1332,9 @@ public class HttpMultipleKnownHeaders internal constructor(
     public var headerId: HttpHeaderId,
     public var flags: UInt,
     public var knownHeaderCount: UShort,
-    knownHeadersCtorArg: MutPtr<HttpKnownHeader>,
+    knownHeadersCtorArg: MutPtr,
 ) {
-    public var knownHeaders: MutPtr<HttpKnownHeader> = knownHeadersCtorArg
+    public var knownHeaders: MutPtr = knownHeadersCtorArg
         internal set
 
     public constructor() : this(
@@ -1352,9 +1350,9 @@ public class HttpMultipleKnownHeaders internal constructor(
 
     public operator fun component3(): UShort = this.knownHeaderCount
 
-    public operator fun component4(): MutPtr<HttpKnownHeader> = this.knownHeaders
+    public operator fun component4(): MutPtr = this.knownHeaders
 
-    public fun copy(headerId: HttpHeaderId = this.headerId, flags: UInt = this.flags, knownHeaderCount: UShort = this.knownHeaderCount, knownHeaders: MutPtr<HttpKnownHeader> = this.knownHeaders): HttpMultipleKnownHeaders = HttpMultipleKnownHeaders(headerId = headerId, flags = flags, knownHeaderCount = knownHeaderCount, knownHeadersCtorArg = knownHeaders)
+    public fun copy(headerId: HttpHeaderId = this.headerId, flags: UInt = this.flags, knownHeaderCount: UShort = this.knownHeaderCount, knownHeaders: MutPtr = this.knownHeaders): HttpMultipleKnownHeaders = HttpMultipleKnownHeaders(headerId = headerId, flags = flags, knownHeaderCount = knownHeaderCount, knownHeadersCtorArg = knownHeaders)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -1386,7 +1384,7 @@ public class HttpMultipleKnownHeaders internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16).readNative(addr + 8L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<HttpKnownHeader>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 16L),
                     )
                 override fun writeNative(addr: Long, value: HttpMultipleKnownHeaders) {
@@ -1395,7 +1393,7 @@ public class HttpMultipleKnownHeaders internal constructor(
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16).writeNative(addr + 8L, value.knownHeaderCount)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<HttpKnownHeader>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 16L, value.knownHeaders)
                 }
             }
@@ -1404,7 +1402,7 @@ public class HttpMultipleKnownHeaders internal constructor(
             headerId: HttpHeaderId = 0,
             flags: UInt = 0u,
             knownHeaderCount: UShort = 0u,
-            knownHeaders: MutPtr<HttpKnownHeader> = MutPtr(0L),
+            knownHeaders: MutPtr = MutPtr(0L),
         ): HttpMultipleKnownHeaders =
             HttpMultipleKnownHeaders(
                 headerId = headerId,
@@ -1418,9 +1416,9 @@ public class HttpMultipleKnownHeaders internal constructor(
 public class HttpPerformanceParam internal constructor(
     public var type: HttpPerformanceParamType,
     public var bufferSize: UInt,
-    bufferCtorArg: MutPtr<CVoid>,
+    bufferCtorArg: MutPtr,
 ) {
-    public var buffer: MutPtr<CVoid> = bufferCtorArg
+    public var buffer: MutPtr = bufferCtorArg
         internal set
 
     public constructor() : this(
@@ -1433,9 +1431,9 @@ public class HttpPerformanceParam internal constructor(
 
     public operator fun component2(): UInt = this.bufferSize
 
-    public operator fun component3(): MutPtr<CVoid> = this.buffer
+    public operator fun component3(): MutPtr = this.buffer
 
-    public fun copy(type: HttpPerformanceParamType = this.type, bufferSize: UInt = this.bufferSize, buffer: MutPtr<CVoid> = this.buffer): HttpPerformanceParam = HttpPerformanceParam(type = type, bufferSize = bufferSize, bufferCtorArg = buffer)
+    public fun copy(type: HttpPerformanceParamType = this.type, bufferSize: UInt = this.bufferSize, buffer: MutPtr = this.buffer): HttpPerformanceParam = HttpPerformanceParam(type = type, bufferSize = bufferSize, bufferCtorArg = buffer)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -1464,7 +1462,7 @@ public class HttpPerformanceParam internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 4L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<CVoid>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                     )
                 override fun writeNative(addr: Long, value: HttpPerformanceParam) {
@@ -1472,7 +1470,7 @@ public class HttpPerformanceParam internal constructor(
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 4L, value.bufferSize)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<CVoid>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.buffer)
                 }
             }
@@ -1480,7 +1478,7 @@ public class HttpPerformanceParam internal constructor(
         public operator fun invoke(
             type: HttpPerformanceParamType = 0,
             bufferSize: UInt = 0u,
-            buffer: MutPtr<CVoid> = MutPtr(0L),
+            buffer: MutPtr = MutPtr(0L),
         ): HttpPerformanceParam =
             HttpPerformanceParam(
                 type = type,
@@ -1533,9 +1531,9 @@ public data class HttpProtectionLevelInfo(
 
 public class HttpQosSettingInfo internal constructor(
     public var qosType: HttpQosSettingType,
-    qosSettingCtorArg: MutPtr<CVoid>,
+    qosSettingCtorArg: MutPtr,
 ) {
-    public var qosSetting: MutPtr<CVoid> = qosSettingCtorArg
+    public var qosSetting: MutPtr = qosSettingCtorArg
         internal set
 
     public constructor() : this(
@@ -1545,9 +1543,9 @@ public class HttpQosSettingInfo internal constructor(
 
     public operator fun component1(): HttpQosSettingType = this.qosType
 
-    public operator fun component2(): MutPtr<CVoid> = this.qosSetting
+    public operator fun component2(): MutPtr = this.qosSetting
 
-    public fun copy(qosType: HttpQosSettingType = this.qosType, qosSetting: MutPtr<CVoid> = this.qosSetting): HttpQosSettingInfo = HttpQosSettingInfo(qosType = qosType, qosSettingCtorArg = qosSetting)
+    public fun copy(qosType: HttpQosSettingType = this.qosType, qosSetting: MutPtr = this.qosSetting): HttpQosSettingInfo = HttpQosSettingInfo(qosType = qosType, qosSettingCtorArg = qosSetting)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -1573,21 +1571,21 @@ public class HttpQosSettingInfo internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<CVoid>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                     )
                 override fun writeNative(addr: Long, value: HttpQosSettingInfo) {
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr, value.qosType)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<CVoid>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.qosSetting)
                 }
             }
 
         public operator fun invoke(
             qosType: HttpQosSettingType = 0,
-            qosSetting: MutPtr<CVoid> = MutPtr(0L),
+            qosSetting: MutPtr = MutPtr(0L),
         ): HttpQosSettingInfo =
             HttpQosSettingInfo(
                 qosType = qosType,
@@ -1830,7 +1828,7 @@ public class HttpRequestAuthInfo internal constructor(
     public var contextAttributes: UInt,
     public var packedContextLength: UInt,
     public var packedContextType: UInt,
-    packedContextCtorArg: MutPtr<CVoid>,
+    packedContextCtorArg: MutPtr,
     public var mutualAuthDataLength: UInt,
     pMutualAuthDataCtorArg: Pstr,
     public var packageNameLength: UShort,
@@ -1839,7 +1837,7 @@ public class HttpRequestAuthInfo internal constructor(
     public var accessToken: Handle = accessTokenCtorArg
         internal set
 
-    public var packedContext: MutPtr<CVoid> = packedContextCtorArg
+    public var packedContext: MutPtr = packedContextCtorArg
         internal set
 
     public var pMutualAuthData: Pstr = pMutualAuthDataCtorArg
@@ -1880,7 +1878,7 @@ public class HttpRequestAuthInfo internal constructor(
 
     public operator fun component8(): UInt = this.packedContextType
 
-    public operator fun component9(): MutPtr<CVoid> = this.packedContext
+    public operator fun component9(): MutPtr = this.packedContext
 
     public operator fun component10(): UInt = this.mutualAuthDataLength
 
@@ -1890,7 +1888,7 @@ public class HttpRequestAuthInfo internal constructor(
 
     public operator fun component13(): Pwstr = this.pPackageName
 
-    public fun copy(authStatus: HttpAuthStatus = this.authStatus, secStatus: Hresult = this.secStatus, flags: UInt = this.flags, authType: HttpRequestAuthType = this.authType, accessToken: Handle = this.accessToken, contextAttributes: UInt = this.contextAttributes, packedContextLength: UInt = this.packedContextLength, packedContextType: UInt = this.packedContextType, packedContext: MutPtr<CVoid> = this.packedContext, mutualAuthDataLength: UInt = this.mutualAuthDataLength, pMutualAuthData: Pstr = this.pMutualAuthData, packageNameLength: UShort = this.packageNameLength, pPackageName: Pwstr = this.pPackageName): HttpRequestAuthInfo = HttpRequestAuthInfo(authStatus = authStatus, secStatus = secStatus, flags = flags, authType = authType, accessTokenCtorArg = accessToken, contextAttributes = contextAttributes, packedContextLength = packedContextLength, packedContextType = packedContextType, packedContextCtorArg = packedContext, mutualAuthDataLength = mutualAuthDataLength, pMutualAuthDataCtorArg = pMutualAuthData, packageNameLength = packageNameLength, pPackageNameCtorArg = pPackageName)
+    public fun copy(authStatus: HttpAuthStatus = this.authStatus, secStatus: Hresult = this.secStatus, flags: UInt = this.flags, authType: HttpRequestAuthType = this.authType, accessToken: Handle = this.accessToken, contextAttributes: UInt = this.contextAttributes, packedContextLength: UInt = this.packedContextLength, packedContextType: UInt = this.packedContextType, packedContext: MutPtr = this.packedContext, mutualAuthDataLength: UInt = this.mutualAuthDataLength, pMutualAuthData: Pstr = this.pMutualAuthData, packageNameLength: UShort = this.packageNameLength, pPackageName: Pwstr = this.pPackageName): HttpRequestAuthInfo = HttpRequestAuthInfo(authStatus = authStatus, secStatus = secStatus, flags = flags, authType = authType, accessTokenCtorArg = accessToken, contextAttributes = contextAttributes, packedContextLength = packedContextLength, packedContextType = packedContextType, packedContextCtorArg = packedContext, mutualAuthDataLength = mutualAuthDataLength, pMutualAuthDataCtorArg = pMutualAuthData, packageNameLength = packageNameLength, pPackageNameCtorArg = pPackageName)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -1938,7 +1936,7 @@ public class HttpRequestAuthInfo internal constructor(
             contextAttributes: UInt = 0u,
             packedContextLength: UInt = 0u,
             packedContextType: UInt = 0u,
-            packedContext: MutPtr<CVoid> = MutPtr(0L),
+            packedContext: MutPtr = MutPtr(0L),
             mutualAuthDataLength: UInt = 0u,
             pMutualAuthData: Pstr = MutPtr(0L),
             packageNameLength: UShort = 0u,
@@ -1963,15 +1961,15 @@ public class HttpRequestAuthInfo internal constructor(
 }
 
 public class HttpRequestChannelBindStatus internal constructor(
-    serviceNameCtorArg: MutPtr<HttpServiceBindingBase>,
-    channelTokenCtorArg: MutPtr<UByte>,
+    serviceNameCtorArg: MutPtr,
+    channelTokenCtorArg: MutPtr,
     public var channelTokenSize: UInt,
     public var flags: UInt,
 ) {
-    public var serviceName: MutPtr<HttpServiceBindingBase> = serviceNameCtorArg
+    public var serviceName: MutPtr = serviceNameCtorArg
         internal set
 
-    public var channelToken: MutPtr<UByte> = channelTokenCtorArg
+    public var channelToken: MutPtr = channelTokenCtorArg
         internal set
 
     public constructor() : this(
@@ -1981,15 +1979,15 @@ public class HttpRequestChannelBindStatus internal constructor(
         flags = 0u,
     )
 
-    public operator fun component1(): MutPtr<HttpServiceBindingBase> = this.serviceName
+    public operator fun component1(): MutPtr = this.serviceName
 
-    public operator fun component2(): MutPtr<UByte> = this.channelToken
+    public operator fun component2(): MutPtr = this.channelToken
 
     public operator fun component3(): UInt = this.channelTokenSize
 
     public operator fun component4(): UInt = this.flags
 
-    public fun copy(serviceName: MutPtr<HttpServiceBindingBase> = this.serviceName, channelToken: MutPtr<UByte> = this.channelToken, channelTokenSize: UInt = this.channelTokenSize, flags: UInt = this.flags): HttpRequestChannelBindStatus = HttpRequestChannelBindStatus(serviceNameCtorArg = serviceName, channelTokenCtorArg = channelToken, channelTokenSize = channelTokenSize, flags = flags)
+    public fun copy(serviceName: MutPtr = this.serviceName, channelToken: MutPtr = this.channelToken, channelTokenSize: UInt = this.channelTokenSize, flags: UInt = this.flags): HttpRequestChannelBindStatus = HttpRequestChannelBindStatus(serviceNameCtorArg = serviceName, channelTokenCtorArg = channelToken, channelTokenSize = channelTokenSize, flags = flags)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -2018,11 +2016,11 @@ public class HttpRequestChannelBindStatus internal constructor(
                     HttpRequestChannelBindStatus(
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<HttpServiceBindingBase>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<UByte>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 16L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 20L),
@@ -2030,11 +2028,11 @@ public class HttpRequestChannelBindStatus internal constructor(
                 override fun writeNative(addr: Long, value: HttpRequestChannelBindStatus) {
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<HttpServiceBindingBase>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr, value.serviceName)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<UByte>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.channelToken)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 16L, value.channelTokenSize)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 20L, value.flags)
@@ -2042,8 +2040,8 @@ public class HttpRequestChannelBindStatus internal constructor(
             }
 
         public operator fun invoke(
-            serviceName: MutPtr<HttpServiceBindingBase> = MutPtr(0L),
-            channelToken: MutPtr<UByte> = MutPtr(0L),
+            serviceName: MutPtr = MutPtr(0L),
+            channelToken: MutPtr = MutPtr(0L),
             channelTokenSize: UInt = 0u,
             flags: UInt = 0u,
         ): HttpRequestChannelBindStatus =
@@ -2058,15 +2056,15 @@ public class HttpRequestChannelBindStatus internal constructor(
 
 public class HttpRequestHeaders internal constructor(
     public var unknownHeaderCount: UShort,
-    pUnknownHeadersCtorArg: MutPtr<HttpUnknownHeader>,
+    pUnknownHeadersCtorArg: MutPtr,
     public var trailerCount: UShort,
-    pTrailersCtorArg: MutPtr<HttpUnknownHeader>,
+    pTrailersCtorArg: MutPtr,
     public var knownHeaders: List<HttpKnownHeader>,
 ) {
-    public var pUnknownHeaders: MutPtr<HttpUnknownHeader> = pUnknownHeadersCtorArg
+    public var pUnknownHeaders: MutPtr = pUnknownHeadersCtorArg
         internal set
 
-    public var pTrailers: MutPtr<HttpUnknownHeader> = pTrailersCtorArg
+    public var pTrailers: MutPtr = pTrailersCtorArg
         internal set
 
     public constructor() : this(
@@ -2079,15 +2077,15 @@ public class HttpRequestHeaders internal constructor(
 
     public operator fun component1(): UShort = this.unknownHeaderCount
 
-    public operator fun component2(): MutPtr<HttpUnknownHeader> = this.pUnknownHeaders
+    public operator fun component2(): MutPtr = this.pUnknownHeaders
 
     public operator fun component3(): UShort = this.trailerCount
 
-    public operator fun component4(): MutPtr<HttpUnknownHeader> = this.pTrailers
+    public operator fun component4(): MutPtr = this.pTrailers
 
     public operator fun component5(): List<HttpKnownHeader> = this.knownHeaders
 
-    public fun copy(unknownHeaderCount: UShort = this.unknownHeaderCount, pUnknownHeaders: MutPtr<HttpUnknownHeader> = this.pUnknownHeaders, trailerCount: UShort = this.trailerCount, pTrailers: MutPtr<HttpUnknownHeader> = this.pTrailers, knownHeaders: List<HttpKnownHeader> = this.knownHeaders): HttpRequestHeaders = HttpRequestHeaders(unknownHeaderCount = unknownHeaderCount, pUnknownHeadersCtorArg = pUnknownHeaders, trailerCount = trailerCount, pTrailersCtorArg = pTrailers, knownHeaders = knownHeaders)
+    public fun copy(unknownHeaderCount: UShort = this.unknownHeaderCount, pUnknownHeaders: MutPtr = this.pUnknownHeaders, trailerCount: UShort = this.trailerCount, pTrailers: MutPtr = this.pTrailers, knownHeaders: List<HttpKnownHeader> = this.knownHeaders): HttpRequestHeaders = HttpRequestHeaders(unknownHeaderCount = unknownHeaderCount, pUnknownHeadersCtorArg = pUnknownHeaders, trailerCount = trailerCount, pTrailersCtorArg = pTrailers, knownHeaders = knownHeaders)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -2112,9 +2110,9 @@ public class HttpRequestHeaders internal constructor(
     public companion object {
         public operator fun invoke(
             unknownHeaderCount: UShort = 0u,
-            pUnknownHeaders: MutPtr<HttpUnknownHeader> = MutPtr(0L),
+            pUnknownHeaders: MutPtr = MutPtr(0L),
             trailerCount: UShort = 0u,
-            pTrailers: MutPtr<HttpUnknownHeader> = MutPtr(0L),
+            pTrailers: MutPtr = MutPtr(0L),
             knownHeaders: List<HttpKnownHeader> = List(41) { HttpKnownHeader() },
         ): HttpRequestHeaders =
             HttpRequestHeaders(
@@ -2130,9 +2128,9 @@ public class HttpRequestHeaders internal constructor(
 public class HttpRequestInfo internal constructor(
     public var infoType: HttpRequestInfoType,
     public var infoLength: UInt,
-    pInfoCtorArg: MutPtr<CVoid>,
+    pInfoCtorArg: MutPtr,
 ) {
-    public var pInfo: MutPtr<CVoid> = pInfoCtorArg
+    public var pInfo: MutPtr = pInfoCtorArg
         internal set
 
     public constructor() : this(
@@ -2145,9 +2143,9 @@ public class HttpRequestInfo internal constructor(
 
     public operator fun component2(): UInt = this.infoLength
 
-    public operator fun component3(): MutPtr<CVoid> = this.pInfo
+    public operator fun component3(): MutPtr = this.pInfo
 
-    public fun copy(infoType: HttpRequestInfoType = this.infoType, infoLength: UInt = this.infoLength, pInfo: MutPtr<CVoid> = this.pInfo): HttpRequestInfo = HttpRequestInfo(infoType = infoType, infoLength = infoLength, pInfoCtorArg = pInfo)
+    public fun copy(infoType: HttpRequestInfoType = this.infoType, infoLength: UInt = this.infoLength, pInfo: MutPtr = this.pInfo): HttpRequestInfo = HttpRequestInfo(infoType = infoType, infoLength = infoLength, pInfoCtorArg = pInfo)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -2176,7 +2174,7 @@ public class HttpRequestInfo internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 4L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<CVoid>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                     )
                 override fun writeNative(addr: Long, value: HttpRequestInfo) {
@@ -2184,7 +2182,7 @@ public class HttpRequestInfo internal constructor(
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 4L, value.infoLength)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<CVoid>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.pInfo)
                 }
             }
@@ -2192,7 +2190,7 @@ public class HttpRequestInfo internal constructor(
         public operator fun invoke(
             infoType: HttpRequestInfoType = 0,
             infoLength: UInt = 0u,
-            pInfo: MutPtr<CVoid> = MutPtr(0L),
+            pInfo: MutPtr = MutPtr(0L),
         ): HttpRequestInfo =
             HttpRequestInfo(
                 infoType = infoType,
@@ -2358,16 +2356,16 @@ public data class HttpRequestTimingInfo(
 }
 
 public class HttpRequestTokenBindingInfo internal constructor(
-    tokenBindingCtorArg: MutPtr<UByte>,
+    tokenBindingCtorArg: MutPtr,
     public var tokenBindingSize: UInt,
-    ekmCtorArg: MutPtr<UByte>,
+    ekmCtorArg: MutPtr,
     public var eKMSize: UInt,
     public var keyType: UByte,
 ) {
-    public var tokenBinding: MutPtr<UByte> = tokenBindingCtorArg
+    public var tokenBinding: MutPtr = tokenBindingCtorArg
         internal set
 
-    public var ekm: MutPtr<UByte> = ekmCtorArg
+    public var ekm: MutPtr = ekmCtorArg
         internal set
 
     public constructor() : this(
@@ -2378,17 +2376,17 @@ public class HttpRequestTokenBindingInfo internal constructor(
         keyType = 0u,
     )
 
-    public operator fun component1(): MutPtr<UByte> = this.tokenBinding
+    public operator fun component1(): MutPtr = this.tokenBinding
 
     public operator fun component2(): UInt = this.tokenBindingSize
 
-    public operator fun component3(): MutPtr<UByte> = this.ekm
+    public operator fun component3(): MutPtr = this.ekm
 
     public operator fun component4(): UInt = this.eKMSize
 
     public operator fun component5(): UByte = this.keyType
 
-    public fun copy(tokenBinding: MutPtr<UByte> = this.tokenBinding, tokenBindingSize: UInt = this.tokenBindingSize, ekm: MutPtr<UByte> = this.ekm, eKMSize: UInt = this.eKMSize, keyType: UByte = this.keyType): HttpRequestTokenBindingInfo = HttpRequestTokenBindingInfo(tokenBindingCtorArg = tokenBinding, tokenBindingSize = tokenBindingSize, ekmCtorArg = ekm, eKMSize = eKMSize, keyType = keyType)
+    public fun copy(tokenBinding: MutPtr = this.tokenBinding, tokenBindingSize: UInt = this.tokenBindingSize, ekm: MutPtr = this.ekm, eKMSize: UInt = this.eKMSize, keyType: UByte = this.keyType): HttpRequestTokenBindingInfo = HttpRequestTokenBindingInfo(tokenBindingCtorArg = tokenBinding, tokenBindingSize = tokenBindingSize, ekmCtorArg = ekm, eKMSize = eKMSize, keyType = keyType)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -2419,12 +2417,12 @@ public class HttpRequestTokenBindingInfo internal constructor(
                     HttpRequestTokenBindingInfo(
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<UByte>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 8L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<UByte>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 16L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 24L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8).readNative(addr + 28L),
@@ -2432,12 +2430,12 @@ public class HttpRequestTokenBindingInfo internal constructor(
                 override fun writeNative(addr: Long, value: HttpRequestTokenBindingInfo) {
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<UByte>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr, value.tokenBinding)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 8L, value.tokenBindingSize)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<UByte>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 16L, value.ekm)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 24L, value.eKMSize)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8).writeNative(addr + 28L, value.keyType)
@@ -2445,9 +2443,9 @@ public class HttpRequestTokenBindingInfo internal constructor(
             }
 
         public operator fun invoke(
-            tokenBinding: MutPtr<UByte> = MutPtr(0L),
+            tokenBinding: MutPtr = MutPtr(0L),
             tokenBindingSize: UInt = 0u,
-            ekm: MutPtr<UByte> = MutPtr(0L),
+            ekm: MutPtr = MutPtr(0L),
             eKMSize: UInt = 0u,
             keyType: UByte = 0u,
         ): HttpRequestTokenBindingInfo =
@@ -2477,9 +2475,9 @@ public class HttpRequestV1 internal constructor(
     public var headers: HttpRequestHeaders,
     public var bytesReceived: ULong,
     public var entityChunkCount: UShort,
-    pEntityChunksCtorArg: MutPtr<HttpDataChunk>,
+    pEntityChunksCtorArg: MutPtr,
     public var rawConnectionId: ULong,
-    pSslInfoCtorArg: MutPtr<HttpSslInfo>,
+    pSslInfoCtorArg: MutPtr,
 ) {
     public var pUnknownVerb: Pcstr = pUnknownVerbCtorArg
         internal set
@@ -2487,10 +2485,10 @@ public class HttpRequestV1 internal constructor(
     public var pRawUrl: Pcstr = pRawUrlCtorArg
         internal set
 
-    public var pEntityChunks: MutPtr<HttpDataChunk> = pEntityChunksCtorArg
+    public var pEntityChunks: MutPtr = pEntityChunksCtorArg
         internal set
 
-    public var pSslInfo: MutPtr<HttpSslInfo> = pSslInfoCtorArg
+    public var pSslInfo: MutPtr = pSslInfoCtorArg
         internal set
 
     public constructor() : this(
@@ -2531,9 +2529,9 @@ public class HttpRequestV1 internal constructor(
             headers: HttpRequestHeaders = HttpRequestHeaders(),
             bytesReceived: ULong = 0uL,
             entityChunkCount: UShort = 0u,
-            pEntityChunks: MutPtr<HttpDataChunk> = MutPtr(0L),
+            pEntityChunks: MutPtr = MutPtr(0L),
             rawConnectionId: ULong = 0uL,
-            pSslInfo: MutPtr<HttpSslInfo> = MutPtr(0L),
+            pSslInfo: MutPtr = MutPtr(0L),
         ): HttpRequestV1 =
             HttpRequestV1(
                 flags = flags,
@@ -2561,9 +2559,9 @@ public class HttpRequestV1 internal constructor(
 public class HttpRequestV2 internal constructor(
     public var base: HttpRequestV1,
     public var requestInfoCount: UShort,
-    pRequestInfoCtorArg: MutPtr<HttpRequestInfo>,
+    pRequestInfoCtorArg: MutPtr,
 ) {
-    public var pRequestInfo: MutPtr<HttpRequestInfo> = pRequestInfoCtorArg
+    public var pRequestInfo: MutPtr = pRequestInfoCtorArg
         internal set
 
     public constructor() : this(
@@ -2576,9 +2574,9 @@ public class HttpRequestV2 internal constructor(
 
     public operator fun component2(): UShort = this.requestInfoCount
 
-    public operator fun component3(): MutPtr<HttpRequestInfo> = this.pRequestInfo
+    public operator fun component3(): MutPtr = this.pRequestInfo
 
-    public fun copy(base: HttpRequestV1 = this.base, requestInfoCount: UShort = this.requestInfoCount, pRequestInfo: MutPtr<HttpRequestInfo> = this.pRequestInfo): HttpRequestV2 = HttpRequestV2(base = base, requestInfoCount = requestInfoCount, pRequestInfoCtorArg = pRequestInfo)
+    public fun copy(base: HttpRequestV1 = this.base, requestInfoCount: UShort = this.requestInfoCount, pRequestInfo: MutPtr = this.pRequestInfo): HttpRequestV2 = HttpRequestV2(base = base, requestInfoCount = requestInfoCount, pRequestInfoCtorArg = pRequestInfo)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -2600,7 +2598,7 @@ public class HttpRequestV2 internal constructor(
         public operator fun invoke(
             base: HttpRequestV1 = HttpRequestV1(),
             requestInfoCount: UShort = 0u,
-            pRequestInfo: MutPtr<HttpRequestInfo> = MutPtr(0L),
+            pRequestInfo: MutPtr = MutPtr(0L),
         ): HttpRequestV2 =
             HttpRequestV2(
                 base = base,
@@ -2612,15 +2610,15 @@ public class HttpRequestV2 internal constructor(
 
 public class HttpResponseHeaders internal constructor(
     public var unknownHeaderCount: UShort,
-    pUnknownHeadersCtorArg: MutPtr<HttpUnknownHeader>,
+    pUnknownHeadersCtorArg: MutPtr,
     public var trailerCount: UShort,
-    pTrailersCtorArg: MutPtr<HttpUnknownHeader>,
+    pTrailersCtorArg: MutPtr,
     public var knownHeaders: List<HttpKnownHeader>,
 ) {
-    public var pUnknownHeaders: MutPtr<HttpUnknownHeader> = pUnknownHeadersCtorArg
+    public var pUnknownHeaders: MutPtr = pUnknownHeadersCtorArg
         internal set
 
-    public var pTrailers: MutPtr<HttpUnknownHeader> = pTrailersCtorArg
+    public var pTrailers: MutPtr = pTrailersCtorArg
         internal set
 
     public constructor() : this(
@@ -2633,15 +2631,15 @@ public class HttpResponseHeaders internal constructor(
 
     public operator fun component1(): UShort = this.unknownHeaderCount
 
-    public operator fun component2(): MutPtr<HttpUnknownHeader> = this.pUnknownHeaders
+    public operator fun component2(): MutPtr = this.pUnknownHeaders
 
     public operator fun component3(): UShort = this.trailerCount
 
-    public operator fun component4(): MutPtr<HttpUnknownHeader> = this.pTrailers
+    public operator fun component4(): MutPtr = this.pTrailers
 
     public operator fun component5(): List<HttpKnownHeader> = this.knownHeaders
 
-    public fun copy(unknownHeaderCount: UShort = this.unknownHeaderCount, pUnknownHeaders: MutPtr<HttpUnknownHeader> = this.pUnknownHeaders, trailerCount: UShort = this.trailerCount, pTrailers: MutPtr<HttpUnknownHeader> = this.pTrailers, knownHeaders: List<HttpKnownHeader> = this.knownHeaders): HttpResponseHeaders = HttpResponseHeaders(unknownHeaderCount = unknownHeaderCount, pUnknownHeadersCtorArg = pUnknownHeaders, trailerCount = trailerCount, pTrailersCtorArg = pTrailers, knownHeaders = knownHeaders)
+    public fun copy(unknownHeaderCount: UShort = this.unknownHeaderCount, pUnknownHeaders: MutPtr = this.pUnknownHeaders, trailerCount: UShort = this.trailerCount, pTrailers: MutPtr = this.pTrailers, knownHeaders: List<HttpKnownHeader> = this.knownHeaders): HttpResponseHeaders = HttpResponseHeaders(unknownHeaderCount = unknownHeaderCount, pUnknownHeadersCtorArg = pUnknownHeaders, trailerCount = trailerCount, pTrailersCtorArg = pTrailers, knownHeaders = knownHeaders)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -2666,9 +2664,9 @@ public class HttpResponseHeaders internal constructor(
     public companion object {
         public operator fun invoke(
             unknownHeaderCount: UShort = 0u,
-            pUnknownHeaders: MutPtr<HttpUnknownHeader> = MutPtr(0L),
+            pUnknownHeaders: MutPtr = MutPtr(0L),
             trailerCount: UShort = 0u,
-            pTrailers: MutPtr<HttpUnknownHeader> = MutPtr(0L),
+            pTrailers: MutPtr = MutPtr(0L),
             knownHeaders: List<HttpKnownHeader> = List(30) { HttpKnownHeader() },
         ): HttpResponseHeaders =
             HttpResponseHeaders(
@@ -2684,9 +2682,9 @@ public class HttpResponseHeaders internal constructor(
 public class HttpResponseInfo internal constructor(
     public var type: HttpResponseInfoType,
     public var length: UInt,
-    pInfoCtorArg: MutPtr<CVoid>,
+    pInfoCtorArg: MutPtr,
 ) {
-    public var pInfo: MutPtr<CVoid> = pInfoCtorArg
+    public var pInfo: MutPtr = pInfoCtorArg
         internal set
 
     public constructor() : this(
@@ -2699,9 +2697,9 @@ public class HttpResponseInfo internal constructor(
 
     public operator fun component2(): UInt = this.length
 
-    public operator fun component3(): MutPtr<CVoid> = this.pInfo
+    public operator fun component3(): MutPtr = this.pInfo
 
-    public fun copy(type: HttpResponseInfoType = this.type, length: UInt = this.length, pInfo: MutPtr<CVoid> = this.pInfo): HttpResponseInfo = HttpResponseInfo(type = type, length = length, pInfoCtorArg = pInfo)
+    public fun copy(type: HttpResponseInfoType = this.type, length: UInt = this.length, pInfo: MutPtr = this.pInfo): HttpResponseInfo = HttpResponseInfo(type = type, length = length, pInfoCtorArg = pInfo)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -2730,7 +2728,7 @@ public class HttpResponseInfo internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 4L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<CVoid>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                     )
                 override fun writeNative(addr: Long, value: HttpResponseInfo) {
@@ -2738,7 +2736,7 @@ public class HttpResponseInfo internal constructor(
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 4L, value.length)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<CVoid>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.pInfo)
                 }
             }
@@ -2746,7 +2744,7 @@ public class HttpResponseInfo internal constructor(
         public operator fun invoke(
             type: HttpResponseInfoType = 0,
             length: UInt = 0u,
-            pInfo: MutPtr<CVoid> = MutPtr(0L),
+            pInfo: MutPtr = MutPtr(0L),
         ): HttpResponseInfo =
             HttpResponseInfo(
                 type = type,
@@ -2764,12 +2762,12 @@ public class HttpResponseV1 internal constructor(
     pReasonCtorArg: Pcstr,
     public var headers: HttpResponseHeaders,
     public var entityChunkCount: UShort,
-    pEntityChunksCtorArg: MutPtr<HttpDataChunk>,
+    pEntityChunksCtorArg: MutPtr,
 ) {
     public var pReason: Pcstr = pReasonCtorArg
         internal set
 
-    public var pEntityChunks: MutPtr<HttpDataChunk> = pEntityChunksCtorArg
+    public var pEntityChunks: MutPtr = pEntityChunksCtorArg
         internal set
 
     public constructor() : this(
@@ -2797,9 +2795,9 @@ public class HttpResponseV1 internal constructor(
 
     public operator fun component7(): UShort = this.entityChunkCount
 
-    public operator fun component8(): MutPtr<HttpDataChunk> = this.pEntityChunks
+    public operator fun component8(): MutPtr = this.pEntityChunks
 
-    public fun copy(flags: UInt = this.flags, version: HttpVersion = this.version, statusCode: UShort = this.statusCode, reasonLength: UShort = this.reasonLength, pReason: Pcstr = this.pReason, headers: HttpResponseHeaders = this.headers, entityChunkCount: UShort = this.entityChunkCount, pEntityChunks: MutPtr<HttpDataChunk> = this.pEntityChunks): HttpResponseV1 = HttpResponseV1(flags = flags, version = version, statusCode = statusCode, reasonLength = reasonLength, pReasonCtorArg = pReason, headers = headers, entityChunkCount = entityChunkCount, pEntityChunksCtorArg = pEntityChunks)
+    public fun copy(flags: UInt = this.flags, version: HttpVersion = this.version, statusCode: UShort = this.statusCode, reasonLength: UShort = this.reasonLength, pReason: Pcstr = this.pReason, headers: HttpResponseHeaders = this.headers, entityChunkCount: UShort = this.entityChunkCount, pEntityChunks: MutPtr = this.pEntityChunks): HttpResponseV1 = HttpResponseV1(flags = flags, version = version, statusCode = statusCode, reasonLength = reasonLength, pReasonCtorArg = pReason, headers = headers, entityChunkCount = entityChunkCount, pEntityChunksCtorArg = pEntityChunks)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -2836,7 +2834,7 @@ public class HttpResponseV1 internal constructor(
             pReason: Pcstr = ConstPtr(0L),
             headers: HttpResponseHeaders = HttpResponseHeaders(),
             entityChunkCount: UShort = 0u,
-            pEntityChunks: MutPtr<HttpDataChunk> = MutPtr(0L),
+            pEntityChunks: MutPtr = MutPtr(0L),
         ): HttpResponseV1 =
             HttpResponseV1(
                 flags = flags,
@@ -2854,9 +2852,9 @@ public class HttpResponseV1 internal constructor(
 public class HttpResponseV2 internal constructor(
     public var base: HttpResponseV1,
     public var responseInfoCount: UShort,
-    pResponseInfoCtorArg: MutPtr<HttpResponseInfo>,
+    pResponseInfoCtorArg: MutPtr,
 ) {
-    public var pResponseInfo: MutPtr<HttpResponseInfo> = pResponseInfoCtorArg
+    public var pResponseInfo: MutPtr = pResponseInfoCtorArg
         internal set
 
     public constructor() : this(
@@ -2869,9 +2867,9 @@ public class HttpResponseV2 internal constructor(
 
     public operator fun component2(): UShort = this.responseInfoCount
 
-    public operator fun component3(): MutPtr<HttpResponseInfo> = this.pResponseInfo
+    public operator fun component3(): MutPtr = this.pResponseInfo
 
-    public fun copy(base: HttpResponseV1 = this.base, responseInfoCount: UShort = this.responseInfoCount, pResponseInfo: MutPtr<HttpResponseInfo> = this.pResponseInfo): HttpResponseV2 = HttpResponseV2(base = base, responseInfoCount = responseInfoCount, pResponseInfoCtorArg = pResponseInfo)
+    public fun copy(base: HttpResponseV1 = this.base, responseInfoCount: UShort = this.responseInfoCount, pResponseInfo: MutPtr = this.pResponseInfo): HttpResponseV2 = HttpResponseV2(base = base, responseInfoCount = responseInfoCount, pResponseInfoCtorArg = pResponseInfo)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -2893,7 +2891,7 @@ public class HttpResponseV2 internal constructor(
         public operator fun invoke(
             base: HttpResponseV1 = HttpResponseV1(),
             responseInfoCount: UShort = 0u,
-            pResponseInfo: MutPtr<HttpResponseInfo> = MutPtr(0L),
+            pResponseInfo: MutPtr = MutPtr(0L),
         ): HttpResponseV2 =
             HttpResponseV2(
                 base = base,
@@ -3168,9 +3166,9 @@ public data class HttpServiceConfigCacheSet(
 
 public class HttpServiceConfigIpListenParam internal constructor(
     public var addrLength: UShort,
-    pAddressCtorArg: MutPtr<Sockaddr>,
+    pAddressCtorArg: MutPtr,
 ) {
-    public var pAddress: MutPtr<Sockaddr> = pAddressCtorArg
+    public var pAddress: MutPtr = pAddressCtorArg
         internal set
 
     public constructor() : this(
@@ -3180,9 +3178,9 @@ public class HttpServiceConfigIpListenParam internal constructor(
 
     public operator fun component1(): UShort = this.addrLength
 
-    public operator fun component2(): MutPtr<Sockaddr> = this.pAddress
+    public operator fun component2(): MutPtr = this.pAddress
 
-    public fun copy(addrLength: UShort = this.addrLength, pAddress: MutPtr<Sockaddr> = this.pAddress): HttpServiceConfigIpListenParam = HttpServiceConfigIpListenParam(addrLength = addrLength, pAddressCtorArg = pAddress)
+    public fun copy(addrLength: UShort = this.addrLength, pAddress: MutPtr = this.pAddress): HttpServiceConfigIpListenParam = HttpServiceConfigIpListenParam(addrLength = addrLength, pAddressCtorArg = pAddress)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -3208,21 +3206,21 @@ public class HttpServiceConfigIpListenParam internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<Sockaddr>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                     )
                 override fun writeNative(addr: Long, value: HttpServiceConfigIpListenParam) {
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16).writeNative(addr, value.addrLength)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<Sockaddr>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.pAddress)
                 }
             }
 
         public operator fun invoke(
             addrLength: UShort = 0u,
-            pAddress: MutPtr<Sockaddr> = MutPtr(0L),
+            pAddress: MutPtr = MutPtr(0L),
         ): HttpServiceConfigIpListenParam =
             HttpServiceConfigIpListenParam(
                 addrLength = addrLength,
@@ -3286,18 +3284,18 @@ public data class HttpServiceConfigSslCcsSetEx(
 )
 
 public class HttpServiceConfigSslKey internal constructor(
-    pIpPortCtorArg: MutPtr<Sockaddr>,
+    pIpPortCtorArg: MutPtr,
 ) {
-    public var pIpPort: MutPtr<Sockaddr> = pIpPortCtorArg
+    public var pIpPort: MutPtr = pIpPortCtorArg
         internal set
 
     public constructor() : this(
         pIpPortCtorArg = MutPtr(0L),
     )
 
-    public operator fun component1(): MutPtr<Sockaddr> = this.pIpPort
+    public operator fun component1(): MutPtr = this.pIpPort
 
-    public fun copy(pIpPort: MutPtr<Sockaddr> = this.pIpPort): HttpServiceConfigSslKey = HttpServiceConfigSslKey(pIpPortCtorArg = pIpPort)
+    public fun copy(pIpPort: MutPtr = this.pIpPort): HttpServiceConfigSslKey = HttpServiceConfigSslKey(pIpPortCtorArg = pIpPort)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -3317,19 +3315,19 @@ public class HttpServiceConfigSslKey internal constructor(
                     HttpServiceConfigSslKey(
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<Sockaddr>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr),
                     )
                 override fun writeNative(addr: Long, value: HttpServiceConfigSslKey) {
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<Sockaddr>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr, value.pIpPort)
                 }
             }
 
         public operator fun invoke(
-            pIpPort: MutPtr<Sockaddr> = MutPtr(0L),
+            pIpPort: MutPtr = MutPtr(0L),
         ): HttpServiceConfigSslKey =
             HttpServiceConfigSslKey(
                 pIpPortCtorArg = pIpPort,
@@ -3343,7 +3341,7 @@ public data class HttpServiceConfigSslKeyEx(
 
 public class HttpServiceConfigSslParam internal constructor(
     public var sslHashLength: UInt,
-    pSslHashCtorArg: MutPtr<CVoid>,
+    pSslHashCtorArg: MutPtr,
     public var appId: Guid,
     pSslCertStoreNameCtorArg: Pwstr,
     public var defaultCertCheckMode: UInt,
@@ -3353,7 +3351,7 @@ public class HttpServiceConfigSslParam internal constructor(
     pDefaultSslCtlStoreNameCtorArg: Pwstr,
     public var defaultFlags: UInt,
 ) {
-    public var pSslHash: MutPtr<CVoid> = pSslHashCtorArg
+    public var pSslHash: MutPtr = pSslHashCtorArg
         internal set
 
     public var pSslCertStoreName: Pwstr = pSslCertStoreNameCtorArg
@@ -3380,7 +3378,7 @@ public class HttpServiceConfigSslParam internal constructor(
 
     public operator fun component1(): UInt = this.sslHashLength
 
-    public operator fun component2(): MutPtr<CVoid> = this.pSslHash
+    public operator fun component2(): MutPtr = this.pSslHash
 
     public operator fun component3(): Guid = this.appId
 
@@ -3398,7 +3396,7 @@ public class HttpServiceConfigSslParam internal constructor(
 
     public operator fun component10(): UInt = this.defaultFlags
 
-    public fun copy(sslHashLength: UInt = this.sslHashLength, pSslHash: MutPtr<CVoid> = this.pSslHash, appId: Guid = this.appId, pSslCertStoreName: Pwstr = this.pSslCertStoreName, defaultCertCheckMode: UInt = this.defaultCertCheckMode, defaultRevocationFreshnessTime: UInt = this.defaultRevocationFreshnessTime, defaultRevocationUrlRetrievalTimeout: UInt = this.defaultRevocationUrlRetrievalTimeout, pDefaultSslCtlIdentifier: Pwstr = this.pDefaultSslCtlIdentifier, pDefaultSslCtlStoreName: Pwstr = this.pDefaultSslCtlStoreName, defaultFlags: UInt = this.defaultFlags): HttpServiceConfigSslParam = HttpServiceConfigSslParam(sslHashLength = sslHashLength, pSslHashCtorArg = pSslHash, appId = appId, pSslCertStoreNameCtorArg = pSslCertStoreName, defaultCertCheckMode = defaultCertCheckMode, defaultRevocationFreshnessTime = defaultRevocationFreshnessTime, defaultRevocationUrlRetrievalTimeout = defaultRevocationUrlRetrievalTimeout, pDefaultSslCtlIdentifierCtorArg = pDefaultSslCtlIdentifier, pDefaultSslCtlStoreNameCtorArg = pDefaultSslCtlStoreName, defaultFlags = defaultFlags)
+    public fun copy(sslHashLength: UInt = this.sslHashLength, pSslHash: MutPtr = this.pSslHash, appId: Guid = this.appId, pSslCertStoreName: Pwstr = this.pSslCertStoreName, defaultCertCheckMode: UInt = this.defaultCertCheckMode, defaultRevocationFreshnessTime: UInt = this.defaultRevocationFreshnessTime, defaultRevocationUrlRetrievalTimeout: UInt = this.defaultRevocationUrlRetrievalTimeout, pDefaultSslCtlIdentifier: Pwstr = this.pDefaultSslCtlIdentifier, pDefaultSslCtlStoreName: Pwstr = this.pDefaultSslCtlStoreName, defaultFlags: UInt = this.defaultFlags): HttpServiceConfigSslParam = HttpServiceConfigSslParam(sslHashLength = sslHashLength, pSslHashCtorArg = pSslHash, appId = appId, pSslCertStoreNameCtorArg = pSslCertStoreName, defaultCertCheckMode = defaultCertCheckMode, defaultRevocationFreshnessTime = defaultRevocationFreshnessTime, defaultRevocationUrlRetrievalTimeout = defaultRevocationUrlRetrievalTimeout, pDefaultSslCtlIdentifierCtorArg = pDefaultSslCtlIdentifier, pDefaultSslCtlStoreNameCtorArg = pDefaultSslCtlStoreName, defaultFlags = defaultFlags)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -3433,7 +3431,7 @@ public class HttpServiceConfigSslParam internal constructor(
     public companion object {
         public operator fun invoke(
             sslHashLength: UInt = 0u,
-            pSslHash: MutPtr<CVoid> = MutPtr(0L),
+            pSslHash: MutPtr = MutPtr(0L),
             appId: Guid = Guid(),
             pSslCertStoreName: Pwstr = MutPtr(0L),
             defaultCertCheckMode: UInt = 0u,
@@ -3684,11 +3682,11 @@ public data class HttpServiceConfigUrlaclSet(
 public class HttpSslClientCertInfo internal constructor(
     public var certFlags: UInt,
     public var certEncodedSize: UInt,
-    pCertEncodedCtorArg: MutPtr<UByte>,
+    pCertEncodedCtorArg: MutPtr,
     tokenCtorArg: Handle,
     public var certDeniedByMapper: Boolean,
 ) {
-    public var pCertEncoded: MutPtr<UByte> = pCertEncodedCtorArg
+    public var pCertEncoded: MutPtr = pCertEncodedCtorArg
         internal set
 
     public var token: Handle = tokenCtorArg
@@ -3706,13 +3704,13 @@ public class HttpSslClientCertInfo internal constructor(
 
     public operator fun component2(): UInt = this.certEncodedSize
 
-    public operator fun component3(): MutPtr<UByte> = this.pCertEncoded
+    public operator fun component3(): MutPtr = this.pCertEncoded
 
     public operator fun component4(): Handle = this.token
 
     public operator fun component5(): Boolean = this.certDeniedByMapper
 
-    public fun copy(certFlags: UInt = this.certFlags, certEncodedSize: UInt = this.certEncodedSize, pCertEncoded: MutPtr<UByte> = this.pCertEncoded, token: Handle = this.token, certDeniedByMapper: Boolean = this.certDeniedByMapper): HttpSslClientCertInfo = HttpSslClientCertInfo(certFlags = certFlags, certEncodedSize = certEncodedSize, pCertEncodedCtorArg = pCertEncoded, tokenCtorArg = token, certDeniedByMapper = certDeniedByMapper)
+    public fun copy(certFlags: UInt = this.certFlags, certEncodedSize: UInt = this.certEncodedSize, pCertEncoded: MutPtr = this.pCertEncoded, token: Handle = this.token, certDeniedByMapper: Boolean = this.certDeniedByMapper): HttpSslClientCertInfo = HttpSslClientCertInfo(certFlags = certFlags, certEncodedSize = certEncodedSize, pCertEncodedCtorArg = pCertEncoded, tokenCtorArg = token, certDeniedByMapper = certDeniedByMapper)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -3738,7 +3736,7 @@ public class HttpSslClientCertInfo internal constructor(
         public operator fun invoke(
             certFlags: UInt = 0u,
             certEncodedSize: UInt = 0u,
-            pCertEncoded: MutPtr<UByte> = MutPtr(0L),
+            pCertEncoded: MutPtr = MutPtr(0L),
             token: Handle = MutPtr(0L),
             certDeniedByMapper: Boolean = false,
         ): HttpSslClientCertInfo =
@@ -3759,7 +3757,7 @@ public class HttpSslInfo internal constructor(
     public var serverCertSubjectSize: UInt,
     pServerCertIssuerCtorArg: Pcstr,
     pServerCertSubjectCtorArg: Pcstr,
-    pClientCertInfoCtorArg: MutPtr<HttpSslClientCertInfo>,
+    pClientCertInfoCtorArg: MutPtr,
     public var sslClientCertNegotiated: UInt,
 ) {
     public var pServerCertIssuer: Pcstr = pServerCertIssuerCtorArg
@@ -3768,7 +3766,7 @@ public class HttpSslInfo internal constructor(
     public var pServerCertSubject: Pcstr = pServerCertSubjectCtorArg
         internal set
 
-    public var pClientCertInfo: MutPtr<HttpSslClientCertInfo> = pClientCertInfoCtorArg
+    public var pClientCertInfo: MutPtr = pClientCertInfoCtorArg
         internal set
 
     public constructor() : this(
@@ -3794,11 +3792,11 @@ public class HttpSslInfo internal constructor(
 
     public operator fun component6(): Pcstr = this.pServerCertSubject
 
-    public operator fun component7(): MutPtr<HttpSslClientCertInfo> = this.pClientCertInfo
+    public operator fun component7(): MutPtr = this.pClientCertInfo
 
     public operator fun component8(): UInt = this.sslClientCertNegotiated
 
-    public fun copy(serverCertKeySize: UShort = this.serverCertKeySize, connectionKeySize: UShort = this.connectionKeySize, serverCertIssuerSize: UInt = this.serverCertIssuerSize, serverCertSubjectSize: UInt = this.serverCertSubjectSize, pServerCertIssuer: Pcstr = this.pServerCertIssuer, pServerCertSubject: Pcstr = this.pServerCertSubject, pClientCertInfo: MutPtr<HttpSslClientCertInfo> = this.pClientCertInfo, sslClientCertNegotiated: UInt = this.sslClientCertNegotiated): HttpSslInfo = HttpSslInfo(serverCertKeySize = serverCertKeySize, connectionKeySize = connectionKeySize, serverCertIssuerSize = serverCertIssuerSize, serverCertSubjectSize = serverCertSubjectSize, pServerCertIssuerCtorArg = pServerCertIssuer, pServerCertSubjectCtorArg = pServerCertSubject, pClientCertInfoCtorArg = pClientCertInfo, sslClientCertNegotiated = sslClientCertNegotiated)
+    public fun copy(serverCertKeySize: UShort = this.serverCertKeySize, connectionKeySize: UShort = this.connectionKeySize, serverCertIssuerSize: UInt = this.serverCertIssuerSize, serverCertSubjectSize: UInt = this.serverCertSubjectSize, pServerCertIssuer: Pcstr = this.pServerCertIssuer, pServerCertSubject: Pcstr = this.pServerCertSubject, pClientCertInfo: MutPtr = this.pClientCertInfo, sslClientCertNegotiated: UInt = this.sslClientCertNegotiated): HttpSslInfo = HttpSslInfo(serverCertKeySize = serverCertKeySize, connectionKeySize = connectionKeySize, serverCertIssuerSize = serverCertIssuerSize, serverCertSubjectSize = serverCertSubjectSize, pServerCertIssuerCtorArg = pServerCertIssuer, pServerCertSubjectCtorArg = pServerCertSubject, pClientCertInfoCtorArg = pClientCertInfo, sslClientCertNegotiated = sslClientCertNegotiated)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -3834,7 +3832,7 @@ public class HttpSslInfo internal constructor(
             serverCertSubjectSize: UInt = 0u,
             pServerCertIssuer: Pcstr = ConstPtr(0L),
             pServerCertSubject: Pcstr = ConstPtr(0L),
-            pClientCertInfo: MutPtr<HttpSslClientCertInfo> = MutPtr(0L),
+            pClientCertInfo: MutPtr = MutPtr(0L),
             sslClientCertNegotiated: UInt = 0u,
         ): HttpSslInfo =
             HttpSslInfo(
@@ -3948,9 +3946,9 @@ public data class HttpTimeoutLimitInfo(
 
 public class HttpTlsRestrictionsParam internal constructor(
     public var restrictionCount: UInt,
-    tlsRestrictionsCtorArg: MutPtr<CVoid>,
+    tlsRestrictionsCtorArg: MutPtr,
 ) {
-    public var tlsRestrictions: MutPtr<CVoid> = tlsRestrictionsCtorArg
+    public var tlsRestrictions: MutPtr = tlsRestrictionsCtorArg
         internal set
 
     public constructor() : this(
@@ -3960,9 +3958,9 @@ public class HttpTlsRestrictionsParam internal constructor(
 
     public operator fun component1(): UInt = this.restrictionCount
 
-    public operator fun component2(): MutPtr<CVoid> = this.tlsRestrictions
+    public operator fun component2(): MutPtr = this.tlsRestrictions
 
-    public fun copy(restrictionCount: UInt = this.restrictionCount, tlsRestrictions: MutPtr<CVoid> = this.tlsRestrictions): HttpTlsRestrictionsParam = HttpTlsRestrictionsParam(restrictionCount = restrictionCount, tlsRestrictionsCtorArg = tlsRestrictions)
+    public fun copy(restrictionCount: UInt = this.restrictionCount, tlsRestrictions: MutPtr = this.tlsRestrictions): HttpTlsRestrictionsParam = HttpTlsRestrictionsParam(restrictionCount = restrictionCount, tlsRestrictionsCtorArg = tlsRestrictions)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -3988,21 +3986,21 @@ public class HttpTlsRestrictionsParam internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<CVoid>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                     )
                 override fun writeNative(addr: Long, value: HttpTlsRestrictionsParam) {
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr, value.restrictionCount)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<CVoid>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.tlsRestrictions)
                 }
             }
 
         public operator fun invoke(
             restrictionCount: UInt = 0u,
-            tlsRestrictions: MutPtr<CVoid> = MutPtr(0L),
+            tlsRestrictions: MutPtr = MutPtr(0L),
         ): HttpTlsRestrictionsParam =
             HttpTlsRestrictionsParam(
                 restrictionCount = restrictionCount,
@@ -4013,9 +4011,9 @@ public class HttpTlsRestrictionsParam internal constructor(
 
 public class HttpTlsSessionTicketKeysParam internal constructor(
     public var sessionTicketKeyCount: UInt,
-    sessionTicketKeysCtorArg: MutPtr<CVoid>,
+    sessionTicketKeysCtorArg: MutPtr,
 ) {
-    public var sessionTicketKeys: MutPtr<CVoid> = sessionTicketKeysCtorArg
+    public var sessionTicketKeys: MutPtr = sessionTicketKeysCtorArg
         internal set
 
     public constructor() : this(
@@ -4025,9 +4023,9 @@ public class HttpTlsSessionTicketKeysParam internal constructor(
 
     public operator fun component1(): UInt = this.sessionTicketKeyCount
 
-    public operator fun component2(): MutPtr<CVoid> = this.sessionTicketKeys
+    public operator fun component2(): MutPtr = this.sessionTicketKeys
 
-    public fun copy(sessionTicketKeyCount: UInt = this.sessionTicketKeyCount, sessionTicketKeys: MutPtr<CVoid> = this.sessionTicketKeys): HttpTlsSessionTicketKeysParam = HttpTlsSessionTicketKeysParam(sessionTicketKeyCount = sessionTicketKeyCount, sessionTicketKeysCtorArg = sessionTicketKeys)
+    public fun copy(sessionTicketKeyCount: UInt = this.sessionTicketKeyCount, sessionTicketKeys: MutPtr = this.sessionTicketKeys): HttpTlsSessionTicketKeysParam = HttpTlsSessionTicketKeysParam(sessionTicketKeyCount = sessionTicketKeyCount, sessionTicketKeysCtorArg = sessionTicketKeys)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -4053,21 +4051,21 @@ public class HttpTlsSessionTicketKeysParam internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<CVoid>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                     )
                 override fun writeNative(addr: Long, value: HttpTlsSessionTicketKeysParam) {
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr, value.sessionTicketKeyCount)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<CVoid>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.sessionTicketKeys)
                 }
             }
 
         public operator fun invoke(
             sessionTicketKeyCount: UInt = 0u,
-            sessionTicketKeys: MutPtr<CVoid> = MutPtr(0L),
+            sessionTicketKeys: MutPtr = MutPtr(0L),
         ): HttpTlsSessionTicketKeysParam =
             HttpTlsSessionTicketKeysParam(
                 sessionTicketKeyCount = sessionTicketKeyCount,
@@ -4077,13 +4075,13 @@ public class HttpTlsSessionTicketKeysParam internal constructor(
 }
 
 public class HttpTransportAddress internal constructor(
-    pRemoteAddressCtorArg: MutPtr<Sockaddr>,
-    pLocalAddressCtorArg: MutPtr<Sockaddr>,
+    pRemoteAddressCtorArg: MutPtr,
+    pLocalAddressCtorArg: MutPtr,
 ) {
-    public var pRemoteAddress: MutPtr<Sockaddr> = pRemoteAddressCtorArg
+    public var pRemoteAddress: MutPtr = pRemoteAddressCtorArg
         internal set
 
-    public var pLocalAddress: MutPtr<Sockaddr> = pLocalAddressCtorArg
+    public var pLocalAddress: MutPtr = pLocalAddressCtorArg
         internal set
 
     public constructor() : this(
@@ -4091,11 +4089,11 @@ public class HttpTransportAddress internal constructor(
         pLocalAddressCtorArg = MutPtr(0L),
     )
 
-    public operator fun component1(): MutPtr<Sockaddr> = this.pRemoteAddress
+    public operator fun component1(): MutPtr = this.pRemoteAddress
 
-    public operator fun component2(): MutPtr<Sockaddr> = this.pLocalAddress
+    public operator fun component2(): MutPtr = this.pLocalAddress
 
-    public fun copy(pRemoteAddress: MutPtr<Sockaddr> = this.pRemoteAddress, pLocalAddress: MutPtr<Sockaddr> = this.pLocalAddress): HttpTransportAddress = HttpTransportAddress(pRemoteAddressCtorArg = pRemoteAddress, pLocalAddressCtorArg = pLocalAddress)
+    public fun copy(pRemoteAddress: MutPtr = this.pRemoteAddress, pLocalAddress: MutPtr = this.pLocalAddress): HttpTransportAddress = HttpTransportAddress(pRemoteAddressCtorArg = pRemoteAddress, pLocalAddressCtorArg = pLocalAddress)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -4120,28 +4118,28 @@ public class HttpTransportAddress internal constructor(
                     HttpTransportAddress(
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<Sockaddr>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<Sockaddr>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                     )
                 override fun writeNative(addr: Long, value: HttpTransportAddress) {
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<Sockaddr>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr, value.pRemoteAddress)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<Sockaddr>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.pLocalAddress)
                 }
             }
 
         public operator fun invoke(
-            pRemoteAddress: MutPtr<Sockaddr> = MutPtr(0L),
-            pLocalAddress: MutPtr<Sockaddr> = MutPtr(0L),
+            pRemoteAddress: MutPtr = MutPtr(0L),
+            pLocalAddress: MutPtr = MutPtr(0L),
         ): HttpTransportAddress =
             HttpTransportAddress(
                 pRemoteAddressCtorArg = pRemoteAddress,

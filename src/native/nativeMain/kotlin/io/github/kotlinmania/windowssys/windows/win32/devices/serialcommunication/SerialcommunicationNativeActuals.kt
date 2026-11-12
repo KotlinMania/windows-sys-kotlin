@@ -14,19 +14,19 @@ import io.github.kotlinmania.windowssys.windows.win32.devices.serialcommunicatio
 import kotlinx.cinterop.ByteVar
 import kotlinx.cinterop.toCPointer
 
-public actual fun comDBClaimNextFreePort(hcomdb: Hcomdb, comnumber: MutPtr<UInt>): Int =
+public actual fun comDBClaimNextFreePort(hcomdb: Hcomdb, comnumber: MutPtr): Int =
     windowssysWindowsWin32DevicesSerialcommunicationComDBClaimNextFreePort(hcomdb.rawAddress.toCPointer<ByteVar>(), comnumber.rawAddress.toCPointer<ByteVar>())
 
-public actual fun comDBClaimPort(hcomdb: Hcomdb, comnumber: UInt, forceclaim: Bool, forced: MutPtr<Bool>): Int =
+public actual fun comDBClaimPort(hcomdb: Hcomdb, comnumber: UInt, forceclaim: Bool, forced: MutPtr): Int =
     windowssysWindowsWin32DevicesSerialcommunicationComDBClaimPort(hcomdb.rawAddress.toCPointer<ByteVar>(), comnumber, forceclaim, forced.rawAddress.toCPointer<ByteVar>())
 
 public actual fun comDBClose(hcomdb: Hcomdb): Int =
     windowssysWindowsWin32DevicesSerialcommunicationComDBClose(hcomdb.rawAddress.toCPointer<ByteVar>())
 
-public actual fun comDBGetCurrentPortUsage(hcomdb: Hcomdb, buffer: MutPtr<UByte>, buffersize: UInt, reporttype: UInt, maxportsreported: MutPtr<UInt>): Int =
+public actual fun comDBGetCurrentPortUsage(hcomdb: Hcomdb, buffer: MutPtr, buffersize: UInt, reporttype: UInt, maxportsreported: MutPtr): Int =
     windowssysWindowsWin32DevicesSerialcommunicationComDBGetCurrentPortUsage(hcomdb.rawAddress.toCPointer<ByteVar>(), buffer.rawAddress.toCPointer<ByteVar>(), buffersize, reporttype, maxportsreported.rawAddress.toCPointer<ByteVar>())
 
-public actual fun comDBOpen(phcomdb: MutPtr<Hcomdb>): Int =
+public actual fun comDBOpen(phcomdb: MutPtr): Int =
     windowssysWindowsWin32DevicesSerialcommunicationComDBOpen(phcomdb.rawAddress.toCPointer<ByteVar>())
 
 public actual fun comDBReleasePort(hcomdb: Hcomdb, comnumber: UInt): Int =

@@ -20,20 +20,20 @@ public actual fun xInputEnable(enable: Bool) {
     windowssysWindowsWin32UiInputXboxcontrollerXInputEnable(enable)
 }
 
-public actual fun xInputGetAudioDeviceIds(dwuserindex: UInt, prenderdeviceid: Pwstr, prendercount: MutPtr<UInt>, pcapturedeviceid: Pwstr, pcapturecount: MutPtr<UInt>): UInt =
+public actual fun xInputGetAudioDeviceIds(dwuserindex: UInt, prenderdeviceid: Pwstr, prendercount: MutPtr, pcapturedeviceid: Pwstr, pcapturecount: MutPtr): UInt =
     windowssysWindowsWin32UiInputXboxcontrollerXInputGetAudioDeviceIds(dwuserindex, prenderdeviceid.rawAddress.toCPointer<ByteVar>(), prendercount.rawAddress.toCPointer<ByteVar>(), pcapturedeviceid.rawAddress.toCPointer<ByteVar>(), pcapturecount.rawAddress.toCPointer<ByteVar>())
 
-public actual fun xInputGetBatteryInformation(dwuserindex: UInt, devtype: BatteryDevtype, pbatteryinformation: MutPtr<XinputBatteryInformation>): UInt =
+public actual fun xInputGetBatteryInformation(dwuserindex: UInt, devtype: BatteryDevtype, pbatteryinformation: MutPtr): UInt =
     windowssysWindowsWin32UiInputXboxcontrollerXInputGetBatteryInformation(dwuserindex, devtype, pbatteryinformation.rawAddress.toCPointer<ByteVar>())
 
-public actual fun xInputGetCapabilities(dwuserindex: UInt, dwflags: XinputFlag, pcapabilities: MutPtr<XinputCapabilities>): UInt =
+public actual fun xInputGetCapabilities(dwuserindex: UInt, dwflags: XinputFlag, pcapabilities: MutPtr): UInt =
     windowssysWindowsWin32UiInputXboxcontrollerXInputGetCapabilities(dwuserindex, dwflags, pcapabilities.rawAddress.toCPointer<ByteVar>())
 
-public actual fun xInputGetKeystroke(dwuserindex: UInt, dwreserved: UInt, pkeystroke: MutPtr<XinputKeystroke>): UInt =
+public actual fun xInputGetKeystroke(dwuserindex: UInt, dwreserved: UInt, pkeystroke: MutPtr): UInt =
     windowssysWindowsWin32UiInputXboxcontrollerXInputGetKeystroke(dwuserindex, dwreserved, pkeystroke.rawAddress.toCPointer<ByteVar>())
 
-public actual fun xInputGetState(dwuserindex: UInt, pstate: MutPtr<XinputState>): UInt =
+public actual fun xInputGetState(dwuserindex: UInt, pstate: MutPtr): UInt =
     windowssysWindowsWin32UiInputXboxcontrollerXInputGetState(dwuserindex, pstate.rawAddress.toCPointer<ByteVar>())
 
-public actual fun xInputSetState(dwuserindex: UInt, pvibration: ConstPtr<XinputVibration>): UInt =
+public actual fun xInputSetState(dwuserindex: UInt, pvibration: ConstPtr): UInt =
     windowssysWindowsWin32UiInputXboxcontrollerXInputSetState(dwuserindex, pvibration.rawAddress.toCPointer<ByteVar>())

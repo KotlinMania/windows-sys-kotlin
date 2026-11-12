@@ -2,27 +2,21 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.devices.deviceanddriverinstallation
 
-import io.github.kotlinmania.rustlang.core.ffi.CVoid
 import io.github.kotlinmania.rustlang.core.ptr.ConstPtr
 import io.github.kotlinmania.rustlang.core.ptr.MutPtr
 import io.github.kotlinmania.windowssys.core.Bool
-import io.github.kotlinmania.windowssys.core.Guid
 import io.github.kotlinmania.windowssys.core.Pcstr
 import io.github.kotlinmania.windowssys.core.Pcwstr
 import io.github.kotlinmania.windowssys.core.Pstr
 import io.github.kotlinmania.windowssys.core.Pwstr
 import io.github.kotlinmania.windowssys.windows.win32.data.htmlhelp.Priority
 import io.github.kotlinmania.windowssys.windows.win32.devices.properties.Devproptype
-import io.github.kotlinmania.windowssys.windows.win32.foundation.Devpropkey
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Hinstance
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Hwnd
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Rect
 import io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.Hdc
 import io.github.kotlinmania.windowssys.windows.win32.system.registry.Hkey
 import io.github.kotlinmania.windowssys.windows.win32.ui.controls.Hpropsheetpage
-import io.github.kotlinmania.windowssys.windows.win32.ui.controls.PropsheetheaderaV2
-import io.github.kotlinmania.windowssys.windows.win32.ui.controls.PropsheetheaderwV2
-import io.github.kotlinmania.windowssys.windows.win32.ui.windowsandmessaging.Hicon
 
 @JsFun("() => { if (typeof globalThis.__km_napi_windowssys !== 'undefined') return globalThis.__km_napi_windowssys !== null; if (typeof process === 'undefined' || !process.versions || !process.versions.node) { globalThis.__km_napi_windowssys = null; return false; } var mod = process.getBuiltinModule ? process.getBuiltinModule('module') : (process.mainModule && process.mainModule.constructor); var req = (mod && mod.createRequire) ? mod.createRequire((process.cwd ? process.cwd() : '.') + '/package.json') : (process.mainModule ? process.mainModule.require : null); if (!req) { globalThis.__km_napi_windowssys = null; return false; } try { globalThis.__km_napi_windowssys = req('@kotlinmania/windowssys-native-bindings'); return true; } catch (_) {} var fs = req('fs'); var path = req('path'); var dir = process.cwd ? process.cwd() : '.'; var rels = ['windowssys_native.node', 'build/node-ffi/windowssys_native.node', 'build/node-ffi/release/windowssys_native.node', 'build/node-ffi/debug/windowssys_native.node', 'src/js/node-windowssys/build/Release/windowssys_native.node', 'src/js/node-windowssys/build/Debug/windowssys_native.node', 'src/js/node-windowssys/dist/build/Release/windowssys_native.node', 'src/js/node-windowssys/dist/build/Debug/windowssys_native.node']; for (var d = 0; d < 8; d++) { for (var i = 0; i < rels.length; i++) { var c = path.resolve(dir, rels[i]); if (fs.existsSync(c)) { globalThis.__km_napi_windowssys = req(c); return true; } } var parent = path.dirname(dir); if (parent === dir) break; dir = parent; } globalThis.__km_napi_windowssys = null; return false; }")
 private external fun initWindowsWin32DevicesDeviceanddriverinstallationNapiAddon(): Boolean
@@ -1754,10 +1748,10 @@ private external fun wasmWindowssysWindowsWin32DevicesDeviceanddriverinstallatio
 public actual fun cmpWaitNoPendingInstallEvents(dwtimeout: UInt): UInt =
     if (windowsWin32DevicesDeviceanddriverinstallationNapiAvailable) wasmWindowssysWindowsWin32DevicesDeviceanddriverinstallationCmpWaitNoPendingInstallEvents(dwtimeout.toInt()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun cmAddEmptyLogConf(plclogconf: MutPtr<ULong>, dndevinst: UInt, priority: Priority, ulflags: UInt): Configret =
+public actual fun cmAddEmptyLogConf(plclogconf: MutPtr, dndevinst: UInt, priority: Priority, ulflags: UInt): Configret =
     if (windowsWin32DevicesDeviceanddriverinstallationNapiAvailable) wasmWindowssysWindowsWin32DevicesDeviceanddriverinstallationCmAddEmptyLogConf(plclogconf.rawAddress.toString(), dndevinst.toInt(), priority, ulflags.toInt()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun cmAddEmptyLogConfEx(plclogconf: MutPtr<ULong>, dndevinst: UInt, priority: Priority, ulflags: UInt, hmachine: Long): Configret =
+public actual fun cmAddEmptyLogConfEx(plclogconf: MutPtr, dndevinst: UInt, priority: Priority, ulflags: UInt, hmachine: Long): Configret =
     if (windowsWin32DevicesDeviceanddriverinstallationNapiAvailable) wasmWindowssysWindowsWin32DevicesDeviceanddriverinstallationCmAddEmptyLogConfEx(plclogconf.rawAddress.toString(), dndevinst.toInt(), priority, ulflags.toInt(), hmachine.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun cmAddIda(dndevinst: UInt, pszid: Pcstr, ulflags: UInt): Configret =
@@ -1775,37 +1769,37 @@ public actual fun cmAddIdExW(dndevinst: UInt, pszid: Pcwstr, ulflags: UInt, hmac
 public actual fun cmAddRange(ullstartvalue: ULong, ullendvalue: ULong, rlh: ULong, ulflags: UInt): Configret =
     if (windowsWin32DevicesDeviceanddriverinstallationNapiAvailable) wasmWindowssysWindowsWin32DevicesDeviceanddriverinstallationCmAddRange(ullstartvalue.toString(), ullendvalue.toString(), rlh.toString(), ulflags.toInt()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun cmAddResDes(prdresdes: MutPtr<ULong>, lclogconf: ULong, resourceid: UInt, resourcedata: ConstPtr<CVoid>, resourcelen: UInt, ulflags: UInt): Configret =
+public actual fun cmAddResDes(prdresdes: MutPtr, lclogconf: ULong, resourceid: UInt, resourcedata: ConstPtr, resourcelen: UInt, ulflags: UInt): Configret =
     if (windowsWin32DevicesDeviceanddriverinstallationNapiAvailable) wasmWindowssysWindowsWin32DevicesDeviceanddriverinstallationCmAddResDes(prdresdes.rawAddress.toString(), lclogconf.toString(), resourceid.toInt(), resourcedata.rawAddress.toString(), resourcelen.toInt(), ulflags.toInt()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun cmAddResDesEx(prdresdes: MutPtr<ULong>, lclogconf: ULong, resourceid: UInt, resourcedata: ConstPtr<CVoid>, resourcelen: UInt, ulflags: UInt, hmachine: Long): Configret =
+public actual fun cmAddResDesEx(prdresdes: MutPtr, lclogconf: ULong, resourceid: UInt, resourcedata: ConstPtr, resourcelen: UInt, ulflags: UInt, hmachine: Long): Configret =
     if (windowsWin32DevicesDeviceanddriverinstallationNapiAvailable) wasmWindowssysWindowsWin32DevicesDeviceanddriverinstallationCmAddResDesEx(prdresdes.rawAddress.toString(), lclogconf.toString(), resourceid.toInt(), resourcedata.rawAddress.toString(), resourcelen.toInt(), ulflags.toInt(), hmachine.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun cmConnectMachineA(uncservername: Pcstr, phmachine: MutPtr<Long>): Configret =
+public actual fun cmConnectMachineA(uncservername: Pcstr, phmachine: MutPtr): Configret =
     if (windowsWin32DevicesDeviceanddriverinstallationNapiAvailable) wasmWindowssysWindowsWin32DevicesDeviceanddriverinstallationCmConnectMachineA(uncservername.rawAddress.toString(), phmachine.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun cmConnectMachineW(uncservername: Pcwstr, phmachine: MutPtr<Long>): Configret =
+public actual fun cmConnectMachineW(uncservername: Pcwstr, phmachine: MutPtr): Configret =
     if (windowsWin32DevicesDeviceanddriverinstallationNapiAvailable) wasmWindowssysWindowsWin32DevicesDeviceanddriverinstallationCmConnectMachineW(uncservername.rawAddress.toString(), phmachine.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun cmCreateDevNodeA(pdndevinst: MutPtr<UInt>, pdeviceid: Pcstr, dnparent: UInt, ulflags: UInt): Configret =
+public actual fun cmCreateDevNodeA(pdndevinst: MutPtr, pdeviceid: Pcstr, dnparent: UInt, ulflags: UInt): Configret =
     if (windowsWin32DevicesDeviceanddriverinstallationNapiAvailable) wasmWindowssysWindowsWin32DevicesDeviceanddriverinstallationCmCreateDevNodeA(pdndevinst.rawAddress.toString(), pdeviceid.rawAddress.toString(), dnparent.toInt(), ulflags.toInt()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun cmCreateDevNodeW(pdndevinst: MutPtr<UInt>, pdeviceid: Pcwstr, dnparent: UInt, ulflags: UInt): Configret =
+public actual fun cmCreateDevNodeW(pdndevinst: MutPtr, pdeviceid: Pcwstr, dnparent: UInt, ulflags: UInt): Configret =
     if (windowsWin32DevicesDeviceanddriverinstallationNapiAvailable) wasmWindowssysWindowsWin32DevicesDeviceanddriverinstallationCmCreateDevNodeW(pdndevinst.rawAddress.toString(), pdeviceid.rawAddress.toString(), dnparent.toInt(), ulflags.toInt()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun cmCreateDevNodeExA(pdndevinst: MutPtr<UInt>, pdeviceid: Pcstr, dnparent: UInt, ulflags: UInt, hmachine: Long): Configret =
+public actual fun cmCreateDevNodeExA(pdndevinst: MutPtr, pdeviceid: Pcstr, dnparent: UInt, ulflags: UInt, hmachine: Long): Configret =
     if (windowsWin32DevicesDeviceanddriverinstallationNapiAvailable) wasmWindowssysWindowsWin32DevicesDeviceanddriverinstallationCmCreateDevNodeExA(pdndevinst.rawAddress.toString(), pdeviceid.rawAddress.toString(), dnparent.toInt(), ulflags.toInt(), hmachine.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun cmCreateDevNodeExW(pdndevinst: MutPtr<UInt>, pdeviceid: Pcwstr, dnparent: UInt, ulflags: UInt, hmachine: Long): Configret =
+public actual fun cmCreateDevNodeExW(pdndevinst: MutPtr, pdeviceid: Pcwstr, dnparent: UInt, ulflags: UInt, hmachine: Long): Configret =
     if (windowsWin32DevicesDeviceanddriverinstallationNapiAvailable) wasmWindowssysWindowsWin32DevicesDeviceanddriverinstallationCmCreateDevNodeExW(pdndevinst.rawAddress.toString(), pdeviceid.rawAddress.toString(), dnparent.toInt(), ulflags.toInt(), hmachine.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun cmCreateRangeList(prlh: MutPtr<ULong>, ulflags: UInt): Configret =
+public actual fun cmCreateRangeList(prlh: MutPtr, ulflags: UInt): Configret =
     if (windowsWin32DevicesDeviceanddriverinstallationNapiAvailable) wasmWindowssysWindowsWin32DevicesDeviceanddriverinstallationCmCreateRangeList(prlh.rawAddress.toString(), ulflags.toInt()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun cmDeleteClassKey(classguid: ConstPtr<Guid>, ulflags: UInt): Configret =
+public actual fun cmDeleteClassKey(classguid: ConstPtr, ulflags: UInt): Configret =
     if (windowsWin32DevicesDeviceanddriverinstallationNapiAvailable) wasmWindowssysWindowsWin32DevicesDeviceanddriverinstallationCmDeleteClassKey(classguid.rawAddress.toString(), ulflags.toInt()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun cmDeleteClassKeyEx(classguid: ConstPtr<Guid>, ulflags: UInt, hmachine: Long): Configret =
+public actual fun cmDeleteClassKeyEx(classguid: ConstPtr, ulflags: UInt, hmachine: Long): Configret =
     if (windowsWin32DevicesDeviceanddriverinstallationNapiAvailable) wasmWindowssysWindowsWin32DevicesDeviceanddriverinstallationCmDeleteClassKeyEx(classguid.rawAddress.toString(), ulflags.toInt(), hmachine.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun cmDeleteDevNodeKey(dndevnode: UInt, ulhardwareprofile: UInt, ulflags: UInt): Configret =
@@ -1829,10 +1823,10 @@ public actual fun cmDeleteDeviceInterfaceKeyExW(pszdeviceinterface: Pcwstr, ulfl
 public actual fun cmDeleteRange(ullstartvalue: ULong, ullendvalue: ULong, rlh: ULong, ulflags: UInt): Configret =
     if (windowsWin32DevicesDeviceanddriverinstallationNapiAvailable) wasmWindowssysWindowsWin32DevicesDeviceanddriverinstallationCmDeleteRange(ullstartvalue.toString(), ullendvalue.toString(), rlh.toString(), ulflags.toInt()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun cmDetectResourceConflict(dndevinst: UInt, resourceid: UInt, resourcedata: ConstPtr<CVoid>, resourcelen: UInt, pbconflictdetected: MutPtr<Bool>, ulflags: UInt): Configret =
+public actual fun cmDetectResourceConflict(dndevinst: UInt, resourceid: UInt, resourcedata: ConstPtr, resourcelen: UInt, pbconflictdetected: MutPtr, ulflags: UInt): Configret =
     if (windowsWin32DevicesDeviceanddriverinstallationNapiAvailable) wasmWindowssysWindowsWin32DevicesDeviceanddriverinstallationCmDetectResourceConflict(dndevinst.toInt(), resourceid.toInt(), resourcedata.rawAddress.toString(), resourcelen.toInt(), pbconflictdetected.rawAddress.toString(), ulflags.toInt()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun cmDetectResourceConflictEx(dndevinst: UInt, resourceid: UInt, resourcedata: ConstPtr<CVoid>, resourcelen: UInt, pbconflictdetected: MutPtr<Bool>, ulflags: UInt, hmachine: Long): Configret =
+public actual fun cmDetectResourceConflictEx(dndevinst: UInt, resourceid: UInt, resourcedata: ConstPtr, resourcelen: UInt, pbconflictdetected: MutPtr, ulflags: UInt, hmachine: Long): Configret =
     if (windowsWin32DevicesDeviceanddriverinstallationNapiAvailable) wasmWindowssysWindowsWin32DevicesDeviceanddriverinstallationCmDetectResourceConflictEx(dndevinst.toInt(), resourceid.toInt(), resourcedata.rawAddress.toString(), resourcelen.toInt(), pbconflictdetected.rawAddress.toString(), ulflags.toInt(), hmachine.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun cmDisableDevNode(dndevinst: UInt, ulflags: UInt): Configret =
@@ -1853,28 +1847,28 @@ public actual fun cmEnableDevNode(dndevinst: UInt, ulflags: UInt): Configret =
 public actual fun cmEnableDevNodeEx(dndevinst: UInt, ulflags: UInt, hmachine: Long): Configret =
     if (windowsWin32DevicesDeviceanddriverinstallationNapiAvailable) wasmWindowssysWindowsWin32DevicesDeviceanddriverinstallationCmEnableDevNodeEx(dndevinst.toInt(), ulflags.toInt(), hmachine.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun cmEnumerateClasses(ulclassindex: UInt, classguid: MutPtr<Guid>, ulflags: CmEnumerateFlags): Configret =
+public actual fun cmEnumerateClasses(ulclassindex: UInt, classguid: MutPtr, ulflags: CmEnumerateFlags): Configret =
     if (windowsWin32DevicesDeviceanddriverinstallationNapiAvailable) wasmWindowssysWindowsWin32DevicesDeviceanddriverinstallationCmEnumerateClasses(ulclassindex.toInt(), classguid.rawAddress.toString(), ulflags.toInt()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun cmEnumerateClassesEx(ulclassindex: UInt, classguid: MutPtr<Guid>, ulflags: CmEnumerateFlags, hmachine: Long): Configret =
+public actual fun cmEnumerateClassesEx(ulclassindex: UInt, classguid: MutPtr, ulflags: CmEnumerateFlags, hmachine: Long): Configret =
     if (windowsWin32DevicesDeviceanddriverinstallationNapiAvailable) wasmWindowssysWindowsWin32DevicesDeviceanddriverinstallationCmEnumerateClassesEx(ulclassindex.toInt(), classguid.rawAddress.toString(), ulflags.toInt(), hmachine.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun cmEnumerateEnumeratorsA(ulenumindex: UInt, buffer: Pstr, pullength: MutPtr<UInt>, ulflags: UInt): Configret =
+public actual fun cmEnumerateEnumeratorsA(ulenumindex: UInt, buffer: Pstr, pullength: MutPtr, ulflags: UInt): Configret =
     if (windowsWin32DevicesDeviceanddriverinstallationNapiAvailable) wasmWindowssysWindowsWin32DevicesDeviceanddriverinstallationCmEnumerateEnumeratorsA(ulenumindex.toInt(), buffer.rawAddress.toString(), pullength.rawAddress.toString(), ulflags.toInt()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun cmEnumerateEnumeratorsW(ulenumindex: UInt, buffer: Pwstr, pullength: MutPtr<UInt>, ulflags: UInt): Configret =
+public actual fun cmEnumerateEnumeratorsW(ulenumindex: UInt, buffer: Pwstr, pullength: MutPtr, ulflags: UInt): Configret =
     if (windowsWin32DevicesDeviceanddriverinstallationNapiAvailable) wasmWindowssysWindowsWin32DevicesDeviceanddriverinstallationCmEnumerateEnumeratorsW(ulenumindex.toInt(), buffer.rawAddress.toString(), pullength.rawAddress.toString(), ulflags.toInt()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun cmEnumerateEnumeratorsExA(ulenumindex: UInt, buffer: Pstr, pullength: MutPtr<UInt>, ulflags: UInt, hmachine: Long): Configret =
+public actual fun cmEnumerateEnumeratorsExA(ulenumindex: UInt, buffer: Pstr, pullength: MutPtr, ulflags: UInt, hmachine: Long): Configret =
     if (windowsWin32DevicesDeviceanddriverinstallationNapiAvailable) wasmWindowssysWindowsWin32DevicesDeviceanddriverinstallationCmEnumerateEnumeratorsExA(ulenumindex.toInt(), buffer.rawAddress.toString(), pullength.rawAddress.toString(), ulflags.toInt(), hmachine.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun cmEnumerateEnumeratorsExW(ulenumindex: UInt, buffer: Pwstr, pullength: MutPtr<UInt>, ulflags: UInt, hmachine: Long): Configret =
+public actual fun cmEnumerateEnumeratorsExW(ulenumindex: UInt, buffer: Pwstr, pullength: MutPtr, ulflags: UInt, hmachine: Long): Configret =
     if (windowsWin32DevicesDeviceanddriverinstallationNapiAvailable) wasmWindowssysWindowsWin32DevicesDeviceanddriverinstallationCmEnumerateEnumeratorsExW(ulenumindex.toInt(), buffer.rawAddress.toString(), pullength.rawAddress.toString(), ulflags.toInt(), hmachine.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun cmFindRange(pullstart: MutPtr<ULong>, ullstart: ULong, ullength: UInt, ullalignment: ULong, ullend: ULong, rlh: ULong, ulflags: UInt): Configret =
+public actual fun cmFindRange(pullstart: MutPtr, ullstart: ULong, ullength: UInt, ullalignment: ULong, ullend: ULong, rlh: ULong, ulflags: UInt): Configret =
     if (windowsWin32DevicesDeviceanddriverinstallationNapiAvailable) wasmWindowssysWindowsWin32DevicesDeviceanddriverinstallationCmFindRange(pullstart.rawAddress.toString(), ullstart.toString(), ullength.toInt(), ullalignment.toString(), ullend.toString(), rlh.toString(), ulflags.toInt()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun cmFirstRange(rlh: ULong, pullstart: MutPtr<ULong>, pullend: MutPtr<ULong>, preelement: MutPtr<ULong>, ulflags: UInt): Configret =
+public actual fun cmFirstRange(rlh: ULong, pullstart: MutPtr, pullend: MutPtr, preelement: MutPtr, ulflags: UInt): Configret =
     if (windowsWin32DevicesDeviceanddriverinstallationNapiAvailable) wasmWindowssysWindowsWin32DevicesDeviceanddriverinstallationCmFirstRange(rlh.toString(), pullstart.rawAddress.toString(), pullend.rawAddress.toString(), preelement.rawAddress.toString(), ulflags.toInt()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun cmFreeLogConf(lclogconftobefreed: ULong, ulflags: UInt): Configret =
@@ -1889,10 +1883,10 @@ public actual fun cmFreeLogConfHandle(lclogconf: ULong): Configret =
 public actual fun cmFreeRangeList(rlh: ULong, ulflags: UInt): Configret =
     if (windowsWin32DevicesDeviceanddriverinstallationNapiAvailable) wasmWindowssysWindowsWin32DevicesDeviceanddriverinstallationCmFreeRangeList(rlh.toString(), ulflags.toInt()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun cmFreeResDes(prdresdes: MutPtr<ULong>, rdresdes: ULong, ulflags: UInt): Configret =
+public actual fun cmFreeResDes(prdresdes: MutPtr, rdresdes: ULong, ulflags: UInt): Configret =
     if (windowsWin32DevicesDeviceanddriverinstallationNapiAvailable) wasmWindowssysWindowsWin32DevicesDeviceanddriverinstallationCmFreeResDes(prdresdes.rawAddress.toString(), rdresdes.toString(), ulflags.toInt()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun cmFreeResDesEx(prdresdes: MutPtr<ULong>, rdresdes: ULong, ulflags: UInt, hmachine: Long): Configret =
+public actual fun cmFreeResDesEx(prdresdes: MutPtr, rdresdes: ULong, ulflags: UInt, hmachine: Long): Configret =
     if (windowsWin32DevicesDeviceanddriverinstallationNapiAvailable) wasmWindowssysWindowsWin32DevicesDeviceanddriverinstallationCmFreeResDesEx(prdresdes.rawAddress.toString(), rdresdes.toString(), ulflags.toInt(), hmachine.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun cmFreeResDesHandle(rdresdes: ULong): Configret =
@@ -1901,100 +1895,100 @@ public actual fun cmFreeResDesHandle(rdresdes: ULong): Configret =
 public actual fun cmFreeResourceConflictHandle(clconflictlist: ULong): Configret =
     if (windowsWin32DevicesDeviceanddriverinstallationNapiAvailable) wasmWindowssysWindowsWin32DevicesDeviceanddriverinstallationCmFreeResourceConflictHandle(clconflictlist.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun cmGetChild(pdndevinst: MutPtr<UInt>, dndevinst: UInt, ulflags: UInt): Configret =
+public actual fun cmGetChild(pdndevinst: MutPtr, dndevinst: UInt, ulflags: UInt): Configret =
     if (windowsWin32DevicesDeviceanddriverinstallationNapiAvailable) wasmWindowssysWindowsWin32DevicesDeviceanddriverinstallationCmGetChild(pdndevinst.rawAddress.toString(), dndevinst.toInt(), ulflags.toInt()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun cmGetChildEx(pdndevinst: MutPtr<UInt>, dndevinst: UInt, ulflags: UInt, hmachine: Long): Configret =
+public actual fun cmGetChildEx(pdndevinst: MutPtr, dndevinst: UInt, ulflags: UInt, hmachine: Long): Configret =
     if (windowsWin32DevicesDeviceanddriverinstallationNapiAvailable) wasmWindowssysWindowsWin32DevicesDeviceanddriverinstallationCmGetChildEx(pdndevinst.rawAddress.toString(), dndevinst.toInt(), ulflags.toInt(), hmachine.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun cmGetClassKeyNameA(classguid: ConstPtr<Guid>, pszkeyname: Pstr, pullength: MutPtr<UInt>, ulflags: UInt): Configret =
+public actual fun cmGetClassKeyNameA(classguid: ConstPtr, pszkeyname: Pstr, pullength: MutPtr, ulflags: UInt): Configret =
     if (windowsWin32DevicesDeviceanddriverinstallationNapiAvailable) wasmWindowssysWindowsWin32DevicesDeviceanddriverinstallationCmGetClassKeyNameA(classguid.rawAddress.toString(), pszkeyname.rawAddress.toString(), pullength.rawAddress.toString(), ulflags.toInt()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun cmGetClassKeyNameW(classguid: ConstPtr<Guid>, pszkeyname: Pwstr, pullength: MutPtr<UInt>, ulflags: UInt): Configret =
+public actual fun cmGetClassKeyNameW(classguid: ConstPtr, pszkeyname: Pwstr, pullength: MutPtr, ulflags: UInt): Configret =
     if (windowsWin32DevicesDeviceanddriverinstallationNapiAvailable) wasmWindowssysWindowsWin32DevicesDeviceanddriverinstallationCmGetClassKeyNameW(classguid.rawAddress.toString(), pszkeyname.rawAddress.toString(), pullength.rawAddress.toString(), ulflags.toInt()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun cmGetClassKeyNameExA(classguid: ConstPtr<Guid>, pszkeyname: Pstr, pullength: MutPtr<UInt>, ulflags: UInt, hmachine: Long): Configret =
+public actual fun cmGetClassKeyNameExA(classguid: ConstPtr, pszkeyname: Pstr, pullength: MutPtr, ulflags: UInt, hmachine: Long): Configret =
     if (windowsWin32DevicesDeviceanddriverinstallationNapiAvailable) wasmWindowssysWindowsWin32DevicesDeviceanddriverinstallationCmGetClassKeyNameExA(classguid.rawAddress.toString(), pszkeyname.rawAddress.toString(), pullength.rawAddress.toString(), ulflags.toInt(), hmachine.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun cmGetClassKeyNameExW(classguid: ConstPtr<Guid>, pszkeyname: Pwstr, pullength: MutPtr<UInt>, ulflags: UInt, hmachine: Long): Configret =
+public actual fun cmGetClassKeyNameExW(classguid: ConstPtr, pszkeyname: Pwstr, pullength: MutPtr, ulflags: UInt, hmachine: Long): Configret =
     if (windowsWin32DevicesDeviceanddriverinstallationNapiAvailable) wasmWindowssysWindowsWin32DevicesDeviceanddriverinstallationCmGetClassKeyNameExW(classguid.rawAddress.toString(), pszkeyname.rawAddress.toString(), pullength.rawAddress.toString(), ulflags.toInt(), hmachine.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun cmGetClassNameA(classguid: ConstPtr<Guid>, buffer: Pstr, pullength: MutPtr<UInt>, ulflags: UInt): Configret =
+public actual fun cmGetClassNameA(classguid: ConstPtr, buffer: Pstr, pullength: MutPtr, ulflags: UInt): Configret =
     if (windowsWin32DevicesDeviceanddriverinstallationNapiAvailable) wasmWindowssysWindowsWin32DevicesDeviceanddriverinstallationCmGetClassNameA(classguid.rawAddress.toString(), buffer.rawAddress.toString(), pullength.rawAddress.toString(), ulflags.toInt()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun cmGetClassNameW(classguid: ConstPtr<Guid>, buffer: Pwstr, pullength: MutPtr<UInt>, ulflags: UInt): Configret =
+public actual fun cmGetClassNameW(classguid: ConstPtr, buffer: Pwstr, pullength: MutPtr, ulflags: UInt): Configret =
     if (windowsWin32DevicesDeviceanddriverinstallationNapiAvailable) wasmWindowssysWindowsWin32DevicesDeviceanddriverinstallationCmGetClassNameW(classguid.rawAddress.toString(), buffer.rawAddress.toString(), pullength.rawAddress.toString(), ulflags.toInt()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun cmGetClassNameExA(classguid: ConstPtr<Guid>, buffer: Pstr, pullength: MutPtr<UInt>, ulflags: UInt, hmachine: Long): Configret =
+public actual fun cmGetClassNameExA(classguid: ConstPtr, buffer: Pstr, pullength: MutPtr, ulflags: UInt, hmachine: Long): Configret =
     if (windowsWin32DevicesDeviceanddriverinstallationNapiAvailable) wasmWindowssysWindowsWin32DevicesDeviceanddriverinstallationCmGetClassNameExA(classguid.rawAddress.toString(), buffer.rawAddress.toString(), pullength.rawAddress.toString(), ulflags.toInt(), hmachine.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun cmGetClassNameExW(classguid: ConstPtr<Guid>, buffer: Pwstr, pullength: MutPtr<UInt>, ulflags: UInt, hmachine: Long): Configret =
+public actual fun cmGetClassNameExW(classguid: ConstPtr, buffer: Pwstr, pullength: MutPtr, ulflags: UInt, hmachine: Long): Configret =
     if (windowsWin32DevicesDeviceanddriverinstallationNapiAvailable) wasmWindowssysWindowsWin32DevicesDeviceanddriverinstallationCmGetClassNameExW(classguid.rawAddress.toString(), buffer.rawAddress.toString(), pullength.rawAddress.toString(), ulflags.toInt(), hmachine.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun cmGetClassPropertyW(classguid: ConstPtr<Guid>, propertykey: ConstPtr<Devpropkey>, propertytype: MutPtr<Devproptype>, propertybuffer: MutPtr<UByte>, propertybuffersize: MutPtr<UInt>, ulflags: UInt): Configret =
+public actual fun cmGetClassPropertyW(classguid: ConstPtr, propertykey: ConstPtr, propertytype: MutPtr, propertybuffer: MutPtr, propertybuffersize: MutPtr, ulflags: UInt): Configret =
     if (windowsWin32DevicesDeviceanddriverinstallationNapiAvailable) wasmWindowssysWindowsWin32DevicesDeviceanddriverinstallationCmGetClassPropertyW(classguid.rawAddress.toString(), propertykey.rawAddress.toString(), propertytype.rawAddress.toString(), propertybuffer.rawAddress.toString(), propertybuffersize.rawAddress.toString(), ulflags.toInt()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun cmGetClassPropertyExW(classguid: ConstPtr<Guid>, propertykey: ConstPtr<Devpropkey>, propertytype: MutPtr<Devproptype>, propertybuffer: MutPtr<UByte>, propertybuffersize: MutPtr<UInt>, ulflags: UInt, hmachine: Long): Configret =
+public actual fun cmGetClassPropertyExW(classguid: ConstPtr, propertykey: ConstPtr, propertytype: MutPtr, propertybuffer: MutPtr, propertybuffersize: MutPtr, ulflags: UInt, hmachine: Long): Configret =
     if (windowsWin32DevicesDeviceanddriverinstallationNapiAvailable) wasmWindowssysWindowsWin32DevicesDeviceanddriverinstallationCmGetClassPropertyExW(classguid.rawAddress.toString(), propertykey.rawAddress.toString(), propertytype.rawAddress.toString(), propertybuffer.rawAddress.toString(), propertybuffersize.rawAddress.toString(), ulflags.toInt(), hmachine.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun cmGetClassPropertyKeys(classguid: ConstPtr<Guid>, propertykeyarray: MutPtr<Devpropkey>, propertykeycount: MutPtr<UInt>, ulflags: UInt): Configret =
+public actual fun cmGetClassPropertyKeys(classguid: ConstPtr, propertykeyarray: MutPtr, propertykeycount: MutPtr, ulflags: UInt): Configret =
     if (windowsWin32DevicesDeviceanddriverinstallationNapiAvailable) wasmWindowssysWindowsWin32DevicesDeviceanddriverinstallationCmGetClassPropertyKeys(classguid.rawAddress.toString(), propertykeyarray.rawAddress.toString(), propertykeycount.rawAddress.toString(), ulflags.toInt()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun cmGetClassPropertyKeysEx(classguid: ConstPtr<Guid>, propertykeyarray: MutPtr<Devpropkey>, propertykeycount: MutPtr<UInt>, ulflags: UInt, hmachine: Long): Configret =
+public actual fun cmGetClassPropertyKeysEx(classguid: ConstPtr, propertykeyarray: MutPtr, propertykeycount: MutPtr, ulflags: UInt, hmachine: Long): Configret =
     if (windowsWin32DevicesDeviceanddriverinstallationNapiAvailable) wasmWindowssysWindowsWin32DevicesDeviceanddriverinstallationCmGetClassPropertyKeysEx(classguid.rawAddress.toString(), propertykeyarray.rawAddress.toString(), propertykeycount.rawAddress.toString(), ulflags.toInt(), hmachine.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun cmGetClassRegistryPropertyA(classguid: ConstPtr<Guid>, ulproperty: UInt, pulregdatatype: MutPtr<UInt>, buffer: MutPtr<CVoid>, pullength: MutPtr<UInt>, ulflags: UInt, hmachine: Long): Configret =
+public actual fun cmGetClassRegistryPropertyA(classguid: ConstPtr, ulproperty: UInt, pulregdatatype: MutPtr, buffer: MutPtr, pullength: MutPtr, ulflags: UInt, hmachine: Long): Configret =
     if (windowsWin32DevicesDeviceanddriverinstallationNapiAvailable) wasmWindowssysWindowsWin32DevicesDeviceanddriverinstallationCmGetClassRegistryPropertyA(classguid.rawAddress.toString(), ulproperty.toInt(), pulregdatatype.rawAddress.toString(), buffer.rawAddress.toString(), pullength.rawAddress.toString(), ulflags.toInt(), hmachine.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun cmGetClassRegistryPropertyW(classguid: ConstPtr<Guid>, ulproperty: UInt, pulregdatatype: MutPtr<UInt>, buffer: MutPtr<CVoid>, pullength: MutPtr<UInt>, ulflags: UInt, hmachine: Long): Configret =
+public actual fun cmGetClassRegistryPropertyW(classguid: ConstPtr, ulproperty: UInt, pulregdatatype: MutPtr, buffer: MutPtr, pullength: MutPtr, ulflags: UInt, hmachine: Long): Configret =
     if (windowsWin32DevicesDeviceanddriverinstallationNapiAvailable) wasmWindowssysWindowsWin32DevicesDeviceanddriverinstallationCmGetClassRegistryPropertyW(classguid.rawAddress.toString(), ulproperty.toInt(), pulregdatatype.rawAddress.toString(), buffer.rawAddress.toString(), pullength.rawAddress.toString(), ulflags.toInt(), hmachine.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun cmGetDepth(puldepth: MutPtr<UInt>, dndevinst: UInt, ulflags: UInt): Configret =
+public actual fun cmGetDepth(puldepth: MutPtr, dndevinst: UInt, ulflags: UInt): Configret =
     if (windowsWin32DevicesDeviceanddriverinstallationNapiAvailable) wasmWindowssysWindowsWin32DevicesDeviceanddriverinstallationCmGetDepth(puldepth.rawAddress.toString(), dndevinst.toInt(), ulflags.toInt()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun cmGetDepthEx(puldepth: MutPtr<UInt>, dndevinst: UInt, ulflags: UInt, hmachine: Long): Configret =
+public actual fun cmGetDepthEx(puldepth: MutPtr, dndevinst: UInt, ulflags: UInt, hmachine: Long): Configret =
     if (windowsWin32DevicesDeviceanddriverinstallationNapiAvailable) wasmWindowssysWindowsWin32DevicesDeviceanddriverinstallationCmGetDepthEx(puldepth.rawAddress.toString(), dndevinst.toInt(), ulflags.toInt(), hmachine.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun cmGetDevNodeCustomPropertyA(dndevinst: UInt, pszcustompropertyname: Pcstr, pulregdatatype: MutPtr<UInt>, buffer: MutPtr<CVoid>, pullength: MutPtr<UInt>, ulflags: UInt): Configret =
+public actual fun cmGetDevNodeCustomPropertyA(dndevinst: UInt, pszcustompropertyname: Pcstr, pulregdatatype: MutPtr, buffer: MutPtr, pullength: MutPtr, ulflags: UInt): Configret =
     if (windowsWin32DevicesDeviceanddriverinstallationNapiAvailable) wasmWindowssysWindowsWin32DevicesDeviceanddriverinstallationCmGetDevNodeCustomPropertyA(dndevinst.toInt(), pszcustompropertyname.rawAddress.toString(), pulregdatatype.rawAddress.toString(), buffer.rawAddress.toString(), pullength.rawAddress.toString(), ulflags.toInt()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun cmGetDevNodeCustomPropertyW(dndevinst: UInt, pszcustompropertyname: Pcwstr, pulregdatatype: MutPtr<UInt>, buffer: MutPtr<CVoid>, pullength: MutPtr<UInt>, ulflags: UInt): Configret =
+public actual fun cmGetDevNodeCustomPropertyW(dndevinst: UInt, pszcustompropertyname: Pcwstr, pulregdatatype: MutPtr, buffer: MutPtr, pullength: MutPtr, ulflags: UInt): Configret =
     if (windowsWin32DevicesDeviceanddriverinstallationNapiAvailable) wasmWindowssysWindowsWin32DevicesDeviceanddriverinstallationCmGetDevNodeCustomPropertyW(dndevinst.toInt(), pszcustompropertyname.rawAddress.toString(), pulregdatatype.rawAddress.toString(), buffer.rawAddress.toString(), pullength.rawAddress.toString(), ulflags.toInt()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun cmGetDevNodeCustomPropertyExA(dndevinst: UInt, pszcustompropertyname: Pcstr, pulregdatatype: MutPtr<UInt>, buffer: MutPtr<CVoid>, pullength: MutPtr<UInt>, ulflags: UInt, hmachine: Long): Configret =
+public actual fun cmGetDevNodeCustomPropertyExA(dndevinst: UInt, pszcustompropertyname: Pcstr, pulregdatatype: MutPtr, buffer: MutPtr, pullength: MutPtr, ulflags: UInt, hmachine: Long): Configret =
     if (windowsWin32DevicesDeviceanddriverinstallationNapiAvailable) wasmWindowssysWindowsWin32DevicesDeviceanddriverinstallationCmGetDevNodeCustomPropertyExA(dndevinst.toInt(), pszcustompropertyname.rawAddress.toString(), pulregdatatype.rawAddress.toString(), buffer.rawAddress.toString(), pullength.rawAddress.toString(), ulflags.toInt(), hmachine.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun cmGetDevNodeCustomPropertyExW(dndevinst: UInt, pszcustompropertyname: Pcwstr, pulregdatatype: MutPtr<UInt>, buffer: MutPtr<CVoid>, pullength: MutPtr<UInt>, ulflags: UInt, hmachine: Long): Configret =
+public actual fun cmGetDevNodeCustomPropertyExW(dndevinst: UInt, pszcustompropertyname: Pcwstr, pulregdatatype: MutPtr, buffer: MutPtr, pullength: MutPtr, ulflags: UInt, hmachine: Long): Configret =
     if (windowsWin32DevicesDeviceanddriverinstallationNapiAvailable) wasmWindowssysWindowsWin32DevicesDeviceanddriverinstallationCmGetDevNodeCustomPropertyExW(dndevinst.toInt(), pszcustompropertyname.rawAddress.toString(), pulregdatatype.rawAddress.toString(), buffer.rawAddress.toString(), pullength.rawAddress.toString(), ulflags.toInt(), hmachine.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun cmGetDevNodePropertyW(dndevinst: UInt, propertykey: ConstPtr<Devpropkey>, propertytype: MutPtr<Devproptype>, propertybuffer: MutPtr<UByte>, propertybuffersize: MutPtr<UInt>, ulflags: UInt): Configret =
+public actual fun cmGetDevNodePropertyW(dndevinst: UInt, propertykey: ConstPtr, propertytype: MutPtr, propertybuffer: MutPtr, propertybuffersize: MutPtr, ulflags: UInt): Configret =
     if (windowsWin32DevicesDeviceanddriverinstallationNapiAvailable) wasmWindowssysWindowsWin32DevicesDeviceanddriverinstallationCmGetDevNodePropertyW(dndevinst.toInt(), propertykey.rawAddress.toString(), propertytype.rawAddress.toString(), propertybuffer.rawAddress.toString(), propertybuffersize.rawAddress.toString(), ulflags.toInt()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun cmGetDevNodePropertyExW(dndevinst: UInt, propertykey: ConstPtr<Devpropkey>, propertytype: MutPtr<Devproptype>, propertybuffer: MutPtr<UByte>, propertybuffersize: MutPtr<UInt>, ulflags: UInt, hmachine: Long): Configret =
+public actual fun cmGetDevNodePropertyExW(dndevinst: UInt, propertykey: ConstPtr, propertytype: MutPtr, propertybuffer: MutPtr, propertybuffersize: MutPtr, ulflags: UInt, hmachine: Long): Configret =
     if (windowsWin32DevicesDeviceanddriverinstallationNapiAvailable) wasmWindowssysWindowsWin32DevicesDeviceanddriverinstallationCmGetDevNodePropertyExW(dndevinst.toInt(), propertykey.rawAddress.toString(), propertytype.rawAddress.toString(), propertybuffer.rawAddress.toString(), propertybuffersize.rawAddress.toString(), ulflags.toInt(), hmachine.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun cmGetDevNodePropertyKeys(dndevinst: UInt, propertykeyarray: MutPtr<Devpropkey>, propertykeycount: MutPtr<UInt>, ulflags: UInt): Configret =
+public actual fun cmGetDevNodePropertyKeys(dndevinst: UInt, propertykeyarray: MutPtr, propertykeycount: MutPtr, ulflags: UInt): Configret =
     if (windowsWin32DevicesDeviceanddriverinstallationNapiAvailable) wasmWindowssysWindowsWin32DevicesDeviceanddriverinstallationCmGetDevNodePropertyKeys(dndevinst.toInt(), propertykeyarray.rawAddress.toString(), propertykeycount.rawAddress.toString(), ulflags.toInt()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun cmGetDevNodePropertyKeysEx(dndevinst: UInt, propertykeyarray: MutPtr<Devpropkey>, propertykeycount: MutPtr<UInt>, ulflags: UInt, hmachine: Long): Configret =
+public actual fun cmGetDevNodePropertyKeysEx(dndevinst: UInt, propertykeyarray: MutPtr, propertykeycount: MutPtr, ulflags: UInt, hmachine: Long): Configret =
     if (windowsWin32DevicesDeviceanddriverinstallationNapiAvailable) wasmWindowssysWindowsWin32DevicesDeviceanddriverinstallationCmGetDevNodePropertyKeysEx(dndevinst.toInt(), propertykeyarray.rawAddress.toString(), propertykeycount.rawAddress.toString(), ulflags.toInt(), hmachine.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun cmGetDevNodeRegistryPropertyA(dndevinst: UInt, ulproperty: UInt, pulregdatatype: MutPtr<UInt>, buffer: MutPtr<CVoid>, pullength: MutPtr<UInt>, ulflags: UInt): Configret =
+public actual fun cmGetDevNodeRegistryPropertyA(dndevinst: UInt, ulproperty: UInt, pulregdatatype: MutPtr, buffer: MutPtr, pullength: MutPtr, ulflags: UInt): Configret =
     if (windowsWin32DevicesDeviceanddriverinstallationNapiAvailable) wasmWindowssysWindowsWin32DevicesDeviceanddriverinstallationCmGetDevNodeRegistryPropertyA(dndevinst.toInt(), ulproperty.toInt(), pulregdatatype.rawAddress.toString(), buffer.rawAddress.toString(), pullength.rawAddress.toString(), ulflags.toInt()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun cmGetDevNodeRegistryPropertyW(dndevinst: UInt, ulproperty: UInt, pulregdatatype: MutPtr<UInt>, buffer: MutPtr<CVoid>, pullength: MutPtr<UInt>, ulflags: UInt): Configret =
+public actual fun cmGetDevNodeRegistryPropertyW(dndevinst: UInt, ulproperty: UInt, pulregdatatype: MutPtr, buffer: MutPtr, pullength: MutPtr, ulflags: UInt): Configret =
     if (windowsWin32DevicesDeviceanddriverinstallationNapiAvailable) wasmWindowssysWindowsWin32DevicesDeviceanddriverinstallationCmGetDevNodeRegistryPropertyW(dndevinst.toInt(), ulproperty.toInt(), pulregdatatype.rawAddress.toString(), buffer.rawAddress.toString(), pullength.rawAddress.toString(), ulflags.toInt()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun cmGetDevNodeRegistryPropertyExA(dndevinst: UInt, ulproperty: UInt, pulregdatatype: MutPtr<UInt>, buffer: MutPtr<CVoid>, pullength: MutPtr<UInt>, ulflags: UInt, hmachine: Long): Configret =
+public actual fun cmGetDevNodeRegistryPropertyExA(dndevinst: UInt, ulproperty: UInt, pulregdatatype: MutPtr, buffer: MutPtr, pullength: MutPtr, ulflags: UInt, hmachine: Long): Configret =
     if (windowsWin32DevicesDeviceanddriverinstallationNapiAvailable) wasmWindowssysWindowsWin32DevicesDeviceanddriverinstallationCmGetDevNodeRegistryPropertyExA(dndevinst.toInt(), ulproperty.toInt(), pulregdatatype.rawAddress.toString(), buffer.rawAddress.toString(), pullength.rawAddress.toString(), ulflags.toInt(), hmachine.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun cmGetDevNodeRegistryPropertyExW(dndevinst: UInt, ulproperty: UInt, pulregdatatype: MutPtr<UInt>, buffer: MutPtr<CVoid>, pullength: MutPtr<UInt>, ulflags: UInt, hmachine: Long): Configret =
+public actual fun cmGetDevNodeRegistryPropertyExW(dndevinst: UInt, ulproperty: UInt, pulregdatatype: MutPtr, buffer: MutPtr, pullength: MutPtr, ulflags: UInt, hmachine: Long): Configret =
     if (windowsWin32DevicesDeviceanddriverinstallationNapiAvailable) wasmWindowssysWindowsWin32DevicesDeviceanddriverinstallationCmGetDevNodeRegistryPropertyExW(dndevinst.toInt(), ulproperty.toInt(), pulregdatatype.rawAddress.toString(), buffer.rawAddress.toString(), pullength.rawAddress.toString(), ulflags.toInt(), hmachine.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun cmGetDevNodeStatus(pulstatus: MutPtr<CmDevnodeStatusFlags>, pulproblemnumber: MutPtr<CmProb>, dndevinst: UInt, ulflags: UInt): Configret =
+public actual fun cmGetDevNodeStatus(pulstatus: MutPtr, pulproblemnumber: MutPtr, dndevinst: UInt, ulflags: UInt): Configret =
     if (windowsWin32DevicesDeviceanddriverinstallationNapiAvailable) wasmWindowssysWindowsWin32DevicesDeviceanddriverinstallationCmGetDevNodeStatus(pulstatus.rawAddress.toString(), pulproblemnumber.rawAddress.toString(), dndevinst.toInt(), ulflags.toInt()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun cmGetDevNodeStatusEx(pulstatus: MutPtr<CmDevnodeStatusFlags>, pulproblemnumber: MutPtr<CmProb>, dndevinst: UInt, ulflags: UInt, hmachine: Long): Configret =
+public actual fun cmGetDevNodeStatusEx(pulstatus: MutPtr, pulproblemnumber: MutPtr, dndevinst: UInt, ulflags: UInt, hmachine: Long): Configret =
     if (windowsWin32DevicesDeviceanddriverinstallationNapiAvailable) wasmWindowssysWindowsWin32DevicesDeviceanddriverinstallationCmGetDevNodeStatusEx(pulstatus.rawAddress.toString(), pulproblemnumber.rawAddress.toString(), dndevinst.toInt(), ulflags.toInt(), hmachine.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun cmGetDeviceIda(dndevinst: UInt, buffer: Pstr, bufferlen: UInt, ulflags: UInt): Configret =
@@ -2021,157 +2015,157 @@ public actual fun cmGetDeviceIdListExA(pszfilter: Pcstr, buffer: Pstr, bufferlen
 public actual fun cmGetDeviceIdListExW(pszfilter: Pcwstr, buffer: Pwstr, bufferlen: UInt, ulflags: UInt, hmachine: Long): Configret =
     if (windowsWin32DevicesDeviceanddriverinstallationNapiAvailable) wasmWindowssysWindowsWin32DevicesDeviceanddriverinstallationCmGetDeviceIdListExW(pszfilter.rawAddress.toString(), buffer.rawAddress.toString(), bufferlen.toInt(), ulflags.toInt(), hmachine.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun cmGetDeviceIdListSizeA(pullen: MutPtr<UInt>, pszfilter: Pcstr, ulflags: UInt): Configret =
+public actual fun cmGetDeviceIdListSizeA(pullen: MutPtr, pszfilter: Pcstr, ulflags: UInt): Configret =
     if (windowsWin32DevicesDeviceanddriverinstallationNapiAvailable) wasmWindowssysWindowsWin32DevicesDeviceanddriverinstallationCmGetDeviceIdListSizeA(pullen.rawAddress.toString(), pszfilter.rawAddress.toString(), ulflags.toInt()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun cmGetDeviceIdListSizeW(pullen: MutPtr<UInt>, pszfilter: Pcwstr, ulflags: UInt): Configret =
+public actual fun cmGetDeviceIdListSizeW(pullen: MutPtr, pszfilter: Pcwstr, ulflags: UInt): Configret =
     if (windowsWin32DevicesDeviceanddriverinstallationNapiAvailable) wasmWindowssysWindowsWin32DevicesDeviceanddriverinstallationCmGetDeviceIdListSizeW(pullen.rawAddress.toString(), pszfilter.rawAddress.toString(), ulflags.toInt()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun cmGetDeviceIdListSizeExA(pullen: MutPtr<UInt>, pszfilter: Pcstr, ulflags: UInt, hmachine: Long): Configret =
+public actual fun cmGetDeviceIdListSizeExA(pullen: MutPtr, pszfilter: Pcstr, ulflags: UInt, hmachine: Long): Configret =
     if (windowsWin32DevicesDeviceanddriverinstallationNapiAvailable) wasmWindowssysWindowsWin32DevicesDeviceanddriverinstallationCmGetDeviceIdListSizeExA(pullen.rawAddress.toString(), pszfilter.rawAddress.toString(), ulflags.toInt(), hmachine.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun cmGetDeviceIdListSizeExW(pullen: MutPtr<UInt>, pszfilter: Pcwstr, ulflags: UInt, hmachine: Long): Configret =
+public actual fun cmGetDeviceIdListSizeExW(pullen: MutPtr, pszfilter: Pcwstr, ulflags: UInt, hmachine: Long): Configret =
     if (windowsWin32DevicesDeviceanddriverinstallationNapiAvailable) wasmWindowssysWindowsWin32DevicesDeviceanddriverinstallationCmGetDeviceIdListSizeExW(pullen.rawAddress.toString(), pszfilter.rawAddress.toString(), ulflags.toInt(), hmachine.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun cmGetDeviceIdSize(pullen: MutPtr<UInt>, dndevinst: UInt, ulflags: UInt): Configret =
+public actual fun cmGetDeviceIdSize(pullen: MutPtr, dndevinst: UInt, ulflags: UInt): Configret =
     if (windowsWin32DevicesDeviceanddriverinstallationNapiAvailable) wasmWindowssysWindowsWin32DevicesDeviceanddriverinstallationCmGetDeviceIdSize(pullen.rawAddress.toString(), dndevinst.toInt(), ulflags.toInt()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun cmGetDeviceIdSizeEx(pullen: MutPtr<UInt>, dndevinst: UInt, ulflags: UInt, hmachine: Long): Configret =
+public actual fun cmGetDeviceIdSizeEx(pullen: MutPtr, dndevinst: UInt, ulflags: UInt, hmachine: Long): Configret =
     if (windowsWin32DevicesDeviceanddriverinstallationNapiAvailable) wasmWindowssysWindowsWin32DevicesDeviceanddriverinstallationCmGetDeviceIdSizeEx(pullen.rawAddress.toString(), dndevinst.toInt(), ulflags.toInt(), hmachine.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun cmGetDeviceInterfaceAliasA(pszdeviceinterface: Pcstr, aliasinterfaceguid: ConstPtr<Guid>, pszaliasdeviceinterface: Pstr, pullength: MutPtr<UInt>, ulflags: UInt): Configret =
+public actual fun cmGetDeviceInterfaceAliasA(pszdeviceinterface: Pcstr, aliasinterfaceguid: ConstPtr, pszaliasdeviceinterface: Pstr, pullength: MutPtr, ulflags: UInt): Configret =
     if (windowsWin32DevicesDeviceanddriverinstallationNapiAvailable) wasmWindowssysWindowsWin32DevicesDeviceanddriverinstallationCmGetDeviceInterfaceAliasA(pszdeviceinterface.rawAddress.toString(), aliasinterfaceguid.rawAddress.toString(), pszaliasdeviceinterface.rawAddress.toString(), pullength.rawAddress.toString(), ulflags.toInt()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun cmGetDeviceInterfaceAliasW(pszdeviceinterface: Pcwstr, aliasinterfaceguid: ConstPtr<Guid>, pszaliasdeviceinterface: Pwstr, pullength: MutPtr<UInt>, ulflags: UInt): Configret =
+public actual fun cmGetDeviceInterfaceAliasW(pszdeviceinterface: Pcwstr, aliasinterfaceguid: ConstPtr, pszaliasdeviceinterface: Pwstr, pullength: MutPtr, ulflags: UInt): Configret =
     if (windowsWin32DevicesDeviceanddriverinstallationNapiAvailable) wasmWindowssysWindowsWin32DevicesDeviceanddriverinstallationCmGetDeviceInterfaceAliasW(pszdeviceinterface.rawAddress.toString(), aliasinterfaceguid.rawAddress.toString(), pszaliasdeviceinterface.rawAddress.toString(), pullength.rawAddress.toString(), ulflags.toInt()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun cmGetDeviceInterfaceAliasExA(pszdeviceinterface: Pcstr, aliasinterfaceguid: ConstPtr<Guid>, pszaliasdeviceinterface: Pstr, pullength: MutPtr<UInt>, ulflags: UInt, hmachine: Long): Configret =
+public actual fun cmGetDeviceInterfaceAliasExA(pszdeviceinterface: Pcstr, aliasinterfaceguid: ConstPtr, pszaliasdeviceinterface: Pstr, pullength: MutPtr, ulflags: UInt, hmachine: Long): Configret =
     if (windowsWin32DevicesDeviceanddriverinstallationNapiAvailable) wasmWindowssysWindowsWin32DevicesDeviceanddriverinstallationCmGetDeviceInterfaceAliasExA(pszdeviceinterface.rawAddress.toString(), aliasinterfaceguid.rawAddress.toString(), pszaliasdeviceinterface.rawAddress.toString(), pullength.rawAddress.toString(), ulflags.toInt(), hmachine.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun cmGetDeviceInterfaceAliasExW(pszdeviceinterface: Pcwstr, aliasinterfaceguid: ConstPtr<Guid>, pszaliasdeviceinterface: Pwstr, pullength: MutPtr<UInt>, ulflags: UInt, hmachine: Long): Configret =
+public actual fun cmGetDeviceInterfaceAliasExW(pszdeviceinterface: Pcwstr, aliasinterfaceguid: ConstPtr, pszaliasdeviceinterface: Pwstr, pullength: MutPtr, ulflags: UInt, hmachine: Long): Configret =
     if (windowsWin32DevicesDeviceanddriverinstallationNapiAvailable) wasmWindowssysWindowsWin32DevicesDeviceanddriverinstallationCmGetDeviceInterfaceAliasExW(pszdeviceinterface.rawAddress.toString(), aliasinterfaceguid.rawAddress.toString(), pszaliasdeviceinterface.rawAddress.toString(), pullength.rawAddress.toString(), ulflags.toInt(), hmachine.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun cmGetDeviceInterfaceListA(interfaceclassguid: ConstPtr<Guid>, pdeviceid: Pcstr, buffer: Pstr, bufferlen: UInt, ulflags: CmGetDeviceInterfaceListFlags): Configret =
+public actual fun cmGetDeviceInterfaceListA(interfaceclassguid: ConstPtr, pdeviceid: Pcstr, buffer: Pstr, bufferlen: UInt, ulflags: CmGetDeviceInterfaceListFlags): Configret =
     if (windowsWin32DevicesDeviceanddriverinstallationNapiAvailable) wasmWindowssysWindowsWin32DevicesDeviceanddriverinstallationCmGetDeviceInterfaceListA(interfaceclassguid.rawAddress.toString(), pdeviceid.rawAddress.toString(), buffer.rawAddress.toString(), bufferlen.toInt(), ulflags.toInt()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun cmGetDeviceInterfaceListW(interfaceclassguid: ConstPtr<Guid>, pdeviceid: Pcwstr, buffer: Pwstr, bufferlen: UInt, ulflags: CmGetDeviceInterfaceListFlags): Configret =
+public actual fun cmGetDeviceInterfaceListW(interfaceclassguid: ConstPtr, pdeviceid: Pcwstr, buffer: Pwstr, bufferlen: UInt, ulflags: CmGetDeviceInterfaceListFlags): Configret =
     if (windowsWin32DevicesDeviceanddriverinstallationNapiAvailable) wasmWindowssysWindowsWin32DevicesDeviceanddriverinstallationCmGetDeviceInterfaceListW(interfaceclassguid.rawAddress.toString(), pdeviceid.rawAddress.toString(), buffer.rawAddress.toString(), bufferlen.toInt(), ulflags.toInt()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun cmGetDeviceInterfaceListExA(interfaceclassguid: ConstPtr<Guid>, pdeviceid: Pcstr, buffer: Pstr, bufferlen: UInt, ulflags: CmGetDeviceInterfaceListFlags, hmachine: Long): Configret =
+public actual fun cmGetDeviceInterfaceListExA(interfaceclassguid: ConstPtr, pdeviceid: Pcstr, buffer: Pstr, bufferlen: UInt, ulflags: CmGetDeviceInterfaceListFlags, hmachine: Long): Configret =
     if (windowsWin32DevicesDeviceanddriverinstallationNapiAvailable) wasmWindowssysWindowsWin32DevicesDeviceanddriverinstallationCmGetDeviceInterfaceListExA(interfaceclassguid.rawAddress.toString(), pdeviceid.rawAddress.toString(), buffer.rawAddress.toString(), bufferlen.toInt(), ulflags.toInt(), hmachine.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun cmGetDeviceInterfaceListExW(interfaceclassguid: ConstPtr<Guid>, pdeviceid: Pcwstr, buffer: Pwstr, bufferlen: UInt, ulflags: CmGetDeviceInterfaceListFlags, hmachine: Long): Configret =
+public actual fun cmGetDeviceInterfaceListExW(interfaceclassguid: ConstPtr, pdeviceid: Pcwstr, buffer: Pwstr, bufferlen: UInt, ulflags: CmGetDeviceInterfaceListFlags, hmachine: Long): Configret =
     if (windowsWin32DevicesDeviceanddriverinstallationNapiAvailable) wasmWindowssysWindowsWin32DevicesDeviceanddriverinstallationCmGetDeviceInterfaceListExW(interfaceclassguid.rawAddress.toString(), pdeviceid.rawAddress.toString(), buffer.rawAddress.toString(), bufferlen.toInt(), ulflags.toInt(), hmachine.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun cmGetDeviceInterfaceListSizeA(pullen: MutPtr<UInt>, interfaceclassguid: ConstPtr<Guid>, pdeviceid: Pcstr, ulflags: CmGetDeviceInterfaceListFlags): Configret =
+public actual fun cmGetDeviceInterfaceListSizeA(pullen: MutPtr, interfaceclassguid: ConstPtr, pdeviceid: Pcstr, ulflags: CmGetDeviceInterfaceListFlags): Configret =
     if (windowsWin32DevicesDeviceanddriverinstallationNapiAvailable) wasmWindowssysWindowsWin32DevicesDeviceanddriverinstallationCmGetDeviceInterfaceListSizeA(pullen.rawAddress.toString(), interfaceclassguid.rawAddress.toString(), pdeviceid.rawAddress.toString(), ulflags.toInt()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun cmGetDeviceInterfaceListSizeW(pullen: MutPtr<UInt>, interfaceclassguid: ConstPtr<Guid>, pdeviceid: Pcwstr, ulflags: CmGetDeviceInterfaceListFlags): Configret =
+public actual fun cmGetDeviceInterfaceListSizeW(pullen: MutPtr, interfaceclassguid: ConstPtr, pdeviceid: Pcwstr, ulflags: CmGetDeviceInterfaceListFlags): Configret =
     if (windowsWin32DevicesDeviceanddriverinstallationNapiAvailable) wasmWindowssysWindowsWin32DevicesDeviceanddriverinstallationCmGetDeviceInterfaceListSizeW(pullen.rawAddress.toString(), interfaceclassguid.rawAddress.toString(), pdeviceid.rawAddress.toString(), ulflags.toInt()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun cmGetDeviceInterfaceListSizeExA(pullen: MutPtr<UInt>, interfaceclassguid: ConstPtr<Guid>, pdeviceid: Pcstr, ulflags: CmGetDeviceInterfaceListFlags, hmachine: Long): Configret =
+public actual fun cmGetDeviceInterfaceListSizeExA(pullen: MutPtr, interfaceclassguid: ConstPtr, pdeviceid: Pcstr, ulflags: CmGetDeviceInterfaceListFlags, hmachine: Long): Configret =
     if (windowsWin32DevicesDeviceanddriverinstallationNapiAvailable) wasmWindowssysWindowsWin32DevicesDeviceanddriverinstallationCmGetDeviceInterfaceListSizeExA(pullen.rawAddress.toString(), interfaceclassguid.rawAddress.toString(), pdeviceid.rawAddress.toString(), ulflags.toInt(), hmachine.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun cmGetDeviceInterfaceListSizeExW(pullen: MutPtr<UInt>, interfaceclassguid: ConstPtr<Guid>, pdeviceid: Pcwstr, ulflags: CmGetDeviceInterfaceListFlags, hmachine: Long): Configret =
+public actual fun cmGetDeviceInterfaceListSizeExW(pullen: MutPtr, interfaceclassguid: ConstPtr, pdeviceid: Pcwstr, ulflags: CmGetDeviceInterfaceListFlags, hmachine: Long): Configret =
     if (windowsWin32DevicesDeviceanddriverinstallationNapiAvailable) wasmWindowssysWindowsWin32DevicesDeviceanddriverinstallationCmGetDeviceInterfaceListSizeExW(pullen.rawAddress.toString(), interfaceclassguid.rawAddress.toString(), pdeviceid.rawAddress.toString(), ulflags.toInt(), hmachine.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun cmGetDeviceInterfacePropertyW(pszdeviceinterface: Pcwstr, propertykey: ConstPtr<Devpropkey>, propertytype: MutPtr<Devproptype>, propertybuffer: MutPtr<UByte>, propertybuffersize: MutPtr<UInt>, ulflags: UInt): Configret =
+public actual fun cmGetDeviceInterfacePropertyW(pszdeviceinterface: Pcwstr, propertykey: ConstPtr, propertytype: MutPtr, propertybuffer: MutPtr, propertybuffersize: MutPtr, ulflags: UInt): Configret =
     if (windowsWin32DevicesDeviceanddriverinstallationNapiAvailable) wasmWindowssysWindowsWin32DevicesDeviceanddriverinstallationCmGetDeviceInterfacePropertyW(pszdeviceinterface.rawAddress.toString(), propertykey.rawAddress.toString(), propertytype.rawAddress.toString(), propertybuffer.rawAddress.toString(), propertybuffersize.rawAddress.toString(), ulflags.toInt()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun cmGetDeviceInterfacePropertyExW(pszdeviceinterface: Pcwstr, propertykey: ConstPtr<Devpropkey>, propertytype: MutPtr<Devproptype>, propertybuffer: MutPtr<UByte>, propertybuffersize: MutPtr<UInt>, ulflags: UInt, hmachine: Long): Configret =
+public actual fun cmGetDeviceInterfacePropertyExW(pszdeviceinterface: Pcwstr, propertykey: ConstPtr, propertytype: MutPtr, propertybuffer: MutPtr, propertybuffersize: MutPtr, ulflags: UInt, hmachine: Long): Configret =
     if (windowsWin32DevicesDeviceanddriverinstallationNapiAvailable) wasmWindowssysWindowsWin32DevicesDeviceanddriverinstallationCmGetDeviceInterfacePropertyExW(pszdeviceinterface.rawAddress.toString(), propertykey.rawAddress.toString(), propertytype.rawAddress.toString(), propertybuffer.rawAddress.toString(), propertybuffersize.rawAddress.toString(), ulflags.toInt(), hmachine.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun cmGetDeviceInterfacePropertyKeysW(pszdeviceinterface: Pcwstr, propertykeyarray: MutPtr<Devpropkey>, propertykeycount: MutPtr<UInt>, ulflags: UInt): Configret =
+public actual fun cmGetDeviceInterfacePropertyKeysW(pszdeviceinterface: Pcwstr, propertykeyarray: MutPtr, propertykeycount: MutPtr, ulflags: UInt): Configret =
     if (windowsWin32DevicesDeviceanddriverinstallationNapiAvailable) wasmWindowssysWindowsWin32DevicesDeviceanddriverinstallationCmGetDeviceInterfacePropertyKeysW(pszdeviceinterface.rawAddress.toString(), propertykeyarray.rawAddress.toString(), propertykeycount.rawAddress.toString(), ulflags.toInt()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun cmGetDeviceInterfacePropertyKeysExW(pszdeviceinterface: Pcwstr, propertykeyarray: MutPtr<Devpropkey>, propertykeycount: MutPtr<UInt>, ulflags: UInt, hmachine: Long): Configret =
+public actual fun cmGetDeviceInterfacePropertyKeysExW(pszdeviceinterface: Pcwstr, propertykeyarray: MutPtr, propertykeycount: MutPtr, ulflags: UInt, hmachine: Long): Configret =
     if (windowsWin32DevicesDeviceanddriverinstallationNapiAvailable) wasmWindowssysWindowsWin32DevicesDeviceanddriverinstallationCmGetDeviceInterfacePropertyKeysExW(pszdeviceinterface.rawAddress.toString(), propertykeyarray.rawAddress.toString(), propertykeycount.rawAddress.toString(), ulflags.toInt(), hmachine.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun cmGetFirstLogConf(plclogconf: MutPtr<ULong>, dndevinst: UInt, ulflags: CmLogConf): Configret =
+public actual fun cmGetFirstLogConf(plclogconf: MutPtr, dndevinst: UInt, ulflags: CmLogConf): Configret =
     if (windowsWin32DevicesDeviceanddriverinstallationNapiAvailable) wasmWindowssysWindowsWin32DevicesDeviceanddriverinstallationCmGetFirstLogConf(plclogconf.rawAddress.toString(), dndevinst.toInt(), ulflags.toInt()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun cmGetFirstLogConfEx(plclogconf: MutPtr<ULong>, dndevinst: UInt, ulflags: CmLogConf, hmachine: Long): Configret =
+public actual fun cmGetFirstLogConfEx(plclogconf: MutPtr, dndevinst: UInt, ulflags: CmLogConf, hmachine: Long): Configret =
     if (windowsWin32DevicesDeviceanddriverinstallationNapiAvailable) wasmWindowssysWindowsWin32DevicesDeviceanddriverinstallationCmGetFirstLogConfEx(plclogconf.rawAddress.toString(), dndevinst.toInt(), ulflags.toInt(), hmachine.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun cmGetGlobalState(pulstate: MutPtr<UInt>, ulflags: UInt): Configret =
+public actual fun cmGetGlobalState(pulstate: MutPtr, ulflags: UInt): Configret =
     if (windowsWin32DevicesDeviceanddriverinstallationNapiAvailable) wasmWindowssysWindowsWin32DevicesDeviceanddriverinstallationCmGetGlobalState(pulstate.rawAddress.toString(), ulflags.toInt()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun cmGetGlobalStateEx(pulstate: MutPtr<UInt>, ulflags: UInt, hmachine: Long): Configret =
+public actual fun cmGetGlobalStateEx(pulstate: MutPtr, ulflags: UInt, hmachine: Long): Configret =
     if (windowsWin32DevicesDeviceanddriverinstallationNapiAvailable) wasmWindowssysWindowsWin32DevicesDeviceanddriverinstallationCmGetGlobalStateEx(pulstate.rawAddress.toString(), ulflags.toInt(), hmachine.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun cmGetHwProfFlagsA(pdeviceid: Pcstr, ulhardwareprofile: UInt, pulvalue: MutPtr<UInt>, ulflags: UInt): Configret =
+public actual fun cmGetHwProfFlagsA(pdeviceid: Pcstr, ulhardwareprofile: UInt, pulvalue: MutPtr, ulflags: UInt): Configret =
     if (windowsWin32DevicesDeviceanddriverinstallationNapiAvailable) wasmWindowssysWindowsWin32DevicesDeviceanddriverinstallationCmGetHwProfFlagsA(pdeviceid.rawAddress.toString(), ulhardwareprofile.toInt(), pulvalue.rawAddress.toString(), ulflags.toInt()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun cmGetHwProfFlagsW(pdeviceid: Pcwstr, ulhardwareprofile: UInt, pulvalue: MutPtr<UInt>, ulflags: UInt): Configret =
+public actual fun cmGetHwProfFlagsW(pdeviceid: Pcwstr, ulhardwareprofile: UInt, pulvalue: MutPtr, ulflags: UInt): Configret =
     if (windowsWin32DevicesDeviceanddriverinstallationNapiAvailable) wasmWindowssysWindowsWin32DevicesDeviceanddriverinstallationCmGetHwProfFlagsW(pdeviceid.rawAddress.toString(), ulhardwareprofile.toInt(), pulvalue.rawAddress.toString(), ulflags.toInt()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun cmGetHwProfFlagsExA(pdeviceid: Pcstr, ulhardwareprofile: UInt, pulvalue: MutPtr<UInt>, ulflags: UInt, hmachine: Long): Configret =
+public actual fun cmGetHwProfFlagsExA(pdeviceid: Pcstr, ulhardwareprofile: UInt, pulvalue: MutPtr, ulflags: UInt, hmachine: Long): Configret =
     if (windowsWin32DevicesDeviceanddriverinstallationNapiAvailable) wasmWindowssysWindowsWin32DevicesDeviceanddriverinstallationCmGetHwProfFlagsExA(pdeviceid.rawAddress.toString(), ulhardwareprofile.toInt(), pulvalue.rawAddress.toString(), ulflags.toInt(), hmachine.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun cmGetHwProfFlagsExW(pdeviceid: Pcwstr, ulhardwareprofile: UInt, pulvalue: MutPtr<UInt>, ulflags: UInt, hmachine: Long): Configret =
+public actual fun cmGetHwProfFlagsExW(pdeviceid: Pcwstr, ulhardwareprofile: UInt, pulvalue: MutPtr, ulflags: UInt, hmachine: Long): Configret =
     if (windowsWin32DevicesDeviceanddriverinstallationNapiAvailable) wasmWindowssysWindowsWin32DevicesDeviceanddriverinstallationCmGetHwProfFlagsExW(pdeviceid.rawAddress.toString(), ulhardwareprofile.toInt(), pulvalue.rawAddress.toString(), ulflags.toInt(), hmachine.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun cmGetHardwareProfileInfoA(ulindex: UInt, phwprofileinfo: MutPtr<HwprofileinfoA>, ulflags: UInt): Configret =
+public actual fun cmGetHardwareProfileInfoA(ulindex: UInt, phwprofileinfo: MutPtr, ulflags: UInt): Configret =
     if (windowsWin32DevicesDeviceanddriverinstallationNapiAvailable) wasmWindowssysWindowsWin32DevicesDeviceanddriverinstallationCmGetHardwareProfileInfoA(ulindex.toInt(), phwprofileinfo.rawAddress.toString(), ulflags.toInt()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun cmGetHardwareProfileInfoW(ulindex: UInt, phwprofileinfo: MutPtr<HwprofileinfoW>, ulflags: UInt): Configret =
+public actual fun cmGetHardwareProfileInfoW(ulindex: UInt, phwprofileinfo: MutPtr, ulflags: UInt): Configret =
     if (windowsWin32DevicesDeviceanddriverinstallationNapiAvailable) wasmWindowssysWindowsWin32DevicesDeviceanddriverinstallationCmGetHardwareProfileInfoW(ulindex.toInt(), phwprofileinfo.rawAddress.toString(), ulflags.toInt()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun cmGetHardwareProfileInfoExA(ulindex: UInt, phwprofileinfo: MutPtr<HwprofileinfoA>, ulflags: UInt, hmachine: Long): Configret =
+public actual fun cmGetHardwareProfileInfoExA(ulindex: UInt, phwprofileinfo: MutPtr, ulflags: UInt, hmachine: Long): Configret =
     if (windowsWin32DevicesDeviceanddriverinstallationNapiAvailable) wasmWindowssysWindowsWin32DevicesDeviceanddriverinstallationCmGetHardwareProfileInfoExA(ulindex.toInt(), phwprofileinfo.rawAddress.toString(), ulflags.toInt(), hmachine.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun cmGetHardwareProfileInfoExW(ulindex: UInt, phwprofileinfo: MutPtr<HwprofileinfoW>, ulflags: UInt, hmachine: Long): Configret =
+public actual fun cmGetHardwareProfileInfoExW(ulindex: UInt, phwprofileinfo: MutPtr, ulflags: UInt, hmachine: Long): Configret =
     if (windowsWin32DevicesDeviceanddriverinstallationNapiAvailable) wasmWindowssysWindowsWin32DevicesDeviceanddriverinstallationCmGetHardwareProfileInfoExW(ulindex.toInt(), phwprofileinfo.rawAddress.toString(), ulflags.toInt(), hmachine.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun cmGetLogConfPriority(lclogconf: ULong, ppriority: MutPtr<UInt>, ulflags: UInt): Configret =
+public actual fun cmGetLogConfPriority(lclogconf: ULong, ppriority: MutPtr, ulflags: UInt): Configret =
     if (windowsWin32DevicesDeviceanddriverinstallationNapiAvailable) wasmWindowssysWindowsWin32DevicesDeviceanddriverinstallationCmGetLogConfPriority(lclogconf.toString(), ppriority.rawAddress.toString(), ulflags.toInt()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun cmGetLogConfPriorityEx(lclogconf: ULong, ppriority: MutPtr<UInt>, ulflags: UInt, hmachine: Long): Configret =
+public actual fun cmGetLogConfPriorityEx(lclogconf: ULong, ppriority: MutPtr, ulflags: UInt, hmachine: Long): Configret =
     if (windowsWin32DevicesDeviceanddriverinstallationNapiAvailable) wasmWindowssysWindowsWin32DevicesDeviceanddriverinstallationCmGetLogConfPriorityEx(lclogconf.toString(), ppriority.rawAddress.toString(), ulflags.toInt(), hmachine.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun cmGetNextLogConf(plclogconf: MutPtr<ULong>, lclogconf: ULong, ulflags: UInt): Configret =
+public actual fun cmGetNextLogConf(plclogconf: MutPtr, lclogconf: ULong, ulflags: UInt): Configret =
     if (windowsWin32DevicesDeviceanddriverinstallationNapiAvailable) wasmWindowssysWindowsWin32DevicesDeviceanddriverinstallationCmGetNextLogConf(plclogconf.rawAddress.toString(), lclogconf.toString(), ulflags.toInt()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun cmGetNextLogConfEx(plclogconf: MutPtr<ULong>, lclogconf: ULong, ulflags: UInt, hmachine: Long): Configret =
+public actual fun cmGetNextLogConfEx(plclogconf: MutPtr, lclogconf: ULong, ulflags: UInt, hmachine: Long): Configret =
     if (windowsWin32DevicesDeviceanddriverinstallationNapiAvailable) wasmWindowssysWindowsWin32DevicesDeviceanddriverinstallationCmGetNextLogConfEx(plclogconf.rawAddress.toString(), lclogconf.toString(), ulflags.toInt(), hmachine.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun cmGetNextResDes(prdresdes: MutPtr<ULong>, rdresdes: ULong, forresource: CmRestype, presourceid: MutPtr<CmRestype>, ulflags: UInt): Configret =
+public actual fun cmGetNextResDes(prdresdes: MutPtr, rdresdes: ULong, forresource: CmRestype, presourceid: MutPtr, ulflags: UInt): Configret =
     if (windowsWin32DevicesDeviceanddriverinstallationNapiAvailable) wasmWindowssysWindowsWin32DevicesDeviceanddriverinstallationCmGetNextResDes(prdresdes.rawAddress.toString(), rdresdes.toString(), forresource.toInt(), presourceid.rawAddress.toString(), ulflags.toInt()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun cmGetNextResDesEx(prdresdes: MutPtr<ULong>, rdresdes: ULong, forresource: CmRestype, presourceid: MutPtr<CmRestype>, ulflags: UInt, hmachine: Long): Configret =
+public actual fun cmGetNextResDesEx(prdresdes: MutPtr, rdresdes: ULong, forresource: CmRestype, presourceid: MutPtr, ulflags: UInt, hmachine: Long): Configret =
     if (windowsWin32DevicesDeviceanddriverinstallationNapiAvailable) wasmWindowssysWindowsWin32DevicesDeviceanddriverinstallationCmGetNextResDesEx(prdresdes.rawAddress.toString(), rdresdes.toString(), forresource.toInt(), presourceid.rawAddress.toString(), ulflags.toInt(), hmachine.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun cmGetParent(pdndevinst: MutPtr<UInt>, dndevinst: UInt, ulflags: UInt): Configret =
+public actual fun cmGetParent(pdndevinst: MutPtr, dndevinst: UInt, ulflags: UInt): Configret =
     if (windowsWin32DevicesDeviceanddriverinstallationNapiAvailable) wasmWindowssysWindowsWin32DevicesDeviceanddriverinstallationCmGetParent(pdndevinst.rawAddress.toString(), dndevinst.toInt(), ulflags.toInt()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun cmGetParentEx(pdndevinst: MutPtr<UInt>, dndevinst: UInt, ulflags: UInt, hmachine: Long): Configret =
+public actual fun cmGetParentEx(pdndevinst: MutPtr, dndevinst: UInt, ulflags: UInt, hmachine: Long): Configret =
     if (windowsWin32DevicesDeviceanddriverinstallationNapiAvailable) wasmWindowssysWindowsWin32DevicesDeviceanddriverinstallationCmGetParentEx(pdndevinst.rawAddress.toString(), dndevinst.toInt(), ulflags.toInt(), hmachine.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun cmGetResDesData(rdresdes: ULong, buffer: MutPtr<CVoid>, bufferlen: UInt, ulflags: UInt): Configret =
+public actual fun cmGetResDesData(rdresdes: ULong, buffer: MutPtr, bufferlen: UInt, ulflags: UInt): Configret =
     if (windowsWin32DevicesDeviceanddriverinstallationNapiAvailable) wasmWindowssysWindowsWin32DevicesDeviceanddriverinstallationCmGetResDesData(rdresdes.toString(), buffer.rawAddress.toString(), bufferlen.toInt(), ulflags.toInt()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun cmGetResDesDataEx(rdresdes: ULong, buffer: MutPtr<CVoid>, bufferlen: UInt, ulflags: UInt, hmachine: Long): Configret =
+public actual fun cmGetResDesDataEx(rdresdes: ULong, buffer: MutPtr, bufferlen: UInt, ulflags: UInt, hmachine: Long): Configret =
     if (windowsWin32DevicesDeviceanddriverinstallationNapiAvailable) wasmWindowssysWindowsWin32DevicesDeviceanddriverinstallationCmGetResDesDataEx(rdresdes.toString(), buffer.rawAddress.toString(), bufferlen.toInt(), ulflags.toInt(), hmachine.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun cmGetResDesDataSize(pulsize: MutPtr<UInt>, rdresdes: ULong, ulflags: UInt): Configret =
+public actual fun cmGetResDesDataSize(pulsize: MutPtr, rdresdes: ULong, ulflags: UInt): Configret =
     if (windowsWin32DevicesDeviceanddriverinstallationNapiAvailable) wasmWindowssysWindowsWin32DevicesDeviceanddriverinstallationCmGetResDesDataSize(pulsize.rawAddress.toString(), rdresdes.toString(), ulflags.toInt()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun cmGetResDesDataSizeEx(pulsize: MutPtr<UInt>, rdresdes: ULong, ulflags: UInt, hmachine: Long): Configret =
+public actual fun cmGetResDesDataSizeEx(pulsize: MutPtr, rdresdes: ULong, ulflags: UInt, hmachine: Long): Configret =
     if (windowsWin32DevicesDeviceanddriverinstallationNapiAvailable) wasmWindowssysWindowsWin32DevicesDeviceanddriverinstallationCmGetResDesDataSizeEx(pulsize.rawAddress.toString(), rdresdes.toString(), ulflags.toInt(), hmachine.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun cmGetResourceConflictCount(clconflictlist: ULong, pulcount: MutPtr<UInt>): Configret =
+public actual fun cmGetResourceConflictCount(clconflictlist: ULong, pulcount: MutPtr): Configret =
     if (windowsWin32DevicesDeviceanddriverinstallationNapiAvailable) wasmWindowssysWindowsWin32DevicesDeviceanddriverinstallationCmGetResourceConflictCount(clconflictlist.toString(), pulcount.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun cmGetResourceConflictDetailsA(clconflictlist: ULong, ulindex: UInt, pconflictdetails: MutPtr<ConflictDetailsA>): Configret =
+public actual fun cmGetResourceConflictDetailsA(clconflictlist: ULong, ulindex: UInt, pconflictdetails: MutPtr): Configret =
     if (windowsWin32DevicesDeviceanddriverinstallationNapiAvailable) wasmWindowssysWindowsWin32DevicesDeviceanddriverinstallationCmGetResourceConflictDetailsA(clconflictlist.toString(), ulindex.toInt(), pconflictdetails.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun cmGetResourceConflictDetailsW(clconflictlist: ULong, ulindex: UInt, pconflictdetails: MutPtr<ConflictDetailsW>): Configret =
+public actual fun cmGetResourceConflictDetailsW(clconflictlist: ULong, ulindex: UInt, pconflictdetails: MutPtr): Configret =
     if (windowsWin32DevicesDeviceanddriverinstallationNapiAvailable) wasmWindowssysWindowsWin32DevicesDeviceanddriverinstallationCmGetResourceConflictDetailsW(clconflictlist.toString(), ulindex.toInt(), pconflictdetails.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun cmGetSibling(pdndevinst: MutPtr<UInt>, dndevinst: UInt, ulflags: UInt): Configret =
+public actual fun cmGetSibling(pdndevinst: MutPtr, dndevinst: UInt, ulflags: UInt): Configret =
     if (windowsWin32DevicesDeviceanddriverinstallationNapiAvailable) wasmWindowssysWindowsWin32DevicesDeviceanddriverinstallationCmGetSibling(pdndevinst.rawAddress.toString(), dndevinst.toInt(), ulflags.toInt()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun cmGetSiblingEx(pdndevinst: MutPtr<UInt>, dndevinst: UInt, ulflags: UInt, hmachine: Long): Configret =
+public actual fun cmGetSiblingEx(pdndevinst: MutPtr, dndevinst: UInt, ulflags: UInt, hmachine: Long): Configret =
     if (windowsWin32DevicesDeviceanddriverinstallationNapiAvailable) wasmWindowssysWindowsWin32DevicesDeviceanddriverinstallationCmGetSiblingEx(pdndevinst.rawAddress.toString(), dndevinst.toInt(), ulflags.toInt(), hmachine.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun cmGetVersion(): UShort =
@@ -2186,10 +2180,10 @@ public actual fun cmIntersectRangeList(rlhold1: ULong, rlhold2: ULong, rlhnew: U
 public actual fun cmInvertRangeList(rlhold: ULong, rlhnew: ULong, ullmaxvalue: ULong, ulflags: UInt): Configret =
     if (windowsWin32DevicesDeviceanddriverinstallationNapiAvailable) wasmWindowssysWindowsWin32DevicesDeviceanddriverinstallationCmInvertRangeList(rlhold.toString(), rlhnew.toString(), ullmaxvalue.toString(), ulflags.toInt()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun cmIsDockStationPresent(pbpresent: MutPtr<Bool>): Configret =
+public actual fun cmIsDockStationPresent(pbpresent: MutPtr): Configret =
     if (windowsWin32DevicesDeviceanddriverinstallationNapiAvailable) wasmWindowssysWindowsWin32DevicesDeviceanddriverinstallationCmIsDockStationPresent(pbpresent.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun cmIsDockStationPresentEx(pbpresent: MutPtr<Bool>, hmachine: Long): Configret =
+public actual fun cmIsDockStationPresentEx(pbpresent: MutPtr, hmachine: Long): Configret =
     if (windowsWin32DevicesDeviceanddriverinstallationNapiAvailable) wasmWindowssysWindowsWin32DevicesDeviceanddriverinstallationCmIsDockStationPresentEx(pbpresent.rawAddress.toString(), hmachine.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun cmIsVersionAvailable(wversion: UShort): Bool =
@@ -2198,16 +2192,16 @@ public actual fun cmIsVersionAvailable(wversion: UShort): Bool =
 public actual fun cmIsVersionAvailableEx(wversion: UShort, hmachine: Long): Bool =
     if (windowsWin32DevicesDeviceanddriverinstallationNapiAvailable) wasmWindowssysWindowsWin32DevicesDeviceanddriverinstallationCmIsVersionAvailableEx(wversion.toInt(), hmachine.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun cmLocateDevNodeA(pdndevinst: MutPtr<UInt>, pdeviceid: Pcstr, ulflags: CmLocateDevnodeFlags): Configret =
+public actual fun cmLocateDevNodeA(pdndevinst: MutPtr, pdeviceid: Pcstr, ulflags: CmLocateDevnodeFlags): Configret =
     if (windowsWin32DevicesDeviceanddriverinstallationNapiAvailable) wasmWindowssysWindowsWin32DevicesDeviceanddriverinstallationCmLocateDevNodeA(pdndevinst.rawAddress.toString(), pdeviceid.rawAddress.toString(), ulflags.toInt()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun cmLocateDevNodeW(pdndevinst: MutPtr<UInt>, pdeviceid: Pcwstr, ulflags: CmLocateDevnodeFlags): Configret =
+public actual fun cmLocateDevNodeW(pdndevinst: MutPtr, pdeviceid: Pcwstr, ulflags: CmLocateDevnodeFlags): Configret =
     if (windowsWin32DevicesDeviceanddriverinstallationNapiAvailable) wasmWindowssysWindowsWin32DevicesDeviceanddriverinstallationCmLocateDevNodeW(pdndevinst.rawAddress.toString(), pdeviceid.rawAddress.toString(), ulflags.toInt()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun cmLocateDevNodeExA(pdndevinst: MutPtr<UInt>, pdeviceid: Pcstr, ulflags: UInt, hmachine: Long): Configret =
+public actual fun cmLocateDevNodeExA(pdndevinst: MutPtr, pdeviceid: Pcstr, ulflags: UInt, hmachine: Long): Configret =
     if (windowsWin32DevicesDeviceanddriverinstallationNapiAvailable) wasmWindowssysWindowsWin32DevicesDeviceanddriverinstallationCmLocateDevNodeExA(pdndevinst.rawAddress.toString(), pdeviceid.rawAddress.toString(), ulflags.toInt(), hmachine.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun cmLocateDevNodeExW(pdndevinst: MutPtr<UInt>, pdeviceid: Pcwstr, ulflags: UInt, hmachine: Long): Configret =
+public actual fun cmLocateDevNodeExW(pdndevinst: MutPtr, pdeviceid: Pcwstr, ulflags: UInt, hmachine: Long): Configret =
     if (windowsWin32DevicesDeviceanddriverinstallationNapiAvailable) wasmWindowssysWindowsWin32DevicesDeviceanddriverinstallationCmLocateDevNodeExW(pdndevinst.rawAddress.toString(), pdeviceid.rawAddress.toString(), ulflags.toInt(), hmachine.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun cmMapCrToWin32Err(cmreturncode: Configret, defaulterr: UInt): UInt =
@@ -2216,10 +2210,10 @@ public actual fun cmMapCrToWin32Err(cmreturncode: Configret, defaulterr: UInt): 
 public actual fun cmMergeRangeList(rlhold1: ULong, rlhold2: ULong, rlhnew: ULong, ulflags: UInt): Configret =
     if (windowsWin32DevicesDeviceanddriverinstallationNapiAvailable) wasmWindowssysWindowsWin32DevicesDeviceanddriverinstallationCmMergeRangeList(rlhold1.toString(), rlhold2.toString(), rlhnew.toString(), ulflags.toInt()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun cmModifyResDes(prdresdes: MutPtr<ULong>, rdresdes: ULong, resourceid: UInt, resourcedata: ConstPtr<CVoid>, resourcelen: UInt, ulflags: UInt): Configret =
+public actual fun cmModifyResDes(prdresdes: MutPtr, rdresdes: ULong, resourceid: UInt, resourcedata: ConstPtr, resourcelen: UInt, ulflags: UInt): Configret =
     if (windowsWin32DevicesDeviceanddriverinstallationNapiAvailable) wasmWindowssysWindowsWin32DevicesDeviceanddriverinstallationCmModifyResDes(prdresdes.rawAddress.toString(), rdresdes.toString(), resourceid.toInt(), resourcedata.rawAddress.toString(), resourcelen.toInt(), ulflags.toInt()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun cmModifyResDesEx(prdresdes: MutPtr<ULong>, rdresdes: ULong, resourceid: UInt, resourcedata: ConstPtr<CVoid>, resourcelen: UInt, ulflags: UInt, hmachine: Long): Configret =
+public actual fun cmModifyResDesEx(prdresdes: MutPtr, rdresdes: ULong, resourceid: UInt, resourcedata: ConstPtr, resourcelen: UInt, ulflags: UInt, hmachine: Long): Configret =
     if (windowsWin32DevicesDeviceanddriverinstallationNapiAvailable) wasmWindowssysWindowsWin32DevicesDeviceanddriverinstallationCmModifyResDesEx(prdresdes.rawAddress.toString(), rdresdes.toString(), resourceid.toInt(), resourcedata.rawAddress.toString(), resourcelen.toInt(), ulflags.toInt(), hmachine.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun cmMoveDevNode(dnfromdevinst: UInt, dntodevinst: UInt, ulflags: UInt): Configret =
@@ -2228,61 +2222,61 @@ public actual fun cmMoveDevNode(dnfromdevinst: UInt, dntodevinst: UInt, ulflags:
 public actual fun cmMoveDevNodeEx(dnfromdevinst: UInt, dntodevinst: UInt, ulflags: UInt, hmachine: Long): Configret =
     if (windowsWin32DevicesDeviceanddriverinstallationNapiAvailable) wasmWindowssysWindowsWin32DevicesDeviceanddriverinstallationCmMoveDevNodeEx(dnfromdevinst.toInt(), dntodevinst.toInt(), ulflags.toInt(), hmachine.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun cmNextRange(preelement: MutPtr<ULong>, pullstart: MutPtr<ULong>, pullend: MutPtr<ULong>, ulflags: UInt): Configret =
+public actual fun cmNextRange(preelement: MutPtr, pullstart: MutPtr, pullend: MutPtr, ulflags: UInt): Configret =
     if (windowsWin32DevicesDeviceanddriverinstallationNapiAvailable) wasmWindowssysWindowsWin32DevicesDeviceanddriverinstallationCmNextRange(preelement.rawAddress.toString(), pullstart.rawAddress.toString(), pullend.rawAddress.toString(), ulflags.toInt()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun cmOpenClassKeyA(classguid: ConstPtr<Guid>, pszclassname: Pcstr, samdesired: UInt, disposition: UInt, phkclass: MutPtr<Hkey>, ulflags: UInt): Configret =
+public actual fun cmOpenClassKeyA(classguid: ConstPtr, pszclassname: Pcstr, samdesired: UInt, disposition: UInt, phkclass: MutPtr, ulflags: UInt): Configret =
     if (windowsWin32DevicesDeviceanddriverinstallationNapiAvailable) wasmWindowssysWindowsWin32DevicesDeviceanddriverinstallationCmOpenClassKeyA(classguid.rawAddress.toString(), pszclassname.rawAddress.toString(), samdesired.toInt(), disposition.toInt(), phkclass.rawAddress.toString(), ulflags.toInt()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun cmOpenClassKeyW(classguid: ConstPtr<Guid>, pszclassname: Pcwstr, samdesired: UInt, disposition: UInt, phkclass: MutPtr<Hkey>, ulflags: UInt): Configret =
+public actual fun cmOpenClassKeyW(classguid: ConstPtr, pszclassname: Pcwstr, samdesired: UInt, disposition: UInt, phkclass: MutPtr, ulflags: UInt): Configret =
     if (windowsWin32DevicesDeviceanddriverinstallationNapiAvailable) wasmWindowssysWindowsWin32DevicesDeviceanddriverinstallationCmOpenClassKeyW(classguid.rawAddress.toString(), pszclassname.rawAddress.toString(), samdesired.toInt(), disposition.toInt(), phkclass.rawAddress.toString(), ulflags.toInt()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun cmOpenClassKeyExA(classguid: ConstPtr<Guid>, pszclassname: Pcstr, samdesired: UInt, disposition: UInt, phkclass: MutPtr<Hkey>, ulflags: UInt, hmachine: Long): Configret =
+public actual fun cmOpenClassKeyExA(classguid: ConstPtr, pszclassname: Pcstr, samdesired: UInt, disposition: UInt, phkclass: MutPtr, ulflags: UInt, hmachine: Long): Configret =
     if (windowsWin32DevicesDeviceanddriverinstallationNapiAvailable) wasmWindowssysWindowsWin32DevicesDeviceanddriverinstallationCmOpenClassKeyExA(classguid.rawAddress.toString(), pszclassname.rawAddress.toString(), samdesired.toInt(), disposition.toInt(), phkclass.rawAddress.toString(), ulflags.toInt(), hmachine.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun cmOpenClassKeyExW(classguid: ConstPtr<Guid>, pszclassname: Pcwstr, samdesired: UInt, disposition: UInt, phkclass: MutPtr<Hkey>, ulflags: UInt, hmachine: Long): Configret =
+public actual fun cmOpenClassKeyExW(classguid: ConstPtr, pszclassname: Pcwstr, samdesired: UInt, disposition: UInt, phkclass: MutPtr, ulflags: UInt, hmachine: Long): Configret =
     if (windowsWin32DevicesDeviceanddriverinstallationNapiAvailable) wasmWindowssysWindowsWin32DevicesDeviceanddriverinstallationCmOpenClassKeyExW(classguid.rawAddress.toString(), pszclassname.rawAddress.toString(), samdesired.toInt(), disposition.toInt(), phkclass.rawAddress.toString(), ulflags.toInt(), hmachine.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun cmOpenDevNodeKey(dndevnode: UInt, samdesired: UInt, ulhardwareprofile: UInt, disposition: UInt, phkdevice: MutPtr<Hkey>, ulflags: UInt): Configret =
+public actual fun cmOpenDevNodeKey(dndevnode: UInt, samdesired: UInt, ulhardwareprofile: UInt, disposition: UInt, phkdevice: MutPtr, ulflags: UInt): Configret =
     if (windowsWin32DevicesDeviceanddriverinstallationNapiAvailable) wasmWindowssysWindowsWin32DevicesDeviceanddriverinstallationCmOpenDevNodeKey(dndevnode.toInt(), samdesired.toInt(), ulhardwareprofile.toInt(), disposition.toInt(), phkdevice.rawAddress.toString(), ulflags.toInt()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun cmOpenDevNodeKeyEx(dndevnode: UInt, samdesired: UInt, ulhardwareprofile: UInt, disposition: UInt, phkdevice: MutPtr<Hkey>, ulflags: UInt, hmachine: Long): Configret =
+public actual fun cmOpenDevNodeKeyEx(dndevnode: UInt, samdesired: UInt, ulhardwareprofile: UInt, disposition: UInt, phkdevice: MutPtr, ulflags: UInt, hmachine: Long): Configret =
     if (windowsWin32DevicesDeviceanddriverinstallationNapiAvailable) wasmWindowssysWindowsWin32DevicesDeviceanddriverinstallationCmOpenDevNodeKeyEx(dndevnode.toInt(), samdesired.toInt(), ulhardwareprofile.toInt(), disposition.toInt(), phkdevice.rawAddress.toString(), ulflags.toInt(), hmachine.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun cmOpenDeviceInterfaceKeyA(pszdeviceinterface: Pcstr, samdesired: UInt, disposition: UInt, phkdeviceinterface: MutPtr<Hkey>, ulflags: UInt): Configret =
+public actual fun cmOpenDeviceInterfaceKeyA(pszdeviceinterface: Pcstr, samdesired: UInt, disposition: UInt, phkdeviceinterface: MutPtr, ulflags: UInt): Configret =
     if (windowsWin32DevicesDeviceanddriverinstallationNapiAvailable) wasmWindowssysWindowsWin32DevicesDeviceanddriverinstallationCmOpenDeviceInterfaceKeyA(pszdeviceinterface.rawAddress.toString(), samdesired.toInt(), disposition.toInt(), phkdeviceinterface.rawAddress.toString(), ulflags.toInt()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun cmOpenDeviceInterfaceKeyW(pszdeviceinterface: Pcwstr, samdesired: UInt, disposition: UInt, phkdeviceinterface: MutPtr<Hkey>, ulflags: UInt): Configret =
+public actual fun cmOpenDeviceInterfaceKeyW(pszdeviceinterface: Pcwstr, samdesired: UInt, disposition: UInt, phkdeviceinterface: MutPtr, ulflags: UInt): Configret =
     if (windowsWin32DevicesDeviceanddriverinstallationNapiAvailable) wasmWindowssysWindowsWin32DevicesDeviceanddriverinstallationCmOpenDeviceInterfaceKeyW(pszdeviceinterface.rawAddress.toString(), samdesired.toInt(), disposition.toInt(), phkdeviceinterface.rawAddress.toString(), ulflags.toInt()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun cmOpenDeviceInterfaceKeyExA(pszdeviceinterface: Pcstr, samdesired: UInt, disposition: UInt, phkdeviceinterface: MutPtr<Hkey>, ulflags: UInt, hmachine: Long): Configret =
+public actual fun cmOpenDeviceInterfaceKeyExA(pszdeviceinterface: Pcstr, samdesired: UInt, disposition: UInt, phkdeviceinterface: MutPtr, ulflags: UInt, hmachine: Long): Configret =
     if (windowsWin32DevicesDeviceanddriverinstallationNapiAvailable) wasmWindowssysWindowsWin32DevicesDeviceanddriverinstallationCmOpenDeviceInterfaceKeyExA(pszdeviceinterface.rawAddress.toString(), samdesired.toInt(), disposition.toInt(), phkdeviceinterface.rawAddress.toString(), ulflags.toInt(), hmachine.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun cmOpenDeviceInterfaceKeyExW(pszdeviceinterface: Pcwstr, samdesired: UInt, disposition: UInt, phkdeviceinterface: MutPtr<Hkey>, ulflags: UInt, hmachine: Long): Configret =
+public actual fun cmOpenDeviceInterfaceKeyExW(pszdeviceinterface: Pcwstr, samdesired: UInt, disposition: UInt, phkdeviceinterface: MutPtr, ulflags: UInt, hmachine: Long): Configret =
     if (windowsWin32DevicesDeviceanddriverinstallationNapiAvailable) wasmWindowssysWindowsWin32DevicesDeviceanddriverinstallationCmOpenDeviceInterfaceKeyExW(pszdeviceinterface.rawAddress.toString(), samdesired.toInt(), disposition.toInt(), phkdeviceinterface.rawAddress.toString(), ulflags.toInt(), hmachine.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun cmQueryAndRemoveSubTreeA(dnancestor: UInt, pvetotype: MutPtr<PnpVetoType>, pszvetoname: Pstr, ulnamelength: UInt, ulflags: UInt): Configret =
+public actual fun cmQueryAndRemoveSubTreeA(dnancestor: UInt, pvetotype: MutPtr, pszvetoname: Pstr, ulnamelength: UInt, ulflags: UInt): Configret =
     if (windowsWin32DevicesDeviceanddriverinstallationNapiAvailable) wasmWindowssysWindowsWin32DevicesDeviceanddriverinstallationCmQueryAndRemoveSubTreeA(dnancestor.toInt(), pvetotype.rawAddress.toString(), pszvetoname.rawAddress.toString(), ulnamelength.toInt(), ulflags.toInt()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun cmQueryAndRemoveSubTreeW(dnancestor: UInt, pvetotype: MutPtr<PnpVetoType>, pszvetoname: Pwstr, ulnamelength: UInt, ulflags: UInt): Configret =
+public actual fun cmQueryAndRemoveSubTreeW(dnancestor: UInt, pvetotype: MutPtr, pszvetoname: Pwstr, ulnamelength: UInt, ulflags: UInt): Configret =
     if (windowsWin32DevicesDeviceanddriverinstallationNapiAvailable) wasmWindowssysWindowsWin32DevicesDeviceanddriverinstallationCmQueryAndRemoveSubTreeW(dnancestor.toInt(), pvetotype.rawAddress.toString(), pszvetoname.rawAddress.toString(), ulnamelength.toInt(), ulflags.toInt()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun cmQueryAndRemoveSubTreeExA(dnancestor: UInt, pvetotype: MutPtr<PnpVetoType>, pszvetoname: Pstr, ulnamelength: UInt, ulflags: UInt, hmachine: Long): Configret =
+public actual fun cmQueryAndRemoveSubTreeExA(dnancestor: UInt, pvetotype: MutPtr, pszvetoname: Pstr, ulnamelength: UInt, ulflags: UInt, hmachine: Long): Configret =
     if (windowsWin32DevicesDeviceanddriverinstallationNapiAvailable) wasmWindowssysWindowsWin32DevicesDeviceanddriverinstallationCmQueryAndRemoveSubTreeExA(dnancestor.toInt(), pvetotype.rawAddress.toString(), pszvetoname.rawAddress.toString(), ulnamelength.toInt(), ulflags.toInt(), hmachine.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun cmQueryAndRemoveSubTreeExW(dnancestor: UInt, pvetotype: MutPtr<PnpVetoType>, pszvetoname: Pwstr, ulnamelength: UInt, ulflags: UInt, hmachine: Long): Configret =
+public actual fun cmQueryAndRemoveSubTreeExW(dnancestor: UInt, pvetotype: MutPtr, pszvetoname: Pwstr, ulnamelength: UInt, ulflags: UInt, hmachine: Long): Configret =
     if (windowsWin32DevicesDeviceanddriverinstallationNapiAvailable) wasmWindowssysWindowsWin32DevicesDeviceanddriverinstallationCmQueryAndRemoveSubTreeExW(dnancestor.toInt(), pvetotype.rawAddress.toString(), pszvetoname.rawAddress.toString(), ulnamelength.toInt(), ulflags.toInt(), hmachine.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun cmQueryArbitratorFreeData(pdata: MutPtr<CVoid>, datalen: UInt, dndevinst: UInt, resourceid: UInt, ulflags: UInt): Configret =
+public actual fun cmQueryArbitratorFreeData(pdata: MutPtr, datalen: UInt, dndevinst: UInt, resourceid: UInt, ulflags: UInt): Configret =
     if (windowsWin32DevicesDeviceanddriverinstallationNapiAvailable) wasmWindowssysWindowsWin32DevicesDeviceanddriverinstallationCmQueryArbitratorFreeData(pdata.rawAddress.toString(), datalen.toInt(), dndevinst.toInt(), resourceid.toInt(), ulflags.toInt()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun cmQueryArbitratorFreeDataEx(pdata: MutPtr<CVoid>, datalen: UInt, dndevinst: UInt, resourceid: UInt, ulflags: UInt, hmachine: Long): Configret =
+public actual fun cmQueryArbitratorFreeDataEx(pdata: MutPtr, datalen: UInt, dndevinst: UInt, resourceid: UInt, ulflags: UInt, hmachine: Long): Configret =
     if (windowsWin32DevicesDeviceanddriverinstallationNapiAvailable) wasmWindowssysWindowsWin32DevicesDeviceanddriverinstallationCmQueryArbitratorFreeDataEx(pdata.rawAddress.toString(), datalen.toInt(), dndevinst.toInt(), resourceid.toInt(), ulflags.toInt(), hmachine.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun cmQueryArbitratorFreeSize(pulsize: MutPtr<UInt>, dndevinst: UInt, resourceid: UInt, ulflags: UInt): Configret =
+public actual fun cmQueryArbitratorFreeSize(pulsize: MutPtr, dndevinst: UInt, resourceid: UInt, ulflags: UInt): Configret =
     if (windowsWin32DevicesDeviceanddriverinstallationNapiAvailable) wasmWindowssysWindowsWin32DevicesDeviceanddriverinstallationCmQueryArbitratorFreeSize(pulsize.rawAddress.toString(), dndevinst.toInt(), resourceid.toInt(), ulflags.toInt()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun cmQueryArbitratorFreeSizeEx(pulsize: MutPtr<UInt>, dndevinst: UInt, resourceid: UInt, ulflags: UInt, hmachine: Long): Configret =
+public actual fun cmQueryArbitratorFreeSizeEx(pulsize: MutPtr, dndevinst: UInt, resourceid: UInt, ulflags: UInt, hmachine: Long): Configret =
     if (windowsWin32DevicesDeviceanddriverinstallationNapiAvailable) wasmWindowssysWindowsWin32DevicesDeviceanddriverinstallationCmQueryArbitratorFreeSizeEx(pulsize.rawAddress.toString(), dndevinst.toInt(), resourceid.toInt(), ulflags.toInt(), hmachine.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun cmQueryRemoveSubTree(dnancestor: UInt, ulflags: UInt): Configret =
@@ -2291,7 +2285,7 @@ public actual fun cmQueryRemoveSubTree(dnancestor: UInt, ulflags: UInt): Configr
 public actual fun cmQueryRemoveSubTreeEx(dnancestor: UInt, ulflags: UInt, hmachine: Long): Configret =
     if (windowsWin32DevicesDeviceanddriverinstallationNapiAvailable) wasmWindowssysWindowsWin32DevicesDeviceanddriverinstallationCmQueryRemoveSubTreeEx(dnancestor.toInt(), ulflags.toInt(), hmachine.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun cmQueryResourceConflictList(pclconflictlist: MutPtr<ULong>, dndevinst: UInt, resourceid: CmRestype, resourcedata: ConstPtr<CVoid>, resourcelen: UInt, ulflags: UInt, hmachine: Long): Configret =
+public actual fun cmQueryResourceConflictList(pclconflictlist: MutPtr, dndevinst: UInt, resourceid: CmRestype, resourcedata: ConstPtr, resourcelen: UInt, ulflags: UInt, hmachine: Long): Configret =
     if (windowsWin32DevicesDeviceanddriverinstallationNapiAvailable) wasmWindowssysWindowsWin32DevicesDeviceanddriverinstallationCmQueryResourceConflictList(pclconflictlist.rawAddress.toString(), dndevinst.toInt(), resourceid.toInt(), resourcedata.rawAddress.toString(), resourcelen.toInt(), ulflags.toInt(), hmachine.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun cmReenumerateDevNode(dndevinst: UInt, ulflags: CmReenumerateFlags): Configret =
@@ -2306,19 +2300,19 @@ public actual fun cmRegisterDeviceDriver(dndevinst: UInt, ulflags: UInt): Config
 public actual fun cmRegisterDeviceDriverEx(dndevinst: UInt, ulflags: UInt, hmachine: Long): Configret =
     if (windowsWin32DevicesDeviceanddriverinstallationNapiAvailable) wasmWindowssysWindowsWin32DevicesDeviceanddriverinstallationCmRegisterDeviceDriverEx(dndevinst.toInt(), ulflags.toInt(), hmachine.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun cmRegisterDeviceInterfaceA(dndevinst: UInt, interfaceclassguid: ConstPtr<Guid>, pszreference: Pcstr, pszdeviceinterface: Pstr, pullength: MutPtr<UInt>, ulflags: UInt): Configret =
+public actual fun cmRegisterDeviceInterfaceA(dndevinst: UInt, interfaceclassguid: ConstPtr, pszreference: Pcstr, pszdeviceinterface: Pstr, pullength: MutPtr, ulflags: UInt): Configret =
     if (windowsWin32DevicesDeviceanddriverinstallationNapiAvailable) wasmWindowssysWindowsWin32DevicesDeviceanddriverinstallationCmRegisterDeviceInterfaceA(dndevinst.toInt(), interfaceclassguid.rawAddress.toString(), pszreference.rawAddress.toString(), pszdeviceinterface.rawAddress.toString(), pullength.rawAddress.toString(), ulflags.toInt()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun cmRegisterDeviceInterfaceW(dndevinst: UInt, interfaceclassguid: ConstPtr<Guid>, pszreference: Pcwstr, pszdeviceinterface: Pwstr, pullength: MutPtr<UInt>, ulflags: UInt): Configret =
+public actual fun cmRegisterDeviceInterfaceW(dndevinst: UInt, interfaceclassguid: ConstPtr, pszreference: Pcwstr, pszdeviceinterface: Pwstr, pullength: MutPtr, ulflags: UInt): Configret =
     if (windowsWin32DevicesDeviceanddriverinstallationNapiAvailable) wasmWindowssysWindowsWin32DevicesDeviceanddriverinstallationCmRegisterDeviceInterfaceW(dndevinst.toInt(), interfaceclassguid.rawAddress.toString(), pszreference.rawAddress.toString(), pszdeviceinterface.rawAddress.toString(), pullength.rawAddress.toString(), ulflags.toInt()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun cmRegisterDeviceInterfaceExA(dndevinst: UInt, interfaceclassguid: ConstPtr<Guid>, pszreference: Pcstr, pszdeviceinterface: Pstr, pullength: MutPtr<UInt>, ulflags: UInt, hmachine: Long): Configret =
+public actual fun cmRegisterDeviceInterfaceExA(dndevinst: UInt, interfaceclassguid: ConstPtr, pszreference: Pcstr, pszdeviceinterface: Pstr, pullength: MutPtr, ulflags: UInt, hmachine: Long): Configret =
     if (windowsWin32DevicesDeviceanddriverinstallationNapiAvailable) wasmWindowssysWindowsWin32DevicesDeviceanddriverinstallationCmRegisterDeviceInterfaceExA(dndevinst.toInt(), interfaceclassguid.rawAddress.toString(), pszreference.rawAddress.toString(), pszdeviceinterface.rawAddress.toString(), pullength.rawAddress.toString(), ulflags.toInt(), hmachine.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun cmRegisterDeviceInterfaceExW(dndevinst: UInt, interfaceclassguid: ConstPtr<Guid>, pszreference: Pcwstr, pszdeviceinterface: Pwstr, pullength: MutPtr<UInt>, ulflags: UInt, hmachine: Long): Configret =
+public actual fun cmRegisterDeviceInterfaceExW(dndevinst: UInt, interfaceclassguid: ConstPtr, pszreference: Pcwstr, pszdeviceinterface: Pwstr, pullength: MutPtr, ulflags: UInt, hmachine: Long): Configret =
     if (windowsWin32DevicesDeviceanddriverinstallationNapiAvailable) wasmWindowssysWindowsWin32DevicesDeviceanddriverinstallationCmRegisterDeviceInterfaceExW(dndevinst.toInt(), interfaceclassguid.rawAddress.toString(), pszreference.rawAddress.toString(), pszdeviceinterface.rawAddress.toString(), pullength.rawAddress.toString(), ulflags.toInt(), hmachine.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun cmRegisterNotification(pfilter: ConstPtr<CmNotifyFilter>, pcontext: ConstPtr<CVoid>, pcallback: PcmNotifyCallback, pnotifycontext: MutPtr<Hcmnotification>): Configret =
+public actual fun cmRegisterNotification(pfilter: ConstPtr, pcontext: ConstPtr, pcallback: PcmNotifyCallback, pnotifycontext: MutPtr): Configret =
     if (windowsWin32DevicesDeviceanddriverinstallationNapiAvailable) wasmWindowssysWindowsWin32DevicesDeviceanddriverinstallationCmRegisterNotification(pfilter.rawAddress.toString(), pcontext.rawAddress.toString(), 0L.toString(), pnotifycontext.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun cmRemoveSubTree(dnancestor: UInt, ulflags: UInt): Configret =
@@ -2327,16 +2321,16 @@ public actual fun cmRemoveSubTree(dnancestor: UInt, ulflags: UInt): Configret =
 public actual fun cmRemoveSubTreeEx(dnancestor: UInt, ulflags: UInt, hmachine: Long): Configret =
     if (windowsWin32DevicesDeviceanddriverinstallationNapiAvailable) wasmWindowssysWindowsWin32DevicesDeviceanddriverinstallationCmRemoveSubTreeEx(dnancestor.toInt(), ulflags.toInt(), hmachine.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun cmRequestDeviceEjectA(dndevinst: UInt, pvetotype: MutPtr<PnpVetoType>, pszvetoname: Pstr, ulnamelength: UInt, ulflags: UInt): Configret =
+public actual fun cmRequestDeviceEjectA(dndevinst: UInt, pvetotype: MutPtr, pszvetoname: Pstr, ulnamelength: UInt, ulflags: UInt): Configret =
     if (windowsWin32DevicesDeviceanddriverinstallationNapiAvailable) wasmWindowssysWindowsWin32DevicesDeviceanddriverinstallationCmRequestDeviceEjectA(dndevinst.toInt(), pvetotype.rawAddress.toString(), pszvetoname.rawAddress.toString(), ulnamelength.toInt(), ulflags.toInt()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun cmRequestDeviceEjectW(dndevinst: UInt, pvetotype: MutPtr<PnpVetoType>, pszvetoname: Pwstr, ulnamelength: UInt, ulflags: UInt): Configret =
+public actual fun cmRequestDeviceEjectW(dndevinst: UInt, pvetotype: MutPtr, pszvetoname: Pwstr, ulnamelength: UInt, ulflags: UInt): Configret =
     if (windowsWin32DevicesDeviceanddriverinstallationNapiAvailable) wasmWindowssysWindowsWin32DevicesDeviceanddriverinstallationCmRequestDeviceEjectW(dndevinst.toInt(), pvetotype.rawAddress.toString(), pszvetoname.rawAddress.toString(), ulnamelength.toInt(), ulflags.toInt()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun cmRequestDeviceEjectExA(dndevinst: UInt, pvetotype: MutPtr<PnpVetoType>, pszvetoname: Pstr, ulnamelength: UInt, ulflags: UInt, hmachine: Long): Configret =
+public actual fun cmRequestDeviceEjectExA(dndevinst: UInt, pvetotype: MutPtr, pszvetoname: Pstr, ulnamelength: UInt, ulflags: UInt, hmachine: Long): Configret =
     if (windowsWin32DevicesDeviceanddriverinstallationNapiAvailable) wasmWindowssysWindowsWin32DevicesDeviceanddriverinstallationCmRequestDeviceEjectExA(dndevinst.toInt(), pvetotype.rawAddress.toString(), pszvetoname.rawAddress.toString(), ulnamelength.toInt(), ulflags.toInt(), hmachine.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun cmRequestDeviceEjectExW(dndevinst: UInt, pvetotype: MutPtr<PnpVetoType>, pszvetoname: Pwstr, ulnamelength: UInt, ulflags: UInt, hmachine: Long): Configret =
+public actual fun cmRequestDeviceEjectExW(dndevinst: UInt, pvetotype: MutPtr, pszvetoname: Pwstr, ulnamelength: UInt, ulflags: UInt, hmachine: Long): Configret =
     if (windowsWin32DevicesDeviceanddriverinstallationNapiAvailable) wasmWindowssysWindowsWin32DevicesDeviceanddriverinstallationCmRequestDeviceEjectExW(dndevinst.toInt(), pvetotype.rawAddress.toString(), pszvetoname.rawAddress.toString(), ulnamelength.toInt(), ulflags.toInt(), hmachine.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun cmRequestEjectPc(): Configret =
@@ -2351,16 +2345,16 @@ public actual fun cmRunDetection(ulflags: UInt): Configret =
 public actual fun cmRunDetectionEx(ulflags: UInt, hmachine: Long): Configret =
     if (windowsWin32DevicesDeviceanddriverinstallationNapiAvailable) wasmWindowssysWindowsWin32DevicesDeviceanddriverinstallationCmRunDetectionEx(ulflags.toInt(), hmachine.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun cmSetClassPropertyW(classguid: ConstPtr<Guid>, propertykey: ConstPtr<Devpropkey>, propertytype: Devproptype, propertybuffer: ConstPtr<UByte>, propertybuffersize: UInt, ulflags: UInt): Configret =
+public actual fun cmSetClassPropertyW(classguid: ConstPtr, propertykey: ConstPtr, propertytype: Devproptype, propertybuffer: ConstPtr, propertybuffersize: UInt, ulflags: UInt): Configret =
     if (windowsWin32DevicesDeviceanddriverinstallationNapiAvailable) wasmWindowssysWindowsWin32DevicesDeviceanddriverinstallationCmSetClassPropertyW(classguid.rawAddress.toString(), propertykey.rawAddress.toString(), propertytype.toInt(), propertybuffer.rawAddress.toString(), propertybuffersize.toInt(), ulflags.toInt()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun cmSetClassPropertyExW(classguid: ConstPtr<Guid>, propertykey: ConstPtr<Devpropkey>, propertytype: Devproptype, propertybuffer: ConstPtr<UByte>, propertybuffersize: UInt, ulflags: UInt, hmachine: Long): Configret =
+public actual fun cmSetClassPropertyExW(classguid: ConstPtr, propertykey: ConstPtr, propertytype: Devproptype, propertybuffer: ConstPtr, propertybuffersize: UInt, ulflags: UInt, hmachine: Long): Configret =
     if (windowsWin32DevicesDeviceanddriverinstallationNapiAvailable) wasmWindowssysWindowsWin32DevicesDeviceanddriverinstallationCmSetClassPropertyExW(classguid.rawAddress.toString(), propertykey.rawAddress.toString(), propertytype.toInt(), propertybuffer.rawAddress.toString(), propertybuffersize.toInt(), ulflags.toInt(), hmachine.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun cmSetClassRegistryPropertyA(classguid: ConstPtr<Guid>, ulproperty: UInt, buffer: ConstPtr<CVoid>, ullength: UInt, ulflags: UInt, hmachine: Long): Configret =
+public actual fun cmSetClassRegistryPropertyA(classguid: ConstPtr, ulproperty: UInt, buffer: ConstPtr, ullength: UInt, ulflags: UInt, hmachine: Long): Configret =
     if (windowsWin32DevicesDeviceanddriverinstallationNapiAvailable) wasmWindowssysWindowsWin32DevicesDeviceanddriverinstallationCmSetClassRegistryPropertyA(classguid.rawAddress.toString(), ulproperty.toInt(), buffer.rawAddress.toString(), ullength.toInt(), ulflags.toInt(), hmachine.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun cmSetClassRegistryPropertyW(classguid: ConstPtr<Guid>, ulproperty: UInt, buffer: ConstPtr<CVoid>, ullength: UInt, ulflags: UInt, hmachine: Long): Configret =
+public actual fun cmSetClassRegistryPropertyW(classguid: ConstPtr, ulproperty: UInt, buffer: ConstPtr, ullength: UInt, ulflags: UInt, hmachine: Long): Configret =
     if (windowsWin32DevicesDeviceanddriverinstallationNapiAvailable) wasmWindowssysWindowsWin32DevicesDeviceanddriverinstallationCmSetClassRegistryPropertyW(classguid.rawAddress.toString(), ulproperty.toInt(), buffer.rawAddress.toString(), ullength.toInt(), ulflags.toInt(), hmachine.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun cmSetDevNodeProblem(dndevinst: UInt, ulproblem: UInt, ulflags: UInt): Configret =
@@ -2369,28 +2363,28 @@ public actual fun cmSetDevNodeProblem(dndevinst: UInt, ulproblem: UInt, ulflags:
 public actual fun cmSetDevNodeProblemEx(dndevinst: UInt, ulproblem: UInt, ulflags: UInt, hmachine: Long): Configret =
     if (windowsWin32DevicesDeviceanddriverinstallationNapiAvailable) wasmWindowssysWindowsWin32DevicesDeviceanddriverinstallationCmSetDevNodeProblemEx(dndevinst.toInt(), ulproblem.toInt(), ulflags.toInt(), hmachine.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun cmSetDevNodePropertyW(dndevinst: UInt, propertykey: ConstPtr<Devpropkey>, propertytype: Devproptype, propertybuffer: ConstPtr<UByte>, propertybuffersize: UInt, ulflags: UInt): Configret =
+public actual fun cmSetDevNodePropertyW(dndevinst: UInt, propertykey: ConstPtr, propertytype: Devproptype, propertybuffer: ConstPtr, propertybuffersize: UInt, ulflags: UInt): Configret =
     if (windowsWin32DevicesDeviceanddriverinstallationNapiAvailable) wasmWindowssysWindowsWin32DevicesDeviceanddriverinstallationCmSetDevNodePropertyW(dndevinst.toInt(), propertykey.rawAddress.toString(), propertytype.toInt(), propertybuffer.rawAddress.toString(), propertybuffersize.toInt(), ulflags.toInt()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun cmSetDevNodePropertyExW(dndevinst: UInt, propertykey: ConstPtr<Devpropkey>, propertytype: Devproptype, propertybuffer: ConstPtr<UByte>, propertybuffersize: UInt, ulflags: UInt, hmachine: Long): Configret =
+public actual fun cmSetDevNodePropertyExW(dndevinst: UInt, propertykey: ConstPtr, propertytype: Devproptype, propertybuffer: ConstPtr, propertybuffersize: UInt, ulflags: UInt, hmachine: Long): Configret =
     if (windowsWin32DevicesDeviceanddriverinstallationNapiAvailable) wasmWindowssysWindowsWin32DevicesDeviceanddriverinstallationCmSetDevNodePropertyExW(dndevinst.toInt(), propertykey.rawAddress.toString(), propertytype.toInt(), propertybuffer.rawAddress.toString(), propertybuffersize.toInt(), ulflags.toInt(), hmachine.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun cmSetDevNodeRegistryPropertyA(dndevinst: UInt, ulproperty: UInt, buffer: ConstPtr<CVoid>, ullength: UInt, ulflags: UInt): Configret =
+public actual fun cmSetDevNodeRegistryPropertyA(dndevinst: UInt, ulproperty: UInt, buffer: ConstPtr, ullength: UInt, ulflags: UInt): Configret =
     if (windowsWin32DevicesDeviceanddriverinstallationNapiAvailable) wasmWindowssysWindowsWin32DevicesDeviceanddriverinstallationCmSetDevNodeRegistryPropertyA(dndevinst.toInt(), ulproperty.toInt(), buffer.rawAddress.toString(), ullength.toInt(), ulflags.toInt()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun cmSetDevNodeRegistryPropertyW(dndevinst: UInt, ulproperty: UInt, buffer: ConstPtr<CVoid>, ullength: UInt, ulflags: UInt): Configret =
+public actual fun cmSetDevNodeRegistryPropertyW(dndevinst: UInt, ulproperty: UInt, buffer: ConstPtr, ullength: UInt, ulflags: UInt): Configret =
     if (windowsWin32DevicesDeviceanddriverinstallationNapiAvailable) wasmWindowssysWindowsWin32DevicesDeviceanddriverinstallationCmSetDevNodeRegistryPropertyW(dndevinst.toInt(), ulproperty.toInt(), buffer.rawAddress.toString(), ullength.toInt(), ulflags.toInt()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun cmSetDevNodeRegistryPropertyExA(dndevinst: UInt, ulproperty: UInt, buffer: ConstPtr<CVoid>, ullength: UInt, ulflags: UInt, hmachine: Long): Configret =
+public actual fun cmSetDevNodeRegistryPropertyExA(dndevinst: UInt, ulproperty: UInt, buffer: ConstPtr, ullength: UInt, ulflags: UInt, hmachine: Long): Configret =
     if (windowsWin32DevicesDeviceanddriverinstallationNapiAvailable) wasmWindowssysWindowsWin32DevicesDeviceanddriverinstallationCmSetDevNodeRegistryPropertyExA(dndevinst.toInt(), ulproperty.toInt(), buffer.rawAddress.toString(), ullength.toInt(), ulflags.toInt(), hmachine.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun cmSetDevNodeRegistryPropertyExW(dndevinst: UInt, ulproperty: UInt, buffer: ConstPtr<CVoid>, ullength: UInt, ulflags: UInt, hmachine: Long): Configret =
+public actual fun cmSetDevNodeRegistryPropertyExW(dndevinst: UInt, ulproperty: UInt, buffer: ConstPtr, ullength: UInt, ulflags: UInt, hmachine: Long): Configret =
     if (windowsWin32DevicesDeviceanddriverinstallationNapiAvailable) wasmWindowssysWindowsWin32DevicesDeviceanddriverinstallationCmSetDevNodeRegistryPropertyExW(dndevinst.toInt(), ulproperty.toInt(), buffer.rawAddress.toString(), ullength.toInt(), ulflags.toInt(), hmachine.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun cmSetDeviceInterfacePropertyW(pszdeviceinterface: Pcwstr, propertykey: ConstPtr<Devpropkey>, propertytype: Devproptype, propertybuffer: ConstPtr<UByte>, propertybuffersize: UInt, ulflags: UInt): Configret =
+public actual fun cmSetDeviceInterfacePropertyW(pszdeviceinterface: Pcwstr, propertykey: ConstPtr, propertytype: Devproptype, propertybuffer: ConstPtr, propertybuffersize: UInt, ulflags: UInt): Configret =
     if (windowsWin32DevicesDeviceanddriverinstallationNapiAvailable) wasmWindowssysWindowsWin32DevicesDeviceanddriverinstallationCmSetDeviceInterfacePropertyW(pszdeviceinterface.rawAddress.toString(), propertykey.rawAddress.toString(), propertytype.toInt(), propertybuffer.rawAddress.toString(), propertybuffersize.toInt(), ulflags.toInt()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun cmSetDeviceInterfacePropertyExW(pszdeviceinterface: Pcwstr, propertykey: ConstPtr<Devpropkey>, propertytype: Devproptype, propertybuffer: ConstPtr<UByte>, propertybuffersize: UInt, ulflags: UInt, hmachine: Long): Configret =
+public actual fun cmSetDeviceInterfacePropertyExW(pszdeviceinterface: Pcwstr, propertykey: ConstPtr, propertytype: Devproptype, propertybuffer: ConstPtr, propertybuffersize: UInt, ulflags: UInt, hmachine: Long): Configret =
     if (windowsWin32DevicesDeviceanddriverinstallationNapiAvailable) wasmWindowssysWindowsWin32DevicesDeviceanddriverinstallationCmSetDeviceInterfacePropertyExW(pszdeviceinterface.rawAddress.toString(), propertykey.rawAddress.toString(), propertytype.toInt(), propertybuffer.rawAddress.toString(), propertybuffersize.toInt(), ulflags.toInt(), hmachine.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun cmSetHwProf(ulhardwareprofile: UInt, ulflags: UInt): Configret =
@@ -2441,31 +2435,31 @@ public actual fun cmUnregisterDeviceInterfaceExW(pszdeviceinterface: Pcwstr, ulf
 public actual fun cmUnregisterNotification(notifycontext: Hcmnotification): Configret =
     if (windowsWin32DevicesDeviceanddriverinstallationNapiAvailable) wasmWindowssysWindowsWin32DevicesDeviceanddriverinstallationCmUnregisterNotification(notifycontext.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun diInstallDevice(hwndparent: Hwnd, deviceinfoset: Hdevinfo, deviceinfodata: ConstPtr<SpDevinfoData>, driverinfodata: ConstPtr<SpDrvinfoDataV2W>, flags: DiinstalldeviceFlags, needreboot: MutPtr<Bool>): Bool =
+public actual fun diInstallDevice(hwndparent: Hwnd, deviceinfoset: Hdevinfo, deviceinfodata: ConstPtr, driverinfodata: ConstPtr, flags: DiinstalldeviceFlags, needreboot: MutPtr): Bool =
     if (windowsWin32DevicesDeviceanddriverinstallationNapiAvailable) wasmWindowssysWindowsWin32DevicesDeviceanddriverinstallationDiInstallDevice(hwndparent.rawAddress.toString(), deviceinfoset.toString(), deviceinfodata.rawAddress.toString(), driverinfodata.rawAddress.toString(), flags.toInt(), needreboot.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun diInstallDriverA(hwndparent: Hwnd, infpath: Pcstr, flags: DiinstalldriverFlags, needreboot: MutPtr<Bool>): Bool =
+public actual fun diInstallDriverA(hwndparent: Hwnd, infpath: Pcstr, flags: DiinstalldriverFlags, needreboot: MutPtr): Bool =
     if (windowsWin32DevicesDeviceanddriverinstallationNapiAvailable) wasmWindowssysWindowsWin32DevicesDeviceanddriverinstallationDiInstallDriverA(hwndparent.rawAddress.toString(), infpath.rawAddress.toString(), flags.toInt(), needreboot.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun diInstallDriverW(hwndparent: Hwnd, infpath: Pcwstr, flags: DiinstalldriverFlags, needreboot: MutPtr<Bool>): Bool =
+public actual fun diInstallDriverW(hwndparent: Hwnd, infpath: Pcwstr, flags: DiinstalldriverFlags, needreboot: MutPtr): Bool =
     if (windowsWin32DevicesDeviceanddriverinstallationNapiAvailable) wasmWindowssysWindowsWin32DevicesDeviceanddriverinstallationDiInstallDriverW(hwndparent.rawAddress.toString(), infpath.rawAddress.toString(), flags.toInt(), needreboot.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun diRollbackDriver(deviceinfoset: Hdevinfo, deviceinfodata: ConstPtr<SpDevinfoData>, hwndparent: Hwnd, flags: DirollbackdriverFlags, needreboot: MutPtr<Bool>): Bool =
+public actual fun diRollbackDriver(deviceinfoset: Hdevinfo, deviceinfodata: ConstPtr, hwndparent: Hwnd, flags: DirollbackdriverFlags, needreboot: MutPtr): Bool =
     if (windowsWin32DevicesDeviceanddriverinstallationNapiAvailable) wasmWindowssysWindowsWin32DevicesDeviceanddriverinstallationDiRollbackDriver(deviceinfoset.toString(), deviceinfodata.rawAddress.toString(), hwndparent.rawAddress.toString(), flags.toInt(), needreboot.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun diShowUpdateDevice(hwndparent: Hwnd, deviceinfoset: Hdevinfo, deviceinfodata: ConstPtr<SpDevinfoData>, flags: UInt, needreboot: MutPtr<Bool>): Bool =
+public actual fun diShowUpdateDevice(hwndparent: Hwnd, deviceinfoset: Hdevinfo, deviceinfodata: ConstPtr, flags: UInt, needreboot: MutPtr): Bool =
     if (windowsWin32DevicesDeviceanddriverinstallationNapiAvailable) wasmWindowssysWindowsWin32DevicesDeviceanddriverinstallationDiShowUpdateDevice(hwndparent.rawAddress.toString(), deviceinfoset.toString(), deviceinfodata.rawAddress.toString(), flags.toInt(), needreboot.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun diShowUpdateDriver(hwndparent: Hwnd, filepath: Pcwstr, flags: UInt, needreboot: MutPtr<Bool>): Bool =
+public actual fun diShowUpdateDriver(hwndparent: Hwnd, filepath: Pcwstr, flags: UInt, needreboot: MutPtr): Bool =
     if (windowsWin32DevicesDeviceanddriverinstallationNapiAvailable) wasmWindowssysWindowsWin32DevicesDeviceanddriverinstallationDiShowUpdateDriver(hwndparent.rawAddress.toString(), filepath.rawAddress.toString(), flags.toInt(), needreboot.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun diUninstallDevice(hwndparent: Hwnd, deviceinfoset: Hdevinfo, deviceinfodata: ConstPtr<SpDevinfoData>, flags: UInt, needreboot: MutPtr<Bool>): Bool =
+public actual fun diUninstallDevice(hwndparent: Hwnd, deviceinfoset: Hdevinfo, deviceinfodata: ConstPtr, flags: UInt, needreboot: MutPtr): Bool =
     if (windowsWin32DevicesDeviceanddriverinstallationNapiAvailable) wasmWindowssysWindowsWin32DevicesDeviceanddriverinstallationDiUninstallDevice(hwndparent.rawAddress.toString(), deviceinfoset.toString(), deviceinfodata.rawAddress.toString(), flags.toInt(), needreboot.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun diUninstallDriverA(hwndparent: Hwnd, infpath: Pcstr, flags: DiuninstalldriverFlags, needreboot: MutPtr<Bool>): Bool =
+public actual fun diUninstallDriverA(hwndparent: Hwnd, infpath: Pcstr, flags: DiuninstalldriverFlags, needreboot: MutPtr): Bool =
     if (windowsWin32DevicesDeviceanddriverinstallationNapiAvailable) wasmWindowssysWindowsWin32DevicesDeviceanddriverinstallationDiUninstallDriverA(hwndparent.rawAddress.toString(), infpath.rawAddress.toString(), flags.toInt(), needreboot.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun diUninstallDriverW(hwndparent: Hwnd, infpath: Pcwstr, flags: DiuninstalldriverFlags, needreboot: MutPtr<Bool>): Bool =
+public actual fun diUninstallDriverW(hwndparent: Hwnd, infpath: Pcwstr, flags: DiuninstalldriverFlags, needreboot: MutPtr): Bool =
     if (windowsWin32DevicesDeviceanddriverinstallationNapiAvailable) wasmWindowssysWindowsWin32DevicesDeviceanddriverinstallationDiUninstallDriverW(hwndparent.rawAddress.toString(), infpath.rawAddress.toString(), flags.toInt(), needreboot.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun installHinfSectionA(window: Hwnd, modulehandle: Hinstance, commandline: Pcstr, showcommand: Int) {
@@ -2484,22 +2478,22 @@ public actual fun installHinfSectionW(window: Hwnd, modulehandle: Hinstance, com
     }
 }
 
-public actual fun setupAddInstallSectionToDiskSpaceListA(diskspace: ConstPtr<CVoid>, infhandle: ConstPtr<CVoid>, layoutinfhandle: ConstPtr<CVoid>, sectionname: Pcstr, reserved1: ConstPtr<CVoid>, reserved2: UInt): Bool =
+public actual fun setupAddInstallSectionToDiskSpaceListA(diskspace: ConstPtr, infhandle: ConstPtr, layoutinfhandle: ConstPtr, sectionname: Pcstr, reserved1: ConstPtr, reserved2: UInt): Bool =
     if (windowsWin32DevicesDeviceanddriverinstallationNapiAvailable) wasmWindowssysWindowsWin32DevicesDeviceanddriverinstallationSetupAddInstallSectionToDiskSpaceListA(diskspace.rawAddress.toString(), infhandle.rawAddress.toString(), layoutinfhandle.rawAddress.toString(), sectionname.rawAddress.toString(), reserved1.rawAddress.toString(), reserved2.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun setupAddInstallSectionToDiskSpaceListW(diskspace: ConstPtr<CVoid>, infhandle: ConstPtr<CVoid>, layoutinfhandle: ConstPtr<CVoid>, sectionname: Pcwstr, reserved1: ConstPtr<CVoid>, reserved2: UInt): Bool =
+public actual fun setupAddInstallSectionToDiskSpaceListW(diskspace: ConstPtr, infhandle: ConstPtr, layoutinfhandle: ConstPtr, sectionname: Pcwstr, reserved1: ConstPtr, reserved2: UInt): Bool =
     if (windowsWin32DevicesDeviceanddriverinstallationNapiAvailable) wasmWindowssysWindowsWin32DevicesDeviceanddriverinstallationSetupAddInstallSectionToDiskSpaceListW(diskspace.rawAddress.toString(), infhandle.rawAddress.toString(), layoutinfhandle.rawAddress.toString(), sectionname.rawAddress.toString(), reserved1.rawAddress.toString(), reserved2.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun setupAddSectionToDiskSpaceListA(diskspace: ConstPtr<CVoid>, infhandle: ConstPtr<CVoid>, listinfhandle: ConstPtr<CVoid>, sectionname: Pcstr, operation: SetupFileOperation, reserved1: ConstPtr<CVoid>, reserved2: UInt): Bool =
+public actual fun setupAddSectionToDiskSpaceListA(diskspace: ConstPtr, infhandle: ConstPtr, listinfhandle: ConstPtr, sectionname: Pcstr, operation: SetupFileOperation, reserved1: ConstPtr, reserved2: UInt): Bool =
     if (windowsWin32DevicesDeviceanddriverinstallationNapiAvailable) wasmWindowssysWindowsWin32DevicesDeviceanddriverinstallationSetupAddSectionToDiskSpaceListA(diskspace.rawAddress.toString(), infhandle.rawAddress.toString(), listinfhandle.rawAddress.toString(), sectionname.rawAddress.toString(), operation.toInt(), reserved1.rawAddress.toString(), reserved2.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun setupAddSectionToDiskSpaceListW(diskspace: ConstPtr<CVoid>, infhandle: ConstPtr<CVoid>, listinfhandle: ConstPtr<CVoid>, sectionname: Pcwstr, operation: SetupFileOperation, reserved1: ConstPtr<CVoid>, reserved2: UInt): Bool =
+public actual fun setupAddSectionToDiskSpaceListW(diskspace: ConstPtr, infhandle: ConstPtr, listinfhandle: ConstPtr, sectionname: Pcwstr, operation: SetupFileOperation, reserved1: ConstPtr, reserved2: UInt): Bool =
     if (windowsWin32DevicesDeviceanddriverinstallationNapiAvailable) wasmWindowssysWindowsWin32DevicesDeviceanddriverinstallationSetupAddSectionToDiskSpaceListW(diskspace.rawAddress.toString(), infhandle.rawAddress.toString(), listinfhandle.rawAddress.toString(), sectionname.rawAddress.toString(), operation.toInt(), reserved1.rawAddress.toString(), reserved2.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun setupAddToDiskSpaceListA(diskspace: ConstPtr<CVoid>, targetfilespec: Pcstr, filesize: Long, operation: SetupFileOperation, reserved1: ConstPtr<CVoid>, reserved2: UInt): Bool =
+public actual fun setupAddToDiskSpaceListA(diskspace: ConstPtr, targetfilespec: Pcstr, filesize: Long, operation: SetupFileOperation, reserved1: ConstPtr, reserved2: UInt): Bool =
     if (windowsWin32DevicesDeviceanddriverinstallationNapiAvailable) wasmWindowssysWindowsWin32DevicesDeviceanddriverinstallationSetupAddToDiskSpaceListA(diskspace.rawAddress.toString(), targetfilespec.rawAddress.toString(), filesize.toString(), operation.toInt(), reserved1.rawAddress.toString(), reserved2.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun setupAddToDiskSpaceListW(diskspace: ConstPtr<CVoid>, targetfilespec: Pcwstr, filesize: Long, operation: SetupFileOperation, reserved1: ConstPtr<CVoid>, reserved2: UInt): Bool =
+public actual fun setupAddToDiskSpaceListW(diskspace: ConstPtr, targetfilespec: Pcwstr, filesize: Long, operation: SetupFileOperation, reserved1: ConstPtr, reserved2: UInt): Bool =
     if (windowsWin32DevicesDeviceanddriverinstallationNapiAvailable) wasmWindowssysWindowsWin32DevicesDeviceanddriverinstallationSetupAddToDiskSpaceListW(diskspace.rawAddress.toString(), targetfilespec.rawAddress.toString(), filesize.toString(), operation.toInt(), reserved1.rawAddress.toString(), reserved2.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun setupAddToSourceListA(flags: UInt, source: Pcstr): Bool =
@@ -2508,10 +2502,10 @@ public actual fun setupAddToSourceListA(flags: UInt, source: Pcstr): Bool =
 public actual fun setupAddToSourceListW(flags: UInt, source: Pcwstr): Bool =
     if (windowsWin32DevicesDeviceanddriverinstallationNapiAvailable) wasmWindowssysWindowsWin32DevicesDeviceanddriverinstallationSetupAddToSourceListW(flags.toInt(), source.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun setupAdjustDiskSpaceListA(diskspace: ConstPtr<CVoid>, driveroot: Pcstr, amount: Long, reserved1: ConstPtr<CVoid>, reserved2: UInt): Bool =
+public actual fun setupAdjustDiskSpaceListA(diskspace: ConstPtr, driveroot: Pcstr, amount: Long, reserved1: ConstPtr, reserved2: UInt): Bool =
     if (windowsWin32DevicesDeviceanddriverinstallationNapiAvailable) wasmWindowssysWindowsWin32DevicesDeviceanddriverinstallationSetupAdjustDiskSpaceListA(diskspace.rawAddress.toString(), driveroot.rawAddress.toString(), amount.toString(), reserved1.rawAddress.toString(), reserved2.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun setupAdjustDiskSpaceListW(diskspace: ConstPtr<CVoid>, driveroot: Pcwstr, amount: Long, reserved1: ConstPtr<CVoid>, reserved2: UInt): Bool =
+public actual fun setupAdjustDiskSpaceListW(diskspace: ConstPtr, driveroot: Pcwstr, amount: Long, reserved1: ConstPtr, reserved2: UInt): Bool =
     if (windowsWin32DevicesDeviceanddriverinstallationNapiAvailable) wasmWindowssysWindowsWin32DevicesDeviceanddriverinstallationSetupAdjustDiskSpaceListW(diskspace.rawAddress.toString(), driveroot.rawAddress.toString(), amount.toString(), reserved1.rawAddress.toString(), reserved2.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun setupBackupErrorA(hwndparent: Hwnd, dialogtitle: Pcstr, sourcefile: Pcstr, targetfile: Pcstr, win32errorcode: UInt, style: UInt): UInt =
@@ -2523,10 +2517,10 @@ public actual fun setupBackupErrorW(hwndparent: Hwnd, dialogtitle: Pcwstr, sourc
 public actual fun setupCancelTemporarySourceList(): Bool =
     if (windowsWin32DevicesDeviceanddriverinstallationNapiAvailable) wasmWindowssysWindowsWin32DevicesDeviceanddriverinstallationSetupCancelTemporarySourceList() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun setupCloseFileQueue(queuehandle: ConstPtr<CVoid>): Bool =
+public actual fun setupCloseFileQueue(queuehandle: ConstPtr): Bool =
     if (windowsWin32DevicesDeviceanddriverinstallationNapiAvailable) wasmWindowssysWindowsWin32DevicesDeviceanddriverinstallationSetupCloseFileQueue(queuehandle.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun setupCloseInfFile(infhandle: ConstPtr<CVoid>) {
+public actual fun setupCloseInfFile(infhandle: ConstPtr) {
     if (windowsWin32DevicesDeviceanddriverinstallationNapiAvailable) {
         wasmWindowssysWindowsWin32DevicesDeviceanddriverinstallationSetupCloseInfFile(infhandle.rawAddress.toString())
     } else {
@@ -2542,46 +2536,46 @@ public actual fun setupCloseLog() {
     }
 }
 
-public actual fun setupCommitFileQueueA(owner: Hwnd, queuehandle: ConstPtr<CVoid>, msghandler: PspFileCallbackA, context: ConstPtr<CVoid>): Bool =
+public actual fun setupCommitFileQueueA(owner: Hwnd, queuehandle: ConstPtr, msghandler: PspFileCallbackA, context: ConstPtr): Bool =
     if (windowsWin32DevicesDeviceanddriverinstallationNapiAvailable) wasmWindowssysWindowsWin32DevicesDeviceanddriverinstallationSetupCommitFileQueueA(owner.rawAddress.toString(), queuehandle.rawAddress.toString(), 0L.toString(), context.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun setupCommitFileQueueW(owner: Hwnd, queuehandle: ConstPtr<CVoid>, msghandler: PspFileCallbackW, context: ConstPtr<CVoid>): Bool =
+public actual fun setupCommitFileQueueW(owner: Hwnd, queuehandle: ConstPtr, msghandler: PspFileCallbackW, context: ConstPtr): Bool =
     if (windowsWin32DevicesDeviceanddriverinstallationNapiAvailable) wasmWindowssysWindowsWin32DevicesDeviceanddriverinstallationSetupCommitFileQueueW(owner.rawAddress.toString(), queuehandle.rawAddress.toString(), 0L.toString(), context.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun setupConfigureWmiFromInfSectionA(infhandle: ConstPtr<CVoid>, sectionname: Pcstr, flags: UInt): Bool =
+public actual fun setupConfigureWmiFromInfSectionA(infhandle: ConstPtr, sectionname: Pcstr, flags: UInt): Bool =
     if (windowsWin32DevicesDeviceanddriverinstallationNapiAvailable) wasmWindowssysWindowsWin32DevicesDeviceanddriverinstallationSetupConfigureWmiFromInfSectionA(infhandle.rawAddress.toString(), sectionname.rawAddress.toString(), flags.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun setupConfigureWmiFromInfSectionW(infhandle: ConstPtr<CVoid>, sectionname: Pcwstr, flags: UInt): Bool =
+public actual fun setupConfigureWmiFromInfSectionW(infhandle: ConstPtr, sectionname: Pcwstr, flags: UInt): Bool =
     if (windowsWin32DevicesDeviceanddriverinstallationNapiAvailable) wasmWindowssysWindowsWin32DevicesDeviceanddriverinstallationSetupConfigureWmiFromInfSectionW(infhandle.rawAddress.toString(), sectionname.rawAddress.toString(), flags.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun setupCopyErrorA(hwndparent: Hwnd, dialogtitle: Pcstr, diskname: Pcstr, pathtosource: Pcstr, sourcefile: Pcstr, targetpathfile: Pcstr, win32errorcode: UInt, style: UInt, pathbuffer: Pstr, pathbuffersize: UInt, pathrequiredsize: MutPtr<UInt>): UInt =
+public actual fun setupCopyErrorA(hwndparent: Hwnd, dialogtitle: Pcstr, diskname: Pcstr, pathtosource: Pcstr, sourcefile: Pcstr, targetpathfile: Pcstr, win32errorcode: UInt, style: UInt, pathbuffer: Pstr, pathbuffersize: UInt, pathrequiredsize: MutPtr): UInt =
     if (windowsWin32DevicesDeviceanddriverinstallationNapiAvailable) wasmWindowssysWindowsWin32DevicesDeviceanddriverinstallationSetupCopyErrorA(hwndparent.rawAddress.toString(), dialogtitle.rawAddress.toString(), diskname.rawAddress.toString(), pathtosource.rawAddress.toString(), sourcefile.rawAddress.toString(), targetpathfile.rawAddress.toString(), win32errorcode.toInt(), style.toInt(), pathbuffer.rawAddress.toString(), pathbuffersize.toInt(), pathrequiredsize.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun setupCopyErrorW(hwndparent: Hwnd, dialogtitle: Pcwstr, diskname: Pcwstr, pathtosource: Pcwstr, sourcefile: Pcwstr, targetpathfile: Pcwstr, win32errorcode: UInt, style: UInt, pathbuffer: Pwstr, pathbuffersize: UInt, pathrequiredsize: MutPtr<UInt>): UInt =
+public actual fun setupCopyErrorW(hwndparent: Hwnd, dialogtitle: Pcwstr, diskname: Pcwstr, pathtosource: Pcwstr, sourcefile: Pcwstr, targetpathfile: Pcwstr, win32errorcode: UInt, style: UInt, pathbuffer: Pwstr, pathbuffersize: UInt, pathrequiredsize: MutPtr): UInt =
     if (windowsWin32DevicesDeviceanddriverinstallationNapiAvailable) wasmWindowssysWindowsWin32DevicesDeviceanddriverinstallationSetupCopyErrorW(hwndparent.rawAddress.toString(), dialogtitle.rawAddress.toString(), diskname.rawAddress.toString(), pathtosource.rawAddress.toString(), sourcefile.rawAddress.toString(), targetpathfile.rawAddress.toString(), win32errorcode.toInt(), style.toInt(), pathbuffer.rawAddress.toString(), pathbuffersize.toInt(), pathrequiredsize.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun setupCopyOEMInfA(sourceinffilename: Pcstr, oemsourcemedialocation: Pcstr, oemsourcemediatype: OemSourceMediaType, copystyle: SpCopyStyle, destinationinffilename: Pstr, destinationinffilenamesize: UInt, requiredsize: MutPtr<UInt>, destinationinffilenamecomponent: MutPtr<Pstr>): Bool =
+public actual fun setupCopyOEMInfA(sourceinffilename: Pcstr, oemsourcemedialocation: Pcstr, oemsourcemediatype: OemSourceMediaType, copystyle: SpCopyStyle, destinationinffilename: Pstr, destinationinffilenamesize: UInt, requiredsize: MutPtr, destinationinffilenamecomponent: MutPtr): Bool =
     if (windowsWin32DevicesDeviceanddriverinstallationNapiAvailable) wasmWindowssysWindowsWin32DevicesDeviceanddriverinstallationSetupCopyOEMInfA(sourceinffilename.rawAddress.toString(), oemsourcemedialocation.rawAddress.toString(), oemsourcemediatype.toInt(), copystyle.toInt(), destinationinffilename.rawAddress.toString(), destinationinffilenamesize.toInt(), requiredsize.rawAddress.toString(), destinationinffilenamecomponent.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun setupCopyOEMInfW(sourceinffilename: Pcwstr, oemsourcemedialocation: Pcwstr, oemsourcemediatype: OemSourceMediaType, copystyle: SpCopyStyle, destinationinffilename: Pwstr, destinationinffilenamesize: UInt, requiredsize: MutPtr<UInt>, destinationinffilenamecomponent: MutPtr<Pwstr>): Bool =
+public actual fun setupCopyOEMInfW(sourceinffilename: Pcwstr, oemsourcemedialocation: Pcwstr, oemsourcemediatype: OemSourceMediaType, copystyle: SpCopyStyle, destinationinffilename: Pwstr, destinationinffilenamesize: UInt, requiredsize: MutPtr, destinationinffilenamecomponent: MutPtr): Bool =
     if (windowsWin32DevicesDeviceanddriverinstallationNapiAvailable) wasmWindowssysWindowsWin32DevicesDeviceanddriverinstallationSetupCopyOEMInfW(sourceinffilename.rawAddress.toString(), oemsourcemedialocation.rawAddress.toString(), oemsourcemediatype.toInt(), copystyle.toInt(), destinationinffilename.rawAddress.toString(), destinationinffilenamesize.toInt(), requiredsize.rawAddress.toString(), destinationinffilenamecomponent.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun setupCreateDiskSpaceListA(reserved1: ConstPtr<CVoid>, reserved2: UInt, flags: UInt): MutPtr<CVoid> =
+public actual fun setupCreateDiskSpaceListA(reserved1: ConstPtr, reserved2: UInt, flags: UInt): MutPtr =
     if (windowsWin32DevicesDeviceanddriverinstallationNapiAvailable) MutPtr(wasmWindowssysWindowsWin32DevicesDeviceanddriverinstallationSetupCreateDiskSpaceListA(reserved1.rawAddress.toString(), reserved2.toInt(), flags.toInt()).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun setupCreateDiskSpaceListW(reserved1: ConstPtr<CVoid>, reserved2: UInt, flags: UInt): MutPtr<CVoid> =
+public actual fun setupCreateDiskSpaceListW(reserved1: ConstPtr, reserved2: UInt, flags: UInt): MutPtr =
     if (windowsWin32DevicesDeviceanddriverinstallationNapiAvailable) MutPtr(wasmWindowssysWindowsWin32DevicesDeviceanddriverinstallationSetupCreateDiskSpaceListW(reserved1.rawAddress.toString(), reserved2.toInt(), flags.toInt()).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun setupDecompressOrCopyFileA(sourcefilename: Pcstr, targetfilename: Pcstr, compressiontype: ConstPtr<FileCompressionType>): UInt =
+public actual fun setupDecompressOrCopyFileA(sourcefilename: Pcstr, targetfilename: Pcstr, compressiontype: ConstPtr): UInt =
     if (windowsWin32DevicesDeviceanddriverinstallationNapiAvailable) wasmWindowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDecompressOrCopyFileA(sourcefilename.rawAddress.toString(), targetfilename.rawAddress.toString(), compressiontype.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun setupDecompressOrCopyFileW(sourcefilename: Pcwstr, targetfilename: Pcwstr, compressiontype: ConstPtr<FileCompressionType>): UInt =
+public actual fun setupDecompressOrCopyFileW(sourcefilename: Pcwstr, targetfilename: Pcwstr, compressiontype: ConstPtr): UInt =
     if (windowsWin32DevicesDeviceanddriverinstallationNapiAvailable) wasmWindowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDecompressOrCopyFileW(sourcefilename.rawAddress.toString(), targetfilename.rawAddress.toString(), compressiontype.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun setupDefaultQueueCallbackA(context: ConstPtr<CVoid>, notification: UInt, param1: ULong, param2: ULong): UInt =
+public actual fun setupDefaultQueueCallbackA(context: ConstPtr, notification: UInt, param1: ULong, param2: ULong): UInt =
     if (windowsWin32DevicesDeviceanddriverinstallationNapiAvailable) wasmWindowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDefaultQueueCallbackA(context.rawAddress.toString(), notification.toInt(), param1.toString(), param2.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun setupDefaultQueueCallbackW(context: ConstPtr<CVoid>, notification: UInt, param1: ULong, param2: ULong): UInt =
+public actual fun setupDefaultQueueCallbackW(context: ConstPtr, notification: UInt, param1: ULong, param2: ULong): UInt =
     if (windowsWin32DevicesDeviceanddriverinstallationNapiAvailable) wasmWindowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDefaultQueueCallbackW(context.rawAddress.toString(), notification.toInt(), param1.toString(), param2.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun setupDeleteErrorA(hwndparent: Hwnd, dialogtitle: Pcstr, file: Pcstr, win32errorcode: UInt, style: UInt): UInt =
@@ -2590,655 +2584,655 @@ public actual fun setupDeleteErrorA(hwndparent: Hwnd, dialogtitle: Pcstr, file: 
 public actual fun setupDeleteErrorW(hwndparent: Hwnd, dialogtitle: Pcwstr, file: Pcwstr, win32errorcode: UInt, style: UInt): UInt =
     if (windowsWin32DevicesDeviceanddriverinstallationNapiAvailable) wasmWindowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDeleteErrorW(hwndparent.rawAddress.toString(), dialogtitle.rawAddress.toString(), file.rawAddress.toString(), win32errorcode.toInt(), style.toInt()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun setupDestroyDiskSpaceList(diskspace: MutPtr<CVoid>): Bool =
+public actual fun setupDestroyDiskSpaceList(diskspace: MutPtr): Bool =
     if (windowsWin32DevicesDeviceanddriverinstallationNapiAvailable) wasmWindowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDestroyDiskSpaceList(diskspace.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun setupDiAskForOEMDisk(deviceinfoset: Hdevinfo, deviceinfodata: ConstPtr<SpDevinfoData>): Bool =
+public actual fun setupDiAskForOEMDisk(deviceinfoset: Hdevinfo, deviceinfodata: ConstPtr): Bool =
     if (windowsWin32DevicesDeviceanddriverinstallationNapiAvailable) wasmWindowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiAskForOEMDisk(deviceinfoset.toString(), deviceinfodata.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun setupDiBuildClassInfoList(flags: UInt, classguidlist: MutPtr<Guid>, classguidlistsize: UInt, requiredsize: MutPtr<UInt>): Bool =
+public actual fun setupDiBuildClassInfoList(flags: UInt, classguidlist: MutPtr, classguidlistsize: UInt, requiredsize: MutPtr): Bool =
     if (windowsWin32DevicesDeviceanddriverinstallationNapiAvailable) wasmWindowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiBuildClassInfoList(flags.toInt(), classguidlist.rawAddress.toString(), classguidlistsize.toInt(), requiredsize.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun setupDiBuildClassInfoListExA(flags: UInt, classguidlist: MutPtr<Guid>, classguidlistsize: UInt, requiredsize: MutPtr<UInt>, machinename: Pcstr, reserved: ConstPtr<CVoid>): Bool =
+public actual fun setupDiBuildClassInfoListExA(flags: UInt, classguidlist: MutPtr, classguidlistsize: UInt, requiredsize: MutPtr, machinename: Pcstr, reserved: ConstPtr): Bool =
     if (windowsWin32DevicesDeviceanddriverinstallationNapiAvailable) wasmWindowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiBuildClassInfoListExA(flags.toInt(), classguidlist.rawAddress.toString(), classguidlistsize.toInt(), requiredsize.rawAddress.toString(), machinename.rawAddress.toString(), reserved.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun setupDiBuildClassInfoListExW(flags: UInt, classguidlist: MutPtr<Guid>, classguidlistsize: UInt, requiredsize: MutPtr<UInt>, machinename: Pcwstr, reserved: ConstPtr<CVoid>): Bool =
+public actual fun setupDiBuildClassInfoListExW(flags: UInt, classguidlist: MutPtr, classguidlistsize: UInt, requiredsize: MutPtr, machinename: Pcwstr, reserved: ConstPtr): Bool =
     if (windowsWin32DevicesDeviceanddriverinstallationNapiAvailable) wasmWindowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiBuildClassInfoListExW(flags.toInt(), classguidlist.rawAddress.toString(), classguidlistsize.toInt(), requiredsize.rawAddress.toString(), machinename.rawAddress.toString(), reserved.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun setupDiBuildDriverInfoList(deviceinfoset: Hdevinfo, deviceinfodata: MutPtr<SpDevinfoData>, drivertype: SetupDiDriverType): Bool =
+public actual fun setupDiBuildDriverInfoList(deviceinfoset: Hdevinfo, deviceinfodata: MutPtr, drivertype: SetupDiDriverType): Bool =
     if (windowsWin32DevicesDeviceanddriverinstallationNapiAvailable) wasmWindowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiBuildDriverInfoList(deviceinfoset.toString(), deviceinfodata.rawAddress.toString(), drivertype.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun setupDiCallClassInstaller(installfunction: DiFunction, deviceinfoset: Hdevinfo, deviceinfodata: ConstPtr<SpDevinfoData>): Bool =
+public actual fun setupDiCallClassInstaller(installfunction: DiFunction, deviceinfoset: Hdevinfo, deviceinfodata: ConstPtr): Bool =
     if (windowsWin32DevicesDeviceanddriverinstallationNapiAvailable) wasmWindowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiCallClassInstaller(installfunction.toInt(), deviceinfoset.toString(), deviceinfodata.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun setupDiCancelDriverInfoSearch(deviceinfoset: Hdevinfo): Bool =
     if (windowsWin32DevicesDeviceanddriverinstallationNapiAvailable) wasmWindowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiCancelDriverInfoSearch(deviceinfoset.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun setupDiChangeState(deviceinfoset: Hdevinfo, deviceinfodata: MutPtr<SpDevinfoData>): Bool =
+public actual fun setupDiChangeState(deviceinfoset: Hdevinfo, deviceinfodata: MutPtr): Bool =
     if (windowsWin32DevicesDeviceanddriverinstallationNapiAvailable) wasmWindowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiChangeState(deviceinfoset.toString(), deviceinfodata.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun setupDiClassGuidsFromNameA(classname: Pcstr, classguidlist: MutPtr<Guid>, classguidlistsize: UInt, requiredsize: MutPtr<UInt>): Bool =
+public actual fun setupDiClassGuidsFromNameA(classname: Pcstr, classguidlist: MutPtr, classguidlistsize: UInt, requiredsize: MutPtr): Bool =
     if (windowsWin32DevicesDeviceanddriverinstallationNapiAvailable) wasmWindowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiClassGuidsFromNameA(classname.rawAddress.toString(), classguidlist.rawAddress.toString(), classguidlistsize.toInt(), requiredsize.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun setupDiClassGuidsFromNameExA(classname: Pcstr, classguidlist: MutPtr<Guid>, classguidlistsize: UInt, requiredsize: MutPtr<UInt>, machinename: Pcstr, reserved: ConstPtr<CVoid>): Bool =
+public actual fun setupDiClassGuidsFromNameExA(classname: Pcstr, classguidlist: MutPtr, classguidlistsize: UInt, requiredsize: MutPtr, machinename: Pcstr, reserved: ConstPtr): Bool =
     if (windowsWin32DevicesDeviceanddriverinstallationNapiAvailable) wasmWindowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiClassGuidsFromNameExA(classname.rawAddress.toString(), classguidlist.rawAddress.toString(), classguidlistsize.toInt(), requiredsize.rawAddress.toString(), machinename.rawAddress.toString(), reserved.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun setupDiClassGuidsFromNameExW(classname: Pcwstr, classguidlist: MutPtr<Guid>, classguidlistsize: UInt, requiredsize: MutPtr<UInt>, machinename: Pcwstr, reserved: ConstPtr<CVoid>): Bool =
+public actual fun setupDiClassGuidsFromNameExW(classname: Pcwstr, classguidlist: MutPtr, classguidlistsize: UInt, requiredsize: MutPtr, machinename: Pcwstr, reserved: ConstPtr): Bool =
     if (windowsWin32DevicesDeviceanddriverinstallationNapiAvailable) wasmWindowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiClassGuidsFromNameExW(classname.rawAddress.toString(), classguidlist.rawAddress.toString(), classguidlistsize.toInt(), requiredsize.rawAddress.toString(), machinename.rawAddress.toString(), reserved.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun setupDiClassGuidsFromNameW(classname: Pcwstr, classguidlist: MutPtr<Guid>, classguidlistsize: UInt, requiredsize: MutPtr<UInt>): Bool =
+public actual fun setupDiClassGuidsFromNameW(classname: Pcwstr, classguidlist: MutPtr, classguidlistsize: UInt, requiredsize: MutPtr): Bool =
     if (windowsWin32DevicesDeviceanddriverinstallationNapiAvailable) wasmWindowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiClassGuidsFromNameW(classname.rawAddress.toString(), classguidlist.rawAddress.toString(), classguidlistsize.toInt(), requiredsize.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun setupDiClassNameFromGuidA(classguid: ConstPtr<Guid>, classname: Pstr, classnamesize: UInt, requiredsize: MutPtr<UInt>): Bool =
+public actual fun setupDiClassNameFromGuidA(classguid: ConstPtr, classname: Pstr, classnamesize: UInt, requiredsize: MutPtr): Bool =
     if (windowsWin32DevicesDeviceanddriverinstallationNapiAvailable) wasmWindowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiClassNameFromGuidA(classguid.rawAddress.toString(), classname.rawAddress.toString(), classnamesize.toInt(), requiredsize.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun setupDiClassNameFromGuidExA(classguid: ConstPtr<Guid>, classname: Pstr, classnamesize: UInt, requiredsize: MutPtr<UInt>, machinename: Pcstr, reserved: ConstPtr<CVoid>): Bool =
+public actual fun setupDiClassNameFromGuidExA(classguid: ConstPtr, classname: Pstr, classnamesize: UInt, requiredsize: MutPtr, machinename: Pcstr, reserved: ConstPtr): Bool =
     if (windowsWin32DevicesDeviceanddriverinstallationNapiAvailable) wasmWindowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiClassNameFromGuidExA(classguid.rawAddress.toString(), classname.rawAddress.toString(), classnamesize.toInt(), requiredsize.rawAddress.toString(), machinename.rawAddress.toString(), reserved.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun setupDiClassNameFromGuidExW(classguid: ConstPtr<Guid>, classname: Pwstr, classnamesize: UInt, requiredsize: MutPtr<UInt>, machinename: Pcwstr, reserved: ConstPtr<CVoid>): Bool =
+public actual fun setupDiClassNameFromGuidExW(classguid: ConstPtr, classname: Pwstr, classnamesize: UInt, requiredsize: MutPtr, machinename: Pcwstr, reserved: ConstPtr): Bool =
     if (windowsWin32DevicesDeviceanddriverinstallationNapiAvailable) wasmWindowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiClassNameFromGuidExW(classguid.rawAddress.toString(), classname.rawAddress.toString(), classnamesize.toInt(), requiredsize.rawAddress.toString(), machinename.rawAddress.toString(), reserved.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun setupDiClassNameFromGuidW(classguid: ConstPtr<Guid>, classname: Pwstr, classnamesize: UInt, requiredsize: MutPtr<UInt>): Bool =
+public actual fun setupDiClassNameFromGuidW(classguid: ConstPtr, classname: Pwstr, classnamesize: UInt, requiredsize: MutPtr): Bool =
     if (windowsWin32DevicesDeviceanddriverinstallationNapiAvailable) wasmWindowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiClassNameFromGuidW(classguid.rawAddress.toString(), classname.rawAddress.toString(), classnamesize.toInt(), requiredsize.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun setupDiCreateDevRegKeyA(deviceinfoset: Hdevinfo, deviceinfodata: ConstPtr<SpDevinfoData>, scope: UInt, hwprofile: UInt, keytype: UInt, infhandle: ConstPtr<CVoid>, infsectionname: Pcstr): Hkey =
+public actual fun setupDiCreateDevRegKeyA(deviceinfoset: Hdevinfo, deviceinfodata: ConstPtr, scope: UInt, hwprofile: UInt, keytype: UInt, infhandle: ConstPtr, infsectionname: Pcstr): Hkey =
     if (windowsWin32DevicesDeviceanddriverinstallationNapiAvailable) MutPtr(wasmWindowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiCreateDevRegKeyA(deviceinfoset.toString(), deviceinfodata.rawAddress.toString(), scope.toInt(), hwprofile.toInt(), keytype.toInt(), infhandle.rawAddress.toString(), infsectionname.rawAddress.toString()).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun setupDiCreateDevRegKeyW(deviceinfoset: Hdevinfo, deviceinfodata: ConstPtr<SpDevinfoData>, scope: UInt, hwprofile: UInt, keytype: UInt, infhandle: ConstPtr<CVoid>, infsectionname: Pcwstr): Hkey =
+public actual fun setupDiCreateDevRegKeyW(deviceinfoset: Hdevinfo, deviceinfodata: ConstPtr, scope: UInt, hwprofile: UInt, keytype: UInt, infhandle: ConstPtr, infsectionname: Pcwstr): Hkey =
     if (windowsWin32DevicesDeviceanddriverinstallationNapiAvailable) MutPtr(wasmWindowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiCreateDevRegKeyW(deviceinfoset.toString(), deviceinfodata.rawAddress.toString(), scope.toInt(), hwprofile.toInt(), keytype.toInt(), infhandle.rawAddress.toString(), infsectionname.rawAddress.toString()).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun setupDiCreateDeviceInfoA(deviceinfoset: Hdevinfo, devicename: Pcstr, classguid: ConstPtr<Guid>, devicedescription: Pcstr, hwndparent: Hwnd, creationflags: SetupDiDeviceCreationFlags, deviceinfodata: MutPtr<SpDevinfoData>): Bool =
+public actual fun setupDiCreateDeviceInfoA(deviceinfoset: Hdevinfo, devicename: Pcstr, classguid: ConstPtr, devicedescription: Pcstr, hwndparent: Hwnd, creationflags: SetupDiDeviceCreationFlags, deviceinfodata: MutPtr): Bool =
     if (windowsWin32DevicesDeviceanddriverinstallationNapiAvailable) wasmWindowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiCreateDeviceInfoA(deviceinfoset.toString(), devicename.rawAddress.toString(), classguid.rawAddress.toString(), devicedescription.rawAddress.toString(), hwndparent.rawAddress.toString(), creationflags.toInt(), deviceinfodata.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun setupDiCreateDeviceInfoList(classguid: ConstPtr<Guid>, hwndparent: Hwnd): Hdevinfo =
+public actual fun setupDiCreateDeviceInfoList(classguid: ConstPtr, hwndparent: Hwnd): Hdevinfo =
     if (windowsWin32DevicesDeviceanddriverinstallationNapiAvailable) wasmWindowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiCreateDeviceInfoList(classguid.rawAddress.toString(), hwndparent.rawAddress.toString()).toLong() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun setupDiCreateDeviceInfoListExA(classguid: ConstPtr<Guid>, hwndparent: Hwnd, machinename: Pcstr, reserved: ConstPtr<CVoid>): Hdevinfo =
+public actual fun setupDiCreateDeviceInfoListExA(classguid: ConstPtr, hwndparent: Hwnd, machinename: Pcstr, reserved: ConstPtr): Hdevinfo =
     if (windowsWin32DevicesDeviceanddriverinstallationNapiAvailable) wasmWindowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiCreateDeviceInfoListExA(classguid.rawAddress.toString(), hwndparent.rawAddress.toString(), machinename.rawAddress.toString(), reserved.rawAddress.toString()).toLong() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun setupDiCreateDeviceInfoListExW(classguid: ConstPtr<Guid>, hwndparent: Hwnd, machinename: Pcwstr, reserved: ConstPtr<CVoid>): Hdevinfo =
+public actual fun setupDiCreateDeviceInfoListExW(classguid: ConstPtr, hwndparent: Hwnd, machinename: Pcwstr, reserved: ConstPtr): Hdevinfo =
     if (windowsWin32DevicesDeviceanddriverinstallationNapiAvailable) wasmWindowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiCreateDeviceInfoListExW(classguid.rawAddress.toString(), hwndparent.rawAddress.toString(), machinename.rawAddress.toString(), reserved.rawAddress.toString()).toLong() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun setupDiCreateDeviceInfoW(deviceinfoset: Hdevinfo, devicename: Pcwstr, classguid: ConstPtr<Guid>, devicedescription: Pcwstr, hwndparent: Hwnd, creationflags: SetupDiDeviceCreationFlags, deviceinfodata: MutPtr<SpDevinfoData>): Bool =
+public actual fun setupDiCreateDeviceInfoW(deviceinfoset: Hdevinfo, devicename: Pcwstr, classguid: ConstPtr, devicedescription: Pcwstr, hwndparent: Hwnd, creationflags: SetupDiDeviceCreationFlags, deviceinfodata: MutPtr): Bool =
     if (windowsWin32DevicesDeviceanddriverinstallationNapiAvailable) wasmWindowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiCreateDeviceInfoW(deviceinfoset.toString(), devicename.rawAddress.toString(), classguid.rawAddress.toString(), devicedescription.rawAddress.toString(), hwndparent.rawAddress.toString(), creationflags.toInt(), deviceinfodata.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun setupDiCreateDeviceInterfaceA(deviceinfoset: Hdevinfo, deviceinfodata: ConstPtr<SpDevinfoData>, interfaceclassguid: ConstPtr<Guid>, referencestring: Pcstr, creationflags: UInt, deviceinterfacedata: MutPtr<SpDeviceInterfaceData>): Bool =
+public actual fun setupDiCreateDeviceInterfaceA(deviceinfoset: Hdevinfo, deviceinfodata: ConstPtr, interfaceclassguid: ConstPtr, referencestring: Pcstr, creationflags: UInt, deviceinterfacedata: MutPtr): Bool =
     if (windowsWin32DevicesDeviceanddriverinstallationNapiAvailable) wasmWindowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiCreateDeviceInterfaceA(deviceinfoset.toString(), deviceinfodata.rawAddress.toString(), interfaceclassguid.rawAddress.toString(), referencestring.rawAddress.toString(), creationflags.toInt(), deviceinterfacedata.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun setupDiCreateDeviceInterfaceRegKeyA(deviceinfoset: Hdevinfo, deviceinterfacedata: ConstPtr<SpDeviceInterfaceData>, reserved: UInt, samdesired: UInt, infhandle: ConstPtr<CVoid>, infsectionname: Pcstr): Hkey =
+public actual fun setupDiCreateDeviceInterfaceRegKeyA(deviceinfoset: Hdevinfo, deviceinterfacedata: ConstPtr, reserved: UInt, samdesired: UInt, infhandle: ConstPtr, infsectionname: Pcstr): Hkey =
     if (windowsWin32DevicesDeviceanddriverinstallationNapiAvailable) MutPtr(wasmWindowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiCreateDeviceInterfaceRegKeyA(deviceinfoset.toString(), deviceinterfacedata.rawAddress.toString(), reserved.toInt(), samdesired.toInt(), infhandle.rawAddress.toString(), infsectionname.rawAddress.toString()).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun setupDiCreateDeviceInterfaceRegKeyW(deviceinfoset: Hdevinfo, deviceinterfacedata: ConstPtr<SpDeviceInterfaceData>, reserved: UInt, samdesired: UInt, infhandle: ConstPtr<CVoid>, infsectionname: Pcwstr): Hkey =
+public actual fun setupDiCreateDeviceInterfaceRegKeyW(deviceinfoset: Hdevinfo, deviceinterfacedata: ConstPtr, reserved: UInt, samdesired: UInt, infhandle: ConstPtr, infsectionname: Pcwstr): Hkey =
     if (windowsWin32DevicesDeviceanddriverinstallationNapiAvailable) MutPtr(wasmWindowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiCreateDeviceInterfaceRegKeyW(deviceinfoset.toString(), deviceinterfacedata.rawAddress.toString(), reserved.toInt(), samdesired.toInt(), infhandle.rawAddress.toString(), infsectionname.rawAddress.toString()).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun setupDiCreateDeviceInterfaceW(deviceinfoset: Hdevinfo, deviceinfodata: ConstPtr<SpDevinfoData>, interfaceclassguid: ConstPtr<Guid>, referencestring: Pcwstr, creationflags: UInt, deviceinterfacedata: MutPtr<SpDeviceInterfaceData>): Bool =
+public actual fun setupDiCreateDeviceInterfaceW(deviceinfoset: Hdevinfo, deviceinfodata: ConstPtr, interfaceclassguid: ConstPtr, referencestring: Pcwstr, creationflags: UInt, deviceinterfacedata: MutPtr): Bool =
     if (windowsWin32DevicesDeviceanddriverinstallationNapiAvailable) wasmWindowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiCreateDeviceInterfaceW(deviceinfoset.toString(), deviceinfodata.rawAddress.toString(), interfaceclassguid.rawAddress.toString(), referencestring.rawAddress.toString(), creationflags.toInt(), deviceinterfacedata.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun setupDiDeleteDevRegKey(deviceinfoset: Hdevinfo, deviceinfodata: ConstPtr<SpDevinfoData>, scope: UInt, hwprofile: UInt, keytype: UInt): Bool =
+public actual fun setupDiDeleteDevRegKey(deviceinfoset: Hdevinfo, deviceinfodata: ConstPtr, scope: UInt, hwprofile: UInt, keytype: UInt): Bool =
     if (windowsWin32DevicesDeviceanddriverinstallationNapiAvailable) wasmWindowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiDeleteDevRegKey(deviceinfoset.toString(), deviceinfodata.rawAddress.toString(), scope.toInt(), hwprofile.toInt(), keytype.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun setupDiDeleteDeviceInfo(deviceinfoset: Hdevinfo, deviceinfodata: ConstPtr<SpDevinfoData>): Bool =
+public actual fun setupDiDeleteDeviceInfo(deviceinfoset: Hdevinfo, deviceinfodata: ConstPtr): Bool =
     if (windowsWin32DevicesDeviceanddriverinstallationNapiAvailable) wasmWindowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiDeleteDeviceInfo(deviceinfoset.toString(), deviceinfodata.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun setupDiDeleteDeviceInterfaceData(deviceinfoset: Hdevinfo, deviceinterfacedata: ConstPtr<SpDeviceInterfaceData>): Bool =
+public actual fun setupDiDeleteDeviceInterfaceData(deviceinfoset: Hdevinfo, deviceinterfacedata: ConstPtr): Bool =
     if (windowsWin32DevicesDeviceanddriverinstallationNapiAvailable) wasmWindowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiDeleteDeviceInterfaceData(deviceinfoset.toString(), deviceinterfacedata.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun setupDiDeleteDeviceInterfaceRegKey(deviceinfoset: Hdevinfo, deviceinterfacedata: ConstPtr<SpDeviceInterfaceData>, reserved: UInt): Bool =
+public actual fun setupDiDeleteDeviceInterfaceRegKey(deviceinfoset: Hdevinfo, deviceinterfacedata: ConstPtr, reserved: UInt): Bool =
     if (windowsWin32DevicesDeviceanddriverinstallationNapiAvailable) wasmWindowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiDeleteDeviceInterfaceRegKey(deviceinfoset.toString(), deviceinterfacedata.rawAddress.toString(), reserved.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun setupDiDestroyClassImageList(classimagelistdata: ConstPtr<SpClassimagelistData>): Bool =
+public actual fun setupDiDestroyClassImageList(classimagelistdata: ConstPtr): Bool =
     if (windowsWin32DevicesDeviceanddriverinstallationNapiAvailable) wasmWindowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiDestroyClassImageList(classimagelistdata.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun setupDiDestroyDeviceInfoList(deviceinfoset: Hdevinfo): Bool =
     if (windowsWin32DevicesDeviceanddriverinstallationNapiAvailable) wasmWindowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiDestroyDeviceInfoList(deviceinfoset.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun setupDiDestroyDriverInfoList(deviceinfoset: Hdevinfo, deviceinfodata: ConstPtr<SpDevinfoData>, drivertype: SetupDiDriverType): Bool =
+public actual fun setupDiDestroyDriverInfoList(deviceinfoset: Hdevinfo, deviceinfodata: ConstPtr, drivertype: SetupDiDriverType): Bool =
     if (windowsWin32DevicesDeviceanddriverinstallationNapiAvailable) wasmWindowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiDestroyDriverInfoList(deviceinfoset.toString(), deviceinfodata.rawAddress.toString(), drivertype.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun setupDiDrawMiniIcon(hdc: Hdc, rc: Rect, miniiconindex: Int, flags: UInt): Int =
     throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun setupDiEnumDeviceInfo(deviceinfoset: Hdevinfo, memberindex: UInt, deviceinfodata: MutPtr<SpDevinfoData>): Bool =
+public actual fun setupDiEnumDeviceInfo(deviceinfoset: Hdevinfo, memberindex: UInt, deviceinfodata: MutPtr): Bool =
     if (windowsWin32DevicesDeviceanddriverinstallationNapiAvailable) wasmWindowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiEnumDeviceInfo(deviceinfoset.toString(), memberindex.toInt(), deviceinfodata.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun setupDiEnumDeviceInterfaces(deviceinfoset: Hdevinfo, deviceinfodata: ConstPtr<SpDevinfoData>, interfaceclassguid: ConstPtr<Guid>, memberindex: UInt, deviceinterfacedata: MutPtr<SpDeviceInterfaceData>): Bool =
+public actual fun setupDiEnumDeviceInterfaces(deviceinfoset: Hdevinfo, deviceinfodata: ConstPtr, interfaceclassguid: ConstPtr, memberindex: UInt, deviceinterfacedata: MutPtr): Bool =
     if (windowsWin32DevicesDeviceanddriverinstallationNapiAvailable) wasmWindowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiEnumDeviceInterfaces(deviceinfoset.toString(), deviceinfodata.rawAddress.toString(), interfaceclassguid.rawAddress.toString(), memberindex.toInt(), deviceinterfacedata.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun setupDiEnumDriverInfoA(deviceinfoset: Hdevinfo, deviceinfodata: ConstPtr<SpDevinfoData>, drivertype: SetupDiDriverType, memberindex: UInt, driverinfodata: MutPtr<SpDrvinfoDataV2A>): Bool =
+public actual fun setupDiEnumDriverInfoA(deviceinfoset: Hdevinfo, deviceinfodata: ConstPtr, drivertype: SetupDiDriverType, memberindex: UInt, driverinfodata: MutPtr): Bool =
     if (windowsWin32DevicesDeviceanddriverinstallationNapiAvailable) wasmWindowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiEnumDriverInfoA(deviceinfoset.toString(), deviceinfodata.rawAddress.toString(), drivertype.toInt(), memberindex.toInt(), driverinfodata.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun setupDiEnumDriverInfoW(deviceinfoset: Hdevinfo, deviceinfodata: ConstPtr<SpDevinfoData>, drivertype: SetupDiDriverType, memberindex: UInt, driverinfodata: MutPtr<SpDrvinfoDataV2W>): Bool =
+public actual fun setupDiEnumDriverInfoW(deviceinfoset: Hdevinfo, deviceinfodata: ConstPtr, drivertype: SetupDiDriverType, memberindex: UInt, driverinfodata: MutPtr): Bool =
     if (windowsWin32DevicesDeviceanddriverinstallationNapiAvailable) wasmWindowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiEnumDriverInfoW(deviceinfoset.toString(), deviceinfodata.rawAddress.toString(), drivertype.toInt(), memberindex.toInt(), driverinfodata.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun setupDiGetActualModelsSectionA(context: ConstPtr<Infcontext>, alternateplatforminfo: ConstPtr<SpAltplatformInfoV2>, infsectionwithext: Pstr, infsectionwithextsize: UInt, requiredsize: MutPtr<UInt>, reserved: ConstPtr<CVoid>): Bool =
+public actual fun setupDiGetActualModelsSectionA(context: ConstPtr, alternateplatforminfo: ConstPtr, infsectionwithext: Pstr, infsectionwithextsize: UInt, requiredsize: MutPtr, reserved: ConstPtr): Bool =
     if (windowsWin32DevicesDeviceanddriverinstallationNapiAvailable) wasmWindowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiGetActualModelsSectionA(context.rawAddress.toString(), alternateplatforminfo.rawAddress.toString(), infsectionwithext.rawAddress.toString(), infsectionwithextsize.toInt(), requiredsize.rawAddress.toString(), reserved.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun setupDiGetActualModelsSectionW(context: ConstPtr<Infcontext>, alternateplatforminfo: ConstPtr<SpAltplatformInfoV2>, infsectionwithext: Pwstr, infsectionwithextsize: UInt, requiredsize: MutPtr<UInt>, reserved: ConstPtr<CVoid>): Bool =
+public actual fun setupDiGetActualModelsSectionW(context: ConstPtr, alternateplatforminfo: ConstPtr, infsectionwithext: Pwstr, infsectionwithextsize: UInt, requiredsize: MutPtr, reserved: ConstPtr): Bool =
     if (windowsWin32DevicesDeviceanddriverinstallationNapiAvailable) wasmWindowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiGetActualModelsSectionW(context.rawAddress.toString(), alternateplatforminfo.rawAddress.toString(), infsectionwithext.rawAddress.toString(), infsectionwithextsize.toInt(), requiredsize.rawAddress.toString(), reserved.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun setupDiGetActualSectionToInstallA(infhandle: ConstPtr<CVoid>, infsectionname: Pcstr, infsectionwithext: Pstr, infsectionwithextsize: UInt, requiredsize: MutPtr<UInt>, extension: MutPtr<Pstr>): Bool =
+public actual fun setupDiGetActualSectionToInstallA(infhandle: ConstPtr, infsectionname: Pcstr, infsectionwithext: Pstr, infsectionwithextsize: UInt, requiredsize: MutPtr, extension: MutPtr): Bool =
     if (windowsWin32DevicesDeviceanddriverinstallationNapiAvailable) wasmWindowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiGetActualSectionToInstallA(infhandle.rawAddress.toString(), infsectionname.rawAddress.toString(), infsectionwithext.rawAddress.toString(), infsectionwithextsize.toInt(), requiredsize.rawAddress.toString(), extension.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun setupDiGetActualSectionToInstallExA(infhandle: ConstPtr<CVoid>, infsectionname: Pcstr, alternateplatforminfo: ConstPtr<SpAltplatformInfoV2>, infsectionwithext: Pstr, infsectionwithextsize: UInt, requiredsize: MutPtr<UInt>, extension: MutPtr<Pstr>, reserved: ConstPtr<CVoid>): Bool =
+public actual fun setupDiGetActualSectionToInstallExA(infhandle: ConstPtr, infsectionname: Pcstr, alternateplatforminfo: ConstPtr, infsectionwithext: Pstr, infsectionwithextsize: UInt, requiredsize: MutPtr, extension: MutPtr, reserved: ConstPtr): Bool =
     if (windowsWin32DevicesDeviceanddriverinstallationNapiAvailable) wasmWindowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiGetActualSectionToInstallExA(infhandle.rawAddress.toString(), infsectionname.rawAddress.toString(), alternateplatforminfo.rawAddress.toString(), infsectionwithext.rawAddress.toString(), infsectionwithextsize.toInt(), requiredsize.rawAddress.toString(), extension.rawAddress.toString(), reserved.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun setupDiGetActualSectionToInstallExW(infhandle: ConstPtr<CVoid>, infsectionname: Pcwstr, alternateplatforminfo: ConstPtr<SpAltplatformInfoV2>, infsectionwithext: Pwstr, infsectionwithextsize: UInt, requiredsize: MutPtr<UInt>, extension: MutPtr<Pwstr>, reserved: ConstPtr<CVoid>): Bool =
+public actual fun setupDiGetActualSectionToInstallExW(infhandle: ConstPtr, infsectionname: Pcwstr, alternateplatforminfo: ConstPtr, infsectionwithext: Pwstr, infsectionwithextsize: UInt, requiredsize: MutPtr, extension: MutPtr, reserved: ConstPtr): Bool =
     if (windowsWin32DevicesDeviceanddriverinstallationNapiAvailable) wasmWindowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiGetActualSectionToInstallExW(infhandle.rawAddress.toString(), infsectionname.rawAddress.toString(), alternateplatforminfo.rawAddress.toString(), infsectionwithext.rawAddress.toString(), infsectionwithextsize.toInt(), requiredsize.rawAddress.toString(), extension.rawAddress.toString(), reserved.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun setupDiGetActualSectionToInstallW(infhandle: ConstPtr<CVoid>, infsectionname: Pcwstr, infsectionwithext: Pwstr, infsectionwithextsize: UInt, requiredsize: MutPtr<UInt>, extension: MutPtr<Pwstr>): Bool =
+public actual fun setupDiGetActualSectionToInstallW(infhandle: ConstPtr, infsectionname: Pcwstr, infsectionwithext: Pwstr, infsectionwithextsize: UInt, requiredsize: MutPtr, extension: MutPtr): Bool =
     if (windowsWin32DevicesDeviceanddriverinstallationNapiAvailable) wasmWindowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiGetActualSectionToInstallW(infhandle.rawAddress.toString(), infsectionname.rawAddress.toString(), infsectionwithext.rawAddress.toString(), infsectionwithextsize.toInt(), requiredsize.rawAddress.toString(), extension.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun setupDiGetClassBitmapIndex(classguid: ConstPtr<Guid>, miniiconindex: MutPtr<Int>): Bool =
+public actual fun setupDiGetClassBitmapIndex(classguid: ConstPtr, miniiconindex: MutPtr): Bool =
     if (windowsWin32DevicesDeviceanddriverinstallationNapiAvailable) wasmWindowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiGetClassBitmapIndex(classguid.rawAddress.toString(), miniiconindex.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun setupDiGetClassDescriptionA(classguid: ConstPtr<Guid>, classdescription: Pstr, classdescriptionsize: UInt, requiredsize: MutPtr<UInt>): Bool =
+public actual fun setupDiGetClassDescriptionA(classguid: ConstPtr, classdescription: Pstr, classdescriptionsize: UInt, requiredsize: MutPtr): Bool =
     if (windowsWin32DevicesDeviceanddriverinstallationNapiAvailable) wasmWindowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiGetClassDescriptionA(classguid.rawAddress.toString(), classdescription.rawAddress.toString(), classdescriptionsize.toInt(), requiredsize.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun setupDiGetClassDescriptionExA(classguid: ConstPtr<Guid>, classdescription: Pstr, classdescriptionsize: UInt, requiredsize: MutPtr<UInt>, machinename: Pcstr, reserved: ConstPtr<CVoid>): Bool =
+public actual fun setupDiGetClassDescriptionExA(classguid: ConstPtr, classdescription: Pstr, classdescriptionsize: UInt, requiredsize: MutPtr, machinename: Pcstr, reserved: ConstPtr): Bool =
     if (windowsWin32DevicesDeviceanddriverinstallationNapiAvailable) wasmWindowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiGetClassDescriptionExA(classguid.rawAddress.toString(), classdescription.rawAddress.toString(), classdescriptionsize.toInt(), requiredsize.rawAddress.toString(), machinename.rawAddress.toString(), reserved.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun setupDiGetClassDescriptionExW(classguid: ConstPtr<Guid>, classdescription: Pwstr, classdescriptionsize: UInt, requiredsize: MutPtr<UInt>, machinename: Pcwstr, reserved: ConstPtr<CVoid>): Bool =
+public actual fun setupDiGetClassDescriptionExW(classguid: ConstPtr, classdescription: Pwstr, classdescriptionsize: UInt, requiredsize: MutPtr, machinename: Pcwstr, reserved: ConstPtr): Bool =
     if (windowsWin32DevicesDeviceanddriverinstallationNapiAvailable) wasmWindowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiGetClassDescriptionExW(classguid.rawAddress.toString(), classdescription.rawAddress.toString(), classdescriptionsize.toInt(), requiredsize.rawAddress.toString(), machinename.rawAddress.toString(), reserved.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun setupDiGetClassDescriptionW(classguid: ConstPtr<Guid>, classdescription: Pwstr, classdescriptionsize: UInt, requiredsize: MutPtr<UInt>): Bool =
+public actual fun setupDiGetClassDescriptionW(classguid: ConstPtr, classdescription: Pwstr, classdescriptionsize: UInt, requiredsize: MutPtr): Bool =
     if (windowsWin32DevicesDeviceanddriverinstallationNapiAvailable) wasmWindowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiGetClassDescriptionW(classguid.rawAddress.toString(), classdescription.rawAddress.toString(), classdescriptionsize.toInt(), requiredsize.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun setupDiGetClassDevPropertySheetsA(deviceinfoset: Hdevinfo, deviceinfodata: ConstPtr<SpDevinfoData>, propertysheetheader: ConstPtr<PropsheetheaderaV2>, propertysheetheaderpagelistsize: UInt, requiredsize: MutPtr<UInt>, propertysheettype: UInt): Bool =
+public actual fun setupDiGetClassDevPropertySheetsA(deviceinfoset: Hdevinfo, deviceinfodata: ConstPtr, propertysheetheader: ConstPtr, propertysheetheaderpagelistsize: UInt, requiredsize: MutPtr, propertysheettype: UInt): Bool =
     if (windowsWin32DevicesDeviceanddriverinstallationNapiAvailable) wasmWindowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiGetClassDevPropertySheetsA(deviceinfoset.toString(), deviceinfodata.rawAddress.toString(), propertysheetheader.rawAddress.toString(), propertysheetheaderpagelistsize.toInt(), requiredsize.rawAddress.toString(), propertysheettype.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun setupDiGetClassDevPropertySheetsW(deviceinfoset: Hdevinfo, deviceinfodata: ConstPtr<SpDevinfoData>, propertysheetheader: ConstPtr<PropsheetheaderwV2>, propertysheetheaderpagelistsize: UInt, requiredsize: MutPtr<UInt>, propertysheettype: UInt): Bool =
+public actual fun setupDiGetClassDevPropertySheetsW(deviceinfoset: Hdevinfo, deviceinfodata: ConstPtr, propertysheetheader: ConstPtr, propertysheetheaderpagelistsize: UInt, requiredsize: MutPtr, propertysheettype: UInt): Bool =
     if (windowsWin32DevicesDeviceanddriverinstallationNapiAvailable) wasmWindowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiGetClassDevPropertySheetsW(deviceinfoset.toString(), deviceinfodata.rawAddress.toString(), propertysheetheader.rawAddress.toString(), propertysheetheaderpagelistsize.toInt(), requiredsize.rawAddress.toString(), propertysheettype.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun setupDiGetClassDevsA(classguid: ConstPtr<Guid>, enumerator: Pcstr, hwndparent: Hwnd, flags: SetupDiGetClassDevsFlags): Hdevinfo =
+public actual fun setupDiGetClassDevsA(classguid: ConstPtr, enumerator: Pcstr, hwndparent: Hwnd, flags: SetupDiGetClassDevsFlags): Hdevinfo =
     if (windowsWin32DevicesDeviceanddriverinstallationNapiAvailable) wasmWindowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiGetClassDevsA(classguid.rawAddress.toString(), enumerator.rawAddress.toString(), hwndparent.rawAddress.toString(), flags.toInt()).toLong() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun setupDiGetClassDevsExA(classguid: ConstPtr<Guid>, enumerator: Pcstr, hwndparent: Hwnd, flags: SetupDiGetClassDevsFlags, deviceinfoset: Hdevinfo, machinename: Pcstr, reserved: ConstPtr<CVoid>): Hdevinfo =
+public actual fun setupDiGetClassDevsExA(classguid: ConstPtr, enumerator: Pcstr, hwndparent: Hwnd, flags: SetupDiGetClassDevsFlags, deviceinfoset: Hdevinfo, machinename: Pcstr, reserved: ConstPtr): Hdevinfo =
     if (windowsWin32DevicesDeviceanddriverinstallationNapiAvailable) wasmWindowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiGetClassDevsExA(classguid.rawAddress.toString(), enumerator.rawAddress.toString(), hwndparent.rawAddress.toString(), flags.toInt(), deviceinfoset.toString(), machinename.rawAddress.toString(), reserved.rawAddress.toString()).toLong() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun setupDiGetClassDevsExW(classguid: ConstPtr<Guid>, enumerator: Pcwstr, hwndparent: Hwnd, flags: SetupDiGetClassDevsFlags, deviceinfoset: Hdevinfo, machinename: Pcwstr, reserved: ConstPtr<CVoid>): Hdevinfo =
+public actual fun setupDiGetClassDevsExW(classguid: ConstPtr, enumerator: Pcwstr, hwndparent: Hwnd, flags: SetupDiGetClassDevsFlags, deviceinfoset: Hdevinfo, machinename: Pcwstr, reserved: ConstPtr): Hdevinfo =
     if (windowsWin32DevicesDeviceanddriverinstallationNapiAvailable) wasmWindowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiGetClassDevsExW(classguid.rawAddress.toString(), enumerator.rawAddress.toString(), hwndparent.rawAddress.toString(), flags.toInt(), deviceinfoset.toString(), machinename.rawAddress.toString(), reserved.rawAddress.toString()).toLong() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun setupDiGetClassDevsW(classguid: ConstPtr<Guid>, enumerator: Pcwstr, hwndparent: Hwnd, flags: SetupDiGetClassDevsFlags): Hdevinfo =
+public actual fun setupDiGetClassDevsW(classguid: ConstPtr, enumerator: Pcwstr, hwndparent: Hwnd, flags: SetupDiGetClassDevsFlags): Hdevinfo =
     if (windowsWin32DevicesDeviceanddriverinstallationNapiAvailable) wasmWindowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiGetClassDevsW(classguid.rawAddress.toString(), enumerator.rawAddress.toString(), hwndparent.rawAddress.toString(), flags.toInt()).toLong() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun setupDiGetClassImageIndex(classimagelistdata: ConstPtr<SpClassimagelistData>, classguid: ConstPtr<Guid>, imageindex: MutPtr<Int>): Bool =
+public actual fun setupDiGetClassImageIndex(classimagelistdata: ConstPtr, classguid: ConstPtr, imageindex: MutPtr): Bool =
     if (windowsWin32DevicesDeviceanddriverinstallationNapiAvailable) wasmWindowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiGetClassImageIndex(classimagelistdata.rawAddress.toString(), classguid.rawAddress.toString(), imageindex.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun setupDiGetClassImageList(classimagelistdata: MutPtr<SpClassimagelistData>): Bool =
+public actual fun setupDiGetClassImageList(classimagelistdata: MutPtr): Bool =
     if (windowsWin32DevicesDeviceanddriverinstallationNapiAvailable) wasmWindowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiGetClassImageList(classimagelistdata.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun setupDiGetClassImageListExA(classimagelistdata: MutPtr<SpClassimagelistData>, machinename: Pcstr, reserved: ConstPtr<CVoid>): Bool =
+public actual fun setupDiGetClassImageListExA(classimagelistdata: MutPtr, machinename: Pcstr, reserved: ConstPtr): Bool =
     if (windowsWin32DevicesDeviceanddriverinstallationNapiAvailable) wasmWindowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiGetClassImageListExA(classimagelistdata.rawAddress.toString(), machinename.rawAddress.toString(), reserved.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun setupDiGetClassImageListExW(classimagelistdata: MutPtr<SpClassimagelistData>, machinename: Pcwstr, reserved: ConstPtr<CVoid>): Bool =
+public actual fun setupDiGetClassImageListExW(classimagelistdata: MutPtr, machinename: Pcwstr, reserved: ConstPtr): Bool =
     if (windowsWin32DevicesDeviceanddriverinstallationNapiAvailable) wasmWindowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiGetClassImageListExW(classimagelistdata.rawAddress.toString(), machinename.rawAddress.toString(), reserved.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun setupDiGetClassInstallParamsA(deviceinfoset: Hdevinfo, deviceinfodata: ConstPtr<SpDevinfoData>, classinstallparams: MutPtr<SpClassinstallHeader>, classinstallparamssize: UInt, requiredsize: MutPtr<UInt>): Bool =
+public actual fun setupDiGetClassInstallParamsA(deviceinfoset: Hdevinfo, deviceinfodata: ConstPtr, classinstallparams: MutPtr, classinstallparamssize: UInt, requiredsize: MutPtr): Bool =
     if (windowsWin32DevicesDeviceanddriverinstallationNapiAvailable) wasmWindowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiGetClassInstallParamsA(deviceinfoset.toString(), deviceinfodata.rawAddress.toString(), classinstallparams.rawAddress.toString(), classinstallparamssize.toInt(), requiredsize.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun setupDiGetClassInstallParamsW(deviceinfoset: Hdevinfo, deviceinfodata: ConstPtr<SpDevinfoData>, classinstallparams: MutPtr<SpClassinstallHeader>, classinstallparamssize: UInt, requiredsize: MutPtr<UInt>): Bool =
+public actual fun setupDiGetClassInstallParamsW(deviceinfoset: Hdevinfo, deviceinfodata: ConstPtr, classinstallparams: MutPtr, classinstallparamssize: UInt, requiredsize: MutPtr): Bool =
     if (windowsWin32DevicesDeviceanddriverinstallationNapiAvailable) wasmWindowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiGetClassInstallParamsW(deviceinfoset.toString(), deviceinfodata.rawAddress.toString(), classinstallparams.rawAddress.toString(), classinstallparamssize.toInt(), requiredsize.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun setupDiGetClassPropertyExW(classguid: ConstPtr<Guid>, propertykey: ConstPtr<Devpropkey>, propertytype: MutPtr<Devproptype>, propertybuffer: MutPtr<UByte>, propertybuffersize: UInt, requiredsize: MutPtr<UInt>, flags: UInt, machinename: Pcwstr, reserved: ConstPtr<CVoid>): Bool =
+public actual fun setupDiGetClassPropertyExW(classguid: ConstPtr, propertykey: ConstPtr, propertytype: MutPtr, propertybuffer: MutPtr, propertybuffersize: UInt, requiredsize: MutPtr, flags: UInt, machinename: Pcwstr, reserved: ConstPtr): Bool =
     if (windowsWin32DevicesDeviceanddriverinstallationNapiAvailable) wasmWindowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiGetClassPropertyExW(classguid.rawAddress.toString(), propertykey.rawAddress.toString(), propertytype.rawAddress.toString(), propertybuffer.rawAddress.toString(), propertybuffersize.toInt(), requiredsize.rawAddress.toString(), flags.toInt(), machinename.rawAddress.toString(), reserved.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun setupDiGetClassPropertyKeys(classguid: ConstPtr<Guid>, propertykeyarray: MutPtr<Devpropkey>, propertykeycount: UInt, requiredpropertykeycount: MutPtr<UInt>, flags: UInt): Bool =
+public actual fun setupDiGetClassPropertyKeys(classguid: ConstPtr, propertykeyarray: MutPtr, propertykeycount: UInt, requiredpropertykeycount: MutPtr, flags: UInt): Bool =
     if (windowsWin32DevicesDeviceanddriverinstallationNapiAvailable) wasmWindowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiGetClassPropertyKeys(classguid.rawAddress.toString(), propertykeyarray.rawAddress.toString(), propertykeycount.toInt(), requiredpropertykeycount.rawAddress.toString(), flags.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun setupDiGetClassPropertyKeysExW(classguid: ConstPtr<Guid>, propertykeyarray: MutPtr<Devpropkey>, propertykeycount: UInt, requiredpropertykeycount: MutPtr<UInt>, flags: UInt, machinename: Pcwstr, reserved: ConstPtr<CVoid>): Bool =
+public actual fun setupDiGetClassPropertyKeysExW(classguid: ConstPtr, propertykeyarray: MutPtr, propertykeycount: UInt, requiredpropertykeycount: MutPtr, flags: UInt, machinename: Pcwstr, reserved: ConstPtr): Bool =
     if (windowsWin32DevicesDeviceanddriverinstallationNapiAvailable) wasmWindowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiGetClassPropertyKeysExW(classguid.rawAddress.toString(), propertykeyarray.rawAddress.toString(), propertykeycount.toInt(), requiredpropertykeycount.rawAddress.toString(), flags.toInt(), machinename.rawAddress.toString(), reserved.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun setupDiGetClassPropertyW(classguid: ConstPtr<Guid>, propertykey: ConstPtr<Devpropkey>, propertytype: MutPtr<Devproptype>, propertybuffer: MutPtr<UByte>, propertybuffersize: UInt, requiredsize: MutPtr<UInt>, flags: UInt): Bool =
+public actual fun setupDiGetClassPropertyW(classguid: ConstPtr, propertykey: ConstPtr, propertytype: MutPtr, propertybuffer: MutPtr, propertybuffersize: UInt, requiredsize: MutPtr, flags: UInt): Bool =
     if (windowsWin32DevicesDeviceanddriverinstallationNapiAvailable) wasmWindowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiGetClassPropertyW(classguid.rawAddress.toString(), propertykey.rawAddress.toString(), propertytype.rawAddress.toString(), propertybuffer.rawAddress.toString(), propertybuffersize.toInt(), requiredsize.rawAddress.toString(), flags.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun setupDiGetClassRegistryPropertyA(classguid: ConstPtr<Guid>, property: UInt, propertyregdatatype: MutPtr<UInt>, propertybuffer: MutPtr<UByte>, propertybuffersize: UInt, requiredsize: MutPtr<UInt>, machinename: Pcstr, reserved: ConstPtr<CVoid>): Bool =
+public actual fun setupDiGetClassRegistryPropertyA(classguid: ConstPtr, property: UInt, propertyregdatatype: MutPtr, propertybuffer: MutPtr, propertybuffersize: UInt, requiredsize: MutPtr, machinename: Pcstr, reserved: ConstPtr): Bool =
     if (windowsWin32DevicesDeviceanddriverinstallationNapiAvailable) wasmWindowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiGetClassRegistryPropertyA(classguid.rawAddress.toString(), property.toInt(), propertyregdatatype.rawAddress.toString(), propertybuffer.rawAddress.toString(), propertybuffersize.toInt(), requiredsize.rawAddress.toString(), machinename.rawAddress.toString(), reserved.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun setupDiGetClassRegistryPropertyW(classguid: ConstPtr<Guid>, property: UInt, propertyregdatatype: MutPtr<UInt>, propertybuffer: MutPtr<UByte>, propertybuffersize: UInt, requiredsize: MutPtr<UInt>, machinename: Pcwstr, reserved: ConstPtr<CVoid>): Bool =
+public actual fun setupDiGetClassRegistryPropertyW(classguid: ConstPtr, property: UInt, propertyregdatatype: MutPtr, propertybuffer: MutPtr, propertybuffersize: UInt, requiredsize: MutPtr, machinename: Pcwstr, reserved: ConstPtr): Bool =
     if (windowsWin32DevicesDeviceanddriverinstallationNapiAvailable) wasmWindowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiGetClassRegistryPropertyW(classguid.rawAddress.toString(), property.toInt(), propertyregdatatype.rawAddress.toString(), propertybuffer.rawAddress.toString(), propertybuffersize.toInt(), requiredsize.rawAddress.toString(), machinename.rawAddress.toString(), reserved.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun setupDiGetCustomDevicePropertyA(deviceinfoset: Hdevinfo, deviceinfodata: ConstPtr<SpDevinfoData>, custompropertyname: Pcstr, flags: UInt, propertyregdatatype: MutPtr<UInt>, propertybuffer: MutPtr<UByte>, propertybuffersize: UInt, requiredsize: MutPtr<UInt>): Bool =
+public actual fun setupDiGetCustomDevicePropertyA(deviceinfoset: Hdevinfo, deviceinfodata: ConstPtr, custompropertyname: Pcstr, flags: UInt, propertyregdatatype: MutPtr, propertybuffer: MutPtr, propertybuffersize: UInt, requiredsize: MutPtr): Bool =
     if (windowsWin32DevicesDeviceanddriverinstallationNapiAvailable) wasmWindowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiGetCustomDevicePropertyA(deviceinfoset.toString(), deviceinfodata.rawAddress.toString(), custompropertyname.rawAddress.toString(), flags.toInt(), propertyregdatatype.rawAddress.toString(), propertybuffer.rawAddress.toString(), propertybuffersize.toInt(), requiredsize.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun setupDiGetCustomDevicePropertyW(deviceinfoset: Hdevinfo, deviceinfodata: ConstPtr<SpDevinfoData>, custompropertyname: Pcwstr, flags: UInt, propertyregdatatype: MutPtr<UInt>, propertybuffer: MutPtr<UByte>, propertybuffersize: UInt, requiredsize: MutPtr<UInt>): Bool =
+public actual fun setupDiGetCustomDevicePropertyW(deviceinfoset: Hdevinfo, deviceinfodata: ConstPtr, custompropertyname: Pcwstr, flags: UInt, propertyregdatatype: MutPtr, propertybuffer: MutPtr, propertybuffersize: UInt, requiredsize: MutPtr): Bool =
     if (windowsWin32DevicesDeviceanddriverinstallationNapiAvailable) wasmWindowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiGetCustomDevicePropertyW(deviceinfoset.toString(), deviceinfodata.rawAddress.toString(), custompropertyname.rawAddress.toString(), flags.toInt(), propertyregdatatype.rawAddress.toString(), propertybuffer.rawAddress.toString(), propertybuffersize.toInt(), requiredsize.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun setupDiGetDeviceInfoListClass(deviceinfoset: Hdevinfo, classguid: MutPtr<Guid>): Bool =
+public actual fun setupDiGetDeviceInfoListClass(deviceinfoset: Hdevinfo, classguid: MutPtr): Bool =
     if (windowsWin32DevicesDeviceanddriverinstallationNapiAvailable) wasmWindowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiGetDeviceInfoListClass(deviceinfoset.toString(), classguid.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun setupDiGetDeviceInfoListDetailA(deviceinfoset: Hdevinfo, deviceinfosetdetaildata: MutPtr<SpDevinfoListDetailDataA>): Bool =
+public actual fun setupDiGetDeviceInfoListDetailA(deviceinfoset: Hdevinfo, deviceinfosetdetaildata: MutPtr): Bool =
     if (windowsWin32DevicesDeviceanddriverinstallationNapiAvailable) wasmWindowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiGetDeviceInfoListDetailA(deviceinfoset.toString(), deviceinfosetdetaildata.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun setupDiGetDeviceInfoListDetailW(deviceinfoset: Hdevinfo, deviceinfosetdetaildata: MutPtr<SpDevinfoListDetailDataW>): Bool =
+public actual fun setupDiGetDeviceInfoListDetailW(deviceinfoset: Hdevinfo, deviceinfosetdetaildata: MutPtr): Bool =
     if (windowsWin32DevicesDeviceanddriverinstallationNapiAvailable) wasmWindowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiGetDeviceInfoListDetailW(deviceinfoset.toString(), deviceinfosetdetaildata.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun setupDiGetDeviceInstallParamsA(deviceinfoset: Hdevinfo, deviceinfodata: ConstPtr<SpDevinfoData>, deviceinstallparams: MutPtr<SpDevinstallParamsA>): Bool =
+public actual fun setupDiGetDeviceInstallParamsA(deviceinfoset: Hdevinfo, deviceinfodata: ConstPtr, deviceinstallparams: MutPtr): Bool =
     if (windowsWin32DevicesDeviceanddriverinstallationNapiAvailable) wasmWindowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiGetDeviceInstallParamsA(deviceinfoset.toString(), deviceinfodata.rawAddress.toString(), deviceinstallparams.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun setupDiGetDeviceInstallParamsW(deviceinfoset: Hdevinfo, deviceinfodata: ConstPtr<SpDevinfoData>, deviceinstallparams: MutPtr<SpDevinstallParamsW>): Bool =
+public actual fun setupDiGetDeviceInstallParamsW(deviceinfoset: Hdevinfo, deviceinfodata: ConstPtr, deviceinstallparams: MutPtr): Bool =
     if (windowsWin32DevicesDeviceanddriverinstallationNapiAvailable) wasmWindowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiGetDeviceInstallParamsW(deviceinfoset.toString(), deviceinfodata.rawAddress.toString(), deviceinstallparams.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun setupDiGetDeviceInstanceIdA(deviceinfoset: Hdevinfo, deviceinfodata: ConstPtr<SpDevinfoData>, deviceinstanceid: Pstr, deviceinstanceidsize: UInt, requiredsize: MutPtr<UInt>): Bool =
+public actual fun setupDiGetDeviceInstanceIdA(deviceinfoset: Hdevinfo, deviceinfodata: ConstPtr, deviceinstanceid: Pstr, deviceinstanceidsize: UInt, requiredsize: MutPtr): Bool =
     if (windowsWin32DevicesDeviceanddriverinstallationNapiAvailable) wasmWindowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiGetDeviceInstanceIdA(deviceinfoset.toString(), deviceinfodata.rawAddress.toString(), deviceinstanceid.rawAddress.toString(), deviceinstanceidsize.toInt(), requiredsize.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun setupDiGetDeviceInstanceIdW(deviceinfoset: Hdevinfo, deviceinfodata: ConstPtr<SpDevinfoData>, deviceinstanceid: Pwstr, deviceinstanceidsize: UInt, requiredsize: MutPtr<UInt>): Bool =
+public actual fun setupDiGetDeviceInstanceIdW(deviceinfoset: Hdevinfo, deviceinfodata: ConstPtr, deviceinstanceid: Pwstr, deviceinstanceidsize: UInt, requiredsize: MutPtr): Bool =
     if (windowsWin32DevicesDeviceanddriverinstallationNapiAvailable) wasmWindowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiGetDeviceInstanceIdW(deviceinfoset.toString(), deviceinfodata.rawAddress.toString(), deviceinstanceid.rawAddress.toString(), deviceinstanceidsize.toInt(), requiredsize.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun setupDiGetDeviceInterfaceAlias(deviceinfoset: Hdevinfo, deviceinterfacedata: ConstPtr<SpDeviceInterfaceData>, aliasinterfaceclassguid: ConstPtr<Guid>, aliasdeviceinterfacedata: MutPtr<SpDeviceInterfaceData>): Bool =
+public actual fun setupDiGetDeviceInterfaceAlias(deviceinfoset: Hdevinfo, deviceinterfacedata: ConstPtr, aliasinterfaceclassguid: ConstPtr, aliasdeviceinterfacedata: MutPtr): Bool =
     if (windowsWin32DevicesDeviceanddriverinstallationNapiAvailable) wasmWindowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiGetDeviceInterfaceAlias(deviceinfoset.toString(), deviceinterfacedata.rawAddress.toString(), aliasinterfaceclassguid.rawAddress.toString(), aliasdeviceinterfacedata.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun setupDiGetDeviceInterfaceDetailA(deviceinfoset: Hdevinfo, deviceinterfacedata: ConstPtr<SpDeviceInterfaceData>, deviceinterfacedetaildata: MutPtr<SpDeviceInterfaceDetailDataA>, deviceinterfacedetaildatasize: UInt, requiredsize: MutPtr<UInt>, deviceinfodata: MutPtr<SpDevinfoData>): Bool =
+public actual fun setupDiGetDeviceInterfaceDetailA(deviceinfoset: Hdevinfo, deviceinterfacedata: ConstPtr, deviceinterfacedetaildata: MutPtr, deviceinterfacedetaildatasize: UInt, requiredsize: MutPtr, deviceinfodata: MutPtr): Bool =
     if (windowsWin32DevicesDeviceanddriverinstallationNapiAvailable) wasmWindowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiGetDeviceInterfaceDetailA(deviceinfoset.toString(), deviceinterfacedata.rawAddress.toString(), deviceinterfacedetaildata.rawAddress.toString(), deviceinterfacedetaildatasize.toInt(), requiredsize.rawAddress.toString(), deviceinfodata.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun setupDiGetDeviceInterfaceDetailW(deviceinfoset: Hdevinfo, deviceinterfacedata: ConstPtr<SpDeviceInterfaceData>, deviceinterfacedetaildata: MutPtr<SpDeviceInterfaceDetailDataW>, deviceinterfacedetaildatasize: UInt, requiredsize: MutPtr<UInt>, deviceinfodata: MutPtr<SpDevinfoData>): Bool =
+public actual fun setupDiGetDeviceInterfaceDetailW(deviceinfoset: Hdevinfo, deviceinterfacedata: ConstPtr, deviceinterfacedetaildata: MutPtr, deviceinterfacedetaildatasize: UInt, requiredsize: MutPtr, deviceinfodata: MutPtr): Bool =
     if (windowsWin32DevicesDeviceanddriverinstallationNapiAvailable) wasmWindowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiGetDeviceInterfaceDetailW(deviceinfoset.toString(), deviceinterfacedata.rawAddress.toString(), deviceinterfacedetaildata.rawAddress.toString(), deviceinterfacedetaildatasize.toInt(), requiredsize.rawAddress.toString(), deviceinfodata.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun setupDiGetDeviceInterfacePropertyKeys(deviceinfoset: Hdevinfo, deviceinterfacedata: ConstPtr<SpDeviceInterfaceData>, propertykeyarray: MutPtr<Devpropkey>, propertykeycount: UInt, requiredpropertykeycount: MutPtr<UInt>, flags: UInt): Bool =
+public actual fun setupDiGetDeviceInterfacePropertyKeys(deviceinfoset: Hdevinfo, deviceinterfacedata: ConstPtr, propertykeyarray: MutPtr, propertykeycount: UInt, requiredpropertykeycount: MutPtr, flags: UInt): Bool =
     if (windowsWin32DevicesDeviceanddriverinstallationNapiAvailable) wasmWindowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiGetDeviceInterfacePropertyKeys(deviceinfoset.toString(), deviceinterfacedata.rawAddress.toString(), propertykeyarray.rawAddress.toString(), propertykeycount.toInt(), requiredpropertykeycount.rawAddress.toString(), flags.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun setupDiGetDeviceInterfacePropertyW(deviceinfoset: Hdevinfo, deviceinterfacedata: ConstPtr<SpDeviceInterfaceData>, propertykey: ConstPtr<Devpropkey>, propertytype: MutPtr<Devproptype>, propertybuffer: MutPtr<UByte>, propertybuffersize: UInt, requiredsize: MutPtr<UInt>, flags: UInt): Bool =
+public actual fun setupDiGetDeviceInterfacePropertyW(deviceinfoset: Hdevinfo, deviceinterfacedata: ConstPtr, propertykey: ConstPtr, propertytype: MutPtr, propertybuffer: MutPtr, propertybuffersize: UInt, requiredsize: MutPtr, flags: UInt): Bool =
     if (windowsWin32DevicesDeviceanddriverinstallationNapiAvailable) wasmWindowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiGetDeviceInterfacePropertyW(deviceinfoset.toString(), deviceinterfacedata.rawAddress.toString(), propertykey.rawAddress.toString(), propertytype.rawAddress.toString(), propertybuffer.rawAddress.toString(), propertybuffersize.toInt(), requiredsize.rawAddress.toString(), flags.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun setupDiGetDevicePropertyKeys(deviceinfoset: Hdevinfo, deviceinfodata: ConstPtr<SpDevinfoData>, propertykeyarray: MutPtr<Devpropkey>, propertykeycount: UInt, requiredpropertykeycount: MutPtr<UInt>, flags: UInt): Bool =
+public actual fun setupDiGetDevicePropertyKeys(deviceinfoset: Hdevinfo, deviceinfodata: ConstPtr, propertykeyarray: MutPtr, propertykeycount: UInt, requiredpropertykeycount: MutPtr, flags: UInt): Bool =
     if (windowsWin32DevicesDeviceanddriverinstallationNapiAvailable) wasmWindowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiGetDevicePropertyKeys(deviceinfoset.toString(), deviceinfodata.rawAddress.toString(), propertykeyarray.rawAddress.toString(), propertykeycount.toInt(), requiredpropertykeycount.rawAddress.toString(), flags.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun setupDiGetDevicePropertyW(deviceinfoset: Hdevinfo, deviceinfodata: ConstPtr<SpDevinfoData>, propertykey: ConstPtr<Devpropkey>, propertytype: MutPtr<Devproptype>, propertybuffer: MutPtr<UByte>, propertybuffersize: UInt, requiredsize: MutPtr<UInt>, flags: UInt): Bool =
+public actual fun setupDiGetDevicePropertyW(deviceinfoset: Hdevinfo, deviceinfodata: ConstPtr, propertykey: ConstPtr, propertytype: MutPtr, propertybuffer: MutPtr, propertybuffersize: UInt, requiredsize: MutPtr, flags: UInt): Bool =
     if (windowsWin32DevicesDeviceanddriverinstallationNapiAvailable) wasmWindowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiGetDevicePropertyW(deviceinfoset.toString(), deviceinfodata.rawAddress.toString(), propertykey.rawAddress.toString(), propertytype.rawAddress.toString(), propertybuffer.rawAddress.toString(), propertybuffersize.toInt(), requiredsize.rawAddress.toString(), flags.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun setupDiGetDeviceRegistryPropertyA(deviceinfoset: Hdevinfo, deviceinfodata: ConstPtr<SpDevinfoData>, property: SetupDiRegistryProperty, propertyregdatatype: MutPtr<UInt>, propertybuffer: MutPtr<UByte>, propertybuffersize: UInt, requiredsize: MutPtr<UInt>): Bool =
+public actual fun setupDiGetDeviceRegistryPropertyA(deviceinfoset: Hdevinfo, deviceinfodata: ConstPtr, property: SetupDiRegistryProperty, propertyregdatatype: MutPtr, propertybuffer: MutPtr, propertybuffersize: UInt, requiredsize: MutPtr): Bool =
     if (windowsWin32DevicesDeviceanddriverinstallationNapiAvailable) wasmWindowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiGetDeviceRegistryPropertyA(deviceinfoset.toString(), deviceinfodata.rawAddress.toString(), property.toInt(), propertyregdatatype.rawAddress.toString(), propertybuffer.rawAddress.toString(), propertybuffersize.toInt(), requiredsize.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun setupDiGetDeviceRegistryPropertyW(deviceinfoset: Hdevinfo, deviceinfodata: ConstPtr<SpDevinfoData>, property: SetupDiRegistryProperty, propertyregdatatype: MutPtr<UInt>, propertybuffer: MutPtr<UByte>, propertybuffersize: UInt, requiredsize: MutPtr<UInt>): Bool =
+public actual fun setupDiGetDeviceRegistryPropertyW(deviceinfoset: Hdevinfo, deviceinfodata: ConstPtr, property: SetupDiRegistryProperty, propertyregdatatype: MutPtr, propertybuffer: MutPtr, propertybuffersize: UInt, requiredsize: MutPtr): Bool =
     if (windowsWin32DevicesDeviceanddriverinstallationNapiAvailable) wasmWindowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiGetDeviceRegistryPropertyW(deviceinfoset.toString(), deviceinfodata.rawAddress.toString(), property.toInt(), propertyregdatatype.rawAddress.toString(), propertybuffer.rawAddress.toString(), propertybuffersize.toInt(), requiredsize.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun setupDiGetDriverInfoDetailA(deviceinfoset: Hdevinfo, deviceinfodata: ConstPtr<SpDevinfoData>, driverinfodata: ConstPtr<SpDrvinfoDataV2A>, driverinfodetaildata: MutPtr<SpDrvinfoDetailDataA>, driverinfodetaildatasize: UInt, requiredsize: MutPtr<UInt>): Bool =
+public actual fun setupDiGetDriverInfoDetailA(deviceinfoset: Hdevinfo, deviceinfodata: ConstPtr, driverinfodata: ConstPtr, driverinfodetaildata: MutPtr, driverinfodetaildatasize: UInt, requiredsize: MutPtr): Bool =
     if (windowsWin32DevicesDeviceanddriverinstallationNapiAvailable) wasmWindowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiGetDriverInfoDetailA(deviceinfoset.toString(), deviceinfodata.rawAddress.toString(), driverinfodata.rawAddress.toString(), driverinfodetaildata.rawAddress.toString(), driverinfodetaildatasize.toInt(), requiredsize.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun setupDiGetDriverInfoDetailW(deviceinfoset: Hdevinfo, deviceinfodata: ConstPtr<SpDevinfoData>, driverinfodata: ConstPtr<SpDrvinfoDataV2W>, driverinfodetaildata: MutPtr<SpDrvinfoDetailDataW>, driverinfodetaildatasize: UInt, requiredsize: MutPtr<UInt>): Bool =
+public actual fun setupDiGetDriverInfoDetailW(deviceinfoset: Hdevinfo, deviceinfodata: ConstPtr, driverinfodata: ConstPtr, driverinfodetaildata: MutPtr, driverinfodetaildatasize: UInt, requiredsize: MutPtr): Bool =
     if (windowsWin32DevicesDeviceanddriverinstallationNapiAvailable) wasmWindowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiGetDriverInfoDetailW(deviceinfoset.toString(), deviceinfodata.rawAddress.toString(), driverinfodata.rawAddress.toString(), driverinfodetaildata.rawAddress.toString(), driverinfodetaildatasize.toInt(), requiredsize.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun setupDiGetDriverInstallParamsA(deviceinfoset: Hdevinfo, deviceinfodata: ConstPtr<SpDevinfoData>, driverinfodata: ConstPtr<SpDrvinfoDataV2A>, driverinstallparams: MutPtr<SpDrvinstallParams>): Bool =
+public actual fun setupDiGetDriverInstallParamsA(deviceinfoset: Hdevinfo, deviceinfodata: ConstPtr, driverinfodata: ConstPtr, driverinstallparams: MutPtr): Bool =
     if (windowsWin32DevicesDeviceanddriverinstallationNapiAvailable) wasmWindowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiGetDriverInstallParamsA(deviceinfoset.toString(), deviceinfodata.rawAddress.toString(), driverinfodata.rawAddress.toString(), driverinstallparams.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun setupDiGetDriverInstallParamsW(deviceinfoset: Hdevinfo, deviceinfodata: ConstPtr<SpDevinfoData>, driverinfodata: ConstPtr<SpDrvinfoDataV2W>, driverinstallparams: MutPtr<SpDrvinstallParams>): Bool =
+public actual fun setupDiGetDriverInstallParamsW(deviceinfoset: Hdevinfo, deviceinfodata: ConstPtr, driverinfodata: ConstPtr, driverinstallparams: MutPtr): Bool =
     if (windowsWin32DevicesDeviceanddriverinstallationNapiAvailable) wasmWindowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiGetDriverInstallParamsW(deviceinfoset.toString(), deviceinfodata.rawAddress.toString(), driverinfodata.rawAddress.toString(), driverinstallparams.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun setupDiGetHwProfileFriendlyNameA(hwprofile: UInt, friendlyname: Pstr, friendlynamesize: UInt, requiredsize: MutPtr<UInt>): Bool =
+public actual fun setupDiGetHwProfileFriendlyNameA(hwprofile: UInt, friendlyname: Pstr, friendlynamesize: UInt, requiredsize: MutPtr): Bool =
     if (windowsWin32DevicesDeviceanddriverinstallationNapiAvailable) wasmWindowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiGetHwProfileFriendlyNameA(hwprofile.toInt(), friendlyname.rawAddress.toString(), friendlynamesize.toInt(), requiredsize.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun setupDiGetHwProfileFriendlyNameExA(hwprofile: UInt, friendlyname: Pstr, friendlynamesize: UInt, requiredsize: MutPtr<UInt>, machinename: Pcstr, reserved: ConstPtr<CVoid>): Bool =
+public actual fun setupDiGetHwProfileFriendlyNameExA(hwprofile: UInt, friendlyname: Pstr, friendlynamesize: UInt, requiredsize: MutPtr, machinename: Pcstr, reserved: ConstPtr): Bool =
     if (windowsWin32DevicesDeviceanddriverinstallationNapiAvailable) wasmWindowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiGetHwProfileFriendlyNameExA(hwprofile.toInt(), friendlyname.rawAddress.toString(), friendlynamesize.toInt(), requiredsize.rawAddress.toString(), machinename.rawAddress.toString(), reserved.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun setupDiGetHwProfileFriendlyNameExW(hwprofile: UInt, friendlyname: Pwstr, friendlynamesize: UInt, requiredsize: MutPtr<UInt>, machinename: Pcwstr, reserved: ConstPtr<CVoid>): Bool =
+public actual fun setupDiGetHwProfileFriendlyNameExW(hwprofile: UInt, friendlyname: Pwstr, friendlynamesize: UInt, requiredsize: MutPtr, machinename: Pcwstr, reserved: ConstPtr): Bool =
     if (windowsWin32DevicesDeviceanddriverinstallationNapiAvailable) wasmWindowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiGetHwProfileFriendlyNameExW(hwprofile.toInt(), friendlyname.rawAddress.toString(), friendlynamesize.toInt(), requiredsize.rawAddress.toString(), machinename.rawAddress.toString(), reserved.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun setupDiGetHwProfileFriendlyNameW(hwprofile: UInt, friendlyname: Pwstr, friendlynamesize: UInt, requiredsize: MutPtr<UInt>): Bool =
+public actual fun setupDiGetHwProfileFriendlyNameW(hwprofile: UInt, friendlyname: Pwstr, friendlynamesize: UInt, requiredsize: MutPtr): Bool =
     if (windowsWin32DevicesDeviceanddriverinstallationNapiAvailable) wasmWindowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiGetHwProfileFriendlyNameW(hwprofile.toInt(), friendlyname.rawAddress.toString(), friendlynamesize.toInt(), requiredsize.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun setupDiGetHwProfileList(hwprofilelist: MutPtr<UInt>, hwprofilelistsize: UInt, requiredsize: MutPtr<UInt>, currentlyactiveindex: MutPtr<UInt>): Bool =
+public actual fun setupDiGetHwProfileList(hwprofilelist: MutPtr, hwprofilelistsize: UInt, requiredsize: MutPtr, currentlyactiveindex: MutPtr): Bool =
     if (windowsWin32DevicesDeviceanddriverinstallationNapiAvailable) wasmWindowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiGetHwProfileList(hwprofilelist.rawAddress.toString(), hwprofilelistsize.toInt(), requiredsize.rawAddress.toString(), currentlyactiveindex.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun setupDiGetHwProfileListExA(hwprofilelist: MutPtr<UInt>, hwprofilelistsize: UInt, requiredsize: MutPtr<UInt>, currentlyactiveindex: MutPtr<UInt>, machinename: Pcstr, reserved: ConstPtr<CVoid>): Bool =
+public actual fun setupDiGetHwProfileListExA(hwprofilelist: MutPtr, hwprofilelistsize: UInt, requiredsize: MutPtr, currentlyactiveindex: MutPtr, machinename: Pcstr, reserved: ConstPtr): Bool =
     if (windowsWin32DevicesDeviceanddriverinstallationNapiAvailable) wasmWindowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiGetHwProfileListExA(hwprofilelist.rawAddress.toString(), hwprofilelistsize.toInt(), requiredsize.rawAddress.toString(), currentlyactiveindex.rawAddress.toString(), machinename.rawAddress.toString(), reserved.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun setupDiGetHwProfileListExW(hwprofilelist: MutPtr<UInt>, hwprofilelistsize: UInt, requiredsize: MutPtr<UInt>, currentlyactiveindex: MutPtr<UInt>, machinename: Pcwstr, reserved: ConstPtr<CVoid>): Bool =
+public actual fun setupDiGetHwProfileListExW(hwprofilelist: MutPtr, hwprofilelistsize: UInt, requiredsize: MutPtr, currentlyactiveindex: MutPtr, machinename: Pcwstr, reserved: ConstPtr): Bool =
     if (windowsWin32DevicesDeviceanddriverinstallationNapiAvailable) wasmWindowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiGetHwProfileListExW(hwprofilelist.rawAddress.toString(), hwprofilelistsize.toInt(), requiredsize.rawAddress.toString(), currentlyactiveindex.rawAddress.toString(), machinename.rawAddress.toString(), reserved.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun setupDiGetINFClassA(infname: Pcstr, classguid: MutPtr<Guid>, classname: Pstr, classnamesize: UInt, requiredsize: MutPtr<UInt>): Bool =
+public actual fun setupDiGetINFClassA(infname: Pcstr, classguid: MutPtr, classname: Pstr, classnamesize: UInt, requiredsize: MutPtr): Bool =
     if (windowsWin32DevicesDeviceanddriverinstallationNapiAvailable) wasmWindowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiGetINFClassA(infname.rawAddress.toString(), classguid.rawAddress.toString(), classname.rawAddress.toString(), classnamesize.toInt(), requiredsize.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun setupDiGetINFClassW(infname: Pcwstr, classguid: MutPtr<Guid>, classname: Pwstr, classnamesize: UInt, requiredsize: MutPtr<UInt>): Bool =
+public actual fun setupDiGetINFClassW(infname: Pcwstr, classguid: MutPtr, classname: Pwstr, classnamesize: UInt, requiredsize: MutPtr): Bool =
     if (windowsWin32DevicesDeviceanddriverinstallationNapiAvailable) wasmWindowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiGetINFClassW(infname.rawAddress.toString(), classguid.rawAddress.toString(), classname.rawAddress.toString(), classnamesize.toInt(), requiredsize.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun setupDiGetSelectedDevice(deviceinfoset: Hdevinfo, deviceinfodata: MutPtr<SpDevinfoData>): Bool =
+public actual fun setupDiGetSelectedDevice(deviceinfoset: Hdevinfo, deviceinfodata: MutPtr): Bool =
     if (windowsWin32DevicesDeviceanddriverinstallationNapiAvailable) wasmWindowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiGetSelectedDevice(deviceinfoset.toString(), deviceinfodata.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun setupDiGetSelectedDriverA(deviceinfoset: Hdevinfo, deviceinfodata: ConstPtr<SpDevinfoData>, driverinfodata: MutPtr<SpDrvinfoDataV2A>): Bool =
+public actual fun setupDiGetSelectedDriverA(deviceinfoset: Hdevinfo, deviceinfodata: ConstPtr, driverinfodata: MutPtr): Bool =
     if (windowsWin32DevicesDeviceanddriverinstallationNapiAvailable) wasmWindowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiGetSelectedDriverA(deviceinfoset.toString(), deviceinfodata.rawAddress.toString(), driverinfodata.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun setupDiGetSelectedDriverW(deviceinfoset: Hdevinfo, deviceinfodata: ConstPtr<SpDevinfoData>, driverinfodata: MutPtr<SpDrvinfoDataV2W>): Bool =
+public actual fun setupDiGetSelectedDriverW(deviceinfoset: Hdevinfo, deviceinfodata: ConstPtr, driverinfodata: MutPtr): Bool =
     if (windowsWin32DevicesDeviceanddriverinstallationNapiAvailable) wasmWindowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiGetSelectedDriverW(deviceinfoset.toString(), deviceinfodata.rawAddress.toString(), driverinfodata.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun setupDiGetWizardPage(deviceinfoset: Hdevinfo, deviceinfodata: ConstPtr<SpDevinfoData>, installwizarddata: ConstPtr<SpInstallwizardData>, pagetype: UInt, flags: UInt): Hpropsheetpage =
+public actual fun setupDiGetWizardPage(deviceinfoset: Hdevinfo, deviceinfodata: ConstPtr, installwizarddata: ConstPtr, pagetype: UInt, flags: UInt): Hpropsheetpage =
     if (windowsWin32DevicesDeviceanddriverinstallationNapiAvailable) MutPtr(wasmWindowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiGetWizardPage(deviceinfoset.toString(), deviceinfodata.rawAddress.toString(), installwizarddata.rawAddress.toString(), pagetype.toInt(), flags.toInt()).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun setupDiInstallClassA(hwndparent: Hwnd, inffilename: Pcstr, flags: UInt, filequeue: ConstPtr<CVoid>): Bool =
+public actual fun setupDiInstallClassA(hwndparent: Hwnd, inffilename: Pcstr, flags: UInt, filequeue: ConstPtr): Bool =
     if (windowsWin32DevicesDeviceanddriverinstallationNapiAvailable) wasmWindowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiInstallClassA(hwndparent.rawAddress.toString(), inffilename.rawAddress.toString(), flags.toInt(), filequeue.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun setupDiInstallClassExA(hwndparent: Hwnd, inffilename: Pcstr, flags: UInt, filequeue: ConstPtr<CVoid>, interfaceclassguid: ConstPtr<Guid>, reserved1: ConstPtr<CVoid>, reserved2: ConstPtr<CVoid>): Bool =
+public actual fun setupDiInstallClassExA(hwndparent: Hwnd, inffilename: Pcstr, flags: UInt, filequeue: ConstPtr, interfaceclassguid: ConstPtr, reserved1: ConstPtr, reserved2: ConstPtr): Bool =
     if (windowsWin32DevicesDeviceanddriverinstallationNapiAvailable) wasmWindowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiInstallClassExA(hwndparent.rawAddress.toString(), inffilename.rawAddress.toString(), flags.toInt(), filequeue.rawAddress.toString(), interfaceclassguid.rawAddress.toString(), reserved1.rawAddress.toString(), reserved2.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun setupDiInstallClassExW(hwndparent: Hwnd, inffilename: Pcwstr, flags: UInt, filequeue: ConstPtr<CVoid>, interfaceclassguid: ConstPtr<Guid>, reserved1: ConstPtr<CVoid>, reserved2: ConstPtr<CVoid>): Bool =
+public actual fun setupDiInstallClassExW(hwndparent: Hwnd, inffilename: Pcwstr, flags: UInt, filequeue: ConstPtr, interfaceclassguid: ConstPtr, reserved1: ConstPtr, reserved2: ConstPtr): Bool =
     if (windowsWin32DevicesDeviceanddriverinstallationNapiAvailable) wasmWindowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiInstallClassExW(hwndparent.rawAddress.toString(), inffilename.rawAddress.toString(), flags.toInt(), filequeue.rawAddress.toString(), interfaceclassguid.rawAddress.toString(), reserved1.rawAddress.toString(), reserved2.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun setupDiInstallClassW(hwndparent: Hwnd, inffilename: Pcwstr, flags: UInt, filequeue: ConstPtr<CVoid>): Bool =
+public actual fun setupDiInstallClassW(hwndparent: Hwnd, inffilename: Pcwstr, flags: UInt, filequeue: ConstPtr): Bool =
     if (windowsWin32DevicesDeviceanddriverinstallationNapiAvailable) wasmWindowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiInstallClassW(hwndparent.rawAddress.toString(), inffilename.rawAddress.toString(), flags.toInt(), filequeue.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun setupDiInstallDevice(deviceinfoset: Hdevinfo, deviceinfodata: MutPtr<SpDevinfoData>): Bool =
+public actual fun setupDiInstallDevice(deviceinfoset: Hdevinfo, deviceinfodata: MutPtr): Bool =
     if (windowsWin32DevicesDeviceanddriverinstallationNapiAvailable) wasmWindowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiInstallDevice(deviceinfoset.toString(), deviceinfodata.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun setupDiInstallDeviceInterfaces(deviceinfoset: Hdevinfo, deviceinfodata: ConstPtr<SpDevinfoData>): Bool =
+public actual fun setupDiInstallDeviceInterfaces(deviceinfoset: Hdevinfo, deviceinfodata: ConstPtr): Bool =
     if (windowsWin32DevicesDeviceanddriverinstallationNapiAvailable) wasmWindowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiInstallDeviceInterfaces(deviceinfoset.toString(), deviceinfodata.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun setupDiInstallDriverFiles(deviceinfoset: Hdevinfo, deviceinfodata: ConstPtr<SpDevinfoData>): Bool =
+public actual fun setupDiInstallDriverFiles(deviceinfoset: Hdevinfo, deviceinfodata: ConstPtr): Bool =
     if (windowsWin32DevicesDeviceanddriverinstallationNapiAvailable) wasmWindowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiInstallDriverFiles(deviceinfoset.toString(), deviceinfodata.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun setupDiLoadClassIcon(classguid: ConstPtr<Guid>, largeicon: MutPtr<Hicon>, miniiconindex: MutPtr<Int>): Bool =
+public actual fun setupDiLoadClassIcon(classguid: ConstPtr, largeicon: MutPtr, miniiconindex: MutPtr): Bool =
     if (windowsWin32DevicesDeviceanddriverinstallationNapiAvailable) wasmWindowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiLoadClassIcon(classguid.rawAddress.toString(), largeicon.rawAddress.toString(), miniiconindex.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun setupDiLoadDeviceIcon(deviceinfoset: Hdevinfo, deviceinfodata: ConstPtr<SpDevinfoData>, cxicon: UInt, cyicon: UInt, flags: UInt, hicon: MutPtr<Hicon>): Bool =
+public actual fun setupDiLoadDeviceIcon(deviceinfoset: Hdevinfo, deviceinfodata: ConstPtr, cxicon: UInt, cyicon: UInt, flags: UInt, hicon: MutPtr): Bool =
     if (windowsWin32DevicesDeviceanddriverinstallationNapiAvailable) wasmWindowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiLoadDeviceIcon(deviceinfoset.toString(), deviceinfodata.rawAddress.toString(), cxicon.toInt(), cyicon.toInt(), flags.toInt(), hicon.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun setupDiOpenClassRegKey(classguid: ConstPtr<Guid>, samdesired: UInt): Hkey =
+public actual fun setupDiOpenClassRegKey(classguid: ConstPtr, samdesired: UInt): Hkey =
     if (windowsWin32DevicesDeviceanddriverinstallationNapiAvailable) MutPtr(wasmWindowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiOpenClassRegKey(classguid.rawAddress.toString(), samdesired.toInt()).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun setupDiOpenClassRegKeyExA(classguid: ConstPtr<Guid>, samdesired: UInt, flags: UInt, machinename: Pcstr, reserved: ConstPtr<CVoid>): Hkey =
+public actual fun setupDiOpenClassRegKeyExA(classguid: ConstPtr, samdesired: UInt, flags: UInt, machinename: Pcstr, reserved: ConstPtr): Hkey =
     if (windowsWin32DevicesDeviceanddriverinstallationNapiAvailable) MutPtr(wasmWindowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiOpenClassRegKeyExA(classguid.rawAddress.toString(), samdesired.toInt(), flags.toInt(), machinename.rawAddress.toString(), reserved.rawAddress.toString()).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun setupDiOpenClassRegKeyExW(classguid: ConstPtr<Guid>, samdesired: UInt, flags: UInt, machinename: Pcwstr, reserved: ConstPtr<CVoid>): Hkey =
+public actual fun setupDiOpenClassRegKeyExW(classguid: ConstPtr, samdesired: UInt, flags: UInt, machinename: Pcwstr, reserved: ConstPtr): Hkey =
     if (windowsWin32DevicesDeviceanddriverinstallationNapiAvailable) MutPtr(wasmWindowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiOpenClassRegKeyExW(classguid.rawAddress.toString(), samdesired.toInt(), flags.toInt(), machinename.rawAddress.toString(), reserved.rawAddress.toString()).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun setupDiOpenDevRegKey(deviceinfoset: Hdevinfo, deviceinfodata: ConstPtr<SpDevinfoData>, scope: UInt, hwprofile: UInt, keytype: UInt, samdesired: UInt): Hkey =
+public actual fun setupDiOpenDevRegKey(deviceinfoset: Hdevinfo, deviceinfodata: ConstPtr, scope: UInt, hwprofile: UInt, keytype: UInt, samdesired: UInt): Hkey =
     if (windowsWin32DevicesDeviceanddriverinstallationNapiAvailable) MutPtr(wasmWindowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiOpenDevRegKey(deviceinfoset.toString(), deviceinfodata.rawAddress.toString(), scope.toInt(), hwprofile.toInt(), keytype.toInt(), samdesired.toInt()).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun setupDiOpenDeviceInfoA(deviceinfoset: Hdevinfo, deviceinstanceid: Pcstr, hwndparent: Hwnd, openflags: UInt, deviceinfodata: MutPtr<SpDevinfoData>): Bool =
+public actual fun setupDiOpenDeviceInfoA(deviceinfoset: Hdevinfo, deviceinstanceid: Pcstr, hwndparent: Hwnd, openflags: UInt, deviceinfodata: MutPtr): Bool =
     if (windowsWin32DevicesDeviceanddriverinstallationNapiAvailable) wasmWindowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiOpenDeviceInfoA(deviceinfoset.toString(), deviceinstanceid.rawAddress.toString(), hwndparent.rawAddress.toString(), openflags.toInt(), deviceinfodata.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun setupDiOpenDeviceInfoW(deviceinfoset: Hdevinfo, deviceinstanceid: Pcwstr, hwndparent: Hwnd, openflags: UInt, deviceinfodata: MutPtr<SpDevinfoData>): Bool =
+public actual fun setupDiOpenDeviceInfoW(deviceinfoset: Hdevinfo, deviceinstanceid: Pcwstr, hwndparent: Hwnd, openflags: UInt, deviceinfodata: MutPtr): Bool =
     if (windowsWin32DevicesDeviceanddriverinstallationNapiAvailable) wasmWindowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiOpenDeviceInfoW(deviceinfoset.toString(), deviceinstanceid.rawAddress.toString(), hwndparent.rawAddress.toString(), openflags.toInt(), deviceinfodata.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun setupDiOpenDeviceInterfaceA(deviceinfoset: Hdevinfo, devicepath: Pcstr, openflags: UInt, deviceinterfacedata: MutPtr<SpDeviceInterfaceData>): Bool =
+public actual fun setupDiOpenDeviceInterfaceA(deviceinfoset: Hdevinfo, devicepath: Pcstr, openflags: UInt, deviceinterfacedata: MutPtr): Bool =
     if (windowsWin32DevicesDeviceanddriverinstallationNapiAvailable) wasmWindowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiOpenDeviceInterfaceA(deviceinfoset.toString(), devicepath.rawAddress.toString(), openflags.toInt(), deviceinterfacedata.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun setupDiOpenDeviceInterfaceRegKey(deviceinfoset: Hdevinfo, deviceinterfacedata: ConstPtr<SpDeviceInterfaceData>, reserved: UInt, samdesired: UInt): Hkey =
+public actual fun setupDiOpenDeviceInterfaceRegKey(deviceinfoset: Hdevinfo, deviceinterfacedata: ConstPtr, reserved: UInt, samdesired: UInt): Hkey =
     if (windowsWin32DevicesDeviceanddriverinstallationNapiAvailable) MutPtr(wasmWindowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiOpenDeviceInterfaceRegKey(deviceinfoset.toString(), deviceinterfacedata.rawAddress.toString(), reserved.toInt(), samdesired.toInt()).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun setupDiOpenDeviceInterfaceW(deviceinfoset: Hdevinfo, devicepath: Pcwstr, openflags: UInt, deviceinterfacedata: MutPtr<SpDeviceInterfaceData>): Bool =
+public actual fun setupDiOpenDeviceInterfaceW(deviceinfoset: Hdevinfo, devicepath: Pcwstr, openflags: UInt, deviceinterfacedata: MutPtr): Bool =
     if (windowsWin32DevicesDeviceanddriverinstallationNapiAvailable) wasmWindowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiOpenDeviceInterfaceW(deviceinfoset.toString(), devicepath.rawAddress.toString(), openflags.toInt(), deviceinterfacedata.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun setupDiRegisterCoDeviceInstallers(deviceinfoset: Hdevinfo, deviceinfodata: ConstPtr<SpDevinfoData>): Bool =
+public actual fun setupDiRegisterCoDeviceInstallers(deviceinfoset: Hdevinfo, deviceinfodata: ConstPtr): Bool =
     if (windowsWin32DevicesDeviceanddriverinstallationNapiAvailable) wasmWindowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiRegisterCoDeviceInstallers(deviceinfoset.toString(), deviceinfodata.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun setupDiRegisterDeviceInfo(deviceinfoset: Hdevinfo, deviceinfodata: MutPtr<SpDevinfoData>, flags: UInt, compareproc: PspDetsigCmpproc, comparecontext: ConstPtr<CVoid>, dupdeviceinfodata: MutPtr<SpDevinfoData>): Bool =
+public actual fun setupDiRegisterDeviceInfo(deviceinfoset: Hdevinfo, deviceinfodata: MutPtr, flags: UInt, compareproc: PspDetsigCmpproc, comparecontext: ConstPtr, dupdeviceinfodata: MutPtr): Bool =
     if (windowsWin32DevicesDeviceanddriverinstallationNapiAvailable) wasmWindowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiRegisterDeviceInfo(deviceinfoset.toString(), deviceinfodata.rawAddress.toString(), flags.toInt(), 0L.toString(), comparecontext.rawAddress.toString(), dupdeviceinfodata.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun setupDiRemoveDevice(deviceinfoset: Hdevinfo, deviceinfodata: MutPtr<SpDevinfoData>): Bool =
+public actual fun setupDiRemoveDevice(deviceinfoset: Hdevinfo, deviceinfodata: MutPtr): Bool =
     if (windowsWin32DevicesDeviceanddriverinstallationNapiAvailable) wasmWindowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiRemoveDevice(deviceinfoset.toString(), deviceinfodata.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun setupDiRemoveDeviceInterface(deviceinfoset: Hdevinfo, deviceinterfacedata: MutPtr<SpDeviceInterfaceData>): Bool =
+public actual fun setupDiRemoveDeviceInterface(deviceinfoset: Hdevinfo, deviceinterfacedata: MutPtr): Bool =
     if (windowsWin32DevicesDeviceanddriverinstallationNapiAvailable) wasmWindowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiRemoveDeviceInterface(deviceinfoset.toString(), deviceinterfacedata.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun setupDiRestartDevices(deviceinfoset: Hdevinfo, deviceinfodata: MutPtr<SpDevinfoData>): Bool =
+public actual fun setupDiRestartDevices(deviceinfoset: Hdevinfo, deviceinfodata: MutPtr): Bool =
     if (windowsWin32DevicesDeviceanddriverinstallationNapiAvailable) wasmWindowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiRestartDevices(deviceinfoset.toString(), deviceinfodata.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun setupDiSelectBestCompatDrv(deviceinfoset: Hdevinfo, deviceinfodata: MutPtr<SpDevinfoData>): Bool =
+public actual fun setupDiSelectBestCompatDrv(deviceinfoset: Hdevinfo, deviceinfodata: MutPtr): Bool =
     if (windowsWin32DevicesDeviceanddriverinstallationNapiAvailable) wasmWindowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiSelectBestCompatDrv(deviceinfoset.toString(), deviceinfodata.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun setupDiSelectDevice(deviceinfoset: Hdevinfo, deviceinfodata: MutPtr<SpDevinfoData>): Bool =
+public actual fun setupDiSelectDevice(deviceinfoset: Hdevinfo, deviceinfodata: MutPtr): Bool =
     if (windowsWin32DevicesDeviceanddriverinstallationNapiAvailable) wasmWindowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiSelectDevice(deviceinfoset.toString(), deviceinfodata.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun setupDiSelectOEMDrv(hwndparent: Hwnd, deviceinfoset: Hdevinfo, deviceinfodata: MutPtr<SpDevinfoData>): Bool =
+public actual fun setupDiSelectOEMDrv(hwndparent: Hwnd, deviceinfoset: Hdevinfo, deviceinfodata: MutPtr): Bool =
     if (windowsWin32DevicesDeviceanddriverinstallationNapiAvailable) wasmWindowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiSelectOEMDrv(hwndparent.rawAddress.toString(), deviceinfoset.toString(), deviceinfodata.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun setupDiSetClassInstallParamsA(deviceinfoset: Hdevinfo, deviceinfodata: ConstPtr<SpDevinfoData>, classinstallparams: ConstPtr<SpClassinstallHeader>, classinstallparamssize: UInt): Bool =
+public actual fun setupDiSetClassInstallParamsA(deviceinfoset: Hdevinfo, deviceinfodata: ConstPtr, classinstallparams: ConstPtr, classinstallparamssize: UInt): Bool =
     if (windowsWin32DevicesDeviceanddriverinstallationNapiAvailable) wasmWindowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiSetClassInstallParamsA(deviceinfoset.toString(), deviceinfodata.rawAddress.toString(), classinstallparams.rawAddress.toString(), classinstallparamssize.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun setupDiSetClassInstallParamsW(deviceinfoset: Hdevinfo, deviceinfodata: ConstPtr<SpDevinfoData>, classinstallparams: ConstPtr<SpClassinstallHeader>, classinstallparamssize: UInt): Bool =
+public actual fun setupDiSetClassInstallParamsW(deviceinfoset: Hdevinfo, deviceinfodata: ConstPtr, classinstallparams: ConstPtr, classinstallparamssize: UInt): Bool =
     if (windowsWin32DevicesDeviceanddriverinstallationNapiAvailable) wasmWindowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiSetClassInstallParamsW(deviceinfoset.toString(), deviceinfodata.rawAddress.toString(), classinstallparams.rawAddress.toString(), classinstallparamssize.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun setupDiSetClassPropertyExW(classguid: ConstPtr<Guid>, propertykey: ConstPtr<Devpropkey>, propertytype: Devproptype, propertybuffer: ConstPtr<UByte>, propertybuffersize: UInt, flags: UInt, machinename: Pcwstr, reserved: ConstPtr<CVoid>): Bool =
+public actual fun setupDiSetClassPropertyExW(classguid: ConstPtr, propertykey: ConstPtr, propertytype: Devproptype, propertybuffer: ConstPtr, propertybuffersize: UInt, flags: UInt, machinename: Pcwstr, reserved: ConstPtr): Bool =
     if (windowsWin32DevicesDeviceanddriverinstallationNapiAvailable) wasmWindowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiSetClassPropertyExW(classguid.rawAddress.toString(), propertykey.rawAddress.toString(), propertytype.toInt(), propertybuffer.rawAddress.toString(), propertybuffersize.toInt(), flags.toInt(), machinename.rawAddress.toString(), reserved.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun setupDiSetClassPropertyW(classguid: ConstPtr<Guid>, propertykey: ConstPtr<Devpropkey>, propertytype: Devproptype, propertybuffer: ConstPtr<UByte>, propertybuffersize: UInt, flags: UInt): Bool =
+public actual fun setupDiSetClassPropertyW(classguid: ConstPtr, propertykey: ConstPtr, propertytype: Devproptype, propertybuffer: ConstPtr, propertybuffersize: UInt, flags: UInt): Bool =
     if (windowsWin32DevicesDeviceanddriverinstallationNapiAvailable) wasmWindowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiSetClassPropertyW(classguid.rawAddress.toString(), propertykey.rawAddress.toString(), propertytype.toInt(), propertybuffer.rawAddress.toString(), propertybuffersize.toInt(), flags.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun setupDiSetClassRegistryPropertyA(classguid: ConstPtr<Guid>, property: UInt, propertybuffer: ConstPtr<UByte>, propertybuffersize: UInt, machinename: Pcstr, reserved: ConstPtr<CVoid>): Bool =
+public actual fun setupDiSetClassRegistryPropertyA(classguid: ConstPtr, property: UInt, propertybuffer: ConstPtr, propertybuffersize: UInt, machinename: Pcstr, reserved: ConstPtr): Bool =
     if (windowsWin32DevicesDeviceanddriverinstallationNapiAvailable) wasmWindowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiSetClassRegistryPropertyA(classguid.rawAddress.toString(), property.toInt(), propertybuffer.rawAddress.toString(), propertybuffersize.toInt(), machinename.rawAddress.toString(), reserved.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun setupDiSetClassRegistryPropertyW(classguid: ConstPtr<Guid>, property: UInt, propertybuffer: ConstPtr<UByte>, propertybuffersize: UInt, machinename: Pcwstr, reserved: ConstPtr<CVoid>): Bool =
+public actual fun setupDiSetClassRegistryPropertyW(classguid: ConstPtr, property: UInt, propertybuffer: ConstPtr, propertybuffersize: UInt, machinename: Pcwstr, reserved: ConstPtr): Bool =
     if (windowsWin32DevicesDeviceanddriverinstallationNapiAvailable) wasmWindowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiSetClassRegistryPropertyW(classguid.rawAddress.toString(), property.toInt(), propertybuffer.rawAddress.toString(), propertybuffersize.toInt(), machinename.rawAddress.toString(), reserved.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun setupDiSetDeviceInstallParamsA(deviceinfoset: Hdevinfo, deviceinfodata: ConstPtr<SpDevinfoData>, deviceinstallparams: ConstPtr<SpDevinstallParamsA>): Bool =
+public actual fun setupDiSetDeviceInstallParamsA(deviceinfoset: Hdevinfo, deviceinfodata: ConstPtr, deviceinstallparams: ConstPtr): Bool =
     if (windowsWin32DevicesDeviceanddriverinstallationNapiAvailable) wasmWindowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiSetDeviceInstallParamsA(deviceinfoset.toString(), deviceinfodata.rawAddress.toString(), deviceinstallparams.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun setupDiSetDeviceInstallParamsW(deviceinfoset: Hdevinfo, deviceinfodata: ConstPtr<SpDevinfoData>, deviceinstallparams: ConstPtr<SpDevinstallParamsW>): Bool =
+public actual fun setupDiSetDeviceInstallParamsW(deviceinfoset: Hdevinfo, deviceinfodata: ConstPtr, deviceinstallparams: ConstPtr): Bool =
     if (windowsWin32DevicesDeviceanddriverinstallationNapiAvailable) wasmWindowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiSetDeviceInstallParamsW(deviceinfoset.toString(), deviceinfodata.rawAddress.toString(), deviceinstallparams.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun setupDiSetDeviceInterfaceDefault(deviceinfoset: Hdevinfo, deviceinterfacedata: MutPtr<SpDeviceInterfaceData>, flags: UInt, reserved: ConstPtr<CVoid>): Bool =
+public actual fun setupDiSetDeviceInterfaceDefault(deviceinfoset: Hdevinfo, deviceinterfacedata: MutPtr, flags: UInt, reserved: ConstPtr): Bool =
     if (windowsWin32DevicesDeviceanddriverinstallationNapiAvailable) wasmWindowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiSetDeviceInterfaceDefault(deviceinfoset.toString(), deviceinterfacedata.rawAddress.toString(), flags.toInt(), reserved.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun setupDiSetDeviceInterfacePropertyW(deviceinfoset: Hdevinfo, deviceinterfacedata: ConstPtr<SpDeviceInterfaceData>, propertykey: ConstPtr<Devpropkey>, propertytype: Devproptype, propertybuffer: ConstPtr<UByte>, propertybuffersize: UInt, flags: UInt): Bool =
+public actual fun setupDiSetDeviceInterfacePropertyW(deviceinfoset: Hdevinfo, deviceinterfacedata: ConstPtr, propertykey: ConstPtr, propertytype: Devproptype, propertybuffer: ConstPtr, propertybuffersize: UInt, flags: UInt): Bool =
     if (windowsWin32DevicesDeviceanddriverinstallationNapiAvailable) wasmWindowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiSetDeviceInterfacePropertyW(deviceinfoset.toString(), deviceinterfacedata.rawAddress.toString(), propertykey.rawAddress.toString(), propertytype.toInt(), propertybuffer.rawAddress.toString(), propertybuffersize.toInt(), flags.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun setupDiSetDevicePropertyW(deviceinfoset: Hdevinfo, deviceinfodata: ConstPtr<SpDevinfoData>, propertykey: ConstPtr<Devpropkey>, propertytype: Devproptype, propertybuffer: ConstPtr<UByte>, propertybuffersize: UInt, flags: UInt): Bool =
+public actual fun setupDiSetDevicePropertyW(deviceinfoset: Hdevinfo, deviceinfodata: ConstPtr, propertykey: ConstPtr, propertytype: Devproptype, propertybuffer: ConstPtr, propertybuffersize: UInt, flags: UInt): Bool =
     if (windowsWin32DevicesDeviceanddriverinstallationNapiAvailable) wasmWindowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiSetDevicePropertyW(deviceinfoset.toString(), deviceinfodata.rawAddress.toString(), propertykey.rawAddress.toString(), propertytype.toInt(), propertybuffer.rawAddress.toString(), propertybuffersize.toInt(), flags.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun setupDiSetDeviceRegistryPropertyA(deviceinfoset: Hdevinfo, deviceinfodata: MutPtr<SpDevinfoData>, property: SetupDiRegistryProperty, propertybuffer: ConstPtr<UByte>, propertybuffersize: UInt): Bool =
+public actual fun setupDiSetDeviceRegistryPropertyA(deviceinfoset: Hdevinfo, deviceinfodata: MutPtr, property: SetupDiRegistryProperty, propertybuffer: ConstPtr, propertybuffersize: UInt): Bool =
     if (windowsWin32DevicesDeviceanddriverinstallationNapiAvailable) wasmWindowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiSetDeviceRegistryPropertyA(deviceinfoset.toString(), deviceinfodata.rawAddress.toString(), property.toInt(), propertybuffer.rawAddress.toString(), propertybuffersize.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun setupDiSetDeviceRegistryPropertyW(deviceinfoset: Hdevinfo, deviceinfodata: MutPtr<SpDevinfoData>, property: SetupDiRegistryProperty, propertybuffer: ConstPtr<UByte>, propertybuffersize: UInt): Bool =
+public actual fun setupDiSetDeviceRegistryPropertyW(deviceinfoset: Hdevinfo, deviceinfodata: MutPtr, property: SetupDiRegistryProperty, propertybuffer: ConstPtr, propertybuffersize: UInt): Bool =
     if (windowsWin32DevicesDeviceanddriverinstallationNapiAvailable) wasmWindowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiSetDeviceRegistryPropertyW(deviceinfoset.toString(), deviceinfodata.rawAddress.toString(), property.toInt(), propertybuffer.rawAddress.toString(), propertybuffersize.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun setupDiSetDriverInstallParamsA(deviceinfoset: Hdevinfo, deviceinfodata: ConstPtr<SpDevinfoData>, driverinfodata: ConstPtr<SpDrvinfoDataV2A>, driverinstallparams: ConstPtr<SpDrvinstallParams>): Bool =
+public actual fun setupDiSetDriverInstallParamsA(deviceinfoset: Hdevinfo, deviceinfodata: ConstPtr, driverinfodata: ConstPtr, driverinstallparams: ConstPtr): Bool =
     if (windowsWin32DevicesDeviceanddriverinstallationNapiAvailable) wasmWindowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiSetDriverInstallParamsA(deviceinfoset.toString(), deviceinfodata.rawAddress.toString(), driverinfodata.rawAddress.toString(), driverinstallparams.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun setupDiSetDriverInstallParamsW(deviceinfoset: Hdevinfo, deviceinfodata: ConstPtr<SpDevinfoData>, driverinfodata: ConstPtr<SpDrvinfoDataV2W>, driverinstallparams: ConstPtr<SpDrvinstallParams>): Bool =
+public actual fun setupDiSetDriverInstallParamsW(deviceinfoset: Hdevinfo, deviceinfodata: ConstPtr, driverinfodata: ConstPtr, driverinstallparams: ConstPtr): Bool =
     if (windowsWin32DevicesDeviceanddriverinstallationNapiAvailable) wasmWindowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiSetDriverInstallParamsW(deviceinfoset.toString(), deviceinfodata.rawAddress.toString(), driverinfodata.rawAddress.toString(), driverinstallparams.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun setupDiSetSelectedDevice(deviceinfoset: Hdevinfo, deviceinfodata: ConstPtr<SpDevinfoData>): Bool =
+public actual fun setupDiSetSelectedDevice(deviceinfoset: Hdevinfo, deviceinfodata: ConstPtr): Bool =
     if (windowsWin32DevicesDeviceanddriverinstallationNapiAvailable) wasmWindowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiSetSelectedDevice(deviceinfoset.toString(), deviceinfodata.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun setupDiSetSelectedDriverA(deviceinfoset: Hdevinfo, deviceinfodata: MutPtr<SpDevinfoData>, driverinfodata: MutPtr<SpDrvinfoDataV2A>): Bool =
+public actual fun setupDiSetSelectedDriverA(deviceinfoset: Hdevinfo, deviceinfodata: MutPtr, driverinfodata: MutPtr): Bool =
     if (windowsWin32DevicesDeviceanddriverinstallationNapiAvailable) wasmWindowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiSetSelectedDriverA(deviceinfoset.toString(), deviceinfodata.rawAddress.toString(), driverinfodata.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun setupDiSetSelectedDriverW(deviceinfoset: Hdevinfo, deviceinfodata: MutPtr<SpDevinfoData>, driverinfodata: MutPtr<SpDrvinfoDataV2W>): Bool =
+public actual fun setupDiSetSelectedDriverW(deviceinfoset: Hdevinfo, deviceinfodata: MutPtr, driverinfodata: MutPtr): Bool =
     if (windowsWin32DevicesDeviceanddriverinstallationNapiAvailable) wasmWindowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiSetSelectedDriverW(deviceinfoset.toString(), deviceinfodata.rawAddress.toString(), driverinfodata.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun setupDiUnremoveDevice(deviceinfoset: Hdevinfo, deviceinfodata: MutPtr<SpDevinfoData>): Bool =
+public actual fun setupDiUnremoveDevice(deviceinfoset: Hdevinfo, deviceinfodata: MutPtr): Bool =
     if (windowsWin32DevicesDeviceanddriverinstallationNapiAvailable) wasmWindowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDiUnremoveDevice(deviceinfoset.toString(), deviceinfodata.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun setupDuplicateDiskSpaceListA(diskspace: ConstPtr<CVoid>, reserved1: ConstPtr<CVoid>, reserved2: UInt, flags: UInt): MutPtr<CVoid> =
+public actual fun setupDuplicateDiskSpaceListA(diskspace: ConstPtr, reserved1: ConstPtr, reserved2: UInt, flags: UInt): MutPtr =
     if (windowsWin32DevicesDeviceanddriverinstallationNapiAvailable) MutPtr(wasmWindowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDuplicateDiskSpaceListA(diskspace.rawAddress.toString(), reserved1.rawAddress.toString(), reserved2.toInt(), flags.toInt()).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun setupDuplicateDiskSpaceListW(diskspace: ConstPtr<CVoid>, reserved1: ConstPtr<CVoid>, reserved2: UInt, flags: UInt): MutPtr<CVoid> =
+public actual fun setupDuplicateDiskSpaceListW(diskspace: ConstPtr, reserved1: ConstPtr, reserved2: UInt, flags: UInt): MutPtr =
     if (windowsWin32DevicesDeviceanddriverinstallationNapiAvailable) MutPtr(wasmWindowssysWindowsWin32DevicesDeviceanddriverinstallationSetupDuplicateDiskSpaceListW(diskspace.rawAddress.toString(), reserved1.rawAddress.toString(), reserved2.toInt(), flags.toInt()).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun setupEnumInfSectionsA(infhandle: ConstPtr<CVoid>, index: UInt, buffer: Pstr, size: UInt, sizeneeded: MutPtr<UInt>): Bool =
+public actual fun setupEnumInfSectionsA(infhandle: ConstPtr, index: UInt, buffer: Pstr, size: UInt, sizeneeded: MutPtr): Bool =
     if (windowsWin32DevicesDeviceanddriverinstallationNapiAvailable) wasmWindowssysWindowsWin32DevicesDeviceanddriverinstallationSetupEnumInfSectionsA(infhandle.rawAddress.toString(), index.toInt(), buffer.rawAddress.toString(), size.toInt(), sizeneeded.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun setupEnumInfSectionsW(infhandle: ConstPtr<CVoid>, index: UInt, buffer: Pwstr, size: UInt, sizeneeded: MutPtr<UInt>): Bool =
+public actual fun setupEnumInfSectionsW(infhandle: ConstPtr, index: UInt, buffer: Pwstr, size: UInt, sizeneeded: MutPtr): Bool =
     if (windowsWin32DevicesDeviceanddriverinstallationNapiAvailable) wasmWindowssysWindowsWin32DevicesDeviceanddriverinstallationSetupEnumInfSectionsW(infhandle.rawAddress.toString(), index.toInt(), buffer.rawAddress.toString(), size.toInt(), sizeneeded.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun setupFindFirstLineA(infhandle: ConstPtr<CVoid>, section: Pcstr, key: Pcstr, context: MutPtr<Infcontext>): Bool =
+public actual fun setupFindFirstLineA(infhandle: ConstPtr, section: Pcstr, key: Pcstr, context: MutPtr): Bool =
     if (windowsWin32DevicesDeviceanddriverinstallationNapiAvailable) wasmWindowssysWindowsWin32DevicesDeviceanddriverinstallationSetupFindFirstLineA(infhandle.rawAddress.toString(), section.rawAddress.toString(), key.rawAddress.toString(), context.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun setupFindFirstLineW(infhandle: ConstPtr<CVoid>, section: Pcwstr, key: Pcwstr, context: MutPtr<Infcontext>): Bool =
+public actual fun setupFindFirstLineW(infhandle: ConstPtr, section: Pcwstr, key: Pcwstr, context: MutPtr): Bool =
     if (windowsWin32DevicesDeviceanddriverinstallationNapiAvailable) wasmWindowssysWindowsWin32DevicesDeviceanddriverinstallationSetupFindFirstLineW(infhandle.rawAddress.toString(), section.rawAddress.toString(), key.rawAddress.toString(), context.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun setupFindNextLine(contextin: ConstPtr<Infcontext>, contextout: MutPtr<Infcontext>): Bool =
+public actual fun setupFindNextLine(contextin: ConstPtr, contextout: MutPtr): Bool =
     if (windowsWin32DevicesDeviceanddriverinstallationNapiAvailable) wasmWindowssysWindowsWin32DevicesDeviceanddriverinstallationSetupFindNextLine(contextin.rawAddress.toString(), contextout.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun setupFindNextMatchLineA(contextin: ConstPtr<Infcontext>, key: Pcstr, contextout: MutPtr<Infcontext>): Bool =
+public actual fun setupFindNextMatchLineA(contextin: ConstPtr, key: Pcstr, contextout: MutPtr): Bool =
     if (windowsWin32DevicesDeviceanddriverinstallationNapiAvailable) wasmWindowssysWindowsWin32DevicesDeviceanddriverinstallationSetupFindNextMatchLineA(contextin.rawAddress.toString(), key.rawAddress.toString(), contextout.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun setupFindNextMatchLineW(contextin: ConstPtr<Infcontext>, key: Pcwstr, contextout: MutPtr<Infcontext>): Bool =
+public actual fun setupFindNextMatchLineW(contextin: ConstPtr, key: Pcwstr, contextout: MutPtr): Bool =
     if (windowsWin32DevicesDeviceanddriverinstallationNapiAvailable) wasmWindowssysWindowsWin32DevicesDeviceanddriverinstallationSetupFindNextMatchLineW(contextin.rawAddress.toString(), key.rawAddress.toString(), contextout.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun setupFreeSourceListA(list: MutPtr<MutPtr<Pcstr>>, count: UInt): Bool =
+public actual fun setupFreeSourceListA(list: MutPtr, count: UInt): Bool =
     if (windowsWin32DevicesDeviceanddriverinstallationNapiAvailable) wasmWindowssysWindowsWin32DevicesDeviceanddriverinstallationSetupFreeSourceListA(list.rawAddress.toString(), count.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun setupFreeSourceListW(list: MutPtr<MutPtr<Pcwstr>>, count: UInt): Bool =
+public actual fun setupFreeSourceListW(list: MutPtr, count: UInt): Bool =
     if (windowsWin32DevicesDeviceanddriverinstallationNapiAvailable) wasmWindowssysWindowsWin32DevicesDeviceanddriverinstallationSetupFreeSourceListW(list.rawAddress.toString(), count.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun setupGetBackupInformationA(queuehandle: ConstPtr<CVoid>, backupparams: MutPtr<SpBackupQueueParamsV2A>): Bool =
+public actual fun setupGetBackupInformationA(queuehandle: ConstPtr, backupparams: MutPtr): Bool =
     if (windowsWin32DevicesDeviceanddriverinstallationNapiAvailable) wasmWindowssysWindowsWin32DevicesDeviceanddriverinstallationSetupGetBackupInformationA(queuehandle.rawAddress.toString(), backupparams.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun setupGetBackupInformationW(queuehandle: ConstPtr<CVoid>, backupparams: MutPtr<SpBackupQueueParamsV2W>): Bool =
+public actual fun setupGetBackupInformationW(queuehandle: ConstPtr, backupparams: MutPtr): Bool =
     if (windowsWin32DevicesDeviceanddriverinstallationNapiAvailable) wasmWindowssysWindowsWin32DevicesDeviceanddriverinstallationSetupGetBackupInformationW(queuehandle.rawAddress.toString(), backupparams.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun setupGetBinaryField(context: ConstPtr<Infcontext>, fieldindex: UInt, returnbuffer: MutPtr<UByte>, returnbuffersize: UInt, requiredsize: MutPtr<UInt>): Bool =
+public actual fun setupGetBinaryField(context: ConstPtr, fieldindex: UInt, returnbuffer: MutPtr, returnbuffersize: UInt, requiredsize: MutPtr): Bool =
     if (windowsWin32DevicesDeviceanddriverinstallationNapiAvailable) wasmWindowssysWindowsWin32DevicesDeviceanddriverinstallationSetupGetBinaryField(context.rawAddress.toString(), fieldindex.toInt(), returnbuffer.rawAddress.toString(), returnbuffersize.toInt(), requiredsize.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun setupGetFieldCount(context: ConstPtr<Infcontext>): UInt =
+public actual fun setupGetFieldCount(context: ConstPtr): UInt =
     if (windowsWin32DevicesDeviceanddriverinstallationNapiAvailable) wasmWindowssysWindowsWin32DevicesDeviceanddriverinstallationSetupGetFieldCount(context.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun setupGetFileCompressionInfoA(sourcefilename: Pcstr, actualsourcefilename: MutPtr<Pstr>, sourcefilesize: MutPtr<UInt>, targetfilesize: MutPtr<UInt>, compressiontype: MutPtr<FileCompressionType>): UInt =
+public actual fun setupGetFileCompressionInfoA(sourcefilename: Pcstr, actualsourcefilename: MutPtr, sourcefilesize: MutPtr, targetfilesize: MutPtr, compressiontype: MutPtr): UInt =
     if (windowsWin32DevicesDeviceanddriverinstallationNapiAvailable) wasmWindowssysWindowsWin32DevicesDeviceanddriverinstallationSetupGetFileCompressionInfoA(sourcefilename.rawAddress.toString(), actualsourcefilename.rawAddress.toString(), sourcefilesize.rawAddress.toString(), targetfilesize.rawAddress.toString(), compressiontype.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun setupGetFileCompressionInfoExA(sourcefilename: Pcstr, actualsourcefilenamebuffer: Pcstr, actualsourcefilenamebufferlen: UInt, requiredbufferlen: MutPtr<UInt>, sourcefilesize: MutPtr<UInt>, targetfilesize: MutPtr<UInt>, compressiontype: MutPtr<FileCompressionType>): Bool =
+public actual fun setupGetFileCompressionInfoExA(sourcefilename: Pcstr, actualsourcefilenamebuffer: Pcstr, actualsourcefilenamebufferlen: UInt, requiredbufferlen: MutPtr, sourcefilesize: MutPtr, targetfilesize: MutPtr, compressiontype: MutPtr): Bool =
     if (windowsWin32DevicesDeviceanddriverinstallationNapiAvailable) wasmWindowssysWindowsWin32DevicesDeviceanddriverinstallationSetupGetFileCompressionInfoExA(sourcefilename.rawAddress.toString(), actualsourcefilenamebuffer.rawAddress.toString(), actualsourcefilenamebufferlen.toInt(), requiredbufferlen.rawAddress.toString(), sourcefilesize.rawAddress.toString(), targetfilesize.rawAddress.toString(), compressiontype.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun setupGetFileCompressionInfoExW(sourcefilename: Pcwstr, actualsourcefilenamebuffer: Pcwstr, actualsourcefilenamebufferlen: UInt, requiredbufferlen: MutPtr<UInt>, sourcefilesize: MutPtr<UInt>, targetfilesize: MutPtr<UInt>, compressiontype: MutPtr<FileCompressionType>): Bool =
+public actual fun setupGetFileCompressionInfoExW(sourcefilename: Pcwstr, actualsourcefilenamebuffer: Pcwstr, actualsourcefilenamebufferlen: UInt, requiredbufferlen: MutPtr, sourcefilesize: MutPtr, targetfilesize: MutPtr, compressiontype: MutPtr): Bool =
     if (windowsWin32DevicesDeviceanddriverinstallationNapiAvailable) wasmWindowssysWindowsWin32DevicesDeviceanddriverinstallationSetupGetFileCompressionInfoExW(sourcefilename.rawAddress.toString(), actualsourcefilenamebuffer.rawAddress.toString(), actualsourcefilenamebufferlen.toInt(), requiredbufferlen.rawAddress.toString(), sourcefilesize.rawAddress.toString(), targetfilesize.rawAddress.toString(), compressiontype.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun setupGetFileCompressionInfoW(sourcefilename: Pcwstr, actualsourcefilename: MutPtr<Pwstr>, sourcefilesize: MutPtr<UInt>, targetfilesize: MutPtr<UInt>, compressiontype: MutPtr<FileCompressionType>): UInt =
+public actual fun setupGetFileCompressionInfoW(sourcefilename: Pcwstr, actualsourcefilename: MutPtr, sourcefilesize: MutPtr, targetfilesize: MutPtr, compressiontype: MutPtr): UInt =
     if (windowsWin32DevicesDeviceanddriverinstallationNapiAvailable) wasmWindowssysWindowsWin32DevicesDeviceanddriverinstallationSetupGetFileCompressionInfoW(sourcefilename.rawAddress.toString(), actualsourcefilename.rawAddress.toString(), sourcefilesize.rawAddress.toString(), targetfilesize.rawAddress.toString(), compressiontype.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun setupGetFileQueueCount(filequeue: ConstPtr<CVoid>, subqueuefileop: UInt, numoperations: MutPtr<UInt>): Bool =
+public actual fun setupGetFileQueueCount(filequeue: ConstPtr, subqueuefileop: UInt, numoperations: MutPtr): Bool =
     if (windowsWin32DevicesDeviceanddriverinstallationNapiAvailable) wasmWindowssysWindowsWin32DevicesDeviceanddriverinstallationSetupGetFileQueueCount(filequeue.rawAddress.toString(), subqueuefileop.toInt(), numoperations.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun setupGetFileQueueFlags(filequeue: ConstPtr<CVoid>, flags: MutPtr<UInt>): Bool =
+public actual fun setupGetFileQueueFlags(filequeue: ConstPtr, flags: MutPtr): Bool =
     if (windowsWin32DevicesDeviceanddriverinstallationNapiAvailable) wasmWindowssysWindowsWin32DevicesDeviceanddriverinstallationSetupGetFileQueueFlags(filequeue.rawAddress.toString(), flags.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun setupGetInfDriverStoreLocationA(filename: Pcstr, alternateplatforminfo: ConstPtr<SpAltplatformInfoV2>, localename: Pcstr, returnbuffer: Pstr, returnbuffersize: UInt, requiredsize: MutPtr<UInt>): Bool =
+public actual fun setupGetInfDriverStoreLocationA(filename: Pcstr, alternateplatforminfo: ConstPtr, localename: Pcstr, returnbuffer: Pstr, returnbuffersize: UInt, requiredsize: MutPtr): Bool =
     if (windowsWin32DevicesDeviceanddriverinstallationNapiAvailable) wasmWindowssysWindowsWin32DevicesDeviceanddriverinstallationSetupGetInfDriverStoreLocationA(filename.rawAddress.toString(), alternateplatforminfo.rawAddress.toString(), localename.rawAddress.toString(), returnbuffer.rawAddress.toString(), returnbuffersize.toInt(), requiredsize.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun setupGetInfDriverStoreLocationW(filename: Pcwstr, alternateplatforminfo: ConstPtr<SpAltplatformInfoV2>, localename: Pcwstr, returnbuffer: Pwstr, returnbuffersize: UInt, requiredsize: MutPtr<UInt>): Bool =
+public actual fun setupGetInfDriverStoreLocationW(filename: Pcwstr, alternateplatforminfo: ConstPtr, localename: Pcwstr, returnbuffer: Pwstr, returnbuffersize: UInt, requiredsize: MutPtr): Bool =
     if (windowsWin32DevicesDeviceanddriverinstallationNapiAvailable) wasmWindowssysWindowsWin32DevicesDeviceanddriverinstallationSetupGetInfDriverStoreLocationW(filename.rawAddress.toString(), alternateplatforminfo.rawAddress.toString(), localename.rawAddress.toString(), returnbuffer.rawAddress.toString(), returnbuffersize.toInt(), requiredsize.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun setupGetInfFileListA(directorypath: Pcstr, infstyle: InfStyle, returnbuffer: Pstr, returnbuffersize: UInt, requiredsize: MutPtr<UInt>): Bool =
+public actual fun setupGetInfFileListA(directorypath: Pcstr, infstyle: InfStyle, returnbuffer: Pstr, returnbuffersize: UInt, requiredsize: MutPtr): Bool =
     if (windowsWin32DevicesDeviceanddriverinstallationNapiAvailable) wasmWindowssysWindowsWin32DevicesDeviceanddriverinstallationSetupGetInfFileListA(directorypath.rawAddress.toString(), infstyle.toInt(), returnbuffer.rawAddress.toString(), returnbuffersize.toInt(), requiredsize.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun setupGetInfFileListW(directorypath: Pcwstr, infstyle: InfStyle, returnbuffer: Pwstr, returnbuffersize: UInt, requiredsize: MutPtr<UInt>): Bool =
+public actual fun setupGetInfFileListW(directorypath: Pcwstr, infstyle: InfStyle, returnbuffer: Pwstr, returnbuffersize: UInt, requiredsize: MutPtr): Bool =
     if (windowsWin32DevicesDeviceanddriverinstallationNapiAvailable) wasmWindowssysWindowsWin32DevicesDeviceanddriverinstallationSetupGetInfFileListW(directorypath.rawAddress.toString(), infstyle.toInt(), returnbuffer.rawAddress.toString(), returnbuffersize.toInt(), requiredsize.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun setupGetInfInformationA(infspec: ConstPtr<CVoid>, searchcontrol: UInt, returnbuffer: MutPtr<SpInfInformation>, returnbuffersize: UInt, requiredsize: MutPtr<UInt>): Bool =
+public actual fun setupGetInfInformationA(infspec: ConstPtr, searchcontrol: UInt, returnbuffer: MutPtr, returnbuffersize: UInt, requiredsize: MutPtr): Bool =
     if (windowsWin32DevicesDeviceanddriverinstallationNapiAvailable) wasmWindowssysWindowsWin32DevicesDeviceanddriverinstallationSetupGetInfInformationA(infspec.rawAddress.toString(), searchcontrol.toInt(), returnbuffer.rawAddress.toString(), returnbuffersize.toInt(), requiredsize.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun setupGetInfInformationW(infspec: ConstPtr<CVoid>, searchcontrol: UInt, returnbuffer: MutPtr<SpInfInformation>, returnbuffersize: UInt, requiredsize: MutPtr<UInt>): Bool =
+public actual fun setupGetInfInformationW(infspec: ConstPtr, searchcontrol: UInt, returnbuffer: MutPtr, returnbuffersize: UInt, requiredsize: MutPtr): Bool =
     if (windowsWin32DevicesDeviceanddriverinstallationNapiAvailable) wasmWindowssysWindowsWin32DevicesDeviceanddriverinstallationSetupGetInfInformationW(infspec.rawAddress.toString(), searchcontrol.toInt(), returnbuffer.rawAddress.toString(), returnbuffersize.toInt(), requiredsize.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun setupGetInfPublishedNameA(driverstorelocation: Pcstr, returnbuffer: Pstr, returnbuffersize: UInt, requiredsize: MutPtr<UInt>): Bool =
+public actual fun setupGetInfPublishedNameA(driverstorelocation: Pcstr, returnbuffer: Pstr, returnbuffersize: UInt, requiredsize: MutPtr): Bool =
     if (windowsWin32DevicesDeviceanddriverinstallationNapiAvailable) wasmWindowssysWindowsWin32DevicesDeviceanddriverinstallationSetupGetInfPublishedNameA(driverstorelocation.rawAddress.toString(), returnbuffer.rawAddress.toString(), returnbuffersize.toInt(), requiredsize.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun setupGetInfPublishedNameW(driverstorelocation: Pcwstr, returnbuffer: Pwstr, returnbuffersize: UInt, requiredsize: MutPtr<UInt>): Bool =
+public actual fun setupGetInfPublishedNameW(driverstorelocation: Pcwstr, returnbuffer: Pwstr, returnbuffersize: UInt, requiredsize: MutPtr): Bool =
     if (windowsWin32DevicesDeviceanddriverinstallationNapiAvailable) wasmWindowssysWindowsWin32DevicesDeviceanddriverinstallationSetupGetInfPublishedNameW(driverstorelocation.rawAddress.toString(), returnbuffer.rawAddress.toString(), returnbuffersize.toInt(), requiredsize.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun setupGetIntField(context: ConstPtr<Infcontext>, fieldindex: UInt, integervalue: MutPtr<Int>): Bool =
+public actual fun setupGetIntField(context: ConstPtr, fieldindex: UInt, integervalue: MutPtr): Bool =
     if (windowsWin32DevicesDeviceanddriverinstallationNapiAvailable) wasmWindowssysWindowsWin32DevicesDeviceanddriverinstallationSetupGetIntField(context.rawAddress.toString(), fieldindex.toInt(), integervalue.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun setupGetLineByIndexA(infhandle: ConstPtr<CVoid>, section: Pcstr, index: UInt, context: MutPtr<Infcontext>): Bool =
+public actual fun setupGetLineByIndexA(infhandle: ConstPtr, section: Pcstr, index: UInt, context: MutPtr): Bool =
     if (windowsWin32DevicesDeviceanddriverinstallationNapiAvailable) wasmWindowssysWindowsWin32DevicesDeviceanddriverinstallationSetupGetLineByIndexA(infhandle.rawAddress.toString(), section.rawAddress.toString(), index.toInt(), context.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun setupGetLineByIndexW(infhandle: ConstPtr<CVoid>, section: Pcwstr, index: UInt, context: MutPtr<Infcontext>): Bool =
+public actual fun setupGetLineByIndexW(infhandle: ConstPtr, section: Pcwstr, index: UInt, context: MutPtr): Bool =
     if (windowsWin32DevicesDeviceanddriverinstallationNapiAvailable) wasmWindowssysWindowsWin32DevicesDeviceanddriverinstallationSetupGetLineByIndexW(infhandle.rawAddress.toString(), section.rawAddress.toString(), index.toInt(), context.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun setupGetLineCountA(infhandle: ConstPtr<CVoid>, section: Pcstr): Int =
+public actual fun setupGetLineCountA(infhandle: ConstPtr, section: Pcstr): Int =
     if (windowsWin32DevicesDeviceanddriverinstallationNapiAvailable) wasmWindowssysWindowsWin32DevicesDeviceanddriverinstallationSetupGetLineCountA(infhandle.rawAddress.toString(), section.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun setupGetLineCountW(infhandle: ConstPtr<CVoid>, section: Pcwstr): Int =
+public actual fun setupGetLineCountW(infhandle: ConstPtr, section: Pcwstr): Int =
     if (windowsWin32DevicesDeviceanddriverinstallationNapiAvailable) wasmWindowssysWindowsWin32DevicesDeviceanddriverinstallationSetupGetLineCountW(infhandle.rawAddress.toString(), section.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun setupGetLineTextA(context: ConstPtr<Infcontext>, infhandle: ConstPtr<CVoid>, section: Pcstr, key: Pcstr, returnbuffer: Pstr, returnbuffersize: UInt, requiredsize: MutPtr<UInt>): Bool =
+public actual fun setupGetLineTextA(context: ConstPtr, infhandle: ConstPtr, section: Pcstr, key: Pcstr, returnbuffer: Pstr, returnbuffersize: UInt, requiredsize: MutPtr): Bool =
     if (windowsWin32DevicesDeviceanddriverinstallationNapiAvailable) wasmWindowssysWindowsWin32DevicesDeviceanddriverinstallationSetupGetLineTextA(context.rawAddress.toString(), infhandle.rawAddress.toString(), section.rawAddress.toString(), key.rawAddress.toString(), returnbuffer.rawAddress.toString(), returnbuffersize.toInt(), requiredsize.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun setupGetLineTextW(context: ConstPtr<Infcontext>, infhandle: ConstPtr<CVoid>, section: Pcwstr, key: Pcwstr, returnbuffer: Pwstr, returnbuffersize: UInt, requiredsize: MutPtr<UInt>): Bool =
+public actual fun setupGetLineTextW(context: ConstPtr, infhandle: ConstPtr, section: Pcwstr, key: Pcwstr, returnbuffer: Pwstr, returnbuffersize: UInt, requiredsize: MutPtr): Bool =
     if (windowsWin32DevicesDeviceanddriverinstallationNapiAvailable) wasmWindowssysWindowsWin32DevicesDeviceanddriverinstallationSetupGetLineTextW(context.rawAddress.toString(), infhandle.rawAddress.toString(), section.rawAddress.toString(), key.rawAddress.toString(), returnbuffer.rawAddress.toString(), returnbuffersize.toInt(), requiredsize.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun setupGetMultiSzFieldA(context: ConstPtr<Infcontext>, fieldindex: UInt, returnbuffer: Pstr, returnbuffersize: UInt, requiredsize: MutPtr<UInt>): Bool =
+public actual fun setupGetMultiSzFieldA(context: ConstPtr, fieldindex: UInt, returnbuffer: Pstr, returnbuffersize: UInt, requiredsize: MutPtr): Bool =
     if (windowsWin32DevicesDeviceanddriverinstallationNapiAvailable) wasmWindowssysWindowsWin32DevicesDeviceanddriverinstallationSetupGetMultiSzFieldA(context.rawAddress.toString(), fieldindex.toInt(), returnbuffer.rawAddress.toString(), returnbuffersize.toInt(), requiredsize.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun setupGetMultiSzFieldW(context: ConstPtr<Infcontext>, fieldindex: UInt, returnbuffer: Pwstr, returnbuffersize: UInt, requiredsize: MutPtr<UInt>): Bool =
+public actual fun setupGetMultiSzFieldW(context: ConstPtr, fieldindex: UInt, returnbuffer: Pwstr, returnbuffersize: UInt, requiredsize: MutPtr): Bool =
     if (windowsWin32DevicesDeviceanddriverinstallationNapiAvailable) wasmWindowssysWindowsWin32DevicesDeviceanddriverinstallationSetupGetMultiSzFieldW(context.rawAddress.toString(), fieldindex.toInt(), returnbuffer.rawAddress.toString(), returnbuffersize.toInt(), requiredsize.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun setupGetNonInteractiveMode(): Bool =
     if (windowsWin32DevicesDeviceanddriverinstallationNapiAvailable) wasmWindowssysWindowsWin32DevicesDeviceanddriverinstallationSetupGetNonInteractiveMode() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun setupGetSourceFileLocationA(infhandle: ConstPtr<CVoid>, infcontext: ConstPtr<Infcontext>, filename: Pcstr, sourceid: MutPtr<UInt>, returnbuffer: Pstr, returnbuffersize: UInt, requiredsize: MutPtr<UInt>): Bool =
+public actual fun setupGetSourceFileLocationA(infhandle: ConstPtr, infcontext: ConstPtr, filename: Pcstr, sourceid: MutPtr, returnbuffer: Pstr, returnbuffersize: UInt, requiredsize: MutPtr): Bool =
     if (windowsWin32DevicesDeviceanddriverinstallationNapiAvailable) wasmWindowssysWindowsWin32DevicesDeviceanddriverinstallationSetupGetSourceFileLocationA(infhandle.rawAddress.toString(), infcontext.rawAddress.toString(), filename.rawAddress.toString(), sourceid.rawAddress.toString(), returnbuffer.rawAddress.toString(), returnbuffersize.toInt(), requiredsize.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun setupGetSourceFileLocationW(infhandle: ConstPtr<CVoid>, infcontext: ConstPtr<Infcontext>, filename: Pcwstr, sourceid: MutPtr<UInt>, returnbuffer: Pwstr, returnbuffersize: UInt, requiredsize: MutPtr<UInt>): Bool =
+public actual fun setupGetSourceFileLocationW(infhandle: ConstPtr, infcontext: ConstPtr, filename: Pcwstr, sourceid: MutPtr, returnbuffer: Pwstr, returnbuffersize: UInt, requiredsize: MutPtr): Bool =
     if (windowsWin32DevicesDeviceanddriverinstallationNapiAvailable) wasmWindowssysWindowsWin32DevicesDeviceanddriverinstallationSetupGetSourceFileLocationW(infhandle.rawAddress.toString(), infcontext.rawAddress.toString(), filename.rawAddress.toString(), sourceid.rawAddress.toString(), returnbuffer.rawAddress.toString(), returnbuffersize.toInt(), requiredsize.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun setupGetSourceFileSizeA(infhandle: ConstPtr<CVoid>, infcontext: ConstPtr<Infcontext>, filename: Pcstr, section: Pcstr, filesize: MutPtr<UInt>, roundingfactor: UInt): Bool =
+public actual fun setupGetSourceFileSizeA(infhandle: ConstPtr, infcontext: ConstPtr, filename: Pcstr, section: Pcstr, filesize: MutPtr, roundingfactor: UInt): Bool =
     if (windowsWin32DevicesDeviceanddriverinstallationNapiAvailable) wasmWindowssysWindowsWin32DevicesDeviceanddriverinstallationSetupGetSourceFileSizeA(infhandle.rawAddress.toString(), infcontext.rawAddress.toString(), filename.rawAddress.toString(), section.rawAddress.toString(), filesize.rawAddress.toString(), roundingfactor.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun setupGetSourceFileSizeW(infhandle: ConstPtr<CVoid>, infcontext: ConstPtr<Infcontext>, filename: Pcwstr, section: Pcwstr, filesize: MutPtr<UInt>, roundingfactor: UInt): Bool =
+public actual fun setupGetSourceFileSizeW(infhandle: ConstPtr, infcontext: ConstPtr, filename: Pcwstr, section: Pcwstr, filesize: MutPtr, roundingfactor: UInt): Bool =
     if (windowsWin32DevicesDeviceanddriverinstallationNapiAvailable) wasmWindowssysWindowsWin32DevicesDeviceanddriverinstallationSetupGetSourceFileSizeW(infhandle.rawAddress.toString(), infcontext.rawAddress.toString(), filename.rawAddress.toString(), section.rawAddress.toString(), filesize.rawAddress.toString(), roundingfactor.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun setupGetSourceInfoA(infhandle: ConstPtr<CVoid>, sourceid: UInt, infodesired: UInt, returnbuffer: Pstr, returnbuffersize: UInt, requiredsize: MutPtr<UInt>): Bool =
+public actual fun setupGetSourceInfoA(infhandle: ConstPtr, sourceid: UInt, infodesired: UInt, returnbuffer: Pstr, returnbuffersize: UInt, requiredsize: MutPtr): Bool =
     if (windowsWin32DevicesDeviceanddriverinstallationNapiAvailable) wasmWindowssysWindowsWin32DevicesDeviceanddriverinstallationSetupGetSourceInfoA(infhandle.rawAddress.toString(), sourceid.toInt(), infodesired.toInt(), returnbuffer.rawAddress.toString(), returnbuffersize.toInt(), requiredsize.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun setupGetSourceInfoW(infhandle: ConstPtr<CVoid>, sourceid: UInt, infodesired: UInt, returnbuffer: Pwstr, returnbuffersize: UInt, requiredsize: MutPtr<UInt>): Bool =
+public actual fun setupGetSourceInfoW(infhandle: ConstPtr, sourceid: UInt, infodesired: UInt, returnbuffer: Pwstr, returnbuffersize: UInt, requiredsize: MutPtr): Bool =
     if (windowsWin32DevicesDeviceanddriverinstallationNapiAvailable) wasmWindowssysWindowsWin32DevicesDeviceanddriverinstallationSetupGetSourceInfoW(infhandle.rawAddress.toString(), sourceid.toInt(), infodesired.toInt(), returnbuffer.rawAddress.toString(), returnbuffersize.toInt(), requiredsize.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun setupGetStringFieldA(context: ConstPtr<Infcontext>, fieldindex: UInt, returnbuffer: Pstr, returnbuffersize: UInt, requiredsize: MutPtr<UInt>): Bool =
+public actual fun setupGetStringFieldA(context: ConstPtr, fieldindex: UInt, returnbuffer: Pstr, returnbuffersize: UInt, requiredsize: MutPtr): Bool =
     if (windowsWin32DevicesDeviceanddriverinstallationNapiAvailable) wasmWindowssysWindowsWin32DevicesDeviceanddriverinstallationSetupGetStringFieldA(context.rawAddress.toString(), fieldindex.toInt(), returnbuffer.rawAddress.toString(), returnbuffersize.toInt(), requiredsize.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun setupGetStringFieldW(context: ConstPtr<Infcontext>, fieldindex: UInt, returnbuffer: Pwstr, returnbuffersize: UInt, requiredsize: MutPtr<UInt>): Bool =
+public actual fun setupGetStringFieldW(context: ConstPtr, fieldindex: UInt, returnbuffer: Pwstr, returnbuffersize: UInt, requiredsize: MutPtr): Bool =
     if (windowsWin32DevicesDeviceanddriverinstallationNapiAvailable) wasmWindowssysWindowsWin32DevicesDeviceanddriverinstallationSetupGetStringFieldW(context.rawAddress.toString(), fieldindex.toInt(), returnbuffer.rawAddress.toString(), returnbuffersize.toInt(), requiredsize.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun setupGetTargetPathA(infhandle: ConstPtr<CVoid>, infcontext: ConstPtr<Infcontext>, section: Pcstr, returnbuffer: Pstr, returnbuffersize: UInt, requiredsize: MutPtr<UInt>): Bool =
+public actual fun setupGetTargetPathA(infhandle: ConstPtr, infcontext: ConstPtr, section: Pcstr, returnbuffer: Pstr, returnbuffersize: UInt, requiredsize: MutPtr): Bool =
     if (windowsWin32DevicesDeviceanddriverinstallationNapiAvailable) wasmWindowssysWindowsWin32DevicesDeviceanddriverinstallationSetupGetTargetPathA(infhandle.rawAddress.toString(), infcontext.rawAddress.toString(), section.rawAddress.toString(), returnbuffer.rawAddress.toString(), returnbuffersize.toInt(), requiredsize.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun setupGetTargetPathW(infhandle: ConstPtr<CVoid>, infcontext: ConstPtr<Infcontext>, section: Pcwstr, returnbuffer: Pwstr, returnbuffersize: UInt, requiredsize: MutPtr<UInt>): Bool =
+public actual fun setupGetTargetPathW(infhandle: ConstPtr, infcontext: ConstPtr, section: Pcwstr, returnbuffer: Pwstr, returnbuffersize: UInt, requiredsize: MutPtr): Bool =
     if (windowsWin32DevicesDeviceanddriverinstallationNapiAvailable) wasmWindowssysWindowsWin32DevicesDeviceanddriverinstallationSetupGetTargetPathW(infhandle.rawAddress.toString(), infcontext.rawAddress.toString(), section.rawAddress.toString(), returnbuffer.rawAddress.toString(), returnbuffersize.toInt(), requiredsize.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun setupGetThreadLogToken(): ULong =
     if (windowsWin32DevicesDeviceanddriverinstallationNapiAvailable) wasmWindowssysWindowsWin32DevicesDeviceanddriverinstallationSetupGetThreadLogToken().toULong() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun setupInitDefaultQueueCallback(ownerwindow: Hwnd): MutPtr<CVoid> =
+public actual fun setupInitDefaultQueueCallback(ownerwindow: Hwnd): MutPtr =
     if (windowsWin32DevicesDeviceanddriverinstallationNapiAvailable) MutPtr(wasmWindowssysWindowsWin32DevicesDeviceanddriverinstallationSetupInitDefaultQueueCallback(ownerwindow.rawAddress.toString()).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun setupInitDefaultQueueCallbackEx(ownerwindow: Hwnd, alternateprogresswindow: Hwnd, progressmessage: UInt, reserved1: UInt, reserved2: ConstPtr<CVoid>): MutPtr<CVoid> =
+public actual fun setupInitDefaultQueueCallbackEx(ownerwindow: Hwnd, alternateprogresswindow: Hwnd, progressmessage: UInt, reserved1: UInt, reserved2: ConstPtr): MutPtr =
     if (windowsWin32DevicesDeviceanddriverinstallationNapiAvailable) MutPtr(wasmWindowssysWindowsWin32DevicesDeviceanddriverinstallationSetupInitDefaultQueueCallbackEx(ownerwindow.rawAddress.toString(), alternateprogresswindow.rawAddress.toString(), progressmessage.toInt(), reserved1.toInt(), reserved2.rawAddress.toString()).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun setupInitializeFileLogA(logfilename: Pcstr, flags: UInt): MutPtr<CVoid> =
+public actual fun setupInitializeFileLogA(logfilename: Pcstr, flags: UInt): MutPtr =
     if (windowsWin32DevicesDeviceanddriverinstallationNapiAvailable) MutPtr(wasmWindowssysWindowsWin32DevicesDeviceanddriverinstallationSetupInitializeFileLogA(logfilename.rawAddress.toString(), flags.toInt()).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun setupInitializeFileLogW(logfilename: Pcwstr, flags: UInt): MutPtr<CVoid> =
+public actual fun setupInitializeFileLogW(logfilename: Pcwstr, flags: UInt): MutPtr =
     if (windowsWin32DevicesDeviceanddriverinstallationNapiAvailable) MutPtr(wasmWindowssysWindowsWin32DevicesDeviceanddriverinstallationSetupInitializeFileLogW(logfilename.rawAddress.toString(), flags.toInt()).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun setupInstallFileA(infhandle: ConstPtr<CVoid>, infcontext: ConstPtr<Infcontext>, sourcefile: Pcstr, sourcepathroot: Pcstr, destinationname: Pcstr, copystyle: SpCopyStyle, copymsghandler: PspFileCallbackA, context: ConstPtr<CVoid>): Bool =
+public actual fun setupInstallFileA(infhandle: ConstPtr, infcontext: ConstPtr, sourcefile: Pcstr, sourcepathroot: Pcstr, destinationname: Pcstr, copystyle: SpCopyStyle, copymsghandler: PspFileCallbackA, context: ConstPtr): Bool =
     if (windowsWin32DevicesDeviceanddriverinstallationNapiAvailable) wasmWindowssysWindowsWin32DevicesDeviceanddriverinstallationSetupInstallFileA(infhandle.rawAddress.toString(), infcontext.rawAddress.toString(), sourcefile.rawAddress.toString(), sourcepathroot.rawAddress.toString(), destinationname.rawAddress.toString(), copystyle.toInt(), 0L.toString(), context.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun setupInstallFileExA(infhandle: ConstPtr<CVoid>, infcontext: ConstPtr<Infcontext>, sourcefile: Pcstr, sourcepathroot: Pcstr, destinationname: Pcstr, copystyle: SpCopyStyle, copymsghandler: PspFileCallbackA, context: ConstPtr<CVoid>, filewasinuse: MutPtr<Bool>): Bool =
+public actual fun setupInstallFileExA(infhandle: ConstPtr, infcontext: ConstPtr, sourcefile: Pcstr, sourcepathroot: Pcstr, destinationname: Pcstr, copystyle: SpCopyStyle, copymsghandler: PspFileCallbackA, context: ConstPtr, filewasinuse: MutPtr): Bool =
     if (windowsWin32DevicesDeviceanddriverinstallationNapiAvailable) wasmWindowssysWindowsWin32DevicesDeviceanddriverinstallationSetupInstallFileExA(infhandle.rawAddress.toString(), infcontext.rawAddress.toString(), sourcefile.rawAddress.toString(), sourcepathroot.rawAddress.toString(), destinationname.rawAddress.toString(), copystyle.toInt(), 0L.toString(), context.rawAddress.toString(), filewasinuse.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun setupInstallFileExW(infhandle: ConstPtr<CVoid>, infcontext: ConstPtr<Infcontext>, sourcefile: Pcwstr, sourcepathroot: Pcwstr, destinationname: Pcwstr, copystyle: SpCopyStyle, copymsghandler: PspFileCallbackW, context: ConstPtr<CVoid>, filewasinuse: MutPtr<Bool>): Bool =
+public actual fun setupInstallFileExW(infhandle: ConstPtr, infcontext: ConstPtr, sourcefile: Pcwstr, sourcepathroot: Pcwstr, destinationname: Pcwstr, copystyle: SpCopyStyle, copymsghandler: PspFileCallbackW, context: ConstPtr, filewasinuse: MutPtr): Bool =
     if (windowsWin32DevicesDeviceanddriverinstallationNapiAvailable) wasmWindowssysWindowsWin32DevicesDeviceanddriverinstallationSetupInstallFileExW(infhandle.rawAddress.toString(), infcontext.rawAddress.toString(), sourcefile.rawAddress.toString(), sourcepathroot.rawAddress.toString(), destinationname.rawAddress.toString(), copystyle.toInt(), 0L.toString(), context.rawAddress.toString(), filewasinuse.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun setupInstallFileW(infhandle: ConstPtr<CVoid>, infcontext: ConstPtr<Infcontext>, sourcefile: Pcwstr, sourcepathroot: Pcwstr, destinationname: Pcwstr, copystyle: SpCopyStyle, copymsghandler: PspFileCallbackW, context: ConstPtr<CVoid>): Bool =
+public actual fun setupInstallFileW(infhandle: ConstPtr, infcontext: ConstPtr, sourcefile: Pcwstr, sourcepathroot: Pcwstr, destinationname: Pcwstr, copystyle: SpCopyStyle, copymsghandler: PspFileCallbackW, context: ConstPtr): Bool =
     if (windowsWin32DevicesDeviceanddriverinstallationNapiAvailable) wasmWindowssysWindowsWin32DevicesDeviceanddriverinstallationSetupInstallFileW(infhandle.rawAddress.toString(), infcontext.rawAddress.toString(), sourcefile.rawAddress.toString(), sourcepathroot.rawAddress.toString(), destinationname.rawAddress.toString(), copystyle.toInt(), 0L.toString(), context.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun setupInstallFilesFromInfSectionA(infhandle: ConstPtr<CVoid>, layoutinfhandle: ConstPtr<CVoid>, filequeue: ConstPtr<CVoid>, sectionname: Pcstr, sourcerootpath: Pcstr, copyflags: UInt): Bool =
+public actual fun setupInstallFilesFromInfSectionA(infhandle: ConstPtr, layoutinfhandle: ConstPtr, filequeue: ConstPtr, sectionname: Pcstr, sourcerootpath: Pcstr, copyflags: UInt): Bool =
     if (windowsWin32DevicesDeviceanddriverinstallationNapiAvailable) wasmWindowssysWindowsWin32DevicesDeviceanddriverinstallationSetupInstallFilesFromInfSectionA(infhandle.rawAddress.toString(), layoutinfhandle.rawAddress.toString(), filequeue.rawAddress.toString(), sectionname.rawAddress.toString(), sourcerootpath.rawAddress.toString(), copyflags.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun setupInstallFilesFromInfSectionW(infhandle: ConstPtr<CVoid>, layoutinfhandle: ConstPtr<CVoid>, filequeue: ConstPtr<CVoid>, sectionname: Pcwstr, sourcerootpath: Pcwstr, copyflags: UInt): Bool =
+public actual fun setupInstallFilesFromInfSectionW(infhandle: ConstPtr, layoutinfhandle: ConstPtr, filequeue: ConstPtr, sectionname: Pcwstr, sourcerootpath: Pcwstr, copyflags: UInt): Bool =
     if (windowsWin32DevicesDeviceanddriverinstallationNapiAvailable) wasmWindowssysWindowsWin32DevicesDeviceanddriverinstallationSetupInstallFilesFromInfSectionW(infhandle.rawAddress.toString(), layoutinfhandle.rawAddress.toString(), filequeue.rawAddress.toString(), sectionname.rawAddress.toString(), sourcerootpath.rawAddress.toString(), copyflags.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun setupInstallFromInfSectionA(owner: Hwnd, infhandle: ConstPtr<CVoid>, sectionname: Pcstr, flags: UInt, relativekeyroot: Hkey, sourcerootpath: Pcstr, copyflags: UInt, msghandler: PspFileCallbackA, context: ConstPtr<CVoid>, deviceinfoset: Hdevinfo, deviceinfodata: ConstPtr<SpDevinfoData>): Bool =
+public actual fun setupInstallFromInfSectionA(owner: Hwnd, infhandle: ConstPtr, sectionname: Pcstr, flags: UInt, relativekeyroot: Hkey, sourcerootpath: Pcstr, copyflags: UInt, msghandler: PspFileCallbackA, context: ConstPtr, deviceinfoset: Hdevinfo, deviceinfodata: ConstPtr): Bool =
     if (windowsWin32DevicesDeviceanddriverinstallationNapiAvailable) wasmWindowssysWindowsWin32DevicesDeviceanddriverinstallationSetupInstallFromInfSectionA(owner.rawAddress.toString(), infhandle.rawAddress.toString(), sectionname.rawAddress.toString(), flags.toInt(), relativekeyroot.rawAddress.toString(), sourcerootpath.rawAddress.toString(), copyflags.toInt(), 0L.toString(), context.rawAddress.toString(), deviceinfoset.toString(), deviceinfodata.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun setupInstallFromInfSectionW(owner: Hwnd, infhandle: ConstPtr<CVoid>, sectionname: Pcwstr, flags: UInt, relativekeyroot: Hkey, sourcerootpath: Pcwstr, copyflags: UInt, msghandler: PspFileCallbackW, context: ConstPtr<CVoid>, deviceinfoset: Hdevinfo, deviceinfodata: ConstPtr<SpDevinfoData>): Bool =
+public actual fun setupInstallFromInfSectionW(owner: Hwnd, infhandle: ConstPtr, sectionname: Pcwstr, flags: UInt, relativekeyroot: Hkey, sourcerootpath: Pcwstr, copyflags: UInt, msghandler: PspFileCallbackW, context: ConstPtr, deviceinfoset: Hdevinfo, deviceinfodata: ConstPtr): Bool =
     if (windowsWin32DevicesDeviceanddriverinstallationNapiAvailable) wasmWindowssysWindowsWin32DevicesDeviceanddriverinstallationSetupInstallFromInfSectionW(owner.rawAddress.toString(), infhandle.rawAddress.toString(), sectionname.rawAddress.toString(), flags.toInt(), relativekeyroot.rawAddress.toString(), sourcerootpath.rawAddress.toString(), copyflags.toInt(), 0L.toString(), context.rawAddress.toString(), deviceinfoset.toString(), deviceinfodata.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun setupInstallServicesFromInfSectionA(infhandle: ConstPtr<CVoid>, sectionname: Pcstr, flags: SpsvcinstFlags): Bool =
+public actual fun setupInstallServicesFromInfSectionA(infhandle: ConstPtr, sectionname: Pcstr, flags: SpsvcinstFlags): Bool =
     if (windowsWin32DevicesDeviceanddriverinstallationNapiAvailable) wasmWindowssysWindowsWin32DevicesDeviceanddriverinstallationSetupInstallServicesFromInfSectionA(infhandle.rawAddress.toString(), sectionname.rawAddress.toString(), flags.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun setupInstallServicesFromInfSectionExA(infhandle: ConstPtr<CVoid>, sectionname: Pcstr, flags: SpsvcinstFlags, deviceinfoset: Hdevinfo, deviceinfodata: ConstPtr<SpDevinfoData>, reserved1: ConstPtr<CVoid>, reserved2: ConstPtr<CVoid>): Bool =
+public actual fun setupInstallServicesFromInfSectionExA(infhandle: ConstPtr, sectionname: Pcstr, flags: SpsvcinstFlags, deviceinfoset: Hdevinfo, deviceinfodata: ConstPtr, reserved1: ConstPtr, reserved2: ConstPtr): Bool =
     if (windowsWin32DevicesDeviceanddriverinstallationNapiAvailable) wasmWindowssysWindowsWin32DevicesDeviceanddriverinstallationSetupInstallServicesFromInfSectionExA(infhandle.rawAddress.toString(), sectionname.rawAddress.toString(), flags.toInt(), deviceinfoset.toString(), deviceinfodata.rawAddress.toString(), reserved1.rawAddress.toString(), reserved2.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun setupInstallServicesFromInfSectionExW(infhandle: ConstPtr<CVoid>, sectionname: Pcwstr, flags: SpsvcinstFlags, deviceinfoset: Hdevinfo, deviceinfodata: ConstPtr<SpDevinfoData>, reserved1: ConstPtr<CVoid>, reserved2: ConstPtr<CVoid>): Bool =
+public actual fun setupInstallServicesFromInfSectionExW(infhandle: ConstPtr, sectionname: Pcwstr, flags: SpsvcinstFlags, deviceinfoset: Hdevinfo, deviceinfodata: ConstPtr, reserved1: ConstPtr, reserved2: ConstPtr): Bool =
     if (windowsWin32DevicesDeviceanddriverinstallationNapiAvailable) wasmWindowssysWindowsWin32DevicesDeviceanddriverinstallationSetupInstallServicesFromInfSectionExW(infhandle.rawAddress.toString(), sectionname.rawAddress.toString(), flags.toInt(), deviceinfoset.toString(), deviceinfodata.rawAddress.toString(), reserved1.rawAddress.toString(), reserved2.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun setupInstallServicesFromInfSectionW(infhandle: ConstPtr<CVoid>, sectionname: Pcwstr, flags: SpsvcinstFlags): Bool =
+public actual fun setupInstallServicesFromInfSectionW(infhandle: ConstPtr, sectionname: Pcwstr, flags: SpsvcinstFlags): Bool =
     if (windowsWin32DevicesDeviceanddriverinstallationNapiAvailable) wasmWindowssysWindowsWin32DevicesDeviceanddriverinstallationSetupInstallServicesFromInfSectionW(infhandle.rawAddress.toString(), sectionname.rawAddress.toString(), flags.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun setupIterateCabinetA(cabinetfile: Pcstr, reserved: UInt, msghandler: PspFileCallbackA, context: ConstPtr<CVoid>): Bool =
+public actual fun setupIterateCabinetA(cabinetfile: Pcstr, reserved: UInt, msghandler: PspFileCallbackA, context: ConstPtr): Bool =
     if (windowsWin32DevicesDeviceanddriverinstallationNapiAvailable) wasmWindowssysWindowsWin32DevicesDeviceanddriverinstallationSetupIterateCabinetA(cabinetfile.rawAddress.toString(), reserved.toInt(), 0L.toString(), context.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun setupIterateCabinetW(cabinetfile: Pcwstr, reserved: UInt, msghandler: PspFileCallbackW, context: ConstPtr<CVoid>): Bool =
+public actual fun setupIterateCabinetW(cabinetfile: Pcwstr, reserved: UInt, msghandler: PspFileCallbackW, context: ConstPtr): Bool =
     if (windowsWin32DevicesDeviceanddriverinstallationNapiAvailable) wasmWindowssysWindowsWin32DevicesDeviceanddriverinstallationSetupIterateCabinetW(cabinetfile.rawAddress.toString(), reserved.toInt(), 0L.toString(), context.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun setupLogErrorA(messagestring: Pcstr, severity: UInt): Bool =
@@ -3247,148 +3241,148 @@ public actual fun setupLogErrorA(messagestring: Pcstr, severity: UInt): Bool =
 public actual fun setupLogErrorW(messagestring: Pcwstr, severity: UInt): Bool =
     if (windowsWin32DevicesDeviceanddriverinstallationNapiAvailable) wasmWindowssysWindowsWin32DevicesDeviceanddriverinstallationSetupLogErrorW(messagestring.rawAddress.toString(), severity.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun setupLogFileA(fileloghandle: ConstPtr<CVoid>, logsectionname: Pcstr, sourcefilename: Pcstr, targetfilename: Pcstr, checksum: UInt, disktagfile: Pcstr, diskdescription: Pcstr, otherinfo: Pcstr, flags: UInt): Bool =
+public actual fun setupLogFileA(fileloghandle: ConstPtr, logsectionname: Pcstr, sourcefilename: Pcstr, targetfilename: Pcstr, checksum: UInt, disktagfile: Pcstr, diskdescription: Pcstr, otherinfo: Pcstr, flags: UInt): Bool =
     if (windowsWin32DevicesDeviceanddriverinstallationNapiAvailable) wasmWindowssysWindowsWin32DevicesDeviceanddriverinstallationSetupLogFileA(fileloghandle.rawAddress.toString(), logsectionname.rawAddress.toString(), sourcefilename.rawAddress.toString(), targetfilename.rawAddress.toString(), checksum.toInt(), disktagfile.rawAddress.toString(), diskdescription.rawAddress.toString(), otherinfo.rawAddress.toString(), flags.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun setupLogFileW(fileloghandle: ConstPtr<CVoid>, logsectionname: Pcwstr, sourcefilename: Pcwstr, targetfilename: Pcwstr, checksum: UInt, disktagfile: Pcwstr, diskdescription: Pcwstr, otherinfo: Pcwstr, flags: UInt): Bool =
+public actual fun setupLogFileW(fileloghandle: ConstPtr, logsectionname: Pcwstr, sourcefilename: Pcwstr, targetfilename: Pcwstr, checksum: UInt, disktagfile: Pcwstr, diskdescription: Pcwstr, otherinfo: Pcwstr, flags: UInt): Bool =
     if (windowsWin32DevicesDeviceanddriverinstallationNapiAvailable) wasmWindowssysWindowsWin32DevicesDeviceanddriverinstallationSetupLogFileW(fileloghandle.rawAddress.toString(), logsectionname.rawAddress.toString(), sourcefilename.rawAddress.toString(), targetfilename.rawAddress.toString(), checksum.toInt(), disktagfile.rawAddress.toString(), diskdescription.rawAddress.toString(), otherinfo.rawAddress.toString(), flags.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun setupOpenAppendInfFileA(filename: Pcstr, infhandle: ConstPtr<CVoid>, errorline: MutPtr<UInt>): Bool =
+public actual fun setupOpenAppendInfFileA(filename: Pcstr, infhandle: ConstPtr, errorline: MutPtr): Bool =
     if (windowsWin32DevicesDeviceanddriverinstallationNapiAvailable) wasmWindowssysWindowsWin32DevicesDeviceanddriverinstallationSetupOpenAppendInfFileA(filename.rawAddress.toString(), infhandle.rawAddress.toString(), errorline.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun setupOpenAppendInfFileW(filename: Pcwstr, infhandle: ConstPtr<CVoid>, errorline: MutPtr<UInt>): Bool =
+public actual fun setupOpenAppendInfFileW(filename: Pcwstr, infhandle: ConstPtr, errorline: MutPtr): Bool =
     if (windowsWin32DevicesDeviceanddriverinstallationNapiAvailable) wasmWindowssysWindowsWin32DevicesDeviceanddriverinstallationSetupOpenAppendInfFileW(filename.rawAddress.toString(), infhandle.rawAddress.toString(), errorline.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun setupOpenFileQueue(): MutPtr<CVoid> =
+public actual fun setupOpenFileQueue(): MutPtr =
     if (windowsWin32DevicesDeviceanddriverinstallationNapiAvailable) MutPtr(wasmWindowssysWindowsWin32DevicesDeviceanddriverinstallationSetupOpenFileQueue().toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun setupOpenInfFileA(filename: Pcstr, infclass: Pcstr, infstyle: InfStyle, errorline: MutPtr<UInt>): MutPtr<CVoid> =
+public actual fun setupOpenInfFileA(filename: Pcstr, infclass: Pcstr, infstyle: InfStyle, errorline: MutPtr): MutPtr =
     if (windowsWin32DevicesDeviceanddriverinstallationNapiAvailable) MutPtr(wasmWindowssysWindowsWin32DevicesDeviceanddriverinstallationSetupOpenInfFileA(filename.rawAddress.toString(), infclass.rawAddress.toString(), infstyle.toInt(), errorline.rawAddress.toString()).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun setupOpenInfFileW(filename: Pcwstr, infclass: Pcwstr, infstyle: InfStyle, errorline: MutPtr<UInt>): MutPtr<CVoid> =
+public actual fun setupOpenInfFileW(filename: Pcwstr, infclass: Pcwstr, infstyle: InfStyle, errorline: MutPtr): MutPtr =
     if (windowsWin32DevicesDeviceanddriverinstallationNapiAvailable) MutPtr(wasmWindowssysWindowsWin32DevicesDeviceanddriverinstallationSetupOpenInfFileW(filename.rawAddress.toString(), infclass.rawAddress.toString(), infstyle.toInt(), errorline.rawAddress.toString()).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun setupOpenLog(erase: Bool): Bool =
     if (windowsWin32DevicesDeviceanddriverinstallationNapiAvailable) wasmWindowssysWindowsWin32DevicesDeviceanddriverinstallationSetupOpenLog(erase) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun setupOpenMasterInf(): MutPtr<CVoid> =
+public actual fun setupOpenMasterInf(): MutPtr =
     if (windowsWin32DevicesDeviceanddriverinstallationNapiAvailable) MutPtr(wasmWindowssysWindowsWin32DevicesDeviceanddriverinstallationSetupOpenMasterInf().toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun setupPrepareQueueForRestoreA(queuehandle: ConstPtr<CVoid>, backuppath: Pcstr, restoreflags: UInt): Bool =
+public actual fun setupPrepareQueueForRestoreA(queuehandle: ConstPtr, backuppath: Pcstr, restoreflags: UInt): Bool =
     if (windowsWin32DevicesDeviceanddriverinstallationNapiAvailable) wasmWindowssysWindowsWin32DevicesDeviceanddriverinstallationSetupPrepareQueueForRestoreA(queuehandle.rawAddress.toString(), backuppath.rawAddress.toString(), restoreflags.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun setupPrepareQueueForRestoreW(queuehandle: ConstPtr<CVoid>, backuppath: Pcwstr, restoreflags: UInt): Bool =
+public actual fun setupPrepareQueueForRestoreW(queuehandle: ConstPtr, backuppath: Pcwstr, restoreflags: UInt): Bool =
     if (windowsWin32DevicesDeviceanddriverinstallationNapiAvailable) wasmWindowssysWindowsWin32DevicesDeviceanddriverinstallationSetupPrepareQueueForRestoreW(queuehandle.rawAddress.toString(), backuppath.rawAddress.toString(), restoreflags.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun setupPromptForDiskA(hwndparent: Hwnd, dialogtitle: Pcstr, diskname: Pcstr, pathtosource: Pcstr, filesought: Pcstr, tagfile: Pcstr, diskpromptstyle: UInt, pathbuffer: Pstr, pathbuffersize: UInt, pathrequiredsize: MutPtr<UInt>): UInt =
+public actual fun setupPromptForDiskA(hwndparent: Hwnd, dialogtitle: Pcstr, diskname: Pcstr, pathtosource: Pcstr, filesought: Pcstr, tagfile: Pcstr, diskpromptstyle: UInt, pathbuffer: Pstr, pathbuffersize: UInt, pathrequiredsize: MutPtr): UInt =
     if (windowsWin32DevicesDeviceanddriverinstallationNapiAvailable) wasmWindowssysWindowsWin32DevicesDeviceanddriverinstallationSetupPromptForDiskA(hwndparent.rawAddress.toString(), dialogtitle.rawAddress.toString(), diskname.rawAddress.toString(), pathtosource.rawAddress.toString(), filesought.rawAddress.toString(), tagfile.rawAddress.toString(), diskpromptstyle.toInt(), pathbuffer.rawAddress.toString(), pathbuffersize.toInt(), pathrequiredsize.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun setupPromptForDiskW(hwndparent: Hwnd, dialogtitle: Pcwstr, diskname: Pcwstr, pathtosource: Pcwstr, filesought: Pcwstr, tagfile: Pcwstr, diskpromptstyle: UInt, pathbuffer: Pwstr, pathbuffersize: UInt, pathrequiredsize: MutPtr<UInt>): UInt =
+public actual fun setupPromptForDiskW(hwndparent: Hwnd, dialogtitle: Pcwstr, diskname: Pcwstr, pathtosource: Pcwstr, filesought: Pcwstr, tagfile: Pcwstr, diskpromptstyle: UInt, pathbuffer: Pwstr, pathbuffersize: UInt, pathrequiredsize: MutPtr): UInt =
     if (windowsWin32DevicesDeviceanddriverinstallationNapiAvailable) wasmWindowssysWindowsWin32DevicesDeviceanddriverinstallationSetupPromptForDiskW(hwndparent.rawAddress.toString(), dialogtitle.rawAddress.toString(), diskname.rawAddress.toString(), pathtosource.rawAddress.toString(), filesought.rawAddress.toString(), tagfile.rawAddress.toString(), diskpromptstyle.toInt(), pathbuffer.rawAddress.toString(), pathbuffersize.toInt(), pathrequiredsize.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun setupPromptReboot(filequeue: ConstPtr<CVoid>, owner: Hwnd, scanonly: Bool): Int =
+public actual fun setupPromptReboot(filequeue: ConstPtr, owner: Hwnd, scanonly: Bool): Int =
     if (windowsWin32DevicesDeviceanddriverinstallationNapiAvailable) wasmWindowssysWindowsWin32DevicesDeviceanddriverinstallationSetupPromptReboot(filequeue.rawAddress.toString(), owner.rawAddress.toString(), scanonly) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun setupQueryDrivesInDiskSpaceListA(diskspace: ConstPtr<CVoid>, returnbuffer: Pstr, returnbuffersize: UInt, requiredsize: MutPtr<UInt>): Bool =
+public actual fun setupQueryDrivesInDiskSpaceListA(diskspace: ConstPtr, returnbuffer: Pstr, returnbuffersize: UInt, requiredsize: MutPtr): Bool =
     if (windowsWin32DevicesDeviceanddriverinstallationNapiAvailable) wasmWindowssysWindowsWin32DevicesDeviceanddriverinstallationSetupQueryDrivesInDiskSpaceListA(diskspace.rawAddress.toString(), returnbuffer.rawAddress.toString(), returnbuffersize.toInt(), requiredsize.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun setupQueryDrivesInDiskSpaceListW(diskspace: ConstPtr<CVoid>, returnbuffer: Pwstr, returnbuffersize: UInt, requiredsize: MutPtr<UInt>): Bool =
+public actual fun setupQueryDrivesInDiskSpaceListW(diskspace: ConstPtr, returnbuffer: Pwstr, returnbuffersize: UInt, requiredsize: MutPtr): Bool =
     if (windowsWin32DevicesDeviceanddriverinstallationNapiAvailable) wasmWindowssysWindowsWin32DevicesDeviceanddriverinstallationSetupQueryDrivesInDiskSpaceListW(diskspace.rawAddress.toString(), returnbuffer.rawAddress.toString(), returnbuffersize.toInt(), requiredsize.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun setupQueryFileLogA(fileloghandle: ConstPtr<CVoid>, logsectionname: Pcstr, targetfilename: Pcstr, desiredinfo: SetupFileLogInfo, dataout: Pstr, returnbuffersize: UInt, requiredsize: MutPtr<UInt>): Bool =
+public actual fun setupQueryFileLogA(fileloghandle: ConstPtr, logsectionname: Pcstr, targetfilename: Pcstr, desiredinfo: SetupFileLogInfo, dataout: Pstr, returnbuffersize: UInt, requiredsize: MutPtr): Bool =
     if (windowsWin32DevicesDeviceanddriverinstallationNapiAvailable) wasmWindowssysWindowsWin32DevicesDeviceanddriverinstallationSetupQueryFileLogA(fileloghandle.rawAddress.toString(), logsectionname.rawAddress.toString(), targetfilename.rawAddress.toString(), desiredinfo, dataout.rawAddress.toString(), returnbuffersize.toInt(), requiredsize.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun setupQueryFileLogW(fileloghandle: ConstPtr<CVoid>, logsectionname: Pcwstr, targetfilename: Pcwstr, desiredinfo: SetupFileLogInfo, dataout: Pwstr, returnbuffersize: UInt, requiredsize: MutPtr<UInt>): Bool =
+public actual fun setupQueryFileLogW(fileloghandle: ConstPtr, logsectionname: Pcwstr, targetfilename: Pcwstr, desiredinfo: SetupFileLogInfo, dataout: Pwstr, returnbuffersize: UInt, requiredsize: MutPtr): Bool =
     if (windowsWin32DevicesDeviceanddriverinstallationNapiAvailable) wasmWindowssysWindowsWin32DevicesDeviceanddriverinstallationSetupQueryFileLogW(fileloghandle.rawAddress.toString(), logsectionname.rawAddress.toString(), targetfilename.rawAddress.toString(), desiredinfo, dataout.rawAddress.toString(), returnbuffersize.toInt(), requiredsize.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun setupQueryInfFileInformationA(infinformation: ConstPtr<SpInfInformation>, infindex: UInt, returnbuffer: Pstr, returnbuffersize: UInt, requiredsize: MutPtr<UInt>): Bool =
+public actual fun setupQueryInfFileInformationA(infinformation: ConstPtr, infindex: UInt, returnbuffer: Pstr, returnbuffersize: UInt, requiredsize: MutPtr): Bool =
     if (windowsWin32DevicesDeviceanddriverinstallationNapiAvailable) wasmWindowssysWindowsWin32DevicesDeviceanddriverinstallationSetupQueryInfFileInformationA(infinformation.rawAddress.toString(), infindex.toInt(), returnbuffer.rawAddress.toString(), returnbuffersize.toInt(), requiredsize.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun setupQueryInfFileInformationW(infinformation: ConstPtr<SpInfInformation>, infindex: UInt, returnbuffer: Pwstr, returnbuffersize: UInt, requiredsize: MutPtr<UInt>): Bool =
+public actual fun setupQueryInfFileInformationW(infinformation: ConstPtr, infindex: UInt, returnbuffer: Pwstr, returnbuffersize: UInt, requiredsize: MutPtr): Bool =
     if (windowsWin32DevicesDeviceanddriverinstallationNapiAvailable) wasmWindowssysWindowsWin32DevicesDeviceanddriverinstallationSetupQueryInfFileInformationW(infinformation.rawAddress.toString(), infindex.toInt(), returnbuffer.rawAddress.toString(), returnbuffersize.toInt(), requiredsize.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun setupQueryInfOriginalFileInformationA(infinformation: ConstPtr<SpInfInformation>, infindex: UInt, alternateplatforminfo: ConstPtr<SpAltplatformInfoV2>, originalfileinfo: MutPtr<SpOriginalFileInfoA>): Bool =
+public actual fun setupQueryInfOriginalFileInformationA(infinformation: ConstPtr, infindex: UInt, alternateplatforminfo: ConstPtr, originalfileinfo: MutPtr): Bool =
     if (windowsWin32DevicesDeviceanddriverinstallationNapiAvailable) wasmWindowssysWindowsWin32DevicesDeviceanddriverinstallationSetupQueryInfOriginalFileInformationA(infinformation.rawAddress.toString(), infindex.toInt(), alternateplatforminfo.rawAddress.toString(), originalfileinfo.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun setupQueryInfOriginalFileInformationW(infinformation: ConstPtr<SpInfInformation>, infindex: UInt, alternateplatforminfo: ConstPtr<SpAltplatformInfoV2>, originalfileinfo: MutPtr<SpOriginalFileInfoW>): Bool =
+public actual fun setupQueryInfOriginalFileInformationW(infinformation: ConstPtr, infindex: UInt, alternateplatforminfo: ConstPtr, originalfileinfo: MutPtr): Bool =
     if (windowsWin32DevicesDeviceanddriverinstallationNapiAvailable) wasmWindowssysWindowsWin32DevicesDeviceanddriverinstallationSetupQueryInfOriginalFileInformationW(infinformation.rawAddress.toString(), infindex.toInt(), alternateplatforminfo.rawAddress.toString(), originalfileinfo.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun setupQueryInfVersionInformationA(infinformation: ConstPtr<SpInfInformation>, infindex: UInt, key: Pcstr, returnbuffer: Pstr, returnbuffersize: UInt, requiredsize: MutPtr<UInt>): Bool =
+public actual fun setupQueryInfVersionInformationA(infinformation: ConstPtr, infindex: UInt, key: Pcstr, returnbuffer: Pstr, returnbuffersize: UInt, requiredsize: MutPtr): Bool =
     if (windowsWin32DevicesDeviceanddriverinstallationNapiAvailable) wasmWindowssysWindowsWin32DevicesDeviceanddriverinstallationSetupQueryInfVersionInformationA(infinformation.rawAddress.toString(), infindex.toInt(), key.rawAddress.toString(), returnbuffer.rawAddress.toString(), returnbuffersize.toInt(), requiredsize.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun setupQueryInfVersionInformationW(infinformation: ConstPtr<SpInfInformation>, infindex: UInt, key: Pcwstr, returnbuffer: Pwstr, returnbuffersize: UInt, requiredsize: MutPtr<UInt>): Bool =
+public actual fun setupQueryInfVersionInformationW(infinformation: ConstPtr, infindex: UInt, key: Pcwstr, returnbuffer: Pwstr, returnbuffersize: UInt, requiredsize: MutPtr): Bool =
     if (windowsWin32DevicesDeviceanddriverinstallationNapiAvailable) wasmWindowssysWindowsWin32DevicesDeviceanddriverinstallationSetupQueryInfVersionInformationW(infinformation.rawAddress.toString(), infindex.toInt(), key.rawAddress.toString(), returnbuffer.rawAddress.toString(), returnbuffersize.toInt(), requiredsize.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun setupQuerySourceListA(flags: UInt, list: MutPtr<MutPtr<Pcstr>>, count: MutPtr<UInt>): Bool =
+public actual fun setupQuerySourceListA(flags: UInt, list: MutPtr, count: MutPtr): Bool =
     if (windowsWin32DevicesDeviceanddriverinstallationNapiAvailable) wasmWindowssysWindowsWin32DevicesDeviceanddriverinstallationSetupQuerySourceListA(flags.toInt(), list.rawAddress.toString(), count.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun setupQuerySourceListW(flags: UInt, list: MutPtr<MutPtr<Pcwstr>>, count: MutPtr<UInt>): Bool =
+public actual fun setupQuerySourceListW(flags: UInt, list: MutPtr, count: MutPtr): Bool =
     if (windowsWin32DevicesDeviceanddriverinstallationNapiAvailable) wasmWindowssysWindowsWin32DevicesDeviceanddriverinstallationSetupQuerySourceListW(flags.toInt(), list.rawAddress.toString(), count.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun setupQuerySpaceRequiredOnDriveA(diskspace: ConstPtr<CVoid>, drivespec: Pcstr, spacerequired: MutPtr<Long>, reserved1: ConstPtr<CVoid>, reserved2: UInt): Bool =
+public actual fun setupQuerySpaceRequiredOnDriveA(diskspace: ConstPtr, drivespec: Pcstr, spacerequired: MutPtr, reserved1: ConstPtr, reserved2: UInt): Bool =
     if (windowsWin32DevicesDeviceanddriverinstallationNapiAvailable) wasmWindowssysWindowsWin32DevicesDeviceanddriverinstallationSetupQuerySpaceRequiredOnDriveA(diskspace.rawAddress.toString(), drivespec.rawAddress.toString(), spacerequired.rawAddress.toString(), reserved1.rawAddress.toString(), reserved2.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun setupQuerySpaceRequiredOnDriveW(diskspace: ConstPtr<CVoid>, drivespec: Pcwstr, spacerequired: MutPtr<Long>, reserved1: ConstPtr<CVoid>, reserved2: UInt): Bool =
+public actual fun setupQuerySpaceRequiredOnDriveW(diskspace: ConstPtr, drivespec: Pcwstr, spacerequired: MutPtr, reserved1: ConstPtr, reserved2: UInt): Bool =
     if (windowsWin32DevicesDeviceanddriverinstallationNapiAvailable) wasmWindowssysWindowsWin32DevicesDeviceanddriverinstallationSetupQuerySpaceRequiredOnDriveW(diskspace.rawAddress.toString(), drivespec.rawAddress.toString(), spacerequired.rawAddress.toString(), reserved1.rawAddress.toString(), reserved2.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun setupQueueCopyA(queuehandle: ConstPtr<CVoid>, sourcerootpath: Pcstr, sourcepath: Pcstr, sourcefilename: Pcstr, sourcedescription: Pcstr, sourcetagfile: Pcstr, targetdirectory: Pcstr, targetfilename: Pcstr, copystyle: UInt): Bool =
+public actual fun setupQueueCopyA(queuehandle: ConstPtr, sourcerootpath: Pcstr, sourcepath: Pcstr, sourcefilename: Pcstr, sourcedescription: Pcstr, sourcetagfile: Pcstr, targetdirectory: Pcstr, targetfilename: Pcstr, copystyle: UInt): Bool =
     if (windowsWin32DevicesDeviceanddriverinstallationNapiAvailable) wasmWindowssysWindowsWin32DevicesDeviceanddriverinstallationSetupQueueCopyA(queuehandle.rawAddress.toString(), sourcerootpath.rawAddress.toString(), sourcepath.rawAddress.toString(), sourcefilename.rawAddress.toString(), sourcedescription.rawAddress.toString(), sourcetagfile.rawAddress.toString(), targetdirectory.rawAddress.toString(), targetfilename.rawAddress.toString(), copystyle.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun setupQueueCopyIndirectA(copyparams: ConstPtr<SpFileCopyParamsA>): Bool =
+public actual fun setupQueueCopyIndirectA(copyparams: ConstPtr): Bool =
     if (windowsWin32DevicesDeviceanddriverinstallationNapiAvailable) wasmWindowssysWindowsWin32DevicesDeviceanddriverinstallationSetupQueueCopyIndirectA(copyparams.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun setupQueueCopyIndirectW(copyparams: ConstPtr<SpFileCopyParamsW>): Bool =
+public actual fun setupQueueCopyIndirectW(copyparams: ConstPtr): Bool =
     if (windowsWin32DevicesDeviceanddriverinstallationNapiAvailable) wasmWindowssysWindowsWin32DevicesDeviceanddriverinstallationSetupQueueCopyIndirectW(copyparams.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun setupQueueCopySectionA(queuehandle: ConstPtr<CVoid>, sourcerootpath: Pcstr, infhandle: ConstPtr<CVoid>, listinfhandle: ConstPtr<CVoid>, section: Pcstr, copystyle: UInt): Bool =
+public actual fun setupQueueCopySectionA(queuehandle: ConstPtr, sourcerootpath: Pcstr, infhandle: ConstPtr, listinfhandle: ConstPtr, section: Pcstr, copystyle: UInt): Bool =
     if (windowsWin32DevicesDeviceanddriverinstallationNapiAvailable) wasmWindowssysWindowsWin32DevicesDeviceanddriverinstallationSetupQueueCopySectionA(queuehandle.rawAddress.toString(), sourcerootpath.rawAddress.toString(), infhandle.rawAddress.toString(), listinfhandle.rawAddress.toString(), section.rawAddress.toString(), copystyle.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun setupQueueCopySectionW(queuehandle: ConstPtr<CVoid>, sourcerootpath: Pcwstr, infhandle: ConstPtr<CVoid>, listinfhandle: ConstPtr<CVoid>, section: Pcwstr, copystyle: UInt): Bool =
+public actual fun setupQueueCopySectionW(queuehandle: ConstPtr, sourcerootpath: Pcwstr, infhandle: ConstPtr, listinfhandle: ConstPtr, section: Pcwstr, copystyle: UInt): Bool =
     if (windowsWin32DevicesDeviceanddriverinstallationNapiAvailable) wasmWindowssysWindowsWin32DevicesDeviceanddriverinstallationSetupQueueCopySectionW(queuehandle.rawAddress.toString(), sourcerootpath.rawAddress.toString(), infhandle.rawAddress.toString(), listinfhandle.rawAddress.toString(), section.rawAddress.toString(), copystyle.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun setupQueueCopyW(queuehandle: ConstPtr<CVoid>, sourcerootpath: Pcwstr, sourcepath: Pcwstr, sourcefilename: Pcwstr, sourcedescription: Pcwstr, sourcetagfile: Pcwstr, targetdirectory: Pcwstr, targetfilename: Pcwstr, copystyle: UInt): Bool =
+public actual fun setupQueueCopyW(queuehandle: ConstPtr, sourcerootpath: Pcwstr, sourcepath: Pcwstr, sourcefilename: Pcwstr, sourcedescription: Pcwstr, sourcetagfile: Pcwstr, targetdirectory: Pcwstr, targetfilename: Pcwstr, copystyle: UInt): Bool =
     if (windowsWin32DevicesDeviceanddriverinstallationNapiAvailable) wasmWindowssysWindowsWin32DevicesDeviceanddriverinstallationSetupQueueCopyW(queuehandle.rawAddress.toString(), sourcerootpath.rawAddress.toString(), sourcepath.rawAddress.toString(), sourcefilename.rawAddress.toString(), sourcedescription.rawAddress.toString(), sourcetagfile.rawAddress.toString(), targetdirectory.rawAddress.toString(), targetfilename.rawAddress.toString(), copystyle.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun setupQueueDefaultCopyA(queuehandle: ConstPtr<CVoid>, infhandle: ConstPtr<CVoid>, sourcerootpath: Pcstr, sourcefilename: Pcstr, targetfilename: Pcstr, copystyle: UInt): Bool =
+public actual fun setupQueueDefaultCopyA(queuehandle: ConstPtr, infhandle: ConstPtr, sourcerootpath: Pcstr, sourcefilename: Pcstr, targetfilename: Pcstr, copystyle: UInt): Bool =
     if (windowsWin32DevicesDeviceanddriverinstallationNapiAvailable) wasmWindowssysWindowsWin32DevicesDeviceanddriverinstallationSetupQueueDefaultCopyA(queuehandle.rawAddress.toString(), infhandle.rawAddress.toString(), sourcerootpath.rawAddress.toString(), sourcefilename.rawAddress.toString(), targetfilename.rawAddress.toString(), copystyle.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun setupQueueDefaultCopyW(queuehandle: ConstPtr<CVoid>, infhandle: ConstPtr<CVoid>, sourcerootpath: Pcwstr, sourcefilename: Pcwstr, targetfilename: Pcwstr, copystyle: UInt): Bool =
+public actual fun setupQueueDefaultCopyW(queuehandle: ConstPtr, infhandle: ConstPtr, sourcerootpath: Pcwstr, sourcefilename: Pcwstr, targetfilename: Pcwstr, copystyle: UInt): Bool =
     if (windowsWin32DevicesDeviceanddriverinstallationNapiAvailable) wasmWindowssysWindowsWin32DevicesDeviceanddriverinstallationSetupQueueDefaultCopyW(queuehandle.rawAddress.toString(), infhandle.rawAddress.toString(), sourcerootpath.rawAddress.toString(), sourcefilename.rawAddress.toString(), targetfilename.rawAddress.toString(), copystyle.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun setupQueueDeleteA(queuehandle: ConstPtr<CVoid>, pathpart1: Pcstr, pathpart2: Pcstr): Bool =
+public actual fun setupQueueDeleteA(queuehandle: ConstPtr, pathpart1: Pcstr, pathpart2: Pcstr): Bool =
     if (windowsWin32DevicesDeviceanddriverinstallationNapiAvailable) wasmWindowssysWindowsWin32DevicesDeviceanddriverinstallationSetupQueueDeleteA(queuehandle.rawAddress.toString(), pathpart1.rawAddress.toString(), pathpart2.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun setupQueueDeleteSectionA(queuehandle: ConstPtr<CVoid>, infhandle: ConstPtr<CVoid>, listinfhandle: ConstPtr<CVoid>, section: Pcstr): Bool =
+public actual fun setupQueueDeleteSectionA(queuehandle: ConstPtr, infhandle: ConstPtr, listinfhandle: ConstPtr, section: Pcstr): Bool =
     if (windowsWin32DevicesDeviceanddriverinstallationNapiAvailable) wasmWindowssysWindowsWin32DevicesDeviceanddriverinstallationSetupQueueDeleteSectionA(queuehandle.rawAddress.toString(), infhandle.rawAddress.toString(), listinfhandle.rawAddress.toString(), section.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun setupQueueDeleteSectionW(queuehandle: ConstPtr<CVoid>, infhandle: ConstPtr<CVoid>, listinfhandle: ConstPtr<CVoid>, section: Pcwstr): Bool =
+public actual fun setupQueueDeleteSectionW(queuehandle: ConstPtr, infhandle: ConstPtr, listinfhandle: ConstPtr, section: Pcwstr): Bool =
     if (windowsWin32DevicesDeviceanddriverinstallationNapiAvailable) wasmWindowssysWindowsWin32DevicesDeviceanddriverinstallationSetupQueueDeleteSectionW(queuehandle.rawAddress.toString(), infhandle.rawAddress.toString(), listinfhandle.rawAddress.toString(), section.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun setupQueueDeleteW(queuehandle: ConstPtr<CVoid>, pathpart1: Pcwstr, pathpart2: Pcwstr): Bool =
+public actual fun setupQueueDeleteW(queuehandle: ConstPtr, pathpart1: Pcwstr, pathpart2: Pcwstr): Bool =
     if (windowsWin32DevicesDeviceanddriverinstallationNapiAvailable) wasmWindowssysWindowsWin32DevicesDeviceanddriverinstallationSetupQueueDeleteW(queuehandle.rawAddress.toString(), pathpart1.rawAddress.toString(), pathpart2.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun setupQueueRenameA(queuehandle: ConstPtr<CVoid>, sourcepath: Pcstr, sourcefilename: Pcstr, targetpath: Pcstr, targetfilename: Pcstr): Bool =
+public actual fun setupQueueRenameA(queuehandle: ConstPtr, sourcepath: Pcstr, sourcefilename: Pcstr, targetpath: Pcstr, targetfilename: Pcstr): Bool =
     if (windowsWin32DevicesDeviceanddriverinstallationNapiAvailable) wasmWindowssysWindowsWin32DevicesDeviceanddriverinstallationSetupQueueRenameA(queuehandle.rawAddress.toString(), sourcepath.rawAddress.toString(), sourcefilename.rawAddress.toString(), targetpath.rawAddress.toString(), targetfilename.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun setupQueueRenameSectionA(queuehandle: ConstPtr<CVoid>, infhandle: ConstPtr<CVoid>, listinfhandle: ConstPtr<CVoid>, section: Pcstr): Bool =
+public actual fun setupQueueRenameSectionA(queuehandle: ConstPtr, infhandle: ConstPtr, listinfhandle: ConstPtr, section: Pcstr): Bool =
     if (windowsWin32DevicesDeviceanddriverinstallationNapiAvailable) wasmWindowssysWindowsWin32DevicesDeviceanddriverinstallationSetupQueueRenameSectionA(queuehandle.rawAddress.toString(), infhandle.rawAddress.toString(), listinfhandle.rawAddress.toString(), section.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun setupQueueRenameSectionW(queuehandle: ConstPtr<CVoid>, infhandle: ConstPtr<CVoid>, listinfhandle: ConstPtr<CVoid>, section: Pcwstr): Bool =
+public actual fun setupQueueRenameSectionW(queuehandle: ConstPtr, infhandle: ConstPtr, listinfhandle: ConstPtr, section: Pcwstr): Bool =
     if (windowsWin32DevicesDeviceanddriverinstallationNapiAvailable) wasmWindowssysWindowsWin32DevicesDeviceanddriverinstallationSetupQueueRenameSectionW(queuehandle.rawAddress.toString(), infhandle.rawAddress.toString(), listinfhandle.rawAddress.toString(), section.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun setupQueueRenameW(queuehandle: ConstPtr<CVoid>, sourcepath: Pcwstr, sourcefilename: Pcwstr, targetpath: Pcwstr, targetfilename: Pcwstr): Bool =
+public actual fun setupQueueRenameW(queuehandle: ConstPtr, sourcepath: Pcwstr, sourcefilename: Pcwstr, targetpath: Pcwstr, targetfilename: Pcwstr): Bool =
     if (windowsWin32DevicesDeviceanddriverinstallationNapiAvailable) wasmWindowssysWindowsWin32DevicesDeviceanddriverinstallationSetupQueueRenameW(queuehandle.rawAddress.toString(), sourcepath.rawAddress.toString(), sourcefilename.rawAddress.toString(), targetpath.rawAddress.toString(), targetfilename.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun setupRemoveFileLogEntryA(fileloghandle: ConstPtr<CVoid>, logsectionname: Pcstr, targetfilename: Pcstr): Bool =
+public actual fun setupRemoveFileLogEntryA(fileloghandle: ConstPtr, logsectionname: Pcstr, targetfilename: Pcstr): Bool =
     if (windowsWin32DevicesDeviceanddriverinstallationNapiAvailable) wasmWindowssysWindowsWin32DevicesDeviceanddriverinstallationSetupRemoveFileLogEntryA(fileloghandle.rawAddress.toString(), logsectionname.rawAddress.toString(), targetfilename.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun setupRemoveFileLogEntryW(fileloghandle: ConstPtr<CVoid>, logsectionname: Pcwstr, targetfilename: Pcwstr): Bool =
+public actual fun setupRemoveFileLogEntryW(fileloghandle: ConstPtr, logsectionname: Pcwstr, targetfilename: Pcwstr): Bool =
     if (windowsWin32DevicesDeviceanddriverinstallationNapiAvailable) wasmWindowssysWindowsWin32DevicesDeviceanddriverinstallationSetupRemoveFileLogEntryW(fileloghandle.rawAddress.toString(), logsectionname.rawAddress.toString(), targetfilename.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun setupRemoveFromDiskSpaceListA(diskspace: ConstPtr<CVoid>, targetfilespec: Pcstr, operation: SetupFileOperation, reserved1: ConstPtr<CVoid>, reserved2: UInt): Bool =
+public actual fun setupRemoveFromDiskSpaceListA(diskspace: ConstPtr, targetfilespec: Pcstr, operation: SetupFileOperation, reserved1: ConstPtr, reserved2: UInt): Bool =
     if (windowsWin32DevicesDeviceanddriverinstallationNapiAvailable) wasmWindowssysWindowsWin32DevicesDeviceanddriverinstallationSetupRemoveFromDiskSpaceListA(diskspace.rawAddress.toString(), targetfilespec.rawAddress.toString(), operation.toInt(), reserved1.rawAddress.toString(), reserved2.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun setupRemoveFromDiskSpaceListW(diskspace: ConstPtr<CVoid>, targetfilespec: Pcwstr, operation: SetupFileOperation, reserved1: ConstPtr<CVoid>, reserved2: UInt): Bool =
+public actual fun setupRemoveFromDiskSpaceListW(diskspace: ConstPtr, targetfilespec: Pcwstr, operation: SetupFileOperation, reserved1: ConstPtr, reserved2: UInt): Bool =
     if (windowsWin32DevicesDeviceanddriverinstallationNapiAvailable) wasmWindowssysWindowsWin32DevicesDeviceanddriverinstallationSetupRemoveFromDiskSpaceListW(diskspace.rawAddress.toString(), targetfilespec.rawAddress.toString(), operation.toInt(), reserved1.rawAddress.toString(), reserved2.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun setupRemoveFromSourceListA(flags: UInt, source: Pcstr): Bool =
@@ -3397,16 +3391,16 @@ public actual fun setupRemoveFromSourceListA(flags: UInt, source: Pcstr): Bool =
 public actual fun setupRemoveFromSourceListW(flags: UInt, source: Pcwstr): Bool =
     if (windowsWin32DevicesDeviceanddriverinstallationNapiAvailable) wasmWindowssysWindowsWin32DevicesDeviceanddriverinstallationSetupRemoveFromSourceListW(flags.toInt(), source.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun setupRemoveInstallSectionFromDiskSpaceListA(diskspace: ConstPtr<CVoid>, infhandle: ConstPtr<CVoid>, layoutinfhandle: ConstPtr<CVoid>, sectionname: Pcstr, reserved1: ConstPtr<CVoid>, reserved2: UInt): Bool =
+public actual fun setupRemoveInstallSectionFromDiskSpaceListA(diskspace: ConstPtr, infhandle: ConstPtr, layoutinfhandle: ConstPtr, sectionname: Pcstr, reserved1: ConstPtr, reserved2: UInt): Bool =
     if (windowsWin32DevicesDeviceanddriverinstallationNapiAvailable) wasmWindowssysWindowsWin32DevicesDeviceanddriverinstallationSetupRemoveInstallSectionFromDiskSpaceListA(diskspace.rawAddress.toString(), infhandle.rawAddress.toString(), layoutinfhandle.rawAddress.toString(), sectionname.rawAddress.toString(), reserved1.rawAddress.toString(), reserved2.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun setupRemoveInstallSectionFromDiskSpaceListW(diskspace: ConstPtr<CVoid>, infhandle: ConstPtr<CVoid>, layoutinfhandle: ConstPtr<CVoid>, sectionname: Pcwstr, reserved1: ConstPtr<CVoid>, reserved2: UInt): Bool =
+public actual fun setupRemoveInstallSectionFromDiskSpaceListW(diskspace: ConstPtr, infhandle: ConstPtr, layoutinfhandle: ConstPtr, sectionname: Pcwstr, reserved1: ConstPtr, reserved2: UInt): Bool =
     if (windowsWin32DevicesDeviceanddriverinstallationNapiAvailable) wasmWindowssysWindowsWin32DevicesDeviceanddriverinstallationSetupRemoveInstallSectionFromDiskSpaceListW(diskspace.rawAddress.toString(), infhandle.rawAddress.toString(), layoutinfhandle.rawAddress.toString(), sectionname.rawAddress.toString(), reserved1.rawAddress.toString(), reserved2.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun setupRemoveSectionFromDiskSpaceListA(diskspace: ConstPtr<CVoid>, infhandle: ConstPtr<CVoid>, listinfhandle: ConstPtr<CVoid>, sectionname: Pcstr, operation: SetupFileOperation, reserved1: ConstPtr<CVoid>, reserved2: UInt): Bool =
+public actual fun setupRemoveSectionFromDiskSpaceListA(diskspace: ConstPtr, infhandle: ConstPtr, listinfhandle: ConstPtr, sectionname: Pcstr, operation: SetupFileOperation, reserved1: ConstPtr, reserved2: UInt): Bool =
     if (windowsWin32DevicesDeviceanddriverinstallationNapiAvailable) wasmWindowssysWindowsWin32DevicesDeviceanddriverinstallationSetupRemoveSectionFromDiskSpaceListA(diskspace.rawAddress.toString(), infhandle.rawAddress.toString(), listinfhandle.rawAddress.toString(), sectionname.rawAddress.toString(), operation.toInt(), reserved1.rawAddress.toString(), reserved2.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun setupRemoveSectionFromDiskSpaceListW(diskspace: ConstPtr<CVoid>, infhandle: ConstPtr<CVoid>, listinfhandle: ConstPtr<CVoid>, sectionname: Pcwstr, operation: SetupFileOperation, reserved1: ConstPtr<CVoid>, reserved2: UInt): Bool =
+public actual fun setupRemoveSectionFromDiskSpaceListW(diskspace: ConstPtr, infhandle: ConstPtr, listinfhandle: ConstPtr, sectionname: Pcwstr, operation: SetupFileOperation, reserved1: ConstPtr, reserved2: UInt): Bool =
     if (windowsWin32DevicesDeviceanddriverinstallationNapiAvailable) wasmWindowssysWindowsWin32DevicesDeviceanddriverinstallationSetupRemoveSectionFromDiskSpaceListW(diskspace.rawAddress.toString(), infhandle.rawAddress.toString(), listinfhandle.rawAddress.toString(), sectionname.rawAddress.toString(), operation.toInt(), reserved1.rawAddress.toString(), reserved2.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun setupRenameErrorA(hwndparent: Hwnd, dialogtitle: Pcstr, sourcefile: Pcstr, targetfile: Pcstr, win32errorcode: UInt, style: UInt): UInt =
@@ -3415,31 +3409,31 @@ public actual fun setupRenameErrorA(hwndparent: Hwnd, dialogtitle: Pcstr, source
 public actual fun setupRenameErrorW(hwndparent: Hwnd, dialogtitle: Pcwstr, sourcefile: Pcwstr, targetfile: Pcwstr, win32errorcode: UInt, style: UInt): UInt =
     if (windowsWin32DevicesDeviceanddriverinstallationNapiAvailable) wasmWindowssysWindowsWin32DevicesDeviceanddriverinstallationSetupRenameErrorW(hwndparent.rawAddress.toString(), dialogtitle.rawAddress.toString(), sourcefile.rawAddress.toString(), targetfile.rawAddress.toString(), win32errorcode.toInt(), style.toInt()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun setupScanFileQueueA(filequeue: ConstPtr<CVoid>, flags: SetupscanfilequeueFlags, window: Hwnd, callbackroutine: PspFileCallbackA, callbackcontext: ConstPtr<CVoid>, result: MutPtr<UInt>): Bool =
+public actual fun setupScanFileQueueA(filequeue: ConstPtr, flags: SetupscanfilequeueFlags, window: Hwnd, callbackroutine: PspFileCallbackA, callbackcontext: ConstPtr, result: MutPtr): Bool =
     if (windowsWin32DevicesDeviceanddriverinstallationNapiAvailable) wasmWindowssysWindowsWin32DevicesDeviceanddriverinstallationSetupScanFileQueueA(filequeue.rawAddress.toString(), flags.toInt(), window.rawAddress.toString(), 0L.toString(), callbackcontext.rawAddress.toString(), result.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun setupScanFileQueueW(filequeue: ConstPtr<CVoid>, flags: SetupscanfilequeueFlags, window: Hwnd, callbackroutine: PspFileCallbackW, callbackcontext: ConstPtr<CVoid>, result: MutPtr<UInt>): Bool =
+public actual fun setupScanFileQueueW(filequeue: ConstPtr, flags: SetupscanfilequeueFlags, window: Hwnd, callbackroutine: PspFileCallbackW, callbackcontext: ConstPtr, result: MutPtr): Bool =
     if (windowsWin32DevicesDeviceanddriverinstallationNapiAvailable) wasmWindowssysWindowsWin32DevicesDeviceanddriverinstallationSetupScanFileQueueW(filequeue.rawAddress.toString(), flags.toInt(), window.rawAddress.toString(), 0L.toString(), callbackcontext.rawAddress.toString(), result.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun setupSetDirectoryIdA(infhandle: ConstPtr<CVoid>, id: UInt, directory: Pcstr): Bool =
+public actual fun setupSetDirectoryIdA(infhandle: ConstPtr, id: UInt, directory: Pcstr): Bool =
     if (windowsWin32DevicesDeviceanddriverinstallationNapiAvailable) wasmWindowssysWindowsWin32DevicesDeviceanddriverinstallationSetupSetDirectoryIdA(infhandle.rawAddress.toString(), id.toInt(), directory.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun setupSetDirectoryIdExA(infhandle: ConstPtr<CVoid>, id: UInt, directory: Pcstr, flags: UInt, reserved1: UInt, reserved2: ConstPtr<CVoid>): Bool =
+public actual fun setupSetDirectoryIdExA(infhandle: ConstPtr, id: UInt, directory: Pcstr, flags: UInt, reserved1: UInt, reserved2: ConstPtr): Bool =
     if (windowsWin32DevicesDeviceanddriverinstallationNapiAvailable) wasmWindowssysWindowsWin32DevicesDeviceanddriverinstallationSetupSetDirectoryIdExA(infhandle.rawAddress.toString(), id.toInt(), directory.rawAddress.toString(), flags.toInt(), reserved1.toInt(), reserved2.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun setupSetDirectoryIdExW(infhandle: ConstPtr<CVoid>, id: UInt, directory: Pcwstr, flags: UInt, reserved1: UInt, reserved2: ConstPtr<CVoid>): Bool =
+public actual fun setupSetDirectoryIdExW(infhandle: ConstPtr, id: UInt, directory: Pcwstr, flags: UInt, reserved1: UInt, reserved2: ConstPtr): Bool =
     if (windowsWin32DevicesDeviceanddriverinstallationNapiAvailable) wasmWindowssysWindowsWin32DevicesDeviceanddriverinstallationSetupSetDirectoryIdExW(infhandle.rawAddress.toString(), id.toInt(), directory.rawAddress.toString(), flags.toInt(), reserved1.toInt(), reserved2.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun setupSetDirectoryIdW(infhandle: ConstPtr<CVoid>, id: UInt, directory: Pcwstr): Bool =
+public actual fun setupSetDirectoryIdW(infhandle: ConstPtr, id: UInt, directory: Pcwstr): Bool =
     if (windowsWin32DevicesDeviceanddriverinstallationNapiAvailable) wasmWindowssysWindowsWin32DevicesDeviceanddriverinstallationSetupSetDirectoryIdW(infhandle.rawAddress.toString(), id.toInt(), directory.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun setupSetFileQueueAlternatePlatformA(queuehandle: ConstPtr<CVoid>, alternateplatforminfo: ConstPtr<SpAltplatformInfoV2>, alternatedefaultcatalogfile: Pcstr): Bool =
+public actual fun setupSetFileQueueAlternatePlatformA(queuehandle: ConstPtr, alternateplatforminfo: ConstPtr, alternatedefaultcatalogfile: Pcstr): Bool =
     if (windowsWin32DevicesDeviceanddriverinstallationNapiAvailable) wasmWindowssysWindowsWin32DevicesDeviceanddriverinstallationSetupSetFileQueueAlternatePlatformA(queuehandle.rawAddress.toString(), alternateplatforminfo.rawAddress.toString(), alternatedefaultcatalogfile.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun setupSetFileQueueAlternatePlatformW(queuehandle: ConstPtr<CVoid>, alternateplatforminfo: ConstPtr<SpAltplatformInfoV2>, alternatedefaultcatalogfile: Pcwstr): Bool =
+public actual fun setupSetFileQueueAlternatePlatformW(queuehandle: ConstPtr, alternateplatforminfo: ConstPtr, alternatedefaultcatalogfile: Pcwstr): Bool =
     if (windowsWin32DevicesDeviceanddriverinstallationNapiAvailable) wasmWindowssysWindowsWin32DevicesDeviceanddriverinstallationSetupSetFileQueueAlternatePlatformW(queuehandle.rawAddress.toString(), alternateplatforminfo.rawAddress.toString(), alternatedefaultcatalogfile.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun setupSetFileQueueFlags(filequeue: ConstPtr<CVoid>, flagmask: UInt, flags: UInt): Bool =
+public actual fun setupSetFileQueueFlags(filequeue: ConstPtr, flagmask: UInt, flags: UInt): Bool =
     if (windowsWin32DevicesDeviceanddriverinstallationNapiAvailable) wasmWindowssysWindowsWin32DevicesDeviceanddriverinstallationSetupSetFileQueueFlags(filequeue.rawAddress.toString(), flagmask.toInt(), flags.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun setupSetNonInteractiveMode(noninteractiveflag: Bool): Bool =
@@ -3451,10 +3445,10 @@ public actual fun setupSetPlatformPathOverrideA(override: Pcstr): Bool =
 public actual fun setupSetPlatformPathOverrideW(override: Pcwstr): Bool =
     if (windowsWin32DevicesDeviceanddriverinstallationNapiAvailable) wasmWindowssysWindowsWin32DevicesDeviceanddriverinstallationSetupSetPlatformPathOverrideW(override.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun setupSetSourceListA(flags: UInt, sourcelist: ConstPtr<Pcstr>, sourcecount: UInt): Bool =
+public actual fun setupSetSourceListA(flags: UInt, sourcelist: ConstPtr, sourcecount: UInt): Bool =
     if (windowsWin32DevicesDeviceanddriverinstallationNapiAvailable) wasmWindowssysWindowsWin32DevicesDeviceanddriverinstallationSetupSetSourceListA(flags.toInt(), sourcelist.rawAddress.toString(), sourcecount.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun setupSetSourceListW(flags: UInt, sourcelist: ConstPtr<Pcwstr>, sourcecount: UInt): Bool =
+public actual fun setupSetSourceListW(flags: UInt, sourcelist: ConstPtr, sourcecount: UInt): Bool =
     if (windowsWin32DevicesDeviceanddriverinstallationNapiAvailable) wasmWindowssysWindowsWin32DevicesDeviceanddriverinstallationSetupSetSourceListW(flags.toInt(), sourcelist.rawAddress.toString(), sourcecount.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun setupSetThreadLogToken(logtoken: ULong) {
@@ -3465,7 +3459,7 @@ public actual fun setupSetThreadLogToken(logtoken: ULong) {
     }
 }
 
-public actual fun setupTermDefaultQueueCallback(context: ConstPtr<CVoid>) {
+public actual fun setupTermDefaultQueueCallback(context: ConstPtr) {
     if (windowsWin32DevicesDeviceanddriverinstallationNapiAvailable) {
         wasmWindowssysWindowsWin32DevicesDeviceanddriverinstallationSetupTermDefaultQueueCallback(context.rawAddress.toString())
     } else {
@@ -3473,22 +3467,22 @@ public actual fun setupTermDefaultQueueCallback(context: ConstPtr<CVoid>) {
     }
 }
 
-public actual fun setupTerminateFileLog(fileloghandle: ConstPtr<CVoid>): Bool =
+public actual fun setupTerminateFileLog(fileloghandle: ConstPtr): Bool =
     if (windowsWin32DevicesDeviceanddriverinstallationNapiAvailable) wasmWindowssysWindowsWin32DevicesDeviceanddriverinstallationSetupTerminateFileLog(fileloghandle.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun setupUninstallNewlyCopiedInfs(filequeue: ConstPtr<CVoid>, flags: UInt, reserved: ConstPtr<CVoid>): Bool =
+public actual fun setupUninstallNewlyCopiedInfs(filequeue: ConstPtr, flags: UInt, reserved: ConstPtr): Bool =
     if (windowsWin32DevicesDeviceanddriverinstallationNapiAvailable) wasmWindowssysWindowsWin32DevicesDeviceanddriverinstallationSetupUninstallNewlyCopiedInfs(filequeue.rawAddress.toString(), flags.toInt(), reserved.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun setupUninstallOEMInfA(inffilename: Pcstr, flags: UInt, reserved: ConstPtr<CVoid>): Bool =
+public actual fun setupUninstallOEMInfA(inffilename: Pcstr, flags: UInt, reserved: ConstPtr): Bool =
     if (windowsWin32DevicesDeviceanddriverinstallationNapiAvailable) wasmWindowssysWindowsWin32DevicesDeviceanddriverinstallationSetupUninstallOEMInfA(inffilename.rawAddress.toString(), flags.toInt(), reserved.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun setupUninstallOEMInfW(inffilename: Pcwstr, flags: UInt, reserved: ConstPtr<CVoid>): Bool =
+public actual fun setupUninstallOEMInfW(inffilename: Pcwstr, flags: UInt, reserved: ConstPtr): Bool =
     if (windowsWin32DevicesDeviceanddriverinstallationNapiAvailable) wasmWindowssysWindowsWin32DevicesDeviceanddriverinstallationSetupUninstallOEMInfW(inffilename.rawAddress.toString(), flags.toInt(), reserved.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun setupVerifyInfFileA(infname: Pcstr, altplatforminfo: ConstPtr<SpAltplatformInfoV2>, infsignerinfo: MutPtr<SpInfSignerInfoV2A>): Bool =
+public actual fun setupVerifyInfFileA(infname: Pcstr, altplatforminfo: ConstPtr, infsignerinfo: MutPtr): Bool =
     if (windowsWin32DevicesDeviceanddriverinstallationNapiAvailable) wasmWindowssysWindowsWin32DevicesDeviceanddriverinstallationSetupVerifyInfFileA(infname.rawAddress.toString(), altplatforminfo.rawAddress.toString(), infsignerinfo.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun setupVerifyInfFileW(infname: Pcwstr, altplatforminfo: ConstPtr<SpAltplatformInfoV2>, infsignerinfo: MutPtr<SpInfSignerInfoV2W>): Bool =
+public actual fun setupVerifyInfFileW(infname: Pcwstr, altplatforminfo: ConstPtr, infsignerinfo: MutPtr): Bool =
     if (windowsWin32DevicesDeviceanddriverinstallationNapiAvailable) wasmWindowssysWindowsWin32DevicesDeviceanddriverinstallationSetupVerifyInfFileW(infname.rawAddress.toString(), altplatforminfo.rawAddress.toString(), infsignerinfo.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun setupWriteTextLog(logtoken: ULong, category: UInt, flags: UInt, messagestr: Pcstr, vararg variadicArgs: Long) {
@@ -3507,7 +3501,7 @@ public actual fun setupWriteTextLogError(logtoken: ULong, category: UInt, logfla
     }
 }
 
-public actual fun setupWriteTextLogInfLine(logtoken: ULong, flags: UInt, infhandle: ConstPtr<CVoid>, context: ConstPtr<Infcontext>) {
+public actual fun setupWriteTextLogInfLine(logtoken: ULong, flags: UInt, infhandle: ConstPtr, context: ConstPtr) {
     if (windowsWin32DevicesDeviceanddriverinstallationNapiAvailable) {
         wasmWindowssysWindowsWin32DevicesDeviceanddriverinstallationSetupWriteTextLogInfLine(logtoken.toString(), flags.toInt(), infhandle.rawAddress.toString(), context.rawAddress.toString())
     } else {
@@ -3515,8 +3509,8 @@ public actual fun setupWriteTextLogInfLine(logtoken: ULong, flags: UInt, infhand
     }
 }
 
-public actual fun updateDriverForPlugAndPlayDevicesA(hwndparent: Hwnd, hardwareid: Pcstr, fullinfpath: Pcstr, installflags: UpdatedriverforplugandplaydevicesFlags, brebootrequired: MutPtr<Bool>): Bool =
+public actual fun updateDriverForPlugAndPlayDevicesA(hwndparent: Hwnd, hardwareid: Pcstr, fullinfpath: Pcstr, installflags: UpdatedriverforplugandplaydevicesFlags, brebootrequired: MutPtr): Bool =
     if (windowsWin32DevicesDeviceanddriverinstallationNapiAvailable) wasmWindowssysWindowsWin32DevicesDeviceanddriverinstallationUpdateDriverForPlugAndPlayDevicesA(hwndparent.rawAddress.toString(), hardwareid.rawAddress.toString(), fullinfpath.rawAddress.toString(), installflags.toInt(), brebootrequired.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun updateDriverForPlugAndPlayDevicesW(hwndparent: Hwnd, hardwareid: Pcwstr, fullinfpath: Pcwstr, installflags: UpdatedriverforplugandplaydevicesFlags, brebootrequired: MutPtr<Bool>): Bool =
+public actual fun updateDriverForPlugAndPlayDevicesW(hwndparent: Hwnd, hardwareid: Pcwstr, fullinfpath: Pcwstr, installflags: UpdatedriverforplugandplaydevicesFlags, brebootrequired: MutPtr): Bool =
     if (windowsWin32DevicesDeviceanddriverinstallationNapiAvailable) wasmWindowssysWindowsWin32DevicesDeviceanddriverinstallationUpdateDriverForPlugAndPlayDevicesW(hwndparent.rawAddress.toString(), hardwareid.rawAddress.toString(), fullinfpath.rawAddress.toString(), installflags.toInt(), brebootrequired.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")

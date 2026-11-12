@@ -15,24 +15,24 @@ import kotlinx.cinterop.ByteVar
 import kotlinx.cinterop.toCPointer
 import kotlinx.cinterop.toLong
 
-public actual fun rtlFirstEntrySList(listhead: ConstPtr<SlistHeader>): MutPtr<SlistEntry> =
+public actual fun rtlFirstEntrySList(listhead: ConstPtr): MutPtr =
     MutPtr(windowssysWindowsWin32SystemKernelRtlFirstEntrySList(listhead.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun rtlInitializeSListHead(listhead: MutPtr<SlistHeader>) {
+public actual fun rtlInitializeSListHead(listhead: MutPtr) {
     windowssysWindowsWin32SystemKernelRtlInitializeSListHead(listhead.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun rtlInterlockedFlushSList(listhead: MutPtr<SlistHeader>): MutPtr<SlistEntry> =
+public actual fun rtlInterlockedFlushSList(listhead: MutPtr): MutPtr =
     MutPtr(windowssysWindowsWin32SystemKernelRtlInterlockedFlushSList(listhead.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun rtlInterlockedPopEntrySList(listhead: MutPtr<SlistHeader>): MutPtr<SlistEntry> =
+public actual fun rtlInterlockedPopEntrySList(listhead: MutPtr): MutPtr =
     MutPtr(windowssysWindowsWin32SystemKernelRtlInterlockedPopEntrySList(listhead.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun rtlInterlockedPushEntrySList(listhead: MutPtr<SlistHeader>, listentry: MutPtr<SlistEntry>): MutPtr<SlistEntry> =
+public actual fun rtlInterlockedPushEntrySList(listhead: MutPtr, listentry: MutPtr): MutPtr =
     MutPtr(windowssysWindowsWin32SystemKernelRtlInterlockedPushEntrySList(listhead.rawAddress.toCPointer<ByteVar>(), listentry.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun rtlInterlockedPushListSListEx(listhead: MutPtr<SlistHeader>, list: MutPtr<SlistEntry>, listend: MutPtr<SlistEntry>, count: UInt): MutPtr<SlistEntry> =
+public actual fun rtlInterlockedPushListSListEx(listhead: MutPtr, list: MutPtr, listend: MutPtr, count: UInt): MutPtr =
     MutPtr(windowssysWindowsWin32SystemKernelRtlInterlockedPushListSListEx(listhead.rawAddress.toCPointer<ByteVar>(), list.rawAddress.toCPointer<ByteVar>(), listend.rawAddress.toCPointer<ByteVar>(), count)?.toLong() ?: 0L)
 
-public actual fun rtlQueryDepthSList(listhead: ConstPtr<SlistHeader>): UShort =
+public actual fun rtlQueryDepthSList(listhead: ConstPtr): UShort =
     windowssysWindowsWin32SystemKernelRtlQueryDepthSList(listhead.rawAddress.toCPointer<ByteVar>())

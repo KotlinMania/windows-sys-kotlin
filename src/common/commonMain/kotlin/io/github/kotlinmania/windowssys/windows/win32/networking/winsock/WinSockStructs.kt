@@ -2,7 +2,6 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.networking.winsock
 
-import io.github.kotlinmania.rustlang.core.ffi.CVoid
 import io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
 import io.github.kotlinmania.rustlang.core.mem.TypeLayout
 import io.github.kotlinmania.rustlang.core.ptr.MutPtr
@@ -81,16 +80,16 @@ public class Addrinfoa internal constructor(
     public var aiProtocol: Int,
     public var aiAddrlen: Int,
     aiCanonnameCtorArg: Pstr,
-    aiAddrCtorArg: MutPtr<Sockaddr>,
-    aiNextCtorArg: MutPtr<Addrinfoa>,
+    aiAddrCtorArg: MutPtr,
+    aiNextCtorArg: MutPtr,
 ) {
     public var aiCanonname: Pstr = aiCanonnameCtorArg
         internal set
 
-    public var aiAddr: MutPtr<Sockaddr> = aiAddrCtorArg
+    public var aiAddr: MutPtr = aiAddrCtorArg
         internal set
 
-    public var aiNext: MutPtr<Addrinfoa> = aiNextCtorArg
+    public var aiNext: MutPtr = aiNextCtorArg
         internal set
 
     public constructor() : this(
@@ -116,11 +115,11 @@ public class Addrinfoa internal constructor(
 
     public operator fun component6(): Pstr = this.aiCanonname
 
-    public operator fun component7(): MutPtr<Sockaddr> = this.aiAddr
+    public operator fun component7(): MutPtr = this.aiAddr
 
-    public operator fun component8(): MutPtr<Addrinfoa> = this.aiNext
+    public operator fun component8(): MutPtr = this.aiNext
 
-    public fun copy(aiFlags: Int = this.aiFlags, aiFamily: Int = this.aiFamily, aiSocktype: Int = this.aiSocktype, aiProtocol: Int = this.aiProtocol, aiAddrlen: Int = this.aiAddrlen, aiCanonname: Pstr = this.aiCanonname, aiAddr: MutPtr<Sockaddr> = this.aiAddr, aiNext: MutPtr<Addrinfoa> = this.aiNext): Addrinfoa = Addrinfoa(aiFlags = aiFlags, aiFamily = aiFamily, aiSocktype = aiSocktype, aiProtocol = aiProtocol, aiAddrlen = aiAddrlen, aiCanonnameCtorArg = aiCanonname, aiAddrCtorArg = aiAddr, aiNextCtorArg = aiNext)
+    public fun copy(aiFlags: Int = this.aiFlags, aiFamily: Int = this.aiFamily, aiSocktype: Int = this.aiSocktype, aiProtocol: Int = this.aiProtocol, aiAddrlen: Int = this.aiAddrlen, aiCanonname: Pstr = this.aiCanonname, aiAddr: MutPtr = this.aiAddr, aiNext: MutPtr = this.aiNext): Addrinfoa = Addrinfoa(aiFlags = aiFlags, aiFamily = aiFamily, aiSocktype = aiSocktype, aiProtocol = aiProtocol, aiAddrlen = aiAddrlen, aiCanonnameCtorArg = aiCanonname, aiAddrCtorArg = aiAddr, aiNextCtorArg = aiNext)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -156,8 +155,8 @@ public class Addrinfoa internal constructor(
             aiProtocol: Int = 0,
             aiAddrlen: Int = 0,
             aiCanonname: Pstr = MutPtr(0L),
-            aiAddr: MutPtr<Sockaddr> = MutPtr(0L),
-            aiNext: MutPtr<Addrinfoa> = MutPtr(0L),
+            aiAddr: MutPtr = MutPtr(0L),
+            aiNext: MutPtr = MutPtr(0L),
         ): Addrinfoa =
             Addrinfoa(
                 aiFlags = aiFlags,
@@ -179,27 +178,27 @@ public class Addrinfoex2a internal constructor(
     public var aiProtocol: Int,
     public var aiAddrlen: Int,
     aiCanonnameCtorArg: Pstr,
-    aiAddrCtorArg: MutPtr<Sockaddr>,
-    aiBlobCtorArg: MutPtr<CVoid>,
+    aiAddrCtorArg: MutPtr,
+    aiBlobCtorArg: MutPtr,
     public var aiBloblen: Int,
-    aiProviderCtorArg: MutPtr<Guid>,
-    aiNextCtorArg: MutPtr<Addrinfoex2a>,
+    aiProviderCtorArg: MutPtr,
+    aiNextCtorArg: MutPtr,
     public var aiVersion: Int,
     aiFqdnCtorArg: Pstr,
 ) {
     public var aiCanonname: Pstr = aiCanonnameCtorArg
         internal set
 
-    public var aiAddr: MutPtr<Sockaddr> = aiAddrCtorArg
+    public var aiAddr: MutPtr = aiAddrCtorArg
         internal set
 
-    public var aiBlob: MutPtr<CVoid> = aiBlobCtorArg
+    public var aiBlob: MutPtr = aiBlobCtorArg
         internal set
 
-    public var aiProvider: MutPtr<Guid> = aiProviderCtorArg
+    public var aiProvider: MutPtr = aiProviderCtorArg
         internal set
 
-    public var aiNext: MutPtr<Addrinfoex2a> = aiNextCtorArg
+    public var aiNext: MutPtr = aiNextCtorArg
         internal set
 
     public var aiFqdn: Pstr = aiFqdnCtorArg
@@ -233,21 +232,21 @@ public class Addrinfoex2a internal constructor(
 
     public operator fun component6(): Pstr = this.aiCanonname
 
-    public operator fun component7(): MutPtr<Sockaddr> = this.aiAddr
+    public operator fun component7(): MutPtr = this.aiAddr
 
-    public operator fun component8(): MutPtr<CVoid> = this.aiBlob
+    public operator fun component8(): MutPtr = this.aiBlob
 
     public operator fun component9(): Int = this.aiBloblen
 
-    public operator fun component10(): MutPtr<Guid> = this.aiProvider
+    public operator fun component10(): MutPtr = this.aiProvider
 
-    public operator fun component11(): MutPtr<Addrinfoex2a> = this.aiNext
+    public operator fun component11(): MutPtr = this.aiNext
 
     public operator fun component12(): Int = this.aiVersion
 
     public operator fun component13(): Pstr = this.aiFqdn
 
-    public fun copy(aiFlags: Int = this.aiFlags, aiFamily: Int = this.aiFamily, aiSocktype: Int = this.aiSocktype, aiProtocol: Int = this.aiProtocol, aiAddrlen: Int = this.aiAddrlen, aiCanonname: Pstr = this.aiCanonname, aiAddr: MutPtr<Sockaddr> = this.aiAddr, aiBlob: MutPtr<CVoid> = this.aiBlob, aiBloblen: Int = this.aiBloblen, aiProvider: MutPtr<Guid> = this.aiProvider, aiNext: MutPtr<Addrinfoex2a> = this.aiNext, aiVersion: Int = this.aiVersion, aiFqdn: Pstr = this.aiFqdn): Addrinfoex2a = Addrinfoex2a(aiFlags = aiFlags, aiFamily = aiFamily, aiSocktype = aiSocktype, aiProtocol = aiProtocol, aiAddrlen = aiAddrlen, aiCanonnameCtorArg = aiCanonname, aiAddrCtorArg = aiAddr, aiBlobCtorArg = aiBlob, aiBloblen = aiBloblen, aiProviderCtorArg = aiProvider, aiNextCtorArg = aiNext, aiVersion = aiVersion, aiFqdnCtorArg = aiFqdn)
+    public fun copy(aiFlags: Int = this.aiFlags, aiFamily: Int = this.aiFamily, aiSocktype: Int = this.aiSocktype, aiProtocol: Int = this.aiProtocol, aiAddrlen: Int = this.aiAddrlen, aiCanonname: Pstr = this.aiCanonname, aiAddr: MutPtr = this.aiAddr, aiBlob: MutPtr = this.aiBlob, aiBloblen: Int = this.aiBloblen, aiProvider: MutPtr = this.aiProvider, aiNext: MutPtr = this.aiNext, aiVersion: Int = this.aiVersion, aiFqdn: Pstr = this.aiFqdn): Addrinfoex2a = Addrinfoex2a(aiFlags = aiFlags, aiFamily = aiFamily, aiSocktype = aiSocktype, aiProtocol = aiProtocol, aiAddrlen = aiAddrlen, aiCanonnameCtorArg = aiCanonname, aiAddrCtorArg = aiAddr, aiBlobCtorArg = aiBlob, aiBloblen = aiBloblen, aiProviderCtorArg = aiProvider, aiNextCtorArg = aiNext, aiVersion = aiVersion, aiFqdnCtorArg = aiFqdn)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -293,11 +292,11 @@ public class Addrinfoex2a internal constructor(
             aiProtocol: Int = 0,
             aiAddrlen: Int = 0,
             aiCanonname: Pstr = MutPtr(0L),
-            aiAddr: MutPtr<Sockaddr> = MutPtr(0L),
-            aiBlob: MutPtr<CVoid> = MutPtr(0L),
+            aiAddr: MutPtr = MutPtr(0L),
+            aiBlob: MutPtr = MutPtr(0L),
             aiBloblen: Int = 0,
-            aiProvider: MutPtr<Guid> = MutPtr(0L),
-            aiNext: MutPtr<Addrinfoex2a> = MutPtr(0L),
+            aiProvider: MutPtr = MutPtr(0L),
+            aiNext: MutPtr = MutPtr(0L),
             aiVersion: Int = 0,
             aiFqdn: Pstr = MutPtr(0L),
         ): Addrinfoex2a =
@@ -326,27 +325,27 @@ public class Addrinfoex2w internal constructor(
     public var aiProtocol: Int,
     public var aiAddrlen: Int,
     aiCanonnameCtorArg: Pwstr,
-    aiAddrCtorArg: MutPtr<Sockaddr>,
-    aiBlobCtorArg: MutPtr<CVoid>,
+    aiAddrCtorArg: MutPtr,
+    aiBlobCtorArg: MutPtr,
     public var aiBloblen: Int,
-    aiProviderCtorArg: MutPtr<Guid>,
-    aiNextCtorArg: MutPtr<Addrinfoex2w>,
+    aiProviderCtorArg: MutPtr,
+    aiNextCtorArg: MutPtr,
     public var aiVersion: Int,
     aiFqdnCtorArg: Pwstr,
 ) {
     public var aiCanonname: Pwstr = aiCanonnameCtorArg
         internal set
 
-    public var aiAddr: MutPtr<Sockaddr> = aiAddrCtorArg
+    public var aiAddr: MutPtr = aiAddrCtorArg
         internal set
 
-    public var aiBlob: MutPtr<CVoid> = aiBlobCtorArg
+    public var aiBlob: MutPtr = aiBlobCtorArg
         internal set
 
-    public var aiProvider: MutPtr<Guid> = aiProviderCtorArg
+    public var aiProvider: MutPtr = aiProviderCtorArg
         internal set
 
-    public var aiNext: MutPtr<Addrinfoex2w> = aiNextCtorArg
+    public var aiNext: MutPtr = aiNextCtorArg
         internal set
 
     public var aiFqdn: Pwstr = aiFqdnCtorArg
@@ -380,21 +379,21 @@ public class Addrinfoex2w internal constructor(
 
     public operator fun component6(): Pwstr = this.aiCanonname
 
-    public operator fun component7(): MutPtr<Sockaddr> = this.aiAddr
+    public operator fun component7(): MutPtr = this.aiAddr
 
-    public operator fun component8(): MutPtr<CVoid> = this.aiBlob
+    public operator fun component8(): MutPtr = this.aiBlob
 
     public operator fun component9(): Int = this.aiBloblen
 
-    public operator fun component10(): MutPtr<Guid> = this.aiProvider
+    public operator fun component10(): MutPtr = this.aiProvider
 
-    public operator fun component11(): MutPtr<Addrinfoex2w> = this.aiNext
+    public operator fun component11(): MutPtr = this.aiNext
 
     public operator fun component12(): Int = this.aiVersion
 
     public operator fun component13(): Pwstr = this.aiFqdn
 
-    public fun copy(aiFlags: Int = this.aiFlags, aiFamily: Int = this.aiFamily, aiSocktype: Int = this.aiSocktype, aiProtocol: Int = this.aiProtocol, aiAddrlen: Int = this.aiAddrlen, aiCanonname: Pwstr = this.aiCanonname, aiAddr: MutPtr<Sockaddr> = this.aiAddr, aiBlob: MutPtr<CVoid> = this.aiBlob, aiBloblen: Int = this.aiBloblen, aiProvider: MutPtr<Guid> = this.aiProvider, aiNext: MutPtr<Addrinfoex2w> = this.aiNext, aiVersion: Int = this.aiVersion, aiFqdn: Pwstr = this.aiFqdn): Addrinfoex2w = Addrinfoex2w(aiFlags = aiFlags, aiFamily = aiFamily, aiSocktype = aiSocktype, aiProtocol = aiProtocol, aiAddrlen = aiAddrlen, aiCanonnameCtorArg = aiCanonname, aiAddrCtorArg = aiAddr, aiBlobCtorArg = aiBlob, aiBloblen = aiBloblen, aiProviderCtorArg = aiProvider, aiNextCtorArg = aiNext, aiVersion = aiVersion, aiFqdnCtorArg = aiFqdn)
+    public fun copy(aiFlags: Int = this.aiFlags, aiFamily: Int = this.aiFamily, aiSocktype: Int = this.aiSocktype, aiProtocol: Int = this.aiProtocol, aiAddrlen: Int = this.aiAddrlen, aiCanonname: Pwstr = this.aiCanonname, aiAddr: MutPtr = this.aiAddr, aiBlob: MutPtr = this.aiBlob, aiBloblen: Int = this.aiBloblen, aiProvider: MutPtr = this.aiProvider, aiNext: MutPtr = this.aiNext, aiVersion: Int = this.aiVersion, aiFqdn: Pwstr = this.aiFqdn): Addrinfoex2w = Addrinfoex2w(aiFlags = aiFlags, aiFamily = aiFamily, aiSocktype = aiSocktype, aiProtocol = aiProtocol, aiAddrlen = aiAddrlen, aiCanonnameCtorArg = aiCanonname, aiAddrCtorArg = aiAddr, aiBlobCtorArg = aiBlob, aiBloblen = aiBloblen, aiProviderCtorArg = aiProvider, aiNextCtorArg = aiNext, aiVersion = aiVersion, aiFqdnCtorArg = aiFqdn)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -440,11 +439,11 @@ public class Addrinfoex2w internal constructor(
             aiProtocol: Int = 0,
             aiAddrlen: Int = 0,
             aiCanonname: Pwstr = MutPtr(0L),
-            aiAddr: MutPtr<Sockaddr> = MutPtr(0L),
-            aiBlob: MutPtr<CVoid> = MutPtr(0L),
+            aiAddr: MutPtr = MutPtr(0L),
+            aiBlob: MutPtr = MutPtr(0L),
             aiBloblen: Int = 0,
-            aiProvider: MutPtr<Guid> = MutPtr(0L),
-            aiNext: MutPtr<Addrinfoex2w> = MutPtr(0L),
+            aiProvider: MutPtr = MutPtr(0L),
+            aiNext: MutPtr = MutPtr(0L),
             aiVersion: Int = 0,
             aiFqdn: Pwstr = MutPtr(0L),
         ): Addrinfoex2w =
@@ -473,11 +472,11 @@ public class Addrinfoex3 internal constructor(
     public var aiProtocol: Int,
     public var aiAddrlen: Int,
     aiCanonnameCtorArg: Pwstr,
-    aiAddrCtorArg: MutPtr<Sockaddr>,
-    aiBlobCtorArg: MutPtr<CVoid>,
+    aiAddrCtorArg: MutPtr,
+    aiBlobCtorArg: MutPtr,
     public var aiBloblen: Int,
-    aiProviderCtorArg: MutPtr<Guid>,
-    aiNextCtorArg: MutPtr<Addrinfoex3>,
+    aiProviderCtorArg: MutPtr,
+    aiNextCtorArg: MutPtr,
     public var aiVersion: Int,
     aiFqdnCtorArg: Pwstr,
     public var aiInterfaceindex: Int,
@@ -485,16 +484,16 @@ public class Addrinfoex3 internal constructor(
     public var aiCanonname: Pwstr = aiCanonnameCtorArg
         internal set
 
-    public var aiAddr: MutPtr<Sockaddr> = aiAddrCtorArg
+    public var aiAddr: MutPtr = aiAddrCtorArg
         internal set
 
-    public var aiBlob: MutPtr<CVoid> = aiBlobCtorArg
+    public var aiBlob: MutPtr = aiBlobCtorArg
         internal set
 
-    public var aiProvider: MutPtr<Guid> = aiProviderCtorArg
+    public var aiProvider: MutPtr = aiProviderCtorArg
         internal set
 
-    public var aiNext: MutPtr<Addrinfoex3> = aiNextCtorArg
+    public var aiNext: MutPtr = aiNextCtorArg
         internal set
 
     public var aiFqdn: Pwstr = aiFqdnCtorArg
@@ -529,15 +528,15 @@ public class Addrinfoex3 internal constructor(
 
     public operator fun component6(): Pwstr = this.aiCanonname
 
-    public operator fun component7(): MutPtr<Sockaddr> = this.aiAddr
+    public operator fun component7(): MutPtr = this.aiAddr
 
-    public operator fun component8(): MutPtr<CVoid> = this.aiBlob
+    public operator fun component8(): MutPtr = this.aiBlob
 
     public operator fun component9(): Int = this.aiBloblen
 
-    public operator fun component10(): MutPtr<Guid> = this.aiProvider
+    public operator fun component10(): MutPtr = this.aiProvider
 
-    public operator fun component11(): MutPtr<Addrinfoex3> = this.aiNext
+    public operator fun component11(): MutPtr = this.aiNext
 
     public operator fun component12(): Int = this.aiVersion
 
@@ -545,7 +544,7 @@ public class Addrinfoex3 internal constructor(
 
     public operator fun component14(): Int = this.aiInterfaceindex
 
-    public fun copy(aiFlags: Int = this.aiFlags, aiFamily: Int = this.aiFamily, aiSocktype: Int = this.aiSocktype, aiProtocol: Int = this.aiProtocol, aiAddrlen: Int = this.aiAddrlen, aiCanonname: Pwstr = this.aiCanonname, aiAddr: MutPtr<Sockaddr> = this.aiAddr, aiBlob: MutPtr<CVoid> = this.aiBlob, aiBloblen: Int = this.aiBloblen, aiProvider: MutPtr<Guid> = this.aiProvider, aiNext: MutPtr<Addrinfoex3> = this.aiNext, aiVersion: Int = this.aiVersion, aiFqdn: Pwstr = this.aiFqdn, aiInterfaceindex: Int = this.aiInterfaceindex): Addrinfoex3 = Addrinfoex3(aiFlags = aiFlags, aiFamily = aiFamily, aiSocktype = aiSocktype, aiProtocol = aiProtocol, aiAddrlen = aiAddrlen, aiCanonnameCtorArg = aiCanonname, aiAddrCtorArg = aiAddr, aiBlobCtorArg = aiBlob, aiBloblen = aiBloblen, aiProviderCtorArg = aiProvider, aiNextCtorArg = aiNext, aiVersion = aiVersion, aiFqdnCtorArg = aiFqdn, aiInterfaceindex = aiInterfaceindex)
+    public fun copy(aiFlags: Int = this.aiFlags, aiFamily: Int = this.aiFamily, aiSocktype: Int = this.aiSocktype, aiProtocol: Int = this.aiProtocol, aiAddrlen: Int = this.aiAddrlen, aiCanonname: Pwstr = this.aiCanonname, aiAddr: MutPtr = this.aiAddr, aiBlob: MutPtr = this.aiBlob, aiBloblen: Int = this.aiBloblen, aiProvider: MutPtr = this.aiProvider, aiNext: MutPtr = this.aiNext, aiVersion: Int = this.aiVersion, aiFqdn: Pwstr = this.aiFqdn, aiInterfaceindex: Int = this.aiInterfaceindex): Addrinfoex3 = Addrinfoex3(aiFlags = aiFlags, aiFamily = aiFamily, aiSocktype = aiSocktype, aiProtocol = aiProtocol, aiAddrlen = aiAddrlen, aiCanonnameCtorArg = aiCanonname, aiAddrCtorArg = aiAddr, aiBlobCtorArg = aiBlob, aiBloblen = aiBloblen, aiProviderCtorArg = aiProvider, aiNextCtorArg = aiNext, aiVersion = aiVersion, aiFqdnCtorArg = aiFqdn, aiInterfaceindex = aiInterfaceindex)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -593,11 +592,11 @@ public class Addrinfoex3 internal constructor(
             aiProtocol: Int = 0,
             aiAddrlen: Int = 0,
             aiCanonname: Pwstr = MutPtr(0L),
-            aiAddr: MutPtr<Sockaddr> = MutPtr(0L),
-            aiBlob: MutPtr<CVoid> = MutPtr(0L),
+            aiAddr: MutPtr = MutPtr(0L),
+            aiBlob: MutPtr = MutPtr(0L),
             aiBloblen: Int = 0,
-            aiProvider: MutPtr<Guid> = MutPtr(0L),
-            aiNext: MutPtr<Addrinfoex3> = MutPtr(0L),
+            aiProvider: MutPtr = MutPtr(0L),
+            aiNext: MutPtr = MutPtr(0L),
             aiVersion: Int = 0,
             aiFqdn: Pwstr = MutPtr(0L),
             aiInterfaceindex: Int = 0,
@@ -628,11 +627,11 @@ public class Addrinfoex4 internal constructor(
     public var aiProtocol: Int,
     public var aiAddrlen: Int,
     aiCanonnameCtorArg: Pwstr,
-    aiAddrCtorArg: MutPtr<Sockaddr>,
-    aiBlobCtorArg: MutPtr<CVoid>,
+    aiAddrCtorArg: MutPtr,
+    aiBlobCtorArg: MutPtr,
     public var aiBloblen: Int,
-    aiProviderCtorArg: MutPtr<Guid>,
-    aiNextCtorArg: MutPtr<Addrinfoex4>,
+    aiProviderCtorArg: MutPtr,
+    aiNextCtorArg: MutPtr,
     public var aiVersion: Int,
     aiFqdnCtorArg: Pwstr,
     public var aiInterfaceindex: Int,
@@ -641,16 +640,16 @@ public class Addrinfoex4 internal constructor(
     public var aiCanonname: Pwstr = aiCanonnameCtorArg
         internal set
 
-    public var aiAddr: MutPtr<Sockaddr> = aiAddrCtorArg
+    public var aiAddr: MutPtr = aiAddrCtorArg
         internal set
 
-    public var aiBlob: MutPtr<CVoid> = aiBlobCtorArg
+    public var aiBlob: MutPtr = aiBlobCtorArg
         internal set
 
-    public var aiProvider: MutPtr<Guid> = aiProviderCtorArg
+    public var aiProvider: MutPtr = aiProviderCtorArg
         internal set
 
-    public var aiNext: MutPtr<Addrinfoex4> = aiNextCtorArg
+    public var aiNext: MutPtr = aiNextCtorArg
         internal set
 
     public var aiFqdn: Pwstr = aiFqdnCtorArg
@@ -689,15 +688,15 @@ public class Addrinfoex4 internal constructor(
 
     public operator fun component6(): Pwstr = this.aiCanonname
 
-    public operator fun component7(): MutPtr<Sockaddr> = this.aiAddr
+    public operator fun component7(): MutPtr = this.aiAddr
 
-    public operator fun component8(): MutPtr<CVoid> = this.aiBlob
+    public operator fun component8(): MutPtr = this.aiBlob
 
     public operator fun component9(): Int = this.aiBloblen
 
-    public operator fun component10(): MutPtr<Guid> = this.aiProvider
+    public operator fun component10(): MutPtr = this.aiProvider
 
-    public operator fun component11(): MutPtr<Addrinfoex4> = this.aiNext
+    public operator fun component11(): MutPtr = this.aiNext
 
     public operator fun component12(): Int = this.aiVersion
 
@@ -707,7 +706,7 @@ public class Addrinfoex4 internal constructor(
 
     public operator fun component15(): Handle = this.aiResolutionhandle
 
-    public fun copy(aiFlags: Int = this.aiFlags, aiFamily: Int = this.aiFamily, aiSocktype: Int = this.aiSocktype, aiProtocol: Int = this.aiProtocol, aiAddrlen: Int = this.aiAddrlen, aiCanonname: Pwstr = this.aiCanonname, aiAddr: MutPtr<Sockaddr> = this.aiAddr, aiBlob: MutPtr<CVoid> = this.aiBlob, aiBloblen: Int = this.aiBloblen, aiProvider: MutPtr<Guid> = this.aiProvider, aiNext: MutPtr<Addrinfoex4> = this.aiNext, aiVersion: Int = this.aiVersion, aiFqdn: Pwstr = this.aiFqdn, aiInterfaceindex: Int = this.aiInterfaceindex, aiResolutionhandle: Handle = this.aiResolutionhandle): Addrinfoex4 = Addrinfoex4(aiFlags = aiFlags, aiFamily = aiFamily, aiSocktype = aiSocktype, aiProtocol = aiProtocol, aiAddrlen = aiAddrlen, aiCanonnameCtorArg = aiCanonname, aiAddrCtorArg = aiAddr, aiBlobCtorArg = aiBlob, aiBloblen = aiBloblen, aiProviderCtorArg = aiProvider, aiNextCtorArg = aiNext, aiVersion = aiVersion, aiFqdnCtorArg = aiFqdn, aiInterfaceindex = aiInterfaceindex, aiResolutionhandleCtorArg = aiResolutionhandle)
+    public fun copy(aiFlags: Int = this.aiFlags, aiFamily: Int = this.aiFamily, aiSocktype: Int = this.aiSocktype, aiProtocol: Int = this.aiProtocol, aiAddrlen: Int = this.aiAddrlen, aiCanonname: Pwstr = this.aiCanonname, aiAddr: MutPtr = this.aiAddr, aiBlob: MutPtr = this.aiBlob, aiBloblen: Int = this.aiBloblen, aiProvider: MutPtr = this.aiProvider, aiNext: MutPtr = this.aiNext, aiVersion: Int = this.aiVersion, aiFqdn: Pwstr = this.aiFqdn, aiInterfaceindex: Int = this.aiInterfaceindex, aiResolutionhandle: Handle = this.aiResolutionhandle): Addrinfoex4 = Addrinfoex4(aiFlags = aiFlags, aiFamily = aiFamily, aiSocktype = aiSocktype, aiProtocol = aiProtocol, aiAddrlen = aiAddrlen, aiCanonnameCtorArg = aiCanonname, aiAddrCtorArg = aiAddr, aiBlobCtorArg = aiBlob, aiBloblen = aiBloblen, aiProviderCtorArg = aiProvider, aiNextCtorArg = aiNext, aiVersion = aiVersion, aiFqdnCtorArg = aiFqdn, aiInterfaceindex = aiInterfaceindex, aiResolutionhandleCtorArg = aiResolutionhandle)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -757,11 +756,11 @@ public class Addrinfoex4 internal constructor(
             aiProtocol: Int = 0,
             aiAddrlen: Int = 0,
             aiCanonname: Pwstr = MutPtr(0L),
-            aiAddr: MutPtr<Sockaddr> = MutPtr(0L),
-            aiBlob: MutPtr<CVoid> = MutPtr(0L),
+            aiAddr: MutPtr = MutPtr(0L),
+            aiBlob: MutPtr = MutPtr(0L),
             aiBloblen: Int = 0,
-            aiProvider: MutPtr<Guid> = MutPtr(0L),
-            aiNext: MutPtr<Addrinfoex4> = MutPtr(0L),
+            aiProvider: MutPtr = MutPtr(0L),
+            aiNext: MutPtr = MutPtr(0L),
             aiVersion: Int = 0,
             aiFqdn: Pwstr = MutPtr(0L),
             aiInterfaceindex: Int = 0,
@@ -794,11 +793,11 @@ public class Addrinfoex5 internal constructor(
     public var aiProtocol: Int,
     public var aiAddrlen: Int,
     aiCanonnameCtorArg: Pwstr,
-    aiAddrCtorArg: MutPtr<Sockaddr>,
-    aiBlobCtorArg: MutPtr<CVoid>,
+    aiAddrCtorArg: MutPtr,
+    aiBlobCtorArg: MutPtr,
     public var aiBloblen: Int,
-    aiProviderCtorArg: MutPtr<Guid>,
-    aiNextCtorArg: MutPtr<Addrinfoex5>,
+    aiProviderCtorArg: MutPtr,
+    aiNextCtorArg: MutPtr,
     public var aiVersion: Int,
     aiFqdnCtorArg: Pwstr,
     public var aiInterfaceindex: Int,
@@ -808,16 +807,16 @@ public class Addrinfoex5 internal constructor(
     public var aiCanonname: Pwstr = aiCanonnameCtorArg
         internal set
 
-    public var aiAddr: MutPtr<Sockaddr> = aiAddrCtorArg
+    public var aiAddr: MutPtr = aiAddrCtorArg
         internal set
 
-    public var aiBlob: MutPtr<CVoid> = aiBlobCtorArg
+    public var aiBlob: MutPtr = aiBlobCtorArg
         internal set
 
-    public var aiProvider: MutPtr<Guid> = aiProviderCtorArg
+    public var aiProvider: MutPtr = aiProviderCtorArg
         internal set
 
-    public var aiNext: MutPtr<Addrinfoex5> = aiNextCtorArg
+    public var aiNext: MutPtr = aiNextCtorArg
         internal set
 
     public var aiFqdn: Pwstr = aiFqdnCtorArg
@@ -857,15 +856,15 @@ public class Addrinfoex5 internal constructor(
 
     public operator fun component6(): Pwstr = this.aiCanonname
 
-    public operator fun component7(): MutPtr<Sockaddr> = this.aiAddr
+    public operator fun component7(): MutPtr = this.aiAddr
 
-    public operator fun component8(): MutPtr<CVoid> = this.aiBlob
+    public operator fun component8(): MutPtr = this.aiBlob
 
     public operator fun component9(): Int = this.aiBloblen
 
-    public operator fun component10(): MutPtr<Guid> = this.aiProvider
+    public operator fun component10(): MutPtr = this.aiProvider
 
-    public operator fun component11(): MutPtr<Addrinfoex5> = this.aiNext
+    public operator fun component11(): MutPtr = this.aiNext
 
     public operator fun component12(): Int = this.aiVersion
 
@@ -877,7 +876,7 @@ public class Addrinfoex5 internal constructor(
 
     public operator fun component16(): UInt = this.aiTtl
 
-    public fun copy(aiFlags: Int = this.aiFlags, aiFamily: Int = this.aiFamily, aiSocktype: Int = this.aiSocktype, aiProtocol: Int = this.aiProtocol, aiAddrlen: Int = this.aiAddrlen, aiCanonname: Pwstr = this.aiCanonname, aiAddr: MutPtr<Sockaddr> = this.aiAddr, aiBlob: MutPtr<CVoid> = this.aiBlob, aiBloblen: Int = this.aiBloblen, aiProvider: MutPtr<Guid> = this.aiProvider, aiNext: MutPtr<Addrinfoex5> = this.aiNext, aiVersion: Int = this.aiVersion, aiFqdn: Pwstr = this.aiFqdn, aiInterfaceindex: Int = this.aiInterfaceindex, aiResolutionhandle: Handle = this.aiResolutionhandle, aiTtl: UInt = this.aiTtl): Addrinfoex5 = Addrinfoex5(aiFlags = aiFlags, aiFamily = aiFamily, aiSocktype = aiSocktype, aiProtocol = aiProtocol, aiAddrlen = aiAddrlen, aiCanonnameCtorArg = aiCanonname, aiAddrCtorArg = aiAddr, aiBlobCtorArg = aiBlob, aiBloblen = aiBloblen, aiProviderCtorArg = aiProvider, aiNextCtorArg = aiNext, aiVersion = aiVersion, aiFqdnCtorArg = aiFqdn, aiInterfaceindex = aiInterfaceindex, aiResolutionhandleCtorArg = aiResolutionhandle, aiTtl = aiTtl)
+    public fun copy(aiFlags: Int = this.aiFlags, aiFamily: Int = this.aiFamily, aiSocktype: Int = this.aiSocktype, aiProtocol: Int = this.aiProtocol, aiAddrlen: Int = this.aiAddrlen, aiCanonname: Pwstr = this.aiCanonname, aiAddr: MutPtr = this.aiAddr, aiBlob: MutPtr = this.aiBlob, aiBloblen: Int = this.aiBloblen, aiProvider: MutPtr = this.aiProvider, aiNext: MutPtr = this.aiNext, aiVersion: Int = this.aiVersion, aiFqdn: Pwstr = this.aiFqdn, aiInterfaceindex: Int = this.aiInterfaceindex, aiResolutionhandle: Handle = this.aiResolutionhandle, aiTtl: UInt = this.aiTtl): Addrinfoex5 = Addrinfoex5(aiFlags = aiFlags, aiFamily = aiFamily, aiSocktype = aiSocktype, aiProtocol = aiProtocol, aiAddrlen = aiAddrlen, aiCanonnameCtorArg = aiCanonname, aiAddrCtorArg = aiAddr, aiBlobCtorArg = aiBlob, aiBloblen = aiBloblen, aiProviderCtorArg = aiProvider, aiNextCtorArg = aiNext, aiVersion = aiVersion, aiFqdnCtorArg = aiFqdn, aiInterfaceindex = aiInterfaceindex, aiResolutionhandleCtorArg = aiResolutionhandle, aiTtl = aiTtl)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -929,11 +928,11 @@ public class Addrinfoex5 internal constructor(
             aiProtocol: Int = 0,
             aiAddrlen: Int = 0,
             aiCanonname: Pwstr = MutPtr(0L),
-            aiAddr: MutPtr<Sockaddr> = MutPtr(0L),
-            aiBlob: MutPtr<CVoid> = MutPtr(0L),
+            aiAddr: MutPtr = MutPtr(0L),
+            aiBlob: MutPtr = MutPtr(0L),
             aiBloblen: Int = 0,
-            aiProvider: MutPtr<Guid> = MutPtr(0L),
-            aiNext: MutPtr<Addrinfoex5> = MutPtr(0L),
+            aiProvider: MutPtr = MutPtr(0L),
+            aiNext: MutPtr = MutPtr(0L),
             aiVersion: Int = 0,
             aiFqdn: Pwstr = MutPtr(0L),
             aiInterfaceindex: Int = 0,
@@ -968,33 +967,33 @@ public class Addrinfoex6 internal constructor(
     public var aiProtocol: Int,
     public var aiAddrlen: Int,
     aiCanonnameCtorArg: Pwstr,
-    aiAddrCtorArg: MutPtr<Sockaddr>,
-    aiBlobCtorArg: MutPtr<CVoid>,
+    aiAddrCtorArg: MutPtr,
+    aiBlobCtorArg: MutPtr,
     public var aiBloblen: Int,
-    aiProviderCtorArg: MutPtr<Guid>,
-    aiNextCtorArg: MutPtr<Addrinfoex5>,
+    aiProviderCtorArg: MutPtr,
+    aiNextCtorArg: MutPtr,
     public var aiVersion: Int,
     aiFqdnCtorArg: Pwstr,
     public var aiInterfaceindex: Int,
     aiResolutionhandleCtorArg: Handle,
     public var aiTtl: UInt,
     public var aiNumservers: UInt,
-    aiServersCtorArg: MutPtr<AddrinfoDnsServer>,
+    aiServersCtorArg: MutPtr,
     public var aiResponseflags: ULong,
 ) {
     public var aiCanonname: Pwstr = aiCanonnameCtorArg
         internal set
 
-    public var aiAddr: MutPtr<Sockaddr> = aiAddrCtorArg
+    public var aiAddr: MutPtr = aiAddrCtorArg
         internal set
 
-    public var aiBlob: MutPtr<CVoid> = aiBlobCtorArg
+    public var aiBlob: MutPtr = aiBlobCtorArg
         internal set
 
-    public var aiProvider: MutPtr<Guid> = aiProviderCtorArg
+    public var aiProvider: MutPtr = aiProviderCtorArg
         internal set
 
-    public var aiNext: MutPtr<Addrinfoex5> = aiNextCtorArg
+    public var aiNext: MutPtr = aiNextCtorArg
         internal set
 
     public var aiFqdn: Pwstr = aiFqdnCtorArg
@@ -1003,7 +1002,7 @@ public class Addrinfoex6 internal constructor(
     public var aiResolutionhandle: Handle = aiResolutionhandleCtorArg
         internal set
 
-    public var aiServers: MutPtr<AddrinfoDnsServer> = aiServersCtorArg
+    public var aiServers: MutPtr = aiServersCtorArg
         internal set
 
     public constructor() : this(
@@ -1036,18 +1035,18 @@ public class Addrinfoex6 internal constructor(
             aiProtocol: Int = 0,
             aiAddrlen: Int = 0,
             aiCanonname: Pwstr = MutPtr(0L),
-            aiAddr: MutPtr<Sockaddr> = MutPtr(0L),
-            aiBlob: MutPtr<CVoid> = MutPtr(0L),
+            aiAddr: MutPtr = MutPtr(0L),
+            aiBlob: MutPtr = MutPtr(0L),
             aiBloblen: Int = 0,
-            aiProvider: MutPtr<Guid> = MutPtr(0L),
-            aiNext: MutPtr<Addrinfoex5> = MutPtr(0L),
+            aiProvider: MutPtr = MutPtr(0L),
+            aiNext: MutPtr = MutPtr(0L),
             aiVersion: Int = 0,
             aiFqdn: Pwstr = MutPtr(0L),
             aiInterfaceindex: Int = 0,
             aiResolutionhandle: Handle = MutPtr(0L),
             aiTtl: UInt = 0u,
             aiNumservers: UInt = 0u,
-            aiServers: MutPtr<AddrinfoDnsServer> = MutPtr(0L),
+            aiServers: MutPtr = MutPtr(0L),
             aiResponseflags: ULong = 0uL,
         ): Addrinfoex6 =
             Addrinfoex6(
@@ -1081,25 +1080,25 @@ public class Addrinfoexa internal constructor(
     public var aiProtocol: Int,
     public var aiAddrlen: Int,
     aiCanonnameCtorArg: Pstr,
-    aiAddrCtorArg: MutPtr<Sockaddr>,
-    aiBlobCtorArg: MutPtr<CVoid>,
+    aiAddrCtorArg: MutPtr,
+    aiBlobCtorArg: MutPtr,
     public var aiBloblen: Int,
-    aiProviderCtorArg: MutPtr<Guid>,
-    aiNextCtorArg: MutPtr<Addrinfoexa>,
+    aiProviderCtorArg: MutPtr,
+    aiNextCtorArg: MutPtr,
 ) {
     public var aiCanonname: Pstr = aiCanonnameCtorArg
         internal set
 
-    public var aiAddr: MutPtr<Sockaddr> = aiAddrCtorArg
+    public var aiAddr: MutPtr = aiAddrCtorArg
         internal set
 
-    public var aiBlob: MutPtr<CVoid> = aiBlobCtorArg
+    public var aiBlob: MutPtr = aiBlobCtorArg
         internal set
 
-    public var aiProvider: MutPtr<Guid> = aiProviderCtorArg
+    public var aiProvider: MutPtr = aiProviderCtorArg
         internal set
 
-    public var aiNext: MutPtr<Addrinfoexa> = aiNextCtorArg
+    public var aiNext: MutPtr = aiNextCtorArg
         internal set
 
     public constructor() : this(
@@ -1128,17 +1127,17 @@ public class Addrinfoexa internal constructor(
 
     public operator fun component6(): Pstr = this.aiCanonname
 
-    public operator fun component7(): MutPtr<Sockaddr> = this.aiAddr
+    public operator fun component7(): MutPtr = this.aiAddr
 
-    public operator fun component8(): MutPtr<CVoid> = this.aiBlob
+    public operator fun component8(): MutPtr = this.aiBlob
 
     public operator fun component9(): Int = this.aiBloblen
 
-    public operator fun component10(): MutPtr<Guid> = this.aiProvider
+    public operator fun component10(): MutPtr = this.aiProvider
 
-    public operator fun component11(): MutPtr<Addrinfoexa> = this.aiNext
+    public operator fun component11(): MutPtr = this.aiNext
 
-    public fun copy(aiFlags: Int = this.aiFlags, aiFamily: Int = this.aiFamily, aiSocktype: Int = this.aiSocktype, aiProtocol: Int = this.aiProtocol, aiAddrlen: Int = this.aiAddrlen, aiCanonname: Pstr = this.aiCanonname, aiAddr: MutPtr<Sockaddr> = this.aiAddr, aiBlob: MutPtr<CVoid> = this.aiBlob, aiBloblen: Int = this.aiBloblen, aiProvider: MutPtr<Guid> = this.aiProvider, aiNext: MutPtr<Addrinfoexa> = this.aiNext): Addrinfoexa = Addrinfoexa(aiFlags = aiFlags, aiFamily = aiFamily, aiSocktype = aiSocktype, aiProtocol = aiProtocol, aiAddrlen = aiAddrlen, aiCanonnameCtorArg = aiCanonname, aiAddrCtorArg = aiAddr, aiBlobCtorArg = aiBlob, aiBloblen = aiBloblen, aiProviderCtorArg = aiProvider, aiNextCtorArg = aiNext)
+    public fun copy(aiFlags: Int = this.aiFlags, aiFamily: Int = this.aiFamily, aiSocktype: Int = this.aiSocktype, aiProtocol: Int = this.aiProtocol, aiAddrlen: Int = this.aiAddrlen, aiCanonname: Pstr = this.aiCanonname, aiAddr: MutPtr = this.aiAddr, aiBlob: MutPtr = this.aiBlob, aiBloblen: Int = this.aiBloblen, aiProvider: MutPtr = this.aiProvider, aiNext: MutPtr = this.aiNext): Addrinfoexa = Addrinfoexa(aiFlags = aiFlags, aiFamily = aiFamily, aiSocktype = aiSocktype, aiProtocol = aiProtocol, aiAddrlen = aiAddrlen, aiCanonnameCtorArg = aiCanonname, aiAddrCtorArg = aiAddr, aiBlobCtorArg = aiBlob, aiBloblen = aiBloblen, aiProviderCtorArg = aiProvider, aiNextCtorArg = aiNext)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -1180,11 +1179,11 @@ public class Addrinfoexa internal constructor(
             aiProtocol: Int = 0,
             aiAddrlen: Int = 0,
             aiCanonname: Pstr = MutPtr(0L),
-            aiAddr: MutPtr<Sockaddr> = MutPtr(0L),
-            aiBlob: MutPtr<CVoid> = MutPtr(0L),
+            aiAddr: MutPtr = MutPtr(0L),
+            aiBlob: MutPtr = MutPtr(0L),
             aiBloblen: Int = 0,
-            aiProvider: MutPtr<Guid> = MutPtr(0L),
-            aiNext: MutPtr<Addrinfoexa> = MutPtr(0L),
+            aiProvider: MutPtr = MutPtr(0L),
+            aiNext: MutPtr = MutPtr(0L),
         ): Addrinfoexa =
             Addrinfoexa(
                 aiFlags = aiFlags,
@@ -1209,25 +1208,25 @@ public class Addrinfoexw internal constructor(
     public var aiProtocol: Int,
     public var aiAddrlen: Int,
     aiCanonnameCtorArg: Pwstr,
-    aiAddrCtorArg: MutPtr<Sockaddr>,
-    aiBlobCtorArg: MutPtr<CVoid>,
+    aiAddrCtorArg: MutPtr,
+    aiBlobCtorArg: MutPtr,
     public var aiBloblen: Int,
-    aiProviderCtorArg: MutPtr<Guid>,
-    aiNextCtorArg: MutPtr<Addrinfoexw>,
+    aiProviderCtorArg: MutPtr,
+    aiNextCtorArg: MutPtr,
 ) {
     public var aiCanonname: Pwstr = aiCanonnameCtorArg
         internal set
 
-    public var aiAddr: MutPtr<Sockaddr> = aiAddrCtorArg
+    public var aiAddr: MutPtr = aiAddrCtorArg
         internal set
 
-    public var aiBlob: MutPtr<CVoid> = aiBlobCtorArg
+    public var aiBlob: MutPtr = aiBlobCtorArg
         internal set
 
-    public var aiProvider: MutPtr<Guid> = aiProviderCtorArg
+    public var aiProvider: MutPtr = aiProviderCtorArg
         internal set
 
-    public var aiNext: MutPtr<Addrinfoexw> = aiNextCtorArg
+    public var aiNext: MutPtr = aiNextCtorArg
         internal set
 
     public constructor() : this(
@@ -1256,17 +1255,17 @@ public class Addrinfoexw internal constructor(
 
     public operator fun component6(): Pwstr = this.aiCanonname
 
-    public operator fun component7(): MutPtr<Sockaddr> = this.aiAddr
+    public operator fun component7(): MutPtr = this.aiAddr
 
-    public operator fun component8(): MutPtr<CVoid> = this.aiBlob
+    public operator fun component8(): MutPtr = this.aiBlob
 
     public operator fun component9(): Int = this.aiBloblen
 
-    public operator fun component10(): MutPtr<Guid> = this.aiProvider
+    public operator fun component10(): MutPtr = this.aiProvider
 
-    public operator fun component11(): MutPtr<Addrinfoexw> = this.aiNext
+    public operator fun component11(): MutPtr = this.aiNext
 
-    public fun copy(aiFlags: Int = this.aiFlags, aiFamily: Int = this.aiFamily, aiSocktype: Int = this.aiSocktype, aiProtocol: Int = this.aiProtocol, aiAddrlen: Int = this.aiAddrlen, aiCanonname: Pwstr = this.aiCanonname, aiAddr: MutPtr<Sockaddr> = this.aiAddr, aiBlob: MutPtr<CVoid> = this.aiBlob, aiBloblen: Int = this.aiBloblen, aiProvider: MutPtr<Guid> = this.aiProvider, aiNext: MutPtr<Addrinfoexw> = this.aiNext): Addrinfoexw = Addrinfoexw(aiFlags = aiFlags, aiFamily = aiFamily, aiSocktype = aiSocktype, aiProtocol = aiProtocol, aiAddrlen = aiAddrlen, aiCanonnameCtorArg = aiCanonname, aiAddrCtorArg = aiAddr, aiBlobCtorArg = aiBlob, aiBloblen = aiBloblen, aiProviderCtorArg = aiProvider, aiNextCtorArg = aiNext)
+    public fun copy(aiFlags: Int = this.aiFlags, aiFamily: Int = this.aiFamily, aiSocktype: Int = this.aiSocktype, aiProtocol: Int = this.aiProtocol, aiAddrlen: Int = this.aiAddrlen, aiCanonname: Pwstr = this.aiCanonname, aiAddr: MutPtr = this.aiAddr, aiBlob: MutPtr = this.aiBlob, aiBloblen: Int = this.aiBloblen, aiProvider: MutPtr = this.aiProvider, aiNext: MutPtr = this.aiNext): Addrinfoexw = Addrinfoexw(aiFlags = aiFlags, aiFamily = aiFamily, aiSocktype = aiSocktype, aiProtocol = aiProtocol, aiAddrlen = aiAddrlen, aiCanonnameCtorArg = aiCanonname, aiAddrCtorArg = aiAddr, aiBlobCtorArg = aiBlob, aiBloblen = aiBloblen, aiProviderCtorArg = aiProvider, aiNextCtorArg = aiNext)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -1308,11 +1307,11 @@ public class Addrinfoexw internal constructor(
             aiProtocol: Int = 0,
             aiAddrlen: Int = 0,
             aiCanonname: Pwstr = MutPtr(0L),
-            aiAddr: MutPtr<Sockaddr> = MutPtr(0L),
-            aiBlob: MutPtr<CVoid> = MutPtr(0L),
+            aiAddr: MutPtr = MutPtr(0L),
+            aiBlob: MutPtr = MutPtr(0L),
             aiBloblen: Int = 0,
-            aiProvider: MutPtr<Guid> = MutPtr(0L),
-            aiNext: MutPtr<Addrinfoexw> = MutPtr(0L),
+            aiProvider: MutPtr = MutPtr(0L),
+            aiNext: MutPtr = MutPtr(0L),
         ): Addrinfoexw =
             Addrinfoexw(
                 aiFlags = aiFlags,
@@ -1337,16 +1336,16 @@ public class Addrinfow internal constructor(
     public var aiProtocol: Int,
     public var aiAddrlen: Int,
     aiCanonnameCtorArg: Pwstr,
-    aiAddrCtorArg: MutPtr<Sockaddr>,
-    aiNextCtorArg: MutPtr<Addrinfow>,
+    aiAddrCtorArg: MutPtr,
+    aiNextCtorArg: MutPtr,
 ) {
     public var aiCanonname: Pwstr = aiCanonnameCtorArg
         internal set
 
-    public var aiAddr: MutPtr<Sockaddr> = aiAddrCtorArg
+    public var aiAddr: MutPtr = aiAddrCtorArg
         internal set
 
-    public var aiNext: MutPtr<Addrinfow> = aiNextCtorArg
+    public var aiNext: MutPtr = aiNextCtorArg
         internal set
 
     public constructor() : this(
@@ -1372,11 +1371,11 @@ public class Addrinfow internal constructor(
 
     public operator fun component6(): Pwstr = this.aiCanonname
 
-    public operator fun component7(): MutPtr<Sockaddr> = this.aiAddr
+    public operator fun component7(): MutPtr = this.aiAddr
 
-    public operator fun component8(): MutPtr<Addrinfow> = this.aiNext
+    public operator fun component8(): MutPtr = this.aiNext
 
-    public fun copy(aiFlags: Int = this.aiFlags, aiFamily: Int = this.aiFamily, aiSocktype: Int = this.aiSocktype, aiProtocol: Int = this.aiProtocol, aiAddrlen: Int = this.aiAddrlen, aiCanonname: Pwstr = this.aiCanonname, aiAddr: MutPtr<Sockaddr> = this.aiAddr, aiNext: MutPtr<Addrinfow> = this.aiNext): Addrinfow = Addrinfow(aiFlags = aiFlags, aiFamily = aiFamily, aiSocktype = aiSocktype, aiProtocol = aiProtocol, aiAddrlen = aiAddrlen, aiCanonnameCtorArg = aiCanonname, aiAddrCtorArg = aiAddr, aiNextCtorArg = aiNext)
+    public fun copy(aiFlags: Int = this.aiFlags, aiFamily: Int = this.aiFamily, aiSocktype: Int = this.aiSocktype, aiProtocol: Int = this.aiProtocol, aiAddrlen: Int = this.aiAddrlen, aiCanonname: Pwstr = this.aiCanonname, aiAddr: MutPtr = this.aiAddr, aiNext: MutPtr = this.aiNext): Addrinfow = Addrinfow(aiFlags = aiFlags, aiFamily = aiFamily, aiSocktype = aiSocktype, aiProtocol = aiProtocol, aiAddrlen = aiAddrlen, aiCanonnameCtorArg = aiCanonname, aiAddrCtorArg = aiAddr, aiNextCtorArg = aiNext)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -1412,8 +1411,8 @@ public class Addrinfow internal constructor(
             aiProtocol: Int = 0,
             aiAddrlen: Int = 0,
             aiCanonname: Pwstr = MutPtr(0L),
-            aiAddr: MutPtr<Sockaddr> = MutPtr(0L),
-            aiNext: MutPtr<Addrinfow> = MutPtr(0L),
+            aiAddr: MutPtr = MutPtr(0L),
+            aiNext: MutPtr = MutPtr(0L),
         ): Addrinfow =
             Addrinfow(
                 aiFlags = aiFlags,
@@ -1432,10 +1431,10 @@ public class AddrinfoDnsServer internal constructor(
     public var aiServertype: UInt,
     public var aiFlags: ULong,
     public var aiAddrlen: UInt,
-    aiAddrCtorArg: MutPtr<Sockaddr>,
+    aiAddrCtorArg: MutPtr,
     public var anonymous: AddrinfoDnsServer0,
 ) {
-    public var aiAddr: MutPtr<Sockaddr> = aiAddrCtorArg
+    public var aiAddr: MutPtr = aiAddrCtorArg
         internal set
 
     public constructor() : this(
@@ -1452,11 +1451,11 @@ public class AddrinfoDnsServer internal constructor(
 
     public operator fun component3(): UInt = this.aiAddrlen
 
-    public operator fun component4(): MutPtr<Sockaddr> = this.aiAddr
+    public operator fun component4(): MutPtr = this.aiAddr
 
     public operator fun component5(): AddrinfoDnsServer0 = this.anonymous
 
-    public fun copy(aiServertype: UInt = this.aiServertype, aiFlags: ULong = this.aiFlags, aiAddrlen: UInt = this.aiAddrlen, aiAddr: MutPtr<Sockaddr> = this.aiAddr, anonymous: AddrinfoDnsServer0 = this.anonymous): AddrinfoDnsServer = AddrinfoDnsServer(aiServertype = aiServertype, aiFlags = aiFlags, aiAddrlen = aiAddrlen, aiAddrCtorArg = aiAddr, anonymous = anonymous)
+    public fun copy(aiServertype: UInt = this.aiServertype, aiFlags: ULong = this.aiFlags, aiAddrlen: UInt = this.aiAddrlen, aiAddr: MutPtr = this.aiAddr, anonymous: AddrinfoDnsServer0 = this.anonymous): AddrinfoDnsServer = AddrinfoDnsServer(aiServertype = aiServertype, aiFlags = aiFlags, aiAddrlen = aiAddrlen, aiAddrCtorArg = aiAddr, anonymous = anonymous)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -1483,7 +1482,7 @@ public class AddrinfoDnsServer internal constructor(
             aiServertype: UInt = 0u,
             aiFlags: ULong = 0uL,
             aiAddrlen: UInt = 0u,
-            aiAddr: MutPtr<Sockaddr> = MutPtr(0L),
+            aiAddr: MutPtr = MutPtr(0L),
             anonymous: AddrinfoDnsServer0 = AddrinfoDnsServer0(),
         ): AddrinfoDnsServer =
             AddrinfoDnsServer(
@@ -2579,18 +2578,18 @@ public data class GroupSourceReq(
 
 public class Hostent internal constructor(
     hNameCtorArg: Pstr,
-    hAliasesCtorArg: MutPtr<MutPtr<Byte>>,
+    hAliasesCtorArg: MutPtr,
     public var hAddrtype: Short,
     public var hLength: Short,
-    hAddrListCtorArg: MutPtr<MutPtr<Byte>>,
+    hAddrListCtorArg: MutPtr,
 ) {
     public var hName: Pstr = hNameCtorArg
         internal set
 
-    public var hAliases: MutPtr<MutPtr<Byte>> = hAliasesCtorArg
+    public var hAliases: MutPtr = hAliasesCtorArg
         internal set
 
-    public var hAddrList: MutPtr<MutPtr<Byte>> = hAddrListCtorArg
+    public var hAddrList: MutPtr = hAddrListCtorArg
         internal set
 
     public constructor() : this(
@@ -2603,15 +2602,15 @@ public class Hostent internal constructor(
 
     public operator fun component1(): Pstr = this.hName
 
-    public operator fun component2(): MutPtr<MutPtr<Byte>> = this.hAliases
+    public operator fun component2(): MutPtr = this.hAliases
 
     public operator fun component3(): Short = this.hAddrtype
 
     public operator fun component4(): Short = this.hLength
 
-    public operator fun component5(): MutPtr<MutPtr<Byte>> = this.hAddrList
+    public operator fun component5(): MutPtr = this.hAddrList
 
-    public fun copy(hName: Pstr = this.hName, hAliases: MutPtr<MutPtr<Byte>> = this.hAliases, hAddrtype: Short = this.hAddrtype, hLength: Short = this.hLength, hAddrList: MutPtr<MutPtr<Byte>> = this.hAddrList): Hostent = Hostent(hNameCtorArg = hName, hAliasesCtorArg = hAliases, hAddrtype = hAddrtype, hLength = hLength, hAddrListCtorArg = hAddrList)
+    public fun copy(hName: Pstr = this.hName, hAliases: MutPtr = this.hAliases, hAddrtype: Short = this.hAddrtype, hLength: Short = this.hLength, hAddrList: MutPtr = this.hAddrList): Hostent = Hostent(hNameCtorArg = hName, hAliasesCtorArg = hAliases, hAddrtype = hAddrtype, hLength = hLength, hAddrListCtorArg = hAddrList)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -2636,10 +2635,10 @@ public class Hostent internal constructor(
     public companion object {
         public operator fun invoke(
             hName: Pstr = MutPtr(0L),
-            hAliases: MutPtr<MutPtr<Byte>> = MutPtr(0L),
+            hAliases: MutPtr = MutPtr(0L),
             hAddrtype: Short = 0,
             hLength: Short = 0,
-            hAddrList: MutPtr<MutPtr<Byte>> = MutPtr(0L),
+            hAddrList: MutPtr = MutPtr(0L),
         ): Hostent =
             Hostent(
                 hNameCtorArg = hName,
@@ -4356,7 +4355,7 @@ public class Netresource2a internal constructor(
     public var nsInfo: NsInfoa,
     public var serviceType: Guid,
     public var dwProtocols: UInt,
-    lpiProtocolsCtorArg: MutPtr<Int>,
+    lpiProtocolsCtorArg: MutPtr,
 ) {
     public var lpLocalName: Pstr = lpLocalNameCtorArg
         internal set
@@ -4367,7 +4366,7 @@ public class Netresource2a internal constructor(
     public var lpComment: Pstr = lpCommentCtorArg
         internal set
 
-    public var lpiProtocols: MutPtr<Int> = lpiProtocolsCtorArg
+    public var lpiProtocols: MutPtr = lpiProtocolsCtorArg
         internal set
 
     public constructor() : this(
@@ -4404,9 +4403,9 @@ public class Netresource2a internal constructor(
 
     public operator fun component10(): UInt = this.dwProtocols
 
-    public operator fun component11(): MutPtr<Int> = this.lpiProtocols
+    public operator fun component11(): MutPtr = this.lpiProtocols
 
-    public fun copy(dwScope: UInt = this.dwScope, dwType: UInt = this.dwType, dwUsage: UInt = this.dwUsage, dwDisplayType: UInt = this.dwDisplayType, lpLocalName: Pstr = this.lpLocalName, lpRemoteName: Pstr = this.lpRemoteName, lpComment: Pstr = this.lpComment, nsInfo: NsInfoa = this.nsInfo, serviceType: Guid = this.serviceType, dwProtocols: UInt = this.dwProtocols, lpiProtocols: MutPtr<Int> = this.lpiProtocols): Netresource2a = Netresource2a(dwScope = dwScope, dwType = dwType, dwUsage = dwUsage, dwDisplayType = dwDisplayType, lpLocalNameCtorArg = lpLocalName, lpRemoteNameCtorArg = lpRemoteName, lpCommentCtorArg = lpComment, nsInfo = nsInfo, serviceType = serviceType, dwProtocols = dwProtocols, lpiProtocolsCtorArg = lpiProtocols)
+    public fun copy(dwScope: UInt = this.dwScope, dwType: UInt = this.dwType, dwUsage: UInt = this.dwUsage, dwDisplayType: UInt = this.dwDisplayType, lpLocalName: Pstr = this.lpLocalName, lpRemoteName: Pstr = this.lpRemoteName, lpComment: Pstr = this.lpComment, nsInfo: NsInfoa = this.nsInfo, serviceType: Guid = this.serviceType, dwProtocols: UInt = this.dwProtocols, lpiProtocols: MutPtr = this.lpiProtocols): Netresource2a = Netresource2a(dwScope = dwScope, dwType = dwType, dwUsage = dwUsage, dwDisplayType = dwDisplayType, lpLocalNameCtorArg = lpLocalName, lpRemoteNameCtorArg = lpRemoteName, lpCommentCtorArg = lpComment, nsInfo = nsInfo, serviceType = serviceType, dwProtocols = dwProtocols, lpiProtocolsCtorArg = lpiProtocols)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -4452,7 +4451,7 @@ public class Netresource2a internal constructor(
             nsInfo: NsInfoa = NsInfoa(),
             serviceType: Guid = Guid(),
             dwProtocols: UInt = 0u,
-            lpiProtocols: MutPtr<Int> = MutPtr(0L),
+            lpiProtocols: MutPtr = MutPtr(0L),
         ): Netresource2a =
             Netresource2a(
                 dwScope = dwScope,
@@ -4481,7 +4480,7 @@ public class Netresource2w internal constructor(
     public var nsInfo: NsInfoa,
     public var serviceType: Guid,
     public var dwProtocols: UInt,
-    lpiProtocolsCtorArg: MutPtr<Int>,
+    lpiProtocolsCtorArg: MutPtr,
 ) {
     public var lpLocalName: Pwstr = lpLocalNameCtorArg
         internal set
@@ -4492,7 +4491,7 @@ public class Netresource2w internal constructor(
     public var lpComment: Pwstr = lpCommentCtorArg
         internal set
 
-    public var lpiProtocols: MutPtr<Int> = lpiProtocolsCtorArg
+    public var lpiProtocols: MutPtr = lpiProtocolsCtorArg
         internal set
 
     public constructor() : this(
@@ -4529,9 +4528,9 @@ public class Netresource2w internal constructor(
 
     public operator fun component10(): UInt = this.dwProtocols
 
-    public operator fun component11(): MutPtr<Int> = this.lpiProtocols
+    public operator fun component11(): MutPtr = this.lpiProtocols
 
-    public fun copy(dwScope: UInt = this.dwScope, dwType: UInt = this.dwType, dwUsage: UInt = this.dwUsage, dwDisplayType: UInt = this.dwDisplayType, lpLocalName: Pwstr = this.lpLocalName, lpRemoteName: Pwstr = this.lpRemoteName, lpComment: Pwstr = this.lpComment, nsInfo: NsInfoa = this.nsInfo, serviceType: Guid = this.serviceType, dwProtocols: UInt = this.dwProtocols, lpiProtocols: MutPtr<Int> = this.lpiProtocols): Netresource2w = Netresource2w(dwScope = dwScope, dwType = dwType, dwUsage = dwUsage, dwDisplayType = dwDisplayType, lpLocalNameCtorArg = lpLocalName, lpRemoteNameCtorArg = lpRemoteName, lpCommentCtorArg = lpComment, nsInfo = nsInfo, serviceType = serviceType, dwProtocols = dwProtocols, lpiProtocolsCtorArg = lpiProtocols)
+    public fun copy(dwScope: UInt = this.dwScope, dwType: UInt = this.dwType, dwUsage: UInt = this.dwUsage, dwDisplayType: UInt = this.dwDisplayType, lpLocalName: Pwstr = this.lpLocalName, lpRemoteName: Pwstr = this.lpRemoteName, lpComment: Pwstr = this.lpComment, nsInfo: NsInfoa = this.nsInfo, serviceType: Guid = this.serviceType, dwProtocols: UInt = this.dwProtocols, lpiProtocols: MutPtr = this.lpiProtocols): Netresource2w = Netresource2w(dwScope = dwScope, dwType = dwType, dwUsage = dwUsage, dwDisplayType = dwDisplayType, lpLocalNameCtorArg = lpLocalName, lpRemoteNameCtorArg = lpRemoteName, lpCommentCtorArg = lpComment, nsInfo = nsInfo, serviceType = serviceType, dwProtocols = dwProtocols, lpiProtocolsCtorArg = lpiProtocols)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -4577,7 +4576,7 @@ public class Netresource2w internal constructor(
             nsInfo: NsInfoa = NsInfoa(),
             serviceType: Guid = Guid(),
             dwProtocols: UInt = 0u,
-            lpiProtocols: MutPtr<Int> = MutPtr(0L),
+            lpiProtocols: MutPtr = MutPtr(0L),
         ): Netresource2w =
             Netresource2w(
                 dwScope = dwScope,
@@ -5299,13 +5298,13 @@ public class ProtocolInfow internal constructor(
 
 public class Protoent internal constructor(
     pNameCtorArg: Pstr,
-    pAliasesCtorArg: MutPtr<MutPtr<Byte>>,
+    pAliasesCtorArg: MutPtr,
     public var pProto: Short,
 ) {
     public var pName: Pstr = pNameCtorArg
         internal set
 
-    public var pAliases: MutPtr<MutPtr<Byte>> = pAliasesCtorArg
+    public var pAliases: MutPtr = pAliasesCtorArg
         internal set
 
     public constructor() : this(
@@ -5316,11 +5315,11 @@ public class Protoent internal constructor(
 
     public operator fun component1(): Pstr = this.pName
 
-    public operator fun component2(): MutPtr<MutPtr<Byte>> = this.pAliases
+    public operator fun component2(): MutPtr = this.pAliases
 
     public operator fun component3(): Short = this.pProto
 
-    public fun copy(pName: Pstr = this.pName, pAliases: MutPtr<MutPtr<Byte>> = this.pAliases, pProto: Short = this.pProto): Protoent = Protoent(pNameCtorArg = pName, pAliasesCtorArg = pAliases, pProto = pProto)
+    public fun copy(pName: Pstr = this.pName, pAliases: MutPtr = this.pAliases, pProto: Short = this.pProto): Protoent = Protoent(pNameCtorArg = pName, pAliasesCtorArg = pAliases, pProto = pProto)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -5341,7 +5340,7 @@ public class Protoent internal constructor(
     public companion object {
         public operator fun invoke(
             pName: Pstr = MutPtr(0L),
-            pAliases: MutPtr<MutPtr<Byte>> = MutPtr(0L),
+            pAliases: MutPtr = MutPtr(0L),
             pProto: Short = 0,
         ): Protoent =
             Protoent(
@@ -5602,16 +5601,16 @@ public class RioNotificationCompletion00 internal constructor(
 
 public class RioNotificationCompletion01 internal constructor(
     iocpHandleCtorArg: Handle,
-    completionKeyCtorArg: MutPtr<CVoid>,
-    overlappedCtorArg: MutPtr<CVoid>,
+    completionKeyCtorArg: MutPtr,
+    overlappedCtorArg: MutPtr,
 ) {
     public var iocpHandle: Handle = iocpHandleCtorArg
         internal set
 
-    public var completionKey: MutPtr<CVoid> = completionKeyCtorArg
+    public var completionKey: MutPtr = completionKeyCtorArg
         internal set
 
-    public var overlapped: MutPtr<CVoid> = overlappedCtorArg
+    public var overlapped: MutPtr = overlappedCtorArg
         internal set
 
     public constructor() : this(
@@ -5622,11 +5621,11 @@ public class RioNotificationCompletion01 internal constructor(
 
     public operator fun component1(): Handle = this.iocpHandle
 
-    public operator fun component2(): MutPtr<CVoid> = this.completionKey
+    public operator fun component2(): MutPtr = this.completionKey
 
-    public operator fun component3(): MutPtr<CVoid> = this.overlapped
+    public operator fun component3(): MutPtr = this.overlapped
 
-    public fun copy(iocpHandle: Handle = this.iocpHandle, completionKey: MutPtr<CVoid> = this.completionKey, overlapped: MutPtr<CVoid> = this.overlapped): RioNotificationCompletion01 = RioNotificationCompletion01(iocpHandleCtorArg = iocpHandle, completionKeyCtorArg = completionKey, overlappedCtorArg = overlapped)
+    public fun copy(iocpHandle: Handle = this.iocpHandle, completionKey: MutPtr = this.completionKey, overlapped: MutPtr = this.overlapped): RioNotificationCompletion01 = RioNotificationCompletion01(iocpHandleCtorArg = iocpHandle, completionKeyCtorArg = completionKey, overlappedCtorArg = overlapped)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -5647,8 +5646,8 @@ public class RioNotificationCompletion01 internal constructor(
     public companion object {
         public operator fun invoke(
             iocpHandle: Handle = MutPtr(0L),
-            completionKey: MutPtr<CVoid> = MutPtr(0L),
-            overlapped: MutPtr<CVoid> = MutPtr(0L),
+            completionKey: MutPtr = MutPtr(0L),
+            overlapped: MutPtr = MutPtr(0L),
         ): RioNotificationCompletion01 =
             RioNotificationCompletion01(
                 iocpHandleCtorArg = iocpHandle,
@@ -5885,14 +5884,14 @@ public data class ScopeId00(
 
 public class Servent internal constructor(
     sNameCtorArg: Pstr,
-    sAliasesCtorArg: MutPtr<MutPtr<Byte>>,
+    sAliasesCtorArg: MutPtr,
     sProtoCtorArg: Pstr,
     public var sPort: Short,
 ) {
     public var sName: Pstr = sNameCtorArg
         internal set
 
-    public var sAliases: MutPtr<MutPtr<Byte>> = sAliasesCtorArg
+    public var sAliases: MutPtr = sAliasesCtorArg
         internal set
 
     public var sProto: Pstr = sProtoCtorArg
@@ -5907,13 +5906,13 @@ public class Servent internal constructor(
 
     public operator fun component1(): Pstr = this.sName
 
-    public operator fun component2(): MutPtr<MutPtr<Byte>> = this.sAliases
+    public operator fun component2(): MutPtr = this.sAliases
 
     public operator fun component3(): Pstr = this.sProto
 
     public operator fun component4(): Short = this.sPort
 
-    public fun copy(sName: Pstr = this.sName, sAliases: MutPtr<MutPtr<Byte>> = this.sAliases, sProto: Pstr = this.sProto, sPort: Short = this.sPort): Servent = Servent(sNameCtorArg = sName, sAliasesCtorArg = sAliases, sProtoCtorArg = sProto, sPort = sPort)
+    public fun copy(sName: Pstr = this.sName, sAliases: MutPtr = this.sAliases, sProto: Pstr = this.sProto, sPort: Short = this.sPort): Servent = Servent(sNameCtorArg = sName, sAliasesCtorArg = sAliases, sProtoCtorArg = sProto, sPort = sPort)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -5936,7 +5935,7 @@ public class Servent internal constructor(
     public companion object {
         public operator fun invoke(
             sName: Pstr = MutPtr(0L),
-            sAliases: MutPtr<MutPtr<Byte>> = MutPtr(0L),
+            sAliases: MutPtr = MutPtr(0L),
             sProto: Pstr = MutPtr(0L),
             sPort: Short = 0,
         ): Servent =
@@ -5954,13 +5953,13 @@ public class ServiceAddress internal constructor(
     public var dwAddressFlags: UInt,
     public var dwAddressLength: UInt,
     public var dwPrincipalLength: UInt,
-    lpAddressCtorArg: MutPtr<UByte>,
-    lpPrincipalCtorArg: MutPtr<UByte>,
+    lpAddressCtorArg: MutPtr,
+    lpPrincipalCtorArg: MutPtr,
 ) {
-    public var lpAddress: MutPtr<UByte> = lpAddressCtorArg
+    public var lpAddress: MutPtr = lpAddressCtorArg
         internal set
 
-    public var lpPrincipal: MutPtr<UByte> = lpPrincipalCtorArg
+    public var lpPrincipal: MutPtr = lpPrincipalCtorArg
         internal set
 
     public constructor() : this(
@@ -5980,11 +5979,11 @@ public class ServiceAddress internal constructor(
 
     public operator fun component4(): UInt = this.dwPrincipalLength
 
-    public operator fun component5(): MutPtr<UByte> = this.lpAddress
+    public operator fun component5(): MutPtr = this.lpAddress
 
-    public operator fun component6(): MutPtr<UByte> = this.lpPrincipal
+    public operator fun component6(): MutPtr = this.lpPrincipal
 
-    public fun copy(dwAddressType: UInt = this.dwAddressType, dwAddressFlags: UInt = this.dwAddressFlags, dwAddressLength: UInt = this.dwAddressLength, dwPrincipalLength: UInt = this.dwPrincipalLength, lpAddress: MutPtr<UByte> = this.lpAddress, lpPrincipal: MutPtr<UByte> = this.lpPrincipal): ServiceAddress = ServiceAddress(dwAddressType = dwAddressType, dwAddressFlags = dwAddressFlags, dwAddressLength = dwAddressLength, dwPrincipalLength = dwPrincipalLength, lpAddressCtorArg = lpAddress, lpPrincipalCtorArg = lpPrincipal)
+    public fun copy(dwAddressType: UInt = this.dwAddressType, dwAddressFlags: UInt = this.dwAddressFlags, dwAddressLength: UInt = this.dwAddressLength, dwPrincipalLength: UInt = this.dwPrincipalLength, lpAddress: MutPtr = this.lpAddress, lpPrincipal: MutPtr = this.lpPrincipal): ServiceAddress = ServiceAddress(dwAddressType = dwAddressType, dwAddressFlags = dwAddressFlags, dwAddressLength = dwAddressLength, dwPrincipalLength = dwPrincipalLength, lpAddressCtorArg = lpAddress, lpPrincipalCtorArg = lpPrincipal)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -6021,11 +6020,11 @@ public class ServiceAddress internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 12L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<UByte>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 16L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<UByte>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 24L),
                     )
                 override fun writeNative(addr: Long, value: ServiceAddress) {
@@ -6035,11 +6034,11 @@ public class ServiceAddress internal constructor(
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 12L, value.dwPrincipalLength)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<UByte>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 16L, value.lpAddress)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<UByte>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 24L, value.lpPrincipal)
                 }
             }
@@ -6049,8 +6048,8 @@ public class ServiceAddress internal constructor(
             dwAddressFlags: UInt = 0u,
             dwAddressLength: UInt = 0u,
             dwPrincipalLength: UInt = 0u,
-            lpAddress: MutPtr<UByte> = MutPtr(0L),
-            lpPrincipal: MutPtr<UByte> = MutPtr(0L),
+            lpAddress: MutPtr = MutPtr(0L),
+            lpPrincipal: MutPtr = MutPtr(0L),
         ): ServiceAddress =
             ServiceAddress(
                 dwAddressType = dwAddressType,
@@ -6144,7 +6143,7 @@ public class ServiceAsyncInfo internal constructor(
 }
 
 public class ServiceInfoa internal constructor(
-    lpServiceTypeCtorArg: MutPtr<Guid>,
+    lpServiceTypeCtorArg: MutPtr,
     lpServiceNameCtorArg: Pstr,
     lpCommentCtorArg: Pstr,
     lpLocaleCtorArg: Pstr,
@@ -6152,10 +6151,10 @@ public class ServiceInfoa internal constructor(
     public var dwVersion: UInt,
     public var dwTime: UInt,
     lpMachineNameCtorArg: Pstr,
-    lpServiceAddressCtorArg: MutPtr<ServiceAddresses>,
+    lpServiceAddressCtorArg: MutPtr,
     public var serviceSpecificInfo: Blob,
 ) {
-    public var lpServiceType: MutPtr<Guid> = lpServiceTypeCtorArg
+    public var lpServiceType: MutPtr = lpServiceTypeCtorArg
         internal set
 
     public var lpServiceName: Pstr = lpServiceNameCtorArg
@@ -6170,7 +6169,7 @@ public class ServiceInfoa internal constructor(
     public var lpMachineName: Pstr = lpMachineNameCtorArg
         internal set
 
-    public var lpServiceAddress: MutPtr<ServiceAddresses> = lpServiceAddressCtorArg
+    public var lpServiceAddress: MutPtr = lpServiceAddressCtorArg
         internal set
 
     public constructor() : this(
@@ -6186,7 +6185,7 @@ public class ServiceInfoa internal constructor(
         serviceSpecificInfo = Blob(),
     )
 
-    public operator fun component1(): MutPtr<Guid> = this.lpServiceType
+    public operator fun component1(): MutPtr = this.lpServiceType
 
     public operator fun component2(): Pstr = this.lpServiceName
 
@@ -6202,11 +6201,11 @@ public class ServiceInfoa internal constructor(
 
     public operator fun component8(): Pstr = this.lpMachineName
 
-    public operator fun component9(): MutPtr<ServiceAddresses> = this.lpServiceAddress
+    public operator fun component9(): MutPtr = this.lpServiceAddress
 
     public operator fun component10(): Blob = this.serviceSpecificInfo
 
-    public fun copy(lpServiceType: MutPtr<Guid> = this.lpServiceType, lpServiceName: Pstr = this.lpServiceName, lpComment: Pstr = this.lpComment, lpLocale: Pstr = this.lpLocale, dwDisplayHint: ResourceDisplayType = this.dwDisplayHint, dwVersion: UInt = this.dwVersion, dwTime: UInt = this.dwTime, lpMachineName: Pstr = this.lpMachineName, lpServiceAddress: MutPtr<ServiceAddresses> = this.lpServiceAddress, serviceSpecificInfo: Blob = this.serviceSpecificInfo): ServiceInfoa = ServiceInfoa(lpServiceTypeCtorArg = lpServiceType, lpServiceNameCtorArg = lpServiceName, lpCommentCtorArg = lpComment, lpLocaleCtorArg = lpLocale, dwDisplayHint = dwDisplayHint, dwVersion = dwVersion, dwTime = dwTime, lpMachineNameCtorArg = lpMachineName, lpServiceAddressCtorArg = lpServiceAddress, serviceSpecificInfo = serviceSpecificInfo)
+    public fun copy(lpServiceType: MutPtr = this.lpServiceType, lpServiceName: Pstr = this.lpServiceName, lpComment: Pstr = this.lpComment, lpLocale: Pstr = this.lpLocale, dwDisplayHint: ResourceDisplayType = this.dwDisplayHint, dwVersion: UInt = this.dwVersion, dwTime: UInt = this.dwTime, lpMachineName: Pstr = this.lpMachineName, lpServiceAddress: MutPtr = this.lpServiceAddress, serviceSpecificInfo: Blob = this.serviceSpecificInfo): ServiceInfoa = ServiceInfoa(lpServiceTypeCtorArg = lpServiceType, lpServiceNameCtorArg = lpServiceName, lpCommentCtorArg = lpComment, lpLocaleCtorArg = lpLocale, dwDisplayHint = dwDisplayHint, dwVersion = dwVersion, dwTime = dwTime, lpMachineNameCtorArg = lpMachineName, lpServiceAddressCtorArg = lpServiceAddress, serviceSpecificInfo = serviceSpecificInfo)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -6240,7 +6239,7 @@ public class ServiceInfoa internal constructor(
 
     public companion object {
         public operator fun invoke(
-            lpServiceType: MutPtr<Guid> = MutPtr(0L),
+            lpServiceType: MutPtr = MutPtr(0L),
             lpServiceName: Pstr = MutPtr(0L),
             lpComment: Pstr = MutPtr(0L),
             lpLocale: Pstr = MutPtr(0L),
@@ -6248,7 +6247,7 @@ public class ServiceInfoa internal constructor(
             dwVersion: UInt = 0u,
             dwTime: UInt = 0u,
             lpMachineName: Pstr = MutPtr(0L),
-            lpServiceAddress: MutPtr<ServiceAddresses> = MutPtr(0L),
+            lpServiceAddress: MutPtr = MutPtr(0L),
             serviceSpecificInfo: Blob = Blob(),
         ): ServiceInfoa =
             ServiceInfoa(
@@ -6267,7 +6266,7 @@ public class ServiceInfoa internal constructor(
 }
 
 public class ServiceInfow internal constructor(
-    lpServiceTypeCtorArg: MutPtr<Guid>,
+    lpServiceTypeCtorArg: MutPtr,
     lpServiceNameCtorArg: Pwstr,
     lpCommentCtorArg: Pwstr,
     lpLocaleCtorArg: Pwstr,
@@ -6275,10 +6274,10 @@ public class ServiceInfow internal constructor(
     public var dwVersion: UInt,
     public var dwTime: UInt,
     lpMachineNameCtorArg: Pwstr,
-    lpServiceAddressCtorArg: MutPtr<ServiceAddresses>,
+    lpServiceAddressCtorArg: MutPtr,
     public var serviceSpecificInfo: Blob,
 ) {
-    public var lpServiceType: MutPtr<Guid> = lpServiceTypeCtorArg
+    public var lpServiceType: MutPtr = lpServiceTypeCtorArg
         internal set
 
     public var lpServiceName: Pwstr = lpServiceNameCtorArg
@@ -6293,7 +6292,7 @@ public class ServiceInfow internal constructor(
     public var lpMachineName: Pwstr = lpMachineNameCtorArg
         internal set
 
-    public var lpServiceAddress: MutPtr<ServiceAddresses> = lpServiceAddressCtorArg
+    public var lpServiceAddress: MutPtr = lpServiceAddressCtorArg
         internal set
 
     public constructor() : this(
@@ -6309,7 +6308,7 @@ public class ServiceInfow internal constructor(
         serviceSpecificInfo = Blob(),
     )
 
-    public operator fun component1(): MutPtr<Guid> = this.lpServiceType
+    public operator fun component1(): MutPtr = this.lpServiceType
 
     public operator fun component2(): Pwstr = this.lpServiceName
 
@@ -6325,11 +6324,11 @@ public class ServiceInfow internal constructor(
 
     public operator fun component8(): Pwstr = this.lpMachineName
 
-    public operator fun component9(): MutPtr<ServiceAddresses> = this.lpServiceAddress
+    public operator fun component9(): MutPtr = this.lpServiceAddress
 
     public operator fun component10(): Blob = this.serviceSpecificInfo
 
-    public fun copy(lpServiceType: MutPtr<Guid> = this.lpServiceType, lpServiceName: Pwstr = this.lpServiceName, lpComment: Pwstr = this.lpComment, lpLocale: Pwstr = this.lpLocale, dwDisplayHint: ResourceDisplayType = this.dwDisplayHint, dwVersion: UInt = this.dwVersion, dwTime: UInt = this.dwTime, lpMachineName: Pwstr = this.lpMachineName, lpServiceAddress: MutPtr<ServiceAddresses> = this.lpServiceAddress, serviceSpecificInfo: Blob = this.serviceSpecificInfo): ServiceInfow = ServiceInfow(lpServiceTypeCtorArg = lpServiceType, lpServiceNameCtorArg = lpServiceName, lpCommentCtorArg = lpComment, lpLocaleCtorArg = lpLocale, dwDisplayHint = dwDisplayHint, dwVersion = dwVersion, dwTime = dwTime, lpMachineNameCtorArg = lpMachineName, lpServiceAddressCtorArg = lpServiceAddress, serviceSpecificInfo = serviceSpecificInfo)
+    public fun copy(lpServiceType: MutPtr = this.lpServiceType, lpServiceName: Pwstr = this.lpServiceName, lpComment: Pwstr = this.lpComment, lpLocale: Pwstr = this.lpLocale, dwDisplayHint: ResourceDisplayType = this.dwDisplayHint, dwVersion: UInt = this.dwVersion, dwTime: UInt = this.dwTime, lpMachineName: Pwstr = this.lpMachineName, lpServiceAddress: MutPtr = this.lpServiceAddress, serviceSpecificInfo: Blob = this.serviceSpecificInfo): ServiceInfow = ServiceInfow(lpServiceTypeCtorArg = lpServiceType, lpServiceNameCtorArg = lpServiceName, lpCommentCtorArg = lpComment, lpLocaleCtorArg = lpLocale, dwDisplayHint = dwDisplayHint, dwVersion = dwVersion, dwTime = dwTime, lpMachineNameCtorArg = lpMachineName, lpServiceAddressCtorArg = lpServiceAddress, serviceSpecificInfo = serviceSpecificInfo)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -6363,7 +6362,7 @@ public class ServiceInfow internal constructor(
 
     public companion object {
         public operator fun invoke(
-            lpServiceType: MutPtr<Guid> = MutPtr(0L),
+            lpServiceType: MutPtr = MutPtr(0L),
             lpServiceName: Pwstr = MutPtr(0L),
             lpComment: Pwstr = MutPtr(0L),
             lpLocale: Pwstr = MutPtr(0L),
@@ -6371,7 +6370,7 @@ public class ServiceInfow internal constructor(
             dwVersion: UInt = 0u,
             dwTime: UInt = 0u,
             lpMachineName: Pwstr = MutPtr(0L),
-            lpServiceAddress: MutPtr<ServiceAddresses> = MutPtr(0L),
+            lpServiceAddress: MutPtr = MutPtr(0L),
             serviceSpecificInfo: Blob = Blob(),
         ): ServiceInfow =
             ServiceInfow(
@@ -6560,12 +6559,12 @@ public class ServiceTypeValueAbsa internal constructor(
     public var dwValueType: UInt,
     public var dwValueSize: UInt,
     lpValueNameCtorArg: Pstr,
-    lpValueCtorArg: MutPtr<CVoid>,
+    lpValueCtorArg: MutPtr,
 ) {
     public var lpValueName: Pstr = lpValueNameCtorArg
         internal set
 
-    public var lpValue: MutPtr<CVoid> = lpValueCtorArg
+    public var lpValue: MutPtr = lpValueCtorArg
         internal set
 
     public constructor() : this(
@@ -6584,9 +6583,9 @@ public class ServiceTypeValueAbsa internal constructor(
 
     public operator fun component4(): Pstr = this.lpValueName
 
-    public operator fun component5(): MutPtr<CVoid> = this.lpValue
+    public operator fun component5(): MutPtr = this.lpValue
 
-    public fun copy(dwNameSpace: UInt = this.dwNameSpace, dwValueType: UInt = this.dwValueType, dwValueSize: UInt = this.dwValueSize, lpValueName: Pstr = this.lpValueName, lpValue: MutPtr<CVoid> = this.lpValue): ServiceTypeValueAbsa = ServiceTypeValueAbsa(dwNameSpace = dwNameSpace, dwValueType = dwValueType, dwValueSize = dwValueSize, lpValueNameCtorArg = lpValueName, lpValueCtorArg = lpValue)
+    public fun copy(dwNameSpace: UInt = this.dwNameSpace, dwValueType: UInt = this.dwValueType, dwValueSize: UInt = this.dwValueSize, lpValueName: Pstr = this.lpValueName, lpValue: MutPtr = this.lpValue): ServiceTypeValueAbsa = ServiceTypeValueAbsa(dwNameSpace = dwNameSpace, dwValueType = dwValueType, dwValueSize = dwValueSize, lpValueNameCtorArg = lpValueName, lpValueCtorArg = lpValue)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -6614,7 +6613,7 @@ public class ServiceTypeValueAbsa internal constructor(
             dwValueType: UInt = 0u,
             dwValueSize: UInt = 0u,
             lpValueName: Pstr = MutPtr(0L),
-            lpValue: MutPtr<CVoid> = MutPtr(0L),
+            lpValue: MutPtr = MutPtr(0L),
         ): ServiceTypeValueAbsa =
             ServiceTypeValueAbsa(
                 dwNameSpace = dwNameSpace,
@@ -6631,12 +6630,12 @@ public class ServiceTypeValueAbsw internal constructor(
     public var dwValueType: UInt,
     public var dwValueSize: UInt,
     lpValueNameCtorArg: Pwstr,
-    lpValueCtorArg: MutPtr<CVoid>,
+    lpValueCtorArg: MutPtr,
 ) {
     public var lpValueName: Pwstr = lpValueNameCtorArg
         internal set
 
-    public var lpValue: MutPtr<CVoid> = lpValueCtorArg
+    public var lpValue: MutPtr = lpValueCtorArg
         internal set
 
     public constructor() : this(
@@ -6655,9 +6654,9 @@ public class ServiceTypeValueAbsw internal constructor(
 
     public operator fun component4(): Pwstr = this.lpValueName
 
-    public operator fun component5(): MutPtr<CVoid> = this.lpValue
+    public operator fun component5(): MutPtr = this.lpValue
 
-    public fun copy(dwNameSpace: UInt = this.dwNameSpace, dwValueType: UInt = this.dwValueType, dwValueSize: UInt = this.dwValueSize, lpValueName: Pwstr = this.lpValueName, lpValue: MutPtr<CVoid> = this.lpValue): ServiceTypeValueAbsw = ServiceTypeValueAbsw(dwNameSpace = dwNameSpace, dwValueType = dwValueType, dwValueSize = dwValueSize, lpValueNameCtorArg = lpValueName, lpValueCtorArg = lpValue)
+    public fun copy(dwNameSpace: UInt = this.dwNameSpace, dwValueType: UInt = this.dwValueType, dwValueSize: UInt = this.dwValueSize, lpValueName: Pwstr = this.lpValueName, lpValue: MutPtr = this.lpValue): ServiceTypeValueAbsw = ServiceTypeValueAbsw(dwNameSpace = dwNameSpace, dwValueType = dwValueType, dwValueSize = dwValueSize, lpValueNameCtorArg = lpValueName, lpValueCtorArg = lpValue)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -6685,7 +6684,7 @@ public class ServiceTypeValueAbsw internal constructor(
             dwValueType: UInt = 0u,
             dwValueSize: UInt = 0u,
             lpValueName: Pwstr = MutPtr(0L),
-            lpValue: MutPtr<CVoid> = MutPtr(0L),
+            lpValue: MutPtr = MutPtr(0L),
         ): ServiceTypeValueAbsw =
             ServiceTypeValueAbsw(
                 dwNameSpace = dwNameSpace,
@@ -6916,13 +6915,13 @@ public data class SockaddrIn60(
 )
 
 public class SockaddrIn6Pair internal constructor(
-    sourceAddressCtorArg: MutPtr<SockaddrIn6>,
-    destinationAddressCtorArg: MutPtr<SockaddrIn6>,
+    sourceAddressCtorArg: MutPtr,
+    destinationAddressCtorArg: MutPtr,
 ) {
-    public var sourceAddress: MutPtr<SockaddrIn6> = sourceAddressCtorArg
+    public var sourceAddress: MutPtr = sourceAddressCtorArg
         internal set
 
-    public var destinationAddress: MutPtr<SockaddrIn6> = destinationAddressCtorArg
+    public var destinationAddress: MutPtr = destinationAddressCtorArg
         internal set
 
     public constructor() : this(
@@ -6930,11 +6929,11 @@ public class SockaddrIn6Pair internal constructor(
         destinationAddressCtorArg = MutPtr(0L),
     )
 
-    public operator fun component1(): MutPtr<SockaddrIn6> = this.sourceAddress
+    public operator fun component1(): MutPtr = this.sourceAddress
 
-    public operator fun component2(): MutPtr<SockaddrIn6> = this.destinationAddress
+    public operator fun component2(): MutPtr = this.destinationAddress
 
-    public fun copy(sourceAddress: MutPtr<SockaddrIn6> = this.sourceAddress, destinationAddress: MutPtr<SockaddrIn6> = this.destinationAddress): SockaddrIn6Pair = SockaddrIn6Pair(sourceAddressCtorArg = sourceAddress, destinationAddressCtorArg = destinationAddress)
+    public fun copy(sourceAddress: MutPtr = this.sourceAddress, destinationAddress: MutPtr = this.destinationAddress): SockaddrIn6Pair = SockaddrIn6Pair(sourceAddressCtorArg = sourceAddress, destinationAddressCtorArg = destinationAddress)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -6959,28 +6958,28 @@ public class SockaddrIn6Pair internal constructor(
                     SockaddrIn6Pair(
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<SockaddrIn6>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<SockaddrIn6>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                     )
                 override fun writeNative(addr: Long, value: SockaddrIn6Pair) {
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<SockaddrIn6>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr, value.sourceAddress)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<SockaddrIn6>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.destinationAddress)
                 }
             }
 
         public operator fun invoke(
-            sourceAddress: MutPtr<SockaddrIn6> = MutPtr(0L),
-            destinationAddress: MutPtr<SockaddrIn6> = MutPtr(0L),
+            sourceAddress: MutPtr = MutPtr(0L),
+            destinationAddress: MutPtr = MutPtr(0L),
         ): SockaddrIn6Pair =
             SockaddrIn6Pair(
                 sourceAddressCtorArg = sourceAddress,
@@ -7457,10 +7456,10 @@ public data class SockaddrVns(
 }
 
 public class SocketAddress internal constructor(
-    lpSockaddrCtorArg: MutPtr<Sockaddr>,
+    lpSockaddrCtorArg: MutPtr,
     public var iSockaddrLength: Int,
 ) {
-    public var lpSockaddr: MutPtr<Sockaddr> = lpSockaddrCtorArg
+    public var lpSockaddr: MutPtr = lpSockaddrCtorArg
         internal set
 
     public constructor() : this(
@@ -7468,11 +7467,11 @@ public class SocketAddress internal constructor(
         iSockaddrLength = 0,
     )
 
-    public operator fun component1(): MutPtr<Sockaddr> = this.lpSockaddr
+    public operator fun component1(): MutPtr = this.lpSockaddr
 
     public operator fun component2(): Int = this.iSockaddrLength
 
-    public fun copy(lpSockaddr: MutPtr<Sockaddr> = this.lpSockaddr, iSockaddrLength: Int = this.iSockaddrLength): SocketAddress = SocketAddress(lpSockaddrCtorArg = lpSockaddr, iSockaddrLength = iSockaddrLength)
+    public fun copy(lpSockaddr: MutPtr = this.lpSockaddr, iSockaddrLength: Int = this.iSockaddrLength): SocketAddress = SocketAddress(lpSockaddrCtorArg = lpSockaddr, iSockaddrLength = iSockaddrLength)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -7497,21 +7496,21 @@ public class SocketAddress internal constructor(
                     SocketAddress(
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<Sockaddr>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr + 8L),
                     )
                 override fun writeNative(addr: Long, value: SocketAddress) {
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<Sockaddr>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr, value.lpSockaddr)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr + 8L, value.iSockaddrLength)
                 }
             }
 
         public operator fun invoke(
-            lpSockaddr: MutPtr<Sockaddr> = MutPtr(0L),
+            lpSockaddr: MutPtr = MutPtr(0L),
             iSockaddrLength: Int = 0,
         ): SocketAddress =
             SocketAddress(

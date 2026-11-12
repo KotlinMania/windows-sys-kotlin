@@ -3,7 +3,6 @@ package io.github.kotlinmania.windowssys.windows.win32.system.messagequeuing
 import io.github.kotlinmania.rustlang.core.ptr.MutPtr
 import io.github.kotlinmania.windowssys.core.Hresult
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Handle
-import io.github.kotlinmania.windowssys.windows.win32.system.io.Overlapped
 
 public typealias ForeignStatus = Int
 
@@ -64,7 +63,7 @@ public typealias Mqtransactional = Int
 public typealias Mqwarning = Int
 
 public fun interface PmqreceivecallbackFn {
-    public operator fun invoke(hrstatus: Hresult, hsource: Long, dwtimeout: UInt, dwaction: UInt, pmessageprops: MutPtr<Mqmsgprops>, lpoverlapped: MutPtr<Overlapped>, hcursor: Handle)
+    public operator fun invoke(hrstatus: Hresult, hsource: Long, dwtimeout: UInt, dwaction: UInt, pmessageprops: MutPtr, lpoverlapped: MutPtr, hcursor: Handle)
 }
 
 public typealias Pmqreceivecallback = PmqreceivecallbackFn?

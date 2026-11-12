@@ -2,7 +2,6 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.networking.ldap
 
-import io.github.kotlinmania.rustlang.core.ffi.CVoid
 import io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
 import io.github.kotlinmania.rustlang.core.mem.TypeLayout
 import io.github.kotlinmania.rustlang.core.ptr.MutPtr
@@ -370,11 +369,11 @@ public class LDAPAPIInfoA internal constructor(
     public var ldapaiInfoVersion: Int,
     public var ldapaiApiVersion: Int,
     public var ldapaiProtocolVersion: Int,
-    ldapaiExtensionsCtorArg: MutPtr<MutPtr<Byte>>,
+    ldapaiExtensionsCtorArg: MutPtr,
     ldapaiVendorNameCtorArg: Pstr,
     public var ldapaiVendorVersion: Int,
 ) {
-    public var ldapaiExtensions: MutPtr<MutPtr<Byte>> = ldapaiExtensionsCtorArg
+    public var ldapaiExtensions: MutPtr = ldapaiExtensionsCtorArg
         internal set
 
     public var ldapaiVendorName: Pstr = ldapaiVendorNameCtorArg
@@ -395,13 +394,13 @@ public class LDAPAPIInfoA internal constructor(
 
     public operator fun component3(): Int = this.ldapaiProtocolVersion
 
-    public operator fun component4(): MutPtr<MutPtr<Byte>> = this.ldapaiExtensions
+    public operator fun component4(): MutPtr = this.ldapaiExtensions
 
     public operator fun component5(): Pstr = this.ldapaiVendorName
 
     public operator fun component6(): Int = this.ldapaiVendorVersion
 
-    public fun copy(ldapaiInfoVersion: Int = this.ldapaiInfoVersion, ldapaiApiVersion: Int = this.ldapaiApiVersion, ldapaiProtocolVersion: Int = this.ldapaiProtocolVersion, ldapaiExtensions: MutPtr<MutPtr<Byte>> = this.ldapaiExtensions, ldapaiVendorName: Pstr = this.ldapaiVendorName, ldapaiVendorVersion: Int = this.ldapaiVendorVersion): LDAPAPIInfoA = LDAPAPIInfoA(ldapaiInfoVersion = ldapaiInfoVersion, ldapaiApiVersion = ldapaiApiVersion, ldapaiProtocolVersion = ldapaiProtocolVersion, ldapaiExtensionsCtorArg = ldapaiExtensions, ldapaiVendorNameCtorArg = ldapaiVendorName, ldapaiVendorVersion = ldapaiVendorVersion)
+    public fun copy(ldapaiInfoVersion: Int = this.ldapaiInfoVersion, ldapaiApiVersion: Int = this.ldapaiApiVersion, ldapaiProtocolVersion: Int = this.ldapaiProtocolVersion, ldapaiExtensions: MutPtr = this.ldapaiExtensions, ldapaiVendorName: Pstr = this.ldapaiVendorName, ldapaiVendorVersion: Int = this.ldapaiVendorVersion): LDAPAPIInfoA = LDAPAPIInfoA(ldapaiInfoVersion = ldapaiInfoVersion, ldapaiApiVersion = ldapaiApiVersion, ldapaiProtocolVersion = ldapaiProtocolVersion, ldapaiExtensionsCtorArg = ldapaiExtensions, ldapaiVendorNameCtorArg = ldapaiVendorName, ldapaiVendorVersion = ldapaiVendorVersion)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -430,7 +429,7 @@ public class LDAPAPIInfoA internal constructor(
             ldapaiInfoVersion: Int = 0,
             ldapaiApiVersion: Int = 0,
             ldapaiProtocolVersion: Int = 0,
-            ldapaiExtensions: MutPtr<MutPtr<Byte>> = MutPtr(0L),
+            ldapaiExtensions: MutPtr = MutPtr(0L),
             ldapaiVendorName: Pstr = MutPtr(0L),
             ldapaiVendorVersion: Int = 0,
         ): LDAPAPIInfoA =
@@ -449,11 +448,11 @@ public class LDAPAPIInfoW internal constructor(
     public var ldapaiInfoVersion: Int,
     public var ldapaiApiVersion: Int,
     public var ldapaiProtocolVersion: Int,
-    ldapaiExtensionsCtorArg: MutPtr<Pwstr>,
+    ldapaiExtensionsCtorArg: MutPtr,
     ldapaiVendorNameCtorArg: Pwstr,
     public var ldapaiVendorVersion: Int,
 ) {
-    public var ldapaiExtensions: MutPtr<Pwstr> = ldapaiExtensionsCtorArg
+    public var ldapaiExtensions: MutPtr = ldapaiExtensionsCtorArg
         internal set
 
     public var ldapaiVendorName: Pwstr = ldapaiVendorNameCtorArg
@@ -474,13 +473,13 @@ public class LDAPAPIInfoW internal constructor(
 
     public operator fun component3(): Int = this.ldapaiProtocolVersion
 
-    public operator fun component4(): MutPtr<Pwstr> = this.ldapaiExtensions
+    public operator fun component4(): MutPtr = this.ldapaiExtensions
 
     public operator fun component5(): Pwstr = this.ldapaiVendorName
 
     public operator fun component6(): Int = this.ldapaiVendorVersion
 
-    public fun copy(ldapaiInfoVersion: Int = this.ldapaiInfoVersion, ldapaiApiVersion: Int = this.ldapaiApiVersion, ldapaiProtocolVersion: Int = this.ldapaiProtocolVersion, ldapaiExtensions: MutPtr<Pwstr> = this.ldapaiExtensions, ldapaiVendorName: Pwstr = this.ldapaiVendorName, ldapaiVendorVersion: Int = this.ldapaiVendorVersion): LDAPAPIInfoW = LDAPAPIInfoW(ldapaiInfoVersion = ldapaiInfoVersion, ldapaiApiVersion = ldapaiApiVersion, ldapaiProtocolVersion = ldapaiProtocolVersion, ldapaiExtensionsCtorArg = ldapaiExtensions, ldapaiVendorNameCtorArg = ldapaiVendorName, ldapaiVendorVersion = ldapaiVendorVersion)
+    public fun copy(ldapaiInfoVersion: Int = this.ldapaiInfoVersion, ldapaiApiVersion: Int = this.ldapaiApiVersion, ldapaiProtocolVersion: Int = this.ldapaiProtocolVersion, ldapaiExtensions: MutPtr = this.ldapaiExtensions, ldapaiVendorName: Pwstr = this.ldapaiVendorName, ldapaiVendorVersion: Int = this.ldapaiVendorVersion): LDAPAPIInfoW = LDAPAPIInfoW(ldapaiInfoVersion = ldapaiInfoVersion, ldapaiApiVersion = ldapaiApiVersion, ldapaiProtocolVersion = ldapaiProtocolVersion, ldapaiExtensionsCtorArg = ldapaiExtensions, ldapaiVendorNameCtorArg = ldapaiVendorName, ldapaiVendorVersion = ldapaiVendorVersion)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -509,7 +508,7 @@ public class LDAPAPIInfoW internal constructor(
             ldapaiInfoVersion: Int = 0,
             ldapaiApiVersion: Int = 0,
             ldapaiProtocolVersion: Int = 0,
-            ldapaiExtensions: MutPtr<Pwstr> = MutPtr(0L),
+            ldapaiExtensions: MutPtr = MutPtr(0L),
             ldapaiVendorName: Pwstr = MutPtr(0L),
             ldapaiVendorVersion: Int = 0,
         ): LDAPAPIInfoW =
@@ -631,31 +630,31 @@ public class LDAPControlW internal constructor(
 public class LDAPMessage internal constructor(
     public var lmMsgid: UInt,
     public var lmMsgtype: UInt,
-    lmBerCtorArg: MutPtr<CVoid>,
-    lmChainCtorArg: MutPtr<LDAPMessage>,
-    lmNextCtorArg: MutPtr<LDAPMessage>,
+    lmBerCtorArg: MutPtr,
+    lmChainCtorArg: MutPtr,
+    lmNextCtorArg: MutPtr,
     public var lmTime: UInt,
-    connectionCtorArg: MutPtr<Ldap>,
-    requestCtorArg: MutPtr<CVoid>,
+    connectionCtorArg: MutPtr,
+    requestCtorArg: MutPtr,
     public var lmReturncode: UInt,
     public var lmReferral: UShort,
     public var lmChased: Boolean,
     public var lmEom: Boolean,
     public var connectionReferenced: Boolean,
 ) {
-    public var lmBer: MutPtr<CVoid> = lmBerCtorArg
+    public var lmBer: MutPtr = lmBerCtorArg
         internal set
 
-    public var lmChain: MutPtr<LDAPMessage> = lmChainCtorArg
+    public var lmChain: MutPtr = lmChainCtorArg
         internal set
 
-    public var lmNext: MutPtr<LDAPMessage> = lmNextCtorArg
+    public var lmNext: MutPtr = lmNextCtorArg
         internal set
 
-    public var connection: MutPtr<Ldap> = connectionCtorArg
+    public var connection: MutPtr = connectionCtorArg
         internal set
 
-    public var request: MutPtr<CVoid> = requestCtorArg
+    public var request: MutPtr = requestCtorArg
         internal set
 
     public constructor() : this(
@@ -678,17 +677,17 @@ public class LDAPMessage internal constructor(
 
     public operator fun component2(): UInt = this.lmMsgtype
 
-    public operator fun component3(): MutPtr<CVoid> = this.lmBer
+    public operator fun component3(): MutPtr = this.lmBer
 
-    public operator fun component4(): MutPtr<LDAPMessage> = this.lmChain
+    public operator fun component4(): MutPtr = this.lmChain
 
-    public operator fun component5(): MutPtr<LDAPMessage> = this.lmNext
+    public operator fun component5(): MutPtr = this.lmNext
 
     public operator fun component6(): UInt = this.lmTime
 
-    public operator fun component7(): MutPtr<Ldap> = this.connection
+    public operator fun component7(): MutPtr = this.connection
 
-    public operator fun component8(): MutPtr<CVoid> = this.request
+    public operator fun component8(): MutPtr = this.request
 
     public operator fun component9(): UInt = this.lmReturncode
 
@@ -700,7 +699,7 @@ public class LDAPMessage internal constructor(
 
     public operator fun component13(): Boolean = this.connectionReferenced
 
-    public fun copy(lmMsgid: UInt = this.lmMsgid, lmMsgtype: UInt = this.lmMsgtype, lmBer: MutPtr<CVoid> = this.lmBer, lmChain: MutPtr<LDAPMessage> = this.lmChain, lmNext: MutPtr<LDAPMessage> = this.lmNext, lmTime: UInt = this.lmTime, connection: MutPtr<Ldap> = this.connection, request: MutPtr<CVoid> = this.request, lmReturncode: UInt = this.lmReturncode, lmReferral: UShort = this.lmReferral, lmChased: Boolean = this.lmChased, lmEom: Boolean = this.lmEom, connectionReferenced: Boolean = this.connectionReferenced): LDAPMessage = LDAPMessage(lmMsgid = lmMsgid, lmMsgtype = lmMsgtype, lmBerCtorArg = lmBer, lmChainCtorArg = lmChain, lmNextCtorArg = lmNext, lmTime = lmTime, connectionCtorArg = connection, requestCtorArg = request, lmReturncode = lmReturncode, lmReferral = lmReferral, lmChased = lmChased, lmEom = lmEom, connectionReferenced = connectionReferenced)
+    public fun copy(lmMsgid: UInt = this.lmMsgid, lmMsgtype: UInt = this.lmMsgtype, lmBer: MutPtr = this.lmBer, lmChain: MutPtr = this.lmChain, lmNext: MutPtr = this.lmNext, lmTime: UInt = this.lmTime, connection: MutPtr = this.connection, request: MutPtr = this.request, lmReturncode: UInt = this.lmReturncode, lmReferral: UShort = this.lmReferral, lmChased: Boolean = this.lmChased, lmEom: Boolean = this.lmEom, connectionReferenced: Boolean = this.connectionReferenced): LDAPMessage = LDAPMessage(lmMsgid = lmMsgid, lmMsgtype = lmMsgtype, lmBerCtorArg = lmBer, lmChainCtorArg = lmChain, lmNextCtorArg = lmNext, lmTime = lmTime, connectionCtorArg = connection, requestCtorArg = request, lmReturncode = lmReturncode, lmReferral = lmReferral, lmChased = lmChased, lmEom = lmEom, connectionReferenced = connectionReferenced)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -749,24 +748,24 @@ public class LDAPMessage internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 4L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<CVoid>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<LDAPMessage>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 16L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<LDAPMessage>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 24L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 32L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<Ldap>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 40L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<CVoid>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 48L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 56L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16).readNative(addr + 60L),
@@ -779,24 +778,24 @@ public class LDAPMessage internal constructor(
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 4L, value.lmMsgtype)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<CVoid>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.lmBer)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<LDAPMessage>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 16L, value.lmChain)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<LDAPMessage>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 24L, value.lmNext)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 32L, value.lmTime)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<Ldap>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 40L, value.connection)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<CVoid>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 48L, value.request)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 56L, value.lmReturncode)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16).writeNative(addr + 60L, value.lmReferral)
@@ -809,12 +808,12 @@ public class LDAPMessage internal constructor(
         public operator fun invoke(
             lmMsgid: UInt = 0u,
             lmMsgtype: UInt = 0u,
-            lmBer: MutPtr<CVoid> = MutPtr(0L),
-            lmChain: MutPtr<LDAPMessage> = MutPtr(0L),
-            lmNext: MutPtr<LDAPMessage> = MutPtr(0L),
+            lmBer: MutPtr = MutPtr(0L),
+            lmChain: MutPtr = MutPtr(0L),
+            lmNext: MutPtr = MutPtr(0L),
             lmTime: UInt = 0u,
-            connection: MutPtr<Ldap> = MutPtr(0L),
-            request: MutPtr<CVoid> = MutPtr(0L),
+            connection: MutPtr = MutPtr(0L),
+            request: MutPtr = MutPtr(0L),
             lmReturncode: UInt = 0u,
             lmReferral: UShort = 0u,
             lmChased: Boolean = false,
@@ -892,13 +891,13 @@ public class LDAPModA internal constructor(
 }
 
 public class LdapmodA0 internal constructor(
-    modvStrvalsCtorArg: MutPtr<Pstr>,
-    modvBvalsCtorArg: MutPtr<MutPtr<LdapBerval>>,
+    modvStrvalsCtorArg: MutPtr,
+    modvBvalsCtorArg: MutPtr,
 ) {
-    public var modvStrvals: MutPtr<Pstr> = modvStrvalsCtorArg
+    public var modvStrvals: MutPtr = modvStrvalsCtorArg
         internal set
 
-    public var modvBvals: MutPtr<MutPtr<LdapBerval>> = modvBvalsCtorArg
+    public var modvBvals: MutPtr = modvBvalsCtorArg
         internal set
 
     public constructor() : this(
@@ -906,11 +905,11 @@ public class LdapmodA0 internal constructor(
         modvBvalsCtorArg = MutPtr(0L),
     )
 
-    public operator fun component1(): MutPtr<Pstr> = this.modvStrvals
+    public operator fun component1(): MutPtr = this.modvStrvals
 
-    public operator fun component2(): MutPtr<MutPtr<LdapBerval>> = this.modvBvals
+    public operator fun component2(): MutPtr = this.modvBvals
 
-    public fun copy(modvStrvals: MutPtr<Pstr> = this.modvStrvals, modvBvals: MutPtr<MutPtr<LdapBerval>> = this.modvBvals): LdapmodA0 = LdapmodA0(modvStrvalsCtorArg = modvStrvals, modvBvalsCtorArg = modvBvals)
+    public fun copy(modvStrvals: MutPtr = this.modvStrvals, modvBvals: MutPtr = this.modvBvals): LdapmodA0 = LdapmodA0(modvStrvalsCtorArg = modvStrvals, modvBvalsCtorArg = modvBvals)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -928,8 +927,8 @@ public class LdapmodA0 internal constructor(
 
     public companion object {
         public operator fun invoke(
-            modvStrvals: MutPtr<Pstr> = MutPtr(0L),
-            modvBvals: MutPtr<MutPtr<LdapBerval>> = MutPtr(0L),
+            modvStrvals: MutPtr = MutPtr(0L),
+            modvBvals: MutPtr = MutPtr(0L),
         ): LdapmodA0 =
             LdapmodA0(
                 modvStrvalsCtorArg = modvStrvals,
@@ -991,13 +990,13 @@ public class LDAPModW internal constructor(
 }
 
 public class LdapmodW0 internal constructor(
-    modvStrvalsCtorArg: MutPtr<Pwstr>,
-    modvBvalsCtorArg: MutPtr<MutPtr<LdapBerval>>,
+    modvStrvalsCtorArg: MutPtr,
+    modvBvalsCtorArg: MutPtr,
 ) {
-    public var modvStrvals: MutPtr<Pwstr> = modvStrvalsCtorArg
+    public var modvStrvals: MutPtr = modvStrvalsCtorArg
         internal set
 
-    public var modvBvals: MutPtr<MutPtr<LdapBerval>> = modvBvalsCtorArg
+    public var modvBvals: MutPtr = modvBvalsCtorArg
         internal set
 
     public constructor() : this(
@@ -1005,11 +1004,11 @@ public class LdapmodW0 internal constructor(
         modvBvalsCtorArg = MutPtr(0L),
     )
 
-    public operator fun component1(): MutPtr<Pwstr> = this.modvStrvals
+    public operator fun component1(): MutPtr = this.modvStrvals
 
-    public operator fun component2(): MutPtr<MutPtr<LdapBerval>> = this.modvBvals
+    public operator fun component2(): MutPtr = this.modvBvals
 
-    public fun copy(modvStrvals: MutPtr<Pwstr> = this.modvStrvals, modvBvals: MutPtr<MutPtr<LdapBerval>> = this.modvBvals): LdapmodW0 = LdapmodW0(modvStrvalsCtorArg = modvStrvals, modvBvalsCtorArg = modvBvals)
+    public fun copy(modvStrvals: MutPtr = this.modvStrvals, modvBvals: MutPtr = this.modvBvals): LdapmodW0 = LdapmodW0(modvStrvalsCtorArg = modvStrvals, modvBvalsCtorArg = modvBvals)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -1027,8 +1026,8 @@ public class LdapmodW0 internal constructor(
 
     public companion object {
         public operator fun invoke(
-            modvStrvals: MutPtr<Pwstr> = MutPtr(0L),
-            modvBvals: MutPtr<MutPtr<LdapBerval>> = MutPtr(0L),
+            modvStrvals: MutPtr = MutPtr(0L),
+            modvBvals: MutPtr = MutPtr(0L),
         ): LdapmodW0 =
             LdapmodW0(
                 modvStrvalsCtorArg = modvStrvals,
@@ -1153,17 +1152,17 @@ public class LDAPVLVInfo internal constructor(
     public var ldvlvAfterCount: UInt,
     public var ldvlvOffset: UInt,
     public var ldvlvCount: UInt,
-    ldvlvAttrvalueCtorArg: MutPtr<LdapBerval>,
-    ldvlvContextCtorArg: MutPtr<LdapBerval>,
-    ldvlvExtradataCtorArg: MutPtr<CVoid>,
+    ldvlvAttrvalueCtorArg: MutPtr,
+    ldvlvContextCtorArg: MutPtr,
+    ldvlvExtradataCtorArg: MutPtr,
 ) {
-    public var ldvlvAttrvalue: MutPtr<LdapBerval> = ldvlvAttrvalueCtorArg
+    public var ldvlvAttrvalue: MutPtr = ldvlvAttrvalueCtorArg
         internal set
 
-    public var ldvlvContext: MutPtr<LdapBerval> = ldvlvContextCtorArg
+    public var ldvlvContext: MutPtr = ldvlvContextCtorArg
         internal set
 
-    public var ldvlvExtradata: MutPtr<CVoid> = ldvlvExtradataCtorArg
+    public var ldvlvExtradata: MutPtr = ldvlvExtradataCtorArg
         internal set
 
     public constructor() : this(
@@ -1187,13 +1186,13 @@ public class LDAPVLVInfo internal constructor(
 
     public operator fun component5(): UInt = this.ldvlvCount
 
-    public operator fun component6(): MutPtr<LdapBerval> = this.ldvlvAttrvalue
+    public operator fun component6(): MutPtr = this.ldvlvAttrvalue
 
-    public operator fun component7(): MutPtr<LdapBerval> = this.ldvlvContext
+    public operator fun component7(): MutPtr = this.ldvlvContext
 
-    public operator fun component8(): MutPtr<CVoid> = this.ldvlvExtradata
+    public operator fun component8(): MutPtr = this.ldvlvExtradata
 
-    public fun copy(ldvlvVersion: Int = this.ldvlvVersion, ldvlvBeforeCount: UInt = this.ldvlvBeforeCount, ldvlvAfterCount: UInt = this.ldvlvAfterCount, ldvlvOffset: UInt = this.ldvlvOffset, ldvlvCount: UInt = this.ldvlvCount, ldvlvAttrvalue: MutPtr<LdapBerval> = this.ldvlvAttrvalue, ldvlvContext: MutPtr<LdapBerval> = this.ldvlvContext, ldvlvExtradata: MutPtr<CVoid> = this.ldvlvExtradata): LDAPVLVInfo = LDAPVLVInfo(ldvlvVersion = ldvlvVersion, ldvlvBeforeCount = ldvlvBeforeCount, ldvlvAfterCount = ldvlvAfterCount, ldvlvOffset = ldvlvOffset, ldvlvCount = ldvlvCount, ldvlvAttrvalueCtorArg = ldvlvAttrvalue, ldvlvContextCtorArg = ldvlvContext, ldvlvExtradataCtorArg = ldvlvExtradata)
+    public fun copy(ldvlvVersion: Int = this.ldvlvVersion, ldvlvBeforeCount: UInt = this.ldvlvBeforeCount, ldvlvAfterCount: UInt = this.ldvlvAfterCount, ldvlvOffset: UInt = this.ldvlvOffset, ldvlvCount: UInt = this.ldvlvCount, ldvlvAttrvalue: MutPtr = this.ldvlvAttrvalue, ldvlvContext: MutPtr = this.ldvlvContext, ldvlvExtradata: MutPtr = this.ldvlvExtradata): LDAPVLVInfo = LDAPVLVInfo(ldvlvVersion = ldvlvVersion, ldvlvBeforeCount = ldvlvBeforeCount, ldvlvAfterCount = ldvlvAfterCount, ldvlvOffset = ldvlvOffset, ldvlvCount = ldvlvCount, ldvlvAttrvalueCtorArg = ldvlvAttrvalue, ldvlvContextCtorArg = ldvlvContext, ldvlvExtradataCtorArg = ldvlvExtradata)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -1235,15 +1234,15 @@ public class LDAPVLVInfo internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 16L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<LdapBerval>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 24L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<LdapBerval>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 32L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<CVoid>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 40L),
                     )
                 override fun writeNative(addr: Long, value: LDAPVLVInfo) {
@@ -1254,15 +1253,15 @@ public class LDAPVLVInfo internal constructor(
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 16L, value.ldvlvCount)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<LdapBerval>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 24L, value.ldvlvAttrvalue)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<LdapBerval>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 32L, value.ldvlvContext)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<CVoid>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 40L, value.ldvlvExtradata)
                 }
             }
@@ -1273,9 +1272,9 @@ public class LDAPVLVInfo internal constructor(
             ldvlvAfterCount: UInt = 0u,
             ldvlvOffset: UInt = 0u,
             ldvlvCount: UInt = 0u,
-            ldvlvAttrvalue: MutPtr<LdapBerval> = MutPtr(0L),
-            ldvlvContext: MutPtr<LdapBerval> = MutPtr(0L),
-            ldvlvExtradata: MutPtr<CVoid> = MutPtr(0L),
+            ldvlvAttrvalue: MutPtr = MutPtr(0L),
+            ldvlvContext: MutPtr = MutPtr(0L),
+            ldvlvExtradata: MutPtr = MutPtr(0L),
         ): LDAPVLVInfo =
             LDAPVLVInfo(
                 ldvlvVersion = ldvlvVersion,

@@ -23,8 +23,8 @@ private external fun wasmWindowssysWindowsWin32SystemRestoreSRSetRestorePointW(p
 public actual fun sRRemoveRestorePoint(dwrpnum: UInt): UInt =
     if (windowsWin32SystemRestoreNapiAvailable) wasmWindowssysWindowsWin32SystemRestoreSRRemoveRestorePoint(dwrpnum.toInt()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun sRSetRestorePointA(prestoreptspec: ConstPtr<Restorepointinfoa>, psmgrstatus: MutPtr<Statemgrstatus>): Bool =
+public actual fun sRSetRestorePointA(prestoreptspec: ConstPtr, psmgrstatus: MutPtr): Bool =
     if (windowsWin32SystemRestoreNapiAvailable) wasmWindowssysWindowsWin32SystemRestoreSRSetRestorePointA(prestoreptspec.rawAddress.toString(), psmgrstatus.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun sRSetRestorePointW(prestoreptspec: ConstPtr<Restorepointinfow>, psmgrstatus: MutPtr<Statemgrstatus>): Bool =
+public actual fun sRSetRestorePointW(prestoreptspec: ConstPtr, psmgrstatus: MutPtr): Bool =
     if (windowsWin32SystemRestoreNapiAvailable) wasmWindowssysWindowsWin32SystemRestoreSRSetRestorePointW(prestoreptspec.rawAddress.toString(), psmgrstatus.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")

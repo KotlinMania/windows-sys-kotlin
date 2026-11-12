@@ -2,10 +2,8 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.media.dxmediaobjects
 
-import io.github.kotlinmania.rustlang.core.ffi.CVoid
 import io.github.kotlinmania.rustlang.core.ptr.ConstPtr
 import io.github.kotlinmania.rustlang.core.ptr.MutPtr
-import io.github.kotlinmania.windowssys.core.Guid
 import io.github.kotlinmania.windowssys.core.Hresult
 import io.github.kotlinmania.windowssys.core.Pcwstr
 import io.github.kotlinmania.windowssys.core.Pwstr
@@ -23,35 +21,35 @@ import io.github.kotlinmania.windowssys.windows.win32.media.dxmediaobjects.cinte
 import kotlinx.cinterop.ByteVar
 import kotlinx.cinterop.toCPointer
 
-public actual fun dMOEnum(guidcategory: ConstPtr<Guid>, dwflags: UInt, cintypes: UInt, pintypes: ConstPtr<DmoPartialMediatype>, couttypes: UInt, pouttypes: ConstPtr<DmoPartialMediatype>, ppenum: MutPtr<MutPtr<CVoid>>): Hresult =
+public actual fun dMOEnum(guidcategory: ConstPtr, dwflags: UInt, cintypes: UInt, pintypes: ConstPtr, couttypes: UInt, pouttypes: ConstPtr, ppenum: MutPtr): Hresult =
     windowssysWindowsWin32MediaDxmediaobjectsDMOEnum(guidcategory.rawAddress.toCPointer<ByteVar>(), dwflags, cintypes, pintypes.rawAddress.toCPointer<ByteVar>(), couttypes, pouttypes.rawAddress.toCPointer<ByteVar>(), ppenum.rawAddress.toCPointer<ByteVar>())
 
-public actual fun dMOGetName(clsiddmo: ConstPtr<Guid>, szname: Pwstr): Hresult =
+public actual fun dMOGetName(clsiddmo: ConstPtr, szname: Pwstr): Hresult =
     windowssysWindowsWin32MediaDxmediaobjectsDMOGetName(clsiddmo.rawAddress.toCPointer<ByteVar>(), szname.rawAddress.toCPointer<ByteVar>())
 
-public actual fun dMOGetTypes(clsiddmo: ConstPtr<Guid>, ulinputtypesrequested: UInt, pulinputtypessupplied: MutPtr<UInt>, pinputtypes: MutPtr<DmoPartialMediatype>, uloutputtypesrequested: UInt, puloutputtypessupplied: MutPtr<UInt>, poutputtypes: MutPtr<DmoPartialMediatype>): Hresult =
+public actual fun dMOGetTypes(clsiddmo: ConstPtr, ulinputtypesrequested: UInt, pulinputtypessupplied: MutPtr, pinputtypes: MutPtr, uloutputtypesrequested: UInt, puloutputtypessupplied: MutPtr, poutputtypes: MutPtr): Hresult =
     windowssysWindowsWin32MediaDxmediaobjectsDMOGetTypes(clsiddmo.rawAddress.toCPointer<ByteVar>(), ulinputtypesrequested, pulinputtypessupplied.rawAddress.toCPointer<ByteVar>(), pinputtypes.rawAddress.toCPointer<ByteVar>(), uloutputtypesrequested, puloutputtypessupplied.rawAddress.toCPointer<ByteVar>(), poutputtypes.rawAddress.toCPointer<ByteVar>())
 
-public actual fun dMORegister(szname: Pcwstr, clsiddmo: ConstPtr<Guid>, guidcategory: ConstPtr<Guid>, dwflags: UInt, cintypes: UInt, pintypes: ConstPtr<DmoPartialMediatype>, couttypes: UInt, pouttypes: ConstPtr<DmoPartialMediatype>): Hresult =
+public actual fun dMORegister(szname: Pcwstr, clsiddmo: ConstPtr, guidcategory: ConstPtr, dwflags: UInt, cintypes: UInt, pintypes: ConstPtr, couttypes: UInt, pouttypes: ConstPtr): Hresult =
     windowssysWindowsWin32MediaDxmediaobjectsDMORegister(szname.rawAddress.toCPointer<ByteVar>(), clsiddmo.rawAddress.toCPointer<ByteVar>(), guidcategory.rawAddress.toCPointer<ByteVar>(), dwflags, cintypes, pintypes.rawAddress.toCPointer<ByteVar>(), couttypes, pouttypes.rawAddress.toCPointer<ByteVar>())
 
-public actual fun dMOUnregister(clsiddmo: ConstPtr<Guid>, guidcategory: ConstPtr<Guid>): Hresult =
+public actual fun dMOUnregister(clsiddmo: ConstPtr, guidcategory: ConstPtr): Hresult =
     windowssysWindowsWin32MediaDxmediaobjectsDMOUnregister(clsiddmo.rawAddress.toCPointer<ByteVar>(), guidcategory.rawAddress.toCPointer<ByteVar>())
 
-public actual fun moCopyMediaType(pmtdest: MutPtr<DmoMediaType>, pmtsrc: ConstPtr<DmoMediaType>): Hresult =
+public actual fun moCopyMediaType(pmtdest: MutPtr, pmtsrc: ConstPtr): Hresult =
     windowssysWindowsWin32MediaDxmediaobjectsMoCopyMediaType(pmtdest.rawAddress.toCPointer<ByteVar>(), pmtsrc.rawAddress.toCPointer<ByteVar>())
 
-public actual fun moCreateMediaType(ppmt: MutPtr<MutPtr<DmoMediaType>>, cbformat: UInt): Hresult =
+public actual fun moCreateMediaType(ppmt: MutPtr, cbformat: UInt): Hresult =
     windowssysWindowsWin32MediaDxmediaobjectsMoCreateMediaType(ppmt.rawAddress.toCPointer<ByteVar>(), cbformat)
 
-public actual fun moDeleteMediaType(pmt: MutPtr<DmoMediaType>): Hresult =
+public actual fun moDeleteMediaType(pmt: MutPtr): Hresult =
     windowssysWindowsWin32MediaDxmediaobjectsMoDeleteMediaType(pmt.rawAddress.toCPointer<ByteVar>())
 
-public actual fun moDuplicateMediaType(ppmtdest: MutPtr<MutPtr<DmoMediaType>>, pmtsrc: ConstPtr<DmoMediaType>): Hresult =
+public actual fun moDuplicateMediaType(ppmtdest: MutPtr, pmtsrc: ConstPtr): Hresult =
     windowssysWindowsWin32MediaDxmediaobjectsMoDuplicateMediaType(ppmtdest.rawAddress.toCPointer<ByteVar>(), pmtsrc.rawAddress.toCPointer<ByteVar>())
 
-public actual fun moFreeMediaType(pmt: MutPtr<DmoMediaType>): Hresult =
+public actual fun moFreeMediaType(pmt: MutPtr): Hresult =
     windowssysWindowsWin32MediaDxmediaobjectsMoFreeMediaType(pmt.rawAddress.toCPointer<ByteVar>())
 
-public actual fun moInitMediaType(pmt: MutPtr<DmoMediaType>, cbformat: UInt): Hresult =
+public actual fun moInitMediaType(pmt: MutPtr, cbformat: UInt): Hresult =
     windowssysWindowsWin32MediaDxmediaobjectsMoInitMediaType(pmt.rawAddress.toCPointer<ByteVar>(), cbformat)

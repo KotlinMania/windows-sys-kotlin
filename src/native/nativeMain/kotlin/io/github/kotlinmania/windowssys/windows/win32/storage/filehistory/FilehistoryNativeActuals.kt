@@ -21,7 +21,7 @@ public actual fun fhServiceBlockBackup(pipe: FhServicePipeHandle): Hresult =
 public actual fun fhServiceClosePipe(pipe: FhServicePipeHandle): Hresult =
     windowssysWindowsWin32StorageFilehistoryFhServiceClosePipe(pipe.rawAddress.toCPointer<ByteVar>())
 
-public actual fun fhServiceOpenPipe(startserviceifstopped: Bool, pipe: MutPtr<FhServicePipeHandle>): Hresult =
+public actual fun fhServiceOpenPipe(startserviceifstopped: Bool, pipe: MutPtr): Hresult =
     windowssysWindowsWin32StorageFilehistoryFhServiceOpenPipe(startserviceifstopped, pipe.rawAddress.toCPointer<ByteVar>())
 
 public actual fun fhServiceReloadConfiguration(pipe: FhServicePipeHandle): Hresult =

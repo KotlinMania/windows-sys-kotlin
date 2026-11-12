@@ -2,7 +2,6 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.system.libraryloader
 
-import io.github.kotlinmania.rustlang.core.ffi.CVoid
 import io.github.kotlinmania.rustlang.core.ptr.ConstPtr
 import io.github.kotlinmania.rustlang.core.ptr.MutPtr
 import io.github.kotlinmania.windowssys.core.Bool
@@ -165,7 +164,7 @@ private external fun wasmWindowssysWindowsWin32SystemLibraryloaderUpdateResource
 @JsFun("(p0, p1, p2, p3, p4, p5) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemLibraryloaderUpdateResourceW(p0, p1, p2, p3, p4, p5)")
 private external fun wasmWindowssysWindowsWin32SystemLibraryloaderUpdateResourceW(p0: String, p1: String, p2: String, p3: Int, p4: String, p5: Int): Int
 
-public actual fun addDllDirectory(newdirectory: Pcwstr): MutPtr<CVoid> =
+public actual fun addDllDirectory(newdirectory: Pcwstr): MutPtr =
     if (windowsWin32SystemLibraryloaderNapiAvailable) MutPtr(wasmWindowssysWindowsWin32SystemLibraryloaderAddDllDirectory(newdirectory.rawAddress.toString()).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun beginUpdateResourceA(pfilename: Pcstr, bdeleteexistingresources: Bool): Handle =
@@ -258,10 +257,10 @@ public actual fun getModuleFileNameW(hmodule: Hmodule, lpfilename: Pwstr, nsize:
 public actual fun getModuleHandleA(lpmodulename: Pcstr): Hmodule =
     if (windowsWin32SystemLibraryloaderNapiAvailable) MutPtr(wasmWindowssysWindowsWin32SystemLibraryloaderGetModuleHandleA(lpmodulename.rawAddress.toString()).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun getModuleHandleExA(dwflags: UInt, lpmodulename: Pcstr, phmodule: MutPtr<Hmodule>): Bool =
+public actual fun getModuleHandleExA(dwflags: UInt, lpmodulename: Pcstr, phmodule: MutPtr): Bool =
     if (windowsWin32SystemLibraryloaderNapiAvailable) wasmWindowssysWindowsWin32SystemLibraryloaderGetModuleHandleExA(dwflags.toInt(), lpmodulename.rawAddress.toString(), phmodule.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun getModuleHandleExW(dwflags: UInt, lpmodulename: Pcwstr, phmodule: MutPtr<Hmodule>): Bool =
+public actual fun getModuleHandleExW(dwflags: UInt, lpmodulename: Pcwstr, phmodule: MutPtr): Bool =
     if (windowsWin32SystemLibraryloaderNapiAvailable) wasmWindowssysWindowsWin32SystemLibraryloaderGetModuleHandleExW(dwflags.toInt(), lpmodulename.rawAddress.toString(), phmodule.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun getModuleHandleW(lpmodulename: Pcwstr): Hmodule =
@@ -282,7 +281,7 @@ public actual fun loadLibraryExW(lplibfilename: Pcwstr, hfile: Handle, dwflags: 
 public actual fun loadLibraryW(lplibfilename: Pcwstr): Hmodule =
     if (windowsWin32SystemLibraryloaderNapiAvailable) MutPtr(wasmWindowssysWindowsWin32SystemLibraryloaderLoadLibraryW(lplibfilename.rawAddress.toString()).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun loadModule(lpmodulename: Pcstr, lpparameterblock: ConstPtr<CVoid>): UInt =
+public actual fun loadModule(lpmodulename: Pcstr, lpparameterblock: ConstPtr): UInt =
     if (windowsWin32SystemLibraryloaderNapiAvailable) wasmWindowssysWindowsWin32SystemLibraryloaderLoadModule(lpmodulename.rawAddress.toString(), lpparameterblock.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun loadPackagedLibrary(lpwlibfilename: Pcwstr, reserved: UInt): Hmodule =
@@ -291,13 +290,13 @@ public actual fun loadPackagedLibrary(lpwlibfilename: Pcwstr, reserved: UInt): H
 public actual fun loadResource(hmodule: Hmodule, hresinfo: Hrsrc): Hglobal =
     if (windowsWin32SystemLibraryloaderNapiAvailable) MutPtr(wasmWindowssysWindowsWin32SystemLibraryloaderLoadResource(hmodule.rawAddress.toString(), hresinfo.rawAddress.toString()).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun lockResource(hresdata: Hglobal): MutPtr<CVoid> =
+public actual fun lockResource(hresdata: Hglobal): MutPtr =
     if (windowsWin32SystemLibraryloaderNapiAvailable) MutPtr(wasmWindowssysWindowsWin32SystemLibraryloaderLockResource(hresdata.rawAddress.toString()).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun queryOptionalDelayLoadedAPI(hparentmodule: Hmodule, lpdllname: Pcstr, lpprocname: Pcstr, reserved: UInt): Bool =
     if (windowsWin32SystemLibraryloaderNapiAvailable) wasmWindowssysWindowsWin32SystemLibraryloaderQueryOptionalDelayLoadedAPI(hparentmodule.rawAddress.toString(), lpdllname.rawAddress.toString(), lpprocname.rawAddress.toString(), reserved.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun removeDllDirectory(cookie: ConstPtr<CVoid>): Bool =
+public actual fun removeDllDirectory(cookie: ConstPtr): Bool =
     if (windowsWin32SystemLibraryloaderNapiAvailable) wasmWindowssysWindowsWin32SystemLibraryloaderRemoveDllDirectory(cookie.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun setDefaultDllDirectories(directoryflags: LoadLibraryFlags): Bool =
@@ -312,8 +311,8 @@ public actual fun setDllDirectoryW(lppathname: Pcwstr): Bool =
 public actual fun sizeofResource(hmodule: Hmodule, hresinfo: Hrsrc): UInt =
     if (windowsWin32SystemLibraryloaderNapiAvailable) wasmWindowssysWindowsWin32SystemLibraryloaderSizeofResource(hmodule.rawAddress.toString(), hresinfo.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun updateResourceA(hupdate: Handle, lptype: Pcstr, lpname: Pcstr, wlanguage: UShort, lpdata: ConstPtr<CVoid>, cb: UInt): Bool =
+public actual fun updateResourceA(hupdate: Handle, lptype: Pcstr, lpname: Pcstr, wlanguage: UShort, lpdata: ConstPtr, cb: UInt): Bool =
     if (windowsWin32SystemLibraryloaderNapiAvailable) wasmWindowssysWindowsWin32SystemLibraryloaderUpdateResourceA(hupdate.rawAddress.toString(), lptype.rawAddress.toString(), lpname.rawAddress.toString(), wlanguage.toInt(), lpdata.rawAddress.toString(), cb.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun updateResourceW(hupdate: Handle, lptype: Pcwstr, lpname: Pcwstr, wlanguage: UShort, lpdata: ConstPtr<CVoid>, cb: UInt): Bool =
+public actual fun updateResourceW(hupdate: Handle, lptype: Pcwstr, lpname: Pcwstr, wlanguage: UShort, lpdata: ConstPtr, cb: UInt): Bool =
     if (windowsWin32SystemLibraryloaderNapiAvailable) wasmWindowssysWindowsWin32SystemLibraryloaderUpdateResourceW(hupdate.rawAddress.toString(), lptype.rawAddress.toString(), lpname.rawAddress.toString(), wlanguage.toInt(), lpdata.rawAddress.toString(), cb.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")

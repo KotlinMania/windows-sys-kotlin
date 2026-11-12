@@ -2,7 +2,6 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.system.rpc
 
-import io.github.kotlinmania.rustlang.core.ffi.CVoid
 import io.github.kotlinmania.rustlang.core.ptr.ConstPtr
 import io.github.kotlinmania.rustlang.core.ptr.MutPtr
 import io.github.kotlinmania.windowssys.core.Bool
@@ -13,7 +12,6 @@ import io.github.kotlinmania.windowssys.core.Pcwstr
 import io.github.kotlinmania.windowssys.core.Pstr
 import io.github.kotlinmania.windowssys.core.Pwstr
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Luid
-import io.github.kotlinmania.windowssys.windows.win32.security.cryptography.CertContext
 
 @JsFun("() => { if (typeof globalThis.__km_napi_windowssys !== 'undefined') return globalThis.__km_napi_windowssys !== null; if (typeof process === 'undefined' || !process.versions || !process.versions.node) { globalThis.__km_napi_windowssys = null; return false; } var mod = process.getBuiltinModule ? process.getBuiltinModule('module') : (process.mainModule && process.mainModule.constructor); var req = (mod && mod.createRequire) ? mod.createRequire((process.cwd ? process.cwd() : '.') + '/package.json') : (process.mainModule ? process.mainModule.require : null); if (!req) { globalThis.__km_napi_windowssys = null; return false; } try { globalThis.__km_napi_windowssys = req('@kotlinmania/windowssys-native-bindings'); return true; } catch (_) {} var fs = req('fs'); var path = req('path'); var dir = process.cwd ? process.cwd() : '.'; var rels = ['windowssys_native.node', 'build/node-ffi/windowssys_native.node', 'build/node-ffi/release/windowssys_native.node', 'build/node-ffi/debug/windowssys_native.node', 'src/js/node-windowssys/build/Release/windowssys_native.node', 'src/js/node-windowssys/build/Debug/windowssys_native.node', 'src/js/node-windowssys/dist/build/Release/windowssys_native.node', 'src/js/node-windowssys/dist/build/Debug/windowssys_native.node']; for (var d = 0; d < 8; d++) { for (var i = 0; i < rels.length; i++) { var c = path.resolve(dir, rels[i]); if (fs.existsSync(c)) { globalThis.__km_napi_windowssys = req(c); return true; } } var parent = path.dirname(dir); if (parent === dir) break; dir = parent; } globalThis.__km_napi_windowssys = null; return false; }")
 private external fun initWindowsWin32SystemRpcNapiAddon(): Boolean
@@ -1520,73 +1518,73 @@ public actual fun dceErrorInqTextA(rpcstatus: RpcStatus, errortext: Pstr): RpcSt
 public actual fun dceErrorInqTextW(rpcstatus: RpcStatus, errortext: Pwstr): RpcStatus =
     if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcDceErrorInqTextW(rpcstatus, errortext.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun iunknownAddRefProxy(thisRef: MutPtr<CVoid>): UInt =
+public actual fun iunknownAddRefProxy(thisRef: MutPtr): UInt =
     if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcIunknownAddRefProxy(thisRef.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun iunknownQueryInterfaceProxy(thisRef: MutPtr<CVoid>, riid: ConstPtr<Guid>, ppvobject: MutPtr<MutPtr<CVoid>>): Hresult =
+public actual fun iunknownQueryInterfaceProxy(thisRef: MutPtr, riid: ConstPtr, ppvobject: MutPtr): Hresult =
     if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcIunknownQueryInterfaceProxy(thisRef.rawAddress.toString(), riid.rawAddress.toString(), ppvobject.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun iunknownReleaseProxy(thisRef: MutPtr<CVoid>): UInt =
+public actual fun iunknownReleaseProxy(thisRef: MutPtr): UInt =
     if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcIunknownReleaseProxy(thisRef.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun iRpcAllocate(size: UInt): MutPtr<CVoid> =
+public actual fun iRpcAllocate(size: UInt): MutPtr =
     if (windowsWin32SystemRpcNapiAvailable) MutPtr(wasmWindowssysWindowsWin32SystemRpcIRpcAllocate(size.toInt()).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun iRpcAsyncAbortCall(pasync: ConstPtr<RpcAsyncState>, exceptioncode: UInt): RpcStatus =
+public actual fun iRpcAsyncAbortCall(pasync: ConstPtr, exceptioncode: UInt): RpcStatus =
     if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcIRpcAsyncAbortCall(pasync.rawAddress.toString(), exceptioncode.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun iRpcAsyncSetHandle(message: ConstPtr<RpcMessage>, pasync: ConstPtr<RpcAsyncState>): RpcStatus =
+public actual fun iRpcAsyncSetHandle(message: ConstPtr, pasync: ConstPtr): RpcStatus =
     if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcIRpcAsyncSetHandle(message.rawAddress.toString(), pasync.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun iRpcBindingCopy(sourcebinding: MutPtr<CVoid>, destinationbinding: MutPtr<MutPtr<CVoid>>): RpcStatus =
+public actual fun iRpcBindingCopy(sourcebinding: MutPtr, destinationbinding: MutPtr): RpcStatus =
     if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcIRpcBindingCopy(sourcebinding.rawAddress.toString(), destinationbinding.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun iRpcBindingCreateNp(servername: Pcwstr, servicename: Pcwstr, networkoptions: Pcwstr, binding: MutPtr<MutPtr<CVoid>>): RpcStatus =
+public actual fun iRpcBindingCreateNp(servername: Pcwstr, servicename: Pcwstr, networkoptions: Pcwstr, binding: MutPtr): RpcStatus =
     if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcIRpcBindingCreateNp(servername.rawAddress.toString(), servicename.rawAddress.toString(), networkoptions.rawAddress.toString(), binding.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun iRpcBindingHandleToAsyncHandle(binding: MutPtr<CVoid>, asynchandle: MutPtr<MutPtr<CVoid>>): RpcStatus =
+public actual fun iRpcBindingHandleToAsyncHandle(binding: MutPtr, asynchandle: MutPtr): RpcStatus =
     if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcIRpcBindingHandleToAsyncHandle(binding.rawAddress.toString(), asynchandle.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun iRpcBindingInqClientTokenAttributes(binding: ConstPtr<CVoid>, tokenid: MutPtr<Luid>, authenticationid: MutPtr<Luid>, modifiedid: MutPtr<Luid>): RpcStatus =
+public actual fun iRpcBindingInqClientTokenAttributes(binding: ConstPtr, tokenid: MutPtr, authenticationid: MutPtr, modifiedid: MutPtr): RpcStatus =
     if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcIRpcBindingInqClientTokenAttributes(binding.rawAddress.toString(), tokenid.rawAddress.toString(), authenticationid.rawAddress.toString(), modifiedid.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun iRpcBindingInqDynamicEndpointA(binding: ConstPtr<CVoid>, dynamicendpoint: MutPtr<Pstr>): RpcStatus =
+public actual fun iRpcBindingInqDynamicEndpointA(binding: ConstPtr, dynamicendpoint: MutPtr): RpcStatus =
     if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcIRpcBindingInqDynamicEndpointA(binding.rawAddress.toString(), dynamicendpoint.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun iRpcBindingInqDynamicEndpointW(binding: ConstPtr<CVoid>, dynamicendpoint: MutPtr<Pwstr>): RpcStatus =
+public actual fun iRpcBindingInqDynamicEndpointW(binding: ConstPtr, dynamicendpoint: MutPtr): RpcStatus =
     if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcIRpcBindingInqDynamicEndpointW(binding.rawAddress.toString(), dynamicendpoint.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun iRpcBindingInqLocalClientPid(binding: MutPtr<CVoid>, pid: MutPtr<UInt>): RpcStatus =
+public actual fun iRpcBindingInqLocalClientPid(binding: MutPtr, pid: MutPtr): RpcStatus =
     if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcIRpcBindingInqLocalClientPid(binding.rawAddress.toString(), pid.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun iRpcBindingInqMarshalledTargetInfo(binding: ConstPtr<CVoid>, marshalledtargetinfosize: MutPtr<UInt>, marshalledtargetinfo: MutPtr<Pstr>): RpcStatus =
+public actual fun iRpcBindingInqMarshalledTargetInfo(binding: ConstPtr, marshalledtargetinfosize: MutPtr, marshalledtargetinfo: MutPtr): RpcStatus =
     if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcIRpcBindingInqMarshalledTargetInfo(binding.rawAddress.toString(), marshalledtargetinfosize.rawAddress.toString(), marshalledtargetinfo.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun iRpcBindingInqSecurityContext(binding: MutPtr<CVoid>, securitycontexthandle: MutPtr<MutPtr<CVoid>>): RpcStatus =
+public actual fun iRpcBindingInqSecurityContext(binding: MutPtr, securitycontexthandle: MutPtr): RpcStatus =
     if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcIRpcBindingInqSecurityContext(binding.rawAddress.toString(), securitycontexthandle.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun iRpcBindingInqSecurityContextKeyInfo(binding: ConstPtr<CVoid>, keyinfo: MutPtr<CVoid>): RpcStatus =
+public actual fun iRpcBindingInqSecurityContextKeyInfo(binding: ConstPtr, keyinfo: MutPtr): RpcStatus =
     if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcIRpcBindingInqSecurityContextKeyInfo(binding.rawAddress.toString(), keyinfo.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun iRpcBindingInqTransportType(binding: MutPtr<CVoid>, type: MutPtr<UInt>): RpcStatus =
+public actual fun iRpcBindingInqTransportType(binding: MutPtr, type: MutPtr): RpcStatus =
     if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcIRpcBindingInqTransportType(binding.rawAddress.toString(), type.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun iRpcBindingInqWireIdForSnego(binding: ConstPtr<CVoid>, wireid: MutPtr<UByte>): RpcStatus =
+public actual fun iRpcBindingInqWireIdForSnego(binding: ConstPtr, wireid: MutPtr): RpcStatus =
     if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcIRpcBindingInqWireIdForSnego(binding.rawAddress.toString(), wireid.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun iRpcBindingIsClientLocal(bindinghandle: MutPtr<CVoid>, clientlocalflag: MutPtr<UInt>): RpcStatus =
+public actual fun iRpcBindingIsClientLocal(bindinghandle: MutPtr, clientlocalflag: MutPtr): RpcStatus =
     if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcIRpcBindingIsClientLocal(bindinghandle.rawAddress.toString(), clientlocalflag.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun iRpcBindingIsServerLocal(binding: ConstPtr<CVoid>, serverlocalflag: MutPtr<UInt>): RpcStatus =
+public actual fun iRpcBindingIsServerLocal(binding: ConstPtr, serverlocalflag: MutPtr): RpcStatus =
     if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcIRpcBindingIsServerLocal(binding.rawAddress.toString(), serverlocalflag.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun iRpcBindingSetPrivateOption(hbinding: ConstPtr<CVoid>, option: UInt, optionvalue: ULong): RpcStatus =
+public actual fun iRpcBindingSetPrivateOption(hbinding: ConstPtr, option: UInt, optionvalue: ULong): RpcStatus =
     if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcIRpcBindingSetPrivateOption(hbinding.rawAddress.toString(), option.toInt(), optionvalue.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun iRpcBindingToStaticStringBindingW(binding: MutPtr<CVoid>, stringbinding: MutPtr<MutPtr<UShort>>): RpcStatus =
+public actual fun iRpcBindingToStaticStringBindingW(binding: MutPtr, stringbinding: MutPtr): RpcStatus =
     if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcIRpcBindingToStaticStringBindingW(binding.rawAddress.toString(), stringbinding.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun iRpcClearMutex(mutex: MutPtr<CVoid>) {
+public actual fun iRpcClearMutex(mutex: MutPtr) {
     if (windowsWin32SystemRpcNapiAvailable) {
         wasmWindowssysWindowsWin32SystemRpcIRpcClearMutex(mutex.rawAddress.toString())
     } else {
@@ -1594,7 +1592,7 @@ public actual fun iRpcClearMutex(mutex: MutPtr<CVoid>) {
     }
 }
 
-public actual fun iRpcDeleteMutex(mutex: MutPtr<CVoid>) {
+public actual fun iRpcDeleteMutex(mutex: MutPtr) {
     if (windowsWin32SystemRpcNapiAvailable) {
         wasmWindowssysWindowsWin32SystemRpcIRpcDeleteMutex(mutex.rawAddress.toString())
     } else {
@@ -1605,7 +1603,7 @@ public actual fun iRpcDeleteMutex(mutex: MutPtr<CVoid>) {
 public actual fun iRpcExceptionFilter(exceptioncode: UInt): Int =
     if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcIRpcExceptionFilter(exceptioncode.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun iRpcFree(obj: MutPtr<CVoid>) {
+public actual fun iRpcFree(obj: MutPtr) {
     if (windowsWin32SystemRpcNapiAvailable) {
         wasmWindowssysWindowsWin32SystemRpcIRpcFree(obj.rawAddress.toString())
     } else {
@@ -1613,28 +1611,28 @@ public actual fun iRpcFree(obj: MutPtr<CVoid>) {
     }
 }
 
-public actual fun iRpcFreeBuffer(message: MutPtr<RpcMessage>): RpcStatus =
+public actual fun iRpcFreeBuffer(message: MutPtr): RpcStatus =
     if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcIRpcFreeBuffer(message.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun iRpcFreePipeBuffer(message: MutPtr<RpcMessage>): RpcStatus =
+public actual fun iRpcFreePipeBuffer(message: MutPtr): RpcStatus =
     if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcIRpcFreePipeBuffer(message.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun iRpcGetBuffer(message: MutPtr<RpcMessage>): RpcStatus =
+public actual fun iRpcGetBuffer(message: MutPtr): RpcStatus =
     if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcIRpcGetBuffer(message.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun iRpcGetBufferWithObject(message: MutPtr<RpcMessage>, objectuuid: MutPtr<Guid>): RpcStatus =
+public actual fun iRpcGetBufferWithObject(message: MutPtr, objectuuid: MutPtr): RpcStatus =
     if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcIRpcGetBufferWithObject(message.rawAddress.toString(), objectuuid.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun iRpcGetCurrentCallHandle(): MutPtr<CVoid> =
+public actual fun iRpcGetCurrentCallHandle(): MutPtr =
     if (windowsWin32SystemRpcNapiAvailable) MutPtr(wasmWindowssysWindowsWin32SystemRpcIRpcGetCurrentCallHandle().toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun iRpcGetDefaultSd(ppsecuritydescriptor: MutPtr<MutPtr<CVoid>>): RpcStatus =
+public actual fun iRpcGetDefaultSd(ppsecuritydescriptor: MutPtr): RpcStatus =
     if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcIRpcGetDefaultSd(ppsecuritydescriptor.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun iRpcGetExtendedError(): RpcStatus =
     if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcIRpcGetExtendedError() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun iRpcIfInqTransferSyntaxes(rpcifhandle: MutPtr<CVoid>, transfersyntaxes: MutPtr<RpcTransferSyntax>, transfersyntaxsize: UInt, transfersyntaxcount: MutPtr<UInt>): RpcStatus =
+public actual fun iRpcIfInqTransferSyntaxes(rpcifhandle: MutPtr, transfersyntaxes: MutPtr, transfersyntaxsize: UInt, transfersyntaxcount: MutPtr): RpcStatus =
     if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcIRpcIfInqTransferSyntaxes(rpcifhandle.rawAddress.toString(), transfersyntaxes.rawAddress.toString(), transfersyntaxsize.toInt(), transfersyntaxcount.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun iRpcMapWin32Status(status: RpcStatus): Int =
@@ -1643,25 +1641,25 @@ public actual fun iRpcMapWin32Status(status: RpcStatus): Int =
 public actual fun iRpcMgmtEnableDedicatedThreadPool(): RpcStatus =
     if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcIRpcMgmtEnableDedicatedThreadPool() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun iRpcNegotiateTransferSyntax(message: MutPtr<RpcMessage>): RpcStatus =
+public actual fun iRpcNegotiateTransferSyntax(message: MutPtr): RpcStatus =
     if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcIRpcNegotiateTransferSyntax(message.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun iRpcNsBindingSetEntryNameA(binding: ConstPtr<CVoid>, entrynamesyntax: UInt, entryname: Pcstr): RpcStatus =
+public actual fun iRpcNsBindingSetEntryNameA(binding: ConstPtr, entrynamesyntax: UInt, entryname: Pcstr): RpcStatus =
     if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcIRpcNsBindingSetEntryNameA(binding.rawAddress.toString(), entrynamesyntax.toInt(), entryname.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun iRpcNsBindingSetEntryNameW(binding: ConstPtr<CVoid>, entrynamesyntax: UInt, entryname: Pcwstr): RpcStatus =
+public actual fun iRpcNsBindingSetEntryNameW(binding: ConstPtr, entrynamesyntax: UInt, entryname: Pcwstr): RpcStatus =
     if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcIRpcNsBindingSetEntryNameW(binding.rawAddress.toString(), entrynamesyntax.toInt(), entryname.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun iRpcNsGetBuffer(message: MutPtr<RpcMessage>): RpcStatus =
+public actual fun iRpcNsGetBuffer(message: MutPtr): RpcStatus =
     if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcIRpcNsGetBuffer(message.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun iRpcNsInterfaceExported(entrynamesyntax: UInt, entryname: ConstPtr<UShort>, rpcinterfaceinformation: ConstPtr<RpcServerInterface>): RpcStatus =
+public actual fun iRpcNsInterfaceExported(entrynamesyntax: UInt, entryname: ConstPtr, rpcinterfaceinformation: ConstPtr): RpcStatus =
     if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcIRpcNsInterfaceExported(entrynamesyntax.toInt(), entryname.rawAddress.toString(), rpcinterfaceinformation.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun iRpcNsInterfaceUnexported(entrynamesyntax: UInt, entryname: MutPtr<UShort>, rpcinterfaceinformation: MutPtr<RpcServerInterface>): RpcStatus =
+public actual fun iRpcNsInterfaceUnexported(entrynamesyntax: UInt, entryname: MutPtr, rpcinterfaceinformation: MutPtr): RpcStatus =
     if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcIRpcNsInterfaceUnexported(entrynamesyntax.toInt(), entryname.rawAddress.toString(), rpcinterfaceinformation.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun iRpcNsRaiseException(message: MutPtr<RpcMessage>, status: RpcStatus) {
+public actual fun iRpcNsRaiseException(message: MutPtr, status: RpcStatus) {
     if (windowsWin32SystemRpcNapiAvailable) {
         wasmWindowssysWindowsWin32SystemRpcIRpcNsRaiseException(message.rawAddress.toString(), status)
     } else {
@@ -1669,10 +1667,10 @@ public actual fun iRpcNsRaiseException(message: MutPtr<RpcMessage>, status: RpcS
     }
 }
 
-public actual fun iRpcNsSendReceive(message: MutPtr<RpcMessage>, handle: MutPtr<MutPtr<CVoid>>): RpcStatus =
+public actual fun iRpcNsSendReceive(message: MutPtr, handle: MutPtr): RpcStatus =
     if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcIRpcNsSendReceive(message.rawAddress.toString(), handle.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun iRpcOpenClientProcess(binding: ConstPtr<CVoid>, desiredaccess: UInt, clientprocess: MutPtr<MutPtr<CVoid>>): RpcStatus =
+public actual fun iRpcOpenClientProcess(binding: ConstPtr, desiredaccess: UInt, clientprocess: MutPtr): RpcStatus =
     if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcIRpcOpenClientProcess(binding.rawAddress.toString(), desiredaccess.toInt(), clientprocess.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun iRpcPauseExecution(milliseconds: UInt) {
@@ -1683,16 +1681,16 @@ public actual fun iRpcPauseExecution(milliseconds: UInt) {
     }
 }
 
-public actual fun iRpcReBindBuffer(message: MutPtr<RpcMessage>): RpcStatus =
+public actual fun iRpcReBindBuffer(message: MutPtr): RpcStatus =
     if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcIRpcReBindBuffer(message.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun iRpcReallocPipeBuffer(message: ConstPtr<RpcMessage>, newsize: UInt): RpcStatus =
+public actual fun iRpcReallocPipeBuffer(message: ConstPtr, newsize: UInt): RpcStatus =
     if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcIRpcReallocPipeBuffer(message.rawAddress.toString(), newsize.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun iRpcReceive(message: MutPtr<RpcMessage>, size: UInt): RpcStatus =
+public actual fun iRpcReceive(message: MutPtr, size: UInt): RpcStatus =
     if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcIRpcReceive(message.rawAddress.toString(), size.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun iRpcRecordCalloutFailure(rpcstatus: RpcStatus, calloutstate: MutPtr<RdrCalloutState>, dllname: MutPtr<UShort>) {
+public actual fun iRpcRecordCalloutFailure(rpcstatus: RpcStatus, calloutstate: MutPtr, dllname: MutPtr) {
     if (windowsWin32SystemRpcNapiAvailable) {
         wasmWindowssysWindowsWin32SystemRpcIRpcRecordCalloutFailure(rpcstatus, calloutstate.rawAddress.toString(), dllname.rawAddress.toString())
     } else {
@@ -1700,7 +1698,7 @@ public actual fun iRpcRecordCalloutFailure(rpcstatus: RpcStatus, calloutstate: M
     }
 }
 
-public actual fun iRpcRequestMutex(mutex: MutPtr<MutPtr<CVoid>>) {
+public actual fun iRpcRequestMutex(mutex: MutPtr) {
     if (windowsWin32SystemRpcNapiAvailable) {
         wasmWindowssysWindowsWin32SystemRpcIRpcRequestMutex(mutex.rawAddress.toString())
     } else {
@@ -1708,61 +1706,61 @@ public actual fun iRpcRequestMutex(mutex: MutPtr<MutPtr<CVoid>>) {
     }
 }
 
-public actual fun iRpcSend(message: MutPtr<RpcMessage>): RpcStatus =
+public actual fun iRpcSend(message: MutPtr): RpcStatus =
     if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcIRpcSend(message.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun iRpcSendReceive(message: MutPtr<RpcMessage>): RpcStatus =
+public actual fun iRpcSendReceive(message: MutPtr): RpcStatus =
     if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcIRpcSendReceive(message.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun iRpcServerCheckClientRestriction(context: MutPtr<CVoid>): RpcStatus =
+public actual fun iRpcServerCheckClientRestriction(context: MutPtr): RpcStatus =
     if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcIRpcServerCheckClientRestriction(context.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun iRpcServerDisableExceptionFilter(): Int =
     if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcIRpcServerDisableExceptionFilter() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun iRpcServerGetAssociationId(binding: ConstPtr<CVoid>, associationid: MutPtr<UInt>): RpcStatus =
+public actual fun iRpcServerGetAssociationId(binding: ConstPtr, associationid: MutPtr): RpcStatus =
     if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcIRpcServerGetAssociationId(binding.rawAddress.toString(), associationid.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun iRpcServerInqAddressChangeFn(): MutPtr<RpcAddressChangeFn> =
+public actual fun iRpcServerInqAddressChangeFn(): MutPtr =
     if (windowsWin32SystemRpcNapiAvailable) MutPtr(wasmWindowssysWindowsWin32SystemRpcIRpcServerInqAddressChangeFn().toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun iRpcServerInqLocalConnAddress(binding: MutPtr<CVoid>, buffer: MutPtr<CVoid>, buffersize: MutPtr<UInt>, addressformat: MutPtr<UInt>): RpcStatus =
+public actual fun iRpcServerInqLocalConnAddress(binding: MutPtr, buffer: MutPtr, buffersize: MutPtr, addressformat: MutPtr): RpcStatus =
     if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcIRpcServerInqLocalConnAddress(binding.rawAddress.toString(), buffer.rawAddress.toString(), buffersize.rawAddress.toString(), addressformat.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun iRpcServerInqRemoteConnAddress(binding: MutPtr<CVoid>, buffer: MutPtr<CVoid>, buffersize: MutPtr<UInt>, addressformat: MutPtr<UInt>): RpcStatus =
+public actual fun iRpcServerInqRemoteConnAddress(binding: MutPtr, buffer: MutPtr, buffersize: MutPtr, addressformat: MutPtr): RpcStatus =
     if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcIRpcServerInqRemoteConnAddress(binding.rawAddress.toString(), buffer.rawAddress.toString(), buffersize.rawAddress.toString(), addressformat.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun iRpcServerInqTransportType(type: MutPtr<UInt>): RpcStatus =
+public actual fun iRpcServerInqTransportType(type: MutPtr): RpcStatus =
     if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcIRpcServerInqTransportType(type.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun iRpcServerRegisterForwardFunction(pforwardfunction: MutPtr<RpcForwardFunction>): RpcStatus =
+public actual fun iRpcServerRegisterForwardFunction(pforwardfunction: MutPtr): RpcStatus =
     if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcIRpcServerRegisterForwardFunction(pforwardfunction.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun iRpcServerSetAddressChangeFn(paddresschangefn: MutPtr<RpcAddressChangeFn>): RpcStatus =
+public actual fun iRpcServerSetAddressChangeFn(paddresschangefn: MutPtr): RpcStatus =
     if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcIRpcServerSetAddressChangeFn(paddresschangefn.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun iRpcServerStartService(protseq: Pcwstr, endpoint: Pcwstr, ifspec: ConstPtr<CVoid>): RpcStatus =
+public actual fun iRpcServerStartService(protseq: Pcwstr, endpoint: Pcwstr, ifspec: ConstPtr): RpcStatus =
     if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcIRpcServerStartService(protseq.rawAddress.toString(), endpoint.rawAddress.toString(), ifspec.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun iRpcServerSubscribeForDisconnectNotification(binding: ConstPtr<CVoid>, hevent: ConstPtr<CVoid>): RpcStatus =
+public actual fun iRpcServerSubscribeForDisconnectNotification(binding: ConstPtr, hevent: ConstPtr): RpcStatus =
     if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcIRpcServerSubscribeForDisconnectNotification(binding.rawAddress.toString(), hevent.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun iRpcServerSubscribeForDisconnectNotification2(binding: ConstPtr<CVoid>, hevent: ConstPtr<CVoid>, subscriptionid: MutPtr<Guid>): RpcStatus =
+public actual fun iRpcServerSubscribeForDisconnectNotification2(binding: ConstPtr, hevent: ConstPtr, subscriptionid: MutPtr): RpcStatus =
     if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcIRpcServerSubscribeForDisconnectNotification2(binding.rawAddress.toString(), hevent.rawAddress.toString(), subscriptionid.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun iRpcServerUnsubscribeForDisconnectNotification(binding: ConstPtr<CVoid>, subscriptionid: Guid): RpcStatus =
+public actual fun iRpcServerUnsubscribeForDisconnectNotification(binding: ConstPtr, subscriptionid: Guid): RpcStatus =
     throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun iRpcServerUseProtseq2A(networkaddress: Pcstr, protseq: Pcstr, maxcalls: UInt, securitydescriptor: ConstPtr<CVoid>, policy: ConstPtr<CVoid>): RpcStatus =
+public actual fun iRpcServerUseProtseq2A(networkaddress: Pcstr, protseq: Pcstr, maxcalls: UInt, securitydescriptor: ConstPtr, policy: ConstPtr): RpcStatus =
     if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcIRpcServerUseProtseq2A(networkaddress.rawAddress.toString(), protseq.rawAddress.toString(), maxcalls.toInt(), securitydescriptor.rawAddress.toString(), policy.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun iRpcServerUseProtseq2W(networkaddress: Pcwstr, protseq: Pcwstr, maxcalls: UInt, securitydescriptor: ConstPtr<CVoid>, policy: ConstPtr<CVoid>): RpcStatus =
+public actual fun iRpcServerUseProtseq2W(networkaddress: Pcwstr, protseq: Pcwstr, maxcalls: UInt, securitydescriptor: ConstPtr, policy: ConstPtr): RpcStatus =
     if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcIRpcServerUseProtseq2W(networkaddress.rawAddress.toString(), protseq.rawAddress.toString(), maxcalls.toInt(), securitydescriptor.rawAddress.toString(), policy.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun iRpcServerUseProtseqEp2A(networkaddress: Pcstr, protseq: Pcstr, maxcalls: UInt, endpoint: Pcstr, securitydescriptor: ConstPtr<CVoid>, policy: ConstPtr<CVoid>): RpcStatus =
+public actual fun iRpcServerUseProtseqEp2A(networkaddress: Pcstr, protseq: Pcstr, maxcalls: UInt, endpoint: Pcstr, securitydescriptor: ConstPtr, policy: ConstPtr): RpcStatus =
     if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcIRpcServerUseProtseqEp2A(networkaddress.rawAddress.toString(), protseq.rawAddress.toString(), maxcalls.toInt(), endpoint.rawAddress.toString(), securitydescriptor.rawAddress.toString(), policy.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun iRpcServerUseProtseqEp2W(networkaddress: Pcwstr, protseq: Pcwstr, maxcalls: UInt, endpoint: Pcwstr, securitydescriptor: ConstPtr<CVoid>, policy: ConstPtr<CVoid>): RpcStatus =
+public actual fun iRpcServerUseProtseqEp2W(networkaddress: Pcwstr, protseq: Pcwstr, maxcalls: UInt, endpoint: Pcwstr, securitydescriptor: ConstPtr, policy: ConstPtr): RpcStatus =
     if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcIRpcServerUseProtseqEp2W(networkaddress.rawAddress.toString(), protseq.rawAddress.toString(), maxcalls.toInt(), endpoint.rawAddress.toString(), securitydescriptor.rawAddress.toString(), policy.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun iRpcSessionStrictContextHandle() {
@@ -1781,46 +1779,46 @@ public actual fun iRpcSsDontSerializeContext() {
     }
 }
 
-public actual fun iRpcSystemHandleTypeSpecificWork(handle: MutPtr<CVoid>, actualtype: UByte, idltype: UByte, marshaldirection: LrpcSystemHandleMarshalDirection): RpcStatus =
+public actual fun iRpcSystemHandleTypeSpecificWork(handle: MutPtr, actualtype: UByte, idltype: UByte, marshaldirection: LrpcSystemHandleMarshalDirection): RpcStatus =
     if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcIRpcSystemHandleTypeSpecificWork(handle.rawAddress.toString(), actualtype.toInt(), idltype.toInt(), marshaldirection) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun iRpcTurnOnEeinfoPropagation(): RpcStatus =
     if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcIRpcTurnOnEeinfoPropagation() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun iUuidCreate(uuid: MutPtr<Guid>): RpcStatus =
+public actual fun iUuidCreate(uuid: MutPtr): RpcStatus =
     if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcIUuidCreate(uuid.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun mesBufferHandleReset(handle: ConstPtr<CVoid>, handlestyle: UInt, operation: MidlEsCode, pbuffer: ConstPtr<ConstPtr<Byte>>, buffersize: UInt, pencodedsize: MutPtr<UInt>): RpcStatus =
+public actual fun mesBufferHandleReset(handle: ConstPtr, handlestyle: UInt, operation: MidlEsCode, pbuffer: ConstPtr, buffersize: UInt, pencodedsize: MutPtr): RpcStatus =
     if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcMesBufferHandleReset(handle.rawAddress.toString(), handlestyle.toInt(), operation, pbuffer.rawAddress.toString(), buffersize.toInt(), pencodedsize.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun mesDecodeBufferHandleCreate(buffer: Pcstr, buffersize: UInt, phandle: MutPtr<MutPtr<CVoid>>): RpcStatus =
+public actual fun mesDecodeBufferHandleCreate(buffer: Pcstr, buffersize: UInt, phandle: MutPtr): RpcStatus =
     if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcMesDecodeBufferHandleCreate(buffer.rawAddress.toString(), buffersize.toInt(), phandle.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun mesDecodeIncrementalHandleCreate(userstate: MutPtr<CVoid>, readfn: MidlEsRead, phandle: MutPtr<MutPtr<CVoid>>): RpcStatus =
+public actual fun mesDecodeIncrementalHandleCreate(userstate: MutPtr, readfn: MidlEsRead, phandle: MutPtr): RpcStatus =
     if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcMesDecodeIncrementalHandleCreate(userstate.rawAddress.toString(), 0L.toString(), phandle.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun mesEncodeDynBufferHandleCreate(pbuffer: MutPtr<MutPtr<Byte>>, pencodedsize: MutPtr<UInt>, phandle: MutPtr<MutPtr<CVoid>>): RpcStatus =
+public actual fun mesEncodeDynBufferHandleCreate(pbuffer: MutPtr, pencodedsize: MutPtr, phandle: MutPtr): RpcStatus =
     if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcMesEncodeDynBufferHandleCreate(pbuffer.rawAddress.toString(), pencodedsize.rawAddress.toString(), phandle.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun mesEncodeFixedBufferHandleCreate(pbuffer: Pstr, buffersize: UInt, pencodedsize: MutPtr<UInt>, phandle: MutPtr<MutPtr<CVoid>>): RpcStatus =
+public actual fun mesEncodeFixedBufferHandleCreate(pbuffer: Pstr, buffersize: UInt, pencodedsize: MutPtr, phandle: MutPtr): RpcStatus =
     if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcMesEncodeFixedBufferHandleCreate(pbuffer.rawAddress.toString(), buffersize.toInt(), pencodedsize.rawAddress.toString(), phandle.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun mesEncodeIncrementalHandleCreate(userstate: MutPtr<CVoid>, allocfn: MidlEsAlloc, writefn: MidlEsWrite, phandle: MutPtr<MutPtr<CVoid>>): RpcStatus =
+public actual fun mesEncodeIncrementalHandleCreate(userstate: MutPtr, allocfn: MidlEsAlloc, writefn: MidlEsWrite, phandle: MutPtr): RpcStatus =
     if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcMesEncodeIncrementalHandleCreate(userstate.rawAddress.toString(), 0L.toString(), 0L.toString(), phandle.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun mesHandleFree(handle: MutPtr<CVoid>): RpcStatus =
+public actual fun mesHandleFree(handle: MutPtr): RpcStatus =
     if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcMesHandleFree(handle.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun mesIncrementalHandleReset(handle: MutPtr<CVoid>, userstate: MutPtr<CVoid>, allocfn: MidlEsAlloc, writefn: MidlEsWrite, readfn: MidlEsRead, operation: MidlEsCode): RpcStatus =
+public actual fun mesIncrementalHandleReset(handle: MutPtr, userstate: MutPtr, allocfn: MidlEsAlloc, writefn: MidlEsWrite, readfn: MidlEsRead, operation: MidlEsCode): RpcStatus =
     if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcMesIncrementalHandleReset(handle.rawAddress.toString(), userstate.rawAddress.toString(), 0L.toString(), 0L.toString(), 0L.toString(), operation) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun mesInqProcEncodingId(handle: MutPtr<CVoid>, pinterfaceid: MutPtr<RpcSyntaxIdentifier>, pprocnum: MutPtr<UInt>): RpcStatus =
+public actual fun mesInqProcEncodingId(handle: MutPtr, pinterfaceid: MutPtr, pprocnum: MutPtr): RpcStatus =
     if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcMesInqProcEncodingId(handle.rawAddress.toString(), pinterfaceid.rawAddress.toString(), pprocnum.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun nDRCContextBinding(ccontext: Long): MutPtr<CVoid> =
+public actual fun nDRCContextBinding(ccontext: Long): MutPtr =
     if (windowsWin32SystemRpcNapiAvailable) MutPtr(wasmWindowssysWindowsWin32SystemRpcNDRCContextBinding(ccontext.toString()).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun nDRCContextMarshall(ccontext: Long, pbuff: MutPtr<CVoid>) {
+public actual fun nDRCContextMarshall(ccontext: Long, pbuff: MutPtr) {
     if (windowsWin32SystemRpcNapiAvailable) {
         wasmWindowssysWindowsWin32SystemRpcNDRCContextMarshall(ccontext.toString(), pbuff.rawAddress.toString())
     } else {
@@ -1828,7 +1826,7 @@ public actual fun nDRCContextMarshall(ccontext: Long, pbuff: MutPtr<CVoid>) {
     }
 }
 
-public actual fun nDRCContextUnmarshall(pccontext: MutPtr<Long>, hbinding: ConstPtr<CVoid>, pbuff: ConstPtr<CVoid>, datarepresentation: UInt) {
+public actual fun nDRCContextUnmarshall(pccontext: MutPtr, hbinding: ConstPtr, pbuff: ConstPtr, datarepresentation: UInt) {
     if (windowsWin32SystemRpcNapiAvailable) {
         wasmWindowssysWindowsWin32SystemRpcNDRCContextUnmarshall(pccontext.rawAddress.toString(), hbinding.rawAddress.toString(), pbuff.rawAddress.toString(), datarepresentation.toInt())
     } else {
@@ -1836,7 +1834,7 @@ public actual fun nDRCContextUnmarshall(pccontext: MutPtr<Long>, hbinding: Const
     }
 }
 
-public actual fun nDRSContextMarshall(ccontext: ConstPtr<NdrScontext>, pbuff: MutPtr<CVoid>, userrundownin: NdrRundown) {
+public actual fun nDRSContextMarshall(ccontext: ConstPtr, pbuff: MutPtr, userrundownin: NdrRundown) {
     if (windowsWin32SystemRpcNapiAvailable) {
         wasmWindowssysWindowsWin32SystemRpcNDRSContextMarshall(ccontext.rawAddress.toString(), pbuff.rawAddress.toString(), 0L.toString())
     } else {
@@ -1844,7 +1842,7 @@ public actual fun nDRSContextMarshall(ccontext: ConstPtr<NdrScontext>, pbuff: Mu
     }
 }
 
-public actual fun nDRSContextMarshall2(bindinghandle: ConstPtr<CVoid>, ccontext: ConstPtr<NdrScontext>, pbuff: MutPtr<CVoid>, userrundownin: NdrRundown, ctxguard: ConstPtr<CVoid>, flags: UInt) {
+public actual fun nDRSContextMarshall2(bindinghandle: ConstPtr, ccontext: ConstPtr, pbuff: MutPtr, userrundownin: NdrRundown, ctxguard: ConstPtr, flags: UInt) {
     if (windowsWin32SystemRpcNapiAvailable) {
         wasmWindowssysWindowsWin32SystemRpcNDRSContextMarshall2(bindinghandle.rawAddress.toString(), ccontext.rawAddress.toString(), pbuff.rawAddress.toString(), 0L.toString(), ctxguard.rawAddress.toString(), flags.toInt())
     } else {
@@ -1852,7 +1850,7 @@ public actual fun nDRSContextMarshall2(bindinghandle: ConstPtr<CVoid>, ccontext:
     }
 }
 
-public actual fun nDRSContextMarshallEx(bindinghandle: ConstPtr<CVoid>, ccontext: ConstPtr<NdrScontext>, pbuff: MutPtr<CVoid>, userrundownin: NdrRundown) {
+public actual fun nDRSContextMarshallEx(bindinghandle: ConstPtr, ccontext: ConstPtr, pbuff: MutPtr, userrundownin: NdrRundown) {
     if (windowsWin32SystemRpcNapiAvailable) {
         wasmWindowssysWindowsWin32SystemRpcNDRSContextMarshallEx(bindinghandle.rawAddress.toString(), ccontext.rawAddress.toString(), pbuff.rawAddress.toString(), 0L.toString())
     } else {
@@ -1860,19 +1858,19 @@ public actual fun nDRSContextMarshallEx(bindinghandle: ConstPtr<CVoid>, ccontext
     }
 }
 
-public actual fun nDRSContextUnmarshall(pbuff: ConstPtr<CVoid>, datarepresentation: UInt): MutPtr<NdrScontext> =
+public actual fun nDRSContextUnmarshall(pbuff: ConstPtr, datarepresentation: UInt): MutPtr =
     if (windowsWin32SystemRpcNapiAvailable) MutPtr(wasmWindowssysWindowsWin32SystemRpcNDRSContextUnmarshall(pbuff.rawAddress.toString(), datarepresentation.toInt()).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun nDRSContextUnmarshall2(bindinghandle: ConstPtr<CVoid>, pbuff: ConstPtr<CVoid>, datarepresentation: UInt, ctxguard: ConstPtr<CVoid>, flags: UInt): MutPtr<NdrScontext> =
+public actual fun nDRSContextUnmarshall2(bindinghandle: ConstPtr, pbuff: ConstPtr, datarepresentation: UInt, ctxguard: ConstPtr, flags: UInt): MutPtr =
     if (windowsWin32SystemRpcNapiAvailable) MutPtr(wasmWindowssysWindowsWin32SystemRpcNDRSContextUnmarshall2(bindinghandle.rawAddress.toString(), pbuff.rawAddress.toString(), datarepresentation.toInt(), ctxguard.rawAddress.toString(), flags.toInt()).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun nDRSContextUnmarshallEx(bindinghandle: ConstPtr<CVoid>, pbuff: ConstPtr<CVoid>, datarepresentation: UInt): MutPtr<NdrScontext> =
+public actual fun nDRSContextUnmarshallEx(bindinghandle: ConstPtr, pbuff: ConstPtr, datarepresentation: UInt): MutPtr =
     if (windowsWin32SystemRpcNapiAvailable) MutPtr(wasmWindowssysWindowsWin32SystemRpcNDRSContextUnmarshallEx(bindinghandle.rawAddress.toString(), pbuff.rawAddress.toString(), datarepresentation.toInt()).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ndr64AsyncClientCall(pproxyinfo: MutPtr<MidlStublessProxyInfo>, nprocnum: UInt, preturnvalue: MutPtr<CVoid>, vararg variadicArgs: Long): ClientCallReturn =
+public actual fun ndr64AsyncClientCall(pproxyinfo: MutPtr, nprocnum: UInt, preturnvalue: MutPtr, vararg variadicArgs: Long): ClientCallReturn =
     throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ndr64AsyncServerCall64(prpcmsg: MutPtr<RpcMessage>) {
+public actual fun ndr64AsyncServerCall64(prpcmsg: MutPtr) {
     if (windowsWin32SystemRpcNapiAvailable) {
         wasmWindowssysWindowsWin32SystemRpcNdr64AsyncServerCall64(prpcmsg.rawAddress.toString())
     } else {
@@ -1880,7 +1878,7 @@ public actual fun ndr64AsyncServerCall64(prpcmsg: MutPtr<RpcMessage>) {
     }
 }
 
-public actual fun ndr64AsyncServerCallAll(prpcmsg: MutPtr<RpcMessage>) {
+public actual fun ndr64AsyncServerCallAll(prpcmsg: MutPtr) {
     if (windowsWin32SystemRpcNapiAvailable) {
         wasmWindowssysWindowsWin32SystemRpcNdr64AsyncServerCallAll(prpcmsg.rawAddress.toString())
     } else {
@@ -1888,19 +1886,19 @@ public actual fun ndr64AsyncServerCallAll(prpcmsg: MutPtr<RpcMessage>) {
     }
 }
 
-public actual fun ndr64DcomAsyncClientCall(pproxyinfo: MutPtr<MidlStublessProxyInfo>, nprocnum: UInt, preturnvalue: MutPtr<CVoid>, vararg variadicArgs: Long): ClientCallReturn =
+public actual fun ndr64DcomAsyncClientCall(pproxyinfo: MutPtr, nprocnum: UInt, preturnvalue: MutPtr, vararg variadicArgs: Long): ClientCallReturn =
     throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ndr64DcomAsyncStubCall(pthis: MutPtr<CVoid>, pchannel: MutPtr<CVoid>, prpcmsg: MutPtr<RpcMessage>, pdwstubphase: MutPtr<UInt>): Int =
+public actual fun ndr64DcomAsyncStubCall(pthis: MutPtr, pchannel: MutPtr, prpcmsg: MutPtr, pdwstubphase: MutPtr): Int =
     if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcNdr64DcomAsyncStubCall(pthis.rawAddress.toString(), pchannel.rawAddress.toString(), prpcmsg.rawAddress.toString(), pdwstubphase.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ndrAllocate(pstubmsg: MutPtr<MidlStubMessage>, len: ULong): MutPtr<CVoid> =
+public actual fun ndrAllocate(pstubmsg: MutPtr, len: ULong): MutPtr =
     if (windowsWin32SystemRpcNapiAvailable) MutPtr(wasmWindowssysWindowsWin32SystemRpcNdrAllocate(pstubmsg.rawAddress.toString(), len.toString()).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ndrAsyncClientCall(pstubdescriptor: MutPtr<MidlStubDesc>, pformat: MutPtr<UByte>, vararg variadicArgs: Long): ClientCallReturn =
+public actual fun ndrAsyncClientCall(pstubdescriptor: MutPtr, pformat: MutPtr, vararg variadicArgs: Long): ClientCallReturn =
     throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ndrAsyncServerCall(prpcmsg: MutPtr<RpcMessage>) {
+public actual fun ndrAsyncServerCall(prpcmsg: MutPtr) {
     if (windowsWin32SystemRpcNapiAvailable) {
         wasmWindowssysWindowsWin32SystemRpcNdrAsyncServerCall(prpcmsg.rawAddress.toString())
     } else {
@@ -1908,7 +1906,7 @@ public actual fun ndrAsyncServerCall(prpcmsg: MutPtr<RpcMessage>) {
     }
 }
 
-public actual fun ndrByteCountPointerBufferSize(pstubmsg: MutPtr<MidlStubMessage>, pmemory: MutPtr<UByte>, pformat: MutPtr<UByte>) {
+public actual fun ndrByteCountPointerBufferSize(pstubmsg: MutPtr, pmemory: MutPtr, pformat: MutPtr) {
     if (windowsWin32SystemRpcNapiAvailable) {
         wasmWindowssysWindowsWin32SystemRpcNdrByteCountPointerBufferSize(pstubmsg.rawAddress.toString(), pmemory.rawAddress.toString(), pformat.rawAddress.toString())
     } else {
@@ -1916,7 +1914,7 @@ public actual fun ndrByteCountPointerBufferSize(pstubmsg: MutPtr<MidlStubMessage
     }
 }
 
-public actual fun ndrByteCountPointerFree(pstubmsg: MutPtr<MidlStubMessage>, pmemory: MutPtr<UByte>, pformat: MutPtr<UByte>) {
+public actual fun ndrByteCountPointerFree(pstubmsg: MutPtr, pmemory: MutPtr, pformat: MutPtr) {
     if (windowsWin32SystemRpcNapiAvailable) {
         wasmWindowssysWindowsWin32SystemRpcNdrByteCountPointerFree(pstubmsg.rawAddress.toString(), pmemory.rawAddress.toString(), pformat.rawAddress.toString())
     } else {
@@ -1924,13 +1922,13 @@ public actual fun ndrByteCountPointerFree(pstubmsg: MutPtr<MidlStubMessage>, pme
     }
 }
 
-public actual fun ndrByteCountPointerMarshall(pstubmsg: MutPtr<MidlStubMessage>, pmemory: MutPtr<UByte>, pformat: MutPtr<UByte>): MutPtr<UByte> =
+public actual fun ndrByteCountPointerMarshall(pstubmsg: MutPtr, pmemory: MutPtr, pformat: MutPtr): MutPtr =
     if (windowsWin32SystemRpcNapiAvailable) MutPtr(wasmWindowssysWindowsWin32SystemRpcNdrByteCountPointerMarshall(pstubmsg.rawAddress.toString(), pmemory.rawAddress.toString(), pformat.rawAddress.toString()).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ndrByteCountPointerUnmarshall(pstubmsg: MutPtr<MidlStubMessage>, ppmemory: MutPtr<MutPtr<UByte>>, pformat: MutPtr<UByte>, fmustalloc: UByte): MutPtr<UByte> =
+public actual fun ndrByteCountPointerUnmarshall(pstubmsg: MutPtr, ppmemory: MutPtr, pformat: MutPtr, fmustalloc: UByte): MutPtr =
     if (windowsWin32SystemRpcNapiAvailable) MutPtr(wasmWindowssysWindowsWin32SystemRpcNdrByteCountPointerUnmarshall(pstubmsg.rawAddress.toString(), ppmemory.rawAddress.toString(), pformat.rawAddress.toString(), fmustalloc.toInt()).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ndrClearOutParameters(pstubmsg: MutPtr<MidlStubMessage>, pformat: MutPtr<UByte>, argaddr: MutPtr<CVoid>) {
+public actual fun ndrClearOutParameters(pstubmsg: MutPtr, pformat: MutPtr, argaddr: MutPtr) {
     if (windowsWin32SystemRpcNapiAvailable) {
         wasmWindowssysWindowsWin32SystemRpcNdrClearOutParameters(pstubmsg.rawAddress.toString(), pformat.rawAddress.toString(), argaddr.rawAddress.toString())
     } else {
@@ -1938,13 +1936,13 @@ public actual fun ndrClearOutParameters(pstubmsg: MutPtr<MidlStubMessage>, pform
     }
 }
 
-public actual fun ndrClientCall2(pstubdescriptor: MutPtr<MidlStubDesc>, pformat: MutPtr<UByte>, vararg variadicArgs: Long): ClientCallReturn =
+public actual fun ndrClientCall2(pstubdescriptor: MutPtr, pformat: MutPtr, vararg variadicArgs: Long): ClientCallReturn =
     throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ndrClientCall3(pproxyinfo: MutPtr<MidlStublessProxyInfo>, nprocnum: UInt, preturnvalue: MutPtr<CVoid>, vararg variadicArgs: Long): ClientCallReturn =
+public actual fun ndrClientCall3(pproxyinfo: MutPtr, nprocnum: UInt, preturnvalue: MutPtr, vararg variadicArgs: Long): ClientCallReturn =
     throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ndrClientContextMarshall(pstubmsg: MutPtr<MidlStubMessage>, contexthandle: Long, fcheck: Int) {
+public actual fun ndrClientContextMarshall(pstubmsg: MutPtr, contexthandle: Long, fcheck: Int) {
     if (windowsWin32SystemRpcNapiAvailable) {
         wasmWindowssysWindowsWin32SystemRpcNdrClientContextMarshall(pstubmsg.rawAddress.toString(), contexthandle.toString(), fcheck)
     } else {
@@ -1952,7 +1950,7 @@ public actual fun ndrClientContextMarshall(pstubmsg: MutPtr<MidlStubMessage>, co
     }
 }
 
-public actual fun ndrClientContextUnmarshall(pstubmsg: MutPtr<MidlStubMessage>, pcontexthandle: MutPtr<Long>, bindhandle: MutPtr<CVoid>) {
+public actual fun ndrClientContextUnmarshall(pstubmsg: MutPtr, pcontexthandle: MutPtr, bindhandle: MutPtr) {
     if (windowsWin32SystemRpcNapiAvailable) {
         wasmWindowssysWindowsWin32SystemRpcNdrClientContextUnmarshall(pstubmsg.rawAddress.toString(), pcontexthandle.rawAddress.toString(), bindhandle.rawAddress.toString())
     } else {
@@ -1960,7 +1958,7 @@ public actual fun ndrClientContextUnmarshall(pstubmsg: MutPtr<MidlStubMessage>, 
     }
 }
 
-public actual fun ndrClientInitialize(prpcmsg: MutPtr<RpcMessage>, pstubmsg: MutPtr<MidlStubMessage>, pstubdescriptor: MutPtr<MidlStubDesc>, procnum: UInt) {
+public actual fun ndrClientInitialize(prpcmsg: MutPtr, pstubmsg: MutPtr, pstubdescriptor: MutPtr, procnum: UInt) {
     if (windowsWin32SystemRpcNapiAvailable) {
         wasmWindowssysWindowsWin32SystemRpcNdrClientInitialize(prpcmsg.rawAddress.toString(), pstubmsg.rawAddress.toString(), pstubdescriptor.rawAddress.toString(), procnum.toInt())
     } else {
@@ -1968,7 +1966,7 @@ public actual fun ndrClientInitialize(prpcmsg: MutPtr<RpcMessage>, pstubmsg: Mut
     }
 }
 
-public actual fun ndrClientInitializeNew(prpcmsg: MutPtr<RpcMessage>, pstubmsg: MutPtr<MidlStubMessage>, pstubdescriptor: MutPtr<MidlStubDesc>, procnum: UInt) {
+public actual fun ndrClientInitializeNew(prpcmsg: MutPtr, pstubmsg: MutPtr, pstubdescriptor: MutPtr, procnum: UInt) {
     if (windowsWin32SystemRpcNapiAvailable) {
         wasmWindowssysWindowsWin32SystemRpcNdrClientInitializeNew(prpcmsg.rawAddress.toString(), pstubmsg.rawAddress.toString(), pstubdescriptor.rawAddress.toString(), procnum.toInt())
     } else {
@@ -1976,7 +1974,7 @@ public actual fun ndrClientInitializeNew(prpcmsg: MutPtr<RpcMessage>, pstubmsg: 
     }
 }
 
-public actual fun ndrComplexArrayBufferSize(pstubmsg: MutPtr<MidlStubMessage>, pmemory: MutPtr<UByte>, pformat: MutPtr<UByte>) {
+public actual fun ndrComplexArrayBufferSize(pstubmsg: MutPtr, pmemory: MutPtr, pformat: MutPtr) {
     if (windowsWin32SystemRpcNapiAvailable) {
         wasmWindowssysWindowsWin32SystemRpcNdrComplexArrayBufferSize(pstubmsg.rawAddress.toString(), pmemory.rawAddress.toString(), pformat.rawAddress.toString())
     } else {
@@ -1984,7 +1982,7 @@ public actual fun ndrComplexArrayBufferSize(pstubmsg: MutPtr<MidlStubMessage>, p
     }
 }
 
-public actual fun ndrComplexArrayFree(pstubmsg: MutPtr<MidlStubMessage>, pmemory: MutPtr<UByte>, pformat: MutPtr<UByte>) {
+public actual fun ndrComplexArrayFree(pstubmsg: MutPtr, pmemory: MutPtr, pformat: MutPtr) {
     if (windowsWin32SystemRpcNapiAvailable) {
         wasmWindowssysWindowsWin32SystemRpcNdrComplexArrayFree(pstubmsg.rawAddress.toString(), pmemory.rawAddress.toString(), pformat.rawAddress.toString())
     } else {
@@ -1992,16 +1990,16 @@ public actual fun ndrComplexArrayFree(pstubmsg: MutPtr<MidlStubMessage>, pmemory
     }
 }
 
-public actual fun ndrComplexArrayMarshall(pstubmsg: MutPtr<MidlStubMessage>, pmemory: MutPtr<UByte>, pformat: MutPtr<UByte>): MutPtr<UByte> =
+public actual fun ndrComplexArrayMarshall(pstubmsg: MutPtr, pmemory: MutPtr, pformat: MutPtr): MutPtr =
     if (windowsWin32SystemRpcNapiAvailable) MutPtr(wasmWindowssysWindowsWin32SystemRpcNdrComplexArrayMarshall(pstubmsg.rawAddress.toString(), pmemory.rawAddress.toString(), pformat.rawAddress.toString()).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ndrComplexArrayMemorySize(pstubmsg: MutPtr<MidlStubMessage>, pformat: MutPtr<UByte>): UInt =
+public actual fun ndrComplexArrayMemorySize(pstubmsg: MutPtr, pformat: MutPtr): UInt =
     if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcNdrComplexArrayMemorySize(pstubmsg.rawAddress.toString(), pformat.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ndrComplexArrayUnmarshall(pstubmsg: MutPtr<MidlStubMessage>, ppmemory: MutPtr<MutPtr<UByte>>, pformat: MutPtr<UByte>, fmustalloc: UByte): MutPtr<UByte> =
+public actual fun ndrComplexArrayUnmarshall(pstubmsg: MutPtr, ppmemory: MutPtr, pformat: MutPtr, fmustalloc: UByte): MutPtr =
     if (windowsWin32SystemRpcNapiAvailable) MutPtr(wasmWindowssysWindowsWin32SystemRpcNdrComplexArrayUnmarshall(pstubmsg.rawAddress.toString(), ppmemory.rawAddress.toString(), pformat.rawAddress.toString(), fmustalloc.toInt()).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ndrComplexStructBufferSize(pstubmsg: MutPtr<MidlStubMessage>, pmemory: MutPtr<UByte>, pformat: MutPtr<UByte>) {
+public actual fun ndrComplexStructBufferSize(pstubmsg: MutPtr, pmemory: MutPtr, pformat: MutPtr) {
     if (windowsWin32SystemRpcNapiAvailable) {
         wasmWindowssysWindowsWin32SystemRpcNdrComplexStructBufferSize(pstubmsg.rawAddress.toString(), pmemory.rawAddress.toString(), pformat.rawAddress.toString())
     } else {
@@ -2009,7 +2007,7 @@ public actual fun ndrComplexStructBufferSize(pstubmsg: MutPtr<MidlStubMessage>, 
     }
 }
 
-public actual fun ndrComplexStructFree(pstubmsg: MutPtr<MidlStubMessage>, pmemory: MutPtr<UByte>, pformat: MutPtr<UByte>) {
+public actual fun ndrComplexStructFree(pstubmsg: MutPtr, pmemory: MutPtr, pformat: MutPtr) {
     if (windowsWin32SystemRpcNapiAvailable) {
         wasmWindowssysWindowsWin32SystemRpcNdrComplexStructFree(pstubmsg.rawAddress.toString(), pmemory.rawAddress.toString(), pformat.rawAddress.toString())
     } else {
@@ -2017,16 +2015,16 @@ public actual fun ndrComplexStructFree(pstubmsg: MutPtr<MidlStubMessage>, pmemor
     }
 }
 
-public actual fun ndrComplexStructMarshall(pstubmsg: MutPtr<MidlStubMessage>, pmemory: MutPtr<UByte>, pformat: MutPtr<UByte>): MutPtr<UByte> =
+public actual fun ndrComplexStructMarshall(pstubmsg: MutPtr, pmemory: MutPtr, pformat: MutPtr): MutPtr =
     if (windowsWin32SystemRpcNapiAvailable) MutPtr(wasmWindowssysWindowsWin32SystemRpcNdrComplexStructMarshall(pstubmsg.rawAddress.toString(), pmemory.rawAddress.toString(), pformat.rawAddress.toString()).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ndrComplexStructMemorySize(pstubmsg: MutPtr<MidlStubMessage>, pformat: MutPtr<UByte>): UInt =
+public actual fun ndrComplexStructMemorySize(pstubmsg: MutPtr, pformat: MutPtr): UInt =
     if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcNdrComplexStructMemorySize(pstubmsg.rawAddress.toString(), pformat.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ndrComplexStructUnmarshall(pstubmsg: MutPtr<MidlStubMessage>, ppmemory: MutPtr<MutPtr<UByte>>, pformat: MutPtr<UByte>, fmustalloc: UByte): MutPtr<UByte> =
+public actual fun ndrComplexStructUnmarshall(pstubmsg: MutPtr, ppmemory: MutPtr, pformat: MutPtr, fmustalloc: UByte): MutPtr =
     if (windowsWin32SystemRpcNapiAvailable) MutPtr(wasmWindowssysWindowsWin32SystemRpcNdrComplexStructUnmarshall(pstubmsg.rawAddress.toString(), ppmemory.rawAddress.toString(), pformat.rawAddress.toString(), fmustalloc.toInt()).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ndrConformantArrayBufferSize(pstubmsg: MutPtr<MidlStubMessage>, pmemory: MutPtr<UByte>, pformat: MutPtr<UByte>) {
+public actual fun ndrConformantArrayBufferSize(pstubmsg: MutPtr, pmemory: MutPtr, pformat: MutPtr) {
     if (windowsWin32SystemRpcNapiAvailable) {
         wasmWindowssysWindowsWin32SystemRpcNdrConformantArrayBufferSize(pstubmsg.rawAddress.toString(), pmemory.rawAddress.toString(), pformat.rawAddress.toString())
     } else {
@@ -2034,7 +2032,7 @@ public actual fun ndrConformantArrayBufferSize(pstubmsg: MutPtr<MidlStubMessage>
     }
 }
 
-public actual fun ndrConformantArrayFree(pstubmsg: MutPtr<MidlStubMessage>, pmemory: MutPtr<UByte>, pformat: MutPtr<UByte>) {
+public actual fun ndrConformantArrayFree(pstubmsg: MutPtr, pmemory: MutPtr, pformat: MutPtr) {
     if (windowsWin32SystemRpcNapiAvailable) {
         wasmWindowssysWindowsWin32SystemRpcNdrConformantArrayFree(pstubmsg.rawAddress.toString(), pmemory.rawAddress.toString(), pformat.rawAddress.toString())
     } else {
@@ -2042,16 +2040,16 @@ public actual fun ndrConformantArrayFree(pstubmsg: MutPtr<MidlStubMessage>, pmem
     }
 }
 
-public actual fun ndrConformantArrayMarshall(pstubmsg: MutPtr<MidlStubMessage>, pmemory: MutPtr<UByte>, pformat: MutPtr<UByte>): MutPtr<UByte> =
+public actual fun ndrConformantArrayMarshall(pstubmsg: MutPtr, pmemory: MutPtr, pformat: MutPtr): MutPtr =
     if (windowsWin32SystemRpcNapiAvailable) MutPtr(wasmWindowssysWindowsWin32SystemRpcNdrConformantArrayMarshall(pstubmsg.rawAddress.toString(), pmemory.rawAddress.toString(), pformat.rawAddress.toString()).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ndrConformantArrayMemorySize(pstubmsg: MutPtr<MidlStubMessage>, pformat: MutPtr<UByte>): UInt =
+public actual fun ndrConformantArrayMemorySize(pstubmsg: MutPtr, pformat: MutPtr): UInt =
     if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcNdrConformantArrayMemorySize(pstubmsg.rawAddress.toString(), pformat.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ndrConformantArrayUnmarshall(pstubmsg: MutPtr<MidlStubMessage>, ppmemory: MutPtr<MutPtr<UByte>>, pformat: MutPtr<UByte>, fmustalloc: UByte): MutPtr<UByte> =
+public actual fun ndrConformantArrayUnmarshall(pstubmsg: MutPtr, ppmemory: MutPtr, pformat: MutPtr, fmustalloc: UByte): MutPtr =
     if (windowsWin32SystemRpcNapiAvailable) MutPtr(wasmWindowssysWindowsWin32SystemRpcNdrConformantArrayUnmarshall(pstubmsg.rawAddress.toString(), ppmemory.rawAddress.toString(), pformat.rawAddress.toString(), fmustalloc.toInt()).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ndrConformantStringBufferSize(pstubmsg: MutPtr<MidlStubMessage>, pmemory: MutPtr<UByte>, pformat: MutPtr<UByte>) {
+public actual fun ndrConformantStringBufferSize(pstubmsg: MutPtr, pmemory: MutPtr, pformat: MutPtr) {
     if (windowsWin32SystemRpcNapiAvailable) {
         wasmWindowssysWindowsWin32SystemRpcNdrConformantStringBufferSize(pstubmsg.rawAddress.toString(), pmemory.rawAddress.toString(), pformat.rawAddress.toString())
     } else {
@@ -2059,16 +2057,16 @@ public actual fun ndrConformantStringBufferSize(pstubmsg: MutPtr<MidlStubMessage
     }
 }
 
-public actual fun ndrConformantStringMarshall(pstubmsg: MutPtr<MidlStubMessage>, pmemory: MutPtr<UByte>, pformat: MutPtr<UByte>): MutPtr<UByte> =
+public actual fun ndrConformantStringMarshall(pstubmsg: MutPtr, pmemory: MutPtr, pformat: MutPtr): MutPtr =
     if (windowsWin32SystemRpcNapiAvailable) MutPtr(wasmWindowssysWindowsWin32SystemRpcNdrConformantStringMarshall(pstubmsg.rawAddress.toString(), pmemory.rawAddress.toString(), pformat.rawAddress.toString()).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ndrConformantStringMemorySize(pstubmsg: MutPtr<MidlStubMessage>, pformat: MutPtr<UByte>): UInt =
+public actual fun ndrConformantStringMemorySize(pstubmsg: MutPtr, pformat: MutPtr): UInt =
     if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcNdrConformantStringMemorySize(pstubmsg.rawAddress.toString(), pformat.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ndrConformantStringUnmarshall(pstubmsg: MutPtr<MidlStubMessage>, ppmemory: MutPtr<MutPtr<UByte>>, pformat: MutPtr<UByte>, fmustalloc: UByte): MutPtr<UByte> =
+public actual fun ndrConformantStringUnmarshall(pstubmsg: MutPtr, ppmemory: MutPtr, pformat: MutPtr, fmustalloc: UByte): MutPtr =
     if (windowsWin32SystemRpcNapiAvailable) MutPtr(wasmWindowssysWindowsWin32SystemRpcNdrConformantStringUnmarshall(pstubmsg.rawAddress.toString(), ppmemory.rawAddress.toString(), pformat.rawAddress.toString(), fmustalloc.toInt()).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ndrConformantStructBufferSize(pstubmsg: MutPtr<MidlStubMessage>, pmemory: MutPtr<UByte>, pformat: MutPtr<UByte>) {
+public actual fun ndrConformantStructBufferSize(pstubmsg: MutPtr, pmemory: MutPtr, pformat: MutPtr) {
     if (windowsWin32SystemRpcNapiAvailable) {
         wasmWindowssysWindowsWin32SystemRpcNdrConformantStructBufferSize(pstubmsg.rawAddress.toString(), pmemory.rawAddress.toString(), pformat.rawAddress.toString())
     } else {
@@ -2076,7 +2074,7 @@ public actual fun ndrConformantStructBufferSize(pstubmsg: MutPtr<MidlStubMessage
     }
 }
 
-public actual fun ndrConformantStructFree(pstubmsg: MutPtr<MidlStubMessage>, pmemory: MutPtr<UByte>, pformat: MutPtr<UByte>) {
+public actual fun ndrConformantStructFree(pstubmsg: MutPtr, pmemory: MutPtr, pformat: MutPtr) {
     if (windowsWin32SystemRpcNapiAvailable) {
         wasmWindowssysWindowsWin32SystemRpcNdrConformantStructFree(pstubmsg.rawAddress.toString(), pmemory.rawAddress.toString(), pformat.rawAddress.toString())
     } else {
@@ -2084,16 +2082,16 @@ public actual fun ndrConformantStructFree(pstubmsg: MutPtr<MidlStubMessage>, pme
     }
 }
 
-public actual fun ndrConformantStructMarshall(pstubmsg: MutPtr<MidlStubMessage>, pmemory: MutPtr<UByte>, pformat: MutPtr<UByte>): MutPtr<UByte> =
+public actual fun ndrConformantStructMarshall(pstubmsg: MutPtr, pmemory: MutPtr, pformat: MutPtr): MutPtr =
     if (windowsWin32SystemRpcNapiAvailable) MutPtr(wasmWindowssysWindowsWin32SystemRpcNdrConformantStructMarshall(pstubmsg.rawAddress.toString(), pmemory.rawAddress.toString(), pformat.rawAddress.toString()).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ndrConformantStructMemorySize(pstubmsg: MutPtr<MidlStubMessage>, pformat: MutPtr<UByte>): UInt =
+public actual fun ndrConformantStructMemorySize(pstubmsg: MutPtr, pformat: MutPtr): UInt =
     if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcNdrConformantStructMemorySize(pstubmsg.rawAddress.toString(), pformat.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ndrConformantStructUnmarshall(pstubmsg: MutPtr<MidlStubMessage>, ppmemory: MutPtr<MutPtr<UByte>>, pformat: MutPtr<UByte>, fmustalloc: UByte): MutPtr<UByte> =
+public actual fun ndrConformantStructUnmarshall(pstubmsg: MutPtr, ppmemory: MutPtr, pformat: MutPtr, fmustalloc: UByte): MutPtr =
     if (windowsWin32SystemRpcNapiAvailable) MutPtr(wasmWindowssysWindowsWin32SystemRpcNdrConformantStructUnmarshall(pstubmsg.rawAddress.toString(), ppmemory.rawAddress.toString(), pformat.rawAddress.toString(), fmustalloc.toInt()).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ndrConformantVaryingArrayBufferSize(pstubmsg: MutPtr<MidlStubMessage>, pmemory: MutPtr<UByte>, pformat: MutPtr<UByte>) {
+public actual fun ndrConformantVaryingArrayBufferSize(pstubmsg: MutPtr, pmemory: MutPtr, pformat: MutPtr) {
     if (windowsWin32SystemRpcNapiAvailable) {
         wasmWindowssysWindowsWin32SystemRpcNdrConformantVaryingArrayBufferSize(pstubmsg.rawAddress.toString(), pmemory.rawAddress.toString(), pformat.rawAddress.toString())
     } else {
@@ -2101,7 +2099,7 @@ public actual fun ndrConformantVaryingArrayBufferSize(pstubmsg: MutPtr<MidlStubM
     }
 }
 
-public actual fun ndrConformantVaryingArrayFree(pstubmsg: MutPtr<MidlStubMessage>, pmemory: MutPtr<UByte>, pformat: MutPtr<UByte>) {
+public actual fun ndrConformantVaryingArrayFree(pstubmsg: MutPtr, pmemory: MutPtr, pformat: MutPtr) {
     if (windowsWin32SystemRpcNapiAvailable) {
         wasmWindowssysWindowsWin32SystemRpcNdrConformantVaryingArrayFree(pstubmsg.rawAddress.toString(), pmemory.rawAddress.toString(), pformat.rawAddress.toString())
     } else {
@@ -2109,16 +2107,16 @@ public actual fun ndrConformantVaryingArrayFree(pstubmsg: MutPtr<MidlStubMessage
     }
 }
 
-public actual fun ndrConformantVaryingArrayMarshall(pstubmsg: MutPtr<MidlStubMessage>, pmemory: MutPtr<UByte>, pformat: MutPtr<UByte>): MutPtr<UByte> =
+public actual fun ndrConformantVaryingArrayMarshall(pstubmsg: MutPtr, pmemory: MutPtr, pformat: MutPtr): MutPtr =
     if (windowsWin32SystemRpcNapiAvailable) MutPtr(wasmWindowssysWindowsWin32SystemRpcNdrConformantVaryingArrayMarshall(pstubmsg.rawAddress.toString(), pmemory.rawAddress.toString(), pformat.rawAddress.toString()).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ndrConformantVaryingArrayMemorySize(pstubmsg: MutPtr<MidlStubMessage>, pformat: MutPtr<UByte>): UInt =
+public actual fun ndrConformantVaryingArrayMemorySize(pstubmsg: MutPtr, pformat: MutPtr): UInt =
     if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcNdrConformantVaryingArrayMemorySize(pstubmsg.rawAddress.toString(), pformat.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ndrConformantVaryingArrayUnmarshall(pstubmsg: MutPtr<MidlStubMessage>, ppmemory: MutPtr<MutPtr<UByte>>, pformat: MutPtr<UByte>, fmustalloc: UByte): MutPtr<UByte> =
+public actual fun ndrConformantVaryingArrayUnmarshall(pstubmsg: MutPtr, ppmemory: MutPtr, pformat: MutPtr, fmustalloc: UByte): MutPtr =
     if (windowsWin32SystemRpcNapiAvailable) MutPtr(wasmWindowssysWindowsWin32SystemRpcNdrConformantVaryingArrayUnmarshall(pstubmsg.rawAddress.toString(), ppmemory.rawAddress.toString(), pformat.rawAddress.toString(), fmustalloc.toInt()).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ndrConformantVaryingStructBufferSize(pstubmsg: MutPtr<MidlStubMessage>, pmemory: MutPtr<UByte>, pformat: MutPtr<UByte>) {
+public actual fun ndrConformantVaryingStructBufferSize(pstubmsg: MutPtr, pmemory: MutPtr, pformat: MutPtr) {
     if (windowsWin32SystemRpcNapiAvailable) {
         wasmWindowssysWindowsWin32SystemRpcNdrConformantVaryingStructBufferSize(pstubmsg.rawAddress.toString(), pmemory.rawAddress.toString(), pformat.rawAddress.toString())
     } else {
@@ -2126,7 +2124,7 @@ public actual fun ndrConformantVaryingStructBufferSize(pstubmsg: MutPtr<MidlStub
     }
 }
 
-public actual fun ndrConformantVaryingStructFree(pstubmsg: MutPtr<MidlStubMessage>, pmemory: MutPtr<UByte>, pformat: MutPtr<UByte>) {
+public actual fun ndrConformantVaryingStructFree(pstubmsg: MutPtr, pmemory: MutPtr, pformat: MutPtr) {
     if (windowsWin32SystemRpcNapiAvailable) {
         wasmWindowssysWindowsWin32SystemRpcNdrConformantVaryingStructFree(pstubmsg.rawAddress.toString(), pmemory.rawAddress.toString(), pformat.rawAddress.toString())
     } else {
@@ -2134,19 +2132,19 @@ public actual fun ndrConformantVaryingStructFree(pstubmsg: MutPtr<MidlStubMessag
     }
 }
 
-public actual fun ndrConformantVaryingStructMarshall(pstubmsg: MutPtr<MidlStubMessage>, pmemory: MutPtr<UByte>, pformat: MutPtr<UByte>): MutPtr<UByte> =
+public actual fun ndrConformantVaryingStructMarshall(pstubmsg: MutPtr, pmemory: MutPtr, pformat: MutPtr): MutPtr =
     if (windowsWin32SystemRpcNapiAvailable) MutPtr(wasmWindowssysWindowsWin32SystemRpcNdrConformantVaryingStructMarshall(pstubmsg.rawAddress.toString(), pmemory.rawAddress.toString(), pformat.rawAddress.toString()).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ndrConformantVaryingStructMemorySize(pstubmsg: MutPtr<MidlStubMessage>, pformat: MutPtr<UByte>): UInt =
+public actual fun ndrConformantVaryingStructMemorySize(pstubmsg: MutPtr, pformat: MutPtr): UInt =
     if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcNdrConformantVaryingStructMemorySize(pstubmsg.rawAddress.toString(), pformat.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ndrConformantVaryingStructUnmarshall(pstubmsg: MutPtr<MidlStubMessage>, ppmemory: MutPtr<MutPtr<UByte>>, pformat: MutPtr<UByte>, fmustalloc: UByte): MutPtr<UByte> =
+public actual fun ndrConformantVaryingStructUnmarshall(pstubmsg: MutPtr, ppmemory: MutPtr, pformat: MutPtr, fmustalloc: UByte): MutPtr =
     if (windowsWin32SystemRpcNapiAvailable) MutPtr(wasmWindowssysWindowsWin32SystemRpcNdrConformantVaryingStructUnmarshall(pstubmsg.rawAddress.toString(), ppmemory.rawAddress.toString(), pformat.rawAddress.toString(), fmustalloc.toInt()).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ndrContextHandleInitialize(pstubmsg: ConstPtr<MidlStubMessage>, pformat: ConstPtr<UByte>): MutPtr<NdrScontext> =
+public actual fun ndrContextHandleInitialize(pstubmsg: ConstPtr, pformat: ConstPtr): MutPtr =
     if (windowsWin32SystemRpcNapiAvailable) MutPtr(wasmWindowssysWindowsWin32SystemRpcNdrContextHandleInitialize(pstubmsg.rawAddress.toString(), pformat.rawAddress.toString()).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ndrContextHandleSize(pstubmsg: MutPtr<MidlStubMessage>, pmemory: MutPtr<UByte>, pformat: MutPtr<UByte>) {
+public actual fun ndrContextHandleSize(pstubmsg: MutPtr, pmemory: MutPtr, pformat: MutPtr) {
     if (windowsWin32SystemRpcNapiAvailable) {
         wasmWindowssysWindowsWin32SystemRpcNdrContextHandleSize(pstubmsg.rawAddress.toString(), pmemory.rawAddress.toString(), pformat.rawAddress.toString())
     } else {
@@ -2154,7 +2152,7 @@ public actual fun ndrContextHandleSize(pstubmsg: MutPtr<MidlStubMessage>, pmemor
     }
 }
 
-public actual fun ndrConvert(pstubmsg: MutPtr<MidlStubMessage>, pformat: MutPtr<UByte>) {
+public actual fun ndrConvert(pstubmsg: MutPtr, pformat: MutPtr) {
     if (windowsWin32SystemRpcNapiAvailable) {
         wasmWindowssysWindowsWin32SystemRpcNdrConvert(pstubmsg.rawAddress.toString(), pformat.rawAddress.toString())
     } else {
@@ -2162,7 +2160,7 @@ public actual fun ndrConvert(pstubmsg: MutPtr<MidlStubMessage>, pformat: MutPtr<
     }
 }
 
-public actual fun ndrConvert2(pstubmsg: MutPtr<MidlStubMessage>, pformat: MutPtr<UByte>, numberparams: Int) {
+public actual fun ndrConvert2(pstubmsg: MutPtr, pformat: MutPtr, numberparams: Int) {
     if (windowsWin32SystemRpcNapiAvailable) {
         wasmWindowssysWindowsWin32SystemRpcNdrConvert2(pstubmsg.rawAddress.toString(), pformat.rawAddress.toString(), numberparams)
     } else {
@@ -2170,7 +2168,7 @@ public actual fun ndrConvert2(pstubmsg: MutPtr<MidlStubMessage>, pformat: MutPtr
     }
 }
 
-public actual fun ndrCorrelationFree(pstubmsg: MutPtr<MidlStubMessage>) {
+public actual fun ndrCorrelationFree(pstubmsg: MutPtr) {
     if (windowsWin32SystemRpcNapiAvailable) {
         wasmWindowssysWindowsWin32SystemRpcNdrCorrelationFree(pstubmsg.rawAddress.toString())
     } else {
@@ -2178,7 +2176,7 @@ public actual fun ndrCorrelationFree(pstubmsg: MutPtr<MidlStubMessage>) {
     }
 }
 
-public actual fun ndrCorrelationInitialize(pstubmsg: MutPtr<MidlStubMessage>, pmemory: MutPtr<CVoid>, cachesize: UInt, flags: UInt) {
+public actual fun ndrCorrelationInitialize(pstubmsg: MutPtr, pmemory: MutPtr, cachesize: UInt, flags: UInt) {
     if (windowsWin32SystemRpcNapiAvailable) {
         wasmWindowssysWindowsWin32SystemRpcNdrCorrelationInitialize(pstubmsg.rawAddress.toString(), pmemory.rawAddress.toString(), cachesize.toInt(), flags.toInt())
     } else {
@@ -2186,7 +2184,7 @@ public actual fun ndrCorrelationInitialize(pstubmsg: MutPtr<MidlStubMessage>, pm
     }
 }
 
-public actual fun ndrCorrelationPass(pstubmsg: MutPtr<MidlStubMessage>) {
+public actual fun ndrCorrelationPass(pstubmsg: MutPtr) {
     if (windowsWin32SystemRpcNapiAvailable) {
         wasmWindowssysWindowsWin32SystemRpcNdrCorrelationPass(pstubmsg.rawAddress.toString())
     } else {
@@ -2194,16 +2192,16 @@ public actual fun ndrCorrelationPass(pstubmsg: MutPtr<MidlStubMessage>) {
     }
 }
 
-public actual fun ndrCreateServerInterfaceFromStub(pstub: MutPtr<CVoid>, pserverif: MutPtr<RpcServerInterface>): RpcStatus =
+public actual fun ndrCreateServerInterfaceFromStub(pstub: MutPtr, pserverif: MutPtr): RpcStatus =
     if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcNdrCreateServerInterfaceFromStub(pstub.rawAddress.toString(), pserverif.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ndrDcomAsyncClientCall(pstubdescriptor: MutPtr<MidlStubDesc>, pformat: MutPtr<UByte>, vararg variadicArgs: Long): ClientCallReturn =
+public actual fun ndrDcomAsyncClientCall(pstubdescriptor: MutPtr, pformat: MutPtr, vararg variadicArgs: Long): ClientCallReturn =
     throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ndrDcomAsyncStubCall(pthis: MutPtr<CVoid>, pchannel: MutPtr<CVoid>, prpcmsg: MutPtr<RpcMessage>, pdwstubphase: MutPtr<UInt>): Int =
+public actual fun ndrDcomAsyncStubCall(pthis: MutPtr, pchannel: MutPtr, prpcmsg: MutPtr, pdwstubphase: MutPtr): Int =
     if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcNdrDcomAsyncStubCall(pthis.rawAddress.toString(), pchannel.rawAddress.toString(), prpcmsg.rawAddress.toString(), pdwstubphase.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ndrEncapsulatedUnionBufferSize(pstubmsg: MutPtr<MidlStubMessage>, pmemory: MutPtr<UByte>, pformat: MutPtr<UByte>) {
+public actual fun ndrEncapsulatedUnionBufferSize(pstubmsg: MutPtr, pmemory: MutPtr, pformat: MutPtr) {
     if (windowsWin32SystemRpcNapiAvailable) {
         wasmWindowssysWindowsWin32SystemRpcNdrEncapsulatedUnionBufferSize(pstubmsg.rawAddress.toString(), pmemory.rawAddress.toString(), pformat.rawAddress.toString())
     } else {
@@ -2211,7 +2209,7 @@ public actual fun ndrEncapsulatedUnionBufferSize(pstubmsg: MutPtr<MidlStubMessag
     }
 }
 
-public actual fun ndrEncapsulatedUnionFree(pstubmsg: MutPtr<MidlStubMessage>, pmemory: MutPtr<UByte>, pformat: MutPtr<UByte>) {
+public actual fun ndrEncapsulatedUnionFree(pstubmsg: MutPtr, pmemory: MutPtr, pformat: MutPtr) {
     if (windowsWin32SystemRpcNapiAvailable) {
         wasmWindowssysWindowsWin32SystemRpcNdrEncapsulatedUnionFree(pstubmsg.rawAddress.toString(), pmemory.rawAddress.toString(), pformat.rawAddress.toString())
     } else {
@@ -2219,16 +2217,16 @@ public actual fun ndrEncapsulatedUnionFree(pstubmsg: MutPtr<MidlStubMessage>, pm
     }
 }
 
-public actual fun ndrEncapsulatedUnionMarshall(pstubmsg: MutPtr<MidlStubMessage>, pmemory: MutPtr<UByte>, pformat: MutPtr<UByte>): MutPtr<UByte> =
+public actual fun ndrEncapsulatedUnionMarshall(pstubmsg: MutPtr, pmemory: MutPtr, pformat: MutPtr): MutPtr =
     if (windowsWin32SystemRpcNapiAvailable) MutPtr(wasmWindowssysWindowsWin32SystemRpcNdrEncapsulatedUnionMarshall(pstubmsg.rawAddress.toString(), pmemory.rawAddress.toString(), pformat.rawAddress.toString()).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ndrEncapsulatedUnionMemorySize(pstubmsg: MutPtr<MidlStubMessage>, pformat: MutPtr<UByte>): UInt =
+public actual fun ndrEncapsulatedUnionMemorySize(pstubmsg: MutPtr, pformat: MutPtr): UInt =
     if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcNdrEncapsulatedUnionMemorySize(pstubmsg.rawAddress.toString(), pformat.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ndrEncapsulatedUnionUnmarshall(pstubmsg: MutPtr<MidlStubMessage>, ppmemory: MutPtr<MutPtr<UByte>>, pformat: MutPtr<UByte>, fmustalloc: UByte): MutPtr<UByte> =
+public actual fun ndrEncapsulatedUnionUnmarshall(pstubmsg: MutPtr, ppmemory: MutPtr, pformat: MutPtr, fmustalloc: UByte): MutPtr =
     if (windowsWin32SystemRpcNapiAvailable) MutPtr(wasmWindowssysWindowsWin32SystemRpcNdrEncapsulatedUnionUnmarshall(pstubmsg.rawAddress.toString(), ppmemory.rawAddress.toString(), pformat.rawAddress.toString(), fmustalloc.toInt()).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ndrFixedArrayBufferSize(pstubmsg: MutPtr<MidlStubMessage>, pmemory: MutPtr<UByte>, pformat: MutPtr<UByte>) {
+public actual fun ndrFixedArrayBufferSize(pstubmsg: MutPtr, pmemory: MutPtr, pformat: MutPtr) {
     if (windowsWin32SystemRpcNapiAvailable) {
         wasmWindowssysWindowsWin32SystemRpcNdrFixedArrayBufferSize(pstubmsg.rawAddress.toString(), pmemory.rawAddress.toString(), pformat.rawAddress.toString())
     } else {
@@ -2236,7 +2234,7 @@ public actual fun ndrFixedArrayBufferSize(pstubmsg: MutPtr<MidlStubMessage>, pme
     }
 }
 
-public actual fun ndrFixedArrayFree(pstubmsg: MutPtr<MidlStubMessage>, pmemory: MutPtr<UByte>, pformat: MutPtr<UByte>) {
+public actual fun ndrFixedArrayFree(pstubmsg: MutPtr, pmemory: MutPtr, pformat: MutPtr) {
     if (windowsWin32SystemRpcNapiAvailable) {
         wasmWindowssysWindowsWin32SystemRpcNdrFixedArrayFree(pstubmsg.rawAddress.toString(), pmemory.rawAddress.toString(), pformat.rawAddress.toString())
     } else {
@@ -2244,16 +2242,16 @@ public actual fun ndrFixedArrayFree(pstubmsg: MutPtr<MidlStubMessage>, pmemory: 
     }
 }
 
-public actual fun ndrFixedArrayMarshall(pstubmsg: MutPtr<MidlStubMessage>, pmemory: MutPtr<UByte>, pformat: MutPtr<UByte>): MutPtr<UByte> =
+public actual fun ndrFixedArrayMarshall(pstubmsg: MutPtr, pmemory: MutPtr, pformat: MutPtr): MutPtr =
     if (windowsWin32SystemRpcNapiAvailable) MutPtr(wasmWindowssysWindowsWin32SystemRpcNdrFixedArrayMarshall(pstubmsg.rawAddress.toString(), pmemory.rawAddress.toString(), pformat.rawAddress.toString()).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ndrFixedArrayMemorySize(pstubmsg: MutPtr<MidlStubMessage>, pformat: MutPtr<UByte>): UInt =
+public actual fun ndrFixedArrayMemorySize(pstubmsg: MutPtr, pformat: MutPtr): UInt =
     if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcNdrFixedArrayMemorySize(pstubmsg.rawAddress.toString(), pformat.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ndrFixedArrayUnmarshall(pstubmsg: MutPtr<MidlStubMessage>, ppmemory: MutPtr<MutPtr<UByte>>, pformat: MutPtr<UByte>, fmustalloc: UByte): MutPtr<UByte> =
+public actual fun ndrFixedArrayUnmarshall(pstubmsg: MutPtr, ppmemory: MutPtr, pformat: MutPtr, fmustalloc: UByte): MutPtr =
     if (windowsWin32SystemRpcNapiAvailable) MutPtr(wasmWindowssysWindowsWin32SystemRpcNdrFixedArrayUnmarshall(pstubmsg.rawAddress.toString(), ppmemory.rawAddress.toString(), pformat.rawAddress.toString(), fmustalloc.toInt()).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ndrFreeBuffer(pstubmsg: MutPtr<MidlStubMessage>) {
+public actual fun ndrFreeBuffer(pstubmsg: MutPtr) {
     if (windowsWin32SystemRpcNapiAvailable) {
         wasmWindowssysWindowsWin32SystemRpcNdrFreeBuffer(pstubmsg.rawAddress.toString())
     } else {
@@ -2261,7 +2259,7 @@ public actual fun ndrFreeBuffer(pstubmsg: MutPtr<MidlStubMessage>) {
     }
 }
 
-public actual fun ndrFullPointerXlatFree(pxlattables: MutPtr<FullPtrXlatTables>) {
+public actual fun ndrFullPointerXlatFree(pxlattables: MutPtr) {
     if (windowsWin32SystemRpcNapiAvailable) {
         wasmWindowssysWindowsWin32SystemRpcNdrFullPointerXlatFree(pxlattables.rawAddress.toString())
     } else {
@@ -2269,19 +2267,19 @@ public actual fun ndrFullPointerXlatFree(pxlattables: MutPtr<FullPtrXlatTables>)
     }
 }
 
-public actual fun ndrFullPointerXlatInit(numberofpointers: UInt, xlatside: XlatSide): MutPtr<FullPtrXlatTables> =
+public actual fun ndrFullPointerXlatInit(numberofpointers: UInt, xlatside: XlatSide): MutPtr =
     if (windowsWin32SystemRpcNapiAvailable) MutPtr(wasmWindowssysWindowsWin32SystemRpcNdrFullPointerXlatInit(numberofpointers.toInt(), xlatside).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ndrGetBuffer(pstubmsg: MutPtr<MidlStubMessage>, bufferlength: UInt, handle: MutPtr<CVoid>): MutPtr<UByte> =
+public actual fun ndrGetBuffer(pstubmsg: MutPtr, bufferlength: UInt, handle: MutPtr): MutPtr =
     if (windowsWin32SystemRpcNapiAvailable) MutPtr(wasmWindowssysWindowsWin32SystemRpcNdrGetBuffer(pstubmsg.rawAddress.toString(), bufferlength.toInt(), handle.rawAddress.toString()).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ndrGetDcomProtocolVersion(pstubmsg: MutPtr<MidlStubMessage>, pversion: MutPtr<RpcVersion>): Hresult =
+public actual fun ndrGetDcomProtocolVersion(pstubmsg: MutPtr, pversion: MutPtr): Hresult =
     if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcNdrGetDcomProtocolVersion(pstubmsg.rawAddress.toString(), pversion.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ndrGetUserMarshalInfo(pflags: ConstPtr<UInt>, informationlevel: UInt, pmarshalinfo: MutPtr<NdrUserMarshalInfo>): RpcStatus =
+public actual fun ndrGetUserMarshalInfo(pflags: ConstPtr, informationlevel: UInt, pmarshalinfo: MutPtr): RpcStatus =
     if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcNdrGetUserMarshalInfo(pflags.rawAddress.toString(), informationlevel.toInt(), pmarshalinfo.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ndrInterfacePointerBufferSize(pstubmsg: MutPtr<MidlStubMessage>, pmemory: MutPtr<UByte>, pformat: MutPtr<UByte>) {
+public actual fun ndrInterfacePointerBufferSize(pstubmsg: MutPtr, pmemory: MutPtr, pformat: MutPtr) {
     if (windowsWin32SystemRpcNapiAvailable) {
         wasmWindowssysWindowsWin32SystemRpcNdrInterfacePointerBufferSize(pstubmsg.rawAddress.toString(), pmemory.rawAddress.toString(), pformat.rawAddress.toString())
     } else {
@@ -2289,7 +2287,7 @@ public actual fun ndrInterfacePointerBufferSize(pstubmsg: MutPtr<MidlStubMessage
     }
 }
 
-public actual fun ndrInterfacePointerFree(pstubmsg: MutPtr<MidlStubMessage>, pmemory: MutPtr<UByte>, pformat: MutPtr<UByte>) {
+public actual fun ndrInterfacePointerFree(pstubmsg: MutPtr, pmemory: MutPtr, pformat: MutPtr) {
     if (windowsWin32SystemRpcNapiAvailable) {
         wasmWindowssysWindowsWin32SystemRpcNdrInterfacePointerFree(pstubmsg.rawAddress.toString(), pmemory.rawAddress.toString(), pformat.rawAddress.toString())
     } else {
@@ -2297,19 +2295,19 @@ public actual fun ndrInterfacePointerFree(pstubmsg: MutPtr<MidlStubMessage>, pme
     }
 }
 
-public actual fun ndrInterfacePointerMarshall(pstubmsg: MutPtr<MidlStubMessage>, pmemory: MutPtr<UByte>, pformat: MutPtr<UByte>): MutPtr<UByte> =
+public actual fun ndrInterfacePointerMarshall(pstubmsg: MutPtr, pmemory: MutPtr, pformat: MutPtr): MutPtr =
     if (windowsWin32SystemRpcNapiAvailable) MutPtr(wasmWindowssysWindowsWin32SystemRpcNdrInterfacePointerMarshall(pstubmsg.rawAddress.toString(), pmemory.rawAddress.toString(), pformat.rawAddress.toString()).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ndrInterfacePointerMemorySize(pstubmsg: MutPtr<MidlStubMessage>, pformat: MutPtr<UByte>): UInt =
+public actual fun ndrInterfacePointerMemorySize(pstubmsg: MutPtr, pformat: MutPtr): UInt =
     if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcNdrInterfacePointerMemorySize(pstubmsg.rawAddress.toString(), pformat.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ndrInterfacePointerUnmarshall(pstubmsg: MutPtr<MidlStubMessage>, ppmemory: MutPtr<MutPtr<UByte>>, pformat: MutPtr<UByte>, fmustalloc: UByte): MutPtr<UByte> =
+public actual fun ndrInterfacePointerUnmarshall(pstubmsg: MutPtr, ppmemory: MutPtr, pformat: MutPtr, fmustalloc: UByte): MutPtr =
     if (windowsWin32SystemRpcNapiAvailable) MutPtr(wasmWindowssysWindowsWin32SystemRpcNdrInterfacePointerUnmarshall(pstubmsg.rawAddress.toString(), ppmemory.rawAddress.toString(), pformat.rawAddress.toString(), fmustalloc.toInt()).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ndrMapCommAndFaultStatus(pstubmsg: MutPtr<MidlStubMessage>, pcommstatus: MutPtr<UInt>, pfaultstatus: MutPtr<UInt>, status: RpcStatus): RpcStatus =
+public actual fun ndrMapCommAndFaultStatus(pstubmsg: MutPtr, pcommstatus: MutPtr, pfaultstatus: MutPtr, status: RpcStatus): RpcStatus =
     if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcNdrMapCommAndFaultStatus(pstubmsg.rawAddress.toString(), pcommstatus.rawAddress.toString(), pfaultstatus.rawAddress.toString(), status) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ndrMesProcEncodeDecode(handle: MutPtr<CVoid>, pstubdesc: ConstPtr<MidlStubDesc>, pformatstring: MutPtr<UByte>, vararg variadicArgs: Long) {
+public actual fun ndrMesProcEncodeDecode(handle: MutPtr, pstubdesc: ConstPtr, pformatstring: MutPtr, vararg variadicArgs: Long) {
     if (windowsWin32SystemRpcNapiAvailable) {
         wasmWindowssysWindowsWin32SystemRpcNdrMesProcEncodeDecode(handle.rawAddress.toString(), pstubdesc.rawAddress.toString(), pformatstring.rawAddress.toString(), variadicArgs.size.coerceAtMost(4), (if (variadicArgs.size > 0) variadicArgs[0] else 0L).toString(), (if (variadicArgs.size > 1) variadicArgs[1] else 0L).toString(), (if (variadicArgs.size > 2) variadicArgs[2] else 0L).toString(), (if (variadicArgs.size > 3) variadicArgs[3] else 0L).toString())
     } else {
@@ -2317,19 +2315,19 @@ public actual fun ndrMesProcEncodeDecode(handle: MutPtr<CVoid>, pstubdesc: Const
     }
 }
 
-public actual fun ndrMesProcEncodeDecode2(handle: MutPtr<CVoid>, pstubdesc: ConstPtr<MidlStubDesc>, pformatstring: MutPtr<UByte>, vararg variadicArgs: Long): ClientCallReturn =
+public actual fun ndrMesProcEncodeDecode2(handle: MutPtr, pstubdesc: ConstPtr, pformatstring: MutPtr, vararg variadicArgs: Long): ClientCallReturn =
     throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ndrMesProcEncodeDecode3(handle: MutPtr<CVoid>, pproxyinfo: ConstPtr<MidlStublessProxyInfo>, nprocnum: UInt, preturnvalue: MutPtr<CVoid>, vararg variadicArgs: Long): ClientCallReturn =
+public actual fun ndrMesProcEncodeDecode3(handle: MutPtr, pproxyinfo: ConstPtr, nprocnum: UInt, preturnvalue: MutPtr, vararg variadicArgs: Long): ClientCallReturn =
     throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ndrMesSimpleTypeAlignSize(param0: MutPtr<CVoid>): ULong =
+public actual fun ndrMesSimpleTypeAlignSize(param0: MutPtr): ULong =
     if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcNdrMesSimpleTypeAlignSize(param0.rawAddress.toString()).toULong() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ndrMesSimpleTypeAlignSizeAll(handle: MutPtr<CVoid>, pproxyinfo: ConstPtr<MidlStublessProxyInfo>): ULong =
+public actual fun ndrMesSimpleTypeAlignSizeAll(handle: MutPtr, pproxyinfo: ConstPtr): ULong =
     if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcNdrMesSimpleTypeAlignSizeAll(handle.rawAddress.toString(), pproxyinfo.rawAddress.toString()).toULong() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ndrMesSimpleTypeDecode(handle: MutPtr<CVoid>, pobject: MutPtr<CVoid>, size: Short) {
+public actual fun ndrMesSimpleTypeDecode(handle: MutPtr, pobject: MutPtr, size: Short) {
     if (windowsWin32SystemRpcNapiAvailable) {
         wasmWindowssysWindowsWin32SystemRpcNdrMesSimpleTypeDecode(handle.rawAddress.toString(), pobject.rawAddress.toString(), size.toInt())
     } else {
@@ -2337,7 +2335,7 @@ public actual fun ndrMesSimpleTypeDecode(handle: MutPtr<CVoid>, pobject: MutPtr<
     }
 }
 
-public actual fun ndrMesSimpleTypeDecodeAll(handle: MutPtr<CVoid>, pproxyinfo: ConstPtr<MidlStublessProxyInfo>, pobject: MutPtr<CVoid>, size: Short) {
+public actual fun ndrMesSimpleTypeDecodeAll(handle: MutPtr, pproxyinfo: ConstPtr, pobject: MutPtr, size: Short) {
     if (windowsWin32SystemRpcNapiAvailable) {
         wasmWindowssysWindowsWin32SystemRpcNdrMesSimpleTypeDecodeAll(handle.rawAddress.toString(), pproxyinfo.rawAddress.toString(), pobject.rawAddress.toString(), size.toInt())
     } else {
@@ -2345,7 +2343,7 @@ public actual fun ndrMesSimpleTypeDecodeAll(handle: MutPtr<CVoid>, pproxyinfo: C
     }
 }
 
-public actual fun ndrMesSimpleTypeEncode(handle: MutPtr<CVoid>, pstubdesc: ConstPtr<MidlStubDesc>, pobject: ConstPtr<CVoid>, size: Short) {
+public actual fun ndrMesSimpleTypeEncode(handle: MutPtr, pstubdesc: ConstPtr, pobject: ConstPtr, size: Short) {
     if (windowsWin32SystemRpcNapiAvailable) {
         wasmWindowssysWindowsWin32SystemRpcNdrMesSimpleTypeEncode(handle.rawAddress.toString(), pstubdesc.rawAddress.toString(), pobject.rawAddress.toString(), size.toInt())
     } else {
@@ -2353,7 +2351,7 @@ public actual fun ndrMesSimpleTypeEncode(handle: MutPtr<CVoid>, pstubdesc: Const
     }
 }
 
-public actual fun ndrMesSimpleTypeEncodeAll(handle: MutPtr<CVoid>, pproxyinfo: ConstPtr<MidlStublessProxyInfo>, pobject: ConstPtr<CVoid>, size: Short) {
+public actual fun ndrMesSimpleTypeEncodeAll(handle: MutPtr, pproxyinfo: ConstPtr, pobject: ConstPtr, size: Short) {
     if (windowsWin32SystemRpcNapiAvailable) {
         wasmWindowssysWindowsWin32SystemRpcNdrMesSimpleTypeEncodeAll(handle.rawAddress.toString(), pproxyinfo.rawAddress.toString(), pobject.rawAddress.toString(), size.toInt())
     } else {
@@ -2361,16 +2359,16 @@ public actual fun ndrMesSimpleTypeEncodeAll(handle: MutPtr<CVoid>, pproxyinfo: C
     }
 }
 
-public actual fun ndrMesTypeAlignSize(handle: MutPtr<CVoid>, pstubdesc: ConstPtr<MidlStubDesc>, pformatstring: MutPtr<UByte>, pobject: ConstPtr<CVoid>): ULong =
+public actual fun ndrMesTypeAlignSize(handle: MutPtr, pstubdesc: ConstPtr, pformatstring: MutPtr, pobject: ConstPtr): ULong =
     if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcNdrMesTypeAlignSize(handle.rawAddress.toString(), pstubdesc.rawAddress.toString(), pformatstring.rawAddress.toString(), pobject.rawAddress.toString()).toULong() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ndrMesTypeAlignSize2(handle: MutPtr<CVoid>, ppicklinginfo: ConstPtr<MidlTypePicklingInfo>, pstubdesc: ConstPtr<MidlStubDesc>, pformatstring: MutPtr<UByte>, pobject: ConstPtr<CVoid>): ULong =
+public actual fun ndrMesTypeAlignSize2(handle: MutPtr, ppicklinginfo: ConstPtr, pstubdesc: ConstPtr, pformatstring: MutPtr, pobject: ConstPtr): ULong =
     if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcNdrMesTypeAlignSize2(handle.rawAddress.toString(), ppicklinginfo.rawAddress.toString(), pstubdesc.rawAddress.toString(), pformatstring.rawAddress.toString(), pobject.rawAddress.toString()).toULong() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ndrMesTypeAlignSize3(handle: MutPtr<CVoid>, ppicklinginfo: ConstPtr<MidlTypePicklingInfo>, pproxyinfo: ConstPtr<MidlStublessProxyInfo>, arrtypeoffset: ConstPtr<ConstPtr<UInt>>, ntypeindex: UInt, pobject: ConstPtr<CVoid>): ULong =
+public actual fun ndrMesTypeAlignSize3(handle: MutPtr, ppicklinginfo: ConstPtr, pproxyinfo: ConstPtr, arrtypeoffset: ConstPtr, ntypeindex: UInt, pobject: ConstPtr): ULong =
     if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcNdrMesTypeAlignSize3(handle.rawAddress.toString(), ppicklinginfo.rawAddress.toString(), pproxyinfo.rawAddress.toString(), arrtypeoffset.rawAddress.toString(), ntypeindex.toInt(), pobject.rawAddress.toString()).toULong() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ndrMesTypeDecode(handle: MutPtr<CVoid>, pstubdesc: ConstPtr<MidlStubDesc>, pformatstring: MutPtr<UByte>, pobject: MutPtr<CVoid>) {
+public actual fun ndrMesTypeDecode(handle: MutPtr, pstubdesc: ConstPtr, pformatstring: MutPtr, pobject: MutPtr) {
     if (windowsWin32SystemRpcNapiAvailable) {
         wasmWindowssysWindowsWin32SystemRpcNdrMesTypeDecode(handle.rawAddress.toString(), pstubdesc.rawAddress.toString(), pformatstring.rawAddress.toString(), pobject.rawAddress.toString())
     } else {
@@ -2378,7 +2376,7 @@ public actual fun ndrMesTypeDecode(handle: MutPtr<CVoid>, pstubdesc: ConstPtr<Mi
     }
 }
 
-public actual fun ndrMesTypeDecode2(handle: MutPtr<CVoid>, ppicklinginfo: ConstPtr<MidlTypePicklingInfo>, pstubdesc: ConstPtr<MidlStubDesc>, pformatstring: MutPtr<UByte>, pobject: MutPtr<CVoid>) {
+public actual fun ndrMesTypeDecode2(handle: MutPtr, ppicklinginfo: ConstPtr, pstubdesc: ConstPtr, pformatstring: MutPtr, pobject: MutPtr) {
     if (windowsWin32SystemRpcNapiAvailable) {
         wasmWindowssysWindowsWin32SystemRpcNdrMesTypeDecode2(handle.rawAddress.toString(), ppicklinginfo.rawAddress.toString(), pstubdesc.rawAddress.toString(), pformatstring.rawAddress.toString(), pobject.rawAddress.toString())
     } else {
@@ -2386,7 +2384,7 @@ public actual fun ndrMesTypeDecode2(handle: MutPtr<CVoid>, ppicklinginfo: ConstP
     }
 }
 
-public actual fun ndrMesTypeDecode3(handle: MutPtr<CVoid>, ppicklinginfo: ConstPtr<MidlTypePicklingInfo>, pproxyinfo: ConstPtr<MidlStublessProxyInfo>, arrtypeoffset: ConstPtr<ConstPtr<UInt>>, ntypeindex: UInt, pobject: MutPtr<CVoid>) {
+public actual fun ndrMesTypeDecode3(handle: MutPtr, ppicklinginfo: ConstPtr, pproxyinfo: ConstPtr, arrtypeoffset: ConstPtr, ntypeindex: UInt, pobject: MutPtr) {
     if (windowsWin32SystemRpcNapiAvailable) {
         wasmWindowssysWindowsWin32SystemRpcNdrMesTypeDecode3(handle.rawAddress.toString(), ppicklinginfo.rawAddress.toString(), pproxyinfo.rawAddress.toString(), arrtypeoffset.rawAddress.toString(), ntypeindex.toInt(), pobject.rawAddress.toString())
     } else {
@@ -2394,7 +2392,7 @@ public actual fun ndrMesTypeDecode3(handle: MutPtr<CVoid>, ppicklinginfo: ConstP
     }
 }
 
-public actual fun ndrMesTypeEncode(handle: MutPtr<CVoid>, pstubdesc: ConstPtr<MidlStubDesc>, pformatstring: MutPtr<UByte>, pobject: ConstPtr<CVoid>) {
+public actual fun ndrMesTypeEncode(handle: MutPtr, pstubdesc: ConstPtr, pformatstring: MutPtr, pobject: ConstPtr) {
     if (windowsWin32SystemRpcNapiAvailable) {
         wasmWindowssysWindowsWin32SystemRpcNdrMesTypeEncode(handle.rawAddress.toString(), pstubdesc.rawAddress.toString(), pformatstring.rawAddress.toString(), pobject.rawAddress.toString())
     } else {
@@ -2402,7 +2400,7 @@ public actual fun ndrMesTypeEncode(handle: MutPtr<CVoid>, pstubdesc: ConstPtr<Mi
     }
 }
 
-public actual fun ndrMesTypeEncode2(handle: MutPtr<CVoid>, ppicklinginfo: ConstPtr<MidlTypePicklingInfo>, pstubdesc: ConstPtr<MidlStubDesc>, pformatstring: MutPtr<UByte>, pobject: ConstPtr<CVoid>) {
+public actual fun ndrMesTypeEncode2(handle: MutPtr, ppicklinginfo: ConstPtr, pstubdesc: ConstPtr, pformatstring: MutPtr, pobject: ConstPtr) {
     if (windowsWin32SystemRpcNapiAvailable) {
         wasmWindowssysWindowsWin32SystemRpcNdrMesTypeEncode2(handle.rawAddress.toString(), ppicklinginfo.rawAddress.toString(), pstubdesc.rawAddress.toString(), pformatstring.rawAddress.toString(), pobject.rawAddress.toString())
     } else {
@@ -2410,7 +2408,7 @@ public actual fun ndrMesTypeEncode2(handle: MutPtr<CVoid>, ppicklinginfo: ConstP
     }
 }
 
-public actual fun ndrMesTypeEncode3(handle: MutPtr<CVoid>, ppicklinginfo: ConstPtr<MidlTypePicklingInfo>, pproxyinfo: ConstPtr<MidlStublessProxyInfo>, arrtypeoffset: ConstPtr<ConstPtr<UInt>>, ntypeindex: UInt, pobject: ConstPtr<CVoid>) {
+public actual fun ndrMesTypeEncode3(handle: MutPtr, ppicklinginfo: ConstPtr, pproxyinfo: ConstPtr, arrtypeoffset: ConstPtr, ntypeindex: UInt, pobject: ConstPtr) {
     if (windowsWin32SystemRpcNapiAvailable) {
         wasmWindowssysWindowsWin32SystemRpcNdrMesTypeEncode3(handle.rawAddress.toString(), ppicklinginfo.rawAddress.toString(), pproxyinfo.rawAddress.toString(), arrtypeoffset.rawAddress.toString(), ntypeindex.toInt(), pobject.rawAddress.toString())
     } else {
@@ -2418,7 +2416,7 @@ public actual fun ndrMesTypeEncode3(handle: MutPtr<CVoid>, ppicklinginfo: ConstP
     }
 }
 
-public actual fun ndrMesTypeFree2(handle: MutPtr<CVoid>, ppicklinginfo: ConstPtr<MidlTypePicklingInfo>, pstubdesc: ConstPtr<MidlStubDesc>, pformatstring: MutPtr<UByte>, pobject: MutPtr<CVoid>) {
+public actual fun ndrMesTypeFree2(handle: MutPtr, ppicklinginfo: ConstPtr, pstubdesc: ConstPtr, pformatstring: MutPtr, pobject: MutPtr) {
     if (windowsWin32SystemRpcNapiAvailable) {
         wasmWindowssysWindowsWin32SystemRpcNdrMesTypeFree2(handle.rawAddress.toString(), ppicklinginfo.rawAddress.toString(), pstubdesc.rawAddress.toString(), pformatstring.rawAddress.toString(), pobject.rawAddress.toString())
     } else {
@@ -2426,7 +2424,7 @@ public actual fun ndrMesTypeFree2(handle: MutPtr<CVoid>, ppicklinginfo: ConstPtr
     }
 }
 
-public actual fun ndrMesTypeFree3(handle: MutPtr<CVoid>, ppicklinginfo: ConstPtr<MidlTypePicklingInfo>, pproxyinfo: ConstPtr<MidlStublessProxyInfo>, arrtypeoffset: ConstPtr<ConstPtr<UInt>>, ntypeindex: UInt, pobject: MutPtr<CVoid>) {
+public actual fun ndrMesTypeFree3(handle: MutPtr, ppicklinginfo: ConstPtr, pproxyinfo: ConstPtr, arrtypeoffset: ConstPtr, ntypeindex: UInt, pobject: MutPtr) {
     if (windowsWin32SystemRpcNapiAvailable) {
         wasmWindowssysWindowsWin32SystemRpcNdrMesTypeFree3(handle.rawAddress.toString(), ppicklinginfo.rawAddress.toString(), pproxyinfo.rawAddress.toString(), arrtypeoffset.rawAddress.toString(), ntypeindex.toInt(), pobject.rawAddress.toString())
     } else {
@@ -2434,7 +2432,7 @@ public actual fun ndrMesTypeFree3(handle: MutPtr<CVoid>, ppicklinginfo: ConstPtr
     }
 }
 
-public actual fun ndrNonConformantStringBufferSize(pstubmsg: MutPtr<MidlStubMessage>, pmemory: MutPtr<UByte>, pformat: MutPtr<UByte>) {
+public actual fun ndrNonConformantStringBufferSize(pstubmsg: MutPtr, pmemory: MutPtr, pformat: MutPtr) {
     if (windowsWin32SystemRpcNapiAvailable) {
         wasmWindowssysWindowsWin32SystemRpcNdrNonConformantStringBufferSize(pstubmsg.rawAddress.toString(), pmemory.rawAddress.toString(), pformat.rawAddress.toString())
     } else {
@@ -2442,16 +2440,16 @@ public actual fun ndrNonConformantStringBufferSize(pstubmsg: MutPtr<MidlStubMess
     }
 }
 
-public actual fun ndrNonConformantStringMarshall(pstubmsg: MutPtr<MidlStubMessage>, pmemory: MutPtr<UByte>, pformat: MutPtr<UByte>): MutPtr<UByte> =
+public actual fun ndrNonConformantStringMarshall(pstubmsg: MutPtr, pmemory: MutPtr, pformat: MutPtr): MutPtr =
     if (windowsWin32SystemRpcNapiAvailable) MutPtr(wasmWindowssysWindowsWin32SystemRpcNdrNonConformantStringMarshall(pstubmsg.rawAddress.toString(), pmemory.rawAddress.toString(), pformat.rawAddress.toString()).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ndrNonConformantStringMemorySize(pstubmsg: MutPtr<MidlStubMessage>, pformat: MutPtr<UByte>): UInt =
+public actual fun ndrNonConformantStringMemorySize(pstubmsg: MutPtr, pformat: MutPtr): UInt =
     if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcNdrNonConformantStringMemorySize(pstubmsg.rawAddress.toString(), pformat.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ndrNonConformantStringUnmarshall(pstubmsg: MutPtr<MidlStubMessage>, ppmemory: MutPtr<MutPtr<UByte>>, pformat: MutPtr<UByte>, fmustalloc: UByte): MutPtr<UByte> =
+public actual fun ndrNonConformantStringUnmarshall(pstubmsg: MutPtr, ppmemory: MutPtr, pformat: MutPtr, fmustalloc: UByte): MutPtr =
     if (windowsWin32SystemRpcNapiAvailable) MutPtr(wasmWindowssysWindowsWin32SystemRpcNdrNonConformantStringUnmarshall(pstubmsg.rawAddress.toString(), ppmemory.rawAddress.toString(), pformat.rawAddress.toString(), fmustalloc.toInt()).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ndrNonEncapsulatedUnionBufferSize(pstubmsg: MutPtr<MidlStubMessage>, pmemory: MutPtr<UByte>, pformat: MutPtr<UByte>) {
+public actual fun ndrNonEncapsulatedUnionBufferSize(pstubmsg: MutPtr, pmemory: MutPtr, pformat: MutPtr) {
     if (windowsWin32SystemRpcNapiAvailable) {
         wasmWindowssysWindowsWin32SystemRpcNdrNonEncapsulatedUnionBufferSize(pstubmsg.rawAddress.toString(), pmemory.rawAddress.toString(), pformat.rawAddress.toString())
     } else {
@@ -2459,7 +2457,7 @@ public actual fun ndrNonEncapsulatedUnionBufferSize(pstubmsg: MutPtr<MidlStubMes
     }
 }
 
-public actual fun ndrNonEncapsulatedUnionFree(pstubmsg: MutPtr<MidlStubMessage>, pmemory: MutPtr<UByte>, pformat: MutPtr<UByte>) {
+public actual fun ndrNonEncapsulatedUnionFree(pstubmsg: MutPtr, pmemory: MutPtr, pformat: MutPtr) {
     if (windowsWin32SystemRpcNapiAvailable) {
         wasmWindowssysWindowsWin32SystemRpcNdrNonEncapsulatedUnionFree(pstubmsg.rawAddress.toString(), pmemory.rawAddress.toString(), pformat.rawAddress.toString())
     } else {
@@ -2467,25 +2465,25 @@ public actual fun ndrNonEncapsulatedUnionFree(pstubmsg: MutPtr<MidlStubMessage>,
     }
 }
 
-public actual fun ndrNonEncapsulatedUnionMarshall(pstubmsg: MutPtr<MidlStubMessage>, pmemory: MutPtr<UByte>, pformat: MutPtr<UByte>): MutPtr<UByte> =
+public actual fun ndrNonEncapsulatedUnionMarshall(pstubmsg: MutPtr, pmemory: MutPtr, pformat: MutPtr): MutPtr =
     if (windowsWin32SystemRpcNapiAvailable) MutPtr(wasmWindowssysWindowsWin32SystemRpcNdrNonEncapsulatedUnionMarshall(pstubmsg.rawAddress.toString(), pmemory.rawAddress.toString(), pformat.rawAddress.toString()).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ndrNonEncapsulatedUnionMemorySize(pstubmsg: MutPtr<MidlStubMessage>, pformat: MutPtr<UByte>): UInt =
+public actual fun ndrNonEncapsulatedUnionMemorySize(pstubmsg: MutPtr, pformat: MutPtr): UInt =
     if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcNdrNonEncapsulatedUnionMemorySize(pstubmsg.rawAddress.toString(), pformat.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ndrNonEncapsulatedUnionUnmarshall(pstubmsg: MutPtr<MidlStubMessage>, ppmemory: MutPtr<MutPtr<UByte>>, pformat: MutPtr<UByte>, fmustalloc: UByte): MutPtr<UByte> =
+public actual fun ndrNonEncapsulatedUnionUnmarshall(pstubmsg: MutPtr, ppmemory: MutPtr, pformat: MutPtr, fmustalloc: UByte): MutPtr =
     if (windowsWin32SystemRpcNapiAvailable) MutPtr(wasmWindowssysWindowsWin32SystemRpcNdrNonEncapsulatedUnionUnmarshall(pstubmsg.rawAddress.toString(), ppmemory.rawAddress.toString(), pformat.rawAddress.toString(), fmustalloc.toInt()).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ndrNsGetBuffer(pstubmsg: MutPtr<MidlStubMessage>, bufferlength: UInt, handle: MutPtr<CVoid>): MutPtr<UByte> =
+public actual fun ndrNsGetBuffer(pstubmsg: MutPtr, bufferlength: UInt, handle: MutPtr): MutPtr =
     if (windowsWin32SystemRpcNapiAvailable) MutPtr(wasmWindowssysWindowsWin32SystemRpcNdrNsGetBuffer(pstubmsg.rawAddress.toString(), bufferlength.toInt(), handle.rawAddress.toString()).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ndrNsSendReceive(pstubmsg: MutPtr<MidlStubMessage>, pbufferend: MutPtr<UByte>, pautohandle: MutPtr<MutPtr<CVoid>>): MutPtr<UByte> =
+public actual fun ndrNsSendReceive(pstubmsg: MutPtr, pbufferend: MutPtr, pautohandle: MutPtr): MutPtr =
     if (windowsWin32SystemRpcNapiAvailable) MutPtr(wasmWindowssysWindowsWin32SystemRpcNdrNsSendReceive(pstubmsg.rawAddress.toString(), pbufferend.rawAddress.toString(), pautohandle.rawAddress.toString()).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ndrOleAllocate(size: ULong): MutPtr<CVoid> =
+public actual fun ndrOleAllocate(size: ULong): MutPtr =
     if (windowsWin32SystemRpcNapiAvailable) MutPtr(wasmWindowssysWindowsWin32SystemRpcNdrOleAllocate(size.toString()).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ndrOleFree(nodetofree: ConstPtr<CVoid>) {
+public actual fun ndrOleFree(nodetofree: ConstPtr) {
     if (windowsWin32SystemRpcNapiAvailable) {
         wasmWindowssysWindowsWin32SystemRpcNdrOleFree(nodetofree.rawAddress.toString())
     } else {
@@ -2493,7 +2491,7 @@ public actual fun ndrOleFree(nodetofree: ConstPtr<CVoid>) {
     }
 }
 
-public actual fun ndrPartialIgnoreClientBufferSize(pstubmsg: MutPtr<MidlStubMessage>, pmemory: MutPtr<CVoid>) {
+public actual fun ndrPartialIgnoreClientBufferSize(pstubmsg: MutPtr, pmemory: MutPtr) {
     if (windowsWin32SystemRpcNapiAvailable) {
         wasmWindowssysWindowsWin32SystemRpcNdrPartialIgnoreClientBufferSize(pstubmsg.rawAddress.toString(), pmemory.rawAddress.toString())
     } else {
@@ -2501,7 +2499,7 @@ public actual fun ndrPartialIgnoreClientBufferSize(pstubmsg: MutPtr<MidlStubMess
     }
 }
 
-public actual fun ndrPartialIgnoreClientMarshall(pstubmsg: MutPtr<MidlStubMessage>, pmemory: MutPtr<CVoid>) {
+public actual fun ndrPartialIgnoreClientMarshall(pstubmsg: MutPtr, pmemory: MutPtr) {
     if (windowsWin32SystemRpcNapiAvailable) {
         wasmWindowssysWindowsWin32SystemRpcNdrPartialIgnoreClientMarshall(pstubmsg.rawAddress.toString(), pmemory.rawAddress.toString())
     } else {
@@ -2509,7 +2507,7 @@ public actual fun ndrPartialIgnoreClientMarshall(pstubmsg: MutPtr<MidlStubMessag
     }
 }
 
-public actual fun ndrPartialIgnoreServerInitialize(pstubmsg: MutPtr<MidlStubMessage>, ppmemory: MutPtr<MutPtr<CVoid>>, pformat: MutPtr<UByte>) {
+public actual fun ndrPartialIgnoreServerInitialize(pstubmsg: MutPtr, ppmemory: MutPtr, pformat: MutPtr) {
     if (windowsWin32SystemRpcNapiAvailable) {
         wasmWindowssysWindowsWin32SystemRpcNdrPartialIgnoreServerInitialize(pstubmsg.rawAddress.toString(), ppmemory.rawAddress.toString(), pformat.rawAddress.toString())
     } else {
@@ -2517,7 +2515,7 @@ public actual fun ndrPartialIgnoreServerInitialize(pstubmsg: MutPtr<MidlStubMess
     }
 }
 
-public actual fun ndrPartialIgnoreServerUnmarshall(pstubmsg: MutPtr<MidlStubMessage>, ppmemory: MutPtr<MutPtr<CVoid>>) {
+public actual fun ndrPartialIgnoreServerUnmarshall(pstubmsg: MutPtr, ppmemory: MutPtr) {
     if (windowsWin32SystemRpcNapiAvailable) {
         wasmWindowssysWindowsWin32SystemRpcNdrPartialIgnoreServerUnmarshall(pstubmsg.rawAddress.toString(), ppmemory.rawAddress.toString())
     } else {
@@ -2525,7 +2523,7 @@ public actual fun ndrPartialIgnoreServerUnmarshall(pstubmsg: MutPtr<MidlStubMess
     }
 }
 
-public actual fun ndrPointerBufferSize(pstubmsg: MutPtr<MidlStubMessage>, pmemory: MutPtr<UByte>, pformat: MutPtr<UByte>) {
+public actual fun ndrPointerBufferSize(pstubmsg: MutPtr, pmemory: MutPtr, pformat: MutPtr) {
     if (windowsWin32SystemRpcNapiAvailable) {
         wasmWindowssysWindowsWin32SystemRpcNdrPointerBufferSize(pstubmsg.rawAddress.toString(), pmemory.rawAddress.toString(), pformat.rawAddress.toString())
     } else {
@@ -2533,7 +2531,7 @@ public actual fun ndrPointerBufferSize(pstubmsg: MutPtr<MidlStubMessage>, pmemor
     }
 }
 
-public actual fun ndrPointerFree(pstubmsg: MutPtr<MidlStubMessage>, pmemory: MutPtr<UByte>, pformat: MutPtr<UByte>) {
+public actual fun ndrPointerFree(pstubmsg: MutPtr, pmemory: MutPtr, pformat: MutPtr) {
     if (windowsWin32SystemRpcNapiAvailable) {
         wasmWindowssysWindowsWin32SystemRpcNdrPointerFree(pstubmsg.rawAddress.toString(), pmemory.rawAddress.toString(), pformat.rawAddress.toString())
     } else {
@@ -2541,22 +2539,22 @@ public actual fun ndrPointerFree(pstubmsg: MutPtr<MidlStubMessage>, pmemory: Mut
     }
 }
 
-public actual fun ndrPointerMarshall(pstubmsg: MutPtr<MidlStubMessage>, pmemory: MutPtr<UByte>, pformat: MutPtr<UByte>): MutPtr<UByte> =
+public actual fun ndrPointerMarshall(pstubmsg: MutPtr, pmemory: MutPtr, pformat: MutPtr): MutPtr =
     if (windowsWin32SystemRpcNapiAvailable) MutPtr(wasmWindowssysWindowsWin32SystemRpcNdrPointerMarshall(pstubmsg.rawAddress.toString(), pmemory.rawAddress.toString(), pformat.rawAddress.toString()).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ndrPointerMemorySize(pstubmsg: MutPtr<MidlStubMessage>, pformat: MutPtr<UByte>): UInt =
+public actual fun ndrPointerMemorySize(pstubmsg: MutPtr, pformat: MutPtr): UInt =
     if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcNdrPointerMemorySize(pstubmsg.rawAddress.toString(), pformat.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ndrPointerUnmarshall(pstubmsg: MutPtr<MidlStubMessage>, ppmemory: MutPtr<MutPtr<UByte>>, pformat: MutPtr<UByte>, fmustalloc: UByte): MutPtr<UByte> =
+public actual fun ndrPointerUnmarshall(pstubmsg: MutPtr, ppmemory: MutPtr, pformat: MutPtr, fmustalloc: UByte): MutPtr =
     if (windowsWin32SystemRpcNapiAvailable) MutPtr(wasmWindowssysWindowsWin32SystemRpcNdrPointerUnmarshall(pstubmsg.rawAddress.toString(), ppmemory.rawAddress.toString(), pformat.rawAddress.toString(), fmustalloc.toInt()).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ndrRangeUnmarshall(pstubmsg: MutPtr<MidlStubMessage>, ppmemory: MutPtr<MutPtr<UByte>>, pformat: MutPtr<UByte>, fmustalloc: UByte): MutPtr<UByte> =
+public actual fun ndrRangeUnmarshall(pstubmsg: MutPtr, ppmemory: MutPtr, pformat: MutPtr, fmustalloc: UByte): MutPtr =
     if (windowsWin32SystemRpcNapiAvailable) MutPtr(wasmWindowssysWindowsWin32SystemRpcNdrRangeUnmarshall(pstubmsg.rawAddress.toString(), ppmemory.rawAddress.toString(), pformat.rawAddress.toString(), fmustalloc.toInt()).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ndrRpcSmClientAllocate(size: ULong): MutPtr<CVoid> =
+public actual fun ndrRpcSmClientAllocate(size: ULong): MutPtr =
     if (windowsWin32SystemRpcNapiAvailable) MutPtr(wasmWindowssysWindowsWin32SystemRpcNdrRpcSmClientAllocate(size.toString()).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ndrRpcSmClientFree(nodetofree: ConstPtr<CVoid>) {
+public actual fun ndrRpcSmClientFree(nodetofree: ConstPtr) {
     if (windowsWin32SystemRpcNapiAvailable) {
         wasmWindowssysWindowsWin32SystemRpcNdrRpcSmClientFree(nodetofree.rawAddress.toString())
     } else {
@@ -2564,7 +2562,7 @@ public actual fun ndrRpcSmClientFree(nodetofree: ConstPtr<CVoid>) {
     }
 }
 
-public actual fun ndrRpcSmSetClientToOsf(pmessage: MutPtr<MidlStubMessage>) {
+public actual fun ndrRpcSmSetClientToOsf(pmessage: MutPtr) {
     if (windowsWin32SystemRpcNapiAvailable) {
         wasmWindowssysWindowsWin32SystemRpcNdrRpcSmSetClientToOsf(pmessage.rawAddress.toString())
     } else {
@@ -2572,10 +2570,10 @@ public actual fun ndrRpcSmSetClientToOsf(pmessage: MutPtr<MidlStubMessage>) {
     }
 }
 
-public actual fun ndrRpcSsDefaultAllocate(size: ULong): MutPtr<CVoid> =
+public actual fun ndrRpcSsDefaultAllocate(size: ULong): MutPtr =
     if (windowsWin32SystemRpcNapiAvailable) MutPtr(wasmWindowssysWindowsWin32SystemRpcNdrRpcSsDefaultAllocate(size.toString()).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ndrRpcSsDefaultFree(nodetofree: ConstPtr<CVoid>) {
+public actual fun ndrRpcSsDefaultFree(nodetofree: ConstPtr) {
     if (windowsWin32SystemRpcNapiAvailable) {
         wasmWindowssysWindowsWin32SystemRpcNdrRpcSsDefaultFree(nodetofree.rawAddress.toString())
     } else {
@@ -2583,7 +2581,7 @@ public actual fun ndrRpcSsDefaultFree(nodetofree: ConstPtr<CVoid>) {
     }
 }
 
-public actual fun ndrRpcSsDisableAllocate(pmessage: MutPtr<MidlStubMessage>) {
+public actual fun ndrRpcSsDisableAllocate(pmessage: MutPtr) {
     if (windowsWin32SystemRpcNapiAvailable) {
         wasmWindowssysWindowsWin32SystemRpcNdrRpcSsDisableAllocate(pmessage.rawAddress.toString())
     } else {
@@ -2591,7 +2589,7 @@ public actual fun ndrRpcSsDisableAllocate(pmessage: MutPtr<MidlStubMessage>) {
     }
 }
 
-public actual fun ndrRpcSsEnableAllocate(pmessage: MutPtr<MidlStubMessage>) {
+public actual fun ndrRpcSsEnableAllocate(pmessage: MutPtr) {
     if (windowsWin32SystemRpcNapiAvailable) {
         wasmWindowssysWindowsWin32SystemRpcNdrRpcSsEnableAllocate(pmessage.rawAddress.toString())
     } else {
@@ -2599,10 +2597,10 @@ public actual fun ndrRpcSsEnableAllocate(pmessage: MutPtr<MidlStubMessage>) {
     }
 }
 
-public actual fun ndrSendReceive(pstubmsg: MutPtr<MidlStubMessage>, pbufferend: MutPtr<UByte>): MutPtr<UByte> =
+public actual fun ndrSendReceive(pstubmsg: MutPtr, pbufferend: MutPtr): MutPtr =
     if (windowsWin32SystemRpcNapiAvailable) MutPtr(wasmWindowssysWindowsWin32SystemRpcNdrSendReceive(pstubmsg.rawAddress.toString(), pbufferend.rawAddress.toString()).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ndrServerCall2(prpcmsg: MutPtr<RpcMessage>) {
+public actual fun ndrServerCall2(prpcmsg: MutPtr) {
     if (windowsWin32SystemRpcNapiAvailable) {
         wasmWindowssysWindowsWin32SystemRpcNdrServerCall2(prpcmsg.rawAddress.toString())
     } else {
@@ -2610,7 +2608,7 @@ public actual fun ndrServerCall2(prpcmsg: MutPtr<RpcMessage>) {
     }
 }
 
-public actual fun ndrServerCallAll(prpcmsg: MutPtr<RpcMessage>) {
+public actual fun ndrServerCallAll(prpcmsg: MutPtr) {
     if (windowsWin32SystemRpcNapiAvailable) {
         wasmWindowssysWindowsWin32SystemRpcNdrServerCallAll(prpcmsg.rawAddress.toString())
     } else {
@@ -2618,7 +2616,7 @@ public actual fun ndrServerCallAll(prpcmsg: MutPtr<RpcMessage>) {
     }
 }
 
-public actual fun ndrServerCallNdr64(prpcmsg: MutPtr<RpcMessage>) {
+public actual fun ndrServerCallNdr64(prpcmsg: MutPtr) {
     if (windowsWin32SystemRpcNapiAvailable) {
         wasmWindowssysWindowsWin32SystemRpcNdrServerCallNdr64(prpcmsg.rawAddress.toString())
     } else {
@@ -2626,7 +2624,7 @@ public actual fun ndrServerCallNdr64(prpcmsg: MutPtr<RpcMessage>) {
     }
 }
 
-public actual fun ndrServerContextMarshall(pstubmsg: MutPtr<MidlStubMessage>, contexthandle: MutPtr<NdrScontext>, rundownroutine: NdrRundown) {
+public actual fun ndrServerContextMarshall(pstubmsg: MutPtr, contexthandle: MutPtr, rundownroutine: NdrRundown) {
     if (windowsWin32SystemRpcNapiAvailable) {
         wasmWindowssysWindowsWin32SystemRpcNdrServerContextMarshall(pstubmsg.rawAddress.toString(), contexthandle.rawAddress.toString(), 0L.toString())
     } else {
@@ -2634,7 +2632,7 @@ public actual fun ndrServerContextMarshall(pstubmsg: MutPtr<MidlStubMessage>, co
     }
 }
 
-public actual fun ndrServerContextNewMarshall(pstubmsg: MutPtr<MidlStubMessage>, contexthandle: MutPtr<NdrScontext>, rundownroutine: NdrRundown, pformat: MutPtr<UByte>) {
+public actual fun ndrServerContextNewMarshall(pstubmsg: MutPtr, contexthandle: MutPtr, rundownroutine: NdrRundown, pformat: MutPtr) {
     if (windowsWin32SystemRpcNapiAvailable) {
         wasmWindowssysWindowsWin32SystemRpcNdrServerContextNewMarshall(pstubmsg.rawAddress.toString(), contexthandle.rawAddress.toString(), 0L.toString(), pformat.rawAddress.toString())
     } else {
@@ -2642,16 +2640,16 @@ public actual fun ndrServerContextNewMarshall(pstubmsg: MutPtr<MidlStubMessage>,
     }
 }
 
-public actual fun ndrServerContextNewUnmarshall(pstubmsg: ConstPtr<MidlStubMessage>, pformat: ConstPtr<UByte>): MutPtr<NdrScontext> =
+public actual fun ndrServerContextNewUnmarshall(pstubmsg: ConstPtr, pformat: ConstPtr): MutPtr =
     if (windowsWin32SystemRpcNapiAvailable) MutPtr(wasmWindowssysWindowsWin32SystemRpcNdrServerContextNewUnmarshall(pstubmsg.rawAddress.toString(), pformat.rawAddress.toString()).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ndrServerContextUnmarshall(pstubmsg: MutPtr<MidlStubMessage>): MutPtr<NdrScontext> =
+public actual fun ndrServerContextUnmarshall(pstubmsg: MutPtr): MutPtr =
     if (windowsWin32SystemRpcNapiAvailable) MutPtr(wasmWindowssysWindowsWin32SystemRpcNdrServerContextUnmarshall(pstubmsg.rawAddress.toString()).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ndrServerInitialize(prpcmsg: MutPtr<RpcMessage>, pstubmsg: MutPtr<MidlStubMessage>, pstubdescriptor: MutPtr<MidlStubDesc>): MutPtr<UByte> =
+public actual fun ndrServerInitialize(prpcmsg: MutPtr, pstubmsg: MutPtr, pstubdescriptor: MutPtr): MutPtr =
     if (windowsWin32SystemRpcNapiAvailable) MutPtr(wasmWindowssysWindowsWin32SystemRpcNdrServerInitialize(prpcmsg.rawAddress.toString(), pstubmsg.rawAddress.toString(), pstubdescriptor.rawAddress.toString()).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ndrServerInitializeMarshall(prpcmsg: MutPtr<RpcMessage>, pstubmsg: MutPtr<MidlStubMessage>) {
+public actual fun ndrServerInitializeMarshall(prpcmsg: MutPtr, pstubmsg: MutPtr) {
     if (windowsWin32SystemRpcNapiAvailable) {
         wasmWindowssysWindowsWin32SystemRpcNdrServerInitializeMarshall(prpcmsg.rawAddress.toString(), pstubmsg.rawAddress.toString())
     } else {
@@ -2659,10 +2657,10 @@ public actual fun ndrServerInitializeMarshall(prpcmsg: MutPtr<RpcMessage>, pstub
     }
 }
 
-public actual fun ndrServerInitializeNew(prpcmsg: MutPtr<RpcMessage>, pstubmsg: MutPtr<MidlStubMessage>, pstubdescriptor: MutPtr<MidlStubDesc>): MutPtr<UByte> =
+public actual fun ndrServerInitializeNew(prpcmsg: MutPtr, pstubmsg: MutPtr, pstubdescriptor: MutPtr): MutPtr =
     if (windowsWin32SystemRpcNapiAvailable) MutPtr(wasmWindowssysWindowsWin32SystemRpcNdrServerInitializeNew(prpcmsg.rawAddress.toString(), pstubmsg.rawAddress.toString(), pstubdescriptor.rawAddress.toString()).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ndrServerInitializePartial(prpcmsg: MutPtr<RpcMessage>, pstubmsg: MutPtr<MidlStubMessage>, pstubdescriptor: MutPtr<MidlStubDesc>, requestedbuffersize: UInt) {
+public actual fun ndrServerInitializePartial(prpcmsg: MutPtr, pstubmsg: MutPtr, pstubdescriptor: MutPtr, requestedbuffersize: UInt) {
     if (windowsWin32SystemRpcNapiAvailable) {
         wasmWindowssysWindowsWin32SystemRpcNdrServerInitializePartial(prpcmsg.rawAddress.toString(), pstubmsg.rawAddress.toString(), pstubdescriptor.rawAddress.toString(), requestedbuffersize.toInt())
     } else {
@@ -2670,10 +2668,10 @@ public actual fun ndrServerInitializePartial(prpcmsg: MutPtr<RpcMessage>, pstubm
     }
 }
 
-public actual fun ndrServerInitializeUnmarshall(pstubmsg: MutPtr<MidlStubMessage>, pstubdescriptor: MutPtr<MidlStubDesc>, prpcmsg: MutPtr<RpcMessage>): MutPtr<UByte> =
+public actual fun ndrServerInitializeUnmarshall(pstubmsg: MutPtr, pstubdescriptor: MutPtr, prpcmsg: MutPtr): MutPtr =
     if (windowsWin32SystemRpcNapiAvailable) MutPtr(wasmWindowssysWindowsWin32SystemRpcNdrServerInitializeUnmarshall(pstubmsg.rawAddress.toString(), pstubdescriptor.rawAddress.toString(), prpcmsg.rawAddress.toString()).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ndrSimpleStructBufferSize(pstubmsg: MutPtr<MidlStubMessage>, pmemory: MutPtr<UByte>, pformat: MutPtr<UByte>) {
+public actual fun ndrSimpleStructBufferSize(pstubmsg: MutPtr, pmemory: MutPtr, pformat: MutPtr) {
     if (windowsWin32SystemRpcNapiAvailable) {
         wasmWindowssysWindowsWin32SystemRpcNdrSimpleStructBufferSize(pstubmsg.rawAddress.toString(), pmemory.rawAddress.toString(), pformat.rawAddress.toString())
     } else {
@@ -2681,7 +2679,7 @@ public actual fun ndrSimpleStructBufferSize(pstubmsg: MutPtr<MidlStubMessage>, p
     }
 }
 
-public actual fun ndrSimpleStructFree(pstubmsg: MutPtr<MidlStubMessage>, pmemory: MutPtr<UByte>, pformat: MutPtr<UByte>) {
+public actual fun ndrSimpleStructFree(pstubmsg: MutPtr, pmemory: MutPtr, pformat: MutPtr) {
     if (windowsWin32SystemRpcNapiAvailable) {
         wasmWindowssysWindowsWin32SystemRpcNdrSimpleStructFree(pstubmsg.rawAddress.toString(), pmemory.rawAddress.toString(), pformat.rawAddress.toString())
     } else {
@@ -2689,16 +2687,16 @@ public actual fun ndrSimpleStructFree(pstubmsg: MutPtr<MidlStubMessage>, pmemory
     }
 }
 
-public actual fun ndrSimpleStructMarshall(pstubmsg: MutPtr<MidlStubMessage>, pmemory: MutPtr<UByte>, pformat: MutPtr<UByte>): MutPtr<UByte> =
+public actual fun ndrSimpleStructMarshall(pstubmsg: MutPtr, pmemory: MutPtr, pformat: MutPtr): MutPtr =
     if (windowsWin32SystemRpcNapiAvailable) MutPtr(wasmWindowssysWindowsWin32SystemRpcNdrSimpleStructMarshall(pstubmsg.rawAddress.toString(), pmemory.rawAddress.toString(), pformat.rawAddress.toString()).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ndrSimpleStructMemorySize(pstubmsg: MutPtr<MidlStubMessage>, pformat: MutPtr<UByte>): UInt =
+public actual fun ndrSimpleStructMemorySize(pstubmsg: MutPtr, pformat: MutPtr): UInt =
     if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcNdrSimpleStructMemorySize(pstubmsg.rawAddress.toString(), pformat.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ndrSimpleStructUnmarshall(pstubmsg: MutPtr<MidlStubMessage>, ppmemory: MutPtr<MutPtr<UByte>>, pformat: MutPtr<UByte>, fmustalloc: UByte): MutPtr<UByte> =
+public actual fun ndrSimpleStructUnmarshall(pstubmsg: MutPtr, ppmemory: MutPtr, pformat: MutPtr, fmustalloc: UByte): MutPtr =
     if (windowsWin32SystemRpcNapiAvailable) MutPtr(wasmWindowssysWindowsWin32SystemRpcNdrSimpleStructUnmarshall(pstubmsg.rawAddress.toString(), ppmemory.rawAddress.toString(), pformat.rawAddress.toString(), fmustalloc.toInt()).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ndrSimpleTypeMarshall(pstubmsg: MutPtr<MidlStubMessage>, pmemory: MutPtr<UByte>, formatchar: UByte) {
+public actual fun ndrSimpleTypeMarshall(pstubmsg: MutPtr, pmemory: MutPtr, formatchar: UByte) {
     if (windowsWin32SystemRpcNapiAvailable) {
         wasmWindowssysWindowsWin32SystemRpcNdrSimpleTypeMarshall(pstubmsg.rawAddress.toString(), pmemory.rawAddress.toString(), formatchar.toInt())
     } else {
@@ -2706,7 +2704,7 @@ public actual fun ndrSimpleTypeMarshall(pstubmsg: MutPtr<MidlStubMessage>, pmemo
     }
 }
 
-public actual fun ndrSimpleTypeUnmarshall(pstubmsg: MutPtr<MidlStubMessage>, pmemory: MutPtr<UByte>, formatchar: UByte) {
+public actual fun ndrSimpleTypeUnmarshall(pstubmsg: MutPtr, pmemory: MutPtr, formatchar: UByte) {
     if (windowsWin32SystemRpcNapiAvailable) {
         wasmWindowssysWindowsWin32SystemRpcNdrSimpleTypeUnmarshall(pstubmsg.rawAddress.toString(), pmemory.rawAddress.toString(), formatchar.toInt())
     } else {
@@ -2714,13 +2712,13 @@ public actual fun ndrSimpleTypeUnmarshall(pstubmsg: MutPtr<MidlStubMessage>, pme
     }
 }
 
-public actual fun ndrStubCall2(pthis: MutPtr<CVoid>, pchannel: MutPtr<CVoid>, prpcmsg: MutPtr<RpcMessage>, pdwstubphase: MutPtr<UInt>): Int =
+public actual fun ndrStubCall2(pthis: MutPtr, pchannel: MutPtr, prpcmsg: MutPtr, pdwstubphase: MutPtr): Int =
     if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcNdrStubCall2(pthis.rawAddress.toString(), pchannel.rawAddress.toString(), prpcmsg.rawAddress.toString(), pdwstubphase.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ndrStubCall3(pthis: MutPtr<CVoid>, pchannel: MutPtr<CVoid>, prpcmsg: MutPtr<RpcMessage>, pdwstubphase: MutPtr<UInt>): Int =
+public actual fun ndrStubCall3(pthis: MutPtr, pchannel: MutPtr, prpcmsg: MutPtr, pdwstubphase: MutPtr): Int =
     if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcNdrStubCall3(pthis.rawAddress.toString(), pchannel.rawAddress.toString(), prpcmsg.rawAddress.toString(), pdwstubphase.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ndrUserMarshalBufferSize(pstubmsg: MutPtr<MidlStubMessage>, pmemory: MutPtr<UByte>, pformat: MutPtr<UByte>) {
+public actual fun ndrUserMarshalBufferSize(pstubmsg: MutPtr, pmemory: MutPtr, pformat: MutPtr) {
     if (windowsWin32SystemRpcNapiAvailable) {
         wasmWindowssysWindowsWin32SystemRpcNdrUserMarshalBufferSize(pstubmsg.rawAddress.toString(), pmemory.rawAddress.toString(), pformat.rawAddress.toString())
     } else {
@@ -2728,7 +2726,7 @@ public actual fun ndrUserMarshalBufferSize(pstubmsg: MutPtr<MidlStubMessage>, pm
     }
 }
 
-public actual fun ndrUserMarshalFree(pstubmsg: MutPtr<MidlStubMessage>, pmemory: MutPtr<UByte>, pformat: MutPtr<UByte>) {
+public actual fun ndrUserMarshalFree(pstubmsg: MutPtr, pmemory: MutPtr, pformat: MutPtr) {
     if (windowsWin32SystemRpcNapiAvailable) {
         wasmWindowssysWindowsWin32SystemRpcNdrUserMarshalFree(pstubmsg.rawAddress.toString(), pmemory.rawAddress.toString(), pformat.rawAddress.toString())
     } else {
@@ -2736,19 +2734,19 @@ public actual fun ndrUserMarshalFree(pstubmsg: MutPtr<MidlStubMessage>, pmemory:
     }
 }
 
-public actual fun ndrUserMarshalMarshall(pstubmsg: MutPtr<MidlStubMessage>, pmemory: MutPtr<UByte>, pformat: MutPtr<UByte>): MutPtr<UByte> =
+public actual fun ndrUserMarshalMarshall(pstubmsg: MutPtr, pmemory: MutPtr, pformat: MutPtr): MutPtr =
     if (windowsWin32SystemRpcNapiAvailable) MutPtr(wasmWindowssysWindowsWin32SystemRpcNdrUserMarshalMarshall(pstubmsg.rawAddress.toString(), pmemory.rawAddress.toString(), pformat.rawAddress.toString()).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ndrUserMarshalMemorySize(pstubmsg: MutPtr<MidlStubMessage>, pformat: MutPtr<UByte>): UInt =
+public actual fun ndrUserMarshalMemorySize(pstubmsg: MutPtr, pformat: MutPtr): UInt =
     if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcNdrUserMarshalMemorySize(pstubmsg.rawAddress.toString(), pformat.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ndrUserMarshalSimpleTypeConvert(pflags: MutPtr<UInt>, pbuffer: MutPtr<UByte>, formatchar: UByte): MutPtr<UByte> =
+public actual fun ndrUserMarshalSimpleTypeConvert(pflags: MutPtr, pbuffer: MutPtr, formatchar: UByte): MutPtr =
     if (windowsWin32SystemRpcNapiAvailable) MutPtr(wasmWindowssysWindowsWin32SystemRpcNdrUserMarshalSimpleTypeConvert(pflags.rawAddress.toString(), pbuffer.rawAddress.toString(), formatchar.toInt()).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ndrUserMarshalUnmarshall(pstubmsg: MutPtr<MidlStubMessage>, ppmemory: MutPtr<MutPtr<UByte>>, pformat: MutPtr<UByte>, fmustalloc: UByte): MutPtr<UByte> =
+public actual fun ndrUserMarshalUnmarshall(pstubmsg: MutPtr, ppmemory: MutPtr, pformat: MutPtr, fmustalloc: UByte): MutPtr =
     if (windowsWin32SystemRpcNapiAvailable) MutPtr(wasmWindowssysWindowsWin32SystemRpcNdrUserMarshalUnmarshall(pstubmsg.rawAddress.toString(), ppmemory.rawAddress.toString(), pformat.rawAddress.toString(), fmustalloc.toInt()).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ndrVaryingArrayBufferSize(pstubmsg: MutPtr<MidlStubMessage>, pmemory: MutPtr<UByte>, pformat: MutPtr<UByte>) {
+public actual fun ndrVaryingArrayBufferSize(pstubmsg: MutPtr, pmemory: MutPtr, pformat: MutPtr) {
     if (windowsWin32SystemRpcNapiAvailable) {
         wasmWindowssysWindowsWin32SystemRpcNdrVaryingArrayBufferSize(pstubmsg.rawAddress.toString(), pmemory.rawAddress.toString(), pformat.rawAddress.toString())
     } else {
@@ -2756,7 +2754,7 @@ public actual fun ndrVaryingArrayBufferSize(pstubmsg: MutPtr<MidlStubMessage>, p
     }
 }
 
-public actual fun ndrVaryingArrayFree(pstubmsg: MutPtr<MidlStubMessage>, pmemory: MutPtr<UByte>, pformat: MutPtr<UByte>) {
+public actual fun ndrVaryingArrayFree(pstubmsg: MutPtr, pmemory: MutPtr, pformat: MutPtr) {
     if (windowsWin32SystemRpcNapiAvailable) {
         wasmWindowssysWindowsWin32SystemRpcNdrVaryingArrayFree(pstubmsg.rawAddress.toString(), pmemory.rawAddress.toString(), pformat.rawAddress.toString())
     } else {
@@ -2764,16 +2762,16 @@ public actual fun ndrVaryingArrayFree(pstubmsg: MutPtr<MidlStubMessage>, pmemory
     }
 }
 
-public actual fun ndrVaryingArrayMarshall(pstubmsg: MutPtr<MidlStubMessage>, pmemory: MutPtr<UByte>, pformat: MutPtr<UByte>): MutPtr<UByte> =
+public actual fun ndrVaryingArrayMarshall(pstubmsg: MutPtr, pmemory: MutPtr, pformat: MutPtr): MutPtr =
     if (windowsWin32SystemRpcNapiAvailable) MutPtr(wasmWindowssysWindowsWin32SystemRpcNdrVaryingArrayMarshall(pstubmsg.rawAddress.toString(), pmemory.rawAddress.toString(), pformat.rawAddress.toString()).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ndrVaryingArrayMemorySize(pstubmsg: MutPtr<MidlStubMessage>, pformat: MutPtr<UByte>): UInt =
+public actual fun ndrVaryingArrayMemorySize(pstubmsg: MutPtr, pformat: MutPtr): UInt =
     if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcNdrVaryingArrayMemorySize(pstubmsg.rawAddress.toString(), pformat.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ndrVaryingArrayUnmarshall(pstubmsg: MutPtr<MidlStubMessage>, ppmemory: MutPtr<MutPtr<UByte>>, pformat: MutPtr<UByte>, fmustalloc: UByte): MutPtr<UByte> =
+public actual fun ndrVaryingArrayUnmarshall(pstubmsg: MutPtr, ppmemory: MutPtr, pformat: MutPtr, fmustalloc: UByte): MutPtr =
     if (windowsWin32SystemRpcNapiAvailable) MutPtr(wasmWindowssysWindowsWin32SystemRpcNdrVaryingArrayUnmarshall(pstubmsg.rawAddress.toString(), ppmemory.rawAddress.toString(), pformat.rawAddress.toString(), fmustalloc.toInt()).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ndrXmitOrRepAsBufferSize(pstubmsg: MutPtr<MidlStubMessage>, pmemory: MutPtr<UByte>, pformat: MutPtr<UByte>) {
+public actual fun ndrXmitOrRepAsBufferSize(pstubmsg: MutPtr, pmemory: MutPtr, pformat: MutPtr) {
     if (windowsWin32SystemRpcNapiAvailable) {
         wasmWindowssysWindowsWin32SystemRpcNdrXmitOrRepAsBufferSize(pstubmsg.rawAddress.toString(), pmemory.rawAddress.toString(), pformat.rawAddress.toString())
     } else {
@@ -2781,7 +2779,7 @@ public actual fun ndrXmitOrRepAsBufferSize(pstubmsg: MutPtr<MidlStubMessage>, pm
     }
 }
 
-public actual fun ndrXmitOrRepAsFree(pstubmsg: MutPtr<MidlStubMessage>, pmemory: MutPtr<UByte>, pformat: MutPtr<UByte>) {
+public actual fun ndrXmitOrRepAsFree(pstubmsg: MutPtr, pmemory: MutPtr, pformat: MutPtr) {
     if (windowsWin32SystemRpcNapiAvailable) {
         wasmWindowssysWindowsWin32SystemRpcNdrXmitOrRepAsFree(pstubmsg.rawAddress.toString(), pmemory.rawAddress.toString(), pformat.rawAddress.toString())
     } else {
@@ -2789,154 +2787,154 @@ public actual fun ndrXmitOrRepAsFree(pstubmsg: MutPtr<MidlStubMessage>, pmemory:
     }
 }
 
-public actual fun ndrXmitOrRepAsMarshall(pstubmsg: MutPtr<MidlStubMessage>, pmemory: MutPtr<UByte>, pformat: MutPtr<UByte>): MutPtr<UByte> =
+public actual fun ndrXmitOrRepAsMarshall(pstubmsg: MutPtr, pmemory: MutPtr, pformat: MutPtr): MutPtr =
     if (windowsWin32SystemRpcNapiAvailable) MutPtr(wasmWindowssysWindowsWin32SystemRpcNdrXmitOrRepAsMarshall(pstubmsg.rawAddress.toString(), pmemory.rawAddress.toString(), pformat.rawAddress.toString()).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ndrXmitOrRepAsMemorySize(pstubmsg: MutPtr<MidlStubMessage>, pformat: MutPtr<UByte>): UInt =
+public actual fun ndrXmitOrRepAsMemorySize(pstubmsg: MutPtr, pformat: MutPtr): UInt =
     if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcNdrXmitOrRepAsMemorySize(pstubmsg.rawAddress.toString(), pformat.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ndrXmitOrRepAsUnmarshall(pstubmsg: MutPtr<MidlStubMessage>, ppmemory: MutPtr<MutPtr<UByte>>, pformat: MutPtr<UByte>, fmustalloc: UByte): MutPtr<UByte> =
+public actual fun ndrXmitOrRepAsUnmarshall(pstubmsg: MutPtr, ppmemory: MutPtr, pformat: MutPtr, fmustalloc: UByte): MutPtr =
     if (windowsWin32SystemRpcNapiAvailable) MutPtr(wasmWindowssysWindowsWin32SystemRpcNdrXmitOrRepAsUnmarshall(pstubmsg.rawAddress.toString(), ppmemory.rawAddress.toString(), pformat.rawAddress.toString(), fmustalloc.toInt()).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rpcAsyncAbortCall(pasync: MutPtr<RpcAsyncState>, exceptioncode: UInt): RpcStatus =
+public actual fun rpcAsyncAbortCall(pasync: MutPtr, exceptioncode: UInt): RpcStatus =
     if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcRpcAsyncAbortCall(pasync.rawAddress.toString(), exceptioncode.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rpcAsyncCancelCall(pasync: MutPtr<RpcAsyncState>, fabort: Bool): RpcStatus =
+public actual fun rpcAsyncCancelCall(pasync: MutPtr, fabort: Bool): RpcStatus =
     if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcRpcAsyncCancelCall(pasync.rawAddress.toString(), fabort) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rpcAsyncCompleteCall(pasync: MutPtr<RpcAsyncState>, reply: MutPtr<CVoid>): RpcStatus =
+public actual fun rpcAsyncCompleteCall(pasync: MutPtr, reply: MutPtr): RpcStatus =
     if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcRpcAsyncCompleteCall(pasync.rawAddress.toString(), reply.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rpcAsyncGetCallStatus(pasync: ConstPtr<RpcAsyncState>): RpcStatus =
+public actual fun rpcAsyncGetCallStatus(pasync: ConstPtr): RpcStatus =
     if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcRpcAsyncGetCallStatus(pasync.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rpcAsyncInitializeHandle(pasync: MutPtr<RpcAsyncState>, size: UInt): RpcStatus =
+public actual fun rpcAsyncInitializeHandle(pasync: MutPtr, size: UInt): RpcStatus =
     if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcRpcAsyncInitializeHandle(pasync.rawAddress.toString(), size.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rpcAsyncRegisterInfo(pasync: ConstPtr<RpcAsyncState>): RpcStatus =
+public actual fun rpcAsyncRegisterInfo(pasync: ConstPtr): RpcStatus =
     if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcRpcAsyncRegisterInfo(pasync.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rpcBindingBind(pasync: ConstPtr<RpcAsyncState>, binding: ConstPtr<CVoid>, ifspec: ConstPtr<CVoid>): RpcStatus =
+public actual fun rpcBindingBind(pasync: ConstPtr, binding: ConstPtr, ifspec: ConstPtr): RpcStatus =
     if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcRpcBindingBind(pasync.rawAddress.toString(), binding.rawAddress.toString(), ifspec.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rpcBindingCopy(sourcebinding: ConstPtr<CVoid>, destinationbinding: MutPtr<MutPtr<CVoid>>): RpcStatus =
+public actual fun rpcBindingCopy(sourcebinding: ConstPtr, destinationbinding: MutPtr): RpcStatus =
     if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcRpcBindingCopy(sourcebinding.rawAddress.toString(), destinationbinding.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rpcBindingCreateA(template: ConstPtr<RpcBindingHandleTemplateV1A>, security: ConstPtr<RpcBindingHandleSecurityV1A>, options: ConstPtr<RpcBindingHandleOptionsV1>, binding: MutPtr<MutPtr<CVoid>>): RpcStatus =
+public actual fun rpcBindingCreateA(template: ConstPtr, security: ConstPtr, options: ConstPtr, binding: MutPtr): RpcStatus =
     if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcRpcBindingCreateA(template.rawAddress.toString(), security.rawAddress.toString(), options.rawAddress.toString(), binding.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rpcBindingCreateW(template: ConstPtr<RpcBindingHandleTemplateV1W>, security: ConstPtr<RpcBindingHandleSecurityV1W>, options: ConstPtr<RpcBindingHandleOptionsV1>, binding: MutPtr<MutPtr<CVoid>>): RpcStatus =
+public actual fun rpcBindingCreateW(template: ConstPtr, security: ConstPtr, options: ConstPtr, binding: MutPtr): RpcStatus =
     if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcRpcBindingCreateW(template.rawAddress.toString(), security.rawAddress.toString(), options.rawAddress.toString(), binding.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rpcBindingFree(binding: MutPtr<MutPtr<CVoid>>): RpcStatus =
+public actual fun rpcBindingFree(binding: MutPtr): RpcStatus =
     if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcRpcBindingFree(binding.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rpcBindingFromStringBindingA(stringbinding: Pcstr, binding: MutPtr<MutPtr<CVoid>>): RpcStatus =
+public actual fun rpcBindingFromStringBindingA(stringbinding: Pcstr, binding: MutPtr): RpcStatus =
     if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcRpcBindingFromStringBindingA(stringbinding.rawAddress.toString(), binding.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rpcBindingFromStringBindingW(stringbinding: Pcwstr, binding: MutPtr<MutPtr<CVoid>>): RpcStatus =
+public actual fun rpcBindingFromStringBindingW(stringbinding: Pcwstr, binding: MutPtr): RpcStatus =
     if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcRpcBindingFromStringBindingW(stringbinding.rawAddress.toString(), binding.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rpcBindingInqAuthClientA(clientbinding: ConstPtr<CVoid>, privs: MutPtr<MutPtr<CVoid>>, serverprincname: MutPtr<Pstr>, authnlevel: MutPtr<UInt>, authnsvc: MutPtr<UInt>, authzsvc: MutPtr<UInt>): RpcStatus =
+public actual fun rpcBindingInqAuthClientA(clientbinding: ConstPtr, privs: MutPtr, serverprincname: MutPtr, authnlevel: MutPtr, authnsvc: MutPtr, authzsvc: MutPtr): RpcStatus =
     if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcRpcBindingInqAuthClientA(clientbinding.rawAddress.toString(), privs.rawAddress.toString(), serverprincname.rawAddress.toString(), authnlevel.rawAddress.toString(), authnsvc.rawAddress.toString(), authzsvc.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rpcBindingInqAuthClientExA(clientbinding: ConstPtr<CVoid>, privs: MutPtr<MutPtr<CVoid>>, serverprincname: MutPtr<Pstr>, authnlevel: MutPtr<UInt>, authnsvc: MutPtr<UInt>, authzsvc: MutPtr<UInt>, flags: UInt): RpcStatus =
+public actual fun rpcBindingInqAuthClientExA(clientbinding: ConstPtr, privs: MutPtr, serverprincname: MutPtr, authnlevel: MutPtr, authnsvc: MutPtr, authzsvc: MutPtr, flags: UInt): RpcStatus =
     if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcRpcBindingInqAuthClientExA(clientbinding.rawAddress.toString(), privs.rawAddress.toString(), serverprincname.rawAddress.toString(), authnlevel.rawAddress.toString(), authnsvc.rawAddress.toString(), authzsvc.rawAddress.toString(), flags.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rpcBindingInqAuthClientExW(clientbinding: ConstPtr<CVoid>, privs: MutPtr<MutPtr<CVoid>>, serverprincname: MutPtr<Pwstr>, authnlevel: MutPtr<UInt>, authnsvc: MutPtr<UInt>, authzsvc: MutPtr<UInt>, flags: UInt): RpcStatus =
+public actual fun rpcBindingInqAuthClientExW(clientbinding: ConstPtr, privs: MutPtr, serverprincname: MutPtr, authnlevel: MutPtr, authnsvc: MutPtr, authzsvc: MutPtr, flags: UInt): RpcStatus =
     if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcRpcBindingInqAuthClientExW(clientbinding.rawAddress.toString(), privs.rawAddress.toString(), serverprincname.rawAddress.toString(), authnlevel.rawAddress.toString(), authnsvc.rawAddress.toString(), authzsvc.rawAddress.toString(), flags.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rpcBindingInqAuthClientW(clientbinding: ConstPtr<CVoid>, privs: MutPtr<MutPtr<CVoid>>, serverprincname: MutPtr<Pwstr>, authnlevel: MutPtr<UInt>, authnsvc: MutPtr<UInt>, authzsvc: MutPtr<UInt>): RpcStatus =
+public actual fun rpcBindingInqAuthClientW(clientbinding: ConstPtr, privs: MutPtr, serverprincname: MutPtr, authnlevel: MutPtr, authnsvc: MutPtr, authzsvc: MutPtr): RpcStatus =
     if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcRpcBindingInqAuthClientW(clientbinding.rawAddress.toString(), privs.rawAddress.toString(), serverprincname.rawAddress.toString(), authnlevel.rawAddress.toString(), authnsvc.rawAddress.toString(), authzsvc.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rpcBindingInqAuthInfoA(binding: ConstPtr<CVoid>, serverprincname: MutPtr<Pstr>, authnlevel: MutPtr<UInt>, authnsvc: MutPtr<UInt>, authidentity: MutPtr<MutPtr<CVoid>>, authzsvc: MutPtr<UInt>): RpcStatus =
+public actual fun rpcBindingInqAuthInfoA(binding: ConstPtr, serverprincname: MutPtr, authnlevel: MutPtr, authnsvc: MutPtr, authidentity: MutPtr, authzsvc: MutPtr): RpcStatus =
     if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcRpcBindingInqAuthInfoA(binding.rawAddress.toString(), serverprincname.rawAddress.toString(), authnlevel.rawAddress.toString(), authnsvc.rawAddress.toString(), authidentity.rawAddress.toString(), authzsvc.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rpcBindingInqAuthInfoExA(binding: ConstPtr<CVoid>, serverprincname: MutPtr<Pstr>, authnlevel: MutPtr<UInt>, authnsvc: MutPtr<UInt>, authidentity: MutPtr<MutPtr<CVoid>>, authzsvc: MutPtr<UInt>, rpcqosversion: UInt, securityqos: MutPtr<RpcSecurityQos>): RpcStatus =
+public actual fun rpcBindingInqAuthInfoExA(binding: ConstPtr, serverprincname: MutPtr, authnlevel: MutPtr, authnsvc: MutPtr, authidentity: MutPtr, authzsvc: MutPtr, rpcqosversion: UInt, securityqos: MutPtr): RpcStatus =
     if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcRpcBindingInqAuthInfoExA(binding.rawAddress.toString(), serverprincname.rawAddress.toString(), authnlevel.rawAddress.toString(), authnsvc.rawAddress.toString(), authidentity.rawAddress.toString(), authzsvc.rawAddress.toString(), rpcqosversion.toInt(), securityqos.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rpcBindingInqAuthInfoExW(binding: ConstPtr<CVoid>, serverprincname: MutPtr<Pwstr>, authnlevel: MutPtr<UInt>, authnsvc: MutPtr<UInt>, authidentity: MutPtr<MutPtr<CVoid>>, authzsvc: MutPtr<UInt>, rpcqosversion: UInt, securityqos: MutPtr<RpcSecurityQos>): RpcStatus =
+public actual fun rpcBindingInqAuthInfoExW(binding: ConstPtr, serverprincname: MutPtr, authnlevel: MutPtr, authnsvc: MutPtr, authidentity: MutPtr, authzsvc: MutPtr, rpcqosversion: UInt, securityqos: MutPtr): RpcStatus =
     if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcRpcBindingInqAuthInfoExW(binding.rawAddress.toString(), serverprincname.rawAddress.toString(), authnlevel.rawAddress.toString(), authnsvc.rawAddress.toString(), authidentity.rawAddress.toString(), authzsvc.rawAddress.toString(), rpcqosversion.toInt(), securityqos.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rpcBindingInqAuthInfoW(binding: ConstPtr<CVoid>, serverprincname: MutPtr<Pwstr>, authnlevel: MutPtr<UInt>, authnsvc: MutPtr<UInt>, authidentity: MutPtr<MutPtr<CVoid>>, authzsvc: MutPtr<UInt>): RpcStatus =
+public actual fun rpcBindingInqAuthInfoW(binding: ConstPtr, serverprincname: MutPtr, authnlevel: MutPtr, authnsvc: MutPtr, authidentity: MutPtr, authzsvc: MutPtr): RpcStatus =
     if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcRpcBindingInqAuthInfoW(binding.rawAddress.toString(), serverprincname.rawAddress.toString(), authnlevel.rawAddress.toString(), authnsvc.rawAddress.toString(), authidentity.rawAddress.toString(), authzsvc.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rpcBindingInqMaxCalls(binding: ConstPtr<CVoid>, maxcalls: MutPtr<UInt>): RpcStatus =
+public actual fun rpcBindingInqMaxCalls(binding: ConstPtr, maxcalls: MutPtr): RpcStatus =
     if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcRpcBindingInqMaxCalls(binding.rawAddress.toString(), maxcalls.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rpcBindingInqObject(binding: ConstPtr<CVoid>, objectuuid: MutPtr<Guid>): RpcStatus =
+public actual fun rpcBindingInqObject(binding: ConstPtr, objectuuid: MutPtr): RpcStatus =
     if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcRpcBindingInqObject(binding.rawAddress.toString(), objectuuid.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rpcBindingInqOption(hbinding: ConstPtr<CVoid>, option: UInt, poptionvalue: MutPtr<ULong>): RpcStatus =
+public actual fun rpcBindingInqOption(hbinding: ConstPtr, option: UInt, poptionvalue: MutPtr): RpcStatus =
     if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcRpcBindingInqOption(hbinding.rawAddress.toString(), option.toInt(), poptionvalue.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rpcBindingReset(binding: ConstPtr<CVoid>): RpcStatus =
+public actual fun rpcBindingReset(binding: ConstPtr): RpcStatus =
     if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcRpcBindingReset(binding.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rpcBindingServerFromClient(clientbinding: ConstPtr<CVoid>, serverbinding: MutPtr<MutPtr<CVoid>>): RpcStatus =
+public actual fun rpcBindingServerFromClient(clientbinding: ConstPtr, serverbinding: MutPtr): RpcStatus =
     if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcRpcBindingServerFromClient(clientbinding.rawAddress.toString(), serverbinding.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rpcBindingSetAuthInfoA(binding: ConstPtr<CVoid>, serverprincname: Pcstr, authnlevel: UInt, authnsvc: UInt, authidentity: ConstPtr<CVoid>, authzsvc: UInt): RpcStatus =
+public actual fun rpcBindingSetAuthInfoA(binding: ConstPtr, serverprincname: Pcstr, authnlevel: UInt, authnsvc: UInt, authidentity: ConstPtr, authzsvc: UInt): RpcStatus =
     if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcRpcBindingSetAuthInfoA(binding.rawAddress.toString(), serverprincname.rawAddress.toString(), authnlevel.toInt(), authnsvc.toInt(), authidentity.rawAddress.toString(), authzsvc.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rpcBindingSetAuthInfoExA(binding: ConstPtr<CVoid>, serverprincname: Pcstr, authnlevel: UInt, authnsvc: UInt, authidentity: ConstPtr<CVoid>, authzsvc: UInt, securityqos: ConstPtr<RpcSecurityQos>): RpcStatus =
+public actual fun rpcBindingSetAuthInfoExA(binding: ConstPtr, serverprincname: Pcstr, authnlevel: UInt, authnsvc: UInt, authidentity: ConstPtr, authzsvc: UInt, securityqos: ConstPtr): RpcStatus =
     if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcRpcBindingSetAuthInfoExA(binding.rawAddress.toString(), serverprincname.rawAddress.toString(), authnlevel.toInt(), authnsvc.toInt(), authidentity.rawAddress.toString(), authzsvc.toInt(), securityqos.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rpcBindingSetAuthInfoExW(binding: ConstPtr<CVoid>, serverprincname: Pcwstr, authnlevel: UInt, authnsvc: UInt, authidentity: ConstPtr<CVoid>, authzsvc: UInt, securityqos: ConstPtr<RpcSecurityQos>): RpcStatus =
+public actual fun rpcBindingSetAuthInfoExW(binding: ConstPtr, serverprincname: Pcwstr, authnlevel: UInt, authnsvc: UInt, authidentity: ConstPtr, authzsvc: UInt, securityqos: ConstPtr): RpcStatus =
     if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcRpcBindingSetAuthInfoExW(binding.rawAddress.toString(), serverprincname.rawAddress.toString(), authnlevel.toInt(), authnsvc.toInt(), authidentity.rawAddress.toString(), authzsvc.toInt(), securityqos.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rpcBindingSetAuthInfoW(binding: ConstPtr<CVoid>, serverprincname: Pcwstr, authnlevel: UInt, authnsvc: UInt, authidentity: ConstPtr<CVoid>, authzsvc: UInt): RpcStatus =
+public actual fun rpcBindingSetAuthInfoW(binding: ConstPtr, serverprincname: Pcwstr, authnlevel: UInt, authnsvc: UInt, authidentity: ConstPtr, authzsvc: UInt): RpcStatus =
     if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcRpcBindingSetAuthInfoW(binding.rawAddress.toString(), serverprincname.rawAddress.toString(), authnlevel.toInt(), authnsvc.toInt(), authidentity.rawAddress.toString(), authzsvc.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rpcBindingSetObject(binding: ConstPtr<CVoid>, objectuuid: ConstPtr<Guid>): RpcStatus =
+public actual fun rpcBindingSetObject(binding: ConstPtr, objectuuid: ConstPtr): RpcStatus =
     if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcRpcBindingSetObject(binding.rawAddress.toString(), objectuuid.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rpcBindingSetOption(hbinding: ConstPtr<CVoid>, option: UInt, optionvalue: ULong): RpcStatus =
+public actual fun rpcBindingSetOption(hbinding: ConstPtr, option: UInt, optionvalue: ULong): RpcStatus =
     if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcRpcBindingSetOption(hbinding.rawAddress.toString(), option.toInt(), optionvalue.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rpcBindingToStringBindingA(binding: ConstPtr<CVoid>, stringbinding: MutPtr<Pstr>): RpcStatus =
+public actual fun rpcBindingToStringBindingA(binding: ConstPtr, stringbinding: MutPtr): RpcStatus =
     if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcRpcBindingToStringBindingA(binding.rawAddress.toString(), stringbinding.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rpcBindingToStringBindingW(binding: ConstPtr<CVoid>, stringbinding: MutPtr<Pwstr>): RpcStatus =
+public actual fun rpcBindingToStringBindingW(binding: ConstPtr, stringbinding: MutPtr): RpcStatus =
     if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcRpcBindingToStringBindingW(binding.rawAddress.toString(), stringbinding.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rpcBindingUnbind(binding: ConstPtr<CVoid>): RpcStatus =
+public actual fun rpcBindingUnbind(binding: ConstPtr): RpcStatus =
     if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcRpcBindingUnbind(binding.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rpcBindingVectorFree(bindingvector: MutPtr<MutPtr<RpcBindingVector>>): RpcStatus =
+public actual fun rpcBindingVectorFree(bindingvector: MutPtr): RpcStatus =
     if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcRpcBindingVectorFree(bindingvector.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rpcCancelThread(thread: ConstPtr<CVoid>): RpcStatus =
+public actual fun rpcCancelThread(thread: ConstPtr): RpcStatus =
     if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcRpcCancelThread(thread.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rpcCancelThreadEx(thread: ConstPtr<CVoid>, timeout: Int): RpcStatus =
+public actual fun rpcCancelThreadEx(thread: ConstPtr, timeout: Int): RpcStatus =
     if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcRpcCancelThreadEx(thread.rawAddress.toString(), timeout) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rpcCertGeneratePrincipalNameA(context: ConstPtr<CertContext>, flags: UInt, pbuffer: MutPtr<Pstr>): RpcStatus =
+public actual fun rpcCertGeneratePrincipalNameA(context: ConstPtr, flags: UInt, pbuffer: MutPtr): RpcStatus =
     if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcRpcCertGeneratePrincipalNameA(context.rawAddress.toString(), flags.toInt(), pbuffer.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rpcCertGeneratePrincipalNameW(context: ConstPtr<CertContext>, flags: UInt, pbuffer: MutPtr<Pwstr>): RpcStatus =
+public actual fun rpcCertGeneratePrincipalNameW(context: ConstPtr, flags: UInt, pbuffer: MutPtr): RpcStatus =
     if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcRpcCertGeneratePrincipalNameW(context.rawAddress.toString(), flags.toInt(), pbuffer.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rpcEpRegisterA(ifspec: ConstPtr<CVoid>, bindingvector: ConstPtr<RpcBindingVector>, uuidvector: ConstPtr<UuidVector>, annotation: Pcstr): RpcStatus =
+public actual fun rpcEpRegisterA(ifspec: ConstPtr, bindingvector: ConstPtr, uuidvector: ConstPtr, annotation: Pcstr): RpcStatus =
     if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcRpcEpRegisterA(ifspec.rawAddress.toString(), bindingvector.rawAddress.toString(), uuidvector.rawAddress.toString(), annotation.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rpcEpRegisterNoReplaceA(ifspec: ConstPtr<CVoid>, bindingvector: ConstPtr<RpcBindingVector>, uuidvector: ConstPtr<UuidVector>, annotation: Pcstr): RpcStatus =
+public actual fun rpcEpRegisterNoReplaceA(ifspec: ConstPtr, bindingvector: ConstPtr, uuidvector: ConstPtr, annotation: Pcstr): RpcStatus =
     if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcRpcEpRegisterNoReplaceA(ifspec.rawAddress.toString(), bindingvector.rawAddress.toString(), uuidvector.rawAddress.toString(), annotation.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rpcEpRegisterNoReplaceW(ifspec: ConstPtr<CVoid>, bindingvector: ConstPtr<RpcBindingVector>, uuidvector: ConstPtr<UuidVector>, annotation: Pcwstr): RpcStatus =
+public actual fun rpcEpRegisterNoReplaceW(ifspec: ConstPtr, bindingvector: ConstPtr, uuidvector: ConstPtr, annotation: Pcwstr): RpcStatus =
     if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcRpcEpRegisterNoReplaceW(ifspec.rawAddress.toString(), bindingvector.rawAddress.toString(), uuidvector.rawAddress.toString(), annotation.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rpcEpRegisterW(ifspec: ConstPtr<CVoid>, bindingvector: ConstPtr<RpcBindingVector>, uuidvector: ConstPtr<UuidVector>, annotation: Pcwstr): RpcStatus =
+public actual fun rpcEpRegisterW(ifspec: ConstPtr, bindingvector: ConstPtr, uuidvector: ConstPtr, annotation: Pcwstr): RpcStatus =
     if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcRpcEpRegisterW(ifspec.rawAddress.toString(), bindingvector.rawAddress.toString(), uuidvector.rawAddress.toString(), annotation.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rpcEpResolveBinding(binding: ConstPtr<CVoid>, ifspec: ConstPtr<CVoid>): RpcStatus =
+public actual fun rpcEpResolveBinding(binding: ConstPtr, ifspec: ConstPtr): RpcStatus =
     if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcRpcEpResolveBinding(binding.rawAddress.toString(), ifspec.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rpcEpUnregister(ifspec: ConstPtr<CVoid>, bindingvector: ConstPtr<RpcBindingVector>, uuidvector: ConstPtr<UuidVector>): RpcStatus =
+public actual fun rpcEpUnregister(ifspec: ConstPtr, bindingvector: ConstPtr, uuidvector: ConstPtr): RpcStatus =
     if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcRpcEpUnregister(ifspec.rawAddress.toString(), bindingvector.rawAddress.toString(), uuidvector.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rpcErrorAddRecord(errorinfo: ConstPtr<RpcExtendedErrorInfo>): RpcStatus =
+public actual fun rpcErrorAddRecord(errorinfo: ConstPtr): RpcStatus =
     if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcRpcErrorAddRecord(errorinfo.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun rpcErrorClearInformation() {
@@ -2947,88 +2945,88 @@ public actual fun rpcErrorClearInformation() {
     }
 }
 
-public actual fun rpcErrorEndEnumeration(enumhandle: MutPtr<RpcErrorEnumHandle>): RpcStatus =
+public actual fun rpcErrorEndEnumeration(enumhandle: MutPtr): RpcStatus =
     if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcRpcErrorEndEnumeration(enumhandle.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rpcErrorGetNextRecord(enumhandle: ConstPtr<RpcErrorEnumHandle>, copystrings: Bool, errorinfo: MutPtr<RpcExtendedErrorInfo>): RpcStatus =
+public actual fun rpcErrorGetNextRecord(enumhandle: ConstPtr, copystrings: Bool, errorinfo: MutPtr): RpcStatus =
     if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcRpcErrorGetNextRecord(enumhandle.rawAddress.toString(), copystrings, errorinfo.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rpcErrorGetNumberOfRecords(enumhandle: ConstPtr<RpcErrorEnumHandle>, records: MutPtr<Int>): RpcStatus =
+public actual fun rpcErrorGetNumberOfRecords(enumhandle: ConstPtr, records: MutPtr): RpcStatus =
     if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcRpcErrorGetNumberOfRecords(enumhandle.rawAddress.toString(), records.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rpcErrorLoadErrorInfo(errorblob: ConstPtr<CVoid>, blobsize: ULong, enumhandle: MutPtr<RpcErrorEnumHandle>): RpcStatus =
+public actual fun rpcErrorLoadErrorInfo(errorblob: ConstPtr, blobsize: ULong, enumhandle: MutPtr): RpcStatus =
     if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcRpcErrorLoadErrorInfo(errorblob.rawAddress.toString(), blobsize.toString(), enumhandle.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rpcErrorResetEnumeration(enumhandle: MutPtr<RpcErrorEnumHandle>): RpcStatus =
+public actual fun rpcErrorResetEnumeration(enumhandle: MutPtr): RpcStatus =
     if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcRpcErrorResetEnumeration(enumhandle.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rpcErrorSaveErrorInfo(enumhandle: ConstPtr<RpcErrorEnumHandle>, errorblob: MutPtr<MutPtr<CVoid>>, blobsize: MutPtr<ULong>): RpcStatus =
+public actual fun rpcErrorSaveErrorInfo(enumhandle: ConstPtr, errorblob: MutPtr, blobsize: MutPtr): RpcStatus =
     if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcRpcErrorSaveErrorInfo(enumhandle.rawAddress.toString(), errorblob.rawAddress.toString(), blobsize.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rpcErrorStartEnumeration(enumhandle: MutPtr<RpcErrorEnumHandle>): RpcStatus =
+public actual fun rpcErrorStartEnumeration(enumhandle: MutPtr): RpcStatus =
     if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcRpcErrorStartEnumeration(enumhandle.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun rpcExceptionFilter(exceptioncode: UInt): Int =
     if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcRpcExceptionFilter(exceptioncode.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rpcFreeAuthorizationContext(pauthzclientcontext: MutPtr<MutPtr<CVoid>>): RpcStatus =
+public actual fun rpcFreeAuthorizationContext(pauthzclientcontext: MutPtr): RpcStatus =
     if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcRpcFreeAuthorizationContext(pauthzclientcontext.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rpcGetAuthorizationContextForClient(clientbinding: ConstPtr<CVoid>, impersonateonreturn: Bool, reserved1: ConstPtr<CVoid>, pexpirationtime: ConstPtr<Long>, reserved2: Luid, reserved3: UInt, reserved4: ConstPtr<CVoid>, pauthzclientcontext: MutPtr<MutPtr<CVoid>>): RpcStatus =
+public actual fun rpcGetAuthorizationContextForClient(clientbinding: ConstPtr, impersonateonreturn: Bool, reserved1: ConstPtr, pexpirationtime: ConstPtr, reserved2: Luid, reserved3: UInt, reserved4: ConstPtr, pauthzclientcontext: MutPtr): RpcStatus =
     throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rpcIfIdVectorFree(ifidvector: MutPtr<MutPtr<RpcIfIdVector>>): RpcStatus =
+public actual fun rpcIfIdVectorFree(ifidvector: MutPtr): RpcStatus =
     if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcRpcIfIdVectorFree(ifidvector.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rpcIfInqId(rpcifhandle: ConstPtr<CVoid>, rpcifid: MutPtr<RpcIfId>): RpcStatus =
+public actual fun rpcIfInqId(rpcifhandle: ConstPtr, rpcifid: MutPtr): RpcStatus =
     if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcRpcIfInqId(rpcifhandle.rawAddress.toString(), rpcifid.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rpcImpersonateClient(bindinghandle: ConstPtr<CVoid>): RpcStatus =
+public actual fun rpcImpersonateClient(bindinghandle: ConstPtr): RpcStatus =
     if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcRpcImpersonateClient(bindinghandle.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rpcImpersonateClient2(bindinghandle: ConstPtr<CVoid>): RpcStatus =
+public actual fun rpcImpersonateClient2(bindinghandle: ConstPtr): RpcStatus =
     if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcRpcImpersonateClient2(bindinghandle.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rpcImpersonateClientContainer(bindinghandle: ConstPtr<CVoid>): RpcStatus =
+public actual fun rpcImpersonateClientContainer(bindinghandle: ConstPtr): RpcStatus =
     if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcRpcImpersonateClientContainer(bindinghandle.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun rpcMgmtEnableIdleCleanup(): RpcStatus =
     if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcRpcMgmtEnableIdleCleanup() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rpcMgmtEpEltInqBegin(epbinding: ConstPtr<CVoid>, inquirytype: UInt, ifid: ConstPtr<RpcIfId>, versoption: UInt, objectuuid: ConstPtr<Guid>, inquirycontext: MutPtr<MutPtr<MutPtr<CVoid>>>): RpcStatus =
+public actual fun rpcMgmtEpEltInqBegin(epbinding: ConstPtr, inquirytype: UInt, ifid: ConstPtr, versoption: UInt, objectuuid: ConstPtr, inquirycontext: MutPtr): RpcStatus =
     if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcRpcMgmtEpEltInqBegin(epbinding.rawAddress.toString(), inquirytype.toInt(), ifid.rawAddress.toString(), versoption.toInt(), objectuuid.rawAddress.toString(), inquirycontext.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rpcMgmtEpEltInqDone(inquirycontext: MutPtr<MutPtr<MutPtr<CVoid>>>): RpcStatus =
+public actual fun rpcMgmtEpEltInqDone(inquirycontext: MutPtr): RpcStatus =
     if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcRpcMgmtEpEltInqDone(inquirycontext.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rpcMgmtEpEltInqNextA(inquirycontext: ConstPtr<ConstPtr<CVoid>>, ifid: MutPtr<RpcIfId>, binding: MutPtr<MutPtr<CVoid>>, objectuuid: MutPtr<Guid>, annotation: MutPtr<Pstr>): RpcStatus =
+public actual fun rpcMgmtEpEltInqNextA(inquirycontext: ConstPtr, ifid: MutPtr, binding: MutPtr, objectuuid: MutPtr, annotation: MutPtr): RpcStatus =
     if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcRpcMgmtEpEltInqNextA(inquirycontext.rawAddress.toString(), ifid.rawAddress.toString(), binding.rawAddress.toString(), objectuuid.rawAddress.toString(), annotation.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rpcMgmtEpEltInqNextW(inquirycontext: ConstPtr<ConstPtr<CVoid>>, ifid: MutPtr<RpcIfId>, binding: MutPtr<MutPtr<CVoid>>, objectuuid: MutPtr<Guid>, annotation: MutPtr<Pwstr>): RpcStatus =
+public actual fun rpcMgmtEpEltInqNextW(inquirycontext: ConstPtr, ifid: MutPtr, binding: MutPtr, objectuuid: MutPtr, annotation: MutPtr): RpcStatus =
     if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcRpcMgmtEpEltInqNextW(inquirycontext.rawAddress.toString(), ifid.rawAddress.toString(), binding.rawAddress.toString(), objectuuid.rawAddress.toString(), annotation.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rpcMgmtEpUnregister(epbinding: ConstPtr<CVoid>, ifid: ConstPtr<RpcIfId>, binding: ConstPtr<CVoid>, objectuuid: ConstPtr<Guid>): RpcStatus =
+public actual fun rpcMgmtEpUnregister(epbinding: ConstPtr, ifid: ConstPtr, binding: ConstPtr, objectuuid: ConstPtr): RpcStatus =
     if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcRpcMgmtEpUnregister(epbinding.rawAddress.toString(), ifid.rawAddress.toString(), binding.rawAddress.toString(), objectuuid.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rpcMgmtInqComTimeout(binding: ConstPtr<CVoid>, timeout: MutPtr<UInt>): RpcStatus =
+public actual fun rpcMgmtInqComTimeout(binding: ConstPtr, timeout: MutPtr): RpcStatus =
     if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcRpcMgmtInqComTimeout(binding.rawAddress.toString(), timeout.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rpcMgmtInqDefaultProtectLevel(authnsvc: UInt, authnlevel: MutPtr<UInt>): RpcStatus =
+public actual fun rpcMgmtInqDefaultProtectLevel(authnsvc: UInt, authnlevel: MutPtr): RpcStatus =
     if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcRpcMgmtInqDefaultProtectLevel(authnsvc.toInt(), authnlevel.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rpcMgmtInqIfIds(binding: ConstPtr<CVoid>, ifidvector: MutPtr<MutPtr<RpcIfIdVector>>): RpcStatus =
+public actual fun rpcMgmtInqIfIds(binding: ConstPtr, ifidvector: MutPtr): RpcStatus =
     if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcRpcMgmtInqIfIds(binding.rawAddress.toString(), ifidvector.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rpcMgmtInqServerPrincNameA(binding: ConstPtr<CVoid>, authnsvc: UInt, serverprincname: MutPtr<Pstr>): RpcStatus =
+public actual fun rpcMgmtInqServerPrincNameA(binding: ConstPtr, authnsvc: UInt, serverprincname: MutPtr): RpcStatus =
     if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcRpcMgmtInqServerPrincNameA(binding.rawAddress.toString(), authnsvc.toInt(), serverprincname.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rpcMgmtInqServerPrincNameW(binding: ConstPtr<CVoid>, authnsvc: UInt, serverprincname: MutPtr<Pwstr>): RpcStatus =
+public actual fun rpcMgmtInqServerPrincNameW(binding: ConstPtr, authnsvc: UInt, serverprincname: MutPtr): RpcStatus =
     if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcRpcMgmtInqServerPrincNameW(binding.rawAddress.toString(), authnsvc.toInt(), serverprincname.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rpcMgmtInqStats(binding: ConstPtr<CVoid>, statistics: MutPtr<MutPtr<RpcStatsVector>>): RpcStatus =
+public actual fun rpcMgmtInqStats(binding: ConstPtr, statistics: MutPtr): RpcStatus =
     if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcRpcMgmtInqStats(binding.rawAddress.toString(), statistics.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rpcMgmtIsServerListening(binding: ConstPtr<CVoid>): RpcStatus =
+public actual fun rpcMgmtIsServerListening(binding: ConstPtr): RpcStatus =
     if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcRpcMgmtIsServerListening(binding.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun rpcMgmtSetAuthorizationFn(authorizationfn: RpcMgmtAuthorizationFn): RpcStatus =
@@ -3037,25 +3035,25 @@ public actual fun rpcMgmtSetAuthorizationFn(authorizationfn: RpcMgmtAuthorizatio
 public actual fun rpcMgmtSetCancelTimeout(timeout: Int): RpcStatus =
     if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcRpcMgmtSetCancelTimeout(timeout) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rpcMgmtSetComTimeout(binding: ConstPtr<CVoid>, timeout: UInt): RpcStatus =
+public actual fun rpcMgmtSetComTimeout(binding: ConstPtr, timeout: UInt): RpcStatus =
     if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcRpcMgmtSetComTimeout(binding.rawAddress.toString(), timeout.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun rpcMgmtSetServerStackSize(threadstacksize: UInt): RpcStatus =
     if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcRpcMgmtSetServerStackSize(threadstacksize.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rpcMgmtStatsVectorFree(statsvector: MutPtr<MutPtr<RpcStatsVector>>): RpcStatus =
+public actual fun rpcMgmtStatsVectorFree(statsvector: MutPtr): RpcStatus =
     if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcRpcMgmtStatsVectorFree(statsvector.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rpcMgmtStopServerListening(binding: ConstPtr<CVoid>): RpcStatus =
+public actual fun rpcMgmtStopServerListening(binding: ConstPtr): RpcStatus =
     if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcRpcMgmtStopServerListening(binding.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun rpcMgmtWaitServerListen(): RpcStatus =
     if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcRpcMgmtWaitServerListen() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rpcNetworkInqProtseqsA(protseqvector: MutPtr<MutPtr<RpcProtseqVectora>>): RpcStatus =
+public actual fun rpcNetworkInqProtseqsA(protseqvector: MutPtr): RpcStatus =
     if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcRpcNetworkInqProtseqsA(protseqvector.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rpcNetworkInqProtseqsW(protseqvector: MutPtr<MutPtr<RpcProtseqVectorw>>): RpcStatus =
+public actual fun rpcNetworkInqProtseqsW(protseqvector: MutPtr): RpcStatus =
     if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcRpcNetworkInqProtseqsW(protseqvector.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun rpcNetworkIsProtseqValidA(protseq: Pcstr): RpcStatus =
@@ -3064,79 +3062,79 @@ public actual fun rpcNetworkIsProtseqValidA(protseq: Pcstr): RpcStatus =
 public actual fun rpcNetworkIsProtseqValidW(protseq: Pcwstr): RpcStatus =
     if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcRpcNetworkIsProtseqValidW(protseq.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rpcNsBindingExportA(entrynamesyntax: UInt, entryname: Pcstr, ifspec: ConstPtr<CVoid>, bindingvec: ConstPtr<RpcBindingVector>, objectuuidvec: ConstPtr<UuidVector>): RpcStatus =
+public actual fun rpcNsBindingExportA(entrynamesyntax: UInt, entryname: Pcstr, ifspec: ConstPtr, bindingvec: ConstPtr, objectuuidvec: ConstPtr): RpcStatus =
     if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcRpcNsBindingExportA(entrynamesyntax.toInt(), entryname.rawAddress.toString(), ifspec.rawAddress.toString(), bindingvec.rawAddress.toString(), objectuuidvec.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rpcNsBindingExportPnPA(entrynamesyntax: UInt, entryname: Pcstr, ifspec: ConstPtr<CVoid>, objectvector: ConstPtr<UuidVector>): RpcStatus =
+public actual fun rpcNsBindingExportPnPA(entrynamesyntax: UInt, entryname: Pcstr, ifspec: ConstPtr, objectvector: ConstPtr): RpcStatus =
     if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcRpcNsBindingExportPnPA(entrynamesyntax.toInt(), entryname.rawAddress.toString(), ifspec.rawAddress.toString(), objectvector.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rpcNsBindingExportPnPW(entrynamesyntax: UInt, entryname: Pcwstr, ifspec: ConstPtr<CVoid>, objectvector: ConstPtr<UuidVector>): RpcStatus =
+public actual fun rpcNsBindingExportPnPW(entrynamesyntax: UInt, entryname: Pcwstr, ifspec: ConstPtr, objectvector: ConstPtr): RpcStatus =
     if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcRpcNsBindingExportPnPW(entrynamesyntax.toInt(), entryname.rawAddress.toString(), ifspec.rawAddress.toString(), objectvector.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rpcNsBindingExportW(entrynamesyntax: UInt, entryname: Pcwstr, ifspec: ConstPtr<CVoid>, bindingvec: ConstPtr<RpcBindingVector>, objectuuidvec: ConstPtr<UuidVector>): RpcStatus =
+public actual fun rpcNsBindingExportW(entrynamesyntax: UInt, entryname: Pcwstr, ifspec: ConstPtr, bindingvec: ConstPtr, objectuuidvec: ConstPtr): RpcStatus =
     if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcRpcNsBindingExportW(entrynamesyntax.toInt(), entryname.rawAddress.toString(), ifspec.rawAddress.toString(), bindingvec.rawAddress.toString(), objectuuidvec.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rpcNsBindingImportBeginA(entrynamesyntax: UInt, entryname: Pcstr, ifspec: ConstPtr<CVoid>, objuuid: ConstPtr<Guid>, importcontext: MutPtr<MutPtr<CVoid>>): RpcStatus =
+public actual fun rpcNsBindingImportBeginA(entrynamesyntax: UInt, entryname: Pcstr, ifspec: ConstPtr, objuuid: ConstPtr, importcontext: MutPtr): RpcStatus =
     if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcRpcNsBindingImportBeginA(entrynamesyntax.toInt(), entryname.rawAddress.toString(), ifspec.rawAddress.toString(), objuuid.rawAddress.toString(), importcontext.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rpcNsBindingImportBeginW(entrynamesyntax: UInt, entryname: Pcwstr, ifspec: ConstPtr<CVoid>, objuuid: ConstPtr<Guid>, importcontext: MutPtr<MutPtr<CVoid>>): RpcStatus =
+public actual fun rpcNsBindingImportBeginW(entrynamesyntax: UInt, entryname: Pcwstr, ifspec: ConstPtr, objuuid: ConstPtr, importcontext: MutPtr): RpcStatus =
     if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcRpcNsBindingImportBeginW(entrynamesyntax.toInt(), entryname.rawAddress.toString(), ifspec.rawAddress.toString(), objuuid.rawAddress.toString(), importcontext.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rpcNsBindingImportDone(importcontext: MutPtr<MutPtr<CVoid>>): RpcStatus =
+public actual fun rpcNsBindingImportDone(importcontext: MutPtr): RpcStatus =
     if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcRpcNsBindingImportDone(importcontext.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rpcNsBindingImportNext(importcontext: MutPtr<CVoid>, binding: MutPtr<MutPtr<CVoid>>): RpcStatus =
+public actual fun rpcNsBindingImportNext(importcontext: MutPtr, binding: MutPtr): RpcStatus =
     if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcRpcNsBindingImportNext(importcontext.rawAddress.toString(), binding.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rpcNsBindingInqEntryNameA(binding: ConstPtr<CVoid>, entrynamesyntax: UInt, entryname: MutPtr<Pstr>): RpcStatus =
+public actual fun rpcNsBindingInqEntryNameA(binding: ConstPtr, entrynamesyntax: UInt, entryname: MutPtr): RpcStatus =
     if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcRpcNsBindingInqEntryNameA(binding.rawAddress.toString(), entrynamesyntax.toInt(), entryname.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rpcNsBindingInqEntryNameW(binding: ConstPtr<CVoid>, entrynamesyntax: UInt, entryname: MutPtr<Pwstr>): RpcStatus =
+public actual fun rpcNsBindingInqEntryNameW(binding: ConstPtr, entrynamesyntax: UInt, entryname: MutPtr): RpcStatus =
     if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcRpcNsBindingInqEntryNameW(binding.rawAddress.toString(), entrynamesyntax.toInt(), entryname.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rpcNsBindingLookupBeginA(entrynamesyntax: UInt, entryname: Pcstr, ifspec: ConstPtr<CVoid>, objuuid: ConstPtr<Guid>, bindingmaxcount: UInt, lookupcontext: MutPtr<MutPtr<CVoid>>): RpcStatus =
+public actual fun rpcNsBindingLookupBeginA(entrynamesyntax: UInt, entryname: Pcstr, ifspec: ConstPtr, objuuid: ConstPtr, bindingmaxcount: UInt, lookupcontext: MutPtr): RpcStatus =
     if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcRpcNsBindingLookupBeginA(entrynamesyntax.toInt(), entryname.rawAddress.toString(), ifspec.rawAddress.toString(), objuuid.rawAddress.toString(), bindingmaxcount.toInt(), lookupcontext.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rpcNsBindingLookupBeginW(entrynamesyntax: UInt, entryname: Pcwstr, ifspec: ConstPtr<CVoid>, objuuid: ConstPtr<Guid>, bindingmaxcount: UInt, lookupcontext: MutPtr<MutPtr<CVoid>>): RpcStatus =
+public actual fun rpcNsBindingLookupBeginW(entrynamesyntax: UInt, entryname: Pcwstr, ifspec: ConstPtr, objuuid: ConstPtr, bindingmaxcount: UInt, lookupcontext: MutPtr): RpcStatus =
     if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcRpcNsBindingLookupBeginW(entrynamesyntax.toInt(), entryname.rawAddress.toString(), ifspec.rawAddress.toString(), objuuid.rawAddress.toString(), bindingmaxcount.toInt(), lookupcontext.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rpcNsBindingLookupDone(lookupcontext: MutPtr<MutPtr<CVoid>>): RpcStatus =
+public actual fun rpcNsBindingLookupDone(lookupcontext: MutPtr): RpcStatus =
     if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcRpcNsBindingLookupDone(lookupcontext.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rpcNsBindingLookupNext(lookupcontext: MutPtr<CVoid>, bindingvec: MutPtr<MutPtr<RpcBindingVector>>): RpcStatus =
+public actual fun rpcNsBindingLookupNext(lookupcontext: MutPtr, bindingvec: MutPtr): RpcStatus =
     if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcRpcNsBindingLookupNext(lookupcontext.rawAddress.toString(), bindingvec.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rpcNsBindingSelect(bindingvec: MutPtr<RpcBindingVector>, binding: MutPtr<MutPtr<CVoid>>): RpcStatus =
+public actual fun rpcNsBindingSelect(bindingvec: MutPtr, binding: MutPtr): RpcStatus =
     if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcRpcNsBindingSelect(bindingvec.rawAddress.toString(), binding.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rpcNsBindingUnexportA(entrynamesyntax: UInt, entryname: Pcstr, ifspec: ConstPtr<CVoid>, objectuuidvec: ConstPtr<UuidVector>): RpcStatus =
+public actual fun rpcNsBindingUnexportA(entrynamesyntax: UInt, entryname: Pcstr, ifspec: ConstPtr, objectuuidvec: ConstPtr): RpcStatus =
     if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcRpcNsBindingUnexportA(entrynamesyntax.toInt(), entryname.rawAddress.toString(), ifspec.rawAddress.toString(), objectuuidvec.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rpcNsBindingUnexportPnPA(entrynamesyntax: UInt, entryname: Pcstr, ifspec: ConstPtr<CVoid>, objectvector: ConstPtr<UuidVector>): RpcStatus =
+public actual fun rpcNsBindingUnexportPnPA(entrynamesyntax: UInt, entryname: Pcstr, ifspec: ConstPtr, objectvector: ConstPtr): RpcStatus =
     if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcRpcNsBindingUnexportPnPA(entrynamesyntax.toInt(), entryname.rawAddress.toString(), ifspec.rawAddress.toString(), objectvector.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rpcNsBindingUnexportPnPW(entrynamesyntax: UInt, entryname: Pcwstr, ifspec: ConstPtr<CVoid>, objectvector: ConstPtr<UuidVector>): RpcStatus =
+public actual fun rpcNsBindingUnexportPnPW(entrynamesyntax: UInt, entryname: Pcwstr, ifspec: ConstPtr, objectvector: ConstPtr): RpcStatus =
     if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcRpcNsBindingUnexportPnPW(entrynamesyntax.toInt(), entryname.rawAddress.toString(), ifspec.rawAddress.toString(), objectvector.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rpcNsBindingUnexportW(entrynamesyntax: UInt, entryname: Pcwstr, ifspec: ConstPtr<CVoid>, objectuuidvec: ConstPtr<UuidVector>): RpcStatus =
+public actual fun rpcNsBindingUnexportW(entrynamesyntax: UInt, entryname: Pcwstr, ifspec: ConstPtr, objectuuidvec: ConstPtr): RpcStatus =
     if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcRpcNsBindingUnexportW(entrynamesyntax.toInt(), entryname.rawAddress.toString(), ifspec.rawAddress.toString(), objectuuidvec.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rpcNsEntryExpandNameA(entrynamesyntax: UInt, entryname: Pcstr, expandedname: MutPtr<Pstr>): RpcStatus =
+public actual fun rpcNsEntryExpandNameA(entrynamesyntax: UInt, entryname: Pcstr, expandedname: MutPtr): RpcStatus =
     if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcRpcNsEntryExpandNameA(entrynamesyntax.toInt(), entryname.rawAddress.toString(), expandedname.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rpcNsEntryExpandNameW(entrynamesyntax: UInt, entryname: Pcwstr, expandedname: MutPtr<Pwstr>): RpcStatus =
+public actual fun rpcNsEntryExpandNameW(entrynamesyntax: UInt, entryname: Pcwstr, expandedname: MutPtr): RpcStatus =
     if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcRpcNsEntryExpandNameW(entrynamesyntax.toInt(), entryname.rawAddress.toString(), expandedname.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rpcNsEntryObjectInqBeginA(entrynamesyntax: UInt, entryname: Pcstr, inquirycontext: MutPtr<MutPtr<CVoid>>): RpcStatus =
+public actual fun rpcNsEntryObjectInqBeginA(entrynamesyntax: UInt, entryname: Pcstr, inquirycontext: MutPtr): RpcStatus =
     if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcRpcNsEntryObjectInqBeginA(entrynamesyntax.toInt(), entryname.rawAddress.toString(), inquirycontext.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rpcNsEntryObjectInqBeginW(entrynamesyntax: UInt, entryname: Pcwstr, inquirycontext: MutPtr<MutPtr<CVoid>>): RpcStatus =
+public actual fun rpcNsEntryObjectInqBeginW(entrynamesyntax: UInt, entryname: Pcwstr, inquirycontext: MutPtr): RpcStatus =
     if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcRpcNsEntryObjectInqBeginW(entrynamesyntax.toInt(), entryname.rawAddress.toString(), inquirycontext.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rpcNsEntryObjectInqDone(inquirycontext: MutPtr<MutPtr<CVoid>>): RpcStatus =
+public actual fun rpcNsEntryObjectInqDone(inquirycontext: MutPtr): RpcStatus =
     if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcRpcNsEntryObjectInqDone(inquirycontext.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rpcNsEntryObjectInqNext(inquirycontext: MutPtr<CVoid>, objuuid: MutPtr<Guid>): RpcStatus =
+public actual fun rpcNsEntryObjectInqNext(inquirycontext: MutPtr, objuuid: MutPtr): RpcStatus =
     if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcRpcNsEntryObjectInqNext(inquirycontext.rawAddress.toString(), objuuid.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun rpcNsGroupDeleteA(groupnamesyntax: GroupNameSyntax, groupname: Pcstr): RpcStatus =
@@ -3151,19 +3149,19 @@ public actual fun rpcNsGroupMbrAddA(groupnamesyntax: UInt, groupname: Pcstr, mem
 public actual fun rpcNsGroupMbrAddW(groupnamesyntax: UInt, groupname: Pcwstr, membernamesyntax: UInt, membername: Pcwstr): RpcStatus =
     if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcRpcNsGroupMbrAddW(groupnamesyntax.toInt(), groupname.rawAddress.toString(), membernamesyntax.toInt(), membername.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rpcNsGroupMbrInqBeginA(groupnamesyntax: UInt, groupname: Pcstr, membernamesyntax: UInt, inquirycontext: MutPtr<MutPtr<CVoid>>): RpcStatus =
+public actual fun rpcNsGroupMbrInqBeginA(groupnamesyntax: UInt, groupname: Pcstr, membernamesyntax: UInt, inquirycontext: MutPtr): RpcStatus =
     if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcRpcNsGroupMbrInqBeginA(groupnamesyntax.toInt(), groupname.rawAddress.toString(), membernamesyntax.toInt(), inquirycontext.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rpcNsGroupMbrInqBeginW(groupnamesyntax: UInt, groupname: Pcwstr, membernamesyntax: UInt, inquirycontext: MutPtr<MutPtr<CVoid>>): RpcStatus =
+public actual fun rpcNsGroupMbrInqBeginW(groupnamesyntax: UInt, groupname: Pcwstr, membernamesyntax: UInt, inquirycontext: MutPtr): RpcStatus =
     if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcRpcNsGroupMbrInqBeginW(groupnamesyntax.toInt(), groupname.rawAddress.toString(), membernamesyntax.toInt(), inquirycontext.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rpcNsGroupMbrInqDone(inquirycontext: MutPtr<MutPtr<CVoid>>): RpcStatus =
+public actual fun rpcNsGroupMbrInqDone(inquirycontext: MutPtr): RpcStatus =
     if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcRpcNsGroupMbrInqDone(inquirycontext.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rpcNsGroupMbrInqNextA(inquirycontext: MutPtr<CVoid>, membername: MutPtr<Pstr>): RpcStatus =
+public actual fun rpcNsGroupMbrInqNextA(inquirycontext: MutPtr, membername: MutPtr): RpcStatus =
     if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcRpcNsGroupMbrInqNextA(inquirycontext.rawAddress.toString(), membername.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rpcNsGroupMbrInqNextW(inquirycontext: MutPtr<CVoid>, membername: MutPtr<Pwstr>): RpcStatus =
+public actual fun rpcNsGroupMbrInqNextW(inquirycontext: MutPtr, membername: MutPtr): RpcStatus =
     if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcRpcNsGroupMbrInqNextW(inquirycontext.rawAddress.toString(), membername.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun rpcNsGroupMbrRemoveA(groupnamesyntax: UInt, groupname: Pcstr, membernamesyntax: UInt, membername: Pcstr): RpcStatus =
@@ -3172,10 +3170,10 @@ public actual fun rpcNsGroupMbrRemoveA(groupnamesyntax: UInt, groupname: Pcstr, 
 public actual fun rpcNsGroupMbrRemoveW(groupnamesyntax: UInt, groupname: Pcwstr, membernamesyntax: UInt, membername: Pcwstr): RpcStatus =
     if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcRpcNsGroupMbrRemoveW(groupnamesyntax.toInt(), groupname.rawAddress.toString(), membernamesyntax.toInt(), membername.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rpcNsMgmtBindingUnexportA(entrynamesyntax: UInt, entryname: Pcstr, ifid: ConstPtr<RpcIfId>, versoption: UInt, objectuuidvec: ConstPtr<UuidVector>): RpcStatus =
+public actual fun rpcNsMgmtBindingUnexportA(entrynamesyntax: UInt, entryname: Pcstr, ifid: ConstPtr, versoption: UInt, objectuuidvec: ConstPtr): RpcStatus =
     if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcRpcNsMgmtBindingUnexportA(entrynamesyntax.toInt(), entryname.rawAddress.toString(), ifid.rawAddress.toString(), versoption.toInt(), objectuuidvec.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rpcNsMgmtBindingUnexportW(entrynamesyntax: UInt, entryname: Pcwstr, ifid: ConstPtr<RpcIfId>, versoption: UInt, objectuuidvec: ConstPtr<UuidVector>): RpcStatus =
+public actual fun rpcNsMgmtBindingUnexportW(entrynamesyntax: UInt, entryname: Pcwstr, ifid: ConstPtr, versoption: UInt, objectuuidvec: ConstPtr): RpcStatus =
     if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcRpcNsMgmtBindingUnexportW(entrynamesyntax.toInt(), entryname.rawAddress.toString(), ifid.rawAddress.toString(), versoption.toInt(), objectuuidvec.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun rpcNsMgmtEntryCreateA(entrynamesyntax: UInt, entryname: Pcstr): RpcStatus =
@@ -3190,16 +3188,16 @@ public actual fun rpcNsMgmtEntryDeleteA(entrynamesyntax: UInt, entryname: Pcstr)
 public actual fun rpcNsMgmtEntryDeleteW(entrynamesyntax: UInt, entryname: Pcwstr): RpcStatus =
     if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcRpcNsMgmtEntryDeleteW(entrynamesyntax.toInt(), entryname.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rpcNsMgmtEntryInqIfIdsA(entrynamesyntax: UInt, entryname: Pcstr, ifidvec: MutPtr<MutPtr<RpcIfIdVector>>): RpcStatus =
+public actual fun rpcNsMgmtEntryInqIfIdsA(entrynamesyntax: UInt, entryname: Pcstr, ifidvec: MutPtr): RpcStatus =
     if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcRpcNsMgmtEntryInqIfIdsA(entrynamesyntax.toInt(), entryname.rawAddress.toString(), ifidvec.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rpcNsMgmtEntryInqIfIdsW(entrynamesyntax: UInt, entryname: Pcwstr, ifidvec: MutPtr<MutPtr<RpcIfIdVector>>): RpcStatus =
+public actual fun rpcNsMgmtEntryInqIfIdsW(entrynamesyntax: UInt, entryname: Pcwstr, ifidvec: MutPtr): RpcStatus =
     if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcRpcNsMgmtEntryInqIfIdsW(entrynamesyntax.toInt(), entryname.rawAddress.toString(), ifidvec.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rpcNsMgmtHandleSetExpAge(nshandle: MutPtr<CVoid>, expirationage: UInt): RpcStatus =
+public actual fun rpcNsMgmtHandleSetExpAge(nshandle: MutPtr, expirationage: UInt): RpcStatus =
     if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcRpcNsMgmtHandleSetExpAge(nshandle.rawAddress.toString(), expirationage.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rpcNsMgmtInqExpAge(expirationage: MutPtr<UInt>): RpcStatus =
+public actual fun rpcNsMgmtInqExpAge(expirationage: MutPtr): RpcStatus =
     if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcRpcNsMgmtInqExpAge(expirationage.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun rpcNsMgmtSetExpAge(expirationage: UInt): RpcStatus =
@@ -3211,46 +3209,46 @@ public actual fun rpcNsProfileDeleteA(profilenamesyntax: UInt, profilename: Pcst
 public actual fun rpcNsProfileDeleteW(profilenamesyntax: UInt, profilename: Pcwstr): RpcStatus =
     if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcRpcNsProfileDeleteW(profilenamesyntax.toInt(), profilename.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rpcNsProfileEltAddA(profilenamesyntax: UInt, profilename: Pcstr, ifid: ConstPtr<RpcIfId>, membernamesyntax: UInt, membername: Pcstr, priority: UInt, annotation: Pcstr): RpcStatus =
+public actual fun rpcNsProfileEltAddA(profilenamesyntax: UInt, profilename: Pcstr, ifid: ConstPtr, membernamesyntax: UInt, membername: Pcstr, priority: UInt, annotation: Pcstr): RpcStatus =
     if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcRpcNsProfileEltAddA(profilenamesyntax.toInt(), profilename.rawAddress.toString(), ifid.rawAddress.toString(), membernamesyntax.toInt(), membername.rawAddress.toString(), priority.toInt(), annotation.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rpcNsProfileEltAddW(profilenamesyntax: UInt, profilename: Pcwstr, ifid: ConstPtr<RpcIfId>, membernamesyntax: UInt, membername: Pcwstr, priority: UInt, annotation: Pcwstr): RpcStatus =
+public actual fun rpcNsProfileEltAddW(profilenamesyntax: UInt, profilename: Pcwstr, ifid: ConstPtr, membernamesyntax: UInt, membername: Pcwstr, priority: UInt, annotation: Pcwstr): RpcStatus =
     if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcRpcNsProfileEltAddW(profilenamesyntax.toInt(), profilename.rawAddress.toString(), ifid.rawAddress.toString(), membernamesyntax.toInt(), membername.rawAddress.toString(), priority.toInt(), annotation.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rpcNsProfileEltInqBeginA(profilenamesyntax: UInt, profilename: Pcstr, inquirytype: UInt, ifid: ConstPtr<RpcIfId>, versoption: UInt, membernamesyntax: UInt, membername: Pcstr, inquirycontext: MutPtr<MutPtr<CVoid>>): RpcStatus =
+public actual fun rpcNsProfileEltInqBeginA(profilenamesyntax: UInt, profilename: Pcstr, inquirytype: UInt, ifid: ConstPtr, versoption: UInt, membernamesyntax: UInt, membername: Pcstr, inquirycontext: MutPtr): RpcStatus =
     if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcRpcNsProfileEltInqBeginA(profilenamesyntax.toInt(), profilename.rawAddress.toString(), inquirytype.toInt(), ifid.rawAddress.toString(), versoption.toInt(), membernamesyntax.toInt(), membername.rawAddress.toString(), inquirycontext.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rpcNsProfileEltInqBeginW(profilenamesyntax: UInt, profilename: Pcwstr, inquirytype: UInt, ifid: ConstPtr<RpcIfId>, versoption: UInt, membernamesyntax: UInt, membername: Pcwstr, inquirycontext: MutPtr<MutPtr<CVoid>>): RpcStatus =
+public actual fun rpcNsProfileEltInqBeginW(profilenamesyntax: UInt, profilename: Pcwstr, inquirytype: UInt, ifid: ConstPtr, versoption: UInt, membernamesyntax: UInt, membername: Pcwstr, inquirycontext: MutPtr): RpcStatus =
     if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcRpcNsProfileEltInqBeginW(profilenamesyntax.toInt(), profilename.rawAddress.toString(), inquirytype.toInt(), ifid.rawAddress.toString(), versoption.toInt(), membernamesyntax.toInt(), membername.rawAddress.toString(), inquirycontext.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rpcNsProfileEltInqDone(inquirycontext: MutPtr<MutPtr<CVoid>>): RpcStatus =
+public actual fun rpcNsProfileEltInqDone(inquirycontext: MutPtr): RpcStatus =
     if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcRpcNsProfileEltInqDone(inquirycontext.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rpcNsProfileEltInqNextA(inquirycontext: ConstPtr<CVoid>, ifid: MutPtr<RpcIfId>, membername: MutPtr<Pstr>, priority: MutPtr<UInt>, annotation: MutPtr<Pstr>): RpcStatus =
+public actual fun rpcNsProfileEltInqNextA(inquirycontext: ConstPtr, ifid: MutPtr, membername: MutPtr, priority: MutPtr, annotation: MutPtr): RpcStatus =
     if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcRpcNsProfileEltInqNextA(inquirycontext.rawAddress.toString(), ifid.rawAddress.toString(), membername.rawAddress.toString(), priority.rawAddress.toString(), annotation.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rpcNsProfileEltInqNextW(inquirycontext: ConstPtr<CVoid>, ifid: MutPtr<RpcIfId>, membername: MutPtr<Pwstr>, priority: MutPtr<UInt>, annotation: MutPtr<Pwstr>): RpcStatus =
+public actual fun rpcNsProfileEltInqNextW(inquirycontext: ConstPtr, ifid: MutPtr, membername: MutPtr, priority: MutPtr, annotation: MutPtr): RpcStatus =
     if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcRpcNsProfileEltInqNextW(inquirycontext.rawAddress.toString(), ifid.rawAddress.toString(), membername.rawAddress.toString(), priority.rawAddress.toString(), annotation.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rpcNsProfileEltRemoveA(profilenamesyntax: UInt, profilename: Pcstr, ifid: ConstPtr<RpcIfId>, membernamesyntax: UInt, membername: Pcstr): RpcStatus =
+public actual fun rpcNsProfileEltRemoveA(profilenamesyntax: UInt, profilename: Pcstr, ifid: ConstPtr, membernamesyntax: UInt, membername: Pcstr): RpcStatus =
     if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcRpcNsProfileEltRemoveA(profilenamesyntax.toInt(), profilename.rawAddress.toString(), ifid.rawAddress.toString(), membernamesyntax.toInt(), membername.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rpcNsProfileEltRemoveW(profilenamesyntax: UInt, profilename: Pcwstr, ifid: ConstPtr<RpcIfId>, membernamesyntax: UInt, membername: Pcwstr): RpcStatus =
+public actual fun rpcNsProfileEltRemoveW(profilenamesyntax: UInt, profilename: Pcwstr, ifid: ConstPtr, membernamesyntax: UInt, membername: Pcwstr): RpcStatus =
     if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcRpcNsProfileEltRemoveW(profilenamesyntax.toInt(), profilename.rawAddress.toString(), ifid.rawAddress.toString(), membernamesyntax.toInt(), membername.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rpcObjectInqType(objuuid: ConstPtr<Guid>, typeuuid: MutPtr<Guid>): RpcStatus =
+public actual fun rpcObjectInqType(objuuid: ConstPtr, typeuuid: MutPtr): RpcStatus =
     if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcRpcObjectInqType(objuuid.rawAddress.toString(), typeuuid.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun rpcObjectSetInqFn(inquiryfn: RpcObjectInqFn): RpcStatus =
     if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcRpcObjectSetInqFn(0L.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rpcObjectSetType(objuuid: ConstPtr<Guid>, typeuuid: ConstPtr<Guid>): RpcStatus =
+public actual fun rpcObjectSetType(objuuid: ConstPtr, typeuuid: ConstPtr): RpcStatus =
     if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcRpcObjectSetType(objuuid.rawAddress.toString(), typeuuid.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rpcProtseqVectorFreeA(protseqvector: MutPtr<MutPtr<RpcProtseqVectora>>): RpcStatus =
+public actual fun rpcProtseqVectorFreeA(protseqvector: MutPtr): RpcStatus =
     if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcRpcProtseqVectorFreeA(protseqvector.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rpcProtseqVectorFreeW(protseqvector: MutPtr<MutPtr<RpcProtseqVectorw>>): RpcStatus =
+public actual fun rpcProtseqVectorFreeW(protseqvector: MutPtr): RpcStatus =
     if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcRpcProtseqVectorFreeW(protseqvector.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun rpcRaiseException(exception: RpcStatus) {
@@ -3267,136 +3265,136 @@ public actual fun rpcRevertContainerImpersonation(): RpcStatus =
 public actual fun rpcRevertToSelf(): RpcStatus =
     if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcRpcRevertToSelf() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rpcRevertToSelfEx(bindinghandle: ConstPtr<CVoid>): RpcStatus =
+public actual fun rpcRevertToSelfEx(bindinghandle: ConstPtr): RpcStatus =
     if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcRpcRevertToSelfEx(bindinghandle.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rpcServerCompleteSecurityCallback(bindinghandle: ConstPtr<CVoid>, status: RpcStatus): RpcStatus =
+public actual fun rpcServerCompleteSecurityCallback(bindinghandle: ConstPtr, status: RpcStatus): RpcStatus =
     if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcRpcServerCompleteSecurityCallback(bindinghandle.rawAddress.toString(), status) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rpcServerInqBindingHandle(binding: MutPtr<MutPtr<CVoid>>): RpcStatus =
+public actual fun rpcServerInqBindingHandle(binding: MutPtr): RpcStatus =
     if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcRpcServerInqBindingHandle(binding.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rpcServerInqBindings(bindingvector: MutPtr<MutPtr<RpcBindingVector>>): RpcStatus =
+public actual fun rpcServerInqBindings(bindingvector: MutPtr): RpcStatus =
     if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcRpcServerInqBindings(bindingvector.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rpcServerInqBindingsEx(securitydescriptor: ConstPtr<CVoid>, bindingvector: MutPtr<MutPtr<RpcBindingVector>>): RpcStatus =
+public actual fun rpcServerInqBindingsEx(securitydescriptor: ConstPtr, bindingvector: MutPtr): RpcStatus =
     if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcRpcServerInqBindingsEx(securitydescriptor.rawAddress.toString(), bindingvector.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rpcServerInqCallAttributesA(clientbinding: ConstPtr<CVoid>, rpccallattributes: MutPtr<CVoid>): RpcStatus =
+public actual fun rpcServerInqCallAttributesA(clientbinding: ConstPtr, rpccallattributes: MutPtr): RpcStatus =
     if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcRpcServerInqCallAttributesA(clientbinding.rawAddress.toString(), rpccallattributes.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rpcServerInqCallAttributesW(clientbinding: ConstPtr<CVoid>, rpccallattributes: MutPtr<CVoid>): RpcStatus =
+public actual fun rpcServerInqCallAttributesW(clientbinding: ConstPtr, rpccallattributes: MutPtr): RpcStatus =
     if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcRpcServerInqCallAttributesW(clientbinding.rawAddress.toString(), rpccallattributes.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rpcServerInqDefaultPrincNameA(authnsvc: UInt, princname: MutPtr<Pstr>): RpcStatus =
+public actual fun rpcServerInqDefaultPrincNameA(authnsvc: UInt, princname: MutPtr): RpcStatus =
     if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcRpcServerInqDefaultPrincNameA(authnsvc.toInt(), princname.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rpcServerInqDefaultPrincNameW(authnsvc: UInt, princname: MutPtr<Pwstr>): RpcStatus =
+public actual fun rpcServerInqDefaultPrincNameW(authnsvc: UInt, princname: MutPtr): RpcStatus =
     if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcRpcServerInqDefaultPrincNameW(authnsvc.toInt(), princname.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rpcServerInqIf(ifspec: ConstPtr<CVoid>, mgrtypeuuid: ConstPtr<Guid>, mgrepv: MutPtr<MutPtr<CVoid>>): RpcStatus =
+public actual fun rpcServerInqIf(ifspec: ConstPtr, mgrtypeuuid: ConstPtr, mgrepv: MutPtr): RpcStatus =
     if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcRpcServerInqIf(ifspec.rawAddress.toString(), mgrtypeuuid.rawAddress.toString(), mgrepv.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rpcServerInterfaceGroupActivate(ifgroup: ConstPtr<CVoid>): RpcStatus =
+public actual fun rpcServerInterfaceGroupActivate(ifgroup: ConstPtr): RpcStatus =
     if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcRpcServerInterfaceGroupActivate(ifgroup.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rpcServerInterfaceGroupClose(ifgroup: ConstPtr<CVoid>): RpcStatus =
+public actual fun rpcServerInterfaceGroupClose(ifgroup: ConstPtr): RpcStatus =
     if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcRpcServerInterfaceGroupClose(ifgroup.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rpcServerInterfaceGroupCreateA(interfaces: ConstPtr<RpcInterfaceTemplatea>, numifs: UInt, endpoints: ConstPtr<RpcEndpointTemplatea>, numendpoints: UInt, idleperiod: UInt, idlecallbackfn: RpcInterfaceGroupIdleCallbackFn, idlecallbackcontext: ConstPtr<CVoid>, ifgroup: MutPtr<MutPtr<CVoid>>): RpcStatus =
+public actual fun rpcServerInterfaceGroupCreateA(interfaces: ConstPtr, numifs: UInt, endpoints: ConstPtr, numendpoints: UInt, idleperiod: UInt, idlecallbackfn: RpcInterfaceGroupIdleCallbackFn, idlecallbackcontext: ConstPtr, ifgroup: MutPtr): RpcStatus =
     if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcRpcServerInterfaceGroupCreateA(interfaces.rawAddress.toString(), numifs.toInt(), endpoints.rawAddress.toString(), numendpoints.toInt(), idleperiod.toInt(), 0L.toString(), idlecallbackcontext.rawAddress.toString(), ifgroup.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rpcServerInterfaceGroupCreateW(interfaces: ConstPtr<RpcInterfaceTemplatew>, numifs: UInt, endpoints: ConstPtr<RpcEndpointTemplatew>, numendpoints: UInt, idleperiod: UInt, idlecallbackfn: RpcInterfaceGroupIdleCallbackFn, idlecallbackcontext: ConstPtr<CVoid>, ifgroup: MutPtr<MutPtr<CVoid>>): RpcStatus =
+public actual fun rpcServerInterfaceGroupCreateW(interfaces: ConstPtr, numifs: UInt, endpoints: ConstPtr, numendpoints: UInt, idleperiod: UInt, idlecallbackfn: RpcInterfaceGroupIdleCallbackFn, idlecallbackcontext: ConstPtr, ifgroup: MutPtr): RpcStatus =
     if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcRpcServerInterfaceGroupCreateW(interfaces.rawAddress.toString(), numifs.toInt(), endpoints.rawAddress.toString(), numendpoints.toInt(), idleperiod.toInt(), 0L.toString(), idlecallbackcontext.rawAddress.toString(), ifgroup.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rpcServerInterfaceGroupDeactivate(ifgroup: ConstPtr<CVoid>, forcedeactivation: UInt): RpcStatus =
+public actual fun rpcServerInterfaceGroupDeactivate(ifgroup: ConstPtr, forcedeactivation: UInt): RpcStatus =
     if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcRpcServerInterfaceGroupDeactivate(ifgroup.rawAddress.toString(), forcedeactivation.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rpcServerInterfaceGroupInqBindings(ifgroup: ConstPtr<CVoid>, bindingvector: MutPtr<MutPtr<RpcBindingVector>>): RpcStatus =
+public actual fun rpcServerInterfaceGroupInqBindings(ifgroup: ConstPtr, bindingvector: MutPtr): RpcStatus =
     if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcRpcServerInterfaceGroupInqBindings(ifgroup.rawAddress.toString(), bindingvector.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun rpcServerListen(minimumcallthreads: UInt, maxcalls: UInt, dontwait: UInt): RpcStatus =
     if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcRpcServerListen(minimumcallthreads.toInt(), maxcalls.toInt(), dontwait.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rpcServerRegisterAuthInfoA(serverprincname: Pcstr, authnsvc: UInt, getkeyfn: RpcAuthKeyRetrievalFn, arg: ConstPtr<CVoid>): RpcStatus =
+public actual fun rpcServerRegisterAuthInfoA(serverprincname: Pcstr, authnsvc: UInt, getkeyfn: RpcAuthKeyRetrievalFn, arg: ConstPtr): RpcStatus =
     if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcRpcServerRegisterAuthInfoA(serverprincname.rawAddress.toString(), authnsvc.toInt(), 0L.toString(), arg.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rpcServerRegisterAuthInfoW(serverprincname: Pcwstr, authnsvc: UInt, getkeyfn: RpcAuthKeyRetrievalFn, arg: ConstPtr<CVoid>): RpcStatus =
+public actual fun rpcServerRegisterAuthInfoW(serverprincname: Pcwstr, authnsvc: UInt, getkeyfn: RpcAuthKeyRetrievalFn, arg: ConstPtr): RpcStatus =
     if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcRpcServerRegisterAuthInfoW(serverprincname.rawAddress.toString(), authnsvc.toInt(), 0L.toString(), arg.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rpcServerRegisterIf(ifspec: ConstPtr<CVoid>, mgrtypeuuid: ConstPtr<Guid>, mgrepv: ConstPtr<CVoid>): RpcStatus =
+public actual fun rpcServerRegisterIf(ifspec: ConstPtr, mgrtypeuuid: ConstPtr, mgrepv: ConstPtr): RpcStatus =
     if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcRpcServerRegisterIf(ifspec.rawAddress.toString(), mgrtypeuuid.rawAddress.toString(), mgrepv.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rpcServerRegisterIf2(ifspec: ConstPtr<CVoid>, mgrtypeuuid: ConstPtr<Guid>, mgrepv: ConstPtr<CVoid>, flags: UInt, maxcalls: UInt, maxrpcsize: UInt, ifcallbackfn: RpcIfCallbackFn): RpcStatus =
+public actual fun rpcServerRegisterIf2(ifspec: ConstPtr, mgrtypeuuid: ConstPtr, mgrepv: ConstPtr, flags: UInt, maxcalls: UInt, maxrpcsize: UInt, ifcallbackfn: RpcIfCallbackFn): RpcStatus =
     if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcRpcServerRegisterIf2(ifspec.rawAddress.toString(), mgrtypeuuid.rawAddress.toString(), mgrepv.rawAddress.toString(), flags.toInt(), maxcalls.toInt(), maxrpcsize.toInt(), 0L.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rpcServerRegisterIf3(ifspec: ConstPtr<CVoid>, mgrtypeuuid: ConstPtr<Guid>, mgrepv: ConstPtr<CVoid>, flags: UInt, maxcalls: UInt, maxrpcsize: UInt, ifcallback: RpcIfCallbackFn, securitydescriptor: ConstPtr<CVoid>): RpcStatus =
+public actual fun rpcServerRegisterIf3(ifspec: ConstPtr, mgrtypeuuid: ConstPtr, mgrepv: ConstPtr, flags: UInt, maxcalls: UInt, maxrpcsize: UInt, ifcallback: RpcIfCallbackFn, securitydescriptor: ConstPtr): RpcStatus =
     if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcRpcServerRegisterIf3(ifspec.rawAddress.toString(), mgrtypeuuid.rawAddress.toString(), mgrepv.rawAddress.toString(), flags.toInt(), maxcalls.toInt(), maxrpcsize.toInt(), 0L.toString(), securitydescriptor.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rpcServerRegisterIfEx(ifspec: ConstPtr<CVoid>, mgrtypeuuid: ConstPtr<Guid>, mgrepv: ConstPtr<CVoid>, flags: UInt, maxcalls: UInt, ifcallback: RpcIfCallbackFn): RpcStatus =
+public actual fun rpcServerRegisterIfEx(ifspec: ConstPtr, mgrtypeuuid: ConstPtr, mgrepv: ConstPtr, flags: UInt, maxcalls: UInt, ifcallback: RpcIfCallbackFn): RpcStatus =
     if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcRpcServerRegisterIfEx(ifspec.rawAddress.toString(), mgrtypeuuid.rawAddress.toString(), mgrepv.rawAddress.toString(), flags.toInt(), maxcalls.toInt(), 0L.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rpcServerSubscribeForNotification(binding: ConstPtr<CVoid>, notification: RpcNotifications, notificationtype: RpcNotificationTypes, notificationinfo: ConstPtr<RpcAsyncNotificationInfo>): RpcStatus =
+public actual fun rpcServerSubscribeForNotification(binding: ConstPtr, notification: RpcNotifications, notificationtype: RpcNotificationTypes, notificationinfo: ConstPtr): RpcStatus =
     if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcRpcServerSubscribeForNotification(binding.rawAddress.toString(), notification, notificationtype, notificationinfo.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rpcServerTestCancel(bindinghandle: ConstPtr<CVoid>): RpcStatus =
+public actual fun rpcServerTestCancel(bindinghandle: ConstPtr): RpcStatus =
     if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcRpcServerTestCancel(bindinghandle.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rpcServerUnregisterIf(ifspec: ConstPtr<CVoid>, mgrtypeuuid: ConstPtr<Guid>, waitforcallstocomplete: UInt): RpcStatus =
+public actual fun rpcServerUnregisterIf(ifspec: ConstPtr, mgrtypeuuid: ConstPtr, waitforcallstocomplete: UInt): RpcStatus =
     if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcRpcServerUnregisterIf(ifspec.rawAddress.toString(), mgrtypeuuid.rawAddress.toString(), waitforcallstocomplete.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rpcServerUnregisterIfEx(ifspec: ConstPtr<CVoid>, mgrtypeuuid: ConstPtr<Guid>, rundowncontexthandles: Int): RpcStatus =
+public actual fun rpcServerUnregisterIfEx(ifspec: ConstPtr, mgrtypeuuid: ConstPtr, rundowncontexthandles: Int): RpcStatus =
     if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcRpcServerUnregisterIfEx(ifspec.rawAddress.toString(), mgrtypeuuid.rawAddress.toString(), rundowncontexthandles) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rpcServerUnsubscribeForNotification(binding: ConstPtr<CVoid>, notification: RpcNotifications, notificationsqueued: MutPtr<UInt>): RpcStatus =
+public actual fun rpcServerUnsubscribeForNotification(binding: ConstPtr, notification: RpcNotifications, notificationsqueued: MutPtr): RpcStatus =
     if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcRpcServerUnsubscribeForNotification(binding.rawAddress.toString(), notification, notificationsqueued.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rpcServerUseAllProtseqs(maxcalls: UInt, securitydescriptor: ConstPtr<CVoid>): RpcStatus =
+public actual fun rpcServerUseAllProtseqs(maxcalls: UInt, securitydescriptor: ConstPtr): RpcStatus =
     if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcRpcServerUseAllProtseqs(maxcalls.toInt(), securitydescriptor.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rpcServerUseAllProtseqsEx(maxcalls: UInt, securitydescriptor: ConstPtr<CVoid>, policy: ConstPtr<RpcPolicy>): RpcStatus =
+public actual fun rpcServerUseAllProtseqsEx(maxcalls: UInt, securitydescriptor: ConstPtr, policy: ConstPtr): RpcStatus =
     if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcRpcServerUseAllProtseqsEx(maxcalls.toInt(), securitydescriptor.rawAddress.toString(), policy.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rpcServerUseAllProtseqsIf(maxcalls: UInt, ifspec: ConstPtr<CVoid>, securitydescriptor: ConstPtr<CVoid>): RpcStatus =
+public actual fun rpcServerUseAllProtseqsIf(maxcalls: UInt, ifspec: ConstPtr, securitydescriptor: ConstPtr): RpcStatus =
     if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcRpcServerUseAllProtseqsIf(maxcalls.toInt(), ifspec.rawAddress.toString(), securitydescriptor.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rpcServerUseAllProtseqsIfEx(maxcalls: UInt, ifspec: ConstPtr<CVoid>, securitydescriptor: ConstPtr<CVoid>, policy: ConstPtr<RpcPolicy>): RpcStatus =
+public actual fun rpcServerUseAllProtseqsIfEx(maxcalls: UInt, ifspec: ConstPtr, securitydescriptor: ConstPtr, policy: ConstPtr): RpcStatus =
     if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcRpcServerUseAllProtseqsIfEx(maxcalls.toInt(), ifspec.rawAddress.toString(), securitydescriptor.rawAddress.toString(), policy.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rpcServerUseProtseqA(protseq: Pcstr, maxcalls: UInt, securitydescriptor: ConstPtr<CVoid>): RpcStatus =
+public actual fun rpcServerUseProtseqA(protseq: Pcstr, maxcalls: UInt, securitydescriptor: ConstPtr): RpcStatus =
     if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcRpcServerUseProtseqA(protseq.rawAddress.toString(), maxcalls.toInt(), securitydescriptor.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rpcServerUseProtseqEpA(protseq: Pcstr, maxcalls: UInt, endpoint: Pcstr, securitydescriptor: ConstPtr<CVoid>): RpcStatus =
+public actual fun rpcServerUseProtseqEpA(protseq: Pcstr, maxcalls: UInt, endpoint: Pcstr, securitydescriptor: ConstPtr): RpcStatus =
     if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcRpcServerUseProtseqEpA(protseq.rawAddress.toString(), maxcalls.toInt(), endpoint.rawAddress.toString(), securitydescriptor.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rpcServerUseProtseqEpExA(protseq: Pcstr, maxcalls: UInt, endpoint: Pcstr, securitydescriptor: ConstPtr<CVoid>, policy: ConstPtr<RpcPolicy>): RpcStatus =
+public actual fun rpcServerUseProtseqEpExA(protseq: Pcstr, maxcalls: UInt, endpoint: Pcstr, securitydescriptor: ConstPtr, policy: ConstPtr): RpcStatus =
     if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcRpcServerUseProtseqEpExA(protseq.rawAddress.toString(), maxcalls.toInt(), endpoint.rawAddress.toString(), securitydescriptor.rawAddress.toString(), policy.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rpcServerUseProtseqEpExW(protseq: Pcwstr, maxcalls: UInt, endpoint: Pcwstr, securitydescriptor: ConstPtr<CVoid>, policy: ConstPtr<RpcPolicy>): RpcStatus =
+public actual fun rpcServerUseProtseqEpExW(protseq: Pcwstr, maxcalls: UInt, endpoint: Pcwstr, securitydescriptor: ConstPtr, policy: ConstPtr): RpcStatus =
     if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcRpcServerUseProtseqEpExW(protseq.rawAddress.toString(), maxcalls.toInt(), endpoint.rawAddress.toString(), securitydescriptor.rawAddress.toString(), policy.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rpcServerUseProtseqEpW(protseq: Pcwstr, maxcalls: UInt, endpoint: Pcwstr, securitydescriptor: ConstPtr<CVoid>): RpcStatus =
+public actual fun rpcServerUseProtseqEpW(protseq: Pcwstr, maxcalls: UInt, endpoint: Pcwstr, securitydescriptor: ConstPtr): RpcStatus =
     if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcRpcServerUseProtseqEpW(protseq.rawAddress.toString(), maxcalls.toInt(), endpoint.rawAddress.toString(), securitydescriptor.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rpcServerUseProtseqExA(protseq: Pcstr, maxcalls: UInt, securitydescriptor: ConstPtr<CVoid>, policy: ConstPtr<RpcPolicy>): RpcStatus =
+public actual fun rpcServerUseProtseqExA(protseq: Pcstr, maxcalls: UInt, securitydescriptor: ConstPtr, policy: ConstPtr): RpcStatus =
     if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcRpcServerUseProtseqExA(protseq.rawAddress.toString(), maxcalls.toInt(), securitydescriptor.rawAddress.toString(), policy.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rpcServerUseProtseqExW(protseq: Pcwstr, maxcalls: UInt, securitydescriptor: ConstPtr<CVoid>, policy: ConstPtr<RpcPolicy>): RpcStatus =
+public actual fun rpcServerUseProtseqExW(protseq: Pcwstr, maxcalls: UInt, securitydescriptor: ConstPtr, policy: ConstPtr): RpcStatus =
     if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcRpcServerUseProtseqExW(protseq.rawAddress.toString(), maxcalls.toInt(), securitydescriptor.rawAddress.toString(), policy.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rpcServerUseProtseqIfA(protseq: Pcstr, maxcalls: UInt, ifspec: ConstPtr<CVoid>, securitydescriptor: ConstPtr<CVoid>): RpcStatus =
+public actual fun rpcServerUseProtseqIfA(protseq: Pcstr, maxcalls: UInt, ifspec: ConstPtr, securitydescriptor: ConstPtr): RpcStatus =
     if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcRpcServerUseProtseqIfA(protseq.rawAddress.toString(), maxcalls.toInt(), ifspec.rawAddress.toString(), securitydescriptor.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rpcServerUseProtseqIfExA(protseq: Pcstr, maxcalls: UInt, ifspec: ConstPtr<CVoid>, securitydescriptor: ConstPtr<CVoid>, policy: ConstPtr<RpcPolicy>): RpcStatus =
+public actual fun rpcServerUseProtseqIfExA(protseq: Pcstr, maxcalls: UInt, ifspec: ConstPtr, securitydescriptor: ConstPtr, policy: ConstPtr): RpcStatus =
     if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcRpcServerUseProtseqIfExA(protseq.rawAddress.toString(), maxcalls.toInt(), ifspec.rawAddress.toString(), securitydescriptor.rawAddress.toString(), policy.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rpcServerUseProtseqIfExW(protseq: Pcwstr, maxcalls: UInt, ifspec: ConstPtr<CVoid>, securitydescriptor: ConstPtr<CVoid>, policy: ConstPtr<RpcPolicy>): RpcStatus =
+public actual fun rpcServerUseProtseqIfExW(protseq: Pcwstr, maxcalls: UInt, ifspec: ConstPtr, securitydescriptor: ConstPtr, policy: ConstPtr): RpcStatus =
     if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcRpcServerUseProtseqIfExW(protseq.rawAddress.toString(), maxcalls.toInt(), ifspec.rawAddress.toString(), securitydescriptor.rawAddress.toString(), policy.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rpcServerUseProtseqIfW(protseq: Pcwstr, maxcalls: UInt, ifspec: ConstPtr<CVoid>, securitydescriptor: ConstPtr<CVoid>): RpcStatus =
+public actual fun rpcServerUseProtseqIfW(protseq: Pcwstr, maxcalls: UInt, ifspec: ConstPtr, securitydescriptor: ConstPtr): RpcStatus =
     if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcRpcServerUseProtseqIfW(protseq.rawAddress.toString(), maxcalls.toInt(), ifspec.rawAddress.toString(), securitydescriptor.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rpcServerUseProtseqW(protseq: Pcwstr, maxcalls: UInt, securitydescriptor: ConstPtr<CVoid>): RpcStatus =
+public actual fun rpcServerUseProtseqW(protseq: Pcwstr, maxcalls: UInt, securitydescriptor: ConstPtr): RpcStatus =
     if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcRpcServerUseProtseqW(protseq.rawAddress.toString(), maxcalls.toInt(), securitydescriptor.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun rpcServerYield() {
@@ -3407,13 +3405,13 @@ public actual fun rpcServerYield() {
     }
 }
 
-public actual fun rpcSmAllocate(size: ULong, pstatus: MutPtr<RpcStatus>): MutPtr<CVoid> =
+public actual fun rpcSmAllocate(size: ULong, pstatus: MutPtr): MutPtr =
     if (windowsWin32SystemRpcNapiAvailable) MutPtr(wasmWindowssysWindowsWin32SystemRpcRpcSmAllocate(size.toString(), pstatus.rawAddress.toString()).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rpcSmClientFree(pnodetofree: ConstPtr<CVoid>): RpcStatus =
+public actual fun rpcSmClientFree(pnodetofree: ConstPtr): RpcStatus =
     if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcRpcSmClientFree(pnodetofree.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rpcSmDestroyClientContext(contexthandle: ConstPtr<ConstPtr<CVoid>>): RpcStatus =
+public actual fun rpcSmDestroyClientContext(contexthandle: ConstPtr): RpcStatus =
     if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcRpcSmDestroyClientContext(contexthandle.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun rpcSmDisableAllocate(): RpcStatus =
@@ -3422,31 +3420,31 @@ public actual fun rpcSmDisableAllocate(): RpcStatus =
 public actual fun rpcSmEnableAllocate(): RpcStatus =
     if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcRpcSmEnableAllocate() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rpcSmFree(nodetofree: ConstPtr<CVoid>): RpcStatus =
+public actual fun rpcSmFree(nodetofree: ConstPtr): RpcStatus =
     if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcRpcSmFree(nodetofree.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rpcSmGetThreadHandle(pstatus: MutPtr<RpcStatus>): MutPtr<CVoid> =
+public actual fun rpcSmGetThreadHandle(pstatus: MutPtr): MutPtr =
     if (windowsWin32SystemRpcNapiAvailable) MutPtr(wasmWindowssysWindowsWin32SystemRpcRpcSmGetThreadHandle(pstatus.rawAddress.toString()).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun rpcSmSetClientAllocFree(clientalloc: RpcClientAlloc, clientfree: RpcClientFree): RpcStatus =
     if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcRpcSmSetClientAllocFree(0L.toString(), 0L.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rpcSmSetThreadHandle(id: ConstPtr<CVoid>): RpcStatus =
+public actual fun rpcSmSetThreadHandle(id: ConstPtr): RpcStatus =
     if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcRpcSmSetThreadHandle(id.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rpcSmSwapClientAllocFree(clientalloc: RpcClientAlloc, clientfree: RpcClientFree, oldclientalloc: MutPtr<RpcClientAlloc>, oldclientfree: MutPtr<RpcClientFree>): RpcStatus =
+public actual fun rpcSmSwapClientAllocFree(clientalloc: RpcClientAlloc, clientfree: RpcClientFree, oldclientalloc: MutPtr, oldclientfree: MutPtr): RpcStatus =
     if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcRpcSmSwapClientAllocFree(0L.toString(), 0L.toString(), oldclientalloc.rawAddress.toString(), oldclientfree.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rpcSsAllocate(size: ULong): MutPtr<CVoid> =
+public actual fun rpcSsAllocate(size: ULong): MutPtr =
     if (windowsWin32SystemRpcNapiAvailable) MutPtr(wasmWindowssysWindowsWin32SystemRpcRpcSsAllocate(size.toString()).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rpcSsContextLockExclusive(serverbindinghandle: ConstPtr<CVoid>, usercontext: ConstPtr<CVoid>): RpcStatus =
+public actual fun rpcSsContextLockExclusive(serverbindinghandle: ConstPtr, usercontext: ConstPtr): RpcStatus =
     if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcRpcSsContextLockExclusive(serverbindinghandle.rawAddress.toString(), usercontext.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rpcSsContextLockShared(serverbindinghandle: ConstPtr<CVoid>, usercontext: ConstPtr<CVoid>): RpcStatus =
+public actual fun rpcSsContextLockShared(serverbindinghandle: ConstPtr, usercontext: ConstPtr): RpcStatus =
     if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcRpcSsContextLockShared(serverbindinghandle.rawAddress.toString(), usercontext.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rpcSsDestroyClientContext(contexthandle: ConstPtr<ConstPtr<CVoid>>) {
+public actual fun rpcSsDestroyClientContext(contexthandle: ConstPtr) {
     if (windowsWin32SystemRpcNapiAvailable) {
         wasmWindowssysWindowsWin32SystemRpcRpcSsDestroyClientContext(contexthandle.rawAddress.toString())
     } else {
@@ -3478,7 +3476,7 @@ public actual fun rpcSsEnableAllocate() {
     }
 }
 
-public actual fun rpcSsFree(nodetofree: ConstPtr<CVoid>) {
+public actual fun rpcSsFree(nodetofree: ConstPtr) {
     if (windowsWin32SystemRpcNapiAvailable) {
         wasmWindowssysWindowsWin32SystemRpcRpcSsFree(nodetofree.rawAddress.toString())
     } else {
@@ -3486,10 +3484,10 @@ public actual fun rpcSsFree(nodetofree: ConstPtr<CVoid>) {
     }
 }
 
-public actual fun rpcSsGetContextBinding(contexthandle: ConstPtr<CVoid>, binding: MutPtr<MutPtr<CVoid>>): RpcStatus =
+public actual fun rpcSsGetContextBinding(contexthandle: ConstPtr, binding: MutPtr): RpcStatus =
     if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcRpcSsGetContextBinding(contexthandle.rawAddress.toString(), binding.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rpcSsGetThreadHandle(): MutPtr<CVoid> =
+public actual fun rpcSsGetThreadHandle(): MutPtr =
     if (windowsWin32SystemRpcNapiAvailable) MutPtr(wasmWindowssysWindowsWin32SystemRpcRpcSsGetThreadHandle().toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun rpcSsSetClientAllocFree(clientalloc: RpcClientAlloc, clientfree: RpcClientFree) {
@@ -3500,7 +3498,7 @@ public actual fun rpcSsSetClientAllocFree(clientalloc: RpcClientAlloc, clientfre
     }
 }
 
-public actual fun rpcSsSetThreadHandle(id: ConstPtr<CVoid>) {
+public actual fun rpcSsSetThreadHandle(id: ConstPtr) {
     if (windowsWin32SystemRpcNapiAvailable) {
         wasmWindowssysWindowsWin32SystemRpcRpcSsSetThreadHandle(id.rawAddress.toString())
     } else {
@@ -3508,7 +3506,7 @@ public actual fun rpcSsSetThreadHandle(id: ConstPtr<CVoid>) {
     }
 }
 
-public actual fun rpcSsSwapClientAllocFree(clientalloc: RpcClientAlloc, clientfree: RpcClientFree, oldclientalloc: MutPtr<RpcClientAlloc>, oldclientfree: MutPtr<RpcClientFree>) {
+public actual fun rpcSsSwapClientAllocFree(clientalloc: RpcClientAlloc, clientfree: RpcClientFree, oldclientalloc: MutPtr, oldclientfree: MutPtr) {
     if (windowsWin32SystemRpcNapiAvailable) {
         wasmWindowssysWindowsWin32SystemRpcRpcSsSwapClientAllocFree(0L.toString(), 0L.toString(), oldclientalloc.rawAddress.toString(), oldclientfree.rawAddress.toString())
     } else {
@@ -3516,28 +3514,28 @@ public actual fun rpcSsSwapClientAllocFree(clientalloc: RpcClientAlloc, clientfr
     }
 }
 
-public actual fun rpcStringBindingComposeA(objuuid: Pcstr, protseq: Pcstr, networkaddr: Pcstr, endpoint: Pcstr, options: Pcstr, stringbinding: MutPtr<Pstr>): RpcStatus =
+public actual fun rpcStringBindingComposeA(objuuid: Pcstr, protseq: Pcstr, networkaddr: Pcstr, endpoint: Pcstr, options: Pcstr, stringbinding: MutPtr): RpcStatus =
     if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcRpcStringBindingComposeA(objuuid.rawAddress.toString(), protseq.rawAddress.toString(), networkaddr.rawAddress.toString(), endpoint.rawAddress.toString(), options.rawAddress.toString(), stringbinding.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rpcStringBindingComposeW(objuuid: Pcwstr, protseq: Pcwstr, networkaddr: Pcwstr, endpoint: Pcwstr, options: Pcwstr, stringbinding: MutPtr<Pwstr>): RpcStatus =
+public actual fun rpcStringBindingComposeW(objuuid: Pcwstr, protseq: Pcwstr, networkaddr: Pcwstr, endpoint: Pcwstr, options: Pcwstr, stringbinding: MutPtr): RpcStatus =
     if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcRpcStringBindingComposeW(objuuid.rawAddress.toString(), protseq.rawAddress.toString(), networkaddr.rawAddress.toString(), endpoint.rawAddress.toString(), options.rawAddress.toString(), stringbinding.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rpcStringBindingParseA(stringbinding: Pcstr, objuuid: MutPtr<Pstr>, protseq: MutPtr<Pstr>, networkaddr: MutPtr<Pstr>, endpoint: MutPtr<Pstr>, networkoptions: MutPtr<Pstr>): RpcStatus =
+public actual fun rpcStringBindingParseA(stringbinding: Pcstr, objuuid: MutPtr, protseq: MutPtr, networkaddr: MutPtr, endpoint: MutPtr, networkoptions: MutPtr): RpcStatus =
     if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcRpcStringBindingParseA(stringbinding.rawAddress.toString(), objuuid.rawAddress.toString(), protseq.rawAddress.toString(), networkaddr.rawAddress.toString(), endpoint.rawAddress.toString(), networkoptions.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rpcStringBindingParseW(stringbinding: Pcwstr, objuuid: MutPtr<Pwstr>, protseq: MutPtr<Pwstr>, networkaddr: MutPtr<Pwstr>, endpoint: MutPtr<Pwstr>, networkoptions: MutPtr<Pwstr>): RpcStatus =
+public actual fun rpcStringBindingParseW(stringbinding: Pcwstr, objuuid: MutPtr, protseq: MutPtr, networkaddr: MutPtr, endpoint: MutPtr, networkoptions: MutPtr): RpcStatus =
     if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcRpcStringBindingParseW(stringbinding.rawAddress.toString(), objuuid.rawAddress.toString(), protseq.rawAddress.toString(), networkaddr.rawAddress.toString(), endpoint.rawAddress.toString(), networkoptions.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rpcStringFreeA(string: MutPtr<Pstr>): RpcStatus =
+public actual fun rpcStringFreeA(string: MutPtr): RpcStatus =
     if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcRpcStringFreeA(string.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rpcStringFreeW(string: MutPtr<Pwstr>): RpcStatus =
+public actual fun rpcStringFreeW(string: MutPtr): RpcStatus =
     if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcRpcStringFreeW(string.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun rpcTestCancel(): RpcStatus =
     if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcRpcTestCancel() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rpcUserFree(asynchandle: MutPtr<CVoid>, pbuffer: MutPtr<CVoid>) {
+public actual fun rpcUserFree(asynchandle: MutPtr, pbuffer: MutPtr) {
     if (windowsWin32SystemRpcNapiAvailable) {
         wasmWindowssysWindowsWin32SystemRpcRpcUserFree(asynchandle.rawAddress.toString(), pbuffer.rawAddress.toString())
     } else {
@@ -3545,35 +3543,35 @@ public actual fun rpcUserFree(asynchandle: MutPtr<CVoid>, pbuffer: MutPtr<CVoid>
     }
 }
 
-public actual fun uuidCompare(uuid1: ConstPtr<Guid>, uuid2: ConstPtr<Guid>, status: MutPtr<RpcStatus>): Int =
+public actual fun uuidCompare(uuid1: ConstPtr, uuid2: ConstPtr, status: MutPtr): Int =
     if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcUuidCompare(uuid1.rawAddress.toString(), uuid2.rawAddress.toString(), status.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun uuidCreate(uuid: MutPtr<Guid>): RpcStatus =
+public actual fun uuidCreate(uuid: MutPtr): RpcStatus =
     if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcUuidCreate(uuid.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun uuidCreateNil(niluuid: MutPtr<Guid>): RpcStatus =
+public actual fun uuidCreateNil(niluuid: MutPtr): RpcStatus =
     if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcUuidCreateNil(niluuid.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun uuidCreateSequential(uuid: MutPtr<Guid>): RpcStatus =
+public actual fun uuidCreateSequential(uuid: MutPtr): RpcStatus =
     if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcUuidCreateSequential(uuid.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun uuidEqual(uuid1: ConstPtr<Guid>, uuid2: ConstPtr<Guid>, status: MutPtr<RpcStatus>): Int =
+public actual fun uuidEqual(uuid1: ConstPtr, uuid2: ConstPtr, status: MutPtr): Int =
     if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcUuidEqual(uuid1.rawAddress.toString(), uuid2.rawAddress.toString(), status.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun uuidFromStringA(stringuuid: Pcstr, uuid: MutPtr<Guid>): RpcStatus =
+public actual fun uuidFromStringA(stringuuid: Pcstr, uuid: MutPtr): RpcStatus =
     if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcUuidFromStringA(stringuuid.rawAddress.toString(), uuid.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun uuidFromStringW(stringuuid: Pcwstr, uuid: MutPtr<Guid>): RpcStatus =
+public actual fun uuidFromStringW(stringuuid: Pcwstr, uuid: MutPtr): RpcStatus =
     if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcUuidFromStringW(stringuuid.rawAddress.toString(), uuid.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun uuidHash(uuid: ConstPtr<Guid>, status: MutPtr<RpcStatus>): UShort =
+public actual fun uuidHash(uuid: ConstPtr, status: MutPtr): UShort =
     if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcUuidHash(uuid.rawAddress.toString(), status.rawAddress.toString()).toUShort() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun uuidIsNil(uuid: ConstPtr<Guid>, status: MutPtr<RpcStatus>): Int =
+public actual fun uuidIsNil(uuid: ConstPtr, status: MutPtr): Int =
     if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcUuidIsNil(uuid.rawAddress.toString(), status.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun uuidToStringA(uuid: ConstPtr<Guid>, stringuuid: MutPtr<Pstr>): RpcStatus =
+public actual fun uuidToStringA(uuid: ConstPtr, stringuuid: MutPtr): RpcStatus =
     if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcUuidToStringA(uuid.rawAddress.toString(), stringuuid.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun uuidToStringW(uuid: ConstPtr<Guid>, stringuuid: MutPtr<Pwstr>): RpcStatus =
+public actual fun uuidToStringW(uuid: ConstPtr, stringuuid: MutPtr): RpcStatus =
     if (windowsWin32SystemRpcNapiAvailable) wasmWindowssysWindowsWin32SystemRpcUuidToStringW(uuid.rawAddress.toString(), stringuuid.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")

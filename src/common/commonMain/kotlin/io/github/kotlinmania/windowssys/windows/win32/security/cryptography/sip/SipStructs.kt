@@ -1,31 +1,28 @@
 package io.github.kotlinmania.windowssys.windows.win32.security.cryptography.sip
 
-import io.github.kotlinmania.rustlang.core.ffi.CVoid
 import io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
 import io.github.kotlinmania.rustlang.core.mem.TypeLayout
 import io.github.kotlinmania.rustlang.core.ptr.ConstPtr
 import io.github.kotlinmania.rustlang.core.ptr.MutPtr
 import io.github.kotlinmania.windowssys.core.Bool
-import io.github.kotlinmania.windowssys.core.Guid
 import io.github.kotlinmania.windowssys.core.Pcwstr
 import io.github.kotlinmania.windowssys.core.Pwstr
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Handle
 import io.github.kotlinmania.windowssys.windows.win32.security.cryptography.CryptAlgorithmIdentifier
 import io.github.kotlinmania.windowssys.windows.win32.security.cryptography.CryptAttributeTypeValue
 import io.github.kotlinmania.windowssys.windows.win32.security.cryptography.CryptIntegerBlob
-import io.github.kotlinmania.windowssys.windows.win32.security.cryptography.catalog.MsAddinfoCatalogmember
 
 public class MsAddinfoBlob internal constructor(
     public var cbStruct: UInt,
     public var cbMemObject: UInt,
-    pbMemObjectCtorArg: MutPtr<UByte>,
+    pbMemObjectCtorArg: MutPtr,
     public var cbMemSignedMsg: UInt,
-    pbMemSignedMsgCtorArg: MutPtr<UByte>,
+    pbMemSignedMsgCtorArg: MutPtr,
 ) {
-    public var pbMemObject: MutPtr<UByte> = pbMemObjectCtorArg
+    public var pbMemObject: MutPtr = pbMemObjectCtorArg
         internal set
 
-    public var pbMemSignedMsg: MutPtr<UByte> = pbMemSignedMsgCtorArg
+    public var pbMemSignedMsg: MutPtr = pbMemSignedMsgCtorArg
         internal set
 
     public constructor() : this(
@@ -40,13 +37,13 @@ public class MsAddinfoBlob internal constructor(
 
     public operator fun component2(): UInt = this.cbMemObject
 
-    public operator fun component3(): MutPtr<UByte> = this.pbMemObject
+    public operator fun component3(): MutPtr = this.pbMemObject
 
     public operator fun component4(): UInt = this.cbMemSignedMsg
 
-    public operator fun component5(): MutPtr<UByte> = this.pbMemSignedMsg
+    public operator fun component5(): MutPtr = this.pbMemSignedMsg
 
-    public fun copy(cbStruct: UInt = this.cbStruct, cbMemObject: UInt = this.cbMemObject, pbMemObject: MutPtr<UByte> = this.pbMemObject, cbMemSignedMsg: UInt = this.cbMemSignedMsg, pbMemSignedMsg: MutPtr<UByte> = this.pbMemSignedMsg): MsAddinfoBlob = MsAddinfoBlob(cbStruct = cbStruct, cbMemObject = cbMemObject, pbMemObjectCtorArg = pbMemObject, cbMemSignedMsg = cbMemSignedMsg, pbMemSignedMsgCtorArg = pbMemSignedMsg)
+    public fun copy(cbStruct: UInt = this.cbStruct, cbMemObject: UInt = this.cbMemObject, pbMemObject: MutPtr = this.pbMemObject, cbMemSignedMsg: UInt = this.cbMemSignedMsg, pbMemSignedMsg: MutPtr = this.pbMemSignedMsg): MsAddinfoBlob = MsAddinfoBlob(cbStruct = cbStruct, cbMemObject = cbMemObject, pbMemObjectCtorArg = pbMemObject, cbMemSignedMsg = cbMemSignedMsg, pbMemSignedMsgCtorArg = pbMemSignedMsg)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -79,12 +76,12 @@ public class MsAddinfoBlob internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 4L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<UByte>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 16L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<UByte>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 24L),
                     )
                 override fun writeNative(addr: Long, value: MsAddinfoBlob) {
@@ -92,12 +89,12 @@ public class MsAddinfoBlob internal constructor(
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 4L, value.cbMemObject)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<UByte>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.pbMemObject)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 16L, value.cbMemSignedMsg)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<UByte>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 24L, value.pbMemSignedMsg)
                 }
             }
@@ -105,9 +102,9 @@ public class MsAddinfoBlob internal constructor(
         public operator fun invoke(
             cbStruct: UInt = 0u,
             cbMemObject: UInt = 0u,
-            pbMemObject: MutPtr<UByte> = MutPtr(0L),
+            pbMemObject: MutPtr = MutPtr(0L),
             cbMemSignedMsg: UInt = 0u,
-            pbMemSignedMsg: MutPtr<UByte> = MutPtr(0L),
+            pbMemSignedMsg: MutPtr = MutPtr(0L),
         ): MsAddinfoBlob =
             MsAddinfoBlob(
                 cbStruct = cbStruct,
@@ -121,9 +118,9 @@ public class MsAddinfoBlob internal constructor(
 
 public class MsAddinfoFlat internal constructor(
     public var cbStruct: UInt,
-    pIndirectDataCtorArg: MutPtr<SipIndirectData>,
+    pIndirectDataCtorArg: MutPtr,
 ) {
-    public var pIndirectData: MutPtr<SipIndirectData> = pIndirectDataCtorArg
+    public var pIndirectData: MutPtr = pIndirectDataCtorArg
         internal set
 
     public constructor() : this(
@@ -133,9 +130,9 @@ public class MsAddinfoFlat internal constructor(
 
     public operator fun component1(): UInt = this.cbStruct
 
-    public operator fun component2(): MutPtr<SipIndirectData> = this.pIndirectData
+    public operator fun component2(): MutPtr = this.pIndirectData
 
-    public fun copy(cbStruct: UInt = this.cbStruct, pIndirectData: MutPtr<SipIndirectData> = this.pIndirectData): MsAddinfoFlat = MsAddinfoFlat(cbStruct = cbStruct, pIndirectDataCtorArg = pIndirectData)
+    public fun copy(cbStruct: UInt = this.cbStruct, pIndirectData: MutPtr = this.pIndirectData): MsAddinfoFlat = MsAddinfoFlat(cbStruct = cbStruct, pIndirectDataCtorArg = pIndirectData)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -161,21 +158,21 @@ public class MsAddinfoFlat internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<SipIndirectData>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                     )
                 override fun writeNative(addr: Long, value: MsAddinfoFlat) {
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr, value.cbStruct)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<SipIndirectData>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.pIndirectData)
                 }
             }
 
         public operator fun invoke(
             cbStruct: UInt = 0u,
-            pIndirectData: MutPtr<SipIndirectData> = MutPtr(0L),
+            pIndirectData: MutPtr = MutPtr(0L),
         ): MsAddinfoFlat =
             MsAddinfoFlat(
                 cbStruct = cbStruct,
@@ -186,7 +183,7 @@ public class MsAddinfoFlat internal constructor(
 
 public class SipAddNewprovider internal constructor(
     public var cbStruct: UInt,
-    pgSubjectCtorArg: MutPtr<Guid>,
+    pgSubjectCtorArg: MutPtr,
     pwszDLLFileNameCtorArg: Pwstr,
     pwszMagicNumberCtorArg: Pwstr,
     pwszIsFunctionNameCtorArg: Pwstr,
@@ -198,7 +195,7 @@ public class SipAddNewprovider internal constructor(
     pwszIsFunctionNameFmt2CtorArg: Pwstr,
     pwszGetCapFuncNameCtorArg: Pwstr,
 ) {
-    public var pgSubject: MutPtr<Guid> = pgSubjectCtorArg
+    public var pgSubject: MutPtr = pgSubjectCtorArg
         internal set
 
     public var pwszDLLFileName: Pwstr = pwszDLLFileNameCtorArg
@@ -248,7 +245,7 @@ public class SipAddNewprovider internal constructor(
 
     public operator fun component1(): UInt = this.cbStruct
 
-    public operator fun component2(): MutPtr<Guid> = this.pgSubject
+    public operator fun component2(): MutPtr = this.pgSubject
 
     public operator fun component3(): Pwstr = this.pwszDLLFileName
 
@@ -270,7 +267,7 @@ public class SipAddNewprovider internal constructor(
 
     public operator fun component12(): Pwstr = this.pwszGetCapFuncName
 
-    public fun copy(cbStruct: UInt = this.cbStruct, pgSubject: MutPtr<Guid> = this.pgSubject, pwszDLLFileName: Pwstr = this.pwszDLLFileName, pwszMagicNumber: Pwstr = this.pwszMagicNumber, pwszIsFunctionName: Pwstr = this.pwszIsFunctionName, pwszGetFuncName: Pwstr = this.pwszGetFuncName, pwszPutFuncName: Pwstr = this.pwszPutFuncName, pwszCreateFuncName: Pwstr = this.pwszCreateFuncName, pwszVerifyFuncName: Pwstr = this.pwszVerifyFuncName, pwszRemoveFuncName: Pwstr = this.pwszRemoveFuncName, pwszIsFunctionNameFmt2: Pwstr = this.pwszIsFunctionNameFmt2, pwszGetCapFuncName: Pwstr = this.pwszGetCapFuncName): SipAddNewprovider = SipAddNewprovider(cbStruct = cbStruct, pgSubjectCtorArg = pgSubject, pwszDLLFileNameCtorArg = pwszDLLFileName, pwszMagicNumberCtorArg = pwszMagicNumber, pwszIsFunctionNameCtorArg = pwszIsFunctionName, pwszGetFuncNameCtorArg = pwszGetFuncName, pwszPutFuncNameCtorArg = pwszPutFuncName, pwszCreateFuncNameCtorArg = pwszCreateFuncName, pwszVerifyFuncNameCtorArg = pwszVerifyFuncName, pwszRemoveFuncNameCtorArg = pwszRemoveFuncName, pwszIsFunctionNameFmt2CtorArg = pwszIsFunctionNameFmt2, pwszGetCapFuncNameCtorArg = pwszGetCapFuncName)
+    public fun copy(cbStruct: UInt = this.cbStruct, pgSubject: MutPtr = this.pgSubject, pwszDLLFileName: Pwstr = this.pwszDLLFileName, pwszMagicNumber: Pwstr = this.pwszMagicNumber, pwszIsFunctionName: Pwstr = this.pwszIsFunctionName, pwszGetFuncName: Pwstr = this.pwszGetFuncName, pwszPutFuncName: Pwstr = this.pwszPutFuncName, pwszCreateFuncName: Pwstr = this.pwszCreateFuncName, pwszVerifyFuncName: Pwstr = this.pwszVerifyFuncName, pwszRemoveFuncName: Pwstr = this.pwszRemoveFuncName, pwszIsFunctionNameFmt2: Pwstr = this.pwszIsFunctionNameFmt2, pwszGetCapFuncName: Pwstr = this.pwszGetCapFuncName): SipAddNewprovider = SipAddNewprovider(cbStruct = cbStruct, pgSubjectCtorArg = pgSubject, pwszDLLFileNameCtorArg = pwszDLLFileName, pwszMagicNumberCtorArg = pwszMagicNumber, pwszIsFunctionNameCtorArg = pwszIsFunctionName, pwszGetFuncNameCtorArg = pwszGetFuncName, pwszPutFuncNameCtorArg = pwszPutFuncName, pwszCreateFuncNameCtorArg = pwszCreateFuncName, pwszVerifyFuncNameCtorArg = pwszVerifyFuncName, pwszRemoveFuncNameCtorArg = pwszRemoveFuncName, pwszIsFunctionNameFmt2CtorArg = pwszIsFunctionNameFmt2, pwszGetCapFuncNameCtorArg = pwszGetCapFuncName)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -309,7 +306,7 @@ public class SipAddNewprovider internal constructor(
     public companion object {
         public operator fun invoke(
             cbStruct: UInt = 0u,
-            pgSubject: MutPtr<Guid> = MutPtr(0L),
+            pgSubject: MutPtr = MutPtr(0L),
             pwszDLLFileName: Pwstr = MutPtr(0L),
             pwszMagicNumber: Pwstr = MutPtr(0L),
             pwszIsFunctionName: Pwstr = MutPtr(0L),
@@ -470,7 +467,7 @@ public data class SipIndirectData(
 
 public class SipSubjectinfo internal constructor(
     public var cbSize: UInt,
-    pgSubjectTypeCtorArg: MutPtr<Guid>,
+    pgSubjectTypeCtorArg: MutPtr,
     hFileCtorArg: Handle,
     pwsFileNameCtorArg: Pcwstr,
     pwsDisplayNameCtorArg: Pcwstr,
@@ -486,9 +483,9 @@ public class SipSubjectinfo internal constructor(
     public var dwIndex: UInt,
     public var dwUnionChoice: UInt,
     public var anonymous: SipSubjectinfo0,
-    pClientDataCtorArg: MutPtr<CVoid>,
+    pClientDataCtorArg: MutPtr,
 ) {
-    public var pgSubjectType: MutPtr<Guid> = pgSubjectTypeCtorArg
+    public var pgSubjectType: MutPtr = pgSubjectTypeCtorArg
         internal set
 
     public var hFile: Handle = hFileCtorArg
@@ -500,7 +497,7 @@ public class SipSubjectinfo internal constructor(
     public var pwsDisplayName: Pcwstr = pwsDisplayNameCtorArg
         internal set
 
-    public var pClientData: MutPtr<CVoid> = pClientDataCtorArg
+    public var pClientData: MutPtr = pClientDataCtorArg
         internal set
 
     public constructor() : this(
@@ -527,7 +524,7 @@ public class SipSubjectinfo internal constructor(
     public companion object {
         public operator fun invoke(
             cbSize: UInt = 0u,
-            pgSubjectType: MutPtr<Guid> = MutPtr(0L),
+            pgSubjectType: MutPtr = MutPtr(0L),
             hFile: Handle = MutPtr(0L),
             pwsFileName: Pcwstr = ConstPtr(0L),
             pwsDisplayName: Pcwstr = ConstPtr(0L),
@@ -543,7 +540,7 @@ public class SipSubjectinfo internal constructor(
             dwIndex: UInt = 0u,
             dwUnionChoice: UInt = 0u,
             anonymous: SipSubjectinfo0 = SipSubjectinfo0(),
-            pClientData: MutPtr<CVoid> = MutPtr(0L),
+            pClientData: MutPtr = MutPtr(0L),
         ): SipSubjectinfo =
             SipSubjectinfo(
                 cbSize = cbSize,
@@ -569,17 +566,17 @@ public class SipSubjectinfo internal constructor(
 }
 
 public class SipSubjectinfo0 internal constructor(
-    psFlatCtorArg: MutPtr<MsAddinfoFlat>,
-    psCatMemberCtorArg: MutPtr<MsAddinfoCatalogmember>,
-    psBlobCtorArg: MutPtr<MsAddinfoBlob>,
+    psFlatCtorArg: MutPtr,
+    psCatMemberCtorArg: MutPtr,
+    psBlobCtorArg: MutPtr,
 ) {
-    public var psFlat: MutPtr<MsAddinfoFlat> = psFlatCtorArg
+    public var psFlat: MutPtr = psFlatCtorArg
         internal set
 
-    public var psCatMember: MutPtr<MsAddinfoCatalogmember> = psCatMemberCtorArg
+    public var psCatMember: MutPtr = psCatMemberCtorArg
         internal set
 
-    public var psBlob: MutPtr<MsAddinfoBlob> = psBlobCtorArg
+    public var psBlob: MutPtr = psBlobCtorArg
         internal set
 
     public constructor() : this(
@@ -588,13 +585,13 @@ public class SipSubjectinfo0 internal constructor(
         psBlobCtorArg = MutPtr(0L),
     )
 
-    public operator fun component1(): MutPtr<MsAddinfoFlat> = this.psFlat
+    public operator fun component1(): MutPtr = this.psFlat
 
-    public operator fun component2(): MutPtr<MsAddinfoCatalogmember> = this.psCatMember
+    public operator fun component2(): MutPtr = this.psCatMember
 
-    public operator fun component3(): MutPtr<MsAddinfoBlob> = this.psBlob
+    public operator fun component3(): MutPtr = this.psBlob
 
-    public fun copy(psFlat: MutPtr<MsAddinfoFlat> = this.psFlat, psCatMember: MutPtr<MsAddinfoCatalogmember> = this.psCatMember, psBlob: MutPtr<MsAddinfoBlob> = this.psBlob): SipSubjectinfo0 = SipSubjectinfo0(psFlatCtorArg = psFlat, psCatMemberCtorArg = psCatMember, psBlobCtorArg = psBlob)
+    public fun copy(psFlat: MutPtr = this.psFlat, psCatMember: MutPtr = this.psCatMember, psBlob: MutPtr = this.psBlob): SipSubjectinfo0 = SipSubjectinfo0(psFlatCtorArg = psFlat, psCatMemberCtorArg = psCatMember, psBlobCtorArg = psBlob)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -614,9 +611,9 @@ public class SipSubjectinfo0 internal constructor(
 
     public companion object {
         public operator fun invoke(
-            psFlat: MutPtr<MsAddinfoFlat> = MutPtr(0L),
-            psCatMember: MutPtr<MsAddinfoCatalogmember> = MutPtr(0L),
-            psBlob: MutPtr<MsAddinfoBlob> = MutPtr(0L),
+            psFlat: MutPtr = MutPtr(0L),
+            psCatMember: MutPtr = MutPtr(0L),
+            psBlob: MutPtr = MutPtr(0L),
         ): SipSubjectinfo0 =
             SipSubjectinfo0(
                 psFlatCtorArg = psFlat,

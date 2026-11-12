@@ -1,6 +1,5 @@
 package io.github.kotlinmania.windowssys.windows.win32.system.variant
 
-import io.github.kotlinmania.rustlang.core.ffi.CVoid
 import io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
 import io.github.kotlinmania.rustlang.core.mem.TypeLayout
 import io.github.kotlinmania.rustlang.core.ptr.ConstPtr
@@ -10,7 +9,6 @@ import io.github.kotlinmania.windowssys.core.Pstr
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Decimal
 import io.github.kotlinmania.windowssys.windows.win32.foundation.VariantBool
 import io.github.kotlinmania.windowssys.windows.win32.system.com.CY
-import io.github.kotlinmania.windowssys.windows.win32.system.com.Safearray
 
 public data class Variant(
     public var anonymous: Variant0 = Variant0(),
@@ -42,123 +40,123 @@ public class Variant000 internal constructor(
     public var cyVal: CY,
     public var date: Double,
     bstrValCtorArg: Bstr,
-    punkValCtorArg: MutPtr<CVoid>,
-    pdispValCtorArg: MutPtr<CVoid>,
-    parrayCtorArg: MutPtr<Safearray>,
-    pbValCtorArg: MutPtr<UByte>,
-    piValCtorArg: MutPtr<Short>,
-    plValCtorArg: MutPtr<Int>,
-    pllValCtorArg: MutPtr<Long>,
-    pfltValCtorArg: MutPtr<Float>,
-    pdblValCtorArg: MutPtr<Double>,
-    pboolValCtorArg: MutPtr<VariantBool>,
-    obsoleteVariantPboolCtorArg: MutPtr<VariantBool>,
-    pscodeCtorArg: MutPtr<Int>,
-    pcyValCtorArg: MutPtr<CY>,
-    pdateCtorArg: MutPtr<Double>,
-    pbstrValCtorArg: MutPtr<Bstr>,
-    ppunkValCtorArg: MutPtr<MutPtr<CVoid>>,
-    ppdispValCtorArg: MutPtr<MutPtr<CVoid>>,
-    pparrayCtorArg: MutPtr<MutPtr<Safearray>>,
-    pvarValCtorArg: MutPtr<Variant>,
-    byrefCtorArg: MutPtr<CVoid>,
+    punkValCtorArg: MutPtr,
+    pdispValCtorArg: MutPtr,
+    parrayCtorArg: MutPtr,
+    pbValCtorArg: MutPtr,
+    piValCtorArg: MutPtr,
+    plValCtorArg: MutPtr,
+    pllValCtorArg: MutPtr,
+    pfltValCtorArg: MutPtr,
+    pdblValCtorArg: MutPtr,
+    pboolValCtorArg: MutPtr,
+    obsoleteVariantPboolCtorArg: MutPtr,
+    pscodeCtorArg: MutPtr,
+    pcyValCtorArg: MutPtr,
+    pdateCtorArg: MutPtr,
+    pbstrValCtorArg: MutPtr,
+    ppunkValCtorArg: MutPtr,
+    ppdispValCtorArg: MutPtr,
+    pparrayCtorArg: MutPtr,
+    pvarValCtorArg: MutPtr,
+    byrefCtorArg: MutPtr,
     public var cVal: Byte,
     public var uiVal: UShort,
     public var ulVal: UInt,
     public var ullVal: ULong,
     public var intVal: Int,
     public var uintVal: UInt,
-    pdecValCtorArg: MutPtr<Decimal>,
+    pdecValCtorArg: MutPtr,
     pcValCtorArg: Pstr,
-    puiValCtorArg: MutPtr<UShort>,
-    pulValCtorArg: MutPtr<UInt>,
-    pullValCtorArg: MutPtr<ULong>,
-    pintValCtorArg: MutPtr<Int>,
-    puintValCtorArg: MutPtr<UInt>,
+    puiValCtorArg: MutPtr,
+    pulValCtorArg: MutPtr,
+    pullValCtorArg: MutPtr,
+    pintValCtorArg: MutPtr,
+    puintValCtorArg: MutPtr,
     public var anonymous: Variant0000,
 ) {
     public var bstrVal: Bstr = bstrValCtorArg
         internal set
 
-    public var punkVal: MutPtr<CVoid> = punkValCtorArg
+    public var punkVal: MutPtr = punkValCtorArg
         internal set
 
-    public var pdispVal: MutPtr<CVoid> = pdispValCtorArg
+    public var pdispVal: MutPtr = pdispValCtorArg
         internal set
 
-    public var parray: MutPtr<Safearray> = parrayCtorArg
+    public var parray: MutPtr = parrayCtorArg
         internal set
 
-    public var pbVal: MutPtr<UByte> = pbValCtorArg
+    public var pbVal: MutPtr = pbValCtorArg
         internal set
 
-    public var piVal: MutPtr<Short> = piValCtorArg
+    public var piVal: MutPtr = piValCtorArg
         internal set
 
-    public var plVal: MutPtr<Int> = plValCtorArg
+    public var plVal: MutPtr = plValCtorArg
         internal set
 
-    public var pllVal: MutPtr<Long> = pllValCtorArg
+    public var pllVal: MutPtr = pllValCtorArg
         internal set
 
-    public var pfltVal: MutPtr<Float> = pfltValCtorArg
+    public var pfltVal: MutPtr = pfltValCtorArg
         internal set
 
-    public var pdblVal: MutPtr<Double> = pdblValCtorArg
+    public var pdblVal: MutPtr = pdblValCtorArg
         internal set
 
-    public var pboolVal: MutPtr<VariantBool> = pboolValCtorArg
+    public var pboolVal: MutPtr = pboolValCtorArg
         internal set
 
-    public var obsoleteVariantPbool: MutPtr<VariantBool> = obsoleteVariantPboolCtorArg
+    public var obsoleteVariantPbool: MutPtr = obsoleteVariantPboolCtorArg
         internal set
 
-    public var pscode: MutPtr<Int> = pscodeCtorArg
+    public var pscode: MutPtr = pscodeCtorArg
         internal set
 
-    public var pcyVal: MutPtr<CY> = pcyValCtorArg
+    public var pcyVal: MutPtr = pcyValCtorArg
         internal set
 
-    public var pdate: MutPtr<Double> = pdateCtorArg
+    public var pdate: MutPtr = pdateCtorArg
         internal set
 
-    public var pbstrVal: MutPtr<Bstr> = pbstrValCtorArg
+    public var pbstrVal: MutPtr = pbstrValCtorArg
         internal set
 
-    public var ppunkVal: MutPtr<MutPtr<CVoid>> = ppunkValCtorArg
+    public var ppunkVal: MutPtr = ppunkValCtorArg
         internal set
 
-    public var ppdispVal: MutPtr<MutPtr<CVoid>> = ppdispValCtorArg
+    public var ppdispVal: MutPtr = ppdispValCtorArg
         internal set
 
-    public var pparray: MutPtr<MutPtr<Safearray>> = pparrayCtorArg
+    public var pparray: MutPtr = pparrayCtorArg
         internal set
 
-    public var pvarVal: MutPtr<Variant> = pvarValCtorArg
+    public var pvarVal: MutPtr = pvarValCtorArg
         internal set
 
-    public var byref: MutPtr<CVoid> = byrefCtorArg
+    public var byref: MutPtr = byrefCtorArg
         internal set
 
-    public var pdecVal: MutPtr<Decimal> = pdecValCtorArg
+    public var pdecVal: MutPtr = pdecValCtorArg
         internal set
 
     public var pcVal: Pstr = pcValCtorArg
         internal set
 
-    public var puiVal: MutPtr<UShort> = puiValCtorArg
+    public var puiVal: MutPtr = puiValCtorArg
         internal set
 
-    public var pulVal: MutPtr<UInt> = pulValCtorArg
+    public var pulVal: MutPtr = pulValCtorArg
         internal set
 
-    public var pullVal: MutPtr<ULong> = pullValCtorArg
+    public var pullVal: MutPtr = pullValCtorArg
         internal set
 
-    public var pintVal: MutPtr<Int> = pintValCtorArg
+    public var pintVal: MutPtr = pintValCtorArg
         internal set
 
-    public var puintVal: MutPtr<UInt> = puintValCtorArg
+    public var puintVal: MutPtr = puintValCtorArg
         internal set
 
     public constructor() : this(
@@ -224,39 +222,39 @@ public class Variant000 internal constructor(
             cyVal: CY = CY(),
             date: Double = 0.0,
             bstrVal: Bstr = ConstPtr(0L),
-            punkVal: MutPtr<CVoid> = MutPtr(0L),
-            pdispVal: MutPtr<CVoid> = MutPtr(0L),
-            parray: MutPtr<Safearray> = MutPtr(0L),
-            pbVal: MutPtr<UByte> = MutPtr(0L),
-            piVal: MutPtr<Short> = MutPtr(0L),
-            plVal: MutPtr<Int> = MutPtr(0L),
-            pllVal: MutPtr<Long> = MutPtr(0L),
-            pfltVal: MutPtr<Float> = MutPtr(0L),
-            pdblVal: MutPtr<Double> = MutPtr(0L),
-            pboolVal: MutPtr<VariantBool> = MutPtr(0L),
-            obsoleteVariantPbool: MutPtr<VariantBool> = MutPtr(0L),
-            pscode: MutPtr<Int> = MutPtr(0L),
-            pcyVal: MutPtr<CY> = MutPtr(0L),
-            pdate: MutPtr<Double> = MutPtr(0L),
-            pbstrVal: MutPtr<Bstr> = MutPtr(0L),
-            ppunkVal: MutPtr<MutPtr<CVoid>> = MutPtr(0L),
-            ppdispVal: MutPtr<MutPtr<CVoid>> = MutPtr(0L),
-            pparray: MutPtr<MutPtr<Safearray>> = MutPtr(0L),
-            pvarVal: MutPtr<Variant> = MutPtr(0L),
-            byref: MutPtr<CVoid> = MutPtr(0L),
+            punkVal: MutPtr = MutPtr(0L),
+            pdispVal: MutPtr = MutPtr(0L),
+            parray: MutPtr = MutPtr(0L),
+            pbVal: MutPtr = MutPtr(0L),
+            piVal: MutPtr = MutPtr(0L),
+            plVal: MutPtr = MutPtr(0L),
+            pllVal: MutPtr = MutPtr(0L),
+            pfltVal: MutPtr = MutPtr(0L),
+            pdblVal: MutPtr = MutPtr(0L),
+            pboolVal: MutPtr = MutPtr(0L),
+            obsoleteVariantPbool: MutPtr = MutPtr(0L),
+            pscode: MutPtr = MutPtr(0L),
+            pcyVal: MutPtr = MutPtr(0L),
+            pdate: MutPtr = MutPtr(0L),
+            pbstrVal: MutPtr = MutPtr(0L),
+            ppunkVal: MutPtr = MutPtr(0L),
+            ppdispVal: MutPtr = MutPtr(0L),
+            pparray: MutPtr = MutPtr(0L),
+            pvarVal: MutPtr = MutPtr(0L),
+            byref: MutPtr = MutPtr(0L),
             cVal: Byte = 0,
             uiVal: UShort = 0u,
             ulVal: UInt = 0u,
             ullVal: ULong = 0uL,
             intVal: Int = 0,
             uintVal: UInt = 0u,
-            pdecVal: MutPtr<Decimal> = MutPtr(0L),
+            pdecVal: MutPtr = MutPtr(0L),
             pcVal: Pstr = MutPtr(0L),
-            puiVal: MutPtr<UShort> = MutPtr(0L),
-            pulVal: MutPtr<UInt> = MutPtr(0L),
-            pullVal: MutPtr<ULong> = MutPtr(0L),
-            pintVal: MutPtr<Int> = MutPtr(0L),
-            puintVal: MutPtr<UInt> = MutPtr(0L),
+            puiVal: MutPtr = MutPtr(0L),
+            pulVal: MutPtr = MutPtr(0L),
+            pullVal: MutPtr = MutPtr(0L),
+            pintVal: MutPtr = MutPtr(0L),
+            puintVal: MutPtr = MutPtr(0L),
             anonymous: Variant0000 = Variant0000(),
         ): Variant000 =
             Variant000(
@@ -311,13 +309,13 @@ public class Variant000 internal constructor(
 }
 
 public class Variant0000 internal constructor(
-    pvRecordCtorArg: MutPtr<CVoid>,
-    pRecInfoCtorArg: MutPtr<CVoid>,
+    pvRecordCtorArg: MutPtr,
+    pRecInfoCtorArg: MutPtr,
 ) {
-    public var pvRecord: MutPtr<CVoid> = pvRecordCtorArg
+    public var pvRecord: MutPtr = pvRecordCtorArg
         internal set
 
-    public var pRecInfo: MutPtr<CVoid> = pRecInfoCtorArg
+    public var pRecInfo: MutPtr = pRecInfoCtorArg
         internal set
 
     public constructor() : this(
@@ -325,11 +323,11 @@ public class Variant0000 internal constructor(
         pRecInfoCtorArg = MutPtr(0L),
     )
 
-    public operator fun component1(): MutPtr<CVoid> = this.pvRecord
+    public operator fun component1(): MutPtr = this.pvRecord
 
-    public operator fun component2(): MutPtr<CVoid> = this.pRecInfo
+    public operator fun component2(): MutPtr = this.pRecInfo
 
-    public fun copy(pvRecord: MutPtr<CVoid> = this.pvRecord, pRecInfo: MutPtr<CVoid> = this.pRecInfo): Variant0000 = Variant0000(pvRecordCtorArg = pvRecord, pRecInfoCtorArg = pRecInfo)
+    public fun copy(pvRecord: MutPtr = this.pvRecord, pRecInfo: MutPtr = this.pRecInfo): Variant0000 = Variant0000(pvRecordCtorArg = pvRecord, pRecInfoCtorArg = pRecInfo)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -354,28 +352,28 @@ public class Variant0000 internal constructor(
                     Variant0000(
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<CVoid>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<CVoid>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                     )
                 override fun writeNative(addr: Long, value: Variant0000) {
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<CVoid>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr, value.pvRecord)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<CVoid>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.pRecInfo)
                 }
             }
 
         public operator fun invoke(
-            pvRecord: MutPtr<CVoid> = MutPtr(0L),
-            pRecInfo: MutPtr<CVoid> = MutPtr(0L),
+            pvRecord: MutPtr = MutPtr(0L),
+            pRecInfo: MutPtr = MutPtr(0L),
         ): Variant0000 =
             Variant0000(
                 pvRecordCtorArg = pvRecord,

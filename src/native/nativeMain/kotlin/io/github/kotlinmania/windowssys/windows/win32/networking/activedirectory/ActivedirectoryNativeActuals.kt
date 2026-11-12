@@ -2,11 +2,9 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.networking.activedirectory
 
-import io.github.kotlinmania.rustlang.core.ffi.CVoid
 import io.github.kotlinmania.rustlang.core.ptr.ConstPtr
 import io.github.kotlinmania.rustlang.core.ptr.MutPtr
 import io.github.kotlinmania.windowssys.core.Bool
-import io.github.kotlinmania.windowssys.core.Guid
 import io.github.kotlinmania.windowssys.core.Hresult
 import io.github.kotlinmania.windowssys.core.Pcstr
 import io.github.kotlinmania.windowssys.core.Pcwstr
@@ -171,61 +169,59 @@ import io.github.kotlinmania.windowssys.windows.win32.networking.activedirectory
 import io.github.kotlinmania.windowssys.windows.win32.networking.activedirectory.cinterop.windowssysWindowsWin32NetworkingActivedirectoryPropVariantToAdsType
 import io.github.kotlinmania.windowssys.windows.win32.networking.activedirectory.cinterop.windowssysWindowsWin32NetworkingActivedirectoryReallocADsMem
 import io.github.kotlinmania.windowssys.windows.win32.networking.activedirectory.cinterop.windowssysWindowsWin32NetworkingActivedirectoryReallocADsStr
-import io.github.kotlinmania.windowssys.windows.win32.networking.winsock.SocketAddress
 import io.github.kotlinmania.windowssys.windows.win32.security.PsecurityDescriptor
-import io.github.kotlinmania.windowssys.windows.win32.security.authentication.identity.LsaForestTrustInformation
 import io.github.kotlinmania.windowssys.windows.win32.system.Variant
 import io.github.kotlinmania.windowssys.windows.win32.ui.windowsandmessaging.Hicon
 import kotlinx.cinterop.ByteVar
 import kotlinx.cinterop.toCPointer
 import kotlinx.cinterop.toLong
 
-public actual fun aDsBuildEnumerator(padscontainer: MutPtr<CVoid>, ppenumvariant: MutPtr<MutPtr<CVoid>>): Hresult =
+public actual fun aDsBuildEnumerator(padscontainer: MutPtr, ppenumvariant: MutPtr): Hresult =
     windowssysWindowsWin32NetworkingActivedirectoryADsBuildEnumerator(padscontainer.rawAddress.toCPointer<ByteVar>(), ppenumvariant.rawAddress.toCPointer<ByteVar>())
 
-public actual fun aDsBuildVarArrayInt(lpdwobjecttypes: MutPtr<UInt>, dwobjecttypes: UInt, pvar: MutPtr<Variant.Variant>): Hresult =
+public actual fun aDsBuildVarArrayInt(lpdwobjecttypes: MutPtr, dwobjecttypes: UInt, pvar: MutPtr): Hresult =
     windowssysWindowsWin32NetworkingActivedirectoryADsBuildVarArrayInt(lpdwobjecttypes.rawAddress.toCPointer<ByteVar>(), dwobjecttypes, pvar.rawAddress.toCPointer<ByteVar>())
 
-public actual fun aDsBuildVarArrayStr(lpppathnames: ConstPtr<Pcwstr>, dwpathnames: UInt, pvar: MutPtr<Variant.Variant>): Hresult =
+public actual fun aDsBuildVarArrayStr(lpppathnames: ConstPtr, dwpathnames: UInt, pvar: MutPtr): Hresult =
     windowssysWindowsWin32NetworkingActivedirectoryADsBuildVarArrayStr(lpppathnames.rawAddress.toCPointer<ByteVar>(), dwpathnames, pvar.rawAddress.toCPointer<ByteVar>())
 
-public actual fun aDsDecodeBinaryData(szsrcdata: Pcwstr, ppbdestdata: MutPtr<MutPtr<UByte>>, pdwdestlen: MutPtr<UInt>): Hresult =
+public actual fun aDsDecodeBinaryData(szsrcdata: Pcwstr, ppbdestdata: MutPtr, pdwdestlen: MutPtr): Hresult =
     windowssysWindowsWin32NetworkingActivedirectoryADsDecodeBinaryData(szsrcdata.rawAddress.toCPointer<ByteVar>(), ppbdestdata.rawAddress.toCPointer<ByteVar>(), pdwdestlen.rawAddress.toCPointer<ByteVar>())
 
-public actual fun aDsEncodeBinaryData(pbsrcdata: MutPtr<UByte>, dwsrclen: UInt, ppszdestdata: MutPtr<Pwstr>): Hresult =
+public actual fun aDsEncodeBinaryData(pbsrcdata: MutPtr, dwsrclen: UInt, ppszdestdata: MutPtr): Hresult =
     windowssysWindowsWin32NetworkingActivedirectoryADsEncodeBinaryData(pbsrcdata.rawAddress.toCPointer<ByteVar>(), dwsrclen, ppszdestdata.rawAddress.toCPointer<ByteVar>())
 
-public actual fun aDsEnumerateNext(penumvariant: MutPtr<CVoid>, celements: UInt, pvar: MutPtr<Variant.Variant>, pcelementsfetched: MutPtr<UInt>): Hresult =
+public actual fun aDsEnumerateNext(penumvariant: MutPtr, celements: UInt, pvar: MutPtr, pcelementsfetched: MutPtr): Hresult =
     windowssysWindowsWin32NetworkingActivedirectoryADsEnumerateNext(penumvariant.rawAddress.toCPointer<ByteVar>(), celements, pvar.rawAddress.toCPointer<ByteVar>(), pcelementsfetched.rawAddress.toCPointer<ByteVar>())
 
-public actual fun aDsFreeEnumerator(penumvariant: MutPtr<CVoid>): Hresult =
+public actual fun aDsFreeEnumerator(penumvariant: MutPtr): Hresult =
     windowssysWindowsWin32NetworkingActivedirectoryADsFreeEnumerator(penumvariant.rawAddress.toCPointer<ByteVar>())
 
-public actual fun aDsGetLastError(lperror: MutPtr<UInt>, lperrorbuf: Pwstr, dwerrorbuflen: UInt, lpnamebuf: Pwstr, dwnamebuflen: UInt): Hresult =
+public actual fun aDsGetLastError(lperror: MutPtr, lperrorbuf: Pwstr, dwerrorbuflen: UInt, lpnamebuf: Pwstr, dwnamebuflen: UInt): Hresult =
     windowssysWindowsWin32NetworkingActivedirectoryADsGetLastError(lperror.rawAddress.toCPointer<ByteVar>(), lperrorbuf.rawAddress.toCPointer<ByteVar>(), dwerrorbuflen, lpnamebuf.rawAddress.toCPointer<ByteVar>(), dwnamebuflen)
 
-public actual fun aDsGetObject(lpszpathname: Pcwstr, riid: ConstPtr<Guid>, ppobject: MutPtr<MutPtr<CVoid>>): Hresult =
+public actual fun aDsGetObject(lpszpathname: Pcwstr, riid: ConstPtr, ppobject: MutPtr): Hresult =
     windowssysWindowsWin32NetworkingActivedirectoryADsGetObject(lpszpathname.rawAddress.toCPointer<ByteVar>(), riid.rawAddress.toCPointer<ByteVar>(), ppobject.rawAddress.toCPointer<ByteVar>())
 
-public actual fun aDsOpenObject(lpszpathname: Pcwstr, lpszusername: Pcwstr, lpszpassword: Pcwstr, dwreserved: AdsAuthenticationEnum, riid: ConstPtr<Guid>, ppobject: MutPtr<MutPtr<CVoid>>): Hresult =
+public actual fun aDsOpenObject(lpszpathname: Pcwstr, lpszusername: Pcwstr, lpszpassword: Pcwstr, dwreserved: AdsAuthenticationEnum, riid: ConstPtr, ppobject: MutPtr): Hresult =
     windowssysWindowsWin32NetworkingActivedirectoryADsOpenObject(lpszpathname.rawAddress.toCPointer<ByteVar>(), lpszusername.rawAddress.toCPointer<ByteVar>(), lpszpassword.rawAddress.toCPointer<ByteVar>(), dwreserved, riid.rawAddress.toCPointer<ByteVar>(), ppobject.rawAddress.toCPointer<ByteVar>())
 
-public actual fun aDsPropCheckIfWritable(pwzattr: Pcwstr, pwritableattrs: ConstPtr<AdsAttrInfo>): Bool =
+public actual fun aDsPropCheckIfWritable(pwzattr: Pcwstr, pwritableattrs: ConstPtr): Bool =
     windowssysWindowsWin32NetworkingActivedirectoryADsPropCheckIfWritable(pwzattr.rawAddress.toCPointer<ByteVar>(), pwritableattrs.rawAddress.toCPointer<ByteVar>())
 
-public actual fun aDsPropCreateNotifyObj(pappthddataobj: MutPtr<CVoid>, pwzadsobjname: Pcwstr, phnotifyobj: MutPtr<Hwnd>): Hresult =
+public actual fun aDsPropCreateNotifyObj(pappthddataobj: MutPtr, pwzadsobjname: Pcwstr, phnotifyobj: MutPtr): Hresult =
     windowssysWindowsWin32NetworkingActivedirectoryADsPropCreateNotifyObj(pappthddataobj.rawAddress.toCPointer<ByteVar>(), pwzadsobjname.rawAddress.toCPointer<ByteVar>(), phnotifyobj.rawAddress.toCPointer<ByteVar>())
 
-public actual fun aDsPropGetInitInfo(hnotifyobj: Hwnd, pinitparams: MutPtr<Adspropinitparams>): Bool =
+public actual fun aDsPropGetInitInfo(hnotifyobj: Hwnd, pinitparams: MutPtr): Bool =
     windowssysWindowsWin32NetworkingActivedirectoryADsPropGetInitInfo(hnotifyobj.rawAddress.toCPointer<ByteVar>(), pinitparams.rawAddress.toCPointer<ByteVar>())
 
-public actual fun aDsPropSendErrorMessage(hnotifyobj: Hwnd, perror: MutPtr<Adsproperror>): Bool =
+public actual fun aDsPropSendErrorMessage(hnotifyobj: Hwnd, perror: MutPtr): Bool =
     windowssysWindowsWin32NetworkingActivedirectoryADsPropSendErrorMessage(hnotifyobj.rawAddress.toCPointer<ByteVar>(), perror.rawAddress.toCPointer<ByteVar>())
 
 public actual fun aDsPropSetHwnd(hnotifyobj: Hwnd, hpage: Hwnd): Bool =
     windowssysWindowsWin32NetworkingActivedirectoryADsPropSetHwnd(hnotifyobj.rawAddress.toCPointer<ByteVar>(), hpage.rawAddress.toCPointer<ByteVar>())
 
-public actual fun aDsPropSetHwndWithTitle(hnotifyobj: Hwnd, hpage: Hwnd, ptztitle: ConstPtr<Byte>): Bool =
+public actual fun aDsPropSetHwndWithTitle(hnotifyobj: Hwnd, hpage: Hwnd, ptztitle: ConstPtr): Bool =
     windowssysWindowsWin32NetworkingActivedirectoryADsPropSetHwndWithTitle(hnotifyobj.rawAddress.toCPointer<ByteVar>(), hpage.rawAddress.toCPointer<ByteVar>(), ptztitle.rawAddress.toCPointer<ByteVar>())
 
 public actual fun aDsPropShowErrorDialog(hnotifyobj: Hwnd, hpage: Hwnd): Bool =
@@ -235,166 +231,166 @@ public actual fun aDsSetLastError(dwerr: UInt, pszerror: Pcwstr, pszprovider: Pc
     windowssysWindowsWin32NetworkingActivedirectoryADsSetLastError(dwerr, pszerror.rawAddress.toCPointer<ByteVar>(), pszprovider.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun adsFreeAdsValues(padsvalues: MutPtr<Adsvalue>, dwnumvalues: UInt) {
+public actual fun adsFreeAdsValues(padsvalues: MutPtr, dwnumvalues: UInt) {
     windowssysWindowsWin32NetworkingActivedirectoryAdsFreeAdsValues(padsvalues.rawAddress.toCPointer<ByteVar>(), dwnumvalues)
 }
 
-public actual fun adsTypeToPropVariant(padsvalues: MutPtr<Adsvalue>, dwnumvalues: UInt, pvariant: MutPtr<Variant.Variant>): Hresult =
+public actual fun adsTypeToPropVariant(padsvalues: MutPtr, dwnumvalues: UInt, pvariant: MutPtr): Hresult =
     windowssysWindowsWin32NetworkingActivedirectoryAdsTypeToPropVariant(padsvalues.rawAddress.toCPointer<ByteVar>(), dwnumvalues, pvariant.rawAddress.toCPointer<ByteVar>())
 
-public actual fun allocADsMem(cb: UInt): MutPtr<CVoid> =
+public actual fun allocADsMem(cb: UInt): MutPtr =
     MutPtr(windowssysWindowsWin32NetworkingActivedirectoryAllocADsMem(cb)?.toLong() ?: 0L)
 
 public actual fun allocADsStr(pstr: Pcwstr): Pwstr =
     MutPtr(windowssysWindowsWin32NetworkingActivedirectoryAllocADsStr(pstr.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun binarySDToSecurityDescriptor(psecuritydescriptor: PsecurityDescriptor, pvarsec: MutPtr<Variant.Variant>, pszservername: Pcwstr, username: Pcwstr, password: Pcwstr, dwflags: UInt): Hresult =
+public actual fun binarySDToSecurityDescriptor(psecuritydescriptor: PsecurityDescriptor, pvarsec: MutPtr, pszservername: Pcwstr, username: Pcwstr, password: Pcwstr, dwflags: UInt): Hresult =
     windowssysWindowsWin32NetworkingActivedirectoryBinarySDToSecurityDescriptor(psecuritydescriptor.rawAddress.toCPointer<ByteVar>(), pvarsec.rawAddress.toCPointer<ByteVar>(), pszservername.rawAddress.toCPointer<ByteVar>(), username.rawAddress.toCPointer<ByteVar>(), password.rawAddress.toCPointer<ByteVar>(), dwflags)
 
-public actual fun dsAddSidHistoryA(hds: Handle, flags: UInt, srcdomain: Pcstr, srcprincipal: Pcstr, srcdomaincontroller: Pcstr, srcdomaincreds: ConstPtr<CVoid>, dstdomain: Pcstr, dstprincipal: Pcstr): UInt =
+public actual fun dsAddSidHistoryA(hds: Handle, flags: UInt, srcdomain: Pcstr, srcprincipal: Pcstr, srcdomaincontroller: Pcstr, srcdomaincreds: ConstPtr, dstdomain: Pcstr, dstprincipal: Pcstr): UInt =
     windowssysWindowsWin32NetworkingActivedirectoryDsAddSidHistoryA(hds.rawAddress.toCPointer<ByteVar>(), flags, srcdomain.rawAddress.toCPointer<ByteVar>(), srcprincipal.rawAddress.toCPointer<ByteVar>(), srcdomaincontroller.rawAddress.toCPointer<ByteVar>(), srcdomaincreds.rawAddress.toCPointer<ByteVar>(), dstdomain.rawAddress.toCPointer<ByteVar>(), dstprincipal.rawAddress.toCPointer<ByteVar>())
 
-public actual fun dsAddSidHistoryW(hds: Handle, flags: UInt, srcdomain: Pcwstr, srcprincipal: Pcwstr, srcdomaincontroller: Pcwstr, srcdomaincreds: ConstPtr<CVoid>, dstdomain: Pcwstr, dstprincipal: Pcwstr): UInt =
+public actual fun dsAddSidHistoryW(hds: Handle, flags: UInt, srcdomain: Pcwstr, srcprincipal: Pcwstr, srcdomaincontroller: Pcwstr, srcdomaincreds: ConstPtr, dstdomain: Pcwstr, dstprincipal: Pcwstr): UInt =
     windowssysWindowsWin32NetworkingActivedirectoryDsAddSidHistoryW(hds.rawAddress.toCPointer<ByteVar>(), flags, srcdomain.rawAddress.toCPointer<ByteVar>(), srcprincipal.rawAddress.toCPointer<ByteVar>(), srcdomaincontroller.rawAddress.toCPointer<ByteVar>(), srcdomaincreds.rawAddress.toCPointer<ByteVar>(), dstdomain.rawAddress.toCPointer<ByteVar>(), dstprincipal.rawAddress.toCPointer<ByteVar>())
 
-public actual fun dsAddressToSiteNamesA(computername: Pcstr, entrycount: UInt, socketaddresses: ConstPtr<SocketAddress>, sitenames: MutPtr<MutPtr<Pstr>>): UInt =
+public actual fun dsAddressToSiteNamesA(computername: Pcstr, entrycount: UInt, socketaddresses: ConstPtr, sitenames: MutPtr): UInt =
     windowssysWindowsWin32NetworkingActivedirectoryDsAddressToSiteNamesA(computername.rawAddress.toCPointer<ByteVar>(), entrycount, socketaddresses.rawAddress.toCPointer<ByteVar>(), sitenames.rawAddress.toCPointer<ByteVar>())
 
-public actual fun dsAddressToSiteNamesExA(computername: Pcstr, entrycount: UInt, socketaddresses: ConstPtr<SocketAddress>, sitenames: MutPtr<MutPtr<Pstr>>, subnetnames: MutPtr<MutPtr<Pstr>>): UInt =
+public actual fun dsAddressToSiteNamesExA(computername: Pcstr, entrycount: UInt, socketaddresses: ConstPtr, sitenames: MutPtr, subnetnames: MutPtr): UInt =
     windowssysWindowsWin32NetworkingActivedirectoryDsAddressToSiteNamesExA(computername.rawAddress.toCPointer<ByteVar>(), entrycount, socketaddresses.rawAddress.toCPointer<ByteVar>(), sitenames.rawAddress.toCPointer<ByteVar>(), subnetnames.rawAddress.toCPointer<ByteVar>())
 
-public actual fun dsAddressToSiteNamesExW(computername: Pcwstr, entrycount: UInt, socketaddresses: ConstPtr<SocketAddress>, sitenames: MutPtr<MutPtr<Pwstr>>, subnetnames: MutPtr<MutPtr<Pwstr>>): UInt =
+public actual fun dsAddressToSiteNamesExW(computername: Pcwstr, entrycount: UInt, socketaddresses: ConstPtr, sitenames: MutPtr, subnetnames: MutPtr): UInt =
     windowssysWindowsWin32NetworkingActivedirectoryDsAddressToSiteNamesExW(computername.rawAddress.toCPointer<ByteVar>(), entrycount, socketaddresses.rawAddress.toCPointer<ByteVar>(), sitenames.rawAddress.toCPointer<ByteVar>(), subnetnames.rawAddress.toCPointer<ByteVar>())
 
-public actual fun dsAddressToSiteNamesW(computername: Pcwstr, entrycount: UInt, socketaddresses: ConstPtr<SocketAddress>, sitenames: MutPtr<MutPtr<Pwstr>>): UInt =
+public actual fun dsAddressToSiteNamesW(computername: Pcwstr, entrycount: UInt, socketaddresses: ConstPtr, sitenames: MutPtr): UInt =
     windowssysWindowsWin32NetworkingActivedirectoryDsAddressToSiteNamesW(computername.rawAddress.toCPointer<ByteVar>(), entrycount, socketaddresses.rawAddress.toCPointer<ByteVar>(), sitenames.rawAddress.toCPointer<ByteVar>())
 
-public actual fun dsBindA(domaincontrollername: Pcstr, dnsdomainname: Pcstr, phds: MutPtr<Handle>): UInt =
+public actual fun dsBindA(domaincontrollername: Pcstr, dnsdomainname: Pcstr, phds: MutPtr): UInt =
     windowssysWindowsWin32NetworkingActivedirectoryDsBindA(domaincontrollername.rawAddress.toCPointer<ByteVar>(), dnsdomainname.rawAddress.toCPointer<ByteVar>(), phds.rawAddress.toCPointer<ByteVar>())
 
-public actual fun dsBindByInstanceA(servername: Pcstr, annotation: Pcstr, instanceguid: ConstPtr<Guid>, dnsdomainname: Pcstr, authidentity: ConstPtr<CVoid>, serviceprincipalname: Pcstr, bindflags: UInt, phds: MutPtr<Handle>): UInt =
+public actual fun dsBindByInstanceA(servername: Pcstr, annotation: Pcstr, instanceguid: ConstPtr, dnsdomainname: Pcstr, authidentity: ConstPtr, serviceprincipalname: Pcstr, bindflags: UInt, phds: MutPtr): UInt =
     windowssysWindowsWin32NetworkingActivedirectoryDsBindByInstanceA(servername.rawAddress.toCPointer<ByteVar>(), annotation.rawAddress.toCPointer<ByteVar>(), instanceguid.rawAddress.toCPointer<ByteVar>(), dnsdomainname.rawAddress.toCPointer<ByteVar>(), authidentity.rawAddress.toCPointer<ByteVar>(), serviceprincipalname.rawAddress.toCPointer<ByteVar>(), bindflags, phds.rawAddress.toCPointer<ByteVar>())
 
-public actual fun dsBindByInstanceW(servername: Pcwstr, annotation: Pcwstr, instanceguid: ConstPtr<Guid>, dnsdomainname: Pcwstr, authidentity: ConstPtr<CVoid>, serviceprincipalname: Pcwstr, bindflags: UInt, phds: MutPtr<Handle>): UInt =
+public actual fun dsBindByInstanceW(servername: Pcwstr, annotation: Pcwstr, instanceguid: ConstPtr, dnsdomainname: Pcwstr, authidentity: ConstPtr, serviceprincipalname: Pcwstr, bindflags: UInt, phds: MutPtr): UInt =
     windowssysWindowsWin32NetworkingActivedirectoryDsBindByInstanceW(servername.rawAddress.toCPointer<ByteVar>(), annotation.rawAddress.toCPointer<ByteVar>(), instanceguid.rawAddress.toCPointer<ByteVar>(), dnsdomainname.rawAddress.toCPointer<ByteVar>(), authidentity.rawAddress.toCPointer<ByteVar>(), serviceprincipalname.rawAddress.toCPointer<ByteVar>(), bindflags, phds.rawAddress.toCPointer<ByteVar>())
 
-public actual fun dsBindToISTGA(sitename: Pcstr, phds: MutPtr<Handle>): UInt =
+public actual fun dsBindToISTGA(sitename: Pcstr, phds: MutPtr): UInt =
     windowssysWindowsWin32NetworkingActivedirectoryDsBindToISTGA(sitename.rawAddress.toCPointer<ByteVar>(), phds.rawAddress.toCPointer<ByteVar>())
 
-public actual fun dsBindToISTGW(sitename: Pcwstr, phds: MutPtr<Handle>): UInt =
+public actual fun dsBindToISTGW(sitename: Pcwstr, phds: MutPtr): UInt =
     windowssysWindowsWin32NetworkingActivedirectoryDsBindToISTGW(sitename.rawAddress.toCPointer<ByteVar>(), phds.rawAddress.toCPointer<ByteVar>())
 
-public actual fun dsBindW(domaincontrollername: Pcwstr, dnsdomainname: Pcwstr, phds: MutPtr<Handle>): UInt =
+public actual fun dsBindW(domaincontrollername: Pcwstr, dnsdomainname: Pcwstr, phds: MutPtr): UInt =
     windowssysWindowsWin32NetworkingActivedirectoryDsBindW(domaincontrollername.rawAddress.toCPointer<ByteVar>(), dnsdomainname.rawAddress.toCPointer<ByteVar>(), phds.rawAddress.toCPointer<ByteVar>())
 
-public actual fun dsBindWithCredA(domaincontrollername: Pcstr, dnsdomainname: Pcstr, authidentity: ConstPtr<CVoid>, phds: MutPtr<Handle>): UInt =
+public actual fun dsBindWithCredA(domaincontrollername: Pcstr, dnsdomainname: Pcstr, authidentity: ConstPtr, phds: MutPtr): UInt =
     windowssysWindowsWin32NetworkingActivedirectoryDsBindWithCredA(domaincontrollername.rawAddress.toCPointer<ByteVar>(), dnsdomainname.rawAddress.toCPointer<ByteVar>(), authidentity.rawAddress.toCPointer<ByteVar>(), phds.rawAddress.toCPointer<ByteVar>())
 
-public actual fun dsBindWithCredW(domaincontrollername: Pcwstr, dnsdomainname: Pcwstr, authidentity: ConstPtr<CVoid>, phds: MutPtr<Handle>): UInt =
+public actual fun dsBindWithCredW(domaincontrollername: Pcwstr, dnsdomainname: Pcwstr, authidentity: ConstPtr, phds: MutPtr): UInt =
     windowssysWindowsWin32NetworkingActivedirectoryDsBindWithCredW(domaincontrollername.rawAddress.toCPointer<ByteVar>(), dnsdomainname.rawAddress.toCPointer<ByteVar>(), authidentity.rawAddress.toCPointer<ByteVar>(), phds.rawAddress.toCPointer<ByteVar>())
 
-public actual fun dsBindWithSpnA(domaincontrollername: Pcstr, dnsdomainname: Pcstr, authidentity: ConstPtr<CVoid>, serviceprincipalname: Pcstr, phds: MutPtr<Handle>): UInt =
+public actual fun dsBindWithSpnA(domaincontrollername: Pcstr, dnsdomainname: Pcstr, authidentity: ConstPtr, serviceprincipalname: Pcstr, phds: MutPtr): UInt =
     windowssysWindowsWin32NetworkingActivedirectoryDsBindWithSpnA(domaincontrollername.rawAddress.toCPointer<ByteVar>(), dnsdomainname.rawAddress.toCPointer<ByteVar>(), authidentity.rawAddress.toCPointer<ByteVar>(), serviceprincipalname.rawAddress.toCPointer<ByteVar>(), phds.rawAddress.toCPointer<ByteVar>())
 
-public actual fun dsBindWithSpnExA(domaincontrollername: Pcstr, dnsdomainname: Pcstr, authidentity: ConstPtr<CVoid>, serviceprincipalname: Pcstr, bindflags: UInt, phds: MutPtr<Handle>): UInt =
+public actual fun dsBindWithSpnExA(domaincontrollername: Pcstr, dnsdomainname: Pcstr, authidentity: ConstPtr, serviceprincipalname: Pcstr, bindflags: UInt, phds: MutPtr): UInt =
     windowssysWindowsWin32NetworkingActivedirectoryDsBindWithSpnExA(domaincontrollername.rawAddress.toCPointer<ByteVar>(), dnsdomainname.rawAddress.toCPointer<ByteVar>(), authidentity.rawAddress.toCPointer<ByteVar>(), serviceprincipalname.rawAddress.toCPointer<ByteVar>(), bindflags, phds.rawAddress.toCPointer<ByteVar>())
 
-public actual fun dsBindWithSpnExW(domaincontrollername: Pcwstr, dnsdomainname: Pcwstr, authidentity: ConstPtr<CVoid>, serviceprincipalname: Pcwstr, bindflags: UInt, phds: MutPtr<Handle>): UInt =
+public actual fun dsBindWithSpnExW(domaincontrollername: Pcwstr, dnsdomainname: Pcwstr, authidentity: ConstPtr, serviceprincipalname: Pcwstr, bindflags: UInt, phds: MutPtr): UInt =
     windowssysWindowsWin32NetworkingActivedirectoryDsBindWithSpnExW(domaincontrollername.rawAddress.toCPointer<ByteVar>(), dnsdomainname.rawAddress.toCPointer<ByteVar>(), authidentity.rawAddress.toCPointer<ByteVar>(), serviceprincipalname.rawAddress.toCPointer<ByteVar>(), bindflags, phds.rawAddress.toCPointer<ByteVar>())
 
-public actual fun dsBindWithSpnW(domaincontrollername: Pcwstr, dnsdomainname: Pcwstr, authidentity: ConstPtr<CVoid>, serviceprincipalname: Pcwstr, phds: MutPtr<Handle>): UInt =
+public actual fun dsBindWithSpnW(domaincontrollername: Pcwstr, dnsdomainname: Pcwstr, authidentity: ConstPtr, serviceprincipalname: Pcwstr, phds: MutPtr): UInt =
     windowssysWindowsWin32NetworkingActivedirectoryDsBindWithSpnW(domaincontrollername.rawAddress.toCPointer<ByteVar>(), dnsdomainname.rawAddress.toCPointer<ByteVar>(), authidentity.rawAddress.toCPointer<ByteVar>(), serviceprincipalname.rawAddress.toCPointer<ByteVar>(), phds.rawAddress.toCPointer<ByteVar>())
 
 public actual fun dsBindingSetTimeout(hds: Handle, ctimeoutsecs: UInt): UInt =
     windowssysWindowsWin32NetworkingActivedirectoryDsBindingSetTimeout(hds.rawAddress.toCPointer<ByteVar>(), ctimeoutsecs)
 
-public actual fun dsBrowseForContainerA(pinfo: MutPtr<Dsbrowseinfoa>): Int =
+public actual fun dsBrowseForContainerA(pinfo: MutPtr): Int =
     windowssysWindowsWin32NetworkingActivedirectoryDsBrowseForContainerA(pinfo.rawAddress.toCPointer<ByteVar>())
 
-public actual fun dsBrowseForContainerW(pinfo: MutPtr<Dsbrowseinfow>): Int =
+public actual fun dsBrowseForContainerW(pinfo: MutPtr): Int =
     windowssysWindowsWin32NetworkingActivedirectoryDsBrowseForContainerW(pinfo.rawAddress.toCPointer<ByteVar>())
 
-public actual fun dsClientMakeSpnForTargetServerA(serviceclass: Pcstr, servicename: Pcstr, pcspnlength: MutPtr<UInt>, pszspn: Pstr): UInt =
+public actual fun dsClientMakeSpnForTargetServerA(serviceclass: Pcstr, servicename: Pcstr, pcspnlength: MutPtr, pszspn: Pstr): UInt =
     windowssysWindowsWin32NetworkingActivedirectoryDsClientMakeSpnForTargetServerA(serviceclass.rawAddress.toCPointer<ByteVar>(), servicename.rawAddress.toCPointer<ByteVar>(), pcspnlength.rawAddress.toCPointer<ByteVar>(), pszspn.rawAddress.toCPointer<ByteVar>())
 
-public actual fun dsClientMakeSpnForTargetServerW(serviceclass: Pcwstr, servicename: Pcwstr, pcspnlength: MutPtr<UInt>, pszspn: Pwstr): UInt =
+public actual fun dsClientMakeSpnForTargetServerW(serviceclass: Pcwstr, servicename: Pcwstr, pcspnlength: MutPtr, pszspn: Pwstr): UInt =
     windowssysWindowsWin32NetworkingActivedirectoryDsClientMakeSpnForTargetServerW(serviceclass.rawAddress.toCPointer<ByteVar>(), servicename.rawAddress.toCPointer<ByteVar>(), pcspnlength.rawAddress.toCPointer<ByteVar>(), pszspn.rawAddress.toCPointer<ByteVar>())
 
-public actual fun dsCrackNamesA(hds: Handle, flags: DsNameFlags, formatoffered: DsNameFormat, formatdesired: DsNameFormat, cnames: UInt, rpnames: ConstPtr<Pcstr>, ppresult: MutPtr<MutPtr<DsNameResulta>>): UInt =
+public actual fun dsCrackNamesA(hds: Handle, flags: DsNameFlags, formatoffered: DsNameFormat, formatdesired: DsNameFormat, cnames: UInt, rpnames: ConstPtr, ppresult: MutPtr): UInt =
     windowssysWindowsWin32NetworkingActivedirectoryDsCrackNamesA(hds.rawAddress.toCPointer<ByteVar>(), flags, formatoffered, formatdesired, cnames, rpnames.rawAddress.toCPointer<ByteVar>(), ppresult.rawAddress.toCPointer<ByteVar>())
 
-public actual fun dsCrackNamesW(hds: Handle, flags: DsNameFlags, formatoffered: DsNameFormat, formatdesired: DsNameFormat, cnames: UInt, rpnames: ConstPtr<Pcwstr>, ppresult: MutPtr<MutPtr<DsNameResultw>>): UInt =
+public actual fun dsCrackNamesW(hds: Handle, flags: DsNameFlags, formatoffered: DsNameFormat, formatdesired: DsNameFormat, cnames: UInt, rpnames: ConstPtr, ppresult: MutPtr): UInt =
     windowssysWindowsWin32NetworkingActivedirectoryDsCrackNamesW(hds.rawAddress.toCPointer<ByteVar>(), flags, formatoffered, formatdesired, cnames, rpnames.rawAddress.toCPointer<ByteVar>(), ppresult.rawAddress.toCPointer<ByteVar>())
 
-public actual fun dsCrackSpn2A(pszspn: Pcstr, cspn: UInt, pcserviceclass: MutPtr<UInt>, serviceclass: Pstr, pcservicename: MutPtr<UInt>, servicename: Pstr, pcinstancename: MutPtr<UInt>, instancename: Pstr, pinstanceport: MutPtr<UShort>): UInt =
+public actual fun dsCrackSpn2A(pszspn: Pcstr, cspn: UInt, pcserviceclass: MutPtr, serviceclass: Pstr, pcservicename: MutPtr, servicename: Pstr, pcinstancename: MutPtr, instancename: Pstr, pinstanceport: MutPtr): UInt =
     windowssysWindowsWin32NetworkingActivedirectoryDsCrackSpn2A(pszspn.rawAddress.toCPointer<ByteVar>(), cspn, pcserviceclass.rawAddress.toCPointer<ByteVar>(), serviceclass.rawAddress.toCPointer<ByteVar>(), pcservicename.rawAddress.toCPointer<ByteVar>(), servicename.rawAddress.toCPointer<ByteVar>(), pcinstancename.rawAddress.toCPointer<ByteVar>(), instancename.rawAddress.toCPointer<ByteVar>(), pinstanceport.rawAddress.toCPointer<ByteVar>())
 
-public actual fun dsCrackSpn2W(pszspn: Pcwstr, cspn: UInt, pcserviceclass: MutPtr<UInt>, serviceclass: Pwstr, pcservicename: MutPtr<UInt>, servicename: Pwstr, pcinstancename: MutPtr<UInt>, instancename: Pwstr, pinstanceport: MutPtr<UShort>): UInt =
+public actual fun dsCrackSpn2W(pszspn: Pcwstr, cspn: UInt, pcserviceclass: MutPtr, serviceclass: Pwstr, pcservicename: MutPtr, servicename: Pwstr, pcinstancename: MutPtr, instancename: Pwstr, pinstanceport: MutPtr): UInt =
     windowssysWindowsWin32NetworkingActivedirectoryDsCrackSpn2W(pszspn.rawAddress.toCPointer<ByteVar>(), cspn, pcserviceclass.rawAddress.toCPointer<ByteVar>(), serviceclass.rawAddress.toCPointer<ByteVar>(), pcservicename.rawAddress.toCPointer<ByteVar>(), servicename.rawAddress.toCPointer<ByteVar>(), pcinstancename.rawAddress.toCPointer<ByteVar>(), instancename.rawAddress.toCPointer<ByteVar>(), pinstanceport.rawAddress.toCPointer<ByteVar>())
 
-public actual fun dsCrackSpn3W(pszspn: Pcwstr, cspn: UInt, pchostname: MutPtr<UInt>, hostname: Pwstr, pcinstancename: MutPtr<UInt>, instancename: Pwstr, pportnumber: MutPtr<UShort>, pcdomainname: MutPtr<UInt>, domainname: Pwstr, pcrealmname: MutPtr<UInt>, realmname: Pwstr): UInt =
+public actual fun dsCrackSpn3W(pszspn: Pcwstr, cspn: UInt, pchostname: MutPtr, hostname: Pwstr, pcinstancename: MutPtr, instancename: Pwstr, pportnumber: MutPtr, pcdomainname: MutPtr, domainname: Pwstr, pcrealmname: MutPtr, realmname: Pwstr): UInt =
     windowssysWindowsWin32NetworkingActivedirectoryDsCrackSpn3W(pszspn.rawAddress.toCPointer<ByteVar>(), cspn, pchostname.rawAddress.toCPointer<ByteVar>(), hostname.rawAddress.toCPointer<ByteVar>(), pcinstancename.rawAddress.toCPointer<ByteVar>(), instancename.rawAddress.toCPointer<ByteVar>(), pportnumber.rawAddress.toCPointer<ByteVar>(), pcdomainname.rawAddress.toCPointer<ByteVar>(), domainname.rawAddress.toCPointer<ByteVar>(), pcrealmname.rawAddress.toCPointer<ByteVar>(), realmname.rawAddress.toCPointer<ByteVar>())
 
-public actual fun dsCrackSpn4W(pszspn: Pcwstr, cspn: UInt, pchostname: MutPtr<UInt>, hostname: Pwstr, pcinstancename: MutPtr<UInt>, instancename: Pwstr, pcportname: MutPtr<UInt>, portname: Pwstr, pcdomainname: MutPtr<UInt>, domainname: Pwstr, pcrealmname: MutPtr<UInt>, realmname: Pwstr): UInt =
+public actual fun dsCrackSpn4W(pszspn: Pcwstr, cspn: UInt, pchostname: MutPtr, hostname: Pwstr, pcinstancename: MutPtr, instancename: Pwstr, pcportname: MutPtr, portname: Pwstr, pcdomainname: MutPtr, domainname: Pwstr, pcrealmname: MutPtr, realmname: Pwstr): UInt =
     windowssysWindowsWin32NetworkingActivedirectoryDsCrackSpn4W(pszspn.rawAddress.toCPointer<ByteVar>(), cspn, pchostname.rawAddress.toCPointer<ByteVar>(), hostname.rawAddress.toCPointer<ByteVar>(), pcinstancename.rawAddress.toCPointer<ByteVar>(), instancename.rawAddress.toCPointer<ByteVar>(), pcportname.rawAddress.toCPointer<ByteVar>(), portname.rawAddress.toCPointer<ByteVar>(), pcdomainname.rawAddress.toCPointer<ByteVar>(), domainname.rawAddress.toCPointer<ByteVar>(), pcrealmname.rawAddress.toCPointer<ByteVar>(), realmname.rawAddress.toCPointer<ByteVar>())
 
-public actual fun dsCrackSpnA(pszspn: Pcstr, pcserviceclass: MutPtr<UInt>, serviceclass: Pstr, pcservicename: MutPtr<UInt>, servicename: Pstr, pcinstancename: MutPtr<UInt>, instancename: Pstr, pinstanceport: MutPtr<UShort>): UInt =
+public actual fun dsCrackSpnA(pszspn: Pcstr, pcserviceclass: MutPtr, serviceclass: Pstr, pcservicename: MutPtr, servicename: Pstr, pcinstancename: MutPtr, instancename: Pstr, pinstanceport: MutPtr): UInt =
     windowssysWindowsWin32NetworkingActivedirectoryDsCrackSpnA(pszspn.rawAddress.toCPointer<ByteVar>(), pcserviceclass.rawAddress.toCPointer<ByteVar>(), serviceclass.rawAddress.toCPointer<ByteVar>(), pcservicename.rawAddress.toCPointer<ByteVar>(), servicename.rawAddress.toCPointer<ByteVar>(), pcinstancename.rawAddress.toCPointer<ByteVar>(), instancename.rawAddress.toCPointer<ByteVar>(), pinstanceport.rawAddress.toCPointer<ByteVar>())
 
-public actual fun dsCrackSpnW(pszspn: Pcwstr, pcserviceclass: MutPtr<UInt>, serviceclass: Pwstr, pcservicename: MutPtr<UInt>, servicename: Pwstr, pcinstancename: MutPtr<UInt>, instancename: Pwstr, pinstanceport: MutPtr<UShort>): UInt =
+public actual fun dsCrackSpnW(pszspn: Pcwstr, pcserviceclass: MutPtr, serviceclass: Pwstr, pcservicename: MutPtr, servicename: Pwstr, pcinstancename: MutPtr, instancename: Pwstr, pinstanceport: MutPtr): UInt =
     windowssysWindowsWin32NetworkingActivedirectoryDsCrackSpnW(pszspn.rawAddress.toCPointer<ByteVar>(), pcserviceclass.rawAddress.toCPointer<ByteVar>(), serviceclass.rawAddress.toCPointer<ByteVar>(), pcservicename.rawAddress.toCPointer<ByteVar>(), servicename.rawAddress.toCPointer<ByteVar>(), pcinstancename.rawAddress.toCPointer<ByteVar>(), instancename.rawAddress.toCPointer<ByteVar>(), pinstanceport.rawAddress.toCPointer<ByteVar>())
 
-public actual fun dsCrackUnquotedMangledRdnA(pszrdn: Pcstr, cchrdn: UInt, pguid: MutPtr<Guid>, pedsmanglefor: MutPtr<DsMangleFor>): Bool =
+public actual fun dsCrackUnquotedMangledRdnA(pszrdn: Pcstr, cchrdn: UInt, pguid: MutPtr, pedsmanglefor: MutPtr): Bool =
     windowssysWindowsWin32NetworkingActivedirectoryDsCrackUnquotedMangledRdnA(pszrdn.rawAddress.toCPointer<ByteVar>(), cchrdn, pguid.rawAddress.toCPointer<ByteVar>(), pedsmanglefor.rawAddress.toCPointer<ByteVar>())
 
-public actual fun dsCrackUnquotedMangledRdnW(pszrdn: Pcwstr, cchrdn: UInt, pguid: MutPtr<Guid>, pedsmanglefor: MutPtr<DsMangleFor>): Bool =
+public actual fun dsCrackUnquotedMangledRdnW(pszrdn: Pcwstr, cchrdn: UInt, pguid: MutPtr, pedsmanglefor: MutPtr): Bool =
     windowssysWindowsWin32NetworkingActivedirectoryDsCrackUnquotedMangledRdnW(pszrdn.rawAddress.toCPointer<ByteVar>(), cchrdn, pguid.rawAddress.toCPointer<ByteVar>(), pedsmanglefor.rawAddress.toCPointer<ByteVar>())
 
-public actual fun dsDeregisterDnsHostRecordsA(servername: Pcstr, dnsdomainname: Pcstr, domainguid: ConstPtr<Guid>, dsaguid: ConstPtr<Guid>, dnshostname: Pcstr): UInt =
+public actual fun dsDeregisterDnsHostRecordsA(servername: Pcstr, dnsdomainname: Pcstr, domainguid: ConstPtr, dsaguid: ConstPtr, dnshostname: Pcstr): UInt =
     windowssysWindowsWin32NetworkingActivedirectoryDsDeregisterDnsHostRecordsA(servername.rawAddress.toCPointer<ByteVar>(), dnsdomainname.rawAddress.toCPointer<ByteVar>(), domainguid.rawAddress.toCPointer<ByteVar>(), dsaguid.rawAddress.toCPointer<ByteVar>(), dnshostname.rawAddress.toCPointer<ByteVar>())
 
-public actual fun dsDeregisterDnsHostRecordsW(servername: Pcwstr, dnsdomainname: Pcwstr, domainguid: ConstPtr<Guid>, dsaguid: ConstPtr<Guid>, dnshostname: Pcwstr): UInt =
+public actual fun dsDeregisterDnsHostRecordsW(servername: Pcwstr, dnsdomainname: Pcwstr, domainguid: ConstPtr, dsaguid: ConstPtr, dnshostname: Pcwstr): UInt =
     windowssysWindowsWin32NetworkingActivedirectoryDsDeregisterDnsHostRecordsW(servername.rawAddress.toCPointer<ByteVar>(), dnsdomainname.rawAddress.toCPointer<ByteVar>(), domainguid.rawAddress.toCPointer<ByteVar>(), dsaguid.rawAddress.toCPointer<ByteVar>(), dnshostname.rawAddress.toCPointer<ByteVar>())
 
-public actual fun dsEnumerateDomainTrustsA(servername: Pcstr, flags: UInt, domains: MutPtr<MutPtr<DsDomainTrustsa>>, domaincount: MutPtr<UInt>): UInt =
+public actual fun dsEnumerateDomainTrustsA(servername: Pcstr, flags: UInt, domains: MutPtr, domaincount: MutPtr): UInt =
     windowssysWindowsWin32NetworkingActivedirectoryDsEnumerateDomainTrustsA(servername.rawAddress.toCPointer<ByteVar>(), flags, domains.rawAddress.toCPointer<ByteVar>(), domaincount.rawAddress.toCPointer<ByteVar>())
 
-public actual fun dsEnumerateDomainTrustsW(servername: Pcwstr, flags: UInt, domains: MutPtr<MutPtr<DsDomainTrustsw>>, domaincount: MutPtr<UInt>): UInt =
+public actual fun dsEnumerateDomainTrustsW(servername: Pcwstr, flags: UInt, domains: MutPtr, domaincount: MutPtr): UInt =
     windowssysWindowsWin32NetworkingActivedirectoryDsEnumerateDomainTrustsW(servername.rawAddress.toCPointer<ByteVar>(), flags, domains.rawAddress.toCPointer<ByteVar>(), domaincount.rawAddress.toCPointer<ByteVar>())
 
-public actual fun dsFreeDomainControllerInfoA(infolevel: UInt, cinfo: UInt, pinfo: ConstPtr<CVoid>) {
+public actual fun dsFreeDomainControllerInfoA(infolevel: UInt, cinfo: UInt, pinfo: ConstPtr) {
     windowssysWindowsWin32NetworkingActivedirectoryDsFreeDomainControllerInfoA(infolevel, cinfo, pinfo.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun dsFreeDomainControllerInfoW(infolevel: UInt, cinfo: UInt, pinfo: ConstPtr<CVoid>) {
+public actual fun dsFreeDomainControllerInfoW(infolevel: UInt, cinfo: UInt, pinfo: ConstPtr) {
     windowssysWindowsWin32NetworkingActivedirectoryDsFreeDomainControllerInfoW(infolevel, cinfo, pinfo.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun dsFreeNameResultA(presult: ConstPtr<DsNameResulta>) {
+public actual fun dsFreeNameResultA(presult: ConstPtr) {
     windowssysWindowsWin32NetworkingActivedirectoryDsFreeNameResultA(presult.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun dsFreeNameResultW(presult: ConstPtr<DsNameResultw>) {
+public actual fun dsFreeNameResultW(presult: ConstPtr) {
     windowssysWindowsWin32NetworkingActivedirectoryDsFreeNameResultW(presult.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun dsFreePasswordCredentials(authidentity: ConstPtr<CVoid>) {
+public actual fun dsFreePasswordCredentials(authidentity: ConstPtr) {
     windowssysWindowsWin32NetworkingActivedirectoryDsFreePasswordCredentials(authidentity.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun dsFreeSchemaGuidMapA(pguidmap: ConstPtr<DsSchemaGuidMapa>) {
+public actual fun dsFreeSchemaGuidMapA(pguidmap: ConstPtr) {
     windowssysWindowsWin32NetworkingActivedirectoryDsFreeSchemaGuidMapA(pguidmap.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun dsFreeSchemaGuidMapW(pguidmap: ConstPtr<DsSchemaGuidMapw>) {
+public actual fun dsFreeSchemaGuidMapW(pguidmap: ConstPtr) {
     windowssysWindowsWin32NetworkingActivedirectoryDsFreeSchemaGuidMapW(pguidmap.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun dsFreeSpnArrayA(cspn: UInt, rpszspn: MutPtr<Pstr>) {
+public actual fun dsFreeSpnArrayA(cspn: UInt, rpszspn: MutPtr) {
     windowssysWindowsWin32NetworkingActivedirectoryDsFreeSpnArrayA(cspn, rpszspn.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun dsFreeSpnArrayW(cspn: UInt, rpszspn: MutPtr<Pwstr>) {
+public actual fun dsFreeSpnArrayW(cspn: UInt, rpszspn: MutPtr) {
     windowssysWindowsWin32NetworkingActivedirectoryDsFreeSpnArrayW(cspn, rpszspn.rawAddress.toCPointer<ByteVar>())
 }
 
@@ -402,37 +398,37 @@ public actual fun dsGetDcCloseW(getdccontexthandle: Handle) {
     windowssysWindowsWin32NetworkingActivedirectoryDsGetDcCloseW(getdccontexthandle.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun dsGetDcNameA(computername: Pcstr, domainname: Pcstr, domainguid: ConstPtr<Guid>, sitename: Pcstr, flags: UInt, domaincontrollerinfo: MutPtr<MutPtr<DomainControllerInfoa>>): UInt =
+public actual fun dsGetDcNameA(computername: Pcstr, domainname: Pcstr, domainguid: ConstPtr, sitename: Pcstr, flags: UInt, domaincontrollerinfo: MutPtr): UInt =
     windowssysWindowsWin32NetworkingActivedirectoryDsGetDcNameA(computername.rawAddress.toCPointer<ByteVar>(), domainname.rawAddress.toCPointer<ByteVar>(), domainguid.rawAddress.toCPointer<ByteVar>(), sitename.rawAddress.toCPointer<ByteVar>(), flags, domaincontrollerinfo.rawAddress.toCPointer<ByteVar>())
 
-public actual fun dsGetDcNameW(computername: Pcwstr, domainname: Pcwstr, domainguid: ConstPtr<Guid>, sitename: Pcwstr, flags: UInt, domaincontrollerinfo: MutPtr<MutPtr<DomainControllerInfow>>): UInt =
+public actual fun dsGetDcNameW(computername: Pcwstr, domainname: Pcwstr, domainguid: ConstPtr, sitename: Pcwstr, flags: UInt, domaincontrollerinfo: MutPtr): UInt =
     windowssysWindowsWin32NetworkingActivedirectoryDsGetDcNameW(computername.rawAddress.toCPointer<ByteVar>(), domainname.rawAddress.toCPointer<ByteVar>(), domainguid.rawAddress.toCPointer<ByteVar>(), sitename.rawAddress.toCPointer<ByteVar>(), flags, domaincontrollerinfo.rawAddress.toCPointer<ByteVar>())
 
-public actual fun dsGetDcNextA(getdccontexthandle: Handle, sockaddresscount: MutPtr<UInt>, sockaddresses: MutPtr<MutPtr<SocketAddress>>, dnshostname: MutPtr<Pstr>): UInt =
+public actual fun dsGetDcNextA(getdccontexthandle: Handle, sockaddresscount: MutPtr, sockaddresses: MutPtr, dnshostname: MutPtr): UInt =
     windowssysWindowsWin32NetworkingActivedirectoryDsGetDcNextA(getdccontexthandle.rawAddress.toCPointer<ByteVar>(), sockaddresscount.rawAddress.toCPointer<ByteVar>(), sockaddresses.rawAddress.toCPointer<ByteVar>(), dnshostname.rawAddress.toCPointer<ByteVar>())
 
-public actual fun dsGetDcNextW(getdccontexthandle: Handle, sockaddresscount: MutPtr<UInt>, sockaddresses: MutPtr<MutPtr<SocketAddress>>, dnshostname: MutPtr<Pwstr>): UInt =
+public actual fun dsGetDcNextW(getdccontexthandle: Handle, sockaddresscount: MutPtr, sockaddresses: MutPtr, dnshostname: MutPtr): UInt =
     windowssysWindowsWin32NetworkingActivedirectoryDsGetDcNextW(getdccontexthandle.rawAddress.toCPointer<ByteVar>(), sockaddresscount.rawAddress.toCPointer<ByteVar>(), sockaddresses.rawAddress.toCPointer<ByteVar>(), dnshostname.rawAddress.toCPointer<ByteVar>())
 
-public actual fun dsGetDcOpenA(dnsname: Pcstr, optionflags: UInt, sitename: Pcstr, domainguid: ConstPtr<Guid>, dnsforestname: Pcstr, dcflags: UInt, retgetdccontext: MutPtr<Handle>): UInt =
+public actual fun dsGetDcOpenA(dnsname: Pcstr, optionflags: UInt, sitename: Pcstr, domainguid: ConstPtr, dnsforestname: Pcstr, dcflags: UInt, retgetdccontext: MutPtr): UInt =
     windowssysWindowsWin32NetworkingActivedirectoryDsGetDcOpenA(dnsname.rawAddress.toCPointer<ByteVar>(), optionflags, sitename.rawAddress.toCPointer<ByteVar>(), domainguid.rawAddress.toCPointer<ByteVar>(), dnsforestname.rawAddress.toCPointer<ByteVar>(), dcflags, retgetdccontext.rawAddress.toCPointer<ByteVar>())
 
-public actual fun dsGetDcOpenW(dnsname: Pcwstr, optionflags: UInt, sitename: Pcwstr, domainguid: ConstPtr<Guid>, dnsforestname: Pcwstr, dcflags: UInt, retgetdccontext: MutPtr<Handle>): UInt =
+public actual fun dsGetDcOpenW(dnsname: Pcwstr, optionflags: UInt, sitename: Pcwstr, domainguid: ConstPtr, dnsforestname: Pcwstr, dcflags: UInt, retgetdccontext: MutPtr): UInt =
     windowssysWindowsWin32NetworkingActivedirectoryDsGetDcOpenW(dnsname.rawAddress.toCPointer<ByteVar>(), optionflags, sitename.rawAddress.toCPointer<ByteVar>(), domainguid.rawAddress.toCPointer<ByteVar>(), dnsforestname.rawAddress.toCPointer<ByteVar>(), dcflags, retgetdccontext.rawAddress.toCPointer<ByteVar>())
 
-public actual fun dsGetDcSiteCoverageA(servername: Pcstr, entrycount: MutPtr<UInt>, sitenames: MutPtr<MutPtr<Pstr>>): UInt =
+public actual fun dsGetDcSiteCoverageA(servername: Pcstr, entrycount: MutPtr, sitenames: MutPtr): UInt =
     windowssysWindowsWin32NetworkingActivedirectoryDsGetDcSiteCoverageA(servername.rawAddress.toCPointer<ByteVar>(), entrycount.rawAddress.toCPointer<ByteVar>(), sitenames.rawAddress.toCPointer<ByteVar>())
 
-public actual fun dsGetDcSiteCoverageW(servername: Pcwstr, entrycount: MutPtr<UInt>, sitenames: MutPtr<MutPtr<Pwstr>>): UInt =
+public actual fun dsGetDcSiteCoverageW(servername: Pcwstr, entrycount: MutPtr, sitenames: MutPtr): UInt =
     windowssysWindowsWin32NetworkingActivedirectoryDsGetDcSiteCoverageW(servername.rawAddress.toCPointer<ByteVar>(), entrycount.rawAddress.toCPointer<ByteVar>(), sitenames.rawAddress.toCPointer<ByteVar>())
 
-public actual fun dsGetDomainControllerInfoA(hds: Handle, domainname: Pcstr, infolevel: UInt, pcout: MutPtr<UInt>, ppinfo: MutPtr<MutPtr<CVoid>>): UInt =
+public actual fun dsGetDomainControllerInfoA(hds: Handle, domainname: Pcstr, infolevel: UInt, pcout: MutPtr, ppinfo: MutPtr): UInt =
     windowssysWindowsWin32NetworkingActivedirectoryDsGetDomainControllerInfoA(hds.rawAddress.toCPointer<ByteVar>(), domainname.rawAddress.toCPointer<ByteVar>(), infolevel, pcout.rawAddress.toCPointer<ByteVar>(), ppinfo.rawAddress.toCPointer<ByteVar>())
 
-public actual fun dsGetDomainControllerInfoW(hds: Handle, domainname: Pcwstr, infolevel: UInt, pcout: MutPtr<UInt>, ppinfo: MutPtr<MutPtr<CVoid>>): UInt =
+public actual fun dsGetDomainControllerInfoW(hds: Handle, domainname: Pcwstr, infolevel: UInt, pcout: MutPtr, ppinfo: MutPtr): UInt =
     windowssysWindowsWin32NetworkingActivedirectoryDsGetDomainControllerInfoW(hds.rawAddress.toCPointer<ByteVar>(), domainname.rawAddress.toCPointer<ByteVar>(), infolevel, pcout.rawAddress.toCPointer<ByteVar>(), ppinfo.rawAddress.toCPointer<ByteVar>())
 
-public actual fun dsGetForestTrustInformationW(servername: Pcwstr, trusteddomainname: Pcwstr, flags: UInt, foresttrustinfo: MutPtr<MutPtr<LsaForestTrustInformation>>): UInt =
+public actual fun dsGetForestTrustInformationW(servername: Pcwstr, trusteddomainname: Pcwstr, flags: UInt, foresttrustinfo: MutPtr): UInt =
     windowssysWindowsWin32NetworkingActivedirectoryDsGetForestTrustInformationW(servername.rawAddress.toCPointer<ByteVar>(), trusteddomainname.rawAddress.toCPointer<ByteVar>(), flags, foresttrustinfo.rawAddress.toCPointer<ByteVar>())
 
 public actual fun dsGetFriendlyClassName(pszobjectclass: Pcwstr, pszbuffer: Pwstr, cchbuffer: UInt): Hresult =
@@ -441,19 +437,19 @@ public actual fun dsGetFriendlyClassName(pszobjectclass: Pcwstr, pszbuffer: Pwst
 public actual fun dsGetIcon(dwflags: UInt, pszobjectclass: Pcwstr, cximage: Int, cyimage: Int): Hicon =
     MutPtr(windowssysWindowsWin32NetworkingActivedirectoryDsGetIcon(dwflags, pszobjectclass.rawAddress.toCPointer<ByteVar>(), cximage, cyimage)?.toLong() ?: 0L)
 
-public actual fun dsGetRdnW(ppdn: MutPtr<Pwstr>, pcdn: MutPtr<UInt>, ppkey: MutPtr<Pwstr>, pckey: MutPtr<UInt>, ppval: MutPtr<Pwstr>, pcval: MutPtr<UInt>): UInt =
+public actual fun dsGetRdnW(ppdn: MutPtr, pcdn: MutPtr, ppkey: MutPtr, pckey: MutPtr, ppval: MutPtr, pcval: MutPtr): UInt =
     windowssysWindowsWin32NetworkingActivedirectoryDsGetRdnW(ppdn.rawAddress.toCPointer<ByteVar>(), pcdn.rawAddress.toCPointer<ByteVar>(), ppkey.rawAddress.toCPointer<ByteVar>(), pckey.rawAddress.toCPointer<ByteVar>(), ppval.rawAddress.toCPointer<ByteVar>(), pcval.rawAddress.toCPointer<ByteVar>())
 
-public actual fun dsGetSiteNameA(computername: Pcstr, sitename: MutPtr<Pstr>): UInt =
+public actual fun dsGetSiteNameA(computername: Pcstr, sitename: MutPtr): UInt =
     windowssysWindowsWin32NetworkingActivedirectoryDsGetSiteNameA(computername.rawAddress.toCPointer<ByteVar>(), sitename.rawAddress.toCPointer<ByteVar>())
 
-public actual fun dsGetSiteNameW(computername: Pcwstr, sitename: MutPtr<Pwstr>): UInt =
+public actual fun dsGetSiteNameW(computername: Pcwstr, sitename: MutPtr): UInt =
     windowssysWindowsWin32NetworkingActivedirectoryDsGetSiteNameW(computername.rawAddress.toCPointer<ByteVar>(), sitename.rawAddress.toCPointer<ByteVar>())
 
-public actual fun dsGetSpnA(servicetype: DsSpnNameType, serviceclass: Pcstr, servicename: Pcstr, instanceport: UShort, cinstancenames: UShort, pinstancenames: ConstPtr<Pcstr>, pinstanceports: ConstPtr<UShort>, pcspn: MutPtr<UInt>, prpszspn: MutPtr<MutPtr<Pstr>>): UInt =
+public actual fun dsGetSpnA(servicetype: DsSpnNameType, serviceclass: Pcstr, servicename: Pcstr, instanceport: UShort, cinstancenames: UShort, pinstancenames: ConstPtr, pinstanceports: ConstPtr, pcspn: MutPtr, prpszspn: MutPtr): UInt =
     windowssysWindowsWin32NetworkingActivedirectoryDsGetSpnA(servicetype, serviceclass.rawAddress.toCPointer<ByteVar>(), servicename.rawAddress.toCPointer<ByteVar>(), instanceport, cinstancenames, pinstancenames.rawAddress.toCPointer<ByteVar>(), pinstanceports.rawAddress.toCPointer<ByteVar>(), pcspn.rawAddress.toCPointer<ByteVar>(), prpszspn.rawAddress.toCPointer<ByteVar>())
 
-public actual fun dsGetSpnW(servicetype: DsSpnNameType, serviceclass: Pcwstr, servicename: Pcwstr, instanceport: UShort, cinstancenames: UShort, pinstancenames: ConstPtr<Pcwstr>, pinstanceports: ConstPtr<UShort>, pcspn: MutPtr<UInt>, prpszspn: MutPtr<MutPtr<Pwstr>>): UInt =
+public actual fun dsGetSpnW(servicetype: DsSpnNameType, serviceclass: Pcwstr, servicename: Pcwstr, instanceport: UShort, cinstancenames: UShort, pinstancenames: ConstPtr, pinstanceports: ConstPtr, pcspn: MutPtr, prpszspn: MutPtr): UInt =
     windowssysWindowsWin32NetworkingActivedirectoryDsGetSpnW(servicetype, serviceclass.rawAddress.toCPointer<ByteVar>(), servicename.rawAddress.toCPointer<ByteVar>(), instanceport, cinstancenames, pinstancenames.rawAddress.toCPointer<ByteVar>(), pinstanceports.rawAddress.toCPointer<ByteVar>(), pcspn.rawAddress.toCPointer<ByteVar>(), prpszspn.rawAddress.toCPointer<ByteVar>())
 
 public actual fun dsInheritSecurityIdentityA(hds: Handle, flags: UInt, srcprincipal: Pcstr, dstprincipal: Pcstr): UInt =
@@ -474,77 +470,77 @@ public actual fun dsIsMangledRdnValueA(pszrdn: Pcstr, crdn: UInt, edsmangleforde
 public actual fun dsIsMangledRdnValueW(pszrdn: Pcwstr, crdn: UInt, edsmanglefordesired: DsMangleFor): Bool =
     windowssysWindowsWin32NetworkingActivedirectoryDsIsMangledRdnValueW(pszrdn.rawAddress.toCPointer<ByteVar>(), crdn, edsmanglefordesired)
 
-public actual fun dsListDomainsInSiteA(hds: Handle, site: Pcstr, ppdomains: MutPtr<MutPtr<DsNameResulta>>): UInt =
+public actual fun dsListDomainsInSiteA(hds: Handle, site: Pcstr, ppdomains: MutPtr): UInt =
     windowssysWindowsWin32NetworkingActivedirectoryDsListDomainsInSiteA(hds.rawAddress.toCPointer<ByteVar>(), site.rawAddress.toCPointer<ByteVar>(), ppdomains.rawAddress.toCPointer<ByteVar>())
 
-public actual fun dsListDomainsInSiteW(hds: Handle, site: Pcwstr, ppdomains: MutPtr<MutPtr<DsNameResultw>>): UInt =
+public actual fun dsListDomainsInSiteW(hds: Handle, site: Pcwstr, ppdomains: MutPtr): UInt =
     windowssysWindowsWin32NetworkingActivedirectoryDsListDomainsInSiteW(hds.rawAddress.toCPointer<ByteVar>(), site.rawAddress.toCPointer<ByteVar>(), ppdomains.rawAddress.toCPointer<ByteVar>())
 
-public actual fun dsListInfoForServerA(hds: Handle, server: Pcstr, ppinfo: MutPtr<MutPtr<DsNameResulta>>): UInt =
+public actual fun dsListInfoForServerA(hds: Handle, server: Pcstr, ppinfo: MutPtr): UInt =
     windowssysWindowsWin32NetworkingActivedirectoryDsListInfoForServerA(hds.rawAddress.toCPointer<ByteVar>(), server.rawAddress.toCPointer<ByteVar>(), ppinfo.rawAddress.toCPointer<ByteVar>())
 
-public actual fun dsListInfoForServerW(hds: Handle, server: Pcwstr, ppinfo: MutPtr<MutPtr<DsNameResultw>>): UInt =
+public actual fun dsListInfoForServerW(hds: Handle, server: Pcwstr, ppinfo: MutPtr): UInt =
     windowssysWindowsWin32NetworkingActivedirectoryDsListInfoForServerW(hds.rawAddress.toCPointer<ByteVar>(), server.rawAddress.toCPointer<ByteVar>(), ppinfo.rawAddress.toCPointer<ByteVar>())
 
-public actual fun dsListRolesA(hds: Handle, pproles: MutPtr<MutPtr<DsNameResulta>>): UInt =
+public actual fun dsListRolesA(hds: Handle, pproles: MutPtr): UInt =
     windowssysWindowsWin32NetworkingActivedirectoryDsListRolesA(hds.rawAddress.toCPointer<ByteVar>(), pproles.rawAddress.toCPointer<ByteVar>())
 
-public actual fun dsListRolesW(hds: Handle, pproles: MutPtr<MutPtr<DsNameResultw>>): UInt =
+public actual fun dsListRolesW(hds: Handle, pproles: MutPtr): UInt =
     windowssysWindowsWin32NetworkingActivedirectoryDsListRolesW(hds.rawAddress.toCPointer<ByteVar>(), pproles.rawAddress.toCPointer<ByteVar>())
 
-public actual fun dsListServersForDomainInSiteA(hds: Handle, domain: Pcstr, site: Pcstr, ppservers: MutPtr<MutPtr<DsNameResulta>>): UInt =
+public actual fun dsListServersForDomainInSiteA(hds: Handle, domain: Pcstr, site: Pcstr, ppservers: MutPtr): UInt =
     windowssysWindowsWin32NetworkingActivedirectoryDsListServersForDomainInSiteA(hds.rawAddress.toCPointer<ByteVar>(), domain.rawAddress.toCPointer<ByteVar>(), site.rawAddress.toCPointer<ByteVar>(), ppservers.rawAddress.toCPointer<ByteVar>())
 
-public actual fun dsListServersForDomainInSiteW(hds: Handle, domain: Pcwstr, site: Pcwstr, ppservers: MutPtr<MutPtr<DsNameResultw>>): UInt =
+public actual fun dsListServersForDomainInSiteW(hds: Handle, domain: Pcwstr, site: Pcwstr, ppservers: MutPtr): UInt =
     windowssysWindowsWin32NetworkingActivedirectoryDsListServersForDomainInSiteW(hds.rawAddress.toCPointer<ByteVar>(), domain.rawAddress.toCPointer<ByteVar>(), site.rawAddress.toCPointer<ByteVar>(), ppservers.rawAddress.toCPointer<ByteVar>())
 
-public actual fun dsListServersInSiteA(hds: Handle, site: Pcstr, ppservers: MutPtr<MutPtr<DsNameResulta>>): UInt =
+public actual fun dsListServersInSiteA(hds: Handle, site: Pcstr, ppservers: MutPtr): UInt =
     windowssysWindowsWin32NetworkingActivedirectoryDsListServersInSiteA(hds.rawAddress.toCPointer<ByteVar>(), site.rawAddress.toCPointer<ByteVar>(), ppservers.rawAddress.toCPointer<ByteVar>())
 
-public actual fun dsListServersInSiteW(hds: Handle, site: Pcwstr, ppservers: MutPtr<MutPtr<DsNameResultw>>): UInt =
+public actual fun dsListServersInSiteW(hds: Handle, site: Pcwstr, ppservers: MutPtr): UInt =
     windowssysWindowsWin32NetworkingActivedirectoryDsListServersInSiteW(hds.rawAddress.toCPointer<ByteVar>(), site.rawAddress.toCPointer<ByteVar>(), ppservers.rawAddress.toCPointer<ByteVar>())
 
-public actual fun dsListSitesA(hds: Handle, ppsites: MutPtr<MutPtr<DsNameResulta>>): UInt =
+public actual fun dsListSitesA(hds: Handle, ppsites: MutPtr): UInt =
     windowssysWindowsWin32NetworkingActivedirectoryDsListSitesA(hds.rawAddress.toCPointer<ByteVar>(), ppsites.rawAddress.toCPointer<ByteVar>())
 
-public actual fun dsListSitesW(hds: Handle, ppsites: MutPtr<MutPtr<DsNameResultw>>): UInt =
+public actual fun dsListSitesW(hds: Handle, ppsites: MutPtr): UInt =
     windowssysWindowsWin32NetworkingActivedirectoryDsListSitesW(hds.rawAddress.toCPointer<ByteVar>(), ppsites.rawAddress.toCPointer<ByteVar>())
 
-public actual fun dsMakePasswordCredentialsA(user: Pcstr, domain: Pcstr, password: Pcstr, pauthidentity: MutPtr<MutPtr<CVoid>>): UInt =
+public actual fun dsMakePasswordCredentialsA(user: Pcstr, domain: Pcstr, password: Pcstr, pauthidentity: MutPtr): UInt =
     windowssysWindowsWin32NetworkingActivedirectoryDsMakePasswordCredentialsA(user.rawAddress.toCPointer<ByteVar>(), domain.rawAddress.toCPointer<ByteVar>(), password.rawAddress.toCPointer<ByteVar>(), pauthidentity.rawAddress.toCPointer<ByteVar>())
 
-public actual fun dsMakePasswordCredentialsW(user: Pcwstr, domain: Pcwstr, password: Pcwstr, pauthidentity: MutPtr<MutPtr<CVoid>>): UInt =
+public actual fun dsMakePasswordCredentialsW(user: Pcwstr, domain: Pcwstr, password: Pcwstr, pauthidentity: MutPtr): UInt =
     windowssysWindowsWin32NetworkingActivedirectoryDsMakePasswordCredentialsW(user.rawAddress.toCPointer<ByteVar>(), domain.rawAddress.toCPointer<ByteVar>(), password.rawAddress.toCPointer<ByteVar>(), pauthidentity.rawAddress.toCPointer<ByteVar>())
 
-public actual fun dsMakeSpnA(serviceclass: Pcstr, servicename: Pcstr, instancename: Pcstr, instanceport: UShort, referrer: Pcstr, pcspnlength: MutPtr<UInt>, pszspn: Pstr): UInt =
+public actual fun dsMakeSpnA(serviceclass: Pcstr, servicename: Pcstr, instancename: Pcstr, instanceport: UShort, referrer: Pcstr, pcspnlength: MutPtr, pszspn: Pstr): UInt =
     windowssysWindowsWin32NetworkingActivedirectoryDsMakeSpnA(serviceclass.rawAddress.toCPointer<ByteVar>(), servicename.rawAddress.toCPointer<ByteVar>(), instancename.rawAddress.toCPointer<ByteVar>(), instanceport, referrer.rawAddress.toCPointer<ByteVar>(), pcspnlength.rawAddress.toCPointer<ByteVar>(), pszspn.rawAddress.toCPointer<ByteVar>())
 
-public actual fun dsMakeSpnW(serviceclass: Pcwstr, servicename: Pcwstr, instancename: Pcwstr, instanceport: UShort, referrer: Pcwstr, pcspnlength: MutPtr<UInt>, pszspn: Pwstr): UInt =
+public actual fun dsMakeSpnW(serviceclass: Pcwstr, servicename: Pcwstr, instancename: Pcwstr, instanceport: UShort, referrer: Pcwstr, pcspnlength: MutPtr, pszspn: Pwstr): UInt =
     windowssysWindowsWin32NetworkingActivedirectoryDsMakeSpnW(serviceclass.rawAddress.toCPointer<ByteVar>(), servicename.rawAddress.toCPointer<ByteVar>(), instancename.rawAddress.toCPointer<ByteVar>(), instanceport, referrer.rawAddress.toCPointer<ByteVar>(), pcspnlength.rawAddress.toCPointer<ByteVar>(), pszspn.rawAddress.toCPointer<ByteVar>())
 
-public actual fun dsMapSchemaGuidsA(hds: Handle, cguids: UInt, rguids: ConstPtr<Guid>, ppguidmap: MutPtr<MutPtr<DsSchemaGuidMapa>>): UInt =
+public actual fun dsMapSchemaGuidsA(hds: Handle, cguids: UInt, rguids: ConstPtr, ppguidmap: MutPtr): UInt =
     windowssysWindowsWin32NetworkingActivedirectoryDsMapSchemaGuidsA(hds.rawAddress.toCPointer<ByteVar>(), cguids, rguids.rawAddress.toCPointer<ByteVar>(), ppguidmap.rawAddress.toCPointer<ByteVar>())
 
-public actual fun dsMapSchemaGuidsW(hds: Handle, cguids: UInt, rguids: ConstPtr<Guid>, ppguidmap: MutPtr<MutPtr<DsSchemaGuidMapw>>): UInt =
+public actual fun dsMapSchemaGuidsW(hds: Handle, cguids: UInt, rguids: ConstPtr, ppguidmap: MutPtr): UInt =
     windowssysWindowsWin32NetworkingActivedirectoryDsMapSchemaGuidsW(hds.rawAddress.toCPointer<ByteVar>(), cguids, rguids.rawAddress.toCPointer<ByteVar>(), ppguidmap.rawAddress.toCPointer<ByteVar>())
 
-public actual fun dsMergeForestTrustInformationW(domainname: Pcwstr, newforesttrustinfo: ConstPtr<LsaForestTrustInformation>, oldforesttrustinfo: ConstPtr<LsaForestTrustInformation>, mergedforesttrustinfo: MutPtr<MutPtr<LsaForestTrustInformation>>): UInt =
+public actual fun dsMergeForestTrustInformationW(domainname: Pcwstr, newforesttrustinfo: ConstPtr, oldforesttrustinfo: ConstPtr, mergedforesttrustinfo: MutPtr): UInt =
     windowssysWindowsWin32NetworkingActivedirectoryDsMergeForestTrustInformationW(domainname.rawAddress.toCPointer<ByteVar>(), newforesttrustinfo.rawAddress.toCPointer<ByteVar>(), oldforesttrustinfo.rawAddress.toCPointer<ByteVar>(), mergedforesttrustinfo.rawAddress.toCPointer<ByteVar>())
 
-public actual fun dsQuerySitesByCostA(hds: Handle, pszfromsite: Pcstr, rgsztosites: ConstPtr<Pcstr>, ctosites: UInt, dwflags: UInt, prgsiteinfo: MutPtr<MutPtr<DsSiteCostInfo>>): UInt =
+public actual fun dsQuerySitesByCostA(hds: Handle, pszfromsite: Pcstr, rgsztosites: ConstPtr, ctosites: UInt, dwflags: UInt, prgsiteinfo: MutPtr): UInt =
     windowssysWindowsWin32NetworkingActivedirectoryDsQuerySitesByCostA(hds.rawAddress.toCPointer<ByteVar>(), pszfromsite.rawAddress.toCPointer<ByteVar>(), rgsztosites.rawAddress.toCPointer<ByteVar>(), ctosites, dwflags, prgsiteinfo.rawAddress.toCPointer<ByteVar>())
 
-public actual fun dsQuerySitesByCostW(hds: Handle, pwszfromsite: Pcwstr, rgwsztosites: ConstPtr<Pcwstr>, ctosites: UInt, dwflags: UInt, prgsiteinfo: MutPtr<MutPtr<DsSiteCostInfo>>): UInt =
+public actual fun dsQuerySitesByCostW(hds: Handle, pwszfromsite: Pcwstr, rgwsztosites: ConstPtr, ctosites: UInt, dwflags: UInt, prgsiteinfo: MutPtr): UInt =
     windowssysWindowsWin32NetworkingActivedirectoryDsQuerySitesByCostW(hds.rawAddress.toCPointer<ByteVar>(), pwszfromsite.rawAddress.toCPointer<ByteVar>(), rgwsztosites.rawAddress.toCPointer<ByteVar>(), ctosites, dwflags, prgsiteinfo.rawAddress.toCPointer<ByteVar>())
 
-public actual fun dsQuerySitesFree(rgsiteinfo: ConstPtr<DsSiteCostInfo>) {
+public actual fun dsQuerySitesFree(rgsiteinfo: ConstPtr) {
     windowssysWindowsWin32NetworkingActivedirectoryDsQuerySitesFree(rgsiteinfo.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun dsQuoteRdnValueA(cunquotedrdnvaluelength: UInt, psunquotedrdnvalue: Pcstr, pcquotedrdnvaluelength: MutPtr<UInt>, psquotedrdnvalue: Pstr): UInt =
+public actual fun dsQuoteRdnValueA(cunquotedrdnvaluelength: UInt, psunquotedrdnvalue: Pcstr, pcquotedrdnvaluelength: MutPtr, psquotedrdnvalue: Pstr): UInt =
     windowssysWindowsWin32NetworkingActivedirectoryDsQuoteRdnValueA(cunquotedrdnvaluelength, psunquotedrdnvalue.rawAddress.toCPointer<ByteVar>(), pcquotedrdnvaluelength.rawAddress.toCPointer<ByteVar>(), psquotedrdnvalue.rawAddress.toCPointer<ByteVar>())
 
-public actual fun dsQuoteRdnValueW(cunquotedrdnvaluelength: UInt, psunquotedrdnvalue: Pcwstr, pcquotedrdnvaluelength: MutPtr<UInt>, psquotedrdnvalue: Pwstr): UInt =
+public actual fun dsQuoteRdnValueW(cunquotedrdnvaluelength: UInt, psunquotedrdnvalue: Pcwstr, pcquotedrdnvaluelength: MutPtr, psquotedrdnvalue: Pwstr): UInt =
     windowssysWindowsWin32NetworkingActivedirectoryDsQuoteRdnValueW(cunquotedrdnvaluelength, psunquotedrdnvalue.rawAddress.toCPointer<ByteVar>(), pcquotedrdnvaluelength.rawAddress.toCPointer<ByteVar>(), psquotedrdnvalue.rawAddress.toCPointer<ByteVar>())
 
 public actual fun dsRemoveDsDomainA(hds: Handle, domaindn: Pcstr): UInt =
@@ -553,16 +549,16 @@ public actual fun dsRemoveDsDomainA(hds: Handle, domaindn: Pcstr): UInt =
 public actual fun dsRemoveDsDomainW(hds: Handle, domaindn: Pcwstr): UInt =
     windowssysWindowsWin32NetworkingActivedirectoryDsRemoveDsDomainW(hds.rawAddress.toCPointer<ByteVar>(), domaindn.rawAddress.toCPointer<ByteVar>())
 
-public actual fun dsRemoveDsServerA(hds: Handle, serverdn: Pcstr, domaindn: Pcstr, flastdcindomain: MutPtr<Bool>, fcommit: Bool): UInt =
+public actual fun dsRemoveDsServerA(hds: Handle, serverdn: Pcstr, domaindn: Pcstr, flastdcindomain: MutPtr, fcommit: Bool): UInt =
     windowssysWindowsWin32NetworkingActivedirectoryDsRemoveDsServerA(hds.rawAddress.toCPointer<ByteVar>(), serverdn.rawAddress.toCPointer<ByteVar>(), domaindn.rawAddress.toCPointer<ByteVar>(), flastdcindomain.rawAddress.toCPointer<ByteVar>(), fcommit)
 
-public actual fun dsRemoveDsServerW(hds: Handle, serverdn: Pcwstr, domaindn: Pcwstr, flastdcindomain: MutPtr<Bool>, fcommit: Bool): UInt =
+public actual fun dsRemoveDsServerW(hds: Handle, serverdn: Pcwstr, domaindn: Pcwstr, flastdcindomain: MutPtr, fcommit: Bool): UInt =
     windowssysWindowsWin32NetworkingActivedirectoryDsRemoveDsServerW(hds.rawAddress.toCPointer<ByteVar>(), serverdn.rawAddress.toCPointer<ByteVar>(), domaindn.rawAddress.toCPointer<ByteVar>(), flastdcindomain.rawAddress.toCPointer<ByteVar>(), fcommit)
 
-public actual fun dsReplicaAddA(hds: Handle, namecontext: Pcstr, sourcedsadn: Pcstr, transportdn: Pcstr, sourcedsaaddress: Pcstr, pschedule: ConstPtr<Schedule>, options: UInt): UInt =
+public actual fun dsReplicaAddA(hds: Handle, namecontext: Pcstr, sourcedsadn: Pcstr, transportdn: Pcstr, sourcedsaaddress: Pcstr, pschedule: ConstPtr, options: UInt): UInt =
     windowssysWindowsWin32NetworkingActivedirectoryDsReplicaAddA(hds.rawAddress.toCPointer<ByteVar>(), namecontext.rawAddress.toCPointer<ByteVar>(), sourcedsadn.rawAddress.toCPointer<ByteVar>(), transportdn.rawAddress.toCPointer<ByteVar>(), sourcedsaaddress.rawAddress.toCPointer<ByteVar>(), pschedule.rawAddress.toCPointer<ByteVar>(), options)
 
-public actual fun dsReplicaAddW(hds: Handle, namecontext: Pcwstr, sourcedsadn: Pcwstr, transportdn: Pcwstr, sourcedsaaddress: Pcwstr, pschedule: ConstPtr<Schedule>, options: UInt): UInt =
+public actual fun dsReplicaAddW(hds: Handle, namecontext: Pcwstr, sourcedsadn: Pcwstr, transportdn: Pcwstr, sourcedsaaddress: Pcwstr, pschedule: ConstPtr, options: UInt): UInt =
     windowssysWindowsWin32NetworkingActivedirectoryDsReplicaAddW(hds.rawAddress.toCPointer<ByteVar>(), namecontext.rawAddress.toCPointer<ByteVar>(), sourcedsadn.rawAddress.toCPointer<ByteVar>(), transportdn.rawAddress.toCPointer<ByteVar>(), sourcedsaaddress.rawAddress.toCPointer<ByteVar>(), pschedule.rawAddress.toCPointer<ByteVar>(), options)
 
 public actual fun dsReplicaConsistencyCheck(hds: Handle, taskid: DsKccTaskid, dwflags: UInt): UInt =
@@ -574,51 +570,51 @@ public actual fun dsReplicaDelA(hds: Handle, namecontext: Pcstr, dsasrc: Pcstr, 
 public actual fun dsReplicaDelW(hds: Handle, namecontext: Pcwstr, dsasrc: Pcwstr, options: UInt): UInt =
     windowssysWindowsWin32NetworkingActivedirectoryDsReplicaDelW(hds.rawAddress.toCPointer<ByteVar>(), namecontext.rawAddress.toCPointer<ByteVar>(), dsasrc.rawAddress.toCPointer<ByteVar>(), options)
 
-public actual fun dsReplicaFreeInfo(infotype: DsReplInfoType, pinfo: ConstPtr<CVoid>) {
+public actual fun dsReplicaFreeInfo(infotype: DsReplInfoType, pinfo: ConstPtr) {
     windowssysWindowsWin32NetworkingActivedirectoryDsReplicaFreeInfo(infotype, pinfo.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun dsReplicaGetInfo2W(hds: Handle, infotype: DsReplInfoType, pszobject: Pcwstr, puuidforsourcedsaobjguid: ConstPtr<Guid>, pszattributename: Pcwstr, pszvalue: Pcwstr, dwflags: UInt, dwenumerationcontext: UInt, ppinfo: MutPtr<MutPtr<CVoid>>): UInt =
+public actual fun dsReplicaGetInfo2W(hds: Handle, infotype: DsReplInfoType, pszobject: Pcwstr, puuidforsourcedsaobjguid: ConstPtr, pszattributename: Pcwstr, pszvalue: Pcwstr, dwflags: UInt, dwenumerationcontext: UInt, ppinfo: MutPtr): UInt =
     windowssysWindowsWin32NetworkingActivedirectoryDsReplicaGetInfo2W(hds.rawAddress.toCPointer<ByteVar>(), infotype, pszobject.rawAddress.toCPointer<ByteVar>(), puuidforsourcedsaobjguid.rawAddress.toCPointer<ByteVar>(), pszattributename.rawAddress.toCPointer<ByteVar>(), pszvalue.rawAddress.toCPointer<ByteVar>(), dwflags, dwenumerationcontext, ppinfo.rawAddress.toCPointer<ByteVar>())
 
-public actual fun dsReplicaGetInfoW(hds: Handle, infotype: DsReplInfoType, pszobject: Pcwstr, puuidforsourcedsaobjguid: ConstPtr<Guid>, ppinfo: MutPtr<MutPtr<CVoid>>): UInt =
+public actual fun dsReplicaGetInfoW(hds: Handle, infotype: DsReplInfoType, pszobject: Pcwstr, puuidforsourcedsaobjguid: ConstPtr, ppinfo: MutPtr): UInt =
     windowssysWindowsWin32NetworkingActivedirectoryDsReplicaGetInfoW(hds.rawAddress.toCPointer<ByteVar>(), infotype, pszobject.rawAddress.toCPointer<ByteVar>(), puuidforsourcedsaobjguid.rawAddress.toCPointer<ByteVar>(), ppinfo.rawAddress.toCPointer<ByteVar>())
 
-public actual fun dsReplicaModifyA(hds: Handle, namecontext: Pcstr, puuidsourcedsa: ConstPtr<Guid>, transportdn: Pcstr, sourcedsaaddress: Pcstr, pschedule: ConstPtr<Schedule>, replicaflags: UInt, modifyfields: UInt, options: UInt): UInt =
+public actual fun dsReplicaModifyA(hds: Handle, namecontext: Pcstr, puuidsourcedsa: ConstPtr, transportdn: Pcstr, sourcedsaaddress: Pcstr, pschedule: ConstPtr, replicaflags: UInt, modifyfields: UInt, options: UInt): UInt =
     windowssysWindowsWin32NetworkingActivedirectoryDsReplicaModifyA(hds.rawAddress.toCPointer<ByteVar>(), namecontext.rawAddress.toCPointer<ByteVar>(), puuidsourcedsa.rawAddress.toCPointer<ByteVar>(), transportdn.rawAddress.toCPointer<ByteVar>(), sourcedsaaddress.rawAddress.toCPointer<ByteVar>(), pschedule.rawAddress.toCPointer<ByteVar>(), replicaflags, modifyfields, options)
 
-public actual fun dsReplicaModifyW(hds: Handle, namecontext: Pcwstr, puuidsourcedsa: ConstPtr<Guid>, transportdn: Pcwstr, sourcedsaaddress: Pcwstr, pschedule: ConstPtr<Schedule>, replicaflags: UInt, modifyfields: UInt, options: UInt): UInt =
+public actual fun dsReplicaModifyW(hds: Handle, namecontext: Pcwstr, puuidsourcedsa: ConstPtr, transportdn: Pcwstr, sourcedsaaddress: Pcwstr, pschedule: ConstPtr, replicaflags: UInt, modifyfields: UInt, options: UInt): UInt =
     windowssysWindowsWin32NetworkingActivedirectoryDsReplicaModifyW(hds.rawAddress.toCPointer<ByteVar>(), namecontext.rawAddress.toCPointer<ByteVar>(), puuidsourcedsa.rawAddress.toCPointer<ByteVar>(), transportdn.rawAddress.toCPointer<ByteVar>(), sourcedsaaddress.rawAddress.toCPointer<ByteVar>(), pschedule.rawAddress.toCPointer<ByteVar>(), replicaflags, modifyfields, options)
 
-public actual fun dsReplicaSyncA(hds: Handle, namecontext: Pcstr, puuiddsasrc: ConstPtr<Guid>, options: UInt): UInt =
+public actual fun dsReplicaSyncA(hds: Handle, namecontext: Pcstr, puuiddsasrc: ConstPtr, options: UInt): UInt =
     windowssysWindowsWin32NetworkingActivedirectoryDsReplicaSyncA(hds.rawAddress.toCPointer<ByteVar>(), namecontext.rawAddress.toCPointer<ByteVar>(), puuiddsasrc.rawAddress.toCPointer<ByteVar>(), options)
 
-public actual fun dsReplicaSyncAllA(hds: Handle, psznamecontext: Pcstr, ulflags: UInt, pfncallback: Long, pcallbackdata: ConstPtr<CVoid>, perrors: MutPtr<MutPtr<MutPtr<DsRepsyncallErrinfoa>>>): UInt =
+public actual fun dsReplicaSyncAllA(hds: Handle, psznamecontext: Pcstr, ulflags: UInt, pfncallback: Long, pcallbackdata: ConstPtr, perrors: MutPtr): UInt =
     windowssysWindowsWin32NetworkingActivedirectoryDsReplicaSyncAllA(hds.rawAddress.toCPointer<ByteVar>(), psznamecontext.rawAddress.toCPointer<ByteVar>(), ulflags, pfncallback, pcallbackdata.rawAddress.toCPointer<ByteVar>(), perrors.rawAddress.toCPointer<ByteVar>())
 
-public actual fun dsReplicaSyncAllW(hds: Handle, psznamecontext: Pcwstr, ulflags: UInt, pfncallback: Long, pcallbackdata: ConstPtr<CVoid>, perrors: MutPtr<MutPtr<MutPtr<DsRepsyncallErrinfow>>>): UInt =
+public actual fun dsReplicaSyncAllW(hds: Handle, psznamecontext: Pcwstr, ulflags: UInt, pfncallback: Long, pcallbackdata: ConstPtr, perrors: MutPtr): UInt =
     windowssysWindowsWin32NetworkingActivedirectoryDsReplicaSyncAllW(hds.rawAddress.toCPointer<ByteVar>(), psznamecontext.rawAddress.toCPointer<ByteVar>(), ulflags, pfncallback, pcallbackdata.rawAddress.toCPointer<ByteVar>(), perrors.rawAddress.toCPointer<ByteVar>())
 
-public actual fun dsReplicaSyncW(hds: Handle, namecontext: Pcwstr, puuiddsasrc: ConstPtr<Guid>, options: UInt): UInt =
+public actual fun dsReplicaSyncW(hds: Handle, namecontext: Pcwstr, puuiddsasrc: ConstPtr, options: UInt): UInt =
     windowssysWindowsWin32NetworkingActivedirectoryDsReplicaSyncW(hds.rawAddress.toCPointer<ByteVar>(), namecontext.rawAddress.toCPointer<ByteVar>(), puuiddsasrc.rawAddress.toCPointer<ByteVar>(), options)
 
-public actual fun dsReplicaUpdateRefsA(hds: Handle, namecontext: Pcstr, dsadest: Pcstr, puuiddsadest: ConstPtr<Guid>, options: UInt): UInt =
+public actual fun dsReplicaUpdateRefsA(hds: Handle, namecontext: Pcstr, dsadest: Pcstr, puuiddsadest: ConstPtr, options: UInt): UInt =
     windowssysWindowsWin32NetworkingActivedirectoryDsReplicaUpdateRefsA(hds.rawAddress.toCPointer<ByteVar>(), namecontext.rawAddress.toCPointer<ByteVar>(), dsadest.rawAddress.toCPointer<ByteVar>(), puuiddsadest.rawAddress.toCPointer<ByteVar>(), options)
 
-public actual fun dsReplicaUpdateRefsW(hds: Handle, namecontext: Pcwstr, dsadest: Pcwstr, puuiddsadest: ConstPtr<Guid>, options: UInt): UInt =
+public actual fun dsReplicaUpdateRefsW(hds: Handle, namecontext: Pcwstr, dsadest: Pcwstr, puuiddsadest: ConstPtr, options: UInt): UInt =
     windowssysWindowsWin32NetworkingActivedirectoryDsReplicaUpdateRefsW(hds.rawAddress.toCPointer<ByteVar>(), namecontext.rawAddress.toCPointer<ByteVar>(), dsadest.rawAddress.toCPointer<ByteVar>(), puuiddsadest.rawAddress.toCPointer<ByteVar>(), options)
 
-public actual fun dsReplicaVerifyObjectsA(hds: Handle, namecontext: Pcstr, puuiddsasrc: ConstPtr<Guid>, uloptions: UInt): UInt =
+public actual fun dsReplicaVerifyObjectsA(hds: Handle, namecontext: Pcstr, puuiddsasrc: ConstPtr, uloptions: UInt): UInt =
     windowssysWindowsWin32NetworkingActivedirectoryDsReplicaVerifyObjectsA(hds.rawAddress.toCPointer<ByteVar>(), namecontext.rawAddress.toCPointer<ByteVar>(), puuiddsasrc.rawAddress.toCPointer<ByteVar>(), uloptions)
 
-public actual fun dsReplicaVerifyObjectsW(hds: Handle, namecontext: Pcwstr, puuiddsasrc: ConstPtr<Guid>, uloptions: UInt): UInt =
+public actual fun dsReplicaVerifyObjectsW(hds: Handle, namecontext: Pcwstr, puuiddsasrc: ConstPtr, uloptions: UInt): UInt =
     windowssysWindowsWin32NetworkingActivedirectoryDsReplicaVerifyObjectsW(hds.rawAddress.toCPointer<ByteVar>(), namecontext.rawAddress.toCPointer<ByteVar>(), puuiddsasrc.rawAddress.toCPointer<ByteVar>(), uloptions)
 
-public actual fun dsRoleFreeMemory(buffer: MutPtr<CVoid>) {
+public actual fun dsRoleFreeMemory(buffer: MutPtr) {
     windowssysWindowsWin32NetworkingActivedirectoryDsRoleFreeMemory(buffer.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun dsRoleGetPrimaryDomainInformation(lpserver: Pcwstr, infolevel: DsrolePrimaryDomainInfoLevel, buffer: MutPtr<MutPtr<UByte>>): UInt =
+public actual fun dsRoleGetPrimaryDomainInformation(lpserver: Pcwstr, infolevel: DsrolePrimaryDomainInfoLevel, buffer: MutPtr): UInt =
     windowssysWindowsWin32NetworkingActivedirectoryDsRoleGetPrimaryDomainInformation(lpserver.rawAddress.toCPointer<ByteVar>(), infolevel, buffer.rawAddress.toCPointer<ByteVar>())
 
 public actual fun dsServerRegisterSpnA(operation: DsSpnWriteOp, serviceclass: Pcstr, userobjectdn: Pcstr): UInt =
@@ -627,16 +623,16 @@ public actual fun dsServerRegisterSpnA(operation: DsSpnWriteOp, serviceclass: Pc
 public actual fun dsServerRegisterSpnW(operation: DsSpnWriteOp, serviceclass: Pcwstr, userobjectdn: Pcwstr): UInt =
     windowssysWindowsWin32NetworkingActivedirectoryDsServerRegisterSpnW(operation, serviceclass.rawAddress.toCPointer<ByteVar>(), userobjectdn.rawAddress.toCPointer<ByteVar>())
 
-public actual fun dsUnBindA(phds: ConstPtr<Handle>): UInt =
+public actual fun dsUnBindA(phds: ConstPtr): UInt =
     windowssysWindowsWin32NetworkingActivedirectoryDsUnBindA(phds.rawAddress.toCPointer<ByteVar>())
 
-public actual fun dsUnBindW(phds: ConstPtr<Handle>): UInt =
+public actual fun dsUnBindW(phds: ConstPtr): UInt =
     windowssysWindowsWin32NetworkingActivedirectoryDsUnBindW(phds.rawAddress.toCPointer<ByteVar>())
 
-public actual fun dsUnquoteRdnValueA(cquotedrdnvaluelength: UInt, psquotedrdnvalue: Pcstr, pcunquotedrdnvaluelength: MutPtr<UInt>, psunquotedrdnvalue: Pstr): UInt =
+public actual fun dsUnquoteRdnValueA(cquotedrdnvaluelength: UInt, psquotedrdnvalue: Pcstr, pcunquotedrdnvaluelength: MutPtr, psunquotedrdnvalue: Pstr): UInt =
     windowssysWindowsWin32NetworkingActivedirectoryDsUnquoteRdnValueA(cquotedrdnvaluelength, psquotedrdnvalue.rawAddress.toCPointer<ByteVar>(), pcunquotedrdnvaluelength.rawAddress.toCPointer<ByteVar>(), psunquotedrdnvalue.rawAddress.toCPointer<ByteVar>())
 
-public actual fun dsUnquoteRdnValueW(cquotedrdnvaluelength: UInt, psquotedrdnvalue: Pcwstr, pcunquotedrdnvaluelength: MutPtr<UInt>, psunquotedrdnvalue: Pwstr): UInt =
+public actual fun dsUnquoteRdnValueW(cquotedrdnvaluelength: UInt, psquotedrdnvalue: Pcwstr, pcunquotedrdnvaluelength: MutPtr, psunquotedrdnvalue: Pwstr): UInt =
     windowssysWindowsWin32NetworkingActivedirectoryDsUnquoteRdnValueW(cquotedrdnvaluelength, psquotedrdnvalue.rawAddress.toCPointer<ByteVar>(), pcunquotedrdnvaluelength.rawAddress.toCPointer<ByteVar>(), psunquotedrdnvalue.rawAddress.toCPointer<ByteVar>())
 
 public actual fun dsValidateSubnetNameA(subnetname: Pcstr): UInt =
@@ -645,26 +641,26 @@ public actual fun dsValidateSubnetNameA(subnetname: Pcstr): UInt =
 public actual fun dsValidateSubnetNameW(subnetname: Pcwstr): UInt =
     windowssysWindowsWin32NetworkingActivedirectoryDsValidateSubnetNameW(subnetname.rawAddress.toCPointer<ByteVar>())
 
-public actual fun dsWriteAccountSpnA(hds: Handle, operation: DsSpnWriteOp, pszaccount: Pcstr, cspn: UInt, rpszspn: ConstPtr<Pcstr>): UInt =
+public actual fun dsWriteAccountSpnA(hds: Handle, operation: DsSpnWriteOp, pszaccount: Pcstr, cspn: UInt, rpszspn: ConstPtr): UInt =
     windowssysWindowsWin32NetworkingActivedirectoryDsWriteAccountSpnA(hds.rawAddress.toCPointer<ByteVar>(), operation, pszaccount.rawAddress.toCPointer<ByteVar>(), cspn, rpszspn.rawAddress.toCPointer<ByteVar>())
 
-public actual fun dsWriteAccountSpnW(hds: Handle, operation: DsSpnWriteOp, pszaccount: Pcwstr, cspn: UInt, rpszspn: ConstPtr<Pcwstr>): UInt =
+public actual fun dsWriteAccountSpnW(hds: Handle, operation: DsSpnWriteOp, pszaccount: Pcwstr, cspn: UInt, rpszspn: ConstPtr): UInt =
     windowssysWindowsWin32NetworkingActivedirectoryDsWriteAccountSpnW(hds.rawAddress.toCPointer<ByteVar>(), operation, pszaccount.rawAddress.toCPointer<ByteVar>(), cspn, rpszspn.rawAddress.toCPointer<ByteVar>())
 
-public actual fun freeADsMem(pmem: MutPtr<CVoid>): Bool =
+public actual fun freeADsMem(pmem: MutPtr): Bool =
     windowssysWindowsWin32NetworkingActivedirectoryFreeADsMem(pmem.rawAddress.toCPointer<ByteVar>())
 
 public actual fun freeADsStr(pstr: Pcwstr): Bool =
     windowssysWindowsWin32NetworkingActivedirectoryFreeADsStr(pstr.rawAddress.toCPointer<ByteVar>())
 
-public actual fun propVariantToAdsType(pvariant: MutPtr<Variant.Variant>, dwnumvariant: UInt, ppadsvalues: MutPtr<MutPtr<Adsvalue>>, pdwnumvalues: MutPtr<UInt>): Hresult =
+public actual fun propVariantToAdsType(pvariant: MutPtr, dwnumvariant: UInt, ppadsvalues: MutPtr, pdwnumvalues: MutPtr): Hresult =
     windowssysWindowsWin32NetworkingActivedirectoryPropVariantToAdsType(pvariant.rawAddress.toCPointer<ByteVar>(), dwnumvariant, ppadsvalues.rawAddress.toCPointer<ByteVar>(), pdwnumvalues.rawAddress.toCPointer<ByteVar>())
 
-public actual fun reallocADsMem(poldmem: MutPtr<CVoid>, cbold: UInt, cbnew: UInt): MutPtr<CVoid> =
+public actual fun reallocADsMem(poldmem: MutPtr, cbold: UInt, cbnew: UInt): MutPtr =
     MutPtr(windowssysWindowsWin32NetworkingActivedirectoryReallocADsMem(poldmem.rawAddress.toCPointer<ByteVar>(), cbold, cbnew)?.toLong() ?: 0L)
 
-public actual fun reallocADsStr(ppstr: MutPtr<Pwstr>, pstr: Pcwstr): Bool =
+public actual fun reallocADsStr(ppstr: MutPtr, pstr: Pcwstr): Bool =
     windowssysWindowsWin32NetworkingActivedirectoryReallocADsStr(ppstr.rawAddress.toCPointer<ByteVar>(), pstr.rawAddress.toCPointer<ByteVar>())
 
-public actual fun securityDescriptorToBinarySD(vvarsecdes: Variant.Variant, ppsecuritydescriptor: MutPtr<PsecurityDescriptor>, pdwsdlength: MutPtr<UInt>, pszservername: Pcwstr, username: Pcwstr, password: Pcwstr, dwflags: UInt): Hresult =
+public actual fun securityDescriptorToBinarySD(vvarsecdes: Variant.Variant, ppsecuritydescriptor: MutPtr, pdwsdlength: MutPtr, pszservername: Pcwstr, username: Pcwstr, password: Pcwstr, dwflags: UInt): Hresult =
     0

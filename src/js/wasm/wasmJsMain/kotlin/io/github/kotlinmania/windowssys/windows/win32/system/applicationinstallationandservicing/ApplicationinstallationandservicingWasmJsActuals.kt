@@ -2,21 +2,16 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing
 
-import io.github.kotlinmania.rustlang.core.ffi.CVoid
 import io.github.kotlinmania.rustlang.core.ptr.ConstPtr
 import io.github.kotlinmania.rustlang.core.ptr.MutPtr
 import io.github.kotlinmania.windowssys.core.Bool
-import io.github.kotlinmania.windowssys.core.Guid
 import io.github.kotlinmania.windowssys.core.Hresult
 import io.github.kotlinmania.windowssys.core.Pcstr
 import io.github.kotlinmania.windowssys.core.Pcwstr
 import io.github.kotlinmania.windowssys.core.Pstr
 import io.github.kotlinmania.windowssys.core.Pwstr
-import io.github.kotlinmania.windowssys.windows.win32.foundation.Filetime
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Handle
-import io.github.kotlinmania.windowssys.windows.win32.foundation.Hwnd
 import io.github.kotlinmania.windowssys.windows.win32.security.cryptography.AlgId
-import io.github.kotlinmania.windowssys.windows.win32.security.cryptography.CertContext
 import io.github.kotlinmania.windowssys.windows.win32.system.registry.Hkey
 
 @JsFun("() => { if (typeof globalThis.__km_napi_windowssys !== 'undefined') return globalThis.__km_napi_windowssys !== null; if (typeof process === 'undefined' || !process.versions || !process.versions.node) { globalThis.__km_napi_windowssys = null; return false; } var mod = process.getBuiltinModule ? process.getBuiltinModule('module') : (process.mainModule && process.mainModule.constructor); var req = (mod && mod.createRequire) ? mod.createRequire((process.cwd ? process.cwd() : '.') + '/package.json') : (process.mainModule ? process.mainModule.require : null); if (!req) { globalThis.__km_napi_windowssys = null; return false; } try { globalThis.__km_napi_windowssys = req('@kotlinmania/windowssys-native-bindings'); return true; } catch (_) {} var fs = req('fs'); var path = req('path'); var dir = process.cwd ? process.cwd() : '.'; var rels = ['windowssys_native.node', 'build/node-ffi/windowssys_native.node', 'build/node-ffi/release/windowssys_native.node', 'build/node-ffi/debug/windowssys_native.node', 'src/js/node-windowssys/build/Release/windowssys_native.node', 'src/js/node-windowssys/build/Debug/windowssys_native.node', 'src/js/node-windowssys/dist/build/Release/windowssys_native.node', 'src/js/node-windowssys/dist/build/Debug/windowssys_native.node']; for (var d = 0; d < 8; d++) { for (var i = 0; i < rels.length; i++) { var c = path.resolve(dir, rels[i]); if (fs.existsSync(c)) { globalThis.__km_napi_windowssys = req(c); return true; } } var parent = path.dirname(dir); if (parent === dir) break; dir = parent; } globalThis.__km_napi_windowssys = null; return false; }")
@@ -963,7 +958,7 @@ private external fun wasmWindowssysWindowsWin32SystemApplicationinstallationands
 @JsFun("(p0) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemApplicationinstallationandservicingZombifyActCtx(p0)")
 private external fun wasmWindowssysWindowsWin32SystemApplicationinstallationandservicingZombifyActCtx(p0: String): Int
 
-public actual fun activateActCtx(hactctx: Handle, lpcookie: MutPtr<ULong>): Bool =
+public actual fun activateActCtx(hactctx: Handle, lpcookie: MutPtr): Bool =
     if (windowsWin32SystemApplicationinstallationandservicingNapiAvailable) wasmWindowssysWindowsWin32SystemApplicationinstallationandservicingActivateActCtx(hactctx.rawAddress.toString(), lpcookie.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun addRefActCtx(hactctx: Handle) {
@@ -977,13 +972,13 @@ public actual fun addRefActCtx(hactctx: Handle) {
 public actual fun applyDeltaA(applyflags: Long, lpsourcename: Pcstr, lpdeltaname: Pcstr, lptargetname: Pcstr): Bool =
     if (windowsWin32SystemApplicationinstallationandservicingNapiAvailable) wasmWindowssysWindowsWin32SystemApplicationinstallationandservicingApplyDeltaA(applyflags.toString(), lpsourcename.rawAddress.toString(), lpdeltaname.rawAddress.toString(), lptargetname.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun applyDeltaB(applyflags: Long, source: DeltaInput, delta: DeltaInput, lptarget: MutPtr<DeltaOutput>): Bool =
+public actual fun applyDeltaB(applyflags: Long, source: DeltaInput, delta: DeltaInput, lptarget: MutPtr): Bool =
     throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun applyDeltaGetReverseB(applyflags: Long, source: DeltaInput, delta: DeltaInput, lpreversefiletime: ConstPtr<Filetime>, lptarget: MutPtr<DeltaOutput>, lptargetreverse: MutPtr<DeltaOutput>): Bool =
+public actual fun applyDeltaGetReverseB(applyflags: Long, source: DeltaInput, delta: DeltaInput, lpreversefiletime: ConstPtr, lptarget: MutPtr, lptargetreverse: MutPtr): Bool =
     throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun applyDeltaProvidedB(applyflags: Long, source: DeltaInput, delta: DeltaInput, lptarget: MutPtr<CVoid>, utargetsize: ULong): Bool =
+public actual fun applyDeltaProvidedB(applyflags: Long, source: DeltaInput, delta: DeltaInput, lptarget: MutPtr, utargetsize: ULong): Bool =
     throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun applyDeltaW(applyflags: Long, lpsourcename: Pcwstr, lpdeltaname: Pcwstr, lptargetname: Pcwstr): Bool =
@@ -992,64 +987,64 @@ public actual fun applyDeltaW(applyflags: Long, lpsourcename: Pcwstr, lpdeltanam
 public actual fun applyPatchToFileA(patchfilename: Pcstr, oldfilename: Pcstr, newfilename: Pcstr, applyoptionflags: UInt): Bool =
     if (windowsWin32SystemApplicationinstallationandservicingNapiAvailable) wasmWindowssysWindowsWin32SystemApplicationinstallationandservicingApplyPatchToFileA(patchfilename.rawAddress.toString(), oldfilename.rawAddress.toString(), newfilename.rawAddress.toString(), applyoptionflags.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun applyPatchToFileByBuffers(patchfilemapped: ConstPtr<UByte>, patchfilesize: UInt, oldfilemapped: ConstPtr<UByte>, oldfilesize: UInt, newfilebuffer: MutPtr<MutPtr<UByte>>, newfilebuffersize: UInt, newfileactualsize: MutPtr<UInt>, newfiletime: MutPtr<Filetime>, applyoptionflags: UInt, progresscallback: PpatchProgressCallback, callbackcontext: ConstPtr<CVoid>): Bool =
+public actual fun applyPatchToFileByBuffers(patchfilemapped: ConstPtr, patchfilesize: UInt, oldfilemapped: ConstPtr, oldfilesize: UInt, newfilebuffer: MutPtr, newfilebuffersize: UInt, newfileactualsize: MutPtr, newfiletime: MutPtr, applyoptionflags: UInt, progresscallback: PpatchProgressCallback, callbackcontext: ConstPtr): Bool =
     if (windowsWin32SystemApplicationinstallationandservicingNapiAvailable) wasmWindowssysWindowsWin32SystemApplicationinstallationandservicingApplyPatchToFileByBuffers(patchfilemapped.rawAddress.toString(), patchfilesize.toInt(), oldfilemapped.rawAddress.toString(), oldfilesize.toInt(), newfilebuffer.rawAddress.toString(), newfilebuffersize.toInt(), newfileactualsize.rawAddress.toString(), newfiletime.rawAddress.toString(), applyoptionflags.toInt(), 0L.toString(), callbackcontext.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun applyPatchToFileByHandles(patchfilehandle: Handle, oldfilehandle: Handle, newfilehandle: Handle, applyoptionflags: UInt): Bool =
     if (windowsWin32SystemApplicationinstallationandservicingNapiAvailable) wasmWindowssysWindowsWin32SystemApplicationinstallationandservicingApplyPatchToFileByHandles(patchfilehandle.rawAddress.toString(), oldfilehandle.rawAddress.toString(), newfilehandle.rawAddress.toString(), applyoptionflags.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun applyPatchToFileByHandlesEx(patchfilehandle: Handle, oldfilehandle: Handle, newfilehandle: Handle, applyoptionflags: UInt, progresscallback: PpatchProgressCallback, callbackcontext: ConstPtr<CVoid>): Bool =
+public actual fun applyPatchToFileByHandlesEx(patchfilehandle: Handle, oldfilehandle: Handle, newfilehandle: Handle, applyoptionflags: UInt, progresscallback: PpatchProgressCallback, callbackcontext: ConstPtr): Bool =
     if (windowsWin32SystemApplicationinstallationandservicingNapiAvailable) wasmWindowssysWindowsWin32SystemApplicationinstallationandservicingApplyPatchToFileByHandlesEx(patchfilehandle.rawAddress.toString(), oldfilehandle.rawAddress.toString(), newfilehandle.rawAddress.toString(), applyoptionflags.toInt(), 0L.toString(), callbackcontext.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun applyPatchToFileExA(patchfilename: Pcstr, oldfilename: Pcstr, newfilename: Pcstr, applyoptionflags: UInt, progresscallback: PpatchProgressCallback, callbackcontext: ConstPtr<CVoid>): Bool =
+public actual fun applyPatchToFileExA(patchfilename: Pcstr, oldfilename: Pcstr, newfilename: Pcstr, applyoptionflags: UInt, progresscallback: PpatchProgressCallback, callbackcontext: ConstPtr): Bool =
     if (windowsWin32SystemApplicationinstallationandservicingNapiAvailable) wasmWindowssysWindowsWin32SystemApplicationinstallationandservicingApplyPatchToFileExA(patchfilename.rawAddress.toString(), oldfilename.rawAddress.toString(), newfilename.rawAddress.toString(), applyoptionflags.toInt(), 0L.toString(), callbackcontext.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun applyPatchToFileExW(patchfilename: Pcwstr, oldfilename: Pcwstr, newfilename: Pcwstr, applyoptionflags: UInt, progresscallback: PpatchProgressCallback, callbackcontext: ConstPtr<CVoid>): Bool =
+public actual fun applyPatchToFileExW(patchfilename: Pcwstr, oldfilename: Pcwstr, newfilename: Pcwstr, applyoptionflags: UInt, progresscallback: PpatchProgressCallback, callbackcontext: ConstPtr): Bool =
     if (windowsWin32SystemApplicationinstallationandservicingNapiAvailable) wasmWindowssysWindowsWin32SystemApplicationinstallationandservicingApplyPatchToFileExW(patchfilename.rawAddress.toString(), oldfilename.rawAddress.toString(), newfilename.rawAddress.toString(), applyoptionflags.toInt(), 0L.toString(), callbackcontext.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun applyPatchToFileW(patchfilename: Pcwstr, oldfilename: Pcwstr, newfilename: Pcwstr, applyoptionflags: UInt): Bool =
     if (windowsWin32SystemApplicationinstallationandservicingNapiAvailable) wasmWindowssysWindowsWin32SystemApplicationinstallationandservicingApplyPatchToFileW(patchfilename.rawAddress.toString(), oldfilename.rawAddress.toString(), newfilename.rawAddress.toString(), applyoptionflags.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun createActCtxA(pactctx: ConstPtr<Actctxa>): Handle =
+public actual fun createActCtxA(pactctx: ConstPtr): Handle =
     if (windowsWin32SystemApplicationinstallationandservicingNapiAvailable) MutPtr(wasmWindowssysWindowsWin32SystemApplicationinstallationandservicingCreateActCtxA(pactctx.rawAddress.toString()).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun createActCtxW(pactctx: ConstPtr<Actctxw>): Handle =
+public actual fun createActCtxW(pactctx: ConstPtr): Handle =
     if (windowsWin32SystemApplicationinstallationandservicingNapiAvailable) MutPtr(wasmWindowssysWindowsWin32SystemApplicationinstallationandservicingCreateActCtxW(pactctx.rawAddress.toString()).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun createDeltaA(filetypeset: Long, setflags: Long, resetflags: Long, lpsourcename: Pcstr, lptargetname: Pcstr, lpsourceoptionsname: Pcstr, lptargetoptionsname: Pcstr, globaloptions: DeltaInput, lptargetfiletime: ConstPtr<Filetime>, hashalgid: AlgId, lpdeltaname: Pcstr): Bool =
+public actual fun createDeltaA(filetypeset: Long, setflags: Long, resetflags: Long, lpsourcename: Pcstr, lptargetname: Pcstr, lpsourceoptionsname: Pcstr, lptargetoptionsname: Pcstr, globaloptions: DeltaInput, lptargetfiletime: ConstPtr, hashalgid: AlgId, lpdeltaname: Pcstr): Bool =
     throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun createDeltaB(filetypeset: Long, setflags: Long, resetflags: Long, source: DeltaInput, target: DeltaInput, sourceoptions: DeltaInput, targetoptions: DeltaInput, globaloptions: DeltaInput, lptargetfiletime: ConstPtr<Filetime>, hashalgid: AlgId, lpdelta: MutPtr<DeltaOutput>): Bool =
+public actual fun createDeltaB(filetypeset: Long, setflags: Long, resetflags: Long, source: DeltaInput, target: DeltaInput, sourceoptions: DeltaInput, targetoptions: DeltaInput, globaloptions: DeltaInput, lptargetfiletime: ConstPtr, hashalgid: AlgId, lpdelta: MutPtr): Bool =
     throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun createDeltaW(filetypeset: Long, setflags: Long, resetflags: Long, lpsourcename: Pcwstr, lptargetname: Pcwstr, lpsourceoptionsname: Pcwstr, lptargetoptionsname: Pcwstr, globaloptions: DeltaInput, lptargetfiletime: ConstPtr<Filetime>, hashalgid: AlgId, lpdeltaname: Pcwstr): Bool =
+public actual fun createDeltaW(filetypeset: Long, setflags: Long, resetflags: Long, lpsourcename: Pcwstr, lptargetname: Pcwstr, lpsourceoptionsname: Pcwstr, lptargetoptionsname: Pcwstr, globaloptions: DeltaInput, lptargetfiletime: ConstPtr, hashalgid: AlgId, lpdeltaname: Pcwstr): Bool =
     throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun createPatchFileA(oldfilename: Pcstr, newfilename: Pcstr, patchfilename: Pcstr, optionflags: UInt, optiondata: ConstPtr<PatchOptionData>): Bool =
+public actual fun createPatchFileA(oldfilename: Pcstr, newfilename: Pcstr, patchfilename: Pcstr, optionflags: UInt, optiondata: ConstPtr): Bool =
     if (windowsWin32SystemApplicationinstallationandservicingNapiAvailable) wasmWindowssysWindowsWin32SystemApplicationinstallationandservicingCreatePatchFileA(oldfilename.rawAddress.toString(), newfilename.rawAddress.toString(), patchfilename.rawAddress.toString(), optionflags.toInt(), optiondata.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun createPatchFileByHandles(oldfilehandle: Handle, newfilehandle: Handle, patchfilehandle: Handle, optionflags: UInt, optiondata: ConstPtr<PatchOptionData>): Bool =
+public actual fun createPatchFileByHandles(oldfilehandle: Handle, newfilehandle: Handle, patchfilehandle: Handle, optionflags: UInt, optiondata: ConstPtr): Bool =
     if (windowsWin32SystemApplicationinstallationandservicingNapiAvailable) wasmWindowssysWindowsWin32SystemApplicationinstallationandservicingCreatePatchFileByHandles(oldfilehandle.rawAddress.toString(), newfilehandle.rawAddress.toString(), patchfilehandle.rawAddress.toString(), optionflags.toInt(), optiondata.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun createPatchFileByHandlesEx(oldfilecount: UInt, oldfileinfoarray: ConstPtr<PatchOldFileInfoH>, newfilehandle: Handle, patchfilehandle: Handle, optionflags: UInt, optiondata: ConstPtr<PatchOptionData>, progresscallback: PpatchProgressCallback, callbackcontext: ConstPtr<CVoid>): Bool =
+public actual fun createPatchFileByHandlesEx(oldfilecount: UInt, oldfileinfoarray: ConstPtr, newfilehandle: Handle, patchfilehandle: Handle, optionflags: UInt, optiondata: ConstPtr, progresscallback: PpatchProgressCallback, callbackcontext: ConstPtr): Bool =
     if (windowsWin32SystemApplicationinstallationandservicingNapiAvailable) wasmWindowssysWindowsWin32SystemApplicationinstallationandservicingCreatePatchFileByHandlesEx(oldfilecount.toInt(), oldfileinfoarray.rawAddress.toString(), newfilehandle.rawAddress.toString(), patchfilehandle.rawAddress.toString(), optionflags.toInt(), optiondata.rawAddress.toString(), 0L.toString(), callbackcontext.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun createPatchFileExA(oldfilecount: UInt, oldfileinfoarray: ConstPtr<PatchOldFileInfoA>, newfilename: Pcstr, patchfilename: Pcstr, optionflags: UInt, optiondata: ConstPtr<PatchOptionData>, progresscallback: PpatchProgressCallback, callbackcontext: ConstPtr<CVoid>): Bool =
+public actual fun createPatchFileExA(oldfilecount: UInt, oldfileinfoarray: ConstPtr, newfilename: Pcstr, patchfilename: Pcstr, optionflags: UInt, optiondata: ConstPtr, progresscallback: PpatchProgressCallback, callbackcontext: ConstPtr): Bool =
     if (windowsWin32SystemApplicationinstallationandservicingNapiAvailable) wasmWindowssysWindowsWin32SystemApplicationinstallationandservicingCreatePatchFileExA(oldfilecount.toInt(), oldfileinfoarray.rawAddress.toString(), newfilename.rawAddress.toString(), patchfilename.rawAddress.toString(), optionflags.toInt(), optiondata.rawAddress.toString(), 0L.toString(), callbackcontext.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun createPatchFileExW(oldfilecount: UInt, oldfileinfoarray: ConstPtr<PatchOldFileInfoW>, newfilename: Pcwstr, patchfilename: Pcwstr, optionflags: UInt, optiondata: ConstPtr<PatchOptionData>, progresscallback: PpatchProgressCallback, callbackcontext: ConstPtr<CVoid>): Bool =
+public actual fun createPatchFileExW(oldfilecount: UInt, oldfileinfoarray: ConstPtr, newfilename: Pcwstr, patchfilename: Pcwstr, optionflags: UInt, optiondata: ConstPtr, progresscallback: PpatchProgressCallback, callbackcontext: ConstPtr): Bool =
     if (windowsWin32SystemApplicationinstallationandservicingNapiAvailable) wasmWindowssysWindowsWin32SystemApplicationinstallationandservicingCreatePatchFileExW(oldfilecount.toInt(), oldfileinfoarray.rawAddress.toString(), newfilename.rawAddress.toString(), patchfilename.rawAddress.toString(), optionflags.toInt(), optiondata.rawAddress.toString(), 0L.toString(), callbackcontext.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun createPatchFileW(oldfilename: Pcwstr, newfilename: Pcwstr, patchfilename: Pcwstr, optionflags: UInt, optiondata: ConstPtr<PatchOptionData>): Bool =
+public actual fun createPatchFileW(oldfilename: Pcwstr, newfilename: Pcwstr, patchfilename: Pcwstr, optionflags: UInt, optiondata: ConstPtr): Bool =
     if (windowsWin32SystemApplicationinstallationandservicingNapiAvailable) wasmWindowssysWindowsWin32SystemApplicationinstallationandservicingCreatePatchFileW(oldfilename.rawAddress.toString(), newfilename.rawAddress.toString(), patchfilename.rawAddress.toString(), optionflags.toInt(), optiondata.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun deactivateActCtx(dwflags: UInt, ulcookie: ULong): Bool =
     if (windowsWin32SystemApplicationinstallationandservicingNapiAvailable) wasmWindowssysWindowsWin32SystemApplicationinstallationandservicingDeactivateActCtx(dwflags.toInt(), ulcookie.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun deltaFree(lpmemory: ConstPtr<CVoid>): Bool =
+public actual fun deltaFree(lpmemory: ConstPtr): Bool =
     if (windowsWin32SystemApplicationinstallationandservicingNapiAvailable) wasmWindowssysWindowsWin32SystemApplicationinstallationandservicingDeltaFree(lpmemory.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun deltaNormalizeProvidedB(filetypeset: Long, normalizeflags: Long, normalizeoptions: DeltaInput, lpsource: MutPtr<CVoid>, usourcesize: ULong): Bool =
+public actual fun deltaNormalizeProvidedB(filetypeset: Long, normalizeflags: Long, normalizeoptions: DeltaInput, lpsource: MutPtr, usourcesize: ULong): Bool =
     throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun extractPatchHeaderToFileA(patchfilename: Pcstr, patchheaderfilename: Pcstr): Bool =
@@ -1061,46 +1056,46 @@ public actual fun extractPatchHeaderToFileByHandles(patchfilehandle: Handle, pat
 public actual fun extractPatchHeaderToFileW(patchfilename: Pcwstr, patchheaderfilename: Pcwstr): Bool =
     if (windowsWin32SystemApplicationinstallationandservicingNapiAvailable) wasmWindowssysWindowsWin32SystemApplicationinstallationandservicingExtractPatchHeaderToFileW(patchfilename.rawAddress.toString(), patchheaderfilename.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun findActCtxSectionGuid(dwflags: UInt, lpextensionguid: ConstPtr<Guid>, ulsectionid: UInt, lpguidtofind: ConstPtr<Guid>, returneddata: MutPtr<ActctxSectionKeyedData>): Bool =
+public actual fun findActCtxSectionGuid(dwflags: UInt, lpextensionguid: ConstPtr, ulsectionid: UInt, lpguidtofind: ConstPtr, returneddata: MutPtr): Bool =
     if (windowsWin32SystemApplicationinstallationandservicingNapiAvailable) wasmWindowssysWindowsWin32SystemApplicationinstallationandservicingFindActCtxSectionGuid(dwflags.toInt(), lpextensionguid.rawAddress.toString(), ulsectionid.toInt(), lpguidtofind.rawAddress.toString(), returneddata.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun findActCtxSectionStringA(dwflags: UInt, lpextensionguid: ConstPtr<Guid>, ulsectionid: UInt, lpstringtofind: Pcstr, returneddata: MutPtr<ActctxSectionKeyedData>): Bool =
+public actual fun findActCtxSectionStringA(dwflags: UInt, lpextensionguid: ConstPtr, ulsectionid: UInt, lpstringtofind: Pcstr, returneddata: MutPtr): Bool =
     if (windowsWin32SystemApplicationinstallationandservicingNapiAvailable) wasmWindowssysWindowsWin32SystemApplicationinstallationandservicingFindActCtxSectionStringA(dwflags.toInt(), lpextensionguid.rawAddress.toString(), ulsectionid.toInt(), lpstringtofind.rawAddress.toString(), returneddata.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun findActCtxSectionStringW(dwflags: UInt, lpextensionguid: ConstPtr<Guid>, ulsectionid: UInt, lpstringtofind: Pcwstr, returneddata: MutPtr<ActctxSectionKeyedData>): Bool =
+public actual fun findActCtxSectionStringW(dwflags: UInt, lpextensionguid: ConstPtr, ulsectionid: UInt, lpstringtofind: Pcwstr, returneddata: MutPtr): Bool =
     if (windowsWin32SystemApplicationinstallationandservicingNapiAvailable) wasmWindowssysWindowsWin32SystemApplicationinstallationandservicingFindActCtxSectionStringW(dwflags.toInt(), lpextensionguid.rawAddress.toString(), ulsectionid.toInt(), lpstringtofind.rawAddress.toString(), returneddata.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun getCurrentActCtx(lphactctx: MutPtr<Handle>): Bool =
+public actual fun getCurrentActCtx(lphactctx: MutPtr): Bool =
     if (windowsWin32SystemApplicationinstallationandservicingNapiAvailable) wasmWindowssysWindowsWin32SystemApplicationinstallationandservicingGetCurrentActCtx(lphactctx.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun getDeltaInfoA(lpdeltaname: Pcstr, lpheaderinfo: MutPtr<DeltaHeaderInfo>): Bool =
+public actual fun getDeltaInfoA(lpdeltaname: Pcstr, lpheaderinfo: MutPtr): Bool =
     if (windowsWin32SystemApplicationinstallationandservicingNapiAvailable) wasmWindowssysWindowsWin32SystemApplicationinstallationandservicingGetDeltaInfoA(lpdeltaname.rawAddress.toString(), lpheaderinfo.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun getDeltaInfoB(delta: DeltaInput, lpheaderinfo: MutPtr<DeltaHeaderInfo>): Bool =
+public actual fun getDeltaInfoB(delta: DeltaInput, lpheaderinfo: MutPtr): Bool =
     throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun getDeltaInfoW(lpdeltaname: Pcwstr, lpheaderinfo: MutPtr<DeltaHeaderInfo>): Bool =
+public actual fun getDeltaInfoW(lpdeltaname: Pcwstr, lpheaderinfo: MutPtr): Bool =
     if (windowsWin32SystemApplicationinstallationandservicingNapiAvailable) wasmWindowssysWindowsWin32SystemApplicationinstallationandservicingGetDeltaInfoW(lpdeltaname.rawAddress.toString(), lpheaderinfo.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun getDeltaSignatureA(filetypeset: Long, hashalgid: AlgId, lpsourcename: Pcstr, lphash: MutPtr<DeltaHash>): Bool =
+public actual fun getDeltaSignatureA(filetypeset: Long, hashalgid: AlgId, lpsourcename: Pcstr, lphash: MutPtr): Bool =
     if (windowsWin32SystemApplicationinstallationandservicingNapiAvailable) wasmWindowssysWindowsWin32SystemApplicationinstallationandservicingGetDeltaSignatureA(filetypeset.toString(), hashalgid.toInt(), lpsourcename.rawAddress.toString(), lphash.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun getDeltaSignatureB(filetypeset: Long, hashalgid: AlgId, source: DeltaInput, lphash: MutPtr<DeltaHash>): Bool =
+public actual fun getDeltaSignatureB(filetypeset: Long, hashalgid: AlgId, source: DeltaInput, lphash: MutPtr): Bool =
     throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun getDeltaSignatureW(filetypeset: Long, hashalgid: AlgId, lpsourcename: Pcwstr, lphash: MutPtr<DeltaHash>): Bool =
+public actual fun getDeltaSignatureW(filetypeset: Long, hashalgid: AlgId, lpsourcename: Pcwstr, lphash: MutPtr): Bool =
     if (windowsWin32SystemApplicationinstallationandservicingNapiAvailable) wasmWindowssysWindowsWin32SystemApplicationinstallationandservicingGetDeltaSignatureW(filetypeset.toString(), hashalgid.toInt(), lpsourcename.rawAddress.toString(), lphash.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun getFilePatchSignatureA(filename: Pcstr, optionflags: UInt, optiondata: ConstPtr<CVoid>, ignorerangecount: UInt, ignorerangearray: ConstPtr<PatchIgnoreRange>, retainrangecount: UInt, retainrangearray: ConstPtr<PatchRetainRange>, signaturebuffersize: UInt, signaturebuffer: Pstr): Bool =
+public actual fun getFilePatchSignatureA(filename: Pcstr, optionflags: UInt, optiondata: ConstPtr, ignorerangecount: UInt, ignorerangearray: ConstPtr, retainrangecount: UInt, retainrangearray: ConstPtr, signaturebuffersize: UInt, signaturebuffer: Pstr): Bool =
     if (windowsWin32SystemApplicationinstallationandservicingNapiAvailable) wasmWindowssysWindowsWin32SystemApplicationinstallationandservicingGetFilePatchSignatureA(filename.rawAddress.toString(), optionflags.toInt(), optiondata.rawAddress.toString(), ignorerangecount.toInt(), ignorerangearray.rawAddress.toString(), retainrangecount.toInt(), retainrangearray.rawAddress.toString(), signaturebuffersize.toInt(), signaturebuffer.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun getFilePatchSignatureByBuffer(filebufferwritable: MutPtr<UByte>, filesize: UInt, optionflags: UInt, optiondata: ConstPtr<CVoid>, ignorerangecount: UInt, ignorerangearray: ConstPtr<PatchIgnoreRange>, retainrangecount: UInt, retainrangearray: ConstPtr<PatchRetainRange>, signaturebuffersize: UInt, signaturebuffer: Pstr): Bool =
+public actual fun getFilePatchSignatureByBuffer(filebufferwritable: MutPtr, filesize: UInt, optionflags: UInt, optiondata: ConstPtr, ignorerangecount: UInt, ignorerangearray: ConstPtr, retainrangecount: UInt, retainrangearray: ConstPtr, signaturebuffersize: UInt, signaturebuffer: Pstr): Bool =
     if (windowsWin32SystemApplicationinstallationandservicingNapiAvailable) wasmWindowssysWindowsWin32SystemApplicationinstallationandservicingGetFilePatchSignatureByBuffer(filebufferwritable.rawAddress.toString(), filesize.toInt(), optionflags.toInt(), optiondata.rawAddress.toString(), ignorerangecount.toInt(), ignorerangearray.rawAddress.toString(), retainrangecount.toInt(), retainrangearray.rawAddress.toString(), signaturebuffersize.toInt(), signaturebuffer.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun getFilePatchSignatureByHandle(filehandle: Handle, optionflags: UInt, optiondata: ConstPtr<CVoid>, ignorerangecount: UInt, ignorerangearray: ConstPtr<PatchIgnoreRange>, retainrangecount: UInt, retainrangearray: ConstPtr<PatchRetainRange>, signaturebuffersize: UInt, signaturebuffer: Pstr): Bool =
+public actual fun getFilePatchSignatureByHandle(filehandle: Handle, optionflags: UInt, optiondata: ConstPtr, ignorerangecount: UInt, ignorerangearray: ConstPtr, retainrangecount: UInt, retainrangearray: ConstPtr, signaturebuffersize: UInt, signaturebuffer: Pstr): Bool =
     if (windowsWin32SystemApplicationinstallationandservicingNapiAvailable) wasmWindowssysWindowsWin32SystemApplicationinstallationandservicingGetFilePatchSignatureByHandle(filehandle.rawAddress.toString(), optionflags.toInt(), optiondata.rawAddress.toString(), ignorerangecount.toInt(), ignorerangearray.rawAddress.toString(), retainrangecount.toInt(), retainrangearray.rawAddress.toString(), signaturebuffersize.toInt(), signaturebuffer.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun getFilePatchSignatureW(filename: Pcwstr, optionflags: UInt, optiondata: ConstPtr<CVoid>, ignorerangecount: UInt, ignorerangearray: ConstPtr<PatchIgnoreRange>, retainrangecount: UInt, retainrangearray: ConstPtr<PatchRetainRange>, signaturebuffersize: UInt, signaturebuffer: Pwstr): Bool =
+public actual fun getFilePatchSignatureW(filename: Pcwstr, optionflags: UInt, optiondata: ConstPtr, ignorerangecount: UInt, ignorerangearray: ConstPtr, retainrangecount: UInt, retainrangearray: ConstPtr, signaturebuffersize: UInt, signaturebuffer: Pwstr): Bool =
     if (windowsWin32SystemApplicationinstallationandservicingNapiAvailable) wasmWindowssysWindowsWin32SystemApplicationinstallationandservicingGetFilePatchSignatureW(filename.rawAddress.toString(), optionflags.toInt(), optiondata.rawAddress.toString(), ignorerangecount.toInt(), ignorerangearray.rawAddress.toString(), retainrangecount.toInt(), retainrangearray.rawAddress.toString(), signaturebuffersize.toInt(), signaturebuffer.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun msiAdvertiseProductA(szpackagepath: Pcstr, szscriptfilepath: Pcstr, sztransforms: Pcstr, lgidlanguage: UShort): UInt =
@@ -1115,10 +1110,10 @@ public actual fun msiAdvertiseProductExW(szpackagepath: Pcwstr, szscriptfilepath
 public actual fun msiAdvertiseProductW(szpackagepath: Pcwstr, szscriptfilepath: Pcwstr, sztransforms: Pcwstr, lgidlanguage: UShort): UInt =
     if (windowsWin32SystemApplicationinstallationandservicingNapiAvailable) wasmWindowssysWindowsWin32SystemApplicationinstallationandservicingMsiAdvertiseProductW(szpackagepath.rawAddress.toString(), szscriptfilepath.rawAddress.toString(), sztransforms.rawAddress.toString(), lgidlanguage.toInt()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun msiAdvertiseScriptA(szscriptfile: Pcstr, dwflags: UInt, phregdata: ConstPtr<Hkey>, fremoveitems: Bool): UInt =
+public actual fun msiAdvertiseScriptA(szscriptfile: Pcstr, dwflags: UInt, phregdata: ConstPtr, fremoveitems: Bool): UInt =
     if (windowsWin32SystemApplicationinstallationandservicingNapiAvailable) wasmWindowssysWindowsWin32SystemApplicationinstallationandservicingMsiAdvertiseScriptA(szscriptfile.rawAddress.toString(), dwflags.toInt(), phregdata.rawAddress.toString(), fremoveitems).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun msiAdvertiseScriptW(szscriptfile: Pcwstr, dwflags: UInt, phregdata: ConstPtr<Hkey>, fremoveitems: Bool): UInt =
+public actual fun msiAdvertiseScriptW(szscriptfile: Pcwstr, dwflags: UInt, phregdata: ConstPtr, fremoveitems: Bool): UInt =
     if (windowsWin32SystemApplicationinstallationandservicingNapiAvailable) wasmWindowssysWindowsWin32SystemApplicationinstallationandservicingMsiAdvertiseScriptW(szscriptfile.rawAddress.toString(), dwflags.toInt(), phregdata.rawAddress.toString(), fremoveitems).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun msiApplyMultiplePatchesA(szpatchpackages: Pcstr, szproductcode: Pcstr, szpropertieslist: Pcstr): UInt =
@@ -1133,10 +1128,10 @@ public actual fun msiApplyPatchA(szpatchpackage: Pcstr, szinstallpackage: Pcstr,
 public actual fun msiApplyPatchW(szpatchpackage: Pcwstr, szinstallpackage: Pcwstr, einstalltype: Installtype, szcommandline: Pcwstr): UInt =
     if (windowsWin32SystemApplicationinstallationandservicingNapiAvailable) wasmWindowssysWindowsWin32SystemApplicationinstallationandservicingMsiApplyPatchW(szpatchpackage.rawAddress.toString(), szinstallpackage.rawAddress.toString(), einstalltype, szcommandline.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun msiBeginTransactionA(szname: Pcstr, dwtransactionattributes: UInt, phtransactionhandle: MutPtr<Msihandle>, phchangeofownerevent: MutPtr<Handle>): UInt =
+public actual fun msiBeginTransactionA(szname: Pcstr, dwtransactionattributes: UInt, phtransactionhandle: MutPtr, phchangeofownerevent: MutPtr): UInt =
     if (windowsWin32SystemApplicationinstallationandservicingNapiAvailable) wasmWindowssysWindowsWin32SystemApplicationinstallationandservicingMsiBeginTransactionA(szname.rawAddress.toString(), dwtransactionattributes.toInt(), phtransactionhandle.rawAddress.toString(), phchangeofownerevent.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun msiBeginTransactionW(szname: Pcwstr, dwtransactionattributes: UInt, phtransactionhandle: MutPtr<Msihandle>, phchangeofownerevent: MutPtr<Handle>): UInt =
+public actual fun msiBeginTransactionW(szname: Pcwstr, dwtransactionattributes: UInt, phtransactionhandle: MutPtr, phchangeofownerevent: MutPtr): UInt =
     if (windowsWin32SystemApplicationinstallationandservicingNapiAvailable) wasmWindowssysWindowsWin32SystemApplicationinstallationandservicingMsiBeginTransactionW(szname.rawAddress.toString(), dwtransactionattributes.toInt(), phtransactionhandle.rawAddress.toString(), phchangeofownerevent.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun msiCloseAllHandles(): UInt =
@@ -1199,10 +1194,10 @@ public actual fun msiDatabaseGenerateTransformA(hdatabase: Msihandle, hdatabaser
 public actual fun msiDatabaseGenerateTransformW(hdatabase: Msihandle, hdatabasereference: Msihandle, sztransformfile: Pcwstr, ireserved1: Int, ireserved2: Int): UInt =
     if (windowsWin32SystemApplicationinstallationandservicingNapiAvailable) wasmWindowssysWindowsWin32SystemApplicationinstallationandservicingMsiDatabaseGenerateTransformW(hdatabase.toInt(), hdatabasereference.toInt(), sztransformfile.rawAddress.toString(), ireserved1, ireserved2).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun msiDatabaseGetPrimaryKeysA(hdatabase: Msihandle, sztablename: Pcstr, phrecord: MutPtr<Msihandle>): UInt =
+public actual fun msiDatabaseGetPrimaryKeysA(hdatabase: Msihandle, sztablename: Pcstr, phrecord: MutPtr): UInt =
     if (windowsWin32SystemApplicationinstallationandservicingNapiAvailable) wasmWindowssysWindowsWin32SystemApplicationinstallationandservicingMsiDatabaseGetPrimaryKeysA(hdatabase.toInt(), sztablename.rawAddress.toString(), phrecord.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun msiDatabaseGetPrimaryKeysW(hdatabase: Msihandle, sztablename: Pcwstr, phrecord: MutPtr<Msihandle>): UInt =
+public actual fun msiDatabaseGetPrimaryKeysW(hdatabase: Msihandle, sztablename: Pcwstr, phrecord: MutPtr): UInt =
     if (windowsWin32SystemApplicationinstallationandservicingNapiAvailable) wasmWindowssysWindowsWin32SystemApplicationinstallationandservicingMsiDatabaseGetPrimaryKeysW(hdatabase.toInt(), sztablename.rawAddress.toString(), phrecord.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun msiDatabaseImportA(hdatabase: Msihandle, szfolderpath: Pcstr, szfilename: Pcstr): UInt =
@@ -1223,22 +1218,22 @@ public actual fun msiDatabaseMergeA(hdatabase: Msihandle, hdatabasemerge: Msihan
 public actual fun msiDatabaseMergeW(hdatabase: Msihandle, hdatabasemerge: Msihandle, sztablename: Pcwstr): UInt =
     if (windowsWin32SystemApplicationinstallationandservicingNapiAvailable) wasmWindowssysWindowsWin32SystemApplicationinstallationandservicingMsiDatabaseMergeW(hdatabase.toInt(), hdatabasemerge.toInt(), sztablename.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun msiDatabaseOpenViewA(hdatabase: Msihandle, szquery: Pcstr, phview: MutPtr<Msihandle>): UInt =
+public actual fun msiDatabaseOpenViewA(hdatabase: Msihandle, szquery: Pcstr, phview: MutPtr): UInt =
     if (windowsWin32SystemApplicationinstallationandservicingNapiAvailable) wasmWindowssysWindowsWin32SystemApplicationinstallationandservicingMsiDatabaseOpenViewA(hdatabase.toInt(), szquery.rawAddress.toString(), phview.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun msiDatabaseOpenViewW(hdatabase: Msihandle, szquery: Pcwstr, phview: MutPtr<Msihandle>): UInt =
+public actual fun msiDatabaseOpenViewW(hdatabase: Msihandle, szquery: Pcwstr, phview: MutPtr): UInt =
     if (windowsWin32SystemApplicationinstallationandservicingNapiAvailable) wasmWindowssysWindowsWin32SystemApplicationinstallationandservicingMsiDatabaseOpenViewW(hdatabase.toInt(), szquery.rawAddress.toString(), phview.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun msiDetermineApplicablePatchesA(szproductpackagepath: Pcstr, cpatchinfo: UInt, ppatchinfo: MutPtr<Msipatchsequenceinfoa>): UInt =
+public actual fun msiDetermineApplicablePatchesA(szproductpackagepath: Pcstr, cpatchinfo: UInt, ppatchinfo: MutPtr): UInt =
     if (windowsWin32SystemApplicationinstallationandservicingNapiAvailable) wasmWindowssysWindowsWin32SystemApplicationinstallationandservicingMsiDetermineApplicablePatchesA(szproductpackagepath.rawAddress.toString(), cpatchinfo.toInt(), ppatchinfo.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun msiDetermineApplicablePatchesW(szproductpackagepath: Pcwstr, cpatchinfo: UInt, ppatchinfo: MutPtr<Msipatchsequenceinfow>): UInt =
+public actual fun msiDetermineApplicablePatchesW(szproductpackagepath: Pcwstr, cpatchinfo: UInt, ppatchinfo: MutPtr): UInt =
     if (windowsWin32SystemApplicationinstallationandservicingNapiAvailable) wasmWindowssysWindowsWin32SystemApplicationinstallationandservicingMsiDetermineApplicablePatchesW(szproductpackagepath.rawAddress.toString(), cpatchinfo.toInt(), ppatchinfo.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun msiDeterminePatchSequenceA(szproductcode: Pcstr, szusersid: Pcstr, dwcontext: Msiinstallcontext, cpatchinfo: UInt, ppatchinfo: MutPtr<Msipatchsequenceinfoa>): UInt =
+public actual fun msiDeterminePatchSequenceA(szproductcode: Pcstr, szusersid: Pcstr, dwcontext: Msiinstallcontext, cpatchinfo: UInt, ppatchinfo: MutPtr): UInt =
     if (windowsWin32SystemApplicationinstallationandservicingNapiAvailable) wasmWindowssysWindowsWin32SystemApplicationinstallationandservicingMsiDeterminePatchSequenceA(szproductcode.rawAddress.toString(), szusersid.rawAddress.toString(), dwcontext, cpatchinfo.toInt(), ppatchinfo.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun msiDeterminePatchSequenceW(szproductcode: Pcwstr, szusersid: Pcwstr, dwcontext: Msiinstallcontext, cpatchinfo: UInt, ppatchinfo: MutPtr<Msipatchsequenceinfow>): UInt =
+public actual fun msiDeterminePatchSequenceW(szproductcode: Pcwstr, szusersid: Pcwstr, dwcontext: Msiinstallcontext, cpatchinfo: UInt, ppatchinfo: MutPtr): UInt =
     if (windowsWin32SystemApplicationinstallationandservicingNapiAvailable) wasmWindowssysWindowsWin32SystemApplicationinstallationandservicingMsiDeterminePatchSequenceW(szproductcode.rawAddress.toString(), szusersid.rawAddress.toString(), dwcontext, cpatchinfo.toInt(), ppatchinfo.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun msiDoActionA(hinstall: Msihandle, szaction: Pcstr): UInt =
@@ -1253,7 +1248,7 @@ public actual fun msiEnableLogA(dwlogmode: UInt, szlogfile: Pcstr, dwlogattribut
 public actual fun msiEnableLogW(dwlogmode: UInt, szlogfile: Pcwstr, dwlogattributes: UInt): UInt =
     if (windowsWin32SystemApplicationinstallationandservicingNapiAvailable) wasmWindowssysWindowsWin32SystemApplicationinstallationandservicingMsiEnableLogW(dwlogmode.toInt(), szlogfile.rawAddress.toString(), dwlogattributes.toInt()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun msiEnableUIPreview(hdatabase: Msihandle, phpreview: MutPtr<Msihandle>): UInt =
+public actual fun msiEnableUIPreview(hdatabase: Msihandle, phpreview: MutPtr): UInt =
     if (windowsWin32SystemApplicationinstallationandservicingNapiAvailable) wasmWindowssysWindowsWin32SystemApplicationinstallationandservicingMsiEnableUIPreview(hdatabase.toInt(), phpreview.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun msiEndTransaction(dwtransactionstate: Msitransactionstate): UInt =
@@ -1262,34 +1257,34 @@ public actual fun msiEndTransaction(dwtransactionstate: Msitransactionstate): UI
 public actual fun msiEnumClientsA(szcomponent: Pcstr, iproductindex: UInt, lpproductbuf: Pstr): UInt =
     if (windowsWin32SystemApplicationinstallationandservicingNapiAvailable) wasmWindowssysWindowsWin32SystemApplicationinstallationandservicingMsiEnumClientsA(szcomponent.rawAddress.toString(), iproductindex.toInt(), lpproductbuf.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun msiEnumClientsExA(szcomponent: Pcstr, szusersid: Pcstr, dwcontext: UInt, dwproductindex: UInt, szproductbuf: Pstr, pdwinstalledcontext: MutPtr<Msiinstallcontext>, szsid: Pstr, pcchsid: MutPtr<UInt>): UInt =
+public actual fun msiEnumClientsExA(szcomponent: Pcstr, szusersid: Pcstr, dwcontext: UInt, dwproductindex: UInt, szproductbuf: Pstr, pdwinstalledcontext: MutPtr, szsid: Pstr, pcchsid: MutPtr): UInt =
     if (windowsWin32SystemApplicationinstallationandservicingNapiAvailable) wasmWindowssysWindowsWin32SystemApplicationinstallationandservicingMsiEnumClientsExA(szcomponent.rawAddress.toString(), szusersid.rawAddress.toString(), dwcontext.toInt(), dwproductindex.toInt(), szproductbuf.rawAddress.toString(), pdwinstalledcontext.rawAddress.toString(), szsid.rawAddress.toString(), pcchsid.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun msiEnumClientsExW(szcomponent: Pcwstr, szusersid: Pcwstr, dwcontext: UInt, dwproductindex: UInt, szproductbuf: Pwstr, pdwinstalledcontext: MutPtr<Msiinstallcontext>, szsid: Pwstr, pcchsid: MutPtr<UInt>): UInt =
+public actual fun msiEnumClientsExW(szcomponent: Pcwstr, szusersid: Pcwstr, dwcontext: UInt, dwproductindex: UInt, szproductbuf: Pwstr, pdwinstalledcontext: MutPtr, szsid: Pwstr, pcchsid: MutPtr): UInt =
     if (windowsWin32SystemApplicationinstallationandservicingNapiAvailable) wasmWindowssysWindowsWin32SystemApplicationinstallationandservicingMsiEnumClientsExW(szcomponent.rawAddress.toString(), szusersid.rawAddress.toString(), dwcontext.toInt(), dwproductindex.toInt(), szproductbuf.rawAddress.toString(), pdwinstalledcontext.rawAddress.toString(), szsid.rawAddress.toString(), pcchsid.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun msiEnumClientsW(szcomponent: Pcwstr, iproductindex: UInt, lpproductbuf: Pwstr): UInt =
     if (windowsWin32SystemApplicationinstallationandservicingNapiAvailable) wasmWindowssysWindowsWin32SystemApplicationinstallationandservicingMsiEnumClientsW(szcomponent.rawAddress.toString(), iproductindex.toInt(), lpproductbuf.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun msiEnumComponentCostsA(hinstall: Msihandle, szcomponent: Pcstr, dwindex: UInt, istate: Installstate, szdrivebuf: Pstr, pcchdrivebuf: MutPtr<UInt>, picost: MutPtr<Int>, pitempcost: MutPtr<Int>): UInt =
+public actual fun msiEnumComponentCostsA(hinstall: Msihandle, szcomponent: Pcstr, dwindex: UInt, istate: Installstate, szdrivebuf: Pstr, pcchdrivebuf: MutPtr, picost: MutPtr, pitempcost: MutPtr): UInt =
     if (windowsWin32SystemApplicationinstallationandservicingNapiAvailable) wasmWindowssysWindowsWin32SystemApplicationinstallationandservicingMsiEnumComponentCostsA(hinstall.toInt(), szcomponent.rawAddress.toString(), dwindex.toInt(), istate, szdrivebuf.rawAddress.toString(), pcchdrivebuf.rawAddress.toString(), picost.rawAddress.toString(), pitempcost.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun msiEnumComponentCostsW(hinstall: Msihandle, szcomponent: Pcwstr, dwindex: UInt, istate: Installstate, szdrivebuf: Pwstr, pcchdrivebuf: MutPtr<UInt>, picost: MutPtr<Int>, pitempcost: MutPtr<Int>): UInt =
+public actual fun msiEnumComponentCostsW(hinstall: Msihandle, szcomponent: Pcwstr, dwindex: UInt, istate: Installstate, szdrivebuf: Pwstr, pcchdrivebuf: MutPtr, picost: MutPtr, pitempcost: MutPtr): UInt =
     if (windowsWin32SystemApplicationinstallationandservicingNapiAvailable) wasmWindowssysWindowsWin32SystemApplicationinstallationandservicingMsiEnumComponentCostsW(hinstall.toInt(), szcomponent.rawAddress.toString(), dwindex.toInt(), istate, szdrivebuf.rawAddress.toString(), pcchdrivebuf.rawAddress.toString(), picost.rawAddress.toString(), pitempcost.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun msiEnumComponentQualifiersA(szcomponent: Pcstr, iindex: UInt, lpqualifierbuf: Pstr, pcchqualifierbuf: MutPtr<UInt>, lpapplicationdatabuf: Pstr, pcchapplicationdatabuf: MutPtr<UInt>): UInt =
+public actual fun msiEnumComponentQualifiersA(szcomponent: Pcstr, iindex: UInt, lpqualifierbuf: Pstr, pcchqualifierbuf: MutPtr, lpapplicationdatabuf: Pstr, pcchapplicationdatabuf: MutPtr): UInt =
     if (windowsWin32SystemApplicationinstallationandservicingNapiAvailable) wasmWindowssysWindowsWin32SystemApplicationinstallationandservicingMsiEnumComponentQualifiersA(szcomponent.rawAddress.toString(), iindex.toInt(), lpqualifierbuf.rawAddress.toString(), pcchqualifierbuf.rawAddress.toString(), lpapplicationdatabuf.rawAddress.toString(), pcchapplicationdatabuf.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun msiEnumComponentQualifiersW(szcomponent: Pcwstr, iindex: UInt, lpqualifierbuf: Pwstr, pcchqualifierbuf: MutPtr<UInt>, lpapplicationdatabuf: Pwstr, pcchapplicationdatabuf: MutPtr<UInt>): UInt =
+public actual fun msiEnumComponentQualifiersW(szcomponent: Pcwstr, iindex: UInt, lpqualifierbuf: Pwstr, pcchqualifierbuf: MutPtr, lpapplicationdatabuf: Pwstr, pcchapplicationdatabuf: MutPtr): UInt =
     if (windowsWin32SystemApplicationinstallationandservicingNapiAvailable) wasmWindowssysWindowsWin32SystemApplicationinstallationandservicingMsiEnumComponentQualifiersW(szcomponent.rawAddress.toString(), iindex.toInt(), lpqualifierbuf.rawAddress.toString(), pcchqualifierbuf.rawAddress.toString(), lpapplicationdatabuf.rawAddress.toString(), pcchapplicationdatabuf.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun msiEnumComponentsA(icomponentindex: UInt, lpcomponentbuf: Pstr): UInt =
     if (windowsWin32SystemApplicationinstallationandservicingNapiAvailable) wasmWindowssysWindowsWin32SystemApplicationinstallationandservicingMsiEnumComponentsA(icomponentindex.toInt(), lpcomponentbuf.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun msiEnumComponentsExA(szusersid: Pcstr, dwcontext: UInt, dwindex: UInt, szinstalledcomponentcode: Pstr, pdwinstalledcontext: MutPtr<Msiinstallcontext>, szsid: Pstr, pcchsid: MutPtr<UInt>): UInt =
+public actual fun msiEnumComponentsExA(szusersid: Pcstr, dwcontext: UInt, dwindex: UInt, szinstalledcomponentcode: Pstr, pdwinstalledcontext: MutPtr, szsid: Pstr, pcchsid: MutPtr): UInt =
     if (windowsWin32SystemApplicationinstallationandservicingNapiAvailable) wasmWindowssysWindowsWin32SystemApplicationinstallationandservicingMsiEnumComponentsExA(szusersid.rawAddress.toString(), dwcontext.toInt(), dwindex.toInt(), szinstalledcomponentcode.rawAddress.toString(), pdwinstalledcontext.rawAddress.toString(), szsid.rawAddress.toString(), pcchsid.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun msiEnumComponentsExW(szusersid: Pcwstr, dwcontext: UInt, dwindex: UInt, szinstalledcomponentcode: Pwstr, pdwinstalledcontext: MutPtr<Msiinstallcontext>, szsid: Pwstr, pcchsid: MutPtr<UInt>): UInt =
+public actual fun msiEnumComponentsExW(szusersid: Pcwstr, dwcontext: UInt, dwindex: UInt, szinstalledcomponentcode: Pwstr, pdwinstalledcontext: MutPtr, szsid: Pwstr, pcchsid: MutPtr): UInt =
     if (windowsWin32SystemApplicationinstallationandservicingNapiAvailable) wasmWindowssysWindowsWin32SystemApplicationinstallationandservicingMsiEnumComponentsExW(szusersid.rawAddress.toString(), dwcontext.toInt(), dwindex.toInt(), szinstalledcomponentcode.rawAddress.toString(), pdwinstalledcontext.rawAddress.toString(), szsid.rawAddress.toString(), pcchsid.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun msiEnumComponentsW(icomponentindex: UInt, lpcomponentbuf: Pwstr): UInt =
@@ -1301,25 +1296,25 @@ public actual fun msiEnumFeaturesA(szproduct: Pcstr, ifeatureindex: UInt, lpfeat
 public actual fun msiEnumFeaturesW(szproduct: Pcwstr, ifeatureindex: UInt, lpfeaturebuf: Pwstr, lpparentbuf: Pwstr): UInt =
     if (windowsWin32SystemApplicationinstallationandservicingNapiAvailable) wasmWindowssysWindowsWin32SystemApplicationinstallationandservicingMsiEnumFeaturesW(szproduct.rawAddress.toString(), ifeatureindex.toInt(), lpfeaturebuf.rawAddress.toString(), lpparentbuf.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun msiEnumPatchesA(szproduct: Pcstr, ipatchindex: UInt, lppatchbuf: Pstr, lptransformsbuf: Pstr, pcchtransformsbuf: MutPtr<UInt>): UInt =
+public actual fun msiEnumPatchesA(szproduct: Pcstr, ipatchindex: UInt, lppatchbuf: Pstr, lptransformsbuf: Pstr, pcchtransformsbuf: MutPtr): UInt =
     if (windowsWin32SystemApplicationinstallationandservicingNapiAvailable) wasmWindowssysWindowsWin32SystemApplicationinstallationandservicingMsiEnumPatchesA(szproduct.rawAddress.toString(), ipatchindex.toInt(), lppatchbuf.rawAddress.toString(), lptransformsbuf.rawAddress.toString(), pcchtransformsbuf.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun msiEnumPatchesExA(szproductcode: Pcstr, szusersid: Pcstr, dwcontext: UInt, dwfilter: UInt, dwindex: UInt, szpatchcode: Pstr, sztargetproductcode: Pstr, pdwtargetproductcontext: MutPtr<Msiinstallcontext>, sztargetusersid: Pstr, pcchtargetusersid: MutPtr<UInt>): UInt =
+public actual fun msiEnumPatchesExA(szproductcode: Pcstr, szusersid: Pcstr, dwcontext: UInt, dwfilter: UInt, dwindex: UInt, szpatchcode: Pstr, sztargetproductcode: Pstr, pdwtargetproductcontext: MutPtr, sztargetusersid: Pstr, pcchtargetusersid: MutPtr): UInt =
     if (windowsWin32SystemApplicationinstallationandservicingNapiAvailable) wasmWindowssysWindowsWin32SystemApplicationinstallationandservicingMsiEnumPatchesExA(szproductcode.rawAddress.toString(), szusersid.rawAddress.toString(), dwcontext.toInt(), dwfilter.toInt(), dwindex.toInt(), szpatchcode.rawAddress.toString(), sztargetproductcode.rawAddress.toString(), pdwtargetproductcontext.rawAddress.toString(), sztargetusersid.rawAddress.toString(), pcchtargetusersid.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun msiEnumPatchesExW(szproductcode: Pcwstr, szusersid: Pcwstr, dwcontext: UInt, dwfilter: UInt, dwindex: UInt, szpatchcode: Pwstr, sztargetproductcode: Pwstr, pdwtargetproductcontext: MutPtr<Msiinstallcontext>, sztargetusersid: Pwstr, pcchtargetusersid: MutPtr<UInt>): UInt =
+public actual fun msiEnumPatchesExW(szproductcode: Pcwstr, szusersid: Pcwstr, dwcontext: UInt, dwfilter: UInt, dwindex: UInt, szpatchcode: Pwstr, sztargetproductcode: Pwstr, pdwtargetproductcontext: MutPtr, sztargetusersid: Pwstr, pcchtargetusersid: MutPtr): UInt =
     if (windowsWin32SystemApplicationinstallationandservicingNapiAvailable) wasmWindowssysWindowsWin32SystemApplicationinstallationandservicingMsiEnumPatchesExW(szproductcode.rawAddress.toString(), szusersid.rawAddress.toString(), dwcontext.toInt(), dwfilter.toInt(), dwindex.toInt(), szpatchcode.rawAddress.toString(), sztargetproductcode.rawAddress.toString(), pdwtargetproductcontext.rawAddress.toString(), sztargetusersid.rawAddress.toString(), pcchtargetusersid.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun msiEnumPatchesW(szproduct: Pcwstr, ipatchindex: UInt, lppatchbuf: Pwstr, lptransformsbuf: Pwstr, pcchtransformsbuf: MutPtr<UInt>): UInt =
+public actual fun msiEnumPatchesW(szproduct: Pcwstr, ipatchindex: UInt, lppatchbuf: Pwstr, lptransformsbuf: Pwstr, pcchtransformsbuf: MutPtr): UInt =
     if (windowsWin32SystemApplicationinstallationandservicingNapiAvailable) wasmWindowssysWindowsWin32SystemApplicationinstallationandservicingMsiEnumPatchesW(szproduct.rawAddress.toString(), ipatchindex.toInt(), lppatchbuf.rawAddress.toString(), lptransformsbuf.rawAddress.toString(), pcchtransformsbuf.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun msiEnumProductsA(iproductindex: UInt, lpproductbuf: Pstr): UInt =
     if (windowsWin32SystemApplicationinstallationandservicingNapiAvailable) wasmWindowssysWindowsWin32SystemApplicationinstallationandservicingMsiEnumProductsA(iproductindex.toInt(), lpproductbuf.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun msiEnumProductsExA(szproductcode: Pcstr, szusersid: Pcstr, dwcontext: UInt, dwindex: UInt, szinstalledproductcode: Pstr, pdwinstalledcontext: MutPtr<Msiinstallcontext>, szsid: Pstr, pcchsid: MutPtr<UInt>): UInt =
+public actual fun msiEnumProductsExA(szproductcode: Pcstr, szusersid: Pcstr, dwcontext: UInt, dwindex: UInt, szinstalledproductcode: Pstr, pdwinstalledcontext: MutPtr, szsid: Pstr, pcchsid: MutPtr): UInt =
     if (windowsWin32SystemApplicationinstallationandservicingNapiAvailable) wasmWindowssysWindowsWin32SystemApplicationinstallationandservicingMsiEnumProductsExA(szproductcode.rawAddress.toString(), szusersid.rawAddress.toString(), dwcontext.toInt(), dwindex.toInt(), szinstalledproductcode.rawAddress.toString(), pdwinstalledcontext.rawAddress.toString(), szsid.rawAddress.toString(), pcchsid.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun msiEnumProductsExW(szproductcode: Pcwstr, szusersid: Pcwstr, dwcontext: UInt, dwindex: UInt, szinstalledproductcode: Pwstr, pdwinstalledcontext: MutPtr<Msiinstallcontext>, szsid: Pwstr, pcchsid: MutPtr<UInt>): UInt =
+public actual fun msiEnumProductsExW(szproductcode: Pcwstr, szusersid: Pcwstr, dwcontext: UInt, dwindex: UInt, szinstalledproductcode: Pwstr, pdwinstalledcontext: MutPtr, szsid: Pwstr, pcchsid: MutPtr): UInt =
     if (windowsWin32SystemApplicationinstallationandservicingNapiAvailable) wasmWindowssysWindowsWin32SystemApplicationinstallationandservicingMsiEnumProductsExW(szproductcode.rawAddress.toString(), szusersid.rawAddress.toString(), dwcontext.toInt(), dwindex.toInt(), szinstalledproductcode.rawAddress.toString(), pdwinstalledcontext.rawAddress.toString(), szsid.rawAddress.toString(), pcchsid.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun msiEnumProductsW(iproductindex: UInt, lpproductbuf: Pwstr): UInt =
@@ -1337,88 +1332,88 @@ public actual fun msiEvaluateConditionA(hinstall: Msihandle, szcondition: Pcstr)
 public actual fun msiEvaluateConditionW(hinstall: Msihandle, szcondition: Pcwstr): Msicondition =
     if (windowsWin32SystemApplicationinstallationandservicingNapiAvailable) wasmWindowssysWindowsWin32SystemApplicationinstallationandservicingMsiEvaluateConditionW(hinstall.toInt(), szcondition.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun msiExtractPatchXMLDataA(szpatchpath: Pcstr, dwreserved: UInt, szxmldata: Pstr, pcchxmldata: MutPtr<UInt>): UInt =
+public actual fun msiExtractPatchXMLDataA(szpatchpath: Pcstr, dwreserved: UInt, szxmldata: Pstr, pcchxmldata: MutPtr): UInt =
     if (windowsWin32SystemApplicationinstallationandservicingNapiAvailable) wasmWindowssysWindowsWin32SystemApplicationinstallationandservicingMsiExtractPatchXMLDataA(szpatchpath.rawAddress.toString(), dwreserved.toInt(), szxmldata.rawAddress.toString(), pcchxmldata.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun msiExtractPatchXMLDataW(szpatchpath: Pcwstr, dwreserved: UInt, szxmldata: Pwstr, pcchxmldata: MutPtr<UInt>): UInt =
+public actual fun msiExtractPatchXMLDataW(szpatchpath: Pcwstr, dwreserved: UInt, szxmldata: Pwstr, pcchxmldata: MutPtr): UInt =
     if (windowsWin32SystemApplicationinstallationandservicingNapiAvailable) wasmWindowssysWindowsWin32SystemApplicationinstallationandservicingMsiExtractPatchXMLDataW(szpatchpath.rawAddress.toString(), dwreserved.toInt(), szxmldata.rawAddress.toString(), pcchxmldata.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun msiFormatRecordA(hinstall: Msihandle, hrecord: Msihandle, szresultbuf: Pstr, pcchresultbuf: MutPtr<UInt>): UInt =
+public actual fun msiFormatRecordA(hinstall: Msihandle, hrecord: Msihandle, szresultbuf: Pstr, pcchresultbuf: MutPtr): UInt =
     if (windowsWin32SystemApplicationinstallationandservicingNapiAvailable) wasmWindowssysWindowsWin32SystemApplicationinstallationandservicingMsiFormatRecordA(hinstall.toInt(), hrecord.toInt(), szresultbuf.rawAddress.toString(), pcchresultbuf.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun msiFormatRecordW(hinstall: Msihandle, hrecord: Msihandle, szresultbuf: Pwstr, pcchresultbuf: MutPtr<UInt>): UInt =
+public actual fun msiFormatRecordW(hinstall: Msihandle, hrecord: Msihandle, szresultbuf: Pwstr, pcchresultbuf: MutPtr): UInt =
     if (windowsWin32SystemApplicationinstallationandservicingNapiAvailable) wasmWindowssysWindowsWin32SystemApplicationinstallationandservicingMsiFormatRecordW(hinstall.toInt(), hrecord.toInt(), szresultbuf.rawAddress.toString(), pcchresultbuf.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun msiGetActiveDatabase(hinstall: Msihandle): Msihandle =
     if (windowsWin32SystemApplicationinstallationandservicingNapiAvailable) wasmWindowssysWindowsWin32SystemApplicationinstallationandservicingMsiGetActiveDatabase(hinstall.toInt()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun msiGetComponentPathA(szproduct: Pcstr, szcomponent: Pcstr, lppathbuf: Pstr, pcchbuf: MutPtr<UInt>): Installstate =
+public actual fun msiGetComponentPathA(szproduct: Pcstr, szcomponent: Pcstr, lppathbuf: Pstr, pcchbuf: MutPtr): Installstate =
     if (windowsWin32SystemApplicationinstallationandservicingNapiAvailable) wasmWindowssysWindowsWin32SystemApplicationinstallationandservicingMsiGetComponentPathA(szproduct.rawAddress.toString(), szcomponent.rawAddress.toString(), lppathbuf.rawAddress.toString(), pcchbuf.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun msiGetComponentPathExA(szproductcode: Pcstr, szcomponentcode: Pcstr, szusersid: Pcstr, dwcontext: Msiinstallcontext, lpoutpathbuffer: Pstr, pcchoutpathbuffer: MutPtr<UInt>): Installstate =
+public actual fun msiGetComponentPathExA(szproductcode: Pcstr, szcomponentcode: Pcstr, szusersid: Pcstr, dwcontext: Msiinstallcontext, lpoutpathbuffer: Pstr, pcchoutpathbuffer: MutPtr): Installstate =
     if (windowsWin32SystemApplicationinstallationandservicingNapiAvailable) wasmWindowssysWindowsWin32SystemApplicationinstallationandservicingMsiGetComponentPathExA(szproductcode.rawAddress.toString(), szcomponentcode.rawAddress.toString(), szusersid.rawAddress.toString(), dwcontext, lpoutpathbuffer.rawAddress.toString(), pcchoutpathbuffer.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun msiGetComponentPathExW(szproductcode: Pcwstr, szcomponentcode: Pcwstr, szusersid: Pcwstr, dwcontext: Msiinstallcontext, lpoutpathbuffer: Pwstr, pcchoutpathbuffer: MutPtr<UInt>): Installstate =
+public actual fun msiGetComponentPathExW(szproductcode: Pcwstr, szcomponentcode: Pcwstr, szusersid: Pcwstr, dwcontext: Msiinstallcontext, lpoutpathbuffer: Pwstr, pcchoutpathbuffer: MutPtr): Installstate =
     if (windowsWin32SystemApplicationinstallationandservicingNapiAvailable) wasmWindowssysWindowsWin32SystemApplicationinstallationandservicingMsiGetComponentPathExW(szproductcode.rawAddress.toString(), szcomponentcode.rawAddress.toString(), szusersid.rawAddress.toString(), dwcontext, lpoutpathbuffer.rawAddress.toString(), pcchoutpathbuffer.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun msiGetComponentPathW(szproduct: Pcwstr, szcomponent: Pcwstr, lppathbuf: Pwstr, pcchbuf: MutPtr<UInt>): Installstate =
+public actual fun msiGetComponentPathW(szproduct: Pcwstr, szcomponent: Pcwstr, lppathbuf: Pwstr, pcchbuf: MutPtr): Installstate =
     if (windowsWin32SystemApplicationinstallationandservicingNapiAvailable) wasmWindowssysWindowsWin32SystemApplicationinstallationandservicingMsiGetComponentPathW(szproduct.rawAddress.toString(), szcomponent.rawAddress.toString(), lppathbuf.rawAddress.toString(), pcchbuf.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun msiGetComponentStateA(hinstall: Msihandle, szcomponent: Pcstr, piinstalled: MutPtr<Installstate>, piaction: MutPtr<Installstate>): UInt =
+public actual fun msiGetComponentStateA(hinstall: Msihandle, szcomponent: Pcstr, piinstalled: MutPtr, piaction: MutPtr): UInt =
     if (windowsWin32SystemApplicationinstallationandservicingNapiAvailable) wasmWindowssysWindowsWin32SystemApplicationinstallationandservicingMsiGetComponentStateA(hinstall.toInt(), szcomponent.rawAddress.toString(), piinstalled.rawAddress.toString(), piaction.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun msiGetComponentStateW(hinstall: Msihandle, szcomponent: Pcwstr, piinstalled: MutPtr<Installstate>, piaction: MutPtr<Installstate>): UInt =
+public actual fun msiGetComponentStateW(hinstall: Msihandle, szcomponent: Pcwstr, piinstalled: MutPtr, piaction: MutPtr): UInt =
     if (windowsWin32SystemApplicationinstallationandservicingNapiAvailable) wasmWindowssysWindowsWin32SystemApplicationinstallationandservicingMsiGetComponentStateW(hinstall.toInt(), szcomponent.rawAddress.toString(), piinstalled.rawAddress.toString(), piaction.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun msiGetDatabaseState(hdatabase: Msihandle): Msidbstate =
     if (windowsWin32SystemApplicationinstallationandservicingNapiAvailable) wasmWindowssysWindowsWin32SystemApplicationinstallationandservicingMsiGetDatabaseState(hdatabase.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun msiGetFeatureCostA(hinstall: Msihandle, szfeature: Pcstr, icosttree: Msicosttree, istate: Installstate, picost: MutPtr<Int>): UInt =
+public actual fun msiGetFeatureCostA(hinstall: Msihandle, szfeature: Pcstr, icosttree: Msicosttree, istate: Installstate, picost: MutPtr): UInt =
     if (windowsWin32SystemApplicationinstallationandservicingNapiAvailable) wasmWindowssysWindowsWin32SystemApplicationinstallationandservicingMsiGetFeatureCostA(hinstall.toInt(), szfeature.rawAddress.toString(), icosttree, istate, picost.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun msiGetFeatureCostW(hinstall: Msihandle, szfeature: Pcwstr, icosttree: Msicosttree, istate: Installstate, picost: MutPtr<Int>): UInt =
+public actual fun msiGetFeatureCostW(hinstall: Msihandle, szfeature: Pcwstr, icosttree: Msicosttree, istate: Installstate, picost: MutPtr): UInt =
     if (windowsWin32SystemApplicationinstallationandservicingNapiAvailable) wasmWindowssysWindowsWin32SystemApplicationinstallationandservicingMsiGetFeatureCostW(hinstall.toInt(), szfeature.rawAddress.toString(), icosttree, istate, picost.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun msiGetFeatureInfoA(hproduct: Msihandle, szfeature: Pcstr, lpattributes: MutPtr<UInt>, lptitlebuf: Pstr, pcchtitlebuf: MutPtr<UInt>, lphelpbuf: Pstr, pcchhelpbuf: MutPtr<UInt>): UInt =
+public actual fun msiGetFeatureInfoA(hproduct: Msihandle, szfeature: Pcstr, lpattributes: MutPtr, lptitlebuf: Pstr, pcchtitlebuf: MutPtr, lphelpbuf: Pstr, pcchhelpbuf: MutPtr): UInt =
     if (windowsWin32SystemApplicationinstallationandservicingNapiAvailable) wasmWindowssysWindowsWin32SystemApplicationinstallationandservicingMsiGetFeatureInfoA(hproduct.toInt(), szfeature.rawAddress.toString(), lpattributes.rawAddress.toString(), lptitlebuf.rawAddress.toString(), pcchtitlebuf.rawAddress.toString(), lphelpbuf.rawAddress.toString(), pcchhelpbuf.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun msiGetFeatureInfoW(hproduct: Msihandle, szfeature: Pcwstr, lpattributes: MutPtr<UInt>, lptitlebuf: Pwstr, pcchtitlebuf: MutPtr<UInt>, lphelpbuf: Pwstr, pcchhelpbuf: MutPtr<UInt>): UInt =
+public actual fun msiGetFeatureInfoW(hproduct: Msihandle, szfeature: Pcwstr, lpattributes: MutPtr, lptitlebuf: Pwstr, pcchtitlebuf: MutPtr, lphelpbuf: Pwstr, pcchhelpbuf: MutPtr): UInt =
     if (windowsWin32SystemApplicationinstallationandservicingNapiAvailable) wasmWindowssysWindowsWin32SystemApplicationinstallationandservicingMsiGetFeatureInfoW(hproduct.toInt(), szfeature.rawAddress.toString(), lpattributes.rawAddress.toString(), lptitlebuf.rawAddress.toString(), pcchtitlebuf.rawAddress.toString(), lphelpbuf.rawAddress.toString(), pcchhelpbuf.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun msiGetFeatureStateA(hinstall: Msihandle, szfeature: Pcstr, piinstalled: MutPtr<Installstate>, piaction: MutPtr<Installstate>): UInt =
+public actual fun msiGetFeatureStateA(hinstall: Msihandle, szfeature: Pcstr, piinstalled: MutPtr, piaction: MutPtr): UInt =
     if (windowsWin32SystemApplicationinstallationandservicingNapiAvailable) wasmWindowssysWindowsWin32SystemApplicationinstallationandservicingMsiGetFeatureStateA(hinstall.toInt(), szfeature.rawAddress.toString(), piinstalled.rawAddress.toString(), piaction.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun msiGetFeatureStateW(hinstall: Msihandle, szfeature: Pcwstr, piinstalled: MutPtr<Installstate>, piaction: MutPtr<Installstate>): UInt =
+public actual fun msiGetFeatureStateW(hinstall: Msihandle, szfeature: Pcwstr, piinstalled: MutPtr, piaction: MutPtr): UInt =
     if (windowsWin32SystemApplicationinstallationandservicingNapiAvailable) wasmWindowssysWindowsWin32SystemApplicationinstallationandservicingMsiGetFeatureStateW(hinstall.toInt(), szfeature.rawAddress.toString(), piinstalled.rawAddress.toString(), piaction.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun msiGetFeatureUsageA(szproduct: Pcstr, szfeature: Pcstr, pdwusecount: MutPtr<UInt>, pwdateused: MutPtr<UShort>): UInt =
+public actual fun msiGetFeatureUsageA(szproduct: Pcstr, szfeature: Pcstr, pdwusecount: MutPtr, pwdateused: MutPtr): UInt =
     if (windowsWin32SystemApplicationinstallationandservicingNapiAvailable) wasmWindowssysWindowsWin32SystemApplicationinstallationandservicingMsiGetFeatureUsageA(szproduct.rawAddress.toString(), szfeature.rawAddress.toString(), pdwusecount.rawAddress.toString(), pwdateused.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun msiGetFeatureUsageW(szproduct: Pcwstr, szfeature: Pcwstr, pdwusecount: MutPtr<UInt>, pwdateused: MutPtr<UShort>): UInt =
+public actual fun msiGetFeatureUsageW(szproduct: Pcwstr, szfeature: Pcwstr, pdwusecount: MutPtr, pwdateused: MutPtr): UInt =
     if (windowsWin32SystemApplicationinstallationandservicingNapiAvailable) wasmWindowssysWindowsWin32SystemApplicationinstallationandservicingMsiGetFeatureUsageW(szproduct.rawAddress.toString(), szfeature.rawAddress.toString(), pdwusecount.rawAddress.toString(), pwdateused.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun msiGetFeatureValidStatesA(hinstall: Msihandle, szfeature: Pcstr, lpinstallstates: MutPtr<UInt>): UInt =
+public actual fun msiGetFeatureValidStatesA(hinstall: Msihandle, szfeature: Pcstr, lpinstallstates: MutPtr): UInt =
     if (windowsWin32SystemApplicationinstallationandservicingNapiAvailable) wasmWindowssysWindowsWin32SystemApplicationinstallationandservicingMsiGetFeatureValidStatesA(hinstall.toInt(), szfeature.rawAddress.toString(), lpinstallstates.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun msiGetFeatureValidStatesW(hinstall: Msihandle, szfeature: Pcwstr, lpinstallstates: MutPtr<UInt>): UInt =
+public actual fun msiGetFeatureValidStatesW(hinstall: Msihandle, szfeature: Pcwstr, lpinstallstates: MutPtr): UInt =
     if (windowsWin32SystemApplicationinstallationandservicingNapiAvailable) wasmWindowssysWindowsWin32SystemApplicationinstallationandservicingMsiGetFeatureValidStatesW(hinstall.toInt(), szfeature.rawAddress.toString(), lpinstallstates.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun msiGetFileHashA(szfilepath: Pcstr, dwoptions: UInt, phash: MutPtr<Msifilehashinfo>): UInt =
+public actual fun msiGetFileHashA(szfilepath: Pcstr, dwoptions: UInt, phash: MutPtr): UInt =
     if (windowsWin32SystemApplicationinstallationandservicingNapiAvailable) wasmWindowssysWindowsWin32SystemApplicationinstallationandservicingMsiGetFileHashA(szfilepath.rawAddress.toString(), dwoptions.toInt(), phash.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun msiGetFileHashW(szfilepath: Pcwstr, dwoptions: UInt, phash: MutPtr<Msifilehashinfo>): UInt =
+public actual fun msiGetFileHashW(szfilepath: Pcwstr, dwoptions: UInt, phash: MutPtr): UInt =
     if (windowsWin32SystemApplicationinstallationandservicingNapiAvailable) wasmWindowssysWindowsWin32SystemApplicationinstallationandservicingMsiGetFileHashW(szfilepath.rawAddress.toString(), dwoptions.toInt(), phash.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun msiGetFileSignatureInformationA(szsignedobjectpath: Pcstr, dwflags: UInt, ppccertcontext: MutPtr<MutPtr<CertContext>>, pbhashdata: MutPtr<UByte>, pcbhashdata: MutPtr<UInt>): Hresult =
+public actual fun msiGetFileSignatureInformationA(szsignedobjectpath: Pcstr, dwflags: UInt, ppccertcontext: MutPtr, pbhashdata: MutPtr, pcbhashdata: MutPtr): Hresult =
     if (windowsWin32SystemApplicationinstallationandservicingNapiAvailable) wasmWindowssysWindowsWin32SystemApplicationinstallationandservicingMsiGetFileSignatureInformationA(szsignedobjectpath.rawAddress.toString(), dwflags.toInt(), ppccertcontext.rawAddress.toString(), pbhashdata.rawAddress.toString(), pcbhashdata.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun msiGetFileSignatureInformationW(szsignedobjectpath: Pcwstr, dwflags: UInt, ppccertcontext: MutPtr<MutPtr<CertContext>>, pbhashdata: MutPtr<UByte>, pcbhashdata: MutPtr<UInt>): Hresult =
+public actual fun msiGetFileSignatureInformationW(szsignedobjectpath: Pcwstr, dwflags: UInt, ppccertcontext: MutPtr, pbhashdata: MutPtr, pcbhashdata: MutPtr): Hresult =
     if (windowsWin32SystemApplicationinstallationandservicingNapiAvailable) wasmWindowssysWindowsWin32SystemApplicationinstallationandservicingMsiGetFileSignatureInformationW(szsignedobjectpath.rawAddress.toString(), dwflags.toInt(), ppccertcontext.rawAddress.toString(), pbhashdata.rawAddress.toString(), pcbhashdata.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun msiGetFileVersionA(szfilepath: Pcstr, lpversionbuf: Pstr, pcchversionbuf: MutPtr<UInt>, lplangbuf: Pstr, pcchlangbuf: MutPtr<UInt>): UInt =
+public actual fun msiGetFileVersionA(szfilepath: Pcstr, lpversionbuf: Pstr, pcchversionbuf: MutPtr, lplangbuf: Pstr, pcchlangbuf: MutPtr): UInt =
     if (windowsWin32SystemApplicationinstallationandservicingNapiAvailable) wasmWindowssysWindowsWin32SystemApplicationinstallationandservicingMsiGetFileVersionA(szfilepath.rawAddress.toString(), lpversionbuf.rawAddress.toString(), pcchversionbuf.rawAddress.toString(), lplangbuf.rawAddress.toString(), pcchlangbuf.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun msiGetFileVersionW(szfilepath: Pcwstr, lpversionbuf: Pwstr, pcchversionbuf: MutPtr<UInt>, lplangbuf: Pwstr, pcchlangbuf: MutPtr<UInt>): UInt =
+public actual fun msiGetFileVersionW(szfilepath: Pcwstr, lpversionbuf: Pwstr, pcchversionbuf: MutPtr, lplangbuf: Pwstr, pcchlangbuf: MutPtr): UInt =
     if (windowsWin32SystemApplicationinstallationandservicingNapiAvailable) wasmWindowssysWindowsWin32SystemApplicationinstallationandservicingMsiGetFileVersionW(szfilepath.rawAddress.toString(), lpversionbuf.rawAddress.toString(), pcchversionbuf.rawAddress.toString(), lplangbuf.rawAddress.toString(), pcchlangbuf.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun msiGetLanguage(hinstall: Msihandle): UShort =
@@ -1430,22 +1425,22 @@ public actual fun msiGetLastErrorRecord(): Msihandle =
 public actual fun msiGetMode(hinstall: Msihandle, erunmode: Msirunmode): Bool =
     if (windowsWin32SystemApplicationinstallationandservicingNapiAvailable) wasmWindowssysWindowsWin32SystemApplicationinstallationandservicingMsiGetMode(hinstall.toInt(), erunmode) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun msiGetPatchFileListA(szproductcode: Pcstr, szpatchpackages: Pcstr, pcfiles: MutPtr<UInt>, pphfilerecords: MutPtr<MutPtr<Msihandle>>): UInt =
+public actual fun msiGetPatchFileListA(szproductcode: Pcstr, szpatchpackages: Pcstr, pcfiles: MutPtr, pphfilerecords: MutPtr): UInt =
     if (windowsWin32SystemApplicationinstallationandservicingNapiAvailable) wasmWindowssysWindowsWin32SystemApplicationinstallationandservicingMsiGetPatchFileListA(szproductcode.rawAddress.toString(), szpatchpackages.rawAddress.toString(), pcfiles.rawAddress.toString(), pphfilerecords.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun msiGetPatchFileListW(szproductcode: Pcwstr, szpatchpackages: Pcwstr, pcfiles: MutPtr<UInt>, pphfilerecords: MutPtr<MutPtr<Msihandle>>): UInt =
+public actual fun msiGetPatchFileListW(szproductcode: Pcwstr, szpatchpackages: Pcwstr, pcfiles: MutPtr, pphfilerecords: MutPtr): UInt =
     if (windowsWin32SystemApplicationinstallationandservicingNapiAvailable) wasmWindowssysWindowsWin32SystemApplicationinstallationandservicingMsiGetPatchFileListW(szproductcode.rawAddress.toString(), szpatchpackages.rawAddress.toString(), pcfiles.rawAddress.toString(), pphfilerecords.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun msiGetPatchInfoA(szpatch: Pcstr, szattribute: Pcstr, lpvaluebuf: Pstr, pcchvaluebuf: MutPtr<UInt>): UInt =
+public actual fun msiGetPatchInfoA(szpatch: Pcstr, szattribute: Pcstr, lpvaluebuf: Pstr, pcchvaluebuf: MutPtr): UInt =
     if (windowsWin32SystemApplicationinstallationandservicingNapiAvailable) wasmWindowssysWindowsWin32SystemApplicationinstallationandservicingMsiGetPatchInfoA(szpatch.rawAddress.toString(), szattribute.rawAddress.toString(), lpvaluebuf.rawAddress.toString(), pcchvaluebuf.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun msiGetPatchInfoExA(szpatchcode: Pcstr, szproductcode: Pcstr, szusersid: Pcstr, dwcontext: Msiinstallcontext, szproperty: Pcstr, lpvalue: Pstr, pcchvalue: MutPtr<UInt>): UInt =
+public actual fun msiGetPatchInfoExA(szpatchcode: Pcstr, szproductcode: Pcstr, szusersid: Pcstr, dwcontext: Msiinstallcontext, szproperty: Pcstr, lpvalue: Pstr, pcchvalue: MutPtr): UInt =
     if (windowsWin32SystemApplicationinstallationandservicingNapiAvailable) wasmWindowssysWindowsWin32SystemApplicationinstallationandservicingMsiGetPatchInfoExA(szpatchcode.rawAddress.toString(), szproductcode.rawAddress.toString(), szusersid.rawAddress.toString(), dwcontext, szproperty.rawAddress.toString(), lpvalue.rawAddress.toString(), pcchvalue.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun msiGetPatchInfoExW(szpatchcode: Pcwstr, szproductcode: Pcwstr, szusersid: Pcwstr, dwcontext: Msiinstallcontext, szproperty: Pcwstr, lpvalue: Pwstr, pcchvalue: MutPtr<UInt>): UInt =
+public actual fun msiGetPatchInfoExW(szpatchcode: Pcwstr, szproductcode: Pcwstr, szusersid: Pcwstr, dwcontext: Msiinstallcontext, szproperty: Pcwstr, lpvalue: Pwstr, pcchvalue: MutPtr): UInt =
     if (windowsWin32SystemApplicationinstallationandservicingNapiAvailable) wasmWindowssysWindowsWin32SystemApplicationinstallationandservicingMsiGetPatchInfoExW(szpatchcode.rawAddress.toString(), szproductcode.rawAddress.toString(), szusersid.rawAddress.toString(), dwcontext, szproperty.rawAddress.toString(), lpvalue.rawAddress.toString(), pcchvalue.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun msiGetPatchInfoW(szpatch: Pcwstr, szattribute: Pcwstr, lpvaluebuf: Pwstr, pcchvaluebuf: MutPtr<UInt>): UInt =
+public actual fun msiGetPatchInfoW(szpatch: Pcwstr, szattribute: Pcwstr, lpvaluebuf: Pwstr, pcchvaluebuf: MutPtr): UInt =
     if (windowsWin32SystemApplicationinstallationandservicingNapiAvailable) wasmWindowssysWindowsWin32SystemApplicationinstallationandservicingMsiGetPatchInfoW(szpatch.rawAddress.toString(), szattribute.rawAddress.toString(), lpvaluebuf.rawAddress.toString(), pcchvaluebuf.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun msiGetProductCodeA(szcomponent: Pcstr, lpbuf39: Pstr): UInt =
@@ -1454,34 +1449,34 @@ public actual fun msiGetProductCodeA(szcomponent: Pcstr, lpbuf39: Pstr): UInt =
 public actual fun msiGetProductCodeW(szcomponent: Pcwstr, lpbuf39: Pwstr): UInt =
     if (windowsWin32SystemApplicationinstallationandservicingNapiAvailable) wasmWindowssysWindowsWin32SystemApplicationinstallationandservicingMsiGetProductCodeW(szcomponent.rawAddress.toString(), lpbuf39.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun msiGetProductInfoA(szproduct: Pcstr, szattribute: Pcstr, lpvaluebuf: Pstr, pcchvaluebuf: MutPtr<UInt>): UInt =
+public actual fun msiGetProductInfoA(szproduct: Pcstr, szattribute: Pcstr, lpvaluebuf: Pstr, pcchvaluebuf: MutPtr): UInt =
     if (windowsWin32SystemApplicationinstallationandservicingNapiAvailable) wasmWindowssysWindowsWin32SystemApplicationinstallationandservicingMsiGetProductInfoA(szproduct.rawAddress.toString(), szattribute.rawAddress.toString(), lpvaluebuf.rawAddress.toString(), pcchvaluebuf.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun msiGetProductInfoExA(szproductcode: Pcstr, szusersid: Pcstr, dwcontext: Msiinstallcontext, szproperty: Pcstr, szvalue: Pstr, pcchvalue: MutPtr<UInt>): UInt =
+public actual fun msiGetProductInfoExA(szproductcode: Pcstr, szusersid: Pcstr, dwcontext: Msiinstallcontext, szproperty: Pcstr, szvalue: Pstr, pcchvalue: MutPtr): UInt =
     if (windowsWin32SystemApplicationinstallationandservicingNapiAvailable) wasmWindowssysWindowsWin32SystemApplicationinstallationandservicingMsiGetProductInfoExA(szproductcode.rawAddress.toString(), szusersid.rawAddress.toString(), dwcontext, szproperty.rawAddress.toString(), szvalue.rawAddress.toString(), pcchvalue.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun msiGetProductInfoExW(szproductcode: Pcwstr, szusersid: Pcwstr, dwcontext: Msiinstallcontext, szproperty: Pcwstr, szvalue: Pwstr, pcchvalue: MutPtr<UInt>): UInt =
+public actual fun msiGetProductInfoExW(szproductcode: Pcwstr, szusersid: Pcwstr, dwcontext: Msiinstallcontext, szproperty: Pcwstr, szvalue: Pwstr, pcchvalue: MutPtr): UInt =
     if (windowsWin32SystemApplicationinstallationandservicingNapiAvailable) wasmWindowssysWindowsWin32SystemApplicationinstallationandservicingMsiGetProductInfoExW(szproductcode.rawAddress.toString(), szusersid.rawAddress.toString(), dwcontext, szproperty.rawAddress.toString(), szvalue.rawAddress.toString(), pcchvalue.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun msiGetProductInfoFromScriptA(szscriptfile: Pcstr, lpproductbuf39: Pstr, plgidlanguage: MutPtr<UShort>, pdwversion: MutPtr<UInt>, lpnamebuf: Pstr, pcchnamebuf: MutPtr<UInt>, lppackagebuf: Pstr, pcchpackagebuf: MutPtr<UInt>): UInt =
+public actual fun msiGetProductInfoFromScriptA(szscriptfile: Pcstr, lpproductbuf39: Pstr, plgidlanguage: MutPtr, pdwversion: MutPtr, lpnamebuf: Pstr, pcchnamebuf: MutPtr, lppackagebuf: Pstr, pcchpackagebuf: MutPtr): UInt =
     if (windowsWin32SystemApplicationinstallationandservicingNapiAvailable) wasmWindowssysWindowsWin32SystemApplicationinstallationandservicingMsiGetProductInfoFromScriptA(szscriptfile.rawAddress.toString(), lpproductbuf39.rawAddress.toString(), plgidlanguage.rawAddress.toString(), pdwversion.rawAddress.toString(), lpnamebuf.rawAddress.toString(), pcchnamebuf.rawAddress.toString(), lppackagebuf.rawAddress.toString(), pcchpackagebuf.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun msiGetProductInfoFromScriptW(szscriptfile: Pcwstr, lpproductbuf39: Pwstr, plgidlanguage: MutPtr<UShort>, pdwversion: MutPtr<UInt>, lpnamebuf: Pwstr, pcchnamebuf: MutPtr<UInt>, lppackagebuf: Pwstr, pcchpackagebuf: MutPtr<UInt>): UInt =
+public actual fun msiGetProductInfoFromScriptW(szscriptfile: Pcwstr, lpproductbuf39: Pwstr, plgidlanguage: MutPtr, pdwversion: MutPtr, lpnamebuf: Pwstr, pcchnamebuf: MutPtr, lppackagebuf: Pwstr, pcchpackagebuf: MutPtr): UInt =
     if (windowsWin32SystemApplicationinstallationandservicingNapiAvailable) wasmWindowssysWindowsWin32SystemApplicationinstallationandservicingMsiGetProductInfoFromScriptW(szscriptfile.rawAddress.toString(), lpproductbuf39.rawAddress.toString(), plgidlanguage.rawAddress.toString(), pdwversion.rawAddress.toString(), lpnamebuf.rawAddress.toString(), pcchnamebuf.rawAddress.toString(), lppackagebuf.rawAddress.toString(), pcchpackagebuf.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun msiGetProductInfoW(szproduct: Pcwstr, szattribute: Pcwstr, lpvaluebuf: Pwstr, pcchvaluebuf: MutPtr<UInt>): UInt =
+public actual fun msiGetProductInfoW(szproduct: Pcwstr, szattribute: Pcwstr, lpvaluebuf: Pwstr, pcchvaluebuf: MutPtr): UInt =
     if (windowsWin32SystemApplicationinstallationandservicingNapiAvailable) wasmWindowssysWindowsWin32SystemApplicationinstallationandservicingMsiGetProductInfoW(szproduct.rawAddress.toString(), szattribute.rawAddress.toString(), lpvaluebuf.rawAddress.toString(), pcchvaluebuf.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun msiGetProductPropertyA(hproduct: Msihandle, szproperty: Pcstr, lpvaluebuf: Pstr, pcchvaluebuf: MutPtr<UInt>): UInt =
+public actual fun msiGetProductPropertyA(hproduct: Msihandle, szproperty: Pcstr, lpvaluebuf: Pstr, pcchvaluebuf: MutPtr): UInt =
     if (windowsWin32SystemApplicationinstallationandservicingNapiAvailable) wasmWindowssysWindowsWin32SystemApplicationinstallationandservicingMsiGetProductPropertyA(hproduct.toInt(), szproperty.rawAddress.toString(), lpvaluebuf.rawAddress.toString(), pcchvaluebuf.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun msiGetProductPropertyW(hproduct: Msihandle, szproperty: Pcwstr, lpvaluebuf: Pwstr, pcchvaluebuf: MutPtr<UInt>): UInt =
+public actual fun msiGetProductPropertyW(hproduct: Msihandle, szproperty: Pcwstr, lpvaluebuf: Pwstr, pcchvaluebuf: MutPtr): UInt =
     if (windowsWin32SystemApplicationinstallationandservicingNapiAvailable) wasmWindowssysWindowsWin32SystemApplicationinstallationandservicingMsiGetProductPropertyW(hproduct.toInt(), szproperty.rawAddress.toString(), lpvaluebuf.rawAddress.toString(), pcchvaluebuf.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun msiGetPropertyA(hinstall: Msihandle, szname: Pcstr, szvaluebuf: Pstr, pcchvaluebuf: MutPtr<UInt>): UInt =
+public actual fun msiGetPropertyA(hinstall: Msihandle, szname: Pcstr, szvaluebuf: Pstr, pcchvaluebuf: MutPtr): UInt =
     if (windowsWin32SystemApplicationinstallationandservicingNapiAvailable) wasmWindowssysWindowsWin32SystemApplicationinstallationandservicingMsiGetPropertyA(hinstall.toInt(), szname.rawAddress.toString(), szvaluebuf.rawAddress.toString(), pcchvaluebuf.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun msiGetPropertyW(hinstall: Msihandle, szname: Pcwstr, szvaluebuf: Pwstr, pcchvaluebuf: MutPtr<UInt>): UInt =
+public actual fun msiGetPropertyW(hinstall: Msihandle, szname: Pcwstr, szvaluebuf: Pwstr, pcchvaluebuf: MutPtr): UInt =
     if (windowsWin32SystemApplicationinstallationandservicingNapiAvailable) wasmWindowssysWindowsWin32SystemApplicationinstallationandservicingMsiGetPropertyW(hinstall.toInt(), szname.rawAddress.toString(), szvaluebuf.rawAddress.toString(), pcchvaluebuf.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun msiGetShortcutTargetA(szshortcutpath: Pcstr, szproductcode: Pstr, szfeatureid: Pstr, szcomponentcode: Pstr): UInt =
@@ -1490,28 +1485,28 @@ public actual fun msiGetShortcutTargetA(szshortcutpath: Pcstr, szproductcode: Ps
 public actual fun msiGetShortcutTargetW(szshortcutpath: Pcwstr, szproductcode: Pwstr, szfeatureid: Pwstr, szcomponentcode: Pwstr): UInt =
     if (windowsWin32SystemApplicationinstallationandservicingNapiAvailable) wasmWindowssysWindowsWin32SystemApplicationinstallationandservicingMsiGetShortcutTargetW(szshortcutpath.rawAddress.toString(), szproductcode.rawAddress.toString(), szfeatureid.rawAddress.toString(), szcomponentcode.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun msiGetSourcePathA(hinstall: Msihandle, szfolder: Pcstr, szpathbuf: Pstr, pcchpathbuf: MutPtr<UInt>): UInt =
+public actual fun msiGetSourcePathA(hinstall: Msihandle, szfolder: Pcstr, szpathbuf: Pstr, pcchpathbuf: MutPtr): UInt =
     if (windowsWin32SystemApplicationinstallationandservicingNapiAvailable) wasmWindowssysWindowsWin32SystemApplicationinstallationandservicingMsiGetSourcePathA(hinstall.toInt(), szfolder.rawAddress.toString(), szpathbuf.rawAddress.toString(), pcchpathbuf.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun msiGetSourcePathW(hinstall: Msihandle, szfolder: Pcwstr, szpathbuf: Pwstr, pcchpathbuf: MutPtr<UInt>): UInt =
+public actual fun msiGetSourcePathW(hinstall: Msihandle, szfolder: Pcwstr, szpathbuf: Pwstr, pcchpathbuf: MutPtr): UInt =
     if (windowsWin32SystemApplicationinstallationandservicingNapiAvailable) wasmWindowssysWindowsWin32SystemApplicationinstallationandservicingMsiGetSourcePathW(hinstall.toInt(), szfolder.rawAddress.toString(), szpathbuf.rawAddress.toString(), pcchpathbuf.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun msiGetSummaryInformationA(hdatabase: Msihandle, szdatabasepath: Pcstr, uiupdatecount: UInt, phsummaryinfo: MutPtr<Msihandle>): UInt =
+public actual fun msiGetSummaryInformationA(hdatabase: Msihandle, szdatabasepath: Pcstr, uiupdatecount: UInt, phsummaryinfo: MutPtr): UInt =
     if (windowsWin32SystemApplicationinstallationandservicingNapiAvailable) wasmWindowssysWindowsWin32SystemApplicationinstallationandservicingMsiGetSummaryInformationA(hdatabase.toInt(), szdatabasepath.rawAddress.toString(), uiupdatecount.toInt(), phsummaryinfo.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun msiGetSummaryInformationW(hdatabase: Msihandle, szdatabasepath: Pcwstr, uiupdatecount: UInt, phsummaryinfo: MutPtr<Msihandle>): UInt =
+public actual fun msiGetSummaryInformationW(hdatabase: Msihandle, szdatabasepath: Pcwstr, uiupdatecount: UInt, phsummaryinfo: MutPtr): UInt =
     if (windowsWin32SystemApplicationinstallationandservicingNapiAvailable) wasmWindowssysWindowsWin32SystemApplicationinstallationandservicingMsiGetSummaryInformationW(hdatabase.toInt(), szdatabasepath.rawAddress.toString(), uiupdatecount.toInt(), phsummaryinfo.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun msiGetTargetPathA(hinstall: Msihandle, szfolder: Pcstr, szpathbuf: Pstr, pcchpathbuf: MutPtr<UInt>): UInt =
+public actual fun msiGetTargetPathA(hinstall: Msihandle, szfolder: Pcstr, szpathbuf: Pstr, pcchpathbuf: MutPtr): UInt =
     if (windowsWin32SystemApplicationinstallationandservicingNapiAvailable) wasmWindowssysWindowsWin32SystemApplicationinstallationandservicingMsiGetTargetPathA(hinstall.toInt(), szfolder.rawAddress.toString(), szpathbuf.rawAddress.toString(), pcchpathbuf.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun msiGetTargetPathW(hinstall: Msihandle, szfolder: Pcwstr, szpathbuf: Pwstr, pcchpathbuf: MutPtr<UInt>): UInt =
+public actual fun msiGetTargetPathW(hinstall: Msihandle, szfolder: Pcwstr, szpathbuf: Pwstr, pcchpathbuf: MutPtr): UInt =
     if (windowsWin32SystemApplicationinstallationandservicingNapiAvailable) wasmWindowssysWindowsWin32SystemApplicationinstallationandservicingMsiGetTargetPathW(hinstall.toInt(), szfolder.rawAddress.toString(), szpathbuf.rawAddress.toString(), pcchpathbuf.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun msiGetUserInfoA(szproduct: Pcstr, lpusernamebuf: Pstr, pcchusernamebuf: MutPtr<UInt>, lporgnamebuf: Pstr, pcchorgnamebuf: MutPtr<UInt>, lpserialbuf: Pstr, pcchserialbuf: MutPtr<UInt>): Userinfostate =
+public actual fun msiGetUserInfoA(szproduct: Pcstr, lpusernamebuf: Pstr, pcchusernamebuf: MutPtr, lporgnamebuf: Pstr, pcchorgnamebuf: MutPtr, lpserialbuf: Pstr, pcchserialbuf: MutPtr): Userinfostate =
     if (windowsWin32SystemApplicationinstallationandservicingNapiAvailable) wasmWindowssysWindowsWin32SystemApplicationinstallationandservicingMsiGetUserInfoA(szproduct.rawAddress.toString(), lpusernamebuf.rawAddress.toString(), pcchusernamebuf.rawAddress.toString(), lporgnamebuf.rawAddress.toString(), pcchorgnamebuf.rawAddress.toString(), lpserialbuf.rawAddress.toString(), pcchserialbuf.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun msiGetUserInfoW(szproduct: Pcwstr, lpusernamebuf: Pwstr, pcchusernamebuf: MutPtr<UInt>, lporgnamebuf: Pwstr, pcchorgnamebuf: MutPtr<UInt>, lpserialbuf: Pwstr, pcchserialbuf: MutPtr<UInt>): Userinfostate =
+public actual fun msiGetUserInfoW(szproduct: Pcwstr, lpusernamebuf: Pwstr, pcchusernamebuf: MutPtr, lporgnamebuf: Pwstr, pcchorgnamebuf: MutPtr, lpserialbuf: Pwstr, pcchserialbuf: MutPtr): Userinfostate =
     if (windowsWin32SystemApplicationinstallationandservicingNapiAvailable) wasmWindowssysWindowsWin32SystemApplicationinstallationandservicingMsiGetUserInfoW(szproduct.rawAddress.toString(), lpusernamebuf.rawAddress.toString(), pcchusernamebuf.rawAddress.toString(), lporgnamebuf.rawAddress.toString(), pcchorgnamebuf.rawAddress.toString(), lpserialbuf.rawAddress.toString(), pcchserialbuf.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun msiInstallMissingComponentA(szproduct: Pcstr, szcomponent: Pcstr, einstallstate: Installstate): UInt =
@@ -1532,19 +1527,19 @@ public actual fun msiInstallProductA(szpackagepath: Pcstr, szcommandline: Pcstr)
 public actual fun msiInstallProductW(szpackagepath: Pcwstr, szcommandline: Pcwstr): UInt =
     if (windowsWin32SystemApplicationinstallationandservicingNapiAvailable) wasmWindowssysWindowsWin32SystemApplicationinstallationandservicingMsiInstallProductW(szpackagepath.rawAddress.toString(), szcommandline.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun msiIsProductElevatedA(szproduct: Pcstr, pfelevated: MutPtr<Bool>): UInt =
+public actual fun msiIsProductElevatedA(szproduct: Pcstr, pfelevated: MutPtr): UInt =
     if (windowsWin32SystemApplicationinstallationandservicingNapiAvailable) wasmWindowssysWindowsWin32SystemApplicationinstallationandservicingMsiIsProductElevatedA(szproduct.rawAddress.toString(), pfelevated.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun msiIsProductElevatedW(szproduct: Pcwstr, pfelevated: MutPtr<Bool>): UInt =
+public actual fun msiIsProductElevatedW(szproduct: Pcwstr, pfelevated: MutPtr): UInt =
     if (windowsWin32SystemApplicationinstallationandservicingNapiAvailable) wasmWindowssysWindowsWin32SystemApplicationinstallationandservicingMsiIsProductElevatedW(szproduct.rawAddress.toString(), pfelevated.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun msiJoinTransaction(htransactionhandle: Msihandle, dwtransactionattributes: UInt, phchangeofownerevent: MutPtr<Handle>): UInt =
+public actual fun msiJoinTransaction(htransactionhandle: Msihandle, dwtransactionattributes: UInt, phchangeofownerevent: MutPtr): UInt =
     if (windowsWin32SystemApplicationinstallationandservicingNapiAvailable) wasmWindowssysWindowsWin32SystemApplicationinstallationandservicingMsiJoinTransaction(htransactionhandle.toInt(), dwtransactionattributes.toInt(), phchangeofownerevent.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun msiLocateComponentA(szcomponent: Pcstr, lppathbuf: Pstr, pcchbuf: MutPtr<UInt>): Installstate =
+public actual fun msiLocateComponentA(szcomponent: Pcstr, lppathbuf: Pstr, pcchbuf: MutPtr): Installstate =
     if (windowsWin32SystemApplicationinstallationandservicingNapiAvailable) wasmWindowssysWindowsWin32SystemApplicationinstallationandservicingMsiLocateComponentA(szcomponent.rawAddress.toString(), lppathbuf.rawAddress.toString(), pcchbuf.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun msiLocateComponentW(szcomponent: Pcwstr, lppathbuf: Pwstr, pcchbuf: MutPtr<UInt>): Installstate =
+public actual fun msiLocateComponentW(szcomponent: Pcwstr, lppathbuf: Pwstr, pcchbuf: MutPtr): Installstate =
     if (windowsWin32SystemApplicationinstallationandservicingNapiAvailable) wasmWindowssysWindowsWin32SystemApplicationinstallationandservicingMsiLocateComponentW(szcomponent.rawAddress.toString(), lppathbuf.rawAddress.toString(), pcchbuf.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun msiNotifySidChangeA(poldsid: Pcstr, pnewsid: Pcstr): UInt =
@@ -1553,28 +1548,28 @@ public actual fun msiNotifySidChangeA(poldsid: Pcstr, pnewsid: Pcstr): UInt =
 public actual fun msiNotifySidChangeW(poldsid: Pcwstr, pnewsid: Pcwstr): UInt =
     if (windowsWin32SystemApplicationinstallationandservicingNapiAvailable) wasmWindowssysWindowsWin32SystemApplicationinstallationandservicingMsiNotifySidChangeW(poldsid.rawAddress.toString(), pnewsid.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun msiOpenDatabaseA(szdatabasepath: Pcstr, szpersist: Pcstr, phdatabase: MutPtr<Msihandle>): UInt =
+public actual fun msiOpenDatabaseA(szdatabasepath: Pcstr, szpersist: Pcstr, phdatabase: MutPtr): UInt =
     if (windowsWin32SystemApplicationinstallationandservicingNapiAvailable) wasmWindowssysWindowsWin32SystemApplicationinstallationandservicingMsiOpenDatabaseA(szdatabasepath.rawAddress.toString(), szpersist.rawAddress.toString(), phdatabase.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun msiOpenDatabaseW(szdatabasepath: Pcwstr, szpersist: Pcwstr, phdatabase: MutPtr<Msihandle>): UInt =
+public actual fun msiOpenDatabaseW(szdatabasepath: Pcwstr, szpersist: Pcwstr, phdatabase: MutPtr): UInt =
     if (windowsWin32SystemApplicationinstallationandservicingNapiAvailable) wasmWindowssysWindowsWin32SystemApplicationinstallationandservicingMsiOpenDatabaseW(szdatabasepath.rawAddress.toString(), szpersist.rawAddress.toString(), phdatabase.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun msiOpenPackageA(szpackagepath: Pcstr, hproduct: MutPtr<Msihandle>): UInt =
+public actual fun msiOpenPackageA(szpackagepath: Pcstr, hproduct: MutPtr): UInt =
     if (windowsWin32SystemApplicationinstallationandservicingNapiAvailable) wasmWindowssysWindowsWin32SystemApplicationinstallationandservicingMsiOpenPackageA(szpackagepath.rawAddress.toString(), hproduct.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun msiOpenPackageExA(szpackagepath: Pcstr, dwoptions: UInt, hproduct: MutPtr<Msihandle>): UInt =
+public actual fun msiOpenPackageExA(szpackagepath: Pcstr, dwoptions: UInt, hproduct: MutPtr): UInt =
     if (windowsWin32SystemApplicationinstallationandservicingNapiAvailable) wasmWindowssysWindowsWin32SystemApplicationinstallationandservicingMsiOpenPackageExA(szpackagepath.rawAddress.toString(), dwoptions.toInt(), hproduct.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun msiOpenPackageExW(szpackagepath: Pcwstr, dwoptions: UInt, hproduct: MutPtr<Msihandle>): UInt =
+public actual fun msiOpenPackageExW(szpackagepath: Pcwstr, dwoptions: UInt, hproduct: MutPtr): UInt =
     if (windowsWin32SystemApplicationinstallationandservicingNapiAvailable) wasmWindowssysWindowsWin32SystemApplicationinstallationandservicingMsiOpenPackageExW(szpackagepath.rawAddress.toString(), dwoptions.toInt(), hproduct.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun msiOpenPackageW(szpackagepath: Pcwstr, hproduct: MutPtr<Msihandle>): UInt =
+public actual fun msiOpenPackageW(szpackagepath: Pcwstr, hproduct: MutPtr): UInt =
     if (windowsWin32SystemApplicationinstallationandservicingNapiAvailable) wasmWindowssysWindowsWin32SystemApplicationinstallationandservicingMsiOpenPackageW(szpackagepath.rawAddress.toString(), hproduct.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun msiOpenProductA(szproduct: Pcstr, hproduct: MutPtr<Msihandle>): UInt =
+public actual fun msiOpenProductA(szproduct: Pcstr, hproduct: MutPtr): UInt =
     if (windowsWin32SystemApplicationinstallationandservicingNapiAvailable) wasmWindowssysWindowsWin32SystemApplicationinstallationandservicingMsiOpenProductA(szproduct.rawAddress.toString(), hproduct.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun msiOpenProductW(szproduct: Pcwstr, hproduct: MutPtr<Msihandle>): UInt =
+public actual fun msiOpenProductW(szproduct: Pcwstr, hproduct: MutPtr): UInt =
     if (windowsWin32SystemApplicationinstallationandservicingNapiAvailable) wasmWindowssysWindowsWin32SystemApplicationinstallationandservicingMsiOpenProductW(szproduct.rawAddress.toString(), hproduct.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun msiPreviewBillboardA(hpreview: Msihandle, szcontrolname: Pcstr, szbillboard: Pcstr): UInt =
@@ -1598,43 +1593,43 @@ public actual fun msiProcessAdvertiseScriptW(szscriptfile: Pcwstr, sziconfolder:
 public actual fun msiProcessMessage(hinstall: Msihandle, emessagetype: Installmessage, hrecord: Msihandle): Int =
     if (windowsWin32SystemApplicationinstallationandservicingNapiAvailable) wasmWindowssysWindowsWin32SystemApplicationinstallationandservicingMsiProcessMessage(hinstall.toInt(), emessagetype, hrecord.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun msiProvideAssemblyA(szassemblyname: Pcstr, szappcontext: Pcstr, dwinstallmode: UInt, dwassemblyinfo: Msiassemblyinfo, lppathbuf: Pstr, pcchpathbuf: MutPtr<UInt>): UInt =
+public actual fun msiProvideAssemblyA(szassemblyname: Pcstr, szappcontext: Pcstr, dwinstallmode: UInt, dwassemblyinfo: Msiassemblyinfo, lppathbuf: Pstr, pcchpathbuf: MutPtr): UInt =
     if (windowsWin32SystemApplicationinstallationandservicingNapiAvailable) wasmWindowssysWindowsWin32SystemApplicationinstallationandservicingMsiProvideAssemblyA(szassemblyname.rawAddress.toString(), szappcontext.rawAddress.toString(), dwinstallmode.toInt(), dwassemblyinfo.toInt(), lppathbuf.rawAddress.toString(), pcchpathbuf.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun msiProvideAssemblyW(szassemblyname: Pcwstr, szappcontext: Pcwstr, dwinstallmode: UInt, dwassemblyinfo: Msiassemblyinfo, lppathbuf: Pwstr, pcchpathbuf: MutPtr<UInt>): UInt =
+public actual fun msiProvideAssemblyW(szassemblyname: Pcwstr, szappcontext: Pcwstr, dwinstallmode: UInt, dwassemblyinfo: Msiassemblyinfo, lppathbuf: Pwstr, pcchpathbuf: MutPtr): UInt =
     if (windowsWin32SystemApplicationinstallationandservicingNapiAvailable) wasmWindowssysWindowsWin32SystemApplicationinstallationandservicingMsiProvideAssemblyW(szassemblyname.rawAddress.toString(), szappcontext.rawAddress.toString(), dwinstallmode.toInt(), dwassemblyinfo.toInt(), lppathbuf.rawAddress.toString(), pcchpathbuf.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun msiProvideComponentA(szproduct: Pcstr, szfeature: Pcstr, szcomponent: Pcstr, dwinstallmode: UInt, lppathbuf: Pstr, pcchpathbuf: MutPtr<UInt>): UInt =
+public actual fun msiProvideComponentA(szproduct: Pcstr, szfeature: Pcstr, szcomponent: Pcstr, dwinstallmode: UInt, lppathbuf: Pstr, pcchpathbuf: MutPtr): UInt =
     if (windowsWin32SystemApplicationinstallationandservicingNapiAvailable) wasmWindowssysWindowsWin32SystemApplicationinstallationandservicingMsiProvideComponentA(szproduct.rawAddress.toString(), szfeature.rawAddress.toString(), szcomponent.rawAddress.toString(), dwinstallmode.toInt(), lppathbuf.rawAddress.toString(), pcchpathbuf.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun msiProvideComponentW(szproduct: Pcwstr, szfeature: Pcwstr, szcomponent: Pcwstr, dwinstallmode: UInt, lppathbuf: Pwstr, pcchpathbuf: MutPtr<UInt>): UInt =
+public actual fun msiProvideComponentW(szproduct: Pcwstr, szfeature: Pcwstr, szcomponent: Pcwstr, dwinstallmode: UInt, lppathbuf: Pwstr, pcchpathbuf: MutPtr): UInt =
     if (windowsWin32SystemApplicationinstallationandservicingNapiAvailable) wasmWindowssysWindowsWin32SystemApplicationinstallationandservicingMsiProvideComponentW(szproduct.rawAddress.toString(), szfeature.rawAddress.toString(), szcomponent.rawAddress.toString(), dwinstallmode.toInt(), lppathbuf.rawAddress.toString(), pcchpathbuf.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun msiProvideQualifiedComponentA(szcategory: Pcstr, szqualifier: Pcstr, dwinstallmode: UInt, lppathbuf: Pstr, pcchpathbuf: MutPtr<UInt>): UInt =
+public actual fun msiProvideQualifiedComponentA(szcategory: Pcstr, szqualifier: Pcstr, dwinstallmode: UInt, lppathbuf: Pstr, pcchpathbuf: MutPtr): UInt =
     if (windowsWin32SystemApplicationinstallationandservicingNapiAvailable) wasmWindowssysWindowsWin32SystemApplicationinstallationandservicingMsiProvideQualifiedComponentA(szcategory.rawAddress.toString(), szqualifier.rawAddress.toString(), dwinstallmode.toInt(), lppathbuf.rawAddress.toString(), pcchpathbuf.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun msiProvideQualifiedComponentExA(szcategory: Pcstr, szqualifier: Pcstr, dwinstallmode: UInt, szproduct: Pcstr, dwunused1: UInt, dwunused2: UInt, lppathbuf: Pstr, pcchpathbuf: MutPtr<UInt>): UInt =
+public actual fun msiProvideQualifiedComponentExA(szcategory: Pcstr, szqualifier: Pcstr, dwinstallmode: UInt, szproduct: Pcstr, dwunused1: UInt, dwunused2: UInt, lppathbuf: Pstr, pcchpathbuf: MutPtr): UInt =
     if (windowsWin32SystemApplicationinstallationandservicingNapiAvailable) wasmWindowssysWindowsWin32SystemApplicationinstallationandservicingMsiProvideQualifiedComponentExA(szcategory.rawAddress.toString(), szqualifier.rawAddress.toString(), dwinstallmode.toInt(), szproduct.rawAddress.toString(), dwunused1.toInt(), dwunused2.toInt(), lppathbuf.rawAddress.toString(), pcchpathbuf.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun msiProvideQualifiedComponentExW(szcategory: Pcwstr, szqualifier: Pcwstr, dwinstallmode: UInt, szproduct: Pcwstr, dwunused1: UInt, dwunused2: UInt, lppathbuf: Pwstr, pcchpathbuf: MutPtr<UInt>): UInt =
+public actual fun msiProvideQualifiedComponentExW(szcategory: Pcwstr, szqualifier: Pcwstr, dwinstallmode: UInt, szproduct: Pcwstr, dwunused1: UInt, dwunused2: UInt, lppathbuf: Pwstr, pcchpathbuf: MutPtr): UInt =
     if (windowsWin32SystemApplicationinstallationandservicingNapiAvailable) wasmWindowssysWindowsWin32SystemApplicationinstallationandservicingMsiProvideQualifiedComponentExW(szcategory.rawAddress.toString(), szqualifier.rawAddress.toString(), dwinstallmode.toInt(), szproduct.rawAddress.toString(), dwunused1.toInt(), dwunused2.toInt(), lppathbuf.rawAddress.toString(), pcchpathbuf.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun msiProvideQualifiedComponentW(szcategory: Pcwstr, szqualifier: Pcwstr, dwinstallmode: UInt, lppathbuf: Pwstr, pcchpathbuf: MutPtr<UInt>): UInt =
+public actual fun msiProvideQualifiedComponentW(szcategory: Pcwstr, szqualifier: Pcwstr, dwinstallmode: UInt, lppathbuf: Pwstr, pcchpathbuf: MutPtr): UInt =
     if (windowsWin32SystemApplicationinstallationandservicingNapiAvailable) wasmWindowssysWindowsWin32SystemApplicationinstallationandservicingMsiProvideQualifiedComponentW(szcategory.rawAddress.toString(), szqualifier.rawAddress.toString(), dwinstallmode.toInt(), lppathbuf.rawAddress.toString(), pcchpathbuf.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun msiQueryComponentStateA(szproductcode: Pcstr, szusersid: Pcstr, dwcontext: Msiinstallcontext, szcomponentcode: Pcstr, pdwstate: MutPtr<Installstate>): UInt =
+public actual fun msiQueryComponentStateA(szproductcode: Pcstr, szusersid: Pcstr, dwcontext: Msiinstallcontext, szcomponentcode: Pcstr, pdwstate: MutPtr): UInt =
     if (windowsWin32SystemApplicationinstallationandservicingNapiAvailable) wasmWindowssysWindowsWin32SystemApplicationinstallationandservicingMsiQueryComponentStateA(szproductcode.rawAddress.toString(), szusersid.rawAddress.toString(), dwcontext, szcomponentcode.rawAddress.toString(), pdwstate.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun msiQueryComponentStateW(szproductcode: Pcwstr, szusersid: Pcwstr, dwcontext: Msiinstallcontext, szcomponentcode: Pcwstr, pdwstate: MutPtr<Installstate>): UInt =
+public actual fun msiQueryComponentStateW(szproductcode: Pcwstr, szusersid: Pcwstr, dwcontext: Msiinstallcontext, szcomponentcode: Pcwstr, pdwstate: MutPtr): UInt =
     if (windowsWin32SystemApplicationinstallationandservicingNapiAvailable) wasmWindowssysWindowsWin32SystemApplicationinstallationandservicingMsiQueryComponentStateW(szproductcode.rawAddress.toString(), szusersid.rawAddress.toString(), dwcontext, szcomponentcode.rawAddress.toString(), pdwstate.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun msiQueryFeatureStateA(szproduct: Pcstr, szfeature: Pcstr): Installstate =
     if (windowsWin32SystemApplicationinstallationandservicingNapiAvailable) wasmWindowssysWindowsWin32SystemApplicationinstallationandservicingMsiQueryFeatureStateA(szproduct.rawAddress.toString(), szfeature.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun msiQueryFeatureStateExA(szproductcode: Pcstr, szusersid: Pcstr, dwcontext: Msiinstallcontext, szfeature: Pcstr, pdwstate: MutPtr<Installstate>): UInt =
+public actual fun msiQueryFeatureStateExA(szproductcode: Pcstr, szusersid: Pcstr, dwcontext: Msiinstallcontext, szfeature: Pcstr, pdwstate: MutPtr): UInt =
     if (windowsWin32SystemApplicationinstallationandservicingNapiAvailable) wasmWindowssysWindowsWin32SystemApplicationinstallationandservicingMsiQueryFeatureStateExA(szproductcode.rawAddress.toString(), szusersid.rawAddress.toString(), dwcontext, szfeature.rawAddress.toString(), pdwstate.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun msiQueryFeatureStateExW(szproductcode: Pcwstr, szusersid: Pcwstr, dwcontext: Msiinstallcontext, szfeature: Pcwstr, pdwstate: MutPtr<Installstate>): UInt =
+public actual fun msiQueryFeatureStateExW(szproductcode: Pcwstr, szusersid: Pcwstr, dwcontext: Msiinstallcontext, szfeature: Pcwstr, pdwstate: MutPtr): UInt =
     if (windowsWin32SystemApplicationinstallationandservicingNapiAvailable) wasmWindowssysWindowsWin32SystemApplicationinstallationandservicingMsiQueryFeatureStateExW(szproductcode.rawAddress.toString(), szusersid.rawAddress.toString(), dwcontext, szfeature.rawAddress.toString(), pdwstate.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun msiQueryFeatureStateW(szproduct: Pcwstr, szfeature: Pcwstr): Installstate =
@@ -1658,16 +1653,16 @@ public actual fun msiRecordGetFieldCount(hrecord: Msihandle): UInt =
 public actual fun msiRecordGetInteger(hrecord: Msihandle, ifield: UInt): Int =
     if (windowsWin32SystemApplicationinstallationandservicingNapiAvailable) wasmWindowssysWindowsWin32SystemApplicationinstallationandservicingMsiRecordGetInteger(hrecord.toInt(), ifield.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun msiRecordGetStringA(hrecord: Msihandle, ifield: UInt, szvaluebuf: Pstr, pcchvaluebuf: MutPtr<UInt>): UInt =
+public actual fun msiRecordGetStringA(hrecord: Msihandle, ifield: UInt, szvaluebuf: Pstr, pcchvaluebuf: MutPtr): UInt =
     if (windowsWin32SystemApplicationinstallationandservicingNapiAvailable) wasmWindowssysWindowsWin32SystemApplicationinstallationandservicingMsiRecordGetStringA(hrecord.toInt(), ifield.toInt(), szvaluebuf.rawAddress.toString(), pcchvaluebuf.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun msiRecordGetStringW(hrecord: Msihandle, ifield: UInt, szvaluebuf: Pwstr, pcchvaluebuf: MutPtr<UInt>): UInt =
+public actual fun msiRecordGetStringW(hrecord: Msihandle, ifield: UInt, szvaluebuf: Pwstr, pcchvaluebuf: MutPtr): UInt =
     if (windowsWin32SystemApplicationinstallationandservicingNapiAvailable) wasmWindowssysWindowsWin32SystemApplicationinstallationandservicingMsiRecordGetStringW(hrecord.toInt(), ifield.toInt(), szvaluebuf.rawAddress.toString(), pcchvaluebuf.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun msiRecordIsNull(hrecord: Msihandle, ifield: UInt): Bool =
     if (windowsWin32SystemApplicationinstallationandservicingNapiAvailable) wasmWindowssysWindowsWin32SystemApplicationinstallationandservicingMsiRecordIsNull(hrecord.toInt(), ifield.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun msiRecordReadStream(hrecord: Msihandle, ifield: UInt, szdatabuf: Pstr, pcbdatabuf: MutPtr<UInt>): UInt =
+public actual fun msiRecordReadStream(hrecord: Msihandle, ifield: UInt, szdatabuf: Pstr, pcbdatabuf: MutPtr): UInt =
     if (windowsWin32SystemApplicationinstallationandservicingNapiAvailable) wasmWindowssysWindowsWin32SystemApplicationinstallationandservicingMsiRecordReadStream(hrecord.toInt(), ifield.toInt(), szdatabuf.rawAddress.toString(), pcbdatabuf.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun msiRecordSetInteger(hrecord: Msihandle, ifield: UInt, ivalue: Int): UInt =
@@ -1715,13 +1710,13 @@ public actual fun msiSetComponentStateA(hinstall: Msihandle, szcomponent: Pcstr,
 public actual fun msiSetComponentStateW(hinstall: Msihandle, szcomponent: Pcwstr, istate: Installstate): UInt =
     if (windowsWin32SystemApplicationinstallationandservicingNapiAvailable) wasmWindowssysWindowsWin32SystemApplicationinstallationandservicingMsiSetComponentStateW(hinstall.toInt(), szcomponent.rawAddress.toString(), istate).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun msiSetExternalUIA(puihandler: InstalluiHandlera, dwmessagefilter: UInt, pvcontext: ConstPtr<CVoid>): InstalluiHandlera =
+public actual fun msiSetExternalUIA(puihandler: InstalluiHandlera, dwmessagefilter: UInt, pvcontext: ConstPtr): InstalluiHandlera =
     if (windowsWin32SystemApplicationinstallationandservicingNapiAvailable) null else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun msiSetExternalUIRecord(puihandler: PinstalluiHandlerRecord, dwmessagefilter: UInt, pvcontext: ConstPtr<CVoid>, ppuiprevhandler: PinstalluiHandlerRecord): UInt =
+public actual fun msiSetExternalUIRecord(puihandler: PinstalluiHandlerRecord, dwmessagefilter: UInt, pvcontext: ConstPtr, ppuiprevhandler: PinstalluiHandlerRecord): UInt =
     if (windowsWin32SystemApplicationinstallationandservicingNapiAvailable) wasmWindowssysWindowsWin32SystemApplicationinstallationandservicingMsiSetExternalUIRecord(0L.toString(), dwmessagefilter.toInt(), pvcontext.rawAddress.toString(), 0L.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun msiSetExternalUIW(puihandler: InstalluiHandlerw, dwmessagefilter: UInt, pvcontext: ConstPtr<CVoid>): InstalluiHandlerw =
+public actual fun msiSetExternalUIW(puihandler: InstalluiHandlerw, dwmessagefilter: UInt, pvcontext: ConstPtr): InstalluiHandlerw =
     if (windowsWin32SystemApplicationinstallationandservicingNapiAvailable) null else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun msiSetFeatureAttributesA(hinstall: Msihandle, szfeature: Pcstr, dwattributes: UInt): UInt =
@@ -1739,7 +1734,7 @@ public actual fun msiSetFeatureStateW(hinstall: Msihandle, szfeature: Pcwstr, is
 public actual fun msiSetInstallLevel(hinstall: Msihandle, iinstalllevel: Int): UInt =
     if (windowsWin32SystemApplicationinstallationandservicingNapiAvailable) wasmWindowssysWindowsWin32SystemApplicationinstallationandservicingMsiSetInstallLevel(hinstall.toInt(), iinstalllevel).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun msiSetInternalUI(dwuilevel: Installuilevel, phwnd: MutPtr<Hwnd>): Installuilevel =
+public actual fun msiSetInternalUI(dwuilevel: Installuilevel, phwnd: MutPtr): Installuilevel =
     if (windowsWin32SystemApplicationinstallationandservicingNapiAvailable) wasmWindowssysWindowsWin32SystemApplicationinstallationandservicingMsiSetInternalUI(dwuilevel, phwnd.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun msiSetMode(hinstall: Msihandle, erunmode: Msirunmode, fstate: Bool): UInt =
@@ -1799,16 +1794,16 @@ public actual fun msiSourceListClearSourceA(szproductcodeorpatchcode: Pcstr, szu
 public actual fun msiSourceListClearSourceW(szproductcodeorpatchcode: Pcwstr, szusersid: Pcwstr, dwcontext: Msiinstallcontext, dwoptions: UInt, szsource: Pcwstr): UInt =
     if (windowsWin32SystemApplicationinstallationandservicingNapiAvailable) wasmWindowssysWindowsWin32SystemApplicationinstallationandservicingMsiSourceListClearSourceW(szproductcodeorpatchcode.rawAddress.toString(), szusersid.rawAddress.toString(), dwcontext, dwoptions.toInt(), szsource.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun msiSourceListEnumMediaDisksA(szproductcodeorpatchcode: Pcstr, szusersid: Pcstr, dwcontext: Msiinstallcontext, dwoptions: UInt, dwindex: UInt, pdwdiskid: MutPtr<UInt>, szvolumelabel: Pstr, pcchvolumelabel: MutPtr<UInt>, szdiskprompt: Pstr, pcchdiskprompt: MutPtr<UInt>): UInt =
+public actual fun msiSourceListEnumMediaDisksA(szproductcodeorpatchcode: Pcstr, szusersid: Pcstr, dwcontext: Msiinstallcontext, dwoptions: UInt, dwindex: UInt, pdwdiskid: MutPtr, szvolumelabel: Pstr, pcchvolumelabel: MutPtr, szdiskprompt: Pstr, pcchdiskprompt: MutPtr): UInt =
     if (windowsWin32SystemApplicationinstallationandservicingNapiAvailable) wasmWindowssysWindowsWin32SystemApplicationinstallationandservicingMsiSourceListEnumMediaDisksA(szproductcodeorpatchcode.rawAddress.toString(), szusersid.rawAddress.toString(), dwcontext, dwoptions.toInt(), dwindex.toInt(), pdwdiskid.rawAddress.toString(), szvolumelabel.rawAddress.toString(), pcchvolumelabel.rawAddress.toString(), szdiskprompt.rawAddress.toString(), pcchdiskprompt.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun msiSourceListEnumMediaDisksW(szproductcodeorpatchcode: Pcwstr, szusersid: Pcwstr, dwcontext: Msiinstallcontext, dwoptions: UInt, dwindex: UInt, pdwdiskid: MutPtr<UInt>, szvolumelabel: Pwstr, pcchvolumelabel: MutPtr<UInt>, szdiskprompt: Pwstr, pcchdiskprompt: MutPtr<UInt>): UInt =
+public actual fun msiSourceListEnumMediaDisksW(szproductcodeorpatchcode: Pcwstr, szusersid: Pcwstr, dwcontext: Msiinstallcontext, dwoptions: UInt, dwindex: UInt, pdwdiskid: MutPtr, szvolumelabel: Pwstr, pcchvolumelabel: MutPtr, szdiskprompt: Pwstr, pcchdiskprompt: MutPtr): UInt =
     if (windowsWin32SystemApplicationinstallationandservicingNapiAvailable) wasmWindowssysWindowsWin32SystemApplicationinstallationandservicingMsiSourceListEnumMediaDisksW(szproductcodeorpatchcode.rawAddress.toString(), szusersid.rawAddress.toString(), dwcontext, dwoptions.toInt(), dwindex.toInt(), pdwdiskid.rawAddress.toString(), szvolumelabel.rawAddress.toString(), pcchvolumelabel.rawAddress.toString(), szdiskprompt.rawAddress.toString(), pcchdiskprompt.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun msiSourceListEnumSourcesA(szproductcodeorpatchcode: Pcstr, szusersid: Pcstr, dwcontext: Msiinstallcontext, dwoptions: UInt, dwindex: UInt, szsource: Pstr, pcchsource: MutPtr<UInt>): UInt =
+public actual fun msiSourceListEnumSourcesA(szproductcodeorpatchcode: Pcstr, szusersid: Pcstr, dwcontext: Msiinstallcontext, dwoptions: UInt, dwindex: UInt, szsource: Pstr, pcchsource: MutPtr): UInt =
     if (windowsWin32SystemApplicationinstallationandservicingNapiAvailable) wasmWindowssysWindowsWin32SystemApplicationinstallationandservicingMsiSourceListEnumSourcesA(szproductcodeorpatchcode.rawAddress.toString(), szusersid.rawAddress.toString(), dwcontext, dwoptions.toInt(), dwindex.toInt(), szsource.rawAddress.toString(), pcchsource.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun msiSourceListEnumSourcesW(szproductcodeorpatchcode: Pcwstr, szusersid: Pcwstr, dwcontext: Msiinstallcontext, dwoptions: UInt, dwindex: UInt, szsource: Pwstr, pcchsource: MutPtr<UInt>): UInt =
+public actual fun msiSourceListEnumSourcesW(szproductcodeorpatchcode: Pcwstr, szusersid: Pcwstr, dwcontext: Msiinstallcontext, dwoptions: UInt, dwindex: UInt, szsource: Pwstr, pcchsource: MutPtr): UInt =
     if (windowsWin32SystemApplicationinstallationandservicingNapiAvailable) wasmWindowssysWindowsWin32SystemApplicationinstallationandservicingMsiSourceListEnumSourcesW(szproductcodeorpatchcode.rawAddress.toString(), szusersid.rawAddress.toString(), dwcontext, dwoptions.toInt(), dwindex.toInt(), szsource.rawAddress.toString(), pcchsource.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun msiSourceListForceResolutionA(szproduct: Pcstr, szusername: Pcstr, dwreserved: UInt): UInt =
@@ -1823,10 +1818,10 @@ public actual fun msiSourceListForceResolutionExW(szproductcodeorpatchcode: Pcws
 public actual fun msiSourceListForceResolutionW(szproduct: Pcwstr, szusername: Pcwstr, dwreserved: UInt): UInt =
     if (windowsWin32SystemApplicationinstallationandservicingNapiAvailable) wasmWindowssysWindowsWin32SystemApplicationinstallationandservicingMsiSourceListForceResolutionW(szproduct.rawAddress.toString(), szusername.rawAddress.toString(), dwreserved.toInt()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun msiSourceListGetInfoA(szproductcodeorpatchcode: Pcstr, szusersid: Pcstr, dwcontext: Msiinstallcontext, dwoptions: UInt, szproperty: Pcstr, szvalue: Pstr, pcchvalue: MutPtr<UInt>): UInt =
+public actual fun msiSourceListGetInfoA(szproductcodeorpatchcode: Pcstr, szusersid: Pcstr, dwcontext: Msiinstallcontext, dwoptions: UInt, szproperty: Pcstr, szvalue: Pstr, pcchvalue: MutPtr): UInt =
     if (windowsWin32SystemApplicationinstallationandservicingNapiAvailable) wasmWindowssysWindowsWin32SystemApplicationinstallationandservicingMsiSourceListGetInfoA(szproductcodeorpatchcode.rawAddress.toString(), szusersid.rawAddress.toString(), dwcontext, dwoptions.toInt(), szproperty.rawAddress.toString(), szvalue.rawAddress.toString(), pcchvalue.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun msiSourceListGetInfoW(szproductcodeorpatchcode: Pcwstr, szusersid: Pcwstr, dwcontext: Msiinstallcontext, dwoptions: UInt, szproperty: Pcwstr, szvalue: Pwstr, pcchvalue: MutPtr<UInt>): UInt =
+public actual fun msiSourceListGetInfoW(szproductcodeorpatchcode: Pcwstr, szusersid: Pcwstr, dwcontext: Msiinstallcontext, dwoptions: UInt, szproperty: Pcwstr, szvalue: Pwstr, pcchvalue: MutPtr): UInt =
     if (windowsWin32SystemApplicationinstallationandservicingNapiAvailable) wasmWindowssysWindowsWin32SystemApplicationinstallationandservicingMsiSourceListGetInfoW(szproductcodeorpatchcode.rawAddress.toString(), szusersid.rawAddress.toString(), dwcontext, dwoptions.toInt(), szproperty.rawAddress.toString(), szvalue.rawAddress.toString(), pcchvalue.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun msiSourceListSetInfoA(szproductcodeorpatchcode: Pcstr, szusersid: Pcstr, dwcontext: Msiinstallcontext, dwoptions: UInt, szproperty: Pcstr, szvalue: Pcstr): UInt =
@@ -1835,22 +1830,22 @@ public actual fun msiSourceListSetInfoA(szproductcodeorpatchcode: Pcstr, szusers
 public actual fun msiSourceListSetInfoW(szproductcodeorpatchcode: Pcwstr, szusersid: Pcwstr, dwcontext: Msiinstallcontext, dwoptions: UInt, szproperty: Pcwstr, szvalue: Pcwstr): UInt =
     if (windowsWin32SystemApplicationinstallationandservicingNapiAvailable) wasmWindowssysWindowsWin32SystemApplicationinstallationandservicingMsiSourceListSetInfoW(szproductcodeorpatchcode.rawAddress.toString(), szusersid.rawAddress.toString(), dwcontext, dwoptions.toInt(), szproperty.rawAddress.toString(), szvalue.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun msiSummaryInfoGetPropertyA(hsummaryinfo: Msihandle, uiproperty: UInt, puidatatype: MutPtr<UInt>, pivalue: MutPtr<Int>, pftvalue: MutPtr<Filetime>, szvaluebuf: Pstr, pcchvaluebuf: MutPtr<UInt>): UInt =
+public actual fun msiSummaryInfoGetPropertyA(hsummaryinfo: Msihandle, uiproperty: UInt, puidatatype: MutPtr, pivalue: MutPtr, pftvalue: MutPtr, szvaluebuf: Pstr, pcchvaluebuf: MutPtr): UInt =
     if (windowsWin32SystemApplicationinstallationandservicingNapiAvailable) wasmWindowssysWindowsWin32SystemApplicationinstallationandservicingMsiSummaryInfoGetPropertyA(hsummaryinfo.toInt(), uiproperty.toInt(), puidatatype.rawAddress.toString(), pivalue.rawAddress.toString(), pftvalue.rawAddress.toString(), szvaluebuf.rawAddress.toString(), pcchvaluebuf.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun msiSummaryInfoGetPropertyCount(hsummaryinfo: Msihandle, puipropertycount: MutPtr<UInt>): UInt =
+public actual fun msiSummaryInfoGetPropertyCount(hsummaryinfo: Msihandle, puipropertycount: MutPtr): UInt =
     if (windowsWin32SystemApplicationinstallationandservicingNapiAvailable) wasmWindowssysWindowsWin32SystemApplicationinstallationandservicingMsiSummaryInfoGetPropertyCount(hsummaryinfo.toInt(), puipropertycount.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun msiSummaryInfoGetPropertyW(hsummaryinfo: Msihandle, uiproperty: UInt, puidatatype: MutPtr<UInt>, pivalue: MutPtr<Int>, pftvalue: MutPtr<Filetime>, szvaluebuf: Pwstr, pcchvaluebuf: MutPtr<UInt>): UInt =
+public actual fun msiSummaryInfoGetPropertyW(hsummaryinfo: Msihandle, uiproperty: UInt, puidatatype: MutPtr, pivalue: MutPtr, pftvalue: MutPtr, szvaluebuf: Pwstr, pcchvaluebuf: MutPtr): UInt =
     if (windowsWin32SystemApplicationinstallationandservicingNapiAvailable) wasmWindowssysWindowsWin32SystemApplicationinstallationandservicingMsiSummaryInfoGetPropertyW(hsummaryinfo.toInt(), uiproperty.toInt(), puidatatype.rawAddress.toString(), pivalue.rawAddress.toString(), pftvalue.rawAddress.toString(), szvaluebuf.rawAddress.toString(), pcchvaluebuf.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun msiSummaryInfoPersist(hsummaryinfo: Msihandle): UInt =
     if (windowsWin32SystemApplicationinstallationandservicingNapiAvailable) wasmWindowssysWindowsWin32SystemApplicationinstallationandservicingMsiSummaryInfoPersist(hsummaryinfo.toInt()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun msiSummaryInfoSetPropertyA(hsummaryinfo: Msihandle, uiproperty: UInt, uidatatype: UInt, ivalue: Int, pftvalue: MutPtr<Filetime>, szvalue: Pcstr): UInt =
+public actual fun msiSummaryInfoSetPropertyA(hsummaryinfo: Msihandle, uiproperty: UInt, uidatatype: UInt, ivalue: Int, pftvalue: MutPtr, szvalue: Pcstr): UInt =
     if (windowsWin32SystemApplicationinstallationandservicingNapiAvailable) wasmWindowssysWindowsWin32SystemApplicationinstallationandservicingMsiSummaryInfoSetPropertyA(hsummaryinfo.toInt(), uiproperty.toInt(), uidatatype.toInt(), ivalue, pftvalue.rawAddress.toString(), szvalue.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun msiSummaryInfoSetPropertyW(hsummaryinfo: Msihandle, uiproperty: UInt, uidatatype: UInt, ivalue: Int, pftvalue: MutPtr<Filetime>, szvalue: Pcwstr): UInt =
+public actual fun msiSummaryInfoSetPropertyW(hsummaryinfo: Msihandle, uiproperty: UInt, uidatatype: UInt, ivalue: Int, pftvalue: MutPtr, szvalue: Pcwstr): UInt =
     if (windowsWin32SystemApplicationinstallationandservicingNapiAvailable) wasmWindowssysWindowsWin32SystemApplicationinstallationandservicingMsiSummaryInfoSetPropertyW(hsummaryinfo.toInt(), uiproperty.toInt(), uidatatype.toInt(), ivalue, pftvalue.rawAddress.toString(), szvalue.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun msiUseFeatureA(szproduct: Pcstr, szfeature: Pcstr): Installstate =
@@ -1880,28 +1875,28 @@ public actual fun msiViewClose(hview: Msihandle): UInt =
 public actual fun msiViewExecute(hview: Msihandle, hrecord: Msihandle): UInt =
     if (windowsWin32SystemApplicationinstallationandservicingNapiAvailable) wasmWindowssysWindowsWin32SystemApplicationinstallationandservicingMsiViewExecute(hview.toInt(), hrecord.toInt()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun msiViewFetch(hview: Msihandle, phrecord: MutPtr<Msihandle>): UInt =
+public actual fun msiViewFetch(hview: Msihandle, phrecord: MutPtr): UInt =
     if (windowsWin32SystemApplicationinstallationandservicingNapiAvailable) wasmWindowssysWindowsWin32SystemApplicationinstallationandservicingMsiViewFetch(hview.toInt(), phrecord.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun msiViewGetColumnInfo(hview: Msihandle, ecolumninfo: Msicolinfo, phrecord: MutPtr<Msihandle>): UInt =
+public actual fun msiViewGetColumnInfo(hview: Msihandle, ecolumninfo: Msicolinfo, phrecord: MutPtr): UInt =
     if (windowsWin32SystemApplicationinstallationandservicingNapiAvailable) wasmWindowssysWindowsWin32SystemApplicationinstallationandservicingMsiViewGetColumnInfo(hview.toInt(), ecolumninfo, phrecord.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun msiViewGetErrorA(hview: Msihandle, szcolumnnamebuffer: Pstr, pcchbuf: MutPtr<UInt>): Msidberror =
+public actual fun msiViewGetErrorA(hview: Msihandle, szcolumnnamebuffer: Pstr, pcchbuf: MutPtr): Msidberror =
     if (windowsWin32SystemApplicationinstallationandservicingNapiAvailable) wasmWindowssysWindowsWin32SystemApplicationinstallationandservicingMsiViewGetErrorA(hview.toInt(), szcolumnnamebuffer.rawAddress.toString(), pcchbuf.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun msiViewGetErrorW(hview: Msihandle, szcolumnnamebuffer: Pwstr, pcchbuf: MutPtr<UInt>): Msidberror =
+public actual fun msiViewGetErrorW(hview: Msihandle, szcolumnnamebuffer: Pwstr, pcchbuf: MutPtr): Msidberror =
     if (windowsWin32SystemApplicationinstallationandservicingNapiAvailable) wasmWindowssysWindowsWin32SystemApplicationinstallationandservicingMsiViewGetErrorW(hview.toInt(), szcolumnnamebuffer.rawAddress.toString(), pcchbuf.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun msiViewModify(hview: Msihandle, emodifymode: Msimodify, hrecord: Msihandle): UInt =
     if (windowsWin32SystemApplicationinstallationandservicingNapiAvailable) wasmWindowssysWindowsWin32SystemApplicationinstallationandservicingMsiViewModify(hview.toInt(), emodifymode, hrecord.toInt()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun normalizeFileForPatchSignature(filebuffer: MutPtr<CVoid>, filesize: UInt, optionflags: UInt, optiondata: ConstPtr<PatchOptionData>, newfilecoffbase: UInt, newfilecofftime: UInt, ignorerangecount: UInt, ignorerangearray: ConstPtr<PatchIgnoreRange>, retainrangecount: UInt, retainrangearray: ConstPtr<PatchRetainRange>): Int =
+public actual fun normalizeFileForPatchSignature(filebuffer: MutPtr, filesize: UInt, optionflags: UInt, optiondata: ConstPtr, newfilecoffbase: UInt, newfilecofftime: UInt, ignorerangecount: UInt, ignorerangearray: ConstPtr, retainrangecount: UInt, retainrangearray: ConstPtr): Int =
     if (windowsWin32SystemApplicationinstallationandservicingNapiAvailable) wasmWindowssysWindowsWin32SystemApplicationinstallationandservicingNormalizeFileForPatchSignature(filebuffer.rawAddress.toString(), filesize.toInt(), optionflags.toInt(), optiondata.rawAddress.toString(), newfilecoffbase.toInt(), newfilecofftime.toInt(), ignorerangecount.toInt(), ignorerangearray.rawAddress.toString(), retainrangecount.toInt(), retainrangearray.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun queryActCtxSettingsW(dwflags: UInt, hactctx: Handle, settingsnamespace: Pcwstr, settingname: Pcwstr, pvbuffer: Pwstr, dwbuffer: ULong, pdwwrittenorrequired: MutPtr<ULong>): Bool =
+public actual fun queryActCtxSettingsW(dwflags: UInt, hactctx: Handle, settingsnamespace: Pcwstr, settingname: Pcwstr, pvbuffer: Pwstr, dwbuffer: ULong, pdwwrittenorrequired: MutPtr): Bool =
     if (windowsWin32SystemApplicationinstallationandservicingNapiAvailable) wasmWindowssysWindowsWin32SystemApplicationinstallationandservicingQueryActCtxSettingsW(dwflags.toInt(), hactctx.rawAddress.toString(), settingsnamespace.rawAddress.toString(), settingname.rawAddress.toString(), pvbuffer.rawAddress.toString(), dwbuffer.toString(), pdwwrittenorrequired.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun queryActCtxW(dwflags: UInt, hactctx: Handle, pvsubinstance: ConstPtr<CVoid>, ulinfoclass: UInt, pvbuffer: MutPtr<CVoid>, cbbuffer: ULong, pcbwrittenorrequired: MutPtr<ULong>): Bool =
+public actual fun queryActCtxW(dwflags: UInt, hactctx: Handle, pvsubinstance: ConstPtr, ulinfoclass: UInt, pvbuffer: MutPtr, cbbuffer: ULong, pcbwrittenorrequired: MutPtr): Bool =
     if (windowsWin32SystemApplicationinstallationandservicingNapiAvailable) wasmWindowssysWindowsWin32SystemApplicationinstallationandservicingQueryActCtxW(dwflags.toInt(), hactctx.rawAddress.toString(), pvsubinstance.rawAddress.toString(), ulinfoclass.toInt(), pvbuffer.rawAddress.toString(), cbbuffer.toString(), pcbwrittenorrequired.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun releaseActCtx(hactctx: Handle) {
@@ -1912,7 +1907,7 @@ public actual fun releaseActCtx(hactctx: Handle) {
     }
 }
 
-public actual fun sfcGetNextProtectedFile(rpchandle: Handle, protfiledata: MutPtr<ProtectedFileData>): Bool =
+public actual fun sfcGetNextProtectedFile(rpchandle: Handle, protfiledata: MutPtr): Bool =
     if (windowsWin32SystemApplicationinstallationandservicingNapiAvailable) wasmWindowssysWindowsWin32SystemApplicationinstallationandservicingSfcGetNextProtectedFile(rpchandle.rawAddress.toString(), protfiledata.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun sfcIsFileProtected(rpchandle: Handle, protfilename: Pcwstr): Bool =
@@ -1927,7 +1922,7 @@ public actual fun sfpVerifyFile(pszfilename: Pcstr, pszerror: Pcstr, dwerrsize: 
 public actual fun testApplyPatchToFileA(patchfilename: Pcstr, oldfilename: Pcstr, applyoptionflags: UInt): Bool =
     if (windowsWin32SystemApplicationinstallationandservicingNapiAvailable) wasmWindowssysWindowsWin32SystemApplicationinstallationandservicingTestApplyPatchToFileA(patchfilename.rawAddress.toString(), oldfilename.rawAddress.toString(), applyoptionflags.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun testApplyPatchToFileByBuffers(patchfilebuffer: ConstPtr<UByte>, patchfilesize: UInt, oldfilebuffer: ConstPtr<UByte>, oldfilesize: UInt, newfilesize: MutPtr<UInt>, applyoptionflags: UInt): Bool =
+public actual fun testApplyPatchToFileByBuffers(patchfilebuffer: ConstPtr, patchfilesize: UInt, oldfilebuffer: ConstPtr, oldfilesize: UInt, newfilesize: MutPtr, applyoptionflags: UInt): Bool =
     if (windowsWin32SystemApplicationinstallationandservicingNapiAvailable) wasmWindowssysWindowsWin32SystemApplicationinstallationandservicingTestApplyPatchToFileByBuffers(patchfilebuffer.rawAddress.toString(), patchfilesize.toInt(), oldfilebuffer.rawAddress.toString(), oldfilesize.toInt(), newfilesize.rawAddress.toString(), applyoptionflags.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun testApplyPatchToFileByHandles(patchfilehandle: Handle, oldfilehandle: Handle, applyoptionflags: UInt): Bool =

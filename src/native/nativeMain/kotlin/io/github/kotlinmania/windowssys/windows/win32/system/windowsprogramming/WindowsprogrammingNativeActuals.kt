@@ -2,17 +2,14 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.system.windowsprogramming
 
-import io.github.kotlinmania.rustlang.core.ffi.CVoid
 import io.github.kotlinmania.rustlang.core.ptr.ConstPtr
 import io.github.kotlinmania.rustlang.core.ptr.MutPtr
 import io.github.kotlinmania.windowssys.core.Bool
-import io.github.kotlinmania.windowssys.core.Guid
 import io.github.kotlinmania.windowssys.core.Hresult
 import io.github.kotlinmania.windowssys.core.Pcstr
 import io.github.kotlinmania.windowssys.core.Pcwstr
 import io.github.kotlinmania.windowssys.core.Pstr
 import io.github.kotlinmania.windowssys.core.Pwstr
-import io.github.kotlinmania.windowssys.windows.win32.foundation.Filetime
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Handle
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Hglobal
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Hinstance
@@ -22,10 +19,7 @@ import io.github.kotlinmania.windowssys.windows.win32.foundation.Hwnd
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Lparam
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Lresult
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Ntstatus
-import io.github.kotlinmania.windowssys.windows.win32.foundation.Rect
-import io.github.kotlinmania.windowssys.windows.win32.foundation.UnicodeString
 import io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.Hdc
-import io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.Rgndata
 import io.github.kotlinmania.windowssys.windows.win32.system.registry.Hkey
 import io.github.kotlinmania.windowssys.windows.win32.system.windowsprogramming.cinterop.windowssysWindowsWin32SystemWindowsprogrammingAddDelBackupEntryA
 import io.github.kotlinmania.windowssys.windows.win32.system.windowsprogramming.cinterop.windowssysWindowsWin32SystemWindowsprogrammingAddDelBackupEntryW
@@ -256,61 +250,61 @@ public actual fun advInstallFileA(hwnd: Hwnd, lpszsourcedir: Pcstr, lpszsourcefi
 public actual fun advInstallFileW(hwnd: Hwnd, lpszsourcedir: Pcwstr, lpszsourcefile: Pcwstr, lpszdestdir: Pcwstr, lpszdestfile: Pcwstr, dwflags: UInt, dwreserved: UInt): Hresult =
     windowssysWindowsWin32SystemWindowsprogrammingAdvInstallFileW(hwnd.rawAddress.toCPointer<ByteVar>(), lpszsourcedir.rawAddress.toCPointer<ByteVar>(), lpszsourcefile.rawAddress.toCPointer<ByteVar>(), lpszdestdir.rawAddress.toCPointer<ByteVar>(), lpszdestfile.rawAddress.toCPointer<ByteVar>(), dwflags, dwreserved)
 
-public actual fun apphelpCheckShellObject(objectclsid: ConstPtr<Guid>, bshimifnecessary: Bool, pullflags: MutPtr<ULong>): Bool =
+public actual fun apphelpCheckShellObject(objectclsid: ConstPtr, bshimifnecessary: Bool, pullflags: MutPtr): Bool =
     windowssysWindowsWin32SystemWindowsprogrammingApphelpCheckShellObject(objectclsid.rawAddress.toCPointer<ByteVar>(), bshimifnecessary, pullflags.rawAddress.toCPointer<ByteVar>())
 
 public actual fun cancelDeviceWakeupRequest(hdevice: Handle): Bool =
     windowssysWindowsWin32SystemWindowsprogrammingCancelDeviceWakeupRequest(hdevice.rawAddress.toCPointer<ByteVar>())
 
-public actual fun closeINFEngine(hinf: MutPtr<CVoid>): Hresult =
+public actual fun closeINFEngine(hinf: MutPtr): Hresult =
     windowssysWindowsWin32SystemWindowsprogrammingCloseINFEngine(hinf.rawAddress.toCPointer<ByteVar>())
 
-public actual fun convertAuxiliaryCounterToPerformanceCounter(ullauxiliarycountervalue: ULong, lpperformancecountervalue: MutPtr<ULong>, lpconversionerror: MutPtr<ULong>): Hresult =
+public actual fun convertAuxiliaryCounterToPerformanceCounter(ullauxiliarycountervalue: ULong, lpperformancecountervalue: MutPtr, lpconversionerror: MutPtr): Hresult =
     windowssysWindowsWin32SystemWindowsprogrammingConvertAuxiliaryCounterToPerformanceCounter(ullauxiliarycountervalue, lpperformancecountervalue.rawAddress.toCPointer<ByteVar>(), lpconversionerror.rawAddress.toCPointer<ByteVar>())
 
-public actual fun convertPerformanceCounterToAuxiliaryCounter(ullperformancecountervalue: ULong, lpauxiliarycountervalue: MutPtr<ULong>, lpconversionerror: MutPtr<ULong>): Hresult =
+public actual fun convertPerformanceCounterToAuxiliaryCounter(ullperformancecountervalue: ULong, lpauxiliarycountervalue: MutPtr, lpconversionerror: MutPtr): Hresult =
     windowssysWindowsWin32SystemWindowsprogrammingConvertPerformanceCounterToAuxiliaryCounter(ullperformancecountervalue, lpauxiliarycountervalue.rawAddress.toCPointer<ByteVar>(), lpconversionerror.rawAddress.toCPointer<ByteVar>())
 
-public actual fun dCIBeginAccess(pdci: MutPtr<Dcisurfaceinfo>, x: Int, y: Int, dx: Int, dy: Int): Int =
+public actual fun dCIBeginAccess(pdci: MutPtr, x: Int, y: Int, dx: Int, dy: Int): Int =
     windowssysWindowsWin32SystemWindowsprogrammingDCIBeginAccess(pdci.rawAddress.toCPointer<ByteVar>(), x, y, dx, dy)
 
 public actual fun dCICloseProvider(hdc: Hdc) {
     windowssysWindowsWin32SystemWindowsprogrammingDCICloseProvider(hdc.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun dCICreateOffscreen(hdc: Hdc, dwcompression: UInt, dwredmask: UInt, dwgreenmask: UInt, dwbluemask: UInt, dwwidth: UInt, dwheight: UInt, dwdcicaps: UInt, dwbitcount: UInt, lplpsurface: MutPtr<MutPtr<Dcioffscreen>>): Int =
+public actual fun dCICreateOffscreen(hdc: Hdc, dwcompression: UInt, dwredmask: UInt, dwgreenmask: UInt, dwbluemask: UInt, dwwidth: UInt, dwheight: UInt, dwdcicaps: UInt, dwbitcount: UInt, lplpsurface: MutPtr): Int =
     windowssysWindowsWin32SystemWindowsprogrammingDCICreateOffscreen(hdc.rawAddress.toCPointer<ByteVar>(), dwcompression, dwredmask, dwgreenmask, dwbluemask, dwwidth, dwheight, dwdcicaps, dwbitcount, lplpsurface.rawAddress.toCPointer<ByteVar>())
 
-public actual fun dCICreateOverlay(hdc: Hdc, lpoffscreensurf: MutPtr<CVoid>, lplpsurface: MutPtr<MutPtr<Dcioverlay>>): Int =
+public actual fun dCICreateOverlay(hdc: Hdc, lpoffscreensurf: MutPtr, lplpsurface: MutPtr): Int =
     windowssysWindowsWin32SystemWindowsprogrammingDCICreateOverlay(hdc.rawAddress.toCPointer<ByteVar>(), lpoffscreensurf.rawAddress.toCPointer<ByteVar>(), lplpsurface.rawAddress.toCPointer<ByteVar>())
 
-public actual fun dCICreatePrimary(hdc: Hdc, lplpsurface: MutPtr<MutPtr<Dcisurfaceinfo>>): Int =
+public actual fun dCICreatePrimary(hdc: Hdc, lplpsurface: MutPtr): Int =
     windowssysWindowsWin32SystemWindowsprogrammingDCICreatePrimary(hdc.rawAddress.toCPointer<ByteVar>(), lplpsurface.rawAddress.toCPointer<ByteVar>())
 
-public actual fun dCIDestroy(pdci: MutPtr<Dcisurfaceinfo>) {
+public actual fun dCIDestroy(pdci: MutPtr) {
     windowssysWindowsWin32SystemWindowsprogrammingDCIDestroy(pdci.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun dCIDraw(pdci: MutPtr<Dcioffscreen>): Int =
+public actual fun dCIDraw(pdci: MutPtr): Int =
     windowssysWindowsWin32SystemWindowsprogrammingDCIDraw(pdci.rawAddress.toCPointer<ByteVar>())
 
-public actual fun dCIEndAccess(pdci: MutPtr<Dcisurfaceinfo>) {
+public actual fun dCIEndAccess(pdci: MutPtr) {
     windowssysWindowsWin32SystemWindowsprogrammingDCIEndAccess(pdci.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun dCIEnum(hdc: Hdc, lprdst: MutPtr<Rect>, lprsrc: MutPtr<Rect>, lpfncallback: MutPtr<CVoid>, lpcontext: MutPtr<CVoid>): Int =
+public actual fun dCIEnum(hdc: Hdc, lprdst: MutPtr, lprsrc: MutPtr, lpfncallback: MutPtr, lpcontext: MutPtr): Int =
     windowssysWindowsWin32SystemWindowsprogrammingDCIEnum(hdc.rawAddress.toCPointer<ByteVar>(), lprdst.rawAddress.toCPointer<ByteVar>(), lprsrc.rawAddress.toCPointer<ByteVar>(), lpfncallback.rawAddress.toCPointer<ByteVar>(), lpcontext.rawAddress.toCPointer<ByteVar>())
 
 public actual fun dCIOpenProvider(): Hdc =
     MutPtr(windowssysWindowsWin32SystemWindowsprogrammingDCIOpenProvider()?.toLong() ?: 0L)
 
-public actual fun dCISetClipList(pdci: MutPtr<Dcioffscreen>, prd: MutPtr<Rgndata>): Int =
+public actual fun dCISetClipList(pdci: MutPtr, prd: MutPtr): Int =
     windowssysWindowsWin32SystemWindowsprogrammingDCISetClipList(pdci.rawAddress.toCPointer<ByteVar>(), prd.rawAddress.toCPointer<ByteVar>())
 
-public actual fun dCISetDestination(pdci: MutPtr<Dcioffscreen>, dst: MutPtr<Rect>, src: MutPtr<Rect>): Int =
+public actual fun dCISetDestination(pdci: MutPtr, dst: MutPtr, src: MutPtr): Int =
     windowssysWindowsWin32SystemWindowsprogrammingDCISetDestination(pdci.rawAddress.toCPointer<ByteVar>(), dst.rawAddress.toCPointer<ByteVar>(), src.rawAddress.toCPointer<ByteVar>())
 
-public actual fun dCISetSrcDestClip(pdci: MutPtr<Dcioffscreen>, srcrc: MutPtr<Rect>, destrc: MutPtr<Rect>, prd: MutPtr<Rgndata>): Int =
+public actual fun dCISetSrcDestClip(pdci: MutPtr, srcrc: MutPtr, destrc: MutPtr, prd: MutPtr): Int =
     windowssysWindowsWin32SystemWindowsprogrammingDCISetSrcDestClip(pdci.rawAddress.toCPointer<ByteVar>(), srcrc.rawAddress.toCPointer<ByteVar>(), destrc.rawAddress.toCPointer<ByteVar>(), prd.rawAddress.toCPointer<ByteVar>())
 
 public actual fun delNodeA(pszfileordirname: Pcstr, dwflags: UInt): Hresult =
@@ -322,28 +316,28 @@ public actual fun delNodeRunDLL32W(hwnd: Hwnd, hinstance: Hinstance, pszparms: P
 public actual fun delNodeW(pszfileordirname: Pcwstr, dwflags: UInt): Hresult =
     windowssysWindowsWin32SystemWindowsprogrammingDelNodeW(pszfileordirname.rawAddress.toCPointer<ByteVar>(), dwflags)
 
-public actual fun dnsHostnameToComputerNameA(hostname: Pcstr, computername: Pstr, nsize: MutPtr<UInt>): Bool =
+public actual fun dnsHostnameToComputerNameA(hostname: Pcstr, computername: Pstr, nsize: MutPtr): Bool =
     windowssysWindowsWin32SystemWindowsprogrammingDnsHostnameToComputerNameA(hostname.rawAddress.toCPointer<ByteVar>(), computername.rawAddress.toCPointer<ByteVar>(), nsize.rawAddress.toCPointer<ByteVar>())
 
-public actual fun dnsHostnameToComputerNameW(hostname: Pcwstr, computername: Pwstr, nsize: MutPtr<UInt>): Bool =
+public actual fun dnsHostnameToComputerNameW(hostname: Pcwstr, computername: Pwstr, nsize: MutPtr): Bool =
     windowssysWindowsWin32SystemWindowsprogrammingDnsHostnameToComputerNameW(hostname.rawAddress.toCPointer<ByteVar>(), computername.rawAddress.toCPointer<ByteVar>(), nsize.rawAddress.toCPointer<ByteVar>())
 
-public actual fun dosDateTimeToFileTime(wfatdate: UShort, wfattime: UShort, lpfiletime: MutPtr<Filetime>): Bool =
+public actual fun dosDateTimeToFileTime(wfatdate: UShort, wfattime: UShort, lpfiletime: MutPtr): Bool =
     windowssysWindowsWin32SystemWindowsprogrammingDosDateTimeToFileTime(wfatdate, wfattime, lpfiletime.rawAddress.toCPointer<ByteVar>())
 
 public actual fun enableProcessOptionalXStateFeatures(features: ULong): Bool =
     windowssysWindowsWin32SystemWindowsprogrammingEnableProcessOptionalXStateFeatures(features)
 
-public actual fun executeCabA(hwnd: Hwnd, pcab: MutPtr<Cabinfoa>, preserved: MutPtr<CVoid>): Hresult =
+public actual fun executeCabA(hwnd: Hwnd, pcab: MutPtr, preserved: MutPtr): Hresult =
     windowssysWindowsWin32SystemWindowsprogrammingExecuteCabA(hwnd.rawAddress.toCPointer<ByteVar>(), pcab.rawAddress.toCPointer<ByteVar>(), preserved.rawAddress.toCPointer<ByteVar>())
 
-public actual fun executeCabW(hwnd: Hwnd, pcab: MutPtr<Cabinfow>, preserved: MutPtr<CVoid>): Hresult =
+public actual fun executeCabW(hwnd: Hwnd, pcab: MutPtr, preserved: MutPtr): Hresult =
     windowssysWindowsWin32SystemWindowsprogrammingExecuteCabW(hwnd.rawAddress.toCPointer<ByteVar>(), pcab.rawAddress.toCPointer<ByteVar>(), preserved.rawAddress.toCPointer<ByteVar>())
 
-public actual fun extractFilesA(pszcabname: Pcstr, pszexpanddir: Pcstr, dwflags: UInt, pszfilelist: Pcstr, lpreserved: MutPtr<CVoid>, dwreserved: UInt): Hresult =
+public actual fun extractFilesA(pszcabname: Pcstr, pszexpanddir: Pcstr, dwflags: UInt, pszfilelist: Pcstr, lpreserved: MutPtr, dwreserved: UInt): Hresult =
     windowssysWindowsWin32SystemWindowsprogrammingExtractFilesA(pszcabname.rawAddress.toCPointer<ByteVar>(), pszexpanddir.rawAddress.toCPointer<ByteVar>(), dwflags, pszfilelist.rawAddress.toCPointer<ByteVar>(), lpreserved.rawAddress.toCPointer<ByteVar>(), dwreserved)
 
-public actual fun extractFilesW(pszcabname: Pcwstr, pszexpanddir: Pcwstr, dwflags: UInt, pszfilelist: Pcwstr, lpreserved: MutPtr<CVoid>, dwreserved: UInt): Hresult =
+public actual fun extractFilesW(pszcabname: Pcwstr, pszexpanddir: Pcwstr, dwflags: UInt, pszfilelist: Pcwstr, lpreserved: MutPtr, dwreserved: UInt): Hresult =
     windowssysWindowsWin32SystemWindowsprogrammingExtractFilesW(pszcabname.rawAddress.toCPointer<ByteVar>(), pszexpanddir.rawAddress.toCPointer<ByteVar>(), dwflags, pszfilelist.rawAddress.toCPointer<ByteVar>(), lpreserved.rawAddress.toCPointer<ByteVar>(), dwreserved)
 
 public actual fun fileSaveMarkNotExistA(lpfilelist: Pcstr, lpdir: Pcstr, lpbasename: Pcstr): Hresult =
@@ -361,43 +355,43 @@ public actual fun fileSaveRestoreOnINFW(hwnd: Hwnd, psztitle: Pcwstr, pszinf: Pc
 public actual fun fileSaveRestoreW(hdlg: Hwnd, lpfilelist: Pcwstr, lpdir: Pcwstr, lpbasename: Pcwstr, dwflags: UInt): Hresult =
     windowssysWindowsWin32SystemWindowsprogrammingFileSaveRestoreW(hdlg.rawAddress.toCPointer<ByteVar>(), lpfilelist.rawAddress.toCPointer<ByteVar>(), lpdir.rawAddress.toCPointer<ByteVar>(), lpbasename.rawAddress.toCPointer<ByteVar>(), dwflags)
 
-public actual fun fileTimeToDosDateTime(lpfiletime: ConstPtr<Filetime>, lpfatdate: MutPtr<UShort>, lpfattime: MutPtr<UShort>): Bool =
+public actual fun fileTimeToDosDateTime(lpfiletime: ConstPtr, lpfatdate: MutPtr, lpfattime: MutPtr): Bool =
     windowssysWindowsWin32SystemWindowsprogrammingFileTimeToDosDateTime(lpfiletime.rawAddress.toCPointer<ByteVar>(), lpfatdate.rawAddress.toCPointer<ByteVar>(), lpfattime.rawAddress.toCPointer<ByteVar>())
 
 public actual fun gdiEntry13(): UInt =
     windowssysWindowsWin32SystemWindowsprogrammingGdiEntry13()
 
-public actual fun getComputerNameA(lpbuffer: Pstr, nsize: MutPtr<UInt>): Bool =
+public actual fun getComputerNameA(lpbuffer: Pstr, nsize: MutPtr): Bool =
     windowssysWindowsWin32SystemWindowsprogrammingGetComputerNameA(lpbuffer.rawAddress.toCPointer<ByteVar>(), nsize.rawAddress.toCPointer<ByteVar>())
 
-public actual fun getComputerNameW(lpbuffer: Pwstr, nsize: MutPtr<UInt>): Bool =
+public actual fun getComputerNameW(lpbuffer: Pwstr, nsize: MutPtr): Bool =
     windowssysWindowsWin32SystemWindowsprogrammingGetComputerNameW(lpbuffer.rawAddress.toCPointer<ByteVar>(), nsize.rawAddress.toCPointer<ByteVar>())
 
-public actual fun getCurrentHwProfileA(lphwprofileinfo: MutPtr<HwProfileInfoa>): Bool =
+public actual fun getCurrentHwProfileA(lphwprofileinfo: MutPtr): Bool =
     windowssysWindowsWin32SystemWindowsprogrammingGetCurrentHwProfileA(lphwprofileinfo.rawAddress.toCPointer<ByteVar>())
 
-public actual fun getCurrentHwProfileW(lphwprofileinfo: MutPtr<HwProfileInfow>): Bool =
+public actual fun getCurrentHwProfileW(lphwprofileinfo: MutPtr): Bool =
     windowssysWindowsWin32SystemWindowsprogrammingGetCurrentHwProfileW(lphwprofileinfo.rawAddress.toCPointer<ByteVar>())
 
-public actual fun getDCRegionData(hdc: Hdc, size: UInt, prd: MutPtr<Rgndata>): UInt =
+public actual fun getDCRegionData(hdc: Hdc, size: UInt, prd: MutPtr): UInt =
     windowssysWindowsWin32SystemWindowsprogrammingGetDCRegionData(hdc.rawAddress.toCPointer<ByteVar>(), size, prd.rawAddress.toCPointer<ByteVar>())
 
 public actual fun getFeatureEnabledState(featureid: UInt, changetime: FeatureChangeTime): FeatureEnabledState =
     windowssysWindowsWin32SystemWindowsprogrammingGetFeatureEnabledState(featureid, changetime)
 
-public actual fun getFeatureVariant(featureid: UInt, changetime: FeatureChangeTime, payloadid: MutPtr<UInt>, hasnotification: MutPtr<Bool>): UInt =
+public actual fun getFeatureVariant(featureid: UInt, changetime: FeatureChangeTime, payloadid: MutPtr, hasnotification: MutPtr): UInt =
     windowssysWindowsWin32SystemWindowsprogrammingGetFeatureVariant(featureid, changetime, payloadid.rawAddress.toCPointer<ByteVar>(), hasnotification.rawAddress.toCPointer<ByteVar>())
 
-public actual fun getFirmwareEnvironmentVariableA(lpname: Pcstr, lpguid: Pcstr, pbuffer: MutPtr<CVoid>, nsize: UInt): UInt =
+public actual fun getFirmwareEnvironmentVariableA(lpname: Pcstr, lpguid: Pcstr, pbuffer: MutPtr, nsize: UInt): UInt =
     windowssysWindowsWin32SystemWindowsprogrammingGetFirmwareEnvironmentVariableA(lpname.rawAddress.toCPointer<ByteVar>(), lpguid.rawAddress.toCPointer<ByteVar>(), pbuffer.rawAddress.toCPointer<ByteVar>(), nsize)
 
-public actual fun getFirmwareEnvironmentVariableExA(lpname: Pcstr, lpguid: Pcstr, pbuffer: MutPtr<CVoid>, nsize: UInt, pdwattribubutes: MutPtr<UInt>): UInt =
+public actual fun getFirmwareEnvironmentVariableExA(lpname: Pcstr, lpguid: Pcstr, pbuffer: MutPtr, nsize: UInt, pdwattribubutes: MutPtr): UInt =
     windowssysWindowsWin32SystemWindowsprogrammingGetFirmwareEnvironmentVariableExA(lpname.rawAddress.toCPointer<ByteVar>(), lpguid.rawAddress.toCPointer<ByteVar>(), pbuffer.rawAddress.toCPointer<ByteVar>(), nsize, pdwattribubutes.rawAddress.toCPointer<ByteVar>())
 
-public actual fun getFirmwareEnvironmentVariableExW(lpname: Pcwstr, lpguid: Pcwstr, pbuffer: MutPtr<CVoid>, nsize: UInt, pdwattribubutes: MutPtr<UInt>): UInt =
+public actual fun getFirmwareEnvironmentVariableExW(lpname: Pcwstr, lpguid: Pcwstr, pbuffer: MutPtr, nsize: UInt, pdwattribubutes: MutPtr): UInt =
     windowssysWindowsWin32SystemWindowsprogrammingGetFirmwareEnvironmentVariableExW(lpname.rawAddress.toCPointer<ByteVar>(), lpguid.rawAddress.toCPointer<ByteVar>(), pbuffer.rawAddress.toCPointer<ByteVar>(), nsize, pdwattribubutes.rawAddress.toCPointer<ByteVar>())
 
-public actual fun getFirmwareEnvironmentVariableW(lpname: Pcwstr, lpguid: Pcwstr, pbuffer: MutPtr<CVoid>, nsize: UInt): UInt =
+public actual fun getFirmwareEnvironmentVariableW(lpname: Pcwstr, lpguid: Pcwstr, pbuffer: MutPtr, nsize: UInt): UInt =
     windowssysWindowsWin32SystemWindowsprogrammingGetFirmwareEnvironmentVariableW(lpname.rawAddress.toCPointer<ByteVar>(), lpguid.rawAddress.toCPointer<ByteVar>(), pbuffer.rawAddress.toCPointer<ByteVar>(), nsize)
 
 public actual fun getPrivateProfileIntA(lpappname: Pcstr, lpkeyname: Pcstr, ndefault: Int, lpfilename: Pcstr): UInt =
@@ -424,10 +418,10 @@ public actual fun getPrivateProfileStringA(lpappname: Pcstr, lpkeyname: Pcstr, l
 public actual fun getPrivateProfileStringW(lpappname: Pcwstr, lpkeyname: Pcwstr, lpdefault: Pcwstr, lpreturnedstring: Pwstr, nsize: UInt, lpfilename: Pcwstr): UInt =
     windowssysWindowsWin32SystemWindowsprogrammingGetPrivateProfileStringW(lpappname.rawAddress.toCPointer<ByteVar>(), lpkeyname.rawAddress.toCPointer<ByteVar>(), lpdefault.rawAddress.toCPointer<ByteVar>(), lpreturnedstring.rawAddress.toCPointer<ByteVar>(), nsize, lpfilename.rawAddress.toCPointer<ByteVar>())
 
-public actual fun getPrivateProfileStructA(lpszsection: Pcstr, lpszkey: Pcstr, lpstruct: MutPtr<CVoid>, usizestruct: UInt, szfile: Pcstr): Bool =
+public actual fun getPrivateProfileStructA(lpszsection: Pcstr, lpszkey: Pcstr, lpstruct: MutPtr, usizestruct: UInt, szfile: Pcstr): Bool =
     windowssysWindowsWin32SystemWindowsprogrammingGetPrivateProfileStructA(lpszsection.rawAddress.toCPointer<ByteVar>(), lpszkey.rawAddress.toCPointer<ByteVar>(), lpstruct.rawAddress.toCPointer<ByteVar>(), usizestruct, szfile.rawAddress.toCPointer<ByteVar>())
 
-public actual fun getPrivateProfileStructW(lpszsection: Pcwstr, lpszkey: Pcwstr, lpstruct: MutPtr<CVoid>, usizestruct: UInt, szfile: Pcwstr): Bool =
+public actual fun getPrivateProfileStructW(lpszsection: Pcwstr, lpszkey: Pcwstr, lpstruct: MutPtr, usizestruct: UInt, szfile: Pcwstr): Bool =
     windowssysWindowsWin32SystemWindowsprogrammingGetPrivateProfileStructW(lpszsection.rawAddress.toCPointer<ByteVar>(), lpszkey.rawAddress.toCPointer<ByteVar>(), lpstruct.rawAddress.toCPointer<ByteVar>(), usizestruct, szfile.rawAddress.toCPointer<ByteVar>())
 
 public actual fun getProfileIntA(lpappname: Pcstr, lpkeyname: Pcstr, ndefault: Int): UInt =
@@ -448,31 +442,31 @@ public actual fun getProfileStringA(lpappname: Pcstr, lpkeyname: Pcstr, lpdefaul
 public actual fun getProfileStringW(lpappname: Pcwstr, lpkeyname: Pcwstr, lpdefault: Pcwstr, lpreturnedstring: Pwstr, nsize: UInt): UInt =
     windowssysWindowsWin32SystemWindowsprogrammingGetProfileStringW(lpappname.rawAddress.toCPointer<ByteVar>(), lpkeyname.rawAddress.toCPointer<ByteVar>(), lpdefault.rawAddress.toCPointer<ByteVar>(), lpreturnedstring.rawAddress.toCPointer<ByteVar>(), nsize)
 
-public actual fun getSystemRegistryQuota(pdwquotaallowed: MutPtr<UInt>, pdwquotaused: MutPtr<UInt>): Bool =
+public actual fun getSystemRegistryQuota(pdwquotaallowed: MutPtr, pdwquotaused: MutPtr): Bool =
     windowssysWindowsWin32SystemWindowsprogrammingGetSystemRegistryQuota(pdwquotaallowed.rawAddress.toCPointer<ByteVar>(), pdwquotaused.rawAddress.toCPointer<ByteVar>())
 
 public actual fun getThreadEnabledXStateFeatures(): ULong =
     windowssysWindowsWin32SystemWindowsprogrammingGetThreadEnabledXStateFeatures()
 
-public actual fun getUserNameA(lpbuffer: Pstr, pcbbuffer: MutPtr<UInt>): Bool =
+public actual fun getUserNameA(lpbuffer: Pstr, pcbbuffer: MutPtr): Bool =
     windowssysWindowsWin32SystemWindowsprogrammingGetUserNameA(lpbuffer.rawAddress.toCPointer<ByteVar>(), pcbbuffer.rawAddress.toCPointer<ByteVar>())
 
-public actual fun getUserNameW(lpbuffer: Pwstr, pcbbuffer: MutPtr<UInt>): Bool =
+public actual fun getUserNameW(lpbuffer: Pwstr, pcbbuffer: MutPtr): Bool =
     windowssysWindowsWin32SystemWindowsprogrammingGetUserNameW(lpbuffer.rawAddress.toCPointer<ByteVar>(), pcbbuffer.rawAddress.toCPointer<ByteVar>())
 
-public actual fun getVersionFromFileA(lpszfilename: Pcstr, pdwmsver: MutPtr<UInt>, pdwlsver: MutPtr<UInt>, bversion: Bool): Hresult =
+public actual fun getVersionFromFileA(lpszfilename: Pcstr, pdwmsver: MutPtr, pdwlsver: MutPtr, bversion: Bool): Hresult =
     windowssysWindowsWin32SystemWindowsprogrammingGetVersionFromFileA(lpszfilename.rawAddress.toCPointer<ByteVar>(), pdwmsver.rawAddress.toCPointer<ByteVar>(), pdwlsver.rawAddress.toCPointer<ByteVar>(), bversion)
 
-public actual fun getVersionFromFileExA(lpszfilename: Pcstr, pdwmsver: MutPtr<UInt>, pdwlsver: MutPtr<UInt>, bversion: Bool): Hresult =
+public actual fun getVersionFromFileExA(lpszfilename: Pcstr, pdwmsver: MutPtr, pdwlsver: MutPtr, bversion: Bool): Hresult =
     windowssysWindowsWin32SystemWindowsprogrammingGetVersionFromFileExA(lpszfilename.rawAddress.toCPointer<ByteVar>(), pdwmsver.rawAddress.toCPointer<ByteVar>(), pdwlsver.rawAddress.toCPointer<ByteVar>(), bversion)
 
-public actual fun getVersionFromFileExW(lpszfilename: Pcwstr, pdwmsver: MutPtr<UInt>, pdwlsver: MutPtr<UInt>, bversion: Bool): Hresult =
+public actual fun getVersionFromFileExW(lpszfilename: Pcwstr, pdwmsver: MutPtr, pdwlsver: MutPtr, bversion: Bool): Hresult =
     windowssysWindowsWin32SystemWindowsprogrammingGetVersionFromFileExW(lpszfilename.rawAddress.toCPointer<ByteVar>(), pdwmsver.rawAddress.toCPointer<ByteVar>(), pdwlsver.rawAddress.toCPointer<ByteVar>(), bversion)
 
-public actual fun getVersionFromFileW(lpszfilename: Pcwstr, pdwmsver: MutPtr<UInt>, pdwlsver: MutPtr<UInt>, bversion: Bool): Hresult =
+public actual fun getVersionFromFileW(lpszfilename: Pcwstr, pdwmsver: MutPtr, pdwlsver: MutPtr, bversion: Bool): Hresult =
     windowssysWindowsWin32SystemWindowsprogrammingGetVersionFromFileW(lpszfilename.rawAddress.toCPointer<ByteVar>(), pdwmsver.rawAddress.toCPointer<ByteVar>(), pdwlsver.rawAddress.toCPointer<ByteVar>(), bversion)
 
-public actual fun getWindowRegionData(hwnd: Hwnd, size: UInt, prd: MutPtr<Rgndata>): UInt =
+public actual fun getWindowRegionData(hwnd: Hwnd, size: UInt, prd: MutPtr): UInt =
     windowssysWindowsWin32SystemWindowsprogrammingGetWindowRegionData(hwnd.rawAddress.toCPointer<ByteVar>(), size, prd.rawAddress.toCPointer<ByteVar>())
 
 public actual fun globalCompact(dwminfree: UInt): ULong =
@@ -489,40 +483,40 @@ public actual fun globalUnfix(hmem: Hglobal) {
     windowssysWindowsWin32SystemWindowsprogrammingGlobalUnfix(hmem.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun globalWire(hmem: Hglobal): MutPtr<CVoid> =
+public actual fun globalWire(hmem: Hglobal): MutPtr =
     MutPtr(windowssysWindowsWin32SystemWindowsprogrammingGlobalWire(hmem.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun iMPGetIMEA(param0: Hwnd, param1: MutPtr<Imeproa>): Bool =
+public actual fun iMPGetIMEA(param0: Hwnd, param1: MutPtr): Bool =
     windowssysWindowsWin32SystemWindowsprogrammingIMPGetIMEA(param0.rawAddress.toCPointer<ByteVar>(), param1.rawAddress.toCPointer<ByteVar>())
 
-public actual fun iMPGetIMEW(param0: Hwnd, param1: MutPtr<Imeprow>): Bool =
+public actual fun iMPGetIMEW(param0: Hwnd, param1: MutPtr): Bool =
     windowssysWindowsWin32SystemWindowsprogrammingIMPGetIMEW(param0.rawAddress.toCPointer<ByteVar>(), param1.rawAddress.toCPointer<ByteVar>())
 
-public actual fun iMPQueryIMEA(param0: MutPtr<Imeproa>): Bool =
+public actual fun iMPQueryIMEA(param0: MutPtr): Bool =
     windowssysWindowsWin32SystemWindowsprogrammingIMPQueryIMEA(param0.rawAddress.toCPointer<ByteVar>())
 
-public actual fun iMPQueryIMEW(param0: MutPtr<Imeprow>): Bool =
+public actual fun iMPQueryIMEW(param0: MutPtr): Bool =
     windowssysWindowsWin32SystemWindowsprogrammingIMPQueryIMEW(param0.rawAddress.toCPointer<ByteVar>())
 
-public actual fun iMPSetIMEA(param0: Hwnd, param1: MutPtr<Imeproa>): Bool =
+public actual fun iMPSetIMEA(param0: Hwnd, param1: MutPtr): Bool =
     windowssysWindowsWin32SystemWindowsprogrammingIMPSetIMEA(param0.rawAddress.toCPointer<ByteVar>(), param1.rawAddress.toCPointer<ByteVar>())
 
-public actual fun iMPSetIMEW(param0: Hwnd, param1: MutPtr<Imeprow>): Bool =
+public actual fun iMPSetIMEW(param0: Hwnd, param1: MutPtr): Bool =
     windowssysWindowsWin32SystemWindowsprogrammingIMPSetIMEW(param0.rawAddress.toCPointer<ByteVar>(), param1.rawAddress.toCPointer<ByteVar>())
 
 public actual fun isApiSetImplemented(contract: Pcstr): Bool =
     windowssysWindowsWin32SystemWindowsprogrammingIsApiSetImplemented(contract.rawAddress.toCPointer<ByteVar>())
 
-public actual fun isBadHugeReadPtr(lp: ConstPtr<CVoid>, ucb: ULong): Bool =
+public actual fun isBadHugeReadPtr(lp: ConstPtr, ucb: ULong): Bool =
     windowssysWindowsWin32SystemWindowsprogrammingIsBadHugeReadPtr(lp.rawAddress.toCPointer<ByteVar>(), ucb)
 
-public actual fun isBadHugeWritePtr(lp: ConstPtr<CVoid>, ucb: ULong): Bool =
+public actual fun isBadHugeWritePtr(lp: ConstPtr, ucb: ULong): Bool =
     windowssysWindowsWin32SystemWindowsprogrammingIsBadHugeWritePtr(lp.rawAddress.toCPointer<ByteVar>(), ucb)
 
-public actual fun isNTAdmin(dwreserved: UInt, lpdwreserved: MutPtr<UInt>): Bool =
+public actual fun isNTAdmin(dwreserved: UInt, lpdwreserved: MutPtr): Bool =
     windowssysWindowsWin32SystemWindowsprogrammingIsNTAdmin(dwreserved, lpdwreserved.rawAddress.toCPointer<ByteVar>())
 
-public actual fun isNativeVhdBoot(nativevhdboot: MutPtr<Bool>): Bool =
+public actual fun isNativeVhdBoot(nativevhdboot: MutPtr): Bool =
     windowssysWindowsWin32SystemWindowsprogrammingIsNativeVhdBoot(nativevhdboot.rawAddress.toCPointer<ByteVar>())
 
 public actual fun isTokenUntrusted(tokenhandle: Handle): Bool =
@@ -549,10 +543,10 @@ public actual fun needReboot(dwrebootcheck: UInt): Bool =
 public actual fun needRebootInit(): UInt =
     windowssysWindowsWin32SystemWindowsprogrammingNeedRebootInit()
 
-public actual fun openINFEngineA(pszinffilename: Pcstr, pszinstallsection: Pcstr, dwflags: UInt, phinf: MutPtr<MutPtr<CVoid>>, pvreserved: MutPtr<CVoid>): Hresult =
+public actual fun openINFEngineA(pszinffilename: Pcstr, pszinstallsection: Pcstr, dwflags: UInt, phinf: MutPtr, pvreserved: MutPtr): Hresult =
     windowssysWindowsWin32SystemWindowsprogrammingOpenINFEngineA(pszinffilename.rawAddress.toCPointer<ByteVar>(), pszinstallsection.rawAddress.toCPointer<ByteVar>(), dwflags, phinf.rawAddress.toCPointer<ByteVar>(), pvreserved.rawAddress.toCPointer<ByteVar>())
 
-public actual fun openINFEngineW(pszinffilename: Pcwstr, pszinstallsection: Pcwstr, dwflags: UInt, phinf: MutPtr<MutPtr<CVoid>>, pvreserved: MutPtr<CVoid>): Hresult =
+public actual fun openINFEngineW(pszinffilename: Pcwstr, pszinstallsection: Pcwstr, dwflags: UInt, phinf: MutPtr, pvreserved: MutPtr): Hresult =
     windowssysWindowsWin32SystemWindowsprogrammingOpenINFEngineW(pszinffilename.rawAddress.toCPointer<ByteVar>(), pszinstallsection.rawAddress.toCPointer<ByteVar>(), dwflags, phinf.rawAddress.toCPointer<ByteVar>(), pvreserved.rawAddress.toCPointer<ByteVar>())
 
 public actual fun openMutexA(dwdesiredaccess: UInt, binherithandle: Bool, lpname: Pcstr): Handle =
@@ -561,37 +555,37 @@ public actual fun openMutexA(dwdesiredaccess: UInt, binherithandle: Bool, lpname
 public actual fun openSemaphoreA(dwdesiredaccess: UInt, binherithandle: Bool, lpname: Pcstr): Handle =
     MutPtr(windowssysWindowsWin32SystemWindowsprogrammingOpenSemaphoreA(dwdesiredaccess, binherithandle, lpname.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun queryAuxiliaryCounterFrequency(lpauxiliarycounterfrequency: MutPtr<ULong>): Hresult =
+public actual fun queryAuxiliaryCounterFrequency(lpauxiliarycounterfrequency: MutPtr): Hresult =
     windowssysWindowsWin32SystemWindowsprogrammingQueryAuxiliaryCounterFrequency(lpauxiliarycounterfrequency.rawAddress.toCPointer<ByteVar>())
 
-public actual fun queryIdleProcessorCycleTime(bufferlength: MutPtr<UInt>, processoridlecycletime: MutPtr<ULong>): Bool =
+public actual fun queryIdleProcessorCycleTime(bufferlength: MutPtr, processoridlecycletime: MutPtr): Bool =
     windowssysWindowsWin32SystemWindowsprogrammingQueryIdleProcessorCycleTime(bufferlength.rawAddress.toCPointer<ByteVar>(), processoridlecycletime.rawAddress.toCPointer<ByteVar>())
 
-public actual fun queryIdleProcessorCycleTimeEx(group: UShort, bufferlength: MutPtr<UInt>, processoridlecycletime: MutPtr<ULong>): Bool =
+public actual fun queryIdleProcessorCycleTimeEx(group: UShort, bufferlength: MutPtr, processoridlecycletime: MutPtr): Bool =
     windowssysWindowsWin32SystemWindowsprogrammingQueryIdleProcessorCycleTimeEx(group, bufferlength.rawAddress.toCPointer<ByteVar>(), processoridlecycletime.rawAddress.toCPointer<ByteVar>())
 
-public actual fun queryInterruptTime(lpinterrupttime: MutPtr<ULong>) {
+public actual fun queryInterruptTime(lpinterrupttime: MutPtr) {
     windowssysWindowsWin32SystemWindowsprogrammingQueryInterruptTime(lpinterrupttime.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun queryInterruptTimePrecise(lpinterrupttimeprecise: MutPtr<ULong>) {
+public actual fun queryInterruptTimePrecise(lpinterrupttimeprecise: MutPtr) {
     windowssysWindowsWin32SystemWindowsprogrammingQueryInterruptTimePrecise(lpinterrupttimeprecise.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun queryProcessCycleTime(processhandle: Handle, cycletime: MutPtr<ULong>): Bool =
+public actual fun queryProcessCycleTime(processhandle: Handle, cycletime: MutPtr): Bool =
     windowssysWindowsWin32SystemWindowsprogrammingQueryProcessCycleTime(processhandle.rawAddress.toCPointer<ByteVar>(), cycletime.rawAddress.toCPointer<ByteVar>())
 
-public actual fun queryThreadCycleTime(threadhandle: Handle, cycletime: MutPtr<ULong>): Bool =
+public actual fun queryThreadCycleTime(threadhandle: Handle, cycletime: MutPtr): Bool =
     windowssysWindowsWin32SystemWindowsprogrammingQueryThreadCycleTime(threadhandle.rawAddress.toCPointer<ByteVar>(), cycletime.rawAddress.toCPointer<ByteVar>())
 
-public actual fun queryUnbiasedInterruptTime(unbiasedtime: MutPtr<ULong>): Bool =
+public actual fun queryUnbiasedInterruptTime(unbiasedtime: MutPtr): Bool =
     windowssysWindowsWin32SystemWindowsprogrammingQueryUnbiasedInterruptTime(unbiasedtime.rawAddress.toCPointer<ByteVar>())
 
-public actual fun queryUnbiasedInterruptTimePrecise(lpunbiasedinterrupttimeprecise: MutPtr<ULong>) {
+public actual fun queryUnbiasedInterruptTimePrecise(lpunbiasedinterrupttimeprecise: MutPtr) {
     windowssysWindowsWin32SystemWindowsprogrammingQueryUnbiasedInterruptTimePrecise(lpunbiasedinterrupttimeprecise.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun raiseCustomSystemEventTrigger(customsystemeventtriggerconfig: ConstPtr<CustomSystemEventTriggerConfig>): UInt =
+public actual fun raiseCustomSystemEventTrigger(customsystemeventtriggerconfig: ConstPtr): UInt =
     windowssysWindowsWin32SystemWindowsprogrammingRaiseCustomSystemEventTrigger(customsystemeventtriggerconfig.rawAddress.toCPointer<ByteVar>())
 
 public actual fun rebootCheckOnInstallA(hwnd: Hwnd, pszinf: Pcstr, pszsec: Pcstr, dwreserved: UInt): Hresult =
@@ -600,7 +594,7 @@ public actual fun rebootCheckOnInstallA(hwnd: Hwnd, pszinf: Pcstr, pszsec: Pcstr
 public actual fun rebootCheckOnInstallW(hwnd: Hwnd, pszinf: Pcwstr, pszsec: Pcwstr, dwreserved: UInt): Hresult =
     windowssysWindowsWin32SystemWindowsprogrammingRebootCheckOnInstallW(hwnd.rawAddress.toCPointer<ByteVar>(), pszinf.rawAddress.toCPointer<ByteVar>(), pszsec.rawAddress.toCPointer<ByteVar>(), dwreserved)
 
-public actual fun recordFeatureError(featureid: UInt, error: ConstPtr<FeatureError>) {
+public actual fun recordFeatureError(featureid: UInt, error: ConstPtr) {
     windowssysWindowsWin32SystemWindowsprogrammingRecordFeatureError(featureid, error.rawAddress.toCPointer<ByteVar>())
 }
 
@@ -608,10 +602,10 @@ public actual fun recordFeatureUsage(featureid: UInt, kind: UInt, addend: UInt, 
     windowssysWindowsWin32SystemWindowsprogrammingRecordFeatureUsage(featureid, kind, addend, originname.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun regInstallA(hmod: Hmodule, pszsection: Pcstr, psttable: ConstPtr<Strtablea>): Hresult =
+public actual fun regInstallA(hmod: Hmodule, pszsection: Pcstr, psttable: ConstPtr): Hresult =
     windowssysWindowsWin32SystemWindowsprogrammingRegInstallA(hmod.rawAddress.toCPointer<ByteVar>(), pszsection.rawAddress.toCPointer<ByteVar>(), psttable.rawAddress.toCPointer<ByteVar>())
 
-public actual fun regInstallW(hmod: Hmodule, pszsection: Pcwstr, psttable: ConstPtr<Strtablew>): Hresult =
+public actual fun regInstallW(hmod: Hmodule, pszsection: Pcwstr, psttable: ConstPtr): Hresult =
     windowssysWindowsWin32SystemWindowsprogrammingRegInstallW(hmod.rawAddress.toCPointer<ByteVar>(), pszsection.rawAddress.toCPointer<ByteVar>(), psttable.rawAddress.toCPointer<ByteVar>())
 
 public actual fun regRestoreAllA(hwnd: Hwnd, psztitlestring: Pcstr, hkbckupkey: Hkey): Hresult =
@@ -638,73 +632,73 @@ public actual fun replacePartitionUnit(targetpartition: Pcwstr, sparepartition: 
 public actual fun requestDeviceWakeup(hdevice: Handle): Bool =
     windowssysWindowsWin32SystemWindowsprogrammingRequestDeviceWakeup(hdevice.rawAddress.toCPointer<ByteVar>())
 
-public actual fun rtlAnsiStringToUnicodeString(destinationstring: MutPtr<UnicodeString>, sourcestring: MutPtr<io.github.kotlinmania.windowssys.windows.win32.system.kernel.String>, allocatedestinationstring: Boolean): Ntstatus =
+public actual fun rtlAnsiStringToUnicodeString(destinationstring: MutPtr, sourcestring: MutPtr, allocatedestinationstring: Boolean): Ntstatus =
     windowssysWindowsWin32SystemWindowsprogrammingRtlAnsiStringToUnicodeString(destinationstring.rawAddress.toCPointer<ByteVar>(), sourcestring.rawAddress.toCPointer<ByteVar>(), allocatedestinationstring)
 
-public actual fun rtlCharToInteger(string: MutPtr<Byte>, base: UInt, value: MutPtr<UInt>): Ntstatus =
+public actual fun rtlCharToInteger(string: MutPtr, base: UInt, value: MutPtr): Ntstatus =
     windowssysWindowsWin32SystemWindowsprogrammingRtlCharToInteger(string.rawAddress.toCPointer<ByteVar>(), base, value.rawAddress.toCPointer<ByteVar>())
 
-public actual fun rtlFreeAnsiString(ansistring: MutPtr<io.github.kotlinmania.windowssys.windows.win32.system.kernel.String>) {
+public actual fun rtlFreeAnsiString(ansistring: MutPtr) {
     windowssysWindowsWin32SystemWindowsprogrammingRtlFreeAnsiString(ansistring.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun rtlFreeOemString(oemstring: MutPtr<io.github.kotlinmania.windowssys.windows.win32.system.kernel.String>) {
+public actual fun rtlFreeOemString(oemstring: MutPtr) {
     windowssysWindowsWin32SystemWindowsprogrammingRtlFreeOemString(oemstring.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun rtlFreeUnicodeString(unicodestring: MutPtr<UnicodeString>) {
+public actual fun rtlFreeUnicodeString(unicodestring: MutPtr) {
     windowssysWindowsWin32SystemWindowsprogrammingRtlFreeUnicodeString(unicodestring.rawAddress.toCPointer<ByteVar>())
 }
 
 public actual fun rtlGetReturnAddressHijackTarget(): ULong =
     windowssysWindowsWin32SystemWindowsprogrammingRtlGetReturnAddressHijackTarget()
 
-public actual fun rtlInitAnsiString(destinationstring: MutPtr<io.github.kotlinmania.windowssys.windows.win32.system.kernel.String>, sourcestring: MutPtr<Byte>) {
+public actual fun rtlInitAnsiString(destinationstring: MutPtr, sourcestring: MutPtr) {
     windowssysWindowsWin32SystemWindowsprogrammingRtlInitAnsiString(destinationstring.rawAddress.toCPointer<ByteVar>(), sourcestring.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun rtlInitAnsiStringEx(destinationstring: MutPtr<io.github.kotlinmania.windowssys.windows.win32.system.kernel.String>, sourcestring: MutPtr<Byte>): Ntstatus =
+public actual fun rtlInitAnsiStringEx(destinationstring: MutPtr, sourcestring: MutPtr): Ntstatus =
     windowssysWindowsWin32SystemWindowsprogrammingRtlInitAnsiStringEx(destinationstring.rawAddress.toCPointer<ByteVar>(), sourcestring.rawAddress.toCPointer<ByteVar>())
 
-public actual fun rtlInitString(destinationstring: MutPtr<io.github.kotlinmania.windowssys.windows.win32.system.kernel.String>, sourcestring: MutPtr<Byte>) {
+public actual fun rtlInitString(destinationstring: MutPtr, sourcestring: MutPtr) {
     windowssysWindowsWin32SystemWindowsprogrammingRtlInitString(destinationstring.rawAddress.toCPointer<ByteVar>(), sourcestring.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun rtlInitStringEx(destinationstring: MutPtr<io.github.kotlinmania.windowssys.windows.win32.system.kernel.String>, sourcestring: MutPtr<Byte>): Ntstatus =
+public actual fun rtlInitStringEx(destinationstring: MutPtr, sourcestring: MutPtr): Ntstatus =
     windowssysWindowsWin32SystemWindowsprogrammingRtlInitStringEx(destinationstring.rawAddress.toCPointer<ByteVar>(), sourcestring.rawAddress.toCPointer<ByteVar>())
 
-public actual fun rtlInitUnicodeString(destinationstring: MutPtr<UnicodeString>, sourcestring: Pcwstr) {
+public actual fun rtlInitUnicodeString(destinationstring: MutPtr, sourcestring: Pcwstr) {
     windowssysWindowsWin32SystemWindowsprogrammingRtlInitUnicodeString(destinationstring.rawAddress.toCPointer<ByteVar>(), sourcestring.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun rtlIsNameLegalDOS8Dot3(name: MutPtr<UnicodeString>, oemname: MutPtr<io.github.kotlinmania.windowssys.windows.win32.system.kernel.String>, namecontainsspaces: MutPtr<Boolean>): Boolean =
+public actual fun rtlIsNameLegalDOS8Dot3(name: MutPtr, oemname: MutPtr, namecontainsspaces: MutPtr): Boolean =
     windowssysWindowsWin32SystemWindowsprogrammingRtlIsNameLegalDOS8Dot3(name.rawAddress.toCPointer<ByteVar>(), oemname.rawAddress.toCPointer<ByteVar>(), namecontainsspaces.rawAddress.toCPointer<ByteVar>())
 
-public actual fun rtlLocalTimeToSystemTime(localtime: MutPtr<Long>, systemtime: MutPtr<Long>): Ntstatus =
+public actual fun rtlLocalTimeToSystemTime(localtime: MutPtr, systemtime: MutPtr): Ntstatus =
     windowssysWindowsWin32SystemWindowsprogrammingRtlLocalTimeToSystemTime(localtime.rawAddress.toCPointer<ByteVar>(), systemtime.rawAddress.toCPointer<ByteVar>())
 
-public actual fun rtlRaiseCustomSystemEventTrigger(triggerconfig: ConstPtr<CustomSystemEventTriggerConfig>): UInt =
+public actual fun rtlRaiseCustomSystemEventTrigger(triggerconfig: ConstPtr): UInt =
     windowssysWindowsWin32SystemWindowsprogrammingRtlRaiseCustomSystemEventTrigger(triggerconfig.rawAddress.toCPointer<ByteVar>())
 
-public actual fun rtlTimeToSecondsSince1970(time: MutPtr<Long>, elapsedseconds: MutPtr<UInt>): Boolean =
+public actual fun rtlTimeToSecondsSince1970(time: MutPtr, elapsedseconds: MutPtr): Boolean =
     windowssysWindowsWin32SystemWindowsprogrammingRtlTimeToSecondsSince1970(time.rawAddress.toCPointer<ByteVar>(), elapsedseconds.rawAddress.toCPointer<ByteVar>())
 
-public actual fun rtlUnicodeStringToAnsiString(destinationstring: MutPtr<io.github.kotlinmania.windowssys.windows.win32.system.kernel.String>, sourcestring: MutPtr<UnicodeString>, allocatedestinationstring: Boolean): Ntstatus =
+public actual fun rtlUnicodeStringToAnsiString(destinationstring: MutPtr, sourcestring: MutPtr, allocatedestinationstring: Boolean): Ntstatus =
     windowssysWindowsWin32SystemWindowsprogrammingRtlUnicodeStringToAnsiString(destinationstring.rawAddress.toCPointer<ByteVar>(), sourcestring.rawAddress.toCPointer<ByteVar>(), allocatedestinationstring)
 
-public actual fun rtlUnicodeStringToOemString(destinationstring: MutPtr<io.github.kotlinmania.windowssys.windows.win32.system.kernel.String>, sourcestring: MutPtr<UnicodeString>, allocatedestinationstring: Boolean): Ntstatus =
+public actual fun rtlUnicodeStringToOemString(destinationstring: MutPtr, sourcestring: MutPtr, allocatedestinationstring: Boolean): Ntstatus =
     windowssysWindowsWin32SystemWindowsprogrammingRtlUnicodeStringToOemString(destinationstring.rawAddress.toCPointer<ByteVar>(), sourcestring.rawAddress.toCPointer<ByteVar>(), allocatedestinationstring)
 
-public actual fun rtlUnicodeToMultiByteSize(bytesinmultibytestring: MutPtr<UInt>, unicodestring: Pcwstr, bytesinunicodestring: UInt): Ntstatus =
+public actual fun rtlUnicodeToMultiByteSize(bytesinmultibytestring: MutPtr, unicodestring: Pcwstr, bytesinunicodestring: UInt): Ntstatus =
     windowssysWindowsWin32SystemWindowsprogrammingRtlUnicodeToMultiByteSize(bytesinmultibytestring.rawAddress.toCPointer<ByteVar>(), unicodestring.rawAddress.toCPointer<ByteVar>(), bytesinunicodestring)
 
-public actual fun rtlUniform(seed: MutPtr<UInt>): UInt =
+public actual fun rtlUniform(seed: MutPtr): UInt =
     windowssysWindowsWin32SystemWindowsprogrammingRtlUniform(seed.rawAddress.toCPointer<ByteVar>())
 
-public actual fun runSetupCommandA(hwnd: Hwnd, szcmdname: Pcstr, szinfsection: Pcstr, szdir: Pcstr, lpsztitle: Pcstr, phexe: MutPtr<Handle>, dwflags: UInt, pvreserved: MutPtr<CVoid>): Hresult =
+public actual fun runSetupCommandA(hwnd: Hwnd, szcmdname: Pcstr, szinfsection: Pcstr, szdir: Pcstr, lpsztitle: Pcstr, phexe: MutPtr, dwflags: UInt, pvreserved: MutPtr): Hresult =
     windowssysWindowsWin32SystemWindowsprogrammingRunSetupCommandA(hwnd.rawAddress.toCPointer<ByteVar>(), szcmdname.rawAddress.toCPointer<ByteVar>(), szinfsection.rawAddress.toCPointer<ByteVar>(), szdir.rawAddress.toCPointer<ByteVar>(), lpsztitle.rawAddress.toCPointer<ByteVar>(), phexe.rawAddress.toCPointer<ByteVar>(), dwflags, pvreserved.rawAddress.toCPointer<ByteVar>())
 
-public actual fun runSetupCommandW(hwnd: Hwnd, szcmdname: Pcwstr, szinfsection: Pcwstr, szdir: Pcwstr, lpsztitle: Pcwstr, phexe: MutPtr<Handle>, dwflags: UInt, pvreserved: MutPtr<CVoid>): Hresult =
+public actual fun runSetupCommandW(hwnd: Hwnd, szcmdname: Pcwstr, szinfsection: Pcwstr, szdir: Pcwstr, lpsztitle: Pcwstr, phexe: MutPtr, dwflags: UInt, pvreserved: MutPtr): Hresult =
     windowssysWindowsWin32SystemWindowsprogrammingRunSetupCommandW(hwnd.rawAddress.toCPointer<ByteVar>(), szcmdname.rawAddress.toCPointer<ByteVar>(), szinfsection.rawAddress.toCPointer<ByteVar>(), szdir.rawAddress.toCPointer<ByteVar>(), lpsztitle.rawAddress.toCPointer<ByteVar>(), phexe.rawAddress.toCPointer<ByteVar>(), dwflags, pvreserved.rawAddress.toCPointer<ByteVar>())
 
 public actual fun sendIMEMessageExA(param0: Hwnd, param1: Lparam): Lresult =
@@ -716,16 +710,16 @@ public actual fun sendIMEMessageExW(param0: Hwnd, param1: Lparam): Lresult =
 public actual fun setEnvironmentStringsA(newenvironment: Pcstr): Bool =
     windowssysWindowsWin32SystemWindowsprogrammingSetEnvironmentStringsA(newenvironment.rawAddress.toCPointer<ByteVar>())
 
-public actual fun setFirmwareEnvironmentVariableA(lpname: Pcstr, lpguid: Pcstr, pvalue: ConstPtr<CVoid>, nsize: UInt): Bool =
+public actual fun setFirmwareEnvironmentVariableA(lpname: Pcstr, lpguid: Pcstr, pvalue: ConstPtr, nsize: UInt): Bool =
     windowssysWindowsWin32SystemWindowsprogrammingSetFirmwareEnvironmentVariableA(lpname.rawAddress.toCPointer<ByteVar>(), lpguid.rawAddress.toCPointer<ByteVar>(), pvalue.rawAddress.toCPointer<ByteVar>(), nsize)
 
-public actual fun setFirmwareEnvironmentVariableExA(lpname: Pcstr, lpguid: Pcstr, pvalue: ConstPtr<CVoid>, nsize: UInt, dwattributes: UInt): Bool =
+public actual fun setFirmwareEnvironmentVariableExA(lpname: Pcstr, lpguid: Pcstr, pvalue: ConstPtr, nsize: UInt, dwattributes: UInt): Bool =
     windowssysWindowsWin32SystemWindowsprogrammingSetFirmwareEnvironmentVariableExA(lpname.rawAddress.toCPointer<ByteVar>(), lpguid.rawAddress.toCPointer<ByteVar>(), pvalue.rawAddress.toCPointer<ByteVar>(), nsize, dwattributes)
 
-public actual fun setFirmwareEnvironmentVariableExW(lpname: Pcwstr, lpguid: Pcwstr, pvalue: ConstPtr<CVoid>, nsize: UInt, dwattributes: UInt): Bool =
+public actual fun setFirmwareEnvironmentVariableExW(lpname: Pcwstr, lpguid: Pcwstr, pvalue: ConstPtr, nsize: UInt, dwattributes: UInt): Bool =
     windowssysWindowsWin32SystemWindowsprogrammingSetFirmwareEnvironmentVariableExW(lpname.rawAddress.toCPointer<ByteVar>(), lpguid.rawAddress.toCPointer<ByteVar>(), pvalue.rawAddress.toCPointer<ByteVar>(), nsize, dwattributes)
 
-public actual fun setFirmwareEnvironmentVariableW(lpname: Pcwstr, lpguid: Pcwstr, pvalue: ConstPtr<CVoid>, nsize: UInt): Bool =
+public actual fun setFirmwareEnvironmentVariableW(lpname: Pcwstr, lpguid: Pcwstr, pvalue: ConstPtr, nsize: UInt): Bool =
     windowssysWindowsWin32SystemWindowsprogrammingSetFirmwareEnvironmentVariableW(lpname.rawAddress.toCPointer<ByteVar>(), lpguid.rawAddress.toCPointer<ByteVar>(), pvalue.rawAddress.toCPointer<ByteVar>(), nsize)
 
 public actual fun setHandleCount(unumber: UInt): UInt =
@@ -734,26 +728,26 @@ public actual fun setHandleCount(unumber: UInt): UInt =
 public actual fun setMessageWaitingIndicator(hmsgindicator: Handle, ulmsgcount: UInt): Bool =
     windowssysWindowsWin32SystemWindowsprogrammingSetMessageWaitingIndicator(hmsgindicator.rawAddress.toCPointer<ByteVar>(), ulmsgcount)
 
-public actual fun setPerUserSecValuesA(pperuser: MutPtr<Perusersectiona>): Hresult =
+public actual fun setPerUserSecValuesA(pperuser: MutPtr): Hresult =
     windowssysWindowsWin32SystemWindowsprogrammingSetPerUserSecValuesA(pperuser.rawAddress.toCPointer<ByteVar>())
 
-public actual fun setPerUserSecValuesW(pperuser: MutPtr<Perusersectionw>): Hresult =
+public actual fun setPerUserSecValuesW(pperuser: MutPtr): Hresult =
     windowssysWindowsWin32SystemWindowsprogrammingSetPerUserSecValuesW(pperuser.rawAddress.toCPointer<ByteVar>())
 
-public actual fun subscribeFeatureStateChangeNotification(subscription: MutPtr<FeatureStateChangeSubscription>, callback: PfeatureStateChangeCallback, context: ConstPtr<CVoid>) {
+public actual fun subscribeFeatureStateChangeNotification(subscription: MutPtr, callback: PfeatureStateChangeCallback, context: ConstPtr) {
     windowssysWindowsWin32SystemWindowsprogrammingSubscribeFeatureStateChangeNotification(subscription.rawAddress.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>(), context.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun translateInfStringA(pszinffilename: Pcstr, pszinstallsection: Pcstr, psztranslatesection: Pcstr, psztranslatekey: Pcstr, pszbuffer: Pstr, cchbuffer: UInt, pdwrequiredsize: MutPtr<UInt>, pvreserved: ConstPtr<CVoid>): Hresult =
+public actual fun translateInfStringA(pszinffilename: Pcstr, pszinstallsection: Pcstr, psztranslatesection: Pcstr, psztranslatekey: Pcstr, pszbuffer: Pstr, cchbuffer: UInt, pdwrequiredsize: MutPtr, pvreserved: ConstPtr): Hresult =
     windowssysWindowsWin32SystemWindowsprogrammingTranslateInfStringA(pszinffilename.rawAddress.toCPointer<ByteVar>(), pszinstallsection.rawAddress.toCPointer<ByteVar>(), psztranslatesection.rawAddress.toCPointer<ByteVar>(), psztranslatekey.rawAddress.toCPointer<ByteVar>(), pszbuffer.rawAddress.toCPointer<ByteVar>(), cchbuffer, pdwrequiredsize.rawAddress.toCPointer<ByteVar>(), pvreserved.rawAddress.toCPointer<ByteVar>())
 
-public actual fun translateInfStringExA(hinf: MutPtr<CVoid>, pszinffilename: Pcstr, psztranslatesection: Pcstr, psztranslatekey: Pcstr, pszbuffer: Pstr, dwbuffersize: UInt, pdwrequiredsize: MutPtr<UInt>, pvreserved: ConstPtr<CVoid>): Hresult =
+public actual fun translateInfStringExA(hinf: MutPtr, pszinffilename: Pcstr, psztranslatesection: Pcstr, psztranslatekey: Pcstr, pszbuffer: Pstr, dwbuffersize: UInt, pdwrequiredsize: MutPtr, pvreserved: ConstPtr): Hresult =
     windowssysWindowsWin32SystemWindowsprogrammingTranslateInfStringExA(hinf.rawAddress.toCPointer<ByteVar>(), pszinffilename.rawAddress.toCPointer<ByteVar>(), psztranslatesection.rawAddress.toCPointer<ByteVar>(), psztranslatekey.rawAddress.toCPointer<ByteVar>(), pszbuffer.rawAddress.toCPointer<ByteVar>(), dwbuffersize, pdwrequiredsize.rawAddress.toCPointer<ByteVar>(), pvreserved.rawAddress.toCPointer<ByteVar>())
 
-public actual fun translateInfStringExW(hinf: MutPtr<CVoid>, pszinffilename: Pcwstr, psztranslatesection: Pcwstr, psztranslatekey: Pcwstr, pszbuffer: Pwstr, dwbuffersize: UInt, pdwrequiredsize: MutPtr<UInt>, pvreserved: ConstPtr<CVoid>): Hresult =
+public actual fun translateInfStringExW(hinf: MutPtr, pszinffilename: Pcwstr, psztranslatesection: Pcwstr, psztranslatekey: Pcwstr, pszbuffer: Pwstr, dwbuffersize: UInt, pdwrequiredsize: MutPtr, pvreserved: ConstPtr): Hresult =
     windowssysWindowsWin32SystemWindowsprogrammingTranslateInfStringExW(hinf.rawAddress.toCPointer<ByteVar>(), pszinffilename.rawAddress.toCPointer<ByteVar>(), psztranslatesection.rawAddress.toCPointer<ByteVar>(), psztranslatekey.rawAddress.toCPointer<ByteVar>(), pszbuffer.rawAddress.toCPointer<ByteVar>(), dwbuffersize, pdwrequiredsize.rawAddress.toCPointer<ByteVar>(), pvreserved.rawAddress.toCPointer<ByteVar>())
 
-public actual fun translateInfStringW(pszinffilename: Pcwstr, pszinstallsection: Pcwstr, psztranslatesection: Pcwstr, psztranslatekey: Pcwstr, pszbuffer: Pwstr, cchbuffer: UInt, pdwrequiredsize: MutPtr<UInt>, pvreserved: ConstPtr<CVoid>): Hresult =
+public actual fun translateInfStringW(pszinffilename: Pcwstr, pszinstallsection: Pcwstr, psztranslatesection: Pcwstr, psztranslatekey: Pcwstr, pszbuffer: Pwstr, cchbuffer: UInt, pdwrequiredsize: MutPtr, pvreserved: ConstPtr): Hresult =
     windowssysWindowsWin32SystemWindowsprogrammingTranslateInfStringW(pszinffilename.rawAddress.toCPointer<ByteVar>(), pszinstallsection.rawAddress.toCPointer<ByteVar>(), psztranslatesection.rawAddress.toCPointer<ByteVar>(), psztranslatekey.rawAddress.toCPointer<ByteVar>(), pszbuffer.rawAddress.toCPointer<ByteVar>(), cchbuffer, pdwrequiredsize.rawAddress.toCPointer<ByteVar>(), pvreserved.rawAddress.toCPointer<ByteVar>())
 
 public actual fun unsubscribeFeatureStateChangeNotification(subscription: FeatureStateChangeSubscription) {
@@ -788,7 +782,7 @@ public actual fun winWatchClose(hww: Hwinwatch) {
 public actual fun winWatchDidStatusChange(hww: Hwinwatch): Bool =
     windowssysWindowsWin32SystemWindowsprogrammingWinWatchDidStatusChange(hww.rawAddress.toCPointer<ByteVar>())
 
-public actual fun winWatchGetClipList(hww: Hwinwatch, prc: MutPtr<Rect>, size: UInt, prd: MutPtr<Rgndata>): UInt =
+public actual fun winWatchGetClipList(hww: Hwinwatch, prc: MutPtr, size: UInt, prd: MutPtr): UInt =
     windowssysWindowsWin32SystemWindowsprogrammingWinWatchGetClipList(hww.rawAddress.toCPointer<ByteVar>(), prc.rawAddress.toCPointer<ByteVar>(), size, prd.rawAddress.toCPointer<ByteVar>())
 
 public actual fun winWatchNotify(hww: Hwinwatch, notifycallback: Winwatchnotifyproc, notifyparam: Lparam): Bool =
@@ -797,28 +791,28 @@ public actual fun winWatchNotify(hww: Hwinwatch, notifycallback: Winwatchnotifyp
 public actual fun winWatchOpen(hwnd: Hwnd): Hwinwatch =
     MutPtr(windowssysWindowsWin32SystemWindowsprogrammingWinWatchOpen(hwnd.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun wldpCanExecuteBuffer(host: ConstPtr<Guid>, options: WldpExecutionEvaluationOptions, buffer: ConstPtr<UByte>, buffersize: UInt, auditinfo: Pcwstr, result: MutPtr<WldpExecutionPolicy>): Hresult =
+public actual fun wldpCanExecuteBuffer(host: ConstPtr, options: WldpExecutionEvaluationOptions, buffer: ConstPtr, buffersize: UInt, auditinfo: Pcwstr, result: MutPtr): Hresult =
     windowssysWindowsWin32SystemWindowsprogrammingWldpCanExecuteBuffer(host.rawAddress.toCPointer<ByteVar>(), options, buffer.rawAddress.toCPointer<ByteVar>(), buffersize, auditinfo.rawAddress.toCPointer<ByteVar>(), result.rawAddress.toCPointer<ByteVar>())
 
-public actual fun wldpCanExecuteFile(host: ConstPtr<Guid>, options: WldpExecutionEvaluationOptions, filehandle: Handle, auditinfo: Pcwstr, result: MutPtr<WldpExecutionPolicy>): Hresult =
+public actual fun wldpCanExecuteFile(host: ConstPtr, options: WldpExecutionEvaluationOptions, filehandle: Handle, auditinfo: Pcwstr, result: MutPtr): Hresult =
     windowssysWindowsWin32SystemWindowsprogrammingWldpCanExecuteFile(host.rawAddress.toCPointer<ByteVar>(), options, filehandle.rawAddress.toCPointer<ByteVar>(), auditinfo.rawAddress.toCPointer<ByteVar>(), result.rawAddress.toCPointer<ByteVar>())
 
-public actual fun wldpCanExecuteStream(host: ConstPtr<Guid>, options: WldpExecutionEvaluationOptions, stream: MutPtr<CVoid>, auditinfo: Pcwstr, result: MutPtr<WldpExecutionPolicy>): Hresult =
+public actual fun wldpCanExecuteStream(host: ConstPtr, options: WldpExecutionEvaluationOptions, stream: MutPtr, auditinfo: Pcwstr, result: MutPtr): Hresult =
     windowssysWindowsWin32SystemWindowsprogrammingWldpCanExecuteStream(host.rawAddress.toCPointer<ByteVar>(), options, stream.rawAddress.toCPointer<ByteVar>(), auditinfo.rawAddress.toCPointer<ByteVar>(), result.rawAddress.toCPointer<ByteVar>())
 
-public actual fun wldpGetLockdownPolicy(hostinformation: ConstPtr<WldpHostInformation>, lockdownstate: MutPtr<UInt>, lockdownflags: UInt): Hresult =
+public actual fun wldpGetLockdownPolicy(hostinformation: ConstPtr, lockdownstate: MutPtr, lockdownflags: UInt): Hresult =
     windowssysWindowsWin32SystemWindowsprogrammingWldpGetLockdownPolicy(hostinformation.rawAddress.toCPointer<ByteVar>(), lockdownstate.rawAddress.toCPointer<ByteVar>(), lockdownflags)
 
-public actual fun wldpIsClassInApprovedList(classid: ConstPtr<Guid>, hostinformation: ConstPtr<WldpHostInformation>, isapproved: MutPtr<Bool>, optionalflags: UInt): Hresult =
+public actual fun wldpIsClassInApprovedList(classid: ConstPtr, hostinformation: ConstPtr, isapproved: MutPtr, optionalflags: UInt): Hresult =
     windowssysWindowsWin32SystemWindowsprogrammingWldpIsClassInApprovedList(classid.rawAddress.toCPointer<ByteVar>(), hostinformation.rawAddress.toCPointer<ByteVar>(), isapproved.rawAddress.toCPointer<ByteVar>(), optionalflags)
 
-public actual fun wldpIsDynamicCodePolicyEnabled(isenabled: MutPtr<Bool>): Hresult =
+public actual fun wldpIsDynamicCodePolicyEnabled(isenabled: MutPtr): Hresult =
     windowssysWindowsWin32SystemWindowsprogrammingWldpIsDynamicCodePolicyEnabled(isenabled.rawAddress.toCPointer<ByteVar>())
 
-public actual fun wldpQueryDeviceSecurityInformation(information: MutPtr<WldpDeviceSecurityInformation>, informationlength: UInt, returnlength: MutPtr<UInt>): Hresult =
+public actual fun wldpQueryDeviceSecurityInformation(information: MutPtr, informationlength: UInt, returnlength: MutPtr): Hresult =
     windowssysWindowsWin32SystemWindowsprogrammingWldpQueryDeviceSecurityInformation(information.rawAddress.toCPointer<ByteVar>(), informationlength, returnlength.rawAddress.toCPointer<ByteVar>())
 
-public actual fun wldpQueryDynamicCodeTrust(filehandle: Handle, baseimage: ConstPtr<CVoid>, imagesize: UInt): Hresult =
+public actual fun wldpQueryDynamicCodeTrust(filehandle: Handle, baseimage: ConstPtr, imagesize: UInt): Hresult =
     windowssysWindowsWin32SystemWindowsprogrammingWldpQueryDynamicCodeTrust(filehandle.rawAddress.toCPointer<ByteVar>(), baseimage.rawAddress.toCPointer<ByteVar>(), imagesize)
 
 public actual fun wldpSetDynamicCodeTrust(filehandle: Handle): Hresult =
@@ -836,10 +830,10 @@ public actual fun writePrivateProfileStringA(lpappname: Pcstr, lpkeyname: Pcstr,
 public actual fun writePrivateProfileStringW(lpappname: Pcwstr, lpkeyname: Pcwstr, lpstring: Pcwstr, lpfilename: Pcwstr): Bool =
     windowssysWindowsWin32SystemWindowsprogrammingWritePrivateProfileStringW(lpappname.rawAddress.toCPointer<ByteVar>(), lpkeyname.rawAddress.toCPointer<ByteVar>(), lpstring.rawAddress.toCPointer<ByteVar>(), lpfilename.rawAddress.toCPointer<ByteVar>())
 
-public actual fun writePrivateProfileStructA(lpszsection: Pcstr, lpszkey: Pcstr, lpstruct: ConstPtr<CVoid>, usizestruct: UInt, szfile: Pcstr): Bool =
+public actual fun writePrivateProfileStructA(lpszsection: Pcstr, lpszkey: Pcstr, lpstruct: ConstPtr, usizestruct: UInt, szfile: Pcstr): Bool =
     windowssysWindowsWin32SystemWindowsprogrammingWritePrivateProfileStructA(lpszsection.rawAddress.toCPointer<ByteVar>(), lpszkey.rawAddress.toCPointer<ByteVar>(), lpstruct.rawAddress.toCPointer<ByteVar>(), usizestruct, szfile.rawAddress.toCPointer<ByteVar>())
 
-public actual fun writePrivateProfileStructW(lpszsection: Pcwstr, lpszkey: Pcwstr, lpstruct: ConstPtr<CVoid>, usizestruct: UInt, szfile: Pcwstr): Bool =
+public actual fun writePrivateProfileStructW(lpszsection: Pcwstr, lpszkey: Pcwstr, lpstruct: ConstPtr, usizestruct: UInt, szfile: Pcwstr): Bool =
     windowssysWindowsWin32SystemWindowsprogrammingWritePrivateProfileStructW(lpszsection.rawAddress.toCPointer<ByteVar>(), lpszkey.rawAddress.toCPointer<ByteVar>(), lpstruct.rawAddress.toCPointer<ByteVar>(), usizestruct, szfile.rawAddress.toCPointer<ByteVar>())
 
 public actual fun writeProfileSectionA(lpappname: Pcstr, lpstring: Pcstr): Bool =
@@ -854,7 +848,7 @@ public actual fun writeProfileStringA(lpappname: Pcstr, lpkeyname: Pcstr, lpstri
 public actual fun writeProfileStringW(lpappname: Pcwstr, lpkeyname: Pcwstr, lpstring: Pcwstr): Bool =
     windowssysWindowsWin32SystemWindowsprogrammingWriteProfileStringW(lpappname.rawAddress.toCPointer<ByteVar>(), lpkeyname.rawAddress.toCPointer<ByteVar>(), lpstring.rawAddress.toCPointer<ByteVar>())
 
-public actual fun hread(hfile: Int, lpbuffer: MutPtr<CVoid>, lbytes: Int): Int =
+public actual fun hread(hfile: Int, lpbuffer: MutPtr, lbytes: Int): Int =
     windowssysWindowsWin32SystemWindowsprogrammingHread(hfile, lpbuffer.rawAddress.toCPointer<ByteVar>(), lbytes)
 
 public actual fun hwrite(hfile: Int, lpbuffer: Pcstr, lbytes: Int): Int =
@@ -872,32 +866,32 @@ public actual fun llseek(hfile: Int, loffset: Int, iorigin: Int): Int =
 public actual fun lopen(lppathname: Pcstr, ireadwrite: Int): Int =
     windowssysWindowsWin32SystemWindowsprogrammingLopen(lppathname.rawAddress.toCPointer<ByteVar>(), ireadwrite)
 
-public actual fun lread(hfile: Int, lpbuffer: MutPtr<CVoid>, ubytes: UInt): UInt =
+public actual fun lread(hfile: Int, lpbuffer: MutPtr, ubytes: UInt): UInt =
     windowssysWindowsWin32SystemWindowsprogrammingLread(hfile, lpbuffer.rawAddress.toCPointer<ByteVar>(), ubytes)
 
 public actual fun lwrite(hfile: Int, lpbuffer: Pcstr, ubytes: UInt): UInt =
     windowssysWindowsWin32SystemWindowsprogrammingLwrite(hfile, lpbuffer.rawAddress.toCPointer<ByteVar>(), ubytes)
 
-public actual fun uawLstrcmpW(string1: ConstPtr<UShort>, string2: ConstPtr<UShort>): Int =
+public actual fun uawLstrcmpW(string1: ConstPtr, string2: ConstPtr): Int =
     windowssysWindowsWin32SystemWindowsprogrammingUawLstrcmpW(string1.rawAddress.toCPointer<ByteVar>(), string2.rawAddress.toCPointer<ByteVar>())
 
-public actual fun uawLstrcmpiW(string1: ConstPtr<UShort>, string2: ConstPtr<UShort>): Int =
+public actual fun uawLstrcmpiW(string1: ConstPtr, string2: ConstPtr): Int =
     windowssysWindowsWin32SystemWindowsprogrammingUawLstrcmpiW(string1.rawAddress.toCPointer<ByteVar>(), string2.rawAddress.toCPointer<ByteVar>())
 
-public actual fun uawLstrlenW(string: ConstPtr<UShort>): Int =
+public actual fun uawLstrlenW(string: ConstPtr): Int =
     windowssysWindowsWin32SystemWindowsprogrammingUawLstrlenW(string.rawAddress.toCPointer<ByteVar>())
 
-public actual fun uawWcschr(string: ConstPtr<UShort>, character: UShort): MutPtr<UShort> =
+public actual fun uawWcschr(string: ConstPtr, character: UShort): MutPtr =
     MutPtr(windowssysWindowsWin32SystemWindowsprogrammingUawWcschr(string.rawAddress.toCPointer<ByteVar>(), character)?.toLong() ?: 0L)
 
-public actual fun uawWcscpy(destination: MutPtr<UShort>, source: ConstPtr<UShort>): MutPtr<UShort> =
+public actual fun uawWcscpy(destination: MutPtr, source: ConstPtr): MutPtr =
     MutPtr(windowssysWindowsWin32SystemWindowsprogrammingUawWcscpy(destination.rawAddress.toCPointer<ByteVar>(), source.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun uawWcsicmp(string1: ConstPtr<UShort>, string2: ConstPtr<UShort>): Int =
+public actual fun uawWcsicmp(string1: ConstPtr, string2: ConstPtr): Int =
     windowssysWindowsWin32SystemWindowsprogrammingUawWcsicmp(string1.rawAddress.toCPointer<ByteVar>(), string2.rawAddress.toCPointer<ByteVar>())
 
-public actual fun uawWcslen(string: ConstPtr<UShort>): ULong =
+public actual fun uawWcslen(string: ConstPtr): ULong =
     windowssysWindowsWin32SystemWindowsprogrammingUawWcslen(string.rawAddress.toCPointer<ByteVar>())
 
-public actual fun uawWcsrchr(string: ConstPtr<UShort>, character: UShort): MutPtr<UShort> =
+public actual fun uawWcsrchr(string: ConstPtr, character: UShort): MutPtr =
     MutPtr(windowssysWindowsWin32SystemWindowsprogrammingUawWcsrchr(string.rawAddress.toCPointer<ByteVar>(), character)?.toLong() ?: 0L)

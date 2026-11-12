@@ -2,7 +2,6 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.system.libraryloader
 
-import io.github.kotlinmania.rustlang.core.ffi.CVoid
 import io.github.kotlinmania.rustlang.core.ptr.ConstPtr
 import io.github.kotlinmania.rustlang.core.ptr.MutPtr
 import io.github.kotlinmania.windowssys.core.Bool
@@ -17,7 +16,7 @@ import io.github.kotlinmania.windowssys.windows.win32.foundation.Hmodule
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Hrsrc
 
 // The host must provide the C companion wrapper exports in import module windowssys.
-public actual fun addDllDirectory(newdirectory: Pcwstr): MutPtr<CVoid> =
+public actual fun addDllDirectory(newdirectory: Pcwstr): MutPtr =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32SystemLibraryloaderAddDllDirectory")
 
 public actual fun beginUpdateResourceA(pfilename: Pcstr, bdeleteexistingresources: Bool): Handle =
@@ -104,10 +103,10 @@ public actual fun getModuleFileNameW(hmodule: Hmodule, lpfilename: Pwstr, nsize:
 public actual fun getModuleHandleA(lpmodulename: Pcstr): Hmodule =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32SystemLibraryloaderGetModuleHandleA")
 
-public actual fun getModuleHandleExA(dwflags: UInt, lpmodulename: Pcstr, phmodule: MutPtr<Hmodule>): Bool =
+public actual fun getModuleHandleExA(dwflags: UInt, lpmodulename: Pcstr, phmodule: MutPtr): Bool =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32SystemLibraryloaderGetModuleHandleExA")
 
-public actual fun getModuleHandleExW(dwflags: UInt, lpmodulename: Pcwstr, phmodule: MutPtr<Hmodule>): Bool =
+public actual fun getModuleHandleExW(dwflags: UInt, lpmodulename: Pcwstr, phmodule: MutPtr): Bool =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32SystemLibraryloaderGetModuleHandleExW")
 
 public actual fun getModuleHandleW(lpmodulename: Pcwstr): Hmodule =
@@ -128,7 +127,7 @@ public actual fun loadLibraryExW(lplibfilename: Pcwstr, hfile: Handle, dwflags: 
 public actual fun loadLibraryW(lplibfilename: Pcwstr): Hmodule =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32SystemLibraryloaderLoadLibraryW")
 
-public actual fun loadModule(lpmodulename: Pcstr, lpparameterblock: ConstPtr<CVoid>): UInt =
+public actual fun loadModule(lpmodulename: Pcstr, lpparameterblock: ConstPtr): UInt =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32SystemLibraryloaderLoadModule")
 
 public actual fun loadPackagedLibrary(lpwlibfilename: Pcwstr, reserved: UInt): Hmodule =
@@ -137,13 +136,13 @@ public actual fun loadPackagedLibrary(lpwlibfilename: Pcwstr, reserved: UInt): H
 public actual fun loadResource(hmodule: Hmodule, hresinfo: Hrsrc): Hglobal =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32SystemLibraryloaderLoadResource")
 
-public actual fun lockResource(hresdata: Hglobal): MutPtr<CVoid> =
+public actual fun lockResource(hresdata: Hglobal): MutPtr =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32SystemLibraryloaderLockResource")
 
 public actual fun queryOptionalDelayLoadedAPI(hparentmodule: Hmodule, lpdllname: Pcstr, lpprocname: Pcstr, reserved: UInt): Bool =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32SystemLibraryloaderQueryOptionalDelayLoadedAPI")
 
-public actual fun removeDllDirectory(cookie: ConstPtr<CVoid>): Bool =
+public actual fun removeDllDirectory(cookie: ConstPtr): Bool =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32SystemLibraryloaderRemoveDllDirectory")
 
 @kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32SystemLibraryloaderSetDefaultDllDirectories")
@@ -161,8 +160,8 @@ public actual fun setDllDirectoryW(lppathname: Pcwstr): Bool =
 public actual fun sizeofResource(hmodule: Hmodule, hresinfo: Hrsrc): UInt =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32SystemLibraryloaderSizeofResource")
 
-public actual fun updateResourceA(hupdate: Handle, lptype: Pcstr, lpname: Pcstr, wlanguage: UShort, lpdata: ConstPtr<CVoid>, cb: UInt): Bool =
+public actual fun updateResourceA(hupdate: Handle, lptype: Pcstr, lpname: Pcstr, wlanguage: UShort, lpdata: ConstPtr, cb: UInt): Bool =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32SystemLibraryloaderUpdateResourceA")
 
-public actual fun updateResourceW(hupdate: Handle, lptype: Pcwstr, lpname: Pcwstr, wlanguage: UShort, lpdata: ConstPtr<CVoid>, cb: UInt): Bool =
+public actual fun updateResourceW(hupdate: Handle, lptype: Pcwstr, lpname: Pcwstr, wlanguage: UShort, lpdata: ConstPtr, cb: UInt): Bool =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32SystemLibraryloaderUpdateResourceW")

@@ -2,7 +2,6 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.system.mapi
 
-import io.github.kotlinmania.rustlang.core.ffi.CVoid
 import io.github.kotlinmania.rustlang.core.ptr.MutPtr
 
 private object WindowsWin32SystemMapiJniBridge {
@@ -14,5 +13,5 @@ private object WindowsWin32SystemMapiJniBridge {
     external fun windowssysWindowsWin32SystemMapiMAPIFreeBuffer(pv: Long): Int
 }
 
-public actual fun mAPIFreeBuffer(pv: MutPtr<CVoid>): UInt =
+public actual fun mAPIFreeBuffer(pv: MutPtr): UInt =
     WindowsWin32SystemMapiJniBridge.windowssysWindowsWin32SystemMapiMAPIFreeBuffer(pv.rawAddress).toUInt()

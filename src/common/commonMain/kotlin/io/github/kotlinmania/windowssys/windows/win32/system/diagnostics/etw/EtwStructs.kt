@@ -2,7 +2,6 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.system.diagnostics.etw
 
-import io.github.kotlinmania.rustlang.core.ffi.CVoid
 import io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
 import io.github.kotlinmania.rustlang.core.mem.TypeLayout
 import io.github.kotlinmania.rustlang.core.ptr.ConstPtr
@@ -59,10 +58,10 @@ public class EnableTraceParameters internal constructor(
     public var enableProperty: UInt,
     public var controlFlags: UInt,
     public var sourceId: Guid,
-    enableFilterDescCtorArg: MutPtr<EventFilterDescriptor>,
+    enableFilterDescCtorArg: MutPtr,
     public var filterDescCount: UInt,
 ) {
-    public var enableFilterDesc: MutPtr<EventFilterDescriptor> = enableFilterDescCtorArg
+    public var enableFilterDesc: MutPtr = enableFilterDescCtorArg
         internal set
 
     public constructor() : this(
@@ -82,11 +81,11 @@ public class EnableTraceParameters internal constructor(
 
     public operator fun component4(): Guid = this.sourceId
 
-    public operator fun component5(): MutPtr<EventFilterDescriptor> = this.enableFilterDesc
+    public operator fun component5(): MutPtr = this.enableFilterDesc
 
     public operator fun component6(): UInt = this.filterDescCount
 
-    public fun copy(version: UInt = this.version, enableProperty: UInt = this.enableProperty, controlFlags: UInt = this.controlFlags, sourceId: Guid = this.sourceId, enableFilterDesc: MutPtr<EventFilterDescriptor> = this.enableFilterDesc, filterDescCount: UInt = this.filterDescCount): EnableTraceParameters = EnableTraceParameters(version = version, enableProperty = enableProperty, controlFlags = controlFlags, sourceId = sourceId, enableFilterDescCtorArg = enableFilterDesc, filterDescCount = filterDescCount)
+    public fun copy(version: UInt = this.version, enableProperty: UInt = this.enableProperty, controlFlags: UInt = this.controlFlags, sourceId: Guid = this.sourceId, enableFilterDesc: MutPtr = this.enableFilterDesc, filterDescCount: UInt = this.filterDescCount): EnableTraceParameters = EnableTraceParameters(version = version, enableProperty = enableProperty, controlFlags = controlFlags, sourceId = sourceId, enableFilterDescCtorArg = enableFilterDesc, filterDescCount = filterDescCount)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -116,7 +115,7 @@ public class EnableTraceParameters internal constructor(
             enableProperty: UInt = 0u,
             controlFlags: UInt = 0u,
             sourceId: Guid = Guid(),
-            enableFilterDesc: MutPtr<EventFilterDescriptor> = MutPtr(0L),
+            enableFilterDesc: MutPtr = MutPtr(0L),
             filterDescCount: UInt = 0u,
         ): EnableTraceParameters =
             EnableTraceParameters(
@@ -135,9 +134,9 @@ public class EnableTraceParametersV1 internal constructor(
     public var enableProperty: UInt,
     public var controlFlags: UInt,
     public var sourceId: Guid,
-    enableFilterDescCtorArg: MutPtr<EventFilterDescriptor>,
+    enableFilterDescCtorArg: MutPtr,
 ) {
-    public var enableFilterDesc: MutPtr<EventFilterDescriptor> = enableFilterDescCtorArg
+    public var enableFilterDesc: MutPtr = enableFilterDescCtorArg
         internal set
 
     public constructor() : this(
@@ -156,9 +155,9 @@ public class EnableTraceParametersV1 internal constructor(
 
     public operator fun component4(): Guid = this.sourceId
 
-    public operator fun component5(): MutPtr<EventFilterDescriptor> = this.enableFilterDesc
+    public operator fun component5(): MutPtr = this.enableFilterDesc
 
-    public fun copy(version: UInt = this.version, enableProperty: UInt = this.enableProperty, controlFlags: UInt = this.controlFlags, sourceId: Guid = this.sourceId, enableFilterDesc: MutPtr<EventFilterDescriptor> = this.enableFilterDesc): EnableTraceParametersV1 = EnableTraceParametersV1(version = version, enableProperty = enableProperty, controlFlags = controlFlags, sourceId = sourceId, enableFilterDescCtorArg = enableFilterDesc)
+    public fun copy(version: UInt = this.version, enableProperty: UInt = this.enableProperty, controlFlags: UInt = this.controlFlags, sourceId: Guid = this.sourceId, enableFilterDesc: MutPtr = this.enableFilterDesc): EnableTraceParametersV1 = EnableTraceParametersV1(version = version, enableProperty = enableProperty, controlFlags = controlFlags, sourceId = sourceId, enableFilterDescCtorArg = enableFilterDesc)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -186,7 +185,7 @@ public class EnableTraceParametersV1 internal constructor(
             enableProperty: UInt = 0u,
             controlFlags: UInt = 0u,
             sourceId: Guid = Guid(),
-            enableFilterDesc: MutPtr<EventFilterDescriptor> = MutPtr(0L),
+            enableFilterDesc: MutPtr = MutPtr(0L),
         ): EnableTraceParametersV1 =
             EnableTraceParametersV1(
                 version = version,
@@ -200,10 +199,10 @@ public class EnableTraceParametersV1 internal constructor(
 
 public class EtwBufferCallbackInformation internal constructor(
     public var traceHandle: ULong,
-    logfileHeaderCtorArg: ConstPtr<TraceLogfileHeader>,
+    logfileHeaderCtorArg: ConstPtr,
     public var buffersRead: UInt,
 ) {
-    public var logfileHeader: ConstPtr<TraceLogfileHeader> = logfileHeaderCtorArg
+    public var logfileHeader: ConstPtr = logfileHeaderCtorArg
         internal set
 
     public constructor() : this(
@@ -214,11 +213,11 @@ public class EtwBufferCallbackInformation internal constructor(
 
     public operator fun component1(): ULong = this.traceHandle
 
-    public operator fun component2(): ConstPtr<TraceLogfileHeader> = this.logfileHeader
+    public operator fun component2(): ConstPtr = this.logfileHeader
 
     public operator fun component3(): UInt = this.buffersRead
 
-    public fun copy(traceHandle: ULong = this.traceHandle, logfileHeader: ConstPtr<TraceLogfileHeader> = this.logfileHeader, buffersRead: UInt = this.buffersRead): EtwBufferCallbackInformation = EtwBufferCallbackInformation(traceHandle = traceHandle, logfileHeaderCtorArg = logfileHeader, buffersRead = buffersRead)
+    public fun copy(traceHandle: ULong = this.traceHandle, logfileHeader: ConstPtr = this.logfileHeader, buffersRead: UInt = this.buffersRead): EtwBufferCallbackInformation = EtwBufferCallbackInformation(traceHandle = traceHandle, logfileHeaderCtorArg = logfileHeader, buffersRead = buffersRead)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -246,7 +245,7 @@ public class EtwBufferCallbackInformation internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U64).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .constPtrLayout<TraceLogfileHeader>(64)
+                                .constPtrLayout(64)
                         ).readNative(addr + 8L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 16L),
                     )
@@ -254,7 +253,7 @@ public class EtwBufferCallbackInformation internal constructor(
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U64).writeNative(addr, value.traceHandle)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .constPtrLayout<TraceLogfileHeader>(64)
+                            .constPtrLayout(64)
                     ).writeNative(addr + 8L, value.logfileHeader)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 16L, value.buffersRead)
                 }
@@ -262,7 +261,7 @@ public class EtwBufferCallbackInformation internal constructor(
 
         public operator fun invoke(
             traceHandle: ULong = 0uL,
-            logfileHeader: ConstPtr<TraceLogfileHeader> = ConstPtr(0L),
+            logfileHeader: ConstPtr = ConstPtr(0L),
             buffersRead: UInt = 0u,
         ): EtwBufferCallbackInformation =
             EtwBufferCallbackInformation(
@@ -342,14 +341,14 @@ public data class EtwBufferHeader(
 public class EtwOpenTraceOptions internal constructor(
     public var processTraceModes: EtwProcessTraceModes,
     public var eventCallback: PeventRecordCallback,
-    eventCallbackContextCtorArg: MutPtr<CVoid>,
+    eventCallbackContextCtorArg: MutPtr,
     public var bufferCallback: PetwBufferCallback,
-    bufferCallbackContextCtorArg: MutPtr<CVoid>,
+    bufferCallbackContextCtorArg: MutPtr,
 ) {
-    public var eventCallbackContext: MutPtr<CVoid> = eventCallbackContextCtorArg
+    public var eventCallbackContext: MutPtr = eventCallbackContextCtorArg
         internal set
 
-    public var bufferCallbackContext: MutPtr<CVoid> = bufferCallbackContextCtorArg
+    public var bufferCallbackContext: MutPtr = bufferCallbackContextCtorArg
         internal set
 
     public constructor() : this(
@@ -364,13 +363,13 @@ public class EtwOpenTraceOptions internal constructor(
 
     public operator fun component2(): PeventRecordCallback = this.eventCallback
 
-    public operator fun component3(): MutPtr<CVoid> = this.eventCallbackContext
+    public operator fun component3(): MutPtr = this.eventCallbackContext
 
     public operator fun component4(): PetwBufferCallback = this.bufferCallback
 
-    public operator fun component5(): MutPtr<CVoid> = this.bufferCallbackContext
+    public operator fun component5(): MutPtr = this.bufferCallbackContext
 
-    public fun copy(processTraceModes: EtwProcessTraceModes = this.processTraceModes, eventCallback: PeventRecordCallback = this.eventCallback, eventCallbackContext: MutPtr<CVoid> = this.eventCallbackContext, bufferCallback: PetwBufferCallback = this.bufferCallback, bufferCallbackContext: MutPtr<CVoid> = this.bufferCallbackContext): EtwOpenTraceOptions = EtwOpenTraceOptions(processTraceModes = processTraceModes, eventCallback = eventCallback, eventCallbackContextCtorArg = eventCallbackContext, bufferCallback = bufferCallback, bufferCallbackContextCtorArg = bufferCallbackContext)
+    public fun copy(processTraceModes: EtwProcessTraceModes = this.processTraceModes, eventCallback: PeventRecordCallback = this.eventCallback, eventCallbackContext: MutPtr = this.eventCallbackContext, bufferCallback: PetwBufferCallback = this.bufferCallback, bufferCallbackContext: MutPtr = this.bufferCallbackContext): EtwOpenTraceOptions = EtwOpenTraceOptions(processTraceModes = processTraceModes, eventCallback = eventCallback, eventCallbackContextCtorArg = eventCallbackContext, bufferCallback = bufferCallback, bufferCallbackContextCtorArg = bufferCallbackContext)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -396,9 +395,9 @@ public class EtwOpenTraceOptions internal constructor(
         public operator fun invoke(
             processTraceModes: EtwProcessTraceModes = 0,
             eventCallback: PeventRecordCallback = null,
-            eventCallbackContext: MutPtr<CVoid> = MutPtr(0L),
+            eventCallbackContext: MutPtr = MutPtr(0L),
             bufferCallback: PetwBufferCallback = null,
-            bufferCallbackContext: MutPtr<CVoid> = MutPtr(0L),
+            bufferCallbackContext: MutPtr = MutPtr(0L),
         ): EtwOpenTraceOptions =
             EtwOpenTraceOptions(
                 processTraceModes = processTraceModes,
@@ -1528,17 +1527,17 @@ public class EventRecord internal constructor(
     public var bufferContext: EtwBufferContext,
     public var extendedDataCount: UShort,
     public var userDataLength: UShort,
-    extendedDataCtorArg: MutPtr<EventHeaderExtendedDataItem>,
-    userDataCtorArg: MutPtr<CVoid>,
-    userContextCtorArg: MutPtr<CVoid>,
+    extendedDataCtorArg: MutPtr,
+    userDataCtorArg: MutPtr,
+    userContextCtorArg: MutPtr,
 ) {
-    public var extendedData: MutPtr<EventHeaderExtendedDataItem> = extendedDataCtorArg
+    public var extendedData: MutPtr = extendedDataCtorArg
         internal set
 
-    public var userData: MutPtr<CVoid> = userDataCtorArg
+    public var userData: MutPtr = userDataCtorArg
         internal set
 
-    public var userContext: MutPtr<CVoid> = userContextCtorArg
+    public var userContext: MutPtr = userContextCtorArg
         internal set
 
     public constructor() : this(
@@ -1559,13 +1558,13 @@ public class EventRecord internal constructor(
 
     public operator fun component4(): UShort = this.userDataLength
 
-    public operator fun component5(): MutPtr<EventHeaderExtendedDataItem> = this.extendedData
+    public operator fun component5(): MutPtr = this.extendedData
 
-    public operator fun component6(): MutPtr<CVoid> = this.userData
+    public operator fun component6(): MutPtr = this.userData
 
-    public operator fun component7(): MutPtr<CVoid> = this.userContext
+    public operator fun component7(): MutPtr = this.userContext
 
-    public fun copy(eventHeader: EventHeader = this.eventHeader, bufferContext: EtwBufferContext = this.bufferContext, extendedDataCount: UShort = this.extendedDataCount, userDataLength: UShort = this.userDataLength, extendedData: MutPtr<EventHeaderExtendedDataItem> = this.extendedData, userData: MutPtr<CVoid> = this.userData, userContext: MutPtr<CVoid> = this.userContext): EventRecord = EventRecord(eventHeader = eventHeader, bufferContext = bufferContext, extendedDataCount = extendedDataCount, userDataLength = userDataLength, extendedDataCtorArg = extendedData, userDataCtorArg = userData, userContextCtorArg = userContext)
+    public fun copy(eventHeader: EventHeader = this.eventHeader, bufferContext: EtwBufferContext = this.bufferContext, extendedDataCount: UShort = this.extendedDataCount, userDataLength: UShort = this.userDataLength, extendedData: MutPtr = this.extendedData, userData: MutPtr = this.userData, userContext: MutPtr = this.userContext): EventRecord = EventRecord(eventHeader = eventHeader, bufferContext = bufferContext, extendedDataCount = extendedDataCount, userDataLength = userDataLength, extendedDataCtorArg = extendedData, userDataCtorArg = userData, userContextCtorArg = userContext)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -1597,9 +1596,9 @@ public class EventRecord internal constructor(
             bufferContext: EtwBufferContext = EtwBufferContext(),
             extendedDataCount: UShort = 0u,
             userDataLength: UShort = 0u,
-            extendedData: MutPtr<EventHeaderExtendedDataItem> = MutPtr(0L),
-            userData: MutPtr<CVoid> = MutPtr(0L),
-            userContext: MutPtr<CVoid> = MutPtr(0L),
+            extendedData: MutPtr = MutPtr(0L),
+            userData: MutPtr = MutPtr(0L),
+            userContext: MutPtr = MutPtr(0L),
         ): EventRecord =
             EventRecord(
                 eventHeader = eventHeader,
@@ -1618,11 +1617,11 @@ public class EventTrace internal constructor(
     public var instanceId: UInt,
     public var parentInstanceId: UInt,
     public var parentGuid: Guid,
-    mofDataCtorArg: MutPtr<CVoid>,
+    mofDataCtorArg: MutPtr,
     public var mofLength: UInt,
     public var anonymous: EventTrace0,
 ) {
-    public var mofData: MutPtr<CVoid> = mofDataCtorArg
+    public var mofData: MutPtr = mofDataCtorArg
         internal set
 
     public constructor() : this(
@@ -1643,13 +1642,13 @@ public class EventTrace internal constructor(
 
     public operator fun component4(): Guid = this.parentGuid
 
-    public operator fun component5(): MutPtr<CVoid> = this.mofData
+    public operator fun component5(): MutPtr = this.mofData
 
     public operator fun component6(): UInt = this.mofLength
 
     public operator fun component7(): EventTrace0 = this.anonymous
 
-    public fun copy(header: EventTraceHeader = this.header, instanceId: UInt = this.instanceId, parentInstanceId: UInt = this.parentInstanceId, parentGuid: Guid = this.parentGuid, mofData: MutPtr<CVoid> = this.mofData, mofLength: UInt = this.mofLength, anonymous: EventTrace0 = this.anonymous): EventTrace = EventTrace(header = header, instanceId = instanceId, parentInstanceId = parentInstanceId, parentGuid = parentGuid, mofDataCtorArg = mofData, mofLength = mofLength, anonymous = anonymous)
+    public fun copy(header: EventTraceHeader = this.header, instanceId: UInt = this.instanceId, parentInstanceId: UInt = this.parentInstanceId, parentGuid: Guid = this.parentGuid, mofData: MutPtr = this.mofData, mofLength: UInt = this.mofLength, anonymous: EventTrace0 = this.anonymous): EventTrace = EventTrace(header = header, instanceId = instanceId, parentInstanceId = parentInstanceId, parentGuid = parentGuid, mofDataCtorArg = mofData, mofLength = mofLength, anonymous = anonymous)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -1681,7 +1680,7 @@ public class EventTrace internal constructor(
             instanceId: UInt = 0u,
             parentInstanceId: UInt = 0u,
             parentGuid: Guid = Guid(),
-            mofData: MutPtr<CVoid> = MutPtr(0L),
+            mofData: MutPtr = MutPtr(0L),
             mofLength: UInt = 0u,
             anonymous: EventTrace0 = EventTrace0(),
         ): EventTrace =
@@ -1839,7 +1838,7 @@ public class EventTraceLogfilea internal constructor(
     public var eventsLost: UInt,
     public var anonymous2: EventTraceLogfilea1,
     public var isKernelTrace: UInt,
-    contextCtorArg: MutPtr<CVoid>,
+    contextCtorArg: MutPtr,
 ) {
     public var logFileName: Pstr = logFileNameCtorArg
         internal set
@@ -1847,7 +1846,7 @@ public class EventTraceLogfilea internal constructor(
     public var loggerName: Pstr = loggerNameCtorArg
         internal set
 
-    public var context: MutPtr<CVoid> = contextCtorArg
+    public var context: MutPtr = contextCtorArg
         internal set
 
     public constructor() : this(
@@ -1893,9 +1892,9 @@ public class EventTraceLogfilea internal constructor(
 
     public operator fun component13(): UInt = this.isKernelTrace
 
-    public operator fun component14(): MutPtr<CVoid> = this.context
+    public operator fun component14(): MutPtr = this.context
 
-    public fun copy(logFileName: Pstr = this.logFileName, loggerName: Pstr = this.loggerName, currentTime: Long = this.currentTime, buffersRead: UInt = this.buffersRead, anonymous1: EventTraceLogfilea0 = this.anonymous1, currentEvent: EventTrace = this.currentEvent, logfileHeader: TraceLogfileHeader = this.logfileHeader, bufferCallback: PeventTraceBufferCallbacka = this.bufferCallback, bufferSize: UInt = this.bufferSize, filled: UInt = this.filled, eventsLost: UInt = this.eventsLost, anonymous2: EventTraceLogfilea1 = this.anonymous2, isKernelTrace: UInt = this.isKernelTrace, context: MutPtr<CVoid> = this.context): EventTraceLogfilea = EventTraceLogfilea(logFileNameCtorArg = logFileName, loggerNameCtorArg = loggerName, currentTime = currentTime, buffersRead = buffersRead, anonymous1 = anonymous1, currentEvent = currentEvent, logfileHeader = logfileHeader, bufferCallback = bufferCallback, bufferSize = bufferSize, filled = filled, eventsLost = eventsLost, anonymous2 = anonymous2, isKernelTrace = isKernelTrace, contextCtorArg = context)
+    public fun copy(logFileName: Pstr = this.logFileName, loggerName: Pstr = this.loggerName, currentTime: Long = this.currentTime, buffersRead: UInt = this.buffersRead, anonymous1: EventTraceLogfilea0 = this.anonymous1, currentEvent: EventTrace = this.currentEvent, logfileHeader: TraceLogfileHeader = this.logfileHeader, bufferCallback: PeventTraceBufferCallbacka = this.bufferCallback, bufferSize: UInt = this.bufferSize, filled: UInt = this.filled, eventsLost: UInt = this.eventsLost, anonymous2: EventTraceLogfilea1 = this.anonymous2, isKernelTrace: UInt = this.isKernelTrace, context: MutPtr = this.context): EventTraceLogfilea = EventTraceLogfilea(logFileNameCtorArg = logFileName, loggerNameCtorArg = loggerName, currentTime = currentTime, buffersRead = buffersRead, anonymous1 = anonymous1, currentEvent = currentEvent, logfileHeader = logfileHeader, bufferCallback = bufferCallback, bufferSize = bufferSize, filled = filled, eventsLost = eventsLost, anonymous2 = anonymous2, isKernelTrace = isKernelTrace, contextCtorArg = context)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -1950,7 +1949,7 @@ public class EventTraceLogfilea internal constructor(
             eventsLost: UInt = 0u,
             anonymous2: EventTraceLogfilea1 = EventTraceLogfilea1(),
             isKernelTrace: UInt = 0u,
-            context: MutPtr<CVoid> = MutPtr(0L),
+            context: MutPtr = MutPtr(0L),
         ): EventTraceLogfilea =
             EventTraceLogfilea(
                 logFileNameCtorArg = logFileName,
@@ -1995,7 +1994,7 @@ public class EventTraceLogfilew internal constructor(
     public var eventsLost: UInt,
     public var anonymous2: EventTraceLogfilew1,
     public var isKernelTrace: UInt,
-    contextCtorArg: MutPtr<CVoid>,
+    contextCtorArg: MutPtr,
 ) {
     public var logFileName: Pwstr = logFileNameCtorArg
         internal set
@@ -2003,7 +2002,7 @@ public class EventTraceLogfilew internal constructor(
     public var loggerName: Pwstr = loggerNameCtorArg
         internal set
 
-    public var context: MutPtr<CVoid> = contextCtorArg
+    public var context: MutPtr = contextCtorArg
         internal set
 
     public constructor() : this(
@@ -2049,9 +2048,9 @@ public class EventTraceLogfilew internal constructor(
 
     public operator fun component13(): UInt = this.isKernelTrace
 
-    public operator fun component14(): MutPtr<CVoid> = this.context
+    public operator fun component14(): MutPtr = this.context
 
-    public fun copy(logFileName: Pwstr = this.logFileName, loggerName: Pwstr = this.loggerName, currentTime: Long = this.currentTime, buffersRead: UInt = this.buffersRead, anonymous1: EventTraceLogfilew0 = this.anonymous1, currentEvent: EventTrace = this.currentEvent, logfileHeader: TraceLogfileHeader = this.logfileHeader, bufferCallback: PeventTraceBufferCallbackw = this.bufferCallback, bufferSize: UInt = this.bufferSize, filled: UInt = this.filled, eventsLost: UInt = this.eventsLost, anonymous2: EventTraceLogfilew1 = this.anonymous2, isKernelTrace: UInt = this.isKernelTrace, context: MutPtr<CVoid> = this.context): EventTraceLogfilew = EventTraceLogfilew(logFileNameCtorArg = logFileName, loggerNameCtorArg = loggerName, currentTime = currentTime, buffersRead = buffersRead, anonymous1 = anonymous1, currentEvent = currentEvent, logfileHeader = logfileHeader, bufferCallback = bufferCallback, bufferSize = bufferSize, filled = filled, eventsLost = eventsLost, anonymous2 = anonymous2, isKernelTrace = isKernelTrace, contextCtorArg = context)
+    public fun copy(logFileName: Pwstr = this.logFileName, loggerName: Pwstr = this.loggerName, currentTime: Long = this.currentTime, buffersRead: UInt = this.buffersRead, anonymous1: EventTraceLogfilew0 = this.anonymous1, currentEvent: EventTrace = this.currentEvent, logfileHeader: TraceLogfileHeader = this.logfileHeader, bufferCallback: PeventTraceBufferCallbackw = this.bufferCallback, bufferSize: UInt = this.bufferSize, filled: UInt = this.filled, eventsLost: UInt = this.eventsLost, anonymous2: EventTraceLogfilew1 = this.anonymous2, isKernelTrace: UInt = this.isKernelTrace, context: MutPtr = this.context): EventTraceLogfilew = EventTraceLogfilew(logFileNameCtorArg = logFileName, loggerNameCtorArg = loggerName, currentTime = currentTime, buffersRead = buffersRead, anonymous1 = anonymous1, currentEvent = currentEvent, logfileHeader = logfileHeader, bufferCallback = bufferCallback, bufferSize = bufferSize, filled = filled, eventsLost = eventsLost, anonymous2 = anonymous2, isKernelTrace = isKernelTrace, contextCtorArg = context)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -2106,7 +2105,7 @@ public class EventTraceLogfilew internal constructor(
             eventsLost: UInt = 0u,
             anonymous2: EventTraceLogfilew1 = EventTraceLogfilew1(),
             isKernelTrace: UInt = 0u,
-            context: MutPtr<CVoid> = MutPtr(0L),
+            context: MutPtr = MutPtr(0L),
         ): EventTraceLogfilew =
             EventTraceLogfilew(
                 logFileNameCtorArg = logFileName,
@@ -2251,13 +2250,13 @@ public class EventTracePropertiesV2 internal constructor(
     public var loggerNameOffset: UInt,
     public var anonymous2: EventTracePropertiesV21,
     public var filterDescCount: UInt,
-    filterDescCtorArg: MutPtr<EventFilterDescriptor>,
+    filterDescCtorArg: MutPtr,
     public var anonymous3: EventTracePropertiesV22,
 ) {
     public var loggerThreadId: Handle = loggerThreadIdCtorArg
         internal set
 
-    public var filterDesc: MutPtr<EventFilterDescriptor> = filterDescCtorArg
+    public var filterDesc: MutPtr = filterDescCtorArg
         internal set
 
     public constructor() : this(
@@ -2307,7 +2306,7 @@ public class EventTracePropertiesV2 internal constructor(
             loggerNameOffset: UInt = 0u,
             anonymous2: EventTracePropertiesV21 = EventTracePropertiesV21(),
             filterDescCount: UInt = 0u,
-            filterDesc: MutPtr<EventFilterDescriptor> = MutPtr(0L),
+            filterDesc: MutPtr = MutPtr(0L),
             anonymous3: EventTracePropertiesV22 = EventTracePropertiesV22(),
         ): EventTracePropertiesV2 =
             EventTracePropertiesV2(
@@ -2873,10 +2872,10 @@ public data class TraceGuidProperties(
 )
 
 public class TraceGuidRegistration internal constructor(
-    guidCtorArg: ConstPtr<Guid>,
+    guidCtorArg: ConstPtr,
     regHandleCtorArg: Handle,
 ) {
-    public var guid: ConstPtr<Guid> = guidCtorArg
+    public var guid: ConstPtr = guidCtorArg
         internal set
 
     public var regHandle: Handle = regHandleCtorArg
@@ -2887,11 +2886,11 @@ public class TraceGuidRegistration internal constructor(
         regHandleCtorArg = MutPtr(0L),
     )
 
-    public operator fun component1(): ConstPtr<Guid> = this.guid
+    public operator fun component1(): ConstPtr = this.guid
 
     public operator fun component2(): Handle = this.regHandle
 
-    public fun copy(guid: ConstPtr<Guid> = this.guid, regHandle: Handle = this.regHandle): TraceGuidRegistration = TraceGuidRegistration(guidCtorArg = guid, regHandleCtorArg = regHandle)
+    public fun copy(guid: ConstPtr = this.guid, regHandle: Handle = this.regHandle): TraceGuidRegistration = TraceGuidRegistration(guidCtorArg = guid, regHandleCtorArg = regHandle)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -2909,7 +2908,7 @@ public class TraceGuidRegistration internal constructor(
 
     public companion object {
         public operator fun invoke(
-            guid: ConstPtr<Guid> = ConstPtr(0L),
+            guid: ConstPtr = ConstPtr(0L),
             regHandle: Handle = MutPtr(0L),
         ): TraceGuidRegistration =
             TraceGuidRegistration(

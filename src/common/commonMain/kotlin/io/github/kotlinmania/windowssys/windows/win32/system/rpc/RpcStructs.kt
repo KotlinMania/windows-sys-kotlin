@@ -2,7 +2,6 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.system.rpc
 
-import io.github.kotlinmania.rustlang.core.ffi.CVoid
 import io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
 import io.github.kotlinmania.rustlang.core.mem.TypeLayout
 import io.github.kotlinmania.rustlang.core.ptr.ConstPtr
@@ -16,29 +15,28 @@ import io.github.kotlinmania.windowssys.windows.win32.foundation.Handle
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Hwnd
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Systemtime
 import io.github.kotlinmania.windowssys.windows.win32.system.com.RpcCImpLevel
-import io.github.kotlinmania.windowssys.windows.win32.system.io.Overlapped
 
 public class ArrayInfo internal constructor(
     public var dimension: Int,
-    bufferConformanceMarkCtorArg: MutPtr<UInt>,
-    bufferVarianceMarkCtorArg: MutPtr<UInt>,
-    maxCountArrayCtorArg: MutPtr<UInt>,
-    offsetArrayCtorArg: MutPtr<UInt>,
-    actualCountArrayCtorArg: MutPtr<UInt>,
+    bufferConformanceMarkCtorArg: MutPtr,
+    bufferVarianceMarkCtorArg: MutPtr,
+    maxCountArrayCtorArg: MutPtr,
+    offsetArrayCtorArg: MutPtr,
+    actualCountArrayCtorArg: MutPtr,
 ) {
-    public var bufferConformanceMark: MutPtr<UInt> = bufferConformanceMarkCtorArg
+    public var bufferConformanceMark: MutPtr = bufferConformanceMarkCtorArg
         internal set
 
-    public var bufferVarianceMark: MutPtr<UInt> = bufferVarianceMarkCtorArg
+    public var bufferVarianceMark: MutPtr = bufferVarianceMarkCtorArg
         internal set
 
-    public var maxCountArray: MutPtr<UInt> = maxCountArrayCtorArg
+    public var maxCountArray: MutPtr = maxCountArrayCtorArg
         internal set
 
-    public var offsetArray: MutPtr<UInt> = offsetArrayCtorArg
+    public var offsetArray: MutPtr = offsetArrayCtorArg
         internal set
 
-    public var actualCountArray: MutPtr<UInt> = actualCountArrayCtorArg
+    public var actualCountArray: MutPtr = actualCountArrayCtorArg
         internal set
 
     public constructor() : this(
@@ -52,17 +50,17 @@ public class ArrayInfo internal constructor(
 
     public operator fun component1(): Int = this.dimension
 
-    public operator fun component2(): MutPtr<UInt> = this.bufferConformanceMark
+    public operator fun component2(): MutPtr = this.bufferConformanceMark
 
-    public operator fun component3(): MutPtr<UInt> = this.bufferVarianceMark
+    public operator fun component3(): MutPtr = this.bufferVarianceMark
 
-    public operator fun component4(): MutPtr<UInt> = this.maxCountArray
+    public operator fun component4(): MutPtr = this.maxCountArray
 
-    public operator fun component5(): MutPtr<UInt> = this.offsetArray
+    public operator fun component5(): MutPtr = this.offsetArray
 
-    public operator fun component6(): MutPtr<UInt> = this.actualCountArray
+    public operator fun component6(): MutPtr = this.actualCountArray
 
-    public fun copy(dimension: Int = this.dimension, bufferConformanceMark: MutPtr<UInt> = this.bufferConformanceMark, bufferVarianceMark: MutPtr<UInt> = this.bufferVarianceMark, maxCountArray: MutPtr<UInt> = this.maxCountArray, offsetArray: MutPtr<UInt> = this.offsetArray, actualCountArray: MutPtr<UInt> = this.actualCountArray): ArrayInfo = ArrayInfo(dimension = dimension, bufferConformanceMarkCtorArg = bufferConformanceMark, bufferVarianceMarkCtorArg = bufferVarianceMark, maxCountArrayCtorArg = maxCountArray, offsetArrayCtorArg = offsetArray, actualCountArrayCtorArg = actualCountArray)
+    public fun copy(dimension: Int = this.dimension, bufferConformanceMark: MutPtr = this.bufferConformanceMark, bufferVarianceMark: MutPtr = this.bufferVarianceMark, maxCountArray: MutPtr = this.maxCountArray, offsetArray: MutPtr = this.offsetArray, actualCountArray: MutPtr = this.actualCountArray): ArrayInfo = ArrayInfo(dimension = dimension, bufferConformanceMarkCtorArg = bufferConformanceMark, bufferVarianceMarkCtorArg = bufferVarianceMark, maxCountArrayCtorArg = maxCountArray, offsetArrayCtorArg = offsetArray, actualCountArrayCtorArg = actualCountArray)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -96,57 +94,57 @@ public class ArrayInfo internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<UInt>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<UInt>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 16L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<UInt>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 24L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<UInt>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 32L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<UInt>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 40L),
                     )
                 override fun writeNative(addr: Long, value: ArrayInfo) {
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr, value.dimension)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<UInt>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.bufferConformanceMark)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<UInt>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 16L, value.bufferVarianceMark)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<UInt>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 24L, value.maxCountArray)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<UInt>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 32L, value.offsetArray)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<UInt>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 40L, value.actualCountArray)
                 }
             }
 
         public operator fun invoke(
             dimension: Int = 0,
-            bufferConformanceMark: MutPtr<UInt> = MutPtr(0L),
-            bufferVarianceMark: MutPtr<UInt> = MutPtr(0L),
-            maxCountArray: MutPtr<UInt> = MutPtr(0L),
-            offsetArray: MutPtr<UInt> = MutPtr(0L),
-            actualCountArray: MutPtr<UInt> = MutPtr(0L),
+            bufferConformanceMark: MutPtr = MutPtr(0L),
+            bufferVarianceMark: MutPtr = MutPtr(0L),
+            maxCountArray: MutPtr = MutPtr(0L),
+            offsetArray: MutPtr = MutPtr(0L),
+            actualCountArray: MutPtr = MutPtr(0L),
         ): ArrayInfo =
             ArrayInfo(
                 dimension = dimension,
@@ -160,10 +158,10 @@ public class ArrayInfo internal constructor(
 }
 
 public class BinaryParam internal constructor(
-    bufferCtorArg: MutPtr<CVoid>,
+    bufferCtorArg: MutPtr,
     public var size: Short,
 ) {
-    public var buffer: MutPtr<CVoid> = bufferCtorArg
+    public var buffer: MutPtr = bufferCtorArg
         internal set
 
     public constructor() : this(
@@ -171,11 +169,11 @@ public class BinaryParam internal constructor(
         size = 0,
     )
 
-    public operator fun component1(): MutPtr<CVoid> = this.buffer
+    public operator fun component1(): MutPtr = this.buffer
 
     public operator fun component2(): Short = this.size
 
-    public fun copy(buffer: MutPtr<CVoid> = this.buffer, size: Short = this.size): BinaryParam = BinaryParam(bufferCtorArg = buffer, size = size)
+    public fun copy(buffer: MutPtr = this.buffer, size: Short = this.size): BinaryParam = BinaryParam(bufferCtorArg = buffer, size = size)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -200,21 +198,21 @@ public class BinaryParam internal constructor(
                     BinaryParam(
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<CVoid>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I16).readNative(addr + 8L),
                     )
                 override fun writeNative(addr: Long, value: BinaryParam) {
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<CVoid>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr, value.buffer)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I16).writeNative(addr + 8L, value.size)
                 }
             }
 
         public operator fun invoke(
-            buffer: MutPtr<CVoid> = MutPtr(0L),
+            buffer: MutPtr = MutPtr(0L),
             size: Short = 0,
         ): BinaryParam =
             BinaryParam(
@@ -225,10 +223,10 @@ public class BinaryParam internal constructor(
 }
 
 public class ClientCallReturn internal constructor(
-    pointerCtorArg: MutPtr<CVoid>,
+    pointerCtorArg: MutPtr,
     public var simple: Int,
 ) {
-    public var pointer: MutPtr<CVoid> = pointerCtorArg
+    public var pointer: MutPtr = pointerCtorArg
         internal set
 
     public constructor() : this(
@@ -236,11 +234,11 @@ public class ClientCallReturn internal constructor(
         simple = 0,
     )
 
-    public operator fun component1(): MutPtr<CVoid> = this.pointer
+    public operator fun component1(): MutPtr = this.pointer
 
     public operator fun component2(): Int = this.simple
 
-    public fun copy(pointer: MutPtr<CVoid> = this.pointer, simple: Int = this.simple): ClientCallReturn = ClientCallReturn(pointerCtorArg = pointer, simple = simple)
+    public fun copy(pointer: MutPtr = this.pointer, simple: Int = this.simple): ClientCallReturn = ClientCallReturn(pointerCtorArg = pointer, simple = simple)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -258,7 +256,7 @@ public class ClientCallReturn internal constructor(
 
     public companion object {
         public operator fun invoke(
-            pointer: MutPtr<CVoid> = MutPtr(0L),
+            pointer: MutPtr = MutPtr(0L),
             simple: Int = 0,
         ): ClientCallReturn =
             ClientCallReturn(
@@ -291,15 +289,15 @@ public data class CommFaultOffsets(
 }
 
 public class FullPtrXlatTables internal constructor(
-    refIdToPointerCtorArg: MutPtr<CVoid>,
-    pointerToRefIdCtorArg: MutPtr<CVoid>,
+    refIdToPointerCtorArg: MutPtr,
+    pointerToRefIdCtorArg: MutPtr,
     public var nextRefId: UInt,
     public var xlatSide: XlatSide,
 ) {
-    public var refIdToPointer: MutPtr<CVoid> = refIdToPointerCtorArg
+    public var refIdToPointer: MutPtr = refIdToPointerCtorArg
         internal set
 
-    public var pointerToRefId: MutPtr<CVoid> = pointerToRefIdCtorArg
+    public var pointerToRefId: MutPtr = pointerToRefIdCtorArg
         internal set
 
     public constructor() : this(
@@ -309,15 +307,15 @@ public class FullPtrXlatTables internal constructor(
         xlatSide = 0,
     )
 
-    public operator fun component1(): MutPtr<CVoid> = this.refIdToPointer
+    public operator fun component1(): MutPtr = this.refIdToPointer
 
-    public operator fun component2(): MutPtr<CVoid> = this.pointerToRefId
+    public operator fun component2(): MutPtr = this.pointerToRefId
 
     public operator fun component3(): UInt = this.nextRefId
 
     public operator fun component4(): XlatSide = this.xlatSide
 
-    public fun copy(refIdToPointer: MutPtr<CVoid> = this.refIdToPointer, pointerToRefId: MutPtr<CVoid> = this.pointerToRefId, nextRefId: UInt = this.nextRefId, xlatSide: XlatSide = this.xlatSide): FullPtrXlatTables = FullPtrXlatTables(refIdToPointerCtorArg = refIdToPointer, pointerToRefIdCtorArg = pointerToRefId, nextRefId = nextRefId, xlatSide = xlatSide)
+    public fun copy(refIdToPointer: MutPtr = this.refIdToPointer, pointerToRefId: MutPtr = this.pointerToRefId, nextRefId: UInt = this.nextRefId, xlatSide: XlatSide = this.xlatSide): FullPtrXlatTables = FullPtrXlatTables(refIdToPointerCtorArg = refIdToPointer, pointerToRefIdCtorArg = pointerToRefId, nextRefId = nextRefId, xlatSide = xlatSide)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -346,11 +344,11 @@ public class FullPtrXlatTables internal constructor(
                     FullPtrXlatTables(
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<CVoid>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<CVoid>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 16L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr + 20L),
@@ -358,11 +356,11 @@ public class FullPtrXlatTables internal constructor(
                 override fun writeNative(addr: Long, value: FullPtrXlatTables) {
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<CVoid>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr, value.refIdToPointer)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<CVoid>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.pointerToRefId)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 16L, value.nextRefId)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr + 20L, value.xlatSide)
@@ -370,8 +368,8 @@ public class FullPtrXlatTables internal constructor(
             }
 
         public operator fun invoke(
-            refIdToPointer: MutPtr<CVoid> = MutPtr(0L),
-            pointerToRefId: MutPtr<CVoid> = MutPtr(0L),
+            refIdToPointer: MutPtr = MutPtr(0L),
+            pointerToRefId: MutPtr = MutPtr(0L),
             nextRefId: UInt = 0u,
             xlatSide: XlatSide = 0,
         ): FullPtrXlatTables =
@@ -385,12 +383,12 @@ public class FullPtrXlatTables internal constructor(
 }
 
 public class GenericBindingInfo internal constructor(
-    pObjCtorArg: MutPtr<CVoid>,
+    pObjCtorArg: MutPtr,
     public var size: UInt,
     public var pfnBind: GenericBindingRoutine,
     public var pfnUnbind: GenericUnbindRoutine,
 ) {
-    public var pObj: MutPtr<CVoid> = pObjCtorArg
+    public var pObj: MutPtr = pObjCtorArg
         internal set
 
     public constructor() : this(
@@ -400,7 +398,7 @@ public class GenericBindingInfo internal constructor(
         pfnUnbind = null,
     )
 
-    public operator fun component1(): MutPtr<CVoid> = this.pObj
+    public operator fun component1(): MutPtr = this.pObj
 
     public operator fun component2(): UInt = this.size
 
@@ -408,7 +406,7 @@ public class GenericBindingInfo internal constructor(
 
     public operator fun component4(): GenericUnbindRoutine = this.pfnUnbind
 
-    public fun copy(pObj: MutPtr<CVoid> = this.pObj, size: UInt = this.size, pfnBind: GenericBindingRoutine = this.pfnBind, pfnUnbind: GenericUnbindRoutine = this.pfnUnbind): GenericBindingInfo = GenericBindingInfo(pObjCtorArg = pObj, size = size, pfnBind = pfnBind, pfnUnbind = pfnUnbind)
+    public fun copy(pObj: MutPtr = this.pObj, size: UInt = this.size, pfnBind: GenericBindingRoutine = this.pfnBind, pfnUnbind: GenericUnbindRoutine = this.pfnUnbind): GenericBindingInfo = GenericBindingInfo(pObjCtorArg = pObj, size = size, pfnBind = pfnBind, pfnUnbind = pfnUnbind)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -430,7 +428,7 @@ public class GenericBindingInfo internal constructor(
 
     public companion object {
         public operator fun invoke(
-            pObj: MutPtr<CVoid> = MutPtr(0L),
+            pObj: MutPtr = MutPtr(0L),
             size: UInt = 0u,
             pfnBind: GenericBindingRoutine = null,
             pfnUnbind: GenericUnbindRoutine = null,
@@ -527,18 +525,18 @@ public data class MidlFormatString(
 
 public class MidlInterceptionInfo internal constructor(
     public var version: UInt,
-    procStringCtorArg: MutPtr<UByte>,
-    procFormatOffsetTableCtorArg: ConstPtr<UShort>,
+    procStringCtorArg: MutPtr,
+    procFormatOffsetTableCtorArg: ConstPtr,
     public var procCount: UInt,
-    typeStringCtorArg: MutPtr<UByte>,
+    typeStringCtorArg: MutPtr,
 ) {
-    public var procString: MutPtr<UByte> = procStringCtorArg
+    public var procString: MutPtr = procStringCtorArg
         internal set
 
-    public var procFormatOffsetTable: ConstPtr<UShort> = procFormatOffsetTableCtorArg
+    public var procFormatOffsetTable: ConstPtr = procFormatOffsetTableCtorArg
         internal set
 
-    public var typeString: MutPtr<UByte> = typeStringCtorArg
+    public var typeString: MutPtr = typeStringCtorArg
         internal set
 
     public constructor() : this(
@@ -551,15 +549,15 @@ public class MidlInterceptionInfo internal constructor(
 
     public operator fun component1(): UInt = this.version
 
-    public operator fun component2(): MutPtr<UByte> = this.procString
+    public operator fun component2(): MutPtr = this.procString
 
-    public operator fun component3(): ConstPtr<UShort> = this.procFormatOffsetTable
+    public operator fun component3(): ConstPtr = this.procFormatOffsetTable
 
     public operator fun component4(): UInt = this.procCount
 
-    public operator fun component5(): MutPtr<UByte> = this.typeString
+    public operator fun component5(): MutPtr = this.typeString
 
-    public fun copy(version: UInt = this.version, procString: MutPtr<UByte> = this.procString, procFormatOffsetTable: ConstPtr<UShort> = this.procFormatOffsetTable, procCount: UInt = this.procCount, typeString: MutPtr<UByte> = this.typeString): MidlInterceptionInfo = MidlInterceptionInfo(version = version, procStringCtorArg = procString, procFormatOffsetTableCtorArg = procFormatOffsetTable, procCount = procCount, typeStringCtorArg = typeString)
+    public fun copy(version: UInt = this.version, procString: MutPtr = this.procString, procFormatOffsetTable: ConstPtr = this.procFormatOffsetTable, procCount: UInt = this.procCount, typeString: MutPtr = this.typeString): MidlInterceptionInfo = MidlInterceptionInfo(version = version, procStringCtorArg = procString, procFormatOffsetTableCtorArg = procFormatOffsetTable, procCount = procCount, typeStringCtorArg = typeString)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -591,42 +589,42 @@ public class MidlInterceptionInfo internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<UByte>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .constPtrLayout<UShort>(64)
+                                .constPtrLayout(64)
                         ).readNative(addr + 16L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 24L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<UByte>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 32L),
                     )
                 override fun writeNative(addr: Long, value: MidlInterceptionInfo) {
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr, value.version)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<UByte>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.procString)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .constPtrLayout<UShort>(64)
+                            .constPtrLayout(64)
                     ).writeNative(addr + 16L, value.procFormatOffsetTable)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 24L, value.procCount)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<UByte>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 32L, value.typeString)
                 }
             }
 
         public operator fun invoke(
             version: UInt = 0u,
-            procString: MutPtr<UByte> = MutPtr(0L),
-            procFormatOffsetTable: ConstPtr<UShort> = ConstPtr(0L),
+            procString: MutPtr = MutPtr(0L),
+            procFormatOffsetTable: ConstPtr = ConstPtr(0L),
             procCount: UInt = 0u,
-            typeString: MutPtr<UByte> = MutPtr(0L),
+            typeString: MutPtr = MutPtr(0L),
         ): MidlInterceptionInfo =
             MidlInterceptionInfo(
                 version = version,
@@ -640,9 +638,9 @@ public class MidlInterceptionInfo internal constructor(
 
 public class MidlInterfaceMethodProperties internal constructor(
     public var methodCount: UShort,
-    methodPropertiesCtorArg: ConstPtr<ConstPtr<MidlMethodPropertyMap>>,
+    methodPropertiesCtorArg: ConstPtr,
 ) {
-    public var methodProperties: ConstPtr<ConstPtr<MidlMethodPropertyMap>> = methodPropertiesCtorArg
+    public var methodProperties: ConstPtr = methodPropertiesCtorArg
         internal set
 
     public constructor() : this(
@@ -652,9 +650,9 @@ public class MidlInterfaceMethodProperties internal constructor(
 
     public operator fun component1(): UShort = this.methodCount
 
-    public operator fun component2(): ConstPtr<ConstPtr<MidlMethodPropertyMap>> = this.methodProperties
+    public operator fun component2(): ConstPtr = this.methodProperties
 
-    public fun copy(methodCount: UShort = this.methodCount, methodProperties: ConstPtr<ConstPtr<MidlMethodPropertyMap>> = this.methodProperties): MidlInterfaceMethodProperties = MidlInterfaceMethodProperties(methodCount = methodCount, methodPropertiesCtorArg = methodProperties)
+    public fun copy(methodCount: UShort = this.methodCount, methodProperties: ConstPtr = this.methodProperties): MidlInterfaceMethodProperties = MidlInterfaceMethodProperties(methodCount = methodCount, methodPropertiesCtorArg = methodProperties)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -680,21 +678,21 @@ public class MidlInterfaceMethodProperties internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .constPtrLayout<ConstPtr<MidlMethodPropertyMap>>(64)
+                                .constPtrLayout(64)
                         ).readNative(addr + 8L),
                     )
                 override fun writeNative(addr: Long, value: MidlInterfaceMethodProperties) {
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16).writeNative(addr, value.methodCount)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .constPtrLayout<ConstPtr<MidlMethodPropertyMap>>(64)
+                            .constPtrLayout(64)
                     ).writeNative(addr + 8L, value.methodProperties)
                 }
             }
 
         public operator fun invoke(
             methodCount: UShort = 0u,
-            methodProperties: ConstPtr<ConstPtr<MidlMethodPropertyMap>> = ConstPtr(0L),
+            methodProperties: ConstPtr = ConstPtr(0L),
         ): MidlInterfaceMethodProperties =
             MidlInterfaceMethodProperties(
                 methodCount = methodCount,
@@ -727,9 +725,9 @@ public data class MidlMethodProperty(
 
 public class MidlMethodPropertyMap internal constructor(
     public var count: UInt,
-    propertiesCtorArg: ConstPtr<MidlMethodProperty>,
+    propertiesCtorArg: ConstPtr,
 ) {
-    public var properties: ConstPtr<MidlMethodProperty> = propertiesCtorArg
+    public var properties: ConstPtr = propertiesCtorArg
         internal set
 
     public constructor() : this(
@@ -739,9 +737,9 @@ public class MidlMethodPropertyMap internal constructor(
 
     public operator fun component1(): UInt = this.count
 
-    public operator fun component2(): ConstPtr<MidlMethodProperty> = this.properties
+    public operator fun component2(): ConstPtr = this.properties
 
-    public fun copy(count: UInt = this.count, properties: ConstPtr<MidlMethodProperty> = this.properties): MidlMethodPropertyMap = MidlMethodPropertyMap(count = count, propertiesCtorArg = properties)
+    public fun copy(count: UInt = this.count, properties: ConstPtr = this.properties): MidlMethodPropertyMap = MidlMethodPropertyMap(count = count, propertiesCtorArg = properties)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -767,21 +765,21 @@ public class MidlMethodPropertyMap internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .constPtrLayout<MidlMethodProperty>(64)
+                                .constPtrLayout(64)
                         ).readNative(addr + 8L),
                     )
                 override fun writeNative(addr: Long, value: MidlMethodPropertyMap) {
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr, value.count)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .constPtrLayout<MidlMethodProperty>(64)
+                            .constPtrLayout(64)
                     ).writeNative(addr + 8L, value.properties)
                 }
             }
 
         public operator fun invoke(
             count: UInt = 0u,
-            properties: ConstPtr<MidlMethodProperty> = ConstPtr(0L),
+            properties: ConstPtr = ConstPtr(0L),
         ): MidlMethodPropertyMap =
             MidlMethodPropertyMap(
                 count = count,
@@ -791,34 +789,34 @@ public class MidlMethodPropertyMap internal constructor(
 }
 
 public class MidlServerInfo internal constructor(
-    pStubDescCtorArg: MutPtr<MidlStubDesc>,
-    dispatchTableCtorArg: ConstPtr<ServerRoutine>,
-    procStringCtorArg: MutPtr<UByte>,
-    fmtStringOffsetCtorArg: ConstPtr<UShort>,
-    thunkTableCtorArg: ConstPtr<StubThunk>,
-    pTransferSyntaxCtorArg: MutPtr<RpcSyntaxIdentifier>,
+    pStubDescCtorArg: MutPtr,
+    dispatchTableCtorArg: ConstPtr,
+    procStringCtorArg: MutPtr,
+    fmtStringOffsetCtorArg: ConstPtr,
+    thunkTableCtorArg: ConstPtr,
+    pTransferSyntaxCtorArg: MutPtr,
     public var nCount: Int,
-    pSyntaxInfoCtorArg: MutPtr<MidlSyntaxInfo>,
+    pSyntaxInfoCtorArg: MutPtr,
 ) {
-    public var pStubDesc: MutPtr<MidlStubDesc> = pStubDescCtorArg
+    public var pStubDesc: MutPtr = pStubDescCtorArg
         internal set
 
-    public var dispatchTable: ConstPtr<ServerRoutine> = dispatchTableCtorArg
+    public var dispatchTable: ConstPtr = dispatchTableCtorArg
         internal set
 
-    public var procString: MutPtr<UByte> = procStringCtorArg
+    public var procString: MutPtr = procStringCtorArg
         internal set
 
-    public var fmtStringOffset: ConstPtr<UShort> = fmtStringOffsetCtorArg
+    public var fmtStringOffset: ConstPtr = fmtStringOffsetCtorArg
         internal set
 
-    public var thunkTable: ConstPtr<StubThunk> = thunkTableCtorArg
+    public var thunkTable: ConstPtr = thunkTableCtorArg
         internal set
 
-    public var pTransferSyntax: MutPtr<RpcSyntaxIdentifier> = pTransferSyntaxCtorArg
+    public var pTransferSyntax: MutPtr = pTransferSyntaxCtorArg
         internal set
 
-    public var pSyntaxInfo: MutPtr<MidlSyntaxInfo> = pSyntaxInfoCtorArg
+    public var pSyntaxInfo: MutPtr = pSyntaxInfoCtorArg
         internal set
 
     public constructor() : this(
@@ -832,23 +830,23 @@ public class MidlServerInfo internal constructor(
         pSyntaxInfoCtorArg = MutPtr(0L),
     )
 
-    public operator fun component1(): MutPtr<MidlStubDesc> = this.pStubDesc
+    public operator fun component1(): MutPtr = this.pStubDesc
 
-    public operator fun component2(): ConstPtr<ServerRoutine> = this.dispatchTable
+    public operator fun component2(): ConstPtr = this.dispatchTable
 
-    public operator fun component3(): MutPtr<UByte> = this.procString
+    public operator fun component3(): MutPtr = this.procString
 
-    public operator fun component4(): ConstPtr<UShort> = this.fmtStringOffset
+    public operator fun component4(): ConstPtr = this.fmtStringOffset
 
-    public operator fun component5(): ConstPtr<StubThunk> = this.thunkTable
+    public operator fun component5(): ConstPtr = this.thunkTable
 
-    public operator fun component6(): MutPtr<RpcSyntaxIdentifier> = this.pTransferSyntax
+    public operator fun component6(): MutPtr = this.pTransferSyntax
 
     public operator fun component7(): Int = this.nCount
 
-    public operator fun component8(): MutPtr<MidlSyntaxInfo> = this.pSyntaxInfo
+    public operator fun component8(): MutPtr = this.pSyntaxInfo
 
-    public fun copy(pStubDesc: MutPtr<MidlStubDesc> = this.pStubDesc, dispatchTable: ConstPtr<ServerRoutine> = this.dispatchTable, procString: MutPtr<UByte> = this.procString, fmtStringOffset: ConstPtr<UShort> = this.fmtStringOffset, thunkTable: ConstPtr<StubThunk> = this.thunkTable, pTransferSyntax: MutPtr<RpcSyntaxIdentifier> = this.pTransferSyntax, nCount: Int = this.nCount, pSyntaxInfo: MutPtr<MidlSyntaxInfo> = this.pSyntaxInfo): MidlServerInfo = MidlServerInfo(pStubDescCtorArg = pStubDesc, dispatchTableCtorArg = dispatchTable, procStringCtorArg = procString, fmtStringOffsetCtorArg = fmtStringOffset, thunkTableCtorArg = thunkTable, pTransferSyntaxCtorArg = pTransferSyntax, nCount = nCount, pSyntaxInfoCtorArg = pSyntaxInfo)
+    public fun copy(pStubDesc: MutPtr = this.pStubDesc, dispatchTable: ConstPtr = this.dispatchTable, procString: MutPtr = this.procString, fmtStringOffset: ConstPtr = this.fmtStringOffset, thunkTable: ConstPtr = this.thunkTable, pTransferSyntax: MutPtr = this.pTransferSyntax, nCount: Int = this.nCount, pSyntaxInfo: MutPtr = this.pSyntaxInfo): MidlServerInfo = MidlServerInfo(pStubDescCtorArg = pStubDesc, dispatchTableCtorArg = dispatchTable, procStringCtorArg = procString, fmtStringOffsetCtorArg = fmtStringOffset, thunkTableCtorArg = thunkTable, pTransferSyntaxCtorArg = pTransferSyntax, nCount = nCount, pSyntaxInfoCtorArg = pSyntaxInfo)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -885,76 +883,76 @@ public class MidlServerInfo internal constructor(
                     MidlServerInfo(
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<MidlStubDesc>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .constPtrLayout<ServerRoutine>(64)
+                                .constPtrLayout(64)
                         ).readNative(addr + 8L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<UByte>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 16L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .constPtrLayout<UShort>(64)
+                                .constPtrLayout(64)
                         ).readNative(addr + 24L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .constPtrLayout<StubThunk>(64)
+                                .constPtrLayout(64)
                         ).readNative(addr + 32L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<RpcSyntaxIdentifier>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 40L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.USIZE64).readNative(addr + 48L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<MidlSyntaxInfo>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 56L),
                     )
                 override fun writeNative(addr: Long, value: MidlServerInfo) {
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<MidlStubDesc>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr, value.pStubDesc)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .constPtrLayout<ServerRoutine>(64)
+                            .constPtrLayout(64)
                     ).writeNative(addr + 8L, value.dispatchTable)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<UByte>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 16L, value.procString)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .constPtrLayout<UShort>(64)
+                            .constPtrLayout(64)
                     ).writeNative(addr + 24L, value.fmtStringOffset)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .constPtrLayout<StubThunk>(64)
+                            .constPtrLayout(64)
                     ).writeNative(addr + 32L, value.thunkTable)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<RpcSyntaxIdentifier>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 40L, value.pTransferSyntax)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.USIZE64).writeNative(addr + 48L, value.nCount)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<MidlSyntaxInfo>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 56L, value.pSyntaxInfo)
                 }
             }
 
         public operator fun invoke(
-            pStubDesc: MutPtr<MidlStubDesc> = MutPtr(0L),
-            dispatchTable: ConstPtr<ServerRoutine> = ConstPtr(0L),
-            procString: MutPtr<UByte> = MutPtr(0L),
-            fmtStringOffset: ConstPtr<UShort> = ConstPtr(0L),
-            thunkTable: ConstPtr<StubThunk> = ConstPtr(0L),
-            pTransferSyntax: MutPtr<RpcSyntaxIdentifier> = MutPtr(0L),
+            pStubDesc: MutPtr = MutPtr(0L),
+            dispatchTable: ConstPtr = ConstPtr(0L),
+            procString: MutPtr = MutPtr(0L),
+            fmtStringOffset: ConstPtr = ConstPtr(0L),
+            thunkTable: ConstPtr = ConstPtr(0L),
+            pTransferSyntax: MutPtr = MutPtr(0L),
             nCount: Int = 0,
-            pSyntaxInfo: MutPtr<MidlSyntaxInfo> = MutPtr(0L),
+            pSyntaxInfo: MutPtr = MutPtr(0L),
         ): MidlServerInfo =
             MidlServerInfo(
                 pStubDescCtorArg = pStubDesc,
@@ -970,26 +968,26 @@ public class MidlServerInfo internal constructor(
 }
 
 public class MidlStublessProxyInfo internal constructor(
-    pStubDescCtorArg: MutPtr<MidlStubDesc>,
-    procFormatStringCtorArg: MutPtr<UByte>,
-    formatStringOffsetCtorArg: ConstPtr<UShort>,
-    pTransferSyntaxCtorArg: MutPtr<RpcSyntaxIdentifier>,
+    pStubDescCtorArg: MutPtr,
+    procFormatStringCtorArg: MutPtr,
+    formatStringOffsetCtorArg: ConstPtr,
+    pTransferSyntaxCtorArg: MutPtr,
     public var nCount: Int,
-    pSyntaxInfoCtorArg: MutPtr<MidlSyntaxInfo>,
+    pSyntaxInfoCtorArg: MutPtr,
 ) {
-    public var pStubDesc: MutPtr<MidlStubDesc> = pStubDescCtorArg
+    public var pStubDesc: MutPtr = pStubDescCtorArg
         internal set
 
-    public var procFormatString: MutPtr<UByte> = procFormatStringCtorArg
+    public var procFormatString: MutPtr = procFormatStringCtorArg
         internal set
 
-    public var formatStringOffset: ConstPtr<UShort> = formatStringOffsetCtorArg
+    public var formatStringOffset: ConstPtr = formatStringOffsetCtorArg
         internal set
 
-    public var pTransferSyntax: MutPtr<RpcSyntaxIdentifier> = pTransferSyntaxCtorArg
+    public var pTransferSyntax: MutPtr = pTransferSyntaxCtorArg
         internal set
 
-    public var pSyntaxInfo: MutPtr<MidlSyntaxInfo> = pSyntaxInfoCtorArg
+    public var pSyntaxInfo: MutPtr = pSyntaxInfoCtorArg
         internal set
 
     public constructor() : this(
@@ -1001,19 +999,19 @@ public class MidlStublessProxyInfo internal constructor(
         pSyntaxInfoCtorArg = MutPtr(0L),
     )
 
-    public operator fun component1(): MutPtr<MidlStubDesc> = this.pStubDesc
+    public operator fun component1(): MutPtr = this.pStubDesc
 
-    public operator fun component2(): MutPtr<UByte> = this.procFormatString
+    public operator fun component2(): MutPtr = this.procFormatString
 
-    public operator fun component3(): ConstPtr<UShort> = this.formatStringOffset
+    public operator fun component3(): ConstPtr = this.formatStringOffset
 
-    public operator fun component4(): MutPtr<RpcSyntaxIdentifier> = this.pTransferSyntax
+    public operator fun component4(): MutPtr = this.pTransferSyntax
 
     public operator fun component5(): Int = this.nCount
 
-    public operator fun component6(): MutPtr<MidlSyntaxInfo> = this.pSyntaxInfo
+    public operator fun component6(): MutPtr = this.pSyntaxInfo
 
-    public fun copy(pStubDesc: MutPtr<MidlStubDesc> = this.pStubDesc, procFormatString: MutPtr<UByte> = this.procFormatString, formatStringOffset: ConstPtr<UShort> = this.formatStringOffset, pTransferSyntax: MutPtr<RpcSyntaxIdentifier> = this.pTransferSyntax, nCount: Int = this.nCount, pSyntaxInfo: MutPtr<MidlSyntaxInfo> = this.pSyntaxInfo): MidlStublessProxyInfo = MidlStublessProxyInfo(pStubDescCtorArg = pStubDesc, procFormatStringCtorArg = procFormatString, formatStringOffsetCtorArg = formatStringOffset, pTransferSyntaxCtorArg = pTransferSyntax, nCount = nCount, pSyntaxInfoCtorArg = pSyntaxInfo)
+    public fun copy(pStubDesc: MutPtr = this.pStubDesc, procFormatString: MutPtr = this.procFormatString, formatStringOffset: ConstPtr = this.formatStringOffset, pTransferSyntax: MutPtr = this.pTransferSyntax, nCount: Int = this.nCount, pSyntaxInfo: MutPtr = this.pSyntaxInfo): MidlStublessProxyInfo = MidlStublessProxyInfo(pStubDescCtorArg = pStubDesc, procFormatStringCtorArg = procFormatString, formatStringOffsetCtorArg = formatStringOffset, pTransferSyntaxCtorArg = pTransferSyntax, nCount = nCount, pSyntaxInfoCtorArg = pSyntaxInfo)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -1046,58 +1044,58 @@ public class MidlStublessProxyInfo internal constructor(
                     MidlStublessProxyInfo(
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<MidlStubDesc>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<UByte>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .constPtrLayout<UShort>(64)
+                                .constPtrLayout(64)
                         ).readNative(addr + 16L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<RpcSyntaxIdentifier>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 24L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.USIZE64).readNative(addr + 32L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<MidlSyntaxInfo>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 40L),
                     )
                 override fun writeNative(addr: Long, value: MidlStublessProxyInfo) {
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<MidlStubDesc>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr, value.pStubDesc)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<UByte>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.procFormatString)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .constPtrLayout<UShort>(64)
+                            .constPtrLayout(64)
                     ).writeNative(addr + 16L, value.formatStringOffset)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<RpcSyntaxIdentifier>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 24L, value.pTransferSyntax)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.USIZE64).writeNative(addr + 32L, value.nCount)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<MidlSyntaxInfo>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 40L, value.pSyntaxInfo)
                 }
             }
 
         public operator fun invoke(
-            pStubDesc: MutPtr<MidlStubDesc> = MutPtr(0L),
-            procFormatString: MutPtr<UByte> = MutPtr(0L),
-            formatStringOffset: ConstPtr<UShort> = ConstPtr(0L),
-            pTransferSyntax: MutPtr<RpcSyntaxIdentifier> = MutPtr(0L),
+            pStubDesc: MutPtr = MutPtr(0L),
+            procFormatString: MutPtr = MutPtr(0L),
+            formatStringOffset: ConstPtr = ConstPtr(0L),
+            pTransferSyntax: MutPtr = MutPtr(0L),
             nCount: Int = 0,
-            pSyntaxInfo: MutPtr<MidlSyntaxInfo> = MutPtr(0L),
+            pSyntaxInfo: MutPtr = MutPtr(0L),
         ): MidlStublessProxyInfo =
             MidlStublessProxyInfo(
                 pStubDescCtorArg = pStubDesc,
@@ -1111,64 +1109,64 @@ public class MidlStublessProxyInfo internal constructor(
 }
 
 public class MidlStubDesc internal constructor(
-    rpcInterfaceInformationCtorArg: MutPtr<CVoid>,
+    rpcInterfaceInformationCtorArg: MutPtr,
     public var pfnAllocate: PfnRpcAllocate,
     public var pfnFree: PfnRpcFree,
     public var implicitHandleInfo: MidlStubDesc0,
-    apfnNdrRundownRoutinesCtorArg: ConstPtr<NdrRundown>,
-    aGenericBindingRoutinePairsCtorArg: ConstPtr<GenericBindingRoutinePair>,
-    apfnExprEvalCtorArg: ConstPtr<ExprEval>,
-    aXmitQuintupleCtorArg: ConstPtr<XmitRoutineQuintuple>,
-    pFormatTypesCtorArg: ConstPtr<UByte>,
+    apfnNdrRundownRoutinesCtorArg: ConstPtr,
+    aGenericBindingRoutinePairsCtorArg: ConstPtr,
+    apfnExprEvalCtorArg: ConstPtr,
+    aXmitQuintupleCtorArg: ConstPtr,
+    pFormatTypesCtorArg: ConstPtr,
     public var fCheckBounds: Int,
     public var version: UInt,
-    pMallocFreeStructCtorArg: MutPtr<MallocFreeStruct>,
+    pMallocFreeStructCtorArg: MutPtr,
     public var mIDLVersion: Int,
-    commFaultOffsetsCtorArg: ConstPtr<CommFaultOffsets>,
-    aUserMarshalQuadrupleCtorArg: ConstPtr<UserMarshalRoutineQuadruple>,
-    notifyRoutineTableCtorArg: ConstPtr<NdrNotifyRoutine>,
+    commFaultOffsetsCtorArg: ConstPtr,
+    aUserMarshalQuadrupleCtorArg: ConstPtr,
+    notifyRoutineTableCtorArg: ConstPtr,
     public var mFlags: Int,
-    csRoutineTablesCtorArg: ConstPtr<NdrCsRoutines>,
-    proxyServerInfoCtorArg: MutPtr<CVoid>,
-    pExprInfoCtorArg: ConstPtr<NdrExprDesc>,
+    csRoutineTablesCtorArg: ConstPtr,
+    proxyServerInfoCtorArg: MutPtr,
+    pExprInfoCtorArg: ConstPtr,
 ) {
-    public var rpcInterfaceInformation: MutPtr<CVoid> = rpcInterfaceInformationCtorArg
+    public var rpcInterfaceInformation: MutPtr = rpcInterfaceInformationCtorArg
         internal set
 
-    public var apfnNdrRundownRoutines: ConstPtr<NdrRundown> = apfnNdrRundownRoutinesCtorArg
+    public var apfnNdrRundownRoutines: ConstPtr = apfnNdrRundownRoutinesCtorArg
         internal set
 
-    public var aGenericBindingRoutinePairs: ConstPtr<GenericBindingRoutinePair> = aGenericBindingRoutinePairsCtorArg
+    public var aGenericBindingRoutinePairs: ConstPtr = aGenericBindingRoutinePairsCtorArg
         internal set
 
-    public var apfnExprEval: ConstPtr<ExprEval> = apfnExprEvalCtorArg
+    public var apfnExprEval: ConstPtr = apfnExprEvalCtorArg
         internal set
 
-    public var aXmitQuintuple: ConstPtr<XmitRoutineQuintuple> = aXmitQuintupleCtorArg
+    public var aXmitQuintuple: ConstPtr = aXmitQuintupleCtorArg
         internal set
 
-    public var pFormatTypes: ConstPtr<UByte> = pFormatTypesCtorArg
+    public var pFormatTypes: ConstPtr = pFormatTypesCtorArg
         internal set
 
-    public var pMallocFreeStruct: MutPtr<MallocFreeStruct> = pMallocFreeStructCtorArg
+    public var pMallocFreeStruct: MutPtr = pMallocFreeStructCtorArg
         internal set
 
-    public var commFaultOffsets: ConstPtr<CommFaultOffsets> = commFaultOffsetsCtorArg
+    public var commFaultOffsets: ConstPtr = commFaultOffsetsCtorArg
         internal set
 
-    public var aUserMarshalQuadruple: ConstPtr<UserMarshalRoutineQuadruple> = aUserMarshalQuadrupleCtorArg
+    public var aUserMarshalQuadruple: ConstPtr = aUserMarshalQuadrupleCtorArg
         internal set
 
-    public var notifyRoutineTable: ConstPtr<NdrNotifyRoutine> = notifyRoutineTableCtorArg
+    public var notifyRoutineTable: ConstPtr = notifyRoutineTableCtorArg
         internal set
 
-    public var csRoutineTables: ConstPtr<NdrCsRoutines> = csRoutineTablesCtorArg
+    public var csRoutineTables: ConstPtr = csRoutineTablesCtorArg
         internal set
 
-    public var proxyServerInfo: MutPtr<CVoid> = proxyServerInfoCtorArg
+    public var proxyServerInfo: MutPtr = proxyServerInfoCtorArg
         internal set
 
-    public var pExprInfo: ConstPtr<NdrExprDesc> = pExprInfoCtorArg
+    public var pExprInfo: ConstPtr = pExprInfoCtorArg
         internal set
 
     public constructor() : this(
@@ -1196,26 +1194,26 @@ public class MidlStubDesc internal constructor(
 
     public companion object {
         public operator fun invoke(
-            rpcInterfaceInformation: MutPtr<CVoid> = MutPtr(0L),
+            rpcInterfaceInformation: MutPtr = MutPtr(0L),
             pfnAllocate: PfnRpcAllocate = null,
             pfnFree: PfnRpcFree = null,
             implicitHandleInfo: MidlStubDesc0 = MidlStubDesc0(),
-            apfnNdrRundownRoutines: ConstPtr<NdrRundown> = ConstPtr(0L),
-            aGenericBindingRoutinePairs: ConstPtr<GenericBindingRoutinePair> = ConstPtr(0L),
-            apfnExprEval: ConstPtr<ExprEval> = ConstPtr(0L),
-            aXmitQuintuple: ConstPtr<XmitRoutineQuintuple> = ConstPtr(0L),
-            pFormatTypes: ConstPtr<UByte> = ConstPtr(0L),
+            apfnNdrRundownRoutines: ConstPtr = ConstPtr(0L),
+            aGenericBindingRoutinePairs: ConstPtr = ConstPtr(0L),
+            apfnExprEval: ConstPtr = ConstPtr(0L),
+            aXmitQuintuple: ConstPtr = ConstPtr(0L),
+            pFormatTypes: ConstPtr = ConstPtr(0L),
             fCheckBounds: Int = 0,
             version: UInt = 0u,
-            pMallocFreeStruct: MutPtr<MallocFreeStruct> = MutPtr(0L),
+            pMallocFreeStruct: MutPtr = MutPtr(0L),
             mIDLVersion: Int = 0,
-            commFaultOffsets: ConstPtr<CommFaultOffsets> = ConstPtr(0L),
-            aUserMarshalQuadruple: ConstPtr<UserMarshalRoutineQuadruple> = ConstPtr(0L),
-            notifyRoutineTable: ConstPtr<NdrNotifyRoutine> = ConstPtr(0L),
+            commFaultOffsets: ConstPtr = ConstPtr(0L),
+            aUserMarshalQuadruple: ConstPtr = ConstPtr(0L),
+            notifyRoutineTable: ConstPtr = ConstPtr(0L),
             mFlags: Int = 0,
-            csRoutineTables: ConstPtr<NdrCsRoutines> = ConstPtr(0L),
-            proxyServerInfo: MutPtr<CVoid> = MutPtr(0L),
-            pExprInfo: ConstPtr<NdrExprDesc> = ConstPtr(0L),
+            csRoutineTables: ConstPtr = ConstPtr(0L),
+            proxyServerInfo: MutPtr = MutPtr(0L),
+            pExprInfo: ConstPtr = ConstPtr(0L),
         ): MidlStubDesc =
             MidlStubDesc(
                 rpcInterfaceInformationCtorArg = rpcInterfaceInformation,
@@ -1243,17 +1241,17 @@ public class MidlStubDesc internal constructor(
 }
 
 public class MidlStubDesc0 internal constructor(
-    pAutoHandleCtorArg: MutPtr<MutPtr<CVoid>>,
-    pPrimitiveHandleCtorArg: MutPtr<MutPtr<CVoid>>,
-    pGenericBindingInfoCtorArg: MutPtr<GenericBindingInfo>,
+    pAutoHandleCtorArg: MutPtr,
+    pPrimitiveHandleCtorArg: MutPtr,
+    pGenericBindingInfoCtorArg: MutPtr,
 ) {
-    public var pAutoHandle: MutPtr<MutPtr<CVoid>> = pAutoHandleCtorArg
+    public var pAutoHandle: MutPtr = pAutoHandleCtorArg
         internal set
 
-    public var pPrimitiveHandle: MutPtr<MutPtr<CVoid>> = pPrimitiveHandleCtorArg
+    public var pPrimitiveHandle: MutPtr = pPrimitiveHandleCtorArg
         internal set
 
-    public var pGenericBindingInfo: MutPtr<GenericBindingInfo> = pGenericBindingInfoCtorArg
+    public var pGenericBindingInfo: MutPtr = pGenericBindingInfoCtorArg
         internal set
 
     public constructor() : this(
@@ -1262,13 +1260,13 @@ public class MidlStubDesc0 internal constructor(
         pGenericBindingInfoCtorArg = MutPtr(0L),
     )
 
-    public operator fun component1(): MutPtr<MutPtr<CVoid>> = this.pAutoHandle
+    public operator fun component1(): MutPtr = this.pAutoHandle
 
-    public operator fun component2(): MutPtr<MutPtr<CVoid>> = this.pPrimitiveHandle
+    public operator fun component2(): MutPtr = this.pPrimitiveHandle
 
-    public operator fun component3(): MutPtr<GenericBindingInfo> = this.pGenericBindingInfo
+    public operator fun component3(): MutPtr = this.pGenericBindingInfo
 
-    public fun copy(pAutoHandle: MutPtr<MutPtr<CVoid>> = this.pAutoHandle, pPrimitiveHandle: MutPtr<MutPtr<CVoid>> = this.pPrimitiveHandle, pGenericBindingInfo: MutPtr<GenericBindingInfo> = this.pGenericBindingInfo): MidlStubDesc0 = MidlStubDesc0(pAutoHandleCtorArg = pAutoHandle, pPrimitiveHandleCtorArg = pPrimitiveHandle, pGenericBindingInfoCtorArg = pGenericBindingInfo)
+    public fun copy(pAutoHandle: MutPtr = this.pAutoHandle, pPrimitiveHandle: MutPtr = this.pPrimitiveHandle, pGenericBindingInfo: MutPtr = this.pGenericBindingInfo): MidlStubDesc0 = MidlStubDesc0(pAutoHandleCtorArg = pAutoHandle, pPrimitiveHandleCtorArg = pPrimitiveHandle, pGenericBindingInfoCtorArg = pGenericBindingInfo)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -1288,9 +1286,9 @@ public class MidlStubDesc0 internal constructor(
 
     public companion object {
         public operator fun invoke(
-            pAutoHandle: MutPtr<MutPtr<CVoid>> = MutPtr(0L),
-            pPrimitiveHandle: MutPtr<MutPtr<CVoid>> = MutPtr(0L),
-            pGenericBindingInfo: MutPtr<GenericBindingInfo> = MutPtr(0L),
+            pAutoHandle: MutPtr = MutPtr(0L),
+            pPrimitiveHandle: MutPtr = MutPtr(0L),
+            pGenericBindingInfo: MutPtr = MutPtr(0L),
         ): MidlStubDesc0 =
             MidlStubDesc0(
                 pAutoHandleCtorArg = pAutoHandle,
@@ -1301,22 +1299,22 @@ public class MidlStubDesc0 internal constructor(
 }
 
 public class MidlStubMessage internal constructor(
-    rpcMsgCtorArg: MutPtr<RpcMessage>,
-    bufferCtorArg: MutPtr<UByte>,
-    bufferStartCtorArg: MutPtr<UByte>,
-    bufferEndCtorArg: MutPtr<UByte>,
-    bufferMarkCtorArg: MutPtr<UByte>,
+    rpcMsgCtorArg: MutPtr,
+    bufferCtorArg: MutPtr,
+    bufferStartCtorArg: MutPtr,
+    bufferEndCtorArg: MutPtr,
+    bufferMarkCtorArg: MutPtr,
     public var bufferLength: UInt,
     public var memorySize: UInt,
-    memoryCtorArg: MutPtr<UByte>,
+    memoryCtorArg: MutPtr,
     public var isClient: UByte,
     public var pad: UByte,
     public var uFlags2: UShort,
     public var reuseBuffer: Int,
-    pAllocAllNodesContextCtorArg: MutPtr<NdrAllocAllNodesContext>,
-    pPointerQueueStateCtorArg: MutPtr<NdrPointerQueueState>,
+    pAllocAllNodesContextCtorArg: MutPtr,
+    pPointerQueueStateCtorArg: MutPtr,
     public var ignoreEmbeddedPointers: Int,
-    pointerBufferMarkCtorArg: MutPtr<UByte>,
+    pointerBufferMarkCtorArg: MutPtr,
     public var corrDespIncrement: UByte,
     public var uFlags: UByte,
     public var uniquePtrCount: UShort,
@@ -1325,133 +1323,133 @@ public class MidlStubMessage internal constructor(
     public var actualCount: UInt,
     public var pfnAllocate: PfnRpcAllocate,
     public var pfnFree: PfnRpcFree,
-    stackTopCtorArg: MutPtr<UByte>,
-    pPresentedTypeCtorArg: MutPtr<UByte>,
-    pTransmitTypeCtorArg: MutPtr<UByte>,
-    savedHandleCtorArg: MutPtr<CVoid>,
-    stubDescCtorArg: ConstPtr<MidlStubDesc>,
-    fullPtrXlatTablesCtorArg: MutPtr<FullPtrXlatTables>,
+    stackTopCtorArg: MutPtr,
+    pPresentedTypeCtorArg: MutPtr,
+    pTransmitTypeCtorArg: MutPtr,
+    savedHandleCtorArg: MutPtr,
+    stubDescCtorArg: ConstPtr,
+    fullPtrXlatTablesCtorArg: MutPtr,
     public var fullPtrRefId: UInt,
     public var pointerLength: UInt,
     public var bitfield: Int,
     public var dwDestContext: UInt,
-    pvDestContextCtorArg: MutPtr<CVoid>,
-    savedContextHandlesCtorArg: MutPtr<MutPtr<NdrScontext>>,
+    pvDestContextCtorArg: MutPtr,
+    savedContextHandlesCtorArg: MutPtr,
     public var paramNumber: Int,
-    pRpcChannelBufferCtorArg: MutPtr<CVoid>,
-    pArrayInfoCtorArg: MutPtr<ArrayInfo>,
-    sizePtrCountArrayCtorArg: MutPtr<UInt>,
-    sizePtrOffsetArrayCtorArg: MutPtr<UInt>,
-    sizePtrLengthArrayCtorArg: MutPtr<UInt>,
-    pArgQueueCtorArg: MutPtr<CVoid>,
+    pRpcChannelBufferCtorArg: MutPtr,
+    pArrayInfoCtorArg: MutPtr,
+    sizePtrCountArrayCtorArg: MutPtr,
+    sizePtrOffsetArrayCtorArg: MutPtr,
+    sizePtrLengthArrayCtorArg: MutPtr,
+    pArgQueueCtorArg: MutPtr,
     public var dwStubPhase: UInt,
-    lowStackMarkCtorArg: MutPtr<CVoid>,
+    lowStackMarkCtorArg: MutPtr,
     public var pAsyncMsg: PndrAsyncMessage,
     public var pCorrInfo: PndrCorrelationInfo,
-    pCorrMemoryCtorArg: MutPtr<UByte>,
-    pMemoryListCtorArg: MutPtr<CVoid>,
+    pCorrMemoryCtorArg: MutPtr,
+    pMemoryListCtorArg: MutPtr,
     public var pCSInfo: Int,
-    conformanceMarkCtorArg: MutPtr<UByte>,
-    varianceMarkCtorArg: MutPtr<UByte>,
+    conformanceMarkCtorArg: MutPtr,
+    varianceMarkCtorArg: MutPtr,
     public var unused: Int,
-    pContextCtorArg: MutPtr<NdrProcContext>,
-    contextHandleHashCtorArg: MutPtr<CVoid>,
-    pUserMarshalListCtorArg: MutPtr<CVoid>,
+    pContextCtorArg: MutPtr,
+    contextHandleHashCtorArg: MutPtr,
+    pUserMarshalListCtorArg: MutPtr,
     public var reserved513: Int,
     public var reserved514: Int,
     public var reserved515: Int,
 ) {
-    public var rpcMsg: MutPtr<RpcMessage> = rpcMsgCtorArg
+    public var rpcMsg: MutPtr = rpcMsgCtorArg
         internal set
 
-    public var buffer: MutPtr<UByte> = bufferCtorArg
+    public var buffer: MutPtr = bufferCtorArg
         internal set
 
-    public var bufferStart: MutPtr<UByte> = bufferStartCtorArg
+    public var bufferStart: MutPtr = bufferStartCtorArg
         internal set
 
-    public var bufferEnd: MutPtr<UByte> = bufferEndCtorArg
+    public var bufferEnd: MutPtr = bufferEndCtorArg
         internal set
 
-    public var bufferMark: MutPtr<UByte> = bufferMarkCtorArg
+    public var bufferMark: MutPtr = bufferMarkCtorArg
         internal set
 
-    public var memory: MutPtr<UByte> = memoryCtorArg
+    public var memory: MutPtr = memoryCtorArg
         internal set
 
-    public var pAllocAllNodesContext: MutPtr<NdrAllocAllNodesContext> = pAllocAllNodesContextCtorArg
+    public var pAllocAllNodesContext: MutPtr = pAllocAllNodesContextCtorArg
         internal set
 
-    public var pPointerQueueState: MutPtr<NdrPointerQueueState> = pPointerQueueStateCtorArg
+    public var pPointerQueueState: MutPtr = pPointerQueueStateCtorArg
         internal set
 
-    public var pointerBufferMark: MutPtr<UByte> = pointerBufferMarkCtorArg
+    public var pointerBufferMark: MutPtr = pointerBufferMarkCtorArg
         internal set
 
-    public var stackTop: MutPtr<UByte> = stackTopCtorArg
+    public var stackTop: MutPtr = stackTopCtorArg
         internal set
 
-    public var pPresentedType: MutPtr<UByte> = pPresentedTypeCtorArg
+    public var pPresentedType: MutPtr = pPresentedTypeCtorArg
         internal set
 
-    public var pTransmitType: MutPtr<UByte> = pTransmitTypeCtorArg
+    public var pTransmitType: MutPtr = pTransmitTypeCtorArg
         internal set
 
-    public var savedHandle: MutPtr<CVoid> = savedHandleCtorArg
+    public var savedHandle: MutPtr = savedHandleCtorArg
         internal set
 
-    public var stubDesc: ConstPtr<MidlStubDesc> = stubDescCtorArg
+    public var stubDesc: ConstPtr = stubDescCtorArg
         internal set
 
-    public var fullPtrXlatTables: MutPtr<FullPtrXlatTables> = fullPtrXlatTablesCtorArg
+    public var fullPtrXlatTables: MutPtr = fullPtrXlatTablesCtorArg
         internal set
 
-    public var pvDestContext: MutPtr<CVoid> = pvDestContextCtorArg
+    public var pvDestContext: MutPtr = pvDestContextCtorArg
         internal set
 
-    public var savedContextHandles: MutPtr<MutPtr<NdrScontext>> = savedContextHandlesCtorArg
+    public var savedContextHandles: MutPtr = savedContextHandlesCtorArg
         internal set
 
-    public var pRpcChannelBuffer: MutPtr<CVoid> = pRpcChannelBufferCtorArg
+    public var pRpcChannelBuffer: MutPtr = pRpcChannelBufferCtorArg
         internal set
 
-    public var pArrayInfo: MutPtr<ArrayInfo> = pArrayInfoCtorArg
+    public var pArrayInfo: MutPtr = pArrayInfoCtorArg
         internal set
 
-    public var sizePtrCountArray: MutPtr<UInt> = sizePtrCountArrayCtorArg
+    public var sizePtrCountArray: MutPtr = sizePtrCountArrayCtorArg
         internal set
 
-    public var sizePtrOffsetArray: MutPtr<UInt> = sizePtrOffsetArrayCtorArg
+    public var sizePtrOffsetArray: MutPtr = sizePtrOffsetArrayCtorArg
         internal set
 
-    public var sizePtrLengthArray: MutPtr<UInt> = sizePtrLengthArrayCtorArg
+    public var sizePtrLengthArray: MutPtr = sizePtrLengthArrayCtorArg
         internal set
 
-    public var pArgQueue: MutPtr<CVoid> = pArgQueueCtorArg
+    public var pArgQueue: MutPtr = pArgQueueCtorArg
         internal set
 
-    public var lowStackMark: MutPtr<CVoid> = lowStackMarkCtorArg
+    public var lowStackMark: MutPtr = lowStackMarkCtorArg
         internal set
 
-    public var pCorrMemory: MutPtr<UByte> = pCorrMemoryCtorArg
+    public var pCorrMemory: MutPtr = pCorrMemoryCtorArg
         internal set
 
-    public var pMemoryList: MutPtr<CVoid> = pMemoryListCtorArg
+    public var pMemoryList: MutPtr = pMemoryListCtorArg
         internal set
 
-    public var conformanceMark: MutPtr<UByte> = conformanceMarkCtorArg
+    public var conformanceMark: MutPtr = conformanceMarkCtorArg
         internal set
 
-    public var varianceMark: MutPtr<UByte> = varianceMarkCtorArg
+    public var varianceMark: MutPtr = varianceMarkCtorArg
         internal set
 
-    public var pContext: MutPtr<NdrProcContext> = pContextCtorArg
+    public var pContext: MutPtr = pContextCtorArg
         internal set
 
-    public var contextHandleHash: MutPtr<CVoid> = contextHandleHashCtorArg
+    public var contextHandleHash: MutPtr = contextHandleHashCtorArg
         internal set
 
-    public var pUserMarshalList: MutPtr<CVoid> = pUserMarshalListCtorArg
+    public var pUserMarshalList: MutPtr = pUserMarshalListCtorArg
         internal set
 
     public constructor() : this(
@@ -1518,22 +1516,22 @@ public class MidlStubMessage internal constructor(
 
     public companion object {
         public operator fun invoke(
-            rpcMsg: MutPtr<RpcMessage> = MutPtr(0L),
-            buffer: MutPtr<UByte> = MutPtr(0L),
-            bufferStart: MutPtr<UByte> = MutPtr(0L),
-            bufferEnd: MutPtr<UByte> = MutPtr(0L),
-            bufferMark: MutPtr<UByte> = MutPtr(0L),
+            rpcMsg: MutPtr = MutPtr(0L),
+            buffer: MutPtr = MutPtr(0L),
+            bufferStart: MutPtr = MutPtr(0L),
+            bufferEnd: MutPtr = MutPtr(0L),
+            bufferMark: MutPtr = MutPtr(0L),
             bufferLength: UInt = 0u,
             memorySize: UInt = 0u,
-            memory: MutPtr<UByte> = MutPtr(0L),
+            memory: MutPtr = MutPtr(0L),
             isClient: UByte = 0u,
             pad: UByte = 0u,
             uFlags2: UShort = 0u,
             reuseBuffer: Int = 0,
-            pAllocAllNodesContext: MutPtr<NdrAllocAllNodesContext> = MutPtr(0L),
-            pPointerQueueState: MutPtr<NdrPointerQueueState> = MutPtr(0L),
+            pAllocAllNodesContext: MutPtr = MutPtr(0L),
+            pPointerQueueState: MutPtr = MutPtr(0L),
             ignoreEmbeddedPointers: Int = 0,
-            pointerBufferMark: MutPtr<UByte> = MutPtr(0L),
+            pointerBufferMark: MutPtr = MutPtr(0L),
             corrDespIncrement: UByte = 0u,
             uFlags: UByte = 0u,
             uniquePtrCount: UShort = 0u,
@@ -1542,38 +1540,38 @@ public class MidlStubMessage internal constructor(
             actualCount: UInt = 0u,
             pfnAllocate: PfnRpcAllocate = null,
             pfnFree: PfnRpcFree = null,
-            stackTop: MutPtr<UByte> = MutPtr(0L),
-            pPresentedType: MutPtr<UByte> = MutPtr(0L),
-            pTransmitType: MutPtr<UByte> = MutPtr(0L),
-            savedHandle: MutPtr<CVoid> = MutPtr(0L),
-            stubDesc: ConstPtr<MidlStubDesc> = ConstPtr(0L),
-            fullPtrXlatTables: MutPtr<FullPtrXlatTables> = MutPtr(0L),
+            stackTop: MutPtr = MutPtr(0L),
+            pPresentedType: MutPtr = MutPtr(0L),
+            pTransmitType: MutPtr = MutPtr(0L),
+            savedHandle: MutPtr = MutPtr(0L),
+            stubDesc: ConstPtr = ConstPtr(0L),
+            fullPtrXlatTables: MutPtr = MutPtr(0L),
             fullPtrRefId: UInt = 0u,
             pointerLength: UInt = 0u,
             bitfield: Int = 0,
             dwDestContext: UInt = 0u,
-            pvDestContext: MutPtr<CVoid> = MutPtr(0L),
-            savedContextHandles: MutPtr<MutPtr<NdrScontext>> = MutPtr(0L),
+            pvDestContext: MutPtr = MutPtr(0L),
+            savedContextHandles: MutPtr = MutPtr(0L),
             paramNumber: Int = 0,
-            pRpcChannelBuffer: MutPtr<CVoid> = MutPtr(0L),
-            pArrayInfo: MutPtr<ArrayInfo> = MutPtr(0L),
-            sizePtrCountArray: MutPtr<UInt> = MutPtr(0L),
-            sizePtrOffsetArray: MutPtr<UInt> = MutPtr(0L),
-            sizePtrLengthArray: MutPtr<UInt> = MutPtr(0L),
-            pArgQueue: MutPtr<CVoid> = MutPtr(0L),
+            pRpcChannelBuffer: MutPtr = MutPtr(0L),
+            pArrayInfo: MutPtr = MutPtr(0L),
+            sizePtrCountArray: MutPtr = MutPtr(0L),
+            sizePtrOffsetArray: MutPtr = MutPtr(0L),
+            sizePtrLengthArray: MutPtr = MutPtr(0L),
+            pArgQueue: MutPtr = MutPtr(0L),
             dwStubPhase: UInt = 0u,
-            lowStackMark: MutPtr<CVoid> = MutPtr(0L),
+            lowStackMark: MutPtr = MutPtr(0L),
             pAsyncMsg: PndrAsyncMessage = 0,
             pCorrInfo: PndrCorrelationInfo = 0,
-            pCorrMemory: MutPtr<UByte> = MutPtr(0L),
-            pMemoryList: MutPtr<CVoid> = MutPtr(0L),
+            pCorrMemory: MutPtr = MutPtr(0L),
+            pMemoryList: MutPtr = MutPtr(0L),
             pCSInfo: Int = 0,
-            conformanceMark: MutPtr<UByte> = MutPtr(0L),
-            varianceMark: MutPtr<UByte> = MutPtr(0L),
+            conformanceMark: MutPtr = MutPtr(0L),
+            varianceMark: MutPtr = MutPtr(0L),
             unused: Int = 0,
-            pContext: MutPtr<NdrProcContext> = MutPtr(0L),
-            contextHandleHash: MutPtr<CVoid> = MutPtr(0L),
-            pUserMarshalList: MutPtr<CVoid> = MutPtr(0L),
+            pContext: MutPtr = MutPtr(0L),
+            contextHandleHash: MutPtr = MutPtr(0L),
+            pUserMarshalList: MutPtr = MutPtr(0L),
             reserved513: Int = 0,
             reserved514: Int = 0,
             reserved515: Int = 0,
@@ -1644,30 +1642,30 @@ public class MidlStubMessage internal constructor(
 
 public class MidlSyntaxInfo internal constructor(
     public var transferSyntax: RpcSyntaxIdentifier,
-    dispatchTableCtorArg: MutPtr<RpcDispatchTable>,
-    procStringCtorArg: MutPtr<UByte>,
-    fmtStringOffsetCtorArg: ConstPtr<UShort>,
-    typeStringCtorArg: MutPtr<UByte>,
-    aUserMarshalQuadrupleCtorArg: ConstPtr<CVoid>,
-    pMethodPropertiesCtorArg: ConstPtr<MidlInterfaceMethodProperties>,
+    dispatchTableCtorArg: MutPtr,
+    procStringCtorArg: MutPtr,
+    fmtStringOffsetCtorArg: ConstPtr,
+    typeStringCtorArg: MutPtr,
+    aUserMarshalQuadrupleCtorArg: ConstPtr,
+    pMethodPropertiesCtorArg: ConstPtr,
     public var pReserved2: Int,
 ) {
-    public var dispatchTable: MutPtr<RpcDispatchTable> = dispatchTableCtorArg
+    public var dispatchTable: MutPtr = dispatchTableCtorArg
         internal set
 
-    public var procString: MutPtr<UByte> = procStringCtorArg
+    public var procString: MutPtr = procStringCtorArg
         internal set
 
-    public var fmtStringOffset: ConstPtr<UShort> = fmtStringOffsetCtorArg
+    public var fmtStringOffset: ConstPtr = fmtStringOffsetCtorArg
         internal set
 
-    public var typeString: MutPtr<UByte> = typeStringCtorArg
+    public var typeString: MutPtr = typeStringCtorArg
         internal set
 
-    public var aUserMarshalQuadruple: ConstPtr<CVoid> = aUserMarshalQuadrupleCtorArg
+    public var aUserMarshalQuadruple: ConstPtr = aUserMarshalQuadrupleCtorArg
         internal set
 
-    public var pMethodProperties: ConstPtr<MidlInterfaceMethodProperties> = pMethodPropertiesCtorArg
+    public var pMethodProperties: ConstPtr = pMethodPropertiesCtorArg
         internal set
 
     public constructor() : this(
@@ -1683,21 +1681,21 @@ public class MidlSyntaxInfo internal constructor(
 
     public operator fun component1(): RpcSyntaxIdentifier = this.transferSyntax
 
-    public operator fun component2(): MutPtr<RpcDispatchTable> = this.dispatchTable
+    public operator fun component2(): MutPtr = this.dispatchTable
 
-    public operator fun component3(): MutPtr<UByte> = this.procString
+    public operator fun component3(): MutPtr = this.procString
 
-    public operator fun component4(): ConstPtr<UShort> = this.fmtStringOffset
+    public operator fun component4(): ConstPtr = this.fmtStringOffset
 
-    public operator fun component5(): MutPtr<UByte> = this.typeString
+    public operator fun component5(): MutPtr = this.typeString
 
-    public operator fun component6(): ConstPtr<CVoid> = this.aUserMarshalQuadruple
+    public operator fun component6(): ConstPtr = this.aUserMarshalQuadruple
 
-    public operator fun component7(): ConstPtr<MidlInterfaceMethodProperties> = this.pMethodProperties
+    public operator fun component7(): ConstPtr = this.pMethodProperties
 
     public operator fun component8(): Int = this.pReserved2
 
-    public fun copy(transferSyntax: RpcSyntaxIdentifier = this.transferSyntax, dispatchTable: MutPtr<RpcDispatchTable> = this.dispatchTable, procString: MutPtr<UByte> = this.procString, fmtStringOffset: ConstPtr<UShort> = this.fmtStringOffset, typeString: MutPtr<UByte> = this.typeString, aUserMarshalQuadruple: ConstPtr<CVoid> = this.aUserMarshalQuadruple, pMethodProperties: ConstPtr<MidlInterfaceMethodProperties> = this.pMethodProperties, pReserved2: Int = this.pReserved2): MidlSyntaxInfo = MidlSyntaxInfo(transferSyntax = transferSyntax, dispatchTableCtorArg = dispatchTable, procStringCtorArg = procString, fmtStringOffsetCtorArg = fmtStringOffset, typeStringCtorArg = typeString, aUserMarshalQuadrupleCtorArg = aUserMarshalQuadruple, pMethodPropertiesCtorArg = pMethodProperties, pReserved2 = pReserved2)
+    public fun copy(transferSyntax: RpcSyntaxIdentifier = this.transferSyntax, dispatchTable: MutPtr = this.dispatchTable, procString: MutPtr = this.procString, fmtStringOffset: ConstPtr = this.fmtStringOffset, typeString: MutPtr = this.typeString, aUserMarshalQuadruple: ConstPtr = this.aUserMarshalQuadruple, pMethodProperties: ConstPtr = this.pMethodProperties, pReserved2: Int = this.pReserved2): MidlSyntaxInfo = MidlSyntaxInfo(transferSyntax = transferSyntax, dispatchTableCtorArg = dispatchTable, procStringCtorArg = procString, fmtStringOffsetCtorArg = fmtStringOffset, typeStringCtorArg = typeString, aUserMarshalQuadrupleCtorArg = aUserMarshalQuadruple, pMethodPropertiesCtorArg = pMethodProperties, pReserved2 = pReserved2)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -1728,12 +1726,12 @@ public class MidlSyntaxInfo internal constructor(
     public companion object {
         public operator fun invoke(
             transferSyntax: RpcSyntaxIdentifier = RpcSyntaxIdentifier(),
-            dispatchTable: MutPtr<RpcDispatchTable> = MutPtr(0L),
-            procString: MutPtr<UByte> = MutPtr(0L),
-            fmtStringOffset: ConstPtr<UShort> = ConstPtr(0L),
-            typeString: MutPtr<UByte> = MutPtr(0L),
-            aUserMarshalQuadruple: ConstPtr<CVoid> = ConstPtr(0L),
-            pMethodProperties: ConstPtr<MidlInterfaceMethodProperties> = ConstPtr(0L),
+            dispatchTable: MutPtr = MutPtr(0L),
+            procString: MutPtr = MutPtr(0L),
+            fmtStringOffset: ConstPtr = ConstPtr(0L),
+            typeString: MutPtr = MutPtr(0L),
+            aUserMarshalQuadruple: ConstPtr = ConstPtr(0L),
+            pMethodProperties: ConstPtr = ConstPtr(0L),
             pReserved2: Int = 0,
         ): MidlSyntaxInfo =
             MidlSyntaxInfo(
@@ -1798,15 +1796,15 @@ public data class MidlTypePicklingInfo(
 
 public class MidlWinrtTypeSerializationInfo internal constructor(
     public var version: UInt,
-    typeFormatStringCtorArg: MutPtr<UByte>,
+    typeFormatStringCtorArg: MutPtr,
     public var formatStringSize: UShort,
     public var typeOffset: UShort,
-    stubDescCtorArg: MutPtr<MidlStubDesc>,
+    stubDescCtorArg: MutPtr,
 ) {
-    public var typeFormatString: MutPtr<UByte> = typeFormatStringCtorArg
+    public var typeFormatString: MutPtr = typeFormatStringCtorArg
         internal set
 
-    public var stubDesc: MutPtr<MidlStubDesc> = stubDescCtorArg
+    public var stubDesc: MutPtr = stubDescCtorArg
         internal set
 
     public constructor() : this(
@@ -1819,15 +1817,15 @@ public class MidlWinrtTypeSerializationInfo internal constructor(
 
     public operator fun component1(): UInt = this.version
 
-    public operator fun component2(): MutPtr<UByte> = this.typeFormatString
+    public operator fun component2(): MutPtr = this.typeFormatString
 
     public operator fun component3(): UShort = this.formatStringSize
 
     public operator fun component4(): UShort = this.typeOffset
 
-    public operator fun component5(): MutPtr<MidlStubDesc> = this.stubDesc
+    public operator fun component5(): MutPtr = this.stubDesc
 
-    public fun copy(version: UInt = this.version, typeFormatString: MutPtr<UByte> = this.typeFormatString, formatStringSize: UShort = this.formatStringSize, typeOffset: UShort = this.typeOffset, stubDesc: MutPtr<MidlStubDesc> = this.stubDesc): MidlWinrtTypeSerializationInfo = MidlWinrtTypeSerializationInfo(version = version, typeFormatStringCtorArg = typeFormatString, formatStringSize = formatStringSize, typeOffset = typeOffset, stubDescCtorArg = stubDesc)
+    public fun copy(version: UInt = this.version, typeFormatString: MutPtr = this.typeFormatString, formatStringSize: UShort = this.formatStringSize, typeOffset: UShort = this.typeOffset, stubDesc: MutPtr = this.stubDesc): MidlWinrtTypeSerializationInfo = MidlWinrtTypeSerializationInfo(version = version, typeFormatStringCtorArg = typeFormatString, formatStringSize = formatStringSize, typeOffset = typeOffset, stubDescCtorArg = stubDesc)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -1859,36 +1857,36 @@ public class MidlWinrtTypeSerializationInfo internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<UByte>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16).readNative(addr + 16L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16).readNative(addr + 18L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<MidlStubDesc>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 24L),
                     )
                 override fun writeNative(addr: Long, value: MidlWinrtTypeSerializationInfo) {
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr, value.version)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<UByte>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.typeFormatString)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16).writeNative(addr + 16L, value.formatStringSize)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16).writeNative(addr + 18L, value.typeOffset)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<MidlStubDesc>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 24L, value.stubDesc)
                 }
             }
 
         public operator fun invoke(
             version: UInt = 0u,
-            typeFormatString: MutPtr<UByte> = MutPtr(0L),
+            typeFormatString: MutPtr = MutPtr(0L),
             formatStringSize: UShort = 0u,
             typeOffset: UShort = 0u,
-            stubDesc: MutPtr<MidlStubDesc> = MutPtr(0L),
+            stubDesc: MutPtr = MutPtr(0L),
         ): MidlWinrtTypeSerializationInfo =
             MidlWinrtTypeSerializationInfo(
                 version = version,
@@ -1902,9 +1900,9 @@ public class MidlWinrtTypeSerializationInfo internal constructor(
 
 public class Ndr64ArrayElementInfo internal constructor(
     public var elementMemSize: UInt,
-    elementCtorArg: MutPtr<CVoid>,
+    elementCtorArg: MutPtr,
 ) {
-    public var element: MutPtr<CVoid> = elementCtorArg
+    public var element: MutPtr = elementCtorArg
         internal set
 
     public constructor() : this(
@@ -1914,9 +1912,9 @@ public class Ndr64ArrayElementInfo internal constructor(
 
     public operator fun component1(): UInt = this.elementMemSize
 
-    public operator fun component2(): MutPtr<CVoid> = this.element
+    public operator fun component2(): MutPtr = this.element
 
-    public fun copy(elementMemSize: UInt = this.elementMemSize, element: MutPtr<CVoid> = this.element): Ndr64ArrayElementInfo = Ndr64ArrayElementInfo(elementMemSize = elementMemSize, elementCtorArg = element)
+    public fun copy(elementMemSize: UInt = this.elementMemSize, element: MutPtr = this.element): Ndr64ArrayElementInfo = Ndr64ArrayElementInfo(elementMemSize = elementMemSize, elementCtorArg = element)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -1942,21 +1940,21 @@ public class Ndr64ArrayElementInfo internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<CVoid>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                     )
                 override fun writeNative(addr: Long, value: Ndr64ArrayElementInfo) {
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr, value.elementMemSize)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<CVoid>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.element)
                 }
             }
 
         public operator fun invoke(
             elementMemSize: UInt = 0u,
-            element: MutPtr<CVoid> = MutPtr(0L),
+            element: MutPtr = MutPtr(0L),
         ): Ndr64ArrayElementInfo =
             Ndr64ArrayElementInfo(
                 elementMemSize = elementMemSize,
@@ -2108,9 +2106,9 @@ public class Ndr64BogusArrayHeaderFormat internal constructor(
     public var flags: Ndr64ArrayFlags,
     public var numberDims: UByte,
     public var numberElements: UInt,
-    elementCtorArg: MutPtr<CVoid>,
+    elementCtorArg: MutPtr,
 ) {
-    public var element: MutPtr<CVoid> = elementCtorArg
+    public var element: MutPtr = elementCtorArg
         internal set
 
     public constructor() : this(
@@ -2132,9 +2130,9 @@ public class Ndr64BogusArrayHeaderFormat internal constructor(
 
     public operator fun component5(): UInt = this.numberElements
 
-    public operator fun component6(): MutPtr<CVoid> = this.element
+    public operator fun component6(): MutPtr = this.element
 
-    public fun copy(formatCode: UByte = this.formatCode, alignment: UByte = this.alignment, flags: Ndr64ArrayFlags = this.flags, numberDims: UByte = this.numberDims, numberElements: UInt = this.numberElements, element: MutPtr<CVoid> = this.element): Ndr64BogusArrayHeaderFormat = Ndr64BogusArrayHeaderFormat(formatCode = formatCode, alignment = alignment, flags = flags, numberDims = numberDims, numberElements = numberElements, elementCtorArg = element)
+    public fun copy(formatCode: UByte = this.formatCode, alignment: UByte = this.alignment, flags: Ndr64ArrayFlags = this.flags, numberDims: UByte = this.numberDims, numberElements: UInt = this.numberElements, element: MutPtr = this.element): Ndr64BogusArrayHeaderFormat = Ndr64BogusArrayHeaderFormat(formatCode = formatCode, alignment = alignment, flags = flags, numberDims = numberDims, numberElements = numberElements, elementCtorArg = element)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -2172,7 +2170,7 @@ public class Ndr64BogusArrayHeaderFormat internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 4L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<CVoid>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                     )
                 override fun writeNative(addr: Long, value: Ndr64BogusArrayHeaderFormat) {
@@ -2183,7 +2181,7 @@ public class Ndr64BogusArrayHeaderFormat internal constructor(
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 4L, value.numberElements)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<CVoid>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.element)
                 }
             }
@@ -2194,7 +2192,7 @@ public class Ndr64BogusArrayHeaderFormat internal constructor(
             flags: Ndr64ArrayFlags = Ndr64ArrayFlags(),
             numberDims: UByte = 0u,
             numberElements: UInt = 0u,
-            element: MutPtr<CVoid> = MutPtr(0L),
+            element: MutPtr = MutPtr(0L),
         ): Ndr64BogusArrayHeaderFormat =
             Ndr64BogusArrayHeaderFormat(
                 formatCode = formatCode,
@@ -2213,17 +2211,17 @@ public class Ndr64BogusStructureHeaderFormat internal constructor(
     public var flags: Ndr64StructureFlags,
     public var reserve: UByte,
     public var memorySize: UInt,
-    originalMemberLayoutCtorArg: MutPtr<CVoid>,
-    originalPointerLayoutCtorArg: MutPtr<CVoid>,
-    pointerLayoutCtorArg: MutPtr<CVoid>,
+    originalMemberLayoutCtorArg: MutPtr,
+    originalPointerLayoutCtorArg: MutPtr,
+    pointerLayoutCtorArg: MutPtr,
 ) {
-    public var originalMemberLayout: MutPtr<CVoid> = originalMemberLayoutCtorArg
+    public var originalMemberLayout: MutPtr = originalMemberLayoutCtorArg
         internal set
 
-    public var originalPointerLayout: MutPtr<CVoid> = originalPointerLayoutCtorArg
+    public var originalPointerLayout: MutPtr = originalPointerLayoutCtorArg
         internal set
 
-    public var pointerLayout: MutPtr<CVoid> = pointerLayoutCtorArg
+    public var pointerLayout: MutPtr = pointerLayoutCtorArg
         internal set
 
     public constructor() : this(
@@ -2247,13 +2245,13 @@ public class Ndr64BogusStructureHeaderFormat internal constructor(
 
     public operator fun component5(): UInt = this.memorySize
 
-    public operator fun component6(): MutPtr<CVoid> = this.originalMemberLayout
+    public operator fun component6(): MutPtr = this.originalMemberLayout
 
-    public operator fun component7(): MutPtr<CVoid> = this.originalPointerLayout
+    public operator fun component7(): MutPtr = this.originalPointerLayout
 
-    public operator fun component8(): MutPtr<CVoid> = this.pointerLayout
+    public operator fun component8(): MutPtr = this.pointerLayout
 
-    public fun copy(formatCode: UByte = this.formatCode, alignment: UByte = this.alignment, flags: Ndr64StructureFlags = this.flags, reserve: UByte = this.reserve, memorySize: UInt = this.memorySize, originalMemberLayout: MutPtr<CVoid> = this.originalMemberLayout, originalPointerLayout: MutPtr<CVoid> = this.originalPointerLayout, pointerLayout: MutPtr<CVoid> = this.pointerLayout): Ndr64BogusStructureHeaderFormat = Ndr64BogusStructureHeaderFormat(formatCode = formatCode, alignment = alignment, flags = flags, reserve = reserve, memorySize = memorySize, originalMemberLayoutCtorArg = originalMemberLayout, originalPointerLayoutCtorArg = originalPointerLayout, pointerLayoutCtorArg = pointerLayout)
+    public fun copy(formatCode: UByte = this.formatCode, alignment: UByte = this.alignment, flags: Ndr64StructureFlags = this.flags, reserve: UByte = this.reserve, memorySize: UInt = this.memorySize, originalMemberLayout: MutPtr = this.originalMemberLayout, originalPointerLayout: MutPtr = this.originalPointerLayout, pointerLayout: MutPtr = this.pointerLayout): Ndr64BogusStructureHeaderFormat = Ndr64BogusStructureHeaderFormat(formatCode = formatCode, alignment = alignment, flags = flags, reserve = reserve, memorySize = memorySize, originalMemberLayoutCtorArg = originalMemberLayout, originalPointerLayoutCtorArg = originalPointerLayout, pointerLayoutCtorArg = pointerLayout)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -2295,15 +2293,15 @@ public class Ndr64BogusStructureHeaderFormat internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 4L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<CVoid>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<CVoid>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 16L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<CVoid>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 24L),
                     )
                 override fun writeNative(addr: Long, value: Ndr64BogusStructureHeaderFormat) {
@@ -2314,15 +2312,15 @@ public class Ndr64BogusStructureHeaderFormat internal constructor(
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 4L, value.memorySize)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<CVoid>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.originalMemberLayout)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<CVoid>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 16L, value.originalPointerLayout)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<CVoid>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 24L, value.pointerLayout)
                 }
             }
@@ -2333,9 +2331,9 @@ public class Ndr64BogusStructureHeaderFormat internal constructor(
             flags: Ndr64StructureFlags = Ndr64StructureFlags(),
             reserve: UByte = 0u,
             memorySize: UInt = 0u,
-            originalMemberLayout: MutPtr<CVoid> = MutPtr(0L),
-            originalPointerLayout: MutPtr<CVoid> = MutPtr(0L),
-            pointerLayout: MutPtr<CVoid> = MutPtr(0L),
+            originalMemberLayout: MutPtr = MutPtr(0L),
+            originalPointerLayout: MutPtr = MutPtr(0L),
+            pointerLayout: MutPtr = MutPtr(0L),
         ): Ndr64BogusStructureHeaderFormat =
             Ndr64BogusStructureHeaderFormat(
                 formatCode = formatCode,
@@ -2403,9 +2401,9 @@ public class Ndr64ConfArrayHeaderFormat internal constructor(
     public var flags: Ndr64ArrayFlags,
     public var reserved: UByte,
     public var elementSize: UInt,
-    confDescriptorCtorArg: MutPtr<CVoid>,
+    confDescriptorCtorArg: MutPtr,
 ) {
-    public var confDescriptor: MutPtr<CVoid> = confDescriptorCtorArg
+    public var confDescriptor: MutPtr = confDescriptorCtorArg
         internal set
 
     public constructor() : this(
@@ -2427,9 +2425,9 @@ public class Ndr64ConfArrayHeaderFormat internal constructor(
 
     public operator fun component5(): UInt = this.elementSize
 
-    public operator fun component6(): MutPtr<CVoid> = this.confDescriptor
+    public operator fun component6(): MutPtr = this.confDescriptor
 
-    public fun copy(formatCode: UByte = this.formatCode, alignment: UByte = this.alignment, flags: Ndr64ArrayFlags = this.flags, reserved: UByte = this.reserved, elementSize: UInt = this.elementSize, confDescriptor: MutPtr<CVoid> = this.confDescriptor): Ndr64ConfArrayHeaderFormat = Ndr64ConfArrayHeaderFormat(formatCode = formatCode, alignment = alignment, flags = flags, reserved = reserved, elementSize = elementSize, confDescriptorCtorArg = confDescriptor)
+    public fun copy(formatCode: UByte = this.formatCode, alignment: UByte = this.alignment, flags: Ndr64ArrayFlags = this.flags, reserved: UByte = this.reserved, elementSize: UInt = this.elementSize, confDescriptor: MutPtr = this.confDescriptor): Ndr64ConfArrayHeaderFormat = Ndr64ConfArrayHeaderFormat(formatCode = formatCode, alignment = alignment, flags = flags, reserved = reserved, elementSize = elementSize, confDescriptorCtorArg = confDescriptor)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -2467,7 +2465,7 @@ public class Ndr64ConfArrayHeaderFormat internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 4L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<CVoid>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                     )
                 override fun writeNative(addr: Long, value: Ndr64ConfArrayHeaderFormat) {
@@ -2478,7 +2476,7 @@ public class Ndr64ConfArrayHeaderFormat internal constructor(
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 4L, value.elementSize)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<CVoid>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.confDescriptor)
                 }
             }
@@ -2489,7 +2487,7 @@ public class Ndr64ConfArrayHeaderFormat internal constructor(
             flags: Ndr64ArrayFlags = Ndr64ArrayFlags(),
             reserved: UByte = 0u,
             elementSize: UInt = 0u,
-            confDescriptor: MutPtr<CVoid> = MutPtr(0L),
+            confDescriptor: MutPtr = MutPtr(0L),
         ): Ndr64ConfArrayHeaderFormat =
             Ndr64ConfArrayHeaderFormat(
                 formatCode = formatCode,
@@ -2508,21 +2506,21 @@ public class Ndr64ConfBogusStructureHeaderFormat internal constructor(
     public var flags: Ndr64StructureFlags,
     public var dimensions: UByte,
     public var memorySize: UInt,
-    originalMemberLayoutCtorArg: MutPtr<CVoid>,
-    originalPointerLayoutCtorArg: MutPtr<CVoid>,
-    pointerLayoutCtorArg: MutPtr<CVoid>,
-    confArrayDescriptionCtorArg: MutPtr<CVoid>,
+    originalMemberLayoutCtorArg: MutPtr,
+    originalPointerLayoutCtorArg: MutPtr,
+    pointerLayoutCtorArg: MutPtr,
+    confArrayDescriptionCtorArg: MutPtr,
 ) {
-    public var originalMemberLayout: MutPtr<CVoid> = originalMemberLayoutCtorArg
+    public var originalMemberLayout: MutPtr = originalMemberLayoutCtorArg
         internal set
 
-    public var originalPointerLayout: MutPtr<CVoid> = originalPointerLayoutCtorArg
+    public var originalPointerLayout: MutPtr = originalPointerLayoutCtorArg
         internal set
 
-    public var pointerLayout: MutPtr<CVoid> = pointerLayoutCtorArg
+    public var pointerLayout: MutPtr = pointerLayoutCtorArg
         internal set
 
-    public var confArrayDescription: MutPtr<CVoid> = confArrayDescriptionCtorArg
+    public var confArrayDescription: MutPtr = confArrayDescriptionCtorArg
         internal set
 
     public constructor() : this(
@@ -2547,15 +2545,15 @@ public class Ndr64ConfBogusStructureHeaderFormat internal constructor(
 
     public operator fun component5(): UInt = this.memorySize
 
-    public operator fun component6(): MutPtr<CVoid> = this.originalMemberLayout
+    public operator fun component6(): MutPtr = this.originalMemberLayout
 
-    public operator fun component7(): MutPtr<CVoid> = this.originalPointerLayout
+    public operator fun component7(): MutPtr = this.originalPointerLayout
 
-    public operator fun component8(): MutPtr<CVoid> = this.pointerLayout
+    public operator fun component8(): MutPtr = this.pointerLayout
 
-    public operator fun component9(): MutPtr<CVoid> = this.confArrayDescription
+    public operator fun component9(): MutPtr = this.confArrayDescription
 
-    public fun copy(formatCode: UByte = this.formatCode, alignment: UByte = this.alignment, flags: Ndr64StructureFlags = this.flags, dimensions: UByte = this.dimensions, memorySize: UInt = this.memorySize, originalMemberLayout: MutPtr<CVoid> = this.originalMemberLayout, originalPointerLayout: MutPtr<CVoid> = this.originalPointerLayout, pointerLayout: MutPtr<CVoid> = this.pointerLayout, confArrayDescription: MutPtr<CVoid> = this.confArrayDescription): Ndr64ConfBogusStructureHeaderFormat = Ndr64ConfBogusStructureHeaderFormat(formatCode = formatCode, alignment = alignment, flags = flags, dimensions = dimensions, memorySize = memorySize, originalMemberLayoutCtorArg = originalMemberLayout, originalPointerLayoutCtorArg = originalPointerLayout, pointerLayoutCtorArg = pointerLayout, confArrayDescriptionCtorArg = confArrayDescription)
+    public fun copy(formatCode: UByte = this.formatCode, alignment: UByte = this.alignment, flags: Ndr64StructureFlags = this.flags, dimensions: UByte = this.dimensions, memorySize: UInt = this.memorySize, originalMemberLayout: MutPtr = this.originalMemberLayout, originalPointerLayout: MutPtr = this.originalPointerLayout, pointerLayout: MutPtr = this.pointerLayout, confArrayDescription: MutPtr = this.confArrayDescription): Ndr64ConfBogusStructureHeaderFormat = Ndr64ConfBogusStructureHeaderFormat(formatCode = formatCode, alignment = alignment, flags = flags, dimensions = dimensions, memorySize = memorySize, originalMemberLayoutCtorArg = originalMemberLayout, originalPointerLayoutCtorArg = originalPointerLayout, pointerLayoutCtorArg = pointerLayout, confArrayDescriptionCtorArg = confArrayDescription)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -2599,19 +2597,19 @@ public class Ndr64ConfBogusStructureHeaderFormat internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 4L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<CVoid>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<CVoid>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 16L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<CVoid>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 24L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<CVoid>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 32L),
                     )
                 override fun writeNative(addr: Long, value: Ndr64ConfBogusStructureHeaderFormat) {
@@ -2622,19 +2620,19 @@ public class Ndr64ConfBogusStructureHeaderFormat internal constructor(
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 4L, value.memorySize)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<CVoid>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.originalMemberLayout)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<CVoid>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 16L, value.originalPointerLayout)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<CVoid>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 24L, value.pointerLayout)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<CVoid>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 32L, value.confArrayDescription)
                 }
             }
@@ -2645,10 +2643,10 @@ public class Ndr64ConfBogusStructureHeaderFormat internal constructor(
             flags: Ndr64StructureFlags = Ndr64StructureFlags(),
             dimensions: UByte = 0u,
             memorySize: UInt = 0u,
-            originalMemberLayout: MutPtr<CVoid> = MutPtr(0L),
-            originalPointerLayout: MutPtr<CVoid> = MutPtr(0L),
-            pointerLayout: MutPtr<CVoid> = MutPtr(0L),
-            confArrayDescription: MutPtr<CVoid> = MutPtr(0L),
+            originalMemberLayout: MutPtr = MutPtr(0L),
+            originalPointerLayout: MutPtr = MutPtr(0L),
+            pointerLayout: MutPtr = MutPtr(0L),
+            confArrayDescription: MutPtr = MutPtr(0L),
         ): Ndr64ConfBogusStructureHeaderFormat =
             Ndr64ConfBogusStructureHeaderFormat(
                 formatCode = formatCode,
@@ -2670,9 +2668,9 @@ public class Ndr64ConfStructureHeaderFormat internal constructor(
     public var flags: Ndr64StructureFlags,
     public var reserve: UByte,
     public var memorySize: UInt,
-    arrayDescriptionCtorArg: MutPtr<CVoid>,
+    arrayDescriptionCtorArg: MutPtr,
 ) {
-    public var arrayDescription: MutPtr<CVoid> = arrayDescriptionCtorArg
+    public var arrayDescription: MutPtr = arrayDescriptionCtorArg
         internal set
 
     public constructor() : this(
@@ -2694,9 +2692,9 @@ public class Ndr64ConfStructureHeaderFormat internal constructor(
 
     public operator fun component5(): UInt = this.memorySize
 
-    public operator fun component6(): MutPtr<CVoid> = this.arrayDescription
+    public operator fun component6(): MutPtr = this.arrayDescription
 
-    public fun copy(formatCode: UByte = this.formatCode, alignment: UByte = this.alignment, flags: Ndr64StructureFlags = this.flags, reserve: UByte = this.reserve, memorySize: UInt = this.memorySize, arrayDescription: MutPtr<CVoid> = this.arrayDescription): Ndr64ConfStructureHeaderFormat = Ndr64ConfStructureHeaderFormat(formatCode = formatCode, alignment = alignment, flags = flags, reserve = reserve, memorySize = memorySize, arrayDescriptionCtorArg = arrayDescription)
+    public fun copy(formatCode: UByte = this.formatCode, alignment: UByte = this.alignment, flags: Ndr64StructureFlags = this.flags, reserve: UByte = this.reserve, memorySize: UInt = this.memorySize, arrayDescription: MutPtr = this.arrayDescription): Ndr64ConfStructureHeaderFormat = Ndr64ConfStructureHeaderFormat(formatCode = formatCode, alignment = alignment, flags = flags, reserve = reserve, memorySize = memorySize, arrayDescriptionCtorArg = arrayDescription)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -2734,7 +2732,7 @@ public class Ndr64ConfStructureHeaderFormat internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 4L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<CVoid>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                     )
                 override fun writeNative(addr: Long, value: Ndr64ConfStructureHeaderFormat) {
@@ -2745,7 +2743,7 @@ public class Ndr64ConfStructureHeaderFormat internal constructor(
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 4L, value.memorySize)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<CVoid>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.arrayDescription)
                 }
             }
@@ -2756,7 +2754,7 @@ public class Ndr64ConfStructureHeaderFormat internal constructor(
             flags: Ndr64StructureFlags = Ndr64StructureFlags(),
             reserve: UByte = 0u,
             memorySize: UInt = 0u,
-            arrayDescription: MutPtr<CVoid> = MutPtr(0L),
+            arrayDescription: MutPtr = MutPtr(0L),
         ): Ndr64ConfStructureHeaderFormat =
             Ndr64ConfStructureHeaderFormat(
                 formatCode = formatCode,
@@ -2775,13 +2773,13 @@ public class Ndr64ConfVarArrayHeaderFormat internal constructor(
     public var flags: Ndr64ArrayFlags,
     public var reserved: UByte,
     public var elementSize: UInt,
-    confDescriptorCtorArg: MutPtr<CVoid>,
-    varDescriptorCtorArg: MutPtr<CVoid>,
+    confDescriptorCtorArg: MutPtr,
+    varDescriptorCtorArg: MutPtr,
 ) {
-    public var confDescriptor: MutPtr<CVoid> = confDescriptorCtorArg
+    public var confDescriptor: MutPtr = confDescriptorCtorArg
         internal set
 
-    public var varDescriptor: MutPtr<CVoid> = varDescriptorCtorArg
+    public var varDescriptor: MutPtr = varDescriptorCtorArg
         internal set
 
     public constructor() : this(
@@ -2804,11 +2802,11 @@ public class Ndr64ConfVarArrayHeaderFormat internal constructor(
 
     public operator fun component5(): UInt = this.elementSize
 
-    public operator fun component6(): MutPtr<CVoid> = this.confDescriptor
+    public operator fun component6(): MutPtr = this.confDescriptor
 
-    public operator fun component7(): MutPtr<CVoid> = this.varDescriptor
+    public operator fun component7(): MutPtr = this.varDescriptor
 
-    public fun copy(formatCode: UByte = this.formatCode, alignment: UByte = this.alignment, flags: Ndr64ArrayFlags = this.flags, reserved: UByte = this.reserved, elementSize: UInt = this.elementSize, confDescriptor: MutPtr<CVoid> = this.confDescriptor, varDescriptor: MutPtr<CVoid> = this.varDescriptor): Ndr64ConfVarArrayHeaderFormat = Ndr64ConfVarArrayHeaderFormat(formatCode = formatCode, alignment = alignment, flags = flags, reserved = reserved, elementSize = elementSize, confDescriptorCtorArg = confDescriptor, varDescriptorCtorArg = varDescriptor)
+    public fun copy(formatCode: UByte = this.formatCode, alignment: UByte = this.alignment, flags: Ndr64ArrayFlags = this.flags, reserved: UByte = this.reserved, elementSize: UInt = this.elementSize, confDescriptor: MutPtr = this.confDescriptor, varDescriptor: MutPtr = this.varDescriptor): Ndr64ConfVarArrayHeaderFormat = Ndr64ConfVarArrayHeaderFormat(formatCode = formatCode, alignment = alignment, flags = flags, reserved = reserved, elementSize = elementSize, confDescriptorCtorArg = confDescriptor, varDescriptorCtorArg = varDescriptor)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -2848,11 +2846,11 @@ public class Ndr64ConfVarArrayHeaderFormat internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 4L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<CVoid>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<CVoid>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 16L),
                     )
                 override fun writeNative(addr: Long, value: Ndr64ConfVarArrayHeaderFormat) {
@@ -2863,11 +2861,11 @@ public class Ndr64ConfVarArrayHeaderFormat internal constructor(
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 4L, value.elementSize)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<CVoid>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.confDescriptor)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<CVoid>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 16L, value.varDescriptor)
                 }
             }
@@ -2878,8 +2876,8 @@ public class Ndr64ConfVarArrayHeaderFormat internal constructor(
             flags: Ndr64ArrayFlags = Ndr64ArrayFlags(),
             reserved: UByte = 0u,
             elementSize: UInt = 0u,
-            confDescriptor: MutPtr<CVoid> = MutPtr(0L),
-            varDescriptor: MutPtr<CVoid> = MutPtr(0L),
+            confDescriptor: MutPtr = MutPtr(0L),
+            varDescriptor: MutPtr = MutPtr(0L),
         ): Ndr64ConfVarArrayHeaderFormat =
             Ndr64ConfVarArrayHeaderFormat(
                 formatCode = formatCode,
@@ -2895,17 +2893,17 @@ public class Ndr64ConfVarArrayHeaderFormat internal constructor(
 
 public class Ndr64ConfVarBogusArrayHeaderFormat internal constructor(
     public var fixedArrayFormat: Ndr64BogusArrayHeaderFormat,
-    confDescriptionCtorArg: MutPtr<CVoid>,
-    varDescriptionCtorArg: MutPtr<CVoid>,
-    offsetDescriptionCtorArg: MutPtr<CVoid>,
+    confDescriptionCtorArg: MutPtr,
+    varDescriptionCtorArg: MutPtr,
+    offsetDescriptionCtorArg: MutPtr,
 ) {
-    public var confDescription: MutPtr<CVoid> = confDescriptionCtorArg
+    public var confDescription: MutPtr = confDescriptionCtorArg
         internal set
 
-    public var varDescription: MutPtr<CVoid> = varDescriptionCtorArg
+    public var varDescription: MutPtr = varDescriptionCtorArg
         internal set
 
-    public var offsetDescription: MutPtr<CVoid> = offsetDescriptionCtorArg
+    public var offsetDescription: MutPtr = offsetDescriptionCtorArg
         internal set
 
     public constructor() : this(
@@ -2917,13 +2915,13 @@ public class Ndr64ConfVarBogusArrayHeaderFormat internal constructor(
 
     public operator fun component1(): Ndr64BogusArrayHeaderFormat = this.fixedArrayFormat
 
-    public operator fun component2(): MutPtr<CVoid> = this.confDescription
+    public operator fun component2(): MutPtr = this.confDescription
 
-    public operator fun component3(): MutPtr<CVoid> = this.varDescription
+    public operator fun component3(): MutPtr = this.varDescription
 
-    public operator fun component4(): MutPtr<CVoid> = this.offsetDescription
+    public operator fun component4(): MutPtr = this.offsetDescription
 
-    public fun copy(fixedArrayFormat: Ndr64BogusArrayHeaderFormat = this.fixedArrayFormat, confDescription: MutPtr<CVoid> = this.confDescription, varDescription: MutPtr<CVoid> = this.varDescription, offsetDescription: MutPtr<CVoid> = this.offsetDescription): Ndr64ConfVarBogusArrayHeaderFormat = Ndr64ConfVarBogusArrayHeaderFormat(fixedArrayFormat = fixedArrayFormat, confDescriptionCtorArg = confDescription, varDescriptionCtorArg = varDescription, offsetDescriptionCtorArg = offsetDescription)
+    public fun copy(fixedArrayFormat: Ndr64BogusArrayHeaderFormat = this.fixedArrayFormat, confDescription: MutPtr = this.confDescription, varDescription: MutPtr = this.varDescription, offsetDescription: MutPtr = this.offsetDescription): Ndr64ConfVarBogusArrayHeaderFormat = Ndr64ConfVarBogusArrayHeaderFormat(fixedArrayFormat = fixedArrayFormat, confDescriptionCtorArg = confDescription, varDescriptionCtorArg = varDescription, offsetDescriptionCtorArg = offsetDescription)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -2953,39 +2951,39 @@ public class Ndr64ConfVarBogusArrayHeaderFormat internal constructor(
                         (Ndr64BogusArrayHeaderFormat.typeLayout()).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<CVoid>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 16L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<CVoid>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 24L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<CVoid>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 32L),
                     )
                 override fun writeNative(addr: Long, value: Ndr64ConfVarBogusArrayHeaderFormat) {
                     (Ndr64BogusArrayHeaderFormat.typeLayout()).writeNative(addr, value.fixedArrayFormat)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<CVoid>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 16L, value.confDescription)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<CVoid>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 24L, value.varDescription)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<CVoid>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 32L, value.offsetDescription)
                 }
             }
 
         public operator fun invoke(
             fixedArrayFormat: Ndr64BogusArrayHeaderFormat = Ndr64BogusArrayHeaderFormat(),
-            confDescription: MutPtr<CVoid> = MutPtr(0L),
-            varDescription: MutPtr<CVoid> = MutPtr(0L),
-            offsetDescription: MutPtr<CVoid> = MutPtr(0L),
+            confDescription: MutPtr = MutPtr(0L),
+            varDescription: MutPtr = MutPtr(0L),
+            offsetDescription: MutPtr = MutPtr(0L),
         ): Ndr64ConfVarBogusArrayHeaderFormat =
             Ndr64ConfVarBogusArrayHeaderFormat(
                 fixedArrayFormat = fixedArrayFormat,
@@ -3054,9 +3052,9 @@ public class Ndr64EmbeddedComplexFormat internal constructor(
     public var formatCode: UByte,
     public var reserve1: UByte,
     public var reserve2: UShort,
-    typeCtorArg: MutPtr<CVoid>,
+    typeCtorArg: MutPtr,
 ) {
-    public var type: MutPtr<CVoid> = typeCtorArg
+    public var type: MutPtr = typeCtorArg
         internal set
 
     public constructor() : this(
@@ -3072,9 +3070,9 @@ public class Ndr64EmbeddedComplexFormat internal constructor(
 
     public operator fun component3(): UShort = this.reserve2
 
-    public operator fun component4(): MutPtr<CVoid> = this.type
+    public operator fun component4(): MutPtr = this.type
 
-    public fun copy(formatCode: UByte = this.formatCode, reserve1: UByte = this.reserve1, reserve2: UShort = this.reserve2, type: MutPtr<CVoid> = this.type): Ndr64EmbeddedComplexFormat = Ndr64EmbeddedComplexFormat(formatCode = formatCode, reserve1 = reserve1, reserve2 = reserve2, typeCtorArg = type)
+    public fun copy(formatCode: UByte = this.formatCode, reserve1: UByte = this.reserve1, reserve2: UShort = this.reserve2, type: MutPtr = this.type): Ndr64EmbeddedComplexFormat = Ndr64EmbeddedComplexFormat(formatCode = formatCode, reserve1 = reserve1, reserve2 = reserve2, typeCtorArg = type)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -3106,7 +3104,7 @@ public class Ndr64EmbeddedComplexFormat internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16).readNative(addr + 2L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<CVoid>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                     )
                 override fun writeNative(addr: Long, value: Ndr64EmbeddedComplexFormat) {
@@ -3115,7 +3113,7 @@ public class Ndr64EmbeddedComplexFormat internal constructor(
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16).writeNative(addr + 2L, value.reserve2)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<CVoid>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.type)
                 }
             }
@@ -3124,7 +3122,7 @@ public class Ndr64EmbeddedComplexFormat internal constructor(
             formatCode: UByte = 0u,
             reserve1: UByte = 0u,
             reserve2: UShort = 0u,
-            type: MutPtr<CVoid> = MutPtr(0L),
+            type: MutPtr = MutPtr(0L),
         ): Ndr64EmbeddedComplexFormat =
             Ndr64EmbeddedComplexFormat(
                 formatCode = formatCode,
@@ -3388,9 +3386,9 @@ public class Ndr64IidFormat internal constructor(
     public var formatCode: UByte,
     public var flags: UByte,
     public var reserved: UShort,
-    iIDDescriptorCtorArg: MutPtr<CVoid>,
+    iIDDescriptorCtorArg: MutPtr,
 ) {
-    public var iIDDescriptor: MutPtr<CVoid> = iIDDescriptorCtorArg
+    public var iIDDescriptor: MutPtr = iIDDescriptorCtorArg
         internal set
 
     public constructor() : this(
@@ -3406,9 +3404,9 @@ public class Ndr64IidFormat internal constructor(
 
     public operator fun component3(): UShort = this.reserved
 
-    public operator fun component4(): MutPtr<CVoid> = this.iIDDescriptor
+    public operator fun component4(): MutPtr = this.iIDDescriptor
 
-    public fun copy(formatCode: UByte = this.formatCode, flags: UByte = this.flags, reserved: UShort = this.reserved, iIDDescriptor: MutPtr<CVoid> = this.iIDDescriptor): Ndr64IidFormat = Ndr64IidFormat(formatCode = formatCode, flags = flags, reserved = reserved, iIDDescriptorCtorArg = iIDDescriptor)
+    public fun copy(formatCode: UByte = this.formatCode, flags: UByte = this.flags, reserved: UShort = this.reserved, iIDDescriptor: MutPtr = this.iIDDescriptor): Ndr64IidFormat = Ndr64IidFormat(formatCode = formatCode, flags = flags, reserved = reserved, iIDDescriptorCtorArg = iIDDescriptor)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -3440,7 +3438,7 @@ public class Ndr64IidFormat internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16).readNative(addr + 2L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<CVoid>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                     )
                 override fun writeNative(addr: Long, value: Ndr64IidFormat) {
@@ -3449,7 +3447,7 @@ public class Ndr64IidFormat internal constructor(
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16).writeNative(addr + 2L, value.reserved)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<CVoid>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.iIDDescriptor)
                 }
             }
@@ -3458,7 +3456,7 @@ public class Ndr64IidFormat internal constructor(
             formatCode: UByte = 0u,
             flags: UByte = 0u,
             reserved: UShort = 0u,
-            iIDDescriptor: MutPtr<CVoid> = MutPtr(0L),
+            iIDDescriptor: MutPtr = MutPtr(0L),
         ): Ndr64IidFormat =
             Ndr64IidFormat(
                 formatCode = formatCode,
@@ -3525,10 +3523,10 @@ public class Ndr64NonEncapsulatedUnion internal constructor(
     public var flags: UByte,
     public var switchType: UByte,
     public var memorySize: UInt,
-    switchCtorArg: MutPtr<CVoid>,
+    switchCtorArg: MutPtr,
     public var reserved: UInt,
 ) {
-    public var switch: MutPtr<CVoid> = switchCtorArg
+    public var switch: MutPtr = switchCtorArg
         internal set
 
     public constructor() : this(
@@ -3551,11 +3549,11 @@ public class Ndr64NonEncapsulatedUnion internal constructor(
 
     public operator fun component5(): UInt = this.memorySize
 
-    public operator fun component6(): MutPtr<CVoid> = this.switch
+    public operator fun component6(): MutPtr = this.switch
 
     public operator fun component7(): UInt = this.reserved
 
-    public fun copy(formatCode: UByte = this.formatCode, alignment: UByte = this.alignment, flags: UByte = this.flags, switchType: UByte = this.switchType, memorySize: UInt = this.memorySize, switch: MutPtr<CVoid> = this.switch, reserved: UInt = this.reserved): Ndr64NonEncapsulatedUnion = Ndr64NonEncapsulatedUnion(formatCode = formatCode, alignment = alignment, flags = flags, switchType = switchType, memorySize = memorySize, switchCtorArg = switch, reserved = reserved)
+    public fun copy(formatCode: UByte = this.formatCode, alignment: UByte = this.alignment, flags: UByte = this.flags, switchType: UByte = this.switchType, memorySize: UInt = this.memorySize, switch: MutPtr = this.switch, reserved: UInt = this.reserved): Ndr64NonEncapsulatedUnion = Ndr64NonEncapsulatedUnion(formatCode = formatCode, alignment = alignment, flags = flags, switchType = switchType, memorySize = memorySize, switchCtorArg = switch, reserved = reserved)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -3595,7 +3593,7 @@ public class Ndr64NonEncapsulatedUnion internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 4L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<CVoid>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 16L),
                     )
@@ -3607,7 +3605,7 @@ public class Ndr64NonEncapsulatedUnion internal constructor(
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 4L, value.memorySize)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<CVoid>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.switch)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 16L, value.reserved)
                 }
@@ -3619,7 +3617,7 @@ public class Ndr64NonEncapsulatedUnion internal constructor(
             flags: UByte = 0u,
             switchType: UByte = 0u,
             memorySize: UInt = 0u,
-            switch: MutPtr<CVoid> = MutPtr(0L),
+            switch: MutPtr = MutPtr(0L),
             reserved: UInt = 0u,
         ): Ndr64NonEncapsulatedUnion =
             Ndr64NonEncapsulatedUnion(
@@ -3682,12 +3680,12 @@ public data class Ndr64ParamFlags(
 }
 
 public class Ndr64ParamFormat internal constructor(
-    typeCtorArg: MutPtr<CVoid>,
+    typeCtorArg: MutPtr,
     public var attributes: Ndr64ParamFlags,
     public var reserved: UShort,
     public var stackOffset: UInt,
 ) {
-    public var type: MutPtr<CVoid> = typeCtorArg
+    public var type: MutPtr = typeCtorArg
         internal set
 
     public constructor() : this(
@@ -3697,7 +3695,7 @@ public class Ndr64ParamFormat internal constructor(
         stackOffset = 0u,
     )
 
-    public operator fun component1(): MutPtr<CVoid> = this.type
+    public operator fun component1(): MutPtr = this.type
 
     public operator fun component2(): Ndr64ParamFlags = this.attributes
 
@@ -3705,7 +3703,7 @@ public class Ndr64ParamFormat internal constructor(
 
     public operator fun component4(): UInt = this.stackOffset
 
-    public fun copy(type: MutPtr<CVoid> = this.type, attributes: Ndr64ParamFlags = this.attributes, reserved: UShort = this.reserved, stackOffset: UInt = this.stackOffset): Ndr64ParamFormat = Ndr64ParamFormat(typeCtorArg = type, attributes = attributes, reserved = reserved, stackOffset = stackOffset)
+    public fun copy(type: MutPtr = this.type, attributes: Ndr64ParamFlags = this.attributes, reserved: UShort = this.reserved, stackOffset: UInt = this.stackOffset): Ndr64ParamFormat = Ndr64ParamFormat(typeCtorArg = type, attributes = attributes, reserved = reserved, stackOffset = stackOffset)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -3734,7 +3732,7 @@ public class Ndr64ParamFormat internal constructor(
                     Ndr64ParamFormat(
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<CVoid>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr),
                         (Ndr64ParamFlags.typeLayout()).readNative(addr + 8L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16).readNative(addr + 10L),
@@ -3743,7 +3741,7 @@ public class Ndr64ParamFormat internal constructor(
                 override fun writeNative(addr: Long, value: Ndr64ParamFormat) {
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<CVoid>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr, value.type)
                     (Ndr64ParamFlags.typeLayout()).writeNative(addr + 8L, value.attributes)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16).writeNative(addr + 10L, value.reserved)
@@ -3752,7 +3750,7 @@ public class Ndr64ParamFormat internal constructor(
             }
 
         public operator fun invoke(
-            type: MutPtr<CVoid> = MutPtr(0L),
+            type: MutPtr = MutPtr(0L),
             attributes: Ndr64ParamFlags = Ndr64ParamFlags(),
             reserved: UShort = 0u,
             stackOffset: UInt = 0u,
@@ -3790,11 +3788,11 @@ public class Ndr64PipeFormat internal constructor(
     public var flags: UByte,
     public var alignment: UByte,
     public var reserved: UByte,
-    typeCtorArg: MutPtr<CVoid>,
+    typeCtorArg: MutPtr,
     public var memorySize: UInt,
     public var bufferSize: UInt,
 ) {
-    public var type: MutPtr<CVoid> = typeCtorArg
+    public var type: MutPtr = typeCtorArg
         internal set
 
     public constructor() : this(
@@ -3815,13 +3813,13 @@ public class Ndr64PipeFormat internal constructor(
 
     public operator fun component4(): UByte = this.reserved
 
-    public operator fun component5(): MutPtr<CVoid> = this.type
+    public operator fun component5(): MutPtr = this.type
 
     public operator fun component6(): UInt = this.memorySize
 
     public operator fun component7(): UInt = this.bufferSize
 
-    public fun copy(formatCode: UByte = this.formatCode, flags: UByte = this.flags, alignment: UByte = this.alignment, reserved: UByte = this.reserved, type: MutPtr<CVoid> = this.type, memorySize: UInt = this.memorySize, bufferSize: UInt = this.bufferSize): Ndr64PipeFormat = Ndr64PipeFormat(formatCode = formatCode, flags = flags, alignment = alignment, reserved = reserved, typeCtorArg = type, memorySize = memorySize, bufferSize = bufferSize)
+    public fun copy(formatCode: UByte = this.formatCode, flags: UByte = this.flags, alignment: UByte = this.alignment, reserved: UByte = this.reserved, type: MutPtr = this.type, memorySize: UInt = this.memorySize, bufferSize: UInt = this.bufferSize): Ndr64PipeFormat = Ndr64PipeFormat(formatCode = formatCode, flags = flags, alignment = alignment, reserved = reserved, typeCtorArg = type, memorySize = memorySize, bufferSize = bufferSize)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -3860,7 +3858,7 @@ public class Ndr64PipeFormat internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8).readNative(addr + 3L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<CVoid>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 16L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 20L),
@@ -3872,7 +3870,7 @@ public class Ndr64PipeFormat internal constructor(
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8).writeNative(addr + 3L, value.reserved)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<CVoid>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.type)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 16L, value.memorySize)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 20L, value.bufferSize)
@@ -3884,7 +3882,7 @@ public class Ndr64PipeFormat internal constructor(
             flags: UByte = 0u,
             alignment: UByte = 0u,
             reserved: UByte = 0u,
-            type: MutPtr<CVoid> = MutPtr(0L),
+            type: MutPtr = MutPtr(0L),
             memorySize: UInt = 0u,
             bufferSize: UInt = 0u,
         ): Ndr64PipeFormat =
@@ -3904,9 +3902,9 @@ public class Ndr64PointerFormat internal constructor(
     public var formatCode: UByte,
     public var flags: UByte,
     public var reserved: UShort,
-    pointeeCtorArg: MutPtr<CVoid>,
+    pointeeCtorArg: MutPtr,
 ) {
-    public var pointee: MutPtr<CVoid> = pointeeCtorArg
+    public var pointee: MutPtr = pointeeCtorArg
         internal set
 
     public constructor() : this(
@@ -3922,9 +3920,9 @@ public class Ndr64PointerFormat internal constructor(
 
     public operator fun component3(): UShort = this.reserved
 
-    public operator fun component4(): MutPtr<CVoid> = this.pointee
+    public operator fun component4(): MutPtr = this.pointee
 
-    public fun copy(formatCode: UByte = this.formatCode, flags: UByte = this.flags, reserved: UShort = this.reserved, pointee: MutPtr<CVoid> = this.pointee): Ndr64PointerFormat = Ndr64PointerFormat(formatCode = formatCode, flags = flags, reserved = reserved, pointeeCtorArg = pointee)
+    public fun copy(formatCode: UByte = this.formatCode, flags: UByte = this.flags, reserved: UShort = this.reserved, pointee: MutPtr = this.pointee): Ndr64PointerFormat = Ndr64PointerFormat(formatCode = formatCode, flags = flags, reserved = reserved, pointeeCtorArg = pointee)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -3956,7 +3954,7 @@ public class Ndr64PointerFormat internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16).readNative(addr + 2L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<CVoid>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                     )
                 override fun writeNative(addr: Long, value: Ndr64PointerFormat) {
@@ -3965,7 +3963,7 @@ public class Ndr64PointerFormat internal constructor(
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16).writeNative(addr + 2L, value.reserved)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<CVoid>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.pointee)
                 }
             }
@@ -3974,7 +3972,7 @@ public class Ndr64PointerFormat internal constructor(
             formatCode: UByte = 0u,
             flags: UByte = 0u,
             reserved: UShort = 0u,
-            pointee: MutPtr<CVoid> = MutPtr(0L),
+            pointee: MutPtr = MutPtr(0L),
         ): Ndr64PointerFormat =
             Ndr64PointerFormat(
                 formatCode = formatCode,
@@ -4149,13 +4147,13 @@ public class Ndr64RangePipeFormat internal constructor(
     public var flags: UByte,
     public var alignment: UByte,
     public var reserved: UByte,
-    typeCtorArg: MutPtr<CVoid>,
+    typeCtorArg: MutPtr,
     public var memorySize: UInt,
     public var bufferSize: UInt,
     public var minValue: UInt,
     public var maxValue: UInt,
 ) {
-    public var type: MutPtr<CVoid> = typeCtorArg
+    public var type: MutPtr = typeCtorArg
         internal set
 
     public constructor() : this(
@@ -4178,7 +4176,7 @@ public class Ndr64RangePipeFormat internal constructor(
 
     public operator fun component4(): UByte = this.reserved
 
-    public operator fun component5(): MutPtr<CVoid> = this.type
+    public operator fun component5(): MutPtr = this.type
 
     public operator fun component6(): UInt = this.memorySize
 
@@ -4188,7 +4186,7 @@ public class Ndr64RangePipeFormat internal constructor(
 
     public operator fun component9(): UInt = this.maxValue
 
-    public fun copy(formatCode: UByte = this.formatCode, flags: UByte = this.flags, alignment: UByte = this.alignment, reserved: UByte = this.reserved, type: MutPtr<CVoid> = this.type, memorySize: UInt = this.memorySize, bufferSize: UInt = this.bufferSize, minValue: UInt = this.minValue, maxValue: UInt = this.maxValue): Ndr64RangePipeFormat = Ndr64RangePipeFormat(formatCode = formatCode, flags = flags, alignment = alignment, reserved = reserved, typeCtorArg = type, memorySize = memorySize, bufferSize = bufferSize, minValue = minValue, maxValue = maxValue)
+    public fun copy(formatCode: UByte = this.formatCode, flags: UByte = this.flags, alignment: UByte = this.alignment, reserved: UByte = this.reserved, type: MutPtr = this.type, memorySize: UInt = this.memorySize, bufferSize: UInt = this.bufferSize, minValue: UInt = this.minValue, maxValue: UInt = this.maxValue): Ndr64RangePipeFormat = Ndr64RangePipeFormat(formatCode = formatCode, flags = flags, alignment = alignment, reserved = reserved, typeCtorArg = type, memorySize = memorySize, bufferSize = bufferSize, minValue = minValue, maxValue = maxValue)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -4231,7 +4229,7 @@ public class Ndr64RangePipeFormat internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8).readNative(addr + 3L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<CVoid>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 16L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 20L),
@@ -4245,7 +4243,7 @@ public class Ndr64RangePipeFormat internal constructor(
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8).writeNative(addr + 3L, value.reserved)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<CVoid>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.type)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 16L, value.memorySize)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 20L, value.bufferSize)
@@ -4259,7 +4257,7 @@ public class Ndr64RangePipeFormat internal constructor(
             flags: UByte = 0u,
             alignment: UByte = 0u,
             reserved: UByte = 0u,
-            type: MutPtr<CVoid> = MutPtr(0L),
+            type: MutPtr = MutPtr(0L),
             memorySize: UInt = 0u,
             bufferSize: UInt = 0u,
             minValue: UInt = 0u,
@@ -4390,9 +4388,9 @@ public data class Ndr64SimpleRegionFormat(
 
 public class Ndr64SizedConformantStringFormat internal constructor(
     public var header: Ndr64StringHeaderFormat,
-    sizeDescriptionCtorArg: MutPtr<CVoid>,
+    sizeDescriptionCtorArg: MutPtr,
 ) {
-    public var sizeDescription: MutPtr<CVoid> = sizeDescriptionCtorArg
+    public var sizeDescription: MutPtr = sizeDescriptionCtorArg
         internal set
 
     public constructor() : this(
@@ -4402,9 +4400,9 @@ public class Ndr64SizedConformantStringFormat internal constructor(
 
     public operator fun component1(): Ndr64StringHeaderFormat = this.header
 
-    public operator fun component2(): MutPtr<CVoid> = this.sizeDescription
+    public operator fun component2(): MutPtr = this.sizeDescription
 
-    public fun copy(header: Ndr64StringHeaderFormat = this.header, sizeDescription: MutPtr<CVoid> = this.sizeDescription): Ndr64SizedConformantStringFormat = Ndr64SizedConformantStringFormat(header = header, sizeDescriptionCtorArg = sizeDescription)
+    public fun copy(header: Ndr64StringHeaderFormat = this.header, sizeDescription: MutPtr = this.sizeDescription): Ndr64SizedConformantStringFormat = Ndr64SizedConformantStringFormat(header = header, sizeDescriptionCtorArg = sizeDescription)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -4430,21 +4428,21 @@ public class Ndr64SizedConformantStringFormat internal constructor(
                         (Ndr64StringHeaderFormat.typeLayout()).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<CVoid>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                     )
                 override fun writeNative(addr: Long, value: Ndr64SizedConformantStringFormat) {
                     (Ndr64StringHeaderFormat.typeLayout()).writeNative(addr, value.header)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<CVoid>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.sizeDescription)
                 }
             }
 
         public operator fun invoke(
             header: Ndr64StringHeaderFormat = Ndr64StringHeaderFormat(),
-            sizeDescription: MutPtr<CVoid> = MutPtr(0L),
+            sizeDescription: MutPtr = MutPtr(0L),
         ): Ndr64SizedConformantStringFormat =
             Ndr64SizedConformantStringFormat(
                 header = header,
@@ -4599,9 +4597,9 @@ public class Ndr64TransmitAsFormat internal constructor(
     public var memoryAlignment: UShort,
     public var presentedTypeMemorySize: UInt,
     public var transmittedTypeBufferSize: UInt,
-    transmittedTypeCtorArg: MutPtr<CVoid>,
+    transmittedTypeCtorArg: MutPtr,
 ) {
-    public var transmittedType: MutPtr<CVoid> = transmittedTypeCtorArg
+    public var transmittedType: MutPtr = transmittedTypeCtorArg
         internal set
 
     public constructor() : this(
@@ -4629,9 +4627,9 @@ public class Ndr64TransmitAsFormat internal constructor(
 
     public operator fun component7(): UInt = this.transmittedTypeBufferSize
 
-    public operator fun component8(): MutPtr<CVoid> = this.transmittedType
+    public operator fun component8(): MutPtr = this.transmittedType
 
-    public fun copy(formatCode: UByte = this.formatCode, flags: UByte = this.flags, routineIndex: UShort = this.routineIndex, transmittedTypeWireAlignment: UShort = this.transmittedTypeWireAlignment, memoryAlignment: UShort = this.memoryAlignment, presentedTypeMemorySize: UInt = this.presentedTypeMemorySize, transmittedTypeBufferSize: UInt = this.transmittedTypeBufferSize, transmittedType: MutPtr<CVoid> = this.transmittedType): Ndr64TransmitAsFormat = Ndr64TransmitAsFormat(formatCode = formatCode, flags = flags, routineIndex = routineIndex, transmittedTypeWireAlignment = transmittedTypeWireAlignment, memoryAlignment = memoryAlignment, presentedTypeMemorySize = presentedTypeMemorySize, transmittedTypeBufferSize = transmittedTypeBufferSize, transmittedTypeCtorArg = transmittedType)
+    public fun copy(formatCode: UByte = this.formatCode, flags: UByte = this.flags, routineIndex: UShort = this.routineIndex, transmittedTypeWireAlignment: UShort = this.transmittedTypeWireAlignment, memoryAlignment: UShort = this.memoryAlignment, presentedTypeMemorySize: UInt = this.presentedTypeMemorySize, transmittedTypeBufferSize: UInt = this.transmittedTypeBufferSize, transmittedType: MutPtr = this.transmittedType): Ndr64TransmitAsFormat = Ndr64TransmitAsFormat(formatCode = formatCode, flags = flags, routineIndex = routineIndex, transmittedTypeWireAlignment = transmittedTypeWireAlignment, memoryAlignment = memoryAlignment, presentedTypeMemorySize = presentedTypeMemorySize, transmittedTypeBufferSize = transmittedTypeBufferSize, transmittedTypeCtorArg = transmittedType)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -4675,7 +4673,7 @@ public class Ndr64TransmitAsFormat internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 12L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<CVoid>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 16L),
                     )
                 override fun writeNative(addr: Long, value: Ndr64TransmitAsFormat) {
@@ -4688,7 +4686,7 @@ public class Ndr64TransmitAsFormat internal constructor(
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 12L, value.transmittedTypeBufferSize)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<CVoid>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 16L, value.transmittedType)
                 }
             }
@@ -4701,7 +4699,7 @@ public class Ndr64TransmitAsFormat internal constructor(
             memoryAlignment: UShort = 0u,
             presentedTypeMemorySize: UInt = 0u,
             transmittedTypeBufferSize: UInt = 0u,
-            transmittedType: MutPtr<CVoid> = MutPtr(0L),
+            transmittedType: MutPtr = MutPtr(0L),
         ): Ndr64TransmitAsFormat =
             Ndr64TransmitAsFormat(
                 formatCode = formatCode,
@@ -4720,11 +4718,11 @@ public class Ndr64TypeStrictContextHandle internal constructor(
     public var formatCode: UByte,
     public var realFormatCode: UByte,
     public var reserved: UShort,
-    typeCtorArg: MutPtr<CVoid>,
+    typeCtorArg: MutPtr,
     public var ctxtFlags: UInt,
     public var ctxtID: UInt,
 ) {
-    public var type: MutPtr<CVoid> = typeCtorArg
+    public var type: MutPtr = typeCtorArg
         internal set
 
     public constructor() : this(
@@ -4742,13 +4740,13 @@ public class Ndr64TypeStrictContextHandle internal constructor(
 
     public operator fun component3(): UShort = this.reserved
 
-    public operator fun component4(): MutPtr<CVoid> = this.type
+    public operator fun component4(): MutPtr = this.type
 
     public operator fun component5(): UInt = this.ctxtFlags
 
     public operator fun component6(): UInt = this.ctxtID
 
-    public fun copy(formatCode: UByte = this.formatCode, realFormatCode: UByte = this.realFormatCode, reserved: UShort = this.reserved, type: MutPtr<CVoid> = this.type, ctxtFlags: UInt = this.ctxtFlags, ctxtID: UInt = this.ctxtID): Ndr64TypeStrictContextHandle = Ndr64TypeStrictContextHandle(formatCode = formatCode, realFormatCode = realFormatCode, reserved = reserved, typeCtorArg = type, ctxtFlags = ctxtFlags, ctxtID = ctxtID)
+    public fun copy(formatCode: UByte = this.formatCode, realFormatCode: UByte = this.realFormatCode, reserved: UShort = this.reserved, type: MutPtr = this.type, ctxtFlags: UInt = this.ctxtFlags, ctxtID: UInt = this.ctxtID): Ndr64TypeStrictContextHandle = Ndr64TypeStrictContextHandle(formatCode = formatCode, realFormatCode = realFormatCode, reserved = reserved, typeCtorArg = type, ctxtFlags = ctxtFlags, ctxtID = ctxtID)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -4784,7 +4782,7 @@ public class Ndr64TypeStrictContextHandle internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16).readNative(addr + 2L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<CVoid>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 16L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 20L),
@@ -4795,7 +4793,7 @@ public class Ndr64TypeStrictContextHandle internal constructor(
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16).writeNative(addr + 2L, value.reserved)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<CVoid>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.type)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 16L, value.ctxtFlags)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 20L, value.ctxtID)
@@ -4806,7 +4804,7 @@ public class Ndr64TypeStrictContextHandle internal constructor(
             formatCode: UByte = 0u,
             realFormatCode: UByte = 0u,
             reserved: UShort = 0u,
-            type: MutPtr<CVoid> = MutPtr(0L),
+            type: MutPtr = MutPtr(0L),
             ctxtFlags: UInt = 0u,
             ctxtID: UInt = 0u,
         ): Ndr64TypeStrictContextHandle =
@@ -4823,10 +4821,10 @@ public class Ndr64TypeStrictContextHandle internal constructor(
 
 public class Ndr64UnionArm internal constructor(
     public var caseValue: Long,
-    typeCtorArg: MutPtr<CVoid>,
+    typeCtorArg: MutPtr,
     public var reserved: UInt,
 ) {
-    public var type: MutPtr<CVoid> = typeCtorArg
+    public var type: MutPtr = typeCtorArg
         internal set
 
     public constructor() : this(
@@ -4837,11 +4835,11 @@ public class Ndr64UnionArm internal constructor(
 
     public operator fun component1(): Long = this.caseValue
 
-    public operator fun component2(): MutPtr<CVoid> = this.type
+    public operator fun component2(): MutPtr = this.type
 
     public operator fun component3(): UInt = this.reserved
 
-    public fun copy(caseValue: Long = this.caseValue, type: MutPtr<CVoid> = this.type, reserved: UInt = this.reserved): Ndr64UnionArm = Ndr64UnionArm(caseValue = caseValue, typeCtorArg = type, reserved = reserved)
+    public fun copy(caseValue: Long = this.caseValue, type: MutPtr = this.type, reserved: UInt = this.reserved): Ndr64UnionArm = Ndr64UnionArm(caseValue = caseValue, typeCtorArg = type, reserved = reserved)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -4869,7 +4867,7 @@ public class Ndr64UnionArm internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I64).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<CVoid>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 16L),
                     )
@@ -4877,7 +4875,7 @@ public class Ndr64UnionArm internal constructor(
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I64).writeNative(addr, value.caseValue)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<CVoid>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.type)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 16L, value.reserved)
                 }
@@ -4885,7 +4883,7 @@ public class Ndr64UnionArm internal constructor(
 
         public operator fun invoke(
             caseValue: Long = 0L,
-            type: MutPtr<CVoid> = MutPtr(0L),
+            type: MutPtr = MutPtr(0L),
             reserved: UInt = 0u,
         ): Ndr64UnionArm =
             Ndr64UnionArm(
@@ -4951,9 +4949,9 @@ public class Ndr64UserMarshalFormat internal constructor(
     public var memoryAlignment: UShort,
     public var userTypeMemorySize: UInt,
     public var transmittedTypeBufferSize: UInt,
-    transmittedTypeCtorArg: MutPtr<CVoid>,
+    transmittedTypeCtorArg: MutPtr,
 ) {
-    public var transmittedType: MutPtr<CVoid> = transmittedTypeCtorArg
+    public var transmittedType: MutPtr = transmittedTypeCtorArg
         internal set
 
     public constructor() : this(
@@ -4981,9 +4979,9 @@ public class Ndr64UserMarshalFormat internal constructor(
 
     public operator fun component7(): UInt = this.transmittedTypeBufferSize
 
-    public operator fun component8(): MutPtr<CVoid> = this.transmittedType
+    public operator fun component8(): MutPtr = this.transmittedType
 
-    public fun copy(formatCode: UByte = this.formatCode, flags: UByte = this.flags, routineIndex: UShort = this.routineIndex, transmittedTypeWireAlignment: UShort = this.transmittedTypeWireAlignment, memoryAlignment: UShort = this.memoryAlignment, userTypeMemorySize: UInt = this.userTypeMemorySize, transmittedTypeBufferSize: UInt = this.transmittedTypeBufferSize, transmittedType: MutPtr<CVoid> = this.transmittedType): Ndr64UserMarshalFormat = Ndr64UserMarshalFormat(formatCode = formatCode, flags = flags, routineIndex = routineIndex, transmittedTypeWireAlignment = transmittedTypeWireAlignment, memoryAlignment = memoryAlignment, userTypeMemorySize = userTypeMemorySize, transmittedTypeBufferSize = transmittedTypeBufferSize, transmittedTypeCtorArg = transmittedType)
+    public fun copy(formatCode: UByte = this.formatCode, flags: UByte = this.flags, routineIndex: UShort = this.routineIndex, transmittedTypeWireAlignment: UShort = this.transmittedTypeWireAlignment, memoryAlignment: UShort = this.memoryAlignment, userTypeMemorySize: UInt = this.userTypeMemorySize, transmittedTypeBufferSize: UInt = this.transmittedTypeBufferSize, transmittedType: MutPtr = this.transmittedType): Ndr64UserMarshalFormat = Ndr64UserMarshalFormat(formatCode = formatCode, flags = flags, routineIndex = routineIndex, transmittedTypeWireAlignment = transmittedTypeWireAlignment, memoryAlignment = memoryAlignment, userTypeMemorySize = userTypeMemorySize, transmittedTypeBufferSize = transmittedTypeBufferSize, transmittedTypeCtorArg = transmittedType)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -5027,7 +5025,7 @@ public class Ndr64UserMarshalFormat internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 12L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<CVoid>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 16L),
                     )
                 override fun writeNative(addr: Long, value: Ndr64UserMarshalFormat) {
@@ -5040,7 +5038,7 @@ public class Ndr64UserMarshalFormat internal constructor(
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 12L, value.transmittedTypeBufferSize)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<CVoid>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 16L, value.transmittedType)
                 }
             }
@@ -5053,7 +5051,7 @@ public class Ndr64UserMarshalFormat internal constructor(
             memoryAlignment: UShort = 0u,
             userTypeMemorySize: UInt = 0u,
             transmittedTypeBufferSize: UInt = 0u,
-            transmittedType: MutPtr<CVoid> = MutPtr(0L),
+            transmittedType: MutPtr = MutPtr(0L),
         ): Ndr64UserMarshalFormat =
             Ndr64UserMarshalFormat(
                 formatCode = formatCode,
@@ -5075,9 +5073,9 @@ public class Ndr64VarArrayHeaderFormat internal constructor(
     public var reserved: UByte,
     public var totalSize: UInt,
     public var elementSize: UInt,
-    varDescriptorCtorArg: MutPtr<CVoid>,
+    varDescriptorCtorArg: MutPtr,
 ) {
-    public var varDescriptor: MutPtr<CVoid> = varDescriptorCtorArg
+    public var varDescriptor: MutPtr = varDescriptorCtorArg
         internal set
 
     public constructor() : this(
@@ -5102,9 +5100,9 @@ public class Ndr64VarArrayHeaderFormat internal constructor(
 
     public operator fun component6(): UInt = this.elementSize
 
-    public operator fun component7(): MutPtr<CVoid> = this.varDescriptor
+    public operator fun component7(): MutPtr = this.varDescriptor
 
-    public fun copy(formatCode: UByte = this.formatCode, alignment: UByte = this.alignment, flags: Ndr64ArrayFlags = this.flags, reserved: UByte = this.reserved, totalSize: UInt = this.totalSize, elementSize: UInt = this.elementSize, varDescriptor: MutPtr<CVoid> = this.varDescriptor): Ndr64VarArrayHeaderFormat = Ndr64VarArrayHeaderFormat(formatCode = formatCode, alignment = alignment, flags = flags, reserved = reserved, totalSize = totalSize, elementSize = elementSize, varDescriptorCtorArg = varDescriptor)
+    public fun copy(formatCode: UByte = this.formatCode, alignment: UByte = this.alignment, flags: Ndr64ArrayFlags = this.flags, reserved: UByte = this.reserved, totalSize: UInt = this.totalSize, elementSize: UInt = this.elementSize, varDescriptor: MutPtr = this.varDescriptor): Ndr64VarArrayHeaderFormat = Ndr64VarArrayHeaderFormat(formatCode = formatCode, alignment = alignment, flags = flags, reserved = reserved, totalSize = totalSize, elementSize = elementSize, varDescriptorCtorArg = varDescriptor)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -5145,7 +5143,7 @@ public class Ndr64VarArrayHeaderFormat internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 8L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<CVoid>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 16L),
                     )
                 override fun writeNative(addr: Long, value: Ndr64VarArrayHeaderFormat) {
@@ -5157,7 +5155,7 @@ public class Ndr64VarArrayHeaderFormat internal constructor(
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 8L, value.elementSize)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<CVoid>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 16L, value.varDescriptor)
                 }
             }
@@ -5169,7 +5167,7 @@ public class Ndr64VarArrayHeaderFormat internal constructor(
             reserved: UByte = 0u,
             totalSize: UInt = 0u,
             elementSize: UInt = 0u,
-            varDescriptor: MutPtr<CVoid> = MutPtr(0L),
+            varDescriptor: MutPtr = MutPtr(0L),
         ): Ndr64VarArrayHeaderFormat =
             Ndr64VarArrayHeaderFormat(
                 formatCode = formatCode,
@@ -5184,13 +5182,13 @@ public class Ndr64VarArrayHeaderFormat internal constructor(
 }
 
 public class NdrCsRoutines internal constructor(
-    pSizeConvertRoutinesCtorArg: MutPtr<NdrCsSizeConvertRoutines>,
-    pTagGettingRoutinesCtorArg: MutPtr<CsTagGettingRoutine>,
+    pSizeConvertRoutinesCtorArg: MutPtr,
+    pTagGettingRoutinesCtorArg: MutPtr,
 ) {
-    public var pSizeConvertRoutines: MutPtr<NdrCsSizeConvertRoutines> = pSizeConvertRoutinesCtorArg
+    public var pSizeConvertRoutines: MutPtr = pSizeConvertRoutinesCtorArg
         internal set
 
-    public var pTagGettingRoutines: MutPtr<CsTagGettingRoutine> = pTagGettingRoutinesCtorArg
+    public var pTagGettingRoutines: MutPtr = pTagGettingRoutinesCtorArg
         internal set
 
     public constructor() : this(
@@ -5198,11 +5196,11 @@ public class NdrCsRoutines internal constructor(
         pTagGettingRoutinesCtorArg = MutPtr(0L),
     )
 
-    public operator fun component1(): MutPtr<NdrCsSizeConvertRoutines> = this.pSizeConvertRoutines
+    public operator fun component1(): MutPtr = this.pSizeConvertRoutines
 
-    public operator fun component2(): MutPtr<CsTagGettingRoutine> = this.pTagGettingRoutines
+    public operator fun component2(): MutPtr = this.pTagGettingRoutines
 
-    public fun copy(pSizeConvertRoutines: MutPtr<NdrCsSizeConvertRoutines> = this.pSizeConvertRoutines, pTagGettingRoutines: MutPtr<CsTagGettingRoutine> = this.pTagGettingRoutines): NdrCsRoutines = NdrCsRoutines(pSizeConvertRoutinesCtorArg = pSizeConvertRoutines, pTagGettingRoutinesCtorArg = pTagGettingRoutines)
+    public fun copy(pSizeConvertRoutines: MutPtr = this.pSizeConvertRoutines, pTagGettingRoutines: MutPtr = this.pTagGettingRoutines): NdrCsRoutines = NdrCsRoutines(pSizeConvertRoutinesCtorArg = pSizeConvertRoutines, pTagGettingRoutinesCtorArg = pTagGettingRoutines)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -5227,28 +5225,28 @@ public class NdrCsRoutines internal constructor(
                     NdrCsRoutines(
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<NdrCsSizeConvertRoutines>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<CsTagGettingRoutine>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                     )
                 override fun writeNative(addr: Long, value: NdrCsRoutines) {
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<NdrCsSizeConvertRoutines>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr, value.pSizeConvertRoutines)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<CsTagGettingRoutine>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.pTagGettingRoutines)
                 }
             }
 
         public operator fun invoke(
-            pSizeConvertRoutines: MutPtr<NdrCsSizeConvertRoutines> = MutPtr(0L),
-            pTagGettingRoutines: MutPtr<CsTagGettingRoutine> = MutPtr(0L),
+            pSizeConvertRoutines: MutPtr = MutPtr(0L),
+            pTagGettingRoutines: MutPtr = MutPtr(0L),
         ): NdrCsRoutines =
             NdrCsRoutines(
                 pSizeConvertRoutinesCtorArg = pSizeConvertRoutines,
@@ -5265,13 +5263,13 @@ public data class NdrCsSizeConvertRoutines(
 )
 
 public class NdrExprDesc internal constructor(
-    pOffsetCtorArg: ConstPtr<UShort>,
-    pFormatExprCtorArg: MutPtr<UByte>,
+    pOffsetCtorArg: ConstPtr,
+    pFormatExprCtorArg: MutPtr,
 ) {
-    public var pOffset: ConstPtr<UShort> = pOffsetCtorArg
+    public var pOffset: ConstPtr = pOffsetCtorArg
         internal set
 
-    public var pFormatExpr: MutPtr<UByte> = pFormatExprCtorArg
+    public var pFormatExpr: MutPtr = pFormatExprCtorArg
         internal set
 
     public constructor() : this(
@@ -5279,11 +5277,11 @@ public class NdrExprDesc internal constructor(
         pFormatExprCtorArg = MutPtr(0L),
     )
 
-    public operator fun component1(): ConstPtr<UShort> = this.pOffset
+    public operator fun component1(): ConstPtr = this.pOffset
 
-    public operator fun component2(): MutPtr<UByte> = this.pFormatExpr
+    public operator fun component2(): MutPtr = this.pFormatExpr
 
-    public fun copy(pOffset: ConstPtr<UShort> = this.pOffset, pFormatExpr: MutPtr<UByte> = this.pFormatExpr): NdrExprDesc = NdrExprDesc(pOffsetCtorArg = pOffset, pFormatExprCtorArg = pFormatExpr)
+    public fun copy(pOffset: ConstPtr = this.pOffset, pFormatExpr: MutPtr = this.pFormatExpr): NdrExprDesc = NdrExprDesc(pOffsetCtorArg = pOffset, pFormatExprCtorArg = pFormatExpr)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -5308,28 +5306,28 @@ public class NdrExprDesc internal constructor(
                     NdrExprDesc(
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .constPtrLayout<UShort>(64)
+                                .constPtrLayout(64)
                         ).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<UByte>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                     )
                 override fun writeNative(addr: Long, value: NdrExprDesc) {
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .constPtrLayout<UShort>(64)
+                            .constPtrLayout(64)
                     ).writeNative(addr, value.pOffset)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<UByte>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.pFormatExpr)
                 }
             }
 
         public operator fun invoke(
-            pOffset: ConstPtr<UShort> = ConstPtr(0L),
-            pFormatExpr: MutPtr<UByte> = MutPtr(0L),
+            pOffset: ConstPtr = ConstPtr(0L),
+            pFormatExpr: MutPtr = MutPtr(0L),
         ): NdrExprDesc =
             NdrExprDesc(
                 pOffsetCtorArg = pOffset,
@@ -5339,13 +5337,13 @@ public class NdrExprDesc internal constructor(
 }
 
 public class NdrScontext internal constructor(
-    padCtorArg: List<MutPtr<CVoid>>,
-    userContextCtorArg: MutPtr<CVoid>,
+    padCtorArg: List<MutPtr>,
+    userContextCtorArg: MutPtr,
 ) {
-    public var pad: List<MutPtr<CVoid>> = padCtorArg
+    public var pad: List<MutPtr> = padCtorArg
         internal set
 
-    public var userContext: MutPtr<CVoid> = userContextCtorArg
+    public var userContext: MutPtr = userContextCtorArg
         internal set
 
     public constructor() : this(
@@ -5353,11 +5351,11 @@ public class NdrScontext internal constructor(
         userContextCtorArg = MutPtr(0L),
     )
 
-    public operator fun component1(): List<MutPtr<CVoid>> = this.pad
+    public operator fun component1(): List<MutPtr> = this.pad
 
-    public operator fun component2(): MutPtr<CVoid> = this.userContext
+    public operator fun component2(): MutPtr = this.userContext
 
-    public fun copy(pad: List<MutPtr<CVoid>> = this.pad, userContext: MutPtr<CVoid> = this.userContext): NdrScontext = NdrScontext(padCtorArg = pad, userContextCtorArg = userContext)
+    public fun copy(pad: List<MutPtr> = this.pad, userContext: MutPtr = this.userContext): NdrScontext = NdrScontext(padCtorArg = pad, userContextCtorArg = userContext)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -5384,13 +5382,13 @@ public class NdrScontext internal constructor(
                             io.github.kotlinmania.rustlang.core.mem
                                 .FixedArrayTypeLayout(
                                     io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                        .mutPtrLayout<CVoid>(64),
+                                        .mutPtrLayout(64),
                                     (2).toInt(),
                                 )
                         ).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<CVoid>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 16L),
                     )
                 override fun writeNative(addr: Long, value: NdrScontext) {
@@ -5398,20 +5396,20 @@ public class NdrScontext internal constructor(
                         io.github.kotlinmania.rustlang.core.mem
                             .FixedArrayTypeLayout(
                                 io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                    .mutPtrLayout<CVoid>(64),
+                                    .mutPtrLayout(64),
                                 (2).toInt(),
                             )
                     ).writeNative(addr, value.pad)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<CVoid>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 16L, value.userContext)
                 }
             }
 
         public operator fun invoke(
-            pad: List<MutPtr<CVoid>> = List(2) { MutPtr(0L) },
-            userContext: MutPtr<CVoid> = MutPtr(0L),
+            pad: List<MutPtr> = List(2) { MutPtr(0L) },
+            userContext: MutPtr = MutPtr(0L),
         ): NdrScontext =
             NdrScontext(
                 padCtorArg = pad,
@@ -5430,17 +5428,17 @@ public data class NdrUserMarshalInfo0(
 )
 
 public class NdrUserMarshalInfoLevel1 internal constructor(
-    bufferCtorArg: MutPtr<CVoid>,
+    bufferCtorArg: MutPtr,
     public var bufferSize: UInt,
     public var pfnAllocate: Int,
     public var pfnFree: Int,
-    pRpcChannelBufferCtorArg: MutPtr<CVoid>,
+    pRpcChannelBufferCtorArg: MutPtr,
     public var reserved: IntArray,
 ) {
-    public var buffer: MutPtr<CVoid> = bufferCtorArg
+    public var buffer: MutPtr = bufferCtorArg
         internal set
 
-    public var pRpcChannelBuffer: MutPtr<CVoid> = pRpcChannelBufferCtorArg
+    public var pRpcChannelBuffer: MutPtr = pRpcChannelBufferCtorArg
         internal set
 
     public constructor() : this(
@@ -5452,7 +5450,7 @@ public class NdrUserMarshalInfoLevel1 internal constructor(
         reserved = IntArray(5),
     )
 
-    public operator fun component1(): MutPtr<CVoid> = this.buffer
+    public operator fun component1(): MutPtr = this.buffer
 
     public operator fun component2(): UInt = this.bufferSize
 
@@ -5460,11 +5458,11 @@ public class NdrUserMarshalInfoLevel1 internal constructor(
 
     public operator fun component4(): Int = this.pfnFree
 
-    public operator fun component5(): MutPtr<CVoid> = this.pRpcChannelBuffer
+    public operator fun component5(): MutPtr = this.pRpcChannelBuffer
 
     public operator fun component6(): IntArray = this.reserved
 
-    public fun copy(buffer: MutPtr<CVoid> = this.buffer, bufferSize: UInt = this.bufferSize, pfnAllocate: Int = this.pfnAllocate, pfnFree: Int = this.pfnFree, pRpcChannelBuffer: MutPtr<CVoid> = this.pRpcChannelBuffer, reserved: IntArray = this.reserved): NdrUserMarshalInfoLevel1 = NdrUserMarshalInfoLevel1(bufferCtorArg = buffer, bufferSize = bufferSize, pfnAllocate = pfnAllocate, pfnFree = pfnFree, pRpcChannelBufferCtorArg = pRpcChannelBuffer, reserved = reserved)
+    public fun copy(buffer: MutPtr = this.buffer, bufferSize: UInt = this.bufferSize, pfnAllocate: Int = this.pfnAllocate, pfnFree: Int = this.pfnFree, pRpcChannelBuffer: MutPtr = this.pRpcChannelBuffer, reserved: IntArray = this.reserved): NdrUserMarshalInfoLevel1 = NdrUserMarshalInfoLevel1(bufferCtorArg = buffer, bufferSize = bufferSize, pfnAllocate = pfnAllocate, pfnFree = pfnFree, pRpcChannelBufferCtorArg = pRpcChannelBuffer, reserved = reserved)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -5497,14 +5495,14 @@ public class NdrUserMarshalInfoLevel1 internal constructor(
                     NdrUserMarshalInfoLevel1(
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<CVoid>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 8L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.ISIZE64).readNative(addr + 16L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.ISIZE64).readNative(addr + 24L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<CVoid>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 32L),
                         (
                             io.github.kotlinmania.rustlang.core.mem
@@ -5514,14 +5512,14 @@ public class NdrUserMarshalInfoLevel1 internal constructor(
                 override fun writeNative(addr: Long, value: NdrUserMarshalInfoLevel1) {
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<CVoid>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr, value.buffer)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 8L, value.bufferSize)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.ISIZE64).writeNative(addr + 16L, value.pfnAllocate)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.ISIZE64).writeNative(addr + 24L, value.pfnFree)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<CVoid>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 32L, value.pRpcChannelBuffer)
                     (
                         io.github.kotlinmania.rustlang.core.mem
@@ -5531,11 +5529,11 @@ public class NdrUserMarshalInfoLevel1 internal constructor(
             }
 
         public operator fun invoke(
-            buffer: MutPtr<CVoid> = MutPtr(0L),
+            buffer: MutPtr = MutPtr(0L),
             bufferSize: UInt = 0u,
             pfnAllocate: Int = 0,
             pfnFree: Int = 0,
-            pRpcChannelBuffer: MutPtr<CVoid> = MutPtr(0L),
+            pRpcChannelBuffer: MutPtr = MutPtr(0L),
             reserved: IntArray = IntArray(5),
         ): NdrUserMarshalInfoLevel1 =
             NdrUserMarshalInfoLevel1(
@@ -5551,36 +5549,36 @@ public class NdrUserMarshalInfoLevel1 internal constructor(
 
 public class RdrCalloutState internal constructor(
     public var lastError: RpcStatus,
-    lastEEInfoCtorArg: MutPtr<CVoid>,
+    lastEEInfoCtorArg: MutPtr,
     public var lastCalledStage: RpcHttpRedirectorStage,
-    serverNameCtorArg: MutPtr<UShort>,
-    serverPortCtorArg: MutPtr<UShort>,
-    remoteUserCtorArg: MutPtr<UShort>,
-    authTypeCtorArg: MutPtr<UShort>,
+    serverNameCtorArg: MutPtr,
+    serverPortCtorArg: MutPtr,
+    remoteUserCtorArg: MutPtr,
+    authTypeCtorArg: MutPtr,
     public var resourceTypePresent: UByte,
     public var sessionIdPresent: UByte,
     public var interfacePresent: UByte,
     public var resourceType: Guid,
     public var sessionId: Guid,
     public var iface: RpcSyntaxIdentifier,
-    certContextCtorArg: MutPtr<CVoid>,
+    certContextCtorArg: MutPtr,
 ) {
-    public var lastEEInfo: MutPtr<CVoid> = lastEEInfoCtorArg
+    public var lastEEInfo: MutPtr = lastEEInfoCtorArg
         internal set
 
-    public var serverName: MutPtr<UShort> = serverNameCtorArg
+    public var serverName: MutPtr = serverNameCtorArg
         internal set
 
-    public var serverPort: MutPtr<UShort> = serverPortCtorArg
+    public var serverPort: MutPtr = serverPortCtorArg
         internal set
 
-    public var remoteUser: MutPtr<UShort> = remoteUserCtorArg
+    public var remoteUser: MutPtr = remoteUserCtorArg
         internal set
 
-    public var authType: MutPtr<UShort> = authTypeCtorArg
+    public var authType: MutPtr = authTypeCtorArg
         internal set
 
-    public var certContext: MutPtr<CVoid> = certContextCtorArg
+    public var certContext: MutPtr = certContextCtorArg
         internal set
 
     public constructor() : this(
@@ -5602,17 +5600,17 @@ public class RdrCalloutState internal constructor(
 
     public operator fun component1(): RpcStatus = this.lastError
 
-    public operator fun component2(): MutPtr<CVoid> = this.lastEEInfo
+    public operator fun component2(): MutPtr = this.lastEEInfo
 
     public operator fun component3(): RpcHttpRedirectorStage = this.lastCalledStage
 
-    public operator fun component4(): MutPtr<UShort> = this.serverName
+    public operator fun component4(): MutPtr = this.serverName
 
-    public operator fun component5(): MutPtr<UShort> = this.serverPort
+    public operator fun component5(): MutPtr = this.serverPort
 
-    public operator fun component6(): MutPtr<UShort> = this.remoteUser
+    public operator fun component6(): MutPtr = this.remoteUser
 
-    public operator fun component7(): MutPtr<UShort> = this.authType
+    public operator fun component7(): MutPtr = this.authType
 
     public operator fun component8(): UByte = this.resourceTypePresent
 
@@ -5626,9 +5624,9 @@ public class RdrCalloutState internal constructor(
 
     public operator fun component13(): RpcSyntaxIdentifier = this.iface
 
-    public operator fun component14(): MutPtr<CVoid> = this.certContext
+    public operator fun component14(): MutPtr = this.certContext
 
-    public fun copy(lastError: RpcStatus = this.lastError, lastEEInfo: MutPtr<CVoid> = this.lastEEInfo, lastCalledStage: RpcHttpRedirectorStage = this.lastCalledStage, serverName: MutPtr<UShort> = this.serverName, serverPort: MutPtr<UShort> = this.serverPort, remoteUser: MutPtr<UShort> = this.remoteUser, authType: MutPtr<UShort> = this.authType, resourceTypePresent: UByte = this.resourceTypePresent, sessionIdPresent: UByte = this.sessionIdPresent, interfacePresent: UByte = this.interfacePresent, resourceType: Guid = this.resourceType, sessionId: Guid = this.sessionId, iface: RpcSyntaxIdentifier = this.iface, certContext: MutPtr<CVoid> = this.certContext): RdrCalloutState = RdrCalloutState(lastError = lastError, lastEEInfoCtorArg = lastEEInfo, lastCalledStage = lastCalledStage, serverNameCtorArg = serverName, serverPortCtorArg = serverPort, remoteUserCtorArg = remoteUser, authTypeCtorArg = authType, resourceTypePresent = resourceTypePresent, sessionIdPresent = sessionIdPresent, interfacePresent = interfacePresent, resourceType = resourceType, sessionId = sessionId, iface = iface, certContextCtorArg = certContext)
+    public fun copy(lastError: RpcStatus = this.lastError, lastEEInfo: MutPtr = this.lastEEInfo, lastCalledStage: RpcHttpRedirectorStage = this.lastCalledStage, serverName: MutPtr = this.serverName, serverPort: MutPtr = this.serverPort, remoteUser: MutPtr = this.remoteUser, authType: MutPtr = this.authType, resourceTypePresent: UByte = this.resourceTypePresent, sessionIdPresent: UByte = this.sessionIdPresent, interfacePresent: UByte = this.interfacePresent, resourceType: Guid = this.resourceType, sessionId: Guid = this.sessionId, iface: RpcSyntaxIdentifier = this.iface, certContext: MutPtr = this.certContext): RdrCalloutState = RdrCalloutState(lastError = lastError, lastEEInfoCtorArg = lastEEInfo, lastCalledStage = lastCalledStage, serverNameCtorArg = serverName, serverPortCtorArg = serverPort, remoteUserCtorArg = remoteUser, authTypeCtorArg = authType, resourceTypePresent = resourceTypePresent, sessionIdPresent = sessionIdPresent, interfacePresent = interfacePresent, resourceType = resourceType, sessionId = sessionId, iface = iface, certContextCtorArg = certContext)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -5671,19 +5669,19 @@ public class RdrCalloutState internal constructor(
     public companion object {
         public operator fun invoke(
             lastError: RpcStatus = 0,
-            lastEEInfo: MutPtr<CVoid> = MutPtr(0L),
+            lastEEInfo: MutPtr = MutPtr(0L),
             lastCalledStage: RpcHttpRedirectorStage = 0,
-            serverName: MutPtr<UShort> = MutPtr(0L),
-            serverPort: MutPtr<UShort> = MutPtr(0L),
-            remoteUser: MutPtr<UShort> = MutPtr(0L),
-            authType: MutPtr<UShort> = MutPtr(0L),
+            serverName: MutPtr = MutPtr(0L),
+            serverPort: MutPtr = MutPtr(0L),
+            remoteUser: MutPtr = MutPtr(0L),
+            authType: MutPtr = MutPtr(0L),
             resourceTypePresent: UByte = 0u,
             sessionIdPresent: UByte = 0u,
             interfacePresent: UByte = 0u,
             resourceType: Guid = Guid(),
             sessionId: Guid = Guid(),
             iface: RpcSyntaxIdentifier = RpcSyntaxIdentifier(),
-            certContext: MutPtr<CVoid> = MutPtr(0L),
+            certContext: MutPtr = MutPtr(0L),
         ): RdrCalloutState =
             RdrCalloutState(
                 lastError = lastError,
@@ -5820,12 +5818,12 @@ public class RpcAsyncNotificationInfo1 internal constructor(
     hIOPortCtorArg: Handle,
     public var dwNumberOfBytesTransferred: UInt,
     public var dwCompletionKey: Int,
-    lpOverlappedCtorArg: MutPtr<Overlapped>,
+    lpOverlappedCtorArg: MutPtr,
 ) {
     public var hIOPort: Handle = hIOPortCtorArg
         internal set
 
-    public var lpOverlapped: MutPtr<Overlapped> = lpOverlappedCtorArg
+    public var lpOverlapped: MutPtr = lpOverlappedCtorArg
         internal set
 
     public constructor() : this(
@@ -5841,9 +5839,9 @@ public class RpcAsyncNotificationInfo1 internal constructor(
 
     public operator fun component3(): Int = this.dwCompletionKey
 
-    public operator fun component4(): MutPtr<Overlapped> = this.lpOverlapped
+    public operator fun component4(): MutPtr = this.lpOverlapped
 
-    public fun copy(hIOPort: Handle = this.hIOPort, dwNumberOfBytesTransferred: UInt = this.dwNumberOfBytesTransferred, dwCompletionKey: Int = this.dwCompletionKey, lpOverlapped: MutPtr<Overlapped> = this.lpOverlapped): RpcAsyncNotificationInfo1 = RpcAsyncNotificationInfo1(hIOPortCtorArg = hIOPort, dwNumberOfBytesTransferred = dwNumberOfBytesTransferred, dwCompletionKey = dwCompletionKey, lpOverlappedCtorArg = lpOverlapped)
+    public fun copy(hIOPort: Handle = this.hIOPort, dwNumberOfBytesTransferred: UInt = this.dwNumberOfBytesTransferred, dwCompletionKey: Int = this.dwCompletionKey, lpOverlapped: MutPtr = this.lpOverlapped): RpcAsyncNotificationInfo1 = RpcAsyncNotificationInfo1(hIOPortCtorArg = hIOPort, dwNumberOfBytesTransferred = dwNumberOfBytesTransferred, dwCompletionKey = dwCompletionKey, lpOverlappedCtorArg = lpOverlapped)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -5868,7 +5866,7 @@ public class RpcAsyncNotificationInfo1 internal constructor(
             hIOPort: Handle = MutPtr(0L),
             dwNumberOfBytesTransferred: UInt = 0u,
             dwCompletionKey: Int = 0,
-            lpOverlapped: MutPtr<Overlapped> = MutPtr(0L),
+            lpOverlapped: MutPtr = MutPtr(0L),
         ): RpcAsyncNotificationInfo1 =
             RpcAsyncNotificationInfo1(
                 hIOPortCtorArg = hIOPort,
@@ -5928,21 +5926,21 @@ public class RpcAsyncState internal constructor(
     public var signature: UInt,
     public var lock: Int,
     public var flags: UInt,
-    stubInfoCtorArg: MutPtr<CVoid>,
-    userInfoCtorArg: MutPtr<CVoid>,
-    runtimeInfoCtorArg: MutPtr<CVoid>,
+    stubInfoCtorArg: MutPtr,
+    userInfoCtorArg: MutPtr,
+    runtimeInfoCtorArg: MutPtr,
     public var event: RpcAsyncEvent,
     public var notificationType: RpcNotificationTypes,
     public var u: RpcAsyncNotificationInfo,
     public var reserved: IntArray,
 ) {
-    public var stubInfo: MutPtr<CVoid> = stubInfoCtorArg
+    public var stubInfo: MutPtr = stubInfoCtorArg
         internal set
 
-    public var userInfo: MutPtr<CVoid> = userInfoCtorArg
+    public var userInfo: MutPtr = userInfoCtorArg
         internal set
 
-    public var runtimeInfo: MutPtr<CVoid> = runtimeInfoCtorArg
+    public var runtimeInfo: MutPtr = runtimeInfoCtorArg
         internal set
 
     public constructor() : this(
@@ -5967,11 +5965,11 @@ public class RpcAsyncState internal constructor(
 
     public operator fun component4(): UInt = this.flags
 
-    public operator fun component5(): MutPtr<CVoid> = this.stubInfo
+    public operator fun component5(): MutPtr = this.stubInfo
 
-    public operator fun component6(): MutPtr<CVoid> = this.userInfo
+    public operator fun component6(): MutPtr = this.userInfo
 
-    public operator fun component7(): MutPtr<CVoid> = this.runtimeInfo
+    public operator fun component7(): MutPtr = this.runtimeInfo
 
     public operator fun component8(): RpcAsyncEvent = this.event
 
@@ -5981,7 +5979,7 @@ public class RpcAsyncState internal constructor(
 
     public operator fun component11(): IntArray = this.reserved
 
-    public fun copy(size: UInt = this.size, signature: UInt = this.signature, lock: Int = this.lock, flags: UInt = this.flags, stubInfo: MutPtr<CVoid> = this.stubInfo, userInfo: MutPtr<CVoid> = this.userInfo, runtimeInfo: MutPtr<CVoid> = this.runtimeInfo, event: RpcAsyncEvent = this.event, notificationType: RpcNotificationTypes = this.notificationType, u: RpcAsyncNotificationInfo = this.u, reserved: IntArray = this.reserved): RpcAsyncState = RpcAsyncState(size = size, signature = signature, lock = lock, flags = flags, stubInfoCtorArg = stubInfo, userInfoCtorArg = userInfo, runtimeInfoCtorArg = runtimeInfo, event = event, notificationType = notificationType, u = u, reserved = reserved)
+    public fun copy(size: UInt = this.size, signature: UInt = this.signature, lock: Int = this.lock, flags: UInt = this.flags, stubInfo: MutPtr = this.stubInfo, userInfo: MutPtr = this.userInfo, runtimeInfo: MutPtr = this.runtimeInfo, event: RpcAsyncEvent = this.event, notificationType: RpcNotificationTypes = this.notificationType, u: RpcAsyncNotificationInfo = this.u, reserved: IntArray = this.reserved): RpcAsyncState = RpcAsyncState(size = size, signature = signature, lock = lock, flags = flags, stubInfoCtorArg = stubInfo, userInfoCtorArg = userInfo, runtimeInfoCtorArg = runtimeInfo, event = event, notificationType = notificationType, u = u, reserved = reserved)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -6021,9 +6019,9 @@ public class RpcAsyncState internal constructor(
             signature: UInt = 0u,
             lock: Int = 0,
             flags: UInt = 0u,
-            stubInfo: MutPtr<CVoid> = MutPtr(0L),
-            userInfo: MutPtr<CVoid> = MutPtr(0L),
-            runtimeInfo: MutPtr<CVoid> = MutPtr(0L),
+            stubInfo: MutPtr = MutPtr(0L),
+            userInfo: MutPtr = MutPtr(0L),
+            runtimeInfo: MutPtr = MutPtr(0L),
             event: RpcAsyncEvent = 0,
             notificationType: RpcNotificationTypes = 0,
             u: RpcAsyncNotificationInfo = RpcAsyncNotificationInfo(),
@@ -6075,19 +6073,19 @@ public data class RpcBindingHandleOptionsV1(
 
 public class RpcBindingHandleSecurityV1A internal constructor(
     public var version: UInt,
-    serverPrincNameCtorArg: MutPtr<UByte>,
+    serverPrincNameCtorArg: MutPtr,
     public var authnLevel: UInt,
     public var authnSvc: UInt,
-    authIdentityCtorArg: MutPtr<SecWinntAuthIdentityA>,
-    securityQosCtorArg: MutPtr<RpcSecurityQos>,
+    authIdentityCtorArg: MutPtr,
+    securityQosCtorArg: MutPtr,
 ) {
-    public var serverPrincName: MutPtr<UByte> = serverPrincNameCtorArg
+    public var serverPrincName: MutPtr = serverPrincNameCtorArg
         internal set
 
-    public var authIdentity: MutPtr<SecWinntAuthIdentityA> = authIdentityCtorArg
+    public var authIdentity: MutPtr = authIdentityCtorArg
         internal set
 
-    public var securityQos: MutPtr<RpcSecurityQos> = securityQosCtorArg
+    public var securityQos: MutPtr = securityQosCtorArg
         internal set
 
     public constructor() : this(
@@ -6101,17 +6099,17 @@ public class RpcBindingHandleSecurityV1A internal constructor(
 
     public operator fun component1(): UInt = this.version
 
-    public operator fun component2(): MutPtr<UByte> = this.serverPrincName
+    public operator fun component2(): MutPtr = this.serverPrincName
 
     public operator fun component3(): UInt = this.authnLevel
 
     public operator fun component4(): UInt = this.authnSvc
 
-    public operator fun component5(): MutPtr<SecWinntAuthIdentityA> = this.authIdentity
+    public operator fun component5(): MutPtr = this.authIdentity
 
-    public operator fun component6(): MutPtr<RpcSecurityQos> = this.securityQos
+    public operator fun component6(): MutPtr = this.securityQos
 
-    public fun copy(version: UInt = this.version, serverPrincName: MutPtr<UByte> = this.serverPrincName, authnLevel: UInt = this.authnLevel, authnSvc: UInt = this.authnSvc, authIdentity: MutPtr<SecWinntAuthIdentityA> = this.authIdentity, securityQos: MutPtr<RpcSecurityQos> = this.securityQos): RpcBindingHandleSecurityV1A = RpcBindingHandleSecurityV1A(version = version, serverPrincNameCtorArg = serverPrincName, authnLevel = authnLevel, authnSvc = authnSvc, authIdentityCtorArg = authIdentity, securityQosCtorArg = securityQos)
+    public fun copy(version: UInt = this.version, serverPrincName: MutPtr = this.serverPrincName, authnLevel: UInt = this.authnLevel, authnSvc: UInt = this.authnSvc, authIdentity: MutPtr = this.authIdentity, securityQos: MutPtr = this.securityQos): RpcBindingHandleSecurityV1A = RpcBindingHandleSecurityV1A(version = version, serverPrincNameCtorArg = serverPrincName, authnLevel = authnLevel, authnSvc = authnSvc, authIdentityCtorArg = authIdentity, securityQosCtorArg = securityQos)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -6145,45 +6143,45 @@ public class RpcBindingHandleSecurityV1A internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<UByte>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 16L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 20L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<SecWinntAuthIdentityA>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 24L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<RpcSecurityQos>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 32L),
                     )
                 override fun writeNative(addr: Long, value: RpcBindingHandleSecurityV1A) {
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr, value.version)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<UByte>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.serverPrincName)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 16L, value.authnLevel)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 20L, value.authnSvc)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<SecWinntAuthIdentityA>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 24L, value.authIdentity)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<RpcSecurityQos>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 32L, value.securityQos)
                 }
             }
 
         public operator fun invoke(
             version: UInt = 0u,
-            serverPrincName: MutPtr<UByte> = MutPtr(0L),
+            serverPrincName: MutPtr = MutPtr(0L),
             authnLevel: UInt = 0u,
             authnSvc: UInt = 0u,
-            authIdentity: MutPtr<SecWinntAuthIdentityA> = MutPtr(0L),
-            securityQos: MutPtr<RpcSecurityQos> = MutPtr(0L),
+            authIdentity: MutPtr = MutPtr(0L),
+            securityQos: MutPtr = MutPtr(0L),
         ): RpcBindingHandleSecurityV1A =
             RpcBindingHandleSecurityV1A(
                 version = version,
@@ -6198,19 +6196,19 @@ public class RpcBindingHandleSecurityV1A internal constructor(
 
 public class RpcBindingHandleSecurityV1W internal constructor(
     public var version: UInt,
-    serverPrincNameCtorArg: MutPtr<UShort>,
+    serverPrincNameCtorArg: MutPtr,
     public var authnLevel: UInt,
     public var authnSvc: UInt,
-    authIdentityCtorArg: MutPtr<SecWinntAuthIdentityW>,
-    securityQosCtorArg: MutPtr<RpcSecurityQos>,
+    authIdentityCtorArg: MutPtr,
+    securityQosCtorArg: MutPtr,
 ) {
-    public var serverPrincName: MutPtr<UShort> = serverPrincNameCtorArg
+    public var serverPrincName: MutPtr = serverPrincNameCtorArg
         internal set
 
-    public var authIdentity: MutPtr<SecWinntAuthIdentityW> = authIdentityCtorArg
+    public var authIdentity: MutPtr = authIdentityCtorArg
         internal set
 
-    public var securityQos: MutPtr<RpcSecurityQos> = securityQosCtorArg
+    public var securityQos: MutPtr = securityQosCtorArg
         internal set
 
     public constructor() : this(
@@ -6224,17 +6222,17 @@ public class RpcBindingHandleSecurityV1W internal constructor(
 
     public operator fun component1(): UInt = this.version
 
-    public operator fun component2(): MutPtr<UShort> = this.serverPrincName
+    public operator fun component2(): MutPtr = this.serverPrincName
 
     public operator fun component3(): UInt = this.authnLevel
 
     public operator fun component4(): UInt = this.authnSvc
 
-    public operator fun component5(): MutPtr<SecWinntAuthIdentityW> = this.authIdentity
+    public operator fun component5(): MutPtr = this.authIdentity
 
-    public operator fun component6(): MutPtr<RpcSecurityQos> = this.securityQos
+    public operator fun component6(): MutPtr = this.securityQos
 
-    public fun copy(version: UInt = this.version, serverPrincName: MutPtr<UShort> = this.serverPrincName, authnLevel: UInt = this.authnLevel, authnSvc: UInt = this.authnSvc, authIdentity: MutPtr<SecWinntAuthIdentityW> = this.authIdentity, securityQos: MutPtr<RpcSecurityQos> = this.securityQos): RpcBindingHandleSecurityV1W = RpcBindingHandleSecurityV1W(version = version, serverPrincNameCtorArg = serverPrincName, authnLevel = authnLevel, authnSvc = authnSvc, authIdentityCtorArg = authIdentity, securityQosCtorArg = securityQos)
+    public fun copy(version: UInt = this.version, serverPrincName: MutPtr = this.serverPrincName, authnLevel: UInt = this.authnLevel, authnSvc: UInt = this.authnSvc, authIdentity: MutPtr = this.authIdentity, securityQos: MutPtr = this.securityQos): RpcBindingHandleSecurityV1W = RpcBindingHandleSecurityV1W(version = version, serverPrincNameCtorArg = serverPrincName, authnLevel = authnLevel, authnSvc = authnSvc, authIdentityCtorArg = authIdentity, securityQosCtorArg = securityQos)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -6268,45 +6266,45 @@ public class RpcBindingHandleSecurityV1W internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<UShort>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 16L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 20L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<SecWinntAuthIdentityW>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 24L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<RpcSecurityQos>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 32L),
                     )
                 override fun writeNative(addr: Long, value: RpcBindingHandleSecurityV1W) {
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr, value.version)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<UShort>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.serverPrincName)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 16L, value.authnLevel)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 20L, value.authnSvc)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<SecWinntAuthIdentityW>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 24L, value.authIdentity)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<RpcSecurityQos>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 32L, value.securityQos)
                 }
             }
 
         public operator fun invoke(
             version: UInt = 0u,
-            serverPrincName: MutPtr<UShort> = MutPtr(0L),
+            serverPrincName: MutPtr = MutPtr(0L),
             authnLevel: UInt = 0u,
             authnSvc: UInt = 0u,
-            authIdentity: MutPtr<SecWinntAuthIdentityW> = MutPtr(0L),
-            securityQos: MutPtr<RpcSecurityQos> = MutPtr(0L),
+            authIdentity: MutPtr = MutPtr(0L),
+            securityQos: MutPtr = MutPtr(0L),
         ): RpcBindingHandleSecurityV1W =
             RpcBindingHandleSecurityV1W(
                 version = version,
@@ -6323,15 +6321,15 @@ public class RpcBindingHandleTemplateV1A internal constructor(
     public var version: UInt,
     public var flags: UInt,
     public var protocolSequence: UInt,
-    networkAddressCtorArg: MutPtr<UByte>,
-    stringEndpointCtorArg: MutPtr<UByte>,
+    networkAddressCtorArg: MutPtr,
+    stringEndpointCtorArg: MutPtr,
     public var u1: RpcBindingHandleTemplateV1A0,
     public var objectUuid: Guid,
 ) {
-    public var networkAddress: MutPtr<UByte> = networkAddressCtorArg
+    public var networkAddress: MutPtr = networkAddressCtorArg
         internal set
 
-    public var stringEndpoint: MutPtr<UByte> = stringEndpointCtorArg
+    public var stringEndpoint: MutPtr = stringEndpointCtorArg
         internal set
 
     public constructor() : this(
@@ -6350,15 +6348,15 @@ public class RpcBindingHandleTemplateV1A internal constructor(
 
     public operator fun component3(): UInt = this.protocolSequence
 
-    public operator fun component4(): MutPtr<UByte> = this.networkAddress
+    public operator fun component4(): MutPtr = this.networkAddress
 
-    public operator fun component5(): MutPtr<UByte> = this.stringEndpoint
+    public operator fun component5(): MutPtr = this.stringEndpoint
 
     public operator fun component6(): RpcBindingHandleTemplateV1A0 = this.u1
 
     public operator fun component7(): Guid = this.objectUuid
 
-    public fun copy(version: UInt = this.version, flags: UInt = this.flags, protocolSequence: UInt = this.protocolSequence, networkAddress: MutPtr<UByte> = this.networkAddress, stringEndpoint: MutPtr<UByte> = this.stringEndpoint, u1: RpcBindingHandleTemplateV1A0 = this.u1, objectUuid: Guid = this.objectUuid): RpcBindingHandleTemplateV1A = RpcBindingHandleTemplateV1A(version = version, flags = flags, protocolSequence = protocolSequence, networkAddressCtorArg = networkAddress, stringEndpointCtorArg = stringEndpoint, u1 = u1, objectUuid = objectUuid)
+    public fun copy(version: UInt = this.version, flags: UInt = this.flags, protocolSequence: UInt = this.protocolSequence, networkAddress: MutPtr = this.networkAddress, stringEndpoint: MutPtr = this.stringEndpoint, u1: RpcBindingHandleTemplateV1A0 = this.u1, objectUuid: Guid = this.objectUuid): RpcBindingHandleTemplateV1A = RpcBindingHandleTemplateV1A(version = version, flags = flags, protocolSequence = protocolSequence, networkAddressCtorArg = networkAddress, stringEndpointCtorArg = stringEndpoint, u1 = u1, objectUuid = objectUuid)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -6389,8 +6387,8 @@ public class RpcBindingHandleTemplateV1A internal constructor(
             version: UInt = 0u,
             flags: UInt = 0u,
             protocolSequence: UInt = 0u,
-            networkAddress: MutPtr<UByte> = MutPtr(0L),
-            stringEndpoint: MutPtr<UByte> = MutPtr(0L),
+            networkAddress: MutPtr = MutPtr(0L),
+            stringEndpoint: MutPtr = MutPtr(0L),
             u1: RpcBindingHandleTemplateV1A0 = RpcBindingHandleTemplateV1A0(),
             objectUuid: Guid = Guid(),
         ): RpcBindingHandleTemplateV1A =
@@ -6407,18 +6405,18 @@ public class RpcBindingHandleTemplateV1A internal constructor(
 }
 
 public class RpcBindingHandleTemplateV1A0 internal constructor(
-    reservedCtorArg: MutPtr<UByte>,
+    reservedCtorArg: MutPtr,
 ) {
-    public var reserved: MutPtr<UByte> = reservedCtorArg
+    public var reserved: MutPtr = reservedCtorArg
         internal set
 
     public constructor() : this(
         reservedCtorArg = MutPtr(0L),
     )
 
-    public operator fun component1(): MutPtr<UByte> = this.reserved
+    public operator fun component1(): MutPtr = this.reserved
 
-    public fun copy(reserved: MutPtr<UByte> = this.reserved): RpcBindingHandleTemplateV1A0 = RpcBindingHandleTemplateV1A0(reservedCtorArg = reserved)
+    public fun copy(reserved: MutPtr = this.reserved): RpcBindingHandleTemplateV1A0 = RpcBindingHandleTemplateV1A0(reservedCtorArg = reserved)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -6431,7 +6429,7 @@ public class RpcBindingHandleTemplateV1A0 internal constructor(
 
     public companion object {
         public operator fun invoke(
-            reserved: MutPtr<UByte> = MutPtr(0L),
+            reserved: MutPtr = MutPtr(0L),
         ): RpcBindingHandleTemplateV1A0 =
             RpcBindingHandleTemplateV1A0(
                 reservedCtorArg = reserved,
@@ -6443,15 +6441,15 @@ public class RpcBindingHandleTemplateV1W internal constructor(
     public var version: UInt,
     public var flags: UInt,
     public var protocolSequence: UInt,
-    networkAddressCtorArg: MutPtr<UShort>,
-    stringEndpointCtorArg: MutPtr<UShort>,
+    networkAddressCtorArg: MutPtr,
+    stringEndpointCtorArg: MutPtr,
     public var u1: RpcBindingHandleTemplateV1W0,
     public var objectUuid: Guid,
 ) {
-    public var networkAddress: MutPtr<UShort> = networkAddressCtorArg
+    public var networkAddress: MutPtr = networkAddressCtorArg
         internal set
 
-    public var stringEndpoint: MutPtr<UShort> = stringEndpointCtorArg
+    public var stringEndpoint: MutPtr = stringEndpointCtorArg
         internal set
 
     public constructor() : this(
@@ -6470,15 +6468,15 @@ public class RpcBindingHandleTemplateV1W internal constructor(
 
     public operator fun component3(): UInt = this.protocolSequence
 
-    public operator fun component4(): MutPtr<UShort> = this.networkAddress
+    public operator fun component4(): MutPtr = this.networkAddress
 
-    public operator fun component5(): MutPtr<UShort> = this.stringEndpoint
+    public operator fun component5(): MutPtr = this.stringEndpoint
 
     public operator fun component6(): RpcBindingHandleTemplateV1W0 = this.u1
 
     public operator fun component7(): Guid = this.objectUuid
 
-    public fun copy(version: UInt = this.version, flags: UInt = this.flags, protocolSequence: UInt = this.protocolSequence, networkAddress: MutPtr<UShort> = this.networkAddress, stringEndpoint: MutPtr<UShort> = this.stringEndpoint, u1: RpcBindingHandleTemplateV1W0 = this.u1, objectUuid: Guid = this.objectUuid): RpcBindingHandleTemplateV1W = RpcBindingHandleTemplateV1W(version = version, flags = flags, protocolSequence = protocolSequence, networkAddressCtorArg = networkAddress, stringEndpointCtorArg = stringEndpoint, u1 = u1, objectUuid = objectUuid)
+    public fun copy(version: UInt = this.version, flags: UInt = this.flags, protocolSequence: UInt = this.protocolSequence, networkAddress: MutPtr = this.networkAddress, stringEndpoint: MutPtr = this.stringEndpoint, u1: RpcBindingHandleTemplateV1W0 = this.u1, objectUuid: Guid = this.objectUuid): RpcBindingHandleTemplateV1W = RpcBindingHandleTemplateV1W(version = version, flags = flags, protocolSequence = protocolSequence, networkAddressCtorArg = networkAddress, stringEndpointCtorArg = stringEndpoint, u1 = u1, objectUuid = objectUuid)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -6509,8 +6507,8 @@ public class RpcBindingHandleTemplateV1W internal constructor(
             version: UInt = 0u,
             flags: UInt = 0u,
             protocolSequence: UInt = 0u,
-            networkAddress: MutPtr<UShort> = MutPtr(0L),
-            stringEndpoint: MutPtr<UShort> = MutPtr(0L),
+            networkAddress: MutPtr = MutPtr(0L),
+            stringEndpoint: MutPtr = MutPtr(0L),
             u1: RpcBindingHandleTemplateV1W0 = RpcBindingHandleTemplateV1W0(),
             objectUuid: Guid = Guid(),
         ): RpcBindingHandleTemplateV1W =
@@ -6527,18 +6525,18 @@ public class RpcBindingHandleTemplateV1W internal constructor(
 }
 
 public class RpcBindingHandleTemplateV1W0 internal constructor(
-    reservedCtorArg: MutPtr<UShort>,
+    reservedCtorArg: MutPtr,
 ) {
-    public var reserved: MutPtr<UShort> = reservedCtorArg
+    public var reserved: MutPtr = reservedCtorArg
         internal set
 
     public constructor() : this(
         reservedCtorArg = MutPtr(0L),
     )
 
-    public operator fun component1(): MutPtr<UShort> = this.reserved
+    public operator fun component1(): MutPtr = this.reserved
 
-    public fun copy(reserved: MutPtr<UShort> = this.reserved): RpcBindingHandleTemplateV1W0 = RpcBindingHandleTemplateV1W0(reservedCtorArg = reserved)
+    public fun copy(reserved: MutPtr = this.reserved): RpcBindingHandleTemplateV1W0 = RpcBindingHandleTemplateV1W0(reservedCtorArg = reserved)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -6551,7 +6549,7 @@ public class RpcBindingHandleTemplateV1W0 internal constructor(
 
     public companion object {
         public operator fun invoke(
-            reserved: MutPtr<UShort> = MutPtr(0L),
+            reserved: MutPtr = MutPtr(0L),
         ): RpcBindingHandleTemplateV1W0 =
             RpcBindingHandleTemplateV1W0(
                 reservedCtorArg = reserved,
@@ -6561,9 +6559,9 @@ public class RpcBindingHandleTemplateV1W0 internal constructor(
 
 public class RpcBindingVector internal constructor(
     public var count: UInt,
-    bindingHCtorArg: List<MutPtr<CVoid>>,
+    bindingHCtorArg: List<MutPtr>,
 ) {
-    public var bindingH: List<MutPtr<CVoid>> = bindingHCtorArg
+    public var bindingH: List<MutPtr> = bindingHCtorArg
         internal set
 
     public constructor() : this(
@@ -6573,9 +6571,9 @@ public class RpcBindingVector internal constructor(
 
     public operator fun component1(): UInt = this.count
 
-    public operator fun component2(): List<MutPtr<CVoid>> = this.bindingH
+    public operator fun component2(): List<MutPtr> = this.bindingH
 
-    public fun copy(count: UInt = this.count, bindingH: List<MutPtr<CVoid>> = this.bindingH): RpcBindingVector = RpcBindingVector(count = count, bindingHCtorArg = bindingH)
+    public fun copy(count: UInt = this.count, bindingH: List<MutPtr> = this.bindingH): RpcBindingVector = RpcBindingVector(count = count, bindingHCtorArg = bindingH)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -6603,7 +6601,7 @@ public class RpcBindingVector internal constructor(
                             io.github.kotlinmania.rustlang.core.mem
                                 .FixedArrayTypeLayout(
                                     io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                        .mutPtrLayout<CVoid>(64),
+                                        .mutPtrLayout(64),
                                     (1).toInt(),
                                 )
                         ).readNative(addr + 8L),
@@ -6614,7 +6612,7 @@ public class RpcBindingVector internal constructor(
                         io.github.kotlinmania.rustlang.core.mem
                             .FixedArrayTypeLayout(
                                 io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                    .mutPtrLayout<CVoid>(64),
+                                    .mutPtrLayout(64),
                                 (1).toInt(),
                             )
                     ).writeNative(addr + 8L, value.bindingH)
@@ -6623,7 +6621,7 @@ public class RpcBindingVector internal constructor(
 
         public operator fun invoke(
             count: UInt = 0u,
-            bindingH: List<MutPtr<CVoid>> = List(1) { MutPtr(0L) },
+            bindingH: List<MutPtr> = List(1) { MutPtr(0L) },
         ): RpcBindingVector =
             RpcBindingVector(
                 count = count,
@@ -6636,17 +6634,17 @@ public class RpcCallAttributesV1A internal constructor(
     public var version: UInt,
     public var flags: UInt,
     public var serverPrincipalNameBufferLength: UInt,
-    serverPrincipalNameCtorArg: MutPtr<UByte>,
+    serverPrincipalNameCtorArg: MutPtr,
     public var clientPrincipalNameBufferLength: UInt,
-    clientPrincipalNameCtorArg: MutPtr<UByte>,
+    clientPrincipalNameCtorArg: MutPtr,
     public var authenticationLevel: UInt,
     public var authenticationService: UInt,
     public var nullSession: Bool,
 ) {
-    public var serverPrincipalName: MutPtr<UByte> = serverPrincipalNameCtorArg
+    public var serverPrincipalName: MutPtr = serverPrincipalNameCtorArg
         internal set
 
-    public var clientPrincipalName: MutPtr<UByte> = clientPrincipalNameCtorArg
+    public var clientPrincipalName: MutPtr = clientPrincipalNameCtorArg
         internal set
 
     public constructor() : this(
@@ -6667,11 +6665,11 @@ public class RpcCallAttributesV1A internal constructor(
 
     public operator fun component3(): UInt = this.serverPrincipalNameBufferLength
 
-    public operator fun component4(): MutPtr<UByte> = this.serverPrincipalName
+    public operator fun component4(): MutPtr = this.serverPrincipalName
 
     public operator fun component5(): UInt = this.clientPrincipalNameBufferLength
 
-    public operator fun component6(): MutPtr<UByte> = this.clientPrincipalName
+    public operator fun component6(): MutPtr = this.clientPrincipalName
 
     public operator fun component7(): UInt = this.authenticationLevel
 
@@ -6679,7 +6677,7 @@ public class RpcCallAttributesV1A internal constructor(
 
     public operator fun component9(): Bool = this.nullSession
 
-    public fun copy(version: UInt = this.version, flags: UInt = this.flags, serverPrincipalNameBufferLength: UInt = this.serverPrincipalNameBufferLength, serverPrincipalName: MutPtr<UByte> = this.serverPrincipalName, clientPrincipalNameBufferLength: UInt = this.clientPrincipalNameBufferLength, clientPrincipalName: MutPtr<UByte> = this.clientPrincipalName, authenticationLevel: UInt = this.authenticationLevel, authenticationService: UInt = this.authenticationService, nullSession: Bool = this.nullSession): RpcCallAttributesV1A = RpcCallAttributesV1A(version = version, flags = flags, serverPrincipalNameBufferLength = serverPrincipalNameBufferLength, serverPrincipalNameCtorArg = serverPrincipalName, clientPrincipalNameBufferLength = clientPrincipalNameBufferLength, clientPrincipalNameCtorArg = clientPrincipalName, authenticationLevel = authenticationLevel, authenticationService = authenticationService, nullSession = nullSession)
+    public fun copy(version: UInt = this.version, flags: UInt = this.flags, serverPrincipalNameBufferLength: UInt = this.serverPrincipalNameBufferLength, serverPrincipalName: MutPtr = this.serverPrincipalName, clientPrincipalNameBufferLength: UInt = this.clientPrincipalNameBufferLength, clientPrincipalName: MutPtr = this.clientPrincipalName, authenticationLevel: UInt = this.authenticationLevel, authenticationService: UInt = this.authenticationService, nullSession: Bool = this.nullSession): RpcCallAttributesV1A = RpcCallAttributesV1A(version = version, flags = flags, serverPrincipalNameBufferLength = serverPrincipalNameBufferLength, serverPrincipalNameCtorArg = serverPrincipalName, clientPrincipalNameBufferLength = clientPrincipalNameBufferLength, clientPrincipalNameCtorArg = clientPrincipalName, authenticationLevel = authenticationLevel, authenticationService = authenticationService, nullSession = nullSession)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -6721,12 +6719,12 @@ public class RpcCallAttributesV1A internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 8L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<UByte>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 16L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 24L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<UByte>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 32L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 40L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 44L),
@@ -6738,12 +6736,12 @@ public class RpcCallAttributesV1A internal constructor(
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 8L, value.serverPrincipalNameBufferLength)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<UByte>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 16L, value.serverPrincipalName)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 24L, value.clientPrincipalNameBufferLength)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<UByte>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 32L, value.clientPrincipalName)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 40L, value.authenticationLevel)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 44L, value.authenticationService)
@@ -6755,9 +6753,9 @@ public class RpcCallAttributesV1A internal constructor(
             version: UInt = 0u,
             flags: UInt = 0u,
             serverPrincipalNameBufferLength: UInt = 0u,
-            serverPrincipalName: MutPtr<UByte> = MutPtr(0L),
+            serverPrincipalName: MutPtr = MutPtr(0L),
             clientPrincipalNameBufferLength: UInt = 0u,
-            clientPrincipalName: MutPtr<UByte> = MutPtr(0L),
+            clientPrincipalName: MutPtr = MutPtr(0L),
             authenticationLevel: UInt = 0u,
             authenticationService: UInt = 0u,
             nullSession: Bool = 0,
@@ -6780,17 +6778,17 @@ public class RpcCallAttributesV1W internal constructor(
     public var version: UInt,
     public var flags: UInt,
     public var serverPrincipalNameBufferLength: UInt,
-    serverPrincipalNameCtorArg: MutPtr<UShort>,
+    serverPrincipalNameCtorArg: MutPtr,
     public var clientPrincipalNameBufferLength: UInt,
-    clientPrincipalNameCtorArg: MutPtr<UShort>,
+    clientPrincipalNameCtorArg: MutPtr,
     public var authenticationLevel: UInt,
     public var authenticationService: UInt,
     public var nullSession: Bool,
 ) {
-    public var serverPrincipalName: MutPtr<UShort> = serverPrincipalNameCtorArg
+    public var serverPrincipalName: MutPtr = serverPrincipalNameCtorArg
         internal set
 
-    public var clientPrincipalName: MutPtr<UShort> = clientPrincipalNameCtorArg
+    public var clientPrincipalName: MutPtr = clientPrincipalNameCtorArg
         internal set
 
     public constructor() : this(
@@ -6811,11 +6809,11 @@ public class RpcCallAttributesV1W internal constructor(
 
     public operator fun component3(): UInt = this.serverPrincipalNameBufferLength
 
-    public operator fun component4(): MutPtr<UShort> = this.serverPrincipalName
+    public operator fun component4(): MutPtr = this.serverPrincipalName
 
     public operator fun component5(): UInt = this.clientPrincipalNameBufferLength
 
-    public operator fun component6(): MutPtr<UShort> = this.clientPrincipalName
+    public operator fun component6(): MutPtr = this.clientPrincipalName
 
     public operator fun component7(): UInt = this.authenticationLevel
 
@@ -6823,7 +6821,7 @@ public class RpcCallAttributesV1W internal constructor(
 
     public operator fun component9(): Bool = this.nullSession
 
-    public fun copy(version: UInt = this.version, flags: UInt = this.flags, serverPrincipalNameBufferLength: UInt = this.serverPrincipalNameBufferLength, serverPrincipalName: MutPtr<UShort> = this.serverPrincipalName, clientPrincipalNameBufferLength: UInt = this.clientPrincipalNameBufferLength, clientPrincipalName: MutPtr<UShort> = this.clientPrincipalName, authenticationLevel: UInt = this.authenticationLevel, authenticationService: UInt = this.authenticationService, nullSession: Bool = this.nullSession): RpcCallAttributesV1W = RpcCallAttributesV1W(version = version, flags = flags, serverPrincipalNameBufferLength = serverPrincipalNameBufferLength, serverPrincipalNameCtorArg = serverPrincipalName, clientPrincipalNameBufferLength = clientPrincipalNameBufferLength, clientPrincipalNameCtorArg = clientPrincipalName, authenticationLevel = authenticationLevel, authenticationService = authenticationService, nullSession = nullSession)
+    public fun copy(version: UInt = this.version, flags: UInt = this.flags, serverPrincipalNameBufferLength: UInt = this.serverPrincipalNameBufferLength, serverPrincipalName: MutPtr = this.serverPrincipalName, clientPrincipalNameBufferLength: UInt = this.clientPrincipalNameBufferLength, clientPrincipalName: MutPtr = this.clientPrincipalName, authenticationLevel: UInt = this.authenticationLevel, authenticationService: UInt = this.authenticationService, nullSession: Bool = this.nullSession): RpcCallAttributesV1W = RpcCallAttributesV1W(version = version, flags = flags, serverPrincipalNameBufferLength = serverPrincipalNameBufferLength, serverPrincipalNameCtorArg = serverPrincipalName, clientPrincipalNameBufferLength = clientPrincipalNameBufferLength, clientPrincipalNameCtorArg = clientPrincipalName, authenticationLevel = authenticationLevel, authenticationService = authenticationService, nullSession = nullSession)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -6865,12 +6863,12 @@ public class RpcCallAttributesV1W internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 8L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<UShort>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 16L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 24L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<UShort>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 32L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 40L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 44L),
@@ -6882,12 +6880,12 @@ public class RpcCallAttributesV1W internal constructor(
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 8L, value.serverPrincipalNameBufferLength)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<UShort>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 16L, value.serverPrincipalName)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 24L, value.clientPrincipalNameBufferLength)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<UShort>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 32L, value.clientPrincipalName)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 40L, value.authenticationLevel)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 44L, value.authenticationService)
@@ -6899,9 +6897,9 @@ public class RpcCallAttributesV1W internal constructor(
             version: UInt = 0u,
             flags: UInt = 0u,
             serverPrincipalNameBufferLength: UInt = 0u,
-            serverPrincipalName: MutPtr<UShort> = MutPtr(0L),
+            serverPrincipalName: MutPtr = MutPtr(0L),
             clientPrincipalNameBufferLength: UInt = 0u,
-            clientPrincipalName: MutPtr<UShort> = MutPtr(0L),
+            clientPrincipalName: MutPtr = MutPtr(0L),
             authenticationLevel: UInt = 0u,
             authenticationService: UInt = 0u,
             nullSession: Bool = 0,
@@ -6924,9 +6922,9 @@ public class RpcCallAttributesV2A internal constructor(
     public var version: UInt,
     public var flags: UInt,
     public var serverPrincipalNameBufferLength: UInt,
-    serverPrincipalNameCtorArg: MutPtr<UByte>,
+    serverPrincipalNameCtorArg: MutPtr,
     public var clientPrincipalNameBufferLength: UInt,
-    clientPrincipalNameCtorArg: MutPtr<UByte>,
+    clientPrincipalNameCtorArg: MutPtr,
     public var authenticationLevel: UInt,
     public var authenticationService: UInt,
     public var nullSession: Bool,
@@ -6936,20 +6934,20 @@ public class RpcCallAttributesV2A internal constructor(
     clientPIDCtorArg: Handle,
     public var callStatus: UInt,
     public var callType: RpcCallType,
-    callLocalAddressCtorArg: MutPtr<RpcCallLocalAddressV1>,
+    callLocalAddressCtorArg: MutPtr,
     public var opNum: UShort,
     public var interfaceUuid: Guid,
 ) {
-    public var serverPrincipalName: MutPtr<UByte> = serverPrincipalNameCtorArg
+    public var serverPrincipalName: MutPtr = serverPrincipalNameCtorArg
         internal set
 
-    public var clientPrincipalName: MutPtr<UByte> = clientPrincipalNameCtorArg
+    public var clientPrincipalName: MutPtr = clientPrincipalNameCtorArg
         internal set
 
     public var clientPID: Handle = clientPIDCtorArg
         internal set
 
-    public var callLocalAddress: MutPtr<RpcCallLocalAddressV1> = callLocalAddressCtorArg
+    public var callLocalAddress: MutPtr = callLocalAddressCtorArg
         internal set
 
     public constructor() : this(
@@ -6978,9 +6976,9 @@ public class RpcCallAttributesV2A internal constructor(
             version: UInt = 0u,
             flags: UInt = 0u,
             serverPrincipalNameBufferLength: UInt = 0u,
-            serverPrincipalName: MutPtr<UByte> = MutPtr(0L),
+            serverPrincipalName: MutPtr = MutPtr(0L),
             clientPrincipalNameBufferLength: UInt = 0u,
-            clientPrincipalName: MutPtr<UByte> = MutPtr(0L),
+            clientPrincipalName: MutPtr = MutPtr(0L),
             authenticationLevel: UInt = 0u,
             authenticationService: UInt = 0u,
             nullSession: Bool = 0,
@@ -6990,7 +6988,7 @@ public class RpcCallAttributesV2A internal constructor(
             clientPID: Handle = MutPtr(0L),
             callStatus: UInt = 0u,
             callType: RpcCallType = 0,
-            callLocalAddress: MutPtr<RpcCallLocalAddressV1> = MutPtr(0L),
+            callLocalAddress: MutPtr = MutPtr(0L),
             opNum: UShort = 0u,
             interfaceUuid: Guid = Guid(),
         ): RpcCallAttributesV2A =
@@ -7021,9 +7019,9 @@ public class RpcCallAttributesV2W internal constructor(
     public var version: UInt,
     public var flags: UInt,
     public var serverPrincipalNameBufferLength: UInt,
-    serverPrincipalNameCtorArg: MutPtr<UShort>,
+    serverPrincipalNameCtorArg: MutPtr,
     public var clientPrincipalNameBufferLength: UInt,
-    clientPrincipalNameCtorArg: MutPtr<UShort>,
+    clientPrincipalNameCtorArg: MutPtr,
     public var authenticationLevel: UInt,
     public var authenticationService: UInt,
     public var nullSession: Bool,
@@ -7033,20 +7031,20 @@ public class RpcCallAttributesV2W internal constructor(
     clientPIDCtorArg: Handle,
     public var callStatus: UInt,
     public var callType: RpcCallType,
-    callLocalAddressCtorArg: MutPtr<RpcCallLocalAddressV1>,
+    callLocalAddressCtorArg: MutPtr,
     public var opNum: UShort,
     public var interfaceUuid: Guid,
 ) {
-    public var serverPrincipalName: MutPtr<UShort> = serverPrincipalNameCtorArg
+    public var serverPrincipalName: MutPtr = serverPrincipalNameCtorArg
         internal set
 
-    public var clientPrincipalName: MutPtr<UShort> = clientPrincipalNameCtorArg
+    public var clientPrincipalName: MutPtr = clientPrincipalNameCtorArg
         internal set
 
     public var clientPID: Handle = clientPIDCtorArg
         internal set
 
-    public var callLocalAddress: MutPtr<RpcCallLocalAddressV1> = callLocalAddressCtorArg
+    public var callLocalAddress: MutPtr = callLocalAddressCtorArg
         internal set
 
     public constructor() : this(
@@ -7075,9 +7073,9 @@ public class RpcCallAttributesV2W internal constructor(
             version: UInt = 0u,
             flags: UInt = 0u,
             serverPrincipalNameBufferLength: UInt = 0u,
-            serverPrincipalName: MutPtr<UShort> = MutPtr(0L),
+            serverPrincipalName: MutPtr = MutPtr(0L),
             clientPrincipalNameBufferLength: UInt = 0u,
-            clientPrincipalName: MutPtr<UShort> = MutPtr(0L),
+            clientPrincipalName: MutPtr = MutPtr(0L),
             authenticationLevel: UInt = 0u,
             authenticationService: UInt = 0u,
             nullSession: Bool = 0,
@@ -7087,7 +7085,7 @@ public class RpcCallAttributesV2W internal constructor(
             clientPID: Handle = MutPtr(0L),
             callStatus: UInt = 0u,
             callType: RpcCallType = 0,
-            callLocalAddress: MutPtr<RpcCallLocalAddressV1> = MutPtr(0L),
+            callLocalAddress: MutPtr = MutPtr(0L),
             opNum: UShort = 0u,
             interfaceUuid: Guid = Guid(),
         ): RpcCallAttributesV2W =
@@ -7118,9 +7116,9 @@ public class RpcCallAttributesV3A internal constructor(
     public var version: UInt,
     public var flags: UInt,
     public var serverPrincipalNameBufferLength: UInt,
-    serverPrincipalNameCtorArg: MutPtr<UByte>,
+    serverPrincipalNameCtorArg: MutPtr,
     public var clientPrincipalNameBufferLength: UInt,
-    clientPrincipalNameCtorArg: MutPtr<UByte>,
+    clientPrincipalNameCtorArg: MutPtr,
     public var authenticationLevel: UInt,
     public var authenticationService: UInt,
     public var nullSession: Bool,
@@ -7130,25 +7128,25 @@ public class RpcCallAttributesV3A internal constructor(
     clientPIDCtorArg: Handle,
     public var callStatus: UInt,
     public var callType: RpcCallType,
-    callLocalAddressCtorArg: MutPtr<RpcCallLocalAddressV1>,
+    callLocalAddressCtorArg: MutPtr,
     public var opNum: UShort,
     public var interfaceUuid: Guid,
     public var clientIdentifierBufferLength: UInt,
-    clientIdentifierCtorArg: MutPtr<UByte>,
+    clientIdentifierCtorArg: MutPtr,
 ) {
-    public var serverPrincipalName: MutPtr<UByte> = serverPrincipalNameCtorArg
+    public var serverPrincipalName: MutPtr = serverPrincipalNameCtorArg
         internal set
 
-    public var clientPrincipalName: MutPtr<UByte> = clientPrincipalNameCtorArg
+    public var clientPrincipalName: MutPtr = clientPrincipalNameCtorArg
         internal set
 
     public var clientPID: Handle = clientPIDCtorArg
         internal set
 
-    public var callLocalAddress: MutPtr<RpcCallLocalAddressV1> = callLocalAddressCtorArg
+    public var callLocalAddress: MutPtr = callLocalAddressCtorArg
         internal set
 
-    public var clientIdentifier: MutPtr<UByte> = clientIdentifierCtorArg
+    public var clientIdentifier: MutPtr = clientIdentifierCtorArg
         internal set
 
     public constructor() : this(
@@ -7179,9 +7177,9 @@ public class RpcCallAttributesV3A internal constructor(
             version: UInt = 0u,
             flags: UInt = 0u,
             serverPrincipalNameBufferLength: UInt = 0u,
-            serverPrincipalName: MutPtr<UByte> = MutPtr(0L),
+            serverPrincipalName: MutPtr = MutPtr(0L),
             clientPrincipalNameBufferLength: UInt = 0u,
-            clientPrincipalName: MutPtr<UByte> = MutPtr(0L),
+            clientPrincipalName: MutPtr = MutPtr(0L),
             authenticationLevel: UInt = 0u,
             authenticationService: UInt = 0u,
             nullSession: Bool = 0,
@@ -7191,11 +7189,11 @@ public class RpcCallAttributesV3A internal constructor(
             clientPID: Handle = MutPtr(0L),
             callStatus: UInt = 0u,
             callType: RpcCallType = 0,
-            callLocalAddress: MutPtr<RpcCallLocalAddressV1> = MutPtr(0L),
+            callLocalAddress: MutPtr = MutPtr(0L),
             opNum: UShort = 0u,
             interfaceUuid: Guid = Guid(),
             clientIdentifierBufferLength: UInt = 0u,
-            clientIdentifier: MutPtr<UByte> = MutPtr(0L),
+            clientIdentifier: MutPtr = MutPtr(0L),
         ): RpcCallAttributesV3A =
             RpcCallAttributesV3A(
                 version = version,
@@ -7226,9 +7224,9 @@ public class RpcCallAttributesV3W internal constructor(
     public var version: UInt,
     public var flags: UInt,
     public var serverPrincipalNameBufferLength: UInt,
-    serverPrincipalNameCtorArg: MutPtr<UShort>,
+    serverPrincipalNameCtorArg: MutPtr,
     public var clientPrincipalNameBufferLength: UInt,
-    clientPrincipalNameCtorArg: MutPtr<UShort>,
+    clientPrincipalNameCtorArg: MutPtr,
     public var authenticationLevel: UInt,
     public var authenticationService: UInt,
     public var nullSession: Bool,
@@ -7238,25 +7236,25 @@ public class RpcCallAttributesV3W internal constructor(
     clientPIDCtorArg: Handle,
     public var callStatus: UInt,
     public var callType: RpcCallType,
-    callLocalAddressCtorArg: MutPtr<RpcCallLocalAddressV1>,
+    callLocalAddressCtorArg: MutPtr,
     public var opNum: UShort,
     public var interfaceUuid: Guid,
     public var clientIdentifierBufferLength: UInt,
-    clientIdentifierCtorArg: MutPtr<UByte>,
+    clientIdentifierCtorArg: MutPtr,
 ) {
-    public var serverPrincipalName: MutPtr<UShort> = serverPrincipalNameCtorArg
+    public var serverPrincipalName: MutPtr = serverPrincipalNameCtorArg
         internal set
 
-    public var clientPrincipalName: MutPtr<UShort> = clientPrincipalNameCtorArg
+    public var clientPrincipalName: MutPtr = clientPrincipalNameCtorArg
         internal set
 
     public var clientPID: Handle = clientPIDCtorArg
         internal set
 
-    public var callLocalAddress: MutPtr<RpcCallLocalAddressV1> = callLocalAddressCtorArg
+    public var callLocalAddress: MutPtr = callLocalAddressCtorArg
         internal set
 
-    public var clientIdentifier: MutPtr<UByte> = clientIdentifierCtorArg
+    public var clientIdentifier: MutPtr = clientIdentifierCtorArg
         internal set
 
     public constructor() : this(
@@ -7287,9 +7285,9 @@ public class RpcCallAttributesV3W internal constructor(
             version: UInt = 0u,
             flags: UInt = 0u,
             serverPrincipalNameBufferLength: UInt = 0u,
-            serverPrincipalName: MutPtr<UShort> = MutPtr(0L),
+            serverPrincipalName: MutPtr = MutPtr(0L),
             clientPrincipalNameBufferLength: UInt = 0u,
-            clientPrincipalName: MutPtr<UShort> = MutPtr(0L),
+            clientPrincipalName: MutPtr = MutPtr(0L),
             authenticationLevel: UInt = 0u,
             authenticationService: UInt = 0u,
             nullSession: Bool = 0,
@@ -7299,11 +7297,11 @@ public class RpcCallAttributesV3W internal constructor(
             clientPID: Handle = MutPtr(0L),
             callStatus: UInt = 0u,
             callType: RpcCallType = 0,
-            callLocalAddress: MutPtr<RpcCallLocalAddressV1> = MutPtr(0L),
+            callLocalAddress: MutPtr = MutPtr(0L),
             opNum: UShort = 0u,
             interfaceUuid: Guid = Guid(),
             clientIdentifierBufferLength: UInt = 0u,
-            clientIdentifier: MutPtr<UByte> = MutPtr(0L),
+            clientIdentifier: MutPtr = MutPtr(0L),
         ): RpcCallAttributesV3W =
             RpcCallAttributesV3W(
                 version = version,
@@ -7332,11 +7330,11 @@ public class RpcCallAttributesV3W internal constructor(
 
 public class RpcCallLocalAddressV1 internal constructor(
     public var version: UInt,
-    bufferCtorArg: MutPtr<CVoid>,
+    bufferCtorArg: MutPtr,
     public var bufferSize: UInt,
     public var addressFormat: RpcLocalAddressFormat,
 ) {
-    public var buffer: MutPtr<CVoid> = bufferCtorArg
+    public var buffer: MutPtr = bufferCtorArg
         internal set
 
     public constructor() : this(
@@ -7348,13 +7346,13 @@ public class RpcCallLocalAddressV1 internal constructor(
 
     public operator fun component1(): UInt = this.version
 
-    public operator fun component2(): MutPtr<CVoid> = this.buffer
+    public operator fun component2(): MutPtr = this.buffer
 
     public operator fun component3(): UInt = this.bufferSize
 
     public operator fun component4(): RpcLocalAddressFormat = this.addressFormat
 
-    public fun copy(version: UInt = this.version, buffer: MutPtr<CVoid> = this.buffer, bufferSize: UInt = this.bufferSize, addressFormat: RpcLocalAddressFormat = this.addressFormat): RpcCallLocalAddressV1 = RpcCallLocalAddressV1(version = version, bufferCtorArg = buffer, bufferSize = bufferSize, addressFormat = addressFormat)
+    public fun copy(version: UInt = this.version, buffer: MutPtr = this.buffer, bufferSize: UInt = this.bufferSize, addressFormat: RpcLocalAddressFormat = this.addressFormat): RpcCallLocalAddressV1 = RpcCallLocalAddressV1(version = version, bufferCtorArg = buffer, bufferSize = bufferSize, addressFormat = addressFormat)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -7384,7 +7382,7 @@ public class RpcCallLocalAddressV1 internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<CVoid>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 16L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr + 20L),
@@ -7393,7 +7391,7 @@ public class RpcCallLocalAddressV1 internal constructor(
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr, value.version)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<CVoid>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.buffer)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 16L, value.bufferSize)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr + 20L, value.addressFormat)
@@ -7402,7 +7400,7 @@ public class RpcCallLocalAddressV1 internal constructor(
 
         public operator fun invoke(
             version: UInt = 0u,
-            buffer: MutPtr<CVoid> = MutPtr(0L),
+            buffer: MutPtr = MutPtr(0L),
             bufferSize: UInt = 0u,
             addressFormat: RpcLocalAddressFormat = 0,
         ): RpcCallLocalAddressV1 =
@@ -7416,15 +7414,15 @@ public class RpcCallLocalAddressV1 internal constructor(
 }
 
 public class RpcClientInformation1 internal constructor(
-    userNameCtorArg: MutPtr<UByte>,
-    computerNameCtorArg: MutPtr<UByte>,
+    userNameCtorArg: MutPtr,
+    computerNameCtorArg: MutPtr,
     public var privilege: UShort,
     public var authFlags: UInt,
 ) {
-    public var userName: MutPtr<UByte> = userNameCtorArg
+    public var userName: MutPtr = userNameCtorArg
         internal set
 
-    public var computerName: MutPtr<UByte> = computerNameCtorArg
+    public var computerName: MutPtr = computerNameCtorArg
         internal set
 
     public constructor() : this(
@@ -7434,15 +7432,15 @@ public class RpcClientInformation1 internal constructor(
         authFlags = 0u,
     )
 
-    public operator fun component1(): MutPtr<UByte> = this.userName
+    public operator fun component1(): MutPtr = this.userName
 
-    public operator fun component2(): MutPtr<UByte> = this.computerName
+    public operator fun component2(): MutPtr = this.computerName
 
     public operator fun component3(): UShort = this.privilege
 
     public operator fun component4(): UInt = this.authFlags
 
-    public fun copy(userName: MutPtr<UByte> = this.userName, computerName: MutPtr<UByte> = this.computerName, privilege: UShort = this.privilege, authFlags: UInt = this.authFlags): RpcClientInformation1 = RpcClientInformation1(userNameCtorArg = userName, computerNameCtorArg = computerName, privilege = privilege, authFlags = authFlags)
+    public fun copy(userName: MutPtr = this.userName, computerName: MutPtr = this.computerName, privilege: UShort = this.privilege, authFlags: UInt = this.authFlags): RpcClientInformation1 = RpcClientInformation1(userNameCtorArg = userName, computerNameCtorArg = computerName, privilege = privilege, authFlags = authFlags)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -7471,11 +7469,11 @@ public class RpcClientInformation1 internal constructor(
                     RpcClientInformation1(
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<UByte>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<UByte>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16).readNative(addr + 16L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 20L),
@@ -7483,11 +7481,11 @@ public class RpcClientInformation1 internal constructor(
                 override fun writeNative(addr: Long, value: RpcClientInformation1) {
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<UByte>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr, value.userName)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<UByte>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.computerName)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16).writeNative(addr + 16L, value.privilege)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 20L, value.authFlags)
@@ -7495,8 +7493,8 @@ public class RpcClientInformation1 internal constructor(
             }
 
         public operator fun invoke(
-            userName: MutPtr<UByte> = MutPtr(0L),
-            computerName: MutPtr<UByte> = MutPtr(0L),
+            userName: MutPtr = MutPtr(0L),
+            computerName: MutPtr = MutPtr(0L),
             privilege: UShort = 0u,
             authFlags: UInt = 0u,
         ): RpcClientInformation1 =
@@ -7513,20 +7511,20 @@ public class RpcClientInterface internal constructor(
     public var length: UInt,
     public var interfaceId: RpcSyntaxIdentifier,
     public var transferSyntax: RpcSyntaxIdentifier,
-    dispatchTableCtorArg: MutPtr<RpcDispatchTable>,
+    dispatchTableCtorArg: MutPtr,
     public var rpcProtseqEndpointCount: UInt,
-    rpcProtseqEndpointCtorArg: MutPtr<RpcProtseqEndpoint>,
+    rpcProtseqEndpointCtorArg: MutPtr,
     public var reserved: Int,
-    interpreterInfoCtorArg: ConstPtr<CVoid>,
+    interpreterInfoCtorArg: ConstPtr,
     public var flags: UInt,
 ) {
-    public var dispatchTable: MutPtr<RpcDispatchTable> = dispatchTableCtorArg
+    public var dispatchTable: MutPtr = dispatchTableCtorArg
         internal set
 
-    public var rpcProtseqEndpoint: MutPtr<RpcProtseqEndpoint> = rpcProtseqEndpointCtorArg
+    public var rpcProtseqEndpoint: MutPtr = rpcProtseqEndpointCtorArg
         internal set
 
-    public var interpreterInfo: ConstPtr<CVoid> = interpreterInfoCtorArg
+    public var interpreterInfo: ConstPtr = interpreterInfoCtorArg
         internal set
 
     public constructor() : this(
@@ -7547,19 +7545,19 @@ public class RpcClientInterface internal constructor(
 
     public operator fun component3(): RpcSyntaxIdentifier = this.transferSyntax
 
-    public operator fun component4(): MutPtr<RpcDispatchTable> = this.dispatchTable
+    public operator fun component4(): MutPtr = this.dispatchTable
 
     public operator fun component5(): UInt = this.rpcProtseqEndpointCount
 
-    public operator fun component6(): MutPtr<RpcProtseqEndpoint> = this.rpcProtseqEndpoint
+    public operator fun component6(): MutPtr = this.rpcProtseqEndpoint
 
     public operator fun component7(): Int = this.reserved
 
-    public operator fun component8(): ConstPtr<CVoid> = this.interpreterInfo
+    public operator fun component8(): ConstPtr = this.interpreterInfo
 
     public operator fun component9(): UInt = this.flags
 
-    public fun copy(length: UInt = this.length, interfaceId: RpcSyntaxIdentifier = this.interfaceId, transferSyntax: RpcSyntaxIdentifier = this.transferSyntax, dispatchTable: MutPtr<RpcDispatchTable> = this.dispatchTable, rpcProtseqEndpointCount: UInt = this.rpcProtseqEndpointCount, rpcProtseqEndpoint: MutPtr<RpcProtseqEndpoint> = this.rpcProtseqEndpoint, reserved: Int = this.reserved, interpreterInfo: ConstPtr<CVoid> = this.interpreterInfo, flags: UInt = this.flags): RpcClientInterface = RpcClientInterface(length = length, interfaceId = interfaceId, transferSyntax = transferSyntax, dispatchTableCtorArg = dispatchTable, rpcProtseqEndpointCount = rpcProtseqEndpointCount, rpcProtseqEndpointCtorArg = rpcProtseqEndpoint, reserved = reserved, interpreterInfoCtorArg = interpreterInfo, flags = flags)
+    public fun copy(length: UInt = this.length, interfaceId: RpcSyntaxIdentifier = this.interfaceId, transferSyntax: RpcSyntaxIdentifier = this.transferSyntax, dispatchTable: MutPtr = this.dispatchTable, rpcProtseqEndpointCount: UInt = this.rpcProtseqEndpointCount, rpcProtseqEndpoint: MutPtr = this.rpcProtseqEndpoint, reserved: Int = this.reserved, interpreterInfo: ConstPtr = this.interpreterInfo, flags: UInt = this.flags): RpcClientInterface = RpcClientInterface(length = length, interfaceId = interfaceId, transferSyntax = transferSyntax, dispatchTableCtorArg = dispatchTable, rpcProtseqEndpointCount = rpcProtseqEndpointCount, rpcProtseqEndpointCtorArg = rpcProtseqEndpoint, reserved = reserved, interpreterInfoCtorArg = interpreterInfo, flags = flags)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -7594,11 +7592,11 @@ public class RpcClientInterface internal constructor(
             length: UInt = 0u,
             interfaceId: RpcSyntaxIdentifier = RpcSyntaxIdentifier(),
             transferSyntax: RpcSyntaxIdentifier = RpcSyntaxIdentifier(),
-            dispatchTable: MutPtr<RpcDispatchTable> = MutPtr(0L),
+            dispatchTable: MutPtr = MutPtr(0L),
             rpcProtseqEndpointCount: UInt = 0u,
-            rpcProtseqEndpoint: MutPtr<RpcProtseqEndpoint> = MutPtr(0L),
+            rpcProtseqEndpoint: MutPtr = MutPtr(0L),
             reserved: Int = 0,
-            interpreterInfo: ConstPtr<CVoid> = ConstPtr(0L),
+            interpreterInfo: ConstPtr = ConstPtr(0L),
             flags: UInt = 0u,
         ): RpcClientInterface =
             RpcClientInterface(
@@ -7753,7 +7751,7 @@ public class RpcEndpointTemplatea internal constructor(
     public var version: UInt,
     protSeqCtorArg: Pstr,
     endpointCtorArg: Pstr,
-    securityDescriptorCtorArg: MutPtr<CVoid>,
+    securityDescriptorCtorArg: MutPtr,
     public var backlog: UInt,
 ) {
     public var protSeq: Pstr = protSeqCtorArg
@@ -7762,7 +7760,7 @@ public class RpcEndpointTemplatea internal constructor(
     public var endpoint: Pstr = endpointCtorArg
         internal set
 
-    public var securityDescriptor: MutPtr<CVoid> = securityDescriptorCtorArg
+    public var securityDescriptor: MutPtr = securityDescriptorCtorArg
         internal set
 
     public constructor() : this(
@@ -7779,11 +7777,11 @@ public class RpcEndpointTemplatea internal constructor(
 
     public operator fun component3(): Pstr = this.endpoint
 
-    public operator fun component4(): MutPtr<CVoid> = this.securityDescriptor
+    public operator fun component4(): MutPtr = this.securityDescriptor
 
     public operator fun component5(): UInt = this.backlog
 
-    public fun copy(version: UInt = this.version, protSeq: Pstr = this.protSeq, endpoint: Pstr = this.endpoint, securityDescriptor: MutPtr<CVoid> = this.securityDescriptor, backlog: UInt = this.backlog): RpcEndpointTemplatea = RpcEndpointTemplatea(version = version, protSeqCtorArg = protSeq, endpointCtorArg = endpoint, securityDescriptorCtorArg = securityDescriptor, backlog = backlog)
+    public fun copy(version: UInt = this.version, protSeq: Pstr = this.protSeq, endpoint: Pstr = this.endpoint, securityDescriptor: MutPtr = this.securityDescriptor, backlog: UInt = this.backlog): RpcEndpointTemplatea = RpcEndpointTemplatea(version = version, protSeqCtorArg = protSeq, endpointCtorArg = endpoint, securityDescriptorCtorArg = securityDescriptor, backlog = backlog)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -7810,7 +7808,7 @@ public class RpcEndpointTemplatea internal constructor(
             version: UInt = 0u,
             protSeq: Pstr = MutPtr(0L),
             endpoint: Pstr = MutPtr(0L),
-            securityDescriptor: MutPtr<CVoid> = MutPtr(0L),
+            securityDescriptor: MutPtr = MutPtr(0L),
             backlog: UInt = 0u,
         ): RpcEndpointTemplatea =
             RpcEndpointTemplatea(
@@ -7827,7 +7825,7 @@ public class RpcEndpointTemplatew internal constructor(
     public var version: UInt,
     protSeqCtorArg: Pwstr,
     endpointCtorArg: Pwstr,
-    securityDescriptorCtorArg: MutPtr<CVoid>,
+    securityDescriptorCtorArg: MutPtr,
     public var backlog: UInt,
 ) {
     public var protSeq: Pwstr = protSeqCtorArg
@@ -7836,7 +7834,7 @@ public class RpcEndpointTemplatew internal constructor(
     public var endpoint: Pwstr = endpointCtorArg
         internal set
 
-    public var securityDescriptor: MutPtr<CVoid> = securityDescriptorCtorArg
+    public var securityDescriptor: MutPtr = securityDescriptorCtorArg
         internal set
 
     public constructor() : this(
@@ -7853,11 +7851,11 @@ public class RpcEndpointTemplatew internal constructor(
 
     public operator fun component3(): Pwstr = this.endpoint
 
-    public operator fun component4(): MutPtr<CVoid> = this.securityDescriptor
+    public operator fun component4(): MutPtr = this.securityDescriptor
 
     public operator fun component5(): UInt = this.backlog
 
-    public fun copy(version: UInt = this.version, protSeq: Pwstr = this.protSeq, endpoint: Pwstr = this.endpoint, securityDescriptor: MutPtr<CVoid> = this.securityDescriptor, backlog: UInt = this.backlog): RpcEndpointTemplatew = RpcEndpointTemplatew(version = version, protSeqCtorArg = protSeq, endpointCtorArg = endpoint, securityDescriptorCtorArg = securityDescriptor, backlog = backlog)
+    public fun copy(version: UInt = this.version, protSeq: Pwstr = this.protSeq, endpoint: Pwstr = this.endpoint, securityDescriptor: MutPtr = this.securityDescriptor, backlog: UInt = this.backlog): RpcEndpointTemplatew = RpcEndpointTemplatew(version = version, protSeqCtorArg = protSeq, endpointCtorArg = endpoint, securityDescriptorCtorArg = securityDescriptor, backlog = backlog)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -7884,7 +7882,7 @@ public class RpcEndpointTemplatew internal constructor(
             version: UInt = 0u,
             protSeq: Pwstr = MutPtr(0L),
             endpoint: Pwstr = MutPtr(0L),
-            securityDescriptor: MutPtr<CVoid> = MutPtr(0L),
+            securityDescriptor: MutPtr = MutPtr(0L),
             backlog: UInt = 0u,
         ): RpcEndpointTemplatew =
             RpcEndpointTemplatew(
@@ -7899,13 +7897,13 @@ public class RpcEndpointTemplatew internal constructor(
 
 public class RpcErrorEnumHandle internal constructor(
     public var signature: UInt,
-    currentPosCtorArg: MutPtr<CVoid>,
-    headCtorArg: MutPtr<CVoid>,
+    currentPosCtorArg: MutPtr,
+    headCtorArg: MutPtr,
 ) {
-    public var currentPos: MutPtr<CVoid> = currentPosCtorArg
+    public var currentPos: MutPtr = currentPosCtorArg
         internal set
 
-    public var head: MutPtr<CVoid> = headCtorArg
+    public var head: MutPtr = headCtorArg
         internal set
 
     public constructor() : this(
@@ -7916,11 +7914,11 @@ public class RpcErrorEnumHandle internal constructor(
 
     public operator fun component1(): UInt = this.signature
 
-    public operator fun component2(): MutPtr<CVoid> = this.currentPos
+    public operator fun component2(): MutPtr = this.currentPos
 
-    public operator fun component3(): MutPtr<CVoid> = this.head
+    public operator fun component3(): MutPtr = this.head
 
-    public fun copy(signature: UInt = this.signature, currentPos: MutPtr<CVoid> = this.currentPos, head: MutPtr<CVoid> = this.head): RpcErrorEnumHandle = RpcErrorEnumHandle(signature = signature, currentPosCtorArg = currentPos, headCtorArg = head)
+    public fun copy(signature: UInt = this.signature, currentPos: MutPtr = this.currentPos, head: MutPtr = this.head): RpcErrorEnumHandle = RpcErrorEnumHandle(signature = signature, currentPosCtorArg = currentPos, headCtorArg = head)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -7948,30 +7946,30 @@ public class RpcErrorEnumHandle internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<CVoid>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<CVoid>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 16L),
                     )
                 override fun writeNative(addr: Long, value: RpcErrorEnumHandle) {
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr, value.signature)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<CVoid>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.currentPos)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<CVoid>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 16L, value.head)
                 }
             }
 
         public operator fun invoke(
             signature: UInt = 0u,
-            currentPos: MutPtr<CVoid> = MutPtr(0L),
-            head: MutPtr<CVoid> = MutPtr(0L),
+            currentPos: MutPtr = MutPtr(0L),
+            head: MutPtr = MutPtr(0L),
         ): RpcErrorEnumHandle =
             RpcErrorEnumHandle(
                 signature = signature,
@@ -8095,20 +8093,20 @@ public data class RpcExtendedErrorInfo0(
 )
 
 public class RpcHttpTransportCredentialsA internal constructor(
-    transportCredentialsCtorArg: MutPtr<SecWinntAuthIdentityA>,
+    transportCredentialsCtorArg: MutPtr,
     public var flags: RpcCHttpFlags,
     public var authenticationTarget: RpcCHttpAuthnTarget,
     public var numberOfAuthnSchemes: UInt,
-    authnSchemesCtorArg: MutPtr<UInt>,
-    serverCertificateSubjectCtorArg: MutPtr<UByte>,
+    authnSchemesCtorArg: MutPtr,
+    serverCertificateSubjectCtorArg: MutPtr,
 ) {
-    public var transportCredentials: MutPtr<SecWinntAuthIdentityA> = transportCredentialsCtorArg
+    public var transportCredentials: MutPtr = transportCredentialsCtorArg
         internal set
 
-    public var authnSchemes: MutPtr<UInt> = authnSchemesCtorArg
+    public var authnSchemes: MutPtr = authnSchemesCtorArg
         internal set
 
-    public var serverCertificateSubject: MutPtr<UByte> = serverCertificateSubjectCtorArg
+    public var serverCertificateSubject: MutPtr = serverCertificateSubjectCtorArg
         internal set
 
     public constructor() : this(
@@ -8120,7 +8118,7 @@ public class RpcHttpTransportCredentialsA internal constructor(
         serverCertificateSubjectCtorArg = MutPtr(0L),
     )
 
-    public operator fun component1(): MutPtr<SecWinntAuthIdentityA> = this.transportCredentials
+    public operator fun component1(): MutPtr = this.transportCredentials
 
     public operator fun component2(): RpcCHttpFlags = this.flags
 
@@ -8128,11 +8126,11 @@ public class RpcHttpTransportCredentialsA internal constructor(
 
     public operator fun component4(): UInt = this.numberOfAuthnSchemes
 
-    public operator fun component5(): MutPtr<UInt> = this.authnSchemes
+    public operator fun component5(): MutPtr = this.authnSchemes
 
-    public operator fun component6(): MutPtr<UByte> = this.serverCertificateSubject
+    public operator fun component6(): MutPtr = this.serverCertificateSubject
 
-    public fun copy(transportCredentials: MutPtr<SecWinntAuthIdentityA> = this.transportCredentials, flags: RpcCHttpFlags = this.flags, authenticationTarget: RpcCHttpAuthnTarget = this.authenticationTarget, numberOfAuthnSchemes: UInt = this.numberOfAuthnSchemes, authnSchemes: MutPtr<UInt> = this.authnSchemes, serverCertificateSubject: MutPtr<UByte> = this.serverCertificateSubject): RpcHttpTransportCredentialsA = RpcHttpTransportCredentialsA(transportCredentialsCtorArg = transportCredentials, flags = flags, authenticationTarget = authenticationTarget, numberOfAuthnSchemes = numberOfAuthnSchemes, authnSchemesCtorArg = authnSchemes, serverCertificateSubjectCtorArg = serverCertificateSubject)
+    public fun copy(transportCredentials: MutPtr = this.transportCredentials, flags: RpcCHttpFlags = this.flags, authenticationTarget: RpcCHttpAuthnTarget = this.authenticationTarget, numberOfAuthnSchemes: UInt = this.numberOfAuthnSchemes, authnSchemes: MutPtr = this.authnSchemes, serverCertificateSubject: MutPtr = this.serverCertificateSubject): RpcHttpTransportCredentialsA = RpcHttpTransportCredentialsA(transportCredentialsCtorArg = transportCredentials, flags = flags, authenticationTarget = authenticationTarget, numberOfAuthnSchemes = numberOfAuthnSchemes, authnSchemesCtorArg = authnSchemes, serverCertificateSubjectCtorArg = serverCertificateSubject)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -8165,46 +8163,46 @@ public class RpcHttpTransportCredentialsA internal constructor(
                     RpcHttpTransportCredentialsA(
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<SecWinntAuthIdentityA>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 8L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 12L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 16L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<UInt>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 24L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<UByte>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 32L),
                     )
                 override fun writeNative(addr: Long, value: RpcHttpTransportCredentialsA) {
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<SecWinntAuthIdentityA>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr, value.transportCredentials)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 8L, value.flags)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 12L, value.authenticationTarget)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 16L, value.numberOfAuthnSchemes)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<UInt>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 24L, value.authnSchemes)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<UByte>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 32L, value.serverCertificateSubject)
                 }
             }
 
         public operator fun invoke(
-            transportCredentials: MutPtr<SecWinntAuthIdentityA> = MutPtr(0L),
+            transportCredentials: MutPtr = MutPtr(0L),
             flags: RpcCHttpFlags = 0u,
             authenticationTarget: RpcCHttpAuthnTarget = 0u,
             numberOfAuthnSchemes: UInt = 0u,
-            authnSchemes: MutPtr<UInt> = MutPtr(0L),
-            serverCertificateSubject: MutPtr<UByte> = MutPtr(0L),
+            authnSchemes: MutPtr = MutPtr(0L),
+            serverCertificateSubject: MutPtr = MutPtr(0L),
         ): RpcHttpTransportCredentialsA =
             RpcHttpTransportCredentialsA(
                 transportCredentialsCtorArg = transportCredentials,
@@ -8218,29 +8216,29 @@ public class RpcHttpTransportCredentialsA internal constructor(
 }
 
 public class RpcHttpTransportCredentialsV2A internal constructor(
-    transportCredentialsCtorArg: MutPtr<SecWinntAuthIdentityA>,
+    transportCredentialsCtorArg: MutPtr,
     public var flags: RpcCHttpFlags,
     public var authenticationTarget: RpcCHttpAuthnTarget,
     public var numberOfAuthnSchemes: UInt,
-    authnSchemesCtorArg: MutPtr<UInt>,
-    serverCertificateSubjectCtorArg: MutPtr<UByte>,
-    proxyCredentialsCtorArg: MutPtr<SecWinntAuthIdentityA>,
+    authnSchemesCtorArg: MutPtr,
+    serverCertificateSubjectCtorArg: MutPtr,
+    proxyCredentialsCtorArg: MutPtr,
     public var numberOfProxyAuthnSchemes: UInt,
-    proxyAuthnSchemesCtorArg: MutPtr<UInt>,
+    proxyAuthnSchemesCtorArg: MutPtr,
 ) {
-    public var transportCredentials: MutPtr<SecWinntAuthIdentityA> = transportCredentialsCtorArg
+    public var transportCredentials: MutPtr = transportCredentialsCtorArg
         internal set
 
-    public var authnSchemes: MutPtr<UInt> = authnSchemesCtorArg
+    public var authnSchemes: MutPtr = authnSchemesCtorArg
         internal set
 
-    public var serverCertificateSubject: MutPtr<UByte> = serverCertificateSubjectCtorArg
+    public var serverCertificateSubject: MutPtr = serverCertificateSubjectCtorArg
         internal set
 
-    public var proxyCredentials: MutPtr<SecWinntAuthIdentityA> = proxyCredentialsCtorArg
+    public var proxyCredentials: MutPtr = proxyCredentialsCtorArg
         internal set
 
-    public var proxyAuthnSchemes: MutPtr<UInt> = proxyAuthnSchemesCtorArg
+    public var proxyAuthnSchemes: MutPtr = proxyAuthnSchemesCtorArg
         internal set
 
     public constructor() : this(
@@ -8255,7 +8253,7 @@ public class RpcHttpTransportCredentialsV2A internal constructor(
         proxyAuthnSchemesCtorArg = MutPtr(0L),
     )
 
-    public operator fun component1(): MutPtr<SecWinntAuthIdentityA> = this.transportCredentials
+    public operator fun component1(): MutPtr = this.transportCredentials
 
     public operator fun component2(): RpcCHttpFlags = this.flags
 
@@ -8263,17 +8261,17 @@ public class RpcHttpTransportCredentialsV2A internal constructor(
 
     public operator fun component4(): UInt = this.numberOfAuthnSchemes
 
-    public operator fun component5(): MutPtr<UInt> = this.authnSchemes
+    public operator fun component5(): MutPtr = this.authnSchemes
 
-    public operator fun component6(): MutPtr<UByte> = this.serverCertificateSubject
+    public operator fun component6(): MutPtr = this.serverCertificateSubject
 
-    public operator fun component7(): MutPtr<SecWinntAuthIdentityA> = this.proxyCredentials
+    public operator fun component7(): MutPtr = this.proxyCredentials
 
     public operator fun component8(): UInt = this.numberOfProxyAuthnSchemes
 
-    public operator fun component9(): MutPtr<UInt> = this.proxyAuthnSchemes
+    public operator fun component9(): MutPtr = this.proxyAuthnSchemes
 
-    public fun copy(transportCredentials: MutPtr<SecWinntAuthIdentityA> = this.transportCredentials, flags: RpcCHttpFlags = this.flags, authenticationTarget: RpcCHttpAuthnTarget = this.authenticationTarget, numberOfAuthnSchemes: UInt = this.numberOfAuthnSchemes, authnSchemes: MutPtr<UInt> = this.authnSchemes, serverCertificateSubject: MutPtr<UByte> = this.serverCertificateSubject, proxyCredentials: MutPtr<SecWinntAuthIdentityA> = this.proxyCredentials, numberOfProxyAuthnSchemes: UInt = this.numberOfProxyAuthnSchemes, proxyAuthnSchemes: MutPtr<UInt> = this.proxyAuthnSchemes): RpcHttpTransportCredentialsV2A = RpcHttpTransportCredentialsV2A(transportCredentialsCtorArg = transportCredentials, flags = flags, authenticationTarget = authenticationTarget, numberOfAuthnSchemes = numberOfAuthnSchemes, authnSchemesCtorArg = authnSchemes, serverCertificateSubjectCtorArg = serverCertificateSubject, proxyCredentialsCtorArg = proxyCredentials, numberOfProxyAuthnSchemes = numberOfProxyAuthnSchemes, proxyAuthnSchemesCtorArg = proxyAuthnSchemes)
+    public fun copy(transportCredentials: MutPtr = this.transportCredentials, flags: RpcCHttpFlags = this.flags, authenticationTarget: RpcCHttpAuthnTarget = this.authenticationTarget, numberOfAuthnSchemes: UInt = this.numberOfAuthnSchemes, authnSchemes: MutPtr = this.authnSchemes, serverCertificateSubject: MutPtr = this.serverCertificateSubject, proxyCredentials: MutPtr = this.proxyCredentials, numberOfProxyAuthnSchemes: UInt = this.numberOfProxyAuthnSchemes, proxyAuthnSchemes: MutPtr = this.proxyAuthnSchemes): RpcHttpTransportCredentialsV2A = RpcHttpTransportCredentialsV2A(transportCredentialsCtorArg = transportCredentials, flags = flags, authenticationTarget = authenticationTarget, numberOfAuthnSchemes = numberOfAuthnSchemes, authnSchemesCtorArg = authnSchemes, serverCertificateSubjectCtorArg = serverCertificateSubject, proxyCredentialsCtorArg = proxyCredentials, numberOfProxyAuthnSchemes = numberOfProxyAuthnSchemes, proxyAuthnSchemesCtorArg = proxyAuthnSchemes)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -8312,67 +8310,67 @@ public class RpcHttpTransportCredentialsV2A internal constructor(
                     RpcHttpTransportCredentialsV2A(
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<SecWinntAuthIdentityA>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 8L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 12L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 16L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<UInt>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 24L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<UByte>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 32L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<SecWinntAuthIdentityA>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 40L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 48L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<UInt>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 56L),
                     )
                 override fun writeNative(addr: Long, value: RpcHttpTransportCredentialsV2A) {
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<SecWinntAuthIdentityA>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr, value.transportCredentials)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 8L, value.flags)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 12L, value.authenticationTarget)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 16L, value.numberOfAuthnSchemes)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<UInt>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 24L, value.authnSchemes)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<UByte>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 32L, value.serverCertificateSubject)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<SecWinntAuthIdentityA>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 40L, value.proxyCredentials)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 48L, value.numberOfProxyAuthnSchemes)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<UInt>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 56L, value.proxyAuthnSchemes)
                 }
             }
 
         public operator fun invoke(
-            transportCredentials: MutPtr<SecWinntAuthIdentityA> = MutPtr(0L),
+            transportCredentials: MutPtr = MutPtr(0L),
             flags: RpcCHttpFlags = 0u,
             authenticationTarget: RpcCHttpAuthnTarget = 0u,
             numberOfAuthnSchemes: UInt = 0u,
-            authnSchemes: MutPtr<UInt> = MutPtr(0L),
-            serverCertificateSubject: MutPtr<UByte> = MutPtr(0L),
-            proxyCredentials: MutPtr<SecWinntAuthIdentityA> = MutPtr(0L),
+            authnSchemes: MutPtr = MutPtr(0L),
+            serverCertificateSubject: MutPtr = MutPtr(0L),
+            proxyCredentials: MutPtr = MutPtr(0L),
             numberOfProxyAuthnSchemes: UInt = 0u,
-            proxyAuthnSchemes: MutPtr<UInt> = MutPtr(0L),
+            proxyAuthnSchemes: MutPtr = MutPtr(0L),
         ): RpcHttpTransportCredentialsV2A =
             RpcHttpTransportCredentialsV2A(
                 transportCredentialsCtorArg = transportCredentials,
@@ -8389,29 +8387,29 @@ public class RpcHttpTransportCredentialsV2A internal constructor(
 }
 
 public class RpcHttpTransportCredentialsV2W internal constructor(
-    transportCredentialsCtorArg: MutPtr<SecWinntAuthIdentityW>,
+    transportCredentialsCtorArg: MutPtr,
     public var flags: RpcCHttpFlags,
     public var authenticationTarget: RpcCHttpAuthnTarget,
     public var numberOfAuthnSchemes: UInt,
-    authnSchemesCtorArg: MutPtr<UInt>,
-    serverCertificateSubjectCtorArg: MutPtr<UShort>,
-    proxyCredentialsCtorArg: MutPtr<SecWinntAuthIdentityW>,
+    authnSchemesCtorArg: MutPtr,
+    serverCertificateSubjectCtorArg: MutPtr,
+    proxyCredentialsCtorArg: MutPtr,
     public var numberOfProxyAuthnSchemes: UInt,
-    proxyAuthnSchemesCtorArg: MutPtr<UInt>,
+    proxyAuthnSchemesCtorArg: MutPtr,
 ) {
-    public var transportCredentials: MutPtr<SecWinntAuthIdentityW> = transportCredentialsCtorArg
+    public var transportCredentials: MutPtr = transportCredentialsCtorArg
         internal set
 
-    public var authnSchemes: MutPtr<UInt> = authnSchemesCtorArg
+    public var authnSchemes: MutPtr = authnSchemesCtorArg
         internal set
 
-    public var serverCertificateSubject: MutPtr<UShort> = serverCertificateSubjectCtorArg
+    public var serverCertificateSubject: MutPtr = serverCertificateSubjectCtorArg
         internal set
 
-    public var proxyCredentials: MutPtr<SecWinntAuthIdentityW> = proxyCredentialsCtorArg
+    public var proxyCredentials: MutPtr = proxyCredentialsCtorArg
         internal set
 
-    public var proxyAuthnSchemes: MutPtr<UInt> = proxyAuthnSchemesCtorArg
+    public var proxyAuthnSchemes: MutPtr = proxyAuthnSchemesCtorArg
         internal set
 
     public constructor() : this(
@@ -8426,7 +8424,7 @@ public class RpcHttpTransportCredentialsV2W internal constructor(
         proxyAuthnSchemesCtorArg = MutPtr(0L),
     )
 
-    public operator fun component1(): MutPtr<SecWinntAuthIdentityW> = this.transportCredentials
+    public operator fun component1(): MutPtr = this.transportCredentials
 
     public operator fun component2(): RpcCHttpFlags = this.flags
 
@@ -8434,17 +8432,17 @@ public class RpcHttpTransportCredentialsV2W internal constructor(
 
     public operator fun component4(): UInt = this.numberOfAuthnSchemes
 
-    public operator fun component5(): MutPtr<UInt> = this.authnSchemes
+    public operator fun component5(): MutPtr = this.authnSchemes
 
-    public operator fun component6(): MutPtr<UShort> = this.serverCertificateSubject
+    public operator fun component6(): MutPtr = this.serverCertificateSubject
 
-    public operator fun component7(): MutPtr<SecWinntAuthIdentityW> = this.proxyCredentials
+    public operator fun component7(): MutPtr = this.proxyCredentials
 
     public operator fun component8(): UInt = this.numberOfProxyAuthnSchemes
 
-    public operator fun component9(): MutPtr<UInt> = this.proxyAuthnSchemes
+    public operator fun component9(): MutPtr = this.proxyAuthnSchemes
 
-    public fun copy(transportCredentials: MutPtr<SecWinntAuthIdentityW> = this.transportCredentials, flags: RpcCHttpFlags = this.flags, authenticationTarget: RpcCHttpAuthnTarget = this.authenticationTarget, numberOfAuthnSchemes: UInt = this.numberOfAuthnSchemes, authnSchemes: MutPtr<UInt> = this.authnSchemes, serverCertificateSubject: MutPtr<UShort> = this.serverCertificateSubject, proxyCredentials: MutPtr<SecWinntAuthIdentityW> = this.proxyCredentials, numberOfProxyAuthnSchemes: UInt = this.numberOfProxyAuthnSchemes, proxyAuthnSchemes: MutPtr<UInt> = this.proxyAuthnSchemes): RpcHttpTransportCredentialsV2W = RpcHttpTransportCredentialsV2W(transportCredentialsCtorArg = transportCredentials, flags = flags, authenticationTarget = authenticationTarget, numberOfAuthnSchemes = numberOfAuthnSchemes, authnSchemesCtorArg = authnSchemes, serverCertificateSubjectCtorArg = serverCertificateSubject, proxyCredentialsCtorArg = proxyCredentials, numberOfProxyAuthnSchemes = numberOfProxyAuthnSchemes, proxyAuthnSchemesCtorArg = proxyAuthnSchemes)
+    public fun copy(transportCredentials: MutPtr = this.transportCredentials, flags: RpcCHttpFlags = this.flags, authenticationTarget: RpcCHttpAuthnTarget = this.authenticationTarget, numberOfAuthnSchemes: UInt = this.numberOfAuthnSchemes, authnSchemes: MutPtr = this.authnSchemes, serverCertificateSubject: MutPtr = this.serverCertificateSubject, proxyCredentials: MutPtr = this.proxyCredentials, numberOfProxyAuthnSchemes: UInt = this.numberOfProxyAuthnSchemes, proxyAuthnSchemes: MutPtr = this.proxyAuthnSchemes): RpcHttpTransportCredentialsV2W = RpcHttpTransportCredentialsV2W(transportCredentialsCtorArg = transportCredentials, flags = flags, authenticationTarget = authenticationTarget, numberOfAuthnSchemes = numberOfAuthnSchemes, authnSchemesCtorArg = authnSchemes, serverCertificateSubjectCtorArg = serverCertificateSubject, proxyCredentialsCtorArg = proxyCredentials, numberOfProxyAuthnSchemes = numberOfProxyAuthnSchemes, proxyAuthnSchemesCtorArg = proxyAuthnSchemes)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -8483,67 +8481,67 @@ public class RpcHttpTransportCredentialsV2W internal constructor(
                     RpcHttpTransportCredentialsV2W(
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<SecWinntAuthIdentityW>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 8L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 12L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 16L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<UInt>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 24L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<UShort>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 32L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<SecWinntAuthIdentityW>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 40L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 48L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<UInt>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 56L),
                     )
                 override fun writeNative(addr: Long, value: RpcHttpTransportCredentialsV2W) {
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<SecWinntAuthIdentityW>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr, value.transportCredentials)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 8L, value.flags)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 12L, value.authenticationTarget)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 16L, value.numberOfAuthnSchemes)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<UInt>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 24L, value.authnSchemes)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<UShort>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 32L, value.serverCertificateSubject)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<SecWinntAuthIdentityW>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 40L, value.proxyCredentials)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 48L, value.numberOfProxyAuthnSchemes)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<UInt>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 56L, value.proxyAuthnSchemes)
                 }
             }
 
         public operator fun invoke(
-            transportCredentials: MutPtr<SecWinntAuthIdentityW> = MutPtr(0L),
+            transportCredentials: MutPtr = MutPtr(0L),
             flags: RpcCHttpFlags = 0u,
             authenticationTarget: RpcCHttpAuthnTarget = 0u,
             numberOfAuthnSchemes: UInt = 0u,
-            authnSchemes: MutPtr<UInt> = MutPtr(0L),
-            serverCertificateSubject: MutPtr<UShort> = MutPtr(0L),
-            proxyCredentials: MutPtr<SecWinntAuthIdentityW> = MutPtr(0L),
+            authnSchemes: MutPtr = MutPtr(0L),
+            serverCertificateSubject: MutPtr = MutPtr(0L),
+            proxyCredentials: MutPtr = MutPtr(0L),
             numberOfProxyAuthnSchemes: UInt = 0u,
-            proxyAuthnSchemes: MutPtr<UInt> = MutPtr(0L),
+            proxyAuthnSchemes: MutPtr = MutPtr(0L),
         ): RpcHttpTransportCredentialsV2W =
             RpcHttpTransportCredentialsV2W(
                 transportCredentialsCtorArg = transportCredentials,
@@ -8560,29 +8558,29 @@ public class RpcHttpTransportCredentialsV2W internal constructor(
 }
 
 public class RpcHttpTransportCredentialsV3A internal constructor(
-    transportCredentialsCtorArg: MutPtr<CVoid>,
+    transportCredentialsCtorArg: MutPtr,
     public var flags: RpcCHttpFlags,
     public var authenticationTarget: RpcCHttpAuthnTarget,
     public var numberOfAuthnSchemes: UInt,
-    authnSchemesCtorArg: MutPtr<UInt>,
-    serverCertificateSubjectCtorArg: MutPtr<UByte>,
-    proxyCredentialsCtorArg: MutPtr<CVoid>,
+    authnSchemesCtorArg: MutPtr,
+    serverCertificateSubjectCtorArg: MutPtr,
+    proxyCredentialsCtorArg: MutPtr,
     public var numberOfProxyAuthnSchemes: UInt,
-    proxyAuthnSchemesCtorArg: MutPtr<UInt>,
+    proxyAuthnSchemesCtorArg: MutPtr,
 ) {
-    public var transportCredentials: MutPtr<CVoid> = transportCredentialsCtorArg
+    public var transportCredentials: MutPtr = transportCredentialsCtorArg
         internal set
 
-    public var authnSchemes: MutPtr<UInt> = authnSchemesCtorArg
+    public var authnSchemes: MutPtr = authnSchemesCtorArg
         internal set
 
-    public var serverCertificateSubject: MutPtr<UByte> = serverCertificateSubjectCtorArg
+    public var serverCertificateSubject: MutPtr = serverCertificateSubjectCtorArg
         internal set
 
-    public var proxyCredentials: MutPtr<CVoid> = proxyCredentialsCtorArg
+    public var proxyCredentials: MutPtr = proxyCredentialsCtorArg
         internal set
 
-    public var proxyAuthnSchemes: MutPtr<UInt> = proxyAuthnSchemesCtorArg
+    public var proxyAuthnSchemes: MutPtr = proxyAuthnSchemesCtorArg
         internal set
 
     public constructor() : this(
@@ -8597,7 +8595,7 @@ public class RpcHttpTransportCredentialsV3A internal constructor(
         proxyAuthnSchemesCtorArg = MutPtr(0L),
     )
 
-    public operator fun component1(): MutPtr<CVoid> = this.transportCredentials
+    public operator fun component1(): MutPtr = this.transportCredentials
 
     public operator fun component2(): RpcCHttpFlags = this.flags
 
@@ -8605,17 +8603,17 @@ public class RpcHttpTransportCredentialsV3A internal constructor(
 
     public operator fun component4(): UInt = this.numberOfAuthnSchemes
 
-    public operator fun component5(): MutPtr<UInt> = this.authnSchemes
+    public operator fun component5(): MutPtr = this.authnSchemes
 
-    public operator fun component6(): MutPtr<UByte> = this.serverCertificateSubject
+    public operator fun component6(): MutPtr = this.serverCertificateSubject
 
-    public operator fun component7(): MutPtr<CVoid> = this.proxyCredentials
+    public operator fun component7(): MutPtr = this.proxyCredentials
 
     public operator fun component8(): UInt = this.numberOfProxyAuthnSchemes
 
-    public operator fun component9(): MutPtr<UInt> = this.proxyAuthnSchemes
+    public operator fun component9(): MutPtr = this.proxyAuthnSchemes
 
-    public fun copy(transportCredentials: MutPtr<CVoid> = this.transportCredentials, flags: RpcCHttpFlags = this.flags, authenticationTarget: RpcCHttpAuthnTarget = this.authenticationTarget, numberOfAuthnSchemes: UInt = this.numberOfAuthnSchemes, authnSchemes: MutPtr<UInt> = this.authnSchemes, serverCertificateSubject: MutPtr<UByte> = this.serverCertificateSubject, proxyCredentials: MutPtr<CVoid> = this.proxyCredentials, numberOfProxyAuthnSchemes: UInt = this.numberOfProxyAuthnSchemes, proxyAuthnSchemes: MutPtr<UInt> = this.proxyAuthnSchemes): RpcHttpTransportCredentialsV3A = RpcHttpTransportCredentialsV3A(transportCredentialsCtorArg = transportCredentials, flags = flags, authenticationTarget = authenticationTarget, numberOfAuthnSchemes = numberOfAuthnSchemes, authnSchemesCtorArg = authnSchemes, serverCertificateSubjectCtorArg = serverCertificateSubject, proxyCredentialsCtorArg = proxyCredentials, numberOfProxyAuthnSchemes = numberOfProxyAuthnSchemes, proxyAuthnSchemesCtorArg = proxyAuthnSchemes)
+    public fun copy(transportCredentials: MutPtr = this.transportCredentials, flags: RpcCHttpFlags = this.flags, authenticationTarget: RpcCHttpAuthnTarget = this.authenticationTarget, numberOfAuthnSchemes: UInt = this.numberOfAuthnSchemes, authnSchemes: MutPtr = this.authnSchemes, serverCertificateSubject: MutPtr = this.serverCertificateSubject, proxyCredentials: MutPtr = this.proxyCredentials, numberOfProxyAuthnSchemes: UInt = this.numberOfProxyAuthnSchemes, proxyAuthnSchemes: MutPtr = this.proxyAuthnSchemes): RpcHttpTransportCredentialsV3A = RpcHttpTransportCredentialsV3A(transportCredentialsCtorArg = transportCredentials, flags = flags, authenticationTarget = authenticationTarget, numberOfAuthnSchemes = numberOfAuthnSchemes, authnSchemesCtorArg = authnSchemes, serverCertificateSubjectCtorArg = serverCertificateSubject, proxyCredentialsCtorArg = proxyCredentials, numberOfProxyAuthnSchemes = numberOfProxyAuthnSchemes, proxyAuthnSchemesCtorArg = proxyAuthnSchemes)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -8654,67 +8652,67 @@ public class RpcHttpTransportCredentialsV3A internal constructor(
                     RpcHttpTransportCredentialsV3A(
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<CVoid>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 8L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 12L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 16L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<UInt>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 24L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<UByte>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 32L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<CVoid>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 40L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 48L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<UInt>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 56L),
                     )
                 override fun writeNative(addr: Long, value: RpcHttpTransportCredentialsV3A) {
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<CVoid>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr, value.transportCredentials)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 8L, value.flags)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 12L, value.authenticationTarget)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 16L, value.numberOfAuthnSchemes)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<UInt>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 24L, value.authnSchemes)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<UByte>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 32L, value.serverCertificateSubject)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<CVoid>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 40L, value.proxyCredentials)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 48L, value.numberOfProxyAuthnSchemes)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<UInt>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 56L, value.proxyAuthnSchemes)
                 }
             }
 
         public operator fun invoke(
-            transportCredentials: MutPtr<CVoid> = MutPtr(0L),
+            transportCredentials: MutPtr = MutPtr(0L),
             flags: RpcCHttpFlags = 0u,
             authenticationTarget: RpcCHttpAuthnTarget = 0u,
             numberOfAuthnSchemes: UInt = 0u,
-            authnSchemes: MutPtr<UInt> = MutPtr(0L),
-            serverCertificateSubject: MutPtr<UByte> = MutPtr(0L),
-            proxyCredentials: MutPtr<CVoid> = MutPtr(0L),
+            authnSchemes: MutPtr = MutPtr(0L),
+            serverCertificateSubject: MutPtr = MutPtr(0L),
+            proxyCredentials: MutPtr = MutPtr(0L),
             numberOfProxyAuthnSchemes: UInt = 0u,
-            proxyAuthnSchemes: MutPtr<UInt> = MutPtr(0L),
+            proxyAuthnSchemes: MutPtr = MutPtr(0L),
         ): RpcHttpTransportCredentialsV3A =
             RpcHttpTransportCredentialsV3A(
                 transportCredentialsCtorArg = transportCredentials,
@@ -8731,29 +8729,29 @@ public class RpcHttpTransportCredentialsV3A internal constructor(
 }
 
 public class RpcHttpTransportCredentialsV3W internal constructor(
-    transportCredentialsCtorArg: MutPtr<CVoid>,
+    transportCredentialsCtorArg: MutPtr,
     public var flags: RpcCHttpFlags,
     public var authenticationTarget: RpcCHttpAuthnTarget,
     public var numberOfAuthnSchemes: UInt,
-    authnSchemesCtorArg: MutPtr<UInt>,
-    serverCertificateSubjectCtorArg: MutPtr<UShort>,
-    proxyCredentialsCtorArg: MutPtr<CVoid>,
+    authnSchemesCtorArg: MutPtr,
+    serverCertificateSubjectCtorArg: MutPtr,
+    proxyCredentialsCtorArg: MutPtr,
     public var numberOfProxyAuthnSchemes: UInt,
-    proxyAuthnSchemesCtorArg: MutPtr<UInt>,
+    proxyAuthnSchemesCtorArg: MutPtr,
 ) {
-    public var transportCredentials: MutPtr<CVoid> = transportCredentialsCtorArg
+    public var transportCredentials: MutPtr = transportCredentialsCtorArg
         internal set
 
-    public var authnSchemes: MutPtr<UInt> = authnSchemesCtorArg
+    public var authnSchemes: MutPtr = authnSchemesCtorArg
         internal set
 
-    public var serverCertificateSubject: MutPtr<UShort> = serverCertificateSubjectCtorArg
+    public var serverCertificateSubject: MutPtr = serverCertificateSubjectCtorArg
         internal set
 
-    public var proxyCredentials: MutPtr<CVoid> = proxyCredentialsCtorArg
+    public var proxyCredentials: MutPtr = proxyCredentialsCtorArg
         internal set
 
-    public var proxyAuthnSchemes: MutPtr<UInt> = proxyAuthnSchemesCtorArg
+    public var proxyAuthnSchemes: MutPtr = proxyAuthnSchemesCtorArg
         internal set
 
     public constructor() : this(
@@ -8768,7 +8766,7 @@ public class RpcHttpTransportCredentialsV3W internal constructor(
         proxyAuthnSchemesCtorArg = MutPtr(0L),
     )
 
-    public operator fun component1(): MutPtr<CVoid> = this.transportCredentials
+    public operator fun component1(): MutPtr = this.transportCredentials
 
     public operator fun component2(): RpcCHttpFlags = this.flags
 
@@ -8776,17 +8774,17 @@ public class RpcHttpTransportCredentialsV3W internal constructor(
 
     public operator fun component4(): UInt = this.numberOfAuthnSchemes
 
-    public operator fun component5(): MutPtr<UInt> = this.authnSchemes
+    public operator fun component5(): MutPtr = this.authnSchemes
 
-    public operator fun component6(): MutPtr<UShort> = this.serverCertificateSubject
+    public operator fun component6(): MutPtr = this.serverCertificateSubject
 
-    public operator fun component7(): MutPtr<CVoid> = this.proxyCredentials
+    public operator fun component7(): MutPtr = this.proxyCredentials
 
     public operator fun component8(): UInt = this.numberOfProxyAuthnSchemes
 
-    public operator fun component9(): MutPtr<UInt> = this.proxyAuthnSchemes
+    public operator fun component9(): MutPtr = this.proxyAuthnSchemes
 
-    public fun copy(transportCredentials: MutPtr<CVoid> = this.transportCredentials, flags: RpcCHttpFlags = this.flags, authenticationTarget: RpcCHttpAuthnTarget = this.authenticationTarget, numberOfAuthnSchemes: UInt = this.numberOfAuthnSchemes, authnSchemes: MutPtr<UInt> = this.authnSchemes, serverCertificateSubject: MutPtr<UShort> = this.serverCertificateSubject, proxyCredentials: MutPtr<CVoid> = this.proxyCredentials, numberOfProxyAuthnSchemes: UInt = this.numberOfProxyAuthnSchemes, proxyAuthnSchemes: MutPtr<UInt> = this.proxyAuthnSchemes): RpcHttpTransportCredentialsV3W = RpcHttpTransportCredentialsV3W(transportCredentialsCtorArg = transportCredentials, flags = flags, authenticationTarget = authenticationTarget, numberOfAuthnSchemes = numberOfAuthnSchemes, authnSchemesCtorArg = authnSchemes, serverCertificateSubjectCtorArg = serverCertificateSubject, proxyCredentialsCtorArg = proxyCredentials, numberOfProxyAuthnSchemes = numberOfProxyAuthnSchemes, proxyAuthnSchemesCtorArg = proxyAuthnSchemes)
+    public fun copy(transportCredentials: MutPtr = this.transportCredentials, flags: RpcCHttpFlags = this.flags, authenticationTarget: RpcCHttpAuthnTarget = this.authenticationTarget, numberOfAuthnSchemes: UInt = this.numberOfAuthnSchemes, authnSchemes: MutPtr = this.authnSchemes, serverCertificateSubject: MutPtr = this.serverCertificateSubject, proxyCredentials: MutPtr = this.proxyCredentials, numberOfProxyAuthnSchemes: UInt = this.numberOfProxyAuthnSchemes, proxyAuthnSchemes: MutPtr = this.proxyAuthnSchemes): RpcHttpTransportCredentialsV3W = RpcHttpTransportCredentialsV3W(transportCredentialsCtorArg = transportCredentials, flags = flags, authenticationTarget = authenticationTarget, numberOfAuthnSchemes = numberOfAuthnSchemes, authnSchemesCtorArg = authnSchemes, serverCertificateSubjectCtorArg = serverCertificateSubject, proxyCredentialsCtorArg = proxyCredentials, numberOfProxyAuthnSchemes = numberOfProxyAuthnSchemes, proxyAuthnSchemesCtorArg = proxyAuthnSchemes)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -8825,67 +8823,67 @@ public class RpcHttpTransportCredentialsV3W internal constructor(
                     RpcHttpTransportCredentialsV3W(
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<CVoid>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 8L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 12L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 16L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<UInt>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 24L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<UShort>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 32L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<CVoid>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 40L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 48L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<UInt>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 56L),
                     )
                 override fun writeNative(addr: Long, value: RpcHttpTransportCredentialsV3W) {
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<CVoid>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr, value.transportCredentials)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 8L, value.flags)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 12L, value.authenticationTarget)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 16L, value.numberOfAuthnSchemes)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<UInt>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 24L, value.authnSchemes)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<UShort>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 32L, value.serverCertificateSubject)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<CVoid>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 40L, value.proxyCredentials)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 48L, value.numberOfProxyAuthnSchemes)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<UInt>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 56L, value.proxyAuthnSchemes)
                 }
             }
 
         public operator fun invoke(
-            transportCredentials: MutPtr<CVoid> = MutPtr(0L),
+            transportCredentials: MutPtr = MutPtr(0L),
             flags: RpcCHttpFlags = 0u,
             authenticationTarget: RpcCHttpAuthnTarget = 0u,
             numberOfAuthnSchemes: UInt = 0u,
-            authnSchemes: MutPtr<UInt> = MutPtr(0L),
-            serverCertificateSubject: MutPtr<UShort> = MutPtr(0L),
-            proxyCredentials: MutPtr<CVoid> = MutPtr(0L),
+            authnSchemes: MutPtr = MutPtr(0L),
+            serverCertificateSubject: MutPtr = MutPtr(0L),
+            proxyCredentials: MutPtr = MutPtr(0L),
             numberOfProxyAuthnSchemes: UInt = 0u,
-            proxyAuthnSchemes: MutPtr<UInt> = MutPtr(0L),
+            proxyAuthnSchemes: MutPtr = MutPtr(0L),
         ): RpcHttpTransportCredentialsV3W =
             RpcHttpTransportCredentialsV3W(
                 transportCredentialsCtorArg = transportCredentials,
@@ -8902,20 +8900,20 @@ public class RpcHttpTransportCredentialsV3W internal constructor(
 }
 
 public class RpcHttpTransportCredentialsW internal constructor(
-    transportCredentialsCtorArg: MutPtr<SecWinntAuthIdentityW>,
+    transportCredentialsCtorArg: MutPtr,
     public var flags: RpcCHttpFlags,
     public var authenticationTarget: RpcCHttpAuthnTarget,
     public var numberOfAuthnSchemes: UInt,
-    authnSchemesCtorArg: MutPtr<UInt>,
-    serverCertificateSubjectCtorArg: MutPtr<UShort>,
+    authnSchemesCtorArg: MutPtr,
+    serverCertificateSubjectCtorArg: MutPtr,
 ) {
-    public var transportCredentials: MutPtr<SecWinntAuthIdentityW> = transportCredentialsCtorArg
+    public var transportCredentials: MutPtr = transportCredentialsCtorArg
         internal set
 
-    public var authnSchemes: MutPtr<UInt> = authnSchemesCtorArg
+    public var authnSchemes: MutPtr = authnSchemesCtorArg
         internal set
 
-    public var serverCertificateSubject: MutPtr<UShort> = serverCertificateSubjectCtorArg
+    public var serverCertificateSubject: MutPtr = serverCertificateSubjectCtorArg
         internal set
 
     public constructor() : this(
@@ -8927,7 +8925,7 @@ public class RpcHttpTransportCredentialsW internal constructor(
         serverCertificateSubjectCtorArg = MutPtr(0L),
     )
 
-    public operator fun component1(): MutPtr<SecWinntAuthIdentityW> = this.transportCredentials
+    public operator fun component1(): MutPtr = this.transportCredentials
 
     public operator fun component2(): RpcCHttpFlags = this.flags
 
@@ -8935,11 +8933,11 @@ public class RpcHttpTransportCredentialsW internal constructor(
 
     public operator fun component4(): UInt = this.numberOfAuthnSchemes
 
-    public operator fun component5(): MutPtr<UInt> = this.authnSchemes
+    public operator fun component5(): MutPtr = this.authnSchemes
 
-    public operator fun component6(): MutPtr<UShort> = this.serverCertificateSubject
+    public operator fun component6(): MutPtr = this.serverCertificateSubject
 
-    public fun copy(transportCredentials: MutPtr<SecWinntAuthIdentityW> = this.transportCredentials, flags: RpcCHttpFlags = this.flags, authenticationTarget: RpcCHttpAuthnTarget = this.authenticationTarget, numberOfAuthnSchemes: UInt = this.numberOfAuthnSchemes, authnSchemes: MutPtr<UInt> = this.authnSchemes, serverCertificateSubject: MutPtr<UShort> = this.serverCertificateSubject): RpcHttpTransportCredentialsW = RpcHttpTransportCredentialsW(transportCredentialsCtorArg = transportCredentials, flags = flags, authenticationTarget = authenticationTarget, numberOfAuthnSchemes = numberOfAuthnSchemes, authnSchemesCtorArg = authnSchemes, serverCertificateSubjectCtorArg = serverCertificateSubject)
+    public fun copy(transportCredentials: MutPtr = this.transportCredentials, flags: RpcCHttpFlags = this.flags, authenticationTarget: RpcCHttpAuthnTarget = this.authenticationTarget, numberOfAuthnSchemes: UInt = this.numberOfAuthnSchemes, authnSchemes: MutPtr = this.authnSchemes, serverCertificateSubject: MutPtr = this.serverCertificateSubject): RpcHttpTransportCredentialsW = RpcHttpTransportCredentialsW(transportCredentialsCtorArg = transportCredentials, flags = flags, authenticationTarget = authenticationTarget, numberOfAuthnSchemes = numberOfAuthnSchemes, authnSchemesCtorArg = authnSchemes, serverCertificateSubjectCtorArg = serverCertificateSubject)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -8972,46 +8970,46 @@ public class RpcHttpTransportCredentialsW internal constructor(
                     RpcHttpTransportCredentialsW(
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<SecWinntAuthIdentityW>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 8L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 12L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 16L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<UInt>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 24L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<UShort>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 32L),
                     )
                 override fun writeNative(addr: Long, value: RpcHttpTransportCredentialsW) {
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<SecWinntAuthIdentityW>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr, value.transportCredentials)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 8L, value.flags)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 12L, value.authenticationTarget)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 16L, value.numberOfAuthnSchemes)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<UInt>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 24L, value.authnSchemes)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<UShort>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 32L, value.serverCertificateSubject)
                 }
             }
 
         public operator fun invoke(
-            transportCredentials: MutPtr<SecWinntAuthIdentityW> = MutPtr(0L),
+            transportCredentials: MutPtr = MutPtr(0L),
             flags: RpcCHttpFlags = 0u,
             authenticationTarget: RpcCHttpAuthnTarget = 0u,
             numberOfAuthnSchemes: UInt = 0u,
-            authnSchemes: MutPtr<UInt> = MutPtr(0L),
-            serverCertificateSubject: MutPtr<UShort> = MutPtr(0L),
+            authnSchemes: MutPtr = MutPtr(0L),
+            serverCertificateSubject: MutPtr = MutPtr(0L),
         ): RpcHttpTransportCredentialsW =
             RpcHttpTransportCredentialsW(
                 transportCredentialsCtorArg = transportCredentials,
@@ -9032,9 +9030,9 @@ public data class RpcIfId(
 
 public class RpcIfIdVector internal constructor(
     public var count: UInt,
-    ifIdCtorArg: List<MutPtr<RpcIfId>>,
+    ifIdCtorArg: List<MutPtr>,
 ) {
-    public var ifId: List<MutPtr<RpcIfId>> = ifIdCtorArg
+    public var ifId: List<MutPtr> = ifIdCtorArg
         internal set
 
     public constructor() : this(
@@ -9044,9 +9042,9 @@ public class RpcIfIdVector internal constructor(
 
     public operator fun component1(): UInt = this.count
 
-    public operator fun component2(): List<MutPtr<RpcIfId>> = this.ifId
+    public operator fun component2(): List<MutPtr> = this.ifId
 
-    public fun copy(count: UInt = this.count, ifId: List<MutPtr<RpcIfId>> = this.ifId): RpcIfIdVector = RpcIfIdVector(count = count, ifIdCtorArg = ifId)
+    public fun copy(count: UInt = this.count, ifId: List<MutPtr> = this.ifId): RpcIfIdVector = RpcIfIdVector(count = count, ifIdCtorArg = ifId)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -9074,7 +9072,7 @@ public class RpcIfIdVector internal constructor(
                             io.github.kotlinmania.rustlang.core.mem
                                 .FixedArrayTypeLayout(
                                     io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                        .mutPtrLayout<RpcIfId>(64),
+                                        .mutPtrLayout(64),
                                     (1).toInt(),
                                 )
                         ).readNative(addr + 8L),
@@ -9085,7 +9083,7 @@ public class RpcIfIdVector internal constructor(
                         io.github.kotlinmania.rustlang.core.mem
                             .FixedArrayTypeLayout(
                                 io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                    .mutPtrLayout<RpcIfId>(64),
+                                    .mutPtrLayout(64),
                                 (1).toInt(),
                             )
                     ).writeNative(addr + 8L, value.ifId)
@@ -9094,7 +9092,7 @@ public class RpcIfIdVector internal constructor(
 
         public operator fun invoke(
             count: UInt = 0u,
-            ifId: List<MutPtr<RpcIfId>> = List(1) { MutPtr(0L) },
+            ifId: List<MutPtr> = List(1) { MutPtr(0L) },
         ): RpcIfIdVector =
             RpcIfIdVector(
                 count = count,
@@ -9104,17 +9102,17 @@ public class RpcIfIdVector internal constructor(
 }
 
 public class RpcImportContextP internal constructor(
-    lookupContextCtorArg: MutPtr<CVoid>,
-    proposedHandleCtorArg: MutPtr<CVoid>,
-    bindingsCtorArg: MutPtr<RpcBindingVector>,
+    lookupContextCtorArg: MutPtr,
+    proposedHandleCtorArg: MutPtr,
+    bindingsCtorArg: MutPtr,
 ) {
-    public var lookupContext: MutPtr<CVoid> = lookupContextCtorArg
+    public var lookupContext: MutPtr = lookupContextCtorArg
         internal set
 
-    public var proposedHandle: MutPtr<CVoid> = proposedHandleCtorArg
+    public var proposedHandle: MutPtr = proposedHandleCtorArg
         internal set
 
-    public var bindings: MutPtr<RpcBindingVector> = bindingsCtorArg
+    public var bindings: MutPtr = bindingsCtorArg
         internal set
 
     public constructor() : this(
@@ -9123,13 +9121,13 @@ public class RpcImportContextP internal constructor(
         bindingsCtorArg = MutPtr(0L),
     )
 
-    public operator fun component1(): MutPtr<CVoid> = this.lookupContext
+    public operator fun component1(): MutPtr = this.lookupContext
 
-    public operator fun component2(): MutPtr<CVoid> = this.proposedHandle
+    public operator fun component2(): MutPtr = this.proposedHandle
 
-    public operator fun component3(): MutPtr<RpcBindingVector> = this.bindings
+    public operator fun component3(): MutPtr = this.bindings
 
-    public fun copy(lookupContext: MutPtr<CVoid> = this.lookupContext, proposedHandle: MutPtr<CVoid> = this.proposedHandle, bindings: MutPtr<RpcBindingVector> = this.bindings): RpcImportContextP = RpcImportContextP(lookupContextCtorArg = lookupContext, proposedHandleCtorArg = proposedHandle, bindingsCtorArg = bindings)
+    public fun copy(lookupContext: MutPtr = this.lookupContext, proposedHandle: MutPtr = this.proposedHandle, bindings: MutPtr = this.bindings): RpcImportContextP = RpcImportContextP(lookupContextCtorArg = lookupContext, proposedHandleCtorArg = proposedHandle, bindingsCtorArg = bindings)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -9156,37 +9154,37 @@ public class RpcImportContextP internal constructor(
                     RpcImportContextP(
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<CVoid>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<CVoid>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<RpcBindingVector>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 16L),
                     )
                 override fun writeNative(addr: Long, value: RpcImportContextP) {
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<CVoid>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr, value.lookupContext)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<CVoid>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.proposedHandle)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<RpcBindingVector>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 16L, value.bindings)
                 }
             }
 
         public operator fun invoke(
-            lookupContext: MutPtr<CVoid> = MutPtr(0L),
-            proposedHandle: MutPtr<CVoid> = MutPtr(0L),
-            bindings: MutPtr<RpcBindingVector> = MutPtr(0L),
+            lookupContext: MutPtr = MutPtr(0L),
+            proposedHandle: MutPtr = MutPtr(0L),
+            bindings: MutPtr = MutPtr(0L),
         ): RpcImportContextP =
             RpcImportContextP(
                 lookupContextCtorArg = lookupContext,
@@ -9198,33 +9196,33 @@ public class RpcImportContextP internal constructor(
 
 public class RpcInterfaceTemplatea internal constructor(
     public var version: UInt,
-    ifSpecCtorArg: MutPtr<CVoid>,
-    mgrTypeUuidCtorArg: MutPtr<Guid>,
-    mgrEpvCtorArg: MutPtr<CVoid>,
+    ifSpecCtorArg: MutPtr,
+    mgrTypeUuidCtorArg: MutPtr,
+    mgrEpvCtorArg: MutPtr,
     public var flags: UInt,
     public var maxCalls: UInt,
     public var maxRpcSize: UInt,
     public var ifCallback: RpcIfCallbackFn,
-    uuidVectorCtorArg: MutPtr<UuidVector>,
+    uuidVectorCtorArg: MutPtr,
     annotationCtorArg: Pstr,
-    securityDescriptorCtorArg: MutPtr<CVoid>,
+    securityDescriptorCtorArg: MutPtr,
 ) {
-    public var ifSpec: MutPtr<CVoid> = ifSpecCtorArg
+    public var ifSpec: MutPtr = ifSpecCtorArg
         internal set
 
-    public var mgrTypeUuid: MutPtr<Guid> = mgrTypeUuidCtorArg
+    public var mgrTypeUuid: MutPtr = mgrTypeUuidCtorArg
         internal set
 
-    public var mgrEpv: MutPtr<CVoid> = mgrEpvCtorArg
+    public var mgrEpv: MutPtr = mgrEpvCtorArg
         internal set
 
-    public var uuidVector: MutPtr<UuidVector> = uuidVectorCtorArg
+    public var uuidVector: MutPtr = uuidVectorCtorArg
         internal set
 
     public var annotation: Pstr = annotationCtorArg
         internal set
 
-    public var securityDescriptor: MutPtr<CVoid> = securityDescriptorCtorArg
+    public var securityDescriptor: MutPtr = securityDescriptorCtorArg
         internal set
 
     public constructor() : this(
@@ -9243,11 +9241,11 @@ public class RpcInterfaceTemplatea internal constructor(
 
     public operator fun component1(): UInt = this.version
 
-    public operator fun component2(): MutPtr<CVoid> = this.ifSpec
+    public operator fun component2(): MutPtr = this.ifSpec
 
-    public operator fun component3(): MutPtr<Guid> = this.mgrTypeUuid
+    public operator fun component3(): MutPtr = this.mgrTypeUuid
 
-    public operator fun component4(): MutPtr<CVoid> = this.mgrEpv
+    public operator fun component4(): MutPtr = this.mgrEpv
 
     public operator fun component5(): UInt = this.flags
 
@@ -9257,13 +9255,13 @@ public class RpcInterfaceTemplatea internal constructor(
 
     public operator fun component8(): RpcIfCallbackFn = this.ifCallback
 
-    public operator fun component9(): MutPtr<UuidVector> = this.uuidVector
+    public operator fun component9(): MutPtr = this.uuidVector
 
     public operator fun component10(): Pstr = this.annotation
 
-    public operator fun component11(): MutPtr<CVoid> = this.securityDescriptor
+    public operator fun component11(): MutPtr = this.securityDescriptor
 
-    public fun copy(version: UInt = this.version, ifSpec: MutPtr<CVoid> = this.ifSpec, mgrTypeUuid: MutPtr<Guid> = this.mgrTypeUuid, mgrEpv: MutPtr<CVoid> = this.mgrEpv, flags: UInt = this.flags, maxCalls: UInt = this.maxCalls, maxRpcSize: UInt = this.maxRpcSize, ifCallback: RpcIfCallbackFn = this.ifCallback, uuidVector: MutPtr<UuidVector> = this.uuidVector, annotation: Pstr = this.annotation, securityDescriptor: MutPtr<CVoid> = this.securityDescriptor): RpcInterfaceTemplatea = RpcInterfaceTemplatea(version = version, ifSpecCtorArg = ifSpec, mgrTypeUuidCtorArg = mgrTypeUuid, mgrEpvCtorArg = mgrEpv, flags = flags, maxCalls = maxCalls, maxRpcSize = maxRpcSize, ifCallback = ifCallback, uuidVectorCtorArg = uuidVector, annotationCtorArg = annotation, securityDescriptorCtorArg = securityDescriptor)
+    public fun copy(version: UInt = this.version, ifSpec: MutPtr = this.ifSpec, mgrTypeUuid: MutPtr = this.mgrTypeUuid, mgrEpv: MutPtr = this.mgrEpv, flags: UInt = this.flags, maxCalls: UInt = this.maxCalls, maxRpcSize: UInt = this.maxRpcSize, ifCallback: RpcIfCallbackFn = this.ifCallback, uuidVector: MutPtr = this.uuidVector, annotation: Pstr = this.annotation, securityDescriptor: MutPtr = this.securityDescriptor): RpcInterfaceTemplatea = RpcInterfaceTemplatea(version = version, ifSpecCtorArg = ifSpec, mgrTypeUuidCtorArg = mgrTypeUuid, mgrEpvCtorArg = mgrEpv, flags = flags, maxCalls = maxCalls, maxRpcSize = maxRpcSize, ifCallback = ifCallback, uuidVectorCtorArg = uuidVector, annotationCtorArg = annotation, securityDescriptorCtorArg = securityDescriptor)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -9300,16 +9298,16 @@ public class RpcInterfaceTemplatea internal constructor(
     public companion object {
         public operator fun invoke(
             version: UInt = 0u,
-            ifSpec: MutPtr<CVoid> = MutPtr(0L),
-            mgrTypeUuid: MutPtr<Guid> = MutPtr(0L),
-            mgrEpv: MutPtr<CVoid> = MutPtr(0L),
+            ifSpec: MutPtr = MutPtr(0L),
+            mgrTypeUuid: MutPtr = MutPtr(0L),
+            mgrEpv: MutPtr = MutPtr(0L),
             flags: UInt = 0u,
             maxCalls: UInt = 0u,
             maxRpcSize: UInt = 0u,
             ifCallback: RpcIfCallbackFn = null,
-            uuidVector: MutPtr<UuidVector> = MutPtr(0L),
+            uuidVector: MutPtr = MutPtr(0L),
             annotation: Pstr = MutPtr(0L),
-            securityDescriptor: MutPtr<CVoid> = MutPtr(0L),
+            securityDescriptor: MutPtr = MutPtr(0L),
         ): RpcInterfaceTemplatea =
             RpcInterfaceTemplatea(
                 version = version,
@@ -9329,33 +9327,33 @@ public class RpcInterfaceTemplatea internal constructor(
 
 public class RpcInterfaceTemplatew internal constructor(
     public var version: UInt,
-    ifSpecCtorArg: MutPtr<CVoid>,
-    mgrTypeUuidCtorArg: MutPtr<Guid>,
-    mgrEpvCtorArg: MutPtr<CVoid>,
+    ifSpecCtorArg: MutPtr,
+    mgrTypeUuidCtorArg: MutPtr,
+    mgrEpvCtorArg: MutPtr,
     public var flags: UInt,
     public var maxCalls: UInt,
     public var maxRpcSize: UInt,
     public var ifCallback: RpcIfCallbackFn,
-    uuidVectorCtorArg: MutPtr<UuidVector>,
+    uuidVectorCtorArg: MutPtr,
     annotationCtorArg: Pwstr,
-    securityDescriptorCtorArg: MutPtr<CVoid>,
+    securityDescriptorCtorArg: MutPtr,
 ) {
-    public var ifSpec: MutPtr<CVoid> = ifSpecCtorArg
+    public var ifSpec: MutPtr = ifSpecCtorArg
         internal set
 
-    public var mgrTypeUuid: MutPtr<Guid> = mgrTypeUuidCtorArg
+    public var mgrTypeUuid: MutPtr = mgrTypeUuidCtorArg
         internal set
 
-    public var mgrEpv: MutPtr<CVoid> = mgrEpvCtorArg
+    public var mgrEpv: MutPtr = mgrEpvCtorArg
         internal set
 
-    public var uuidVector: MutPtr<UuidVector> = uuidVectorCtorArg
+    public var uuidVector: MutPtr = uuidVectorCtorArg
         internal set
 
     public var annotation: Pwstr = annotationCtorArg
         internal set
 
-    public var securityDescriptor: MutPtr<CVoid> = securityDescriptorCtorArg
+    public var securityDescriptor: MutPtr = securityDescriptorCtorArg
         internal set
 
     public constructor() : this(
@@ -9374,11 +9372,11 @@ public class RpcInterfaceTemplatew internal constructor(
 
     public operator fun component1(): UInt = this.version
 
-    public operator fun component2(): MutPtr<CVoid> = this.ifSpec
+    public operator fun component2(): MutPtr = this.ifSpec
 
-    public operator fun component3(): MutPtr<Guid> = this.mgrTypeUuid
+    public operator fun component3(): MutPtr = this.mgrTypeUuid
 
-    public operator fun component4(): MutPtr<CVoid> = this.mgrEpv
+    public operator fun component4(): MutPtr = this.mgrEpv
 
     public operator fun component5(): UInt = this.flags
 
@@ -9388,13 +9386,13 @@ public class RpcInterfaceTemplatew internal constructor(
 
     public operator fun component8(): RpcIfCallbackFn = this.ifCallback
 
-    public operator fun component9(): MutPtr<UuidVector> = this.uuidVector
+    public operator fun component9(): MutPtr = this.uuidVector
 
     public operator fun component10(): Pwstr = this.annotation
 
-    public operator fun component11(): MutPtr<CVoid> = this.securityDescriptor
+    public operator fun component11(): MutPtr = this.securityDescriptor
 
-    public fun copy(version: UInt = this.version, ifSpec: MutPtr<CVoid> = this.ifSpec, mgrTypeUuid: MutPtr<Guid> = this.mgrTypeUuid, mgrEpv: MutPtr<CVoid> = this.mgrEpv, flags: UInt = this.flags, maxCalls: UInt = this.maxCalls, maxRpcSize: UInt = this.maxRpcSize, ifCallback: RpcIfCallbackFn = this.ifCallback, uuidVector: MutPtr<UuidVector> = this.uuidVector, annotation: Pwstr = this.annotation, securityDescriptor: MutPtr<CVoid> = this.securityDescriptor): RpcInterfaceTemplatew = RpcInterfaceTemplatew(version = version, ifSpecCtorArg = ifSpec, mgrTypeUuidCtorArg = mgrTypeUuid, mgrEpvCtorArg = mgrEpv, flags = flags, maxCalls = maxCalls, maxRpcSize = maxRpcSize, ifCallback = ifCallback, uuidVectorCtorArg = uuidVector, annotationCtorArg = annotation, securityDescriptorCtorArg = securityDescriptor)
+    public fun copy(version: UInt = this.version, ifSpec: MutPtr = this.ifSpec, mgrTypeUuid: MutPtr = this.mgrTypeUuid, mgrEpv: MutPtr = this.mgrEpv, flags: UInt = this.flags, maxCalls: UInt = this.maxCalls, maxRpcSize: UInt = this.maxRpcSize, ifCallback: RpcIfCallbackFn = this.ifCallback, uuidVector: MutPtr = this.uuidVector, annotation: Pwstr = this.annotation, securityDescriptor: MutPtr = this.securityDescriptor): RpcInterfaceTemplatew = RpcInterfaceTemplatew(version = version, ifSpecCtorArg = ifSpec, mgrTypeUuidCtorArg = mgrTypeUuid, mgrEpvCtorArg = mgrEpv, flags = flags, maxCalls = maxCalls, maxRpcSize = maxRpcSize, ifCallback = ifCallback, uuidVectorCtorArg = uuidVector, annotationCtorArg = annotation, securityDescriptorCtorArg = securityDescriptor)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -9431,16 +9429,16 @@ public class RpcInterfaceTemplatew internal constructor(
     public companion object {
         public operator fun invoke(
             version: UInt = 0u,
-            ifSpec: MutPtr<CVoid> = MutPtr(0L),
-            mgrTypeUuid: MutPtr<Guid> = MutPtr(0L),
-            mgrEpv: MutPtr<CVoid> = MutPtr(0L),
+            ifSpec: MutPtr = MutPtr(0L),
+            mgrTypeUuid: MutPtr = MutPtr(0L),
+            mgrEpv: MutPtr = MutPtr(0L),
             flags: UInt = 0u,
             maxCalls: UInt = 0u,
             maxRpcSize: UInt = 0u,
             ifCallback: RpcIfCallbackFn = null,
-            uuidVector: MutPtr<UuidVector> = MutPtr(0L),
+            uuidVector: MutPtr = MutPtr(0L),
             annotation: Pwstr = MutPtr(0L),
-            securityDescriptor: MutPtr<CVoid> = MutPtr(0L),
+            securityDescriptor: MutPtr = MutPtr(0L),
         ): RpcInterfaceTemplatew =
             RpcInterfaceTemplatew(
                 version = version,
@@ -9459,37 +9457,37 @@ public class RpcInterfaceTemplatew internal constructor(
 }
 
 public class RpcMessage internal constructor(
-    handleCtorArg: MutPtr<CVoid>,
+    handleCtorArg: MutPtr,
     public var dataRepresentation: UInt,
-    bufferCtorArg: MutPtr<CVoid>,
+    bufferCtorArg: MutPtr,
     public var bufferLength: UInt,
     public var procNum: UInt,
-    transferSyntaxCtorArg: MutPtr<RpcSyntaxIdentifier>,
-    rpcInterfaceInformationCtorArg: MutPtr<CVoid>,
-    reservedForRuntimeCtorArg: MutPtr<CVoid>,
-    managerEpvCtorArg: MutPtr<CVoid>,
-    importContextCtorArg: MutPtr<CVoid>,
+    transferSyntaxCtorArg: MutPtr,
+    rpcInterfaceInformationCtorArg: MutPtr,
+    reservedForRuntimeCtorArg: MutPtr,
+    managerEpvCtorArg: MutPtr,
+    importContextCtorArg: MutPtr,
     public var rpcFlags: UInt,
 ) {
-    public var handle: MutPtr<CVoid> = handleCtorArg
+    public var handle: MutPtr = handleCtorArg
         internal set
 
-    public var buffer: MutPtr<CVoid> = bufferCtorArg
+    public var buffer: MutPtr = bufferCtorArg
         internal set
 
-    public var transferSyntax: MutPtr<RpcSyntaxIdentifier> = transferSyntaxCtorArg
+    public var transferSyntax: MutPtr = transferSyntaxCtorArg
         internal set
 
-    public var rpcInterfaceInformation: MutPtr<CVoid> = rpcInterfaceInformationCtorArg
+    public var rpcInterfaceInformation: MutPtr = rpcInterfaceInformationCtorArg
         internal set
 
-    public var reservedForRuntime: MutPtr<CVoid> = reservedForRuntimeCtorArg
+    public var reservedForRuntime: MutPtr = reservedForRuntimeCtorArg
         internal set
 
-    public var managerEpv: MutPtr<CVoid> = managerEpvCtorArg
+    public var managerEpv: MutPtr = managerEpvCtorArg
         internal set
 
-    public var importContext: MutPtr<CVoid> = importContextCtorArg
+    public var importContext: MutPtr = importContextCtorArg
         internal set
 
     public constructor() : this(
@@ -9506,29 +9504,29 @@ public class RpcMessage internal constructor(
         rpcFlags = 0u,
     )
 
-    public operator fun component1(): MutPtr<CVoid> = this.handle
+    public operator fun component1(): MutPtr = this.handle
 
     public operator fun component2(): UInt = this.dataRepresentation
 
-    public operator fun component3(): MutPtr<CVoid> = this.buffer
+    public operator fun component3(): MutPtr = this.buffer
 
     public operator fun component4(): UInt = this.bufferLength
 
     public operator fun component5(): UInt = this.procNum
 
-    public operator fun component6(): MutPtr<RpcSyntaxIdentifier> = this.transferSyntax
+    public operator fun component6(): MutPtr = this.transferSyntax
 
-    public operator fun component7(): MutPtr<CVoid> = this.rpcInterfaceInformation
+    public operator fun component7(): MutPtr = this.rpcInterfaceInformation
 
-    public operator fun component8(): MutPtr<CVoid> = this.reservedForRuntime
+    public operator fun component8(): MutPtr = this.reservedForRuntime
 
-    public operator fun component9(): MutPtr<CVoid> = this.managerEpv
+    public operator fun component9(): MutPtr = this.managerEpv
 
-    public operator fun component10(): MutPtr<CVoid> = this.importContext
+    public operator fun component10(): MutPtr = this.importContext
 
     public operator fun component11(): UInt = this.rpcFlags
 
-    public fun copy(handle: MutPtr<CVoid> = this.handle, dataRepresentation: UInt = this.dataRepresentation, buffer: MutPtr<CVoid> = this.buffer, bufferLength: UInt = this.bufferLength, procNum: UInt = this.procNum, transferSyntax: MutPtr<RpcSyntaxIdentifier> = this.transferSyntax, rpcInterfaceInformation: MutPtr<CVoid> = this.rpcInterfaceInformation, reservedForRuntime: MutPtr<CVoid> = this.reservedForRuntime, managerEpv: MutPtr<CVoid> = this.managerEpv, importContext: MutPtr<CVoid> = this.importContext, rpcFlags: UInt = this.rpcFlags): RpcMessage = RpcMessage(handleCtorArg = handle, dataRepresentation = dataRepresentation, bufferCtorArg = buffer, bufferLength = bufferLength, procNum = procNum, transferSyntaxCtorArg = transferSyntax, rpcInterfaceInformationCtorArg = rpcInterfaceInformation, reservedForRuntimeCtorArg = reservedForRuntime, managerEpvCtorArg = managerEpv, importContextCtorArg = importContext, rpcFlags = rpcFlags)
+    public fun copy(handle: MutPtr = this.handle, dataRepresentation: UInt = this.dataRepresentation, buffer: MutPtr = this.buffer, bufferLength: UInt = this.bufferLength, procNum: UInt = this.procNum, transferSyntax: MutPtr = this.transferSyntax, rpcInterfaceInformation: MutPtr = this.rpcInterfaceInformation, reservedForRuntime: MutPtr = this.reservedForRuntime, managerEpv: MutPtr = this.managerEpv, importContext: MutPtr = this.importContext, rpcFlags: UInt = this.rpcFlags): RpcMessage = RpcMessage(handleCtorArg = handle, dataRepresentation = dataRepresentation, bufferCtorArg = buffer, bufferLength = bufferLength, procNum = procNum, transferSyntaxCtorArg = transferSyntax, rpcInterfaceInformationCtorArg = rpcInterfaceInformation, reservedForRuntimeCtorArg = reservedForRuntime, managerEpvCtorArg = managerEpv, importContextCtorArg = importContext, rpcFlags = rpcFlags)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -9571,84 +9569,84 @@ public class RpcMessage internal constructor(
                     RpcMessage(
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<CVoid>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 8L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<CVoid>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 16L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 24L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 28L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<RpcSyntaxIdentifier>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 32L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<CVoid>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 40L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<CVoid>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 48L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<CVoid>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 56L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<CVoid>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 64L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 72L),
                     )
                 override fun writeNative(addr: Long, value: RpcMessage) {
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<CVoid>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr, value.handle)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 8L, value.dataRepresentation)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<CVoid>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 16L, value.buffer)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 24L, value.bufferLength)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 28L, value.procNum)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<RpcSyntaxIdentifier>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 32L, value.transferSyntax)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<CVoid>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 40L, value.rpcInterfaceInformation)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<CVoid>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 48L, value.reservedForRuntime)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<CVoid>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 56L, value.managerEpv)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<CVoid>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 64L, value.importContext)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 72L, value.rpcFlags)
                 }
             }
 
         public operator fun invoke(
-            handle: MutPtr<CVoid> = MutPtr(0L),
+            handle: MutPtr = MutPtr(0L),
             dataRepresentation: UInt = 0u,
-            buffer: MutPtr<CVoid> = MutPtr(0L),
+            buffer: MutPtr = MutPtr(0L),
             bufferLength: UInt = 0u,
             procNum: UInt = 0u,
-            transferSyntax: MutPtr<RpcSyntaxIdentifier> = MutPtr(0L),
-            rpcInterfaceInformation: MutPtr<CVoid> = MutPtr(0L),
-            reservedForRuntime: MutPtr<CVoid> = MutPtr(0L),
-            managerEpv: MutPtr<CVoid> = MutPtr(0L),
-            importContext: MutPtr<CVoid> = MutPtr(0L),
+            transferSyntax: MutPtr = MutPtr(0L),
+            rpcInterfaceInformation: MutPtr = MutPtr(0L),
+            reservedForRuntime: MutPtr = MutPtr(0L),
+            managerEpv: MutPtr = MutPtr(0L),
+            importContext: MutPtr = MutPtr(0L),
             rpcFlags: UInt = 0u,
         ): RpcMessage =
             RpcMessage(
@@ -9693,13 +9691,13 @@ public data class RpcPolicy(
 }
 
 public class RpcProtseqEndpoint internal constructor(
-    rpcProtocolSequenceCtorArg: MutPtr<UByte>,
-    endpointCtorArg: MutPtr<UByte>,
+    rpcProtocolSequenceCtorArg: MutPtr,
+    endpointCtorArg: MutPtr,
 ) {
-    public var rpcProtocolSequence: MutPtr<UByte> = rpcProtocolSequenceCtorArg
+    public var rpcProtocolSequence: MutPtr = rpcProtocolSequenceCtorArg
         internal set
 
-    public var endpoint: MutPtr<UByte> = endpointCtorArg
+    public var endpoint: MutPtr = endpointCtorArg
         internal set
 
     public constructor() : this(
@@ -9707,11 +9705,11 @@ public class RpcProtseqEndpoint internal constructor(
         endpointCtorArg = MutPtr(0L),
     )
 
-    public operator fun component1(): MutPtr<UByte> = this.rpcProtocolSequence
+    public operator fun component1(): MutPtr = this.rpcProtocolSequence
 
-    public operator fun component2(): MutPtr<UByte> = this.endpoint
+    public operator fun component2(): MutPtr = this.endpoint
 
-    public fun copy(rpcProtocolSequence: MutPtr<UByte> = this.rpcProtocolSequence, endpoint: MutPtr<UByte> = this.endpoint): RpcProtseqEndpoint = RpcProtseqEndpoint(rpcProtocolSequenceCtorArg = rpcProtocolSequence, endpointCtorArg = endpoint)
+    public fun copy(rpcProtocolSequence: MutPtr = this.rpcProtocolSequence, endpoint: MutPtr = this.endpoint): RpcProtseqEndpoint = RpcProtseqEndpoint(rpcProtocolSequenceCtorArg = rpcProtocolSequence, endpointCtorArg = endpoint)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -9736,28 +9734,28 @@ public class RpcProtseqEndpoint internal constructor(
                     RpcProtseqEndpoint(
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<UByte>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<UByte>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                     )
                 override fun writeNative(addr: Long, value: RpcProtseqEndpoint) {
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<UByte>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr, value.rpcProtocolSequence)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<UByte>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.endpoint)
                 }
             }
 
         public operator fun invoke(
-            rpcProtocolSequence: MutPtr<UByte> = MutPtr(0L),
-            endpoint: MutPtr<UByte> = MutPtr(0L),
+            rpcProtocolSequence: MutPtr = MutPtr(0L),
+            endpoint: MutPtr = MutPtr(0L),
         ): RpcProtseqEndpoint =
             RpcProtseqEndpoint(
                 rpcProtocolSequenceCtorArg = rpcProtocolSequence,
@@ -9768,9 +9766,9 @@ public class RpcProtseqEndpoint internal constructor(
 
 public class RpcProtseqVectora internal constructor(
     public var count: UInt,
-    protseqCtorArg: List<MutPtr<UByte>>,
+    protseqCtorArg: List<MutPtr>,
 ) {
-    public var protseq: List<MutPtr<UByte>> = protseqCtorArg
+    public var protseq: List<MutPtr> = protseqCtorArg
         internal set
 
     public constructor() : this(
@@ -9780,9 +9778,9 @@ public class RpcProtseqVectora internal constructor(
 
     public operator fun component1(): UInt = this.count
 
-    public operator fun component2(): List<MutPtr<UByte>> = this.protseq
+    public operator fun component2(): List<MutPtr> = this.protseq
 
-    public fun copy(count: UInt = this.count, protseq: List<MutPtr<UByte>> = this.protseq): RpcProtseqVectora = RpcProtseqVectora(count = count, protseqCtorArg = protseq)
+    public fun copy(count: UInt = this.count, protseq: List<MutPtr> = this.protseq): RpcProtseqVectora = RpcProtseqVectora(count = count, protseqCtorArg = protseq)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -9810,7 +9808,7 @@ public class RpcProtseqVectora internal constructor(
                             io.github.kotlinmania.rustlang.core.mem
                                 .FixedArrayTypeLayout(
                                     io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                        .mutPtrLayout<UByte>(64),
+                                        .mutPtrLayout(64),
                                     (1).toInt(),
                                 )
                         ).readNative(addr + 8L),
@@ -9821,7 +9819,7 @@ public class RpcProtseqVectora internal constructor(
                         io.github.kotlinmania.rustlang.core.mem
                             .FixedArrayTypeLayout(
                                 io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                    .mutPtrLayout<UByte>(64),
+                                    .mutPtrLayout(64),
                                 (1).toInt(),
                             )
                     ).writeNative(addr + 8L, value.protseq)
@@ -9830,7 +9828,7 @@ public class RpcProtseqVectora internal constructor(
 
         public operator fun invoke(
             count: UInt = 0u,
-            protseq: List<MutPtr<UByte>> = List(1) { MutPtr(0L) },
+            protseq: List<MutPtr> = List(1) { MutPtr(0L) },
         ): RpcProtseqVectora =
             RpcProtseqVectora(
                 count = count,
@@ -9841,9 +9839,9 @@ public class RpcProtseqVectora internal constructor(
 
 public class RpcProtseqVectorw internal constructor(
     public var count: UInt,
-    protseqCtorArg: List<MutPtr<UShort>>,
+    protseqCtorArg: List<MutPtr>,
 ) {
-    public var protseq: List<MutPtr<UShort>> = protseqCtorArg
+    public var protseq: List<MutPtr> = protseqCtorArg
         internal set
 
     public constructor() : this(
@@ -9853,9 +9851,9 @@ public class RpcProtseqVectorw internal constructor(
 
     public operator fun component1(): UInt = this.count
 
-    public operator fun component2(): List<MutPtr<UShort>> = this.protseq
+    public operator fun component2(): List<MutPtr> = this.protseq
 
-    public fun copy(count: UInt = this.count, protseq: List<MutPtr<UShort>> = this.protseq): RpcProtseqVectorw = RpcProtseqVectorw(count = count, protseqCtorArg = protseq)
+    public fun copy(count: UInt = this.count, protseq: List<MutPtr> = this.protseq): RpcProtseqVectorw = RpcProtseqVectorw(count = count, protseqCtorArg = protseq)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -9883,7 +9881,7 @@ public class RpcProtseqVectorw internal constructor(
                             io.github.kotlinmania.rustlang.core.mem
                                 .FixedArrayTypeLayout(
                                     io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                        .mutPtrLayout<UShort>(64),
+                                        .mutPtrLayout(64),
                                     (1).toInt(),
                                 )
                         ).readNative(addr + 8L),
@@ -9894,7 +9892,7 @@ public class RpcProtseqVectorw internal constructor(
                         io.github.kotlinmania.rustlang.core.mem
                             .FixedArrayTypeLayout(
                                 io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                    .mutPtrLayout<UShort>(64),
+                                    .mutPtrLayout(64),
                                 (1).toInt(),
                             )
                     ).writeNative(addr + 8L, value.protseq)
@@ -9903,7 +9901,7 @@ public class RpcProtseqVectorw internal constructor(
 
         public operator fun invoke(
             count: UInt = 0u,
-            protseq: List<MutPtr<UShort>> = List(1) { MutPtr(0L) },
+            protseq: List<MutPtr> = List(1) { MutPtr(0L) },
         ): RpcProtseqVectorw =
             RpcProtseqVectorw(
                 count = count,
@@ -9950,18 +9948,18 @@ public data class RpcSecurityQosV2A(
 )
 
 public class RpcSecurityQosV2A0 internal constructor(
-    httpCredentialsCtorArg: MutPtr<RpcHttpTransportCredentialsA>,
+    httpCredentialsCtorArg: MutPtr,
 ) {
-    public var httpCredentials: MutPtr<RpcHttpTransportCredentialsA> = httpCredentialsCtorArg
+    public var httpCredentials: MutPtr = httpCredentialsCtorArg
         internal set
 
     public constructor() : this(
         httpCredentialsCtorArg = MutPtr(0L),
     )
 
-    public operator fun component1(): MutPtr<RpcHttpTransportCredentialsA> = this.httpCredentials
+    public operator fun component1(): MutPtr = this.httpCredentials
 
-    public fun copy(httpCredentials: MutPtr<RpcHttpTransportCredentialsA> = this.httpCredentials): RpcSecurityQosV2A0 = RpcSecurityQosV2A0(httpCredentialsCtorArg = httpCredentials)
+    public fun copy(httpCredentials: MutPtr = this.httpCredentials): RpcSecurityQosV2A0 = RpcSecurityQosV2A0(httpCredentialsCtorArg = httpCredentials)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -9974,7 +9972,7 @@ public class RpcSecurityQosV2A0 internal constructor(
 
     public companion object {
         public operator fun invoke(
-            httpCredentials: MutPtr<RpcHttpTransportCredentialsA> = MutPtr(0L),
+            httpCredentials: MutPtr = MutPtr(0L),
         ): RpcSecurityQosV2A0 =
             RpcSecurityQosV2A0(
                 httpCredentialsCtorArg = httpCredentials,
@@ -9992,18 +9990,18 @@ public data class RpcSecurityQosV2W(
 )
 
 public class RpcSecurityQosV2W0 internal constructor(
-    httpCredentialsCtorArg: MutPtr<RpcHttpTransportCredentialsW>,
+    httpCredentialsCtorArg: MutPtr,
 ) {
-    public var httpCredentials: MutPtr<RpcHttpTransportCredentialsW> = httpCredentialsCtorArg
+    public var httpCredentials: MutPtr = httpCredentialsCtorArg
         internal set
 
     public constructor() : this(
         httpCredentialsCtorArg = MutPtr(0L),
     )
 
-    public operator fun component1(): MutPtr<RpcHttpTransportCredentialsW> = this.httpCredentials
+    public operator fun component1(): MutPtr = this.httpCredentials
 
-    public fun copy(httpCredentials: MutPtr<RpcHttpTransportCredentialsW> = this.httpCredentials): RpcSecurityQosV2W0 = RpcSecurityQosV2W0(httpCredentialsCtorArg = httpCredentials)
+    public fun copy(httpCredentials: MutPtr = this.httpCredentials): RpcSecurityQosV2W0 = RpcSecurityQosV2W0(httpCredentialsCtorArg = httpCredentials)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -10016,7 +10014,7 @@ public class RpcSecurityQosV2W0 internal constructor(
 
     public companion object {
         public operator fun invoke(
-            httpCredentials: MutPtr<RpcHttpTransportCredentialsW> = MutPtr(0L),
+            httpCredentials: MutPtr = MutPtr(0L),
         ): RpcSecurityQosV2W0 =
             RpcSecurityQosV2W0(
                 httpCredentialsCtorArg = httpCredentials,
@@ -10031,9 +10029,9 @@ public class RpcSecurityQosV3A internal constructor(
     public var impersonationType: RpcCImpLevel,
     public var additionalSecurityInfoType: RpcCAuthnInfoType,
     public var u: RpcSecurityQosV3A0,
-    sidCtorArg: MutPtr<CVoid>,
+    sidCtorArg: MutPtr,
 ) {
-    public var sid: MutPtr<CVoid> = sidCtorArg
+    public var sid: MutPtr = sidCtorArg
         internal set
 
     public constructor() : this(
@@ -10058,9 +10056,9 @@ public class RpcSecurityQosV3A internal constructor(
 
     public operator fun component6(): RpcSecurityQosV3A0 = this.u
 
-    public operator fun component7(): MutPtr<CVoid> = this.sid
+    public operator fun component7(): MutPtr = this.sid
 
-    public fun copy(version: UInt = this.version, capabilities: RpcCQosCapabilities = this.capabilities, identityTracking: RpcCQosIdentity = this.identityTracking, impersonationType: RpcCImpLevel = this.impersonationType, additionalSecurityInfoType: RpcCAuthnInfoType = this.additionalSecurityInfoType, u: RpcSecurityQosV3A0 = this.u, sid: MutPtr<CVoid> = this.sid): RpcSecurityQosV3A = RpcSecurityQosV3A(version = version, capabilities = capabilities, identityTracking = identityTracking, impersonationType = impersonationType, additionalSecurityInfoType = additionalSecurityInfoType, u = u, sidCtorArg = sid)
+    public fun copy(version: UInt = this.version, capabilities: RpcCQosCapabilities = this.capabilities, identityTracking: RpcCQosIdentity = this.identityTracking, impersonationType: RpcCImpLevel = this.impersonationType, additionalSecurityInfoType: RpcCAuthnInfoType = this.additionalSecurityInfoType, u: RpcSecurityQosV3A0 = this.u, sid: MutPtr = this.sid): RpcSecurityQosV3A = RpcSecurityQosV3A(version = version, capabilities = capabilities, identityTracking = identityTracking, impersonationType = impersonationType, additionalSecurityInfoType = additionalSecurityInfoType, u = u, sidCtorArg = sid)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -10094,7 +10092,7 @@ public class RpcSecurityQosV3A internal constructor(
             impersonationType: RpcCImpLevel = 0u,
             additionalSecurityInfoType: RpcCAuthnInfoType = 0u,
             u: RpcSecurityQosV3A0 = RpcSecurityQosV3A0(),
-            sid: MutPtr<CVoid> = MutPtr(0L),
+            sid: MutPtr = MutPtr(0L),
         ): RpcSecurityQosV3A =
             RpcSecurityQosV3A(
                 version = version,
@@ -10109,18 +10107,18 @@ public class RpcSecurityQosV3A internal constructor(
 }
 
 public class RpcSecurityQosV3A0 internal constructor(
-    httpCredentialsCtorArg: MutPtr<RpcHttpTransportCredentialsA>,
+    httpCredentialsCtorArg: MutPtr,
 ) {
-    public var httpCredentials: MutPtr<RpcHttpTransportCredentialsA> = httpCredentialsCtorArg
+    public var httpCredentials: MutPtr = httpCredentialsCtorArg
         internal set
 
     public constructor() : this(
         httpCredentialsCtorArg = MutPtr(0L),
     )
 
-    public operator fun component1(): MutPtr<RpcHttpTransportCredentialsA> = this.httpCredentials
+    public operator fun component1(): MutPtr = this.httpCredentials
 
-    public fun copy(httpCredentials: MutPtr<RpcHttpTransportCredentialsA> = this.httpCredentials): RpcSecurityQosV3A0 = RpcSecurityQosV3A0(httpCredentialsCtorArg = httpCredentials)
+    public fun copy(httpCredentials: MutPtr = this.httpCredentials): RpcSecurityQosV3A0 = RpcSecurityQosV3A0(httpCredentialsCtorArg = httpCredentials)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -10133,7 +10131,7 @@ public class RpcSecurityQosV3A0 internal constructor(
 
     public companion object {
         public operator fun invoke(
-            httpCredentials: MutPtr<RpcHttpTransportCredentialsA> = MutPtr(0L),
+            httpCredentials: MutPtr = MutPtr(0L),
         ): RpcSecurityQosV3A0 =
             RpcSecurityQosV3A0(
                 httpCredentialsCtorArg = httpCredentials,
@@ -10148,9 +10146,9 @@ public class RpcSecurityQosV3W internal constructor(
     public var impersonationType: RpcCImpLevel,
     public var additionalSecurityInfoType: RpcCAuthnInfoType,
     public var u: RpcSecurityQosV3W0,
-    sidCtorArg: MutPtr<CVoid>,
+    sidCtorArg: MutPtr,
 ) {
-    public var sid: MutPtr<CVoid> = sidCtorArg
+    public var sid: MutPtr = sidCtorArg
         internal set
 
     public constructor() : this(
@@ -10175,9 +10173,9 @@ public class RpcSecurityQosV3W internal constructor(
 
     public operator fun component6(): RpcSecurityQosV3W0 = this.u
 
-    public operator fun component7(): MutPtr<CVoid> = this.sid
+    public operator fun component7(): MutPtr = this.sid
 
-    public fun copy(version: UInt = this.version, capabilities: RpcCQosCapabilities = this.capabilities, identityTracking: RpcCQosIdentity = this.identityTracking, impersonationType: RpcCImpLevel = this.impersonationType, additionalSecurityInfoType: RpcCAuthnInfoType = this.additionalSecurityInfoType, u: RpcSecurityQosV3W0 = this.u, sid: MutPtr<CVoid> = this.sid): RpcSecurityQosV3W = RpcSecurityQosV3W(version = version, capabilities = capabilities, identityTracking = identityTracking, impersonationType = impersonationType, additionalSecurityInfoType = additionalSecurityInfoType, u = u, sidCtorArg = sid)
+    public fun copy(version: UInt = this.version, capabilities: RpcCQosCapabilities = this.capabilities, identityTracking: RpcCQosIdentity = this.identityTracking, impersonationType: RpcCImpLevel = this.impersonationType, additionalSecurityInfoType: RpcCAuthnInfoType = this.additionalSecurityInfoType, u: RpcSecurityQosV3W0 = this.u, sid: MutPtr = this.sid): RpcSecurityQosV3W = RpcSecurityQosV3W(version = version, capabilities = capabilities, identityTracking = identityTracking, impersonationType = impersonationType, additionalSecurityInfoType = additionalSecurityInfoType, u = u, sidCtorArg = sid)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -10211,7 +10209,7 @@ public class RpcSecurityQosV3W internal constructor(
             impersonationType: RpcCImpLevel = 0u,
             additionalSecurityInfoType: RpcCAuthnInfoType = 0u,
             u: RpcSecurityQosV3W0 = RpcSecurityQosV3W0(),
-            sid: MutPtr<CVoid> = MutPtr(0L),
+            sid: MutPtr = MutPtr(0L),
         ): RpcSecurityQosV3W =
             RpcSecurityQosV3W(
                 version = version,
@@ -10226,18 +10224,18 @@ public class RpcSecurityQosV3W internal constructor(
 }
 
 public class RpcSecurityQosV3W0 internal constructor(
-    httpCredentialsCtorArg: MutPtr<RpcHttpTransportCredentialsW>,
+    httpCredentialsCtorArg: MutPtr,
 ) {
-    public var httpCredentials: MutPtr<RpcHttpTransportCredentialsW> = httpCredentialsCtorArg
+    public var httpCredentials: MutPtr = httpCredentialsCtorArg
         internal set
 
     public constructor() : this(
         httpCredentialsCtorArg = MutPtr(0L),
     )
 
-    public operator fun component1(): MutPtr<RpcHttpTransportCredentialsW> = this.httpCredentials
+    public operator fun component1(): MutPtr = this.httpCredentials
 
-    public fun copy(httpCredentials: MutPtr<RpcHttpTransportCredentialsW> = this.httpCredentials): RpcSecurityQosV3W0 = RpcSecurityQosV3W0(httpCredentialsCtorArg = httpCredentials)
+    public fun copy(httpCredentials: MutPtr = this.httpCredentials): RpcSecurityQosV3W0 = RpcSecurityQosV3W0(httpCredentialsCtorArg = httpCredentials)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -10250,7 +10248,7 @@ public class RpcSecurityQosV3W0 internal constructor(
 
     public companion object {
         public operator fun invoke(
-            httpCredentials: MutPtr<RpcHttpTransportCredentialsW> = MutPtr(0L),
+            httpCredentials: MutPtr = MutPtr(0L),
         ): RpcSecurityQosV3W0 =
             RpcSecurityQosV3W0(
                 httpCredentialsCtorArg = httpCredentials,
@@ -10265,10 +10263,10 @@ public class RpcSecurityQosV4A internal constructor(
     public var impersonationType: RpcCImpLevel,
     public var additionalSecurityInfoType: RpcCAuthnInfoType,
     public var u: RpcSecurityQosV4A0,
-    sidCtorArg: MutPtr<CVoid>,
+    sidCtorArg: MutPtr,
     public var effectiveOnly: UInt,
 ) {
-    public var sid: MutPtr<CVoid> = sidCtorArg
+    public var sid: MutPtr = sidCtorArg
         internal set
 
     public constructor() : this(
@@ -10294,11 +10292,11 @@ public class RpcSecurityQosV4A internal constructor(
 
     public operator fun component6(): RpcSecurityQosV4A0 = this.u
 
-    public operator fun component7(): MutPtr<CVoid> = this.sid
+    public operator fun component7(): MutPtr = this.sid
 
     public operator fun component8(): UInt = this.effectiveOnly
 
-    public fun copy(version: UInt = this.version, capabilities: RpcCQosCapabilities = this.capabilities, identityTracking: RpcCQosIdentity = this.identityTracking, impersonationType: RpcCImpLevel = this.impersonationType, additionalSecurityInfoType: RpcCAuthnInfoType = this.additionalSecurityInfoType, u: RpcSecurityQosV4A0 = this.u, sid: MutPtr<CVoid> = this.sid, effectiveOnly: UInt = this.effectiveOnly): RpcSecurityQosV4A = RpcSecurityQosV4A(version = version, capabilities = capabilities, identityTracking = identityTracking, impersonationType = impersonationType, additionalSecurityInfoType = additionalSecurityInfoType, u = u, sidCtorArg = sid, effectiveOnly = effectiveOnly)
+    public fun copy(version: UInt = this.version, capabilities: RpcCQosCapabilities = this.capabilities, identityTracking: RpcCQosIdentity = this.identityTracking, impersonationType: RpcCImpLevel = this.impersonationType, additionalSecurityInfoType: RpcCAuthnInfoType = this.additionalSecurityInfoType, u: RpcSecurityQosV4A0 = this.u, sid: MutPtr = this.sid, effectiveOnly: UInt = this.effectiveOnly): RpcSecurityQosV4A = RpcSecurityQosV4A(version = version, capabilities = capabilities, identityTracking = identityTracking, impersonationType = impersonationType, additionalSecurityInfoType = additionalSecurityInfoType, u = u, sidCtorArg = sid, effectiveOnly = effectiveOnly)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -10334,7 +10332,7 @@ public class RpcSecurityQosV4A internal constructor(
             impersonationType: RpcCImpLevel = 0u,
             additionalSecurityInfoType: RpcCAuthnInfoType = 0u,
             u: RpcSecurityQosV4A0 = RpcSecurityQosV4A0(),
-            sid: MutPtr<CVoid> = MutPtr(0L),
+            sid: MutPtr = MutPtr(0L),
             effectiveOnly: UInt = 0u,
         ): RpcSecurityQosV4A =
             RpcSecurityQosV4A(
@@ -10351,18 +10349,18 @@ public class RpcSecurityQosV4A internal constructor(
 }
 
 public class RpcSecurityQosV4A0 internal constructor(
-    httpCredentialsCtorArg: MutPtr<RpcHttpTransportCredentialsA>,
+    httpCredentialsCtorArg: MutPtr,
 ) {
-    public var httpCredentials: MutPtr<RpcHttpTransportCredentialsA> = httpCredentialsCtorArg
+    public var httpCredentials: MutPtr = httpCredentialsCtorArg
         internal set
 
     public constructor() : this(
         httpCredentialsCtorArg = MutPtr(0L),
     )
 
-    public operator fun component1(): MutPtr<RpcHttpTransportCredentialsA> = this.httpCredentials
+    public operator fun component1(): MutPtr = this.httpCredentials
 
-    public fun copy(httpCredentials: MutPtr<RpcHttpTransportCredentialsA> = this.httpCredentials): RpcSecurityQosV4A0 = RpcSecurityQosV4A0(httpCredentialsCtorArg = httpCredentials)
+    public fun copy(httpCredentials: MutPtr = this.httpCredentials): RpcSecurityQosV4A0 = RpcSecurityQosV4A0(httpCredentialsCtorArg = httpCredentials)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -10375,7 +10373,7 @@ public class RpcSecurityQosV4A0 internal constructor(
 
     public companion object {
         public operator fun invoke(
-            httpCredentials: MutPtr<RpcHttpTransportCredentialsA> = MutPtr(0L),
+            httpCredentials: MutPtr = MutPtr(0L),
         ): RpcSecurityQosV4A0 =
             RpcSecurityQosV4A0(
                 httpCredentialsCtorArg = httpCredentials,
@@ -10390,10 +10388,10 @@ public class RpcSecurityQosV4W internal constructor(
     public var impersonationType: RpcCImpLevel,
     public var additionalSecurityInfoType: RpcCAuthnInfoType,
     public var u: RpcSecurityQosV4W0,
-    sidCtorArg: MutPtr<CVoid>,
+    sidCtorArg: MutPtr,
     public var effectiveOnly: UInt,
 ) {
-    public var sid: MutPtr<CVoid> = sidCtorArg
+    public var sid: MutPtr = sidCtorArg
         internal set
 
     public constructor() : this(
@@ -10419,11 +10417,11 @@ public class RpcSecurityQosV4W internal constructor(
 
     public operator fun component6(): RpcSecurityQosV4W0 = this.u
 
-    public operator fun component7(): MutPtr<CVoid> = this.sid
+    public operator fun component7(): MutPtr = this.sid
 
     public operator fun component8(): UInt = this.effectiveOnly
 
-    public fun copy(version: UInt = this.version, capabilities: RpcCQosCapabilities = this.capabilities, identityTracking: RpcCQosIdentity = this.identityTracking, impersonationType: RpcCImpLevel = this.impersonationType, additionalSecurityInfoType: RpcCAuthnInfoType = this.additionalSecurityInfoType, u: RpcSecurityQosV4W0 = this.u, sid: MutPtr<CVoid> = this.sid, effectiveOnly: UInt = this.effectiveOnly): RpcSecurityQosV4W = RpcSecurityQosV4W(version = version, capabilities = capabilities, identityTracking = identityTracking, impersonationType = impersonationType, additionalSecurityInfoType = additionalSecurityInfoType, u = u, sidCtorArg = sid, effectiveOnly = effectiveOnly)
+    public fun copy(version: UInt = this.version, capabilities: RpcCQosCapabilities = this.capabilities, identityTracking: RpcCQosIdentity = this.identityTracking, impersonationType: RpcCImpLevel = this.impersonationType, additionalSecurityInfoType: RpcCAuthnInfoType = this.additionalSecurityInfoType, u: RpcSecurityQosV4W0 = this.u, sid: MutPtr = this.sid, effectiveOnly: UInt = this.effectiveOnly): RpcSecurityQosV4W = RpcSecurityQosV4W(version = version, capabilities = capabilities, identityTracking = identityTracking, impersonationType = impersonationType, additionalSecurityInfoType = additionalSecurityInfoType, u = u, sidCtorArg = sid, effectiveOnly = effectiveOnly)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -10459,7 +10457,7 @@ public class RpcSecurityQosV4W internal constructor(
             impersonationType: RpcCImpLevel = 0u,
             additionalSecurityInfoType: RpcCAuthnInfoType = 0u,
             u: RpcSecurityQosV4W0 = RpcSecurityQosV4W0(),
-            sid: MutPtr<CVoid> = MutPtr(0L),
+            sid: MutPtr = MutPtr(0L),
             effectiveOnly: UInt = 0u,
         ): RpcSecurityQosV4W =
             RpcSecurityQosV4W(
@@ -10476,18 +10474,18 @@ public class RpcSecurityQosV4W internal constructor(
 }
 
 public class RpcSecurityQosV4W0 internal constructor(
-    httpCredentialsCtorArg: MutPtr<RpcHttpTransportCredentialsW>,
+    httpCredentialsCtorArg: MutPtr,
 ) {
-    public var httpCredentials: MutPtr<RpcHttpTransportCredentialsW> = httpCredentialsCtorArg
+    public var httpCredentials: MutPtr = httpCredentialsCtorArg
         internal set
 
     public constructor() : this(
         httpCredentialsCtorArg = MutPtr(0L),
     )
 
-    public operator fun component1(): MutPtr<RpcHttpTransportCredentialsW> = this.httpCredentials
+    public operator fun component1(): MutPtr = this.httpCredentials
 
-    public fun copy(httpCredentials: MutPtr<RpcHttpTransportCredentialsW> = this.httpCredentials): RpcSecurityQosV4W0 = RpcSecurityQosV4W0(httpCredentialsCtorArg = httpCredentials)
+    public fun copy(httpCredentials: MutPtr = this.httpCredentials): RpcSecurityQosV4W0 = RpcSecurityQosV4W0(httpCredentialsCtorArg = httpCredentials)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -10500,7 +10498,7 @@ public class RpcSecurityQosV4W0 internal constructor(
 
     public companion object {
         public operator fun invoke(
-            httpCredentials: MutPtr<RpcHttpTransportCredentialsW> = MutPtr(0L),
+            httpCredentials: MutPtr = MutPtr(0L),
         ): RpcSecurityQosV4W0 =
             RpcSecurityQosV4W0(
                 httpCredentialsCtorArg = httpCredentials,
@@ -10515,14 +10513,14 @@ public class RpcSecurityQosV5A internal constructor(
     public var impersonationType: RpcCImpLevel,
     public var additionalSecurityInfoType: RpcCAuthnInfoType,
     public var u: RpcSecurityQosV5A0,
-    sidCtorArg: MutPtr<CVoid>,
+    sidCtorArg: MutPtr,
     public var effectiveOnly: UInt,
-    serverSecurityDescriptorCtorArg: MutPtr<CVoid>,
+    serverSecurityDescriptorCtorArg: MutPtr,
 ) {
-    public var sid: MutPtr<CVoid> = sidCtorArg
+    public var sid: MutPtr = sidCtorArg
         internal set
 
-    public var serverSecurityDescriptor: MutPtr<CVoid> = serverSecurityDescriptorCtorArg
+    public var serverSecurityDescriptor: MutPtr = serverSecurityDescriptorCtorArg
         internal set
 
     public constructor() : this(
@@ -10549,13 +10547,13 @@ public class RpcSecurityQosV5A internal constructor(
 
     public operator fun component6(): RpcSecurityQosV5A0 = this.u
 
-    public operator fun component7(): MutPtr<CVoid> = this.sid
+    public operator fun component7(): MutPtr = this.sid
 
     public operator fun component8(): UInt = this.effectiveOnly
 
-    public operator fun component9(): MutPtr<CVoid> = this.serverSecurityDescriptor
+    public operator fun component9(): MutPtr = this.serverSecurityDescriptor
 
-    public fun copy(version: UInt = this.version, capabilities: RpcCQosCapabilities = this.capabilities, identityTracking: RpcCQosIdentity = this.identityTracking, impersonationType: RpcCImpLevel = this.impersonationType, additionalSecurityInfoType: RpcCAuthnInfoType = this.additionalSecurityInfoType, u: RpcSecurityQosV5A0 = this.u, sid: MutPtr<CVoid> = this.sid, effectiveOnly: UInt = this.effectiveOnly, serverSecurityDescriptor: MutPtr<CVoid> = this.serverSecurityDescriptor): RpcSecurityQosV5A = RpcSecurityQosV5A(version = version, capabilities = capabilities, identityTracking = identityTracking, impersonationType = impersonationType, additionalSecurityInfoType = additionalSecurityInfoType, u = u, sidCtorArg = sid, effectiveOnly = effectiveOnly, serverSecurityDescriptorCtorArg = serverSecurityDescriptor)
+    public fun copy(version: UInt = this.version, capabilities: RpcCQosCapabilities = this.capabilities, identityTracking: RpcCQosIdentity = this.identityTracking, impersonationType: RpcCImpLevel = this.impersonationType, additionalSecurityInfoType: RpcCAuthnInfoType = this.additionalSecurityInfoType, u: RpcSecurityQosV5A0 = this.u, sid: MutPtr = this.sid, effectiveOnly: UInt = this.effectiveOnly, serverSecurityDescriptor: MutPtr = this.serverSecurityDescriptor): RpcSecurityQosV5A = RpcSecurityQosV5A(version = version, capabilities = capabilities, identityTracking = identityTracking, impersonationType = impersonationType, additionalSecurityInfoType = additionalSecurityInfoType, u = u, sidCtorArg = sid, effectiveOnly = effectiveOnly, serverSecurityDescriptorCtorArg = serverSecurityDescriptor)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -10593,9 +10591,9 @@ public class RpcSecurityQosV5A internal constructor(
             impersonationType: RpcCImpLevel = 0u,
             additionalSecurityInfoType: RpcCAuthnInfoType = 0u,
             u: RpcSecurityQosV5A0 = RpcSecurityQosV5A0(),
-            sid: MutPtr<CVoid> = MutPtr(0L),
+            sid: MutPtr = MutPtr(0L),
             effectiveOnly: UInt = 0u,
-            serverSecurityDescriptor: MutPtr<CVoid> = MutPtr(0L),
+            serverSecurityDescriptor: MutPtr = MutPtr(0L),
         ): RpcSecurityQosV5A =
             RpcSecurityQosV5A(
                 version = version,
@@ -10612,18 +10610,18 @@ public class RpcSecurityQosV5A internal constructor(
 }
 
 public class RpcSecurityQosV5A0 internal constructor(
-    httpCredentialsCtorArg: MutPtr<RpcHttpTransportCredentialsA>,
+    httpCredentialsCtorArg: MutPtr,
 ) {
-    public var httpCredentials: MutPtr<RpcHttpTransportCredentialsA> = httpCredentialsCtorArg
+    public var httpCredentials: MutPtr = httpCredentialsCtorArg
         internal set
 
     public constructor() : this(
         httpCredentialsCtorArg = MutPtr(0L),
     )
 
-    public operator fun component1(): MutPtr<RpcHttpTransportCredentialsA> = this.httpCredentials
+    public operator fun component1(): MutPtr = this.httpCredentials
 
-    public fun copy(httpCredentials: MutPtr<RpcHttpTransportCredentialsA> = this.httpCredentials): RpcSecurityQosV5A0 = RpcSecurityQosV5A0(httpCredentialsCtorArg = httpCredentials)
+    public fun copy(httpCredentials: MutPtr = this.httpCredentials): RpcSecurityQosV5A0 = RpcSecurityQosV5A0(httpCredentialsCtorArg = httpCredentials)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -10636,7 +10634,7 @@ public class RpcSecurityQosV5A0 internal constructor(
 
     public companion object {
         public operator fun invoke(
-            httpCredentials: MutPtr<RpcHttpTransportCredentialsA> = MutPtr(0L),
+            httpCredentials: MutPtr = MutPtr(0L),
         ): RpcSecurityQosV5A0 =
             RpcSecurityQosV5A0(
                 httpCredentialsCtorArg = httpCredentials,
@@ -10651,14 +10649,14 @@ public class RpcSecurityQosV5W internal constructor(
     public var impersonationType: RpcCImpLevel,
     public var additionalSecurityInfoType: RpcCAuthnInfoType,
     public var u: RpcSecurityQosV5W0,
-    sidCtorArg: MutPtr<CVoid>,
+    sidCtorArg: MutPtr,
     public var effectiveOnly: UInt,
-    serverSecurityDescriptorCtorArg: MutPtr<CVoid>,
+    serverSecurityDescriptorCtorArg: MutPtr,
 ) {
-    public var sid: MutPtr<CVoid> = sidCtorArg
+    public var sid: MutPtr = sidCtorArg
         internal set
 
-    public var serverSecurityDescriptor: MutPtr<CVoid> = serverSecurityDescriptorCtorArg
+    public var serverSecurityDescriptor: MutPtr = serverSecurityDescriptorCtorArg
         internal set
 
     public constructor() : this(
@@ -10685,13 +10683,13 @@ public class RpcSecurityQosV5W internal constructor(
 
     public operator fun component6(): RpcSecurityQosV5W0 = this.u
 
-    public operator fun component7(): MutPtr<CVoid> = this.sid
+    public operator fun component7(): MutPtr = this.sid
 
     public operator fun component8(): UInt = this.effectiveOnly
 
-    public operator fun component9(): MutPtr<CVoid> = this.serverSecurityDescriptor
+    public operator fun component9(): MutPtr = this.serverSecurityDescriptor
 
-    public fun copy(version: UInt = this.version, capabilities: RpcCQosCapabilities = this.capabilities, identityTracking: RpcCQosIdentity = this.identityTracking, impersonationType: RpcCImpLevel = this.impersonationType, additionalSecurityInfoType: RpcCAuthnInfoType = this.additionalSecurityInfoType, u: RpcSecurityQosV5W0 = this.u, sid: MutPtr<CVoid> = this.sid, effectiveOnly: UInt = this.effectiveOnly, serverSecurityDescriptor: MutPtr<CVoid> = this.serverSecurityDescriptor): RpcSecurityQosV5W = RpcSecurityQosV5W(version = version, capabilities = capabilities, identityTracking = identityTracking, impersonationType = impersonationType, additionalSecurityInfoType = additionalSecurityInfoType, u = u, sidCtorArg = sid, effectiveOnly = effectiveOnly, serverSecurityDescriptorCtorArg = serverSecurityDescriptor)
+    public fun copy(version: UInt = this.version, capabilities: RpcCQosCapabilities = this.capabilities, identityTracking: RpcCQosIdentity = this.identityTracking, impersonationType: RpcCImpLevel = this.impersonationType, additionalSecurityInfoType: RpcCAuthnInfoType = this.additionalSecurityInfoType, u: RpcSecurityQosV5W0 = this.u, sid: MutPtr = this.sid, effectiveOnly: UInt = this.effectiveOnly, serverSecurityDescriptor: MutPtr = this.serverSecurityDescriptor): RpcSecurityQosV5W = RpcSecurityQosV5W(version = version, capabilities = capabilities, identityTracking = identityTracking, impersonationType = impersonationType, additionalSecurityInfoType = additionalSecurityInfoType, u = u, sidCtorArg = sid, effectiveOnly = effectiveOnly, serverSecurityDescriptorCtorArg = serverSecurityDescriptor)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -10729,9 +10727,9 @@ public class RpcSecurityQosV5W internal constructor(
             impersonationType: RpcCImpLevel = 0u,
             additionalSecurityInfoType: RpcCAuthnInfoType = 0u,
             u: RpcSecurityQosV5W0 = RpcSecurityQosV5W0(),
-            sid: MutPtr<CVoid> = MutPtr(0L),
+            sid: MutPtr = MutPtr(0L),
             effectiveOnly: UInt = 0u,
-            serverSecurityDescriptor: MutPtr<CVoid> = MutPtr(0L),
+            serverSecurityDescriptor: MutPtr = MutPtr(0L),
         ): RpcSecurityQosV5W =
             RpcSecurityQosV5W(
                 version = version,
@@ -10748,18 +10746,18 @@ public class RpcSecurityQosV5W internal constructor(
 }
 
 public class RpcSecurityQosV5W0 internal constructor(
-    httpCredentialsCtorArg: MutPtr<RpcHttpTransportCredentialsW>,
+    httpCredentialsCtorArg: MutPtr,
 ) {
-    public var httpCredentials: MutPtr<RpcHttpTransportCredentialsW> = httpCredentialsCtorArg
+    public var httpCredentials: MutPtr = httpCredentialsCtorArg
         internal set
 
     public constructor() : this(
         httpCredentialsCtorArg = MutPtr(0L),
     )
 
-    public operator fun component1(): MutPtr<RpcHttpTransportCredentialsW> = this.httpCredentials
+    public operator fun component1(): MutPtr = this.httpCredentials
 
-    public fun copy(httpCredentials: MutPtr<RpcHttpTransportCredentialsW> = this.httpCredentials): RpcSecurityQosV5W0 = RpcSecurityQosV5W0(httpCredentialsCtorArg = httpCredentials)
+    public fun copy(httpCredentials: MutPtr = this.httpCredentials): RpcSecurityQosV5W0 = RpcSecurityQosV5W0(httpCredentialsCtorArg = httpCredentials)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -10772,7 +10770,7 @@ public class RpcSecurityQosV5W0 internal constructor(
 
     public companion object {
         public operator fun invoke(
-            httpCredentials: MutPtr<RpcHttpTransportCredentialsW> = MutPtr(0L),
+            httpCredentials: MutPtr = MutPtr(0L),
         ): RpcSecurityQosV5W0 =
             RpcSecurityQosV5W0(
                 httpCredentialsCtorArg = httpCredentials,
@@ -10809,23 +10807,23 @@ public class RpcServerInterface internal constructor(
     public var length: UInt,
     public var interfaceId: RpcSyntaxIdentifier,
     public var transferSyntax: RpcSyntaxIdentifier,
-    dispatchTableCtorArg: MutPtr<RpcDispatchTable>,
+    dispatchTableCtorArg: MutPtr,
     public var rpcProtseqEndpointCount: UInt,
-    rpcProtseqEndpointCtorArg: MutPtr<RpcProtseqEndpoint>,
-    defaultManagerEpvCtorArg: MutPtr<CVoid>,
-    interpreterInfoCtorArg: ConstPtr<CVoid>,
+    rpcProtseqEndpointCtorArg: MutPtr,
+    defaultManagerEpvCtorArg: MutPtr,
+    interpreterInfoCtorArg: ConstPtr,
     public var flags: UInt,
 ) {
-    public var dispatchTable: MutPtr<RpcDispatchTable> = dispatchTableCtorArg
+    public var dispatchTable: MutPtr = dispatchTableCtorArg
         internal set
 
-    public var rpcProtseqEndpoint: MutPtr<RpcProtseqEndpoint> = rpcProtseqEndpointCtorArg
+    public var rpcProtseqEndpoint: MutPtr = rpcProtseqEndpointCtorArg
         internal set
 
-    public var defaultManagerEpv: MutPtr<CVoid> = defaultManagerEpvCtorArg
+    public var defaultManagerEpv: MutPtr = defaultManagerEpvCtorArg
         internal set
 
-    public var interpreterInfo: ConstPtr<CVoid> = interpreterInfoCtorArg
+    public var interpreterInfo: ConstPtr = interpreterInfoCtorArg
         internal set
 
     public constructor() : this(
@@ -10846,19 +10844,19 @@ public class RpcServerInterface internal constructor(
 
     public operator fun component3(): RpcSyntaxIdentifier = this.transferSyntax
 
-    public operator fun component4(): MutPtr<RpcDispatchTable> = this.dispatchTable
+    public operator fun component4(): MutPtr = this.dispatchTable
 
     public operator fun component5(): UInt = this.rpcProtseqEndpointCount
 
-    public operator fun component6(): MutPtr<RpcProtseqEndpoint> = this.rpcProtseqEndpoint
+    public operator fun component6(): MutPtr = this.rpcProtseqEndpoint
 
-    public operator fun component7(): MutPtr<CVoid> = this.defaultManagerEpv
+    public operator fun component7(): MutPtr = this.defaultManagerEpv
 
-    public operator fun component8(): ConstPtr<CVoid> = this.interpreterInfo
+    public operator fun component8(): ConstPtr = this.interpreterInfo
 
     public operator fun component9(): UInt = this.flags
 
-    public fun copy(length: UInt = this.length, interfaceId: RpcSyntaxIdentifier = this.interfaceId, transferSyntax: RpcSyntaxIdentifier = this.transferSyntax, dispatchTable: MutPtr<RpcDispatchTable> = this.dispatchTable, rpcProtseqEndpointCount: UInt = this.rpcProtseqEndpointCount, rpcProtseqEndpoint: MutPtr<RpcProtseqEndpoint> = this.rpcProtseqEndpoint, defaultManagerEpv: MutPtr<CVoid> = this.defaultManagerEpv, interpreterInfo: ConstPtr<CVoid> = this.interpreterInfo, flags: UInt = this.flags): RpcServerInterface = RpcServerInterface(length = length, interfaceId = interfaceId, transferSyntax = transferSyntax, dispatchTableCtorArg = dispatchTable, rpcProtseqEndpointCount = rpcProtseqEndpointCount, rpcProtseqEndpointCtorArg = rpcProtseqEndpoint, defaultManagerEpvCtorArg = defaultManagerEpv, interpreterInfoCtorArg = interpreterInfo, flags = flags)
+    public fun copy(length: UInt = this.length, interfaceId: RpcSyntaxIdentifier = this.interfaceId, transferSyntax: RpcSyntaxIdentifier = this.transferSyntax, dispatchTable: MutPtr = this.dispatchTable, rpcProtseqEndpointCount: UInt = this.rpcProtseqEndpointCount, rpcProtseqEndpoint: MutPtr = this.rpcProtseqEndpoint, defaultManagerEpv: MutPtr = this.defaultManagerEpv, interpreterInfo: ConstPtr = this.interpreterInfo, flags: UInt = this.flags): RpcServerInterface = RpcServerInterface(length = length, interfaceId = interfaceId, transferSyntax = transferSyntax, dispatchTableCtorArg = dispatchTable, rpcProtseqEndpointCount = rpcProtseqEndpointCount, rpcProtseqEndpointCtorArg = rpcProtseqEndpoint, defaultManagerEpvCtorArg = defaultManagerEpv, interpreterInfoCtorArg = interpreterInfo, flags = flags)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -10893,11 +10891,11 @@ public class RpcServerInterface internal constructor(
             length: UInt = 0u,
             interfaceId: RpcSyntaxIdentifier = RpcSyntaxIdentifier(),
             transferSyntax: RpcSyntaxIdentifier = RpcSyntaxIdentifier(),
-            dispatchTable: MutPtr<RpcDispatchTable> = MutPtr(0L),
+            dispatchTable: MutPtr = MutPtr(0L),
             rpcProtseqEndpointCount: UInt = 0u,
-            rpcProtseqEndpoint: MutPtr<RpcProtseqEndpoint> = MutPtr(0L),
-            defaultManagerEpv: MutPtr<CVoid> = MutPtr(0L),
-            interpreterInfo: ConstPtr<CVoid> = ConstPtr(0L),
+            rpcProtseqEndpoint: MutPtr = MutPtr(0L),
+            defaultManagerEpv: MutPtr = MutPtr(0L),
+            interpreterInfo: ConstPtr = ConstPtr(0L),
             flags: UInt = 0u,
         ): RpcServerInterface =
             RpcServerInterface(
@@ -10991,9 +10989,9 @@ public data class RpcVersion(
 
 public class ScontextQueue internal constructor(
     public var numberOfObjects: UInt,
-    arrayOfObjectsCtorArg: MutPtr<MutPtr<NdrScontext>>,
+    arrayOfObjectsCtorArg: MutPtr,
 ) {
-    public var arrayOfObjects: MutPtr<MutPtr<NdrScontext>> = arrayOfObjectsCtorArg
+    public var arrayOfObjects: MutPtr = arrayOfObjectsCtorArg
         internal set
 
     public constructor() : this(
@@ -11003,9 +11001,9 @@ public class ScontextQueue internal constructor(
 
     public operator fun component1(): UInt = this.numberOfObjects
 
-    public operator fun component2(): MutPtr<MutPtr<NdrScontext>> = this.arrayOfObjects
+    public operator fun component2(): MutPtr = this.arrayOfObjects
 
-    public fun copy(numberOfObjects: UInt = this.numberOfObjects, arrayOfObjects: MutPtr<MutPtr<NdrScontext>> = this.arrayOfObjects): ScontextQueue = ScontextQueue(numberOfObjects = numberOfObjects, arrayOfObjectsCtorArg = arrayOfObjects)
+    public fun copy(numberOfObjects: UInt = this.numberOfObjects, arrayOfObjects: MutPtr = this.arrayOfObjects): ScontextQueue = ScontextQueue(numberOfObjects = numberOfObjects, arrayOfObjectsCtorArg = arrayOfObjects)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -11031,21 +11029,21 @@ public class ScontextQueue internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<MutPtr<NdrScontext>>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                     )
                 override fun writeNative(addr: Long, value: ScontextQueue) {
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr, value.numberOfObjects)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<MutPtr<NdrScontext>>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.arrayOfObjects)
                 }
             }
 
         public operator fun invoke(
             numberOfObjects: UInt = 0u,
-            arrayOfObjects: MutPtr<MutPtr<NdrScontext>> = MutPtr(0L),
+            arrayOfObjects: MutPtr = MutPtr(0L),
         ): ScontextQueue =
             ScontextQueue(
                 numberOfObjects = numberOfObjects,
@@ -11055,21 +11053,21 @@ public class ScontextQueue internal constructor(
 }
 
 public class SecWinntAuthIdentityA internal constructor(
-    userCtorArg: MutPtr<UByte>,
+    userCtorArg: MutPtr,
     public var userLength: UInt,
-    domainCtorArg: MutPtr<UByte>,
+    domainCtorArg: MutPtr,
     public var domainLength: UInt,
-    passwordCtorArg: MutPtr<UByte>,
+    passwordCtorArg: MutPtr,
     public var passwordLength: UInt,
     public var flags: SecWinntAuthIdentity,
 ) {
-    public var user: MutPtr<UByte> = userCtorArg
+    public var user: MutPtr = userCtorArg
         internal set
 
-    public var domain: MutPtr<UByte> = domainCtorArg
+    public var domain: MutPtr = domainCtorArg
         internal set
 
-    public var password: MutPtr<UByte> = passwordCtorArg
+    public var password: MutPtr = passwordCtorArg
         internal set
 
     public constructor() : this(
@@ -11082,21 +11080,21 @@ public class SecWinntAuthIdentityA internal constructor(
         flags = 0u,
     )
 
-    public operator fun component1(): MutPtr<UByte> = this.user
+    public operator fun component1(): MutPtr = this.user
 
     public operator fun component2(): UInt = this.userLength
 
-    public operator fun component3(): MutPtr<UByte> = this.domain
+    public operator fun component3(): MutPtr = this.domain
 
     public operator fun component4(): UInt = this.domainLength
 
-    public operator fun component5(): MutPtr<UByte> = this.password
+    public operator fun component5(): MutPtr = this.password
 
     public operator fun component6(): UInt = this.passwordLength
 
     public operator fun component7(): SecWinntAuthIdentity = this.flags
 
-    public fun copy(user: MutPtr<UByte> = this.user, userLength: UInt = this.userLength, domain: MutPtr<UByte> = this.domain, domainLength: UInt = this.domainLength, password: MutPtr<UByte> = this.password, passwordLength: UInt = this.passwordLength, flags: SecWinntAuthIdentity = this.flags): SecWinntAuthIdentityA = SecWinntAuthIdentityA(userCtorArg = user, userLength = userLength, domainCtorArg = domain, domainLength = domainLength, passwordCtorArg = password, passwordLength = passwordLength, flags = flags)
+    public fun copy(user: MutPtr = this.user, userLength: UInt = this.userLength, domain: MutPtr = this.domain, domainLength: UInt = this.domainLength, password: MutPtr = this.password, passwordLength: UInt = this.passwordLength, flags: SecWinntAuthIdentity = this.flags): SecWinntAuthIdentityA = SecWinntAuthIdentityA(userCtorArg = user, userLength = userLength, domainCtorArg = domain, domainLength = domainLength, passwordCtorArg = password, passwordLength = passwordLength, flags = flags)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -11131,17 +11129,17 @@ public class SecWinntAuthIdentityA internal constructor(
                     SecWinntAuthIdentityA(
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<UByte>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 8L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<UByte>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 16L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 24L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<UByte>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 32L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 40L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 44L),
@@ -11149,17 +11147,17 @@ public class SecWinntAuthIdentityA internal constructor(
                 override fun writeNative(addr: Long, value: SecWinntAuthIdentityA) {
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<UByte>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr, value.user)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 8L, value.userLength)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<UByte>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 16L, value.domain)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 24L, value.domainLength)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<UByte>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 32L, value.password)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 40L, value.passwordLength)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 44L, value.flags)
@@ -11167,11 +11165,11 @@ public class SecWinntAuthIdentityA internal constructor(
             }
 
         public operator fun invoke(
-            user: MutPtr<UByte> = MutPtr(0L),
+            user: MutPtr = MutPtr(0L),
             userLength: UInt = 0u,
-            domain: MutPtr<UByte> = MutPtr(0L),
+            domain: MutPtr = MutPtr(0L),
             domainLength: UInt = 0u,
-            password: MutPtr<UByte> = MutPtr(0L),
+            password: MutPtr = MutPtr(0L),
             passwordLength: UInt = 0u,
             flags: SecWinntAuthIdentity = 0u,
         ): SecWinntAuthIdentityA =
@@ -11188,21 +11186,21 @@ public class SecWinntAuthIdentityA internal constructor(
 }
 
 public class SecWinntAuthIdentityW internal constructor(
-    userCtorArg: MutPtr<UShort>,
+    userCtorArg: MutPtr,
     public var userLength: UInt,
-    domainCtorArg: MutPtr<UShort>,
+    domainCtorArg: MutPtr,
     public var domainLength: UInt,
-    passwordCtorArg: MutPtr<UShort>,
+    passwordCtorArg: MutPtr,
     public var passwordLength: UInt,
     public var flags: SecWinntAuthIdentity,
 ) {
-    public var user: MutPtr<UShort> = userCtorArg
+    public var user: MutPtr = userCtorArg
         internal set
 
-    public var domain: MutPtr<UShort> = domainCtorArg
+    public var domain: MutPtr = domainCtorArg
         internal set
 
-    public var password: MutPtr<UShort> = passwordCtorArg
+    public var password: MutPtr = passwordCtorArg
         internal set
 
     public constructor() : this(
@@ -11215,21 +11213,21 @@ public class SecWinntAuthIdentityW internal constructor(
         flags = 0u,
     )
 
-    public operator fun component1(): MutPtr<UShort> = this.user
+    public operator fun component1(): MutPtr = this.user
 
     public operator fun component2(): UInt = this.userLength
 
-    public operator fun component3(): MutPtr<UShort> = this.domain
+    public operator fun component3(): MutPtr = this.domain
 
     public operator fun component4(): UInt = this.domainLength
 
-    public operator fun component5(): MutPtr<UShort> = this.password
+    public operator fun component5(): MutPtr = this.password
 
     public operator fun component6(): UInt = this.passwordLength
 
     public operator fun component7(): SecWinntAuthIdentity = this.flags
 
-    public fun copy(user: MutPtr<UShort> = this.user, userLength: UInt = this.userLength, domain: MutPtr<UShort> = this.domain, domainLength: UInt = this.domainLength, password: MutPtr<UShort> = this.password, passwordLength: UInt = this.passwordLength, flags: SecWinntAuthIdentity = this.flags): SecWinntAuthIdentityW = SecWinntAuthIdentityW(userCtorArg = user, userLength = userLength, domainCtorArg = domain, domainLength = domainLength, passwordCtorArg = password, passwordLength = passwordLength, flags = flags)
+    public fun copy(user: MutPtr = this.user, userLength: UInt = this.userLength, domain: MutPtr = this.domain, domainLength: UInt = this.domainLength, password: MutPtr = this.password, passwordLength: UInt = this.passwordLength, flags: SecWinntAuthIdentity = this.flags): SecWinntAuthIdentityW = SecWinntAuthIdentityW(userCtorArg = user, userLength = userLength, domainCtorArg = domain, domainLength = domainLength, passwordCtorArg = password, passwordLength = passwordLength, flags = flags)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -11264,17 +11262,17 @@ public class SecWinntAuthIdentityW internal constructor(
                     SecWinntAuthIdentityW(
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<UShort>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 8L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<UShort>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 16L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 24L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<UShort>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 32L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 40L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 44L),
@@ -11282,17 +11280,17 @@ public class SecWinntAuthIdentityW internal constructor(
                 override fun writeNative(addr: Long, value: SecWinntAuthIdentityW) {
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<UShort>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr, value.user)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 8L, value.userLength)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<UShort>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 16L, value.domain)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 24L, value.domainLength)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<UShort>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 32L, value.password)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 40L, value.passwordLength)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 44L, value.flags)
@@ -11300,11 +11298,11 @@ public class SecWinntAuthIdentityW internal constructor(
             }
 
         public operator fun invoke(
-            user: MutPtr<UShort> = MutPtr(0L),
+            user: MutPtr = MutPtr(0L),
             userLength: UInt = 0u,
-            domain: MutPtr<UShort> = MutPtr(0L),
+            domain: MutPtr = MutPtr(0L),
             domainLength: UInt = 0u,
-            password: MutPtr<UShort> = MutPtr(0L),
+            password: MutPtr = MutPtr(0L),
             passwordLength: UInt = 0u,
             flags: SecWinntAuthIdentity = 0u,
         ): SecWinntAuthIdentityW =
@@ -11322,23 +11320,23 @@ public class SecWinntAuthIdentityW internal constructor(
 
 public class UserMarshalCb internal constructor(
     public var flags: UInt,
-    pStubMsgCtorArg: MutPtr<MidlStubMessage>,
-    pReserveCtorArg: MutPtr<UByte>,
+    pStubMsgCtorArg: MutPtr,
+    pReserveCtorArg: MutPtr,
     public var signature: UInt,
     public var cBType: UserMarshalCbType,
-    pFormatCtorArg: MutPtr<UByte>,
-    pTypeFormatCtorArg: MutPtr<UByte>,
+    pFormatCtorArg: MutPtr,
+    pTypeFormatCtorArg: MutPtr,
 ) {
-    public var pStubMsg: MutPtr<MidlStubMessage> = pStubMsgCtorArg
+    public var pStubMsg: MutPtr = pStubMsgCtorArg
         internal set
 
-    public var pReserve: MutPtr<UByte> = pReserveCtorArg
+    public var pReserve: MutPtr = pReserveCtorArg
         internal set
 
-    public var pFormat: MutPtr<UByte> = pFormatCtorArg
+    public var pFormat: MutPtr = pFormatCtorArg
         internal set
 
-    public var pTypeFormat: MutPtr<UByte> = pTypeFormatCtorArg
+    public var pTypeFormat: MutPtr = pTypeFormatCtorArg
         internal set
 
     public constructor() : this(
@@ -11353,19 +11351,19 @@ public class UserMarshalCb internal constructor(
 
     public operator fun component1(): UInt = this.flags
 
-    public operator fun component2(): MutPtr<MidlStubMessage> = this.pStubMsg
+    public operator fun component2(): MutPtr = this.pStubMsg
 
-    public operator fun component3(): MutPtr<UByte> = this.pReserve
+    public operator fun component3(): MutPtr = this.pReserve
 
     public operator fun component4(): UInt = this.signature
 
     public operator fun component5(): UserMarshalCbType = this.cBType
 
-    public operator fun component6(): MutPtr<UByte> = this.pFormat
+    public operator fun component6(): MutPtr = this.pFormat
 
-    public operator fun component7(): MutPtr<UByte> = this.pTypeFormat
+    public operator fun component7(): MutPtr = this.pTypeFormat
 
-    public fun copy(flags: UInt = this.flags, pStubMsg: MutPtr<MidlStubMessage> = this.pStubMsg, pReserve: MutPtr<UByte> = this.pReserve, signature: UInt = this.signature, cBType: UserMarshalCbType = this.cBType, pFormat: MutPtr<UByte> = this.pFormat, pTypeFormat: MutPtr<UByte> = this.pTypeFormat): UserMarshalCb = UserMarshalCb(flags = flags, pStubMsgCtorArg = pStubMsg, pReserveCtorArg = pReserve, signature = signature, cBType = cBType, pFormatCtorArg = pFormat, pTypeFormatCtorArg = pTypeFormat)
+    public fun copy(flags: UInt = this.flags, pStubMsg: MutPtr = this.pStubMsg, pReserve: MutPtr = this.pReserve, signature: UInt = this.signature, cBType: UserMarshalCbType = this.cBType, pFormat: MutPtr = this.pFormat, pTypeFormat: MutPtr = this.pTypeFormat): UserMarshalCb = UserMarshalCb(flags = flags, pStubMsgCtorArg = pStubMsg, pReserveCtorArg = pReserve, signature = signature, cBType = cBType, pFormatCtorArg = pFormat, pTypeFormatCtorArg = pTypeFormat)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -11401,54 +11399,54 @@ public class UserMarshalCb internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<MidlStubMessage>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<UByte>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 16L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 24L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr + 28L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<UByte>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 32L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<UByte>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 40L),
                     )
                 override fun writeNative(addr: Long, value: UserMarshalCb) {
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr, value.flags)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<MidlStubMessage>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.pStubMsg)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<UByte>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 16L, value.pReserve)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 24L, value.signature)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr + 28L, value.cBType)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<UByte>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 32L, value.pFormat)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<UByte>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 40L, value.pTypeFormat)
                 }
             }
 
         public operator fun invoke(
             flags: UInt = 0u,
-            pStubMsg: MutPtr<MidlStubMessage> = MutPtr(0L),
-            pReserve: MutPtr<UByte> = MutPtr(0L),
+            pStubMsg: MutPtr = MutPtr(0L),
+            pReserve: MutPtr = MutPtr(0L),
             signature: UInt = 0u,
             cBType: UserMarshalCbType = 0,
-            pFormat: MutPtr<UByte> = MutPtr(0L),
-            pTypeFormat: MutPtr<UByte> = MutPtr(0L),
+            pFormat: MutPtr = MutPtr(0L),
+            pTypeFormat: MutPtr = MutPtr(0L),
         ): UserMarshalCb =
             UserMarshalCb(
                 flags = flags,
@@ -11471,9 +11469,9 @@ public data class UserMarshalRoutineQuadruple(
 
 public class UuidVector internal constructor(
     public var count: UInt,
-    uuidCtorArg: List<MutPtr<Guid>>,
+    uuidCtorArg: List<MutPtr>,
 ) {
-    public var uuid: List<MutPtr<Guid>> = uuidCtorArg
+    public var uuid: List<MutPtr> = uuidCtorArg
         internal set
 
     public constructor() : this(
@@ -11483,9 +11481,9 @@ public class UuidVector internal constructor(
 
     public operator fun component1(): UInt = this.count
 
-    public operator fun component2(): List<MutPtr<Guid>> = this.uuid
+    public operator fun component2(): List<MutPtr> = this.uuid
 
-    public fun copy(count: UInt = this.count, uuid: List<MutPtr<Guid>> = this.uuid): UuidVector = UuidVector(count = count, uuidCtorArg = uuid)
+    public fun copy(count: UInt = this.count, uuid: List<MutPtr> = this.uuid): UuidVector = UuidVector(count = count, uuidCtorArg = uuid)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -11513,7 +11511,7 @@ public class UuidVector internal constructor(
                             io.github.kotlinmania.rustlang.core.mem
                                 .FixedArrayTypeLayout(
                                     io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                        .mutPtrLayout<Guid>(64),
+                                        .mutPtrLayout(64),
                                     (1).toInt(),
                                 )
                         ).readNative(addr + 8L),
@@ -11524,7 +11522,7 @@ public class UuidVector internal constructor(
                         io.github.kotlinmania.rustlang.core.mem
                             .FixedArrayTypeLayout(
                                 io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                    .mutPtrLayout<Guid>(64),
+                                    .mutPtrLayout(64),
                                 (1).toInt(),
                             )
                     ).writeNative(addr + 8L, value.uuid)
@@ -11533,7 +11531,7 @@ public class UuidVector internal constructor(
 
         public operator fun invoke(
             count: UInt = 0u,
-            uuid: List<MutPtr<Guid>> = List(1) { MutPtr(0L) },
+            uuid: List<MutPtr> = List(1) { MutPtr(0L) },
         ): UuidVector =
             UuidVector(
                 count = count,

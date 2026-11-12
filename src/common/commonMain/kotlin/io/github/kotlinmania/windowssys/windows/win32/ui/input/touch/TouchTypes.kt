@@ -1,13 +1,12 @@
 package io.github.kotlinmania.windowssys.windows.win32.ui.input.touch
 
-import io.github.kotlinmania.rustlang.core.ffi.CVoid
 import io.github.kotlinmania.rustlang.core.ptr.MutPtr
 
 public typealias GestureconfigId = UInt
 
-public typealias Hgestureinfo = MutPtr<CVoid>
+public typealias Hgestureinfo = MutPtr
 
-public typealias Htouchinput = MutPtr<CVoid>
+public typealias Htouchinput = MutPtr
 
 public typealias ManipulationProcessorManipulations = Int
 

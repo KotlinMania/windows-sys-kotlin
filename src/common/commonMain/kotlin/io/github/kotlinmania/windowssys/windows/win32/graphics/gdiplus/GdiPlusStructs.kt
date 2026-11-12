@@ -2,7 +2,6 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus
 
-import io.github.kotlinmania.rustlang.core.ffi.CVoid
 import io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
 import io.github.kotlinmania.rustlang.core.mem.TypeLayout
 import io.github.kotlinmania.rustlang.core.ptr.ConstPtr
@@ -18,10 +17,10 @@ public class BitmapData internal constructor(
     public var height: UInt,
     public var stride: Int,
     public var pixelFormat: Int,
-    scan0CtorArg: MutPtr<CVoid>,
+    scan0CtorArg: MutPtr,
     public var reserved: Int,
 ) {
-    public var scan0: MutPtr<CVoid> = scan0CtorArg
+    public var scan0: MutPtr = scan0CtorArg
         internal set
 
     public constructor() : this(
@@ -41,11 +40,11 @@ public class BitmapData internal constructor(
 
     public operator fun component4(): Int = this.pixelFormat
 
-    public operator fun component5(): MutPtr<CVoid> = this.scan0
+    public operator fun component5(): MutPtr = this.scan0
 
     public operator fun component6(): Int = this.reserved
 
-    public fun copy(width: UInt = this.width, height: UInt = this.height, stride: Int = this.stride, pixelFormat: Int = this.pixelFormat, scan0: MutPtr<CVoid> = this.scan0, reserved: Int = this.reserved): BitmapData = BitmapData(width = width, height = height, stride = stride, pixelFormat = pixelFormat, scan0CtorArg = scan0, reserved = reserved)
+    public fun copy(width: UInt = this.width, height: UInt = this.height, stride: Int = this.stride, pixelFormat: Int = this.pixelFormat, scan0: MutPtr = this.scan0, reserved: Int = this.reserved): BitmapData = BitmapData(width = width, height = height, stride = stride, pixelFormat = pixelFormat, scan0CtorArg = scan0, reserved = reserved)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -82,7 +81,7 @@ public class BitmapData internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr + 12L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<CVoid>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 16L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.USIZE64).readNative(addr + 24L),
                     )
@@ -93,7 +92,7 @@ public class BitmapData internal constructor(
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr + 12L, value.pixelFormat)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<CVoid>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 16L, value.scan0)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.USIZE64).writeNative(addr + 24L, value.reserved)
                 }
@@ -104,7 +103,7 @@ public class BitmapData internal constructor(
             height: UInt = 0u,
             stride: Int = 0,
             pixelFormat: Int = 0,
-            scan0: MutPtr<CVoid> = MutPtr(0L),
+            scan0: MutPtr = MutPtr(0L),
             reserved: Int = 0,
         ): BitmapData =
             BitmapData(
@@ -861,19 +860,19 @@ public data class Enhmetaheader3(
 )
 
 public class Effect internal constructor(
-    lpVtblCtorArg: MutPtr<MutPtr<CVoid>>,
-    nativeEffectCtorArg: MutPtr<CGpEffect>,
+    lpVtblCtorArg: MutPtr,
+    nativeEffectCtorArg: MutPtr,
     public var auxDataSize: Int,
-    auxDataCtorArg: MutPtr<CVoid>,
+    auxDataCtorArg: MutPtr,
     public var useAuxData: Bool,
 ) {
-    public var lpVtbl: MutPtr<MutPtr<CVoid>> = lpVtblCtorArg
+    public var lpVtbl: MutPtr = lpVtblCtorArg
         internal set
 
-    public var nativeEffect: MutPtr<CGpEffect> = nativeEffectCtorArg
+    public var nativeEffect: MutPtr = nativeEffectCtorArg
         internal set
 
-    public var auxData: MutPtr<CVoid> = auxDataCtorArg
+    public var auxData: MutPtr = auxDataCtorArg
         internal set
 
     public constructor() : this(
@@ -884,17 +883,17 @@ public class Effect internal constructor(
         useAuxData = 0,
     )
 
-    public operator fun component1(): MutPtr<MutPtr<CVoid>> = this.lpVtbl
+    public operator fun component1(): MutPtr = this.lpVtbl
 
-    public operator fun component2(): MutPtr<CGpEffect> = this.nativeEffect
+    public operator fun component2(): MutPtr = this.nativeEffect
 
     public operator fun component3(): Int = this.auxDataSize
 
-    public operator fun component4(): MutPtr<CVoid> = this.auxData
+    public operator fun component4(): MutPtr = this.auxData
 
     public operator fun component5(): Bool = this.useAuxData
 
-    public fun copy(lpVtbl: MutPtr<MutPtr<CVoid>> = this.lpVtbl, nativeEffect: MutPtr<CGpEffect> = this.nativeEffect, auxDataSize: Int = this.auxDataSize, auxData: MutPtr<CVoid> = this.auxData, useAuxData: Bool = this.useAuxData): Effect = Effect(lpVtblCtorArg = lpVtbl, nativeEffectCtorArg = nativeEffect, auxDataSize = auxDataSize, auxDataCtorArg = auxData, useAuxData = useAuxData)
+    public fun copy(lpVtbl: MutPtr = this.lpVtbl, nativeEffect: MutPtr = this.nativeEffect, auxDataSize: Int = this.auxDataSize, auxData: MutPtr = this.auxData, useAuxData: Bool = this.useAuxData): Effect = Effect(lpVtblCtorArg = lpVtbl, nativeEffectCtorArg = nativeEffect, auxDataSize = auxDataSize, auxDataCtorArg = auxData, useAuxData = useAuxData)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -925,42 +924,42 @@ public class Effect internal constructor(
                     Effect(
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<MutPtr<CVoid>>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<CGpEffect>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr + 16L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<CVoid>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 24L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr + 32L),
                     )
                 override fun writeNative(addr: Long, value: Effect) {
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<MutPtr<CVoid>>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr, value.lpVtbl)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<CGpEffect>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.nativeEffect)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr + 16L, value.auxDataSize)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<CVoid>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 24L, value.auxData)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr + 32L, value.useAuxData)
                 }
             }
 
         public operator fun invoke(
-            lpVtbl: MutPtr<MutPtr<CVoid>> = MutPtr(0L),
-            nativeEffect: MutPtr<CGpEffect> = MutPtr(0L),
+            lpVtbl: MutPtr = MutPtr(0L),
+            nativeEffect: MutPtr = MutPtr(0L),
             auxDataSize: Int = 0,
-            auxData: MutPtr<CVoid> = MutPtr(0L),
+            auxData: MutPtr = MutPtr(0L),
             useAuxData: Bool = 0,
         ): Effect =
             Effect(
@@ -977,9 +976,9 @@ public class EncoderParameter internal constructor(
     public var guid: Guid,
     public var numberOfValues: UInt,
     public var type: UInt,
-    valueCtorArg: MutPtr<CVoid>,
+    valueCtorArg: MutPtr,
 ) {
-    public var value: MutPtr<CVoid> = valueCtorArg
+    public var value: MutPtr = valueCtorArg
         internal set
 
     public constructor() : this(
@@ -995,9 +994,9 @@ public class EncoderParameter internal constructor(
 
     public operator fun component3(): UInt = this.type
 
-    public operator fun component4(): MutPtr<CVoid> = this.value
+    public operator fun component4(): MutPtr = this.value
 
-    public fun copy(guid: Guid = this.guid, numberOfValues: UInt = this.numberOfValues, type: UInt = this.type, value: MutPtr<CVoid> = this.value): EncoderParameter = EncoderParameter(guid = guid, numberOfValues = numberOfValues, type = type, valueCtorArg = value)
+    public fun copy(guid: Guid = this.guid, numberOfValues: UInt = this.numberOfValues, type: UInt = this.type, value: MutPtr = this.value): EncoderParameter = EncoderParameter(guid = guid, numberOfValues = numberOfValues, type = type, valueCtorArg = value)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -1022,7 +1021,7 @@ public class EncoderParameter internal constructor(
             guid: Guid = Guid(),
             numberOfValues: UInt = 0u,
             type: UInt = 0u,
-            value: MutPtr<CVoid> = MutPtr(0L),
+            value: MutPtr = MutPtr(0L),
         ): EncoderParameter =
             EncoderParameter(
                 guid = guid,
@@ -1766,8 +1765,8 @@ public class ImageCodecInfo internal constructor(
     public var version: UInt,
     public var sigCount: UInt,
     public var sigSize: UInt,
-    sigPatternCtorArg: ConstPtr<UByte>,
-    sigMaskCtorArg: ConstPtr<UByte>,
+    sigPatternCtorArg: ConstPtr,
+    sigMaskCtorArg: ConstPtr,
 ) {
     public var codecName: Pcwstr = codecNameCtorArg
         internal set
@@ -1784,10 +1783,10 @@ public class ImageCodecInfo internal constructor(
     public var mimeType: Pcwstr = mimeTypeCtorArg
         internal set
 
-    public var sigPattern: ConstPtr<UByte> = sigPatternCtorArg
+    public var sigPattern: ConstPtr = sigPatternCtorArg
         internal set
 
-    public var sigMask: ConstPtr<UByte> = sigMaskCtorArg
+    public var sigMask: ConstPtr = sigMaskCtorArg
         internal set
 
     public constructor() : this(
@@ -1828,11 +1827,11 @@ public class ImageCodecInfo internal constructor(
 
     public operator fun component11(): UInt = this.sigSize
 
-    public operator fun component12(): ConstPtr<UByte> = this.sigPattern
+    public operator fun component12(): ConstPtr = this.sigPattern
 
-    public operator fun component13(): ConstPtr<UByte> = this.sigMask
+    public operator fun component13(): ConstPtr = this.sigMask
 
-    public fun copy(clsid: Guid = this.clsid, formatID: Guid = this.formatID, codecName: Pcwstr = this.codecName, dllName: Pcwstr = this.dllName, formatDescription: Pcwstr = this.formatDescription, filenameExtension: Pcwstr = this.filenameExtension, mimeType: Pcwstr = this.mimeType, flags: UInt = this.flags, version: UInt = this.version, sigCount: UInt = this.sigCount, sigSize: UInt = this.sigSize, sigPattern: ConstPtr<UByte> = this.sigPattern, sigMask: ConstPtr<UByte> = this.sigMask): ImageCodecInfo = ImageCodecInfo(clsid = clsid, formatID = formatID, codecNameCtorArg = codecName, dllNameCtorArg = dllName, formatDescriptionCtorArg = formatDescription, filenameExtensionCtorArg = filenameExtension, mimeTypeCtorArg = mimeType, flags = flags, version = version, sigCount = sigCount, sigSize = sigSize, sigPatternCtorArg = sigPattern, sigMaskCtorArg = sigMask)
+    public fun copy(clsid: Guid = this.clsid, formatID: Guid = this.formatID, codecName: Pcwstr = this.codecName, dllName: Pcwstr = this.dllName, formatDescription: Pcwstr = this.formatDescription, filenameExtension: Pcwstr = this.filenameExtension, mimeType: Pcwstr = this.mimeType, flags: UInt = this.flags, version: UInt = this.version, sigCount: UInt = this.sigCount, sigSize: UInt = this.sigSize, sigPattern: ConstPtr = this.sigPattern, sigMask: ConstPtr = this.sigMask): ImageCodecInfo = ImageCodecInfo(clsid = clsid, formatID = formatID, codecNameCtorArg = codecName, dllNameCtorArg = dllName, formatDescriptionCtorArg = formatDescription, filenameExtensionCtorArg = filenameExtension, mimeTypeCtorArg = mimeType, flags = flags, version = version, sigCount = sigCount, sigSize = sigSize, sigPatternCtorArg = sigPattern, sigMaskCtorArg = sigMask)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -1883,8 +1882,8 @@ public class ImageCodecInfo internal constructor(
             version: UInt = 0u,
             sigCount: UInt = 0u,
             sigSize: UInt = 0u,
-            sigPattern: ConstPtr<UByte> = ConstPtr(0L),
-            sigMask: ConstPtr<UByte> = ConstPtr(0L),
+            sigPattern: ConstPtr = ConstPtr(0L),
+            sigMask: ConstPtr = ConstPtr(0L),
         ): ImageCodecInfo =
             ImageCodecInfo(
                 clsid = clsid,
@@ -1907,16 +1906,16 @@ public class ImageCodecInfo internal constructor(
 public class ImageItemData internal constructor(
     public var size: UInt,
     public var position: UInt,
-    descCtorArg: MutPtr<CVoid>,
+    descCtorArg: MutPtr,
     public var descSize: UInt,
-    dataCtorArg: MutPtr<CVoid>,
+    dataCtorArg: MutPtr,
     public var dataSize: UInt,
     public var cookie: UInt,
 ) {
-    public var desc: MutPtr<CVoid> = descCtorArg
+    public var desc: MutPtr = descCtorArg
         internal set
 
-    public var data: MutPtr<CVoid> = dataCtorArg
+    public var data: MutPtr = dataCtorArg
         internal set
 
     public constructor() : this(
@@ -1933,17 +1932,17 @@ public class ImageItemData internal constructor(
 
     public operator fun component2(): UInt = this.position
 
-    public operator fun component3(): MutPtr<CVoid> = this.desc
+    public operator fun component3(): MutPtr = this.desc
 
     public operator fun component4(): UInt = this.descSize
 
-    public operator fun component5(): MutPtr<CVoid> = this.data
+    public operator fun component5(): MutPtr = this.data
 
     public operator fun component6(): UInt = this.dataSize
 
     public operator fun component7(): UInt = this.cookie
 
-    public fun copy(size: UInt = this.size, position: UInt = this.position, desc: MutPtr<CVoid> = this.desc, descSize: UInt = this.descSize, data: MutPtr<CVoid> = this.data, dataSize: UInt = this.dataSize, cookie: UInt = this.cookie): ImageItemData = ImageItemData(size = size, position = position, descCtorArg = desc, descSize = descSize, dataCtorArg = data, dataSize = dataSize, cookie = cookie)
+    public fun copy(size: UInt = this.size, position: UInt = this.position, desc: MutPtr = this.desc, descSize: UInt = this.descSize, data: MutPtr = this.data, dataSize: UInt = this.dataSize, cookie: UInt = this.cookie): ImageItemData = ImageItemData(size = size, position = position, descCtorArg = desc, descSize = descSize, dataCtorArg = data, dataSize = dataSize, cookie = cookie)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -1980,12 +1979,12 @@ public class ImageItemData internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 4L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<CVoid>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 16L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<CVoid>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 24L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 32L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 36L),
@@ -1995,12 +1994,12 @@ public class ImageItemData internal constructor(
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 4L, value.position)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<CVoid>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.desc)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 16L, value.descSize)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<CVoid>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 24L, value.data)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 32L, value.dataSize)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 36L, value.cookie)
@@ -2010,9 +2009,9 @@ public class ImageItemData internal constructor(
         public operator fun invoke(
             size: UInt = 0u,
             position: UInt = 0u,
-            desc: MutPtr<CVoid> = MutPtr(0L),
+            desc: MutPtr = MutPtr(0L),
             descSize: UInt = 0u,
-            data: MutPtr<CVoid> = MutPtr(0L),
+            data: MutPtr = MutPtr(0L),
             dataSize: UInt = 0u,
             cookie: UInt = 0u,
         ): ImageItemData =
@@ -2170,9 +2169,9 @@ public class PropertyItem internal constructor(
     public var id: UInt,
     public var length: UInt,
     public var type: UShort,
-    valueCtorArg: MutPtr<CVoid>,
+    valueCtorArg: MutPtr,
 ) {
-    public var value: MutPtr<CVoid> = valueCtorArg
+    public var value: MutPtr = valueCtorArg
         internal set
 
     public constructor() : this(
@@ -2188,9 +2187,9 @@ public class PropertyItem internal constructor(
 
     public operator fun component3(): UShort = this.type
 
-    public operator fun component4(): MutPtr<CVoid> = this.value
+    public operator fun component4(): MutPtr = this.value
 
-    public fun copy(id: UInt = this.id, length: UInt = this.length, type: UShort = this.type, value: MutPtr<CVoid> = this.value): PropertyItem = PropertyItem(id = id, length = length, type = type, valueCtorArg = value)
+    public fun copy(id: UInt = this.id, length: UInt = this.length, type: UShort = this.type, value: MutPtr = this.value): PropertyItem = PropertyItem(id = id, length = length, type = type, valueCtorArg = value)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -2222,7 +2221,7 @@ public class PropertyItem internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16).readNative(addr + 8L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<CVoid>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 16L),
                     )
                 override fun writeNative(addr: Long, value: PropertyItem) {
@@ -2231,7 +2230,7 @@ public class PropertyItem internal constructor(
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16).writeNative(addr + 8L, value.type)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<CVoid>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 16L, value.value)
                 }
             }
@@ -2240,7 +2239,7 @@ public class PropertyItem internal constructor(
             id: UInt = 0u,
             length: UInt = 0u,
             type: UShort = 0u,
-            value: MutPtr<CVoid> = MutPtr(0L),
+            value: MutPtr = MutPtr(0L),
         ): PropertyItem =
             PropertyItem(
                 id = id,
@@ -2328,9 +2327,9 @@ public data class RedEyeCorrection(
 
 public class RedEyeCorrectionParams internal constructor(
     public var numberOfAreas: UInt,
-    areasCtorArg: MutPtr<io.github.kotlinmania.windowssys.windows.win32.foundation.Rect>,
+    areasCtorArg: MutPtr,
 ) {
-    public var areas: MutPtr<io.github.kotlinmania.windowssys.windows.win32.foundation.Rect> = areasCtorArg
+    public var areas: MutPtr = areasCtorArg
         internal set
 
     public constructor() : this(
@@ -2340,9 +2339,9 @@ public class RedEyeCorrectionParams internal constructor(
 
     public operator fun component1(): UInt = this.numberOfAreas
 
-    public operator fun component2(): MutPtr<io.github.kotlinmania.windowssys.windows.win32.foundation.Rect> = this.areas
+    public operator fun component2(): MutPtr = this.areas
 
-    public fun copy(numberOfAreas: UInt = this.numberOfAreas, areas: MutPtr<io.github.kotlinmania.windowssys.windows.win32.foundation.Rect> = this.areas): RedEyeCorrectionParams = RedEyeCorrectionParams(numberOfAreas = numberOfAreas, areasCtorArg = areas)
+    public fun copy(numberOfAreas: UInt = this.numberOfAreas, areas: MutPtr = this.areas): RedEyeCorrectionParams = RedEyeCorrectionParams(numberOfAreas = numberOfAreas, areasCtorArg = areas)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -2368,21 +2367,21 @@ public class RedEyeCorrectionParams internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<io.github.kotlinmania.windowssys.windows.win32.foundation.Rect>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                     )
                 override fun writeNative(addr: Long, value: RedEyeCorrectionParams) {
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr, value.numberOfAreas)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<io.github.kotlinmania.windowssys.windows.win32.foundation.Rect>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.areas)
                 }
             }
 
         public operator fun invoke(
             numberOfAreas: UInt = 0u,
-            areas: MutPtr<io.github.kotlinmania.windowssys.windows.win32.foundation.Rect> = MutPtr(0L),
+            areas: MutPtr = MutPtr(0L),
         ): RedEyeCorrectionParams =
             RedEyeCorrectionParams(
                 numberOfAreas = numberOfAreas,

@@ -2,10 +2,8 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.system.componentservices
 
-import io.github.kotlinmania.rustlang.core.ffi.CVoid
 import io.github.kotlinmania.rustlang.core.ptr.ConstPtr
 import io.github.kotlinmania.rustlang.core.ptr.MutPtr
-import io.github.kotlinmania.windowssys.core.Guid
 import io.github.kotlinmania.windowssys.core.Hresult
 import io.github.kotlinmania.windowssys.windows.win32.system.com.Apttype
 
@@ -93,30 +91,30 @@ private object WindowsWin32SystemComponentservicesJniBridge {
     external fun windowssysWindowsWin32SystemComponentservicesSafeRef(rid: Long, punk: Long): Long
 }
 
-public actual fun coCreateActivity(piunknown: MutPtr<CVoid>, riid: ConstPtr<Guid>, ppobj: MutPtr<MutPtr<CVoid>>): Hresult =
+public actual fun coCreateActivity(piunknown: MutPtr, riid: ConstPtr, ppobj: MutPtr): Hresult =
     WindowsWin32SystemComponentservicesJniBridge.windowssysWindowsWin32SystemComponentservicesCoCreateActivity(piunknown.rawAddress, riid.rawAddress, ppobj.rawAddress)
 
-public actual fun coEnterServiceDomain(pconfigobject: MutPtr<CVoid>): Hresult =
+public actual fun coEnterServiceDomain(pconfigobject: MutPtr): Hresult =
     WindowsWin32SystemComponentservicesJniBridge.windowssysWindowsWin32SystemComponentservicesCoEnterServiceDomain(pconfigobject.rawAddress)
 
-public actual fun coGetDefaultContext(apttype: Apttype, riid: ConstPtr<Guid>, ppv: MutPtr<MutPtr<CVoid>>): Hresult =
+public actual fun coGetDefaultContext(apttype: Apttype, riid: ConstPtr, ppv: MutPtr): Hresult =
     WindowsWin32SystemComponentservicesJniBridge.windowssysWindowsWin32SystemComponentservicesCoGetDefaultContext(apttype, riid.rawAddress, ppv.rawAddress)
 
-public actual fun coLeaveServiceDomain(punkstatus: MutPtr<CVoid>) {
+public actual fun coLeaveServiceDomain(punkstatus: MutPtr) {
     WindowsWin32SystemComponentservicesJniBridge.windowssysWindowsWin32SystemComponentservicesCoLeaveServiceDomain(punkstatus.rawAddress)
 }
 
-public actual fun getDispenserManager(param0: MutPtr<MutPtr<CVoid>>): Hresult =
+public actual fun getDispenserManager(param0: MutPtr): Hresult =
     WindowsWin32SystemComponentservicesJniBridge.windowssysWindowsWin32SystemComponentservicesGetDispenserManager(param0.rawAddress)
 
-public actual fun getManagedExtensions(dwexts: MutPtr<UInt>): Hresult =
+public actual fun getManagedExtensions(dwexts: MutPtr): Hresult =
     WindowsWin32SystemComponentservicesJniBridge.windowssysWindowsWin32SystemComponentservicesGetManagedExtensions(dwexts.rawAddress)
 
-public actual fun mTSCreateActivity(riid: ConstPtr<Guid>, ppobj: MutPtr<MutPtr<CVoid>>): Hresult =
+public actual fun mTSCreateActivity(riid: ConstPtr, ppobj: MutPtr): Hresult =
     WindowsWin32SystemComponentservicesJniBridge.windowssysWindowsWin32SystemComponentservicesMTSCreateActivity(riid.rawAddress, ppobj.rawAddress)
 
 public actual fun recycleSurrogate(lreasoncode: Int): Hresult =
     WindowsWin32SystemComponentservicesJniBridge.windowssysWindowsWin32SystemComponentservicesRecycleSurrogate(lreasoncode)
 
-public actual fun safeRef(rid: ConstPtr<Guid>, punk: MutPtr<CVoid>): MutPtr<CVoid> =
+public actual fun safeRef(rid: ConstPtr, punk: MutPtr): MutPtr =
     MutPtr(WindowsWin32SystemComponentservicesJniBridge.windowssysWindowsWin32SystemComponentservicesSafeRef(rid.rawAddress, punk.rawAddress))

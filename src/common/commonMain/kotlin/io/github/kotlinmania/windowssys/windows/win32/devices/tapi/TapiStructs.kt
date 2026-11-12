@@ -2,7 +2,6 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.devices.tapi
 
-import io.github.kotlinmania.rustlang.core.ffi.CVoid
 import io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
 import io.github.kotlinmania.rustlang.core.mem.TypeLayout
 import io.github.kotlinmania.rustlang.core.ptr.ConstPtr
@@ -3167,10 +3166,10 @@ public data class Linetranslateoutput(
 public class MspEventInfo internal constructor(
     public var dwSize: UInt,
     public var event: MspEvent,
-    hCallCtorArg: MutPtr<Int>,
+    hCallCtorArg: MutPtr,
     public var anonymous: MspEventInfo0,
 ) {
-    public var hCall: MutPtr<Int> = hCallCtorArg
+    public var hCall: MutPtr = hCallCtorArg
         internal set
 
     public constructor() : this(
@@ -3184,11 +3183,11 @@ public class MspEventInfo internal constructor(
 
     public operator fun component2(): MspEvent = this.event
 
-    public operator fun component3(): MutPtr<Int> = this.hCall
+    public operator fun component3(): MutPtr = this.hCall
 
     public operator fun component4(): MspEventInfo0 = this.anonymous
 
-    public fun copy(dwSize: UInt = this.dwSize, event: MspEvent = this.event, hCall: MutPtr<Int> = this.hCall, anonymous: MspEventInfo0 = this.anonymous): MspEventInfo = MspEventInfo(dwSize = dwSize, event = event, hCallCtorArg = hCall, anonymous = anonymous)
+    public fun copy(dwSize: UInt = this.dwSize, event: MspEvent = this.event, hCall: MutPtr = this.hCall, anonymous: MspEventInfo0 = this.anonymous): MspEventInfo = MspEventInfo(dwSize = dwSize, event = event, hCallCtorArg = hCall, anonymous = anonymous)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -3212,7 +3211,7 @@ public class MspEventInfo internal constructor(
         public operator fun invoke(
             dwSize: UInt = 0u,
             event: MspEvent = 0,
-            hCall: MutPtr<Int> = MutPtr(0L),
+            hCall: MutPtr = MutPtr(0L),
             anonymous: MspEventInfo0 = MspEventInfo0(),
         ): MspEventInfo =
             MspEventInfo(
@@ -3237,9 +3236,9 @@ public data class MspEventInfo0(
 
 public class MspEventInfo00 internal constructor(
     public var type: MspAddressEvent,
-    pTerminalCtorArg: MutPtr<CVoid>,
+    pTerminalCtorArg: MutPtr,
 ) {
-    public var pTerminal: MutPtr<CVoid> = pTerminalCtorArg
+    public var pTerminal: MutPtr = pTerminalCtorArg
         internal set
 
     public constructor() : this(
@@ -3249,9 +3248,9 @@ public class MspEventInfo00 internal constructor(
 
     public operator fun component1(): MspAddressEvent = this.type
 
-    public operator fun component2(): MutPtr<CVoid> = this.pTerminal
+    public operator fun component2(): MutPtr = this.pTerminal
 
-    public fun copy(type: MspAddressEvent = this.type, pTerminal: MutPtr<CVoid> = this.pTerminal): MspEventInfo00 = MspEventInfo00(type = type, pTerminalCtorArg = pTerminal)
+    public fun copy(type: MspAddressEvent = this.type, pTerminal: MutPtr = this.pTerminal): MspEventInfo00 = MspEventInfo00(type = type, pTerminalCtorArg = pTerminal)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -3277,21 +3276,21 @@ public class MspEventInfo00 internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<CVoid>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                     )
                 override fun writeNative(addr: Long, value: MspEventInfo00) {
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr, value.type)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<CVoid>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.pTerminal)
                 }
             }
 
         public operator fun invoke(
             type: MspAddressEvent = 0,
-            pTerminal: MutPtr<CVoid> = MutPtr(0L),
+            pTerminal: MutPtr = MutPtr(0L),
         ): MspEventInfo00 =
             MspEventInfo00(
                 type = type,
@@ -3301,10 +3300,10 @@ public class MspEventInfo00 internal constructor(
 }
 
 public class MspEventInfo05 internal constructor(
-    pASRTerminalCtorArg: MutPtr<CVoid>,
+    pASRTerminalCtorArg: MutPtr,
     public var hrErrorCode: Hresult,
 ) {
-    public var pASRTerminal: MutPtr<CVoid> = pASRTerminalCtorArg
+    public var pASRTerminal: MutPtr = pASRTerminalCtorArg
         internal set
 
     public constructor() : this(
@@ -3312,11 +3311,11 @@ public class MspEventInfo05 internal constructor(
         hrErrorCode = 0,
     )
 
-    public operator fun component1(): MutPtr<CVoid> = this.pASRTerminal
+    public operator fun component1(): MutPtr = this.pASRTerminal
 
     public operator fun component2(): Hresult = this.hrErrorCode
 
-    public fun copy(pASRTerminal: MutPtr<CVoid> = this.pASRTerminal, hrErrorCode: Hresult = this.hrErrorCode): MspEventInfo05 = MspEventInfo05(pASRTerminalCtorArg = pASRTerminal, hrErrorCode = hrErrorCode)
+    public fun copy(pASRTerminal: MutPtr = this.pASRTerminal, hrErrorCode: Hresult = this.hrErrorCode): MspEventInfo05 = MspEventInfo05(pASRTerminalCtorArg = pASRTerminal, hrErrorCode = hrErrorCode)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -3341,21 +3340,21 @@ public class MspEventInfo05 internal constructor(
                     MspEventInfo05(
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<CVoid>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr + 8L),
                     )
                 override fun writeNative(addr: Long, value: MspEventInfo05) {
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<CVoid>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr, value.pASRTerminal)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr + 8L, value.hrErrorCode)
                 }
             }
 
         public operator fun invoke(
-            pASRTerminal: MutPtr<CVoid> = MutPtr(0L),
+            pASRTerminal: MutPtr = MutPtr(0L),
             hrErrorCode: Hresult = 0,
         ): MspEventInfo05 =
             MspEventInfo05(
@@ -3368,14 +3367,14 @@ public class MspEventInfo05 internal constructor(
 public class MspEventInfo01 internal constructor(
     public var type: MspCallEvent,
     public var cause: MspCallEventCause,
-    pStreamCtorArg: MutPtr<CVoid>,
-    pTerminalCtorArg: MutPtr<CVoid>,
+    pStreamCtorArg: MutPtr,
+    pTerminalCtorArg: MutPtr,
     public var hrError: Hresult,
 ) {
-    public var pStream: MutPtr<CVoid> = pStreamCtorArg
+    public var pStream: MutPtr = pStreamCtorArg
         internal set
 
-    public var pTerminal: MutPtr<CVoid> = pTerminalCtorArg
+    public var pTerminal: MutPtr = pTerminalCtorArg
         internal set
 
     public constructor() : this(
@@ -3390,13 +3389,13 @@ public class MspEventInfo01 internal constructor(
 
     public operator fun component2(): MspCallEventCause = this.cause
 
-    public operator fun component3(): MutPtr<CVoid> = this.pStream
+    public operator fun component3(): MutPtr = this.pStream
 
-    public operator fun component4(): MutPtr<CVoid> = this.pTerminal
+    public operator fun component4(): MutPtr = this.pTerminal
 
     public operator fun component5(): Hresult = this.hrError
 
-    public fun copy(type: MspCallEvent = this.type, cause: MspCallEventCause = this.cause, pStream: MutPtr<CVoid> = this.pStream, pTerminal: MutPtr<CVoid> = this.pTerminal, hrError: Hresult = this.hrError): MspEventInfo01 = MspEventInfo01(type = type, cause = cause, pStreamCtorArg = pStream, pTerminalCtorArg = pTerminal, hrError = hrError)
+    public fun copy(type: MspCallEvent = this.type, cause: MspCallEventCause = this.cause, pStream: MutPtr = this.pStream, pTerminal: MutPtr = this.pTerminal, hrError: Hresult = this.hrError): MspEventInfo01 = MspEventInfo01(type = type, cause = cause, pStreamCtorArg = pStream, pTerminalCtorArg = pTerminal, hrError = hrError)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -3429,11 +3428,11 @@ public class MspEventInfo01 internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr + 4L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<CVoid>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<CVoid>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 16L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr + 24L),
                     )
@@ -3442,11 +3441,11 @@ public class MspEventInfo01 internal constructor(
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr + 4L, value.cause)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<CVoid>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.pStream)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<CVoid>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 16L, value.pTerminal)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr + 24L, value.hrError)
                 }
@@ -3455,8 +3454,8 @@ public class MspEventInfo01 internal constructor(
         public operator fun invoke(
             type: MspCallEvent = 0,
             cause: MspCallEventCause = 0,
-            pStream: MutPtr<CVoid> = MutPtr(0L),
-            pTerminal: MutPtr<CVoid> = MutPtr(0L),
+            pStream: MutPtr = MutPtr(0L),
+            pTerminal: MutPtr = MutPtr(0L),
             hrError: Hresult = 0,
         ): MspEventInfo01 =
             MspEventInfo01(
@@ -3470,16 +3469,16 @@ public class MspEventInfo01 internal constructor(
 }
 
 public class MspEventInfo04 internal constructor(
-    pParentFileTerminalCtorArg: MutPtr<CVoid>,
-    pFileTrackCtorArg: MutPtr<CVoid>,
+    pParentFileTerminalCtorArg: MutPtr,
+    pFileTrackCtorArg: MutPtr,
     public var terminalMediaState: TerminalMediaState,
     public var ftecEventCause: FtStateEventCause,
     public var hrErrorCode: Hresult,
 ) {
-    public var pParentFileTerminal: MutPtr<CVoid> = pParentFileTerminalCtorArg
+    public var pParentFileTerminal: MutPtr = pParentFileTerminalCtorArg
         internal set
 
-    public var pFileTrack: MutPtr<CVoid> = pFileTrackCtorArg
+    public var pFileTrack: MutPtr = pFileTrackCtorArg
         internal set
 
     public constructor() : this(
@@ -3490,9 +3489,9 @@ public class MspEventInfo04 internal constructor(
         hrErrorCode = 0,
     )
 
-    public operator fun component1(): MutPtr<CVoid> = this.pParentFileTerminal
+    public operator fun component1(): MutPtr = this.pParentFileTerminal
 
-    public operator fun component2(): MutPtr<CVoid> = this.pFileTrack
+    public operator fun component2(): MutPtr = this.pFileTrack
 
     public operator fun component3(): TerminalMediaState = this.terminalMediaState
 
@@ -3500,7 +3499,7 @@ public class MspEventInfo04 internal constructor(
 
     public operator fun component5(): Hresult = this.hrErrorCode
 
-    public fun copy(pParentFileTerminal: MutPtr<CVoid> = this.pParentFileTerminal, pFileTrack: MutPtr<CVoid> = this.pFileTrack, terminalMediaState: TerminalMediaState = this.terminalMediaState, ftecEventCause: FtStateEventCause = this.ftecEventCause, hrErrorCode: Hresult = this.hrErrorCode): MspEventInfo04 = MspEventInfo04(pParentFileTerminalCtorArg = pParentFileTerminal, pFileTrackCtorArg = pFileTrack, terminalMediaState = terminalMediaState, ftecEventCause = ftecEventCause, hrErrorCode = hrErrorCode)
+    public fun copy(pParentFileTerminal: MutPtr = this.pParentFileTerminal, pFileTrack: MutPtr = this.pFileTrack, terminalMediaState: TerminalMediaState = this.terminalMediaState, ftecEventCause: FtStateEventCause = this.ftecEventCause, hrErrorCode: Hresult = this.hrErrorCode): MspEventInfo04 = MspEventInfo04(pParentFileTerminalCtorArg = pParentFileTerminal, pFileTrackCtorArg = pFileTrack, terminalMediaState = terminalMediaState, ftecEventCause = ftecEventCause, hrErrorCode = hrErrorCode)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -3531,11 +3530,11 @@ public class MspEventInfo04 internal constructor(
                     MspEventInfo04(
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<CVoid>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<CVoid>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr + 16L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr + 20L),
@@ -3544,11 +3543,11 @@ public class MspEventInfo04 internal constructor(
                 override fun writeNative(addr: Long, value: MspEventInfo04) {
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<CVoid>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr, value.pParentFileTerminal)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<CVoid>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.pFileTrack)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr + 16L, value.terminalMediaState)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr + 20L, value.ftecEventCause)
@@ -3557,8 +3556,8 @@ public class MspEventInfo04 internal constructor(
             }
 
         public operator fun invoke(
-            pParentFileTerminal: MutPtr<CVoid> = MutPtr(0L),
-            pFileTrack: MutPtr<CVoid> = MutPtr(0L),
+            pParentFileTerminal: MutPtr = MutPtr(0L),
+            pFileTrack: MutPtr = MutPtr(0L),
             terminalMediaState: TerminalMediaState = 0,
             ftecEventCause: FtStateEventCause = 0,
             hrErrorCode: Hresult = 0,
@@ -3574,10 +3573,10 @@ public class MspEventInfo04 internal constructor(
 }
 
 public class MspEventInfo03 internal constructor(
-    pEventCtorArg: MutPtr<CVoid>,
+    pEventCtorArg: MutPtr,
     public var lEventCode: Int,
 ) {
-    public var pEvent: MutPtr<CVoid> = pEventCtorArg
+    public var pEvent: MutPtr = pEventCtorArg
         internal set
 
     public constructor() : this(
@@ -3585,11 +3584,11 @@ public class MspEventInfo03 internal constructor(
         lEventCode = 0,
     )
 
-    public operator fun component1(): MutPtr<CVoid> = this.pEvent
+    public operator fun component1(): MutPtr = this.pEvent
 
     public operator fun component2(): Int = this.lEventCode
 
-    public fun copy(pEvent: MutPtr<CVoid> = this.pEvent, lEventCode: Int = this.lEventCode): MspEventInfo03 = MspEventInfo03(pEventCtorArg = pEvent, lEventCode = lEventCode)
+    public fun copy(pEvent: MutPtr = this.pEvent, lEventCode: Int = this.lEventCode): MspEventInfo03 = MspEventInfo03(pEventCtorArg = pEvent, lEventCode = lEventCode)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -3614,21 +3613,21 @@ public class MspEventInfo03 internal constructor(
                     MspEventInfo03(
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<CVoid>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr + 8L),
                     )
                 override fun writeNative(addr: Long, value: MspEventInfo03) {
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<CVoid>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr, value.pEvent)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr + 8L, value.lEventCode)
                 }
             }
 
         public operator fun invoke(
-            pEvent: MutPtr<CVoid> = MutPtr(0L),
+            pEvent: MutPtr = MutPtr(0L),
             lEventCode: Int = 0,
         ): MspEventInfo03 =
             MspEventInfo03(
@@ -3639,10 +3638,10 @@ public class MspEventInfo03 internal constructor(
 }
 
 public class MspEventInfo07 internal constructor(
-    pToneTerminalCtorArg: MutPtr<CVoid>,
+    pToneTerminalCtorArg: MutPtr,
     public var hrErrorCode: Hresult,
 ) {
-    public var pToneTerminal: MutPtr<CVoid> = pToneTerminalCtorArg
+    public var pToneTerminal: MutPtr = pToneTerminalCtorArg
         internal set
 
     public constructor() : this(
@@ -3650,11 +3649,11 @@ public class MspEventInfo07 internal constructor(
         hrErrorCode = 0,
     )
 
-    public operator fun component1(): MutPtr<CVoid> = this.pToneTerminal
+    public operator fun component1(): MutPtr = this.pToneTerminal
 
     public operator fun component2(): Hresult = this.hrErrorCode
 
-    public fun copy(pToneTerminal: MutPtr<CVoid> = this.pToneTerminal, hrErrorCode: Hresult = this.hrErrorCode): MspEventInfo07 = MspEventInfo07(pToneTerminalCtorArg = pToneTerminal, hrErrorCode = hrErrorCode)
+    public fun copy(pToneTerminal: MutPtr = this.pToneTerminal, hrErrorCode: Hresult = this.hrErrorCode): MspEventInfo07 = MspEventInfo07(pToneTerminalCtorArg = pToneTerminal, hrErrorCode = hrErrorCode)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -3679,21 +3678,21 @@ public class MspEventInfo07 internal constructor(
                     MspEventInfo07(
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<CVoid>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr + 8L),
                     )
                 override fun writeNative(addr: Long, value: MspEventInfo07) {
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<CVoid>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr, value.pToneTerminal)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr + 8L, value.hrErrorCode)
                 }
             }
 
         public operator fun invoke(
-            pToneTerminal: MutPtr<CVoid> = MutPtr(0L),
+            pToneTerminal: MutPtr = MutPtr(0L),
             hrErrorCode: Hresult = 0,
         ): MspEventInfo07 =
             MspEventInfo07(
@@ -3746,10 +3745,10 @@ public data class MspEventInfo02(
 }
 
 public class MspEventInfo06 internal constructor(
-    pTTSTerminalCtorArg: MutPtr<CVoid>,
+    pTTSTerminalCtorArg: MutPtr,
     public var hrErrorCode: Hresult,
 ) {
-    public var pTTSTerminal: MutPtr<CVoid> = pTTSTerminalCtorArg
+    public var pTTSTerminal: MutPtr = pTTSTerminalCtorArg
         internal set
 
     public constructor() : this(
@@ -3757,11 +3756,11 @@ public class MspEventInfo06 internal constructor(
         hrErrorCode = 0,
     )
 
-    public operator fun component1(): MutPtr<CVoid> = this.pTTSTerminal
+    public operator fun component1(): MutPtr = this.pTTSTerminal
 
     public operator fun component2(): Hresult = this.hrErrorCode
 
-    public fun copy(pTTSTerminal: MutPtr<CVoid> = this.pTTSTerminal, hrErrorCode: Hresult = this.hrErrorCode): MspEventInfo06 = MspEventInfo06(pTTSTerminalCtorArg = pTTSTerminal, hrErrorCode = hrErrorCode)
+    public fun copy(pTTSTerminal: MutPtr = this.pTTSTerminal, hrErrorCode: Hresult = this.hrErrorCode): MspEventInfo06 = MspEventInfo06(pTTSTerminalCtorArg = pTTSTerminal, hrErrorCode = hrErrorCode)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -3786,21 +3785,21 @@ public class MspEventInfo06 internal constructor(
                     MspEventInfo06(
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<CVoid>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr + 8L),
                     )
                 override fun writeNative(addr: Long, value: MspEventInfo06) {
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<CVoid>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr, value.pTTSTerminal)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr + 8L, value.hrErrorCode)
                 }
             }
 
         public operator fun invoke(
-            pTTSTerminal: MutPtr<CVoid> = MutPtr(0L),
+            pTTSTerminal: MutPtr = MutPtr(0L),
             hrErrorCode: Hresult = 0,
         ): MspEventInfo06 =
             MspEventInfo06(
@@ -4343,7 +4342,7 @@ public class Tuispicreatedialoginstanceparams internal constructor(
     hdDlgInstCtorArg: Hdrvdialoginstance,
     public var htDlgInst: UInt,
     lpszUIDLLNameCtorArg: Pcwstr,
-    lpParamsCtorArg: MutPtr<CVoid>,
+    lpParamsCtorArg: MutPtr,
     public var dwSize: UInt,
 ) {
     public var hdDlgInst: Hdrvdialoginstance = hdDlgInstCtorArg
@@ -4352,7 +4351,7 @@ public class Tuispicreatedialoginstanceparams internal constructor(
     public var lpszUIDLLName: Pcwstr = lpszUIDLLNameCtorArg
         internal set
 
-    public var lpParams: MutPtr<CVoid> = lpParamsCtorArg
+    public var lpParams: MutPtr = lpParamsCtorArg
         internal set
 
     public constructor() : this(
@@ -4372,11 +4371,11 @@ public class Tuispicreatedialoginstanceparams internal constructor(
 
     public operator fun component4(): Pcwstr = this.lpszUIDLLName
 
-    public operator fun component5(): MutPtr<CVoid> = this.lpParams
+    public operator fun component5(): MutPtr = this.lpParams
 
     public operator fun component6(): UInt = this.dwSize
 
-    public fun copy(dwRequestID: UInt = this.dwRequestID, hdDlgInst: Hdrvdialoginstance = this.hdDlgInst, htDlgInst: UInt = this.htDlgInst, lpszUIDLLName: Pcwstr = this.lpszUIDLLName, lpParams: MutPtr<CVoid> = this.lpParams, dwSize: UInt = this.dwSize): Tuispicreatedialoginstanceparams = Tuispicreatedialoginstanceparams(dwRequestID = dwRequestID, hdDlgInstCtorArg = hdDlgInst, htDlgInst = htDlgInst, lpszUIDLLNameCtorArg = lpszUIDLLName, lpParamsCtorArg = lpParams, dwSize = dwSize)
+    public fun copy(dwRequestID: UInt = this.dwRequestID, hdDlgInst: Hdrvdialoginstance = this.hdDlgInst, htDlgInst: UInt = this.htDlgInst, lpszUIDLLName: Pcwstr = this.lpszUIDLLName, lpParams: MutPtr = this.lpParams, dwSize: UInt = this.dwSize): Tuispicreatedialoginstanceparams = Tuispicreatedialoginstanceparams(dwRequestID = dwRequestID, hdDlgInstCtorArg = hdDlgInst, htDlgInst = htDlgInst, lpszUIDLLNameCtorArg = lpszUIDLLName, lpParamsCtorArg = lpParams, dwSize = dwSize)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -4406,7 +4405,7 @@ public class Tuispicreatedialoginstanceparams internal constructor(
             hdDlgInst: Hdrvdialoginstance = MutPtr(0L),
             htDlgInst: UInt = 0u,
             lpszUIDLLName: Pcwstr = ConstPtr(0L),
-            lpParams: MutPtr<CVoid> = MutPtr(0L),
+            lpParams: MutPtr = MutPtr(0L),
             dwSize: UInt = 0u,
         ): Tuispicreatedialoginstanceparams =
             Tuispicreatedialoginstanceparams(

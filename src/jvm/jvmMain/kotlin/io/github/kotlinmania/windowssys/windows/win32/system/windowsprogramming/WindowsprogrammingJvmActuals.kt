@@ -2,17 +2,14 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.system.windowsprogramming
 
-import io.github.kotlinmania.rustlang.core.ffi.CVoid
 import io.github.kotlinmania.rustlang.core.ptr.ConstPtr
 import io.github.kotlinmania.rustlang.core.ptr.MutPtr
 import io.github.kotlinmania.windowssys.core.Bool
-import io.github.kotlinmania.windowssys.core.Guid
 import io.github.kotlinmania.windowssys.core.Hresult
 import io.github.kotlinmania.windowssys.core.Pcstr
 import io.github.kotlinmania.windowssys.core.Pcwstr
 import io.github.kotlinmania.windowssys.core.Pstr
 import io.github.kotlinmania.windowssys.core.Pwstr
-import io.github.kotlinmania.windowssys.windows.win32.foundation.Filetime
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Handle
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Hglobal
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Hinstance
@@ -22,10 +19,7 @@ import io.github.kotlinmania.windowssys.windows.win32.foundation.Hwnd
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Lparam
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Lresult
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Ntstatus
-import io.github.kotlinmania.windowssys.windows.win32.foundation.Rect
-import io.github.kotlinmania.windowssys.windows.win32.foundation.UnicodeString
 import io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.Hdc
-import io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.Rgndata
 import io.github.kotlinmania.windowssys.windows.win32.system.registry.Hkey
 
 private object WindowsWin32SystemWindowsprogrammingJniBridge {
@@ -736,61 +730,61 @@ public actual fun advInstallFileA(hwnd: Hwnd, lpszsourcedir: Pcstr, lpszsourcefi
 public actual fun advInstallFileW(hwnd: Hwnd, lpszsourcedir: Pcwstr, lpszsourcefile: Pcwstr, lpszdestdir: Pcwstr, lpszdestfile: Pcwstr, dwflags: UInt, dwreserved: UInt): Hresult =
     WindowsWin32SystemWindowsprogrammingJniBridge.windowssysWindowsWin32SystemWindowsprogrammingAdvInstallFileW(hwnd.rawAddress, lpszsourcedir.rawAddress, lpszsourcefile.rawAddress, lpszdestdir.rawAddress, lpszdestfile.rawAddress, dwflags.toInt(), dwreserved.toInt())
 
-public actual fun apphelpCheckShellObject(objectclsid: ConstPtr<Guid>, bshimifnecessary: Bool, pullflags: MutPtr<ULong>): Bool =
+public actual fun apphelpCheckShellObject(objectclsid: ConstPtr, bshimifnecessary: Bool, pullflags: MutPtr): Bool =
     WindowsWin32SystemWindowsprogrammingJniBridge.windowssysWindowsWin32SystemWindowsprogrammingApphelpCheckShellObject(objectclsid.rawAddress, bshimifnecessary, pullflags.rawAddress)
 
 public actual fun cancelDeviceWakeupRequest(hdevice: Handle): Bool =
     WindowsWin32SystemWindowsprogrammingJniBridge.windowssysWindowsWin32SystemWindowsprogrammingCancelDeviceWakeupRequest(hdevice.rawAddress)
 
-public actual fun closeINFEngine(hinf: MutPtr<CVoid>): Hresult =
+public actual fun closeINFEngine(hinf: MutPtr): Hresult =
     WindowsWin32SystemWindowsprogrammingJniBridge.windowssysWindowsWin32SystemWindowsprogrammingCloseINFEngine(hinf.rawAddress)
 
-public actual fun convertAuxiliaryCounterToPerformanceCounter(ullauxiliarycountervalue: ULong, lpperformancecountervalue: MutPtr<ULong>, lpconversionerror: MutPtr<ULong>): Hresult =
+public actual fun convertAuxiliaryCounterToPerformanceCounter(ullauxiliarycountervalue: ULong, lpperformancecountervalue: MutPtr, lpconversionerror: MutPtr): Hresult =
     WindowsWin32SystemWindowsprogrammingJniBridge.windowssysWindowsWin32SystemWindowsprogrammingConvertAuxiliaryCounterToPerformanceCounter(ullauxiliarycountervalue.toLong(), lpperformancecountervalue.rawAddress, lpconversionerror.rawAddress)
 
-public actual fun convertPerformanceCounterToAuxiliaryCounter(ullperformancecountervalue: ULong, lpauxiliarycountervalue: MutPtr<ULong>, lpconversionerror: MutPtr<ULong>): Hresult =
+public actual fun convertPerformanceCounterToAuxiliaryCounter(ullperformancecountervalue: ULong, lpauxiliarycountervalue: MutPtr, lpconversionerror: MutPtr): Hresult =
     WindowsWin32SystemWindowsprogrammingJniBridge.windowssysWindowsWin32SystemWindowsprogrammingConvertPerformanceCounterToAuxiliaryCounter(ullperformancecountervalue.toLong(), lpauxiliarycountervalue.rawAddress, lpconversionerror.rawAddress)
 
-public actual fun dCIBeginAccess(pdci: MutPtr<Dcisurfaceinfo>, x: Int, y: Int, dx: Int, dy: Int): Int =
+public actual fun dCIBeginAccess(pdci: MutPtr, x: Int, y: Int, dx: Int, dy: Int): Int =
     WindowsWin32SystemWindowsprogrammingJniBridge.windowssysWindowsWin32SystemWindowsprogrammingDCIBeginAccess(pdci.rawAddress, x, y, dx, dy)
 
 public actual fun dCICloseProvider(hdc: Hdc) {
     WindowsWin32SystemWindowsprogrammingJniBridge.windowssysWindowsWin32SystemWindowsprogrammingDCICloseProvider(hdc.rawAddress)
 }
 
-public actual fun dCICreateOffscreen(hdc: Hdc, dwcompression: UInt, dwredmask: UInt, dwgreenmask: UInt, dwbluemask: UInt, dwwidth: UInt, dwheight: UInt, dwdcicaps: UInt, dwbitcount: UInt, lplpsurface: MutPtr<MutPtr<Dcioffscreen>>): Int =
+public actual fun dCICreateOffscreen(hdc: Hdc, dwcompression: UInt, dwredmask: UInt, dwgreenmask: UInt, dwbluemask: UInt, dwwidth: UInt, dwheight: UInt, dwdcicaps: UInt, dwbitcount: UInt, lplpsurface: MutPtr): Int =
     WindowsWin32SystemWindowsprogrammingJniBridge.windowssysWindowsWin32SystemWindowsprogrammingDCICreateOffscreen(hdc.rawAddress, dwcompression.toInt(), dwredmask.toInt(), dwgreenmask.toInt(), dwbluemask.toInt(), dwwidth.toInt(), dwheight.toInt(), dwdcicaps.toInt(), dwbitcount.toInt(), lplpsurface.rawAddress)
 
-public actual fun dCICreateOverlay(hdc: Hdc, lpoffscreensurf: MutPtr<CVoid>, lplpsurface: MutPtr<MutPtr<Dcioverlay>>): Int =
+public actual fun dCICreateOverlay(hdc: Hdc, lpoffscreensurf: MutPtr, lplpsurface: MutPtr): Int =
     WindowsWin32SystemWindowsprogrammingJniBridge.windowssysWindowsWin32SystemWindowsprogrammingDCICreateOverlay(hdc.rawAddress, lpoffscreensurf.rawAddress, lplpsurface.rawAddress)
 
-public actual fun dCICreatePrimary(hdc: Hdc, lplpsurface: MutPtr<MutPtr<Dcisurfaceinfo>>): Int =
+public actual fun dCICreatePrimary(hdc: Hdc, lplpsurface: MutPtr): Int =
     WindowsWin32SystemWindowsprogrammingJniBridge.windowssysWindowsWin32SystemWindowsprogrammingDCICreatePrimary(hdc.rawAddress, lplpsurface.rawAddress)
 
-public actual fun dCIDestroy(pdci: MutPtr<Dcisurfaceinfo>) {
+public actual fun dCIDestroy(pdci: MutPtr) {
     WindowsWin32SystemWindowsprogrammingJniBridge.windowssysWindowsWin32SystemWindowsprogrammingDCIDestroy(pdci.rawAddress)
 }
 
-public actual fun dCIDraw(pdci: MutPtr<Dcioffscreen>): Int =
+public actual fun dCIDraw(pdci: MutPtr): Int =
     WindowsWin32SystemWindowsprogrammingJniBridge.windowssysWindowsWin32SystemWindowsprogrammingDCIDraw(pdci.rawAddress)
 
-public actual fun dCIEndAccess(pdci: MutPtr<Dcisurfaceinfo>) {
+public actual fun dCIEndAccess(pdci: MutPtr) {
     WindowsWin32SystemWindowsprogrammingJniBridge.windowssysWindowsWin32SystemWindowsprogrammingDCIEndAccess(pdci.rawAddress)
 }
 
-public actual fun dCIEnum(hdc: Hdc, lprdst: MutPtr<Rect>, lprsrc: MutPtr<Rect>, lpfncallback: MutPtr<CVoid>, lpcontext: MutPtr<CVoid>): Int =
+public actual fun dCIEnum(hdc: Hdc, lprdst: MutPtr, lprsrc: MutPtr, lpfncallback: MutPtr, lpcontext: MutPtr): Int =
     WindowsWin32SystemWindowsprogrammingJniBridge.windowssysWindowsWin32SystemWindowsprogrammingDCIEnum(hdc.rawAddress, lprdst.rawAddress, lprsrc.rawAddress, lpfncallback.rawAddress, lpcontext.rawAddress)
 
 public actual fun dCIOpenProvider(): Hdc =
     MutPtr(WindowsWin32SystemWindowsprogrammingJniBridge.windowssysWindowsWin32SystemWindowsprogrammingDCIOpenProvider())
 
-public actual fun dCISetClipList(pdci: MutPtr<Dcioffscreen>, prd: MutPtr<Rgndata>): Int =
+public actual fun dCISetClipList(pdci: MutPtr, prd: MutPtr): Int =
     WindowsWin32SystemWindowsprogrammingJniBridge.windowssysWindowsWin32SystemWindowsprogrammingDCISetClipList(pdci.rawAddress, prd.rawAddress)
 
-public actual fun dCISetDestination(pdci: MutPtr<Dcioffscreen>, dst: MutPtr<Rect>, src: MutPtr<Rect>): Int =
+public actual fun dCISetDestination(pdci: MutPtr, dst: MutPtr, src: MutPtr): Int =
     WindowsWin32SystemWindowsprogrammingJniBridge.windowssysWindowsWin32SystemWindowsprogrammingDCISetDestination(pdci.rawAddress, dst.rawAddress, src.rawAddress)
 
-public actual fun dCISetSrcDestClip(pdci: MutPtr<Dcioffscreen>, srcrc: MutPtr<Rect>, destrc: MutPtr<Rect>, prd: MutPtr<Rgndata>): Int =
+public actual fun dCISetSrcDestClip(pdci: MutPtr, srcrc: MutPtr, destrc: MutPtr, prd: MutPtr): Int =
     WindowsWin32SystemWindowsprogrammingJniBridge.windowssysWindowsWin32SystemWindowsprogrammingDCISetSrcDestClip(pdci.rawAddress, srcrc.rawAddress, destrc.rawAddress, prd.rawAddress)
 
 public actual fun delNodeA(pszfileordirname: Pcstr, dwflags: UInt): Hresult =
@@ -802,28 +796,28 @@ public actual fun delNodeRunDLL32W(hwnd: Hwnd, hinstance: Hinstance, pszparms: P
 public actual fun delNodeW(pszfileordirname: Pcwstr, dwflags: UInt): Hresult =
     WindowsWin32SystemWindowsprogrammingJniBridge.windowssysWindowsWin32SystemWindowsprogrammingDelNodeW(pszfileordirname.rawAddress, dwflags.toInt())
 
-public actual fun dnsHostnameToComputerNameA(hostname: Pcstr, computername: Pstr, nsize: MutPtr<UInt>): Bool =
+public actual fun dnsHostnameToComputerNameA(hostname: Pcstr, computername: Pstr, nsize: MutPtr): Bool =
     WindowsWin32SystemWindowsprogrammingJniBridge.windowssysWindowsWin32SystemWindowsprogrammingDnsHostnameToComputerNameA(hostname.rawAddress, computername.rawAddress, nsize.rawAddress)
 
-public actual fun dnsHostnameToComputerNameW(hostname: Pcwstr, computername: Pwstr, nsize: MutPtr<UInt>): Bool =
+public actual fun dnsHostnameToComputerNameW(hostname: Pcwstr, computername: Pwstr, nsize: MutPtr): Bool =
     WindowsWin32SystemWindowsprogrammingJniBridge.windowssysWindowsWin32SystemWindowsprogrammingDnsHostnameToComputerNameW(hostname.rawAddress, computername.rawAddress, nsize.rawAddress)
 
-public actual fun dosDateTimeToFileTime(wfatdate: UShort, wfattime: UShort, lpfiletime: MutPtr<Filetime>): Bool =
+public actual fun dosDateTimeToFileTime(wfatdate: UShort, wfattime: UShort, lpfiletime: MutPtr): Bool =
     WindowsWin32SystemWindowsprogrammingJniBridge.windowssysWindowsWin32SystemWindowsprogrammingDosDateTimeToFileTime(wfatdate.toShort(), wfattime.toShort(), lpfiletime.rawAddress)
 
 public actual fun enableProcessOptionalXStateFeatures(features: ULong): Bool =
     WindowsWin32SystemWindowsprogrammingJniBridge.windowssysWindowsWin32SystemWindowsprogrammingEnableProcessOptionalXStateFeatures(features.toLong())
 
-public actual fun executeCabA(hwnd: Hwnd, pcab: MutPtr<Cabinfoa>, preserved: MutPtr<CVoid>): Hresult =
+public actual fun executeCabA(hwnd: Hwnd, pcab: MutPtr, preserved: MutPtr): Hresult =
     WindowsWin32SystemWindowsprogrammingJniBridge.windowssysWindowsWin32SystemWindowsprogrammingExecuteCabA(hwnd.rawAddress, pcab.rawAddress, preserved.rawAddress)
 
-public actual fun executeCabW(hwnd: Hwnd, pcab: MutPtr<Cabinfow>, preserved: MutPtr<CVoid>): Hresult =
+public actual fun executeCabW(hwnd: Hwnd, pcab: MutPtr, preserved: MutPtr): Hresult =
     WindowsWin32SystemWindowsprogrammingJniBridge.windowssysWindowsWin32SystemWindowsprogrammingExecuteCabW(hwnd.rawAddress, pcab.rawAddress, preserved.rawAddress)
 
-public actual fun extractFilesA(pszcabname: Pcstr, pszexpanddir: Pcstr, dwflags: UInt, pszfilelist: Pcstr, lpreserved: MutPtr<CVoid>, dwreserved: UInt): Hresult =
+public actual fun extractFilesA(pszcabname: Pcstr, pszexpanddir: Pcstr, dwflags: UInt, pszfilelist: Pcstr, lpreserved: MutPtr, dwreserved: UInt): Hresult =
     WindowsWin32SystemWindowsprogrammingJniBridge.windowssysWindowsWin32SystemWindowsprogrammingExtractFilesA(pszcabname.rawAddress, pszexpanddir.rawAddress, dwflags.toInt(), pszfilelist.rawAddress, lpreserved.rawAddress, dwreserved.toInt())
 
-public actual fun extractFilesW(pszcabname: Pcwstr, pszexpanddir: Pcwstr, dwflags: UInt, pszfilelist: Pcwstr, lpreserved: MutPtr<CVoid>, dwreserved: UInt): Hresult =
+public actual fun extractFilesW(pszcabname: Pcwstr, pszexpanddir: Pcwstr, dwflags: UInt, pszfilelist: Pcwstr, lpreserved: MutPtr, dwreserved: UInt): Hresult =
     WindowsWin32SystemWindowsprogrammingJniBridge.windowssysWindowsWin32SystemWindowsprogrammingExtractFilesW(pszcabname.rawAddress, pszexpanddir.rawAddress, dwflags.toInt(), pszfilelist.rawAddress, lpreserved.rawAddress, dwreserved.toInt())
 
 public actual fun fileSaveMarkNotExistA(lpfilelist: Pcstr, lpdir: Pcstr, lpbasename: Pcstr): Hresult =
@@ -841,43 +835,43 @@ public actual fun fileSaveRestoreOnINFW(hwnd: Hwnd, psztitle: Pcwstr, pszinf: Pc
 public actual fun fileSaveRestoreW(hdlg: Hwnd, lpfilelist: Pcwstr, lpdir: Pcwstr, lpbasename: Pcwstr, dwflags: UInt): Hresult =
     WindowsWin32SystemWindowsprogrammingJniBridge.windowssysWindowsWin32SystemWindowsprogrammingFileSaveRestoreW(hdlg.rawAddress, lpfilelist.rawAddress, lpdir.rawAddress, lpbasename.rawAddress, dwflags.toInt())
 
-public actual fun fileTimeToDosDateTime(lpfiletime: ConstPtr<Filetime>, lpfatdate: MutPtr<UShort>, lpfattime: MutPtr<UShort>): Bool =
+public actual fun fileTimeToDosDateTime(lpfiletime: ConstPtr, lpfatdate: MutPtr, lpfattime: MutPtr): Bool =
     WindowsWin32SystemWindowsprogrammingJniBridge.windowssysWindowsWin32SystemWindowsprogrammingFileTimeToDosDateTime(lpfiletime.rawAddress, lpfatdate.rawAddress, lpfattime.rawAddress)
 
 public actual fun gdiEntry13(): UInt =
     WindowsWin32SystemWindowsprogrammingJniBridge.windowssysWindowsWin32SystemWindowsprogrammingGdiEntry13().toUInt()
 
-public actual fun getComputerNameA(lpbuffer: Pstr, nsize: MutPtr<UInt>): Bool =
+public actual fun getComputerNameA(lpbuffer: Pstr, nsize: MutPtr): Bool =
     WindowsWin32SystemWindowsprogrammingJniBridge.windowssysWindowsWin32SystemWindowsprogrammingGetComputerNameA(lpbuffer.rawAddress, nsize.rawAddress)
 
-public actual fun getComputerNameW(lpbuffer: Pwstr, nsize: MutPtr<UInt>): Bool =
+public actual fun getComputerNameW(lpbuffer: Pwstr, nsize: MutPtr): Bool =
     WindowsWin32SystemWindowsprogrammingJniBridge.windowssysWindowsWin32SystemWindowsprogrammingGetComputerNameW(lpbuffer.rawAddress, nsize.rawAddress)
 
-public actual fun getCurrentHwProfileA(lphwprofileinfo: MutPtr<HwProfileInfoa>): Bool =
+public actual fun getCurrentHwProfileA(lphwprofileinfo: MutPtr): Bool =
     WindowsWin32SystemWindowsprogrammingJniBridge.windowssysWindowsWin32SystemWindowsprogrammingGetCurrentHwProfileA(lphwprofileinfo.rawAddress)
 
-public actual fun getCurrentHwProfileW(lphwprofileinfo: MutPtr<HwProfileInfow>): Bool =
+public actual fun getCurrentHwProfileW(lphwprofileinfo: MutPtr): Bool =
     WindowsWin32SystemWindowsprogrammingJniBridge.windowssysWindowsWin32SystemWindowsprogrammingGetCurrentHwProfileW(lphwprofileinfo.rawAddress)
 
-public actual fun getDCRegionData(hdc: Hdc, size: UInt, prd: MutPtr<Rgndata>): UInt =
+public actual fun getDCRegionData(hdc: Hdc, size: UInt, prd: MutPtr): UInt =
     WindowsWin32SystemWindowsprogrammingJniBridge.windowssysWindowsWin32SystemWindowsprogrammingGetDCRegionData(hdc.rawAddress, size.toInt(), prd.rawAddress).toUInt()
 
 public actual fun getFeatureEnabledState(featureid: UInt, changetime: FeatureChangeTime): FeatureEnabledState =
     WindowsWin32SystemWindowsprogrammingJniBridge.windowssysWindowsWin32SystemWindowsprogrammingGetFeatureEnabledState(featureid.toInt(), changetime)
 
-public actual fun getFeatureVariant(featureid: UInt, changetime: FeatureChangeTime, payloadid: MutPtr<UInt>, hasnotification: MutPtr<Bool>): UInt =
+public actual fun getFeatureVariant(featureid: UInt, changetime: FeatureChangeTime, payloadid: MutPtr, hasnotification: MutPtr): UInt =
     WindowsWin32SystemWindowsprogrammingJniBridge.windowssysWindowsWin32SystemWindowsprogrammingGetFeatureVariant(featureid.toInt(), changetime, payloadid.rawAddress, hasnotification.rawAddress).toUInt()
 
-public actual fun getFirmwareEnvironmentVariableA(lpname: Pcstr, lpguid: Pcstr, pbuffer: MutPtr<CVoid>, nsize: UInt): UInt =
+public actual fun getFirmwareEnvironmentVariableA(lpname: Pcstr, lpguid: Pcstr, pbuffer: MutPtr, nsize: UInt): UInt =
     WindowsWin32SystemWindowsprogrammingJniBridge.windowssysWindowsWin32SystemWindowsprogrammingGetFirmwareEnvironmentVariableA(lpname.rawAddress, lpguid.rawAddress, pbuffer.rawAddress, nsize.toInt()).toUInt()
 
-public actual fun getFirmwareEnvironmentVariableExA(lpname: Pcstr, lpguid: Pcstr, pbuffer: MutPtr<CVoid>, nsize: UInt, pdwattribubutes: MutPtr<UInt>): UInt =
+public actual fun getFirmwareEnvironmentVariableExA(lpname: Pcstr, lpguid: Pcstr, pbuffer: MutPtr, nsize: UInt, pdwattribubutes: MutPtr): UInt =
     WindowsWin32SystemWindowsprogrammingJniBridge.windowssysWindowsWin32SystemWindowsprogrammingGetFirmwareEnvironmentVariableExA(lpname.rawAddress, lpguid.rawAddress, pbuffer.rawAddress, nsize.toInt(), pdwattribubutes.rawAddress).toUInt()
 
-public actual fun getFirmwareEnvironmentVariableExW(lpname: Pcwstr, lpguid: Pcwstr, pbuffer: MutPtr<CVoid>, nsize: UInt, pdwattribubutes: MutPtr<UInt>): UInt =
+public actual fun getFirmwareEnvironmentVariableExW(lpname: Pcwstr, lpguid: Pcwstr, pbuffer: MutPtr, nsize: UInt, pdwattribubutes: MutPtr): UInt =
     WindowsWin32SystemWindowsprogrammingJniBridge.windowssysWindowsWin32SystemWindowsprogrammingGetFirmwareEnvironmentVariableExW(lpname.rawAddress, lpguid.rawAddress, pbuffer.rawAddress, nsize.toInt(), pdwattribubutes.rawAddress).toUInt()
 
-public actual fun getFirmwareEnvironmentVariableW(lpname: Pcwstr, lpguid: Pcwstr, pbuffer: MutPtr<CVoid>, nsize: UInt): UInt =
+public actual fun getFirmwareEnvironmentVariableW(lpname: Pcwstr, lpguid: Pcwstr, pbuffer: MutPtr, nsize: UInt): UInt =
     WindowsWin32SystemWindowsprogrammingJniBridge.windowssysWindowsWin32SystemWindowsprogrammingGetFirmwareEnvironmentVariableW(lpname.rawAddress, lpguid.rawAddress, pbuffer.rawAddress, nsize.toInt()).toUInt()
 
 public actual fun getPrivateProfileIntA(lpappname: Pcstr, lpkeyname: Pcstr, ndefault: Int, lpfilename: Pcstr): UInt =
@@ -904,10 +898,10 @@ public actual fun getPrivateProfileStringA(lpappname: Pcstr, lpkeyname: Pcstr, l
 public actual fun getPrivateProfileStringW(lpappname: Pcwstr, lpkeyname: Pcwstr, lpdefault: Pcwstr, lpreturnedstring: Pwstr, nsize: UInt, lpfilename: Pcwstr): UInt =
     WindowsWin32SystemWindowsprogrammingJniBridge.windowssysWindowsWin32SystemWindowsprogrammingGetPrivateProfileStringW(lpappname.rawAddress, lpkeyname.rawAddress, lpdefault.rawAddress, lpreturnedstring.rawAddress, nsize.toInt(), lpfilename.rawAddress).toUInt()
 
-public actual fun getPrivateProfileStructA(lpszsection: Pcstr, lpszkey: Pcstr, lpstruct: MutPtr<CVoid>, usizestruct: UInt, szfile: Pcstr): Bool =
+public actual fun getPrivateProfileStructA(lpszsection: Pcstr, lpszkey: Pcstr, lpstruct: MutPtr, usizestruct: UInt, szfile: Pcstr): Bool =
     WindowsWin32SystemWindowsprogrammingJniBridge.windowssysWindowsWin32SystemWindowsprogrammingGetPrivateProfileStructA(lpszsection.rawAddress, lpszkey.rawAddress, lpstruct.rawAddress, usizestruct.toInt(), szfile.rawAddress)
 
-public actual fun getPrivateProfileStructW(lpszsection: Pcwstr, lpszkey: Pcwstr, lpstruct: MutPtr<CVoid>, usizestruct: UInt, szfile: Pcwstr): Bool =
+public actual fun getPrivateProfileStructW(lpszsection: Pcwstr, lpszkey: Pcwstr, lpstruct: MutPtr, usizestruct: UInt, szfile: Pcwstr): Bool =
     WindowsWin32SystemWindowsprogrammingJniBridge.windowssysWindowsWin32SystemWindowsprogrammingGetPrivateProfileStructW(lpszsection.rawAddress, lpszkey.rawAddress, lpstruct.rawAddress, usizestruct.toInt(), szfile.rawAddress)
 
 public actual fun getProfileIntA(lpappname: Pcstr, lpkeyname: Pcstr, ndefault: Int): UInt =
@@ -928,31 +922,31 @@ public actual fun getProfileStringA(lpappname: Pcstr, lpkeyname: Pcstr, lpdefaul
 public actual fun getProfileStringW(lpappname: Pcwstr, lpkeyname: Pcwstr, lpdefault: Pcwstr, lpreturnedstring: Pwstr, nsize: UInt): UInt =
     WindowsWin32SystemWindowsprogrammingJniBridge.windowssysWindowsWin32SystemWindowsprogrammingGetProfileStringW(lpappname.rawAddress, lpkeyname.rawAddress, lpdefault.rawAddress, lpreturnedstring.rawAddress, nsize.toInt()).toUInt()
 
-public actual fun getSystemRegistryQuota(pdwquotaallowed: MutPtr<UInt>, pdwquotaused: MutPtr<UInt>): Bool =
+public actual fun getSystemRegistryQuota(pdwquotaallowed: MutPtr, pdwquotaused: MutPtr): Bool =
     WindowsWin32SystemWindowsprogrammingJniBridge.windowssysWindowsWin32SystemWindowsprogrammingGetSystemRegistryQuota(pdwquotaallowed.rawAddress, pdwquotaused.rawAddress)
 
 public actual fun getThreadEnabledXStateFeatures(): ULong =
     WindowsWin32SystemWindowsprogrammingJniBridge.windowssysWindowsWin32SystemWindowsprogrammingGetThreadEnabledXStateFeatures().toULong()
 
-public actual fun getUserNameA(lpbuffer: Pstr, pcbbuffer: MutPtr<UInt>): Bool =
+public actual fun getUserNameA(lpbuffer: Pstr, pcbbuffer: MutPtr): Bool =
     WindowsWin32SystemWindowsprogrammingJniBridge.windowssysWindowsWin32SystemWindowsprogrammingGetUserNameA(lpbuffer.rawAddress, pcbbuffer.rawAddress)
 
-public actual fun getUserNameW(lpbuffer: Pwstr, pcbbuffer: MutPtr<UInt>): Bool =
+public actual fun getUserNameW(lpbuffer: Pwstr, pcbbuffer: MutPtr): Bool =
     WindowsWin32SystemWindowsprogrammingJniBridge.windowssysWindowsWin32SystemWindowsprogrammingGetUserNameW(lpbuffer.rawAddress, pcbbuffer.rawAddress)
 
-public actual fun getVersionFromFileA(lpszfilename: Pcstr, pdwmsver: MutPtr<UInt>, pdwlsver: MutPtr<UInt>, bversion: Bool): Hresult =
+public actual fun getVersionFromFileA(lpszfilename: Pcstr, pdwmsver: MutPtr, pdwlsver: MutPtr, bversion: Bool): Hresult =
     WindowsWin32SystemWindowsprogrammingJniBridge.windowssysWindowsWin32SystemWindowsprogrammingGetVersionFromFileA(lpszfilename.rawAddress, pdwmsver.rawAddress, pdwlsver.rawAddress, bversion)
 
-public actual fun getVersionFromFileExA(lpszfilename: Pcstr, pdwmsver: MutPtr<UInt>, pdwlsver: MutPtr<UInt>, bversion: Bool): Hresult =
+public actual fun getVersionFromFileExA(lpszfilename: Pcstr, pdwmsver: MutPtr, pdwlsver: MutPtr, bversion: Bool): Hresult =
     WindowsWin32SystemWindowsprogrammingJniBridge.windowssysWindowsWin32SystemWindowsprogrammingGetVersionFromFileExA(lpszfilename.rawAddress, pdwmsver.rawAddress, pdwlsver.rawAddress, bversion)
 
-public actual fun getVersionFromFileExW(lpszfilename: Pcwstr, pdwmsver: MutPtr<UInt>, pdwlsver: MutPtr<UInt>, bversion: Bool): Hresult =
+public actual fun getVersionFromFileExW(lpszfilename: Pcwstr, pdwmsver: MutPtr, pdwlsver: MutPtr, bversion: Bool): Hresult =
     WindowsWin32SystemWindowsprogrammingJniBridge.windowssysWindowsWin32SystemWindowsprogrammingGetVersionFromFileExW(lpszfilename.rawAddress, pdwmsver.rawAddress, pdwlsver.rawAddress, bversion)
 
-public actual fun getVersionFromFileW(lpszfilename: Pcwstr, pdwmsver: MutPtr<UInt>, pdwlsver: MutPtr<UInt>, bversion: Bool): Hresult =
+public actual fun getVersionFromFileW(lpszfilename: Pcwstr, pdwmsver: MutPtr, pdwlsver: MutPtr, bversion: Bool): Hresult =
     WindowsWin32SystemWindowsprogrammingJniBridge.windowssysWindowsWin32SystemWindowsprogrammingGetVersionFromFileW(lpszfilename.rawAddress, pdwmsver.rawAddress, pdwlsver.rawAddress, bversion)
 
-public actual fun getWindowRegionData(hwnd: Hwnd, size: UInt, prd: MutPtr<Rgndata>): UInt =
+public actual fun getWindowRegionData(hwnd: Hwnd, size: UInt, prd: MutPtr): UInt =
     WindowsWin32SystemWindowsprogrammingJniBridge.windowssysWindowsWin32SystemWindowsprogrammingGetWindowRegionData(hwnd.rawAddress, size.toInt(), prd.rawAddress).toUInt()
 
 public actual fun globalCompact(dwminfree: UInt): ULong =
@@ -969,40 +963,40 @@ public actual fun globalUnfix(hmem: Hglobal) {
     WindowsWin32SystemWindowsprogrammingJniBridge.windowssysWindowsWin32SystemWindowsprogrammingGlobalUnfix(hmem.rawAddress)
 }
 
-public actual fun globalWire(hmem: Hglobal): MutPtr<CVoid> =
+public actual fun globalWire(hmem: Hglobal): MutPtr =
     MutPtr(WindowsWin32SystemWindowsprogrammingJniBridge.windowssysWindowsWin32SystemWindowsprogrammingGlobalWire(hmem.rawAddress))
 
-public actual fun iMPGetIMEA(param0: Hwnd, param1: MutPtr<Imeproa>): Bool =
+public actual fun iMPGetIMEA(param0: Hwnd, param1: MutPtr): Bool =
     WindowsWin32SystemWindowsprogrammingJniBridge.windowssysWindowsWin32SystemWindowsprogrammingIMPGetIMEA(param0.rawAddress, param1.rawAddress)
 
-public actual fun iMPGetIMEW(param0: Hwnd, param1: MutPtr<Imeprow>): Bool =
+public actual fun iMPGetIMEW(param0: Hwnd, param1: MutPtr): Bool =
     WindowsWin32SystemWindowsprogrammingJniBridge.windowssysWindowsWin32SystemWindowsprogrammingIMPGetIMEW(param0.rawAddress, param1.rawAddress)
 
-public actual fun iMPQueryIMEA(param0: MutPtr<Imeproa>): Bool =
+public actual fun iMPQueryIMEA(param0: MutPtr): Bool =
     WindowsWin32SystemWindowsprogrammingJniBridge.windowssysWindowsWin32SystemWindowsprogrammingIMPQueryIMEA(param0.rawAddress)
 
-public actual fun iMPQueryIMEW(param0: MutPtr<Imeprow>): Bool =
+public actual fun iMPQueryIMEW(param0: MutPtr): Bool =
     WindowsWin32SystemWindowsprogrammingJniBridge.windowssysWindowsWin32SystemWindowsprogrammingIMPQueryIMEW(param0.rawAddress)
 
-public actual fun iMPSetIMEA(param0: Hwnd, param1: MutPtr<Imeproa>): Bool =
+public actual fun iMPSetIMEA(param0: Hwnd, param1: MutPtr): Bool =
     WindowsWin32SystemWindowsprogrammingJniBridge.windowssysWindowsWin32SystemWindowsprogrammingIMPSetIMEA(param0.rawAddress, param1.rawAddress)
 
-public actual fun iMPSetIMEW(param0: Hwnd, param1: MutPtr<Imeprow>): Bool =
+public actual fun iMPSetIMEW(param0: Hwnd, param1: MutPtr): Bool =
     WindowsWin32SystemWindowsprogrammingJniBridge.windowssysWindowsWin32SystemWindowsprogrammingIMPSetIMEW(param0.rawAddress, param1.rawAddress)
 
 public actual fun isApiSetImplemented(contract: Pcstr): Bool =
     WindowsWin32SystemWindowsprogrammingJniBridge.windowssysWindowsWin32SystemWindowsprogrammingIsApiSetImplemented(contract.rawAddress)
 
-public actual fun isBadHugeReadPtr(lp: ConstPtr<CVoid>, ucb: ULong): Bool =
+public actual fun isBadHugeReadPtr(lp: ConstPtr, ucb: ULong): Bool =
     WindowsWin32SystemWindowsprogrammingJniBridge.windowssysWindowsWin32SystemWindowsprogrammingIsBadHugeReadPtr(lp.rawAddress, ucb.toLong())
 
-public actual fun isBadHugeWritePtr(lp: ConstPtr<CVoid>, ucb: ULong): Bool =
+public actual fun isBadHugeWritePtr(lp: ConstPtr, ucb: ULong): Bool =
     WindowsWin32SystemWindowsprogrammingJniBridge.windowssysWindowsWin32SystemWindowsprogrammingIsBadHugeWritePtr(lp.rawAddress, ucb.toLong())
 
-public actual fun isNTAdmin(dwreserved: UInt, lpdwreserved: MutPtr<UInt>): Bool =
+public actual fun isNTAdmin(dwreserved: UInt, lpdwreserved: MutPtr): Bool =
     WindowsWin32SystemWindowsprogrammingJniBridge.windowssysWindowsWin32SystemWindowsprogrammingIsNTAdmin(dwreserved.toInt(), lpdwreserved.rawAddress)
 
-public actual fun isNativeVhdBoot(nativevhdboot: MutPtr<Bool>): Bool =
+public actual fun isNativeVhdBoot(nativevhdboot: MutPtr): Bool =
     WindowsWin32SystemWindowsprogrammingJniBridge.windowssysWindowsWin32SystemWindowsprogrammingIsNativeVhdBoot(nativevhdboot.rawAddress)
 
 public actual fun isTokenUntrusted(tokenhandle: Handle): Bool =
@@ -1029,10 +1023,10 @@ public actual fun needReboot(dwrebootcheck: UInt): Bool =
 public actual fun needRebootInit(): UInt =
     WindowsWin32SystemWindowsprogrammingJniBridge.windowssysWindowsWin32SystemWindowsprogrammingNeedRebootInit().toUInt()
 
-public actual fun openINFEngineA(pszinffilename: Pcstr, pszinstallsection: Pcstr, dwflags: UInt, phinf: MutPtr<MutPtr<CVoid>>, pvreserved: MutPtr<CVoid>): Hresult =
+public actual fun openINFEngineA(pszinffilename: Pcstr, pszinstallsection: Pcstr, dwflags: UInt, phinf: MutPtr, pvreserved: MutPtr): Hresult =
     WindowsWin32SystemWindowsprogrammingJniBridge.windowssysWindowsWin32SystemWindowsprogrammingOpenINFEngineA(pszinffilename.rawAddress, pszinstallsection.rawAddress, dwflags.toInt(), phinf.rawAddress, pvreserved.rawAddress)
 
-public actual fun openINFEngineW(pszinffilename: Pcwstr, pszinstallsection: Pcwstr, dwflags: UInt, phinf: MutPtr<MutPtr<CVoid>>, pvreserved: MutPtr<CVoid>): Hresult =
+public actual fun openINFEngineW(pszinffilename: Pcwstr, pszinstallsection: Pcwstr, dwflags: UInt, phinf: MutPtr, pvreserved: MutPtr): Hresult =
     WindowsWin32SystemWindowsprogrammingJniBridge.windowssysWindowsWin32SystemWindowsprogrammingOpenINFEngineW(pszinffilename.rawAddress, pszinstallsection.rawAddress, dwflags.toInt(), phinf.rawAddress, pvreserved.rawAddress)
 
 public actual fun openMutexA(dwdesiredaccess: UInt, binherithandle: Bool, lpname: Pcstr): Handle =
@@ -1041,37 +1035,37 @@ public actual fun openMutexA(dwdesiredaccess: UInt, binherithandle: Bool, lpname
 public actual fun openSemaphoreA(dwdesiredaccess: UInt, binherithandle: Bool, lpname: Pcstr): Handle =
     MutPtr(WindowsWin32SystemWindowsprogrammingJniBridge.windowssysWindowsWin32SystemWindowsprogrammingOpenSemaphoreA(dwdesiredaccess.toInt(), binherithandle, lpname.rawAddress))
 
-public actual fun queryAuxiliaryCounterFrequency(lpauxiliarycounterfrequency: MutPtr<ULong>): Hresult =
+public actual fun queryAuxiliaryCounterFrequency(lpauxiliarycounterfrequency: MutPtr): Hresult =
     WindowsWin32SystemWindowsprogrammingJniBridge.windowssysWindowsWin32SystemWindowsprogrammingQueryAuxiliaryCounterFrequency(lpauxiliarycounterfrequency.rawAddress)
 
-public actual fun queryIdleProcessorCycleTime(bufferlength: MutPtr<UInt>, processoridlecycletime: MutPtr<ULong>): Bool =
+public actual fun queryIdleProcessorCycleTime(bufferlength: MutPtr, processoridlecycletime: MutPtr): Bool =
     WindowsWin32SystemWindowsprogrammingJniBridge.windowssysWindowsWin32SystemWindowsprogrammingQueryIdleProcessorCycleTime(bufferlength.rawAddress, processoridlecycletime.rawAddress)
 
-public actual fun queryIdleProcessorCycleTimeEx(group: UShort, bufferlength: MutPtr<UInt>, processoridlecycletime: MutPtr<ULong>): Bool =
+public actual fun queryIdleProcessorCycleTimeEx(group: UShort, bufferlength: MutPtr, processoridlecycletime: MutPtr): Bool =
     WindowsWin32SystemWindowsprogrammingJniBridge.windowssysWindowsWin32SystemWindowsprogrammingQueryIdleProcessorCycleTimeEx(group.toShort(), bufferlength.rawAddress, processoridlecycletime.rawAddress)
 
-public actual fun queryInterruptTime(lpinterrupttime: MutPtr<ULong>) {
+public actual fun queryInterruptTime(lpinterrupttime: MutPtr) {
     WindowsWin32SystemWindowsprogrammingJniBridge.windowssysWindowsWin32SystemWindowsprogrammingQueryInterruptTime(lpinterrupttime.rawAddress)
 }
 
-public actual fun queryInterruptTimePrecise(lpinterrupttimeprecise: MutPtr<ULong>) {
+public actual fun queryInterruptTimePrecise(lpinterrupttimeprecise: MutPtr) {
     WindowsWin32SystemWindowsprogrammingJniBridge.windowssysWindowsWin32SystemWindowsprogrammingQueryInterruptTimePrecise(lpinterrupttimeprecise.rawAddress)
 }
 
-public actual fun queryProcessCycleTime(processhandle: Handle, cycletime: MutPtr<ULong>): Bool =
+public actual fun queryProcessCycleTime(processhandle: Handle, cycletime: MutPtr): Bool =
     WindowsWin32SystemWindowsprogrammingJniBridge.windowssysWindowsWin32SystemWindowsprogrammingQueryProcessCycleTime(processhandle.rawAddress, cycletime.rawAddress)
 
-public actual fun queryThreadCycleTime(threadhandle: Handle, cycletime: MutPtr<ULong>): Bool =
+public actual fun queryThreadCycleTime(threadhandle: Handle, cycletime: MutPtr): Bool =
     WindowsWin32SystemWindowsprogrammingJniBridge.windowssysWindowsWin32SystemWindowsprogrammingQueryThreadCycleTime(threadhandle.rawAddress, cycletime.rawAddress)
 
-public actual fun queryUnbiasedInterruptTime(unbiasedtime: MutPtr<ULong>): Bool =
+public actual fun queryUnbiasedInterruptTime(unbiasedtime: MutPtr): Bool =
     WindowsWin32SystemWindowsprogrammingJniBridge.windowssysWindowsWin32SystemWindowsprogrammingQueryUnbiasedInterruptTime(unbiasedtime.rawAddress)
 
-public actual fun queryUnbiasedInterruptTimePrecise(lpunbiasedinterrupttimeprecise: MutPtr<ULong>) {
+public actual fun queryUnbiasedInterruptTimePrecise(lpunbiasedinterrupttimeprecise: MutPtr) {
     WindowsWin32SystemWindowsprogrammingJniBridge.windowssysWindowsWin32SystemWindowsprogrammingQueryUnbiasedInterruptTimePrecise(lpunbiasedinterrupttimeprecise.rawAddress)
 }
 
-public actual fun raiseCustomSystemEventTrigger(customsystemeventtriggerconfig: ConstPtr<CustomSystemEventTriggerConfig>): UInt =
+public actual fun raiseCustomSystemEventTrigger(customsystemeventtriggerconfig: ConstPtr): UInt =
     WindowsWin32SystemWindowsprogrammingJniBridge.windowssysWindowsWin32SystemWindowsprogrammingRaiseCustomSystemEventTrigger(customsystemeventtriggerconfig.rawAddress).toUInt()
 
 public actual fun rebootCheckOnInstallA(hwnd: Hwnd, pszinf: Pcstr, pszsec: Pcstr, dwreserved: UInt): Hresult =
@@ -1080,7 +1074,7 @@ public actual fun rebootCheckOnInstallA(hwnd: Hwnd, pszinf: Pcstr, pszsec: Pcstr
 public actual fun rebootCheckOnInstallW(hwnd: Hwnd, pszinf: Pcwstr, pszsec: Pcwstr, dwreserved: UInt): Hresult =
     WindowsWin32SystemWindowsprogrammingJniBridge.windowssysWindowsWin32SystemWindowsprogrammingRebootCheckOnInstallW(hwnd.rawAddress, pszinf.rawAddress, pszsec.rawAddress, dwreserved.toInt())
 
-public actual fun recordFeatureError(featureid: UInt, error: ConstPtr<FeatureError>) {
+public actual fun recordFeatureError(featureid: UInt, error: ConstPtr) {
     WindowsWin32SystemWindowsprogrammingJniBridge.windowssysWindowsWin32SystemWindowsprogrammingRecordFeatureError(featureid.toInt(), error.rawAddress)
 }
 
@@ -1088,10 +1082,10 @@ public actual fun recordFeatureUsage(featureid: UInt, kind: UInt, addend: UInt, 
     WindowsWin32SystemWindowsprogrammingJniBridge.windowssysWindowsWin32SystemWindowsprogrammingRecordFeatureUsage(featureid.toInt(), kind.toInt(), addend.toInt(), originname.rawAddress)
 }
 
-public actual fun regInstallA(hmod: Hmodule, pszsection: Pcstr, psttable: ConstPtr<Strtablea>): Hresult =
+public actual fun regInstallA(hmod: Hmodule, pszsection: Pcstr, psttable: ConstPtr): Hresult =
     WindowsWin32SystemWindowsprogrammingJniBridge.windowssysWindowsWin32SystemWindowsprogrammingRegInstallA(hmod.rawAddress, pszsection.rawAddress, psttable.rawAddress)
 
-public actual fun regInstallW(hmod: Hmodule, pszsection: Pcwstr, psttable: ConstPtr<Strtablew>): Hresult =
+public actual fun regInstallW(hmod: Hmodule, pszsection: Pcwstr, psttable: ConstPtr): Hresult =
     WindowsWin32SystemWindowsprogrammingJniBridge.windowssysWindowsWin32SystemWindowsprogrammingRegInstallW(hmod.rawAddress, pszsection.rawAddress, psttable.rawAddress)
 
 public actual fun regRestoreAllA(hwnd: Hwnd, psztitlestring: Pcstr, hkbckupkey: Hkey): Hresult =
@@ -1118,73 +1112,73 @@ public actual fun replacePartitionUnit(targetpartition: Pcwstr, sparepartition: 
 public actual fun requestDeviceWakeup(hdevice: Handle): Bool =
     WindowsWin32SystemWindowsprogrammingJniBridge.windowssysWindowsWin32SystemWindowsprogrammingRequestDeviceWakeup(hdevice.rawAddress)
 
-public actual fun rtlAnsiStringToUnicodeString(destinationstring: MutPtr<UnicodeString>, sourcestring: MutPtr<io.github.kotlinmania.windowssys.windows.win32.system.kernel.String>, allocatedestinationstring: Boolean): Ntstatus =
+public actual fun rtlAnsiStringToUnicodeString(destinationstring: MutPtr, sourcestring: MutPtr, allocatedestinationstring: Boolean): Ntstatus =
     WindowsWin32SystemWindowsprogrammingJniBridge.windowssysWindowsWin32SystemWindowsprogrammingRtlAnsiStringToUnicodeString(destinationstring.rawAddress, sourcestring.rawAddress, allocatedestinationstring)
 
-public actual fun rtlCharToInteger(string: MutPtr<Byte>, base: UInt, value: MutPtr<UInt>): Ntstatus =
+public actual fun rtlCharToInteger(string: MutPtr, base: UInt, value: MutPtr): Ntstatus =
     WindowsWin32SystemWindowsprogrammingJniBridge.windowssysWindowsWin32SystemWindowsprogrammingRtlCharToInteger(string.rawAddress, base.toInt(), value.rawAddress)
 
-public actual fun rtlFreeAnsiString(ansistring: MutPtr<io.github.kotlinmania.windowssys.windows.win32.system.kernel.String>) {
+public actual fun rtlFreeAnsiString(ansistring: MutPtr) {
     WindowsWin32SystemWindowsprogrammingJniBridge.windowssysWindowsWin32SystemWindowsprogrammingRtlFreeAnsiString(ansistring.rawAddress)
 }
 
-public actual fun rtlFreeOemString(oemstring: MutPtr<io.github.kotlinmania.windowssys.windows.win32.system.kernel.String>) {
+public actual fun rtlFreeOemString(oemstring: MutPtr) {
     WindowsWin32SystemWindowsprogrammingJniBridge.windowssysWindowsWin32SystemWindowsprogrammingRtlFreeOemString(oemstring.rawAddress)
 }
 
-public actual fun rtlFreeUnicodeString(unicodestring: MutPtr<UnicodeString>) {
+public actual fun rtlFreeUnicodeString(unicodestring: MutPtr) {
     WindowsWin32SystemWindowsprogrammingJniBridge.windowssysWindowsWin32SystemWindowsprogrammingRtlFreeUnicodeString(unicodestring.rawAddress)
 }
 
 public actual fun rtlGetReturnAddressHijackTarget(): ULong =
     WindowsWin32SystemWindowsprogrammingJniBridge.windowssysWindowsWin32SystemWindowsprogrammingRtlGetReturnAddressHijackTarget().toULong()
 
-public actual fun rtlInitAnsiString(destinationstring: MutPtr<io.github.kotlinmania.windowssys.windows.win32.system.kernel.String>, sourcestring: MutPtr<Byte>) {
+public actual fun rtlInitAnsiString(destinationstring: MutPtr, sourcestring: MutPtr) {
     WindowsWin32SystemWindowsprogrammingJniBridge.windowssysWindowsWin32SystemWindowsprogrammingRtlInitAnsiString(destinationstring.rawAddress, sourcestring.rawAddress)
 }
 
-public actual fun rtlInitAnsiStringEx(destinationstring: MutPtr<io.github.kotlinmania.windowssys.windows.win32.system.kernel.String>, sourcestring: MutPtr<Byte>): Ntstatus =
+public actual fun rtlInitAnsiStringEx(destinationstring: MutPtr, sourcestring: MutPtr): Ntstatus =
     WindowsWin32SystemWindowsprogrammingJniBridge.windowssysWindowsWin32SystemWindowsprogrammingRtlInitAnsiStringEx(destinationstring.rawAddress, sourcestring.rawAddress)
 
-public actual fun rtlInitString(destinationstring: MutPtr<io.github.kotlinmania.windowssys.windows.win32.system.kernel.String>, sourcestring: MutPtr<Byte>) {
+public actual fun rtlInitString(destinationstring: MutPtr, sourcestring: MutPtr) {
     WindowsWin32SystemWindowsprogrammingJniBridge.windowssysWindowsWin32SystemWindowsprogrammingRtlInitString(destinationstring.rawAddress, sourcestring.rawAddress)
 }
 
-public actual fun rtlInitStringEx(destinationstring: MutPtr<io.github.kotlinmania.windowssys.windows.win32.system.kernel.String>, sourcestring: MutPtr<Byte>): Ntstatus =
+public actual fun rtlInitStringEx(destinationstring: MutPtr, sourcestring: MutPtr): Ntstatus =
     WindowsWin32SystemWindowsprogrammingJniBridge.windowssysWindowsWin32SystemWindowsprogrammingRtlInitStringEx(destinationstring.rawAddress, sourcestring.rawAddress)
 
-public actual fun rtlInitUnicodeString(destinationstring: MutPtr<UnicodeString>, sourcestring: Pcwstr) {
+public actual fun rtlInitUnicodeString(destinationstring: MutPtr, sourcestring: Pcwstr) {
     WindowsWin32SystemWindowsprogrammingJniBridge.windowssysWindowsWin32SystemWindowsprogrammingRtlInitUnicodeString(destinationstring.rawAddress, sourcestring.rawAddress)
 }
 
-public actual fun rtlIsNameLegalDOS8Dot3(name: MutPtr<UnicodeString>, oemname: MutPtr<io.github.kotlinmania.windowssys.windows.win32.system.kernel.String>, namecontainsspaces: MutPtr<Boolean>): Boolean =
+public actual fun rtlIsNameLegalDOS8Dot3(name: MutPtr, oemname: MutPtr, namecontainsspaces: MutPtr): Boolean =
     WindowsWin32SystemWindowsprogrammingJniBridge.windowssysWindowsWin32SystemWindowsprogrammingRtlIsNameLegalDOS8Dot3(name.rawAddress, oemname.rawAddress, namecontainsspaces.rawAddress)
 
-public actual fun rtlLocalTimeToSystemTime(localtime: MutPtr<Long>, systemtime: MutPtr<Long>): Ntstatus =
+public actual fun rtlLocalTimeToSystemTime(localtime: MutPtr, systemtime: MutPtr): Ntstatus =
     WindowsWin32SystemWindowsprogrammingJniBridge.windowssysWindowsWin32SystemWindowsprogrammingRtlLocalTimeToSystemTime(localtime.rawAddress, systemtime.rawAddress)
 
-public actual fun rtlRaiseCustomSystemEventTrigger(triggerconfig: ConstPtr<CustomSystemEventTriggerConfig>): UInt =
+public actual fun rtlRaiseCustomSystemEventTrigger(triggerconfig: ConstPtr): UInt =
     WindowsWin32SystemWindowsprogrammingJniBridge.windowssysWindowsWin32SystemWindowsprogrammingRtlRaiseCustomSystemEventTrigger(triggerconfig.rawAddress).toUInt()
 
-public actual fun rtlTimeToSecondsSince1970(time: MutPtr<Long>, elapsedseconds: MutPtr<UInt>): Boolean =
+public actual fun rtlTimeToSecondsSince1970(time: MutPtr, elapsedseconds: MutPtr): Boolean =
     WindowsWin32SystemWindowsprogrammingJniBridge.windowssysWindowsWin32SystemWindowsprogrammingRtlTimeToSecondsSince1970(time.rawAddress, elapsedseconds.rawAddress)
 
-public actual fun rtlUnicodeStringToAnsiString(destinationstring: MutPtr<io.github.kotlinmania.windowssys.windows.win32.system.kernel.String>, sourcestring: MutPtr<UnicodeString>, allocatedestinationstring: Boolean): Ntstatus =
+public actual fun rtlUnicodeStringToAnsiString(destinationstring: MutPtr, sourcestring: MutPtr, allocatedestinationstring: Boolean): Ntstatus =
     WindowsWin32SystemWindowsprogrammingJniBridge.windowssysWindowsWin32SystemWindowsprogrammingRtlUnicodeStringToAnsiString(destinationstring.rawAddress, sourcestring.rawAddress, allocatedestinationstring)
 
-public actual fun rtlUnicodeStringToOemString(destinationstring: MutPtr<io.github.kotlinmania.windowssys.windows.win32.system.kernel.String>, sourcestring: MutPtr<UnicodeString>, allocatedestinationstring: Boolean): Ntstatus =
+public actual fun rtlUnicodeStringToOemString(destinationstring: MutPtr, sourcestring: MutPtr, allocatedestinationstring: Boolean): Ntstatus =
     WindowsWin32SystemWindowsprogrammingJniBridge.windowssysWindowsWin32SystemWindowsprogrammingRtlUnicodeStringToOemString(destinationstring.rawAddress, sourcestring.rawAddress, allocatedestinationstring)
 
-public actual fun rtlUnicodeToMultiByteSize(bytesinmultibytestring: MutPtr<UInt>, unicodestring: Pcwstr, bytesinunicodestring: UInt): Ntstatus =
+public actual fun rtlUnicodeToMultiByteSize(bytesinmultibytestring: MutPtr, unicodestring: Pcwstr, bytesinunicodestring: UInt): Ntstatus =
     WindowsWin32SystemWindowsprogrammingJniBridge.windowssysWindowsWin32SystemWindowsprogrammingRtlUnicodeToMultiByteSize(bytesinmultibytestring.rawAddress, unicodestring.rawAddress, bytesinunicodestring.toInt())
 
-public actual fun rtlUniform(seed: MutPtr<UInt>): UInt =
+public actual fun rtlUniform(seed: MutPtr): UInt =
     WindowsWin32SystemWindowsprogrammingJniBridge.windowssysWindowsWin32SystemWindowsprogrammingRtlUniform(seed.rawAddress).toUInt()
 
-public actual fun runSetupCommandA(hwnd: Hwnd, szcmdname: Pcstr, szinfsection: Pcstr, szdir: Pcstr, lpsztitle: Pcstr, phexe: MutPtr<Handle>, dwflags: UInt, pvreserved: MutPtr<CVoid>): Hresult =
+public actual fun runSetupCommandA(hwnd: Hwnd, szcmdname: Pcstr, szinfsection: Pcstr, szdir: Pcstr, lpsztitle: Pcstr, phexe: MutPtr, dwflags: UInt, pvreserved: MutPtr): Hresult =
     WindowsWin32SystemWindowsprogrammingJniBridge.windowssysWindowsWin32SystemWindowsprogrammingRunSetupCommandA(hwnd.rawAddress, szcmdname.rawAddress, szinfsection.rawAddress, szdir.rawAddress, lpsztitle.rawAddress, phexe.rawAddress, dwflags.toInt(), pvreserved.rawAddress)
 
-public actual fun runSetupCommandW(hwnd: Hwnd, szcmdname: Pcwstr, szinfsection: Pcwstr, szdir: Pcwstr, lpsztitle: Pcwstr, phexe: MutPtr<Handle>, dwflags: UInt, pvreserved: MutPtr<CVoid>): Hresult =
+public actual fun runSetupCommandW(hwnd: Hwnd, szcmdname: Pcwstr, szinfsection: Pcwstr, szdir: Pcwstr, lpsztitle: Pcwstr, phexe: MutPtr, dwflags: UInt, pvreserved: MutPtr): Hresult =
     WindowsWin32SystemWindowsprogrammingJniBridge.windowssysWindowsWin32SystemWindowsprogrammingRunSetupCommandW(hwnd.rawAddress, szcmdname.rawAddress, szinfsection.rawAddress, szdir.rawAddress, lpsztitle.rawAddress, phexe.rawAddress, dwflags.toInt(), pvreserved.rawAddress)
 
 public actual fun sendIMEMessageExA(param0: Hwnd, param1: Lparam): Lresult =
@@ -1196,16 +1190,16 @@ public actual fun sendIMEMessageExW(param0: Hwnd, param1: Lparam): Lresult =
 public actual fun setEnvironmentStringsA(newenvironment: Pcstr): Bool =
     WindowsWin32SystemWindowsprogrammingJniBridge.windowssysWindowsWin32SystemWindowsprogrammingSetEnvironmentStringsA(newenvironment.rawAddress)
 
-public actual fun setFirmwareEnvironmentVariableA(lpname: Pcstr, lpguid: Pcstr, pvalue: ConstPtr<CVoid>, nsize: UInt): Bool =
+public actual fun setFirmwareEnvironmentVariableA(lpname: Pcstr, lpguid: Pcstr, pvalue: ConstPtr, nsize: UInt): Bool =
     WindowsWin32SystemWindowsprogrammingJniBridge.windowssysWindowsWin32SystemWindowsprogrammingSetFirmwareEnvironmentVariableA(lpname.rawAddress, lpguid.rawAddress, pvalue.rawAddress, nsize.toInt())
 
-public actual fun setFirmwareEnvironmentVariableExA(lpname: Pcstr, lpguid: Pcstr, pvalue: ConstPtr<CVoid>, nsize: UInt, dwattributes: UInt): Bool =
+public actual fun setFirmwareEnvironmentVariableExA(lpname: Pcstr, lpguid: Pcstr, pvalue: ConstPtr, nsize: UInt, dwattributes: UInt): Bool =
     WindowsWin32SystemWindowsprogrammingJniBridge.windowssysWindowsWin32SystemWindowsprogrammingSetFirmwareEnvironmentVariableExA(lpname.rawAddress, lpguid.rawAddress, pvalue.rawAddress, nsize.toInt(), dwattributes.toInt())
 
-public actual fun setFirmwareEnvironmentVariableExW(lpname: Pcwstr, lpguid: Pcwstr, pvalue: ConstPtr<CVoid>, nsize: UInt, dwattributes: UInt): Bool =
+public actual fun setFirmwareEnvironmentVariableExW(lpname: Pcwstr, lpguid: Pcwstr, pvalue: ConstPtr, nsize: UInt, dwattributes: UInt): Bool =
     WindowsWin32SystemWindowsprogrammingJniBridge.windowssysWindowsWin32SystemWindowsprogrammingSetFirmwareEnvironmentVariableExW(lpname.rawAddress, lpguid.rawAddress, pvalue.rawAddress, nsize.toInt(), dwattributes.toInt())
 
-public actual fun setFirmwareEnvironmentVariableW(lpname: Pcwstr, lpguid: Pcwstr, pvalue: ConstPtr<CVoid>, nsize: UInt): Bool =
+public actual fun setFirmwareEnvironmentVariableW(lpname: Pcwstr, lpguid: Pcwstr, pvalue: ConstPtr, nsize: UInt): Bool =
     WindowsWin32SystemWindowsprogrammingJniBridge.windowssysWindowsWin32SystemWindowsprogrammingSetFirmwareEnvironmentVariableW(lpname.rawAddress, lpguid.rawAddress, pvalue.rawAddress, nsize.toInt())
 
 public actual fun setHandleCount(unumber: UInt): UInt =
@@ -1214,26 +1208,26 @@ public actual fun setHandleCount(unumber: UInt): UInt =
 public actual fun setMessageWaitingIndicator(hmsgindicator: Handle, ulmsgcount: UInt): Bool =
     WindowsWin32SystemWindowsprogrammingJniBridge.windowssysWindowsWin32SystemWindowsprogrammingSetMessageWaitingIndicator(hmsgindicator.rawAddress, ulmsgcount.toInt())
 
-public actual fun setPerUserSecValuesA(pperuser: MutPtr<Perusersectiona>): Hresult =
+public actual fun setPerUserSecValuesA(pperuser: MutPtr): Hresult =
     WindowsWin32SystemWindowsprogrammingJniBridge.windowssysWindowsWin32SystemWindowsprogrammingSetPerUserSecValuesA(pperuser.rawAddress)
 
-public actual fun setPerUserSecValuesW(pperuser: MutPtr<Perusersectionw>): Hresult =
+public actual fun setPerUserSecValuesW(pperuser: MutPtr): Hresult =
     WindowsWin32SystemWindowsprogrammingJniBridge.windowssysWindowsWin32SystemWindowsprogrammingSetPerUserSecValuesW(pperuser.rawAddress)
 
-public actual fun subscribeFeatureStateChangeNotification(subscription: MutPtr<FeatureStateChangeSubscription>, callback: PfeatureStateChangeCallback, context: ConstPtr<CVoid>) {
+public actual fun subscribeFeatureStateChangeNotification(subscription: MutPtr, callback: PfeatureStateChangeCallback, context: ConstPtr) {
     WindowsWin32SystemWindowsprogrammingJniBridge.windowssysWindowsWin32SystemWindowsprogrammingSubscribeFeatureStateChangeNotification(subscription.rawAddress, 0L, context.rawAddress)
 }
 
-public actual fun translateInfStringA(pszinffilename: Pcstr, pszinstallsection: Pcstr, psztranslatesection: Pcstr, psztranslatekey: Pcstr, pszbuffer: Pstr, cchbuffer: UInt, pdwrequiredsize: MutPtr<UInt>, pvreserved: ConstPtr<CVoid>): Hresult =
+public actual fun translateInfStringA(pszinffilename: Pcstr, pszinstallsection: Pcstr, psztranslatesection: Pcstr, psztranslatekey: Pcstr, pszbuffer: Pstr, cchbuffer: UInt, pdwrequiredsize: MutPtr, pvreserved: ConstPtr): Hresult =
     WindowsWin32SystemWindowsprogrammingJniBridge.windowssysWindowsWin32SystemWindowsprogrammingTranslateInfStringA(pszinffilename.rawAddress, pszinstallsection.rawAddress, psztranslatesection.rawAddress, psztranslatekey.rawAddress, pszbuffer.rawAddress, cchbuffer.toInt(), pdwrequiredsize.rawAddress, pvreserved.rawAddress)
 
-public actual fun translateInfStringExA(hinf: MutPtr<CVoid>, pszinffilename: Pcstr, psztranslatesection: Pcstr, psztranslatekey: Pcstr, pszbuffer: Pstr, dwbuffersize: UInt, pdwrequiredsize: MutPtr<UInt>, pvreserved: ConstPtr<CVoid>): Hresult =
+public actual fun translateInfStringExA(hinf: MutPtr, pszinffilename: Pcstr, psztranslatesection: Pcstr, psztranslatekey: Pcstr, pszbuffer: Pstr, dwbuffersize: UInt, pdwrequiredsize: MutPtr, pvreserved: ConstPtr): Hresult =
     WindowsWin32SystemWindowsprogrammingJniBridge.windowssysWindowsWin32SystemWindowsprogrammingTranslateInfStringExA(hinf.rawAddress, pszinffilename.rawAddress, psztranslatesection.rawAddress, psztranslatekey.rawAddress, pszbuffer.rawAddress, dwbuffersize.toInt(), pdwrequiredsize.rawAddress, pvreserved.rawAddress)
 
-public actual fun translateInfStringExW(hinf: MutPtr<CVoid>, pszinffilename: Pcwstr, psztranslatesection: Pcwstr, psztranslatekey: Pcwstr, pszbuffer: Pwstr, dwbuffersize: UInt, pdwrequiredsize: MutPtr<UInt>, pvreserved: ConstPtr<CVoid>): Hresult =
+public actual fun translateInfStringExW(hinf: MutPtr, pszinffilename: Pcwstr, psztranslatesection: Pcwstr, psztranslatekey: Pcwstr, pszbuffer: Pwstr, dwbuffersize: UInt, pdwrequiredsize: MutPtr, pvreserved: ConstPtr): Hresult =
     WindowsWin32SystemWindowsprogrammingJniBridge.windowssysWindowsWin32SystemWindowsprogrammingTranslateInfStringExW(hinf.rawAddress, pszinffilename.rawAddress, psztranslatesection.rawAddress, psztranslatekey.rawAddress, pszbuffer.rawAddress, dwbuffersize.toInt(), pdwrequiredsize.rawAddress, pvreserved.rawAddress)
 
-public actual fun translateInfStringW(pszinffilename: Pcwstr, pszinstallsection: Pcwstr, psztranslatesection: Pcwstr, psztranslatekey: Pcwstr, pszbuffer: Pwstr, cchbuffer: UInt, pdwrequiredsize: MutPtr<UInt>, pvreserved: ConstPtr<CVoid>): Hresult =
+public actual fun translateInfStringW(pszinffilename: Pcwstr, pszinstallsection: Pcwstr, psztranslatesection: Pcwstr, psztranslatekey: Pcwstr, pszbuffer: Pwstr, cchbuffer: UInt, pdwrequiredsize: MutPtr, pvreserved: ConstPtr): Hresult =
     WindowsWin32SystemWindowsprogrammingJniBridge.windowssysWindowsWin32SystemWindowsprogrammingTranslateInfStringW(pszinffilename.rawAddress, pszinstallsection.rawAddress, psztranslatesection.rawAddress, psztranslatekey.rawAddress, pszbuffer.rawAddress, cchbuffer.toInt(), pdwrequiredsize.rawAddress, pvreserved.rawAddress)
 
 public actual fun unsubscribeFeatureStateChangeNotification(subscription: FeatureStateChangeSubscription) {
@@ -1268,7 +1262,7 @@ public actual fun winWatchClose(hww: Hwinwatch) {
 public actual fun winWatchDidStatusChange(hww: Hwinwatch): Bool =
     WindowsWin32SystemWindowsprogrammingJniBridge.windowssysWindowsWin32SystemWindowsprogrammingWinWatchDidStatusChange(hww.rawAddress)
 
-public actual fun winWatchGetClipList(hww: Hwinwatch, prc: MutPtr<Rect>, size: UInt, prd: MutPtr<Rgndata>): UInt =
+public actual fun winWatchGetClipList(hww: Hwinwatch, prc: MutPtr, size: UInt, prd: MutPtr): UInt =
     WindowsWin32SystemWindowsprogrammingJniBridge.windowssysWindowsWin32SystemWindowsprogrammingWinWatchGetClipList(hww.rawAddress, prc.rawAddress, size.toInt(), prd.rawAddress).toUInt()
 
 public actual fun winWatchNotify(hww: Hwinwatch, notifycallback: Winwatchnotifyproc, notifyparam: Lparam): Bool =
@@ -1277,28 +1271,28 @@ public actual fun winWatchNotify(hww: Hwinwatch, notifycallback: Winwatchnotifyp
 public actual fun winWatchOpen(hwnd: Hwnd): Hwinwatch =
     MutPtr(WindowsWin32SystemWindowsprogrammingJniBridge.windowssysWindowsWin32SystemWindowsprogrammingWinWatchOpen(hwnd.rawAddress))
 
-public actual fun wldpCanExecuteBuffer(host: ConstPtr<Guid>, options: WldpExecutionEvaluationOptions, buffer: ConstPtr<UByte>, buffersize: UInt, auditinfo: Pcwstr, result: MutPtr<WldpExecutionPolicy>): Hresult =
+public actual fun wldpCanExecuteBuffer(host: ConstPtr, options: WldpExecutionEvaluationOptions, buffer: ConstPtr, buffersize: UInt, auditinfo: Pcwstr, result: MutPtr): Hresult =
     WindowsWin32SystemWindowsprogrammingJniBridge.windowssysWindowsWin32SystemWindowsprogrammingWldpCanExecuteBuffer(host.rawAddress, options, buffer.rawAddress, buffersize.toInt(), auditinfo.rawAddress, result.rawAddress)
 
-public actual fun wldpCanExecuteFile(host: ConstPtr<Guid>, options: WldpExecutionEvaluationOptions, filehandle: Handle, auditinfo: Pcwstr, result: MutPtr<WldpExecutionPolicy>): Hresult =
+public actual fun wldpCanExecuteFile(host: ConstPtr, options: WldpExecutionEvaluationOptions, filehandle: Handle, auditinfo: Pcwstr, result: MutPtr): Hresult =
     WindowsWin32SystemWindowsprogrammingJniBridge.windowssysWindowsWin32SystemWindowsprogrammingWldpCanExecuteFile(host.rawAddress, options, filehandle.rawAddress, auditinfo.rawAddress, result.rawAddress)
 
-public actual fun wldpCanExecuteStream(host: ConstPtr<Guid>, options: WldpExecutionEvaluationOptions, stream: MutPtr<CVoid>, auditinfo: Pcwstr, result: MutPtr<WldpExecutionPolicy>): Hresult =
+public actual fun wldpCanExecuteStream(host: ConstPtr, options: WldpExecutionEvaluationOptions, stream: MutPtr, auditinfo: Pcwstr, result: MutPtr): Hresult =
     WindowsWin32SystemWindowsprogrammingJniBridge.windowssysWindowsWin32SystemWindowsprogrammingWldpCanExecuteStream(host.rawAddress, options, stream.rawAddress, auditinfo.rawAddress, result.rawAddress)
 
-public actual fun wldpGetLockdownPolicy(hostinformation: ConstPtr<WldpHostInformation>, lockdownstate: MutPtr<UInt>, lockdownflags: UInt): Hresult =
+public actual fun wldpGetLockdownPolicy(hostinformation: ConstPtr, lockdownstate: MutPtr, lockdownflags: UInt): Hresult =
     WindowsWin32SystemWindowsprogrammingJniBridge.windowssysWindowsWin32SystemWindowsprogrammingWldpGetLockdownPolicy(hostinformation.rawAddress, lockdownstate.rawAddress, lockdownflags.toInt())
 
-public actual fun wldpIsClassInApprovedList(classid: ConstPtr<Guid>, hostinformation: ConstPtr<WldpHostInformation>, isapproved: MutPtr<Bool>, optionalflags: UInt): Hresult =
+public actual fun wldpIsClassInApprovedList(classid: ConstPtr, hostinformation: ConstPtr, isapproved: MutPtr, optionalflags: UInt): Hresult =
     WindowsWin32SystemWindowsprogrammingJniBridge.windowssysWindowsWin32SystemWindowsprogrammingWldpIsClassInApprovedList(classid.rawAddress, hostinformation.rawAddress, isapproved.rawAddress, optionalflags.toInt())
 
-public actual fun wldpIsDynamicCodePolicyEnabled(isenabled: MutPtr<Bool>): Hresult =
+public actual fun wldpIsDynamicCodePolicyEnabled(isenabled: MutPtr): Hresult =
     WindowsWin32SystemWindowsprogrammingJniBridge.windowssysWindowsWin32SystemWindowsprogrammingWldpIsDynamicCodePolicyEnabled(isenabled.rawAddress)
 
-public actual fun wldpQueryDeviceSecurityInformation(information: MutPtr<WldpDeviceSecurityInformation>, informationlength: UInt, returnlength: MutPtr<UInt>): Hresult =
+public actual fun wldpQueryDeviceSecurityInformation(information: MutPtr, informationlength: UInt, returnlength: MutPtr): Hresult =
     WindowsWin32SystemWindowsprogrammingJniBridge.windowssysWindowsWin32SystemWindowsprogrammingWldpQueryDeviceSecurityInformation(information.rawAddress, informationlength.toInt(), returnlength.rawAddress)
 
-public actual fun wldpQueryDynamicCodeTrust(filehandle: Handle, baseimage: ConstPtr<CVoid>, imagesize: UInt): Hresult =
+public actual fun wldpQueryDynamicCodeTrust(filehandle: Handle, baseimage: ConstPtr, imagesize: UInt): Hresult =
     WindowsWin32SystemWindowsprogrammingJniBridge.windowssysWindowsWin32SystemWindowsprogrammingWldpQueryDynamicCodeTrust(filehandle.rawAddress, baseimage.rawAddress, imagesize.toInt())
 
 public actual fun wldpSetDynamicCodeTrust(filehandle: Handle): Hresult =
@@ -1316,10 +1310,10 @@ public actual fun writePrivateProfileStringA(lpappname: Pcstr, lpkeyname: Pcstr,
 public actual fun writePrivateProfileStringW(lpappname: Pcwstr, lpkeyname: Pcwstr, lpstring: Pcwstr, lpfilename: Pcwstr): Bool =
     WindowsWin32SystemWindowsprogrammingJniBridge.windowssysWindowsWin32SystemWindowsprogrammingWritePrivateProfileStringW(lpappname.rawAddress, lpkeyname.rawAddress, lpstring.rawAddress, lpfilename.rawAddress)
 
-public actual fun writePrivateProfileStructA(lpszsection: Pcstr, lpszkey: Pcstr, lpstruct: ConstPtr<CVoid>, usizestruct: UInt, szfile: Pcstr): Bool =
+public actual fun writePrivateProfileStructA(lpszsection: Pcstr, lpszkey: Pcstr, lpstruct: ConstPtr, usizestruct: UInt, szfile: Pcstr): Bool =
     WindowsWin32SystemWindowsprogrammingJniBridge.windowssysWindowsWin32SystemWindowsprogrammingWritePrivateProfileStructA(lpszsection.rawAddress, lpszkey.rawAddress, lpstruct.rawAddress, usizestruct.toInt(), szfile.rawAddress)
 
-public actual fun writePrivateProfileStructW(lpszsection: Pcwstr, lpszkey: Pcwstr, lpstruct: ConstPtr<CVoid>, usizestruct: UInt, szfile: Pcwstr): Bool =
+public actual fun writePrivateProfileStructW(lpszsection: Pcwstr, lpszkey: Pcwstr, lpstruct: ConstPtr, usizestruct: UInt, szfile: Pcwstr): Bool =
     WindowsWin32SystemWindowsprogrammingJniBridge.windowssysWindowsWin32SystemWindowsprogrammingWritePrivateProfileStructW(lpszsection.rawAddress, lpszkey.rawAddress, lpstruct.rawAddress, usizestruct.toInt(), szfile.rawAddress)
 
 public actual fun writeProfileSectionA(lpappname: Pcstr, lpstring: Pcstr): Bool =
@@ -1334,7 +1328,7 @@ public actual fun writeProfileStringA(lpappname: Pcstr, lpkeyname: Pcstr, lpstri
 public actual fun writeProfileStringW(lpappname: Pcwstr, lpkeyname: Pcwstr, lpstring: Pcwstr): Bool =
     WindowsWin32SystemWindowsprogrammingJniBridge.windowssysWindowsWin32SystemWindowsprogrammingWriteProfileStringW(lpappname.rawAddress, lpkeyname.rawAddress, lpstring.rawAddress)
 
-public actual fun hread(hfile: Int, lpbuffer: MutPtr<CVoid>, lbytes: Int): Int =
+public actual fun hread(hfile: Int, lpbuffer: MutPtr, lbytes: Int): Int =
     WindowsWin32SystemWindowsprogrammingJniBridge.windowssysWindowsWin32SystemWindowsprogrammingHread(hfile, lpbuffer.rawAddress, lbytes)
 
 public actual fun hwrite(hfile: Int, lpbuffer: Pcstr, lbytes: Int): Int =
@@ -1352,32 +1346,32 @@ public actual fun llseek(hfile: Int, loffset: Int, iorigin: Int): Int =
 public actual fun lopen(lppathname: Pcstr, ireadwrite: Int): Int =
     WindowsWin32SystemWindowsprogrammingJniBridge.windowssysWindowsWin32SystemWindowsprogrammingLopen(lppathname.rawAddress, ireadwrite)
 
-public actual fun lread(hfile: Int, lpbuffer: MutPtr<CVoid>, ubytes: UInt): UInt =
+public actual fun lread(hfile: Int, lpbuffer: MutPtr, ubytes: UInt): UInt =
     WindowsWin32SystemWindowsprogrammingJniBridge.windowssysWindowsWin32SystemWindowsprogrammingLread(hfile, lpbuffer.rawAddress, ubytes.toInt()).toUInt()
 
 public actual fun lwrite(hfile: Int, lpbuffer: Pcstr, ubytes: UInt): UInt =
     WindowsWin32SystemWindowsprogrammingJniBridge.windowssysWindowsWin32SystemWindowsprogrammingLwrite(hfile, lpbuffer.rawAddress, ubytes.toInt()).toUInt()
 
-public actual fun uawLstrcmpW(string1: ConstPtr<UShort>, string2: ConstPtr<UShort>): Int =
+public actual fun uawLstrcmpW(string1: ConstPtr, string2: ConstPtr): Int =
     WindowsWin32SystemWindowsprogrammingJniBridge.windowssysWindowsWin32SystemWindowsprogrammingUawLstrcmpW(string1.rawAddress, string2.rawAddress)
 
-public actual fun uawLstrcmpiW(string1: ConstPtr<UShort>, string2: ConstPtr<UShort>): Int =
+public actual fun uawLstrcmpiW(string1: ConstPtr, string2: ConstPtr): Int =
     WindowsWin32SystemWindowsprogrammingJniBridge.windowssysWindowsWin32SystemWindowsprogrammingUawLstrcmpiW(string1.rawAddress, string2.rawAddress)
 
-public actual fun uawLstrlenW(string: ConstPtr<UShort>): Int =
+public actual fun uawLstrlenW(string: ConstPtr): Int =
     WindowsWin32SystemWindowsprogrammingJniBridge.windowssysWindowsWin32SystemWindowsprogrammingUawLstrlenW(string.rawAddress)
 
-public actual fun uawWcschr(string: ConstPtr<UShort>, character: UShort): MutPtr<UShort> =
+public actual fun uawWcschr(string: ConstPtr, character: UShort): MutPtr =
     MutPtr(WindowsWin32SystemWindowsprogrammingJniBridge.windowssysWindowsWin32SystemWindowsprogrammingUawWcschr(string.rawAddress, character.toShort()))
 
-public actual fun uawWcscpy(destination: MutPtr<UShort>, source: ConstPtr<UShort>): MutPtr<UShort> =
+public actual fun uawWcscpy(destination: MutPtr, source: ConstPtr): MutPtr =
     MutPtr(WindowsWin32SystemWindowsprogrammingJniBridge.windowssysWindowsWin32SystemWindowsprogrammingUawWcscpy(destination.rawAddress, source.rawAddress))
 
-public actual fun uawWcsicmp(string1: ConstPtr<UShort>, string2: ConstPtr<UShort>): Int =
+public actual fun uawWcsicmp(string1: ConstPtr, string2: ConstPtr): Int =
     WindowsWin32SystemWindowsprogrammingJniBridge.windowssysWindowsWin32SystemWindowsprogrammingUawWcsicmp(string1.rawAddress, string2.rawAddress)
 
-public actual fun uawWcslen(string: ConstPtr<UShort>): ULong =
+public actual fun uawWcslen(string: ConstPtr): ULong =
     WindowsWin32SystemWindowsprogrammingJniBridge.windowssysWindowsWin32SystemWindowsprogrammingUawWcslen(string.rawAddress).toULong()
 
-public actual fun uawWcsrchr(string: ConstPtr<UShort>, character: UShort): MutPtr<UShort> =
+public actual fun uawWcsrchr(string: ConstPtr, character: UShort): MutPtr =
     MutPtr(WindowsWin32SystemWindowsprogrammingJniBridge.windowssysWindowsWin32SystemWindowsprogrammingUawWcsrchr(string.rawAddress, character.toShort()))

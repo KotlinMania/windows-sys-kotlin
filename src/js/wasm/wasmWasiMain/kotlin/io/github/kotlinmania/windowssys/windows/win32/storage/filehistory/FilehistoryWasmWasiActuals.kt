@@ -13,7 +13,7 @@ public actual fun fhServiceBlockBackup(pipe: FhServicePipeHandle): Hresult =
 public actual fun fhServiceClosePipe(pipe: FhServicePipeHandle): Hresult =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32StorageFilehistoryFhServiceClosePipe")
 
-public actual fun fhServiceOpenPipe(startserviceifstopped: Bool, pipe: MutPtr<FhServicePipeHandle>): Hresult =
+public actual fun fhServiceOpenPipe(startserviceifstopped: Bool, pipe: MutPtr): Hresult =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32StorageFilehistoryFhServiceOpenPipe")
 
 public actual fun fhServiceReloadConfiguration(pipe: FhServicePipeHandle): Hresult =

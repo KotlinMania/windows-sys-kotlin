@@ -2,7 +2,6 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.ui.input.ime
 
-import io.github.kotlinmania.rustlang.core.ffi.CVoid
 import io.github.kotlinmania.rustlang.core.ptr.ConstPtr
 import io.github.kotlinmania.rustlang.core.ptr.MutPtr
 import io.github.kotlinmania.windowssys.core.Bool
@@ -13,10 +12,7 @@ import io.github.kotlinmania.windowssys.core.Pwstr
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Hwnd
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Lparam
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Lresult
-import io.github.kotlinmania.windowssys.windows.win32.foundation.Point
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Wparam
-import io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.Logfonta
-import io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.Logfontw
 import io.github.kotlinmania.windowssys.windows.win32.ui.input.keyboardandmouse.Hkl
 
 @JsFun("() => { if (typeof globalThis.__km_napi_windowssys !== 'undefined') return globalThis.__km_napi_windowssys !== null; if (typeof process === 'undefined' || !process.versions || !process.versions.node) { globalThis.__km_napi_windowssys = null; return false; } var mod = process.getBuiltinModule ? process.getBuiltinModule('module') : (process.mainModule && process.mainModule.constructor); var req = (mod && mod.createRequire) ? mod.createRequire((process.cwd ? process.cwd() : '.') + '/package.json') : (process.mainModule ? process.mainModule.require : null); if (!req) { globalThis.__km_napi_windowssys = null; return false; } try { globalThis.__km_napi_windowssys = req('@kotlinmania/windowssys-native-bindings'); return true; } catch (_) {} var fs = req('fs'); var path = req('path'); var dir = process.cwd ? process.cwd() : '.'; var rels = ['windowssys_native.node', 'build/node-ffi/windowssys_native.node', 'build/node-ffi/release/windowssys_native.node', 'build/node-ffi/debug/windowssys_native.node', 'src/js/node-windowssys/build/Release/windowssys_native.node', 'src/js/node-windowssys/build/Debug/windowssys_native.node', 'src/js/node-windowssys/dist/build/Release/windowssys_native.node', 'src/js/node-windowssys/dist/build/Debug/windowssys_native.node']; for (var d = 0; d < 8; d++) { for (var i = 0; i < rels.length; i++) { var c = path.resolve(dir, rels[i]); if (fs.existsSync(c)) { globalThis.__km_napi_windowssys = req(c); return true; } } var parent = path.dirname(dir); if (parent === dir) break; dir = parent; } globalThis.__km_napi_windowssys = null; return false; }")
@@ -276,10 +272,10 @@ public actual fun immAssociateContext(param0: Hwnd, param1: Himc): Himc =
 public actual fun immAssociateContextEx(param0: Hwnd, param1: Himc, param2: UInt): Bool =
     if (windowsWin32UiInputImeNapiAvailable) wasmWindowssysWindowsWin32UiInputImeImmAssociateContextEx(param0.rawAddress.toString(), param1.rawAddress.toString(), param2.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun immConfigureIMEA(param0: Hkl, param1: Hwnd, param2: UInt, param3: MutPtr<CVoid>): Bool =
+public actual fun immConfigureIMEA(param0: Hkl, param1: Hwnd, param2: UInt, param3: MutPtr): Bool =
     if (windowsWin32UiInputImeNapiAvailable) wasmWindowssysWindowsWin32UiInputImeImmConfigureIMEA(param0.rawAddress.toString(), param1.rawAddress.toString(), param2.toInt(), param3.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun immConfigureIMEW(param0: Hkl, param1: Hwnd, param2: UInt, param3: MutPtr<CVoid>): Bool =
+public actual fun immConfigureIMEW(param0: Hkl, param1: Hwnd, param2: UInt, param3: MutPtr): Bool =
     if (windowsWin32UiInputImeNapiAvailable) wasmWindowssysWindowsWin32UiInputImeImmConfigureIMEW(param0.rawAddress.toString(), param1.rawAddress.toString(), param2.toInt(), param3.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun immCreateContext(): Himc =
@@ -312,61 +308,61 @@ public actual fun immDisableTextFrameService(idthread: UInt): Bool =
 public actual fun immEnumInputContext(idthread: UInt, lpfn: Imcenumproc, lparam: Lparam): Bool =
     if (windowsWin32UiInputImeNapiAvailable) wasmWindowssysWindowsWin32UiInputImeImmEnumInputContext(idthread.toInt(), 0L.toString(), lparam.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun immEnumRegisterWordA(param0: Hkl, param1: Registerwordenumproca, lpszreading: Pcstr, param3: UInt, lpszregister: Pcstr, param5: MutPtr<CVoid>): UInt =
+public actual fun immEnumRegisterWordA(param0: Hkl, param1: Registerwordenumproca, lpszreading: Pcstr, param3: UInt, lpszregister: Pcstr, param5: MutPtr): UInt =
     if (windowsWin32UiInputImeNapiAvailable) wasmWindowssysWindowsWin32UiInputImeImmEnumRegisterWordA(param0.rawAddress.toString(), 0L.toString(), lpszreading.rawAddress.toString(), param3.toInt(), lpszregister.rawAddress.toString(), param5.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun immEnumRegisterWordW(param0: Hkl, param1: Registerwordenumprocw, lpszreading: Pcwstr, param3: UInt, lpszregister: Pcwstr, param5: MutPtr<CVoid>): UInt =
+public actual fun immEnumRegisterWordW(param0: Hkl, param1: Registerwordenumprocw, lpszreading: Pcwstr, param3: UInt, lpszregister: Pcwstr, param5: MutPtr): UInt =
     if (windowsWin32UiInputImeNapiAvailable) wasmWindowssysWindowsWin32UiInputImeImmEnumRegisterWordW(param0.rawAddress.toString(), 0L.toString(), lpszreading.rawAddress.toString(), param3.toInt(), lpszregister.rawAddress.toString(), param5.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun immEscapeA(param0: Hkl, param1: Himc, param2: ImeEscape, param3: MutPtr<CVoid>): Lresult =
+public actual fun immEscapeA(param0: Hkl, param1: Himc, param2: ImeEscape, param3: MutPtr): Lresult =
     if (windowsWin32UiInputImeNapiAvailable) wasmWindowssysWindowsWin32UiInputImeImmEscapeA(param0.rawAddress.toString(), param1.rawAddress.toString(), param2.toInt(), param3.rawAddress.toString()).toLong() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun immEscapeW(param0: Hkl, param1: Himc, param2: ImeEscape, param3: MutPtr<CVoid>): Lresult =
+public actual fun immEscapeW(param0: Hkl, param1: Himc, param2: ImeEscape, param3: MutPtr): Lresult =
     if (windowsWin32UiInputImeNapiAvailable) wasmWindowssysWindowsWin32UiInputImeImmEscapeW(param0.rawAddress.toString(), param1.rawAddress.toString(), param2.toInt(), param3.rawAddress.toString()).toLong() else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun immGenerateMessage(param0: Himc): Bool =
     if (windowsWin32UiInputImeNapiAvailable) wasmWindowssysWindowsWin32UiInputImeImmGenerateMessage(param0.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun immGetCandidateListA(param0: Himc, deindex: UInt, lpcandlist: MutPtr<Candidatelist>, dwbuflen: UInt): UInt =
+public actual fun immGetCandidateListA(param0: Himc, deindex: UInt, lpcandlist: MutPtr, dwbuflen: UInt): UInt =
     if (windowsWin32UiInputImeNapiAvailable) wasmWindowssysWindowsWin32UiInputImeImmGetCandidateListA(param0.rawAddress.toString(), deindex.toInt(), lpcandlist.rawAddress.toString(), dwbuflen.toInt()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun immGetCandidateListCountA(param0: Himc, lpdwlistcount: MutPtr<UInt>): UInt =
+public actual fun immGetCandidateListCountA(param0: Himc, lpdwlistcount: MutPtr): UInt =
     if (windowsWin32UiInputImeNapiAvailable) wasmWindowssysWindowsWin32UiInputImeImmGetCandidateListCountA(param0.rawAddress.toString(), lpdwlistcount.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun immGetCandidateListCountW(param0: Himc, lpdwlistcount: MutPtr<UInt>): UInt =
+public actual fun immGetCandidateListCountW(param0: Himc, lpdwlistcount: MutPtr): UInt =
     if (windowsWin32UiInputImeNapiAvailable) wasmWindowssysWindowsWin32UiInputImeImmGetCandidateListCountW(param0.rawAddress.toString(), lpdwlistcount.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun immGetCandidateListW(param0: Himc, deindex: UInt, lpcandlist: MutPtr<Candidatelist>, dwbuflen: UInt): UInt =
+public actual fun immGetCandidateListW(param0: Himc, deindex: UInt, lpcandlist: MutPtr, dwbuflen: UInt): UInt =
     if (windowsWin32UiInputImeNapiAvailable) wasmWindowssysWindowsWin32UiInputImeImmGetCandidateListW(param0.rawAddress.toString(), deindex.toInt(), lpcandlist.rawAddress.toString(), dwbuflen.toInt()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun immGetCandidateWindow(param0: Himc, param1: UInt, lpcandidate: MutPtr<Candidateform>): Bool =
+public actual fun immGetCandidateWindow(param0: Himc, param1: UInt, lpcandidate: MutPtr): Bool =
     if (windowsWin32UiInputImeNapiAvailable) wasmWindowssysWindowsWin32UiInputImeImmGetCandidateWindow(param0.rawAddress.toString(), param1.toInt(), lpcandidate.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun immGetCompositionFontA(param0: Himc, lplf: MutPtr<Logfonta>): Bool =
+public actual fun immGetCompositionFontA(param0: Himc, lplf: MutPtr): Bool =
     if (windowsWin32UiInputImeNapiAvailable) wasmWindowssysWindowsWin32UiInputImeImmGetCompositionFontA(param0.rawAddress.toString(), lplf.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun immGetCompositionFontW(param0: Himc, lplf: MutPtr<Logfontw>): Bool =
+public actual fun immGetCompositionFontW(param0: Himc, lplf: MutPtr): Bool =
     if (windowsWin32UiInputImeNapiAvailable) wasmWindowssysWindowsWin32UiInputImeImmGetCompositionFontW(param0.rawAddress.toString(), lplf.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun immGetCompositionStringA(param0: Himc, param1: ImeCompositionString, lpbuf: MutPtr<CVoid>, dwbuflen: UInt): Int =
+public actual fun immGetCompositionStringA(param0: Himc, param1: ImeCompositionString, lpbuf: MutPtr, dwbuflen: UInt): Int =
     if (windowsWin32UiInputImeNapiAvailable) wasmWindowssysWindowsWin32UiInputImeImmGetCompositionStringA(param0.rawAddress.toString(), param1.toInt(), lpbuf.rawAddress.toString(), dwbuflen.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun immGetCompositionStringW(param0: Himc, param1: ImeCompositionString, lpbuf: MutPtr<CVoid>, dwbuflen: UInt): Int =
+public actual fun immGetCompositionStringW(param0: Himc, param1: ImeCompositionString, lpbuf: MutPtr, dwbuflen: UInt): Int =
     if (windowsWin32UiInputImeNapiAvailable) wasmWindowssysWindowsWin32UiInputImeImmGetCompositionStringW(param0.rawAddress.toString(), param1.toInt(), lpbuf.rawAddress.toString(), dwbuflen.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun immGetCompositionWindow(param0: Himc, lpcompform: MutPtr<Compositionform>): Bool =
+public actual fun immGetCompositionWindow(param0: Himc, lpcompform: MutPtr): Bool =
     if (windowsWin32UiInputImeNapiAvailable) wasmWindowssysWindowsWin32UiInputImeImmGetCompositionWindow(param0.rawAddress.toString(), lpcompform.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun immGetContext(param0: Hwnd): Himc =
     if (windowsWin32UiInputImeNapiAvailable) MutPtr(wasmWindowssysWindowsWin32UiInputImeImmGetContext(param0.rawAddress.toString()).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun immGetConversionListA(param0: Hkl, param1: Himc, lpsrc: Pcstr, lpdst: MutPtr<Candidatelist>, dwbuflen: UInt, uflag: GetConversionListFlag): UInt =
+public actual fun immGetConversionListA(param0: Hkl, param1: Himc, lpsrc: Pcstr, lpdst: MutPtr, dwbuflen: UInt, uflag: GetConversionListFlag): UInt =
     if (windowsWin32UiInputImeNapiAvailable) wasmWindowssysWindowsWin32UiInputImeImmGetConversionListA(param0.rawAddress.toString(), param1.rawAddress.toString(), lpsrc.rawAddress.toString(), lpdst.rawAddress.toString(), dwbuflen.toInt(), uflag.toInt()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun immGetConversionListW(param0: Hkl, param1: Himc, lpsrc: Pcwstr, lpdst: MutPtr<Candidatelist>, dwbuflen: UInt, uflag: GetConversionListFlag): UInt =
+public actual fun immGetConversionListW(param0: Hkl, param1: Himc, lpsrc: Pcwstr, lpdst: MutPtr, dwbuflen: UInt, uflag: GetConversionListFlag): UInt =
     if (windowsWin32UiInputImeNapiAvailable) wasmWindowssysWindowsWin32UiInputImeImmGetConversionListW(param0.rawAddress.toString(), param1.rawAddress.toString(), lpsrc.rawAddress.toString(), lpdst.rawAddress.toString(), dwbuflen.toInt(), uflag.toInt()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun immGetConversionStatus(param0: Himc, lpfdwconversion: MutPtr<ImeConversionMode>, lpfdwsentence: MutPtr<ImeSentenceMode>): Bool =
+public actual fun immGetConversionStatus(param0: Himc, lpfdwconversion: MutPtr, lpfdwsentence: MutPtr): Bool =
     if (windowsWin32UiInputImeNapiAvailable) wasmWindowssysWindowsWin32UiInputImeImmGetConversionStatus(param0.rawAddress.toString(), lpfdwconversion.rawAddress.toString(), lpfdwsentence.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun immGetDefaultIMEWnd(param0: Hwnd): Hwnd =
@@ -384,7 +380,7 @@ public actual fun immGetGuideLineA(param0: Himc, dwindex: GetGuideLineType, lpbu
 public actual fun immGetGuideLineW(param0: Himc, dwindex: GetGuideLineType, lpbuf: Pwstr, dwbuflen: UInt): UInt =
     if (windowsWin32UiInputImeNapiAvailable) wasmWindowssysWindowsWin32UiInputImeImmGetGuideLineW(param0.rawAddress.toString(), dwindex.toInt(), lpbuf.rawAddress.toString(), dwbuflen.toInt()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun immGetHotKey(param0: UInt, lpumodifiers: MutPtr<UInt>, lpuvkey: MutPtr<UInt>, phkl: MutPtr<Hkl>): Bool =
+public actual fun immGetHotKey(param0: UInt, lpumodifiers: MutPtr, lpuvkey: MutPtr, phkl: MutPtr): Bool =
     if (windowsWin32UiInputImeNapiAvailable) wasmWindowssysWindowsWin32UiInputImeImmGetHotKey(param0.toInt(), lpumodifiers.rawAddress.toString(), lpuvkey.rawAddress.toString(), phkl.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun immGetIMCCLockCount(param0: Himcc): UInt =
@@ -402,10 +398,10 @@ public actual fun immGetIMEFileNameA(param0: Hkl, lpszfilename: Pstr, ubuflen: U
 public actual fun immGetIMEFileNameW(param0: Hkl, lpszfilename: Pwstr, ubuflen: UInt): UInt =
     if (windowsWin32UiInputImeNapiAvailable) wasmWindowssysWindowsWin32UiInputImeImmGetIMEFileNameW(param0.rawAddress.toString(), lpszfilename.rawAddress.toString(), ubuflen.toInt()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun immGetImeMenuItemsA(param0: Himc, param1: UInt, param2: UInt, lpimeparentmenu: MutPtr<Imemenuiteminfoa>, lpimemenu: MutPtr<Imemenuiteminfoa>, dwsize: UInt): UInt =
+public actual fun immGetImeMenuItemsA(param0: Himc, param1: UInt, param2: UInt, lpimeparentmenu: MutPtr, lpimemenu: MutPtr, dwsize: UInt): UInt =
     if (windowsWin32UiInputImeNapiAvailable) wasmWindowssysWindowsWin32UiInputImeImmGetImeMenuItemsA(param0.rawAddress.toString(), param1.toInt(), param2.toInt(), lpimeparentmenu.rawAddress.toString(), lpimemenu.rawAddress.toString(), dwsize.toInt()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun immGetImeMenuItemsW(param0: Himc, param1: UInt, param2: UInt, lpimeparentmenu: MutPtr<Imemenuiteminfow>, lpimemenu: MutPtr<Imemenuiteminfow>, dwsize: UInt): UInt =
+public actual fun immGetImeMenuItemsW(param0: Himc, param1: UInt, param2: UInt, lpimeparentmenu: MutPtr, lpimemenu: MutPtr, dwsize: UInt): UInt =
     if (windowsWin32UiInputImeNapiAvailable) wasmWindowssysWindowsWin32UiInputImeImmGetImeMenuItemsW(param0.rawAddress.toString(), param1.toInt(), param2.toInt(), lpimeparentmenu.rawAddress.toString(), lpimemenu.rawAddress.toString(), dwsize.toInt()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun immGetOpenStatus(param0: Himc): Bool =
@@ -414,13 +410,13 @@ public actual fun immGetOpenStatus(param0: Himc): Bool =
 public actual fun immGetProperty(param0: Hkl, param1: UInt): UInt =
     if (windowsWin32UiInputImeNapiAvailable) wasmWindowssysWindowsWin32UiInputImeImmGetProperty(param0.rawAddress.toString(), param1.toInt()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun immGetRegisterWordStyleA(param0: Hkl, nitem: UInt, lpstylebuf: MutPtr<Stylebufa>): UInt =
+public actual fun immGetRegisterWordStyleA(param0: Hkl, nitem: UInt, lpstylebuf: MutPtr): UInt =
     if (windowsWin32UiInputImeNapiAvailable) wasmWindowssysWindowsWin32UiInputImeImmGetRegisterWordStyleA(param0.rawAddress.toString(), nitem.toInt(), lpstylebuf.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun immGetRegisterWordStyleW(param0: Hkl, nitem: UInt, lpstylebuf: MutPtr<Stylebufw>): UInt =
+public actual fun immGetRegisterWordStyleW(param0: Hkl, nitem: UInt, lpstylebuf: MutPtr): UInt =
     if (windowsWin32UiInputImeNapiAvailable) wasmWindowssysWindowsWin32UiInputImeImmGetRegisterWordStyleW(param0.rawAddress.toString(), nitem.toInt(), lpstylebuf.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun immGetStatusWindowPos(param0: Himc, lpptpos: MutPtr<Point>): Bool =
+public actual fun immGetStatusWindowPos(param0: Himc, lpptpos: MutPtr): Bool =
     if (windowsWin32UiInputImeNapiAvailable) wasmWindowssysWindowsWin32UiInputImeImmGetStatusWindowPos(param0.rawAddress.toString(), lpptpos.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun immGetVirtualKey(param0: Hwnd): UInt =
@@ -441,10 +437,10 @@ public actual fun immIsUIMessageA(param0: Hwnd, param1: UInt, param2: Wparam, pa
 public actual fun immIsUIMessageW(param0: Hwnd, param1: UInt, param2: Wparam, param3: Lparam): Bool =
     if (windowsWin32UiInputImeNapiAvailable) wasmWindowssysWindowsWin32UiInputImeImmIsUIMessageW(param0.rawAddress.toString(), param1.toInt(), param2.toString(), param3.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun immLockIMC(param0: Himc): MutPtr<Inputcontext> =
+public actual fun immLockIMC(param0: Himc): MutPtr =
     if (windowsWin32UiInputImeNapiAvailable) MutPtr(wasmWindowssysWindowsWin32UiInputImeImmLockIMC(param0.rawAddress.toString()).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun immLockIMCC(param0: Himcc): MutPtr<CVoid> =
+public actual fun immLockIMCC(param0: Himcc): MutPtr =
     if (windowsWin32UiInputImeNapiAvailable) MutPtr(wasmWindowssysWindowsWin32UiInputImeImmLockIMCC(param0.rawAddress.toString()).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun immNotifyIME(param0: Himc, dwaction: NotifyImeAction, dwindex: NotifyImeIndex, dwvalue: UInt): Bool =
@@ -468,22 +464,22 @@ public actual fun immRequestMessageA(param0: Himc, param1: Wparam, param2: Lpara
 public actual fun immRequestMessageW(param0: Himc, param1: Wparam, param2: Lparam): Lresult =
     if (windowsWin32UiInputImeNapiAvailable) wasmWindowssysWindowsWin32UiInputImeImmRequestMessageW(param0.rawAddress.toString(), param1.toString(), param2.toString()).toLong() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun immSetCandidateWindow(param0: Himc, lpcandidate: ConstPtr<Candidateform>): Bool =
+public actual fun immSetCandidateWindow(param0: Himc, lpcandidate: ConstPtr): Bool =
     if (windowsWin32UiInputImeNapiAvailable) wasmWindowssysWindowsWin32UiInputImeImmSetCandidateWindow(param0.rawAddress.toString(), lpcandidate.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun immSetCompositionFontA(param0: Himc, lplf: ConstPtr<Logfonta>): Bool =
+public actual fun immSetCompositionFontA(param0: Himc, lplf: ConstPtr): Bool =
     if (windowsWin32UiInputImeNapiAvailable) wasmWindowssysWindowsWin32UiInputImeImmSetCompositionFontA(param0.rawAddress.toString(), lplf.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun immSetCompositionFontW(param0: Himc, lplf: ConstPtr<Logfontw>): Bool =
+public actual fun immSetCompositionFontW(param0: Himc, lplf: ConstPtr): Bool =
     if (windowsWin32UiInputImeNapiAvailable) wasmWindowssysWindowsWin32UiInputImeImmSetCompositionFontW(param0.rawAddress.toString(), lplf.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun immSetCompositionStringA(param0: Himc, dwindex: SetCompositionStringType, lpcomp: ConstPtr<CVoid>, dwcomplen: UInt, lpread: ConstPtr<CVoid>, dwreadlen: UInt): Bool =
+public actual fun immSetCompositionStringA(param0: Himc, dwindex: SetCompositionStringType, lpcomp: ConstPtr, dwcomplen: UInt, lpread: ConstPtr, dwreadlen: UInt): Bool =
     if (windowsWin32UiInputImeNapiAvailable) wasmWindowssysWindowsWin32UiInputImeImmSetCompositionStringA(param0.rawAddress.toString(), dwindex.toInt(), lpcomp.rawAddress.toString(), dwcomplen.toInt(), lpread.rawAddress.toString(), dwreadlen.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun immSetCompositionStringW(param0: Himc, dwindex: SetCompositionStringType, lpcomp: ConstPtr<CVoid>, dwcomplen: UInt, lpread: ConstPtr<CVoid>, dwreadlen: UInt): Bool =
+public actual fun immSetCompositionStringW(param0: Himc, dwindex: SetCompositionStringType, lpcomp: ConstPtr, dwcomplen: UInt, lpread: ConstPtr, dwreadlen: UInt): Bool =
     if (windowsWin32UiInputImeNapiAvailable) wasmWindowssysWindowsWin32UiInputImeImmSetCompositionStringW(param0.rawAddress.toString(), dwindex.toInt(), lpcomp.rawAddress.toString(), dwcomplen.toInt(), lpread.rawAddress.toString(), dwreadlen.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun immSetCompositionWindow(param0: Himc, lpcompform: ConstPtr<Compositionform>): Bool =
+public actual fun immSetCompositionWindow(param0: Himc, lpcompform: ConstPtr): Bool =
     if (windowsWin32UiInputImeNapiAvailable) wasmWindowssysWindowsWin32UiInputImeImmSetCompositionWindow(param0.rawAddress.toString(), lpcompform.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun immSetConversionStatus(param0: Himc, param1: ImeConversionMode, param2: ImeSentenceMode): Bool =
@@ -495,7 +491,7 @@ public actual fun immSetHotKey(param0: UInt, param1: UInt, param2: UInt, param3:
 public actual fun immSetOpenStatus(param0: Himc, param1: Bool): Bool =
     if (windowsWin32UiInputImeNapiAvailable) wasmWindowssysWindowsWin32UiInputImeImmSetOpenStatus(param0.rawAddress.toString(), param1) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun immSetStatusWindowPos(param0: Himc, lpptpos: ConstPtr<Point>): Bool =
+public actual fun immSetStatusWindowPos(param0: Himc, lpptpos: ConstPtr): Bool =
     if (windowsWin32UiInputImeNapiAvailable) wasmWindowssysWindowsWin32UiInputImeImmSetStatusWindowPos(param0.rawAddress.toString(), lpptpos.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun immShowSoftKeyboard(param0: Hwnd, param1: Int): Bool =

@@ -1,9 +1,7 @@
 package io.github.kotlinmania.windowssys.windows.win32.system.distributedtransactioncoordinator
 
-import io.github.kotlinmania.rustlang.core.ffi.CVoid
 import io.github.kotlinmania.rustlang.core.ptr.ConstPtr
 import io.github.kotlinmania.rustlang.core.ptr.MutPtr
-import io.github.kotlinmania.windowssys.core.Guid
 import io.github.kotlinmania.windowssys.core.Hresult
 import io.github.kotlinmania.windowssys.core.Pcstr
 import io.github.kotlinmania.windowssys.core.Pcwstr
@@ -31,25 +29,25 @@ public typealias Dtcluxlnerror = Int
 public typealias Dtcluxlnresponse = Int
 
 public fun interface DtcGetTransactionManagerFn {
-    public operator fun invoke(pszhost: Pcstr, psztmname: Pcstr, rid: ConstPtr<Guid>, dwreserved1: UInt, wcbreserved2: UShort, pvreserved2: MutPtr<CVoid>, ppvobject: MutPtr<MutPtr<CVoid>>): Hresult
+    public operator fun invoke(pszhost: Pcstr, psztmname: Pcstr, rid: ConstPtr, dwreserved1: UInt, wcbreserved2: UShort, pvreserved2: MutPtr, ppvobject: MutPtr): Hresult
 }
 
 public typealias DtcGetTransactionManager = DtcGetTransactionManagerFn?
 
 public fun interface DtcGetTransactionManagerExAFn {
-    public operator fun invoke(iPszhost: Pcstr, iPsztmname: Pcstr, iRiid: ConstPtr<Guid>, iGrfoptions: UInt, iPvconfigparams: MutPtr<CVoid>, oPpvobject: MutPtr<MutPtr<CVoid>>): Hresult
+    public operator fun invoke(iPszhost: Pcstr, iPsztmname: Pcstr, iRiid: ConstPtr, iGrfoptions: UInt, iPvconfigparams: MutPtr, oPpvobject: MutPtr): Hresult
 }
 
 public typealias DtcGetTransactionManagerExA = DtcGetTransactionManagerExAFn?
 
 public fun interface DtcGetTransactionManagerExWFn {
-    public operator fun invoke(iPwszhost: Pcwstr, iPwsztmname: Pcwstr, iRiid: ConstPtr<Guid>, iGrfoptions: UInt, iPvconfigparams: MutPtr<CVoid>, oPpvobject: MutPtr<MutPtr<CVoid>>): Hresult
+    public operator fun invoke(iPwszhost: Pcwstr, iPwsztmname: Pcwstr, iRiid: ConstPtr, iGrfoptions: UInt, iPvconfigparams: MutPtr, oPpvobject: MutPtr): Hresult
 }
 
 public typealias DtcGetTransactionManagerExW = DtcGetTransactionManagerExWFn?
 
 public fun interface DtcInstallClientFn {
-    public operator fun invoke(iPszremotetmhostname: MutPtr<Byte>, iDwprotocol: UInt, iDwoverwrite: UInt): Hresult
+    public operator fun invoke(iPszremotetmhostname: MutPtr, iDwprotocol: UInt, iDwoverwrite: UInt): Hresult
 }
 
 public typealias DtcInstallClient = DtcInstallClientFn?
@@ -81,25 +79,25 @@ public fun interface XaCloseEptFn {
 public typealias XaCloseEpt = XaCloseEptFn?
 
 public fun interface XaCommitEptFn {
-    public operator fun invoke(param0: MutPtr<Xid>, param1: Int, param2: Int): Int
+    public operator fun invoke(param0: MutPtr, param1: Int, param2: Int): Int
 }
 
 public typealias XaCommitEpt = XaCommitEptFn?
 
 public fun interface XaCompleteEptFn {
-    public operator fun invoke(param0: MutPtr<Int>, param1: MutPtr<Int>, param2: Int, param3: Int): Int
+    public operator fun invoke(param0: MutPtr, param1: MutPtr, param2: Int, param3: Int): Int
 }
 
 public typealias XaCompleteEpt = XaCompleteEptFn?
 
 public fun interface XaEndEptFn {
-    public operator fun invoke(param0: MutPtr<Xid>, param1: Int, param2: Int): Int
+    public operator fun invoke(param0: MutPtr, param1: Int, param2: Int): Int
 }
 
 public typealias XaEndEpt = XaEndEptFn?
 
 public fun interface XaForgetEptFn {
-    public operator fun invoke(param0: MutPtr<Xid>, param1: Int, param2: Int): Int
+    public operator fun invoke(param0: MutPtr, param1: Int, param2: Int): Int
 }
 
 public typealias XaForgetEpt = XaForgetEptFn?
@@ -111,25 +109,25 @@ public fun interface XaOpenEptFn {
 public typealias XaOpenEpt = XaOpenEptFn?
 
 public fun interface XaPrepareEptFn {
-    public operator fun invoke(param0: MutPtr<Xid>, param1: Int, param2: Int): Int
+    public operator fun invoke(param0: MutPtr, param1: Int, param2: Int): Int
 }
 
 public typealias XaPrepareEpt = XaPrepareEptFn?
 
 public fun interface XaRecoverEptFn {
-    public operator fun invoke(param0: MutPtr<Xid>, param1: Int, param2: Int, param3: Int): Int
+    public operator fun invoke(param0: MutPtr, param1: Int, param2: Int, param3: Int): Int
 }
 
 public typealias XaRecoverEpt = XaRecoverEptFn?
 
 public fun interface XaRollbackEptFn {
-    public operator fun invoke(param0: MutPtr<Xid>, param1: Int, param2: Int): Int
+    public operator fun invoke(param0: MutPtr, param1: Int, param2: Int): Int
 }
 
 public typealias XaRollbackEpt = XaRollbackEptFn?
 
 public fun interface XaStartEptFn {
-    public operator fun invoke(param0: MutPtr<Xid>, param1: Int, param2: Int): Int
+    public operator fun invoke(param0: MutPtr, param1: Int, param2: Int): Int
 }
 
 public typealias XaStartEpt = XaStartEptFn?

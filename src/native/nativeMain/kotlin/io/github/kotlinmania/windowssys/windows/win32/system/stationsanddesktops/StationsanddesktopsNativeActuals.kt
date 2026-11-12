@@ -2,7 +2,6 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.system.stationsanddesktops
 
-import io.github.kotlinmania.rustlang.core.ffi.CVoid
 import io.github.kotlinmania.rustlang.core.ptr.ConstPtr
 import io.github.kotlinmania.rustlang.core.ptr.MutPtr
 import io.github.kotlinmania.windowssys.core.Bool
@@ -11,9 +10,6 @@ import io.github.kotlinmania.windowssys.core.Pcwstr
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Handle
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Lparam
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Wparam
-import io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.Devmodea
-import io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.Devmodew
-import io.github.kotlinmania.windowssys.windows.win32.security.SecurityAttributes
 import io.github.kotlinmania.windowssys.windows.win32.system.stationsanddesktops.cinterop.windowssysWindowsWin32SystemStationsanddesktopsBroadcastSystemMessageA
 import io.github.kotlinmania.windowssys.windows.win32.system.stationsanddesktops.cinterop.windowssysWindowsWin32SystemStationsanddesktopsBroadcastSystemMessageExA
 import io.github.kotlinmania.windowssys.windows.win32.system.stationsanddesktops.cinterop.windowssysWindowsWin32SystemStationsanddesktopsBroadcastSystemMessageExW
@@ -49,16 +45,16 @@ import kotlinx.cinterop.ByteVar
 import kotlinx.cinterop.toCPointer
 import kotlinx.cinterop.toLong
 
-public actual fun broadcastSystemMessageA(flags: UInt, lpinfo: MutPtr<UInt>, msg: UInt, wparam: Wparam, lparam: Lparam): Int =
+public actual fun broadcastSystemMessageA(flags: UInt, lpinfo: MutPtr, msg: UInt, wparam: Wparam, lparam: Lparam): Int =
     windowssysWindowsWin32SystemStationsanddesktopsBroadcastSystemMessageA(flags, lpinfo.rawAddress.toCPointer<ByteVar>(), msg, wparam, lparam)
 
-public actual fun broadcastSystemMessageExA(flags: BroadcastSystemMessageFlags, lpinfo: MutPtr<BroadcastSystemMessageInfo>, msg: UInt, wparam: Wparam, lparam: Lparam, pbsminfo: MutPtr<Bsminfo>): Int =
+public actual fun broadcastSystemMessageExA(flags: BroadcastSystemMessageFlags, lpinfo: MutPtr, msg: UInt, wparam: Wparam, lparam: Lparam, pbsminfo: MutPtr): Int =
     windowssysWindowsWin32SystemStationsanddesktopsBroadcastSystemMessageExA(flags, lpinfo.rawAddress.toCPointer<ByteVar>(), msg, wparam, lparam, pbsminfo.rawAddress.toCPointer<ByteVar>())
 
-public actual fun broadcastSystemMessageExW(flags: BroadcastSystemMessageFlags, lpinfo: MutPtr<BroadcastSystemMessageInfo>, msg: UInt, wparam: Wparam, lparam: Lparam, pbsminfo: MutPtr<Bsminfo>): Int =
+public actual fun broadcastSystemMessageExW(flags: BroadcastSystemMessageFlags, lpinfo: MutPtr, msg: UInt, wparam: Wparam, lparam: Lparam, pbsminfo: MutPtr): Int =
     windowssysWindowsWin32SystemStationsanddesktopsBroadcastSystemMessageExW(flags, lpinfo.rawAddress.toCPointer<ByteVar>(), msg, wparam, lparam, pbsminfo.rawAddress.toCPointer<ByteVar>())
 
-public actual fun broadcastSystemMessageW(flags: BroadcastSystemMessageFlags, lpinfo: MutPtr<BroadcastSystemMessageInfo>, msg: UInt, wparam: Wparam, lparam: Lparam): Int =
+public actual fun broadcastSystemMessageW(flags: BroadcastSystemMessageFlags, lpinfo: MutPtr, msg: UInt, wparam: Wparam, lparam: Lparam): Int =
     windowssysWindowsWin32SystemStationsanddesktopsBroadcastSystemMessageW(flags, lpinfo.rawAddress.toCPointer<ByteVar>(), msg, wparam, lparam)
 
 public actual fun closeDesktop(hdesktop: Hdesk): Bool =
@@ -67,22 +63,22 @@ public actual fun closeDesktop(hdesktop: Hdesk): Bool =
 public actual fun closeWindowStation(hwinsta: Hwinsta): Bool =
     windowssysWindowsWin32SystemStationsanddesktopsCloseWindowStation(hwinsta.rawAddress.toCPointer<ByteVar>())
 
-public actual fun createDesktopA(lpszdesktop: Pcstr, lpszdevice: Pcstr, pdevmode: ConstPtr<Devmodea>, dwflags: DesktopControlFlags, dwdesiredaccess: UInt, lpsa: ConstPtr<SecurityAttributes>): Hdesk =
+public actual fun createDesktopA(lpszdesktop: Pcstr, lpszdevice: Pcstr, pdevmode: ConstPtr, dwflags: DesktopControlFlags, dwdesiredaccess: UInt, lpsa: ConstPtr): Hdesk =
     MutPtr(windowssysWindowsWin32SystemStationsanddesktopsCreateDesktopA(lpszdesktop.rawAddress.toCPointer<ByteVar>(), lpszdevice.rawAddress.toCPointer<ByteVar>(), pdevmode.rawAddress.toCPointer<ByteVar>(), dwflags, dwdesiredaccess, lpsa.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun createDesktopExA(lpszdesktop: Pcstr, lpszdevice: Pcstr, pdevmode: ConstPtr<Devmodea>, dwflags: DesktopControlFlags, dwdesiredaccess: UInt, lpsa: ConstPtr<SecurityAttributes>, ulheapsize: UInt, pvoid: ConstPtr<CVoid>): Hdesk =
+public actual fun createDesktopExA(lpszdesktop: Pcstr, lpszdevice: Pcstr, pdevmode: ConstPtr, dwflags: DesktopControlFlags, dwdesiredaccess: UInt, lpsa: ConstPtr, ulheapsize: UInt, pvoid: ConstPtr): Hdesk =
     MutPtr(windowssysWindowsWin32SystemStationsanddesktopsCreateDesktopExA(lpszdesktop.rawAddress.toCPointer<ByteVar>(), lpszdevice.rawAddress.toCPointer<ByteVar>(), pdevmode.rawAddress.toCPointer<ByteVar>(), dwflags, dwdesiredaccess, lpsa.rawAddress.toCPointer<ByteVar>(), ulheapsize, pvoid.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun createDesktopExW(lpszdesktop: Pcwstr, lpszdevice: Pcwstr, pdevmode: ConstPtr<Devmodew>, dwflags: DesktopControlFlags, dwdesiredaccess: UInt, lpsa: ConstPtr<SecurityAttributes>, ulheapsize: UInt, pvoid: ConstPtr<CVoid>): Hdesk =
+public actual fun createDesktopExW(lpszdesktop: Pcwstr, lpszdevice: Pcwstr, pdevmode: ConstPtr, dwflags: DesktopControlFlags, dwdesiredaccess: UInt, lpsa: ConstPtr, ulheapsize: UInt, pvoid: ConstPtr): Hdesk =
     MutPtr(windowssysWindowsWin32SystemStationsanddesktopsCreateDesktopExW(lpszdesktop.rawAddress.toCPointer<ByteVar>(), lpszdevice.rawAddress.toCPointer<ByteVar>(), pdevmode.rawAddress.toCPointer<ByteVar>(), dwflags, dwdesiredaccess, lpsa.rawAddress.toCPointer<ByteVar>(), ulheapsize, pvoid.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun createDesktopW(lpszdesktop: Pcwstr, lpszdevice: Pcwstr, pdevmode: ConstPtr<Devmodew>, dwflags: DesktopControlFlags, dwdesiredaccess: UInt, lpsa: ConstPtr<SecurityAttributes>): Hdesk =
+public actual fun createDesktopW(lpszdesktop: Pcwstr, lpszdevice: Pcwstr, pdevmode: ConstPtr, dwflags: DesktopControlFlags, dwdesiredaccess: UInt, lpsa: ConstPtr): Hdesk =
     MutPtr(windowssysWindowsWin32SystemStationsanddesktopsCreateDesktopW(lpszdesktop.rawAddress.toCPointer<ByteVar>(), lpszdevice.rawAddress.toCPointer<ByteVar>(), pdevmode.rawAddress.toCPointer<ByteVar>(), dwflags, dwdesiredaccess, lpsa.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun createWindowStationA(lpwinsta: Pcstr, dwflags: UInt, dwdesiredaccess: UInt, lpsa: ConstPtr<SecurityAttributes>): Hwinsta =
+public actual fun createWindowStationA(lpwinsta: Pcstr, dwflags: UInt, dwdesiredaccess: UInt, lpsa: ConstPtr): Hwinsta =
     MutPtr(windowssysWindowsWin32SystemStationsanddesktopsCreateWindowStationA(lpwinsta.rawAddress.toCPointer<ByteVar>(), dwflags, dwdesiredaccess, lpsa.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun createWindowStationW(lpwinsta: Pcwstr, dwflags: UInt, dwdesiredaccess: UInt, lpsa: ConstPtr<SecurityAttributes>): Hwinsta =
+public actual fun createWindowStationW(lpwinsta: Pcwstr, dwflags: UInt, dwdesiredaccess: UInt, lpsa: ConstPtr): Hwinsta =
     MutPtr(windowssysWindowsWin32SystemStationsanddesktopsCreateWindowStationW(lpwinsta.rawAddress.toCPointer<ByteVar>(), dwflags, dwdesiredaccess, lpsa.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
 public actual fun enumDesktopWindows(hdesktop: Hdesk, lpfn: Wndenumproc, lparam: Lparam): Bool =
@@ -106,10 +102,10 @@ public actual fun getProcessWindowStation(): Hwinsta =
 public actual fun getThreadDesktop(dwthreadid: UInt): Hdesk =
     MutPtr(windowssysWindowsWin32SystemStationsanddesktopsGetThreadDesktop(dwthreadid)?.toLong() ?: 0L)
 
-public actual fun getUserObjectInformationA(hobj: Handle, nindex: UserObjectInformationIndex, pvinfo: MutPtr<CVoid>, nlength: UInt, lpnlengthneeded: MutPtr<UInt>): Bool =
+public actual fun getUserObjectInformationA(hobj: Handle, nindex: UserObjectInformationIndex, pvinfo: MutPtr, nlength: UInt, lpnlengthneeded: MutPtr): Bool =
     windowssysWindowsWin32SystemStationsanddesktopsGetUserObjectInformationA(hobj.rawAddress.toCPointer<ByteVar>(), nindex, pvinfo.rawAddress.toCPointer<ByteVar>(), nlength, lpnlengthneeded.rawAddress.toCPointer<ByteVar>())
 
-public actual fun getUserObjectInformationW(hobj: Handle, nindex: UserObjectInformationIndex, pvinfo: MutPtr<CVoid>, nlength: UInt, lpnlengthneeded: MutPtr<UInt>): Bool =
+public actual fun getUserObjectInformationW(hobj: Handle, nindex: UserObjectInformationIndex, pvinfo: MutPtr, nlength: UInt, lpnlengthneeded: MutPtr): Bool =
     windowssysWindowsWin32SystemStationsanddesktopsGetUserObjectInformationW(hobj.rawAddress.toCPointer<ByteVar>(), nindex, pvinfo.rawAddress.toCPointer<ByteVar>(), nlength, lpnlengthneeded.rawAddress.toCPointer<ByteVar>())
 
 public actual fun openDesktopA(lpszdesktop: Pcstr, dwflags: DesktopControlFlags, finherit: Bool, dwdesiredaccess: UInt): Hdesk =
@@ -133,10 +129,10 @@ public actual fun setProcessWindowStation(hwinsta: Hwinsta): Bool =
 public actual fun setThreadDesktop(hdesktop: Hdesk): Bool =
     windowssysWindowsWin32SystemStationsanddesktopsSetThreadDesktop(hdesktop.rawAddress.toCPointer<ByteVar>())
 
-public actual fun setUserObjectInformationA(hobj: Handle, nindex: Int, pvinfo: ConstPtr<CVoid>, nlength: UInt): Bool =
+public actual fun setUserObjectInformationA(hobj: Handle, nindex: Int, pvinfo: ConstPtr, nlength: UInt): Bool =
     windowssysWindowsWin32SystemStationsanddesktopsSetUserObjectInformationA(hobj.rawAddress.toCPointer<ByteVar>(), nindex, pvinfo.rawAddress.toCPointer<ByteVar>(), nlength)
 
-public actual fun setUserObjectInformationW(hobj: Handle, nindex: Int, pvinfo: ConstPtr<CVoid>, nlength: UInt): Bool =
+public actual fun setUserObjectInformationW(hobj: Handle, nindex: Int, pvinfo: ConstPtr, nlength: UInt): Bool =
     windowssysWindowsWin32SystemStationsanddesktopsSetUserObjectInformationW(hobj.rawAddress.toCPointer<ByteVar>(), nindex, pvinfo.rawAddress.toCPointer<ByteVar>(), nlength)
 
 public actual fun switchDesktop(hdesktop: Hdesk): Bool =

@@ -2,7 +2,6 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.ui.windowsandmessaging
 
-import io.github.kotlinmania.rustlang.core.ffi.CVoid
 import io.github.kotlinmania.rustlang.core.ptr.ConstPtr
 import io.github.kotlinmania.rustlang.core.ptr.MutPtr
 import io.github.kotlinmania.windowssys.core.Bool
@@ -18,11 +17,8 @@ import io.github.kotlinmania.windowssys.windows.win32.foundation.Hwnd
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Lparam
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Lresult
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Point
-import io.github.kotlinmania.windowssys.windows.win32.foundation.Rect
-import io.github.kotlinmania.windowssys.windows.win32.foundation.Size
 import io.github.kotlinmania.windowssys.windows.win32.foundation.WaitEvent
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Wparam
-import io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.Blendfunction
 import io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.Hbitmap
 import io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.Hbrush
 import io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.Hdc
@@ -431,10 +427,10 @@ import kotlinx.cinterop.ByteVar
 import kotlinx.cinterop.toCPointer
 import kotlinx.cinterop.toLong
 
-public actual fun adjustWindowRect(lprect: MutPtr<Rect>, dwstyle: WindowStyle, bmenu: Bool): Bool =
+public actual fun adjustWindowRect(lprect: MutPtr, dwstyle: WindowStyle, bmenu: Bool): Bool =
     windowssysWindowsWin32UiWindowsandmessagingAdjustWindowRect(lprect.rawAddress.toCPointer<ByteVar>(), dwstyle, bmenu)
 
-public actual fun adjustWindowRectEx(lprect: MutPtr<Rect>, dwstyle: WindowStyle, bmenu: Bool, dwexstyle: WindowExStyle): Bool =
+public actual fun adjustWindowRectEx(lprect: MutPtr, dwstyle: WindowStyle, bmenu: Bool, dwexstyle: WindowExStyle): Bool =
     windowssysWindowsWin32UiWindowsandmessagingAdjustWindowRectEx(lprect.rawAddress.toCPointer<ByteVar>(), dwstyle, bmenu, dwexstyle)
 
 public actual fun allowSetForegroundWindow(dwprocessid: UInt): Bool =
@@ -461,13 +457,13 @@ public actual fun beginDeferWindowPos(nnumwindows: Int): Hdwp =
 public actual fun bringWindowToTop(hwnd: Hwnd): Bool =
     windowssysWindowsWin32UiWindowsandmessagingBringWindowToTop(hwnd.rawAddress.toCPointer<ByteVar>())
 
-public actual fun calculatePopupWindowPosition(anchorpoint: ConstPtr<Point>, windowsize: ConstPtr<Size>, flags: UInt, excluderect: ConstPtr<Rect>, popupwindowposition: MutPtr<Rect>): Bool =
+public actual fun calculatePopupWindowPosition(anchorpoint: ConstPtr, windowsize: ConstPtr, flags: UInt, excluderect: ConstPtr, popupwindowposition: MutPtr): Bool =
     windowssysWindowsWin32UiWindowsandmessagingCalculatePopupWindowPosition(anchorpoint.rawAddress.toCPointer<ByteVar>(), windowsize.rawAddress.toCPointer<ByteVar>(), flags, excluderect.rawAddress.toCPointer<ByteVar>(), popupwindowposition.rawAddress.toCPointer<ByteVar>())
 
-public actual fun callMsgFilterA(lpmsg: ConstPtr<Msg>, ncode: Int): Bool =
+public actual fun callMsgFilterA(lpmsg: ConstPtr, ncode: Int): Bool =
     windowssysWindowsWin32UiWindowsandmessagingCallMsgFilterA(lpmsg.rawAddress.toCPointer<ByteVar>(), ncode)
 
-public actual fun callMsgFilterW(lpmsg: ConstPtr<Msg>, ncode: Int): Bool =
+public actual fun callMsgFilterW(lpmsg: ConstPtr, ncode: Int): Bool =
     windowssysWindowsWin32UiWindowsandmessagingCallMsgFilterW(lpmsg.rawAddress.toCPointer<ByteVar>(), ncode)
 
 public actual fun callNextHookEx(hhk: Hhook, ncode: Int, wparam: Wparam, lparam: Lparam): Lresult =
@@ -482,7 +478,7 @@ public actual fun callWindowProcW(lpprevwndfunc: Wndproc, hwnd: Hwnd, msg: UInt,
 public actual fun cancelShutdown(): Bool =
     windowssysWindowsWin32UiWindowsandmessagingCancelShutdown()
 
-public actual fun cascadeWindows(hwndparent: Hwnd, whow: CascadeWindowsHow, lprect: ConstPtr<Rect>, ckids: UInt, lpkids: ConstPtr<Hwnd>): UShort =
+public actual fun cascadeWindows(hwndparent: Hwnd, whow: CascadeWindowsHow, lprect: ConstPtr, ckids: UInt, lpkids: ConstPtr): UShort =
     windowssysWindowsWin32UiWindowsandmessagingCascadeWindows(hwndparent.rawAddress.toCPointer<ByteVar>(), whow, lprect.rawAddress.toCPointer<ByteVar>(), ckids, lpkids.rawAddress.toCPointer<ByteVar>())
 
 public actual fun changeMenuA(hmenu: Hmenu, cmd: UInt, lpsznewitem: Pcstr, cmdinsert: UInt, flags: UInt): Bool =
@@ -494,7 +490,7 @@ public actual fun changeMenuW(hmenu: Hmenu, cmd: UInt, lpsznewitem: Pcwstr, cmdi
 public actual fun changeWindowMessageFilter(message: UInt, dwflag: ChangeWindowMessageFilterFlags): Bool =
     windowssysWindowsWin32UiWindowsandmessagingChangeWindowMessageFilter(message, dwflag)
 
-public actual fun changeWindowMessageFilterEx(hwnd: Hwnd, message: UInt, action: WindowMessageFilterAction, pchangefilterstruct: MutPtr<Changefilterstruct>): Bool =
+public actual fun changeWindowMessageFilterEx(hwnd: Hwnd, message: UInt, action: WindowMessageFilterAction, pchangefilterstruct: MutPtr): Bool =
     windowssysWindowsWin32UiWindowsandmessagingChangeWindowMessageFilterEx(hwnd.rawAddress.toCPointer<ByteVar>(), message, action, pchangefilterstruct.rawAddress.toCPointer<ByteVar>())
 
 public actual fun charLowerA(lpsz: Pstr): Pstr =
@@ -563,16 +559,16 @@ public actual fun childWindowFromPoint(hwndparent: Hwnd, point: Point): Hwnd =
 public actual fun childWindowFromPointEx(hwnd: Hwnd, pt: Point, flags: CwpFlags): Hwnd =
     MutPtr(0L)
 
-public actual fun clipCursor(lprect: ConstPtr<Rect>): Bool =
+public actual fun clipCursor(lprect: ConstPtr): Bool =
     windowssysWindowsWin32UiWindowsandmessagingClipCursor(lprect.rawAddress.toCPointer<ByteVar>())
 
 public actual fun closeWindow(hwnd: Hwnd): Bool =
     windowssysWindowsWin32UiWindowsandmessagingCloseWindow(hwnd.rawAddress.toCPointer<ByteVar>())
 
-public actual fun copyAcceleratorTableA(haccelsrc: Haccel, lpacceldst: MutPtr<Accel>, caccelentries: Int): Int =
+public actual fun copyAcceleratorTableA(haccelsrc: Haccel, lpacceldst: MutPtr, caccelentries: Int): Int =
     windowssysWindowsWin32UiWindowsandmessagingCopyAcceleratorTableA(haccelsrc.rawAddress.toCPointer<ByteVar>(), lpacceldst.rawAddress.toCPointer<ByteVar>(), caccelentries)
 
-public actual fun copyAcceleratorTableW(haccelsrc: Haccel, lpacceldst: MutPtr<Accel>, caccelentries: Int): Int =
+public actual fun copyAcceleratorTableW(haccelsrc: Haccel, lpacceldst: MutPtr, caccelentries: Int): Int =
     windowssysWindowsWin32UiWindowsandmessagingCopyAcceleratorTableW(haccelsrc.rawAddress.toCPointer<ByteVar>(), lpacceldst.rawAddress.toCPointer<ByteVar>(), caccelentries)
 
 public actual fun copyIcon(hicon: Hicon): Hicon =
@@ -581,22 +577,22 @@ public actual fun copyIcon(hicon: Hicon): Hicon =
 public actual fun copyImage(h: Handle, type: GdiImageType, cx: Int, cy: Int, flags: ImageFlags): Handle =
     MutPtr(windowssysWindowsWin32UiWindowsandmessagingCopyImage(h.rawAddress.toCPointer<ByteVar>(), type, cx, cy, flags)?.toLong() ?: 0L)
 
-public actual fun createAcceleratorTableA(paccel: ConstPtr<Accel>, caccel: Int): Haccel =
+public actual fun createAcceleratorTableA(paccel: ConstPtr, caccel: Int): Haccel =
     MutPtr(windowssysWindowsWin32UiWindowsandmessagingCreateAcceleratorTableA(paccel.rawAddress.toCPointer<ByteVar>(), caccel)?.toLong() ?: 0L)
 
-public actual fun createAcceleratorTableW(paccel: ConstPtr<Accel>, caccel: Int): Haccel =
+public actual fun createAcceleratorTableW(paccel: ConstPtr, caccel: Int): Haccel =
     MutPtr(windowssysWindowsWin32UiWindowsandmessagingCreateAcceleratorTableW(paccel.rawAddress.toCPointer<ByteVar>(), caccel)?.toLong() ?: 0L)
 
 public actual fun createCaret(hwnd: Hwnd, hbitmap: Hbitmap, nwidth: Int, nheight: Int): Bool =
     windowssysWindowsWin32UiWindowsandmessagingCreateCaret(hwnd.rawAddress.toCPointer<ByteVar>(), hbitmap.rawAddress.toCPointer<ByteVar>(), nwidth, nheight)
 
-public actual fun createCursor(hinst: Hinstance, xhotspot: Int, yhotspot: Int, nwidth: Int, nheight: Int, pvandplane: ConstPtr<CVoid>, pvxorplane: ConstPtr<CVoid>): Hcursor =
+public actual fun createCursor(hinst: Hinstance, xhotspot: Int, yhotspot: Int, nwidth: Int, nheight: Int, pvandplane: ConstPtr, pvxorplane: ConstPtr): Hcursor =
     MutPtr(windowssysWindowsWin32UiWindowsandmessagingCreateCursor(hinst.rawAddress.toCPointer<ByteVar>(), xhotspot, yhotspot, nwidth, nheight, pvandplane.rawAddress.toCPointer<ByteVar>(), pvxorplane.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun createDialogIndirectParamA(hinstance: Hinstance, lptemplate: ConstPtr<Dlgtemplate>, hwndparent: Hwnd, lpdialogfunc: Dlgproc, dwinitparam: Lparam): Hwnd =
+public actual fun createDialogIndirectParamA(hinstance: Hinstance, lptemplate: ConstPtr, hwndparent: Hwnd, lpdialogfunc: Dlgproc, dwinitparam: Lparam): Hwnd =
     MutPtr(windowssysWindowsWin32UiWindowsandmessagingCreateDialogIndirectParamA(hinstance.rawAddress.toCPointer<ByteVar>(), lptemplate.rawAddress.toCPointer<ByteVar>(), hwndparent.rawAddress.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>(), dwinitparam)?.toLong() ?: 0L)
 
-public actual fun createDialogIndirectParamW(hinstance: Hinstance, lptemplate: ConstPtr<Dlgtemplate>, hwndparent: Hwnd, lpdialogfunc: Dlgproc, dwinitparam: Lparam): Hwnd =
+public actual fun createDialogIndirectParamW(hinstance: Hinstance, lptemplate: ConstPtr, hwndparent: Hwnd, lpdialogfunc: Dlgproc, dwinitparam: Lparam): Hwnd =
     MutPtr(windowssysWindowsWin32UiWindowsandmessagingCreateDialogIndirectParamW(hinstance.rawAddress.toCPointer<ByteVar>(), lptemplate.rawAddress.toCPointer<ByteVar>(), hwndparent.rawAddress.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>(), dwinitparam)?.toLong() ?: 0L)
 
 public actual fun createDialogParamA(hinstance: Hinstance, lptemplatename: Pcstr, hwndparent: Hwnd, lpdialogfunc: Dlgproc, dwinitparam: Lparam): Hwnd =
@@ -605,16 +601,16 @@ public actual fun createDialogParamA(hinstance: Hinstance, lptemplatename: Pcstr
 public actual fun createDialogParamW(hinstance: Hinstance, lptemplatename: Pcwstr, hwndparent: Hwnd, lpdialogfunc: Dlgproc, dwinitparam: Lparam): Hwnd =
     MutPtr(windowssysWindowsWin32UiWindowsandmessagingCreateDialogParamW(hinstance.rawAddress.toCPointer<ByteVar>(), lptemplatename.rawAddress.toCPointer<ByteVar>(), hwndparent.rawAddress.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>(), dwinitparam)?.toLong() ?: 0L)
 
-public actual fun createIcon(hinstance: Hinstance, nwidth: Int, nheight: Int, cplanes: UByte, cbitspixel: UByte, lpbandbits: ConstPtr<UByte>, lpbxorbits: ConstPtr<UByte>): Hicon =
+public actual fun createIcon(hinstance: Hinstance, nwidth: Int, nheight: Int, cplanes: UByte, cbitspixel: UByte, lpbandbits: ConstPtr, lpbxorbits: ConstPtr): Hicon =
     MutPtr(windowssysWindowsWin32UiWindowsandmessagingCreateIcon(hinstance.rawAddress.toCPointer<ByteVar>(), nwidth, nheight, cplanes, cbitspixel, lpbandbits.rawAddress.toCPointer<ByteVar>(), lpbxorbits.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun createIconFromResource(presbits: ConstPtr<UByte>, dwressize: UInt, ficon: Bool, dwver: UInt): Hicon =
+public actual fun createIconFromResource(presbits: ConstPtr, dwressize: UInt, ficon: Bool, dwver: UInt): Hicon =
     MutPtr(windowssysWindowsWin32UiWindowsandmessagingCreateIconFromResource(presbits.rawAddress.toCPointer<ByteVar>(), dwressize, ficon, dwver)?.toLong() ?: 0L)
 
-public actual fun createIconFromResourceEx(presbits: ConstPtr<UByte>, dwressize: UInt, ficon: Bool, dwver: UInt, cxdesired: Int, cydesired: Int, flags: ImageFlags): Hicon =
+public actual fun createIconFromResourceEx(presbits: ConstPtr, dwressize: UInt, ficon: Bool, dwver: UInt, cxdesired: Int, cydesired: Int, flags: ImageFlags): Hicon =
     MutPtr(windowssysWindowsWin32UiWindowsandmessagingCreateIconFromResourceEx(presbits.rawAddress.toCPointer<ByteVar>(), dwressize, ficon, dwver, cxdesired, cydesired, flags)?.toLong() ?: 0L)
 
-public actual fun createIconIndirect(piconinfo: ConstPtr<Iconinfo>): Hicon =
+public actual fun createIconIndirect(piconinfo: ConstPtr): Hicon =
     MutPtr(windowssysWindowsWin32UiWindowsandmessagingCreateIconIndirect(piconinfo.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
 public actual fun createMDIWindowA(lpclassname: Pcstr, lpwindowname: Pcstr, dwstyle: WindowStyle, x: Int, y: Int, nwidth: Int, nheight: Int, hwndparent: Hwnd, hinstance: Hinstance, lparam: Lparam): Hwnd =
@@ -629,13 +625,13 @@ public actual fun createMenu(): Hmenu =
 public actual fun createPopupMenu(): Hmenu =
     MutPtr(windowssysWindowsWin32UiWindowsandmessagingCreatePopupMenu()?.toLong() ?: 0L)
 
-public actual fun createResourceIndexer(projectroot: Pcwstr, extensiondllpath: Pcwstr, ppresourceindexer: MutPtr<MutPtr<CVoid>>): Hresult =
+public actual fun createResourceIndexer(projectroot: Pcwstr, extensiondllpath: Pcwstr, ppresourceindexer: MutPtr): Hresult =
     windowssysWindowsWin32UiWindowsandmessagingCreateResourceIndexer(projectroot.rawAddress.toCPointer<ByteVar>(), extensiondllpath.rawAddress.toCPointer<ByteVar>(), ppresourceindexer.rawAddress.toCPointer<ByteVar>())
 
-public actual fun createWindowExA(dwexstyle: WindowExStyle, lpclassname: Pcstr, lpwindowname: Pcstr, dwstyle: WindowStyle, x: Int, y: Int, nwidth: Int, nheight: Int, hwndparent: Hwnd, hmenu: Hmenu, hinstance: Hinstance, lpparam: ConstPtr<CVoid>): Hwnd =
+public actual fun createWindowExA(dwexstyle: WindowExStyle, lpclassname: Pcstr, lpwindowname: Pcstr, dwstyle: WindowStyle, x: Int, y: Int, nwidth: Int, nheight: Int, hwndparent: Hwnd, hmenu: Hmenu, hinstance: Hinstance, lpparam: ConstPtr): Hwnd =
     MutPtr(windowssysWindowsWin32UiWindowsandmessagingCreateWindowExA(dwexstyle, lpclassname.rawAddress.toCPointer<ByteVar>(), lpwindowname.rawAddress.toCPointer<ByteVar>(), dwstyle, x, y, nwidth, nheight, hwndparent.rawAddress.toCPointer<ByteVar>(), hmenu.rawAddress.toCPointer<ByteVar>(), hinstance.rawAddress.toCPointer<ByteVar>(), lpparam.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun createWindowExW(dwexstyle: WindowExStyle, lpclassname: Pcwstr, lpwindowname: Pcwstr, dwstyle: WindowStyle, x: Int, y: Int, nwidth: Int, nheight: Int, hwndparent: Hwnd, hmenu: Hmenu, hinstance: Hinstance, lpparam: ConstPtr<CVoid>): Hwnd =
+public actual fun createWindowExW(dwexstyle: WindowExStyle, lpclassname: Pcwstr, lpwindowname: Pcwstr, dwstyle: WindowStyle, x: Int, y: Int, nwidth: Int, nheight: Int, hwndparent: Hwnd, hmenu: Hmenu, hinstance: Hinstance, lpparam: ConstPtr): Hwnd =
     MutPtr(windowssysWindowsWin32UiWindowsandmessagingCreateWindowExW(dwexstyle, lpclassname.rawAddress.toCPointer<ByteVar>(), lpwindowname.rawAddress.toCPointer<ByteVar>(), dwstyle, x, y, nwidth, nheight, hwndparent.rawAddress.toCPointer<ByteVar>(), hmenu.rawAddress.toCPointer<ByteVar>(), hinstance.rawAddress.toCPointer<ByteVar>(), lpparam.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
 public actual fun defDlgProcA(hdlg: Hwnd, msg: UInt, wparam: Wparam, lparam: Lparam): Lresult =
@@ -683,24 +679,24 @@ public actual fun destroyCursor(hcursor: Hcursor): Bool =
 public actual fun destroyIcon(hicon: Hicon): Bool =
     windowssysWindowsWin32UiWindowsandmessagingDestroyIcon(hicon.rawAddress.toCPointer<ByteVar>())
 
-public actual fun destroyIndexedResults(resourceuri: Pcwstr, qualifiercount: UInt, qualifiers: ConstPtr<IndexedResourceQualifier>) {
+public actual fun destroyIndexedResults(resourceuri: Pcwstr, qualifiercount: UInt, qualifiers: ConstPtr) {
     windowssysWindowsWin32UiWindowsandmessagingDestroyIndexedResults(resourceuri.rawAddress.toCPointer<ByteVar>(), qualifiercount, qualifiers.rawAddress.toCPointer<ByteVar>())
 }
 
 public actual fun destroyMenu(hmenu: Hmenu): Bool =
     windowssysWindowsWin32UiWindowsandmessagingDestroyMenu(hmenu.rawAddress.toCPointer<ByteVar>())
 
-public actual fun destroyResourceIndexer(resourceindexer: ConstPtr<CVoid>) {
+public actual fun destroyResourceIndexer(resourceindexer: ConstPtr) {
     windowssysWindowsWin32UiWindowsandmessagingDestroyResourceIndexer(resourceindexer.rawAddress.toCPointer<ByteVar>())
 }
 
 public actual fun destroyWindow(hwnd: Hwnd): Bool =
     windowssysWindowsWin32UiWindowsandmessagingDestroyWindow(hwnd.rawAddress.toCPointer<ByteVar>())
 
-public actual fun dialogBoxIndirectParamA(hinstance: Hinstance, hdialogtemplate: ConstPtr<Dlgtemplate>, hwndparent: Hwnd, lpdialogfunc: Dlgproc, dwinitparam: Lparam): Long =
+public actual fun dialogBoxIndirectParamA(hinstance: Hinstance, hdialogtemplate: ConstPtr, hwndparent: Hwnd, lpdialogfunc: Dlgproc, dwinitparam: Lparam): Long =
     windowssysWindowsWin32UiWindowsandmessagingDialogBoxIndirectParamA(hinstance.rawAddress.toCPointer<ByteVar>(), hdialogtemplate.rawAddress.toCPointer<ByteVar>(), hwndparent.rawAddress.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>(), dwinitparam)
 
-public actual fun dialogBoxIndirectParamW(hinstance: Hinstance, hdialogtemplate: ConstPtr<Dlgtemplate>, hwndparent: Hwnd, lpdialogfunc: Dlgproc, dwinitparam: Lparam): Long =
+public actual fun dialogBoxIndirectParamW(hinstance: Hinstance, hdialogtemplate: ConstPtr, hwndparent: Hwnd, lpdialogfunc: Dlgproc, dwinitparam: Lparam): Long =
     windowssysWindowsWin32UiWindowsandmessagingDialogBoxIndirectParamW(hinstance.rawAddress.toCPointer<ByteVar>(), hdialogtemplate.rawAddress.toCPointer<ByteVar>(), hwndparent.rawAddress.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>(), dwinitparam)
 
 public actual fun dialogBoxParamA(hinstance: Hinstance, lptemplatename: Pcstr, hwndparent: Hwnd, lpdialogfunc: Dlgproc, dwinitparam: Lparam): Long =
@@ -713,10 +709,10 @@ public actual fun disableProcessWindowsGhosting() {
     windowssysWindowsWin32UiWindowsandmessagingDisableProcessWindowsGhosting()
 }
 
-public actual fun dispatchMessageA(lpmsg: ConstPtr<Msg>): Lresult =
+public actual fun dispatchMessageA(lpmsg: ConstPtr): Lresult =
     windowssysWindowsWin32UiWindowsandmessagingDispatchMessageA(lpmsg.rawAddress.toCPointer<ByteVar>())
 
-public actual fun dispatchMessageW(lpmsg: ConstPtr<Msg>): Lresult =
+public actual fun dispatchMessageW(lpmsg: ConstPtr): Lresult =
     windowssysWindowsWin32UiWindowsandmessagingDispatchMessageW(lpmsg.rawAddress.toCPointer<ByteVar>())
 
 public actual fun dragObject(hwndparent: Hwnd, hwndfrom: Hwnd, fmt: UInt, data: ULong, hcur: Hcursor): UInt =
@@ -779,13 +775,13 @@ public actual fun findWindowW(lpclassname: Pcwstr, lpwindowname: Pcwstr): Hwnd =
 public actual fun flashWindow(hwnd: Hwnd, binvert: Bool): Bool =
     windowssysWindowsWin32UiWindowsandmessagingFlashWindow(hwnd.rawAddress.toCPointer<ByteVar>(), binvert)
 
-public actual fun flashWindowEx(pfwi: ConstPtr<Flashwinfo>): Bool =
+public actual fun flashWindowEx(pfwi: ConstPtr): Bool =
     windowssysWindowsWin32UiWindowsandmessagingFlashWindowEx(pfwi.rawAddress.toCPointer<ByteVar>())
 
-public actual fun getAltTabInfoA(hwnd: Hwnd, iitem: Int, pati: MutPtr<Alttabinfo>, pszitemtext: Pstr, cchitemtext: UInt): Bool =
+public actual fun getAltTabInfoA(hwnd: Hwnd, iitem: Int, pati: MutPtr, pszitemtext: Pstr, cchitemtext: UInt): Bool =
     windowssysWindowsWin32UiWindowsandmessagingGetAltTabInfoA(hwnd.rawAddress.toCPointer<ByteVar>(), iitem, pati.rawAddress.toCPointer<ByteVar>(), pszitemtext.rawAddress.toCPointer<ByteVar>(), cchitemtext)
 
-public actual fun getAltTabInfoW(hwnd: Hwnd, iitem: Int, pati: MutPtr<Alttabinfo>, pszitemtext: Pwstr, cchitemtext: UInt): Bool =
+public actual fun getAltTabInfoW(hwnd: Hwnd, iitem: Int, pati: MutPtr, pszitemtext: Pwstr, cchitemtext: UInt): Bool =
     windowssysWindowsWin32UiWindowsandmessagingGetAltTabInfoW(hwnd.rawAddress.toCPointer<ByteVar>(), iitem, pati.rawAddress.toCPointer<ByteVar>(), pszitemtext.rawAddress.toCPointer<ByteVar>(), cchitemtext)
 
 public actual fun getAncestor(hwnd: Hwnd, gaflags: GetAncestorFlags): Hwnd =
@@ -794,19 +790,19 @@ public actual fun getAncestor(hwnd: Hwnd, gaflags: GetAncestorFlags): Hwnd =
 public actual fun getCaretBlinkTime(): UInt =
     windowssysWindowsWin32UiWindowsandmessagingGetCaretBlinkTime()
 
-public actual fun getCaretPos(lppoint: MutPtr<Point>): Bool =
+public actual fun getCaretPos(lppoint: MutPtr): Bool =
     windowssysWindowsWin32UiWindowsandmessagingGetCaretPos(lppoint.rawAddress.toCPointer<ByteVar>())
 
-public actual fun getClassInfoA(hinstance: Hinstance, lpclassname: Pcstr, lpwndclass: MutPtr<Wndclassa>): Bool =
+public actual fun getClassInfoA(hinstance: Hinstance, lpclassname: Pcstr, lpwndclass: MutPtr): Bool =
     windowssysWindowsWin32UiWindowsandmessagingGetClassInfoA(hinstance.rawAddress.toCPointer<ByteVar>(), lpclassname.rawAddress.toCPointer<ByteVar>(), lpwndclass.rawAddress.toCPointer<ByteVar>())
 
-public actual fun getClassInfoExA(hinstance: Hinstance, lpszclass: Pcstr, lpwcx: MutPtr<Wndclassexa>): Bool =
+public actual fun getClassInfoExA(hinstance: Hinstance, lpszclass: Pcstr, lpwcx: MutPtr): Bool =
     windowssysWindowsWin32UiWindowsandmessagingGetClassInfoExA(hinstance.rawAddress.toCPointer<ByteVar>(), lpszclass.rawAddress.toCPointer<ByteVar>(), lpwcx.rawAddress.toCPointer<ByteVar>())
 
-public actual fun getClassInfoExW(hinstance: Hinstance, lpszclass: Pcwstr, lpwcx: MutPtr<Wndclassexw>): Bool =
+public actual fun getClassInfoExW(hinstance: Hinstance, lpszclass: Pcwstr, lpwcx: MutPtr): Bool =
     windowssysWindowsWin32UiWindowsandmessagingGetClassInfoExW(hinstance.rawAddress.toCPointer<ByteVar>(), lpszclass.rawAddress.toCPointer<ByteVar>(), lpwcx.rawAddress.toCPointer<ByteVar>())
 
-public actual fun getClassInfoW(hinstance: Hinstance, lpclassname: Pcwstr, lpwndclass: MutPtr<Wndclassw>): Bool =
+public actual fun getClassInfoW(hinstance: Hinstance, lpclassname: Pcwstr, lpwndclass: MutPtr): Bool =
     windowssysWindowsWin32UiWindowsandmessagingGetClassInfoW(hinstance.rawAddress.toCPointer<ByteVar>(), lpclassname.rawAddress.toCPointer<ByteVar>(), lpwndclass.rawAddress.toCPointer<ByteVar>())
 
 public actual fun getClassLongA(hwnd: Hwnd, nindex: GetClassLongIndex): UInt =
@@ -830,19 +826,19 @@ public actual fun getClassNameW(hwnd: Hwnd, lpclassname: Pwstr, nmaxcount: Int):
 public actual fun getClassWord(hwnd: Hwnd, nindex: Int): UShort =
     windowssysWindowsWin32UiWindowsandmessagingGetClassWord(hwnd.rawAddress.toCPointer<ByteVar>(), nindex)
 
-public actual fun getClientRect(hwnd: Hwnd, lprect: MutPtr<Rect>): Bool =
+public actual fun getClientRect(hwnd: Hwnd, lprect: MutPtr): Bool =
     windowssysWindowsWin32UiWindowsandmessagingGetClientRect(hwnd.rawAddress.toCPointer<ByteVar>(), lprect.rawAddress.toCPointer<ByteVar>())
 
-public actual fun getClipCursor(lprect: MutPtr<Rect>): Bool =
+public actual fun getClipCursor(lprect: MutPtr): Bool =
     windowssysWindowsWin32UiWindowsandmessagingGetClipCursor(lprect.rawAddress.toCPointer<ByteVar>())
 
 public actual fun getCursor(): Hcursor =
     MutPtr(windowssysWindowsWin32UiWindowsandmessagingGetCursor()?.toLong() ?: 0L)
 
-public actual fun getCursorInfo(pci: MutPtr<Cursorinfo>): Bool =
+public actual fun getCursorInfo(pci: MutPtr): Bool =
     windowssysWindowsWin32UiWindowsandmessagingGetCursorInfo(pci.rawAddress.toCPointer<ByteVar>())
 
-public actual fun getCursorPos(lppoint: MutPtr<Point>): Bool =
+public actual fun getCursorPos(lppoint: MutPtr): Bool =
     windowssysWindowsWin32UiWindowsandmessagingGetCursorPos(lppoint.rawAddress.toCPointer<ByteVar>())
 
 public actual fun getDesktopWindow(): Hwnd =
@@ -857,7 +853,7 @@ public actual fun getDlgCtrlID(hwnd: Hwnd): Int =
 public actual fun getDlgItem(hdlg: Hwnd, niddlgitem: Int): Hwnd =
     MutPtr(windowssysWindowsWin32UiWindowsandmessagingGetDlgItem(hdlg.rawAddress.toCPointer<ByteVar>(), niddlgitem)?.toLong() ?: 0L)
 
-public actual fun getDlgItemInt(hdlg: Hwnd, niddlgitem: Int, lptranslated: MutPtr<Bool>, bsigned: Bool): UInt =
+public actual fun getDlgItemInt(hdlg: Hwnd, niddlgitem: Int, lptranslated: MutPtr, bsigned: Bool): UInt =
     windowssysWindowsWin32UiWindowsandmessagingGetDlgItemInt(hdlg.rawAddress.toCPointer<ByteVar>(), niddlgitem, lptranslated.rawAddress.toCPointer<ByteVar>(), bsigned)
 
 public actual fun getDlgItemTextA(hdlg: Hwnd, niddlgitem: Int, lpstring: Pstr, cchmax: Int): UInt =
@@ -869,16 +865,16 @@ public actual fun getDlgItemTextW(hdlg: Hwnd, niddlgitem: Int, lpstring: Pwstr, 
 public actual fun getForegroundWindow(): Hwnd =
     MutPtr(windowssysWindowsWin32UiWindowsandmessagingGetForegroundWindow()?.toLong() ?: 0L)
 
-public actual fun getGUIThreadInfo(idthread: UInt, pgui: MutPtr<Guithreadinfo>): Bool =
+public actual fun getGUIThreadInfo(idthread: UInt, pgui: MutPtr): Bool =
     windowssysWindowsWin32UiWindowsandmessagingGetGUIThreadInfo(idthread, pgui.rawAddress.toCPointer<ByteVar>())
 
-public actual fun getIconInfo(hicon: Hicon, piconinfo: MutPtr<Iconinfo>): Bool =
+public actual fun getIconInfo(hicon: Hicon, piconinfo: MutPtr): Bool =
     windowssysWindowsWin32UiWindowsandmessagingGetIconInfo(hicon.rawAddress.toCPointer<ByteVar>(), piconinfo.rawAddress.toCPointer<ByteVar>())
 
-public actual fun getIconInfoExA(hicon: Hicon, piconinfo: MutPtr<Iconinfoexa>): Bool =
+public actual fun getIconInfoExA(hicon: Hicon, piconinfo: MutPtr): Bool =
     windowssysWindowsWin32UiWindowsandmessagingGetIconInfoExA(hicon.rawAddress.toCPointer<ByteVar>(), piconinfo.rawAddress.toCPointer<ByteVar>())
 
-public actual fun getIconInfoExW(hicon: Hicon, piconinfo: MutPtr<Iconinfoexw>): Bool =
+public actual fun getIconInfoExW(hicon: Hicon, piconinfo: MutPtr): Bool =
     windowssysWindowsWin32UiWindowsandmessagingGetIconInfoExW(hicon.rawAddress.toCPointer<ByteVar>(), piconinfo.rawAddress.toCPointer<ByteVar>())
 
 public actual fun getInputState(): Bool =
@@ -887,13 +883,13 @@ public actual fun getInputState(): Bool =
 public actual fun getLastActivePopup(hwnd: Hwnd): Hwnd =
     MutPtr(windowssysWindowsWin32UiWindowsandmessagingGetLastActivePopup(hwnd.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun getLayeredWindowAttributes(hwnd: Hwnd, pcrkey: MutPtr<Colorref>, pbalpha: MutPtr<UByte>, pdwflags: MutPtr<LayeredWindowAttributesFlags>): Bool =
+public actual fun getLayeredWindowAttributes(hwnd: Hwnd, pcrkey: MutPtr, pbalpha: MutPtr, pdwflags: MutPtr): Bool =
     windowssysWindowsWin32UiWindowsandmessagingGetLayeredWindowAttributes(hwnd.rawAddress.toCPointer<ByteVar>(), pcrkey.rawAddress.toCPointer<ByteVar>(), pbalpha.rawAddress.toCPointer<ByteVar>(), pdwflags.rawAddress.toCPointer<ByteVar>())
 
 public actual fun getMenu(hwnd: Hwnd): Hmenu =
     MutPtr(windowssysWindowsWin32UiWindowsandmessagingGetMenu(hwnd.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun getMenuBarInfo(hwnd: Hwnd, idobject: ObjectIdentifier, iditem: Int, pmbi: MutPtr<Menubarinfo>): Bool =
+public actual fun getMenuBarInfo(hwnd: Hwnd, idobject: ObjectIdentifier, iditem: Int, pmbi: MutPtr): Bool =
     windowssysWindowsWin32UiWindowsandmessagingGetMenuBarInfo(hwnd.rawAddress.toCPointer<ByteVar>(), idobject, iditem, pmbi.rawAddress.toCPointer<ByteVar>())
 
 public actual fun getMenuCheckMarkDimensions(): Int =
@@ -902,7 +898,7 @@ public actual fun getMenuCheckMarkDimensions(): Int =
 public actual fun getMenuDefaultItem(hmenu: Hmenu, fbypos: UInt, gmdiflags: GetMenuDefaultItemFlags): UInt =
     windowssysWindowsWin32UiWindowsandmessagingGetMenuDefaultItem(hmenu.rawAddress.toCPointer<ByteVar>(), fbypos, gmdiflags)
 
-public actual fun getMenuInfo(param0: Hmenu, param1: MutPtr<Menuinfo>): Bool =
+public actual fun getMenuInfo(param0: Hmenu, param1: MutPtr): Bool =
     windowssysWindowsWin32UiWindowsandmessagingGetMenuInfo(param0.rawAddress.toCPointer<ByteVar>(), param1.rawAddress.toCPointer<ByteVar>())
 
 public actual fun getMenuItemCount(hmenu: Hmenu): Int =
@@ -911,13 +907,13 @@ public actual fun getMenuItemCount(hmenu: Hmenu): Int =
 public actual fun getMenuItemID(hmenu: Hmenu, npos: Int): UInt =
     windowssysWindowsWin32UiWindowsandmessagingGetMenuItemID(hmenu.rawAddress.toCPointer<ByteVar>(), npos)
 
-public actual fun getMenuItemInfoA(hmenu: Hmenu, item: UInt, fbyposition: Bool, lpmii: MutPtr<Menuiteminfoa>): Bool =
+public actual fun getMenuItemInfoA(hmenu: Hmenu, item: UInt, fbyposition: Bool, lpmii: MutPtr): Bool =
     windowssysWindowsWin32UiWindowsandmessagingGetMenuItemInfoA(hmenu.rawAddress.toCPointer<ByteVar>(), item, fbyposition, lpmii.rawAddress.toCPointer<ByteVar>())
 
-public actual fun getMenuItemInfoW(hmenu: Hmenu, item: UInt, fbyposition: Bool, lpmii: MutPtr<Menuiteminfow>): Bool =
+public actual fun getMenuItemInfoW(hmenu: Hmenu, item: UInt, fbyposition: Bool, lpmii: MutPtr): Bool =
     windowssysWindowsWin32UiWindowsandmessagingGetMenuItemInfoW(hmenu.rawAddress.toCPointer<ByteVar>(), item, fbyposition, lpmii.rawAddress.toCPointer<ByteVar>())
 
-public actual fun getMenuItemRect(hwnd: Hwnd, hmenu: Hmenu, uitem: UInt, lprcitem: MutPtr<Rect>): Bool =
+public actual fun getMenuItemRect(hwnd: Hwnd, hmenu: Hmenu, uitem: UInt, lprcitem: MutPtr): Bool =
     windowssysWindowsWin32UiWindowsandmessagingGetMenuItemRect(hwnd.rawAddress.toCPointer<ByteVar>(), hmenu.rawAddress.toCPointer<ByteVar>(), uitem, lprcitem.rawAddress.toCPointer<ByteVar>())
 
 public actual fun getMenuState(hmenu: Hmenu, uid: UInt, uflags: MenuItemFlags): UInt =
@@ -929,7 +925,7 @@ public actual fun getMenuStringA(hmenu: Hmenu, uiditem: UInt, lpstring: Pstr, cc
 public actual fun getMenuStringW(hmenu: Hmenu, uiditem: UInt, lpstring: Pwstr, cchmax: Int, flags: MenuItemFlags): Int =
     windowssysWindowsWin32UiWindowsandmessagingGetMenuStringW(hmenu.rawAddress.toCPointer<ByteVar>(), uiditem, lpstring.rawAddress.toCPointer<ByteVar>(), cchmax, flags)
 
-public actual fun getMessageA(lpmsg: MutPtr<Msg>, hwnd: Hwnd, wmsgfiltermin: UInt, wmsgfiltermax: UInt): Bool =
+public actual fun getMessageA(lpmsg: MutPtr, hwnd: Hwnd, wmsgfiltermin: UInt, wmsgfiltermax: UInt): Bool =
     windowssysWindowsWin32UiWindowsandmessagingGetMessageA(lpmsg.rawAddress.toCPointer<ByteVar>(), hwnd.rawAddress.toCPointer<ByteVar>(), wmsgfiltermin, wmsgfiltermax)
 
 public actual fun getMessageExtraInfo(): Lparam =
@@ -941,7 +937,7 @@ public actual fun getMessagePos(): UInt =
 public actual fun getMessageTime(): Int =
     windowssysWindowsWin32UiWindowsandmessagingGetMessageTime()
 
-public actual fun getMessageW(lpmsg: MutPtr<Msg>, hwnd: Hwnd, wmsgfiltermin: UInt, wmsgfiltermax: UInt): Bool =
+public actual fun getMessageW(lpmsg: MutPtr, hwnd: Hwnd, wmsgfiltermin: UInt, wmsgfiltermax: UInt): Bool =
     windowssysWindowsWin32UiWindowsandmessagingGetMessageW(lpmsg.rawAddress.toCPointer<ByteVar>(), hwnd.rawAddress.toCPointer<ByteVar>(), wmsgfiltermin, wmsgfiltermax)
 
 public actual fun getNextDlgGroupItem(hdlg: Hwnd, hctl: Hwnd, bprevious: Bool): Hwnd =
@@ -953,10 +949,10 @@ public actual fun getNextDlgTabItem(hdlg: Hwnd, hctl: Hwnd, bprevious: Bool): Hw
 public actual fun getParent(hwnd: Hwnd): Hwnd =
     MutPtr(windowssysWindowsWin32UiWindowsandmessagingGetParent(hwnd.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun getPhysicalCursorPos(lppoint: MutPtr<Point>): Bool =
+public actual fun getPhysicalCursorPos(lppoint: MutPtr): Bool =
     windowssysWindowsWin32UiWindowsandmessagingGetPhysicalCursorPos(lppoint.rawAddress.toCPointer<ByteVar>())
 
-public actual fun getProcessDefaultLayout(pdwdefaultlayout: MutPtr<UInt>): Bool =
+public actual fun getProcessDefaultLayout(pdwdefaultlayout: MutPtr): Bool =
     windowssysWindowsWin32UiWindowsandmessagingGetProcessDefaultLayout(pdwdefaultlayout.rawAddress.toCPointer<ByteVar>())
 
 public actual fun getPropA(hwnd: Hwnd, lpstring: Pcstr): Handle =
@@ -968,16 +964,16 @@ public actual fun getPropW(hwnd: Hwnd, lpstring: Pcwstr): Handle =
 public actual fun getQueueStatus(flags: QueueStatusFlags): UInt =
     windowssysWindowsWin32UiWindowsandmessagingGetQueueStatus(flags)
 
-public actual fun getScrollBarInfo(hwnd: Hwnd, idobject: ObjectIdentifier, psbi: MutPtr<Scrollbarinfo>): Bool =
+public actual fun getScrollBarInfo(hwnd: Hwnd, idobject: ObjectIdentifier, psbi: MutPtr): Bool =
     windowssysWindowsWin32UiWindowsandmessagingGetScrollBarInfo(hwnd.rawAddress.toCPointer<ByteVar>(), idobject, psbi.rawAddress.toCPointer<ByteVar>())
 
-public actual fun getScrollInfo(hwnd: Hwnd, nbar: ScrollbarConstants, lpsi: MutPtr<Scrollinfo>): Bool =
+public actual fun getScrollInfo(hwnd: Hwnd, nbar: ScrollbarConstants, lpsi: MutPtr): Bool =
     windowssysWindowsWin32UiWindowsandmessagingGetScrollInfo(hwnd.rawAddress.toCPointer<ByteVar>(), nbar, lpsi.rawAddress.toCPointer<ByteVar>())
 
 public actual fun getScrollPos(hwnd: Hwnd, nbar: ScrollbarConstants): Int =
     windowssysWindowsWin32UiWindowsandmessagingGetScrollPos(hwnd.rawAddress.toCPointer<ByteVar>(), nbar)
 
-public actual fun getScrollRange(hwnd: Hwnd, nbar: ScrollbarConstants, lpminpos: MutPtr<Int>, lpmaxpos: MutPtr<Int>): Bool =
+public actual fun getScrollRange(hwnd: Hwnd, nbar: ScrollbarConstants, lpminpos: MutPtr, lpmaxpos: MutPtr): Bool =
     windowssysWindowsWin32UiWindowsandmessagingGetScrollRange(hwnd.rawAddress.toCPointer<ByteVar>(), nbar, lpminpos.rawAddress.toCPointer<ByteVar>(), lpmaxpos.rawAddress.toCPointer<ByteVar>())
 
 public actual fun getShellWindow(): Hwnd =
@@ -992,7 +988,7 @@ public actual fun getSystemMenu(hwnd: Hwnd, brevert: Bool): Hmenu =
 public actual fun getSystemMetrics(nindex: SystemMetricsIndex): Int =
     windowssysWindowsWin32UiWindowsandmessagingGetSystemMetrics(nindex)
 
-public actual fun getTitleBarInfo(hwnd: Hwnd, pti: MutPtr<Titlebarinfo>): Bool =
+public actual fun getTitleBarInfo(hwnd: Hwnd, pti: MutPtr): Bool =
     windowssysWindowsWin32UiWindowsandmessagingGetTitleBarInfo(hwnd.rawAddress.toCPointer<ByteVar>(), pti.rawAddress.toCPointer<ByteVar>())
 
 public actual fun getTopWindow(hwnd: Hwnd): Hwnd =
@@ -1001,10 +997,10 @@ public actual fun getTopWindow(hwnd: Hwnd): Hwnd =
 public actual fun getWindow(hwnd: Hwnd, ucmd: GetWindowCmd): Hwnd =
     MutPtr(windowssysWindowsWin32UiWindowsandmessagingGetWindow(hwnd.rawAddress.toCPointer<ByteVar>(), ucmd)?.toLong() ?: 0L)
 
-public actual fun getWindowDisplayAffinity(hwnd: Hwnd, pdwaffinity: MutPtr<UInt>): Bool =
+public actual fun getWindowDisplayAffinity(hwnd: Hwnd, pdwaffinity: MutPtr): Bool =
     windowssysWindowsWin32UiWindowsandmessagingGetWindowDisplayAffinity(hwnd.rawAddress.toCPointer<ByteVar>(), pdwaffinity.rawAddress.toCPointer<ByteVar>())
 
-public actual fun getWindowInfo(hwnd: Hwnd, pwi: MutPtr<Windowinfo>): Bool =
+public actual fun getWindowInfo(hwnd: Hwnd, pwi: MutPtr): Bool =
     windowssysWindowsWin32UiWindowsandmessagingGetWindowInfo(hwnd.rawAddress.toCPointer<ByteVar>(), pwi.rawAddress.toCPointer<ByteVar>())
 
 public actual fun getWindowLongA(hwnd: Hwnd, nindex: WindowLongPtrIndex): Int =
@@ -1025,10 +1021,10 @@ public actual fun getWindowModuleFileNameA(hwnd: Hwnd, pszfilename: Pstr, cchfil
 public actual fun getWindowModuleFileNameW(hwnd: Hwnd, pszfilename: Pwstr, cchfilenamemax: UInt): UInt =
     windowssysWindowsWin32UiWindowsandmessagingGetWindowModuleFileNameW(hwnd.rawAddress.toCPointer<ByteVar>(), pszfilename.rawAddress.toCPointer<ByteVar>(), cchfilenamemax)
 
-public actual fun getWindowPlacement(hwnd: Hwnd, lpwndpl: MutPtr<Windowplacement>): Bool =
+public actual fun getWindowPlacement(hwnd: Hwnd, lpwndpl: MutPtr): Bool =
     windowssysWindowsWin32UiWindowsandmessagingGetWindowPlacement(hwnd.rawAddress.toCPointer<ByteVar>(), lpwndpl.rawAddress.toCPointer<ByteVar>())
 
-public actual fun getWindowRect(hwnd: Hwnd, lprect: MutPtr<Rect>): Bool =
+public actual fun getWindowRect(hwnd: Hwnd, lprect: MutPtr): Bool =
     windowssysWindowsWin32UiWindowsandmessagingGetWindowRect(hwnd.rawAddress.toCPointer<ByteVar>(), lprect.rawAddress.toCPointer<ByteVar>())
 
 public actual fun getWindowTextA(hwnd: Hwnd, lpstring: Pstr, nmaxcount: Int): Int =
@@ -1043,7 +1039,7 @@ public actual fun getWindowTextLengthW(hwnd: Hwnd): Int =
 public actual fun getWindowTextW(hwnd: Hwnd, lpstring: Pwstr, nmaxcount: Int): Int =
     windowssysWindowsWin32UiWindowsandmessagingGetWindowTextW(hwnd.rawAddress.toCPointer<ByteVar>(), lpstring.rawAddress.toCPointer<ByteVar>(), nmaxcount)
 
-public actual fun getWindowThreadProcessId(hwnd: Hwnd, lpdwprocessid: MutPtr<UInt>): UInt =
+public actual fun getWindowThreadProcessId(hwnd: Hwnd, lpdwprocessid: MutPtr): UInt =
     windowssysWindowsWin32UiWindowsandmessagingGetWindowThreadProcessId(hwnd.rawAddress.toCPointer<ByteVar>(), lpdwprocessid.rawAddress.toCPointer<ByteVar>())
 
 public actual fun getWindowWord(hwnd: Hwnd, nindex: Int): UShort =
@@ -1058,10 +1054,10 @@ public actual fun hiliteMenuItem(hwnd: Hwnd, hmenu: Hmenu, uidhiliteitem: UInt, 
 public actual fun inSendMessage(): Bool =
     windowssysWindowsWin32UiWindowsandmessagingInSendMessage()
 
-public actual fun inSendMessageEx(lpreserved: ConstPtr<CVoid>): UInt =
+public actual fun inSendMessageEx(lpreserved: ConstPtr): UInt =
     windowssysWindowsWin32UiWindowsandmessagingInSendMessageEx(lpreserved.rawAddress.toCPointer<ByteVar>())
 
-public actual fun indexFilePath(resourceindexer: ConstPtr<CVoid>, filepath: Pcwstr, ppresourceuri: MutPtr<Pwstr>, pqualifiercount: MutPtr<UInt>, ppqualifiers: MutPtr<MutPtr<IndexedResourceQualifier>>): Hresult =
+public actual fun indexFilePath(resourceindexer: ConstPtr, filepath: Pcwstr, ppresourceuri: MutPtr, pqualifiercount: MutPtr, ppqualifiers: MutPtr): Hresult =
     windowssysWindowsWin32UiWindowsandmessagingIndexFilePath(resourceindexer.rawAddress.toCPointer<ByteVar>(), filepath.rawAddress.toCPointer<ByteVar>(), ppresourceuri.rawAddress.toCPointer<ByteVar>(), pqualifiercount.rawAddress.toCPointer<ByteVar>(), ppqualifiers.rawAddress.toCPointer<ByteVar>())
 
 public actual fun inheritWindowMonitor(hwnd: Hwnd, hwndinherit: Hwnd): Bool =
@@ -1070,10 +1066,10 @@ public actual fun inheritWindowMonitor(hwnd: Hwnd, hwndinherit: Hwnd): Bool =
 public actual fun insertMenuA(hmenu: Hmenu, uposition: UInt, uflags: MenuItemFlags, uidnewitem: ULong, lpnewitem: Pcstr): Bool =
     windowssysWindowsWin32UiWindowsandmessagingInsertMenuA(hmenu.rawAddress.toCPointer<ByteVar>(), uposition, uflags, uidnewitem, lpnewitem.rawAddress.toCPointer<ByteVar>())
 
-public actual fun insertMenuItemA(hmenu: Hmenu, item: UInt, fbyposition: Bool, lpmi: ConstPtr<Menuiteminfoa>): Bool =
+public actual fun insertMenuItemA(hmenu: Hmenu, item: UInt, fbyposition: Bool, lpmi: ConstPtr): Bool =
     windowssysWindowsWin32UiWindowsandmessagingInsertMenuItemA(hmenu.rawAddress.toCPointer<ByteVar>(), item, fbyposition, lpmi.rawAddress.toCPointer<ByteVar>())
 
-public actual fun insertMenuItemW(hmenu: Hmenu, item: UInt, fbyposition: Bool, lpmi: ConstPtr<Menuiteminfow>): Bool =
+public actual fun insertMenuItemW(hmenu: Hmenu, item: UInt, fbyposition: Bool, lpmi: ConstPtr): Bool =
     windowssysWindowsWin32UiWindowsandmessagingInsertMenuItemW(hmenu.rawAddress.toCPointer<ByteVar>(), item, fbyposition, lpmi.rawAddress.toCPointer<ByteVar>())
 
 public actual fun insertMenuW(hmenu: Hmenu, uposition: UInt, uflags: MenuItemFlags, uidnewitem: ULong, lpnewitem: Pcwstr): Bool =
@@ -1106,10 +1102,10 @@ public actual fun isCharUpperW(ch: UShort): Bool =
 public actual fun isChild(hwndparent: Hwnd, hwnd: Hwnd): Bool =
     windowssysWindowsWin32UiWindowsandmessagingIsChild(hwndparent.rawAddress.toCPointer<ByteVar>(), hwnd.rawAddress.toCPointer<ByteVar>())
 
-public actual fun isDialogMessageA(hdlg: Hwnd, lpmsg: ConstPtr<Msg>): Bool =
+public actual fun isDialogMessageA(hdlg: Hwnd, lpmsg: ConstPtr): Bool =
     windowssysWindowsWin32UiWindowsandmessagingIsDialogMessageA(hdlg.rawAddress.toCPointer<ByteVar>(), lpmsg.rawAddress.toCPointer<ByteVar>())
 
-public actual fun isDialogMessageW(hdlg: Hwnd, lpmsg: ConstPtr<Msg>): Bool =
+public actual fun isDialogMessageW(hdlg: Hwnd, lpmsg: ConstPtr): Bool =
     windowssysWindowsWin32UiWindowsandmessagingIsDialogMessageW(hdlg.rawAddress.toCPointer<ByteVar>(), lpmsg.rawAddress.toCPointer<ByteVar>())
 
 public actual fun isGUIThread(bconvert: Bool): Bool =
@@ -1181,10 +1177,10 @@ public actual fun loadImageW(hinst: Hinstance, name: Pcwstr, type: GdiImageType,
 public actual fun loadMenuA(hinstance: Hinstance, lpmenuname: Pcstr): Hmenu =
     MutPtr(windowssysWindowsWin32UiWindowsandmessagingLoadMenuA(hinstance.rawAddress.toCPointer<ByteVar>(), lpmenuname.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun loadMenuIndirectA(lpmenutemplate: ConstPtr<CVoid>): Hmenu =
+public actual fun loadMenuIndirectA(lpmenutemplate: ConstPtr): Hmenu =
     MutPtr(windowssysWindowsWin32UiWindowsandmessagingLoadMenuIndirectA(lpmenutemplate.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun loadMenuIndirectW(lpmenutemplate: ConstPtr<CVoid>): Hmenu =
+public actual fun loadMenuIndirectW(lpmenutemplate: ConstPtr): Hmenu =
     MutPtr(windowssysWindowsWin32UiWindowsandmessagingLoadMenuIndirectW(lpmenutemplate.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
 public actual fun loadMenuW(hinstance: Hinstance, lpmenuname: Pcwstr): Hmenu =
@@ -1199,16 +1195,16 @@ public actual fun loadStringW(hinstance: Hinstance, uid: UInt, lpbuffer: Pwstr, 
 public actual fun lockSetForegroundWindow(ulockcode: ForegroundWindowLockCode): Bool =
     windowssysWindowsWin32UiWindowsandmessagingLockSetForegroundWindow(ulockcode)
 
-public actual fun logicalToPhysicalPoint(hwnd: Hwnd, lppoint: MutPtr<Point>): Bool =
+public actual fun logicalToPhysicalPoint(hwnd: Hwnd, lppoint: MutPtr): Bool =
     windowssysWindowsWin32UiWindowsandmessagingLogicalToPhysicalPoint(hwnd.rawAddress.toCPointer<ByteVar>(), lppoint.rawAddress.toCPointer<ByteVar>())
 
-public actual fun lookupIconIdFromDirectory(presbits: ConstPtr<UByte>, ficon: Bool): Int =
+public actual fun lookupIconIdFromDirectory(presbits: ConstPtr, ficon: Bool): Int =
     windowssysWindowsWin32UiWindowsandmessagingLookupIconIdFromDirectory(presbits.rawAddress.toCPointer<ByteVar>(), ficon)
 
-public actual fun lookupIconIdFromDirectoryEx(presbits: ConstPtr<UByte>, ficon: Bool, cxdesired: Int, cydesired: Int, flags: ImageFlags): Int =
+public actual fun lookupIconIdFromDirectoryEx(presbits: ConstPtr, ficon: Bool, cxdesired: Int, cydesired: Int, flags: ImageFlags): Int =
     windowssysWindowsWin32UiWindowsandmessagingLookupIconIdFromDirectoryEx(presbits.rawAddress.toCPointer<ByteVar>(), ficon, cxdesired, cydesired, flags)
 
-public actual fun mapDialogRect(hdlg: Hwnd, lprect: MutPtr<Rect>): Bool =
+public actual fun mapDialogRect(hdlg: Hwnd, lprect: MutPtr): Bool =
     windowssysWindowsWin32UiWindowsandmessagingMapDialogRect(hdlg.rawAddress.toCPointer<ByteVar>(), lprect.rawAddress.toCPointer<ByteVar>())
 
 public actual fun menuItemFromPoint(hwnd: Hwnd, hmenu: Hmenu, ptscreen: Point): Int =
@@ -1223,10 +1219,10 @@ public actual fun messageBoxExA(hwnd: Hwnd, lptext: Pcstr, lpcaption: Pcstr, uty
 public actual fun messageBoxExW(hwnd: Hwnd, lptext: Pcwstr, lpcaption: Pcwstr, utype: MessageboxStyle, wlanguageid: UShort): MessageboxResult =
     windowssysWindowsWin32UiWindowsandmessagingMessageBoxExW(hwnd.rawAddress.toCPointer<ByteVar>(), lptext.rawAddress.toCPointer<ByteVar>(), lpcaption.rawAddress.toCPointer<ByteVar>(), utype, wlanguageid)
 
-public actual fun messageBoxIndirectA(lpmbp: ConstPtr<Msgboxparamsa>): MessageboxResult =
+public actual fun messageBoxIndirectA(lpmbp: ConstPtr): MessageboxResult =
     windowssysWindowsWin32UiWindowsandmessagingMessageBoxIndirectA(lpmbp.rawAddress.toCPointer<ByteVar>())
 
-public actual fun messageBoxIndirectW(lpmbp: ConstPtr<Msgboxparamsw>): MessageboxResult =
+public actual fun messageBoxIndirectW(lpmbp: ConstPtr): MessageboxResult =
     windowssysWindowsWin32UiWindowsandmessagingMessageBoxIndirectW(lpmbp.rawAddress.toCPointer<ByteVar>())
 
 public actual fun messageBoxW(hwnd: Hwnd, lptext: Pcwstr, lpcaption: Pcwstr, utype: MessageboxStyle): MessageboxResult =
@@ -1244,55 +1240,55 @@ public actual fun moveWindow(hwnd: Hwnd, x: Int, y: Int, nwidth: Int, nheight: I
 public actual fun mrmCreateConfig(platformversion: MrmPlatformVersion, defaultqualifiers: Pcwstr, outputxmlfile: Pcwstr): Hresult =
     windowssysWindowsWin32UiWindowsandmessagingMrmCreateConfig(platformversion, defaultqualifiers.rawAddress.toCPointer<ByteVar>(), outputxmlfile.rawAddress.toCPointer<ByteVar>())
 
-public actual fun mrmCreateConfigInMemory(platformversion: MrmPlatformVersion, defaultqualifiers: Pcwstr, outputxmldata: MutPtr<MutPtr<UByte>>, outputxmlsize: MutPtr<UInt>): Hresult =
+public actual fun mrmCreateConfigInMemory(platformversion: MrmPlatformVersion, defaultqualifiers: Pcwstr, outputxmldata: MutPtr, outputxmlsize: MutPtr): Hresult =
     windowssysWindowsWin32UiWindowsandmessagingMrmCreateConfigInMemory(platformversion, defaultqualifiers.rawAddress.toCPointer<ByteVar>(), outputxmldata.rawAddress.toCPointer<ByteVar>(), outputxmlsize.rawAddress.toCPointer<ByteVar>())
 
 public actual fun mrmCreateResourceFile(indexer: MrmResourceIndexerHandle, packagingmode: MrmPackagingMode, packagingoptions: MrmPackagingOptions, outputdirectory: Pcwstr): Hresult =
     0
 
-public actual fun mrmCreateResourceFileInMemory(indexer: MrmResourceIndexerHandle, packagingmode: MrmPackagingMode, packagingoptions: MrmPackagingOptions, outputpridata: MutPtr<MutPtr<UByte>>, outputprisize: MutPtr<UInt>): Hresult =
+public actual fun mrmCreateResourceFileInMemory(indexer: MrmResourceIndexerHandle, packagingmode: MrmPackagingMode, packagingoptions: MrmPackagingOptions, outputpridata: MutPtr, outputprisize: MutPtr): Hresult =
     0
 
 public actual fun mrmCreateResourceFileWithChecksum(indexer: MrmResourceIndexerHandle, packagingmode: MrmPackagingMode, packagingoptions: MrmPackagingOptions, checksum: UInt, outputdirectory: Pcwstr): Hresult =
     0
 
-public actual fun mrmCreateResourceIndexer(packagefamilyname: Pcwstr, projectroot: Pcwstr, platformversion: MrmPlatformVersion, defaultqualifiers: Pcwstr, indexer: MutPtr<MrmResourceIndexerHandle>): Hresult =
+public actual fun mrmCreateResourceIndexer(packagefamilyname: Pcwstr, projectroot: Pcwstr, platformversion: MrmPlatformVersion, defaultqualifiers: Pcwstr, indexer: MutPtr): Hresult =
     windowssysWindowsWin32UiWindowsandmessagingMrmCreateResourceIndexer(packagefamilyname.rawAddress.toCPointer<ByteVar>(), projectroot.rawAddress.toCPointer<ByteVar>(), platformversion, defaultqualifiers.rawAddress.toCPointer<ByteVar>(), indexer.rawAddress.toCPointer<ByteVar>())
 
-public actual fun mrmCreateResourceIndexerFromPreviousPriData(projectroot: Pcwstr, platformversion: MrmPlatformVersion, defaultqualifiers: Pcwstr, pridata: ConstPtr<UByte>, prisize: UInt, indexer: MutPtr<MrmResourceIndexerHandle>): Hresult =
+public actual fun mrmCreateResourceIndexerFromPreviousPriData(projectroot: Pcwstr, platformversion: MrmPlatformVersion, defaultqualifiers: Pcwstr, pridata: ConstPtr, prisize: UInt, indexer: MutPtr): Hresult =
     windowssysWindowsWin32UiWindowsandmessagingMrmCreateResourceIndexerFromPreviousPriData(projectroot.rawAddress.toCPointer<ByteVar>(), platformversion, defaultqualifiers.rawAddress.toCPointer<ByteVar>(), pridata.rawAddress.toCPointer<ByteVar>(), prisize, indexer.rawAddress.toCPointer<ByteVar>())
 
-public actual fun mrmCreateResourceIndexerFromPreviousPriFile(projectroot: Pcwstr, platformversion: MrmPlatformVersion, defaultqualifiers: Pcwstr, prifile: Pcwstr, indexer: MutPtr<MrmResourceIndexerHandle>): Hresult =
+public actual fun mrmCreateResourceIndexerFromPreviousPriFile(projectroot: Pcwstr, platformversion: MrmPlatformVersion, defaultqualifiers: Pcwstr, prifile: Pcwstr, indexer: MutPtr): Hresult =
     windowssysWindowsWin32UiWindowsandmessagingMrmCreateResourceIndexerFromPreviousPriFile(projectroot.rawAddress.toCPointer<ByteVar>(), platformversion, defaultqualifiers.rawAddress.toCPointer<ByteVar>(), prifile.rawAddress.toCPointer<ByteVar>(), indexer.rawAddress.toCPointer<ByteVar>())
 
-public actual fun mrmCreateResourceIndexerFromPreviousSchemaData(projectroot: Pcwstr, platformversion: MrmPlatformVersion, defaultqualifiers: Pcwstr, schemaxmldata: ConstPtr<UByte>, schemaxmlsize: UInt, indexer: MutPtr<MrmResourceIndexerHandle>): Hresult =
+public actual fun mrmCreateResourceIndexerFromPreviousSchemaData(projectroot: Pcwstr, platformversion: MrmPlatformVersion, defaultqualifiers: Pcwstr, schemaxmldata: ConstPtr, schemaxmlsize: UInt, indexer: MutPtr): Hresult =
     windowssysWindowsWin32UiWindowsandmessagingMrmCreateResourceIndexerFromPreviousSchemaData(projectroot.rawAddress.toCPointer<ByteVar>(), platformversion, defaultqualifiers.rawAddress.toCPointer<ByteVar>(), schemaxmldata.rawAddress.toCPointer<ByteVar>(), schemaxmlsize, indexer.rawAddress.toCPointer<ByteVar>())
 
-public actual fun mrmCreateResourceIndexerFromPreviousSchemaFile(projectroot: Pcwstr, platformversion: MrmPlatformVersion, defaultqualifiers: Pcwstr, schemafile: Pcwstr, indexer: MutPtr<MrmResourceIndexerHandle>): Hresult =
+public actual fun mrmCreateResourceIndexerFromPreviousSchemaFile(projectroot: Pcwstr, platformversion: MrmPlatformVersion, defaultqualifiers: Pcwstr, schemafile: Pcwstr, indexer: MutPtr): Hresult =
     windowssysWindowsWin32UiWindowsandmessagingMrmCreateResourceIndexerFromPreviousSchemaFile(projectroot.rawAddress.toCPointer<ByteVar>(), platformversion, defaultqualifiers.rawAddress.toCPointer<ByteVar>(), schemafile.rawAddress.toCPointer<ByteVar>(), indexer.rawAddress.toCPointer<ByteVar>())
 
-public actual fun mrmCreateResourceIndexerWithFlags(packagefamilyname: Pcwstr, projectroot: Pcwstr, platformversion: MrmPlatformVersion, defaultqualifiers: Pcwstr, flags: MrmIndexerFlags, indexer: MutPtr<MrmResourceIndexerHandle>): Hresult =
+public actual fun mrmCreateResourceIndexerWithFlags(packagefamilyname: Pcwstr, projectroot: Pcwstr, platformversion: MrmPlatformVersion, defaultqualifiers: Pcwstr, flags: MrmIndexerFlags, indexer: MutPtr): Hresult =
     windowssysWindowsWin32UiWindowsandmessagingMrmCreateResourceIndexerWithFlags(packagefamilyname.rawAddress.toCPointer<ByteVar>(), projectroot.rawAddress.toCPointer<ByteVar>(), platformversion, defaultqualifiers.rawAddress.toCPointer<ByteVar>(), flags, indexer.rawAddress.toCPointer<ByteVar>())
 
 public actual fun mrmDestroyIndexerAndMessages(indexer: MrmResourceIndexerHandle): Hresult =
     0
 
-public actual fun mrmDumpPriDataInMemory(inputpridata: ConstPtr<UByte>, inputprisize: UInt, schemapridata: ConstPtr<UByte>, schemaprisize: UInt, dumptype: MrmDumpType, outputxmldata: MutPtr<MutPtr<UByte>>, outputxmlsize: MutPtr<UInt>): Hresult =
+public actual fun mrmDumpPriDataInMemory(inputpridata: ConstPtr, inputprisize: UInt, schemapridata: ConstPtr, schemaprisize: UInt, dumptype: MrmDumpType, outputxmldata: MutPtr, outputxmlsize: MutPtr): Hresult =
     windowssysWindowsWin32UiWindowsandmessagingMrmDumpPriDataInMemory(inputpridata.rawAddress.toCPointer<ByteVar>(), inputprisize, schemapridata.rawAddress.toCPointer<ByteVar>(), schemaprisize, dumptype, outputxmldata.rawAddress.toCPointer<ByteVar>(), outputxmlsize.rawAddress.toCPointer<ByteVar>())
 
 public actual fun mrmDumpPriFile(indexfilename: Pcwstr, schemaprifile: Pcwstr, dumptype: MrmDumpType, outputxmlfile: Pcwstr): Hresult =
     windowssysWindowsWin32UiWindowsandmessagingMrmDumpPriFile(indexfilename.rawAddress.toCPointer<ByteVar>(), schemaprifile.rawAddress.toCPointer<ByteVar>(), dumptype, outputxmlfile.rawAddress.toCPointer<ByteVar>())
 
-public actual fun mrmDumpPriFileInMemory(indexfilename: Pcwstr, schemaprifile: Pcwstr, dumptype: MrmDumpType, outputxmldata: MutPtr<MutPtr<UByte>>, outputxmlsize: MutPtr<UInt>): Hresult =
+public actual fun mrmDumpPriFileInMemory(indexfilename: Pcwstr, schemaprifile: Pcwstr, dumptype: MrmDumpType, outputxmldata: MutPtr, outputxmlsize: MutPtr): Hresult =
     windowssysWindowsWin32UiWindowsandmessagingMrmDumpPriFileInMemory(indexfilename.rawAddress.toCPointer<ByteVar>(), schemaprifile.rawAddress.toCPointer<ByteVar>(), dumptype, outputxmldata.rawAddress.toCPointer<ByteVar>(), outputxmlsize.rawAddress.toCPointer<ByteVar>())
 
-public actual fun mrmFreeMemory(data: ConstPtr<UByte>): Hresult =
+public actual fun mrmFreeMemory(data: ConstPtr): Hresult =
     windowssysWindowsWin32UiWindowsandmessagingMrmFreeMemory(data.rawAddress.toCPointer<ByteVar>())
 
-public actual fun mrmGetPriFileContentChecksum(prifile: Pcwstr, checksum: MutPtr<UInt>): Hresult =
+public actual fun mrmGetPriFileContentChecksum(prifile: Pcwstr, checksum: MutPtr): Hresult =
     windowssysWindowsWin32UiWindowsandmessagingMrmGetPriFileContentChecksum(prifile.rawAddress.toCPointer<ByteVar>(), checksum.rawAddress.toCPointer<ByteVar>())
 
-public actual fun mrmIndexEmbeddedData(indexer: MrmResourceIndexerHandle, resourceuri: Pcwstr, embeddeddata: ConstPtr<UByte>, embeddeddatasize: UInt, qualifiers: Pcwstr): Hresult =
+public actual fun mrmIndexEmbeddedData(indexer: MrmResourceIndexerHandle, resourceuri: Pcwstr, embeddeddata: ConstPtr, embeddeddatasize: UInt, qualifiers: Pcwstr): Hresult =
     0
 
 public actual fun mrmIndexFile(indexer: MrmResourceIndexerHandle, resourceuri: Pcwstr, filepath: Pcwstr, qualifiers: Pcwstr): Hresult =
@@ -1307,13 +1303,13 @@ public actual fun mrmIndexResourceContainerAutoQualifiers(indexer: MrmResourceIn
 public actual fun mrmIndexString(indexer: MrmResourceIndexerHandle, resourceuri: Pcwstr, resourcestring: Pcwstr, qualifiers: Pcwstr): Hresult =
     0
 
-public actual fun mrmPeekResourceIndexerMessages(handle: MrmResourceIndexerHandle, messages: MutPtr<MutPtr<MrmResourceIndexerMessage>>, nummsgs: MutPtr<UInt>): Hresult =
+public actual fun mrmPeekResourceIndexerMessages(handle: MrmResourceIndexerHandle, messages: MutPtr, nummsgs: MutPtr): Hresult =
     0
 
-public actual fun msgWaitForMultipleObjects(ncount: UInt, phandles: ConstPtr<Handle>, fwaitall: Bool, dwmilliseconds: UInt, dwwakemask: QueueStatusFlags): WaitEvent =
+public actual fun msgWaitForMultipleObjects(ncount: UInt, phandles: ConstPtr, fwaitall: Bool, dwmilliseconds: UInt, dwwakemask: QueueStatusFlags): WaitEvent =
     windowssysWindowsWin32UiWindowsandmessagingMsgWaitForMultipleObjects(ncount, phandles.rawAddress.toCPointer<ByteVar>(), fwaitall, dwmilliseconds, dwwakemask)
 
-public actual fun msgWaitForMultipleObjectsEx(ncount: UInt, phandles: ConstPtr<Handle>, dwmilliseconds: UInt, dwwakemask: QueueStatusFlags, dwflags: MsgWaitForMultipleObjectsExFlags): WaitEvent =
+public actual fun msgWaitForMultipleObjectsEx(ncount: UInt, phandles: ConstPtr, dwmilliseconds: UInt, dwwakemask: QueueStatusFlags, dwflags: MsgWaitForMultipleObjectsExFlags): WaitEvent =
     windowssysWindowsWin32UiWindowsandmessagingMsgWaitForMultipleObjectsEx(ncount, phandles.rawAddress.toCPointer<ByteVar>(), dwmilliseconds, dwwakemask, dwflags)
 
 public actual fun oemToCharA(psrc: Pcstr, pdst: Pstr): Bool =
@@ -1331,13 +1327,13 @@ public actual fun oemToCharW(psrc: Pcstr, pdst: Pwstr): Bool =
 public actual fun openIcon(hwnd: Hwnd): Bool =
     windowssysWindowsWin32UiWindowsandmessagingOpenIcon(hwnd.rawAddress.toCPointer<ByteVar>())
 
-public actual fun peekMessageA(lpmsg: MutPtr<Msg>, hwnd: Hwnd, wmsgfiltermin: UInt, wmsgfiltermax: UInt, wremovemsg: PeekMessageRemoveType): Bool =
+public actual fun peekMessageA(lpmsg: MutPtr, hwnd: Hwnd, wmsgfiltermin: UInt, wmsgfiltermax: UInt, wremovemsg: PeekMessageRemoveType): Bool =
     windowssysWindowsWin32UiWindowsandmessagingPeekMessageA(lpmsg.rawAddress.toCPointer<ByteVar>(), hwnd.rawAddress.toCPointer<ByteVar>(), wmsgfiltermin, wmsgfiltermax, wremovemsg)
 
-public actual fun peekMessageW(lpmsg: MutPtr<Msg>, hwnd: Hwnd, wmsgfiltermin: UInt, wmsgfiltermax: UInt, wremovemsg: PeekMessageRemoveType): Bool =
+public actual fun peekMessageW(lpmsg: MutPtr, hwnd: Hwnd, wmsgfiltermin: UInt, wmsgfiltermax: UInt, wremovemsg: PeekMessageRemoveType): Bool =
     windowssysWindowsWin32UiWindowsandmessagingPeekMessageW(lpmsg.rawAddress.toCPointer<ByteVar>(), hwnd.rawAddress.toCPointer<ByteVar>(), wmsgfiltermin, wmsgfiltermax, wremovemsg)
 
-public actual fun physicalToLogicalPoint(hwnd: Hwnd, lppoint: MutPtr<Point>): Bool =
+public actual fun physicalToLogicalPoint(hwnd: Hwnd, lppoint: MutPtr): Bool =
     windowssysWindowsWin32UiWindowsandmessagingPhysicalToLogicalPoint(hwnd.rawAddress.toCPointer<ByteVar>(), lppoint.rawAddress.toCPointer<ByteVar>())
 
 public actual fun postMessageA(hwnd: Hwnd, msg: UInt, wparam: Wparam, lparam: Lparam): Bool =
@@ -1356,10 +1352,10 @@ public actual fun postThreadMessageA(idthread: UInt, msg: UInt, wparam: Wparam, 
 public actual fun postThreadMessageW(idthread: UInt, msg: UInt, wparam: Wparam, lparam: Lparam): Bool =
     windowssysWindowsWin32UiWindowsandmessagingPostThreadMessageW(idthread, msg, wparam, lparam)
 
-public actual fun privateExtractIconsA(szfilename: Pcstr, niconindex: Int, cxicon: Int, cyicon: Int, phicon: MutPtr<Hicon>, piconid: MutPtr<UInt>, nicons: UInt, flags: UInt): UInt =
+public actual fun privateExtractIconsA(szfilename: Pcstr, niconindex: Int, cxicon: Int, cyicon: Int, phicon: MutPtr, piconid: MutPtr, nicons: UInt, flags: UInt): UInt =
     windowssysWindowsWin32UiWindowsandmessagingPrivateExtractIconsA(szfilename.rawAddress.toCPointer<ByteVar>(), niconindex, cxicon, cyicon, phicon.rawAddress.toCPointer<ByteVar>(), piconid.rawAddress.toCPointer<ByteVar>(), nicons, flags)
 
-public actual fun privateExtractIconsW(szfilename: Pcwstr, niconindex: Int, cxicon: Int, cyicon: Int, phicon: MutPtr<Hicon>, piconid: MutPtr<UInt>, nicons: UInt, flags: UInt): UInt =
+public actual fun privateExtractIconsW(szfilename: Pcwstr, niconindex: Int, cxicon: Int, cyicon: Int, phicon: MutPtr, piconid: MutPtr, nicons: UInt, flags: UInt): UInt =
     windowssysWindowsWin32UiWindowsandmessagingPrivateExtractIconsW(szfilename.rawAddress.toCPointer<ByteVar>(), niconindex, cxicon, cyicon, phicon.rawAddress.toCPointer<ByteVar>(), piconid.rawAddress.toCPointer<ByteVar>(), nicons, flags)
 
 public actual fun realChildWindowFromPoint(hwndparent: Hwnd, ptparentclientcoords: Point): Hwnd =
@@ -1371,22 +1367,22 @@ public actual fun realGetWindowClassA(hwnd: Hwnd, ptszclassname: Pstr, cchclassn
 public actual fun realGetWindowClassW(hwnd: Hwnd, ptszclassname: Pwstr, cchclassnamemax: UInt): UInt =
     windowssysWindowsWin32UiWindowsandmessagingRealGetWindowClassW(hwnd.rawAddress.toCPointer<ByteVar>(), ptszclassname.rawAddress.toCPointer<ByteVar>(), cchclassnamemax)
 
-public actual fun registerClassA(lpwndclass: ConstPtr<Wndclassa>): UShort =
+public actual fun registerClassA(lpwndclass: ConstPtr): UShort =
     windowssysWindowsWin32UiWindowsandmessagingRegisterClassA(lpwndclass.rawAddress.toCPointer<ByteVar>())
 
-public actual fun registerClassExA(param0: ConstPtr<Wndclassexa>): UShort =
+public actual fun registerClassExA(param0: ConstPtr): UShort =
     windowssysWindowsWin32UiWindowsandmessagingRegisterClassExA(param0.rawAddress.toCPointer<ByteVar>())
 
-public actual fun registerClassExW(param0: ConstPtr<Wndclassexw>): UShort =
+public actual fun registerClassExW(param0: ConstPtr): UShort =
     windowssysWindowsWin32UiWindowsandmessagingRegisterClassExW(param0.rawAddress.toCPointer<ByteVar>())
 
-public actual fun registerClassW(lpwndclass: ConstPtr<Wndclassw>): UShort =
+public actual fun registerClassW(lpwndclass: ConstPtr): UShort =
     windowssysWindowsWin32UiWindowsandmessagingRegisterClassW(lpwndclass.rawAddress.toCPointer<ByteVar>())
 
-public actual fun registerDeviceNotificationA(hrecipient: Handle, notificationfilter: ConstPtr<CVoid>, flags: RegisterNotificationFlags): Hdevnotify =
+public actual fun registerDeviceNotificationA(hrecipient: Handle, notificationfilter: ConstPtr, flags: RegisterNotificationFlags): Hdevnotify =
     MutPtr(windowssysWindowsWin32UiWindowsandmessagingRegisterDeviceNotificationA(hrecipient.rawAddress.toCPointer<ByteVar>(), notificationfilter.rawAddress.toCPointer<ByteVar>(), flags)?.toLong() ?: 0L)
 
-public actual fun registerDeviceNotificationW(hrecipient: Handle, notificationfilter: ConstPtr<CVoid>, flags: RegisterNotificationFlags): Hdevnotify =
+public actual fun registerDeviceNotificationW(hrecipient: Handle, notificationfilter: ConstPtr, flags: RegisterNotificationFlags): Hdevnotify =
     MutPtr(windowssysWindowsWin32UiWindowsandmessagingRegisterDeviceNotificationW(hrecipient.rawAddress.toCPointer<ByteVar>(), notificationfilter.rawAddress.toCPointer<ByteVar>(), flags)?.toLong() ?: 0L)
 
 public actual fun registerForTooltipDismissNotification(hwnd: Hwnd, tdflags: TooltipDismissFlags): Bool =
@@ -1413,13 +1409,13 @@ public actual fun removePropW(hwnd: Hwnd, lpstring: Pcwstr): Handle =
 public actual fun replyMessage(lresult: Lresult): Bool =
     windowssysWindowsWin32UiWindowsandmessagingReplyMessage(lresult)
 
-public actual fun scrollDC(hdc: Hdc, dx: Int, dy: Int, lprcscroll: ConstPtr<Rect>, lprcclip: ConstPtr<Rect>, hrgnupdate: Hrgn, lprcupdate: MutPtr<Rect>): Bool =
+public actual fun scrollDC(hdc: Hdc, dx: Int, dy: Int, lprcscroll: ConstPtr, lprcclip: ConstPtr, hrgnupdate: Hrgn, lprcupdate: MutPtr): Bool =
     windowssysWindowsWin32UiWindowsandmessagingScrollDC(hdc.rawAddress.toCPointer<ByteVar>(), dx, dy, lprcscroll.rawAddress.toCPointer<ByteVar>(), lprcclip.rawAddress.toCPointer<ByteVar>(), hrgnupdate.rawAddress.toCPointer<ByteVar>(), lprcupdate.rawAddress.toCPointer<ByteVar>())
 
-public actual fun scrollWindow(hwnd: Hwnd, xamount: Int, yamount: Int, lprect: ConstPtr<Rect>, lpcliprect: ConstPtr<Rect>): Bool =
+public actual fun scrollWindow(hwnd: Hwnd, xamount: Int, yamount: Int, lprect: ConstPtr, lpcliprect: ConstPtr): Bool =
     windowssysWindowsWin32UiWindowsandmessagingScrollWindow(hwnd.rawAddress.toCPointer<ByteVar>(), xamount, yamount, lprect.rawAddress.toCPointer<ByteVar>(), lpcliprect.rawAddress.toCPointer<ByteVar>())
 
-public actual fun scrollWindowEx(hwnd: Hwnd, dx: Int, dy: Int, prcscroll: ConstPtr<Rect>, prcclip: ConstPtr<Rect>, hrgnupdate: Hrgn, prcupdate: MutPtr<Rect>, flags: ScrollWindowFlags): Int =
+public actual fun scrollWindowEx(hwnd: Hwnd, dx: Int, dy: Int, prcscroll: ConstPtr, prcclip: ConstPtr, hrgnupdate: Hrgn, prcupdate: MutPtr, flags: ScrollWindowFlags): Int =
     windowssysWindowsWin32UiWindowsandmessagingScrollWindowEx(hwnd.rawAddress.toCPointer<ByteVar>(), dx, dy, prcscroll.rawAddress.toCPointer<ByteVar>(), prcclip.rawAddress.toCPointer<ByteVar>(), hrgnupdate.rawAddress.toCPointer<ByteVar>(), prcupdate.rawAddress.toCPointer<ByteVar>(), flags)
 
 public actual fun sendDlgItemMessageA(hdlg: Hwnd, niddlgitem: Int, msg: UInt, wparam: Wparam, lparam: Lparam): Lresult =
@@ -1437,10 +1433,10 @@ public actual fun sendMessageCallbackA(hwnd: Hwnd, msg: UInt, wparam: Wparam, lp
 public actual fun sendMessageCallbackW(hwnd: Hwnd, msg: UInt, wparam: Wparam, lparam: Lparam, lpresultcallback: Sendasyncproc, dwdata: ULong): Bool =
     windowssysWindowsWin32UiWindowsandmessagingSendMessageCallbackW(hwnd.rawAddress.toCPointer<ByteVar>(), msg, wparam, lparam, 0L.toCPointer<ByteVar>(), dwdata)
 
-public actual fun sendMessageTimeoutA(hwnd: Hwnd, msg: UInt, wparam: Wparam, lparam: Lparam, fuflags: SendMessageTimeoutFlags, utimeout: UInt, lpdwresult: MutPtr<ULong>): Lresult =
+public actual fun sendMessageTimeoutA(hwnd: Hwnd, msg: UInt, wparam: Wparam, lparam: Lparam, fuflags: SendMessageTimeoutFlags, utimeout: UInt, lpdwresult: MutPtr): Lresult =
     windowssysWindowsWin32UiWindowsandmessagingSendMessageTimeoutA(hwnd.rawAddress.toCPointer<ByteVar>(), msg, wparam, lparam, fuflags, utimeout, lpdwresult.rawAddress.toCPointer<ByteVar>())
 
-public actual fun sendMessageTimeoutW(hwnd: Hwnd, msg: UInt, wparam: Wparam, lparam: Lparam, fuflags: SendMessageTimeoutFlags, utimeout: UInt, lpdwresult: MutPtr<ULong>): Lresult =
+public actual fun sendMessageTimeoutW(hwnd: Hwnd, msg: UInt, wparam: Wparam, lparam: Lparam, fuflags: SendMessageTimeoutFlags, utimeout: UInt, lpdwresult: MutPtr): Lresult =
     windowssysWindowsWin32UiWindowsandmessagingSendMessageTimeoutW(hwnd.rawAddress.toCPointer<ByteVar>(), msg, wparam, lparam, fuflags, utimeout, lpdwresult.rawAddress.toCPointer<ByteVar>())
 
 public actual fun sendMessageW(hwnd: Hwnd, msg: UInt, wparam: Wparam, lparam: Lparam): Lresult =
@@ -1452,7 +1448,7 @@ public actual fun sendNotifyMessageA(hwnd: Hwnd, msg: UInt, wparam: Wparam, lpar
 public actual fun sendNotifyMessageW(hwnd: Hwnd, msg: UInt, wparam: Wparam, lparam: Lparam): Bool =
     windowssysWindowsWin32UiWindowsandmessagingSendNotifyMessageW(hwnd.rawAddress.toCPointer<ByteVar>(), msg, wparam, lparam)
 
-public actual fun setAdditionalForegroundBoostProcesses(toplevelwindow: Hwnd, processhandlecount: UInt, processhandlearray: ConstPtr<Handle>): Bool =
+public actual fun setAdditionalForegroundBoostProcesses(toplevelwindow: Hwnd, processhandlecount: UInt, processhandlearray: ConstPtr): Bool =
     windowssysWindowsWin32UiWindowsandmessagingSetAdditionalForegroundBoostProcesses(toplevelwindow.rawAddress.toCPointer<ByteVar>(), processhandlecount, processhandlearray.rawAddress.toCPointer<ByteVar>())
 
 public actual fun setCaretBlinkTime(umseconds: UInt): Bool =
@@ -1510,16 +1506,16 @@ public actual fun setMenu(hwnd: Hwnd, hmenu: Hmenu): Bool =
 public actual fun setMenuDefaultItem(hmenu: Hmenu, uitem: UInt, fbypos: UInt): Bool =
     windowssysWindowsWin32UiWindowsandmessagingSetMenuDefaultItem(hmenu.rawAddress.toCPointer<ByteVar>(), uitem, fbypos)
 
-public actual fun setMenuInfo(param0: Hmenu, param1: ConstPtr<Menuinfo>): Bool =
+public actual fun setMenuInfo(param0: Hmenu, param1: ConstPtr): Bool =
     windowssysWindowsWin32UiWindowsandmessagingSetMenuInfo(param0.rawAddress.toCPointer<ByteVar>(), param1.rawAddress.toCPointer<ByteVar>())
 
 public actual fun setMenuItemBitmaps(hmenu: Hmenu, uposition: UInt, uflags: MenuItemFlags, hbitmapunchecked: Hbitmap, hbitmapchecked: Hbitmap): Bool =
     windowssysWindowsWin32UiWindowsandmessagingSetMenuItemBitmaps(hmenu.rawAddress.toCPointer<ByteVar>(), uposition, uflags, hbitmapunchecked.rawAddress.toCPointer<ByteVar>(), hbitmapchecked.rawAddress.toCPointer<ByteVar>())
 
-public actual fun setMenuItemInfoA(hmenu: Hmenu, item: UInt, fbypositon: Bool, lpmii: ConstPtr<Menuiteminfoa>): Bool =
+public actual fun setMenuItemInfoA(hmenu: Hmenu, item: UInt, fbypositon: Bool, lpmii: ConstPtr): Bool =
     windowssysWindowsWin32UiWindowsandmessagingSetMenuItemInfoA(hmenu.rawAddress.toCPointer<ByteVar>(), item, fbypositon, lpmii.rawAddress.toCPointer<ByteVar>())
 
-public actual fun setMenuItemInfoW(hmenu: Hmenu, item: UInt, fbypositon: Bool, lpmii: ConstPtr<Menuiteminfow>): Bool =
+public actual fun setMenuItemInfoW(hmenu: Hmenu, item: UInt, fbypositon: Bool, lpmii: ConstPtr): Bool =
     windowssysWindowsWin32UiWindowsandmessagingSetMenuItemInfoW(hmenu.rawAddress.toCPointer<ByteVar>(), item, fbypositon, lpmii.rawAddress.toCPointer<ByteVar>())
 
 public actual fun setMessageExtraInfo(lparam: Lparam): Lparam =
@@ -1567,7 +1563,7 @@ public actual fun setWindowLongPtrW(hwnd: Hwnd, nindex: WindowLongPtrIndex, dwne
 public actual fun setWindowLongW(hwnd: Hwnd, nindex: WindowLongPtrIndex, dwnewlong: Int): Int =
     windowssysWindowsWin32UiWindowsandmessagingSetWindowLongW(hwnd.rawAddress.toCPointer<ByteVar>(), nindex, dwnewlong)
 
-public actual fun setWindowPlacement(hwnd: Hwnd, lpwndpl: ConstPtr<Windowplacement>): Bool =
+public actual fun setWindowPlacement(hwnd: Hwnd, lpwndpl: ConstPtr): Bool =
     windowssysWindowsWin32UiWindowsandmessagingSetWindowPlacement(hwnd.rawAddress.toCPointer<ByteVar>(), lpwndpl.rawAddress.toCPointer<ByteVar>())
 
 public actual fun setWindowPos(hwnd: Hwnd, hwndinsertafter: Hwnd, x: Int, y: Int, cx: Int, cy: Int, uflags: SetWindowPosFlags): Bool =
@@ -1616,31 +1612,31 @@ public actual fun switchToThisWindow(hwnd: Hwnd, funknown: Bool) {
     windowssysWindowsWin32UiWindowsandmessagingSwitchToThisWindow(hwnd.rawAddress.toCPointer<ByteVar>(), funknown)
 }
 
-public actual fun systemParametersInfoA(uiaction: SystemParametersInfoAction, uiparam: UInt, pvparam: MutPtr<CVoid>, fwinini: SystemParametersInfoUpdateFlags): Bool =
+public actual fun systemParametersInfoA(uiaction: SystemParametersInfoAction, uiparam: UInt, pvparam: MutPtr, fwinini: SystemParametersInfoUpdateFlags): Bool =
     windowssysWindowsWin32UiWindowsandmessagingSystemParametersInfoA(uiaction, uiparam, pvparam.rawAddress.toCPointer<ByteVar>(), fwinini)
 
-public actual fun systemParametersInfoW(uiaction: SystemParametersInfoAction, uiparam: UInt, pvparam: MutPtr<CVoid>, fwinini: SystemParametersInfoUpdateFlags): Bool =
+public actual fun systemParametersInfoW(uiaction: SystemParametersInfoAction, uiparam: UInt, pvparam: MutPtr, fwinini: SystemParametersInfoUpdateFlags): Bool =
     windowssysWindowsWin32UiWindowsandmessagingSystemParametersInfoW(uiaction, uiparam, pvparam.rawAddress.toCPointer<ByteVar>(), fwinini)
 
-public actual fun tileWindows(hwndparent: Hwnd, whow: TileWindowsHow, lprect: ConstPtr<Rect>, ckids: UInt, lpkids: ConstPtr<Hwnd>): UShort =
+public actual fun tileWindows(hwndparent: Hwnd, whow: TileWindowsHow, lprect: ConstPtr, ckids: UInt, lpkids: ConstPtr): UShort =
     windowssysWindowsWin32UiWindowsandmessagingTileWindows(hwndparent.rawAddress.toCPointer<ByteVar>(), whow, lprect.rawAddress.toCPointer<ByteVar>(), ckids, lpkids.rawAddress.toCPointer<ByteVar>())
 
-public actual fun trackPopupMenu(hmenu: Hmenu, uflags: TrackPopupMenuFlags, x: Int, y: Int, nreserved: Int, hwnd: Hwnd, prcrect: ConstPtr<Rect>): Bool =
+public actual fun trackPopupMenu(hmenu: Hmenu, uflags: TrackPopupMenuFlags, x: Int, y: Int, nreserved: Int, hwnd: Hwnd, prcrect: ConstPtr): Bool =
     windowssysWindowsWin32UiWindowsandmessagingTrackPopupMenu(hmenu.rawAddress.toCPointer<ByteVar>(), uflags, x, y, nreserved, hwnd.rawAddress.toCPointer<ByteVar>(), prcrect.rawAddress.toCPointer<ByteVar>())
 
-public actual fun trackPopupMenuEx(hmenu: Hmenu, uflags: UInt, x: Int, y: Int, hwnd: Hwnd, lptpm: ConstPtr<Tpmparams>): Bool =
+public actual fun trackPopupMenuEx(hmenu: Hmenu, uflags: UInt, x: Int, y: Int, hwnd: Hwnd, lptpm: ConstPtr): Bool =
     windowssysWindowsWin32UiWindowsandmessagingTrackPopupMenuEx(hmenu.rawAddress.toCPointer<ByteVar>(), uflags, x, y, hwnd.rawAddress.toCPointer<ByteVar>(), lptpm.rawAddress.toCPointer<ByteVar>())
 
-public actual fun translateAcceleratorA(hwnd: Hwnd, hacctable: Haccel, lpmsg: ConstPtr<Msg>): Int =
+public actual fun translateAcceleratorA(hwnd: Hwnd, hacctable: Haccel, lpmsg: ConstPtr): Int =
     windowssysWindowsWin32UiWindowsandmessagingTranslateAcceleratorA(hwnd.rawAddress.toCPointer<ByteVar>(), hacctable.rawAddress.toCPointer<ByteVar>(), lpmsg.rawAddress.toCPointer<ByteVar>())
 
-public actual fun translateAcceleratorW(hwnd: Hwnd, hacctable: Haccel, lpmsg: ConstPtr<Msg>): Int =
+public actual fun translateAcceleratorW(hwnd: Hwnd, hacctable: Haccel, lpmsg: ConstPtr): Int =
     windowssysWindowsWin32UiWindowsandmessagingTranslateAcceleratorW(hwnd.rawAddress.toCPointer<ByteVar>(), hacctable.rawAddress.toCPointer<ByteVar>(), lpmsg.rawAddress.toCPointer<ByteVar>())
 
-public actual fun translateMDISysAccel(hwndclient: Hwnd, lpmsg: ConstPtr<Msg>): Bool =
+public actual fun translateMDISysAccel(hwndclient: Hwnd, lpmsg: ConstPtr): Bool =
     windowssysWindowsWin32UiWindowsandmessagingTranslateMDISysAccel(hwndclient.rawAddress.toCPointer<ByteVar>(), lpmsg.rawAddress.toCPointer<ByteVar>())
 
-public actual fun translateMessage(lpmsg: ConstPtr<Msg>): Bool =
+public actual fun translateMessage(lpmsg: ConstPtr): Bool =
     windowssysWindowsWin32UiWindowsandmessagingTranslateMessage(lpmsg.rawAddress.toCPointer<ByteVar>())
 
 public actual fun unhookWindowsHook(ncode: Int, pfnfilterproc: Hookproc): Bool =
@@ -1658,10 +1654,10 @@ public actual fun unregisterClassW(lpclassname: Pcwstr, hinstance: Hinstance): B
 public actual fun unregisterDeviceNotification(handle: Hdevnotify): Bool =
     windowssysWindowsWin32UiWindowsandmessagingUnregisterDeviceNotification(handle.rawAddress.toCPointer<ByteVar>())
 
-public actual fun updateLayeredWindow(hwnd: Hwnd, hdcdst: Hdc, pptdst: ConstPtr<Point>, psize: ConstPtr<Size>, hdcsrc: Hdc, pptsrc: ConstPtr<Point>, crkey: Colorref, pblend: ConstPtr<Blendfunction>, dwflags: UpdateLayeredWindowFlags): Bool =
+public actual fun updateLayeredWindow(hwnd: Hwnd, hdcdst: Hdc, pptdst: ConstPtr, psize: ConstPtr, hdcsrc: Hdc, pptsrc: ConstPtr, crkey: Colorref, pblend: ConstPtr, dwflags: UpdateLayeredWindowFlags): Bool =
     windowssysWindowsWin32UiWindowsandmessagingUpdateLayeredWindow(hwnd.rawAddress.toCPointer<ByteVar>(), hdcdst.rawAddress.toCPointer<ByteVar>(), pptdst.rawAddress.toCPointer<ByteVar>(), psize.rawAddress.toCPointer<ByteVar>(), hdcsrc.rawAddress.toCPointer<ByteVar>(), pptsrc.rawAddress.toCPointer<ByteVar>(), crkey, pblend.rawAddress.toCPointer<ByteVar>(), dwflags)
 
-public actual fun updateLayeredWindowIndirect(hwnd: Hwnd, pulwinfo: ConstPtr<Updatelayeredwindowinfo>): Bool =
+public actual fun updateLayeredWindowIndirect(hwnd: Hwnd, pulwinfo: ConstPtr): Bool =
     windowssysWindowsWin32UiWindowsandmessagingUpdateLayeredWindowIndirect(hwnd.rawAddress.toCPointer<ByteVar>(), pulwinfo.rawAddress.toCPointer<ByteVar>())
 
 public actual fun waitMessage(): Bool =
@@ -1679,8 +1675,8 @@ public actual fun wsprintfA(param0: Pstr, param1: Pcstr, vararg variadicArgs: Lo
 public actual fun wsprintfW(param0: Pwstr, param1: Pcwstr, vararg variadicArgs: Long): Int =
     windowssysWindowsWin32UiWindowsandmessagingWsprintfW(param0.rawAddress.toCPointer<ByteVar>(), param1.rawAddress.toCPointer<ByteVar>(), variadicArgs.size.coerceAtMost(4), if (variadicArgs.size > 0) variadicArgs[0] else 0L, if (variadicArgs.size > 1) variadicArgs[1] else 0L, if (variadicArgs.size > 2) variadicArgs[2] else 0L, if (variadicArgs.size > 3) variadicArgs[3] else 0L)
 
-public actual fun wvsprintfA(param0: Pstr, param1: Pcstr, arglist: ConstPtr<Byte>): Int =
+public actual fun wvsprintfA(param0: Pstr, param1: Pcstr, arglist: ConstPtr): Int =
     windowssysWindowsWin32UiWindowsandmessagingWvsprintfA(param0.rawAddress.toCPointer<ByteVar>(), param1.rawAddress.toCPointer<ByteVar>(), arglist.rawAddress.toCPointer<ByteVar>())
 
-public actual fun wvsprintfW(param0: Pwstr, param1: Pcwstr, arglist: ConstPtr<Byte>): Int =
+public actual fun wvsprintfW(param0: Pwstr, param1: Pcwstr, arglist: ConstPtr): Int =
     windowssysWindowsWin32UiWindowsandmessagingWvsprintfW(param0.rawAddress.toCPointer<ByteVar>(), param1.rawAddress.toCPointer<ByteVar>(), arglist.rawAddress.toCPointer<ByteVar>())

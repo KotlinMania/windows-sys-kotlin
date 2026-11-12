@@ -2,11 +2,9 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.networking.winsock
 
-import io.github.kotlinmania.rustlang.core.ffi.CVoid
 import io.github.kotlinmania.rustlang.core.ptr.ConstPtr
 import io.github.kotlinmania.rustlang.core.ptr.MutPtr
 import io.github.kotlinmania.windowssys.core.Bool
-import io.github.kotlinmania.windowssys.core.Guid
 import io.github.kotlinmania.windowssys.core.Hresult
 import io.github.kotlinmania.windowssys.core.Pcstr
 import io.github.kotlinmania.windowssys.core.Pcwstr
@@ -17,9 +15,6 @@ import io.github.kotlinmania.windowssys.windows.win32.foundation.Farproc
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Handle
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Hwnd
 import io.github.kotlinmania.windowssys.windows.win32.foundation.WaitEvent
-import io.github.kotlinmania.windowssys.windows.win32.system.com.Blob
-import io.github.kotlinmania.windowssys.windows.win32.system.io.Overlapped
-import io.github.kotlinmania.windowssys.windows.win32.system.io.OverlappedEntry
 
 private object WindowsWin32NetworkingWinsockJniBridge {
     init {
@@ -630,176 +625,176 @@ private object WindowsWin32NetworkingWinsockJniBridge {
     external fun windowssysWindowsWin32NetworkingWinsockSocket(af: Int, type: Int, protocol: Int): Long
 }
 
-public actual fun acceptEx(slistensocket: Socket, sacceptsocket: Socket, lpoutputbuffer: MutPtr<CVoid>, dwreceivedatalength: UInt, dwlocaladdresslength: UInt, dwremoteaddresslength: UInt, lpdwbytesreceived: MutPtr<UInt>, lpoverlapped: MutPtr<Overlapped>): Bool =
+public actual fun acceptEx(slistensocket: Socket, sacceptsocket: Socket, lpoutputbuffer: MutPtr, dwreceivedatalength: UInt, dwlocaladdresslength: UInt, dwremoteaddresslength: UInt, lpdwbytesreceived: MutPtr, lpoverlapped: MutPtr): Bool =
     WindowsWin32NetworkingWinsockJniBridge.windowssysWindowsWin32NetworkingWinsockAcceptEx(slistensocket.toLong(), sacceptsocket.toLong(), lpoutputbuffer.rawAddress, dwreceivedatalength.toInt(), dwlocaladdresslength.toInt(), dwremoteaddresslength.toInt(), lpdwbytesreceived.rawAddress, lpoverlapped.rawAddress)
 
-public actual fun enumProtocolsA(lpiprotocols: ConstPtr<Int>, lpprotocolbuffer: MutPtr<CVoid>, lpdwbufferlength: MutPtr<UInt>): Int =
+public actual fun enumProtocolsA(lpiprotocols: ConstPtr, lpprotocolbuffer: MutPtr, lpdwbufferlength: MutPtr): Int =
     WindowsWin32NetworkingWinsockJniBridge.windowssysWindowsWin32NetworkingWinsockEnumProtocolsA(lpiprotocols.rawAddress, lpprotocolbuffer.rawAddress, lpdwbufferlength.rawAddress)
 
-public actual fun enumProtocolsW(lpiprotocols: ConstPtr<Int>, lpprotocolbuffer: MutPtr<CVoid>, lpdwbufferlength: MutPtr<UInt>): Int =
+public actual fun enumProtocolsW(lpiprotocols: ConstPtr, lpprotocolbuffer: MutPtr, lpdwbufferlength: MutPtr): Int =
     WindowsWin32NetworkingWinsockJniBridge.windowssysWindowsWin32NetworkingWinsockEnumProtocolsW(lpiprotocols.rawAddress, lpprotocolbuffer.rawAddress, lpdwbufferlength.rawAddress)
 
-public actual fun freeAddrInfoEx(paddrinfoex: ConstPtr<Addrinfoexa>) {
+public actual fun freeAddrInfoEx(paddrinfoex: ConstPtr) {
     WindowsWin32NetworkingWinsockJniBridge.windowssysWindowsWin32NetworkingWinsockFreeAddrInfoEx(paddrinfoex.rawAddress)
 }
 
-public actual fun freeAddrInfoExW(paddrinfoex: ConstPtr<Addrinfoexw>) {
+public actual fun freeAddrInfoExW(paddrinfoex: ConstPtr) {
     WindowsWin32NetworkingWinsockJniBridge.windowssysWindowsWin32NetworkingWinsockFreeAddrInfoExW(paddrinfoex.rawAddress)
 }
 
-public actual fun freeAddrInfoW(paddrinfo: ConstPtr<Addrinfow>) {
+public actual fun freeAddrInfoW(paddrinfo: ConstPtr) {
     WindowsWin32NetworkingWinsockJniBridge.windowssysWindowsWin32NetworkingWinsockFreeAddrInfoW(paddrinfo.rawAddress)
 }
 
-public actual fun getAcceptExSockaddrs(lpoutputbuffer: ConstPtr<CVoid>, dwreceivedatalength: UInt, dwlocaladdresslength: UInt, dwremoteaddresslength: UInt, localsockaddr: MutPtr<MutPtr<Sockaddr>>, localsockaddrlength: MutPtr<Int>, remotesockaddr: MutPtr<MutPtr<Sockaddr>>, remotesockaddrlength: MutPtr<Int>) {
+public actual fun getAcceptExSockaddrs(lpoutputbuffer: ConstPtr, dwreceivedatalength: UInt, dwlocaladdresslength: UInt, dwremoteaddresslength: UInt, localsockaddr: MutPtr, localsockaddrlength: MutPtr, remotesockaddr: MutPtr, remotesockaddrlength: MutPtr) {
     WindowsWin32NetworkingWinsockJniBridge.windowssysWindowsWin32NetworkingWinsockGetAcceptExSockaddrs(lpoutputbuffer.rawAddress, dwreceivedatalength.toInt(), dwlocaladdresslength.toInt(), dwremoteaddresslength.toInt(), localsockaddr.rawAddress, localsockaddrlength.rawAddress, remotesockaddr.rawAddress, remotesockaddrlength.rawAddress)
 }
 
-public actual fun getAddrInfoExA(pname: Pcstr, pservicename: Pcstr, dwnamespace: UInt, lpnspid: ConstPtr<Guid>, hints: ConstPtr<Addrinfoexa>, ppresult: MutPtr<MutPtr<Addrinfoexa>>, timeout: ConstPtr<Timeval>, lpoverlapped: ConstPtr<Overlapped>, lpcompletionroutine: LplookupserviceCompletionRoutine, lpnamehandle: MutPtr<Handle>): Int =
+public actual fun getAddrInfoExA(pname: Pcstr, pservicename: Pcstr, dwnamespace: UInt, lpnspid: ConstPtr, hints: ConstPtr, ppresult: MutPtr, timeout: ConstPtr, lpoverlapped: ConstPtr, lpcompletionroutine: LplookupserviceCompletionRoutine, lpnamehandle: MutPtr): Int =
     WindowsWin32NetworkingWinsockJniBridge.windowssysWindowsWin32NetworkingWinsockGetAddrInfoExA(pname.rawAddress, pservicename.rawAddress, dwnamespace.toInt(), lpnspid.rawAddress, hints.rawAddress, ppresult.rawAddress, timeout.rawAddress, lpoverlapped.rawAddress, 0L, lpnamehandle.rawAddress)
 
-public actual fun getAddrInfoExCancel(lphandle: ConstPtr<Handle>): Int =
+public actual fun getAddrInfoExCancel(lphandle: ConstPtr): Int =
     WindowsWin32NetworkingWinsockJniBridge.windowssysWindowsWin32NetworkingWinsockGetAddrInfoExCancel(lphandle.rawAddress)
 
-public actual fun getAddrInfoExOverlappedResult(lpoverlapped: ConstPtr<Overlapped>): Int =
+public actual fun getAddrInfoExOverlappedResult(lpoverlapped: ConstPtr): Int =
     WindowsWin32NetworkingWinsockJniBridge.windowssysWindowsWin32NetworkingWinsockGetAddrInfoExOverlappedResult(lpoverlapped.rawAddress)
 
-public actual fun getAddrInfoExW(pname: Pcwstr, pservicename: Pcwstr, dwnamespace: UInt, lpnspid: ConstPtr<Guid>, hints: ConstPtr<Addrinfoexw>, ppresult: MutPtr<MutPtr<Addrinfoexw>>, timeout: ConstPtr<Timeval>, lpoverlapped: ConstPtr<Overlapped>, lpcompletionroutine: LplookupserviceCompletionRoutine, lphandle: MutPtr<Handle>): Int =
+public actual fun getAddrInfoExW(pname: Pcwstr, pservicename: Pcwstr, dwnamespace: UInt, lpnspid: ConstPtr, hints: ConstPtr, ppresult: MutPtr, timeout: ConstPtr, lpoverlapped: ConstPtr, lpcompletionroutine: LplookupserviceCompletionRoutine, lphandle: MutPtr): Int =
     WindowsWin32NetworkingWinsockJniBridge.windowssysWindowsWin32NetworkingWinsockGetAddrInfoExW(pname.rawAddress, pservicename.rawAddress, dwnamespace.toInt(), lpnspid.rawAddress, hints.rawAddress, ppresult.rawAddress, timeout.rawAddress, lpoverlapped.rawAddress, 0L, lphandle.rawAddress)
 
-public actual fun getAddrInfoW(pnodename: Pcwstr, pservicename: Pcwstr, phints: ConstPtr<Addrinfow>, ppresult: MutPtr<MutPtr<Addrinfow>>): Int =
+public actual fun getAddrInfoW(pnodename: Pcwstr, pservicename: Pcwstr, phints: ConstPtr, ppresult: MutPtr): Int =
     WindowsWin32NetworkingWinsockJniBridge.windowssysWindowsWin32NetworkingWinsockGetAddrInfoW(pnodename.rawAddress, pservicename.rawAddress, phints.rawAddress, ppresult.rawAddress)
 
-public actual fun getAddressByNameA(dwnamespace: UInt, lpservicetype: ConstPtr<Guid>, lpservicename: Pcstr, lpiprotocols: ConstPtr<Int>, dwresolution: UInt, lpserviceasyncinfo: ConstPtr<ServiceAsyncInfo>, lpcsaddrbuffer: MutPtr<CVoid>, lpdwbufferlength: MutPtr<UInt>, lpaliasbuffer: Pstr, lpdwaliasbufferlength: MutPtr<UInt>): Int =
+public actual fun getAddressByNameA(dwnamespace: UInt, lpservicetype: ConstPtr, lpservicename: Pcstr, lpiprotocols: ConstPtr, dwresolution: UInt, lpserviceasyncinfo: ConstPtr, lpcsaddrbuffer: MutPtr, lpdwbufferlength: MutPtr, lpaliasbuffer: Pstr, lpdwaliasbufferlength: MutPtr): Int =
     WindowsWin32NetworkingWinsockJniBridge.windowssysWindowsWin32NetworkingWinsockGetAddressByNameA(dwnamespace.toInt(), lpservicetype.rawAddress, lpservicename.rawAddress, lpiprotocols.rawAddress, dwresolution.toInt(), lpserviceasyncinfo.rawAddress, lpcsaddrbuffer.rawAddress, lpdwbufferlength.rawAddress, lpaliasbuffer.rawAddress, lpdwaliasbufferlength.rawAddress)
 
-public actual fun getAddressByNameW(dwnamespace: UInt, lpservicetype: ConstPtr<Guid>, lpservicename: Pcwstr, lpiprotocols: ConstPtr<Int>, dwresolution: UInt, lpserviceasyncinfo: ConstPtr<ServiceAsyncInfo>, lpcsaddrbuffer: MutPtr<CVoid>, lpdwbufferlength: MutPtr<UInt>, lpaliasbuffer: Pwstr, lpdwaliasbufferlength: MutPtr<UInt>): Int =
+public actual fun getAddressByNameW(dwnamespace: UInt, lpservicetype: ConstPtr, lpservicename: Pcwstr, lpiprotocols: ConstPtr, dwresolution: UInt, lpserviceasyncinfo: ConstPtr, lpcsaddrbuffer: MutPtr, lpdwbufferlength: MutPtr, lpaliasbuffer: Pwstr, lpdwaliasbufferlength: MutPtr): Int =
     WindowsWin32NetworkingWinsockJniBridge.windowssysWindowsWin32NetworkingWinsockGetAddressByNameW(dwnamespace.toInt(), lpservicetype.rawAddress, lpservicename.rawAddress, lpiprotocols.rawAddress, dwresolution.toInt(), lpserviceasyncinfo.rawAddress, lpcsaddrbuffer.rawAddress, lpdwbufferlength.rawAddress, lpaliasbuffer.rawAddress, lpdwaliasbufferlength.rawAddress)
 
 public actual fun getHostNameW(name: Pwstr, namelen: Int): Int =
     WindowsWin32NetworkingWinsockJniBridge.windowssysWindowsWin32NetworkingWinsockGetHostNameW(name.rawAddress, namelen)
 
-public actual fun getNameByTypeA(lpservicetype: ConstPtr<Guid>, lpservicename: Pstr, dwnamelength: UInt): Int =
+public actual fun getNameByTypeA(lpservicetype: ConstPtr, lpservicename: Pstr, dwnamelength: UInt): Int =
     WindowsWin32NetworkingWinsockJniBridge.windowssysWindowsWin32NetworkingWinsockGetNameByTypeA(lpservicetype.rawAddress, lpservicename.rawAddress, dwnamelength.toInt())
 
-public actual fun getNameByTypeW(lpservicetype: ConstPtr<Guid>, lpservicename: Pwstr, dwnamelength: UInt): Int =
+public actual fun getNameByTypeW(lpservicetype: ConstPtr, lpservicename: Pwstr, dwnamelength: UInt): Int =
     WindowsWin32NetworkingWinsockJniBridge.windowssysWindowsWin32NetworkingWinsockGetNameByTypeW(lpservicetype.rawAddress, lpservicename.rawAddress, dwnamelength.toInt())
 
-public actual fun getNameInfoW(psockaddr: ConstPtr<Sockaddr>, sockaddrlength: SocklenT, pnodebuffer: Pwstr, nodebuffersize: UInt, pservicebuffer: Pwstr, servicebuffersize: UInt, flags: Int): Int =
+public actual fun getNameInfoW(psockaddr: ConstPtr, sockaddrlength: SocklenT, pnodebuffer: Pwstr, nodebuffersize: UInt, pservicebuffer: Pwstr, servicebuffersize: UInt, flags: Int): Int =
     WindowsWin32NetworkingWinsockJniBridge.windowssysWindowsWin32NetworkingWinsockGetNameInfoW(psockaddr.rawAddress, sockaddrlength, pnodebuffer.rawAddress, nodebuffersize.toInt(), pservicebuffer.rawAddress, servicebuffersize.toInt(), flags)
 
-public actual fun getServiceA(dwnamespace: UInt, lpguid: ConstPtr<Guid>, lpservicename: Pcstr, dwproperties: UInt, lpbuffer: MutPtr<CVoid>, lpdwbuffersize: MutPtr<UInt>, lpserviceasyncinfo: ConstPtr<ServiceAsyncInfo>): Int =
+public actual fun getServiceA(dwnamespace: UInt, lpguid: ConstPtr, lpservicename: Pcstr, dwproperties: UInt, lpbuffer: MutPtr, lpdwbuffersize: MutPtr, lpserviceasyncinfo: ConstPtr): Int =
     WindowsWin32NetworkingWinsockJniBridge.windowssysWindowsWin32NetworkingWinsockGetServiceA(dwnamespace.toInt(), lpguid.rawAddress, lpservicename.rawAddress, dwproperties.toInt(), lpbuffer.rawAddress, lpdwbuffersize.rawAddress, lpserviceasyncinfo.rawAddress)
 
-public actual fun getServiceW(dwnamespace: UInt, lpguid: ConstPtr<Guid>, lpservicename: Pcwstr, dwproperties: UInt, lpbuffer: MutPtr<CVoid>, lpdwbuffersize: MutPtr<UInt>, lpserviceasyncinfo: ConstPtr<ServiceAsyncInfo>): Int =
+public actual fun getServiceW(dwnamespace: UInt, lpguid: ConstPtr, lpservicename: Pcwstr, dwproperties: UInt, lpbuffer: MutPtr, lpdwbuffersize: MutPtr, lpserviceasyncinfo: ConstPtr): Int =
     WindowsWin32NetworkingWinsockJniBridge.windowssysWindowsWin32NetworkingWinsockGetServiceW(dwnamespace.toInt(), lpguid.rawAddress, lpservicename.rawAddress, dwproperties.toInt(), lpbuffer.rawAddress, lpdwbuffersize.rawAddress, lpserviceasyncinfo.rawAddress)
 
-public actual fun getTypeByNameA(lpservicename: Pcstr, lpservicetype: MutPtr<Guid>): Int =
+public actual fun getTypeByNameA(lpservicename: Pcstr, lpservicetype: MutPtr): Int =
     WindowsWin32NetworkingWinsockJniBridge.windowssysWindowsWin32NetworkingWinsockGetTypeByNameA(lpservicename.rawAddress, lpservicetype.rawAddress)
 
-public actual fun getTypeByNameW(lpservicename: Pcwstr, lpservicetype: MutPtr<Guid>): Int =
+public actual fun getTypeByNameW(lpservicename: Pcwstr, lpservicetype: MutPtr): Int =
     WindowsWin32NetworkingWinsockJniBridge.windowssysWindowsWin32NetworkingWinsockGetTypeByNameW(lpservicename.rawAddress, lpservicetype.rawAddress)
 
-public actual fun inetNtopW(family: Int, paddr: ConstPtr<CVoid>, pstringbuf: Pwstr, stringbufsize: ULong): Pcwstr =
+public actual fun inetNtopW(family: Int, paddr: ConstPtr, pstringbuf: Pwstr, stringbufsize: ULong): Pcwstr =
     ConstPtr(WindowsWin32NetworkingWinsockJniBridge.windowssysWindowsWin32NetworkingWinsockInetNtopW(family, paddr.rawAddress, pstringbuf.rawAddress, stringbufsize.toLong()))
 
-public actual fun inetPtonW(family: Int, pszaddrstring: Pcwstr, paddrbuf: MutPtr<CVoid>): Int =
+public actual fun inetPtonW(family: Int, pszaddrstring: Pcwstr, paddrbuf: MutPtr): Int =
     WindowsWin32NetworkingWinsockJniBridge.windowssysWindowsWin32NetworkingWinsockInetPtonW(family, pszaddrstring.rawAddress, paddrbuf.rawAddress)
 
-public actual fun processSocketNotifications(completionport: Handle, registrationcount: UInt, registrationinfos: MutPtr<SockNotifyRegistration>, timeoutms: UInt, completioncount: UInt, completionportentries: MutPtr<OverlappedEntry>, receivedentrycount: MutPtr<UInt>): UInt =
+public actual fun processSocketNotifications(completionport: Handle, registrationcount: UInt, registrationinfos: MutPtr, timeoutms: UInt, completioncount: UInt, completionportentries: MutPtr, receivedentrycount: MutPtr): UInt =
     WindowsWin32NetworkingWinsockJniBridge.windowssysWindowsWin32NetworkingWinsockProcessSocketNotifications(completionport.rawAddress, registrationcount.toInt(), registrationinfos.rawAddress, timeoutms.toInt(), completioncount.toInt(), completionportentries.rawAddress, receivedentrycount.rawAddress).toUInt()
 
-public actual fun rtlEthernetAddressToStringA(addr: ConstPtr<DlEui48>, s: Pstr): Pstr =
+public actual fun rtlEthernetAddressToStringA(addr: ConstPtr, s: Pstr): Pstr =
     MutPtr(WindowsWin32NetworkingWinsockJniBridge.windowssysWindowsWin32NetworkingWinsockRtlEthernetAddressToStringA(addr.rawAddress, s.rawAddress))
 
-public actual fun rtlEthernetAddressToStringW(addr: ConstPtr<DlEui48>, s: Pwstr): Pwstr =
+public actual fun rtlEthernetAddressToStringW(addr: ConstPtr, s: Pwstr): Pwstr =
     MutPtr(WindowsWin32NetworkingWinsockJniBridge.windowssysWindowsWin32NetworkingWinsockRtlEthernetAddressToStringW(addr.rawAddress, s.rawAddress))
 
-public actual fun rtlEthernetStringToAddressA(s: Pcstr, terminator: MutPtr<Pcstr>, addr: MutPtr<DlEui48>): Int =
+public actual fun rtlEthernetStringToAddressA(s: Pcstr, terminator: MutPtr, addr: MutPtr): Int =
     WindowsWin32NetworkingWinsockJniBridge.windowssysWindowsWin32NetworkingWinsockRtlEthernetStringToAddressA(s.rawAddress, terminator.rawAddress, addr.rawAddress)
 
-public actual fun rtlEthernetStringToAddressW(s: Pcwstr, terminator: MutPtr<Pcwstr>, addr: MutPtr<DlEui48>): Int =
+public actual fun rtlEthernetStringToAddressW(s: Pcwstr, terminator: MutPtr, addr: MutPtr): Int =
     WindowsWin32NetworkingWinsockJniBridge.windowssysWindowsWin32NetworkingWinsockRtlEthernetStringToAddressW(s.rawAddress, terminator.rawAddress, addr.rawAddress)
 
-public actual fun rtlIpv4AddressToStringA(addr: ConstPtr<InAddr>, s: Pstr): Pstr =
+public actual fun rtlIpv4AddressToStringA(addr: ConstPtr, s: Pstr): Pstr =
     MutPtr(WindowsWin32NetworkingWinsockJniBridge.windowssysWindowsWin32NetworkingWinsockRtlIpv4AddressToStringA(addr.rawAddress, s.rawAddress))
 
-public actual fun rtlIpv4AddressToStringExA(address: ConstPtr<InAddr>, port: UShort, addressstring: Pstr, addressstringlength: MutPtr<UInt>): Int =
+public actual fun rtlIpv4AddressToStringExA(address: ConstPtr, port: UShort, addressstring: Pstr, addressstringlength: MutPtr): Int =
     WindowsWin32NetworkingWinsockJniBridge.windowssysWindowsWin32NetworkingWinsockRtlIpv4AddressToStringExA(address.rawAddress, port.toShort(), addressstring.rawAddress, addressstringlength.rawAddress)
 
-public actual fun rtlIpv4AddressToStringExW(address: ConstPtr<InAddr>, port: UShort, addressstring: Pwstr, addressstringlength: MutPtr<UInt>): Int =
+public actual fun rtlIpv4AddressToStringExW(address: ConstPtr, port: UShort, addressstring: Pwstr, addressstringlength: MutPtr): Int =
     WindowsWin32NetworkingWinsockJniBridge.windowssysWindowsWin32NetworkingWinsockRtlIpv4AddressToStringExW(address.rawAddress, port.toShort(), addressstring.rawAddress, addressstringlength.rawAddress)
 
-public actual fun rtlIpv4AddressToStringW(addr: ConstPtr<InAddr>, s: Pwstr): Pwstr =
+public actual fun rtlIpv4AddressToStringW(addr: ConstPtr, s: Pwstr): Pwstr =
     MutPtr(WindowsWin32NetworkingWinsockJniBridge.windowssysWindowsWin32NetworkingWinsockRtlIpv4AddressToStringW(addr.rawAddress, s.rawAddress))
 
-public actual fun rtlIpv4StringToAddressA(s: Pcstr, strict: Boolean, terminator: MutPtr<Pcstr>, addr: MutPtr<InAddr>): Int =
+public actual fun rtlIpv4StringToAddressA(s: Pcstr, strict: Boolean, terminator: MutPtr, addr: MutPtr): Int =
     WindowsWin32NetworkingWinsockJniBridge.windowssysWindowsWin32NetworkingWinsockRtlIpv4StringToAddressA(s.rawAddress, strict, terminator.rawAddress, addr.rawAddress)
 
-public actual fun rtlIpv4StringToAddressExA(addressstring: Pcstr, strict: Boolean, address: MutPtr<InAddr>, port: MutPtr<UShort>): Int =
+public actual fun rtlIpv4StringToAddressExA(addressstring: Pcstr, strict: Boolean, address: MutPtr, port: MutPtr): Int =
     WindowsWin32NetworkingWinsockJniBridge.windowssysWindowsWin32NetworkingWinsockRtlIpv4StringToAddressExA(addressstring.rawAddress, strict, address.rawAddress, port.rawAddress)
 
-public actual fun rtlIpv4StringToAddressExW(addressstring: Pcwstr, strict: Boolean, address: MutPtr<InAddr>, port: MutPtr<UShort>): Int =
+public actual fun rtlIpv4StringToAddressExW(addressstring: Pcwstr, strict: Boolean, address: MutPtr, port: MutPtr): Int =
     WindowsWin32NetworkingWinsockJniBridge.windowssysWindowsWin32NetworkingWinsockRtlIpv4StringToAddressExW(addressstring.rawAddress, strict, address.rawAddress, port.rawAddress)
 
-public actual fun rtlIpv4StringToAddressW(s: Pcwstr, strict: Boolean, terminator: MutPtr<Pcwstr>, addr: MutPtr<InAddr>): Int =
+public actual fun rtlIpv4StringToAddressW(s: Pcwstr, strict: Boolean, terminator: MutPtr, addr: MutPtr): Int =
     WindowsWin32NetworkingWinsockJniBridge.windowssysWindowsWin32NetworkingWinsockRtlIpv4StringToAddressW(s.rawAddress, strict, terminator.rawAddress, addr.rawAddress)
 
-public actual fun rtlIpv6AddressToStringA(addr: ConstPtr<In6Addr>, s: Pstr): Pstr =
+public actual fun rtlIpv6AddressToStringA(addr: ConstPtr, s: Pstr): Pstr =
     MutPtr(WindowsWin32NetworkingWinsockJniBridge.windowssysWindowsWin32NetworkingWinsockRtlIpv6AddressToStringA(addr.rawAddress, s.rawAddress))
 
-public actual fun rtlIpv6AddressToStringExA(address: ConstPtr<In6Addr>, scopeid: UInt, port: UShort, addressstring: Pstr, addressstringlength: MutPtr<UInt>): Int =
+public actual fun rtlIpv6AddressToStringExA(address: ConstPtr, scopeid: UInt, port: UShort, addressstring: Pstr, addressstringlength: MutPtr): Int =
     WindowsWin32NetworkingWinsockJniBridge.windowssysWindowsWin32NetworkingWinsockRtlIpv6AddressToStringExA(address.rawAddress, scopeid.toInt(), port.toShort(), addressstring.rawAddress, addressstringlength.rawAddress)
 
-public actual fun rtlIpv6AddressToStringExW(address: ConstPtr<In6Addr>, scopeid: UInt, port: UShort, addressstring: Pwstr, addressstringlength: MutPtr<UInt>): Int =
+public actual fun rtlIpv6AddressToStringExW(address: ConstPtr, scopeid: UInt, port: UShort, addressstring: Pwstr, addressstringlength: MutPtr): Int =
     WindowsWin32NetworkingWinsockJniBridge.windowssysWindowsWin32NetworkingWinsockRtlIpv6AddressToStringExW(address.rawAddress, scopeid.toInt(), port.toShort(), addressstring.rawAddress, addressstringlength.rawAddress)
 
-public actual fun rtlIpv6AddressToStringW(addr: ConstPtr<In6Addr>, s: Pwstr): Pwstr =
+public actual fun rtlIpv6AddressToStringW(addr: ConstPtr, s: Pwstr): Pwstr =
     MutPtr(WindowsWin32NetworkingWinsockJniBridge.windowssysWindowsWin32NetworkingWinsockRtlIpv6AddressToStringW(addr.rawAddress, s.rawAddress))
 
-public actual fun rtlIpv6StringToAddressA(s: Pcstr, terminator: MutPtr<Pcstr>, addr: MutPtr<In6Addr>): Int =
+public actual fun rtlIpv6StringToAddressA(s: Pcstr, terminator: MutPtr, addr: MutPtr): Int =
     WindowsWin32NetworkingWinsockJniBridge.windowssysWindowsWin32NetworkingWinsockRtlIpv6StringToAddressA(s.rawAddress, terminator.rawAddress, addr.rawAddress)
 
-public actual fun rtlIpv6StringToAddressExA(addressstring: Pcstr, address: MutPtr<In6Addr>, scopeid: MutPtr<UInt>, port: MutPtr<UShort>): Int =
+public actual fun rtlIpv6StringToAddressExA(addressstring: Pcstr, address: MutPtr, scopeid: MutPtr, port: MutPtr): Int =
     WindowsWin32NetworkingWinsockJniBridge.windowssysWindowsWin32NetworkingWinsockRtlIpv6StringToAddressExA(addressstring.rawAddress, address.rawAddress, scopeid.rawAddress, port.rawAddress)
 
-public actual fun rtlIpv6StringToAddressExW(addressstring: Pcwstr, address: MutPtr<In6Addr>, scopeid: MutPtr<UInt>, port: MutPtr<UShort>): Int =
+public actual fun rtlIpv6StringToAddressExW(addressstring: Pcwstr, address: MutPtr, scopeid: MutPtr, port: MutPtr): Int =
     WindowsWin32NetworkingWinsockJniBridge.windowssysWindowsWin32NetworkingWinsockRtlIpv6StringToAddressExW(addressstring.rawAddress, address.rawAddress, scopeid.rawAddress, port.rawAddress)
 
-public actual fun rtlIpv6StringToAddressW(s: Pcwstr, terminator: MutPtr<Pcwstr>, addr: MutPtr<In6Addr>): Int =
+public actual fun rtlIpv6StringToAddressW(s: Pcwstr, terminator: MutPtr, addr: MutPtr): Int =
     WindowsWin32NetworkingWinsockJniBridge.windowssysWindowsWin32NetworkingWinsockRtlIpv6StringToAddressW(s.rawAddress, terminator.rawAddress, addr.rawAddress)
 
-public actual fun setAddrInfoExA(pname: Pcstr, pservicename: Pcstr, paddresses: ConstPtr<SocketAddress>, dwaddresscount: UInt, lpblob: ConstPtr<Blob>, dwflags: UInt, dwnamespace: UInt, lpnspid: ConstPtr<Guid>, timeout: ConstPtr<Timeval>, lpoverlapped: ConstPtr<Overlapped>, lpcompletionroutine: LplookupserviceCompletionRoutine, lpnamehandle: MutPtr<Handle>): Int =
+public actual fun setAddrInfoExA(pname: Pcstr, pservicename: Pcstr, paddresses: ConstPtr, dwaddresscount: UInt, lpblob: ConstPtr, dwflags: UInt, dwnamespace: UInt, lpnspid: ConstPtr, timeout: ConstPtr, lpoverlapped: ConstPtr, lpcompletionroutine: LplookupserviceCompletionRoutine, lpnamehandle: MutPtr): Int =
     WindowsWin32NetworkingWinsockJniBridge.windowssysWindowsWin32NetworkingWinsockSetAddrInfoExA(pname.rawAddress, pservicename.rawAddress, paddresses.rawAddress, dwaddresscount.toInt(), lpblob.rawAddress, dwflags.toInt(), dwnamespace.toInt(), lpnspid.rawAddress, timeout.rawAddress, lpoverlapped.rawAddress, 0L, lpnamehandle.rawAddress)
 
-public actual fun setAddrInfoExW(pname: Pcwstr, pservicename: Pcwstr, paddresses: ConstPtr<SocketAddress>, dwaddresscount: UInt, lpblob: ConstPtr<Blob>, dwflags: UInt, dwnamespace: UInt, lpnspid: ConstPtr<Guid>, timeout: ConstPtr<Timeval>, lpoverlapped: ConstPtr<Overlapped>, lpcompletionroutine: LplookupserviceCompletionRoutine, lpnamehandle: MutPtr<Handle>): Int =
+public actual fun setAddrInfoExW(pname: Pcwstr, pservicename: Pcwstr, paddresses: ConstPtr, dwaddresscount: UInt, lpblob: ConstPtr, dwflags: UInt, dwnamespace: UInt, lpnspid: ConstPtr, timeout: ConstPtr, lpoverlapped: ConstPtr, lpcompletionroutine: LplookupserviceCompletionRoutine, lpnamehandle: MutPtr): Int =
     WindowsWin32NetworkingWinsockJniBridge.windowssysWindowsWin32NetworkingWinsockSetAddrInfoExW(pname.rawAddress, pservicename.rawAddress, paddresses.rawAddress, dwaddresscount.toInt(), lpblob.rawAddress, dwflags.toInt(), dwnamespace.toInt(), lpnspid.rawAddress, timeout.rawAddress, lpoverlapped.rawAddress, 0L, lpnamehandle.rawAddress)
 
-public actual fun setServiceA(dwnamespace: UInt, dwoperation: SetServiceOperation, dwflags: UInt, lpserviceinfo: ConstPtr<ServiceInfoa>, lpserviceasyncinfo: ConstPtr<ServiceAsyncInfo>, lpdwstatusflags: MutPtr<UInt>): Int =
+public actual fun setServiceA(dwnamespace: UInt, dwoperation: SetServiceOperation, dwflags: UInt, lpserviceinfo: ConstPtr, lpserviceasyncinfo: ConstPtr, lpdwstatusflags: MutPtr): Int =
     WindowsWin32NetworkingWinsockJniBridge.windowssysWindowsWin32NetworkingWinsockSetServiceA(dwnamespace.toInt(), dwoperation.toInt(), dwflags.toInt(), lpserviceinfo.rawAddress, lpserviceasyncinfo.rawAddress, lpdwstatusflags.rawAddress)
 
-public actual fun setServiceW(dwnamespace: UInt, dwoperation: SetServiceOperation, dwflags: UInt, lpserviceinfo: ConstPtr<ServiceInfow>, lpserviceasyncinfo: ConstPtr<ServiceAsyncInfo>, lpdwstatusflags: MutPtr<UInt>): Int =
+public actual fun setServiceW(dwnamespace: UInt, dwoperation: SetServiceOperation, dwflags: UInt, lpserviceinfo: ConstPtr, lpserviceasyncinfo: ConstPtr, lpdwstatusflags: MutPtr): Int =
     WindowsWin32NetworkingWinsockJniBridge.windowssysWindowsWin32NetworkingWinsockSetServiceW(dwnamespace.toInt(), dwoperation.toInt(), dwflags.toInt(), lpserviceinfo.rawAddress, lpserviceasyncinfo.rawAddress, lpdwstatusflags.rawAddress)
 
 public actual fun setSocketMediaStreamingMode(value: Bool): Hresult =
     WindowsWin32NetworkingWinsockJniBridge.windowssysWindowsWin32NetworkingWinsockSetSocketMediaStreamingMode(value)
 
-public actual fun transmitFile(hsocket: Socket, hfile: Handle, nnumberofbytestowrite: UInt, nnumberofbytespersend: UInt, lpoverlapped: MutPtr<Overlapped>, lptransmitbuffers: ConstPtr<TransmitFileBuffers>, dwreserved: UInt): Bool =
+public actual fun transmitFile(hsocket: Socket, hfile: Handle, nnumberofbytestowrite: UInt, nnumberofbytespersend: UInt, lpoverlapped: MutPtr, lptransmitbuffers: ConstPtr, dwreserved: UInt): Bool =
     WindowsWin32NetworkingWinsockJniBridge.windowssysWindowsWin32NetworkingWinsockTransmitFile(hsocket.toLong(), hfile.rawAddress, nnumberofbytestowrite.toInt(), nnumberofbytespersend.toInt(), lpoverlapped.rawAddress, lptransmitbuffers.rawAddress, dwreserved.toInt())
 
-public actual fun wPUCompleteOverlappedRequest(s: Socket, lpoverlapped: MutPtr<Overlapped>, dwerror: UInt, cbtransferred: UInt, lperrno: MutPtr<Int>): Int =
+public actual fun wPUCompleteOverlappedRequest(s: Socket, lpoverlapped: MutPtr, dwerror: UInt, cbtransferred: UInt, lperrno: MutPtr): Int =
     WindowsWin32NetworkingWinsockJniBridge.windowssysWindowsWin32NetworkingWinsockWPUCompleteOverlappedRequest(s.toLong(), lpoverlapped.rawAddress, dwerror.toInt(), cbtransferred.toInt(), lperrno.rawAddress)
 
-public actual fun wSAAccept(s: Socket, addr: MutPtr<Sockaddr>, addrlen: MutPtr<Int>, lpfncondition: Lpconditionproc, dwcallbackdata: ULong): Socket =
+public actual fun wSAAccept(s: Socket, addr: MutPtr, addrlen: MutPtr, lpfncondition: Lpconditionproc, dwcallbackdata: ULong): Socket =
     WindowsWin32NetworkingWinsockJniBridge.windowssysWindowsWin32NetworkingWinsockWSAAccept(s.toLong(), addr.rawAddress, addrlen.rawAddress, 0L, dwcallbackdata.toLong()).toULong()
 
-public actual fun wSAAddressToStringA(lpsaaddress: ConstPtr<Sockaddr>, dwaddresslength: UInt, lpprotocolinfo: ConstPtr<WsaprotocolInfoa>, lpszaddressstring: Pstr, lpdwaddressstringlength: MutPtr<UInt>): Int =
+public actual fun wSAAddressToStringA(lpsaaddress: ConstPtr, dwaddresslength: UInt, lpprotocolinfo: ConstPtr, lpszaddressstring: Pstr, lpdwaddressstringlength: MutPtr): Int =
     WindowsWin32NetworkingWinsockJniBridge.windowssysWindowsWin32NetworkingWinsockWSAAddressToStringA(lpsaaddress.rawAddress, dwaddresslength.toInt(), lpprotocolinfo.rawAddress, lpszaddressstring.rawAddress, lpdwaddressstringlength.rawAddress)
 
-public actual fun wSAAddressToStringW(lpsaaddress: ConstPtr<Sockaddr>, dwaddresslength: UInt, lpprotocolinfo: ConstPtr<WsaprotocolInfow>, lpszaddressstring: Pwstr, lpdwaddressstringlength: MutPtr<UInt>): Int =
+public actual fun wSAAddressToStringW(lpsaaddress: ConstPtr, dwaddresslength: UInt, lpprotocolinfo: ConstPtr, lpszaddressstring: Pwstr, lpdwaddressstringlength: MutPtr): Int =
     WindowsWin32NetworkingWinsockJniBridge.windowssysWindowsWin32NetworkingWinsockWSAAddressToStringW(lpsaaddress.rawAddress, dwaddresslength.toInt(), lpprotocolinfo.rawAddress, lpszaddressstring.rawAddress, lpdwaddressstringlength.rawAddress)
 
-public actual fun wSAAdvertiseProvider(puuidproviderid: ConstPtr<Guid>, pnspv2routine: ConstPtr<Nspv2Routine>): Int =
+public actual fun wSAAdvertiseProvider(puuidproviderid: ConstPtr, pnspv2routine: ConstPtr): Int =
     WindowsWin32NetworkingWinsockJniBridge.windowssysWindowsWin32NetworkingWinsockWSAAdvertiseProvider(puuidproviderid.rawAddress, pnspv2routine.rawAddress)
 
 public actual fun wSAAsyncGetHostByAddr(hwnd: Hwnd, wmsg: UInt, addr: Pcstr, len: Int, type: Int, buf: Pstr, buflen: Int): Handle =
@@ -835,49 +830,49 @@ public actual fun wSACleanup(): Int =
 public actual fun wSACloseEvent(hevent: Wsaevent): Bool =
     WindowsWin32NetworkingWinsockJniBridge.windowssysWindowsWin32NetworkingWinsockWSACloseEvent(hevent)
 
-public actual fun wSAConnect(s: Socket, name: ConstPtr<Sockaddr>, namelen: Int, lpcallerdata: ConstPtr<Wsabuf>, lpcalleedata: MutPtr<Wsabuf>, lpsqos: ConstPtr<Qos>, lpgqos: ConstPtr<Qos>): Int =
+public actual fun wSAConnect(s: Socket, name: ConstPtr, namelen: Int, lpcallerdata: ConstPtr, lpcalleedata: MutPtr, lpsqos: ConstPtr, lpgqos: ConstPtr): Int =
     WindowsWin32NetworkingWinsockJniBridge.windowssysWindowsWin32NetworkingWinsockWSAConnect(s.toLong(), name.rawAddress, namelen, lpcallerdata.rawAddress, lpcalleedata.rawAddress, lpsqos.rawAddress, lpgqos.rawAddress)
 
-public actual fun wSAConnectByList(s: Socket, socketaddress: ConstPtr<SocketAddressList>, localaddresslength: MutPtr<UInt>, localaddress: MutPtr<Sockaddr>, remoteaddresslength: MutPtr<UInt>, remoteaddress: MutPtr<Sockaddr>, timeout: ConstPtr<Timeval>, reserved: ConstPtr<Overlapped>): Bool =
+public actual fun wSAConnectByList(s: Socket, socketaddress: ConstPtr, localaddresslength: MutPtr, localaddress: MutPtr, remoteaddresslength: MutPtr, remoteaddress: MutPtr, timeout: ConstPtr, reserved: ConstPtr): Bool =
     WindowsWin32NetworkingWinsockJniBridge.windowssysWindowsWin32NetworkingWinsockWSAConnectByList(s.toLong(), socketaddress.rawAddress, localaddresslength.rawAddress, localaddress.rawAddress, remoteaddresslength.rawAddress, remoteaddress.rawAddress, timeout.rawAddress, reserved.rawAddress)
 
-public actual fun wSAConnectByNameA(s: Socket, nodename: Pcstr, servicename: Pcstr, localaddresslength: MutPtr<UInt>, localaddress: MutPtr<Sockaddr>, remoteaddresslength: MutPtr<UInt>, remoteaddress: MutPtr<Sockaddr>, timeout: ConstPtr<Timeval>, reserved: ConstPtr<Overlapped>): Bool =
+public actual fun wSAConnectByNameA(s: Socket, nodename: Pcstr, servicename: Pcstr, localaddresslength: MutPtr, localaddress: MutPtr, remoteaddresslength: MutPtr, remoteaddress: MutPtr, timeout: ConstPtr, reserved: ConstPtr): Bool =
     WindowsWin32NetworkingWinsockJniBridge.windowssysWindowsWin32NetworkingWinsockWSAConnectByNameA(s.toLong(), nodename.rawAddress, servicename.rawAddress, localaddresslength.rawAddress, localaddress.rawAddress, remoteaddresslength.rawAddress, remoteaddress.rawAddress, timeout.rawAddress, reserved.rawAddress)
 
-public actual fun wSAConnectByNameW(s: Socket, nodename: Pcwstr, servicename: Pcwstr, localaddresslength: MutPtr<UInt>, localaddress: MutPtr<Sockaddr>, remoteaddresslength: MutPtr<UInt>, remoteaddress: MutPtr<Sockaddr>, timeout: ConstPtr<Timeval>, reserved: ConstPtr<Overlapped>): Bool =
+public actual fun wSAConnectByNameW(s: Socket, nodename: Pcwstr, servicename: Pcwstr, localaddresslength: MutPtr, localaddress: MutPtr, remoteaddresslength: MutPtr, remoteaddress: MutPtr, timeout: ConstPtr, reserved: ConstPtr): Bool =
     WindowsWin32NetworkingWinsockJniBridge.windowssysWindowsWin32NetworkingWinsockWSAConnectByNameW(s.toLong(), nodename.rawAddress, servicename.rawAddress, localaddresslength.rawAddress, localaddress.rawAddress, remoteaddresslength.rawAddress, remoteaddress.rawAddress, timeout.rawAddress, reserved.rawAddress)
 
 public actual fun wSACreateEvent(): Wsaevent =
     WindowsWin32NetworkingWinsockJniBridge.windowssysWindowsWin32NetworkingWinsockWSACreateEvent()
 
-public actual fun wSADeleteSocketPeerTargetName(socket: Socket, peeraddr: ConstPtr<Sockaddr>, peeraddrlen: UInt, overlapped: ConstPtr<Overlapped>, completionroutine: LpwsaoverlappedCompletionRoutine): Int =
+public actual fun wSADeleteSocketPeerTargetName(socket: Socket, peeraddr: ConstPtr, peeraddrlen: UInt, overlapped: ConstPtr, completionroutine: LpwsaoverlappedCompletionRoutine): Int =
     WindowsWin32NetworkingWinsockJniBridge.windowssysWindowsWin32NetworkingWinsockWSADeleteSocketPeerTargetName(socket.toLong(), peeraddr.rawAddress, peeraddrlen.toInt(), overlapped.rawAddress, 0L)
 
-public actual fun wSADuplicateSocketA(s: Socket, dwprocessid: UInt, lpprotocolinfo: MutPtr<WsaprotocolInfoa>): Int =
+public actual fun wSADuplicateSocketA(s: Socket, dwprocessid: UInt, lpprotocolinfo: MutPtr): Int =
     WindowsWin32NetworkingWinsockJniBridge.windowssysWindowsWin32NetworkingWinsockWSADuplicateSocketA(s.toLong(), dwprocessid.toInt(), lpprotocolinfo.rawAddress)
 
-public actual fun wSADuplicateSocketW(s: Socket, dwprocessid: UInt, lpprotocolinfo: MutPtr<WsaprotocolInfow>): Int =
+public actual fun wSADuplicateSocketW(s: Socket, dwprocessid: UInt, lpprotocolinfo: MutPtr): Int =
     WindowsWin32NetworkingWinsockJniBridge.windowssysWindowsWin32NetworkingWinsockWSADuplicateSocketW(s.toLong(), dwprocessid.toInt(), lpprotocolinfo.rawAddress)
 
-public actual fun wSAEnumNameSpaceProvidersA(lpdwbufferlength: MutPtr<UInt>, lpnspbuffer: MutPtr<WsanamespaceInfoa>): Int =
+public actual fun wSAEnumNameSpaceProvidersA(lpdwbufferlength: MutPtr, lpnspbuffer: MutPtr): Int =
     WindowsWin32NetworkingWinsockJniBridge.windowssysWindowsWin32NetworkingWinsockWSAEnumNameSpaceProvidersA(lpdwbufferlength.rawAddress, lpnspbuffer.rawAddress)
 
-public actual fun wSAEnumNameSpaceProvidersExA(lpdwbufferlength: MutPtr<UInt>, lpnspbuffer: MutPtr<WsanamespaceInfoexa>): Int =
+public actual fun wSAEnumNameSpaceProvidersExA(lpdwbufferlength: MutPtr, lpnspbuffer: MutPtr): Int =
     WindowsWin32NetworkingWinsockJniBridge.windowssysWindowsWin32NetworkingWinsockWSAEnumNameSpaceProvidersExA(lpdwbufferlength.rawAddress, lpnspbuffer.rawAddress)
 
-public actual fun wSAEnumNameSpaceProvidersExW(lpdwbufferlength: MutPtr<UInt>, lpnspbuffer: MutPtr<WsanamespaceInfoexw>): Int =
+public actual fun wSAEnumNameSpaceProvidersExW(lpdwbufferlength: MutPtr, lpnspbuffer: MutPtr): Int =
     WindowsWin32NetworkingWinsockJniBridge.windowssysWindowsWin32NetworkingWinsockWSAEnumNameSpaceProvidersExW(lpdwbufferlength.rawAddress, lpnspbuffer.rawAddress)
 
-public actual fun wSAEnumNameSpaceProvidersW(lpdwbufferlength: MutPtr<UInt>, lpnspbuffer: MutPtr<WsanamespaceInfow>): Int =
+public actual fun wSAEnumNameSpaceProvidersW(lpdwbufferlength: MutPtr, lpnspbuffer: MutPtr): Int =
     WindowsWin32NetworkingWinsockJniBridge.windowssysWindowsWin32NetworkingWinsockWSAEnumNameSpaceProvidersW(lpdwbufferlength.rawAddress, lpnspbuffer.rawAddress)
 
-public actual fun wSAEnumNetworkEvents(s: Socket, heventobject: Wsaevent, lpnetworkevents: MutPtr<Wsanetworkevents>): Int =
+public actual fun wSAEnumNetworkEvents(s: Socket, heventobject: Wsaevent, lpnetworkevents: MutPtr): Int =
     WindowsWin32NetworkingWinsockJniBridge.windowssysWindowsWin32NetworkingWinsockWSAEnumNetworkEvents(s.toLong(), heventobject, lpnetworkevents.rawAddress)
 
-public actual fun wSAEnumProtocolsA(lpiprotocols: ConstPtr<Int>, lpprotocolbuffer: MutPtr<WsaprotocolInfoa>, lpdwbufferlength: MutPtr<UInt>): Int =
+public actual fun wSAEnumProtocolsA(lpiprotocols: ConstPtr, lpprotocolbuffer: MutPtr, lpdwbufferlength: MutPtr): Int =
     WindowsWin32NetworkingWinsockJniBridge.windowssysWindowsWin32NetworkingWinsockWSAEnumProtocolsA(lpiprotocols.rawAddress, lpprotocolbuffer.rawAddress, lpdwbufferlength.rawAddress)
 
-public actual fun wSAEnumProtocolsW(lpiprotocols: ConstPtr<Int>, lpprotocolbuffer: MutPtr<WsaprotocolInfow>, lpdwbufferlength: MutPtr<UInt>): Int =
+public actual fun wSAEnumProtocolsW(lpiprotocols: ConstPtr, lpprotocolbuffer: MutPtr, lpdwbufferlength: MutPtr): Int =
     WindowsWin32NetworkingWinsockJniBridge.windowssysWindowsWin32NetworkingWinsockWSAEnumProtocolsW(lpiprotocols.rawAddress, lpprotocolbuffer.rawAddress, lpdwbufferlength.rawAddress)
 
 public actual fun wSAEventSelect(s: Socket, heventobject: Wsaevent, lnetworkevents: Int): Int =
@@ -886,97 +881,97 @@ public actual fun wSAEventSelect(s: Socket, heventobject: Wsaevent, lnetworkeven
 public actual fun wSAGetLastError(): WsaError =
     WindowsWin32NetworkingWinsockJniBridge.windowssysWindowsWin32NetworkingWinsockWSAGetLastError()
 
-public actual fun wSAGetOverlappedResult(s: Socket, lpoverlapped: ConstPtr<Overlapped>, lpcbtransfer: MutPtr<UInt>, fwait: Bool, lpdwflags: MutPtr<UInt>): Bool =
+public actual fun wSAGetOverlappedResult(s: Socket, lpoverlapped: ConstPtr, lpcbtransfer: MutPtr, fwait: Bool, lpdwflags: MutPtr): Bool =
     WindowsWin32NetworkingWinsockJniBridge.windowssysWindowsWin32NetworkingWinsockWSAGetOverlappedResult(s.toLong(), lpoverlapped.rawAddress, lpcbtransfer.rawAddress, fwait, lpdwflags.rawAddress)
 
-public actual fun wSAGetQOSByName(s: Socket, lpqosname: ConstPtr<Wsabuf>, lpqos: MutPtr<Qos>): Bool =
+public actual fun wSAGetQOSByName(s: Socket, lpqosname: ConstPtr, lpqos: MutPtr): Bool =
     WindowsWin32NetworkingWinsockJniBridge.windowssysWindowsWin32NetworkingWinsockWSAGetQOSByName(s.toLong(), lpqosname.rawAddress, lpqos.rawAddress)
 
-public actual fun wSAGetServiceClassInfoA(lpproviderid: ConstPtr<Guid>, lpserviceclassid: ConstPtr<Guid>, lpdwbufsize: MutPtr<UInt>, lpserviceclassinfo: MutPtr<Wsaserviceclassinfoa>): Int =
+public actual fun wSAGetServiceClassInfoA(lpproviderid: ConstPtr, lpserviceclassid: ConstPtr, lpdwbufsize: MutPtr, lpserviceclassinfo: MutPtr): Int =
     WindowsWin32NetworkingWinsockJniBridge.windowssysWindowsWin32NetworkingWinsockWSAGetServiceClassInfoA(lpproviderid.rawAddress, lpserviceclassid.rawAddress, lpdwbufsize.rawAddress, lpserviceclassinfo.rawAddress)
 
-public actual fun wSAGetServiceClassInfoW(lpproviderid: ConstPtr<Guid>, lpserviceclassid: ConstPtr<Guid>, lpdwbufsize: MutPtr<UInt>, lpserviceclassinfo: MutPtr<Wsaserviceclassinfow>): Int =
+public actual fun wSAGetServiceClassInfoW(lpproviderid: ConstPtr, lpserviceclassid: ConstPtr, lpdwbufsize: MutPtr, lpserviceclassinfo: MutPtr): Int =
     WindowsWin32NetworkingWinsockJniBridge.windowssysWindowsWin32NetworkingWinsockWSAGetServiceClassInfoW(lpproviderid.rawAddress, lpserviceclassid.rawAddress, lpdwbufsize.rawAddress, lpserviceclassinfo.rawAddress)
 
-public actual fun wSAGetServiceClassNameByClassIdA(lpserviceclassid: ConstPtr<Guid>, lpszserviceclassname: Pstr, lpdwbufferlength: MutPtr<UInt>): Int =
+public actual fun wSAGetServiceClassNameByClassIdA(lpserviceclassid: ConstPtr, lpszserviceclassname: Pstr, lpdwbufferlength: MutPtr): Int =
     WindowsWin32NetworkingWinsockJniBridge.windowssysWindowsWin32NetworkingWinsockWSAGetServiceClassNameByClassIdA(lpserviceclassid.rawAddress, lpszserviceclassname.rawAddress, lpdwbufferlength.rawAddress)
 
-public actual fun wSAGetServiceClassNameByClassIdW(lpserviceclassid: ConstPtr<Guid>, lpszserviceclassname: Pwstr, lpdwbufferlength: MutPtr<UInt>): Int =
+public actual fun wSAGetServiceClassNameByClassIdW(lpserviceclassid: ConstPtr, lpszserviceclassname: Pwstr, lpdwbufferlength: MutPtr): Int =
     WindowsWin32NetworkingWinsockJniBridge.windowssysWindowsWin32NetworkingWinsockWSAGetServiceClassNameByClassIdW(lpserviceclassid.rawAddress, lpszserviceclassname.rawAddress, lpdwbufferlength.rawAddress)
 
-public actual fun wSAHtonl(s: Socket, hostlong: UInt, lpnetlong: MutPtr<UInt>): Int =
+public actual fun wSAHtonl(s: Socket, hostlong: UInt, lpnetlong: MutPtr): Int =
     WindowsWin32NetworkingWinsockJniBridge.windowssysWindowsWin32NetworkingWinsockWSAHtonl(s.toLong(), hostlong.toInt(), lpnetlong.rawAddress)
 
-public actual fun wSAHtons(s: Socket, hostshort: UShort, lpnetshort: MutPtr<UShort>): Int =
+public actual fun wSAHtons(s: Socket, hostshort: UShort, lpnetshort: MutPtr): Int =
     WindowsWin32NetworkingWinsockJniBridge.windowssysWindowsWin32NetworkingWinsockWSAHtons(s.toLong(), hostshort.toShort(), lpnetshort.rawAddress)
 
-public actual fun wSAImpersonateSocketPeer(socket: Socket, peeraddr: ConstPtr<Sockaddr>, peeraddrlen: UInt): Int =
+public actual fun wSAImpersonateSocketPeer(socket: Socket, peeraddr: ConstPtr, peeraddrlen: UInt): Int =
     WindowsWin32NetworkingWinsockJniBridge.windowssysWindowsWin32NetworkingWinsockWSAImpersonateSocketPeer(socket.toLong(), peeraddr.rawAddress, peeraddrlen.toInt())
 
-public actual fun wSAInstallServiceClassA(lpserviceclassinfo: ConstPtr<Wsaserviceclassinfoa>): Int =
+public actual fun wSAInstallServiceClassA(lpserviceclassinfo: ConstPtr): Int =
     WindowsWin32NetworkingWinsockJniBridge.windowssysWindowsWin32NetworkingWinsockWSAInstallServiceClassA(lpserviceclassinfo.rawAddress)
 
-public actual fun wSAInstallServiceClassW(lpserviceclassinfo: ConstPtr<Wsaserviceclassinfow>): Int =
+public actual fun wSAInstallServiceClassW(lpserviceclassinfo: ConstPtr): Int =
     WindowsWin32NetworkingWinsockJniBridge.windowssysWindowsWin32NetworkingWinsockWSAInstallServiceClassW(lpserviceclassinfo.rawAddress)
 
-public actual fun wSAIoctl(s: Socket, dwiocontrolcode: UInt, lpvinbuffer: ConstPtr<CVoid>, cbinbuffer: UInt, lpvoutbuffer: MutPtr<CVoid>, cboutbuffer: UInt, lpcbbytesreturned: MutPtr<UInt>, lpoverlapped: MutPtr<Overlapped>, lpcompletionroutine: LpwsaoverlappedCompletionRoutine): Int =
+public actual fun wSAIoctl(s: Socket, dwiocontrolcode: UInt, lpvinbuffer: ConstPtr, cbinbuffer: UInt, lpvoutbuffer: MutPtr, cboutbuffer: UInt, lpcbbytesreturned: MutPtr, lpoverlapped: MutPtr, lpcompletionroutine: LpwsaoverlappedCompletionRoutine): Int =
     WindowsWin32NetworkingWinsockJniBridge.windowssysWindowsWin32NetworkingWinsockWSAIoctl(s.toLong(), dwiocontrolcode.toInt(), lpvinbuffer.rawAddress, cbinbuffer.toInt(), lpvoutbuffer.rawAddress, cboutbuffer.toInt(), lpcbbytesreturned.rawAddress, lpoverlapped.rawAddress, 0L)
 
 public actual fun wSAIsBlocking(): Bool =
     WindowsWin32NetworkingWinsockJniBridge.windowssysWindowsWin32NetworkingWinsockWSAIsBlocking()
 
-public actual fun wSAJoinLeaf(s: Socket, name: ConstPtr<Sockaddr>, namelen: Int, lpcallerdata: ConstPtr<Wsabuf>, lpcalleedata: MutPtr<Wsabuf>, lpsqos: ConstPtr<Qos>, lpgqos: ConstPtr<Qos>, dwflags: UInt): Socket =
+public actual fun wSAJoinLeaf(s: Socket, name: ConstPtr, namelen: Int, lpcallerdata: ConstPtr, lpcalleedata: MutPtr, lpsqos: ConstPtr, lpgqos: ConstPtr, dwflags: UInt): Socket =
     WindowsWin32NetworkingWinsockJniBridge.windowssysWindowsWin32NetworkingWinsockWSAJoinLeaf(s.toLong(), name.rawAddress, namelen, lpcallerdata.rawAddress, lpcalleedata.rawAddress, lpsqos.rawAddress, lpgqos.rawAddress, dwflags.toInt()).toULong()
 
-public actual fun wSALookupServiceBeginA(lpqsrestrictions: ConstPtr<Wsaqueryseta>, dwcontrolflags: UInt, lphlookup: MutPtr<Handle>): Int =
+public actual fun wSALookupServiceBeginA(lpqsrestrictions: ConstPtr, dwcontrolflags: UInt, lphlookup: MutPtr): Int =
     WindowsWin32NetworkingWinsockJniBridge.windowssysWindowsWin32NetworkingWinsockWSALookupServiceBeginA(lpqsrestrictions.rawAddress, dwcontrolflags.toInt(), lphlookup.rawAddress)
 
-public actual fun wSALookupServiceBeginW(lpqsrestrictions: ConstPtr<Wsaquerysetw>, dwcontrolflags: UInt, lphlookup: MutPtr<Handle>): Int =
+public actual fun wSALookupServiceBeginW(lpqsrestrictions: ConstPtr, dwcontrolflags: UInt, lphlookup: MutPtr): Int =
     WindowsWin32NetworkingWinsockJniBridge.windowssysWindowsWin32NetworkingWinsockWSALookupServiceBeginW(lpqsrestrictions.rawAddress, dwcontrolflags.toInt(), lphlookup.rawAddress)
 
 public actual fun wSALookupServiceEnd(hlookup: Handle): Int =
     WindowsWin32NetworkingWinsockJniBridge.windowssysWindowsWin32NetworkingWinsockWSALookupServiceEnd(hlookup.rawAddress)
 
-public actual fun wSALookupServiceNextA(hlookup: Handle, dwcontrolflags: UInt, lpdwbufferlength: MutPtr<UInt>, lpqsresults: MutPtr<Wsaqueryseta>): Int =
+public actual fun wSALookupServiceNextA(hlookup: Handle, dwcontrolflags: UInt, lpdwbufferlength: MutPtr, lpqsresults: MutPtr): Int =
     WindowsWin32NetworkingWinsockJniBridge.windowssysWindowsWin32NetworkingWinsockWSALookupServiceNextA(hlookup.rawAddress, dwcontrolflags.toInt(), lpdwbufferlength.rawAddress, lpqsresults.rawAddress)
 
-public actual fun wSALookupServiceNextW(hlookup: Handle, dwcontrolflags: UInt, lpdwbufferlength: MutPtr<UInt>, lpqsresults: MutPtr<Wsaquerysetw>): Int =
+public actual fun wSALookupServiceNextW(hlookup: Handle, dwcontrolflags: UInt, lpdwbufferlength: MutPtr, lpqsresults: MutPtr): Int =
     WindowsWin32NetworkingWinsockJniBridge.windowssysWindowsWin32NetworkingWinsockWSALookupServiceNextW(hlookup.rawAddress, dwcontrolflags.toInt(), lpdwbufferlength.rawAddress, lpqsresults.rawAddress)
 
-public actual fun wSANSPIoctl(hlookup: Handle, dwcontrolcode: UInt, lpvinbuffer: ConstPtr<CVoid>, cbinbuffer: UInt, lpvoutbuffer: MutPtr<CVoid>, cboutbuffer: UInt, lpcbbytesreturned: MutPtr<UInt>, lpcompletion: ConstPtr<Wsacompletion>): Int =
+public actual fun wSANSPIoctl(hlookup: Handle, dwcontrolcode: UInt, lpvinbuffer: ConstPtr, cbinbuffer: UInt, lpvoutbuffer: MutPtr, cboutbuffer: UInt, lpcbbytesreturned: MutPtr, lpcompletion: ConstPtr): Int =
     WindowsWin32NetworkingWinsockJniBridge.windowssysWindowsWin32NetworkingWinsockWSANSPIoctl(hlookup.rawAddress, dwcontrolcode.toInt(), lpvinbuffer.rawAddress, cbinbuffer.toInt(), lpvoutbuffer.rawAddress, cboutbuffer.toInt(), lpcbbytesreturned.rawAddress, lpcompletion.rawAddress)
 
-public actual fun wSANtohl(s: Socket, netlong: UInt, lphostlong: MutPtr<UInt>): Int =
+public actual fun wSANtohl(s: Socket, netlong: UInt, lphostlong: MutPtr): Int =
     WindowsWin32NetworkingWinsockJniBridge.windowssysWindowsWin32NetworkingWinsockWSANtohl(s.toLong(), netlong.toInt(), lphostlong.rawAddress)
 
-public actual fun wSANtohs(s: Socket, netshort: UShort, lphostshort: MutPtr<UShort>): Int =
+public actual fun wSANtohs(s: Socket, netshort: UShort, lphostshort: MutPtr): Int =
     WindowsWin32NetworkingWinsockJniBridge.windowssysWindowsWin32NetworkingWinsockWSANtohs(s.toLong(), netshort.toShort(), lphostshort.rawAddress)
 
-public actual fun wSAPoll(fdarray: MutPtr<Wsapollfd>, fds: UInt, timeout: Int): Int =
+public actual fun wSAPoll(fdarray: MutPtr, fds: UInt, timeout: Int): Int =
     WindowsWin32NetworkingWinsockJniBridge.windowssysWindowsWin32NetworkingWinsockWSAPoll(fdarray.rawAddress, fds.toInt(), timeout)
 
 public actual fun wSAProviderCompleteAsyncCall(hasynccall: Handle, iretcode: Int): Int =
     WindowsWin32NetworkingWinsockJniBridge.windowssysWindowsWin32NetworkingWinsockWSAProviderCompleteAsyncCall(hasynccall.rawAddress, iretcode)
 
-public actual fun wSAProviderConfigChange(lpnotificationhandle: MutPtr<Handle>, lpoverlapped: MutPtr<Overlapped>, lpcompletionroutine: LpwsaoverlappedCompletionRoutine): Int =
+public actual fun wSAProviderConfigChange(lpnotificationhandle: MutPtr, lpoverlapped: MutPtr, lpcompletionroutine: LpwsaoverlappedCompletionRoutine): Int =
     WindowsWin32NetworkingWinsockJniBridge.windowssysWindowsWin32NetworkingWinsockWSAProviderConfigChange(lpnotificationhandle.rawAddress, lpoverlapped.rawAddress, 0L)
 
-public actual fun wSAQuerySocketSecurity(socket: Socket, securityquerytemplate: ConstPtr<SocketSecurityQueryTemplate>, securityquerytemplatelen: UInt, securityqueryinfo: MutPtr<SocketSecurityQueryInfo>, securityqueryinfolen: MutPtr<UInt>, overlapped: ConstPtr<Overlapped>, completionroutine: LpwsaoverlappedCompletionRoutine): Int =
+public actual fun wSAQuerySocketSecurity(socket: Socket, securityquerytemplate: ConstPtr, securityquerytemplatelen: UInt, securityqueryinfo: MutPtr, securityqueryinfolen: MutPtr, overlapped: ConstPtr, completionroutine: LpwsaoverlappedCompletionRoutine): Int =
     WindowsWin32NetworkingWinsockJniBridge.windowssysWindowsWin32NetworkingWinsockWSAQuerySocketSecurity(socket.toLong(), securityquerytemplate.rawAddress, securityquerytemplatelen.toInt(), securityqueryinfo.rawAddress, securityqueryinfolen.rawAddress, overlapped.rawAddress, 0L)
 
-public actual fun wSARecv(s: Socket, lpbuffers: ConstPtr<Wsabuf>, dwbuffercount: UInt, lpnumberofbytesrecvd: MutPtr<UInt>, lpflags: MutPtr<UInt>, lpoverlapped: MutPtr<Overlapped>, lpcompletionroutine: LpwsaoverlappedCompletionRoutine): Int =
+public actual fun wSARecv(s: Socket, lpbuffers: ConstPtr, dwbuffercount: UInt, lpnumberofbytesrecvd: MutPtr, lpflags: MutPtr, lpoverlapped: MutPtr, lpcompletionroutine: LpwsaoverlappedCompletionRoutine): Int =
     WindowsWin32NetworkingWinsockJniBridge.windowssysWindowsWin32NetworkingWinsockWSARecv(s.toLong(), lpbuffers.rawAddress, dwbuffercount.toInt(), lpnumberofbytesrecvd.rawAddress, lpflags.rawAddress, lpoverlapped.rawAddress, 0L)
 
-public actual fun wSARecvDisconnect(s: Socket, lpinbounddisconnectdata: ConstPtr<Wsabuf>): Int =
+public actual fun wSARecvDisconnect(s: Socket, lpinbounddisconnectdata: ConstPtr): Int =
     WindowsWin32NetworkingWinsockJniBridge.windowssysWindowsWin32NetworkingWinsockWSARecvDisconnect(s.toLong(), lpinbounddisconnectdata.rawAddress)
 
-public actual fun wSARecvEx(s: Socket, buf: Pstr, len: Int, flags: MutPtr<Int>): Int =
+public actual fun wSARecvEx(s: Socket, buf: Pstr, len: Int, flags: MutPtr): Int =
     WindowsWin32NetworkingWinsockJniBridge.windowssysWindowsWin32NetworkingWinsockWSARecvEx(s.toLong(), buf.rawAddress, len, flags.rawAddress)
 
-public actual fun wSARecvFrom(s: Socket, lpbuffers: ConstPtr<Wsabuf>, dwbuffercount: UInt, lpnumberofbytesrecvd: MutPtr<UInt>, lpflags: MutPtr<UInt>, lpfrom: MutPtr<Sockaddr>, lpfromlen: MutPtr<Int>, lpoverlapped: MutPtr<Overlapped>, lpcompletionroutine: LpwsaoverlappedCompletionRoutine): Int =
+public actual fun wSARecvFrom(s: Socket, lpbuffers: ConstPtr, dwbuffercount: UInt, lpnumberofbytesrecvd: MutPtr, lpflags: MutPtr, lpfrom: MutPtr, lpfromlen: MutPtr, lpoverlapped: MutPtr, lpcompletionroutine: LpwsaoverlappedCompletionRoutine): Int =
     WindowsWin32NetworkingWinsockJniBridge.windowssysWindowsWin32NetworkingWinsockWSARecvFrom(s.toLong(), lpbuffers.rawAddress, dwbuffercount.toInt(), lpnumberofbytesrecvd.rawAddress, lpflags.rawAddress, lpfrom.rawAddress, lpfromlen.rawAddress, lpoverlapped.rawAddress, 0L)
 
-public actual fun wSARemoveServiceClass(lpserviceclassid: ConstPtr<Guid>): Int =
+public actual fun wSARemoveServiceClass(lpserviceclassid: ConstPtr): Int =
     WindowsWin32NetworkingWinsockJniBridge.windowssysWindowsWin32NetworkingWinsockWSARemoveServiceClass(lpserviceclassid.rawAddress)
 
 public actual fun wSAResetEvent(hevent: Wsaevent): Bool =
@@ -985,16 +980,16 @@ public actual fun wSAResetEvent(hevent: Wsaevent): Bool =
 public actual fun wSARevertImpersonation(): Int =
     WindowsWin32NetworkingWinsockJniBridge.windowssysWindowsWin32NetworkingWinsockWSARevertImpersonation()
 
-public actual fun wSASend(s: Socket, lpbuffers: ConstPtr<Wsabuf>, dwbuffercount: UInt, lpnumberofbytessent: MutPtr<UInt>, dwflags: UInt, lpoverlapped: MutPtr<Overlapped>, lpcompletionroutine: LpwsaoverlappedCompletionRoutine): Int =
+public actual fun wSASend(s: Socket, lpbuffers: ConstPtr, dwbuffercount: UInt, lpnumberofbytessent: MutPtr, dwflags: UInt, lpoverlapped: MutPtr, lpcompletionroutine: LpwsaoverlappedCompletionRoutine): Int =
     WindowsWin32NetworkingWinsockJniBridge.windowssysWindowsWin32NetworkingWinsockWSASend(s.toLong(), lpbuffers.rawAddress, dwbuffercount.toInt(), lpnumberofbytessent.rawAddress, dwflags.toInt(), lpoverlapped.rawAddress, 0L)
 
-public actual fun wSASendDisconnect(s: Socket, lpoutbounddisconnectdata: ConstPtr<Wsabuf>): Int =
+public actual fun wSASendDisconnect(s: Socket, lpoutbounddisconnectdata: ConstPtr): Int =
     WindowsWin32NetworkingWinsockJniBridge.windowssysWindowsWin32NetworkingWinsockWSASendDisconnect(s.toLong(), lpoutbounddisconnectdata.rawAddress)
 
-public actual fun wSASendMsg(handle: Socket, lpmsg: ConstPtr<Wsamsg>, dwflags: UInt, lpnumberofbytessent: MutPtr<UInt>, lpoverlapped: MutPtr<Overlapped>, lpcompletionroutine: LpwsaoverlappedCompletionRoutine): Int =
+public actual fun wSASendMsg(handle: Socket, lpmsg: ConstPtr, dwflags: UInt, lpnumberofbytessent: MutPtr, lpoverlapped: MutPtr, lpcompletionroutine: LpwsaoverlappedCompletionRoutine): Int =
     WindowsWin32NetworkingWinsockJniBridge.windowssysWindowsWin32NetworkingWinsockWSASendMsg(handle.toLong(), lpmsg.rawAddress, dwflags.toInt(), lpnumberofbytessent.rawAddress, lpoverlapped.rawAddress, 0L)
 
-public actual fun wSASendTo(s: Socket, lpbuffers: ConstPtr<Wsabuf>, dwbuffercount: UInt, lpnumberofbytessent: MutPtr<UInt>, dwflags: UInt, lpto: ConstPtr<Sockaddr>, itolen: Int, lpoverlapped: MutPtr<Overlapped>, lpcompletionroutine: LpwsaoverlappedCompletionRoutine): Int =
+public actual fun wSASendTo(s: Socket, lpbuffers: ConstPtr, dwbuffercount: UInt, lpnumberofbytessent: MutPtr, dwflags: UInt, lpto: ConstPtr, itolen: Int, lpoverlapped: MutPtr, lpcompletionroutine: LpwsaoverlappedCompletionRoutine): Int =
     WindowsWin32NetworkingWinsockJniBridge.windowssysWindowsWin32NetworkingWinsockWSASendTo(s.toLong(), lpbuffers.rawAddress, dwbuffercount.toInt(), lpnumberofbytessent.rawAddress, dwflags.toInt(), lpto.rawAddress, itolen, lpoverlapped.rawAddress, 0L)
 
 public actual fun wSASetBlockingHook(lpblockfunc: Farproc): Farproc =
@@ -1007,188 +1002,188 @@ public actual fun wSASetLastError(ierror: Int) {
     WindowsWin32NetworkingWinsockJniBridge.windowssysWindowsWin32NetworkingWinsockWSASetLastError(ierror)
 }
 
-public actual fun wSASetServiceA(lpqsreginfo: ConstPtr<Wsaqueryseta>, essoperation: Wsaesetserviceop, dwcontrolflags: UInt): Int =
+public actual fun wSASetServiceA(lpqsreginfo: ConstPtr, essoperation: Wsaesetserviceop, dwcontrolflags: UInt): Int =
     WindowsWin32NetworkingWinsockJniBridge.windowssysWindowsWin32NetworkingWinsockWSASetServiceA(lpqsreginfo.rawAddress, essoperation, dwcontrolflags.toInt())
 
-public actual fun wSASetServiceW(lpqsreginfo: ConstPtr<Wsaquerysetw>, essoperation: Wsaesetserviceop, dwcontrolflags: UInt): Int =
+public actual fun wSASetServiceW(lpqsreginfo: ConstPtr, essoperation: Wsaesetserviceop, dwcontrolflags: UInt): Int =
     WindowsWin32NetworkingWinsockJniBridge.windowssysWindowsWin32NetworkingWinsockWSASetServiceW(lpqsreginfo.rawAddress, essoperation, dwcontrolflags.toInt())
 
-public actual fun wSASetSocketPeerTargetName(socket: Socket, peertargetname: ConstPtr<SocketPeerTargetName>, peertargetnamelen: UInt, overlapped: ConstPtr<Overlapped>, completionroutine: LpwsaoverlappedCompletionRoutine): Int =
+public actual fun wSASetSocketPeerTargetName(socket: Socket, peertargetname: ConstPtr, peertargetnamelen: UInt, overlapped: ConstPtr, completionroutine: LpwsaoverlappedCompletionRoutine): Int =
     WindowsWin32NetworkingWinsockJniBridge.windowssysWindowsWin32NetworkingWinsockWSASetSocketPeerTargetName(socket.toLong(), peertargetname.rawAddress, peertargetnamelen.toInt(), overlapped.rawAddress, 0L)
 
-public actual fun wSASetSocketSecurity(socket: Socket, securitysettings: ConstPtr<SocketSecuritySettings>, securitysettingslen: UInt, overlapped: ConstPtr<Overlapped>, completionroutine: LpwsaoverlappedCompletionRoutine): Int =
+public actual fun wSASetSocketSecurity(socket: Socket, securitysettings: ConstPtr, securitysettingslen: UInt, overlapped: ConstPtr, completionroutine: LpwsaoverlappedCompletionRoutine): Int =
     WindowsWin32NetworkingWinsockJniBridge.windowssysWindowsWin32NetworkingWinsockWSASetSocketSecurity(socket.toLong(), securitysettings.rawAddress, securitysettingslen.toInt(), overlapped.rawAddress, 0L)
 
-public actual fun wSASocketA(af: Int, type: Int, protocol: Int, lpprotocolinfo: ConstPtr<WsaprotocolInfoa>, g: UInt, dwflags: UInt): Socket =
+public actual fun wSASocketA(af: Int, type: Int, protocol: Int, lpprotocolinfo: ConstPtr, g: UInt, dwflags: UInt): Socket =
     WindowsWin32NetworkingWinsockJniBridge.windowssysWindowsWin32NetworkingWinsockWSASocketA(af, type, protocol, lpprotocolinfo.rawAddress, g.toInt(), dwflags.toInt()).toULong()
 
-public actual fun wSASocketW(af: Int, type: Int, protocol: Int, lpprotocolinfo: ConstPtr<WsaprotocolInfow>, g: UInt, dwflags: UInt): Socket =
+public actual fun wSASocketW(af: Int, type: Int, protocol: Int, lpprotocolinfo: ConstPtr, g: UInt, dwflags: UInt): Socket =
     WindowsWin32NetworkingWinsockJniBridge.windowssysWindowsWin32NetworkingWinsockWSASocketW(af, type, protocol, lpprotocolinfo.rawAddress, g.toInt(), dwflags.toInt()).toULong()
 
-public actual fun wSAStartup(wversionrequested: UShort, lpwsadata: MutPtr<Wsadata>): Int =
+public actual fun wSAStartup(wversionrequested: UShort, lpwsadata: MutPtr): Int =
     WindowsWin32NetworkingWinsockJniBridge.windowssysWindowsWin32NetworkingWinsockWSAStartup(wversionrequested.toShort(), lpwsadata.rawAddress)
 
-public actual fun wSAStringToAddressA(addressstring: Pcstr, addressfamily: Int, lpprotocolinfo: ConstPtr<WsaprotocolInfoa>, lpaddress: MutPtr<Sockaddr>, lpaddresslength: MutPtr<Int>): Int =
+public actual fun wSAStringToAddressA(addressstring: Pcstr, addressfamily: Int, lpprotocolinfo: ConstPtr, lpaddress: MutPtr, lpaddresslength: MutPtr): Int =
     WindowsWin32NetworkingWinsockJniBridge.windowssysWindowsWin32NetworkingWinsockWSAStringToAddressA(addressstring.rawAddress, addressfamily, lpprotocolinfo.rawAddress, lpaddress.rawAddress, lpaddresslength.rawAddress)
 
-public actual fun wSAStringToAddressW(addressstring: Pcwstr, addressfamily: Int, lpprotocolinfo: ConstPtr<WsaprotocolInfow>, lpaddress: MutPtr<Sockaddr>, lpaddresslength: MutPtr<Int>): Int =
+public actual fun wSAStringToAddressW(addressstring: Pcwstr, addressfamily: Int, lpprotocolinfo: ConstPtr, lpaddress: MutPtr, lpaddresslength: MutPtr): Int =
     WindowsWin32NetworkingWinsockJniBridge.windowssysWindowsWin32NetworkingWinsockWSAStringToAddressW(addressstring.rawAddress, addressfamily, lpprotocolinfo.rawAddress, lpaddress.rawAddress, lpaddresslength.rawAddress)
 
-public actual fun wSAUnadvertiseProvider(puuidproviderid: ConstPtr<Guid>): Int =
+public actual fun wSAUnadvertiseProvider(puuidproviderid: ConstPtr): Int =
     WindowsWin32NetworkingWinsockJniBridge.windowssysWindowsWin32NetworkingWinsockWSAUnadvertiseProvider(puuidproviderid.rawAddress)
 
 public actual fun wSAUnhookBlockingHook(): Int =
     WindowsWin32NetworkingWinsockJniBridge.windowssysWindowsWin32NetworkingWinsockWSAUnhookBlockingHook()
 
-public actual fun wSAWaitForMultipleEvents(cevents: UInt, lphevents: ConstPtr<Handle>, fwaitall: Bool, dwtimeout: UInt, falertable: Bool): WaitEvent =
+public actual fun wSAWaitForMultipleEvents(cevents: UInt, lphevents: ConstPtr, fwaitall: Bool, dwtimeout: UInt, falertable: Bool): WaitEvent =
     WindowsWin32NetworkingWinsockJniBridge.windowssysWindowsWin32NetworkingWinsockWSAWaitForMultipleEvents(cevents.toInt(), lphevents.rawAddress, fwaitall, dwtimeout.toInt(), falertable).toUInt()
 
-public actual fun wSCDeinstallProvider(lpproviderid: ConstPtr<Guid>, lperrno: MutPtr<Int>): Int =
+public actual fun wSCDeinstallProvider(lpproviderid: ConstPtr, lperrno: MutPtr): Int =
     WindowsWin32NetworkingWinsockJniBridge.windowssysWindowsWin32NetworkingWinsockWSCDeinstallProvider(lpproviderid.rawAddress, lperrno.rawAddress)
 
-public actual fun wSCDeinstallProvider32(lpproviderid: ConstPtr<Guid>, lperrno: MutPtr<Int>): Int =
+public actual fun wSCDeinstallProvider32(lpproviderid: ConstPtr, lperrno: MutPtr): Int =
     WindowsWin32NetworkingWinsockJniBridge.windowssysWindowsWin32NetworkingWinsockWSCDeinstallProvider32(lpproviderid.rawAddress, lperrno.rawAddress)
 
-public actual fun wSCEnableNSProvider(lpproviderid: ConstPtr<Guid>, fenable: Bool): Int =
+public actual fun wSCEnableNSProvider(lpproviderid: ConstPtr, fenable: Bool): Int =
     WindowsWin32NetworkingWinsockJniBridge.windowssysWindowsWin32NetworkingWinsockWSCEnableNSProvider(lpproviderid.rawAddress, fenable)
 
-public actual fun wSCEnableNSProvider32(lpproviderid: ConstPtr<Guid>, fenable: Bool): Int =
+public actual fun wSCEnableNSProvider32(lpproviderid: ConstPtr, fenable: Bool): Int =
     WindowsWin32NetworkingWinsockJniBridge.windowssysWindowsWin32NetworkingWinsockWSCEnableNSProvider32(lpproviderid.rawAddress, fenable)
 
-public actual fun wSCEnumNameSpaceProviders32(lpdwbufferlength: MutPtr<UInt>, lpnspbuffer: MutPtr<WsanamespaceInfow>): Int =
+public actual fun wSCEnumNameSpaceProviders32(lpdwbufferlength: MutPtr, lpnspbuffer: MutPtr): Int =
     WindowsWin32NetworkingWinsockJniBridge.windowssysWindowsWin32NetworkingWinsockWSCEnumNameSpaceProviders32(lpdwbufferlength.rawAddress, lpnspbuffer.rawAddress)
 
-public actual fun wSCEnumNameSpaceProvidersEx32(lpdwbufferlength: MutPtr<UInt>, lpnspbuffer: MutPtr<WsanamespaceInfoexw>): Int =
+public actual fun wSCEnumNameSpaceProvidersEx32(lpdwbufferlength: MutPtr, lpnspbuffer: MutPtr): Int =
     WindowsWin32NetworkingWinsockJniBridge.windowssysWindowsWin32NetworkingWinsockWSCEnumNameSpaceProvidersEx32(lpdwbufferlength.rawAddress, lpnspbuffer.rawAddress)
 
-public actual fun wSCEnumProtocols(lpiprotocols: ConstPtr<Int>, lpprotocolbuffer: MutPtr<WsaprotocolInfow>, lpdwbufferlength: MutPtr<UInt>, lperrno: MutPtr<Int>): Int =
+public actual fun wSCEnumProtocols(lpiprotocols: ConstPtr, lpprotocolbuffer: MutPtr, lpdwbufferlength: MutPtr, lperrno: MutPtr): Int =
     WindowsWin32NetworkingWinsockJniBridge.windowssysWindowsWin32NetworkingWinsockWSCEnumProtocols(lpiprotocols.rawAddress, lpprotocolbuffer.rawAddress, lpdwbufferlength.rawAddress, lperrno.rawAddress)
 
-public actual fun wSCEnumProtocols32(lpiprotocols: ConstPtr<Int>, lpprotocolbuffer: MutPtr<WsaprotocolInfow>, lpdwbufferlength: MutPtr<UInt>, lperrno: MutPtr<Int>): Int =
+public actual fun wSCEnumProtocols32(lpiprotocols: ConstPtr, lpprotocolbuffer: MutPtr, lpdwbufferlength: MutPtr, lperrno: MutPtr): Int =
     WindowsWin32NetworkingWinsockJniBridge.windowssysWindowsWin32NetworkingWinsockWSCEnumProtocols32(lpiprotocols.rawAddress, lpprotocolbuffer.rawAddress, lpdwbufferlength.rawAddress, lperrno.rawAddress)
 
-public actual fun wSCGetApplicationCategory(path: Pcwstr, pathlength: UInt, extra: Pcwstr, extralength: UInt, ppermittedlspcategories: MutPtr<UInt>, lperrno: MutPtr<Int>): Int =
+public actual fun wSCGetApplicationCategory(path: Pcwstr, pathlength: UInt, extra: Pcwstr, extralength: UInt, ppermittedlspcategories: MutPtr, lperrno: MutPtr): Int =
     WindowsWin32NetworkingWinsockJniBridge.windowssysWindowsWin32NetworkingWinsockWSCGetApplicationCategory(path.rawAddress, pathlength.toInt(), extra.rawAddress, extralength.toInt(), ppermittedlspcategories.rawAddress, lperrno.rawAddress)
 
-public actual fun wSCGetProviderInfo(lpproviderid: ConstPtr<Guid>, infotype: WscProviderInfoType, info: MutPtr<UByte>, infosize: MutPtr<ULong>, flags: UInt, lperrno: MutPtr<Int>): Int =
+public actual fun wSCGetProviderInfo(lpproviderid: ConstPtr, infotype: WscProviderInfoType, info: MutPtr, infosize: MutPtr, flags: UInt, lperrno: MutPtr): Int =
     WindowsWin32NetworkingWinsockJniBridge.windowssysWindowsWin32NetworkingWinsockWSCGetProviderInfo(lpproviderid.rawAddress, infotype, info.rawAddress, infosize.rawAddress, flags.toInt(), lperrno.rawAddress)
 
-public actual fun wSCGetProviderInfo32(lpproviderid: ConstPtr<Guid>, infotype: WscProviderInfoType, info: MutPtr<UByte>, infosize: MutPtr<ULong>, flags: UInt, lperrno: MutPtr<Int>): Int =
+public actual fun wSCGetProviderInfo32(lpproviderid: ConstPtr, infotype: WscProviderInfoType, info: MutPtr, infosize: MutPtr, flags: UInt, lperrno: MutPtr): Int =
     WindowsWin32NetworkingWinsockJniBridge.windowssysWindowsWin32NetworkingWinsockWSCGetProviderInfo32(lpproviderid.rawAddress, infotype, info.rawAddress, infosize.rawAddress, flags.toInt(), lperrno.rawAddress)
 
-public actual fun wSCGetProviderPath(lpproviderid: ConstPtr<Guid>, lpszproviderdllpath: Pwstr, lpproviderdllpathlen: MutPtr<Int>, lperrno: MutPtr<Int>): Int =
+public actual fun wSCGetProviderPath(lpproviderid: ConstPtr, lpszproviderdllpath: Pwstr, lpproviderdllpathlen: MutPtr, lperrno: MutPtr): Int =
     WindowsWin32NetworkingWinsockJniBridge.windowssysWindowsWin32NetworkingWinsockWSCGetProviderPath(lpproviderid.rawAddress, lpszproviderdllpath.rawAddress, lpproviderdllpathlen.rawAddress, lperrno.rawAddress)
 
-public actual fun wSCGetProviderPath32(lpproviderid: ConstPtr<Guid>, lpszproviderdllpath: Pwstr, lpproviderdllpathlen: MutPtr<Int>, lperrno: MutPtr<Int>): Int =
+public actual fun wSCGetProviderPath32(lpproviderid: ConstPtr, lpszproviderdllpath: Pwstr, lpproviderdllpathlen: MutPtr, lperrno: MutPtr): Int =
     WindowsWin32NetworkingWinsockJniBridge.windowssysWindowsWin32NetworkingWinsockWSCGetProviderPath32(lpproviderid.rawAddress, lpszproviderdllpath.rawAddress, lpproviderdllpathlen.rawAddress, lperrno.rawAddress)
 
-public actual fun wSCInstallNameSpace(lpszidentifier: Pcwstr, lpszpathname: Pcwstr, dwnamespace: UInt, dwversion: UInt, lpproviderid: ConstPtr<Guid>): Int =
+public actual fun wSCInstallNameSpace(lpszidentifier: Pcwstr, lpszpathname: Pcwstr, dwnamespace: UInt, dwversion: UInt, lpproviderid: ConstPtr): Int =
     WindowsWin32NetworkingWinsockJniBridge.windowssysWindowsWin32NetworkingWinsockWSCInstallNameSpace(lpszidentifier.rawAddress, lpszpathname.rawAddress, dwnamespace.toInt(), dwversion.toInt(), lpproviderid.rawAddress)
 
-public actual fun wSCInstallNameSpace32(lpszidentifier: Pcwstr, lpszpathname: Pcwstr, dwnamespace: UInt, dwversion: UInt, lpproviderid: ConstPtr<Guid>): Int =
+public actual fun wSCInstallNameSpace32(lpszidentifier: Pcwstr, lpszpathname: Pcwstr, dwnamespace: UInt, dwversion: UInt, lpproviderid: ConstPtr): Int =
     WindowsWin32NetworkingWinsockJniBridge.windowssysWindowsWin32NetworkingWinsockWSCInstallNameSpace32(lpszidentifier.rawAddress, lpszpathname.rawAddress, dwnamespace.toInt(), dwversion.toInt(), lpproviderid.rawAddress)
 
-public actual fun wSCInstallNameSpaceEx(lpszidentifier: Pcwstr, lpszpathname: Pcwstr, dwnamespace: UInt, dwversion: UInt, lpproviderid: ConstPtr<Guid>, lpproviderspecific: ConstPtr<Blob>): Int =
+public actual fun wSCInstallNameSpaceEx(lpszidentifier: Pcwstr, lpszpathname: Pcwstr, dwnamespace: UInt, dwversion: UInt, lpproviderid: ConstPtr, lpproviderspecific: ConstPtr): Int =
     WindowsWin32NetworkingWinsockJniBridge.windowssysWindowsWin32NetworkingWinsockWSCInstallNameSpaceEx(lpszidentifier.rawAddress, lpszpathname.rawAddress, dwnamespace.toInt(), dwversion.toInt(), lpproviderid.rawAddress, lpproviderspecific.rawAddress)
 
-public actual fun wSCInstallNameSpaceEx32(lpszidentifier: Pcwstr, lpszpathname: Pcwstr, dwnamespace: UInt, dwversion: UInt, lpproviderid: ConstPtr<Guid>, lpproviderspecific: ConstPtr<Blob>): Int =
+public actual fun wSCInstallNameSpaceEx32(lpszidentifier: Pcwstr, lpszpathname: Pcwstr, dwnamespace: UInt, dwversion: UInt, lpproviderid: ConstPtr, lpproviderspecific: ConstPtr): Int =
     WindowsWin32NetworkingWinsockJniBridge.windowssysWindowsWin32NetworkingWinsockWSCInstallNameSpaceEx32(lpszidentifier.rawAddress, lpszpathname.rawAddress, dwnamespace.toInt(), dwversion.toInt(), lpproviderid.rawAddress, lpproviderspecific.rawAddress)
 
-public actual fun wSCInstallProvider(lpproviderid: ConstPtr<Guid>, lpszproviderdllpath: Pcwstr, lpprotocolinfolist: ConstPtr<WsaprotocolInfow>, dwnumberofentries: UInt, lperrno: MutPtr<Int>): Int =
+public actual fun wSCInstallProvider(lpproviderid: ConstPtr, lpszproviderdllpath: Pcwstr, lpprotocolinfolist: ConstPtr, dwnumberofentries: UInt, lperrno: MutPtr): Int =
     WindowsWin32NetworkingWinsockJniBridge.windowssysWindowsWin32NetworkingWinsockWSCInstallProvider(lpproviderid.rawAddress, lpszproviderdllpath.rawAddress, lpprotocolinfolist.rawAddress, dwnumberofentries.toInt(), lperrno.rawAddress)
 
-public actual fun wscinstallProvider6432(lpproviderid: ConstPtr<Guid>, lpszproviderdllpath: Pcwstr, lpprotocolinfolist: ConstPtr<WsaprotocolInfow>, dwnumberofentries: UInt, lperrno: MutPtr<Int>): Int =
+public actual fun wscinstallProvider6432(lpproviderid: ConstPtr, lpszproviderdllpath: Pcwstr, lpprotocolinfolist: ConstPtr, dwnumberofentries: UInt, lperrno: MutPtr): Int =
     WindowsWin32NetworkingWinsockJniBridge.windowssysWindowsWin32NetworkingWinsockWscinstallProvider6432(lpproviderid.rawAddress, lpszproviderdllpath.rawAddress, lpprotocolinfolist.rawAddress, dwnumberofentries.toInt(), lperrno.rawAddress)
 
-public actual fun wscinstallProviderAndChains6432(lpproviderid: ConstPtr<Guid>, lpszproviderdllpath: Pcwstr, lpszproviderdllpath32: Pcwstr, lpszlspname: Pcwstr, dwserviceflags: UInt, lpprotocolinfolist: MutPtr<WsaprotocolInfow>, dwnumberofentries: UInt, lpdwcatalogentryid: MutPtr<UInt>, lperrno: MutPtr<Int>): Int =
+public actual fun wscinstallProviderAndChains6432(lpproviderid: ConstPtr, lpszproviderdllpath: Pcwstr, lpszproviderdllpath32: Pcwstr, lpszlspname: Pcwstr, dwserviceflags: UInt, lpprotocolinfolist: MutPtr, dwnumberofentries: UInt, lpdwcatalogentryid: MutPtr, lperrno: MutPtr): Int =
     WindowsWin32NetworkingWinsockJniBridge.windowssysWindowsWin32NetworkingWinsockWscinstallProviderAndChains6432(lpproviderid.rawAddress, lpszproviderdllpath.rawAddress, lpszproviderdllpath32.rawAddress, lpszlspname.rawAddress, dwserviceflags.toInt(), lpprotocolinfolist.rawAddress, dwnumberofentries.toInt(), lpdwcatalogentryid.rawAddress, lperrno.rawAddress)
 
-public actual fun wSCSetApplicationCategory(path: Pcwstr, pathlength: UInt, extra: Pcwstr, extralength: UInt, permittedlspcategories: UInt, pprevpermlspcat: MutPtr<UInt>, lperrno: MutPtr<Int>): Int =
+public actual fun wSCSetApplicationCategory(path: Pcwstr, pathlength: UInt, extra: Pcwstr, extralength: UInt, permittedlspcategories: UInt, pprevpermlspcat: MutPtr, lperrno: MutPtr): Int =
     WindowsWin32NetworkingWinsockJniBridge.windowssysWindowsWin32NetworkingWinsockWSCSetApplicationCategory(path.rawAddress, pathlength.toInt(), extra.rawAddress, extralength.toInt(), permittedlspcategories.toInt(), pprevpermlspcat.rawAddress, lperrno.rawAddress)
 
-public actual fun wSCSetProviderInfo(lpproviderid: ConstPtr<Guid>, infotype: WscProviderInfoType, info: ConstPtr<UByte>, infosize: ULong, flags: UInt, lperrno: MutPtr<Int>): Int =
+public actual fun wSCSetProviderInfo(lpproviderid: ConstPtr, infotype: WscProviderInfoType, info: ConstPtr, infosize: ULong, flags: UInt, lperrno: MutPtr): Int =
     WindowsWin32NetworkingWinsockJniBridge.windowssysWindowsWin32NetworkingWinsockWSCSetProviderInfo(lpproviderid.rawAddress, infotype, info.rawAddress, infosize.toLong(), flags.toInt(), lperrno.rawAddress)
 
-public actual fun wSCSetProviderInfo32(lpproviderid: ConstPtr<Guid>, infotype: WscProviderInfoType, info: ConstPtr<UByte>, infosize: ULong, flags: UInt, lperrno: MutPtr<Int>): Int =
+public actual fun wSCSetProviderInfo32(lpproviderid: ConstPtr, infotype: WscProviderInfoType, info: ConstPtr, infosize: ULong, flags: UInt, lperrno: MutPtr): Int =
     WindowsWin32NetworkingWinsockJniBridge.windowssysWindowsWin32NetworkingWinsockWSCSetProviderInfo32(lpproviderid.rawAddress, infotype, info.rawAddress, infosize.toLong(), flags.toInt(), lperrno.rawAddress)
 
-public actual fun wSCUnInstallNameSpace(lpproviderid: ConstPtr<Guid>): Int =
+public actual fun wSCUnInstallNameSpace(lpproviderid: ConstPtr): Int =
     WindowsWin32NetworkingWinsockJniBridge.windowssysWindowsWin32NetworkingWinsockWSCUnInstallNameSpace(lpproviderid.rawAddress)
 
-public actual fun wSCUnInstallNameSpace32(lpproviderid: ConstPtr<Guid>): Int =
+public actual fun wSCUnInstallNameSpace32(lpproviderid: ConstPtr): Int =
     WindowsWin32NetworkingWinsockJniBridge.windowssysWindowsWin32NetworkingWinsockWSCUnInstallNameSpace32(lpproviderid.rawAddress)
 
-public actual fun wSCUpdateProvider(lpproviderid: ConstPtr<Guid>, lpszproviderdllpath: Pcwstr, lpprotocolinfolist: ConstPtr<WsaprotocolInfow>, dwnumberofentries: UInt, lperrno: MutPtr<Int>): Int =
+public actual fun wSCUpdateProvider(lpproviderid: ConstPtr, lpszproviderdllpath: Pcwstr, lpprotocolinfolist: ConstPtr, dwnumberofentries: UInt, lperrno: MutPtr): Int =
     WindowsWin32NetworkingWinsockJniBridge.windowssysWindowsWin32NetworkingWinsockWSCUpdateProvider(lpproviderid.rawAddress, lpszproviderdllpath.rawAddress, lpprotocolinfolist.rawAddress, dwnumberofentries.toInt(), lperrno.rawAddress)
 
-public actual fun wSCUpdateProvider32(lpproviderid: ConstPtr<Guid>, lpszproviderdllpath: Pcwstr, lpprotocolinfolist: ConstPtr<WsaprotocolInfow>, dwnumberofentries: UInt, lperrno: MutPtr<Int>): Int =
+public actual fun wSCUpdateProvider32(lpproviderid: ConstPtr, lpszproviderdllpath: Pcwstr, lpprotocolinfolist: ConstPtr, dwnumberofentries: UInt, lperrno: MutPtr): Int =
     WindowsWin32NetworkingWinsockJniBridge.windowssysWindowsWin32NetworkingWinsockWSCUpdateProvider32(lpproviderid.rawAddress, lpszproviderdllpath.rawAddress, lpprotocolinfolist.rawAddress, dwnumberofentries.toInt(), lperrno.rawAddress)
 
-public actual fun wSCWriteNameSpaceOrder(lpproviderid: MutPtr<Guid>, dwnumberofentries: UInt): Int =
+public actual fun wSCWriteNameSpaceOrder(lpproviderid: MutPtr, dwnumberofentries: UInt): Int =
     WindowsWin32NetworkingWinsockJniBridge.windowssysWindowsWin32NetworkingWinsockWSCWriteNameSpaceOrder(lpproviderid.rawAddress, dwnumberofentries.toInt())
 
-public actual fun wSCWriteNameSpaceOrder32(lpproviderid: MutPtr<Guid>, dwnumberofentries: UInt): Int =
+public actual fun wSCWriteNameSpaceOrder32(lpproviderid: MutPtr, dwnumberofentries: UInt): Int =
     WindowsWin32NetworkingWinsockJniBridge.windowssysWindowsWin32NetworkingWinsockWSCWriteNameSpaceOrder32(lpproviderid.rawAddress, dwnumberofentries.toInt())
 
-public actual fun wSCWriteProviderOrder(lpwdcatalogentryid: MutPtr<UInt>, dwnumberofentries: UInt): Int =
+public actual fun wSCWriteProviderOrder(lpwdcatalogentryid: MutPtr, dwnumberofentries: UInt): Int =
     WindowsWin32NetworkingWinsockJniBridge.windowssysWindowsWin32NetworkingWinsockWSCWriteProviderOrder(lpwdcatalogentryid.rawAddress, dwnumberofentries.toInt())
 
-public actual fun wSCWriteProviderOrder32(lpwdcatalogentryid: MutPtr<UInt>, dwnumberofentries: UInt): Int =
+public actual fun wSCWriteProviderOrder32(lpwdcatalogentryid: MutPtr, dwnumberofentries: UInt): Int =
     WindowsWin32NetworkingWinsockJniBridge.windowssysWindowsWin32NetworkingWinsockWSCWriteProviderOrder32(lpwdcatalogentryid.rawAddress, dwnumberofentries.toInt())
 
-public actual fun wsafdisSet(fd: Socket, param1: MutPtr<FdSet>): Int =
+public actual fun wsafdisSet(fd: Socket, param1: MutPtr): Int =
     WindowsWin32NetworkingWinsockJniBridge.windowssysWindowsWin32NetworkingWinsockWsafdisSet(fd.toLong(), param1.rawAddress)
 
-public actual fun accept(s: Socket, addr: MutPtr<Sockaddr>, addrlen: MutPtr<Int>): Socket =
+public actual fun accept(s: Socket, addr: MutPtr, addrlen: MutPtr): Socket =
     WindowsWin32NetworkingWinsockJniBridge.windowssysWindowsWin32NetworkingWinsockAccept(s.toLong(), addr.rawAddress, addrlen.rawAddress).toULong()
 
-public actual fun bind(s: Socket, name: ConstPtr<Sockaddr>, namelen: Int): Int =
+public actual fun bind(s: Socket, name: ConstPtr, namelen: Int): Int =
     WindowsWin32NetworkingWinsockJniBridge.windowssysWindowsWin32NetworkingWinsockBind(s.toLong(), name.rawAddress, namelen)
 
 public actual fun closesocket(s: Socket): Int =
     WindowsWin32NetworkingWinsockJniBridge.windowssysWindowsWin32NetworkingWinsockClosesocket(s.toLong())
 
-public actual fun connect(s: Socket, name: ConstPtr<Sockaddr>, namelen: Int): Int =
+public actual fun connect(s: Socket, name: ConstPtr, namelen: Int): Int =
     WindowsWin32NetworkingWinsockJniBridge.windowssysWindowsWin32NetworkingWinsockConnect(s.toLong(), name.rawAddress, namelen)
 
-public actual fun freeaddrinfo(paddrinfo: ConstPtr<Addrinfoa>) {
+public actual fun freeaddrinfo(paddrinfo: ConstPtr) {
     WindowsWin32NetworkingWinsockJniBridge.windowssysWindowsWin32NetworkingWinsockFreeaddrinfo(paddrinfo.rawAddress)
 }
 
-public actual fun getaddrinfo(pnodename: Pcstr, pservicename: Pcstr, phints: ConstPtr<Addrinfoa>, ppresult: MutPtr<MutPtr<Addrinfoa>>): Int =
+public actual fun getaddrinfo(pnodename: Pcstr, pservicename: Pcstr, phints: ConstPtr, ppresult: MutPtr): Int =
     WindowsWin32NetworkingWinsockJniBridge.windowssysWindowsWin32NetworkingWinsockGetaddrinfo(pnodename.rawAddress, pservicename.rawAddress, phints.rawAddress, ppresult.rawAddress)
 
-public actual fun gethostbyaddr(addr: Pcstr, len: Int, type: Int): MutPtr<Hostent> =
+public actual fun gethostbyaddr(addr: Pcstr, len: Int, type: Int): MutPtr =
     MutPtr(WindowsWin32NetworkingWinsockJniBridge.windowssysWindowsWin32NetworkingWinsockGethostbyaddr(addr.rawAddress, len, type))
 
-public actual fun gethostbyname(name: Pcstr): MutPtr<Hostent> =
+public actual fun gethostbyname(name: Pcstr): MutPtr =
     MutPtr(WindowsWin32NetworkingWinsockJniBridge.windowssysWindowsWin32NetworkingWinsockGethostbyname(name.rawAddress))
 
 public actual fun gethostname(name: Pstr, namelen: Int): Int =
     WindowsWin32NetworkingWinsockJniBridge.windowssysWindowsWin32NetworkingWinsockGethostname(name.rawAddress, namelen)
 
-public actual fun getnameinfo(psockaddr: ConstPtr<Sockaddr>, sockaddrlength: SocklenT, pnodebuffer: Pstr, nodebuffersize: UInt, pservicebuffer: Pstr, servicebuffersize: UInt, flags: Int): Int =
+public actual fun getnameinfo(psockaddr: ConstPtr, sockaddrlength: SocklenT, pnodebuffer: Pstr, nodebuffersize: UInt, pservicebuffer: Pstr, servicebuffersize: UInt, flags: Int): Int =
     WindowsWin32NetworkingWinsockJniBridge.windowssysWindowsWin32NetworkingWinsockGetnameinfo(psockaddr.rawAddress, sockaddrlength, pnodebuffer.rawAddress, nodebuffersize.toInt(), pservicebuffer.rawAddress, servicebuffersize.toInt(), flags)
 
-public actual fun getpeername(s: Socket, name: MutPtr<Sockaddr>, namelen: MutPtr<Int>): Int =
+public actual fun getpeername(s: Socket, name: MutPtr, namelen: MutPtr): Int =
     WindowsWin32NetworkingWinsockJniBridge.windowssysWindowsWin32NetworkingWinsockGetpeername(s.toLong(), name.rawAddress, namelen.rawAddress)
 
-public actual fun getprotobyname(name: Pcstr): MutPtr<Protoent> =
+public actual fun getprotobyname(name: Pcstr): MutPtr =
     MutPtr(WindowsWin32NetworkingWinsockJniBridge.windowssysWindowsWin32NetworkingWinsockGetprotobyname(name.rawAddress))
 
-public actual fun getprotobynumber(number: Int): MutPtr<Protoent> =
+public actual fun getprotobynumber(number: Int): MutPtr =
     MutPtr(WindowsWin32NetworkingWinsockJniBridge.windowssysWindowsWin32NetworkingWinsockGetprotobynumber(number))
 
-public actual fun getservbyname(name: Pcstr, proto: Pcstr): MutPtr<Servent> =
+public actual fun getservbyname(name: Pcstr, proto: Pcstr): MutPtr =
     MutPtr(WindowsWin32NetworkingWinsockJniBridge.windowssysWindowsWin32NetworkingWinsockGetservbyname(name.rawAddress, proto.rawAddress))
 
-public actual fun getservbyport(port: Int, proto: Pcstr): MutPtr<Servent> =
+public actual fun getservbyport(port: Int, proto: Pcstr): MutPtr =
     MutPtr(WindowsWin32NetworkingWinsockJniBridge.windowssysWindowsWin32NetworkingWinsockGetservbyport(port, proto.rawAddress))
 
-public actual fun getsockname(s: Socket, name: MutPtr<Sockaddr>, namelen: MutPtr<Int>): Int =
+public actual fun getsockname(s: Socket, name: MutPtr, namelen: MutPtr): Int =
     WindowsWin32NetworkingWinsockJniBridge.windowssysWindowsWin32NetworkingWinsockGetsockname(s.toLong(), name.rawAddress, namelen.rawAddress)
 
-public actual fun getsockopt(s: Socket, level: Int, optname: Int, optval: Pstr, optlen: MutPtr<Int>): Int =
+public actual fun getsockopt(s: Socket, level: Int, optname: Int, optval: Pstr, optlen: MutPtr): Int =
     WindowsWin32NetworkingWinsockJniBridge.windowssysWindowsWin32NetworkingWinsockGetsockopt(s.toLong(), level, optname, optval.rawAddress, optlen.rawAddress)
 
 public actual fun htonl(hostlong: UInt): UInt =
@@ -1203,13 +1198,13 @@ public actual fun inetAddr(cp: Pcstr): UInt =
 public actual fun inetNtoa(input: InAddr): Pstr =
     MutPtr(0L)
 
-public actual fun inetNtop(family: Int, paddr: ConstPtr<CVoid>, pstringbuf: Pstr, stringbufsize: ULong): Pcstr =
+public actual fun inetNtop(family: Int, paddr: ConstPtr, pstringbuf: Pstr, stringbufsize: ULong): Pcstr =
     ConstPtr(WindowsWin32NetworkingWinsockJniBridge.windowssysWindowsWin32NetworkingWinsockInetNtop(family, paddr.rawAddress, pstringbuf.rawAddress, stringbufsize.toLong()))
 
-public actual fun inetPton(family: Int, pszaddrstring: Pcstr, paddrbuf: MutPtr<CVoid>): Int =
+public actual fun inetPton(family: Int, pszaddrstring: Pcstr, paddrbuf: MutPtr): Int =
     WindowsWin32NetworkingWinsockJniBridge.windowssysWindowsWin32NetworkingWinsockInetPton(family, pszaddrstring.rawAddress, paddrbuf.rawAddress)
 
-public actual fun ioctlsocket(s: Socket, cmd: Int, argp: MutPtr<UInt>): Int =
+public actual fun ioctlsocket(s: Socket, cmd: Int, argp: MutPtr): Int =
     WindowsWin32NetworkingWinsockJniBridge.windowssysWindowsWin32NetworkingWinsockIoctlsocket(s.toLong(), cmd, argp.rawAddress)
 
 public actual fun listen(s: Socket, backlog: Int): Int =
@@ -1224,16 +1219,16 @@ public actual fun ntohs(netshort: UShort): UShort =
 public actual fun recv(s: Socket, buf: Pstr, len: Int, flags: SendRecvFlags): Int =
     WindowsWin32NetworkingWinsockJniBridge.windowssysWindowsWin32NetworkingWinsockRecv(s.toLong(), buf.rawAddress, len, flags)
 
-public actual fun recvfrom(s: Socket, buf: Pstr, len: Int, flags: Int, from: MutPtr<Sockaddr>, fromlen: MutPtr<Int>): Int =
+public actual fun recvfrom(s: Socket, buf: Pstr, len: Int, flags: Int, from: MutPtr, fromlen: MutPtr): Int =
     WindowsWin32NetworkingWinsockJniBridge.windowssysWindowsWin32NetworkingWinsockRecvfrom(s.toLong(), buf.rawAddress, len, flags, from.rawAddress, fromlen.rawAddress)
 
-public actual fun select(nfds: Int, readfds: MutPtr<FdSet>, writefds: MutPtr<FdSet>, exceptfds: MutPtr<FdSet>, timeout: ConstPtr<Timeval>): Int =
+public actual fun select(nfds: Int, readfds: MutPtr, writefds: MutPtr, exceptfds: MutPtr, timeout: ConstPtr): Int =
     WindowsWin32NetworkingWinsockJniBridge.windowssysWindowsWin32NetworkingWinsockSelect(nfds, readfds.rawAddress, writefds.rawAddress, exceptfds.rawAddress, timeout.rawAddress)
 
 public actual fun send(s: Socket, buf: Pcstr, len: Int, flags: SendRecvFlags): Int =
     WindowsWin32NetworkingWinsockJniBridge.windowssysWindowsWin32NetworkingWinsockSend(s.toLong(), buf.rawAddress, len, flags)
 
-public actual fun sendto(s: Socket, buf: Pcstr, len: Int, flags: Int, to: ConstPtr<Sockaddr>, tolen: Int): Int =
+public actual fun sendto(s: Socket, buf: Pcstr, len: Int, flags: Int, to: ConstPtr, tolen: Int): Int =
     WindowsWin32NetworkingWinsockJniBridge.windowssysWindowsWin32NetworkingWinsockSendto(s.toLong(), buf.rawAddress, len, flags, to.rawAddress, tolen)
 
 public actual fun setsockopt(s: Socket, level: Int, optname: Int, optval: Pcstr, optlen: Int): Int =

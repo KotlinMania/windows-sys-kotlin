@@ -2,7 +2,6 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.security.credentials
 
-import io.github.kotlinmania.rustlang.core.ffi.CVoid
 import io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
 import io.github.kotlinmania.rustlang.core.mem.TypeLayout
 import io.github.kotlinmania.rustlang.core.ptr.ConstPtr
@@ -19,9 +18,9 @@ import io.github.kotlinmania.windowssys.windows.win32.ui.windowsandmessaging.Hic
 
 public class BinaryBlobCredentialInfo internal constructor(
     public var cbBlob: UInt,
-    pbBlobCtorArg: MutPtr<UByte>,
+    pbBlobCtorArg: MutPtr,
 ) {
-    public var pbBlob: MutPtr<UByte> = pbBlobCtorArg
+    public var pbBlob: MutPtr = pbBlobCtorArg
         internal set
 
     public constructor() : this(
@@ -31,9 +30,9 @@ public class BinaryBlobCredentialInfo internal constructor(
 
     public operator fun component1(): UInt = this.cbBlob
 
-    public operator fun component2(): MutPtr<UByte> = this.pbBlob
+    public operator fun component2(): MutPtr = this.pbBlob
 
-    public fun copy(cbBlob: UInt = this.cbBlob, pbBlob: MutPtr<UByte> = this.pbBlob): BinaryBlobCredentialInfo = BinaryBlobCredentialInfo(cbBlob = cbBlob, pbBlobCtorArg = pbBlob)
+    public fun copy(cbBlob: UInt = this.cbBlob, pbBlob: MutPtr = this.pbBlob): BinaryBlobCredentialInfo = BinaryBlobCredentialInfo(cbBlob = cbBlob, pbBlobCtorArg = pbBlob)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -59,21 +58,21 @@ public class BinaryBlobCredentialInfo internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<UByte>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                     )
                 override fun writeNative(addr: Long, value: BinaryBlobCredentialInfo) {
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr, value.cbBlob)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<UByte>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.pbBlob)
                 }
             }
 
         public operator fun invoke(
             cbBlob: UInt = 0u,
-            pbBlob: MutPtr<UByte> = MutPtr(0L),
+            pbBlob: MutPtr = MutPtr(0L),
         ): BinaryBlobCredentialInfo =
             BinaryBlobCredentialInfo(
                 cbBlob = cbBlob,
@@ -131,10 +130,10 @@ public class Credentiala internal constructor(
     commentCtorArg: Pstr,
     public var lastWritten: Filetime,
     public var credentialBlobSize: UInt,
-    credentialBlobCtorArg: MutPtr<UByte>,
+    credentialBlobCtorArg: MutPtr,
     public var persist: CredPersist,
     public var attributeCount: UInt,
-    attributesCtorArg: MutPtr<CredentialAttributea>,
+    attributesCtorArg: MutPtr,
     targetAliasCtorArg: Pstr,
     userNameCtorArg: Pstr,
 ) {
@@ -144,10 +143,10 @@ public class Credentiala internal constructor(
     public var comment: Pstr = commentCtorArg
         internal set
 
-    public var credentialBlob: MutPtr<UByte> = credentialBlobCtorArg
+    public var credentialBlob: MutPtr = credentialBlobCtorArg
         internal set
 
-    public var attributes: MutPtr<CredentialAttributea> = attributesCtorArg
+    public var attributes: MutPtr = attributesCtorArg
         internal set
 
     public var targetAlias: Pstr = targetAliasCtorArg
@@ -183,19 +182,19 @@ public class Credentiala internal constructor(
 
     public operator fun component6(): UInt = this.credentialBlobSize
 
-    public operator fun component7(): MutPtr<UByte> = this.credentialBlob
+    public operator fun component7(): MutPtr = this.credentialBlob
 
     public operator fun component8(): CredPersist = this.persist
 
     public operator fun component9(): UInt = this.attributeCount
 
-    public operator fun component10(): MutPtr<CredentialAttributea> = this.attributes
+    public operator fun component10(): MutPtr = this.attributes
 
     public operator fun component11(): Pstr = this.targetAlias
 
     public operator fun component12(): Pstr = this.userName
 
-    public fun copy(flags: CredFlags = this.flags, type: CredType = this.type, targetName: Pstr = this.targetName, comment: Pstr = this.comment, lastWritten: Filetime = this.lastWritten, credentialBlobSize: UInt = this.credentialBlobSize, credentialBlob: MutPtr<UByte> = this.credentialBlob, persist: CredPersist = this.persist, attributeCount: UInt = this.attributeCount, attributes: MutPtr<CredentialAttributea> = this.attributes, targetAlias: Pstr = this.targetAlias, userName: Pstr = this.userName): Credentiala = Credentiala(flags = flags, type = type, targetNameCtorArg = targetName, commentCtorArg = comment, lastWritten = lastWritten, credentialBlobSize = credentialBlobSize, credentialBlobCtorArg = credentialBlob, persist = persist, attributeCount = attributeCount, attributesCtorArg = attributes, targetAliasCtorArg = targetAlias, userNameCtorArg = userName)
+    public fun copy(flags: CredFlags = this.flags, type: CredType = this.type, targetName: Pstr = this.targetName, comment: Pstr = this.comment, lastWritten: Filetime = this.lastWritten, credentialBlobSize: UInt = this.credentialBlobSize, credentialBlob: MutPtr = this.credentialBlob, persist: CredPersist = this.persist, attributeCount: UInt = this.attributeCount, attributes: MutPtr = this.attributes, targetAlias: Pstr = this.targetAlias, userName: Pstr = this.userName): Credentiala = Credentiala(flags = flags, type = type, targetNameCtorArg = targetName, commentCtorArg = comment, lastWritten = lastWritten, credentialBlobSize = credentialBlobSize, credentialBlobCtorArg = credentialBlob, persist = persist, attributeCount = attributeCount, attributesCtorArg = attributes, targetAliasCtorArg = targetAlias, userNameCtorArg = userName)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -239,10 +238,10 @@ public class Credentiala internal constructor(
             comment: Pstr = MutPtr(0L),
             lastWritten: Filetime = Filetime(),
             credentialBlobSize: UInt = 0u,
-            credentialBlob: MutPtr<UByte> = MutPtr(0L),
+            credentialBlob: MutPtr = MutPtr(0L),
             persist: CredPersist = 0u,
             attributeCount: UInt = 0u,
-            attributes: MutPtr<CredentialAttributea> = MutPtr(0L),
+            attributes: MutPtr = MutPtr(0L),
             targetAlias: Pstr = MutPtr(0L),
             userName: Pstr = MutPtr(0L),
         ): Credentiala =
@@ -270,10 +269,10 @@ public class Credentialw internal constructor(
     commentCtorArg: Pwstr,
     public var lastWritten: Filetime,
     public var credentialBlobSize: UInt,
-    credentialBlobCtorArg: MutPtr<UByte>,
+    credentialBlobCtorArg: MutPtr,
     public var persist: CredPersist,
     public var attributeCount: UInt,
-    attributesCtorArg: MutPtr<CredentialAttributew>,
+    attributesCtorArg: MutPtr,
     targetAliasCtorArg: Pwstr,
     userNameCtorArg: Pwstr,
 ) {
@@ -283,10 +282,10 @@ public class Credentialw internal constructor(
     public var comment: Pwstr = commentCtorArg
         internal set
 
-    public var credentialBlob: MutPtr<UByte> = credentialBlobCtorArg
+    public var credentialBlob: MutPtr = credentialBlobCtorArg
         internal set
 
-    public var attributes: MutPtr<CredentialAttributew> = attributesCtorArg
+    public var attributes: MutPtr = attributesCtorArg
         internal set
 
     public var targetAlias: Pwstr = targetAliasCtorArg
@@ -322,19 +321,19 @@ public class Credentialw internal constructor(
 
     public operator fun component6(): UInt = this.credentialBlobSize
 
-    public operator fun component7(): MutPtr<UByte> = this.credentialBlob
+    public operator fun component7(): MutPtr = this.credentialBlob
 
     public operator fun component8(): CredPersist = this.persist
 
     public operator fun component9(): UInt = this.attributeCount
 
-    public operator fun component10(): MutPtr<CredentialAttributew> = this.attributes
+    public operator fun component10(): MutPtr = this.attributes
 
     public operator fun component11(): Pwstr = this.targetAlias
 
     public operator fun component12(): Pwstr = this.userName
 
-    public fun copy(flags: CredFlags = this.flags, type: CredType = this.type, targetName: Pwstr = this.targetName, comment: Pwstr = this.comment, lastWritten: Filetime = this.lastWritten, credentialBlobSize: UInt = this.credentialBlobSize, credentialBlob: MutPtr<UByte> = this.credentialBlob, persist: CredPersist = this.persist, attributeCount: UInt = this.attributeCount, attributes: MutPtr<CredentialAttributew> = this.attributes, targetAlias: Pwstr = this.targetAlias, userName: Pwstr = this.userName): Credentialw = Credentialw(flags = flags, type = type, targetNameCtorArg = targetName, commentCtorArg = comment, lastWritten = lastWritten, credentialBlobSize = credentialBlobSize, credentialBlobCtorArg = credentialBlob, persist = persist, attributeCount = attributeCount, attributesCtorArg = attributes, targetAliasCtorArg = targetAlias, userNameCtorArg = userName)
+    public fun copy(flags: CredFlags = this.flags, type: CredType = this.type, targetName: Pwstr = this.targetName, comment: Pwstr = this.comment, lastWritten: Filetime = this.lastWritten, credentialBlobSize: UInt = this.credentialBlobSize, credentialBlob: MutPtr = this.credentialBlob, persist: CredPersist = this.persist, attributeCount: UInt = this.attributeCount, attributes: MutPtr = this.attributes, targetAlias: Pwstr = this.targetAlias, userName: Pwstr = this.userName): Credentialw = Credentialw(flags = flags, type = type, targetNameCtorArg = targetName, commentCtorArg = comment, lastWritten = lastWritten, credentialBlobSize = credentialBlobSize, credentialBlobCtorArg = credentialBlob, persist = persist, attributeCount = attributeCount, attributesCtorArg = attributes, targetAliasCtorArg = targetAlias, userNameCtorArg = userName)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -378,10 +377,10 @@ public class Credentialw internal constructor(
             comment: Pwstr = MutPtr(0L),
             lastWritten: Filetime = Filetime(),
             credentialBlobSize: UInt = 0u,
-            credentialBlob: MutPtr<UByte> = MutPtr(0L),
+            credentialBlob: MutPtr = MutPtr(0L),
             persist: CredPersist = 0u,
             attributeCount: UInt = 0u,
-            attributes: MutPtr<CredentialAttributew> = MutPtr(0L),
+            attributes: MutPtr = MutPtr(0L),
             targetAlias: Pwstr = MutPtr(0L),
             userName: Pwstr = MutPtr(0L),
         ): Credentialw =
@@ -406,12 +405,12 @@ public class CredentialAttributea internal constructor(
     keywordCtorArg: Pstr,
     public var flags: UInt,
     public var valueSize: UInt,
-    valueCtorArg: MutPtr<UByte>,
+    valueCtorArg: MutPtr,
 ) {
     public var keyword: Pstr = keywordCtorArg
         internal set
 
-    public var value: MutPtr<UByte> = valueCtorArg
+    public var value: MutPtr = valueCtorArg
         internal set
 
     public constructor() : this(
@@ -427,9 +426,9 @@ public class CredentialAttributea internal constructor(
 
     public operator fun component3(): UInt = this.valueSize
 
-    public operator fun component4(): MutPtr<UByte> = this.value
+    public operator fun component4(): MutPtr = this.value
 
-    public fun copy(keyword: Pstr = this.keyword, flags: UInt = this.flags, valueSize: UInt = this.valueSize, value: MutPtr<UByte> = this.value): CredentialAttributea = CredentialAttributea(keywordCtorArg = keyword, flags = flags, valueSize = valueSize, valueCtorArg = value)
+    public fun copy(keyword: Pstr = this.keyword, flags: UInt = this.flags, valueSize: UInt = this.valueSize, value: MutPtr = this.value): CredentialAttributea = CredentialAttributea(keywordCtorArg = keyword, flags = flags, valueSize = valueSize, valueCtorArg = value)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -454,7 +453,7 @@ public class CredentialAttributea internal constructor(
             keyword: Pstr = MutPtr(0L),
             flags: UInt = 0u,
             valueSize: UInt = 0u,
-            value: MutPtr<UByte> = MutPtr(0L),
+            value: MutPtr = MutPtr(0L),
         ): CredentialAttributea =
             CredentialAttributea(
                 keywordCtorArg = keyword,
@@ -469,12 +468,12 @@ public class CredentialAttributew internal constructor(
     keywordCtorArg: Pwstr,
     public var flags: UInt,
     public var valueSize: UInt,
-    valueCtorArg: MutPtr<UByte>,
+    valueCtorArg: MutPtr,
 ) {
     public var keyword: Pwstr = keywordCtorArg
         internal set
 
-    public var value: MutPtr<UByte> = valueCtorArg
+    public var value: MutPtr = valueCtorArg
         internal set
 
     public constructor() : this(
@@ -490,9 +489,9 @@ public class CredentialAttributew internal constructor(
 
     public operator fun component3(): UInt = this.valueSize
 
-    public operator fun component4(): MutPtr<UByte> = this.value
+    public operator fun component4(): MutPtr = this.value
 
-    public fun copy(keyword: Pwstr = this.keyword, flags: UInt = this.flags, valueSize: UInt = this.valueSize, value: MutPtr<UByte> = this.value): CredentialAttributew = CredentialAttributew(keywordCtorArg = keyword, flags = flags, valueSize = valueSize, valueCtorArg = value)
+    public fun copy(keyword: Pwstr = this.keyword, flags: UInt = this.flags, valueSize: UInt = this.valueSize, value: MutPtr = this.value): CredentialAttributew = CredentialAttributew(keywordCtorArg = keyword, flags = flags, valueSize = valueSize, valueCtorArg = value)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -517,7 +516,7 @@ public class CredentialAttributew internal constructor(
             keyword: Pwstr = MutPtr(0L),
             flags: UInt = 0u,
             valueSize: UInt = 0u,
-            value: MutPtr<UByte> = MutPtr(0L),
+            value: MutPtr = MutPtr(0L),
         ): CredentialAttributew =
             CredentialAttributew(
                 keywordCtorArg = keyword,
@@ -538,7 +537,7 @@ public class CredentialTargetInformationa internal constructor(
     packageNameCtorArg: Pstr,
     public var flags: UInt,
     public var credTypeCount: UInt,
-    credTypesCtorArg: MutPtr<UInt>,
+    credTypesCtorArg: MutPtr,
 ) {
     public var targetName: Pstr = targetNameCtorArg
         internal set
@@ -561,7 +560,7 @@ public class CredentialTargetInformationa internal constructor(
     public var packageName: Pstr = packageNameCtorArg
         internal set
 
-    public var credTypes: MutPtr<UInt> = credTypesCtorArg
+    public var credTypes: MutPtr = credTypesCtorArg
         internal set
 
     public constructor() : this(
@@ -595,9 +594,9 @@ public class CredentialTargetInformationa internal constructor(
 
     public operator fun component9(): UInt = this.credTypeCount
 
-    public operator fun component10(): MutPtr<UInt> = this.credTypes
+    public operator fun component10(): MutPtr = this.credTypes
 
-    public fun copy(targetName: Pstr = this.targetName, netbiosServerName: Pstr = this.netbiosServerName, dnsServerName: Pstr = this.dnsServerName, netbiosDomainName: Pstr = this.netbiosDomainName, dnsDomainName: Pstr = this.dnsDomainName, dnsTreeName: Pstr = this.dnsTreeName, packageName: Pstr = this.packageName, flags: UInt = this.flags, credTypeCount: UInt = this.credTypeCount, credTypes: MutPtr<UInt> = this.credTypes): CredentialTargetInformationa = CredentialTargetInformationa(targetNameCtorArg = targetName, netbiosServerNameCtorArg = netbiosServerName, dnsServerNameCtorArg = dnsServerName, netbiosDomainNameCtorArg = netbiosDomainName, dnsDomainNameCtorArg = dnsDomainName, dnsTreeNameCtorArg = dnsTreeName, packageNameCtorArg = packageName, flags = flags, credTypeCount = credTypeCount, credTypesCtorArg = credTypes)
+    public fun copy(targetName: Pstr = this.targetName, netbiosServerName: Pstr = this.netbiosServerName, dnsServerName: Pstr = this.dnsServerName, netbiosDomainName: Pstr = this.netbiosDomainName, dnsDomainName: Pstr = this.dnsDomainName, dnsTreeName: Pstr = this.dnsTreeName, packageName: Pstr = this.packageName, flags: UInt = this.flags, credTypeCount: UInt = this.credTypeCount, credTypes: MutPtr = this.credTypes): CredentialTargetInformationa = CredentialTargetInformationa(targetNameCtorArg = targetName, netbiosServerNameCtorArg = netbiosServerName, dnsServerNameCtorArg = dnsServerName, netbiosDomainNameCtorArg = netbiosDomainName, dnsDomainNameCtorArg = dnsDomainName, dnsTreeNameCtorArg = dnsTreeName, packageNameCtorArg = packageName, flags = flags, credTypeCount = credTypeCount, credTypesCtorArg = credTypes)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -640,7 +639,7 @@ public class CredentialTargetInformationa internal constructor(
             packageName: Pstr = MutPtr(0L),
             flags: UInt = 0u,
             credTypeCount: UInt = 0u,
-            credTypes: MutPtr<UInt> = MutPtr(0L),
+            credTypes: MutPtr = MutPtr(0L),
         ): CredentialTargetInformationa =
             CredentialTargetInformationa(
                 targetNameCtorArg = targetName,
@@ -667,7 +666,7 @@ public class CredentialTargetInformationw internal constructor(
     packageNameCtorArg: Pwstr,
     public var flags: UInt,
     public var credTypeCount: UInt,
-    credTypesCtorArg: MutPtr<UInt>,
+    credTypesCtorArg: MutPtr,
 ) {
     public var targetName: Pwstr = targetNameCtorArg
         internal set
@@ -690,7 +689,7 @@ public class CredentialTargetInformationw internal constructor(
     public var packageName: Pwstr = packageNameCtorArg
         internal set
 
-    public var credTypes: MutPtr<UInt> = credTypesCtorArg
+    public var credTypes: MutPtr = credTypesCtorArg
         internal set
 
     public constructor() : this(
@@ -724,9 +723,9 @@ public class CredentialTargetInformationw internal constructor(
 
     public operator fun component9(): UInt = this.credTypeCount
 
-    public operator fun component10(): MutPtr<UInt> = this.credTypes
+    public operator fun component10(): MutPtr = this.credTypes
 
-    public fun copy(targetName: Pwstr = this.targetName, netbiosServerName: Pwstr = this.netbiosServerName, dnsServerName: Pwstr = this.dnsServerName, netbiosDomainName: Pwstr = this.netbiosDomainName, dnsDomainName: Pwstr = this.dnsDomainName, dnsTreeName: Pwstr = this.dnsTreeName, packageName: Pwstr = this.packageName, flags: UInt = this.flags, credTypeCount: UInt = this.credTypeCount, credTypes: MutPtr<UInt> = this.credTypes): CredentialTargetInformationw = CredentialTargetInformationw(targetNameCtorArg = targetName, netbiosServerNameCtorArg = netbiosServerName, dnsServerNameCtorArg = dnsServerName, netbiosDomainNameCtorArg = netbiosDomainName, dnsDomainNameCtorArg = dnsDomainName, dnsTreeNameCtorArg = dnsTreeName, packageNameCtorArg = packageName, flags = flags, credTypeCount = credTypeCount, credTypesCtorArg = credTypes)
+    public fun copy(targetName: Pwstr = this.targetName, netbiosServerName: Pwstr = this.netbiosServerName, dnsServerName: Pwstr = this.dnsServerName, netbiosDomainName: Pwstr = this.netbiosDomainName, dnsDomainName: Pwstr = this.dnsDomainName, dnsTreeName: Pwstr = this.dnsTreeName, packageName: Pwstr = this.packageName, flags: UInt = this.flags, credTypeCount: UInt = this.credTypeCount, credTypes: MutPtr = this.credTypes): CredentialTargetInformationw = CredentialTargetInformationw(targetNameCtorArg = targetName, netbiosServerNameCtorArg = netbiosServerName, dnsServerNameCtorArg = dnsServerName, netbiosDomainNameCtorArg = netbiosDomainName, dnsDomainNameCtorArg = dnsDomainName, dnsTreeNameCtorArg = dnsTreeName, packageNameCtorArg = packageName, flags = flags, credTypeCount = credTypeCount, credTypesCtorArg = credTypes)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -769,7 +768,7 @@ public class CredentialTargetInformationw internal constructor(
             packageName: Pwstr = MutPtr(0L),
             flags: UInt = 0u,
             credTypeCount: UInt = 0u,
-            credTypes: MutPtr<UInt> = MutPtr(0L),
+            credTypes: MutPtr = MutPtr(0L),
         ): CredentialTargetInformationw =
             CredentialTargetInformationw(
                 targetNameCtorArg = targetName,
@@ -788,13 +787,13 @@ public class CredentialTargetInformationw internal constructor(
 
 public class CredsspCred internal constructor(
     public var type: CredsppSubmitType,
-    pSchannelCredCtorArg: MutPtr<CVoid>,
-    pSpnegoCredCtorArg: MutPtr<CVoid>,
+    pSchannelCredCtorArg: MutPtr,
+    pSpnegoCredCtorArg: MutPtr,
 ) {
-    public var pSchannelCred: MutPtr<CVoid> = pSchannelCredCtorArg
+    public var pSchannelCred: MutPtr = pSchannelCredCtorArg
         internal set
 
-    public var pSpnegoCred: MutPtr<CVoid> = pSpnegoCredCtorArg
+    public var pSpnegoCred: MutPtr = pSpnegoCredCtorArg
         internal set
 
     public constructor() : this(
@@ -805,11 +804,11 @@ public class CredsspCred internal constructor(
 
     public operator fun component1(): CredsppSubmitType = this.type
 
-    public operator fun component2(): MutPtr<CVoid> = this.pSchannelCred
+    public operator fun component2(): MutPtr = this.pSchannelCred
 
-    public operator fun component3(): MutPtr<CVoid> = this.pSpnegoCred
+    public operator fun component3(): MutPtr = this.pSpnegoCred
 
-    public fun copy(type: CredsppSubmitType = this.type, pSchannelCred: MutPtr<CVoid> = this.pSchannelCred, pSpnegoCred: MutPtr<CVoid> = this.pSpnegoCred): CredsspCred = CredsspCred(type = type, pSchannelCredCtorArg = pSchannelCred, pSpnegoCredCtorArg = pSpnegoCred)
+    public fun copy(type: CredsppSubmitType = this.type, pSchannelCred: MutPtr = this.pSchannelCred, pSpnegoCred: MutPtr = this.pSpnegoCred): CredsspCred = CredsspCred(type = type, pSchannelCredCtorArg = pSchannelCred, pSpnegoCredCtorArg = pSpnegoCred)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -837,30 +836,30 @@ public class CredsspCred internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<CVoid>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<CVoid>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 16L),
                     )
                 override fun writeNative(addr: Long, value: CredsspCred) {
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr, value.type)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<CVoid>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.pSchannelCred)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<CVoid>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 16L, value.pSpnegoCred)
                 }
             }
 
         public operator fun invoke(
             type: CredsppSubmitType = 0,
-            pSchannelCred: MutPtr<CVoid> = MutPtr(0L),
-            pSpnegoCred: MutPtr<CVoid> = MutPtr(0L),
+            pSchannelCred: MutPtr = MutPtr(0L),
+            pSpnegoCred: MutPtr = MutPtr(0L),
         ): CredsspCred =
             CredsspCred(
                 type = type,
@@ -1067,7 +1066,7 @@ public class Opencardnamea internal constructor(
     public var nMaxGroupNames: UInt,
     lpstrCardNamesCtorArg: Pstr,
     public var nMaxCardNames: UInt,
-    rgguidInterfacesCtorArg: ConstPtr<Guid>,
+    rgguidInterfacesCtorArg: ConstPtr,
     public var cguidInterfaces: UInt,
     lpstrRdrCtorArg: Pstr,
     public var nMaxRdr: UInt,
@@ -1075,7 +1074,7 @@ public class Opencardnamea internal constructor(
     public var nMaxCard: UInt,
     lpstrTitleCtorArg: Pcstr,
     public var dwFlags: UInt,
-    pvUserDataCtorArg: MutPtr<CVoid>,
+    pvUserDataCtorArg: MutPtr,
     public var dwShareMode: UInt,
     public var dwPreferredProtocols: UInt,
     public var dwActiveProtocol: UInt,
@@ -1093,7 +1092,7 @@ public class Opencardnamea internal constructor(
     public var lpstrCardNames: Pstr = lpstrCardNamesCtorArg
         internal set
 
-    public var rgguidInterfaces: ConstPtr<Guid> = rgguidInterfacesCtorArg
+    public var rgguidInterfaces: ConstPtr = rgguidInterfacesCtorArg
         internal set
 
     public var lpstrRdr: Pstr = lpstrRdrCtorArg
@@ -1105,7 +1104,7 @@ public class Opencardnamea internal constructor(
     public var lpstrTitle: Pcstr = lpstrTitleCtorArg
         internal set
 
-    public var pvUserData: MutPtr<CVoid> = pvUserDataCtorArg
+    public var pvUserData: MutPtr = pvUserDataCtorArg
         internal set
 
     public constructor() : this(
@@ -1143,7 +1142,7 @@ public class Opencardnamea internal constructor(
             nMaxGroupNames: UInt = 0u,
             lpstrCardNames: Pstr = MutPtr(0L),
             nMaxCardNames: UInt = 0u,
-            rgguidInterfaces: ConstPtr<Guid> = ConstPtr(0L),
+            rgguidInterfaces: ConstPtr = ConstPtr(0L),
             cguidInterfaces: UInt = 0u,
             lpstrRdr: Pstr = MutPtr(0L),
             nMaxRdr: UInt = 0u,
@@ -1151,7 +1150,7 @@ public class Opencardnamea internal constructor(
             nMaxCard: UInt = 0u,
             lpstrTitle: Pcstr = ConstPtr(0L),
             dwFlags: UInt = 0u,
-            pvUserData: MutPtr<CVoid> = MutPtr(0L),
+            pvUserData: MutPtr = MutPtr(0L),
             dwShareMode: UInt = 0u,
             dwPreferredProtocols: UInt = 0u,
             dwActiveProtocol: UInt = 0u,
@@ -1196,7 +1195,7 @@ public class Opencardnamew internal constructor(
     public var nMaxGroupNames: UInt,
     lpstrCardNamesCtorArg: Pwstr,
     public var nMaxCardNames: UInt,
-    rgguidInterfacesCtorArg: ConstPtr<Guid>,
+    rgguidInterfacesCtorArg: ConstPtr,
     public var cguidInterfaces: UInt,
     lpstrRdrCtorArg: Pwstr,
     public var nMaxRdr: UInt,
@@ -1204,7 +1203,7 @@ public class Opencardnamew internal constructor(
     public var nMaxCard: UInt,
     lpstrTitleCtorArg: Pcwstr,
     public var dwFlags: UInt,
-    pvUserDataCtorArg: MutPtr<CVoid>,
+    pvUserDataCtorArg: MutPtr,
     public var dwShareMode: UInt,
     public var dwPreferredProtocols: UInt,
     public var dwActiveProtocol: UInt,
@@ -1222,7 +1221,7 @@ public class Opencardnamew internal constructor(
     public var lpstrCardNames: Pwstr = lpstrCardNamesCtorArg
         internal set
 
-    public var rgguidInterfaces: ConstPtr<Guid> = rgguidInterfacesCtorArg
+    public var rgguidInterfaces: ConstPtr = rgguidInterfacesCtorArg
         internal set
 
     public var lpstrRdr: Pwstr = lpstrRdrCtorArg
@@ -1234,7 +1233,7 @@ public class Opencardnamew internal constructor(
     public var lpstrTitle: Pcwstr = lpstrTitleCtorArg
         internal set
 
-    public var pvUserData: MutPtr<CVoid> = pvUserDataCtorArg
+    public var pvUserData: MutPtr = pvUserDataCtorArg
         internal set
 
     public constructor() : this(
@@ -1272,7 +1271,7 @@ public class Opencardnamew internal constructor(
             nMaxGroupNames: UInt = 0u,
             lpstrCardNames: Pwstr = MutPtr(0L),
             nMaxCardNames: UInt = 0u,
-            rgguidInterfaces: ConstPtr<Guid> = ConstPtr(0L),
+            rgguidInterfaces: ConstPtr = ConstPtr(0L),
             cguidInterfaces: UInt = 0u,
             lpstrRdr: Pwstr = MutPtr(0L),
             nMaxRdr: UInt = 0u,
@@ -1280,7 +1279,7 @@ public class Opencardnamew internal constructor(
             nMaxCard: UInt = 0u,
             lpstrTitle: Pcwstr = ConstPtr(0L),
             dwFlags: UInt = 0u,
-            pvUserData: MutPtr<CVoid> = MutPtr(0L),
+            pvUserData: MutPtr = MutPtr(0L),
             dwShareMode: UInt = 0u,
             dwPreferredProtocols: UInt = 0u,
             dwActiveProtocol: UInt = 0u,
@@ -1325,9 +1324,9 @@ public class OpencardnameExa internal constructor(
     lpstrTitleCtorArg: Pcstr,
     lpstrSearchDescCtorArg: Pcstr,
     hIconCtorArg: Hicon,
-    pOpenCardSearchCriteriaCtorArg: MutPtr<OpencardSearchCriteriaa>,
+    pOpenCardSearchCriteriaCtorArg: MutPtr,
     public var lpfnConnect: Lpocnconnproca,
-    pvUserDataCtorArg: MutPtr<CVoid>,
+    pvUserDataCtorArg: MutPtr,
     public var dwShareMode: UInt,
     public var dwPreferredProtocols: UInt,
     lpstrRdrCtorArg: Pstr,
@@ -1349,10 +1348,10 @@ public class OpencardnameExa internal constructor(
     public var hIcon: Hicon = hIconCtorArg
         internal set
 
-    public var pOpenCardSearchCriteria: MutPtr<OpencardSearchCriteriaa> = pOpenCardSearchCriteriaCtorArg
+    public var pOpenCardSearchCriteria: MutPtr = pOpenCardSearchCriteriaCtorArg
         internal set
 
-    public var pvUserData: MutPtr<CVoid> = pvUserDataCtorArg
+    public var pvUserData: MutPtr = pvUserDataCtorArg
         internal set
 
     public var lpstrRdr: Pstr = lpstrRdrCtorArg
@@ -1391,9 +1390,9 @@ public class OpencardnameExa internal constructor(
             lpstrTitle: Pcstr = ConstPtr(0L),
             lpstrSearchDesc: Pcstr = ConstPtr(0L),
             hIcon: Hicon = MutPtr(0L),
-            pOpenCardSearchCriteria: MutPtr<OpencardSearchCriteriaa> = MutPtr(0L),
+            pOpenCardSearchCriteria: MutPtr = MutPtr(0L),
             lpfnConnect: Lpocnconnproca = null,
-            pvUserData: MutPtr<CVoid> = MutPtr(0L),
+            pvUserData: MutPtr = MutPtr(0L),
             dwShareMode: UInt = 0u,
             dwPreferredProtocols: UInt = 0u,
             lpstrRdr: Pstr = MutPtr(0L),
@@ -1434,9 +1433,9 @@ public class OpencardnameExw internal constructor(
     lpstrTitleCtorArg: Pcwstr,
     lpstrSearchDescCtorArg: Pcwstr,
     hIconCtorArg: Hicon,
-    pOpenCardSearchCriteriaCtorArg: MutPtr<OpencardSearchCriteriaw>,
+    pOpenCardSearchCriteriaCtorArg: MutPtr,
     public var lpfnConnect: Lpocnconnprocw,
-    pvUserDataCtorArg: MutPtr<CVoid>,
+    pvUserDataCtorArg: MutPtr,
     public var dwShareMode: UInt,
     public var dwPreferredProtocols: UInt,
     lpstrRdrCtorArg: Pwstr,
@@ -1458,10 +1457,10 @@ public class OpencardnameExw internal constructor(
     public var hIcon: Hicon = hIconCtorArg
         internal set
 
-    public var pOpenCardSearchCriteria: MutPtr<OpencardSearchCriteriaw> = pOpenCardSearchCriteriaCtorArg
+    public var pOpenCardSearchCriteria: MutPtr = pOpenCardSearchCriteriaCtorArg
         internal set
 
-    public var pvUserData: MutPtr<CVoid> = pvUserDataCtorArg
+    public var pvUserData: MutPtr = pvUserDataCtorArg
         internal set
 
     public var lpstrRdr: Pwstr = lpstrRdrCtorArg
@@ -1500,9 +1499,9 @@ public class OpencardnameExw internal constructor(
             lpstrTitle: Pcwstr = ConstPtr(0L),
             lpstrSearchDesc: Pcwstr = ConstPtr(0L),
             hIcon: Hicon = MutPtr(0L),
-            pOpenCardSearchCriteria: MutPtr<OpencardSearchCriteriaw> = MutPtr(0L),
+            pOpenCardSearchCriteria: MutPtr = MutPtr(0L),
             lpfnConnect: Lpocnconnprocw = null,
-            pvUserData: MutPtr<CVoid> = MutPtr(0L),
+            pvUserData: MutPtr = MutPtr(0L),
             dwShareMode: UInt = 0u,
             dwPreferredProtocols: UInt = 0u,
             lpstrRdr: Pwstr = MutPtr(0L),
@@ -1539,27 +1538,27 @@ public class OpencardSearchCriteriaa internal constructor(
     public var dwStructSize: UInt,
     lpstrGroupNamesCtorArg: Pstr,
     public var nMaxGroupNames: UInt,
-    rgguidInterfacesCtorArg: ConstPtr<Guid>,
+    rgguidInterfacesCtorArg: ConstPtr,
     public var cguidInterfaces: UInt,
     lpstrCardNamesCtorArg: Pstr,
     public var nMaxCardNames: UInt,
     public var lpfnCheck: Lpocnchkproc,
     public var lpfnConnect: Lpocnconnproca,
     public var lpfnDisconnect: Lpocndscproc,
-    pvUserDataCtorArg: MutPtr<CVoid>,
+    pvUserDataCtorArg: MutPtr,
     public var dwShareMode: UInt,
     public var dwPreferredProtocols: UInt,
 ) {
     public var lpstrGroupNames: Pstr = lpstrGroupNamesCtorArg
         internal set
 
-    public var rgguidInterfaces: ConstPtr<Guid> = rgguidInterfacesCtorArg
+    public var rgguidInterfaces: ConstPtr = rgguidInterfacesCtorArg
         internal set
 
     public var lpstrCardNames: Pstr = lpstrCardNamesCtorArg
         internal set
 
-    public var pvUserData: MutPtr<CVoid> = pvUserDataCtorArg
+    public var pvUserData: MutPtr = pvUserDataCtorArg
         internal set
 
     public constructor() : this(
@@ -1584,7 +1583,7 @@ public class OpencardSearchCriteriaa internal constructor(
 
     public operator fun component3(): UInt = this.nMaxGroupNames
 
-    public operator fun component4(): ConstPtr<Guid> = this.rgguidInterfaces
+    public operator fun component4(): ConstPtr = this.rgguidInterfaces
 
     public operator fun component5(): UInt = this.cguidInterfaces
 
@@ -1598,13 +1597,13 @@ public class OpencardSearchCriteriaa internal constructor(
 
     public operator fun component10(): Lpocndscproc = this.lpfnDisconnect
 
-    public operator fun component11(): MutPtr<CVoid> = this.pvUserData
+    public operator fun component11(): MutPtr = this.pvUserData
 
     public operator fun component12(): UInt = this.dwShareMode
 
     public operator fun component13(): UInt = this.dwPreferredProtocols
 
-    public fun copy(dwStructSize: UInt = this.dwStructSize, lpstrGroupNames: Pstr = this.lpstrGroupNames, nMaxGroupNames: UInt = this.nMaxGroupNames, rgguidInterfaces: ConstPtr<Guid> = this.rgguidInterfaces, cguidInterfaces: UInt = this.cguidInterfaces, lpstrCardNames: Pstr = this.lpstrCardNames, nMaxCardNames: UInt = this.nMaxCardNames, lpfnCheck: Lpocnchkproc = this.lpfnCheck, lpfnConnect: Lpocnconnproca = this.lpfnConnect, lpfnDisconnect: Lpocndscproc = this.lpfnDisconnect, pvUserData: MutPtr<CVoid> = this.pvUserData, dwShareMode: UInt = this.dwShareMode, dwPreferredProtocols: UInt = this.dwPreferredProtocols): OpencardSearchCriteriaa = OpencardSearchCriteriaa(dwStructSize = dwStructSize, lpstrGroupNamesCtorArg = lpstrGroupNames, nMaxGroupNames = nMaxGroupNames, rgguidInterfacesCtorArg = rgguidInterfaces, cguidInterfaces = cguidInterfaces, lpstrCardNamesCtorArg = lpstrCardNames, nMaxCardNames = nMaxCardNames, lpfnCheck = lpfnCheck, lpfnConnect = lpfnConnect, lpfnDisconnect = lpfnDisconnect, pvUserDataCtorArg = pvUserData, dwShareMode = dwShareMode, dwPreferredProtocols = dwPreferredProtocols)
+    public fun copy(dwStructSize: UInt = this.dwStructSize, lpstrGroupNames: Pstr = this.lpstrGroupNames, nMaxGroupNames: UInt = this.nMaxGroupNames, rgguidInterfaces: ConstPtr = this.rgguidInterfaces, cguidInterfaces: UInt = this.cguidInterfaces, lpstrCardNames: Pstr = this.lpstrCardNames, nMaxCardNames: UInt = this.nMaxCardNames, lpfnCheck: Lpocnchkproc = this.lpfnCheck, lpfnConnect: Lpocnconnproca = this.lpfnConnect, lpfnDisconnect: Lpocndscproc = this.lpfnDisconnect, pvUserData: MutPtr = this.pvUserData, dwShareMode: UInt = this.dwShareMode, dwPreferredProtocols: UInt = this.dwPreferredProtocols): OpencardSearchCriteriaa = OpencardSearchCriteriaa(dwStructSize = dwStructSize, lpstrGroupNamesCtorArg = lpstrGroupNames, nMaxGroupNames = nMaxGroupNames, rgguidInterfacesCtorArg = rgguidInterfaces, cguidInterfaces = cguidInterfaces, lpstrCardNamesCtorArg = lpstrCardNames, nMaxCardNames = nMaxCardNames, lpfnCheck = lpfnCheck, lpfnConnect = lpfnConnect, lpfnDisconnect = lpfnDisconnect, pvUserDataCtorArg = pvUserData, dwShareMode = dwShareMode, dwPreferredProtocols = dwPreferredProtocols)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -1647,14 +1646,14 @@ public class OpencardSearchCriteriaa internal constructor(
             dwStructSize: UInt = 0u,
             lpstrGroupNames: Pstr = MutPtr(0L),
             nMaxGroupNames: UInt = 0u,
-            rgguidInterfaces: ConstPtr<Guid> = ConstPtr(0L),
+            rgguidInterfaces: ConstPtr = ConstPtr(0L),
             cguidInterfaces: UInt = 0u,
             lpstrCardNames: Pstr = MutPtr(0L),
             nMaxCardNames: UInt = 0u,
             lpfnCheck: Lpocnchkproc = null,
             lpfnConnect: Lpocnconnproca = null,
             lpfnDisconnect: Lpocndscproc = null,
-            pvUserData: MutPtr<CVoid> = MutPtr(0L),
+            pvUserData: MutPtr = MutPtr(0L),
             dwShareMode: UInt = 0u,
             dwPreferredProtocols: UInt = 0u,
         ): OpencardSearchCriteriaa =
@@ -1680,27 +1679,27 @@ public class OpencardSearchCriteriaw internal constructor(
     public var dwStructSize: UInt,
     lpstrGroupNamesCtorArg: Pwstr,
     public var nMaxGroupNames: UInt,
-    rgguidInterfacesCtorArg: ConstPtr<Guid>,
+    rgguidInterfacesCtorArg: ConstPtr,
     public var cguidInterfaces: UInt,
     lpstrCardNamesCtorArg: Pwstr,
     public var nMaxCardNames: UInt,
     public var lpfnCheck: Lpocnchkproc,
     public var lpfnConnect: Lpocnconnprocw,
     public var lpfnDisconnect: Lpocndscproc,
-    pvUserDataCtorArg: MutPtr<CVoid>,
+    pvUserDataCtorArg: MutPtr,
     public var dwShareMode: UInt,
     public var dwPreferredProtocols: UInt,
 ) {
     public var lpstrGroupNames: Pwstr = lpstrGroupNamesCtorArg
         internal set
 
-    public var rgguidInterfaces: ConstPtr<Guid> = rgguidInterfacesCtorArg
+    public var rgguidInterfaces: ConstPtr = rgguidInterfacesCtorArg
         internal set
 
     public var lpstrCardNames: Pwstr = lpstrCardNamesCtorArg
         internal set
 
-    public var pvUserData: MutPtr<CVoid> = pvUserDataCtorArg
+    public var pvUserData: MutPtr = pvUserDataCtorArg
         internal set
 
     public constructor() : this(
@@ -1725,7 +1724,7 @@ public class OpencardSearchCriteriaw internal constructor(
 
     public operator fun component3(): UInt = this.nMaxGroupNames
 
-    public operator fun component4(): ConstPtr<Guid> = this.rgguidInterfaces
+    public operator fun component4(): ConstPtr = this.rgguidInterfaces
 
     public operator fun component5(): UInt = this.cguidInterfaces
 
@@ -1739,13 +1738,13 @@ public class OpencardSearchCriteriaw internal constructor(
 
     public operator fun component10(): Lpocndscproc = this.lpfnDisconnect
 
-    public operator fun component11(): MutPtr<CVoid> = this.pvUserData
+    public operator fun component11(): MutPtr = this.pvUserData
 
     public operator fun component12(): UInt = this.dwShareMode
 
     public operator fun component13(): UInt = this.dwPreferredProtocols
 
-    public fun copy(dwStructSize: UInt = this.dwStructSize, lpstrGroupNames: Pwstr = this.lpstrGroupNames, nMaxGroupNames: UInt = this.nMaxGroupNames, rgguidInterfaces: ConstPtr<Guid> = this.rgguidInterfaces, cguidInterfaces: UInt = this.cguidInterfaces, lpstrCardNames: Pwstr = this.lpstrCardNames, nMaxCardNames: UInt = this.nMaxCardNames, lpfnCheck: Lpocnchkproc = this.lpfnCheck, lpfnConnect: Lpocnconnprocw = this.lpfnConnect, lpfnDisconnect: Lpocndscproc = this.lpfnDisconnect, pvUserData: MutPtr<CVoid> = this.pvUserData, dwShareMode: UInt = this.dwShareMode, dwPreferredProtocols: UInt = this.dwPreferredProtocols): OpencardSearchCriteriaw = OpencardSearchCriteriaw(dwStructSize = dwStructSize, lpstrGroupNamesCtorArg = lpstrGroupNames, nMaxGroupNames = nMaxGroupNames, rgguidInterfacesCtorArg = rgguidInterfaces, cguidInterfaces = cguidInterfaces, lpstrCardNamesCtorArg = lpstrCardNames, nMaxCardNames = nMaxCardNames, lpfnCheck = lpfnCheck, lpfnConnect = lpfnConnect, lpfnDisconnect = lpfnDisconnect, pvUserDataCtorArg = pvUserData, dwShareMode = dwShareMode, dwPreferredProtocols = dwPreferredProtocols)
+    public fun copy(dwStructSize: UInt = this.dwStructSize, lpstrGroupNames: Pwstr = this.lpstrGroupNames, nMaxGroupNames: UInt = this.nMaxGroupNames, rgguidInterfaces: ConstPtr = this.rgguidInterfaces, cguidInterfaces: UInt = this.cguidInterfaces, lpstrCardNames: Pwstr = this.lpstrCardNames, nMaxCardNames: UInt = this.nMaxCardNames, lpfnCheck: Lpocnchkproc = this.lpfnCheck, lpfnConnect: Lpocnconnprocw = this.lpfnConnect, lpfnDisconnect: Lpocndscproc = this.lpfnDisconnect, pvUserData: MutPtr = this.pvUserData, dwShareMode: UInt = this.dwShareMode, dwPreferredProtocols: UInt = this.dwPreferredProtocols): OpencardSearchCriteriaw = OpencardSearchCriteriaw(dwStructSize = dwStructSize, lpstrGroupNamesCtorArg = lpstrGroupNames, nMaxGroupNames = nMaxGroupNames, rgguidInterfacesCtorArg = rgguidInterfaces, cguidInterfaces = cguidInterfaces, lpstrCardNamesCtorArg = lpstrCardNames, nMaxCardNames = nMaxCardNames, lpfnCheck = lpfnCheck, lpfnConnect = lpfnConnect, lpfnDisconnect = lpfnDisconnect, pvUserDataCtorArg = pvUserData, dwShareMode = dwShareMode, dwPreferredProtocols = dwPreferredProtocols)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -1788,14 +1787,14 @@ public class OpencardSearchCriteriaw internal constructor(
             dwStructSize: UInt = 0u,
             lpstrGroupNames: Pwstr = MutPtr(0L),
             nMaxGroupNames: UInt = 0u,
-            rgguidInterfaces: ConstPtr<Guid> = ConstPtr(0L),
+            rgguidInterfaces: ConstPtr = ConstPtr(0L),
             cguidInterfaces: UInt = 0u,
             lpstrCardNames: Pwstr = MutPtr(0L),
             nMaxCardNames: UInt = 0u,
             lpfnCheck: Lpocnchkproc = null,
             lpfnConnect: Lpocnconnprocw = null,
             lpfnDisconnect: Lpocndscproc = null,
-            pvUserData: MutPtr<CVoid> = MutPtr(0L),
+            pvUserData: MutPtr = MutPtr(0L),
             dwShareMode: UInt = 0u,
             dwPreferredProtocols: UInt = 0u,
         ): OpencardSearchCriteriaw =
@@ -1993,7 +1992,7 @@ public data class ScardIoRequest(
 
 public class ScardReaderstatea internal constructor(
     szReaderCtorArg: Pcstr,
-    pvUserDataCtorArg: MutPtr<CVoid>,
+    pvUserDataCtorArg: MutPtr,
     public var dwCurrentState: ScardState,
     public var dwEventState: ScardState,
     public var cbAtr: UInt,
@@ -2002,7 +2001,7 @@ public class ScardReaderstatea internal constructor(
     public var szReader: Pcstr = szReaderCtorArg
         internal set
 
-    public var pvUserData: MutPtr<CVoid> = pvUserDataCtorArg
+    public var pvUserData: MutPtr = pvUserDataCtorArg
         internal set
 
     public constructor() : this(
@@ -2016,7 +2015,7 @@ public class ScardReaderstatea internal constructor(
 
     public operator fun component1(): Pcstr = this.szReader
 
-    public operator fun component2(): MutPtr<CVoid> = this.pvUserData
+    public operator fun component2(): MutPtr = this.pvUserData
 
     public operator fun component3(): ScardState = this.dwCurrentState
 
@@ -2026,7 +2025,7 @@ public class ScardReaderstatea internal constructor(
 
     public operator fun component6(): UByteArray = this.rgbAtr
 
-    public fun copy(szReader: Pcstr = this.szReader, pvUserData: MutPtr<CVoid> = this.pvUserData, dwCurrentState: ScardState = this.dwCurrentState, dwEventState: ScardState = this.dwEventState, cbAtr: UInt = this.cbAtr, rgbAtr: UByteArray = this.rgbAtr): ScardReaderstatea = ScardReaderstatea(szReaderCtorArg = szReader, pvUserDataCtorArg = pvUserData, dwCurrentState = dwCurrentState, dwEventState = dwEventState, cbAtr = cbAtr, rgbAtr = rgbAtr)
+    public fun copy(szReader: Pcstr = this.szReader, pvUserData: MutPtr = this.pvUserData, dwCurrentState: ScardState = this.dwCurrentState, dwEventState: ScardState = this.dwEventState, cbAtr: UInt = this.cbAtr, rgbAtr: UByteArray = this.rgbAtr): ScardReaderstatea = ScardReaderstatea(szReaderCtorArg = szReader, pvUserDataCtorArg = pvUserData, dwCurrentState = dwCurrentState, dwEventState = dwEventState, cbAtr = cbAtr, rgbAtr = rgbAtr)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -2053,7 +2052,7 @@ public class ScardReaderstatea internal constructor(
     public companion object {
         public operator fun invoke(
             szReader: Pcstr = ConstPtr(0L),
-            pvUserData: MutPtr<CVoid> = MutPtr(0L),
+            pvUserData: MutPtr = MutPtr(0L),
             dwCurrentState: ScardState = 0u,
             dwEventState: ScardState = 0u,
             cbAtr: UInt = 0u,
@@ -2072,7 +2071,7 @@ public class ScardReaderstatea internal constructor(
 
 public class ScardReaderstatew internal constructor(
     szReaderCtorArg: Pcwstr,
-    pvUserDataCtorArg: MutPtr<CVoid>,
+    pvUserDataCtorArg: MutPtr,
     public var dwCurrentState: ScardState,
     public var dwEventState: ScardState,
     public var cbAtr: UInt,
@@ -2081,7 +2080,7 @@ public class ScardReaderstatew internal constructor(
     public var szReader: Pcwstr = szReaderCtorArg
         internal set
 
-    public var pvUserData: MutPtr<CVoid> = pvUserDataCtorArg
+    public var pvUserData: MutPtr = pvUserDataCtorArg
         internal set
 
     public constructor() : this(
@@ -2095,7 +2094,7 @@ public class ScardReaderstatew internal constructor(
 
     public operator fun component1(): Pcwstr = this.szReader
 
-    public operator fun component2(): MutPtr<CVoid> = this.pvUserData
+    public operator fun component2(): MutPtr = this.pvUserData
 
     public operator fun component3(): ScardState = this.dwCurrentState
 
@@ -2105,7 +2104,7 @@ public class ScardReaderstatew internal constructor(
 
     public operator fun component6(): UByteArray = this.rgbAtr
 
-    public fun copy(szReader: Pcwstr = this.szReader, pvUserData: MutPtr<CVoid> = this.pvUserData, dwCurrentState: ScardState = this.dwCurrentState, dwEventState: ScardState = this.dwEventState, cbAtr: UInt = this.cbAtr, rgbAtr: UByteArray = this.rgbAtr): ScardReaderstatew = ScardReaderstatew(szReaderCtorArg = szReader, pvUserDataCtorArg = pvUserData, dwCurrentState = dwCurrentState, dwEventState = dwEventState, cbAtr = cbAtr, rgbAtr = rgbAtr)
+    public fun copy(szReader: Pcwstr = this.szReader, pvUserData: MutPtr = this.pvUserData, dwCurrentState: ScardState = this.dwCurrentState, dwEventState: ScardState = this.dwEventState, cbAtr: UInt = this.cbAtr, rgbAtr: UByteArray = this.rgbAtr): ScardReaderstatew = ScardReaderstatew(szReaderCtorArg = szReader, pvUserDataCtorArg = pvUserData, dwCurrentState = dwCurrentState, dwEventState = dwEventState, cbAtr = cbAtr, rgbAtr = rgbAtr)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -2132,7 +2131,7 @@ public class ScardReaderstatew internal constructor(
     public companion object {
         public operator fun invoke(
             szReader: Pcwstr = ConstPtr(0L),
-            pvUserData: MutPtr<CVoid> = MutPtr(0L),
+            pvUserData: MutPtr = MutPtr(0L),
             dwCurrentState: ScardState = 0u,
             dwEventState: ScardState = 0u,
             cbAtr: UInt = 0u,
@@ -2249,9 +2248,9 @@ public data class SecHandle(
 
 public class SecPkgContextClientCreds internal constructor(
     public var authBufferLen: UInt,
-    authBufferCtorArg: MutPtr<UByte>,
+    authBufferCtorArg: MutPtr,
 ) {
-    public var authBuffer: MutPtr<UByte> = authBufferCtorArg
+    public var authBuffer: MutPtr = authBufferCtorArg
         internal set
 
     public constructor() : this(
@@ -2261,9 +2260,9 @@ public class SecPkgContextClientCreds internal constructor(
 
     public operator fun component1(): UInt = this.authBufferLen
 
-    public operator fun component2(): MutPtr<UByte> = this.authBuffer
+    public operator fun component2(): MutPtr = this.authBuffer
 
-    public fun copy(authBufferLen: UInt = this.authBufferLen, authBuffer: MutPtr<UByte> = this.authBuffer): SecPkgContextClientCreds = SecPkgContextClientCreds(authBufferLen = authBufferLen, authBufferCtorArg = authBuffer)
+    public fun copy(authBufferLen: UInt = this.authBufferLen, authBuffer: MutPtr = this.authBuffer): SecPkgContextClientCreds = SecPkgContextClientCreds(authBufferLen = authBufferLen, authBufferCtorArg = authBuffer)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -2289,21 +2288,21 @@ public class SecPkgContextClientCreds internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<UByte>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                     )
                 override fun writeNative(addr: Long, value: SecPkgContextClientCreds) {
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr, value.authBufferLen)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<UByte>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.authBuffer)
                 }
             }
 
         public operator fun invoke(
             authBufferLen: UInt = 0u,
-            authBuffer: MutPtr<UByte> = MutPtr(0L),
+            authBuffer: MutPtr = MutPtr(0L),
         ): SecPkgContextClientCreds =
             SecPkgContextClientCreds(
                 authBufferLen = authBufferLen,

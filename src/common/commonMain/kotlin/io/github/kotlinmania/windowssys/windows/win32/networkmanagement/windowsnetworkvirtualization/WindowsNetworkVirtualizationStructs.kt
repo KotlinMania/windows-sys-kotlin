@@ -51,9 +51,9 @@ public class WnvNotificationParam internal constructor(
     public var header: WnvObjectHeader,
     public var notificationType: WnvNotificationType,
     public var pendingNotifications: UInt,
-    bufferCtorArg: MutPtr<UByte>,
+    bufferCtorArg: MutPtr,
 ) {
-    public var buffer: MutPtr<UByte> = bufferCtorArg
+    public var buffer: MutPtr = bufferCtorArg
         internal set
 
     public constructor() : this(
@@ -69,9 +69,9 @@ public class WnvNotificationParam internal constructor(
 
     public operator fun component3(): UInt = this.pendingNotifications
 
-    public operator fun component4(): MutPtr<UByte> = this.buffer
+    public operator fun component4(): MutPtr = this.buffer
 
-    public fun copy(header: WnvObjectHeader = this.header, notificationType: WnvNotificationType = this.notificationType, pendingNotifications: UInt = this.pendingNotifications, buffer: MutPtr<UByte> = this.buffer): WnvNotificationParam = WnvNotificationParam(header = header, notificationType = notificationType, pendingNotifications = pendingNotifications, bufferCtorArg = buffer)
+    public fun copy(header: WnvObjectHeader = this.header, notificationType: WnvNotificationType = this.notificationType, pendingNotifications: UInt = this.pendingNotifications, buffer: MutPtr = this.buffer): WnvNotificationParam = WnvNotificationParam(header = header, notificationType = notificationType, pendingNotifications = pendingNotifications, bufferCtorArg = buffer)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -103,7 +103,7 @@ public class WnvNotificationParam internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 12L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<UByte>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 16L),
                     )
                 override fun writeNative(addr: Long, value: WnvNotificationParam) {
@@ -112,7 +112,7 @@ public class WnvNotificationParam internal constructor(
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 12L, value.pendingNotifications)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<UByte>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 16L, value.buffer)
                 }
             }
@@ -121,7 +121,7 @@ public class WnvNotificationParam internal constructor(
             header: WnvObjectHeader = WnvObjectHeader(),
             notificationType: WnvNotificationType = 0,
             pendingNotifications: UInt = 0u,
-            buffer: MutPtr<UByte> = MutPtr(0L),
+            buffer: MutPtr = MutPtr(0L),
         ): WnvNotificationParam =
             WnvNotificationParam(
                 header = header,

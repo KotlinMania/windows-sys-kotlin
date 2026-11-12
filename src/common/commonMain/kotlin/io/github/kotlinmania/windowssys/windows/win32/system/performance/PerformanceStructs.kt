@@ -2,7 +2,6 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.system.performance
 
-import io.github.kotlinmania.rustlang.core.ffi.CVoid
 import io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
 import io.github.kotlinmania.rustlang.core.mem.TypeLayout
 import io.github.kotlinmania.rustlang.core.ptr.ConstPtr
@@ -2673,9 +2672,9 @@ public class PerfProviderContext internal constructor(
     public var controlCallback: Perflibrequest,
     public var memAllocRoutine: PerfMemAlloc,
     public var memFreeRoutine: PerfMemFree,
-    pMemContextCtorArg: MutPtr<CVoid>,
+    pMemContextCtorArg: MutPtr,
 ) {
-    public var pMemContext: MutPtr<CVoid> = pMemContextCtorArg
+    public var pMemContext: MutPtr = pMemContextCtorArg
         internal set
 
     public constructor() : this(
@@ -2697,9 +2696,9 @@ public class PerfProviderContext internal constructor(
 
     public operator fun component5(): PerfMemFree = this.memFreeRoutine
 
-    public operator fun component6(): MutPtr<CVoid> = this.pMemContext
+    public operator fun component6(): MutPtr = this.pMemContext
 
-    public fun copy(contextSize: UInt = this.contextSize, reserved: UInt = this.reserved, controlCallback: Perflibrequest = this.controlCallback, memAllocRoutine: PerfMemAlloc = this.memAllocRoutine, memFreeRoutine: PerfMemFree = this.memFreeRoutine, pMemContext: MutPtr<CVoid> = this.pMemContext): PerfProviderContext = PerfProviderContext(contextSize = contextSize, reserved = reserved, controlCallback = controlCallback, memAllocRoutine = memAllocRoutine, memFreeRoutine = memFreeRoutine, pMemContextCtorArg = pMemContext)
+    public fun copy(contextSize: UInt = this.contextSize, reserved: UInt = this.reserved, controlCallback: Perflibrequest = this.controlCallback, memAllocRoutine: PerfMemAlloc = this.memAllocRoutine, memFreeRoutine: PerfMemFree = this.memFreeRoutine, pMemContext: MutPtr = this.pMemContext): PerfProviderContext = PerfProviderContext(contextSize = contextSize, reserved = reserved, controlCallback = controlCallback, memAllocRoutine = memAllocRoutine, memFreeRoutine = memFreeRoutine, pMemContextCtorArg = pMemContext)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -2730,7 +2729,7 @@ public class PerfProviderContext internal constructor(
             controlCallback: Perflibrequest = null,
             memAllocRoutine: PerfMemAlloc = null,
             memFreeRoutine: PerfMemFree = null,
-            pMemContext: MutPtr<CVoid> = MutPtr(0L),
+            pMemContext: MutPtr = MutPtr(0L),
         ): PerfProviderContext =
             PerfProviderContext(
                 contextSize = contextSize,

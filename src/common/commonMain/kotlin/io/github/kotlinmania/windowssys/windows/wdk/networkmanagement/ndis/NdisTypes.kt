@@ -1,11 +1,8 @@
 package io.github.kotlinmania.windowssys.windows.wdk.networkmanagement.ndis
 
-import io.github.kotlinmania.rustlang.core.ffi.CVoid
 import io.github.kotlinmania.rustlang.core.ptr.ConstPtr
 import io.github.kotlinmania.rustlang.core.ptr.MutPtr
-import io.github.kotlinmania.windowssys.windows.win32.foundation.Handle
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Ntstatus
-import io.github.kotlinmania.windowssys.windows.win32.foundation.UnicodeString
 
 public fun interface ClAddPartyCompleteHandlerFn {
     public operator fun invoke()
@@ -188,25 +185,25 @@ public typealias CoMediaParameters = Long
 public typealias EthFilter = Long
 
 public fun interface MiniportCoActivateVcFn {
-    public operator fun invoke(miniportvccontext: ConstPtr<CVoid>, callparameters: MutPtr<CoCallParameters>): Int
+    public operator fun invoke(miniportvccontext: ConstPtr, callparameters: MutPtr): Int
 }
 
 public typealias MiniportCoActivateVc = MiniportCoActivateVcFn?
 
 public fun interface MiniportCoCreateVcFn {
-    public operator fun invoke(miniportadaptercontext: ConstPtr<CVoid>, ndisvchandle: ConstPtr<CVoid>, miniportvccontext: MutPtr<MutPtr<CVoid>>): Int
+    public operator fun invoke(miniportadaptercontext: ConstPtr, ndisvchandle: ConstPtr, miniportvccontext: MutPtr): Int
 }
 
 public typealias MiniportCoCreateVc = MiniportCoCreateVcFn?
 
 public fun interface MiniportCoDeactivateVcFn {
-    public operator fun invoke(miniportvccontext: ConstPtr<CVoid>): Int
+    public operator fun invoke(miniportvccontext: ConstPtr): Int
 }
 
 public typealias MiniportCoDeactivateVc = MiniportCoDeactivateVcFn?
 
 public fun interface MiniportCoDeleteVcFn {
-    public operator fun invoke(miniportvccontext: ConstPtr<CVoid>): Int
+    public operator fun invoke(miniportvccontext: ConstPtr): Int
 }
 
 public typealias MiniportCoDeleteVc = MiniportCoDeleteVcFn?
@@ -271,17 +268,17 @@ public typealias NdisOpenBlock = Long
 
 public typealias NdisParameterType = Int
 
-public typealias NdisPdCounterHandle = MutPtr<CVoid>
+public typealias NdisPdCounterHandle = MutPtr
 
-public typealias NdisPdFilterHandle = MutPtr<CVoid>
+public typealias NdisPdFilterHandle = MutPtr
 
-public typealias NdisPdProviderHandle = MutPtr<CVoid>
+public typealias NdisPdProviderHandle = MutPtr
 
 public typealias NdisPerPacketInfo = Int
 
 public typealias NdisPhysicalMedium = Int
 
-public typealias NdisPollHandle = MutPtr<CVoid>
+public typealias NdisPollHandle = MutPtr
 
 public typealias NdisPortAuthorizationState = Int
 
@@ -302,7 +299,7 @@ public typealias NdisProcessorType = Int
 public typealias NdisProcessorVendor = Int
 
 public fun interface NdisProcCallbackFn {
-    public operator fun invoke(workitem: ConstPtr<NdisWorkItem>, context: ConstPtr<CVoid>)
+    public operator fun invoke(workitem: ConstPtr, context: ConstPtr)
 }
 
 public typealias NdisProcCallback = NdisProcCallbackFn?
@@ -314,7 +311,7 @@ public typealias NdisRequestType = Int
 public typealias NdisSupportedPauseFunctions = Int
 
 public fun interface NdisTimerFunctionFn {
-    public operator fun invoke(systemspecific1: ConstPtr<CVoid>, functioncontext: ConstPtr<CVoid>, systemspecific2: ConstPtr<CVoid>, systemspecific3: ConstPtr<CVoid>)
+    public operator fun invoke(systemspecific1: ConstPtr, functioncontext: ConstPtr, systemspecific2: ConstPtr, systemspecific3: ConstPtr)
 }
 
 public typealias NdisTimerFunction = NdisTimerFunctionFn?
@@ -348,187 +345,187 @@ public fun interface ProtcolCoAfRegisterNotifyFn {
 public typealias ProtcolCoAfRegisterNotify = ProtcolCoAfRegisterNotifyFn?
 
 public fun interface ProtocolClAddPartyCompleteFn {
-    public operator fun invoke(status: Int, protocolpartycontext: ConstPtr<CVoid>, ndispartyhandle: ConstPtr<CVoid>, callparameters: ConstPtr<CoCallParameters>)
+    public operator fun invoke(status: Int, protocolpartycontext: ConstPtr, ndispartyhandle: ConstPtr, callparameters: ConstPtr)
 }
 
 public typealias ProtocolClAddPartyComplete = ProtocolClAddPartyCompleteFn?
 
 public fun interface ProtocolClCallConnectedFn {
-    public operator fun invoke(protocolvccontext: ConstPtr<CVoid>)
+    public operator fun invoke(protocolvccontext: ConstPtr)
 }
 
 public typealias ProtocolClCallConnected = ProtocolClCallConnectedFn?
 
 public fun interface ProtocolClCloseAfCompleteFn {
-    public operator fun invoke(status: Int, protocolafcontext: ConstPtr<CVoid>)
+    public operator fun invoke(status: Int, protocolafcontext: ConstPtr)
 }
 
 public typealias ProtocolClCloseAfComplete = ProtocolClCloseAfCompleteFn?
 
 public fun interface ProtocolClCloseCallCompleteFn {
-    public operator fun invoke(status: Int, protocolvccontext: ConstPtr<CVoid>, protocolpartycontext: ConstPtr<CVoid>)
+    public operator fun invoke(status: Int, protocolvccontext: ConstPtr, protocolpartycontext: ConstPtr)
 }
 
 public typealias ProtocolClCloseCallComplete = ProtocolClCloseCallCompleteFn?
 
 public fun interface ProtocolClDeregisterSapCompleteFn {
-    public operator fun invoke(status: Int, protocolsapcontext: ConstPtr<CVoid>)
+    public operator fun invoke(status: Int, protocolsapcontext: ConstPtr)
 }
 
 public typealias ProtocolClDeregisterSapComplete = ProtocolClDeregisterSapCompleteFn?
 
 public fun interface ProtocolClDropPartyCompleteFn {
-    public operator fun invoke(status: Int, protocolpartycontext: ConstPtr<CVoid>)
+    public operator fun invoke(status: Int, protocolpartycontext: ConstPtr)
 }
 
 public typealias ProtocolClDropPartyComplete = ProtocolClDropPartyCompleteFn?
 
 public fun interface ProtocolClIncomingCallFn {
-    public operator fun invoke(protocolsapcontext: ConstPtr<CVoid>, protocolvccontext: ConstPtr<CVoid>, callparameters: MutPtr<CoCallParameters>): Int
+    public operator fun invoke(protocolsapcontext: ConstPtr, protocolvccontext: ConstPtr, callparameters: MutPtr): Int
 }
 
 public typealias ProtocolClIncomingCall = ProtocolClIncomingCallFn?
 
 public fun interface ProtocolClIncomingCallQosChangeFn {
-    public operator fun invoke(protocolvccontext: ConstPtr<CVoid>, callparameters: ConstPtr<CoCallParameters>)
+    public operator fun invoke(protocolvccontext: ConstPtr, callparameters: ConstPtr)
 }
 
 public typealias ProtocolClIncomingCallQosChange = ProtocolClIncomingCallQosChangeFn?
 
 public fun interface ProtocolClIncomingCloseCallFn {
-    public operator fun invoke(closestatus: Int, protocolvccontext: ConstPtr<CVoid>, closedata: ConstPtr<CVoid>, size: UInt)
+    public operator fun invoke(closestatus: Int, protocolvccontext: ConstPtr, closedata: ConstPtr, size: UInt)
 }
 
 public typealias ProtocolClIncomingCloseCall = ProtocolClIncomingCloseCallFn?
 
 public fun interface ProtocolClIncomingDropPartyFn {
-    public operator fun invoke(dropstatus: Int, protocolpartycontext: ConstPtr<CVoid>, closedata: ConstPtr<CVoid>, size: UInt)
+    public operator fun invoke(dropstatus: Int, protocolpartycontext: ConstPtr, closedata: ConstPtr, size: UInt)
 }
 
 public typealias ProtocolClIncomingDropParty = ProtocolClIncomingDropPartyFn?
 
 public fun interface ProtocolClMakeCallCompleteFn {
-    public operator fun invoke(status: Int, protocolvccontext: ConstPtr<CVoid>, ndispartyhandle: ConstPtr<CVoid>, callparameters: ConstPtr<CoCallParameters>)
+    public operator fun invoke(status: Int, protocolvccontext: ConstPtr, ndispartyhandle: ConstPtr, callparameters: ConstPtr)
 }
 
 public typealias ProtocolClMakeCallComplete = ProtocolClMakeCallCompleteFn?
 
 public fun interface ProtocolClModifyCallQosCompleteFn {
-    public operator fun invoke(status: Int, protocolvccontext: ConstPtr<CVoid>, callparameters: ConstPtr<CoCallParameters>)
+    public operator fun invoke(status: Int, protocolvccontext: ConstPtr, callparameters: ConstPtr)
 }
 
 public typealias ProtocolClModifyCallQosComplete = ProtocolClModifyCallQosCompleteFn?
 
 public fun interface ProtocolClOpenAfCompleteFn {
-    public operator fun invoke(status: Int, protocolafcontext: ConstPtr<CVoid>, ndisafhandle: ConstPtr<CVoid>)
+    public operator fun invoke(status: Int, protocolafcontext: ConstPtr, ndisafhandle: ConstPtr)
 }
 
 public typealias ProtocolClOpenAfComplete = ProtocolClOpenAfCompleteFn?
 
 public fun interface ProtocolClRegisterSapCompleteFn {
-    public operator fun invoke(status: Int, protocolsapcontext: ConstPtr<CVoid>, sap: ConstPtr<CoSap>, ndissaphandle: ConstPtr<CVoid>)
+    public operator fun invoke(status: Int, protocolsapcontext: ConstPtr, sap: ConstPtr, ndissaphandle: ConstPtr)
 }
 
 public typealias ProtocolClRegisterSapComplete = ProtocolClRegisterSapCompleteFn?
 
 public fun interface ProtocolCmActivateVcCompleteFn {
-    public operator fun invoke(status: Int, callmgrvccontext: ConstPtr<CVoid>, callparameters: ConstPtr<CoCallParameters>)
+    public operator fun invoke(status: Int, callmgrvccontext: ConstPtr, callparameters: ConstPtr)
 }
 
 public typealias ProtocolCmActivateVcComplete = ProtocolCmActivateVcCompleteFn?
 
 public fun interface ProtocolCmAddPartyFn {
-    public operator fun invoke(callmgrvccontext: ConstPtr<CVoid>, callparameters: MutPtr<CoCallParameters>, ndispartyhandle: ConstPtr<CVoid>, callmgrpartycontext: MutPtr<MutPtr<CVoid>>): Int
+    public operator fun invoke(callmgrvccontext: ConstPtr, callparameters: MutPtr, ndispartyhandle: ConstPtr, callmgrpartycontext: MutPtr): Int
 }
 
 public typealias ProtocolCmAddParty = ProtocolCmAddPartyFn?
 
 public fun interface ProtocolCmCloseAfFn {
-    public operator fun invoke(callmgrafcontext: ConstPtr<CVoid>): Int
+    public operator fun invoke(callmgrafcontext: ConstPtr): Int
 }
 
 public typealias ProtocolCmCloseAf = ProtocolCmCloseAfFn?
 
 public fun interface ProtocolCmCloseCallFn {
-    public operator fun invoke(callmgrvccontext: ConstPtr<CVoid>, callmgrpartycontext: ConstPtr<CVoid>, closedata: ConstPtr<CVoid>, size: UInt): Int
+    public operator fun invoke(callmgrvccontext: ConstPtr, callmgrpartycontext: ConstPtr, closedata: ConstPtr, size: UInt): Int
 }
 
 public typealias ProtocolCmCloseCall = ProtocolCmCloseCallFn?
 
 public fun interface ProtocolCmDeactivateVcCompleteFn {
-    public operator fun invoke(status: Int, callmgrvccontext: ConstPtr<CVoid>)
+    public operator fun invoke(status: Int, callmgrvccontext: ConstPtr)
 }
 
 public typealias ProtocolCmDeactivateVcComplete = ProtocolCmDeactivateVcCompleteFn?
 
 public fun interface ProtocolCmDeregisterSapFn {
-    public operator fun invoke(callmgrsapcontext: ConstPtr<CVoid>): Int
+    public operator fun invoke(callmgrsapcontext: ConstPtr): Int
 }
 
 public typealias ProtocolCmDeregisterSap = ProtocolCmDeregisterSapFn?
 
 public fun interface ProtocolCmDropPartyFn {
-    public operator fun invoke(callmgrpartycontext: ConstPtr<CVoid>, closedata: ConstPtr<CVoid>, size: UInt): Int
+    public operator fun invoke(callmgrpartycontext: ConstPtr, closedata: ConstPtr, size: UInt): Int
 }
 
 public typealias ProtocolCmDropParty = ProtocolCmDropPartyFn?
 
 public fun interface ProtocolCmIncomingCallCompleteFn {
-    public operator fun invoke(status: Int, callmgrvccontext: ConstPtr<CVoid>, callparameters: ConstPtr<CoCallParameters>)
+    public operator fun invoke(status: Int, callmgrvccontext: ConstPtr, callparameters: ConstPtr)
 }
 
 public typealias ProtocolCmIncomingCallComplete = ProtocolCmIncomingCallCompleteFn?
 
 public fun interface ProtocolCmMakeCallFn {
-    public operator fun invoke(callmgrvccontext: ConstPtr<CVoid>, callparameters: MutPtr<CoCallParameters>, ndispartyhandle: ConstPtr<CVoid>, callmgrpartycontext: MutPtr<MutPtr<CVoid>>): Int
+    public operator fun invoke(callmgrvccontext: ConstPtr, callparameters: MutPtr, ndispartyhandle: ConstPtr, callmgrpartycontext: MutPtr): Int
 }
 
 public typealias ProtocolCmMakeCall = ProtocolCmMakeCallFn?
 
 public fun interface ProtocolCmModifyQosCallFn {
-    public operator fun invoke(callmgrvccontext: ConstPtr<CVoid>, callparameters: ConstPtr<CoCallParameters>): Int
+    public operator fun invoke(callmgrvccontext: ConstPtr, callparameters: ConstPtr): Int
 }
 
 public typealias ProtocolCmModifyQosCall = ProtocolCmModifyQosCallFn?
 
 public fun interface ProtocolCmOpenAfFn {
-    public operator fun invoke(callmgrbindingcontext: ConstPtr<CVoid>, addressfamily: ConstPtr<CoAddressFamily>, ndisafhandle: ConstPtr<CVoid>, callmgrafcontext: MutPtr<MutPtr<CVoid>>): Int
+    public operator fun invoke(callmgrbindingcontext: ConstPtr, addressfamily: ConstPtr, ndisafhandle: ConstPtr, callmgrafcontext: MutPtr): Int
 }
 
 public typealias ProtocolCmOpenAf = ProtocolCmOpenAfFn?
 
 public fun interface ProtocolCmRegSapFn {
-    public operator fun invoke(callmgrafcontext: ConstPtr<CVoid>, sap: ConstPtr<CoSap>, ndissaphandle: ConstPtr<CVoid>, callmgrsapcontext: MutPtr<MutPtr<CVoid>>): Int
+    public operator fun invoke(callmgrafcontext: ConstPtr, sap: ConstPtr, ndissaphandle: ConstPtr, callmgrsapcontext: MutPtr): Int
 }
 
 public typealias ProtocolCmRegSap = ProtocolCmRegSapFn?
 
 public fun interface ProtocolCoAfRegisterNotifyFn {
-    public operator fun invoke(protocolbindingcontext: ConstPtr<CVoid>, addressfamily: ConstPtr<CoAddressFamily>)
+    public operator fun invoke(protocolbindingcontext: ConstPtr, addressfamily: ConstPtr)
 }
 
 public typealias ProtocolCoAfRegisterNotify = ProtocolCoAfRegisterNotifyFn?
 
 public fun interface ProtocolCoCreateVcFn {
-    public operator fun invoke(protocolafcontext: ConstPtr<CVoid>, ndisvchandle: ConstPtr<CVoid>, protocolvccontext: MutPtr<MutPtr<CVoid>>): Int
+    public operator fun invoke(protocolafcontext: ConstPtr, ndisvchandle: ConstPtr, protocolvccontext: MutPtr): Int
 }
 
 public typealias ProtocolCoCreateVc = ProtocolCoCreateVcFn?
 
 public fun interface ProtocolCoDeleteVcFn {
-    public operator fun invoke(protocolvccontext: ConstPtr<CVoid>): Int
+    public operator fun invoke(protocolvccontext: ConstPtr): Int
 }
 
 public typealias ProtocolCoDeleteVc = ProtocolCoDeleteVcFn?
 
 public fun interface TdiPnpHandlerFn {
-    public operator fun invoke(uppercomponent: ConstPtr<UnicodeString>, lowercomponent: ConstPtr<UnicodeString>, bindlist: ConstPtr<UnicodeString>, reconfigbuffer: ConstPtr<CVoid>, reconfigbuffersize: UInt, operation: UInt): Ntstatus
+    public operator fun invoke(uppercomponent: ConstPtr, lowercomponent: ConstPtr, bindlist: ConstPtr, reconfigbuffer: ConstPtr, reconfigbuffersize: UInt, operation: UInt): Ntstatus
 }
 
 public typealias TdiPnpHandler = TdiPnpHandlerFn?
 
 public fun interface TdiRegisterCallbackFn {
-    public operator fun invoke(devicename: ConstPtr<UnicodeString>, tdihandle: MutPtr<Handle>): Ntstatus
+    public operator fun invoke(devicename: ConstPtr, tdihandle: MutPtr): Ntstatus
 }
 
 public typealias TdiRegisterCallback = TdiRegisterCallbackFn?

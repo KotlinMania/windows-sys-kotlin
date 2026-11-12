@@ -2,14 +2,12 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.system.iis
 
-import io.github.kotlinmania.rustlang.core.ffi.CVoid
 import io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
 import io.github.kotlinmania.rustlang.core.mem.TypeLayout
 import io.github.kotlinmania.rustlang.core.ptr.ConstPtr
 import io.github.kotlinmania.rustlang.core.ptr.MutPtr
 import io.github.kotlinmania.windowssys.core.Bool
 import io.github.kotlinmania.windowssys.core.Bstr
-import io.github.kotlinmania.windowssys.core.Guid
 import io.github.kotlinmania.windowssys.core.Hresult
 import io.github.kotlinmania.windowssys.core.Pcstr
 import io.github.kotlinmania.windowssys.core.Pcwstr
@@ -84,7 +82,7 @@ public class ExtensionControlBlock internal constructor(
     lpszPathTranslatedCtorArg: Pstr,
     public var cbTotalBytes: UInt,
     public var cbAvailable: UInt,
-    lpbDataCtorArg: MutPtr<UByte>,
+    lpbDataCtorArg: MutPtr,
     lpszContentTypeCtorArg: Pstr,
     public var getServerVariable: PfnIisGetservervariable,
     public var writeClient: PfnIisWriteclient,
@@ -106,7 +104,7 @@ public class ExtensionControlBlock internal constructor(
     public var lpszPathTranslated: Pstr = lpszPathTranslatedCtorArg
         internal set
 
-    public var lpbData: MutPtr<UByte> = lpbDataCtorArg
+    public var lpbData: MutPtr = lpbDataCtorArg
         internal set
 
     public var lpszContentType: Pstr = lpszContentTypeCtorArg
@@ -145,7 +143,7 @@ public class ExtensionControlBlock internal constructor(
             lpszPathTranslated: Pstr = MutPtr(0L),
             cbTotalBytes: UInt = 0u,
             cbAvailable: UInt = 0u,
-            lpbData: MutPtr<UByte> = MutPtr(0L),
+            lpbData: MutPtr = MutPtr(0L),
             lpszContentType: Pstr = MutPtr(0L),
             getServerVariable: PfnIisGetservervariable = null,
             writeClient: PfnIisWriteclient = null,
@@ -230,8 +228,8 @@ public class HseExecUnicodeUrlInfo internal constructor(
     pszUrlCtorArg: Pwstr,
     pszMethodCtorArg: Pstr,
     pszChildHeadersCtorArg: Pstr,
-    pUserInfoCtorArg: MutPtr<HseExecUnicodeUrlUserInfo>,
-    pEntityCtorArg: MutPtr<HseExecUrlEntityInfo>,
+    pUserInfoCtorArg: MutPtr,
+    pEntityCtorArg: MutPtr,
     public var dwExecUrlFlags: UInt,
 ) {
     public var pszUrl: Pwstr = pszUrlCtorArg
@@ -243,10 +241,10 @@ public class HseExecUnicodeUrlInfo internal constructor(
     public var pszChildHeaders: Pstr = pszChildHeadersCtorArg
         internal set
 
-    public var pUserInfo: MutPtr<HseExecUnicodeUrlUserInfo> = pUserInfoCtorArg
+    public var pUserInfo: MutPtr = pUserInfoCtorArg
         internal set
 
-    public var pEntity: MutPtr<HseExecUrlEntityInfo> = pEntityCtorArg
+    public var pEntity: MutPtr = pEntityCtorArg
         internal set
 
     public constructor() : this(
@@ -264,13 +262,13 @@ public class HseExecUnicodeUrlInfo internal constructor(
 
     public operator fun component3(): Pstr = this.pszChildHeaders
 
-    public operator fun component4(): MutPtr<HseExecUnicodeUrlUserInfo> = this.pUserInfo
+    public operator fun component4(): MutPtr = this.pUserInfo
 
-    public operator fun component5(): MutPtr<HseExecUrlEntityInfo> = this.pEntity
+    public operator fun component5(): MutPtr = this.pEntity
 
     public operator fun component6(): UInt = this.dwExecUrlFlags
 
-    public fun copy(pszUrl: Pwstr = this.pszUrl, pszMethod: Pstr = this.pszMethod, pszChildHeaders: Pstr = this.pszChildHeaders, pUserInfo: MutPtr<HseExecUnicodeUrlUserInfo> = this.pUserInfo, pEntity: MutPtr<HseExecUrlEntityInfo> = this.pEntity, dwExecUrlFlags: UInt = this.dwExecUrlFlags): HseExecUnicodeUrlInfo = HseExecUnicodeUrlInfo(pszUrlCtorArg = pszUrl, pszMethodCtorArg = pszMethod, pszChildHeadersCtorArg = pszChildHeaders, pUserInfoCtorArg = pUserInfo, pEntityCtorArg = pEntity, dwExecUrlFlags = dwExecUrlFlags)
+    public fun copy(pszUrl: Pwstr = this.pszUrl, pszMethod: Pstr = this.pszMethod, pszChildHeaders: Pstr = this.pszChildHeaders, pUserInfo: MutPtr = this.pUserInfo, pEntity: MutPtr = this.pEntity, dwExecUrlFlags: UInt = this.dwExecUrlFlags): HseExecUnicodeUrlInfo = HseExecUnicodeUrlInfo(pszUrlCtorArg = pszUrl, pszMethodCtorArg = pszMethod, pszChildHeadersCtorArg = pszChildHeaders, pUserInfoCtorArg = pUserInfo, pEntityCtorArg = pEntity, dwExecUrlFlags = dwExecUrlFlags)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -299,8 +297,8 @@ public class HseExecUnicodeUrlInfo internal constructor(
             pszUrl: Pwstr = MutPtr(0L),
             pszMethod: Pstr = MutPtr(0L),
             pszChildHeaders: Pstr = MutPtr(0L),
-            pUserInfo: MutPtr<HseExecUnicodeUrlUserInfo> = MutPtr(0L),
-            pEntity: MutPtr<HseExecUrlEntityInfo> = MutPtr(0L),
+            pUserInfo: MutPtr = MutPtr(0L),
+            pEntity: MutPtr = MutPtr(0L),
             dwExecUrlFlags: UInt = 0u,
         ): HseExecUnicodeUrlInfo =
             HseExecUnicodeUrlInfo(
@@ -374,9 +372,9 @@ public class HseExecUnicodeUrlUserInfo internal constructor(
 
 public class HseExecUrlEntityInfo internal constructor(
     public var cbAvailable: UInt,
-    lpbDataCtorArg: MutPtr<CVoid>,
+    lpbDataCtorArg: MutPtr,
 ) {
-    public var lpbData: MutPtr<CVoid> = lpbDataCtorArg
+    public var lpbData: MutPtr = lpbDataCtorArg
         internal set
 
     public constructor() : this(
@@ -386,9 +384,9 @@ public class HseExecUrlEntityInfo internal constructor(
 
     public operator fun component1(): UInt = this.cbAvailable
 
-    public operator fun component2(): MutPtr<CVoid> = this.lpbData
+    public operator fun component2(): MutPtr = this.lpbData
 
-    public fun copy(cbAvailable: UInt = this.cbAvailable, lpbData: MutPtr<CVoid> = this.lpbData): HseExecUrlEntityInfo = HseExecUrlEntityInfo(cbAvailable = cbAvailable, lpbDataCtorArg = lpbData)
+    public fun copy(cbAvailable: UInt = this.cbAvailable, lpbData: MutPtr = this.lpbData): HseExecUrlEntityInfo = HseExecUrlEntityInfo(cbAvailable = cbAvailable, lpbDataCtorArg = lpbData)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -414,21 +412,21 @@ public class HseExecUrlEntityInfo internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<CVoid>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                     )
                 override fun writeNative(addr: Long, value: HseExecUrlEntityInfo) {
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr, value.cbAvailable)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<CVoid>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.lpbData)
                 }
             }
 
         public operator fun invoke(
             cbAvailable: UInt = 0u,
-            lpbData: MutPtr<CVoid> = MutPtr(0L),
+            lpbData: MutPtr = MutPtr(0L),
         ): HseExecUrlEntityInfo =
             HseExecUrlEntityInfo(
                 cbAvailable = cbAvailable,
@@ -441,8 +439,8 @@ public class HseExecUrlInfo internal constructor(
     pszUrlCtorArg: Pstr,
     pszMethodCtorArg: Pstr,
     pszChildHeadersCtorArg: Pstr,
-    pUserInfoCtorArg: MutPtr<HseExecUrlUserInfo>,
-    pEntityCtorArg: MutPtr<HseExecUrlEntityInfo>,
+    pUserInfoCtorArg: MutPtr,
+    pEntityCtorArg: MutPtr,
     public var dwExecUrlFlags: UInt,
 ) {
     public var pszUrl: Pstr = pszUrlCtorArg
@@ -454,10 +452,10 @@ public class HseExecUrlInfo internal constructor(
     public var pszChildHeaders: Pstr = pszChildHeadersCtorArg
         internal set
 
-    public var pUserInfo: MutPtr<HseExecUrlUserInfo> = pUserInfoCtorArg
+    public var pUserInfo: MutPtr = pUserInfoCtorArg
         internal set
 
-    public var pEntity: MutPtr<HseExecUrlEntityInfo> = pEntityCtorArg
+    public var pEntity: MutPtr = pEntityCtorArg
         internal set
 
     public constructor() : this(
@@ -475,13 +473,13 @@ public class HseExecUrlInfo internal constructor(
 
     public operator fun component3(): Pstr = this.pszChildHeaders
 
-    public operator fun component4(): MutPtr<HseExecUrlUserInfo> = this.pUserInfo
+    public operator fun component4(): MutPtr = this.pUserInfo
 
-    public operator fun component5(): MutPtr<HseExecUrlEntityInfo> = this.pEntity
+    public operator fun component5(): MutPtr = this.pEntity
 
     public operator fun component6(): UInt = this.dwExecUrlFlags
 
-    public fun copy(pszUrl: Pstr = this.pszUrl, pszMethod: Pstr = this.pszMethod, pszChildHeaders: Pstr = this.pszChildHeaders, pUserInfo: MutPtr<HseExecUrlUserInfo> = this.pUserInfo, pEntity: MutPtr<HseExecUrlEntityInfo> = this.pEntity, dwExecUrlFlags: UInt = this.dwExecUrlFlags): HseExecUrlInfo = HseExecUrlInfo(pszUrlCtorArg = pszUrl, pszMethodCtorArg = pszMethod, pszChildHeadersCtorArg = pszChildHeaders, pUserInfoCtorArg = pUserInfo, pEntityCtorArg = pEntity, dwExecUrlFlags = dwExecUrlFlags)
+    public fun copy(pszUrl: Pstr = this.pszUrl, pszMethod: Pstr = this.pszMethod, pszChildHeaders: Pstr = this.pszChildHeaders, pUserInfo: MutPtr = this.pUserInfo, pEntity: MutPtr = this.pEntity, dwExecUrlFlags: UInt = this.dwExecUrlFlags): HseExecUrlInfo = HseExecUrlInfo(pszUrlCtorArg = pszUrl, pszMethodCtorArg = pszMethod, pszChildHeadersCtorArg = pszChildHeaders, pUserInfoCtorArg = pUserInfo, pEntityCtorArg = pEntity, dwExecUrlFlags = dwExecUrlFlags)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -510,8 +508,8 @@ public class HseExecUrlInfo internal constructor(
             pszUrl: Pstr = MutPtr(0L),
             pszMethod: Pstr = MutPtr(0L),
             pszChildHeaders: Pstr = MutPtr(0L),
-            pUserInfo: MutPtr<HseExecUrlUserInfo> = MutPtr(0L),
-            pEntity: MutPtr<HseExecUrlEntityInfo> = MutPtr(0L),
+            pUserInfo: MutPtr = MutPtr(0L),
+            pEntity: MutPtr = MutPtr(0L),
             dwExecUrlFlags: UInt = 0u,
         ): HseExecUrlInfo =
             HseExecUrlInfo(
@@ -613,7 +611,7 @@ public class HseResponseVector internal constructor(
     pszStatusCtorArg: Pstr,
     pszHeadersCtorArg: Pstr,
     public var nElementCount: UInt,
-    lpElementArrayCtorArg: MutPtr<HseVectorElement>,
+    lpElementArrayCtorArg: MutPtr,
 ) {
     public var pszStatus: Pstr = pszStatusCtorArg
         internal set
@@ -621,7 +619,7 @@ public class HseResponseVector internal constructor(
     public var pszHeaders: Pstr = pszHeadersCtorArg
         internal set
 
-    public var lpElementArray: MutPtr<HseVectorElement> = lpElementArrayCtorArg
+    public var lpElementArray: MutPtr = lpElementArrayCtorArg
         internal set
 
     public constructor() : this(
@@ -640,9 +638,9 @@ public class HseResponseVector internal constructor(
 
     public operator fun component4(): UInt = this.nElementCount
 
-    public operator fun component5(): MutPtr<HseVectorElement> = this.lpElementArray
+    public operator fun component5(): MutPtr = this.lpElementArray
 
-    public fun copy(dwFlags: UInt = this.dwFlags, pszStatus: Pstr = this.pszStatus, pszHeaders: Pstr = this.pszHeaders, nElementCount: UInt = this.nElementCount, lpElementArray: MutPtr<HseVectorElement> = this.lpElementArray): HseResponseVector = HseResponseVector(dwFlags = dwFlags, pszStatusCtorArg = pszStatus, pszHeadersCtorArg = pszHeaders, nElementCount = nElementCount, lpElementArrayCtorArg = lpElementArray)
+    public fun copy(dwFlags: UInt = this.dwFlags, pszStatus: Pstr = this.pszStatus, pszHeaders: Pstr = this.pszHeaders, nElementCount: UInt = this.nElementCount, lpElementArray: MutPtr = this.lpElementArray): HseResponseVector = HseResponseVector(dwFlags = dwFlags, pszStatusCtorArg = pszStatus, pszHeadersCtorArg = pszHeaders, nElementCount = nElementCount, lpElementArrayCtorArg = lpElementArray)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -670,7 +668,7 @@ public class HseResponseVector internal constructor(
             pszStatus: Pstr = MutPtr(0L),
             pszHeaders: Pstr = MutPtr(0L),
             nElementCount: UInt = 0u,
-            lpElementArray: MutPtr<HseVectorElement> = MutPtr(0L),
+            lpElementArray: MutPtr = MutPtr(0L),
         ): HseResponseVector =
             HseResponseVector(
                 dwFlags = dwFlags,
@@ -755,18 +753,18 @@ public class HseSendHeaderExInfo internal constructor(
 
 public class HseTfInfo internal constructor(
     public var pfnHseIO: PfnHseIoCompletion,
-    pContextCtorArg: MutPtr<CVoid>,
+    pContextCtorArg: MutPtr,
     hFileCtorArg: Handle,
     pszStatusCodeCtorArg: Pcstr,
     public var bytesToWrite: UInt,
     public var offset: UInt,
-    pHeadCtorArg: MutPtr<CVoid>,
+    pHeadCtorArg: MutPtr,
     public var headLength: UInt,
-    pTailCtorArg: MutPtr<CVoid>,
+    pTailCtorArg: MutPtr,
     public var tailLength: UInt,
     public var dwFlags: UInt,
 ) {
-    public var pContext: MutPtr<CVoid> = pContextCtorArg
+    public var pContext: MutPtr = pContextCtorArg
         internal set
 
     public var hFile: Handle = hFileCtorArg
@@ -775,10 +773,10 @@ public class HseTfInfo internal constructor(
     public var pszStatusCode: Pcstr = pszStatusCodeCtorArg
         internal set
 
-    public var pHead: MutPtr<CVoid> = pHeadCtorArg
+    public var pHead: MutPtr = pHeadCtorArg
         internal set
 
-    public var pTail: MutPtr<CVoid> = pTailCtorArg
+    public var pTail: MutPtr = pTailCtorArg
         internal set
 
     public constructor() : this(
@@ -797,7 +795,7 @@ public class HseTfInfo internal constructor(
 
     public operator fun component1(): PfnHseIoCompletion = this.pfnHseIO
 
-    public operator fun component2(): MutPtr<CVoid> = this.pContext
+    public operator fun component2(): MutPtr = this.pContext
 
     public operator fun component3(): Handle = this.hFile
 
@@ -807,17 +805,17 @@ public class HseTfInfo internal constructor(
 
     public operator fun component6(): UInt = this.offset
 
-    public operator fun component7(): MutPtr<CVoid> = this.pHead
+    public operator fun component7(): MutPtr = this.pHead
 
     public operator fun component8(): UInt = this.headLength
 
-    public operator fun component9(): MutPtr<CVoid> = this.pTail
+    public operator fun component9(): MutPtr = this.pTail
 
     public operator fun component10(): UInt = this.tailLength
 
     public operator fun component11(): UInt = this.dwFlags
 
-    public fun copy(pfnHseIO: PfnHseIoCompletion = this.pfnHseIO, pContext: MutPtr<CVoid> = this.pContext, hFile: Handle = this.hFile, pszStatusCode: Pcstr = this.pszStatusCode, bytesToWrite: UInt = this.bytesToWrite, offset: UInt = this.offset, pHead: MutPtr<CVoid> = this.pHead, headLength: UInt = this.headLength, pTail: MutPtr<CVoid> = this.pTail, tailLength: UInt = this.tailLength, dwFlags: UInt = this.dwFlags): HseTfInfo = HseTfInfo(pfnHseIO = pfnHseIO, pContextCtorArg = pContext, hFileCtorArg = hFile, pszStatusCodeCtorArg = pszStatusCode, bytesToWrite = bytesToWrite, offset = offset, pHeadCtorArg = pHead, headLength = headLength, pTailCtorArg = pTail, tailLength = tailLength, dwFlags = dwFlags)
+    public fun copy(pfnHseIO: PfnHseIoCompletion = this.pfnHseIO, pContext: MutPtr = this.pContext, hFile: Handle = this.hFile, pszStatusCode: Pcstr = this.pszStatusCode, bytesToWrite: UInt = this.bytesToWrite, offset: UInt = this.offset, pHead: MutPtr = this.pHead, headLength: UInt = this.headLength, pTail: MutPtr = this.pTail, tailLength: UInt = this.tailLength, dwFlags: UInt = this.dwFlags): HseTfInfo = HseTfInfo(pfnHseIO = pfnHseIO, pContextCtorArg = pContext, hFileCtorArg = hFile, pszStatusCodeCtorArg = pszStatusCode, bytesToWrite = bytesToWrite, offset = offset, pHeadCtorArg = pHead, headLength = headLength, pTailCtorArg = pTail, tailLength = tailLength, dwFlags = dwFlags)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -854,14 +852,14 @@ public class HseTfInfo internal constructor(
     public companion object {
         public operator fun invoke(
             pfnHseIO: PfnHseIoCompletion = null,
-            pContext: MutPtr<CVoid> = MutPtr(0L),
+            pContext: MutPtr = MutPtr(0L),
             hFile: Handle = MutPtr(0L),
             pszStatusCode: Pcstr = ConstPtr(0L),
             bytesToWrite: UInt = 0u,
             offset: UInt = 0u,
-            pHead: MutPtr<CVoid> = MutPtr(0L),
+            pHead: MutPtr = MutPtr(0L),
             headLength: UInt = 0u,
-            pTail: MutPtr<CVoid> = MutPtr(0L),
+            pTail: MutPtr = MutPtr(0L),
             tailLength: UInt = 0u,
             dwFlags: UInt = 0u,
         ): HseTfInfo =
@@ -1049,11 +1047,11 @@ public data class HseUrlMapexInfo(
 
 public class HseVectorElement internal constructor(
     public var elementType: UInt,
-    pvContextCtorArg: MutPtr<CVoid>,
+    pvContextCtorArg: MutPtr,
     public var cbOffset: ULong,
     public var cbSize: ULong,
 ) {
-    public var pvContext: MutPtr<CVoid> = pvContextCtorArg
+    public var pvContext: MutPtr = pvContextCtorArg
         internal set
 
     public constructor() : this(
@@ -1065,13 +1063,13 @@ public class HseVectorElement internal constructor(
 
     public operator fun component1(): UInt = this.elementType
 
-    public operator fun component2(): MutPtr<CVoid> = this.pvContext
+    public operator fun component2(): MutPtr = this.pvContext
 
     public operator fun component3(): ULong = this.cbOffset
 
     public operator fun component4(): ULong = this.cbSize
 
-    public fun copy(elementType: UInt = this.elementType, pvContext: MutPtr<CVoid> = this.pvContext, cbOffset: ULong = this.cbOffset, cbSize: ULong = this.cbSize): HseVectorElement = HseVectorElement(elementType = elementType, pvContextCtorArg = pvContext, cbOffset = cbOffset, cbSize = cbSize)
+    public fun copy(elementType: UInt = this.elementType, pvContext: MutPtr = this.pvContext, cbOffset: ULong = this.cbOffset, cbSize: ULong = this.cbSize): HseVectorElement = HseVectorElement(elementType = elementType, pvContextCtorArg = pvContext, cbOffset = cbOffset, cbSize = cbSize)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -1101,7 +1099,7 @@ public class HseVectorElement internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<CVoid>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U64).readNative(addr + 16L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U64).readNative(addr + 24L),
@@ -1110,7 +1108,7 @@ public class HseVectorElement internal constructor(
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr, value.elementType)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<CVoid>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.pvContext)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U64).writeNative(addr + 16L, value.cbOffset)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U64).writeNative(addr + 24L, value.cbSize)
@@ -1119,7 +1117,7 @@ public class HseVectorElement internal constructor(
 
         public operator fun invoke(
             elementType: UInt = 0u,
-            pvContext: MutPtr<CVoid> = MutPtr(0L),
+            pvContext: MutPtr = MutPtr(0L),
             cbOffset: ULong = 0uL,
             cbSize: ULong = 0uL,
         ): HseVectorElement =
@@ -1332,20 +1330,20 @@ public data class HttpFilterAuthCompleteInfo(
 public class HttpFilterContext internal constructor(
     public var cbSize: UInt,
     public var revision: UInt,
-    serverContextCtorArg: MutPtr<CVoid>,
+    serverContextCtorArg: MutPtr,
     public var ulReserved: UInt,
     public var fIsSecurePort: Bool,
-    pFilterContextCtorArg: MutPtr<CVoid>,
+    pFilterContextCtorArg: MutPtr,
     public var getServerVariable: Int,
     public var addResponseHeaders: Int,
     public var writeClient: Int,
     public var allocMem: Int,
     public var serverSupportFunction: Int,
 ) {
-    public var serverContext: MutPtr<CVoid> = serverContextCtorArg
+    public var serverContext: MutPtr = serverContextCtorArg
         internal set
 
-    public var pFilterContext: MutPtr<CVoid> = pFilterContextCtorArg
+    public var pFilterContext: MutPtr = pFilterContextCtorArg
         internal set
 
     public constructor() : this(
@@ -1366,13 +1364,13 @@ public class HttpFilterContext internal constructor(
 
     public operator fun component2(): UInt = this.revision
 
-    public operator fun component3(): MutPtr<CVoid> = this.serverContext
+    public operator fun component3(): MutPtr = this.serverContext
 
     public operator fun component4(): UInt = this.ulReserved
 
     public operator fun component5(): Bool = this.fIsSecurePort
 
-    public operator fun component6(): MutPtr<CVoid> = this.pFilterContext
+    public operator fun component6(): MutPtr = this.pFilterContext
 
     public operator fun component7(): Int = this.getServerVariable
 
@@ -1384,7 +1382,7 @@ public class HttpFilterContext internal constructor(
 
     public operator fun component11(): Int = this.serverSupportFunction
 
-    public fun copy(cbSize: UInt = this.cbSize, revision: UInt = this.revision, serverContext: MutPtr<CVoid> = this.serverContext, ulReserved: UInt = this.ulReserved, fIsSecurePort: Bool = this.fIsSecurePort, pFilterContext: MutPtr<CVoid> = this.pFilterContext, getServerVariable: Int = this.getServerVariable, addResponseHeaders: Int = this.addResponseHeaders, writeClient: Int = this.writeClient, allocMem: Int = this.allocMem, serverSupportFunction: Int = this.serverSupportFunction): HttpFilterContext = HttpFilterContext(cbSize = cbSize, revision = revision, serverContextCtorArg = serverContext, ulReserved = ulReserved, fIsSecurePort = fIsSecurePort, pFilterContextCtorArg = pFilterContext, getServerVariable = getServerVariable, addResponseHeaders = addResponseHeaders, writeClient = writeClient, allocMem = allocMem, serverSupportFunction = serverSupportFunction)
+    public fun copy(cbSize: UInt = this.cbSize, revision: UInt = this.revision, serverContext: MutPtr = this.serverContext, ulReserved: UInt = this.ulReserved, fIsSecurePort: Bool = this.fIsSecurePort, pFilterContext: MutPtr = this.pFilterContext, getServerVariable: Int = this.getServerVariable, addResponseHeaders: Int = this.addResponseHeaders, writeClient: Int = this.writeClient, allocMem: Int = this.allocMem, serverSupportFunction: Int = this.serverSupportFunction): HttpFilterContext = HttpFilterContext(cbSize = cbSize, revision = revision, serverContextCtorArg = serverContext, ulReserved = ulReserved, fIsSecurePort = fIsSecurePort, pFilterContextCtorArg = pFilterContext, getServerVariable = getServerVariable, addResponseHeaders = addResponseHeaders, writeClient = writeClient, allocMem = allocMem, serverSupportFunction = serverSupportFunction)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -1429,13 +1427,13 @@ public class HttpFilterContext internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 4L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<CVoid>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 16L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr + 20L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<CVoid>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 24L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.ISIZE64).readNative(addr + 32L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.ISIZE64).readNative(addr + 40L),
@@ -1448,13 +1446,13 @@ public class HttpFilterContext internal constructor(
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 4L, value.revision)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<CVoid>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.serverContext)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 16L, value.ulReserved)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr + 20L, value.fIsSecurePort)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<CVoid>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 24L, value.pFilterContext)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.ISIZE64).writeNative(addr + 32L, value.getServerVariable)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.ISIZE64).writeNative(addr + 40L, value.addResponseHeaders)
@@ -1467,10 +1465,10 @@ public class HttpFilterContext internal constructor(
         public operator fun invoke(
             cbSize: UInt = 0u,
             revision: UInt = 0u,
-            serverContext: MutPtr<CVoid> = MutPtr(0L),
+            serverContext: MutPtr = MutPtr(0L),
             ulReserved: UInt = 0u,
             fIsSecurePort: Bool = 0,
-            pFilterContext: MutPtr<CVoid> = MutPtr(0L),
+            pFilterContext: MutPtr = MutPtr(0L),
             getServerVariable: Int = 0,
             addResponseHeaders: Int = 0,
             writeClient: Int = 0,
@@ -1656,12 +1654,12 @@ public data class HttpFilterPreprocHeaders(
 }
 
 public class HttpFilterRawData internal constructor(
-    pvInDataCtorArg: MutPtr<CVoid>,
+    pvInDataCtorArg: MutPtr,
     public var cbInData: UInt,
     public var cbInBuffer: UInt,
     public var dwReserved: UInt,
 ) {
-    public var pvInData: MutPtr<CVoid> = pvInDataCtorArg
+    public var pvInData: MutPtr = pvInDataCtorArg
         internal set
 
     public constructor() : this(
@@ -1671,7 +1669,7 @@ public class HttpFilterRawData internal constructor(
         dwReserved = 0u,
     )
 
-    public operator fun component1(): MutPtr<CVoid> = this.pvInData
+    public operator fun component1(): MutPtr = this.pvInData
 
     public operator fun component2(): UInt = this.cbInData
 
@@ -1679,7 +1677,7 @@ public class HttpFilterRawData internal constructor(
 
     public operator fun component4(): UInt = this.dwReserved
 
-    public fun copy(pvInData: MutPtr<CVoid> = this.pvInData, cbInData: UInt = this.cbInData, cbInBuffer: UInt = this.cbInBuffer, dwReserved: UInt = this.dwReserved): HttpFilterRawData = HttpFilterRawData(pvInDataCtorArg = pvInData, cbInData = cbInData, cbInBuffer = cbInBuffer, dwReserved = dwReserved)
+    public fun copy(pvInData: MutPtr = this.pvInData, cbInData: UInt = this.cbInData, cbInBuffer: UInt = this.cbInBuffer, dwReserved: UInt = this.dwReserved): HttpFilterRawData = HttpFilterRawData(pvInDataCtorArg = pvInData, cbInData = cbInData, cbInBuffer = cbInBuffer, dwReserved = dwReserved)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -1708,7 +1706,7 @@ public class HttpFilterRawData internal constructor(
                     HttpFilterRawData(
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<CVoid>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 8L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 12L),
@@ -1717,7 +1715,7 @@ public class HttpFilterRawData internal constructor(
                 override fun writeNative(addr: Long, value: HttpFilterRawData) {
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<CVoid>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr, value.pvInData)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 8L, value.cbInData)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 12L, value.cbInBuffer)
@@ -1726,7 +1724,7 @@ public class HttpFilterRawData internal constructor(
             }
 
         public operator fun invoke(
-            pvInData: MutPtr<CVoid> = MutPtr(0L),
+            pvInData: MutPtr = MutPtr(0L),
             cbInData: UInt = 0u,
             cbInBuffer: UInt = 0u,
             dwReserved: UInt = 0u,
@@ -1938,12 +1936,12 @@ public data class HttpFilterVersion(
 }
 
 public class HttpTraceConfiguration internal constructor(
-    pProviderGuidCtorArg: ConstPtr<Guid>,
+    pProviderGuidCtorArg: ConstPtr,
     public var dwAreas: UInt,
     public var dwVerbosity: UInt,
     public var fProviderEnabled: Bool,
 ) {
-    public var pProviderGuid: ConstPtr<Guid> = pProviderGuidCtorArg
+    public var pProviderGuid: ConstPtr = pProviderGuidCtorArg
         internal set
 
     public constructor() : this(
@@ -1953,7 +1951,7 @@ public class HttpTraceConfiguration internal constructor(
         fProviderEnabled = 0,
     )
 
-    public operator fun component1(): ConstPtr<Guid> = this.pProviderGuid
+    public operator fun component1(): ConstPtr = this.pProviderGuid
 
     public operator fun component2(): UInt = this.dwAreas
 
@@ -1961,7 +1959,7 @@ public class HttpTraceConfiguration internal constructor(
 
     public operator fun component4(): Bool = this.fProviderEnabled
 
-    public fun copy(pProviderGuid: ConstPtr<Guid> = this.pProviderGuid, dwAreas: UInt = this.dwAreas, dwVerbosity: UInt = this.dwVerbosity, fProviderEnabled: Bool = this.fProviderEnabled): HttpTraceConfiguration = HttpTraceConfiguration(pProviderGuidCtorArg = pProviderGuid, dwAreas = dwAreas, dwVerbosity = dwVerbosity, fProviderEnabled = fProviderEnabled)
+    public fun copy(pProviderGuid: ConstPtr = this.pProviderGuid, dwAreas: UInt = this.dwAreas, dwVerbosity: UInt = this.dwVerbosity, fProviderEnabled: Bool = this.fProviderEnabled): HttpTraceConfiguration = HttpTraceConfiguration(pProviderGuidCtorArg = pProviderGuid, dwAreas = dwAreas, dwVerbosity = dwVerbosity, fProviderEnabled = fProviderEnabled)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -1990,7 +1988,7 @@ public class HttpTraceConfiguration internal constructor(
                     HttpTraceConfiguration(
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .constPtrLayout<Guid>(64)
+                                .constPtrLayout(64)
                         ).readNative(addr),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 8L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 12L),
@@ -1999,7 +1997,7 @@ public class HttpTraceConfiguration internal constructor(
                 override fun writeNative(addr: Long, value: HttpTraceConfiguration) {
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .constPtrLayout<Guid>(64)
+                            .constPtrLayout(64)
                     ).writeNative(addr, value.pProviderGuid)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 8L, value.dwAreas)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 12L, value.dwVerbosity)
@@ -2008,7 +2006,7 @@ public class HttpTraceConfiguration internal constructor(
             }
 
         public operator fun invoke(
-            pProviderGuid: ConstPtr<Guid> = ConstPtr(0L),
+            pProviderGuid: ConstPtr = ConstPtr(0L),
             dwAreas: UInt = 0u,
             dwVerbosity: UInt = 0u,
             fProviderEnabled: Bool = 0,
@@ -2023,36 +2021,36 @@ public class HttpTraceConfiguration internal constructor(
 }
 
 public class HttpTraceEvent internal constructor(
-    pProviderGuidCtorArg: ConstPtr<Guid>,
+    pProviderGuidCtorArg: ConstPtr,
     public var dwArea: UInt,
-    pAreaGuidCtorArg: ConstPtr<Guid>,
+    pAreaGuidCtorArg: ConstPtr,
     public var dwEvent: UInt,
     pszEventNameCtorArg: Pcwstr,
     public var dwEventVersion: UInt,
     public var dwVerbosity: UInt,
-    pActivityGuidCtorArg: ConstPtr<Guid>,
-    pRelatedActivityGuidCtorArg: ConstPtr<Guid>,
+    pActivityGuidCtorArg: ConstPtr,
+    pRelatedActivityGuidCtorArg: ConstPtr,
     public var dwTimeStamp: UInt,
     public var dwFlags: UInt,
     public var cEventItems: UInt,
-    pEventItemsCtorArg: MutPtr<HttpTraceEventItem>,
+    pEventItemsCtorArg: MutPtr,
 ) {
-    public var pProviderGuid: ConstPtr<Guid> = pProviderGuidCtorArg
+    public var pProviderGuid: ConstPtr = pProviderGuidCtorArg
         internal set
 
-    public var pAreaGuid: ConstPtr<Guid> = pAreaGuidCtorArg
+    public var pAreaGuid: ConstPtr = pAreaGuidCtorArg
         internal set
 
     public var pszEventName: Pcwstr = pszEventNameCtorArg
         internal set
 
-    public var pActivityGuid: ConstPtr<Guid> = pActivityGuidCtorArg
+    public var pActivityGuid: ConstPtr = pActivityGuidCtorArg
         internal set
 
-    public var pRelatedActivityGuid: ConstPtr<Guid> = pRelatedActivityGuidCtorArg
+    public var pRelatedActivityGuid: ConstPtr = pRelatedActivityGuidCtorArg
         internal set
 
-    public var pEventItems: MutPtr<HttpTraceEventItem> = pEventItemsCtorArg
+    public var pEventItems: MutPtr = pEventItemsCtorArg
         internal set
 
     public constructor() : this(
@@ -2071,11 +2069,11 @@ public class HttpTraceEvent internal constructor(
         pEventItemsCtorArg = MutPtr(0L),
     )
 
-    public operator fun component1(): ConstPtr<Guid> = this.pProviderGuid
+    public operator fun component1(): ConstPtr = this.pProviderGuid
 
     public operator fun component2(): UInt = this.dwArea
 
-    public operator fun component3(): ConstPtr<Guid> = this.pAreaGuid
+    public operator fun component3(): ConstPtr = this.pAreaGuid
 
     public operator fun component4(): UInt = this.dwEvent
 
@@ -2085,9 +2083,9 @@ public class HttpTraceEvent internal constructor(
 
     public operator fun component7(): UInt = this.dwVerbosity
 
-    public operator fun component8(): ConstPtr<Guid> = this.pActivityGuid
+    public operator fun component8(): ConstPtr = this.pActivityGuid
 
-    public operator fun component9(): ConstPtr<Guid> = this.pRelatedActivityGuid
+    public operator fun component9(): ConstPtr = this.pRelatedActivityGuid
 
     public operator fun component10(): UInt = this.dwTimeStamp
 
@@ -2095,9 +2093,9 @@ public class HttpTraceEvent internal constructor(
 
     public operator fun component12(): UInt = this.cEventItems
 
-    public operator fun component13(): MutPtr<HttpTraceEventItem> = this.pEventItems
+    public operator fun component13(): MutPtr = this.pEventItems
 
-    public fun copy(pProviderGuid: ConstPtr<Guid> = this.pProviderGuid, dwArea: UInt = this.dwArea, pAreaGuid: ConstPtr<Guid> = this.pAreaGuid, dwEvent: UInt = this.dwEvent, pszEventName: Pcwstr = this.pszEventName, dwEventVersion: UInt = this.dwEventVersion, dwVerbosity: UInt = this.dwVerbosity, pActivityGuid: ConstPtr<Guid> = this.pActivityGuid, pRelatedActivityGuid: ConstPtr<Guid> = this.pRelatedActivityGuid, dwTimeStamp: UInt = this.dwTimeStamp, dwFlags: UInt = this.dwFlags, cEventItems: UInt = this.cEventItems, pEventItems: MutPtr<HttpTraceEventItem> = this.pEventItems): HttpTraceEvent = HttpTraceEvent(pProviderGuidCtorArg = pProviderGuid, dwArea = dwArea, pAreaGuidCtorArg = pAreaGuid, dwEvent = dwEvent, pszEventNameCtorArg = pszEventName, dwEventVersion = dwEventVersion, dwVerbosity = dwVerbosity, pActivityGuidCtorArg = pActivityGuid, pRelatedActivityGuidCtorArg = pRelatedActivityGuid, dwTimeStamp = dwTimeStamp, dwFlags = dwFlags, cEventItems = cEventItems, pEventItemsCtorArg = pEventItems)
+    public fun copy(pProviderGuid: ConstPtr = this.pProviderGuid, dwArea: UInt = this.dwArea, pAreaGuid: ConstPtr = this.pAreaGuid, dwEvent: UInt = this.dwEvent, pszEventName: Pcwstr = this.pszEventName, dwEventVersion: UInt = this.dwEventVersion, dwVerbosity: UInt = this.dwVerbosity, pActivityGuid: ConstPtr = this.pActivityGuid, pRelatedActivityGuid: ConstPtr = this.pRelatedActivityGuid, dwTimeStamp: UInt = this.dwTimeStamp, dwFlags: UInt = this.dwFlags, cEventItems: UInt = this.cEventItems, pEventItems: MutPtr = this.pEventItems): HttpTraceEvent = HttpTraceEvent(pProviderGuidCtorArg = pProviderGuid, dwArea = dwArea, pAreaGuidCtorArg = pAreaGuid, dwEvent = dwEvent, pszEventNameCtorArg = pszEventName, dwEventVersion = dwEventVersion, dwVerbosity = dwVerbosity, pActivityGuidCtorArg = pActivityGuid, pRelatedActivityGuidCtorArg = pRelatedActivityGuid, dwTimeStamp = dwTimeStamp, dwFlags = dwFlags, cEventItems = cEventItems, pEventItemsCtorArg = pEventItems)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -2137,19 +2135,19 @@ public class HttpTraceEvent internal constructor(
 
     public companion object {
         public operator fun invoke(
-            pProviderGuid: ConstPtr<Guid> = ConstPtr(0L),
+            pProviderGuid: ConstPtr = ConstPtr(0L),
             dwArea: UInt = 0u,
-            pAreaGuid: ConstPtr<Guid> = ConstPtr(0L),
+            pAreaGuid: ConstPtr = ConstPtr(0L),
             dwEvent: UInt = 0u,
             pszEventName: Pcwstr = ConstPtr(0L),
             dwEventVersion: UInt = 0u,
             dwVerbosity: UInt = 0u,
-            pActivityGuid: ConstPtr<Guid> = ConstPtr(0L),
-            pRelatedActivityGuid: ConstPtr<Guid> = ConstPtr(0L),
+            pActivityGuid: ConstPtr = ConstPtr(0L),
+            pRelatedActivityGuid: ConstPtr = ConstPtr(0L),
             dwTimeStamp: UInt = 0u,
             dwFlags: UInt = 0u,
             cEventItems: UInt = 0u,
-            pEventItems: MutPtr<HttpTraceEventItem> = MutPtr(0L),
+            pEventItems: MutPtr = MutPtr(0L),
         ): HttpTraceEvent =
             HttpTraceEvent(
                 pProviderGuidCtorArg = pProviderGuid,
@@ -2172,14 +2170,14 @@ public class HttpTraceEvent internal constructor(
 public class HttpTraceEventItem internal constructor(
     pszNameCtorArg: Pcwstr,
     public var dwDataType: HttpTraceType,
-    pbDataCtorArg: MutPtr<UByte>,
+    pbDataCtorArg: MutPtr,
     public var cbData: UInt,
     pszDataDescriptionCtorArg: Pcwstr,
 ) {
     public var pszName: Pcwstr = pszNameCtorArg
         internal set
 
-    public var pbData: MutPtr<UByte> = pbDataCtorArg
+    public var pbData: MutPtr = pbDataCtorArg
         internal set
 
     public var pszDataDescription: Pcwstr = pszDataDescriptionCtorArg
@@ -2197,13 +2195,13 @@ public class HttpTraceEventItem internal constructor(
 
     public operator fun component2(): HttpTraceType = this.dwDataType
 
-    public operator fun component3(): MutPtr<UByte> = this.pbData
+    public operator fun component3(): MutPtr = this.pbData
 
     public operator fun component4(): UInt = this.cbData
 
     public operator fun component5(): Pcwstr = this.pszDataDescription
 
-    public fun copy(pszName: Pcwstr = this.pszName, dwDataType: HttpTraceType = this.dwDataType, pbData: MutPtr<UByte> = this.pbData, cbData: UInt = this.cbData, pszDataDescription: Pcwstr = this.pszDataDescription): HttpTraceEventItem = HttpTraceEventItem(pszNameCtorArg = pszName, dwDataType = dwDataType, pbDataCtorArg = pbData, cbData = cbData, pszDataDescriptionCtorArg = pszDataDescription)
+    public fun copy(pszName: Pcwstr = this.pszName, dwDataType: HttpTraceType = this.dwDataType, pbData: MutPtr = this.pbData, cbData: UInt = this.cbData, pszDataDescription: Pcwstr = this.pszDataDescription): HttpTraceEventItem = HttpTraceEventItem(pszNameCtorArg = pszName, dwDataType = dwDataType, pbDataCtorArg = pbData, cbData = cbData, pszDataDescriptionCtorArg = pszDataDescription)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -2229,7 +2227,7 @@ public class HttpTraceEventItem internal constructor(
         public operator fun invoke(
             pszName: Pcwstr = ConstPtr(0L),
             dwDataType: HttpTraceType = 0,
-            pbData: MutPtr<UByte> = MutPtr(0L),
+            pbData: MutPtr = MutPtr(0L),
             cbData: UInt = 0u,
             pszDataDescription: Pcwstr = ConstPtr(0L),
         ): HttpTraceEventItem =
@@ -2362,12 +2360,12 @@ public class MdChangeObjectW internal constructor(
     pszMDPathCtorArg: Pwstr,
     public var dwMDChangeType: UInt,
     public var dwMDNumDataIDs: UInt,
-    pdwMDDataIDsCtorArg: MutPtr<UInt>,
+    pdwMDDataIDsCtorArg: MutPtr,
 ) {
     public var pszMDPath: Pwstr = pszMDPathCtorArg
         internal set
 
-    public var pdwMDDataIDs: MutPtr<UInt> = pdwMDDataIDsCtorArg
+    public var pdwMDDataIDs: MutPtr = pdwMDDataIDsCtorArg
         internal set
 
     public constructor() : this(
@@ -2383,9 +2381,9 @@ public class MdChangeObjectW internal constructor(
 
     public operator fun component3(): UInt = this.dwMDNumDataIDs
 
-    public operator fun component4(): MutPtr<UInt> = this.pdwMDDataIDs
+    public operator fun component4(): MutPtr = this.pdwMDDataIDs
 
-    public fun copy(pszMDPath: Pwstr = this.pszMDPath, dwMDChangeType: UInt = this.dwMDChangeType, dwMDNumDataIDs: UInt = this.dwMDNumDataIDs, pdwMDDataIDs: MutPtr<UInt> = this.pdwMDDataIDs): MdChangeObjectW = MdChangeObjectW(pszMDPathCtorArg = pszMDPath, dwMDChangeType = dwMDChangeType, dwMDNumDataIDs = dwMDNumDataIDs, pdwMDDataIDsCtorArg = pdwMDDataIDs)
+    public fun copy(pszMDPath: Pwstr = this.pszMDPath, dwMDChangeType: UInt = this.dwMDChangeType, dwMDNumDataIDs: UInt = this.dwMDNumDataIDs, pdwMDDataIDs: MutPtr = this.pdwMDDataIDs): MdChangeObjectW = MdChangeObjectW(pszMDPathCtorArg = pszMDPath, dwMDChangeType = dwMDChangeType, dwMDNumDataIDs = dwMDNumDataIDs, pdwMDDataIDsCtorArg = pdwMDDataIDs)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -2410,7 +2408,7 @@ public class MdChangeObjectW internal constructor(
             pszMDPath: Pwstr = MutPtr(0L),
             dwMDChangeType: UInt = 0u,
             dwMDNumDataIDs: UInt = 0u,
-            pdwMDDataIDs: MutPtr<UInt> = MutPtr(0L),
+            pdwMDDataIDs: MutPtr = MutPtr(0L),
         ): MdChangeObjectW =
             MdChangeObjectW(
                 pszMDPathCtorArg = pszMDPath,
@@ -2433,9 +2431,9 @@ public data class MetadataGetallInternalRecord(
 
 public class MetadataGetallInternalRecord0 internal constructor(
     public var dwMDDataOffset: Int,
-    pbMDDataCtorArg: MutPtr<UByte>,
+    pbMDDataCtorArg: MutPtr,
 ) {
-    public var pbMDData: MutPtr<UByte> = pbMDDataCtorArg
+    public var pbMDData: MutPtr = pbMDDataCtorArg
         internal set
 
     public constructor() : this(
@@ -2445,9 +2443,9 @@ public class MetadataGetallInternalRecord0 internal constructor(
 
     public operator fun component1(): Int = this.dwMDDataOffset
 
-    public operator fun component2(): MutPtr<UByte> = this.pbMDData
+    public operator fun component2(): MutPtr = this.pbMDData
 
-    public fun copy(dwMDDataOffset: Int = this.dwMDDataOffset, pbMDData: MutPtr<UByte> = this.pbMDData): MetadataGetallInternalRecord0 = MetadataGetallInternalRecord0(dwMDDataOffset = dwMDDataOffset, pbMDDataCtorArg = pbMDData)
+    public fun copy(dwMDDataOffset: Int = this.dwMDDataOffset, pbMDData: MutPtr = this.pbMDData): MetadataGetallInternalRecord0 = MetadataGetallInternalRecord0(dwMDDataOffset = dwMDDataOffset, pbMDDataCtorArg = pbMDData)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -2466,7 +2464,7 @@ public class MetadataGetallInternalRecord0 internal constructor(
     public companion object {
         public operator fun invoke(
             dwMDDataOffset: Int = 0,
-            pbMDData: MutPtr<UByte> = MutPtr(0L),
+            pbMDData: MutPtr = MutPtr(0L),
         ): MetadataGetallInternalRecord0 =
             MetadataGetallInternalRecord0(
                 dwMDDataOffset = dwMDDataOffset,
@@ -2540,10 +2538,10 @@ public class MetadataRecord internal constructor(
     public var dwMDUserType: UInt,
     public var dwMDDataType: UInt,
     public var dwMDDataLen: UInt,
-    pbMDDataCtorArg: MutPtr<UByte>,
+    pbMDDataCtorArg: MutPtr,
     public var dwMDDataTag: UInt,
 ) {
-    public var pbMDData: MutPtr<UByte> = pbMDDataCtorArg
+    public var pbMDData: MutPtr = pbMDDataCtorArg
         internal set
 
     public constructor() : this(
@@ -2566,11 +2564,11 @@ public class MetadataRecord internal constructor(
 
     public operator fun component5(): UInt = this.dwMDDataLen
 
-    public operator fun component6(): MutPtr<UByte> = this.pbMDData
+    public operator fun component6(): MutPtr = this.pbMDData
 
     public operator fun component7(): UInt = this.dwMDDataTag
 
-    public fun copy(dwMDIdentifier: UInt = this.dwMDIdentifier, dwMDAttributes: UInt = this.dwMDAttributes, dwMDUserType: UInt = this.dwMDUserType, dwMDDataType: UInt = this.dwMDDataType, dwMDDataLen: UInt = this.dwMDDataLen, pbMDData: MutPtr<UByte> = this.pbMDData, dwMDDataTag: UInt = this.dwMDDataTag): MetadataRecord = MetadataRecord(dwMDIdentifier = dwMDIdentifier, dwMDAttributes = dwMDAttributes, dwMDUserType = dwMDUserType, dwMDDataType = dwMDDataType, dwMDDataLen = dwMDDataLen, pbMDDataCtorArg = pbMDData, dwMDDataTag = dwMDDataTag)
+    public fun copy(dwMDIdentifier: UInt = this.dwMDIdentifier, dwMDAttributes: UInt = this.dwMDAttributes, dwMDUserType: UInt = this.dwMDUserType, dwMDDataType: UInt = this.dwMDDataType, dwMDDataLen: UInt = this.dwMDDataLen, pbMDData: MutPtr = this.pbMDData, dwMDDataTag: UInt = this.dwMDDataTag): MetadataRecord = MetadataRecord(dwMDIdentifier = dwMDIdentifier, dwMDAttributes = dwMDAttributes, dwMDUserType = dwMDUserType, dwMDDataType = dwMDDataType, dwMDDataLen = dwMDDataLen, pbMDDataCtorArg = pbMDData, dwMDDataTag = dwMDDataTag)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -2610,7 +2608,7 @@ public class MetadataRecord internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 16L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<UByte>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 24L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 32L),
                     )
@@ -2622,7 +2620,7 @@ public class MetadataRecord internal constructor(
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 16L, value.dwMDDataLen)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<UByte>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 24L, value.pbMDData)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 32L, value.dwMDDataTag)
                 }
@@ -2634,7 +2632,7 @@ public class MetadataRecord internal constructor(
             dwMDUserType: UInt = 0u,
             dwMDDataType: UInt = 0u,
             dwMDDataLen: UInt = 0u,
-            pbMDData: MutPtr<UByte> = MutPtr(0L),
+            pbMDData: MutPtr = MutPtr(0L),
             dwMDDataTag: UInt = 0u,
         ): MetadataRecord =
             MetadataRecord(

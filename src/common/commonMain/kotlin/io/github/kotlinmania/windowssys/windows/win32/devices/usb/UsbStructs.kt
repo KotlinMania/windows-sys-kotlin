@@ -2,7 +2,6 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.devices.usb
 
-import io.github.kotlinmania.rustlang.core.ffi.CVoid
 import io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
 import io.github.kotlinmania.rustlang.core.mem.TypeLayout
 import io.github.kotlinmania.rustlang.core.ptr.MutPtr
@@ -373,10 +372,10 @@ public data class HubDeviceConfigInfo(
 public class IoBlock internal constructor(
     public var uOffset: UInt,
     public var uLength: UInt,
-    pbyDataCtorArg: MutPtr<UByte>,
+    pbyDataCtorArg: MutPtr,
     public var uIndex: UInt,
 ) {
-    public var pbyData: MutPtr<UByte> = pbyDataCtorArg
+    public var pbyData: MutPtr = pbyDataCtorArg
         internal set
 
     public constructor() : this(
@@ -390,11 +389,11 @@ public class IoBlock internal constructor(
 
     public operator fun component2(): UInt = this.uLength
 
-    public operator fun component3(): MutPtr<UByte> = this.pbyData
+    public operator fun component3(): MutPtr = this.pbyData
 
     public operator fun component4(): UInt = this.uIndex
 
-    public fun copy(uOffset: UInt = this.uOffset, uLength: UInt = this.uLength, pbyData: MutPtr<UByte> = this.pbyData, uIndex: UInt = this.uIndex): IoBlock = IoBlock(uOffset = uOffset, uLength = uLength, pbyDataCtorArg = pbyData, uIndex = uIndex)
+    public fun copy(uOffset: UInt = this.uOffset, uLength: UInt = this.uLength, pbyData: MutPtr = this.pbyData, uIndex: UInt = this.uIndex): IoBlock = IoBlock(uOffset = uOffset, uLength = uLength, pbyDataCtorArg = pbyData, uIndex = uIndex)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -425,7 +424,7 @@ public class IoBlock internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 4L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<UByte>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 16L),
                     )
@@ -434,7 +433,7 @@ public class IoBlock internal constructor(
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 4L, value.uLength)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<UByte>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.pbyData)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 16L, value.uIndex)
                 }
@@ -443,7 +442,7 @@ public class IoBlock internal constructor(
         public operator fun invoke(
             uOffset: UInt = 0u,
             uLength: UInt = 0u,
-            pbyData: MutPtr<UByte> = MutPtr(0L),
+            pbyData: MutPtr = MutPtr(0L),
             uIndex: UInt = 0u,
         ): IoBlock =
             IoBlock(
@@ -458,13 +457,13 @@ public class IoBlock internal constructor(
 public class IoBlockEx internal constructor(
     public var uOffset: UInt,
     public var uLength: UInt,
-    pbyDataCtorArg: MutPtr<UByte>,
+    pbyDataCtorArg: MutPtr,
     public var uIndex: UInt,
     public var bRequest: UByte,
     public var bmRequestType: UByte,
     public var fTransferDirectionIn: UByte,
 ) {
-    public var pbyData: MutPtr<UByte> = pbyDataCtorArg
+    public var pbyData: MutPtr = pbyDataCtorArg
         internal set
 
     public constructor() : this(
@@ -481,7 +480,7 @@ public class IoBlockEx internal constructor(
 
     public operator fun component2(): UInt = this.uLength
 
-    public operator fun component3(): MutPtr<UByte> = this.pbyData
+    public operator fun component3(): MutPtr = this.pbyData
 
     public operator fun component4(): UInt = this.uIndex
 
@@ -491,7 +490,7 @@ public class IoBlockEx internal constructor(
 
     public operator fun component7(): UByte = this.fTransferDirectionIn
 
-    public fun copy(uOffset: UInt = this.uOffset, uLength: UInt = this.uLength, pbyData: MutPtr<UByte> = this.pbyData, uIndex: UInt = this.uIndex, bRequest: UByte = this.bRequest, bmRequestType: UByte = this.bmRequestType, fTransferDirectionIn: UByte = this.fTransferDirectionIn): IoBlockEx = IoBlockEx(uOffset = uOffset, uLength = uLength, pbyDataCtorArg = pbyData, uIndex = uIndex, bRequest = bRequest, bmRequestType = bmRequestType, fTransferDirectionIn = fTransferDirectionIn)
+    public fun copy(uOffset: UInt = this.uOffset, uLength: UInt = this.uLength, pbyData: MutPtr = this.pbyData, uIndex: UInt = this.uIndex, bRequest: UByte = this.bRequest, bmRequestType: UByte = this.bmRequestType, fTransferDirectionIn: UByte = this.fTransferDirectionIn): IoBlockEx = IoBlockEx(uOffset = uOffset, uLength = uLength, pbyDataCtorArg = pbyData, uIndex = uIndex, bRequest = bRequest, bmRequestType = bmRequestType, fTransferDirectionIn = fTransferDirectionIn)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -528,7 +527,7 @@ public class IoBlockEx internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 4L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<UByte>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 16L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8).readNative(addr + 20L),
@@ -540,7 +539,7 @@ public class IoBlockEx internal constructor(
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 4L, value.uLength)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<UByte>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.pbyData)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 16L, value.uIndex)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8).writeNative(addr + 20L, value.bRequest)
@@ -552,7 +551,7 @@ public class IoBlockEx internal constructor(
         public operator fun invoke(
             uOffset: UInt = 0u,
             uLength: UInt = 0u,
-            pbyData: MutPtr<UByte> = MutPtr(0L),
+            pbyData: MutPtr = MutPtr(0L),
             uIndex: UInt = 0u,
             bRequest: UByte = 0u,
             bmRequestType: UByte = 0u,
@@ -800,10 +799,10 @@ public class Urb0(
 
 public class UsbdDeviceInformation internal constructor(
     public var offsetNext: UInt,
-    usbdDeviceHandleCtorArg: MutPtr<CVoid>,
+    usbdDeviceHandleCtorArg: MutPtr,
     public var deviceDescriptor: UsbDeviceDescriptor,
 ) {
-    public var usbdDeviceHandle: MutPtr<CVoid> = usbdDeviceHandleCtorArg
+    public var usbdDeviceHandle: MutPtr = usbdDeviceHandleCtorArg
         internal set
 
     public constructor() : this(
@@ -814,11 +813,11 @@ public class UsbdDeviceInformation internal constructor(
 
     public operator fun component1(): UInt = this.offsetNext
 
-    public operator fun component2(): MutPtr<CVoid> = this.usbdDeviceHandle
+    public operator fun component2(): MutPtr = this.usbdDeviceHandle
 
     public operator fun component3(): UsbDeviceDescriptor = this.deviceDescriptor
 
-    public fun copy(offsetNext: UInt = this.offsetNext, usbdDeviceHandle: MutPtr<CVoid> = this.usbdDeviceHandle, deviceDescriptor: UsbDeviceDescriptor = this.deviceDescriptor): UsbdDeviceInformation = UsbdDeviceInformation(offsetNext = offsetNext, usbdDeviceHandleCtorArg = usbdDeviceHandle, deviceDescriptor = deviceDescriptor)
+    public fun copy(offsetNext: UInt = this.offsetNext, usbdDeviceHandle: MutPtr = this.usbdDeviceHandle, deviceDescriptor: UsbDeviceDescriptor = this.deviceDescriptor): UsbdDeviceInformation = UsbdDeviceInformation(offsetNext = offsetNext, usbdDeviceHandleCtorArg = usbdDeviceHandle, deviceDescriptor = deviceDescriptor)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -846,7 +845,7 @@ public class UsbdDeviceInformation internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<CVoid>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                         (UsbDeviceDescriptor.typeLayout()).readNative(addr + 16L),
                     )
@@ -854,7 +853,7 @@ public class UsbdDeviceInformation internal constructor(
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr, value.offsetNext)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<CVoid>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.usbdDeviceHandle)
                     (UsbDeviceDescriptor.typeLayout()).writeNative(addr + 16L, value.deviceDescriptor)
                 }
@@ -862,7 +861,7 @@ public class UsbdDeviceInformation internal constructor(
 
         public operator fun invoke(
             offsetNext: UInt = 0u,
-            usbdDeviceHandle: MutPtr<CVoid> = MutPtr(0L),
+            usbdDeviceHandle: MutPtr = MutPtr(0L),
             deviceDescriptor: UsbDeviceDescriptor = UsbDeviceDescriptor(),
         ): UsbdDeviceInformation =
             UsbdDeviceInformation(
@@ -881,19 +880,19 @@ public class UsbdEndpointOffloadInformation internal constructor(
     public var bitfield1: UInt,
     public var bitfield2: UInt,
     public var transferSegmentLA: Long,
-    transferSegmentVACtorArg: MutPtr<CVoid>,
+    transferSegmentVACtorArg: MutPtr,
     public var transferRingSize: Int,
     public var transferRingInitialCycleBit: UInt,
     public var messageNumber: UInt,
     public var eventRingSegmentLA: Long,
-    eventRingSegmentVACtorArg: MutPtr<CVoid>,
+    eventRingSegmentVACtorArg: MutPtr,
     public var eventRingSize: Int,
     public var eventRingInitialCycleBit: UInt,
 ) {
-    public var transferSegmentVA: MutPtr<CVoid> = transferSegmentVACtorArg
+    public var transferSegmentVA: MutPtr = transferSegmentVACtorArg
         internal set
 
-    public var eventRingSegmentVA: MutPtr<CVoid> = eventRingSegmentVACtorArg
+    public var eventRingSegmentVA: MutPtr = eventRingSegmentVACtorArg
         internal set
 
     public constructor() : this(
@@ -928,7 +927,7 @@ public class UsbdEndpointOffloadInformation internal constructor(
 
     public operator fun component7(): Long = this.transferSegmentLA
 
-    public operator fun component8(): MutPtr<CVoid> = this.transferSegmentVA
+    public operator fun component8(): MutPtr = this.transferSegmentVA
 
     public operator fun component9(): Int = this.transferRingSize
 
@@ -938,13 +937,13 @@ public class UsbdEndpointOffloadInformation internal constructor(
 
     public operator fun component12(): Long = this.eventRingSegmentLA
 
-    public operator fun component13(): MutPtr<CVoid> = this.eventRingSegmentVA
+    public operator fun component13(): MutPtr = this.eventRingSegmentVA
 
     public operator fun component14(): Int = this.eventRingSize
 
     public operator fun component15(): UInt = this.eventRingInitialCycleBit
 
-    public fun copy(size: UInt = this.size, endpointAddress: UShort = this.endpointAddress, resourceId: UInt = this.resourceId, mode: UsbdEndpointOffloadMode = this.mode, bitfield1: UInt = this.bitfield1, bitfield2: UInt = this.bitfield2, transferSegmentLA: Long = this.transferSegmentLA, transferSegmentVA: MutPtr<CVoid> = this.transferSegmentVA, transferRingSize: Int = this.transferRingSize, transferRingInitialCycleBit: UInt = this.transferRingInitialCycleBit, messageNumber: UInt = this.messageNumber, eventRingSegmentLA: Long = this.eventRingSegmentLA, eventRingSegmentVA: MutPtr<CVoid> = this.eventRingSegmentVA, eventRingSize: Int = this.eventRingSize, eventRingInitialCycleBit: UInt = this.eventRingInitialCycleBit): UsbdEndpointOffloadInformation = UsbdEndpointOffloadInformation(size = size, endpointAddress = endpointAddress, resourceId = resourceId, mode = mode, bitfield1 = bitfield1, bitfield2 = bitfield2, transferSegmentLA = transferSegmentLA, transferSegmentVACtorArg = transferSegmentVA, transferRingSize = transferRingSize, transferRingInitialCycleBit = transferRingInitialCycleBit, messageNumber = messageNumber, eventRingSegmentLA = eventRingSegmentLA, eventRingSegmentVACtorArg = eventRingSegmentVA, eventRingSize = eventRingSize, eventRingInitialCycleBit = eventRingInitialCycleBit)
+    public fun copy(size: UInt = this.size, endpointAddress: UShort = this.endpointAddress, resourceId: UInt = this.resourceId, mode: UsbdEndpointOffloadMode = this.mode, bitfield1: UInt = this.bitfield1, bitfield2: UInt = this.bitfield2, transferSegmentLA: Long = this.transferSegmentLA, transferSegmentVA: MutPtr = this.transferSegmentVA, transferRingSize: Int = this.transferRingSize, transferRingInitialCycleBit: UInt = this.transferRingInitialCycleBit, messageNumber: UInt = this.messageNumber, eventRingSegmentLA: Long = this.eventRingSegmentLA, eventRingSegmentVA: MutPtr = this.eventRingSegmentVA, eventRingSize: Int = this.eventRingSize, eventRingInitialCycleBit: UInt = this.eventRingInitialCycleBit): UsbdEndpointOffloadInformation = UsbdEndpointOffloadInformation(size = size, endpointAddress = endpointAddress, resourceId = resourceId, mode = mode, bitfield1 = bitfield1, bitfield2 = bitfield2, transferSegmentLA = transferSegmentLA, transferSegmentVACtorArg = transferSegmentVA, transferRingSize = transferRingSize, transferRingInitialCycleBit = transferRingInitialCycleBit, messageNumber = messageNumber, eventRingSegmentLA = eventRingSegmentLA, eventRingSegmentVACtorArg = eventRingSegmentVA, eventRingSize = eventRingSize, eventRingInitialCycleBit = eventRingInitialCycleBit)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -1002,7 +1001,7 @@ public class UsbdEndpointOffloadInformation internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I64).readNative(addr + 22L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<CVoid>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 30L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.USIZE64).readNative(addr + 38L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 46L),
@@ -1010,7 +1009,7 @@ public class UsbdEndpointOffloadInformation internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I64).readNative(addr + 54L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<CVoid>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 62L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.USIZE64).readNative(addr + 70L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 78L),
@@ -1025,7 +1024,7 @@ public class UsbdEndpointOffloadInformation internal constructor(
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I64).writeNative(addr + 22L, value.transferSegmentLA)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<CVoid>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 30L, value.transferSegmentVA)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.USIZE64).writeNative(addr + 38L, value.transferRingSize)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 46L, value.transferRingInitialCycleBit)
@@ -1033,7 +1032,7 @@ public class UsbdEndpointOffloadInformation internal constructor(
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I64).writeNative(addr + 54L, value.eventRingSegmentLA)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<CVoid>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 62L, value.eventRingSegmentVA)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.USIZE64).writeNative(addr + 70L, value.eventRingSize)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 78L, value.eventRingInitialCycleBit)
@@ -1048,12 +1047,12 @@ public class UsbdEndpointOffloadInformation internal constructor(
             bitfield1: UInt = 0u,
             bitfield2: UInt = 0u,
             transferSegmentLA: Long = 0L,
-            transferSegmentVA: MutPtr<CVoid> = MutPtr(0L),
+            transferSegmentVA: MutPtr = MutPtr(0L),
             transferRingSize: Int = 0,
             transferRingInitialCycleBit: UInt = 0u,
             messageNumber: UInt = 0u,
             eventRingSegmentLA: Long = 0L,
-            eventRingSegmentVA: MutPtr<CVoid> = MutPtr(0L),
+            eventRingSegmentVA: MutPtr = MutPtr(0L),
             eventRingSize: Int = 0,
             eventRingInitialCycleBit: UInt = 0u,
         ): UsbdEndpointOffloadInformation =
@@ -1085,11 +1084,11 @@ public class UsbdInterfaceInformation internal constructor(
     public var subClass: UByte,
     public var protocol: UByte,
     public var reserved: UByte,
-    interfaceHandleCtorArg: MutPtr<CVoid>,
+    interfaceHandleCtorArg: MutPtr,
     public var numberOfPipes: UInt,
     public var pipes: List<UsbdPipeInformation>,
 ) {
-    public var interfaceHandle: MutPtr<CVoid> = interfaceHandleCtorArg
+    public var interfaceHandle: MutPtr = interfaceHandleCtorArg
         internal set
 
     public constructor() : this(
@@ -1119,13 +1118,13 @@ public class UsbdInterfaceInformation internal constructor(
 
     public operator fun component7(): UByte = this.reserved
 
-    public operator fun component8(): MutPtr<CVoid> = this.interfaceHandle
+    public operator fun component8(): MutPtr = this.interfaceHandle
 
     public operator fun component9(): UInt = this.numberOfPipes
 
     public operator fun component10(): List<UsbdPipeInformation> = this.pipes
 
-    public fun copy(length: UShort = this.length, interfaceNumber: UByte = this.interfaceNumber, alternateSetting: UByte = this.alternateSetting, cls: UByte = this.cls, subClass: UByte = this.subClass, protocol: UByte = this.protocol, reserved: UByte = this.reserved, interfaceHandle: MutPtr<CVoid> = this.interfaceHandle, numberOfPipes: UInt = this.numberOfPipes, pipes: List<UsbdPipeInformation> = this.pipes): UsbdInterfaceInformation = UsbdInterfaceInformation(length = length, interfaceNumber = interfaceNumber, alternateSetting = alternateSetting, cls = cls, subClass = subClass, protocol = protocol, reserved = reserved, interfaceHandleCtorArg = interfaceHandle, numberOfPipes = numberOfPipes, pipes = pipes)
+    public fun copy(length: UShort = this.length, interfaceNumber: UByte = this.interfaceNumber, alternateSetting: UByte = this.alternateSetting, cls: UByte = this.cls, subClass: UByte = this.subClass, protocol: UByte = this.protocol, reserved: UByte = this.reserved, interfaceHandle: MutPtr = this.interfaceHandle, numberOfPipes: UInt = this.numberOfPipes, pipes: List<UsbdPipeInformation> = this.pipes): UsbdInterfaceInformation = UsbdInterfaceInformation(length = length, interfaceNumber = interfaceNumber, alternateSetting = alternateSetting, cls = cls, subClass = subClass, protocol = protocol, reserved = reserved, interfaceHandleCtorArg = interfaceHandle, numberOfPipes = numberOfPipes, pipes = pipes)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -1173,7 +1172,7 @@ public class UsbdInterfaceInformation internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8).readNative(addr + 7L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<CVoid>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 16L),
                         (
@@ -1191,7 +1190,7 @@ public class UsbdInterfaceInformation internal constructor(
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8).writeNative(addr + 7L, value.reserved)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<CVoid>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.interfaceHandle)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 16L, value.numberOfPipes)
                     (
@@ -1209,7 +1208,7 @@ public class UsbdInterfaceInformation internal constructor(
             subClass: UByte = 0u,
             protocol: UByte = 0u,
             reserved: UByte = 0u,
-            interfaceHandle: MutPtr<CVoid> = MutPtr(0L),
+            interfaceHandle: MutPtr = MutPtr(0L),
             numberOfPipes: UInt = 0u,
             pipes: List<UsbdPipeInformation> = List(1) { UsbdPipeInformation() },
         ): UsbdInterfaceInformation =
@@ -1258,11 +1257,11 @@ public class UsbdPipeInformation internal constructor(
     public var endpointAddress: UByte,
     public var interval: UByte,
     public var pipeType: UsbdPipeType,
-    pipeHandleCtorArg: MutPtr<CVoid>,
+    pipeHandleCtorArg: MutPtr,
     public var maximumTransferSize: UInt,
     public var pipeFlags: UInt,
 ) {
-    public var pipeHandle: MutPtr<CVoid> = pipeHandleCtorArg
+    public var pipeHandle: MutPtr = pipeHandleCtorArg
         internal set
 
     public constructor() : this(
@@ -1283,13 +1282,13 @@ public class UsbdPipeInformation internal constructor(
 
     public operator fun component4(): UsbdPipeType = this.pipeType
 
-    public operator fun component5(): MutPtr<CVoid> = this.pipeHandle
+    public operator fun component5(): MutPtr = this.pipeHandle
 
     public operator fun component6(): UInt = this.maximumTransferSize
 
     public operator fun component7(): UInt = this.pipeFlags
 
-    public fun copy(maximumPacketSize: UShort = this.maximumPacketSize, endpointAddress: UByte = this.endpointAddress, interval: UByte = this.interval, pipeType: UsbdPipeType = this.pipeType, pipeHandle: MutPtr<CVoid> = this.pipeHandle, maximumTransferSize: UInt = this.maximumTransferSize, pipeFlags: UInt = this.pipeFlags): UsbdPipeInformation = UsbdPipeInformation(maximumPacketSize = maximumPacketSize, endpointAddress = endpointAddress, interval = interval, pipeType = pipeType, pipeHandleCtorArg = pipeHandle, maximumTransferSize = maximumTransferSize, pipeFlags = pipeFlags)
+    public fun copy(maximumPacketSize: UShort = this.maximumPacketSize, endpointAddress: UByte = this.endpointAddress, interval: UByte = this.interval, pipeType: UsbdPipeType = this.pipeType, pipeHandle: MutPtr = this.pipeHandle, maximumTransferSize: UInt = this.maximumTransferSize, pipeFlags: UInt = this.pipeFlags): UsbdPipeInformation = UsbdPipeInformation(maximumPacketSize = maximumPacketSize, endpointAddress = endpointAddress, interval = interval, pipeType = pipeType, pipeHandleCtorArg = pipeHandle, maximumTransferSize = maximumTransferSize, pipeFlags = pipeFlags)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -1328,7 +1327,7 @@ public class UsbdPipeInformation internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr + 4L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<CVoid>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 16L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 20L),
@@ -1340,7 +1339,7 @@ public class UsbdPipeInformation internal constructor(
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr + 4L, value.pipeType)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<CVoid>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.pipeHandle)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 16L, value.maximumTransferSize)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 20L, value.pipeFlags)
@@ -1352,7 +1351,7 @@ public class UsbdPipeInformation internal constructor(
             endpointAddress: UByte = 0u,
             interval: UByte = 0u,
             pipeType: UsbdPipeType = 0,
-            pipeHandle: MutPtr<CVoid> = MutPtr(0L),
+            pipeHandle: MutPtr = MutPtr(0L),
             maximumTransferSize: UInt = 0u,
             pipeFlags: UInt = 0u,
         ): UsbdPipeInformation =
@@ -1369,12 +1368,12 @@ public class UsbdPipeInformation internal constructor(
 }
 
 public class UsbdStreamInformation internal constructor(
-    pipeHandleCtorArg: MutPtr<CVoid>,
+    pipeHandleCtorArg: MutPtr,
     public var streamID: UInt,
     public var maximumTransferSize: UInt,
     public var pipeFlags: UInt,
 ) {
-    public var pipeHandle: MutPtr<CVoid> = pipeHandleCtorArg
+    public var pipeHandle: MutPtr = pipeHandleCtorArg
         internal set
 
     public constructor() : this(
@@ -1384,7 +1383,7 @@ public class UsbdStreamInformation internal constructor(
         pipeFlags = 0u,
     )
 
-    public operator fun component1(): MutPtr<CVoid> = this.pipeHandle
+    public operator fun component1(): MutPtr = this.pipeHandle
 
     public operator fun component2(): UInt = this.streamID
 
@@ -1392,7 +1391,7 @@ public class UsbdStreamInformation internal constructor(
 
     public operator fun component4(): UInt = this.pipeFlags
 
-    public fun copy(pipeHandle: MutPtr<CVoid> = this.pipeHandle, streamID: UInt = this.streamID, maximumTransferSize: UInt = this.maximumTransferSize, pipeFlags: UInt = this.pipeFlags): UsbdStreamInformation = UsbdStreamInformation(pipeHandleCtorArg = pipeHandle, streamID = streamID, maximumTransferSize = maximumTransferSize, pipeFlags = pipeFlags)
+    public fun copy(pipeHandle: MutPtr = this.pipeHandle, streamID: UInt = this.streamID, maximumTransferSize: UInt = this.maximumTransferSize, pipeFlags: UInt = this.pipeFlags): UsbdStreamInformation = UsbdStreamInformation(pipeHandleCtorArg = pipeHandle, streamID = streamID, maximumTransferSize = maximumTransferSize, pipeFlags = pipeFlags)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -1421,7 +1420,7 @@ public class UsbdStreamInformation internal constructor(
                     UsbdStreamInformation(
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<CVoid>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 8L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 12L),
@@ -1430,7 +1429,7 @@ public class UsbdStreamInformation internal constructor(
                 override fun writeNative(addr: Long, value: UsbdStreamInformation) {
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<CVoid>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr, value.pipeHandle)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 8L, value.streamID)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 12L, value.maximumTransferSize)
@@ -1439,7 +1438,7 @@ public class UsbdStreamInformation internal constructor(
             }
 
         public operator fun invoke(
-            pipeHandle: MutPtr<CVoid> = MutPtr(0L),
+            pipeHandle: MutPtr = MutPtr(0L),
             streamID: UInt = 0u,
             maximumTransferSize: UInt = 0u,
             pipeFlags: UInt = 0u,
@@ -4810,9 +4809,9 @@ public data class UsbHubStatusAndChange0(
 
 public class UsbIdleCallbackInfo internal constructor(
     public var idleCallback: UsbIdleCallback,
-    idleContextCtorArg: MutPtr<CVoid>,
+    idleContextCtorArg: MutPtr,
 ) {
-    public var idleContext: MutPtr<CVoid> = idleContextCtorArg
+    public var idleContext: MutPtr = idleContextCtorArg
         internal set
 
     public constructor() : this(
@@ -4822,9 +4821,9 @@ public class UsbIdleCallbackInfo internal constructor(
 
     public operator fun component1(): UsbIdleCallback = this.idleCallback
 
-    public operator fun component2(): MutPtr<CVoid> = this.idleContext
+    public operator fun component2(): MutPtr = this.idleContext
 
-    public fun copy(idleCallback: UsbIdleCallback = this.idleCallback, idleContext: MutPtr<CVoid> = this.idleContext): UsbIdleCallbackInfo = UsbIdleCallbackInfo(idleCallback = idleCallback, idleContextCtorArg = idleContext)
+    public fun copy(idleCallback: UsbIdleCallback = this.idleCallback, idleContext: MutPtr = this.idleContext): UsbIdleCallbackInfo = UsbIdleCallbackInfo(idleCallback = idleCallback, idleContextCtorArg = idleContext)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -4843,7 +4842,7 @@ public class UsbIdleCallbackInfo internal constructor(
     public companion object {
         public operator fun invoke(
             idleCallback: UsbIdleCallback = null,
-            idleContext: MutPtr<CVoid> = MutPtr(0L),
+            idleContext: MutPtr = MutPtr(0L),
         ): UsbIdleCallbackInfo =
             UsbIdleCallbackInfo(
                 idleCallback = idleCallback,
@@ -6083,14 +6082,14 @@ public class UsbTransportCharacteristicsChangeNotification internal constructor(
                     UsbTransportCharacteristicsChangeNotification(
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<CVoid>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr),
                         (UsbTransportCharacteristics.typeLayout()).readNative(addr + 8L),
                     )
                 override fun writeNative(addr: Long, value: UsbTransportCharacteristicsChangeNotification) {
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<CVoid>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr, value.handle)
                     (UsbTransportCharacteristics.typeLayout()).writeNative(addr + 8L, value.usbTransportCharacteristics)
                 }
@@ -6155,7 +6154,7 @@ public class UsbTransportCharacteristicsChangeRegistration internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<CVoid>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 4L),
                         (UsbTransportCharacteristics.typeLayout()).readNative(addr + 12L),
                     )
@@ -6163,7 +6162,7 @@ public class UsbTransportCharacteristicsChangeRegistration internal constructor(
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr, value.changeNotificationInputFlags)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<CVoid>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 4L, value.handle)
                     (UsbTransportCharacteristics.typeLayout()).writeNative(addr + 12L, value.usbTransportCharacteristics)
                 }
@@ -6214,13 +6213,13 @@ public class UsbTransportCharacteristicsChangeUnregistration internal constructo
                     UsbTransportCharacteristicsChangeUnregistration(
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<CVoid>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr),
                     )
                 override fun writeNative(addr: Long, value: UsbTransportCharacteristicsChangeUnregistration) {
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<CVoid>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr, value.handle)
                 }
             }
@@ -6387,24 +6386,24 @@ public data class WinusbSetupPacket(
 
 public class UrbBulkOrInterruptTransfer internal constructor(
     public var hdr: UrbHeader,
-    pipeHandleCtorArg: MutPtr<CVoid>,
+    pipeHandleCtorArg: MutPtr,
     public var transferFlags: UInt,
     public var transferBufferLength: UInt,
-    transferBufferCtorArg: MutPtr<CVoid>,
-    transferBufferMDLCtorArg: MutPtr<CVoid>,
-    urbLinkCtorArg: MutPtr<Urb>,
+    transferBufferCtorArg: MutPtr,
+    transferBufferMDLCtorArg: MutPtr,
+    urbLinkCtorArg: MutPtr,
     public var hca: UrbHcdArea,
 ) {
-    public var pipeHandle: MutPtr<CVoid> = pipeHandleCtorArg
+    public var pipeHandle: MutPtr = pipeHandleCtorArg
         internal set
 
-    public var transferBuffer: MutPtr<CVoid> = transferBufferCtorArg
+    public var transferBuffer: MutPtr = transferBufferCtorArg
         internal set
 
-    public var transferBufferMDL: MutPtr<CVoid> = transferBufferMDLCtorArg
+    public var transferBufferMDL: MutPtr = transferBufferMDLCtorArg
         internal set
 
-    public var urbLink: MutPtr<Urb> = urbLinkCtorArg
+    public var urbLink: MutPtr = urbLinkCtorArg
         internal set
 
     public constructor() : this(
@@ -6420,21 +6419,21 @@ public class UrbBulkOrInterruptTransfer internal constructor(
 
     public operator fun component1(): UrbHeader = this.hdr
 
-    public operator fun component2(): MutPtr<CVoid> = this.pipeHandle
+    public operator fun component2(): MutPtr = this.pipeHandle
 
     public operator fun component3(): UInt = this.transferFlags
 
     public operator fun component4(): UInt = this.transferBufferLength
 
-    public operator fun component5(): MutPtr<CVoid> = this.transferBuffer
+    public operator fun component5(): MutPtr = this.transferBuffer
 
-    public operator fun component6(): MutPtr<CVoid> = this.transferBufferMDL
+    public operator fun component6(): MutPtr = this.transferBufferMDL
 
-    public operator fun component7(): MutPtr<Urb> = this.urbLink
+    public operator fun component7(): MutPtr = this.urbLink
 
     public operator fun component8(): UrbHcdArea = this.hca
 
-    public fun copy(hdr: UrbHeader = this.hdr, pipeHandle: MutPtr<CVoid> = this.pipeHandle, transferFlags: UInt = this.transferFlags, transferBufferLength: UInt = this.transferBufferLength, transferBuffer: MutPtr<CVoid> = this.transferBuffer, transferBufferMDL: MutPtr<CVoid> = this.transferBufferMDL, urbLink: MutPtr<Urb> = this.urbLink, hca: UrbHcdArea = this.hca): UrbBulkOrInterruptTransfer = UrbBulkOrInterruptTransfer(hdr = hdr, pipeHandleCtorArg = pipeHandle, transferFlags = transferFlags, transferBufferLength = transferBufferLength, transferBufferCtorArg = transferBuffer, transferBufferMDLCtorArg = transferBufferMDL, urbLinkCtorArg = urbLink, hca = hca)
+    public fun copy(hdr: UrbHeader = this.hdr, pipeHandle: MutPtr = this.pipeHandle, transferFlags: UInt = this.transferFlags, transferBufferLength: UInt = this.transferBufferLength, transferBuffer: MutPtr = this.transferBuffer, transferBufferMDL: MutPtr = this.transferBufferMDL, urbLink: MutPtr = this.urbLink, hca: UrbHcdArea = this.hca): UrbBulkOrInterruptTransfer = UrbBulkOrInterruptTransfer(hdr = hdr, pipeHandleCtorArg = pipeHandle, transferFlags = transferFlags, transferBufferLength = transferBufferLength, transferBufferCtorArg = transferBuffer, transferBufferMDLCtorArg = transferBufferMDL, urbLinkCtorArg = urbLink, hca = hca)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -6472,21 +6471,21 @@ public class UrbBulkOrInterruptTransfer internal constructor(
                         (UrbHeader.typeLayout()).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<CVoid>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 24L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 32L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 36L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<CVoid>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 40L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<CVoid>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 48L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<Urb>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 56L),
                         (UrbHcdArea.typeLayout()).readNative(addr + 64L),
                     )
@@ -6494,21 +6493,21 @@ public class UrbBulkOrInterruptTransfer internal constructor(
                     (UrbHeader.typeLayout()).writeNative(addr, value.hdr)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<CVoid>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 24L, value.pipeHandle)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 32L, value.transferFlags)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 36L, value.transferBufferLength)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<CVoid>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 40L, value.transferBuffer)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<CVoid>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 48L, value.transferBufferMDL)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<Urb>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 56L, value.urbLink)
                     (UrbHcdArea.typeLayout()).writeNative(addr + 64L, value.hca)
                 }
@@ -6516,12 +6515,12 @@ public class UrbBulkOrInterruptTransfer internal constructor(
 
         public operator fun invoke(
             hdr: UrbHeader = UrbHeader(),
-            pipeHandle: MutPtr<CVoid> = MutPtr(0L),
+            pipeHandle: MutPtr = MutPtr(0L),
             transferFlags: UInt = 0u,
             transferBufferLength: UInt = 0u,
-            transferBuffer: MutPtr<CVoid> = MutPtr(0L),
-            transferBufferMDL: MutPtr<CVoid> = MutPtr(0L),
-            urbLink: MutPtr<Urb> = MutPtr(0L),
+            transferBuffer: MutPtr = MutPtr(0L),
+            transferBufferMDL: MutPtr = MutPtr(0L),
+            urbLink: MutPtr = MutPtr(0L),
             hca: UrbHcdArea = UrbHcdArea(),
         ): UrbBulkOrInterruptTransfer =
             UrbBulkOrInterruptTransfer(
@@ -6539,12 +6538,12 @@ public class UrbBulkOrInterruptTransfer internal constructor(
 
 public class UrbControlDescriptorRequest internal constructor(
     public var hdr: UrbHeader,
-    reservedCtorArg: MutPtr<CVoid>,
+    reservedCtorArg: MutPtr,
     public var reserved0: UInt,
     public var transferBufferLength: UInt,
-    transferBufferCtorArg: MutPtr<CVoid>,
-    transferBufferMDLCtorArg: MutPtr<CVoid>,
-    urbLinkCtorArg: MutPtr<Urb>,
+    transferBufferCtorArg: MutPtr,
+    transferBufferMDLCtorArg: MutPtr,
+    urbLinkCtorArg: MutPtr,
     public var hca: UrbHcdArea,
     public var reserved1: UShort,
     public var index: UByte,
@@ -6552,16 +6551,16 @@ public class UrbControlDescriptorRequest internal constructor(
     public var languageId: UShort,
     public var reserved2: UShort,
 ) {
-    public var reserved: MutPtr<CVoid> = reservedCtorArg
+    public var reserved: MutPtr = reservedCtorArg
         internal set
 
-    public var transferBuffer: MutPtr<CVoid> = transferBufferCtorArg
+    public var transferBuffer: MutPtr = transferBufferCtorArg
         internal set
 
-    public var transferBufferMDL: MutPtr<CVoid> = transferBufferMDLCtorArg
+    public var transferBufferMDL: MutPtr = transferBufferMDLCtorArg
         internal set
 
-    public var urbLink: MutPtr<Urb> = urbLinkCtorArg
+    public var urbLink: MutPtr = urbLinkCtorArg
         internal set
 
     public constructor() : this(
@@ -6582,17 +6581,17 @@ public class UrbControlDescriptorRequest internal constructor(
 
     public operator fun component1(): UrbHeader = this.hdr
 
-    public operator fun component2(): MutPtr<CVoid> = this.reserved
+    public operator fun component2(): MutPtr = this.reserved
 
     public operator fun component3(): UInt = this.reserved0
 
     public operator fun component4(): UInt = this.transferBufferLength
 
-    public operator fun component5(): MutPtr<CVoid> = this.transferBuffer
+    public operator fun component5(): MutPtr = this.transferBuffer
 
-    public operator fun component6(): MutPtr<CVoid> = this.transferBufferMDL
+    public operator fun component6(): MutPtr = this.transferBufferMDL
 
-    public operator fun component7(): MutPtr<Urb> = this.urbLink
+    public operator fun component7(): MutPtr = this.urbLink
 
     public operator fun component8(): UrbHcdArea = this.hca
 
@@ -6606,7 +6605,7 @@ public class UrbControlDescriptorRequest internal constructor(
 
     public operator fun component13(): UShort = this.reserved2
 
-    public fun copy(hdr: UrbHeader = this.hdr, reserved: MutPtr<CVoid> = this.reserved, reserved0: UInt = this.reserved0, transferBufferLength: UInt = this.transferBufferLength, transferBuffer: MutPtr<CVoid> = this.transferBuffer, transferBufferMDL: MutPtr<CVoid> = this.transferBufferMDL, urbLink: MutPtr<Urb> = this.urbLink, hca: UrbHcdArea = this.hca, reserved1: UShort = this.reserved1, index: UByte = this.index, descriptorType: UByte = this.descriptorType, languageId: UShort = this.languageId, reserved2: UShort = this.reserved2): UrbControlDescriptorRequest = UrbControlDescriptorRequest(hdr = hdr, reservedCtorArg = reserved, reserved0 = reserved0, transferBufferLength = transferBufferLength, transferBufferCtorArg = transferBuffer, transferBufferMDLCtorArg = transferBufferMDL, urbLinkCtorArg = urbLink, hca = hca, reserved1 = reserved1, index = index, descriptorType = descriptorType, languageId = languageId, reserved2 = reserved2)
+    public fun copy(hdr: UrbHeader = this.hdr, reserved: MutPtr = this.reserved, reserved0: UInt = this.reserved0, transferBufferLength: UInt = this.transferBufferLength, transferBuffer: MutPtr = this.transferBuffer, transferBufferMDL: MutPtr = this.transferBufferMDL, urbLink: MutPtr = this.urbLink, hca: UrbHcdArea = this.hca, reserved1: UShort = this.reserved1, index: UByte = this.index, descriptorType: UByte = this.descriptorType, languageId: UShort = this.languageId, reserved2: UShort = this.reserved2): UrbControlDescriptorRequest = UrbControlDescriptorRequest(hdr = hdr, reservedCtorArg = reserved, reserved0 = reserved0, transferBufferLength = transferBufferLength, transferBufferCtorArg = transferBuffer, transferBufferMDLCtorArg = transferBufferMDL, urbLinkCtorArg = urbLink, hca = hca, reserved1 = reserved1, index = index, descriptorType = descriptorType, languageId = languageId, reserved2 = reserved2)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -6654,21 +6653,21 @@ public class UrbControlDescriptorRequest internal constructor(
                         (UrbHeader.typeLayout()).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<CVoid>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 24L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 32L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 36L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<CVoid>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 40L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<CVoid>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 48L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<Urb>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 56L),
                         (UrbHcdArea.typeLayout()).readNative(addr + 64L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16).readNative(addr + 128L),
@@ -6681,21 +6680,21 @@ public class UrbControlDescriptorRequest internal constructor(
                     (UrbHeader.typeLayout()).writeNative(addr, value.hdr)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<CVoid>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 24L, value.reserved)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 32L, value.reserved0)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 36L, value.transferBufferLength)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<CVoid>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 40L, value.transferBuffer)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<CVoid>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 48L, value.transferBufferMDL)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<Urb>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 56L, value.urbLink)
                     (UrbHcdArea.typeLayout()).writeNative(addr + 64L, value.hca)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16).writeNative(addr + 128L, value.reserved1)
@@ -6708,12 +6707,12 @@ public class UrbControlDescriptorRequest internal constructor(
 
         public operator fun invoke(
             hdr: UrbHeader = UrbHeader(),
-            reserved: MutPtr<CVoid> = MutPtr(0L),
+            reserved: MutPtr = MutPtr(0L),
             reserved0: UInt = 0u,
             transferBufferLength: UInt = 0u,
-            transferBuffer: MutPtr<CVoid> = MutPtr(0L),
-            transferBufferMDL: MutPtr<CVoid> = MutPtr(0L),
-            urbLink: MutPtr<Urb> = MutPtr(0L),
+            transferBuffer: MutPtr = MutPtr(0L),
+            transferBufferMDL: MutPtr = MutPtr(0L),
+            urbLink: MutPtr = MutPtr(0L),
             hca: UrbHcdArea = UrbHcdArea(),
             reserved1: UShort = 0u,
             index: UByte = 0u,
@@ -6741,28 +6740,28 @@ public class UrbControlDescriptorRequest internal constructor(
 
 public class UrbControlFeatureRequest internal constructor(
     public var hdr: UrbHeader,
-    reservedCtorArg: MutPtr<CVoid>,
+    reservedCtorArg: MutPtr,
     public var reserved2: UInt,
     public var reserved3: UInt,
-    reserved4CtorArg: MutPtr<CVoid>,
-    reserved5CtorArg: MutPtr<CVoid>,
-    urbLinkCtorArg: MutPtr<Urb>,
+    reserved4CtorArg: MutPtr,
+    reserved5CtorArg: MutPtr,
+    urbLinkCtorArg: MutPtr,
     public var hca: UrbHcdArea,
     public var reserved0: UShort,
     public var featureSelector: UShort,
     public var index: UShort,
     public var reserved1: UShort,
 ) {
-    public var reserved: MutPtr<CVoid> = reservedCtorArg
+    public var reserved: MutPtr = reservedCtorArg
         internal set
 
-    public var reserved4: MutPtr<CVoid> = reserved4CtorArg
+    public var reserved4: MutPtr = reserved4CtorArg
         internal set
 
-    public var reserved5: MutPtr<CVoid> = reserved5CtorArg
+    public var reserved5: MutPtr = reserved5CtorArg
         internal set
 
-    public var urbLink: MutPtr<Urb> = urbLinkCtorArg
+    public var urbLink: MutPtr = urbLinkCtorArg
         internal set
 
     public constructor() : this(
@@ -6782,17 +6781,17 @@ public class UrbControlFeatureRequest internal constructor(
 
     public operator fun component1(): UrbHeader = this.hdr
 
-    public operator fun component2(): MutPtr<CVoid> = this.reserved
+    public operator fun component2(): MutPtr = this.reserved
 
     public operator fun component3(): UInt = this.reserved2
 
     public operator fun component4(): UInt = this.reserved3
 
-    public operator fun component5(): MutPtr<CVoid> = this.reserved4
+    public operator fun component5(): MutPtr = this.reserved4
 
-    public operator fun component6(): MutPtr<CVoid> = this.reserved5
+    public operator fun component6(): MutPtr = this.reserved5
 
-    public operator fun component7(): MutPtr<Urb> = this.urbLink
+    public operator fun component7(): MutPtr = this.urbLink
 
     public operator fun component8(): UrbHcdArea = this.hca
 
@@ -6804,7 +6803,7 @@ public class UrbControlFeatureRequest internal constructor(
 
     public operator fun component12(): UShort = this.reserved1
 
-    public fun copy(hdr: UrbHeader = this.hdr, reserved: MutPtr<CVoid> = this.reserved, reserved2: UInt = this.reserved2, reserved3: UInt = this.reserved3, reserved4: MutPtr<CVoid> = this.reserved4, reserved5: MutPtr<CVoid> = this.reserved5, urbLink: MutPtr<Urb> = this.urbLink, hca: UrbHcdArea = this.hca, reserved0: UShort = this.reserved0, featureSelector: UShort = this.featureSelector, index: UShort = this.index, reserved1: UShort = this.reserved1): UrbControlFeatureRequest = UrbControlFeatureRequest(hdr = hdr, reservedCtorArg = reserved, reserved2 = reserved2, reserved3 = reserved3, reserved4CtorArg = reserved4, reserved5CtorArg = reserved5, urbLinkCtorArg = urbLink, hca = hca, reserved0 = reserved0, featureSelector = featureSelector, index = index, reserved1 = reserved1)
+    public fun copy(hdr: UrbHeader = this.hdr, reserved: MutPtr = this.reserved, reserved2: UInt = this.reserved2, reserved3: UInt = this.reserved3, reserved4: MutPtr = this.reserved4, reserved5: MutPtr = this.reserved5, urbLink: MutPtr = this.urbLink, hca: UrbHcdArea = this.hca, reserved0: UShort = this.reserved0, featureSelector: UShort = this.featureSelector, index: UShort = this.index, reserved1: UShort = this.reserved1): UrbControlFeatureRequest = UrbControlFeatureRequest(hdr = hdr, reservedCtorArg = reserved, reserved2 = reserved2, reserved3 = reserved3, reserved4CtorArg = reserved4, reserved5CtorArg = reserved5, urbLinkCtorArg = urbLink, hca = hca, reserved0 = reserved0, featureSelector = featureSelector, index = index, reserved1 = reserved1)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -6850,21 +6849,21 @@ public class UrbControlFeatureRequest internal constructor(
                         (UrbHeader.typeLayout()).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<CVoid>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 24L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 32L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 36L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<CVoid>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 40L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<CVoid>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 48L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<Urb>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 56L),
                         (UrbHcdArea.typeLayout()).readNative(addr + 64L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16).readNative(addr + 128L),
@@ -6876,21 +6875,21 @@ public class UrbControlFeatureRequest internal constructor(
                     (UrbHeader.typeLayout()).writeNative(addr, value.hdr)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<CVoid>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 24L, value.reserved)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 32L, value.reserved2)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 36L, value.reserved3)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<CVoid>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 40L, value.reserved4)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<CVoid>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 48L, value.reserved5)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<Urb>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 56L, value.urbLink)
                     (UrbHcdArea.typeLayout()).writeNative(addr + 64L, value.hca)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16).writeNative(addr + 128L, value.reserved0)
@@ -6902,12 +6901,12 @@ public class UrbControlFeatureRequest internal constructor(
 
         public operator fun invoke(
             hdr: UrbHeader = UrbHeader(),
-            reserved: MutPtr<CVoid> = MutPtr(0L),
+            reserved: MutPtr = MutPtr(0L),
             reserved2: UInt = 0u,
             reserved3: UInt = 0u,
-            reserved4: MutPtr<CVoid> = MutPtr(0L),
-            reserved5: MutPtr<CVoid> = MutPtr(0L),
-            urbLink: MutPtr<Urb> = MutPtr(0L),
+            reserved4: MutPtr = MutPtr(0L),
+            reserved5: MutPtr = MutPtr(0L),
+            urbLink: MutPtr = MutPtr(0L),
             hca: UrbHcdArea = UrbHcdArea(),
             reserved0: UShort = 0u,
             featureSelector: UShort = 0u,
@@ -6933,25 +6932,25 @@ public class UrbControlFeatureRequest internal constructor(
 
 public class UrbControlGetConfigurationRequest internal constructor(
     public var hdr: UrbHeader,
-    reservedCtorArg: MutPtr<CVoid>,
+    reservedCtorArg: MutPtr,
     public var reserved0: UInt,
     public var transferBufferLength: UInt,
-    transferBufferCtorArg: MutPtr<CVoid>,
-    transferBufferMDLCtorArg: MutPtr<CVoid>,
-    urbLinkCtorArg: MutPtr<Urb>,
+    transferBufferCtorArg: MutPtr,
+    transferBufferMDLCtorArg: MutPtr,
+    urbLinkCtorArg: MutPtr,
     public var hca: UrbHcdArea,
     public var reserved1: UByteArray,
 ) {
-    public var reserved: MutPtr<CVoid> = reservedCtorArg
+    public var reserved: MutPtr = reservedCtorArg
         internal set
 
-    public var transferBuffer: MutPtr<CVoid> = transferBufferCtorArg
+    public var transferBuffer: MutPtr = transferBufferCtorArg
         internal set
 
-    public var transferBufferMDL: MutPtr<CVoid> = transferBufferMDLCtorArg
+    public var transferBufferMDL: MutPtr = transferBufferMDLCtorArg
         internal set
 
-    public var urbLink: MutPtr<Urb> = urbLinkCtorArg
+    public var urbLink: MutPtr = urbLinkCtorArg
         internal set
 
     public constructor() : this(
@@ -6968,23 +6967,23 @@ public class UrbControlGetConfigurationRequest internal constructor(
 
     public operator fun component1(): UrbHeader = this.hdr
 
-    public operator fun component2(): MutPtr<CVoid> = this.reserved
+    public operator fun component2(): MutPtr = this.reserved
 
     public operator fun component3(): UInt = this.reserved0
 
     public operator fun component4(): UInt = this.transferBufferLength
 
-    public operator fun component5(): MutPtr<CVoid> = this.transferBuffer
+    public operator fun component5(): MutPtr = this.transferBuffer
 
-    public operator fun component6(): MutPtr<CVoid> = this.transferBufferMDL
+    public operator fun component6(): MutPtr = this.transferBufferMDL
 
-    public operator fun component7(): MutPtr<Urb> = this.urbLink
+    public operator fun component7(): MutPtr = this.urbLink
 
     public operator fun component8(): UrbHcdArea = this.hca
 
     public operator fun component9(): UByteArray = this.reserved1
 
-    public fun copy(hdr: UrbHeader = this.hdr, reserved: MutPtr<CVoid> = this.reserved, reserved0: UInt = this.reserved0, transferBufferLength: UInt = this.transferBufferLength, transferBuffer: MutPtr<CVoid> = this.transferBuffer, transferBufferMDL: MutPtr<CVoid> = this.transferBufferMDL, urbLink: MutPtr<Urb> = this.urbLink, hca: UrbHcdArea = this.hca, reserved1: UByteArray = this.reserved1): UrbControlGetConfigurationRequest = UrbControlGetConfigurationRequest(hdr = hdr, reservedCtorArg = reserved, reserved0 = reserved0, transferBufferLength = transferBufferLength, transferBufferCtorArg = transferBuffer, transferBufferMDLCtorArg = transferBufferMDL, urbLinkCtorArg = urbLink, hca = hca, reserved1 = reserved1)
+    public fun copy(hdr: UrbHeader = this.hdr, reserved: MutPtr = this.reserved, reserved0: UInt = this.reserved0, transferBufferLength: UInt = this.transferBufferLength, transferBuffer: MutPtr = this.transferBuffer, transferBufferMDL: MutPtr = this.transferBufferMDL, urbLink: MutPtr = this.urbLink, hca: UrbHcdArea = this.hca, reserved1: UByteArray = this.reserved1): UrbControlGetConfigurationRequest = UrbControlGetConfigurationRequest(hdr = hdr, reservedCtorArg = reserved, reserved0 = reserved0, transferBufferLength = transferBufferLength, transferBufferCtorArg = transferBuffer, transferBufferMDLCtorArg = transferBufferMDL, urbLinkCtorArg = urbLink, hca = hca, reserved1 = reserved1)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -7024,21 +7023,21 @@ public class UrbControlGetConfigurationRequest internal constructor(
                         (UrbHeader.typeLayout()).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<CVoid>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 24L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 32L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 36L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<CVoid>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 40L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<CVoid>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 48L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<Urb>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 56L),
                         (UrbHcdArea.typeLayout()).readNative(addr + 64L),
                         (
@@ -7050,21 +7049,21 @@ public class UrbControlGetConfigurationRequest internal constructor(
                     (UrbHeader.typeLayout()).writeNative(addr, value.hdr)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<CVoid>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 24L, value.reserved)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 32L, value.reserved0)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 36L, value.transferBufferLength)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<CVoid>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 40L, value.transferBuffer)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<CVoid>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 48L, value.transferBufferMDL)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<Urb>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 56L, value.urbLink)
                     (UrbHcdArea.typeLayout()).writeNative(addr + 64L, value.hca)
                     (
@@ -7076,12 +7075,12 @@ public class UrbControlGetConfigurationRequest internal constructor(
 
         public operator fun invoke(
             hdr: UrbHeader = UrbHeader(),
-            reserved: MutPtr<CVoid> = MutPtr(0L),
+            reserved: MutPtr = MutPtr(0L),
             reserved0: UInt = 0u,
             transferBufferLength: UInt = 0u,
-            transferBuffer: MutPtr<CVoid> = MutPtr(0L),
-            transferBufferMDL: MutPtr<CVoid> = MutPtr(0L),
-            urbLink: MutPtr<Urb> = MutPtr(0L),
+            transferBuffer: MutPtr = MutPtr(0L),
+            transferBufferMDL: MutPtr = MutPtr(0L),
+            urbLink: MutPtr = MutPtr(0L),
             hca: UrbHcdArea = UrbHcdArea(),
             reserved1: UByteArray = UByteArray(8),
         ): UrbControlGetConfigurationRequest =
@@ -7101,27 +7100,27 @@ public class UrbControlGetConfigurationRequest internal constructor(
 
 public class UrbControlGetInterfaceRequest internal constructor(
     public var hdr: UrbHeader,
-    reservedCtorArg: MutPtr<CVoid>,
+    reservedCtorArg: MutPtr,
     public var reserved0: UInt,
     public var transferBufferLength: UInt,
-    transferBufferCtorArg: MutPtr<CVoid>,
-    transferBufferMDLCtorArg: MutPtr<CVoid>,
-    urbLinkCtorArg: MutPtr<Urb>,
+    transferBufferCtorArg: MutPtr,
+    transferBufferMDLCtorArg: MutPtr,
+    urbLinkCtorArg: MutPtr,
     public var hca: UrbHcdArea,
     public var reserved1: UByteArray,
     public var iface: UShort,
     public var reserved2: UShort,
 ) {
-    public var reserved: MutPtr<CVoid> = reservedCtorArg
+    public var reserved: MutPtr = reservedCtorArg
         internal set
 
-    public var transferBuffer: MutPtr<CVoid> = transferBufferCtorArg
+    public var transferBuffer: MutPtr = transferBufferCtorArg
         internal set
 
-    public var transferBufferMDL: MutPtr<CVoid> = transferBufferMDLCtorArg
+    public var transferBufferMDL: MutPtr = transferBufferMDLCtorArg
         internal set
 
-    public var urbLink: MutPtr<Urb> = urbLinkCtorArg
+    public var urbLink: MutPtr = urbLinkCtorArg
         internal set
 
     public constructor() : this(
@@ -7140,17 +7139,17 @@ public class UrbControlGetInterfaceRequest internal constructor(
 
     public operator fun component1(): UrbHeader = this.hdr
 
-    public operator fun component2(): MutPtr<CVoid> = this.reserved
+    public operator fun component2(): MutPtr = this.reserved
 
     public operator fun component3(): UInt = this.reserved0
 
     public operator fun component4(): UInt = this.transferBufferLength
 
-    public operator fun component5(): MutPtr<CVoid> = this.transferBuffer
+    public operator fun component5(): MutPtr = this.transferBuffer
 
-    public operator fun component6(): MutPtr<CVoid> = this.transferBufferMDL
+    public operator fun component6(): MutPtr = this.transferBufferMDL
 
-    public operator fun component7(): MutPtr<Urb> = this.urbLink
+    public operator fun component7(): MutPtr = this.urbLink
 
     public operator fun component8(): UrbHcdArea = this.hca
 
@@ -7160,7 +7159,7 @@ public class UrbControlGetInterfaceRequest internal constructor(
 
     public operator fun component11(): UShort = this.reserved2
 
-    public fun copy(hdr: UrbHeader = this.hdr, reserved: MutPtr<CVoid> = this.reserved, reserved0: UInt = this.reserved0, transferBufferLength: UInt = this.transferBufferLength, transferBuffer: MutPtr<CVoid> = this.transferBuffer, transferBufferMDL: MutPtr<CVoid> = this.transferBufferMDL, urbLink: MutPtr<Urb> = this.urbLink, hca: UrbHcdArea = this.hca, reserved1: UByteArray = this.reserved1, iface: UShort = this.iface, reserved2: UShort = this.reserved2): UrbControlGetInterfaceRequest = UrbControlGetInterfaceRequest(hdr = hdr, reservedCtorArg = reserved, reserved0 = reserved0, transferBufferLength = transferBufferLength, transferBufferCtorArg = transferBuffer, transferBufferMDLCtorArg = transferBufferMDL, urbLinkCtorArg = urbLink, hca = hca, reserved1 = reserved1, iface = iface, reserved2 = reserved2)
+    public fun copy(hdr: UrbHeader = this.hdr, reserved: MutPtr = this.reserved, reserved0: UInt = this.reserved0, transferBufferLength: UInt = this.transferBufferLength, transferBuffer: MutPtr = this.transferBuffer, transferBufferMDL: MutPtr = this.transferBufferMDL, urbLink: MutPtr = this.urbLink, hca: UrbHcdArea = this.hca, reserved1: UByteArray = this.reserved1, iface: UShort = this.iface, reserved2: UShort = this.reserved2): UrbControlGetInterfaceRequest = UrbControlGetInterfaceRequest(hdr = hdr, reservedCtorArg = reserved, reserved0 = reserved0, transferBufferLength = transferBufferLength, transferBufferCtorArg = transferBuffer, transferBufferMDLCtorArg = transferBufferMDL, urbLinkCtorArg = urbLink, hca = hca, reserved1 = reserved1, iface = iface, reserved2 = reserved2)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -7204,21 +7203,21 @@ public class UrbControlGetInterfaceRequest internal constructor(
                         (UrbHeader.typeLayout()).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<CVoid>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 24L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 32L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 36L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<CVoid>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 40L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<CVoid>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 48L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<Urb>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 56L),
                         (UrbHcdArea.typeLayout()).readNative(addr + 64L),
                         (
@@ -7232,21 +7231,21 @@ public class UrbControlGetInterfaceRequest internal constructor(
                     (UrbHeader.typeLayout()).writeNative(addr, value.hdr)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<CVoid>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 24L, value.reserved)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 32L, value.reserved0)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 36L, value.transferBufferLength)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<CVoid>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 40L, value.transferBuffer)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<CVoid>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 48L, value.transferBufferMDL)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<Urb>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 56L, value.urbLink)
                     (UrbHcdArea.typeLayout()).writeNative(addr + 64L, value.hca)
                     (
@@ -7260,12 +7259,12 @@ public class UrbControlGetInterfaceRequest internal constructor(
 
         public operator fun invoke(
             hdr: UrbHeader = UrbHeader(),
-            reserved: MutPtr<CVoid> = MutPtr(0L),
+            reserved: MutPtr = MutPtr(0L),
             reserved0: UInt = 0u,
             transferBufferLength: UInt = 0u,
-            transferBuffer: MutPtr<CVoid> = MutPtr(0L),
-            transferBufferMDL: MutPtr<CVoid> = MutPtr(0L),
-            urbLink: MutPtr<Urb> = MutPtr(0L),
+            transferBuffer: MutPtr = MutPtr(0L),
+            transferBufferMDL: MutPtr = MutPtr(0L),
+            urbLink: MutPtr = MutPtr(0L),
             hca: UrbHcdArea = UrbHcdArea(),
             reserved1: UByteArray = UByteArray(4),
             iface: UShort = 0u,
@@ -7289,27 +7288,27 @@ public class UrbControlGetInterfaceRequest internal constructor(
 
 public class UrbControlGetStatusRequest internal constructor(
     public var hdr: UrbHeader,
-    reservedCtorArg: MutPtr<CVoid>,
+    reservedCtorArg: MutPtr,
     public var reserved0: UInt,
     public var transferBufferLength: UInt,
-    transferBufferCtorArg: MutPtr<CVoid>,
-    transferBufferMDLCtorArg: MutPtr<CVoid>,
-    urbLinkCtorArg: MutPtr<Urb>,
+    transferBufferCtorArg: MutPtr,
+    transferBufferMDLCtorArg: MutPtr,
+    urbLinkCtorArg: MutPtr,
     public var hca: UrbHcdArea,
     public var reserved1: UByteArray,
     public var index: UShort,
     public var reserved2: UShort,
 ) {
-    public var reserved: MutPtr<CVoid> = reservedCtorArg
+    public var reserved: MutPtr = reservedCtorArg
         internal set
 
-    public var transferBuffer: MutPtr<CVoid> = transferBufferCtorArg
+    public var transferBuffer: MutPtr = transferBufferCtorArg
         internal set
 
-    public var transferBufferMDL: MutPtr<CVoid> = transferBufferMDLCtorArg
+    public var transferBufferMDL: MutPtr = transferBufferMDLCtorArg
         internal set
 
-    public var urbLink: MutPtr<Urb> = urbLinkCtorArg
+    public var urbLink: MutPtr = urbLinkCtorArg
         internal set
 
     public constructor() : this(
@@ -7328,17 +7327,17 @@ public class UrbControlGetStatusRequest internal constructor(
 
     public operator fun component1(): UrbHeader = this.hdr
 
-    public operator fun component2(): MutPtr<CVoid> = this.reserved
+    public operator fun component2(): MutPtr = this.reserved
 
     public operator fun component3(): UInt = this.reserved0
 
     public operator fun component4(): UInt = this.transferBufferLength
 
-    public operator fun component5(): MutPtr<CVoid> = this.transferBuffer
+    public operator fun component5(): MutPtr = this.transferBuffer
 
-    public operator fun component6(): MutPtr<CVoid> = this.transferBufferMDL
+    public operator fun component6(): MutPtr = this.transferBufferMDL
 
-    public operator fun component7(): MutPtr<Urb> = this.urbLink
+    public operator fun component7(): MutPtr = this.urbLink
 
     public operator fun component8(): UrbHcdArea = this.hca
 
@@ -7348,7 +7347,7 @@ public class UrbControlGetStatusRequest internal constructor(
 
     public operator fun component11(): UShort = this.reserved2
 
-    public fun copy(hdr: UrbHeader = this.hdr, reserved: MutPtr<CVoid> = this.reserved, reserved0: UInt = this.reserved0, transferBufferLength: UInt = this.transferBufferLength, transferBuffer: MutPtr<CVoid> = this.transferBuffer, transferBufferMDL: MutPtr<CVoid> = this.transferBufferMDL, urbLink: MutPtr<Urb> = this.urbLink, hca: UrbHcdArea = this.hca, reserved1: UByteArray = this.reserved1, index: UShort = this.index, reserved2: UShort = this.reserved2): UrbControlGetStatusRequest = UrbControlGetStatusRequest(hdr = hdr, reservedCtorArg = reserved, reserved0 = reserved0, transferBufferLength = transferBufferLength, transferBufferCtorArg = transferBuffer, transferBufferMDLCtorArg = transferBufferMDL, urbLinkCtorArg = urbLink, hca = hca, reserved1 = reserved1, index = index, reserved2 = reserved2)
+    public fun copy(hdr: UrbHeader = this.hdr, reserved: MutPtr = this.reserved, reserved0: UInt = this.reserved0, transferBufferLength: UInt = this.transferBufferLength, transferBuffer: MutPtr = this.transferBuffer, transferBufferMDL: MutPtr = this.transferBufferMDL, urbLink: MutPtr = this.urbLink, hca: UrbHcdArea = this.hca, reserved1: UByteArray = this.reserved1, index: UShort = this.index, reserved2: UShort = this.reserved2): UrbControlGetStatusRequest = UrbControlGetStatusRequest(hdr = hdr, reservedCtorArg = reserved, reserved0 = reserved0, transferBufferLength = transferBufferLength, transferBufferCtorArg = transferBuffer, transferBufferMDLCtorArg = transferBufferMDL, urbLinkCtorArg = urbLink, hca = hca, reserved1 = reserved1, index = index, reserved2 = reserved2)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -7392,21 +7391,21 @@ public class UrbControlGetStatusRequest internal constructor(
                         (UrbHeader.typeLayout()).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<CVoid>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 24L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 32L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 36L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<CVoid>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 40L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<CVoid>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 48L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<Urb>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 56L),
                         (UrbHcdArea.typeLayout()).readNative(addr + 64L),
                         (
@@ -7420,21 +7419,21 @@ public class UrbControlGetStatusRequest internal constructor(
                     (UrbHeader.typeLayout()).writeNative(addr, value.hdr)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<CVoid>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 24L, value.reserved)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 32L, value.reserved0)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 36L, value.transferBufferLength)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<CVoid>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 40L, value.transferBuffer)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<CVoid>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 48L, value.transferBufferMDL)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<Urb>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 56L, value.urbLink)
                     (UrbHcdArea.typeLayout()).writeNative(addr + 64L, value.hca)
                     (
@@ -7448,12 +7447,12 @@ public class UrbControlGetStatusRequest internal constructor(
 
         public operator fun invoke(
             hdr: UrbHeader = UrbHeader(),
-            reserved: MutPtr<CVoid> = MutPtr(0L),
+            reserved: MutPtr = MutPtr(0L),
             reserved0: UInt = 0u,
             transferBufferLength: UInt = 0u,
-            transferBuffer: MutPtr<CVoid> = MutPtr(0L),
-            transferBufferMDL: MutPtr<CVoid> = MutPtr(0L),
-            urbLink: MutPtr<Urb> = MutPtr(0L),
+            transferBuffer: MutPtr = MutPtr(0L),
+            transferBufferMDL: MutPtr = MutPtr(0L),
+            urbLink: MutPtr = MutPtr(0L),
             hca: UrbHcdArea = UrbHcdArea(),
             reserved1: UByteArray = UByteArray(4),
             index: UShort = 0u,
@@ -7477,25 +7476,25 @@ public class UrbControlGetStatusRequest internal constructor(
 
 public class UrbControlTransfer internal constructor(
     public var hdr: UrbHeader,
-    pipeHandleCtorArg: MutPtr<CVoid>,
+    pipeHandleCtorArg: MutPtr,
     public var transferFlags: UInt,
     public var transferBufferLength: UInt,
-    transferBufferCtorArg: MutPtr<CVoid>,
-    transferBufferMDLCtorArg: MutPtr<CVoid>,
-    urbLinkCtorArg: MutPtr<Urb>,
+    transferBufferCtorArg: MutPtr,
+    transferBufferMDLCtorArg: MutPtr,
+    urbLinkCtorArg: MutPtr,
     public var hca: UrbHcdArea,
     public var setupPacket: UByteArray,
 ) {
-    public var pipeHandle: MutPtr<CVoid> = pipeHandleCtorArg
+    public var pipeHandle: MutPtr = pipeHandleCtorArg
         internal set
 
-    public var transferBuffer: MutPtr<CVoid> = transferBufferCtorArg
+    public var transferBuffer: MutPtr = transferBufferCtorArg
         internal set
 
-    public var transferBufferMDL: MutPtr<CVoid> = transferBufferMDLCtorArg
+    public var transferBufferMDL: MutPtr = transferBufferMDLCtorArg
         internal set
 
-    public var urbLink: MutPtr<Urb> = urbLinkCtorArg
+    public var urbLink: MutPtr = urbLinkCtorArg
         internal set
 
     public constructor() : this(
@@ -7512,23 +7511,23 @@ public class UrbControlTransfer internal constructor(
 
     public operator fun component1(): UrbHeader = this.hdr
 
-    public operator fun component2(): MutPtr<CVoid> = this.pipeHandle
+    public operator fun component2(): MutPtr = this.pipeHandle
 
     public operator fun component3(): UInt = this.transferFlags
 
     public operator fun component4(): UInt = this.transferBufferLength
 
-    public operator fun component5(): MutPtr<CVoid> = this.transferBuffer
+    public operator fun component5(): MutPtr = this.transferBuffer
 
-    public operator fun component6(): MutPtr<CVoid> = this.transferBufferMDL
+    public operator fun component6(): MutPtr = this.transferBufferMDL
 
-    public operator fun component7(): MutPtr<Urb> = this.urbLink
+    public operator fun component7(): MutPtr = this.urbLink
 
     public operator fun component8(): UrbHcdArea = this.hca
 
     public operator fun component9(): UByteArray = this.setupPacket
 
-    public fun copy(hdr: UrbHeader = this.hdr, pipeHandle: MutPtr<CVoid> = this.pipeHandle, transferFlags: UInt = this.transferFlags, transferBufferLength: UInt = this.transferBufferLength, transferBuffer: MutPtr<CVoid> = this.transferBuffer, transferBufferMDL: MutPtr<CVoid> = this.transferBufferMDL, urbLink: MutPtr<Urb> = this.urbLink, hca: UrbHcdArea = this.hca, setupPacket: UByteArray = this.setupPacket): UrbControlTransfer = UrbControlTransfer(hdr = hdr, pipeHandleCtorArg = pipeHandle, transferFlags = transferFlags, transferBufferLength = transferBufferLength, transferBufferCtorArg = transferBuffer, transferBufferMDLCtorArg = transferBufferMDL, urbLinkCtorArg = urbLink, hca = hca, setupPacket = setupPacket)
+    public fun copy(hdr: UrbHeader = this.hdr, pipeHandle: MutPtr = this.pipeHandle, transferFlags: UInt = this.transferFlags, transferBufferLength: UInt = this.transferBufferLength, transferBuffer: MutPtr = this.transferBuffer, transferBufferMDL: MutPtr = this.transferBufferMDL, urbLink: MutPtr = this.urbLink, hca: UrbHcdArea = this.hca, setupPacket: UByteArray = this.setupPacket): UrbControlTransfer = UrbControlTransfer(hdr = hdr, pipeHandleCtorArg = pipeHandle, transferFlags = transferFlags, transferBufferLength = transferBufferLength, transferBufferCtorArg = transferBuffer, transferBufferMDLCtorArg = transferBufferMDL, urbLinkCtorArg = urbLink, hca = hca, setupPacket = setupPacket)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -7568,21 +7567,21 @@ public class UrbControlTransfer internal constructor(
                         (UrbHeader.typeLayout()).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<CVoid>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 24L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 32L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 36L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<CVoid>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 40L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<CVoid>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 48L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<Urb>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 56L),
                         (UrbHcdArea.typeLayout()).readNative(addr + 64L),
                         (
@@ -7594,21 +7593,21 @@ public class UrbControlTransfer internal constructor(
                     (UrbHeader.typeLayout()).writeNative(addr, value.hdr)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<CVoid>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 24L, value.pipeHandle)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 32L, value.transferFlags)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 36L, value.transferBufferLength)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<CVoid>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 40L, value.transferBuffer)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<CVoid>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 48L, value.transferBufferMDL)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<Urb>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 56L, value.urbLink)
                     (UrbHcdArea.typeLayout()).writeNative(addr + 64L, value.hca)
                     (
@@ -7620,12 +7619,12 @@ public class UrbControlTransfer internal constructor(
 
         public operator fun invoke(
             hdr: UrbHeader = UrbHeader(),
-            pipeHandle: MutPtr<CVoid> = MutPtr(0L),
+            pipeHandle: MutPtr = MutPtr(0L),
             transferFlags: UInt = 0u,
             transferBufferLength: UInt = 0u,
-            transferBuffer: MutPtr<CVoid> = MutPtr(0L),
-            transferBufferMDL: MutPtr<CVoid> = MutPtr(0L),
-            urbLink: MutPtr<Urb> = MutPtr(0L),
+            transferBuffer: MutPtr = MutPtr(0L),
+            transferBufferMDL: MutPtr = MutPtr(0L),
+            urbLink: MutPtr = MutPtr(0L),
             hca: UrbHcdArea = UrbHcdArea(),
             setupPacket: UByteArray = UByteArray(8),
         ): UrbControlTransfer =
@@ -7645,22 +7644,22 @@ public class UrbControlTransfer internal constructor(
 
 public class UrbControlTransferEx internal constructor(
     public var hdr: UrbHeader,
-    pipeHandleCtorArg: MutPtr<CVoid>,
+    pipeHandleCtorArg: MutPtr,
     public var transferFlags: UInt,
     public var transferBufferLength: UInt,
-    transferBufferCtorArg: MutPtr<CVoid>,
-    transferBufferMDLCtorArg: MutPtr<CVoid>,
+    transferBufferCtorArg: MutPtr,
+    transferBufferMDLCtorArg: MutPtr,
     public var timeout: UInt,
     public var hca: UrbHcdArea,
     public var setupPacket: UByteArray,
 ) {
-    public var pipeHandle: MutPtr<CVoid> = pipeHandleCtorArg
+    public var pipeHandle: MutPtr = pipeHandleCtorArg
         internal set
 
-    public var transferBuffer: MutPtr<CVoid> = transferBufferCtorArg
+    public var transferBuffer: MutPtr = transferBufferCtorArg
         internal set
 
-    public var transferBufferMDL: MutPtr<CVoid> = transferBufferMDLCtorArg
+    public var transferBufferMDL: MutPtr = transferBufferMDLCtorArg
         internal set
 
     public constructor() : this(
@@ -7677,15 +7676,15 @@ public class UrbControlTransferEx internal constructor(
 
     public operator fun component1(): UrbHeader = this.hdr
 
-    public operator fun component2(): MutPtr<CVoid> = this.pipeHandle
+    public operator fun component2(): MutPtr = this.pipeHandle
 
     public operator fun component3(): UInt = this.transferFlags
 
     public operator fun component4(): UInt = this.transferBufferLength
 
-    public operator fun component5(): MutPtr<CVoid> = this.transferBuffer
+    public operator fun component5(): MutPtr = this.transferBuffer
 
-    public operator fun component6(): MutPtr<CVoid> = this.transferBufferMDL
+    public operator fun component6(): MutPtr = this.transferBufferMDL
 
     public operator fun component7(): UInt = this.timeout
 
@@ -7693,7 +7692,7 @@ public class UrbControlTransferEx internal constructor(
 
     public operator fun component9(): UByteArray = this.setupPacket
 
-    public fun copy(hdr: UrbHeader = this.hdr, pipeHandle: MutPtr<CVoid> = this.pipeHandle, transferFlags: UInt = this.transferFlags, transferBufferLength: UInt = this.transferBufferLength, transferBuffer: MutPtr<CVoid> = this.transferBuffer, transferBufferMDL: MutPtr<CVoid> = this.transferBufferMDL, timeout: UInt = this.timeout, hca: UrbHcdArea = this.hca, setupPacket: UByteArray = this.setupPacket): UrbControlTransferEx = UrbControlTransferEx(hdr = hdr, pipeHandleCtorArg = pipeHandle, transferFlags = transferFlags, transferBufferLength = transferBufferLength, transferBufferCtorArg = transferBuffer, transferBufferMDLCtorArg = transferBufferMDL, timeout = timeout, hca = hca, setupPacket = setupPacket)
+    public fun copy(hdr: UrbHeader = this.hdr, pipeHandle: MutPtr = this.pipeHandle, transferFlags: UInt = this.transferFlags, transferBufferLength: UInt = this.transferBufferLength, transferBuffer: MutPtr = this.transferBuffer, transferBufferMDL: MutPtr = this.transferBufferMDL, timeout: UInt = this.timeout, hca: UrbHcdArea = this.hca, setupPacket: UByteArray = this.setupPacket): UrbControlTransferEx = UrbControlTransferEx(hdr = hdr, pipeHandleCtorArg = pipeHandle, transferFlags = transferFlags, transferBufferLength = transferBufferLength, transferBufferCtorArg = transferBuffer, transferBufferMDLCtorArg = transferBufferMDL, timeout = timeout, hca = hca, setupPacket = setupPacket)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -7733,17 +7732,17 @@ public class UrbControlTransferEx internal constructor(
                         (UrbHeader.typeLayout()).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<CVoid>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 24L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 32L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 36L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<CVoid>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 40L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<CVoid>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 48L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 56L),
                         (UrbHcdArea.typeLayout()).readNative(addr + 64L),
@@ -7756,17 +7755,17 @@ public class UrbControlTransferEx internal constructor(
                     (UrbHeader.typeLayout()).writeNative(addr, value.hdr)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<CVoid>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 24L, value.pipeHandle)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 32L, value.transferFlags)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 36L, value.transferBufferLength)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<CVoid>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 40L, value.transferBuffer)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<CVoid>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 48L, value.transferBufferMDL)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 56L, value.timeout)
                     (UrbHcdArea.typeLayout()).writeNative(addr + 64L, value.hca)
@@ -7779,11 +7778,11 @@ public class UrbControlTransferEx internal constructor(
 
         public operator fun invoke(
             hdr: UrbHeader = UrbHeader(),
-            pipeHandle: MutPtr<CVoid> = MutPtr(0L),
+            pipeHandle: MutPtr = MutPtr(0L),
             transferFlags: UInt = 0u,
             transferBufferLength: UInt = 0u,
-            transferBuffer: MutPtr<CVoid> = MutPtr(0L),
-            transferBufferMDL: MutPtr<CVoid> = MutPtr(0L),
+            transferBuffer: MutPtr = MutPtr(0L),
+            transferBufferMDL: MutPtr = MutPtr(0L),
             timeout: UInt = 0u,
             hca: UrbHcdArea = UrbHcdArea(),
             setupPacket: UByteArray = UByteArray(8),
@@ -7804,12 +7803,12 @@ public class UrbControlTransferEx internal constructor(
 
 public class UrbControlVendorOrClassRequest internal constructor(
     public var hdr: UrbHeader,
-    reservedCtorArg: MutPtr<CVoid>,
+    reservedCtorArg: MutPtr,
     public var transferFlags: UInt,
     public var transferBufferLength: UInt,
-    transferBufferCtorArg: MutPtr<CVoid>,
-    transferBufferMDLCtorArg: MutPtr<CVoid>,
-    urbLinkCtorArg: MutPtr<Urb>,
+    transferBufferCtorArg: MutPtr,
+    transferBufferMDLCtorArg: MutPtr,
+    urbLinkCtorArg: MutPtr,
     public var hca: UrbHcdArea,
     public var requestTypeReservedBits: UByte,
     public var request: UByte,
@@ -7817,16 +7816,16 @@ public class UrbControlVendorOrClassRequest internal constructor(
     public var index: UShort,
     public var reserved1: UShort,
 ) {
-    public var reserved: MutPtr<CVoid> = reservedCtorArg
+    public var reserved: MutPtr = reservedCtorArg
         internal set
 
-    public var transferBuffer: MutPtr<CVoid> = transferBufferCtorArg
+    public var transferBuffer: MutPtr = transferBufferCtorArg
         internal set
 
-    public var transferBufferMDL: MutPtr<CVoid> = transferBufferMDLCtorArg
+    public var transferBufferMDL: MutPtr = transferBufferMDLCtorArg
         internal set
 
-    public var urbLink: MutPtr<Urb> = urbLinkCtorArg
+    public var urbLink: MutPtr = urbLinkCtorArg
         internal set
 
     public constructor() : this(
@@ -7847,17 +7846,17 @@ public class UrbControlVendorOrClassRequest internal constructor(
 
     public operator fun component1(): UrbHeader = this.hdr
 
-    public operator fun component2(): MutPtr<CVoid> = this.reserved
+    public operator fun component2(): MutPtr = this.reserved
 
     public operator fun component3(): UInt = this.transferFlags
 
     public operator fun component4(): UInt = this.transferBufferLength
 
-    public operator fun component5(): MutPtr<CVoid> = this.transferBuffer
+    public operator fun component5(): MutPtr = this.transferBuffer
 
-    public operator fun component6(): MutPtr<CVoid> = this.transferBufferMDL
+    public operator fun component6(): MutPtr = this.transferBufferMDL
 
-    public operator fun component7(): MutPtr<Urb> = this.urbLink
+    public operator fun component7(): MutPtr = this.urbLink
 
     public operator fun component8(): UrbHcdArea = this.hca
 
@@ -7871,7 +7870,7 @@ public class UrbControlVendorOrClassRequest internal constructor(
 
     public operator fun component13(): UShort = this.reserved1
 
-    public fun copy(hdr: UrbHeader = this.hdr, reserved: MutPtr<CVoid> = this.reserved, transferFlags: UInt = this.transferFlags, transferBufferLength: UInt = this.transferBufferLength, transferBuffer: MutPtr<CVoid> = this.transferBuffer, transferBufferMDL: MutPtr<CVoid> = this.transferBufferMDL, urbLink: MutPtr<Urb> = this.urbLink, hca: UrbHcdArea = this.hca, requestTypeReservedBits: UByte = this.requestTypeReservedBits, request: UByte = this.request, value: UShort = this.value, index: UShort = this.index, reserved1: UShort = this.reserved1): UrbControlVendorOrClassRequest = UrbControlVendorOrClassRequest(hdr = hdr, reservedCtorArg = reserved, transferFlags = transferFlags, transferBufferLength = transferBufferLength, transferBufferCtorArg = transferBuffer, transferBufferMDLCtorArg = transferBufferMDL, urbLinkCtorArg = urbLink, hca = hca, requestTypeReservedBits = requestTypeReservedBits, request = request, value = value, index = index, reserved1 = reserved1)
+    public fun copy(hdr: UrbHeader = this.hdr, reserved: MutPtr = this.reserved, transferFlags: UInt = this.transferFlags, transferBufferLength: UInt = this.transferBufferLength, transferBuffer: MutPtr = this.transferBuffer, transferBufferMDL: MutPtr = this.transferBufferMDL, urbLink: MutPtr = this.urbLink, hca: UrbHcdArea = this.hca, requestTypeReservedBits: UByte = this.requestTypeReservedBits, request: UByte = this.request, value: UShort = this.value, index: UShort = this.index, reserved1: UShort = this.reserved1): UrbControlVendorOrClassRequest = UrbControlVendorOrClassRequest(hdr = hdr, reservedCtorArg = reserved, transferFlags = transferFlags, transferBufferLength = transferBufferLength, transferBufferCtorArg = transferBuffer, transferBufferMDLCtorArg = transferBufferMDL, urbLinkCtorArg = urbLink, hca = hca, requestTypeReservedBits = requestTypeReservedBits, request = request, value = value, index = index, reserved1 = reserved1)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -7919,21 +7918,21 @@ public class UrbControlVendorOrClassRequest internal constructor(
                         (UrbHeader.typeLayout()).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<CVoid>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 24L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 32L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 36L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<CVoid>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 40L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<CVoid>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 48L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<Urb>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 56L),
                         (UrbHcdArea.typeLayout()).readNative(addr + 64L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8).readNative(addr + 128L),
@@ -7946,21 +7945,21 @@ public class UrbControlVendorOrClassRequest internal constructor(
                     (UrbHeader.typeLayout()).writeNative(addr, value.hdr)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<CVoid>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 24L, value.reserved)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 32L, value.transferFlags)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 36L, value.transferBufferLength)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<CVoid>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 40L, value.transferBuffer)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<CVoid>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 48L, value.transferBufferMDL)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<Urb>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 56L, value.urbLink)
                     (UrbHcdArea.typeLayout()).writeNative(addr + 64L, value.hca)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8).writeNative(addr + 128L, value.requestTypeReservedBits)
@@ -7973,12 +7972,12 @@ public class UrbControlVendorOrClassRequest internal constructor(
 
         public operator fun invoke(
             hdr: UrbHeader = UrbHeader(),
-            reserved: MutPtr<CVoid> = MutPtr(0L),
+            reserved: MutPtr = MutPtr(0L),
             transferFlags: UInt = 0u,
             transferBufferLength: UInt = 0u,
-            transferBuffer: MutPtr<CVoid> = MutPtr(0L),
-            transferBufferMDL: MutPtr<CVoid> = MutPtr(0L),
-            urbLink: MutPtr<Urb> = MutPtr(0L),
+            transferBuffer: MutPtr = MutPtr(0L),
+            transferBufferMDL: MutPtr = MutPtr(0L),
+            urbLink: MutPtr = MutPtr(0L),
             hca: UrbHcdArea = UrbHcdArea(),
             requestTypeReservedBits: UByte = 0u,
             request: UByte = 0u,
@@ -8072,11 +8071,11 @@ public data class UrbGetFrameLength(
 
 public class UrbGetIsochPipeTransferPathDelays internal constructor(
     public var hdr: UrbHeader,
-    pipeHandleCtorArg: MutPtr<CVoid>,
+    pipeHandleCtorArg: MutPtr,
     public var maximumSendPathDelayInMilliSeconds: UInt,
     public var maximumCompletionPathDelayInMilliSeconds: UInt,
 ) {
-    public var pipeHandle: MutPtr<CVoid> = pipeHandleCtorArg
+    public var pipeHandle: MutPtr = pipeHandleCtorArg
         internal set
 
     public constructor() : this(
@@ -8088,13 +8087,13 @@ public class UrbGetIsochPipeTransferPathDelays internal constructor(
 
     public operator fun component1(): UrbHeader = this.hdr
 
-    public operator fun component2(): MutPtr<CVoid> = this.pipeHandle
+    public operator fun component2(): MutPtr = this.pipeHandle
 
     public operator fun component3(): UInt = this.maximumSendPathDelayInMilliSeconds
 
     public operator fun component4(): UInt = this.maximumCompletionPathDelayInMilliSeconds
 
-    public fun copy(hdr: UrbHeader = this.hdr, pipeHandle: MutPtr<CVoid> = this.pipeHandle, maximumSendPathDelayInMilliSeconds: UInt = this.maximumSendPathDelayInMilliSeconds, maximumCompletionPathDelayInMilliSeconds: UInt = this.maximumCompletionPathDelayInMilliSeconds): UrbGetIsochPipeTransferPathDelays = UrbGetIsochPipeTransferPathDelays(hdr = hdr, pipeHandleCtorArg = pipeHandle, maximumSendPathDelayInMilliSeconds = maximumSendPathDelayInMilliSeconds, maximumCompletionPathDelayInMilliSeconds = maximumCompletionPathDelayInMilliSeconds)
+    public fun copy(hdr: UrbHeader = this.hdr, pipeHandle: MutPtr = this.pipeHandle, maximumSendPathDelayInMilliSeconds: UInt = this.maximumSendPathDelayInMilliSeconds, maximumCompletionPathDelayInMilliSeconds: UInt = this.maximumCompletionPathDelayInMilliSeconds): UrbGetIsochPipeTransferPathDelays = UrbGetIsochPipeTransferPathDelays(hdr = hdr, pipeHandleCtorArg = pipeHandle, maximumSendPathDelayInMilliSeconds = maximumSendPathDelayInMilliSeconds, maximumCompletionPathDelayInMilliSeconds = maximumCompletionPathDelayInMilliSeconds)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -8124,7 +8123,7 @@ public class UrbGetIsochPipeTransferPathDelays internal constructor(
                         (UrbHeader.typeLayout()).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<CVoid>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 24L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 32L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 36L),
@@ -8133,7 +8132,7 @@ public class UrbGetIsochPipeTransferPathDelays internal constructor(
                     (UrbHeader.typeLayout()).writeNative(addr, value.hdr)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<CVoid>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 24L, value.pipeHandle)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 32L, value.maximumSendPathDelayInMilliSeconds)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 36L, value.maximumCompletionPathDelayInMilliSeconds)
@@ -8142,7 +8141,7 @@ public class UrbGetIsochPipeTransferPathDelays internal constructor(
 
         public operator fun invoke(
             hdr: UrbHeader = UrbHeader(),
-            pipeHandle: MutPtr<CVoid> = MutPtr(0L),
+            pipeHandle: MutPtr = MutPtr(0L),
             maximumSendPathDelayInMilliSeconds: UInt = 0u,
             maximumCompletionPathDelayInMilliSeconds: UInt = 0u,
         ): UrbGetIsochPipeTransferPathDelays =
@@ -8156,18 +8155,18 @@ public class UrbGetIsochPipeTransferPathDelays internal constructor(
 }
 
 public class UrbHcdArea internal constructor(
-    reserved8CtorArg: List<MutPtr<CVoid>>,
+    reserved8CtorArg: List<MutPtr>,
 ) {
-    public var reserved8: List<MutPtr<CVoid>> = reserved8CtorArg
+    public var reserved8: List<MutPtr> = reserved8CtorArg
         internal set
 
     public constructor() : this(
         reserved8CtorArg = List(8) { MutPtr(0L) },
     )
 
-    public operator fun component1(): List<MutPtr<CVoid>> = this.reserved8
+    public operator fun component1(): List<MutPtr> = this.reserved8
 
-    public fun copy(reserved8: List<MutPtr<CVoid>> = this.reserved8): UrbHcdArea = UrbHcdArea(reserved8CtorArg = reserved8)
+    public fun copy(reserved8: List<MutPtr> = this.reserved8): UrbHcdArea = UrbHcdArea(reserved8CtorArg = reserved8)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -8189,7 +8188,7 @@ public class UrbHcdArea internal constructor(
                             io.github.kotlinmania.rustlang.core.mem
                                 .FixedArrayTypeLayout(
                                     io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                        .mutPtrLayout<CVoid>(64),
+                                        .mutPtrLayout(64),
                                     (8).toInt(),
                                 )
                         ).readNative(addr),
@@ -8199,7 +8198,7 @@ public class UrbHcdArea internal constructor(
                         io.github.kotlinmania.rustlang.core.mem
                             .FixedArrayTypeLayout(
                                 io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                    .mutPtrLayout<CVoid>(64),
+                                    .mutPtrLayout(64),
                                 (8).toInt(),
                             )
                     ).writeNative(addr, value.reserved8)
@@ -8207,7 +8206,7 @@ public class UrbHcdArea internal constructor(
             }
 
         public operator fun invoke(
-            reserved8: List<MutPtr<CVoid>> = List(8) { MutPtr(0L) },
+            reserved8: List<MutPtr> = List(8) { MutPtr(0L) },
         ): UrbHcdArea =
             UrbHcdArea(
                 reserved8CtorArg = reserved8,
@@ -8219,10 +8218,10 @@ public class UrbHeader internal constructor(
     public var length: UShort,
     public var function: UShort,
     public var status: Int,
-    usbdDeviceHandleCtorArg: MutPtr<CVoid>,
+    usbdDeviceHandleCtorArg: MutPtr,
     public var usbdFlags: UInt,
 ) {
-    public var usbdDeviceHandle: MutPtr<CVoid> = usbdDeviceHandleCtorArg
+    public var usbdDeviceHandle: MutPtr = usbdDeviceHandleCtorArg
         internal set
 
     public constructor() : this(
@@ -8239,11 +8238,11 @@ public class UrbHeader internal constructor(
 
     public operator fun component3(): Int = this.status
 
-    public operator fun component4(): MutPtr<CVoid> = this.usbdDeviceHandle
+    public operator fun component4(): MutPtr = this.usbdDeviceHandle
 
     public operator fun component5(): UInt = this.usbdFlags
 
-    public fun copy(length: UShort = this.length, function: UShort = this.function, status: Int = this.status, usbdDeviceHandle: MutPtr<CVoid> = this.usbdDeviceHandle, usbdFlags: UInt = this.usbdFlags): UrbHeader = UrbHeader(length = length, function = function, status = status, usbdDeviceHandleCtorArg = usbdDeviceHandle, usbdFlags = usbdFlags)
+    public fun copy(length: UShort = this.length, function: UShort = this.function, status: Int = this.status, usbdDeviceHandle: MutPtr = this.usbdDeviceHandle, usbdFlags: UInt = this.usbdFlags): UrbHeader = UrbHeader(length = length, function = function, status = status, usbdDeviceHandleCtorArg = usbdDeviceHandle, usbdFlags = usbdFlags)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -8277,7 +8276,7 @@ public class UrbHeader internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr + 4L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<CVoid>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 16L),
                     )
@@ -8287,7 +8286,7 @@ public class UrbHeader internal constructor(
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr + 4L, value.status)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<CVoid>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.usbdDeviceHandle)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 16L, value.usbdFlags)
                 }
@@ -8297,7 +8296,7 @@ public class UrbHeader internal constructor(
             length: UShort = 0u,
             function: UShort = 0u,
             status: Int = 0,
-            usbdDeviceHandle: MutPtr<CVoid> = MutPtr(0L),
+            usbdDeviceHandle: MutPtr = MutPtr(0L),
             usbdFlags: UInt = 0u,
         ): UrbHeader =
             UrbHeader(
@@ -8312,28 +8311,28 @@ public class UrbHeader internal constructor(
 
 public class UrbIsochTransfer internal constructor(
     public var hdr: UrbHeader,
-    pipeHandleCtorArg: MutPtr<CVoid>,
+    pipeHandleCtorArg: MutPtr,
     public var transferFlags: UInt,
     public var transferBufferLength: UInt,
-    transferBufferCtorArg: MutPtr<CVoid>,
-    transferBufferMDLCtorArg: MutPtr<CVoid>,
-    urbLinkCtorArg: MutPtr<Urb>,
+    transferBufferCtorArg: MutPtr,
+    transferBufferMDLCtorArg: MutPtr,
+    urbLinkCtorArg: MutPtr,
     public var hca: UrbHcdArea,
     public var startFrame: UInt,
     public var numberOfPackets: UInt,
     public var errorCount: UInt,
     public var isoPacket: List<UsbdIsoPacketDescriptor>,
 ) {
-    public var pipeHandle: MutPtr<CVoid> = pipeHandleCtorArg
+    public var pipeHandle: MutPtr = pipeHandleCtorArg
         internal set
 
-    public var transferBuffer: MutPtr<CVoid> = transferBufferCtorArg
+    public var transferBuffer: MutPtr = transferBufferCtorArg
         internal set
 
-    public var transferBufferMDL: MutPtr<CVoid> = transferBufferMDLCtorArg
+    public var transferBufferMDL: MutPtr = transferBufferMDLCtorArg
         internal set
 
-    public var urbLink: MutPtr<Urb> = urbLinkCtorArg
+    public var urbLink: MutPtr = urbLinkCtorArg
         internal set
 
     public constructor() : this(
@@ -8353,17 +8352,17 @@ public class UrbIsochTransfer internal constructor(
 
     public operator fun component1(): UrbHeader = this.hdr
 
-    public operator fun component2(): MutPtr<CVoid> = this.pipeHandle
+    public operator fun component2(): MutPtr = this.pipeHandle
 
     public operator fun component3(): UInt = this.transferFlags
 
     public operator fun component4(): UInt = this.transferBufferLength
 
-    public operator fun component5(): MutPtr<CVoid> = this.transferBuffer
+    public operator fun component5(): MutPtr = this.transferBuffer
 
-    public operator fun component6(): MutPtr<CVoid> = this.transferBufferMDL
+    public operator fun component6(): MutPtr = this.transferBufferMDL
 
-    public operator fun component7(): MutPtr<Urb> = this.urbLink
+    public operator fun component7(): MutPtr = this.urbLink
 
     public operator fun component8(): UrbHcdArea = this.hca
 
@@ -8375,7 +8374,7 @@ public class UrbIsochTransfer internal constructor(
 
     public operator fun component12(): List<UsbdIsoPacketDescriptor> = this.isoPacket
 
-    public fun copy(hdr: UrbHeader = this.hdr, pipeHandle: MutPtr<CVoid> = this.pipeHandle, transferFlags: UInt = this.transferFlags, transferBufferLength: UInt = this.transferBufferLength, transferBuffer: MutPtr<CVoid> = this.transferBuffer, transferBufferMDL: MutPtr<CVoid> = this.transferBufferMDL, urbLink: MutPtr<Urb> = this.urbLink, hca: UrbHcdArea = this.hca, startFrame: UInt = this.startFrame, numberOfPackets: UInt = this.numberOfPackets, errorCount: UInt = this.errorCount, isoPacket: List<UsbdIsoPacketDescriptor> = this.isoPacket): UrbIsochTransfer = UrbIsochTransfer(hdr = hdr, pipeHandleCtorArg = pipeHandle, transferFlags = transferFlags, transferBufferLength = transferBufferLength, transferBufferCtorArg = transferBuffer, transferBufferMDLCtorArg = transferBufferMDL, urbLinkCtorArg = urbLink, hca = hca, startFrame = startFrame, numberOfPackets = numberOfPackets, errorCount = errorCount, isoPacket = isoPacket)
+    public fun copy(hdr: UrbHeader = this.hdr, pipeHandle: MutPtr = this.pipeHandle, transferFlags: UInt = this.transferFlags, transferBufferLength: UInt = this.transferBufferLength, transferBuffer: MutPtr = this.transferBuffer, transferBufferMDL: MutPtr = this.transferBufferMDL, urbLink: MutPtr = this.urbLink, hca: UrbHcdArea = this.hca, startFrame: UInt = this.startFrame, numberOfPackets: UInt = this.numberOfPackets, errorCount: UInt = this.errorCount, isoPacket: List<UsbdIsoPacketDescriptor> = this.isoPacket): UrbIsochTransfer = UrbIsochTransfer(hdr = hdr, pipeHandleCtorArg = pipeHandle, transferFlags = transferFlags, transferBufferLength = transferBufferLength, transferBufferCtorArg = transferBuffer, transferBufferMDLCtorArg = transferBufferMDL, urbLinkCtorArg = urbLink, hca = hca, startFrame = startFrame, numberOfPackets = numberOfPackets, errorCount = errorCount, isoPacket = isoPacket)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -8421,21 +8420,21 @@ public class UrbIsochTransfer internal constructor(
                         (UrbHeader.typeLayout()).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<CVoid>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 24L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 32L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 36L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<CVoid>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 40L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<CVoid>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 48L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<Urb>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 56L),
                         (UrbHcdArea.typeLayout()).readNative(addr + 64L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 128L),
@@ -8450,21 +8449,21 @@ public class UrbIsochTransfer internal constructor(
                     (UrbHeader.typeLayout()).writeNative(addr, value.hdr)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<CVoid>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 24L, value.pipeHandle)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 32L, value.transferFlags)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 36L, value.transferBufferLength)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<CVoid>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 40L, value.transferBuffer)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<CVoid>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 48L, value.transferBufferMDL)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<Urb>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 56L, value.urbLink)
                     (UrbHcdArea.typeLayout()).writeNative(addr + 64L, value.hca)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 128L, value.startFrame)
@@ -8479,12 +8478,12 @@ public class UrbIsochTransfer internal constructor(
 
         public operator fun invoke(
             hdr: UrbHeader = UrbHeader(),
-            pipeHandle: MutPtr<CVoid> = MutPtr(0L),
+            pipeHandle: MutPtr = MutPtr(0L),
             transferFlags: UInt = 0u,
             transferBufferLength: UInt = 0u,
-            transferBuffer: MutPtr<CVoid> = MutPtr(0L),
-            transferBufferMDL: MutPtr<CVoid> = MutPtr(0L),
-            urbLink: MutPtr<Urb> = MutPtr(0L),
+            transferBuffer: MutPtr = MutPtr(0L),
+            transferBufferMDL: MutPtr = MutPtr(0L),
+            urbLink: MutPtr = MutPtr(0L),
             hca: UrbHcdArea = UrbHcdArea(),
             startFrame: UInt = 0u,
             numberOfPackets: UInt = 0u,
@@ -8510,16 +8509,16 @@ public class UrbIsochTransfer internal constructor(
 
 public class UrbOpenStaticStreams internal constructor(
     public var hdr: UrbHeader,
-    pipeHandleCtorArg: MutPtr<CVoid>,
+    pipeHandleCtorArg: MutPtr,
     public var numberOfStreams: UInt,
     public var streamInfoVersion: UShort,
     public var streamInfoSize: UShort,
-    streamsCtorArg: MutPtr<UsbdStreamInformation>,
+    streamsCtorArg: MutPtr,
 ) {
-    public var pipeHandle: MutPtr<CVoid> = pipeHandleCtorArg
+    public var pipeHandle: MutPtr = pipeHandleCtorArg
         internal set
 
-    public var streams: MutPtr<UsbdStreamInformation> = streamsCtorArg
+    public var streams: MutPtr = streamsCtorArg
         internal set
 
     public constructor() : this(
@@ -8533,7 +8532,7 @@ public class UrbOpenStaticStreams internal constructor(
 
     public operator fun component1(): UrbHeader = this.hdr
 
-    public operator fun component2(): MutPtr<CVoid> = this.pipeHandle
+    public operator fun component2(): MutPtr = this.pipeHandle
 
     public operator fun component3(): UInt = this.numberOfStreams
 
@@ -8541,9 +8540,9 @@ public class UrbOpenStaticStreams internal constructor(
 
     public operator fun component5(): UShort = this.streamInfoSize
 
-    public operator fun component6(): MutPtr<UsbdStreamInformation> = this.streams
+    public operator fun component6(): MutPtr = this.streams
 
-    public fun copy(hdr: UrbHeader = this.hdr, pipeHandle: MutPtr<CVoid> = this.pipeHandle, numberOfStreams: UInt = this.numberOfStreams, streamInfoVersion: UShort = this.streamInfoVersion, streamInfoSize: UShort = this.streamInfoSize, streams: MutPtr<UsbdStreamInformation> = this.streams): UrbOpenStaticStreams = UrbOpenStaticStreams(hdr = hdr, pipeHandleCtorArg = pipeHandle, numberOfStreams = numberOfStreams, streamInfoVersion = streamInfoVersion, streamInfoSize = streamInfoSize, streamsCtorArg = streams)
+    public fun copy(hdr: UrbHeader = this.hdr, pipeHandle: MutPtr = this.pipeHandle, numberOfStreams: UInt = this.numberOfStreams, streamInfoVersion: UShort = this.streamInfoVersion, streamInfoSize: UShort = this.streamInfoSize, streams: MutPtr = this.streams): UrbOpenStaticStreams = UrbOpenStaticStreams(hdr = hdr, pipeHandleCtorArg = pipeHandle, numberOfStreams = numberOfStreams, streamInfoVersion = streamInfoVersion, streamInfoSize = streamInfoSize, streamsCtorArg = streams)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -8577,39 +8576,39 @@ public class UrbOpenStaticStreams internal constructor(
                         (UrbHeader.typeLayout()).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<CVoid>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 24L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 32L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16).readNative(addr + 36L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16).readNative(addr + 38L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<UsbdStreamInformation>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 40L),
                     )
                 override fun writeNative(addr: Long, value: UrbOpenStaticStreams) {
                     (UrbHeader.typeLayout()).writeNative(addr, value.hdr)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<CVoid>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 24L, value.pipeHandle)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 32L, value.numberOfStreams)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16).writeNative(addr + 36L, value.streamInfoVersion)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16).writeNative(addr + 38L, value.streamInfoSize)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<UsbdStreamInformation>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 40L, value.streams)
                 }
             }
 
         public operator fun invoke(
             hdr: UrbHeader = UrbHeader(),
-            pipeHandle: MutPtr<CVoid> = MutPtr(0L),
+            pipeHandle: MutPtr = MutPtr(0L),
             numberOfStreams: UInt = 0u,
             streamInfoVersion: UShort = 0u,
             streamInfoSize: UShort = 0u,
-            streams: MutPtr<UsbdStreamInformation> = MutPtr(0L),
+            streams: MutPtr = MutPtr(0L),
         ): UrbOpenStaticStreams =
             UrbOpenStaticStreams(
                 hdr = hdr,
@@ -8624,12 +8623,12 @@ public class UrbOpenStaticStreams internal constructor(
 
 public class UrbOsFeatureDescriptorRequest internal constructor(
     public var hdr: UrbHeader,
-    reservedCtorArg: MutPtr<CVoid>,
+    reservedCtorArg: MutPtr,
     public var reserved0: UInt,
     public var transferBufferLength: UInt,
-    transferBufferCtorArg: MutPtr<CVoid>,
-    transferBufferMDLCtorArg: MutPtr<CVoid>,
-    urbLinkCtorArg: MutPtr<Urb>,
+    transferBufferCtorArg: MutPtr,
+    transferBufferMDLCtorArg: MutPtr,
+    urbLinkCtorArg: MutPtr,
     public var hca: UrbHcdArea,
     public var bitfield: UByte,
     public var reserved2: UByte,
@@ -8638,16 +8637,16 @@ public class UrbOsFeatureDescriptorRequest internal constructor(
     public var msFeatureDescriptorIndex: UShort,
     public var reserved3: UShort,
 ) {
-    public var reserved: MutPtr<CVoid> = reservedCtorArg
+    public var reserved: MutPtr = reservedCtorArg
         internal set
 
-    public var transferBuffer: MutPtr<CVoid> = transferBufferCtorArg
+    public var transferBuffer: MutPtr = transferBufferCtorArg
         internal set
 
-    public var transferBufferMDL: MutPtr<CVoid> = transferBufferMDLCtorArg
+    public var transferBufferMDL: MutPtr = transferBufferMDLCtorArg
         internal set
 
-    public var urbLink: MutPtr<Urb> = urbLinkCtorArg
+    public var urbLink: MutPtr = urbLinkCtorArg
         internal set
 
     public constructor() : this(
@@ -8669,17 +8668,17 @@ public class UrbOsFeatureDescriptorRequest internal constructor(
 
     public operator fun component1(): UrbHeader = this.hdr
 
-    public operator fun component2(): MutPtr<CVoid> = this.reserved
+    public operator fun component2(): MutPtr = this.reserved
 
     public operator fun component3(): UInt = this.reserved0
 
     public operator fun component4(): UInt = this.transferBufferLength
 
-    public operator fun component5(): MutPtr<CVoid> = this.transferBuffer
+    public operator fun component5(): MutPtr = this.transferBuffer
 
-    public operator fun component6(): MutPtr<CVoid> = this.transferBufferMDL
+    public operator fun component6(): MutPtr = this.transferBufferMDL
 
-    public operator fun component7(): MutPtr<Urb> = this.urbLink
+    public operator fun component7(): MutPtr = this.urbLink
 
     public operator fun component8(): UrbHcdArea = this.hca
 
@@ -8695,7 +8694,7 @@ public class UrbOsFeatureDescriptorRequest internal constructor(
 
     public operator fun component14(): UShort = this.reserved3
 
-    public fun copy(hdr: UrbHeader = this.hdr, reserved: MutPtr<CVoid> = this.reserved, reserved0: UInt = this.reserved0, transferBufferLength: UInt = this.transferBufferLength, transferBuffer: MutPtr<CVoid> = this.transferBuffer, transferBufferMDL: MutPtr<CVoid> = this.transferBufferMDL, urbLink: MutPtr<Urb> = this.urbLink, hca: UrbHcdArea = this.hca, bitfield: UByte = this.bitfield, reserved2: UByte = this.reserved2, interfaceNumber: UByte = this.interfaceNumber, msPageIndex: UByte = this.msPageIndex, msFeatureDescriptorIndex: UShort = this.msFeatureDescriptorIndex, reserved3: UShort = this.reserved3): UrbOsFeatureDescriptorRequest = UrbOsFeatureDescriptorRequest(hdr = hdr, reservedCtorArg = reserved, reserved0 = reserved0, transferBufferLength = transferBufferLength, transferBufferCtorArg = transferBuffer, transferBufferMDLCtorArg = transferBufferMDL, urbLinkCtorArg = urbLink, hca = hca, bitfield = bitfield, reserved2 = reserved2, interfaceNumber = interfaceNumber, msPageIndex = msPageIndex, msFeatureDescriptorIndex = msFeatureDescriptorIndex, reserved3 = reserved3)
+    public fun copy(hdr: UrbHeader = this.hdr, reserved: MutPtr = this.reserved, reserved0: UInt = this.reserved0, transferBufferLength: UInt = this.transferBufferLength, transferBuffer: MutPtr = this.transferBuffer, transferBufferMDL: MutPtr = this.transferBufferMDL, urbLink: MutPtr = this.urbLink, hca: UrbHcdArea = this.hca, bitfield: UByte = this.bitfield, reserved2: UByte = this.reserved2, interfaceNumber: UByte = this.interfaceNumber, msPageIndex: UByte = this.msPageIndex, msFeatureDescriptorIndex: UShort = this.msFeatureDescriptorIndex, reserved3: UShort = this.reserved3): UrbOsFeatureDescriptorRequest = UrbOsFeatureDescriptorRequest(hdr = hdr, reservedCtorArg = reserved, reserved0 = reserved0, transferBufferLength = transferBufferLength, transferBufferCtorArg = transferBuffer, transferBufferMDLCtorArg = transferBufferMDL, urbLinkCtorArg = urbLink, hca = hca, bitfield = bitfield, reserved2 = reserved2, interfaceNumber = interfaceNumber, msPageIndex = msPageIndex, msFeatureDescriptorIndex = msFeatureDescriptorIndex, reserved3 = reserved3)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -8745,21 +8744,21 @@ public class UrbOsFeatureDescriptorRequest internal constructor(
                         (UrbHeader.typeLayout()).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<CVoid>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 24L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 32L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 36L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<CVoid>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 40L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<CVoid>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 48L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<Urb>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 56L),
                         (UrbHcdArea.typeLayout()).readNative(addr + 64L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8).readNative(addr + 128L),
@@ -8773,21 +8772,21 @@ public class UrbOsFeatureDescriptorRequest internal constructor(
                     (UrbHeader.typeLayout()).writeNative(addr, value.hdr)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<CVoid>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 24L, value.reserved)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 32L, value.reserved0)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 36L, value.transferBufferLength)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<CVoid>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 40L, value.transferBuffer)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<CVoid>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 48L, value.transferBufferMDL)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<Urb>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 56L, value.urbLink)
                     (UrbHcdArea.typeLayout()).writeNative(addr + 64L, value.hca)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8).writeNative(addr + 128L, value.bitfield)
@@ -8801,12 +8800,12 @@ public class UrbOsFeatureDescriptorRequest internal constructor(
 
         public operator fun invoke(
             hdr: UrbHeader = UrbHeader(),
-            reserved: MutPtr<CVoid> = MutPtr(0L),
+            reserved: MutPtr = MutPtr(0L),
             reserved0: UInt = 0u,
             transferBufferLength: UInt = 0u,
-            transferBuffer: MutPtr<CVoid> = MutPtr(0L),
-            transferBufferMDL: MutPtr<CVoid> = MutPtr(0L),
-            urbLink: MutPtr<Urb> = MutPtr(0L),
+            transferBuffer: MutPtr = MutPtr(0L),
+            transferBufferMDL: MutPtr = MutPtr(0L),
+            urbLink: MutPtr = MutPtr(0L),
             hca: UrbHcdArea = UrbHcdArea(),
             bitfield: UByte = 0u,
             reserved2: UByte = 0u,
@@ -8836,10 +8835,10 @@ public class UrbOsFeatureDescriptorRequest internal constructor(
 
 public class UrbPipeRequest internal constructor(
     public var hdr: UrbHeader,
-    pipeHandleCtorArg: MutPtr<CVoid>,
+    pipeHandleCtorArg: MutPtr,
     public var reserved: UInt,
 ) {
-    public var pipeHandle: MutPtr<CVoid> = pipeHandleCtorArg
+    public var pipeHandle: MutPtr = pipeHandleCtorArg
         internal set
 
     public constructor() : this(
@@ -8850,11 +8849,11 @@ public class UrbPipeRequest internal constructor(
 
     public operator fun component1(): UrbHeader = this.hdr
 
-    public operator fun component2(): MutPtr<CVoid> = this.pipeHandle
+    public operator fun component2(): MutPtr = this.pipeHandle
 
     public operator fun component3(): UInt = this.reserved
 
-    public fun copy(hdr: UrbHeader = this.hdr, pipeHandle: MutPtr<CVoid> = this.pipeHandle, reserved: UInt = this.reserved): UrbPipeRequest = UrbPipeRequest(hdr = hdr, pipeHandleCtorArg = pipeHandle, reserved = reserved)
+    public fun copy(hdr: UrbHeader = this.hdr, pipeHandle: MutPtr = this.pipeHandle, reserved: UInt = this.reserved): UrbPipeRequest = UrbPipeRequest(hdr = hdr, pipeHandleCtorArg = pipeHandle, reserved = reserved)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -8882,7 +8881,7 @@ public class UrbPipeRequest internal constructor(
                         (UrbHeader.typeLayout()).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<CVoid>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 24L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 32L),
                     )
@@ -8890,7 +8889,7 @@ public class UrbPipeRequest internal constructor(
                     (UrbHeader.typeLayout()).writeNative(addr, value.hdr)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<CVoid>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 24L, value.pipeHandle)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 32L, value.reserved)
                 }
@@ -8898,7 +8897,7 @@ public class UrbPipeRequest internal constructor(
 
         public operator fun invoke(
             hdr: UrbHeader = UrbHeader(),
-            pipeHandle: MutPtr<CVoid> = MutPtr(0L),
+            pipeHandle: MutPtr = MutPtr(0L),
             reserved: UInt = 0u,
         ): UrbPipeRequest =
             UrbPipeRequest(
@@ -8911,14 +8910,14 @@ public class UrbPipeRequest internal constructor(
 
 public class UrbSelectConfiguration internal constructor(
     public var hdr: UrbHeader,
-    configurationDescriptorCtorArg: MutPtr<UsbConfigurationDescriptor>,
-    configurationHandleCtorArg: MutPtr<CVoid>,
+    configurationDescriptorCtorArg: MutPtr,
+    configurationHandleCtorArg: MutPtr,
     public var iface: UsbdInterfaceInformation,
 ) {
-    public var configurationDescriptor: MutPtr<UsbConfigurationDescriptor> = configurationDescriptorCtorArg
+    public var configurationDescriptor: MutPtr = configurationDescriptorCtorArg
         internal set
 
-    public var configurationHandle: MutPtr<CVoid> = configurationHandleCtorArg
+    public var configurationHandle: MutPtr = configurationHandleCtorArg
         internal set
 
     public constructor() : this(
@@ -8930,13 +8929,13 @@ public class UrbSelectConfiguration internal constructor(
 
     public operator fun component1(): UrbHeader = this.hdr
 
-    public operator fun component2(): MutPtr<UsbConfigurationDescriptor> = this.configurationDescriptor
+    public operator fun component2(): MutPtr = this.configurationDescriptor
 
-    public operator fun component3(): MutPtr<CVoid> = this.configurationHandle
+    public operator fun component3(): MutPtr = this.configurationHandle
 
     public operator fun component4(): UsbdInterfaceInformation = this.iface
 
-    public fun copy(hdr: UrbHeader = this.hdr, configurationDescriptor: MutPtr<UsbConfigurationDescriptor> = this.configurationDescriptor, configurationHandle: MutPtr<CVoid> = this.configurationHandle, iface: UsbdInterfaceInformation = this.iface): UrbSelectConfiguration = UrbSelectConfiguration(hdr = hdr, configurationDescriptorCtorArg = configurationDescriptor, configurationHandleCtorArg = configurationHandle, iface = iface)
+    public fun copy(hdr: UrbHeader = this.hdr, configurationDescriptor: MutPtr = this.configurationDescriptor, configurationHandle: MutPtr = this.configurationHandle, iface: UsbdInterfaceInformation = this.iface): UrbSelectConfiguration = UrbSelectConfiguration(hdr = hdr, configurationDescriptorCtorArg = configurationDescriptor, configurationHandleCtorArg = configurationHandle, iface = iface)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -8966,11 +8965,11 @@ public class UrbSelectConfiguration internal constructor(
                         (UrbHeader.typeLayout()).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<UsbConfigurationDescriptor>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 24L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<CVoid>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 32L),
                         (UsbdInterfaceInformation.typeLayout()).readNative(addr + 40L),
                     )
@@ -8978,11 +8977,11 @@ public class UrbSelectConfiguration internal constructor(
                     (UrbHeader.typeLayout()).writeNative(addr, value.hdr)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<UsbConfigurationDescriptor>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 24L, value.configurationDescriptor)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<CVoid>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 32L, value.configurationHandle)
                     (UsbdInterfaceInformation.typeLayout()).writeNative(addr + 40L, value.iface)
                 }
@@ -8990,8 +8989,8 @@ public class UrbSelectConfiguration internal constructor(
 
         public operator fun invoke(
             hdr: UrbHeader = UrbHeader(),
-            configurationDescriptor: MutPtr<UsbConfigurationDescriptor> = MutPtr(0L),
-            configurationHandle: MutPtr<CVoid> = MutPtr(0L),
+            configurationDescriptor: MutPtr = MutPtr(0L),
+            configurationHandle: MutPtr = MutPtr(0L),
             iface: UsbdInterfaceInformation = UsbdInterfaceInformation(),
         ): UrbSelectConfiguration =
             UrbSelectConfiguration(
@@ -9005,10 +9004,10 @@ public class UrbSelectConfiguration internal constructor(
 
 public class UrbSelectInterface internal constructor(
     public var hdr: UrbHeader,
-    configurationHandleCtorArg: MutPtr<CVoid>,
+    configurationHandleCtorArg: MutPtr,
     public var iface: UsbdInterfaceInformation,
 ) {
-    public var configurationHandle: MutPtr<CVoid> = configurationHandleCtorArg
+    public var configurationHandle: MutPtr = configurationHandleCtorArg
         internal set
 
     public constructor() : this(
@@ -9019,11 +9018,11 @@ public class UrbSelectInterface internal constructor(
 
     public operator fun component1(): UrbHeader = this.hdr
 
-    public operator fun component2(): MutPtr<CVoid> = this.configurationHandle
+    public operator fun component2(): MutPtr = this.configurationHandle
 
     public operator fun component3(): UsbdInterfaceInformation = this.iface
 
-    public fun copy(hdr: UrbHeader = this.hdr, configurationHandle: MutPtr<CVoid> = this.configurationHandle, iface: UsbdInterfaceInformation = this.iface): UrbSelectInterface = UrbSelectInterface(hdr = hdr, configurationHandleCtorArg = configurationHandle, iface = iface)
+    public fun copy(hdr: UrbHeader = this.hdr, configurationHandle: MutPtr = this.configurationHandle, iface: UsbdInterfaceInformation = this.iface): UrbSelectInterface = UrbSelectInterface(hdr = hdr, configurationHandleCtorArg = configurationHandle, iface = iface)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -9051,7 +9050,7 @@ public class UrbSelectInterface internal constructor(
                         (UrbHeader.typeLayout()).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<CVoid>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 24L),
                         (UsbdInterfaceInformation.typeLayout()).readNative(addr + 32L),
                     )
@@ -9059,7 +9058,7 @@ public class UrbSelectInterface internal constructor(
                     (UrbHeader.typeLayout()).writeNative(addr, value.hdr)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<CVoid>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 24L, value.configurationHandle)
                     (UsbdInterfaceInformation.typeLayout()).writeNative(addr + 32L, value.iface)
                 }
@@ -9067,7 +9066,7 @@ public class UrbSelectInterface internal constructor(
 
         public operator fun invoke(
             hdr: UrbHeader = UrbHeader(),
-            configurationHandle: MutPtr<CVoid> = MutPtr(0L),
+            configurationHandle: MutPtr = MutPtr(0L),
             iface: UsbdInterfaceInformation = UsbdInterfaceInformation(),
         ): UrbSelectInterface =
             UrbSelectInterface(

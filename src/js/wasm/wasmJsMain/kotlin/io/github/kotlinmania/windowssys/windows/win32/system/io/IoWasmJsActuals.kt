@@ -2,7 +2,6 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.system.io
 
-import io.github.kotlinmania.rustlang.core.ffi.CVoid
 import io.github.kotlinmania.rustlang.core.ptr.ConstPtr
 import io.github.kotlinmania.rustlang.core.ptr.MutPtr
 import io.github.kotlinmania.windowssys.core.Bool
@@ -52,7 +51,7 @@ public actual fun bindIoCompletionCallback(filehandle: Handle, function: Lpoverl
 public actual fun cancelIo(hfile: Handle): Bool =
     if (windowsWin32SystemIoNapiAvailable) wasmWindowssysWindowsWin32SystemIoCancelIo(hfile.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun cancelIoEx(hfile: Handle, lpoverlapped: ConstPtr<Overlapped>): Bool =
+public actual fun cancelIoEx(hfile: Handle, lpoverlapped: ConstPtr): Bool =
     if (windowsWin32SystemIoNapiAvailable) wasmWindowssysWindowsWin32SystemIoCancelIoEx(hfile.rawAddress.toString(), lpoverlapped.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun cancelSynchronousIo(hthread: Handle): Bool =
@@ -61,20 +60,20 @@ public actual fun cancelSynchronousIo(hthread: Handle): Bool =
 public actual fun createIoCompletionPort(filehandle: Handle, existingcompletionport: Handle, completionkey: ULong, numberofconcurrentthreads: UInt): Handle =
     if (windowsWin32SystemIoNapiAvailable) MutPtr(wasmWindowssysWindowsWin32SystemIoCreateIoCompletionPort(filehandle.rawAddress.toString(), existingcompletionport.rawAddress.toString(), completionkey.toString(), numberofconcurrentthreads.toInt()).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun deviceIoControl(hdevice: Handle, dwiocontrolcode: UInt, lpinbuffer: ConstPtr<CVoid>, ninbuffersize: UInt, lpoutbuffer: MutPtr<CVoid>, noutbuffersize: UInt, lpbytesreturned: MutPtr<UInt>, lpoverlapped: MutPtr<Overlapped>): Bool =
+public actual fun deviceIoControl(hdevice: Handle, dwiocontrolcode: UInt, lpinbuffer: ConstPtr, ninbuffersize: UInt, lpoutbuffer: MutPtr, noutbuffersize: UInt, lpbytesreturned: MutPtr, lpoverlapped: MutPtr): Bool =
     if (windowsWin32SystemIoNapiAvailable) wasmWindowssysWindowsWin32SystemIoDeviceIoControl(hdevice.rawAddress.toString(), dwiocontrolcode.toInt(), lpinbuffer.rawAddress.toString(), ninbuffersize.toInt(), lpoutbuffer.rawAddress.toString(), noutbuffersize.toInt(), lpbytesreturned.rawAddress.toString(), lpoverlapped.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun getOverlappedResult(hfile: Handle, lpoverlapped: ConstPtr<Overlapped>, lpnumberofbytestransferred: MutPtr<UInt>, bwait: Bool): Bool =
+public actual fun getOverlappedResult(hfile: Handle, lpoverlapped: ConstPtr, lpnumberofbytestransferred: MutPtr, bwait: Bool): Bool =
     if (windowsWin32SystemIoNapiAvailable) wasmWindowssysWindowsWin32SystemIoGetOverlappedResult(hfile.rawAddress.toString(), lpoverlapped.rawAddress.toString(), lpnumberofbytestransferred.rawAddress.toString(), bwait) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun getOverlappedResultEx(hfile: Handle, lpoverlapped: ConstPtr<Overlapped>, lpnumberofbytestransferred: MutPtr<UInt>, dwmilliseconds: UInt, balertable: Bool): Bool =
+public actual fun getOverlappedResultEx(hfile: Handle, lpoverlapped: ConstPtr, lpnumberofbytestransferred: MutPtr, dwmilliseconds: UInt, balertable: Bool): Bool =
     if (windowsWin32SystemIoNapiAvailable) wasmWindowssysWindowsWin32SystemIoGetOverlappedResultEx(hfile.rawAddress.toString(), lpoverlapped.rawAddress.toString(), lpnumberofbytestransferred.rawAddress.toString(), dwmilliseconds.toInt(), balertable) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun getQueuedCompletionStatus(completionport: Handle, lpnumberofbytestransferred: MutPtr<UInt>, lpcompletionkey: MutPtr<ULong>, lpoverlapped: MutPtr<MutPtr<Overlapped>>, dwmilliseconds: UInt): Bool =
+public actual fun getQueuedCompletionStatus(completionport: Handle, lpnumberofbytestransferred: MutPtr, lpcompletionkey: MutPtr, lpoverlapped: MutPtr, dwmilliseconds: UInt): Bool =
     if (windowsWin32SystemIoNapiAvailable) wasmWindowssysWindowsWin32SystemIoGetQueuedCompletionStatus(completionport.rawAddress.toString(), lpnumberofbytestransferred.rawAddress.toString(), lpcompletionkey.rawAddress.toString(), lpoverlapped.rawAddress.toString(), dwmilliseconds.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun getQueuedCompletionStatusEx(completionport: Handle, lpcompletionportentries: MutPtr<OverlappedEntry>, ulcount: UInt, ulnumentriesremoved: MutPtr<UInt>, dwmilliseconds: UInt, falertable: Bool): Bool =
+public actual fun getQueuedCompletionStatusEx(completionport: Handle, lpcompletionportentries: MutPtr, ulcount: UInt, ulnumentriesremoved: MutPtr, dwmilliseconds: UInt, falertable: Bool): Bool =
     if (windowsWin32SystemIoNapiAvailable) wasmWindowssysWindowsWin32SystemIoGetQueuedCompletionStatusEx(completionport.rawAddress.toString(), lpcompletionportentries.rawAddress.toString(), ulcount.toInt(), ulnumentriesremoved.rawAddress.toString(), dwmilliseconds.toInt(), falertable) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun postQueuedCompletionStatus(completionport: Handle, dwnumberofbytestransferred: UInt, dwcompletionkey: ULong, lpoverlapped: ConstPtr<Overlapped>): Bool =
+public actual fun postQueuedCompletionStatus(completionport: Handle, dwnumberofbytestransferred: UInt, dwcompletionkey: ULong, lpoverlapped: ConstPtr): Bool =
     if (windowsWin32SystemIoNapiAvailable) wasmWindowssysWindowsWin32SystemIoPostQueuedCompletionStatus(completionport.rawAddress.toString(), dwnumberofbytestransferred.toInt(), dwcompletionkey.toString(), lpoverlapped.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")

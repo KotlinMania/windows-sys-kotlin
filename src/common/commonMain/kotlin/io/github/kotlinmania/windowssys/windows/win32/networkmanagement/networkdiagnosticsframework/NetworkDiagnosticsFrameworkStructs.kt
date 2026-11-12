@@ -268,7 +268,7 @@ public class Hypothesis internal constructor(
     pwszClassNameCtorArg: Pwstr,
     pwszDescriptionCtorArg: Pwstr,
     public var celt: UInt,
-    rgAttributesCtorArg: MutPtr<HelperAttribute>,
+    rgAttributesCtorArg: MutPtr,
 ) {
     public var pwszClassName: Pwstr = pwszClassNameCtorArg
         internal set
@@ -276,7 +276,7 @@ public class Hypothesis internal constructor(
     public var pwszDescription: Pwstr = pwszDescriptionCtorArg
         internal set
 
-    public var rgAttributes: MutPtr<HelperAttribute> = rgAttributesCtorArg
+    public var rgAttributes: MutPtr = rgAttributesCtorArg
         internal set
 
     public constructor() : this(
@@ -292,9 +292,9 @@ public class Hypothesis internal constructor(
 
     public operator fun component3(): UInt = this.celt
 
-    public operator fun component4(): MutPtr<HelperAttribute> = this.rgAttributes
+    public operator fun component4(): MutPtr = this.rgAttributes
 
-    public fun copy(pwszClassName: Pwstr = this.pwszClassName, pwszDescription: Pwstr = this.pwszDescription, celt: UInt = this.celt, rgAttributes: MutPtr<HelperAttribute> = this.rgAttributes): Hypothesis = Hypothesis(pwszClassNameCtorArg = pwszClassName, pwszDescriptionCtorArg = pwszDescription, celt = celt, rgAttributesCtorArg = rgAttributes)
+    public fun copy(pwszClassName: Pwstr = this.pwszClassName, pwszDescription: Pwstr = this.pwszDescription, celt: UInt = this.celt, rgAttributes: MutPtr = this.rgAttributes): Hypothesis = Hypothesis(pwszClassNameCtorArg = pwszClassName, pwszDescriptionCtorArg = pwszDescription, celt = celt, rgAttributesCtorArg = rgAttributes)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -319,7 +319,7 @@ public class Hypothesis internal constructor(
             pwszClassName: Pwstr = MutPtr(0L),
             pwszDescription: Pwstr = MutPtr(0L),
             celt: UInt = 0u,
-            rgAttributes: MutPtr<HelperAttribute> = MutPtr(0L),
+            rgAttributes: MutPtr = MutPtr(0L),
         ): Hypothesis =
             Hypothesis(
                 pwszClassNameCtorArg = pwszClassName,
@@ -386,9 +386,9 @@ public data class LifeTime(
 
 public class OctetString internal constructor(
     public var dwLength: UInt,
-    lpValueCtorArg: MutPtr<UByte>,
+    lpValueCtorArg: MutPtr,
 ) {
-    public var lpValue: MutPtr<UByte> = lpValueCtorArg
+    public var lpValue: MutPtr = lpValueCtorArg
         internal set
 
     public constructor() : this(
@@ -398,9 +398,9 @@ public class OctetString internal constructor(
 
     public operator fun component1(): UInt = this.dwLength
 
-    public operator fun component2(): MutPtr<UByte> = this.lpValue
+    public operator fun component2(): MutPtr = this.lpValue
 
-    public fun copy(dwLength: UInt = this.dwLength, lpValue: MutPtr<UByte> = this.lpValue): OctetString = OctetString(dwLength = dwLength, lpValueCtorArg = lpValue)
+    public fun copy(dwLength: UInt = this.dwLength, lpValue: MutPtr = this.lpValue): OctetString = OctetString(dwLength = dwLength, lpValueCtorArg = lpValue)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -426,21 +426,21 @@ public class OctetString internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<UByte>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                     )
                 override fun writeNative(addr: Long, value: OctetString) {
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr, value.dwLength)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<UByte>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.lpValue)
                 }
             }
 
         public operator fun invoke(
             dwLength: UInt = 0u,
-            lpValue: MutPtr<UByte> = MutPtr(0L),
+            lpValue: MutPtr = MutPtr(0L),
         ): OctetString =
             OctetString(
                 dwLength = dwLength,
@@ -570,13 +570,13 @@ public class RootCauseInfo internal constructor(
     public var rootCauseID: Guid,
     public var rootCauseFlags: UInt,
     public var networkInterfaceID: Guid,
-    pRepairsCtorArg: MutPtr<RepairInfoEx>,
+    pRepairsCtorArg: MutPtr,
     public var repairCount: UShort,
 ) {
     public var pwszDescription: Pwstr = pwszDescriptionCtorArg
         internal set
 
-    public var pRepairs: MutPtr<RepairInfoEx> = pRepairsCtorArg
+    public var pRepairs: MutPtr = pRepairsCtorArg
         internal set
 
     public constructor() : this(
@@ -596,11 +596,11 @@ public class RootCauseInfo internal constructor(
 
     public operator fun component4(): Guid = this.networkInterfaceID
 
-    public operator fun component5(): MutPtr<RepairInfoEx> = this.pRepairs
+    public operator fun component5(): MutPtr = this.pRepairs
 
     public operator fun component6(): UShort = this.repairCount
 
-    public fun copy(pwszDescription: Pwstr = this.pwszDescription, rootCauseID: Guid = this.rootCauseID, rootCauseFlags: UInt = this.rootCauseFlags, networkInterfaceID: Guid = this.networkInterfaceID, pRepairs: MutPtr<RepairInfoEx> = this.pRepairs, repairCount: UShort = this.repairCount): RootCauseInfo = RootCauseInfo(pwszDescriptionCtorArg = pwszDescription, rootCauseID = rootCauseID, rootCauseFlags = rootCauseFlags, networkInterfaceID = networkInterfaceID, pRepairsCtorArg = pRepairs, repairCount = repairCount)
+    public fun copy(pwszDescription: Pwstr = this.pwszDescription, rootCauseID: Guid = this.rootCauseID, rootCauseFlags: UInt = this.rootCauseFlags, networkInterfaceID: Guid = this.networkInterfaceID, pRepairs: MutPtr = this.pRepairs, repairCount: UShort = this.repairCount): RootCauseInfo = RootCauseInfo(pwszDescriptionCtorArg = pwszDescription, rootCauseID = rootCauseID, rootCauseFlags = rootCauseFlags, networkInterfaceID = networkInterfaceID, pRepairsCtorArg = pRepairs, repairCount = repairCount)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -630,7 +630,7 @@ public class RootCauseInfo internal constructor(
             rootCauseID: Guid = Guid(),
             rootCauseFlags: UInt = 0u,
             networkInterfaceID: Guid = Guid(),
-            pRepairs: MutPtr<RepairInfoEx> = MutPtr(0L),
+            pRepairs: MutPtr = MutPtr(0L),
             repairCount: UShort = 0u,
         ): RootCauseInfo =
             RootCauseInfo(

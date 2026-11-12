@@ -2,7 +2,6 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.management.mobiledevicemanagementregistration
 
-import io.github.kotlinmania.rustlang.core.ffi.CVoid
 import io.github.kotlinmania.rustlang.core.ptr.MutPtr
 import io.github.kotlinmania.windowssys.core.Bool
 import io.github.kotlinmania.windowssys.core.Hresult
@@ -69,34 +68,34 @@ private external fun wasmWindowssysWindowsWin32ManagementMobiledevicemanagementr
 @JsFun("(p0) => globalThis.__km_napi_windowssys.windowssysWindowsWin32ManagementMobiledevicemanagementregistrationUnregisterDeviceWithManagement(p0)")
 private external fun wasmWindowssysWindowsWin32ManagementMobiledevicemanagementregistrationUnregisterDeviceWithManagement(p0: String): Int
 
-public actual fun applyLocalManagementSyncML(syncmlrequest: Pcwstr, syncmlresult: MutPtr<Pwstr>): Hresult =
+public actual fun applyLocalManagementSyncML(syncmlrequest: Pcwstr, syncmlresult: MutPtr): Hresult =
     if (windowsWin32ManagementMobiledevicemanagementregistrationNapiAvailable) wasmWindowssysWindowsWin32ManagementMobiledevicemanagementregistrationApplyLocalManagementSyncML(syncmlrequest.rawAddress.toString(), syncmlresult.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun discoverManagementService(pszupn: Pcwstr, ppmgmtinfo: MutPtr<MutPtr<ManagementServiceInfo>>): Hresult =
+public actual fun discoverManagementService(pszupn: Pcwstr, ppmgmtinfo: MutPtr): Hresult =
     if (windowsWin32ManagementMobiledevicemanagementregistrationNapiAvailable) wasmWindowssysWindowsWin32ManagementMobiledevicemanagementregistrationDiscoverManagementService(pszupn.rawAddress.toString(), ppmgmtinfo.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun discoverManagementServiceEx(pszupn: Pcwstr, pszdiscoveryservicecandidate: Pcwstr, ppmgmtinfo: MutPtr<MutPtr<ManagementServiceInfo>>): Hresult =
+public actual fun discoverManagementServiceEx(pszupn: Pcwstr, pszdiscoveryservicecandidate: Pcwstr, ppmgmtinfo: MutPtr): Hresult =
     if (windowsWin32ManagementMobiledevicemanagementregistrationNapiAvailable) wasmWindowssysWindowsWin32ManagementMobiledevicemanagementregistrationDiscoverManagementServiceEx(pszupn.rawAddress.toString(), pszdiscoveryservicecandidate.rawAddress.toString(), ppmgmtinfo.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun getDeviceManagementConfigInfo(providerid: Pcwstr, configstringbufferlength: MutPtr<UInt>, configstring: Pwstr): Hresult =
+public actual fun getDeviceManagementConfigInfo(providerid: Pcwstr, configstringbufferlength: MutPtr, configstring: Pwstr): Hresult =
     if (windowsWin32ManagementMobiledevicemanagementregistrationNapiAvailable) wasmWindowssysWindowsWin32ManagementMobiledevicemanagementregistrationGetDeviceManagementConfigInfo(providerid.rawAddress.toString(), configstringbufferlength.rawAddress.toString(), configstring.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun getDeviceRegistrationInfo(deviceinformationclass: RegistrationInformationClass, ppdeviceregistrationinfo: MutPtr<MutPtr<CVoid>>): Hresult =
+public actual fun getDeviceRegistrationInfo(deviceinformationclass: RegistrationInformationClass, ppdeviceregistrationinfo: MutPtr): Hresult =
     if (windowsWin32ManagementMobiledevicemanagementregistrationNapiAvailable) wasmWindowssysWindowsWin32ManagementMobiledevicemanagementregistrationGetDeviceRegistrationInfo(deviceinformationclass, ppdeviceregistrationinfo.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun getManagementAppHyperlink(cchhyperlink: UInt, pszhyperlink: Pwstr): Hresult =
     if (windowsWin32ManagementMobiledevicemanagementregistrationNapiAvailable) wasmWindowssysWindowsWin32ManagementMobiledevicemanagementregistrationGetManagementAppHyperlink(cchhyperlink.toInt(), pszhyperlink.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun isDeviceRegisteredWithManagement(pfisdeviceregisteredwithmanagement: MutPtr<Bool>, cchupn: UInt, pszupn: Pwstr): Hresult =
+public actual fun isDeviceRegisteredWithManagement(pfisdeviceregisteredwithmanagement: MutPtr, cchupn: UInt, pszupn: Pwstr): Hresult =
     if (windowsWin32ManagementMobiledevicemanagementregistrationNapiAvailable) wasmWindowssysWindowsWin32ManagementMobiledevicemanagementregistrationIsDeviceRegisteredWithManagement(pfisdeviceregisteredwithmanagement.rawAddress.toString(), cchupn.toInt(), pszupn.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun isManagementRegistrationAllowed(pfismanagementregistrationallowed: MutPtr<Bool>): Hresult =
+public actual fun isManagementRegistrationAllowed(pfismanagementregistrationallowed: MutPtr): Hresult =
     if (windowsWin32ManagementMobiledevicemanagementregistrationNapiAvailable) wasmWindowssysWindowsWin32ManagementMobiledevicemanagementregistrationIsManagementRegistrationAllowed(pfismanagementregistrationallowed.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun isMdmUxWithoutAadAllowed(isenrollmentallowed: MutPtr<Bool>): Hresult =
+public actual fun isMdmUxWithoutAadAllowed(isenrollmentallowed: MutPtr): Hresult =
     if (windowsWin32ManagementMobiledevicemanagementregistrationNapiAvailable) wasmWindowssysWindowsWin32ManagementMobiledevicemanagementregistrationIsMdmUxWithoutAadAllowed(isenrollmentallowed.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun registerDeviceWithLocalManagement(alreadyregistered: MutPtr<Bool>): Hresult =
+public actual fun registerDeviceWithLocalManagement(alreadyregistered: MutPtr): Hresult =
     if (windowsWin32ManagementMobiledevicemanagementregistrationNapiAvailable) wasmWindowssysWindowsWin32ManagementMobiledevicemanagementregistrationRegisterDeviceWithLocalManagement(alreadyregistered.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun registerDeviceWithManagement(pszupn: Pcwstr, ppszmdmserviceuri: Pcwstr, ppzsaccesstoken: Pcwstr): Hresult =

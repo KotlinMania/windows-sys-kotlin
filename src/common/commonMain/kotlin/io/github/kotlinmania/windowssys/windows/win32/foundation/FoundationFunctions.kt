@@ -11,11 +11,11 @@ public expect fun closeHandle(hobject: Handle): Bool
 
 public expect fun compareObjectHandles(hfirstobjecthandle: Handle, hsecondobjecthandle: Handle): Bool
 
-public expect fun duplicateHandle(hsourceprocesshandle: Handle, hsourcehandle: Handle, htargetprocesshandle: Handle, lptargethandle: MutPtr<Handle>, dwdesiredaccess: UInt, binherithandle: Bool, dwoptions: DuplicateHandleOptions): Bool
+public expect fun duplicateHandle(hsourceprocesshandle: Handle, hsourcehandle: Handle, htargetprocesshandle: Handle, lptargethandle: MutPtr, dwdesiredaccess: UInt, binherithandle: Bool, dwoptions: DuplicateHandleOptions): Bool
 
 public expect fun freeLibrary(hlibmodule: Hmodule): Bool
 
-public expect fun getHandleInformation(hobject: Handle, lpdwflags: MutPtr<UInt>): Bool
+public expect fun getHandleInformation(hobject: Handle, lpdwflags: MutPtr): Bool
 
 public expect fun getLastError(): Win32Error
 
@@ -41,9 +41,9 @@ public expect fun sysAllocStringLen(strin: Pcwstr, ui: UInt): Bstr
 
 public expect fun sysFreeString(bstrstring: Bstr)
 
-public expect fun sysReAllocString(pbstr: MutPtr<Bstr>, psz: Pcwstr): Int
+public expect fun sysReAllocString(pbstr: MutPtr, psz: Pcwstr): Int
 
-public expect fun sysReAllocStringLen(pbstr: MutPtr<Bstr>, psz: Pcwstr, len: UInt): Int
+public expect fun sysReAllocStringLen(pbstr: MutPtr, psz: Pcwstr, len: UInt): Int
 
 public expect fun sysReleaseString(bstrstring: Bstr)
 

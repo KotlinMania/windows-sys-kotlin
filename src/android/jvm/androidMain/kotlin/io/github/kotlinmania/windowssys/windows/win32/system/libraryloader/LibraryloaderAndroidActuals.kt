@@ -2,7 +2,6 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.system.libraryloader
 
-import io.github.kotlinmania.rustlang.core.ffi.CVoid
 import io.github.kotlinmania.rustlang.core.ptr.ConstPtr
 import io.github.kotlinmania.rustlang.core.ptr.MutPtr
 import io.github.kotlinmania.windowssys.core.Bool
@@ -166,7 +165,7 @@ private object WindowsWin32SystemLibraryloaderJniBridge {
     external fun windowssysWindowsWin32SystemLibraryloaderUpdateResourceW(hupdate: Long, lptype: Long, lpname: Long, wlanguage: Short, lpdata: Long, cb: Int): Int
 }
 
-public actual fun addDllDirectory(newdirectory: Pcwstr): MutPtr<CVoid> =
+public actual fun addDllDirectory(newdirectory: Pcwstr): MutPtr =
     MutPtr(WindowsWin32SystemLibraryloaderJniBridge.windowssysWindowsWin32SystemLibraryloaderAddDllDirectory(newdirectory.rawAddress))
 
 public actual fun beginUpdateResourceA(pfilename: Pcstr, bdeleteexistingresources: Bool): Handle =
@@ -255,10 +254,10 @@ public actual fun getModuleFileNameW(hmodule: Hmodule, lpfilename: Pwstr, nsize:
 public actual fun getModuleHandleA(lpmodulename: Pcstr): Hmodule =
     MutPtr(WindowsWin32SystemLibraryloaderJniBridge.windowssysWindowsWin32SystemLibraryloaderGetModuleHandleA(lpmodulename.rawAddress))
 
-public actual fun getModuleHandleExA(dwflags: UInt, lpmodulename: Pcstr, phmodule: MutPtr<Hmodule>): Bool =
+public actual fun getModuleHandleExA(dwflags: UInt, lpmodulename: Pcstr, phmodule: MutPtr): Bool =
     WindowsWin32SystemLibraryloaderJniBridge.windowssysWindowsWin32SystemLibraryloaderGetModuleHandleExA(dwflags.toInt(), lpmodulename.rawAddress, phmodule.rawAddress)
 
-public actual fun getModuleHandleExW(dwflags: UInt, lpmodulename: Pcwstr, phmodule: MutPtr<Hmodule>): Bool =
+public actual fun getModuleHandleExW(dwflags: UInt, lpmodulename: Pcwstr, phmodule: MutPtr): Bool =
     WindowsWin32SystemLibraryloaderJniBridge.windowssysWindowsWin32SystemLibraryloaderGetModuleHandleExW(dwflags.toInt(), lpmodulename.rawAddress, phmodule.rawAddress)
 
 public actual fun getModuleHandleW(lpmodulename: Pcwstr): Hmodule =
@@ -279,7 +278,7 @@ public actual fun loadLibraryExW(lplibfilename: Pcwstr, hfile: Handle, dwflags: 
 public actual fun loadLibraryW(lplibfilename: Pcwstr): Hmodule =
     MutPtr(WindowsWin32SystemLibraryloaderJniBridge.windowssysWindowsWin32SystemLibraryloaderLoadLibraryW(lplibfilename.rawAddress))
 
-public actual fun loadModule(lpmodulename: Pcstr, lpparameterblock: ConstPtr<CVoid>): UInt =
+public actual fun loadModule(lpmodulename: Pcstr, lpparameterblock: ConstPtr): UInt =
     WindowsWin32SystemLibraryloaderJniBridge.windowssysWindowsWin32SystemLibraryloaderLoadModule(lpmodulename.rawAddress, lpparameterblock.rawAddress).toUInt()
 
 public actual fun loadPackagedLibrary(lpwlibfilename: Pcwstr, reserved: UInt): Hmodule =
@@ -288,13 +287,13 @@ public actual fun loadPackagedLibrary(lpwlibfilename: Pcwstr, reserved: UInt): H
 public actual fun loadResource(hmodule: Hmodule, hresinfo: Hrsrc): Hglobal =
     MutPtr(WindowsWin32SystemLibraryloaderJniBridge.windowssysWindowsWin32SystemLibraryloaderLoadResource(hmodule.rawAddress, hresinfo.rawAddress))
 
-public actual fun lockResource(hresdata: Hglobal): MutPtr<CVoid> =
+public actual fun lockResource(hresdata: Hglobal): MutPtr =
     MutPtr(WindowsWin32SystemLibraryloaderJniBridge.windowssysWindowsWin32SystemLibraryloaderLockResource(hresdata.rawAddress))
 
 public actual fun queryOptionalDelayLoadedAPI(hparentmodule: Hmodule, lpdllname: Pcstr, lpprocname: Pcstr, reserved: UInt): Bool =
     WindowsWin32SystemLibraryloaderJniBridge.windowssysWindowsWin32SystemLibraryloaderQueryOptionalDelayLoadedAPI(hparentmodule.rawAddress, lpdllname.rawAddress, lpprocname.rawAddress, reserved.toInt())
 
-public actual fun removeDllDirectory(cookie: ConstPtr<CVoid>): Bool =
+public actual fun removeDllDirectory(cookie: ConstPtr): Bool =
     WindowsWin32SystemLibraryloaderJniBridge.windowssysWindowsWin32SystemLibraryloaderRemoveDllDirectory(cookie.rawAddress)
 
 public actual fun setDefaultDllDirectories(directoryflags: LoadLibraryFlags): Bool =
@@ -309,8 +308,8 @@ public actual fun setDllDirectoryW(lppathname: Pcwstr): Bool =
 public actual fun sizeofResource(hmodule: Hmodule, hresinfo: Hrsrc): UInt =
     WindowsWin32SystemLibraryloaderJniBridge.windowssysWindowsWin32SystemLibraryloaderSizeofResource(hmodule.rawAddress, hresinfo.rawAddress).toUInt()
 
-public actual fun updateResourceA(hupdate: Handle, lptype: Pcstr, lpname: Pcstr, wlanguage: UShort, lpdata: ConstPtr<CVoid>, cb: UInt): Bool =
+public actual fun updateResourceA(hupdate: Handle, lptype: Pcstr, lpname: Pcstr, wlanguage: UShort, lpdata: ConstPtr, cb: UInt): Bool =
     WindowsWin32SystemLibraryloaderJniBridge.windowssysWindowsWin32SystemLibraryloaderUpdateResourceA(hupdate.rawAddress, lptype.rawAddress, lpname.rawAddress, wlanguage.toShort(), lpdata.rawAddress, cb.toInt())
 
-public actual fun updateResourceW(hupdate: Handle, lptype: Pcwstr, lpname: Pcwstr, wlanguage: UShort, lpdata: ConstPtr<CVoid>, cb: UInt): Bool =
+public actual fun updateResourceW(hupdate: Handle, lptype: Pcwstr, lpname: Pcwstr, wlanguage: UShort, lpdata: ConstPtr, cb: UInt): Bool =
     WindowsWin32SystemLibraryloaderJniBridge.windowssysWindowsWin32SystemLibraryloaderUpdateResourceW(hupdate.rawAddress, lptype.rawAddress, lpname.rawAddress, wlanguage.toShort(), lpdata.rawAddress, cb.toInt())

@@ -1,6 +1,5 @@
 package io.github.kotlinmania.windowssys.windows.win32.system.mapi
 
-import io.github.kotlinmania.rustlang.core.ffi.CVoid
 import io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
 import io.github.kotlinmania.rustlang.core.mem.TypeLayout
 import io.github.kotlinmania.rustlang.core.ptr.MutPtr
@@ -13,7 +12,7 @@ public class MapiFileDesc internal constructor(
     public var nPosition: UInt,
     lpszPathNameCtorArg: Pstr,
     lpszFileNameCtorArg: Pstr,
-    lpFileTypeCtorArg: MutPtr<CVoid>,
+    lpFileTypeCtorArg: MutPtr,
 ) {
     public var lpszPathName: Pstr = lpszPathNameCtorArg
         internal set
@@ -21,7 +20,7 @@ public class MapiFileDesc internal constructor(
     public var lpszFileName: Pstr = lpszFileNameCtorArg
         internal set
 
-    public var lpFileType: MutPtr<CVoid> = lpFileTypeCtorArg
+    public var lpFileType: MutPtr = lpFileTypeCtorArg
         internal set
 
     public constructor() : this(
@@ -43,9 +42,9 @@ public class MapiFileDesc internal constructor(
 
     public operator fun component5(): Pstr = this.lpszFileName
 
-    public operator fun component6(): MutPtr<CVoid> = this.lpFileType
+    public operator fun component6(): MutPtr = this.lpFileType
 
-    public fun copy(ulReserved: UInt = this.ulReserved, flFlags: UInt = this.flFlags, nPosition: UInt = this.nPosition, lpszPathName: Pstr = this.lpszPathName, lpszFileName: Pstr = this.lpszFileName, lpFileType: MutPtr<CVoid> = this.lpFileType): MapiFileDesc = MapiFileDesc(ulReserved = ulReserved, flFlags = flFlags, nPosition = nPosition, lpszPathNameCtorArg = lpszPathName, lpszFileNameCtorArg = lpszFileName, lpFileTypeCtorArg = lpFileType)
+    public fun copy(ulReserved: UInt = this.ulReserved, flFlags: UInt = this.flFlags, nPosition: UInt = this.nPosition, lpszPathName: Pstr = this.lpszPathName, lpszFileName: Pstr = this.lpszFileName, lpFileType: MutPtr = this.lpFileType): MapiFileDesc = MapiFileDesc(ulReserved = ulReserved, flFlags = flFlags, nPosition = nPosition, lpszPathNameCtorArg = lpszPathName, lpszFileNameCtorArg = lpszFileName, lpFileTypeCtorArg = lpFileType)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -76,7 +75,7 @@ public class MapiFileDesc internal constructor(
             nPosition: UInt = 0u,
             lpszPathName: Pstr = MutPtr(0L),
             lpszFileName: Pstr = MutPtr(0L),
-            lpFileType: MutPtr<CVoid> = MutPtr(0L),
+            lpFileType: MutPtr = MutPtr(0L),
         ): MapiFileDesc =
             MapiFileDesc(
                 ulReserved = ulReserved,
@@ -95,7 +94,7 @@ public class MapiFileDescW internal constructor(
     public var nPosition: UInt,
     lpszPathNameCtorArg: Pwstr,
     lpszFileNameCtorArg: Pwstr,
-    lpFileTypeCtorArg: MutPtr<CVoid>,
+    lpFileTypeCtorArg: MutPtr,
 ) {
     public var lpszPathName: Pwstr = lpszPathNameCtorArg
         internal set
@@ -103,7 +102,7 @@ public class MapiFileDescW internal constructor(
     public var lpszFileName: Pwstr = lpszFileNameCtorArg
         internal set
 
-    public var lpFileType: MutPtr<CVoid> = lpFileTypeCtorArg
+    public var lpFileType: MutPtr = lpFileTypeCtorArg
         internal set
 
     public constructor() : this(
@@ -125,9 +124,9 @@ public class MapiFileDescW internal constructor(
 
     public operator fun component5(): Pwstr = this.lpszFileName
 
-    public operator fun component6(): MutPtr<CVoid> = this.lpFileType
+    public operator fun component6(): MutPtr = this.lpFileType
 
-    public fun copy(ulReserved: UInt = this.ulReserved, flFlags: UInt = this.flFlags, nPosition: UInt = this.nPosition, lpszPathName: Pwstr = this.lpszPathName, lpszFileName: Pwstr = this.lpszFileName, lpFileType: MutPtr<CVoid> = this.lpFileType): MapiFileDescW = MapiFileDescW(ulReserved = ulReserved, flFlags = flFlags, nPosition = nPosition, lpszPathNameCtorArg = lpszPathName, lpszFileNameCtorArg = lpszFileName, lpFileTypeCtorArg = lpFileType)
+    public fun copy(ulReserved: UInt = this.ulReserved, flFlags: UInt = this.flFlags, nPosition: UInt = this.nPosition, lpszPathName: Pwstr = this.lpszPathName, lpszFileName: Pwstr = this.lpszFileName, lpFileType: MutPtr = this.lpFileType): MapiFileDescW = MapiFileDescW(ulReserved = ulReserved, flFlags = flFlags, nPosition = nPosition, lpszPathNameCtorArg = lpszPathName, lpszFileNameCtorArg = lpszFileName, lpFileTypeCtorArg = lpFileType)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -158,7 +157,7 @@ public class MapiFileDescW internal constructor(
             nPosition: UInt = 0u,
             lpszPathName: Pwstr = MutPtr(0L),
             lpszFileName: Pwstr = MutPtr(0L),
-            lpFileType: MutPtr<CVoid> = MutPtr(0L),
+            lpFileType: MutPtr = MutPtr(0L),
         ): MapiFileDescW =
             MapiFileDescW(
                 ulReserved = ulReserved,
@@ -174,14 +173,14 @@ public class MapiFileDescW internal constructor(
 public class MapiFileTagExt internal constructor(
     public var ulReserved: UInt,
     public var cbTag: UInt,
-    lpTagCtorArg: MutPtr<UByte>,
+    lpTagCtorArg: MutPtr,
     public var cbEncoding: UInt,
-    lpEncodingCtorArg: MutPtr<UByte>,
+    lpEncodingCtorArg: MutPtr,
 ) {
-    public var lpTag: MutPtr<UByte> = lpTagCtorArg
+    public var lpTag: MutPtr = lpTagCtorArg
         internal set
 
-    public var lpEncoding: MutPtr<UByte> = lpEncodingCtorArg
+    public var lpEncoding: MutPtr = lpEncodingCtorArg
         internal set
 
     public constructor() : this(
@@ -196,13 +195,13 @@ public class MapiFileTagExt internal constructor(
 
     public operator fun component2(): UInt = this.cbTag
 
-    public operator fun component3(): MutPtr<UByte> = this.lpTag
+    public operator fun component3(): MutPtr = this.lpTag
 
     public operator fun component4(): UInt = this.cbEncoding
 
-    public operator fun component5(): MutPtr<UByte> = this.lpEncoding
+    public operator fun component5(): MutPtr = this.lpEncoding
 
-    public fun copy(ulReserved: UInt = this.ulReserved, cbTag: UInt = this.cbTag, lpTag: MutPtr<UByte> = this.lpTag, cbEncoding: UInt = this.cbEncoding, lpEncoding: MutPtr<UByte> = this.lpEncoding): MapiFileTagExt = MapiFileTagExt(ulReserved = ulReserved, cbTag = cbTag, lpTagCtorArg = lpTag, cbEncoding = cbEncoding, lpEncodingCtorArg = lpEncoding)
+    public fun copy(ulReserved: UInt = this.ulReserved, cbTag: UInt = this.cbTag, lpTag: MutPtr = this.lpTag, cbEncoding: UInt = this.cbEncoding, lpEncoding: MutPtr = this.lpEncoding): MapiFileTagExt = MapiFileTagExt(ulReserved = ulReserved, cbTag = cbTag, lpTagCtorArg = lpTag, cbEncoding = cbEncoding, lpEncodingCtorArg = lpEncoding)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -235,12 +234,12 @@ public class MapiFileTagExt internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 4L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<UByte>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 16L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<UByte>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 24L),
                     )
                 override fun writeNative(addr: Long, value: MapiFileTagExt) {
@@ -248,12 +247,12 @@ public class MapiFileTagExt internal constructor(
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 4L, value.cbTag)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<UByte>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.lpTag)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 16L, value.cbEncoding)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<UByte>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 24L, value.lpEncoding)
                 }
             }
@@ -261,9 +260,9 @@ public class MapiFileTagExt internal constructor(
         public operator fun invoke(
             ulReserved: UInt = 0u,
             cbTag: UInt = 0u,
-            lpTag: MutPtr<UByte> = MutPtr(0L),
+            lpTag: MutPtr = MutPtr(0L),
             cbEncoding: UInt = 0u,
-            lpEncoding: MutPtr<UByte> = MutPtr(0L),
+            lpEncoding: MutPtr = MutPtr(0L),
         ): MapiFileTagExt =
             MapiFileTagExt(
                 ulReserved = ulReserved,
@@ -283,11 +282,11 @@ public class MapiMessage internal constructor(
     lpszDateReceivedCtorArg: Pstr,
     lpszConversationIDCtorArg: Pstr,
     public var flFlags: UInt,
-    lpOriginatorCtorArg: MutPtr<MapiRecipDesc>,
+    lpOriginatorCtorArg: MutPtr,
     public var nRecipCount: UInt,
-    lpRecipsCtorArg: MutPtr<MapiRecipDesc>,
+    lpRecipsCtorArg: MutPtr,
     public var nFileCount: UInt,
-    lpFilesCtorArg: MutPtr<MapiFileDesc>,
+    lpFilesCtorArg: MutPtr,
 ) {
     public var lpszSubject: Pstr = lpszSubjectCtorArg
         internal set
@@ -304,13 +303,13 @@ public class MapiMessage internal constructor(
     public var lpszConversationID: Pstr = lpszConversationIDCtorArg
         internal set
 
-    public var lpOriginator: MutPtr<MapiRecipDesc> = lpOriginatorCtorArg
+    public var lpOriginator: MutPtr = lpOriginatorCtorArg
         internal set
 
-    public var lpRecips: MutPtr<MapiRecipDesc> = lpRecipsCtorArg
+    public var lpRecips: MutPtr = lpRecipsCtorArg
         internal set
 
-    public var lpFiles: MutPtr<MapiFileDesc> = lpFilesCtorArg
+    public var lpFiles: MutPtr = lpFilesCtorArg
         internal set
 
     public constructor() : this(
@@ -342,17 +341,17 @@ public class MapiMessage internal constructor(
 
     public operator fun component7(): UInt = this.flFlags
 
-    public operator fun component8(): MutPtr<MapiRecipDesc> = this.lpOriginator
+    public operator fun component8(): MutPtr = this.lpOriginator
 
     public operator fun component9(): UInt = this.nRecipCount
 
-    public operator fun component10(): MutPtr<MapiRecipDesc> = this.lpRecips
+    public operator fun component10(): MutPtr = this.lpRecips
 
     public operator fun component11(): UInt = this.nFileCount
 
-    public operator fun component12(): MutPtr<MapiFileDesc> = this.lpFiles
+    public operator fun component12(): MutPtr = this.lpFiles
 
-    public fun copy(ulReserved: UInt = this.ulReserved, lpszSubject: Pstr = this.lpszSubject, lpszNoteText: Pstr = this.lpszNoteText, lpszMessageType: Pstr = this.lpszMessageType, lpszDateReceived: Pstr = this.lpszDateReceived, lpszConversationID: Pstr = this.lpszConversationID, flFlags: UInt = this.flFlags, lpOriginator: MutPtr<MapiRecipDesc> = this.lpOriginator, nRecipCount: UInt = this.nRecipCount, lpRecips: MutPtr<MapiRecipDesc> = this.lpRecips, nFileCount: UInt = this.nFileCount, lpFiles: MutPtr<MapiFileDesc> = this.lpFiles): MapiMessage = MapiMessage(ulReserved = ulReserved, lpszSubjectCtorArg = lpszSubject, lpszNoteTextCtorArg = lpszNoteText, lpszMessageTypeCtorArg = lpszMessageType, lpszDateReceivedCtorArg = lpszDateReceived, lpszConversationIDCtorArg = lpszConversationID, flFlags = flFlags, lpOriginatorCtorArg = lpOriginator, nRecipCount = nRecipCount, lpRecipsCtorArg = lpRecips, nFileCount = nFileCount, lpFilesCtorArg = lpFiles)
+    public fun copy(ulReserved: UInt = this.ulReserved, lpszSubject: Pstr = this.lpszSubject, lpszNoteText: Pstr = this.lpszNoteText, lpszMessageType: Pstr = this.lpszMessageType, lpszDateReceived: Pstr = this.lpszDateReceived, lpszConversationID: Pstr = this.lpszConversationID, flFlags: UInt = this.flFlags, lpOriginator: MutPtr = this.lpOriginator, nRecipCount: UInt = this.nRecipCount, lpRecips: MutPtr = this.lpRecips, nFileCount: UInt = this.nFileCount, lpFiles: MutPtr = this.lpFiles): MapiMessage = MapiMessage(ulReserved = ulReserved, lpszSubjectCtorArg = lpszSubject, lpszNoteTextCtorArg = lpszNoteText, lpszMessageTypeCtorArg = lpszMessageType, lpszDateReceivedCtorArg = lpszDateReceived, lpszConversationIDCtorArg = lpszConversationID, flFlags = flFlags, lpOriginatorCtorArg = lpOriginator, nRecipCount = nRecipCount, lpRecipsCtorArg = lpRecips, nFileCount = nFileCount, lpFilesCtorArg = lpFiles)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -397,11 +396,11 @@ public class MapiMessage internal constructor(
             lpszDateReceived: Pstr = MutPtr(0L),
             lpszConversationID: Pstr = MutPtr(0L),
             flFlags: UInt = 0u,
-            lpOriginator: MutPtr<MapiRecipDesc> = MutPtr(0L),
+            lpOriginator: MutPtr = MutPtr(0L),
             nRecipCount: UInt = 0u,
-            lpRecips: MutPtr<MapiRecipDesc> = MutPtr(0L),
+            lpRecips: MutPtr = MutPtr(0L),
             nFileCount: UInt = 0u,
-            lpFiles: MutPtr<MapiFileDesc> = MutPtr(0L),
+            lpFiles: MutPtr = MutPtr(0L),
         ): MapiMessage =
             MapiMessage(
                 ulReserved = ulReserved,
@@ -428,11 +427,11 @@ public class MapiMessageW internal constructor(
     lpszDateReceivedCtorArg: Pwstr,
     lpszConversationIDCtorArg: Pwstr,
     public var flFlags: UInt,
-    lpOriginatorCtorArg: MutPtr<MapiRecipDescW>,
+    lpOriginatorCtorArg: MutPtr,
     public var nRecipCount: UInt,
-    lpRecipsCtorArg: MutPtr<MapiRecipDescW>,
+    lpRecipsCtorArg: MutPtr,
     public var nFileCount: UInt,
-    lpFilesCtorArg: MutPtr<MapiFileDescW>,
+    lpFilesCtorArg: MutPtr,
 ) {
     public var lpszSubject: Pwstr = lpszSubjectCtorArg
         internal set
@@ -449,13 +448,13 @@ public class MapiMessageW internal constructor(
     public var lpszConversationID: Pwstr = lpszConversationIDCtorArg
         internal set
 
-    public var lpOriginator: MutPtr<MapiRecipDescW> = lpOriginatorCtorArg
+    public var lpOriginator: MutPtr = lpOriginatorCtorArg
         internal set
 
-    public var lpRecips: MutPtr<MapiRecipDescW> = lpRecipsCtorArg
+    public var lpRecips: MutPtr = lpRecipsCtorArg
         internal set
 
-    public var lpFiles: MutPtr<MapiFileDescW> = lpFilesCtorArg
+    public var lpFiles: MutPtr = lpFilesCtorArg
         internal set
 
     public constructor() : this(
@@ -487,17 +486,17 @@ public class MapiMessageW internal constructor(
 
     public operator fun component7(): UInt = this.flFlags
 
-    public operator fun component8(): MutPtr<MapiRecipDescW> = this.lpOriginator
+    public operator fun component8(): MutPtr = this.lpOriginator
 
     public operator fun component9(): UInt = this.nRecipCount
 
-    public operator fun component10(): MutPtr<MapiRecipDescW> = this.lpRecips
+    public operator fun component10(): MutPtr = this.lpRecips
 
     public operator fun component11(): UInt = this.nFileCount
 
-    public operator fun component12(): MutPtr<MapiFileDescW> = this.lpFiles
+    public operator fun component12(): MutPtr = this.lpFiles
 
-    public fun copy(ulReserved: UInt = this.ulReserved, lpszSubject: Pwstr = this.lpszSubject, lpszNoteText: Pwstr = this.lpszNoteText, lpszMessageType: Pwstr = this.lpszMessageType, lpszDateReceived: Pwstr = this.lpszDateReceived, lpszConversationID: Pwstr = this.lpszConversationID, flFlags: UInt = this.flFlags, lpOriginator: MutPtr<MapiRecipDescW> = this.lpOriginator, nRecipCount: UInt = this.nRecipCount, lpRecips: MutPtr<MapiRecipDescW> = this.lpRecips, nFileCount: UInt = this.nFileCount, lpFiles: MutPtr<MapiFileDescW> = this.lpFiles): MapiMessageW = MapiMessageW(ulReserved = ulReserved, lpszSubjectCtorArg = lpszSubject, lpszNoteTextCtorArg = lpszNoteText, lpszMessageTypeCtorArg = lpszMessageType, lpszDateReceivedCtorArg = lpszDateReceived, lpszConversationIDCtorArg = lpszConversationID, flFlags = flFlags, lpOriginatorCtorArg = lpOriginator, nRecipCount = nRecipCount, lpRecipsCtorArg = lpRecips, nFileCount = nFileCount, lpFilesCtorArg = lpFiles)
+    public fun copy(ulReserved: UInt = this.ulReserved, lpszSubject: Pwstr = this.lpszSubject, lpszNoteText: Pwstr = this.lpszNoteText, lpszMessageType: Pwstr = this.lpszMessageType, lpszDateReceived: Pwstr = this.lpszDateReceived, lpszConversationID: Pwstr = this.lpszConversationID, flFlags: UInt = this.flFlags, lpOriginator: MutPtr = this.lpOriginator, nRecipCount: UInt = this.nRecipCount, lpRecips: MutPtr = this.lpRecips, nFileCount: UInt = this.nFileCount, lpFiles: MutPtr = this.lpFiles): MapiMessageW = MapiMessageW(ulReserved = ulReserved, lpszSubjectCtorArg = lpszSubject, lpszNoteTextCtorArg = lpszNoteText, lpszMessageTypeCtorArg = lpszMessageType, lpszDateReceivedCtorArg = lpszDateReceived, lpszConversationIDCtorArg = lpszConversationID, flFlags = flFlags, lpOriginatorCtorArg = lpOriginator, nRecipCount = nRecipCount, lpRecipsCtorArg = lpRecips, nFileCount = nFileCount, lpFilesCtorArg = lpFiles)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -542,11 +541,11 @@ public class MapiMessageW internal constructor(
             lpszDateReceived: Pwstr = MutPtr(0L),
             lpszConversationID: Pwstr = MutPtr(0L),
             flFlags: UInt = 0u,
-            lpOriginator: MutPtr<MapiRecipDescW> = MutPtr(0L),
+            lpOriginator: MutPtr = MutPtr(0L),
             nRecipCount: UInt = 0u,
-            lpRecips: MutPtr<MapiRecipDescW> = MutPtr(0L),
+            lpRecips: MutPtr = MutPtr(0L),
             nFileCount: UInt = 0u,
-            lpFiles: MutPtr<MapiFileDescW> = MutPtr(0L),
+            lpFiles: MutPtr = MutPtr(0L),
         ): MapiMessageW =
             MapiMessageW(
                 ulReserved = ulReserved,
@@ -571,7 +570,7 @@ public class MapiRecipDesc internal constructor(
     lpszNameCtorArg: Pstr,
     lpszAddressCtorArg: Pstr,
     public var ulEIDSize: UInt,
-    lpEntryIDCtorArg: MutPtr<CVoid>,
+    lpEntryIDCtorArg: MutPtr,
 ) {
     public var lpszName: Pstr = lpszNameCtorArg
         internal set
@@ -579,7 +578,7 @@ public class MapiRecipDesc internal constructor(
     public var lpszAddress: Pstr = lpszAddressCtorArg
         internal set
 
-    public var lpEntryID: MutPtr<CVoid> = lpEntryIDCtorArg
+    public var lpEntryID: MutPtr = lpEntryIDCtorArg
         internal set
 
     public constructor() : this(
@@ -601,9 +600,9 @@ public class MapiRecipDesc internal constructor(
 
     public operator fun component5(): UInt = this.ulEIDSize
 
-    public operator fun component6(): MutPtr<CVoid> = this.lpEntryID
+    public operator fun component6(): MutPtr = this.lpEntryID
 
-    public fun copy(ulReserved: UInt = this.ulReserved, ulRecipClass: UInt = this.ulRecipClass, lpszName: Pstr = this.lpszName, lpszAddress: Pstr = this.lpszAddress, ulEIDSize: UInt = this.ulEIDSize, lpEntryID: MutPtr<CVoid> = this.lpEntryID): MapiRecipDesc = MapiRecipDesc(ulReserved = ulReserved, ulRecipClass = ulRecipClass, lpszNameCtorArg = lpszName, lpszAddressCtorArg = lpszAddress, ulEIDSize = ulEIDSize, lpEntryIDCtorArg = lpEntryID)
+    public fun copy(ulReserved: UInt = this.ulReserved, ulRecipClass: UInt = this.ulRecipClass, lpszName: Pstr = this.lpszName, lpszAddress: Pstr = this.lpszAddress, ulEIDSize: UInt = this.ulEIDSize, lpEntryID: MutPtr = this.lpEntryID): MapiRecipDesc = MapiRecipDesc(ulReserved = ulReserved, ulRecipClass = ulRecipClass, lpszNameCtorArg = lpszName, lpszAddressCtorArg = lpszAddress, ulEIDSize = ulEIDSize, lpEntryIDCtorArg = lpEntryID)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -634,7 +633,7 @@ public class MapiRecipDesc internal constructor(
             lpszName: Pstr = MutPtr(0L),
             lpszAddress: Pstr = MutPtr(0L),
             ulEIDSize: UInt = 0u,
-            lpEntryID: MutPtr<CVoid> = MutPtr(0L),
+            lpEntryID: MutPtr = MutPtr(0L),
         ): MapiRecipDesc =
             MapiRecipDesc(
                 ulReserved = ulReserved,
@@ -653,7 +652,7 @@ public class MapiRecipDescW internal constructor(
     lpszNameCtorArg: Pwstr,
     lpszAddressCtorArg: Pwstr,
     public var ulEIDSize: UInt,
-    lpEntryIDCtorArg: MutPtr<CVoid>,
+    lpEntryIDCtorArg: MutPtr,
 ) {
     public var lpszName: Pwstr = lpszNameCtorArg
         internal set
@@ -661,7 +660,7 @@ public class MapiRecipDescW internal constructor(
     public var lpszAddress: Pwstr = lpszAddressCtorArg
         internal set
 
-    public var lpEntryID: MutPtr<CVoid> = lpEntryIDCtorArg
+    public var lpEntryID: MutPtr = lpEntryIDCtorArg
         internal set
 
     public constructor() : this(
@@ -683,9 +682,9 @@ public class MapiRecipDescW internal constructor(
 
     public operator fun component5(): UInt = this.ulEIDSize
 
-    public operator fun component6(): MutPtr<CVoid> = this.lpEntryID
+    public operator fun component6(): MutPtr = this.lpEntryID
 
-    public fun copy(ulReserved: UInt = this.ulReserved, ulRecipClass: UInt = this.ulRecipClass, lpszName: Pwstr = this.lpszName, lpszAddress: Pwstr = this.lpszAddress, ulEIDSize: UInt = this.ulEIDSize, lpEntryID: MutPtr<CVoid> = this.lpEntryID): MapiRecipDescW = MapiRecipDescW(ulReserved = ulReserved, ulRecipClass = ulRecipClass, lpszNameCtorArg = lpszName, lpszAddressCtorArg = lpszAddress, ulEIDSize = ulEIDSize, lpEntryIDCtorArg = lpEntryID)
+    public fun copy(ulReserved: UInt = this.ulReserved, ulRecipClass: UInt = this.ulRecipClass, lpszName: Pwstr = this.lpszName, lpszAddress: Pwstr = this.lpszAddress, ulEIDSize: UInt = this.ulEIDSize, lpEntryID: MutPtr = this.lpEntryID): MapiRecipDescW = MapiRecipDescW(ulReserved = ulReserved, ulRecipClass = ulRecipClass, lpszNameCtorArg = lpszName, lpszAddressCtorArg = lpszAddress, ulEIDSize = ulEIDSize, lpEntryIDCtorArg = lpEntryID)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -716,7 +715,7 @@ public class MapiRecipDescW internal constructor(
             lpszName: Pwstr = MutPtr(0L),
             lpszAddress: Pwstr = MutPtr(0L),
             ulEIDSize: UInt = 0u,
-            lpEntryID: MutPtr<CVoid> = MutPtr(0L),
+            lpEntryID: MutPtr = MutPtr(0L),
         ): MapiRecipDescW =
             MapiRecipDescW(
                 ulReserved = ulReserved,

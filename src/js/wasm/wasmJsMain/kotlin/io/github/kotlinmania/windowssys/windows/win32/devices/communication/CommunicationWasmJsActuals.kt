@@ -9,7 +9,6 @@ import io.github.kotlinmania.windowssys.core.Pcstr
 import io.github.kotlinmania.windowssys.core.Pcwstr
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Handle
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Hwnd
-import io.github.kotlinmania.windowssys.windows.win32.system.io.Overlapped
 
 @JsFun("() => { if (typeof globalThis.__km_napi_windowssys !== 'undefined') return globalThis.__km_napi_windowssys !== null; if (typeof process === 'undefined' || !process.versions || !process.versions.node) { globalThis.__km_napi_windowssys = null; return false; } var mod = process.getBuiltinModule ? process.getBuiltinModule('module') : (process.mainModule && process.mainModule.constructor); var req = (mod && mod.createRequire) ? mod.createRequire((process.cwd ? process.cwd() : '.') + '/package.json') : (process.mainModule ? process.mainModule.require : null); if (!req) { globalThis.__km_napi_windowssys = null; return false; } try { globalThis.__km_napi_windowssys = req('@kotlinmania/windowssys-native-bindings'); return true; } catch (_) {} var fs = req('fs'); var path = req('path'); var dir = process.cwd ? process.cwd() : '.'; var rels = ['windowssys_native.node', 'build/node-ffi/windowssys_native.node', 'build/node-ffi/release/windowssys_native.node', 'build/node-ffi/debug/windowssys_native.node', 'src/js/node-windowssys/build/Release/windowssys_native.node', 'src/js/node-windowssys/build/Debug/windowssys_native.node', 'src/js/node-windowssys/dist/build/Release/windowssys_native.node', 'src/js/node-windowssys/dist/build/Debug/windowssys_native.node']; for (var d = 0; d < 8; d++) { for (var i = 0; i < rels.length; i++) { var c = path.resolve(dir, rels[i]); if (fs.existsSync(c)) { globalThis.__km_napi_windowssys = req(c); return true; } } var parent = path.dirname(dir); if (parent === dir) break; dir = parent; } globalThis.__km_napi_windowssys = null; return false; }")
 private external fun initWindowsWin32DevicesCommunicationNapiAddon(): Boolean
@@ -106,58 +105,58 @@ private external fun wasmWindowssysWindowsWin32DevicesCommunicationTransmitCommC
 @JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesCommunicationWaitCommEvent(p0, p1, p2)")
 private external fun wasmWindowssysWindowsWin32DevicesCommunicationWaitCommEvent(p0: String, p1: String, p2: String): Int
 
-public actual fun buildCommDCBA(lpdef: Pcstr, lpdcb: MutPtr<Dcb>): Bool =
+public actual fun buildCommDCBA(lpdef: Pcstr, lpdcb: MutPtr): Bool =
     if (windowsWin32DevicesCommunicationNapiAvailable) wasmWindowssysWindowsWin32DevicesCommunicationBuildCommDCBA(lpdef.rawAddress.toString(), lpdcb.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun buildCommDCBAndTimeoutsA(lpdef: Pcstr, lpdcb: MutPtr<Dcb>, lpcommtimeouts: MutPtr<Commtimeouts>): Bool =
+public actual fun buildCommDCBAndTimeoutsA(lpdef: Pcstr, lpdcb: MutPtr, lpcommtimeouts: MutPtr): Bool =
     if (windowsWin32DevicesCommunicationNapiAvailable) wasmWindowssysWindowsWin32DevicesCommunicationBuildCommDCBAndTimeoutsA(lpdef.rawAddress.toString(), lpdcb.rawAddress.toString(), lpcommtimeouts.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun buildCommDCBAndTimeoutsW(lpdef: Pcwstr, lpdcb: MutPtr<Dcb>, lpcommtimeouts: MutPtr<Commtimeouts>): Bool =
+public actual fun buildCommDCBAndTimeoutsW(lpdef: Pcwstr, lpdcb: MutPtr, lpcommtimeouts: MutPtr): Bool =
     if (windowsWin32DevicesCommunicationNapiAvailable) wasmWindowssysWindowsWin32DevicesCommunicationBuildCommDCBAndTimeoutsW(lpdef.rawAddress.toString(), lpdcb.rawAddress.toString(), lpcommtimeouts.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun buildCommDCBW(lpdef: Pcwstr, lpdcb: MutPtr<Dcb>): Bool =
+public actual fun buildCommDCBW(lpdef: Pcwstr, lpdcb: MutPtr): Bool =
     if (windowsWin32DevicesCommunicationNapiAvailable) wasmWindowssysWindowsWin32DevicesCommunicationBuildCommDCBW(lpdef.rawAddress.toString(), lpdcb.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun clearCommBreak(hfile: Handle): Bool =
     if (windowsWin32DevicesCommunicationNapiAvailable) wasmWindowssysWindowsWin32DevicesCommunicationClearCommBreak(hfile.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun clearCommError(hfile: Handle, lperrors: MutPtr<ClearCommErrorFlags>, lpstat: MutPtr<Comstat>): Bool =
+public actual fun clearCommError(hfile: Handle, lperrors: MutPtr, lpstat: MutPtr): Bool =
     if (windowsWin32DevicesCommunicationNapiAvailable) wasmWindowssysWindowsWin32DevicesCommunicationClearCommError(hfile.rawAddress.toString(), lperrors.rawAddress.toString(), lpstat.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun commConfigDialogA(lpszname: Pcstr, hwnd: Hwnd, lpcc: MutPtr<Commconfig>): Bool =
+public actual fun commConfigDialogA(lpszname: Pcstr, hwnd: Hwnd, lpcc: MutPtr): Bool =
     if (windowsWin32DevicesCommunicationNapiAvailable) wasmWindowssysWindowsWin32DevicesCommunicationCommConfigDialogA(lpszname.rawAddress.toString(), hwnd.rawAddress.toString(), lpcc.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun commConfigDialogW(lpszname: Pcwstr, hwnd: Hwnd, lpcc: MutPtr<Commconfig>): Bool =
+public actual fun commConfigDialogW(lpszname: Pcwstr, hwnd: Hwnd, lpcc: MutPtr): Bool =
     if (windowsWin32DevicesCommunicationNapiAvailable) wasmWindowssysWindowsWin32DevicesCommunicationCommConfigDialogW(lpszname.rawAddress.toString(), hwnd.rawAddress.toString(), lpcc.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun escapeCommFunction(hfile: Handle, dwfunc: EscapeCommFunction): Bool =
     if (windowsWin32DevicesCommunicationNapiAvailable) wasmWindowssysWindowsWin32DevicesCommunicationEscapeCommFunction(hfile.rawAddress.toString(), dwfunc.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun getCommConfig(hcommdev: Handle, lpcc: MutPtr<Commconfig>, lpdwsize: MutPtr<UInt>): Bool =
+public actual fun getCommConfig(hcommdev: Handle, lpcc: MutPtr, lpdwsize: MutPtr): Bool =
     if (windowsWin32DevicesCommunicationNapiAvailable) wasmWindowssysWindowsWin32DevicesCommunicationGetCommConfig(hcommdev.rawAddress.toString(), lpcc.rawAddress.toString(), lpdwsize.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun getCommMask(hfile: Handle, lpevtmask: MutPtr<CommEventMask>): Bool =
+public actual fun getCommMask(hfile: Handle, lpevtmask: MutPtr): Bool =
     if (windowsWin32DevicesCommunicationNapiAvailable) wasmWindowssysWindowsWin32DevicesCommunicationGetCommMask(hfile.rawAddress.toString(), lpevtmask.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun getCommModemStatus(hfile: Handle, lpmodemstat: MutPtr<ModemStatusFlags>): Bool =
+public actual fun getCommModemStatus(hfile: Handle, lpmodemstat: MutPtr): Bool =
     if (windowsWin32DevicesCommunicationNapiAvailable) wasmWindowssysWindowsWin32DevicesCommunicationGetCommModemStatus(hfile.rawAddress.toString(), lpmodemstat.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun getCommPorts(lpportnumbers: MutPtr<UInt>, uportnumberscount: UInt, puportnumbersfound: MutPtr<UInt>): UInt =
+public actual fun getCommPorts(lpportnumbers: MutPtr, uportnumberscount: UInt, puportnumbersfound: MutPtr): UInt =
     if (windowsWin32DevicesCommunicationNapiAvailable) wasmWindowssysWindowsWin32DevicesCommunicationGetCommPorts(lpportnumbers.rawAddress.toString(), uportnumberscount.toInt(), puportnumbersfound.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun getCommProperties(hfile: Handle, lpcommprop: MutPtr<Commprop>): Bool =
+public actual fun getCommProperties(hfile: Handle, lpcommprop: MutPtr): Bool =
     if (windowsWin32DevicesCommunicationNapiAvailable) wasmWindowssysWindowsWin32DevicesCommunicationGetCommProperties(hfile.rawAddress.toString(), lpcommprop.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun getCommState(hfile: Handle, lpdcb: MutPtr<Dcb>): Bool =
+public actual fun getCommState(hfile: Handle, lpdcb: MutPtr): Bool =
     if (windowsWin32DevicesCommunicationNapiAvailable) wasmWindowssysWindowsWin32DevicesCommunicationGetCommState(hfile.rawAddress.toString(), lpdcb.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun getCommTimeouts(hfile: Handle, lpcommtimeouts: MutPtr<Commtimeouts>): Bool =
+public actual fun getCommTimeouts(hfile: Handle, lpcommtimeouts: MutPtr): Bool =
     if (windowsWin32DevicesCommunicationNapiAvailable) wasmWindowssysWindowsWin32DevicesCommunicationGetCommTimeouts(hfile.rawAddress.toString(), lpcommtimeouts.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun getDefaultCommConfigA(lpszname: Pcstr, lpcc: MutPtr<Commconfig>, lpdwsize: MutPtr<UInt>): Bool =
+public actual fun getDefaultCommConfigA(lpszname: Pcstr, lpcc: MutPtr, lpdwsize: MutPtr): Bool =
     if (windowsWin32DevicesCommunicationNapiAvailable) wasmWindowssysWindowsWin32DevicesCommunicationGetDefaultCommConfigA(lpszname.rawAddress.toString(), lpcc.rawAddress.toString(), lpdwsize.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun getDefaultCommConfigW(lpszname: Pcwstr, lpcc: MutPtr<Commconfig>, lpdwsize: MutPtr<UInt>): Bool =
+public actual fun getDefaultCommConfigW(lpszname: Pcwstr, lpcc: MutPtr, lpdwsize: MutPtr): Bool =
     if (windowsWin32DevicesCommunicationNapiAvailable) wasmWindowssysWindowsWin32DevicesCommunicationGetDefaultCommConfigW(lpszname.rawAddress.toString(), lpcc.rawAddress.toString(), lpdwsize.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun openCommPort(uportnumber: UInt, dwdesiredaccess: UInt, dwflagsandattributes: UInt): Handle =
@@ -169,22 +168,22 @@ public actual fun purgeComm(hfile: Handle, dwflags: PurgeCommFlags): Bool =
 public actual fun setCommBreak(hfile: Handle): Bool =
     if (windowsWin32DevicesCommunicationNapiAvailable) wasmWindowssysWindowsWin32DevicesCommunicationSetCommBreak(hfile.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun setCommConfig(hcommdev: Handle, lpcc: ConstPtr<Commconfig>, dwsize: UInt): Bool =
+public actual fun setCommConfig(hcommdev: Handle, lpcc: ConstPtr, dwsize: UInt): Bool =
     if (windowsWin32DevicesCommunicationNapiAvailable) wasmWindowssysWindowsWin32DevicesCommunicationSetCommConfig(hcommdev.rawAddress.toString(), lpcc.rawAddress.toString(), dwsize.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun setCommMask(hfile: Handle, dwevtmask: CommEventMask): Bool =
     if (windowsWin32DevicesCommunicationNapiAvailable) wasmWindowssysWindowsWin32DevicesCommunicationSetCommMask(hfile.rawAddress.toString(), dwevtmask.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun setCommState(hfile: Handle, lpdcb: ConstPtr<Dcb>): Bool =
+public actual fun setCommState(hfile: Handle, lpdcb: ConstPtr): Bool =
     if (windowsWin32DevicesCommunicationNapiAvailable) wasmWindowssysWindowsWin32DevicesCommunicationSetCommState(hfile.rawAddress.toString(), lpdcb.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun setCommTimeouts(hfile: Handle, lpcommtimeouts: ConstPtr<Commtimeouts>): Bool =
+public actual fun setCommTimeouts(hfile: Handle, lpcommtimeouts: ConstPtr): Bool =
     if (windowsWin32DevicesCommunicationNapiAvailable) wasmWindowssysWindowsWin32DevicesCommunicationSetCommTimeouts(hfile.rawAddress.toString(), lpcommtimeouts.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun setDefaultCommConfigA(lpszname: Pcstr, lpcc: ConstPtr<Commconfig>, dwsize: UInt): Bool =
+public actual fun setDefaultCommConfigA(lpszname: Pcstr, lpcc: ConstPtr, dwsize: UInt): Bool =
     if (windowsWin32DevicesCommunicationNapiAvailable) wasmWindowssysWindowsWin32DevicesCommunicationSetDefaultCommConfigA(lpszname.rawAddress.toString(), lpcc.rawAddress.toString(), dwsize.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun setDefaultCommConfigW(lpszname: Pcwstr, lpcc: ConstPtr<Commconfig>, dwsize: UInt): Bool =
+public actual fun setDefaultCommConfigW(lpszname: Pcwstr, lpcc: ConstPtr, dwsize: UInt): Bool =
     if (windowsWin32DevicesCommunicationNapiAvailable) wasmWindowssysWindowsWin32DevicesCommunicationSetDefaultCommConfigW(lpszname.rawAddress.toString(), lpcc.rawAddress.toString(), dwsize.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun setupComm(hfile: Handle, dwinqueue: UInt, dwoutqueue: UInt): Bool =
@@ -193,5 +192,5 @@ public actual fun setupComm(hfile: Handle, dwinqueue: UInt, dwoutqueue: UInt): B
 public actual fun transmitCommChar(hfile: Handle, cchar: Byte): Bool =
     if (windowsWin32DevicesCommunicationNapiAvailable) wasmWindowssysWindowsWin32DevicesCommunicationTransmitCommChar(hfile.rawAddress.toString(), cchar.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun waitCommEvent(hfile: Handle, lpevtmask: MutPtr<CommEventMask>, lpoverlapped: MutPtr<Overlapped>): Bool =
+public actual fun waitCommEvent(hfile: Handle, lpevtmask: MutPtr, lpoverlapped: MutPtr): Bool =
     if (windowsWin32DevicesCommunicationNapiAvailable) wasmWindowssysWindowsWin32DevicesCommunicationWaitCommEvent(hfile.rawAddress.toString(), lpevtmask.rawAddress.toString(), lpoverlapped.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")

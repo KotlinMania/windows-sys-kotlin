@@ -1,6 +1,5 @@
 package io.github.kotlinmania.windowssys.windows.win32.system.com
 
-import io.github.kotlinmania.rustlang.core.ffi.CVoid
 import io.github.kotlinmania.rustlang.core.ptr.MutPtr
 import io.github.kotlinmania.windowssys.U128
 import io.github.kotlinmania.windowssys.core.Guid
@@ -192,7 +191,7 @@ public val COINIT_SPEED_OVER_MEMORY: Coinit = 8
 
 public val COLE_DEFAULT_AUTHINFO: Int = -1
 
-public val COLE_DEFAULT_PRINCIPAL: Pcwstr = MutPtr<CVoid>((-1).toLong())
+public val COLE_DEFAULT_PRINCIPAL: Pcwstr = MutPtr((-1).toLong())
 
 public val COMBND_RESERVED1: RpcoptProperties = 4
 

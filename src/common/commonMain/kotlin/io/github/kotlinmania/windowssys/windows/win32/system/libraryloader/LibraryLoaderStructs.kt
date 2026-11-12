@@ -1,6 +1,5 @@
 package io.github.kotlinmania.windowssys.windows.win32.system.libraryloader
 
-import io.github.kotlinmania.rustlang.core.ffi.CVoid
 import io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
 import io.github.kotlinmania.rustlang.core.mem.TypeLayout
 import io.github.kotlinmania.rustlang.core.ptr.ConstPtr
@@ -10,9 +9,9 @@ import io.github.kotlinmania.windowssys.core.Pcstr
 public class Enumuilang internal constructor(
     public var numOfEnumUILang: UInt,
     public var sizeOfEnumUIBuffer: UInt,
-    pEnumUIBufferCtorArg: MutPtr<UShort>,
+    pEnumUIBufferCtorArg: MutPtr,
 ) {
-    public var pEnumUIBuffer: MutPtr<UShort> = pEnumUIBufferCtorArg
+    public var pEnumUIBuffer: MutPtr = pEnumUIBufferCtorArg
         internal set
 
     public constructor() : this(
@@ -25,9 +24,9 @@ public class Enumuilang internal constructor(
 
     public operator fun component2(): UInt = this.sizeOfEnumUIBuffer
 
-    public operator fun component3(): MutPtr<UShort> = this.pEnumUIBuffer
+    public operator fun component3(): MutPtr = this.pEnumUIBuffer
 
-    public fun copy(numOfEnumUILang: UInt = this.numOfEnumUILang, sizeOfEnumUIBuffer: UInt = this.sizeOfEnumUIBuffer, pEnumUIBuffer: MutPtr<UShort> = this.pEnumUIBuffer): Enumuilang = Enumuilang(numOfEnumUILang = numOfEnumUILang, sizeOfEnumUIBuffer = sizeOfEnumUIBuffer, pEnumUIBufferCtorArg = pEnumUIBuffer)
+    public fun copy(numOfEnumUILang: UInt = this.numOfEnumUILang, sizeOfEnumUIBuffer: UInt = this.sizeOfEnumUIBuffer, pEnumUIBuffer: MutPtr = this.pEnumUIBuffer): Enumuilang = Enumuilang(numOfEnumUILang = numOfEnumUILang, sizeOfEnumUIBuffer = sizeOfEnumUIBuffer, pEnumUIBufferCtorArg = pEnumUIBuffer)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -56,7 +55,7 @@ public class Enumuilang internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 4L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<UShort>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                     )
                 override fun writeNative(addr: Long, value: Enumuilang) {
@@ -64,7 +63,7 @@ public class Enumuilang internal constructor(
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 4L, value.sizeOfEnumUIBuffer)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<UShort>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.pEnumUIBuffer)
                 }
             }
@@ -72,7 +71,7 @@ public class Enumuilang internal constructor(
         public operator fun invoke(
             numOfEnumUILang: UInt = 0u,
             sizeOfEnumUIBuffer: UInt = 0u,
-            pEnumUIBuffer: MutPtr<UShort> = MutPtr(0L),
+            pEnumUIBuffer: MutPtr = MutPtr(0L),
         ): Enumuilang =
             Enumuilang(
                 numOfEnumUILang = numOfEnumUILang,
@@ -85,9 +84,9 @@ public class Enumuilang internal constructor(
 public class RedirectionDescriptor internal constructor(
     public var version: UInt,
     public var functionCount: UInt,
-    redirectionsCtorArg: MutPtr<RedirectionFunctionDescriptor>,
+    redirectionsCtorArg: MutPtr,
 ) {
-    public var redirections: MutPtr<RedirectionFunctionDescriptor> = redirectionsCtorArg
+    public var redirections: MutPtr = redirectionsCtorArg
         internal set
 
     public constructor() : this(
@@ -100,9 +99,9 @@ public class RedirectionDescriptor internal constructor(
 
     public operator fun component2(): UInt = this.functionCount
 
-    public operator fun component3(): MutPtr<RedirectionFunctionDescriptor> = this.redirections
+    public operator fun component3(): MutPtr = this.redirections
 
-    public fun copy(version: UInt = this.version, functionCount: UInt = this.functionCount, redirections: MutPtr<RedirectionFunctionDescriptor> = this.redirections): RedirectionDescriptor = RedirectionDescriptor(version = version, functionCount = functionCount, redirectionsCtorArg = redirections)
+    public fun copy(version: UInt = this.version, functionCount: UInt = this.functionCount, redirections: MutPtr = this.redirections): RedirectionDescriptor = RedirectionDescriptor(version = version, functionCount = functionCount, redirectionsCtorArg = redirections)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -131,7 +130,7 @@ public class RedirectionDescriptor internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 4L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<RedirectionFunctionDescriptor>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                     )
                 override fun writeNative(addr: Long, value: RedirectionDescriptor) {
@@ -139,7 +138,7 @@ public class RedirectionDescriptor internal constructor(
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 4L, value.functionCount)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<RedirectionFunctionDescriptor>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.redirections)
                 }
             }
@@ -147,7 +146,7 @@ public class RedirectionDescriptor internal constructor(
         public operator fun invoke(
             version: UInt = 0u,
             functionCount: UInt = 0u,
-            redirections: MutPtr<RedirectionFunctionDescriptor> = MutPtr(0L),
+            redirections: MutPtr = MutPtr(0L),
         ): RedirectionDescriptor =
             RedirectionDescriptor(
                 version = version,
@@ -160,7 +159,7 @@ public class RedirectionDescriptor internal constructor(
 public class RedirectionFunctionDescriptor internal constructor(
     dllNameCtorArg: Pcstr,
     functionNameCtorArg: Pcstr,
-    redirectionTargetCtorArg: MutPtr<CVoid>,
+    redirectionTargetCtorArg: MutPtr,
 ) {
     public var dllName: Pcstr = dllNameCtorArg
         internal set
@@ -168,7 +167,7 @@ public class RedirectionFunctionDescriptor internal constructor(
     public var functionName: Pcstr = functionNameCtorArg
         internal set
 
-    public var redirectionTarget: MutPtr<CVoid> = redirectionTargetCtorArg
+    public var redirectionTarget: MutPtr = redirectionTargetCtorArg
         internal set
 
     public constructor() : this(
@@ -181,9 +180,9 @@ public class RedirectionFunctionDescriptor internal constructor(
 
     public operator fun component2(): Pcstr = this.functionName
 
-    public operator fun component3(): MutPtr<CVoid> = this.redirectionTarget
+    public operator fun component3(): MutPtr = this.redirectionTarget
 
-    public fun copy(dllName: Pcstr = this.dllName, functionName: Pcstr = this.functionName, redirectionTarget: MutPtr<CVoid> = this.redirectionTarget): RedirectionFunctionDescriptor = RedirectionFunctionDescriptor(dllNameCtorArg = dllName, functionNameCtorArg = functionName, redirectionTargetCtorArg = redirectionTarget)
+    public fun copy(dllName: Pcstr = this.dllName, functionName: Pcstr = this.functionName, redirectionTarget: MutPtr = this.redirectionTarget): RedirectionFunctionDescriptor = RedirectionFunctionDescriptor(dllNameCtorArg = dllName, functionNameCtorArg = functionName, redirectionTargetCtorArg = redirectionTarget)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -205,7 +204,7 @@ public class RedirectionFunctionDescriptor internal constructor(
         public operator fun invoke(
             dllName: Pcstr = ConstPtr(0L),
             functionName: Pcstr = ConstPtr(0L),
-            redirectionTarget: MutPtr<CVoid> = MutPtr(0L),
+            redirectionTarget: MutPtr = MutPtr(0L),
         ): RedirectionFunctionDescriptor =
             RedirectionFunctionDescriptor(
                 dllNameCtorArg = dllName,

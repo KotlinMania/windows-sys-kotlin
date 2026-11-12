@@ -2,26 +2,17 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.ui.shell.propertiessystem
 
-import io.github.kotlinmania.rustlang.core.ffi.CVoid
 import io.github.kotlinmania.rustlang.core.ptr.ConstPtr
 import io.github.kotlinmania.rustlang.core.ptr.MutPtr
 import io.github.kotlinmania.windowssys.core.Bool
 import io.github.kotlinmania.windowssys.core.Bstr
-import io.github.kotlinmania.windowssys.core.Guid
 import io.github.kotlinmania.windowssys.core.Hresult
 import io.github.kotlinmania.windowssys.core.Pcstr
 import io.github.kotlinmania.windowssys.core.Pcwstr
 import io.github.kotlinmania.windowssys.core.Pwstr
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Handle
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Hwnd
-import io.github.kotlinmania.windowssys.windows.win32.foundation.Pointl
-import io.github.kotlinmania.windowssys.windows.win32.foundation.Points
-import io.github.kotlinmania.windowssys.windows.win32.foundation.Propertykey
-import io.github.kotlinmania.windowssys.windows.win32.foundation.Rectl
 import io.github.kotlinmania.windowssys.windows.win32.system.Variant
-import io.github.kotlinmania.windowssys.windows.win32.system.com.structuredstorage.Propspec
-import io.github.kotlinmania.windowssys.windows.win32.system.com.structuredstorage.Propvariant
-import io.github.kotlinmania.windowssys.windows.win32.ui.shell.common.Itemidlist
 import io.github.kotlinmania.windowssys.windows.win32.ui.shell.propertiessystem.cinterop.windowssysWindowsWin32UiShellPropertiessystemPSCoerceToCanonicalValue
 import io.github.kotlinmania.windowssys.windows.win32.ui.shell.propertiessystem.cinterop.windowssysWindowsWin32UiShellPropertiessystemPSCreateAdapterFromPropertyStore
 import io.github.kotlinmania.windowssys.windows.win32.ui.shell.propertiessystem.cinterop.windowssysWindowsWin32UiShellPropertiessystemPSCreateDelayedMultiplexPropertyStore
@@ -102,184 +93,184 @@ import kotlinx.cinterop.ByteVar
 import kotlinx.cinterop.toCPointer
 import kotlinx.cinterop.toLong
 
-public actual fun pSCoerceToCanonicalValue(key: ConstPtr<Propertykey>, ppropvar: MutPtr<Propvariant>): Hresult =
+public actual fun pSCoerceToCanonicalValue(key: ConstPtr, ppropvar: MutPtr): Hresult =
     windowssysWindowsWin32UiShellPropertiessystemPSCoerceToCanonicalValue(key.rawAddress.toCPointer<ByteVar>(), ppropvar.rawAddress.toCPointer<ByteVar>())
 
-public actual fun pSCreateAdapterFromPropertyStore(pps: MutPtr<CVoid>, riid: ConstPtr<Guid>, ppv: MutPtr<MutPtr<CVoid>>): Hresult =
+public actual fun pSCreateAdapterFromPropertyStore(pps: MutPtr, riid: ConstPtr, ppv: MutPtr): Hresult =
     windowssysWindowsWin32UiShellPropertiessystemPSCreateAdapterFromPropertyStore(pps.rawAddress.toCPointer<ByteVar>(), riid.rawAddress.toCPointer<ByteVar>(), ppv.rawAddress.toCPointer<ByteVar>())
 
-public actual fun pSCreateDelayedMultiplexPropertyStore(flags: Getpropertystoreflags, pdpsf: MutPtr<CVoid>, rgstoreids: ConstPtr<UInt>, cstores: UInt, riid: ConstPtr<Guid>, ppv: MutPtr<MutPtr<CVoid>>): Hresult =
+public actual fun pSCreateDelayedMultiplexPropertyStore(flags: Getpropertystoreflags, pdpsf: MutPtr, rgstoreids: ConstPtr, cstores: UInt, riid: ConstPtr, ppv: MutPtr): Hresult =
     windowssysWindowsWin32UiShellPropertiessystemPSCreateDelayedMultiplexPropertyStore(flags, pdpsf.rawAddress.toCPointer<ByteVar>(), rgstoreids.rawAddress.toCPointer<ByteVar>(), cstores, riid.rawAddress.toCPointer<ByteVar>(), ppv.rawAddress.toCPointer<ByteVar>())
 
-public actual fun pSCreateMemoryPropertyStore(riid: ConstPtr<Guid>, ppv: MutPtr<MutPtr<CVoid>>): Hresult =
+public actual fun pSCreateMemoryPropertyStore(riid: ConstPtr, ppv: MutPtr): Hresult =
     windowssysWindowsWin32UiShellPropertiessystemPSCreateMemoryPropertyStore(riid.rawAddress.toCPointer<ByteVar>(), ppv.rawAddress.toCPointer<ByteVar>())
 
-public actual fun pSCreateMultiplexPropertyStore(prgpunkstores: ConstPtr<MutPtr<CVoid>>, cstores: UInt, riid: ConstPtr<Guid>, ppv: MutPtr<MutPtr<CVoid>>): Hresult =
+public actual fun pSCreateMultiplexPropertyStore(prgpunkstores: ConstPtr, cstores: UInt, riid: ConstPtr, ppv: MutPtr): Hresult =
     windowssysWindowsWin32UiShellPropertiessystemPSCreateMultiplexPropertyStore(prgpunkstores.rawAddress.toCPointer<ByteVar>(), cstores, riid.rawAddress.toCPointer<ByteVar>(), ppv.rawAddress.toCPointer<ByteVar>())
 
-public actual fun pSCreatePropertyChangeArray(rgpropkey: ConstPtr<Propertykey>, rgflags: ConstPtr<PkaFlags>, rgpropvar: ConstPtr<Propvariant>, cchanges: UInt, riid: ConstPtr<Guid>, ppv: MutPtr<MutPtr<CVoid>>): Hresult =
+public actual fun pSCreatePropertyChangeArray(rgpropkey: ConstPtr, rgflags: ConstPtr, rgpropvar: ConstPtr, cchanges: UInt, riid: ConstPtr, ppv: MutPtr): Hresult =
     windowssysWindowsWin32UiShellPropertiessystemPSCreatePropertyChangeArray(rgpropkey.rawAddress.toCPointer<ByteVar>(), rgflags.rawAddress.toCPointer<ByteVar>(), rgpropvar.rawAddress.toCPointer<ByteVar>(), cchanges, riid.rawAddress.toCPointer<ByteVar>(), ppv.rawAddress.toCPointer<ByteVar>())
 
-public actual fun pSCreatePropertyStoreFromObject(punk: MutPtr<CVoid>, grfmode: UInt, riid: ConstPtr<Guid>, ppv: MutPtr<MutPtr<CVoid>>): Hresult =
+public actual fun pSCreatePropertyStoreFromObject(punk: MutPtr, grfmode: UInt, riid: ConstPtr, ppv: MutPtr): Hresult =
     windowssysWindowsWin32UiShellPropertiessystemPSCreatePropertyStoreFromObject(punk.rawAddress.toCPointer<ByteVar>(), grfmode, riid.rawAddress.toCPointer<ByteVar>(), ppv.rawAddress.toCPointer<ByteVar>())
 
-public actual fun pSCreatePropertyStoreFromPropertySetStorage(ppss: MutPtr<CVoid>, grfmode: UInt, riid: ConstPtr<Guid>, ppv: MutPtr<MutPtr<CVoid>>): Hresult =
+public actual fun pSCreatePropertyStoreFromPropertySetStorage(ppss: MutPtr, grfmode: UInt, riid: ConstPtr, ppv: MutPtr): Hresult =
     windowssysWindowsWin32UiShellPropertiessystemPSCreatePropertyStoreFromPropertySetStorage(ppss.rawAddress.toCPointer<ByteVar>(), grfmode, riid.rawAddress.toCPointer<ByteVar>(), ppv.rawAddress.toCPointer<ByteVar>())
 
-public actual fun pSCreateSimplePropertyChange(flags: PkaFlags, key: ConstPtr<Propertykey>, propvar: ConstPtr<Propvariant>, riid: ConstPtr<Guid>, ppv: MutPtr<MutPtr<CVoid>>): Hresult =
+public actual fun pSCreateSimplePropertyChange(flags: PkaFlags, key: ConstPtr, propvar: ConstPtr, riid: ConstPtr, ppv: MutPtr): Hresult =
     windowssysWindowsWin32UiShellPropertiessystemPSCreateSimplePropertyChange(flags, key.rawAddress.toCPointer<ByteVar>(), propvar.rawAddress.toCPointer<ByteVar>(), riid.rawAddress.toCPointer<ByteVar>(), ppv.rawAddress.toCPointer<ByteVar>())
 
-public actual fun pSEnumeratePropertyDescriptions(filteron: PropdescEnumfilter, riid: ConstPtr<Guid>, ppv: MutPtr<MutPtr<CVoid>>): Hresult =
+public actual fun pSEnumeratePropertyDescriptions(filteron: PropdescEnumfilter, riid: ConstPtr, ppv: MutPtr): Hresult =
     windowssysWindowsWin32UiShellPropertiessystemPSEnumeratePropertyDescriptions(filteron, riid.rawAddress.toCPointer<ByteVar>(), ppv.rawAddress.toCPointer<ByteVar>())
 
-public actual fun pSFormatForDisplay(propkey: ConstPtr<Propertykey>, propvar: ConstPtr<Propvariant>, pdfflags: PropdescFormatFlags, pwsztext: Pwstr, cchtext: UInt): Hresult =
+public actual fun pSFormatForDisplay(propkey: ConstPtr, propvar: ConstPtr, pdfflags: PropdescFormatFlags, pwsztext: Pwstr, cchtext: UInt): Hresult =
     windowssysWindowsWin32UiShellPropertiessystemPSFormatForDisplay(propkey.rawAddress.toCPointer<ByteVar>(), propvar.rawAddress.toCPointer<ByteVar>(), pdfflags, pwsztext.rawAddress.toCPointer<ByteVar>(), cchtext)
 
-public actual fun pSFormatForDisplayAlloc(key: ConstPtr<Propertykey>, propvar: ConstPtr<Propvariant>, pdff: PropdescFormatFlags, ppszdisplay: MutPtr<Pwstr>): Hresult =
+public actual fun pSFormatForDisplayAlloc(key: ConstPtr, propvar: ConstPtr, pdff: PropdescFormatFlags, ppszdisplay: MutPtr): Hresult =
     windowssysWindowsWin32UiShellPropertiessystemPSFormatForDisplayAlloc(key.rawAddress.toCPointer<ByteVar>(), propvar.rawAddress.toCPointer<ByteVar>(), pdff, ppszdisplay.rawAddress.toCPointer<ByteVar>())
 
-public actual fun pSFormatPropertyValue(pps: MutPtr<CVoid>, ppd: MutPtr<CVoid>, pdff: PropdescFormatFlags, ppszdisplay: MutPtr<Pwstr>): Hresult =
+public actual fun pSFormatPropertyValue(pps: MutPtr, ppd: MutPtr, pdff: PropdescFormatFlags, ppszdisplay: MutPtr): Hresult =
     windowssysWindowsWin32UiShellPropertiessystemPSFormatPropertyValue(pps.rawAddress.toCPointer<ByteVar>(), ppd.rawAddress.toCPointer<ByteVar>(), pdff, ppszdisplay.rawAddress.toCPointer<ByteVar>())
 
-public actual fun pSGetImageReferenceForValue(propkey: ConstPtr<Propertykey>, propvar: ConstPtr<Propvariant>, ppszimageres: MutPtr<Pwstr>): Hresult =
+public actual fun pSGetImageReferenceForValue(propkey: ConstPtr, propvar: ConstPtr, ppszimageres: MutPtr): Hresult =
     windowssysWindowsWin32UiShellPropertiessystemPSGetImageReferenceForValue(propkey.rawAddress.toCPointer<ByteVar>(), propvar.rawAddress.toCPointer<ByteVar>(), ppszimageres.rawAddress.toCPointer<ByteVar>())
 
-public actual fun pSGetItemPropertyHandler(punkitem: MutPtr<CVoid>, freadwrite: Bool, riid: ConstPtr<Guid>, ppv: MutPtr<MutPtr<CVoid>>): Hresult =
+public actual fun pSGetItemPropertyHandler(punkitem: MutPtr, freadwrite: Bool, riid: ConstPtr, ppv: MutPtr): Hresult =
     windowssysWindowsWin32UiShellPropertiessystemPSGetItemPropertyHandler(punkitem.rawAddress.toCPointer<ByteVar>(), freadwrite, riid.rawAddress.toCPointer<ByteVar>(), ppv.rawAddress.toCPointer<ByteVar>())
 
-public actual fun pSGetItemPropertyHandlerWithCreateObject(punkitem: MutPtr<CVoid>, freadwrite: Bool, punkcreateobject: MutPtr<CVoid>, riid: ConstPtr<Guid>, ppv: MutPtr<MutPtr<CVoid>>): Hresult =
+public actual fun pSGetItemPropertyHandlerWithCreateObject(punkitem: MutPtr, freadwrite: Bool, punkcreateobject: MutPtr, riid: ConstPtr, ppv: MutPtr): Hresult =
     windowssysWindowsWin32UiShellPropertiessystemPSGetItemPropertyHandlerWithCreateObject(punkitem.rawAddress.toCPointer<ByteVar>(), freadwrite, punkcreateobject.rawAddress.toCPointer<ByteVar>(), riid.rawAddress.toCPointer<ByteVar>(), ppv.rawAddress.toCPointer<ByteVar>())
 
-public actual fun pSGetNameFromPropertyKey(propkey: ConstPtr<Propertykey>, ppszcanonicalname: MutPtr<Pwstr>): Hresult =
+public actual fun pSGetNameFromPropertyKey(propkey: ConstPtr, ppszcanonicalname: MutPtr): Hresult =
     windowssysWindowsWin32UiShellPropertiessystemPSGetNameFromPropertyKey(propkey.rawAddress.toCPointer<ByteVar>(), ppszcanonicalname.rawAddress.toCPointer<ByteVar>())
 
-public actual fun pSGetNamedPropertyFromPropertyStorage(psps: Pcuserializedpropstorage, cb: UInt, pszname: Pcwstr, ppropvar: MutPtr<Propvariant>): Hresult =
+public actual fun pSGetNamedPropertyFromPropertyStorage(psps: Pcuserializedpropstorage, cb: UInt, pszname: Pcwstr, ppropvar: MutPtr): Hresult =
     windowssysWindowsWin32UiShellPropertiessystemPSGetNamedPropertyFromPropertyStorage(psps, cb, pszname.rawAddress.toCPointer<ByteVar>(), ppropvar.rawAddress.toCPointer<ByteVar>())
 
-public actual fun pSGetPropertyDescription(propkey: ConstPtr<Propertykey>, riid: ConstPtr<Guid>, ppv: MutPtr<MutPtr<CVoid>>): Hresult =
+public actual fun pSGetPropertyDescription(propkey: ConstPtr, riid: ConstPtr, ppv: MutPtr): Hresult =
     windowssysWindowsWin32UiShellPropertiessystemPSGetPropertyDescription(propkey.rawAddress.toCPointer<ByteVar>(), riid.rawAddress.toCPointer<ByteVar>(), ppv.rawAddress.toCPointer<ByteVar>())
 
-public actual fun pSGetPropertyDescriptionByName(pszcanonicalname: Pcwstr, riid: ConstPtr<Guid>, ppv: MutPtr<MutPtr<CVoid>>): Hresult =
+public actual fun pSGetPropertyDescriptionByName(pszcanonicalname: Pcwstr, riid: ConstPtr, ppv: MutPtr): Hresult =
     windowssysWindowsWin32UiShellPropertiessystemPSGetPropertyDescriptionByName(pszcanonicalname.rawAddress.toCPointer<ByteVar>(), riid.rawAddress.toCPointer<ByteVar>(), ppv.rawAddress.toCPointer<ByteVar>())
 
-public actual fun pSGetPropertyDescriptionListFromString(pszproplist: Pcwstr, riid: ConstPtr<Guid>, ppv: MutPtr<MutPtr<CVoid>>): Hresult =
+public actual fun pSGetPropertyDescriptionListFromString(pszproplist: Pcwstr, riid: ConstPtr, ppv: MutPtr): Hresult =
     windowssysWindowsWin32UiShellPropertiessystemPSGetPropertyDescriptionListFromString(pszproplist.rawAddress.toCPointer<ByteVar>(), riid.rawAddress.toCPointer<ByteVar>(), ppv.rawAddress.toCPointer<ByteVar>())
 
-public actual fun pSGetPropertyFromPropertyStorage(psps: Pcuserializedpropstorage, cb: UInt, rpkey: ConstPtr<Propertykey>, ppropvar: MutPtr<Propvariant>): Hresult =
+public actual fun pSGetPropertyFromPropertyStorage(psps: Pcuserializedpropstorage, cb: UInt, rpkey: ConstPtr, ppropvar: MutPtr): Hresult =
     windowssysWindowsWin32UiShellPropertiessystemPSGetPropertyFromPropertyStorage(psps, cb, rpkey.rawAddress.toCPointer<ByteVar>(), ppropvar.rawAddress.toCPointer<ByteVar>())
 
-public actual fun pSGetPropertyKeyFromName(pszname: Pcwstr, ppropkey: MutPtr<Propertykey>): Hresult =
+public actual fun pSGetPropertyKeyFromName(pszname: Pcwstr, ppropkey: MutPtr): Hresult =
     windowssysWindowsWin32UiShellPropertiessystemPSGetPropertyKeyFromName(pszname.rawAddress.toCPointer<ByteVar>(), ppropkey.rawAddress.toCPointer<ByteVar>())
 
-public actual fun pSGetPropertySystem(riid: ConstPtr<Guid>, ppv: MutPtr<MutPtr<CVoid>>): Hresult =
+public actual fun pSGetPropertySystem(riid: ConstPtr, ppv: MutPtr): Hresult =
     windowssysWindowsWin32UiShellPropertiessystemPSGetPropertySystem(riid.rawAddress.toCPointer<ByteVar>(), ppv.rawAddress.toCPointer<ByteVar>())
 
-public actual fun pSGetPropertyValue(pps: MutPtr<CVoid>, ppd: MutPtr<CVoid>, ppropvar: MutPtr<Propvariant>): Hresult =
+public actual fun pSGetPropertyValue(pps: MutPtr, ppd: MutPtr, ppropvar: MutPtr): Hresult =
     windowssysWindowsWin32UiShellPropertiessystemPSGetPropertyValue(pps.rawAddress.toCPointer<ByteVar>(), ppd.rawAddress.toCPointer<ByteVar>(), ppropvar.rawAddress.toCPointer<ByteVar>())
 
-public actual fun pSLookupPropertyHandlerCLSID(pszfilepath: Pcwstr, pclsid: MutPtr<Guid>): Hresult =
+public actual fun pSLookupPropertyHandlerCLSID(pszfilepath: Pcwstr, pclsid: MutPtr): Hresult =
     windowssysWindowsWin32UiShellPropertiessystemPSLookupPropertyHandlerCLSID(pszfilepath.rawAddress.toCPointer<ByteVar>(), pclsid.rawAddress.toCPointer<ByteVar>())
 
-public actual fun pspropertyBagDelete(propbag: MutPtr<CVoid>, propname: Pcwstr): Hresult =
+public actual fun pspropertyBagDelete(propbag: MutPtr, propname: Pcwstr): Hresult =
     windowssysWindowsWin32UiShellPropertiessystemPspropertyBagDelete(propbag.rawAddress.toCPointer<ByteVar>(), propname.rawAddress.toCPointer<ByteVar>())
 
-public actual fun pspropertyBagReadBool(propbag: MutPtr<CVoid>, propname: Pcwstr, value: MutPtr<Bool>): Hresult =
+public actual fun pspropertyBagReadBool(propbag: MutPtr, propname: Pcwstr, value: MutPtr): Hresult =
     windowssysWindowsWin32UiShellPropertiessystemPspropertyBagReadBool(propbag.rawAddress.toCPointer<ByteVar>(), propname.rawAddress.toCPointer<ByteVar>(), value.rawAddress.toCPointer<ByteVar>())
 
-public actual fun pspropertyBagReadBstr(propbag: MutPtr<CVoid>, propname: Pcwstr, value: MutPtr<Bstr>): Hresult =
+public actual fun pspropertyBagReadBstr(propbag: MutPtr, propname: Pcwstr, value: MutPtr): Hresult =
     windowssysWindowsWin32UiShellPropertiessystemPspropertyBagReadBstr(propbag.rawAddress.toCPointer<ByteVar>(), propname.rawAddress.toCPointer<ByteVar>(), value.rawAddress.toCPointer<ByteVar>())
 
-public actual fun pspropertyBagReadDword(propbag: MutPtr<CVoid>, propname: Pcwstr, value: MutPtr<UInt>): Hresult =
+public actual fun pspropertyBagReadDword(propbag: MutPtr, propname: Pcwstr, value: MutPtr): Hresult =
     windowssysWindowsWin32UiShellPropertiessystemPspropertyBagReadDword(propbag.rawAddress.toCPointer<ByteVar>(), propname.rawAddress.toCPointer<ByteVar>(), value.rawAddress.toCPointer<ByteVar>())
 
-public actual fun pspropertyBagReadGuid(propbag: MutPtr<CVoid>, propname: Pcwstr, value: MutPtr<Guid>): Hresult =
+public actual fun pspropertyBagReadGuid(propbag: MutPtr, propname: Pcwstr, value: MutPtr): Hresult =
     windowssysWindowsWin32UiShellPropertiessystemPspropertyBagReadGuid(propbag.rawAddress.toCPointer<ByteVar>(), propname.rawAddress.toCPointer<ByteVar>(), value.rawAddress.toCPointer<ByteVar>())
 
-public actual fun pspropertyBagReadInt(propbag: MutPtr<CVoid>, propname: Pcwstr, value: MutPtr<Int>): Hresult =
+public actual fun pspropertyBagReadInt(propbag: MutPtr, propname: Pcwstr, value: MutPtr): Hresult =
     windowssysWindowsWin32UiShellPropertiessystemPspropertyBagReadInt(propbag.rawAddress.toCPointer<ByteVar>(), propname.rawAddress.toCPointer<ByteVar>(), value.rawAddress.toCPointer<ByteVar>())
 
-public actual fun pspropertyBagReadLong(propbag: MutPtr<CVoid>, propname: Pcwstr, value: MutPtr<Int>): Hresult =
+public actual fun pspropertyBagReadLong(propbag: MutPtr, propname: Pcwstr, value: MutPtr): Hresult =
     windowssysWindowsWin32UiShellPropertiessystemPspropertyBagReadLong(propbag.rawAddress.toCPointer<ByteVar>(), propname.rawAddress.toCPointer<ByteVar>(), value.rawAddress.toCPointer<ByteVar>())
 
-public actual fun pspropertyBagReadPointl(propbag: MutPtr<CVoid>, propname: Pcwstr, value: MutPtr<Pointl>): Hresult =
+public actual fun pspropertyBagReadPointl(propbag: MutPtr, propname: Pcwstr, value: MutPtr): Hresult =
     windowssysWindowsWin32UiShellPropertiessystemPspropertyBagReadPointl(propbag.rawAddress.toCPointer<ByteVar>(), propname.rawAddress.toCPointer<ByteVar>(), value.rawAddress.toCPointer<ByteVar>())
 
-public actual fun pspropertyBagReadPoints(propbag: MutPtr<CVoid>, propname: Pcwstr, value: MutPtr<Points>): Hresult =
+public actual fun pspropertyBagReadPoints(propbag: MutPtr, propname: Pcwstr, value: MutPtr): Hresult =
     windowssysWindowsWin32UiShellPropertiessystemPspropertyBagReadPoints(propbag.rawAddress.toCPointer<ByteVar>(), propname.rawAddress.toCPointer<ByteVar>(), value.rawAddress.toCPointer<ByteVar>())
 
-public actual fun pspropertyBagReadPropertyKey(propbag: MutPtr<CVoid>, propname: Pcwstr, value: MutPtr<Propertykey>): Hresult =
+public actual fun pspropertyBagReadPropertyKey(propbag: MutPtr, propname: Pcwstr, value: MutPtr): Hresult =
     windowssysWindowsWin32UiShellPropertiessystemPspropertyBagReadPropertyKey(propbag.rawAddress.toCPointer<ByteVar>(), propname.rawAddress.toCPointer<ByteVar>(), value.rawAddress.toCPointer<ByteVar>())
 
-public actual fun pspropertyBagReadRectl(propbag: MutPtr<CVoid>, propname: Pcwstr, value: MutPtr<Rectl>): Hresult =
+public actual fun pspropertyBagReadRectl(propbag: MutPtr, propname: Pcwstr, value: MutPtr): Hresult =
     windowssysWindowsWin32UiShellPropertiessystemPspropertyBagReadRectl(propbag.rawAddress.toCPointer<ByteVar>(), propname.rawAddress.toCPointer<ByteVar>(), value.rawAddress.toCPointer<ByteVar>())
 
-public actual fun pspropertyBagReadShort(propbag: MutPtr<CVoid>, propname: Pcwstr, value: MutPtr<Short>): Hresult =
+public actual fun pspropertyBagReadShort(propbag: MutPtr, propname: Pcwstr, value: MutPtr): Hresult =
     windowssysWindowsWin32UiShellPropertiessystemPspropertyBagReadShort(propbag.rawAddress.toCPointer<ByteVar>(), propname.rawAddress.toCPointer<ByteVar>(), value.rawAddress.toCPointer<ByteVar>())
 
-public actual fun pspropertyBagReadStr(propbag: MutPtr<CVoid>, propname: Pcwstr, value: Pwstr, charactercount: Int): Hresult =
+public actual fun pspropertyBagReadStr(propbag: MutPtr, propname: Pcwstr, value: Pwstr, charactercount: Int): Hresult =
     windowssysWindowsWin32UiShellPropertiessystemPspropertyBagReadStr(propbag.rawAddress.toCPointer<ByteVar>(), propname.rawAddress.toCPointer<ByteVar>(), value.rawAddress.toCPointer<ByteVar>(), charactercount)
 
-public actual fun pspropertyBagReadStrAlloc(propbag: MutPtr<CVoid>, propname: Pcwstr, value: MutPtr<Pwstr>): Hresult =
+public actual fun pspropertyBagReadStrAlloc(propbag: MutPtr, propname: Pcwstr, value: MutPtr): Hresult =
     windowssysWindowsWin32UiShellPropertiessystemPspropertyBagReadStrAlloc(propbag.rawAddress.toCPointer<ByteVar>(), propname.rawAddress.toCPointer<ByteVar>(), value.rawAddress.toCPointer<ByteVar>())
 
-public actual fun pspropertyBagReadStream(propbag: MutPtr<CVoid>, propname: Pcwstr, value: MutPtr<MutPtr<CVoid>>): Hresult =
+public actual fun pspropertyBagReadStream(propbag: MutPtr, propname: Pcwstr, value: MutPtr): Hresult =
     windowssysWindowsWin32UiShellPropertiessystemPspropertyBagReadStream(propbag.rawAddress.toCPointer<ByteVar>(), propname.rawAddress.toCPointer<ByteVar>(), value.rawAddress.toCPointer<ByteVar>())
 
-public actual fun pspropertyBagReadType(propbag: MutPtr<CVoid>, propname: Pcwstr, variable: MutPtr<Variant.Variant>, type: Variant.Varenum): Hresult =
+public actual fun pspropertyBagReadType(propbag: MutPtr, propname: Pcwstr, variable: MutPtr, type: Variant.Varenum): Hresult =
     windowssysWindowsWin32UiShellPropertiessystemPspropertyBagReadType(propbag.rawAddress.toCPointer<ByteVar>(), propname.rawAddress.toCPointer<ByteVar>(), variable.rawAddress.toCPointer<ByteVar>(), type)
 
-public actual fun pspropertyBagReadUlonglong(propbag: MutPtr<CVoid>, propname: Pcwstr, value: MutPtr<ULong>): Hresult =
+public actual fun pspropertyBagReadUlonglong(propbag: MutPtr, propname: Pcwstr, value: MutPtr): Hresult =
     windowssysWindowsWin32UiShellPropertiessystemPspropertyBagReadUlonglong(propbag.rawAddress.toCPointer<ByteVar>(), propname.rawAddress.toCPointer<ByteVar>(), value.rawAddress.toCPointer<ByteVar>())
 
-public actual fun pspropertyBagReadUnknown(propbag: MutPtr<CVoid>, propname: Pcwstr, riid: ConstPtr<Guid>, ppv: MutPtr<MutPtr<CVoid>>): Hresult =
+public actual fun pspropertyBagReadUnknown(propbag: MutPtr, propname: Pcwstr, riid: ConstPtr, ppv: MutPtr): Hresult =
     windowssysWindowsWin32UiShellPropertiessystemPspropertyBagReadUnknown(propbag.rawAddress.toCPointer<ByteVar>(), propname.rawAddress.toCPointer<ByteVar>(), riid.rawAddress.toCPointer<ByteVar>(), ppv.rawAddress.toCPointer<ByteVar>())
 
-public actual fun pspropertyBagWriteBool(propbag: MutPtr<CVoid>, propname: Pcwstr, value: Bool): Hresult =
+public actual fun pspropertyBagWriteBool(propbag: MutPtr, propname: Pcwstr, value: Bool): Hresult =
     windowssysWindowsWin32UiShellPropertiessystemPspropertyBagWriteBool(propbag.rawAddress.toCPointer<ByteVar>(), propname.rawAddress.toCPointer<ByteVar>(), value)
 
-public actual fun pspropertyBagWriteBstr(propbag: MutPtr<CVoid>, propname: Pcwstr, value: Bstr): Hresult =
+public actual fun pspropertyBagWriteBstr(propbag: MutPtr, propname: Pcwstr, value: Bstr): Hresult =
     windowssysWindowsWin32UiShellPropertiessystemPspropertyBagWriteBstr(propbag.rawAddress.toCPointer<ByteVar>(), propname.rawAddress.toCPointer<ByteVar>(), value.rawAddress.toCPointer<ByteVar>())
 
-public actual fun pspropertyBagWriteDword(propbag: MutPtr<CVoid>, propname: Pcwstr, value: UInt): Hresult =
+public actual fun pspropertyBagWriteDword(propbag: MutPtr, propname: Pcwstr, value: UInt): Hresult =
     windowssysWindowsWin32UiShellPropertiessystemPspropertyBagWriteDword(propbag.rawAddress.toCPointer<ByteVar>(), propname.rawAddress.toCPointer<ByteVar>(), value)
 
-public actual fun pspropertyBagWriteGuid(propbag: MutPtr<CVoid>, propname: Pcwstr, value: ConstPtr<Guid>): Hresult =
+public actual fun pspropertyBagWriteGuid(propbag: MutPtr, propname: Pcwstr, value: ConstPtr): Hresult =
     windowssysWindowsWin32UiShellPropertiessystemPspropertyBagWriteGuid(propbag.rawAddress.toCPointer<ByteVar>(), propname.rawAddress.toCPointer<ByteVar>(), value.rawAddress.toCPointer<ByteVar>())
 
-public actual fun pspropertyBagWriteInt(propbag: MutPtr<CVoid>, propname: Pcwstr, value: Int): Hresult =
+public actual fun pspropertyBagWriteInt(propbag: MutPtr, propname: Pcwstr, value: Int): Hresult =
     windowssysWindowsWin32UiShellPropertiessystemPspropertyBagWriteInt(propbag.rawAddress.toCPointer<ByteVar>(), propname.rawAddress.toCPointer<ByteVar>(), value)
 
-public actual fun pspropertyBagWriteLong(propbag: MutPtr<CVoid>, propname: Pcwstr, value: Int): Hresult =
+public actual fun pspropertyBagWriteLong(propbag: MutPtr, propname: Pcwstr, value: Int): Hresult =
     windowssysWindowsWin32UiShellPropertiessystemPspropertyBagWriteLong(propbag.rawAddress.toCPointer<ByteVar>(), propname.rawAddress.toCPointer<ByteVar>(), value)
 
-public actual fun pspropertyBagWritePointl(propbag: MutPtr<CVoid>, propname: Pcwstr, value: ConstPtr<Pointl>): Hresult =
+public actual fun pspropertyBagWritePointl(propbag: MutPtr, propname: Pcwstr, value: ConstPtr): Hresult =
     windowssysWindowsWin32UiShellPropertiessystemPspropertyBagWritePointl(propbag.rawAddress.toCPointer<ByteVar>(), propname.rawAddress.toCPointer<ByteVar>(), value.rawAddress.toCPointer<ByteVar>())
 
-public actual fun pspropertyBagWritePoints(propbag: MutPtr<CVoid>, propname: Pcwstr, value: ConstPtr<Points>): Hresult =
+public actual fun pspropertyBagWritePoints(propbag: MutPtr, propname: Pcwstr, value: ConstPtr): Hresult =
     windowssysWindowsWin32UiShellPropertiessystemPspropertyBagWritePoints(propbag.rawAddress.toCPointer<ByteVar>(), propname.rawAddress.toCPointer<ByteVar>(), value.rawAddress.toCPointer<ByteVar>())
 
-public actual fun pspropertyBagWritePropertyKey(propbag: MutPtr<CVoid>, propname: Pcwstr, value: ConstPtr<Propertykey>): Hresult =
+public actual fun pspropertyBagWritePropertyKey(propbag: MutPtr, propname: Pcwstr, value: ConstPtr): Hresult =
     windowssysWindowsWin32UiShellPropertiessystemPspropertyBagWritePropertyKey(propbag.rawAddress.toCPointer<ByteVar>(), propname.rawAddress.toCPointer<ByteVar>(), value.rawAddress.toCPointer<ByteVar>())
 
-public actual fun pspropertyBagWriteRectl(propbag: MutPtr<CVoid>, propname: Pcwstr, value: ConstPtr<Rectl>): Hresult =
+public actual fun pspropertyBagWriteRectl(propbag: MutPtr, propname: Pcwstr, value: ConstPtr): Hresult =
     windowssysWindowsWin32UiShellPropertiessystemPspropertyBagWriteRectl(propbag.rawAddress.toCPointer<ByteVar>(), propname.rawAddress.toCPointer<ByteVar>(), value.rawAddress.toCPointer<ByteVar>())
 
-public actual fun pspropertyBagWriteShort(propbag: MutPtr<CVoid>, propname: Pcwstr, value: Short): Hresult =
+public actual fun pspropertyBagWriteShort(propbag: MutPtr, propname: Pcwstr, value: Short): Hresult =
     windowssysWindowsWin32UiShellPropertiessystemPspropertyBagWriteShort(propbag.rawAddress.toCPointer<ByteVar>(), propname.rawAddress.toCPointer<ByteVar>(), value)
 
-public actual fun pspropertyBagWriteStr(propbag: MutPtr<CVoid>, propname: Pcwstr, value: Pcwstr): Hresult =
+public actual fun pspropertyBagWriteStr(propbag: MutPtr, propname: Pcwstr, value: Pcwstr): Hresult =
     windowssysWindowsWin32UiShellPropertiessystemPspropertyBagWriteStr(propbag.rawAddress.toCPointer<ByteVar>(), propname.rawAddress.toCPointer<ByteVar>(), value.rawAddress.toCPointer<ByteVar>())
 
-public actual fun pspropertyBagWriteStream(propbag: MutPtr<CVoid>, propname: Pcwstr, value: MutPtr<CVoid>): Hresult =
+public actual fun pspropertyBagWriteStream(propbag: MutPtr, propname: Pcwstr, value: MutPtr): Hresult =
     windowssysWindowsWin32UiShellPropertiessystemPspropertyBagWriteStream(propbag.rawAddress.toCPointer<ByteVar>(), propname.rawAddress.toCPointer<ByteVar>(), value.rawAddress.toCPointer<ByteVar>())
 
-public actual fun pspropertyBagWriteUlonglong(propbag: MutPtr<CVoid>, propname: Pcwstr, value: ULong): Hresult =
+public actual fun pspropertyBagWriteUlonglong(propbag: MutPtr, propname: Pcwstr, value: ULong): Hresult =
     windowssysWindowsWin32UiShellPropertiessystemPspropertyBagWriteUlonglong(propbag.rawAddress.toCPointer<ByteVar>(), propname.rawAddress.toCPointer<ByteVar>(), value)
 
-public actual fun pspropertyBagWriteUnknown(propbag: MutPtr<CVoid>, propname: Pcwstr, punk: MutPtr<CVoid>): Hresult =
+public actual fun pspropertyBagWriteUnknown(propbag: MutPtr, propname: Pcwstr, punk: MutPtr): Hresult =
     windowssysWindowsWin32UiShellPropertiessystemPspropertyBagWriteUnknown(propbag.rawAddress.toCPointer<ByteVar>(), propname.rawAddress.toCPointer<ByteVar>(), punk.rawAddress.toCPointer<ByteVar>())
 
-public actual fun pSPropertyKeyFromString(pszstring: Pcwstr, pkey: MutPtr<Propertykey>): Hresult =
+public actual fun pSPropertyKeyFromString(pszstring: Pcwstr, pkey: MutPtr): Hresult =
     windowssysWindowsWin32UiShellPropertiessystemPSPropertyKeyFromString(pszstring.rawAddress.toCPointer<ByteVar>(), pkey.rawAddress.toCPointer<ByteVar>())
 
 public actual fun pSRefreshPropertySchema(): Hresult =
@@ -288,10 +279,10 @@ public actual fun pSRefreshPropertySchema(): Hresult =
 public actual fun pSRegisterPropertySchema(pszpath: Pcwstr): Hresult =
     windowssysWindowsWin32UiShellPropertiessystemPSRegisterPropertySchema(pszpath.rawAddress.toCPointer<ByteVar>())
 
-public actual fun pSSetPropertyValue(pps: MutPtr<CVoid>, ppd: MutPtr<CVoid>, propvar: ConstPtr<Propvariant>): Hresult =
+public actual fun pSSetPropertyValue(pps: MutPtr, ppd: MutPtr, propvar: ConstPtr): Hresult =
     windowssysWindowsWin32UiShellPropertiessystemPSSetPropertyValue(pps.rawAddress.toCPointer<ByteVar>(), ppd.rawAddress.toCPointer<ByteVar>(), propvar.rawAddress.toCPointer<ByteVar>())
 
-public actual fun pSStringFromPropertyKey(pkey: ConstPtr<Propertykey>, psz: Pwstr, cch: UInt): Hresult =
+public actual fun pSStringFromPropertyKey(pkey: ConstPtr, psz: Pwstr, cch: UInt): Hresult =
     windowssysWindowsWin32UiShellPropertiessystemPSStringFromPropertyKey(pkey.rawAddress.toCPointer<ByteVar>(), psz.rawAddress.toCPointer<ByteVar>(), cch)
 
 public actual fun pSUnregisterPropertySchema(pszpath: Pcwstr): Hresult =
@@ -300,32 +291,32 @@ public actual fun pSUnregisterPropertySchema(pszpath: Pcwstr): Hresult =
 public actual fun pifMgrCloseProperties(hprops: Handle, flopt: UInt): Handle =
     MutPtr(windowssysWindowsWin32UiShellPropertiessystemPifMgrCloseProperties(hprops.rawAddress.toCPointer<ByteVar>(), flopt)?.toLong() ?: 0L)
 
-public actual fun pifMgrGetProperties(hprops: Handle, pszgroup: Pcstr, lpprops: MutPtr<CVoid>, cbprops: Int, flopt: UInt): Int =
+public actual fun pifMgrGetProperties(hprops: Handle, pszgroup: Pcstr, lpprops: MutPtr, cbprops: Int, flopt: UInt): Int =
     windowssysWindowsWin32UiShellPropertiessystemPifMgrGetProperties(hprops.rawAddress.toCPointer<ByteVar>(), pszgroup.rawAddress.toCPointer<ByteVar>(), lpprops.rawAddress.toCPointer<ByteVar>(), cbprops, flopt)
 
 public actual fun pifMgrOpenProperties(pszapp: Pcwstr, pszpif: Pcwstr, hinf: UInt, flopt: UInt): Handle =
     MutPtr(windowssysWindowsWin32UiShellPropertiessystemPifMgrOpenProperties(pszapp.rawAddress.toCPointer<ByteVar>(), pszpif.rawAddress.toCPointer<ByteVar>(), hinf, flopt)?.toLong() ?: 0L)
 
-public actual fun pifMgrSetProperties(hprops: Handle, pszgroup: Pcstr, lpprops: ConstPtr<CVoid>, cbprops: Int, flopt: UInt): Int =
+public actual fun pifMgrSetProperties(hprops: Handle, pszgroup: Pcstr, lpprops: ConstPtr, cbprops: Int, flopt: UInt): Int =
     windowssysWindowsWin32UiShellPropertiessystemPifMgrSetProperties(hprops.rawAddress.toCPointer<ByteVar>(), pszgroup.rawAddress.toCPointer<ByteVar>(), lpprops.rawAddress.toCPointer<ByteVar>(), cbprops, flopt)
 
-public actual fun sHAddDefaultPropertiesByExt(pszext: Pcwstr, ppropstore: MutPtr<CVoid>): Hresult =
+public actual fun sHAddDefaultPropertiesByExt(pszext: Pcwstr, ppropstore: MutPtr): Hresult =
     windowssysWindowsWin32UiShellPropertiessystemSHAddDefaultPropertiesByExt(pszext.rawAddress.toCPointer<ByteVar>(), ppropstore.rawAddress.toCPointer<ByteVar>())
 
-public actual fun sHGetPropertyStoreForWindow(hwnd: Hwnd, riid: ConstPtr<Guid>, ppv: MutPtr<MutPtr<CVoid>>): Hresult =
+public actual fun sHGetPropertyStoreForWindow(hwnd: Hwnd, riid: ConstPtr, ppv: MutPtr): Hresult =
     windowssysWindowsWin32UiShellPropertiessystemSHGetPropertyStoreForWindow(hwnd.rawAddress.toCPointer<ByteVar>(), riid.rawAddress.toCPointer<ByteVar>(), ppv.rawAddress.toCPointer<ByteVar>())
 
-public actual fun sHGetPropertyStoreFromIDList(pidl: ConstPtr<Itemidlist>, flags: Getpropertystoreflags, riid: ConstPtr<Guid>, ppv: MutPtr<MutPtr<CVoid>>): Hresult =
+public actual fun sHGetPropertyStoreFromIDList(pidl: ConstPtr, flags: Getpropertystoreflags, riid: ConstPtr, ppv: MutPtr): Hresult =
     windowssysWindowsWin32UiShellPropertiessystemSHGetPropertyStoreFromIDList(pidl.rawAddress.toCPointer<ByteVar>(), flags, riid.rawAddress.toCPointer<ByteVar>(), ppv.rawAddress.toCPointer<ByteVar>())
 
-public actual fun sHGetPropertyStoreFromParsingName(pszpath: Pcwstr, pbc: MutPtr<CVoid>, flags: Getpropertystoreflags, riid: ConstPtr<Guid>, ppv: MutPtr<MutPtr<CVoid>>): Hresult =
+public actual fun sHGetPropertyStoreFromParsingName(pszpath: Pcwstr, pbc: MutPtr, flags: Getpropertystoreflags, riid: ConstPtr, ppv: MutPtr): Hresult =
     windowssysWindowsWin32UiShellPropertiessystemSHGetPropertyStoreFromParsingName(pszpath.rawAddress.toCPointer<ByteVar>(), pbc.rawAddress.toCPointer<ByteVar>(), flags, riid.rawAddress.toCPointer<ByteVar>(), ppv.rawAddress.toCPointer<ByteVar>())
 
-public actual fun sHPropStgCreate(psstg: MutPtr<CVoid>, fmtid: ConstPtr<Guid>, pclsid: ConstPtr<Guid>, grfflags: UInt, grfmode: UInt, dwdisposition: UInt, ppstg: MutPtr<MutPtr<CVoid>>, pucodepage: MutPtr<UInt>): Hresult =
+public actual fun sHPropStgCreate(psstg: MutPtr, fmtid: ConstPtr, pclsid: ConstPtr, grfflags: UInt, grfmode: UInt, dwdisposition: UInt, ppstg: MutPtr, pucodepage: MutPtr): Hresult =
     windowssysWindowsWin32UiShellPropertiessystemSHPropStgCreate(psstg.rawAddress.toCPointer<ByteVar>(), fmtid.rawAddress.toCPointer<ByteVar>(), pclsid.rawAddress.toCPointer<ByteVar>(), grfflags, grfmode, dwdisposition, ppstg.rawAddress.toCPointer<ByteVar>(), pucodepage.rawAddress.toCPointer<ByteVar>())
 
-public actual fun sHPropStgReadMultiple(pps: MutPtr<CVoid>, ucodepage: UInt, cpspec: UInt, rgpspec: ConstPtr<Propspec>, rgvar: MutPtr<Propvariant>): Hresult =
+public actual fun sHPropStgReadMultiple(pps: MutPtr, ucodepage: UInt, cpspec: UInt, rgpspec: ConstPtr, rgvar: MutPtr): Hresult =
     windowssysWindowsWin32UiShellPropertiessystemSHPropStgReadMultiple(pps.rawAddress.toCPointer<ByteVar>(), ucodepage, cpspec, rgpspec.rawAddress.toCPointer<ByteVar>(), rgvar.rawAddress.toCPointer<ByteVar>())
 
-public actual fun sHPropStgWriteMultiple(pps: MutPtr<CVoid>, pucodepage: MutPtr<UInt>, cpspec: UInt, rgpspec: ConstPtr<Propspec>, rgvar: MutPtr<Propvariant>, propidnamefirst: UInt): Hresult =
+public actual fun sHPropStgWriteMultiple(pps: MutPtr, pucodepage: MutPtr, cpspec: UInt, rgpspec: ConstPtr, rgvar: MutPtr, propidnamefirst: UInt): Hresult =
     windowssysWindowsWin32UiShellPropertiessystemSHPropStgWriteMultiple(pps.rawAddress.toCPointer<ByteVar>(), pucodepage.rawAddress.toCPointer<ByteVar>(), cpspec, rgpspec.rawAddress.toCPointer<ByteVar>(), rgvar.rawAddress.toCPointer<ByteVar>(), propidnamefirst)

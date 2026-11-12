@@ -24,8 +24,8 @@ private object WindowsWin32SystemRestoreJniBridge {
 public actual fun sRRemoveRestorePoint(dwrpnum: UInt): UInt =
     WindowsWin32SystemRestoreJniBridge.windowssysWindowsWin32SystemRestoreSRRemoveRestorePoint(dwrpnum.toInt()).toUInt()
 
-public actual fun sRSetRestorePointA(prestoreptspec: ConstPtr<Restorepointinfoa>, psmgrstatus: MutPtr<Statemgrstatus>): Bool =
+public actual fun sRSetRestorePointA(prestoreptspec: ConstPtr, psmgrstatus: MutPtr): Bool =
     WindowsWin32SystemRestoreJniBridge.windowssysWindowsWin32SystemRestoreSRSetRestorePointA(prestoreptspec.rawAddress, psmgrstatus.rawAddress)
 
-public actual fun sRSetRestorePointW(prestoreptspec: ConstPtr<Restorepointinfow>, psmgrstatus: MutPtr<Statemgrstatus>): Bool =
+public actual fun sRSetRestorePointW(prestoreptspec: ConstPtr, psmgrstatus: MutPtr): Bool =
     WindowsWin32SystemRestoreJniBridge.windowssysWindowsWin32SystemRestoreSRSetRestorePointW(prestoreptspec.rawAddress, psmgrstatus.rawAddress)

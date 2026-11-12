@@ -1,6 +1,5 @@
 package io.github.kotlinmania.windowssys.windows.win32.devices.deviceanddriverinstallation
 
-import io.github.kotlinmania.rustlang.core.ffi.CVoid
 import io.github.kotlinmania.rustlang.core.ptr.ConstPtr
 import io.github.kotlinmania.rustlang.core.ptr.MutPtr
 import io.github.kotlinmania.windowssys.core.Bool
@@ -51,7 +50,7 @@ public typealias DiFunction = UInt
 
 public typealias FileCompressionType = UInt
 
-public typealias Hcmnotification = MutPtr<CVoid>
+public typealias Hcmnotification = MutPtr
 
 public typealias Hdevinfo = Long
 
@@ -68,13 +67,13 @@ public typealias OemSourceMediaType = UInt
 public typealias PcdFlags = UInt
 
 public fun interface PcmNotifyCallbackFn {
-    public operator fun invoke(hnotify: Hcmnotification, context: ConstPtr<CVoid>, action: CmNotifyAction, eventdata: ConstPtr<CmNotifyEventData>, eventdatasize: UInt): UInt
+    public operator fun invoke(hnotify: Hcmnotification, context: ConstPtr, action: CmNotifyAction, eventdata: ConstPtr, eventdatasize: UInt): UInt
 }
 
 public typealias PcmNotifyCallback = PcmNotifyCallbackFn?
 
 public fun interface PdetectProgressNotifyFn {
-    public operator fun invoke(progressnotifyparam: ConstPtr<CVoid>, detectcomplete: UInt): Bool
+    public operator fun invoke(progressnotifyparam: ConstPtr, detectcomplete: UInt): Bool
 }
 
 public typealias PdetectProgressNotify = PdetectProgressNotifyFn?
@@ -84,19 +83,19 @@ public typealias PmfFlags = UInt
 public typealias PnpVetoType = Int
 
 public fun interface PspDetsigCmpprocFn {
-    public operator fun invoke(deviceinfoset: Hdevinfo, newdevicedata: ConstPtr<SpDevinfoData>, existingdevicedata: ConstPtr<SpDevinfoData>, comparecontext: ConstPtr<CVoid>): UInt
+    public operator fun invoke(deviceinfoset: Hdevinfo, newdevicedata: ConstPtr, existingdevicedata: ConstPtr, comparecontext: ConstPtr): UInt
 }
 
 public typealias PspDetsigCmpproc = PspDetsigCmpprocFn?
 
 public fun interface PspFileCallbackAFn {
-    public operator fun invoke(context: ConstPtr<CVoid>, notification: UInt, param1: ULong, param2: ULong): UInt
+    public operator fun invoke(context: ConstPtr, notification: UInt, param1: ULong, param2: ULong): UInt
 }
 
 public typealias PspFileCallbackA = PspFileCallbackAFn?
 
 public fun interface PspFileCallbackWFn {
-    public operator fun invoke(context: ConstPtr<CVoid>, notification: UInt, param1: ULong, param2: ULong): UInt
+    public operator fun invoke(context: ConstPtr, notification: UInt, param1: ULong, param2: ULong): UInt
 }
 
 public typealias PspFileCallbackW = PspFileCallbackWFn?

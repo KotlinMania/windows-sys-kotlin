@@ -2,7 +2,6 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.system.console
 
-import io.github.kotlinmania.rustlang.core.ffi.CVoid
 import io.github.kotlinmania.rustlang.core.ptr.ConstPtr
 import io.github.kotlinmania.rustlang.core.ptr.MutPtr
 import io.github.kotlinmania.windowssys.core.Bool
@@ -14,7 +13,6 @@ import io.github.kotlinmania.windowssys.core.Pwstr
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Handle
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Hwnd
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Ntstatus
-import io.github.kotlinmania.windowssys.windows.win32.security.SecurityAttributes
 
 private object WindowsWin32SystemConsoleJniBridge {
     init {
@@ -260,13 +258,13 @@ public actual fun closePseudoConsole(hpc: Hpcon) {
     WindowsWin32SystemConsoleJniBridge.windowssysWindowsWin32SystemConsoleClosePseudoConsole(hpc)
 }
 
-public actual fun consoleControl(command: Consolecontrol, consoleinformation: ConstPtr<CVoid>, consoleinformationlength: UInt): Ntstatus =
+public actual fun consoleControl(command: Consolecontrol, consoleinformation: ConstPtr, consoleinformationlength: UInt): Ntstatus =
     WindowsWin32SystemConsoleJniBridge.windowssysWindowsWin32SystemConsoleConsoleControl(command, consoleinformation.rawAddress, consoleinformationlength.toInt())
 
-public actual fun createConsoleScreenBuffer(dwdesiredaccess: UInt, dwsharemode: UInt, lpsecurityattributes: ConstPtr<SecurityAttributes>, dwflags: UInt, lpscreenbufferdata: ConstPtr<CVoid>): Handle =
+public actual fun createConsoleScreenBuffer(dwdesiredaccess: UInt, dwsharemode: UInt, lpsecurityattributes: ConstPtr, dwflags: UInt, lpscreenbufferdata: ConstPtr): Handle =
     MutPtr(WindowsWin32SystemConsoleJniBridge.windowssysWindowsWin32SystemConsoleCreateConsoleScreenBuffer(dwdesiredaccess.toInt(), dwsharemode.toInt(), lpsecurityattributes.rawAddress, dwflags.toInt(), lpscreenbufferdata.rawAddress))
 
-public actual fun createPseudoConsole(size: Coord, hinput: Handle, houtput: Handle, dwflags: UInt, phpc: MutPtr<Hpcon>): Hresult =
+public actual fun createPseudoConsole(size: Coord, hinput: Handle, houtput: Handle, dwflags: UInt, phpc: MutPtr): Hresult =
     0
 
 public actual fun expungeConsoleCommandHistoryA(exename: Pcstr) {
@@ -277,13 +275,13 @@ public actual fun expungeConsoleCommandHistoryW(exename: Pcwstr) {
     WindowsWin32SystemConsoleJniBridge.windowssysWindowsWin32SystemConsoleExpungeConsoleCommandHistoryW(exename.rawAddress)
 }
 
-public actual fun fillConsoleOutputAttribute(hconsoleoutput: Handle, wattribute: UShort, nlength: UInt, dwwritecoord: Coord, lpnumberofattrswritten: MutPtr<UInt>): Bool =
+public actual fun fillConsoleOutputAttribute(hconsoleoutput: Handle, wattribute: UShort, nlength: UInt, dwwritecoord: Coord, lpnumberofattrswritten: MutPtr): Bool =
     0
 
-public actual fun fillConsoleOutputCharacterA(hconsoleoutput: Handle, ccharacter: Byte, nlength: UInt, dwwritecoord: Coord, lpnumberofcharswritten: MutPtr<UInt>): Bool =
+public actual fun fillConsoleOutputCharacterA(hconsoleoutput: Handle, ccharacter: Byte, nlength: UInt, dwwritecoord: Coord, lpnumberofcharswritten: MutPtr): Bool =
     0
 
-public actual fun fillConsoleOutputCharacterW(hconsoleoutput: Handle, ccharacter: UShort, nlength: UInt, dwwritecoord: Coord, lpnumberofcharswritten: MutPtr<UInt>): Bool =
+public actual fun fillConsoleOutputCharacterW(hconsoleoutput: Handle, ccharacter: UShort, nlength: UInt, dwwritecoord: Coord, lpnumberofcharswritten: MutPtr): Bool =
     0
 
 public actual fun flushConsoleInputBuffer(hconsoleinput: Handle): Bool =
@@ -340,19 +338,19 @@ public actual fun getConsoleCommandHistoryLengthW(exename: Pcwstr): UInt =
 public actual fun getConsoleCommandHistoryW(commands: Pwstr, commandbufferlength: UInt, exename: Pcwstr): UInt =
     WindowsWin32SystemConsoleJniBridge.windowssysWindowsWin32SystemConsoleGetConsoleCommandHistoryW(commands.rawAddress, commandbufferlength.toInt(), exename.rawAddress).toUInt()
 
-public actual fun getConsoleCursorInfo(hconsoleoutput: Handle, lpconsolecursorinfo: MutPtr<ConsoleCursorInfo>): Bool =
+public actual fun getConsoleCursorInfo(hconsoleoutput: Handle, lpconsolecursorinfo: MutPtr): Bool =
     WindowsWin32SystemConsoleJniBridge.windowssysWindowsWin32SystemConsoleGetConsoleCursorInfo(hconsoleoutput.rawAddress, lpconsolecursorinfo.rawAddress)
 
-public actual fun getConsoleDisplayMode(lpmodeflags: MutPtr<UInt>): Bool =
+public actual fun getConsoleDisplayMode(lpmodeflags: MutPtr): Bool =
     WindowsWin32SystemConsoleJniBridge.windowssysWindowsWin32SystemConsoleGetConsoleDisplayMode(lpmodeflags.rawAddress)
 
 public actual fun getConsoleFontSize(hconsoleoutput: Handle, nfont: UInt): Coord =
     Coord()
 
-public actual fun getConsoleHistoryInfo(lpconsolehistoryinfo: MutPtr<ConsoleHistoryInfo>): Bool =
+public actual fun getConsoleHistoryInfo(lpconsolehistoryinfo: MutPtr): Bool =
     WindowsWin32SystemConsoleJniBridge.windowssysWindowsWin32SystemConsoleGetConsoleHistoryInfo(lpconsolehistoryinfo.rawAddress)
 
-public actual fun getConsoleMode(hconsolehandle: Handle, lpmode: MutPtr<ConsoleMode>): Bool =
+public actual fun getConsoleMode(hconsolehandle: Handle, lpmode: MutPtr): Bool =
     WindowsWin32SystemConsoleJniBridge.windowssysWindowsWin32SystemConsoleGetConsoleMode(hconsolehandle.rawAddress, lpmode.rawAddress)
 
 public actual fun getConsoleOriginalTitleA(lpconsoletitle: Pstr, nsize: UInt): UInt =
@@ -364,16 +362,16 @@ public actual fun getConsoleOriginalTitleW(lpconsoletitle: Pwstr, nsize: UInt): 
 public actual fun getConsoleOutputCP(): UInt =
     WindowsWin32SystemConsoleJniBridge.windowssysWindowsWin32SystemConsoleGetConsoleOutputCP().toUInt()
 
-public actual fun getConsoleProcessList(lpdwprocesslist: MutPtr<UInt>, dwprocesscount: UInt): UInt =
+public actual fun getConsoleProcessList(lpdwprocesslist: MutPtr, dwprocesscount: UInt): UInt =
     WindowsWin32SystemConsoleJniBridge.windowssysWindowsWin32SystemConsoleGetConsoleProcessList(lpdwprocesslist.rawAddress, dwprocesscount.toInt()).toUInt()
 
-public actual fun getConsoleScreenBufferInfo(hconsoleoutput: Handle, lpconsolescreenbufferinfo: MutPtr<ConsoleScreenBufferInfo>): Bool =
+public actual fun getConsoleScreenBufferInfo(hconsoleoutput: Handle, lpconsolescreenbufferinfo: MutPtr): Bool =
     WindowsWin32SystemConsoleJniBridge.windowssysWindowsWin32SystemConsoleGetConsoleScreenBufferInfo(hconsoleoutput.rawAddress, lpconsolescreenbufferinfo.rawAddress)
 
-public actual fun getConsoleScreenBufferInfoEx(hconsoleoutput: Handle, lpconsolescreenbufferinfoex: MutPtr<ConsoleScreenBufferInfoex>): Bool =
+public actual fun getConsoleScreenBufferInfoEx(hconsoleoutput: Handle, lpconsolescreenbufferinfoex: MutPtr): Bool =
     WindowsWin32SystemConsoleJniBridge.windowssysWindowsWin32SystemConsoleGetConsoleScreenBufferInfoEx(hconsoleoutput.rawAddress, lpconsolescreenbufferinfoex.rawAddress)
 
-public actual fun getConsoleSelectionInfo(lpconsoleselectioninfo: MutPtr<ConsoleSelectionInfo>): Bool =
+public actual fun getConsoleSelectionInfo(lpconsoleselectioninfo: MutPtr): Bool =
     WindowsWin32SystemConsoleJniBridge.windowssysWindowsWin32SystemConsoleGetConsoleSelectionInfo(lpconsoleselectioninfo.rawAddress)
 
 public actual fun getConsoleTitleA(lpconsoletitle: Pstr, nsize: UInt): UInt =
@@ -385,64 +383,64 @@ public actual fun getConsoleTitleW(lpconsoletitle: Pwstr, nsize: UInt): UInt =
 public actual fun getConsoleWindow(): Hwnd =
     MutPtr(WindowsWin32SystemConsoleJniBridge.windowssysWindowsWin32SystemConsoleGetConsoleWindow())
 
-public actual fun getCurrentConsoleFont(hconsoleoutput: Handle, bmaximumwindow: Bool, lpconsolecurrentfont: MutPtr<ConsoleFontInfo>): Bool =
+public actual fun getCurrentConsoleFont(hconsoleoutput: Handle, bmaximumwindow: Bool, lpconsolecurrentfont: MutPtr): Bool =
     WindowsWin32SystemConsoleJniBridge.windowssysWindowsWin32SystemConsoleGetCurrentConsoleFont(hconsoleoutput.rawAddress, bmaximumwindow, lpconsolecurrentfont.rawAddress)
 
-public actual fun getCurrentConsoleFontEx(hconsoleoutput: Handle, bmaximumwindow: Bool, lpconsolecurrentfontex: MutPtr<ConsoleFontInfoex>): Bool =
+public actual fun getCurrentConsoleFontEx(hconsoleoutput: Handle, bmaximumwindow: Bool, lpconsolecurrentfontex: MutPtr): Bool =
     WindowsWin32SystemConsoleJniBridge.windowssysWindowsWin32SystemConsoleGetCurrentConsoleFontEx(hconsoleoutput.rawAddress, bmaximumwindow, lpconsolecurrentfontex.rawAddress)
 
 public actual fun getLargestConsoleWindowSize(hconsoleoutput: Handle): Coord =
     Coord()
 
-public actual fun getNumberOfConsoleInputEvents(hconsoleinput: Handle, lpnumberofevents: MutPtr<UInt>): Bool =
+public actual fun getNumberOfConsoleInputEvents(hconsoleinput: Handle, lpnumberofevents: MutPtr): Bool =
     WindowsWin32SystemConsoleJniBridge.windowssysWindowsWin32SystemConsoleGetNumberOfConsoleInputEvents(hconsoleinput.rawAddress, lpnumberofevents.rawAddress)
 
-public actual fun getNumberOfConsoleMouseButtons(lpnumberofmousebuttons: MutPtr<UInt>): Bool =
+public actual fun getNumberOfConsoleMouseButtons(lpnumberofmousebuttons: MutPtr): Bool =
     WindowsWin32SystemConsoleJniBridge.windowssysWindowsWin32SystemConsoleGetNumberOfConsoleMouseButtons(lpnumberofmousebuttons.rawAddress)
 
 public actual fun getStdHandle(nstdhandle: StdHandle): Handle =
     MutPtr(WindowsWin32SystemConsoleJniBridge.windowssysWindowsWin32SystemConsoleGetStdHandle(nstdhandle.toInt()))
 
-public actual fun peekConsoleInputA(hconsoleinput: Handle, lpbuffer: MutPtr<InputRecord>, nlength: UInt, lpnumberofeventsread: MutPtr<UInt>): Bool =
+public actual fun peekConsoleInputA(hconsoleinput: Handle, lpbuffer: MutPtr, nlength: UInt, lpnumberofeventsread: MutPtr): Bool =
     WindowsWin32SystemConsoleJniBridge.windowssysWindowsWin32SystemConsolePeekConsoleInputA(hconsoleinput.rawAddress, lpbuffer.rawAddress, nlength.toInt(), lpnumberofeventsread.rawAddress)
 
-public actual fun peekConsoleInputW(hconsoleinput: Handle, lpbuffer: MutPtr<InputRecord>, nlength: UInt, lpnumberofeventsread: MutPtr<UInt>): Bool =
+public actual fun peekConsoleInputW(hconsoleinput: Handle, lpbuffer: MutPtr, nlength: UInt, lpnumberofeventsread: MutPtr): Bool =
     WindowsWin32SystemConsoleJniBridge.windowssysWindowsWin32SystemConsolePeekConsoleInputW(hconsoleinput.rawAddress, lpbuffer.rawAddress, nlength.toInt(), lpnumberofeventsread.rawAddress)
 
-public actual fun readConsoleA(hconsoleinput: Handle, lpbuffer: MutPtr<CVoid>, nnumberofcharstoread: UInt, lpnumberofcharsread: MutPtr<UInt>, pinputcontrol: ConstPtr<ConsoleReadconsoleControl>): Bool =
+public actual fun readConsoleA(hconsoleinput: Handle, lpbuffer: MutPtr, nnumberofcharstoread: UInt, lpnumberofcharsread: MutPtr, pinputcontrol: ConstPtr): Bool =
     WindowsWin32SystemConsoleJniBridge.windowssysWindowsWin32SystemConsoleReadConsoleA(hconsoleinput.rawAddress, lpbuffer.rawAddress, nnumberofcharstoread.toInt(), lpnumberofcharsread.rawAddress, pinputcontrol.rawAddress)
 
-public actual fun readConsoleInputA(hconsoleinput: Handle, lpbuffer: MutPtr<InputRecord>, nlength: UInt, lpnumberofeventsread: MutPtr<UInt>): Bool =
+public actual fun readConsoleInputA(hconsoleinput: Handle, lpbuffer: MutPtr, nlength: UInt, lpnumberofeventsread: MutPtr): Bool =
     WindowsWin32SystemConsoleJniBridge.windowssysWindowsWin32SystemConsoleReadConsoleInputA(hconsoleinput.rawAddress, lpbuffer.rawAddress, nlength.toInt(), lpnumberofeventsread.rawAddress)
 
-public actual fun readConsoleInputW(hconsoleinput: Handle, lpbuffer: MutPtr<InputRecord>, nlength: UInt, lpnumberofeventsread: MutPtr<UInt>): Bool =
+public actual fun readConsoleInputW(hconsoleinput: Handle, lpbuffer: MutPtr, nlength: UInt, lpnumberofeventsread: MutPtr): Bool =
     WindowsWin32SystemConsoleJniBridge.windowssysWindowsWin32SystemConsoleReadConsoleInputW(hconsoleinput.rawAddress, lpbuffer.rawAddress, nlength.toInt(), lpnumberofeventsread.rawAddress)
 
-public actual fun readConsoleOutputA(hconsoleoutput: Handle, lpbuffer: MutPtr<CharInfo>, dwbuffersize: Coord, dwbuffercoord: Coord, lpreadregion: MutPtr<SmallRect>): Bool =
+public actual fun readConsoleOutputA(hconsoleoutput: Handle, lpbuffer: MutPtr, dwbuffersize: Coord, dwbuffercoord: Coord, lpreadregion: MutPtr): Bool =
     0
 
-public actual fun readConsoleOutputAttribute(hconsoleoutput: Handle, lpattribute: MutPtr<UShort>, nlength: UInt, dwreadcoord: Coord, lpnumberofattrsread: MutPtr<UInt>): Bool =
+public actual fun readConsoleOutputAttribute(hconsoleoutput: Handle, lpattribute: MutPtr, nlength: UInt, dwreadcoord: Coord, lpnumberofattrsread: MutPtr): Bool =
     0
 
-public actual fun readConsoleOutputCharacterA(hconsoleoutput: Handle, lpcharacter: Pstr, nlength: UInt, dwreadcoord: Coord, lpnumberofcharsread: MutPtr<UInt>): Bool =
+public actual fun readConsoleOutputCharacterA(hconsoleoutput: Handle, lpcharacter: Pstr, nlength: UInt, dwreadcoord: Coord, lpnumberofcharsread: MutPtr): Bool =
     0
 
-public actual fun readConsoleOutputCharacterW(hconsoleoutput: Handle, lpcharacter: Pwstr, nlength: UInt, dwreadcoord: Coord, lpnumberofcharsread: MutPtr<UInt>): Bool =
+public actual fun readConsoleOutputCharacterW(hconsoleoutput: Handle, lpcharacter: Pwstr, nlength: UInt, dwreadcoord: Coord, lpnumberofcharsread: MutPtr): Bool =
     0
 
-public actual fun readConsoleOutputW(hconsoleoutput: Handle, lpbuffer: MutPtr<CharInfo>, dwbuffersize: Coord, dwbuffercoord: Coord, lpreadregion: MutPtr<SmallRect>): Bool =
+public actual fun readConsoleOutputW(hconsoleoutput: Handle, lpbuffer: MutPtr, dwbuffersize: Coord, dwbuffercoord: Coord, lpreadregion: MutPtr): Bool =
     0
 
-public actual fun readConsoleW(hconsoleinput: Handle, lpbuffer: MutPtr<CVoid>, nnumberofcharstoread: UInt, lpnumberofcharsread: MutPtr<UInt>, pinputcontrol: ConstPtr<ConsoleReadconsoleControl>): Bool =
+public actual fun readConsoleW(hconsoleinput: Handle, lpbuffer: MutPtr, nnumberofcharstoread: UInt, lpnumberofcharsread: MutPtr, pinputcontrol: ConstPtr): Bool =
     WindowsWin32SystemConsoleJniBridge.windowssysWindowsWin32SystemConsoleReadConsoleW(hconsoleinput.rawAddress, lpbuffer.rawAddress, nnumberofcharstoread.toInt(), lpnumberofcharsread.rawAddress, pinputcontrol.rawAddress)
 
 public actual fun resizePseudoConsole(hpc: Hpcon, size: Coord): Hresult =
     0
 
-public actual fun scrollConsoleScreenBufferA(hconsoleoutput: Handle, lpscrollrectangle: ConstPtr<SmallRect>, lpcliprectangle: ConstPtr<SmallRect>, dwdestinationorigin: Coord, lpfill: ConstPtr<CharInfo>): Bool =
+public actual fun scrollConsoleScreenBufferA(hconsoleoutput: Handle, lpscrollrectangle: ConstPtr, lpcliprectangle: ConstPtr, dwdestinationorigin: Coord, lpfill: ConstPtr): Bool =
     0
 
-public actual fun scrollConsoleScreenBufferW(hconsoleoutput: Handle, lpscrollrectangle: ConstPtr<SmallRect>, lpcliprectangle: ConstPtr<SmallRect>, dwdestinationorigin: Coord, lpfill: ConstPtr<CharInfo>): Bool =
+public actual fun scrollConsoleScreenBufferW(hconsoleoutput: Handle, lpscrollrectangle: ConstPtr, lpcliprectangle: ConstPtr, dwdestinationorigin: Coord, lpfill: ConstPtr): Bool =
     0
 
 public actual fun setConsoleActiveScreenBuffer(hconsoleoutput: Handle): Bool =
@@ -454,16 +452,16 @@ public actual fun setConsoleCP(wcodepageid: UInt): Bool =
 public actual fun setConsoleCtrlHandler(handlerroutine: PhandlerRoutine, add: Bool): Bool =
     WindowsWin32SystemConsoleJniBridge.windowssysWindowsWin32SystemConsoleSetConsoleCtrlHandler(0L, add)
 
-public actual fun setConsoleCursorInfo(hconsoleoutput: Handle, lpconsolecursorinfo: ConstPtr<ConsoleCursorInfo>): Bool =
+public actual fun setConsoleCursorInfo(hconsoleoutput: Handle, lpconsolecursorinfo: ConstPtr): Bool =
     WindowsWin32SystemConsoleJniBridge.windowssysWindowsWin32SystemConsoleSetConsoleCursorInfo(hconsoleoutput.rawAddress, lpconsolecursorinfo.rawAddress)
 
 public actual fun setConsoleCursorPosition(hconsoleoutput: Handle, dwcursorposition: Coord): Bool =
     0
 
-public actual fun setConsoleDisplayMode(hconsoleoutput: Handle, dwflags: UInt, lpnewscreenbufferdimensions: MutPtr<Coord>): Bool =
+public actual fun setConsoleDisplayMode(hconsoleoutput: Handle, dwflags: UInt, lpnewscreenbufferdimensions: MutPtr): Bool =
     WindowsWin32SystemConsoleJniBridge.windowssysWindowsWin32SystemConsoleSetConsoleDisplayMode(hconsoleoutput.rawAddress, dwflags.toInt(), lpnewscreenbufferdimensions.rawAddress)
 
-public actual fun setConsoleHistoryInfo(lpconsolehistoryinfo: ConstPtr<ConsoleHistoryInfo>): Bool =
+public actual fun setConsoleHistoryInfo(lpconsolehistoryinfo: ConstPtr): Bool =
     WindowsWin32SystemConsoleJniBridge.windowssysWindowsWin32SystemConsoleSetConsoleHistoryInfo(lpconsolehistoryinfo.rawAddress)
 
 public actual fun setConsoleMode(hconsolehandle: Handle, dwmode: ConsoleMode): Bool =
@@ -478,7 +476,7 @@ public actual fun setConsoleNumberOfCommandsW(number: UInt, exename: Pcwstr): Bo
 public actual fun setConsoleOutputCP(wcodepageid: UInt): Bool =
     WindowsWin32SystemConsoleJniBridge.windowssysWindowsWin32SystemConsoleSetConsoleOutputCP(wcodepageid.toInt())
 
-public actual fun setConsoleScreenBufferInfoEx(hconsoleoutput: Handle, lpconsolescreenbufferinfoex: ConstPtr<ConsoleScreenBufferInfoex>): Bool =
+public actual fun setConsoleScreenBufferInfoEx(hconsoleoutput: Handle, lpconsolescreenbufferinfoex: ConstPtr): Bool =
     WindowsWin32SystemConsoleJniBridge.windowssysWindowsWin32SystemConsoleSetConsoleScreenBufferInfoEx(hconsoleoutput.rawAddress, lpconsolescreenbufferinfoex.rawAddress)
 
 public actual fun setConsoleScreenBufferSize(hconsoleoutput: Handle, dwsize: Coord): Bool =
@@ -493,41 +491,41 @@ public actual fun setConsoleTitleA(lpconsoletitle: Pcstr): Bool =
 public actual fun setConsoleTitleW(lpconsoletitle: Pcwstr): Bool =
     WindowsWin32SystemConsoleJniBridge.windowssysWindowsWin32SystemConsoleSetConsoleTitleW(lpconsoletitle.rawAddress)
 
-public actual fun setConsoleWindowInfo(hconsoleoutput: Handle, babsolute: Bool, lpconsolewindow: ConstPtr<SmallRect>): Bool =
+public actual fun setConsoleWindowInfo(hconsoleoutput: Handle, babsolute: Bool, lpconsolewindow: ConstPtr): Bool =
     WindowsWin32SystemConsoleJniBridge.windowssysWindowsWin32SystemConsoleSetConsoleWindowInfo(hconsoleoutput.rawAddress, babsolute, lpconsolewindow.rawAddress)
 
-public actual fun setCurrentConsoleFontEx(hconsoleoutput: Handle, bmaximumwindow: Bool, lpconsolecurrentfontex: ConstPtr<ConsoleFontInfoex>): Bool =
+public actual fun setCurrentConsoleFontEx(hconsoleoutput: Handle, bmaximumwindow: Bool, lpconsolecurrentfontex: ConstPtr): Bool =
     WindowsWin32SystemConsoleJniBridge.windowssysWindowsWin32SystemConsoleSetCurrentConsoleFontEx(hconsoleoutput.rawAddress, bmaximumwindow, lpconsolecurrentfontex.rawAddress)
 
 public actual fun setStdHandle(nstdhandle: StdHandle, hhandle: Handle): Bool =
     WindowsWin32SystemConsoleJniBridge.windowssysWindowsWin32SystemConsoleSetStdHandle(nstdhandle.toInt(), hhandle.rawAddress)
 
-public actual fun setStdHandleEx(nstdhandle: StdHandle, hhandle: Handle, phprevvalue: MutPtr<Handle>): Bool =
+public actual fun setStdHandleEx(nstdhandle: StdHandle, hhandle: Handle, phprevvalue: MutPtr): Bool =
     WindowsWin32SystemConsoleJniBridge.windowssysWindowsWin32SystemConsoleSetStdHandleEx(nstdhandle.toInt(), hhandle.rawAddress, phprevvalue.rawAddress)
 
-public actual fun writeConsoleA(hconsoleoutput: Handle, lpbuffer: Pcstr, nnumberofcharstowrite: UInt, lpnumberofcharswritten: MutPtr<UInt>, lpreserved: ConstPtr<CVoid>): Bool =
+public actual fun writeConsoleA(hconsoleoutput: Handle, lpbuffer: Pcstr, nnumberofcharstowrite: UInt, lpnumberofcharswritten: MutPtr, lpreserved: ConstPtr): Bool =
     WindowsWin32SystemConsoleJniBridge.windowssysWindowsWin32SystemConsoleWriteConsoleA(hconsoleoutput.rawAddress, lpbuffer.rawAddress, nnumberofcharstowrite.toInt(), lpnumberofcharswritten.rawAddress, lpreserved.rawAddress)
 
-public actual fun writeConsoleInputA(hconsoleinput: Handle, lpbuffer: ConstPtr<InputRecord>, nlength: UInt, lpnumberofeventswritten: MutPtr<UInt>): Bool =
+public actual fun writeConsoleInputA(hconsoleinput: Handle, lpbuffer: ConstPtr, nlength: UInt, lpnumberofeventswritten: MutPtr): Bool =
     WindowsWin32SystemConsoleJniBridge.windowssysWindowsWin32SystemConsoleWriteConsoleInputA(hconsoleinput.rawAddress, lpbuffer.rawAddress, nlength.toInt(), lpnumberofeventswritten.rawAddress)
 
-public actual fun writeConsoleInputW(hconsoleinput: Handle, lpbuffer: ConstPtr<InputRecord>, nlength: UInt, lpnumberofeventswritten: MutPtr<UInt>): Bool =
+public actual fun writeConsoleInputW(hconsoleinput: Handle, lpbuffer: ConstPtr, nlength: UInt, lpnumberofeventswritten: MutPtr): Bool =
     WindowsWin32SystemConsoleJniBridge.windowssysWindowsWin32SystemConsoleWriteConsoleInputW(hconsoleinput.rawAddress, lpbuffer.rawAddress, nlength.toInt(), lpnumberofeventswritten.rawAddress)
 
-public actual fun writeConsoleOutputA(hconsoleoutput: Handle, lpbuffer: ConstPtr<CharInfo>, dwbuffersize: Coord, dwbuffercoord: Coord, lpwriteregion: MutPtr<SmallRect>): Bool =
+public actual fun writeConsoleOutputA(hconsoleoutput: Handle, lpbuffer: ConstPtr, dwbuffersize: Coord, dwbuffercoord: Coord, lpwriteregion: MutPtr): Bool =
     0
 
-public actual fun writeConsoleOutputAttribute(hconsoleoutput: Handle, lpattribute: ConstPtr<UShort>, nlength: UInt, dwwritecoord: Coord, lpnumberofattrswritten: MutPtr<UInt>): Bool =
+public actual fun writeConsoleOutputAttribute(hconsoleoutput: Handle, lpattribute: ConstPtr, nlength: UInt, dwwritecoord: Coord, lpnumberofattrswritten: MutPtr): Bool =
     0
 
-public actual fun writeConsoleOutputCharacterA(hconsoleoutput: Handle, lpcharacter: Pcstr, nlength: UInt, dwwritecoord: Coord, lpnumberofcharswritten: MutPtr<UInt>): Bool =
+public actual fun writeConsoleOutputCharacterA(hconsoleoutput: Handle, lpcharacter: Pcstr, nlength: UInt, dwwritecoord: Coord, lpnumberofcharswritten: MutPtr): Bool =
     0
 
-public actual fun writeConsoleOutputCharacterW(hconsoleoutput: Handle, lpcharacter: Pcwstr, nlength: UInt, dwwritecoord: Coord, lpnumberofcharswritten: MutPtr<UInt>): Bool =
+public actual fun writeConsoleOutputCharacterW(hconsoleoutput: Handle, lpcharacter: Pcwstr, nlength: UInt, dwwritecoord: Coord, lpnumberofcharswritten: MutPtr): Bool =
     0
 
-public actual fun writeConsoleOutputW(hconsoleoutput: Handle, lpbuffer: ConstPtr<CharInfo>, dwbuffersize: Coord, dwbuffercoord: Coord, lpwriteregion: MutPtr<SmallRect>): Bool =
+public actual fun writeConsoleOutputW(hconsoleoutput: Handle, lpbuffer: ConstPtr, dwbuffersize: Coord, dwbuffercoord: Coord, lpwriteregion: MutPtr): Bool =
     0
 
-public actual fun writeConsoleW(hconsoleoutput: Handle, lpbuffer: Pcwstr, nnumberofcharstowrite: UInt, lpnumberofcharswritten: MutPtr<UInt>, lpreserved: ConstPtr<CVoid>): Bool =
+public actual fun writeConsoleW(hconsoleoutput: Handle, lpbuffer: Pcwstr, nnumberofcharstowrite: UInt, lpnumberofcharswritten: MutPtr, lpreserved: ConstPtr): Bool =
     WindowsWin32SystemConsoleJniBridge.windowssysWindowsWin32SystemConsoleWriteConsoleW(hconsoleoutput.rawAddress, lpbuffer.rawAddress, nnumberofcharstowrite.toInt(), lpnumberofcharswritten.rawAddress, lpreserved.rawAddress)

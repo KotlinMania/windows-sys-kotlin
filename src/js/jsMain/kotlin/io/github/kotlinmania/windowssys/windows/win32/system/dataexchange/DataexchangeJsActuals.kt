@@ -14,7 +14,6 @@ import io.github.kotlinmania.windowssys.windows.win32.foundation.Hwnd
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Lparam
 import io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.Hdc
 import io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.Henhmetafile
-import io.github.kotlinmania.windowssys.windows.win32.security.SecurityQualityOfService
 
 private val windowsWin32SystemDataexchangeNapiAddon: dynamic =
     js("(function() { if (typeof globalThis !== 'undefined' && typeof globalThis.__km_napi_windowssys !== 'undefined') return globalThis.__km_napi_windowssys; if (typeof process === 'undefined' || !process.versions || !process.versions.node) return null; var mod = process.getBuiltinModule ? process.getBuiltinModule('module') : (process.mainModule && process.mainModule.constructor); var req = (mod && mod.createRequire) ? mod.createRequire((process.cwd ? process.cwd() : '.') + '/package.json') : (process.mainModule ? process.mainModule.require : null); if (!req) return null; try { var pkg = req('@kotlinmania/windowssys-native-bindings'); if (typeof globalThis !== 'undefined') globalThis.__km_napi_windowssys = pkg; return pkg; } catch (_) {} var fs = req('fs'); var path = req('path'); var dir = process.cwd ? process.cwd() : '.'; var rels = ['windowssys_native.node', 'build/node-ffi/windowssys_native.node', 'build/node-ffi/release/windowssys_native.node', 'build/node-ffi/debug/windowssys_native.node', 'src/js/node-windowssys/build/Release/windowssys_native.node', 'src/js/node-windowssys/build/Debug/windowssys_native.node', 'src/js/node-windowssys/dist/build/Release/windowssys_native.node', 'src/js/node-windowssys/dist/build/Debug/windowssys_native.node']; for (var d = 0; d < 8; d++) { for (var i = 0; i < rels.length; i++) { var c = path.resolve(dir, rels[i]); if (fs.existsSync(c)) { var loaded = req(c); if (typeof globalThis !== 'undefined') globalThis.__km_napi_windowssys = loaded; return loaded; } } var parent = path.dirname(dir); if (parent === dir) break; dir = parent; } if (typeof globalThis !== 'undefined') globalThis.__km_napi_windowssys = null; return null; })()")
@@ -40,25 +39,25 @@ public actual fun countClipboardFormats(): Int =
 public actual fun ddeAbandonTransaction(idinst: UInt, hconv: Hconv, idtransaction: UInt): Bool =
     if (windowsWin32SystemDataexchangeNapiAddon != null) (windowsWin32SystemDataexchangeNapiAddon.windowssysWindowsWin32SystemDataexchangeDdeAbandonTransaction(idinst.toInt(), hconv.rawAddress.toString(), idtransaction.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ddeAccessData(hdata: Hddedata, pcbdatasize: MutPtr<UInt>): MutPtr<UByte> =
+public actual fun ddeAccessData(hdata: Hddedata, pcbdatasize: MutPtr): MutPtr =
     if (windowsWin32SystemDataexchangeNapiAddon != null) MutPtr((windowsWin32SystemDataexchangeNapiAddon.windowssysWindowsWin32SystemDataexchangeDdeAccessData(hdata.rawAddress.toString(), pcbdatasize.rawAddress.toString()) as String).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ddeAddData(hdata: Hddedata, psrc: ConstPtr<UByte>, cb: UInt, cboff: UInt): Hddedata =
+public actual fun ddeAddData(hdata: Hddedata, psrc: ConstPtr, cb: UInt, cboff: UInt): Hddedata =
     if (windowsWin32SystemDataexchangeNapiAddon != null) MutPtr((windowsWin32SystemDataexchangeNapiAddon.windowssysWindowsWin32SystemDataexchangeDdeAddData(hdata.rawAddress.toString(), psrc.rawAddress.toString(), cb.toInt(), cboff.toInt()) as String).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ddeClientTransaction(pdata: ConstPtr<UByte>, cbdata: UInt, hconv: Hconv, hszitem: Hsz, wfmt: UInt, wtype: DdeClientTransactionType, dwtimeout: UInt, pdwresult: MutPtr<UInt>): Hddedata =
+public actual fun ddeClientTransaction(pdata: ConstPtr, cbdata: UInt, hconv: Hconv, hszitem: Hsz, wfmt: UInt, wtype: DdeClientTransactionType, dwtimeout: UInt, pdwresult: MutPtr): Hddedata =
     if (windowsWin32SystemDataexchangeNapiAddon != null) MutPtr((windowsWin32SystemDataexchangeNapiAddon.windowssysWindowsWin32SystemDataexchangeDdeClientTransaction(pdata.rawAddress.toString(), cbdata.toInt(), hconv.rawAddress.toString(), hszitem.rawAddress.toString(), wfmt.toInt(), wtype.toInt(), dwtimeout.toInt(), pdwresult.rawAddress.toString()) as String).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun ddeCmpStringHandles(hsz1: Hsz, hsz2: Hsz): Int =
     if (windowsWin32SystemDataexchangeNapiAddon != null) (windowsWin32SystemDataexchangeNapiAddon.windowssysWindowsWin32SystemDataexchangeDdeCmpStringHandles(hsz1.rawAddress.toString(), hsz2.rawAddress.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ddeConnect(idinst: UInt, hszservice: Hsz, hsztopic: Hsz, pcc: ConstPtr<Convcontext>): Hconv =
+public actual fun ddeConnect(idinst: UInt, hszservice: Hsz, hsztopic: Hsz, pcc: ConstPtr): Hconv =
     if (windowsWin32SystemDataexchangeNapiAddon != null) MutPtr((windowsWin32SystemDataexchangeNapiAddon.windowssysWindowsWin32SystemDataexchangeDdeConnect(idinst.toInt(), hszservice.rawAddress.toString(), hsztopic.rawAddress.toString(), pcc.rawAddress.toString()) as String).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ddeConnectList(idinst: UInt, hszservice: Hsz, hsztopic: Hsz, hconvlist: Hconvlist, pcc: ConstPtr<Convcontext>): Hconvlist =
+public actual fun ddeConnectList(idinst: UInt, hszservice: Hsz, hsztopic: Hsz, hconvlist: Hconvlist, pcc: ConstPtr): Hconvlist =
     if (windowsWin32SystemDataexchangeNapiAddon != null) MutPtr((windowsWin32SystemDataexchangeNapiAddon.windowssysWindowsWin32SystemDataexchangeDdeConnectList(idinst.toInt(), hszservice.rawAddress.toString(), hsztopic.rawAddress.toString(), hconvlist.rawAddress.toString(), pcc.rawAddress.toString()) as String).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ddeCreateDataHandle(idinst: UInt, psrc: ConstPtr<UByte>, cb: UInt, cboff: UInt, hszitem: Hsz, wfmt: UInt, afcmd: UInt): Hddedata =
+public actual fun ddeCreateDataHandle(idinst: UInt, psrc: ConstPtr, cb: UInt, cboff: UInt, hszitem: Hsz, wfmt: UInt, afcmd: UInt): Hddedata =
     if (windowsWin32SystemDataexchangeNapiAddon != null) MutPtr((windowsWin32SystemDataexchangeNapiAddon.windowssysWindowsWin32SystemDataexchangeDdeCreateDataHandle(idinst.toInt(), psrc.rawAddress.toString(), cb.toInt(), cboff.toInt(), hszitem.rawAddress.toString(), wfmt.toInt(), afcmd.toInt()) as String).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun ddeCreateStringHandleA(idinst: UInt, psz: Pcstr, icodepage: Int): Hsz =
@@ -82,7 +81,7 @@ public actual fun ddeFreeDataHandle(hdata: Hddedata): Bool =
 public actual fun ddeFreeStringHandle(idinst: UInt, hsz: Hsz): Bool =
     if (windowsWin32SystemDataexchangeNapiAddon != null) (windowsWin32SystemDataexchangeNapiAddon.windowssysWindowsWin32SystemDataexchangeDdeFreeStringHandle(idinst.toInt(), hsz.rawAddress.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ddeGetData(hdata: Hddedata, pdst: MutPtr<UByte>, cbmax: UInt, cboff: UInt): UInt =
+public actual fun ddeGetData(hdata: Hddedata, pdst: MutPtr, cbmax: UInt, cboff: UInt): UInt =
     if (windowsWin32SystemDataexchangeNapiAddon != null) (windowsWin32SystemDataexchangeNapiAddon.windowssysWindowsWin32SystemDataexchangeDdeGetData(hdata.rawAddress.toString(), pdst.rawAddress.toString(), cbmax.toInt(), cboff.toInt()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun ddeGetLastError(idinst: UInt): UInt =
@@ -91,10 +90,10 @@ public actual fun ddeGetLastError(idinst: UInt): UInt =
 public actual fun ddeImpersonateClient(hconv: Hconv): Bool =
     if (windowsWin32SystemDataexchangeNapiAddon != null) (windowsWin32SystemDataexchangeNapiAddon.windowssysWindowsWin32SystemDataexchangeDdeImpersonateClient(hconv.rawAddress.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ddeInitializeA(pidinst: MutPtr<UInt>, pfncallback: Pfncallback, afcmd: DdeInitializeCommand, ulres: UInt): UInt =
+public actual fun ddeInitializeA(pidinst: MutPtr, pfncallback: Pfncallback, afcmd: DdeInitializeCommand, ulres: UInt): UInt =
     if (windowsWin32SystemDataexchangeNapiAddon != null) (windowsWin32SystemDataexchangeNapiAddon.windowssysWindowsWin32SystemDataexchangeDdeInitializeA(pidinst.rawAddress.toString(), 0L.toString(), afcmd.toInt(), ulres.toInt()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ddeInitializeW(pidinst: MutPtr<UInt>, pfncallback: Pfncallback, afcmd: DdeInitializeCommand, ulres: UInt): UInt =
+public actual fun ddeInitializeW(pidinst: MutPtr, pfncallback: Pfncallback, afcmd: DdeInitializeCommand, ulres: UInt): UInt =
     if (windowsWin32SystemDataexchangeNapiAddon != null) (windowsWin32SystemDataexchangeNapiAddon.windowssysWindowsWin32SystemDataexchangeDdeInitializeW(pidinst.rawAddress.toString(), 0L.toString(), afcmd.toInt(), ulres.toInt()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun ddeKeepStringHandle(idinst: UInt, hsz: Hsz): Bool =
@@ -106,7 +105,7 @@ public actual fun ddeNameService(idinst: UInt, hsz1: Hsz, hsz2: Hsz, afcmd: DdeN
 public actual fun ddePostAdvise(idinst: UInt, hsztopic: Hsz, hszitem: Hsz): Bool =
     if (windowsWin32SystemDataexchangeNapiAddon != null) (windowsWin32SystemDataexchangeNapiAddon.windowssysWindowsWin32SystemDataexchangeDdePostAdvise(idinst.toInt(), hsztopic.rawAddress.toString(), hszitem.rawAddress.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ddeQueryConvInfo(hconv: Hconv, idtransaction: UInt, pconvinfo: MutPtr<Convinfo>): UInt =
+public actual fun ddeQueryConvInfo(hconv: Hconv, idtransaction: UInt, pconvinfo: MutPtr): UInt =
     if (windowsWin32SystemDataexchangeNapiAddon != null) (windowsWin32SystemDataexchangeNapiAddon.windowssysWindowsWin32SystemDataexchangeDdeQueryConvInfo(hconv.rawAddress.toString(), idtransaction.toInt(), pconvinfo.rawAddress.toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun ddeQueryNextServer(hconvlist: Hconvlist, hconvprev: Hconv): Hconv =
@@ -121,7 +120,7 @@ public actual fun ddeQueryStringW(idinst: UInt, hsz: Hsz, psz: Pwstr, cchmax: UI
 public actual fun ddeReconnect(hconv: Hconv): Hconv =
     if (windowsWin32SystemDataexchangeNapiAddon != null) MutPtr((windowsWin32SystemDataexchangeNapiAddon.windowssysWindowsWin32SystemDataexchangeDdeReconnect(hconv.rawAddress.toString()) as String).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ddeSetQualityOfService(hwndclient: Hwnd, pqosnew: ConstPtr<SecurityQualityOfService>, pqosprev: MutPtr<SecurityQualityOfService>): Bool =
+public actual fun ddeSetQualityOfService(hwndclient: Hwnd, pqosnew: ConstPtr, pqosprev: MutPtr): Bool =
     if (windowsWin32SystemDataexchangeNapiAddon != null) (windowsWin32SystemDataexchangeNapiAddon.windowssysWindowsWin32SystemDataexchangeDdeSetQualityOfService(hwndclient.rawAddress.toString(), pqosnew.rawAddress.toString(), pqosprev.rawAddress.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun ddeSetUserHandle(hconv: Hconv, id: UInt, huser: ULong): Bool =
@@ -178,10 +177,10 @@ public actual fun getClipboardViewer(): Hwnd =
 public actual fun getOpenClipboardWindow(): Hwnd =
     if (windowsWin32SystemDataexchangeNapiAddon != null) MutPtr((windowsWin32SystemDataexchangeNapiAddon.windowssysWindowsWin32SystemDataexchangeGetOpenClipboardWindow() as String).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun getPriorityClipboardFormat(paformatprioritylist: ConstPtr<UInt>, cformats: Int): Int =
+public actual fun getPriorityClipboardFormat(paformatprioritylist: ConstPtr, cformats: Int): Int =
     if (windowsWin32SystemDataexchangeNapiAddon != null) (windowsWin32SystemDataexchangeNapiAddon.windowssysWindowsWin32SystemDataexchangeGetPriorityClipboardFormat(paformatprioritylist.rawAddress.toString(), cformats) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun getUpdatedClipboardFormats(lpuiformats: MutPtr<UInt>, cformats: UInt, pcformatsout: MutPtr<UInt>): Bool =
+public actual fun getUpdatedClipboardFormats(lpuiformats: MutPtr, cformats: UInt, pcformatsout: MutPtr): Bool =
     if (windowsWin32SystemDataexchangeNapiAddon != null) (windowsWin32SystemDataexchangeNapiAddon.windowssysWindowsWin32SystemDataexchangeGetUpdatedClipboardFormats(lpuiformats.rawAddress.toString(), cformats.toInt(), pcformatsout.rawAddress.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun globalAddAtomA(lpstring: Pcstr): UShort =
@@ -244,8 +243,8 @@ public actual fun setClipboardData(uformat: UInt, hmem: Handle): Handle =
 public actual fun setClipboardViewer(hwndnewviewer: Hwnd): Hwnd =
     if (windowsWin32SystemDataexchangeNapiAddon != null) MutPtr((windowsWin32SystemDataexchangeNapiAddon.windowssysWindowsWin32SystemDataexchangeSetClipboardViewer(hwndnewviewer.rawAddress.toString()) as String).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun setWinMetaFileBits(nsize: UInt, lpmeta16data: ConstPtr<UByte>, hdcref: Hdc, lpmfp: ConstPtr<Metafilepict>): Henhmetafile =
+public actual fun setWinMetaFileBits(nsize: UInt, lpmeta16data: ConstPtr, hdcref: Hdc, lpmfp: ConstPtr): Henhmetafile =
     if (windowsWin32SystemDataexchangeNapiAddon != null) MutPtr((windowsWin32SystemDataexchangeNapiAddon.windowssysWindowsWin32SystemDataexchangeSetWinMetaFileBits(nsize.toInt(), lpmeta16data.rawAddress.toString(), hdcref.rawAddress.toString(), lpmfp.rawAddress.toString()) as String).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun unpackDDElParam(msg: UInt, lparam: Lparam, puilo: MutPtr<ULong>, puihi: MutPtr<ULong>): Bool =
+public actual fun unpackDDElParam(msg: UInt, lparam: Lparam, puilo: MutPtr, puihi: MutPtr): Bool =
     if (windowsWin32SystemDataexchangeNapiAddon != null) (windowsWin32SystemDataexchangeNapiAddon.windowssysWindowsWin32SystemDataexchangeUnpackDDElParam(msg.toInt(), lparam.toString(), puilo.rawAddress.toString(), puihi.rawAddress.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")

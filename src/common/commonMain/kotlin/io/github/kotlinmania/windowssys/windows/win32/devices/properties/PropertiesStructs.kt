@@ -1,6 +1,5 @@
 package io.github.kotlinmania.windowssys.windows.win32.devices.properties
 
-import io.github.kotlinmania.rustlang.core.ffi.CVoid
 import io.github.kotlinmania.rustlang.core.ptr.ConstPtr
 import io.github.kotlinmania.rustlang.core.ptr.MutPtr
 import io.github.kotlinmania.windowssys.core.Pcwstr
@@ -62,9 +61,9 @@ public class Devproperty internal constructor(
     public var compKey: Devpropcompkey,
     public var type: Devproptype,
     public var bufferSize: UInt,
-    bufferCtorArg: MutPtr<CVoid>,
+    bufferCtorArg: MutPtr,
 ) {
-    public var buffer: MutPtr<CVoid> = bufferCtorArg
+    public var buffer: MutPtr = bufferCtorArg
         internal set
 
     public constructor() : this(
@@ -80,9 +79,9 @@ public class Devproperty internal constructor(
 
     public operator fun component3(): UInt = this.bufferSize
 
-    public operator fun component4(): MutPtr<CVoid> = this.buffer
+    public operator fun component4(): MutPtr = this.buffer
 
-    public fun copy(compKey: Devpropcompkey = this.compKey, type: Devproptype = this.type, bufferSize: UInt = this.bufferSize, buffer: MutPtr<CVoid> = this.buffer): Devproperty = Devproperty(compKey = compKey, type = type, bufferSize = bufferSize, bufferCtorArg = buffer)
+    public fun copy(compKey: Devpropcompkey = this.compKey, type: Devproptype = this.type, bufferSize: UInt = this.bufferSize, buffer: MutPtr = this.buffer): Devproperty = Devproperty(compKey = compKey, type = type, bufferSize = bufferSize, bufferCtorArg = buffer)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -107,7 +106,7 @@ public class Devproperty internal constructor(
             compKey: Devpropcompkey = Devpropcompkey(),
             type: Devproptype = 0u,
             bufferSize: UInt = 0u,
-            buffer: MutPtr<CVoid> = MutPtr(0L),
+            buffer: MutPtr = MutPtr(0L),
         ): Devproperty =
             Devproperty(
                 compKey = compKey,

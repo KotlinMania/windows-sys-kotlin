@@ -2,7 +2,6 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.networking.websocket
 
-import io.github.kotlinmania.rustlang.core.ffi.CVoid
 import io.github.kotlinmania.rustlang.core.ptr.ConstPtr
 import io.github.kotlinmania.rustlang.core.ptr.MutPtr
 import io.github.kotlinmania.windowssys.core.Hresult
@@ -108,40 +107,40 @@ public actual fun webSocketAbortHandle(hwebsocket: WebSocketHandle) {
     WindowsWin32NetworkingWebsocketJniBridge.windowssysWindowsWin32NetworkingWebsocketWebSocketAbortHandle(hwebsocket.rawAddress)
 }
 
-public actual fun webSocketBeginClientHandshake(hwebsocket: WebSocketHandle, pszsubprotocols: ConstPtr<Pcstr>, ulsubprotocolcount: UInt, pszextensions: ConstPtr<Pcstr>, ulextensioncount: UInt, pinitialheaders: ConstPtr<WebSocketHttpHeader>, ulinitialheadercount: UInt, padditionalheaders: MutPtr<MutPtr<WebSocketHttpHeader>>, puladditionalheadercount: MutPtr<UInt>): Hresult =
+public actual fun webSocketBeginClientHandshake(hwebsocket: WebSocketHandle, pszsubprotocols: ConstPtr, ulsubprotocolcount: UInt, pszextensions: ConstPtr, ulextensioncount: UInt, pinitialheaders: ConstPtr, ulinitialheadercount: UInt, padditionalheaders: MutPtr, puladditionalheadercount: MutPtr): Hresult =
     WindowsWin32NetworkingWebsocketJniBridge.windowssysWindowsWin32NetworkingWebsocketWebSocketBeginClientHandshake(hwebsocket.rawAddress, pszsubprotocols.rawAddress, ulsubprotocolcount.toInt(), pszextensions.rawAddress, ulextensioncount.toInt(), pinitialheaders.rawAddress, ulinitialheadercount.toInt(), padditionalheaders.rawAddress, puladditionalheadercount.rawAddress)
 
-public actual fun webSocketBeginServerHandshake(hwebsocket: WebSocketHandle, pszsubprotocolselected: Pcstr, pszextensionselected: ConstPtr<Pcstr>, ulextensionselectedcount: UInt, prequestheaders: ConstPtr<WebSocketHttpHeader>, ulrequestheadercount: UInt, presponseheaders: MutPtr<MutPtr<WebSocketHttpHeader>>, pulresponseheadercount: MutPtr<UInt>): Hresult =
+public actual fun webSocketBeginServerHandshake(hwebsocket: WebSocketHandle, pszsubprotocolselected: Pcstr, pszextensionselected: ConstPtr, ulextensionselectedcount: UInt, prequestheaders: ConstPtr, ulrequestheadercount: UInt, presponseheaders: MutPtr, pulresponseheadercount: MutPtr): Hresult =
     WindowsWin32NetworkingWebsocketJniBridge.windowssysWindowsWin32NetworkingWebsocketWebSocketBeginServerHandshake(hwebsocket.rawAddress, pszsubprotocolselected.rawAddress, pszextensionselected.rawAddress, ulextensionselectedcount.toInt(), prequestheaders.rawAddress, ulrequestheadercount.toInt(), presponseheaders.rawAddress, pulresponseheadercount.rawAddress)
 
-public actual fun webSocketCompleteAction(hwebsocket: WebSocketHandle, pvactioncontext: ConstPtr<CVoid>, ulbytestransferred: UInt) {
+public actual fun webSocketCompleteAction(hwebsocket: WebSocketHandle, pvactioncontext: ConstPtr, ulbytestransferred: UInt) {
     WindowsWin32NetworkingWebsocketJniBridge.windowssysWindowsWin32NetworkingWebsocketWebSocketCompleteAction(hwebsocket.rawAddress, pvactioncontext.rawAddress, ulbytestransferred.toInt())
 }
 
-public actual fun webSocketCreateClientHandle(pproperties: ConstPtr<WebSocketProperty>, ulpropertycount: UInt, phwebsocket: MutPtr<WebSocketHandle>): Hresult =
+public actual fun webSocketCreateClientHandle(pproperties: ConstPtr, ulpropertycount: UInt, phwebsocket: MutPtr): Hresult =
     WindowsWin32NetworkingWebsocketJniBridge.windowssysWindowsWin32NetworkingWebsocketWebSocketCreateClientHandle(pproperties.rawAddress, ulpropertycount.toInt(), phwebsocket.rawAddress)
 
-public actual fun webSocketCreateServerHandle(pproperties: ConstPtr<WebSocketProperty>, ulpropertycount: UInt, phwebsocket: MutPtr<WebSocketHandle>): Hresult =
+public actual fun webSocketCreateServerHandle(pproperties: ConstPtr, ulpropertycount: UInt, phwebsocket: MutPtr): Hresult =
     WindowsWin32NetworkingWebsocketJniBridge.windowssysWindowsWin32NetworkingWebsocketWebSocketCreateServerHandle(pproperties.rawAddress, ulpropertycount.toInt(), phwebsocket.rawAddress)
 
 public actual fun webSocketDeleteHandle(hwebsocket: WebSocketHandle) {
     WindowsWin32NetworkingWebsocketJniBridge.windowssysWindowsWin32NetworkingWebsocketWebSocketDeleteHandle(hwebsocket.rawAddress)
 }
 
-public actual fun webSocketEndClientHandshake(hwebsocket: WebSocketHandle, presponseheaders: ConstPtr<WebSocketHttpHeader>, ulreponseheadercount: UInt, pulselectedextensions: MutPtr<UInt>, pulselectedextensioncount: MutPtr<UInt>, pulselectedsubprotocol: MutPtr<UInt>): Hresult =
+public actual fun webSocketEndClientHandshake(hwebsocket: WebSocketHandle, presponseheaders: ConstPtr, ulreponseheadercount: UInt, pulselectedextensions: MutPtr, pulselectedextensioncount: MutPtr, pulselectedsubprotocol: MutPtr): Hresult =
     WindowsWin32NetworkingWebsocketJniBridge.windowssysWindowsWin32NetworkingWebsocketWebSocketEndClientHandshake(hwebsocket.rawAddress, presponseheaders.rawAddress, ulreponseheadercount.toInt(), pulselectedextensions.rawAddress, pulselectedextensioncount.rawAddress, pulselectedsubprotocol.rawAddress)
 
 public actual fun webSocketEndServerHandshake(hwebsocket: WebSocketHandle): Hresult =
     WindowsWin32NetworkingWebsocketJniBridge.windowssysWindowsWin32NetworkingWebsocketWebSocketEndServerHandshake(hwebsocket.rawAddress)
 
-public actual fun webSocketGetAction(hwebsocket: WebSocketHandle, eactionqueue: WebSocketActionQueue, pdatabuffers: MutPtr<WebSocketBuffer>, puldatabuffercount: MutPtr<UInt>, paction: MutPtr<WebSocketAction>, pbuffertype: MutPtr<WebSocketBufferType>, pvapplicationcontext: MutPtr<MutPtr<CVoid>>, pvactioncontext: MutPtr<MutPtr<CVoid>>): Hresult =
+public actual fun webSocketGetAction(hwebsocket: WebSocketHandle, eactionqueue: WebSocketActionQueue, pdatabuffers: MutPtr, puldatabuffercount: MutPtr, paction: MutPtr, pbuffertype: MutPtr, pvapplicationcontext: MutPtr, pvactioncontext: MutPtr): Hresult =
     WindowsWin32NetworkingWebsocketJniBridge.windowssysWindowsWin32NetworkingWebsocketWebSocketGetAction(hwebsocket.rawAddress, eactionqueue, pdatabuffers.rawAddress, puldatabuffercount.rawAddress, paction.rawAddress, pbuffertype.rawAddress, pvapplicationcontext.rawAddress, pvactioncontext.rawAddress)
 
-public actual fun webSocketGetGlobalProperty(etype: WebSocketPropertyType, pvvalue: MutPtr<CVoid>, ulsize: MutPtr<UInt>): Hresult =
+public actual fun webSocketGetGlobalProperty(etype: WebSocketPropertyType, pvvalue: MutPtr, ulsize: MutPtr): Hresult =
     WindowsWin32NetworkingWebsocketJniBridge.windowssysWindowsWin32NetworkingWebsocketWebSocketGetGlobalProperty(etype, pvvalue.rawAddress, ulsize.rawAddress)
 
-public actual fun webSocketReceive(hwebsocket: WebSocketHandle, pbuffer: ConstPtr<WebSocketBuffer>, pvcontext: ConstPtr<CVoid>): Hresult =
+public actual fun webSocketReceive(hwebsocket: WebSocketHandle, pbuffer: ConstPtr, pvcontext: ConstPtr): Hresult =
     WindowsWin32NetworkingWebsocketJniBridge.windowssysWindowsWin32NetworkingWebsocketWebSocketReceive(hwebsocket.rawAddress, pbuffer.rawAddress, pvcontext.rawAddress)
 
-public actual fun webSocketSend(hwebsocket: WebSocketHandle, buffertype: WebSocketBufferType, pbuffer: ConstPtr<WebSocketBuffer>, context: ConstPtr<CVoid>): Hresult =
+public actual fun webSocketSend(hwebsocket: WebSocketHandle, buffertype: WebSocketBufferType, pbuffer: ConstPtr, context: ConstPtr): Hresult =
     WindowsWin32NetworkingWebsocketJniBridge.windowssysWindowsWin32NetworkingWebsocketWebSocketSend(hwebsocket.rawAddress, buffertype, pbuffer.rawAddress, context.rawAddress)

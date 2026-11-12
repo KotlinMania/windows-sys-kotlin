@@ -2,14 +2,10 @@
 
 package io.github.kotlinmania.windowssys.windows.wdk.system.registry
 
-import io.github.kotlinmania.rustlang.core.ffi.CVoid
 import io.github.kotlinmania.rustlang.core.ptr.ConstPtr
 import io.github.kotlinmania.rustlang.core.ptr.MutPtr
-import io.github.kotlinmania.windowssys.windows.wdk.foundation.ObjectAttributes
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Handle
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Ntstatus
-import io.github.kotlinmania.windowssys.windows.win32.foundation.UnicodeString
-import io.github.kotlinmania.windowssys.windows.win32.system.io.IoStatusBlock
 import io.github.kotlinmania.windowssys.windows.win32.system.io.PioApcRoutine
 
 private object WindowsWdkSystemRegistryJniBridge {
@@ -171,58 +167,58 @@ private object WindowsWdkSystemRegistryJniBridge {
 public actual fun ntCommitRegistryTransaction(transactionhandle: Handle, flags: UInt): Ntstatus =
     WindowsWdkSystemRegistryJniBridge.windowssysWindowsWdkSystemRegistryNtCommitRegistryTransaction(transactionhandle.rawAddress, flags.toInt())
 
-public actual fun ntCreateKey(keyhandle: MutPtr<Handle>, desiredaccess: UInt, objectattributes: ConstPtr<ObjectAttributes>, titleindex: UInt, cls: ConstPtr<UnicodeString>, createoptions: UInt, disposition: MutPtr<UInt>): Ntstatus =
+public actual fun ntCreateKey(keyhandle: MutPtr, desiredaccess: UInt, objectattributes: ConstPtr, titleindex: UInt, cls: ConstPtr, createoptions: UInt, disposition: MutPtr): Ntstatus =
     WindowsWdkSystemRegistryJniBridge.windowssysWindowsWdkSystemRegistryNtCreateKey(keyhandle.rawAddress, desiredaccess.toInt(), objectattributes.rawAddress, titleindex.toInt(), cls.rawAddress, createoptions.toInt(), disposition.rawAddress)
 
-public actual fun ntCreateKeyTransacted(keyhandle: MutPtr<Handle>, desiredaccess: UInt, objectattributes: ConstPtr<ObjectAttributes>, titleindex: UInt, cls: ConstPtr<UnicodeString>, createoptions: UInt, transactionhandle: Handle, disposition: MutPtr<UInt>): Ntstatus =
+public actual fun ntCreateKeyTransacted(keyhandle: MutPtr, desiredaccess: UInt, objectattributes: ConstPtr, titleindex: UInt, cls: ConstPtr, createoptions: UInt, transactionhandle: Handle, disposition: MutPtr): Ntstatus =
     WindowsWdkSystemRegistryJniBridge.windowssysWindowsWdkSystemRegistryNtCreateKeyTransacted(keyhandle.rawAddress, desiredaccess.toInt(), objectattributes.rawAddress, titleindex.toInt(), cls.rawAddress, createoptions.toInt(), transactionhandle.rawAddress, disposition.rawAddress)
 
-public actual fun ntCreateRegistryTransaction(transactionhandle: MutPtr<Handle>, desiredaccess: UInt, objectattributes: ConstPtr<ObjectAttributes>, createoptions: UInt): Ntstatus =
+public actual fun ntCreateRegistryTransaction(transactionhandle: MutPtr, desiredaccess: UInt, objectattributes: ConstPtr, createoptions: UInt): Ntstatus =
     WindowsWdkSystemRegistryJniBridge.windowssysWindowsWdkSystemRegistryNtCreateRegistryTransaction(transactionhandle.rawAddress, desiredaccess.toInt(), objectattributes.rawAddress, createoptions.toInt())
 
 public actual fun ntDeleteKey(keyhandle: Handle): Ntstatus =
     WindowsWdkSystemRegistryJniBridge.windowssysWindowsWdkSystemRegistryNtDeleteKey(keyhandle.rawAddress)
 
-public actual fun ntDeleteValueKey(keyhandle: Handle, valuename: ConstPtr<UnicodeString>): Ntstatus =
+public actual fun ntDeleteValueKey(keyhandle: Handle, valuename: ConstPtr): Ntstatus =
     WindowsWdkSystemRegistryJniBridge.windowssysWindowsWdkSystemRegistryNtDeleteValueKey(keyhandle.rawAddress, valuename.rawAddress)
 
-public actual fun ntEnumerateKey(keyhandle: Handle, index: UInt, keyinformationclass: KeyInformationClass, keyinformation: MutPtr<CVoid>, length: UInt, resultlength: MutPtr<UInt>): Ntstatus =
+public actual fun ntEnumerateKey(keyhandle: Handle, index: UInt, keyinformationclass: KeyInformationClass, keyinformation: MutPtr, length: UInt, resultlength: MutPtr): Ntstatus =
     WindowsWdkSystemRegistryJniBridge.windowssysWindowsWdkSystemRegistryNtEnumerateKey(keyhandle.rawAddress, index.toInt(), keyinformationclass, keyinformation.rawAddress, length.toInt(), resultlength.rawAddress)
 
-public actual fun ntEnumerateValueKey(keyhandle: Handle, index: UInt, keyvalueinformationclass: KeyValueInformationClass, keyvalueinformation: MutPtr<CVoid>, length: UInt, resultlength: MutPtr<UInt>): Ntstatus =
+public actual fun ntEnumerateValueKey(keyhandle: Handle, index: UInt, keyvalueinformationclass: KeyValueInformationClass, keyvalueinformation: MutPtr, length: UInt, resultlength: MutPtr): Ntstatus =
     WindowsWdkSystemRegistryJniBridge.windowssysWindowsWdkSystemRegistryNtEnumerateValueKey(keyhandle.rawAddress, index.toInt(), keyvalueinformationclass, keyvalueinformation.rawAddress, length.toInt(), resultlength.rawAddress)
 
 public actual fun ntFlushKey(keyhandle: Handle): Ntstatus =
     WindowsWdkSystemRegistryJniBridge.windowssysWindowsWdkSystemRegistryNtFlushKey(keyhandle.rawAddress)
 
-public actual fun ntNotifyChangeMultipleKeys(masterkeyhandle: Handle, count: UInt, subordinateobjects: ConstPtr<ObjectAttributes>, event: Handle, apcroutine: PioApcRoutine, apccontext: ConstPtr<CVoid>, iostatusblock: MutPtr<IoStatusBlock>, completionfilter: UInt, watchtree: Boolean, buffer: MutPtr<CVoid>, buffersize: UInt, asynchronous: Boolean): Ntstatus =
+public actual fun ntNotifyChangeMultipleKeys(masterkeyhandle: Handle, count: UInt, subordinateobjects: ConstPtr, event: Handle, apcroutine: PioApcRoutine, apccontext: ConstPtr, iostatusblock: MutPtr, completionfilter: UInt, watchtree: Boolean, buffer: MutPtr, buffersize: UInt, asynchronous: Boolean): Ntstatus =
     WindowsWdkSystemRegistryJniBridge.windowssysWindowsWdkSystemRegistryNtNotifyChangeMultipleKeys(masterkeyhandle.rawAddress, count.toInt(), subordinateobjects.rawAddress, event.rawAddress, 0L, apccontext.rawAddress, iostatusblock.rawAddress, completionfilter.toInt(), watchtree, buffer.rawAddress, buffersize.toInt(), asynchronous)
 
-public actual fun ntOpenKey(keyhandle: MutPtr<Handle>, desiredaccess: UInt, objectattributes: ConstPtr<ObjectAttributes>): Ntstatus =
+public actual fun ntOpenKey(keyhandle: MutPtr, desiredaccess: UInt, objectattributes: ConstPtr): Ntstatus =
     WindowsWdkSystemRegistryJniBridge.windowssysWindowsWdkSystemRegistryNtOpenKey(keyhandle.rawAddress, desiredaccess.toInt(), objectattributes.rawAddress)
 
-public actual fun ntOpenKeyEx(keyhandle: MutPtr<Handle>, desiredaccess: UInt, objectattributes: ConstPtr<ObjectAttributes>, openoptions: UInt): Ntstatus =
+public actual fun ntOpenKeyEx(keyhandle: MutPtr, desiredaccess: UInt, objectattributes: ConstPtr, openoptions: UInt): Ntstatus =
     WindowsWdkSystemRegistryJniBridge.windowssysWindowsWdkSystemRegistryNtOpenKeyEx(keyhandle.rawAddress, desiredaccess.toInt(), objectattributes.rawAddress, openoptions.toInt())
 
-public actual fun ntOpenKeyTransacted(keyhandle: MutPtr<Handle>, desiredaccess: UInt, objectattributes: ConstPtr<ObjectAttributes>, transactionhandle: Handle): Ntstatus =
+public actual fun ntOpenKeyTransacted(keyhandle: MutPtr, desiredaccess: UInt, objectattributes: ConstPtr, transactionhandle: Handle): Ntstatus =
     WindowsWdkSystemRegistryJniBridge.windowssysWindowsWdkSystemRegistryNtOpenKeyTransacted(keyhandle.rawAddress, desiredaccess.toInt(), objectattributes.rawAddress, transactionhandle.rawAddress)
 
-public actual fun ntOpenKeyTransactedEx(keyhandle: MutPtr<Handle>, desiredaccess: UInt, objectattributes: ConstPtr<ObjectAttributes>, openoptions: UInt, transactionhandle: Handle): Ntstatus =
+public actual fun ntOpenKeyTransactedEx(keyhandle: MutPtr, desiredaccess: UInt, objectattributes: ConstPtr, openoptions: UInt, transactionhandle: Handle): Ntstatus =
     WindowsWdkSystemRegistryJniBridge.windowssysWindowsWdkSystemRegistryNtOpenKeyTransactedEx(keyhandle.rawAddress, desiredaccess.toInt(), objectattributes.rawAddress, openoptions.toInt(), transactionhandle.rawAddress)
 
-public actual fun ntOpenRegistryTransaction(transactionhandle: MutPtr<Handle>, desiredaccess: UInt, objectattributes: ConstPtr<ObjectAttributes>): Ntstatus =
+public actual fun ntOpenRegistryTransaction(transactionhandle: MutPtr, desiredaccess: UInt, objectattributes: ConstPtr): Ntstatus =
     WindowsWdkSystemRegistryJniBridge.windowssysWindowsWdkSystemRegistryNtOpenRegistryTransaction(transactionhandle.rawAddress, desiredaccess.toInt(), objectattributes.rawAddress)
 
-public actual fun ntQueryKey(keyhandle: Handle, keyinformationclass: KeyInformationClass, keyinformation: MutPtr<CVoid>, length: UInt, resultlength: MutPtr<UInt>): Ntstatus =
+public actual fun ntQueryKey(keyhandle: Handle, keyinformationclass: KeyInformationClass, keyinformation: MutPtr, length: UInt, resultlength: MutPtr): Ntstatus =
     WindowsWdkSystemRegistryJniBridge.windowssysWindowsWdkSystemRegistryNtQueryKey(keyhandle.rawAddress, keyinformationclass, keyinformation.rawAddress, length.toInt(), resultlength.rawAddress)
 
-public actual fun ntQueryMultipleValueKey(keyhandle: Handle, valueentries: MutPtr<KeyValueEntry>, entrycount: UInt, valuebuffer: MutPtr<CVoid>, bufferlength: MutPtr<UInt>, requiredbufferlength: MutPtr<UInt>): Ntstatus =
+public actual fun ntQueryMultipleValueKey(keyhandle: Handle, valueentries: MutPtr, entrycount: UInt, valuebuffer: MutPtr, bufferlength: MutPtr, requiredbufferlength: MutPtr): Ntstatus =
     WindowsWdkSystemRegistryJniBridge.windowssysWindowsWdkSystemRegistryNtQueryMultipleValueKey(keyhandle.rawAddress, valueentries.rawAddress, entrycount.toInt(), valuebuffer.rawAddress, bufferlength.rawAddress, requiredbufferlength.rawAddress)
 
-public actual fun ntQueryValueKey(keyhandle: Handle, valuename: ConstPtr<UnicodeString>, keyvalueinformationclass: KeyValueInformationClass, keyvalueinformation: MutPtr<CVoid>, length: UInt, resultlength: MutPtr<UInt>): Ntstatus =
+public actual fun ntQueryValueKey(keyhandle: Handle, valuename: ConstPtr, keyvalueinformationclass: KeyValueInformationClass, keyvalueinformation: MutPtr, length: UInt, resultlength: MutPtr): Ntstatus =
     WindowsWdkSystemRegistryJniBridge.windowssysWindowsWdkSystemRegistryNtQueryValueKey(keyhandle.rawAddress, valuename.rawAddress, keyvalueinformationclass, keyvalueinformation.rawAddress, length.toInt(), resultlength.rawAddress)
 
-public actual fun ntRenameKey(keyhandle: Handle, newname: ConstPtr<UnicodeString>): Ntstatus =
+public actual fun ntRenameKey(keyhandle: Handle, newname: ConstPtr): Ntstatus =
     WindowsWdkSystemRegistryJniBridge.windowssysWindowsWdkSystemRegistryNtRenameKey(keyhandle.rawAddress, newname.rawAddress)
 
 public actual fun ntRestoreKey(keyhandle: Handle, filehandle: Handle, flags: UInt): Ntstatus =
@@ -237,67 +233,67 @@ public actual fun ntSaveKey(keyhandle: Handle, filehandle: Handle): Ntstatus =
 public actual fun ntSaveKeyEx(keyhandle: Handle, filehandle: Handle, format: UInt): Ntstatus =
     WindowsWdkSystemRegistryJniBridge.windowssysWindowsWdkSystemRegistryNtSaveKeyEx(keyhandle.rawAddress, filehandle.rawAddress, format.toInt())
 
-public actual fun ntSetInformationKey(keyhandle: Handle, keysetinformationclass: KeySetInformationClass, keysetinformation: ConstPtr<CVoid>, keysetinformationlength: UInt): Ntstatus =
+public actual fun ntSetInformationKey(keyhandle: Handle, keysetinformationclass: KeySetInformationClass, keysetinformation: ConstPtr, keysetinformationlength: UInt): Ntstatus =
     WindowsWdkSystemRegistryJniBridge.windowssysWindowsWdkSystemRegistryNtSetInformationKey(keyhandle.rawAddress, keysetinformationclass, keysetinformation.rawAddress, keysetinformationlength.toInt())
 
-public actual fun ntSetValueKey(keyhandle: Handle, valuename: ConstPtr<UnicodeString>, titleindex: UInt, type: UInt, data: ConstPtr<CVoid>, datasize: UInt): Ntstatus =
+public actual fun ntSetValueKey(keyhandle: Handle, valuename: ConstPtr, titleindex: UInt, type: UInt, data: ConstPtr, datasize: UInt): Ntstatus =
     WindowsWdkSystemRegistryJniBridge.windowssysWindowsWdkSystemRegistryNtSetValueKey(keyhandle.rawAddress, valuename.rawAddress, titleindex.toInt(), type.toInt(), data.rawAddress, datasize.toInt())
 
 public actual fun zwCommitRegistryTransaction(transactionhandle: Handle, flags: UInt): Ntstatus =
     WindowsWdkSystemRegistryJniBridge.windowssysWindowsWdkSystemRegistryZwCommitRegistryTransaction(transactionhandle.rawAddress, flags.toInt())
 
-public actual fun zwCreateKey(keyhandle: MutPtr<Handle>, desiredaccess: UInt, objectattributes: ConstPtr<ObjectAttributes>, titleindex: UInt, cls: ConstPtr<UnicodeString>, createoptions: UInt, disposition: MutPtr<UInt>): Ntstatus =
+public actual fun zwCreateKey(keyhandle: MutPtr, desiredaccess: UInt, objectattributes: ConstPtr, titleindex: UInt, cls: ConstPtr, createoptions: UInt, disposition: MutPtr): Ntstatus =
     WindowsWdkSystemRegistryJniBridge.windowssysWindowsWdkSystemRegistryZwCreateKey(keyhandle.rawAddress, desiredaccess.toInt(), objectattributes.rawAddress, titleindex.toInt(), cls.rawAddress, createoptions.toInt(), disposition.rawAddress)
 
-public actual fun zwCreateKeyTransacted(keyhandle: MutPtr<Handle>, desiredaccess: UInt, objectattributes: ConstPtr<ObjectAttributes>, titleindex: UInt, cls: ConstPtr<UnicodeString>, createoptions: UInt, transactionhandle: Handle, disposition: MutPtr<UInt>): Ntstatus =
+public actual fun zwCreateKeyTransacted(keyhandle: MutPtr, desiredaccess: UInt, objectattributes: ConstPtr, titleindex: UInt, cls: ConstPtr, createoptions: UInt, transactionhandle: Handle, disposition: MutPtr): Ntstatus =
     WindowsWdkSystemRegistryJniBridge.windowssysWindowsWdkSystemRegistryZwCreateKeyTransacted(keyhandle.rawAddress, desiredaccess.toInt(), objectattributes.rawAddress, titleindex.toInt(), cls.rawAddress, createoptions.toInt(), transactionhandle.rawAddress, disposition.rawAddress)
 
-public actual fun zwCreateRegistryTransaction(transactionhandle: MutPtr<Handle>, desiredaccess: UInt, objectattributes: ConstPtr<ObjectAttributes>, createoptions: UInt): Ntstatus =
+public actual fun zwCreateRegistryTransaction(transactionhandle: MutPtr, desiredaccess: UInt, objectattributes: ConstPtr, createoptions: UInt): Ntstatus =
     WindowsWdkSystemRegistryJniBridge.windowssysWindowsWdkSystemRegistryZwCreateRegistryTransaction(transactionhandle.rawAddress, desiredaccess.toInt(), objectattributes.rawAddress, createoptions.toInt())
 
 public actual fun zwDeleteKey(keyhandle: Handle): Ntstatus =
     WindowsWdkSystemRegistryJniBridge.windowssysWindowsWdkSystemRegistryZwDeleteKey(keyhandle.rawAddress)
 
-public actual fun zwDeleteValueKey(keyhandle: Handle, valuename: ConstPtr<UnicodeString>): Ntstatus =
+public actual fun zwDeleteValueKey(keyhandle: Handle, valuename: ConstPtr): Ntstatus =
     WindowsWdkSystemRegistryJniBridge.windowssysWindowsWdkSystemRegistryZwDeleteValueKey(keyhandle.rawAddress, valuename.rawAddress)
 
-public actual fun zwEnumerateKey(keyhandle: Handle, index: UInt, keyinformationclass: KeyInformationClass, keyinformation: MutPtr<CVoid>, length: UInt, resultlength: MutPtr<UInt>): Ntstatus =
+public actual fun zwEnumerateKey(keyhandle: Handle, index: UInt, keyinformationclass: KeyInformationClass, keyinformation: MutPtr, length: UInt, resultlength: MutPtr): Ntstatus =
     WindowsWdkSystemRegistryJniBridge.windowssysWindowsWdkSystemRegistryZwEnumerateKey(keyhandle.rawAddress, index.toInt(), keyinformationclass, keyinformation.rawAddress, length.toInt(), resultlength.rawAddress)
 
-public actual fun zwEnumerateValueKey(keyhandle: Handle, index: UInt, keyvalueinformationclass: KeyValueInformationClass, keyvalueinformation: MutPtr<CVoid>, length: UInt, resultlength: MutPtr<UInt>): Ntstatus =
+public actual fun zwEnumerateValueKey(keyhandle: Handle, index: UInt, keyvalueinformationclass: KeyValueInformationClass, keyvalueinformation: MutPtr, length: UInt, resultlength: MutPtr): Ntstatus =
     WindowsWdkSystemRegistryJniBridge.windowssysWindowsWdkSystemRegistryZwEnumerateValueKey(keyhandle.rawAddress, index.toInt(), keyvalueinformationclass, keyvalueinformation.rawAddress, length.toInt(), resultlength.rawAddress)
 
 public actual fun zwFlushKey(keyhandle: Handle): Ntstatus =
     WindowsWdkSystemRegistryJniBridge.windowssysWindowsWdkSystemRegistryZwFlushKey(keyhandle.rawAddress)
 
-public actual fun zwNotifyChangeMultipleKeys(masterkeyhandle: Handle, count: UInt, subordinateobjects: ConstPtr<ObjectAttributes>, event: Handle, apcroutine: PioApcRoutine, apccontext: ConstPtr<CVoid>, iostatusblock: MutPtr<IoStatusBlock>, completionfilter: UInt, watchtree: Boolean, buffer: MutPtr<CVoid>, buffersize: UInt, asynchronous: Boolean): Ntstatus =
+public actual fun zwNotifyChangeMultipleKeys(masterkeyhandle: Handle, count: UInt, subordinateobjects: ConstPtr, event: Handle, apcroutine: PioApcRoutine, apccontext: ConstPtr, iostatusblock: MutPtr, completionfilter: UInt, watchtree: Boolean, buffer: MutPtr, buffersize: UInt, asynchronous: Boolean): Ntstatus =
     WindowsWdkSystemRegistryJniBridge.windowssysWindowsWdkSystemRegistryZwNotifyChangeMultipleKeys(masterkeyhandle.rawAddress, count.toInt(), subordinateobjects.rawAddress, event.rawAddress, 0L, apccontext.rawAddress, iostatusblock.rawAddress, completionfilter.toInt(), watchtree, buffer.rawAddress, buffersize.toInt(), asynchronous)
 
-public actual fun zwOpenKey(keyhandle: MutPtr<Handle>, desiredaccess: UInt, objectattributes: ConstPtr<ObjectAttributes>): Ntstatus =
+public actual fun zwOpenKey(keyhandle: MutPtr, desiredaccess: UInt, objectattributes: ConstPtr): Ntstatus =
     WindowsWdkSystemRegistryJniBridge.windowssysWindowsWdkSystemRegistryZwOpenKey(keyhandle.rawAddress, desiredaccess.toInt(), objectattributes.rawAddress)
 
-public actual fun zwOpenKeyEx(keyhandle: MutPtr<Handle>, desiredaccess: UInt, objectattributes: ConstPtr<ObjectAttributes>, openoptions: UInt): Ntstatus =
+public actual fun zwOpenKeyEx(keyhandle: MutPtr, desiredaccess: UInt, objectattributes: ConstPtr, openoptions: UInt): Ntstatus =
     WindowsWdkSystemRegistryJniBridge.windowssysWindowsWdkSystemRegistryZwOpenKeyEx(keyhandle.rawAddress, desiredaccess.toInt(), objectattributes.rawAddress, openoptions.toInt())
 
-public actual fun zwOpenKeyTransacted(keyhandle: MutPtr<Handle>, desiredaccess: UInt, objectattributes: ConstPtr<ObjectAttributes>, transactionhandle: Handle): Ntstatus =
+public actual fun zwOpenKeyTransacted(keyhandle: MutPtr, desiredaccess: UInt, objectattributes: ConstPtr, transactionhandle: Handle): Ntstatus =
     WindowsWdkSystemRegistryJniBridge.windowssysWindowsWdkSystemRegistryZwOpenKeyTransacted(keyhandle.rawAddress, desiredaccess.toInt(), objectattributes.rawAddress, transactionhandle.rawAddress)
 
-public actual fun zwOpenKeyTransactedEx(keyhandle: MutPtr<Handle>, desiredaccess: UInt, objectattributes: ConstPtr<ObjectAttributes>, openoptions: UInt, transactionhandle: Handle): Ntstatus =
+public actual fun zwOpenKeyTransactedEx(keyhandle: MutPtr, desiredaccess: UInt, objectattributes: ConstPtr, openoptions: UInt, transactionhandle: Handle): Ntstatus =
     WindowsWdkSystemRegistryJniBridge.windowssysWindowsWdkSystemRegistryZwOpenKeyTransactedEx(keyhandle.rawAddress, desiredaccess.toInt(), objectattributes.rawAddress, openoptions.toInt(), transactionhandle.rawAddress)
 
-public actual fun zwOpenRegistryTransaction(transactionhandle: MutPtr<Handle>, desiredaccess: UInt, objectattributes: ConstPtr<ObjectAttributes>): Ntstatus =
+public actual fun zwOpenRegistryTransaction(transactionhandle: MutPtr, desiredaccess: UInt, objectattributes: ConstPtr): Ntstatus =
     WindowsWdkSystemRegistryJniBridge.windowssysWindowsWdkSystemRegistryZwOpenRegistryTransaction(transactionhandle.rawAddress, desiredaccess.toInt(), objectattributes.rawAddress)
 
-public actual fun zwQueryKey(keyhandle: Handle, keyinformationclass: KeyInformationClass, keyinformation: MutPtr<CVoid>, length: UInt, resultlength: MutPtr<UInt>): Ntstatus =
+public actual fun zwQueryKey(keyhandle: Handle, keyinformationclass: KeyInformationClass, keyinformation: MutPtr, length: UInt, resultlength: MutPtr): Ntstatus =
     WindowsWdkSystemRegistryJniBridge.windowssysWindowsWdkSystemRegistryZwQueryKey(keyhandle.rawAddress, keyinformationclass, keyinformation.rawAddress, length.toInt(), resultlength.rawAddress)
 
-public actual fun zwQueryMultipleValueKey(keyhandle: Handle, valueentries: MutPtr<KeyValueEntry>, entrycount: UInt, valuebuffer: MutPtr<CVoid>, bufferlength: MutPtr<UInt>, requiredbufferlength: MutPtr<UInt>): Ntstatus =
+public actual fun zwQueryMultipleValueKey(keyhandle: Handle, valueentries: MutPtr, entrycount: UInt, valuebuffer: MutPtr, bufferlength: MutPtr, requiredbufferlength: MutPtr): Ntstatus =
     WindowsWdkSystemRegistryJniBridge.windowssysWindowsWdkSystemRegistryZwQueryMultipleValueKey(keyhandle.rawAddress, valueentries.rawAddress, entrycount.toInt(), valuebuffer.rawAddress, bufferlength.rawAddress, requiredbufferlength.rawAddress)
 
-public actual fun zwQueryValueKey(keyhandle: Handle, valuename: ConstPtr<UnicodeString>, keyvalueinformationclass: KeyValueInformationClass, keyvalueinformation: MutPtr<CVoid>, length: UInt, resultlength: MutPtr<UInt>): Ntstatus =
+public actual fun zwQueryValueKey(keyhandle: Handle, valuename: ConstPtr, keyvalueinformationclass: KeyValueInformationClass, keyvalueinformation: MutPtr, length: UInt, resultlength: MutPtr): Ntstatus =
     WindowsWdkSystemRegistryJniBridge.windowssysWindowsWdkSystemRegistryZwQueryValueKey(keyhandle.rawAddress, valuename.rawAddress, keyvalueinformationclass, keyvalueinformation.rawAddress, length.toInt(), resultlength.rawAddress)
 
-public actual fun zwRenameKey(keyhandle: Handle, newname: ConstPtr<UnicodeString>): Ntstatus =
+public actual fun zwRenameKey(keyhandle: Handle, newname: ConstPtr): Ntstatus =
     WindowsWdkSystemRegistryJniBridge.windowssysWindowsWdkSystemRegistryZwRenameKey(keyhandle.rawAddress, newname.rawAddress)
 
 public actual fun zwRestoreKey(keyhandle: Handle, filehandle: Handle, flags: UInt): Ntstatus =
@@ -312,8 +308,8 @@ public actual fun zwSaveKey(keyhandle: Handle, filehandle: Handle): Ntstatus =
 public actual fun zwSaveKeyEx(keyhandle: Handle, filehandle: Handle, format: UInt): Ntstatus =
     WindowsWdkSystemRegistryJniBridge.windowssysWindowsWdkSystemRegistryZwSaveKeyEx(keyhandle.rawAddress, filehandle.rawAddress, format.toInt())
 
-public actual fun zwSetInformationKey(keyhandle: Handle, keysetinformationclass: KeySetInformationClass, keysetinformation: ConstPtr<CVoid>, keysetinformationlength: UInt): Ntstatus =
+public actual fun zwSetInformationKey(keyhandle: Handle, keysetinformationclass: KeySetInformationClass, keysetinformation: ConstPtr, keysetinformationlength: UInt): Ntstatus =
     WindowsWdkSystemRegistryJniBridge.windowssysWindowsWdkSystemRegistryZwSetInformationKey(keyhandle.rawAddress, keysetinformationclass, keysetinformation.rawAddress, keysetinformationlength.toInt())
 
-public actual fun zwSetValueKey(keyhandle: Handle, valuename: ConstPtr<UnicodeString>, titleindex: UInt, type: UInt, data: ConstPtr<CVoid>, datasize: UInt): Ntstatus =
+public actual fun zwSetValueKey(keyhandle: Handle, valuename: ConstPtr, titleindex: UInt, type: UInt, data: ConstPtr, datasize: UInt): Ntstatus =
     WindowsWdkSystemRegistryJniBridge.windowssysWindowsWdkSystemRegistryZwSetValueKey(keyhandle.rawAddress, valuename.rawAddress, titleindex.toInt(), type.toInt(), data.rawAddress, datasize.toInt())

@@ -827,9 +827,9 @@ public data class VmNotifyEntry(
 
 public class VmNotifyInfo internal constructor(
     public var dwNumEntries: UInt,
-    ppVmEntriesCtorArg: MutPtr<MutPtr<VmNotifyEntry>>,
+    ppVmEntriesCtorArg: MutPtr,
 ) {
-    public var ppVmEntries: MutPtr<MutPtr<VmNotifyEntry>> = ppVmEntriesCtorArg
+    public var ppVmEntries: MutPtr = ppVmEntriesCtorArg
         internal set
 
     public constructor() : this(
@@ -839,9 +839,9 @@ public class VmNotifyInfo internal constructor(
 
     public operator fun component1(): UInt = this.dwNumEntries
 
-    public operator fun component2(): MutPtr<MutPtr<VmNotifyEntry>> = this.ppVmEntries
+    public operator fun component2(): MutPtr = this.ppVmEntries
 
-    public fun copy(dwNumEntries: UInt = this.dwNumEntries, ppVmEntries: MutPtr<MutPtr<VmNotifyEntry>> = this.ppVmEntries): VmNotifyInfo = VmNotifyInfo(dwNumEntries = dwNumEntries, ppVmEntriesCtorArg = ppVmEntries)
+    public fun copy(dwNumEntries: UInt = this.dwNumEntries, ppVmEntries: MutPtr = this.ppVmEntries): VmNotifyInfo = VmNotifyInfo(dwNumEntries = dwNumEntries, ppVmEntriesCtorArg = ppVmEntries)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -867,21 +867,21 @@ public class VmNotifyInfo internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<MutPtr<VmNotifyEntry>>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                     )
                 override fun writeNative(addr: Long, value: VmNotifyInfo) {
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr, value.dwNumEntries)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<MutPtr<VmNotifyEntry>>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.ppVmEntries)
                 }
             }
 
         public operator fun invoke(
             dwNumEntries: UInt = 0u,
-            ppVmEntries: MutPtr<MutPtr<VmNotifyEntry>> = MutPtr(0L),
+            ppVmEntries: MutPtr = MutPtr(0L),
         ): VmNotifyInfo =
             VmNotifyInfo(
                 dwNumEntries = dwNumEntries,
@@ -892,9 +892,9 @@ public class VmNotifyInfo internal constructor(
 
 public class VmPatchInfo internal constructor(
     public var dwNumEntries: UInt,
-    pVmNamesCtorArg: MutPtr<Pwstr>,
+    pVmNamesCtorArg: MutPtr,
 ) {
-    public var pVmNames: MutPtr<Pwstr> = pVmNamesCtorArg
+    public var pVmNames: MutPtr = pVmNamesCtorArg
         internal set
 
     public constructor() : this(
@@ -904,9 +904,9 @@ public class VmPatchInfo internal constructor(
 
     public operator fun component1(): UInt = this.dwNumEntries
 
-    public operator fun component2(): MutPtr<Pwstr> = this.pVmNames
+    public operator fun component2(): MutPtr = this.pVmNames
 
-    public fun copy(dwNumEntries: UInt = this.dwNumEntries, pVmNames: MutPtr<Pwstr> = this.pVmNames): VmPatchInfo = VmPatchInfo(dwNumEntries = dwNumEntries, pVmNamesCtorArg = pVmNames)
+    public fun copy(dwNumEntries: UInt = this.dwNumEntries, pVmNames: MutPtr = this.pVmNames): VmPatchInfo = VmPatchInfo(dwNumEntries = dwNumEntries, pVmNamesCtorArg = pVmNames)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -932,21 +932,21 @@ public class VmPatchInfo internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<Pwstr>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                     )
                 override fun writeNative(addr: Long, value: VmPatchInfo) {
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr, value.dwNumEntries)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<Pwstr>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.pVmNames)
                 }
             }
 
         public operator fun invoke(
             dwNumEntries: UInt = 0u,
-            pVmNames: MutPtr<Pwstr> = MutPtr(0L),
+            pVmNames: MutPtr = MutPtr(0L),
         ): VmPatchInfo =
             VmPatchInfo(
                 dwNumEntries = dwNumEntries,
@@ -1093,7 +1093,7 @@ public class WrdsConnectionSettings1 {
 
     public var contextSize: UInt = 0u
 
-    public var contextData: MutPtr<UByte> = MutPtr(0L)
+    public var contextData: MutPtr = MutPtr(0L)
         internal set
 }
 
@@ -1198,9 +1198,9 @@ public data class WrdsListenerSettings(
 public class WrdsListenerSettings1 internal constructor(
     public var maxProtocolListenerConnectionCount: UInt,
     public var securityDescriptorSize: UInt,
-    pSecurityDescriptorCtorArg: MutPtr<UByte>,
+    pSecurityDescriptorCtorArg: MutPtr,
 ) {
-    public var pSecurityDescriptor: MutPtr<UByte> = pSecurityDescriptorCtorArg
+    public var pSecurityDescriptor: MutPtr = pSecurityDescriptorCtorArg
         internal set
 
     public constructor() : this(
@@ -1213,9 +1213,9 @@ public class WrdsListenerSettings1 internal constructor(
 
     public operator fun component2(): UInt = this.securityDescriptorSize
 
-    public operator fun component3(): MutPtr<UByte> = this.pSecurityDescriptor
+    public operator fun component3(): MutPtr = this.pSecurityDescriptor
 
-    public fun copy(maxProtocolListenerConnectionCount: UInt = this.maxProtocolListenerConnectionCount, securityDescriptorSize: UInt = this.securityDescriptorSize, pSecurityDescriptor: MutPtr<UByte> = this.pSecurityDescriptor): WrdsListenerSettings1 = WrdsListenerSettings1(maxProtocolListenerConnectionCount = maxProtocolListenerConnectionCount, securityDescriptorSize = securityDescriptorSize, pSecurityDescriptorCtorArg = pSecurityDescriptor)
+    public fun copy(maxProtocolListenerConnectionCount: UInt = this.maxProtocolListenerConnectionCount, securityDescriptorSize: UInt = this.securityDescriptorSize, pSecurityDescriptor: MutPtr = this.pSecurityDescriptor): WrdsListenerSettings1 = WrdsListenerSettings1(maxProtocolListenerConnectionCount = maxProtocolListenerConnectionCount, securityDescriptorSize = securityDescriptorSize, pSecurityDescriptorCtorArg = pSecurityDescriptor)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -1244,7 +1244,7 @@ public class WrdsListenerSettings1 internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 4L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<UByte>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                     )
                 override fun writeNative(addr: Long, value: WrdsListenerSettings1) {
@@ -1252,7 +1252,7 @@ public class WrdsListenerSettings1 internal constructor(
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 4L, value.securityDescriptorSize)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<UByte>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.pSecurityDescriptor)
                 }
             }
@@ -1260,7 +1260,7 @@ public class WrdsListenerSettings1 internal constructor(
         public operator fun invoke(
             maxProtocolListenerConnectionCount: UInt = 0u,
             securityDescriptorSize: UInt = 0u,
-            pSecurityDescriptor: MutPtr<UByte> = MutPtr(0L),
+            pSecurityDescriptor: MutPtr = MutPtr(0L),
         ): WrdsListenerSettings1 =
             WrdsListenerSettings1(
                 maxProtocolListenerConnectionCount = maxProtocolListenerConnectionCount,
@@ -4868,17 +4868,17 @@ public class PluginResource internal constructor(
     public var isDiscoverable: UByte,
     public var resourceType: Int,
     public var pceIconSize: UInt,
-    iconContentsCtorArg: MutPtr<UByte>,
+    iconContentsCtorArg: MutPtr,
     public var pcePluginBlobSize: UInt,
-    blobContentsCtorArg: MutPtr<UByte>,
+    blobContentsCtorArg: MutPtr,
 ) {
     public var resourceFileContents: Pwstr = resourceFileContentsCtorArg
         internal set
 
-    public var iconContents: MutPtr<UByte> = iconContentsCtorArg
+    public var iconContents: MutPtr = iconContentsCtorArg
         internal set
 
-    public var blobContents: MutPtr<UByte> = blobContentsCtorArg
+    public var blobContents: MutPtr = blobContentsCtorArg
         internal set
 
     public constructor() : this(
@@ -4911,13 +4911,13 @@ public class PluginResource internal constructor(
 
     public operator fun component8(): UInt = this.pceIconSize
 
-    public operator fun component9(): MutPtr<UByte> = this.iconContents
+    public operator fun component9(): MutPtr = this.iconContents
 
     public operator fun component10(): UInt = this.pcePluginBlobSize
 
-    public operator fun component11(): MutPtr<UByte> = this.blobContents
+    public operator fun component11(): MutPtr = this.blobContents
 
-    public fun copy(alias: UShortArray = this.alias, name: UShortArray = this.name, resourceFileContents: Pwstr = this.resourceFileContents, fileExtension: UShortArray = this.fileExtension, resourcePluginType: UShortArray = this.resourcePluginType, isDiscoverable: UByte = this.isDiscoverable, resourceType: Int = this.resourceType, pceIconSize: UInt = this.pceIconSize, iconContents: MutPtr<UByte> = this.iconContents, pcePluginBlobSize: UInt = this.pcePluginBlobSize, blobContents: MutPtr<UByte> = this.blobContents): PluginResource = PluginResource(alias = alias, name = name, resourceFileContentsCtorArg = resourceFileContents, fileExtension = fileExtension, resourcePluginType = resourcePluginType, isDiscoverable = isDiscoverable, resourceType = resourceType, pceIconSize = pceIconSize, iconContentsCtorArg = iconContents, pcePluginBlobSize = pcePluginBlobSize, blobContentsCtorArg = blobContents)
+    public fun copy(alias: UShortArray = this.alias, name: UShortArray = this.name, resourceFileContents: Pwstr = this.resourceFileContents, fileExtension: UShortArray = this.fileExtension, resourcePluginType: UShortArray = this.resourcePluginType, isDiscoverable: UByte = this.isDiscoverable, resourceType: Int = this.resourceType, pceIconSize: UInt = this.pceIconSize, iconContents: MutPtr = this.iconContents, pcePluginBlobSize: UInt = this.pcePluginBlobSize, blobContents: MutPtr = this.blobContents): PluginResource = PluginResource(alias = alias, name = name, resourceFileContentsCtorArg = resourceFileContents, fileExtension = fileExtension, resourcePluginType = resourcePluginType, isDiscoverable = isDiscoverable, resourceType = resourceType, pceIconSize = pceIconSize, iconContentsCtorArg = iconContents, pcePluginBlobSize = pcePluginBlobSize, blobContentsCtorArg = blobContents)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -4961,9 +4961,9 @@ public class PluginResource internal constructor(
             isDiscoverable: UByte = 0u,
             resourceType: Int = 0,
             pceIconSize: UInt = 0u,
-            iconContents: MutPtr<UByte> = MutPtr(0L),
+            iconContents: MutPtr = MutPtr(0L),
             pcePluginBlobSize: UInt = 0u,
-            blobContents: MutPtr<UByte> = MutPtr(0L),
+            blobContents: MutPtr = MutPtr(0L),
         ): PluginResource =
             PluginResource(
                 alias = alias,
@@ -4984,18 +4984,18 @@ public class PluginResource internal constructor(
 public class PluginResource2 internal constructor(
     public var resourceV1: PluginResource,
     public var pceFileAssocListSize: UInt,
-    fileAssocListCtorArg: MutPtr<PluginResource2FileAssociation>,
+    fileAssocListCtorArg: MutPtr,
     securityDescriptorCtorArg: Pwstr,
     public var pceFolderListSize: UInt,
-    folderListCtorArg: MutPtr<MutPtr<UShort>>,
+    folderListCtorArg: MutPtr,
 ) {
-    public var fileAssocList: MutPtr<PluginResource2FileAssociation> = fileAssocListCtorArg
+    public var fileAssocList: MutPtr = fileAssocListCtorArg
         internal set
 
     public var securityDescriptor: Pwstr = securityDescriptorCtorArg
         internal set
 
-    public var folderList: MutPtr<MutPtr<UShort>> = folderListCtorArg
+    public var folderList: MutPtr = folderListCtorArg
         internal set
 
     public constructor() : this(
@@ -5011,15 +5011,15 @@ public class PluginResource2 internal constructor(
 
     public operator fun component2(): UInt = this.pceFileAssocListSize
 
-    public operator fun component3(): MutPtr<PluginResource2FileAssociation> = this.fileAssocList
+    public operator fun component3(): MutPtr = this.fileAssocList
 
     public operator fun component4(): Pwstr = this.securityDescriptor
 
     public operator fun component5(): UInt = this.pceFolderListSize
 
-    public operator fun component6(): MutPtr<MutPtr<UShort>> = this.folderList
+    public operator fun component6(): MutPtr = this.folderList
 
-    public fun copy(resourceV1: PluginResource = this.resourceV1, pceFileAssocListSize: UInt = this.pceFileAssocListSize, fileAssocList: MutPtr<PluginResource2FileAssociation> = this.fileAssocList, securityDescriptor: Pwstr = this.securityDescriptor, pceFolderListSize: UInt = this.pceFolderListSize, folderList: MutPtr<MutPtr<UShort>> = this.folderList): PluginResource2 = PluginResource2(resourceV1 = resourceV1, pceFileAssocListSize = pceFileAssocListSize, fileAssocListCtorArg = fileAssocList, securityDescriptorCtorArg = securityDescriptor, pceFolderListSize = pceFolderListSize, folderListCtorArg = folderList)
+    public fun copy(resourceV1: PluginResource = this.resourceV1, pceFileAssocListSize: UInt = this.pceFileAssocListSize, fileAssocList: MutPtr = this.fileAssocList, securityDescriptor: Pwstr = this.securityDescriptor, pceFolderListSize: UInt = this.pceFolderListSize, folderList: MutPtr = this.folderList): PluginResource2 = PluginResource2(resourceV1 = resourceV1, pceFileAssocListSize = pceFileAssocListSize, fileAssocListCtorArg = fileAssocList, securityDescriptorCtorArg = securityDescriptor, pceFolderListSize = pceFolderListSize, folderListCtorArg = folderList)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -5047,10 +5047,10 @@ public class PluginResource2 internal constructor(
         public operator fun invoke(
             resourceV1: PluginResource = PluginResource(),
             pceFileAssocListSize: UInt = 0u,
-            fileAssocList: MutPtr<PluginResource2FileAssociation> = MutPtr(0L),
+            fileAssocList: MutPtr = MutPtr(0L),
             securityDescriptor: Pwstr = MutPtr(0L),
             pceFolderListSize: UInt = 0u,
-            folderList: MutPtr<MutPtr<UShort>> = MutPtr(0L),
+            folderList: MutPtr = MutPtr(0L),
         ): PluginResource2 =
             PluginResource2(
                 resourceV1 = resourceV1,
@@ -5067,9 +5067,9 @@ public class PluginResource2FileAssociation internal constructor(
     public var extName: UShortArray,
     public var primaryHandler: UByte,
     public var pceIconSize: UInt,
-    iconContentsCtorArg: MutPtr<UByte>,
+    iconContentsCtorArg: MutPtr,
 ) {
-    public var iconContents: MutPtr<UByte> = iconContentsCtorArg
+    public var iconContents: MutPtr = iconContentsCtorArg
         internal set
 
     public constructor() : this(
@@ -5085,9 +5085,9 @@ public class PluginResource2FileAssociation internal constructor(
 
     public operator fun component3(): UInt = this.pceIconSize
 
-    public operator fun component4(): MutPtr<UByte> = this.iconContents
+    public operator fun component4(): MutPtr = this.iconContents
 
-    public fun copy(extName: UShortArray = this.extName, primaryHandler: UByte = this.primaryHandler, pceIconSize: UInt = this.pceIconSize, iconContents: MutPtr<UByte> = this.iconContents): PluginResource2FileAssociation = PluginResource2FileAssociation(extName = extName, primaryHandler = primaryHandler, pceIconSize = pceIconSize, iconContentsCtorArg = iconContents)
+    public fun copy(extName: UShortArray = this.extName, primaryHandler: UByte = this.primaryHandler, pceIconSize: UInt = this.pceIconSize, iconContents: MutPtr = this.iconContents): PluginResource2FileAssociation = PluginResource2FileAssociation(extName = extName, primaryHandler = primaryHandler, pceIconSize = pceIconSize, iconContentsCtorArg = iconContents)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -5122,7 +5122,7 @@ public class PluginResource2FileAssociation internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 516L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<UByte>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 520L),
                     )
                 override fun writeNative(addr: Long, value: PluginResource2FileAssociation) {
@@ -5134,7 +5134,7 @@ public class PluginResource2FileAssociation internal constructor(
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 516L, value.pceIconSize)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<UByte>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 520L, value.iconContents)
                 }
             }
@@ -5143,7 +5143,7 @@ public class PluginResource2FileAssociation internal constructor(
             extName: UShortArray = UShortArray(256),
             primaryHandler: UByte = 0u,
             pceIconSize: UInt = 0u,
-            iconContents: MutPtr<UByte> = MutPtr(0L),
+            iconContents: MutPtr = MutPtr(0L),
         ): PluginResource2FileAssociation =
             PluginResource2FileAssociation(
                 extName = extName,

@@ -1,6 +1,5 @@
 package io.github.kotlinmania.windowssys.windows.win32.system.processstatus
 
-import io.github.kotlinmania.rustlang.core.ffi.CVoid
 import io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
 import io.github.kotlinmania.rustlang.core.mem.TypeLayout
 import io.github.kotlinmania.rustlang.core.ptr.MutPtr
@@ -37,14 +36,14 @@ public data class EnumPageFileInformation(
 }
 
 public class Moduleinfo internal constructor(
-    lpBaseOfDllCtorArg: MutPtr<CVoid>,
+    lpBaseOfDllCtorArg: MutPtr,
     public var sizeOfImage: UInt,
-    entryPointCtorArg: MutPtr<CVoid>,
+    entryPointCtorArg: MutPtr,
 ) {
-    public var lpBaseOfDll: MutPtr<CVoid> = lpBaseOfDllCtorArg
+    public var lpBaseOfDll: MutPtr = lpBaseOfDllCtorArg
         internal set
 
-    public var entryPoint: MutPtr<CVoid> = entryPointCtorArg
+    public var entryPoint: MutPtr = entryPointCtorArg
         internal set
 
     public constructor() : this(
@@ -53,13 +52,13 @@ public class Moduleinfo internal constructor(
         entryPointCtorArg = MutPtr(0L),
     )
 
-    public operator fun component1(): MutPtr<CVoid> = this.lpBaseOfDll
+    public operator fun component1(): MutPtr = this.lpBaseOfDll
 
     public operator fun component2(): UInt = this.sizeOfImage
 
-    public operator fun component3(): MutPtr<CVoid> = this.entryPoint
+    public operator fun component3(): MutPtr = this.entryPoint
 
-    public fun copy(lpBaseOfDll: MutPtr<CVoid> = this.lpBaseOfDll, sizeOfImage: UInt = this.sizeOfImage, entryPoint: MutPtr<CVoid> = this.entryPoint): Moduleinfo = Moduleinfo(lpBaseOfDllCtorArg = lpBaseOfDll, sizeOfImage = sizeOfImage, entryPointCtorArg = entryPoint)
+    public fun copy(lpBaseOfDll: MutPtr = this.lpBaseOfDll, sizeOfImage: UInt = this.sizeOfImage, entryPoint: MutPtr = this.entryPoint): Moduleinfo = Moduleinfo(lpBaseOfDllCtorArg = lpBaseOfDll, sizeOfImage = sizeOfImage, entryPointCtorArg = entryPoint)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -86,31 +85,31 @@ public class Moduleinfo internal constructor(
                     Moduleinfo(
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<CVoid>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 8L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<CVoid>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 16L),
                     )
                 override fun writeNative(addr: Long, value: Moduleinfo) {
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<CVoid>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr, value.lpBaseOfDll)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 8L, value.sizeOfImage)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<CVoid>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 16L, value.entryPoint)
                 }
             }
 
         public operator fun invoke(
-            lpBaseOfDll: MutPtr<CVoid> = MutPtr(0L),
+            lpBaseOfDll: MutPtr = MutPtr(0L),
             sizeOfImage: UInt = 0u,
-            entryPoint: MutPtr<CVoid> = MutPtr(0L),
+            entryPoint: MutPtr = MutPtr(0L),
         ): Moduleinfo =
             Moduleinfo(
                 lpBaseOfDllCtorArg = lpBaseOfDll,
@@ -401,10 +400,10 @@ public data class PsapiWorkingSetExBlock01(
 }
 
 public class PsapiWorkingSetExInformation internal constructor(
-    virtualAddressCtorArg: MutPtr<CVoid>,
+    virtualAddressCtorArg: MutPtr,
     public var virtualAttributes: PsapiWorkingSetExBlock,
 ) {
-    public var virtualAddress: MutPtr<CVoid> = virtualAddressCtorArg
+    public var virtualAddress: MutPtr = virtualAddressCtorArg
         internal set
 
     public constructor() : this(
@@ -412,11 +411,11 @@ public class PsapiWorkingSetExInformation internal constructor(
         virtualAttributes = PsapiWorkingSetExBlock(),
     )
 
-    public operator fun component1(): MutPtr<CVoid> = this.virtualAddress
+    public operator fun component1(): MutPtr = this.virtualAddress
 
     public operator fun component2(): PsapiWorkingSetExBlock = this.virtualAttributes
 
-    public fun copy(virtualAddress: MutPtr<CVoid> = this.virtualAddress, virtualAttributes: PsapiWorkingSetExBlock = this.virtualAttributes): PsapiWorkingSetExInformation = PsapiWorkingSetExInformation(virtualAddressCtorArg = virtualAddress, virtualAttributes = virtualAttributes)
+    public fun copy(virtualAddress: MutPtr = this.virtualAddress, virtualAttributes: PsapiWorkingSetExBlock = this.virtualAttributes): PsapiWorkingSetExInformation = PsapiWorkingSetExInformation(virtualAddressCtorArg = virtualAddress, virtualAttributes = virtualAttributes)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -434,7 +433,7 @@ public class PsapiWorkingSetExInformation internal constructor(
 
     public companion object {
         public operator fun invoke(
-            virtualAddress: MutPtr<CVoid> = MutPtr(0L),
+            virtualAddress: MutPtr = MutPtr(0L),
             virtualAttributes: PsapiWorkingSetExBlock = PsapiWorkingSetExBlock(),
         ): PsapiWorkingSetExInformation =
             PsapiWorkingSetExInformation(
@@ -450,13 +449,13 @@ public data class PsapiWorkingSetInformation(
 )
 
 public class PsapiWsWatchInformation internal constructor(
-    faultingPcCtorArg: MutPtr<CVoid>,
-    faultingVaCtorArg: MutPtr<CVoid>,
+    faultingPcCtorArg: MutPtr,
+    faultingVaCtorArg: MutPtr,
 ) {
-    public var faultingPc: MutPtr<CVoid> = faultingPcCtorArg
+    public var faultingPc: MutPtr = faultingPcCtorArg
         internal set
 
-    public var faultingVa: MutPtr<CVoid> = faultingVaCtorArg
+    public var faultingVa: MutPtr = faultingVaCtorArg
         internal set
 
     public constructor() : this(
@@ -464,11 +463,11 @@ public class PsapiWsWatchInformation internal constructor(
         faultingVaCtorArg = MutPtr(0L),
     )
 
-    public operator fun component1(): MutPtr<CVoid> = this.faultingPc
+    public operator fun component1(): MutPtr = this.faultingPc
 
-    public operator fun component2(): MutPtr<CVoid> = this.faultingVa
+    public operator fun component2(): MutPtr = this.faultingVa
 
-    public fun copy(faultingPc: MutPtr<CVoid> = this.faultingPc, faultingVa: MutPtr<CVoid> = this.faultingVa): PsapiWsWatchInformation = PsapiWsWatchInformation(faultingPcCtorArg = faultingPc, faultingVaCtorArg = faultingVa)
+    public fun copy(faultingPc: MutPtr = this.faultingPc, faultingVa: MutPtr = this.faultingVa): PsapiWsWatchInformation = PsapiWsWatchInformation(faultingPcCtorArg = faultingPc, faultingVaCtorArg = faultingVa)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -493,28 +492,28 @@ public class PsapiWsWatchInformation internal constructor(
                     PsapiWsWatchInformation(
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<CVoid>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<CVoid>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                     )
                 override fun writeNative(addr: Long, value: PsapiWsWatchInformation) {
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<CVoid>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr, value.faultingPc)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<CVoid>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.faultingVa)
                 }
             }
 
         public operator fun invoke(
-            faultingPc: MutPtr<CVoid> = MutPtr(0L),
-            faultingVa: MutPtr<CVoid> = MutPtr(0L),
+            faultingPc: MutPtr = MutPtr(0L),
+            faultingVa: MutPtr = MutPtr(0L),
         ): PsapiWsWatchInformation =
             PsapiWsWatchInformation(
                 faultingPcCtorArg = faultingPc,

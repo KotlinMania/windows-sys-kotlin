@@ -2,7 +2,6 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.networking.ldap
 
-import io.github.kotlinmania.rustlang.core.ffi.CVoid
 import io.github.kotlinmania.rustlang.core.ptr.ConstPtr
 import io.github.kotlinmania.rustlang.core.ptr.MutPtr
 import io.github.kotlinmania.windowssys.core.Pcstr
@@ -270,262 +269,262 @@ public actual fun ldapUTF8ToUnicode(lpsrcstr: Pcstr, cchsrc: Int, lpdeststr: Pws
 public actual fun ldapUnicodeToUTF8(lpsrcstr: Pcwstr, cchsrc: Int, lpdeststr: Pstr, cchdest: Int): Int =
     windowssysWindowsWin32NetworkingLdapLdapUnicodeToUTF8(lpsrcstr.rawAddress.toCPointer<ByteVar>(), cchsrc, lpdeststr.rawAddress.toCPointer<ByteVar>(), cchdest)
 
-public actual fun berAllocT(options: Int): MutPtr<BerElement> =
+public actual fun berAllocT(options: Int): MutPtr =
     MutPtr(windowssysWindowsWin32NetworkingLdapBerAllocT(options)?.toLong() ?: 0L)
 
-public actual fun berBvdup(pberval: MutPtr<LdapBerval>): MutPtr<LdapBerval> =
+public actual fun berBvdup(pberval: MutPtr): MutPtr =
     MutPtr(windowssysWindowsWin32NetworkingLdapBerBvdup(pberval.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun berBvecfree(pberval: MutPtr<MutPtr<LdapBerval>>) {
+public actual fun berBvecfree(pberval: MutPtr) {
     windowssysWindowsWin32NetworkingLdapBerBvecfree(pberval.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun berBvfree(bv: MutPtr<LdapBerval>) {
+public actual fun berBvfree(bv: MutPtr) {
     windowssysWindowsWin32NetworkingLdapBerBvfree(bv.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun berFirstElement(pberelement: MutPtr<BerElement>, plen: MutPtr<UInt>, ppopaque: MutPtr<MutPtr<Byte>>): UInt =
+public actual fun berFirstElement(pberelement: MutPtr, plen: MutPtr, ppopaque: MutPtr): UInt =
     windowssysWindowsWin32NetworkingLdapBerFirstElement(pberelement.rawAddress.toCPointer<ByteVar>(), plen.rawAddress.toCPointer<ByteVar>(), ppopaque.rawAddress.toCPointer<ByteVar>())
 
-public actual fun berFlatten(pberelement: MutPtr<BerElement>, pberval: MutPtr<MutPtr<LdapBerval>>): Int =
+public actual fun berFlatten(pberelement: MutPtr, pberval: MutPtr): Int =
     windowssysWindowsWin32NetworkingLdapBerFlatten(pberelement.rawAddress.toCPointer<ByteVar>(), pberval.rawAddress.toCPointer<ByteVar>())
 
-public actual fun berFree(pberelement: MutPtr<BerElement>, fbuf: Int) {
+public actual fun berFree(pberelement: MutPtr, fbuf: Int) {
     windowssysWindowsWin32NetworkingLdapBerFree(pberelement.rawAddress.toCPointer<ByteVar>(), fbuf)
 }
 
-public actual fun berInit(pberval: MutPtr<LdapBerval>): MutPtr<BerElement> =
+public actual fun berInit(pberval: MutPtr): MutPtr =
     MutPtr(windowssysWindowsWin32NetworkingLdapBerInit(pberval.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun berNextElement(pberelement: MutPtr<BerElement>, plen: MutPtr<UInt>, opaque: Pcstr): UInt =
+public actual fun berNextElement(pberelement: MutPtr, plen: MutPtr, opaque: Pcstr): UInt =
     windowssysWindowsWin32NetworkingLdapBerNextElement(pberelement.rawAddress.toCPointer<ByteVar>(), plen.rawAddress.toCPointer<ByteVar>(), opaque.rawAddress.toCPointer<ByteVar>())
 
-public actual fun berPeekTag(pberelement: MutPtr<BerElement>, plen: MutPtr<UInt>): UInt =
+public actual fun berPeekTag(pberelement: MutPtr, plen: MutPtr): UInt =
     windowssysWindowsWin32NetworkingLdapBerPeekTag(pberelement.rawAddress.toCPointer<ByteVar>(), plen.rawAddress.toCPointer<ByteVar>())
 
-public actual fun berPrintf(pberelement: MutPtr<BerElement>, fmt: Pcstr, vararg variadicArgs: Long): Int =
+public actual fun berPrintf(pberelement: MutPtr, fmt: Pcstr, vararg variadicArgs: Long): Int =
     windowssysWindowsWin32NetworkingLdapBerPrintf(pberelement.rawAddress.toCPointer<ByteVar>(), fmt.rawAddress.toCPointer<ByteVar>(), variadicArgs.size.coerceAtMost(4), if (variadicArgs.size > 0) variadicArgs[0] else 0L, if (variadicArgs.size > 1) variadicArgs[1] else 0L, if (variadicArgs.size > 2) variadicArgs[2] else 0L, if (variadicArgs.size > 3) variadicArgs[3] else 0L)
 
-public actual fun berScanf(pberelement: MutPtr<BerElement>, fmt: Pcstr, vararg variadicArgs: Long): UInt =
+public actual fun berScanf(pberelement: MutPtr, fmt: Pcstr, vararg variadicArgs: Long): UInt =
     windowssysWindowsWin32NetworkingLdapBerScanf(pberelement.rawAddress.toCPointer<ByteVar>(), fmt.rawAddress.toCPointer<ByteVar>(), variadicArgs.size.coerceAtMost(4), if (variadicArgs.size > 0) variadicArgs[0] else 0L, if (variadicArgs.size > 1) variadicArgs[1] else 0L, if (variadicArgs.size > 2) variadicArgs[2] else 0L, if (variadicArgs.size > 3) variadicArgs[3] else 0L)
 
-public actual fun berSkipTag(pberelement: MutPtr<BerElement>, plen: MutPtr<UInt>): UInt =
+public actual fun berSkipTag(pberelement: MutPtr, plen: MutPtr): UInt =
     windowssysWindowsWin32NetworkingLdapBerSkipTag(pberelement.rawAddress.toCPointer<ByteVar>(), plen.rawAddress.toCPointer<ByteVar>())
 
-public actual fun cldapOpen(hostname: Pcstr, portnumber: UInt): MutPtr<Ldap> =
+public actual fun cldapOpen(hostname: Pcstr, portnumber: UInt): MutPtr =
     MutPtr(windowssysWindowsWin32NetworkingLdapCldapOpen(hostname.rawAddress.toCPointer<ByteVar>(), portnumber)?.toLong() ?: 0L)
 
-public actual fun cldapOpenA(hostname: Pcstr, portnumber: UInt): MutPtr<Ldap> =
+public actual fun cldapOpenA(hostname: Pcstr, portnumber: UInt): MutPtr =
     MutPtr(windowssysWindowsWin32NetworkingLdapCldapOpenA(hostname.rawAddress.toCPointer<ByteVar>(), portnumber)?.toLong() ?: 0L)
 
-public actual fun cldapOpenW(hostname: Pcwstr, portnumber: UInt): MutPtr<Ldap> =
+public actual fun cldapOpenW(hostname: Pcwstr, portnumber: UInt): MutPtr =
     MutPtr(windowssysWindowsWin32NetworkingLdapCldapOpenW(hostname.rawAddress.toCPointer<ByteVar>(), portnumber)?.toLong() ?: 0L)
 
-public actual fun ldapAbandon(ld: MutPtr<Ldap>, msgid: UInt): UInt =
+public actual fun ldapAbandon(ld: MutPtr, msgid: UInt): UInt =
     windowssysWindowsWin32NetworkingLdapLdapAbandon(ld.rawAddress.toCPointer<ByteVar>(), msgid)
 
-public actual fun ldapAdd(ld: MutPtr<Ldap>, dn: Pcstr, attrs: MutPtr<MutPtr<LDAPModA>>): UInt =
+public actual fun ldapAdd(ld: MutPtr, dn: Pcstr, attrs: MutPtr): UInt =
     windowssysWindowsWin32NetworkingLdapLdapAdd(ld.rawAddress.toCPointer<ByteVar>(), dn.rawAddress.toCPointer<ByteVar>(), attrs.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ldapAddA(ld: MutPtr<Ldap>, dn: Pcstr, attrs: MutPtr<MutPtr<LDAPModA>>): UInt =
+public actual fun ldapAddA(ld: MutPtr, dn: Pcstr, attrs: MutPtr): UInt =
     windowssysWindowsWin32NetworkingLdapLdapAddA(ld.rawAddress.toCPointer<ByteVar>(), dn.rawAddress.toCPointer<ByteVar>(), attrs.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ldapAddW(ld: MutPtr<Ldap>, dn: Pcwstr, attrs: MutPtr<MutPtr<LDAPModW>>): UInt =
+public actual fun ldapAddW(ld: MutPtr, dn: Pcwstr, attrs: MutPtr): UInt =
     windowssysWindowsWin32NetworkingLdapLdapAddW(ld.rawAddress.toCPointer<ByteVar>(), dn.rawAddress.toCPointer<ByteVar>(), attrs.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ldapAddExt(ld: MutPtr<Ldap>, dn: Pcstr, attrs: MutPtr<MutPtr<LDAPModA>>, servercontrols: MutPtr<MutPtr<LDAPControlA>>, clientcontrols: MutPtr<MutPtr<LDAPControlA>>, messagenumber: MutPtr<UInt>): UInt =
+public actual fun ldapAddExt(ld: MutPtr, dn: Pcstr, attrs: MutPtr, servercontrols: MutPtr, clientcontrols: MutPtr, messagenumber: MutPtr): UInt =
     windowssysWindowsWin32NetworkingLdapLdapAddExt(ld.rawAddress.toCPointer<ByteVar>(), dn.rawAddress.toCPointer<ByteVar>(), attrs.rawAddress.toCPointer<ByteVar>(), servercontrols.rawAddress.toCPointer<ByteVar>(), clientcontrols.rawAddress.toCPointer<ByteVar>(), messagenumber.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ldapAddExtA(ld: MutPtr<Ldap>, dn: Pcstr, attrs: MutPtr<MutPtr<LDAPModA>>, servercontrols: MutPtr<MutPtr<LDAPControlA>>, clientcontrols: MutPtr<MutPtr<LDAPControlA>>, messagenumber: MutPtr<UInt>): UInt =
+public actual fun ldapAddExtA(ld: MutPtr, dn: Pcstr, attrs: MutPtr, servercontrols: MutPtr, clientcontrols: MutPtr, messagenumber: MutPtr): UInt =
     windowssysWindowsWin32NetworkingLdapLdapAddExtA(ld.rawAddress.toCPointer<ByteVar>(), dn.rawAddress.toCPointer<ByteVar>(), attrs.rawAddress.toCPointer<ByteVar>(), servercontrols.rawAddress.toCPointer<ByteVar>(), clientcontrols.rawAddress.toCPointer<ByteVar>(), messagenumber.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ldapAddExtW(ld: MutPtr<Ldap>, dn: Pcwstr, attrs: MutPtr<MutPtr<LDAPModW>>, servercontrols: MutPtr<MutPtr<LDAPControlW>>, clientcontrols: MutPtr<MutPtr<LDAPControlW>>, messagenumber: MutPtr<UInt>): UInt =
+public actual fun ldapAddExtW(ld: MutPtr, dn: Pcwstr, attrs: MutPtr, servercontrols: MutPtr, clientcontrols: MutPtr, messagenumber: MutPtr): UInt =
     windowssysWindowsWin32NetworkingLdapLdapAddExtW(ld.rawAddress.toCPointer<ByteVar>(), dn.rawAddress.toCPointer<ByteVar>(), attrs.rawAddress.toCPointer<ByteVar>(), servercontrols.rawAddress.toCPointer<ByteVar>(), clientcontrols.rawAddress.toCPointer<ByteVar>(), messagenumber.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ldapAddExtS(ld: MutPtr<Ldap>, dn: Pcstr, attrs: MutPtr<MutPtr<LDAPModA>>, servercontrols: MutPtr<MutPtr<LDAPControlA>>, clientcontrols: MutPtr<MutPtr<LDAPControlA>>): UInt =
+public actual fun ldapAddExtS(ld: MutPtr, dn: Pcstr, attrs: MutPtr, servercontrols: MutPtr, clientcontrols: MutPtr): UInt =
     windowssysWindowsWin32NetworkingLdapLdapAddExtS(ld.rawAddress.toCPointer<ByteVar>(), dn.rawAddress.toCPointer<ByteVar>(), attrs.rawAddress.toCPointer<ByteVar>(), servercontrols.rawAddress.toCPointer<ByteVar>(), clientcontrols.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ldapAddExtSA(ld: MutPtr<Ldap>, dn: Pcstr, attrs: MutPtr<MutPtr<LDAPModA>>, servercontrols: MutPtr<MutPtr<LDAPControlA>>, clientcontrols: MutPtr<MutPtr<LDAPControlA>>): UInt =
+public actual fun ldapAddExtSA(ld: MutPtr, dn: Pcstr, attrs: MutPtr, servercontrols: MutPtr, clientcontrols: MutPtr): UInt =
     windowssysWindowsWin32NetworkingLdapLdapAddExtSA(ld.rawAddress.toCPointer<ByteVar>(), dn.rawAddress.toCPointer<ByteVar>(), attrs.rawAddress.toCPointer<ByteVar>(), servercontrols.rawAddress.toCPointer<ByteVar>(), clientcontrols.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ldapAddExtSW(ld: MutPtr<Ldap>, dn: Pcwstr, attrs: MutPtr<MutPtr<LDAPModW>>, servercontrols: MutPtr<MutPtr<LDAPControlW>>, clientcontrols: MutPtr<MutPtr<LDAPControlW>>): UInt =
+public actual fun ldapAddExtSW(ld: MutPtr, dn: Pcwstr, attrs: MutPtr, servercontrols: MutPtr, clientcontrols: MutPtr): UInt =
     windowssysWindowsWin32NetworkingLdapLdapAddExtSW(ld.rawAddress.toCPointer<ByteVar>(), dn.rawAddress.toCPointer<ByteVar>(), attrs.rawAddress.toCPointer<ByteVar>(), servercontrols.rawAddress.toCPointer<ByteVar>(), clientcontrols.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ldapAddS(ld: MutPtr<Ldap>, dn: Pcstr, attrs: MutPtr<MutPtr<LDAPModA>>): UInt =
+public actual fun ldapAddS(ld: MutPtr, dn: Pcstr, attrs: MutPtr): UInt =
     windowssysWindowsWin32NetworkingLdapLdapAddS(ld.rawAddress.toCPointer<ByteVar>(), dn.rawAddress.toCPointer<ByteVar>(), attrs.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ldapAddSA(ld: MutPtr<Ldap>, dn: Pcstr, attrs: MutPtr<MutPtr<LDAPModA>>): UInt =
+public actual fun ldapAddSA(ld: MutPtr, dn: Pcstr, attrs: MutPtr): UInt =
     windowssysWindowsWin32NetworkingLdapLdapAddSA(ld.rawAddress.toCPointer<ByteVar>(), dn.rawAddress.toCPointer<ByteVar>(), attrs.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ldapAddSW(ld: MutPtr<Ldap>, dn: Pcwstr, attrs: MutPtr<MutPtr<LDAPModW>>): UInt =
+public actual fun ldapAddSW(ld: MutPtr, dn: Pcwstr, attrs: MutPtr): UInt =
     windowssysWindowsWin32NetworkingLdapLdapAddSW(ld.rawAddress.toCPointer<ByteVar>(), dn.rawAddress.toCPointer<ByteVar>(), attrs.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ldapBind(ld: MutPtr<Ldap>, dn: Pcstr, cred: Pcstr, method: UInt): UInt =
+public actual fun ldapBind(ld: MutPtr, dn: Pcstr, cred: Pcstr, method: UInt): UInt =
     windowssysWindowsWin32NetworkingLdapLdapBind(ld.rawAddress.toCPointer<ByteVar>(), dn.rawAddress.toCPointer<ByteVar>(), cred.rawAddress.toCPointer<ByteVar>(), method)
 
-public actual fun ldapBindA(ld: MutPtr<Ldap>, dn: Pcstr, cred: Pcstr, method: UInt): UInt =
+public actual fun ldapBindA(ld: MutPtr, dn: Pcstr, cred: Pcstr, method: UInt): UInt =
     windowssysWindowsWin32NetworkingLdapLdapBindA(ld.rawAddress.toCPointer<ByteVar>(), dn.rawAddress.toCPointer<ByteVar>(), cred.rawAddress.toCPointer<ByteVar>(), method)
 
-public actual fun ldapBindW(ld: MutPtr<Ldap>, dn: Pcwstr, cred: Pcwstr, method: UInt): UInt =
+public actual fun ldapBindW(ld: MutPtr, dn: Pcwstr, cred: Pcwstr, method: UInt): UInt =
     windowssysWindowsWin32NetworkingLdapLdapBindW(ld.rawAddress.toCPointer<ByteVar>(), dn.rawAddress.toCPointer<ByteVar>(), cred.rawAddress.toCPointer<ByteVar>(), method)
 
-public actual fun ldapBindS(ld: MutPtr<Ldap>, dn: Pcstr, cred: Pcstr, method: UInt): UInt =
+public actual fun ldapBindS(ld: MutPtr, dn: Pcstr, cred: Pcstr, method: UInt): UInt =
     windowssysWindowsWin32NetworkingLdapLdapBindS(ld.rawAddress.toCPointer<ByteVar>(), dn.rawAddress.toCPointer<ByteVar>(), cred.rawAddress.toCPointer<ByteVar>(), method)
 
-public actual fun ldapBindSA(ld: MutPtr<Ldap>, dn: Pcstr, cred: Pcstr, method: UInt): UInt =
+public actual fun ldapBindSA(ld: MutPtr, dn: Pcstr, cred: Pcstr, method: UInt): UInt =
     windowssysWindowsWin32NetworkingLdapLdapBindSA(ld.rawAddress.toCPointer<ByteVar>(), dn.rawAddress.toCPointer<ByteVar>(), cred.rawAddress.toCPointer<ByteVar>(), method)
 
-public actual fun ldapBindSW(ld: MutPtr<Ldap>, dn: Pcwstr, cred: Pcwstr, method: UInt): UInt =
+public actual fun ldapBindSW(ld: MutPtr, dn: Pcwstr, cred: Pcwstr, method: UInt): UInt =
     windowssysWindowsWin32NetworkingLdapLdapBindSW(ld.rawAddress.toCPointer<ByteVar>(), dn.rawAddress.toCPointer<ByteVar>(), cred.rawAddress.toCPointer<ByteVar>(), method)
 
-public actual fun ldapCheckFilterA(ld: MutPtr<Ldap>, searchfilter: Pcstr): UInt =
+public actual fun ldapCheckFilterA(ld: MutPtr, searchfilter: Pcstr): UInt =
     windowssysWindowsWin32NetworkingLdapLdapCheckFilterA(ld.rawAddress.toCPointer<ByteVar>(), searchfilter.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ldapCheckFilterW(ld: MutPtr<Ldap>, searchfilter: Pcwstr): UInt =
+public actual fun ldapCheckFilterW(ld: MutPtr, searchfilter: Pcwstr): UInt =
     windowssysWindowsWin32NetworkingLdapLdapCheckFilterW(ld.rawAddress.toCPointer<ByteVar>(), searchfilter.rawAddress.toCPointer<ByteVar>())
 
 public actual fun ldapCleanup(hinstance: Handle): UInt =
     windowssysWindowsWin32NetworkingLdapLdapCleanup(hinstance.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ldapCloseExtendedOp(ld: MutPtr<Ldap>, messagenumber: UInt): UInt =
+public actual fun ldapCloseExtendedOp(ld: MutPtr, messagenumber: UInt): UInt =
     windowssysWindowsWin32NetworkingLdapLdapCloseExtendedOp(ld.rawAddress.toCPointer<ByteVar>(), messagenumber)
 
-public actual fun ldapCompare(ld: MutPtr<Ldap>, dn: Pcstr, attr: Pcstr, value: Pcstr): UInt =
+public actual fun ldapCompare(ld: MutPtr, dn: Pcstr, attr: Pcstr, value: Pcstr): UInt =
     windowssysWindowsWin32NetworkingLdapLdapCompare(ld.rawAddress.toCPointer<ByteVar>(), dn.rawAddress.toCPointer<ByteVar>(), attr.rawAddress.toCPointer<ByteVar>(), value.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ldapCompareA(ld: MutPtr<Ldap>, dn: Pcstr, attr: Pcstr, value: Pcstr): UInt =
+public actual fun ldapCompareA(ld: MutPtr, dn: Pcstr, attr: Pcstr, value: Pcstr): UInt =
     windowssysWindowsWin32NetworkingLdapLdapCompareA(ld.rawAddress.toCPointer<ByteVar>(), dn.rawAddress.toCPointer<ByteVar>(), attr.rawAddress.toCPointer<ByteVar>(), value.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ldapCompareW(ld: MutPtr<Ldap>, dn: Pcwstr, attr: Pcwstr, value: Pcwstr): UInt =
+public actual fun ldapCompareW(ld: MutPtr, dn: Pcwstr, attr: Pcwstr, value: Pcwstr): UInt =
     windowssysWindowsWin32NetworkingLdapLdapCompareW(ld.rawAddress.toCPointer<ByteVar>(), dn.rawAddress.toCPointer<ByteVar>(), attr.rawAddress.toCPointer<ByteVar>(), value.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ldapCompareExt(ld: MutPtr<Ldap>, dn: Pcstr, attr: Pcstr, value: Pcstr, data: MutPtr<LdapBerval>, servercontrols: MutPtr<MutPtr<LDAPControlA>>, clientcontrols: MutPtr<MutPtr<LDAPControlA>>, messagenumber: MutPtr<UInt>): UInt =
+public actual fun ldapCompareExt(ld: MutPtr, dn: Pcstr, attr: Pcstr, value: Pcstr, data: MutPtr, servercontrols: MutPtr, clientcontrols: MutPtr, messagenumber: MutPtr): UInt =
     windowssysWindowsWin32NetworkingLdapLdapCompareExt(ld.rawAddress.toCPointer<ByteVar>(), dn.rawAddress.toCPointer<ByteVar>(), attr.rawAddress.toCPointer<ByteVar>(), value.rawAddress.toCPointer<ByteVar>(), data.rawAddress.toCPointer<ByteVar>(), servercontrols.rawAddress.toCPointer<ByteVar>(), clientcontrols.rawAddress.toCPointer<ByteVar>(), messagenumber.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ldapCompareExtA(ld: MutPtr<Ldap>, dn: Pcstr, attr: Pcstr, value: Pcstr, data: ConstPtr<LdapBerval>, servercontrols: MutPtr<MutPtr<LDAPControlA>>, clientcontrols: MutPtr<MutPtr<LDAPControlA>>, messagenumber: MutPtr<UInt>): UInt =
+public actual fun ldapCompareExtA(ld: MutPtr, dn: Pcstr, attr: Pcstr, value: Pcstr, data: ConstPtr, servercontrols: MutPtr, clientcontrols: MutPtr, messagenumber: MutPtr): UInt =
     windowssysWindowsWin32NetworkingLdapLdapCompareExtA(ld.rawAddress.toCPointer<ByteVar>(), dn.rawAddress.toCPointer<ByteVar>(), attr.rawAddress.toCPointer<ByteVar>(), value.rawAddress.toCPointer<ByteVar>(), data.rawAddress.toCPointer<ByteVar>(), servercontrols.rawAddress.toCPointer<ByteVar>(), clientcontrols.rawAddress.toCPointer<ByteVar>(), messagenumber.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ldapCompareExtW(ld: MutPtr<Ldap>, dn: Pcwstr, attr: Pcwstr, value: Pcwstr, data: ConstPtr<LdapBerval>, servercontrols: MutPtr<MutPtr<LDAPControlW>>, clientcontrols: MutPtr<MutPtr<LDAPControlW>>, messagenumber: MutPtr<UInt>): UInt =
+public actual fun ldapCompareExtW(ld: MutPtr, dn: Pcwstr, attr: Pcwstr, value: Pcwstr, data: ConstPtr, servercontrols: MutPtr, clientcontrols: MutPtr, messagenumber: MutPtr): UInt =
     windowssysWindowsWin32NetworkingLdapLdapCompareExtW(ld.rawAddress.toCPointer<ByteVar>(), dn.rawAddress.toCPointer<ByteVar>(), attr.rawAddress.toCPointer<ByteVar>(), value.rawAddress.toCPointer<ByteVar>(), data.rawAddress.toCPointer<ByteVar>(), servercontrols.rawAddress.toCPointer<ByteVar>(), clientcontrols.rawAddress.toCPointer<ByteVar>(), messagenumber.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ldapCompareExtS(ld: MutPtr<Ldap>, dn: Pcstr, attr: Pcstr, value: Pcstr, data: MutPtr<LdapBerval>, servercontrols: MutPtr<MutPtr<LDAPControlA>>, clientcontrols: MutPtr<MutPtr<LDAPControlA>>): UInt =
+public actual fun ldapCompareExtS(ld: MutPtr, dn: Pcstr, attr: Pcstr, value: Pcstr, data: MutPtr, servercontrols: MutPtr, clientcontrols: MutPtr): UInt =
     windowssysWindowsWin32NetworkingLdapLdapCompareExtS(ld.rawAddress.toCPointer<ByteVar>(), dn.rawAddress.toCPointer<ByteVar>(), attr.rawAddress.toCPointer<ByteVar>(), value.rawAddress.toCPointer<ByteVar>(), data.rawAddress.toCPointer<ByteVar>(), servercontrols.rawAddress.toCPointer<ByteVar>(), clientcontrols.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ldapCompareExtSA(ld: MutPtr<Ldap>, dn: Pcstr, attr: Pcstr, value: Pcstr, data: ConstPtr<LdapBerval>, servercontrols: MutPtr<MutPtr<LDAPControlA>>, clientcontrols: MutPtr<MutPtr<LDAPControlA>>): UInt =
+public actual fun ldapCompareExtSA(ld: MutPtr, dn: Pcstr, attr: Pcstr, value: Pcstr, data: ConstPtr, servercontrols: MutPtr, clientcontrols: MutPtr): UInt =
     windowssysWindowsWin32NetworkingLdapLdapCompareExtSA(ld.rawAddress.toCPointer<ByteVar>(), dn.rawAddress.toCPointer<ByteVar>(), attr.rawAddress.toCPointer<ByteVar>(), value.rawAddress.toCPointer<ByteVar>(), data.rawAddress.toCPointer<ByteVar>(), servercontrols.rawAddress.toCPointer<ByteVar>(), clientcontrols.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ldapCompareExtSW(ld: MutPtr<Ldap>, dn: Pcwstr, attr: Pcwstr, value: Pcwstr, data: ConstPtr<LdapBerval>, servercontrols: MutPtr<MutPtr<LDAPControlW>>, clientcontrols: MutPtr<MutPtr<LDAPControlW>>): UInt =
+public actual fun ldapCompareExtSW(ld: MutPtr, dn: Pcwstr, attr: Pcwstr, value: Pcwstr, data: ConstPtr, servercontrols: MutPtr, clientcontrols: MutPtr): UInt =
     windowssysWindowsWin32NetworkingLdapLdapCompareExtSW(ld.rawAddress.toCPointer<ByteVar>(), dn.rawAddress.toCPointer<ByteVar>(), attr.rawAddress.toCPointer<ByteVar>(), value.rawAddress.toCPointer<ByteVar>(), data.rawAddress.toCPointer<ByteVar>(), servercontrols.rawAddress.toCPointer<ByteVar>(), clientcontrols.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ldapCompareS(ld: MutPtr<Ldap>, dn: Pcstr, attr: Pcstr, value: Pcstr): UInt =
+public actual fun ldapCompareS(ld: MutPtr, dn: Pcstr, attr: Pcstr, value: Pcstr): UInt =
     windowssysWindowsWin32NetworkingLdapLdapCompareS(ld.rawAddress.toCPointer<ByteVar>(), dn.rawAddress.toCPointer<ByteVar>(), attr.rawAddress.toCPointer<ByteVar>(), value.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ldapCompareSA(ld: MutPtr<Ldap>, dn: Pcstr, attr: Pcstr, value: Pcstr): UInt =
+public actual fun ldapCompareSA(ld: MutPtr, dn: Pcstr, attr: Pcstr, value: Pcstr): UInt =
     windowssysWindowsWin32NetworkingLdapLdapCompareSA(ld.rawAddress.toCPointer<ByteVar>(), dn.rawAddress.toCPointer<ByteVar>(), attr.rawAddress.toCPointer<ByteVar>(), value.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ldapCompareSW(ld: MutPtr<Ldap>, dn: Pcwstr, attr: Pcwstr, value: Pcwstr): UInt =
+public actual fun ldapCompareSW(ld: MutPtr, dn: Pcwstr, attr: Pcwstr, value: Pcwstr): UInt =
     windowssysWindowsWin32NetworkingLdapLdapCompareSW(ld.rawAddress.toCPointer<ByteVar>(), dn.rawAddress.toCPointer<ByteVar>(), attr.rawAddress.toCPointer<ByteVar>(), value.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ldapConnFromMsg(primaryconn: MutPtr<Ldap>, res: MutPtr<LDAPMessage>): MutPtr<Ldap> =
+public actual fun ldapConnFromMsg(primaryconn: MutPtr, res: MutPtr): MutPtr =
     MutPtr(windowssysWindowsWin32NetworkingLdapLdapConnFromMsg(primaryconn.rawAddress.toCPointer<ByteVar>(), res.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun ldapConnect(ld: MutPtr<Ldap>, timeout: MutPtr<LdapTimeval>): UInt =
+public actual fun ldapConnect(ld: MutPtr, timeout: MutPtr): UInt =
     windowssysWindowsWin32NetworkingLdapLdapConnect(ld.rawAddress.toCPointer<ByteVar>(), timeout.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ldapControlFree(control: MutPtr<LDAPControlA>): UInt =
+public actual fun ldapControlFree(control: MutPtr): UInt =
     windowssysWindowsWin32NetworkingLdapLdapControlFree(control.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ldapControlFreeA(controls: MutPtr<LDAPControlA>): UInt =
+public actual fun ldapControlFreeA(controls: MutPtr): UInt =
     windowssysWindowsWin32NetworkingLdapLdapControlFreeA(controls.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ldapControlFreeW(control: MutPtr<LDAPControlW>): UInt =
+public actual fun ldapControlFreeW(control: MutPtr): UInt =
     windowssysWindowsWin32NetworkingLdapLdapControlFreeW(control.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ldapControlsFree(controls: MutPtr<MutPtr<LDAPControlA>>): UInt =
+public actual fun ldapControlsFree(controls: MutPtr): UInt =
     windowssysWindowsWin32NetworkingLdapLdapControlsFree(controls.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ldapControlsFreeA(controls: MutPtr<MutPtr<LDAPControlA>>): UInt =
+public actual fun ldapControlsFreeA(controls: MutPtr): UInt =
     windowssysWindowsWin32NetworkingLdapLdapControlsFreeA(controls.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ldapControlsFreeW(control: MutPtr<MutPtr<LDAPControlW>>): UInt =
+public actual fun ldapControlsFreeW(control: MutPtr): UInt =
     windowssysWindowsWin32NetworkingLdapLdapControlsFreeW(control.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ldapCountEntries(ld: MutPtr<Ldap>, res: MutPtr<LDAPMessage>): UInt =
+public actual fun ldapCountEntries(ld: MutPtr, res: MutPtr): UInt =
     windowssysWindowsWin32NetworkingLdapLdapCountEntries(ld.rawAddress.toCPointer<ByteVar>(), res.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ldapCountReferences(ld: MutPtr<Ldap>, res: MutPtr<LDAPMessage>): UInt =
+public actual fun ldapCountReferences(ld: MutPtr, res: MutPtr): UInt =
     windowssysWindowsWin32NetworkingLdapLdapCountReferences(ld.rawAddress.toCPointer<ByteVar>(), res.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ldapCountValues(vals: ConstPtr<Pcstr>): UInt =
+public actual fun ldapCountValues(vals: ConstPtr): UInt =
     windowssysWindowsWin32NetworkingLdapLdapCountValues(vals.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ldapCountValuesA(vals: ConstPtr<Pcstr>): UInt =
+public actual fun ldapCountValuesA(vals: ConstPtr): UInt =
     windowssysWindowsWin32NetworkingLdapLdapCountValuesA(vals.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ldapCountValuesW(vals: ConstPtr<Pcwstr>): UInt =
+public actual fun ldapCountValuesW(vals: ConstPtr): UInt =
     windowssysWindowsWin32NetworkingLdapLdapCountValuesW(vals.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ldapCountValuesLen(vals: MutPtr<MutPtr<LdapBerval>>): UInt =
+public actual fun ldapCountValuesLen(vals: MutPtr): UInt =
     windowssysWindowsWin32NetworkingLdapLdapCountValuesLen(vals.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ldapCreatePageControl(externalhandle: MutPtr<Ldap>, pagesize: UInt, cookie: MutPtr<LdapBerval>, iscritical: UByte, control: MutPtr<MutPtr<LDAPControlA>>): UInt =
+public actual fun ldapCreatePageControl(externalhandle: MutPtr, pagesize: UInt, cookie: MutPtr, iscritical: UByte, control: MutPtr): UInt =
     windowssysWindowsWin32NetworkingLdapLdapCreatePageControl(externalhandle.rawAddress.toCPointer<ByteVar>(), pagesize, cookie.rawAddress.toCPointer<ByteVar>(), iscritical, control.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ldapCreatePageControlA(externalhandle: MutPtr<Ldap>, pagesize: UInt, cookie: MutPtr<LdapBerval>, iscritical: UByte, control: MutPtr<MutPtr<LDAPControlA>>): UInt =
+public actual fun ldapCreatePageControlA(externalhandle: MutPtr, pagesize: UInt, cookie: MutPtr, iscritical: UByte, control: MutPtr): UInt =
     windowssysWindowsWin32NetworkingLdapLdapCreatePageControlA(externalhandle.rawAddress.toCPointer<ByteVar>(), pagesize, cookie.rawAddress.toCPointer<ByteVar>(), iscritical, control.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ldapCreatePageControlW(externalhandle: MutPtr<Ldap>, pagesize: UInt, cookie: MutPtr<LdapBerval>, iscritical: UByte, control: MutPtr<MutPtr<LDAPControlW>>): UInt =
+public actual fun ldapCreatePageControlW(externalhandle: MutPtr, pagesize: UInt, cookie: MutPtr, iscritical: UByte, control: MutPtr): UInt =
     windowssysWindowsWin32NetworkingLdapLdapCreatePageControlW(externalhandle.rawAddress.toCPointer<ByteVar>(), pagesize, cookie.rawAddress.toCPointer<ByteVar>(), iscritical, control.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ldapCreateSortControl(externalhandle: MutPtr<Ldap>, sortkeys: MutPtr<MutPtr<LDAPSortKeyA>>, iscritical: UByte, control: MutPtr<MutPtr<LDAPControlA>>): UInt =
+public actual fun ldapCreateSortControl(externalhandle: MutPtr, sortkeys: MutPtr, iscritical: UByte, control: MutPtr): UInt =
     windowssysWindowsWin32NetworkingLdapLdapCreateSortControl(externalhandle.rawAddress.toCPointer<ByteVar>(), sortkeys.rawAddress.toCPointer<ByteVar>(), iscritical, control.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ldapCreateSortControlA(externalhandle: MutPtr<Ldap>, sortkeys: MutPtr<MutPtr<LDAPSortKeyA>>, iscritical: UByte, control: MutPtr<MutPtr<LDAPControlA>>): UInt =
+public actual fun ldapCreateSortControlA(externalhandle: MutPtr, sortkeys: MutPtr, iscritical: UByte, control: MutPtr): UInt =
     windowssysWindowsWin32NetworkingLdapLdapCreateSortControlA(externalhandle.rawAddress.toCPointer<ByteVar>(), sortkeys.rawAddress.toCPointer<ByteVar>(), iscritical, control.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ldapCreateSortControlW(externalhandle: MutPtr<Ldap>, sortkeys: MutPtr<MutPtr<LDAPSortKeyW>>, iscritical: UByte, control: MutPtr<MutPtr<LDAPControlW>>): UInt =
+public actual fun ldapCreateSortControlW(externalhandle: MutPtr, sortkeys: MutPtr, iscritical: UByte, control: MutPtr): UInt =
     windowssysWindowsWin32NetworkingLdapLdapCreateSortControlW(externalhandle.rawAddress.toCPointer<ByteVar>(), sortkeys.rawAddress.toCPointer<ByteVar>(), iscritical, control.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ldapCreateVlvControlA(externalhandle: MutPtr<Ldap>, vlvinfo: MutPtr<LDAPVLVInfo>, iscritical: UByte, control: MutPtr<MutPtr<LDAPControlA>>): Int =
+public actual fun ldapCreateVlvControlA(externalhandle: MutPtr, vlvinfo: MutPtr, iscritical: UByte, control: MutPtr): Int =
     windowssysWindowsWin32NetworkingLdapLdapCreateVlvControlA(externalhandle.rawAddress.toCPointer<ByteVar>(), vlvinfo.rawAddress.toCPointer<ByteVar>(), iscritical, control.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ldapCreateVlvControlW(externalhandle: MutPtr<Ldap>, vlvinfo: MutPtr<LDAPVLVInfo>, iscritical: UByte, control: MutPtr<MutPtr<LDAPControlW>>): Int =
+public actual fun ldapCreateVlvControlW(externalhandle: MutPtr, vlvinfo: MutPtr, iscritical: UByte, control: MutPtr): Int =
     windowssysWindowsWin32NetworkingLdapLdapCreateVlvControlW(externalhandle.rawAddress.toCPointer<ByteVar>(), vlvinfo.rawAddress.toCPointer<ByteVar>(), iscritical, control.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ldapDelete(ld: MutPtr<Ldap>, dn: Pcstr): UInt =
+public actual fun ldapDelete(ld: MutPtr, dn: Pcstr): UInt =
     windowssysWindowsWin32NetworkingLdapLdapDelete(ld.rawAddress.toCPointer<ByteVar>(), dn.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ldapDeleteA(ld: MutPtr<Ldap>, dn: Pcstr): UInt =
+public actual fun ldapDeleteA(ld: MutPtr, dn: Pcstr): UInt =
     windowssysWindowsWin32NetworkingLdapLdapDeleteA(ld.rawAddress.toCPointer<ByteVar>(), dn.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ldapDeleteW(ld: MutPtr<Ldap>, dn: Pcwstr): UInt =
+public actual fun ldapDeleteW(ld: MutPtr, dn: Pcwstr): UInt =
     windowssysWindowsWin32NetworkingLdapLdapDeleteW(ld.rawAddress.toCPointer<ByteVar>(), dn.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ldapDeleteExt(ld: MutPtr<Ldap>, dn: Pcstr, servercontrols: MutPtr<MutPtr<LDAPControlA>>, clientcontrols: MutPtr<MutPtr<LDAPControlA>>, messagenumber: MutPtr<UInt>): UInt =
+public actual fun ldapDeleteExt(ld: MutPtr, dn: Pcstr, servercontrols: MutPtr, clientcontrols: MutPtr, messagenumber: MutPtr): UInt =
     windowssysWindowsWin32NetworkingLdapLdapDeleteExt(ld.rawAddress.toCPointer<ByteVar>(), dn.rawAddress.toCPointer<ByteVar>(), servercontrols.rawAddress.toCPointer<ByteVar>(), clientcontrols.rawAddress.toCPointer<ByteVar>(), messagenumber.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ldapDeleteExtA(ld: MutPtr<Ldap>, dn: Pcstr, servercontrols: MutPtr<MutPtr<LDAPControlA>>, clientcontrols: MutPtr<MutPtr<LDAPControlA>>, messagenumber: MutPtr<UInt>): UInt =
+public actual fun ldapDeleteExtA(ld: MutPtr, dn: Pcstr, servercontrols: MutPtr, clientcontrols: MutPtr, messagenumber: MutPtr): UInt =
     windowssysWindowsWin32NetworkingLdapLdapDeleteExtA(ld.rawAddress.toCPointer<ByteVar>(), dn.rawAddress.toCPointer<ByteVar>(), servercontrols.rawAddress.toCPointer<ByteVar>(), clientcontrols.rawAddress.toCPointer<ByteVar>(), messagenumber.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ldapDeleteExtW(ld: MutPtr<Ldap>, dn: Pcwstr, servercontrols: MutPtr<MutPtr<LDAPControlW>>, clientcontrols: MutPtr<MutPtr<LDAPControlW>>, messagenumber: MutPtr<UInt>): UInt =
+public actual fun ldapDeleteExtW(ld: MutPtr, dn: Pcwstr, servercontrols: MutPtr, clientcontrols: MutPtr, messagenumber: MutPtr): UInt =
     windowssysWindowsWin32NetworkingLdapLdapDeleteExtW(ld.rawAddress.toCPointer<ByteVar>(), dn.rawAddress.toCPointer<ByteVar>(), servercontrols.rawAddress.toCPointer<ByteVar>(), clientcontrols.rawAddress.toCPointer<ByteVar>(), messagenumber.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ldapDeleteExtS(ld: MutPtr<Ldap>, dn: Pcstr, servercontrols: MutPtr<MutPtr<LDAPControlA>>, clientcontrols: MutPtr<MutPtr<LDAPControlA>>): UInt =
+public actual fun ldapDeleteExtS(ld: MutPtr, dn: Pcstr, servercontrols: MutPtr, clientcontrols: MutPtr): UInt =
     windowssysWindowsWin32NetworkingLdapLdapDeleteExtS(ld.rawAddress.toCPointer<ByteVar>(), dn.rawAddress.toCPointer<ByteVar>(), servercontrols.rawAddress.toCPointer<ByteVar>(), clientcontrols.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ldapDeleteExtSA(ld: MutPtr<Ldap>, dn: Pcstr, servercontrols: MutPtr<MutPtr<LDAPControlA>>, clientcontrols: MutPtr<MutPtr<LDAPControlA>>): UInt =
+public actual fun ldapDeleteExtSA(ld: MutPtr, dn: Pcstr, servercontrols: MutPtr, clientcontrols: MutPtr): UInt =
     windowssysWindowsWin32NetworkingLdapLdapDeleteExtSA(ld.rawAddress.toCPointer<ByteVar>(), dn.rawAddress.toCPointer<ByteVar>(), servercontrols.rawAddress.toCPointer<ByteVar>(), clientcontrols.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ldapDeleteExtSW(ld: MutPtr<Ldap>, dn: Pcwstr, servercontrols: MutPtr<MutPtr<LDAPControlW>>, clientcontrols: MutPtr<MutPtr<LDAPControlW>>): UInt =
+public actual fun ldapDeleteExtSW(ld: MutPtr, dn: Pcwstr, servercontrols: MutPtr, clientcontrols: MutPtr): UInt =
     windowssysWindowsWin32NetworkingLdapLdapDeleteExtSW(ld.rawAddress.toCPointer<ByteVar>(), dn.rawAddress.toCPointer<ByteVar>(), servercontrols.rawAddress.toCPointer<ByteVar>(), clientcontrols.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ldapDeleteS(ld: MutPtr<Ldap>, dn: Pcstr): UInt =
+public actual fun ldapDeleteS(ld: MutPtr, dn: Pcstr): UInt =
     windowssysWindowsWin32NetworkingLdapLdapDeleteS(ld.rawAddress.toCPointer<ByteVar>(), dn.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ldapDeleteSA(ld: MutPtr<Ldap>, dn: Pcstr): UInt =
+public actual fun ldapDeleteSA(ld: MutPtr, dn: Pcstr): UInt =
     windowssysWindowsWin32NetworkingLdapLdapDeleteSA(ld.rawAddress.toCPointer<ByteVar>(), dn.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ldapDeleteSW(ld: MutPtr<Ldap>, dn: Pcwstr): UInt =
+public actual fun ldapDeleteSW(ld: MutPtr, dn: Pcwstr): UInt =
     windowssysWindowsWin32NetworkingLdapLdapDeleteSW(ld.rawAddress.toCPointer<ByteVar>(), dn.rawAddress.toCPointer<ByteVar>())
 
 public actual fun ldapDn2ufn(dn: Pcstr): Pstr =
@@ -537,10 +536,10 @@ public actual fun ldapDn2ufnA(dn: Pcstr): Pstr =
 public actual fun ldapDn2ufnW(dn: Pcwstr): Pwstr =
     MutPtr(windowssysWindowsWin32NetworkingLdapLdapDn2ufnW(dn.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun ldapEncodeSortControlA(externalhandle: MutPtr<Ldap>, sortkeys: MutPtr<MutPtr<LDAPSortKeyA>>, control: MutPtr<LDAPControlA>, criticality: Boolean): UInt =
+public actual fun ldapEncodeSortControlA(externalhandle: MutPtr, sortkeys: MutPtr, control: MutPtr, criticality: Boolean): UInt =
     windowssysWindowsWin32NetworkingLdapLdapEncodeSortControlA(externalhandle.rawAddress.toCPointer<ByteVar>(), sortkeys.rawAddress.toCPointer<ByteVar>(), control.rawAddress.toCPointer<ByteVar>(), criticality)
 
-public actual fun ldapEncodeSortControlW(externalhandle: MutPtr<Ldap>, sortkeys: MutPtr<MutPtr<LDAPSortKeyW>>, control: MutPtr<LDAPControlW>, criticality: Boolean): UInt =
+public actual fun ldapEncodeSortControlW(externalhandle: MutPtr, sortkeys: MutPtr, control: MutPtr, criticality: Boolean): UInt =
     windowssysWindowsWin32NetworkingLdapLdapEncodeSortControlW(externalhandle.rawAddress.toCPointer<ByteVar>(), sortkeys.rawAddress.toCPointer<ByteVar>(), control.rawAddress.toCPointer<ByteVar>(), criticality)
 
 public actual fun ldapErr2string(err: UInt): Pstr =
@@ -561,103 +560,103 @@ public actual fun ldapEscapeFilterElementA(sourcefilterelement: Pcstr, sourcelen
 public actual fun ldapEscapeFilterElementW(sourcefilterelement: Pcstr, sourcelength: UInt, destfilterelement: Pwstr, destlength: UInt): UInt =
     windowssysWindowsWin32NetworkingLdapLdapEscapeFilterElementW(sourcefilterelement.rawAddress.toCPointer<ByteVar>(), sourcelength, destfilterelement.rawAddress.toCPointer<ByteVar>(), destlength)
 
-public actual fun ldapExplodeDn(dn: Pcstr, notypes: UInt): MutPtr<Pstr> =
+public actual fun ldapExplodeDn(dn: Pcstr, notypes: UInt): MutPtr =
     MutPtr(windowssysWindowsWin32NetworkingLdapLdapExplodeDn(dn.rawAddress.toCPointer<ByteVar>(), notypes)?.toLong() ?: 0L)
 
-public actual fun ldapExplodeDnA(dn: Pcstr, notypes: UInt): MutPtr<Pstr> =
+public actual fun ldapExplodeDnA(dn: Pcstr, notypes: UInt): MutPtr =
     MutPtr(windowssysWindowsWin32NetworkingLdapLdapExplodeDnA(dn.rawAddress.toCPointer<ByteVar>(), notypes)?.toLong() ?: 0L)
 
-public actual fun ldapExplodeDnW(dn: Pcwstr, notypes: UInt): MutPtr<Pwstr> =
+public actual fun ldapExplodeDnW(dn: Pcwstr, notypes: UInt): MutPtr =
     MutPtr(windowssysWindowsWin32NetworkingLdapLdapExplodeDnW(dn.rawAddress.toCPointer<ByteVar>(), notypes)?.toLong() ?: 0L)
 
-public actual fun ldapExtendedOperation(ld: MutPtr<Ldap>, oid: Pcstr, data: MutPtr<LdapBerval>, servercontrols: MutPtr<MutPtr<LDAPControlA>>, clientcontrols: MutPtr<MutPtr<LDAPControlA>>, messagenumber: MutPtr<UInt>): UInt =
+public actual fun ldapExtendedOperation(ld: MutPtr, oid: Pcstr, data: MutPtr, servercontrols: MutPtr, clientcontrols: MutPtr, messagenumber: MutPtr): UInt =
     windowssysWindowsWin32NetworkingLdapLdapExtendedOperation(ld.rawAddress.toCPointer<ByteVar>(), oid.rawAddress.toCPointer<ByteVar>(), data.rawAddress.toCPointer<ByteVar>(), servercontrols.rawAddress.toCPointer<ByteVar>(), clientcontrols.rawAddress.toCPointer<ByteVar>(), messagenumber.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ldapExtendedOperationA(ld: MutPtr<Ldap>, oid: Pcstr, data: MutPtr<LdapBerval>, servercontrols: MutPtr<MutPtr<LDAPControlA>>, clientcontrols: MutPtr<MutPtr<LDAPControlA>>, messagenumber: MutPtr<UInt>): UInt =
+public actual fun ldapExtendedOperationA(ld: MutPtr, oid: Pcstr, data: MutPtr, servercontrols: MutPtr, clientcontrols: MutPtr, messagenumber: MutPtr): UInt =
     windowssysWindowsWin32NetworkingLdapLdapExtendedOperationA(ld.rawAddress.toCPointer<ByteVar>(), oid.rawAddress.toCPointer<ByteVar>(), data.rawAddress.toCPointer<ByteVar>(), servercontrols.rawAddress.toCPointer<ByteVar>(), clientcontrols.rawAddress.toCPointer<ByteVar>(), messagenumber.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ldapExtendedOperationW(ld: MutPtr<Ldap>, oid: Pcwstr, data: MutPtr<LdapBerval>, servercontrols: MutPtr<MutPtr<LDAPControlW>>, clientcontrols: MutPtr<MutPtr<LDAPControlW>>, messagenumber: MutPtr<UInt>): UInt =
+public actual fun ldapExtendedOperationW(ld: MutPtr, oid: Pcwstr, data: MutPtr, servercontrols: MutPtr, clientcontrols: MutPtr, messagenumber: MutPtr): UInt =
     windowssysWindowsWin32NetworkingLdapLdapExtendedOperationW(ld.rawAddress.toCPointer<ByteVar>(), oid.rawAddress.toCPointer<ByteVar>(), data.rawAddress.toCPointer<ByteVar>(), servercontrols.rawAddress.toCPointer<ByteVar>(), clientcontrols.rawAddress.toCPointer<ByteVar>(), messagenumber.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ldapExtendedOperationSA(externalhandle: MutPtr<Ldap>, oid: Pcstr, data: MutPtr<LdapBerval>, servercontrols: MutPtr<MutPtr<LDAPControlA>>, clientcontrols: MutPtr<MutPtr<LDAPControlA>>, returnedoid: MutPtr<Pstr>, returneddata: MutPtr<MutPtr<LdapBerval>>): UInt =
+public actual fun ldapExtendedOperationSA(externalhandle: MutPtr, oid: Pcstr, data: MutPtr, servercontrols: MutPtr, clientcontrols: MutPtr, returnedoid: MutPtr, returneddata: MutPtr): UInt =
     windowssysWindowsWin32NetworkingLdapLdapExtendedOperationSA(externalhandle.rawAddress.toCPointer<ByteVar>(), oid.rawAddress.toCPointer<ByteVar>(), data.rawAddress.toCPointer<ByteVar>(), servercontrols.rawAddress.toCPointer<ByteVar>(), clientcontrols.rawAddress.toCPointer<ByteVar>(), returnedoid.rawAddress.toCPointer<ByteVar>(), returneddata.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ldapExtendedOperationSW(externalhandle: MutPtr<Ldap>, oid: Pcwstr, data: MutPtr<LdapBerval>, servercontrols: MutPtr<MutPtr<LDAPControlW>>, clientcontrols: MutPtr<MutPtr<LDAPControlW>>, returnedoid: MutPtr<Pwstr>, returneddata: MutPtr<MutPtr<LdapBerval>>): UInt =
+public actual fun ldapExtendedOperationSW(externalhandle: MutPtr, oid: Pcwstr, data: MutPtr, servercontrols: MutPtr, clientcontrols: MutPtr, returnedoid: MutPtr, returneddata: MutPtr): UInt =
     windowssysWindowsWin32NetworkingLdapLdapExtendedOperationSW(externalhandle.rawAddress.toCPointer<ByteVar>(), oid.rawAddress.toCPointer<ByteVar>(), data.rawAddress.toCPointer<ByteVar>(), servercontrols.rawAddress.toCPointer<ByteVar>(), clientcontrols.rawAddress.toCPointer<ByteVar>(), returnedoid.rawAddress.toCPointer<ByteVar>(), returneddata.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ldapFirstAttribute(ld: MutPtr<Ldap>, entry: MutPtr<LDAPMessage>, ptr: MutPtr<MutPtr<BerElement>>): Pstr =
+public actual fun ldapFirstAttribute(ld: MutPtr, entry: MutPtr, ptr: MutPtr): Pstr =
     MutPtr(windowssysWindowsWin32NetworkingLdapLdapFirstAttribute(ld.rawAddress.toCPointer<ByteVar>(), entry.rawAddress.toCPointer<ByteVar>(), ptr.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun ldapFirstAttributeA(ld: MutPtr<Ldap>, entry: MutPtr<LDAPMessage>, ptr: MutPtr<MutPtr<BerElement>>): Pstr =
+public actual fun ldapFirstAttributeA(ld: MutPtr, entry: MutPtr, ptr: MutPtr): Pstr =
     MutPtr(windowssysWindowsWin32NetworkingLdapLdapFirstAttributeA(ld.rawAddress.toCPointer<ByteVar>(), entry.rawAddress.toCPointer<ByteVar>(), ptr.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun ldapFirstAttributeW(ld: MutPtr<Ldap>, entry: MutPtr<LDAPMessage>, ptr: MutPtr<MutPtr<BerElement>>): Pwstr =
+public actual fun ldapFirstAttributeW(ld: MutPtr, entry: MutPtr, ptr: MutPtr): Pwstr =
     MutPtr(windowssysWindowsWin32NetworkingLdapLdapFirstAttributeW(ld.rawAddress.toCPointer<ByteVar>(), entry.rawAddress.toCPointer<ByteVar>(), ptr.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun ldapFirstEntry(ld: MutPtr<Ldap>, res: MutPtr<LDAPMessage>): MutPtr<LDAPMessage> =
+public actual fun ldapFirstEntry(ld: MutPtr, res: MutPtr): MutPtr =
     MutPtr(windowssysWindowsWin32NetworkingLdapLdapFirstEntry(ld.rawAddress.toCPointer<ByteVar>(), res.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun ldapFirstReference(ld: MutPtr<Ldap>, res: MutPtr<LDAPMessage>): MutPtr<LDAPMessage> =
+public actual fun ldapFirstReference(ld: MutPtr, res: MutPtr): MutPtr =
     MutPtr(windowssysWindowsWin32NetworkingLdapLdapFirstReference(ld.rawAddress.toCPointer<ByteVar>(), res.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun ldapFreeControls(controls: MutPtr<MutPtr<LDAPControlA>>): UInt =
+public actual fun ldapFreeControls(controls: MutPtr): UInt =
     windowssysWindowsWin32NetworkingLdapLdapFreeControls(controls.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ldapFreeControlsA(controls: MutPtr<MutPtr<LDAPControlA>>): UInt =
+public actual fun ldapFreeControlsA(controls: MutPtr): UInt =
     windowssysWindowsWin32NetworkingLdapLdapFreeControlsA(controls.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ldapFreeControlsW(controls: MutPtr<MutPtr<LDAPControlW>>): UInt =
+public actual fun ldapFreeControlsW(controls: MutPtr): UInt =
     windowssysWindowsWin32NetworkingLdapLdapFreeControlsW(controls.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ldapGetDn(ld: MutPtr<Ldap>, entry: MutPtr<LDAPMessage>): Pstr =
+public actual fun ldapGetDn(ld: MutPtr, entry: MutPtr): Pstr =
     MutPtr(windowssysWindowsWin32NetworkingLdapLdapGetDn(ld.rawAddress.toCPointer<ByteVar>(), entry.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun ldapGetDnA(ld: MutPtr<Ldap>, entry: MutPtr<LDAPMessage>): Pstr =
+public actual fun ldapGetDnA(ld: MutPtr, entry: MutPtr): Pstr =
     MutPtr(windowssysWindowsWin32NetworkingLdapLdapGetDnA(ld.rawAddress.toCPointer<ByteVar>(), entry.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun ldapGetDnW(ld: MutPtr<Ldap>, entry: MutPtr<LDAPMessage>): Pwstr =
+public actual fun ldapGetDnW(ld: MutPtr, entry: MutPtr): Pwstr =
     MutPtr(windowssysWindowsWin32NetworkingLdapLdapGetDnW(ld.rawAddress.toCPointer<ByteVar>(), entry.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun ldapGetNextPage(externalhandle: MutPtr<Ldap>, searchhandle: PLDAPSearch, pagesize: UInt, messagenumber: MutPtr<UInt>): UInt =
+public actual fun ldapGetNextPage(externalhandle: MutPtr, searchhandle: PLDAPSearch, pagesize: UInt, messagenumber: MutPtr): UInt =
     windowssysWindowsWin32NetworkingLdapLdapGetNextPage(externalhandle.rawAddress.toCPointer<ByteVar>(), searchhandle, pagesize, messagenumber.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ldapGetNextPageS(externalhandle: MutPtr<Ldap>, searchhandle: PLDAPSearch, timeout: MutPtr<LdapTimeval>, pagesize: UInt, totalcount: MutPtr<UInt>, results: MutPtr<MutPtr<LDAPMessage>>): UInt =
+public actual fun ldapGetNextPageS(externalhandle: MutPtr, searchhandle: PLDAPSearch, timeout: MutPtr, pagesize: UInt, totalcount: MutPtr, results: MutPtr): UInt =
     windowssysWindowsWin32NetworkingLdapLdapGetNextPageS(externalhandle.rawAddress.toCPointer<ByteVar>(), searchhandle, timeout.rawAddress.toCPointer<ByteVar>(), pagesize, totalcount.rawAddress.toCPointer<ByteVar>(), results.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ldapGetOption(ld: MutPtr<Ldap>, option: Int, outvalue: MutPtr<CVoid>): UInt =
+public actual fun ldapGetOption(ld: MutPtr, option: Int, outvalue: MutPtr): UInt =
     windowssysWindowsWin32NetworkingLdapLdapGetOption(ld.rawAddress.toCPointer<ByteVar>(), option, outvalue.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ldapGetOptionW(ld: MutPtr<Ldap>, option: Int, outvalue: MutPtr<CVoid>): UInt =
+public actual fun ldapGetOptionW(ld: MutPtr, option: Int, outvalue: MutPtr): UInt =
     windowssysWindowsWin32NetworkingLdapLdapGetOptionW(ld.rawAddress.toCPointer<ByteVar>(), option, outvalue.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ldapGetPagedCount(externalhandle: MutPtr<Ldap>, searchblock: PLDAPSearch, totalcount: MutPtr<UInt>, results: MutPtr<LDAPMessage>): UInt =
+public actual fun ldapGetPagedCount(externalhandle: MutPtr, searchblock: PLDAPSearch, totalcount: MutPtr, results: MutPtr): UInt =
     windowssysWindowsWin32NetworkingLdapLdapGetPagedCount(externalhandle.rawAddress.toCPointer<ByteVar>(), searchblock, totalcount.rawAddress.toCPointer<ByteVar>(), results.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ldapGetValues(ld: MutPtr<Ldap>, entry: MutPtr<LDAPMessage>, attr: Pcstr): MutPtr<Pstr> =
+public actual fun ldapGetValues(ld: MutPtr, entry: MutPtr, attr: Pcstr): MutPtr =
     MutPtr(windowssysWindowsWin32NetworkingLdapLdapGetValues(ld.rawAddress.toCPointer<ByteVar>(), entry.rawAddress.toCPointer<ByteVar>(), attr.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun ldapGetValuesA(ld: MutPtr<Ldap>, entry: MutPtr<LDAPMessage>, attr: Pcstr): MutPtr<Pstr> =
+public actual fun ldapGetValuesA(ld: MutPtr, entry: MutPtr, attr: Pcstr): MutPtr =
     MutPtr(windowssysWindowsWin32NetworkingLdapLdapGetValuesA(ld.rawAddress.toCPointer<ByteVar>(), entry.rawAddress.toCPointer<ByteVar>(), attr.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun ldapGetValuesW(ld: MutPtr<Ldap>, entry: MutPtr<LDAPMessage>, attr: Pcwstr): MutPtr<Pwstr> =
+public actual fun ldapGetValuesW(ld: MutPtr, entry: MutPtr, attr: Pcwstr): MutPtr =
     MutPtr(windowssysWindowsWin32NetworkingLdapLdapGetValuesW(ld.rawAddress.toCPointer<ByteVar>(), entry.rawAddress.toCPointer<ByteVar>(), attr.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun ldapGetValuesLen(externalhandle: MutPtr<Ldap>, message: MutPtr<LDAPMessage>, attr: Pcstr): MutPtr<MutPtr<LdapBerval>> =
+public actual fun ldapGetValuesLen(externalhandle: MutPtr, message: MutPtr, attr: Pcstr): MutPtr =
     MutPtr(windowssysWindowsWin32NetworkingLdapLdapGetValuesLen(externalhandle.rawAddress.toCPointer<ByteVar>(), message.rawAddress.toCPointer<ByteVar>(), attr.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun ldapGetValuesLenA(externalhandle: MutPtr<Ldap>, message: MutPtr<LDAPMessage>, attr: Pcstr): MutPtr<MutPtr<LdapBerval>> =
+public actual fun ldapGetValuesLenA(externalhandle: MutPtr, message: MutPtr, attr: Pcstr): MutPtr =
     MutPtr(windowssysWindowsWin32NetworkingLdapLdapGetValuesLenA(externalhandle.rawAddress.toCPointer<ByteVar>(), message.rawAddress.toCPointer<ByteVar>(), attr.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun ldapGetValuesLenW(externalhandle: MutPtr<Ldap>, message: MutPtr<LDAPMessage>, attr: Pcwstr): MutPtr<MutPtr<LdapBerval>> =
+public actual fun ldapGetValuesLenW(externalhandle: MutPtr, message: MutPtr, attr: Pcwstr): MutPtr =
     MutPtr(windowssysWindowsWin32NetworkingLdapLdapGetValuesLenW(externalhandle.rawAddress.toCPointer<ByteVar>(), message.rawAddress.toCPointer<ByteVar>(), attr.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun ldapInit(hostname: Pcstr, portnumber: UInt): MutPtr<Ldap> =
+public actual fun ldapInit(hostname: Pcstr, portnumber: UInt): MutPtr =
     MutPtr(windowssysWindowsWin32NetworkingLdapLdapInit(hostname.rawAddress.toCPointer<ByteVar>(), portnumber)?.toLong() ?: 0L)
 
-public actual fun ldapInitA(hostname: Pcstr, portnumber: UInt): MutPtr<Ldap> =
+public actual fun ldapInitA(hostname: Pcstr, portnumber: UInt): MutPtr =
     MutPtr(windowssysWindowsWin32NetworkingLdapLdapInitA(hostname.rawAddress.toCPointer<ByteVar>(), portnumber)?.toLong() ?: 0L)
 
-public actual fun ldapInitW(hostname: Pcwstr, portnumber: UInt): MutPtr<Ldap> =
+public actual fun ldapInitW(hostname: Pcwstr, portnumber: UInt): MutPtr =
     MutPtr(windowssysWindowsWin32NetworkingLdapLdapInitW(hostname.rawAddress.toCPointer<ByteVar>(), portnumber)?.toLong() ?: 0L)
 
 public actual fun ldapMemfree(block: Pcstr) {
@@ -672,248 +671,248 @@ public actual fun ldapMemfreeW(block: Pcwstr) {
     windowssysWindowsWin32NetworkingLdapLdapMemfreeW(block.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun ldapModify(ld: MutPtr<Ldap>, dn: Pcstr, mods: MutPtr<MutPtr<LDAPModA>>): UInt =
+public actual fun ldapModify(ld: MutPtr, dn: Pcstr, mods: MutPtr): UInt =
     windowssysWindowsWin32NetworkingLdapLdapModify(ld.rawAddress.toCPointer<ByteVar>(), dn.rawAddress.toCPointer<ByteVar>(), mods.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ldapModifyA(ld: MutPtr<Ldap>, dn: Pcstr, mods: MutPtr<MutPtr<LDAPModA>>): UInt =
+public actual fun ldapModifyA(ld: MutPtr, dn: Pcstr, mods: MutPtr): UInt =
     windowssysWindowsWin32NetworkingLdapLdapModifyA(ld.rawAddress.toCPointer<ByteVar>(), dn.rawAddress.toCPointer<ByteVar>(), mods.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ldapModifyW(ld: MutPtr<Ldap>, dn: Pcwstr, mods: MutPtr<MutPtr<LDAPModW>>): UInt =
+public actual fun ldapModifyW(ld: MutPtr, dn: Pcwstr, mods: MutPtr): UInt =
     windowssysWindowsWin32NetworkingLdapLdapModifyW(ld.rawAddress.toCPointer<ByteVar>(), dn.rawAddress.toCPointer<ByteVar>(), mods.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ldapModifyExt(ld: MutPtr<Ldap>, dn: Pcstr, mods: MutPtr<MutPtr<LDAPModA>>, servercontrols: MutPtr<MutPtr<LDAPControlA>>, clientcontrols: MutPtr<MutPtr<LDAPControlA>>, messagenumber: MutPtr<UInt>): UInt =
+public actual fun ldapModifyExt(ld: MutPtr, dn: Pcstr, mods: MutPtr, servercontrols: MutPtr, clientcontrols: MutPtr, messagenumber: MutPtr): UInt =
     windowssysWindowsWin32NetworkingLdapLdapModifyExt(ld.rawAddress.toCPointer<ByteVar>(), dn.rawAddress.toCPointer<ByteVar>(), mods.rawAddress.toCPointer<ByteVar>(), servercontrols.rawAddress.toCPointer<ByteVar>(), clientcontrols.rawAddress.toCPointer<ByteVar>(), messagenumber.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ldapModifyExtA(ld: MutPtr<Ldap>, dn: Pcstr, mods: MutPtr<MutPtr<LDAPModA>>, servercontrols: MutPtr<MutPtr<LDAPControlA>>, clientcontrols: MutPtr<MutPtr<LDAPControlA>>, messagenumber: MutPtr<UInt>): UInt =
+public actual fun ldapModifyExtA(ld: MutPtr, dn: Pcstr, mods: MutPtr, servercontrols: MutPtr, clientcontrols: MutPtr, messagenumber: MutPtr): UInt =
     windowssysWindowsWin32NetworkingLdapLdapModifyExtA(ld.rawAddress.toCPointer<ByteVar>(), dn.rawAddress.toCPointer<ByteVar>(), mods.rawAddress.toCPointer<ByteVar>(), servercontrols.rawAddress.toCPointer<ByteVar>(), clientcontrols.rawAddress.toCPointer<ByteVar>(), messagenumber.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ldapModifyExtW(ld: MutPtr<Ldap>, dn: Pcwstr, mods: MutPtr<MutPtr<LDAPModW>>, servercontrols: MutPtr<MutPtr<LDAPControlW>>, clientcontrols: MutPtr<MutPtr<LDAPControlW>>, messagenumber: MutPtr<UInt>): UInt =
+public actual fun ldapModifyExtW(ld: MutPtr, dn: Pcwstr, mods: MutPtr, servercontrols: MutPtr, clientcontrols: MutPtr, messagenumber: MutPtr): UInt =
     windowssysWindowsWin32NetworkingLdapLdapModifyExtW(ld.rawAddress.toCPointer<ByteVar>(), dn.rawAddress.toCPointer<ByteVar>(), mods.rawAddress.toCPointer<ByteVar>(), servercontrols.rawAddress.toCPointer<ByteVar>(), clientcontrols.rawAddress.toCPointer<ByteVar>(), messagenumber.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ldapModifyExtS(ld: MutPtr<Ldap>, dn: Pcstr, mods: MutPtr<MutPtr<LDAPModA>>, servercontrols: MutPtr<MutPtr<LDAPControlA>>, clientcontrols: MutPtr<MutPtr<LDAPControlA>>): UInt =
+public actual fun ldapModifyExtS(ld: MutPtr, dn: Pcstr, mods: MutPtr, servercontrols: MutPtr, clientcontrols: MutPtr): UInt =
     windowssysWindowsWin32NetworkingLdapLdapModifyExtS(ld.rawAddress.toCPointer<ByteVar>(), dn.rawAddress.toCPointer<ByteVar>(), mods.rawAddress.toCPointer<ByteVar>(), servercontrols.rawAddress.toCPointer<ByteVar>(), clientcontrols.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ldapModifyExtSA(ld: MutPtr<Ldap>, dn: Pcstr, mods: MutPtr<MutPtr<LDAPModA>>, servercontrols: MutPtr<MutPtr<LDAPControlA>>, clientcontrols: MutPtr<MutPtr<LDAPControlA>>): UInt =
+public actual fun ldapModifyExtSA(ld: MutPtr, dn: Pcstr, mods: MutPtr, servercontrols: MutPtr, clientcontrols: MutPtr): UInt =
     windowssysWindowsWin32NetworkingLdapLdapModifyExtSA(ld.rawAddress.toCPointer<ByteVar>(), dn.rawAddress.toCPointer<ByteVar>(), mods.rawAddress.toCPointer<ByteVar>(), servercontrols.rawAddress.toCPointer<ByteVar>(), clientcontrols.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ldapModifyExtSW(ld: MutPtr<Ldap>, dn: Pcwstr, mods: MutPtr<MutPtr<LDAPModW>>, servercontrols: MutPtr<MutPtr<LDAPControlW>>, clientcontrols: MutPtr<MutPtr<LDAPControlW>>): UInt =
+public actual fun ldapModifyExtSW(ld: MutPtr, dn: Pcwstr, mods: MutPtr, servercontrols: MutPtr, clientcontrols: MutPtr): UInt =
     windowssysWindowsWin32NetworkingLdapLdapModifyExtSW(ld.rawAddress.toCPointer<ByteVar>(), dn.rawAddress.toCPointer<ByteVar>(), mods.rawAddress.toCPointer<ByteVar>(), servercontrols.rawAddress.toCPointer<ByteVar>(), clientcontrols.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ldapModifyS(ld: MutPtr<Ldap>, dn: Pcstr, mods: MutPtr<MutPtr<LDAPModA>>): UInt =
+public actual fun ldapModifyS(ld: MutPtr, dn: Pcstr, mods: MutPtr): UInt =
     windowssysWindowsWin32NetworkingLdapLdapModifyS(ld.rawAddress.toCPointer<ByteVar>(), dn.rawAddress.toCPointer<ByteVar>(), mods.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ldapModifySA(ld: MutPtr<Ldap>, dn: Pcstr, mods: MutPtr<MutPtr<LDAPModA>>): UInt =
+public actual fun ldapModifySA(ld: MutPtr, dn: Pcstr, mods: MutPtr): UInt =
     windowssysWindowsWin32NetworkingLdapLdapModifySA(ld.rawAddress.toCPointer<ByteVar>(), dn.rawAddress.toCPointer<ByteVar>(), mods.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ldapModifySW(ld: MutPtr<Ldap>, dn: Pcwstr, mods: MutPtr<MutPtr<LDAPModW>>): UInt =
+public actual fun ldapModifySW(ld: MutPtr, dn: Pcwstr, mods: MutPtr): UInt =
     windowssysWindowsWin32NetworkingLdapLdapModifySW(ld.rawAddress.toCPointer<ByteVar>(), dn.rawAddress.toCPointer<ByteVar>(), mods.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ldapModrdn(externalhandle: MutPtr<Ldap>, distinguishedname: Pcstr, newdistinguishedname: Pcstr): UInt =
+public actual fun ldapModrdn(externalhandle: MutPtr, distinguishedname: Pcstr, newdistinguishedname: Pcstr): UInt =
     windowssysWindowsWin32NetworkingLdapLdapModrdn(externalhandle.rawAddress.toCPointer<ByteVar>(), distinguishedname.rawAddress.toCPointer<ByteVar>(), newdistinguishedname.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ldapModrdn2(externalhandle: MutPtr<Ldap>, distinguishedname: Pcstr, newdistinguishedname: Pcstr, deleteoldrdn: Int): UInt =
+public actual fun ldapModrdn2(externalhandle: MutPtr, distinguishedname: Pcstr, newdistinguishedname: Pcstr, deleteoldrdn: Int): UInt =
     windowssysWindowsWin32NetworkingLdapLdapModrdn2(externalhandle.rawAddress.toCPointer<ByteVar>(), distinguishedname.rawAddress.toCPointer<ByteVar>(), newdistinguishedname.rawAddress.toCPointer<ByteVar>(), deleteoldrdn)
 
-public actual fun ldapModrdn2A(externalhandle: MutPtr<Ldap>, distinguishedname: Pcstr, newdistinguishedname: Pcstr, deleteoldrdn: Int): UInt =
+public actual fun ldapModrdn2A(externalhandle: MutPtr, distinguishedname: Pcstr, newdistinguishedname: Pcstr, deleteoldrdn: Int): UInt =
     windowssysWindowsWin32NetworkingLdapLdapModrdn2A(externalhandle.rawAddress.toCPointer<ByteVar>(), distinguishedname.rawAddress.toCPointer<ByteVar>(), newdistinguishedname.rawAddress.toCPointer<ByteVar>(), deleteoldrdn)
 
-public actual fun ldapModrdn2W(externalhandle: MutPtr<Ldap>, distinguishedname: Pcwstr, newdistinguishedname: Pcwstr, deleteoldrdn: Int): UInt =
+public actual fun ldapModrdn2W(externalhandle: MutPtr, distinguishedname: Pcwstr, newdistinguishedname: Pcwstr, deleteoldrdn: Int): UInt =
     windowssysWindowsWin32NetworkingLdapLdapModrdn2W(externalhandle.rawAddress.toCPointer<ByteVar>(), distinguishedname.rawAddress.toCPointer<ByteVar>(), newdistinguishedname.rawAddress.toCPointer<ByteVar>(), deleteoldrdn)
 
-public actual fun ldapModrdn2S(externalhandle: MutPtr<Ldap>, distinguishedname: Pcstr, newdistinguishedname: Pcstr, deleteoldrdn: Int): UInt =
+public actual fun ldapModrdn2S(externalhandle: MutPtr, distinguishedname: Pcstr, newdistinguishedname: Pcstr, deleteoldrdn: Int): UInt =
     windowssysWindowsWin32NetworkingLdapLdapModrdn2S(externalhandle.rawAddress.toCPointer<ByteVar>(), distinguishedname.rawAddress.toCPointer<ByteVar>(), newdistinguishedname.rawAddress.toCPointer<ByteVar>(), deleteoldrdn)
 
-public actual fun ldapModrdn2SA(externalhandle: MutPtr<Ldap>, distinguishedname: Pcstr, newdistinguishedname: Pcstr, deleteoldrdn: Int): UInt =
+public actual fun ldapModrdn2SA(externalhandle: MutPtr, distinguishedname: Pcstr, newdistinguishedname: Pcstr, deleteoldrdn: Int): UInt =
     windowssysWindowsWin32NetworkingLdapLdapModrdn2SA(externalhandle.rawAddress.toCPointer<ByteVar>(), distinguishedname.rawAddress.toCPointer<ByteVar>(), newdistinguishedname.rawAddress.toCPointer<ByteVar>(), deleteoldrdn)
 
-public actual fun ldapModrdn2SW(externalhandle: MutPtr<Ldap>, distinguishedname: Pcwstr, newdistinguishedname: Pcwstr, deleteoldrdn: Int): UInt =
+public actual fun ldapModrdn2SW(externalhandle: MutPtr, distinguishedname: Pcwstr, newdistinguishedname: Pcwstr, deleteoldrdn: Int): UInt =
     windowssysWindowsWin32NetworkingLdapLdapModrdn2SW(externalhandle.rawAddress.toCPointer<ByteVar>(), distinguishedname.rawAddress.toCPointer<ByteVar>(), newdistinguishedname.rawAddress.toCPointer<ByteVar>(), deleteoldrdn)
 
-public actual fun ldapModrdnA(externalhandle: MutPtr<Ldap>, distinguishedname: Pcstr, newdistinguishedname: Pcstr): UInt =
+public actual fun ldapModrdnA(externalhandle: MutPtr, distinguishedname: Pcstr, newdistinguishedname: Pcstr): UInt =
     windowssysWindowsWin32NetworkingLdapLdapModrdnA(externalhandle.rawAddress.toCPointer<ByteVar>(), distinguishedname.rawAddress.toCPointer<ByteVar>(), newdistinguishedname.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ldapModrdnW(externalhandle: MutPtr<Ldap>, distinguishedname: Pcwstr, newdistinguishedname: Pcwstr): UInt =
+public actual fun ldapModrdnW(externalhandle: MutPtr, distinguishedname: Pcwstr, newdistinguishedname: Pcwstr): UInt =
     windowssysWindowsWin32NetworkingLdapLdapModrdnW(externalhandle.rawAddress.toCPointer<ByteVar>(), distinguishedname.rawAddress.toCPointer<ByteVar>(), newdistinguishedname.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ldapModrdnS(externalhandle: MutPtr<Ldap>, distinguishedname: Pcstr, newdistinguishedname: Pcstr): UInt =
+public actual fun ldapModrdnS(externalhandle: MutPtr, distinguishedname: Pcstr, newdistinguishedname: Pcstr): UInt =
     windowssysWindowsWin32NetworkingLdapLdapModrdnS(externalhandle.rawAddress.toCPointer<ByteVar>(), distinguishedname.rawAddress.toCPointer<ByteVar>(), newdistinguishedname.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ldapModrdnSA(externalhandle: MutPtr<Ldap>, distinguishedname: Pcstr, newdistinguishedname: Pcstr): UInt =
+public actual fun ldapModrdnSA(externalhandle: MutPtr, distinguishedname: Pcstr, newdistinguishedname: Pcstr): UInt =
     windowssysWindowsWin32NetworkingLdapLdapModrdnSA(externalhandle.rawAddress.toCPointer<ByteVar>(), distinguishedname.rawAddress.toCPointer<ByteVar>(), newdistinguishedname.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ldapModrdnSW(externalhandle: MutPtr<Ldap>, distinguishedname: Pcwstr, newdistinguishedname: Pcwstr): UInt =
+public actual fun ldapModrdnSW(externalhandle: MutPtr, distinguishedname: Pcwstr, newdistinguishedname: Pcwstr): UInt =
     windowssysWindowsWin32NetworkingLdapLdapModrdnSW(externalhandle.rawAddress.toCPointer<ByteVar>(), distinguishedname.rawAddress.toCPointer<ByteVar>(), newdistinguishedname.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ldapMsgfree(res: MutPtr<LDAPMessage>): UInt =
+public actual fun ldapMsgfree(res: MutPtr): UInt =
     windowssysWindowsWin32NetworkingLdapLdapMsgfree(res.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ldapNextAttribute(ld: MutPtr<Ldap>, entry: MutPtr<LDAPMessage>, ptr: MutPtr<BerElement>): Pstr =
+public actual fun ldapNextAttribute(ld: MutPtr, entry: MutPtr, ptr: MutPtr): Pstr =
     MutPtr(windowssysWindowsWin32NetworkingLdapLdapNextAttribute(ld.rawAddress.toCPointer<ByteVar>(), entry.rawAddress.toCPointer<ByteVar>(), ptr.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun ldapNextAttributeA(ld: MutPtr<Ldap>, entry: MutPtr<LDAPMessage>, ptr: MutPtr<BerElement>): Pstr =
+public actual fun ldapNextAttributeA(ld: MutPtr, entry: MutPtr, ptr: MutPtr): Pstr =
     MutPtr(windowssysWindowsWin32NetworkingLdapLdapNextAttributeA(ld.rawAddress.toCPointer<ByteVar>(), entry.rawAddress.toCPointer<ByteVar>(), ptr.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun ldapNextAttributeW(ld: MutPtr<Ldap>, entry: MutPtr<LDAPMessage>, ptr: MutPtr<BerElement>): Pwstr =
+public actual fun ldapNextAttributeW(ld: MutPtr, entry: MutPtr, ptr: MutPtr): Pwstr =
     MutPtr(windowssysWindowsWin32NetworkingLdapLdapNextAttributeW(ld.rawAddress.toCPointer<ByteVar>(), entry.rawAddress.toCPointer<ByteVar>(), ptr.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun ldapNextEntry(ld: MutPtr<Ldap>, entry: MutPtr<LDAPMessage>): MutPtr<LDAPMessage> =
+public actual fun ldapNextEntry(ld: MutPtr, entry: MutPtr): MutPtr =
     MutPtr(windowssysWindowsWin32NetworkingLdapLdapNextEntry(ld.rawAddress.toCPointer<ByteVar>(), entry.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun ldapNextReference(ld: MutPtr<Ldap>, entry: MutPtr<LDAPMessage>): MutPtr<LDAPMessage> =
+public actual fun ldapNextReference(ld: MutPtr, entry: MutPtr): MutPtr =
     MutPtr(windowssysWindowsWin32NetworkingLdapLdapNextReference(ld.rawAddress.toCPointer<ByteVar>(), entry.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun ldapOpen(hostname: Pcstr, portnumber: UInt): MutPtr<Ldap> =
+public actual fun ldapOpen(hostname: Pcstr, portnumber: UInt): MutPtr =
     MutPtr(windowssysWindowsWin32NetworkingLdapLdapOpen(hostname.rawAddress.toCPointer<ByteVar>(), portnumber)?.toLong() ?: 0L)
 
-public actual fun ldapOpenA(hostname: Pcstr, portnumber: UInt): MutPtr<Ldap> =
+public actual fun ldapOpenA(hostname: Pcstr, portnumber: UInt): MutPtr =
     MutPtr(windowssysWindowsWin32NetworkingLdapLdapOpenA(hostname.rawAddress.toCPointer<ByteVar>(), portnumber)?.toLong() ?: 0L)
 
-public actual fun ldapOpenW(hostname: Pcwstr, portnumber: UInt): MutPtr<Ldap> =
+public actual fun ldapOpenW(hostname: Pcwstr, portnumber: UInt): MutPtr =
     MutPtr(windowssysWindowsWin32NetworkingLdapLdapOpenW(hostname.rawAddress.toCPointer<ByteVar>(), portnumber)?.toLong() ?: 0L)
 
-public actual fun ldapParseExtendedResultA(connection: MutPtr<Ldap>, resultmessage: MutPtr<LDAPMessage>, resultoid: MutPtr<Pstr>, resultdata: MutPtr<MutPtr<LdapBerval>>, freeit: Boolean): UInt =
+public actual fun ldapParseExtendedResultA(connection: MutPtr, resultmessage: MutPtr, resultoid: MutPtr, resultdata: MutPtr, freeit: Boolean): UInt =
     windowssysWindowsWin32NetworkingLdapLdapParseExtendedResultA(connection.rawAddress.toCPointer<ByteVar>(), resultmessage.rawAddress.toCPointer<ByteVar>(), resultoid.rawAddress.toCPointer<ByteVar>(), resultdata.rawAddress.toCPointer<ByteVar>(), freeit)
 
-public actual fun ldapParseExtendedResultW(connection: MutPtr<Ldap>, resultmessage: MutPtr<LDAPMessage>, resultoid: MutPtr<Pwstr>, resultdata: MutPtr<MutPtr<LdapBerval>>, freeit: Boolean): UInt =
+public actual fun ldapParseExtendedResultW(connection: MutPtr, resultmessage: MutPtr, resultoid: MutPtr, resultdata: MutPtr, freeit: Boolean): UInt =
     windowssysWindowsWin32NetworkingLdapLdapParseExtendedResultW(connection.rawAddress.toCPointer<ByteVar>(), resultmessage.rawAddress.toCPointer<ByteVar>(), resultoid.rawAddress.toCPointer<ByteVar>(), resultdata.rawAddress.toCPointer<ByteVar>(), freeit)
 
-public actual fun ldapParsePageControl(externalhandle: MutPtr<Ldap>, servercontrols: MutPtr<MutPtr<LDAPControlA>>, totalcount: MutPtr<UInt>, cookie: MutPtr<MutPtr<LdapBerval>>): UInt =
+public actual fun ldapParsePageControl(externalhandle: MutPtr, servercontrols: MutPtr, totalcount: MutPtr, cookie: MutPtr): UInt =
     windowssysWindowsWin32NetworkingLdapLdapParsePageControl(externalhandle.rawAddress.toCPointer<ByteVar>(), servercontrols.rawAddress.toCPointer<ByteVar>(), totalcount.rawAddress.toCPointer<ByteVar>(), cookie.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ldapParsePageControlA(externalhandle: MutPtr<Ldap>, servercontrols: MutPtr<MutPtr<LDAPControlA>>, totalcount: MutPtr<UInt>, cookie: MutPtr<MutPtr<LdapBerval>>): UInt =
+public actual fun ldapParsePageControlA(externalhandle: MutPtr, servercontrols: MutPtr, totalcount: MutPtr, cookie: MutPtr): UInt =
     windowssysWindowsWin32NetworkingLdapLdapParsePageControlA(externalhandle.rawAddress.toCPointer<ByteVar>(), servercontrols.rawAddress.toCPointer<ByteVar>(), totalcount.rawAddress.toCPointer<ByteVar>(), cookie.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ldapParsePageControlW(externalhandle: MutPtr<Ldap>, servercontrols: MutPtr<MutPtr<LDAPControlW>>, totalcount: MutPtr<UInt>, cookie: MutPtr<MutPtr<LdapBerval>>): UInt =
+public actual fun ldapParsePageControlW(externalhandle: MutPtr, servercontrols: MutPtr, totalcount: MutPtr, cookie: MutPtr): UInt =
     windowssysWindowsWin32NetworkingLdapLdapParsePageControlW(externalhandle.rawAddress.toCPointer<ByteVar>(), servercontrols.rawAddress.toCPointer<ByteVar>(), totalcount.rawAddress.toCPointer<ByteVar>(), cookie.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ldapParseReference(connection: MutPtr<Ldap>, resultmessage: MutPtr<LDAPMessage>, referrals: MutPtr<MutPtr<Pstr>>): UInt =
+public actual fun ldapParseReference(connection: MutPtr, resultmessage: MutPtr, referrals: MutPtr): UInt =
     windowssysWindowsWin32NetworkingLdapLdapParseReference(connection.rawAddress.toCPointer<ByteVar>(), resultmessage.rawAddress.toCPointer<ByteVar>(), referrals.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ldapParseReferenceA(connection: MutPtr<Ldap>, resultmessage: MutPtr<LDAPMessage>, referrals: MutPtr<MutPtr<Pstr>>): UInt =
+public actual fun ldapParseReferenceA(connection: MutPtr, resultmessage: MutPtr, referrals: MutPtr): UInt =
     windowssysWindowsWin32NetworkingLdapLdapParseReferenceA(connection.rawAddress.toCPointer<ByteVar>(), resultmessage.rawAddress.toCPointer<ByteVar>(), referrals.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ldapParseReferenceW(connection: MutPtr<Ldap>, resultmessage: MutPtr<LDAPMessage>, referrals: MutPtr<MutPtr<Pwstr>>): UInt =
+public actual fun ldapParseReferenceW(connection: MutPtr, resultmessage: MutPtr, referrals: MutPtr): UInt =
     windowssysWindowsWin32NetworkingLdapLdapParseReferenceW(connection.rawAddress.toCPointer<ByteVar>(), resultmessage.rawAddress.toCPointer<ByteVar>(), referrals.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ldapParseResult(connection: MutPtr<Ldap>, resultmessage: MutPtr<LDAPMessage>, returncode: MutPtr<UInt>, matcheddns: MutPtr<Pstr>, errormessage: MutPtr<Pstr>, referrals: MutPtr<MutPtr<Pstr>>, servercontrols: MutPtr<MutPtr<MutPtr<LDAPControlA>>>, freeit: Boolean): UInt =
+public actual fun ldapParseResult(connection: MutPtr, resultmessage: MutPtr, returncode: MutPtr, matcheddns: MutPtr, errormessage: MutPtr, referrals: MutPtr, servercontrols: MutPtr, freeit: Boolean): UInt =
     windowssysWindowsWin32NetworkingLdapLdapParseResult(connection.rawAddress.toCPointer<ByteVar>(), resultmessage.rawAddress.toCPointer<ByteVar>(), returncode.rawAddress.toCPointer<ByteVar>(), matcheddns.rawAddress.toCPointer<ByteVar>(), errormessage.rawAddress.toCPointer<ByteVar>(), referrals.rawAddress.toCPointer<ByteVar>(), servercontrols.rawAddress.toCPointer<ByteVar>(), freeit)
 
-public actual fun ldapParseResultA(connection: MutPtr<Ldap>, resultmessage: MutPtr<LDAPMessage>, returncode: MutPtr<UInt>, matcheddns: MutPtr<Pstr>, errormessage: MutPtr<Pstr>, referrals: MutPtr<MutPtr<MutPtr<Byte>>>, servercontrols: MutPtr<MutPtr<MutPtr<LDAPControlA>>>, freeit: Boolean): UInt =
+public actual fun ldapParseResultA(connection: MutPtr, resultmessage: MutPtr, returncode: MutPtr, matcheddns: MutPtr, errormessage: MutPtr, referrals: MutPtr, servercontrols: MutPtr, freeit: Boolean): UInt =
     windowssysWindowsWin32NetworkingLdapLdapParseResultA(connection.rawAddress.toCPointer<ByteVar>(), resultmessage.rawAddress.toCPointer<ByteVar>(), returncode.rawAddress.toCPointer<ByteVar>(), matcheddns.rawAddress.toCPointer<ByteVar>(), errormessage.rawAddress.toCPointer<ByteVar>(), referrals.rawAddress.toCPointer<ByteVar>(), servercontrols.rawAddress.toCPointer<ByteVar>(), freeit)
 
-public actual fun ldapParseResultW(connection: MutPtr<Ldap>, resultmessage: MutPtr<LDAPMessage>, returncode: MutPtr<UInt>, matcheddns: MutPtr<Pwstr>, errormessage: MutPtr<Pwstr>, referrals: MutPtr<MutPtr<MutPtr<UShort>>>, servercontrols: MutPtr<MutPtr<MutPtr<LDAPControlW>>>, freeit: Boolean): UInt =
+public actual fun ldapParseResultW(connection: MutPtr, resultmessage: MutPtr, returncode: MutPtr, matcheddns: MutPtr, errormessage: MutPtr, referrals: MutPtr, servercontrols: MutPtr, freeit: Boolean): UInt =
     windowssysWindowsWin32NetworkingLdapLdapParseResultW(connection.rawAddress.toCPointer<ByteVar>(), resultmessage.rawAddress.toCPointer<ByteVar>(), returncode.rawAddress.toCPointer<ByteVar>(), matcheddns.rawAddress.toCPointer<ByteVar>(), errormessage.rawAddress.toCPointer<ByteVar>(), referrals.rawAddress.toCPointer<ByteVar>(), servercontrols.rawAddress.toCPointer<ByteVar>(), freeit)
 
-public actual fun ldapParseSortControl(externalhandle: MutPtr<Ldap>, control: MutPtr<MutPtr<LDAPControlA>>, result: MutPtr<UInt>, attribute: MutPtr<Pstr>): UInt =
+public actual fun ldapParseSortControl(externalhandle: MutPtr, control: MutPtr, result: MutPtr, attribute: MutPtr): UInt =
     windowssysWindowsWin32NetworkingLdapLdapParseSortControl(externalhandle.rawAddress.toCPointer<ByteVar>(), control.rawAddress.toCPointer<ByteVar>(), result.rawAddress.toCPointer<ByteVar>(), attribute.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ldapParseSortControlA(externalhandle: MutPtr<Ldap>, control: MutPtr<MutPtr<LDAPControlA>>, result: MutPtr<UInt>, attribute: MutPtr<Pstr>): UInt =
+public actual fun ldapParseSortControlA(externalhandle: MutPtr, control: MutPtr, result: MutPtr, attribute: MutPtr): UInt =
     windowssysWindowsWin32NetworkingLdapLdapParseSortControlA(externalhandle.rawAddress.toCPointer<ByteVar>(), control.rawAddress.toCPointer<ByteVar>(), result.rawAddress.toCPointer<ByteVar>(), attribute.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ldapParseSortControlW(externalhandle: MutPtr<Ldap>, control: MutPtr<MutPtr<LDAPControlW>>, result: MutPtr<UInt>, attribute: MutPtr<Pwstr>): UInt =
+public actual fun ldapParseSortControlW(externalhandle: MutPtr, control: MutPtr, result: MutPtr, attribute: MutPtr): UInt =
     windowssysWindowsWin32NetworkingLdapLdapParseSortControlW(externalhandle.rawAddress.toCPointer<ByteVar>(), control.rawAddress.toCPointer<ByteVar>(), result.rawAddress.toCPointer<ByteVar>(), attribute.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ldapParseVlvControlA(externalhandle: MutPtr<Ldap>, control: MutPtr<MutPtr<LDAPControlA>>, targetpos: MutPtr<UInt>, listcount: MutPtr<UInt>, context: MutPtr<MutPtr<LdapBerval>>, errcode: MutPtr<Int>): Int =
+public actual fun ldapParseVlvControlA(externalhandle: MutPtr, control: MutPtr, targetpos: MutPtr, listcount: MutPtr, context: MutPtr, errcode: MutPtr): Int =
     windowssysWindowsWin32NetworkingLdapLdapParseVlvControlA(externalhandle.rawAddress.toCPointer<ByteVar>(), control.rawAddress.toCPointer<ByteVar>(), targetpos.rawAddress.toCPointer<ByteVar>(), listcount.rawAddress.toCPointer<ByteVar>(), context.rawAddress.toCPointer<ByteVar>(), errcode.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ldapParseVlvControlW(externalhandle: MutPtr<Ldap>, control: MutPtr<MutPtr<LDAPControlW>>, targetpos: MutPtr<UInt>, listcount: MutPtr<UInt>, context: MutPtr<MutPtr<LdapBerval>>, errcode: MutPtr<Int>): Int =
+public actual fun ldapParseVlvControlW(externalhandle: MutPtr, control: MutPtr, targetpos: MutPtr, listcount: MutPtr, context: MutPtr, errcode: MutPtr): Int =
     windowssysWindowsWin32NetworkingLdapLdapParseVlvControlW(externalhandle.rawAddress.toCPointer<ByteVar>(), control.rawAddress.toCPointer<ByteVar>(), targetpos.rawAddress.toCPointer<ByteVar>(), listcount.rawAddress.toCPointer<ByteVar>(), context.rawAddress.toCPointer<ByteVar>(), errcode.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ldapPerror(ld: MutPtr<Ldap>, msg: Pcstr) {
+public actual fun ldapPerror(ld: MutPtr, msg: Pcstr) {
     windowssysWindowsWin32NetworkingLdapLdapPerror(ld.rawAddress.toCPointer<ByteVar>(), msg.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun ldapRenameExt(ld: MutPtr<Ldap>, dn: Pcstr, newrdn: Pcstr, newparent: Pcstr, deleteoldrdn: Int, servercontrols: MutPtr<MutPtr<LDAPControlA>>, clientcontrols: MutPtr<MutPtr<LDAPControlA>>, messagenumber: MutPtr<UInt>): UInt =
+public actual fun ldapRenameExt(ld: MutPtr, dn: Pcstr, newrdn: Pcstr, newparent: Pcstr, deleteoldrdn: Int, servercontrols: MutPtr, clientcontrols: MutPtr, messagenumber: MutPtr): UInt =
     windowssysWindowsWin32NetworkingLdapLdapRenameExt(ld.rawAddress.toCPointer<ByteVar>(), dn.rawAddress.toCPointer<ByteVar>(), newrdn.rawAddress.toCPointer<ByteVar>(), newparent.rawAddress.toCPointer<ByteVar>(), deleteoldrdn, servercontrols.rawAddress.toCPointer<ByteVar>(), clientcontrols.rawAddress.toCPointer<ByteVar>(), messagenumber.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ldapRenameExtA(ld: MutPtr<Ldap>, dn: Pcstr, newrdn: Pcstr, newparent: Pcstr, deleteoldrdn: Int, servercontrols: MutPtr<MutPtr<LDAPControlA>>, clientcontrols: MutPtr<MutPtr<LDAPControlA>>, messagenumber: MutPtr<UInt>): UInt =
+public actual fun ldapRenameExtA(ld: MutPtr, dn: Pcstr, newrdn: Pcstr, newparent: Pcstr, deleteoldrdn: Int, servercontrols: MutPtr, clientcontrols: MutPtr, messagenumber: MutPtr): UInt =
     windowssysWindowsWin32NetworkingLdapLdapRenameExtA(ld.rawAddress.toCPointer<ByteVar>(), dn.rawAddress.toCPointer<ByteVar>(), newrdn.rawAddress.toCPointer<ByteVar>(), newparent.rawAddress.toCPointer<ByteVar>(), deleteoldrdn, servercontrols.rawAddress.toCPointer<ByteVar>(), clientcontrols.rawAddress.toCPointer<ByteVar>(), messagenumber.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ldapRenameExtW(ld: MutPtr<Ldap>, dn: Pcwstr, newrdn: Pcwstr, newparent: Pcwstr, deleteoldrdn: Int, servercontrols: MutPtr<MutPtr<LDAPControlW>>, clientcontrols: MutPtr<MutPtr<LDAPControlW>>, messagenumber: MutPtr<UInt>): UInt =
+public actual fun ldapRenameExtW(ld: MutPtr, dn: Pcwstr, newrdn: Pcwstr, newparent: Pcwstr, deleteoldrdn: Int, servercontrols: MutPtr, clientcontrols: MutPtr, messagenumber: MutPtr): UInt =
     windowssysWindowsWin32NetworkingLdapLdapRenameExtW(ld.rawAddress.toCPointer<ByteVar>(), dn.rawAddress.toCPointer<ByteVar>(), newrdn.rawAddress.toCPointer<ByteVar>(), newparent.rawAddress.toCPointer<ByteVar>(), deleteoldrdn, servercontrols.rawAddress.toCPointer<ByteVar>(), clientcontrols.rawAddress.toCPointer<ByteVar>(), messagenumber.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ldapRenameExtS(ld: MutPtr<Ldap>, dn: Pcstr, newrdn: Pcstr, newparent: Pcstr, deleteoldrdn: Int, servercontrols: MutPtr<MutPtr<LDAPControlA>>, clientcontrols: MutPtr<MutPtr<LDAPControlA>>): UInt =
+public actual fun ldapRenameExtS(ld: MutPtr, dn: Pcstr, newrdn: Pcstr, newparent: Pcstr, deleteoldrdn: Int, servercontrols: MutPtr, clientcontrols: MutPtr): UInt =
     windowssysWindowsWin32NetworkingLdapLdapRenameExtS(ld.rawAddress.toCPointer<ByteVar>(), dn.rawAddress.toCPointer<ByteVar>(), newrdn.rawAddress.toCPointer<ByteVar>(), newparent.rawAddress.toCPointer<ByteVar>(), deleteoldrdn, servercontrols.rawAddress.toCPointer<ByteVar>(), clientcontrols.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ldapRenameExtSA(ld: MutPtr<Ldap>, dn: Pcstr, newrdn: Pcstr, newparent: Pcstr, deleteoldrdn: Int, servercontrols: MutPtr<MutPtr<LDAPControlA>>, clientcontrols: MutPtr<MutPtr<LDAPControlA>>): UInt =
+public actual fun ldapRenameExtSA(ld: MutPtr, dn: Pcstr, newrdn: Pcstr, newparent: Pcstr, deleteoldrdn: Int, servercontrols: MutPtr, clientcontrols: MutPtr): UInt =
     windowssysWindowsWin32NetworkingLdapLdapRenameExtSA(ld.rawAddress.toCPointer<ByteVar>(), dn.rawAddress.toCPointer<ByteVar>(), newrdn.rawAddress.toCPointer<ByteVar>(), newparent.rawAddress.toCPointer<ByteVar>(), deleteoldrdn, servercontrols.rawAddress.toCPointer<ByteVar>(), clientcontrols.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ldapRenameExtSW(ld: MutPtr<Ldap>, dn: Pcwstr, newrdn: Pcwstr, newparent: Pcwstr, deleteoldrdn: Int, servercontrols: MutPtr<MutPtr<LDAPControlW>>, clientcontrols: MutPtr<MutPtr<LDAPControlW>>): UInt =
+public actual fun ldapRenameExtSW(ld: MutPtr, dn: Pcwstr, newrdn: Pcwstr, newparent: Pcwstr, deleteoldrdn: Int, servercontrols: MutPtr, clientcontrols: MutPtr): UInt =
     windowssysWindowsWin32NetworkingLdapLdapRenameExtSW(ld.rawAddress.toCPointer<ByteVar>(), dn.rawAddress.toCPointer<ByteVar>(), newrdn.rawAddress.toCPointer<ByteVar>(), newparent.rawAddress.toCPointer<ByteVar>(), deleteoldrdn, servercontrols.rawAddress.toCPointer<ByteVar>(), clientcontrols.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ldapResult(ld: MutPtr<Ldap>, msgid: UInt, all: UInt, timeout: ConstPtr<LdapTimeval>, res: MutPtr<MutPtr<LDAPMessage>>): UInt =
+public actual fun ldapResult(ld: MutPtr, msgid: UInt, all: UInt, timeout: ConstPtr, res: MutPtr): UInt =
     windowssysWindowsWin32NetworkingLdapLdapResult(ld.rawAddress.toCPointer<ByteVar>(), msgid, all, timeout.rawAddress.toCPointer<ByteVar>(), res.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ldapResult2error(ld: MutPtr<Ldap>, res: MutPtr<LDAPMessage>, freeit: UInt): UInt =
+public actual fun ldapResult2error(ld: MutPtr, res: MutPtr, freeit: UInt): UInt =
     windowssysWindowsWin32NetworkingLdapLdapResult2error(ld.rawAddress.toCPointer<ByteVar>(), res.rawAddress.toCPointer<ByteVar>(), freeit)
 
-public actual fun ldapSaslBindA(externalhandle: MutPtr<Ldap>, distname: Pcstr, authmechanism: Pcstr, cred: ConstPtr<LdapBerval>, serverctrls: MutPtr<MutPtr<LDAPControlA>>, clientctrls: MutPtr<MutPtr<LDAPControlA>>, messagenumber: MutPtr<Int>): Int =
+public actual fun ldapSaslBindA(externalhandle: MutPtr, distname: Pcstr, authmechanism: Pcstr, cred: ConstPtr, serverctrls: MutPtr, clientctrls: MutPtr, messagenumber: MutPtr): Int =
     windowssysWindowsWin32NetworkingLdapLdapSaslBindA(externalhandle.rawAddress.toCPointer<ByteVar>(), distname.rawAddress.toCPointer<ByteVar>(), authmechanism.rawAddress.toCPointer<ByteVar>(), cred.rawAddress.toCPointer<ByteVar>(), serverctrls.rawAddress.toCPointer<ByteVar>(), clientctrls.rawAddress.toCPointer<ByteVar>(), messagenumber.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ldapSaslBindW(externalhandle: MutPtr<Ldap>, distname: Pcwstr, authmechanism: Pcwstr, cred: ConstPtr<LdapBerval>, serverctrls: MutPtr<MutPtr<LDAPControlW>>, clientctrls: MutPtr<MutPtr<LDAPControlW>>, messagenumber: MutPtr<Int>): Int =
+public actual fun ldapSaslBindW(externalhandle: MutPtr, distname: Pcwstr, authmechanism: Pcwstr, cred: ConstPtr, serverctrls: MutPtr, clientctrls: MutPtr, messagenumber: MutPtr): Int =
     windowssysWindowsWin32NetworkingLdapLdapSaslBindW(externalhandle.rawAddress.toCPointer<ByteVar>(), distname.rawAddress.toCPointer<ByteVar>(), authmechanism.rawAddress.toCPointer<ByteVar>(), cred.rawAddress.toCPointer<ByteVar>(), serverctrls.rawAddress.toCPointer<ByteVar>(), clientctrls.rawAddress.toCPointer<ByteVar>(), messagenumber.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ldapSaslBindSA(externalhandle: MutPtr<Ldap>, distname: Pcstr, authmechanism: Pcstr, cred: ConstPtr<LdapBerval>, serverctrls: MutPtr<MutPtr<LDAPControlA>>, clientctrls: MutPtr<MutPtr<LDAPControlA>>, serverdata: MutPtr<MutPtr<LdapBerval>>): Int =
+public actual fun ldapSaslBindSA(externalhandle: MutPtr, distname: Pcstr, authmechanism: Pcstr, cred: ConstPtr, serverctrls: MutPtr, clientctrls: MutPtr, serverdata: MutPtr): Int =
     windowssysWindowsWin32NetworkingLdapLdapSaslBindSA(externalhandle.rawAddress.toCPointer<ByteVar>(), distname.rawAddress.toCPointer<ByteVar>(), authmechanism.rawAddress.toCPointer<ByteVar>(), cred.rawAddress.toCPointer<ByteVar>(), serverctrls.rawAddress.toCPointer<ByteVar>(), clientctrls.rawAddress.toCPointer<ByteVar>(), serverdata.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ldapSaslBindSW(externalhandle: MutPtr<Ldap>, distname: Pcwstr, authmechanism: Pcwstr, cred: ConstPtr<LdapBerval>, serverctrls: MutPtr<MutPtr<LDAPControlW>>, clientctrls: MutPtr<MutPtr<LDAPControlW>>, serverdata: MutPtr<MutPtr<LdapBerval>>): Int =
+public actual fun ldapSaslBindSW(externalhandle: MutPtr, distname: Pcwstr, authmechanism: Pcwstr, cred: ConstPtr, serverctrls: MutPtr, clientctrls: MutPtr, serverdata: MutPtr): Int =
     windowssysWindowsWin32NetworkingLdapLdapSaslBindSW(externalhandle.rawAddress.toCPointer<ByteVar>(), distname.rawAddress.toCPointer<ByteVar>(), authmechanism.rawAddress.toCPointer<ByteVar>(), cred.rawAddress.toCPointer<ByteVar>(), serverctrls.rawAddress.toCPointer<ByteVar>(), clientctrls.rawAddress.toCPointer<ByteVar>(), serverdata.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ldapSearch(ld: MutPtr<Ldap>, base: Pcstr, scope: UInt, filter: Pcstr, attrs: ConstPtr<ConstPtr<Byte>>, attrsonly: UInt): UInt =
+public actual fun ldapSearch(ld: MutPtr, base: Pcstr, scope: UInt, filter: Pcstr, attrs: ConstPtr, attrsonly: UInt): UInt =
     windowssysWindowsWin32NetworkingLdapLdapSearch(ld.rawAddress.toCPointer<ByteVar>(), base.rawAddress.toCPointer<ByteVar>(), scope, filter.rawAddress.toCPointer<ByteVar>(), attrs.rawAddress.toCPointer<ByteVar>(), attrsonly)
 
-public actual fun ldapSearchA(ld: MutPtr<Ldap>, base: Pcstr, scope: UInt, filter: Pcstr, attrs: ConstPtr<ConstPtr<Byte>>, attrsonly: UInt): UInt =
+public actual fun ldapSearchA(ld: MutPtr, base: Pcstr, scope: UInt, filter: Pcstr, attrs: ConstPtr, attrsonly: UInt): UInt =
     windowssysWindowsWin32NetworkingLdapLdapSearchA(ld.rawAddress.toCPointer<ByteVar>(), base.rawAddress.toCPointer<ByteVar>(), scope, filter.rawAddress.toCPointer<ByteVar>(), attrs.rawAddress.toCPointer<ByteVar>(), attrsonly)
 
-public actual fun ldapSearchW(ld: MutPtr<Ldap>, base: Pcwstr, scope: UInt, filter: Pcwstr, attrs: ConstPtr<ConstPtr<UShort>>, attrsonly: UInt): UInt =
+public actual fun ldapSearchW(ld: MutPtr, base: Pcwstr, scope: UInt, filter: Pcwstr, attrs: ConstPtr, attrsonly: UInt): UInt =
     windowssysWindowsWin32NetworkingLdapLdapSearchW(ld.rawAddress.toCPointer<ByteVar>(), base.rawAddress.toCPointer<ByteVar>(), scope, filter.rawAddress.toCPointer<ByteVar>(), attrs.rawAddress.toCPointer<ByteVar>(), attrsonly)
 
-public actual fun ldapSearchAbandonPage(externalhandle: MutPtr<Ldap>, searchblock: PLDAPSearch): UInt =
+public actual fun ldapSearchAbandonPage(externalhandle: MutPtr, searchblock: PLDAPSearch): UInt =
     windowssysWindowsWin32NetworkingLdapLdapSearchAbandonPage(externalhandle.rawAddress.toCPointer<ByteVar>(), searchblock)
 
-public actual fun ldapSearchExt(ld: MutPtr<Ldap>, base: Pcstr, scope: UInt, filter: Pcstr, attrs: ConstPtr<ConstPtr<Byte>>, attrsonly: UInt, servercontrols: ConstPtr<ConstPtr<LDAPControlA>>, clientcontrols: ConstPtr<ConstPtr<LDAPControlA>>, timelimit: UInt, sizelimit: UInt, messagenumber: MutPtr<UInt>): UInt =
+public actual fun ldapSearchExt(ld: MutPtr, base: Pcstr, scope: UInt, filter: Pcstr, attrs: ConstPtr, attrsonly: UInt, servercontrols: ConstPtr, clientcontrols: ConstPtr, timelimit: UInt, sizelimit: UInt, messagenumber: MutPtr): UInt =
     windowssysWindowsWin32NetworkingLdapLdapSearchExt(ld.rawAddress.toCPointer<ByteVar>(), base.rawAddress.toCPointer<ByteVar>(), scope, filter.rawAddress.toCPointer<ByteVar>(), attrs.rawAddress.toCPointer<ByteVar>(), attrsonly, servercontrols.rawAddress.toCPointer<ByteVar>(), clientcontrols.rawAddress.toCPointer<ByteVar>(), timelimit, sizelimit, messagenumber.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ldapSearchExtA(ld: MutPtr<Ldap>, base: Pcstr, scope: UInt, filter: Pcstr, attrs: ConstPtr<ConstPtr<Byte>>, attrsonly: UInt, servercontrols: ConstPtr<ConstPtr<LDAPControlA>>, clientcontrols: ConstPtr<ConstPtr<LDAPControlA>>, timelimit: UInt, sizelimit: UInt, messagenumber: MutPtr<UInt>): UInt =
+public actual fun ldapSearchExtA(ld: MutPtr, base: Pcstr, scope: UInt, filter: Pcstr, attrs: ConstPtr, attrsonly: UInt, servercontrols: ConstPtr, clientcontrols: ConstPtr, timelimit: UInt, sizelimit: UInt, messagenumber: MutPtr): UInt =
     windowssysWindowsWin32NetworkingLdapLdapSearchExtA(ld.rawAddress.toCPointer<ByteVar>(), base.rawAddress.toCPointer<ByteVar>(), scope, filter.rawAddress.toCPointer<ByteVar>(), attrs.rawAddress.toCPointer<ByteVar>(), attrsonly, servercontrols.rawAddress.toCPointer<ByteVar>(), clientcontrols.rawAddress.toCPointer<ByteVar>(), timelimit, sizelimit, messagenumber.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ldapSearchExtW(ld: MutPtr<Ldap>, base: Pcwstr, scope: UInt, filter: Pcwstr, attrs: ConstPtr<ConstPtr<UShort>>, attrsonly: UInt, servercontrols: ConstPtr<ConstPtr<LDAPControlW>>, clientcontrols: ConstPtr<ConstPtr<LDAPControlW>>, timelimit: UInt, sizelimit: UInt, messagenumber: MutPtr<UInt>): UInt =
+public actual fun ldapSearchExtW(ld: MutPtr, base: Pcwstr, scope: UInt, filter: Pcwstr, attrs: ConstPtr, attrsonly: UInt, servercontrols: ConstPtr, clientcontrols: ConstPtr, timelimit: UInt, sizelimit: UInt, messagenumber: MutPtr): UInt =
     windowssysWindowsWin32NetworkingLdapLdapSearchExtW(ld.rawAddress.toCPointer<ByteVar>(), base.rawAddress.toCPointer<ByteVar>(), scope, filter.rawAddress.toCPointer<ByteVar>(), attrs.rawAddress.toCPointer<ByteVar>(), attrsonly, servercontrols.rawAddress.toCPointer<ByteVar>(), clientcontrols.rawAddress.toCPointer<ByteVar>(), timelimit, sizelimit, messagenumber.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ldapSearchExtS(ld: MutPtr<Ldap>, base: Pcstr, scope: UInt, filter: Pcstr, attrs: ConstPtr<ConstPtr<Byte>>, attrsonly: UInt, servercontrols: ConstPtr<ConstPtr<LDAPControlA>>, clientcontrols: ConstPtr<ConstPtr<LDAPControlA>>, timeout: MutPtr<LdapTimeval>, sizelimit: UInt, res: MutPtr<MutPtr<LDAPMessage>>): UInt =
+public actual fun ldapSearchExtS(ld: MutPtr, base: Pcstr, scope: UInt, filter: Pcstr, attrs: ConstPtr, attrsonly: UInt, servercontrols: ConstPtr, clientcontrols: ConstPtr, timeout: MutPtr, sizelimit: UInt, res: MutPtr): UInt =
     windowssysWindowsWin32NetworkingLdapLdapSearchExtS(ld.rawAddress.toCPointer<ByteVar>(), base.rawAddress.toCPointer<ByteVar>(), scope, filter.rawAddress.toCPointer<ByteVar>(), attrs.rawAddress.toCPointer<ByteVar>(), attrsonly, servercontrols.rawAddress.toCPointer<ByteVar>(), clientcontrols.rawAddress.toCPointer<ByteVar>(), timeout.rawAddress.toCPointer<ByteVar>(), sizelimit, res.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ldapSearchExtSA(ld: MutPtr<Ldap>, base: Pcstr, scope: UInt, filter: Pcstr, attrs: ConstPtr<ConstPtr<Byte>>, attrsonly: UInt, servercontrols: ConstPtr<ConstPtr<LDAPControlA>>, clientcontrols: ConstPtr<ConstPtr<LDAPControlA>>, timeout: MutPtr<LdapTimeval>, sizelimit: UInt, res: MutPtr<MutPtr<LDAPMessage>>): UInt =
+public actual fun ldapSearchExtSA(ld: MutPtr, base: Pcstr, scope: UInt, filter: Pcstr, attrs: ConstPtr, attrsonly: UInt, servercontrols: ConstPtr, clientcontrols: ConstPtr, timeout: MutPtr, sizelimit: UInt, res: MutPtr): UInt =
     windowssysWindowsWin32NetworkingLdapLdapSearchExtSA(ld.rawAddress.toCPointer<ByteVar>(), base.rawAddress.toCPointer<ByteVar>(), scope, filter.rawAddress.toCPointer<ByteVar>(), attrs.rawAddress.toCPointer<ByteVar>(), attrsonly, servercontrols.rawAddress.toCPointer<ByteVar>(), clientcontrols.rawAddress.toCPointer<ByteVar>(), timeout.rawAddress.toCPointer<ByteVar>(), sizelimit, res.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ldapSearchExtSW(ld: MutPtr<Ldap>, base: Pcwstr, scope: UInt, filter: Pcwstr, attrs: ConstPtr<ConstPtr<UShort>>, attrsonly: UInt, servercontrols: ConstPtr<ConstPtr<LDAPControlW>>, clientcontrols: ConstPtr<ConstPtr<LDAPControlW>>, timeout: MutPtr<LdapTimeval>, sizelimit: UInt, res: MutPtr<MutPtr<LDAPMessage>>): UInt =
+public actual fun ldapSearchExtSW(ld: MutPtr, base: Pcwstr, scope: UInt, filter: Pcwstr, attrs: ConstPtr, attrsonly: UInt, servercontrols: ConstPtr, clientcontrols: ConstPtr, timeout: MutPtr, sizelimit: UInt, res: MutPtr): UInt =
     windowssysWindowsWin32NetworkingLdapLdapSearchExtSW(ld.rawAddress.toCPointer<ByteVar>(), base.rawAddress.toCPointer<ByteVar>(), scope, filter.rawAddress.toCPointer<ByteVar>(), attrs.rawAddress.toCPointer<ByteVar>(), attrsonly, servercontrols.rawAddress.toCPointer<ByteVar>(), clientcontrols.rawAddress.toCPointer<ByteVar>(), timeout.rawAddress.toCPointer<ByteVar>(), sizelimit, res.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ldapSearchInitPage(externalhandle: MutPtr<Ldap>, distinguishedname: Pcstr, scopeofsearch: UInt, searchfilter: Pcstr, attributelist: MutPtr<MutPtr<Byte>>, attributesonly: UInt, servercontrols: MutPtr<MutPtr<LDAPControlA>>, clientcontrols: MutPtr<MutPtr<LDAPControlA>>, pagetimelimit: UInt, totalsizelimit: UInt, sortkeys: MutPtr<MutPtr<LDAPSortKeyA>>): PLDAPSearch =
+public actual fun ldapSearchInitPage(externalhandle: MutPtr, distinguishedname: Pcstr, scopeofsearch: UInt, searchfilter: Pcstr, attributelist: MutPtr, attributesonly: UInt, servercontrols: MutPtr, clientcontrols: MutPtr, pagetimelimit: UInt, totalsizelimit: UInt, sortkeys: MutPtr): PLDAPSearch =
     windowssysWindowsWin32NetworkingLdapLdapSearchInitPage(externalhandle.rawAddress.toCPointer<ByteVar>(), distinguishedname.rawAddress.toCPointer<ByteVar>(), scopeofsearch, searchfilter.rawAddress.toCPointer<ByteVar>(), attributelist.rawAddress.toCPointer<ByteVar>(), attributesonly, servercontrols.rawAddress.toCPointer<ByteVar>(), clientcontrols.rawAddress.toCPointer<ByteVar>(), pagetimelimit, totalsizelimit, sortkeys.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ldapSearchInitPageA(externalhandle: MutPtr<Ldap>, distinguishedname: Pcstr, scopeofsearch: UInt, searchfilter: Pcstr, attributelist: ConstPtr<ConstPtr<Byte>>, attributesonly: UInt, servercontrols: MutPtr<MutPtr<LDAPControlA>>, clientcontrols: MutPtr<MutPtr<LDAPControlA>>, pagetimelimit: UInt, totalsizelimit: UInt, sortkeys: MutPtr<MutPtr<LDAPSortKeyA>>): PLDAPSearch =
+public actual fun ldapSearchInitPageA(externalhandle: MutPtr, distinguishedname: Pcstr, scopeofsearch: UInt, searchfilter: Pcstr, attributelist: ConstPtr, attributesonly: UInt, servercontrols: MutPtr, clientcontrols: MutPtr, pagetimelimit: UInt, totalsizelimit: UInt, sortkeys: MutPtr): PLDAPSearch =
     windowssysWindowsWin32NetworkingLdapLdapSearchInitPageA(externalhandle.rawAddress.toCPointer<ByteVar>(), distinguishedname.rawAddress.toCPointer<ByteVar>(), scopeofsearch, searchfilter.rawAddress.toCPointer<ByteVar>(), attributelist.rawAddress.toCPointer<ByteVar>(), attributesonly, servercontrols.rawAddress.toCPointer<ByteVar>(), clientcontrols.rawAddress.toCPointer<ByteVar>(), pagetimelimit, totalsizelimit, sortkeys.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ldapSearchInitPageW(externalhandle: MutPtr<Ldap>, distinguishedname: Pcwstr, scopeofsearch: UInt, searchfilter: Pcwstr, attributelist: ConstPtr<ConstPtr<UShort>>, attributesonly: UInt, servercontrols: MutPtr<MutPtr<LDAPControlW>>, clientcontrols: MutPtr<MutPtr<LDAPControlW>>, pagetimelimit: UInt, totalsizelimit: UInt, sortkeys: MutPtr<MutPtr<LDAPSortKeyW>>): PLDAPSearch =
+public actual fun ldapSearchInitPageW(externalhandle: MutPtr, distinguishedname: Pcwstr, scopeofsearch: UInt, searchfilter: Pcwstr, attributelist: ConstPtr, attributesonly: UInt, servercontrols: MutPtr, clientcontrols: MutPtr, pagetimelimit: UInt, totalsizelimit: UInt, sortkeys: MutPtr): PLDAPSearch =
     windowssysWindowsWin32NetworkingLdapLdapSearchInitPageW(externalhandle.rawAddress.toCPointer<ByteVar>(), distinguishedname.rawAddress.toCPointer<ByteVar>(), scopeofsearch, searchfilter.rawAddress.toCPointer<ByteVar>(), attributelist.rawAddress.toCPointer<ByteVar>(), attributesonly, servercontrols.rawAddress.toCPointer<ByteVar>(), clientcontrols.rawAddress.toCPointer<ByteVar>(), pagetimelimit, totalsizelimit, sortkeys.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ldapSearchS(ld: MutPtr<Ldap>, base: Pcstr, scope: UInt, filter: Pcstr, attrs: ConstPtr<ConstPtr<Byte>>, attrsonly: UInt, res: MutPtr<MutPtr<LDAPMessage>>): UInt =
+public actual fun ldapSearchS(ld: MutPtr, base: Pcstr, scope: UInt, filter: Pcstr, attrs: ConstPtr, attrsonly: UInt, res: MutPtr): UInt =
     windowssysWindowsWin32NetworkingLdapLdapSearchS(ld.rawAddress.toCPointer<ByteVar>(), base.rawAddress.toCPointer<ByteVar>(), scope, filter.rawAddress.toCPointer<ByteVar>(), attrs.rawAddress.toCPointer<ByteVar>(), attrsonly, res.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ldapSearchSA(ld: MutPtr<Ldap>, base: Pcstr, scope: UInt, filter: Pcstr, attrs: ConstPtr<ConstPtr<Byte>>, attrsonly: UInt, res: MutPtr<MutPtr<LDAPMessage>>): UInt =
+public actual fun ldapSearchSA(ld: MutPtr, base: Pcstr, scope: UInt, filter: Pcstr, attrs: ConstPtr, attrsonly: UInt, res: MutPtr): UInt =
     windowssysWindowsWin32NetworkingLdapLdapSearchSA(ld.rawAddress.toCPointer<ByteVar>(), base.rawAddress.toCPointer<ByteVar>(), scope, filter.rawAddress.toCPointer<ByteVar>(), attrs.rawAddress.toCPointer<ByteVar>(), attrsonly, res.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ldapSearchSW(ld: MutPtr<Ldap>, base: Pcwstr, scope: UInt, filter: Pcwstr, attrs: ConstPtr<ConstPtr<UShort>>, attrsonly: UInt, res: MutPtr<MutPtr<LDAPMessage>>): UInt =
+public actual fun ldapSearchSW(ld: MutPtr, base: Pcwstr, scope: UInt, filter: Pcwstr, attrs: ConstPtr, attrsonly: UInt, res: MutPtr): UInt =
     windowssysWindowsWin32NetworkingLdapLdapSearchSW(ld.rawAddress.toCPointer<ByteVar>(), base.rawAddress.toCPointer<ByteVar>(), scope, filter.rawAddress.toCPointer<ByteVar>(), attrs.rawAddress.toCPointer<ByteVar>(), attrsonly, res.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ldapSearchSt(ld: MutPtr<Ldap>, base: Pcstr, scope: UInt, filter: Pcstr, attrs: ConstPtr<ConstPtr<Byte>>, attrsonly: UInt, timeout: MutPtr<LdapTimeval>, res: MutPtr<MutPtr<LDAPMessage>>): UInt =
+public actual fun ldapSearchSt(ld: MutPtr, base: Pcstr, scope: UInt, filter: Pcstr, attrs: ConstPtr, attrsonly: UInt, timeout: MutPtr, res: MutPtr): UInt =
     windowssysWindowsWin32NetworkingLdapLdapSearchSt(ld.rawAddress.toCPointer<ByteVar>(), base.rawAddress.toCPointer<ByteVar>(), scope, filter.rawAddress.toCPointer<ByteVar>(), attrs.rawAddress.toCPointer<ByteVar>(), attrsonly, timeout.rawAddress.toCPointer<ByteVar>(), res.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ldapSearchStA(ld: MutPtr<Ldap>, base: Pcstr, scope: UInt, filter: Pcstr, attrs: ConstPtr<ConstPtr<Byte>>, attrsonly: UInt, timeout: MutPtr<LdapTimeval>, res: MutPtr<MutPtr<LDAPMessage>>): UInt =
+public actual fun ldapSearchStA(ld: MutPtr, base: Pcstr, scope: UInt, filter: Pcstr, attrs: ConstPtr, attrsonly: UInt, timeout: MutPtr, res: MutPtr): UInt =
     windowssysWindowsWin32NetworkingLdapLdapSearchStA(ld.rawAddress.toCPointer<ByteVar>(), base.rawAddress.toCPointer<ByteVar>(), scope, filter.rawAddress.toCPointer<ByteVar>(), attrs.rawAddress.toCPointer<ByteVar>(), attrsonly, timeout.rawAddress.toCPointer<ByteVar>(), res.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ldapSearchStW(ld: MutPtr<Ldap>, base: Pcwstr, scope: UInt, filter: Pcwstr, attrs: ConstPtr<ConstPtr<UShort>>, attrsonly: UInt, timeout: MutPtr<LdapTimeval>, res: MutPtr<MutPtr<LDAPMessage>>): UInt =
+public actual fun ldapSearchStW(ld: MutPtr, base: Pcwstr, scope: UInt, filter: Pcwstr, attrs: ConstPtr, attrsonly: UInt, timeout: MutPtr, res: MutPtr): UInt =
     windowssysWindowsWin32NetworkingLdapLdapSearchStW(ld.rawAddress.toCPointer<ByteVar>(), base.rawAddress.toCPointer<ByteVar>(), scope, filter.rawAddress.toCPointer<ByteVar>(), attrs.rawAddress.toCPointer<ByteVar>(), attrsonly, timeout.rawAddress.toCPointer<ByteVar>(), res.rawAddress.toCPointer<ByteVar>())
 
 public actual fun ldapSetDbgFlags(newflags: UInt): UInt =
@@ -923,74 +922,74 @@ public actual fun ldapSetDbgRoutine(debugprintroutine: Dbgprint) {
     windowssysWindowsWin32NetworkingLdapLdapSetDbgRoutine(0L.toCPointer<ByteVar>())
 }
 
-public actual fun ldapSetOption(ld: MutPtr<Ldap>, option: Int, invalue: ConstPtr<CVoid>): UInt =
+public actual fun ldapSetOption(ld: MutPtr, option: Int, invalue: ConstPtr): UInt =
     windowssysWindowsWin32NetworkingLdapLdapSetOption(ld.rawAddress.toCPointer<ByteVar>(), option, invalue.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ldapSetOptionW(ld: MutPtr<Ldap>, option: Int, invalue: ConstPtr<CVoid>): UInt =
+public actual fun ldapSetOptionW(ld: MutPtr, option: Int, invalue: ConstPtr): UInt =
     windowssysWindowsWin32NetworkingLdapLdapSetOptionW(ld.rawAddress.toCPointer<ByteVar>(), option, invalue.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ldapSimpleBind(ld: MutPtr<Ldap>, dn: Pcstr, passwd: Pcstr): UInt =
+public actual fun ldapSimpleBind(ld: MutPtr, dn: Pcstr, passwd: Pcstr): UInt =
     windowssysWindowsWin32NetworkingLdapLdapSimpleBind(ld.rawAddress.toCPointer<ByteVar>(), dn.rawAddress.toCPointer<ByteVar>(), passwd.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ldapSimpleBindA(ld: MutPtr<Ldap>, dn: Pcstr, passwd: Pcstr): UInt =
+public actual fun ldapSimpleBindA(ld: MutPtr, dn: Pcstr, passwd: Pcstr): UInt =
     windowssysWindowsWin32NetworkingLdapLdapSimpleBindA(ld.rawAddress.toCPointer<ByteVar>(), dn.rawAddress.toCPointer<ByteVar>(), passwd.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ldapSimpleBindW(ld: MutPtr<Ldap>, dn: Pcwstr, passwd: Pcwstr): UInt =
+public actual fun ldapSimpleBindW(ld: MutPtr, dn: Pcwstr, passwd: Pcwstr): UInt =
     windowssysWindowsWin32NetworkingLdapLdapSimpleBindW(ld.rawAddress.toCPointer<ByteVar>(), dn.rawAddress.toCPointer<ByteVar>(), passwd.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ldapSimpleBindS(ld: MutPtr<Ldap>, dn: Pcstr, passwd: Pcstr): UInt =
+public actual fun ldapSimpleBindS(ld: MutPtr, dn: Pcstr, passwd: Pcstr): UInt =
     windowssysWindowsWin32NetworkingLdapLdapSimpleBindS(ld.rawAddress.toCPointer<ByteVar>(), dn.rawAddress.toCPointer<ByteVar>(), passwd.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ldapSimpleBindSA(ld: MutPtr<Ldap>, dn: Pcstr, passwd: Pcstr): UInt =
+public actual fun ldapSimpleBindSA(ld: MutPtr, dn: Pcstr, passwd: Pcstr): UInt =
     windowssysWindowsWin32NetworkingLdapLdapSimpleBindSA(ld.rawAddress.toCPointer<ByteVar>(), dn.rawAddress.toCPointer<ByteVar>(), passwd.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ldapSimpleBindSW(ld: MutPtr<Ldap>, dn: Pcwstr, passwd: Pcwstr): UInt =
+public actual fun ldapSimpleBindSW(ld: MutPtr, dn: Pcwstr, passwd: Pcwstr): UInt =
     windowssysWindowsWin32NetworkingLdapLdapSimpleBindSW(ld.rawAddress.toCPointer<ByteVar>(), dn.rawAddress.toCPointer<ByteVar>(), passwd.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ldapSslinit(hostname: Pcstr, portnumber: UInt, secure: Int): MutPtr<Ldap> =
+public actual fun ldapSslinit(hostname: Pcstr, portnumber: UInt, secure: Int): MutPtr =
     MutPtr(windowssysWindowsWin32NetworkingLdapLdapSslinit(hostname.rawAddress.toCPointer<ByteVar>(), portnumber, secure)?.toLong() ?: 0L)
 
-public actual fun ldapSslinitA(hostname: Pcstr, portnumber: UInt, secure: Int): MutPtr<Ldap> =
+public actual fun ldapSslinitA(hostname: Pcstr, portnumber: UInt, secure: Int): MutPtr =
     MutPtr(windowssysWindowsWin32NetworkingLdapLdapSslinitA(hostname.rawAddress.toCPointer<ByteVar>(), portnumber, secure)?.toLong() ?: 0L)
 
-public actual fun ldapSslinitW(hostname: Pcwstr, portnumber: UInt, secure: Int): MutPtr<Ldap> =
+public actual fun ldapSslinitW(hostname: Pcwstr, portnumber: UInt, secure: Int): MutPtr =
     MutPtr(windowssysWindowsWin32NetworkingLdapLdapSslinitW(hostname.rawAddress.toCPointer<ByteVar>(), portnumber, secure)?.toLong() ?: 0L)
 
-public actual fun ldapStartTlsSA(externalhandle: MutPtr<Ldap>, serverreturnvalue: MutPtr<UInt>, result: MutPtr<MutPtr<LDAPMessage>>, servercontrols: MutPtr<MutPtr<LDAPControlA>>, clientcontrols: MutPtr<MutPtr<LDAPControlA>>): UInt =
+public actual fun ldapStartTlsSA(externalhandle: MutPtr, serverreturnvalue: MutPtr, result: MutPtr, servercontrols: MutPtr, clientcontrols: MutPtr): UInt =
     windowssysWindowsWin32NetworkingLdapLdapStartTlsSA(externalhandle.rawAddress.toCPointer<ByteVar>(), serverreturnvalue.rawAddress.toCPointer<ByteVar>(), result.rawAddress.toCPointer<ByteVar>(), servercontrols.rawAddress.toCPointer<ByteVar>(), clientcontrols.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ldapStartTlsSW(externalhandle: MutPtr<Ldap>, serverreturnvalue: MutPtr<UInt>, result: MutPtr<MutPtr<LDAPMessage>>, servercontrols: MutPtr<MutPtr<LDAPControlW>>, clientcontrols: MutPtr<MutPtr<LDAPControlW>>): UInt =
+public actual fun ldapStartTlsSW(externalhandle: MutPtr, serverreturnvalue: MutPtr, result: MutPtr, servercontrols: MutPtr, clientcontrols: MutPtr): UInt =
     windowssysWindowsWin32NetworkingLdapLdapStartTlsSW(externalhandle.rawAddress.toCPointer<ByteVar>(), serverreturnvalue.rawAddress.toCPointer<ByteVar>(), result.rawAddress.toCPointer<ByteVar>(), servercontrols.rawAddress.toCPointer<ByteVar>(), clientcontrols.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ldapStartup(version: MutPtr<LdapVersionInfo>, instance: MutPtr<Handle>): UInt =
+public actual fun ldapStartup(version: MutPtr, instance: MutPtr): UInt =
     windowssysWindowsWin32NetworkingLdapLdapStartup(version.rawAddress.toCPointer<ByteVar>(), instance.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ldapStopTlsS(externalhandle: MutPtr<Ldap>): Boolean =
+public actual fun ldapStopTlsS(externalhandle: MutPtr): Boolean =
     windowssysWindowsWin32NetworkingLdapLdapStopTlsS(externalhandle.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ldapUfn2dn(ufn: Pcstr, pdn: MutPtr<Pstr>): UInt =
+public actual fun ldapUfn2dn(ufn: Pcstr, pdn: MutPtr): UInt =
     windowssysWindowsWin32NetworkingLdapLdapUfn2dn(ufn.rawAddress.toCPointer<ByteVar>(), pdn.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ldapUfn2dnA(ufn: Pcstr, pdn: MutPtr<Pstr>): UInt =
+public actual fun ldapUfn2dnA(ufn: Pcstr, pdn: MutPtr): UInt =
     windowssysWindowsWin32NetworkingLdapLdapUfn2dnA(ufn.rawAddress.toCPointer<ByteVar>(), pdn.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ldapUfn2dnW(ufn: Pcwstr, pdn: MutPtr<Pwstr>): UInt =
+public actual fun ldapUfn2dnW(ufn: Pcwstr, pdn: MutPtr): UInt =
     windowssysWindowsWin32NetworkingLdapLdapUfn2dnW(ufn.rawAddress.toCPointer<ByteVar>(), pdn.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ldapUnbind(ld: MutPtr<Ldap>): UInt =
+public actual fun ldapUnbind(ld: MutPtr): UInt =
     windowssysWindowsWin32NetworkingLdapLdapUnbind(ld.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ldapUnbindS(ld: MutPtr<Ldap>): UInt =
+public actual fun ldapUnbindS(ld: MutPtr): UInt =
     windowssysWindowsWin32NetworkingLdapLdapUnbindS(ld.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ldapValueFree(vals: ConstPtr<Pcstr>): UInt =
+public actual fun ldapValueFree(vals: ConstPtr): UInt =
     windowssysWindowsWin32NetworkingLdapLdapValueFree(vals.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ldapValueFreeA(vals: ConstPtr<Pcstr>): UInt =
+public actual fun ldapValueFreeA(vals: ConstPtr): UInt =
     windowssysWindowsWin32NetworkingLdapLdapValueFreeA(vals.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ldapValueFreeW(vals: ConstPtr<Pcwstr>): UInt =
+public actual fun ldapValueFreeW(vals: ConstPtr): UInt =
     windowssysWindowsWin32NetworkingLdapLdapValueFreeW(vals.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ldapValueFreeLen(vals: MutPtr<MutPtr<LdapBerval>>): UInt =
+public actual fun ldapValueFreeLen(vals: MutPtr): UInt =
     windowssysWindowsWin32NetworkingLdapLdapValueFreeLen(vals.rawAddress.toCPointer<ByteVar>())

@@ -2,11 +2,9 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.devices.bluetooth
 
-import io.github.kotlinmania.rustlang.core.ffi.CVoid
 import io.github.kotlinmania.rustlang.core.ptr.ConstPtr
 import io.github.kotlinmania.rustlang.core.ptr.MutPtr
 import io.github.kotlinmania.windowssys.core.Bool
-import io.github.kotlinmania.windowssys.core.Guid
 import io.github.kotlinmania.windowssys.core.Hresult
 import io.github.kotlinmania.windowssys.core.Pcwstr
 import io.github.kotlinmania.windowssys.core.Pwstr
@@ -159,16 +157,16 @@ private external fun wasmWindowssysWindowsWin32DevicesBluetoothBluetoothUnregist
 @JsFun("(p0) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesBluetoothBluetoothUpdateDeviceRecord(p0)")
 private external fun wasmWindowssysWindowsWin32DevicesBluetoothBluetoothUpdateDeviceRecord(p0: String): Int
 
-public actual fun bluetoothAuthenticateDevice(hwndparent: Hwnd, hradio: Handle, pbtbi: MutPtr<BluetoothDeviceInfo>, pszpasskey: Pcwstr, ulpasskeylength: UInt): UInt =
+public actual fun bluetoothAuthenticateDevice(hwndparent: Hwnd, hradio: Handle, pbtbi: MutPtr, pszpasskey: Pcwstr, ulpasskeylength: UInt): UInt =
     if (windowsWin32DevicesBluetoothNapiAvailable) wasmWindowssysWindowsWin32DevicesBluetoothBluetoothAuthenticateDevice(hwndparent.rawAddress.toString(), hradio.rawAddress.toString(), pbtbi.rawAddress.toString(), pszpasskey.rawAddress.toString(), ulpasskeylength.toInt()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun bluetoothAuthenticateDeviceEx(hwndparentin: Hwnd, hradioin: Handle, pbtdiinout: MutPtr<BluetoothDeviceInfo>, pbtoobdata: ConstPtr<BluetoothOobDataInfo>, authenticationrequirement: AuthenticationRequirements): UInt =
+public actual fun bluetoothAuthenticateDeviceEx(hwndparentin: Hwnd, hradioin: Handle, pbtdiinout: MutPtr, pbtoobdata: ConstPtr, authenticationrequirement: AuthenticationRequirements): UInt =
     if (windowsWin32DevicesBluetoothNapiAvailable) wasmWindowssysWindowsWin32DevicesBluetoothBluetoothAuthenticateDeviceEx(hwndparentin.rawAddress.toString(), hradioin.rawAddress.toString(), pbtdiinout.rawAddress.toString(), pbtoobdata.rawAddress.toString(), authenticationrequirement).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun bluetoothAuthenticateMultipleDevices(hwndparent: Hwnd, hradio: Handle, cdevices: UInt, rgbtdi: MutPtr<BluetoothDeviceInfo>): UInt =
+public actual fun bluetoothAuthenticateMultipleDevices(hwndparent: Hwnd, hradio: Handle, cdevices: UInt, rgbtdi: MutPtr): UInt =
     if (windowsWin32DevicesBluetoothNapiAvailable) wasmWindowssysWindowsWin32DevicesBluetoothBluetoothAuthenticateMultipleDevices(hwndparent.rawAddress.toString(), hradio.rawAddress.toString(), cdevices.toInt(), rgbtdi.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun bluetoothDisplayDeviceProperties(hwndparent: Hwnd, pbtdi: MutPtr<BluetoothDeviceInfo>): Bool =
+public actual fun bluetoothDisplayDeviceProperties(hwndparent: Hwnd, pbtdi: MutPtr): Bool =
     if (windowsWin32DevicesBluetoothNapiAvailable) wasmWindowssysWindowsWin32DevicesBluetoothBluetoothDisplayDeviceProperties(hwndparent.rawAddress.toString(), pbtdi.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun bluetoothEnableDiscovery(hradio: Handle, fenabled: Bool): Bool =
@@ -177,22 +175,22 @@ public actual fun bluetoothEnableDiscovery(hradio: Handle, fenabled: Bool): Bool
 public actual fun bluetoothEnableIncomingConnections(hradio: Handle, fenabled: Bool): Bool =
     if (windowsWin32DevicesBluetoothNapiAvailable) wasmWindowssysWindowsWin32DevicesBluetoothBluetoothEnableIncomingConnections(hradio.rawAddress.toString(), fenabled) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun bluetoothEnumerateInstalledServices(hradio: Handle, pbtdi: ConstPtr<BluetoothDeviceInfo>, pcserviceinout: MutPtr<UInt>, pguidservices: MutPtr<Guid>): UInt =
+public actual fun bluetoothEnumerateInstalledServices(hradio: Handle, pbtdi: ConstPtr, pcserviceinout: MutPtr, pguidservices: MutPtr): UInt =
     if (windowsWin32DevicesBluetoothNapiAvailable) wasmWindowssysWindowsWin32DevicesBluetoothBluetoothEnumerateInstalledServices(hradio.rawAddress.toString(), pbtdi.rawAddress.toString(), pcserviceinout.rawAddress.toString(), pguidservices.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun bluetoothFindDeviceClose(hfind: HbluetoothDeviceFind): Bool =
     if (windowsWin32DevicesBluetoothNapiAvailable) wasmWindowssysWindowsWin32DevicesBluetoothBluetoothFindDeviceClose(hfind.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun bluetoothFindFirstDevice(pbtsp: ConstPtr<BluetoothDeviceSearchParams>, pbtdi: MutPtr<BluetoothDeviceInfo>): HbluetoothDeviceFind =
+public actual fun bluetoothFindFirstDevice(pbtsp: ConstPtr, pbtdi: MutPtr): HbluetoothDeviceFind =
     if (windowsWin32DevicesBluetoothNapiAvailable) MutPtr(wasmWindowssysWindowsWin32DevicesBluetoothBluetoothFindFirstDevice(pbtsp.rawAddress.toString(), pbtdi.rawAddress.toString()).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun bluetoothFindFirstRadio(pbtfrp: ConstPtr<BluetoothFindRadioParams>, phradio: MutPtr<Handle>): HbluetoothRadioFind =
+public actual fun bluetoothFindFirstRadio(pbtfrp: ConstPtr, phradio: MutPtr): HbluetoothRadioFind =
     if (windowsWin32DevicesBluetoothNapiAvailable) MutPtr(wasmWindowssysWindowsWin32DevicesBluetoothBluetoothFindFirstRadio(pbtfrp.rawAddress.toString(), phradio.rawAddress.toString()).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun bluetoothFindNextDevice(hfind: HbluetoothDeviceFind, pbtdi: MutPtr<BluetoothDeviceInfo>): Bool =
+public actual fun bluetoothFindNextDevice(hfind: HbluetoothDeviceFind, pbtdi: MutPtr): Bool =
     if (windowsWin32DevicesBluetoothNapiAvailable) wasmWindowssysWindowsWin32DevicesBluetoothBluetoothFindNextDevice(hfind.rawAddress.toString(), pbtdi.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun bluetoothFindNextRadio(hfind: HbluetoothRadioFind, phradio: MutPtr<Handle>): Bool =
+public actual fun bluetoothFindNextRadio(hfind: HbluetoothRadioFind, phradio: MutPtr): Bool =
     if (windowsWin32DevicesBluetoothNapiAvailable) wasmWindowssysWindowsWin32DevicesBluetoothBluetoothFindNextRadio(hfind.rawAddress.toString(), phradio.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun bluetoothFindRadioClose(hfind: HbluetoothRadioFind): Bool =
@@ -201,46 +199,46 @@ public actual fun bluetoothFindRadioClose(hfind: HbluetoothRadioFind): Bool =
 public actual fun bluetoothGATTAbortReliableWrite(hdevice: Handle, reliablewritecontext: ULong, flags: UInt): Hresult =
     if (windowsWin32DevicesBluetoothNapiAvailable) wasmWindowssysWindowsWin32DevicesBluetoothBluetoothGATTAbortReliableWrite(hdevice.rawAddress.toString(), reliablewritecontext.toString(), flags.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun bluetoothGATTBeginReliableWrite(hdevice: Handle, reliablewritecontext: MutPtr<ULong>, flags: UInt): Hresult =
+public actual fun bluetoothGATTBeginReliableWrite(hdevice: Handle, reliablewritecontext: MutPtr, flags: UInt): Hresult =
     if (windowsWin32DevicesBluetoothNapiAvailable) wasmWindowssysWindowsWin32DevicesBluetoothBluetoothGATTBeginReliableWrite(hdevice.rawAddress.toString(), reliablewritecontext.rawAddress.toString(), flags.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun bluetoothGATTEndReliableWrite(hdevice: Handle, reliablewritecontext: ULong, flags: UInt): Hresult =
     if (windowsWin32DevicesBluetoothNapiAvailable) wasmWindowssysWindowsWin32DevicesBluetoothBluetoothGATTEndReliableWrite(hdevice.rawAddress.toString(), reliablewritecontext.toString(), flags.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun bluetoothGATTGetCharacteristicValue(hdevice: Handle, characteristic: ConstPtr<BthLeGattCharacteristic>, characteristicvaluedatasize: UInt, characteristicvalue: MutPtr<BthLeGattCharacteristicValue>, characteristicvaluesizerequired: MutPtr<UShort>, flags: UInt): Hresult =
+public actual fun bluetoothGATTGetCharacteristicValue(hdevice: Handle, characteristic: ConstPtr, characteristicvaluedatasize: UInt, characteristicvalue: MutPtr, characteristicvaluesizerequired: MutPtr, flags: UInt): Hresult =
     if (windowsWin32DevicesBluetoothNapiAvailable) wasmWindowssysWindowsWin32DevicesBluetoothBluetoothGATTGetCharacteristicValue(hdevice.rawAddress.toString(), characteristic.rawAddress.toString(), characteristicvaluedatasize.toInt(), characteristicvalue.rawAddress.toString(), characteristicvaluesizerequired.rawAddress.toString(), flags.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun bluetoothGATTGetCharacteristics(hdevice: Handle, service: ConstPtr<BthLeGattService>, characteristicsbuffercount: UShort, characteristicsbuffer: MutPtr<BthLeGattCharacteristic>, characteristicsbufferactual: MutPtr<UShort>, flags: UInt): Hresult =
+public actual fun bluetoothGATTGetCharacteristics(hdevice: Handle, service: ConstPtr, characteristicsbuffercount: UShort, characteristicsbuffer: MutPtr, characteristicsbufferactual: MutPtr, flags: UInt): Hresult =
     if (windowsWin32DevicesBluetoothNapiAvailable) wasmWindowssysWindowsWin32DevicesBluetoothBluetoothGATTGetCharacteristics(hdevice.rawAddress.toString(), service.rawAddress.toString(), characteristicsbuffercount.toInt(), characteristicsbuffer.rawAddress.toString(), characteristicsbufferactual.rawAddress.toString(), flags.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun bluetoothGATTGetDescriptorValue(hdevice: Handle, descriptor: ConstPtr<BthLeGattDescriptor>, descriptorvaluedatasize: UInt, descriptorvalue: MutPtr<BthLeGattDescriptorValue>, descriptorvaluesizerequired: MutPtr<UShort>, flags: UInt): Hresult =
+public actual fun bluetoothGATTGetDescriptorValue(hdevice: Handle, descriptor: ConstPtr, descriptorvaluedatasize: UInt, descriptorvalue: MutPtr, descriptorvaluesizerequired: MutPtr, flags: UInt): Hresult =
     if (windowsWin32DevicesBluetoothNapiAvailable) wasmWindowssysWindowsWin32DevicesBluetoothBluetoothGATTGetDescriptorValue(hdevice.rawAddress.toString(), descriptor.rawAddress.toString(), descriptorvaluedatasize.toInt(), descriptorvalue.rawAddress.toString(), descriptorvaluesizerequired.rawAddress.toString(), flags.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun bluetoothGATTGetDescriptors(hdevice: Handle, characteristic: ConstPtr<BthLeGattCharacteristic>, descriptorsbuffercount: UShort, descriptorsbuffer: MutPtr<BthLeGattDescriptor>, descriptorsbufferactual: MutPtr<UShort>, flags: UInt): Hresult =
+public actual fun bluetoothGATTGetDescriptors(hdevice: Handle, characteristic: ConstPtr, descriptorsbuffercount: UShort, descriptorsbuffer: MutPtr, descriptorsbufferactual: MutPtr, flags: UInt): Hresult =
     if (windowsWin32DevicesBluetoothNapiAvailable) wasmWindowssysWindowsWin32DevicesBluetoothBluetoothGATTGetDescriptors(hdevice.rawAddress.toString(), characteristic.rawAddress.toString(), descriptorsbuffercount.toInt(), descriptorsbuffer.rawAddress.toString(), descriptorsbufferactual.rawAddress.toString(), flags.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun bluetoothGATTGetIncludedServices(hdevice: Handle, parentservice: ConstPtr<BthLeGattService>, includedservicesbuffercount: UShort, includedservicesbuffer: MutPtr<BthLeGattService>, includedservicesbufferactual: MutPtr<UShort>, flags: UInt): Hresult =
+public actual fun bluetoothGATTGetIncludedServices(hdevice: Handle, parentservice: ConstPtr, includedservicesbuffercount: UShort, includedservicesbuffer: MutPtr, includedservicesbufferactual: MutPtr, flags: UInt): Hresult =
     if (windowsWin32DevicesBluetoothNapiAvailable) wasmWindowssysWindowsWin32DevicesBluetoothBluetoothGATTGetIncludedServices(hdevice.rawAddress.toString(), parentservice.rawAddress.toString(), includedservicesbuffercount.toInt(), includedservicesbuffer.rawAddress.toString(), includedservicesbufferactual.rawAddress.toString(), flags.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun bluetoothGATTGetServices(hdevice: Handle, servicesbuffercount: UShort, servicesbuffer: MutPtr<BthLeGattService>, servicesbufferactual: MutPtr<UShort>, flags: UInt): Hresult =
+public actual fun bluetoothGATTGetServices(hdevice: Handle, servicesbuffercount: UShort, servicesbuffer: MutPtr, servicesbufferactual: MutPtr, flags: UInt): Hresult =
     if (windowsWin32DevicesBluetoothNapiAvailable) wasmWindowssysWindowsWin32DevicesBluetoothBluetoothGATTGetServices(hdevice.rawAddress.toString(), servicesbuffercount.toInt(), servicesbuffer.rawAddress.toString(), servicesbufferactual.rawAddress.toString(), flags.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun bluetoothGATTRegisterEvent(hservice: Handle, eventtype: BthLeGattEventType, eventparameterin: ConstPtr<CVoid>, callback: PfnbluetoothGattEventCallback, callbackcontext: ConstPtr<CVoid>, peventhandle: MutPtr<Long>, flags: UInt): Hresult =
+public actual fun bluetoothGATTRegisterEvent(hservice: Handle, eventtype: BthLeGattEventType, eventparameterin: ConstPtr, callback: PfnbluetoothGattEventCallback, callbackcontext: ConstPtr, peventhandle: MutPtr, flags: UInt): Hresult =
     if (windowsWin32DevicesBluetoothNapiAvailable) wasmWindowssysWindowsWin32DevicesBluetoothBluetoothGATTRegisterEvent(hservice.rawAddress.toString(), eventtype, eventparameterin.rawAddress.toString(), 0L.toString(), callbackcontext.rawAddress.toString(), peventhandle.rawAddress.toString(), flags.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun bluetoothGATTSetCharacteristicValue(hdevice: Handle, characteristic: ConstPtr<BthLeGattCharacteristic>, characteristicvalue: ConstPtr<BthLeGattCharacteristicValue>, reliablewritecontext: ULong, flags: UInt): Hresult =
+public actual fun bluetoothGATTSetCharacteristicValue(hdevice: Handle, characteristic: ConstPtr, characteristicvalue: ConstPtr, reliablewritecontext: ULong, flags: UInt): Hresult =
     if (windowsWin32DevicesBluetoothNapiAvailable) wasmWindowssysWindowsWin32DevicesBluetoothBluetoothGATTSetCharacteristicValue(hdevice.rawAddress.toString(), characteristic.rawAddress.toString(), characteristicvalue.rawAddress.toString(), reliablewritecontext.toString(), flags.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun bluetoothGATTSetDescriptorValue(hdevice: Handle, descriptor: ConstPtr<BthLeGattDescriptor>, descriptorvalue: ConstPtr<BthLeGattDescriptorValue>, flags: UInt): Hresult =
+public actual fun bluetoothGATTSetDescriptorValue(hdevice: Handle, descriptor: ConstPtr, descriptorvalue: ConstPtr, flags: UInt): Hresult =
     if (windowsWin32DevicesBluetoothNapiAvailable) wasmWindowssysWindowsWin32DevicesBluetoothBluetoothGATTSetDescriptorValue(hdevice.rawAddress.toString(), descriptor.rawAddress.toString(), descriptorvalue.rawAddress.toString(), flags.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun bluetoothGATTUnregisterEvent(eventhandle: Long, flags: UInt): Hresult =
     if (windowsWin32DevicesBluetoothNapiAvailable) wasmWindowssysWindowsWin32DevicesBluetoothBluetoothGATTUnregisterEvent(eventhandle.toString(), flags.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun bluetoothGetDeviceInfo(hradio: Handle, pbtdi: MutPtr<BluetoothDeviceInfo>): UInt =
+public actual fun bluetoothGetDeviceInfo(hradio: Handle, pbtdi: MutPtr): UInt =
     if (windowsWin32DevicesBluetoothNapiAvailable) wasmWindowssysWindowsWin32DevicesBluetoothBluetoothGetDeviceInfo(hradio.rawAddress.toString(), pbtdi.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun bluetoothGetRadioInfo(hradio: Handle, pradioinfo: MutPtr<BluetoothRadioInfo>): UInt =
+public actual fun bluetoothGetRadioInfo(hradio: Handle, pradioinfo: MutPtr): UInt =
     if (windowsWin32DevicesBluetoothNapiAvailable) wasmWindowssysWindowsWin32DevicesBluetoothBluetoothGetRadioInfo(hradio.rawAddress.toString(), pradioinfo.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun bluetoothIsConnectable(hradio: Handle): Bool =
@@ -252,50 +250,50 @@ public actual fun bluetoothIsDiscoverable(hradio: Handle): Bool =
 public actual fun bluetoothIsVersionAvailable(majorversion: UByte, minorversion: UByte): Bool =
     if (windowsWin32DevicesBluetoothNapiAvailable) wasmWindowssysWindowsWin32DevicesBluetoothBluetoothIsVersionAvailable(majorversion.toInt(), minorversion.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun bluetoothRegisterForAuthentication(pbtdi: ConstPtr<BluetoothDeviceInfo>, phreghandle: MutPtr<Long>, pfncallback: PfnAuthenticationCallback, pvparam: ConstPtr<CVoid>): UInt =
+public actual fun bluetoothRegisterForAuthentication(pbtdi: ConstPtr, phreghandle: MutPtr, pfncallback: PfnAuthenticationCallback, pvparam: ConstPtr): UInt =
     if (windowsWin32DevicesBluetoothNapiAvailable) wasmWindowssysWindowsWin32DevicesBluetoothBluetoothRegisterForAuthentication(pbtdi.rawAddress.toString(), phreghandle.rawAddress.toString(), 0L.toString(), pvparam.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun bluetoothRegisterForAuthenticationEx(pbtdiin: ConstPtr<BluetoothDeviceInfo>, phreghandleout: MutPtr<Long>, pfncallbackin: PfnAuthenticationCallbackEx, pvparam: ConstPtr<CVoid>): UInt =
+public actual fun bluetoothRegisterForAuthenticationEx(pbtdiin: ConstPtr, phreghandleout: MutPtr, pfncallbackin: PfnAuthenticationCallbackEx, pvparam: ConstPtr): UInt =
     if (windowsWin32DevicesBluetoothNapiAvailable) wasmWindowssysWindowsWin32DevicesBluetoothBluetoothRegisterForAuthenticationEx(pbtdiin.rawAddress.toString(), phreghandleout.rawAddress.toString(), 0L.toString(), pvparam.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun bluetoothRemoveDevice(paddress: ConstPtr<BluetoothAddress>): UInt =
+public actual fun bluetoothRemoveDevice(paddress: ConstPtr): UInt =
     if (windowsWin32DevicesBluetoothNapiAvailable) wasmWindowssysWindowsWin32DevicesBluetoothBluetoothRemoveDevice(paddress.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun bluetoothSdpEnumAttributes(psdpstream: ConstPtr<UByte>, cbstreamsize: UInt, pfncallback: PfnBluetoothEnumAttributesCallback, pvparam: ConstPtr<CVoid>): Bool =
+public actual fun bluetoothSdpEnumAttributes(psdpstream: ConstPtr, cbstreamsize: UInt, pfncallback: PfnBluetoothEnumAttributesCallback, pvparam: ConstPtr): Bool =
     if (windowsWin32DevicesBluetoothNapiAvailable) wasmWindowssysWindowsWin32DevicesBluetoothBluetoothSdpEnumAttributes(psdpstream.rawAddress.toString(), cbstreamsize.toInt(), 0L.toString(), pvparam.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun bluetoothSdpGetAttributeValue(precordstream: ConstPtr<UByte>, cbrecordlength: UInt, usattributeid: UShort, pattributedata: MutPtr<SdpElementData>): UInt =
+public actual fun bluetoothSdpGetAttributeValue(precordstream: ConstPtr, cbrecordlength: UInt, usattributeid: UShort, pattributedata: MutPtr): UInt =
     if (windowsWin32DevicesBluetoothNapiAvailable) wasmWindowssysWindowsWin32DevicesBluetoothBluetoothSdpGetAttributeValue(precordstream.rawAddress.toString(), cbrecordlength.toInt(), usattributeid.toInt(), pattributedata.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun bluetoothSdpGetContainerElementData(pcontainerstream: ConstPtr<UByte>, cbcontainerlength: UInt, pelement: MutPtr<Long>, pdata: MutPtr<SdpElementData>): UInt =
+public actual fun bluetoothSdpGetContainerElementData(pcontainerstream: ConstPtr, cbcontainerlength: UInt, pelement: MutPtr, pdata: MutPtr): UInt =
     if (windowsWin32DevicesBluetoothNapiAvailable) wasmWindowssysWindowsWin32DevicesBluetoothBluetoothSdpGetContainerElementData(pcontainerstream.rawAddress.toString(), cbcontainerlength.toInt(), pelement.rawAddress.toString(), pdata.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun bluetoothSdpGetElementData(psdpstream: ConstPtr<UByte>, cbsdpstreamlength: UInt, pdata: MutPtr<SdpElementData>): UInt =
+public actual fun bluetoothSdpGetElementData(psdpstream: ConstPtr, cbsdpstreamlength: UInt, pdata: MutPtr): UInt =
     if (windowsWin32DevicesBluetoothNapiAvailable) wasmWindowssysWindowsWin32DevicesBluetoothBluetoothSdpGetElementData(psdpstream.rawAddress.toString(), cbsdpstreamlength.toInt(), pdata.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun bluetoothSdpGetString(precordstream: ConstPtr<UByte>, cbrecordlength: UInt, pstringdata: ConstPtr<SdpStringTypeData>, usstringoffset: UShort, pszstring: Pwstr, pcchstringlength: MutPtr<UInt>): UInt =
+public actual fun bluetoothSdpGetString(precordstream: ConstPtr, cbrecordlength: UInt, pstringdata: ConstPtr, usstringoffset: UShort, pszstring: Pwstr, pcchstringlength: MutPtr): UInt =
     if (windowsWin32DevicesBluetoothNapiAvailable) wasmWindowssysWindowsWin32DevicesBluetoothBluetoothSdpGetString(precordstream.rawAddress.toString(), cbrecordlength.toInt(), pstringdata.rawAddress.toString(), usstringoffset.toInt(), pszstring.rawAddress.toString(), pcchstringlength.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun bluetoothSelectDevices(pbtsdp: MutPtr<BluetoothSelectDeviceParams>): Bool =
+public actual fun bluetoothSelectDevices(pbtsdp: MutPtr): Bool =
     if (windowsWin32DevicesBluetoothNapiAvailable) wasmWindowssysWindowsWin32DevicesBluetoothBluetoothSelectDevices(pbtsdp.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun bluetoothSelectDevicesFree(pbtsdp: MutPtr<BluetoothSelectDeviceParams>): Bool =
+public actual fun bluetoothSelectDevicesFree(pbtsdp: MutPtr): Bool =
     if (windowsWin32DevicesBluetoothNapiAvailable) wasmWindowssysWindowsWin32DevicesBluetoothBluetoothSelectDevicesFree(pbtsdp.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun bluetoothSendAuthenticationResponse(hradio: Handle, pbtdi: ConstPtr<BluetoothDeviceInfo>, pszpasskey: Pcwstr): UInt =
+public actual fun bluetoothSendAuthenticationResponse(hradio: Handle, pbtdi: ConstPtr, pszpasskey: Pcwstr): UInt =
     if (windowsWin32DevicesBluetoothNapiAvailable) wasmWindowssysWindowsWin32DevicesBluetoothBluetoothSendAuthenticationResponse(hradio.rawAddress.toString(), pbtdi.rawAddress.toString(), pszpasskey.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun bluetoothSendAuthenticationResponseEx(hradioin: Handle, pauthresponse: ConstPtr<BluetoothAuthenticateResponse>): UInt =
+public actual fun bluetoothSendAuthenticationResponseEx(hradioin: Handle, pauthresponse: ConstPtr): UInt =
     if (windowsWin32DevicesBluetoothNapiAvailable) wasmWindowssysWindowsWin32DevicesBluetoothBluetoothSendAuthenticationResponseEx(hradioin.rawAddress.toString(), pauthresponse.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun bluetoothSetLocalServiceInfo(hradioin: Handle, pclassguid: ConstPtr<Guid>, ulinstance: UInt, pserviceinfoin: ConstPtr<BluetoothLocalServiceInfo>): UInt =
+public actual fun bluetoothSetLocalServiceInfo(hradioin: Handle, pclassguid: ConstPtr, ulinstance: UInt, pserviceinfoin: ConstPtr): UInt =
     if (windowsWin32DevicesBluetoothNapiAvailable) wasmWindowssysWindowsWin32DevicesBluetoothBluetoothSetLocalServiceInfo(hradioin.rawAddress.toString(), pclassguid.rawAddress.toString(), ulinstance.toInt(), pserviceinfoin.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun bluetoothSetServiceState(hradio: Handle, pbtdi: ConstPtr<BluetoothDeviceInfo>, pguidservice: ConstPtr<Guid>, dwserviceflags: UInt): UInt =
+public actual fun bluetoothSetServiceState(hradio: Handle, pbtdi: ConstPtr, pguidservice: ConstPtr, dwserviceflags: UInt): UInt =
     if (windowsWin32DevicesBluetoothNapiAvailable) wasmWindowssysWindowsWin32DevicesBluetoothBluetoothSetServiceState(hradio.rawAddress.toString(), pbtdi.rawAddress.toString(), pguidservice.rawAddress.toString(), dwserviceflags.toInt()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun bluetoothUnregisterAuthentication(hreghandle: Long): Bool =
     if (windowsWin32DevicesBluetoothNapiAvailable) wasmWindowssysWindowsWin32DevicesBluetoothBluetoothUnregisterAuthentication(hreghandle.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun bluetoothUpdateDeviceRecord(pbtdi: ConstPtr<BluetoothDeviceInfo>): UInt =
+public actual fun bluetoothUpdateDeviceRecord(pbtdi: ConstPtr): UInt =
     if (windowsWin32DevicesBluetoothNapiAvailable) wasmWindowssysWindowsWin32DevicesBluetoothBluetoothUpdateDeviceRecord(pbtdi.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")

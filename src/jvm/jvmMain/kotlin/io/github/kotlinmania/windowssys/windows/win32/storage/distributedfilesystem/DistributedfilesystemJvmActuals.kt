@@ -142,25 +142,25 @@ public actual fun netDfsAddRootTarget(pdfspath: Pcwstr, ptargetpath: Pcwstr, maj
 public actual fun netDfsAddStdRoot(servername: Pcwstr, rootshare: Pcwstr, comment: Pcwstr, flags: UInt): UInt =
     WindowsWin32StorageDistributedfilesystemJniBridge.windowssysWindowsWin32StorageDistributedfilesystemNetDfsAddStdRoot(servername.rawAddress, rootshare.rawAddress, comment.rawAddress, flags.toInt()).toUInt()
 
-public actual fun netDfsEnum(dfsname: Pcwstr, level: UInt, prefmaxlen: UInt, buffer: MutPtr<MutPtr<UByte>>, entriesread: MutPtr<UInt>, resumehandle: MutPtr<UInt>): UInt =
+public actual fun netDfsEnum(dfsname: Pcwstr, level: UInt, prefmaxlen: UInt, buffer: MutPtr, entriesread: MutPtr, resumehandle: MutPtr): UInt =
     WindowsWin32StorageDistributedfilesystemJniBridge.windowssysWindowsWin32StorageDistributedfilesystemNetDfsEnum(dfsname.rawAddress, level.toInt(), prefmaxlen.toInt(), buffer.rawAddress, entriesread.rawAddress, resumehandle.rawAddress).toUInt()
 
-public actual fun netDfsGetClientInfo(dfsentrypath: Pcwstr, servername: Pcwstr, sharename: Pcwstr, level: UInt, buffer: MutPtr<MutPtr<UByte>>): UInt =
+public actual fun netDfsGetClientInfo(dfsentrypath: Pcwstr, servername: Pcwstr, sharename: Pcwstr, level: UInt, buffer: MutPtr): UInt =
     WindowsWin32StorageDistributedfilesystemJniBridge.windowssysWindowsWin32StorageDistributedfilesystemNetDfsGetClientInfo(dfsentrypath.rawAddress, servername.rawAddress, sharename.rawAddress, level.toInt(), buffer.rawAddress).toUInt()
 
-public actual fun netDfsGetFtContainerSecurity(domainname: Pcwstr, securityinformation: UInt, ppsecuritydescriptor: MutPtr<PsecurityDescriptor>, lpcbsecuritydescriptor: MutPtr<UInt>): UInt =
+public actual fun netDfsGetFtContainerSecurity(domainname: Pcwstr, securityinformation: UInt, ppsecuritydescriptor: MutPtr, lpcbsecuritydescriptor: MutPtr): UInt =
     WindowsWin32StorageDistributedfilesystemJniBridge.windowssysWindowsWin32StorageDistributedfilesystemNetDfsGetFtContainerSecurity(domainname.rawAddress, securityinformation.toInt(), ppsecuritydescriptor.rawAddress, lpcbsecuritydescriptor.rawAddress).toUInt()
 
-public actual fun netDfsGetInfo(dfsentrypath: Pcwstr, servername: Pcwstr, sharename: Pcwstr, level: UInt, buffer: MutPtr<MutPtr<UByte>>): UInt =
+public actual fun netDfsGetInfo(dfsentrypath: Pcwstr, servername: Pcwstr, sharename: Pcwstr, level: UInt, buffer: MutPtr): UInt =
     WindowsWin32StorageDistributedfilesystemJniBridge.windowssysWindowsWin32StorageDistributedfilesystemNetDfsGetInfo(dfsentrypath.rawAddress, servername.rawAddress, sharename.rawAddress, level.toInt(), buffer.rawAddress).toUInt()
 
-public actual fun netDfsGetSecurity(dfsentrypath: Pcwstr, securityinformation: UInt, ppsecuritydescriptor: MutPtr<PsecurityDescriptor>, lpcbsecuritydescriptor: MutPtr<UInt>): UInt =
+public actual fun netDfsGetSecurity(dfsentrypath: Pcwstr, securityinformation: UInt, ppsecuritydescriptor: MutPtr, lpcbsecuritydescriptor: MutPtr): UInt =
     WindowsWin32StorageDistributedfilesystemJniBridge.windowssysWindowsWin32StorageDistributedfilesystemNetDfsGetSecurity(dfsentrypath.rawAddress, securityinformation.toInt(), ppsecuritydescriptor.rawAddress, lpcbsecuritydescriptor.rawAddress).toUInt()
 
-public actual fun netDfsGetStdContainerSecurity(machinename: Pcwstr, securityinformation: UInt, ppsecuritydescriptor: MutPtr<PsecurityDescriptor>, lpcbsecuritydescriptor: MutPtr<UInt>): UInt =
+public actual fun netDfsGetStdContainerSecurity(machinename: Pcwstr, securityinformation: UInt, ppsecuritydescriptor: MutPtr, lpcbsecuritydescriptor: MutPtr): UInt =
     WindowsWin32StorageDistributedfilesystemJniBridge.windowssysWindowsWin32StorageDistributedfilesystemNetDfsGetStdContainerSecurity(machinename.rawAddress, securityinformation.toInt(), ppsecuritydescriptor.rawAddress, lpcbsecuritydescriptor.rawAddress).toUInt()
 
-public actual fun netDfsGetSupportedNamespaceVersion(origin: DfsNamespaceVersionOrigin, pname: Pcwstr, ppversioninfo: MutPtr<MutPtr<DfsSupportedNamespaceVersionInfo>>): UInt =
+public actual fun netDfsGetSupportedNamespaceVersion(origin: DfsNamespaceVersionOrigin, pname: Pcwstr, ppversioninfo: MutPtr): UInt =
     WindowsWin32StorageDistributedfilesystemJniBridge.windowssysWindowsWin32StorageDistributedfilesystemNetDfsGetSupportedNamespaceVersion(origin, pname.rawAddress, ppversioninfo.rawAddress).toUInt()
 
 public actual fun netDfsMove(olddfsentrypath: Pcwstr, newdfsentrypath: Pcwstr, flags: UInt): UInt =
@@ -181,13 +181,13 @@ public actual fun netDfsRemoveRootTarget(pdfspath: Pcwstr, ptargetpath: Pcwstr, 
 public actual fun netDfsRemoveStdRoot(servername: Pcwstr, rootshare: Pcwstr, flags: UInt): UInt =
     WindowsWin32StorageDistributedfilesystemJniBridge.windowssysWindowsWin32StorageDistributedfilesystemNetDfsRemoveStdRoot(servername.rawAddress, rootshare.rawAddress, flags.toInt()).toUInt()
 
-public actual fun netDfsSetClientInfo(dfsentrypath: Pcwstr, servername: Pcwstr, sharename: Pcwstr, level: UInt, buffer: ConstPtr<UByte>): UInt =
+public actual fun netDfsSetClientInfo(dfsentrypath: Pcwstr, servername: Pcwstr, sharename: Pcwstr, level: UInt, buffer: ConstPtr): UInt =
     WindowsWin32StorageDistributedfilesystemJniBridge.windowssysWindowsWin32StorageDistributedfilesystemNetDfsSetClientInfo(dfsentrypath.rawAddress, servername.rawAddress, sharename.rawAddress, level.toInt(), buffer.rawAddress).toUInt()
 
 public actual fun netDfsSetFtContainerSecurity(domainname: Pcwstr, securityinformation: UInt, psecuritydescriptor: PsecurityDescriptor): UInt =
     WindowsWin32StorageDistributedfilesystemJniBridge.windowssysWindowsWin32StorageDistributedfilesystemNetDfsSetFtContainerSecurity(domainname.rawAddress, securityinformation.toInt(), psecuritydescriptor.rawAddress).toUInt()
 
-public actual fun netDfsSetInfo(dfsentrypath: Pcwstr, servername: Pcwstr, sharename: Pcwstr, level: UInt, buffer: ConstPtr<UByte>): UInt =
+public actual fun netDfsSetInfo(dfsentrypath: Pcwstr, servername: Pcwstr, sharename: Pcwstr, level: UInt, buffer: ConstPtr): UInt =
     WindowsWin32StorageDistributedfilesystemJniBridge.windowssysWindowsWin32StorageDistributedfilesystemNetDfsSetInfo(dfsentrypath.rawAddress, servername.rawAddress, sharename.rawAddress, level.toInt(), buffer.rawAddress).toUInt()
 
 public actual fun netDfsSetSecurity(dfsentrypath: Pcwstr, securityinformation: UInt, psecuritydescriptor: PsecurityDescriptor): UInt =

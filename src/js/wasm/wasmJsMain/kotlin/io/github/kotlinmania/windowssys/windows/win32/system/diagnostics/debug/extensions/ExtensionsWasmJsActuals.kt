@@ -2,10 +2,8 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.system.diagnostics.debug.extensions
 
-import io.github.kotlinmania.rustlang.core.ffi.CVoid
 import io.github.kotlinmania.rustlang.core.ptr.ConstPtr
 import io.github.kotlinmania.rustlang.core.ptr.MutPtr
-import io.github.kotlinmania.windowssys.core.Guid
 import io.github.kotlinmania.windowssys.core.Hresult
 import io.github.kotlinmania.windowssys.core.Pcstr
 import io.github.kotlinmania.windowssys.core.Pcwstr
@@ -30,17 +28,17 @@ private external fun wasmWindowssysWindowsWin32SystemDiagnosticsDebugExtensionsD
 @JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemDiagnosticsDebugExtensionsDebugCreateEx(p0, p1, p2)")
 private external fun wasmWindowssysWindowsWin32SystemDiagnosticsDebugExtensionsDebugCreateEx(p0: String, p1: Int, p2: String): Int
 
-public actual fun createDataModelManager(debughost: MutPtr<CVoid>, manager: MutPtr<MutPtr<CVoid>>): Hresult =
+public actual fun createDataModelManager(debughost: MutPtr, manager: MutPtr): Hresult =
     if (windowsWin32SystemDiagnosticsDebugExtensionsNapiAvailable) wasmWindowssysWindowsWin32SystemDiagnosticsDebugExtensionsCreateDataModelManager(debughost.rawAddress.toString(), manager.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun debugConnect(remoteoptions: Pcstr, interfaceid: ConstPtr<Guid>, iface: MutPtr<MutPtr<CVoid>>): Hresult =
+public actual fun debugConnect(remoteoptions: Pcstr, interfaceid: ConstPtr, iface: MutPtr): Hresult =
     if (windowsWin32SystemDiagnosticsDebugExtensionsNapiAvailable) wasmWindowssysWindowsWin32SystemDiagnosticsDebugExtensionsDebugConnect(remoteoptions.rawAddress.toString(), interfaceid.rawAddress.toString(), iface.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun debugConnectWide(remoteoptions: Pcwstr, interfaceid: ConstPtr<Guid>, iface: MutPtr<MutPtr<CVoid>>): Hresult =
+public actual fun debugConnectWide(remoteoptions: Pcwstr, interfaceid: ConstPtr, iface: MutPtr): Hresult =
     if (windowsWin32SystemDiagnosticsDebugExtensionsNapiAvailable) wasmWindowssysWindowsWin32SystemDiagnosticsDebugExtensionsDebugConnectWide(remoteoptions.rawAddress.toString(), interfaceid.rawAddress.toString(), iface.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun debugCreate(interfaceid: ConstPtr<Guid>, iface: MutPtr<MutPtr<CVoid>>): Hresult =
+public actual fun debugCreate(interfaceid: ConstPtr, iface: MutPtr): Hresult =
     if (windowsWin32SystemDiagnosticsDebugExtensionsNapiAvailable) wasmWindowssysWindowsWin32SystemDiagnosticsDebugExtensionsDebugCreate(interfaceid.rawAddress.toString(), iface.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun debugCreateEx(interfaceid: ConstPtr<Guid>, dbgengoptions: UInt, iface: MutPtr<MutPtr<CVoid>>): Hresult =
+public actual fun debugCreateEx(interfaceid: ConstPtr, dbgengoptions: UInt, iface: MutPtr): Hresult =
     if (windowsWin32SystemDiagnosticsDebugExtensionsNapiAvailable) wasmWindowssysWindowsWin32SystemDiagnosticsDebugExtensionsDebugCreateEx(interfaceid.rawAddress.toString(), dbgengoptions.toInt(), iface.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")

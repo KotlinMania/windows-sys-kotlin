@@ -2,7 +2,6 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.networkmanagement.dns
 
-import io.github.kotlinmania.rustlang.core.ffi.CVoid
 import io.github.kotlinmania.rustlang.core.ptr.ConstPtr
 import io.github.kotlinmania.rustlang.core.ptr.MutPtr
 import io.github.kotlinmania.windowssys.core.Bool
@@ -260,16 +259,16 @@ private object WindowsWin32NetworkmanagementDnsJniBridge {
     external fun windowssysWindowsWin32NetworkmanagementDnsDnsWriteQuestionToBufferW(pdnsbuffer: Long, pdwbuffersize: Long, pszname: Long, wtype: Short, xid: Short, frecursiondesired: Int): Int
 }
 
-public actual fun dnsAcquireContextHandleA(credentialflags: UInt, credentials: ConstPtr<CVoid>, pcontext: MutPtr<Handle>): Int =
+public actual fun dnsAcquireContextHandleA(credentialflags: UInt, credentials: ConstPtr, pcontext: MutPtr): Int =
     WindowsWin32NetworkmanagementDnsJniBridge.windowssysWindowsWin32NetworkmanagementDnsDnsAcquireContextHandleA(credentialflags.toInt(), credentials.rawAddress, pcontext.rawAddress)
 
-public actual fun dnsAcquireContextHandleW(credentialflags: UInt, credentials: ConstPtr<CVoid>, pcontext: MutPtr<Handle>): Int =
+public actual fun dnsAcquireContextHandleW(credentialflags: UInt, credentials: ConstPtr, pcontext: MutPtr): Int =
     WindowsWin32NetworkmanagementDnsJniBridge.windowssysWindowsWin32NetworkmanagementDnsDnsAcquireContextHandleW(credentialflags.toInt(), credentials.rawAddress, pcontext.rawAddress)
 
-public actual fun dnsCancelQuery(pcancelhandle: ConstPtr<DnsQueryCancel>): Int =
+public actual fun dnsCancelQuery(pcancelhandle: ConstPtr): Int =
     WindowsWin32NetworkmanagementDnsJniBridge.windowssysWindowsWin32NetworkmanagementDnsDnsCancelQuery(pcancelhandle.rawAddress)
 
-public actual fun dnsCancelQueryRaw(cancelhandle: ConstPtr<DnsQueryRawCancel>): Int =
+public actual fun dnsCancelQueryRaw(cancelhandle: ConstPtr): Int =
     WindowsWin32NetworkmanagementDnsJniBridge.windowssysWindowsWin32NetworkmanagementDnsDnsCancelQueryRaw(cancelhandle.rawAddress)
 
 public actual fun dnsConnectionDeletePolicyEntries(policyentrytag: DnsConnectionPolicyTag): UInt =
@@ -278,57 +277,57 @@ public actual fun dnsConnectionDeletePolicyEntries(policyentrytag: DnsConnection
 public actual fun dnsConnectionDeleteProxyInfo(pwszconnectionname: Pcwstr, type: DnsConnectionProxyType): UInt =
     WindowsWin32NetworkmanagementDnsJniBridge.windowssysWindowsWin32NetworkmanagementDnsDnsConnectionDeleteProxyInfo(pwszconnectionname.rawAddress, type).toUInt()
 
-public actual fun dnsConnectionFreeNameList(pnamelist: MutPtr<DnsConnectionNameList>) {
+public actual fun dnsConnectionFreeNameList(pnamelist: MutPtr) {
     WindowsWin32NetworkmanagementDnsJniBridge.windowssysWindowsWin32NetworkmanagementDnsDnsConnectionFreeNameList(pnamelist.rawAddress)
 }
 
-public actual fun dnsConnectionFreeProxyInfo(pproxyinfo: MutPtr<DnsConnectionProxyInfo>) {
+public actual fun dnsConnectionFreeProxyInfo(pproxyinfo: MutPtr) {
     WindowsWin32NetworkmanagementDnsJniBridge.windowssysWindowsWin32NetworkmanagementDnsDnsConnectionFreeProxyInfo(pproxyinfo.rawAddress)
 }
 
-public actual fun dnsConnectionFreeProxyInfoEx(pproxyinfoex: MutPtr<DnsConnectionProxyInfoEx>) {
+public actual fun dnsConnectionFreeProxyInfoEx(pproxyinfoex: MutPtr) {
     WindowsWin32NetworkmanagementDnsJniBridge.windowssysWindowsWin32NetworkmanagementDnsDnsConnectionFreeProxyInfoEx(pproxyinfoex.rawAddress)
 }
 
-public actual fun dnsConnectionFreeProxyList(pproxylist: MutPtr<DnsConnectionProxyList>) {
+public actual fun dnsConnectionFreeProxyList(pproxylist: MutPtr) {
     WindowsWin32NetworkmanagementDnsJniBridge.windowssysWindowsWin32NetworkmanagementDnsDnsConnectionFreeProxyList(pproxylist.rawAddress)
 }
 
-public actual fun dnsConnectionGetNameList(pnamelist: MutPtr<DnsConnectionNameList>): UInt =
+public actual fun dnsConnectionGetNameList(pnamelist: MutPtr): UInt =
     WindowsWin32NetworkmanagementDnsJniBridge.windowssysWindowsWin32NetworkmanagementDnsDnsConnectionGetNameList(pnamelist.rawAddress).toUInt()
 
-public actual fun dnsConnectionGetProxyInfo(pwszconnectionname: Pcwstr, type: DnsConnectionProxyType, pproxyinfo: MutPtr<DnsConnectionProxyInfo>): UInt =
+public actual fun dnsConnectionGetProxyInfo(pwszconnectionname: Pcwstr, type: DnsConnectionProxyType, pproxyinfo: MutPtr): UInt =
     WindowsWin32NetworkmanagementDnsJniBridge.windowssysWindowsWin32NetworkmanagementDnsDnsConnectionGetProxyInfo(pwszconnectionname.rawAddress, type, pproxyinfo.rawAddress).toUInt()
 
-public actual fun dnsConnectionGetProxyInfoForHostUrl(pwszhosturl: Pcwstr, pselectioncontext: ConstPtr<UByte>, dwselectioncontextlength: UInt, dwexplicitinterfaceindex: UInt, pproxyinfoex: MutPtr<DnsConnectionProxyInfoEx>): UInt =
+public actual fun dnsConnectionGetProxyInfoForHostUrl(pwszhosturl: Pcwstr, pselectioncontext: ConstPtr, dwselectioncontextlength: UInt, dwexplicitinterfaceindex: UInt, pproxyinfoex: MutPtr): UInt =
     WindowsWin32NetworkmanagementDnsJniBridge.windowssysWindowsWin32NetworkmanagementDnsDnsConnectionGetProxyInfoForHostUrl(pwszhosturl.rawAddress, pselectioncontext.rawAddress, dwselectioncontextlength.toInt(), dwexplicitinterfaceindex.toInt(), pproxyinfoex.rawAddress).toUInt()
 
-public actual fun dnsConnectionGetProxyInfoForHostUrlEx(pwszhosturl: Pcwstr, pselectioncontext: ConstPtr<UByte>, dwselectioncontextlength: UInt, dwexplicitinterfaceindex: UInt, pwszconnectionname: Pcwstr, pproxyinfoex: MutPtr<DnsConnectionProxyInfoEx>): UInt =
+public actual fun dnsConnectionGetProxyInfoForHostUrlEx(pwszhosturl: Pcwstr, pselectioncontext: ConstPtr, dwselectioncontextlength: UInt, dwexplicitinterfaceindex: UInt, pwszconnectionname: Pcwstr, pproxyinfoex: MutPtr): UInt =
     WindowsWin32NetworkmanagementDnsJniBridge.windowssysWindowsWin32NetworkmanagementDnsDnsConnectionGetProxyInfoForHostUrlEx(pwszhosturl.rawAddress, pselectioncontext.rawAddress, dwselectioncontextlength.toInt(), dwexplicitinterfaceindex.toInt(), pwszconnectionname.rawAddress, pproxyinfoex.rawAddress).toUInt()
 
-public actual fun dnsConnectionGetProxyList(pwszconnectionname: Pcwstr, pproxylist: MutPtr<DnsConnectionProxyList>): UInt =
+public actual fun dnsConnectionGetProxyList(pwszconnectionname: Pcwstr, pproxylist: MutPtr): UInt =
     WindowsWin32NetworkmanagementDnsJniBridge.windowssysWindowsWin32NetworkmanagementDnsDnsConnectionGetProxyList(pwszconnectionname.rawAddress, pproxylist.rawAddress).toUInt()
 
-public actual fun dnsConnectionSetPolicyEntries(policyentrytag: DnsConnectionPolicyTag, ppolicyentrylist: ConstPtr<DnsConnectionPolicyEntryList>): UInt =
+public actual fun dnsConnectionSetPolicyEntries(policyentrytag: DnsConnectionPolicyTag, ppolicyentrylist: ConstPtr): UInt =
     WindowsWin32NetworkmanagementDnsJniBridge.windowssysWindowsWin32NetworkmanagementDnsDnsConnectionSetPolicyEntries(policyentrytag, ppolicyentrylist.rawAddress).toUInt()
 
-public actual fun dnsConnectionSetProxyInfo(pwszconnectionname: Pcwstr, type: DnsConnectionProxyType, pproxyinfo: ConstPtr<DnsConnectionProxyInfo>): UInt =
+public actual fun dnsConnectionSetProxyInfo(pwszconnectionname: Pcwstr, type: DnsConnectionProxyType, pproxyinfo: ConstPtr): UInt =
     WindowsWin32NetworkmanagementDnsJniBridge.windowssysWindowsWin32NetworkmanagementDnsDnsConnectionSetProxyInfo(pwszconnectionname.rawAddress, type, pproxyinfo.rawAddress).toUInt()
 
-public actual fun dnsConnectionUpdateIfIndexTable(pconnectionifindexentries: ConstPtr<DnsConnectionIfindexList>): UInt =
+public actual fun dnsConnectionUpdateIfIndexTable(pconnectionifindexentries: ConstPtr): UInt =
     WindowsWin32NetworkmanagementDnsJniBridge.windowssysWindowsWin32NetworkmanagementDnsDnsConnectionUpdateIfIndexTable(pconnectionifindexentries.rawAddress).toUInt()
 
-public actual fun dnsExtractRecordsFromMessageUtf8(pdnsbuffer: ConstPtr<DnsMessageBuffer>, wmessagelength: UShort, pprecord: MutPtr<MutPtr<DnsRecorda>>): Int =
+public actual fun dnsExtractRecordsFromMessageUtf8(pdnsbuffer: ConstPtr, wmessagelength: UShort, pprecord: MutPtr): Int =
     WindowsWin32NetworkmanagementDnsJniBridge.windowssysWindowsWin32NetworkmanagementDnsDnsExtractRecordsFromMessageUtf8(pdnsbuffer.rawAddress, wmessagelength.toShort(), pprecord.rawAddress)
 
-public actual fun dnsExtractRecordsFromMessageW(pdnsbuffer: ConstPtr<DnsMessageBuffer>, wmessagelength: UShort, pprecord: MutPtr<MutPtr<DnsRecorda>>): Int =
+public actual fun dnsExtractRecordsFromMessageW(pdnsbuffer: ConstPtr, wmessagelength: UShort, pprecord: MutPtr): Int =
     WindowsWin32NetworkmanagementDnsJniBridge.windowssysWindowsWin32NetworkmanagementDnsDnsExtractRecordsFromMessageW(pdnsbuffer.rawAddress, wmessagelength.toShort(), pprecord.rawAddress)
 
-public actual fun dnsFree(pdata: ConstPtr<CVoid>, freetype: DnsFreeType) {
+public actual fun dnsFree(pdata: ConstPtr, freetype: DnsFreeType) {
     WindowsWin32NetworkmanagementDnsJniBridge.windowssysWindowsWin32NetworkmanagementDnsDnsFree(pdata.rawAddress, freetype)
 }
 
-public actual fun dnsFreeCustomServers(pcservers: MutPtr<UInt>, ppservers: MutPtr<MutPtr<DnsCustomServer>>) {
+public actual fun dnsFreeCustomServers(pcservers: MutPtr, ppservers: MutPtr) {
     WindowsWin32NetworkmanagementDnsJniBridge.windowssysWindowsWin32NetworkmanagementDnsDnsFreeCustomServers(pcservers.rawAddress, ppservers.rawAddress)
 }
 
@@ -336,19 +335,19 @@ public actual fun dnsFreeProxyName(proxyname: Pcwstr) {
     WindowsWin32NetworkmanagementDnsJniBridge.windowssysWindowsWin32NetworkmanagementDnsDnsFreeProxyName(proxyname.rawAddress)
 }
 
-public actual fun dnsGetApplicationSettings(pcservers: MutPtr<UInt>, ppdefaultservers: MutPtr<MutPtr<DnsCustomServer>>, psettings: MutPtr<DnsApplicationSettings>): UInt =
+public actual fun dnsGetApplicationSettings(pcservers: MutPtr, ppdefaultservers: MutPtr, psettings: MutPtr): UInt =
     WindowsWin32NetworkmanagementDnsJniBridge.windowssysWindowsWin32NetworkmanagementDnsDnsGetApplicationSettings(pcservers.rawAddress, ppdefaultservers.rawAddress, psettings.rawAddress).toUInt()
 
-public actual fun dnsGetProxyInformation(hostname: Pcwstr, proxyinformation: MutPtr<DnsProxyInformation>, defaultproxyinformation: MutPtr<DnsProxyInformation>, completionroutine: DnsProxyCompletionRoutine, completioncontext: ConstPtr<CVoid>): UInt =
+public actual fun dnsGetProxyInformation(hostname: Pcwstr, proxyinformation: MutPtr, defaultproxyinformation: MutPtr, completionroutine: DnsProxyCompletionRoutine, completioncontext: ConstPtr): UInt =
     WindowsWin32NetworkmanagementDnsJniBridge.windowssysWindowsWin32NetworkmanagementDnsDnsGetProxyInformation(hostname.rawAddress, proxyinformation.rawAddress, defaultproxyinformation.rawAddress, 0L, completioncontext.rawAddress).toUInt()
 
-public actual fun dnsModifyRecordsInSetA(paddrecords: ConstPtr<DnsRecorda>, pdeleterecords: ConstPtr<DnsRecorda>, options: UInt, hcredentials: Handle, pextralist: MutPtr<CVoid>, preserved: MutPtr<CVoid>): Int =
+public actual fun dnsModifyRecordsInSetA(paddrecords: ConstPtr, pdeleterecords: ConstPtr, options: UInt, hcredentials: Handle, pextralist: MutPtr, preserved: MutPtr): Int =
     WindowsWin32NetworkmanagementDnsJniBridge.windowssysWindowsWin32NetworkmanagementDnsDnsModifyRecordsInSetA(paddrecords.rawAddress, pdeleterecords.rawAddress, options.toInt(), hcredentials.rawAddress, pextralist.rawAddress, preserved.rawAddress)
 
-public actual fun dnsModifyRecordsInSetUtf8(paddrecords: ConstPtr<DnsRecorda>, pdeleterecords: ConstPtr<DnsRecorda>, options: UInt, hcredentials: Handle, pextralist: MutPtr<CVoid>, preserved: MutPtr<CVoid>): Int =
+public actual fun dnsModifyRecordsInSetUtf8(paddrecords: ConstPtr, pdeleterecords: ConstPtr, options: UInt, hcredentials: Handle, pextralist: MutPtr, preserved: MutPtr): Int =
     WindowsWin32NetworkmanagementDnsJniBridge.windowssysWindowsWin32NetworkmanagementDnsDnsModifyRecordsInSetUtf8(paddrecords.rawAddress, pdeleterecords.rawAddress, options.toInt(), hcredentials.rawAddress, pextralist.rawAddress, preserved.rawAddress)
 
-public actual fun dnsModifyRecordsInSetW(paddrecords: ConstPtr<DnsRecorda>, pdeleterecords: ConstPtr<DnsRecorda>, options: UInt, hcredentials: Handle, pextralist: MutPtr<CVoid>, preserved: MutPtr<CVoid>): Int =
+public actual fun dnsModifyRecordsInSetW(paddrecords: ConstPtr, pdeleterecords: ConstPtr, options: UInt, hcredentials: Handle, pextralist: MutPtr, preserved: MutPtr): Int =
     WindowsWin32NetworkmanagementDnsJniBridge.windowssysWindowsWin32NetworkmanagementDnsDnsModifyRecordsInSetW(paddrecords.rawAddress, pdeleterecords.rawAddress, options.toInt(), hcredentials.rawAddress, pextralist.rawAddress, preserved.rawAddress)
 
 public actual fun dnsNameCompareA(pname1: Pcstr, pname2: Pcstr): Bool =
@@ -357,94 +356,94 @@ public actual fun dnsNameCompareA(pname1: Pcstr, pname2: Pcstr): Bool =
 public actual fun dnsNameCompareW(pname1: Pcwstr, pname2: Pcwstr): Bool =
     WindowsWin32NetworkmanagementDnsJniBridge.windowssysWindowsWin32NetworkmanagementDnsDnsNameCompareW(pname1.rawAddress, pname2.rawAddress)
 
-public actual fun dnsQueryConfig(config: DnsConfigType, flag: UInt, pwsadaptername: Pcwstr, preserved: ConstPtr<CVoid>, pbuffer: MutPtr<CVoid>, pbuflen: MutPtr<UInt>): Int =
+public actual fun dnsQueryConfig(config: DnsConfigType, flag: UInt, pwsadaptername: Pcwstr, preserved: ConstPtr, pbuffer: MutPtr, pbuflen: MutPtr): Int =
     WindowsWin32NetworkmanagementDnsJniBridge.windowssysWindowsWin32NetworkmanagementDnsDnsQueryConfig(config, flag.toInt(), pwsadaptername.rawAddress, preserved.rawAddress, pbuffer.rawAddress, pbuflen.rawAddress)
 
-public actual fun dnsQueryEx(pqueryrequest: ConstPtr<DnsQueryRequest>, pqueryresults: MutPtr<DnsQueryResult>, pcancelhandle: MutPtr<DnsQueryCancel>): Int =
+public actual fun dnsQueryEx(pqueryrequest: ConstPtr, pqueryresults: MutPtr, pcancelhandle: MutPtr): Int =
     WindowsWin32NetworkmanagementDnsJniBridge.windowssysWindowsWin32NetworkmanagementDnsDnsQueryEx(pqueryrequest.rawAddress, pqueryresults.rawAddress, pcancelhandle.rawAddress)
 
-public actual fun dnsQueryRaw(queryrequest: ConstPtr<DnsQueryRawRequest>, cancelhandle: MutPtr<DnsQueryRawCancel>): Int =
+public actual fun dnsQueryRaw(queryrequest: ConstPtr, cancelhandle: MutPtr): Int =
     WindowsWin32NetworkmanagementDnsJniBridge.windowssysWindowsWin32NetworkmanagementDnsDnsQueryRaw(queryrequest.rawAddress, cancelhandle.rawAddress)
 
-public actual fun dnsQueryRawResultFree(queryresults: ConstPtr<DnsQueryRawResult>) {
+public actual fun dnsQueryRawResultFree(queryresults: ConstPtr) {
     WindowsWin32NetworkmanagementDnsJniBridge.windowssysWindowsWin32NetworkmanagementDnsDnsQueryRawResultFree(queryresults.rawAddress)
 }
 
-public actual fun dnsQueryA(pszname: Pcstr, wtype: DnsType, options: DnsQueryOptions, pextra: MutPtr<CVoid>, ppqueryresults: MutPtr<MutPtr<DnsRecorda>>, preserved: MutPtr<MutPtr<CVoid>>): Win32Error =
+public actual fun dnsQueryA(pszname: Pcstr, wtype: DnsType, options: DnsQueryOptions, pextra: MutPtr, ppqueryresults: MutPtr, preserved: MutPtr): Win32Error =
     WindowsWin32NetworkmanagementDnsJniBridge.windowssysWindowsWin32NetworkmanagementDnsDnsQueryA(pszname.rawAddress, wtype.toShort(), options.toInt(), pextra.rawAddress, ppqueryresults.rawAddress, preserved.rawAddress).toUInt()
 
-public actual fun dnsQueryUtf8(pszname: Pcstr, wtype: DnsType, options: DnsQueryOptions, pextra: MutPtr<CVoid>, ppqueryresults: MutPtr<MutPtr<DnsRecorda>>, preserved: MutPtr<MutPtr<CVoid>>): Win32Error =
+public actual fun dnsQueryUtf8(pszname: Pcstr, wtype: DnsType, options: DnsQueryOptions, pextra: MutPtr, ppqueryresults: MutPtr, preserved: MutPtr): Win32Error =
     WindowsWin32NetworkmanagementDnsJniBridge.windowssysWindowsWin32NetworkmanagementDnsDnsQueryUtf8(pszname.rawAddress, wtype.toShort(), options.toInt(), pextra.rawAddress, ppqueryresults.rawAddress, preserved.rawAddress).toUInt()
 
-public actual fun dnsQueryW(pszname: Pcwstr, wtype: DnsType, options: DnsQueryOptions, pextra: MutPtr<CVoid>, ppqueryresults: MutPtr<MutPtr<DnsRecorda>>, preserved: MutPtr<MutPtr<CVoid>>): Win32Error =
+public actual fun dnsQueryW(pszname: Pcwstr, wtype: DnsType, options: DnsQueryOptions, pextra: MutPtr, ppqueryresults: MutPtr, preserved: MutPtr): Win32Error =
     WindowsWin32NetworkmanagementDnsJniBridge.windowssysWindowsWin32NetworkmanagementDnsDnsQueryW(pszname.rawAddress, wtype.toShort(), options.toInt(), pextra.rawAddress, ppqueryresults.rawAddress, preserved.rawAddress).toUInt()
 
-public actual fun dnsRecordCompare(precord1: ConstPtr<DnsRecorda>, precord2: ConstPtr<DnsRecorda>): Bool =
+public actual fun dnsRecordCompare(precord1: ConstPtr, precord2: ConstPtr): Bool =
     WindowsWin32NetworkmanagementDnsJniBridge.windowssysWindowsWin32NetworkmanagementDnsDnsRecordCompare(precord1.rawAddress, precord2.rawAddress)
 
-public actual fun dnsRecordCopyEx(precord: ConstPtr<DnsRecorda>, charsetin: DnsCharset, charsetout: DnsCharset): MutPtr<DnsRecorda> =
+public actual fun dnsRecordCopyEx(precord: ConstPtr, charsetin: DnsCharset, charsetout: DnsCharset): MutPtr =
     MutPtr(WindowsWin32NetworkmanagementDnsJniBridge.windowssysWindowsWin32NetworkmanagementDnsDnsRecordCopyEx(precord.rawAddress, charsetin, charsetout))
 
-public actual fun dnsRecordSetCompare(prr1: MutPtr<DnsRecorda>, prr2: MutPtr<DnsRecorda>, ppdiff1: MutPtr<MutPtr<DnsRecorda>>, ppdiff2: MutPtr<MutPtr<DnsRecorda>>): Bool =
+public actual fun dnsRecordSetCompare(prr1: MutPtr, prr2: MutPtr, ppdiff1: MutPtr, ppdiff2: MutPtr): Bool =
     WindowsWin32NetworkmanagementDnsJniBridge.windowssysWindowsWin32NetworkmanagementDnsDnsRecordSetCompare(prr1.rawAddress, prr2.rawAddress, ppdiff1.rawAddress, ppdiff2.rawAddress)
 
-public actual fun dnsRecordSetCopyEx(precordset: ConstPtr<DnsRecorda>, charsetin: DnsCharset, charsetout: DnsCharset): MutPtr<DnsRecorda> =
+public actual fun dnsRecordSetCopyEx(precordset: ConstPtr, charsetin: DnsCharset, charsetout: DnsCharset): MutPtr =
     MutPtr(WindowsWin32NetworkmanagementDnsJniBridge.windowssysWindowsWin32NetworkmanagementDnsDnsRecordSetCopyEx(precordset.rawAddress, charsetin, charsetout))
 
-public actual fun dnsRecordSetDetach(precordlist: MutPtr<DnsRecorda>): MutPtr<DnsRecorda> =
+public actual fun dnsRecordSetDetach(precordlist: MutPtr): MutPtr =
     MutPtr(WindowsWin32NetworkmanagementDnsJniBridge.windowssysWindowsWin32NetworkmanagementDnsDnsRecordSetDetach(precordlist.rawAddress))
 
 public actual fun dnsReleaseContextHandle(hcontext: Handle) {
     WindowsWin32NetworkmanagementDnsJniBridge.windowssysWindowsWin32NetworkmanagementDnsDnsReleaseContextHandle(hcontext.rawAddress)
 }
 
-public actual fun dnsReplaceRecordSetA(preplaceset: ConstPtr<DnsRecorda>, options: UInt, hcontext: Handle, pextrainfo: MutPtr<CVoid>, preserved: MutPtr<CVoid>): Int =
+public actual fun dnsReplaceRecordSetA(preplaceset: ConstPtr, options: UInt, hcontext: Handle, pextrainfo: MutPtr, preserved: MutPtr): Int =
     WindowsWin32NetworkmanagementDnsJniBridge.windowssysWindowsWin32NetworkmanagementDnsDnsReplaceRecordSetA(preplaceset.rawAddress, options.toInt(), hcontext.rawAddress, pextrainfo.rawAddress, preserved.rawAddress)
 
-public actual fun dnsReplaceRecordSetUTF8(preplaceset: ConstPtr<DnsRecorda>, options: UInt, hcontext: Handle, pextrainfo: MutPtr<CVoid>, preserved: MutPtr<CVoid>): Int =
+public actual fun dnsReplaceRecordSetUTF8(preplaceset: ConstPtr, options: UInt, hcontext: Handle, pextrainfo: MutPtr, preserved: MutPtr): Int =
     WindowsWin32NetworkmanagementDnsJniBridge.windowssysWindowsWin32NetworkmanagementDnsDnsReplaceRecordSetUTF8(preplaceset.rawAddress, options.toInt(), hcontext.rawAddress, pextrainfo.rawAddress, preserved.rawAddress)
 
-public actual fun dnsReplaceRecordSetW(preplaceset: ConstPtr<DnsRecorda>, options: UInt, hcontext: Handle, pextrainfo: MutPtr<CVoid>, preserved: MutPtr<CVoid>): Int =
+public actual fun dnsReplaceRecordSetW(preplaceset: ConstPtr, options: UInt, hcontext: Handle, pextrainfo: MutPtr, preserved: MutPtr): Int =
     WindowsWin32NetworkmanagementDnsJniBridge.windowssysWindowsWin32NetworkmanagementDnsDnsReplaceRecordSetW(preplaceset.rawAddress, options.toInt(), hcontext.rawAddress, pextrainfo.rawAddress, preserved.rawAddress)
 
-public actual fun dnsServiceBrowse(prequest: ConstPtr<DnsServiceBrowseRequest>, pcancel: MutPtr<DnsServiceCancel>): Int =
+public actual fun dnsServiceBrowse(prequest: ConstPtr, pcancel: MutPtr): Int =
     WindowsWin32NetworkmanagementDnsJniBridge.windowssysWindowsWin32NetworkmanagementDnsDnsServiceBrowse(prequest.rawAddress, pcancel.rawAddress)
 
-public actual fun dnsServiceBrowseCancel(pcancelhandle: ConstPtr<DnsServiceCancel>): Int =
+public actual fun dnsServiceBrowseCancel(pcancelhandle: ConstPtr): Int =
     WindowsWin32NetworkmanagementDnsJniBridge.windowssysWindowsWin32NetworkmanagementDnsDnsServiceBrowseCancel(pcancelhandle.rawAddress)
 
-public actual fun dnsServiceConstructInstance(pservicename: Pcwstr, phostname: Pcwstr, pip4: ConstPtr<UInt>, pip6: ConstPtr<Ip6Address>, wport: UShort, wpriority: UShort, wweight: UShort, dwpropertiescount: UInt, keys: ConstPtr<Pcwstr>, values: ConstPtr<Pcwstr>): MutPtr<DnsServiceInstance> =
+public actual fun dnsServiceConstructInstance(pservicename: Pcwstr, phostname: Pcwstr, pip4: ConstPtr, pip6: ConstPtr, wport: UShort, wpriority: UShort, wweight: UShort, dwpropertiescount: UInt, keys: ConstPtr, values: ConstPtr): MutPtr =
     MutPtr(WindowsWin32NetworkmanagementDnsJniBridge.windowssysWindowsWin32NetworkmanagementDnsDnsServiceConstructInstance(pservicename.rawAddress, phostname.rawAddress, pip4.rawAddress, pip6.rawAddress, wport.toShort(), wpriority.toShort(), wweight.toShort(), dwpropertiescount.toInt(), keys.rawAddress, values.rawAddress))
 
-public actual fun dnsServiceCopyInstance(porig: ConstPtr<DnsServiceInstance>): MutPtr<DnsServiceInstance> =
+public actual fun dnsServiceCopyInstance(porig: ConstPtr): MutPtr =
     MutPtr(WindowsWin32NetworkmanagementDnsJniBridge.windowssysWindowsWin32NetworkmanagementDnsDnsServiceCopyInstance(porig.rawAddress))
 
-public actual fun dnsServiceDeRegister(prequest: ConstPtr<DnsServiceRegisterRequest>, pcancel: MutPtr<DnsServiceCancel>): UInt =
+public actual fun dnsServiceDeRegister(prequest: ConstPtr, pcancel: MutPtr): UInt =
     WindowsWin32NetworkmanagementDnsJniBridge.windowssysWindowsWin32NetworkmanagementDnsDnsServiceDeRegister(prequest.rawAddress, pcancel.rawAddress).toUInt()
 
-public actual fun dnsServiceFreeInstance(pinstance: ConstPtr<DnsServiceInstance>) {
+public actual fun dnsServiceFreeInstance(pinstance: ConstPtr) {
     WindowsWin32NetworkmanagementDnsJniBridge.windowssysWindowsWin32NetworkmanagementDnsDnsServiceFreeInstance(pinstance.rawAddress)
 }
 
-public actual fun dnsServiceRegister(prequest: ConstPtr<DnsServiceRegisterRequest>, pcancel: MutPtr<DnsServiceCancel>): UInt =
+public actual fun dnsServiceRegister(prequest: ConstPtr, pcancel: MutPtr): UInt =
     WindowsWin32NetworkmanagementDnsJniBridge.windowssysWindowsWin32NetworkmanagementDnsDnsServiceRegister(prequest.rawAddress, pcancel.rawAddress).toUInt()
 
-public actual fun dnsServiceRegisterCancel(pcancelhandle: ConstPtr<DnsServiceCancel>): UInt =
+public actual fun dnsServiceRegisterCancel(pcancelhandle: ConstPtr): UInt =
     WindowsWin32NetworkmanagementDnsJniBridge.windowssysWindowsWin32NetworkmanagementDnsDnsServiceRegisterCancel(pcancelhandle.rawAddress).toUInt()
 
-public actual fun dnsServiceResolve(prequest: ConstPtr<DnsServiceResolveRequest>, pcancel: MutPtr<DnsServiceCancel>): Int =
+public actual fun dnsServiceResolve(prequest: ConstPtr, pcancel: MutPtr): Int =
     WindowsWin32NetworkmanagementDnsJniBridge.windowssysWindowsWin32NetworkmanagementDnsDnsServiceResolve(prequest.rawAddress, pcancel.rawAddress)
 
-public actual fun dnsServiceResolveCancel(pcancelhandle: ConstPtr<DnsServiceCancel>): Int =
+public actual fun dnsServiceResolveCancel(pcancelhandle: ConstPtr): Int =
     WindowsWin32NetworkmanagementDnsJniBridge.windowssysWindowsWin32NetworkmanagementDnsDnsServiceResolveCancel(pcancelhandle.rawAddress)
 
-public actual fun dnsSetApplicationSettings(cservers: UInt, pservers: ConstPtr<DnsCustomServer>, psettings: ConstPtr<DnsApplicationSettings>): UInt =
+public actual fun dnsSetApplicationSettings(cservers: UInt, pservers: ConstPtr, psettings: ConstPtr): UInt =
     WindowsWin32NetworkmanagementDnsJniBridge.windowssysWindowsWin32NetworkmanagementDnsDnsSetApplicationSettings(cservers.toInt(), pservers.rawAddress, psettings.rawAddress).toUInt()
 
-public actual fun dnsStartMulticastQuery(pqueryrequest: ConstPtr<MdnsQueryRequest>, phandle: MutPtr<MdnsQueryHandle>): Int =
+public actual fun dnsStartMulticastQuery(pqueryrequest: ConstPtr, phandle: MutPtr): Int =
     WindowsWin32NetworkmanagementDnsJniBridge.windowssysWindowsWin32NetworkmanagementDnsDnsStartMulticastQuery(pqueryrequest.rawAddress, phandle.rawAddress)
 
-public actual fun dnsStopMulticastQuery(phandle: MutPtr<MdnsQueryHandle>): Int =
+public actual fun dnsStopMulticastQuery(phandle: MutPtr): Int =
     WindowsWin32NetworkmanagementDnsJniBridge.windowssysWindowsWin32NetworkmanagementDnsDnsStopMulticastQuery(phandle.rawAddress)
 
 public actual fun dnsValidateNameA(pszname: Pcstr, format: DnsNameFormat): Int =
@@ -456,8 +455,8 @@ public actual fun dnsValidateNameUtf8(pszname: Pcstr, format: DnsNameFormat): In
 public actual fun dnsValidateNameW(pszname: Pcwstr, format: DnsNameFormat): Int =
     WindowsWin32NetworkmanagementDnsJniBridge.windowssysWindowsWin32NetworkmanagementDnsDnsValidateNameW(pszname.rawAddress, format)
 
-public actual fun dnsWriteQuestionToBufferUtf8(pdnsbuffer: MutPtr<DnsMessageBuffer>, pdwbuffersize: MutPtr<UInt>, pszname: Pcstr, wtype: UShort, xid: UShort, frecursiondesired: Bool): Bool =
+public actual fun dnsWriteQuestionToBufferUtf8(pdnsbuffer: MutPtr, pdwbuffersize: MutPtr, pszname: Pcstr, wtype: UShort, xid: UShort, frecursiondesired: Bool): Bool =
     WindowsWin32NetworkmanagementDnsJniBridge.windowssysWindowsWin32NetworkmanagementDnsDnsWriteQuestionToBufferUtf8(pdnsbuffer.rawAddress, pdwbuffersize.rawAddress, pszname.rawAddress, wtype.toShort(), xid.toShort(), frecursiondesired)
 
-public actual fun dnsWriteQuestionToBufferW(pdnsbuffer: MutPtr<DnsMessageBuffer>, pdwbuffersize: MutPtr<UInt>, pszname: Pcwstr, wtype: UShort, xid: UShort, frecursiondesired: Bool): Bool =
+public actual fun dnsWriteQuestionToBufferW(pdnsbuffer: MutPtr, pdwbuffersize: MutPtr, pszname: Pcwstr, wtype: UShort, xid: UShort, frecursiondesired: Bool): Bool =
     WindowsWin32NetworkmanagementDnsJniBridge.windowssysWindowsWin32NetworkmanagementDnsDnsWriteQuestionToBufferW(pdnsbuffer.rawAddress, pdwbuffersize.rawAddress, pszname.rawAddress, wtype.toShort(), xid.toShort(), frecursiondesired)

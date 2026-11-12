@@ -2,7 +2,6 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.ui.input.ime
 
-import io.github.kotlinmania.rustlang.core.ffi.CVoid
 import io.github.kotlinmania.rustlang.core.ptr.ConstPtr
 import io.github.kotlinmania.rustlang.core.ptr.MutPtr
 import io.github.kotlinmania.windowssys.core.Bool
@@ -13,10 +12,7 @@ import io.github.kotlinmania.windowssys.core.Pwstr
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Hwnd
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Lparam
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Lresult
-import io.github.kotlinmania.windowssys.windows.win32.foundation.Point
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Wparam
-import io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.Logfonta
-import io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.Logfontw
 import io.github.kotlinmania.windowssys.windows.win32.ui.input.ime.cinterop.windowssysWindowsWin32UiInputImeImmAssociateContext
 import io.github.kotlinmania.windowssys.windows.win32.ui.input.ime.cinterop.windowssysWindowsWin32UiInputImeImmAssociateContextEx
 import io.github.kotlinmania.windowssys.windows.win32.ui.input.ime.cinterop.windowssysWindowsWin32UiInputImeImmConfigureIMEA
@@ -110,10 +106,10 @@ public actual fun immAssociateContext(param0: Hwnd, param1: Himc): Himc =
 public actual fun immAssociateContextEx(param0: Hwnd, param1: Himc, param2: UInt): Bool =
     windowssysWindowsWin32UiInputImeImmAssociateContextEx(param0.rawAddress.toCPointer<ByteVar>(), param1.rawAddress.toCPointer<ByteVar>(), param2)
 
-public actual fun immConfigureIMEA(param0: Hkl, param1: Hwnd, param2: UInt, param3: MutPtr<CVoid>): Bool =
+public actual fun immConfigureIMEA(param0: Hkl, param1: Hwnd, param2: UInt, param3: MutPtr): Bool =
     windowssysWindowsWin32UiInputImeImmConfigureIMEA(param0.rawAddress.toCPointer<ByteVar>(), param1.rawAddress.toCPointer<ByteVar>(), param2, param3.rawAddress.toCPointer<ByteVar>())
 
-public actual fun immConfigureIMEW(param0: Hkl, param1: Hwnd, param2: UInt, param3: MutPtr<CVoid>): Bool =
+public actual fun immConfigureIMEW(param0: Hkl, param1: Hwnd, param2: UInt, param3: MutPtr): Bool =
     windowssysWindowsWin32UiInputImeImmConfigureIMEW(param0.rawAddress.toCPointer<ByteVar>(), param1.rawAddress.toCPointer<ByteVar>(), param2, param3.rawAddress.toCPointer<ByteVar>())
 
 public actual fun immCreateContext(): Himc =
@@ -146,61 +142,61 @@ public actual fun immDisableTextFrameService(idthread: UInt): Bool =
 public actual fun immEnumInputContext(idthread: UInt, lpfn: Imcenumproc, lparam: Lparam): Bool =
     windowssysWindowsWin32UiInputImeImmEnumInputContext(idthread, 0L.toCPointer<ByteVar>(), lparam)
 
-public actual fun immEnumRegisterWordA(param0: Hkl, param1: Registerwordenumproca, lpszreading: Pcstr, param3: UInt, lpszregister: Pcstr, param5: MutPtr<CVoid>): UInt =
+public actual fun immEnumRegisterWordA(param0: Hkl, param1: Registerwordenumproca, lpszreading: Pcstr, param3: UInt, lpszregister: Pcstr, param5: MutPtr): UInt =
     windowssysWindowsWin32UiInputImeImmEnumRegisterWordA(param0.rawAddress.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>(), lpszreading.rawAddress.toCPointer<ByteVar>(), param3, lpszregister.rawAddress.toCPointer<ByteVar>(), param5.rawAddress.toCPointer<ByteVar>())
 
-public actual fun immEnumRegisterWordW(param0: Hkl, param1: Registerwordenumprocw, lpszreading: Pcwstr, param3: UInt, lpszregister: Pcwstr, param5: MutPtr<CVoid>): UInt =
+public actual fun immEnumRegisterWordW(param0: Hkl, param1: Registerwordenumprocw, lpszreading: Pcwstr, param3: UInt, lpszregister: Pcwstr, param5: MutPtr): UInt =
     windowssysWindowsWin32UiInputImeImmEnumRegisterWordW(param0.rawAddress.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>(), lpszreading.rawAddress.toCPointer<ByteVar>(), param3, lpszregister.rawAddress.toCPointer<ByteVar>(), param5.rawAddress.toCPointer<ByteVar>())
 
-public actual fun immEscapeA(param0: Hkl, param1: Himc, param2: ImeEscape, param3: MutPtr<CVoid>): Lresult =
+public actual fun immEscapeA(param0: Hkl, param1: Himc, param2: ImeEscape, param3: MutPtr): Lresult =
     windowssysWindowsWin32UiInputImeImmEscapeA(param0.rawAddress.toCPointer<ByteVar>(), param1.rawAddress.toCPointer<ByteVar>(), param2, param3.rawAddress.toCPointer<ByteVar>())
 
-public actual fun immEscapeW(param0: Hkl, param1: Himc, param2: ImeEscape, param3: MutPtr<CVoid>): Lresult =
+public actual fun immEscapeW(param0: Hkl, param1: Himc, param2: ImeEscape, param3: MutPtr): Lresult =
     windowssysWindowsWin32UiInputImeImmEscapeW(param0.rawAddress.toCPointer<ByteVar>(), param1.rawAddress.toCPointer<ByteVar>(), param2, param3.rawAddress.toCPointer<ByteVar>())
 
 public actual fun immGenerateMessage(param0: Himc): Bool =
     windowssysWindowsWin32UiInputImeImmGenerateMessage(param0.rawAddress.toCPointer<ByteVar>())
 
-public actual fun immGetCandidateListA(param0: Himc, deindex: UInt, lpcandlist: MutPtr<Candidatelist>, dwbuflen: UInt): UInt =
+public actual fun immGetCandidateListA(param0: Himc, deindex: UInt, lpcandlist: MutPtr, dwbuflen: UInt): UInt =
     windowssysWindowsWin32UiInputImeImmGetCandidateListA(param0.rawAddress.toCPointer<ByteVar>(), deindex, lpcandlist.rawAddress.toCPointer<ByteVar>(), dwbuflen)
 
-public actual fun immGetCandidateListCountA(param0: Himc, lpdwlistcount: MutPtr<UInt>): UInt =
+public actual fun immGetCandidateListCountA(param0: Himc, lpdwlistcount: MutPtr): UInt =
     windowssysWindowsWin32UiInputImeImmGetCandidateListCountA(param0.rawAddress.toCPointer<ByteVar>(), lpdwlistcount.rawAddress.toCPointer<ByteVar>())
 
-public actual fun immGetCandidateListCountW(param0: Himc, lpdwlistcount: MutPtr<UInt>): UInt =
+public actual fun immGetCandidateListCountW(param0: Himc, lpdwlistcount: MutPtr): UInt =
     windowssysWindowsWin32UiInputImeImmGetCandidateListCountW(param0.rawAddress.toCPointer<ByteVar>(), lpdwlistcount.rawAddress.toCPointer<ByteVar>())
 
-public actual fun immGetCandidateListW(param0: Himc, deindex: UInt, lpcandlist: MutPtr<Candidatelist>, dwbuflen: UInt): UInt =
+public actual fun immGetCandidateListW(param0: Himc, deindex: UInt, lpcandlist: MutPtr, dwbuflen: UInt): UInt =
     windowssysWindowsWin32UiInputImeImmGetCandidateListW(param0.rawAddress.toCPointer<ByteVar>(), deindex, lpcandlist.rawAddress.toCPointer<ByteVar>(), dwbuflen)
 
-public actual fun immGetCandidateWindow(param0: Himc, param1: UInt, lpcandidate: MutPtr<Candidateform>): Bool =
+public actual fun immGetCandidateWindow(param0: Himc, param1: UInt, lpcandidate: MutPtr): Bool =
     windowssysWindowsWin32UiInputImeImmGetCandidateWindow(param0.rawAddress.toCPointer<ByteVar>(), param1, lpcandidate.rawAddress.toCPointer<ByteVar>())
 
-public actual fun immGetCompositionFontA(param0: Himc, lplf: MutPtr<Logfonta>): Bool =
+public actual fun immGetCompositionFontA(param0: Himc, lplf: MutPtr): Bool =
     windowssysWindowsWin32UiInputImeImmGetCompositionFontA(param0.rawAddress.toCPointer<ByteVar>(), lplf.rawAddress.toCPointer<ByteVar>())
 
-public actual fun immGetCompositionFontW(param0: Himc, lplf: MutPtr<Logfontw>): Bool =
+public actual fun immGetCompositionFontW(param0: Himc, lplf: MutPtr): Bool =
     windowssysWindowsWin32UiInputImeImmGetCompositionFontW(param0.rawAddress.toCPointer<ByteVar>(), lplf.rawAddress.toCPointer<ByteVar>())
 
-public actual fun immGetCompositionStringA(param0: Himc, param1: ImeCompositionString, lpbuf: MutPtr<CVoid>, dwbuflen: UInt): Int =
+public actual fun immGetCompositionStringA(param0: Himc, param1: ImeCompositionString, lpbuf: MutPtr, dwbuflen: UInt): Int =
     windowssysWindowsWin32UiInputImeImmGetCompositionStringA(param0.rawAddress.toCPointer<ByteVar>(), param1, lpbuf.rawAddress.toCPointer<ByteVar>(), dwbuflen)
 
-public actual fun immGetCompositionStringW(param0: Himc, param1: ImeCompositionString, lpbuf: MutPtr<CVoid>, dwbuflen: UInt): Int =
+public actual fun immGetCompositionStringW(param0: Himc, param1: ImeCompositionString, lpbuf: MutPtr, dwbuflen: UInt): Int =
     windowssysWindowsWin32UiInputImeImmGetCompositionStringW(param0.rawAddress.toCPointer<ByteVar>(), param1, lpbuf.rawAddress.toCPointer<ByteVar>(), dwbuflen)
 
-public actual fun immGetCompositionWindow(param0: Himc, lpcompform: MutPtr<Compositionform>): Bool =
+public actual fun immGetCompositionWindow(param0: Himc, lpcompform: MutPtr): Bool =
     windowssysWindowsWin32UiInputImeImmGetCompositionWindow(param0.rawAddress.toCPointer<ByteVar>(), lpcompform.rawAddress.toCPointer<ByteVar>())
 
 public actual fun immGetContext(param0: Hwnd): Himc =
     MutPtr(windowssysWindowsWin32UiInputImeImmGetContext(param0.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun immGetConversionListA(param0: Hkl, param1: Himc, lpsrc: Pcstr, lpdst: MutPtr<Candidatelist>, dwbuflen: UInt, uflag: GetConversionListFlag): UInt =
+public actual fun immGetConversionListA(param0: Hkl, param1: Himc, lpsrc: Pcstr, lpdst: MutPtr, dwbuflen: UInt, uflag: GetConversionListFlag): UInt =
     windowssysWindowsWin32UiInputImeImmGetConversionListA(param0.rawAddress.toCPointer<ByteVar>(), param1.rawAddress.toCPointer<ByteVar>(), lpsrc.rawAddress.toCPointer<ByteVar>(), lpdst.rawAddress.toCPointer<ByteVar>(), dwbuflen, uflag)
 
-public actual fun immGetConversionListW(param0: Hkl, param1: Himc, lpsrc: Pcwstr, lpdst: MutPtr<Candidatelist>, dwbuflen: UInt, uflag: GetConversionListFlag): UInt =
+public actual fun immGetConversionListW(param0: Hkl, param1: Himc, lpsrc: Pcwstr, lpdst: MutPtr, dwbuflen: UInt, uflag: GetConversionListFlag): UInt =
     windowssysWindowsWin32UiInputImeImmGetConversionListW(param0.rawAddress.toCPointer<ByteVar>(), param1.rawAddress.toCPointer<ByteVar>(), lpsrc.rawAddress.toCPointer<ByteVar>(), lpdst.rawAddress.toCPointer<ByteVar>(), dwbuflen, uflag)
 
-public actual fun immGetConversionStatus(param0: Himc, lpfdwconversion: MutPtr<ImeConversionMode>, lpfdwsentence: MutPtr<ImeSentenceMode>): Bool =
+public actual fun immGetConversionStatus(param0: Himc, lpfdwconversion: MutPtr, lpfdwsentence: MutPtr): Bool =
     windowssysWindowsWin32UiInputImeImmGetConversionStatus(param0.rawAddress.toCPointer<ByteVar>(), lpfdwconversion.rawAddress.toCPointer<ByteVar>(), lpfdwsentence.rawAddress.toCPointer<ByteVar>())
 
 public actual fun immGetDefaultIMEWnd(param0: Hwnd): Hwnd =
@@ -218,7 +214,7 @@ public actual fun immGetGuideLineA(param0: Himc, dwindex: GetGuideLineType, lpbu
 public actual fun immGetGuideLineW(param0: Himc, dwindex: GetGuideLineType, lpbuf: Pwstr, dwbuflen: UInt): UInt =
     windowssysWindowsWin32UiInputImeImmGetGuideLineW(param0.rawAddress.toCPointer<ByteVar>(), dwindex, lpbuf.rawAddress.toCPointer<ByteVar>(), dwbuflen)
 
-public actual fun immGetHotKey(param0: UInt, lpumodifiers: MutPtr<UInt>, lpuvkey: MutPtr<UInt>, phkl: MutPtr<Hkl>): Bool =
+public actual fun immGetHotKey(param0: UInt, lpumodifiers: MutPtr, lpuvkey: MutPtr, phkl: MutPtr): Bool =
     windowssysWindowsWin32UiInputImeImmGetHotKey(param0, lpumodifiers.rawAddress.toCPointer<ByteVar>(), lpuvkey.rawAddress.toCPointer<ByteVar>(), phkl.rawAddress.toCPointer<ByteVar>())
 
 public actual fun immGetIMCCLockCount(param0: Himcc): UInt =
@@ -236,10 +232,10 @@ public actual fun immGetIMEFileNameA(param0: Hkl, lpszfilename: Pstr, ubuflen: U
 public actual fun immGetIMEFileNameW(param0: Hkl, lpszfilename: Pwstr, ubuflen: UInt): UInt =
     windowssysWindowsWin32UiInputImeImmGetIMEFileNameW(param0.rawAddress.toCPointer<ByteVar>(), lpszfilename.rawAddress.toCPointer<ByteVar>(), ubuflen)
 
-public actual fun immGetImeMenuItemsA(param0: Himc, param1: UInt, param2: UInt, lpimeparentmenu: MutPtr<Imemenuiteminfoa>, lpimemenu: MutPtr<Imemenuiteminfoa>, dwsize: UInt): UInt =
+public actual fun immGetImeMenuItemsA(param0: Himc, param1: UInt, param2: UInt, lpimeparentmenu: MutPtr, lpimemenu: MutPtr, dwsize: UInt): UInt =
     windowssysWindowsWin32UiInputImeImmGetImeMenuItemsA(param0.rawAddress.toCPointer<ByteVar>(), param1, param2, lpimeparentmenu.rawAddress.toCPointer<ByteVar>(), lpimemenu.rawAddress.toCPointer<ByteVar>(), dwsize)
 
-public actual fun immGetImeMenuItemsW(param0: Himc, param1: UInt, param2: UInt, lpimeparentmenu: MutPtr<Imemenuiteminfow>, lpimemenu: MutPtr<Imemenuiteminfow>, dwsize: UInt): UInt =
+public actual fun immGetImeMenuItemsW(param0: Himc, param1: UInt, param2: UInt, lpimeparentmenu: MutPtr, lpimemenu: MutPtr, dwsize: UInt): UInt =
     windowssysWindowsWin32UiInputImeImmGetImeMenuItemsW(param0.rawAddress.toCPointer<ByteVar>(), param1, param2, lpimeparentmenu.rawAddress.toCPointer<ByteVar>(), lpimemenu.rawAddress.toCPointer<ByteVar>(), dwsize)
 
 public actual fun immGetOpenStatus(param0: Himc): Bool =
@@ -248,13 +244,13 @@ public actual fun immGetOpenStatus(param0: Himc): Bool =
 public actual fun immGetProperty(param0: Hkl, param1: UInt): UInt =
     windowssysWindowsWin32UiInputImeImmGetProperty(param0.rawAddress.toCPointer<ByteVar>(), param1)
 
-public actual fun immGetRegisterWordStyleA(param0: Hkl, nitem: UInt, lpstylebuf: MutPtr<Stylebufa>): UInt =
+public actual fun immGetRegisterWordStyleA(param0: Hkl, nitem: UInt, lpstylebuf: MutPtr): UInt =
     windowssysWindowsWin32UiInputImeImmGetRegisterWordStyleA(param0.rawAddress.toCPointer<ByteVar>(), nitem, lpstylebuf.rawAddress.toCPointer<ByteVar>())
 
-public actual fun immGetRegisterWordStyleW(param0: Hkl, nitem: UInt, lpstylebuf: MutPtr<Stylebufw>): UInt =
+public actual fun immGetRegisterWordStyleW(param0: Hkl, nitem: UInt, lpstylebuf: MutPtr): UInt =
     windowssysWindowsWin32UiInputImeImmGetRegisterWordStyleW(param0.rawAddress.toCPointer<ByteVar>(), nitem, lpstylebuf.rawAddress.toCPointer<ByteVar>())
 
-public actual fun immGetStatusWindowPos(param0: Himc, lpptpos: MutPtr<Point>): Bool =
+public actual fun immGetStatusWindowPos(param0: Himc, lpptpos: MutPtr): Bool =
     windowssysWindowsWin32UiInputImeImmGetStatusWindowPos(param0.rawAddress.toCPointer<ByteVar>(), lpptpos.rawAddress.toCPointer<ByteVar>())
 
 public actual fun immGetVirtualKey(param0: Hwnd): UInt =
@@ -275,10 +271,10 @@ public actual fun immIsUIMessageA(param0: Hwnd, param1: UInt, param2: Wparam, pa
 public actual fun immIsUIMessageW(param0: Hwnd, param1: UInt, param2: Wparam, param3: Lparam): Bool =
     windowssysWindowsWin32UiInputImeImmIsUIMessageW(param0.rawAddress.toCPointer<ByteVar>(), param1, param2, param3)
 
-public actual fun immLockIMC(param0: Himc): MutPtr<Inputcontext> =
+public actual fun immLockIMC(param0: Himc): MutPtr =
     MutPtr(windowssysWindowsWin32UiInputImeImmLockIMC(param0.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun immLockIMCC(param0: Himcc): MutPtr<CVoid> =
+public actual fun immLockIMCC(param0: Himcc): MutPtr =
     MutPtr(windowssysWindowsWin32UiInputImeImmLockIMCC(param0.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
 public actual fun immNotifyIME(param0: Himc, dwaction: NotifyImeAction, dwindex: NotifyImeIndex, dwvalue: UInt): Bool =
@@ -302,22 +298,22 @@ public actual fun immRequestMessageA(param0: Himc, param1: Wparam, param2: Lpara
 public actual fun immRequestMessageW(param0: Himc, param1: Wparam, param2: Lparam): Lresult =
     windowssysWindowsWin32UiInputImeImmRequestMessageW(param0.rawAddress.toCPointer<ByteVar>(), param1, param2)
 
-public actual fun immSetCandidateWindow(param0: Himc, lpcandidate: ConstPtr<Candidateform>): Bool =
+public actual fun immSetCandidateWindow(param0: Himc, lpcandidate: ConstPtr): Bool =
     windowssysWindowsWin32UiInputImeImmSetCandidateWindow(param0.rawAddress.toCPointer<ByteVar>(), lpcandidate.rawAddress.toCPointer<ByteVar>())
 
-public actual fun immSetCompositionFontA(param0: Himc, lplf: ConstPtr<Logfonta>): Bool =
+public actual fun immSetCompositionFontA(param0: Himc, lplf: ConstPtr): Bool =
     windowssysWindowsWin32UiInputImeImmSetCompositionFontA(param0.rawAddress.toCPointer<ByteVar>(), lplf.rawAddress.toCPointer<ByteVar>())
 
-public actual fun immSetCompositionFontW(param0: Himc, lplf: ConstPtr<Logfontw>): Bool =
+public actual fun immSetCompositionFontW(param0: Himc, lplf: ConstPtr): Bool =
     windowssysWindowsWin32UiInputImeImmSetCompositionFontW(param0.rawAddress.toCPointer<ByteVar>(), lplf.rawAddress.toCPointer<ByteVar>())
 
-public actual fun immSetCompositionStringA(param0: Himc, dwindex: SetCompositionStringType, lpcomp: ConstPtr<CVoid>, dwcomplen: UInt, lpread: ConstPtr<CVoid>, dwreadlen: UInt): Bool =
+public actual fun immSetCompositionStringA(param0: Himc, dwindex: SetCompositionStringType, lpcomp: ConstPtr, dwcomplen: UInt, lpread: ConstPtr, dwreadlen: UInt): Bool =
     windowssysWindowsWin32UiInputImeImmSetCompositionStringA(param0.rawAddress.toCPointer<ByteVar>(), dwindex, lpcomp.rawAddress.toCPointer<ByteVar>(), dwcomplen, lpread.rawAddress.toCPointer<ByteVar>(), dwreadlen)
 
-public actual fun immSetCompositionStringW(param0: Himc, dwindex: SetCompositionStringType, lpcomp: ConstPtr<CVoid>, dwcomplen: UInt, lpread: ConstPtr<CVoid>, dwreadlen: UInt): Bool =
+public actual fun immSetCompositionStringW(param0: Himc, dwindex: SetCompositionStringType, lpcomp: ConstPtr, dwcomplen: UInt, lpread: ConstPtr, dwreadlen: UInt): Bool =
     windowssysWindowsWin32UiInputImeImmSetCompositionStringW(param0.rawAddress.toCPointer<ByteVar>(), dwindex, lpcomp.rawAddress.toCPointer<ByteVar>(), dwcomplen, lpread.rawAddress.toCPointer<ByteVar>(), dwreadlen)
 
-public actual fun immSetCompositionWindow(param0: Himc, lpcompform: ConstPtr<Compositionform>): Bool =
+public actual fun immSetCompositionWindow(param0: Himc, lpcompform: ConstPtr): Bool =
     windowssysWindowsWin32UiInputImeImmSetCompositionWindow(param0.rawAddress.toCPointer<ByteVar>(), lpcompform.rawAddress.toCPointer<ByteVar>())
 
 public actual fun immSetConversionStatus(param0: Himc, param1: ImeConversionMode, param2: ImeSentenceMode): Bool =
@@ -329,7 +325,7 @@ public actual fun immSetHotKey(param0: UInt, param1: UInt, param2: UInt, param3:
 public actual fun immSetOpenStatus(param0: Himc, param1: Bool): Bool =
     windowssysWindowsWin32UiInputImeImmSetOpenStatus(param0.rawAddress.toCPointer<ByteVar>(), param1)
 
-public actual fun immSetStatusWindowPos(param0: Himc, lpptpos: ConstPtr<Point>): Bool =
+public actual fun immSetStatusWindowPos(param0: Himc, lpptpos: ConstPtr): Bool =
     windowssysWindowsWin32UiInputImeImmSetStatusWindowPos(param0.rawAddress.toCPointer<ByteVar>(), lpptpos.rawAddress.toCPointer<ByteVar>())
 
 public actual fun immShowSoftKeyboard(param0: Hwnd, param1: Int): Bool =

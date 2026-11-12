@@ -2,7 +2,6 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.system.diagnostics.processsnapshotting
 
-import io.github.kotlinmania.rustlang.core.ffi.CVoid
 import io.github.kotlinmania.rustlang.core.ptr.ConstPtr
 import io.github.kotlinmania.rustlang.core.ptr.MutPtr
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Handle
@@ -42,25 +41,25 @@ private external fun wasmWindowssysWindowsWin32SystemDiagnosticsProcesssnapshott
 @JsFun("(p0, p1, p2, p3, p4) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemDiagnosticsProcesssnapshottingPssWalkSnapshot(p0, p1, p2, p3, p4)")
 private external fun wasmWindowssysWindowsWin32SystemDiagnosticsProcesssnapshottingPssWalkSnapshot(p0: String, p1: Int, p2: String, p3: String, p4: Int): Int
 
-public actual fun pssCaptureSnapshot(processhandle: Handle, captureflags: PssCaptureFlags, threadcontextflags: UInt, snapshothandle: MutPtr<Hpss>): UInt =
+public actual fun pssCaptureSnapshot(processhandle: Handle, captureflags: PssCaptureFlags, threadcontextflags: UInt, snapshothandle: MutPtr): UInt =
     if (windowsWin32SystemDiagnosticsProcesssnapshottingNapiAvailable) wasmWindowssysWindowsWin32SystemDiagnosticsProcesssnapshottingPssCaptureSnapshot(processhandle.rawAddress.toString(), captureflags.toInt(), threadcontextflags.toInt(), snapshothandle.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun pssDuplicateSnapshot(sourceprocesshandle: Handle, snapshothandle: Hpss, targetprocesshandle: Handle, targetsnapshothandle: MutPtr<Hpss>, flags: PssDuplicateFlags): UInt =
+public actual fun pssDuplicateSnapshot(sourceprocesshandle: Handle, snapshothandle: Hpss, targetprocesshandle: Handle, targetsnapshothandle: MutPtr, flags: PssDuplicateFlags): UInt =
     if (windowsWin32SystemDiagnosticsProcesssnapshottingNapiAvailable) wasmWindowssysWindowsWin32SystemDiagnosticsProcesssnapshottingPssDuplicateSnapshot(sourceprocesshandle.rawAddress.toString(), snapshothandle.rawAddress.toString(), targetprocesshandle.rawAddress.toString(), targetsnapshothandle.rawAddress.toString(), flags).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun pssFreeSnapshot(processhandle: Handle, snapshothandle: Hpss): UInt =
     if (windowsWin32SystemDiagnosticsProcesssnapshottingNapiAvailable) wasmWindowssysWindowsWin32SystemDiagnosticsProcesssnapshottingPssFreeSnapshot(processhandle.rawAddress.toString(), snapshothandle.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun pssQuerySnapshot(snapshothandle: Hpss, informationclass: PssQueryInformationClass, buffer: MutPtr<CVoid>, bufferlength: UInt): UInt =
+public actual fun pssQuerySnapshot(snapshothandle: Hpss, informationclass: PssQueryInformationClass, buffer: MutPtr, bufferlength: UInt): UInt =
     if (windowsWin32SystemDiagnosticsProcesssnapshottingNapiAvailable) wasmWindowssysWindowsWin32SystemDiagnosticsProcesssnapshottingPssQuerySnapshot(snapshothandle.rawAddress.toString(), informationclass, buffer.rawAddress.toString(), bufferlength.toInt()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun pssWalkMarkerCreate(allocator: ConstPtr<PssAllocator>, walkmarkerhandle: MutPtr<Hpsswalk>): UInt =
+public actual fun pssWalkMarkerCreate(allocator: ConstPtr, walkmarkerhandle: MutPtr): UInt =
     if (windowsWin32SystemDiagnosticsProcesssnapshottingNapiAvailable) wasmWindowssysWindowsWin32SystemDiagnosticsProcesssnapshottingPssWalkMarkerCreate(allocator.rawAddress.toString(), walkmarkerhandle.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun pssWalkMarkerFree(walkmarkerhandle: Hpsswalk): UInt =
     if (windowsWin32SystemDiagnosticsProcesssnapshottingNapiAvailable) wasmWindowssysWindowsWin32SystemDiagnosticsProcesssnapshottingPssWalkMarkerFree(walkmarkerhandle.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun pssWalkMarkerGetPosition(walkmarkerhandle: Hpsswalk, position: MutPtr<ULong>): UInt =
+public actual fun pssWalkMarkerGetPosition(walkmarkerhandle: Hpsswalk, position: MutPtr): UInt =
     if (windowsWin32SystemDiagnosticsProcesssnapshottingNapiAvailable) wasmWindowssysWindowsWin32SystemDiagnosticsProcesssnapshottingPssWalkMarkerGetPosition(walkmarkerhandle.rawAddress.toString(), position.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun pssWalkMarkerSeekToBeginning(walkmarkerhandle: Hpsswalk): UInt =
@@ -69,5 +68,5 @@ public actual fun pssWalkMarkerSeekToBeginning(walkmarkerhandle: Hpsswalk): UInt
 public actual fun pssWalkMarkerSetPosition(walkmarkerhandle: Hpsswalk, position: ULong): UInt =
     if (windowsWin32SystemDiagnosticsProcesssnapshottingNapiAvailable) wasmWindowssysWindowsWin32SystemDiagnosticsProcesssnapshottingPssWalkMarkerSetPosition(walkmarkerhandle.rawAddress.toString(), position.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun pssWalkSnapshot(snapshothandle: Hpss, informationclass: PssWalkInformationClass, walkmarkerhandle: Hpsswalk, buffer: MutPtr<CVoid>, bufferlength: UInt): UInt =
+public actual fun pssWalkSnapshot(snapshothandle: Hpss, informationclass: PssWalkInformationClass, walkmarkerhandle: Hpsswalk, buffer: MutPtr, bufferlength: UInt): UInt =
     if (windowsWin32SystemDiagnosticsProcesssnapshottingNapiAvailable) wasmWindowssysWindowsWin32SystemDiagnosticsProcesssnapshottingPssWalkSnapshot(snapshothandle.rawAddress.toString(), informationclass, walkmarkerhandle.rawAddress.toString(), buffer.rawAddress.toString(), bufferlength.toInt()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")

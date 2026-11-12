@@ -17,10 +17,10 @@ private external fun wasiWindowssysWindowsWin32MediaTimeEndPeriod(uperiod: Int):
 public actual fun timeEndPeriod(uperiod: UInt): UInt =
     wasiWindowssysWindowsWin32MediaTimeEndPeriod(uperiod.toInt()).toUInt()
 
-public actual fun timeGetDevCaps(ptc: MutPtr<Timecaps>, cbtc: UInt): UInt =
+public actual fun timeGetDevCaps(ptc: MutPtr, cbtc: UInt): UInt =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32MediaTimeGetDevCaps")
 
-public actual fun timeGetSystemTime(pmmt: MutPtr<Mmtime>, cbmmt: UInt): UInt =
+public actual fun timeGetSystemTime(pmmt: MutPtr, cbmmt: UInt): UInt =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32MediaTimeGetSystemTime")
 
 @kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32MediaTimeGetTime")

@@ -2,7 +2,6 @@
 
 package io.github.kotlinmania.windowssys.windows.wdk.system.systeminformation
 
-import io.github.kotlinmania.rustlang.core.ffi.CVoid
 import io.github.kotlinmania.rustlang.core.ptr.MutPtr
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Ntstatus
 
@@ -29,20 +28,20 @@ private external fun wasmWindowssysWindowsWdkSystemSysteminformationZwQuerySyste
 @JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssysWindowsWdkSystemSysteminformationZwQueryTimerResolution(p0, p1, p2)")
 private external fun wasmWindowssysWindowsWdkSystemSysteminformationZwQueryTimerResolution(p0: String, p1: String, p2: String): Int
 
-public actual fun ntQuerySystemInformation(systeminformationclass: SystemInformationClass, systeminformation: MutPtr<CVoid>, systeminformationlength: UInt, returnlength: MutPtr<UInt>): Ntstatus =
+public actual fun ntQuerySystemInformation(systeminformationclass: SystemInformationClass, systeminformation: MutPtr, systeminformationlength: UInt, returnlength: MutPtr): Ntstatus =
     if (windowsWdkSystemSysteminformationNapiAvailable) wasmWindowssysWindowsWdkSystemSysteminformationNtQuerySystemInformation(systeminformationclass, systeminformation.rawAddress.toString(), systeminformationlength.toInt(), returnlength.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ntQuerySystemTime(systemtime: MutPtr<Long>): Ntstatus =
+public actual fun ntQuerySystemTime(systemtime: MutPtr): Ntstatus =
     if (windowsWdkSystemSysteminformationNapiAvailable) wasmWindowssysWindowsWdkSystemSysteminformationNtQuerySystemTime(systemtime.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ntQueryTimerResolution(maximumtime: MutPtr<UInt>, minimumtime: MutPtr<UInt>, currenttime: MutPtr<UInt>): Ntstatus =
+public actual fun ntQueryTimerResolution(maximumtime: MutPtr, minimumtime: MutPtr, currenttime: MutPtr): Ntstatus =
     if (windowsWdkSystemSysteminformationNapiAvailable) wasmWindowssysWindowsWdkSystemSysteminformationNtQueryTimerResolution(maximumtime.rawAddress.toString(), minimumtime.rawAddress.toString(), currenttime.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun zwQuerySystemInformation(systeminformationclass: SystemInformationClass, systeminformation: MutPtr<CVoid>, systeminformationlength: UInt, returnlength: MutPtr<UInt>): Ntstatus =
+public actual fun zwQuerySystemInformation(systeminformationclass: SystemInformationClass, systeminformation: MutPtr, systeminformationlength: UInt, returnlength: MutPtr): Ntstatus =
     if (windowsWdkSystemSysteminformationNapiAvailable) wasmWindowssysWindowsWdkSystemSysteminformationZwQuerySystemInformation(systeminformationclass, systeminformation.rawAddress.toString(), systeminformationlength.toInt(), returnlength.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun zwQuerySystemTime(systemtime: MutPtr<Long>): Ntstatus =
+public actual fun zwQuerySystemTime(systemtime: MutPtr): Ntstatus =
     if (windowsWdkSystemSysteminformationNapiAvailable) wasmWindowssysWindowsWdkSystemSysteminformationZwQuerySystemTime(systemtime.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun zwQueryTimerResolution(maximumtime: MutPtr<UInt>, minimumtime: MutPtr<UInt>, currenttime: MutPtr<UInt>): Ntstatus =
+public actual fun zwQueryTimerResolution(maximumtime: MutPtr, minimumtime: MutPtr, currenttime: MutPtr): Ntstatus =
     if (windowsWdkSystemSysteminformationNapiAvailable) wasmWindowssysWindowsWdkSystemSysteminformationZwQueryTimerResolution(maximumtime.rawAddress.toString(), minimumtime.rawAddress.toString(), currenttime.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")

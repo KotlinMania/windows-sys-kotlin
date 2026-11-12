@@ -2,11 +2,9 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.media.multimedia
 
-import io.github.kotlinmania.rustlang.core.ffi.CVoid
 import io.github.kotlinmania.rustlang.core.ptr.ConstPtr
 import io.github.kotlinmania.rustlang.core.ptr.MutPtr
 import io.github.kotlinmania.windowssys.core.Bool
-import io.github.kotlinmania.windowssys.core.Guid
 import io.github.kotlinmania.windowssys.core.Hresult
 import io.github.kotlinmania.windowssys.core.Pcstr
 import io.github.kotlinmania.windowssys.core.Pcwstr
@@ -19,14 +17,9 @@ import io.github.kotlinmania.windowssys.windows.win32.foundation.Hmodule
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Hwnd
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Lparam
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Lresult
-import io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.Bitmapinfo
-import io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.Bitmapinfoheader
 import io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.Hdc
 import io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.Hpalette
-import io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.Paletteentry
 import io.github.kotlinmania.windowssys.windows.win32.media.Htask
-import io.github.kotlinmania.windowssys.windows.win32.ui.controls.dialogs.Openfilenamea
-import io.github.kotlinmania.windowssys.windows.win32.ui.controls.dialogs.Openfilenamew
 
 private object WindowsWin32MediaMultimediaJniBridge {
     init {
@@ -601,177 +594,177 @@ public actual fun aVIBuildFilterW(lpszfilter: Pwstr, cbfilter: Int, fsaving: Boo
 public actual fun aVIClearClipboard(): Hresult =
     WindowsWin32MediaMultimediaJniBridge.windowssysWindowsWin32MediaMultimediaAVIClearClipboard()
 
-public actual fun aVIFileAddRef(pfile: MutPtr<CVoid>): UInt =
+public actual fun aVIFileAddRef(pfile: MutPtr): UInt =
     WindowsWin32MediaMultimediaJniBridge.windowssysWindowsWin32MediaMultimediaAVIFileAddRef(pfile.rawAddress).toUInt()
 
-public actual fun aVIFileCreateStreamA(pfile: MutPtr<CVoid>, ppavi: MutPtr<MutPtr<CVoid>>, psi: ConstPtr<Avistreaminfoa>): Hresult =
+public actual fun aVIFileCreateStreamA(pfile: MutPtr, ppavi: MutPtr, psi: ConstPtr): Hresult =
     WindowsWin32MediaMultimediaJniBridge.windowssysWindowsWin32MediaMultimediaAVIFileCreateStreamA(pfile.rawAddress, ppavi.rawAddress, psi.rawAddress)
 
-public actual fun aVIFileCreateStreamW(pfile: MutPtr<CVoid>, ppavi: MutPtr<MutPtr<CVoid>>, psi: ConstPtr<Avistreaminfow>): Hresult =
+public actual fun aVIFileCreateStreamW(pfile: MutPtr, ppavi: MutPtr, psi: ConstPtr): Hresult =
     WindowsWin32MediaMultimediaJniBridge.windowssysWindowsWin32MediaMultimediaAVIFileCreateStreamW(pfile.rawAddress, ppavi.rawAddress, psi.rawAddress)
 
-public actual fun aVIFileEndRecord(pfile: MutPtr<CVoid>): Hresult =
+public actual fun aVIFileEndRecord(pfile: MutPtr): Hresult =
     WindowsWin32MediaMultimediaJniBridge.windowssysWindowsWin32MediaMultimediaAVIFileEndRecord(pfile.rawAddress)
 
 public actual fun aVIFileExit() {
     WindowsWin32MediaMultimediaJniBridge.windowssysWindowsWin32MediaMultimediaAVIFileExit()
 }
 
-public actual fun aVIFileGetStream(pfile: MutPtr<CVoid>, ppavi: MutPtr<MutPtr<CVoid>>, fcctype: UInt, lparam: Int): Hresult =
+public actual fun aVIFileGetStream(pfile: MutPtr, ppavi: MutPtr, fcctype: UInt, lparam: Int): Hresult =
     WindowsWin32MediaMultimediaJniBridge.windowssysWindowsWin32MediaMultimediaAVIFileGetStream(pfile.rawAddress, ppavi.rawAddress, fcctype.toInt(), lparam)
 
-public actual fun aVIFileInfoA(pfile: MutPtr<CVoid>, pfi: MutPtr<Avifileinfoa>, lsize: Int): Hresult =
+public actual fun aVIFileInfoA(pfile: MutPtr, pfi: MutPtr, lsize: Int): Hresult =
     WindowsWin32MediaMultimediaJniBridge.windowssysWindowsWin32MediaMultimediaAVIFileInfoA(pfile.rawAddress, pfi.rawAddress, lsize)
 
-public actual fun aVIFileInfoW(pfile: MutPtr<CVoid>, pfi: MutPtr<Avifileinfow>, lsize: Int): Hresult =
+public actual fun aVIFileInfoW(pfile: MutPtr, pfi: MutPtr, lsize: Int): Hresult =
     WindowsWin32MediaMultimediaJniBridge.windowssysWindowsWin32MediaMultimediaAVIFileInfoW(pfile.rawAddress, pfi.rawAddress, lsize)
 
 public actual fun aVIFileInit() {
     WindowsWin32MediaMultimediaJniBridge.windowssysWindowsWin32MediaMultimediaAVIFileInit()
 }
 
-public actual fun aVIFileOpenA(ppfile: MutPtr<MutPtr<CVoid>>, szfile: Pcstr, umode: UInt, lphandler: ConstPtr<Guid>): Hresult =
+public actual fun aVIFileOpenA(ppfile: MutPtr, szfile: Pcstr, umode: UInt, lphandler: ConstPtr): Hresult =
     WindowsWin32MediaMultimediaJniBridge.windowssysWindowsWin32MediaMultimediaAVIFileOpenA(ppfile.rawAddress, szfile.rawAddress, umode.toInt(), lphandler.rawAddress)
 
-public actual fun aVIFileOpenW(ppfile: MutPtr<MutPtr<CVoid>>, szfile: Pcwstr, umode: UInt, lphandler: ConstPtr<Guid>): Hresult =
+public actual fun aVIFileOpenW(ppfile: MutPtr, szfile: Pcwstr, umode: UInt, lphandler: ConstPtr): Hresult =
     WindowsWin32MediaMultimediaJniBridge.windowssysWindowsWin32MediaMultimediaAVIFileOpenW(ppfile.rawAddress, szfile.rawAddress, umode.toInt(), lphandler.rawAddress)
 
-public actual fun aVIFileReadData(pfile: MutPtr<CVoid>, ckid: UInt, lpdata: MutPtr<CVoid>, lpcbdata: MutPtr<Int>): Hresult =
+public actual fun aVIFileReadData(pfile: MutPtr, ckid: UInt, lpdata: MutPtr, lpcbdata: MutPtr): Hresult =
     WindowsWin32MediaMultimediaJniBridge.windowssysWindowsWin32MediaMultimediaAVIFileReadData(pfile.rawAddress, ckid.toInt(), lpdata.rawAddress, lpcbdata.rawAddress)
 
-public actual fun aVIFileRelease(pfile: MutPtr<CVoid>): UInt =
+public actual fun aVIFileRelease(pfile: MutPtr): UInt =
     WindowsWin32MediaMultimediaJniBridge.windowssysWindowsWin32MediaMultimediaAVIFileRelease(pfile.rawAddress).toUInt()
 
-public actual fun aVIFileWriteData(pfile: MutPtr<CVoid>, ckid: UInt, lpdata: ConstPtr<CVoid>, cbdata: Int): Hresult =
+public actual fun aVIFileWriteData(pfile: MutPtr, ckid: UInt, lpdata: ConstPtr, cbdata: Int): Hresult =
     WindowsWin32MediaMultimediaJniBridge.windowssysWindowsWin32MediaMultimediaAVIFileWriteData(pfile.rawAddress, ckid.toInt(), lpdata.rawAddress, cbdata)
 
-public actual fun aVIGetFromClipboard(lppf: MutPtr<MutPtr<CVoid>>): Hresult =
+public actual fun aVIGetFromClipboard(lppf: MutPtr): Hresult =
     WindowsWin32MediaMultimediaJniBridge.windowssysWindowsWin32MediaMultimediaAVIGetFromClipboard(lppf.rawAddress)
 
-public actual fun aVIMakeCompressedStream(ppscompressed: MutPtr<MutPtr<CVoid>>, ppssource: MutPtr<CVoid>, lpoptions: ConstPtr<Avicompressoptions>, pclsidhandler: ConstPtr<Guid>): Hresult =
+public actual fun aVIMakeCompressedStream(ppscompressed: MutPtr, ppssource: MutPtr, lpoptions: ConstPtr, pclsidhandler: ConstPtr): Hresult =
     WindowsWin32MediaMultimediaJniBridge.windowssysWindowsWin32MediaMultimediaAVIMakeCompressedStream(ppscompressed.rawAddress, ppssource.rawAddress, lpoptions.rawAddress, pclsidhandler.rawAddress)
 
-public actual fun aVIMakeFileFromStreams(ppfile: MutPtr<MutPtr<CVoid>>, nstreams: Int, papstreams: ConstPtr<MutPtr<CVoid>>): Hresult =
+public actual fun aVIMakeFileFromStreams(ppfile: MutPtr, nstreams: Int, papstreams: ConstPtr): Hresult =
     WindowsWin32MediaMultimediaJniBridge.windowssysWindowsWin32MediaMultimediaAVIMakeFileFromStreams(ppfile.rawAddress, nstreams, papstreams.rawAddress)
 
-public actual fun aVIMakeStreamFromClipboard(cfformat: UInt, hglobal: Handle, ppstream: MutPtr<MutPtr<CVoid>>): Hresult =
+public actual fun aVIMakeStreamFromClipboard(cfformat: UInt, hglobal: Handle, ppstream: MutPtr): Hresult =
     WindowsWin32MediaMultimediaJniBridge.windowssysWindowsWin32MediaMultimediaAVIMakeStreamFromClipboard(cfformat.toInt(), hglobal.rawAddress, ppstream.rawAddress)
 
-public actual fun aVIPutFileOnClipboard(pf: MutPtr<CVoid>): Hresult =
+public actual fun aVIPutFileOnClipboard(pf: MutPtr): Hresult =
     WindowsWin32MediaMultimediaJniBridge.windowssysWindowsWin32MediaMultimediaAVIPutFileOnClipboard(pf.rawAddress)
 
-public actual fun aVISaveA(szfile: Pcstr, pclsidhandler: ConstPtr<Guid>, lpfncallback: Avisavecallback, nstreams: Int, pfile: MutPtr<CVoid>, lpoptions: ConstPtr<Avicompressoptions>, vararg variadicArgs: Long): Hresult =
+public actual fun aVISaveA(szfile: Pcstr, pclsidhandler: ConstPtr, lpfncallback: Avisavecallback, nstreams: Int, pfile: MutPtr, lpoptions: ConstPtr, vararg variadicArgs: Long): Hresult =
     WindowsWin32MediaMultimediaJniBridge.windowssysWindowsWin32MediaMultimediaAVISaveA(szfile.rawAddress, pclsidhandler.rawAddress, 0L, nstreams, pfile.rawAddress, lpoptions.rawAddress, variadicArgs.size.coerceAtMost(4), if (variadicArgs.size > 0) variadicArgs[0] else 0L, if (variadicArgs.size > 1) variadicArgs[1] else 0L, if (variadicArgs.size > 2) variadicArgs[2] else 0L, if (variadicArgs.size > 3) variadicArgs[3] else 0L)
 
-public actual fun aVISaveOptions(hwnd: Hwnd, uiflags: UInt, nstreams: Int, ppavi: ConstPtr<MutPtr<CVoid>>, plpoptions: MutPtr<MutPtr<Avicompressoptions>>): Long =
+public actual fun aVISaveOptions(hwnd: Hwnd, uiflags: UInt, nstreams: Int, ppavi: ConstPtr, plpoptions: MutPtr): Long =
     WindowsWin32MediaMultimediaJniBridge.windowssysWindowsWin32MediaMultimediaAVISaveOptions(hwnd.rawAddress, uiflags.toInt(), nstreams, ppavi.rawAddress, plpoptions.rawAddress)
 
-public actual fun aVISaveOptionsFree(nstreams: Int, plpoptions: ConstPtr<ConstPtr<Avicompressoptions>>): Hresult =
+public actual fun aVISaveOptionsFree(nstreams: Int, plpoptions: ConstPtr): Hresult =
     WindowsWin32MediaMultimediaJniBridge.windowssysWindowsWin32MediaMultimediaAVISaveOptionsFree(nstreams, plpoptions.rawAddress)
 
-public actual fun aVISaveVA(szfile: Pcstr, pclsidhandler: ConstPtr<Guid>, lpfncallback: Avisavecallback, nstreams: Int, ppavi: ConstPtr<MutPtr<CVoid>>, plpoptions: ConstPtr<ConstPtr<Avicompressoptions>>): Hresult =
+public actual fun aVISaveVA(szfile: Pcstr, pclsidhandler: ConstPtr, lpfncallback: Avisavecallback, nstreams: Int, ppavi: ConstPtr, plpoptions: ConstPtr): Hresult =
     WindowsWin32MediaMultimediaJniBridge.windowssysWindowsWin32MediaMultimediaAVISaveVA(szfile.rawAddress, pclsidhandler.rawAddress, 0L, nstreams, ppavi.rawAddress, plpoptions.rawAddress)
 
-public actual fun aVISaveVW(szfile: Pcwstr, pclsidhandler: ConstPtr<Guid>, lpfncallback: Avisavecallback, nstreams: Int, ppavi: ConstPtr<MutPtr<CVoid>>, plpoptions: ConstPtr<ConstPtr<Avicompressoptions>>): Hresult =
+public actual fun aVISaveVW(szfile: Pcwstr, pclsidhandler: ConstPtr, lpfncallback: Avisavecallback, nstreams: Int, ppavi: ConstPtr, plpoptions: ConstPtr): Hresult =
     WindowsWin32MediaMultimediaJniBridge.windowssysWindowsWin32MediaMultimediaAVISaveVW(szfile.rawAddress, pclsidhandler.rawAddress, 0L, nstreams, ppavi.rawAddress, plpoptions.rawAddress)
 
-public actual fun aVISaveW(szfile: Pcwstr, pclsidhandler: ConstPtr<Guid>, lpfncallback: Avisavecallback, nstreams: Int, pfile: MutPtr<CVoid>, lpoptions: ConstPtr<Avicompressoptions>, vararg variadicArgs: Long): Hresult =
+public actual fun aVISaveW(szfile: Pcwstr, pclsidhandler: ConstPtr, lpfncallback: Avisavecallback, nstreams: Int, pfile: MutPtr, lpoptions: ConstPtr, vararg variadicArgs: Long): Hresult =
     WindowsWin32MediaMultimediaJniBridge.windowssysWindowsWin32MediaMultimediaAVISaveW(szfile.rawAddress, pclsidhandler.rawAddress, 0L, nstreams, pfile.rawAddress, lpoptions.rawAddress, variadicArgs.size.coerceAtMost(4), if (variadicArgs.size > 0) variadicArgs[0] else 0L, if (variadicArgs.size > 1) variadicArgs[1] else 0L, if (variadicArgs.size > 2) variadicArgs[2] else 0L, if (variadicArgs.size > 3) variadicArgs[3] else 0L)
 
-public actual fun aVIStreamAddRef(pavi: MutPtr<CVoid>): UInt =
+public actual fun aVIStreamAddRef(pavi: MutPtr): UInt =
     WindowsWin32MediaMultimediaJniBridge.windowssysWindowsWin32MediaMultimediaAVIStreamAddRef(pavi.rawAddress).toUInt()
 
-public actual fun aVIStreamBeginStreaming(pavi: MutPtr<CVoid>, lstart: Int, lend: Int, lrate: Int): Hresult =
+public actual fun aVIStreamBeginStreaming(pavi: MutPtr, lstart: Int, lend: Int, lrate: Int): Hresult =
     WindowsWin32MediaMultimediaJniBridge.windowssysWindowsWin32MediaMultimediaAVIStreamBeginStreaming(pavi.rawAddress, lstart, lend, lrate)
 
-public actual fun aVIStreamCreate(ppavi: MutPtr<MutPtr<CVoid>>, lparam1: Int, lparam2: Int, pclsidhandler: ConstPtr<Guid>): Hresult =
+public actual fun aVIStreamCreate(ppavi: MutPtr, lparam1: Int, lparam2: Int, pclsidhandler: ConstPtr): Hresult =
     WindowsWin32MediaMultimediaJniBridge.windowssysWindowsWin32MediaMultimediaAVIStreamCreate(ppavi.rawAddress, lparam1, lparam2, pclsidhandler.rawAddress)
 
-public actual fun aVIStreamEndStreaming(pavi: MutPtr<CVoid>): Hresult =
+public actual fun aVIStreamEndStreaming(pavi: MutPtr): Hresult =
     WindowsWin32MediaMultimediaJniBridge.windowssysWindowsWin32MediaMultimediaAVIStreamEndStreaming(pavi.rawAddress)
 
-public actual fun aVIStreamFindSample(pavi: MutPtr<CVoid>, lpos: Int, lflags: Int): Int =
+public actual fun aVIStreamFindSample(pavi: MutPtr, lpos: Int, lflags: Int): Int =
     WindowsWin32MediaMultimediaJniBridge.windowssysWindowsWin32MediaMultimediaAVIStreamFindSample(pavi.rawAddress, lpos, lflags)
 
-public actual fun aVIStreamGetFrame(pg: MutPtr<CVoid>, lpos: Int): MutPtr<CVoid> =
+public actual fun aVIStreamGetFrame(pg: MutPtr, lpos: Int): MutPtr =
     MutPtr(WindowsWin32MediaMultimediaJniBridge.windowssysWindowsWin32MediaMultimediaAVIStreamGetFrame(pg.rawAddress, lpos))
 
-public actual fun aVIStreamGetFrameClose(pg: MutPtr<CVoid>): Hresult =
+public actual fun aVIStreamGetFrameClose(pg: MutPtr): Hresult =
     WindowsWin32MediaMultimediaJniBridge.windowssysWindowsWin32MediaMultimediaAVIStreamGetFrameClose(pg.rawAddress)
 
-public actual fun aVIStreamGetFrameOpen(pavi: MutPtr<CVoid>, lpbiwanted: ConstPtr<Bitmapinfoheader>): MutPtr<CVoid> =
+public actual fun aVIStreamGetFrameOpen(pavi: MutPtr, lpbiwanted: ConstPtr): MutPtr =
     MutPtr(WindowsWin32MediaMultimediaJniBridge.windowssysWindowsWin32MediaMultimediaAVIStreamGetFrameOpen(pavi.rawAddress, lpbiwanted.rawAddress))
 
-public actual fun aVIStreamInfoA(pavi: MutPtr<CVoid>, psi: MutPtr<Avistreaminfoa>, lsize: Int): Hresult =
+public actual fun aVIStreamInfoA(pavi: MutPtr, psi: MutPtr, lsize: Int): Hresult =
     WindowsWin32MediaMultimediaJniBridge.windowssysWindowsWin32MediaMultimediaAVIStreamInfoA(pavi.rawAddress, psi.rawAddress, lsize)
 
-public actual fun aVIStreamInfoW(pavi: MutPtr<CVoid>, psi: MutPtr<Avistreaminfow>, lsize: Int): Hresult =
+public actual fun aVIStreamInfoW(pavi: MutPtr, psi: MutPtr, lsize: Int): Hresult =
     WindowsWin32MediaMultimediaJniBridge.windowssysWindowsWin32MediaMultimediaAVIStreamInfoW(pavi.rawAddress, psi.rawAddress, lsize)
 
-public actual fun aVIStreamLength(pavi: MutPtr<CVoid>): Int =
+public actual fun aVIStreamLength(pavi: MutPtr): Int =
     WindowsWin32MediaMultimediaJniBridge.windowssysWindowsWin32MediaMultimediaAVIStreamLength(pavi.rawAddress)
 
-public actual fun aVIStreamOpenFromFileA(ppavi: MutPtr<MutPtr<CVoid>>, szfile: Pcstr, fcctype: UInt, lparam: Int, mode: UInt, pclsidhandler: ConstPtr<Guid>): Hresult =
+public actual fun aVIStreamOpenFromFileA(ppavi: MutPtr, szfile: Pcstr, fcctype: UInt, lparam: Int, mode: UInt, pclsidhandler: ConstPtr): Hresult =
     WindowsWin32MediaMultimediaJniBridge.windowssysWindowsWin32MediaMultimediaAVIStreamOpenFromFileA(ppavi.rawAddress, szfile.rawAddress, fcctype.toInt(), lparam, mode.toInt(), pclsidhandler.rawAddress)
 
-public actual fun aVIStreamOpenFromFileW(ppavi: MutPtr<MutPtr<CVoid>>, szfile: Pcwstr, fcctype: UInt, lparam: Int, mode: UInt, pclsidhandler: ConstPtr<Guid>): Hresult =
+public actual fun aVIStreamOpenFromFileW(ppavi: MutPtr, szfile: Pcwstr, fcctype: UInt, lparam: Int, mode: UInt, pclsidhandler: ConstPtr): Hresult =
     WindowsWin32MediaMultimediaJniBridge.windowssysWindowsWin32MediaMultimediaAVIStreamOpenFromFileW(ppavi.rawAddress, szfile.rawAddress, fcctype.toInt(), lparam, mode.toInt(), pclsidhandler.rawAddress)
 
-public actual fun aVIStreamRead(pavi: MutPtr<CVoid>, lstart: Int, lsamples: Int, lpbuffer: MutPtr<CVoid>, cbbuffer: Int, plbytes: MutPtr<Int>, plsamples: MutPtr<Int>): Hresult =
+public actual fun aVIStreamRead(pavi: MutPtr, lstart: Int, lsamples: Int, lpbuffer: MutPtr, cbbuffer: Int, plbytes: MutPtr, plsamples: MutPtr): Hresult =
     WindowsWin32MediaMultimediaJniBridge.windowssysWindowsWin32MediaMultimediaAVIStreamRead(pavi.rawAddress, lstart, lsamples, lpbuffer.rawAddress, cbbuffer, plbytes.rawAddress, plsamples.rawAddress)
 
-public actual fun aVIStreamReadData(pavi: MutPtr<CVoid>, fcc: UInt, lp: MutPtr<CVoid>, lpcb: MutPtr<Int>): Hresult =
+public actual fun aVIStreamReadData(pavi: MutPtr, fcc: UInt, lp: MutPtr, lpcb: MutPtr): Hresult =
     WindowsWin32MediaMultimediaJniBridge.windowssysWindowsWin32MediaMultimediaAVIStreamReadData(pavi.rawAddress, fcc.toInt(), lp.rawAddress, lpcb.rawAddress)
 
-public actual fun aVIStreamReadFormat(pavi: MutPtr<CVoid>, lpos: Int, lpformat: MutPtr<CVoid>, lpcbformat: MutPtr<Int>): Hresult =
+public actual fun aVIStreamReadFormat(pavi: MutPtr, lpos: Int, lpformat: MutPtr, lpcbformat: MutPtr): Hresult =
     WindowsWin32MediaMultimediaJniBridge.windowssysWindowsWin32MediaMultimediaAVIStreamReadFormat(pavi.rawAddress, lpos, lpformat.rawAddress, lpcbformat.rawAddress)
 
-public actual fun aVIStreamRelease(pavi: MutPtr<CVoid>): UInt =
+public actual fun aVIStreamRelease(pavi: MutPtr): UInt =
     WindowsWin32MediaMultimediaJniBridge.windowssysWindowsWin32MediaMultimediaAVIStreamRelease(pavi.rawAddress).toUInt()
 
-public actual fun aVIStreamSampleToTime(pavi: MutPtr<CVoid>, lsample: Int): Int =
+public actual fun aVIStreamSampleToTime(pavi: MutPtr, lsample: Int): Int =
     WindowsWin32MediaMultimediaJniBridge.windowssysWindowsWin32MediaMultimediaAVIStreamSampleToTime(pavi.rawAddress, lsample)
 
-public actual fun aVIStreamSetFormat(pavi: MutPtr<CVoid>, lpos: Int, lpformat: ConstPtr<CVoid>, cbformat: Int): Hresult =
+public actual fun aVIStreamSetFormat(pavi: MutPtr, lpos: Int, lpformat: ConstPtr, cbformat: Int): Hresult =
     WindowsWin32MediaMultimediaJniBridge.windowssysWindowsWin32MediaMultimediaAVIStreamSetFormat(pavi.rawAddress, lpos, lpformat.rawAddress, cbformat)
 
-public actual fun aVIStreamStart(pavi: MutPtr<CVoid>): Int =
+public actual fun aVIStreamStart(pavi: MutPtr): Int =
     WindowsWin32MediaMultimediaJniBridge.windowssysWindowsWin32MediaMultimediaAVIStreamStart(pavi.rawAddress)
 
-public actual fun aVIStreamTimeToSample(pavi: MutPtr<CVoid>, ltime: Int): Int =
+public actual fun aVIStreamTimeToSample(pavi: MutPtr, ltime: Int): Int =
     WindowsWin32MediaMultimediaJniBridge.windowssysWindowsWin32MediaMultimediaAVIStreamTimeToSample(pavi.rawAddress, ltime)
 
-public actual fun aVIStreamWrite(pavi: MutPtr<CVoid>, lstart: Int, lsamples: Int, lpbuffer: ConstPtr<CVoid>, cbbuffer: Int, dwflags: UInt, plsampwritten: MutPtr<Int>, plbyteswritten: MutPtr<Int>): Hresult =
+public actual fun aVIStreamWrite(pavi: MutPtr, lstart: Int, lsamples: Int, lpbuffer: ConstPtr, cbbuffer: Int, dwflags: UInt, plsampwritten: MutPtr, plbyteswritten: MutPtr): Hresult =
     WindowsWin32MediaMultimediaJniBridge.windowssysWindowsWin32MediaMultimediaAVIStreamWrite(pavi.rawAddress, lstart, lsamples, lpbuffer.rawAddress, cbbuffer, dwflags.toInt(), plsampwritten.rawAddress, plbyteswritten.rawAddress)
 
-public actual fun aVIStreamWriteData(pavi: MutPtr<CVoid>, fcc: UInt, lp: ConstPtr<CVoid>, cb: Int): Hresult =
+public actual fun aVIStreamWriteData(pavi: MutPtr, fcc: UInt, lp: ConstPtr, cb: Int): Hresult =
     WindowsWin32MediaMultimediaJniBridge.windowssysWindowsWin32MediaMultimediaAVIStreamWriteData(pavi.rawAddress, fcc.toInt(), lp.rawAddress, cb)
 
 public actual fun closeDriver(hdriver: Hdrvr, lparam1: Lparam, lparam2: Lparam): Lresult =
     WindowsWin32MediaMultimediaJniBridge.windowssysWindowsWin32MediaMultimediaCloseDriver(hdriver.rawAddress, lparam1, lparam2)
 
-public actual fun createEditableStream(ppseditable: MutPtr<MutPtr<CVoid>>, pssource: MutPtr<CVoid>): Hresult =
+public actual fun createEditableStream(ppseditable: MutPtr, pssource: MutPtr): Hresult =
     WindowsWin32MediaMultimediaJniBridge.windowssysWindowsWin32MediaMultimediaCreateEditableStream(ppseditable.rawAddress, pssource.rawAddress)
 
 public actual fun defDriverProc(dwdriveridentifier: ULong, hdrvr: Hdrvr, umsg: UInt, lparam1: Lparam, lparam2: Lparam): Lresult =
     WindowsWin32MediaMultimediaJniBridge.windowssysWindowsWin32MediaMultimediaDefDriverProc(dwdriveridentifier.toLong(), hdrvr.rawAddress, umsg.toInt(), lparam1, lparam2)
 
-public actual fun drawDibBegin(hdd: Long, hdc: Hdc, dxdst: Int, dydst: Int, lpbi: ConstPtr<Bitmapinfoheader>, dxsrc: Int, dysrc: Int, wflags: UInt): Bool =
+public actual fun drawDibBegin(hdd: Long, hdc: Hdc, dxdst: Int, dydst: Int, lpbi: ConstPtr, dxsrc: Int, dysrc: Int, wflags: UInt): Bool =
     WindowsWin32MediaMultimediaJniBridge.windowssysWindowsWin32MediaMultimediaDrawDibBegin(hdd, hdc.rawAddress, dxdst, dydst, lpbi.rawAddress, dxsrc, dysrc, wflags.toInt())
 
-public actual fun drawDibChangePalette(hdd: Long, istart: Int, ilen: Int, lppe: ConstPtr<Paletteentry>): Bool =
+public actual fun drawDibChangePalette(hdd: Long, istart: Int, ilen: Int, lppe: ConstPtr): Bool =
     WindowsWin32MediaMultimediaJniBridge.windowssysWindowsWin32MediaMultimediaDrawDibChangePalette(hdd, istart, ilen, lppe.rawAddress)
 
 public actual fun drawDibClose(hdd: Long): Bool =
     WindowsWin32MediaMultimediaJniBridge.windowssysWindowsWin32MediaMultimediaDrawDibClose(hdd)
 
-public actual fun drawDibDraw(hdd: Long, hdc: Hdc, xdst: Int, ydst: Int, dxdst: Int, dydst: Int, lpbi: ConstPtr<Bitmapinfoheader>, lpbits: ConstPtr<CVoid>, xsrc: Int, ysrc: Int, dxsrc: Int, dysrc: Int, wflags: UInt): Bool =
+public actual fun drawDibDraw(hdd: Long, hdc: Hdc, xdst: Int, ydst: Int, dxdst: Int, dydst: Int, lpbi: ConstPtr, lpbits: ConstPtr, xsrc: Int, ysrc: Int, dxsrc: Int, dysrc: Int, wflags: UInt): Bool =
     WindowsWin32MediaMultimediaJniBridge.windowssysWindowsWin32MediaMultimediaDrawDibDraw(hdd, hdc.rawAddress, xdst, ydst, dxdst, dydst, lpbi.rawAddress, lpbits.rawAddress, xsrc, ysrc, dxsrc, dysrc, wflags.toInt())
 
 public actual fun drawDibEnd(hdd: Long): Bool =
     WindowsWin32MediaMultimediaJniBridge.windowssysWindowsWin32MediaMultimediaDrawDibEnd(hdd)
 
-public actual fun drawDibGetBuffer(hdd: Long, lpbi: MutPtr<Bitmapinfoheader>, dwsize: UInt, dwflags: UInt): MutPtr<CVoid> =
+public actual fun drawDibGetBuffer(hdd: Long, lpbi: MutPtr, dwsize: UInt, dwflags: UInt): MutPtr =
     MutPtr(WindowsWin32MediaMultimediaJniBridge.windowssysWindowsWin32MediaMultimediaDrawDibGetBuffer(hdd, lpbi.rawAddress, dwsize.toInt(), dwflags.toInt()))
 
 public actual fun drawDibGetPalette(hdd: Long): Hpalette =
@@ -780,7 +773,7 @@ public actual fun drawDibGetPalette(hdd: Long): Hpalette =
 public actual fun drawDibOpen(): Long =
     WindowsWin32MediaMultimediaJniBridge.windowssysWindowsWin32MediaMultimediaDrawDibOpen()
 
-public actual fun drawDibProfileDisplay(lpbi: ConstPtr<Bitmapinfoheader>): Lresult =
+public actual fun drawDibProfileDisplay(lpbi: ConstPtr): Lresult =
     WindowsWin32MediaMultimediaJniBridge.windowssysWindowsWin32MediaMultimediaDrawDibProfileDisplay(lpbi.rawAddress)
 
 public actual fun drawDibRealize(hdd: Long, hdc: Hdc, fbackground: Bool): UInt =
@@ -795,7 +788,7 @@ public actual fun drawDibStart(hdd: Long, rate: UInt): Bool =
 public actual fun drawDibStop(hdd: Long): Bool =
     WindowsWin32MediaMultimediaJniBridge.windowssysWindowsWin32MediaMultimediaDrawDibStop(hdd)
 
-public actual fun drawDibTime(hdd: Long, lpddtime: MutPtr<Drawdibtime>): Bool =
+public actual fun drawDibTime(hdd: Long, lpddtime: MutPtr): Bool =
     WindowsWin32MediaMultimediaJniBridge.windowssysWindowsWin32MediaMultimediaDrawDibTime(hdd, lpddtime.rawAddress)
 
 public actual fun driverCallback(dwcallback: ULong, dwflags: UInt, hdevice: Hdrvr, dwmsg: UInt, dwuser: ULong, dwparam1: ULong, dwparam2: ULong): Bool =
@@ -804,86 +797,86 @@ public actual fun driverCallback(dwcallback: ULong, dwflags: UInt, hdevice: Hdrv
 public actual fun drvGetModuleHandle(hdriver: Hdrvr): Hmodule =
     MutPtr(WindowsWin32MediaMultimediaJniBridge.windowssysWindowsWin32MediaMultimediaDrvGetModuleHandle(hdriver.rawAddress))
 
-public actual fun editStreamClone(pavi: MutPtr<CVoid>, ppresult: MutPtr<MutPtr<CVoid>>): Hresult =
+public actual fun editStreamClone(pavi: MutPtr, ppresult: MutPtr): Hresult =
     WindowsWin32MediaMultimediaJniBridge.windowssysWindowsWin32MediaMultimediaEditStreamClone(pavi.rawAddress, ppresult.rawAddress)
 
-public actual fun editStreamCopy(pavi: MutPtr<CVoid>, plstart: MutPtr<Int>, pllength: MutPtr<Int>, ppresult: MutPtr<MutPtr<CVoid>>): Hresult =
+public actual fun editStreamCopy(pavi: MutPtr, plstart: MutPtr, pllength: MutPtr, ppresult: MutPtr): Hresult =
     WindowsWin32MediaMultimediaJniBridge.windowssysWindowsWin32MediaMultimediaEditStreamCopy(pavi.rawAddress, plstart.rawAddress, pllength.rawAddress, ppresult.rawAddress)
 
-public actual fun editStreamCut(pavi: MutPtr<CVoid>, plstart: MutPtr<Int>, pllength: MutPtr<Int>, ppresult: MutPtr<MutPtr<CVoid>>): Hresult =
+public actual fun editStreamCut(pavi: MutPtr, plstart: MutPtr, pllength: MutPtr, ppresult: MutPtr): Hresult =
     WindowsWin32MediaMultimediaJniBridge.windowssysWindowsWin32MediaMultimediaEditStreamCut(pavi.rawAddress, plstart.rawAddress, pllength.rawAddress, ppresult.rawAddress)
 
-public actual fun editStreamPaste(pavi: MutPtr<CVoid>, plpos: MutPtr<Int>, pllength: MutPtr<Int>, pstream: MutPtr<CVoid>, lstart: Int, lend: Int): Hresult =
+public actual fun editStreamPaste(pavi: MutPtr, plpos: MutPtr, pllength: MutPtr, pstream: MutPtr, lstart: Int, lend: Int): Hresult =
     WindowsWin32MediaMultimediaJniBridge.windowssysWindowsWin32MediaMultimediaEditStreamPaste(pavi.rawAddress, plpos.rawAddress, pllength.rawAddress, pstream.rawAddress, lstart, lend)
 
-public actual fun editStreamSetInfoA(pavi: MutPtr<CVoid>, lpinfo: ConstPtr<Avistreaminfoa>, cbinfo: Int): Hresult =
+public actual fun editStreamSetInfoA(pavi: MutPtr, lpinfo: ConstPtr, cbinfo: Int): Hresult =
     WindowsWin32MediaMultimediaJniBridge.windowssysWindowsWin32MediaMultimediaEditStreamSetInfoA(pavi.rawAddress, lpinfo.rawAddress, cbinfo)
 
-public actual fun editStreamSetInfoW(pavi: MutPtr<CVoid>, lpinfo: ConstPtr<Avistreaminfow>, cbinfo: Int): Hresult =
+public actual fun editStreamSetInfoW(pavi: MutPtr, lpinfo: ConstPtr, cbinfo: Int): Hresult =
     WindowsWin32MediaMultimediaJniBridge.windowssysWindowsWin32MediaMultimediaEditStreamSetInfoW(pavi.rawAddress, lpinfo.rawAddress, cbinfo)
 
-public actual fun editStreamSetNameA(pavi: MutPtr<CVoid>, lpszname: Pcstr): Hresult =
+public actual fun editStreamSetNameA(pavi: MutPtr, lpszname: Pcstr): Hresult =
     WindowsWin32MediaMultimediaJniBridge.windowssysWindowsWin32MediaMultimediaEditStreamSetNameA(pavi.rawAddress, lpszname.rawAddress)
 
-public actual fun editStreamSetNameW(pavi: MutPtr<CVoid>, lpszname: Pcwstr): Hresult =
+public actual fun editStreamSetNameW(pavi: MutPtr, lpszname: Pcwstr): Hresult =
     WindowsWin32MediaMultimediaJniBridge.windowssysWindowsWin32MediaMultimediaEditStreamSetNameW(pavi.rawAddress, lpszname.rawAddress)
 
 public actual fun getDriverModuleHandle(hdriver: Hdrvr): Hmodule =
     MutPtr(WindowsWin32MediaMultimediaJniBridge.windowssysWindowsWin32MediaMultimediaGetDriverModuleHandle(hdriver.rawAddress))
 
-public actual fun getOpenFileNamePreviewA(lpofn: MutPtr<Openfilenamea>): Bool =
+public actual fun getOpenFileNamePreviewA(lpofn: MutPtr): Bool =
     WindowsWin32MediaMultimediaJniBridge.windowssysWindowsWin32MediaMultimediaGetOpenFileNamePreviewA(lpofn.rawAddress)
 
-public actual fun getOpenFileNamePreviewW(lpofn: MutPtr<Openfilenamew>): Bool =
+public actual fun getOpenFileNamePreviewW(lpofn: MutPtr): Bool =
     WindowsWin32MediaMultimediaJniBridge.windowssysWindowsWin32MediaMultimediaGetOpenFileNamePreviewW(lpofn.rawAddress)
 
-public actual fun getSaveFileNamePreviewA(lpofn: MutPtr<Openfilenamea>): Bool =
+public actual fun getSaveFileNamePreviewA(lpofn: MutPtr): Bool =
     WindowsWin32MediaMultimediaJniBridge.windowssysWindowsWin32MediaMultimediaGetSaveFileNamePreviewA(lpofn.rawAddress)
 
-public actual fun getSaveFileNamePreviewW(lpofn: MutPtr<Openfilenamew>): Bool =
+public actual fun getSaveFileNamePreviewW(lpofn: MutPtr): Bool =
     WindowsWin32MediaMultimediaJniBridge.windowssysWindowsWin32MediaMultimediaGetSaveFileNamePreviewW(lpofn.rawAddress)
 
 public actual fun iCClose(hic: Hic): Lresult =
     WindowsWin32MediaMultimediaJniBridge.windowssysWindowsWin32MediaMultimediaICClose(hic.rawAddress)
 
-public actual fun iCCompress(hic: Hic, dwflags: UInt, lpbioutput: ConstPtr<Bitmapinfoheader>, lpdata: MutPtr<CVoid>, lpbiinput: ConstPtr<Bitmapinfoheader>, lpbits: ConstPtr<CVoid>, lpckid: MutPtr<UInt>, lpdwflags: MutPtr<UInt>, lframenum: Int, dwframesize: UInt, dwquality: UInt, lpbiprev: ConstPtr<Bitmapinfoheader>, lpprev: ConstPtr<CVoid>): UInt =
+public actual fun iCCompress(hic: Hic, dwflags: UInt, lpbioutput: ConstPtr, lpdata: MutPtr, lpbiinput: ConstPtr, lpbits: ConstPtr, lpckid: MutPtr, lpdwflags: MutPtr, lframenum: Int, dwframesize: UInt, dwquality: UInt, lpbiprev: ConstPtr, lpprev: ConstPtr): UInt =
     WindowsWin32MediaMultimediaJniBridge.windowssysWindowsWin32MediaMultimediaICCompress(hic.rawAddress, dwflags.toInt(), lpbioutput.rawAddress, lpdata.rawAddress, lpbiinput.rawAddress, lpbits.rawAddress, lpckid.rawAddress, lpdwflags.rawAddress, lframenum, dwframesize.toInt(), dwquality.toInt(), lpbiprev.rawAddress, lpprev.rawAddress).toUInt()
 
-public actual fun iCCompressorChoose(hwnd: Hwnd, uiflags: UInt, pvin: ConstPtr<CVoid>, lpdata: ConstPtr<CVoid>, pc: MutPtr<Compvars>, lpsztitle: Pcstr): Bool =
+public actual fun iCCompressorChoose(hwnd: Hwnd, uiflags: UInt, pvin: ConstPtr, lpdata: ConstPtr, pc: MutPtr, lpsztitle: Pcstr): Bool =
     WindowsWin32MediaMultimediaJniBridge.windowssysWindowsWin32MediaMultimediaICCompressorChoose(hwnd.rawAddress, uiflags.toInt(), pvin.rawAddress, lpdata.rawAddress, pc.rawAddress, lpsztitle.rawAddress)
 
-public actual fun iCCompressorFree(pc: ConstPtr<Compvars>) {
+public actual fun iCCompressorFree(pc: ConstPtr) {
     WindowsWin32MediaMultimediaJniBridge.windowssysWindowsWin32MediaMultimediaICCompressorFree(pc.rawAddress)
 }
 
-public actual fun iCDecompress(hic: Hic, dwflags: UInt, lpbiformat: ConstPtr<Bitmapinfoheader>, lpdata: ConstPtr<CVoid>, lpbi: ConstPtr<Bitmapinfoheader>, lpbits: MutPtr<CVoid>): UInt =
+public actual fun iCDecompress(hic: Hic, dwflags: UInt, lpbiformat: ConstPtr, lpdata: ConstPtr, lpbi: ConstPtr, lpbits: MutPtr): UInt =
     WindowsWin32MediaMultimediaJniBridge.windowssysWindowsWin32MediaMultimediaICDecompress(hic.rawAddress, dwflags.toInt(), lpbiformat.rawAddress, lpdata.rawAddress, lpbi.rawAddress, lpbits.rawAddress).toUInt()
 
-public actual fun iCDraw(hic: Hic, dwflags: UInt, lpformat: ConstPtr<CVoid>, lpdata: ConstPtr<CVoid>, cbdata: UInt, ltime: Int): UInt =
+public actual fun iCDraw(hic: Hic, dwflags: UInt, lpformat: ConstPtr, lpdata: ConstPtr, cbdata: UInt, ltime: Int): UInt =
     WindowsWin32MediaMultimediaJniBridge.windowssysWindowsWin32MediaMultimediaICDraw(hic.rawAddress, dwflags.toInt(), lpformat.rawAddress, lpdata.rawAddress, cbdata.toInt(), ltime).toUInt()
 
-public actual fun iCDrawBegin(hic: Hic, dwflags: UInt, hpal: Hpalette, hwnd: Hwnd, hdc: Hdc, xdst: Int, ydst: Int, dxdst: Int, dydst: Int, lpbi: ConstPtr<Bitmapinfoheader>, xsrc: Int, ysrc: Int, dxsrc: Int, dysrc: Int, dwrate: UInt, dwscale: UInt): UInt =
+public actual fun iCDrawBegin(hic: Hic, dwflags: UInt, hpal: Hpalette, hwnd: Hwnd, hdc: Hdc, xdst: Int, ydst: Int, dxdst: Int, dydst: Int, lpbi: ConstPtr, xsrc: Int, ysrc: Int, dxsrc: Int, dysrc: Int, dwrate: UInt, dwscale: UInt): UInt =
     WindowsWin32MediaMultimediaJniBridge.windowssysWindowsWin32MediaMultimediaICDrawBegin(hic.rawAddress, dwflags.toInt(), hpal.rawAddress, hwnd.rawAddress, hdc.rawAddress, xdst, ydst, dxdst, dydst, lpbi.rawAddress, xsrc, ysrc, dxsrc, dysrc, dwrate.toInt(), dwscale.toInt()).toUInt()
 
-public actual fun iCGetDisplayFormat(hic: Hic, lpbiin: ConstPtr<Bitmapinfoheader>, lpbiout: MutPtr<Bitmapinfoheader>, bitdepth: Int, dx: Int, dy: Int): Hic =
+public actual fun iCGetDisplayFormat(hic: Hic, lpbiin: ConstPtr, lpbiout: MutPtr, bitdepth: Int, dx: Int, dy: Int): Hic =
     MutPtr(WindowsWin32MediaMultimediaJniBridge.windowssysWindowsWin32MediaMultimediaICGetDisplayFormat(hic.rawAddress, lpbiin.rawAddress, lpbiout.rawAddress, bitdepth, dx, dy))
 
-public actual fun iCGetInfo(hic: Hic, picinfo: MutPtr<Icinfo>, cb: UInt): Lresult =
+public actual fun iCGetInfo(hic: Hic, picinfo: MutPtr, cb: UInt): Lresult =
     WindowsWin32MediaMultimediaJniBridge.windowssysWindowsWin32MediaMultimediaICGetInfo(hic.rawAddress, picinfo.rawAddress, cb.toInt())
 
-public actual fun iCImageCompress(hic: Hic, uiflags: UInt, lpbiin: ConstPtr<Bitmapinfo>, lpbits: ConstPtr<CVoid>, lpbiout: ConstPtr<Bitmapinfo>, lquality: Int, plsize: MutPtr<Int>): Handle =
+public actual fun iCImageCompress(hic: Hic, uiflags: UInt, lpbiin: ConstPtr, lpbits: ConstPtr, lpbiout: ConstPtr, lquality: Int, plsize: MutPtr): Handle =
     MutPtr(WindowsWin32MediaMultimediaJniBridge.windowssysWindowsWin32MediaMultimediaICImageCompress(hic.rawAddress, uiflags.toInt(), lpbiin.rawAddress, lpbits.rawAddress, lpbiout.rawAddress, lquality, plsize.rawAddress))
 
-public actual fun iCImageDecompress(hic: Hic, uiflags: UInt, lpbiin: ConstPtr<Bitmapinfo>, lpbits: ConstPtr<CVoid>, lpbiout: ConstPtr<Bitmapinfo>): Handle =
+public actual fun iCImageDecompress(hic: Hic, uiflags: UInt, lpbiin: ConstPtr, lpbits: ConstPtr, lpbiout: ConstPtr): Handle =
     MutPtr(WindowsWin32MediaMultimediaJniBridge.windowssysWindowsWin32MediaMultimediaICImageDecompress(hic.rawAddress, uiflags.toInt(), lpbiin.rawAddress, lpbits.rawAddress, lpbiout.rawAddress))
 
-public actual fun iCInfo(fcctype: UInt, fcchandler: UInt, lpicinfo: MutPtr<Icinfo>): Bool =
+public actual fun iCInfo(fcctype: UInt, fcchandler: UInt, lpicinfo: MutPtr): Bool =
     WindowsWin32MediaMultimediaJniBridge.windowssysWindowsWin32MediaMultimediaICInfo(fcctype.toInt(), fcchandler.toInt(), lpicinfo.rawAddress)
 
 public actual fun iCInstall(fcctype: UInt, fcchandler: UInt, lparam: Lparam, szdesc: Pcstr, wflags: UInt): Bool =
     WindowsWin32MediaMultimediaJniBridge.windowssysWindowsWin32MediaMultimediaICInstall(fcctype.toInt(), fcchandler.toInt(), lparam, szdesc.rawAddress, wflags.toInt())
 
-public actual fun iCLocate(fcctype: UInt, fcchandler: UInt, lpbiin: ConstPtr<Bitmapinfoheader>, lpbiout: ConstPtr<Bitmapinfoheader>, wflags: UShort): Hic =
+public actual fun iCLocate(fcctype: UInt, fcchandler: UInt, lpbiin: ConstPtr, lpbiout: ConstPtr, wflags: UShort): Hic =
     MutPtr(WindowsWin32MediaMultimediaJniBridge.windowssysWindowsWin32MediaMultimediaICLocate(fcctype.toInt(), fcchandler.toInt(), lpbiin.rawAddress, lpbiout.rawAddress, wflags.toShort()))
 
 public actual fun iCOpen(fcctype: UInt, fcchandler: UInt, wmode: UInt): Hic =
@@ -898,14 +891,14 @@ public actual fun iCRemove(fcctype: UInt, fcchandler: UInt, wflags: UInt): Bool 
 public actual fun iCSendMessage(hic: Hic, msg: UInt, dw1: ULong, dw2: ULong): Lresult =
     WindowsWin32MediaMultimediaJniBridge.windowssysWindowsWin32MediaMultimediaICSendMessage(hic.rawAddress, msg.toInt(), dw1.toLong(), dw2.toLong())
 
-public actual fun iCSeqCompressFrame(pc: ConstPtr<Compvars>, uiflags: UInt, lpbits: ConstPtr<CVoid>, pfkey: MutPtr<Bool>, plsize: MutPtr<Int>): MutPtr<CVoid> =
+public actual fun iCSeqCompressFrame(pc: ConstPtr, uiflags: UInt, lpbits: ConstPtr, pfkey: MutPtr, plsize: MutPtr): MutPtr =
     MutPtr(WindowsWin32MediaMultimediaJniBridge.windowssysWindowsWin32MediaMultimediaICSeqCompressFrame(pc.rawAddress, uiflags.toInt(), lpbits.rawAddress, pfkey.rawAddress, plsize.rawAddress))
 
-public actual fun iCSeqCompressFrameEnd(pc: ConstPtr<Compvars>) {
+public actual fun iCSeqCompressFrameEnd(pc: ConstPtr) {
     WindowsWin32MediaMultimediaJniBridge.windowssysWindowsWin32MediaMultimediaICSeqCompressFrameEnd(pc.rawAddress)
 }
 
-public actual fun iCSeqCompressFrameStart(pc: ConstPtr<Compvars>, lpbiin: ConstPtr<Bitmapinfo>): Bool =
+public actual fun iCSeqCompressFrameStart(pc: ConstPtr, lpbiin: ConstPtr): Bool =
     WindowsWin32MediaMultimediaJniBridge.windowssysWindowsWin32MediaMultimediaICSeqCompressFrameStart(pc.rawAddress, lpbiin.rawAddress)
 
 public actual fun mCIWndCreateA(hwndparent: Hwnd, hinstance: Hinstance, dwstyle: UInt, szfile: Pcstr): Hwnd =
@@ -938,22 +931,22 @@ public actual fun capGetDriverDescriptionA(wdriverindex: UInt, lpszname: Pstr, c
 public actual fun capGetDriverDescriptionW(wdriverindex: UInt, lpszname: Pwstr, cbname: Int, lpszver: Pwstr, cbver: Int): Bool =
     WindowsWin32MediaMultimediaJniBridge.windowssysWindowsWin32MediaMultimediaCapGetDriverDescriptionW(wdriverindex.toInt(), lpszname.rawAddress, cbname, lpszver.rawAddress, cbver)
 
-public actual fun joyGetDevCapsA(ujoyid: ULong, pjc: MutPtr<Joycapsa>, cbjc: UInt): UInt =
+public actual fun joyGetDevCapsA(ujoyid: ULong, pjc: MutPtr, cbjc: UInt): UInt =
     WindowsWin32MediaMultimediaJniBridge.windowssysWindowsWin32MediaMultimediaJoyGetDevCapsA(ujoyid.toLong(), pjc.rawAddress, cbjc.toInt()).toUInt()
 
-public actual fun joyGetDevCapsW(ujoyid: ULong, pjc: MutPtr<Joycapsw>, cbjc: UInt): UInt =
+public actual fun joyGetDevCapsW(ujoyid: ULong, pjc: MutPtr, cbjc: UInt): UInt =
     WindowsWin32MediaMultimediaJniBridge.windowssysWindowsWin32MediaMultimediaJoyGetDevCapsW(ujoyid.toLong(), pjc.rawAddress, cbjc.toInt()).toUInt()
 
 public actual fun joyGetNumDevs(): UInt =
     WindowsWin32MediaMultimediaJniBridge.windowssysWindowsWin32MediaMultimediaJoyGetNumDevs().toUInt()
 
-public actual fun joyGetPos(ujoyid: UInt, pji: MutPtr<Joyinfo>): UInt =
+public actual fun joyGetPos(ujoyid: UInt, pji: MutPtr): UInt =
     WindowsWin32MediaMultimediaJniBridge.windowssysWindowsWin32MediaMultimediaJoyGetPos(ujoyid.toInt(), pji.rawAddress).toUInt()
 
-public actual fun joyGetPosEx(ujoyid: UInt, pji: MutPtr<Joyinfoex>): UInt =
+public actual fun joyGetPosEx(ujoyid: UInt, pji: MutPtr): UInt =
     WindowsWin32MediaMultimediaJniBridge.windowssysWindowsWin32MediaMultimediaJoyGetPosEx(ujoyid.toInt(), pji.rawAddress).toUInt()
 
-public actual fun joyGetThreshold(ujoyid: UInt, puthreshold: MutPtr<UInt>): UInt =
+public actual fun joyGetThreshold(ujoyid: UInt, puthreshold: MutPtr): UInt =
     WindowsWin32MediaMultimediaJniBridge.windowssysWindowsWin32MediaMultimediaJoyGetThreshold(ujoyid.toInt(), puthreshold.rawAddress).toUInt()
 
 public actual fun joyReleaseCapture(ujoyid: UInt): UInt =
@@ -998,7 +991,7 @@ public actual fun mciGetErrorStringA(mcierr: UInt, psztext: Pstr, cchtext: UInt)
 public actual fun mciGetErrorStringW(mcierr: UInt, psztext: Pwstr, cchtext: UInt): Bool =
     WindowsWin32MediaMultimediaJniBridge.windowssysWindowsWin32MediaMultimediaMciGetErrorStringW(mcierr.toInt(), psztext.rawAddress, cchtext.toInt())
 
-public actual fun mciGetYieldProc(mciid: UInt, pdwyielddata: ConstPtr<UInt>): Yieldproc =
+public actual fun mciGetYieldProc(mciid: UInt, pdwyielddata: ConstPtr): Yieldproc =
     null
 
 public actual fun mciLoadCommandResource(hinstance: Handle, lpresname: Pcwstr, wtype: UInt): UInt =
@@ -1032,7 +1025,7 @@ public actual fun mmTaskBlock(h: UInt) {
     WindowsWin32MediaMultimediaJniBridge.windowssysWindowsWin32MediaMultimediaMmTaskBlock(h.toInt())
 }
 
-public actual fun mmTaskCreate(lpfn: Lptaskcallback, lph: MutPtr<Handle>, dwinst: ULong): UInt =
+public actual fun mmTaskCreate(lpfn: Lptaskcallback, lph: MutPtr, dwinst: ULong): UInt =
     WindowsWin32MediaMultimediaJniBridge.windowssysWindowsWin32MediaMultimediaMmTaskCreate(0L, lph.rawAddress, dwinst.toLong()).toUInt()
 
 public actual fun mmTaskSignal(h: UInt): Bool =
@@ -1042,25 +1035,25 @@ public actual fun mmTaskYield() {
     WindowsWin32MediaMultimediaJniBridge.windowssysWindowsWin32MediaMultimediaMmTaskYield()
 }
 
-public actual fun mmioAdvance(hmmio: Hmmio, pmmioinfo: ConstPtr<Mmioinfo>, fuadvance: UInt): UInt =
+public actual fun mmioAdvance(hmmio: Hmmio, pmmioinfo: ConstPtr, fuadvance: UInt): UInt =
     WindowsWin32MediaMultimediaJniBridge.windowssysWindowsWin32MediaMultimediaMmioAdvance(hmmio.rawAddress, pmmioinfo.rawAddress, fuadvance.toInt()).toUInt()
 
-public actual fun mmioAscend(hmmio: Hmmio, pmmcki: ConstPtr<Mmckinfo>, fuascend: UInt): UInt =
+public actual fun mmioAscend(hmmio: Hmmio, pmmcki: ConstPtr, fuascend: UInt): UInt =
     WindowsWin32MediaMultimediaJniBridge.windowssysWindowsWin32MediaMultimediaMmioAscend(hmmio.rawAddress, pmmcki.rawAddress, fuascend.toInt()).toUInt()
 
 public actual fun mmioClose(hmmio: Hmmio, fuclose: UInt): UInt =
     WindowsWin32MediaMultimediaJniBridge.windowssysWindowsWin32MediaMultimediaMmioClose(hmmio.rawAddress, fuclose.toInt()).toUInt()
 
-public actual fun mmioCreateChunk(hmmio: Hmmio, pmmcki: ConstPtr<Mmckinfo>, fucreate: UInt): UInt =
+public actual fun mmioCreateChunk(hmmio: Hmmio, pmmcki: ConstPtr, fucreate: UInt): UInt =
     WindowsWin32MediaMultimediaJniBridge.windowssysWindowsWin32MediaMultimediaMmioCreateChunk(hmmio.rawAddress, pmmcki.rawAddress, fucreate.toInt()).toUInt()
 
-public actual fun mmioDescend(hmmio: Hmmio, pmmcki: MutPtr<Mmckinfo>, pmmckiparent: ConstPtr<Mmckinfo>, fudescend: UInt): UInt =
+public actual fun mmioDescend(hmmio: Hmmio, pmmcki: MutPtr, pmmckiparent: ConstPtr, fudescend: UInt): UInt =
     WindowsWin32MediaMultimediaJniBridge.windowssysWindowsWin32MediaMultimediaMmioDescend(hmmio.rawAddress, pmmcki.rawAddress, pmmckiparent.rawAddress, fudescend.toInt()).toUInt()
 
 public actual fun mmioFlush(hmmio: Hmmio, fuflush: UInt): UInt =
     WindowsWin32MediaMultimediaJniBridge.windowssysWindowsWin32MediaMultimediaMmioFlush(hmmio.rawAddress, fuflush.toInt()).toUInt()
 
-public actual fun mmioGetInfo(hmmio: Hmmio, pmmioinfo: MutPtr<Mmioinfo>, fuinfo: UInt): UInt =
+public actual fun mmioGetInfo(hmmio: Hmmio, pmmioinfo: MutPtr, fuinfo: UInt): UInt =
     WindowsWin32MediaMultimediaJniBridge.windowssysWindowsWin32MediaMultimediaMmioGetInfo(hmmio.rawAddress, pmmioinfo.rawAddress, fuinfo.toInt()).toUInt()
 
 public actual fun mmioInstallIOProcA(fccioproc: UInt, pioproc: Lpmmioproc, dwflags: UInt): Lpmmioproc =
@@ -1069,19 +1062,19 @@ public actual fun mmioInstallIOProcA(fccioproc: UInt, pioproc: Lpmmioproc, dwfla
 public actual fun mmioInstallIOProcW(fccioproc: UInt, pioproc: Lpmmioproc, dwflags: UInt): Lpmmioproc =
     null
 
-public actual fun mmioOpenA(pszfilename: Pstr, pmmioinfo: MutPtr<Mmioinfo>, fdwopen: UInt): Hmmio =
+public actual fun mmioOpenA(pszfilename: Pstr, pmmioinfo: MutPtr, fdwopen: UInt): Hmmio =
     MutPtr(WindowsWin32MediaMultimediaJniBridge.windowssysWindowsWin32MediaMultimediaMmioOpenA(pszfilename.rawAddress, pmmioinfo.rawAddress, fdwopen.toInt()))
 
-public actual fun mmioOpenW(pszfilename: Pwstr, pmmioinfo: MutPtr<Mmioinfo>, fdwopen: UInt): Hmmio =
+public actual fun mmioOpenW(pszfilename: Pwstr, pmmioinfo: MutPtr, fdwopen: UInt): Hmmio =
     MutPtr(WindowsWin32MediaMultimediaJniBridge.windowssysWindowsWin32MediaMultimediaMmioOpenW(pszfilename.rawAddress, pmmioinfo.rawAddress, fdwopen.toInt()))
 
-public actual fun mmioRead(hmmio: Hmmio, pch: MutPtr<Byte>, cch: Int): Int =
+public actual fun mmioRead(hmmio: Hmmio, pch: MutPtr, cch: Int): Int =
     WindowsWin32MediaMultimediaJniBridge.windowssysWindowsWin32MediaMultimediaMmioRead(hmmio.rawAddress, pch.rawAddress, cch)
 
-public actual fun mmioRenameA(pszfilename: Pcstr, psznewfilename: Pcstr, pmmioinfo: ConstPtr<Mmioinfo>, fdwrename: UInt): UInt =
+public actual fun mmioRenameA(pszfilename: Pcstr, psznewfilename: Pcstr, pmmioinfo: ConstPtr, fdwrename: UInt): UInt =
     WindowsWin32MediaMultimediaJniBridge.windowssysWindowsWin32MediaMultimediaMmioRenameA(pszfilename.rawAddress, psznewfilename.rawAddress, pmmioinfo.rawAddress, fdwrename.toInt()).toUInt()
 
-public actual fun mmioRenameW(pszfilename: Pcwstr, psznewfilename: Pcwstr, pmmioinfo: ConstPtr<Mmioinfo>, fdwrename: UInt): UInt =
+public actual fun mmioRenameW(pszfilename: Pcwstr, psznewfilename: Pcwstr, pmmioinfo: ConstPtr, fdwrename: UInt): UInt =
     WindowsWin32MediaMultimediaJniBridge.windowssysWindowsWin32MediaMultimediaMmioRenameW(pszfilename.rawAddress, psznewfilename.rawAddress, pmmioinfo.rawAddress, fdwrename.toInt()).toUInt()
 
 public actual fun mmioSeek(hmmio: Hmmio, loffset: Int, iorigin: Int): Int =
@@ -1093,7 +1086,7 @@ public actual fun mmioSendMessage(hmmio: Hmmio, umsg: UInt, lparam1: Lparam, lpa
 public actual fun mmioSetBuffer(hmmio: Hmmio, pchbuffer: Pstr, cchbuffer: Int, fubuffer: UInt): UInt =
     WindowsWin32MediaMultimediaJniBridge.windowssysWindowsWin32MediaMultimediaMmioSetBuffer(hmmio.rawAddress, pchbuffer.rawAddress, cchbuffer, fubuffer.toInt()).toUInt()
 
-public actual fun mmioSetInfo(hmmio: Hmmio, pmmioinfo: ConstPtr<Mmioinfo>, fuinfo: UInt): UInt =
+public actual fun mmioSetInfo(hmmio: Hmmio, pmmioinfo: ConstPtr, fuinfo: UInt): UInt =
     WindowsWin32MediaMultimediaJniBridge.windowssysWindowsWin32MediaMultimediaMmioSetInfo(hmmio.rawAddress, pmmioinfo.rawAddress, fuinfo.toInt()).toUInt()
 
 public actual fun mmioStringToFOURCCA(sz: Pcstr, uflags: UInt): UInt =
@@ -1105,5 +1098,5 @@ public actual fun mmioStringToFOURCCW(sz: Pcwstr, uflags: UInt): UInt =
 public actual fun mmioWrite(hmmio: Hmmio, pch: Pcstr, cch: Int): Int =
     WindowsWin32MediaMultimediaJniBridge.windowssysWindowsWin32MediaMultimediaMmioWrite(hmmio.rawAddress, pch.rawAddress, cch)
 
-public actual fun sndOpenSound(eventname: Pcwstr, appname: Pcwstr, flags: Int, filehandle: MutPtr<Handle>): Int =
+public actual fun sndOpenSound(eventname: Pcwstr, appname: Pcwstr, flags: Int, filehandle: MutPtr): Int =
     WindowsWin32MediaMultimediaJniBridge.windowssysWindowsWin32MediaMultimediaSndOpenSound(eventname.rawAddress, appname.rawAddress, flags, filehandle.rawAddress)

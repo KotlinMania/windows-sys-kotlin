@@ -2,20 +2,15 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.graphics.dwm
 
-import io.github.kotlinmania.rustlang.core.ffi.CVoid
 import io.github.kotlinmania.rustlang.core.ptr.ConstPtr
 import io.github.kotlinmania.rustlang.core.ptr.MutPtr
 import io.github.kotlinmania.windowssys.core.Bool
-import io.github.kotlinmania.windowssys.core.Guid
 import io.github.kotlinmania.windowssys.core.Hresult
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Hwnd
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Lparam
-import io.github.kotlinmania.windowssys.windows.win32.foundation.Lresult
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Point
-import io.github.kotlinmania.windowssys.windows.win32.foundation.Size
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Wparam
 import io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.Hbitmap
-import io.github.kotlinmania.windowssys.windows.win32.ui.controls.Margins
 
 private object WindowsWin32GraphicsDwmJniBridge {
     init {
@@ -116,13 +111,13 @@ private object WindowsWin32GraphicsDwmJniBridge {
 public actual fun dwmAttachMilContent(hwnd: Hwnd): Hresult =
     WindowsWin32GraphicsDwmJniBridge.windowssysWindowsWin32GraphicsDwmDwmAttachMilContent(hwnd.rawAddress)
 
-public actual fun dwmDefWindowProc(hwnd: Hwnd, msg: UInt, wparam: Wparam, lparam: Lparam, plresult: MutPtr<Lresult>): Bool =
+public actual fun dwmDefWindowProc(hwnd: Hwnd, msg: UInt, wparam: Wparam, lparam: Lparam, plresult: MutPtr): Bool =
     WindowsWin32GraphicsDwmJniBridge.windowssysWindowsWin32GraphicsDwmDwmDefWindowProc(hwnd.rawAddress, msg.toInt(), wparam.toLong(), lparam, plresult.rawAddress)
 
 public actual fun dwmDetachMilContent(hwnd: Hwnd): Hresult =
     WindowsWin32GraphicsDwmJniBridge.windowssysWindowsWin32GraphicsDwmDwmDetachMilContent(hwnd.rawAddress)
 
-public actual fun dwmEnableBlurBehindWindow(hwnd: Hwnd, pblurbehind: ConstPtr<DwmBlurbehind>): Hresult =
+public actual fun dwmEnableBlurBehindWindow(hwnd: Hwnd, pblurbehind: ConstPtr): Hresult =
     WindowsWin32GraphicsDwmJniBridge.windowssysWindowsWin32GraphicsDwmDwmEnableBlurBehindWindow(hwnd.rawAddress, pblurbehind.rawAddress)
 
 public actual fun dwmEnableComposition(ucompositionaction: UInt): Hresult =
@@ -131,64 +126,64 @@ public actual fun dwmEnableComposition(ucompositionaction: UInt): Hresult =
 public actual fun dwmEnableMMCSS(fenablemmcss: Bool): Hresult =
     WindowsWin32GraphicsDwmJniBridge.windowssysWindowsWin32GraphicsDwmDwmEnableMMCSS(fenablemmcss)
 
-public actual fun dwmExtendFrameIntoClientArea(hwnd: Hwnd, pmarinset: ConstPtr<Margins>): Hresult =
+public actual fun dwmExtendFrameIntoClientArea(hwnd: Hwnd, pmarinset: ConstPtr): Hresult =
     WindowsWin32GraphicsDwmJniBridge.windowssysWindowsWin32GraphicsDwmDwmExtendFrameIntoClientArea(hwnd.rawAddress, pmarinset.rawAddress)
 
 public actual fun dwmFlush(): Hresult =
     WindowsWin32GraphicsDwmJniBridge.windowssysWindowsWin32GraphicsDwmDwmFlush()
 
-public actual fun dwmGetColorizationColor(pcrcolorization: MutPtr<UInt>, pfopaqueblend: MutPtr<Bool>): Hresult =
+public actual fun dwmGetColorizationColor(pcrcolorization: MutPtr, pfopaqueblend: MutPtr): Hresult =
     WindowsWin32GraphicsDwmJniBridge.windowssysWindowsWin32GraphicsDwmDwmGetColorizationColor(pcrcolorization.rawAddress, pfopaqueblend.rawAddress)
 
-public actual fun dwmGetCompositionTimingInfo(hwnd: Hwnd, ptiminginfo: MutPtr<DwmTimingInfo>): Hresult =
+public actual fun dwmGetCompositionTimingInfo(hwnd: Hwnd, ptiminginfo: MutPtr): Hresult =
     WindowsWin32GraphicsDwmJniBridge.windowssysWindowsWin32GraphicsDwmDwmGetCompositionTimingInfo(hwnd.rawAddress, ptiminginfo.rawAddress)
 
-public actual fun dwmGetGraphicsStreamClient(uindex: UInt, pclientuuid: MutPtr<Guid>): Hresult =
+public actual fun dwmGetGraphicsStreamClient(uindex: UInt, pclientuuid: MutPtr): Hresult =
     WindowsWin32GraphicsDwmJniBridge.windowssysWindowsWin32GraphicsDwmDwmGetGraphicsStreamClient(uindex.toInt(), pclientuuid.rawAddress)
 
-public actual fun dwmGetGraphicsStreamTransformHint(uindex: UInt, ptransform: MutPtr<MilMatrix3x2D>): Hresult =
+public actual fun dwmGetGraphicsStreamTransformHint(uindex: UInt, ptransform: MutPtr): Hresult =
     WindowsWin32GraphicsDwmJniBridge.windowssysWindowsWin32GraphicsDwmDwmGetGraphicsStreamTransformHint(uindex.toInt(), ptransform.rawAddress)
 
-public actual fun dwmGetTransportAttributes(pfisremoting: MutPtr<Bool>, pfisconnected: MutPtr<Bool>, pdwgeneration: MutPtr<UInt>): Hresult =
+public actual fun dwmGetTransportAttributes(pfisremoting: MutPtr, pfisconnected: MutPtr, pdwgeneration: MutPtr): Hresult =
     WindowsWin32GraphicsDwmJniBridge.windowssysWindowsWin32GraphicsDwmDwmGetTransportAttributes(pfisremoting.rawAddress, pfisconnected.rawAddress, pdwgeneration.rawAddress)
 
-public actual fun dwmGetUnmetTabRequirements(appwindow: Hwnd, value: MutPtr<DwmTabWindowRequirements>): Hresult =
+public actual fun dwmGetUnmetTabRequirements(appwindow: Hwnd, value: MutPtr): Hresult =
     WindowsWin32GraphicsDwmJniBridge.windowssysWindowsWin32GraphicsDwmDwmGetUnmetTabRequirements(appwindow.rawAddress, value.rawAddress)
 
-public actual fun dwmGetWindowAttribute(hwnd: Hwnd, dwattribute: UInt, pvattribute: MutPtr<CVoid>, cbattribute: UInt): Hresult =
+public actual fun dwmGetWindowAttribute(hwnd: Hwnd, dwattribute: UInt, pvattribute: MutPtr, cbattribute: UInt): Hresult =
     WindowsWin32GraphicsDwmJniBridge.windowssysWindowsWin32GraphicsDwmDwmGetWindowAttribute(hwnd.rawAddress, dwattribute.toInt(), pvattribute.rawAddress, cbattribute.toInt())
 
 public actual fun dwmInvalidateIconicBitmaps(hwnd: Hwnd): Hresult =
     WindowsWin32GraphicsDwmJniBridge.windowssysWindowsWin32GraphicsDwmDwmInvalidateIconicBitmaps(hwnd.rawAddress)
 
-public actual fun dwmIsCompositionEnabled(pfenabled: MutPtr<Bool>): Hresult =
+public actual fun dwmIsCompositionEnabled(pfenabled: MutPtr): Hresult =
     WindowsWin32GraphicsDwmJniBridge.windowssysWindowsWin32GraphicsDwmDwmIsCompositionEnabled(pfenabled.rawAddress)
 
 public actual fun dwmModifyPreviousDxFrameDuration(hwnd: Hwnd, crefreshes: Int, frelative: Bool): Hresult =
     WindowsWin32GraphicsDwmJniBridge.windowssysWindowsWin32GraphicsDwmDwmModifyPreviousDxFrameDuration(hwnd.rawAddress, crefreshes, frelative)
 
-public actual fun dwmQueryThumbnailSourceSize(hthumbnail: Long, psize: MutPtr<Size>): Hresult =
+public actual fun dwmQueryThumbnailSourceSize(hthumbnail: Long, psize: MutPtr): Hresult =
     WindowsWin32GraphicsDwmJniBridge.windowssysWindowsWin32GraphicsDwmDwmQueryThumbnailSourceSize(hthumbnail, psize.rawAddress)
 
-public actual fun dwmRegisterThumbnail(hwnddestination: Hwnd, hwndsource: Hwnd, phthumbnailid: MutPtr<Long>): Hresult =
+public actual fun dwmRegisterThumbnail(hwnddestination: Hwnd, hwndsource: Hwnd, phthumbnailid: MutPtr): Hresult =
     WindowsWin32GraphicsDwmJniBridge.windowssysWindowsWin32GraphicsDwmDwmRegisterThumbnail(hwnddestination.rawAddress, hwndsource.rawAddress, phthumbnailid.rawAddress)
 
-public actual fun dwmRenderGesture(gt: GestureType, ccontacts: UInt, pdwpointerid: ConstPtr<UInt>, ppoints: ConstPtr<Point>): Hresult =
+public actual fun dwmRenderGesture(gt: GestureType, ccontacts: UInt, pdwpointerid: ConstPtr, ppoints: ConstPtr): Hresult =
     WindowsWin32GraphicsDwmJniBridge.windowssysWindowsWin32GraphicsDwmDwmRenderGesture(gt, ccontacts.toInt(), pdwpointerid.rawAddress, ppoints.rawAddress)
 
 public actual fun dwmSetDxFrameDuration(hwnd: Hwnd, crefreshes: Int): Hresult =
     WindowsWin32GraphicsDwmJniBridge.windowssysWindowsWin32GraphicsDwmDwmSetDxFrameDuration(hwnd.rawAddress, crefreshes)
 
-public actual fun dwmSetIconicLivePreviewBitmap(hwnd: Hwnd, hbmp: Hbitmap, pptclient: ConstPtr<Point>, dwsitflags: UInt): Hresult =
+public actual fun dwmSetIconicLivePreviewBitmap(hwnd: Hwnd, hbmp: Hbitmap, pptclient: ConstPtr, dwsitflags: UInt): Hresult =
     WindowsWin32GraphicsDwmJniBridge.windowssysWindowsWin32GraphicsDwmDwmSetIconicLivePreviewBitmap(hwnd.rawAddress, hbmp.rawAddress, pptclient.rawAddress, dwsitflags.toInt())
 
 public actual fun dwmSetIconicThumbnail(hwnd: Hwnd, hbmp: Hbitmap, dwsitflags: UInt): Hresult =
     WindowsWin32GraphicsDwmJniBridge.windowssysWindowsWin32GraphicsDwmDwmSetIconicThumbnail(hwnd.rawAddress, hbmp.rawAddress, dwsitflags.toInt())
 
-public actual fun dwmSetPresentParameters(hwnd: Hwnd, ppresentparams: MutPtr<DwmPresentParameters>): Hresult =
+public actual fun dwmSetPresentParameters(hwnd: Hwnd, ppresentparams: MutPtr): Hresult =
     WindowsWin32GraphicsDwmJniBridge.windowssysWindowsWin32GraphicsDwmDwmSetPresentParameters(hwnd.rawAddress, ppresentparams.rawAddress)
 
-public actual fun dwmSetWindowAttribute(hwnd: Hwnd, dwattribute: UInt, pvattribute: ConstPtr<CVoid>, cbattribute: UInt): Hresult =
+public actual fun dwmSetWindowAttribute(hwnd: Hwnd, dwattribute: UInt, pvattribute: ConstPtr, cbattribute: UInt): Hresult =
     WindowsWin32GraphicsDwmJniBridge.windowssysWindowsWin32GraphicsDwmDwmSetWindowAttribute(hwnd.rawAddress, dwattribute.toInt(), pvattribute.rawAddress, cbattribute.toInt())
 
 public actual fun dwmShowContact(dwpointerid: UInt, eshowcontact: DwmShowcontact): Hresult =
@@ -203,5 +198,5 @@ public actual fun dwmTransitionOwnedWindow(hwnd: Hwnd, target: DwmtransitionOwne
 public actual fun dwmUnregisterThumbnail(hthumbnailid: Long): Hresult =
     WindowsWin32GraphicsDwmJniBridge.windowssysWindowsWin32GraphicsDwmDwmUnregisterThumbnail(hthumbnailid)
 
-public actual fun dwmUpdateThumbnailProperties(hthumbnailid: Long, ptnproperties: ConstPtr<DwmThumbnailProperties>): Hresult =
+public actual fun dwmUpdateThumbnailProperties(hthumbnailid: Long, ptnproperties: ConstPtr): Hresult =
     WindowsWin32GraphicsDwmJniBridge.windowssysWindowsWin32GraphicsDwmDwmUpdateThumbnailProperties(hthumbnailid, ptnproperties.rawAddress)

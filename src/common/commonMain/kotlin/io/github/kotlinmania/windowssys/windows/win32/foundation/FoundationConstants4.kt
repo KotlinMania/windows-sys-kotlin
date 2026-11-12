@@ -1,6 +1,5 @@
 package io.github.kotlinmania.windowssys.windows.win32.foundation
 
-import io.github.kotlinmania.rustlang.core.ffi.CVoid
 import io.github.kotlinmania.rustlang.core.ptr.MutPtr
 import io.github.kotlinmania.windowssys.core.Bool
 import io.github.kotlinmania.windowssys.core.Hresult
@@ -1357,7 +1356,7 @@ public val INPUT_E_REENTRANCY: Hresult = 0x80400001u.toInt()
 
 public val INPUT_E_TRANSFORM: Hresult = 0x80400007u.toInt()
 
-public val INVALID_HANDLE_VALUE: Handle = MutPtr<CVoid>((-1).toLong())
+public val INVALID_HANDLE_VALUE: Handle = MutPtr((-1).toLong())
 
 public val IORING_E_COMPLETION_QUEUE_TOO_BIG: Hresult = 0x80460005u.toInt()
 

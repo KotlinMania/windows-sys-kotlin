@@ -2,16 +2,12 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.storage.cloudfilters
 
-import io.github.kotlinmania.rustlang.core.ffi.CVoid
 import io.github.kotlinmania.rustlang.core.ptr.ConstPtr
 import io.github.kotlinmania.rustlang.core.ptr.MutPtr
 import io.github.kotlinmania.windowssys.core.Hresult
 import io.github.kotlinmania.windowssys.core.Pcwstr
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Handle
 import io.github.kotlinmania.windowssys.windows.win32.storage.filesystem.FileInfoByHandleClass
-import io.github.kotlinmania.windowssys.windows.win32.storage.filesystem.Win32FindDataa
-import io.github.kotlinmania.windowssys.windows.win32.system.CorrelationVector
-import io.github.kotlinmania.windowssys.windows.win32.system.io.Overlapped
 
 private object WindowsWin32StorageCloudfiltersJniBridge {
     init {
@@ -182,80 +178,80 @@ public actual fun cfCloseHandle(filehandle: Handle) {
     WindowsWin32StorageCloudfiltersJniBridge.windowssysWindowsWin32StorageCloudfiltersCfCloseHandle(filehandle.rawAddress)
 }
 
-public actual fun cfConnectSyncRoot(syncrootpath: Pcwstr, callbacktable: ConstPtr<CfCallbackRegistration>, callbackcontext: ConstPtr<CVoid>, connectflags: CfConnectFlags, connectionkey: MutPtr<CfConnectionKey>): Hresult =
+public actual fun cfConnectSyncRoot(syncrootpath: Pcwstr, callbacktable: ConstPtr, callbackcontext: ConstPtr, connectflags: CfConnectFlags, connectionkey: MutPtr): Hresult =
     WindowsWin32StorageCloudfiltersJniBridge.windowssysWindowsWin32StorageCloudfiltersCfConnectSyncRoot(syncrootpath.rawAddress, callbacktable.rawAddress, callbackcontext.rawAddress, connectflags, connectionkey.rawAddress)
 
-public actual fun cfConvertToPlaceholder(filehandle: Handle, fileidentity: ConstPtr<CVoid>, fileidentitylength: UInt, convertflags: CfConvertFlags, convertusn: MutPtr<Long>, overlapped: MutPtr<Overlapped>): Hresult =
+public actual fun cfConvertToPlaceholder(filehandle: Handle, fileidentity: ConstPtr, fileidentitylength: UInt, convertflags: CfConvertFlags, convertusn: MutPtr, overlapped: MutPtr): Hresult =
     WindowsWin32StorageCloudfiltersJniBridge.windowssysWindowsWin32StorageCloudfiltersCfConvertToPlaceholder(filehandle.rawAddress, fileidentity.rawAddress, fileidentitylength.toInt(), convertflags, convertusn.rawAddress, overlapped.rawAddress)
 
-public actual fun cfCreatePlaceholders(basedirectorypath: Pcwstr, placeholderarray: MutPtr<CfPlaceholderCreateInfo>, placeholdercount: UInt, createflags: CfCreateFlags, entriesprocessed: MutPtr<UInt>): Hresult =
+public actual fun cfCreatePlaceholders(basedirectorypath: Pcwstr, placeholderarray: MutPtr, placeholdercount: UInt, createflags: CfCreateFlags, entriesprocessed: MutPtr): Hresult =
     WindowsWin32StorageCloudfiltersJniBridge.windowssysWindowsWin32StorageCloudfiltersCfCreatePlaceholders(basedirectorypath.rawAddress, placeholderarray.rawAddress, placeholdercount.toInt(), createflags, entriesprocessed.rawAddress)
 
-public actual fun cfDehydratePlaceholder(filehandle: Handle, startingoffset: Long, length: Long, dehydrateflags: CfDehydrateFlags, overlapped: MutPtr<Overlapped>): Hresult =
+public actual fun cfDehydratePlaceholder(filehandle: Handle, startingoffset: Long, length: Long, dehydrateflags: CfDehydrateFlags, overlapped: MutPtr): Hresult =
     WindowsWin32StorageCloudfiltersJniBridge.windowssysWindowsWin32StorageCloudfiltersCfDehydratePlaceholder(filehandle.rawAddress, startingoffset, length, dehydrateflags, overlapped.rawAddress)
 
 public actual fun cfDisconnectSyncRoot(connectionkey: CfConnectionKey): Hresult =
     WindowsWin32StorageCloudfiltersJniBridge.windowssysWindowsWin32StorageCloudfiltersCfDisconnectSyncRoot(connectionkey)
 
-public actual fun cfExecute(opinfo: ConstPtr<CfOperationInfo>, opparams: MutPtr<CfOperationParameters>): Hresult =
+public actual fun cfExecute(opinfo: ConstPtr, opparams: MutPtr): Hresult =
     WindowsWin32StorageCloudfiltersJniBridge.windowssysWindowsWin32StorageCloudfiltersCfExecute(opinfo.rawAddress, opparams.rawAddress)
 
-public actual fun cfGetCorrelationVector(filehandle: Handle, correlationvector: MutPtr<CorrelationVector.CorrelationVector>): Hresult =
+public actual fun cfGetCorrelationVector(filehandle: Handle, correlationvector: MutPtr): Hresult =
     WindowsWin32StorageCloudfiltersJniBridge.windowssysWindowsWin32StorageCloudfiltersCfGetCorrelationVector(filehandle.rawAddress, correlationvector.rawAddress)
 
-public actual fun cfGetPlaceholderInfo(filehandle: Handle, infoclass: CfPlaceholderInfoClass, infobuffer: MutPtr<CVoid>, infobufferlength: UInt, returnedlength: MutPtr<UInt>): Hresult =
+public actual fun cfGetPlaceholderInfo(filehandle: Handle, infoclass: CfPlaceholderInfoClass, infobuffer: MutPtr, infobufferlength: UInt, returnedlength: MutPtr): Hresult =
     WindowsWin32StorageCloudfiltersJniBridge.windowssysWindowsWin32StorageCloudfiltersCfGetPlaceholderInfo(filehandle.rawAddress, infoclass, infobuffer.rawAddress, infobufferlength.toInt(), returnedlength.rawAddress)
 
-public actual fun cfGetPlaceholderRangeInfo(filehandle: Handle, infoclass: CfPlaceholderRangeInfoClass, startingoffset: Long, length: Long, infobuffer: MutPtr<CVoid>, infobufferlength: UInt, returnedlength: MutPtr<UInt>): Hresult =
+public actual fun cfGetPlaceholderRangeInfo(filehandle: Handle, infoclass: CfPlaceholderRangeInfoClass, startingoffset: Long, length: Long, infobuffer: MutPtr, infobufferlength: UInt, returnedlength: MutPtr): Hresult =
     WindowsWin32StorageCloudfiltersJniBridge.windowssysWindowsWin32StorageCloudfiltersCfGetPlaceholderRangeInfo(filehandle.rawAddress, infoclass, startingoffset, length, infobuffer.rawAddress, infobufferlength.toInt(), returnedlength.rawAddress)
 
-public actual fun cfGetPlaceholderRangeInfoForHydration(connectionkey: CfConnectionKey, transferkey: Long, fileid: Long, infoclass: CfPlaceholderRangeInfoClass, startingoffset: Long, rangelength: Long, infobuffer: MutPtr<CVoid>, infobuffersize: UInt, infobufferwritten: MutPtr<UInt>): Hresult =
+public actual fun cfGetPlaceholderRangeInfoForHydration(connectionkey: CfConnectionKey, transferkey: Long, fileid: Long, infoclass: CfPlaceholderRangeInfoClass, startingoffset: Long, rangelength: Long, infobuffer: MutPtr, infobuffersize: UInt, infobufferwritten: MutPtr): Hresult =
     WindowsWin32StorageCloudfiltersJniBridge.windowssysWindowsWin32StorageCloudfiltersCfGetPlaceholderRangeInfoForHydration(connectionkey, transferkey, fileid, infoclass, startingoffset, rangelength, infobuffer.rawAddress, infobuffersize.toInt(), infobufferwritten.rawAddress)
 
 public actual fun cfGetPlaceholderStateFromAttributeTag(fileattributes: UInt, reparsetag: UInt): CfPlaceholderState =
     WindowsWin32StorageCloudfiltersJniBridge.windowssysWindowsWin32StorageCloudfiltersCfGetPlaceholderStateFromAttributeTag(fileattributes.toInt(), reparsetag.toInt()).toUInt()
 
-public actual fun cfGetPlaceholderStateFromFileInfo(infobuffer: ConstPtr<CVoid>, infoclass: FileInfoByHandleClass): CfPlaceholderState =
+public actual fun cfGetPlaceholderStateFromFileInfo(infobuffer: ConstPtr, infoclass: FileInfoByHandleClass): CfPlaceholderState =
     WindowsWin32StorageCloudfiltersJniBridge.windowssysWindowsWin32StorageCloudfiltersCfGetPlaceholderStateFromFileInfo(infobuffer.rawAddress, infoclass).toUInt()
 
-public actual fun cfGetPlaceholderStateFromFindData(finddata: ConstPtr<Win32FindDataa>): CfPlaceholderState =
+public actual fun cfGetPlaceholderStateFromFindData(finddata: ConstPtr): CfPlaceholderState =
     WindowsWin32StorageCloudfiltersJniBridge.windowssysWindowsWin32StorageCloudfiltersCfGetPlaceholderStateFromFindData(finddata.rawAddress).toUInt()
 
-public actual fun cfGetPlatformInfo(platformversion: MutPtr<CfPlatformInfo>): Hresult =
+public actual fun cfGetPlatformInfo(platformversion: MutPtr): Hresult =
     WindowsWin32StorageCloudfiltersJniBridge.windowssysWindowsWin32StorageCloudfiltersCfGetPlatformInfo(platformversion.rawAddress)
 
-public actual fun cfGetSyncRootInfoByHandle(filehandle: Handle, infoclass: CfSyncRootInfoClass, infobuffer: MutPtr<CVoid>, infobufferlength: UInt, returnedlength: MutPtr<UInt>): Hresult =
+public actual fun cfGetSyncRootInfoByHandle(filehandle: Handle, infoclass: CfSyncRootInfoClass, infobuffer: MutPtr, infobufferlength: UInt, returnedlength: MutPtr): Hresult =
     WindowsWin32StorageCloudfiltersJniBridge.windowssysWindowsWin32StorageCloudfiltersCfGetSyncRootInfoByHandle(filehandle.rawAddress, infoclass, infobuffer.rawAddress, infobufferlength.toInt(), returnedlength.rawAddress)
 
-public actual fun cfGetSyncRootInfoByPath(filepath: Pcwstr, infoclass: CfSyncRootInfoClass, infobuffer: MutPtr<CVoid>, infobufferlength: UInt, returnedlength: MutPtr<UInt>): Hresult =
+public actual fun cfGetSyncRootInfoByPath(filepath: Pcwstr, infoclass: CfSyncRootInfoClass, infobuffer: MutPtr, infobufferlength: UInt, returnedlength: MutPtr): Hresult =
     WindowsWin32StorageCloudfiltersJniBridge.windowssysWindowsWin32StorageCloudfiltersCfGetSyncRootInfoByPath(filepath.rawAddress, infoclass, infobuffer.rawAddress, infobufferlength.toInt(), returnedlength.rawAddress)
 
-public actual fun cfGetTransferKey(filehandle: Handle, transferkey: MutPtr<Long>): Hresult =
+public actual fun cfGetTransferKey(filehandle: Handle, transferkey: MutPtr): Hresult =
     WindowsWin32StorageCloudfiltersJniBridge.windowssysWindowsWin32StorageCloudfiltersCfGetTransferKey(filehandle.rawAddress, transferkey.rawAddress)
 
 public actual fun cfGetWin32HandleFromProtectedHandle(protectedhandle: Handle): Handle =
     MutPtr(WindowsWin32StorageCloudfiltersJniBridge.windowssysWindowsWin32StorageCloudfiltersCfGetWin32HandleFromProtectedHandle(protectedhandle.rawAddress))
 
-public actual fun cfHydratePlaceholder(filehandle: Handle, startingoffset: Long, length: Long, hydrateflags: CfHydrateFlags, overlapped: MutPtr<Overlapped>): Hresult =
+public actual fun cfHydratePlaceholder(filehandle: Handle, startingoffset: Long, length: Long, hydrateflags: CfHydrateFlags, overlapped: MutPtr): Hresult =
     WindowsWin32StorageCloudfiltersJniBridge.windowssysWindowsWin32StorageCloudfiltersCfHydratePlaceholder(filehandle.rawAddress, startingoffset, length, hydrateflags, overlapped.rawAddress)
 
-public actual fun cfOpenFileWithOplock(filepath: Pcwstr, flags: CfOpenFileFlags, protectedhandle: MutPtr<Handle>): Hresult =
+public actual fun cfOpenFileWithOplock(filepath: Pcwstr, flags: CfOpenFileFlags, protectedhandle: MutPtr): Hresult =
     WindowsWin32StorageCloudfiltersJniBridge.windowssysWindowsWin32StorageCloudfiltersCfOpenFileWithOplock(filepath.rawAddress, flags, protectedhandle.rawAddress)
 
-public actual fun cfQuerySyncProviderStatus(connectionkey: CfConnectionKey, providerstatus: MutPtr<CfSyncProviderStatus>): Hresult =
+public actual fun cfQuerySyncProviderStatus(connectionkey: CfConnectionKey, providerstatus: MutPtr): Hresult =
     WindowsWin32StorageCloudfiltersJniBridge.windowssysWindowsWin32StorageCloudfiltersCfQuerySyncProviderStatus(connectionkey, providerstatus.rawAddress)
 
 public actual fun cfReferenceProtectedHandle(protectedhandle: Handle): Boolean =
     WindowsWin32StorageCloudfiltersJniBridge.windowssysWindowsWin32StorageCloudfiltersCfReferenceProtectedHandle(protectedhandle.rawAddress)
 
-public actual fun cfRegisterSyncRoot(syncrootpath: Pcwstr, registration: ConstPtr<CfSyncRegistration>, policies: ConstPtr<CfSyncPolicies>, registerflags: CfRegisterFlags): Hresult =
+public actual fun cfRegisterSyncRoot(syncrootpath: Pcwstr, registration: ConstPtr, policies: ConstPtr, registerflags: CfRegisterFlags): Hresult =
     WindowsWin32StorageCloudfiltersJniBridge.windowssysWindowsWin32StorageCloudfiltersCfRegisterSyncRoot(syncrootpath.rawAddress, registration.rawAddress, policies.rawAddress, registerflags)
 
 public actual fun cfReleaseProtectedHandle(protectedhandle: Handle) {
     WindowsWin32StorageCloudfiltersJniBridge.windowssysWindowsWin32StorageCloudfiltersCfReleaseProtectedHandle(protectedhandle.rawAddress)
 }
 
-public actual fun cfReleaseTransferKey(filehandle: Handle, transferkey: ConstPtr<Long>) {
+public actual fun cfReleaseTransferKey(filehandle: Handle, transferkey: ConstPtr) {
     WindowsWin32StorageCloudfiltersJniBridge.windowssysWindowsWin32StorageCloudfiltersCfReleaseTransferKey(filehandle.rawAddress, transferkey.rawAddress)
 }
 
@@ -265,25 +261,25 @@ public actual fun cfReportProviderProgress(connectionkey: CfConnectionKey, trans
 public actual fun cfReportProviderProgress2(connectionkey: CfConnectionKey, transferkey: Long, requestkey: Long, providerprogresstotal: Long, providerprogresscompleted: Long, targetsessionid: UInt): Hresult =
     WindowsWin32StorageCloudfiltersJniBridge.windowssysWindowsWin32StorageCloudfiltersCfReportProviderProgress2(connectionkey, transferkey, requestkey, providerprogresstotal, providerprogresscompleted, targetsessionid.toInt())
 
-public actual fun cfReportSyncStatus(syncrootpath: Pcwstr, syncstatus: ConstPtr<CfSyncStatus>): Hresult =
+public actual fun cfReportSyncStatus(syncrootpath: Pcwstr, syncstatus: ConstPtr): Hresult =
     WindowsWin32StorageCloudfiltersJniBridge.windowssysWindowsWin32StorageCloudfiltersCfReportSyncStatus(syncrootpath.rawAddress, syncstatus.rawAddress)
 
-public actual fun cfRevertPlaceholder(filehandle: Handle, revertflags: CfRevertFlags, overlapped: MutPtr<Overlapped>): Hresult =
+public actual fun cfRevertPlaceholder(filehandle: Handle, revertflags: CfRevertFlags, overlapped: MutPtr): Hresult =
     WindowsWin32StorageCloudfiltersJniBridge.windowssysWindowsWin32StorageCloudfiltersCfRevertPlaceholder(filehandle.rawAddress, revertflags, overlapped.rawAddress)
 
-public actual fun cfSetCorrelationVector(filehandle: Handle, correlationvector: ConstPtr<CorrelationVector.CorrelationVector>): Hresult =
+public actual fun cfSetCorrelationVector(filehandle: Handle, correlationvector: ConstPtr): Hresult =
     WindowsWin32StorageCloudfiltersJniBridge.windowssysWindowsWin32StorageCloudfiltersCfSetCorrelationVector(filehandle.rawAddress, correlationvector.rawAddress)
 
-public actual fun cfSetInSyncState(filehandle: Handle, insyncstate: CfInSyncState, insyncflags: CfSetInSyncFlags, insyncusn: MutPtr<Long>): Hresult =
+public actual fun cfSetInSyncState(filehandle: Handle, insyncstate: CfInSyncState, insyncflags: CfSetInSyncFlags, insyncusn: MutPtr): Hresult =
     WindowsWin32StorageCloudfiltersJniBridge.windowssysWindowsWin32StorageCloudfiltersCfSetInSyncState(filehandle.rawAddress, insyncstate, insyncflags, insyncusn.rawAddress)
 
-public actual fun cfSetPinState(filehandle: Handle, pinstate: CfPinState, pinflags: CfSetPinFlags, overlapped: MutPtr<Overlapped>): Hresult =
+public actual fun cfSetPinState(filehandle: Handle, pinstate: CfPinState, pinflags: CfSetPinFlags, overlapped: MutPtr): Hresult =
     WindowsWin32StorageCloudfiltersJniBridge.windowssysWindowsWin32StorageCloudfiltersCfSetPinState(filehandle.rawAddress, pinstate, pinflags, overlapped.rawAddress)
 
 public actual fun cfUnregisterSyncRoot(syncrootpath: Pcwstr): Hresult =
     WindowsWin32StorageCloudfiltersJniBridge.windowssysWindowsWin32StorageCloudfiltersCfUnregisterSyncRoot(syncrootpath.rawAddress)
 
-public actual fun cfUpdatePlaceholder(filehandle: Handle, fsmetadata: ConstPtr<CfFsMetadata>, fileidentity: ConstPtr<CVoid>, fileidentitylength: UInt, dehydraterangearray: ConstPtr<CfFileRange>, dehydraterangecount: UInt, updateflags: CfUpdateFlags, updateusn: MutPtr<Long>, overlapped: MutPtr<Overlapped>): Hresult =
+public actual fun cfUpdatePlaceholder(filehandle: Handle, fsmetadata: ConstPtr, fileidentity: ConstPtr, fileidentitylength: UInt, dehydraterangearray: ConstPtr, dehydraterangecount: UInt, updateflags: CfUpdateFlags, updateusn: MutPtr, overlapped: MutPtr): Hresult =
     WindowsWin32StorageCloudfiltersJniBridge.windowssysWindowsWin32StorageCloudfiltersCfUpdatePlaceholder(filehandle.rawAddress, fsmetadata.rawAddress, fileidentity.rawAddress, fileidentitylength.toInt(), dehydraterangearray.rawAddress, dehydraterangecount.toInt(), updateflags, updateusn.rawAddress, overlapped.rawAddress)
 
 public actual fun cfUpdateSyncProviderStatus(connectionkey: CfConnectionKey, providerstatus: CfSyncProviderStatus): Hresult =

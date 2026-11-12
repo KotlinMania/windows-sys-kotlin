@@ -2,7 +2,6 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.system.kernel
 
-import io.github.kotlinmania.rustlang.core.ffi.CVoid
 import io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
 import io.github.kotlinmania.rustlang.core.mem.TypeLayout
 import io.github.kotlinmania.rustlang.core.ptr.ConstPtr
@@ -64,10 +63,10 @@ public class Cstring internal constructor(
 }
 
 public class ExceptionRegistrationRecord internal constructor(
-    nextCtorArg: MutPtr<ExceptionRegistrationRecord>,
+    nextCtorArg: MutPtr,
     public var handler: ExceptionRoutine,
 ) {
-    public var next: MutPtr<ExceptionRegistrationRecord> = nextCtorArg
+    public var next: MutPtr = nextCtorArg
         internal set
 
     public constructor() : this(
@@ -75,11 +74,11 @@ public class ExceptionRegistrationRecord internal constructor(
         handler = null,
     )
 
-    public operator fun component1(): MutPtr<ExceptionRegistrationRecord> = this.next
+    public operator fun component1(): MutPtr = this.next
 
     public operator fun component2(): ExceptionRoutine = this.handler
 
-    public fun copy(next: MutPtr<ExceptionRegistrationRecord> = this.next, handler: ExceptionRoutine = this.handler): ExceptionRegistrationRecord = ExceptionRegistrationRecord(nextCtorArg = next, handler = handler)
+    public fun copy(next: MutPtr = this.next, handler: ExceptionRoutine = this.handler): ExceptionRegistrationRecord = ExceptionRegistrationRecord(nextCtorArg = next, handler = handler)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -97,7 +96,7 @@ public class ExceptionRegistrationRecord internal constructor(
 
     public companion object {
         public operator fun invoke(
-            next: MutPtr<ExceptionRegistrationRecord> = MutPtr(0L),
+            next: MutPtr = MutPtr(0L),
             handler: ExceptionRoutine = null,
         ): ExceptionRegistrationRecord =
             ExceptionRegistrationRecord(
@@ -185,13 +184,13 @@ public data class FloatingSaveArea(
 }
 
 public class ListEntry internal constructor(
-    flinkCtorArg: MutPtr<ListEntry>,
-    blinkCtorArg: MutPtr<ListEntry>,
+    flinkCtorArg: MutPtr,
+    blinkCtorArg: MutPtr,
 ) {
-    public var flink: MutPtr<ListEntry> = flinkCtorArg
+    public var flink: MutPtr = flinkCtorArg
         internal set
 
-    public var blink: MutPtr<ListEntry> = blinkCtorArg
+    public var blink: MutPtr = blinkCtorArg
         internal set
 
     public constructor() : this(
@@ -199,11 +198,11 @@ public class ListEntry internal constructor(
         blinkCtorArg = MutPtr(0L),
     )
 
-    public operator fun component1(): MutPtr<ListEntry> = this.flink
+    public operator fun component1(): MutPtr = this.flink
 
-    public operator fun component2(): MutPtr<ListEntry> = this.blink
+    public operator fun component2(): MutPtr = this.blink
 
-    public fun copy(flink: MutPtr<ListEntry> = this.flink, blink: MutPtr<ListEntry> = this.blink): ListEntry = ListEntry(flinkCtorArg = flink, blinkCtorArg = blink)
+    public fun copy(flink: MutPtr = this.flink, blink: MutPtr = this.blink): ListEntry = ListEntry(flinkCtorArg = flink, blinkCtorArg = blink)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -228,28 +227,28 @@ public class ListEntry internal constructor(
                     ListEntry(
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<ListEntry>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<ListEntry>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                     )
                 override fun writeNative(addr: Long, value: ListEntry) {
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<ListEntry>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr, value.flink)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<ListEntry>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.blink)
                 }
             }
 
         public operator fun invoke(
-            flink: MutPtr<ListEntry> = MutPtr(0L),
-            blink: MutPtr<ListEntry> = MutPtr(0L),
+            flink: MutPtr = MutPtr(0L),
+            blink: MutPtr = MutPtr(0L),
         ): ListEntry =
             ListEntry(
                 flinkCtorArg = flink,
@@ -303,30 +302,30 @@ public data class ListEntry64(
 }
 
 public class NtTib internal constructor(
-    exceptionListCtorArg: MutPtr<ExceptionRegistrationRecord>,
-    stackBaseCtorArg: MutPtr<CVoid>,
-    stackLimitCtorArg: MutPtr<CVoid>,
-    subSystemTibCtorArg: MutPtr<CVoid>,
+    exceptionListCtorArg: MutPtr,
+    stackBaseCtorArg: MutPtr,
+    stackLimitCtorArg: MutPtr,
+    subSystemTibCtorArg: MutPtr,
     public var anonymous: NtTib0,
-    arbitraryUserPointerCtorArg: MutPtr<CVoid>,
-    selfRefCtorArg: MutPtr<NtTib>,
+    arbitraryUserPointerCtorArg: MutPtr,
+    selfRefCtorArg: MutPtr,
 ) {
-    public var exceptionList: MutPtr<ExceptionRegistrationRecord> = exceptionListCtorArg
+    public var exceptionList: MutPtr = exceptionListCtorArg
         internal set
 
-    public var stackBase: MutPtr<CVoid> = stackBaseCtorArg
+    public var stackBase: MutPtr = stackBaseCtorArg
         internal set
 
-    public var stackLimit: MutPtr<CVoid> = stackLimitCtorArg
+    public var stackLimit: MutPtr = stackLimitCtorArg
         internal set
 
-    public var subSystemTib: MutPtr<CVoid> = subSystemTibCtorArg
+    public var subSystemTib: MutPtr = subSystemTibCtorArg
         internal set
 
-    public var arbitraryUserPointer: MutPtr<CVoid> = arbitraryUserPointerCtorArg
+    public var arbitraryUserPointer: MutPtr = arbitraryUserPointerCtorArg
         internal set
 
-    public var selfRef: MutPtr<NtTib> = selfRefCtorArg
+    public var selfRef: MutPtr = selfRefCtorArg
         internal set
 
     public constructor() : this(
@@ -339,21 +338,21 @@ public class NtTib internal constructor(
         selfRefCtorArg = MutPtr(0L),
     )
 
-    public operator fun component1(): MutPtr<ExceptionRegistrationRecord> = this.exceptionList
+    public operator fun component1(): MutPtr = this.exceptionList
 
-    public operator fun component2(): MutPtr<CVoid> = this.stackBase
+    public operator fun component2(): MutPtr = this.stackBase
 
-    public operator fun component3(): MutPtr<CVoid> = this.stackLimit
+    public operator fun component3(): MutPtr = this.stackLimit
 
-    public operator fun component4(): MutPtr<CVoid> = this.subSystemTib
+    public operator fun component4(): MutPtr = this.subSystemTib
 
     public operator fun component5(): NtTib0 = this.anonymous
 
-    public operator fun component6(): MutPtr<CVoid> = this.arbitraryUserPointer
+    public operator fun component6(): MutPtr = this.arbitraryUserPointer
 
-    public operator fun component7(): MutPtr<NtTib> = this.selfRef
+    public operator fun component7(): MutPtr = this.selfRef
 
-    public fun copy(exceptionList: MutPtr<ExceptionRegistrationRecord> = this.exceptionList, stackBase: MutPtr<CVoid> = this.stackBase, stackLimit: MutPtr<CVoid> = this.stackLimit, subSystemTib: MutPtr<CVoid> = this.subSystemTib, anonymous: NtTib0 = this.anonymous, arbitraryUserPointer: MutPtr<CVoid> = this.arbitraryUserPointer, selfRef: MutPtr<NtTib> = this.selfRef): NtTib = NtTib(exceptionListCtorArg = exceptionList, stackBaseCtorArg = stackBase, stackLimitCtorArg = stackLimit, subSystemTibCtorArg = subSystemTib, anonymous = anonymous, arbitraryUserPointerCtorArg = arbitraryUserPointer, selfRefCtorArg = selfRef)
+    public fun copy(exceptionList: MutPtr = this.exceptionList, stackBase: MutPtr = this.stackBase, stackLimit: MutPtr = this.stackLimit, subSystemTib: MutPtr = this.subSystemTib, anonymous: NtTib0 = this.anonymous, arbitraryUserPointer: MutPtr = this.arbitraryUserPointer, selfRef: MutPtr = this.selfRef): NtTib = NtTib(exceptionListCtorArg = exceptionList, stackBaseCtorArg = stackBase, stackLimitCtorArg = stackLimit, subSystemTibCtorArg = subSystemTib, anonymous = anonymous, arbitraryUserPointerCtorArg = arbitraryUserPointer, selfRefCtorArg = selfRef)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -381,13 +380,13 @@ public class NtTib internal constructor(
 
     public companion object {
         public operator fun invoke(
-            exceptionList: MutPtr<ExceptionRegistrationRecord> = MutPtr(0L),
-            stackBase: MutPtr<CVoid> = MutPtr(0L),
-            stackLimit: MutPtr<CVoid> = MutPtr(0L),
-            subSystemTib: MutPtr<CVoid> = MutPtr(0L),
+            exceptionList: MutPtr = MutPtr(0L),
+            stackBase: MutPtr = MutPtr(0L),
+            stackLimit: MutPtr = MutPtr(0L),
+            subSystemTib: MutPtr = MutPtr(0L),
             anonymous: NtTib0 = NtTib0(),
-            arbitraryUserPointer: MutPtr<CVoid> = MutPtr(0L),
-            selfRef: MutPtr<NtTib> = MutPtr(0L),
+            arbitraryUserPointer: MutPtr = MutPtr(0L),
+            selfRef: MutPtr = MutPtr(0L),
         ): NtTib =
             NtTib(
                 exceptionListCtorArg = exceptionList,
@@ -402,10 +401,10 @@ public class NtTib internal constructor(
 }
 
 public class NtTib0 internal constructor(
-    fiberDataCtorArg: MutPtr<CVoid>,
+    fiberDataCtorArg: MutPtr,
     public var version: UInt,
 ) {
-    public var fiberData: MutPtr<CVoid> = fiberDataCtorArg
+    public var fiberData: MutPtr = fiberDataCtorArg
         internal set
 
     public constructor() : this(
@@ -413,11 +412,11 @@ public class NtTib0 internal constructor(
         version = 0u,
     )
 
-    public operator fun component1(): MutPtr<CVoid> = this.fiberData
+    public operator fun component1(): MutPtr = this.fiberData
 
     public operator fun component2(): UInt = this.version
 
-    public fun copy(fiberData: MutPtr<CVoid> = this.fiberData, version: UInt = this.version): NtTib0 = NtTib0(fiberDataCtorArg = fiberData, version = version)
+    public fun copy(fiberData: MutPtr = this.fiberData, version: UInt = this.version): NtTib0 = NtTib0(fiberDataCtorArg = fiberData, version = version)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -435,7 +434,7 @@ public class NtTib0 internal constructor(
 
     public companion object {
         public operator fun invoke(
-            fiberData: MutPtr<CVoid> = MutPtr(0L),
+            fiberData: MutPtr = MutPtr(0L),
             version: UInt = 0u,
         ): NtTib0 =
             NtTib0(
@@ -490,10 +489,10 @@ public data class RtlBalancedNode(
 )
 
 public class RtlBalancedNode0 internal constructor(
-    childrenCtorArg: List<MutPtr<RtlBalancedNode>>,
+    childrenCtorArg: List<MutPtr>,
     public var anonymous: RtlBalancedNode00,
 ) {
-    public var children: List<MutPtr<RtlBalancedNode>> = childrenCtorArg
+    public var children: List<MutPtr> = childrenCtorArg
         internal set
 
     public constructor() : this(
@@ -501,11 +500,11 @@ public class RtlBalancedNode0 internal constructor(
         anonymous = RtlBalancedNode00(),
     )
 
-    public operator fun component1(): List<MutPtr<RtlBalancedNode>> = this.children
+    public operator fun component1(): List<MutPtr> = this.children
 
     public operator fun component2(): RtlBalancedNode00 = this.anonymous
 
-    public fun copy(children: List<MutPtr<RtlBalancedNode>> = this.children, anonymous: RtlBalancedNode00 = this.anonymous): RtlBalancedNode0 = RtlBalancedNode0(childrenCtorArg = children, anonymous = anonymous)
+    public fun copy(children: List<MutPtr> = this.children, anonymous: RtlBalancedNode00 = this.anonymous): RtlBalancedNode0 = RtlBalancedNode0(childrenCtorArg = children, anonymous = anonymous)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -523,7 +522,7 @@ public class RtlBalancedNode0 internal constructor(
 
     public companion object {
         public operator fun invoke(
-            children: List<MutPtr<RtlBalancedNode>> = List(2) { MutPtr(0L) },
+            children: List<MutPtr> = List(2) { MutPtr(0L) },
             anonymous: RtlBalancedNode00 = RtlBalancedNode00(),
         ): RtlBalancedNode0 =
             RtlBalancedNode0(
@@ -534,13 +533,13 @@ public class RtlBalancedNode0 internal constructor(
 }
 
 public class RtlBalancedNode00 internal constructor(
-    leftCtorArg: MutPtr<RtlBalancedNode>,
-    rightCtorArg: MutPtr<RtlBalancedNode>,
+    leftCtorArg: MutPtr,
+    rightCtorArg: MutPtr,
 ) {
-    public var left: MutPtr<RtlBalancedNode> = leftCtorArg
+    public var left: MutPtr = leftCtorArg
         internal set
 
-    public var right: MutPtr<RtlBalancedNode> = rightCtorArg
+    public var right: MutPtr = rightCtorArg
         internal set
 
     public constructor() : this(
@@ -548,11 +547,11 @@ public class RtlBalancedNode00 internal constructor(
         rightCtorArg = MutPtr(0L),
     )
 
-    public operator fun component1(): MutPtr<RtlBalancedNode> = this.left
+    public operator fun component1(): MutPtr = this.left
 
-    public operator fun component2(): MutPtr<RtlBalancedNode> = this.right
+    public operator fun component2(): MutPtr = this.right
 
-    public fun copy(left: MutPtr<RtlBalancedNode> = this.left, right: MutPtr<RtlBalancedNode> = this.right): RtlBalancedNode00 = RtlBalancedNode00(leftCtorArg = left, rightCtorArg = right)
+    public fun copy(left: MutPtr = this.left, right: MutPtr = this.right): RtlBalancedNode00 = RtlBalancedNode00(leftCtorArg = left, rightCtorArg = right)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -577,28 +576,28 @@ public class RtlBalancedNode00 internal constructor(
                     RtlBalancedNode00(
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<RtlBalancedNode>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<RtlBalancedNode>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                     )
                 override fun writeNative(addr: Long, value: RtlBalancedNode00) {
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<RtlBalancedNode>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr, value.left)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<RtlBalancedNode>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.right)
                 }
             }
 
         public operator fun invoke(
-            left: MutPtr<RtlBalancedNode> = MutPtr(0L),
-            right: MutPtr<RtlBalancedNode> = MutPtr(0L),
+            left: MutPtr = MutPtr(0L),
+            right: MutPtr = MutPtr(0L),
         ): RtlBalancedNode00 =
             RtlBalancedNode00(
                 leftCtorArg = left,
@@ -613,18 +612,18 @@ public data class RtlBalancedNode1(
 )
 
 public class SingleListEntry internal constructor(
-    nextCtorArg: MutPtr<SingleListEntry>,
+    nextCtorArg: MutPtr,
 ) {
-    public var next: MutPtr<SingleListEntry> = nextCtorArg
+    public var next: MutPtr = nextCtorArg
         internal set
 
     public constructor() : this(
         nextCtorArg = MutPtr(0L),
     )
 
-    public operator fun component1(): MutPtr<SingleListEntry> = this.next
+    public operator fun component1(): MutPtr = this.next
 
-    public fun copy(next: MutPtr<SingleListEntry> = this.next): SingleListEntry = SingleListEntry(nextCtorArg = next)
+    public fun copy(next: MutPtr = this.next): SingleListEntry = SingleListEntry(nextCtorArg = next)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -644,19 +643,19 @@ public class SingleListEntry internal constructor(
                     SingleListEntry(
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<SingleListEntry>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr),
                     )
                 override fun writeNative(addr: Long, value: SingleListEntry) {
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<SingleListEntry>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr, value.next)
                 }
             }
 
         public operator fun invoke(
-            next: MutPtr<SingleListEntry> = MutPtr(0L),
+            next: MutPtr = MutPtr(0L),
         ): SingleListEntry =
             SingleListEntry(
                 nextCtorArg = next,
@@ -684,18 +683,18 @@ public data class SingleListEntry32(
 }
 
 public class SlistEntry internal constructor(
-    nextCtorArg: MutPtr<SlistEntry>,
+    nextCtorArg: MutPtr,
 ) {
-    public var next: MutPtr<SlistEntry> = nextCtorArg
+    public var next: MutPtr = nextCtorArg
         internal set
 
     public constructor() : this(
         nextCtorArg = MutPtr(0L),
     )
 
-    public operator fun component1(): MutPtr<SlistEntry> = this.next
+    public operator fun component1(): MutPtr = this.next
 
-    public fun copy(next: MutPtr<SlistEntry> = this.next): SlistEntry = SlistEntry(nextCtorArg = next)
+    public fun copy(next: MutPtr = this.next): SlistEntry = SlistEntry(nextCtorArg = next)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -715,19 +714,19 @@ public class SlistEntry internal constructor(
                     SlistEntry(
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<SlistEntry>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr),
                     )
                 override fun writeNative(addr: Long, value: SlistEntry) {
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<SlistEntry>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr, value.next)
                 }
             }
 
         public operator fun invoke(
-            next: MutPtr<SlistEntry> = MutPtr(0L),
+            next: MutPtr = MutPtr(0L),
         ): SlistEntry =
             SlistEntry(
                 nextCtorArg = next,

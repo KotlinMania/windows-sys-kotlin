@@ -2,11 +2,9 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.security.authorization
 
-import io.github.kotlinmania.rustlang.core.ffi.CVoid
 import io.github.kotlinmania.rustlang.core.ptr.ConstPtr
 import io.github.kotlinmania.rustlang.core.ptr.MutPtr
 import io.github.kotlinmania.windowssys.core.Bool
-import io.github.kotlinmania.windowssys.core.Guid
 import io.github.kotlinmania.windowssys.core.Pcstr
 import io.github.kotlinmania.windowssys.core.Pcwstr
 import io.github.kotlinmania.windowssys.core.Pstr
@@ -15,13 +13,9 @@ import io.github.kotlinmania.windowssys.windows.win32.foundation.Handle
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Luid
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Win32Error
 import io.github.kotlinmania.windowssys.windows.win32.security.AceFlags
-import io.github.kotlinmania.windowssys.windows.win32.security.Acl
-import io.github.kotlinmania.windowssys.windows.win32.security.GenericMapping
 import io.github.kotlinmania.windowssys.windows.win32.security.ObjectSecurityInformation
 import io.github.kotlinmania.windowssys.windows.win32.security.PsecurityDescriptor
 import io.github.kotlinmania.windowssys.windows.win32.security.Psid
-import io.github.kotlinmania.windowssys.windows.win32.security.SidAndAttributes
-import io.github.kotlinmania.windowssys.windows.win32.security.TokenGroups
 import io.github.kotlinmania.windowssys.windows.win32.system.threading.LpthreadStartRoutine
 
 private object WindowsWin32SecurityAuthorizationJniBridge {
@@ -342,19 +336,19 @@ private object WindowsWin32SecurityAuthorizationJniBridge {
     external fun windowssysWindowsWin32SecurityAuthorizationTreeSetNamedSecurityInfoW(pobjectname: Long, objecttype: Int, securityinfo: Int, powner: Long, pgroup: Long, pdacl: Long, psacl: Long, dwaction: Int, fnprogress: Long, progressinvokesetting: Int, args: Long): Int
 }
 
-public actual fun authzAccessCheck(flags: AuthzAccessCheckFlags, hauthzclientcontext: AuthzClientContextHandle, prequest: ConstPtr<AuthzAccessRequest>, hauditevent: AuthzAuditEventHandle, psecuritydescriptor: PsecurityDescriptor, optionalsecuritydescriptorarray: ConstPtr<PsecurityDescriptor>, optionalsecuritydescriptorcount: UInt, preply: MutPtr<AuthzAccessReply>, phaccesscheckresults: MutPtr<AuthzAccessCheckResultsHandle>): Bool =
+public actual fun authzAccessCheck(flags: AuthzAccessCheckFlags, hauthzclientcontext: AuthzClientContextHandle, prequest: ConstPtr, hauditevent: AuthzAuditEventHandle, psecuritydescriptor: PsecurityDescriptor, optionalsecuritydescriptorarray: ConstPtr, optionalsecuritydescriptorcount: UInt, preply: MutPtr, phaccesscheckresults: MutPtr): Bool =
     WindowsWin32SecurityAuthorizationJniBridge.windowssysWindowsWin32SecurityAuthorizationAuthzAccessCheck(flags.toInt(), hauthzclientcontext.rawAddress, prequest.rawAddress, hauditevent.rawAddress, psecuritydescriptor.rawAddress, optionalsecuritydescriptorarray.rawAddress, optionalsecuritydescriptorcount.toInt(), preply.rawAddress, phaccesscheckresults.rawAddress)
 
-public actual fun authzAddSidsToContext(hauthzclientcontext: AuthzClientContextHandle, sids: ConstPtr<SidAndAttributes>, sidcount: UInt, restrictedsids: ConstPtr<SidAndAttributes>, restrictedsidcount: UInt, phnewauthzclientcontext: MutPtr<AuthzClientContextHandle>): Bool =
+public actual fun authzAddSidsToContext(hauthzclientcontext: AuthzClientContextHandle, sids: ConstPtr, sidcount: UInt, restrictedsids: ConstPtr, restrictedsidcount: UInt, phnewauthzclientcontext: MutPtr): Bool =
     WindowsWin32SecurityAuthorizationJniBridge.windowssysWindowsWin32SecurityAuthorizationAuthzAddSidsToContext(hauthzclientcontext.rawAddress, sids.rawAddress, sidcount.toInt(), restrictedsids.rawAddress, restrictedsidcount.toInt(), phnewauthzclientcontext.rawAddress)
 
-public actual fun authzCachedAccessCheck(flags: UInt, haccesscheckresults: AuthzAccessCheckResultsHandle, prequest: ConstPtr<AuthzAccessRequest>, hauditevent: AuthzAuditEventHandle, preply: MutPtr<AuthzAccessReply>): Bool =
+public actual fun authzCachedAccessCheck(flags: UInt, haccesscheckresults: AuthzAccessCheckResultsHandle, prequest: ConstPtr, hauditevent: AuthzAuditEventHandle, preply: MutPtr): Bool =
     WindowsWin32SecurityAuthorizationJniBridge.windowssysWindowsWin32SecurityAuthorizationAuthzCachedAccessCheck(flags.toInt(), haccesscheckresults.rawAddress, prequest.rawAddress, hauditevent.rawAddress, preply.rawAddress)
 
-public actual fun authzEnumerateSecurityEventSources(dwflags: UInt, buffer: MutPtr<AuthzSourceSchemaRegistration>, pdwcount: MutPtr<UInt>, pdwlength: MutPtr<UInt>): Bool =
+public actual fun authzEnumerateSecurityEventSources(dwflags: UInt, buffer: MutPtr, pdwcount: MutPtr, pdwlength: MutPtr): Bool =
     WindowsWin32SecurityAuthorizationJniBridge.windowssysWindowsWin32SecurityAuthorizationAuthzEnumerateSecurityEventSources(dwflags.toInt(), buffer.rawAddress, pdwcount.rawAddress, pdwlength.rawAddress)
 
-public actual fun authzEvaluateSacl(authzclientcontext: AuthzClientContextHandle, prequest: ConstPtr<AuthzAccessRequest>, sacl: ConstPtr<Acl>, grantedaccess: UInt, accessgranted: Bool, pbgenerateaudit: MutPtr<Bool>): Bool =
+public actual fun authzEvaluateSacl(authzclientcontext: AuthzClientContextHandle, prequest: ConstPtr, sacl: ConstPtr, grantedaccess: UInt, accessgranted: Bool, pbgenerateaudit: MutPtr): Bool =
     WindowsWin32SecurityAuthorizationJniBridge.windowssysWindowsWin32SecurityAuthorizationAuthzEvaluateSacl(authzclientcontext.rawAddress, prequest.rawAddress, sacl.rawAddress, grantedaccess.toInt(), accessgranted, pbgenerateaudit.rawAddress)
 
 public actual fun authzFreeAuditEvent(hauditevent: AuthzAuditEventHandle): Bool =
@@ -372,64 +366,64 @@ public actual fun authzFreeHandle(haccesscheckresults: AuthzAccessCheckResultsHa
 public actual fun authzFreeResourceManager(hauthzresourcemanager: AuthzResourceManagerHandle): Bool =
     WindowsWin32SecurityAuthorizationJniBridge.windowssysWindowsWin32SecurityAuthorizationAuthzFreeResourceManager(hauthzresourcemanager.rawAddress)
 
-public actual fun authzGetInformationFromContext(hauthzclientcontext: AuthzClientContextHandle, infoclass: AuthzContextInformationClass, buffersize: UInt, psizerequired: MutPtr<UInt>, buffer: MutPtr<CVoid>): Bool =
+public actual fun authzGetInformationFromContext(hauthzclientcontext: AuthzClientContextHandle, infoclass: AuthzContextInformationClass, buffersize: UInt, psizerequired: MutPtr, buffer: MutPtr): Bool =
     WindowsWin32SecurityAuthorizationJniBridge.windowssysWindowsWin32SecurityAuthorizationAuthzGetInformationFromContext(hauthzclientcontext.rawAddress, infoclass, buffersize.toInt(), psizerequired.rawAddress, buffer.rawAddress)
 
-public actual fun authzInitializeCompoundContext(usercontext: AuthzClientContextHandle, devicecontext: AuthzClientContextHandle, phcompoundcontext: MutPtr<AuthzClientContextHandle>): Bool =
+public actual fun authzInitializeCompoundContext(usercontext: AuthzClientContextHandle, devicecontext: AuthzClientContextHandle, phcompoundcontext: MutPtr): Bool =
     WindowsWin32SecurityAuthorizationJniBridge.windowssysWindowsWin32SecurityAuthorizationAuthzInitializeCompoundContext(usercontext.rawAddress, devicecontext.rawAddress, phcompoundcontext.rawAddress)
 
-public actual fun authzInitializeContextFromAuthzContext(flags: UInt, hauthzclientcontext: AuthzClientContextHandle, pexpirationtime: ConstPtr<Long>, identifier: Luid, dynamicgroupargs: ConstPtr<CVoid>, phnewauthzclientcontext: MutPtr<AuthzClientContextHandle>): Bool =
+public actual fun authzInitializeContextFromAuthzContext(flags: UInt, hauthzclientcontext: AuthzClientContextHandle, pexpirationtime: ConstPtr, identifier: Luid, dynamicgroupargs: ConstPtr, phnewauthzclientcontext: MutPtr): Bool =
     0
 
-public actual fun authzInitializeContextFromSid(flags: UInt, usersid: Psid, hauthzresourcemanager: AuthzResourceManagerHandle, pexpirationtime: ConstPtr<Long>, identifier: Luid, dynamicgroupargs: ConstPtr<CVoid>, phauthzclientcontext: MutPtr<AuthzClientContextHandle>): Bool =
+public actual fun authzInitializeContextFromSid(flags: UInt, usersid: Psid, hauthzresourcemanager: AuthzResourceManagerHandle, pexpirationtime: ConstPtr, identifier: Luid, dynamicgroupargs: ConstPtr, phauthzclientcontext: MutPtr): Bool =
     0
 
-public actual fun authzInitializeContextFromToken(flags: UInt, tokenhandle: Handle, hauthzresourcemanager: AuthzResourceManagerHandle, pexpirationtime: ConstPtr<Long>, identifier: Luid, dynamicgroupargs: ConstPtr<CVoid>, phauthzclientcontext: MutPtr<AuthzClientContextHandle>): Bool =
+public actual fun authzInitializeContextFromToken(flags: UInt, tokenhandle: Handle, hauthzresourcemanager: AuthzResourceManagerHandle, pexpirationtime: ConstPtr, identifier: Luid, dynamicgroupargs: ConstPtr, phauthzclientcontext: MutPtr): Bool =
     0
 
-public actual fun authzInitializeObjectAccessAuditEvent(flags: AuthzInitializeObjectAccessAuditEventFlags, hauditeventtype: AuthzAuditEventTypeHandle, szoperationtype: Pcwstr, szobjecttype: Pcwstr, szobjectname: Pcwstr, szadditionalinfo: Pcwstr, phauditevent: MutPtr<AuthzAuditEventHandle>, dwadditionalparametercount: UInt, vararg variadicArgs: Long): Bool =
+public actual fun authzInitializeObjectAccessAuditEvent(flags: AuthzInitializeObjectAccessAuditEventFlags, hauditeventtype: AuthzAuditEventTypeHandle, szoperationtype: Pcwstr, szobjecttype: Pcwstr, szobjectname: Pcwstr, szadditionalinfo: Pcwstr, phauditevent: MutPtr, dwadditionalparametercount: UInt, vararg variadicArgs: Long): Bool =
     WindowsWin32SecurityAuthorizationJniBridge.windowssysWindowsWin32SecurityAuthorizationAuthzInitializeObjectAccessAuditEvent(flags.toInt(), hauditeventtype.rawAddress, szoperationtype.rawAddress, szobjecttype.rawAddress, szobjectname.rawAddress, szadditionalinfo.rawAddress, phauditevent.rawAddress, dwadditionalparametercount.toInt(), variadicArgs.size.coerceAtMost(4), if (variadicArgs.size > 0) variadicArgs[0] else 0L, if (variadicArgs.size > 1) variadicArgs[1] else 0L, if (variadicArgs.size > 2) variadicArgs[2] else 0L, if (variadicArgs.size > 3) variadicArgs[3] else 0L)
 
-public actual fun authzInitializeObjectAccessAuditEvent2(flags: UInt, hauditeventtype: AuthzAuditEventTypeHandle, szoperationtype: Pcwstr, szobjecttype: Pcwstr, szobjectname: Pcwstr, szadditionalinfo: Pcwstr, szadditionalinfo2: Pcwstr, phauditevent: MutPtr<AuthzAuditEventHandle>, dwadditionalparametercount: UInt, vararg variadicArgs: Long): Bool =
+public actual fun authzInitializeObjectAccessAuditEvent2(flags: UInt, hauditeventtype: AuthzAuditEventTypeHandle, szoperationtype: Pcwstr, szobjecttype: Pcwstr, szobjectname: Pcwstr, szadditionalinfo: Pcwstr, szadditionalinfo2: Pcwstr, phauditevent: MutPtr, dwadditionalparametercount: UInt, vararg variadicArgs: Long): Bool =
     WindowsWin32SecurityAuthorizationJniBridge.windowssysWindowsWin32SecurityAuthorizationAuthzInitializeObjectAccessAuditEvent2(flags.toInt(), hauditeventtype.rawAddress, szoperationtype.rawAddress, szobjecttype.rawAddress, szobjectname.rawAddress, szadditionalinfo.rawAddress, szadditionalinfo2.rawAddress, phauditevent.rawAddress, dwadditionalparametercount.toInt(), variadicArgs.size.coerceAtMost(4), if (variadicArgs.size > 0) variadicArgs[0] else 0L, if (variadicArgs.size > 1) variadicArgs[1] else 0L, if (variadicArgs.size > 2) variadicArgs[2] else 0L, if (variadicArgs.size > 3) variadicArgs[3] else 0L)
 
-public actual fun authzInitializeRemoteResourceManager(prpcinitinfo: ConstPtr<AuthzRpcInitInfoClient>, phauthzresourcemanager: MutPtr<AuthzResourceManagerHandle>): Bool =
+public actual fun authzInitializeRemoteResourceManager(prpcinitinfo: ConstPtr, phauthzresourcemanager: MutPtr): Bool =
     WindowsWin32SecurityAuthorizationJniBridge.windowssysWindowsWin32SecurityAuthorizationAuthzInitializeRemoteResourceManager(prpcinitinfo.rawAddress, phauthzresourcemanager.rawAddress)
 
-public actual fun authzInitializeResourceManager(flags: UInt, pfndynamicaccesscheck: PfnAuthzDynamicAccessCheck, pfncomputedynamicgroups: PfnAuthzComputeDynamicGroups, pfnfreedynamicgroups: PfnAuthzFreeDynamicGroups, szresourcemanagername: Pcwstr, phauthzresourcemanager: MutPtr<AuthzResourceManagerHandle>): Bool =
+public actual fun authzInitializeResourceManager(flags: UInt, pfndynamicaccesscheck: PfnAuthzDynamicAccessCheck, pfncomputedynamicgroups: PfnAuthzComputeDynamicGroups, pfnfreedynamicgroups: PfnAuthzFreeDynamicGroups, szresourcemanagername: Pcwstr, phauthzresourcemanager: MutPtr): Bool =
     WindowsWin32SecurityAuthorizationJniBridge.windowssysWindowsWin32SecurityAuthorizationAuthzInitializeResourceManager(flags.toInt(), 0L, 0L, 0L, szresourcemanagername.rawAddress, phauthzresourcemanager.rawAddress)
 
-public actual fun authzInitializeResourceManagerEx(flags: AuthzResourceManagerFlags, pauthzinitinfo: ConstPtr<AuthzInitInfo>, phauthzresourcemanager: MutPtr<AuthzResourceManagerHandle>): Bool =
+public actual fun authzInitializeResourceManagerEx(flags: AuthzResourceManagerFlags, pauthzinitinfo: ConstPtr, phauthzresourcemanager: MutPtr): Bool =
     WindowsWin32SecurityAuthorizationJniBridge.windowssysWindowsWin32SecurityAuthorizationAuthzInitializeResourceManagerEx(flags.toInt(), pauthzinitinfo.rawAddress, phauthzresourcemanager.rawAddress)
 
-public actual fun authzInstallSecurityEventSource(dwflags: UInt, pregistration: ConstPtr<AuthzSourceSchemaRegistration>): Bool =
+public actual fun authzInstallSecurityEventSource(dwflags: UInt, pregistration: ConstPtr): Bool =
     WindowsWin32SecurityAuthorizationJniBridge.windowssysWindowsWin32SecurityAuthorizationAuthzInstallSecurityEventSource(dwflags.toInt(), pregistration.rawAddress)
 
-public actual fun authzModifyClaims(hauthzclientcontext: AuthzClientContextHandle, claimclass: AuthzContextInformationClass, pclaimoperations: ConstPtr<AuthzSecurityAttributeOperation>, pclaims: ConstPtr<AuthzSecurityAttributesInformation>): Bool =
+public actual fun authzModifyClaims(hauthzclientcontext: AuthzClientContextHandle, claimclass: AuthzContextInformationClass, pclaimoperations: ConstPtr, pclaims: ConstPtr): Bool =
     WindowsWin32SecurityAuthorizationJniBridge.windowssysWindowsWin32SecurityAuthorizationAuthzModifyClaims(hauthzclientcontext.rawAddress, claimclass, pclaimoperations.rawAddress, pclaims.rawAddress)
 
-public actual fun authzModifySecurityAttributes(hauthzclientcontext: AuthzClientContextHandle, poperations: ConstPtr<AuthzSecurityAttributeOperation>, pattributes: ConstPtr<AuthzSecurityAttributesInformation>): Bool =
+public actual fun authzModifySecurityAttributes(hauthzclientcontext: AuthzClientContextHandle, poperations: ConstPtr, pattributes: ConstPtr): Bool =
     WindowsWin32SecurityAuthorizationJniBridge.windowssysWindowsWin32SecurityAuthorizationAuthzModifySecurityAttributes(hauthzclientcontext.rawAddress, poperations.rawAddress, pattributes.rawAddress)
 
-public actual fun authzModifySids(hauthzclientcontext: AuthzClientContextHandle, sidclass: AuthzContextInformationClass, psidoperations: ConstPtr<AuthzSidOperation>, psids: ConstPtr<TokenGroups>): Bool =
+public actual fun authzModifySids(hauthzclientcontext: AuthzClientContextHandle, sidclass: AuthzContextInformationClass, psidoperations: ConstPtr, psids: ConstPtr): Bool =
     WindowsWin32SecurityAuthorizationJniBridge.windowssysWindowsWin32SecurityAuthorizationAuthzModifySids(hauthzclientcontext.rawAddress, sidclass, psidoperations.rawAddress, psids.rawAddress)
 
-public actual fun authzOpenObjectAudit(flags: UInt, hauthzclientcontext: AuthzClientContextHandle, prequest: ConstPtr<AuthzAccessRequest>, hauditevent: AuthzAuditEventHandle, psecuritydescriptor: PsecurityDescriptor, optionalsecuritydescriptorarray: ConstPtr<PsecurityDescriptor>, optionalsecuritydescriptorcount: UInt, preply: ConstPtr<AuthzAccessReply>): Bool =
+public actual fun authzOpenObjectAudit(flags: UInt, hauthzclientcontext: AuthzClientContextHandle, prequest: ConstPtr, hauditevent: AuthzAuditEventHandle, psecuritydescriptor: PsecurityDescriptor, optionalsecuritydescriptorarray: ConstPtr, optionalsecuritydescriptorcount: UInt, preply: ConstPtr): Bool =
     WindowsWin32SecurityAuthorizationJniBridge.windowssysWindowsWin32SecurityAuthorizationAuthzOpenObjectAudit(flags.toInt(), hauthzclientcontext.rawAddress, prequest.rawAddress, hauditevent.rawAddress, psecuritydescriptor.rawAddress, optionalsecuritydescriptorarray.rawAddress, optionalsecuritydescriptorcount.toInt(), preply.rawAddress)
 
-public actual fun authzRegisterCapChangeNotification(phcapchangesubscription: MutPtr<AuthzCapChangeSubscriptionHandle>, pfncapchangecallback: LpthreadStartRoutine, pcallbackcontext: ConstPtr<CVoid>): Bool =
+public actual fun authzRegisterCapChangeNotification(phcapchangesubscription: MutPtr, pfncapchangecallback: LpthreadStartRoutine, pcallbackcontext: ConstPtr): Bool =
     WindowsWin32SecurityAuthorizationJniBridge.windowssysWindowsWin32SecurityAuthorizationAuthzRegisterCapChangeNotification(phcapchangesubscription.rawAddress, 0L, pcallbackcontext.rawAddress)
 
-public actual fun authzRegisterSecurityEventSource(dwflags: UInt, szeventsourcename: Pcwstr, pheventprovider: MutPtr<AuthzSecurityEventProviderHandle>): Bool =
+public actual fun authzRegisterSecurityEventSource(dwflags: UInt, szeventsourcename: Pcwstr, pheventprovider: MutPtr): Bool =
     WindowsWin32SecurityAuthorizationJniBridge.windowssysWindowsWin32SecurityAuthorizationAuthzRegisterSecurityEventSource(dwflags.toInt(), szeventsourcename.rawAddress, pheventprovider.rawAddress)
 
 public actual fun authzReportSecurityEvent(dwflags: UInt, heventprovider: AuthzSecurityEventProviderHandle, dwauditid: UInt, pusersid: Psid, dwcount: UInt, vararg variadicArgs: Long): Bool =
     WindowsWin32SecurityAuthorizationJniBridge.windowssysWindowsWin32SecurityAuthorizationAuthzReportSecurityEvent(dwflags.toInt(), heventprovider.rawAddress, dwauditid.toInt(), pusersid.rawAddress, dwcount.toInt(), variadicArgs.size.coerceAtMost(4), if (variadicArgs.size > 0) variadicArgs[0] else 0L, if (variadicArgs.size > 1) variadicArgs[1] else 0L, if (variadicArgs.size > 2) variadicArgs[2] else 0L, if (variadicArgs.size > 3) variadicArgs[3] else 0L)
 
-public actual fun authzReportSecurityEventFromParams(dwflags: UInt, heventprovider: AuthzSecurityEventProviderHandle, dwauditid: UInt, pusersid: Psid, pparams: ConstPtr<AuditParams>): Bool =
+public actual fun authzReportSecurityEventFromParams(dwflags: UInt, heventprovider: AuthzSecurityEventProviderHandle, dwauditid: UInt, pusersid: Psid, pparams: ConstPtr): Bool =
     WindowsWin32SecurityAuthorizationJniBridge.windowssysWindowsWin32SecurityAuthorizationAuthzReportSecurityEventFromParams(dwflags.toInt(), heventprovider.rawAddress, dwauditid.toInt(), pusersid.rawAddress, pparams.rawAddress)
 
-public actual fun authzSetAppContainerInformation(hauthzclientcontext: AuthzClientContextHandle, pappcontainersid: Psid, capabilitycount: UInt, pcapabilitysids: ConstPtr<SidAndAttributes>): Bool =
+public actual fun authzSetAppContainerInformation(hauthzclientcontext: AuthzClientContextHandle, pappcontainersid: Psid, capabilitycount: UInt, pcapabilitysids: ConstPtr): Bool =
     WindowsWin32SecurityAuthorizationJniBridge.windowssysWindowsWin32SecurityAuthorizationAuthzSetAppContainerInformation(hauthzclientcontext.rawAddress, pappcontainersid.rawAddress, capabilitycount.toInt(), pcapabilitysids.rawAddress)
 
 public actual fun authzUninstallSecurityEventSource(dwflags: UInt, szeventsourcename: Pcwstr): Bool =
@@ -438,190 +432,190 @@ public actual fun authzUninstallSecurityEventSource(dwflags: UInt, szeventsource
 public actual fun authzUnregisterCapChangeNotification(hcapchangesubscription: AuthzCapChangeSubscriptionHandle): Bool =
     WindowsWin32SecurityAuthorizationJniBridge.windowssysWindowsWin32SecurityAuthorizationAuthzUnregisterCapChangeNotification(hcapchangesubscription.rawAddress)
 
-public actual fun authzUnregisterSecurityEventSource(dwflags: UInt, pheventprovider: MutPtr<AuthzSecurityEventProviderHandle>): Bool =
+public actual fun authzUnregisterSecurityEventSource(dwflags: UInt, pheventprovider: MutPtr): Bool =
     WindowsWin32SecurityAuthorizationJniBridge.windowssysWindowsWin32SecurityAuthorizationAuthzUnregisterSecurityEventSource(dwflags.toInt(), pheventprovider.rawAddress)
 
-public actual fun buildExplicitAccessWithNameA(pexplicitaccess: MutPtr<ExplicitAccessA>, ptrusteename: Pcstr, accesspermissions: UInt, accessmode: AccessMode, inheritance: AceFlags) {
+public actual fun buildExplicitAccessWithNameA(pexplicitaccess: MutPtr, ptrusteename: Pcstr, accesspermissions: UInt, accessmode: AccessMode, inheritance: AceFlags) {
     WindowsWin32SecurityAuthorizationJniBridge.windowssysWindowsWin32SecurityAuthorizationBuildExplicitAccessWithNameA(pexplicitaccess.rawAddress, ptrusteename.rawAddress, accesspermissions.toInt(), accessmode, inheritance.toInt())
 }
 
-public actual fun buildExplicitAccessWithNameW(pexplicitaccess: MutPtr<ExplicitAccessW>, ptrusteename: Pcwstr, accesspermissions: UInt, accessmode: AccessMode, inheritance: AceFlags) {
+public actual fun buildExplicitAccessWithNameW(pexplicitaccess: MutPtr, ptrusteename: Pcwstr, accesspermissions: UInt, accessmode: AccessMode, inheritance: AceFlags) {
     WindowsWin32SecurityAuthorizationJniBridge.windowssysWindowsWin32SecurityAuthorizationBuildExplicitAccessWithNameW(pexplicitaccess.rawAddress, ptrusteename.rawAddress, accesspermissions.toInt(), accessmode, inheritance.toInt())
 }
 
-public actual fun buildImpersonateExplicitAccessWithNameA(pexplicitaccess: MutPtr<ExplicitAccessA>, ptrusteename: Pcstr, ptrustee: ConstPtr<TrusteeA>, accesspermissions: UInt, accessmode: AccessMode, inheritance: UInt) {
+public actual fun buildImpersonateExplicitAccessWithNameA(pexplicitaccess: MutPtr, ptrusteename: Pcstr, ptrustee: ConstPtr, accesspermissions: UInt, accessmode: AccessMode, inheritance: UInt) {
     WindowsWin32SecurityAuthorizationJniBridge.windowssysWindowsWin32SecurityAuthorizationBuildImpersonateExplicitAccessWithNameA(pexplicitaccess.rawAddress, ptrusteename.rawAddress, ptrustee.rawAddress, accesspermissions.toInt(), accessmode, inheritance.toInt())
 }
 
-public actual fun buildImpersonateExplicitAccessWithNameW(pexplicitaccess: MutPtr<ExplicitAccessW>, ptrusteename: Pcwstr, ptrustee: ConstPtr<TrusteeW>, accesspermissions: UInt, accessmode: AccessMode, inheritance: UInt) {
+public actual fun buildImpersonateExplicitAccessWithNameW(pexplicitaccess: MutPtr, ptrusteename: Pcwstr, ptrustee: ConstPtr, accesspermissions: UInt, accessmode: AccessMode, inheritance: UInt) {
     WindowsWin32SecurityAuthorizationJniBridge.windowssysWindowsWin32SecurityAuthorizationBuildImpersonateExplicitAccessWithNameW(pexplicitaccess.rawAddress, ptrusteename.rawAddress, ptrustee.rawAddress, accesspermissions.toInt(), accessmode, inheritance.toInt())
 }
 
-public actual fun buildImpersonateTrusteeA(ptrustee: MutPtr<TrusteeA>, pimpersonatetrustee: ConstPtr<TrusteeA>) {
+public actual fun buildImpersonateTrusteeA(ptrustee: MutPtr, pimpersonatetrustee: ConstPtr) {
     WindowsWin32SecurityAuthorizationJniBridge.windowssysWindowsWin32SecurityAuthorizationBuildImpersonateTrusteeA(ptrustee.rawAddress, pimpersonatetrustee.rawAddress)
 }
 
-public actual fun buildImpersonateTrusteeW(ptrustee: MutPtr<TrusteeW>, pimpersonatetrustee: ConstPtr<TrusteeW>) {
+public actual fun buildImpersonateTrusteeW(ptrustee: MutPtr, pimpersonatetrustee: ConstPtr) {
     WindowsWin32SecurityAuthorizationJniBridge.windowssysWindowsWin32SecurityAuthorizationBuildImpersonateTrusteeW(ptrustee.rawAddress, pimpersonatetrustee.rawAddress)
 }
 
-public actual fun buildSecurityDescriptorA(powner: ConstPtr<TrusteeA>, pgroup: ConstPtr<TrusteeA>, ccountofaccessentries: UInt, plistofaccessentries: ConstPtr<ExplicitAccessA>, ccountofauditentries: UInt, plistofauditentries: ConstPtr<ExplicitAccessA>, poldsd: PsecurityDescriptor, psizenewsd: MutPtr<UInt>, pnewsd: MutPtr<PsecurityDescriptor>): Win32Error =
+public actual fun buildSecurityDescriptorA(powner: ConstPtr, pgroup: ConstPtr, ccountofaccessentries: UInt, plistofaccessentries: ConstPtr, ccountofauditentries: UInt, plistofauditentries: ConstPtr, poldsd: PsecurityDescriptor, psizenewsd: MutPtr, pnewsd: MutPtr): Win32Error =
     WindowsWin32SecurityAuthorizationJniBridge.windowssysWindowsWin32SecurityAuthorizationBuildSecurityDescriptorA(powner.rawAddress, pgroup.rawAddress, ccountofaccessentries.toInt(), plistofaccessentries.rawAddress, ccountofauditentries.toInt(), plistofauditentries.rawAddress, poldsd.rawAddress, psizenewsd.rawAddress, pnewsd.rawAddress).toUInt()
 
-public actual fun buildSecurityDescriptorW(powner: ConstPtr<TrusteeW>, pgroup: ConstPtr<TrusteeW>, ccountofaccessentries: UInt, plistofaccessentries: ConstPtr<ExplicitAccessW>, ccountofauditentries: UInt, plistofauditentries: ConstPtr<ExplicitAccessW>, poldsd: PsecurityDescriptor, psizenewsd: MutPtr<UInt>, pnewsd: MutPtr<PsecurityDescriptor>): Win32Error =
+public actual fun buildSecurityDescriptorW(powner: ConstPtr, pgroup: ConstPtr, ccountofaccessentries: UInt, plistofaccessentries: ConstPtr, ccountofauditentries: UInt, plistofauditentries: ConstPtr, poldsd: PsecurityDescriptor, psizenewsd: MutPtr, pnewsd: MutPtr): Win32Error =
     WindowsWin32SecurityAuthorizationJniBridge.windowssysWindowsWin32SecurityAuthorizationBuildSecurityDescriptorW(powner.rawAddress, pgroup.rawAddress, ccountofaccessentries.toInt(), plistofaccessentries.rawAddress, ccountofauditentries.toInt(), plistofauditentries.rawAddress, poldsd.rawAddress, psizenewsd.rawAddress, pnewsd.rawAddress).toUInt()
 
-public actual fun buildTrusteeWithNameA(ptrustee: MutPtr<TrusteeA>, pname: Pcstr) {
+public actual fun buildTrusteeWithNameA(ptrustee: MutPtr, pname: Pcstr) {
     WindowsWin32SecurityAuthorizationJniBridge.windowssysWindowsWin32SecurityAuthorizationBuildTrusteeWithNameA(ptrustee.rawAddress, pname.rawAddress)
 }
 
-public actual fun buildTrusteeWithNameW(ptrustee: MutPtr<TrusteeW>, pname: Pcwstr) {
+public actual fun buildTrusteeWithNameW(ptrustee: MutPtr, pname: Pcwstr) {
     WindowsWin32SecurityAuthorizationJniBridge.windowssysWindowsWin32SecurityAuthorizationBuildTrusteeWithNameW(ptrustee.rawAddress, pname.rawAddress)
 }
 
-public actual fun buildTrusteeWithObjectsAndNameA(ptrustee: MutPtr<TrusteeA>, pobjname: ConstPtr<ObjectsAndNameA>, objecttype: SeObjectType, objecttypename: Pcstr, inheritedobjecttypename: Pcstr, name: Pcstr) {
+public actual fun buildTrusteeWithObjectsAndNameA(ptrustee: MutPtr, pobjname: ConstPtr, objecttype: SeObjectType, objecttypename: Pcstr, inheritedobjecttypename: Pcstr, name: Pcstr) {
     WindowsWin32SecurityAuthorizationJniBridge.windowssysWindowsWin32SecurityAuthorizationBuildTrusteeWithObjectsAndNameA(ptrustee.rawAddress, pobjname.rawAddress, objecttype, objecttypename.rawAddress, inheritedobjecttypename.rawAddress, name.rawAddress)
 }
 
-public actual fun buildTrusteeWithObjectsAndNameW(ptrustee: MutPtr<TrusteeW>, pobjname: ConstPtr<ObjectsAndNameW>, objecttype: SeObjectType, objecttypename: Pcwstr, inheritedobjecttypename: Pcwstr, name: Pcwstr) {
+public actual fun buildTrusteeWithObjectsAndNameW(ptrustee: MutPtr, pobjname: ConstPtr, objecttype: SeObjectType, objecttypename: Pcwstr, inheritedobjecttypename: Pcwstr, name: Pcwstr) {
     WindowsWin32SecurityAuthorizationJniBridge.windowssysWindowsWin32SecurityAuthorizationBuildTrusteeWithObjectsAndNameW(ptrustee.rawAddress, pobjname.rawAddress, objecttype, objecttypename.rawAddress, inheritedobjecttypename.rawAddress, name.rawAddress)
 }
 
-public actual fun buildTrusteeWithObjectsAndSidA(ptrustee: MutPtr<TrusteeA>, pobjsid: ConstPtr<ObjectsAndSid>, pobjectguid: ConstPtr<Guid>, pinheritedobjectguid: ConstPtr<Guid>, psid: Psid) {
+public actual fun buildTrusteeWithObjectsAndSidA(ptrustee: MutPtr, pobjsid: ConstPtr, pobjectguid: ConstPtr, pinheritedobjectguid: ConstPtr, psid: Psid) {
     WindowsWin32SecurityAuthorizationJniBridge.windowssysWindowsWin32SecurityAuthorizationBuildTrusteeWithObjectsAndSidA(ptrustee.rawAddress, pobjsid.rawAddress, pobjectguid.rawAddress, pinheritedobjectguid.rawAddress, psid.rawAddress)
 }
 
-public actual fun buildTrusteeWithObjectsAndSidW(ptrustee: MutPtr<TrusteeW>, pobjsid: ConstPtr<ObjectsAndSid>, pobjectguid: ConstPtr<Guid>, pinheritedobjectguid: ConstPtr<Guid>, psid: Psid) {
+public actual fun buildTrusteeWithObjectsAndSidW(ptrustee: MutPtr, pobjsid: ConstPtr, pobjectguid: ConstPtr, pinheritedobjectguid: ConstPtr, psid: Psid) {
     WindowsWin32SecurityAuthorizationJniBridge.windowssysWindowsWin32SecurityAuthorizationBuildTrusteeWithObjectsAndSidW(ptrustee.rawAddress, pobjsid.rawAddress, pobjectguid.rawAddress, pinheritedobjectguid.rawAddress, psid.rawAddress)
 }
 
-public actual fun buildTrusteeWithSidA(ptrustee: MutPtr<TrusteeA>, psid: Psid) {
+public actual fun buildTrusteeWithSidA(ptrustee: MutPtr, psid: Psid) {
     WindowsWin32SecurityAuthorizationJniBridge.windowssysWindowsWin32SecurityAuthorizationBuildTrusteeWithSidA(ptrustee.rawAddress, psid.rawAddress)
 }
 
-public actual fun buildTrusteeWithSidW(ptrustee: MutPtr<TrusteeW>, psid: Psid) {
+public actual fun buildTrusteeWithSidW(ptrustee: MutPtr, psid: Psid) {
     WindowsWin32SecurityAuthorizationJniBridge.windowssysWindowsWin32SecurityAuthorizationBuildTrusteeWithSidW(ptrustee.rawAddress, psid.rawAddress)
 }
 
-public actual fun convertSecurityDescriptorToStringSecurityDescriptorA(securitydescriptor: PsecurityDescriptor, requestedstringsdrevision: UInt, securityinformation: ObjectSecurityInformation, stringsecuritydescriptor: MutPtr<Pstr>, stringsecuritydescriptorlen: MutPtr<UInt>): Bool =
+public actual fun convertSecurityDescriptorToStringSecurityDescriptorA(securitydescriptor: PsecurityDescriptor, requestedstringsdrevision: UInt, securityinformation: ObjectSecurityInformation, stringsecuritydescriptor: MutPtr, stringsecuritydescriptorlen: MutPtr): Bool =
     WindowsWin32SecurityAuthorizationJniBridge.windowssysWindowsWin32SecurityAuthorizationConvertSecurityDescriptorToStringSecurityDescriptorA(securitydescriptor.rawAddress, requestedstringsdrevision.toInt(), securityinformation.toInt(), stringsecuritydescriptor.rawAddress, stringsecuritydescriptorlen.rawAddress)
 
-public actual fun convertSecurityDescriptorToStringSecurityDescriptorW(securitydescriptor: PsecurityDescriptor, requestedstringsdrevision: UInt, securityinformation: ObjectSecurityInformation, stringsecuritydescriptor: MutPtr<Pwstr>, stringsecuritydescriptorlen: MutPtr<UInt>): Bool =
+public actual fun convertSecurityDescriptorToStringSecurityDescriptorW(securitydescriptor: PsecurityDescriptor, requestedstringsdrevision: UInt, securityinformation: ObjectSecurityInformation, stringsecuritydescriptor: MutPtr, stringsecuritydescriptorlen: MutPtr): Bool =
     WindowsWin32SecurityAuthorizationJniBridge.windowssysWindowsWin32SecurityAuthorizationConvertSecurityDescriptorToStringSecurityDescriptorW(securitydescriptor.rawAddress, requestedstringsdrevision.toInt(), securityinformation.toInt(), stringsecuritydescriptor.rawAddress, stringsecuritydescriptorlen.rawAddress)
 
-public actual fun convertSidToStringSidA(sid: Psid, stringsid: MutPtr<Pstr>): Bool =
+public actual fun convertSidToStringSidA(sid: Psid, stringsid: MutPtr): Bool =
     WindowsWin32SecurityAuthorizationJniBridge.windowssysWindowsWin32SecurityAuthorizationConvertSidToStringSidA(sid.rawAddress, stringsid.rawAddress)
 
-public actual fun convertSidToStringSidW(sid: Psid, stringsid: MutPtr<Pwstr>): Bool =
+public actual fun convertSidToStringSidW(sid: Psid, stringsid: MutPtr): Bool =
     WindowsWin32SecurityAuthorizationJniBridge.windowssysWindowsWin32SecurityAuthorizationConvertSidToStringSidW(sid.rawAddress, stringsid.rawAddress)
 
-public actual fun convertStringSecurityDescriptorToSecurityDescriptorA(stringsecuritydescriptor: Pcstr, stringsdrevision: UInt, securitydescriptor: MutPtr<PsecurityDescriptor>, securitydescriptorsize: MutPtr<UInt>): Bool =
+public actual fun convertStringSecurityDescriptorToSecurityDescriptorA(stringsecuritydescriptor: Pcstr, stringsdrevision: UInt, securitydescriptor: MutPtr, securitydescriptorsize: MutPtr): Bool =
     WindowsWin32SecurityAuthorizationJniBridge.windowssysWindowsWin32SecurityAuthorizationConvertStringSecurityDescriptorToSecurityDescriptorA(stringsecuritydescriptor.rawAddress, stringsdrevision.toInt(), securitydescriptor.rawAddress, securitydescriptorsize.rawAddress)
 
-public actual fun convertStringSecurityDescriptorToSecurityDescriptorW(stringsecuritydescriptor: Pcwstr, stringsdrevision: UInt, securitydescriptor: MutPtr<PsecurityDescriptor>, securitydescriptorsize: MutPtr<UInt>): Bool =
+public actual fun convertStringSecurityDescriptorToSecurityDescriptorW(stringsecuritydescriptor: Pcwstr, stringsdrevision: UInt, securitydescriptor: MutPtr, securitydescriptorsize: MutPtr): Bool =
     WindowsWin32SecurityAuthorizationJniBridge.windowssysWindowsWin32SecurityAuthorizationConvertStringSecurityDescriptorToSecurityDescriptorW(stringsecuritydescriptor.rawAddress, stringsdrevision.toInt(), securitydescriptor.rawAddress, securitydescriptorsize.rawAddress)
 
-public actual fun convertStringSidToSidA(stringsid: Pcstr, sid: MutPtr<Psid>): Bool =
+public actual fun convertStringSidToSidA(stringsid: Pcstr, sid: MutPtr): Bool =
     WindowsWin32SecurityAuthorizationJniBridge.windowssysWindowsWin32SecurityAuthorizationConvertStringSidToSidA(stringsid.rawAddress, sid.rawAddress)
 
-public actual fun convertStringSidToSidW(stringsid: Pcwstr, sid: MutPtr<Psid>): Bool =
+public actual fun convertStringSidToSidW(stringsid: Pcwstr, sid: MutPtr): Bool =
     WindowsWin32SecurityAuthorizationJniBridge.windowssysWindowsWin32SecurityAuthorizationConvertStringSidToSidW(stringsid.rawAddress, sid.rawAddress)
 
-public actual fun freeInheritedFromArray(pinheritarray: ConstPtr<InheritedFromw>, acecnt: UShort, pfnarray: ConstPtr<FnObjectMgrFuncts>): Win32Error =
+public actual fun freeInheritedFromArray(pinheritarray: ConstPtr, acecnt: UShort, pfnarray: ConstPtr): Win32Error =
     WindowsWin32SecurityAuthorizationJniBridge.windowssysWindowsWin32SecurityAuthorizationFreeInheritedFromArray(pinheritarray.rawAddress, acecnt.toShort(), pfnarray.rawAddress).toUInt()
 
-public actual fun getAuditedPermissionsFromAclA(pacl: ConstPtr<Acl>, ptrustee: ConstPtr<TrusteeA>, psuccessfulauditedrights: MutPtr<UInt>, pfailedauditrights: MutPtr<UInt>): Win32Error =
+public actual fun getAuditedPermissionsFromAclA(pacl: ConstPtr, ptrustee: ConstPtr, psuccessfulauditedrights: MutPtr, pfailedauditrights: MutPtr): Win32Error =
     WindowsWin32SecurityAuthorizationJniBridge.windowssysWindowsWin32SecurityAuthorizationGetAuditedPermissionsFromAclA(pacl.rawAddress, ptrustee.rawAddress, psuccessfulauditedrights.rawAddress, pfailedauditrights.rawAddress).toUInt()
 
-public actual fun getAuditedPermissionsFromAclW(pacl: ConstPtr<Acl>, ptrustee: ConstPtr<TrusteeW>, psuccessfulauditedrights: MutPtr<UInt>, pfailedauditrights: MutPtr<UInt>): Win32Error =
+public actual fun getAuditedPermissionsFromAclW(pacl: ConstPtr, ptrustee: ConstPtr, psuccessfulauditedrights: MutPtr, pfailedauditrights: MutPtr): Win32Error =
     WindowsWin32SecurityAuthorizationJniBridge.windowssysWindowsWin32SecurityAuthorizationGetAuditedPermissionsFromAclW(pacl.rawAddress, ptrustee.rawAddress, psuccessfulauditedrights.rawAddress, pfailedauditrights.rawAddress).toUInt()
 
-public actual fun getEffectiveRightsFromAclA(pacl: ConstPtr<Acl>, ptrustee: ConstPtr<TrusteeA>, paccessrights: MutPtr<UInt>): Win32Error =
+public actual fun getEffectiveRightsFromAclA(pacl: ConstPtr, ptrustee: ConstPtr, paccessrights: MutPtr): Win32Error =
     WindowsWin32SecurityAuthorizationJniBridge.windowssysWindowsWin32SecurityAuthorizationGetEffectiveRightsFromAclA(pacl.rawAddress, ptrustee.rawAddress, paccessrights.rawAddress).toUInt()
 
-public actual fun getEffectiveRightsFromAclW(pacl: ConstPtr<Acl>, ptrustee: ConstPtr<TrusteeW>, paccessrights: MutPtr<UInt>): Win32Error =
+public actual fun getEffectiveRightsFromAclW(pacl: ConstPtr, ptrustee: ConstPtr, paccessrights: MutPtr): Win32Error =
     WindowsWin32SecurityAuthorizationJniBridge.windowssysWindowsWin32SecurityAuthorizationGetEffectiveRightsFromAclW(pacl.rawAddress, ptrustee.rawAddress, paccessrights.rawAddress).toUInt()
 
-public actual fun getExplicitEntriesFromAclA(pacl: ConstPtr<Acl>, pccountofexplicitentries: MutPtr<UInt>, plistofexplicitentries: MutPtr<MutPtr<ExplicitAccessA>>): Win32Error =
+public actual fun getExplicitEntriesFromAclA(pacl: ConstPtr, pccountofexplicitentries: MutPtr, plistofexplicitentries: MutPtr): Win32Error =
     WindowsWin32SecurityAuthorizationJniBridge.windowssysWindowsWin32SecurityAuthorizationGetExplicitEntriesFromAclA(pacl.rawAddress, pccountofexplicitentries.rawAddress, plistofexplicitentries.rawAddress).toUInt()
 
-public actual fun getExplicitEntriesFromAclW(pacl: ConstPtr<Acl>, pccountofexplicitentries: MutPtr<UInt>, plistofexplicitentries: MutPtr<MutPtr<ExplicitAccessW>>): Win32Error =
+public actual fun getExplicitEntriesFromAclW(pacl: ConstPtr, pccountofexplicitentries: MutPtr, plistofexplicitentries: MutPtr): Win32Error =
     WindowsWin32SecurityAuthorizationJniBridge.windowssysWindowsWin32SecurityAuthorizationGetExplicitEntriesFromAclW(pacl.rawAddress, pccountofexplicitentries.rawAddress, plistofexplicitentries.rawAddress).toUInt()
 
-public actual fun getInheritanceSourceA(pobjectname: Pcstr, objecttype: SeObjectType, securityinfo: ObjectSecurityInformation, container: Bool, pobjectclassguids: ConstPtr<ConstPtr<Guid>>, guidcount: UInt, pacl: ConstPtr<Acl>, pfnarray: ConstPtr<FnObjectMgrFuncts>, pgenericmapping: ConstPtr<GenericMapping>, pinheritarray: MutPtr<InheritedFroma>): Win32Error =
+public actual fun getInheritanceSourceA(pobjectname: Pcstr, objecttype: SeObjectType, securityinfo: ObjectSecurityInformation, container: Bool, pobjectclassguids: ConstPtr, guidcount: UInt, pacl: ConstPtr, pfnarray: ConstPtr, pgenericmapping: ConstPtr, pinheritarray: MutPtr): Win32Error =
     WindowsWin32SecurityAuthorizationJniBridge.windowssysWindowsWin32SecurityAuthorizationGetInheritanceSourceA(pobjectname.rawAddress, objecttype, securityinfo.toInt(), container, pobjectclassguids.rawAddress, guidcount.toInt(), pacl.rawAddress, pfnarray.rawAddress, pgenericmapping.rawAddress, pinheritarray.rawAddress).toUInt()
 
-public actual fun getInheritanceSourceW(pobjectname: Pcwstr, objecttype: SeObjectType, securityinfo: ObjectSecurityInformation, container: Bool, pobjectclassguids: ConstPtr<ConstPtr<Guid>>, guidcount: UInt, pacl: ConstPtr<Acl>, pfnarray: ConstPtr<FnObjectMgrFuncts>, pgenericmapping: ConstPtr<GenericMapping>, pinheritarray: MutPtr<InheritedFromw>): Win32Error =
+public actual fun getInheritanceSourceW(pobjectname: Pcwstr, objecttype: SeObjectType, securityinfo: ObjectSecurityInformation, container: Bool, pobjectclassguids: ConstPtr, guidcount: UInt, pacl: ConstPtr, pfnarray: ConstPtr, pgenericmapping: ConstPtr, pinheritarray: MutPtr): Win32Error =
     WindowsWin32SecurityAuthorizationJniBridge.windowssysWindowsWin32SecurityAuthorizationGetInheritanceSourceW(pobjectname.rawAddress, objecttype, securityinfo.toInt(), container, pobjectclassguids.rawAddress, guidcount.toInt(), pacl.rawAddress, pfnarray.rawAddress, pgenericmapping.rawAddress, pinheritarray.rawAddress).toUInt()
 
-public actual fun getMultipleTrusteeA(ptrustee: ConstPtr<TrusteeA>): MutPtr<TrusteeA> =
+public actual fun getMultipleTrusteeA(ptrustee: ConstPtr): MutPtr =
     MutPtr(WindowsWin32SecurityAuthorizationJniBridge.windowssysWindowsWin32SecurityAuthorizationGetMultipleTrusteeA(ptrustee.rawAddress))
 
-public actual fun getMultipleTrusteeOperationA(ptrustee: ConstPtr<TrusteeA>): MultipleTrusteeOperation =
+public actual fun getMultipleTrusteeOperationA(ptrustee: ConstPtr): MultipleTrusteeOperation =
     WindowsWin32SecurityAuthorizationJniBridge.windowssysWindowsWin32SecurityAuthorizationGetMultipleTrusteeOperationA(ptrustee.rawAddress)
 
-public actual fun getMultipleTrusteeOperationW(ptrustee: ConstPtr<TrusteeW>): MultipleTrusteeOperation =
+public actual fun getMultipleTrusteeOperationW(ptrustee: ConstPtr): MultipleTrusteeOperation =
     WindowsWin32SecurityAuthorizationJniBridge.windowssysWindowsWin32SecurityAuthorizationGetMultipleTrusteeOperationW(ptrustee.rawAddress)
 
-public actual fun getMultipleTrusteeW(ptrustee: ConstPtr<TrusteeW>): MutPtr<TrusteeW> =
+public actual fun getMultipleTrusteeW(ptrustee: ConstPtr): MutPtr =
     MutPtr(WindowsWin32SecurityAuthorizationJniBridge.windowssysWindowsWin32SecurityAuthorizationGetMultipleTrusteeW(ptrustee.rawAddress))
 
-public actual fun getNamedSecurityInfoA(pobjectname: Pcstr, objecttype: SeObjectType, securityinfo: ObjectSecurityInformation, ppsidowner: MutPtr<Psid>, ppsidgroup: MutPtr<Psid>, ppdacl: MutPtr<MutPtr<Acl>>, ppsacl: MutPtr<MutPtr<Acl>>, ppsecuritydescriptor: MutPtr<PsecurityDescriptor>): Win32Error =
+public actual fun getNamedSecurityInfoA(pobjectname: Pcstr, objecttype: SeObjectType, securityinfo: ObjectSecurityInformation, ppsidowner: MutPtr, ppsidgroup: MutPtr, ppdacl: MutPtr, ppsacl: MutPtr, ppsecuritydescriptor: MutPtr): Win32Error =
     WindowsWin32SecurityAuthorizationJniBridge.windowssysWindowsWin32SecurityAuthorizationGetNamedSecurityInfoA(pobjectname.rawAddress, objecttype, securityinfo.toInt(), ppsidowner.rawAddress, ppsidgroup.rawAddress, ppdacl.rawAddress, ppsacl.rawAddress, ppsecuritydescriptor.rawAddress).toUInt()
 
-public actual fun getNamedSecurityInfoW(pobjectname: Pcwstr, objecttype: SeObjectType, securityinfo: ObjectSecurityInformation, ppsidowner: MutPtr<Psid>, ppsidgroup: MutPtr<Psid>, ppdacl: MutPtr<MutPtr<Acl>>, ppsacl: MutPtr<MutPtr<Acl>>, ppsecuritydescriptor: MutPtr<PsecurityDescriptor>): Win32Error =
+public actual fun getNamedSecurityInfoW(pobjectname: Pcwstr, objecttype: SeObjectType, securityinfo: ObjectSecurityInformation, ppsidowner: MutPtr, ppsidgroup: MutPtr, ppdacl: MutPtr, ppsacl: MutPtr, ppsecuritydescriptor: MutPtr): Win32Error =
     WindowsWin32SecurityAuthorizationJniBridge.windowssysWindowsWin32SecurityAuthorizationGetNamedSecurityInfoW(pobjectname.rawAddress, objecttype, securityinfo.toInt(), ppsidowner.rawAddress, ppsidgroup.rawAddress, ppdacl.rawAddress, ppsacl.rawAddress, ppsecuritydescriptor.rawAddress).toUInt()
 
-public actual fun getSecurityInfo(handle: Handle, objecttype: SeObjectType, securityinfo: ObjectSecurityInformation, ppsidowner: MutPtr<Psid>, ppsidgroup: MutPtr<Psid>, ppdacl: MutPtr<MutPtr<Acl>>, ppsacl: MutPtr<MutPtr<Acl>>, ppsecuritydescriptor: MutPtr<PsecurityDescriptor>): Win32Error =
+public actual fun getSecurityInfo(handle: Handle, objecttype: SeObjectType, securityinfo: ObjectSecurityInformation, ppsidowner: MutPtr, ppsidgroup: MutPtr, ppdacl: MutPtr, ppsacl: MutPtr, ppsecuritydescriptor: MutPtr): Win32Error =
     WindowsWin32SecurityAuthorizationJniBridge.windowssysWindowsWin32SecurityAuthorizationGetSecurityInfo(handle.rawAddress, objecttype, securityinfo.toInt(), ppsidowner.rawAddress, ppsidgroup.rawAddress, ppdacl.rawAddress, ppsacl.rawAddress, ppsecuritydescriptor.rawAddress).toUInt()
 
-public actual fun getTrusteeFormA(ptrustee: ConstPtr<TrusteeA>): TrusteeForm =
+public actual fun getTrusteeFormA(ptrustee: ConstPtr): TrusteeForm =
     WindowsWin32SecurityAuthorizationJniBridge.windowssysWindowsWin32SecurityAuthorizationGetTrusteeFormA(ptrustee.rawAddress)
 
-public actual fun getTrusteeFormW(ptrustee: ConstPtr<TrusteeW>): TrusteeForm =
+public actual fun getTrusteeFormW(ptrustee: ConstPtr): TrusteeForm =
     WindowsWin32SecurityAuthorizationJniBridge.windowssysWindowsWin32SecurityAuthorizationGetTrusteeFormW(ptrustee.rawAddress)
 
-public actual fun getTrusteeNameA(ptrustee: ConstPtr<TrusteeA>): Pstr =
+public actual fun getTrusteeNameA(ptrustee: ConstPtr): Pstr =
     MutPtr(WindowsWin32SecurityAuthorizationJniBridge.windowssysWindowsWin32SecurityAuthorizationGetTrusteeNameA(ptrustee.rawAddress))
 
-public actual fun getTrusteeNameW(ptrustee: ConstPtr<TrusteeW>): Pwstr =
+public actual fun getTrusteeNameW(ptrustee: ConstPtr): Pwstr =
     MutPtr(WindowsWin32SecurityAuthorizationJniBridge.windowssysWindowsWin32SecurityAuthorizationGetTrusteeNameW(ptrustee.rawAddress))
 
-public actual fun getTrusteeTypeA(ptrustee: ConstPtr<TrusteeA>): TrusteeType =
+public actual fun getTrusteeTypeA(ptrustee: ConstPtr): TrusteeType =
     WindowsWin32SecurityAuthorizationJniBridge.windowssysWindowsWin32SecurityAuthorizationGetTrusteeTypeA(ptrustee.rawAddress)
 
-public actual fun getTrusteeTypeW(ptrustee: ConstPtr<TrusteeW>): TrusteeType =
+public actual fun getTrusteeTypeW(ptrustee: ConstPtr): TrusteeType =
     WindowsWin32SecurityAuthorizationJniBridge.windowssysWindowsWin32SecurityAuthorizationGetTrusteeTypeW(ptrustee.rawAddress)
 
-public actual fun lookupSecurityDescriptorPartsA(ppowner: MutPtr<MutPtr<TrusteeA>>, ppgroup: MutPtr<MutPtr<TrusteeA>>, pccountofaccessentries: MutPtr<UInt>, pplistofaccessentries: MutPtr<MutPtr<ExplicitAccessA>>, pccountofauditentries: MutPtr<UInt>, pplistofauditentries: MutPtr<MutPtr<ExplicitAccessA>>, psd: PsecurityDescriptor): Win32Error =
+public actual fun lookupSecurityDescriptorPartsA(ppowner: MutPtr, ppgroup: MutPtr, pccountofaccessentries: MutPtr, pplistofaccessentries: MutPtr, pccountofauditentries: MutPtr, pplistofauditentries: MutPtr, psd: PsecurityDescriptor): Win32Error =
     WindowsWin32SecurityAuthorizationJniBridge.windowssysWindowsWin32SecurityAuthorizationLookupSecurityDescriptorPartsA(ppowner.rawAddress, ppgroup.rawAddress, pccountofaccessentries.rawAddress, pplistofaccessentries.rawAddress, pccountofauditentries.rawAddress, pplistofauditentries.rawAddress, psd.rawAddress).toUInt()
 
-public actual fun lookupSecurityDescriptorPartsW(ppowner: MutPtr<MutPtr<TrusteeW>>, ppgroup: MutPtr<MutPtr<TrusteeW>>, pccountofaccessentries: MutPtr<UInt>, pplistofaccessentries: MutPtr<MutPtr<ExplicitAccessW>>, pccountofauditentries: MutPtr<UInt>, pplistofauditentries: MutPtr<MutPtr<ExplicitAccessW>>, psd: PsecurityDescriptor): Win32Error =
+public actual fun lookupSecurityDescriptorPartsW(ppowner: MutPtr, ppgroup: MutPtr, pccountofaccessentries: MutPtr, pplistofaccessentries: MutPtr, pccountofauditentries: MutPtr, pplistofauditentries: MutPtr, psd: PsecurityDescriptor): Win32Error =
     WindowsWin32SecurityAuthorizationJniBridge.windowssysWindowsWin32SecurityAuthorizationLookupSecurityDescriptorPartsW(ppowner.rawAddress, ppgroup.rawAddress, pccountofaccessentries.rawAddress, pplistofaccessentries.rawAddress, pccountofauditentries.rawAddress, pplistofauditentries.rawAddress, psd.rawAddress).toUInt()
 
-public actual fun setEntriesInAclA(ccountofexplicitentries: UInt, plistofexplicitentries: ConstPtr<ExplicitAccessA>, oldacl: ConstPtr<Acl>, newacl: MutPtr<MutPtr<Acl>>): Win32Error =
+public actual fun setEntriesInAclA(ccountofexplicitentries: UInt, plistofexplicitentries: ConstPtr, oldacl: ConstPtr, newacl: MutPtr): Win32Error =
     WindowsWin32SecurityAuthorizationJniBridge.windowssysWindowsWin32SecurityAuthorizationSetEntriesInAclA(ccountofexplicitentries.toInt(), plistofexplicitentries.rawAddress, oldacl.rawAddress, newacl.rawAddress).toUInt()
 
-public actual fun setEntriesInAclW(ccountofexplicitentries: UInt, plistofexplicitentries: ConstPtr<ExplicitAccessW>, oldacl: ConstPtr<Acl>, newacl: MutPtr<MutPtr<Acl>>): Win32Error =
+public actual fun setEntriesInAclW(ccountofexplicitentries: UInt, plistofexplicitentries: ConstPtr, oldacl: ConstPtr, newacl: MutPtr): Win32Error =
     WindowsWin32SecurityAuthorizationJniBridge.windowssysWindowsWin32SecurityAuthorizationSetEntriesInAclW(ccountofexplicitentries.toInt(), plistofexplicitentries.rawAddress, oldacl.rawAddress, newacl.rawAddress).toUInt()
 
-public actual fun setNamedSecurityInfoA(pobjectname: Pcstr, objecttype: SeObjectType, securityinfo: ObjectSecurityInformation, psidowner: Psid, psidgroup: Psid, pdacl: ConstPtr<Acl>, psacl: ConstPtr<Acl>): Win32Error =
+public actual fun setNamedSecurityInfoA(pobjectname: Pcstr, objecttype: SeObjectType, securityinfo: ObjectSecurityInformation, psidowner: Psid, psidgroup: Psid, pdacl: ConstPtr, psacl: ConstPtr): Win32Error =
     WindowsWin32SecurityAuthorizationJniBridge.windowssysWindowsWin32SecurityAuthorizationSetNamedSecurityInfoA(pobjectname.rawAddress, objecttype, securityinfo.toInt(), psidowner.rawAddress, psidgroup.rawAddress, pdacl.rawAddress, psacl.rawAddress).toUInt()
 
-public actual fun setNamedSecurityInfoW(pobjectname: Pcwstr, objecttype: SeObjectType, securityinfo: ObjectSecurityInformation, psidowner: Psid, psidgroup: Psid, pdacl: ConstPtr<Acl>, psacl: ConstPtr<Acl>): Win32Error =
+public actual fun setNamedSecurityInfoW(pobjectname: Pcwstr, objecttype: SeObjectType, securityinfo: ObjectSecurityInformation, psidowner: Psid, psidgroup: Psid, pdacl: ConstPtr, psacl: ConstPtr): Win32Error =
     WindowsWin32SecurityAuthorizationJniBridge.windowssysWindowsWin32SecurityAuthorizationSetNamedSecurityInfoW(pobjectname.rawAddress, objecttype, securityinfo.toInt(), psidowner.rawAddress, psidgroup.rawAddress, pdacl.rawAddress, psacl.rawAddress).toUInt()
 
-public actual fun setSecurityInfo(handle: Handle, objecttype: SeObjectType, securityinfo: ObjectSecurityInformation, psidowner: Psid, psidgroup: Psid, pdacl: ConstPtr<Acl>, psacl: ConstPtr<Acl>): Win32Error =
+public actual fun setSecurityInfo(handle: Handle, objecttype: SeObjectType, securityinfo: ObjectSecurityInformation, psidowner: Psid, psidgroup: Psid, pdacl: ConstPtr, psacl: ConstPtr): Win32Error =
     WindowsWin32SecurityAuthorizationJniBridge.windowssysWindowsWin32SecurityAuthorizationSetSecurityInfo(handle.rawAddress, objecttype, securityinfo.toInt(), psidowner.rawAddress, psidgroup.rawAddress, pdacl.rawAddress, psacl.rawAddress).toUInt()
 
-public actual fun treeResetNamedSecurityInfoA(pobjectname: Pcstr, objecttype: SeObjectType, securityinfo: ObjectSecurityInformation, powner: Psid, pgroup: Psid, pdacl: ConstPtr<Acl>, psacl: ConstPtr<Acl>, keepexplicit: Bool, fnprogress: FnProgress, progressinvokesetting: ProgInvokeSetting, args: ConstPtr<CVoid>): Win32Error =
+public actual fun treeResetNamedSecurityInfoA(pobjectname: Pcstr, objecttype: SeObjectType, securityinfo: ObjectSecurityInformation, powner: Psid, pgroup: Psid, pdacl: ConstPtr, psacl: ConstPtr, keepexplicit: Bool, fnprogress: FnProgress, progressinvokesetting: ProgInvokeSetting, args: ConstPtr): Win32Error =
     WindowsWin32SecurityAuthorizationJniBridge.windowssysWindowsWin32SecurityAuthorizationTreeResetNamedSecurityInfoA(pobjectname.rawAddress, objecttype, securityinfo.toInt(), powner.rawAddress, pgroup.rawAddress, pdacl.rawAddress, psacl.rawAddress, keepexplicit, 0L, progressinvokesetting, args.rawAddress).toUInt()
 
-public actual fun treeResetNamedSecurityInfoW(pobjectname: Pcwstr, objecttype: SeObjectType, securityinfo: ObjectSecurityInformation, powner: Psid, pgroup: Psid, pdacl: ConstPtr<Acl>, psacl: ConstPtr<Acl>, keepexplicit: Bool, fnprogress: FnProgress, progressinvokesetting: ProgInvokeSetting, args: ConstPtr<CVoid>): Win32Error =
+public actual fun treeResetNamedSecurityInfoW(pobjectname: Pcwstr, objecttype: SeObjectType, securityinfo: ObjectSecurityInformation, powner: Psid, pgroup: Psid, pdacl: ConstPtr, psacl: ConstPtr, keepexplicit: Bool, fnprogress: FnProgress, progressinvokesetting: ProgInvokeSetting, args: ConstPtr): Win32Error =
     WindowsWin32SecurityAuthorizationJniBridge.windowssysWindowsWin32SecurityAuthorizationTreeResetNamedSecurityInfoW(pobjectname.rawAddress, objecttype, securityinfo.toInt(), powner.rawAddress, pgroup.rawAddress, pdacl.rawAddress, psacl.rawAddress, keepexplicit, 0L, progressinvokesetting, args.rawAddress).toUInt()
 
-public actual fun treeSetNamedSecurityInfoA(pobjectname: Pcstr, objecttype: SeObjectType, securityinfo: ObjectSecurityInformation, powner: Psid, pgroup: Psid, pdacl: ConstPtr<Acl>, psacl: ConstPtr<Acl>, dwaction: TreeSecInfo, fnprogress: FnProgress, progressinvokesetting: ProgInvokeSetting, args: ConstPtr<CVoid>): Win32Error =
+public actual fun treeSetNamedSecurityInfoA(pobjectname: Pcstr, objecttype: SeObjectType, securityinfo: ObjectSecurityInformation, powner: Psid, pgroup: Psid, pdacl: ConstPtr, psacl: ConstPtr, dwaction: TreeSecInfo, fnprogress: FnProgress, progressinvokesetting: ProgInvokeSetting, args: ConstPtr): Win32Error =
     WindowsWin32SecurityAuthorizationJniBridge.windowssysWindowsWin32SecurityAuthorizationTreeSetNamedSecurityInfoA(pobjectname.rawAddress, objecttype, securityinfo.toInt(), powner.rawAddress, pgroup.rawAddress, pdacl.rawAddress, psacl.rawAddress, dwaction.toInt(), 0L, progressinvokesetting, args.rawAddress).toUInt()
 
-public actual fun treeSetNamedSecurityInfoW(pobjectname: Pcwstr, objecttype: SeObjectType, securityinfo: ObjectSecurityInformation, powner: Psid, pgroup: Psid, pdacl: ConstPtr<Acl>, psacl: ConstPtr<Acl>, dwaction: TreeSecInfo, fnprogress: FnProgress, progressinvokesetting: ProgInvokeSetting, args: ConstPtr<CVoid>): Win32Error =
+public actual fun treeSetNamedSecurityInfoW(pobjectname: Pcwstr, objecttype: SeObjectType, securityinfo: ObjectSecurityInformation, powner: Psid, pgroup: Psid, pdacl: ConstPtr, psacl: ConstPtr, dwaction: TreeSecInfo, fnprogress: FnProgress, progressinvokesetting: ProgInvokeSetting, args: ConstPtr): Win32Error =
     WindowsWin32SecurityAuthorizationJniBridge.windowssysWindowsWin32SecurityAuthorizationTreeSetNamedSecurityInfoW(pobjectname.rawAddress, objecttype, securityinfo.toInt(), powner.rawAddress, pgroup.rawAddress, pdacl.rawAddress, psacl.rawAddress, dwaction.toInt(), 0L, progressinvokesetting, args.rawAddress).toUInt()

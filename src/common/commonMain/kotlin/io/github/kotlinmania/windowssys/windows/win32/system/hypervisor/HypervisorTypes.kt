@@ -1,15 +1,13 @@
 package io.github.kotlinmania.windowssys.windows.win32.system.hypervisor
 
-import io.github.kotlinmania.rustlang.core.ffi.CVoid
 import io.github.kotlinmania.rustlang.core.ptr.ConstPtr
 import io.github.kotlinmania.rustlang.core.ptr.MutPtr
 import io.github.kotlinmania.windowssys.core.Bool
 import io.github.kotlinmania.windowssys.core.Hresult
 import io.github.kotlinmania.windowssys.core.Pcstr
-import io.github.kotlinmania.windowssys.core.Pcwstr
 
 public fun interface FoundImageCallbackFn {
-    public operator fun invoke(context: ConstPtr<CVoid>, imageinfo: ConstPtr<DosImageInfo>): Bool
+    public operator fun invoke(context: ConstPtr, imageinfo: ConstPtr): Bool
 }
 
 public typealias FoundImageCallback = FoundImageCallbackFn?
@@ -37,37 +35,37 @@ public typealias HdvMmioMappingFlags = Int
 public typealias HdvPciBarSelector = Int
 
 public fun interface HdvPciDeviceGetDetailsFn {
-    public operator fun invoke(devicecontext: ConstPtr<CVoid>, pnpid: MutPtr<HdvPciPnpId>, probedbarscount: UInt, probedbars: MutPtr<UInt>): Hresult
+    public operator fun invoke(devicecontext: ConstPtr, pnpid: MutPtr, probedbarscount: UInt, probedbars: MutPtr): Hresult
 }
 
 public typealias HdvPciDeviceGetDetails = HdvPciDeviceGetDetailsFn?
 
 public fun interface HdvPciDeviceInitializeFn {
-    public operator fun invoke(devicecontext: ConstPtr<CVoid>): Hresult
+    public operator fun invoke(devicecontext: ConstPtr): Hresult
 }
 
 public typealias HdvPciDeviceInitialize = HdvPciDeviceInitializeFn?
 
 public fun interface HdvPciDeviceSetConfigurationFn {
-    public operator fun invoke(devicecontext: ConstPtr<CVoid>, configurationvaluecount: UInt, configurationvalues: ConstPtr<Pcwstr>): Hresult
+    public operator fun invoke(devicecontext: ConstPtr, configurationvaluecount: UInt, configurationvalues: ConstPtr): Hresult
 }
 
 public typealias HdvPciDeviceSetConfiguration = HdvPciDeviceSetConfigurationFn?
 
 public fun interface HdvPciDeviceStartFn {
-    public operator fun invoke(devicecontext: ConstPtr<CVoid>): Hresult
+    public operator fun invoke(devicecontext: ConstPtr): Hresult
 }
 
 public typealias HdvPciDeviceStart = HdvPciDeviceStartFn?
 
 public fun interface HdvPciDeviceStopFn {
-    public operator fun invoke(devicecontext: ConstPtr<CVoid>)
+    public operator fun invoke(devicecontext: ConstPtr)
 }
 
 public typealias HdvPciDeviceStop = HdvPciDeviceStopFn?
 
 public fun interface HdvPciDeviceTeardownFn {
-    public operator fun invoke(devicecontext: ConstPtr<CVoid>)
+    public operator fun invoke(devicecontext: ConstPtr)
 }
 
 public typealias HdvPciDeviceTeardown = HdvPciDeviceTeardownFn?
@@ -75,25 +73,25 @@ public typealias HdvPciDeviceTeardown = HdvPciDeviceTeardownFn?
 public typealias HdvPciInterfaceVersion = Int
 
 public fun interface HdvPciReadConfigSpaceFn {
-    public operator fun invoke(devicecontext: ConstPtr<CVoid>, offset: UInt, value: MutPtr<UInt>): Hresult
+    public operator fun invoke(devicecontext: ConstPtr, offset: UInt, value: MutPtr): Hresult
 }
 
 public typealias HdvPciReadConfigSpace = HdvPciReadConfigSpaceFn?
 
 public fun interface HdvPciReadInterceptedMemoryFn {
-    public operator fun invoke(devicecontext: ConstPtr<CVoid>, barindex: HdvPciBarSelector, offset: ULong, length: ULong, value: MutPtr<UByte>): Hresult
+    public operator fun invoke(devicecontext: ConstPtr, barindex: HdvPciBarSelector, offset: ULong, length: ULong, value: MutPtr): Hresult
 }
 
 public typealias HdvPciReadInterceptedMemory = HdvPciReadInterceptedMemoryFn?
 
 public fun interface HdvPciWriteConfigSpaceFn {
-    public operator fun invoke(devicecontext: ConstPtr<CVoid>, offset: UInt, value: UInt): Hresult
+    public operator fun invoke(devicecontext: ConstPtr, offset: UInt, value: UInt): Hresult
 }
 
 public typealias HdvPciWriteConfigSpace = HdvPciWriteConfigSpaceFn?
 
 public fun interface HdvPciWriteInterceptedMemoryFn {
-    public operator fun invoke(devicecontext: ConstPtr<CVoid>, barindex: HdvPciBarSelector, offset: ULong, length: ULong, value: ConstPtr<UByte>): Hresult
+    public operator fun invoke(devicecontext: ConstPtr, barindex: HdvPciBarSelector, offset: ULong, length: ULong, value: ConstPtr): Hresult
 }
 
 public typealias HdvPciWriteInterceptedMemory = HdvPciWriteInterceptedMemoryFn?
@@ -117,31 +115,31 @@ public typealias WhvCapabilityCode = Int
 public typealias WhvCreateVpciDeviceFlags = Int
 
 public fun interface WhvEmulatorGetVirtualProcessorRegistersCallbackFn {
-    public operator fun invoke(context: ConstPtr<CVoid>, registernames: ConstPtr<WhvRegisterName>, registercount: UInt, registervalues: MutPtr<WhvRegisterValue>): Hresult
+    public operator fun invoke(context: ConstPtr, registernames: ConstPtr, registercount: UInt, registervalues: MutPtr): Hresult
 }
 
 public typealias WhvEmulatorGetVirtualProcessorRegistersCallback = WhvEmulatorGetVirtualProcessorRegistersCallbackFn?
 
 public fun interface WhvEmulatorIoPortCallbackFn {
-    public operator fun invoke(context: ConstPtr<CVoid>, ioaccess: MutPtr<WhvEmulatorIoAccessInfo>): Hresult
+    public operator fun invoke(context: ConstPtr, ioaccess: MutPtr): Hresult
 }
 
 public typealias WhvEmulatorIoPortCallback = WhvEmulatorIoPortCallbackFn?
 
 public fun interface WhvEmulatorMemoryCallbackFn {
-    public operator fun invoke(context: ConstPtr<CVoid>, memoryaccess: MutPtr<WhvEmulatorMemoryAccessInfo>): Hresult
+    public operator fun invoke(context: ConstPtr, memoryaccess: MutPtr): Hresult
 }
 
 public typealias WhvEmulatorMemoryCallback = WhvEmulatorMemoryCallbackFn?
 
 public fun interface WhvEmulatorSetVirtualProcessorRegistersCallbackFn {
-    public operator fun invoke(context: ConstPtr<CVoid>, registernames: ConstPtr<WhvRegisterName>, registercount: UInt, registervalues: ConstPtr<WhvRegisterValue>): Hresult
+    public operator fun invoke(context: ConstPtr, registernames: ConstPtr, registercount: UInt, registervalues: ConstPtr): Hresult
 }
 
 public typealias WhvEmulatorSetVirtualProcessorRegistersCallback = WhvEmulatorSetVirtualProcessorRegistersCallbackFn?
 
 public fun interface WhvEmulatorTranslateGvaPageCallbackFn {
-    public operator fun invoke(context: ConstPtr<CVoid>, gva: ULong, translateflags: WhvTranslateGvaFlags, translationresult: MutPtr<WhvTranslateGvaResultCode>, gpa: MutPtr<ULong>): Hresult
+    public operator fun invoke(context: ConstPtr, gva: ULong, translateflags: WhvTranslateGvaFlags, translationresult: MutPtr, gpa: MutPtr): Hresult
 }
 
 public typealias WhvEmulatorTranslateGvaPageCallback = WhvEmulatorTranslateGvaPageCallbackFn?

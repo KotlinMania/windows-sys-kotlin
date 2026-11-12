@@ -2,9 +2,7 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.media.windowsmediaformat
 
-import io.github.kotlinmania.rustlang.core.ffi.CVoid
 import io.github.kotlinmania.rustlang.core.ptr.MutPtr
-import io.github.kotlinmania.windowssys.core.Bool
 import io.github.kotlinmania.windowssys.core.Hresult
 import io.github.kotlinmania.windowssys.core.Pcwstr
 
@@ -47,35 +45,35 @@ private object WindowsWin32MediaWindowsmediaformatJniBridge {
     external fun windowssysWindowsWin32MediaWindowsmediaformatWMIsContentProtected(pwszfilename: Long, pfisprotected: Long): Int
 }
 
-public actual fun wMCreateBackupRestorer(pcallback: MutPtr<CVoid>, ppbackup: MutPtr<MutPtr<CVoid>>): Hresult =
+public actual fun wMCreateBackupRestorer(pcallback: MutPtr, ppbackup: MutPtr): Hresult =
     WindowsWin32MediaWindowsmediaformatJniBridge.windowssysWindowsWin32MediaWindowsmediaformatWMCreateBackupRestorer(pcallback.rawAddress, ppbackup.rawAddress)
 
-public actual fun wMCreateEditor(ppeditor: MutPtr<MutPtr<CVoid>>): Hresult =
+public actual fun wMCreateEditor(ppeditor: MutPtr): Hresult =
     WindowsWin32MediaWindowsmediaformatJniBridge.windowssysWindowsWin32MediaWindowsmediaformatWMCreateEditor(ppeditor.rawAddress)
 
-public actual fun wMCreateIndexer(ppindexer: MutPtr<MutPtr<CVoid>>): Hresult =
+public actual fun wMCreateIndexer(ppindexer: MutPtr): Hresult =
     WindowsWin32MediaWindowsmediaformatJniBridge.windowssysWindowsWin32MediaWindowsmediaformatWMCreateIndexer(ppindexer.rawAddress)
 
-public actual fun wMCreateProfileManager(ppprofilemanager: MutPtr<MutPtr<CVoid>>): Hresult =
+public actual fun wMCreateProfileManager(ppprofilemanager: MutPtr): Hresult =
     WindowsWin32MediaWindowsmediaformatJniBridge.windowssysWindowsWin32MediaWindowsmediaformatWMCreateProfileManager(ppprofilemanager.rawAddress)
 
-public actual fun wMCreateReader(punkcert: MutPtr<CVoid>, dwrights: UInt, ppreader: MutPtr<MutPtr<CVoid>>): Hresult =
+public actual fun wMCreateReader(punkcert: MutPtr, dwrights: UInt, ppreader: MutPtr): Hresult =
     WindowsWin32MediaWindowsmediaformatJniBridge.windowssysWindowsWin32MediaWindowsmediaformatWMCreateReader(punkcert.rawAddress, dwrights.toInt(), ppreader.rawAddress)
 
-public actual fun wMCreateSyncReader(punkcert: MutPtr<CVoid>, dwrights: UInt, ppsyncreader: MutPtr<MutPtr<CVoid>>): Hresult =
+public actual fun wMCreateSyncReader(punkcert: MutPtr, dwrights: UInt, ppsyncreader: MutPtr): Hresult =
     WindowsWin32MediaWindowsmediaformatJniBridge.windowssysWindowsWin32MediaWindowsmediaformatWMCreateSyncReader(punkcert.rawAddress, dwrights.toInt(), ppsyncreader.rawAddress)
 
-public actual fun wMCreateWriter(punkcert: MutPtr<CVoid>, ppwriter: MutPtr<MutPtr<CVoid>>): Hresult =
+public actual fun wMCreateWriter(punkcert: MutPtr, ppwriter: MutPtr): Hresult =
     WindowsWin32MediaWindowsmediaformatJniBridge.windowssysWindowsWin32MediaWindowsmediaformatWMCreateWriter(punkcert.rawAddress, ppwriter.rawAddress)
 
-public actual fun wMCreateWriterFileSink(ppsink: MutPtr<MutPtr<CVoid>>): Hresult =
+public actual fun wMCreateWriterFileSink(ppsink: MutPtr): Hresult =
     WindowsWin32MediaWindowsmediaformatJniBridge.windowssysWindowsWin32MediaWindowsmediaformatWMCreateWriterFileSink(ppsink.rawAddress)
 
-public actual fun wMCreateWriterNetworkSink(ppsink: MutPtr<MutPtr<CVoid>>): Hresult =
+public actual fun wMCreateWriterNetworkSink(ppsink: MutPtr): Hresult =
     WindowsWin32MediaWindowsmediaformatJniBridge.windowssysWindowsWin32MediaWindowsmediaformatWMCreateWriterNetworkSink(ppsink.rawAddress)
 
-public actual fun wMCreateWriterPushSink(ppsink: MutPtr<MutPtr<CVoid>>): Hresult =
+public actual fun wMCreateWriterPushSink(ppsink: MutPtr): Hresult =
     WindowsWin32MediaWindowsmediaformatJniBridge.windowssysWindowsWin32MediaWindowsmediaformatWMCreateWriterPushSink(ppsink.rawAddress)
 
-public actual fun wMIsContentProtected(pwszfilename: Pcwstr, pfisprotected: MutPtr<Bool>): Hresult =
+public actual fun wMIsContentProtected(pwszfilename: Pcwstr, pfisprotected: MutPtr): Hresult =
     WindowsWin32MediaWindowsmediaformatJniBridge.windowssysWindowsWin32MediaWindowsmediaformatWMIsContentProtected(pwszfilename.rawAddress, pfisprotected.rawAddress)

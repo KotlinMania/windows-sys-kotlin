@@ -2,7 +2,6 @@
 
 package io.github.kotlinmania.windowssys.windows.wdk.graphics.direct3d
 
-import io.github.kotlinmania.rustlang.core.ffi.CVoid
 import io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
 import io.github.kotlinmania.rustlang.core.mem.TypeLayout
 import io.github.kotlinmania.rustlang.core.ptr.MutPtr
@@ -2523,9 +2522,9 @@ public class DxgkargSetpalette internal constructor(
     public var vidPnSourceId: UInt,
     public var firstEntry: UInt,
     public var numEntries: UInt,
-    pLookupTableCtorArg: MutPtr<D3dkmdtPalettedata>,
+    pLookupTableCtorArg: MutPtr,
 ) {
-    public var pLookupTable: MutPtr<D3dkmdtPalettedata> = pLookupTableCtorArg
+    public var pLookupTable: MutPtr = pLookupTableCtorArg
         internal set
 
     public constructor() : this(
@@ -2541,9 +2540,9 @@ public class DxgkargSetpalette internal constructor(
 
     public operator fun component3(): UInt = this.numEntries
 
-    public operator fun component4(): MutPtr<D3dkmdtPalettedata> = this.pLookupTable
+    public operator fun component4(): MutPtr = this.pLookupTable
 
-    public fun copy(vidPnSourceId: UInt = this.vidPnSourceId, firstEntry: UInt = this.firstEntry, numEntries: UInt = this.numEntries, pLookupTable: MutPtr<D3dkmdtPalettedata> = this.pLookupTable): DxgkargSetpalette = DxgkargSetpalette(vidPnSourceId = vidPnSourceId, firstEntry = firstEntry, numEntries = numEntries, pLookupTableCtorArg = pLookupTable)
+    public fun copy(vidPnSourceId: UInt = this.vidPnSourceId, firstEntry: UInt = this.firstEntry, numEntries: UInt = this.numEntries, pLookupTable: MutPtr = this.pLookupTable): DxgkargSetpalette = DxgkargSetpalette(vidPnSourceId = vidPnSourceId, firstEntry = firstEntry, numEntries = numEntries, pLookupTableCtorArg = pLookupTable)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -2575,7 +2574,7 @@ public class DxgkargSetpalette internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 8L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<D3dkmdtPalettedata>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 16L),
                     )
                 override fun writeNative(addr: Long, value: DxgkargSetpalette) {
@@ -2584,7 +2583,7 @@ public class DxgkargSetpalette internal constructor(
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 8L, value.numEntries)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<D3dkmdtPalettedata>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 16L, value.pLookupTable)
                 }
             }
@@ -2593,7 +2592,7 @@ public class DxgkargSetpalette internal constructor(
             vidPnSourceId: UInt = 0u,
             firstEntry: UInt = 0u,
             numEntries: UInt = 0u,
-            pLookupTable: MutPtr<D3dkmdtPalettedata> = MutPtr(0L),
+            pLookupTable: MutPtr = MutPtr(0L),
         ): DxgkargSetpalette =
             DxgkargSetpalette(
                 vidPnSourceId = vidPnSourceId,
@@ -3881,13 +3880,13 @@ public data class DxgkGpuversion(
 
 public class DxgkGraphicspowerRegisterInputV12 internal constructor(
     public var version: UInt,
-    privateHandleCtorArg: MutPtr<CVoid>,
+    privateHandleCtorArg: MutPtr,
     public var powerNotificationCb: PdxgkPowerNotification,
     public var removalNotificationCb: PdxgkRemovalNotification,
     public var fStateNotificationCb: PdxgkFstateNotification,
     public var initialComponentStateCb: PdxgkInitialComponentState,
 ) {
-    public var privateHandle: MutPtr<CVoid> = privateHandleCtorArg
+    public var privateHandle: MutPtr = privateHandleCtorArg
         internal set
 
     public constructor() : this(
@@ -3901,7 +3900,7 @@ public class DxgkGraphicspowerRegisterInputV12 internal constructor(
 
     public operator fun component1(): UInt = this.version
 
-    public operator fun component2(): MutPtr<CVoid> = this.privateHandle
+    public operator fun component2(): MutPtr = this.privateHandle
 
     public operator fun component3(): PdxgkPowerNotification = this.powerNotificationCb
 
@@ -3911,7 +3910,7 @@ public class DxgkGraphicspowerRegisterInputV12 internal constructor(
 
     public operator fun component6(): PdxgkInitialComponentState = this.initialComponentStateCb
 
-    public fun copy(version: UInt = this.version, privateHandle: MutPtr<CVoid> = this.privateHandle, powerNotificationCb: PdxgkPowerNotification = this.powerNotificationCb, removalNotificationCb: PdxgkRemovalNotification = this.removalNotificationCb, fStateNotificationCb: PdxgkFstateNotification = this.fStateNotificationCb, initialComponentStateCb: PdxgkInitialComponentState = this.initialComponentStateCb): DxgkGraphicspowerRegisterInputV12 = DxgkGraphicspowerRegisterInputV12(version = version, privateHandleCtorArg = privateHandle, powerNotificationCb = powerNotificationCb, removalNotificationCb = removalNotificationCb, fStateNotificationCb = fStateNotificationCb, initialComponentStateCb = initialComponentStateCb)
+    public fun copy(version: UInt = this.version, privateHandle: MutPtr = this.privateHandle, powerNotificationCb: PdxgkPowerNotification = this.powerNotificationCb, removalNotificationCb: PdxgkRemovalNotification = this.removalNotificationCb, fStateNotificationCb: PdxgkFstateNotification = this.fStateNotificationCb, initialComponentStateCb: PdxgkInitialComponentState = this.initialComponentStateCb): DxgkGraphicspowerRegisterInputV12 = DxgkGraphicspowerRegisterInputV12(version = version, privateHandleCtorArg = privateHandle, powerNotificationCb = powerNotificationCb, removalNotificationCb = removalNotificationCb, fStateNotificationCb = fStateNotificationCb, initialComponentStateCb = initialComponentStateCb)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -3938,7 +3937,7 @@ public class DxgkGraphicspowerRegisterInputV12 internal constructor(
     public companion object {
         public operator fun invoke(
             version: UInt = 0u,
-            privateHandle: MutPtr<CVoid> = MutPtr(0L),
+            privateHandle: MutPtr = MutPtr(0L),
             powerNotificationCb: PdxgkPowerNotification = null,
             removalNotificationCb: PdxgkRemovalNotification = null,
             fStateNotificationCb: PdxgkFstateNotification = null,
@@ -3956,12 +3955,12 @@ public class DxgkGraphicspowerRegisterInputV12 internal constructor(
 }
 
 public class DxgkGraphicspowerRegisterOutput internal constructor(
-    deviceHandleCtorArg: MutPtr<CVoid>,
+    deviceHandleCtorArg: MutPtr,
     public var initialGrfxPowerState: DevicePowerState,
     public var setSharedPowerComponentStateCb: PdxgkSetSharedPowerComponentState,
     public var unregisterCb: PdxgkGraphicspowerUnregister,
 ) {
-    public var deviceHandle: MutPtr<CVoid> = deviceHandleCtorArg
+    public var deviceHandle: MutPtr = deviceHandleCtorArg
         internal set
 
     public constructor() : this(
@@ -3971,7 +3970,7 @@ public class DxgkGraphicspowerRegisterOutput internal constructor(
         unregisterCb = null,
     )
 
-    public operator fun component1(): MutPtr<CVoid> = this.deviceHandle
+    public operator fun component1(): MutPtr = this.deviceHandle
 
     public operator fun component2(): DevicePowerState = this.initialGrfxPowerState
 
@@ -3979,7 +3978,7 @@ public class DxgkGraphicspowerRegisterOutput internal constructor(
 
     public operator fun component4(): PdxgkGraphicspowerUnregister = this.unregisterCb
 
-    public fun copy(deviceHandle: MutPtr<CVoid> = this.deviceHandle, initialGrfxPowerState: DevicePowerState = this.initialGrfxPowerState, setSharedPowerComponentStateCb: PdxgkSetSharedPowerComponentState = this.setSharedPowerComponentStateCb, unregisterCb: PdxgkGraphicspowerUnregister = this.unregisterCb): DxgkGraphicspowerRegisterOutput = DxgkGraphicspowerRegisterOutput(deviceHandleCtorArg = deviceHandle, initialGrfxPowerState = initialGrfxPowerState, setSharedPowerComponentStateCb = setSharedPowerComponentStateCb, unregisterCb = unregisterCb)
+    public fun copy(deviceHandle: MutPtr = this.deviceHandle, initialGrfxPowerState: DevicePowerState = this.initialGrfxPowerState, setSharedPowerComponentStateCb: PdxgkSetSharedPowerComponentState = this.setSharedPowerComponentStateCb, unregisterCb: PdxgkGraphicspowerUnregister = this.unregisterCb): DxgkGraphicspowerRegisterOutput = DxgkGraphicspowerRegisterOutput(deviceHandleCtorArg = deviceHandle, initialGrfxPowerState = initialGrfxPowerState, setSharedPowerComponentStateCb = setSharedPowerComponentStateCb, unregisterCb = unregisterCb)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -4001,7 +4000,7 @@ public class DxgkGraphicspowerRegisterOutput internal constructor(
 
     public companion object {
         public operator fun invoke(
-            deviceHandle: MutPtr<CVoid> = MutPtr(0L),
+            deviceHandle: MutPtr = MutPtr(0L),
             initialGrfxPowerState: DevicePowerState = 0,
             setSharedPowerComponentStateCb: PdxgkSetSharedPowerComponentState = null,
             unregisterCb: PdxgkGraphicspowerUnregister = null,

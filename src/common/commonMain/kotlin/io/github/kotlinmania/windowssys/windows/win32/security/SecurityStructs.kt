@@ -2,7 +2,6 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.security
 
-import io.github.kotlinmania.rustlang.core.ffi.CVoid
 import io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
 import io.github.kotlinmania.rustlang.core.mem.TypeLayout
 import io.github.kotlinmania.rustlang.core.ptr.MutPtr
@@ -291,18 +290,18 @@ public data class ClaimSecurityAttributesInformation(
 )
 
 public class ClaimSecurityAttributesInformation0 internal constructor(
-    pAttributeV1CtorArg: MutPtr<ClaimSecurityAttributeV1>,
+    pAttributeV1CtorArg: MutPtr,
 ) {
-    public var pAttributeV1: MutPtr<ClaimSecurityAttributeV1> = pAttributeV1CtorArg
+    public var pAttributeV1: MutPtr = pAttributeV1CtorArg
         internal set
 
     public constructor() : this(
         pAttributeV1CtorArg = MutPtr(0L),
     )
 
-    public operator fun component1(): MutPtr<ClaimSecurityAttributeV1> = this.pAttributeV1
+    public operator fun component1(): MutPtr = this.pAttributeV1
 
-    public fun copy(pAttributeV1: MutPtr<ClaimSecurityAttributeV1> = this.pAttributeV1): ClaimSecurityAttributesInformation0 = ClaimSecurityAttributesInformation0(pAttributeV1CtorArg = pAttributeV1)
+    public fun copy(pAttributeV1: MutPtr = this.pAttributeV1): ClaimSecurityAttributesInformation0 = ClaimSecurityAttributesInformation0(pAttributeV1CtorArg = pAttributeV1)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -315,7 +314,7 @@ public class ClaimSecurityAttributesInformation0 internal constructor(
 
     public companion object {
         public operator fun invoke(
-            pAttributeV1: MutPtr<ClaimSecurityAttributeV1> = MutPtr(0L),
+            pAttributeV1: MutPtr = MutPtr(0L),
         ): ClaimSecurityAttributesInformation0 =
             ClaimSecurityAttributesInformation0(
                 pAttributeV1CtorArg = pAttributeV1,
@@ -368,10 +367,10 @@ public class ClaimSecurityAttributeFqbnValue internal constructor(
 }
 
 public class ClaimSecurityAttributeOctetStringValue internal constructor(
-    pValueCtorArg: MutPtr<CVoid>,
+    pValueCtorArg: MutPtr,
     public var valueLength: UInt,
 ) {
-    public var pValue: MutPtr<CVoid> = pValueCtorArg
+    public var pValue: MutPtr = pValueCtorArg
         internal set
 
     public constructor() : this(
@@ -379,11 +378,11 @@ public class ClaimSecurityAttributeOctetStringValue internal constructor(
         valueLength = 0u,
     )
 
-    public operator fun component1(): MutPtr<CVoid> = this.pValue
+    public operator fun component1(): MutPtr = this.pValue
 
     public operator fun component2(): UInt = this.valueLength
 
-    public fun copy(pValue: MutPtr<CVoid> = this.pValue, valueLength: UInt = this.valueLength): ClaimSecurityAttributeOctetStringValue = ClaimSecurityAttributeOctetStringValue(pValueCtorArg = pValue, valueLength = valueLength)
+    public fun copy(pValue: MutPtr = this.pValue, valueLength: UInt = this.valueLength): ClaimSecurityAttributeOctetStringValue = ClaimSecurityAttributeOctetStringValue(pValueCtorArg = pValue, valueLength = valueLength)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -408,21 +407,21 @@ public class ClaimSecurityAttributeOctetStringValue internal constructor(
                     ClaimSecurityAttributeOctetStringValue(
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<CVoid>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 8L),
                     )
                 override fun writeNative(addr: Long, value: ClaimSecurityAttributeOctetStringValue) {
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<CVoid>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr, value.pValue)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 8L, value.valueLength)
                 }
             }
 
         public operator fun invoke(
-            pValue: MutPtr<CVoid> = MutPtr(0L),
+            pValue: MutPtr = MutPtr(0L),
             valueLength: UInt = 0u,
         ): ClaimSecurityAttributeOctetStringValue =
             ClaimSecurityAttributeOctetStringValue(
@@ -546,25 +545,25 @@ public class ClaimSecurityAttributeV1 internal constructor(
 }
 
 public class ClaimSecurityAttributeV10 internal constructor(
-    pInt64CtorArg: MutPtr<Long>,
-    pUint64CtorArg: MutPtr<ULong>,
-    ppStringCtorArg: MutPtr<Pwstr>,
-    pFqbnCtorArg: MutPtr<ClaimSecurityAttributeFqbnValue>,
-    pOctetStringCtorArg: MutPtr<ClaimSecurityAttributeOctetStringValue>,
+    pInt64CtorArg: MutPtr,
+    pUint64CtorArg: MutPtr,
+    ppStringCtorArg: MutPtr,
+    pFqbnCtorArg: MutPtr,
+    pOctetStringCtorArg: MutPtr,
 ) {
-    public var pInt64: MutPtr<Long> = pInt64CtorArg
+    public var pInt64: MutPtr = pInt64CtorArg
         internal set
 
-    public var pUint64: MutPtr<ULong> = pUint64CtorArg
+    public var pUint64: MutPtr = pUint64CtorArg
         internal set
 
-    public var ppString: MutPtr<Pwstr> = ppStringCtorArg
+    public var ppString: MutPtr = ppStringCtorArg
         internal set
 
-    public var pFqbn: MutPtr<ClaimSecurityAttributeFqbnValue> = pFqbnCtorArg
+    public var pFqbn: MutPtr = pFqbnCtorArg
         internal set
 
-    public var pOctetString: MutPtr<ClaimSecurityAttributeOctetStringValue> = pOctetStringCtorArg
+    public var pOctetString: MutPtr = pOctetStringCtorArg
         internal set
 
     public constructor() : this(
@@ -575,17 +574,17 @@ public class ClaimSecurityAttributeV10 internal constructor(
         pOctetStringCtorArg = MutPtr(0L),
     )
 
-    public operator fun component1(): MutPtr<Long> = this.pInt64
+    public operator fun component1(): MutPtr = this.pInt64
 
-    public operator fun component2(): MutPtr<ULong> = this.pUint64
+    public operator fun component2(): MutPtr = this.pUint64
 
-    public operator fun component3(): MutPtr<Pwstr> = this.ppString
+    public operator fun component3(): MutPtr = this.ppString
 
-    public operator fun component4(): MutPtr<ClaimSecurityAttributeFqbnValue> = this.pFqbn
+    public operator fun component4(): MutPtr = this.pFqbn
 
-    public operator fun component5(): MutPtr<ClaimSecurityAttributeOctetStringValue> = this.pOctetString
+    public operator fun component5(): MutPtr = this.pOctetString
 
-    public fun copy(pInt64: MutPtr<Long> = this.pInt64, pUint64: MutPtr<ULong> = this.pUint64, ppString: MutPtr<Pwstr> = this.ppString, pFqbn: MutPtr<ClaimSecurityAttributeFqbnValue> = this.pFqbn, pOctetString: MutPtr<ClaimSecurityAttributeOctetStringValue> = this.pOctetString): ClaimSecurityAttributeV10 = ClaimSecurityAttributeV10(pInt64CtorArg = pInt64, pUint64CtorArg = pUint64, ppStringCtorArg = ppString, pFqbnCtorArg = pFqbn, pOctetStringCtorArg = pOctetString)
+    public fun copy(pInt64: MutPtr = this.pInt64, pUint64: MutPtr = this.pUint64, ppString: MutPtr = this.ppString, pFqbn: MutPtr = this.pFqbn, pOctetString: MutPtr = this.pOctetString): ClaimSecurityAttributeV10 = ClaimSecurityAttributeV10(pInt64CtorArg = pInt64, pUint64CtorArg = pUint64, ppStringCtorArg = ppString, pFqbnCtorArg = pFqbn, pOctetStringCtorArg = pOctetString)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -609,11 +608,11 @@ public class ClaimSecurityAttributeV10 internal constructor(
 
     public companion object {
         public operator fun invoke(
-            pInt64: MutPtr<Long> = MutPtr(0L),
-            pUint64: MutPtr<ULong> = MutPtr(0L),
-            ppString: MutPtr<Pwstr> = MutPtr(0L),
-            pFqbn: MutPtr<ClaimSecurityAttributeFqbnValue> = MutPtr(0L),
-            pOctetString: MutPtr<ClaimSecurityAttributeOctetStringValue> = MutPtr(0L),
+            pInt64: MutPtr = MutPtr(0L),
+            pUint64: MutPtr = MutPtr(0L),
+            ppString: MutPtr = MutPtr(0L),
+            pFqbn: MutPtr = MutPtr(0L),
+            pOctetString: MutPtr = MutPtr(0L),
         ): ClaimSecurityAttributeV10 =
             ClaimSecurityAttributeV10(
                 pInt64CtorArg = pInt64,
@@ -670,9 +669,9 @@ public data class LuidAndAttributes(
 public class ObjectTypeList internal constructor(
     public var level: UShort,
     public var sbz: UShort,
-    objectTypeCtorArg: MutPtr<Guid>,
+    objectTypeCtorArg: MutPtr,
 ) {
-    public var objectType: MutPtr<Guid> = objectTypeCtorArg
+    public var objectType: MutPtr = objectTypeCtorArg
         internal set
 
     public constructor() : this(
@@ -685,9 +684,9 @@ public class ObjectTypeList internal constructor(
 
     public operator fun component2(): UShort = this.sbz
 
-    public operator fun component3(): MutPtr<Guid> = this.objectType
+    public operator fun component3(): MutPtr = this.objectType
 
-    public fun copy(level: UShort = this.level, sbz: UShort = this.sbz, objectType: MutPtr<Guid> = this.objectType): ObjectTypeList = ObjectTypeList(level = level, sbz = sbz, objectTypeCtorArg = objectType)
+    public fun copy(level: UShort = this.level, sbz: UShort = this.sbz, objectType: MutPtr = this.objectType): ObjectTypeList = ObjectTypeList(level = level, sbz = sbz, objectTypeCtorArg = objectType)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -716,7 +715,7 @@ public class ObjectTypeList internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16).readNative(addr + 2L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<Guid>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                     )
                 override fun writeNative(addr: Long, value: ObjectTypeList) {
@@ -724,7 +723,7 @@ public class ObjectTypeList internal constructor(
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16).writeNative(addr + 2L, value.sbz)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<Guid>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.objectType)
                 }
             }
@@ -732,7 +731,7 @@ public class ObjectTypeList internal constructor(
         public operator fun invoke(
             level: UShort = 0u,
             sbz: UShort = 0u,
-            objectType: MutPtr<Guid> = MutPtr(0L),
+            objectType: MutPtr = MutPtr(0L),
         ): ObjectTypeList =
             ObjectTypeList(
                 level = level,
@@ -784,10 +783,10 @@ public data class QuotaLimits(
 
 public class SecurityAttributes internal constructor(
     public var nLength: UInt,
-    lpSecurityDescriptorCtorArg: MutPtr<CVoid>,
+    lpSecurityDescriptorCtorArg: MutPtr,
     public var bInheritHandle: Bool,
 ) {
-    public var lpSecurityDescriptor: MutPtr<CVoid> = lpSecurityDescriptorCtorArg
+    public var lpSecurityDescriptor: MutPtr = lpSecurityDescriptorCtorArg
         internal set
 
     public constructor() : this(
@@ -798,11 +797,11 @@ public class SecurityAttributes internal constructor(
 
     public operator fun component1(): UInt = this.nLength
 
-    public operator fun component2(): MutPtr<CVoid> = this.lpSecurityDescriptor
+    public operator fun component2(): MutPtr = this.lpSecurityDescriptor
 
     public operator fun component3(): Bool = this.bInheritHandle
 
-    public fun copy(nLength: UInt = this.nLength, lpSecurityDescriptor: MutPtr<CVoid> = this.lpSecurityDescriptor, bInheritHandle: Bool = this.bInheritHandle): SecurityAttributes = SecurityAttributes(nLength = nLength, lpSecurityDescriptorCtorArg = lpSecurityDescriptor, bInheritHandle = bInheritHandle)
+    public fun copy(nLength: UInt = this.nLength, lpSecurityDescriptor: MutPtr = this.lpSecurityDescriptor, bInheritHandle: Bool = this.bInheritHandle): SecurityAttributes = SecurityAttributes(nLength = nLength, lpSecurityDescriptorCtorArg = lpSecurityDescriptor, bInheritHandle = bInheritHandle)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -830,7 +829,7 @@ public class SecurityAttributes internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<CVoid>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr + 16L),
                     )
@@ -838,7 +837,7 @@ public class SecurityAttributes internal constructor(
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr, value.nLength)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<CVoid>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.lpSecurityDescriptor)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr + 16L, value.bInheritHandle)
                 }
@@ -846,7 +845,7 @@ public class SecurityAttributes internal constructor(
 
         public operator fun invoke(
             nLength: UInt = 0u,
-            lpSecurityDescriptor: MutPtr<CVoid> = MutPtr(0L),
+            lpSecurityDescriptor: MutPtr = MutPtr(0L),
             bInheritHandle: Bool = 0,
         ): SecurityAttributes =
             SecurityAttributes(
@@ -859,14 +858,14 @@ public class SecurityAttributes internal constructor(
 
 public class SecurityCapabilities internal constructor(
     appContainerSidCtorArg: Psid,
-    capabilitiesCtorArg: MutPtr<SidAndAttributes>,
+    capabilitiesCtorArg: MutPtr,
     public var capabilityCount: UInt,
     public var reserved: UInt,
 ) {
     public var appContainerSid: Psid = appContainerSidCtorArg
         internal set
 
-    public var capabilities: MutPtr<SidAndAttributes> = capabilitiesCtorArg
+    public var capabilities: MutPtr = capabilitiesCtorArg
         internal set
 
     public constructor() : this(
@@ -878,13 +877,13 @@ public class SecurityCapabilities internal constructor(
 
     public operator fun component1(): Psid = this.appContainerSid
 
-    public operator fun component2(): MutPtr<SidAndAttributes> = this.capabilities
+    public operator fun component2(): MutPtr = this.capabilities
 
     public operator fun component3(): UInt = this.capabilityCount
 
     public operator fun component4(): UInt = this.reserved
 
-    public fun copy(appContainerSid: Psid = this.appContainerSid, capabilities: MutPtr<SidAndAttributes> = this.capabilities, capabilityCount: UInt = this.capabilityCount, reserved: UInt = this.reserved): SecurityCapabilities = SecurityCapabilities(appContainerSidCtorArg = appContainerSid, capabilitiesCtorArg = capabilities, capabilityCount = capabilityCount, reserved = reserved)
+    public fun copy(appContainerSid: Psid = this.appContainerSid, capabilities: MutPtr = this.capabilities, capabilityCount: UInt = this.capabilityCount, reserved: UInt = this.reserved): SecurityCapabilities = SecurityCapabilities(appContainerSidCtorArg = appContainerSid, capabilitiesCtorArg = capabilities, capabilityCount = capabilityCount, reserved = reserved)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -913,11 +912,11 @@ public class SecurityCapabilities internal constructor(
                     SecurityCapabilities(
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<CVoid>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<SidAndAttributes>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 16L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 20L),
@@ -925,11 +924,11 @@ public class SecurityCapabilities internal constructor(
                 override fun writeNative(addr: Long, value: SecurityCapabilities) {
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<CVoid>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr, value.appContainerSid)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<SidAndAttributes>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.capabilities)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 16L, value.capabilityCount)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 20L, value.reserved)
@@ -938,7 +937,7 @@ public class SecurityCapabilities internal constructor(
 
         public operator fun invoke(
             appContainerSid: Psid = MutPtr(0L),
-            capabilities: MutPtr<SidAndAttributes> = MutPtr(0L),
+            capabilities: MutPtr = MutPtr(0L),
             capabilityCount: UInt = 0u,
             reserved: UInt = 0u,
         ): SecurityCapabilities =
@@ -957,8 +956,8 @@ public class SecurityDescriptor internal constructor(
     public var control: SecurityDescriptorControl,
     ownerCtorArg: Psid,
     groupCtorArg: Psid,
-    saclCtorArg: MutPtr<Acl>,
-    daclCtorArg: MutPtr<Acl>,
+    saclCtorArg: MutPtr,
+    daclCtorArg: MutPtr,
 ) {
     public var owner: Psid = ownerCtorArg
         internal set
@@ -966,10 +965,10 @@ public class SecurityDescriptor internal constructor(
     public var group: Psid = groupCtorArg
         internal set
 
-    public var sacl: MutPtr<Acl> = saclCtorArg
+    public var sacl: MutPtr = saclCtorArg
         internal set
 
-    public var dacl: MutPtr<Acl> = daclCtorArg
+    public var dacl: MutPtr = daclCtorArg
         internal set
 
     public constructor() : this(
@@ -992,11 +991,11 @@ public class SecurityDescriptor internal constructor(
 
     public operator fun component5(): Psid = this.group
 
-    public operator fun component6(): MutPtr<Acl> = this.sacl
+    public operator fun component6(): MutPtr = this.sacl
 
-    public operator fun component7(): MutPtr<Acl> = this.dacl
+    public operator fun component7(): MutPtr = this.dacl
 
-    public fun copy(revision: UByte = this.revision, sbz1: UByte = this.sbz1, control: SecurityDescriptorControl = this.control, owner: Psid = this.owner, group: Psid = this.group, sacl: MutPtr<Acl> = this.sacl, dacl: MutPtr<Acl> = this.dacl): SecurityDescriptor = SecurityDescriptor(revision = revision, sbz1 = sbz1, control = control, ownerCtorArg = owner, groupCtorArg = group, saclCtorArg = sacl, daclCtorArg = dacl)
+    public fun copy(revision: UByte = this.revision, sbz1: UByte = this.sbz1, control: SecurityDescriptorControl = this.control, owner: Psid = this.owner, group: Psid = this.group, sacl: MutPtr = this.sacl, dacl: MutPtr = this.dacl): SecurityDescriptor = SecurityDescriptor(revision = revision, sbz1 = sbz1, control = control, ownerCtorArg = owner, groupCtorArg = group, saclCtorArg = sacl, daclCtorArg = dacl)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -1034,19 +1033,19 @@ public class SecurityDescriptor internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16).readNative(addr + 2L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<CVoid>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<CVoid>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 16L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<Acl>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 24L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<Acl>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 32L),
                     )
                 override fun writeNative(addr: Long, value: SecurityDescriptor) {
@@ -1055,19 +1054,19 @@ public class SecurityDescriptor internal constructor(
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16).writeNative(addr + 2L, value.control)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<CVoid>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.owner)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<CVoid>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 16L, value.group)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<Acl>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 24L, value.sacl)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<Acl>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 32L, value.dacl)
                 }
             }
@@ -1078,8 +1077,8 @@ public class SecurityDescriptor internal constructor(
             control: SecurityDescriptorControl = 0u,
             owner: Psid = MutPtr(0L),
             group: Psid = MutPtr(0L),
-            sacl: MutPtr<Acl> = MutPtr(0L),
-            dacl: MutPtr<Acl> = MutPtr(0L),
+            sacl: MutPtr = MutPtr(0L),
+            dacl: MutPtr = MutPtr(0L),
         ): SecurityDescriptor =
             SecurityDescriptor(
                 revision = revision,
@@ -1161,21 +1160,21 @@ public data class SecurityQualityOfService(
 public class SeAccessReply internal constructor(
     public var size: UInt,
     public var resultListCount: UInt,
-    grantedAccessCtorArg: MutPtr<UInt>,
-    accessStatusCtorArg: MutPtr<UInt>,
-    accessReasonCtorArg: MutPtr<AccessReasons>,
-    privilegesCtorArg: MutPtr<MutPtr<PrivilegeSet>>,
+    grantedAccessCtorArg: MutPtr,
+    accessStatusCtorArg: MutPtr,
+    accessReasonCtorArg: MutPtr,
+    privilegesCtorArg: MutPtr,
 ) {
-    public var grantedAccess: MutPtr<UInt> = grantedAccessCtorArg
+    public var grantedAccess: MutPtr = grantedAccessCtorArg
         internal set
 
-    public var accessStatus: MutPtr<UInt> = accessStatusCtorArg
+    public var accessStatus: MutPtr = accessStatusCtorArg
         internal set
 
-    public var accessReason: MutPtr<AccessReasons> = accessReasonCtorArg
+    public var accessReason: MutPtr = accessReasonCtorArg
         internal set
 
-    public var privileges: MutPtr<MutPtr<PrivilegeSet>> = privilegesCtorArg
+    public var privileges: MutPtr = privilegesCtorArg
         internal set
 
     public constructor() : this(
@@ -1191,15 +1190,15 @@ public class SeAccessReply internal constructor(
 
     public operator fun component2(): UInt = this.resultListCount
 
-    public operator fun component3(): MutPtr<UInt> = this.grantedAccess
+    public operator fun component3(): MutPtr = this.grantedAccess
 
-    public operator fun component4(): MutPtr<UInt> = this.accessStatus
+    public operator fun component4(): MutPtr = this.accessStatus
 
-    public operator fun component5(): MutPtr<AccessReasons> = this.accessReason
+    public operator fun component5(): MutPtr = this.accessReason
 
-    public operator fun component6(): MutPtr<MutPtr<PrivilegeSet>> = this.privileges
+    public operator fun component6(): MutPtr = this.privileges
 
-    public fun copy(size: UInt = this.size, resultListCount: UInt = this.resultListCount, grantedAccess: MutPtr<UInt> = this.grantedAccess, accessStatus: MutPtr<UInt> = this.accessStatus, accessReason: MutPtr<AccessReasons> = this.accessReason, privileges: MutPtr<MutPtr<PrivilegeSet>> = this.privileges): SeAccessReply = SeAccessReply(size = size, resultListCount = resultListCount, grantedAccessCtorArg = grantedAccess, accessStatusCtorArg = accessStatus, accessReasonCtorArg = accessReason, privilegesCtorArg = privileges)
+    public fun copy(size: UInt = this.size, resultListCount: UInt = this.resultListCount, grantedAccess: MutPtr = this.grantedAccess, accessStatus: MutPtr = this.accessStatus, accessReason: MutPtr = this.accessReason, privileges: MutPtr = this.privileges): SeAccessReply = SeAccessReply(size = size, resultListCount = resultListCount, grantedAccessCtorArg = grantedAccess, accessStatusCtorArg = accessStatus, accessReasonCtorArg = accessReason, privilegesCtorArg = privileges)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -1234,19 +1233,19 @@ public class SeAccessReply internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 4L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<UInt>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<UInt>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 16L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<AccessReasons>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 24L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<MutPtr<PrivilegeSet>>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 32L),
                     )
                 override fun writeNative(addr: Long, value: SeAccessReply) {
@@ -1254,19 +1253,19 @@ public class SeAccessReply internal constructor(
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 4L, value.resultListCount)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<UInt>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.grantedAccess)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<UInt>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 16L, value.accessStatus)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<AccessReasons>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 24L, value.accessReason)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<MutPtr<PrivilegeSet>>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 32L, value.privileges)
                 }
             }
@@ -1274,10 +1273,10 @@ public class SeAccessReply internal constructor(
         public operator fun invoke(
             size: UInt = 0u,
             resultListCount: UInt = 0u,
-            grantedAccess: MutPtr<UInt> = MutPtr(0L),
-            accessStatus: MutPtr<UInt> = MutPtr(0L),
-            accessReason: MutPtr<AccessReasons> = MutPtr(0L),
-            privileges: MutPtr<MutPtr<PrivilegeSet>> = MutPtr(0L),
+            grantedAccess: MutPtr = MutPtr(0L),
+            accessStatus: MutPtr = MutPtr(0L),
+            accessReason: MutPtr = MutPtr(0L),
+            privileges: MutPtr = MutPtr(0L),
         ): SeAccessReply =
             SeAccessReply(
                 size = size,
@@ -1292,24 +1291,24 @@ public class SeAccessReply internal constructor(
 
 public class SeAccessRequest internal constructor(
     public var size: UInt,
-    seSecurityDescriptorCtorArg: MutPtr<SeSecurityDescriptor>,
+    seSecurityDescriptorCtorArg: MutPtr,
     public var desiredAccess: UInt,
     public var previouslyGrantedAccess: UInt,
     principalSelfSidCtorArg: Psid,
-    genericMappingCtorArg: MutPtr<GenericMapping>,
+    genericMappingCtorArg: MutPtr,
     public var objectTypeListCount: UInt,
-    objectTypeListCtorArg: MutPtr<ObjectTypeList>,
+    objectTypeListCtorArg: MutPtr,
 ) {
-    public var seSecurityDescriptor: MutPtr<SeSecurityDescriptor> = seSecurityDescriptorCtorArg
+    public var seSecurityDescriptor: MutPtr = seSecurityDescriptorCtorArg
         internal set
 
     public var principalSelfSid: Psid = principalSelfSidCtorArg
         internal set
 
-    public var genericMapping: MutPtr<GenericMapping> = genericMappingCtorArg
+    public var genericMapping: MutPtr = genericMappingCtorArg
         internal set
 
-    public var objectTypeList: MutPtr<ObjectTypeList> = objectTypeListCtorArg
+    public var objectTypeList: MutPtr = objectTypeListCtorArg
         internal set
 
     public constructor() : this(
@@ -1325,7 +1324,7 @@ public class SeAccessRequest internal constructor(
 
     public operator fun component1(): UInt = this.size
 
-    public operator fun component2(): MutPtr<SeSecurityDescriptor> = this.seSecurityDescriptor
+    public operator fun component2(): MutPtr = this.seSecurityDescriptor
 
     public operator fun component3(): UInt = this.desiredAccess
 
@@ -1333,13 +1332,13 @@ public class SeAccessRequest internal constructor(
 
     public operator fun component5(): Psid = this.principalSelfSid
 
-    public operator fun component6(): MutPtr<GenericMapping> = this.genericMapping
+    public operator fun component6(): MutPtr = this.genericMapping
 
     public operator fun component7(): UInt = this.objectTypeListCount
 
-    public operator fun component8(): MutPtr<ObjectTypeList> = this.objectTypeList
+    public operator fun component8(): MutPtr = this.objectTypeList
 
-    public fun copy(size: UInt = this.size, seSecurityDescriptor: MutPtr<SeSecurityDescriptor> = this.seSecurityDescriptor, desiredAccess: UInt = this.desiredAccess, previouslyGrantedAccess: UInt = this.previouslyGrantedAccess, principalSelfSid: Psid = this.principalSelfSid, genericMapping: MutPtr<GenericMapping> = this.genericMapping, objectTypeListCount: UInt = this.objectTypeListCount, objectTypeList: MutPtr<ObjectTypeList> = this.objectTypeList): SeAccessRequest = SeAccessRequest(size = size, seSecurityDescriptorCtorArg = seSecurityDescriptor, desiredAccess = desiredAccess, previouslyGrantedAccess = previouslyGrantedAccess, principalSelfSidCtorArg = principalSelfSid, genericMappingCtorArg = genericMapping, objectTypeListCount = objectTypeListCount, objectTypeListCtorArg = objectTypeList)
+    public fun copy(size: UInt = this.size, seSecurityDescriptor: MutPtr = this.seSecurityDescriptor, desiredAccess: UInt = this.desiredAccess, previouslyGrantedAccess: UInt = this.previouslyGrantedAccess, principalSelfSid: Psid = this.principalSelfSid, genericMapping: MutPtr = this.genericMapping, objectTypeListCount: UInt = this.objectTypeListCount, objectTypeList: MutPtr = this.objectTypeList): SeAccessRequest = SeAccessRequest(size = size, seSecurityDescriptorCtorArg = seSecurityDescriptor, desiredAccess = desiredAccess, previouslyGrantedAccess = previouslyGrantedAccess, principalSelfSidCtorArg = principalSelfSid, genericMappingCtorArg = genericMapping, objectTypeListCount = objectTypeListCount, objectTypeListCtorArg = objectTypeList)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -1377,57 +1376,57 @@ public class SeAccessRequest internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<SeSecurityDescriptor>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 16L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 20L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<CVoid>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 24L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<GenericMapping>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 32L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 40L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<ObjectTypeList>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 48L),
                     )
                 override fun writeNative(addr: Long, value: SeAccessRequest) {
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr, value.size)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<SeSecurityDescriptor>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.seSecurityDescriptor)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 16L, value.desiredAccess)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 20L, value.previouslyGrantedAccess)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<CVoid>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 24L, value.principalSelfSid)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<GenericMapping>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 32L, value.genericMapping)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 40L, value.objectTypeListCount)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<ObjectTypeList>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 48L, value.objectTypeList)
                 }
             }
 
         public operator fun invoke(
             size: UInt = 0u,
-            seSecurityDescriptor: MutPtr<SeSecurityDescriptor> = MutPtr(0L),
+            seSecurityDescriptor: MutPtr = MutPtr(0L),
             desiredAccess: UInt = 0u,
             previouslyGrantedAccess: UInt = 0u,
             principalSelfSid: Psid = MutPtr(0L),
-            genericMapping: MutPtr<GenericMapping> = MutPtr(0L),
+            genericMapping: MutPtr = MutPtr(0L),
             objectTypeListCount: UInt = 0u,
-            objectTypeList: MutPtr<ObjectTypeList> = MutPtr(0L),
+            objectTypeList: MutPtr = MutPtr(0L),
         ): SeAccessRequest =
             SeAccessRequest(
                 size = size,
@@ -1443,12 +1442,12 @@ public class SeAccessRequest internal constructor(
 }
 
 public class SeImpersonationState internal constructor(
-    tokenCtorArg: MutPtr<CVoid>,
+    tokenCtorArg: MutPtr,
     public var copyOnOpen: Boolean,
     public var effectiveOnly: Boolean,
     public var level: SecurityImpersonationLevel,
 ) {
-    public var token: MutPtr<CVoid> = tokenCtorArg
+    public var token: MutPtr = tokenCtorArg
         internal set
 
     public constructor() : this(
@@ -1458,7 +1457,7 @@ public class SeImpersonationState internal constructor(
         level = 0,
     )
 
-    public operator fun component1(): MutPtr<CVoid> = this.token
+    public operator fun component1(): MutPtr = this.token
 
     public operator fun component2(): Boolean = this.copyOnOpen
 
@@ -1466,7 +1465,7 @@ public class SeImpersonationState internal constructor(
 
     public operator fun component4(): SecurityImpersonationLevel = this.level
 
-    public fun copy(token: MutPtr<CVoid> = this.token, copyOnOpen: Boolean = this.copyOnOpen, effectiveOnly: Boolean = this.effectiveOnly, level: SecurityImpersonationLevel = this.level): SeImpersonationState = SeImpersonationState(tokenCtorArg = token, copyOnOpen = copyOnOpen, effectiveOnly = effectiveOnly, level = level)
+    public fun copy(token: MutPtr = this.token, copyOnOpen: Boolean = this.copyOnOpen, effectiveOnly: Boolean = this.effectiveOnly, level: SecurityImpersonationLevel = this.level): SeImpersonationState = SeImpersonationState(tokenCtorArg = token, copyOnOpen = copyOnOpen, effectiveOnly = effectiveOnly, level = level)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -1495,7 +1494,7 @@ public class SeImpersonationState internal constructor(
                     SeImpersonationState(
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<CVoid>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.BOOL).readNative(addr + 8L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.BOOL).readNative(addr + 9L),
@@ -1504,7 +1503,7 @@ public class SeImpersonationState internal constructor(
                 override fun writeNative(addr: Long, value: SeImpersonationState) {
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<CVoid>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr, value.token)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.BOOL).writeNative(addr + 8L, value.copyOnOpen)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.BOOL).writeNative(addr + 9L, value.effectiveOnly)
@@ -1513,7 +1512,7 @@ public class SeImpersonationState internal constructor(
             }
 
         public operator fun invoke(
-            token: MutPtr<CVoid> = MutPtr(0L),
+            token: MutPtr = MutPtr(0L),
             copyOnOpen: Boolean = false,
             effectiveOnly: Boolean = false,
             level: SecurityImpersonationLevel = 0,
@@ -1576,7 +1575,7 @@ public class SeSecurityDescriptor internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 4L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<CVoid>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                     )
                 override fun writeNative(addr: Long, value: SeSecurityDescriptor) {
@@ -1584,7 +1583,7 @@ public class SeSecurityDescriptor internal constructor(
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 4L, value.flags)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<CVoid>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.securityDescriptor)
                 }
             }
@@ -1714,14 +1713,14 @@ public class SidAndAttributes internal constructor(
                     SidAndAttributes(
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<CVoid>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 8L),
                     )
                 override fun writeNative(addr: Long, value: SidAndAttributes) {
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<CVoid>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr, value.sid)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 8L, value.attributes)
                 }
@@ -1740,10 +1739,10 @@ public class SidAndAttributes internal constructor(
 
 public class SidAndAttributesHash internal constructor(
     public var sidCount: UInt,
-    sidAttrCtorArg: MutPtr<SidAndAttributes>,
+    sidAttrCtorArg: MutPtr,
     public var hash: IntArray,
 ) {
-    public var sidAttr: MutPtr<SidAndAttributes> = sidAttrCtorArg
+    public var sidAttr: MutPtr = sidAttrCtorArg
         internal set
 
     public constructor() : this(
@@ -1754,11 +1753,11 @@ public class SidAndAttributesHash internal constructor(
 
     public operator fun component1(): UInt = this.sidCount
 
-    public operator fun component2(): MutPtr<SidAndAttributes> = this.sidAttr
+    public operator fun component2(): MutPtr = this.sidAttr
 
     public operator fun component3(): IntArray = this.hash
 
-    public fun copy(sidCount: UInt = this.sidCount, sidAttr: MutPtr<SidAndAttributes> = this.sidAttr, hash: IntArray = this.hash): SidAndAttributesHash = SidAndAttributesHash(sidCount = sidCount, sidAttrCtorArg = sidAttr, hash = hash)
+    public fun copy(sidCount: UInt = this.sidCount, sidAttr: MutPtr = this.sidAttr, hash: IntArray = this.hash): SidAndAttributesHash = SidAndAttributesHash(sidCount = sidCount, sidAttrCtorArg = sidAttr, hash = hash)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -1786,7 +1785,7 @@ public class SidAndAttributesHash internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<SidAndAttributes>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                         (
                             io.github.kotlinmania.rustlang.core.mem
@@ -1797,7 +1796,7 @@ public class SidAndAttributesHash internal constructor(
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr, value.sidCount)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<SidAndAttributes>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.sidAttr)
                     (
                         io.github.kotlinmania.rustlang.core.mem
@@ -1808,7 +1807,7 @@ public class SidAndAttributesHash internal constructor(
 
         public operator fun invoke(
             sidCount: UInt = 0u,
-            sidAttr: MutPtr<SidAndAttributes> = MutPtr(0L),
+            sidAttr: MutPtr = MutPtr(0L),
             hash: IntArray = IntArray(32),
         ): SidAndAttributesHash =
             SidAndAttributesHash(
@@ -2115,9 +2114,9 @@ public data class SystemScopedPolicyIdAce(
 }
 
 public class TokenAccessInformation internal constructor(
-    sidHashCtorArg: MutPtr<SidAndAttributesHash>,
-    restrictedSidHashCtorArg: MutPtr<SidAndAttributesHash>,
-    privilegesCtorArg: MutPtr<TokenPrivileges>,
+    sidHashCtorArg: MutPtr,
+    restrictedSidHashCtorArg: MutPtr,
+    privilegesCtorArg: MutPtr,
     public var authenticationId: Luid,
     public var tokenType: TokenType,
     public var impersonationLevel: SecurityImpersonationLevel,
@@ -2125,29 +2124,29 @@ public class TokenAccessInformation internal constructor(
     public var flags: UInt,
     public var appContainerNumber: UInt,
     packageSidCtorArg: Psid,
-    capabilitiesHashCtorArg: MutPtr<SidAndAttributesHash>,
+    capabilitiesHashCtorArg: MutPtr,
     trustLevelSidCtorArg: Psid,
-    securityAttributesCtorArg: MutPtr<CVoid>,
+    securityAttributesCtorArg: MutPtr,
 ) {
-    public var sidHash: MutPtr<SidAndAttributesHash> = sidHashCtorArg
+    public var sidHash: MutPtr = sidHashCtorArg
         internal set
 
-    public var restrictedSidHash: MutPtr<SidAndAttributesHash> = restrictedSidHashCtorArg
+    public var restrictedSidHash: MutPtr = restrictedSidHashCtorArg
         internal set
 
-    public var privileges: MutPtr<TokenPrivileges> = privilegesCtorArg
+    public var privileges: MutPtr = privilegesCtorArg
         internal set
 
     public var packageSid: Psid = packageSidCtorArg
         internal set
 
-    public var capabilitiesHash: MutPtr<SidAndAttributesHash> = capabilitiesHashCtorArg
+    public var capabilitiesHash: MutPtr = capabilitiesHashCtorArg
         internal set
 
     public var trustLevelSid: Psid = trustLevelSidCtorArg
         internal set
 
-    public var securityAttributes: MutPtr<CVoid> = securityAttributesCtorArg
+    public var securityAttributes: MutPtr = securityAttributesCtorArg
         internal set
 
     public constructor() : this(
@@ -2166,11 +2165,11 @@ public class TokenAccessInformation internal constructor(
         securityAttributesCtorArg = MutPtr(0L),
     )
 
-    public operator fun component1(): MutPtr<SidAndAttributesHash> = this.sidHash
+    public operator fun component1(): MutPtr = this.sidHash
 
-    public operator fun component2(): MutPtr<SidAndAttributesHash> = this.restrictedSidHash
+    public operator fun component2(): MutPtr = this.restrictedSidHash
 
-    public operator fun component3(): MutPtr<TokenPrivileges> = this.privileges
+    public operator fun component3(): MutPtr = this.privileges
 
     public operator fun component4(): Luid = this.authenticationId
 
@@ -2186,13 +2185,13 @@ public class TokenAccessInformation internal constructor(
 
     public operator fun component10(): Psid = this.packageSid
 
-    public operator fun component11(): MutPtr<SidAndAttributesHash> = this.capabilitiesHash
+    public operator fun component11(): MutPtr = this.capabilitiesHash
 
     public operator fun component12(): Psid = this.trustLevelSid
 
-    public operator fun component13(): MutPtr<CVoid> = this.securityAttributes
+    public operator fun component13(): MutPtr = this.securityAttributes
 
-    public fun copy(sidHash: MutPtr<SidAndAttributesHash> = this.sidHash, restrictedSidHash: MutPtr<SidAndAttributesHash> = this.restrictedSidHash, privileges: MutPtr<TokenPrivileges> = this.privileges, authenticationId: Luid = this.authenticationId, tokenType: TokenType = this.tokenType, impersonationLevel: SecurityImpersonationLevel = this.impersonationLevel, mandatoryPolicy: TokenMandatoryPolicy = this.mandatoryPolicy, flags: UInt = this.flags, appContainerNumber: UInt = this.appContainerNumber, packageSid: Psid = this.packageSid, capabilitiesHash: MutPtr<SidAndAttributesHash> = this.capabilitiesHash, trustLevelSid: Psid = this.trustLevelSid, securityAttributes: MutPtr<CVoid> = this.securityAttributes): TokenAccessInformation = TokenAccessInformation(sidHashCtorArg = sidHash, restrictedSidHashCtorArg = restrictedSidHash, privilegesCtorArg = privileges, authenticationId = authenticationId, tokenType = tokenType, impersonationLevel = impersonationLevel, mandatoryPolicy = mandatoryPolicy, flags = flags, appContainerNumber = appContainerNumber, packageSidCtorArg = packageSid, capabilitiesHashCtorArg = capabilitiesHash, trustLevelSidCtorArg = trustLevelSid, securityAttributesCtorArg = securityAttributes)
+    public fun copy(sidHash: MutPtr = this.sidHash, restrictedSidHash: MutPtr = this.restrictedSidHash, privileges: MutPtr = this.privileges, authenticationId: Luid = this.authenticationId, tokenType: TokenType = this.tokenType, impersonationLevel: SecurityImpersonationLevel = this.impersonationLevel, mandatoryPolicy: TokenMandatoryPolicy = this.mandatoryPolicy, flags: UInt = this.flags, appContainerNumber: UInt = this.appContainerNumber, packageSid: Psid = this.packageSid, capabilitiesHash: MutPtr = this.capabilitiesHash, trustLevelSid: Psid = this.trustLevelSid, securityAttributes: MutPtr = this.securityAttributes): TokenAccessInformation = TokenAccessInformation(sidHashCtorArg = sidHash, restrictedSidHashCtorArg = restrictedSidHash, privilegesCtorArg = privileges, authenticationId = authenticationId, tokenType = tokenType, impersonationLevel = impersonationLevel, mandatoryPolicy = mandatoryPolicy, flags = flags, appContainerNumber = appContainerNumber, packageSidCtorArg = packageSid, capabilitiesHashCtorArg = capabilitiesHash, trustLevelSidCtorArg = trustLevelSid, securityAttributesCtorArg = securityAttributes)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -2232,9 +2231,9 @@ public class TokenAccessInformation internal constructor(
 
     public companion object {
         public operator fun invoke(
-            sidHash: MutPtr<SidAndAttributesHash> = MutPtr(0L),
-            restrictedSidHash: MutPtr<SidAndAttributesHash> = MutPtr(0L),
-            privileges: MutPtr<TokenPrivileges> = MutPtr(0L),
+            sidHash: MutPtr = MutPtr(0L),
+            restrictedSidHash: MutPtr = MutPtr(0L),
+            privileges: MutPtr = MutPtr(0L),
             authenticationId: Luid = Luid(),
             tokenType: TokenType = 0,
             impersonationLevel: SecurityImpersonationLevel = 0,
@@ -2242,9 +2241,9 @@ public class TokenAccessInformation internal constructor(
             flags: UInt = 0u,
             appContainerNumber: UInt = 0u,
             packageSid: Psid = MutPtr(0L),
-            capabilitiesHash: MutPtr<SidAndAttributesHash> = MutPtr(0L),
+            capabilitiesHash: MutPtr = MutPtr(0L),
             trustLevelSid: Psid = MutPtr(0L),
-            securityAttributes: MutPtr<CVoid> = MutPtr(0L),
+            securityAttributes: MutPtr = MutPtr(0L),
         ): TokenAccessInformation =
             TokenAccessInformation(
                 sidHashCtorArg = sidHash,
@@ -2296,13 +2295,13 @@ public class TokenAppcontainerInformation internal constructor(
                     TokenAppcontainerInformation(
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<CVoid>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr),
                     )
                 override fun writeNative(addr: Long, value: TokenAppcontainerInformation) {
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<CVoid>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr, value.tokenAppContainer)
                 }
             }
@@ -2358,18 +2357,18 @@ public data class TokenControl(
 )
 
 public class TokenDefaultDacl internal constructor(
-    defaultDaclCtorArg: MutPtr<Acl>,
+    defaultDaclCtorArg: MutPtr,
 ) {
-    public var defaultDacl: MutPtr<Acl> = defaultDaclCtorArg
+    public var defaultDacl: MutPtr = defaultDaclCtorArg
         internal set
 
     public constructor() : this(
         defaultDaclCtorArg = MutPtr(0L),
     )
 
-    public operator fun component1(): MutPtr<Acl> = this.defaultDacl
+    public operator fun component1(): MutPtr = this.defaultDacl
 
-    public fun copy(defaultDacl: MutPtr<Acl> = this.defaultDacl): TokenDefaultDacl = TokenDefaultDacl(defaultDaclCtorArg = defaultDacl)
+    public fun copy(defaultDacl: MutPtr = this.defaultDacl): TokenDefaultDacl = TokenDefaultDacl(defaultDaclCtorArg = defaultDacl)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -2389,19 +2388,19 @@ public class TokenDefaultDacl internal constructor(
                     TokenDefaultDacl(
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<Acl>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr),
                     )
                 override fun writeNative(addr: Long, value: TokenDefaultDacl) {
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<Acl>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr, value.defaultDacl)
                 }
             }
 
         public operator fun invoke(
-            defaultDacl: MutPtr<Acl> = MutPtr(0L),
+            defaultDacl: MutPtr = MutPtr(0L),
         ): TokenDefaultDacl =
             TokenDefaultDacl(
                 defaultDaclCtorArg = defaultDacl,
@@ -2410,18 +2409,18 @@ public class TokenDefaultDacl internal constructor(
 }
 
 public class TokenDeviceClaims internal constructor(
-    deviceClaimsCtorArg: MutPtr<CVoid>,
+    deviceClaimsCtorArg: MutPtr,
 ) {
-    public var deviceClaims: MutPtr<CVoid> = deviceClaimsCtorArg
+    public var deviceClaims: MutPtr = deviceClaimsCtorArg
         internal set
 
     public constructor() : this(
         deviceClaimsCtorArg = MutPtr(0L),
     )
 
-    public operator fun component1(): MutPtr<CVoid> = this.deviceClaims
+    public operator fun component1(): MutPtr = this.deviceClaims
 
-    public fun copy(deviceClaims: MutPtr<CVoid> = this.deviceClaims): TokenDeviceClaims = TokenDeviceClaims(deviceClaimsCtorArg = deviceClaims)
+    public fun copy(deviceClaims: MutPtr = this.deviceClaims): TokenDeviceClaims = TokenDeviceClaims(deviceClaimsCtorArg = deviceClaims)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -2441,19 +2440,19 @@ public class TokenDeviceClaims internal constructor(
                     TokenDeviceClaims(
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<CVoid>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr),
                     )
                 override fun writeNative(addr: Long, value: TokenDeviceClaims) {
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<CVoid>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr, value.deviceClaims)
                 }
             }
 
         public operator fun invoke(
-            deviceClaims: MutPtr<CVoid> = MutPtr(0L),
+            deviceClaims: MutPtr = MutPtr(0L),
         ): TokenDeviceClaims =
             TokenDeviceClaims(
                 deviceClaimsCtorArg = deviceClaims,
@@ -2511,22 +2510,22 @@ public data class TokenGroups(
 public class TokenGroupsAndPrivileges internal constructor(
     public var sidCount: UInt,
     public var sidLength: UInt,
-    sidsCtorArg: MutPtr<SidAndAttributes>,
+    sidsCtorArg: MutPtr,
     public var restrictedSidCount: UInt,
     public var restrictedSidLength: UInt,
-    restrictedSidsCtorArg: MutPtr<SidAndAttributes>,
+    restrictedSidsCtorArg: MutPtr,
     public var privilegeCount: UInt,
     public var privilegeLength: UInt,
-    privilegesCtorArg: MutPtr<LuidAndAttributes>,
+    privilegesCtorArg: MutPtr,
     public var authenticationId: Luid,
 ) {
-    public var sids: MutPtr<SidAndAttributes> = sidsCtorArg
+    public var sids: MutPtr = sidsCtorArg
         internal set
 
-    public var restrictedSids: MutPtr<SidAndAttributes> = restrictedSidsCtorArg
+    public var restrictedSids: MutPtr = restrictedSidsCtorArg
         internal set
 
-    public var privileges: MutPtr<LuidAndAttributes> = privilegesCtorArg
+    public var privileges: MutPtr = privilegesCtorArg
         internal set
 
     public constructor() : this(
@@ -2546,23 +2545,23 @@ public class TokenGroupsAndPrivileges internal constructor(
 
     public operator fun component2(): UInt = this.sidLength
 
-    public operator fun component3(): MutPtr<SidAndAttributes> = this.sids
+    public operator fun component3(): MutPtr = this.sids
 
     public operator fun component4(): UInt = this.restrictedSidCount
 
     public operator fun component5(): UInt = this.restrictedSidLength
 
-    public operator fun component6(): MutPtr<SidAndAttributes> = this.restrictedSids
+    public operator fun component6(): MutPtr = this.restrictedSids
 
     public operator fun component7(): UInt = this.privilegeCount
 
     public operator fun component8(): UInt = this.privilegeLength
 
-    public operator fun component9(): MutPtr<LuidAndAttributes> = this.privileges
+    public operator fun component9(): MutPtr = this.privileges
 
     public operator fun component10(): Luid = this.authenticationId
 
-    public fun copy(sidCount: UInt = this.sidCount, sidLength: UInt = this.sidLength, sids: MutPtr<SidAndAttributes> = this.sids, restrictedSidCount: UInt = this.restrictedSidCount, restrictedSidLength: UInt = this.restrictedSidLength, restrictedSids: MutPtr<SidAndAttributes> = this.restrictedSids, privilegeCount: UInt = this.privilegeCount, privilegeLength: UInt = this.privilegeLength, privileges: MutPtr<LuidAndAttributes> = this.privileges, authenticationId: Luid = this.authenticationId): TokenGroupsAndPrivileges = TokenGroupsAndPrivileges(sidCount = sidCount, sidLength = sidLength, sidsCtorArg = sids, restrictedSidCount = restrictedSidCount, restrictedSidLength = restrictedSidLength, restrictedSidsCtorArg = restrictedSids, privilegeCount = privilegeCount, privilegeLength = privilegeLength, privilegesCtorArg = privileges, authenticationId = authenticationId)
+    public fun copy(sidCount: UInt = this.sidCount, sidLength: UInt = this.sidLength, sids: MutPtr = this.sids, restrictedSidCount: UInt = this.restrictedSidCount, restrictedSidLength: UInt = this.restrictedSidLength, restrictedSids: MutPtr = this.restrictedSids, privilegeCount: UInt = this.privilegeCount, privilegeLength: UInt = this.privilegeLength, privileges: MutPtr = this.privileges, authenticationId: Luid = this.authenticationId): TokenGroupsAndPrivileges = TokenGroupsAndPrivileges(sidCount = sidCount, sidLength = sidLength, sidsCtorArg = sids, restrictedSidCount = restrictedSidCount, restrictedSidLength = restrictedSidLength, restrictedSidsCtorArg = restrictedSids, privilegeCount = privilegeCount, privilegeLength = privilegeLength, privilegesCtorArg = privileges, authenticationId = authenticationId)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -2598,13 +2597,13 @@ public class TokenGroupsAndPrivileges internal constructor(
         public operator fun invoke(
             sidCount: UInt = 0u,
             sidLength: UInt = 0u,
-            sids: MutPtr<SidAndAttributes> = MutPtr(0L),
+            sids: MutPtr = MutPtr(0L),
             restrictedSidCount: UInt = 0u,
             restrictedSidLength: UInt = 0u,
-            restrictedSids: MutPtr<SidAndAttributes> = MutPtr(0L),
+            restrictedSids: MutPtr = MutPtr(0L),
             privilegeCount: UInt = 0u,
             privilegeLength: UInt = 0u,
-            privileges: MutPtr<LuidAndAttributes> = MutPtr(0L),
+            privileges: MutPtr = MutPtr(0L),
             authenticationId: Luid = Luid(),
         ): TokenGroupsAndPrivileges =
             TokenGroupsAndPrivileges(
@@ -2729,13 +2728,13 @@ public class TokenOwner internal constructor(
                     TokenOwner(
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<CVoid>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr),
                     )
                 override fun writeNative(addr: Long, value: TokenOwner) {
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<CVoid>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr, value.owner)
                 }
             }
@@ -2781,13 +2780,13 @@ public class TokenPrimaryGroup internal constructor(
                     TokenPrimaryGroup(
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<CVoid>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr),
                     )
                 override fun writeNative(addr: Long, value: TokenPrimaryGroup) {
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<CVoid>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr, value.primaryGroup)
                 }
             }
@@ -2858,18 +2857,18 @@ public data class TokenUser(
 }
 
 public class TokenUserClaims internal constructor(
-    userClaimsCtorArg: MutPtr<CVoid>,
+    userClaimsCtorArg: MutPtr,
 ) {
-    public var userClaims: MutPtr<CVoid> = userClaimsCtorArg
+    public var userClaims: MutPtr = userClaimsCtorArg
         internal set
 
     public constructor() : this(
         userClaimsCtorArg = MutPtr(0L),
     )
 
-    public operator fun component1(): MutPtr<CVoid> = this.userClaims
+    public operator fun component1(): MutPtr = this.userClaims
 
-    public fun copy(userClaims: MutPtr<CVoid> = this.userClaims): TokenUserClaims = TokenUserClaims(userClaimsCtorArg = userClaims)
+    public fun copy(userClaims: MutPtr = this.userClaims): TokenUserClaims = TokenUserClaims(userClaimsCtorArg = userClaims)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -2889,19 +2888,19 @@ public class TokenUserClaims internal constructor(
                     TokenUserClaims(
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<CVoid>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr),
                     )
                 override fun writeNative(addr: Long, value: TokenUserClaims) {
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<CVoid>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr, value.userClaims)
                 }
             }
 
         public operator fun invoke(
-            userClaims: MutPtr<CVoid> = MutPtr(0L),
+            userClaims: MutPtr = MutPtr(0L),
         ): TokenUserClaims =
             TokenUserClaims(
                 userClaimsCtorArg = userClaims,

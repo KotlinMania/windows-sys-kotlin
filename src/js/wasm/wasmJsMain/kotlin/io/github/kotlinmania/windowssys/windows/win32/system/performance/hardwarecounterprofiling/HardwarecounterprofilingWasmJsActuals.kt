@@ -25,11 +25,11 @@ private external fun wasmWindowssysWindowsWin32SystemPerformanceHardwarecounterp
 public actual fun disableThreadProfiling(performancedatahandle: Handle): UInt =
     if (windowsWin32SystemPerformanceHardwarecounterprofilingNapiAvailable) wasmWindowssysWindowsWin32SystemPerformanceHardwarecounterprofilingDisableThreadProfiling(performancedatahandle.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun enableThreadProfiling(threadhandle: Handle, flags: UInt, hardwarecounters: ULong, performancedatahandle: MutPtr<Handle>): UInt =
+public actual fun enableThreadProfiling(threadhandle: Handle, flags: UInt, hardwarecounters: ULong, performancedatahandle: MutPtr): UInt =
     if (windowsWin32SystemPerformanceHardwarecounterprofilingNapiAvailable) wasmWindowssysWindowsWin32SystemPerformanceHardwarecounterprofilingEnableThreadProfiling(threadhandle.rawAddress.toString(), flags.toInt(), hardwarecounters.toString(), performancedatahandle.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun queryThreadProfiling(threadhandle: Handle, enabled: MutPtr<Boolean>): UInt =
+public actual fun queryThreadProfiling(threadhandle: Handle, enabled: MutPtr): UInt =
     if (windowsWin32SystemPerformanceHardwarecounterprofilingNapiAvailable) wasmWindowssysWindowsWin32SystemPerformanceHardwarecounterprofilingQueryThreadProfiling(threadhandle.rawAddress.toString(), enabled.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun readThreadProfilingData(performancedatahandle: Handle, flags: UInt, performancedata: MutPtr<PerformanceData>): UInt =
+public actual fun readThreadProfilingData(performancedatahandle: Handle, flags: UInt, performancedata: MutPtr): UInt =
     if (windowsWin32SystemPerformanceHardwarecounterprofilingNapiAvailable) wasmWindowssysWindowsWin32SystemPerformanceHardwarecounterprofilingReadThreadProfilingData(performancedatahandle.rawAddress.toString(), flags.toInt(), performancedata.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")

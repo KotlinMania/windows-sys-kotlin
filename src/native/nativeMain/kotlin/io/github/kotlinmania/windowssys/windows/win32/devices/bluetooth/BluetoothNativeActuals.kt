@@ -2,11 +2,9 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.devices.bluetooth
 
-import io.github.kotlinmania.rustlang.core.ffi.CVoid
 import io.github.kotlinmania.rustlang.core.ptr.ConstPtr
 import io.github.kotlinmania.rustlang.core.ptr.MutPtr
 import io.github.kotlinmania.windowssys.core.Bool
-import io.github.kotlinmania.windowssys.core.Guid
 import io.github.kotlinmania.windowssys.core.Hresult
 import io.github.kotlinmania.windowssys.core.Pcwstr
 import io.github.kotlinmania.windowssys.core.Pwstr
@@ -63,16 +61,16 @@ import kotlinx.cinterop.ByteVar
 import kotlinx.cinterop.toCPointer
 import kotlinx.cinterop.toLong
 
-public actual fun bluetoothAuthenticateDevice(hwndparent: Hwnd, hradio: Handle, pbtbi: MutPtr<BluetoothDeviceInfo>, pszpasskey: Pcwstr, ulpasskeylength: UInt): UInt =
+public actual fun bluetoothAuthenticateDevice(hwndparent: Hwnd, hradio: Handle, pbtbi: MutPtr, pszpasskey: Pcwstr, ulpasskeylength: UInt): UInt =
     windowssysWindowsWin32DevicesBluetoothBluetoothAuthenticateDevice(hwndparent.rawAddress.toCPointer<ByteVar>(), hradio.rawAddress.toCPointer<ByteVar>(), pbtbi.rawAddress.toCPointer<ByteVar>(), pszpasskey.rawAddress.toCPointer<ByteVar>(), ulpasskeylength)
 
-public actual fun bluetoothAuthenticateDeviceEx(hwndparentin: Hwnd, hradioin: Handle, pbtdiinout: MutPtr<BluetoothDeviceInfo>, pbtoobdata: ConstPtr<BluetoothOobDataInfo>, authenticationrequirement: AuthenticationRequirements): UInt =
+public actual fun bluetoothAuthenticateDeviceEx(hwndparentin: Hwnd, hradioin: Handle, pbtdiinout: MutPtr, pbtoobdata: ConstPtr, authenticationrequirement: AuthenticationRequirements): UInt =
     windowssysWindowsWin32DevicesBluetoothBluetoothAuthenticateDeviceEx(hwndparentin.rawAddress.toCPointer<ByteVar>(), hradioin.rawAddress.toCPointer<ByteVar>(), pbtdiinout.rawAddress.toCPointer<ByteVar>(), pbtoobdata.rawAddress.toCPointer<ByteVar>(), authenticationrequirement)
 
-public actual fun bluetoothAuthenticateMultipleDevices(hwndparent: Hwnd, hradio: Handle, cdevices: UInt, rgbtdi: MutPtr<BluetoothDeviceInfo>): UInt =
+public actual fun bluetoothAuthenticateMultipleDevices(hwndparent: Hwnd, hradio: Handle, cdevices: UInt, rgbtdi: MutPtr): UInt =
     windowssysWindowsWin32DevicesBluetoothBluetoothAuthenticateMultipleDevices(hwndparent.rawAddress.toCPointer<ByteVar>(), hradio.rawAddress.toCPointer<ByteVar>(), cdevices, rgbtdi.rawAddress.toCPointer<ByteVar>())
 
-public actual fun bluetoothDisplayDeviceProperties(hwndparent: Hwnd, pbtdi: MutPtr<BluetoothDeviceInfo>): Bool =
+public actual fun bluetoothDisplayDeviceProperties(hwndparent: Hwnd, pbtdi: MutPtr): Bool =
     windowssysWindowsWin32DevicesBluetoothBluetoothDisplayDeviceProperties(hwndparent.rawAddress.toCPointer<ByteVar>(), pbtdi.rawAddress.toCPointer<ByteVar>())
 
 public actual fun bluetoothEnableDiscovery(hradio: Handle, fenabled: Bool): Bool =
@@ -81,22 +79,22 @@ public actual fun bluetoothEnableDiscovery(hradio: Handle, fenabled: Bool): Bool
 public actual fun bluetoothEnableIncomingConnections(hradio: Handle, fenabled: Bool): Bool =
     windowssysWindowsWin32DevicesBluetoothBluetoothEnableIncomingConnections(hradio.rawAddress.toCPointer<ByteVar>(), fenabled)
 
-public actual fun bluetoothEnumerateInstalledServices(hradio: Handle, pbtdi: ConstPtr<BluetoothDeviceInfo>, pcserviceinout: MutPtr<UInt>, pguidservices: MutPtr<Guid>): UInt =
+public actual fun bluetoothEnumerateInstalledServices(hradio: Handle, pbtdi: ConstPtr, pcserviceinout: MutPtr, pguidservices: MutPtr): UInt =
     windowssysWindowsWin32DevicesBluetoothBluetoothEnumerateInstalledServices(hradio.rawAddress.toCPointer<ByteVar>(), pbtdi.rawAddress.toCPointer<ByteVar>(), pcserviceinout.rawAddress.toCPointer<ByteVar>(), pguidservices.rawAddress.toCPointer<ByteVar>())
 
 public actual fun bluetoothFindDeviceClose(hfind: HbluetoothDeviceFind): Bool =
     windowssysWindowsWin32DevicesBluetoothBluetoothFindDeviceClose(hfind.rawAddress.toCPointer<ByteVar>())
 
-public actual fun bluetoothFindFirstDevice(pbtsp: ConstPtr<BluetoothDeviceSearchParams>, pbtdi: MutPtr<BluetoothDeviceInfo>): HbluetoothDeviceFind =
+public actual fun bluetoothFindFirstDevice(pbtsp: ConstPtr, pbtdi: MutPtr): HbluetoothDeviceFind =
     MutPtr(windowssysWindowsWin32DevicesBluetoothBluetoothFindFirstDevice(pbtsp.rawAddress.toCPointer<ByteVar>(), pbtdi.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun bluetoothFindFirstRadio(pbtfrp: ConstPtr<BluetoothFindRadioParams>, phradio: MutPtr<Handle>): HbluetoothRadioFind =
+public actual fun bluetoothFindFirstRadio(pbtfrp: ConstPtr, phradio: MutPtr): HbluetoothRadioFind =
     MutPtr(windowssysWindowsWin32DevicesBluetoothBluetoothFindFirstRadio(pbtfrp.rawAddress.toCPointer<ByteVar>(), phradio.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun bluetoothFindNextDevice(hfind: HbluetoothDeviceFind, pbtdi: MutPtr<BluetoothDeviceInfo>): Bool =
+public actual fun bluetoothFindNextDevice(hfind: HbluetoothDeviceFind, pbtdi: MutPtr): Bool =
     windowssysWindowsWin32DevicesBluetoothBluetoothFindNextDevice(hfind.rawAddress.toCPointer<ByteVar>(), pbtdi.rawAddress.toCPointer<ByteVar>())
 
-public actual fun bluetoothFindNextRadio(hfind: HbluetoothRadioFind, phradio: MutPtr<Handle>): Bool =
+public actual fun bluetoothFindNextRadio(hfind: HbluetoothRadioFind, phradio: MutPtr): Bool =
     windowssysWindowsWin32DevicesBluetoothBluetoothFindNextRadio(hfind.rawAddress.toCPointer<ByteVar>(), phradio.rawAddress.toCPointer<ByteVar>())
 
 public actual fun bluetoothFindRadioClose(hfind: HbluetoothRadioFind): Bool =
@@ -105,46 +103,46 @@ public actual fun bluetoothFindRadioClose(hfind: HbluetoothRadioFind): Bool =
 public actual fun bluetoothGATTAbortReliableWrite(hdevice: Handle, reliablewritecontext: ULong, flags: UInt): Hresult =
     windowssysWindowsWin32DevicesBluetoothBluetoothGATTAbortReliableWrite(hdevice.rawAddress.toCPointer<ByteVar>(), reliablewritecontext, flags)
 
-public actual fun bluetoothGATTBeginReliableWrite(hdevice: Handle, reliablewritecontext: MutPtr<ULong>, flags: UInt): Hresult =
+public actual fun bluetoothGATTBeginReliableWrite(hdevice: Handle, reliablewritecontext: MutPtr, flags: UInt): Hresult =
     windowssysWindowsWin32DevicesBluetoothBluetoothGATTBeginReliableWrite(hdevice.rawAddress.toCPointer<ByteVar>(), reliablewritecontext.rawAddress.toCPointer<ByteVar>(), flags)
 
 public actual fun bluetoothGATTEndReliableWrite(hdevice: Handle, reliablewritecontext: ULong, flags: UInt): Hresult =
     windowssysWindowsWin32DevicesBluetoothBluetoothGATTEndReliableWrite(hdevice.rawAddress.toCPointer<ByteVar>(), reliablewritecontext, flags)
 
-public actual fun bluetoothGATTGetCharacteristicValue(hdevice: Handle, characteristic: ConstPtr<BthLeGattCharacteristic>, characteristicvaluedatasize: UInt, characteristicvalue: MutPtr<BthLeGattCharacteristicValue>, characteristicvaluesizerequired: MutPtr<UShort>, flags: UInt): Hresult =
+public actual fun bluetoothGATTGetCharacteristicValue(hdevice: Handle, characteristic: ConstPtr, characteristicvaluedatasize: UInt, characteristicvalue: MutPtr, characteristicvaluesizerequired: MutPtr, flags: UInt): Hresult =
     windowssysWindowsWin32DevicesBluetoothBluetoothGATTGetCharacteristicValue(hdevice.rawAddress.toCPointer<ByteVar>(), characteristic.rawAddress.toCPointer<ByteVar>(), characteristicvaluedatasize, characteristicvalue.rawAddress.toCPointer<ByteVar>(), characteristicvaluesizerequired.rawAddress.toCPointer<ByteVar>(), flags)
 
-public actual fun bluetoothGATTGetCharacteristics(hdevice: Handle, service: ConstPtr<BthLeGattService>, characteristicsbuffercount: UShort, characteristicsbuffer: MutPtr<BthLeGattCharacteristic>, characteristicsbufferactual: MutPtr<UShort>, flags: UInt): Hresult =
+public actual fun bluetoothGATTGetCharacteristics(hdevice: Handle, service: ConstPtr, characteristicsbuffercount: UShort, characteristicsbuffer: MutPtr, characteristicsbufferactual: MutPtr, flags: UInt): Hresult =
     windowssysWindowsWin32DevicesBluetoothBluetoothGATTGetCharacteristics(hdevice.rawAddress.toCPointer<ByteVar>(), service.rawAddress.toCPointer<ByteVar>(), characteristicsbuffercount, characteristicsbuffer.rawAddress.toCPointer<ByteVar>(), characteristicsbufferactual.rawAddress.toCPointer<ByteVar>(), flags)
 
-public actual fun bluetoothGATTGetDescriptorValue(hdevice: Handle, descriptor: ConstPtr<BthLeGattDescriptor>, descriptorvaluedatasize: UInt, descriptorvalue: MutPtr<BthLeGattDescriptorValue>, descriptorvaluesizerequired: MutPtr<UShort>, flags: UInt): Hresult =
+public actual fun bluetoothGATTGetDescriptorValue(hdevice: Handle, descriptor: ConstPtr, descriptorvaluedatasize: UInt, descriptorvalue: MutPtr, descriptorvaluesizerequired: MutPtr, flags: UInt): Hresult =
     windowssysWindowsWin32DevicesBluetoothBluetoothGATTGetDescriptorValue(hdevice.rawAddress.toCPointer<ByteVar>(), descriptor.rawAddress.toCPointer<ByteVar>(), descriptorvaluedatasize, descriptorvalue.rawAddress.toCPointer<ByteVar>(), descriptorvaluesizerequired.rawAddress.toCPointer<ByteVar>(), flags)
 
-public actual fun bluetoothGATTGetDescriptors(hdevice: Handle, characteristic: ConstPtr<BthLeGattCharacteristic>, descriptorsbuffercount: UShort, descriptorsbuffer: MutPtr<BthLeGattDescriptor>, descriptorsbufferactual: MutPtr<UShort>, flags: UInt): Hresult =
+public actual fun bluetoothGATTGetDescriptors(hdevice: Handle, characteristic: ConstPtr, descriptorsbuffercount: UShort, descriptorsbuffer: MutPtr, descriptorsbufferactual: MutPtr, flags: UInt): Hresult =
     windowssysWindowsWin32DevicesBluetoothBluetoothGATTGetDescriptors(hdevice.rawAddress.toCPointer<ByteVar>(), characteristic.rawAddress.toCPointer<ByteVar>(), descriptorsbuffercount, descriptorsbuffer.rawAddress.toCPointer<ByteVar>(), descriptorsbufferactual.rawAddress.toCPointer<ByteVar>(), flags)
 
-public actual fun bluetoothGATTGetIncludedServices(hdevice: Handle, parentservice: ConstPtr<BthLeGattService>, includedservicesbuffercount: UShort, includedservicesbuffer: MutPtr<BthLeGattService>, includedservicesbufferactual: MutPtr<UShort>, flags: UInt): Hresult =
+public actual fun bluetoothGATTGetIncludedServices(hdevice: Handle, parentservice: ConstPtr, includedservicesbuffercount: UShort, includedservicesbuffer: MutPtr, includedservicesbufferactual: MutPtr, flags: UInt): Hresult =
     windowssysWindowsWin32DevicesBluetoothBluetoothGATTGetIncludedServices(hdevice.rawAddress.toCPointer<ByteVar>(), parentservice.rawAddress.toCPointer<ByteVar>(), includedservicesbuffercount, includedservicesbuffer.rawAddress.toCPointer<ByteVar>(), includedservicesbufferactual.rawAddress.toCPointer<ByteVar>(), flags)
 
-public actual fun bluetoothGATTGetServices(hdevice: Handle, servicesbuffercount: UShort, servicesbuffer: MutPtr<BthLeGattService>, servicesbufferactual: MutPtr<UShort>, flags: UInt): Hresult =
+public actual fun bluetoothGATTGetServices(hdevice: Handle, servicesbuffercount: UShort, servicesbuffer: MutPtr, servicesbufferactual: MutPtr, flags: UInt): Hresult =
     windowssysWindowsWin32DevicesBluetoothBluetoothGATTGetServices(hdevice.rawAddress.toCPointer<ByteVar>(), servicesbuffercount, servicesbuffer.rawAddress.toCPointer<ByteVar>(), servicesbufferactual.rawAddress.toCPointer<ByteVar>(), flags)
 
-public actual fun bluetoothGATTRegisterEvent(hservice: Handle, eventtype: BthLeGattEventType, eventparameterin: ConstPtr<CVoid>, callback: PfnbluetoothGattEventCallback, callbackcontext: ConstPtr<CVoid>, peventhandle: MutPtr<Long>, flags: UInt): Hresult =
+public actual fun bluetoothGATTRegisterEvent(hservice: Handle, eventtype: BthLeGattEventType, eventparameterin: ConstPtr, callback: PfnbluetoothGattEventCallback, callbackcontext: ConstPtr, peventhandle: MutPtr, flags: UInt): Hresult =
     windowssysWindowsWin32DevicesBluetoothBluetoothGATTRegisterEvent(hservice.rawAddress.toCPointer<ByteVar>(), eventtype, eventparameterin.rawAddress.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>(), callbackcontext.rawAddress.toCPointer<ByteVar>(), peventhandle.rawAddress.toCPointer<ByteVar>(), flags)
 
-public actual fun bluetoothGATTSetCharacteristicValue(hdevice: Handle, characteristic: ConstPtr<BthLeGattCharacteristic>, characteristicvalue: ConstPtr<BthLeGattCharacteristicValue>, reliablewritecontext: ULong, flags: UInt): Hresult =
+public actual fun bluetoothGATTSetCharacteristicValue(hdevice: Handle, characteristic: ConstPtr, characteristicvalue: ConstPtr, reliablewritecontext: ULong, flags: UInt): Hresult =
     windowssysWindowsWin32DevicesBluetoothBluetoothGATTSetCharacteristicValue(hdevice.rawAddress.toCPointer<ByteVar>(), characteristic.rawAddress.toCPointer<ByteVar>(), characteristicvalue.rawAddress.toCPointer<ByteVar>(), reliablewritecontext, flags)
 
-public actual fun bluetoothGATTSetDescriptorValue(hdevice: Handle, descriptor: ConstPtr<BthLeGattDescriptor>, descriptorvalue: ConstPtr<BthLeGattDescriptorValue>, flags: UInt): Hresult =
+public actual fun bluetoothGATTSetDescriptorValue(hdevice: Handle, descriptor: ConstPtr, descriptorvalue: ConstPtr, flags: UInt): Hresult =
     windowssysWindowsWin32DevicesBluetoothBluetoothGATTSetDescriptorValue(hdevice.rawAddress.toCPointer<ByteVar>(), descriptor.rawAddress.toCPointer<ByteVar>(), descriptorvalue.rawAddress.toCPointer<ByteVar>(), flags)
 
 public actual fun bluetoothGATTUnregisterEvent(eventhandle: Long, flags: UInt): Hresult =
     windowssysWindowsWin32DevicesBluetoothBluetoothGATTUnregisterEvent(eventhandle, flags)
 
-public actual fun bluetoothGetDeviceInfo(hradio: Handle, pbtdi: MutPtr<BluetoothDeviceInfo>): UInt =
+public actual fun bluetoothGetDeviceInfo(hradio: Handle, pbtdi: MutPtr): UInt =
     windowssysWindowsWin32DevicesBluetoothBluetoothGetDeviceInfo(hradio.rawAddress.toCPointer<ByteVar>(), pbtdi.rawAddress.toCPointer<ByteVar>())
 
-public actual fun bluetoothGetRadioInfo(hradio: Handle, pradioinfo: MutPtr<BluetoothRadioInfo>): UInt =
+public actual fun bluetoothGetRadioInfo(hradio: Handle, pradioinfo: MutPtr): UInt =
     windowssysWindowsWin32DevicesBluetoothBluetoothGetRadioInfo(hradio.rawAddress.toCPointer<ByteVar>(), pradioinfo.rawAddress.toCPointer<ByteVar>())
 
 public actual fun bluetoothIsConnectable(hradio: Handle): Bool =
@@ -156,50 +154,50 @@ public actual fun bluetoothIsDiscoverable(hradio: Handle): Bool =
 public actual fun bluetoothIsVersionAvailable(majorversion: UByte, minorversion: UByte): Bool =
     windowssysWindowsWin32DevicesBluetoothBluetoothIsVersionAvailable(majorversion, minorversion)
 
-public actual fun bluetoothRegisterForAuthentication(pbtdi: ConstPtr<BluetoothDeviceInfo>, phreghandle: MutPtr<Long>, pfncallback: PfnAuthenticationCallback, pvparam: ConstPtr<CVoid>): UInt =
+public actual fun bluetoothRegisterForAuthentication(pbtdi: ConstPtr, phreghandle: MutPtr, pfncallback: PfnAuthenticationCallback, pvparam: ConstPtr): UInt =
     windowssysWindowsWin32DevicesBluetoothBluetoothRegisterForAuthentication(pbtdi.rawAddress.toCPointer<ByteVar>(), phreghandle.rawAddress.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>(), pvparam.rawAddress.toCPointer<ByteVar>())
 
-public actual fun bluetoothRegisterForAuthenticationEx(pbtdiin: ConstPtr<BluetoothDeviceInfo>, phreghandleout: MutPtr<Long>, pfncallbackin: PfnAuthenticationCallbackEx, pvparam: ConstPtr<CVoid>): UInt =
+public actual fun bluetoothRegisterForAuthenticationEx(pbtdiin: ConstPtr, phreghandleout: MutPtr, pfncallbackin: PfnAuthenticationCallbackEx, pvparam: ConstPtr): UInt =
     windowssysWindowsWin32DevicesBluetoothBluetoothRegisterForAuthenticationEx(pbtdiin.rawAddress.toCPointer<ByteVar>(), phreghandleout.rawAddress.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>(), pvparam.rawAddress.toCPointer<ByteVar>())
 
-public actual fun bluetoothRemoveDevice(paddress: ConstPtr<BluetoothAddress>): UInt =
+public actual fun bluetoothRemoveDevice(paddress: ConstPtr): UInt =
     windowssysWindowsWin32DevicesBluetoothBluetoothRemoveDevice(paddress.rawAddress.toCPointer<ByteVar>())
 
-public actual fun bluetoothSdpEnumAttributes(psdpstream: ConstPtr<UByte>, cbstreamsize: UInt, pfncallback: PfnBluetoothEnumAttributesCallback, pvparam: ConstPtr<CVoid>): Bool =
+public actual fun bluetoothSdpEnumAttributes(psdpstream: ConstPtr, cbstreamsize: UInt, pfncallback: PfnBluetoothEnumAttributesCallback, pvparam: ConstPtr): Bool =
     windowssysWindowsWin32DevicesBluetoothBluetoothSdpEnumAttributes(psdpstream.rawAddress.toCPointer<ByteVar>(), cbstreamsize, 0L.toCPointer<ByteVar>(), pvparam.rawAddress.toCPointer<ByteVar>())
 
-public actual fun bluetoothSdpGetAttributeValue(precordstream: ConstPtr<UByte>, cbrecordlength: UInt, usattributeid: UShort, pattributedata: MutPtr<SdpElementData>): UInt =
+public actual fun bluetoothSdpGetAttributeValue(precordstream: ConstPtr, cbrecordlength: UInt, usattributeid: UShort, pattributedata: MutPtr): UInt =
     windowssysWindowsWin32DevicesBluetoothBluetoothSdpGetAttributeValue(precordstream.rawAddress.toCPointer<ByteVar>(), cbrecordlength, usattributeid, pattributedata.rawAddress.toCPointer<ByteVar>())
 
-public actual fun bluetoothSdpGetContainerElementData(pcontainerstream: ConstPtr<UByte>, cbcontainerlength: UInt, pelement: MutPtr<Long>, pdata: MutPtr<SdpElementData>): UInt =
+public actual fun bluetoothSdpGetContainerElementData(pcontainerstream: ConstPtr, cbcontainerlength: UInt, pelement: MutPtr, pdata: MutPtr): UInt =
     windowssysWindowsWin32DevicesBluetoothBluetoothSdpGetContainerElementData(pcontainerstream.rawAddress.toCPointer<ByteVar>(), cbcontainerlength, pelement.rawAddress.toCPointer<ByteVar>(), pdata.rawAddress.toCPointer<ByteVar>())
 
-public actual fun bluetoothSdpGetElementData(psdpstream: ConstPtr<UByte>, cbsdpstreamlength: UInt, pdata: MutPtr<SdpElementData>): UInt =
+public actual fun bluetoothSdpGetElementData(psdpstream: ConstPtr, cbsdpstreamlength: UInt, pdata: MutPtr): UInt =
     windowssysWindowsWin32DevicesBluetoothBluetoothSdpGetElementData(psdpstream.rawAddress.toCPointer<ByteVar>(), cbsdpstreamlength, pdata.rawAddress.toCPointer<ByteVar>())
 
-public actual fun bluetoothSdpGetString(precordstream: ConstPtr<UByte>, cbrecordlength: UInt, pstringdata: ConstPtr<SdpStringTypeData>, usstringoffset: UShort, pszstring: Pwstr, pcchstringlength: MutPtr<UInt>): UInt =
+public actual fun bluetoothSdpGetString(precordstream: ConstPtr, cbrecordlength: UInt, pstringdata: ConstPtr, usstringoffset: UShort, pszstring: Pwstr, pcchstringlength: MutPtr): UInt =
     windowssysWindowsWin32DevicesBluetoothBluetoothSdpGetString(precordstream.rawAddress.toCPointer<ByteVar>(), cbrecordlength, pstringdata.rawAddress.toCPointer<ByteVar>(), usstringoffset, pszstring.rawAddress.toCPointer<ByteVar>(), pcchstringlength.rawAddress.toCPointer<ByteVar>())
 
-public actual fun bluetoothSelectDevices(pbtsdp: MutPtr<BluetoothSelectDeviceParams>): Bool =
+public actual fun bluetoothSelectDevices(pbtsdp: MutPtr): Bool =
     windowssysWindowsWin32DevicesBluetoothBluetoothSelectDevices(pbtsdp.rawAddress.toCPointer<ByteVar>())
 
-public actual fun bluetoothSelectDevicesFree(pbtsdp: MutPtr<BluetoothSelectDeviceParams>): Bool =
+public actual fun bluetoothSelectDevicesFree(pbtsdp: MutPtr): Bool =
     windowssysWindowsWin32DevicesBluetoothBluetoothSelectDevicesFree(pbtsdp.rawAddress.toCPointer<ByteVar>())
 
-public actual fun bluetoothSendAuthenticationResponse(hradio: Handle, pbtdi: ConstPtr<BluetoothDeviceInfo>, pszpasskey: Pcwstr): UInt =
+public actual fun bluetoothSendAuthenticationResponse(hradio: Handle, pbtdi: ConstPtr, pszpasskey: Pcwstr): UInt =
     windowssysWindowsWin32DevicesBluetoothBluetoothSendAuthenticationResponse(hradio.rawAddress.toCPointer<ByteVar>(), pbtdi.rawAddress.toCPointer<ByteVar>(), pszpasskey.rawAddress.toCPointer<ByteVar>())
 
-public actual fun bluetoothSendAuthenticationResponseEx(hradioin: Handle, pauthresponse: ConstPtr<BluetoothAuthenticateResponse>): UInt =
+public actual fun bluetoothSendAuthenticationResponseEx(hradioin: Handle, pauthresponse: ConstPtr): UInt =
     windowssysWindowsWin32DevicesBluetoothBluetoothSendAuthenticationResponseEx(hradioin.rawAddress.toCPointer<ByteVar>(), pauthresponse.rawAddress.toCPointer<ByteVar>())
 
-public actual fun bluetoothSetLocalServiceInfo(hradioin: Handle, pclassguid: ConstPtr<Guid>, ulinstance: UInt, pserviceinfoin: ConstPtr<BluetoothLocalServiceInfo>): UInt =
+public actual fun bluetoothSetLocalServiceInfo(hradioin: Handle, pclassguid: ConstPtr, ulinstance: UInt, pserviceinfoin: ConstPtr): UInt =
     windowssysWindowsWin32DevicesBluetoothBluetoothSetLocalServiceInfo(hradioin.rawAddress.toCPointer<ByteVar>(), pclassguid.rawAddress.toCPointer<ByteVar>(), ulinstance, pserviceinfoin.rawAddress.toCPointer<ByteVar>())
 
-public actual fun bluetoothSetServiceState(hradio: Handle, pbtdi: ConstPtr<BluetoothDeviceInfo>, pguidservice: ConstPtr<Guid>, dwserviceflags: UInt): UInt =
+public actual fun bluetoothSetServiceState(hradio: Handle, pbtdi: ConstPtr, pguidservice: ConstPtr, dwserviceflags: UInt): UInt =
     windowssysWindowsWin32DevicesBluetoothBluetoothSetServiceState(hradio.rawAddress.toCPointer<ByteVar>(), pbtdi.rawAddress.toCPointer<ByteVar>(), pguidservice.rawAddress.toCPointer<ByteVar>(), dwserviceflags)
 
 public actual fun bluetoothUnregisterAuthentication(hreghandle: Long): Bool =
     windowssysWindowsWin32DevicesBluetoothBluetoothUnregisterAuthentication(hreghandle)
 
-public actual fun bluetoothUpdateDeviceRecord(pbtdi: ConstPtr<BluetoothDeviceInfo>): UInt =
+public actual fun bluetoothUpdateDeviceRecord(pbtdi: ConstPtr): UInt =
     windowssysWindowsWin32DevicesBluetoothBluetoothUpdateDeviceRecord(pbtdi.rawAddress.toCPointer<ByteVar>())

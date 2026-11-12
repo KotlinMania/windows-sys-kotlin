@@ -7,11 +7,8 @@ import io.github.kotlinmania.rustlang.core.mem.TypeLayout
 import io.github.kotlinmania.rustlang.core.ptr.MutPtr
 import io.github.kotlinmania.windowssys.core.Bool
 import io.github.kotlinmania.windowssys.core.Guid
-import io.github.kotlinmania.windowssys.core.Pstr
 import io.github.kotlinmania.windowssys.core.Pwstr
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Filetime
-import io.github.kotlinmania.windowssys.windows.win32.security.Sid
-import io.github.kotlinmania.windowssys.windows.win32.security.SidAndAttributes
 
 public data class FwpmAction0(
     public var type: FwpActionType = 0u,
@@ -27,12 +24,12 @@ public class FwpmCallout0 internal constructor(
     public var calloutKey: Guid,
     public var displayData: FwpmDisplayData0,
     public var flags: UInt,
-    providerKeyCtorArg: MutPtr<Guid>,
+    providerKeyCtorArg: MutPtr,
     public var providerData: FwpByteBlob,
     public var applicableLayer: Guid,
     public var calloutId: UInt,
 ) {
-    public var providerKey: MutPtr<Guid> = providerKeyCtorArg
+    public var providerKey: MutPtr = providerKeyCtorArg
         internal set
 
     public constructor() : this(
@@ -51,7 +48,7 @@ public class FwpmCallout0 internal constructor(
 
     public operator fun component3(): UInt = this.flags
 
-    public operator fun component4(): MutPtr<Guid> = this.providerKey
+    public operator fun component4(): MutPtr = this.providerKey
 
     public operator fun component5(): FwpByteBlob = this.providerData
 
@@ -59,7 +56,7 @@ public class FwpmCallout0 internal constructor(
 
     public operator fun component7(): UInt = this.calloutId
 
-    public fun copy(calloutKey: Guid = this.calloutKey, displayData: FwpmDisplayData0 = this.displayData, flags: UInt = this.flags, providerKey: MutPtr<Guid> = this.providerKey, providerData: FwpByteBlob = this.providerData, applicableLayer: Guid = this.applicableLayer, calloutId: UInt = this.calloutId): FwpmCallout0 = FwpmCallout0(calloutKey = calloutKey, displayData = displayData, flags = flags, providerKeyCtorArg = providerKey, providerData = providerData, applicableLayer = applicableLayer, calloutId = calloutId)
+    public fun copy(calloutKey: Guid = this.calloutKey, displayData: FwpmDisplayData0 = this.displayData, flags: UInt = this.flags, providerKey: MutPtr = this.providerKey, providerData: FwpByteBlob = this.providerData, applicableLayer: Guid = this.applicableLayer, calloutId: UInt = this.calloutId): FwpmCallout0 = FwpmCallout0(calloutKey = calloutKey, displayData = displayData, flags = flags, providerKeyCtorArg = providerKey, providerData = providerData, applicableLayer = applicableLayer, calloutId = calloutId)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -90,7 +87,7 @@ public class FwpmCallout0 internal constructor(
             calloutKey: Guid = Guid(),
             displayData: FwpmDisplayData0 = FwpmDisplayData0(),
             flags: UInt = 0u,
-            providerKey: MutPtr<Guid> = MutPtr(0L),
+            providerKey: MutPtr = MutPtr(0L),
             providerData: FwpByteBlob = FwpByteBlob(),
             applicableLayer: Guid = Guid(),
             calloutId: UInt = 0u,
@@ -114,10 +111,10 @@ public data class FwpmCalloutChange0(
 )
 
 public class FwpmCalloutEnumTemplate0 internal constructor(
-    providerKeyCtorArg: MutPtr<Guid>,
+    providerKeyCtorArg: MutPtr,
     public var layerKey: Guid,
 ) {
-    public var providerKey: MutPtr<Guid> = providerKeyCtorArg
+    public var providerKey: MutPtr = providerKeyCtorArg
         internal set
 
     public constructor() : this(
@@ -125,11 +122,11 @@ public class FwpmCalloutEnumTemplate0 internal constructor(
         layerKey = Guid(),
     )
 
-    public operator fun component1(): MutPtr<Guid> = this.providerKey
+    public operator fun component1(): MutPtr = this.providerKey
 
     public operator fun component2(): Guid = this.layerKey
 
-    public fun copy(providerKey: MutPtr<Guid> = this.providerKey, layerKey: Guid = this.layerKey): FwpmCalloutEnumTemplate0 = FwpmCalloutEnumTemplate0(providerKeyCtorArg = providerKey, layerKey = layerKey)
+    public fun copy(providerKey: MutPtr = this.providerKey, layerKey: Guid = this.layerKey): FwpmCalloutEnumTemplate0 = FwpmCalloutEnumTemplate0(providerKeyCtorArg = providerKey, layerKey = layerKey)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -147,7 +144,7 @@ public class FwpmCalloutEnumTemplate0 internal constructor(
 
     public companion object {
         public operator fun invoke(
-            providerKey: MutPtr<Guid> = MutPtr(0L),
+            providerKey: MutPtr = MutPtr(0L),
             layerKey: Guid = Guid(),
         ): FwpmCalloutEnumTemplate0 =
             FwpmCalloutEnumTemplate0(
@@ -158,11 +155,11 @@ public class FwpmCalloutEnumTemplate0 internal constructor(
 }
 
 public class FwpmCalloutSubscription0 internal constructor(
-    enumTemplateCtorArg: MutPtr<FwpmCalloutEnumTemplate0>,
+    enumTemplateCtorArg: MutPtr,
     public var flags: UInt,
     public var sessionKey: Guid,
 ) {
-    public var enumTemplate: MutPtr<FwpmCalloutEnumTemplate0> = enumTemplateCtorArg
+    public var enumTemplate: MutPtr = enumTemplateCtorArg
         internal set
 
     public constructor() : this(
@@ -171,13 +168,13 @@ public class FwpmCalloutSubscription0 internal constructor(
         sessionKey = Guid(),
     )
 
-    public operator fun component1(): MutPtr<FwpmCalloutEnumTemplate0> = this.enumTemplate
+    public operator fun component1(): MutPtr = this.enumTemplate
 
     public operator fun component2(): UInt = this.flags
 
     public operator fun component3(): Guid = this.sessionKey
 
-    public fun copy(enumTemplate: MutPtr<FwpmCalloutEnumTemplate0> = this.enumTemplate, flags: UInt = this.flags, sessionKey: Guid = this.sessionKey): FwpmCalloutSubscription0 = FwpmCalloutSubscription0(enumTemplateCtorArg = enumTemplate, flags = flags, sessionKey = sessionKey)
+    public fun copy(enumTemplate: MutPtr = this.enumTemplate, flags: UInt = this.flags, sessionKey: Guid = this.sessionKey): FwpmCalloutSubscription0 = FwpmCalloutSubscription0(enumTemplateCtorArg = enumTemplate, flags = flags, sessionKey = sessionKey)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -197,7 +194,7 @@ public class FwpmCalloutSubscription0 internal constructor(
 
     public companion object {
         public operator fun invoke(
-            enumTemplate: MutPtr<FwpmCalloutEnumTemplate0> = MutPtr(0L),
+            enumTemplate: MutPtr = MutPtr(0L),
             flags: UInt = 0u,
             sessionKey: Guid = Guid(),
         ): FwpmCalloutSubscription0 =
@@ -216,9 +213,9 @@ public data class FwpmClassifyOption0(
 
 public class FwpmClassifyOptions0 internal constructor(
     public var numOptions: UInt,
-    optionsCtorArg: MutPtr<FwpmClassifyOption0>,
+    optionsCtorArg: MutPtr,
 ) {
-    public var options: MutPtr<FwpmClassifyOption0> = optionsCtorArg
+    public var options: MutPtr = optionsCtorArg
         internal set
 
     public constructor() : this(
@@ -228,9 +225,9 @@ public class FwpmClassifyOptions0 internal constructor(
 
     public operator fun component1(): UInt = this.numOptions
 
-    public operator fun component2(): MutPtr<FwpmClassifyOption0> = this.options
+    public operator fun component2(): MutPtr = this.options
 
-    public fun copy(numOptions: UInt = this.numOptions, options: MutPtr<FwpmClassifyOption0> = this.options): FwpmClassifyOptions0 = FwpmClassifyOptions0(numOptions = numOptions, optionsCtorArg = options)
+    public fun copy(numOptions: UInt = this.numOptions, options: MutPtr = this.options): FwpmClassifyOptions0 = FwpmClassifyOptions0(numOptions = numOptions, optionsCtorArg = options)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -256,21 +253,21 @@ public class FwpmClassifyOptions0 internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<FwpmClassifyOption0>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                     )
                 override fun writeNative(addr: Long, value: FwpmClassifyOptions0) {
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr, value.numOptions)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<FwpmClassifyOption0>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.options)
                 }
             }
 
         public operator fun invoke(
             numOptions: UInt = 0u,
-            options: MutPtr<FwpmClassifyOption0> = MutPtr(0L),
+            options: MutPtr = MutPtr(0L),
         ): FwpmClassifyOptions0 =
             FwpmClassifyOptions0(
                 numOptions = numOptions,
@@ -284,7 +281,7 @@ public class FwpmConnection0 internal constructor(
     public var ipVersion: FwpIpVersion,
     public var anonymous1: FwpmConnection00,
     public var anonymous2: FwpmConnection01,
-    providerKeyCtorArg: MutPtr<Guid>,
+    providerKeyCtorArg: MutPtr,
     public var ipsecTrafficModeType: IpsecTrafficType,
     public var keyModuleType: IkeextKeyModuleType,
     public var mmCrypto: IkeextProposal0,
@@ -295,7 +292,7 @@ public class FwpmConnection0 internal constructor(
     public var bytesTransferredTotal: ULong,
     public var startSysTime: Filetime,
 ) {
-    public var providerKey: MutPtr<Guid> = providerKeyCtorArg
+    public var providerKey: MutPtr = providerKeyCtorArg
         internal set
 
     public constructor() : this(
@@ -323,7 +320,7 @@ public class FwpmConnection0 internal constructor(
 
     public operator fun component4(): FwpmConnection01 = this.anonymous2
 
-    public operator fun component5(): MutPtr<Guid> = this.providerKey
+    public operator fun component5(): MutPtr = this.providerKey
 
     public operator fun component6(): IpsecTrafficType = this.ipsecTrafficModeType
 
@@ -343,7 +340,7 @@ public class FwpmConnection0 internal constructor(
 
     public operator fun component14(): Filetime = this.startSysTime
 
-    public fun copy(connectionId: ULong = this.connectionId, ipVersion: FwpIpVersion = this.ipVersion, anonymous1: FwpmConnection00 = this.anonymous1, anonymous2: FwpmConnection01 = this.anonymous2, providerKey: MutPtr<Guid> = this.providerKey, ipsecTrafficModeType: IpsecTrafficType = this.ipsecTrafficModeType, keyModuleType: IkeextKeyModuleType = this.keyModuleType, mmCrypto: IkeextProposal0 = this.mmCrypto, mmPeer: IkeextCredential2 = this.mmPeer, emPeer: IkeextCredential2 = this.emPeer, bytesTransferredIn: ULong = this.bytesTransferredIn, bytesTransferredOut: ULong = this.bytesTransferredOut, bytesTransferredTotal: ULong = this.bytesTransferredTotal, startSysTime: Filetime = this.startSysTime): FwpmConnection0 = FwpmConnection0(connectionId = connectionId, ipVersion = ipVersion, anonymous1 = anonymous1, anonymous2 = anonymous2, providerKeyCtorArg = providerKey, ipsecTrafficModeType = ipsecTrafficModeType, keyModuleType = keyModuleType, mmCrypto = mmCrypto, mmPeer = mmPeer, emPeer = emPeer, bytesTransferredIn = bytesTransferredIn, bytesTransferredOut = bytesTransferredOut, bytesTransferredTotal = bytesTransferredTotal, startSysTime = startSysTime)
+    public fun copy(connectionId: ULong = this.connectionId, ipVersion: FwpIpVersion = this.ipVersion, anonymous1: FwpmConnection00 = this.anonymous1, anonymous2: FwpmConnection01 = this.anonymous2, providerKey: MutPtr = this.providerKey, ipsecTrafficModeType: IpsecTrafficType = this.ipsecTrafficModeType, keyModuleType: IkeextKeyModuleType = this.keyModuleType, mmCrypto: IkeextProposal0 = this.mmCrypto, mmPeer: IkeextCredential2 = this.mmPeer, emPeer: IkeextCredential2 = this.emPeer, bytesTransferredIn: ULong = this.bytesTransferredIn, bytesTransferredOut: ULong = this.bytesTransferredOut, bytesTransferredTotal: ULong = this.bytesTransferredTotal, startSysTime: Filetime = this.startSysTime): FwpmConnection0 = FwpmConnection0(connectionId = connectionId, ipVersion = ipVersion, anonymous1 = anonymous1, anonymous2 = anonymous2, providerKeyCtorArg = providerKey, ipsecTrafficModeType = ipsecTrafficModeType, keyModuleType = keyModuleType, mmCrypto = mmCrypto, mmPeer = mmPeer, emPeer = emPeer, bytesTransferredIn = bytesTransferredIn, bytesTransferredOut = bytesTransferredOut, bytesTransferredTotal = bytesTransferredTotal, startSysTime = startSysTime)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -389,7 +386,7 @@ public class FwpmConnection0 internal constructor(
             ipVersion: FwpIpVersion = 0,
             anonymous1: FwpmConnection00 = FwpmConnection00(),
             anonymous2: FwpmConnection01 = FwpmConnection01(),
-            providerKey: MutPtr<Guid> = MutPtr(0L),
+            providerKey: MutPtr = MutPtr(0L),
             ipsecTrafficModeType: IpsecTrafficType = 0,
             keyModuleType: IkeextKeyModuleType = 0,
             mmCrypto: IkeextProposal0 = IkeextProposal0(),
@@ -480,11 +477,11 @@ public data class FwpmConnectionEnumTemplate0(
 }
 
 public class FwpmConnectionSubscription0 internal constructor(
-    enumTemplateCtorArg: MutPtr<FwpmConnectionEnumTemplate0>,
+    enumTemplateCtorArg: MutPtr,
     public var flags: UInt,
     public var sessionKey: Guid,
 ) {
-    public var enumTemplate: MutPtr<FwpmConnectionEnumTemplate0> = enumTemplateCtorArg
+    public var enumTemplate: MutPtr = enumTemplateCtorArg
         internal set
 
     public constructor() : this(
@@ -493,13 +490,13 @@ public class FwpmConnectionSubscription0 internal constructor(
         sessionKey = Guid(),
     )
 
-    public operator fun component1(): MutPtr<FwpmConnectionEnumTemplate0> = this.enumTemplate
+    public operator fun component1(): MutPtr = this.enumTemplate
 
     public operator fun component2(): UInt = this.flags
 
     public operator fun component3(): Guid = this.sessionKey
 
-    public fun copy(enumTemplate: MutPtr<FwpmConnectionEnumTemplate0> = this.enumTemplate, flags: UInt = this.flags, sessionKey: Guid = this.sessionKey): FwpmConnectionSubscription0 = FwpmConnectionSubscription0(enumTemplateCtorArg = enumTemplate, flags = flags, sessionKey = sessionKey)
+    public fun copy(enumTemplate: MutPtr = this.enumTemplate, flags: UInt = this.flags, sessionKey: Guid = this.sessionKey): FwpmConnectionSubscription0 = FwpmConnectionSubscription0(enumTemplateCtorArg = enumTemplate, flags = flags, sessionKey = sessionKey)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -519,7 +516,7 @@ public class FwpmConnectionSubscription0 internal constructor(
 
     public companion object {
         public operator fun invoke(
-            enumTemplate: MutPtr<FwpmConnectionEnumTemplate0> = MutPtr(0L),
+            enumTemplate: MutPtr = MutPtr(0L),
             flags: UInt = 0u,
             sessionKey: Guid = Guid(),
         ): FwpmConnectionSubscription0 =
@@ -579,11 +576,11 @@ public class FwpmDisplayData0 internal constructor(
 }
 
 public class FwpmField0 internal constructor(
-    fieldKeyCtorArg: MutPtr<Guid>,
+    fieldKeyCtorArg: MutPtr,
     public var type: FwpmFieldType,
     public var dataType: FwpDataType,
 ) {
-    public var fieldKey: MutPtr<Guid> = fieldKeyCtorArg
+    public var fieldKey: MutPtr = fieldKeyCtorArg
         internal set
 
     public constructor() : this(
@@ -592,13 +589,13 @@ public class FwpmField0 internal constructor(
         dataType = 0,
     )
 
-    public operator fun component1(): MutPtr<Guid> = this.fieldKey
+    public operator fun component1(): MutPtr = this.fieldKey
 
     public operator fun component2(): FwpmFieldType = this.type
 
     public operator fun component3(): FwpDataType = this.dataType
 
-    public fun copy(fieldKey: MutPtr<Guid> = this.fieldKey, type: FwpmFieldType = this.type, dataType: FwpDataType = this.dataType): FwpmField0 = FwpmField0(fieldKeyCtorArg = fieldKey, type = type, dataType = dataType)
+    public fun copy(fieldKey: MutPtr = this.fieldKey, type: FwpmFieldType = this.type, dataType: FwpDataType = this.dataType): FwpmField0 = FwpmField0(fieldKeyCtorArg = fieldKey, type = type, dataType = dataType)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -625,7 +622,7 @@ public class FwpmField0 internal constructor(
                     FwpmField0(
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<Guid>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr + 8L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr + 12L),
@@ -633,7 +630,7 @@ public class FwpmField0 internal constructor(
                 override fun writeNative(addr: Long, value: FwpmField0) {
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<Guid>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr, value.fieldKey)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr + 8L, value.type)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr + 12L, value.dataType)
@@ -641,7 +638,7 @@ public class FwpmField0 internal constructor(
             }
 
         public operator fun invoke(
-            fieldKey: MutPtr<Guid> = MutPtr(0L),
+            fieldKey: MutPtr = MutPtr(0L),
             type: FwpmFieldType = 0,
             dataType: FwpDataType = 0,
         ): FwpmField0 =
@@ -657,26 +654,26 @@ public class FwpmFilter0 internal constructor(
     public var filterKey: Guid,
     public var displayData: FwpmDisplayData0,
     public var flags: FwpmFilterFlags,
-    providerKeyCtorArg: MutPtr<Guid>,
+    providerKeyCtorArg: MutPtr,
     public var providerData: FwpByteBlob,
     public var layerKey: Guid,
     public var subLayerKey: Guid,
     public var weight: FwpValue0,
     public var numFilterConditions: UInt,
-    filterConditionCtorArg: MutPtr<FwpmFilterCondition0>,
+    filterConditionCtorArg: MutPtr,
     public var action: FwpmAction0,
     public var anonymous: FwpmFilter00,
-    reservedCtorArg: MutPtr<Guid>,
+    reservedCtorArg: MutPtr,
     public var filterId: ULong,
     public var effectiveWeight: FwpValue0,
 ) {
-    public var providerKey: MutPtr<Guid> = providerKeyCtorArg
+    public var providerKey: MutPtr = providerKeyCtorArg
         internal set
 
-    public var filterCondition: MutPtr<FwpmFilterCondition0> = filterConditionCtorArg
+    public var filterCondition: MutPtr = filterConditionCtorArg
         internal set
 
-    public var reserved: MutPtr<Guid> = reservedCtorArg
+    public var reserved: MutPtr = reservedCtorArg
         internal set
 
     public constructor() : this(
@@ -703,7 +700,7 @@ public class FwpmFilter0 internal constructor(
 
     public operator fun component3(): FwpmFilterFlags = this.flags
 
-    public operator fun component4(): MutPtr<Guid> = this.providerKey
+    public operator fun component4(): MutPtr = this.providerKey
 
     public operator fun component5(): FwpByteBlob = this.providerData
 
@@ -715,19 +712,19 @@ public class FwpmFilter0 internal constructor(
 
     public operator fun component9(): UInt = this.numFilterConditions
 
-    public operator fun component10(): MutPtr<FwpmFilterCondition0> = this.filterCondition
+    public operator fun component10(): MutPtr = this.filterCondition
 
     public operator fun component11(): FwpmAction0 = this.action
 
     public operator fun component12(): FwpmFilter00 = this.anonymous
 
-    public operator fun component13(): MutPtr<Guid> = this.reserved
+    public operator fun component13(): MutPtr = this.reserved
 
     public operator fun component14(): ULong = this.filterId
 
     public operator fun component15(): FwpValue0 = this.effectiveWeight
 
-    public fun copy(filterKey: Guid = this.filterKey, displayData: FwpmDisplayData0 = this.displayData, flags: FwpmFilterFlags = this.flags, providerKey: MutPtr<Guid> = this.providerKey, providerData: FwpByteBlob = this.providerData, layerKey: Guid = this.layerKey, subLayerKey: Guid = this.subLayerKey, weight: FwpValue0 = this.weight, numFilterConditions: UInt = this.numFilterConditions, filterCondition: MutPtr<FwpmFilterCondition0> = this.filterCondition, action: FwpmAction0 = this.action, anonymous: FwpmFilter00 = this.anonymous, reserved: MutPtr<Guid> = this.reserved, filterId: ULong = this.filterId, effectiveWeight: FwpValue0 = this.effectiveWeight): FwpmFilter0 = FwpmFilter0(filterKey = filterKey, displayData = displayData, flags = flags, providerKeyCtorArg = providerKey, providerData = providerData, layerKey = layerKey, subLayerKey = subLayerKey, weight = weight, numFilterConditions = numFilterConditions, filterConditionCtorArg = filterCondition, action = action, anonymous = anonymous, reservedCtorArg = reserved, filterId = filterId, effectiveWeight = effectiveWeight)
+    public fun copy(filterKey: Guid = this.filterKey, displayData: FwpmDisplayData0 = this.displayData, flags: FwpmFilterFlags = this.flags, providerKey: MutPtr = this.providerKey, providerData: FwpByteBlob = this.providerData, layerKey: Guid = this.layerKey, subLayerKey: Guid = this.subLayerKey, weight: FwpValue0 = this.weight, numFilterConditions: UInt = this.numFilterConditions, filterCondition: MutPtr = this.filterCondition, action: FwpmAction0 = this.action, anonymous: FwpmFilter00 = this.anonymous, reserved: MutPtr = this.reserved, filterId: ULong = this.filterId, effectiveWeight: FwpValue0 = this.effectiveWeight): FwpmFilter0 = FwpmFilter0(filterKey = filterKey, displayData = displayData, flags = flags, providerKeyCtorArg = providerKey, providerData = providerData, layerKey = layerKey, subLayerKey = subLayerKey, weight = weight, numFilterConditions = numFilterConditions, filterConditionCtorArg = filterCondition, action = action, anonymous = anonymous, reservedCtorArg = reserved, filterId = filterId, effectiveWeight = effectiveWeight)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -774,16 +771,16 @@ public class FwpmFilter0 internal constructor(
             filterKey: Guid = Guid(),
             displayData: FwpmDisplayData0 = FwpmDisplayData0(),
             flags: FwpmFilterFlags = 0u,
-            providerKey: MutPtr<Guid> = MutPtr(0L),
+            providerKey: MutPtr = MutPtr(0L),
             providerData: FwpByteBlob = FwpByteBlob(),
             layerKey: Guid = Guid(),
             subLayerKey: Guid = Guid(),
             weight: FwpValue0 = FwpValue0(),
             numFilterConditions: UInt = 0u,
-            filterCondition: MutPtr<FwpmFilterCondition0> = MutPtr(0L),
+            filterCondition: MutPtr = MutPtr(0L),
             action: FwpmAction0 = FwpmAction0(),
             anonymous: FwpmFilter00 = FwpmFilter00(),
-            reserved: MutPtr<Guid> = MutPtr(0L),
+            reserved: MutPtr = MutPtr(0L),
             filterId: ULong = 0uL,
             effectiveWeight: FwpValue0 = FwpValue0(),
         ): FwpmFilter0 =
@@ -825,26 +822,26 @@ public data class FwpmFilterCondition0(
 )
 
 public class FwpmFilterEnumTemplate0 internal constructor(
-    providerKeyCtorArg: MutPtr<Guid>,
+    providerKeyCtorArg: MutPtr,
     public var layerKey: Guid,
     public var enumType: FwpFilterEnumType,
     public var flags: UInt,
-    providerContextTemplateCtorArg: MutPtr<FwpmProviderContextEnumTemplate0>,
+    providerContextTemplateCtorArg: MutPtr,
     public var numFilterConditions: UInt,
-    filterConditionCtorArg: MutPtr<FwpmFilterCondition0>,
+    filterConditionCtorArg: MutPtr,
     public var actionMask: UInt,
-    calloutKeyCtorArg: MutPtr<Guid>,
+    calloutKeyCtorArg: MutPtr,
 ) {
-    public var providerKey: MutPtr<Guid> = providerKeyCtorArg
+    public var providerKey: MutPtr = providerKeyCtorArg
         internal set
 
-    public var providerContextTemplate: MutPtr<FwpmProviderContextEnumTemplate0> = providerContextTemplateCtorArg
+    public var providerContextTemplate: MutPtr = providerContextTemplateCtorArg
         internal set
 
-    public var filterCondition: MutPtr<FwpmFilterCondition0> = filterConditionCtorArg
+    public var filterCondition: MutPtr = filterConditionCtorArg
         internal set
 
-    public var calloutKey: MutPtr<Guid> = calloutKeyCtorArg
+    public var calloutKey: MutPtr = calloutKeyCtorArg
         internal set
 
     public constructor() : this(
@@ -859,7 +856,7 @@ public class FwpmFilterEnumTemplate0 internal constructor(
         calloutKeyCtorArg = MutPtr(0L),
     )
 
-    public operator fun component1(): MutPtr<Guid> = this.providerKey
+    public operator fun component1(): MutPtr = this.providerKey
 
     public operator fun component2(): Guid = this.layerKey
 
@@ -867,17 +864,17 @@ public class FwpmFilterEnumTemplate0 internal constructor(
 
     public operator fun component4(): UInt = this.flags
 
-    public operator fun component5(): MutPtr<FwpmProviderContextEnumTemplate0> = this.providerContextTemplate
+    public operator fun component5(): MutPtr = this.providerContextTemplate
 
     public operator fun component6(): UInt = this.numFilterConditions
 
-    public operator fun component7(): MutPtr<FwpmFilterCondition0> = this.filterCondition
+    public operator fun component7(): MutPtr = this.filterCondition
 
     public operator fun component8(): UInt = this.actionMask
 
-    public operator fun component9(): MutPtr<Guid> = this.calloutKey
+    public operator fun component9(): MutPtr = this.calloutKey
 
-    public fun copy(providerKey: MutPtr<Guid> = this.providerKey, layerKey: Guid = this.layerKey, enumType: FwpFilterEnumType = this.enumType, flags: UInt = this.flags, providerContextTemplate: MutPtr<FwpmProviderContextEnumTemplate0> = this.providerContextTemplate, numFilterConditions: UInt = this.numFilterConditions, filterCondition: MutPtr<FwpmFilterCondition0> = this.filterCondition, actionMask: UInt = this.actionMask, calloutKey: MutPtr<Guid> = this.calloutKey): FwpmFilterEnumTemplate0 = FwpmFilterEnumTemplate0(providerKeyCtorArg = providerKey, layerKey = layerKey, enumType = enumType, flags = flags, providerContextTemplateCtorArg = providerContextTemplate, numFilterConditions = numFilterConditions, filterConditionCtorArg = filterCondition, actionMask = actionMask, calloutKeyCtorArg = calloutKey)
+    public fun copy(providerKey: MutPtr = this.providerKey, layerKey: Guid = this.layerKey, enumType: FwpFilterEnumType = this.enumType, flags: UInt = this.flags, providerContextTemplate: MutPtr = this.providerContextTemplate, numFilterConditions: UInt = this.numFilterConditions, filterCondition: MutPtr = this.filterCondition, actionMask: UInt = this.actionMask, calloutKey: MutPtr = this.calloutKey): FwpmFilterEnumTemplate0 = FwpmFilterEnumTemplate0(providerKeyCtorArg = providerKey, layerKey = layerKey, enumType = enumType, flags = flags, providerContextTemplateCtorArg = providerContextTemplate, numFilterConditions = numFilterConditions, filterConditionCtorArg = filterCondition, actionMask = actionMask, calloutKeyCtorArg = calloutKey)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -909,15 +906,15 @@ public class FwpmFilterEnumTemplate0 internal constructor(
 
     public companion object {
         public operator fun invoke(
-            providerKey: MutPtr<Guid> = MutPtr(0L),
+            providerKey: MutPtr = MutPtr(0L),
             layerKey: Guid = Guid(),
             enumType: FwpFilterEnumType = 0,
             flags: UInt = 0u,
-            providerContextTemplate: MutPtr<FwpmProviderContextEnumTemplate0> = MutPtr(0L),
+            providerContextTemplate: MutPtr = MutPtr(0L),
             numFilterConditions: UInt = 0u,
-            filterCondition: MutPtr<FwpmFilterCondition0> = MutPtr(0L),
+            filterCondition: MutPtr = MutPtr(0L),
             actionMask: UInt = 0u,
-            calloutKey: MutPtr<Guid> = MutPtr(0L),
+            calloutKey: MutPtr = MutPtr(0L),
         ): FwpmFilterEnumTemplate0 =
             FwpmFilterEnumTemplate0(
                 providerKeyCtorArg = providerKey,
@@ -934,11 +931,11 @@ public class FwpmFilterEnumTemplate0 internal constructor(
 }
 
 public class FwpmFilterSubscription0 internal constructor(
-    enumTemplateCtorArg: MutPtr<FwpmFilterEnumTemplate0>,
+    enumTemplateCtorArg: MutPtr,
     public var flags: UInt,
     public var sessionKey: Guid,
 ) {
-    public var enumTemplate: MutPtr<FwpmFilterEnumTemplate0> = enumTemplateCtorArg
+    public var enumTemplate: MutPtr = enumTemplateCtorArg
         internal set
 
     public constructor() : this(
@@ -947,13 +944,13 @@ public class FwpmFilterSubscription0 internal constructor(
         sessionKey = Guid(),
     )
 
-    public operator fun component1(): MutPtr<FwpmFilterEnumTemplate0> = this.enumTemplate
+    public operator fun component1(): MutPtr = this.enumTemplate
 
     public operator fun component2(): UInt = this.flags
 
     public operator fun component3(): Guid = this.sessionKey
 
-    public fun copy(enumTemplate: MutPtr<FwpmFilterEnumTemplate0> = this.enumTemplate, flags: UInt = this.flags, sessionKey: Guid = this.sessionKey): FwpmFilterSubscription0 = FwpmFilterSubscription0(enumTemplateCtorArg = enumTemplate, flags = flags, sessionKey = sessionKey)
+    public fun copy(enumTemplate: MutPtr = this.enumTemplate, flags: UInt = this.flags, sessionKey: Guid = this.sessionKey): FwpmFilterSubscription0 = FwpmFilterSubscription0(enumTemplateCtorArg = enumTemplate, flags = flags, sessionKey = sessionKey)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -973,7 +970,7 @@ public class FwpmFilterSubscription0 internal constructor(
 
     public companion object {
         public operator fun invoke(
-            enumTemplate: MutPtr<FwpmFilterEnumTemplate0> = MutPtr(0L),
+            enumTemplate: MutPtr = MutPtr(0L),
             flags: UInt = 0u,
             sessionKey: Guid = Guid(),
         ): FwpmFilterSubscription0 =
@@ -990,11 +987,11 @@ public class FwpmLayer0 internal constructor(
     public var displayData: FwpmDisplayData0,
     public var flags: UInt,
     public var numFields: UInt,
-    fieldCtorArg: MutPtr<FwpmField0>,
+    fieldCtorArg: MutPtr,
     public var defaultSubLayerKey: Guid,
     public var layerId: UShort,
 ) {
-    public var field: MutPtr<FwpmField0> = fieldCtorArg
+    public var field: MutPtr = fieldCtorArg
         internal set
 
     public constructor() : this(
@@ -1015,13 +1012,13 @@ public class FwpmLayer0 internal constructor(
 
     public operator fun component4(): UInt = this.numFields
 
-    public operator fun component5(): MutPtr<FwpmField0> = this.field
+    public operator fun component5(): MutPtr = this.field
 
     public operator fun component6(): Guid = this.defaultSubLayerKey
 
     public operator fun component7(): UShort = this.layerId
 
-    public fun copy(layerKey: Guid = this.layerKey, displayData: FwpmDisplayData0 = this.displayData, flags: UInt = this.flags, numFields: UInt = this.numFields, field: MutPtr<FwpmField0> = this.field, defaultSubLayerKey: Guid = this.defaultSubLayerKey, layerId: UShort = this.layerId): FwpmLayer0 = FwpmLayer0(layerKey = layerKey, displayData = displayData, flags = flags, numFields = numFields, fieldCtorArg = field, defaultSubLayerKey = defaultSubLayerKey, layerId = layerId)
+    public fun copy(layerKey: Guid = this.layerKey, displayData: FwpmDisplayData0 = this.displayData, flags: UInt = this.flags, numFields: UInt = this.numFields, field: MutPtr = this.field, defaultSubLayerKey: Guid = this.defaultSubLayerKey, layerId: UShort = this.layerId): FwpmLayer0 = FwpmLayer0(layerKey = layerKey, displayData = displayData, flags = flags, numFields = numFields, fieldCtorArg = field, defaultSubLayerKey = defaultSubLayerKey, layerId = layerId)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -1053,7 +1050,7 @@ public class FwpmLayer0 internal constructor(
             displayData: FwpmDisplayData0 = FwpmDisplayData0(),
             flags: UInt = 0u,
             numFields: UInt = 0u,
-            field: MutPtr<FwpmField0> = MutPtr(0L),
+            field: MutPtr = MutPtr(0L),
             defaultSubLayerKey: Guid = Guid(),
             layerId: UShort = 0u,
         ): FwpmLayer0 =
@@ -1103,9 +1100,9 @@ public data class FwpmNetworkConnectionPolicySetting0(
 
 public class FwpmNetworkConnectionPolicySettings0 internal constructor(
     public var numSettings: UInt,
-    settingsCtorArg: MutPtr<FwpmNetworkConnectionPolicySetting0>,
+    settingsCtorArg: MutPtr,
 ) {
-    public var settings: MutPtr<FwpmNetworkConnectionPolicySetting0> = settingsCtorArg
+    public var settings: MutPtr = settingsCtorArg
         internal set
 
     public constructor() : this(
@@ -1115,9 +1112,9 @@ public class FwpmNetworkConnectionPolicySettings0 internal constructor(
 
     public operator fun component1(): UInt = this.numSettings
 
-    public operator fun component2(): MutPtr<FwpmNetworkConnectionPolicySetting0> = this.settings
+    public operator fun component2(): MutPtr = this.settings
 
-    public fun copy(numSettings: UInt = this.numSettings, settings: MutPtr<FwpmNetworkConnectionPolicySetting0> = this.settings): FwpmNetworkConnectionPolicySettings0 = FwpmNetworkConnectionPolicySettings0(numSettings = numSettings, settingsCtorArg = settings)
+    public fun copy(numSettings: UInt = this.numSettings, settings: MutPtr = this.settings): FwpmNetworkConnectionPolicySettings0 = FwpmNetworkConnectionPolicySettings0(numSettings = numSettings, settingsCtorArg = settings)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -1143,21 +1140,21 @@ public class FwpmNetworkConnectionPolicySettings0 internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<FwpmNetworkConnectionPolicySetting0>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                     )
                 override fun writeNative(addr: Long, value: FwpmNetworkConnectionPolicySettings0) {
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr, value.numSettings)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<FwpmNetworkConnectionPolicySetting0>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.settings)
                 }
             }
 
         public operator fun invoke(
             numSettings: UInt = 0u,
-            settings: MutPtr<FwpmNetworkConnectionPolicySetting0> = MutPtr(0L),
+            settings: MutPtr = MutPtr(0L),
         ): FwpmNetworkConnectionPolicySettings0 =
             FwpmNetworkConnectionPolicySettings0(
                 numSettings = numSettings,
@@ -1173,29 +1170,29 @@ public data class FwpmNetEvent0(
 )
 
 public class FwpmNetEvent00 internal constructor(
-    ikeMmFailureCtorArg: MutPtr<FwpmNetEventIkeextMmFailure0>,
-    ikeQmFailureCtorArg: MutPtr<FwpmNetEventIkeextQmFailure0>,
-    ikeEmFailureCtorArg: MutPtr<FwpmNetEventIkeextEmFailure0>,
-    classifyDropCtorArg: MutPtr<FwpmNetEventClassifyDrop0>,
-    ipsecDropCtorArg: MutPtr<FwpmNetEventIpsecKernelDrop0>,
-    idpDropCtorArg: MutPtr<FwpmNetEventIpsecDospDrop0>,
+    ikeMmFailureCtorArg: MutPtr,
+    ikeQmFailureCtorArg: MutPtr,
+    ikeEmFailureCtorArg: MutPtr,
+    classifyDropCtorArg: MutPtr,
+    ipsecDropCtorArg: MutPtr,
+    idpDropCtorArg: MutPtr,
 ) {
-    public var ikeMmFailure: MutPtr<FwpmNetEventIkeextMmFailure0> = ikeMmFailureCtorArg
+    public var ikeMmFailure: MutPtr = ikeMmFailureCtorArg
         internal set
 
-    public var ikeQmFailure: MutPtr<FwpmNetEventIkeextQmFailure0> = ikeQmFailureCtorArg
+    public var ikeQmFailure: MutPtr = ikeQmFailureCtorArg
         internal set
 
-    public var ikeEmFailure: MutPtr<FwpmNetEventIkeextEmFailure0> = ikeEmFailureCtorArg
+    public var ikeEmFailure: MutPtr = ikeEmFailureCtorArg
         internal set
 
-    public var classifyDrop: MutPtr<FwpmNetEventClassifyDrop0> = classifyDropCtorArg
+    public var classifyDrop: MutPtr = classifyDropCtorArg
         internal set
 
-    public var ipsecDrop: MutPtr<FwpmNetEventIpsecKernelDrop0> = ipsecDropCtorArg
+    public var ipsecDrop: MutPtr = ipsecDropCtorArg
         internal set
 
-    public var idpDrop: MutPtr<FwpmNetEventIpsecDospDrop0> = idpDropCtorArg
+    public var idpDrop: MutPtr = idpDropCtorArg
         internal set
 
     public constructor() : this(
@@ -1207,19 +1204,19 @@ public class FwpmNetEvent00 internal constructor(
         idpDropCtorArg = MutPtr(0L),
     )
 
-    public operator fun component1(): MutPtr<FwpmNetEventIkeextMmFailure0> = this.ikeMmFailure
+    public operator fun component1(): MutPtr = this.ikeMmFailure
 
-    public operator fun component2(): MutPtr<FwpmNetEventIkeextQmFailure0> = this.ikeQmFailure
+    public operator fun component2(): MutPtr = this.ikeQmFailure
 
-    public operator fun component3(): MutPtr<FwpmNetEventIkeextEmFailure0> = this.ikeEmFailure
+    public operator fun component3(): MutPtr = this.ikeEmFailure
 
-    public operator fun component4(): MutPtr<FwpmNetEventClassifyDrop0> = this.classifyDrop
+    public operator fun component4(): MutPtr = this.classifyDrop
 
-    public operator fun component5(): MutPtr<FwpmNetEventIpsecKernelDrop0> = this.ipsecDrop
+    public operator fun component5(): MutPtr = this.ipsecDrop
 
-    public operator fun component6(): MutPtr<FwpmNetEventIpsecDospDrop0> = this.idpDrop
+    public operator fun component6(): MutPtr = this.idpDrop
 
-    public fun copy(ikeMmFailure: MutPtr<FwpmNetEventIkeextMmFailure0> = this.ikeMmFailure, ikeQmFailure: MutPtr<FwpmNetEventIkeextQmFailure0> = this.ikeQmFailure, ikeEmFailure: MutPtr<FwpmNetEventIkeextEmFailure0> = this.ikeEmFailure, classifyDrop: MutPtr<FwpmNetEventClassifyDrop0> = this.classifyDrop, ipsecDrop: MutPtr<FwpmNetEventIpsecKernelDrop0> = this.ipsecDrop, idpDrop: MutPtr<FwpmNetEventIpsecDospDrop0> = this.idpDrop): FwpmNetEvent00 = FwpmNetEvent00(ikeMmFailureCtorArg = ikeMmFailure, ikeQmFailureCtorArg = ikeQmFailure, ikeEmFailureCtorArg = ikeEmFailure, classifyDropCtorArg = classifyDrop, ipsecDropCtorArg = ipsecDrop, idpDropCtorArg = idpDrop)
+    public fun copy(ikeMmFailure: MutPtr = this.ikeMmFailure, ikeQmFailure: MutPtr = this.ikeQmFailure, ikeEmFailure: MutPtr = this.ikeEmFailure, classifyDrop: MutPtr = this.classifyDrop, ipsecDrop: MutPtr = this.ipsecDrop, idpDrop: MutPtr = this.idpDrop): FwpmNetEvent00 = FwpmNetEvent00(ikeMmFailureCtorArg = ikeMmFailure, ikeQmFailureCtorArg = ikeQmFailure, ikeEmFailureCtorArg = ikeEmFailure, classifyDropCtorArg = classifyDrop, ipsecDropCtorArg = ipsecDrop, idpDropCtorArg = idpDrop)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -1245,12 +1242,12 @@ public class FwpmNetEvent00 internal constructor(
 
     public companion object {
         public operator fun invoke(
-            ikeMmFailure: MutPtr<FwpmNetEventIkeextMmFailure0> = MutPtr(0L),
-            ikeQmFailure: MutPtr<FwpmNetEventIkeextQmFailure0> = MutPtr(0L),
-            ikeEmFailure: MutPtr<FwpmNetEventIkeextEmFailure0> = MutPtr(0L),
-            classifyDrop: MutPtr<FwpmNetEventClassifyDrop0> = MutPtr(0L),
-            ipsecDrop: MutPtr<FwpmNetEventIpsecKernelDrop0> = MutPtr(0L),
-            idpDrop: MutPtr<FwpmNetEventIpsecDospDrop0> = MutPtr(0L),
+            ikeMmFailure: MutPtr = MutPtr(0L),
+            ikeQmFailure: MutPtr = MutPtr(0L),
+            ikeEmFailure: MutPtr = MutPtr(0L),
+            classifyDrop: MutPtr = MutPtr(0L),
+            ipsecDrop: MutPtr = MutPtr(0L),
+            idpDrop: MutPtr = MutPtr(0L),
         ): FwpmNetEvent00 =
             FwpmNetEvent00(
                 ikeMmFailureCtorArg = ikeMmFailure,
@@ -1270,29 +1267,29 @@ public data class FwpmNetEvent1(
 )
 
 public class FwpmNetEvent10 internal constructor(
-    ikeMmFailureCtorArg: MutPtr<FwpmNetEventIkeextMmFailure1>,
-    ikeQmFailureCtorArg: MutPtr<FwpmNetEventIkeextQmFailure0>,
-    ikeEmFailureCtorArg: MutPtr<FwpmNetEventIkeextEmFailure1>,
-    classifyDropCtorArg: MutPtr<FwpmNetEventClassifyDrop1>,
-    ipsecDropCtorArg: MutPtr<FwpmNetEventIpsecKernelDrop0>,
-    idpDropCtorArg: MutPtr<FwpmNetEventIpsecDospDrop0>,
+    ikeMmFailureCtorArg: MutPtr,
+    ikeQmFailureCtorArg: MutPtr,
+    ikeEmFailureCtorArg: MutPtr,
+    classifyDropCtorArg: MutPtr,
+    ipsecDropCtorArg: MutPtr,
+    idpDropCtorArg: MutPtr,
 ) {
-    public var ikeMmFailure: MutPtr<FwpmNetEventIkeextMmFailure1> = ikeMmFailureCtorArg
+    public var ikeMmFailure: MutPtr = ikeMmFailureCtorArg
         internal set
 
-    public var ikeQmFailure: MutPtr<FwpmNetEventIkeextQmFailure0> = ikeQmFailureCtorArg
+    public var ikeQmFailure: MutPtr = ikeQmFailureCtorArg
         internal set
 
-    public var ikeEmFailure: MutPtr<FwpmNetEventIkeextEmFailure1> = ikeEmFailureCtorArg
+    public var ikeEmFailure: MutPtr = ikeEmFailureCtorArg
         internal set
 
-    public var classifyDrop: MutPtr<FwpmNetEventClassifyDrop1> = classifyDropCtorArg
+    public var classifyDrop: MutPtr = classifyDropCtorArg
         internal set
 
-    public var ipsecDrop: MutPtr<FwpmNetEventIpsecKernelDrop0> = ipsecDropCtorArg
+    public var ipsecDrop: MutPtr = ipsecDropCtorArg
         internal set
 
-    public var idpDrop: MutPtr<FwpmNetEventIpsecDospDrop0> = idpDropCtorArg
+    public var idpDrop: MutPtr = idpDropCtorArg
         internal set
 
     public constructor() : this(
@@ -1304,19 +1301,19 @@ public class FwpmNetEvent10 internal constructor(
         idpDropCtorArg = MutPtr(0L),
     )
 
-    public operator fun component1(): MutPtr<FwpmNetEventIkeextMmFailure1> = this.ikeMmFailure
+    public operator fun component1(): MutPtr = this.ikeMmFailure
 
-    public operator fun component2(): MutPtr<FwpmNetEventIkeextQmFailure0> = this.ikeQmFailure
+    public operator fun component2(): MutPtr = this.ikeQmFailure
 
-    public operator fun component3(): MutPtr<FwpmNetEventIkeextEmFailure1> = this.ikeEmFailure
+    public operator fun component3(): MutPtr = this.ikeEmFailure
 
-    public operator fun component4(): MutPtr<FwpmNetEventClassifyDrop1> = this.classifyDrop
+    public operator fun component4(): MutPtr = this.classifyDrop
 
-    public operator fun component5(): MutPtr<FwpmNetEventIpsecKernelDrop0> = this.ipsecDrop
+    public operator fun component5(): MutPtr = this.ipsecDrop
 
-    public operator fun component6(): MutPtr<FwpmNetEventIpsecDospDrop0> = this.idpDrop
+    public operator fun component6(): MutPtr = this.idpDrop
 
-    public fun copy(ikeMmFailure: MutPtr<FwpmNetEventIkeextMmFailure1> = this.ikeMmFailure, ikeQmFailure: MutPtr<FwpmNetEventIkeextQmFailure0> = this.ikeQmFailure, ikeEmFailure: MutPtr<FwpmNetEventIkeextEmFailure1> = this.ikeEmFailure, classifyDrop: MutPtr<FwpmNetEventClassifyDrop1> = this.classifyDrop, ipsecDrop: MutPtr<FwpmNetEventIpsecKernelDrop0> = this.ipsecDrop, idpDrop: MutPtr<FwpmNetEventIpsecDospDrop0> = this.idpDrop): FwpmNetEvent10 = FwpmNetEvent10(ikeMmFailureCtorArg = ikeMmFailure, ikeQmFailureCtorArg = ikeQmFailure, ikeEmFailureCtorArg = ikeEmFailure, classifyDropCtorArg = classifyDrop, ipsecDropCtorArg = ipsecDrop, idpDropCtorArg = idpDrop)
+    public fun copy(ikeMmFailure: MutPtr = this.ikeMmFailure, ikeQmFailure: MutPtr = this.ikeQmFailure, ikeEmFailure: MutPtr = this.ikeEmFailure, classifyDrop: MutPtr = this.classifyDrop, ipsecDrop: MutPtr = this.ipsecDrop, idpDrop: MutPtr = this.idpDrop): FwpmNetEvent10 = FwpmNetEvent10(ikeMmFailureCtorArg = ikeMmFailure, ikeQmFailureCtorArg = ikeQmFailure, ikeEmFailureCtorArg = ikeEmFailure, classifyDropCtorArg = classifyDrop, ipsecDropCtorArg = ipsecDrop, idpDropCtorArg = idpDrop)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -1342,12 +1339,12 @@ public class FwpmNetEvent10 internal constructor(
 
     public companion object {
         public operator fun invoke(
-            ikeMmFailure: MutPtr<FwpmNetEventIkeextMmFailure1> = MutPtr(0L),
-            ikeQmFailure: MutPtr<FwpmNetEventIkeextQmFailure0> = MutPtr(0L),
-            ikeEmFailure: MutPtr<FwpmNetEventIkeextEmFailure1> = MutPtr(0L),
-            classifyDrop: MutPtr<FwpmNetEventClassifyDrop1> = MutPtr(0L),
-            ipsecDrop: MutPtr<FwpmNetEventIpsecKernelDrop0> = MutPtr(0L),
-            idpDrop: MutPtr<FwpmNetEventIpsecDospDrop0> = MutPtr(0L),
+            ikeMmFailure: MutPtr = MutPtr(0L),
+            ikeQmFailure: MutPtr = MutPtr(0L),
+            ikeEmFailure: MutPtr = MutPtr(0L),
+            classifyDrop: MutPtr = MutPtr(0L),
+            ipsecDrop: MutPtr = MutPtr(0L),
+            idpDrop: MutPtr = MutPtr(0L),
         ): FwpmNetEvent10 =
             FwpmNetEvent10(
                 ikeMmFailureCtorArg = ikeMmFailure,
@@ -1367,45 +1364,45 @@ public data class FwpmNetEvent2(
 )
 
 public class FwpmNetEvent20 internal constructor(
-    ikeMmFailureCtorArg: MutPtr<FwpmNetEventIkeextMmFailure1>,
-    ikeQmFailureCtorArg: MutPtr<FwpmNetEventIkeextQmFailure0>,
-    ikeEmFailureCtorArg: MutPtr<FwpmNetEventIkeextEmFailure1>,
-    classifyDropCtorArg: MutPtr<FwpmNetEventClassifyDrop2>,
-    ipsecDropCtorArg: MutPtr<FwpmNetEventIpsecKernelDrop0>,
-    idpDropCtorArg: MutPtr<FwpmNetEventIpsecDospDrop0>,
-    classifyAllowCtorArg: MutPtr<FwpmNetEventClassifyAllow0>,
-    capabilityDropCtorArg: MutPtr<FwpmNetEventCapabilityDrop0>,
-    capabilityAllowCtorArg: MutPtr<FwpmNetEventCapabilityAllow0>,
-    classifyDropMacCtorArg: MutPtr<FwpmNetEventClassifyDropMac0>,
+    ikeMmFailureCtorArg: MutPtr,
+    ikeQmFailureCtorArg: MutPtr,
+    ikeEmFailureCtorArg: MutPtr,
+    classifyDropCtorArg: MutPtr,
+    ipsecDropCtorArg: MutPtr,
+    idpDropCtorArg: MutPtr,
+    classifyAllowCtorArg: MutPtr,
+    capabilityDropCtorArg: MutPtr,
+    capabilityAllowCtorArg: MutPtr,
+    classifyDropMacCtorArg: MutPtr,
 ) {
-    public var ikeMmFailure: MutPtr<FwpmNetEventIkeextMmFailure1> = ikeMmFailureCtorArg
+    public var ikeMmFailure: MutPtr = ikeMmFailureCtorArg
         internal set
 
-    public var ikeQmFailure: MutPtr<FwpmNetEventIkeextQmFailure0> = ikeQmFailureCtorArg
+    public var ikeQmFailure: MutPtr = ikeQmFailureCtorArg
         internal set
 
-    public var ikeEmFailure: MutPtr<FwpmNetEventIkeextEmFailure1> = ikeEmFailureCtorArg
+    public var ikeEmFailure: MutPtr = ikeEmFailureCtorArg
         internal set
 
-    public var classifyDrop: MutPtr<FwpmNetEventClassifyDrop2> = classifyDropCtorArg
+    public var classifyDrop: MutPtr = classifyDropCtorArg
         internal set
 
-    public var ipsecDrop: MutPtr<FwpmNetEventIpsecKernelDrop0> = ipsecDropCtorArg
+    public var ipsecDrop: MutPtr = ipsecDropCtorArg
         internal set
 
-    public var idpDrop: MutPtr<FwpmNetEventIpsecDospDrop0> = idpDropCtorArg
+    public var idpDrop: MutPtr = idpDropCtorArg
         internal set
 
-    public var classifyAllow: MutPtr<FwpmNetEventClassifyAllow0> = classifyAllowCtorArg
+    public var classifyAllow: MutPtr = classifyAllowCtorArg
         internal set
 
-    public var capabilityDrop: MutPtr<FwpmNetEventCapabilityDrop0> = capabilityDropCtorArg
+    public var capabilityDrop: MutPtr = capabilityDropCtorArg
         internal set
 
-    public var capabilityAllow: MutPtr<FwpmNetEventCapabilityAllow0> = capabilityAllowCtorArg
+    public var capabilityAllow: MutPtr = capabilityAllowCtorArg
         internal set
 
-    public var classifyDropMac: MutPtr<FwpmNetEventClassifyDropMac0> = classifyDropMacCtorArg
+    public var classifyDropMac: MutPtr = classifyDropMacCtorArg
         internal set
 
     public constructor() : this(
@@ -1421,27 +1418,27 @@ public class FwpmNetEvent20 internal constructor(
         classifyDropMacCtorArg = MutPtr(0L),
     )
 
-    public operator fun component1(): MutPtr<FwpmNetEventIkeextMmFailure1> = this.ikeMmFailure
+    public operator fun component1(): MutPtr = this.ikeMmFailure
 
-    public operator fun component2(): MutPtr<FwpmNetEventIkeextQmFailure0> = this.ikeQmFailure
+    public operator fun component2(): MutPtr = this.ikeQmFailure
 
-    public operator fun component3(): MutPtr<FwpmNetEventIkeextEmFailure1> = this.ikeEmFailure
+    public operator fun component3(): MutPtr = this.ikeEmFailure
 
-    public operator fun component4(): MutPtr<FwpmNetEventClassifyDrop2> = this.classifyDrop
+    public operator fun component4(): MutPtr = this.classifyDrop
 
-    public operator fun component5(): MutPtr<FwpmNetEventIpsecKernelDrop0> = this.ipsecDrop
+    public operator fun component5(): MutPtr = this.ipsecDrop
 
-    public operator fun component6(): MutPtr<FwpmNetEventIpsecDospDrop0> = this.idpDrop
+    public operator fun component6(): MutPtr = this.idpDrop
 
-    public operator fun component7(): MutPtr<FwpmNetEventClassifyAllow0> = this.classifyAllow
+    public operator fun component7(): MutPtr = this.classifyAllow
 
-    public operator fun component8(): MutPtr<FwpmNetEventCapabilityDrop0> = this.capabilityDrop
+    public operator fun component8(): MutPtr = this.capabilityDrop
 
-    public operator fun component9(): MutPtr<FwpmNetEventCapabilityAllow0> = this.capabilityAllow
+    public operator fun component9(): MutPtr = this.capabilityAllow
 
-    public operator fun component10(): MutPtr<FwpmNetEventClassifyDropMac0> = this.classifyDropMac
+    public operator fun component10(): MutPtr = this.classifyDropMac
 
-    public fun copy(ikeMmFailure: MutPtr<FwpmNetEventIkeextMmFailure1> = this.ikeMmFailure, ikeQmFailure: MutPtr<FwpmNetEventIkeextQmFailure0> = this.ikeQmFailure, ikeEmFailure: MutPtr<FwpmNetEventIkeextEmFailure1> = this.ikeEmFailure, classifyDrop: MutPtr<FwpmNetEventClassifyDrop2> = this.classifyDrop, ipsecDrop: MutPtr<FwpmNetEventIpsecKernelDrop0> = this.ipsecDrop, idpDrop: MutPtr<FwpmNetEventIpsecDospDrop0> = this.idpDrop, classifyAllow: MutPtr<FwpmNetEventClassifyAllow0> = this.classifyAllow, capabilityDrop: MutPtr<FwpmNetEventCapabilityDrop0> = this.capabilityDrop, capabilityAllow: MutPtr<FwpmNetEventCapabilityAllow0> = this.capabilityAllow, classifyDropMac: MutPtr<FwpmNetEventClassifyDropMac0> = this.classifyDropMac): FwpmNetEvent20 = FwpmNetEvent20(ikeMmFailureCtorArg = ikeMmFailure, ikeQmFailureCtorArg = ikeQmFailure, ikeEmFailureCtorArg = ikeEmFailure, classifyDropCtorArg = classifyDrop, ipsecDropCtorArg = ipsecDrop, idpDropCtorArg = idpDrop, classifyAllowCtorArg = classifyAllow, capabilityDropCtorArg = capabilityDrop, capabilityAllowCtorArg = capabilityAllow, classifyDropMacCtorArg = classifyDropMac)
+    public fun copy(ikeMmFailure: MutPtr = this.ikeMmFailure, ikeQmFailure: MutPtr = this.ikeQmFailure, ikeEmFailure: MutPtr = this.ikeEmFailure, classifyDrop: MutPtr = this.classifyDrop, ipsecDrop: MutPtr = this.ipsecDrop, idpDrop: MutPtr = this.idpDrop, classifyAllow: MutPtr = this.classifyAllow, capabilityDrop: MutPtr = this.capabilityDrop, capabilityAllow: MutPtr = this.capabilityAllow, classifyDropMac: MutPtr = this.classifyDropMac): FwpmNetEvent20 = FwpmNetEvent20(ikeMmFailureCtorArg = ikeMmFailure, ikeQmFailureCtorArg = ikeQmFailure, ikeEmFailureCtorArg = ikeEmFailure, classifyDropCtorArg = classifyDrop, ipsecDropCtorArg = ipsecDrop, idpDropCtorArg = idpDrop, classifyAllowCtorArg = classifyAllow, capabilityDropCtorArg = capabilityDrop, capabilityAllowCtorArg = capabilityAllow, classifyDropMacCtorArg = classifyDropMac)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -1475,16 +1472,16 @@ public class FwpmNetEvent20 internal constructor(
 
     public companion object {
         public operator fun invoke(
-            ikeMmFailure: MutPtr<FwpmNetEventIkeextMmFailure1> = MutPtr(0L),
-            ikeQmFailure: MutPtr<FwpmNetEventIkeextQmFailure0> = MutPtr(0L),
-            ikeEmFailure: MutPtr<FwpmNetEventIkeextEmFailure1> = MutPtr(0L),
-            classifyDrop: MutPtr<FwpmNetEventClassifyDrop2> = MutPtr(0L),
-            ipsecDrop: MutPtr<FwpmNetEventIpsecKernelDrop0> = MutPtr(0L),
-            idpDrop: MutPtr<FwpmNetEventIpsecDospDrop0> = MutPtr(0L),
-            classifyAllow: MutPtr<FwpmNetEventClassifyAllow0> = MutPtr(0L),
-            capabilityDrop: MutPtr<FwpmNetEventCapabilityDrop0> = MutPtr(0L),
-            capabilityAllow: MutPtr<FwpmNetEventCapabilityAllow0> = MutPtr(0L),
-            classifyDropMac: MutPtr<FwpmNetEventClassifyDropMac0> = MutPtr(0L),
+            ikeMmFailure: MutPtr = MutPtr(0L),
+            ikeQmFailure: MutPtr = MutPtr(0L),
+            ikeEmFailure: MutPtr = MutPtr(0L),
+            classifyDrop: MutPtr = MutPtr(0L),
+            ipsecDrop: MutPtr = MutPtr(0L),
+            idpDrop: MutPtr = MutPtr(0L),
+            classifyAllow: MutPtr = MutPtr(0L),
+            capabilityDrop: MutPtr = MutPtr(0L),
+            capabilityAllow: MutPtr = MutPtr(0L),
+            classifyDropMac: MutPtr = MutPtr(0L),
         ): FwpmNetEvent20 =
             FwpmNetEvent20(
                 ikeMmFailureCtorArg = ikeMmFailure,
@@ -1508,45 +1505,45 @@ public data class FwpmNetEvent3(
 )
 
 public class FwpmNetEvent30 internal constructor(
-    ikeMmFailureCtorArg: MutPtr<FwpmNetEventIkeextMmFailure1>,
-    ikeQmFailureCtorArg: MutPtr<FwpmNetEventIkeextQmFailure0>,
-    ikeEmFailureCtorArg: MutPtr<FwpmNetEventIkeextEmFailure1>,
-    classifyDropCtorArg: MutPtr<FwpmNetEventClassifyDrop2>,
-    ipsecDropCtorArg: MutPtr<FwpmNetEventIpsecKernelDrop0>,
-    idpDropCtorArg: MutPtr<FwpmNetEventIpsecDospDrop0>,
-    classifyAllowCtorArg: MutPtr<FwpmNetEventClassifyAllow0>,
-    capabilityDropCtorArg: MutPtr<FwpmNetEventCapabilityDrop0>,
-    capabilityAllowCtorArg: MutPtr<FwpmNetEventCapabilityAllow0>,
-    classifyDropMacCtorArg: MutPtr<FwpmNetEventClassifyDropMac0>,
+    ikeMmFailureCtorArg: MutPtr,
+    ikeQmFailureCtorArg: MutPtr,
+    ikeEmFailureCtorArg: MutPtr,
+    classifyDropCtorArg: MutPtr,
+    ipsecDropCtorArg: MutPtr,
+    idpDropCtorArg: MutPtr,
+    classifyAllowCtorArg: MutPtr,
+    capabilityDropCtorArg: MutPtr,
+    capabilityAllowCtorArg: MutPtr,
+    classifyDropMacCtorArg: MutPtr,
 ) {
-    public var ikeMmFailure: MutPtr<FwpmNetEventIkeextMmFailure1> = ikeMmFailureCtorArg
+    public var ikeMmFailure: MutPtr = ikeMmFailureCtorArg
         internal set
 
-    public var ikeQmFailure: MutPtr<FwpmNetEventIkeextQmFailure0> = ikeQmFailureCtorArg
+    public var ikeQmFailure: MutPtr = ikeQmFailureCtorArg
         internal set
 
-    public var ikeEmFailure: MutPtr<FwpmNetEventIkeextEmFailure1> = ikeEmFailureCtorArg
+    public var ikeEmFailure: MutPtr = ikeEmFailureCtorArg
         internal set
 
-    public var classifyDrop: MutPtr<FwpmNetEventClassifyDrop2> = classifyDropCtorArg
+    public var classifyDrop: MutPtr = classifyDropCtorArg
         internal set
 
-    public var ipsecDrop: MutPtr<FwpmNetEventIpsecKernelDrop0> = ipsecDropCtorArg
+    public var ipsecDrop: MutPtr = ipsecDropCtorArg
         internal set
 
-    public var idpDrop: MutPtr<FwpmNetEventIpsecDospDrop0> = idpDropCtorArg
+    public var idpDrop: MutPtr = idpDropCtorArg
         internal set
 
-    public var classifyAllow: MutPtr<FwpmNetEventClassifyAllow0> = classifyAllowCtorArg
+    public var classifyAllow: MutPtr = classifyAllowCtorArg
         internal set
 
-    public var capabilityDrop: MutPtr<FwpmNetEventCapabilityDrop0> = capabilityDropCtorArg
+    public var capabilityDrop: MutPtr = capabilityDropCtorArg
         internal set
 
-    public var capabilityAllow: MutPtr<FwpmNetEventCapabilityAllow0> = capabilityAllowCtorArg
+    public var capabilityAllow: MutPtr = capabilityAllowCtorArg
         internal set
 
-    public var classifyDropMac: MutPtr<FwpmNetEventClassifyDropMac0> = classifyDropMacCtorArg
+    public var classifyDropMac: MutPtr = classifyDropMacCtorArg
         internal set
 
     public constructor() : this(
@@ -1562,27 +1559,27 @@ public class FwpmNetEvent30 internal constructor(
         classifyDropMacCtorArg = MutPtr(0L),
     )
 
-    public operator fun component1(): MutPtr<FwpmNetEventIkeextMmFailure1> = this.ikeMmFailure
+    public operator fun component1(): MutPtr = this.ikeMmFailure
 
-    public operator fun component2(): MutPtr<FwpmNetEventIkeextQmFailure0> = this.ikeQmFailure
+    public operator fun component2(): MutPtr = this.ikeQmFailure
 
-    public operator fun component3(): MutPtr<FwpmNetEventIkeextEmFailure1> = this.ikeEmFailure
+    public operator fun component3(): MutPtr = this.ikeEmFailure
 
-    public operator fun component4(): MutPtr<FwpmNetEventClassifyDrop2> = this.classifyDrop
+    public operator fun component4(): MutPtr = this.classifyDrop
 
-    public operator fun component5(): MutPtr<FwpmNetEventIpsecKernelDrop0> = this.ipsecDrop
+    public operator fun component5(): MutPtr = this.ipsecDrop
 
-    public operator fun component6(): MutPtr<FwpmNetEventIpsecDospDrop0> = this.idpDrop
+    public operator fun component6(): MutPtr = this.idpDrop
 
-    public operator fun component7(): MutPtr<FwpmNetEventClassifyAllow0> = this.classifyAllow
+    public operator fun component7(): MutPtr = this.classifyAllow
 
-    public operator fun component8(): MutPtr<FwpmNetEventCapabilityDrop0> = this.capabilityDrop
+    public operator fun component8(): MutPtr = this.capabilityDrop
 
-    public operator fun component9(): MutPtr<FwpmNetEventCapabilityAllow0> = this.capabilityAllow
+    public operator fun component9(): MutPtr = this.capabilityAllow
 
-    public operator fun component10(): MutPtr<FwpmNetEventClassifyDropMac0> = this.classifyDropMac
+    public operator fun component10(): MutPtr = this.classifyDropMac
 
-    public fun copy(ikeMmFailure: MutPtr<FwpmNetEventIkeextMmFailure1> = this.ikeMmFailure, ikeQmFailure: MutPtr<FwpmNetEventIkeextQmFailure0> = this.ikeQmFailure, ikeEmFailure: MutPtr<FwpmNetEventIkeextEmFailure1> = this.ikeEmFailure, classifyDrop: MutPtr<FwpmNetEventClassifyDrop2> = this.classifyDrop, ipsecDrop: MutPtr<FwpmNetEventIpsecKernelDrop0> = this.ipsecDrop, idpDrop: MutPtr<FwpmNetEventIpsecDospDrop0> = this.idpDrop, classifyAllow: MutPtr<FwpmNetEventClassifyAllow0> = this.classifyAllow, capabilityDrop: MutPtr<FwpmNetEventCapabilityDrop0> = this.capabilityDrop, capabilityAllow: MutPtr<FwpmNetEventCapabilityAllow0> = this.capabilityAllow, classifyDropMac: MutPtr<FwpmNetEventClassifyDropMac0> = this.classifyDropMac): FwpmNetEvent30 = FwpmNetEvent30(ikeMmFailureCtorArg = ikeMmFailure, ikeQmFailureCtorArg = ikeQmFailure, ikeEmFailureCtorArg = ikeEmFailure, classifyDropCtorArg = classifyDrop, ipsecDropCtorArg = ipsecDrop, idpDropCtorArg = idpDrop, classifyAllowCtorArg = classifyAllow, capabilityDropCtorArg = capabilityDrop, capabilityAllowCtorArg = capabilityAllow, classifyDropMacCtorArg = classifyDropMac)
+    public fun copy(ikeMmFailure: MutPtr = this.ikeMmFailure, ikeQmFailure: MutPtr = this.ikeQmFailure, ikeEmFailure: MutPtr = this.ikeEmFailure, classifyDrop: MutPtr = this.classifyDrop, ipsecDrop: MutPtr = this.ipsecDrop, idpDrop: MutPtr = this.idpDrop, classifyAllow: MutPtr = this.classifyAllow, capabilityDrop: MutPtr = this.capabilityDrop, capabilityAllow: MutPtr = this.capabilityAllow, classifyDropMac: MutPtr = this.classifyDropMac): FwpmNetEvent30 = FwpmNetEvent30(ikeMmFailureCtorArg = ikeMmFailure, ikeQmFailureCtorArg = ikeQmFailure, ikeEmFailureCtorArg = ikeEmFailure, classifyDropCtorArg = classifyDrop, ipsecDropCtorArg = ipsecDrop, idpDropCtorArg = idpDrop, classifyAllowCtorArg = classifyAllow, capabilityDropCtorArg = capabilityDrop, capabilityAllowCtorArg = capabilityAllow, classifyDropMacCtorArg = classifyDropMac)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -1616,16 +1613,16 @@ public class FwpmNetEvent30 internal constructor(
 
     public companion object {
         public operator fun invoke(
-            ikeMmFailure: MutPtr<FwpmNetEventIkeextMmFailure1> = MutPtr(0L),
-            ikeQmFailure: MutPtr<FwpmNetEventIkeextQmFailure0> = MutPtr(0L),
-            ikeEmFailure: MutPtr<FwpmNetEventIkeextEmFailure1> = MutPtr(0L),
-            classifyDrop: MutPtr<FwpmNetEventClassifyDrop2> = MutPtr(0L),
-            ipsecDrop: MutPtr<FwpmNetEventIpsecKernelDrop0> = MutPtr(0L),
-            idpDrop: MutPtr<FwpmNetEventIpsecDospDrop0> = MutPtr(0L),
-            classifyAllow: MutPtr<FwpmNetEventClassifyAllow0> = MutPtr(0L),
-            capabilityDrop: MutPtr<FwpmNetEventCapabilityDrop0> = MutPtr(0L),
-            capabilityAllow: MutPtr<FwpmNetEventCapabilityAllow0> = MutPtr(0L),
-            classifyDropMac: MutPtr<FwpmNetEventClassifyDropMac0> = MutPtr(0L),
+            ikeMmFailure: MutPtr = MutPtr(0L),
+            ikeQmFailure: MutPtr = MutPtr(0L),
+            ikeEmFailure: MutPtr = MutPtr(0L),
+            classifyDrop: MutPtr = MutPtr(0L),
+            ipsecDrop: MutPtr = MutPtr(0L),
+            idpDrop: MutPtr = MutPtr(0L),
+            classifyAllow: MutPtr = MutPtr(0L),
+            capabilityDrop: MutPtr = MutPtr(0L),
+            capabilityAllow: MutPtr = MutPtr(0L),
+            classifyDropMac: MutPtr = MutPtr(0L),
         ): FwpmNetEvent30 =
             FwpmNetEvent30(
                 ikeMmFailureCtorArg = ikeMmFailure,
@@ -1649,45 +1646,45 @@ public data class FwpmNetEvent4(
 )
 
 public class FwpmNetEvent40 internal constructor(
-    ikeMmFailureCtorArg: MutPtr<FwpmNetEventIkeextMmFailure2>,
-    ikeQmFailureCtorArg: MutPtr<FwpmNetEventIkeextQmFailure1>,
-    ikeEmFailureCtorArg: MutPtr<FwpmNetEventIkeextEmFailure1>,
-    classifyDropCtorArg: MutPtr<FwpmNetEventClassifyDrop2>,
-    ipsecDropCtorArg: MutPtr<FwpmNetEventIpsecKernelDrop0>,
-    idpDropCtorArg: MutPtr<FwpmNetEventIpsecDospDrop0>,
-    classifyAllowCtorArg: MutPtr<FwpmNetEventClassifyAllow0>,
-    capabilityDropCtorArg: MutPtr<FwpmNetEventCapabilityDrop0>,
-    capabilityAllowCtorArg: MutPtr<FwpmNetEventCapabilityAllow0>,
-    classifyDropMacCtorArg: MutPtr<FwpmNetEventClassifyDropMac0>,
+    ikeMmFailureCtorArg: MutPtr,
+    ikeQmFailureCtorArg: MutPtr,
+    ikeEmFailureCtorArg: MutPtr,
+    classifyDropCtorArg: MutPtr,
+    ipsecDropCtorArg: MutPtr,
+    idpDropCtorArg: MutPtr,
+    classifyAllowCtorArg: MutPtr,
+    capabilityDropCtorArg: MutPtr,
+    capabilityAllowCtorArg: MutPtr,
+    classifyDropMacCtorArg: MutPtr,
 ) {
-    public var ikeMmFailure: MutPtr<FwpmNetEventIkeextMmFailure2> = ikeMmFailureCtorArg
+    public var ikeMmFailure: MutPtr = ikeMmFailureCtorArg
         internal set
 
-    public var ikeQmFailure: MutPtr<FwpmNetEventIkeextQmFailure1> = ikeQmFailureCtorArg
+    public var ikeQmFailure: MutPtr = ikeQmFailureCtorArg
         internal set
 
-    public var ikeEmFailure: MutPtr<FwpmNetEventIkeextEmFailure1> = ikeEmFailureCtorArg
+    public var ikeEmFailure: MutPtr = ikeEmFailureCtorArg
         internal set
 
-    public var classifyDrop: MutPtr<FwpmNetEventClassifyDrop2> = classifyDropCtorArg
+    public var classifyDrop: MutPtr = classifyDropCtorArg
         internal set
 
-    public var ipsecDrop: MutPtr<FwpmNetEventIpsecKernelDrop0> = ipsecDropCtorArg
+    public var ipsecDrop: MutPtr = ipsecDropCtorArg
         internal set
 
-    public var idpDrop: MutPtr<FwpmNetEventIpsecDospDrop0> = idpDropCtorArg
+    public var idpDrop: MutPtr = idpDropCtorArg
         internal set
 
-    public var classifyAllow: MutPtr<FwpmNetEventClassifyAllow0> = classifyAllowCtorArg
+    public var classifyAllow: MutPtr = classifyAllowCtorArg
         internal set
 
-    public var capabilityDrop: MutPtr<FwpmNetEventCapabilityDrop0> = capabilityDropCtorArg
+    public var capabilityDrop: MutPtr = capabilityDropCtorArg
         internal set
 
-    public var capabilityAllow: MutPtr<FwpmNetEventCapabilityAllow0> = capabilityAllowCtorArg
+    public var capabilityAllow: MutPtr = capabilityAllowCtorArg
         internal set
 
-    public var classifyDropMac: MutPtr<FwpmNetEventClassifyDropMac0> = classifyDropMacCtorArg
+    public var classifyDropMac: MutPtr = classifyDropMacCtorArg
         internal set
 
     public constructor() : this(
@@ -1703,27 +1700,27 @@ public class FwpmNetEvent40 internal constructor(
         classifyDropMacCtorArg = MutPtr(0L),
     )
 
-    public operator fun component1(): MutPtr<FwpmNetEventIkeextMmFailure2> = this.ikeMmFailure
+    public operator fun component1(): MutPtr = this.ikeMmFailure
 
-    public operator fun component2(): MutPtr<FwpmNetEventIkeextQmFailure1> = this.ikeQmFailure
+    public operator fun component2(): MutPtr = this.ikeQmFailure
 
-    public operator fun component3(): MutPtr<FwpmNetEventIkeextEmFailure1> = this.ikeEmFailure
+    public operator fun component3(): MutPtr = this.ikeEmFailure
 
-    public operator fun component4(): MutPtr<FwpmNetEventClassifyDrop2> = this.classifyDrop
+    public operator fun component4(): MutPtr = this.classifyDrop
 
-    public operator fun component5(): MutPtr<FwpmNetEventIpsecKernelDrop0> = this.ipsecDrop
+    public operator fun component5(): MutPtr = this.ipsecDrop
 
-    public operator fun component6(): MutPtr<FwpmNetEventIpsecDospDrop0> = this.idpDrop
+    public operator fun component6(): MutPtr = this.idpDrop
 
-    public operator fun component7(): MutPtr<FwpmNetEventClassifyAllow0> = this.classifyAllow
+    public operator fun component7(): MutPtr = this.classifyAllow
 
-    public operator fun component8(): MutPtr<FwpmNetEventCapabilityDrop0> = this.capabilityDrop
+    public operator fun component8(): MutPtr = this.capabilityDrop
 
-    public operator fun component9(): MutPtr<FwpmNetEventCapabilityAllow0> = this.capabilityAllow
+    public operator fun component9(): MutPtr = this.capabilityAllow
 
-    public operator fun component10(): MutPtr<FwpmNetEventClassifyDropMac0> = this.classifyDropMac
+    public operator fun component10(): MutPtr = this.classifyDropMac
 
-    public fun copy(ikeMmFailure: MutPtr<FwpmNetEventIkeextMmFailure2> = this.ikeMmFailure, ikeQmFailure: MutPtr<FwpmNetEventIkeextQmFailure1> = this.ikeQmFailure, ikeEmFailure: MutPtr<FwpmNetEventIkeextEmFailure1> = this.ikeEmFailure, classifyDrop: MutPtr<FwpmNetEventClassifyDrop2> = this.classifyDrop, ipsecDrop: MutPtr<FwpmNetEventIpsecKernelDrop0> = this.ipsecDrop, idpDrop: MutPtr<FwpmNetEventIpsecDospDrop0> = this.idpDrop, classifyAllow: MutPtr<FwpmNetEventClassifyAllow0> = this.classifyAllow, capabilityDrop: MutPtr<FwpmNetEventCapabilityDrop0> = this.capabilityDrop, capabilityAllow: MutPtr<FwpmNetEventCapabilityAllow0> = this.capabilityAllow, classifyDropMac: MutPtr<FwpmNetEventClassifyDropMac0> = this.classifyDropMac): FwpmNetEvent40 = FwpmNetEvent40(ikeMmFailureCtorArg = ikeMmFailure, ikeQmFailureCtorArg = ikeQmFailure, ikeEmFailureCtorArg = ikeEmFailure, classifyDropCtorArg = classifyDrop, ipsecDropCtorArg = ipsecDrop, idpDropCtorArg = idpDrop, classifyAllowCtorArg = classifyAllow, capabilityDropCtorArg = capabilityDrop, capabilityAllowCtorArg = capabilityAllow, classifyDropMacCtorArg = classifyDropMac)
+    public fun copy(ikeMmFailure: MutPtr = this.ikeMmFailure, ikeQmFailure: MutPtr = this.ikeQmFailure, ikeEmFailure: MutPtr = this.ikeEmFailure, classifyDrop: MutPtr = this.classifyDrop, ipsecDrop: MutPtr = this.ipsecDrop, idpDrop: MutPtr = this.idpDrop, classifyAllow: MutPtr = this.classifyAllow, capabilityDrop: MutPtr = this.capabilityDrop, capabilityAllow: MutPtr = this.capabilityAllow, classifyDropMac: MutPtr = this.classifyDropMac): FwpmNetEvent40 = FwpmNetEvent40(ikeMmFailureCtorArg = ikeMmFailure, ikeQmFailureCtorArg = ikeQmFailure, ikeEmFailureCtorArg = ikeEmFailure, classifyDropCtorArg = classifyDrop, ipsecDropCtorArg = ipsecDrop, idpDropCtorArg = idpDrop, classifyAllowCtorArg = classifyAllow, capabilityDropCtorArg = capabilityDrop, capabilityAllowCtorArg = capabilityAllow, classifyDropMacCtorArg = classifyDropMac)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -1757,16 +1754,16 @@ public class FwpmNetEvent40 internal constructor(
 
     public companion object {
         public operator fun invoke(
-            ikeMmFailure: MutPtr<FwpmNetEventIkeextMmFailure2> = MutPtr(0L),
-            ikeQmFailure: MutPtr<FwpmNetEventIkeextQmFailure1> = MutPtr(0L),
-            ikeEmFailure: MutPtr<FwpmNetEventIkeextEmFailure1> = MutPtr(0L),
-            classifyDrop: MutPtr<FwpmNetEventClassifyDrop2> = MutPtr(0L),
-            ipsecDrop: MutPtr<FwpmNetEventIpsecKernelDrop0> = MutPtr(0L),
-            idpDrop: MutPtr<FwpmNetEventIpsecDospDrop0> = MutPtr(0L),
-            classifyAllow: MutPtr<FwpmNetEventClassifyAllow0> = MutPtr(0L),
-            capabilityDrop: MutPtr<FwpmNetEventCapabilityDrop0> = MutPtr(0L),
-            capabilityAllow: MutPtr<FwpmNetEventCapabilityAllow0> = MutPtr(0L),
-            classifyDropMac: MutPtr<FwpmNetEventClassifyDropMac0> = MutPtr(0L),
+            ikeMmFailure: MutPtr = MutPtr(0L),
+            ikeQmFailure: MutPtr = MutPtr(0L),
+            ikeEmFailure: MutPtr = MutPtr(0L),
+            classifyDrop: MutPtr = MutPtr(0L),
+            ipsecDrop: MutPtr = MutPtr(0L),
+            idpDrop: MutPtr = MutPtr(0L),
+            classifyAllow: MutPtr = MutPtr(0L),
+            capabilityDrop: MutPtr = MutPtr(0L),
+            capabilityAllow: MutPtr = MutPtr(0L),
+            classifyDropMac: MutPtr = MutPtr(0L),
         ): FwpmNetEvent40 =
             FwpmNetEvent40(
                 ikeMmFailureCtorArg = ikeMmFailure,
@@ -1790,49 +1787,49 @@ public data class FwpmNetEvent5(
 )
 
 public class FwpmNetEvent50 internal constructor(
-    ikeMmFailureCtorArg: MutPtr<FwpmNetEventIkeextMmFailure2>,
-    ikeQmFailureCtorArg: MutPtr<FwpmNetEventIkeextQmFailure1>,
-    ikeEmFailureCtorArg: MutPtr<FwpmNetEventIkeextEmFailure1>,
-    classifyDropCtorArg: MutPtr<FwpmNetEventClassifyDrop2>,
-    ipsecDropCtorArg: MutPtr<FwpmNetEventIpsecKernelDrop0>,
-    idpDropCtorArg: MutPtr<FwpmNetEventIpsecDospDrop0>,
-    classifyAllowCtorArg: MutPtr<FwpmNetEventClassifyAllow0>,
-    capabilityDropCtorArg: MutPtr<FwpmNetEventCapabilityDrop0>,
-    capabilityAllowCtorArg: MutPtr<FwpmNetEventCapabilityAllow0>,
-    classifyDropMacCtorArg: MutPtr<FwpmNetEventClassifyDropMac0>,
-    lpmPacketArrivalCtorArg: MutPtr<FwpmNetEventLpmPacketArrival0>,
+    ikeMmFailureCtorArg: MutPtr,
+    ikeQmFailureCtorArg: MutPtr,
+    ikeEmFailureCtorArg: MutPtr,
+    classifyDropCtorArg: MutPtr,
+    ipsecDropCtorArg: MutPtr,
+    idpDropCtorArg: MutPtr,
+    classifyAllowCtorArg: MutPtr,
+    capabilityDropCtorArg: MutPtr,
+    capabilityAllowCtorArg: MutPtr,
+    classifyDropMacCtorArg: MutPtr,
+    lpmPacketArrivalCtorArg: MutPtr,
 ) {
-    public var ikeMmFailure: MutPtr<FwpmNetEventIkeextMmFailure2> = ikeMmFailureCtorArg
+    public var ikeMmFailure: MutPtr = ikeMmFailureCtorArg
         internal set
 
-    public var ikeQmFailure: MutPtr<FwpmNetEventIkeextQmFailure1> = ikeQmFailureCtorArg
+    public var ikeQmFailure: MutPtr = ikeQmFailureCtorArg
         internal set
 
-    public var ikeEmFailure: MutPtr<FwpmNetEventIkeextEmFailure1> = ikeEmFailureCtorArg
+    public var ikeEmFailure: MutPtr = ikeEmFailureCtorArg
         internal set
 
-    public var classifyDrop: MutPtr<FwpmNetEventClassifyDrop2> = classifyDropCtorArg
+    public var classifyDrop: MutPtr = classifyDropCtorArg
         internal set
 
-    public var ipsecDrop: MutPtr<FwpmNetEventIpsecKernelDrop0> = ipsecDropCtorArg
+    public var ipsecDrop: MutPtr = ipsecDropCtorArg
         internal set
 
-    public var idpDrop: MutPtr<FwpmNetEventIpsecDospDrop0> = idpDropCtorArg
+    public var idpDrop: MutPtr = idpDropCtorArg
         internal set
 
-    public var classifyAllow: MutPtr<FwpmNetEventClassifyAllow0> = classifyAllowCtorArg
+    public var classifyAllow: MutPtr = classifyAllowCtorArg
         internal set
 
-    public var capabilityDrop: MutPtr<FwpmNetEventCapabilityDrop0> = capabilityDropCtorArg
+    public var capabilityDrop: MutPtr = capabilityDropCtorArg
         internal set
 
-    public var capabilityAllow: MutPtr<FwpmNetEventCapabilityAllow0> = capabilityAllowCtorArg
+    public var capabilityAllow: MutPtr = capabilityAllowCtorArg
         internal set
 
-    public var classifyDropMac: MutPtr<FwpmNetEventClassifyDropMac0> = classifyDropMacCtorArg
+    public var classifyDropMac: MutPtr = classifyDropMacCtorArg
         internal set
 
-    public var lpmPacketArrival: MutPtr<FwpmNetEventLpmPacketArrival0> = lpmPacketArrivalCtorArg
+    public var lpmPacketArrival: MutPtr = lpmPacketArrivalCtorArg
         internal set
 
     public constructor() : this(
@@ -1849,29 +1846,29 @@ public class FwpmNetEvent50 internal constructor(
         lpmPacketArrivalCtorArg = MutPtr(0L),
     )
 
-    public operator fun component1(): MutPtr<FwpmNetEventIkeextMmFailure2> = this.ikeMmFailure
+    public operator fun component1(): MutPtr = this.ikeMmFailure
 
-    public operator fun component2(): MutPtr<FwpmNetEventIkeextQmFailure1> = this.ikeQmFailure
+    public operator fun component2(): MutPtr = this.ikeQmFailure
 
-    public operator fun component3(): MutPtr<FwpmNetEventIkeextEmFailure1> = this.ikeEmFailure
+    public operator fun component3(): MutPtr = this.ikeEmFailure
 
-    public operator fun component4(): MutPtr<FwpmNetEventClassifyDrop2> = this.classifyDrop
+    public operator fun component4(): MutPtr = this.classifyDrop
 
-    public operator fun component5(): MutPtr<FwpmNetEventIpsecKernelDrop0> = this.ipsecDrop
+    public operator fun component5(): MutPtr = this.ipsecDrop
 
-    public operator fun component6(): MutPtr<FwpmNetEventIpsecDospDrop0> = this.idpDrop
+    public operator fun component6(): MutPtr = this.idpDrop
 
-    public operator fun component7(): MutPtr<FwpmNetEventClassifyAllow0> = this.classifyAllow
+    public operator fun component7(): MutPtr = this.classifyAllow
 
-    public operator fun component8(): MutPtr<FwpmNetEventCapabilityDrop0> = this.capabilityDrop
+    public operator fun component8(): MutPtr = this.capabilityDrop
 
-    public operator fun component9(): MutPtr<FwpmNetEventCapabilityAllow0> = this.capabilityAllow
+    public operator fun component9(): MutPtr = this.capabilityAllow
 
-    public operator fun component10(): MutPtr<FwpmNetEventClassifyDropMac0> = this.classifyDropMac
+    public operator fun component10(): MutPtr = this.classifyDropMac
 
-    public operator fun component11(): MutPtr<FwpmNetEventLpmPacketArrival0> = this.lpmPacketArrival
+    public operator fun component11(): MutPtr = this.lpmPacketArrival
 
-    public fun copy(ikeMmFailure: MutPtr<FwpmNetEventIkeextMmFailure2> = this.ikeMmFailure, ikeQmFailure: MutPtr<FwpmNetEventIkeextQmFailure1> = this.ikeQmFailure, ikeEmFailure: MutPtr<FwpmNetEventIkeextEmFailure1> = this.ikeEmFailure, classifyDrop: MutPtr<FwpmNetEventClassifyDrop2> = this.classifyDrop, ipsecDrop: MutPtr<FwpmNetEventIpsecKernelDrop0> = this.ipsecDrop, idpDrop: MutPtr<FwpmNetEventIpsecDospDrop0> = this.idpDrop, classifyAllow: MutPtr<FwpmNetEventClassifyAllow0> = this.classifyAllow, capabilityDrop: MutPtr<FwpmNetEventCapabilityDrop0> = this.capabilityDrop, capabilityAllow: MutPtr<FwpmNetEventCapabilityAllow0> = this.capabilityAllow, classifyDropMac: MutPtr<FwpmNetEventClassifyDropMac0> = this.classifyDropMac, lpmPacketArrival: MutPtr<FwpmNetEventLpmPacketArrival0> = this.lpmPacketArrival): FwpmNetEvent50 = FwpmNetEvent50(ikeMmFailureCtorArg = ikeMmFailure, ikeQmFailureCtorArg = ikeQmFailure, ikeEmFailureCtorArg = ikeEmFailure, classifyDropCtorArg = classifyDrop, ipsecDropCtorArg = ipsecDrop, idpDropCtorArg = idpDrop, classifyAllowCtorArg = classifyAllow, capabilityDropCtorArg = capabilityDrop, capabilityAllowCtorArg = capabilityAllow, classifyDropMacCtorArg = classifyDropMac, lpmPacketArrivalCtorArg = lpmPacketArrival)
+    public fun copy(ikeMmFailure: MutPtr = this.ikeMmFailure, ikeQmFailure: MutPtr = this.ikeQmFailure, ikeEmFailure: MutPtr = this.ikeEmFailure, classifyDrop: MutPtr = this.classifyDrop, ipsecDrop: MutPtr = this.ipsecDrop, idpDrop: MutPtr = this.idpDrop, classifyAllow: MutPtr = this.classifyAllow, capabilityDrop: MutPtr = this.capabilityDrop, capabilityAllow: MutPtr = this.capabilityAllow, classifyDropMac: MutPtr = this.classifyDropMac, lpmPacketArrival: MutPtr = this.lpmPacketArrival): FwpmNetEvent50 = FwpmNetEvent50(ikeMmFailureCtorArg = ikeMmFailure, ikeQmFailureCtorArg = ikeQmFailure, ikeEmFailureCtorArg = ikeEmFailure, classifyDropCtorArg = classifyDrop, ipsecDropCtorArg = ipsecDrop, idpDropCtorArg = idpDrop, classifyAllowCtorArg = classifyAllow, capabilityDropCtorArg = capabilityDrop, capabilityAllowCtorArg = capabilityAllow, classifyDropMacCtorArg = classifyDropMac, lpmPacketArrivalCtorArg = lpmPacketArrival)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -1907,17 +1904,17 @@ public class FwpmNetEvent50 internal constructor(
 
     public companion object {
         public operator fun invoke(
-            ikeMmFailure: MutPtr<FwpmNetEventIkeextMmFailure2> = MutPtr(0L),
-            ikeQmFailure: MutPtr<FwpmNetEventIkeextQmFailure1> = MutPtr(0L),
-            ikeEmFailure: MutPtr<FwpmNetEventIkeextEmFailure1> = MutPtr(0L),
-            classifyDrop: MutPtr<FwpmNetEventClassifyDrop2> = MutPtr(0L),
-            ipsecDrop: MutPtr<FwpmNetEventIpsecKernelDrop0> = MutPtr(0L),
-            idpDrop: MutPtr<FwpmNetEventIpsecDospDrop0> = MutPtr(0L),
-            classifyAllow: MutPtr<FwpmNetEventClassifyAllow0> = MutPtr(0L),
-            capabilityDrop: MutPtr<FwpmNetEventCapabilityDrop0> = MutPtr(0L),
-            capabilityAllow: MutPtr<FwpmNetEventCapabilityAllow0> = MutPtr(0L),
-            classifyDropMac: MutPtr<FwpmNetEventClassifyDropMac0> = MutPtr(0L),
-            lpmPacketArrival: MutPtr<FwpmNetEventLpmPacketArrival0> = MutPtr(0L),
+            ikeMmFailure: MutPtr = MutPtr(0L),
+            ikeQmFailure: MutPtr = MutPtr(0L),
+            ikeEmFailure: MutPtr = MutPtr(0L),
+            classifyDrop: MutPtr = MutPtr(0L),
+            ipsecDrop: MutPtr = MutPtr(0L),
+            idpDrop: MutPtr = MutPtr(0L),
+            classifyAllow: MutPtr = MutPtr(0L),
+            capabilityDrop: MutPtr = MutPtr(0L),
+            capabilityAllow: MutPtr = MutPtr(0L),
+            classifyDropMac: MutPtr = MutPtr(0L),
+            lpmPacketArrival: MutPtr = MutPtr(0L),
         ): FwpmNetEvent50 =
             FwpmNetEvent50(
                 ikeMmFailureCtorArg = ikeMmFailure,
@@ -2204,9 +2201,9 @@ public class FwpmNetEventEnumTemplate0 internal constructor(
     public var startTime: Filetime,
     public var endTime: Filetime,
     public var numFilterConditions: UInt,
-    filterConditionCtorArg: MutPtr<FwpmFilterCondition0>,
+    filterConditionCtorArg: MutPtr,
 ) {
-    public var filterCondition: MutPtr<FwpmFilterCondition0> = filterConditionCtorArg
+    public var filterCondition: MutPtr = filterConditionCtorArg
         internal set
 
     public constructor() : this(
@@ -2222,9 +2219,9 @@ public class FwpmNetEventEnumTemplate0 internal constructor(
 
     public operator fun component3(): UInt = this.numFilterConditions
 
-    public operator fun component4(): MutPtr<FwpmFilterCondition0> = this.filterCondition
+    public operator fun component4(): MutPtr = this.filterCondition
 
-    public fun copy(startTime: Filetime = this.startTime, endTime: Filetime = this.endTime, numFilterConditions: UInt = this.numFilterConditions, filterCondition: MutPtr<FwpmFilterCondition0> = this.filterCondition): FwpmNetEventEnumTemplate0 = FwpmNetEventEnumTemplate0(startTime = startTime, endTime = endTime, numFilterConditions = numFilterConditions, filterConditionCtorArg = filterCondition)
+    public fun copy(startTime: Filetime = this.startTime, endTime: Filetime = this.endTime, numFilterConditions: UInt = this.numFilterConditions, filterCondition: MutPtr = this.filterCondition): FwpmNetEventEnumTemplate0 = FwpmNetEventEnumTemplate0(startTime = startTime, endTime = endTime, numFilterConditions = numFilterConditions, filterConditionCtorArg = filterCondition)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -2249,7 +2246,7 @@ public class FwpmNetEventEnumTemplate0 internal constructor(
             startTime: Filetime = Filetime(),
             endTime: Filetime = Filetime(),
             numFilterConditions: UInt = 0u,
-            filterCondition: MutPtr<FwpmFilterCondition0> = MutPtr(0L),
+            filterCondition: MutPtr = MutPtr(0L),
         ): FwpmNetEventEnumTemplate0 =
             FwpmNetEventEnumTemplate0(
                 startTime = startTime,
@@ -2271,9 +2268,9 @@ public class FwpmNetEventHeader0 internal constructor(
     public var remotePort: UShort,
     public var scopeId: UInt,
     public var appId: FwpByteBlob,
-    userIdCtorArg: MutPtr<Sid>,
+    userIdCtorArg: MutPtr,
 ) {
-    public var userId: MutPtr<Sid> = userIdCtorArg
+    public var userId: MutPtr = userIdCtorArg
         internal set
 
     public constructor() : this(
@@ -2310,9 +2307,9 @@ public class FwpmNetEventHeader0 internal constructor(
 
     public operator fun component10(): FwpByteBlob = this.appId
 
-    public operator fun component11(): MutPtr<Sid> = this.userId
+    public operator fun component11(): MutPtr = this.userId
 
-    public fun copy(timeStamp: Filetime = this.timeStamp, flags: UInt = this.flags, ipVersion: FwpIpVersion = this.ipVersion, ipProtocol: UByte = this.ipProtocol, anonymous1: FwpmNetEventHeader00 = this.anonymous1, anonymous2: FwpmNetEventHeader01 = this.anonymous2, localPort: UShort = this.localPort, remotePort: UShort = this.remotePort, scopeId: UInt = this.scopeId, appId: FwpByteBlob = this.appId, userId: MutPtr<Sid> = this.userId): FwpmNetEventHeader0 = FwpmNetEventHeader0(timeStamp = timeStamp, flags = flags, ipVersion = ipVersion, ipProtocol = ipProtocol, anonymous1 = anonymous1, anonymous2 = anonymous2, localPort = localPort, remotePort = remotePort, scopeId = scopeId, appId = appId, userIdCtorArg = userId)
+    public fun copy(timeStamp: Filetime = this.timeStamp, flags: UInt = this.flags, ipVersion: FwpIpVersion = this.ipVersion, ipProtocol: UByte = this.ipProtocol, anonymous1: FwpmNetEventHeader00 = this.anonymous1, anonymous2: FwpmNetEventHeader01 = this.anonymous2, localPort: UShort = this.localPort, remotePort: UShort = this.remotePort, scopeId: UInt = this.scopeId, appId: FwpByteBlob = this.appId, userId: MutPtr = this.userId): FwpmNetEventHeader0 = FwpmNetEventHeader0(timeStamp = timeStamp, flags = flags, ipVersion = ipVersion, ipProtocol = ipProtocol, anonymous1 = anonymous1, anonymous2 = anonymous2, localPort = localPort, remotePort = remotePort, scopeId = scopeId, appId = appId, userIdCtorArg = userId)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -2358,7 +2355,7 @@ public class FwpmNetEventHeader0 internal constructor(
             remotePort: UShort = 0u,
             scopeId: UInt = 0u,
             appId: FwpByteBlob = FwpByteBlob(),
-            userId: MutPtr<Sid> = MutPtr(0L),
+            userId: MutPtr = MutPtr(0L),
         ): FwpmNetEventHeader0 =
             FwpmNetEventHeader0(
                 timeStamp = timeStamp,
@@ -2397,10 +2394,10 @@ public class FwpmNetEventHeader1 internal constructor(
     public var remotePort: UShort,
     public var scopeId: UInt,
     public var appId: FwpByteBlob,
-    userIdCtorArg: MutPtr<Sid>,
+    userIdCtorArg: MutPtr,
     public var anonymous3: FwpmNetEventHeader12,
 ) {
-    public var userId: MutPtr<Sid> = userIdCtorArg
+    public var userId: MutPtr = userIdCtorArg
         internal set
 
     public constructor() : this(
@@ -2438,11 +2435,11 @@ public class FwpmNetEventHeader1 internal constructor(
 
     public operator fun component10(): FwpByteBlob = this.appId
 
-    public operator fun component11(): MutPtr<Sid> = this.userId
+    public operator fun component11(): MutPtr = this.userId
 
     public operator fun component12(): FwpmNetEventHeader12 = this.anonymous3
 
-    public fun copy(timeStamp: Filetime = this.timeStamp, flags: UInt = this.flags, ipVersion: FwpIpVersion = this.ipVersion, ipProtocol: UByte = this.ipProtocol, anonymous1: FwpmNetEventHeader10 = this.anonymous1, anonymous2: FwpmNetEventHeader11 = this.anonymous2, localPort: UShort = this.localPort, remotePort: UShort = this.remotePort, scopeId: UInt = this.scopeId, appId: FwpByteBlob = this.appId, userId: MutPtr<Sid> = this.userId, anonymous3: FwpmNetEventHeader12 = this.anonymous3): FwpmNetEventHeader1 = FwpmNetEventHeader1(timeStamp = timeStamp, flags = flags, ipVersion = ipVersion, ipProtocol = ipProtocol, anonymous1 = anonymous1, anonymous2 = anonymous2, localPort = localPort, remotePort = remotePort, scopeId = scopeId, appId = appId, userIdCtorArg = userId, anonymous3 = anonymous3)
+    public fun copy(timeStamp: Filetime = this.timeStamp, flags: UInt = this.flags, ipVersion: FwpIpVersion = this.ipVersion, ipProtocol: UByte = this.ipProtocol, anonymous1: FwpmNetEventHeader10 = this.anonymous1, anonymous2: FwpmNetEventHeader11 = this.anonymous2, localPort: UShort = this.localPort, remotePort: UShort = this.remotePort, scopeId: UInt = this.scopeId, appId: FwpByteBlob = this.appId, userId: MutPtr = this.userId, anonymous3: FwpmNetEventHeader12 = this.anonymous3): FwpmNetEventHeader1 = FwpmNetEventHeader1(timeStamp = timeStamp, flags = flags, ipVersion = ipVersion, ipProtocol = ipProtocol, anonymous1 = anonymous1, anonymous2 = anonymous2, localPort = localPort, remotePort = remotePort, scopeId = scopeId, appId = appId, userIdCtorArg = userId, anonymous3 = anonymous3)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -2490,7 +2487,7 @@ public class FwpmNetEventHeader1 internal constructor(
             remotePort: UShort = 0u,
             scopeId: UInt = 0u,
             appId: FwpByteBlob = FwpByteBlob(),
-            userId: MutPtr<Sid> = MutPtr(0L),
+            userId: MutPtr = MutPtr(0L),
             anonymous3: FwpmNetEventHeader12 = FwpmNetEventHeader12(),
         ): FwpmNetEventHeader1 =
             FwpmNetEventHeader1(
@@ -2587,14 +2584,14 @@ public class FwpmNetEventHeader2 internal constructor(
     public var remotePort: UShort,
     public var scopeId: UInt,
     public var appId: FwpByteBlob,
-    userIdCtorArg: MutPtr<Sid>,
+    userIdCtorArg: MutPtr,
     public var addressFamily: FwpAf,
-    packageSidCtorArg: MutPtr<Sid>,
+    packageSidCtorArg: MutPtr,
 ) {
-    public var userId: MutPtr<Sid> = userIdCtorArg
+    public var userId: MutPtr = userIdCtorArg
         internal set
 
-    public var packageSid: MutPtr<Sid> = packageSidCtorArg
+    public var packageSid: MutPtr = packageSidCtorArg
         internal set
 
     public constructor() : this(
@@ -2633,13 +2630,13 @@ public class FwpmNetEventHeader2 internal constructor(
 
     public operator fun component10(): FwpByteBlob = this.appId
 
-    public operator fun component11(): MutPtr<Sid> = this.userId
+    public operator fun component11(): MutPtr = this.userId
 
     public operator fun component12(): FwpAf = this.addressFamily
 
-    public operator fun component13(): MutPtr<Sid> = this.packageSid
+    public operator fun component13(): MutPtr = this.packageSid
 
-    public fun copy(timeStamp: Filetime = this.timeStamp, flags: UInt = this.flags, ipVersion: FwpIpVersion = this.ipVersion, ipProtocol: UByte = this.ipProtocol, anonymous1: FwpmNetEventHeader20 = this.anonymous1, anonymous2: FwpmNetEventHeader21 = this.anonymous2, localPort: UShort = this.localPort, remotePort: UShort = this.remotePort, scopeId: UInt = this.scopeId, appId: FwpByteBlob = this.appId, userId: MutPtr<Sid> = this.userId, addressFamily: FwpAf = this.addressFamily, packageSid: MutPtr<Sid> = this.packageSid): FwpmNetEventHeader2 = FwpmNetEventHeader2(timeStamp = timeStamp, flags = flags, ipVersion = ipVersion, ipProtocol = ipProtocol, anonymous1 = anonymous1, anonymous2 = anonymous2, localPort = localPort, remotePort = remotePort, scopeId = scopeId, appId = appId, userIdCtorArg = userId, addressFamily = addressFamily, packageSidCtorArg = packageSid)
+    public fun copy(timeStamp: Filetime = this.timeStamp, flags: UInt = this.flags, ipVersion: FwpIpVersion = this.ipVersion, ipProtocol: UByte = this.ipProtocol, anonymous1: FwpmNetEventHeader20 = this.anonymous1, anonymous2: FwpmNetEventHeader21 = this.anonymous2, localPort: UShort = this.localPort, remotePort: UShort = this.remotePort, scopeId: UInt = this.scopeId, appId: FwpByteBlob = this.appId, userId: MutPtr = this.userId, addressFamily: FwpAf = this.addressFamily, packageSid: MutPtr = this.packageSid): FwpmNetEventHeader2 = FwpmNetEventHeader2(timeStamp = timeStamp, flags = flags, ipVersion = ipVersion, ipProtocol = ipProtocol, anonymous1 = anonymous1, anonymous2 = anonymous2, localPort = localPort, remotePort = remotePort, scopeId = scopeId, appId = appId, userIdCtorArg = userId, addressFamily = addressFamily, packageSidCtorArg = packageSid)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -2689,9 +2686,9 @@ public class FwpmNetEventHeader2 internal constructor(
             remotePort: UShort = 0u,
             scopeId: UInt = 0u,
             appId: FwpByteBlob = FwpByteBlob(),
-            userId: MutPtr<Sid> = MutPtr(0L),
+            userId: MutPtr = MutPtr(0L),
             addressFamily: FwpAf = 0,
-            packageSid: MutPtr<Sid> = MutPtr(0L),
+            packageSid: MutPtr = MutPtr(0L),
         ): FwpmNetEventHeader2 =
             FwpmNetEventHeader2(
                 timeStamp = timeStamp,
@@ -2732,17 +2729,17 @@ public class FwpmNetEventHeader3 internal constructor(
     public var remotePort: UShort,
     public var scopeId: UInt,
     public var appId: FwpByteBlob,
-    userIdCtorArg: MutPtr<Sid>,
+    userIdCtorArg: MutPtr,
     public var addressFamily: FwpAf,
-    packageSidCtorArg: MutPtr<Sid>,
+    packageSidCtorArg: MutPtr,
     enterpriseIdCtorArg: Pwstr,
     public var policyFlags: ULong,
     public var effectiveName: FwpByteBlob,
 ) {
-    public var userId: MutPtr<Sid> = userIdCtorArg
+    public var userId: MutPtr = userIdCtorArg
         internal set
 
-    public var packageSid: MutPtr<Sid> = packageSidCtorArg
+    public var packageSid: MutPtr = packageSidCtorArg
         internal set
 
     public var enterpriseId: Pwstr = enterpriseIdCtorArg
@@ -2787,11 +2784,11 @@ public class FwpmNetEventHeader3 internal constructor(
 
     public operator fun component10(): FwpByteBlob = this.appId
 
-    public operator fun component11(): MutPtr<Sid> = this.userId
+    public operator fun component11(): MutPtr = this.userId
 
     public operator fun component12(): FwpAf = this.addressFamily
 
-    public operator fun component13(): MutPtr<Sid> = this.packageSid
+    public operator fun component13(): MutPtr = this.packageSid
 
     public operator fun component14(): Pwstr = this.enterpriseId
 
@@ -2799,7 +2796,7 @@ public class FwpmNetEventHeader3 internal constructor(
 
     public operator fun component16(): FwpByteBlob = this.effectiveName
 
-    public fun copy(timeStamp: Filetime = this.timeStamp, flags: UInt = this.flags, ipVersion: FwpIpVersion = this.ipVersion, ipProtocol: UByte = this.ipProtocol, anonymous1: FwpmNetEventHeader30 = this.anonymous1, anonymous2: FwpmNetEventHeader31 = this.anonymous2, localPort: UShort = this.localPort, remotePort: UShort = this.remotePort, scopeId: UInt = this.scopeId, appId: FwpByteBlob = this.appId, userId: MutPtr<Sid> = this.userId, addressFamily: FwpAf = this.addressFamily, packageSid: MutPtr<Sid> = this.packageSid, enterpriseId: Pwstr = this.enterpriseId, policyFlags: ULong = this.policyFlags, effectiveName: FwpByteBlob = this.effectiveName): FwpmNetEventHeader3 = FwpmNetEventHeader3(timeStamp = timeStamp, flags = flags, ipVersion = ipVersion, ipProtocol = ipProtocol, anonymous1 = anonymous1, anonymous2 = anonymous2, localPort = localPort, remotePort = remotePort, scopeId = scopeId, appId = appId, userIdCtorArg = userId, addressFamily = addressFamily, packageSidCtorArg = packageSid, enterpriseIdCtorArg = enterpriseId, policyFlags = policyFlags, effectiveName = effectiveName)
+    public fun copy(timeStamp: Filetime = this.timeStamp, flags: UInt = this.flags, ipVersion: FwpIpVersion = this.ipVersion, ipProtocol: UByte = this.ipProtocol, anonymous1: FwpmNetEventHeader30 = this.anonymous1, anonymous2: FwpmNetEventHeader31 = this.anonymous2, localPort: UShort = this.localPort, remotePort: UShort = this.remotePort, scopeId: UInt = this.scopeId, appId: FwpByteBlob = this.appId, userId: MutPtr = this.userId, addressFamily: FwpAf = this.addressFamily, packageSid: MutPtr = this.packageSid, enterpriseId: Pwstr = this.enterpriseId, policyFlags: ULong = this.policyFlags, effectiveName: FwpByteBlob = this.effectiveName): FwpmNetEventHeader3 = FwpmNetEventHeader3(timeStamp = timeStamp, flags = flags, ipVersion = ipVersion, ipProtocol = ipProtocol, anonymous1 = anonymous1, anonymous2 = anonymous2, localPort = localPort, remotePort = remotePort, scopeId = scopeId, appId = appId, userIdCtorArg = userId, addressFamily = addressFamily, packageSidCtorArg = packageSid, enterpriseIdCtorArg = enterpriseId, policyFlags = policyFlags, effectiveName = effectiveName)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -2855,9 +2852,9 @@ public class FwpmNetEventHeader3 internal constructor(
             remotePort: UShort = 0u,
             scopeId: UInt = 0u,
             appId: FwpByteBlob = FwpByteBlob(),
-            userId: MutPtr<Sid> = MutPtr(0L),
+            userId: MutPtr = MutPtr(0L),
             addressFamily: FwpAf = 0,
-            packageSid: MutPtr<Sid> = MutPtr(0L),
+            packageSid: MutPtr = MutPtr(0L),
             enterpriseId: Pwstr = MutPtr(0L),
             policyFlags: ULong = 0uL,
             effectiveName: FwpByteBlob = FwpByteBlob(),
@@ -2983,9 +2980,9 @@ public class FwpmNetEventIkeextEmFailure1 internal constructor(
     localPrincipalNameForAuthCtorArg: Pwstr,
     remotePrincipalNameForAuthCtorArg: Pwstr,
     public var numLocalPrincipalGroupSids: UInt,
-    localPrincipalGroupSidsCtorArg: MutPtr<Pwstr>,
+    localPrincipalGroupSidsCtorArg: MutPtr,
     public var numRemotePrincipalGroupSids: UInt,
-    remotePrincipalGroupSidsCtorArg: MutPtr<Pwstr>,
+    remotePrincipalGroupSidsCtorArg: MutPtr,
     public var saTrafficType: IpsecTrafficType,
 ) {
     public var localPrincipalNameForAuth: Pwstr = localPrincipalNameForAuthCtorArg
@@ -2994,10 +2991,10 @@ public class FwpmNetEventIkeextEmFailure1 internal constructor(
     public var remotePrincipalNameForAuth: Pwstr = remotePrincipalNameForAuthCtorArg
         internal set
 
-    public var localPrincipalGroupSids: MutPtr<Pwstr> = localPrincipalGroupSidsCtorArg
+    public var localPrincipalGroupSids: MutPtr = localPrincipalGroupSidsCtorArg
         internal set
 
-    public var remotePrincipalGroupSids: MutPtr<Pwstr> = remotePrincipalGroupSidsCtorArg
+    public var remotePrincipalGroupSids: MutPtr = remotePrincipalGroupSidsCtorArg
         internal set
 
     public constructor() : this(
@@ -3043,15 +3040,15 @@ public class FwpmNetEventIkeextEmFailure1 internal constructor(
 
     public operator fun component12(): UInt = this.numLocalPrincipalGroupSids
 
-    public operator fun component13(): MutPtr<Pwstr> = this.localPrincipalGroupSids
+    public operator fun component13(): MutPtr = this.localPrincipalGroupSids
 
     public operator fun component14(): UInt = this.numRemotePrincipalGroupSids
 
-    public operator fun component15(): MutPtr<Pwstr> = this.remotePrincipalGroupSids
+    public operator fun component15(): MutPtr = this.remotePrincipalGroupSids
 
     public operator fun component16(): IpsecTrafficType = this.saTrafficType
 
-    public fun copy(failureErrorCode: UInt = this.failureErrorCode, failurePoint: IpsecFailurePoint = this.failurePoint, flags: UInt = this.flags, emState: IkeextEmSaState = this.emState, saRole: IkeextSaRole = this.saRole, emAuthMethod: IkeextAuthenticationMethodType = this.emAuthMethod, endCertHash: UByteArray = this.endCertHash, mmId: ULong = this.mmId, qmFilterId: ULong = this.qmFilterId, localPrincipalNameForAuth: Pwstr = this.localPrincipalNameForAuth, remotePrincipalNameForAuth: Pwstr = this.remotePrincipalNameForAuth, numLocalPrincipalGroupSids: UInt = this.numLocalPrincipalGroupSids, localPrincipalGroupSids: MutPtr<Pwstr> = this.localPrincipalGroupSids, numRemotePrincipalGroupSids: UInt = this.numRemotePrincipalGroupSids, remotePrincipalGroupSids: MutPtr<Pwstr> = this.remotePrincipalGroupSids, saTrafficType: IpsecTrafficType = this.saTrafficType): FwpmNetEventIkeextEmFailure1 = FwpmNetEventIkeextEmFailure1(failureErrorCode = failureErrorCode, failurePoint = failurePoint, flags = flags, emState = emState, saRole = saRole, emAuthMethod = emAuthMethod, endCertHash = endCertHash, mmId = mmId, qmFilterId = qmFilterId, localPrincipalNameForAuthCtorArg = localPrincipalNameForAuth, remotePrincipalNameForAuthCtorArg = remotePrincipalNameForAuth, numLocalPrincipalGroupSids = numLocalPrincipalGroupSids, localPrincipalGroupSidsCtorArg = localPrincipalGroupSids, numRemotePrincipalGroupSids = numRemotePrincipalGroupSids, remotePrincipalGroupSidsCtorArg = remotePrincipalGroupSids, saTrafficType = saTrafficType)
+    public fun copy(failureErrorCode: UInt = this.failureErrorCode, failurePoint: IpsecFailurePoint = this.failurePoint, flags: UInt = this.flags, emState: IkeextEmSaState = this.emState, saRole: IkeextSaRole = this.saRole, emAuthMethod: IkeextAuthenticationMethodType = this.emAuthMethod, endCertHash: UByteArray = this.endCertHash, mmId: ULong = this.mmId, qmFilterId: ULong = this.qmFilterId, localPrincipalNameForAuth: Pwstr = this.localPrincipalNameForAuth, remotePrincipalNameForAuth: Pwstr = this.remotePrincipalNameForAuth, numLocalPrincipalGroupSids: UInt = this.numLocalPrincipalGroupSids, localPrincipalGroupSids: MutPtr = this.localPrincipalGroupSids, numRemotePrincipalGroupSids: UInt = this.numRemotePrincipalGroupSids, remotePrincipalGroupSids: MutPtr = this.remotePrincipalGroupSids, saTrafficType: IpsecTrafficType = this.saTrafficType): FwpmNetEventIkeextEmFailure1 = FwpmNetEventIkeextEmFailure1(failureErrorCode = failureErrorCode, failurePoint = failurePoint, flags = flags, emState = emState, saRole = saRole, emAuthMethod = emAuthMethod, endCertHash = endCertHash, mmId = mmId, qmFilterId = qmFilterId, localPrincipalNameForAuthCtorArg = localPrincipalNameForAuth, remotePrincipalNameForAuthCtorArg = remotePrincipalNameForAuth, numLocalPrincipalGroupSids = numLocalPrincipalGroupSids, localPrincipalGroupSidsCtorArg = localPrincipalGroupSids, numRemotePrincipalGroupSids = numRemotePrincipalGroupSids, remotePrincipalGroupSidsCtorArg = remotePrincipalGroupSids, saTrafficType = saTrafficType)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -3109,9 +3106,9 @@ public class FwpmNetEventIkeextEmFailure1 internal constructor(
             localPrincipalNameForAuth: Pwstr = MutPtr(0L),
             remotePrincipalNameForAuth: Pwstr = MutPtr(0L),
             numLocalPrincipalGroupSids: UInt = 0u,
-            localPrincipalGroupSids: MutPtr<Pwstr> = MutPtr(0L),
+            localPrincipalGroupSids: MutPtr = MutPtr(0L),
             numRemotePrincipalGroupSids: UInt = 0u,
-            remotePrincipalGroupSids: MutPtr<Pwstr> = MutPtr(0L),
+            remotePrincipalGroupSids: MutPtr = MutPtr(0L),
             saTrafficType: IpsecTrafficType = 0,
         ): FwpmNetEventIkeextEmFailure1 =
             FwpmNetEventIkeextEmFailure1(
@@ -3231,9 +3228,9 @@ public class FwpmNetEventIkeextMmFailure1 internal constructor(
     localPrincipalNameForAuthCtorArg: Pwstr,
     remotePrincipalNameForAuthCtorArg: Pwstr,
     public var numLocalPrincipalGroupSids: UInt,
-    localPrincipalGroupSidsCtorArg: MutPtr<Pwstr>,
+    localPrincipalGroupSidsCtorArg: MutPtr,
     public var numRemotePrincipalGroupSids: UInt,
-    remotePrincipalGroupSidsCtorArg: MutPtr<Pwstr>,
+    remotePrincipalGroupSidsCtorArg: MutPtr,
 ) {
     public var localPrincipalNameForAuth: Pwstr = localPrincipalNameForAuthCtorArg
         internal set
@@ -3241,10 +3238,10 @@ public class FwpmNetEventIkeextMmFailure1 internal constructor(
     public var remotePrincipalNameForAuth: Pwstr = remotePrincipalNameForAuthCtorArg
         internal set
 
-    public var localPrincipalGroupSids: MutPtr<Pwstr> = localPrincipalGroupSidsCtorArg
+    public var localPrincipalGroupSids: MutPtr = localPrincipalGroupSidsCtorArg
         internal set
 
-    public var remotePrincipalGroupSids: MutPtr<Pwstr> = remotePrincipalGroupSidsCtorArg
+    public var remotePrincipalGroupSids: MutPtr = remotePrincipalGroupSidsCtorArg
         internal set
 
     public constructor() : this(
@@ -3292,13 +3289,13 @@ public class FwpmNetEventIkeextMmFailure1 internal constructor(
 
     public operator fun component13(): UInt = this.numLocalPrincipalGroupSids
 
-    public operator fun component14(): MutPtr<Pwstr> = this.localPrincipalGroupSids
+    public operator fun component14(): MutPtr = this.localPrincipalGroupSids
 
     public operator fun component15(): UInt = this.numRemotePrincipalGroupSids
 
-    public operator fun component16(): MutPtr<Pwstr> = this.remotePrincipalGroupSids
+    public operator fun component16(): MutPtr = this.remotePrincipalGroupSids
 
-    public fun copy(failureErrorCode: UInt = this.failureErrorCode, failurePoint: IpsecFailurePoint = this.failurePoint, flags: UInt = this.flags, keyingModuleType: IkeextKeyModuleType = this.keyingModuleType, mmState: IkeextMmSaState = this.mmState, saRole: IkeextSaRole = this.saRole, mmAuthMethod: IkeextAuthenticationMethodType = this.mmAuthMethod, endCertHash: UByteArray = this.endCertHash, mmId: ULong = this.mmId, mmFilterId: ULong = this.mmFilterId, localPrincipalNameForAuth: Pwstr = this.localPrincipalNameForAuth, remotePrincipalNameForAuth: Pwstr = this.remotePrincipalNameForAuth, numLocalPrincipalGroupSids: UInt = this.numLocalPrincipalGroupSids, localPrincipalGroupSids: MutPtr<Pwstr> = this.localPrincipalGroupSids, numRemotePrincipalGroupSids: UInt = this.numRemotePrincipalGroupSids, remotePrincipalGroupSids: MutPtr<Pwstr> = this.remotePrincipalGroupSids): FwpmNetEventIkeextMmFailure1 = FwpmNetEventIkeextMmFailure1(failureErrorCode = failureErrorCode, failurePoint = failurePoint, flags = flags, keyingModuleType = keyingModuleType, mmState = mmState, saRole = saRole, mmAuthMethod = mmAuthMethod, endCertHash = endCertHash, mmId = mmId, mmFilterId = mmFilterId, localPrincipalNameForAuthCtorArg = localPrincipalNameForAuth, remotePrincipalNameForAuthCtorArg = remotePrincipalNameForAuth, numLocalPrincipalGroupSids = numLocalPrincipalGroupSids, localPrincipalGroupSidsCtorArg = localPrincipalGroupSids, numRemotePrincipalGroupSids = numRemotePrincipalGroupSids, remotePrincipalGroupSidsCtorArg = remotePrincipalGroupSids)
+    public fun copy(failureErrorCode: UInt = this.failureErrorCode, failurePoint: IpsecFailurePoint = this.failurePoint, flags: UInt = this.flags, keyingModuleType: IkeextKeyModuleType = this.keyingModuleType, mmState: IkeextMmSaState = this.mmState, saRole: IkeextSaRole = this.saRole, mmAuthMethod: IkeextAuthenticationMethodType = this.mmAuthMethod, endCertHash: UByteArray = this.endCertHash, mmId: ULong = this.mmId, mmFilterId: ULong = this.mmFilterId, localPrincipalNameForAuth: Pwstr = this.localPrincipalNameForAuth, remotePrincipalNameForAuth: Pwstr = this.remotePrincipalNameForAuth, numLocalPrincipalGroupSids: UInt = this.numLocalPrincipalGroupSids, localPrincipalGroupSids: MutPtr = this.localPrincipalGroupSids, numRemotePrincipalGroupSids: UInt = this.numRemotePrincipalGroupSids, remotePrincipalGroupSids: MutPtr = this.remotePrincipalGroupSids): FwpmNetEventIkeextMmFailure1 = FwpmNetEventIkeextMmFailure1(failureErrorCode = failureErrorCode, failurePoint = failurePoint, flags = flags, keyingModuleType = keyingModuleType, mmState = mmState, saRole = saRole, mmAuthMethod = mmAuthMethod, endCertHash = endCertHash, mmId = mmId, mmFilterId = mmFilterId, localPrincipalNameForAuthCtorArg = localPrincipalNameForAuth, remotePrincipalNameForAuthCtorArg = remotePrincipalNameForAuth, numLocalPrincipalGroupSids = numLocalPrincipalGroupSids, localPrincipalGroupSidsCtorArg = localPrincipalGroupSids, numRemotePrincipalGroupSids = numRemotePrincipalGroupSids, remotePrincipalGroupSidsCtorArg = remotePrincipalGroupSids)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -3357,9 +3354,9 @@ public class FwpmNetEventIkeextMmFailure1 internal constructor(
             localPrincipalNameForAuth: Pwstr = MutPtr(0L),
             remotePrincipalNameForAuth: Pwstr = MutPtr(0L),
             numLocalPrincipalGroupSids: UInt = 0u,
-            localPrincipalGroupSids: MutPtr<Pwstr> = MutPtr(0L),
+            localPrincipalGroupSids: MutPtr = MutPtr(0L),
             numRemotePrincipalGroupSids: UInt = 0u,
-            remotePrincipalGroupSids: MutPtr<Pwstr> = MutPtr(0L),
+            remotePrincipalGroupSids: MutPtr = MutPtr(0L),
         ): FwpmNetEventIkeextMmFailure1 =
             FwpmNetEventIkeextMmFailure1(
                 failureErrorCode = failureErrorCode,
@@ -3396,10 +3393,10 @@ public class FwpmNetEventIkeextMmFailure2 internal constructor(
     localPrincipalNameForAuthCtorArg: Pwstr,
     remotePrincipalNameForAuthCtorArg: Pwstr,
     public var numLocalPrincipalGroupSids: UInt,
-    localPrincipalGroupSidsCtorArg: MutPtr<Pwstr>,
+    localPrincipalGroupSidsCtorArg: MutPtr,
     public var numRemotePrincipalGroupSids: UInt,
-    remotePrincipalGroupSidsCtorArg: MutPtr<Pwstr>,
-    providerContextKeyCtorArg: MutPtr<Guid>,
+    remotePrincipalGroupSidsCtorArg: MutPtr,
+    providerContextKeyCtorArg: MutPtr,
 ) {
     public var localPrincipalNameForAuth: Pwstr = localPrincipalNameForAuthCtorArg
         internal set
@@ -3407,13 +3404,13 @@ public class FwpmNetEventIkeextMmFailure2 internal constructor(
     public var remotePrincipalNameForAuth: Pwstr = remotePrincipalNameForAuthCtorArg
         internal set
 
-    public var localPrincipalGroupSids: MutPtr<Pwstr> = localPrincipalGroupSidsCtorArg
+    public var localPrincipalGroupSids: MutPtr = localPrincipalGroupSidsCtorArg
         internal set
 
-    public var remotePrincipalGroupSids: MutPtr<Pwstr> = remotePrincipalGroupSidsCtorArg
+    public var remotePrincipalGroupSids: MutPtr = remotePrincipalGroupSidsCtorArg
         internal set
 
-    public var providerContextKey: MutPtr<Guid> = providerContextKeyCtorArg
+    public var providerContextKey: MutPtr = providerContextKeyCtorArg
         internal set
 
     public constructor() : this(
@@ -3451,10 +3448,10 @@ public class FwpmNetEventIkeextMmFailure2 internal constructor(
             localPrincipalNameForAuth: Pwstr = MutPtr(0L),
             remotePrincipalNameForAuth: Pwstr = MutPtr(0L),
             numLocalPrincipalGroupSids: UInt = 0u,
-            localPrincipalGroupSids: MutPtr<Pwstr> = MutPtr(0L),
+            localPrincipalGroupSids: MutPtr = MutPtr(0L),
             numRemotePrincipalGroupSids: UInt = 0u,
-            remotePrincipalGroupSids: MutPtr<Pwstr> = MutPtr(0L),
-            providerContextKey: MutPtr<Guid> = MutPtr(0L),
+            remotePrincipalGroupSids: MutPtr = MutPtr(0L),
+            providerContextKey: MutPtr = MutPtr(0L),
         ): FwpmNetEventIkeextMmFailure2 =
             FwpmNetEventIkeextMmFailure2(
                 failureErrorCode = failureErrorCode,
@@ -3617,11 +3614,11 @@ public data class FwpmNetEventLpmPacketArrival0(
 }
 
 public class FwpmNetEventSubscription0 internal constructor(
-    enumTemplateCtorArg: MutPtr<FwpmNetEventEnumTemplate0>,
+    enumTemplateCtorArg: MutPtr,
     public var flags: UInt,
     public var sessionKey: Guid,
 ) {
-    public var enumTemplate: MutPtr<FwpmNetEventEnumTemplate0> = enumTemplateCtorArg
+    public var enumTemplate: MutPtr = enumTemplateCtorArg
         internal set
 
     public constructor() : this(
@@ -3630,13 +3627,13 @@ public class FwpmNetEventSubscription0 internal constructor(
         sessionKey = Guid(),
     )
 
-    public operator fun component1(): MutPtr<FwpmNetEventEnumTemplate0> = this.enumTemplate
+    public operator fun component1(): MutPtr = this.enumTemplate
 
     public operator fun component2(): UInt = this.flags
 
     public operator fun component3(): Guid = this.sessionKey
 
-    public fun copy(enumTemplate: MutPtr<FwpmNetEventEnumTemplate0> = this.enumTemplate, flags: UInt = this.flags, sessionKey: Guid = this.sessionKey): FwpmNetEventSubscription0 = FwpmNetEventSubscription0(enumTemplateCtorArg = enumTemplate, flags = flags, sessionKey = sessionKey)
+    public fun copy(enumTemplate: MutPtr = this.enumTemplate, flags: UInt = this.flags, sessionKey: Guid = this.sessionKey): FwpmNetEventSubscription0 = FwpmNetEventSubscription0(enumTemplateCtorArg = enumTemplate, flags = flags, sessionKey = sessionKey)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -3656,7 +3653,7 @@ public class FwpmNetEventSubscription0 internal constructor(
 
     public companion object {
         public operator fun invoke(
-            enumTemplate: MutPtr<FwpmNetEventEnumTemplate0> = MutPtr(0L),
+            enumTemplate: MutPtr = MutPtr(0L),
             flags: UInt = 0u,
             sessionKey: Guid = Guid(),
         ): FwpmNetEventSubscription0 =
@@ -3745,13 +3742,13 @@ public class FwpmProviderContext0 internal constructor(
     public var providerContextKey: Guid,
     public var displayData: FwpmDisplayData0,
     public var flags: UInt,
-    providerKeyCtorArg: MutPtr<Guid>,
+    providerKeyCtorArg: MutPtr,
     public var providerData: FwpByteBlob,
     public var type: FwpmProviderContextType,
     public var anonymous: FwpmProviderContext00,
     public var providerContextId: ULong,
 ) {
-    public var providerKey: MutPtr<Guid> = providerKeyCtorArg
+    public var providerKey: MutPtr = providerKeyCtorArg
         internal set
 
     public constructor() : this(
@@ -3771,7 +3768,7 @@ public class FwpmProviderContext0 internal constructor(
 
     public operator fun component3(): UInt = this.flags
 
-    public operator fun component4(): MutPtr<Guid> = this.providerKey
+    public operator fun component4(): MutPtr = this.providerKey
 
     public operator fun component5(): FwpByteBlob = this.providerData
 
@@ -3781,7 +3778,7 @@ public class FwpmProviderContext0 internal constructor(
 
     public operator fun component8(): ULong = this.providerContextId
 
-    public fun copy(providerContextKey: Guid = this.providerContextKey, displayData: FwpmDisplayData0 = this.displayData, flags: UInt = this.flags, providerKey: MutPtr<Guid> = this.providerKey, providerData: FwpByteBlob = this.providerData, type: FwpmProviderContextType = this.type, anonymous: FwpmProviderContext00 = this.anonymous, providerContextId: ULong = this.providerContextId): FwpmProviderContext0 = FwpmProviderContext0(providerContextKey = providerContextKey, displayData = displayData, flags = flags, providerKeyCtorArg = providerKey, providerData = providerData, type = type, anonymous = anonymous, providerContextId = providerContextId)
+    public fun copy(providerContextKey: Guid = this.providerContextKey, displayData: FwpmDisplayData0 = this.displayData, flags: UInt = this.flags, providerKey: MutPtr = this.providerKey, providerData: FwpByteBlob = this.providerData, type: FwpmProviderContextType = this.type, anonymous: FwpmProviderContext00 = this.anonymous, providerContextId: ULong = this.providerContextId): FwpmProviderContext0 = FwpmProviderContext0(providerContextKey = providerContextKey, displayData = displayData, flags = flags, providerKeyCtorArg = providerKey, providerData = providerData, type = type, anonymous = anonymous, providerContextId = providerContextId)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -3814,7 +3811,7 @@ public class FwpmProviderContext0 internal constructor(
             providerContextKey: Guid = Guid(),
             displayData: FwpmDisplayData0 = FwpmDisplayData0(),
             flags: UInt = 0u,
-            providerKey: MutPtr<Guid> = MutPtr(0L),
+            providerKey: MutPtr = MutPtr(0L),
             providerData: FwpByteBlob = FwpByteBlob(),
             type: FwpmProviderContextType = 0,
             anonymous: FwpmProviderContext00 = FwpmProviderContext00(),
@@ -3834,41 +3831,41 @@ public class FwpmProviderContext0 internal constructor(
 }
 
 public class FwpmProviderContext00 internal constructor(
-    keyingPolicyCtorArg: MutPtr<IpsecKeyingPolicy0>,
-    ikeQmTransportPolicyCtorArg: MutPtr<IpsecTransportPolicy0>,
-    ikeQmTunnelPolicyCtorArg: MutPtr<IpsecTunnelPolicy0>,
-    authipQmTransportPolicyCtorArg: MutPtr<IpsecTransportPolicy0>,
-    authipQmTunnelPolicyCtorArg: MutPtr<IpsecTunnelPolicy0>,
-    ikeMmPolicyCtorArg: MutPtr<IkeextPolicy0>,
-    authIpMmPolicyCtorArg: MutPtr<IkeextPolicy0>,
-    dataBufferCtorArg: MutPtr<FwpByteBlob>,
-    classifyOptionsCtorArg: MutPtr<FwpmClassifyOptions0>,
+    keyingPolicyCtorArg: MutPtr,
+    ikeQmTransportPolicyCtorArg: MutPtr,
+    ikeQmTunnelPolicyCtorArg: MutPtr,
+    authipQmTransportPolicyCtorArg: MutPtr,
+    authipQmTunnelPolicyCtorArg: MutPtr,
+    ikeMmPolicyCtorArg: MutPtr,
+    authIpMmPolicyCtorArg: MutPtr,
+    dataBufferCtorArg: MutPtr,
+    classifyOptionsCtorArg: MutPtr,
 ) {
-    public var keyingPolicy: MutPtr<IpsecKeyingPolicy0> = keyingPolicyCtorArg
+    public var keyingPolicy: MutPtr = keyingPolicyCtorArg
         internal set
 
-    public var ikeQmTransportPolicy: MutPtr<IpsecTransportPolicy0> = ikeQmTransportPolicyCtorArg
+    public var ikeQmTransportPolicy: MutPtr = ikeQmTransportPolicyCtorArg
         internal set
 
-    public var ikeQmTunnelPolicy: MutPtr<IpsecTunnelPolicy0> = ikeQmTunnelPolicyCtorArg
+    public var ikeQmTunnelPolicy: MutPtr = ikeQmTunnelPolicyCtorArg
         internal set
 
-    public var authipQmTransportPolicy: MutPtr<IpsecTransportPolicy0> = authipQmTransportPolicyCtorArg
+    public var authipQmTransportPolicy: MutPtr = authipQmTransportPolicyCtorArg
         internal set
 
-    public var authipQmTunnelPolicy: MutPtr<IpsecTunnelPolicy0> = authipQmTunnelPolicyCtorArg
+    public var authipQmTunnelPolicy: MutPtr = authipQmTunnelPolicyCtorArg
         internal set
 
-    public var ikeMmPolicy: MutPtr<IkeextPolicy0> = ikeMmPolicyCtorArg
+    public var ikeMmPolicy: MutPtr = ikeMmPolicyCtorArg
         internal set
 
-    public var authIpMmPolicy: MutPtr<IkeextPolicy0> = authIpMmPolicyCtorArg
+    public var authIpMmPolicy: MutPtr = authIpMmPolicyCtorArg
         internal set
 
-    public var dataBuffer: MutPtr<FwpByteBlob> = dataBufferCtorArg
+    public var dataBuffer: MutPtr = dataBufferCtorArg
         internal set
 
-    public var classifyOptions: MutPtr<FwpmClassifyOptions0> = classifyOptionsCtorArg
+    public var classifyOptions: MutPtr = classifyOptionsCtorArg
         internal set
 
     public constructor() : this(
@@ -3883,25 +3880,25 @@ public class FwpmProviderContext00 internal constructor(
         classifyOptionsCtorArg = MutPtr(0L),
     )
 
-    public operator fun component1(): MutPtr<IpsecKeyingPolicy0> = this.keyingPolicy
+    public operator fun component1(): MutPtr = this.keyingPolicy
 
-    public operator fun component2(): MutPtr<IpsecTransportPolicy0> = this.ikeQmTransportPolicy
+    public operator fun component2(): MutPtr = this.ikeQmTransportPolicy
 
-    public operator fun component3(): MutPtr<IpsecTunnelPolicy0> = this.ikeQmTunnelPolicy
+    public operator fun component3(): MutPtr = this.ikeQmTunnelPolicy
 
-    public operator fun component4(): MutPtr<IpsecTransportPolicy0> = this.authipQmTransportPolicy
+    public operator fun component4(): MutPtr = this.authipQmTransportPolicy
 
-    public operator fun component5(): MutPtr<IpsecTunnelPolicy0> = this.authipQmTunnelPolicy
+    public operator fun component5(): MutPtr = this.authipQmTunnelPolicy
 
-    public operator fun component6(): MutPtr<IkeextPolicy0> = this.ikeMmPolicy
+    public operator fun component6(): MutPtr = this.ikeMmPolicy
 
-    public operator fun component7(): MutPtr<IkeextPolicy0> = this.authIpMmPolicy
+    public operator fun component7(): MutPtr = this.authIpMmPolicy
 
-    public operator fun component8(): MutPtr<FwpByteBlob> = this.dataBuffer
+    public operator fun component8(): MutPtr = this.dataBuffer
 
-    public operator fun component9(): MutPtr<FwpmClassifyOptions0> = this.classifyOptions
+    public operator fun component9(): MutPtr = this.classifyOptions
 
-    public fun copy(keyingPolicy: MutPtr<IpsecKeyingPolicy0> = this.keyingPolicy, ikeQmTransportPolicy: MutPtr<IpsecTransportPolicy0> = this.ikeQmTransportPolicy, ikeQmTunnelPolicy: MutPtr<IpsecTunnelPolicy0> = this.ikeQmTunnelPolicy, authipQmTransportPolicy: MutPtr<IpsecTransportPolicy0> = this.authipQmTransportPolicy, authipQmTunnelPolicy: MutPtr<IpsecTunnelPolicy0> = this.authipQmTunnelPolicy, ikeMmPolicy: MutPtr<IkeextPolicy0> = this.ikeMmPolicy, authIpMmPolicy: MutPtr<IkeextPolicy0> = this.authIpMmPolicy, dataBuffer: MutPtr<FwpByteBlob> = this.dataBuffer, classifyOptions: MutPtr<FwpmClassifyOptions0> = this.classifyOptions): FwpmProviderContext00 = FwpmProviderContext00(keyingPolicyCtorArg = keyingPolicy, ikeQmTransportPolicyCtorArg = ikeQmTransportPolicy, ikeQmTunnelPolicyCtorArg = ikeQmTunnelPolicy, authipQmTransportPolicyCtorArg = authipQmTransportPolicy, authipQmTunnelPolicyCtorArg = authipQmTunnelPolicy, ikeMmPolicyCtorArg = ikeMmPolicy, authIpMmPolicyCtorArg = authIpMmPolicy, dataBufferCtorArg = dataBuffer, classifyOptionsCtorArg = classifyOptions)
+    public fun copy(keyingPolicy: MutPtr = this.keyingPolicy, ikeQmTransportPolicy: MutPtr = this.ikeQmTransportPolicy, ikeQmTunnelPolicy: MutPtr = this.ikeQmTunnelPolicy, authipQmTransportPolicy: MutPtr = this.authipQmTransportPolicy, authipQmTunnelPolicy: MutPtr = this.authipQmTunnelPolicy, ikeMmPolicy: MutPtr = this.ikeMmPolicy, authIpMmPolicy: MutPtr = this.authIpMmPolicy, dataBuffer: MutPtr = this.dataBuffer, classifyOptions: MutPtr = this.classifyOptions): FwpmProviderContext00 = FwpmProviderContext00(keyingPolicyCtorArg = keyingPolicy, ikeQmTransportPolicyCtorArg = ikeQmTransportPolicy, ikeQmTunnelPolicyCtorArg = ikeQmTunnelPolicy, authipQmTransportPolicyCtorArg = authipQmTransportPolicy, authipQmTunnelPolicyCtorArg = authipQmTunnelPolicy, ikeMmPolicyCtorArg = ikeMmPolicy, authIpMmPolicyCtorArg = authIpMmPolicy, dataBufferCtorArg = dataBuffer, classifyOptionsCtorArg = classifyOptions)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -3933,15 +3930,15 @@ public class FwpmProviderContext00 internal constructor(
 
     public companion object {
         public operator fun invoke(
-            keyingPolicy: MutPtr<IpsecKeyingPolicy0> = MutPtr(0L),
-            ikeQmTransportPolicy: MutPtr<IpsecTransportPolicy0> = MutPtr(0L),
-            ikeQmTunnelPolicy: MutPtr<IpsecTunnelPolicy0> = MutPtr(0L),
-            authipQmTransportPolicy: MutPtr<IpsecTransportPolicy0> = MutPtr(0L),
-            authipQmTunnelPolicy: MutPtr<IpsecTunnelPolicy0> = MutPtr(0L),
-            ikeMmPolicy: MutPtr<IkeextPolicy0> = MutPtr(0L),
-            authIpMmPolicy: MutPtr<IkeextPolicy0> = MutPtr(0L),
-            dataBuffer: MutPtr<FwpByteBlob> = MutPtr(0L),
-            classifyOptions: MutPtr<FwpmClassifyOptions0> = MutPtr(0L),
+            keyingPolicy: MutPtr = MutPtr(0L),
+            ikeQmTransportPolicy: MutPtr = MutPtr(0L),
+            ikeQmTunnelPolicy: MutPtr = MutPtr(0L),
+            authipQmTransportPolicy: MutPtr = MutPtr(0L),
+            authipQmTunnelPolicy: MutPtr = MutPtr(0L),
+            ikeMmPolicy: MutPtr = MutPtr(0L),
+            authIpMmPolicy: MutPtr = MutPtr(0L),
+            dataBuffer: MutPtr = MutPtr(0L),
+            classifyOptions: MutPtr = MutPtr(0L),
         ): FwpmProviderContext00 =
             FwpmProviderContext00(
                 keyingPolicyCtorArg = keyingPolicy,
@@ -3961,13 +3958,13 @@ public class FwpmProviderContext1 internal constructor(
     public var providerContextKey: Guid,
     public var displayData: FwpmDisplayData0,
     public var flags: UInt,
-    providerKeyCtorArg: MutPtr<Guid>,
+    providerKeyCtorArg: MutPtr,
     public var providerData: FwpByteBlob,
     public var type: FwpmProviderContextType,
     public var anonymous: FwpmProviderContext10,
     public var providerContextId: ULong,
 ) {
-    public var providerKey: MutPtr<Guid> = providerKeyCtorArg
+    public var providerKey: MutPtr = providerKeyCtorArg
         internal set
 
     public constructor() : this(
@@ -3987,7 +3984,7 @@ public class FwpmProviderContext1 internal constructor(
 
     public operator fun component3(): UInt = this.flags
 
-    public operator fun component4(): MutPtr<Guid> = this.providerKey
+    public operator fun component4(): MutPtr = this.providerKey
 
     public operator fun component5(): FwpByteBlob = this.providerData
 
@@ -3997,7 +3994,7 @@ public class FwpmProviderContext1 internal constructor(
 
     public operator fun component8(): ULong = this.providerContextId
 
-    public fun copy(providerContextKey: Guid = this.providerContextKey, displayData: FwpmDisplayData0 = this.displayData, flags: UInt = this.flags, providerKey: MutPtr<Guid> = this.providerKey, providerData: FwpByteBlob = this.providerData, type: FwpmProviderContextType = this.type, anonymous: FwpmProviderContext10 = this.anonymous, providerContextId: ULong = this.providerContextId): FwpmProviderContext1 = FwpmProviderContext1(providerContextKey = providerContextKey, displayData = displayData, flags = flags, providerKeyCtorArg = providerKey, providerData = providerData, type = type, anonymous = anonymous, providerContextId = providerContextId)
+    public fun copy(providerContextKey: Guid = this.providerContextKey, displayData: FwpmDisplayData0 = this.displayData, flags: UInt = this.flags, providerKey: MutPtr = this.providerKey, providerData: FwpByteBlob = this.providerData, type: FwpmProviderContextType = this.type, anonymous: FwpmProviderContext10 = this.anonymous, providerContextId: ULong = this.providerContextId): FwpmProviderContext1 = FwpmProviderContext1(providerContextKey = providerContextKey, displayData = displayData, flags = flags, providerKeyCtorArg = providerKey, providerData = providerData, type = type, anonymous = anonymous, providerContextId = providerContextId)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -4030,7 +4027,7 @@ public class FwpmProviderContext1 internal constructor(
             providerContextKey: Guid = Guid(),
             displayData: FwpmDisplayData0 = FwpmDisplayData0(),
             flags: UInt = 0u,
-            providerKey: MutPtr<Guid> = MutPtr(0L),
+            providerKey: MutPtr = MutPtr(0L),
             providerData: FwpByteBlob = FwpByteBlob(),
             type: FwpmProviderContextType = 0,
             anonymous: FwpmProviderContext10 = FwpmProviderContext10(),
@@ -4050,53 +4047,53 @@ public class FwpmProviderContext1 internal constructor(
 }
 
 public class FwpmProviderContext10 internal constructor(
-    keyingPolicyCtorArg: MutPtr<IpsecKeyingPolicy0>,
-    ikeQmTransportPolicyCtorArg: MutPtr<IpsecTransportPolicy1>,
-    ikeQmTunnelPolicyCtorArg: MutPtr<IpsecTunnelPolicy1>,
-    authipQmTransportPolicyCtorArg: MutPtr<IpsecTransportPolicy1>,
-    authipQmTunnelPolicyCtorArg: MutPtr<IpsecTunnelPolicy1>,
-    ikeMmPolicyCtorArg: MutPtr<IkeextPolicy1>,
-    authIpMmPolicyCtorArg: MutPtr<IkeextPolicy1>,
-    dataBufferCtorArg: MutPtr<FwpByteBlob>,
-    classifyOptionsCtorArg: MutPtr<FwpmClassifyOptions0>,
-    ikeV2QmTunnelPolicyCtorArg: MutPtr<IpsecTunnelPolicy1>,
-    ikeV2MmPolicyCtorArg: MutPtr<IkeextPolicy1>,
-    idpOptionsCtorArg: MutPtr<IpsecDospOptions0>,
+    keyingPolicyCtorArg: MutPtr,
+    ikeQmTransportPolicyCtorArg: MutPtr,
+    ikeQmTunnelPolicyCtorArg: MutPtr,
+    authipQmTransportPolicyCtorArg: MutPtr,
+    authipQmTunnelPolicyCtorArg: MutPtr,
+    ikeMmPolicyCtorArg: MutPtr,
+    authIpMmPolicyCtorArg: MutPtr,
+    dataBufferCtorArg: MutPtr,
+    classifyOptionsCtorArg: MutPtr,
+    ikeV2QmTunnelPolicyCtorArg: MutPtr,
+    ikeV2MmPolicyCtorArg: MutPtr,
+    idpOptionsCtorArg: MutPtr,
 ) {
-    public var keyingPolicy: MutPtr<IpsecKeyingPolicy0> = keyingPolicyCtorArg
+    public var keyingPolicy: MutPtr = keyingPolicyCtorArg
         internal set
 
-    public var ikeQmTransportPolicy: MutPtr<IpsecTransportPolicy1> = ikeQmTransportPolicyCtorArg
+    public var ikeQmTransportPolicy: MutPtr = ikeQmTransportPolicyCtorArg
         internal set
 
-    public var ikeQmTunnelPolicy: MutPtr<IpsecTunnelPolicy1> = ikeQmTunnelPolicyCtorArg
+    public var ikeQmTunnelPolicy: MutPtr = ikeQmTunnelPolicyCtorArg
         internal set
 
-    public var authipQmTransportPolicy: MutPtr<IpsecTransportPolicy1> = authipQmTransportPolicyCtorArg
+    public var authipQmTransportPolicy: MutPtr = authipQmTransportPolicyCtorArg
         internal set
 
-    public var authipQmTunnelPolicy: MutPtr<IpsecTunnelPolicy1> = authipQmTunnelPolicyCtorArg
+    public var authipQmTunnelPolicy: MutPtr = authipQmTunnelPolicyCtorArg
         internal set
 
-    public var ikeMmPolicy: MutPtr<IkeextPolicy1> = ikeMmPolicyCtorArg
+    public var ikeMmPolicy: MutPtr = ikeMmPolicyCtorArg
         internal set
 
-    public var authIpMmPolicy: MutPtr<IkeextPolicy1> = authIpMmPolicyCtorArg
+    public var authIpMmPolicy: MutPtr = authIpMmPolicyCtorArg
         internal set
 
-    public var dataBuffer: MutPtr<FwpByteBlob> = dataBufferCtorArg
+    public var dataBuffer: MutPtr = dataBufferCtorArg
         internal set
 
-    public var classifyOptions: MutPtr<FwpmClassifyOptions0> = classifyOptionsCtorArg
+    public var classifyOptions: MutPtr = classifyOptionsCtorArg
         internal set
 
-    public var ikeV2QmTunnelPolicy: MutPtr<IpsecTunnelPolicy1> = ikeV2QmTunnelPolicyCtorArg
+    public var ikeV2QmTunnelPolicy: MutPtr = ikeV2QmTunnelPolicyCtorArg
         internal set
 
-    public var ikeV2MmPolicy: MutPtr<IkeextPolicy1> = ikeV2MmPolicyCtorArg
+    public var ikeV2MmPolicy: MutPtr = ikeV2MmPolicyCtorArg
         internal set
 
-    public var idpOptions: MutPtr<IpsecDospOptions0> = idpOptionsCtorArg
+    public var idpOptions: MutPtr = idpOptionsCtorArg
         internal set
 
     public constructor() : this(
@@ -4114,31 +4111,31 @@ public class FwpmProviderContext10 internal constructor(
         idpOptionsCtorArg = MutPtr(0L),
     )
 
-    public operator fun component1(): MutPtr<IpsecKeyingPolicy0> = this.keyingPolicy
+    public operator fun component1(): MutPtr = this.keyingPolicy
 
-    public operator fun component2(): MutPtr<IpsecTransportPolicy1> = this.ikeQmTransportPolicy
+    public operator fun component2(): MutPtr = this.ikeQmTransportPolicy
 
-    public operator fun component3(): MutPtr<IpsecTunnelPolicy1> = this.ikeQmTunnelPolicy
+    public operator fun component3(): MutPtr = this.ikeQmTunnelPolicy
 
-    public operator fun component4(): MutPtr<IpsecTransportPolicy1> = this.authipQmTransportPolicy
+    public operator fun component4(): MutPtr = this.authipQmTransportPolicy
 
-    public operator fun component5(): MutPtr<IpsecTunnelPolicy1> = this.authipQmTunnelPolicy
+    public operator fun component5(): MutPtr = this.authipQmTunnelPolicy
 
-    public operator fun component6(): MutPtr<IkeextPolicy1> = this.ikeMmPolicy
+    public operator fun component6(): MutPtr = this.ikeMmPolicy
 
-    public operator fun component7(): MutPtr<IkeextPolicy1> = this.authIpMmPolicy
+    public operator fun component7(): MutPtr = this.authIpMmPolicy
 
-    public operator fun component8(): MutPtr<FwpByteBlob> = this.dataBuffer
+    public operator fun component8(): MutPtr = this.dataBuffer
 
-    public operator fun component9(): MutPtr<FwpmClassifyOptions0> = this.classifyOptions
+    public operator fun component9(): MutPtr = this.classifyOptions
 
-    public operator fun component10(): MutPtr<IpsecTunnelPolicy1> = this.ikeV2QmTunnelPolicy
+    public operator fun component10(): MutPtr = this.ikeV2QmTunnelPolicy
 
-    public operator fun component11(): MutPtr<IkeextPolicy1> = this.ikeV2MmPolicy
+    public operator fun component11(): MutPtr = this.ikeV2MmPolicy
 
-    public operator fun component12(): MutPtr<IpsecDospOptions0> = this.idpOptions
+    public operator fun component12(): MutPtr = this.idpOptions
 
-    public fun copy(keyingPolicy: MutPtr<IpsecKeyingPolicy0> = this.keyingPolicy, ikeQmTransportPolicy: MutPtr<IpsecTransportPolicy1> = this.ikeQmTransportPolicy, ikeQmTunnelPolicy: MutPtr<IpsecTunnelPolicy1> = this.ikeQmTunnelPolicy, authipQmTransportPolicy: MutPtr<IpsecTransportPolicy1> = this.authipQmTransportPolicy, authipQmTunnelPolicy: MutPtr<IpsecTunnelPolicy1> = this.authipQmTunnelPolicy, ikeMmPolicy: MutPtr<IkeextPolicy1> = this.ikeMmPolicy, authIpMmPolicy: MutPtr<IkeextPolicy1> = this.authIpMmPolicy, dataBuffer: MutPtr<FwpByteBlob> = this.dataBuffer, classifyOptions: MutPtr<FwpmClassifyOptions0> = this.classifyOptions, ikeV2QmTunnelPolicy: MutPtr<IpsecTunnelPolicy1> = this.ikeV2QmTunnelPolicy, ikeV2MmPolicy: MutPtr<IkeextPolicy1> = this.ikeV2MmPolicy, idpOptions: MutPtr<IpsecDospOptions0> = this.idpOptions): FwpmProviderContext10 = FwpmProviderContext10(keyingPolicyCtorArg = keyingPolicy, ikeQmTransportPolicyCtorArg = ikeQmTransportPolicy, ikeQmTunnelPolicyCtorArg = ikeQmTunnelPolicy, authipQmTransportPolicyCtorArg = authipQmTransportPolicy, authipQmTunnelPolicyCtorArg = authipQmTunnelPolicy, ikeMmPolicyCtorArg = ikeMmPolicy, authIpMmPolicyCtorArg = authIpMmPolicy, dataBufferCtorArg = dataBuffer, classifyOptionsCtorArg = classifyOptions, ikeV2QmTunnelPolicyCtorArg = ikeV2QmTunnelPolicy, ikeV2MmPolicyCtorArg = ikeV2MmPolicy, idpOptionsCtorArg = idpOptions)
+    public fun copy(keyingPolicy: MutPtr = this.keyingPolicy, ikeQmTransportPolicy: MutPtr = this.ikeQmTransportPolicy, ikeQmTunnelPolicy: MutPtr = this.ikeQmTunnelPolicy, authipQmTransportPolicy: MutPtr = this.authipQmTransportPolicy, authipQmTunnelPolicy: MutPtr = this.authipQmTunnelPolicy, ikeMmPolicy: MutPtr = this.ikeMmPolicy, authIpMmPolicy: MutPtr = this.authIpMmPolicy, dataBuffer: MutPtr = this.dataBuffer, classifyOptions: MutPtr = this.classifyOptions, ikeV2QmTunnelPolicy: MutPtr = this.ikeV2QmTunnelPolicy, ikeV2MmPolicy: MutPtr = this.ikeV2MmPolicy, idpOptions: MutPtr = this.idpOptions): FwpmProviderContext10 = FwpmProviderContext10(keyingPolicyCtorArg = keyingPolicy, ikeQmTransportPolicyCtorArg = ikeQmTransportPolicy, ikeQmTunnelPolicyCtorArg = ikeQmTunnelPolicy, authipQmTransportPolicyCtorArg = authipQmTransportPolicy, authipQmTunnelPolicyCtorArg = authipQmTunnelPolicy, ikeMmPolicyCtorArg = ikeMmPolicy, authIpMmPolicyCtorArg = authIpMmPolicy, dataBufferCtorArg = dataBuffer, classifyOptionsCtorArg = classifyOptions, ikeV2QmTunnelPolicyCtorArg = ikeV2QmTunnelPolicy, ikeV2MmPolicyCtorArg = ikeV2MmPolicy, idpOptionsCtorArg = idpOptions)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -4176,18 +4173,18 @@ public class FwpmProviderContext10 internal constructor(
 
     public companion object {
         public operator fun invoke(
-            keyingPolicy: MutPtr<IpsecKeyingPolicy0> = MutPtr(0L),
-            ikeQmTransportPolicy: MutPtr<IpsecTransportPolicy1> = MutPtr(0L),
-            ikeQmTunnelPolicy: MutPtr<IpsecTunnelPolicy1> = MutPtr(0L),
-            authipQmTransportPolicy: MutPtr<IpsecTransportPolicy1> = MutPtr(0L),
-            authipQmTunnelPolicy: MutPtr<IpsecTunnelPolicy1> = MutPtr(0L),
-            ikeMmPolicy: MutPtr<IkeextPolicy1> = MutPtr(0L),
-            authIpMmPolicy: MutPtr<IkeextPolicy1> = MutPtr(0L),
-            dataBuffer: MutPtr<FwpByteBlob> = MutPtr(0L),
-            classifyOptions: MutPtr<FwpmClassifyOptions0> = MutPtr(0L),
-            ikeV2QmTunnelPolicy: MutPtr<IpsecTunnelPolicy1> = MutPtr(0L),
-            ikeV2MmPolicy: MutPtr<IkeextPolicy1> = MutPtr(0L),
-            idpOptions: MutPtr<IpsecDospOptions0> = MutPtr(0L),
+            keyingPolicy: MutPtr = MutPtr(0L),
+            ikeQmTransportPolicy: MutPtr = MutPtr(0L),
+            ikeQmTunnelPolicy: MutPtr = MutPtr(0L),
+            authipQmTransportPolicy: MutPtr = MutPtr(0L),
+            authipQmTunnelPolicy: MutPtr = MutPtr(0L),
+            ikeMmPolicy: MutPtr = MutPtr(0L),
+            authIpMmPolicy: MutPtr = MutPtr(0L),
+            dataBuffer: MutPtr = MutPtr(0L),
+            classifyOptions: MutPtr = MutPtr(0L),
+            ikeV2QmTunnelPolicy: MutPtr = MutPtr(0L),
+            ikeV2MmPolicy: MutPtr = MutPtr(0L),
+            idpOptions: MutPtr = MutPtr(0L),
         ): FwpmProviderContext10 =
             FwpmProviderContext10(
                 keyingPolicyCtorArg = keyingPolicy,
@@ -4210,13 +4207,13 @@ public class FwpmProviderContext2 internal constructor(
     public var providerContextKey: Guid,
     public var displayData: FwpmDisplayData0,
     public var flags: UInt,
-    providerKeyCtorArg: MutPtr<Guid>,
+    providerKeyCtorArg: MutPtr,
     public var providerData: FwpByteBlob,
     public var type: FwpmProviderContextType,
     public var anonymous: FwpmProviderContext20,
     public var providerContextId: ULong,
 ) {
-    public var providerKey: MutPtr<Guid> = providerKeyCtorArg
+    public var providerKey: MutPtr = providerKeyCtorArg
         internal set
 
     public constructor() : this(
@@ -4236,7 +4233,7 @@ public class FwpmProviderContext2 internal constructor(
 
     public operator fun component3(): UInt = this.flags
 
-    public operator fun component4(): MutPtr<Guid> = this.providerKey
+    public operator fun component4(): MutPtr = this.providerKey
 
     public operator fun component5(): FwpByteBlob = this.providerData
 
@@ -4246,7 +4243,7 @@ public class FwpmProviderContext2 internal constructor(
 
     public operator fun component8(): ULong = this.providerContextId
 
-    public fun copy(providerContextKey: Guid = this.providerContextKey, displayData: FwpmDisplayData0 = this.displayData, flags: UInt = this.flags, providerKey: MutPtr<Guid> = this.providerKey, providerData: FwpByteBlob = this.providerData, type: FwpmProviderContextType = this.type, anonymous: FwpmProviderContext20 = this.anonymous, providerContextId: ULong = this.providerContextId): FwpmProviderContext2 = FwpmProviderContext2(providerContextKey = providerContextKey, displayData = displayData, flags = flags, providerKeyCtorArg = providerKey, providerData = providerData, type = type, anonymous = anonymous, providerContextId = providerContextId)
+    public fun copy(providerContextKey: Guid = this.providerContextKey, displayData: FwpmDisplayData0 = this.displayData, flags: UInt = this.flags, providerKey: MutPtr = this.providerKey, providerData: FwpByteBlob = this.providerData, type: FwpmProviderContextType = this.type, anonymous: FwpmProviderContext20 = this.anonymous, providerContextId: ULong = this.providerContextId): FwpmProviderContext2 = FwpmProviderContext2(providerContextKey = providerContextKey, displayData = displayData, flags = flags, providerKeyCtorArg = providerKey, providerData = providerData, type = type, anonymous = anonymous, providerContextId = providerContextId)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -4279,7 +4276,7 @@ public class FwpmProviderContext2 internal constructor(
             providerContextKey: Guid = Guid(),
             displayData: FwpmDisplayData0 = FwpmDisplayData0(),
             flags: UInt = 0u,
-            providerKey: MutPtr<Guid> = MutPtr(0L),
+            providerKey: MutPtr = MutPtr(0L),
             providerData: FwpByteBlob = FwpByteBlob(),
             type: FwpmProviderContextType = 0,
             anonymous: FwpmProviderContext20 = FwpmProviderContext20(),
@@ -4299,57 +4296,57 @@ public class FwpmProviderContext2 internal constructor(
 }
 
 public class FwpmProviderContext20 internal constructor(
-    keyingPolicyCtorArg: MutPtr<IpsecKeyingPolicy1>,
-    ikeQmTransportPolicyCtorArg: MutPtr<IpsecTransportPolicy2>,
-    ikeQmTunnelPolicyCtorArg: MutPtr<IpsecTunnelPolicy2>,
-    authipQmTransportPolicyCtorArg: MutPtr<IpsecTransportPolicy2>,
-    authipQmTunnelPolicyCtorArg: MutPtr<IpsecTunnelPolicy2>,
-    ikeMmPolicyCtorArg: MutPtr<IkeextPolicy2>,
-    authIpMmPolicyCtorArg: MutPtr<IkeextPolicy2>,
-    dataBufferCtorArg: MutPtr<FwpByteBlob>,
-    classifyOptionsCtorArg: MutPtr<FwpmClassifyOptions0>,
-    ikeV2QmTunnelPolicyCtorArg: MutPtr<IpsecTunnelPolicy2>,
-    ikeV2QmTransportPolicyCtorArg: MutPtr<IpsecTransportPolicy2>,
-    ikeV2MmPolicyCtorArg: MutPtr<IkeextPolicy2>,
-    idpOptionsCtorArg: MutPtr<IpsecDospOptions0>,
+    keyingPolicyCtorArg: MutPtr,
+    ikeQmTransportPolicyCtorArg: MutPtr,
+    ikeQmTunnelPolicyCtorArg: MutPtr,
+    authipQmTransportPolicyCtorArg: MutPtr,
+    authipQmTunnelPolicyCtorArg: MutPtr,
+    ikeMmPolicyCtorArg: MutPtr,
+    authIpMmPolicyCtorArg: MutPtr,
+    dataBufferCtorArg: MutPtr,
+    classifyOptionsCtorArg: MutPtr,
+    ikeV2QmTunnelPolicyCtorArg: MutPtr,
+    ikeV2QmTransportPolicyCtorArg: MutPtr,
+    ikeV2MmPolicyCtorArg: MutPtr,
+    idpOptionsCtorArg: MutPtr,
 ) {
-    public var keyingPolicy: MutPtr<IpsecKeyingPolicy1> = keyingPolicyCtorArg
+    public var keyingPolicy: MutPtr = keyingPolicyCtorArg
         internal set
 
-    public var ikeQmTransportPolicy: MutPtr<IpsecTransportPolicy2> = ikeQmTransportPolicyCtorArg
+    public var ikeQmTransportPolicy: MutPtr = ikeQmTransportPolicyCtorArg
         internal set
 
-    public var ikeQmTunnelPolicy: MutPtr<IpsecTunnelPolicy2> = ikeQmTunnelPolicyCtorArg
+    public var ikeQmTunnelPolicy: MutPtr = ikeQmTunnelPolicyCtorArg
         internal set
 
-    public var authipQmTransportPolicy: MutPtr<IpsecTransportPolicy2> = authipQmTransportPolicyCtorArg
+    public var authipQmTransportPolicy: MutPtr = authipQmTransportPolicyCtorArg
         internal set
 
-    public var authipQmTunnelPolicy: MutPtr<IpsecTunnelPolicy2> = authipQmTunnelPolicyCtorArg
+    public var authipQmTunnelPolicy: MutPtr = authipQmTunnelPolicyCtorArg
         internal set
 
-    public var ikeMmPolicy: MutPtr<IkeextPolicy2> = ikeMmPolicyCtorArg
+    public var ikeMmPolicy: MutPtr = ikeMmPolicyCtorArg
         internal set
 
-    public var authIpMmPolicy: MutPtr<IkeextPolicy2> = authIpMmPolicyCtorArg
+    public var authIpMmPolicy: MutPtr = authIpMmPolicyCtorArg
         internal set
 
-    public var dataBuffer: MutPtr<FwpByteBlob> = dataBufferCtorArg
+    public var dataBuffer: MutPtr = dataBufferCtorArg
         internal set
 
-    public var classifyOptions: MutPtr<FwpmClassifyOptions0> = classifyOptionsCtorArg
+    public var classifyOptions: MutPtr = classifyOptionsCtorArg
         internal set
 
-    public var ikeV2QmTunnelPolicy: MutPtr<IpsecTunnelPolicy2> = ikeV2QmTunnelPolicyCtorArg
+    public var ikeV2QmTunnelPolicy: MutPtr = ikeV2QmTunnelPolicyCtorArg
         internal set
 
-    public var ikeV2QmTransportPolicy: MutPtr<IpsecTransportPolicy2> = ikeV2QmTransportPolicyCtorArg
+    public var ikeV2QmTransportPolicy: MutPtr = ikeV2QmTransportPolicyCtorArg
         internal set
 
-    public var ikeV2MmPolicy: MutPtr<IkeextPolicy2> = ikeV2MmPolicyCtorArg
+    public var ikeV2MmPolicy: MutPtr = ikeV2MmPolicyCtorArg
         internal set
 
-    public var idpOptions: MutPtr<IpsecDospOptions0> = idpOptionsCtorArg
+    public var idpOptions: MutPtr = idpOptionsCtorArg
         internal set
 
     public constructor() : this(
@@ -4368,33 +4365,33 @@ public class FwpmProviderContext20 internal constructor(
         idpOptionsCtorArg = MutPtr(0L),
     )
 
-    public operator fun component1(): MutPtr<IpsecKeyingPolicy1> = this.keyingPolicy
+    public operator fun component1(): MutPtr = this.keyingPolicy
 
-    public operator fun component2(): MutPtr<IpsecTransportPolicy2> = this.ikeQmTransportPolicy
+    public operator fun component2(): MutPtr = this.ikeQmTransportPolicy
 
-    public operator fun component3(): MutPtr<IpsecTunnelPolicy2> = this.ikeQmTunnelPolicy
+    public operator fun component3(): MutPtr = this.ikeQmTunnelPolicy
 
-    public operator fun component4(): MutPtr<IpsecTransportPolicy2> = this.authipQmTransportPolicy
+    public operator fun component4(): MutPtr = this.authipQmTransportPolicy
 
-    public operator fun component5(): MutPtr<IpsecTunnelPolicy2> = this.authipQmTunnelPolicy
+    public operator fun component5(): MutPtr = this.authipQmTunnelPolicy
 
-    public operator fun component6(): MutPtr<IkeextPolicy2> = this.ikeMmPolicy
+    public operator fun component6(): MutPtr = this.ikeMmPolicy
 
-    public operator fun component7(): MutPtr<IkeextPolicy2> = this.authIpMmPolicy
+    public operator fun component7(): MutPtr = this.authIpMmPolicy
 
-    public operator fun component8(): MutPtr<FwpByteBlob> = this.dataBuffer
+    public operator fun component8(): MutPtr = this.dataBuffer
 
-    public operator fun component9(): MutPtr<FwpmClassifyOptions0> = this.classifyOptions
+    public operator fun component9(): MutPtr = this.classifyOptions
 
-    public operator fun component10(): MutPtr<IpsecTunnelPolicy2> = this.ikeV2QmTunnelPolicy
+    public operator fun component10(): MutPtr = this.ikeV2QmTunnelPolicy
 
-    public operator fun component11(): MutPtr<IpsecTransportPolicy2> = this.ikeV2QmTransportPolicy
+    public operator fun component11(): MutPtr = this.ikeV2QmTransportPolicy
 
-    public operator fun component12(): MutPtr<IkeextPolicy2> = this.ikeV2MmPolicy
+    public operator fun component12(): MutPtr = this.ikeV2MmPolicy
 
-    public operator fun component13(): MutPtr<IpsecDospOptions0> = this.idpOptions
+    public operator fun component13(): MutPtr = this.idpOptions
 
-    public fun copy(keyingPolicy: MutPtr<IpsecKeyingPolicy1> = this.keyingPolicy, ikeQmTransportPolicy: MutPtr<IpsecTransportPolicy2> = this.ikeQmTransportPolicy, ikeQmTunnelPolicy: MutPtr<IpsecTunnelPolicy2> = this.ikeQmTunnelPolicy, authipQmTransportPolicy: MutPtr<IpsecTransportPolicy2> = this.authipQmTransportPolicy, authipQmTunnelPolicy: MutPtr<IpsecTunnelPolicy2> = this.authipQmTunnelPolicy, ikeMmPolicy: MutPtr<IkeextPolicy2> = this.ikeMmPolicy, authIpMmPolicy: MutPtr<IkeextPolicy2> = this.authIpMmPolicy, dataBuffer: MutPtr<FwpByteBlob> = this.dataBuffer, classifyOptions: MutPtr<FwpmClassifyOptions0> = this.classifyOptions, ikeV2QmTunnelPolicy: MutPtr<IpsecTunnelPolicy2> = this.ikeV2QmTunnelPolicy, ikeV2QmTransportPolicy: MutPtr<IpsecTransportPolicy2> = this.ikeV2QmTransportPolicy, ikeV2MmPolicy: MutPtr<IkeextPolicy2> = this.ikeV2MmPolicy, idpOptions: MutPtr<IpsecDospOptions0> = this.idpOptions): FwpmProviderContext20 = FwpmProviderContext20(keyingPolicyCtorArg = keyingPolicy, ikeQmTransportPolicyCtorArg = ikeQmTransportPolicy, ikeQmTunnelPolicyCtorArg = ikeQmTunnelPolicy, authipQmTransportPolicyCtorArg = authipQmTransportPolicy, authipQmTunnelPolicyCtorArg = authipQmTunnelPolicy, ikeMmPolicyCtorArg = ikeMmPolicy, authIpMmPolicyCtorArg = authIpMmPolicy, dataBufferCtorArg = dataBuffer, classifyOptionsCtorArg = classifyOptions, ikeV2QmTunnelPolicyCtorArg = ikeV2QmTunnelPolicy, ikeV2QmTransportPolicyCtorArg = ikeV2QmTransportPolicy, ikeV2MmPolicyCtorArg = ikeV2MmPolicy, idpOptionsCtorArg = idpOptions)
+    public fun copy(keyingPolicy: MutPtr = this.keyingPolicy, ikeQmTransportPolicy: MutPtr = this.ikeQmTransportPolicy, ikeQmTunnelPolicy: MutPtr = this.ikeQmTunnelPolicy, authipQmTransportPolicy: MutPtr = this.authipQmTransportPolicy, authipQmTunnelPolicy: MutPtr = this.authipQmTunnelPolicy, ikeMmPolicy: MutPtr = this.ikeMmPolicy, authIpMmPolicy: MutPtr = this.authIpMmPolicy, dataBuffer: MutPtr = this.dataBuffer, classifyOptions: MutPtr = this.classifyOptions, ikeV2QmTunnelPolicy: MutPtr = this.ikeV2QmTunnelPolicy, ikeV2QmTransportPolicy: MutPtr = this.ikeV2QmTransportPolicy, ikeV2MmPolicy: MutPtr = this.ikeV2MmPolicy, idpOptions: MutPtr = this.idpOptions): FwpmProviderContext20 = FwpmProviderContext20(keyingPolicyCtorArg = keyingPolicy, ikeQmTransportPolicyCtorArg = ikeQmTransportPolicy, ikeQmTunnelPolicyCtorArg = ikeQmTunnelPolicy, authipQmTransportPolicyCtorArg = authipQmTransportPolicy, authipQmTunnelPolicyCtorArg = authipQmTunnelPolicy, ikeMmPolicyCtorArg = ikeMmPolicy, authIpMmPolicyCtorArg = authIpMmPolicy, dataBufferCtorArg = dataBuffer, classifyOptionsCtorArg = classifyOptions, ikeV2QmTunnelPolicyCtorArg = ikeV2QmTunnelPolicy, ikeV2QmTransportPolicyCtorArg = ikeV2QmTransportPolicy, ikeV2MmPolicyCtorArg = ikeV2MmPolicy, idpOptionsCtorArg = idpOptions)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -4434,19 +4431,19 @@ public class FwpmProviderContext20 internal constructor(
 
     public companion object {
         public operator fun invoke(
-            keyingPolicy: MutPtr<IpsecKeyingPolicy1> = MutPtr(0L),
-            ikeQmTransportPolicy: MutPtr<IpsecTransportPolicy2> = MutPtr(0L),
-            ikeQmTunnelPolicy: MutPtr<IpsecTunnelPolicy2> = MutPtr(0L),
-            authipQmTransportPolicy: MutPtr<IpsecTransportPolicy2> = MutPtr(0L),
-            authipQmTunnelPolicy: MutPtr<IpsecTunnelPolicy2> = MutPtr(0L),
-            ikeMmPolicy: MutPtr<IkeextPolicy2> = MutPtr(0L),
-            authIpMmPolicy: MutPtr<IkeextPolicy2> = MutPtr(0L),
-            dataBuffer: MutPtr<FwpByteBlob> = MutPtr(0L),
-            classifyOptions: MutPtr<FwpmClassifyOptions0> = MutPtr(0L),
-            ikeV2QmTunnelPolicy: MutPtr<IpsecTunnelPolicy2> = MutPtr(0L),
-            ikeV2QmTransportPolicy: MutPtr<IpsecTransportPolicy2> = MutPtr(0L),
-            ikeV2MmPolicy: MutPtr<IkeextPolicy2> = MutPtr(0L),
-            idpOptions: MutPtr<IpsecDospOptions0> = MutPtr(0L),
+            keyingPolicy: MutPtr = MutPtr(0L),
+            ikeQmTransportPolicy: MutPtr = MutPtr(0L),
+            ikeQmTunnelPolicy: MutPtr = MutPtr(0L),
+            authipQmTransportPolicy: MutPtr = MutPtr(0L),
+            authipQmTunnelPolicy: MutPtr = MutPtr(0L),
+            ikeMmPolicy: MutPtr = MutPtr(0L),
+            authIpMmPolicy: MutPtr = MutPtr(0L),
+            dataBuffer: MutPtr = MutPtr(0L),
+            classifyOptions: MutPtr = MutPtr(0L),
+            ikeV2QmTunnelPolicy: MutPtr = MutPtr(0L),
+            ikeV2QmTransportPolicy: MutPtr = MutPtr(0L),
+            ikeV2MmPolicy: MutPtr = MutPtr(0L),
+            idpOptions: MutPtr = MutPtr(0L),
         ): FwpmProviderContext20 =
             FwpmProviderContext20(
                 keyingPolicyCtorArg = keyingPolicy,
@@ -4470,13 +4467,13 @@ public class FwpmProviderContext3 internal constructor(
     public var providerContextKey: Guid,
     public var displayData: FwpmDisplayData0,
     public var flags: UInt,
-    providerKeyCtorArg: MutPtr<Guid>,
+    providerKeyCtorArg: MutPtr,
     public var providerData: FwpByteBlob,
     public var type: FwpmProviderContextType,
     public var anonymous: FwpmProviderContext30,
     public var providerContextId: ULong,
 ) {
-    public var providerKey: MutPtr<Guid> = providerKeyCtorArg
+    public var providerKey: MutPtr = providerKeyCtorArg
         internal set
 
     public constructor() : this(
@@ -4496,7 +4493,7 @@ public class FwpmProviderContext3 internal constructor(
 
     public operator fun component3(): UInt = this.flags
 
-    public operator fun component4(): MutPtr<Guid> = this.providerKey
+    public operator fun component4(): MutPtr = this.providerKey
 
     public operator fun component5(): FwpByteBlob = this.providerData
 
@@ -4506,7 +4503,7 @@ public class FwpmProviderContext3 internal constructor(
 
     public operator fun component8(): ULong = this.providerContextId
 
-    public fun copy(providerContextKey: Guid = this.providerContextKey, displayData: FwpmDisplayData0 = this.displayData, flags: UInt = this.flags, providerKey: MutPtr<Guid> = this.providerKey, providerData: FwpByteBlob = this.providerData, type: FwpmProviderContextType = this.type, anonymous: FwpmProviderContext30 = this.anonymous, providerContextId: ULong = this.providerContextId): FwpmProviderContext3 = FwpmProviderContext3(providerContextKey = providerContextKey, displayData = displayData, flags = flags, providerKeyCtorArg = providerKey, providerData = providerData, type = type, anonymous = anonymous, providerContextId = providerContextId)
+    public fun copy(providerContextKey: Guid = this.providerContextKey, displayData: FwpmDisplayData0 = this.displayData, flags: UInt = this.flags, providerKey: MutPtr = this.providerKey, providerData: FwpByteBlob = this.providerData, type: FwpmProviderContextType = this.type, anonymous: FwpmProviderContext30 = this.anonymous, providerContextId: ULong = this.providerContextId): FwpmProviderContext3 = FwpmProviderContext3(providerContextKey = providerContextKey, displayData = displayData, flags = flags, providerKeyCtorArg = providerKey, providerData = providerData, type = type, anonymous = anonymous, providerContextId = providerContextId)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -4539,7 +4536,7 @@ public class FwpmProviderContext3 internal constructor(
             providerContextKey: Guid = Guid(),
             displayData: FwpmDisplayData0 = FwpmDisplayData0(),
             flags: UInt = 0u,
-            providerKey: MutPtr<Guid> = MutPtr(0L),
+            providerKey: MutPtr = MutPtr(0L),
             providerData: FwpByteBlob = FwpByteBlob(),
             type: FwpmProviderContextType = 0,
             anonymous: FwpmProviderContext30 = FwpmProviderContext30(),
@@ -4559,61 +4556,61 @@ public class FwpmProviderContext3 internal constructor(
 }
 
 public class FwpmProviderContext30 internal constructor(
-    keyingPolicyCtorArg: MutPtr<IpsecKeyingPolicy1>,
-    ikeQmTransportPolicyCtorArg: MutPtr<IpsecTransportPolicy2>,
-    ikeQmTunnelPolicyCtorArg: MutPtr<IpsecTunnelPolicy3>,
-    authipQmTransportPolicyCtorArg: MutPtr<IpsecTransportPolicy2>,
-    authipQmTunnelPolicyCtorArg: MutPtr<IpsecTunnelPolicy3>,
-    ikeMmPolicyCtorArg: MutPtr<IkeextPolicy2>,
-    authIpMmPolicyCtorArg: MutPtr<IkeextPolicy2>,
-    dataBufferCtorArg: MutPtr<FwpByteBlob>,
-    classifyOptionsCtorArg: MutPtr<FwpmClassifyOptions0>,
-    ikeV2QmTunnelPolicyCtorArg: MutPtr<IpsecTunnelPolicy3>,
-    ikeV2QmTransportPolicyCtorArg: MutPtr<IpsecTransportPolicy2>,
-    ikeV2MmPolicyCtorArg: MutPtr<IkeextPolicy2>,
-    idpOptionsCtorArg: MutPtr<IpsecDospOptions0>,
-    networkConnectionPolicyCtorArg: MutPtr<FwpmNetworkConnectionPolicySettings0>,
+    keyingPolicyCtorArg: MutPtr,
+    ikeQmTransportPolicyCtorArg: MutPtr,
+    ikeQmTunnelPolicyCtorArg: MutPtr,
+    authipQmTransportPolicyCtorArg: MutPtr,
+    authipQmTunnelPolicyCtorArg: MutPtr,
+    ikeMmPolicyCtorArg: MutPtr,
+    authIpMmPolicyCtorArg: MutPtr,
+    dataBufferCtorArg: MutPtr,
+    classifyOptionsCtorArg: MutPtr,
+    ikeV2QmTunnelPolicyCtorArg: MutPtr,
+    ikeV2QmTransportPolicyCtorArg: MutPtr,
+    ikeV2MmPolicyCtorArg: MutPtr,
+    idpOptionsCtorArg: MutPtr,
+    networkConnectionPolicyCtorArg: MutPtr,
 ) {
-    public var keyingPolicy: MutPtr<IpsecKeyingPolicy1> = keyingPolicyCtorArg
+    public var keyingPolicy: MutPtr = keyingPolicyCtorArg
         internal set
 
-    public var ikeQmTransportPolicy: MutPtr<IpsecTransportPolicy2> = ikeQmTransportPolicyCtorArg
+    public var ikeQmTransportPolicy: MutPtr = ikeQmTransportPolicyCtorArg
         internal set
 
-    public var ikeQmTunnelPolicy: MutPtr<IpsecTunnelPolicy3> = ikeQmTunnelPolicyCtorArg
+    public var ikeQmTunnelPolicy: MutPtr = ikeQmTunnelPolicyCtorArg
         internal set
 
-    public var authipQmTransportPolicy: MutPtr<IpsecTransportPolicy2> = authipQmTransportPolicyCtorArg
+    public var authipQmTransportPolicy: MutPtr = authipQmTransportPolicyCtorArg
         internal set
 
-    public var authipQmTunnelPolicy: MutPtr<IpsecTunnelPolicy3> = authipQmTunnelPolicyCtorArg
+    public var authipQmTunnelPolicy: MutPtr = authipQmTunnelPolicyCtorArg
         internal set
 
-    public var ikeMmPolicy: MutPtr<IkeextPolicy2> = ikeMmPolicyCtorArg
+    public var ikeMmPolicy: MutPtr = ikeMmPolicyCtorArg
         internal set
 
-    public var authIpMmPolicy: MutPtr<IkeextPolicy2> = authIpMmPolicyCtorArg
+    public var authIpMmPolicy: MutPtr = authIpMmPolicyCtorArg
         internal set
 
-    public var dataBuffer: MutPtr<FwpByteBlob> = dataBufferCtorArg
+    public var dataBuffer: MutPtr = dataBufferCtorArg
         internal set
 
-    public var classifyOptions: MutPtr<FwpmClassifyOptions0> = classifyOptionsCtorArg
+    public var classifyOptions: MutPtr = classifyOptionsCtorArg
         internal set
 
-    public var ikeV2QmTunnelPolicy: MutPtr<IpsecTunnelPolicy3> = ikeV2QmTunnelPolicyCtorArg
+    public var ikeV2QmTunnelPolicy: MutPtr = ikeV2QmTunnelPolicyCtorArg
         internal set
 
-    public var ikeV2QmTransportPolicy: MutPtr<IpsecTransportPolicy2> = ikeV2QmTransportPolicyCtorArg
+    public var ikeV2QmTransportPolicy: MutPtr = ikeV2QmTransportPolicyCtorArg
         internal set
 
-    public var ikeV2MmPolicy: MutPtr<IkeextPolicy2> = ikeV2MmPolicyCtorArg
+    public var ikeV2MmPolicy: MutPtr = ikeV2MmPolicyCtorArg
         internal set
 
-    public var idpOptions: MutPtr<IpsecDospOptions0> = idpOptionsCtorArg
+    public var idpOptions: MutPtr = idpOptionsCtorArg
         internal set
 
-    public var networkConnectionPolicy: MutPtr<FwpmNetworkConnectionPolicySettings0> = networkConnectionPolicyCtorArg
+    public var networkConnectionPolicy: MutPtr = networkConnectionPolicyCtorArg
         internal set
 
     public constructor() : this(
@@ -4633,35 +4630,35 @@ public class FwpmProviderContext30 internal constructor(
         networkConnectionPolicyCtorArg = MutPtr(0L),
     )
 
-    public operator fun component1(): MutPtr<IpsecKeyingPolicy1> = this.keyingPolicy
+    public operator fun component1(): MutPtr = this.keyingPolicy
 
-    public operator fun component2(): MutPtr<IpsecTransportPolicy2> = this.ikeQmTransportPolicy
+    public operator fun component2(): MutPtr = this.ikeQmTransportPolicy
 
-    public operator fun component3(): MutPtr<IpsecTunnelPolicy3> = this.ikeQmTunnelPolicy
+    public operator fun component3(): MutPtr = this.ikeQmTunnelPolicy
 
-    public operator fun component4(): MutPtr<IpsecTransportPolicy2> = this.authipQmTransportPolicy
+    public operator fun component4(): MutPtr = this.authipQmTransportPolicy
 
-    public operator fun component5(): MutPtr<IpsecTunnelPolicy3> = this.authipQmTunnelPolicy
+    public operator fun component5(): MutPtr = this.authipQmTunnelPolicy
 
-    public operator fun component6(): MutPtr<IkeextPolicy2> = this.ikeMmPolicy
+    public operator fun component6(): MutPtr = this.ikeMmPolicy
 
-    public operator fun component7(): MutPtr<IkeextPolicy2> = this.authIpMmPolicy
+    public operator fun component7(): MutPtr = this.authIpMmPolicy
 
-    public operator fun component8(): MutPtr<FwpByteBlob> = this.dataBuffer
+    public operator fun component8(): MutPtr = this.dataBuffer
 
-    public operator fun component9(): MutPtr<FwpmClassifyOptions0> = this.classifyOptions
+    public operator fun component9(): MutPtr = this.classifyOptions
 
-    public operator fun component10(): MutPtr<IpsecTunnelPolicy3> = this.ikeV2QmTunnelPolicy
+    public operator fun component10(): MutPtr = this.ikeV2QmTunnelPolicy
 
-    public operator fun component11(): MutPtr<IpsecTransportPolicy2> = this.ikeV2QmTransportPolicy
+    public operator fun component11(): MutPtr = this.ikeV2QmTransportPolicy
 
-    public operator fun component12(): MutPtr<IkeextPolicy2> = this.ikeV2MmPolicy
+    public operator fun component12(): MutPtr = this.ikeV2MmPolicy
 
-    public operator fun component13(): MutPtr<IpsecDospOptions0> = this.idpOptions
+    public operator fun component13(): MutPtr = this.idpOptions
 
-    public operator fun component14(): MutPtr<FwpmNetworkConnectionPolicySettings0> = this.networkConnectionPolicy
+    public operator fun component14(): MutPtr = this.networkConnectionPolicy
 
-    public fun copy(keyingPolicy: MutPtr<IpsecKeyingPolicy1> = this.keyingPolicy, ikeQmTransportPolicy: MutPtr<IpsecTransportPolicy2> = this.ikeQmTransportPolicy, ikeQmTunnelPolicy: MutPtr<IpsecTunnelPolicy3> = this.ikeQmTunnelPolicy, authipQmTransportPolicy: MutPtr<IpsecTransportPolicy2> = this.authipQmTransportPolicy, authipQmTunnelPolicy: MutPtr<IpsecTunnelPolicy3> = this.authipQmTunnelPolicy, ikeMmPolicy: MutPtr<IkeextPolicy2> = this.ikeMmPolicy, authIpMmPolicy: MutPtr<IkeextPolicy2> = this.authIpMmPolicy, dataBuffer: MutPtr<FwpByteBlob> = this.dataBuffer, classifyOptions: MutPtr<FwpmClassifyOptions0> = this.classifyOptions, ikeV2QmTunnelPolicy: MutPtr<IpsecTunnelPolicy3> = this.ikeV2QmTunnelPolicy, ikeV2QmTransportPolicy: MutPtr<IpsecTransportPolicy2> = this.ikeV2QmTransportPolicy, ikeV2MmPolicy: MutPtr<IkeextPolicy2> = this.ikeV2MmPolicy, idpOptions: MutPtr<IpsecDospOptions0> = this.idpOptions, networkConnectionPolicy: MutPtr<FwpmNetworkConnectionPolicySettings0> = this.networkConnectionPolicy): FwpmProviderContext30 = FwpmProviderContext30(keyingPolicyCtorArg = keyingPolicy, ikeQmTransportPolicyCtorArg = ikeQmTransportPolicy, ikeQmTunnelPolicyCtorArg = ikeQmTunnelPolicy, authipQmTransportPolicyCtorArg = authipQmTransportPolicy, authipQmTunnelPolicyCtorArg = authipQmTunnelPolicy, ikeMmPolicyCtorArg = ikeMmPolicy, authIpMmPolicyCtorArg = authIpMmPolicy, dataBufferCtorArg = dataBuffer, classifyOptionsCtorArg = classifyOptions, ikeV2QmTunnelPolicyCtorArg = ikeV2QmTunnelPolicy, ikeV2QmTransportPolicyCtorArg = ikeV2QmTransportPolicy, ikeV2MmPolicyCtorArg = ikeV2MmPolicy, idpOptionsCtorArg = idpOptions, networkConnectionPolicyCtorArg = networkConnectionPolicy)
+    public fun copy(keyingPolicy: MutPtr = this.keyingPolicy, ikeQmTransportPolicy: MutPtr = this.ikeQmTransportPolicy, ikeQmTunnelPolicy: MutPtr = this.ikeQmTunnelPolicy, authipQmTransportPolicy: MutPtr = this.authipQmTransportPolicy, authipQmTunnelPolicy: MutPtr = this.authipQmTunnelPolicy, ikeMmPolicy: MutPtr = this.ikeMmPolicy, authIpMmPolicy: MutPtr = this.authIpMmPolicy, dataBuffer: MutPtr = this.dataBuffer, classifyOptions: MutPtr = this.classifyOptions, ikeV2QmTunnelPolicy: MutPtr = this.ikeV2QmTunnelPolicy, ikeV2QmTransportPolicy: MutPtr = this.ikeV2QmTransportPolicy, ikeV2MmPolicy: MutPtr = this.ikeV2MmPolicy, idpOptions: MutPtr = this.idpOptions, networkConnectionPolicy: MutPtr = this.networkConnectionPolicy): FwpmProviderContext30 = FwpmProviderContext30(keyingPolicyCtorArg = keyingPolicy, ikeQmTransportPolicyCtorArg = ikeQmTransportPolicy, ikeQmTunnelPolicyCtorArg = ikeQmTunnelPolicy, authipQmTransportPolicyCtorArg = authipQmTransportPolicy, authipQmTunnelPolicyCtorArg = authipQmTunnelPolicy, ikeMmPolicyCtorArg = ikeMmPolicy, authIpMmPolicyCtorArg = authIpMmPolicy, dataBufferCtorArg = dataBuffer, classifyOptionsCtorArg = classifyOptions, ikeV2QmTunnelPolicyCtorArg = ikeV2QmTunnelPolicy, ikeV2QmTransportPolicyCtorArg = ikeV2QmTransportPolicy, ikeV2MmPolicyCtorArg = ikeV2MmPolicy, idpOptionsCtorArg = idpOptions, networkConnectionPolicyCtorArg = networkConnectionPolicy)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -4703,20 +4700,20 @@ public class FwpmProviderContext30 internal constructor(
 
     public companion object {
         public operator fun invoke(
-            keyingPolicy: MutPtr<IpsecKeyingPolicy1> = MutPtr(0L),
-            ikeQmTransportPolicy: MutPtr<IpsecTransportPolicy2> = MutPtr(0L),
-            ikeQmTunnelPolicy: MutPtr<IpsecTunnelPolicy3> = MutPtr(0L),
-            authipQmTransportPolicy: MutPtr<IpsecTransportPolicy2> = MutPtr(0L),
-            authipQmTunnelPolicy: MutPtr<IpsecTunnelPolicy3> = MutPtr(0L),
-            ikeMmPolicy: MutPtr<IkeextPolicy2> = MutPtr(0L),
-            authIpMmPolicy: MutPtr<IkeextPolicy2> = MutPtr(0L),
-            dataBuffer: MutPtr<FwpByteBlob> = MutPtr(0L),
-            classifyOptions: MutPtr<FwpmClassifyOptions0> = MutPtr(0L),
-            ikeV2QmTunnelPolicy: MutPtr<IpsecTunnelPolicy3> = MutPtr(0L),
-            ikeV2QmTransportPolicy: MutPtr<IpsecTransportPolicy2> = MutPtr(0L),
-            ikeV2MmPolicy: MutPtr<IkeextPolicy2> = MutPtr(0L),
-            idpOptions: MutPtr<IpsecDospOptions0> = MutPtr(0L),
-            networkConnectionPolicy: MutPtr<FwpmNetworkConnectionPolicySettings0> = MutPtr(0L),
+            keyingPolicy: MutPtr = MutPtr(0L),
+            ikeQmTransportPolicy: MutPtr = MutPtr(0L),
+            ikeQmTunnelPolicy: MutPtr = MutPtr(0L),
+            authipQmTransportPolicy: MutPtr = MutPtr(0L),
+            authipQmTunnelPolicy: MutPtr = MutPtr(0L),
+            ikeMmPolicy: MutPtr = MutPtr(0L),
+            authIpMmPolicy: MutPtr = MutPtr(0L),
+            dataBuffer: MutPtr = MutPtr(0L),
+            classifyOptions: MutPtr = MutPtr(0L),
+            ikeV2QmTunnelPolicy: MutPtr = MutPtr(0L),
+            ikeV2QmTransportPolicy: MutPtr = MutPtr(0L),
+            ikeV2MmPolicy: MutPtr = MutPtr(0L),
+            idpOptions: MutPtr = MutPtr(0L),
+            networkConnectionPolicy: MutPtr = MutPtr(0L),
         ): FwpmProviderContext30 =
             FwpmProviderContext30(
                 keyingPolicyCtorArg = keyingPolicy,
@@ -4744,10 +4741,10 @@ public data class FwpmProviderContextChange0(
 )
 
 public class FwpmProviderContextEnumTemplate0 internal constructor(
-    providerKeyCtorArg: MutPtr<Guid>,
+    providerKeyCtorArg: MutPtr,
     public var providerContextType: FwpmProviderContextType,
 ) {
-    public var providerKey: MutPtr<Guid> = providerKeyCtorArg
+    public var providerKey: MutPtr = providerKeyCtorArg
         internal set
 
     public constructor() : this(
@@ -4755,11 +4752,11 @@ public class FwpmProviderContextEnumTemplate0 internal constructor(
         providerContextType = 0,
     )
 
-    public operator fun component1(): MutPtr<Guid> = this.providerKey
+    public operator fun component1(): MutPtr = this.providerKey
 
     public operator fun component2(): FwpmProviderContextType = this.providerContextType
 
-    public fun copy(providerKey: MutPtr<Guid> = this.providerKey, providerContextType: FwpmProviderContextType = this.providerContextType): FwpmProviderContextEnumTemplate0 = FwpmProviderContextEnumTemplate0(providerKeyCtorArg = providerKey, providerContextType = providerContextType)
+    public fun copy(providerKey: MutPtr = this.providerKey, providerContextType: FwpmProviderContextType = this.providerContextType): FwpmProviderContextEnumTemplate0 = FwpmProviderContextEnumTemplate0(providerKeyCtorArg = providerKey, providerContextType = providerContextType)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -4784,21 +4781,21 @@ public class FwpmProviderContextEnumTemplate0 internal constructor(
                     FwpmProviderContextEnumTemplate0(
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<Guid>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr + 8L),
                     )
                 override fun writeNative(addr: Long, value: FwpmProviderContextEnumTemplate0) {
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<Guid>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr, value.providerKey)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr + 8L, value.providerContextType)
                 }
             }
 
         public operator fun invoke(
-            providerKey: MutPtr<Guid> = MutPtr(0L),
+            providerKey: MutPtr = MutPtr(0L),
             providerContextType: FwpmProviderContextType = 0,
         ): FwpmProviderContextEnumTemplate0 =
             FwpmProviderContextEnumTemplate0(
@@ -4809,11 +4806,11 @@ public class FwpmProviderContextEnumTemplate0 internal constructor(
 }
 
 public class FwpmProviderContextSubscription0 internal constructor(
-    enumTemplateCtorArg: MutPtr<FwpmProviderContextEnumTemplate0>,
+    enumTemplateCtorArg: MutPtr,
     public var flags: FwpmSubscriptionFlags,
     public var sessionKey: Guid,
 ) {
-    public var enumTemplate: MutPtr<FwpmProviderContextEnumTemplate0> = enumTemplateCtorArg
+    public var enumTemplate: MutPtr = enumTemplateCtorArg
         internal set
 
     public constructor() : this(
@@ -4822,13 +4819,13 @@ public class FwpmProviderContextSubscription0 internal constructor(
         sessionKey = Guid(),
     )
 
-    public operator fun component1(): MutPtr<FwpmProviderContextEnumTemplate0> = this.enumTemplate
+    public operator fun component1(): MutPtr = this.enumTemplate
 
     public operator fun component2(): FwpmSubscriptionFlags = this.flags
 
     public operator fun component3(): Guid = this.sessionKey
 
-    public fun copy(enumTemplate: MutPtr<FwpmProviderContextEnumTemplate0> = this.enumTemplate, flags: FwpmSubscriptionFlags = this.flags, sessionKey: Guid = this.sessionKey): FwpmProviderContextSubscription0 = FwpmProviderContextSubscription0(enumTemplateCtorArg = enumTemplate, flags = flags, sessionKey = sessionKey)
+    public fun copy(enumTemplate: MutPtr = this.enumTemplate, flags: FwpmSubscriptionFlags = this.flags, sessionKey: Guid = this.sessionKey): FwpmProviderContextSubscription0 = FwpmProviderContextSubscription0(enumTemplateCtorArg = enumTemplate, flags = flags, sessionKey = sessionKey)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -4848,7 +4845,7 @@ public class FwpmProviderContextSubscription0 internal constructor(
 
     public companion object {
         public operator fun invoke(
-            enumTemplate: MutPtr<FwpmProviderContextEnumTemplate0> = MutPtr(0L),
+            enumTemplate: MutPtr = MutPtr(0L),
             flags: FwpmSubscriptionFlags = 0u,
             sessionKey: Guid = Guid(),
         ): FwpmProviderContextSubscription0 =
@@ -4880,11 +4877,11 @@ public data class FwpmProviderEnumTemplate0(
 }
 
 public class FwpmProviderSubscription0 internal constructor(
-    enumTemplateCtorArg: MutPtr<FwpmProviderEnumTemplate0>,
+    enumTemplateCtorArg: MutPtr,
     public var flags: UInt,
     public var sessionKey: Guid,
 ) {
-    public var enumTemplate: MutPtr<FwpmProviderEnumTemplate0> = enumTemplateCtorArg
+    public var enumTemplate: MutPtr = enumTemplateCtorArg
         internal set
 
     public constructor() : this(
@@ -4893,13 +4890,13 @@ public class FwpmProviderSubscription0 internal constructor(
         sessionKey = Guid(),
     )
 
-    public operator fun component1(): MutPtr<FwpmProviderEnumTemplate0> = this.enumTemplate
+    public operator fun component1(): MutPtr = this.enumTemplate
 
     public operator fun component2(): UInt = this.flags
 
     public operator fun component3(): Guid = this.sessionKey
 
-    public fun copy(enumTemplate: MutPtr<FwpmProviderEnumTemplate0> = this.enumTemplate, flags: UInt = this.flags, sessionKey: Guid = this.sessionKey): FwpmProviderSubscription0 = FwpmProviderSubscription0(enumTemplateCtorArg = enumTemplate, flags = flags, sessionKey = sessionKey)
+    public fun copy(enumTemplate: MutPtr = this.enumTemplate, flags: UInt = this.flags, sessionKey: Guid = this.sessionKey): FwpmProviderSubscription0 = FwpmProviderSubscription0(enumTemplateCtorArg = enumTemplate, flags = flags, sessionKey = sessionKey)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -4919,7 +4916,7 @@ public class FwpmProviderSubscription0 internal constructor(
 
     public companion object {
         public operator fun invoke(
-            enumTemplate: MutPtr<FwpmProviderEnumTemplate0> = MutPtr(0L),
+            enumTemplate: MutPtr = MutPtr(0L),
             flags: UInt = 0u,
             sessionKey: Guid = Guid(),
         ): FwpmProviderSubscription0 =
@@ -4937,11 +4934,11 @@ public class FwpmSession0 internal constructor(
     public var flags: UInt,
     public var txnWaitTimeoutInMSec: UInt,
     public var processId: UInt,
-    sidCtorArg: MutPtr<Sid>,
+    sidCtorArg: MutPtr,
     usernameCtorArg: Pwstr,
     public var kernelMode: Bool,
 ) {
-    public var sid: MutPtr<Sid> = sidCtorArg
+    public var sid: MutPtr = sidCtorArg
         internal set
 
     public var username: Pwstr = usernameCtorArg
@@ -4968,13 +4965,13 @@ public class FwpmSession0 internal constructor(
 
     public operator fun component5(): UInt = this.processId
 
-    public operator fun component6(): MutPtr<Sid> = this.sid
+    public operator fun component6(): MutPtr = this.sid
 
     public operator fun component7(): Pwstr = this.username
 
     public operator fun component8(): Bool = this.kernelMode
 
-    public fun copy(sessionKey: Guid = this.sessionKey, displayData: FwpmDisplayData0 = this.displayData, flags: UInt = this.flags, txnWaitTimeoutInMSec: UInt = this.txnWaitTimeoutInMSec, processId: UInt = this.processId, sid: MutPtr<Sid> = this.sid, username: Pwstr = this.username, kernelMode: Bool = this.kernelMode): FwpmSession0 = FwpmSession0(sessionKey = sessionKey, displayData = displayData, flags = flags, txnWaitTimeoutInMSec = txnWaitTimeoutInMSec, processId = processId, sidCtorArg = sid, usernameCtorArg = username, kernelMode = kernelMode)
+    public fun copy(sessionKey: Guid = this.sessionKey, displayData: FwpmDisplayData0 = this.displayData, flags: UInt = this.flags, txnWaitTimeoutInMSec: UInt = this.txnWaitTimeoutInMSec, processId: UInt = this.processId, sid: MutPtr = this.sid, username: Pwstr = this.username, kernelMode: Bool = this.kernelMode): FwpmSession0 = FwpmSession0(sessionKey = sessionKey, displayData = displayData, flags = flags, txnWaitTimeoutInMSec = txnWaitTimeoutInMSec, processId = processId, sidCtorArg = sid, usernameCtorArg = username, kernelMode = kernelMode)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -5009,7 +5006,7 @@ public class FwpmSession0 internal constructor(
             flags: UInt = 0u,
             txnWaitTimeoutInMSec: UInt = 0u,
             processId: UInt = 0u,
-            sid: MutPtr<Sid> = MutPtr(0L),
+            sid: MutPtr = MutPtr(0L),
             username: Pwstr = MutPtr(0L),
             kernelMode: Bool = 0,
         ): FwpmSession0 =
@@ -5047,7 +5044,7 @@ public data class FwpmSessionEnumTemplate0(
 
 public class FwpmStatistics0 internal constructor(
     public var numLayerStatistics: UInt,
-    layerStatisticsCtorArg: MutPtr<FwpmLayerStatistics0>,
+    layerStatisticsCtorArg: MutPtr,
     public var inboundAllowedConnectionsV4: UInt,
     public var inboundBlockedConnectionsV4: UInt,
     public var outboundAllowedConnectionsV4: UInt,
@@ -5083,7 +5080,7 @@ public class FwpmStatistics0 internal constructor(
     public var reauthReasonEDPPolicyChanged: ULong,
     public var reauthReasonProxyHandleChanged: ULong,
 ) {
-    public var layerStatistics: MutPtr<FwpmLayerStatistics0> = layerStatisticsCtorArg
+    public var layerStatistics: MutPtr = layerStatisticsCtorArg
         internal set
 
     public constructor() : this(
@@ -5135,7 +5132,7 @@ public class FwpmStatistics0 internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<FwpmLayerStatistics0>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 16L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 20L),
@@ -5176,7 +5173,7 @@ public class FwpmStatistics0 internal constructor(
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr, value.numLayerStatistics)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<FwpmLayerStatistics0>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.layerStatistics)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 16L, value.inboundAllowedConnectionsV4)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 20L, value.inboundBlockedConnectionsV4)
@@ -5217,7 +5214,7 @@ public class FwpmStatistics0 internal constructor(
 
         public operator fun invoke(
             numLayerStatistics: UInt = 0u,
-            layerStatistics: MutPtr<FwpmLayerStatistics0> = MutPtr(0L),
+            layerStatistics: MutPtr = MutPtr(0L),
             inboundAllowedConnectionsV4: UInt = 0u,
             inboundBlockedConnectionsV4: UInt = 0u,
             outboundAllowedConnectionsV4: UInt = 0u,
@@ -5298,11 +5295,11 @@ public class FwpmSublayer0 internal constructor(
     public var subLayerKey: Guid,
     public var displayData: FwpmDisplayData0,
     public var flags: UInt,
-    providerKeyCtorArg: MutPtr<Guid>,
+    providerKeyCtorArg: MutPtr,
     public var providerData: FwpByteBlob,
     public var weight: UShort,
 ) {
-    public var providerKey: MutPtr<Guid> = providerKeyCtorArg
+    public var providerKey: MutPtr = providerKeyCtorArg
         internal set
 
     public constructor() : this(
@@ -5320,13 +5317,13 @@ public class FwpmSublayer0 internal constructor(
 
     public operator fun component3(): UInt = this.flags
 
-    public operator fun component4(): MutPtr<Guid> = this.providerKey
+    public operator fun component4(): MutPtr = this.providerKey
 
     public operator fun component5(): FwpByteBlob = this.providerData
 
     public operator fun component6(): UShort = this.weight
 
-    public fun copy(subLayerKey: Guid = this.subLayerKey, displayData: FwpmDisplayData0 = this.displayData, flags: UInt = this.flags, providerKey: MutPtr<Guid> = this.providerKey, providerData: FwpByteBlob = this.providerData, weight: UShort = this.weight): FwpmSublayer0 = FwpmSublayer0(subLayerKey = subLayerKey, displayData = displayData, flags = flags, providerKeyCtorArg = providerKey, providerData = providerData, weight = weight)
+    public fun copy(subLayerKey: Guid = this.subLayerKey, displayData: FwpmDisplayData0 = this.displayData, flags: UInt = this.flags, providerKey: MutPtr = this.providerKey, providerData: FwpByteBlob = this.providerData, weight: UShort = this.weight): FwpmSublayer0 = FwpmSublayer0(subLayerKey = subLayerKey, displayData = displayData, flags = flags, providerKeyCtorArg = providerKey, providerData = providerData, weight = weight)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -5355,7 +5352,7 @@ public class FwpmSublayer0 internal constructor(
             subLayerKey: Guid = Guid(),
             displayData: FwpmDisplayData0 = FwpmDisplayData0(),
             flags: UInt = 0u,
-            providerKey: MutPtr<Guid> = MutPtr(0L),
+            providerKey: MutPtr = MutPtr(0L),
             providerData: FwpByteBlob = FwpByteBlob(),
             weight: UShort = 0u,
         ): FwpmSublayer0 =
@@ -5376,18 +5373,18 @@ public data class FwpmSublayerChange0(
 )
 
 public class FwpmSublayerEnumTemplate0 internal constructor(
-    providerKeyCtorArg: MutPtr<Guid>,
+    providerKeyCtorArg: MutPtr,
 ) {
-    public var providerKey: MutPtr<Guid> = providerKeyCtorArg
+    public var providerKey: MutPtr = providerKeyCtorArg
         internal set
 
     public constructor() : this(
         providerKeyCtorArg = MutPtr(0L),
     )
 
-    public operator fun component1(): MutPtr<Guid> = this.providerKey
+    public operator fun component1(): MutPtr = this.providerKey
 
-    public fun copy(providerKey: MutPtr<Guid> = this.providerKey): FwpmSublayerEnumTemplate0 = FwpmSublayerEnumTemplate0(providerKeyCtorArg = providerKey)
+    public fun copy(providerKey: MutPtr = this.providerKey): FwpmSublayerEnumTemplate0 = FwpmSublayerEnumTemplate0(providerKeyCtorArg = providerKey)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -5407,19 +5404,19 @@ public class FwpmSublayerEnumTemplate0 internal constructor(
                     FwpmSublayerEnumTemplate0(
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<Guid>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr),
                     )
                 override fun writeNative(addr: Long, value: FwpmSublayerEnumTemplate0) {
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<Guid>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr, value.providerKey)
                 }
             }
 
         public operator fun invoke(
-            providerKey: MutPtr<Guid> = MutPtr(0L),
+            providerKey: MutPtr = MutPtr(0L),
         ): FwpmSublayerEnumTemplate0 =
             FwpmSublayerEnumTemplate0(
                 providerKeyCtorArg = providerKey,
@@ -5428,11 +5425,11 @@ public class FwpmSublayerEnumTemplate0 internal constructor(
 }
 
 public class FwpmSublayerSubscription0 internal constructor(
-    enumTemplateCtorArg: MutPtr<FwpmSublayerEnumTemplate0>,
+    enumTemplateCtorArg: MutPtr,
     public var flags: FwpmSubscriptionFlags,
     public var sessionKey: Guid,
 ) {
-    public var enumTemplate: MutPtr<FwpmSublayerEnumTemplate0> = enumTemplateCtorArg
+    public var enumTemplate: MutPtr = enumTemplateCtorArg
         internal set
 
     public constructor() : this(
@@ -5441,13 +5438,13 @@ public class FwpmSublayerSubscription0 internal constructor(
         sessionKey = Guid(),
     )
 
-    public operator fun component1(): MutPtr<FwpmSublayerEnumTemplate0> = this.enumTemplate
+    public operator fun component1(): MutPtr = this.enumTemplate
 
     public operator fun component2(): FwpmSubscriptionFlags = this.flags
 
     public operator fun component3(): Guid = this.sessionKey
 
-    public fun copy(enumTemplate: MutPtr<FwpmSublayerEnumTemplate0> = this.enumTemplate, flags: FwpmSubscriptionFlags = this.flags, sessionKey: Guid = this.sessionKey): FwpmSublayerSubscription0 = FwpmSublayerSubscription0(enumTemplateCtorArg = enumTemplate, flags = flags, sessionKey = sessionKey)
+    public fun copy(enumTemplate: MutPtr = this.enumTemplate, flags: FwpmSubscriptionFlags = this.flags, sessionKey: Guid = this.sessionKey): FwpmSublayerSubscription0 = FwpmSublayerSubscription0(enumTemplateCtorArg = enumTemplate, flags = flags, sessionKey = sessionKey)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -5467,7 +5464,7 @@ public class FwpmSublayerSubscription0 internal constructor(
 
     public companion object {
         public operator fun invoke(
-            enumTemplate: MutPtr<FwpmSublayerEnumTemplate0> = MutPtr(0L),
+            enumTemplate: MutPtr = MutPtr(0L),
             flags: FwpmSubscriptionFlags = 0u,
             sessionKey: Guid = Guid(),
         ): FwpmSublayerSubscription0 =
@@ -5481,9 +5478,9 @@ public class FwpmSublayerSubscription0 internal constructor(
 
 public class FwpmSystemPorts0 internal constructor(
     public var numTypes: UInt,
-    typesCtorArg: MutPtr<FwpmSystemPortsByType0>,
+    typesCtorArg: MutPtr,
 ) {
-    public var types: MutPtr<FwpmSystemPortsByType0> = typesCtorArg
+    public var types: MutPtr = typesCtorArg
         internal set
 
     public constructor() : this(
@@ -5493,9 +5490,9 @@ public class FwpmSystemPorts0 internal constructor(
 
     public operator fun component1(): UInt = this.numTypes
 
-    public operator fun component2(): MutPtr<FwpmSystemPortsByType0> = this.types
+    public operator fun component2(): MutPtr = this.types
 
-    public fun copy(numTypes: UInt = this.numTypes, types: MutPtr<FwpmSystemPortsByType0> = this.types): FwpmSystemPorts0 = FwpmSystemPorts0(numTypes = numTypes, typesCtorArg = types)
+    public fun copy(numTypes: UInt = this.numTypes, types: MutPtr = this.types): FwpmSystemPorts0 = FwpmSystemPorts0(numTypes = numTypes, typesCtorArg = types)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -5521,21 +5518,21 @@ public class FwpmSystemPorts0 internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<FwpmSystemPortsByType0>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                     )
                 override fun writeNative(addr: Long, value: FwpmSystemPorts0) {
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr, value.numTypes)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<FwpmSystemPortsByType0>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.types)
                 }
             }
 
         public operator fun invoke(
             numTypes: UInt = 0u,
-            types: MutPtr<FwpmSystemPortsByType0> = MutPtr(0L),
+            types: MutPtr = MutPtr(0L),
         ): FwpmSystemPorts0 =
             FwpmSystemPorts0(
                 numTypes = numTypes,
@@ -5547,9 +5544,9 @@ public class FwpmSystemPorts0 internal constructor(
 public class FwpmSystemPortsByType0 internal constructor(
     public var type: FwpmSystemPortType,
     public var numPorts: UInt,
-    portsCtorArg: MutPtr<UShort>,
+    portsCtorArg: MutPtr,
 ) {
-    public var ports: MutPtr<UShort> = portsCtorArg
+    public var ports: MutPtr = portsCtorArg
         internal set
 
     public constructor() : this(
@@ -5562,9 +5559,9 @@ public class FwpmSystemPortsByType0 internal constructor(
 
     public operator fun component2(): UInt = this.numPorts
 
-    public operator fun component3(): MutPtr<UShort> = this.ports
+    public operator fun component3(): MutPtr = this.ports
 
-    public fun copy(type: FwpmSystemPortType = this.type, numPorts: UInt = this.numPorts, ports: MutPtr<UShort> = this.ports): FwpmSystemPortsByType0 = FwpmSystemPortsByType0(type = type, numPorts = numPorts, portsCtorArg = ports)
+    public fun copy(type: FwpmSystemPortType = this.type, numPorts: UInt = this.numPorts, ports: MutPtr = this.ports): FwpmSystemPortsByType0 = FwpmSystemPortsByType0(type = type, numPorts = numPorts, portsCtorArg = ports)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -5593,7 +5590,7 @@ public class FwpmSystemPortsByType0 internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 4L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<UShort>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                     )
                 override fun writeNative(addr: Long, value: FwpmSystemPortsByType0) {
@@ -5601,7 +5598,7 @@ public class FwpmSystemPortsByType0 internal constructor(
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 4L, value.numPorts)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<UShort>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.ports)
                 }
             }
@@ -5609,7 +5606,7 @@ public class FwpmSystemPortsByType0 internal constructor(
         public operator fun invoke(
             type: FwpmSystemPortType = 0,
             numPorts: UInt = 0u,
-            ports: MutPtr<UShort> = MutPtr(0L),
+            ports: MutPtr = MutPtr(0L),
         ): FwpmSystemPortsByType0 =
             FwpmSystemPortsByType0(
                 type = type,
@@ -5678,9 +5675,9 @@ public data class FwpmVswitchEvent00(
 
 public class FwpmVswitchEvent000 internal constructor(
     public var numvSwitchFilterExtensions: UInt,
-    vSwitchFilterExtensionsCtorArg: MutPtr<Pwstr>,
+    vSwitchFilterExtensionsCtorArg: MutPtr,
 ) {
-    public var vSwitchFilterExtensions: MutPtr<Pwstr> = vSwitchFilterExtensionsCtorArg
+    public var vSwitchFilterExtensions: MutPtr = vSwitchFilterExtensionsCtorArg
         internal set
 
     public constructor() : this(
@@ -5690,9 +5687,9 @@ public class FwpmVswitchEvent000 internal constructor(
 
     public operator fun component1(): UInt = this.numvSwitchFilterExtensions
 
-    public operator fun component2(): MutPtr<Pwstr> = this.vSwitchFilterExtensions
+    public operator fun component2(): MutPtr = this.vSwitchFilterExtensions
 
-    public fun copy(numvSwitchFilterExtensions: UInt = this.numvSwitchFilterExtensions, vSwitchFilterExtensions: MutPtr<Pwstr> = this.vSwitchFilterExtensions): FwpmVswitchEvent000 = FwpmVswitchEvent000(numvSwitchFilterExtensions = numvSwitchFilterExtensions, vSwitchFilterExtensionsCtorArg = vSwitchFilterExtensions)
+    public fun copy(numvSwitchFilterExtensions: UInt = this.numvSwitchFilterExtensions, vSwitchFilterExtensions: MutPtr = this.vSwitchFilterExtensions): FwpmVswitchEvent000 = FwpmVswitchEvent000(numvSwitchFilterExtensions = numvSwitchFilterExtensions, vSwitchFilterExtensionsCtorArg = vSwitchFilterExtensions)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -5718,21 +5715,21 @@ public class FwpmVswitchEvent000 internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<Pwstr>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                     )
                 override fun writeNative(addr: Long, value: FwpmVswitchEvent000) {
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr, value.numvSwitchFilterExtensions)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<Pwstr>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.vSwitchFilterExtensions)
                 }
             }
 
         public operator fun invoke(
             numvSwitchFilterExtensions: UInt = 0u,
-            vSwitchFilterExtensions: MutPtr<Pwstr> = MutPtr(0L),
+            vSwitchFilterExtensions: MutPtr = MutPtr(0L),
         ): FwpmVswitchEvent000 =
             FwpmVswitchEvent000(
                 numvSwitchFilterExtensions = numvSwitchFilterExtensions,
@@ -5744,9 +5741,9 @@ public class FwpmVswitchEvent000 internal constructor(
 public class FwpmVswitchEvent001 internal constructor(
     public var inRequiredPosition: Bool,
     public var numvSwitchFilterExtensions: UInt,
-    vSwitchFilterExtensionsCtorArg: MutPtr<Pwstr>,
+    vSwitchFilterExtensionsCtorArg: MutPtr,
 ) {
-    public var vSwitchFilterExtensions: MutPtr<Pwstr> = vSwitchFilterExtensionsCtorArg
+    public var vSwitchFilterExtensions: MutPtr = vSwitchFilterExtensionsCtorArg
         internal set
 
     public constructor() : this(
@@ -5759,9 +5756,9 @@ public class FwpmVswitchEvent001 internal constructor(
 
     public operator fun component2(): UInt = this.numvSwitchFilterExtensions
 
-    public operator fun component3(): MutPtr<Pwstr> = this.vSwitchFilterExtensions
+    public operator fun component3(): MutPtr = this.vSwitchFilterExtensions
 
-    public fun copy(inRequiredPosition: Bool = this.inRequiredPosition, numvSwitchFilterExtensions: UInt = this.numvSwitchFilterExtensions, vSwitchFilterExtensions: MutPtr<Pwstr> = this.vSwitchFilterExtensions): FwpmVswitchEvent001 = FwpmVswitchEvent001(inRequiredPosition = inRequiredPosition, numvSwitchFilterExtensions = numvSwitchFilterExtensions, vSwitchFilterExtensionsCtorArg = vSwitchFilterExtensions)
+    public fun copy(inRequiredPosition: Bool = this.inRequiredPosition, numvSwitchFilterExtensions: UInt = this.numvSwitchFilterExtensions, vSwitchFilterExtensions: MutPtr = this.vSwitchFilterExtensions): FwpmVswitchEvent001 = FwpmVswitchEvent001(inRequiredPosition = inRequiredPosition, numvSwitchFilterExtensions = numvSwitchFilterExtensions, vSwitchFilterExtensionsCtorArg = vSwitchFilterExtensions)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -5790,7 +5787,7 @@ public class FwpmVswitchEvent001 internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 4L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<Pwstr>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                     )
                 override fun writeNative(addr: Long, value: FwpmVswitchEvent001) {
@@ -5798,7 +5795,7 @@ public class FwpmVswitchEvent001 internal constructor(
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 4L, value.numvSwitchFilterExtensions)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<Pwstr>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.vSwitchFilterExtensions)
                 }
             }
@@ -5806,7 +5803,7 @@ public class FwpmVswitchEvent001 internal constructor(
         public operator fun invoke(
             inRequiredPosition: Bool = 0,
             numvSwitchFilterExtensions: UInt = 0u,
-            vSwitchFilterExtensions: MutPtr<Pwstr> = MutPtr(0L),
+            vSwitchFilterExtensions: MutPtr = MutPtr(0L),
         ): FwpmVswitchEvent001 =
             FwpmVswitchEvent001(
                 inRequiredPosition = inRequiredPosition,
@@ -5891,9 +5888,9 @@ public data class FwpByteArray6(
 
 public class FwpByteBlob internal constructor(
     public var size: UInt,
-    dataCtorArg: MutPtr<UByte>,
+    dataCtorArg: MutPtr,
 ) {
-    public var data: MutPtr<UByte> = dataCtorArg
+    public var data: MutPtr = dataCtorArg
         internal set
 
     public constructor() : this(
@@ -5903,9 +5900,9 @@ public class FwpByteBlob internal constructor(
 
     public operator fun component1(): UInt = this.size
 
-    public operator fun component2(): MutPtr<UByte> = this.data
+    public operator fun component2(): MutPtr = this.data
 
-    public fun copy(size: UInt = this.size, data: MutPtr<UByte> = this.data): FwpByteBlob = FwpByteBlob(size = size, dataCtorArg = data)
+    public fun copy(size: UInt = this.size, data: MutPtr = this.data): FwpByteBlob = FwpByteBlob(size = size, dataCtorArg = data)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -5931,21 +5928,21 @@ public class FwpByteBlob internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<UByte>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                     )
                 override fun writeNative(addr: Long, value: FwpByteBlob) {
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr, value.size)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<UByte>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.data)
                 }
             }
 
         public operator fun invoke(
             size: UInt = 0u,
-            data: MutPtr<UByte> = MutPtr(0L),
+            data: MutPtr = MutPtr(0L),
         ): FwpByteBlob =
             FwpByteBlob(
                 size = size,
@@ -5963,65 +5960,65 @@ public class FwpConditionValue00 internal constructor(
     public var uint8: UByte,
     public var uint16: UShort,
     public var uint32: UInt,
-    uint64CtorArg: MutPtr<ULong>,
+    uint64CtorArg: MutPtr,
     public var int8: Byte,
     public var int16: Short,
     public var int32: Int,
-    int64CtorArg: MutPtr<Long>,
+    int64CtorArg: MutPtr,
     public var float32: Float,
-    double64CtorArg: MutPtr<Double>,
-    byteArray16CtorArg: MutPtr<FwpByteArray16>,
-    byteBlobCtorArg: MutPtr<FwpByteBlob>,
-    sidCtorArg: MutPtr<Sid>,
-    sdCtorArg: MutPtr<FwpByteBlob>,
-    tokenInformationCtorArg: MutPtr<FwpTokenInformation>,
-    tokenAccessInformationCtorArg: MutPtr<FwpByteBlob>,
+    double64CtorArg: MutPtr,
+    byteArray16CtorArg: MutPtr,
+    byteBlobCtorArg: MutPtr,
+    sidCtorArg: MutPtr,
+    sdCtorArg: MutPtr,
+    tokenInformationCtorArg: MutPtr,
+    tokenAccessInformationCtorArg: MutPtr,
     unicodeStringCtorArg: Pwstr,
-    byteArray6CtorArg: MutPtr<FwpByteArray6>,
-    v4AddrMaskCtorArg: MutPtr<FwpV4AddrAndMask>,
-    v6AddrMaskCtorArg: MutPtr<FwpV6AddrAndMask>,
-    rangeValueCtorArg: MutPtr<FwpRange0>,
+    byteArray6CtorArg: MutPtr,
+    v4AddrMaskCtorArg: MutPtr,
+    v6AddrMaskCtorArg: MutPtr,
+    rangeValueCtorArg: MutPtr,
 ) {
-    public var uint64: MutPtr<ULong> = uint64CtorArg
+    public var uint64: MutPtr = uint64CtorArg
         internal set
 
-    public var int64: MutPtr<Long> = int64CtorArg
+    public var int64: MutPtr = int64CtorArg
         internal set
 
-    public var double64: MutPtr<Double> = double64CtorArg
+    public var double64: MutPtr = double64CtorArg
         internal set
 
-    public var byteArray16: MutPtr<FwpByteArray16> = byteArray16CtorArg
+    public var byteArray16: MutPtr = byteArray16CtorArg
         internal set
 
-    public var byteBlob: MutPtr<FwpByteBlob> = byteBlobCtorArg
+    public var byteBlob: MutPtr = byteBlobCtorArg
         internal set
 
-    public var sid: MutPtr<Sid> = sidCtorArg
+    public var sid: MutPtr = sidCtorArg
         internal set
 
-    public var sd: MutPtr<FwpByteBlob> = sdCtorArg
+    public var sd: MutPtr = sdCtorArg
         internal set
 
-    public var tokenInformation: MutPtr<FwpTokenInformation> = tokenInformationCtorArg
+    public var tokenInformation: MutPtr = tokenInformationCtorArg
         internal set
 
-    public var tokenAccessInformation: MutPtr<FwpByteBlob> = tokenAccessInformationCtorArg
+    public var tokenAccessInformation: MutPtr = tokenAccessInformationCtorArg
         internal set
 
     public var unicodeString: Pwstr = unicodeStringCtorArg
         internal set
 
-    public var byteArray6: MutPtr<FwpByteArray6> = byteArray6CtorArg
+    public var byteArray6: MutPtr = byteArray6CtorArg
         internal set
 
-    public var v4AddrMask: MutPtr<FwpV4AddrAndMask> = v4AddrMaskCtorArg
+    public var v4AddrMask: MutPtr = v4AddrMaskCtorArg
         internal set
 
-    public var v6AddrMask: MutPtr<FwpV6AddrAndMask> = v6AddrMaskCtorArg
+    public var v6AddrMask: MutPtr = v6AddrMaskCtorArg
         internal set
 
-    public var rangeValue: MutPtr<FwpRange0> = rangeValueCtorArg
+    public var rangeValue: MutPtr = rangeValueCtorArg
         internal set
 
     public constructor() : this(
@@ -6053,24 +6050,24 @@ public class FwpConditionValue00 internal constructor(
             uint8: UByte = 0u,
             uint16: UShort = 0u,
             uint32: UInt = 0u,
-            uint64: MutPtr<ULong> = MutPtr(0L),
+            uint64: MutPtr = MutPtr(0L),
             int8: Byte = 0,
             int16: Short = 0,
             int32: Int = 0,
-            int64: MutPtr<Long> = MutPtr(0L),
+            int64: MutPtr = MutPtr(0L),
             float32: Float = 0.0f,
-            double64: MutPtr<Double> = MutPtr(0L),
-            byteArray16: MutPtr<FwpByteArray16> = MutPtr(0L),
-            byteBlob: MutPtr<FwpByteBlob> = MutPtr(0L),
-            sid: MutPtr<Sid> = MutPtr(0L),
-            sd: MutPtr<FwpByteBlob> = MutPtr(0L),
-            tokenInformation: MutPtr<FwpTokenInformation> = MutPtr(0L),
-            tokenAccessInformation: MutPtr<FwpByteBlob> = MutPtr(0L),
+            double64: MutPtr = MutPtr(0L),
+            byteArray16: MutPtr = MutPtr(0L),
+            byteBlob: MutPtr = MutPtr(0L),
+            sid: MutPtr = MutPtr(0L),
+            sd: MutPtr = MutPtr(0L),
+            tokenInformation: MutPtr = MutPtr(0L),
+            tokenAccessInformation: MutPtr = MutPtr(0L),
             unicodeString: Pwstr = MutPtr(0L),
-            byteArray6: MutPtr<FwpByteArray6> = MutPtr(0L),
-            v4AddrMask: MutPtr<FwpV4AddrAndMask> = MutPtr(0L),
-            v6AddrMask: MutPtr<FwpV6AddrAndMask> = MutPtr(0L),
-            rangeValue: MutPtr<FwpRange0> = MutPtr(0L),
+            byteArray6: MutPtr = MutPtr(0L),
+            v4AddrMask: MutPtr = MutPtr(0L),
+            v6AddrMask: MutPtr = MutPtr(0L),
+            rangeValue: MutPtr = MutPtr(0L),
         ): FwpConditionValue00 =
             FwpConditionValue00(
                 uint8 = uint8,
@@ -6105,14 +6102,14 @@ public data class FwpRange0(
 
 public class FwpTokenInformation internal constructor(
     public var sidCount: UInt,
-    sidsCtorArg: MutPtr<SidAndAttributes>,
+    sidsCtorArg: MutPtr,
     public var restrictedSidCount: UInt,
-    restrictedSidsCtorArg: MutPtr<SidAndAttributes>,
+    restrictedSidsCtorArg: MutPtr,
 ) {
-    public var sids: MutPtr<SidAndAttributes> = sidsCtorArg
+    public var sids: MutPtr = sidsCtorArg
         internal set
 
-    public var restrictedSids: MutPtr<SidAndAttributes> = restrictedSidsCtorArg
+    public var restrictedSids: MutPtr = restrictedSidsCtorArg
         internal set
 
     public constructor() : this(
@@ -6124,13 +6121,13 @@ public class FwpTokenInformation internal constructor(
 
     public operator fun component1(): UInt = this.sidCount
 
-    public operator fun component2(): MutPtr<SidAndAttributes> = this.sids
+    public operator fun component2(): MutPtr = this.sids
 
     public operator fun component3(): UInt = this.restrictedSidCount
 
-    public operator fun component4(): MutPtr<SidAndAttributes> = this.restrictedSids
+    public operator fun component4(): MutPtr = this.restrictedSids
 
-    public fun copy(sidCount: UInt = this.sidCount, sids: MutPtr<SidAndAttributes> = this.sids, restrictedSidCount: UInt = this.restrictedSidCount, restrictedSids: MutPtr<SidAndAttributes> = this.restrictedSids): FwpTokenInformation = FwpTokenInformation(sidCount = sidCount, sidsCtorArg = sids, restrictedSidCount = restrictedSidCount, restrictedSidsCtorArg = restrictedSids)
+    public fun copy(sidCount: UInt = this.sidCount, sids: MutPtr = this.sids, restrictedSidCount: UInt = this.restrictedSidCount, restrictedSids: MutPtr = this.restrictedSids): FwpTokenInformation = FwpTokenInformation(sidCount = sidCount, sidsCtorArg = sids, restrictedSidCount = restrictedSidCount, restrictedSidsCtorArg = restrictedSids)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -6160,33 +6157,33 @@ public class FwpTokenInformation internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<SidAndAttributes>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 16L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<SidAndAttributes>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 24L),
                     )
                 override fun writeNative(addr: Long, value: FwpTokenInformation) {
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr, value.sidCount)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<SidAndAttributes>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.sids)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 16L, value.restrictedSidCount)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<SidAndAttributes>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 24L, value.restrictedSids)
                 }
             }
 
         public operator fun invoke(
             sidCount: UInt = 0u,
-            sids: MutPtr<SidAndAttributes> = MutPtr(0L),
+            sids: MutPtr = MutPtr(0L),
             restrictedSidCount: UInt = 0u,
-            restrictedSids: MutPtr<SidAndAttributes> = MutPtr(0L),
+            restrictedSids: MutPtr = MutPtr(0L),
         ): FwpTokenInformation =
             FwpTokenInformation(
                 sidCount = sidCount,
@@ -6270,53 +6267,53 @@ public class FwpValue00 internal constructor(
     public var uint8: UByte,
     public var uint16: UShort,
     public var uint32: UInt,
-    uint64CtorArg: MutPtr<ULong>,
+    uint64CtorArg: MutPtr,
     public var int8: Byte,
     public var int16: Short,
     public var int32: Int,
-    int64CtorArg: MutPtr<Long>,
+    int64CtorArg: MutPtr,
     public var float32: Float,
-    double64CtorArg: MutPtr<Double>,
-    byteArray16CtorArg: MutPtr<FwpByteArray16>,
-    byteBlobCtorArg: MutPtr<FwpByteBlob>,
-    sidCtorArg: MutPtr<Sid>,
-    sdCtorArg: MutPtr<FwpByteBlob>,
-    tokenInformationCtorArg: MutPtr<FwpTokenInformation>,
-    tokenAccessInformationCtorArg: MutPtr<FwpByteBlob>,
+    double64CtorArg: MutPtr,
+    byteArray16CtorArg: MutPtr,
+    byteBlobCtorArg: MutPtr,
+    sidCtorArg: MutPtr,
+    sdCtorArg: MutPtr,
+    tokenInformationCtorArg: MutPtr,
+    tokenAccessInformationCtorArg: MutPtr,
     unicodeStringCtorArg: Pwstr,
-    byteArray6CtorArg: MutPtr<FwpByteArray6>,
+    byteArray6CtorArg: MutPtr,
 ) {
-    public var uint64: MutPtr<ULong> = uint64CtorArg
+    public var uint64: MutPtr = uint64CtorArg
         internal set
 
-    public var int64: MutPtr<Long> = int64CtorArg
+    public var int64: MutPtr = int64CtorArg
         internal set
 
-    public var double64: MutPtr<Double> = double64CtorArg
+    public var double64: MutPtr = double64CtorArg
         internal set
 
-    public var byteArray16: MutPtr<FwpByteArray16> = byteArray16CtorArg
+    public var byteArray16: MutPtr = byteArray16CtorArg
         internal set
 
-    public var byteBlob: MutPtr<FwpByteBlob> = byteBlobCtorArg
+    public var byteBlob: MutPtr = byteBlobCtorArg
         internal set
 
-    public var sid: MutPtr<Sid> = sidCtorArg
+    public var sid: MutPtr = sidCtorArg
         internal set
 
-    public var sd: MutPtr<FwpByteBlob> = sdCtorArg
+    public var sd: MutPtr = sdCtorArg
         internal set
 
-    public var tokenInformation: MutPtr<FwpTokenInformation> = tokenInformationCtorArg
+    public var tokenInformation: MutPtr = tokenInformationCtorArg
         internal set
 
-    public var tokenAccessInformation: MutPtr<FwpByteBlob> = tokenAccessInformationCtorArg
+    public var tokenAccessInformation: MutPtr = tokenAccessInformationCtorArg
         internal set
 
     public var unicodeString: Pwstr = unicodeStringCtorArg
         internal set
 
-    public var byteArray6: MutPtr<FwpByteArray6> = byteArray6CtorArg
+    public var byteArray6: MutPtr = byteArray6CtorArg
         internal set
 
     public constructor() : this(
@@ -6345,21 +6342,21 @@ public class FwpValue00 internal constructor(
             uint8: UByte = 0u,
             uint16: UShort = 0u,
             uint32: UInt = 0u,
-            uint64: MutPtr<ULong> = MutPtr(0L),
+            uint64: MutPtr = MutPtr(0L),
             int8: Byte = 0,
             int16: Short = 0,
             int32: Int = 0,
-            int64: MutPtr<Long> = MutPtr(0L),
+            int64: MutPtr = MutPtr(0L),
             float32: Float = 0.0f,
-            double64: MutPtr<Double> = MutPtr(0L),
-            byteArray16: MutPtr<FwpByteArray16> = MutPtr(0L),
-            byteBlob: MutPtr<FwpByteBlob> = MutPtr(0L),
-            sid: MutPtr<Sid> = MutPtr(0L),
-            sd: MutPtr<FwpByteBlob> = MutPtr(0L),
-            tokenInformation: MutPtr<FwpTokenInformation> = MutPtr(0L),
-            tokenAccessInformation: MutPtr<FwpByteBlob> = MutPtr(0L),
+            double64: MutPtr = MutPtr(0L),
+            byteArray16: MutPtr = MutPtr(0L),
+            byteBlob: MutPtr = MutPtr(0L),
+            sid: MutPtr = MutPtr(0L),
+            sd: MutPtr = MutPtr(0L),
+            tokenInformation: MutPtr = MutPtr(0L),
+            tokenAccessInformation: MutPtr = MutPtr(0L),
             unicodeString: Pwstr = MutPtr(0L),
-            byteArray6: MutPtr<FwpByteArray6> = MutPtr(0L),
+            byteArray6: MutPtr = MutPtr(0L),
         ): FwpValue00 =
             FwpValue00(
                 uint8 = uint8,
@@ -6439,13 +6436,13 @@ public data class IkeextCertificateAuthentication0(
 
 public class IkeextCertificateAuthentication00 internal constructor(
     public var anonymous: IkeextCertificateAuthentication000,
-    inboundEnterpriseStoreConfigCtorArg: MutPtr<IkeextCertRootConfig0>,
-    inboundTrustedRootStoreConfigCtorArg: MutPtr<IkeextCertRootConfig0>,
+    inboundEnterpriseStoreConfigCtorArg: MutPtr,
+    inboundTrustedRootStoreConfigCtorArg: MutPtr,
 ) {
-    public var inboundEnterpriseStoreConfig: MutPtr<IkeextCertRootConfig0> = inboundEnterpriseStoreConfigCtorArg
+    public var inboundEnterpriseStoreConfig: MutPtr = inboundEnterpriseStoreConfigCtorArg
         internal set
 
-    public var inboundTrustedRootStoreConfig: MutPtr<IkeextCertRootConfig0> = inboundTrustedRootStoreConfigCtorArg
+    public var inboundTrustedRootStoreConfig: MutPtr = inboundTrustedRootStoreConfigCtorArg
         internal set
 
     public constructor() : this(
@@ -6456,11 +6453,11 @@ public class IkeextCertificateAuthentication00 internal constructor(
 
     public operator fun component1(): IkeextCertificateAuthentication000 = this.anonymous
 
-    public operator fun component2(): MutPtr<IkeextCertRootConfig0> = this.inboundEnterpriseStoreConfig
+    public operator fun component2(): MutPtr = this.inboundEnterpriseStoreConfig
 
-    public operator fun component3(): MutPtr<IkeextCertRootConfig0> = this.inboundTrustedRootStoreConfig
+    public operator fun component3(): MutPtr = this.inboundTrustedRootStoreConfig
 
-    public fun copy(anonymous: IkeextCertificateAuthentication000 = this.anonymous, inboundEnterpriseStoreConfig: MutPtr<IkeextCertRootConfig0> = this.inboundEnterpriseStoreConfig, inboundTrustedRootStoreConfig: MutPtr<IkeextCertRootConfig0> = this.inboundTrustedRootStoreConfig): IkeextCertificateAuthentication00 = IkeextCertificateAuthentication00(anonymous = anonymous, inboundEnterpriseStoreConfigCtorArg = inboundEnterpriseStoreConfig, inboundTrustedRootStoreConfigCtorArg = inboundTrustedRootStoreConfig)
+    public fun copy(anonymous: IkeextCertificateAuthentication000 = this.anonymous, inboundEnterpriseStoreConfig: MutPtr = this.inboundEnterpriseStoreConfig, inboundTrustedRootStoreConfig: MutPtr = this.inboundTrustedRootStoreConfig): IkeextCertificateAuthentication00 = IkeextCertificateAuthentication00(anonymous = anonymous, inboundEnterpriseStoreConfigCtorArg = inboundEnterpriseStoreConfig, inboundTrustedRootStoreConfigCtorArg = inboundTrustedRootStoreConfig)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -6481,8 +6478,8 @@ public class IkeextCertificateAuthentication00 internal constructor(
     public companion object {
         public operator fun invoke(
             anonymous: IkeextCertificateAuthentication000 = IkeextCertificateAuthentication000(),
-            inboundEnterpriseStoreConfig: MutPtr<IkeextCertRootConfig0> = MutPtr(0L),
-            inboundTrustedRootStoreConfig: MutPtr<IkeextCertRootConfig0> = MutPtr(0L),
+            inboundEnterpriseStoreConfig: MutPtr = MutPtr(0L),
+            inboundTrustedRootStoreConfig: MutPtr = MutPtr(0L),
         ): IkeextCertificateAuthentication00 =
             IkeextCertificateAuthentication00(
                 anonymous = anonymous,
@@ -6494,9 +6491,9 @@ public class IkeextCertificateAuthentication00 internal constructor(
 
 public class IkeextCertificateAuthentication000 internal constructor(
     public var inboundRootArraySize: UInt,
-    inboundRootArrayCtorArg: MutPtr<IkeextCertRootConfig0>,
+    inboundRootArrayCtorArg: MutPtr,
 ) {
-    public var inboundRootArray: MutPtr<IkeextCertRootConfig0> = inboundRootArrayCtorArg
+    public var inboundRootArray: MutPtr = inboundRootArrayCtorArg
         internal set
 
     public constructor() : this(
@@ -6506,9 +6503,9 @@ public class IkeextCertificateAuthentication000 internal constructor(
 
     public operator fun component1(): UInt = this.inboundRootArraySize
 
-    public operator fun component2(): MutPtr<IkeextCertRootConfig0> = this.inboundRootArray
+    public operator fun component2(): MutPtr = this.inboundRootArray
 
-    public fun copy(inboundRootArraySize: UInt = this.inboundRootArraySize, inboundRootArray: MutPtr<IkeextCertRootConfig0> = this.inboundRootArray): IkeextCertificateAuthentication000 = IkeextCertificateAuthentication000(inboundRootArraySize = inboundRootArraySize, inboundRootArrayCtorArg = inboundRootArray)
+    public fun copy(inboundRootArraySize: UInt = this.inboundRootArraySize, inboundRootArray: MutPtr = this.inboundRootArray): IkeextCertificateAuthentication000 = IkeextCertificateAuthentication000(inboundRootArraySize = inboundRootArraySize, inboundRootArrayCtorArg = inboundRootArray)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -6534,21 +6531,21 @@ public class IkeextCertificateAuthentication000 internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<IkeextCertRootConfig0>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                     )
                 override fun writeNative(addr: Long, value: IkeextCertificateAuthentication000) {
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr, value.inboundRootArraySize)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<IkeextCertRootConfig0>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.inboundRootArray)
                 }
             }
 
         public operator fun invoke(
             inboundRootArraySize: UInt = 0u,
-            inboundRootArray: MutPtr<IkeextCertRootConfig0> = MutPtr(0L),
+            inboundRootArray: MutPtr = MutPtr(0L),
         ): IkeextCertificateAuthentication000 =
             IkeextCertificateAuthentication000(
                 inboundRootArraySize = inboundRootArraySize,
@@ -6559,13 +6556,13 @@ public class IkeextCertificateAuthentication000 internal constructor(
 
 public class IkeextCertificateAuthentication01 internal constructor(
     public var anonymous: IkeextCertificateAuthentication010,
-    outboundEnterpriseStoreConfigCtorArg: MutPtr<IkeextCertRootConfig0>,
-    outboundTrustedRootStoreConfigCtorArg: MutPtr<IkeextCertRootConfig0>,
+    outboundEnterpriseStoreConfigCtorArg: MutPtr,
+    outboundTrustedRootStoreConfigCtorArg: MutPtr,
 ) {
-    public var outboundEnterpriseStoreConfig: MutPtr<IkeextCertRootConfig0> = outboundEnterpriseStoreConfigCtorArg
+    public var outboundEnterpriseStoreConfig: MutPtr = outboundEnterpriseStoreConfigCtorArg
         internal set
 
-    public var outboundTrustedRootStoreConfig: MutPtr<IkeextCertRootConfig0> = outboundTrustedRootStoreConfigCtorArg
+    public var outboundTrustedRootStoreConfig: MutPtr = outboundTrustedRootStoreConfigCtorArg
         internal set
 
     public constructor() : this(
@@ -6576,11 +6573,11 @@ public class IkeextCertificateAuthentication01 internal constructor(
 
     public operator fun component1(): IkeextCertificateAuthentication010 = this.anonymous
 
-    public operator fun component2(): MutPtr<IkeextCertRootConfig0> = this.outboundEnterpriseStoreConfig
+    public operator fun component2(): MutPtr = this.outboundEnterpriseStoreConfig
 
-    public operator fun component3(): MutPtr<IkeextCertRootConfig0> = this.outboundTrustedRootStoreConfig
+    public operator fun component3(): MutPtr = this.outboundTrustedRootStoreConfig
 
-    public fun copy(anonymous: IkeextCertificateAuthentication010 = this.anonymous, outboundEnterpriseStoreConfig: MutPtr<IkeextCertRootConfig0> = this.outboundEnterpriseStoreConfig, outboundTrustedRootStoreConfig: MutPtr<IkeextCertRootConfig0> = this.outboundTrustedRootStoreConfig): IkeextCertificateAuthentication01 = IkeextCertificateAuthentication01(anonymous = anonymous, outboundEnterpriseStoreConfigCtorArg = outboundEnterpriseStoreConfig, outboundTrustedRootStoreConfigCtorArg = outboundTrustedRootStoreConfig)
+    public fun copy(anonymous: IkeextCertificateAuthentication010 = this.anonymous, outboundEnterpriseStoreConfig: MutPtr = this.outboundEnterpriseStoreConfig, outboundTrustedRootStoreConfig: MutPtr = this.outboundTrustedRootStoreConfig): IkeextCertificateAuthentication01 = IkeextCertificateAuthentication01(anonymous = anonymous, outboundEnterpriseStoreConfigCtorArg = outboundEnterpriseStoreConfig, outboundTrustedRootStoreConfigCtorArg = outboundTrustedRootStoreConfig)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -6601,8 +6598,8 @@ public class IkeextCertificateAuthentication01 internal constructor(
     public companion object {
         public operator fun invoke(
             anonymous: IkeextCertificateAuthentication010 = IkeextCertificateAuthentication010(),
-            outboundEnterpriseStoreConfig: MutPtr<IkeextCertRootConfig0> = MutPtr(0L),
-            outboundTrustedRootStoreConfig: MutPtr<IkeextCertRootConfig0> = MutPtr(0L),
+            outboundEnterpriseStoreConfig: MutPtr = MutPtr(0L),
+            outboundTrustedRootStoreConfig: MutPtr = MutPtr(0L),
         ): IkeextCertificateAuthentication01 =
             IkeextCertificateAuthentication01(
                 anonymous = anonymous,
@@ -6614,9 +6611,9 @@ public class IkeextCertificateAuthentication01 internal constructor(
 
 public class IkeextCertificateAuthentication010 internal constructor(
     public var outboundRootArraySize: UInt,
-    outboundRootArrayCtorArg: MutPtr<IkeextCertRootConfig0>,
+    outboundRootArrayCtorArg: MutPtr,
 ) {
-    public var outboundRootArray: MutPtr<IkeextCertRootConfig0> = outboundRootArrayCtorArg
+    public var outboundRootArray: MutPtr = outboundRootArrayCtorArg
         internal set
 
     public constructor() : this(
@@ -6626,9 +6623,9 @@ public class IkeextCertificateAuthentication010 internal constructor(
 
     public operator fun component1(): UInt = this.outboundRootArraySize
 
-    public operator fun component2(): MutPtr<IkeextCertRootConfig0> = this.outboundRootArray
+    public operator fun component2(): MutPtr = this.outboundRootArray
 
-    public fun copy(outboundRootArraySize: UInt = this.outboundRootArraySize, outboundRootArray: MutPtr<IkeextCertRootConfig0> = this.outboundRootArray): IkeextCertificateAuthentication010 = IkeextCertificateAuthentication010(outboundRootArraySize = outboundRootArraySize, outboundRootArrayCtorArg = outboundRootArray)
+    public fun copy(outboundRootArraySize: UInt = this.outboundRootArraySize, outboundRootArray: MutPtr = this.outboundRootArray): IkeextCertificateAuthentication010 = IkeextCertificateAuthentication010(outboundRootArraySize = outboundRootArraySize, outboundRootArrayCtorArg = outboundRootArray)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -6654,21 +6651,21 @@ public class IkeextCertificateAuthentication010 internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<IkeextCertRootConfig0>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                     )
                 override fun writeNative(addr: Long, value: IkeextCertificateAuthentication010) {
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr, value.outboundRootArraySize)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<IkeextCertRootConfig0>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.outboundRootArray)
                 }
             }
 
         public operator fun invoke(
             outboundRootArraySize: UInt = 0u,
-            outboundRootArray: MutPtr<IkeextCertRootConfig0> = MutPtr(0L),
+            outboundRootArray: MutPtr = MutPtr(0L),
         ): IkeextCertificateAuthentication010 =
             IkeextCertificateAuthentication010(
                 outboundRootArraySize = outboundRootArraySize,
@@ -6688,13 +6685,13 @@ public data class IkeextCertificateAuthentication1(
 
 public class IkeextCertificateAuthentication10 internal constructor(
     public var anonymous: IkeextCertificateAuthentication100,
-    inboundEnterpriseStoreConfigCtorArg: MutPtr<IkeextCertRootConfig0>,
-    inboundTrustedRootStoreConfigCtorArg: MutPtr<IkeextCertRootConfig0>,
+    inboundEnterpriseStoreConfigCtorArg: MutPtr,
+    inboundTrustedRootStoreConfigCtorArg: MutPtr,
 ) {
-    public var inboundEnterpriseStoreConfig: MutPtr<IkeextCertRootConfig0> = inboundEnterpriseStoreConfigCtorArg
+    public var inboundEnterpriseStoreConfig: MutPtr = inboundEnterpriseStoreConfigCtorArg
         internal set
 
-    public var inboundTrustedRootStoreConfig: MutPtr<IkeextCertRootConfig0> = inboundTrustedRootStoreConfigCtorArg
+    public var inboundTrustedRootStoreConfig: MutPtr = inboundTrustedRootStoreConfigCtorArg
         internal set
 
     public constructor() : this(
@@ -6705,11 +6702,11 @@ public class IkeextCertificateAuthentication10 internal constructor(
 
     public operator fun component1(): IkeextCertificateAuthentication100 = this.anonymous
 
-    public operator fun component2(): MutPtr<IkeextCertRootConfig0> = this.inboundEnterpriseStoreConfig
+    public operator fun component2(): MutPtr = this.inboundEnterpriseStoreConfig
 
-    public operator fun component3(): MutPtr<IkeextCertRootConfig0> = this.inboundTrustedRootStoreConfig
+    public operator fun component3(): MutPtr = this.inboundTrustedRootStoreConfig
 
-    public fun copy(anonymous: IkeextCertificateAuthentication100 = this.anonymous, inboundEnterpriseStoreConfig: MutPtr<IkeextCertRootConfig0> = this.inboundEnterpriseStoreConfig, inboundTrustedRootStoreConfig: MutPtr<IkeextCertRootConfig0> = this.inboundTrustedRootStoreConfig): IkeextCertificateAuthentication10 = IkeextCertificateAuthentication10(anonymous = anonymous, inboundEnterpriseStoreConfigCtorArg = inboundEnterpriseStoreConfig, inboundTrustedRootStoreConfigCtorArg = inboundTrustedRootStoreConfig)
+    public fun copy(anonymous: IkeextCertificateAuthentication100 = this.anonymous, inboundEnterpriseStoreConfig: MutPtr = this.inboundEnterpriseStoreConfig, inboundTrustedRootStoreConfig: MutPtr = this.inboundTrustedRootStoreConfig): IkeextCertificateAuthentication10 = IkeextCertificateAuthentication10(anonymous = anonymous, inboundEnterpriseStoreConfigCtorArg = inboundEnterpriseStoreConfig, inboundTrustedRootStoreConfigCtorArg = inboundTrustedRootStoreConfig)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -6730,8 +6727,8 @@ public class IkeextCertificateAuthentication10 internal constructor(
     public companion object {
         public operator fun invoke(
             anonymous: IkeextCertificateAuthentication100 = IkeextCertificateAuthentication100(),
-            inboundEnterpriseStoreConfig: MutPtr<IkeextCertRootConfig0> = MutPtr(0L),
-            inboundTrustedRootStoreConfig: MutPtr<IkeextCertRootConfig0> = MutPtr(0L),
+            inboundEnterpriseStoreConfig: MutPtr = MutPtr(0L),
+            inboundTrustedRootStoreConfig: MutPtr = MutPtr(0L),
         ): IkeextCertificateAuthentication10 =
             IkeextCertificateAuthentication10(
                 anonymous = anonymous,
@@ -6743,9 +6740,9 @@ public class IkeextCertificateAuthentication10 internal constructor(
 
 public class IkeextCertificateAuthentication100 internal constructor(
     public var inboundRootArraySize: UInt,
-    inboundRootArrayCtorArg: MutPtr<IkeextCertRootConfig0>,
+    inboundRootArrayCtorArg: MutPtr,
 ) {
-    public var inboundRootArray: MutPtr<IkeextCertRootConfig0> = inboundRootArrayCtorArg
+    public var inboundRootArray: MutPtr = inboundRootArrayCtorArg
         internal set
 
     public constructor() : this(
@@ -6755,9 +6752,9 @@ public class IkeextCertificateAuthentication100 internal constructor(
 
     public operator fun component1(): UInt = this.inboundRootArraySize
 
-    public operator fun component2(): MutPtr<IkeextCertRootConfig0> = this.inboundRootArray
+    public operator fun component2(): MutPtr = this.inboundRootArray
 
-    public fun copy(inboundRootArraySize: UInt = this.inboundRootArraySize, inboundRootArray: MutPtr<IkeextCertRootConfig0> = this.inboundRootArray): IkeextCertificateAuthentication100 = IkeextCertificateAuthentication100(inboundRootArraySize = inboundRootArraySize, inboundRootArrayCtorArg = inboundRootArray)
+    public fun copy(inboundRootArraySize: UInt = this.inboundRootArraySize, inboundRootArray: MutPtr = this.inboundRootArray): IkeextCertificateAuthentication100 = IkeextCertificateAuthentication100(inboundRootArraySize = inboundRootArraySize, inboundRootArrayCtorArg = inboundRootArray)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -6783,21 +6780,21 @@ public class IkeextCertificateAuthentication100 internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<IkeextCertRootConfig0>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                     )
                 override fun writeNative(addr: Long, value: IkeextCertificateAuthentication100) {
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr, value.inboundRootArraySize)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<IkeextCertRootConfig0>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.inboundRootArray)
                 }
             }
 
         public operator fun invoke(
             inboundRootArraySize: UInt = 0u,
-            inboundRootArray: MutPtr<IkeextCertRootConfig0> = MutPtr(0L),
+            inboundRootArray: MutPtr = MutPtr(0L),
         ): IkeextCertificateAuthentication100 =
             IkeextCertificateAuthentication100(
                 inboundRootArraySize = inboundRootArraySize,
@@ -6808,13 +6805,13 @@ public class IkeextCertificateAuthentication100 internal constructor(
 
 public class IkeextCertificateAuthentication11 internal constructor(
     public var anonymous: IkeextCertificateAuthentication110,
-    outboundEnterpriseStoreConfigCtorArg: MutPtr<IkeextCertRootConfig0>,
-    outboundTrustedRootStoreConfigCtorArg: MutPtr<IkeextCertRootConfig0>,
+    outboundEnterpriseStoreConfigCtorArg: MutPtr,
+    outboundTrustedRootStoreConfigCtorArg: MutPtr,
 ) {
-    public var outboundEnterpriseStoreConfig: MutPtr<IkeextCertRootConfig0> = outboundEnterpriseStoreConfigCtorArg
+    public var outboundEnterpriseStoreConfig: MutPtr = outboundEnterpriseStoreConfigCtorArg
         internal set
 
-    public var outboundTrustedRootStoreConfig: MutPtr<IkeextCertRootConfig0> = outboundTrustedRootStoreConfigCtorArg
+    public var outboundTrustedRootStoreConfig: MutPtr = outboundTrustedRootStoreConfigCtorArg
         internal set
 
     public constructor() : this(
@@ -6825,11 +6822,11 @@ public class IkeextCertificateAuthentication11 internal constructor(
 
     public operator fun component1(): IkeextCertificateAuthentication110 = this.anonymous
 
-    public operator fun component2(): MutPtr<IkeextCertRootConfig0> = this.outboundEnterpriseStoreConfig
+    public operator fun component2(): MutPtr = this.outboundEnterpriseStoreConfig
 
-    public operator fun component3(): MutPtr<IkeextCertRootConfig0> = this.outboundTrustedRootStoreConfig
+    public operator fun component3(): MutPtr = this.outboundTrustedRootStoreConfig
 
-    public fun copy(anonymous: IkeextCertificateAuthentication110 = this.anonymous, outboundEnterpriseStoreConfig: MutPtr<IkeextCertRootConfig0> = this.outboundEnterpriseStoreConfig, outboundTrustedRootStoreConfig: MutPtr<IkeextCertRootConfig0> = this.outboundTrustedRootStoreConfig): IkeextCertificateAuthentication11 = IkeextCertificateAuthentication11(anonymous = anonymous, outboundEnterpriseStoreConfigCtorArg = outboundEnterpriseStoreConfig, outboundTrustedRootStoreConfigCtorArg = outboundTrustedRootStoreConfig)
+    public fun copy(anonymous: IkeextCertificateAuthentication110 = this.anonymous, outboundEnterpriseStoreConfig: MutPtr = this.outboundEnterpriseStoreConfig, outboundTrustedRootStoreConfig: MutPtr = this.outboundTrustedRootStoreConfig): IkeextCertificateAuthentication11 = IkeextCertificateAuthentication11(anonymous = anonymous, outboundEnterpriseStoreConfigCtorArg = outboundEnterpriseStoreConfig, outboundTrustedRootStoreConfigCtorArg = outboundTrustedRootStoreConfig)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -6850,8 +6847,8 @@ public class IkeextCertificateAuthentication11 internal constructor(
     public companion object {
         public operator fun invoke(
             anonymous: IkeextCertificateAuthentication110 = IkeextCertificateAuthentication110(),
-            outboundEnterpriseStoreConfig: MutPtr<IkeextCertRootConfig0> = MutPtr(0L),
-            outboundTrustedRootStoreConfig: MutPtr<IkeextCertRootConfig0> = MutPtr(0L),
+            outboundEnterpriseStoreConfig: MutPtr = MutPtr(0L),
+            outboundTrustedRootStoreConfig: MutPtr = MutPtr(0L),
         ): IkeextCertificateAuthentication11 =
             IkeextCertificateAuthentication11(
                 anonymous = anonymous,
@@ -6863,9 +6860,9 @@ public class IkeextCertificateAuthentication11 internal constructor(
 
 public class IkeextCertificateAuthentication110 internal constructor(
     public var outboundRootArraySize: UInt,
-    outboundRootArrayCtorArg: MutPtr<IkeextCertRootConfig0>,
+    outboundRootArrayCtorArg: MutPtr,
 ) {
-    public var outboundRootArray: MutPtr<IkeextCertRootConfig0> = outboundRootArrayCtorArg
+    public var outboundRootArray: MutPtr = outboundRootArrayCtorArg
         internal set
 
     public constructor() : this(
@@ -6875,9 +6872,9 @@ public class IkeextCertificateAuthentication110 internal constructor(
 
     public operator fun component1(): UInt = this.outboundRootArraySize
 
-    public operator fun component2(): MutPtr<IkeextCertRootConfig0> = this.outboundRootArray
+    public operator fun component2(): MutPtr = this.outboundRootArray
 
-    public fun copy(outboundRootArraySize: UInt = this.outboundRootArraySize, outboundRootArray: MutPtr<IkeextCertRootConfig0> = this.outboundRootArray): IkeextCertificateAuthentication110 = IkeextCertificateAuthentication110(outboundRootArraySize = outboundRootArraySize, outboundRootArrayCtorArg = outboundRootArray)
+    public fun copy(outboundRootArraySize: UInt = this.outboundRootArraySize, outboundRootArray: MutPtr = this.outboundRootArray): IkeextCertificateAuthentication110 = IkeextCertificateAuthentication110(outboundRootArraySize = outboundRootArraySize, outboundRootArrayCtorArg = outboundRootArray)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -6903,21 +6900,21 @@ public class IkeextCertificateAuthentication110 internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<IkeextCertRootConfig0>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                     )
                 override fun writeNative(addr: Long, value: IkeextCertificateAuthentication110) {
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr, value.outboundRootArraySize)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<IkeextCertRootConfig0>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.outboundRootArray)
                 }
             }
 
         public operator fun invoke(
             outboundRootArraySize: UInt = 0u,
-            outboundRootArray: MutPtr<IkeextCertRootConfig0> = MutPtr(0L),
+            outboundRootArray: MutPtr = MutPtr(0L),
         ): IkeextCertificateAuthentication110 =
             IkeextCertificateAuthentication110(
                 outboundRootArraySize = outboundRootArraySize,
@@ -6943,9 +6940,9 @@ public data class IkeextCertificateAuthentication20(
 
 public class IkeextCertificateAuthentication200 internal constructor(
     public var inboundRootArraySize: UInt,
-    inboundRootCriteriaCtorArg: MutPtr<IkeextCertificateCriteria0>,
+    inboundRootCriteriaCtorArg: MutPtr,
 ) {
-    public var inboundRootCriteria: MutPtr<IkeextCertificateCriteria0> = inboundRootCriteriaCtorArg
+    public var inboundRootCriteria: MutPtr = inboundRootCriteriaCtorArg
         internal set
 
     public constructor() : this(
@@ -6955,9 +6952,9 @@ public class IkeextCertificateAuthentication200 internal constructor(
 
     public operator fun component1(): UInt = this.inboundRootArraySize
 
-    public operator fun component2(): MutPtr<IkeextCertificateCriteria0> = this.inboundRootCriteria
+    public operator fun component2(): MutPtr = this.inboundRootCriteria
 
-    public fun copy(inboundRootArraySize: UInt = this.inboundRootArraySize, inboundRootCriteria: MutPtr<IkeextCertificateCriteria0> = this.inboundRootCriteria): IkeextCertificateAuthentication200 = IkeextCertificateAuthentication200(inboundRootArraySize = inboundRootArraySize, inboundRootCriteriaCtorArg = inboundRootCriteria)
+    public fun copy(inboundRootArraySize: UInt = this.inboundRootArraySize, inboundRootCriteria: MutPtr = this.inboundRootCriteria): IkeextCertificateAuthentication200 = IkeextCertificateAuthentication200(inboundRootArraySize = inboundRootArraySize, inboundRootCriteriaCtorArg = inboundRootCriteria)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -6983,21 +6980,21 @@ public class IkeextCertificateAuthentication200 internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<IkeextCertificateCriteria0>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                     )
                 override fun writeNative(addr: Long, value: IkeextCertificateAuthentication200) {
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr, value.inboundRootArraySize)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<IkeextCertificateCriteria0>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.inboundRootCriteria)
                 }
             }
 
         public operator fun invoke(
             inboundRootArraySize: UInt = 0u,
-            inboundRootCriteria: MutPtr<IkeextCertificateCriteria0> = MutPtr(0L),
+            inboundRootCriteria: MutPtr = MutPtr(0L),
         ): IkeextCertificateAuthentication200 =
             IkeextCertificateAuthentication200(
                 inboundRootArraySize = inboundRootArraySize,
@@ -7008,9 +7005,9 @@ public class IkeextCertificateAuthentication200 internal constructor(
 
 public class IkeextCertificateAuthentication201 internal constructor(
     public var inboundEnterpriseStoreArraySize: UInt,
-    inboundEnterpriseStoreCriteriaCtorArg: MutPtr<IkeextCertificateCriteria0>,
+    inboundEnterpriseStoreCriteriaCtorArg: MutPtr,
 ) {
-    public var inboundEnterpriseStoreCriteria: MutPtr<IkeextCertificateCriteria0> = inboundEnterpriseStoreCriteriaCtorArg
+    public var inboundEnterpriseStoreCriteria: MutPtr = inboundEnterpriseStoreCriteriaCtorArg
         internal set
 
     public constructor() : this(
@@ -7020,9 +7017,9 @@ public class IkeextCertificateAuthentication201 internal constructor(
 
     public operator fun component1(): UInt = this.inboundEnterpriseStoreArraySize
 
-    public operator fun component2(): MutPtr<IkeextCertificateCriteria0> = this.inboundEnterpriseStoreCriteria
+    public operator fun component2(): MutPtr = this.inboundEnterpriseStoreCriteria
 
-    public fun copy(inboundEnterpriseStoreArraySize: UInt = this.inboundEnterpriseStoreArraySize, inboundEnterpriseStoreCriteria: MutPtr<IkeextCertificateCriteria0> = this.inboundEnterpriseStoreCriteria): IkeextCertificateAuthentication201 = IkeextCertificateAuthentication201(inboundEnterpriseStoreArraySize = inboundEnterpriseStoreArraySize, inboundEnterpriseStoreCriteriaCtorArg = inboundEnterpriseStoreCriteria)
+    public fun copy(inboundEnterpriseStoreArraySize: UInt = this.inboundEnterpriseStoreArraySize, inboundEnterpriseStoreCriteria: MutPtr = this.inboundEnterpriseStoreCriteria): IkeextCertificateAuthentication201 = IkeextCertificateAuthentication201(inboundEnterpriseStoreArraySize = inboundEnterpriseStoreArraySize, inboundEnterpriseStoreCriteriaCtorArg = inboundEnterpriseStoreCriteria)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -7048,21 +7045,21 @@ public class IkeextCertificateAuthentication201 internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<IkeextCertificateCriteria0>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                     )
                 override fun writeNative(addr: Long, value: IkeextCertificateAuthentication201) {
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr, value.inboundEnterpriseStoreArraySize)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<IkeextCertificateCriteria0>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.inboundEnterpriseStoreCriteria)
                 }
             }
 
         public operator fun invoke(
             inboundEnterpriseStoreArraySize: UInt = 0u,
-            inboundEnterpriseStoreCriteria: MutPtr<IkeextCertificateCriteria0> = MutPtr(0L),
+            inboundEnterpriseStoreCriteria: MutPtr = MutPtr(0L),
         ): IkeextCertificateAuthentication201 =
             IkeextCertificateAuthentication201(
                 inboundEnterpriseStoreArraySize = inboundEnterpriseStoreArraySize,
@@ -7073,9 +7070,9 @@ public class IkeextCertificateAuthentication201 internal constructor(
 
 public class IkeextCertificateAuthentication202 internal constructor(
     public var inboundRootStoreArraySize: UInt,
-    inboundTrustedRootStoreCriteriaCtorArg: MutPtr<IkeextCertificateCriteria0>,
+    inboundTrustedRootStoreCriteriaCtorArg: MutPtr,
 ) {
-    public var inboundTrustedRootStoreCriteria: MutPtr<IkeextCertificateCriteria0> = inboundTrustedRootStoreCriteriaCtorArg
+    public var inboundTrustedRootStoreCriteria: MutPtr = inboundTrustedRootStoreCriteriaCtorArg
         internal set
 
     public constructor() : this(
@@ -7085,9 +7082,9 @@ public class IkeextCertificateAuthentication202 internal constructor(
 
     public operator fun component1(): UInt = this.inboundRootStoreArraySize
 
-    public operator fun component2(): MutPtr<IkeextCertificateCriteria0> = this.inboundTrustedRootStoreCriteria
+    public operator fun component2(): MutPtr = this.inboundTrustedRootStoreCriteria
 
-    public fun copy(inboundRootStoreArraySize: UInt = this.inboundRootStoreArraySize, inboundTrustedRootStoreCriteria: MutPtr<IkeextCertificateCriteria0> = this.inboundTrustedRootStoreCriteria): IkeextCertificateAuthentication202 = IkeextCertificateAuthentication202(inboundRootStoreArraySize = inboundRootStoreArraySize, inboundTrustedRootStoreCriteriaCtorArg = inboundTrustedRootStoreCriteria)
+    public fun copy(inboundRootStoreArraySize: UInt = this.inboundRootStoreArraySize, inboundTrustedRootStoreCriteria: MutPtr = this.inboundTrustedRootStoreCriteria): IkeextCertificateAuthentication202 = IkeextCertificateAuthentication202(inboundRootStoreArraySize = inboundRootStoreArraySize, inboundTrustedRootStoreCriteriaCtorArg = inboundTrustedRootStoreCriteria)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -7113,21 +7110,21 @@ public class IkeextCertificateAuthentication202 internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<IkeextCertificateCriteria0>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                     )
                 override fun writeNative(addr: Long, value: IkeextCertificateAuthentication202) {
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr, value.inboundRootStoreArraySize)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<IkeextCertificateCriteria0>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.inboundTrustedRootStoreCriteria)
                 }
             }
 
         public operator fun invoke(
             inboundRootStoreArraySize: UInt = 0u,
-            inboundTrustedRootStoreCriteria: MutPtr<IkeextCertificateCriteria0> = MutPtr(0L),
+            inboundTrustedRootStoreCriteria: MutPtr = MutPtr(0L),
         ): IkeextCertificateAuthentication202 =
             IkeextCertificateAuthentication202(
                 inboundRootStoreArraySize = inboundRootStoreArraySize,
@@ -7144,9 +7141,9 @@ public data class IkeextCertificateAuthentication21(
 
 public class IkeextCertificateAuthentication210 internal constructor(
     public var outboundRootArraySize: UInt,
-    outboundRootCriteriaCtorArg: MutPtr<IkeextCertificateCriteria0>,
+    outboundRootCriteriaCtorArg: MutPtr,
 ) {
-    public var outboundRootCriteria: MutPtr<IkeextCertificateCriteria0> = outboundRootCriteriaCtorArg
+    public var outboundRootCriteria: MutPtr = outboundRootCriteriaCtorArg
         internal set
 
     public constructor() : this(
@@ -7156,9 +7153,9 @@ public class IkeextCertificateAuthentication210 internal constructor(
 
     public operator fun component1(): UInt = this.outboundRootArraySize
 
-    public operator fun component2(): MutPtr<IkeextCertificateCriteria0> = this.outboundRootCriteria
+    public operator fun component2(): MutPtr = this.outboundRootCriteria
 
-    public fun copy(outboundRootArraySize: UInt = this.outboundRootArraySize, outboundRootCriteria: MutPtr<IkeextCertificateCriteria0> = this.outboundRootCriteria): IkeextCertificateAuthentication210 = IkeextCertificateAuthentication210(outboundRootArraySize = outboundRootArraySize, outboundRootCriteriaCtorArg = outboundRootCriteria)
+    public fun copy(outboundRootArraySize: UInt = this.outboundRootArraySize, outboundRootCriteria: MutPtr = this.outboundRootCriteria): IkeextCertificateAuthentication210 = IkeextCertificateAuthentication210(outboundRootArraySize = outboundRootArraySize, outboundRootCriteriaCtorArg = outboundRootCriteria)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -7184,21 +7181,21 @@ public class IkeextCertificateAuthentication210 internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<IkeextCertificateCriteria0>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                     )
                 override fun writeNative(addr: Long, value: IkeextCertificateAuthentication210) {
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr, value.outboundRootArraySize)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<IkeextCertificateCriteria0>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.outboundRootCriteria)
                 }
             }
 
         public operator fun invoke(
             outboundRootArraySize: UInt = 0u,
-            outboundRootCriteria: MutPtr<IkeextCertificateCriteria0> = MutPtr(0L),
+            outboundRootCriteria: MutPtr = MutPtr(0L),
         ): IkeextCertificateAuthentication210 =
             IkeextCertificateAuthentication210(
                 outboundRootArraySize = outboundRootArraySize,
@@ -7209,9 +7206,9 @@ public class IkeextCertificateAuthentication210 internal constructor(
 
 public class IkeextCertificateAuthentication211 internal constructor(
     public var outboundEnterpriseStoreArraySize: UInt,
-    outboundEnterpriseStoreCriteriaCtorArg: MutPtr<IkeextCertificateCriteria0>,
+    outboundEnterpriseStoreCriteriaCtorArg: MutPtr,
 ) {
-    public var outboundEnterpriseStoreCriteria: MutPtr<IkeextCertificateCriteria0> = outboundEnterpriseStoreCriteriaCtorArg
+    public var outboundEnterpriseStoreCriteria: MutPtr = outboundEnterpriseStoreCriteriaCtorArg
         internal set
 
     public constructor() : this(
@@ -7221,9 +7218,9 @@ public class IkeextCertificateAuthentication211 internal constructor(
 
     public operator fun component1(): UInt = this.outboundEnterpriseStoreArraySize
 
-    public operator fun component2(): MutPtr<IkeextCertificateCriteria0> = this.outboundEnterpriseStoreCriteria
+    public operator fun component2(): MutPtr = this.outboundEnterpriseStoreCriteria
 
-    public fun copy(outboundEnterpriseStoreArraySize: UInt = this.outboundEnterpriseStoreArraySize, outboundEnterpriseStoreCriteria: MutPtr<IkeextCertificateCriteria0> = this.outboundEnterpriseStoreCriteria): IkeextCertificateAuthentication211 = IkeextCertificateAuthentication211(outboundEnterpriseStoreArraySize = outboundEnterpriseStoreArraySize, outboundEnterpriseStoreCriteriaCtorArg = outboundEnterpriseStoreCriteria)
+    public fun copy(outboundEnterpriseStoreArraySize: UInt = this.outboundEnterpriseStoreArraySize, outboundEnterpriseStoreCriteria: MutPtr = this.outboundEnterpriseStoreCriteria): IkeextCertificateAuthentication211 = IkeextCertificateAuthentication211(outboundEnterpriseStoreArraySize = outboundEnterpriseStoreArraySize, outboundEnterpriseStoreCriteriaCtorArg = outboundEnterpriseStoreCriteria)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -7249,21 +7246,21 @@ public class IkeextCertificateAuthentication211 internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<IkeextCertificateCriteria0>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                     )
                 override fun writeNative(addr: Long, value: IkeextCertificateAuthentication211) {
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr, value.outboundEnterpriseStoreArraySize)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<IkeextCertificateCriteria0>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.outboundEnterpriseStoreCriteria)
                 }
             }
 
         public operator fun invoke(
             outboundEnterpriseStoreArraySize: UInt = 0u,
-            outboundEnterpriseStoreCriteria: MutPtr<IkeextCertificateCriteria0> = MutPtr(0L),
+            outboundEnterpriseStoreCriteria: MutPtr = MutPtr(0L),
         ): IkeextCertificateAuthentication211 =
             IkeextCertificateAuthentication211(
                 outboundEnterpriseStoreArraySize = outboundEnterpriseStoreArraySize,
@@ -7274,9 +7271,9 @@ public class IkeextCertificateAuthentication211 internal constructor(
 
 public class IkeextCertificateAuthentication212 internal constructor(
     public var outboundRootStoreArraySize: UInt,
-    outboundTrustedRootStoreCriteriaCtorArg: MutPtr<IkeextCertificateCriteria0>,
+    outboundTrustedRootStoreCriteriaCtorArg: MutPtr,
 ) {
-    public var outboundTrustedRootStoreCriteria: MutPtr<IkeextCertificateCriteria0> = outboundTrustedRootStoreCriteriaCtorArg
+    public var outboundTrustedRootStoreCriteria: MutPtr = outboundTrustedRootStoreCriteriaCtorArg
         internal set
 
     public constructor() : this(
@@ -7286,9 +7283,9 @@ public class IkeextCertificateAuthentication212 internal constructor(
 
     public operator fun component1(): UInt = this.outboundRootStoreArraySize
 
-    public operator fun component2(): MutPtr<IkeextCertificateCriteria0> = this.outboundTrustedRootStoreCriteria
+    public operator fun component2(): MutPtr = this.outboundTrustedRootStoreCriteria
 
-    public fun copy(outboundRootStoreArraySize: UInt = this.outboundRootStoreArraySize, outboundTrustedRootStoreCriteria: MutPtr<IkeextCertificateCriteria0> = this.outboundTrustedRootStoreCriteria): IkeextCertificateAuthentication212 = IkeextCertificateAuthentication212(outboundRootStoreArraySize = outboundRootStoreArraySize, outboundTrustedRootStoreCriteriaCtorArg = outboundTrustedRootStoreCriteria)
+    public fun copy(outboundRootStoreArraySize: UInt = this.outboundRootStoreArraySize, outboundTrustedRootStoreCriteria: MutPtr = this.outboundTrustedRootStoreCriteria): IkeextCertificateAuthentication212 = IkeextCertificateAuthentication212(outboundRootStoreArraySize = outboundRootStoreArraySize, outboundTrustedRootStoreCriteriaCtorArg = outboundTrustedRootStoreCriteria)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -7314,21 +7311,21 @@ public class IkeextCertificateAuthentication212 internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<IkeextCertificateCriteria0>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                     )
                 override fun writeNative(addr: Long, value: IkeextCertificateAuthentication212) {
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr, value.outboundRootStoreArraySize)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<IkeextCertificateCriteria0>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.outboundTrustedRootStoreCriteria)
                 }
             }
 
         public operator fun invoke(
             outboundRootStoreArraySize: UInt = 0u,
-            outboundTrustedRootStoreCriteria: MutPtr<IkeextCertificateCriteria0> = MutPtr(0L),
+            outboundTrustedRootStoreCriteria: MutPtr = MutPtr(0L),
         ): IkeextCertificateAuthentication212 =
             IkeextCertificateAuthentication212(
                 outboundRootStoreArraySize = outboundRootStoreArraySize,
@@ -7393,14 +7390,14 @@ public data class IkeextCertificateCredential1(
 public class IkeextCertificateCriteria0 internal constructor(
     public var certData: FwpByteBlob,
     public var certHash: FwpByteBlob,
-    ekuCtorArg: MutPtr<IkeextCertEkus0>,
-    nameCtorArg: MutPtr<IkeextCertName0>,
+    ekuCtorArg: MutPtr,
+    nameCtorArg: MutPtr,
     public var flags: UInt,
 ) {
-    public var eku: MutPtr<IkeextCertEkus0> = ekuCtorArg
+    public var eku: MutPtr = ekuCtorArg
         internal set
 
-    public var name: MutPtr<IkeextCertName0> = nameCtorArg
+    public var name: MutPtr = nameCtorArg
         internal set
 
     public constructor() : this(
@@ -7415,13 +7412,13 @@ public class IkeextCertificateCriteria0 internal constructor(
 
     public operator fun component2(): FwpByteBlob = this.certHash
 
-    public operator fun component3(): MutPtr<IkeextCertEkus0> = this.eku
+    public operator fun component3(): MutPtr = this.eku
 
-    public operator fun component4(): MutPtr<IkeextCertName0> = this.name
+    public operator fun component4(): MutPtr = this.name
 
     public operator fun component5(): UInt = this.flags
 
-    public fun copy(certData: FwpByteBlob = this.certData, certHash: FwpByteBlob = this.certHash, eku: MutPtr<IkeextCertEkus0> = this.eku, name: MutPtr<IkeextCertName0> = this.name, flags: UInt = this.flags): IkeextCertificateCriteria0 = IkeextCertificateCriteria0(certData = certData, certHash = certHash, ekuCtorArg = eku, nameCtorArg = name, flags = flags)
+    public fun copy(certData: FwpByteBlob = this.certData, certHash: FwpByteBlob = this.certHash, eku: MutPtr = this.eku, name: MutPtr = this.name, flags: UInt = this.flags): IkeextCertificateCriteria0 = IkeextCertificateCriteria0(certData = certData, certHash = certHash, ekuCtorArg = eku, nameCtorArg = name, flags = flags)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -7454,11 +7451,11 @@ public class IkeextCertificateCriteria0 internal constructor(
                         (FwpByteBlob.typeLayout()).readNative(addr + 16L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<IkeextCertEkus0>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 32L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<IkeextCertName0>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 40L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 48L),
                     )
@@ -7467,11 +7464,11 @@ public class IkeextCertificateCriteria0 internal constructor(
                     (FwpByteBlob.typeLayout()).writeNative(addr + 16L, value.certHash)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<IkeextCertEkus0>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 32L, value.eku)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<IkeextCertName0>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 40L, value.name)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 48L, value.flags)
                 }
@@ -7480,8 +7477,8 @@ public class IkeextCertificateCriteria0 internal constructor(
         public operator fun invoke(
             certData: FwpByteBlob = FwpByteBlob(),
             certHash: FwpByteBlob = FwpByteBlob(),
-            eku: MutPtr<IkeextCertEkus0> = MutPtr(0L),
-            name: MutPtr<IkeextCertName0> = MutPtr(0L),
+            eku: MutPtr = MutPtr(0L),
+            name: MutPtr = MutPtr(0L),
             flags: UInt = 0u,
         ): IkeextCertificateCriteria0 =
             IkeextCertificateCriteria0(
@@ -7496,9 +7493,9 @@ public class IkeextCertificateCriteria0 internal constructor(
 
 public class IkeextCertEkus0 internal constructor(
     public var numEku: UInt,
-    ekuCtorArg: MutPtr<Pstr>,
+    ekuCtorArg: MutPtr,
 ) {
-    public var eku: MutPtr<Pstr> = ekuCtorArg
+    public var eku: MutPtr = ekuCtorArg
         internal set
 
     public constructor() : this(
@@ -7508,9 +7505,9 @@ public class IkeextCertEkus0 internal constructor(
 
     public operator fun component1(): UInt = this.numEku
 
-    public operator fun component2(): MutPtr<Pstr> = this.eku
+    public operator fun component2(): MutPtr = this.eku
 
-    public fun copy(numEku: UInt = this.numEku, eku: MutPtr<Pstr> = this.eku): IkeextCertEkus0 = IkeextCertEkus0(numEku = numEku, ekuCtorArg = eku)
+    public fun copy(numEku: UInt = this.numEku, eku: MutPtr = this.eku): IkeextCertEkus0 = IkeextCertEkus0(numEku = numEku, ekuCtorArg = eku)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -7536,21 +7533,21 @@ public class IkeextCertEkus0 internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<Pstr>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                     )
                 override fun writeNative(addr: Long, value: IkeextCertEkus0) {
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr, value.numEku)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<Pstr>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.eku)
                 }
             }
 
         public operator fun invoke(
             numEku: UInt = 0u,
-            eku: MutPtr<Pstr> = MutPtr(0L),
+            eku: MutPtr = MutPtr(0L),
         ): IkeextCertEkus0 =
             IkeextCertEkus0(
                 numEku = numEku,
@@ -7741,17 +7738,17 @@ public data class IkeextCredential0(
 )
 
 public class IkeextCredential00 internal constructor(
-    presharedKeyCtorArg: MutPtr<IkeextPresharedKeyAuthentication0>,
-    certificateCtorArg: MutPtr<IkeextCertificateCredential0>,
-    nameCtorArg: MutPtr<IkeextNameCredential0>,
+    presharedKeyCtorArg: MutPtr,
+    certificateCtorArg: MutPtr,
+    nameCtorArg: MutPtr,
 ) {
-    public var presharedKey: MutPtr<IkeextPresharedKeyAuthentication0> = presharedKeyCtorArg
+    public var presharedKey: MutPtr = presharedKeyCtorArg
         internal set
 
-    public var certificate: MutPtr<IkeextCertificateCredential0> = certificateCtorArg
+    public var certificate: MutPtr = certificateCtorArg
         internal set
 
-    public var name: MutPtr<IkeextNameCredential0> = nameCtorArg
+    public var name: MutPtr = nameCtorArg
         internal set
 
     public constructor() : this(
@@ -7760,13 +7757,13 @@ public class IkeextCredential00 internal constructor(
         nameCtorArg = MutPtr(0L),
     )
 
-    public operator fun component1(): MutPtr<IkeextPresharedKeyAuthentication0> = this.presharedKey
+    public operator fun component1(): MutPtr = this.presharedKey
 
-    public operator fun component2(): MutPtr<IkeextCertificateCredential0> = this.certificate
+    public operator fun component2(): MutPtr = this.certificate
 
-    public operator fun component3(): MutPtr<IkeextNameCredential0> = this.name
+    public operator fun component3(): MutPtr = this.name
 
-    public fun copy(presharedKey: MutPtr<IkeextPresharedKeyAuthentication0> = this.presharedKey, certificate: MutPtr<IkeextCertificateCredential0> = this.certificate, name: MutPtr<IkeextNameCredential0> = this.name): IkeextCredential00 = IkeextCredential00(presharedKeyCtorArg = presharedKey, certificateCtorArg = certificate, nameCtorArg = name)
+    public fun copy(presharedKey: MutPtr = this.presharedKey, certificate: MutPtr = this.certificate, name: MutPtr = this.name): IkeextCredential00 = IkeextCredential00(presharedKeyCtorArg = presharedKey, certificateCtorArg = certificate, nameCtorArg = name)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -7786,9 +7783,9 @@ public class IkeextCredential00 internal constructor(
 
     public companion object {
         public operator fun invoke(
-            presharedKey: MutPtr<IkeextPresharedKeyAuthentication0> = MutPtr(0L),
-            certificate: MutPtr<IkeextCertificateCredential0> = MutPtr(0L),
-            name: MutPtr<IkeextNameCredential0> = MutPtr(0L),
+            presharedKey: MutPtr = MutPtr(0L),
+            certificate: MutPtr = MutPtr(0L),
+            name: MutPtr = MutPtr(0L),
         ): IkeextCredential00 =
             IkeextCredential00(
                 presharedKeyCtorArg = presharedKey,
@@ -7805,17 +7802,17 @@ public data class IkeextCredential1(
 )
 
 public class IkeextCredential10 internal constructor(
-    presharedKeyCtorArg: MutPtr<IkeextPresharedKeyAuthentication1>,
-    certificateCtorArg: MutPtr<IkeextCertificateCredential1>,
-    nameCtorArg: MutPtr<IkeextNameCredential0>,
+    presharedKeyCtorArg: MutPtr,
+    certificateCtorArg: MutPtr,
+    nameCtorArg: MutPtr,
 ) {
-    public var presharedKey: MutPtr<IkeextPresharedKeyAuthentication1> = presharedKeyCtorArg
+    public var presharedKey: MutPtr = presharedKeyCtorArg
         internal set
 
-    public var certificate: MutPtr<IkeextCertificateCredential1> = certificateCtorArg
+    public var certificate: MutPtr = certificateCtorArg
         internal set
 
-    public var name: MutPtr<IkeextNameCredential0> = nameCtorArg
+    public var name: MutPtr = nameCtorArg
         internal set
 
     public constructor() : this(
@@ -7824,13 +7821,13 @@ public class IkeextCredential10 internal constructor(
         nameCtorArg = MutPtr(0L),
     )
 
-    public operator fun component1(): MutPtr<IkeextPresharedKeyAuthentication1> = this.presharedKey
+    public operator fun component1(): MutPtr = this.presharedKey
 
-    public operator fun component2(): MutPtr<IkeextCertificateCredential1> = this.certificate
+    public operator fun component2(): MutPtr = this.certificate
 
-    public operator fun component3(): MutPtr<IkeextNameCredential0> = this.name
+    public operator fun component3(): MutPtr = this.name
 
-    public fun copy(presharedKey: MutPtr<IkeextPresharedKeyAuthentication1> = this.presharedKey, certificate: MutPtr<IkeextCertificateCredential1> = this.certificate, name: MutPtr<IkeextNameCredential0> = this.name): IkeextCredential10 = IkeextCredential10(presharedKeyCtorArg = presharedKey, certificateCtorArg = certificate, nameCtorArg = name)
+    public fun copy(presharedKey: MutPtr = this.presharedKey, certificate: MutPtr = this.certificate, name: MutPtr = this.name): IkeextCredential10 = IkeextCredential10(presharedKeyCtorArg = presharedKey, certificateCtorArg = certificate, nameCtorArg = name)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -7850,9 +7847,9 @@ public class IkeextCredential10 internal constructor(
 
     public companion object {
         public operator fun invoke(
-            presharedKey: MutPtr<IkeextPresharedKeyAuthentication1> = MutPtr(0L),
-            certificate: MutPtr<IkeextCertificateCredential1> = MutPtr(0L),
-            name: MutPtr<IkeextNameCredential0> = MutPtr(0L),
+            presharedKey: MutPtr = MutPtr(0L),
+            certificate: MutPtr = MutPtr(0L),
+            name: MutPtr = MutPtr(0L),
         ): IkeextCredential10 =
             IkeextCredential10(
                 presharedKeyCtorArg = presharedKey,
@@ -7869,17 +7866,17 @@ public data class IkeextCredential2(
 )
 
 public class IkeextCredential20 internal constructor(
-    presharedKeyCtorArg: MutPtr<IkeextPresharedKeyAuthentication1>,
-    certificateCtorArg: MutPtr<IkeextCertificateCredential1>,
-    nameCtorArg: MutPtr<IkeextNameCredential0>,
+    presharedKeyCtorArg: MutPtr,
+    certificateCtorArg: MutPtr,
+    nameCtorArg: MutPtr,
 ) {
-    public var presharedKey: MutPtr<IkeextPresharedKeyAuthentication1> = presharedKeyCtorArg
+    public var presharedKey: MutPtr = presharedKeyCtorArg
         internal set
 
-    public var certificate: MutPtr<IkeextCertificateCredential1> = certificateCtorArg
+    public var certificate: MutPtr = certificateCtorArg
         internal set
 
-    public var name: MutPtr<IkeextNameCredential0> = nameCtorArg
+    public var name: MutPtr = nameCtorArg
         internal set
 
     public constructor() : this(
@@ -7888,13 +7885,13 @@ public class IkeextCredential20 internal constructor(
         nameCtorArg = MutPtr(0L),
     )
 
-    public operator fun component1(): MutPtr<IkeextPresharedKeyAuthentication1> = this.presharedKey
+    public operator fun component1(): MutPtr = this.presharedKey
 
-    public operator fun component2(): MutPtr<IkeextCertificateCredential1> = this.certificate
+    public operator fun component2(): MutPtr = this.certificate
 
-    public operator fun component3(): MutPtr<IkeextNameCredential0> = this.name
+    public operator fun component3(): MutPtr = this.name
 
-    public fun copy(presharedKey: MutPtr<IkeextPresharedKeyAuthentication1> = this.presharedKey, certificate: MutPtr<IkeextCertificateCredential1> = this.certificate, name: MutPtr<IkeextNameCredential0> = this.name): IkeextCredential20 = IkeextCredential20(presharedKeyCtorArg = presharedKey, certificateCtorArg = certificate, nameCtorArg = name)
+    public fun copy(presharedKey: MutPtr = this.presharedKey, certificate: MutPtr = this.certificate, name: MutPtr = this.name): IkeextCredential20 = IkeextCredential20(presharedKeyCtorArg = presharedKey, certificateCtorArg = certificate, nameCtorArg = name)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -7914,9 +7911,9 @@ public class IkeextCredential20 internal constructor(
 
     public companion object {
         public operator fun invoke(
-            presharedKey: MutPtr<IkeextPresharedKeyAuthentication1> = MutPtr(0L),
-            certificate: MutPtr<IkeextCertificateCredential1> = MutPtr(0L),
-            name: MutPtr<IkeextNameCredential0> = MutPtr(0L),
+            presharedKey: MutPtr = MutPtr(0L),
+            certificate: MutPtr = MutPtr(0L),
+            name: MutPtr = MutPtr(0L),
         ): IkeextCredential20 =
             IkeextCredential20(
                 presharedKeyCtorArg = presharedKey,
@@ -7928,9 +7925,9 @@ public class IkeextCredential20 internal constructor(
 
 public class IkeextCredentials0 internal constructor(
     public var numCredentials: UInt,
-    credentialsCtorArg: MutPtr<IkeextCredentialPair0>,
+    credentialsCtorArg: MutPtr,
 ) {
-    public var credentials: MutPtr<IkeextCredentialPair0> = credentialsCtorArg
+    public var credentials: MutPtr = credentialsCtorArg
         internal set
 
     public constructor() : this(
@@ -7940,9 +7937,9 @@ public class IkeextCredentials0 internal constructor(
 
     public operator fun component1(): UInt = this.numCredentials
 
-    public operator fun component2(): MutPtr<IkeextCredentialPair0> = this.credentials
+    public operator fun component2(): MutPtr = this.credentials
 
-    public fun copy(numCredentials: UInt = this.numCredentials, credentials: MutPtr<IkeextCredentialPair0> = this.credentials): IkeextCredentials0 = IkeextCredentials0(numCredentials = numCredentials, credentialsCtorArg = credentials)
+    public fun copy(numCredentials: UInt = this.numCredentials, credentials: MutPtr = this.credentials): IkeextCredentials0 = IkeextCredentials0(numCredentials = numCredentials, credentialsCtorArg = credentials)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -7968,21 +7965,21 @@ public class IkeextCredentials0 internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<IkeextCredentialPair0>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                     )
                 override fun writeNative(addr: Long, value: IkeextCredentials0) {
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr, value.numCredentials)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<IkeextCredentialPair0>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.credentials)
                 }
             }
 
         public operator fun invoke(
             numCredentials: UInt = 0u,
-            credentials: MutPtr<IkeextCredentialPair0> = MutPtr(0L),
+            credentials: MutPtr = MutPtr(0L),
         ): IkeextCredentials0 =
             IkeextCredentials0(
                 numCredentials = numCredentials,
@@ -7993,9 +7990,9 @@ public class IkeextCredentials0 internal constructor(
 
 public class IkeextCredentials1 internal constructor(
     public var numCredentials: UInt,
-    credentialsCtorArg: MutPtr<IkeextCredentialPair1>,
+    credentialsCtorArg: MutPtr,
 ) {
-    public var credentials: MutPtr<IkeextCredentialPair1> = credentialsCtorArg
+    public var credentials: MutPtr = credentialsCtorArg
         internal set
 
     public constructor() : this(
@@ -8005,9 +8002,9 @@ public class IkeextCredentials1 internal constructor(
 
     public operator fun component1(): UInt = this.numCredentials
 
-    public operator fun component2(): MutPtr<IkeextCredentialPair1> = this.credentials
+    public operator fun component2(): MutPtr = this.credentials
 
-    public fun copy(numCredentials: UInt = this.numCredentials, credentials: MutPtr<IkeextCredentialPair1> = this.credentials): IkeextCredentials1 = IkeextCredentials1(numCredentials = numCredentials, credentialsCtorArg = credentials)
+    public fun copy(numCredentials: UInt = this.numCredentials, credentials: MutPtr = this.credentials): IkeextCredentials1 = IkeextCredentials1(numCredentials = numCredentials, credentialsCtorArg = credentials)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -8033,21 +8030,21 @@ public class IkeextCredentials1 internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<IkeextCredentialPair1>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                     )
                 override fun writeNative(addr: Long, value: IkeextCredentials1) {
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr, value.numCredentials)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<IkeextCredentialPair1>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.credentials)
                 }
             }
 
         public operator fun invoke(
             numCredentials: UInt = 0u,
-            credentials: MutPtr<IkeextCredentialPair1> = MutPtr(0L),
+            credentials: MutPtr = MutPtr(0L),
         ): IkeextCredentials1 =
             IkeextCredentials1(
                 numCredentials = numCredentials,
@@ -8058,9 +8055,9 @@ public class IkeextCredentials1 internal constructor(
 
 public class IkeextCredentials2 internal constructor(
     public var numCredentials: UInt,
-    credentialsCtorArg: MutPtr<IkeextCredentialPair2>,
+    credentialsCtorArg: MutPtr,
 ) {
-    public var credentials: MutPtr<IkeextCredentialPair2> = credentialsCtorArg
+    public var credentials: MutPtr = credentialsCtorArg
         internal set
 
     public constructor() : this(
@@ -8070,9 +8067,9 @@ public class IkeextCredentials2 internal constructor(
 
     public operator fun component1(): UInt = this.numCredentials
 
-    public operator fun component2(): MutPtr<IkeextCredentialPair2> = this.credentials
+    public operator fun component2(): MutPtr = this.credentials
 
-    public fun copy(numCredentials: UInt = this.numCredentials, credentials: MutPtr<IkeextCredentialPair2> = this.credentials): IkeextCredentials2 = IkeextCredentials2(numCredentials = numCredentials, credentialsCtorArg = credentials)
+    public fun copy(numCredentials: UInt = this.numCredentials, credentials: MutPtr = this.credentials): IkeextCredentials2 = IkeextCredentials2(numCredentials = numCredentials, credentialsCtorArg = credentials)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -8098,21 +8095,21 @@ public class IkeextCredentials2 internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<IkeextCredentialPair2>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                     )
                 override fun writeNative(addr: Long, value: IkeextCredentials2) {
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr, value.numCredentials)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<IkeextCredentialPair2>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.credentials)
                 }
             }
 
         public operator fun invoke(
             numCredentials: UInt = 0u,
-            credentials: MutPtr<IkeextCredentialPair2> = MutPtr(0L),
+            credentials: MutPtr = MutPtr(0L),
         ): IkeextCredentials2 =
             IkeextCredentials2(
                 numCredentials = numCredentials,
@@ -8157,10 +8154,10 @@ public data class IkeextEapAuthentication0(
 
 public class IkeextEmPolicy0 internal constructor(
     public var numAuthenticationMethods: UInt,
-    authenticationMethodsCtorArg: MutPtr<IkeextAuthenticationMethod0>,
+    authenticationMethodsCtorArg: MutPtr,
     public var initiatorImpersonationType: IkeextAuthenticationImpersonationType,
 ) {
-    public var authenticationMethods: MutPtr<IkeextAuthenticationMethod0> = authenticationMethodsCtorArg
+    public var authenticationMethods: MutPtr = authenticationMethodsCtorArg
         internal set
 
     public constructor() : this(
@@ -8171,11 +8168,11 @@ public class IkeextEmPolicy0 internal constructor(
 
     public operator fun component1(): UInt = this.numAuthenticationMethods
 
-    public operator fun component2(): MutPtr<IkeextAuthenticationMethod0> = this.authenticationMethods
+    public operator fun component2(): MutPtr = this.authenticationMethods
 
     public operator fun component3(): IkeextAuthenticationImpersonationType = this.initiatorImpersonationType
 
-    public fun copy(numAuthenticationMethods: UInt = this.numAuthenticationMethods, authenticationMethods: MutPtr<IkeextAuthenticationMethod0> = this.authenticationMethods, initiatorImpersonationType: IkeextAuthenticationImpersonationType = this.initiatorImpersonationType): IkeextEmPolicy0 = IkeextEmPolicy0(numAuthenticationMethods = numAuthenticationMethods, authenticationMethodsCtorArg = authenticationMethods, initiatorImpersonationType = initiatorImpersonationType)
+    public fun copy(numAuthenticationMethods: UInt = this.numAuthenticationMethods, authenticationMethods: MutPtr = this.authenticationMethods, initiatorImpersonationType: IkeextAuthenticationImpersonationType = this.initiatorImpersonationType): IkeextEmPolicy0 = IkeextEmPolicy0(numAuthenticationMethods = numAuthenticationMethods, authenticationMethodsCtorArg = authenticationMethods, initiatorImpersonationType = initiatorImpersonationType)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -8203,7 +8200,7 @@ public class IkeextEmPolicy0 internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<IkeextAuthenticationMethod0>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr + 16L),
                     )
@@ -8211,7 +8208,7 @@ public class IkeextEmPolicy0 internal constructor(
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr, value.numAuthenticationMethods)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<IkeextAuthenticationMethod0>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.authenticationMethods)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr + 16L, value.initiatorImpersonationType)
                 }
@@ -8219,7 +8216,7 @@ public class IkeextEmPolicy0 internal constructor(
 
         public operator fun invoke(
             numAuthenticationMethods: UInt = 0u,
-            authenticationMethods: MutPtr<IkeextAuthenticationMethod0> = MutPtr(0L),
+            authenticationMethods: MutPtr = MutPtr(0L),
             initiatorImpersonationType: IkeextAuthenticationImpersonationType = 0,
         ): IkeextEmPolicy0 =
             IkeextEmPolicy0(
@@ -8232,10 +8229,10 @@ public class IkeextEmPolicy0 internal constructor(
 
 public class IkeextEmPolicy1 internal constructor(
     public var numAuthenticationMethods: UInt,
-    authenticationMethodsCtorArg: MutPtr<IkeextAuthenticationMethod1>,
+    authenticationMethodsCtorArg: MutPtr,
     public var initiatorImpersonationType: IkeextAuthenticationImpersonationType,
 ) {
-    public var authenticationMethods: MutPtr<IkeextAuthenticationMethod1> = authenticationMethodsCtorArg
+    public var authenticationMethods: MutPtr = authenticationMethodsCtorArg
         internal set
 
     public constructor() : this(
@@ -8246,11 +8243,11 @@ public class IkeextEmPolicy1 internal constructor(
 
     public operator fun component1(): UInt = this.numAuthenticationMethods
 
-    public operator fun component2(): MutPtr<IkeextAuthenticationMethod1> = this.authenticationMethods
+    public operator fun component2(): MutPtr = this.authenticationMethods
 
     public operator fun component3(): IkeextAuthenticationImpersonationType = this.initiatorImpersonationType
 
-    public fun copy(numAuthenticationMethods: UInt = this.numAuthenticationMethods, authenticationMethods: MutPtr<IkeextAuthenticationMethod1> = this.authenticationMethods, initiatorImpersonationType: IkeextAuthenticationImpersonationType = this.initiatorImpersonationType): IkeextEmPolicy1 = IkeextEmPolicy1(numAuthenticationMethods = numAuthenticationMethods, authenticationMethodsCtorArg = authenticationMethods, initiatorImpersonationType = initiatorImpersonationType)
+    public fun copy(numAuthenticationMethods: UInt = this.numAuthenticationMethods, authenticationMethods: MutPtr = this.authenticationMethods, initiatorImpersonationType: IkeextAuthenticationImpersonationType = this.initiatorImpersonationType): IkeextEmPolicy1 = IkeextEmPolicy1(numAuthenticationMethods = numAuthenticationMethods, authenticationMethodsCtorArg = authenticationMethods, initiatorImpersonationType = initiatorImpersonationType)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -8278,7 +8275,7 @@ public class IkeextEmPolicy1 internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<IkeextAuthenticationMethod1>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr + 16L),
                     )
@@ -8286,7 +8283,7 @@ public class IkeextEmPolicy1 internal constructor(
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr, value.numAuthenticationMethods)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<IkeextAuthenticationMethod1>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.authenticationMethods)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr + 16L, value.initiatorImpersonationType)
                 }
@@ -8294,7 +8291,7 @@ public class IkeextEmPolicy1 internal constructor(
 
         public operator fun invoke(
             numAuthenticationMethods: UInt = 0u,
-            authenticationMethods: MutPtr<IkeextAuthenticationMethod1> = MutPtr(0L),
+            authenticationMethods: MutPtr = MutPtr(0L),
             initiatorImpersonationType: IkeextAuthenticationImpersonationType = 0,
         ): IkeextEmPolicy1 =
             IkeextEmPolicy1(
@@ -8307,10 +8304,10 @@ public class IkeextEmPolicy1 internal constructor(
 
 public class IkeextEmPolicy2 internal constructor(
     public var numAuthenticationMethods: UInt,
-    authenticationMethodsCtorArg: MutPtr<IkeextAuthenticationMethod2>,
+    authenticationMethodsCtorArg: MutPtr,
     public var initiatorImpersonationType: IkeextAuthenticationImpersonationType,
 ) {
-    public var authenticationMethods: MutPtr<IkeextAuthenticationMethod2> = authenticationMethodsCtorArg
+    public var authenticationMethods: MutPtr = authenticationMethodsCtorArg
         internal set
 
     public constructor() : this(
@@ -8321,11 +8318,11 @@ public class IkeextEmPolicy2 internal constructor(
 
     public operator fun component1(): UInt = this.numAuthenticationMethods
 
-    public operator fun component2(): MutPtr<IkeextAuthenticationMethod2> = this.authenticationMethods
+    public operator fun component2(): MutPtr = this.authenticationMethods
 
     public operator fun component3(): IkeextAuthenticationImpersonationType = this.initiatorImpersonationType
 
-    public fun copy(numAuthenticationMethods: UInt = this.numAuthenticationMethods, authenticationMethods: MutPtr<IkeextAuthenticationMethod2> = this.authenticationMethods, initiatorImpersonationType: IkeextAuthenticationImpersonationType = this.initiatorImpersonationType): IkeextEmPolicy2 = IkeextEmPolicy2(numAuthenticationMethods = numAuthenticationMethods, authenticationMethodsCtorArg = authenticationMethods, initiatorImpersonationType = initiatorImpersonationType)
+    public fun copy(numAuthenticationMethods: UInt = this.numAuthenticationMethods, authenticationMethods: MutPtr = this.authenticationMethods, initiatorImpersonationType: IkeextAuthenticationImpersonationType = this.initiatorImpersonationType): IkeextEmPolicy2 = IkeextEmPolicy2(numAuthenticationMethods = numAuthenticationMethods, authenticationMethodsCtorArg = authenticationMethods, initiatorImpersonationType = initiatorImpersonationType)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -8353,7 +8350,7 @@ public class IkeextEmPolicy2 internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<IkeextAuthenticationMethod2>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr + 16L),
                     )
@@ -8361,7 +8358,7 @@ public class IkeextEmPolicy2 internal constructor(
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr, value.numAuthenticationMethods)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<IkeextAuthenticationMethod2>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.authenticationMethods)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr + 16L, value.initiatorImpersonationType)
                 }
@@ -8369,7 +8366,7 @@ public class IkeextEmPolicy2 internal constructor(
 
         public operator fun invoke(
             numAuthenticationMethods: UInt = 0u,
-            authenticationMethods: MutPtr<IkeextAuthenticationMethod2> = MutPtr(0L),
+            authenticationMethods: MutPtr = MutPtr(0L),
             initiatorImpersonationType: IkeextAuthenticationImpersonationType = 0,
         ): IkeextEmPolicy2 =
             IkeextEmPolicy2(
@@ -8896,17 +8893,17 @@ public data class IkeextNtlmV2Authentication0(
 public class IkeextPolicy0 internal constructor(
     public var softExpirationTime: UInt,
     public var numAuthenticationMethods: UInt,
-    authenticationMethodsCtorArg: MutPtr<IkeextAuthenticationMethod0>,
+    authenticationMethodsCtorArg: MutPtr,
     public var initiatorImpersonationType: IkeextAuthenticationImpersonationType,
     public var numIkeProposals: UInt,
-    ikeProposalsCtorArg: MutPtr<IkeextProposal0>,
+    ikeProposalsCtorArg: MutPtr,
     public var flags: IkeextPolicyFlag,
     public var maxDynamicFilters: UInt,
 ) {
-    public var authenticationMethods: MutPtr<IkeextAuthenticationMethod0> = authenticationMethodsCtorArg
+    public var authenticationMethods: MutPtr = authenticationMethodsCtorArg
         internal set
 
-    public var ikeProposals: MutPtr<IkeextProposal0> = ikeProposalsCtorArg
+    public var ikeProposals: MutPtr = ikeProposalsCtorArg
         internal set
 
     public constructor() : this(
@@ -8924,19 +8921,19 @@ public class IkeextPolicy0 internal constructor(
 
     public operator fun component2(): UInt = this.numAuthenticationMethods
 
-    public operator fun component3(): MutPtr<IkeextAuthenticationMethod0> = this.authenticationMethods
+    public operator fun component3(): MutPtr = this.authenticationMethods
 
     public operator fun component4(): IkeextAuthenticationImpersonationType = this.initiatorImpersonationType
 
     public operator fun component5(): UInt = this.numIkeProposals
 
-    public operator fun component6(): MutPtr<IkeextProposal0> = this.ikeProposals
+    public operator fun component6(): MutPtr = this.ikeProposals
 
     public operator fun component7(): IkeextPolicyFlag = this.flags
 
     public operator fun component8(): UInt = this.maxDynamicFilters
 
-    public fun copy(softExpirationTime: UInt = this.softExpirationTime, numAuthenticationMethods: UInt = this.numAuthenticationMethods, authenticationMethods: MutPtr<IkeextAuthenticationMethod0> = this.authenticationMethods, initiatorImpersonationType: IkeextAuthenticationImpersonationType = this.initiatorImpersonationType, numIkeProposals: UInt = this.numIkeProposals, ikeProposals: MutPtr<IkeextProposal0> = this.ikeProposals, flags: IkeextPolicyFlag = this.flags, maxDynamicFilters: UInt = this.maxDynamicFilters): IkeextPolicy0 = IkeextPolicy0(softExpirationTime = softExpirationTime, numAuthenticationMethods = numAuthenticationMethods, authenticationMethodsCtorArg = authenticationMethods, initiatorImpersonationType = initiatorImpersonationType, numIkeProposals = numIkeProposals, ikeProposalsCtorArg = ikeProposals, flags = flags, maxDynamicFilters = maxDynamicFilters)
+    public fun copy(softExpirationTime: UInt = this.softExpirationTime, numAuthenticationMethods: UInt = this.numAuthenticationMethods, authenticationMethods: MutPtr = this.authenticationMethods, initiatorImpersonationType: IkeextAuthenticationImpersonationType = this.initiatorImpersonationType, numIkeProposals: UInt = this.numIkeProposals, ikeProposals: MutPtr = this.ikeProposals, flags: IkeextPolicyFlag = this.flags, maxDynamicFilters: UInt = this.maxDynamicFilters): IkeextPolicy0 = IkeextPolicy0(softExpirationTime = softExpirationTime, numAuthenticationMethods = numAuthenticationMethods, authenticationMethodsCtorArg = authenticationMethods, initiatorImpersonationType = initiatorImpersonationType, numIkeProposals = numIkeProposals, ikeProposalsCtorArg = ikeProposals, flags = flags, maxDynamicFilters = maxDynamicFilters)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -8975,13 +8972,13 @@ public class IkeextPolicy0 internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 4L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<IkeextAuthenticationMethod0>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr + 16L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 20L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<IkeextProposal0>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 24L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 32L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 36L),
@@ -8991,13 +8988,13 @@ public class IkeextPolicy0 internal constructor(
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 4L, value.numAuthenticationMethods)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<IkeextAuthenticationMethod0>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.authenticationMethods)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr + 16L, value.initiatorImpersonationType)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 20L, value.numIkeProposals)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<IkeextProposal0>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 24L, value.ikeProposals)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 32L, value.flags)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 36L, value.maxDynamicFilters)
@@ -9007,10 +9004,10 @@ public class IkeextPolicy0 internal constructor(
         public operator fun invoke(
             softExpirationTime: UInt = 0u,
             numAuthenticationMethods: UInt = 0u,
-            authenticationMethods: MutPtr<IkeextAuthenticationMethod0> = MutPtr(0L),
+            authenticationMethods: MutPtr = MutPtr(0L),
             initiatorImpersonationType: IkeextAuthenticationImpersonationType = 0,
             numIkeProposals: UInt = 0u,
-            ikeProposals: MutPtr<IkeextProposal0> = MutPtr(0L),
+            ikeProposals: MutPtr = MutPtr(0L),
             flags: IkeextPolicyFlag = 0u,
             maxDynamicFilters: UInt = 0u,
         ): IkeextPolicy0 =
@@ -9030,18 +9027,18 @@ public class IkeextPolicy0 internal constructor(
 public class IkeextPolicy1 internal constructor(
     public var softExpirationTime: UInt,
     public var numAuthenticationMethods: UInt,
-    authenticationMethodsCtorArg: MutPtr<IkeextAuthenticationMethod1>,
+    authenticationMethodsCtorArg: MutPtr,
     public var initiatorImpersonationType: IkeextAuthenticationImpersonationType,
     public var numIkeProposals: UInt,
-    ikeProposalsCtorArg: MutPtr<IkeextProposal0>,
+    ikeProposalsCtorArg: MutPtr,
     public var flags: IkeextPolicyFlag,
     public var maxDynamicFilters: UInt,
     public var retransmitDurationSecs: UInt,
 ) {
-    public var authenticationMethods: MutPtr<IkeextAuthenticationMethod1> = authenticationMethodsCtorArg
+    public var authenticationMethods: MutPtr = authenticationMethodsCtorArg
         internal set
 
-    public var ikeProposals: MutPtr<IkeextProposal0> = ikeProposalsCtorArg
+    public var ikeProposals: MutPtr = ikeProposalsCtorArg
         internal set
 
     public constructor() : this(
@@ -9060,13 +9057,13 @@ public class IkeextPolicy1 internal constructor(
 
     public operator fun component2(): UInt = this.numAuthenticationMethods
 
-    public operator fun component3(): MutPtr<IkeextAuthenticationMethod1> = this.authenticationMethods
+    public operator fun component3(): MutPtr = this.authenticationMethods
 
     public operator fun component4(): IkeextAuthenticationImpersonationType = this.initiatorImpersonationType
 
     public operator fun component5(): UInt = this.numIkeProposals
 
-    public operator fun component6(): MutPtr<IkeextProposal0> = this.ikeProposals
+    public operator fun component6(): MutPtr = this.ikeProposals
 
     public operator fun component7(): IkeextPolicyFlag = this.flags
 
@@ -9074,7 +9071,7 @@ public class IkeextPolicy1 internal constructor(
 
     public operator fun component9(): UInt = this.retransmitDurationSecs
 
-    public fun copy(softExpirationTime: UInt = this.softExpirationTime, numAuthenticationMethods: UInt = this.numAuthenticationMethods, authenticationMethods: MutPtr<IkeextAuthenticationMethod1> = this.authenticationMethods, initiatorImpersonationType: IkeextAuthenticationImpersonationType = this.initiatorImpersonationType, numIkeProposals: UInt = this.numIkeProposals, ikeProposals: MutPtr<IkeextProposal0> = this.ikeProposals, flags: IkeextPolicyFlag = this.flags, maxDynamicFilters: UInt = this.maxDynamicFilters, retransmitDurationSecs: UInt = this.retransmitDurationSecs): IkeextPolicy1 = IkeextPolicy1(softExpirationTime = softExpirationTime, numAuthenticationMethods = numAuthenticationMethods, authenticationMethodsCtorArg = authenticationMethods, initiatorImpersonationType = initiatorImpersonationType, numIkeProposals = numIkeProposals, ikeProposalsCtorArg = ikeProposals, flags = flags, maxDynamicFilters = maxDynamicFilters, retransmitDurationSecs = retransmitDurationSecs)
+    public fun copy(softExpirationTime: UInt = this.softExpirationTime, numAuthenticationMethods: UInt = this.numAuthenticationMethods, authenticationMethods: MutPtr = this.authenticationMethods, initiatorImpersonationType: IkeextAuthenticationImpersonationType = this.initiatorImpersonationType, numIkeProposals: UInt = this.numIkeProposals, ikeProposals: MutPtr = this.ikeProposals, flags: IkeextPolicyFlag = this.flags, maxDynamicFilters: UInt = this.maxDynamicFilters, retransmitDurationSecs: UInt = this.retransmitDurationSecs): IkeextPolicy1 = IkeextPolicy1(softExpirationTime = softExpirationTime, numAuthenticationMethods = numAuthenticationMethods, authenticationMethodsCtorArg = authenticationMethods, initiatorImpersonationType = initiatorImpersonationType, numIkeProposals = numIkeProposals, ikeProposalsCtorArg = ikeProposals, flags = flags, maxDynamicFilters = maxDynamicFilters, retransmitDurationSecs = retransmitDurationSecs)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -9115,13 +9112,13 @@ public class IkeextPolicy1 internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 4L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<IkeextAuthenticationMethod1>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr + 16L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 20L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<IkeextProposal0>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 24L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 32L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 36L),
@@ -9132,13 +9129,13 @@ public class IkeextPolicy1 internal constructor(
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 4L, value.numAuthenticationMethods)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<IkeextAuthenticationMethod1>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.authenticationMethods)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr + 16L, value.initiatorImpersonationType)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 20L, value.numIkeProposals)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<IkeextProposal0>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 24L, value.ikeProposals)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 32L, value.flags)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 36L, value.maxDynamicFilters)
@@ -9149,10 +9146,10 @@ public class IkeextPolicy1 internal constructor(
         public operator fun invoke(
             softExpirationTime: UInt = 0u,
             numAuthenticationMethods: UInt = 0u,
-            authenticationMethods: MutPtr<IkeextAuthenticationMethod1> = MutPtr(0L),
+            authenticationMethods: MutPtr = MutPtr(0L),
             initiatorImpersonationType: IkeextAuthenticationImpersonationType = 0,
             numIkeProposals: UInt = 0u,
-            ikeProposals: MutPtr<IkeextProposal0> = MutPtr(0L),
+            ikeProposals: MutPtr = MutPtr(0L),
             flags: IkeextPolicyFlag = 0u,
             maxDynamicFilters: UInt = 0u,
             retransmitDurationSecs: UInt = 0u,
@@ -9174,18 +9171,18 @@ public class IkeextPolicy1 internal constructor(
 public class IkeextPolicy2 internal constructor(
     public var softExpirationTime: UInt,
     public var numAuthenticationMethods: UInt,
-    authenticationMethodsCtorArg: MutPtr<IkeextAuthenticationMethod2>,
+    authenticationMethodsCtorArg: MutPtr,
     public var initiatorImpersonationType: IkeextAuthenticationImpersonationType,
     public var numIkeProposals: UInt,
-    ikeProposalsCtorArg: MutPtr<IkeextProposal0>,
+    ikeProposalsCtorArg: MutPtr,
     public var flags: IkeextPolicyFlag,
     public var maxDynamicFilters: UInt,
     public var retransmitDurationSecs: UInt,
 ) {
-    public var authenticationMethods: MutPtr<IkeextAuthenticationMethod2> = authenticationMethodsCtorArg
+    public var authenticationMethods: MutPtr = authenticationMethodsCtorArg
         internal set
 
-    public var ikeProposals: MutPtr<IkeextProposal0> = ikeProposalsCtorArg
+    public var ikeProposals: MutPtr = ikeProposalsCtorArg
         internal set
 
     public constructor() : this(
@@ -9204,13 +9201,13 @@ public class IkeextPolicy2 internal constructor(
 
     public operator fun component2(): UInt = this.numAuthenticationMethods
 
-    public operator fun component3(): MutPtr<IkeextAuthenticationMethod2> = this.authenticationMethods
+    public operator fun component3(): MutPtr = this.authenticationMethods
 
     public operator fun component4(): IkeextAuthenticationImpersonationType = this.initiatorImpersonationType
 
     public operator fun component5(): UInt = this.numIkeProposals
 
-    public operator fun component6(): MutPtr<IkeextProposal0> = this.ikeProposals
+    public operator fun component6(): MutPtr = this.ikeProposals
 
     public operator fun component7(): IkeextPolicyFlag = this.flags
 
@@ -9218,7 +9215,7 @@ public class IkeextPolicy2 internal constructor(
 
     public operator fun component9(): UInt = this.retransmitDurationSecs
 
-    public fun copy(softExpirationTime: UInt = this.softExpirationTime, numAuthenticationMethods: UInt = this.numAuthenticationMethods, authenticationMethods: MutPtr<IkeextAuthenticationMethod2> = this.authenticationMethods, initiatorImpersonationType: IkeextAuthenticationImpersonationType = this.initiatorImpersonationType, numIkeProposals: UInt = this.numIkeProposals, ikeProposals: MutPtr<IkeextProposal0> = this.ikeProposals, flags: IkeextPolicyFlag = this.flags, maxDynamicFilters: UInt = this.maxDynamicFilters, retransmitDurationSecs: UInt = this.retransmitDurationSecs): IkeextPolicy2 = IkeextPolicy2(softExpirationTime = softExpirationTime, numAuthenticationMethods = numAuthenticationMethods, authenticationMethodsCtorArg = authenticationMethods, initiatorImpersonationType = initiatorImpersonationType, numIkeProposals = numIkeProposals, ikeProposalsCtorArg = ikeProposals, flags = flags, maxDynamicFilters = maxDynamicFilters, retransmitDurationSecs = retransmitDurationSecs)
+    public fun copy(softExpirationTime: UInt = this.softExpirationTime, numAuthenticationMethods: UInt = this.numAuthenticationMethods, authenticationMethods: MutPtr = this.authenticationMethods, initiatorImpersonationType: IkeextAuthenticationImpersonationType = this.initiatorImpersonationType, numIkeProposals: UInt = this.numIkeProposals, ikeProposals: MutPtr = this.ikeProposals, flags: IkeextPolicyFlag = this.flags, maxDynamicFilters: UInt = this.maxDynamicFilters, retransmitDurationSecs: UInt = this.retransmitDurationSecs): IkeextPolicy2 = IkeextPolicy2(softExpirationTime = softExpirationTime, numAuthenticationMethods = numAuthenticationMethods, authenticationMethodsCtorArg = authenticationMethods, initiatorImpersonationType = initiatorImpersonationType, numIkeProposals = numIkeProposals, ikeProposalsCtorArg = ikeProposals, flags = flags, maxDynamicFilters = maxDynamicFilters, retransmitDurationSecs = retransmitDurationSecs)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -9259,13 +9256,13 @@ public class IkeextPolicy2 internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 4L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<IkeextAuthenticationMethod2>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr + 16L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 20L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<IkeextProposal0>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 24L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 32L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 36L),
@@ -9276,13 +9273,13 @@ public class IkeextPolicy2 internal constructor(
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 4L, value.numAuthenticationMethods)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<IkeextAuthenticationMethod2>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.authenticationMethods)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr + 16L, value.initiatorImpersonationType)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 20L, value.numIkeProposals)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<IkeextProposal0>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 24L, value.ikeProposals)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 32L, value.flags)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 36L, value.maxDynamicFilters)
@@ -9293,10 +9290,10 @@ public class IkeextPolicy2 internal constructor(
         public operator fun invoke(
             softExpirationTime: UInt = 0u,
             numAuthenticationMethods: UInt = 0u,
-            authenticationMethods: MutPtr<IkeextAuthenticationMethod2> = MutPtr(0L),
+            authenticationMethods: MutPtr = MutPtr(0L),
             initiatorImpersonationType: IkeextAuthenticationImpersonationType = 0,
             numIkeProposals: UInt = 0u,
-            ikeProposals: MutPtr<IkeextProposal0> = MutPtr(0L),
+            ikeProposals: MutPtr = MutPtr(0L),
             flags: IkeextPolicyFlag = 0u,
             maxDynamicFilters: UInt = 0u,
             retransmitDurationSecs: UInt = 0u,
@@ -9420,18 +9417,18 @@ public data class IkeextSaDetails0(
 )
 
 public class IkeextSaDetails00 internal constructor(
-    v4UdpEncapsulationCtorArg: MutPtr<IpsecV4UdpEncapsulation0>,
+    v4UdpEncapsulationCtorArg: MutPtr,
 ) {
-    public var v4UdpEncapsulation: MutPtr<IpsecV4UdpEncapsulation0> = v4UdpEncapsulationCtorArg
+    public var v4UdpEncapsulation: MutPtr = v4UdpEncapsulationCtorArg
         internal set
 
     public constructor() : this(
         v4UdpEncapsulationCtorArg = MutPtr(0L),
     )
 
-    public operator fun component1(): MutPtr<IpsecV4UdpEncapsulation0> = this.v4UdpEncapsulation
+    public operator fun component1(): MutPtr = this.v4UdpEncapsulation
 
-    public fun copy(v4UdpEncapsulation: MutPtr<IpsecV4UdpEncapsulation0> = this.v4UdpEncapsulation): IkeextSaDetails00 = IkeextSaDetails00(v4UdpEncapsulationCtorArg = v4UdpEncapsulation)
+    public fun copy(v4UdpEncapsulation: MutPtr = this.v4UdpEncapsulation): IkeextSaDetails00 = IkeextSaDetails00(v4UdpEncapsulationCtorArg = v4UdpEncapsulation)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -9444,7 +9441,7 @@ public class IkeextSaDetails00 internal constructor(
 
     public companion object {
         public operator fun invoke(
-            v4UdpEncapsulation: MutPtr<IpsecV4UdpEncapsulation0> = MutPtr(0L),
+            v4UdpEncapsulation: MutPtr = MutPtr(0L),
         ): IkeextSaDetails00 =
             IkeextSaDetails00(
                 v4UdpEncapsulationCtorArg = v4UdpEncapsulation,
@@ -9467,18 +9464,18 @@ public data class IkeextSaDetails1(
 )
 
 public class IkeextSaDetails10 internal constructor(
-    v4UdpEncapsulationCtorArg: MutPtr<IpsecV4UdpEncapsulation0>,
+    v4UdpEncapsulationCtorArg: MutPtr,
 ) {
-    public var v4UdpEncapsulation: MutPtr<IpsecV4UdpEncapsulation0> = v4UdpEncapsulationCtorArg
+    public var v4UdpEncapsulation: MutPtr = v4UdpEncapsulationCtorArg
         internal set
 
     public constructor() : this(
         v4UdpEncapsulationCtorArg = MutPtr(0L),
     )
 
-    public operator fun component1(): MutPtr<IpsecV4UdpEncapsulation0> = this.v4UdpEncapsulation
+    public operator fun component1(): MutPtr = this.v4UdpEncapsulation
 
-    public fun copy(v4UdpEncapsulation: MutPtr<IpsecV4UdpEncapsulation0> = this.v4UdpEncapsulation): IkeextSaDetails10 = IkeextSaDetails10(v4UdpEncapsulationCtorArg = v4UdpEncapsulation)
+    public fun copy(v4UdpEncapsulation: MutPtr = this.v4UdpEncapsulation): IkeextSaDetails10 = IkeextSaDetails10(v4UdpEncapsulationCtorArg = v4UdpEncapsulation)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -9491,7 +9488,7 @@ public class IkeextSaDetails10 internal constructor(
 
     public companion object {
         public operator fun invoke(
-            v4UdpEncapsulation: MutPtr<IpsecV4UdpEncapsulation0> = MutPtr(0L),
+            v4UdpEncapsulation: MutPtr = MutPtr(0L),
         ): IkeextSaDetails10 =
             IkeextSaDetails10(
                 v4UdpEncapsulationCtorArg = v4UdpEncapsulation,
@@ -9514,18 +9511,18 @@ public data class IkeextSaDetails2(
 )
 
 public class IkeextSaDetails20 internal constructor(
-    v4UdpEncapsulationCtorArg: MutPtr<IpsecV4UdpEncapsulation0>,
+    v4UdpEncapsulationCtorArg: MutPtr,
 ) {
-    public var v4UdpEncapsulation: MutPtr<IpsecV4UdpEncapsulation0> = v4UdpEncapsulationCtorArg
+    public var v4UdpEncapsulation: MutPtr = v4UdpEncapsulationCtorArg
         internal set
 
     public constructor() : this(
         v4UdpEncapsulationCtorArg = MutPtr(0L),
     )
 
-    public operator fun component1(): MutPtr<IpsecV4UdpEncapsulation0> = this.v4UdpEncapsulation
+    public operator fun component1(): MutPtr = this.v4UdpEncapsulation
 
-    public fun copy(v4UdpEncapsulation: MutPtr<IpsecV4UdpEncapsulation0> = this.v4UdpEncapsulation): IkeextSaDetails20 = IkeextSaDetails20(v4UdpEncapsulationCtorArg = v4UdpEncapsulation)
+    public fun copy(v4UdpEncapsulation: MutPtr = this.v4UdpEncapsulation): IkeextSaDetails20 = IkeextSaDetails20(v4UdpEncapsulationCtorArg = v4UdpEncapsulation)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -9538,7 +9535,7 @@ public class IkeextSaDetails20 internal constructor(
 
     public companion object {
         public operator fun invoke(
-            v4UdpEncapsulation: MutPtr<IpsecV4UdpEncapsulation0> = MutPtr(0L),
+            v4UdpEncapsulation: MutPtr = MutPtr(0L),
         ): IkeextSaDetails20 =
             IkeextSaDetails20(
                 v4UdpEncapsulationCtorArg = v4UdpEncapsulation,
@@ -9652,14 +9649,14 @@ public data class IkeextTraffic01(
 
 public class IpsecAddressInfo0 internal constructor(
     public var numV4Addresses: UInt,
-    v4AddressesCtorArg: MutPtr<UInt>,
+    v4AddressesCtorArg: MutPtr,
     public var numV6Addresses: UInt,
-    v6AddressesCtorArg: MutPtr<FwpByteArray16>,
+    v6AddressesCtorArg: MutPtr,
 ) {
-    public var v4Addresses: MutPtr<UInt> = v4AddressesCtorArg
+    public var v4Addresses: MutPtr = v4AddressesCtorArg
         internal set
 
-    public var v6Addresses: MutPtr<FwpByteArray16> = v6AddressesCtorArg
+    public var v6Addresses: MutPtr = v6AddressesCtorArg
         internal set
 
     public constructor() : this(
@@ -9671,13 +9668,13 @@ public class IpsecAddressInfo0 internal constructor(
 
     public operator fun component1(): UInt = this.numV4Addresses
 
-    public operator fun component2(): MutPtr<UInt> = this.v4Addresses
+    public operator fun component2(): MutPtr = this.v4Addresses
 
     public operator fun component3(): UInt = this.numV6Addresses
 
-    public operator fun component4(): MutPtr<FwpByteArray16> = this.v6Addresses
+    public operator fun component4(): MutPtr = this.v6Addresses
 
-    public fun copy(numV4Addresses: UInt = this.numV4Addresses, v4Addresses: MutPtr<UInt> = this.v4Addresses, numV6Addresses: UInt = this.numV6Addresses, v6Addresses: MutPtr<FwpByteArray16> = this.v6Addresses): IpsecAddressInfo0 = IpsecAddressInfo0(numV4Addresses = numV4Addresses, v4AddressesCtorArg = v4Addresses, numV6Addresses = numV6Addresses, v6AddressesCtorArg = v6Addresses)
+    public fun copy(numV4Addresses: UInt = this.numV4Addresses, v4Addresses: MutPtr = this.v4Addresses, numV6Addresses: UInt = this.numV6Addresses, v6Addresses: MutPtr = this.v6Addresses): IpsecAddressInfo0 = IpsecAddressInfo0(numV4Addresses = numV4Addresses, v4AddressesCtorArg = v4Addresses, numV6Addresses = numV6Addresses, v6AddressesCtorArg = v6Addresses)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -9707,33 +9704,33 @@ public class IpsecAddressInfo0 internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<UInt>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 16L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<FwpByteArray16>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 24L),
                     )
                 override fun writeNative(addr: Long, value: IpsecAddressInfo0) {
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr, value.numV4Addresses)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<UInt>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.v4Addresses)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 16L, value.numV6Addresses)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<FwpByteArray16>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 24L, value.v6Addresses)
                 }
             }
 
         public operator fun invoke(
             numV4Addresses: UInt = 0u,
-            v4Addresses: MutPtr<UInt> = MutPtr(0L),
+            v4Addresses: MutPtr = MutPtr(0L),
             numV6Addresses: UInt = 0u,
-            v6Addresses: MutPtr<FwpByteArray16> = MutPtr(0L),
+            v6Addresses: MutPtr = MutPtr(0L),
         ): IpsecAddressInfo0 =
             IpsecAddressInfo0(
                 numV4Addresses = numV4Addresses,
@@ -9922,9 +9919,9 @@ public data class IpsecAuthAndCipherTransform0(
 
 public class IpsecAuthTransform0 internal constructor(
     public var authTransformId: IpsecAuthTransformId0,
-    cryptoModuleIdCtorArg: MutPtr<Guid>,
+    cryptoModuleIdCtorArg: MutPtr,
 ) {
-    public var cryptoModuleId: MutPtr<Guid> = cryptoModuleIdCtorArg
+    public var cryptoModuleId: MutPtr = cryptoModuleIdCtorArg
         internal set
 
     public constructor() : this(
@@ -9934,9 +9931,9 @@ public class IpsecAuthTransform0 internal constructor(
 
     public operator fun component1(): IpsecAuthTransformId0 = this.authTransformId
 
-    public operator fun component2(): MutPtr<Guid> = this.cryptoModuleId
+    public operator fun component2(): MutPtr = this.cryptoModuleId
 
-    public fun copy(authTransformId: IpsecAuthTransformId0 = this.authTransformId, cryptoModuleId: MutPtr<Guid> = this.cryptoModuleId): IpsecAuthTransform0 = IpsecAuthTransform0(authTransformId = authTransformId, cryptoModuleIdCtorArg = cryptoModuleId)
+    public fun copy(authTransformId: IpsecAuthTransformId0 = this.authTransformId, cryptoModuleId: MutPtr = this.cryptoModuleId): IpsecAuthTransform0 = IpsecAuthTransform0(authTransformId = authTransformId, cryptoModuleIdCtorArg = cryptoModuleId)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -9962,21 +9959,21 @@ public class IpsecAuthTransform0 internal constructor(
                         (IpsecAuthTransformId0.typeLayout()).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<Guid>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                     )
                 override fun writeNative(addr: Long, value: IpsecAuthTransform0) {
                     (IpsecAuthTransformId0.typeLayout()).writeNative(addr, value.authTransformId)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<Guid>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.cryptoModuleId)
                 }
             }
 
         public operator fun invoke(
             authTransformId: IpsecAuthTransformId0 = IpsecAuthTransformId0(),
-            cryptoModuleId: MutPtr<Guid> = MutPtr(0L),
+            cryptoModuleId: MutPtr = MutPtr(0L),
         ): IpsecAuthTransform0 =
             IpsecAuthTransform0(
                 authTransformId = authTransformId,
@@ -10009,9 +10006,9 @@ public data class IpsecAuthTransformId0(
 
 public class IpsecCipherTransform0 internal constructor(
     public var cipherTransformId: IpsecCipherTransformId0,
-    cryptoModuleIdCtorArg: MutPtr<Guid>,
+    cryptoModuleIdCtorArg: MutPtr,
 ) {
-    public var cryptoModuleId: MutPtr<Guid> = cryptoModuleIdCtorArg
+    public var cryptoModuleId: MutPtr = cryptoModuleIdCtorArg
         internal set
 
     public constructor() : this(
@@ -10021,9 +10018,9 @@ public class IpsecCipherTransform0 internal constructor(
 
     public operator fun component1(): IpsecCipherTransformId0 = this.cipherTransformId
 
-    public operator fun component2(): MutPtr<Guid> = this.cryptoModuleId
+    public operator fun component2(): MutPtr = this.cryptoModuleId
 
-    public fun copy(cipherTransformId: IpsecCipherTransformId0 = this.cipherTransformId, cryptoModuleId: MutPtr<Guid> = this.cryptoModuleId): IpsecCipherTransform0 = IpsecCipherTransform0(cipherTransformId = cipherTransformId, cryptoModuleIdCtorArg = cryptoModuleId)
+    public fun copy(cipherTransformId: IpsecCipherTransformId0 = this.cipherTransformId, cryptoModuleId: MutPtr = this.cryptoModuleId): IpsecCipherTransform0 = IpsecCipherTransform0(cipherTransformId = cipherTransformId, cryptoModuleIdCtorArg = cryptoModuleId)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -10049,21 +10046,21 @@ public class IpsecCipherTransform0 internal constructor(
                         (IpsecCipherTransformId0.typeLayout()).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<Guid>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                     )
                 override fun writeNative(addr: Long, value: IpsecCipherTransform0) {
                     (IpsecCipherTransformId0.typeLayout()).writeNative(addr, value.cipherTransformId)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<Guid>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.cryptoModuleId)
                 }
             }
 
         public operator fun invoke(
             cipherTransformId: IpsecCipherTransformId0 = IpsecCipherTransformId0(),
-            cryptoModuleId: MutPtr<Guid> = MutPtr(0L),
+            cryptoModuleId: MutPtr = MutPtr(0L),
         ): IpsecCipherTransform0 =
             IpsecCipherTransform0(
                 cipherTransformId = cipherTransformId,
@@ -10112,16 +10109,16 @@ public class IpsecDospOptions0 internal constructor(
     public var maxPerIPRateLimitQueues: UInt,
     public var flags: IpsecDospFlags,
     public var numPublicIFLuids: UInt,
-    publicIFLuidsCtorArg: MutPtr<ULong>,
+    publicIFLuidsCtorArg: MutPtr,
     public var numInternalIFLuids: UInt,
-    internalIFLuidsCtorArg: MutPtr<ULong>,
+    internalIFLuidsCtorArg: MutPtr,
     public var publicV6AddrMask: FwpV6AddrAndMask,
     public var internalV6AddrMask: FwpV6AddrAndMask,
 ) {
-    public var publicIFLuids: MutPtr<ULong> = publicIFLuidsCtorArg
+    public var publicIFLuids: MutPtr = publicIFLuidsCtorArg
         internal set
 
-    public var internalIFLuids: MutPtr<ULong> = internalIFLuidsCtorArg
+    public var internalIFLuids: MutPtr = internalIFLuidsCtorArg
         internal set
 
     public constructor() : this(
@@ -10175,12 +10172,12 @@ public class IpsecDospOptions0 internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 64L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<ULong>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 72L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 80L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<ULong>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 88L),
                         (FwpV6AddrAndMask.typeLayout()).readNative(addr + 96L),
                         (FwpV6AddrAndMask.typeLayout()).readNative(addr + 113L),
@@ -10205,12 +10202,12 @@ public class IpsecDospOptions0 internal constructor(
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 64L, value.numPublicIFLuids)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<ULong>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 72L, value.publicIFLuids)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 80L, value.numInternalIFLuids)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<ULong>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 88L, value.internalIFLuids)
                     (FwpV6AddrAndMask.typeLayout()).writeNative(addr + 96L, value.publicV6AddrMask)
                     (FwpV6AddrAndMask.typeLayout()).writeNative(addr + 113L, value.internalV6AddrMask)
@@ -10235,9 +10232,9 @@ public class IpsecDospOptions0 internal constructor(
             maxPerIPRateLimitQueues: UInt = 0u,
             flags: IpsecDospFlags = 0u,
             numPublicIFLuids: UInt = 0u,
-            publicIFLuids: MutPtr<ULong> = MutPtr(0L),
+            publicIFLuids: MutPtr = MutPtr(0L),
             numInternalIFLuids: UInt = 0u,
-            internalIFLuids: MutPtr<ULong> = MutPtr(0L),
+            internalIFLuids: MutPtr = MutPtr(0L),
             publicV6AddrMask: FwpV6AddrAndMask = FwpV6AddrAndMask(),
             internalV6AddrMask: FwpV6AddrAndMask = FwpV6AddrAndMask(),
         ): IpsecDospOptions0 =
@@ -10458,9 +10455,9 @@ public class IpsecGetspi0 internal constructor(
     public var inboundIpsecTraffic: IpsecTraffic0,
     public var ipVersion: FwpIpVersion,
     public var anonymous: IpsecGetspi00,
-    rngCryptoModuleIDCtorArg: MutPtr<Guid>,
+    rngCryptoModuleIDCtorArg: MutPtr,
 ) {
-    public var rngCryptoModuleID: MutPtr<Guid> = rngCryptoModuleIDCtorArg
+    public var rngCryptoModuleID: MutPtr = rngCryptoModuleIDCtorArg
         internal set
 
     public constructor() : this(
@@ -10476,9 +10473,9 @@ public class IpsecGetspi0 internal constructor(
 
     public operator fun component3(): IpsecGetspi00 = this.anonymous
 
-    public operator fun component4(): MutPtr<Guid> = this.rngCryptoModuleID
+    public operator fun component4(): MutPtr = this.rngCryptoModuleID
 
-    public fun copy(inboundIpsecTraffic: IpsecTraffic0 = this.inboundIpsecTraffic, ipVersion: FwpIpVersion = this.ipVersion, anonymous: IpsecGetspi00 = this.anonymous, rngCryptoModuleID: MutPtr<Guid> = this.rngCryptoModuleID): IpsecGetspi0 = IpsecGetspi0(inboundIpsecTraffic = inboundIpsecTraffic, ipVersion = ipVersion, anonymous = anonymous, rngCryptoModuleIDCtorArg = rngCryptoModuleID)
+    public fun copy(inboundIpsecTraffic: IpsecTraffic0 = this.inboundIpsecTraffic, ipVersion: FwpIpVersion = this.ipVersion, anonymous: IpsecGetspi00 = this.anonymous, rngCryptoModuleID: MutPtr = this.rngCryptoModuleID): IpsecGetspi0 = IpsecGetspi0(inboundIpsecTraffic = inboundIpsecTraffic, ipVersion = ipVersion, anonymous = anonymous, rngCryptoModuleIDCtorArg = rngCryptoModuleID)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -10503,7 +10500,7 @@ public class IpsecGetspi0 internal constructor(
             inboundIpsecTraffic: IpsecTraffic0 = IpsecTraffic0(),
             ipVersion: FwpIpVersion = 0,
             anonymous: IpsecGetspi00 = IpsecGetspi00(),
-            rngCryptoModuleID: MutPtr<Guid> = MutPtr(0L),
+            rngCryptoModuleID: MutPtr = MutPtr(0L),
         ): IpsecGetspi0 =
             IpsecGetspi0(
                 inboundIpsecTraffic = inboundIpsecTraffic,
@@ -10515,18 +10512,18 @@ public class IpsecGetspi0 internal constructor(
 }
 
 public class IpsecGetspi00 internal constructor(
-    inboundUdpEncapsulationCtorArg: MutPtr<IpsecV4UdpEncapsulation0>,
+    inboundUdpEncapsulationCtorArg: MutPtr,
 ) {
-    public var inboundUdpEncapsulation: MutPtr<IpsecV4UdpEncapsulation0> = inboundUdpEncapsulationCtorArg
+    public var inboundUdpEncapsulation: MutPtr = inboundUdpEncapsulationCtorArg
         internal set
 
     public constructor() : this(
         inboundUdpEncapsulationCtorArg = MutPtr(0L),
     )
 
-    public operator fun component1(): MutPtr<IpsecV4UdpEncapsulation0> = this.inboundUdpEncapsulation
+    public operator fun component1(): MutPtr = this.inboundUdpEncapsulation
 
-    public fun copy(inboundUdpEncapsulation: MutPtr<IpsecV4UdpEncapsulation0> = this.inboundUdpEncapsulation): IpsecGetspi00 = IpsecGetspi00(inboundUdpEncapsulationCtorArg = inboundUdpEncapsulation)
+    public fun copy(inboundUdpEncapsulation: MutPtr = this.inboundUdpEncapsulation): IpsecGetspi00 = IpsecGetspi00(inboundUdpEncapsulationCtorArg = inboundUdpEncapsulation)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -10539,7 +10536,7 @@ public class IpsecGetspi00 internal constructor(
 
     public companion object {
         public operator fun invoke(
-            inboundUdpEncapsulation: MutPtr<IpsecV4UdpEncapsulation0> = MutPtr(0L),
+            inboundUdpEncapsulation: MutPtr = MutPtr(0L),
         ): IpsecGetspi00 =
             IpsecGetspi00(
                 inboundUdpEncapsulationCtorArg = inboundUdpEncapsulation,
@@ -10551,9 +10548,9 @@ public class IpsecGetspi1 internal constructor(
     public var inboundIpsecTraffic: IpsecTraffic1,
     public var ipVersion: FwpIpVersion,
     public var anonymous: IpsecGetspi10,
-    rngCryptoModuleIDCtorArg: MutPtr<Guid>,
+    rngCryptoModuleIDCtorArg: MutPtr,
 ) {
-    public var rngCryptoModuleID: MutPtr<Guid> = rngCryptoModuleIDCtorArg
+    public var rngCryptoModuleID: MutPtr = rngCryptoModuleIDCtorArg
         internal set
 
     public constructor() : this(
@@ -10569,9 +10566,9 @@ public class IpsecGetspi1 internal constructor(
 
     public operator fun component3(): IpsecGetspi10 = this.anonymous
 
-    public operator fun component4(): MutPtr<Guid> = this.rngCryptoModuleID
+    public operator fun component4(): MutPtr = this.rngCryptoModuleID
 
-    public fun copy(inboundIpsecTraffic: IpsecTraffic1 = this.inboundIpsecTraffic, ipVersion: FwpIpVersion = this.ipVersion, anonymous: IpsecGetspi10 = this.anonymous, rngCryptoModuleID: MutPtr<Guid> = this.rngCryptoModuleID): IpsecGetspi1 = IpsecGetspi1(inboundIpsecTraffic = inboundIpsecTraffic, ipVersion = ipVersion, anonymous = anonymous, rngCryptoModuleIDCtorArg = rngCryptoModuleID)
+    public fun copy(inboundIpsecTraffic: IpsecTraffic1 = this.inboundIpsecTraffic, ipVersion: FwpIpVersion = this.ipVersion, anonymous: IpsecGetspi10 = this.anonymous, rngCryptoModuleID: MutPtr = this.rngCryptoModuleID): IpsecGetspi1 = IpsecGetspi1(inboundIpsecTraffic = inboundIpsecTraffic, ipVersion = ipVersion, anonymous = anonymous, rngCryptoModuleIDCtorArg = rngCryptoModuleID)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -10596,7 +10593,7 @@ public class IpsecGetspi1 internal constructor(
             inboundIpsecTraffic: IpsecTraffic1 = IpsecTraffic1(),
             ipVersion: FwpIpVersion = 0,
             anonymous: IpsecGetspi10 = IpsecGetspi10(),
-            rngCryptoModuleID: MutPtr<Guid> = MutPtr(0L),
+            rngCryptoModuleID: MutPtr = MutPtr(0L),
         ): IpsecGetspi1 =
             IpsecGetspi1(
                 inboundIpsecTraffic = inboundIpsecTraffic,
@@ -10608,18 +10605,18 @@ public class IpsecGetspi1 internal constructor(
 }
 
 public class IpsecGetspi10 internal constructor(
-    inboundUdpEncapsulationCtorArg: MutPtr<IpsecV4UdpEncapsulation0>,
+    inboundUdpEncapsulationCtorArg: MutPtr,
 ) {
-    public var inboundUdpEncapsulation: MutPtr<IpsecV4UdpEncapsulation0> = inboundUdpEncapsulationCtorArg
+    public var inboundUdpEncapsulation: MutPtr = inboundUdpEncapsulationCtorArg
         internal set
 
     public constructor() : this(
         inboundUdpEncapsulationCtorArg = MutPtr(0L),
     )
 
-    public operator fun component1(): MutPtr<IpsecV4UdpEncapsulation0> = this.inboundUdpEncapsulation
+    public operator fun component1(): MutPtr = this.inboundUdpEncapsulation
 
-    public fun copy(inboundUdpEncapsulation: MutPtr<IpsecV4UdpEncapsulation0> = this.inboundUdpEncapsulation): IpsecGetspi10 = IpsecGetspi10(inboundUdpEncapsulationCtorArg = inboundUdpEncapsulation)
+    public fun copy(inboundUdpEncapsulation: MutPtr = this.inboundUdpEncapsulation): IpsecGetspi10 = IpsecGetspi10(inboundUdpEncapsulationCtorArg = inboundUdpEncapsulation)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -10632,7 +10629,7 @@ public class IpsecGetspi10 internal constructor(
 
     public companion object {
         public operator fun invoke(
-            inboundUdpEncapsulation: MutPtr<IpsecV4UdpEncapsulation0> = MutPtr(0L),
+            inboundUdpEncapsulation: MutPtr = MutPtr(0L),
         ): IpsecGetspi10 =
             IpsecGetspi10(
                 inboundUdpEncapsulationCtorArg = inboundUdpEncapsulation,
@@ -10644,7 +10641,7 @@ public class IpsecId0 internal constructor(
     mmTargetNameCtorArg: Pwstr,
     emTargetNameCtorArg: Pwstr,
     public var numTokens: UInt,
-    tokensCtorArg: MutPtr<IpsecToken0>,
+    tokensCtorArg: MutPtr,
     public var explicitCredentials: ULong,
     public var logonId: ULong,
 ) {
@@ -10654,7 +10651,7 @@ public class IpsecId0 internal constructor(
     public var emTargetName: Pwstr = emTargetNameCtorArg
         internal set
 
-    public var tokens: MutPtr<IpsecToken0> = tokensCtorArg
+    public var tokens: MutPtr = tokensCtorArg
         internal set
 
     public constructor() : this(
@@ -10672,13 +10669,13 @@ public class IpsecId0 internal constructor(
 
     public operator fun component3(): UInt = this.numTokens
 
-    public operator fun component4(): MutPtr<IpsecToken0> = this.tokens
+    public operator fun component4(): MutPtr = this.tokens
 
     public operator fun component5(): ULong = this.explicitCredentials
 
     public operator fun component6(): ULong = this.logonId
 
-    public fun copy(mmTargetName: Pwstr = this.mmTargetName, emTargetName: Pwstr = this.emTargetName, numTokens: UInt = this.numTokens, tokens: MutPtr<IpsecToken0> = this.tokens, explicitCredentials: ULong = this.explicitCredentials, logonId: ULong = this.logonId): IpsecId0 = IpsecId0(mmTargetNameCtorArg = mmTargetName, emTargetNameCtorArg = emTargetName, numTokens = numTokens, tokensCtorArg = tokens, explicitCredentials = explicitCredentials, logonId = logonId)
+    public fun copy(mmTargetName: Pwstr = this.mmTargetName, emTargetName: Pwstr = this.emTargetName, numTokens: UInt = this.numTokens, tokens: MutPtr = this.tokens, explicitCredentials: ULong = this.explicitCredentials, logonId: ULong = this.logonId): IpsecId0 = IpsecId0(mmTargetNameCtorArg = mmTargetName, emTargetNameCtorArg = emTargetName, numTokens = numTokens, tokensCtorArg = tokens, explicitCredentials = explicitCredentials, logonId = logonId)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -10707,7 +10704,7 @@ public class IpsecId0 internal constructor(
             mmTargetName: Pwstr = MutPtr(0L),
             emTargetName: Pwstr = MutPtr(0L),
             numTokens: UInt = 0u,
-            tokens: MutPtr<IpsecToken0> = MutPtr(0L),
+            tokens: MutPtr = MutPtr(0L),
             explicitCredentials: ULong = 0uL,
             logonId: ULong = 0uL,
         ): IpsecId0 =
@@ -10724,9 +10721,9 @@ public class IpsecId0 internal constructor(
 
 public class IpsecKeyingPolicy0 internal constructor(
     public var numKeyMods: UInt,
-    keyModKeysCtorArg: MutPtr<Guid>,
+    keyModKeysCtorArg: MutPtr,
 ) {
-    public var keyModKeys: MutPtr<Guid> = keyModKeysCtorArg
+    public var keyModKeys: MutPtr = keyModKeysCtorArg
         internal set
 
     public constructor() : this(
@@ -10736,9 +10733,9 @@ public class IpsecKeyingPolicy0 internal constructor(
 
     public operator fun component1(): UInt = this.numKeyMods
 
-    public operator fun component2(): MutPtr<Guid> = this.keyModKeys
+    public operator fun component2(): MutPtr = this.keyModKeys
 
-    public fun copy(numKeyMods: UInt = this.numKeyMods, keyModKeys: MutPtr<Guid> = this.keyModKeys): IpsecKeyingPolicy0 = IpsecKeyingPolicy0(numKeyMods = numKeyMods, keyModKeysCtorArg = keyModKeys)
+    public fun copy(numKeyMods: UInt = this.numKeyMods, keyModKeys: MutPtr = this.keyModKeys): IpsecKeyingPolicy0 = IpsecKeyingPolicy0(numKeyMods = numKeyMods, keyModKeysCtorArg = keyModKeys)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -10764,21 +10761,21 @@ public class IpsecKeyingPolicy0 internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<Guid>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                     )
                 override fun writeNative(addr: Long, value: IpsecKeyingPolicy0) {
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr, value.numKeyMods)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<Guid>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.keyModKeys)
                 }
             }
 
         public operator fun invoke(
             numKeyMods: UInt = 0u,
-            keyModKeys: MutPtr<Guid> = MutPtr(0L),
+            keyModKeys: MutPtr = MutPtr(0L),
         ): IpsecKeyingPolicy0 =
             IpsecKeyingPolicy0(
                 numKeyMods = numKeyMods,
@@ -10789,10 +10786,10 @@ public class IpsecKeyingPolicy0 internal constructor(
 
 public class IpsecKeyingPolicy1 internal constructor(
     public var numKeyMods: UInt,
-    keyModKeysCtorArg: MutPtr<Guid>,
+    keyModKeysCtorArg: MutPtr,
     public var flags: UInt,
 ) {
-    public var keyModKeys: MutPtr<Guid> = keyModKeysCtorArg
+    public var keyModKeys: MutPtr = keyModKeysCtorArg
         internal set
 
     public constructor() : this(
@@ -10803,11 +10800,11 @@ public class IpsecKeyingPolicy1 internal constructor(
 
     public operator fun component1(): UInt = this.numKeyMods
 
-    public operator fun component2(): MutPtr<Guid> = this.keyModKeys
+    public operator fun component2(): MutPtr = this.keyModKeys
 
     public operator fun component3(): UInt = this.flags
 
-    public fun copy(numKeyMods: UInt = this.numKeyMods, keyModKeys: MutPtr<Guid> = this.keyModKeys, flags: UInt = this.flags): IpsecKeyingPolicy1 = IpsecKeyingPolicy1(numKeyMods = numKeyMods, keyModKeysCtorArg = keyModKeys, flags = flags)
+    public fun copy(numKeyMods: UInt = this.numKeyMods, keyModKeys: MutPtr = this.keyModKeys, flags: UInt = this.flags): IpsecKeyingPolicy1 = IpsecKeyingPolicy1(numKeyMods = numKeyMods, keyModKeysCtorArg = keyModKeys, flags = flags)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -10835,7 +10832,7 @@ public class IpsecKeyingPolicy1 internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<Guid>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 16L),
                     )
@@ -10843,7 +10840,7 @@ public class IpsecKeyingPolicy1 internal constructor(
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr, value.numKeyMods)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<Guid>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.keyModKeys)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 16L, value.flags)
                 }
@@ -10851,7 +10848,7 @@ public class IpsecKeyingPolicy1 internal constructor(
 
         public operator fun invoke(
             numKeyMods: UInt = 0u,
-            keyModKeys: MutPtr<Guid> = MutPtr(0L),
+            keyModKeys: MutPtr = MutPtr(0L),
             flags: UInt = 0u,
         ): IpsecKeyingPolicy1 =
             IpsecKeyingPolicy1(
@@ -10885,10 +10882,10 @@ public data class IpsecKeyManagerCallbacks0(
 public class IpsecProposal0 internal constructor(
     public var lifetime: IpsecSaLifetime0,
     public var numSaTransforms: UInt,
-    saTransformsCtorArg: MutPtr<IpsecSaTransform0>,
+    saTransformsCtorArg: MutPtr,
     public var pfsGroup: IpsecPfsGroup,
 ) {
-    public var saTransforms: MutPtr<IpsecSaTransform0> = saTransformsCtorArg
+    public var saTransforms: MutPtr = saTransformsCtorArg
         internal set
 
     public constructor() : this(
@@ -10902,11 +10899,11 @@ public class IpsecProposal0 internal constructor(
 
     public operator fun component2(): UInt = this.numSaTransforms
 
-    public operator fun component3(): MutPtr<IpsecSaTransform0> = this.saTransforms
+    public operator fun component3(): MutPtr = this.saTransforms
 
     public operator fun component4(): IpsecPfsGroup = this.pfsGroup
 
-    public fun copy(lifetime: IpsecSaLifetime0 = this.lifetime, numSaTransforms: UInt = this.numSaTransforms, saTransforms: MutPtr<IpsecSaTransform0> = this.saTransforms, pfsGroup: IpsecPfsGroup = this.pfsGroup): IpsecProposal0 = IpsecProposal0(lifetime = lifetime, numSaTransforms = numSaTransforms, saTransformsCtorArg = saTransforms, pfsGroup = pfsGroup)
+    public fun copy(lifetime: IpsecSaLifetime0 = this.lifetime, numSaTransforms: UInt = this.numSaTransforms, saTransforms: MutPtr = this.saTransforms, pfsGroup: IpsecPfsGroup = this.pfsGroup): IpsecProposal0 = IpsecProposal0(lifetime = lifetime, numSaTransforms = numSaTransforms, saTransformsCtorArg = saTransforms, pfsGroup = pfsGroup)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -10937,7 +10934,7 @@ public class IpsecProposal0 internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 12L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<IpsecSaTransform0>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 16L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr + 24L),
                     )
@@ -10946,7 +10943,7 @@ public class IpsecProposal0 internal constructor(
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 12L, value.numSaTransforms)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<IpsecSaTransform0>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 16L, value.saTransforms)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr + 24L, value.pfsGroup)
                 }
@@ -10955,7 +10952,7 @@ public class IpsecProposal0 internal constructor(
         public operator fun invoke(
             lifetime: IpsecSaLifetime0 = IpsecSaLifetime0(),
             numSaTransforms: UInt = 0u,
-            saTransforms: MutPtr<IpsecSaTransform0> = MutPtr(0L),
+            saTransforms: MutPtr = MutPtr(0L),
             pfsGroup: IpsecPfsGroup = 0,
         ): IpsecProposal0 =
             IpsecProposal0(
@@ -10974,25 +10971,25 @@ public data class IpsecSa0(
 )
 
 public class IpsecSa00 internal constructor(
-    ahInformationCtorArg: MutPtr<IpsecSaAuthInformation0>,
-    espAuthInformationCtorArg: MutPtr<IpsecSaAuthInformation0>,
-    espCipherInformationCtorArg: MutPtr<IpsecSaCipherInformation0>,
-    espAuthAndCipherInformationCtorArg: MutPtr<IpsecSaAuthAndCipherInformation0>,
-    espAuthFwInformationCtorArg: MutPtr<IpsecSaAuthInformation0>,
+    ahInformationCtorArg: MutPtr,
+    espAuthInformationCtorArg: MutPtr,
+    espCipherInformationCtorArg: MutPtr,
+    espAuthAndCipherInformationCtorArg: MutPtr,
+    espAuthFwInformationCtorArg: MutPtr,
 ) {
-    public var ahInformation: MutPtr<IpsecSaAuthInformation0> = ahInformationCtorArg
+    public var ahInformation: MutPtr = ahInformationCtorArg
         internal set
 
-    public var espAuthInformation: MutPtr<IpsecSaAuthInformation0> = espAuthInformationCtorArg
+    public var espAuthInformation: MutPtr = espAuthInformationCtorArg
         internal set
 
-    public var espCipherInformation: MutPtr<IpsecSaCipherInformation0> = espCipherInformationCtorArg
+    public var espCipherInformation: MutPtr = espCipherInformationCtorArg
         internal set
 
-    public var espAuthAndCipherInformation: MutPtr<IpsecSaAuthAndCipherInformation0> = espAuthAndCipherInformationCtorArg
+    public var espAuthAndCipherInformation: MutPtr = espAuthAndCipherInformationCtorArg
         internal set
 
-    public var espAuthFwInformation: MutPtr<IpsecSaAuthInformation0> = espAuthFwInformationCtorArg
+    public var espAuthFwInformation: MutPtr = espAuthFwInformationCtorArg
         internal set
 
     public constructor() : this(
@@ -11003,17 +11000,17 @@ public class IpsecSa00 internal constructor(
         espAuthFwInformationCtorArg = MutPtr(0L),
     )
 
-    public operator fun component1(): MutPtr<IpsecSaAuthInformation0> = this.ahInformation
+    public operator fun component1(): MutPtr = this.ahInformation
 
-    public operator fun component2(): MutPtr<IpsecSaAuthInformation0> = this.espAuthInformation
+    public operator fun component2(): MutPtr = this.espAuthInformation
 
-    public operator fun component3(): MutPtr<IpsecSaCipherInformation0> = this.espCipherInformation
+    public operator fun component3(): MutPtr = this.espCipherInformation
 
-    public operator fun component4(): MutPtr<IpsecSaAuthAndCipherInformation0> = this.espAuthAndCipherInformation
+    public operator fun component4(): MutPtr = this.espAuthAndCipherInformation
 
-    public operator fun component5(): MutPtr<IpsecSaAuthInformation0> = this.espAuthFwInformation
+    public operator fun component5(): MutPtr = this.espAuthFwInformation
 
-    public fun copy(ahInformation: MutPtr<IpsecSaAuthInformation0> = this.ahInformation, espAuthInformation: MutPtr<IpsecSaAuthInformation0> = this.espAuthInformation, espCipherInformation: MutPtr<IpsecSaCipherInformation0> = this.espCipherInformation, espAuthAndCipherInformation: MutPtr<IpsecSaAuthAndCipherInformation0> = this.espAuthAndCipherInformation, espAuthFwInformation: MutPtr<IpsecSaAuthInformation0> = this.espAuthFwInformation): IpsecSa00 = IpsecSa00(ahInformationCtorArg = ahInformation, espAuthInformationCtorArg = espAuthInformation, espCipherInformationCtorArg = espCipherInformation, espAuthAndCipherInformationCtorArg = espAuthAndCipherInformation, espAuthFwInformationCtorArg = espAuthFwInformation)
+    public fun copy(ahInformation: MutPtr = this.ahInformation, espAuthInformation: MutPtr = this.espAuthInformation, espCipherInformation: MutPtr = this.espCipherInformation, espAuthAndCipherInformation: MutPtr = this.espAuthAndCipherInformation, espAuthFwInformation: MutPtr = this.espAuthFwInformation): IpsecSa00 = IpsecSa00(ahInformationCtorArg = ahInformation, espAuthInformationCtorArg = espAuthInformation, espCipherInformationCtorArg = espCipherInformation, espAuthAndCipherInformationCtorArg = espAuthAndCipherInformation, espAuthFwInformationCtorArg = espAuthFwInformation)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -11037,11 +11034,11 @@ public class IpsecSa00 internal constructor(
 
     public companion object {
         public operator fun invoke(
-            ahInformation: MutPtr<IpsecSaAuthInformation0> = MutPtr(0L),
-            espAuthInformation: MutPtr<IpsecSaAuthInformation0> = MutPtr(0L),
-            espCipherInformation: MutPtr<IpsecSaCipherInformation0> = MutPtr(0L),
-            espAuthAndCipherInformation: MutPtr<IpsecSaAuthAndCipherInformation0> = MutPtr(0L),
-            espAuthFwInformation: MutPtr<IpsecSaAuthInformation0> = MutPtr(0L),
+            ahInformation: MutPtr = MutPtr(0L),
+            espAuthInformation: MutPtr = MutPtr(0L),
+            espCipherInformation: MutPtr = MutPtr(0L),
+            espAuthAndCipherInformation: MutPtr = MutPtr(0L),
+            espAuthFwInformation: MutPtr = MutPtr(0L),
         ): IpsecSa00 =
             IpsecSa00(
                 ahInformationCtorArg = ahInformation,
@@ -11102,24 +11099,24 @@ public class IpsecSaBundle0 internal constructor(
     public var lifetime: IpsecSaLifetime0,
     public var idleTimeoutSeconds: UInt,
     public var ndAllowClearTimeoutSeconds: UInt,
-    ipsecIdCtorArg: MutPtr<IpsecId0>,
+    ipsecIdCtorArg: MutPtr,
     public var napContext: UInt,
     public var qmSaId: UInt,
     public var numSAs: UInt,
-    saListCtorArg: MutPtr<IpsecSa0>,
-    keyModuleStateCtorArg: MutPtr<IpsecKeymoduleState0>,
+    saListCtorArg: MutPtr,
+    keyModuleStateCtorArg: MutPtr,
     public var ipVersion: FwpIpVersion,
     public var anonymous: IpsecSaBundle00,
     public var mmSaId: ULong,
     public var pfsGroup: IpsecPfsGroup,
 ) {
-    public var ipsecId: MutPtr<IpsecId0> = ipsecIdCtorArg
+    public var ipsecId: MutPtr = ipsecIdCtorArg
         internal set
 
-    public var saList: MutPtr<IpsecSa0> = saListCtorArg
+    public var saList: MutPtr = saListCtorArg
         internal set
 
-    public var keyModuleState: MutPtr<IpsecKeymoduleState0> = keyModuleStateCtorArg
+    public var keyModuleState: MutPtr = keyModuleStateCtorArg
         internal set
 
     public constructor() : this(
@@ -11147,7 +11144,7 @@ public class IpsecSaBundle0 internal constructor(
 
     public operator fun component4(): UInt = this.ndAllowClearTimeoutSeconds
 
-    public operator fun component5(): MutPtr<IpsecId0> = this.ipsecId
+    public operator fun component5(): MutPtr = this.ipsecId
 
     public operator fun component6(): UInt = this.napContext
 
@@ -11155,9 +11152,9 @@ public class IpsecSaBundle0 internal constructor(
 
     public operator fun component8(): UInt = this.numSAs
 
-    public operator fun component9(): MutPtr<IpsecSa0> = this.saList
+    public operator fun component9(): MutPtr = this.saList
 
-    public operator fun component10(): MutPtr<IpsecKeymoduleState0> = this.keyModuleState
+    public operator fun component10(): MutPtr = this.keyModuleState
 
     public operator fun component11(): FwpIpVersion = this.ipVersion
 
@@ -11167,7 +11164,7 @@ public class IpsecSaBundle0 internal constructor(
 
     public operator fun component14(): IpsecPfsGroup = this.pfsGroup
 
-    public fun copy(flags: IpsecSaBundleFlags = this.flags, lifetime: IpsecSaLifetime0 = this.lifetime, idleTimeoutSeconds: UInt = this.idleTimeoutSeconds, ndAllowClearTimeoutSeconds: UInt = this.ndAllowClearTimeoutSeconds, ipsecId: MutPtr<IpsecId0> = this.ipsecId, napContext: UInt = this.napContext, qmSaId: UInt = this.qmSaId, numSAs: UInt = this.numSAs, saList: MutPtr<IpsecSa0> = this.saList, keyModuleState: MutPtr<IpsecKeymoduleState0> = this.keyModuleState, ipVersion: FwpIpVersion = this.ipVersion, anonymous: IpsecSaBundle00 = this.anonymous, mmSaId: ULong = this.mmSaId, pfsGroup: IpsecPfsGroup = this.pfsGroup): IpsecSaBundle0 = IpsecSaBundle0(flags = flags, lifetime = lifetime, idleTimeoutSeconds = idleTimeoutSeconds, ndAllowClearTimeoutSeconds = ndAllowClearTimeoutSeconds, ipsecIdCtorArg = ipsecId, napContext = napContext, qmSaId = qmSaId, numSAs = numSAs, saListCtorArg = saList, keyModuleStateCtorArg = keyModuleState, ipVersion = ipVersion, anonymous = anonymous, mmSaId = mmSaId, pfsGroup = pfsGroup)
+    public fun copy(flags: IpsecSaBundleFlags = this.flags, lifetime: IpsecSaLifetime0 = this.lifetime, idleTimeoutSeconds: UInt = this.idleTimeoutSeconds, ndAllowClearTimeoutSeconds: UInt = this.ndAllowClearTimeoutSeconds, ipsecId: MutPtr = this.ipsecId, napContext: UInt = this.napContext, qmSaId: UInt = this.qmSaId, numSAs: UInt = this.numSAs, saList: MutPtr = this.saList, keyModuleState: MutPtr = this.keyModuleState, ipVersion: FwpIpVersion = this.ipVersion, anonymous: IpsecSaBundle00 = this.anonymous, mmSaId: ULong = this.mmSaId, pfsGroup: IpsecPfsGroup = this.pfsGroup): IpsecSaBundle0 = IpsecSaBundle0(flags = flags, lifetime = lifetime, idleTimeoutSeconds = idleTimeoutSeconds, ndAllowClearTimeoutSeconds = ndAllowClearTimeoutSeconds, ipsecIdCtorArg = ipsecId, napContext = napContext, qmSaId = qmSaId, numSAs = numSAs, saListCtorArg = saList, keyModuleStateCtorArg = keyModuleState, ipVersion = ipVersion, anonymous = anonymous, mmSaId = mmSaId, pfsGroup = pfsGroup)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -11213,12 +11210,12 @@ public class IpsecSaBundle0 internal constructor(
             lifetime: IpsecSaLifetime0 = IpsecSaLifetime0(),
             idleTimeoutSeconds: UInt = 0u,
             ndAllowClearTimeoutSeconds: UInt = 0u,
-            ipsecId: MutPtr<IpsecId0> = MutPtr(0L),
+            ipsecId: MutPtr = MutPtr(0L),
             napContext: UInt = 0u,
             qmSaId: UInt = 0u,
             numSAs: UInt = 0u,
-            saList: MutPtr<IpsecSa0> = MutPtr(0L),
-            keyModuleState: MutPtr<IpsecKeymoduleState0> = MutPtr(0L),
+            saList: MutPtr = MutPtr(0L),
+            keyModuleState: MutPtr = MutPtr(0L),
             ipVersion: FwpIpVersion = 0,
             anonymous: IpsecSaBundle00 = IpsecSaBundle00(),
             mmSaId: ULong = 0uL,
@@ -11252,12 +11249,12 @@ public class IpsecSaBundle1 internal constructor(
     public var lifetime: IpsecSaLifetime0,
     public var idleTimeoutSeconds: UInt,
     public var ndAllowClearTimeoutSeconds: UInt,
-    ipsecIdCtorArg: MutPtr<IpsecId0>,
+    ipsecIdCtorArg: MutPtr,
     public var napContext: UInt,
     public var qmSaId: UInt,
     public var numSAs: UInt,
-    saListCtorArg: MutPtr<IpsecSa0>,
-    keyModuleStateCtorArg: MutPtr<IpsecKeymoduleState0>,
+    saListCtorArg: MutPtr,
+    keyModuleStateCtorArg: MutPtr,
     public var ipVersion: FwpIpVersion,
     public var anonymous: IpsecSaBundle10,
     public var mmSaId: ULong,
@@ -11265,13 +11262,13 @@ public class IpsecSaBundle1 internal constructor(
     public var saLookupContext: Guid,
     public var qmFilterId: ULong,
 ) {
-    public var ipsecId: MutPtr<IpsecId0> = ipsecIdCtorArg
+    public var ipsecId: MutPtr = ipsecIdCtorArg
         internal set
 
-    public var saList: MutPtr<IpsecSa0> = saListCtorArg
+    public var saList: MutPtr = saListCtorArg
         internal set
 
-    public var keyModuleState: MutPtr<IpsecKeymoduleState0> = keyModuleStateCtorArg
+    public var keyModuleState: MutPtr = keyModuleStateCtorArg
         internal set
 
     public constructor() : this(
@@ -11301,7 +11298,7 @@ public class IpsecSaBundle1 internal constructor(
 
     public operator fun component4(): UInt = this.ndAllowClearTimeoutSeconds
 
-    public operator fun component5(): MutPtr<IpsecId0> = this.ipsecId
+    public operator fun component5(): MutPtr = this.ipsecId
 
     public operator fun component6(): UInt = this.napContext
 
@@ -11309,9 +11306,9 @@ public class IpsecSaBundle1 internal constructor(
 
     public operator fun component8(): UInt = this.numSAs
 
-    public operator fun component9(): MutPtr<IpsecSa0> = this.saList
+    public operator fun component9(): MutPtr = this.saList
 
-    public operator fun component10(): MutPtr<IpsecKeymoduleState0> = this.keyModuleState
+    public operator fun component10(): MutPtr = this.keyModuleState
 
     public operator fun component11(): FwpIpVersion = this.ipVersion
 
@@ -11325,7 +11322,7 @@ public class IpsecSaBundle1 internal constructor(
 
     public operator fun component16(): ULong = this.qmFilterId
 
-    public fun copy(flags: IpsecSaBundleFlags = this.flags, lifetime: IpsecSaLifetime0 = this.lifetime, idleTimeoutSeconds: UInt = this.idleTimeoutSeconds, ndAllowClearTimeoutSeconds: UInt = this.ndAllowClearTimeoutSeconds, ipsecId: MutPtr<IpsecId0> = this.ipsecId, napContext: UInt = this.napContext, qmSaId: UInt = this.qmSaId, numSAs: UInt = this.numSAs, saList: MutPtr<IpsecSa0> = this.saList, keyModuleState: MutPtr<IpsecKeymoduleState0> = this.keyModuleState, ipVersion: FwpIpVersion = this.ipVersion, anonymous: IpsecSaBundle10 = this.anonymous, mmSaId: ULong = this.mmSaId, pfsGroup: IpsecPfsGroup = this.pfsGroup, saLookupContext: Guid = this.saLookupContext, qmFilterId: ULong = this.qmFilterId): IpsecSaBundle1 = IpsecSaBundle1(flags = flags, lifetime = lifetime, idleTimeoutSeconds = idleTimeoutSeconds, ndAllowClearTimeoutSeconds = ndAllowClearTimeoutSeconds, ipsecIdCtorArg = ipsecId, napContext = napContext, qmSaId = qmSaId, numSAs = numSAs, saListCtorArg = saList, keyModuleStateCtorArg = keyModuleState, ipVersion = ipVersion, anonymous = anonymous, mmSaId = mmSaId, pfsGroup = pfsGroup, saLookupContext = saLookupContext, qmFilterId = qmFilterId)
+    public fun copy(flags: IpsecSaBundleFlags = this.flags, lifetime: IpsecSaLifetime0 = this.lifetime, idleTimeoutSeconds: UInt = this.idleTimeoutSeconds, ndAllowClearTimeoutSeconds: UInt = this.ndAllowClearTimeoutSeconds, ipsecId: MutPtr = this.ipsecId, napContext: UInt = this.napContext, qmSaId: UInt = this.qmSaId, numSAs: UInt = this.numSAs, saList: MutPtr = this.saList, keyModuleState: MutPtr = this.keyModuleState, ipVersion: FwpIpVersion = this.ipVersion, anonymous: IpsecSaBundle10 = this.anonymous, mmSaId: ULong = this.mmSaId, pfsGroup: IpsecPfsGroup = this.pfsGroup, saLookupContext: Guid = this.saLookupContext, qmFilterId: ULong = this.qmFilterId): IpsecSaBundle1 = IpsecSaBundle1(flags = flags, lifetime = lifetime, idleTimeoutSeconds = idleTimeoutSeconds, ndAllowClearTimeoutSeconds = ndAllowClearTimeoutSeconds, ipsecIdCtorArg = ipsecId, napContext = napContext, qmSaId = qmSaId, numSAs = numSAs, saListCtorArg = saList, keyModuleStateCtorArg = keyModuleState, ipVersion = ipVersion, anonymous = anonymous, mmSaId = mmSaId, pfsGroup = pfsGroup, saLookupContext = saLookupContext, qmFilterId = qmFilterId)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -11375,12 +11372,12 @@ public class IpsecSaBundle1 internal constructor(
             lifetime: IpsecSaLifetime0 = IpsecSaLifetime0(),
             idleTimeoutSeconds: UInt = 0u,
             ndAllowClearTimeoutSeconds: UInt = 0u,
-            ipsecId: MutPtr<IpsecId0> = MutPtr(0L),
+            ipsecId: MutPtr = MutPtr(0L),
             napContext: UInt = 0u,
             qmSaId: UInt = 0u,
             numSAs: UInt = 0u,
-            saList: MutPtr<IpsecSa0> = MutPtr(0L),
-            keyModuleState: MutPtr<IpsecKeymoduleState0> = MutPtr(0L),
+            saList: MutPtr = MutPtr(0L),
+            keyModuleState: MutPtr = MutPtr(0L),
             ipVersion: FwpIpVersion = 0,
             anonymous: IpsecSaBundle10 = IpsecSaBundle10(),
             mmSaId: ULong = 0uL,
@@ -11437,13 +11434,13 @@ public data class IpsecSaCipherInformation0(
 
 public class IpsecSaContext0 internal constructor(
     public var saContextId: ULong,
-    inboundSaCtorArg: MutPtr<IpsecSaDetails0>,
-    outboundSaCtorArg: MutPtr<IpsecSaDetails0>,
+    inboundSaCtorArg: MutPtr,
+    outboundSaCtorArg: MutPtr,
 ) {
-    public var inboundSa: MutPtr<IpsecSaDetails0> = inboundSaCtorArg
+    public var inboundSa: MutPtr = inboundSaCtorArg
         internal set
 
-    public var outboundSa: MutPtr<IpsecSaDetails0> = outboundSaCtorArg
+    public var outboundSa: MutPtr = outboundSaCtorArg
         internal set
 
     public constructor() : this(
@@ -11454,11 +11451,11 @@ public class IpsecSaContext0 internal constructor(
 
     public operator fun component1(): ULong = this.saContextId
 
-    public operator fun component2(): MutPtr<IpsecSaDetails0> = this.inboundSa
+    public operator fun component2(): MutPtr = this.inboundSa
 
-    public operator fun component3(): MutPtr<IpsecSaDetails0> = this.outboundSa
+    public operator fun component3(): MutPtr = this.outboundSa
 
-    public fun copy(saContextId: ULong = this.saContextId, inboundSa: MutPtr<IpsecSaDetails0> = this.inboundSa, outboundSa: MutPtr<IpsecSaDetails0> = this.outboundSa): IpsecSaContext0 = IpsecSaContext0(saContextId = saContextId, inboundSaCtorArg = inboundSa, outboundSaCtorArg = outboundSa)
+    public fun copy(saContextId: ULong = this.saContextId, inboundSa: MutPtr = this.inboundSa, outboundSa: MutPtr = this.outboundSa): IpsecSaContext0 = IpsecSaContext0(saContextId = saContextId, inboundSaCtorArg = inboundSa, outboundSaCtorArg = outboundSa)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -11486,30 +11483,30 @@ public class IpsecSaContext0 internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U64).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<IpsecSaDetails0>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<IpsecSaDetails0>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 16L),
                     )
                 override fun writeNative(addr: Long, value: IpsecSaContext0) {
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U64).writeNative(addr, value.saContextId)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<IpsecSaDetails0>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.inboundSa)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<IpsecSaDetails0>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 16L, value.outboundSa)
                 }
             }
 
         public operator fun invoke(
             saContextId: ULong = 0uL,
-            inboundSa: MutPtr<IpsecSaDetails0> = MutPtr(0L),
-            outboundSa: MutPtr<IpsecSaDetails0> = MutPtr(0L),
+            inboundSa: MutPtr = MutPtr(0L),
+            outboundSa: MutPtr = MutPtr(0L),
         ): IpsecSaContext0 =
             IpsecSaContext0(
                 saContextId = saContextId,
@@ -11521,13 +11518,13 @@ public class IpsecSaContext0 internal constructor(
 
 public class IpsecSaContext1 internal constructor(
     public var saContextId: ULong,
-    inboundSaCtorArg: MutPtr<IpsecSaDetails1>,
-    outboundSaCtorArg: MutPtr<IpsecSaDetails1>,
+    inboundSaCtorArg: MutPtr,
+    outboundSaCtorArg: MutPtr,
 ) {
-    public var inboundSa: MutPtr<IpsecSaDetails1> = inboundSaCtorArg
+    public var inboundSa: MutPtr = inboundSaCtorArg
         internal set
 
-    public var outboundSa: MutPtr<IpsecSaDetails1> = outboundSaCtorArg
+    public var outboundSa: MutPtr = outboundSaCtorArg
         internal set
 
     public constructor() : this(
@@ -11538,11 +11535,11 @@ public class IpsecSaContext1 internal constructor(
 
     public operator fun component1(): ULong = this.saContextId
 
-    public operator fun component2(): MutPtr<IpsecSaDetails1> = this.inboundSa
+    public operator fun component2(): MutPtr = this.inboundSa
 
-    public operator fun component3(): MutPtr<IpsecSaDetails1> = this.outboundSa
+    public operator fun component3(): MutPtr = this.outboundSa
 
-    public fun copy(saContextId: ULong = this.saContextId, inboundSa: MutPtr<IpsecSaDetails1> = this.inboundSa, outboundSa: MutPtr<IpsecSaDetails1> = this.outboundSa): IpsecSaContext1 = IpsecSaContext1(saContextId = saContextId, inboundSaCtorArg = inboundSa, outboundSaCtorArg = outboundSa)
+    public fun copy(saContextId: ULong = this.saContextId, inboundSa: MutPtr = this.inboundSa, outboundSa: MutPtr = this.outboundSa): IpsecSaContext1 = IpsecSaContext1(saContextId = saContextId, inboundSaCtorArg = inboundSa, outboundSaCtorArg = outboundSa)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -11570,30 +11567,30 @@ public class IpsecSaContext1 internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U64).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<IpsecSaDetails1>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<IpsecSaDetails1>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 16L),
                     )
                 override fun writeNative(addr: Long, value: IpsecSaContext1) {
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U64).writeNative(addr, value.saContextId)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<IpsecSaDetails1>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.inboundSa)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<IpsecSaDetails1>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 16L, value.outboundSa)
                 }
             }
 
         public operator fun invoke(
             saContextId: ULong = 0uL,
-            inboundSa: MutPtr<IpsecSaDetails1> = MutPtr(0L),
-            outboundSa: MutPtr<IpsecSaDetails1> = MutPtr(0L),
+            inboundSa: MutPtr = MutPtr(0L),
+            outboundSa: MutPtr = MutPtr(0L),
         ): IpsecSaContext1 =
             IpsecSaContext1(
                 saContextId = saContextId,
@@ -11631,11 +11628,11 @@ public data class IpsecSaContextEnumTemplate0(
 )
 
 public class IpsecSaContextSubscription0 internal constructor(
-    enumTemplateCtorArg: MutPtr<IpsecSaContextEnumTemplate0>,
+    enumTemplateCtorArg: MutPtr,
     public var flags: UInt,
     public var sessionKey: Guid,
 ) {
-    public var enumTemplate: MutPtr<IpsecSaContextEnumTemplate0> = enumTemplateCtorArg
+    public var enumTemplate: MutPtr = enumTemplateCtorArg
         internal set
 
     public constructor() : this(
@@ -11644,13 +11641,13 @@ public class IpsecSaContextSubscription0 internal constructor(
         sessionKey = Guid(),
     )
 
-    public operator fun component1(): MutPtr<IpsecSaContextEnumTemplate0> = this.enumTemplate
+    public operator fun component1(): MutPtr = this.enumTemplate
 
     public operator fun component2(): UInt = this.flags
 
     public operator fun component3(): Guid = this.sessionKey
 
-    public fun copy(enumTemplate: MutPtr<IpsecSaContextEnumTemplate0> = this.enumTemplate, flags: UInt = this.flags, sessionKey: Guid = this.sessionKey): IpsecSaContextSubscription0 = IpsecSaContextSubscription0(enumTemplateCtorArg = enumTemplate, flags = flags, sessionKey = sessionKey)
+    public fun copy(enumTemplate: MutPtr = this.enumTemplate, flags: UInt = this.flags, sessionKey: Guid = this.sessionKey): IpsecSaContextSubscription0 = IpsecSaContextSubscription0(enumTemplateCtorArg = enumTemplate, flags = flags, sessionKey = sessionKey)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -11670,7 +11667,7 @@ public class IpsecSaContextSubscription0 internal constructor(
 
     public companion object {
         public operator fun invoke(
-            enumTemplate: MutPtr<IpsecSaContextEnumTemplate0> = MutPtr(0L),
+            enumTemplate: MutPtr = MutPtr(0L),
             flags: UInt = 0u,
             sessionKey: Guid = Guid(),
         ): IpsecSaContextSubscription0 =
@@ -11688,9 +11685,9 @@ public class IpsecSaDetails0 internal constructor(
     public var traffic: IpsecTraffic0,
     public var saBundle: IpsecSaBundle0,
     public var anonymous: IpsecSaDetails00,
-    transportFilterCtorArg: MutPtr<FwpmFilter0>,
+    transportFilterCtorArg: MutPtr,
 ) {
-    public var transportFilter: MutPtr<FwpmFilter0> = transportFilterCtorArg
+    public var transportFilter: MutPtr = transportFilterCtorArg
         internal set
 
     public constructor() : this(
@@ -11712,9 +11709,9 @@ public class IpsecSaDetails0 internal constructor(
 
     public operator fun component5(): IpsecSaDetails00 = this.anonymous
 
-    public operator fun component6(): MutPtr<FwpmFilter0> = this.transportFilter
+    public operator fun component6(): MutPtr = this.transportFilter
 
-    public fun copy(ipVersion: FwpIpVersion = this.ipVersion, saDirection: FwpDirection = this.saDirection, traffic: IpsecTraffic0 = this.traffic, saBundle: IpsecSaBundle0 = this.saBundle, anonymous: IpsecSaDetails00 = this.anonymous, transportFilter: MutPtr<FwpmFilter0> = this.transportFilter): IpsecSaDetails0 = IpsecSaDetails0(ipVersion = ipVersion, saDirection = saDirection, traffic = traffic, saBundle = saBundle, anonymous = anonymous, transportFilterCtorArg = transportFilter)
+    public fun copy(ipVersion: FwpIpVersion = this.ipVersion, saDirection: FwpDirection = this.saDirection, traffic: IpsecTraffic0 = this.traffic, saBundle: IpsecSaBundle0 = this.saBundle, anonymous: IpsecSaDetails00 = this.anonymous, transportFilter: MutPtr = this.transportFilter): IpsecSaDetails0 = IpsecSaDetails0(ipVersion = ipVersion, saDirection = saDirection, traffic = traffic, saBundle = saBundle, anonymous = anonymous, transportFilterCtorArg = transportFilter)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -11745,7 +11742,7 @@ public class IpsecSaDetails0 internal constructor(
             traffic: IpsecTraffic0 = IpsecTraffic0(),
             saBundle: IpsecSaBundle0 = IpsecSaBundle0(),
             anonymous: IpsecSaDetails00 = IpsecSaDetails00(),
-            transportFilter: MutPtr<FwpmFilter0> = MutPtr(0L),
+            transportFilter: MutPtr = MutPtr(0L),
         ): IpsecSaDetails0 =
             IpsecSaDetails0(
                 ipVersion = ipVersion,
@@ -11759,18 +11756,18 @@ public class IpsecSaDetails0 internal constructor(
 }
 
 public class IpsecSaDetails00 internal constructor(
-    udpEncapsulationCtorArg: MutPtr<IpsecV4UdpEncapsulation0>,
+    udpEncapsulationCtorArg: MutPtr,
 ) {
-    public var udpEncapsulation: MutPtr<IpsecV4UdpEncapsulation0> = udpEncapsulationCtorArg
+    public var udpEncapsulation: MutPtr = udpEncapsulationCtorArg
         internal set
 
     public constructor() : this(
         udpEncapsulationCtorArg = MutPtr(0L),
     )
 
-    public operator fun component1(): MutPtr<IpsecV4UdpEncapsulation0> = this.udpEncapsulation
+    public operator fun component1(): MutPtr = this.udpEncapsulation
 
-    public fun copy(udpEncapsulation: MutPtr<IpsecV4UdpEncapsulation0> = this.udpEncapsulation): IpsecSaDetails00 = IpsecSaDetails00(udpEncapsulationCtorArg = udpEncapsulation)
+    public fun copy(udpEncapsulation: MutPtr = this.udpEncapsulation): IpsecSaDetails00 = IpsecSaDetails00(udpEncapsulationCtorArg = udpEncapsulation)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -11783,7 +11780,7 @@ public class IpsecSaDetails00 internal constructor(
 
     public companion object {
         public operator fun invoke(
-            udpEncapsulation: MutPtr<IpsecV4UdpEncapsulation0> = MutPtr(0L),
+            udpEncapsulation: MutPtr = MutPtr(0L),
         ): IpsecSaDetails00 =
             IpsecSaDetails00(
                 udpEncapsulationCtorArg = udpEncapsulation,
@@ -11797,10 +11794,10 @@ public class IpsecSaDetails1 internal constructor(
     public var traffic: IpsecTraffic1,
     public var saBundle: IpsecSaBundle1,
     public var anonymous: IpsecSaDetails10,
-    transportFilterCtorArg: MutPtr<FwpmFilter0>,
+    transportFilterCtorArg: MutPtr,
     public var virtualIfTunnelInfo: IpsecVirtualIfTunnelInfo0,
 ) {
-    public var transportFilter: MutPtr<FwpmFilter0> = transportFilterCtorArg
+    public var transportFilter: MutPtr = transportFilterCtorArg
         internal set
 
     public constructor() : this(
@@ -11823,11 +11820,11 @@ public class IpsecSaDetails1 internal constructor(
 
     public operator fun component5(): IpsecSaDetails10 = this.anonymous
 
-    public operator fun component6(): MutPtr<FwpmFilter0> = this.transportFilter
+    public operator fun component6(): MutPtr = this.transportFilter
 
     public operator fun component7(): IpsecVirtualIfTunnelInfo0 = this.virtualIfTunnelInfo
 
-    public fun copy(ipVersion: FwpIpVersion = this.ipVersion, saDirection: FwpDirection = this.saDirection, traffic: IpsecTraffic1 = this.traffic, saBundle: IpsecSaBundle1 = this.saBundle, anonymous: IpsecSaDetails10 = this.anonymous, transportFilter: MutPtr<FwpmFilter0> = this.transportFilter, virtualIfTunnelInfo: IpsecVirtualIfTunnelInfo0 = this.virtualIfTunnelInfo): IpsecSaDetails1 = IpsecSaDetails1(ipVersion = ipVersion, saDirection = saDirection, traffic = traffic, saBundle = saBundle, anonymous = anonymous, transportFilterCtorArg = transportFilter, virtualIfTunnelInfo = virtualIfTunnelInfo)
+    public fun copy(ipVersion: FwpIpVersion = this.ipVersion, saDirection: FwpDirection = this.saDirection, traffic: IpsecTraffic1 = this.traffic, saBundle: IpsecSaBundle1 = this.saBundle, anonymous: IpsecSaDetails10 = this.anonymous, transportFilter: MutPtr = this.transportFilter, virtualIfTunnelInfo: IpsecVirtualIfTunnelInfo0 = this.virtualIfTunnelInfo): IpsecSaDetails1 = IpsecSaDetails1(ipVersion = ipVersion, saDirection = saDirection, traffic = traffic, saBundle = saBundle, anonymous = anonymous, transportFilterCtorArg = transportFilter, virtualIfTunnelInfo = virtualIfTunnelInfo)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -11860,7 +11857,7 @@ public class IpsecSaDetails1 internal constructor(
             traffic: IpsecTraffic1 = IpsecTraffic1(),
             saBundle: IpsecSaBundle1 = IpsecSaBundle1(),
             anonymous: IpsecSaDetails10 = IpsecSaDetails10(),
-            transportFilter: MutPtr<FwpmFilter0> = MutPtr(0L),
+            transportFilter: MutPtr = MutPtr(0L),
             virtualIfTunnelInfo: IpsecVirtualIfTunnelInfo0 = IpsecVirtualIfTunnelInfo0(),
         ): IpsecSaDetails1 =
             IpsecSaDetails1(
@@ -11876,18 +11873,18 @@ public class IpsecSaDetails1 internal constructor(
 }
 
 public class IpsecSaDetails10 internal constructor(
-    udpEncapsulationCtorArg: MutPtr<IpsecV4UdpEncapsulation0>,
+    udpEncapsulationCtorArg: MutPtr,
 ) {
-    public var udpEncapsulation: MutPtr<IpsecV4UdpEncapsulation0> = udpEncapsulationCtorArg
+    public var udpEncapsulation: MutPtr = udpEncapsulationCtorArg
         internal set
 
     public constructor() : this(
         udpEncapsulationCtorArg = MutPtr(0L),
     )
 
-    public operator fun component1(): MutPtr<IpsecV4UdpEncapsulation0> = this.udpEncapsulation
+    public operator fun component1(): MutPtr = this.udpEncapsulation
 
-    public fun copy(udpEncapsulation: MutPtr<IpsecV4UdpEncapsulation0> = this.udpEncapsulation): IpsecSaDetails10 = IpsecSaDetails10(udpEncapsulationCtorArg = udpEncapsulation)
+    public fun copy(udpEncapsulation: MutPtr = this.udpEncapsulation): IpsecSaDetails10 = IpsecSaDetails10(udpEncapsulationCtorArg = udpEncapsulation)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -11900,7 +11897,7 @@ public class IpsecSaDetails10 internal constructor(
 
     public companion object {
         public operator fun invoke(
-            udpEncapsulation: MutPtr<IpsecV4UdpEncapsulation0> = MutPtr(0L),
+            udpEncapsulation: MutPtr = MutPtr(0L),
         ): IpsecSaDetails10 =
             IpsecSaDetails10(
                 udpEncapsulationCtorArg = udpEncapsulation,
@@ -11980,25 +11977,25 @@ public data class IpsecSaTransform0(
 )
 
 public class IpsecSaTransform00 internal constructor(
-    ahTransformCtorArg: MutPtr<IpsecAuthTransform0>,
-    espAuthTransformCtorArg: MutPtr<IpsecAuthTransform0>,
-    espCipherTransformCtorArg: MutPtr<IpsecCipherTransform0>,
-    espAuthAndCipherTransformCtorArg: MutPtr<IpsecAuthAndCipherTransform0>,
-    espAuthFwTransformCtorArg: MutPtr<IpsecAuthTransform0>,
+    ahTransformCtorArg: MutPtr,
+    espAuthTransformCtorArg: MutPtr,
+    espCipherTransformCtorArg: MutPtr,
+    espAuthAndCipherTransformCtorArg: MutPtr,
+    espAuthFwTransformCtorArg: MutPtr,
 ) {
-    public var ahTransform: MutPtr<IpsecAuthTransform0> = ahTransformCtorArg
+    public var ahTransform: MutPtr = ahTransformCtorArg
         internal set
 
-    public var espAuthTransform: MutPtr<IpsecAuthTransform0> = espAuthTransformCtorArg
+    public var espAuthTransform: MutPtr = espAuthTransformCtorArg
         internal set
 
-    public var espCipherTransform: MutPtr<IpsecCipherTransform0> = espCipherTransformCtorArg
+    public var espCipherTransform: MutPtr = espCipherTransformCtorArg
         internal set
 
-    public var espAuthAndCipherTransform: MutPtr<IpsecAuthAndCipherTransform0> = espAuthAndCipherTransformCtorArg
+    public var espAuthAndCipherTransform: MutPtr = espAuthAndCipherTransformCtorArg
         internal set
 
-    public var espAuthFwTransform: MutPtr<IpsecAuthTransform0> = espAuthFwTransformCtorArg
+    public var espAuthFwTransform: MutPtr = espAuthFwTransformCtorArg
         internal set
 
     public constructor() : this(
@@ -12009,17 +12006,17 @@ public class IpsecSaTransform00 internal constructor(
         espAuthFwTransformCtorArg = MutPtr(0L),
     )
 
-    public operator fun component1(): MutPtr<IpsecAuthTransform0> = this.ahTransform
+    public operator fun component1(): MutPtr = this.ahTransform
 
-    public operator fun component2(): MutPtr<IpsecAuthTransform0> = this.espAuthTransform
+    public operator fun component2(): MutPtr = this.espAuthTransform
 
-    public operator fun component3(): MutPtr<IpsecCipherTransform0> = this.espCipherTransform
+    public operator fun component3(): MutPtr = this.espCipherTransform
 
-    public operator fun component4(): MutPtr<IpsecAuthAndCipherTransform0> = this.espAuthAndCipherTransform
+    public operator fun component4(): MutPtr = this.espAuthAndCipherTransform
 
-    public operator fun component5(): MutPtr<IpsecAuthTransform0> = this.espAuthFwTransform
+    public operator fun component5(): MutPtr = this.espAuthFwTransform
 
-    public fun copy(ahTransform: MutPtr<IpsecAuthTransform0> = this.ahTransform, espAuthTransform: MutPtr<IpsecAuthTransform0> = this.espAuthTransform, espCipherTransform: MutPtr<IpsecCipherTransform0> = this.espCipherTransform, espAuthAndCipherTransform: MutPtr<IpsecAuthAndCipherTransform0> = this.espAuthAndCipherTransform, espAuthFwTransform: MutPtr<IpsecAuthTransform0> = this.espAuthFwTransform): IpsecSaTransform00 = IpsecSaTransform00(ahTransformCtorArg = ahTransform, espAuthTransformCtorArg = espAuthTransform, espCipherTransformCtorArg = espCipherTransform, espAuthAndCipherTransformCtorArg = espAuthAndCipherTransform, espAuthFwTransformCtorArg = espAuthFwTransform)
+    public fun copy(ahTransform: MutPtr = this.ahTransform, espAuthTransform: MutPtr = this.espAuthTransform, espCipherTransform: MutPtr = this.espCipherTransform, espAuthAndCipherTransform: MutPtr = this.espAuthAndCipherTransform, espAuthFwTransform: MutPtr = this.espAuthFwTransform): IpsecSaTransform00 = IpsecSaTransform00(ahTransformCtorArg = ahTransform, espAuthTransformCtorArg = espAuthTransform, espCipherTransformCtorArg = espCipherTransform, espAuthAndCipherTransformCtorArg = espAuthAndCipherTransform, espAuthFwTransformCtorArg = espAuthFwTransform)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -12043,11 +12040,11 @@ public class IpsecSaTransform00 internal constructor(
 
     public companion object {
         public operator fun invoke(
-            ahTransform: MutPtr<IpsecAuthTransform0> = MutPtr(0L),
-            espAuthTransform: MutPtr<IpsecAuthTransform0> = MutPtr(0L),
-            espCipherTransform: MutPtr<IpsecCipherTransform0> = MutPtr(0L),
-            espAuthAndCipherTransform: MutPtr<IpsecAuthAndCipherTransform0> = MutPtr(0L),
-            espAuthFwTransform: MutPtr<IpsecAuthTransform0> = MutPtr(0L),
+            ahTransform: MutPtr = MutPtr(0L),
+            espAuthTransform: MutPtr = MutPtr(0L),
+            espCipherTransform: MutPtr = MutPtr(0L),
+            espAuthAndCipherTransform: MutPtr = MutPtr(0L),
+            espAuthFwTransform: MutPtr = MutPtr(0L),
         ): IpsecSaTransform00 =
             IpsecSaTransform00(
                 ahTransformCtorArg = ahTransform,

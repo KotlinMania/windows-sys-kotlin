@@ -8,5 +8,5 @@ import io.github.kotlinmania.windowssys.windows.win32.system.wmi.cinterop.window
 import kotlinx.cinterop.ByteVar
 import kotlinx.cinterop.toCPointer
 
-public actual fun miApplicationInitializeV1(flags: UInt, applicationid: ConstPtr<UShort>, extendederror: MutPtr<MutPtr<MiInstance>>, application: MutPtr<MiApplication>): MiResult =
+public actual fun miApplicationInitializeV1(flags: UInt, applicationid: ConstPtr, extendederror: MutPtr, application: MutPtr): MiResult =
     windowssysWindowsWin32SystemWmiMiApplicationInitializeV1(flags, applicationid.rawAddress.toCPointer<ByteVar>(), extendederror.rawAddress.toCPointer<ByteVar>(), application.rawAddress.toCPointer<ByteVar>())

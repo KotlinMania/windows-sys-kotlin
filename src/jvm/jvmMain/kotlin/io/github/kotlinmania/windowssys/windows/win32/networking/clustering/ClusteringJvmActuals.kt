@@ -2,20 +2,16 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.networking.clustering
 
-import io.github.kotlinmania.rustlang.core.ffi.CVoid
 import io.github.kotlinmania.rustlang.core.ptr.ConstPtr
 import io.github.kotlinmania.rustlang.core.ptr.MutPtr
 import io.github.kotlinmania.windowssys.core.Bool
 import io.github.kotlinmania.windowssys.core.Guid
-import io.github.kotlinmania.windowssys.core.Hresult
 import io.github.kotlinmania.windowssys.core.Pcwstr
 import io.github.kotlinmania.windowssys.core.Pwstr
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Filetime
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Handle
-import io.github.kotlinmania.windowssys.windows.win32.foundation.Ntstatus
 import io.github.kotlinmania.windowssys.windows.win32.security.ObjectSecurityInformation
 import io.github.kotlinmania.windowssys.windows.win32.security.PsecurityDescriptor
-import io.github.kotlinmania.windowssys.windows.win32.security.SecurityAttributes
 import io.github.kotlinmania.windowssys.windows.win32.system.registry.Hkey
 import io.github.kotlinmania.windowssys.windows.win32.system.services.ScHandle
 
@@ -1300,10 +1296,10 @@ public actual fun addClusterGroupToGroupSetDependency(hdependentgroup: Hgroup, h
 public actual fun addClusterGroupToGroupSetDependencyEx(hdependentgroup: Hgroup, hprovidergroupset: Hgroupset, lpszreason: Pcwstr): UInt =
     WindowsWin32NetworkingClusteringJniBridge.windowssysWindowsWin32NetworkingClusteringAddClusterGroupToGroupSetDependencyEx(hdependentgroup, hprovidergroupset, lpszreason.rawAddress).toUInt()
 
-public actual fun addClusterNode(hcluster: Hcluster, lpsznodename: Pcwstr, pfnprogresscallback: PclusterSetupProgressCallback, pvcallbackarg: ConstPtr<CVoid>): Hnode =
+public actual fun addClusterNode(hcluster: Hcluster, lpsznodename: Pcwstr, pfnprogresscallback: PclusterSetupProgressCallback, pvcallbackarg: ConstPtr): Hnode =
     WindowsWin32NetworkingClusteringJniBridge.windowssysWindowsWin32NetworkingClusteringAddClusterNode(hcluster, lpsznodename.rawAddress, 0L, pvcallbackarg.rawAddress)
 
-public actual fun addClusterNodeEx(hcluster: Hcluster, lpsznodename: Pcwstr, dwflags: UInt, pfnprogresscallback: PclusterSetupProgressCallback, pvcallbackarg: ConstPtr<CVoid>): Hnode =
+public actual fun addClusterNodeEx(hcluster: Hcluster, lpsznodename: Pcwstr, dwflags: UInt, pfnprogresscallback: PclusterSetupProgressCallback, pvcallbackarg: ConstPtr): Hnode =
     WindowsWin32NetworkingClusteringJniBridge.windowssysWindowsWin32NetworkingClusteringAddClusterNodeEx(hcluster, lpsznodename.rawAddress, dwflags.toInt(), 0L, pvcallbackarg.rawAddress)
 
 public actual fun addClusterResourceDependency(hresource: Hresource, hdependson: Hresource): UInt =
@@ -1318,7 +1314,7 @@ public actual fun addClusterResourceNode(hresource: Hresource, hnode: Hnode): UI
 public actual fun addClusterResourceNodeEx(hresource: Hresource, hnode: Hnode, lpszreason: Pcwstr): UInt =
     WindowsWin32NetworkingClusteringJniBridge.windowssysWindowsWin32NetworkingClusteringAddClusterResourceNodeEx(hresource, hnode, lpszreason.rawAddress).toUInt()
 
-public actual fun addClusterStorageNode(hcluster: Hcluster, lpsznodename: Pcwstr, pfnprogresscallback: PclusterSetupProgressCallback, pvcallbackarg: ConstPtr<CVoid>, lpszclusterstoragenodedescription: Pcwstr, lpszclusterstoragenodelocation: Pcwstr): UInt =
+public actual fun addClusterStorageNode(hcluster: Hcluster, lpsznodename: Pcwstr, pfnprogresscallback: PclusterSetupProgressCallback, pvcallbackarg: ConstPtr, lpszclusterstoragenodedescription: Pcwstr, lpszclusterstoragenodelocation: Pcwstr): UInt =
     WindowsWin32NetworkingClusteringJniBridge.windowssysWindowsWin32NetworkingClusteringAddClusterStorageNode(hcluster, lpsznodename.rawAddress, 0L, pvcallbackarg.rawAddress, lpszclusterstoragenodedescription.rawAddress, lpszclusterstoragenodelocation.rawAddress).toUInt()
 
 public actual fun addCrossClusterGroupSetDependency(hdependentgroupset: Hgroupset, lpremoteclustername: Pcwstr, lpremotegroupsetname: Pcwstr): UInt =
@@ -1372,32 +1368,32 @@ public actual fun closeClusterNotifyPort(hchange: Hchange): Bool =
 public actual fun closeClusterResource(hresource: Hresource): Bool =
     WindowsWin32NetworkingClusteringJniBridge.windowssysWindowsWin32NetworkingClusteringCloseClusterResource(hresource)
 
-public actual fun clusAddClusterHealthFault(hcluster: Hcluster, failure: ConstPtr<ClusterHealthFault>, param2: UInt): UInt =
+public actual fun clusAddClusterHealthFault(hcluster: Hcluster, failure: ConstPtr, param2: UInt): UInt =
     WindowsWin32NetworkingClusteringJniBridge.windowssysWindowsWin32NetworkingClusteringClusAddClusterHealthFault(hcluster, failure.rawAddress, param2.toInt()).toUInt()
 
-public actual fun clusGetClusterHealthFaults(hcluster: Hcluster, objects: MutPtr<ClusterHealthFaultArray>, flags: UInt): UInt =
+public actual fun clusGetClusterHealthFaults(hcluster: Hcluster, objects: MutPtr, flags: UInt): UInt =
     WindowsWin32NetworkingClusteringJniBridge.windowssysWindowsWin32NetworkingClusteringClusGetClusterHealthFaults(hcluster, objects.rawAddress, flags.toInt()).toUInt()
 
 public actual fun clusRemoveClusterHealthFault(hcluster: Hcluster, id: Pcwstr, flags: UInt): UInt =
     WindowsWin32NetworkingClusteringJniBridge.windowssysWindowsWin32NetworkingClusteringClusRemoveClusterHealthFault(hcluster, id.rawAddress, flags.toInt()).toUInt()
 
-public actual fun clusWorkerCheckTerminate(lpworker: MutPtr<ClusWorker>): Bool =
+public actual fun clusWorkerCheckTerminate(lpworker: MutPtr): Bool =
     WindowsWin32NetworkingClusteringJniBridge.windowssysWindowsWin32NetworkingClusteringClusWorkerCheckTerminate(lpworker.rawAddress)
 
-public actual fun clusWorkerCreate(lpworker: MutPtr<ClusWorker>, lpstartaddress: PworkerStartRoutine, lpparameter: MutPtr<CVoid>): UInt =
+public actual fun clusWorkerCreate(lpworker: MutPtr, lpstartaddress: PworkerStartRoutine, lpparameter: MutPtr): UInt =
     WindowsWin32NetworkingClusteringJniBridge.windowssysWindowsWin32NetworkingClusteringClusWorkerCreate(lpworker.rawAddress, 0L, lpparameter.rawAddress).toUInt()
 
-public actual fun clusWorkerTerminate(lpworker: ConstPtr<ClusWorker>) {
+public actual fun clusWorkerTerminate(lpworker: ConstPtr) {
     WindowsWin32NetworkingClusteringJniBridge.windowssysWindowsWin32NetworkingClusteringClusWorkerTerminate(lpworker.rawAddress)
 }
 
-public actual fun clusWorkerTerminateEx(clusworker: MutPtr<ClusWorker>, timeoutinmilliseconds: UInt, waitonly: Bool): UInt =
+public actual fun clusWorkerTerminateEx(clusworker: MutPtr, timeoutinmilliseconds: UInt, waitonly: Bool): UInt =
     WindowsWin32NetworkingClusteringJniBridge.windowssysWindowsWin32NetworkingClusteringClusWorkerTerminateEx(clusworker.rawAddress, timeoutinmilliseconds.toInt(), waitonly).toUInt()
 
-public actual fun clusWorkersTerminate(clusworkers: MutPtr<MutPtr<ClusWorker>>, clusworkerscount: ULong, timeoutinmilliseconds: UInt, waitonly: Bool): UInt =
+public actual fun clusWorkersTerminate(clusworkers: MutPtr, clusworkerscount: ULong, timeoutinmilliseconds: UInt, waitonly: Bool): UInt =
     WindowsWin32NetworkingClusteringJniBridge.windowssysWindowsWin32NetworkingClusteringClusWorkersTerminate(clusworkers.rawAddress, clusworkerscount.toLong(), timeoutinmilliseconds.toInt(), waitonly).toUInt()
 
-public actual fun clusapiSetReasonHandler(lphandler: ConstPtr<ClusapiReasonHandler>): MutPtr<ClusapiReasonHandler> =
+public actual fun clusapiSetReasonHandler(lphandler: ConstPtr): MutPtr =
     MutPtr(WindowsWin32NetworkingClusteringJniBridge.windowssysWindowsWin32NetworkingClusteringClusapiSetReasonHandler(lphandler.rawAddress))
 
 public actual fun clusterAddGroupToAffinityRule(hcluster: Hcluster, rulename: Pcwstr, hgroup: Hgroup): UInt =
@@ -1412,7 +1408,7 @@ public actual fun clusterAddGroupToGroupSetWithDomains(hgroupset: Hgroupset, hgr
 public actual fun clusterAddGroupToGroupSetWithDomainsEx(hgroupset: Hgroupset, hgroup: Hgroup, faultdomain: UInt, updatedomain: UInt, lpszreason: Pcwstr): UInt =
     WindowsWin32NetworkingClusteringJniBridge.windowssysWindowsWin32NetworkingClusteringClusterAddGroupToGroupSetWithDomainsEx(hgroupset, hgroup, faultdomain.toInt(), updatedomain.toInt(), lpszreason.rawAddress).toUInt()
 
-public actual fun clusterAffinityRuleControl(hcluster: Hcluster, affinityrulename: Pcwstr, hhostnode: Hnode, dwcontrolcode: UInt, lpinbuffer: ConstPtr<CVoid>, cbinbuffersize: UInt, lpoutbuffer: MutPtr<CVoid>, cboutbuffersize: UInt, lpbytesreturned: MutPtr<UInt>): UInt =
+public actual fun clusterAffinityRuleControl(hcluster: Hcluster, affinityrulename: Pcwstr, hhostnode: Hnode, dwcontrolcode: UInt, lpinbuffer: ConstPtr, cbinbuffersize: UInt, lpoutbuffer: MutPtr, cboutbuffersize: UInt, lpbytesreturned: MutPtr): UInt =
     WindowsWin32NetworkingClusteringJniBridge.windowssysWindowsWin32NetworkingClusteringClusterAffinityRuleControl(hcluster, affinityrulename.rawAddress, hhostnode, dwcontrolcode.toInt(), lpinbuffer.rawAddress, cbinbuffersize.toInt(), lpoutbuffer.rawAddress, cboutbuffersize.toInt(), lpbytesreturned.rawAddress).toUInt()
 
 public actual fun clusterClearBackupStateForSharedVolume(lpszvolumepathname: Pcwstr): UInt =
@@ -1424,25 +1420,25 @@ public actual fun clusterCloseEnum(henum: Hclusenum): UInt =
 public actual fun clusterCloseEnumEx(hclusterenum: Hclusenumex): UInt =
     WindowsWin32NetworkingClusteringJniBridge.windowssysWindowsWin32NetworkingClusteringClusterCloseEnumEx(hclusterenum).toUInt()
 
-public actual fun clusterControl(hcluster: Hcluster, hhostnode: Hnode, dwcontrolcode: UInt, lpinbuffer: ConstPtr<CVoid>, ninbuffersize: UInt, lpoutbuffer: MutPtr<CVoid>, noutbuffersize: UInt, lpbytesreturned: MutPtr<UInt>): UInt =
+public actual fun clusterControl(hcluster: Hcluster, hhostnode: Hnode, dwcontrolcode: UInt, lpinbuffer: ConstPtr, ninbuffersize: UInt, lpoutbuffer: MutPtr, noutbuffersize: UInt, lpbytesreturned: MutPtr): UInt =
     WindowsWin32NetworkingClusteringJniBridge.windowssysWindowsWin32NetworkingClusteringClusterControl(hcluster, hhostnode, dwcontrolcode.toInt(), lpinbuffer.rawAddress, ninbuffersize.toInt(), lpoutbuffer.rawAddress, noutbuffersize.toInt(), lpbytesreturned.rawAddress).toUInt()
 
-public actual fun clusterControlEx(hcluster: Hcluster, hhostnode: Hnode, dwcontrolcode: UInt, lpinbuffer: ConstPtr<CVoid>, ninbuffersize: UInt, lpoutbuffer: MutPtr<CVoid>, noutbuffersize: UInt, lpbytesreturned: MutPtr<UInt>, lpszreason: Pcwstr): UInt =
+public actual fun clusterControlEx(hcluster: Hcluster, hhostnode: Hnode, dwcontrolcode: UInt, lpinbuffer: ConstPtr, ninbuffersize: UInt, lpoutbuffer: MutPtr, noutbuffersize: UInt, lpbytesreturned: MutPtr, lpszreason: Pcwstr): UInt =
     WindowsWin32NetworkingClusteringJniBridge.windowssysWindowsWin32NetworkingClusteringClusterControlEx(hcluster, hhostnode, dwcontrolcode.toInt(), lpinbuffer.rawAddress, ninbuffersize.toInt(), lpoutbuffer.rawAddress, noutbuffersize.toInt(), lpbytesreturned.rawAddress, lpszreason.rawAddress).toUInt()
 
 public actual fun clusterCreateAffinityRule(hcluster: Hcluster, rulename: Pcwstr, ruletype: ClusAffinityRuleType): UInt =
     WindowsWin32NetworkingClusteringJniBridge.windowssysWindowsWin32NetworkingClusteringClusterCreateAffinityRule(hcluster, rulename.rawAddress, ruletype).toUInt()
 
-public actual fun clusterDecrypt(hcluscryptprovider: Hcluscryptprovider, pcryptinput: ConstPtr<UByte>, cbcryptinput: UInt, ppcryptoutput: MutPtr<MutPtr<UByte>>, pcbcryptoutput: MutPtr<UInt>): UInt =
+public actual fun clusterDecrypt(hcluscryptprovider: Hcluscryptprovider, pcryptinput: ConstPtr, cbcryptinput: UInt, ppcryptoutput: MutPtr, pcbcryptoutput: MutPtr): UInt =
     WindowsWin32NetworkingClusteringJniBridge.windowssysWindowsWin32NetworkingClusteringClusterDecrypt(hcluscryptprovider, pcryptinput.rawAddress, cbcryptinput.toInt(), ppcryptoutput.rawAddress, pcbcryptoutput.rawAddress).toUInt()
 
-public actual fun clusterEncrypt(hcluscryptprovider: Hcluscryptprovider, pdata: ConstPtr<UByte>, cbdata: UInt, ppdata: MutPtr<MutPtr<UByte>>, pcbdata: MutPtr<UInt>): UInt =
+public actual fun clusterEncrypt(hcluscryptprovider: Hcluscryptprovider, pdata: ConstPtr, cbdata: UInt, ppdata: MutPtr, pcbdata: MutPtr): UInt =
     WindowsWin32NetworkingClusteringJniBridge.windowssysWindowsWin32NetworkingClusteringClusterEncrypt(hcluscryptprovider, pdata.rawAddress, cbdata.toInt(), ppdata.rawAddress, pcbdata.rawAddress).toUInt()
 
-public actual fun clusterEnum(henum: Hclusenum, dwindex: UInt, lpdwtype: MutPtr<UInt>, lpszname: Pwstr, lpcchname: MutPtr<UInt>): UInt =
+public actual fun clusterEnum(henum: Hclusenum, dwindex: UInt, lpdwtype: MutPtr, lpszname: Pwstr, lpcchname: MutPtr): UInt =
     WindowsWin32NetworkingClusteringJniBridge.windowssysWindowsWin32NetworkingClusteringClusterEnum(henum, dwindex.toInt(), lpdwtype.rawAddress, lpszname.rawAddress, lpcchname.rawAddress).toUInt()
 
-public actual fun clusterEnumEx(hclusterenum: Hclusenumex, dwindex: UInt, pitem: MutPtr<ClusterEnumItem>, cbitem: MutPtr<UInt>): UInt =
+public actual fun clusterEnumEx(hclusterenum: Hclusenumex, dwindex: UInt, pitem: MutPtr, cbitem: MutPtr): UInt =
     WindowsWin32NetworkingClusteringJniBridge.windowssysWindowsWin32NetworkingClusteringClusterEnumEx(hclusterenum, dwindex.toInt(), pitem.rawAddress, cbitem.rawAddress).toUInt()
 
 public actual fun clusterGetEnumCount(henum: Hclusenum): UInt =
@@ -1463,16 +1459,16 @@ public actual fun clusterGroupCloseEnum(hgroupenum: Hgroupenum): UInt =
 public actual fun clusterGroupCloseEnumEx(hgroupenumex: Hgroupenumex): UInt =
     WindowsWin32NetworkingClusteringJniBridge.windowssysWindowsWin32NetworkingClusteringClusterGroupCloseEnumEx(hgroupenumex).toUInt()
 
-public actual fun clusterGroupControl(hgroup: Hgroup, hhostnode: Hnode, dwcontrolcode: UInt, lpinbuffer: ConstPtr<CVoid>, ninbuffersize: UInt, lpoutbuffer: MutPtr<CVoid>, noutbuffersize: UInt, lpbytesreturned: MutPtr<UInt>): UInt =
+public actual fun clusterGroupControl(hgroup: Hgroup, hhostnode: Hnode, dwcontrolcode: UInt, lpinbuffer: ConstPtr, ninbuffersize: UInt, lpoutbuffer: MutPtr, noutbuffersize: UInt, lpbytesreturned: MutPtr): UInt =
     WindowsWin32NetworkingClusteringJniBridge.windowssysWindowsWin32NetworkingClusteringClusterGroupControl(hgroup, hhostnode, dwcontrolcode.toInt(), lpinbuffer.rawAddress, ninbuffersize.toInt(), lpoutbuffer.rawAddress, noutbuffersize.toInt(), lpbytesreturned.rawAddress).toUInt()
 
-public actual fun clusterGroupControlEx(hgroup: Hgroup, hhostnode: Hnode, dwcontrolcode: UInt, lpinbuffer: ConstPtr<CVoid>, ninbuffersize: UInt, lpoutbuffer: MutPtr<CVoid>, noutbuffersize: UInt, lpbytesreturned: MutPtr<UInt>, lpszreason: Pcwstr): UInt =
+public actual fun clusterGroupControlEx(hgroup: Hgroup, hhostnode: Hnode, dwcontrolcode: UInt, lpinbuffer: ConstPtr, ninbuffersize: UInt, lpoutbuffer: MutPtr, noutbuffersize: UInt, lpbytesreturned: MutPtr, lpszreason: Pcwstr): UInt =
     WindowsWin32NetworkingClusteringJniBridge.windowssysWindowsWin32NetworkingClusteringClusterGroupControlEx(hgroup, hhostnode, dwcontrolcode.toInt(), lpinbuffer.rawAddress, ninbuffersize.toInt(), lpoutbuffer.rawAddress, noutbuffersize.toInt(), lpbytesreturned.rawAddress, lpszreason.rawAddress).toUInt()
 
-public actual fun clusterGroupEnum(hgroupenum: Hgroupenum, dwindex: UInt, lpdwtype: MutPtr<UInt>, lpszresourcename: Pwstr, lpcchname: MutPtr<UInt>): UInt =
+public actual fun clusterGroupEnum(hgroupenum: Hgroupenum, dwindex: UInt, lpdwtype: MutPtr, lpszresourcename: Pwstr, lpcchname: MutPtr): UInt =
     WindowsWin32NetworkingClusteringJniBridge.windowssysWindowsWin32NetworkingClusteringClusterGroupEnum(hgroupenum, dwindex.toInt(), lpdwtype.rawAddress, lpszresourcename.rawAddress, lpcchname.rawAddress).toUInt()
 
-public actual fun clusterGroupEnumEx(hgroupenumex: Hgroupenumex, dwindex: UInt, pitem: MutPtr<ClusterGroupEnumItem>, cbitem: MutPtr<UInt>): UInt =
+public actual fun clusterGroupEnumEx(hgroupenumex: Hgroupenumex, dwindex: UInt, pitem: MutPtr, cbitem: MutPtr): UInt =
     WindowsWin32NetworkingClusteringJniBridge.windowssysWindowsWin32NetworkingClusteringClusterGroupEnumEx(hgroupenumex, dwindex.toInt(), pitem.rawAddress, cbitem.rawAddress).toUInt()
 
 public actual fun clusterGroupGetEnumCount(hgroupenum: Hgroupenum): UInt =
@@ -1490,13 +1486,13 @@ public actual fun clusterGroupOpenEnumEx(hcluster: Hcluster, lpszproperties: Pcw
 public actual fun clusterGroupSetCloseEnum(hgroupsetenum: Hgroupsetenum): UInt =
     WindowsWin32NetworkingClusteringJniBridge.windowssysWindowsWin32NetworkingClusteringClusterGroupSetCloseEnum(hgroupsetenum).toUInt()
 
-public actual fun clusterGroupSetControl(hgroupset: Hgroupset, hhostnode: Hnode, dwcontrolcode: UInt, lpinbuffer: ConstPtr<CVoid>, cbinbuffersize: UInt, lpoutbuffer: MutPtr<CVoid>, cboutbuffersize: UInt, lpbytesreturned: MutPtr<UInt>): UInt =
+public actual fun clusterGroupSetControl(hgroupset: Hgroupset, hhostnode: Hnode, dwcontrolcode: UInt, lpinbuffer: ConstPtr, cbinbuffersize: UInt, lpoutbuffer: MutPtr, cboutbuffersize: UInt, lpbytesreturned: MutPtr): UInt =
     WindowsWin32NetworkingClusteringJniBridge.windowssysWindowsWin32NetworkingClusteringClusterGroupSetControl(hgroupset, hhostnode, dwcontrolcode.toInt(), lpinbuffer.rawAddress, cbinbuffersize.toInt(), lpoutbuffer.rawAddress, cboutbuffersize.toInt(), lpbytesreturned.rawAddress).toUInt()
 
-public actual fun clusterGroupSetControlEx(hgroupset: Hgroupset, hhostnode: Hnode, dwcontrolcode: UInt, lpinbuffer: ConstPtr<CVoid>, cbinbuffersize: UInt, lpoutbuffer: MutPtr<CVoid>, cboutbuffersize: UInt, lpbytesreturned: MutPtr<UInt>, lpszreason: Pcwstr): UInt =
+public actual fun clusterGroupSetControlEx(hgroupset: Hgroupset, hhostnode: Hnode, dwcontrolcode: UInt, lpinbuffer: ConstPtr, cbinbuffersize: UInt, lpoutbuffer: MutPtr, cboutbuffersize: UInt, lpbytesreturned: MutPtr, lpszreason: Pcwstr): UInt =
     WindowsWin32NetworkingClusteringJniBridge.windowssysWindowsWin32NetworkingClusteringClusterGroupSetControlEx(hgroupset, hhostnode, dwcontrolcode.toInt(), lpinbuffer.rawAddress, cbinbuffersize.toInt(), lpoutbuffer.rawAddress, cboutbuffersize.toInt(), lpbytesreturned.rawAddress, lpszreason.rawAddress).toUInt()
 
-public actual fun clusterGroupSetEnum(hgroupsetenum: Hgroupsetenum, dwindex: UInt, lpszname: Pwstr, lpcchname: MutPtr<UInt>): UInt =
+public actual fun clusterGroupSetEnum(hgroupsetenum: Hgroupsetenum, dwindex: UInt, lpszname: Pwstr, lpcchname: MutPtr): UInt =
     WindowsWin32NetworkingClusteringJniBridge.windowssysWindowsWin32NetworkingClusteringClusterGroupSetEnum(hgroupsetenum, dwindex.toInt(), lpszname.rawAddress, lpcchname.rawAddress).toUInt()
 
 public actual fun clusterGroupSetGetEnumCount(hgroupsetenum: Hgroupsetenum): UInt =
@@ -1511,13 +1507,13 @@ public actual fun clusterIsPathOnSharedVolume(lpszpathname: Pcwstr): Bool =
 public actual fun clusterNetInterfaceCloseEnum(hnetinterfaceenum: Hnetinterfaceenum): UInt =
     WindowsWin32NetworkingClusteringJniBridge.windowssysWindowsWin32NetworkingClusteringClusterNetInterfaceCloseEnum(hnetinterfaceenum).toUInt()
 
-public actual fun clusterNetInterfaceControl(hnetinterface: Hnetinterface, hhostnode: Hnode, dwcontrolcode: UInt, lpinbuffer: ConstPtr<CVoid>, ninbuffersize: UInt, lpoutbuffer: MutPtr<CVoid>, noutbuffersize: UInt, lpbytesreturned: MutPtr<UInt>): UInt =
+public actual fun clusterNetInterfaceControl(hnetinterface: Hnetinterface, hhostnode: Hnode, dwcontrolcode: UInt, lpinbuffer: ConstPtr, ninbuffersize: UInt, lpoutbuffer: MutPtr, noutbuffersize: UInt, lpbytesreturned: MutPtr): UInt =
     WindowsWin32NetworkingClusteringJniBridge.windowssysWindowsWin32NetworkingClusteringClusterNetInterfaceControl(hnetinterface, hhostnode, dwcontrolcode.toInt(), lpinbuffer.rawAddress, ninbuffersize.toInt(), lpoutbuffer.rawAddress, noutbuffersize.toInt(), lpbytesreturned.rawAddress).toUInt()
 
-public actual fun clusterNetInterfaceControlEx(hnetinterface: Hnetinterface, hhostnode: Hnode, dwcontrolcode: UInt, lpinbuffer: ConstPtr<CVoid>, ninbuffersize: UInt, lpoutbuffer: MutPtr<CVoid>, noutbuffersize: UInt, lpbytesreturned: MutPtr<UInt>, lpszreason: Pcwstr): UInt =
+public actual fun clusterNetInterfaceControlEx(hnetinterface: Hnetinterface, hhostnode: Hnode, dwcontrolcode: UInt, lpinbuffer: ConstPtr, ninbuffersize: UInt, lpoutbuffer: MutPtr, noutbuffersize: UInt, lpbytesreturned: MutPtr, lpszreason: Pcwstr): UInt =
     WindowsWin32NetworkingClusteringJniBridge.windowssysWindowsWin32NetworkingClusteringClusterNetInterfaceControlEx(hnetinterface, hhostnode, dwcontrolcode.toInt(), lpinbuffer.rawAddress, ninbuffersize.toInt(), lpoutbuffer.rawAddress, noutbuffersize.toInt(), lpbytesreturned.rawAddress, lpszreason.rawAddress).toUInt()
 
-public actual fun clusterNetInterfaceEnum(hnetinterfaceenum: Hnetinterfaceenum, dwindex: UInt, lpszname: Pwstr, lpcchname: MutPtr<UInt>): UInt =
+public actual fun clusterNetInterfaceEnum(hnetinterfaceenum: Hnetinterfaceenum, dwindex: UInt, lpszname: Pwstr, lpcchname: MutPtr): UInt =
     WindowsWin32NetworkingClusteringJniBridge.windowssysWindowsWin32NetworkingClusteringClusterNetInterfaceEnum(hnetinterfaceenum, dwindex.toInt(), lpszname.rawAddress, lpcchname.rawAddress).toUInt()
 
 public actual fun clusterNetInterfaceOpenEnum(hcluster: Hcluster, lpsznodename: Pcwstr, lpsznetworkname: Pcwstr): Hnetinterfaceenum =
@@ -1526,13 +1522,13 @@ public actual fun clusterNetInterfaceOpenEnum(hcluster: Hcluster, lpsznodename: 
 public actual fun clusterNetworkCloseEnum(hnetworkenum: Hnetworkenum): UInt =
     WindowsWin32NetworkingClusteringJniBridge.windowssysWindowsWin32NetworkingClusteringClusterNetworkCloseEnum(hnetworkenum).toUInt()
 
-public actual fun clusterNetworkControl(hnetwork: Hnetwork, hhostnode: Hnode, dwcontrolcode: UInt, lpinbuffer: ConstPtr<CVoid>, ninbuffersize: UInt, lpoutbuffer: MutPtr<CVoid>, noutbuffersize: UInt, lpbytesreturned: MutPtr<UInt>): UInt =
+public actual fun clusterNetworkControl(hnetwork: Hnetwork, hhostnode: Hnode, dwcontrolcode: UInt, lpinbuffer: ConstPtr, ninbuffersize: UInt, lpoutbuffer: MutPtr, noutbuffersize: UInt, lpbytesreturned: MutPtr): UInt =
     WindowsWin32NetworkingClusteringJniBridge.windowssysWindowsWin32NetworkingClusteringClusterNetworkControl(hnetwork, hhostnode, dwcontrolcode.toInt(), lpinbuffer.rawAddress, ninbuffersize.toInt(), lpoutbuffer.rawAddress, noutbuffersize.toInt(), lpbytesreturned.rawAddress).toUInt()
 
-public actual fun clusterNetworkControlEx(hnetwork: Hnetwork, hhostnode: Hnode, dwcontrolcode: UInt, lpinbuffer: ConstPtr<CVoid>, ninbuffersize: UInt, lpoutbuffer: MutPtr<CVoid>, noutbuffersize: UInt, lpbytesreturned: MutPtr<UInt>, lpszreason: Pcwstr): UInt =
+public actual fun clusterNetworkControlEx(hnetwork: Hnetwork, hhostnode: Hnode, dwcontrolcode: UInt, lpinbuffer: ConstPtr, ninbuffersize: UInt, lpoutbuffer: MutPtr, noutbuffersize: UInt, lpbytesreturned: MutPtr, lpszreason: Pcwstr): UInt =
     WindowsWin32NetworkingClusteringJniBridge.windowssysWindowsWin32NetworkingClusteringClusterNetworkControlEx(hnetwork, hhostnode, dwcontrolcode.toInt(), lpinbuffer.rawAddress, ninbuffersize.toInt(), lpoutbuffer.rawAddress, noutbuffersize.toInt(), lpbytesreturned.rawAddress, lpszreason.rawAddress).toUInt()
 
-public actual fun clusterNetworkEnum(hnetworkenum: Hnetworkenum, dwindex: UInt, lpdwtype: MutPtr<UInt>, lpszname: Pwstr, lpcchname: MutPtr<UInt>): UInt =
+public actual fun clusterNetworkEnum(hnetworkenum: Hnetworkenum, dwindex: UInt, lpdwtype: MutPtr, lpszname: Pwstr, lpcchname: MutPtr): UInt =
     WindowsWin32NetworkingClusteringJniBridge.windowssysWindowsWin32NetworkingClusteringClusterNetworkEnum(hnetworkenum, dwindex.toInt(), lpdwtype.rawAddress, lpszname.rawAddress, lpcchname.rawAddress).toUInt()
 
 public actual fun clusterNetworkGetEnumCount(hnetworkenum: Hnetworkenum): UInt =
@@ -1547,16 +1543,16 @@ public actual fun clusterNodeCloseEnum(hnodeenum: Hnodeenum): UInt =
 public actual fun clusterNodeCloseEnumEx(hnodeenum: Hnodeenumex): UInt =
     WindowsWin32NetworkingClusteringJniBridge.windowssysWindowsWin32NetworkingClusteringClusterNodeCloseEnumEx(hnodeenum).toUInt()
 
-public actual fun clusterNodeControl(hnode: Hnode, hhostnode: Hnode, dwcontrolcode: UInt, lpinbuffer: ConstPtr<CVoid>, ninbuffersize: UInt, lpoutbuffer: MutPtr<CVoid>, noutbuffersize: UInt, lpbytesreturned: MutPtr<UInt>): UInt =
+public actual fun clusterNodeControl(hnode: Hnode, hhostnode: Hnode, dwcontrolcode: UInt, lpinbuffer: ConstPtr, ninbuffersize: UInt, lpoutbuffer: MutPtr, noutbuffersize: UInt, lpbytesreturned: MutPtr): UInt =
     WindowsWin32NetworkingClusteringJniBridge.windowssysWindowsWin32NetworkingClusteringClusterNodeControl(hnode, hhostnode, dwcontrolcode.toInt(), lpinbuffer.rawAddress, ninbuffersize.toInt(), lpoutbuffer.rawAddress, noutbuffersize.toInt(), lpbytesreturned.rawAddress).toUInt()
 
-public actual fun clusterNodeControlEx(hnode: Hnode, hhostnode: Hnode, dwcontrolcode: UInt, lpinbuffer: ConstPtr<CVoid>, ninbuffersize: UInt, lpoutbuffer: MutPtr<CVoid>, noutbuffersize: UInt, lpbytesreturned: MutPtr<UInt>, lpszreason: Pcwstr): UInt =
+public actual fun clusterNodeControlEx(hnode: Hnode, hhostnode: Hnode, dwcontrolcode: UInt, lpinbuffer: ConstPtr, ninbuffersize: UInt, lpoutbuffer: MutPtr, noutbuffersize: UInt, lpbytesreturned: MutPtr, lpszreason: Pcwstr): UInt =
     WindowsWin32NetworkingClusteringJniBridge.windowssysWindowsWin32NetworkingClusteringClusterNodeControlEx(hnode, hhostnode, dwcontrolcode.toInt(), lpinbuffer.rawAddress, ninbuffersize.toInt(), lpoutbuffer.rawAddress, noutbuffersize.toInt(), lpbytesreturned.rawAddress, lpszreason.rawAddress).toUInt()
 
-public actual fun clusterNodeEnum(hnodeenum: Hnodeenum, dwindex: UInt, lpdwtype: MutPtr<UInt>, lpszname: Pwstr, lpcchname: MutPtr<UInt>): UInt =
+public actual fun clusterNodeEnum(hnodeenum: Hnodeenum, dwindex: UInt, lpdwtype: MutPtr, lpszname: Pwstr, lpcchname: MutPtr): UInt =
     WindowsWin32NetworkingClusteringJniBridge.windowssysWindowsWin32NetworkingClusteringClusterNodeEnum(hnodeenum, dwindex.toInt(), lpdwtype.rawAddress, lpszname.rawAddress, lpcchname.rawAddress).toUInt()
 
-public actual fun clusterNodeEnumEx(hnodeenum: Hnodeenumex, dwindex: UInt, pitem: MutPtr<ClusterEnumItem>, cbitem: MutPtr<UInt>): UInt =
+public actual fun clusterNodeEnumEx(hnodeenum: Hnodeenumex, dwindex: UInt, pitem: MutPtr, cbitem: MutPtr): UInt =
     WindowsWin32NetworkingClusteringJniBridge.windowssysWindowsWin32NetworkingClusteringClusterNodeEnumEx(hnodeenum, dwindex.toInt(), pitem.rawAddress, cbitem.rawAddress).toUInt()
 
 public actual fun clusterNodeGetEnumCount(hnodeenum: Hnodeenum): UInt =
@@ -1568,7 +1564,7 @@ public actual fun clusterNodeGetEnumCountEx(hnodeenum: Hnodeenumex): UInt =
 public actual fun clusterNodeOpenEnum(hnode: Hnode, dwtype: UInt): Hnodeenum =
     WindowsWin32NetworkingClusteringJniBridge.windowssysWindowsWin32NetworkingClusteringClusterNodeOpenEnum(hnode, dwtype.toInt())
 
-public actual fun clusterNodeOpenEnumEx(hnode: Hnode, dwtype: UInt, poptions: ConstPtr<CVoid>): Hnodeenumex =
+public actual fun clusterNodeOpenEnumEx(hnode: Hnode, dwtype: UInt, poptions: ConstPtr): Hnodeenumex =
     WindowsWin32NetworkingClusteringJniBridge.windowssysWindowsWin32NetworkingClusteringClusterNodeOpenEnumEx(hnode, dwtype.toInt(), poptions.rawAddress)
 
 public actual fun clusterNodeReplacement(hcluster: Hcluster, lpsznodenamecurrent: Pcwstr, lpsznodenamenew: Pcwstr): UInt =
@@ -1577,25 +1573,25 @@ public actual fun clusterNodeReplacement(hcluster: Hcluster, lpsznodenamecurrent
 public actual fun clusterOpenEnum(hcluster: Hcluster, dwtype: UInt): Hclusenum =
     WindowsWin32NetworkingClusteringJniBridge.windowssysWindowsWin32NetworkingClusteringClusterOpenEnum(hcluster, dwtype.toInt())
 
-public actual fun clusterOpenEnumEx(hcluster: Hcluster, dwtype: UInt, poptions: ConstPtr<CVoid>): Hclusenumex =
+public actual fun clusterOpenEnumEx(hcluster: Hcluster, dwtype: UInt, poptions: ConstPtr): Hclusenumex =
     WindowsWin32NetworkingClusteringJniBridge.windowssysWindowsWin32NetworkingClusteringClusterOpenEnumEx(hcluster, dwtype.toInt(), poptions.rawAddress)
 
-public actual fun clusterPrepareSharedVolumeForBackup(lpszfilename: Pcwstr, lpszvolumepathname: Pwstr, lpcchvolumepathname: MutPtr<UInt>, lpszvolumename: Pwstr, lpcchvolumename: MutPtr<UInt>): UInt =
+public actual fun clusterPrepareSharedVolumeForBackup(lpszfilename: Pcwstr, lpszvolumepathname: Pwstr, lpcchvolumepathname: MutPtr, lpszvolumename: Pwstr, lpcchvolumename: MutPtr): UInt =
     WindowsWin32NetworkingClusteringJniBridge.windowssysWindowsWin32NetworkingClusteringClusterPrepareSharedVolumeForBackup(lpszfilename.rawAddress, lpszvolumepathname.rawAddress, lpcchvolumepathname.rawAddress, lpszvolumename.rawAddress, lpcchvolumename.rawAddress).toUInt()
 
-public actual fun clusterRegBatchAddCommand(hregbatch: Hregbatch, dwcommand: ClusterRegCommand, wzname: Pcwstr, dwoptions: UInt, lpdata: ConstPtr<CVoid>, cbdata: UInt): Int =
+public actual fun clusterRegBatchAddCommand(hregbatch: Hregbatch, dwcommand: ClusterRegCommand, wzname: Pcwstr, dwoptions: UInt, lpdata: ConstPtr, cbdata: UInt): Int =
     WindowsWin32NetworkingClusteringJniBridge.windowssysWindowsWin32NetworkingClusteringClusterRegBatchAddCommand(hregbatch, dwcommand, wzname.rawAddress, dwoptions.toInt(), lpdata.rawAddress, cbdata.toInt())
 
 public actual fun clusterRegBatchCloseNotification(hbatchnotification: Hregbatchnotification): Int =
     WindowsWin32NetworkingClusteringJniBridge.windowssysWindowsWin32NetworkingClusteringClusterRegBatchCloseNotification(hbatchnotification)
 
-public actual fun clusterRegBatchReadCommand(hbatchnotification: Hregbatchnotification, pbatchcommand: MutPtr<ClusterBatchCommand>): Int =
+public actual fun clusterRegBatchReadCommand(hbatchnotification: Hregbatchnotification, pbatchcommand: MutPtr): Int =
     WindowsWin32NetworkingClusteringJniBridge.windowssysWindowsWin32NetworkingClusteringClusterRegBatchReadCommand(hbatchnotification, pbatchcommand.rawAddress)
 
-public actual fun clusterRegCloseBatch(hregbatch: Hregbatch, bcommit: Bool, failedcommandnumber: MutPtr<Int>): Int =
+public actual fun clusterRegCloseBatch(hregbatch: Hregbatch, bcommit: Bool, failedcommandnumber: MutPtr): Int =
     WindowsWin32NetworkingClusteringJniBridge.windowssysWindowsWin32NetworkingClusteringClusterRegCloseBatch(hregbatch, bcommit, failedcommandnumber.rawAddress)
 
-public actual fun clusterRegCloseBatchEx(hregbatch: Hregbatch, flags: UInt, failedcommandnumber: MutPtr<Int>): Int =
+public actual fun clusterRegCloseBatchEx(hregbatch: Hregbatch, flags: UInt, failedcommandnumber: MutPtr): Int =
     WindowsWin32NetworkingClusteringJniBridge.windowssysWindowsWin32NetworkingClusteringClusterRegCloseBatchEx(hregbatch, flags.toInt(), failedcommandnumber.rawAddress)
 
 public actual fun clusterRegCloseBatchNotifyPort(hbatchnotifyport: Hregbatchport): Int =
@@ -1604,28 +1600,28 @@ public actual fun clusterRegCloseBatchNotifyPort(hbatchnotifyport: Hregbatchport
 public actual fun clusterRegCloseKey(hkey: Hkey): Int =
     WindowsWin32NetworkingClusteringJniBridge.windowssysWindowsWin32NetworkingClusteringClusterRegCloseKey(hkey.rawAddress)
 
-public actual fun clusterRegCloseReadBatch(hregreadbatch: Hregreadbatch, phregreadbatchreply: MutPtr<Hregreadbatchreply>): Int =
+public actual fun clusterRegCloseReadBatch(hregreadbatch: Hregreadbatch, phregreadbatchreply: MutPtr): Int =
     WindowsWin32NetworkingClusteringJniBridge.windowssysWindowsWin32NetworkingClusteringClusterRegCloseReadBatch(hregreadbatch, phregreadbatchreply.rawAddress)
 
-public actual fun clusterRegCloseReadBatchEx(hregreadbatch: Hregreadbatch, flags: UInt, phregreadbatchreply: MutPtr<Hregreadbatchreply>): Int =
+public actual fun clusterRegCloseReadBatchEx(hregreadbatch: Hregreadbatch, flags: UInt, phregreadbatchreply: MutPtr): Int =
     WindowsWin32NetworkingClusteringJniBridge.windowssysWindowsWin32NetworkingClusteringClusterRegCloseReadBatchEx(hregreadbatch, flags.toInt(), phregreadbatchreply.rawAddress)
 
 public actual fun clusterRegCloseReadBatchReply(hregreadbatchreply: Hregreadbatchreply): Int =
     WindowsWin32NetworkingClusteringJniBridge.windowssysWindowsWin32NetworkingClusteringClusterRegCloseReadBatchReply(hregreadbatchreply)
 
-public actual fun clusterRegCreateBatch(hkey: Hkey, phregbatch: MutPtr<Hregbatch>): Int =
+public actual fun clusterRegCreateBatch(hkey: Hkey, phregbatch: MutPtr): Int =
     WindowsWin32NetworkingClusteringJniBridge.windowssysWindowsWin32NetworkingClusteringClusterRegCreateBatch(hkey.rawAddress, phregbatch.rawAddress)
 
-public actual fun clusterRegCreateBatchNotifyPort(hkey: Hkey, phbatchnotifyport: MutPtr<Hregbatchport>): Int =
+public actual fun clusterRegCreateBatchNotifyPort(hkey: Hkey, phbatchnotifyport: MutPtr): Int =
     WindowsWin32NetworkingClusteringJniBridge.windowssysWindowsWin32NetworkingClusteringClusterRegCreateBatchNotifyPort(hkey.rawAddress, phbatchnotifyport.rawAddress)
 
-public actual fun clusterRegCreateKey(hkey: Hkey, lpszsubkey: Pcwstr, dwoptions: UInt, samdesired: UInt, lpsecurityattributes: ConstPtr<SecurityAttributes>, phkresult: MutPtr<Hkey>, lpdwdisposition: MutPtr<UInt>): Int =
+public actual fun clusterRegCreateKey(hkey: Hkey, lpszsubkey: Pcwstr, dwoptions: UInt, samdesired: UInt, lpsecurityattributes: ConstPtr, phkresult: MutPtr, lpdwdisposition: MutPtr): Int =
     WindowsWin32NetworkingClusteringJniBridge.windowssysWindowsWin32NetworkingClusteringClusterRegCreateKey(hkey.rawAddress, lpszsubkey.rawAddress, dwoptions.toInt(), samdesired.toInt(), lpsecurityattributes.rawAddress, phkresult.rawAddress, lpdwdisposition.rawAddress)
 
-public actual fun clusterRegCreateKeyEx(hkey: Hkey, lpsubkey: Pcwstr, dwoptions: UInt, samdesired: UInt, lpsecurityattributes: ConstPtr<SecurityAttributes>, phkresult: MutPtr<Hkey>, lpdwdisposition: MutPtr<UInt>, lpszreason: Pcwstr): Int =
+public actual fun clusterRegCreateKeyEx(hkey: Hkey, lpsubkey: Pcwstr, dwoptions: UInt, samdesired: UInt, lpsecurityattributes: ConstPtr, phkresult: MutPtr, lpdwdisposition: MutPtr, lpszreason: Pcwstr): Int =
     WindowsWin32NetworkingClusteringJniBridge.windowssysWindowsWin32NetworkingClusteringClusterRegCreateKeyEx(hkey.rawAddress, lpsubkey.rawAddress, dwoptions.toInt(), samdesired.toInt(), lpsecurityattributes.rawAddress, phkresult.rawAddress, lpdwdisposition.rawAddress, lpszreason.rawAddress)
 
-public actual fun clusterRegCreateReadBatch(hkey: Hkey, phregreadbatch: MutPtr<Hregreadbatch>): Int =
+public actual fun clusterRegCreateReadBatch(hkey: Hkey, phregreadbatch: MutPtr): Int =
     WindowsWin32NetworkingClusteringJniBridge.windowssysWindowsWin32NetworkingClusteringClusterRegCreateReadBatch(hkey.rawAddress, phregreadbatch.rawAddress)
 
 public actual fun clusterRegDeleteKey(hkey: Hkey, lpszsubkey: Pcwstr): Int =
@@ -1640,31 +1636,31 @@ public actual fun clusterRegDeleteValue(hkey: Hkey, lpszvaluename: Pcwstr): UInt
 public actual fun clusterRegDeleteValueEx(hkey: Hkey, lpszvaluename: Pcwstr, lpszreason: Pcwstr): UInt =
     WindowsWin32NetworkingClusteringJniBridge.windowssysWindowsWin32NetworkingClusteringClusterRegDeleteValueEx(hkey.rawAddress, lpszvaluename.rawAddress, lpszreason.rawAddress).toUInt()
 
-public actual fun clusterRegEnumKey(hkey: Hkey, dwindex: UInt, lpszname: Pwstr, lpcchname: MutPtr<UInt>, lpftlastwritetime: MutPtr<Filetime>): Int =
+public actual fun clusterRegEnumKey(hkey: Hkey, dwindex: UInt, lpszname: Pwstr, lpcchname: MutPtr, lpftlastwritetime: MutPtr): Int =
     WindowsWin32NetworkingClusteringJniBridge.windowssysWindowsWin32NetworkingClusteringClusterRegEnumKey(hkey.rawAddress, dwindex.toInt(), lpszname.rawAddress, lpcchname.rawAddress, lpftlastwritetime.rawAddress)
 
-public actual fun clusterRegEnumValue(hkey: Hkey, dwindex: UInt, lpszvaluename: Pwstr, lpcchvaluename: MutPtr<UInt>, lpdwtype: MutPtr<UInt>, lpdata: MutPtr<UByte>, lpcbdata: MutPtr<UInt>): UInt =
+public actual fun clusterRegEnumValue(hkey: Hkey, dwindex: UInt, lpszvaluename: Pwstr, lpcchvaluename: MutPtr, lpdwtype: MutPtr, lpdata: MutPtr, lpcbdata: MutPtr): UInt =
     WindowsWin32NetworkingClusteringJniBridge.windowssysWindowsWin32NetworkingClusteringClusterRegEnumValue(hkey.rawAddress, dwindex.toInt(), lpszvaluename.rawAddress, lpcchvaluename.rawAddress, lpdwtype.rawAddress, lpdata.rawAddress, lpcbdata.rawAddress).toUInt()
 
-public actual fun clusterRegGetBatchNotification(hbatchnotify: Hregbatchport, phbatchnotification: MutPtr<Hregbatchnotification>): Int =
+public actual fun clusterRegGetBatchNotification(hbatchnotify: Hregbatchport, phbatchnotification: MutPtr): Int =
     WindowsWin32NetworkingClusteringJniBridge.windowssysWindowsWin32NetworkingClusteringClusterRegGetBatchNotification(hbatchnotify, phbatchnotification.rawAddress)
 
-public actual fun clusterRegGetKeySecurity(hkey: Hkey, requestedinformation: UInt, psecuritydescriptor: PsecurityDescriptor, lpcbsecuritydescriptor: MutPtr<UInt>): Int =
+public actual fun clusterRegGetKeySecurity(hkey: Hkey, requestedinformation: UInt, psecuritydescriptor: PsecurityDescriptor, lpcbsecuritydescriptor: MutPtr): Int =
     WindowsWin32NetworkingClusteringJniBridge.windowssysWindowsWin32NetworkingClusteringClusterRegGetKeySecurity(hkey.rawAddress, requestedinformation.toInt(), psecuritydescriptor.rawAddress, lpcbsecuritydescriptor.rawAddress)
 
-public actual fun clusterRegOpenKey(hkey: Hkey, lpszsubkey: Pcwstr, samdesired: UInt, phkresult: MutPtr<Hkey>): Int =
+public actual fun clusterRegOpenKey(hkey: Hkey, lpszsubkey: Pcwstr, samdesired: UInt, phkresult: MutPtr): Int =
     WindowsWin32NetworkingClusteringJniBridge.windowssysWindowsWin32NetworkingClusteringClusterRegOpenKey(hkey.rawAddress, lpszsubkey.rawAddress, samdesired.toInt(), phkresult.rawAddress)
 
-public actual fun clusterRegQueryInfoKey(hkey: Hkey, lpcsubkeys: ConstPtr<UInt>, lpcchmaxsubkeylen: ConstPtr<UInt>, lpcvalues: ConstPtr<UInt>, lpcchmaxvaluenamelen: ConstPtr<UInt>, lpcbmaxvaluelen: ConstPtr<UInt>, lpcbsecuritydescriptor: ConstPtr<UInt>, lpftlastwritetime: ConstPtr<Filetime>): Int =
+public actual fun clusterRegQueryInfoKey(hkey: Hkey, lpcsubkeys: ConstPtr, lpcchmaxsubkeylen: ConstPtr, lpcvalues: ConstPtr, lpcchmaxvaluenamelen: ConstPtr, lpcbmaxvaluelen: ConstPtr, lpcbsecuritydescriptor: ConstPtr, lpftlastwritetime: ConstPtr): Int =
     WindowsWin32NetworkingClusteringJniBridge.windowssysWindowsWin32NetworkingClusteringClusterRegQueryInfoKey(hkey.rawAddress, lpcsubkeys.rawAddress, lpcchmaxsubkeylen.rawAddress, lpcvalues.rawAddress, lpcchmaxvaluenamelen.rawAddress, lpcbmaxvaluelen.rawAddress, lpcbsecuritydescriptor.rawAddress, lpftlastwritetime.rawAddress)
 
-public actual fun clusterRegQueryValue(hkey: Hkey, lpszvaluename: Pcwstr, lpdwvaluetype: MutPtr<UInt>, lpdata: MutPtr<UByte>, lpcbdata: MutPtr<UInt>): Int =
+public actual fun clusterRegQueryValue(hkey: Hkey, lpszvaluename: Pcwstr, lpdwvaluetype: MutPtr, lpdata: MutPtr, lpcbdata: MutPtr): Int =
     WindowsWin32NetworkingClusteringJniBridge.windowssysWindowsWin32NetworkingClusteringClusterRegQueryValue(hkey.rawAddress, lpszvaluename.rawAddress, lpdwvaluetype.rawAddress, lpdata.rawAddress, lpcbdata.rawAddress)
 
 public actual fun clusterRegReadBatchAddCommand(hregreadbatch: Hregreadbatch, wzsubkeyname: Pcwstr, wzvaluename: Pcwstr): Int =
     WindowsWin32NetworkingClusteringJniBridge.windowssysWindowsWin32NetworkingClusteringClusterRegReadBatchAddCommand(hregreadbatch, wzsubkeyname.rawAddress, wzvaluename.rawAddress)
 
-public actual fun clusterRegReadBatchReplyNextCommand(hregreadbatchreply: Hregreadbatchreply, pbatchcommand: MutPtr<ClusterReadBatchCommand>): Int =
+public actual fun clusterRegReadBatchReplyNextCommand(hregreadbatchreply: Hregreadbatchreply, pbatchcommand: MutPtr): Int =
     WindowsWin32NetworkingClusteringJniBridge.windowssysWindowsWin32NetworkingClusteringClusterRegReadBatchReplyNextCommand(hregreadbatchreply, pbatchcommand.rawAddress)
 
 public actual fun clusterRegSetKeySecurity(hkey: Hkey, securityinformation: UInt, psecuritydescriptor: PsecurityDescriptor): Int =
@@ -1673,10 +1669,10 @@ public actual fun clusterRegSetKeySecurity(hkey: Hkey, securityinformation: UInt
 public actual fun clusterRegSetKeySecurityEx(hkey: Hkey, securityinformation: ObjectSecurityInformation, psecuritydescriptor: PsecurityDescriptor, lpszreason: Pcwstr): Int =
     WindowsWin32NetworkingClusteringJniBridge.windowssysWindowsWin32NetworkingClusteringClusterRegSetKeySecurityEx(hkey.rawAddress, securityinformation.toInt(), psecuritydescriptor.rawAddress, lpszreason.rawAddress)
 
-public actual fun clusterRegSetValue(hkey: Hkey, lpszvaluename: Pcwstr, dwtype: UInt, lpdata: ConstPtr<UByte>, cbdata: UInt): UInt =
+public actual fun clusterRegSetValue(hkey: Hkey, lpszvaluename: Pcwstr, dwtype: UInt, lpdata: ConstPtr, cbdata: UInt): UInt =
     WindowsWin32NetworkingClusteringJniBridge.windowssysWindowsWin32NetworkingClusteringClusterRegSetValue(hkey.rawAddress, lpszvaluename.rawAddress, dwtype.toInt(), lpdata.rawAddress, cbdata.toInt()).toUInt()
 
-public actual fun clusterRegSetValueEx(hkey: Hkey, lpszvaluename: Pcwstr, dwtype: UInt, lpdata: ConstPtr<UByte>, cbdata: UInt, lpszreason: Pcwstr): UInt =
+public actual fun clusterRegSetValueEx(hkey: Hkey, lpszvaluename: Pcwstr, dwtype: UInt, lpdata: ConstPtr, cbdata: UInt, lpszreason: Pcwstr): UInt =
     WindowsWin32NetworkingClusteringJniBridge.windowssysWindowsWin32NetworkingClusteringClusterRegSetValueEx(hkey.rawAddress, lpszvaluename.rawAddress, dwtype.toInt(), lpdata.rawAddress, cbdata.toInt(), lpszreason.rawAddress).toUInt()
 
 public actual fun clusterRegSyncDatabase(hcluster: Hcluster, flags: UInt): Int =
@@ -1700,22 +1696,22 @@ public actual fun clusterResourceCloseEnum(hresenum: Hresenum): UInt =
 public actual fun clusterResourceCloseEnumEx(hresourceenumex: Hresenumex): UInt =
     WindowsWin32NetworkingClusteringJniBridge.windowssysWindowsWin32NetworkingClusteringClusterResourceCloseEnumEx(hresourceenumex).toUInt()
 
-public actual fun clusterResourceControl(hresource: Hresource, hhostnode: Hnode, dwcontrolcode: UInt, lpinbuffer: ConstPtr<CVoid>, cbinbuffersize: UInt, lpoutbuffer: MutPtr<CVoid>, cboutbuffersize: UInt, lpbytesreturned: MutPtr<UInt>): UInt =
+public actual fun clusterResourceControl(hresource: Hresource, hhostnode: Hnode, dwcontrolcode: UInt, lpinbuffer: ConstPtr, cbinbuffersize: UInt, lpoutbuffer: MutPtr, cboutbuffersize: UInt, lpbytesreturned: MutPtr): UInt =
     WindowsWin32NetworkingClusteringJniBridge.windowssysWindowsWin32NetworkingClusteringClusterResourceControl(hresource, hhostnode, dwcontrolcode.toInt(), lpinbuffer.rawAddress, cbinbuffersize.toInt(), lpoutbuffer.rawAddress, cboutbuffersize.toInt(), lpbytesreturned.rawAddress).toUInt()
 
-public actual fun clusterResourceControlAsUser(hresource: Hresource, hhostnode: Hnode, dwcontrolcode: UInt, lpinbuffer: ConstPtr<CVoid>, cbinbuffersize: UInt, lpoutbuffer: MutPtr<CVoid>, cboutbuffersize: UInt, lpbytesreturned: MutPtr<UInt>): UInt =
+public actual fun clusterResourceControlAsUser(hresource: Hresource, hhostnode: Hnode, dwcontrolcode: UInt, lpinbuffer: ConstPtr, cbinbuffersize: UInt, lpoutbuffer: MutPtr, cboutbuffersize: UInt, lpbytesreturned: MutPtr): UInt =
     WindowsWin32NetworkingClusteringJniBridge.windowssysWindowsWin32NetworkingClusteringClusterResourceControlAsUser(hresource, hhostnode, dwcontrolcode.toInt(), lpinbuffer.rawAddress, cbinbuffersize.toInt(), lpoutbuffer.rawAddress, cboutbuffersize.toInt(), lpbytesreturned.rawAddress).toUInt()
 
-public actual fun clusterResourceControlAsUserEx(hresource: Hresource, hhostnode: Hnode, dwcontrolcode: UInt, lpinbuffer: ConstPtr<CVoid>, cbinbuffersize: UInt, lpoutbuffer: MutPtr<CVoid>, cboutbuffersize: UInt, lpbytesreturned: MutPtr<UInt>, lpszreason: Pcwstr): UInt =
+public actual fun clusterResourceControlAsUserEx(hresource: Hresource, hhostnode: Hnode, dwcontrolcode: UInt, lpinbuffer: ConstPtr, cbinbuffersize: UInt, lpoutbuffer: MutPtr, cboutbuffersize: UInt, lpbytesreturned: MutPtr, lpszreason: Pcwstr): UInt =
     WindowsWin32NetworkingClusteringJniBridge.windowssysWindowsWin32NetworkingClusteringClusterResourceControlAsUserEx(hresource, hhostnode, dwcontrolcode.toInt(), lpinbuffer.rawAddress, cbinbuffersize.toInt(), lpoutbuffer.rawAddress, cboutbuffersize.toInt(), lpbytesreturned.rawAddress, lpszreason.rawAddress).toUInt()
 
-public actual fun clusterResourceControlEx(hresource: Hresource, hhostnode: Hnode, dwcontrolcode: UInt, lpinbuffer: ConstPtr<CVoid>, cbinbuffersize: UInt, lpoutbuffer: MutPtr<CVoid>, cboutbuffersize: UInt, lpbytesreturned: MutPtr<UInt>, lpszreason: Pcwstr): UInt =
+public actual fun clusterResourceControlEx(hresource: Hresource, hhostnode: Hnode, dwcontrolcode: UInt, lpinbuffer: ConstPtr, cbinbuffersize: UInt, lpoutbuffer: MutPtr, cboutbuffersize: UInt, lpbytesreturned: MutPtr, lpszreason: Pcwstr): UInt =
     WindowsWin32NetworkingClusteringJniBridge.windowssysWindowsWin32NetworkingClusteringClusterResourceControlEx(hresource, hhostnode, dwcontrolcode.toInt(), lpinbuffer.rawAddress, cbinbuffersize.toInt(), lpoutbuffer.rawAddress, cboutbuffersize.toInt(), lpbytesreturned.rawAddress, lpszreason.rawAddress).toUInt()
 
-public actual fun clusterResourceEnum(hresenum: Hresenum, dwindex: UInt, lpdwtype: MutPtr<UInt>, lpszname: Pwstr, lpcchname: MutPtr<UInt>): UInt =
+public actual fun clusterResourceEnum(hresenum: Hresenum, dwindex: UInt, lpdwtype: MutPtr, lpszname: Pwstr, lpcchname: MutPtr): UInt =
     WindowsWin32NetworkingClusteringJniBridge.windowssysWindowsWin32NetworkingClusteringClusterResourceEnum(hresenum, dwindex.toInt(), lpdwtype.rawAddress, lpszname.rawAddress, lpcchname.rawAddress).toUInt()
 
-public actual fun clusterResourceEnumEx(hresourceenumex: Hresenumex, dwindex: UInt, pitem: MutPtr<ClusterResourceEnumItem>, cbitem: MutPtr<UInt>): UInt =
+public actual fun clusterResourceEnumEx(hresourceenumex: Hresenumex, dwindex: UInt, pitem: MutPtr, cbitem: MutPtr): UInt =
     WindowsWin32NetworkingClusteringJniBridge.windowssysWindowsWin32NetworkingClusteringClusterResourceEnumEx(hresourceenumex, dwindex.toInt(), pitem.rawAddress, cbitem.rawAddress).toUInt()
 
 public actual fun clusterResourceGetEnumCount(hresenum: Hresenum): UInt =
@@ -1733,19 +1729,19 @@ public actual fun clusterResourceOpenEnumEx(hcluster: Hcluster, lpszproperties: 
 public actual fun clusterResourceTypeCloseEnum(hrestypeenum: Hrestypeenum): UInt =
     WindowsWin32NetworkingClusteringJniBridge.windowssysWindowsWin32NetworkingClusteringClusterResourceTypeCloseEnum(hrestypeenum).toUInt()
 
-public actual fun clusterResourceTypeControl(hcluster: Hcluster, lpszresourcetypename: Pcwstr, hhostnode: Hnode, dwcontrolcode: UInt, lpinbuffer: ConstPtr<CVoid>, ninbuffersize: UInt, lpoutbuffer: MutPtr<CVoid>, noutbuffersize: UInt, lpbytesreturned: MutPtr<UInt>): UInt =
+public actual fun clusterResourceTypeControl(hcluster: Hcluster, lpszresourcetypename: Pcwstr, hhostnode: Hnode, dwcontrolcode: UInt, lpinbuffer: ConstPtr, ninbuffersize: UInt, lpoutbuffer: MutPtr, noutbuffersize: UInt, lpbytesreturned: MutPtr): UInt =
     WindowsWin32NetworkingClusteringJniBridge.windowssysWindowsWin32NetworkingClusteringClusterResourceTypeControl(hcluster, lpszresourcetypename.rawAddress, hhostnode, dwcontrolcode.toInt(), lpinbuffer.rawAddress, ninbuffersize.toInt(), lpoutbuffer.rawAddress, noutbuffersize.toInt(), lpbytesreturned.rawAddress).toUInt()
 
-public actual fun clusterResourceTypeControlAsUser(hcluster: Hcluster, lpszresourcetypename: Pcwstr, hhostnode: Hnode, dwcontrolcode: UInt, lpinbuffer: ConstPtr<CVoid>, ninbuffersize: UInt, lpoutbuffer: MutPtr<CVoid>, noutbuffersize: UInt, lpbytesreturned: MutPtr<UInt>): UInt =
+public actual fun clusterResourceTypeControlAsUser(hcluster: Hcluster, lpszresourcetypename: Pcwstr, hhostnode: Hnode, dwcontrolcode: UInt, lpinbuffer: ConstPtr, ninbuffersize: UInt, lpoutbuffer: MutPtr, noutbuffersize: UInt, lpbytesreturned: MutPtr): UInt =
     WindowsWin32NetworkingClusteringJniBridge.windowssysWindowsWin32NetworkingClusteringClusterResourceTypeControlAsUser(hcluster, lpszresourcetypename.rawAddress, hhostnode, dwcontrolcode.toInt(), lpinbuffer.rawAddress, ninbuffersize.toInt(), lpoutbuffer.rawAddress, noutbuffersize.toInt(), lpbytesreturned.rawAddress).toUInt()
 
-public actual fun clusterResourceTypeControlAsUserEx(hcluster: Hcluster, lpszresourcetypename: Pcwstr, hhostnode: Hnode, dwcontrolcode: UInt, lpinbuffer: ConstPtr<CVoid>, ninbuffersize: UInt, lpoutbuffer: MutPtr<CVoid>, noutbuffersize: UInt, lpbytesreturned: MutPtr<UInt>, lpszreason: Pcwstr): UInt =
+public actual fun clusterResourceTypeControlAsUserEx(hcluster: Hcluster, lpszresourcetypename: Pcwstr, hhostnode: Hnode, dwcontrolcode: UInt, lpinbuffer: ConstPtr, ninbuffersize: UInt, lpoutbuffer: MutPtr, noutbuffersize: UInt, lpbytesreturned: MutPtr, lpszreason: Pcwstr): UInt =
     WindowsWin32NetworkingClusteringJniBridge.windowssysWindowsWin32NetworkingClusteringClusterResourceTypeControlAsUserEx(hcluster, lpszresourcetypename.rawAddress, hhostnode, dwcontrolcode.toInt(), lpinbuffer.rawAddress, ninbuffersize.toInt(), lpoutbuffer.rawAddress, noutbuffersize.toInt(), lpbytesreturned.rawAddress, lpszreason.rawAddress).toUInt()
 
-public actual fun clusterResourceTypeControlEx(hcluster: Hcluster, lpszresourcetypename: Pcwstr, hhostnode: Hnode, dwcontrolcode: UInt, lpinbuffer: ConstPtr<CVoid>, ninbuffersize: UInt, lpoutbuffer: MutPtr<CVoid>, noutbuffersize: UInt, lpbytesreturned: MutPtr<UInt>, lpszreason: Pcwstr): UInt =
+public actual fun clusterResourceTypeControlEx(hcluster: Hcluster, lpszresourcetypename: Pcwstr, hhostnode: Hnode, dwcontrolcode: UInt, lpinbuffer: ConstPtr, ninbuffersize: UInt, lpoutbuffer: MutPtr, noutbuffersize: UInt, lpbytesreturned: MutPtr, lpszreason: Pcwstr): UInt =
     WindowsWin32NetworkingClusteringJniBridge.windowssysWindowsWin32NetworkingClusteringClusterResourceTypeControlEx(hcluster, lpszresourcetypename.rawAddress, hhostnode, dwcontrolcode.toInt(), lpinbuffer.rawAddress, ninbuffersize.toInt(), lpoutbuffer.rawAddress, noutbuffersize.toInt(), lpbytesreturned.rawAddress, lpszreason.rawAddress).toUInt()
 
-public actual fun clusterResourceTypeEnum(hrestypeenum: Hrestypeenum, dwindex: UInt, lpdwtype: MutPtr<UInt>, lpszname: Pwstr, lpcchname: MutPtr<UInt>): UInt =
+public actual fun clusterResourceTypeEnum(hrestypeenum: Hrestypeenum, dwindex: UInt, lpdwtype: MutPtr, lpszname: Pwstr, lpcchname: MutPtr): UInt =
     WindowsWin32NetworkingClusteringJniBridge.windowssysWindowsWin32NetworkingClusteringClusterResourceTypeEnum(hrestypeenum, dwindex.toInt(), lpdwtype.rawAddress, lpszname.rawAddress, lpcchname.rawAddress).toUInt()
 
 public actual fun clusterResourceTypeGetEnumCount(hrestypeenum: Hrestypeenum): UInt =
@@ -1760,31 +1756,31 @@ public actual fun clusterSetAccountAccess(hcluster: Hcluster, szaccountsid: Pcws
 public actual fun clusterSharedVolumeSetSnapshotState(guidsnapshotset: Guid, lpszvolumename: Pcwstr, state: ClusterSharedVolumeSnapshotState): UInt =
     0u
 
-public actual fun clusterUpgradeFunctionalLevel(hcluster: Hcluster, perform: Bool, pfnprogresscallback: PclusterUpgradeProgressCallback, pvcallbackarg: ConstPtr<CVoid>): UInt =
+public actual fun clusterUpgradeFunctionalLevel(hcluster: Hcluster, perform: Bool, pfnprogresscallback: PclusterUpgradeProgressCallback, pvcallbackarg: ConstPtr): UInt =
     WindowsWin32NetworkingClusteringJniBridge.windowssysWindowsWin32NetworkingClusteringClusterUpgradeFunctionalLevel(hcluster, perform, 0L, pvcallbackarg.rawAddress).toUInt()
 
-public actual fun createCluster(pconfig: ConstPtr<CreateClusterConfig>, pfnprogresscallback: PclusterSetupProgressCallback, pvcallbackarg: ConstPtr<CVoid>): Hcluster =
+public actual fun createCluster(pconfig: ConstPtr, pfnprogresscallback: PclusterSetupProgressCallback, pvcallbackarg: ConstPtr): Hcluster =
     WindowsWin32NetworkingClusteringJniBridge.windowssysWindowsWin32NetworkingClusteringCreateCluster(pconfig.rawAddress, 0L, pvcallbackarg.rawAddress)
 
-public actual fun createClusterAvailabilitySet(hcluster: Hcluster, lpavailabilitysetname: Pcwstr, pavailabilitysetconfig: ConstPtr<ClusterAvailabilitySetConfig>): Hgroupset =
+public actual fun createClusterAvailabilitySet(hcluster: Hcluster, lpavailabilitysetname: Pcwstr, pavailabilitysetconfig: ConstPtr): Hgroupset =
     WindowsWin32NetworkingClusteringJniBridge.windowssysWindowsWin32NetworkingClusteringCreateClusterAvailabilitySet(hcluster, lpavailabilitysetname.rawAddress, pavailabilitysetconfig.rawAddress)
 
 public actual fun createClusterGroup(hcluster: Hcluster, lpszgroupname: Pcwstr): Hgroup =
     WindowsWin32NetworkingClusteringJniBridge.windowssysWindowsWin32NetworkingClusteringCreateClusterGroup(hcluster, lpszgroupname.rawAddress)
 
-public actual fun createClusterGroupEx(hcluster: Hcluster, lpszgroupname: Pcwstr, pgroupinfo: ConstPtr<ClusterCreateGroupInfo>): Hgroup =
+public actual fun createClusterGroupEx(hcluster: Hcluster, lpszgroupname: Pcwstr, pgroupinfo: ConstPtr): Hgroup =
     WindowsWin32NetworkingClusteringJniBridge.windowssysWindowsWin32NetworkingClusteringCreateClusterGroupEx(hcluster, lpszgroupname.rawAddress, pgroupinfo.rawAddress)
 
 public actual fun createClusterGroupSet(hcluster: Hcluster, groupsetname: Pcwstr): Hgroupset =
     WindowsWin32NetworkingClusteringJniBridge.windowssysWindowsWin32NetworkingClusteringCreateClusterGroupSet(hcluster, groupsetname.rawAddress)
 
-public actual fun createClusterNameAccount(hcluster: Hcluster, pconfig: ConstPtr<CreateClusterNameAccount>, pfnprogresscallback: PclusterSetupProgressCallback, pvcallbackarg: ConstPtr<CVoid>): UInt =
+public actual fun createClusterNameAccount(hcluster: Hcluster, pconfig: ConstPtr, pfnprogresscallback: PclusterSetupProgressCallback, pvcallbackarg: ConstPtr): UInt =
     WindowsWin32NetworkingClusteringJniBridge.windowssysWindowsWin32NetworkingClusteringCreateClusterNameAccount(hcluster, pconfig.rawAddress, 0L, pvcallbackarg.rawAddress).toUInt()
 
 public actual fun createClusterNotifyPort(hchange: Hchange, hcluster: Hcluster, dwfilter: UInt, dwnotifykey: ULong): Hchange =
     WindowsWin32NetworkingClusteringJniBridge.windowssysWindowsWin32NetworkingClusteringCreateClusterNotifyPort(hchange, hcluster, dwfilter.toInt(), dwnotifykey.toLong())
 
-public actual fun createClusterNotifyPortV2(hchange: Hchange, hcluster: Hcluster, filters: ConstPtr<NotifyFilterAndType>, dwfiltercount: UInt, dwnotifykey: ULong): Hchange =
+public actual fun createClusterNotifyPortV2(hchange: Hchange, hcluster: Hcluster, filters: ConstPtr, dwfiltercount: UInt, dwnotifykey: ULong): Hchange =
     WindowsWin32NetworkingClusteringJniBridge.windowssysWindowsWin32NetworkingClusteringCreateClusterNotifyPortV2(hchange, hcluster, filters.rawAddress, dwfiltercount.toInt(), dwnotifykey.toLong())
 
 public actual fun createClusterResource(hgroup: Hgroup, lpszresourcename: Pcwstr, lpszresourcetype: Pcwstr, dwflags: UInt): Hresource =
@@ -1823,7 +1819,7 @@ public actual fun deleteClusterResourceType(hcluster: Hcluster, lpszresourcetype
 public actual fun deleteClusterResourceTypeEx(hcluster: Hcluster, lpsztypename: Pcwstr, lpszreason: Pcwstr): UInt =
     WindowsWin32NetworkingClusteringJniBridge.windowssysWindowsWin32NetworkingClusteringDeleteClusterResourceTypeEx(hcluster, lpsztypename.rawAddress, lpszreason.rawAddress).toUInt()
 
-public actual fun destroyCluster(hcluster: Hcluster, pfnprogresscallback: PclusterSetupProgressCallback, pvcallbackarg: ConstPtr<CVoid>, fdeletevirtualcomputerobjects: Bool): UInt =
+public actual fun destroyCluster(hcluster: Hcluster, pfnprogresscallback: PclusterSetupProgressCallback, pvcallbackarg: ConstPtr, fdeletevirtualcomputerobjects: Bool): UInt =
     WindowsWin32NetworkingClusteringJniBridge.windowssysWindowsWin32NetworkingClusteringDestroyCluster(hcluster, 0L, pvcallbackarg.rawAddress, fdeletevirtualcomputerobjects).toUInt()
 
 public actual fun destroyClusterGroup(hgroup: Hgroup): UInt =
@@ -1832,25 +1828,25 @@ public actual fun destroyClusterGroup(hgroup: Hgroup): UInt =
 public actual fun destroyClusterGroupEx(hgroup: Hgroup, lpszreason: Pcwstr): UInt =
     WindowsWin32NetworkingClusteringJniBridge.windowssysWindowsWin32NetworkingClusteringDestroyClusterGroupEx(hgroup, lpszreason.rawAddress).toUInt()
 
-public actual fun determineCNOResTypeFromCluster(hcluster: Hcluster, pcnorestype: MutPtr<ClusterMgmtPointRestype>): UInt =
+public actual fun determineCNOResTypeFromCluster(hcluster: Hcluster, pcnorestype: MutPtr): UInt =
     WindowsWin32NetworkingClusteringJniBridge.windowssysWindowsWin32NetworkingClusteringDetermineCNOResTypeFromCluster(hcluster, pcnorestype.rawAddress).toUInt()
 
-public actual fun determineCNOResTypeFromNodelist(cnodes: UInt, ppsznodenames: ConstPtr<Pcwstr>, pcnorestype: MutPtr<ClusterMgmtPointRestype>): UInt =
+public actual fun determineCNOResTypeFromNodelist(cnodes: UInt, ppsznodenames: ConstPtr, pcnorestype: MutPtr): UInt =
     WindowsWin32NetworkingClusteringJniBridge.windowssysWindowsWin32NetworkingClusteringDetermineCNOResTypeFromNodelist(cnodes.toInt(), ppsznodenames.rawAddress, pcnorestype.rawAddress).toUInt()
 
-public actual fun determineClusterCloudTypeFromCluster(hcluster: Hcluster, pcloudtype: MutPtr<ClusterCloudType>): UInt =
+public actual fun determineClusterCloudTypeFromCluster(hcluster: Hcluster, pcloudtype: MutPtr): UInt =
     WindowsWin32NetworkingClusteringJniBridge.windowssysWindowsWin32NetworkingClusteringDetermineClusterCloudTypeFromCluster(hcluster, pcloudtype.rawAddress).toUInt()
 
-public actual fun determineClusterCloudTypeFromNodelist(cnodes: UInt, ppsznodenames: ConstPtr<Pcwstr>, pcloudtype: MutPtr<ClusterCloudType>): UInt =
+public actual fun determineClusterCloudTypeFromNodelist(cnodes: UInt, ppsznodenames: ConstPtr, pcloudtype: MutPtr): UInt =
     WindowsWin32NetworkingClusteringJniBridge.windowssysWindowsWin32NetworkingClusteringDetermineClusterCloudTypeFromNodelist(cnodes.toInt(), ppsznodenames.rawAddress, pcloudtype.rawAddress).toUInt()
 
 public actual fun evictClusterNode(hnode: Hnode): UInt =
     WindowsWin32NetworkingClusteringJniBridge.windowssysWindowsWin32NetworkingClusteringEvictClusterNode(hnode).toUInt()
 
-public actual fun evictClusterNodeEx(hnode: Hnode, dwtimeout: UInt, phrcleanupstatus: MutPtr<Hresult>): UInt =
+public actual fun evictClusterNodeEx(hnode: Hnode, dwtimeout: UInt, phrcleanupstatus: MutPtr): UInt =
     WindowsWin32NetworkingClusteringJniBridge.windowssysWindowsWin32NetworkingClusteringEvictClusterNodeEx(hnode, dwtimeout.toInt(), phrcleanupstatus.rawAddress).toUInt()
 
-public actual fun evictClusterNodeEx2(hnode: Hnode, dwtimeout: UInt, phrcleanupstatus: MutPtr<Hresult>, lpszreason: Pcwstr): UInt =
+public actual fun evictClusterNodeEx2(hnode: Hnode, dwtimeout: UInt, phrcleanupstatus: MutPtr, lpszreason: Pcwstr): UInt =
     WindowsWin32NetworkingClusteringJniBridge.windowssysWindowsWin32NetworkingClusteringEvictClusterNodeEx2(hnode, dwtimeout.toInt(), phrcleanupstatus.rawAddress, lpszreason.rawAddress).toUInt()
 
 public actual fun failClusterResource(hresource: Hresource): UInt =
@@ -1859,13 +1855,13 @@ public actual fun failClusterResource(hresource: Hresource): UInt =
 public actual fun failClusterResourceEx(hresource: Hresource, lpszreason: Pcwstr): UInt =
     WindowsWin32NetworkingClusteringJniBridge.windowssysWindowsWin32NetworkingClusteringFailClusterResourceEx(hresource, lpszreason.rawAddress).toUInt()
 
-public actual fun freeClusterCrypt(pcryptinfo: ConstPtr<CVoid>): UInt =
+public actual fun freeClusterCrypt(pcryptinfo: ConstPtr): UInt =
     WindowsWin32NetworkingClusteringJniBridge.windowssysWindowsWin32NetworkingClusteringFreeClusterCrypt(pcryptinfo.rawAddress).toUInt()
 
-public actual fun freeClusterHealthFault(clusterhealthfault: MutPtr<ClusterHealthFault>): UInt =
+public actual fun freeClusterHealthFault(clusterhealthfault: MutPtr): UInt =
     WindowsWin32NetworkingClusteringJniBridge.windowssysWindowsWin32NetworkingClusteringFreeClusterHealthFault(clusterhealthfault.rawAddress).toUInt()
 
-public actual fun freeClusterHealthFaultArray(clusterhealthfaultarray: MutPtr<ClusterHealthFaultArray>): UInt =
+public actual fun freeClusterHealthFaultArray(clusterhealthfaultarray: MutPtr): UInt =
     WindowsWin32NetworkingClusteringJniBridge.windowssysWindowsWin32NetworkingClusteringFreeClusterHealthFaultArray(clusterhealthfaultarray.rawAddress).toUInt()
 
 public actual fun getClusterFromGroup(hgroup: Hgroup): Hcluster =
@@ -1886,16 +1882,16 @@ public actual fun getClusterFromResource(hresource: Hresource): Hcluster =
 public actual fun getClusterGroupKey(hgroup: Hgroup, samdesired: UInt): Hkey =
     MutPtr(WindowsWin32NetworkingClusteringJniBridge.windowssysWindowsWin32NetworkingClusteringGetClusterGroupKey(hgroup, samdesired.toInt()))
 
-public actual fun getClusterGroupState(hgroup: Hgroup, lpsznodename: Pwstr, lpcchnodename: MutPtr<UInt>): ClusterGroupState =
+public actual fun getClusterGroupState(hgroup: Hgroup, lpsznodename: Pwstr, lpcchnodename: MutPtr): ClusterGroupState =
     WindowsWin32NetworkingClusteringJniBridge.windowssysWindowsWin32NetworkingClusteringGetClusterGroupState(hgroup, lpsznodename.rawAddress, lpcchnodename.rawAddress)
 
-public actual fun getClusterInformation(hcluster: Hcluster, lpszclustername: Pwstr, lpcchclustername: MutPtr<UInt>, lpclusterinfo: MutPtr<Clusterversioninfo>): UInt =
+public actual fun getClusterInformation(hcluster: Hcluster, lpszclustername: Pwstr, lpcchclustername: MutPtr, lpclusterinfo: MutPtr): UInt =
     WindowsWin32NetworkingClusteringJniBridge.windowssysWindowsWin32NetworkingClusteringGetClusterInformation(hcluster, lpszclustername.rawAddress, lpcchclustername.rawAddress, lpclusterinfo.rawAddress).toUInt()
 
 public actual fun getClusterKey(hcluster: Hcluster, samdesired: UInt): Hkey =
     MutPtr(WindowsWin32NetworkingClusteringJniBridge.windowssysWindowsWin32NetworkingClusteringGetClusterKey(hcluster, samdesired.toInt()))
 
-public actual fun getClusterNetInterface(hcluster: Hcluster, lpsznodename: Pcwstr, lpsznetworkname: Pcwstr, lpszinterfacename: Pwstr, lpcchinterfacename: MutPtr<UInt>): UInt =
+public actual fun getClusterNetInterface(hcluster: Hcluster, lpsznodename: Pcwstr, lpsznetworkname: Pcwstr, lpszinterfacename: Pwstr, lpcchinterfacename: MutPtr): UInt =
     WindowsWin32NetworkingClusteringJniBridge.windowssysWindowsWin32NetworkingClusteringGetClusterNetInterface(hcluster, lpsznodename.rawAddress, lpsznetworkname.rawAddress, lpszinterfacename.rawAddress, lpcchinterfacename.rawAddress).toUInt()
 
 public actual fun getClusterNetInterfaceKey(hnetinterface: Hnetinterface, samdesired: UInt): Hkey =
@@ -1904,7 +1900,7 @@ public actual fun getClusterNetInterfaceKey(hnetinterface: Hnetinterface, samdes
 public actual fun getClusterNetInterfaceState(hnetinterface: Hnetinterface): ClusterNetinterfaceState =
     WindowsWin32NetworkingClusteringJniBridge.windowssysWindowsWin32NetworkingClusteringGetClusterNetInterfaceState(hnetinterface)
 
-public actual fun getClusterNetworkId(hnetwork: Hnetwork, lpsznetworkid: Pwstr, lpcchname: MutPtr<UInt>): UInt =
+public actual fun getClusterNetworkId(hnetwork: Hnetwork, lpsznetworkid: Pwstr, lpcchname: MutPtr): UInt =
     WindowsWin32NetworkingClusteringJniBridge.windowssysWindowsWin32NetworkingClusteringGetClusterNetworkId(hnetwork, lpsznetworkid.rawAddress, lpcchname.rawAddress).toUInt()
 
 public actual fun getClusterNetworkKey(hnetwork: Hnetwork, samdesired: UInt): Hkey =
@@ -1913,7 +1909,7 @@ public actual fun getClusterNetworkKey(hnetwork: Hnetwork, samdesired: UInt): Hk
 public actual fun getClusterNetworkState(hnetwork: Hnetwork): ClusterNetworkState =
     WindowsWin32NetworkingClusteringJniBridge.windowssysWindowsWin32NetworkingClusteringGetClusterNetworkState(hnetwork)
 
-public actual fun getClusterNodeId(hnode: Hnode, lpsznodeid: Pwstr, lpcchname: MutPtr<UInt>): UInt =
+public actual fun getClusterNodeId(hnode: Hnode, lpsznodeid: Pwstr, lpcchname: MutPtr): UInt =
     WindowsWin32NetworkingClusteringJniBridge.windowssysWindowsWin32NetworkingClusteringGetClusterNodeId(hnode, lpsznodeid.rawAddress, lpcchname.rawAddress).toUInt()
 
 public actual fun getClusterNodeKey(hnode: Hnode, samdesired: UInt): Hkey =
@@ -1922,109 +1918,109 @@ public actual fun getClusterNodeKey(hnode: Hnode, samdesired: UInt): Hkey =
 public actual fun getClusterNodeState(hnode: Hnode): ClusterNodeState =
     WindowsWin32NetworkingClusteringJniBridge.windowssysWindowsWin32NetworkingClusteringGetClusterNodeState(hnode)
 
-public actual fun getClusterNotify(hchange: Hchange, lpdwnotifykey: MutPtr<ULong>, lpdwfiltertype: MutPtr<UInt>, lpszname: Pwstr, lpcchname: MutPtr<UInt>, dwmilliseconds: UInt): UInt =
+public actual fun getClusterNotify(hchange: Hchange, lpdwnotifykey: MutPtr, lpdwfiltertype: MutPtr, lpszname: Pwstr, lpcchname: MutPtr, dwmilliseconds: UInt): UInt =
     WindowsWin32NetworkingClusteringJniBridge.windowssysWindowsWin32NetworkingClusteringGetClusterNotify(hchange, lpdwnotifykey.rawAddress, lpdwfiltertype.rawAddress, lpszname.rawAddress, lpcchname.rawAddress, dwmilliseconds.toInt()).toUInt()
 
-public actual fun getClusterNotifyV2(hchange: Hchange, lpdwnotifykey: MutPtr<ULong>, pfilterandtype: MutPtr<NotifyFilterAndType>, buffer: MutPtr<UByte>, lpbbuffersize: MutPtr<UInt>, lpszobjectid: Pwstr, lpcchobjectid: MutPtr<UInt>, lpszparentid: Pwstr, lpcchparentid: MutPtr<UInt>, lpszname: Pwstr, lpcchname: MutPtr<UInt>, lpsztype: Pwstr, lpcchtype: MutPtr<UInt>, dwmilliseconds: UInt): UInt =
+public actual fun getClusterNotifyV2(hchange: Hchange, lpdwnotifykey: MutPtr, pfilterandtype: MutPtr, buffer: MutPtr, lpbbuffersize: MutPtr, lpszobjectid: Pwstr, lpcchobjectid: MutPtr, lpszparentid: Pwstr, lpcchparentid: MutPtr, lpszname: Pwstr, lpcchname: MutPtr, lpsztype: Pwstr, lpcchtype: MutPtr, dwmilliseconds: UInt): UInt =
     WindowsWin32NetworkingClusteringJniBridge.windowssysWindowsWin32NetworkingClusteringGetClusterNotifyV2(hchange, lpdwnotifykey.rawAddress, pfilterandtype.rawAddress, buffer.rawAddress, lpbbuffersize.rawAddress, lpszobjectid.rawAddress, lpcchobjectid.rawAddress, lpszparentid.rawAddress, lpcchparentid.rawAddress, lpszname.rawAddress, lpcchname.rawAddress, lpsztype.rawAddress, lpcchtype.rawAddress, dwmilliseconds.toInt()).toUInt()
 
-public actual fun getClusterQuorumResource(hcluster: Hcluster, lpszresourcename: Pwstr, lpcchresourcename: MutPtr<UInt>, lpszdevicename: Pwstr, lpcchdevicename: MutPtr<UInt>, lpdwmaxquorumlogsize: MutPtr<UInt>): UInt =
+public actual fun getClusterQuorumResource(hcluster: Hcluster, lpszresourcename: Pwstr, lpcchresourcename: MutPtr, lpszdevicename: Pwstr, lpcchdevicename: MutPtr, lpdwmaxquorumlogsize: MutPtr): UInt =
     WindowsWin32NetworkingClusteringJniBridge.windowssysWindowsWin32NetworkingClusteringGetClusterQuorumResource(hcluster, lpszresourcename.rawAddress, lpcchresourcename.rawAddress, lpszdevicename.rawAddress, lpcchdevicename.rawAddress, lpdwmaxquorumlogsize.rawAddress).toUInt()
 
-public actual fun getClusterResourceDependencyExpression(hresource: Hresource, lpszdependencyexpression: Pwstr, lpcchdependencyexpression: MutPtr<UInt>): UInt =
+public actual fun getClusterResourceDependencyExpression(hresource: Hresource, lpszdependencyexpression: Pwstr, lpcchdependencyexpression: MutPtr): UInt =
     WindowsWin32NetworkingClusteringJniBridge.windowssysWindowsWin32NetworkingClusteringGetClusterResourceDependencyExpression(hresource, lpszdependencyexpression.rawAddress, lpcchdependencyexpression.rawAddress).toUInt()
 
 public actual fun getClusterResourceKey(hresource: Hresource, samdesired: UInt): Hkey =
     MutPtr(WindowsWin32NetworkingClusteringJniBridge.windowssysWindowsWin32NetworkingClusteringGetClusterResourceKey(hresource, samdesired.toInt()))
 
-public actual fun getClusterResourceNetworkName(hresource: Hresource, lpbuffer: Pwstr, nsize: MutPtr<UInt>): Bool =
+public actual fun getClusterResourceNetworkName(hresource: Hresource, lpbuffer: Pwstr, nsize: MutPtr): Bool =
     WindowsWin32NetworkingClusteringJniBridge.windowssysWindowsWin32NetworkingClusteringGetClusterResourceNetworkName(hresource, lpbuffer.rawAddress, nsize.rawAddress)
 
-public actual fun getClusterResourceState(hresource: Hresource, lpsznodename: Pwstr, lpcchnodename: MutPtr<UInt>, lpszgroupname: Pwstr, lpcchgroupname: MutPtr<UInt>): ClusterResourceState =
+public actual fun getClusterResourceState(hresource: Hresource, lpsznodename: Pwstr, lpcchnodename: MutPtr, lpszgroupname: Pwstr, lpcchgroupname: MutPtr): ClusterResourceState =
     WindowsWin32NetworkingClusteringJniBridge.windowssysWindowsWin32NetworkingClusteringGetClusterResourceState(hresource, lpsznodename.rawAddress, lpcchnodename.rawAddress, lpszgroupname.rawAddress, lpcchgroupname.rawAddress)
 
 public actual fun getClusterResourceTypeKey(hcluster: Hcluster, lpsztypename: Pcwstr, samdesired: UInt): Hkey =
     MutPtr(WindowsWin32NetworkingClusteringJniBridge.windowssysWindowsWin32NetworkingClusteringGetClusterResourceTypeKey(hcluster, lpsztypename.rawAddress, samdesired.toInt()))
 
-public actual fun getNodeCloudTypeDW(ppsznodename: Pcwstr, nodecloudtype: MutPtr<UInt>): UInt =
+public actual fun getNodeCloudTypeDW(ppsznodename: Pcwstr, nodecloudtype: MutPtr): UInt =
     WindowsWin32NetworkingClusteringJniBridge.windowssysWindowsWin32NetworkingClusteringGetNodeCloudTypeDW(ppsznodename.rawAddress, nodecloudtype.rawAddress).toUInt()
 
-public actual fun getNodeClusterState(lpsznodename: Pcwstr, pdwclusterstate: MutPtr<UInt>): UInt =
+public actual fun getNodeClusterState(lpsznodename: Pcwstr, pdwclusterstate: MutPtr): UInt =
     WindowsWin32NetworkingClusteringJniBridge.windowssysWindowsWin32NetworkingClusteringGetNodeClusterState(lpsznodename.rawAddress, pdwclusterstate.rawAddress).toUInt()
 
-public actual fun getNotifyEventHandle(hchange: Hchange, lphtargetevent: MutPtr<Handle>): UInt =
+public actual fun getNotifyEventHandle(hchange: Hchange, lphtargetevent: MutPtr): UInt =
     WindowsWin32NetworkingClusteringJniBridge.windowssysWindowsWin32NetworkingClusteringGetNotifyEventHandle(hchange, lphtargetevent.rawAddress).toUInt()
 
-public actual fun initializeClusterHealthFault(clusterhealthfault: MutPtr<ClusterHealthFault>): UInt =
+public actual fun initializeClusterHealthFault(clusterhealthfault: MutPtr): UInt =
     WindowsWin32NetworkingClusteringJniBridge.windowssysWindowsWin32NetworkingClusteringInitializeClusterHealthFault(clusterhealthfault.rawAddress).toUInt()
 
-public actual fun initializeClusterHealthFaultArray(clusterhealthfaultarray: MutPtr<ClusterHealthFaultArray>): UInt =
+public actual fun initializeClusterHealthFaultArray(clusterhealthfaultarray: MutPtr): UInt =
     WindowsWin32NetworkingClusteringJniBridge.windowssysWindowsWin32NetworkingClusteringInitializeClusterHealthFaultArray(clusterhealthfaultarray.rawAddress).toUInt()
 
-public actual fun isFileOnClusterSharedVolume(lpszpathname: Pcwstr, pbfileisonsharedvolume: MutPtr<Bool>): UInt =
+public actual fun isFileOnClusterSharedVolume(lpszpathname: Pcwstr, pbfileisonsharedvolume: MutPtr): UInt =
     WindowsWin32NetworkingClusteringJniBridge.windowssysWindowsWin32NetworkingClusteringIsFileOnClusterSharedVolume(lpszpathname.rawAddress, pbfileisonsharedvolume.rawAddress).toUInt()
 
 public actual fun moveClusterGroup(hgroup: Hgroup, hdestinationnode: Hnode): UInt =
     WindowsWin32NetworkingClusteringJniBridge.windowssysWindowsWin32NetworkingClusteringMoveClusterGroup(hgroup, hdestinationnode).toUInt()
 
-public actual fun moveClusterGroupEx(hgroup: Hgroup, hdestinationnode: Hnode, dwmoveflags: UInt, lpinbuffer: ConstPtr<UByte>, cbinbuffersize: UInt): UInt =
+public actual fun moveClusterGroupEx(hgroup: Hgroup, hdestinationnode: Hnode, dwmoveflags: UInt, lpinbuffer: ConstPtr, cbinbuffersize: UInt): UInt =
     WindowsWin32NetworkingClusteringJniBridge.windowssysWindowsWin32NetworkingClusteringMoveClusterGroupEx(hgroup, hdestinationnode, dwmoveflags.toInt(), lpinbuffer.rawAddress, cbinbuffersize.toInt()).toUInt()
 
-public actual fun moveClusterGroupEx2(hgroup: Hgroup, hdestinationnode: Hnode, dwmoveflags: UInt, lpinbuffer: ConstPtr<UByte>, cbinbuffersize: UInt, lpszreason: Pcwstr): UInt =
+public actual fun moveClusterGroupEx2(hgroup: Hgroup, hdestinationnode: Hnode, dwmoveflags: UInt, lpinbuffer: ConstPtr, cbinbuffersize: UInt, lpszreason: Pcwstr): UInt =
     WindowsWin32NetworkingClusteringJniBridge.windowssysWindowsWin32NetworkingClusteringMoveClusterGroupEx2(hgroup, hdestinationnode, dwmoveflags.toInt(), lpinbuffer.rawAddress, cbinbuffersize.toInt(), lpszreason.rawAddress).toUInt()
 
 public actual fun offlineClusterGroup(hgroup: Hgroup): UInt =
     WindowsWin32NetworkingClusteringJniBridge.windowssysWindowsWin32NetworkingClusteringOfflineClusterGroup(hgroup).toUInt()
 
-public actual fun offlineClusterGroupEx(hgroup: Hgroup, dwofflineflags: UInt, lpinbuffer: ConstPtr<UByte>, cbinbuffersize: UInt): UInt =
+public actual fun offlineClusterGroupEx(hgroup: Hgroup, dwofflineflags: UInt, lpinbuffer: ConstPtr, cbinbuffersize: UInt): UInt =
     WindowsWin32NetworkingClusteringJniBridge.windowssysWindowsWin32NetworkingClusteringOfflineClusterGroupEx(hgroup, dwofflineflags.toInt(), lpinbuffer.rawAddress, cbinbuffersize.toInt()).toUInt()
 
-public actual fun offlineClusterGroupEx2(hgroup: Hgroup, dwofflineflags: UInt, lpinbuffer: ConstPtr<UByte>, cbinbuffersize: UInt, lpszreason: Pcwstr): UInt =
+public actual fun offlineClusterGroupEx2(hgroup: Hgroup, dwofflineflags: UInt, lpinbuffer: ConstPtr, cbinbuffersize: UInt, lpszreason: Pcwstr): UInt =
     WindowsWin32NetworkingClusteringJniBridge.windowssysWindowsWin32NetworkingClusteringOfflineClusterGroupEx2(hgroup, dwofflineflags.toInt(), lpinbuffer.rawAddress, cbinbuffersize.toInt(), lpszreason.rawAddress).toUInt()
 
 public actual fun offlineClusterResource(hresource: Hresource): UInt =
     WindowsWin32NetworkingClusteringJniBridge.windowssysWindowsWin32NetworkingClusteringOfflineClusterResource(hresource).toUInt()
 
-public actual fun offlineClusterResourceEx(hresource: Hresource, dwofflineflags: UInt, lpinbuffer: ConstPtr<UByte>, cbinbuffersize: UInt): UInt =
+public actual fun offlineClusterResourceEx(hresource: Hresource, dwofflineflags: UInt, lpinbuffer: ConstPtr, cbinbuffersize: UInt): UInt =
     WindowsWin32NetworkingClusteringJniBridge.windowssysWindowsWin32NetworkingClusteringOfflineClusterResourceEx(hresource, dwofflineflags.toInt(), lpinbuffer.rawAddress, cbinbuffersize.toInt()).toUInt()
 
-public actual fun offlineClusterResourceEx2(hresource: Hresource, dwofflineflags: UInt, lpinbuffer: ConstPtr<UByte>, cbinbuffersize: UInt, lpszreason: Pcwstr): UInt =
+public actual fun offlineClusterResourceEx2(hresource: Hresource, dwofflineflags: UInt, lpinbuffer: ConstPtr, cbinbuffersize: UInt, lpszreason: Pcwstr): UInt =
     WindowsWin32NetworkingClusteringJniBridge.windowssysWindowsWin32NetworkingClusteringOfflineClusterResourceEx2(hresource, dwofflineflags.toInt(), lpinbuffer.rawAddress, cbinbuffersize.toInt(), lpszreason.rawAddress).toUInt()
 
 public actual fun onlineClusterGroup(hgroup: Hgroup, hdestinationnode: Hnode): UInt =
     WindowsWin32NetworkingClusteringJniBridge.windowssysWindowsWin32NetworkingClusteringOnlineClusterGroup(hgroup, hdestinationnode).toUInt()
 
-public actual fun onlineClusterGroupEx(hgroup: Hgroup, hdestinationnode: Hnode, dwonlineflags: UInt, lpinbuffer: ConstPtr<UByte>, cbinbuffersize: UInt): UInt =
+public actual fun onlineClusterGroupEx(hgroup: Hgroup, hdestinationnode: Hnode, dwonlineflags: UInt, lpinbuffer: ConstPtr, cbinbuffersize: UInt): UInt =
     WindowsWin32NetworkingClusteringJniBridge.windowssysWindowsWin32NetworkingClusteringOnlineClusterGroupEx(hgroup, hdestinationnode, dwonlineflags.toInt(), lpinbuffer.rawAddress, cbinbuffersize.toInt()).toUInt()
 
-public actual fun onlineClusterGroupEx2(hgroup: Hgroup, hdestinationnode: Hnode, dwonlineflags: UInt, lpinbuffer: ConstPtr<UByte>, cbinbuffersize: UInt, lpszreason: Pcwstr): UInt =
+public actual fun onlineClusterGroupEx2(hgroup: Hgroup, hdestinationnode: Hnode, dwonlineflags: UInt, lpinbuffer: ConstPtr, cbinbuffersize: UInt, lpszreason: Pcwstr): UInt =
     WindowsWin32NetworkingClusteringJniBridge.windowssysWindowsWin32NetworkingClusteringOnlineClusterGroupEx2(hgroup, hdestinationnode, dwonlineflags.toInt(), lpinbuffer.rawAddress, cbinbuffersize.toInt(), lpszreason.rawAddress).toUInt()
 
 public actual fun onlineClusterResource(hresource: Hresource): UInt =
     WindowsWin32NetworkingClusteringJniBridge.windowssysWindowsWin32NetworkingClusteringOnlineClusterResource(hresource).toUInt()
 
-public actual fun onlineClusterResourceEx(hresource: Hresource, dwonlineflags: UInt, lpinbuffer: ConstPtr<UByte>, cbinbuffersize: UInt): UInt =
+public actual fun onlineClusterResourceEx(hresource: Hresource, dwonlineflags: UInt, lpinbuffer: ConstPtr, cbinbuffersize: UInt): UInt =
     WindowsWin32NetworkingClusteringJniBridge.windowssysWindowsWin32NetworkingClusteringOnlineClusterResourceEx(hresource, dwonlineflags.toInt(), lpinbuffer.rawAddress, cbinbuffersize.toInt()).toUInt()
 
-public actual fun onlineClusterResourceEx2(hresource: Hresource, dwonlineflags: UInt, lpinbuffer: ConstPtr<UByte>, cbinbuffersize: UInt, lpszreason: Pcwstr): UInt =
+public actual fun onlineClusterResourceEx2(hresource: Hresource, dwonlineflags: UInt, lpinbuffer: ConstPtr, cbinbuffersize: UInt, lpszreason: Pcwstr): UInt =
     WindowsWin32NetworkingClusteringJniBridge.windowssysWindowsWin32NetworkingClusteringOnlineClusterResourceEx2(hresource, dwonlineflags.toInt(), lpinbuffer.rawAddress, cbinbuffersize.toInt(), lpszreason.rawAddress).toUInt()
 
 public actual fun openCluster(lpszclustername: Pcwstr): Hcluster =
     WindowsWin32NetworkingClusteringJniBridge.windowssysWindowsWin32NetworkingClusteringOpenCluster(lpszclustername.rawAddress)
 
-public actual fun openClusterCryptProvider(lpszresource: Pcwstr, lpszprovider: ConstPtr<Byte>, dwtype: UInt, dwflags: UInt): Hcluscryptprovider =
+public actual fun openClusterCryptProvider(lpszresource: Pcwstr, lpszprovider: ConstPtr, dwtype: UInt, dwflags: UInt): Hcluscryptprovider =
     WindowsWin32NetworkingClusteringJniBridge.windowssysWindowsWin32NetworkingClusteringOpenClusterCryptProvider(lpszresource.rawAddress, lpszprovider.rawAddress, dwtype.toInt(), dwflags.toInt())
 
-public actual fun openClusterCryptProviderEx(lpszresource: Pcwstr, lpszkeyname: Pcwstr, lpszprovider: ConstPtr<Byte>, dwtype: UInt, dwflags: UInt): Hcluscryptprovider =
+public actual fun openClusterCryptProviderEx(lpszresource: Pcwstr, lpszkeyname: Pcwstr, lpszprovider: ConstPtr, dwtype: UInt, dwflags: UInt): Hcluscryptprovider =
     WindowsWin32NetworkingClusteringJniBridge.windowssysWindowsWin32NetworkingClusteringOpenClusterCryptProviderEx(lpszresource.rawAddress, lpszkeyname.rawAddress, lpszprovider.rawAddress, dwtype.toInt(), dwflags.toInt())
 
-public actual fun openClusterEx(lpszclustername: Pcwstr, desiredaccess: UInt, grantedaccess: MutPtr<UInt>): Hcluster =
+public actual fun openClusterEx(lpszclustername: Pcwstr, desiredaccess: UInt, grantedaccess: MutPtr): Hcluster =
     WindowsWin32NetworkingClusteringJniBridge.windowssysWindowsWin32NetworkingClusteringOpenClusterEx(lpszclustername.rawAddress, desiredaccess.toInt(), grantedaccess.rawAddress)
 
 public actual fun openClusterGroup(hcluster: Hcluster, lpszgroupname: Pcwstr): Hgroup =
     WindowsWin32NetworkingClusteringJniBridge.windowssysWindowsWin32NetworkingClusteringOpenClusterGroup(hcluster, lpszgroupname.rawAddress)
 
-public actual fun openClusterGroupEx(hcluster: Hcluster, lpszgroupname: Pcwstr, dwdesiredaccess: UInt, lpdwgrantedaccess: MutPtr<UInt>): Hgroup =
+public actual fun openClusterGroupEx(hcluster: Hcluster, lpszgroupname: Pcwstr, dwdesiredaccess: UInt, lpdwgrantedaccess: MutPtr): Hgroup =
     WindowsWin32NetworkingClusteringJniBridge.windowssysWindowsWin32NetworkingClusteringOpenClusterGroupEx(hcluster, lpszgroupname.rawAddress, dwdesiredaccess.toInt(), lpdwgrantedaccess.rawAddress)
 
 public actual fun openClusterGroupSet(hcluster: Hcluster, lpszgroupsetname: Pcwstr): Hgroupset =
@@ -2033,13 +2029,13 @@ public actual fun openClusterGroupSet(hcluster: Hcluster, lpszgroupsetname: Pcws
 public actual fun openClusterNetInterface(hcluster: Hcluster, lpszinterfacename: Pcwstr): Hnetinterface =
     WindowsWin32NetworkingClusteringJniBridge.windowssysWindowsWin32NetworkingClusteringOpenClusterNetInterface(hcluster, lpszinterfacename.rawAddress)
 
-public actual fun openClusterNetInterfaceEx(hcluster: Hcluster, lpszinterfacename: Pcwstr, dwdesiredaccess: UInt, lpdwgrantedaccess: MutPtr<UInt>): Hnetinterface =
+public actual fun openClusterNetInterfaceEx(hcluster: Hcluster, lpszinterfacename: Pcwstr, dwdesiredaccess: UInt, lpdwgrantedaccess: MutPtr): Hnetinterface =
     WindowsWin32NetworkingClusteringJniBridge.windowssysWindowsWin32NetworkingClusteringOpenClusterNetInterfaceEx(hcluster, lpszinterfacename.rawAddress, dwdesiredaccess.toInt(), lpdwgrantedaccess.rawAddress)
 
 public actual fun openClusterNetwork(hcluster: Hcluster, lpsznetworkname: Pcwstr): Hnetwork =
     WindowsWin32NetworkingClusteringJniBridge.windowssysWindowsWin32NetworkingClusteringOpenClusterNetwork(hcluster, lpsznetworkname.rawAddress)
 
-public actual fun openClusterNetworkEx(hcluster: Hcluster, lpsznetworkname: Pcwstr, dwdesiredaccess: UInt, lpdwgrantedaccess: MutPtr<UInt>): Hnetwork =
+public actual fun openClusterNetworkEx(hcluster: Hcluster, lpsznetworkname: Pcwstr, dwdesiredaccess: UInt, lpdwgrantedaccess: MutPtr): Hnetwork =
     WindowsWin32NetworkingClusteringJniBridge.windowssysWindowsWin32NetworkingClusteringOpenClusterNetworkEx(hcluster, lpsznetworkname.rawAddress, dwdesiredaccess.toInt(), lpdwgrantedaccess.rawAddress)
 
 public actual fun openClusterNode(hcluster: Hcluster, lpsznodename: Pcwstr): Hnode =
@@ -2048,13 +2044,13 @@ public actual fun openClusterNode(hcluster: Hcluster, lpsznodename: Pcwstr): Hno
 public actual fun openClusterNodeById(hcluster: Hcluster, nodeid: UInt): Hnode =
     WindowsWin32NetworkingClusteringJniBridge.windowssysWindowsWin32NetworkingClusteringOpenClusterNodeById(hcluster, nodeid.toInt())
 
-public actual fun openClusterNodeEx(hcluster: Hcluster, lpsznodename: Pcwstr, dwdesiredaccess: UInt, lpdwgrantedaccess: MutPtr<UInt>): Hnode =
+public actual fun openClusterNodeEx(hcluster: Hcluster, lpsznodename: Pcwstr, dwdesiredaccess: UInt, lpdwgrantedaccess: MutPtr): Hnode =
     WindowsWin32NetworkingClusteringJniBridge.windowssysWindowsWin32NetworkingClusteringOpenClusterNodeEx(hcluster, lpsznodename.rawAddress, dwdesiredaccess.toInt(), lpdwgrantedaccess.rawAddress)
 
 public actual fun openClusterResource(hcluster: Hcluster, lpszresourcename: Pcwstr): Hresource =
     WindowsWin32NetworkingClusteringJniBridge.windowssysWindowsWin32NetworkingClusteringOpenClusterResource(hcluster, lpszresourcename.rawAddress)
 
-public actual fun openClusterResourceEx(hcluster: Hcluster, lpszresourcename: Pcwstr, dwdesiredaccess: UInt, lpdwgrantedaccess: MutPtr<UInt>): Hresource =
+public actual fun openClusterResourceEx(hcluster: Hcluster, lpszresourcename: Pcwstr, dwdesiredaccess: UInt, lpdwgrantedaccess: MutPtr): Hresource =
     WindowsWin32NetworkingClusteringJniBridge.windowssysWindowsWin32NetworkingClusteringOpenClusterResourceEx(hcluster, lpszresourcename.rawAddress, dwdesiredaccess.toInt(), lpdwgrantedaccess.rawAddress)
 
 public actual fun pauseClusterNode(hnode: Hnode): UInt =
@@ -2066,13 +2062,13 @@ public actual fun pauseClusterNodeEx(hnode: Hnode, bdrainnode: Bool, dwpauseflag
 public actual fun pauseClusterNodeEx2(hnode: Hnode, bdrainnode: Bool, dwpauseflags: UInt, hnodedraintarget: Hnode, lpszreason: Pcwstr): UInt =
     WindowsWin32NetworkingClusteringJniBridge.windowssysWindowsWin32NetworkingClusteringPauseClusterNodeEx2(hnode, bdrainnode, dwpauseflags.toInt(), hnodedraintarget, lpszreason.rawAddress).toUInt()
 
-public actual fun queryAppInstanceVersion(appinstanceid: ConstPtr<Guid>, instanceversionhigh: MutPtr<ULong>, instanceversionlow: MutPtr<ULong>, versionstatus: MutPtr<Ntstatus>): UInt =
+public actual fun queryAppInstanceVersion(appinstanceid: ConstPtr, instanceversionhigh: MutPtr, instanceversionlow: MutPtr, versionstatus: MutPtr): UInt =
     WindowsWin32NetworkingClusteringJniBridge.windowssysWindowsWin32NetworkingClusteringQueryAppInstanceVersion(appinstanceid.rawAddress, instanceversionhigh.rawAddress, instanceversionlow.rawAddress, versionstatus.rawAddress).toUInt()
 
-public actual fun registerAppInstance(processhandle: Handle, appinstanceid: ConstPtr<Guid>, childreninheritappinstance: Bool): UInt =
+public actual fun registerAppInstance(processhandle: Handle, appinstanceid: ConstPtr, childreninheritappinstance: Bool): UInt =
     WindowsWin32NetworkingClusteringJniBridge.windowssysWindowsWin32NetworkingClusteringRegisterAppInstance(processhandle.rawAddress, appinstanceid.rawAddress, childreninheritappinstance).toUInt()
 
-public actual fun registerAppInstanceVersion(appinstanceid: ConstPtr<Guid>, instanceversionhigh: ULong, instanceversionlow: ULong): UInt =
+public actual fun registerAppInstanceVersion(appinstanceid: ConstPtr, instanceversionhigh: ULong, instanceversionlow: ULong): UInt =
     WindowsWin32NetworkingClusteringJniBridge.windowssysWindowsWin32NetworkingClusteringRegisterAppInstanceVersion(appinstanceid.rawAddress, instanceversionhigh.toLong(), instanceversionlow.toLong()).toUInt()
 
 public actual fun registerClusterNotify(hchange: Hchange, dwfiltertype: UInt, hobject: Handle, dwnotifykey: ULong): UInt =
@@ -2126,158 +2122,158 @@ public actual fun removeCrossClusterGroupSetDependency(hdependentgroupset: Hgrou
 public actual fun removeResourceFromClusterSharedVolumes(hresource: Hresource): UInt =
     WindowsWin32NetworkingClusteringJniBridge.windowssysWindowsWin32NetworkingClusteringRemoveResourceFromClusterSharedVolumes(hresource).toUInt()
 
-public actual fun resUtilAddUnknownProperties(hkeyclusterkey: Hkey, ppropertytable: ConstPtr<ResutilPropertyItem>, poutpropertylist: MutPtr<CVoid>, pcboutpropertylistsize: UInt, pcbbytesreturned: MutPtr<UInt>, pcbrequired: MutPtr<UInt>): UInt =
+public actual fun resUtilAddUnknownProperties(hkeyclusterkey: Hkey, ppropertytable: ConstPtr, poutpropertylist: MutPtr, pcboutpropertylistsize: UInt, pcbbytesreturned: MutPtr, pcbrequired: MutPtr): UInt =
     WindowsWin32NetworkingClusteringJniBridge.windowssysWindowsWin32NetworkingClusteringResUtilAddUnknownProperties(hkeyclusterkey.rawAddress, ppropertytable.rawAddress, poutpropertylist.rawAddress, pcboutpropertylistsize.toInt(), pcbbytesreturned.rawAddress, pcbrequired.rawAddress).toUInt()
 
 public actual fun resUtilCreateDirectoryTree(pszpath: Pcwstr): UInt =
     WindowsWin32NetworkingClusteringJniBridge.windowssysWindowsWin32NetworkingClusteringResUtilCreateDirectoryTree(pszpath.rawAddress).toUInt()
 
-public actual fun resUtilDupGroup(group: Hgroup, copy: MutPtr<Hgroup>): UInt =
+public actual fun resUtilDupGroup(group: Hgroup, copy: MutPtr): UInt =
     WindowsWin32NetworkingClusteringJniBridge.windowssysWindowsWin32NetworkingClusteringResUtilDupGroup(group, copy.rawAddress).toUInt()
 
-public actual fun resUtilDupParameterBlock(poutparams: MutPtr<UByte>, pinparams: ConstPtr<UByte>, ppropertytable: ConstPtr<ResutilPropertyItem>): UInt =
+public actual fun resUtilDupParameterBlock(poutparams: MutPtr, pinparams: ConstPtr, ppropertytable: ConstPtr): UInt =
     WindowsWin32NetworkingClusteringJniBridge.windowssysWindowsWin32NetworkingClusteringResUtilDupParameterBlock(poutparams.rawAddress, pinparams.rawAddress, ppropertytable.rawAddress).toUInt()
 
-public actual fun resUtilDupResource(group: Hresource, copy: MutPtr<Hresource>): UInt =
+public actual fun resUtilDupResource(group: Hresource, copy: MutPtr): UInt =
     WindowsWin32NetworkingClusteringJniBridge.windowssysWindowsWin32NetworkingClusteringResUtilDupResource(group, copy.rawAddress).toUInt()
 
 public actual fun resUtilDupString(pszinstring: Pcwstr): Pwstr =
     MutPtr(WindowsWin32NetworkingClusteringJniBridge.windowssysWindowsWin32NetworkingClusteringResUtilDupString(pszinstring.rawAddress))
 
-public actual fun resUtilEnumGroups(hcluster: Hcluster, hself: Hgroup, prescallback: LpgroupCallbackEx, pparameter: MutPtr<CVoid>): UInt =
+public actual fun resUtilEnumGroups(hcluster: Hcluster, hself: Hgroup, prescallback: LpgroupCallbackEx, pparameter: MutPtr): UInt =
     WindowsWin32NetworkingClusteringJniBridge.windowssysWindowsWin32NetworkingClusteringResUtilEnumGroups(hcluster, hself, 0L, pparameter.rawAddress).toUInt()
 
-public actual fun resUtilEnumGroupsEx(hcluster: Hcluster, hself: Hgroup, grouptype: ClusgroupType, prescallback: LpgroupCallbackEx, pparameter: MutPtr<CVoid>): UInt =
+public actual fun resUtilEnumGroupsEx(hcluster: Hcluster, hself: Hgroup, grouptype: ClusgroupType, prescallback: LpgroupCallbackEx, pparameter: MutPtr): UInt =
     WindowsWin32NetworkingClusteringJniBridge.windowssysWindowsWin32NetworkingClusteringResUtilEnumGroupsEx(hcluster, hself, grouptype, 0L, pparameter.rawAddress).toUInt()
 
-public actual fun resUtilEnumPrivateProperties(hkeyclusterkey: Hkey, pszoutproperties: Pwstr, cboutpropertiessize: UInt, pcbbytesreturned: MutPtr<UInt>, pcbrequired: MutPtr<UInt>): UInt =
+public actual fun resUtilEnumPrivateProperties(hkeyclusterkey: Hkey, pszoutproperties: Pwstr, cboutpropertiessize: UInt, pcbbytesreturned: MutPtr, pcbrequired: MutPtr): UInt =
     WindowsWin32NetworkingClusteringJniBridge.windowssysWindowsWin32NetworkingClusteringResUtilEnumPrivateProperties(hkeyclusterkey.rawAddress, pszoutproperties.rawAddress, cboutpropertiessize.toInt(), pcbbytesreturned.rawAddress, pcbrequired.rawAddress).toUInt()
 
-public actual fun resUtilEnumProperties(ppropertytable: ConstPtr<ResutilPropertyItem>, pszoutproperties: Pwstr, cboutpropertiessize: UInt, pcbbytesreturned: MutPtr<UInt>, pcbrequired: MutPtr<UInt>): UInt =
+public actual fun resUtilEnumProperties(ppropertytable: ConstPtr, pszoutproperties: Pwstr, cboutpropertiessize: UInt, pcbbytesreturned: MutPtr, pcbrequired: MutPtr): UInt =
     WindowsWin32NetworkingClusteringJniBridge.windowssysWindowsWin32NetworkingClusteringResUtilEnumProperties(ppropertytable.rawAddress, pszoutproperties.rawAddress, cboutpropertiessize.toInt(), pcbbytesreturned.rawAddress, pcbrequired.rawAddress).toUInt()
 
-public actual fun resUtilEnumResources(hself: Hresource, lpszrestypename: Pcwstr, prescallback: LpresourceCallback, pparameter: MutPtr<CVoid>): UInt =
+public actual fun resUtilEnumResources(hself: Hresource, lpszrestypename: Pcwstr, prescallback: LpresourceCallback, pparameter: MutPtr): UInt =
     WindowsWin32NetworkingClusteringJniBridge.windowssysWindowsWin32NetworkingClusteringResUtilEnumResources(hself, lpszrestypename.rawAddress, 0L, pparameter.rawAddress).toUInt()
 
-public actual fun resUtilEnumResourcesEx(hcluster: Hcluster, hself: Hresource, lpszrestypename: Pcwstr, prescallback: LpresourceCallbackEx, pparameter: MutPtr<CVoid>): UInt =
+public actual fun resUtilEnumResourcesEx(hcluster: Hcluster, hself: Hresource, lpszrestypename: Pcwstr, prescallback: LpresourceCallbackEx, pparameter: MutPtr): UInt =
     WindowsWin32NetworkingClusteringJniBridge.windowssysWindowsWin32NetworkingClusteringResUtilEnumResourcesEx(hcluster, hself, lpszrestypename.rawAddress, 0L, pparameter.rawAddress).toUInt()
 
-public actual fun resUtilEnumResourcesEx2(hcluster: Hcluster, hself: Hresource, lpszrestypename: Pcwstr, prescallback: LpresourceCallbackEx, pparameter: MutPtr<CVoid>, dwdesiredaccess: UInt): UInt =
+public actual fun resUtilEnumResourcesEx2(hcluster: Hcluster, hself: Hresource, lpszrestypename: Pcwstr, prescallback: LpresourceCallbackEx, pparameter: MutPtr, dwdesiredaccess: UInt): UInt =
     WindowsWin32NetworkingClusteringJniBridge.windowssysWindowsWin32NetworkingClusteringResUtilEnumResourcesEx2(hcluster, hself, lpszrestypename.rawAddress, 0L, pparameter.rawAddress, dwdesiredaccess.toInt()).toUInt()
 
 public actual fun resUtilExpandEnvironmentStrings(pszsrc: Pcwstr): Pwstr =
     MutPtr(WindowsWin32NetworkingClusteringJniBridge.windowssysWindowsWin32NetworkingClusteringResUtilExpandEnvironmentStrings(pszsrc.rawAddress))
 
-public actual fun resUtilFindBinaryProperty(ppropertylist: ConstPtr<CVoid>, cbpropertylistsize: UInt, pszpropertyname: Pcwstr, pbpropertyvalue: MutPtr<MutPtr<UByte>>, pcbpropertyvaluesize: MutPtr<UInt>): UInt =
+public actual fun resUtilFindBinaryProperty(ppropertylist: ConstPtr, cbpropertylistsize: UInt, pszpropertyname: Pcwstr, pbpropertyvalue: MutPtr, pcbpropertyvaluesize: MutPtr): UInt =
     WindowsWin32NetworkingClusteringJniBridge.windowssysWindowsWin32NetworkingClusteringResUtilFindBinaryProperty(ppropertylist.rawAddress, cbpropertylistsize.toInt(), pszpropertyname.rawAddress, pbpropertyvalue.rawAddress, pcbpropertyvaluesize.rawAddress).toUInt()
 
-public actual fun resUtilFindDependentDiskResourceDriveLetter(hcluster: Hcluster, hresource: Hresource, pszdriveletter: Pwstr, pcchdriveletter: MutPtr<UInt>): UInt =
+public actual fun resUtilFindDependentDiskResourceDriveLetter(hcluster: Hcluster, hresource: Hresource, pszdriveletter: Pwstr, pcchdriveletter: MutPtr): UInt =
     WindowsWin32NetworkingClusteringJniBridge.windowssysWindowsWin32NetworkingClusteringResUtilFindDependentDiskResourceDriveLetter(hcluster, hresource, pszdriveletter.rawAddress, pcchdriveletter.rawAddress).toUInt()
 
-public actual fun resUtilFindDwordProperty(ppropertylist: ConstPtr<CVoid>, cbpropertylistsize: UInt, pszpropertyname: Pcwstr, pdwpropertyvalue: MutPtr<UInt>): UInt =
+public actual fun resUtilFindDwordProperty(ppropertylist: ConstPtr, cbpropertylistsize: UInt, pszpropertyname: Pcwstr, pdwpropertyvalue: MutPtr): UInt =
     WindowsWin32NetworkingClusteringJniBridge.windowssysWindowsWin32NetworkingClusteringResUtilFindDwordProperty(ppropertylist.rawAddress, cbpropertylistsize.toInt(), pszpropertyname.rawAddress, pdwpropertyvalue.rawAddress).toUInt()
 
-public actual fun resUtilFindExpandSzProperty(ppropertylist: ConstPtr<CVoid>, cbpropertylistsize: UInt, pszpropertyname: Pcwstr, pszpropertyvalue: MutPtr<Pwstr>): UInt =
+public actual fun resUtilFindExpandSzProperty(ppropertylist: ConstPtr, cbpropertylistsize: UInt, pszpropertyname: Pcwstr, pszpropertyvalue: MutPtr): UInt =
     WindowsWin32NetworkingClusteringJniBridge.windowssysWindowsWin32NetworkingClusteringResUtilFindExpandSzProperty(ppropertylist.rawAddress, cbpropertylistsize.toInt(), pszpropertyname.rawAddress, pszpropertyvalue.rawAddress).toUInt()
 
-public actual fun resUtilFindExpandedSzProperty(ppropertylist: ConstPtr<CVoid>, cbpropertylistsize: UInt, pszpropertyname: Pcwstr, pszpropertyvalue: MutPtr<Pwstr>): UInt =
+public actual fun resUtilFindExpandedSzProperty(ppropertylist: ConstPtr, cbpropertylistsize: UInt, pszpropertyname: Pcwstr, pszpropertyvalue: MutPtr): UInt =
     WindowsWin32NetworkingClusteringJniBridge.windowssysWindowsWin32NetworkingClusteringResUtilFindExpandedSzProperty(ppropertylist.rawAddress, cbpropertylistsize.toInt(), pszpropertyname.rawAddress, pszpropertyvalue.rawAddress).toUInt()
 
-public actual fun resUtilFindFileTimeProperty(ppropertylist: ConstPtr<CVoid>, cbpropertylistsize: UInt, pszpropertyname: Pcwstr, pftpropertyvalue: MutPtr<Filetime>): UInt =
+public actual fun resUtilFindFileTimeProperty(ppropertylist: ConstPtr, cbpropertylistsize: UInt, pszpropertyname: Pcwstr, pftpropertyvalue: MutPtr): UInt =
     WindowsWin32NetworkingClusteringJniBridge.windowssysWindowsWin32NetworkingClusteringResUtilFindFileTimeProperty(ppropertylist.rawAddress, cbpropertylistsize.toInt(), pszpropertyname.rawAddress, pftpropertyvalue.rawAddress).toUInt()
 
-public actual fun resUtilFindLongProperty(ppropertylist: ConstPtr<CVoid>, cbpropertylistsize: UInt, pszpropertyname: Pcwstr, plpropertyvalue: MutPtr<Int>): UInt =
+public actual fun resUtilFindLongProperty(ppropertylist: ConstPtr, cbpropertylistsize: UInt, pszpropertyname: Pcwstr, plpropertyvalue: MutPtr): UInt =
     WindowsWin32NetworkingClusteringJniBridge.windowssysWindowsWin32NetworkingClusteringResUtilFindLongProperty(ppropertylist.rawAddress, cbpropertylistsize.toInt(), pszpropertyname.rawAddress, plpropertyvalue.rawAddress).toUInt()
 
-public actual fun resUtilFindMultiSzProperty(ppropertylist: ConstPtr<CVoid>, cbpropertylistsize: UInt, pszpropertyname: Pcwstr, pszpropertyvalue: MutPtr<Pwstr>, pcbpropertyvaluesize: MutPtr<UInt>): UInt =
+public actual fun resUtilFindMultiSzProperty(ppropertylist: ConstPtr, cbpropertylistsize: UInt, pszpropertyname: Pcwstr, pszpropertyvalue: MutPtr, pcbpropertyvaluesize: MutPtr): UInt =
     WindowsWin32NetworkingClusteringJniBridge.windowssysWindowsWin32NetworkingClusteringResUtilFindMultiSzProperty(ppropertylist.rawAddress, cbpropertylistsize.toInt(), pszpropertyname.rawAddress, pszpropertyvalue.rawAddress, pcbpropertyvaluesize.rawAddress).toUInt()
 
-public actual fun resUtilFindSzProperty(ppropertylist: ConstPtr<CVoid>, cbpropertylistsize: UInt, pszpropertyname: Pcwstr, pszpropertyvalue: MutPtr<Pwstr>): UInt =
+public actual fun resUtilFindSzProperty(ppropertylist: ConstPtr, cbpropertylistsize: UInt, pszpropertyname: Pcwstr, pszpropertyvalue: MutPtr): UInt =
     WindowsWin32NetworkingClusteringJniBridge.windowssysWindowsWin32NetworkingClusteringResUtilFindSzProperty(ppropertylist.rawAddress, cbpropertylistsize.toInt(), pszpropertyname.rawAddress, pszpropertyvalue.rawAddress).toUInt()
 
-public actual fun resUtilFindULargeIntegerProperty(ppropertylist: ConstPtr<CVoid>, cbpropertylistsize: UInt, pszpropertyname: Pcwstr, plpropertyvalue: MutPtr<ULong>): UInt =
+public actual fun resUtilFindULargeIntegerProperty(ppropertylist: ConstPtr, cbpropertylistsize: UInt, pszpropertyname: Pcwstr, plpropertyvalue: MutPtr): UInt =
     WindowsWin32NetworkingClusteringJniBridge.windowssysWindowsWin32NetworkingClusteringResUtilFindULargeIntegerProperty(ppropertylist.rawAddress, cbpropertylistsize.toInt(), pszpropertyname.rawAddress, plpropertyvalue.rawAddress).toUInt()
 
-public actual fun resUtilFreeEnvironment(lpenvironment: MutPtr<CVoid>): UInt =
+public actual fun resUtilFreeEnvironment(lpenvironment: MutPtr): UInt =
     WindowsWin32NetworkingClusteringJniBridge.windowssysWindowsWin32NetworkingClusteringResUtilFreeEnvironment(lpenvironment.rawAddress).toUInt()
 
-public actual fun resUtilFreeParameterBlock(poutparams: MutPtr<UByte>, pinparams: ConstPtr<UByte>, ppropertytable: ConstPtr<ResutilPropertyItem>) {
+public actual fun resUtilFreeParameterBlock(poutparams: MutPtr, pinparams: ConstPtr, ppropertytable: ConstPtr) {
     WindowsWin32NetworkingClusteringJniBridge.windowssysWindowsWin32NetworkingClusteringResUtilFreeParameterBlock(poutparams.rawAddress, pinparams.rawAddress, ppropertytable.rawAddress)
 }
 
-public actual fun resUtilGetAllProperties(hkeyclusterkey: Hkey, ppropertytable: ConstPtr<ResutilPropertyItem>, poutpropertylist: MutPtr<CVoid>, cboutpropertylistsize: UInt, pcbbytesreturned: MutPtr<UInt>, pcbrequired: MutPtr<UInt>): UInt =
+public actual fun resUtilGetAllProperties(hkeyclusterkey: Hkey, ppropertytable: ConstPtr, poutpropertylist: MutPtr, cboutpropertylistsize: UInt, pcbbytesreturned: MutPtr, pcbrequired: MutPtr): UInt =
     WindowsWin32NetworkingClusteringJniBridge.windowssysWindowsWin32NetworkingClusteringResUtilGetAllProperties(hkeyclusterkey.rawAddress, ppropertytable.rawAddress, poutpropertylist.rawAddress, cboutpropertylistsize.toInt(), pcbbytesreturned.rawAddress, pcbrequired.rawAddress).toUInt()
 
-public actual fun resUtilGetBinaryProperty(ppboutvalue: MutPtr<MutPtr<UByte>>, pcboutvaluesize: MutPtr<UInt>, pvaluestruct: ConstPtr<CluspropBinary>, pboldvalue: ConstPtr<UByte>, cboldvaluesize: UInt, pppropertylist: MutPtr<MutPtr<UByte>>, pcbpropertylistsize: MutPtr<UInt>): UInt =
+public actual fun resUtilGetBinaryProperty(ppboutvalue: MutPtr, pcboutvaluesize: MutPtr, pvaluestruct: ConstPtr, pboldvalue: ConstPtr, cboldvaluesize: UInt, pppropertylist: MutPtr, pcbpropertylistsize: MutPtr): UInt =
     WindowsWin32NetworkingClusteringJniBridge.windowssysWindowsWin32NetworkingClusteringResUtilGetBinaryProperty(ppboutvalue.rawAddress, pcboutvaluesize.rawAddress, pvaluestruct.rawAddress, pboldvalue.rawAddress, cboldvaluesize.toInt(), pppropertylist.rawAddress, pcbpropertylistsize.rawAddress).toUInt()
 
-public actual fun resUtilGetBinaryValue(hkeyclusterkey: Hkey, pszvaluename: Pcwstr, ppboutvalue: MutPtr<MutPtr<UByte>>, pcboutvaluesize: MutPtr<UInt>): UInt =
+public actual fun resUtilGetBinaryValue(hkeyclusterkey: Hkey, pszvaluename: Pcwstr, ppboutvalue: MutPtr, pcboutvaluesize: MutPtr): UInt =
     WindowsWin32NetworkingClusteringJniBridge.windowssysWindowsWin32NetworkingClusteringResUtilGetBinaryValue(hkeyclusterkey.rawAddress, pszvaluename.rawAddress, ppboutvalue.rawAddress, pcboutvaluesize.rawAddress).toUInt()
 
-public actual fun resUtilGetClusterGroupType(hgroup: Hgroup, grouptype: MutPtr<ClusgroupType>): UInt =
+public actual fun resUtilGetClusterGroupType(hgroup: Hgroup, grouptype: MutPtr): UInt =
     WindowsWin32NetworkingClusteringJniBridge.windowssysWindowsWin32NetworkingClusteringResUtilGetClusterGroupType(hgroup, grouptype.rawAddress).toUInt()
 
-public actual fun resUtilGetClusterId(hcluster: Hcluster, guid: MutPtr<Guid>): UInt =
+public actual fun resUtilGetClusterId(hcluster: Hcluster, guid: MutPtr): UInt =
     WindowsWin32NetworkingClusteringJniBridge.windowssysWindowsWin32NetworkingClusteringResUtilGetClusterId(hcluster, guid.rawAddress).toUInt()
 
 public actual fun resUtilGetClusterRoleState(hcluster: Hcluster, eclusterrole: ClusterRole): ClusterRoleState =
     WindowsWin32NetworkingClusteringJniBridge.windowssysWindowsWin32NetworkingClusteringResUtilGetClusterRoleState(hcluster, eclusterrole)
 
-public actual fun resUtilGetCoreClusterResources(hcluster: Hcluster, phclusternameresource: MutPtr<Hresource>, phclusteripaddressresource: MutPtr<Hresource>, phclusterquorumresource: MutPtr<Hresource>): UInt =
+public actual fun resUtilGetCoreClusterResources(hcluster: Hcluster, phclusternameresource: MutPtr, phclusteripaddressresource: MutPtr, phclusterquorumresource: MutPtr): UInt =
     WindowsWin32NetworkingClusteringJniBridge.windowssysWindowsWin32NetworkingClusteringResUtilGetCoreClusterResources(hcluster, phclusternameresource.rawAddress, phclusteripaddressresource.rawAddress, phclusterquorumresource.rawAddress).toUInt()
 
-public actual fun resUtilGetCoreClusterResourcesEx(hclusterin: Hcluster, phclusternameresourceout: MutPtr<Hresource>, phclusterquorumresourceout: MutPtr<Hresource>, dwdesiredaccess: UInt): UInt =
+public actual fun resUtilGetCoreClusterResourcesEx(hclusterin: Hcluster, phclusternameresourceout: MutPtr, phclusterquorumresourceout: MutPtr, dwdesiredaccess: UInt): UInt =
     WindowsWin32NetworkingClusteringJniBridge.windowssysWindowsWin32NetworkingClusteringResUtilGetCoreClusterResourcesEx(hclusterin, phclusternameresourceout.rawAddress, phclusterquorumresourceout.rawAddress, dwdesiredaccess.toInt()).toUInt()
 
 public actual fun resUtilGetCoreGroup(hcluster: Hcluster): Hgroup =
     WindowsWin32NetworkingClusteringJniBridge.windowssysWindowsWin32NetworkingClusteringResUtilGetCoreGroup(hcluster)
 
-public actual fun resUtilGetDwordProperty(pdwoutvalue: MutPtr<UInt>, pvaluestruct: ConstPtr<CluspropDword>, dwoldvalue: UInt, dwminimum: UInt, dwmaximum: UInt, pppropertylist: MutPtr<MutPtr<UByte>>, pcbpropertylistsize: MutPtr<UInt>): UInt =
+public actual fun resUtilGetDwordProperty(pdwoutvalue: MutPtr, pvaluestruct: ConstPtr, dwoldvalue: UInt, dwminimum: UInt, dwmaximum: UInt, pppropertylist: MutPtr, pcbpropertylistsize: MutPtr): UInt =
     WindowsWin32NetworkingClusteringJniBridge.windowssysWindowsWin32NetworkingClusteringResUtilGetDwordProperty(pdwoutvalue.rawAddress, pvaluestruct.rawAddress, dwoldvalue.toInt(), dwminimum.toInt(), dwmaximum.toInt(), pppropertylist.rawAddress, pcbpropertylistsize.rawAddress).toUInt()
 
-public actual fun resUtilGetDwordValue(hkeyclusterkey: Hkey, pszvaluename: Pcwstr, pdwoutvalue: MutPtr<UInt>, dwdefaultvalue: UInt): UInt =
+public actual fun resUtilGetDwordValue(hkeyclusterkey: Hkey, pszvaluename: Pcwstr, pdwoutvalue: MutPtr, dwdefaultvalue: UInt): UInt =
     WindowsWin32NetworkingClusteringJniBridge.windowssysWindowsWin32NetworkingClusteringResUtilGetDwordValue(hkeyclusterkey.rawAddress, pszvaluename.rawAddress, pdwoutvalue.rawAddress, dwdefaultvalue.toInt()).toUInt()
 
-public actual fun resUtilGetEnvironmentWithNetName(hresource: Hresource): MutPtr<CVoid> =
+public actual fun resUtilGetEnvironmentWithNetName(hresource: Hresource): MutPtr =
     MutPtr(WindowsWin32NetworkingClusteringJniBridge.windowssysWindowsWin32NetworkingClusteringResUtilGetEnvironmentWithNetName(hresource))
 
-public actual fun resUtilGetFileTimeProperty(pftoutvalue: MutPtr<Filetime>, pvaluestruct: ConstPtr<CluspropFiletime>, ftoldvalue: Filetime, ftminimum: Filetime, ftmaximum: Filetime, pppropertylist: MutPtr<MutPtr<UByte>>, pcbpropertylistsize: MutPtr<UInt>): UInt =
+public actual fun resUtilGetFileTimeProperty(pftoutvalue: MutPtr, pvaluestruct: ConstPtr, ftoldvalue: Filetime, ftminimum: Filetime, ftmaximum: Filetime, pppropertylist: MutPtr, pcbpropertylistsize: MutPtr): UInt =
     0u
 
-public actual fun resUtilGetLongProperty(ploutvalue: MutPtr<Int>, pvaluestruct: ConstPtr<CluspropLong>, loldvalue: Int, lminimum: Int, lmaximum: Int, pppropertylist: MutPtr<MutPtr<UByte>>, pcbpropertylistsize: MutPtr<UInt>): UInt =
+public actual fun resUtilGetLongProperty(ploutvalue: MutPtr, pvaluestruct: ConstPtr, loldvalue: Int, lminimum: Int, lmaximum: Int, pppropertylist: MutPtr, pcbpropertylistsize: MutPtr): UInt =
     WindowsWin32NetworkingClusteringJniBridge.windowssysWindowsWin32NetworkingClusteringResUtilGetLongProperty(ploutvalue.rawAddress, pvaluestruct.rawAddress, loldvalue, lminimum, lmaximum, pppropertylist.rawAddress, pcbpropertylistsize.rawAddress).toUInt()
 
-public actual fun resUtilGetMultiSzProperty(ppszoutvalue: MutPtr<Pwstr>, pcboutvaluesize: MutPtr<UInt>, pvaluestruct: ConstPtr<CluspropSz>, pszoldvalue: Pcwstr, cboldvaluesize: UInt, pppropertylist: MutPtr<MutPtr<UByte>>, pcbpropertylistsize: MutPtr<UInt>): UInt =
+public actual fun resUtilGetMultiSzProperty(ppszoutvalue: MutPtr, pcboutvaluesize: MutPtr, pvaluestruct: ConstPtr, pszoldvalue: Pcwstr, cboldvaluesize: UInt, pppropertylist: MutPtr, pcbpropertylistsize: MutPtr): UInt =
     WindowsWin32NetworkingClusteringJniBridge.windowssysWindowsWin32NetworkingClusteringResUtilGetMultiSzProperty(ppszoutvalue.rawAddress, pcboutvaluesize.rawAddress, pvaluestruct.rawAddress, pszoldvalue.rawAddress, cboldvaluesize.toInt(), pppropertylist.rawAddress, pcbpropertylistsize.rawAddress).toUInt()
 
-public actual fun resUtilGetPrivateProperties(hkeyclusterkey: Hkey, poutpropertylist: MutPtr<CVoid>, cboutpropertylistsize: UInt, pcbbytesreturned: MutPtr<UInt>, pcbrequired: MutPtr<UInt>): UInt =
+public actual fun resUtilGetPrivateProperties(hkeyclusterkey: Hkey, poutpropertylist: MutPtr, cboutpropertylistsize: UInt, pcbbytesreturned: MutPtr, pcbrequired: MutPtr): UInt =
     WindowsWin32NetworkingClusteringJniBridge.windowssysWindowsWin32NetworkingClusteringResUtilGetPrivateProperties(hkeyclusterkey.rawAddress, poutpropertylist.rawAddress, cboutpropertylistsize.toInt(), pcbbytesreturned.rawAddress, pcbrequired.rawAddress).toUInt()
 
-public actual fun resUtilGetProperties(hkeyclusterkey: Hkey, ppropertytable: ConstPtr<ResutilPropertyItem>, poutpropertylist: MutPtr<CVoid>, cboutpropertylistsize: UInt, pcbbytesreturned: MutPtr<UInt>, pcbrequired: MutPtr<UInt>): UInt =
+public actual fun resUtilGetProperties(hkeyclusterkey: Hkey, ppropertytable: ConstPtr, poutpropertylist: MutPtr, cboutpropertylistsize: UInt, pcbbytesreturned: MutPtr, pcbrequired: MutPtr): UInt =
     WindowsWin32NetworkingClusteringJniBridge.windowssysWindowsWin32NetworkingClusteringResUtilGetProperties(hkeyclusterkey.rawAddress, ppropertytable.rawAddress, poutpropertylist.rawAddress, cboutpropertylistsize.toInt(), pcbbytesreturned.rawAddress, pcbrequired.rawAddress).toUInt()
 
-public actual fun resUtilGetPropertiesToParameterBlock(hkeyclusterkey: Hkey, ppropertytable: ConstPtr<ResutilPropertyItem>, poutparams: MutPtr<UByte>, bcheckforrequiredproperties: Bool, psznameofpropinerror: MutPtr<Pwstr>): UInt =
+public actual fun resUtilGetPropertiesToParameterBlock(hkeyclusterkey: Hkey, ppropertytable: ConstPtr, poutparams: MutPtr, bcheckforrequiredproperties: Bool, psznameofpropinerror: MutPtr): UInt =
     WindowsWin32NetworkingClusteringJniBridge.windowssysWindowsWin32NetworkingClusteringResUtilGetPropertiesToParameterBlock(hkeyclusterkey.rawAddress, ppropertytable.rawAddress, poutparams.rawAddress, bcheckforrequiredproperties, psznameofpropinerror.rawAddress).toUInt()
 
-public actual fun resUtilGetProperty(hkeyclusterkey: Hkey, ppropertytableitem: ConstPtr<ResutilPropertyItem>, poutpropertyitem: MutPtr<MutPtr<CVoid>>, pcboutpropertyitemsize: MutPtr<UInt>): UInt =
+public actual fun resUtilGetProperty(hkeyclusterkey: Hkey, ppropertytableitem: ConstPtr, poutpropertyitem: MutPtr, pcboutpropertyitemsize: MutPtr): UInt =
     WindowsWin32NetworkingClusteringJniBridge.windowssysWindowsWin32NetworkingClusteringResUtilGetProperty(hkeyclusterkey.rawAddress, ppropertytableitem.rawAddress, poutpropertyitem.rawAddress, pcboutpropertyitemsize.rawAddress).toUInt()
 
-public actual fun resUtilGetPropertyFormats(ppropertytable: ConstPtr<ResutilPropertyItem>, poutpropertyformatlist: MutPtr<CVoid>, cbpropertyformatlistsize: UInt, pcbbytesreturned: MutPtr<UInt>, pcbrequired: MutPtr<UInt>): UInt =
+public actual fun resUtilGetPropertyFormats(ppropertytable: ConstPtr, poutpropertyformatlist: MutPtr, cbpropertyformatlistsize: UInt, pcbbytesreturned: MutPtr, pcbrequired: MutPtr): UInt =
     WindowsWin32NetworkingClusteringJniBridge.windowssysWindowsWin32NetworkingClusteringResUtilGetPropertyFormats(ppropertytable.rawAddress, poutpropertyformatlist.rawAddress, cbpropertyformatlistsize.toInt(), pcbbytesreturned.rawAddress, pcbrequired.rawAddress).toUInt()
 
-public actual fun resUtilGetPropertySize(hkeyclusterkey: Hkey, ppropertytableitem: ConstPtr<ResutilPropertyItem>, pcboutpropertylistsize: MutPtr<UInt>, pnpropertycount: MutPtr<UInt>): UInt =
+public actual fun resUtilGetPropertySize(hkeyclusterkey: Hkey, ppropertytableitem: ConstPtr, pcboutpropertylistsize: MutPtr, pnpropertycount: MutPtr): UInt =
     WindowsWin32NetworkingClusteringJniBridge.windowssysWindowsWin32NetworkingClusteringResUtilGetPropertySize(hkeyclusterkey.rawAddress, ppropertytableitem.rawAddress, pcboutpropertylistsize.rawAddress, pnpropertycount.rawAddress).toUInt()
 
-public actual fun resUtilGetQwordValue(hkeyclusterkey: Hkey, pszvaluename: Pcwstr, pqwoutvalue: MutPtr<ULong>, qwdefaultvalue: ULong): UInt =
+public actual fun resUtilGetQwordValue(hkeyclusterkey: Hkey, pszvaluename: Pcwstr, pqwoutvalue: MutPtr, qwdefaultvalue: ULong): UInt =
     WindowsWin32NetworkingClusteringJniBridge.windowssysWindowsWin32NetworkingClusteringResUtilGetQwordValue(hkeyclusterkey.rawAddress, pszvaluename.rawAddress, pqwoutvalue.rawAddress, qwdefaultvalue.toLong()).toUInt()
 
 public actual fun resUtilGetResourceDependency(hself: Handle, lpszresourcetype: Pcwstr): Hresource =
     WindowsWin32NetworkingClusteringJniBridge.windowssysWindowsWin32NetworkingClusteringResUtilGetResourceDependency(hself.rawAddress, lpszresourcetype.rawAddress)
 
-public actual fun resUtilGetResourceDependencyByClass(hcluster: Hcluster, hself: Handle, prci: MutPtr<ClusResourceClassInfo>, brecurse: Bool): Hresource =
+public actual fun resUtilGetResourceDependencyByClass(hcluster: Hcluster, hself: Handle, prci: MutPtr, brecurse: Bool): Hresource =
     WindowsWin32NetworkingClusteringJniBridge.windowssysWindowsWin32NetworkingClusteringResUtilGetResourceDependencyByClass(hcluster, hself.rawAddress, prci.rawAddress, brecurse)
 
-public actual fun resUtilGetResourceDependencyByClassEx(hcluster: Hcluster, hself: Handle, prci: MutPtr<ClusResourceClassInfo>, brecurse: Bool, dwdesiredaccess: UInt): Hresource =
+public actual fun resUtilGetResourceDependencyByClassEx(hcluster: Hcluster, hself: Handle, prci: MutPtr, brecurse: Bool, dwdesiredaccess: UInt): Hresource =
     WindowsWin32NetworkingClusteringJniBridge.windowssysWindowsWin32NetworkingClusteringResUtilGetResourceDependencyByClassEx(hcluster, hself.rawAddress, prci.rawAddress, brecurse, dwdesiredaccess.toInt())
 
 public actual fun resUtilGetResourceDependencyByName(hcluster: Hcluster, hself: Handle, lpszresourcetype: Pcwstr, brecurse: Bool): Hresource =
@@ -2289,10 +2285,10 @@ public actual fun resUtilGetResourceDependencyByNameEx(hcluster: Hcluster, hself
 public actual fun resUtilGetResourceDependencyEx(hself: Handle, lpszresourcetype: Pcwstr, dwdesiredaccess: UInt): Hresource =
     WindowsWin32NetworkingClusteringJniBridge.windowssysWindowsWin32NetworkingClusteringResUtilGetResourceDependencyEx(hself.rawAddress, lpszresourcetype.rawAddress, dwdesiredaccess.toInt())
 
-public actual fun resUtilGetResourceDependentIPAddressProps(hresource: Hresource, pszaddress: Pwstr, pcchaddress: MutPtr<UInt>, pszsubnetmask: Pwstr, pcchsubnetmask: MutPtr<UInt>, psznetwork: Pwstr, pcchnetwork: MutPtr<UInt>): UInt =
+public actual fun resUtilGetResourceDependentIPAddressProps(hresource: Hresource, pszaddress: Pwstr, pcchaddress: MutPtr, pszsubnetmask: Pwstr, pcchsubnetmask: MutPtr, psznetwork: Pwstr, pcchnetwork: MutPtr): UInt =
     WindowsWin32NetworkingClusteringJniBridge.windowssysWindowsWin32NetworkingClusteringResUtilGetResourceDependentIPAddressProps(hresource, pszaddress.rawAddress, pcchaddress.rawAddress, pszsubnetmask.rawAddress, pcchsubnetmask.rawAddress, psznetwork.rawAddress, pcchnetwork.rawAddress).toUInt()
 
-public actual fun resUtilGetResourceName(hresource: Hresource, pszresourcename: Pwstr, pcchresourcenameinout: MutPtr<UInt>): UInt =
+public actual fun resUtilGetResourceName(hresource: Hresource, pszresourcename: Pwstr, pcchresourcenameinout: MutPtr): UInt =
     WindowsWin32NetworkingClusteringJniBridge.windowssysWindowsWin32NetworkingClusteringResUtilGetResourceName(hresource, pszresourcename.rawAddress, pcchresourcenameinout.rawAddress).toUInt()
 
 public actual fun resUtilGetResourceNameDependency(lpszresourcename: Pcwstr, lpszresourcetype: Pcwstr): Hresource =
@@ -2301,37 +2297,37 @@ public actual fun resUtilGetResourceNameDependency(lpszresourcename: Pcwstr, lps
 public actual fun resUtilGetResourceNameDependencyEx(lpszresourcename: Pcwstr, lpszresourcetype: Pcwstr, dwdesiredaccess: UInt): Hresource =
     WindowsWin32NetworkingClusteringJniBridge.windowssysWindowsWin32NetworkingClusteringResUtilGetResourceNameDependencyEx(lpszresourcename.rawAddress, lpszresourcetype.rawAddress, dwdesiredaccess.toInt())
 
-public actual fun resUtilGetSzProperty(ppszoutvalue: MutPtr<Pwstr>, pvaluestruct: ConstPtr<CluspropSz>, pszoldvalue: Pcwstr, pppropertylist: MutPtr<MutPtr<UByte>>, pcbpropertylistsize: MutPtr<UInt>): UInt =
+public actual fun resUtilGetSzProperty(ppszoutvalue: MutPtr, pvaluestruct: ConstPtr, pszoldvalue: Pcwstr, pppropertylist: MutPtr, pcbpropertylistsize: MutPtr): UInt =
     WindowsWin32NetworkingClusteringJniBridge.windowssysWindowsWin32NetworkingClusteringResUtilGetSzProperty(ppszoutvalue.rawAddress, pvaluestruct.rawAddress, pszoldvalue.rawAddress, pppropertylist.rawAddress, pcbpropertylistsize.rawAddress).toUInt()
 
 public actual fun resUtilGetSzValue(hkeyclusterkey: Hkey, pszvaluename: Pcwstr): Pwstr =
     MutPtr(WindowsWin32NetworkingClusteringJniBridge.windowssysWindowsWin32NetworkingClusteringResUtilGetSzValue(hkeyclusterkey.rawAddress, pszvaluename.rawAddress))
 
-public actual fun resUtilGroupsEqual(hself: Hgroup, hgroup: Hgroup, pequal: MutPtr<Bool>): UInt =
+public actual fun resUtilGroupsEqual(hself: Hgroup, hgroup: Hgroup, pequal: MutPtr): UInt =
     WindowsWin32NetworkingClusteringJniBridge.windowssysWindowsWin32NetworkingClusteringResUtilGroupsEqual(hself, hgroup, pequal.rawAddress).toUInt()
 
 public actual fun resUtilIsPathValid(pszpath: Pcwstr): Bool =
     WindowsWin32NetworkingClusteringJniBridge.windowssysWindowsWin32NetworkingClusteringResUtilIsPathValid(pszpath.rawAddress)
 
-public actual fun resUtilIsResourceClassEqual(prci: MutPtr<ClusResourceClassInfo>, hresource: Hresource): Bool =
+public actual fun resUtilIsResourceClassEqual(prci: MutPtr, hresource: Hresource): Bool =
     WindowsWin32NetworkingClusteringJniBridge.windowssysWindowsWin32NetworkingClusteringResUtilIsResourceClassEqual(prci.rawAddress, hresource)
 
-public actual fun resUtilLeftPaxosIsLessThanRight(left: ConstPtr<PaxosTagCStruct>, right: ConstPtr<PaxosTagCStruct>): Bool =
+public actual fun resUtilLeftPaxosIsLessThanRight(left: ConstPtr, right: ConstPtr): Bool =
     WindowsWin32NetworkingClusteringJniBridge.windowssysWindowsWin32NetworkingClusteringResUtilLeftPaxosIsLessThanRight(left.rawAddress, right.rawAddress)
 
-public actual fun resUtilNodeEnum(hcluster: Hcluster, pnodecallback: LpnodeCallback, pparameter: MutPtr<CVoid>): UInt =
+public actual fun resUtilNodeEnum(hcluster: Hcluster, pnodecallback: LpnodeCallback, pparameter: MutPtr): UInt =
     WindowsWin32NetworkingClusteringJniBridge.windowssysWindowsWin32NetworkingClusteringResUtilNodeEnum(hcluster, 0L, pparameter.rawAddress).toUInt()
 
-public actual fun resUtilPaxosComparer(left: ConstPtr<PaxosTagCStruct>, right: ConstPtr<PaxosTagCStruct>): Bool =
+public actual fun resUtilPaxosComparer(left: ConstPtr, right: ConstPtr): Bool =
     WindowsWin32NetworkingClusteringJniBridge.windowssysWindowsWin32NetworkingClusteringResUtilPaxosComparer(left.rawAddress, right.rawAddress)
 
-public actual fun resUtilPropertyListFromParameterBlock(ppropertytable: ConstPtr<ResutilPropertyItem>, poutpropertylist: MutPtr<CVoid>, pcboutpropertylistsize: MutPtr<UInt>, pinparams: ConstPtr<UByte>, pcbbytesreturned: MutPtr<UInt>, pcbrequired: MutPtr<UInt>): UInt =
+public actual fun resUtilPropertyListFromParameterBlock(ppropertytable: ConstPtr, poutpropertylist: MutPtr, pcboutpropertylistsize: MutPtr, pinparams: ConstPtr, pcbbytesreturned: MutPtr, pcbrequired: MutPtr): UInt =
     WindowsWin32NetworkingClusteringJniBridge.windowssysWindowsWin32NetworkingClusteringResUtilPropertyListFromParameterBlock(ppropertytable.rawAddress, poutpropertylist.rawAddress, pcboutpropertylistsize.rawAddress, pinparams.rawAddress, pcbbytesreturned.rawAddress, pcbrequired.rawAddress).toUInt()
 
 public actual fun resUtilRemoveResourceServiceEnvironment(pszservicename: Pcwstr, pfnlogevent: PlogEventRoutine, hresourcehandle: Long): UInt =
     WindowsWin32NetworkingClusteringJniBridge.windowssysWindowsWin32NetworkingClusteringResUtilRemoveResourceServiceEnvironment(pszservicename.rawAddress, 0L, hresourcehandle).toUInt()
 
-public actual fun resUtilResourceDepEnum(hself: Hresource, enumtype: UInt, prescallback: LpresourceCallbackEx, pparameter: MutPtr<CVoid>): UInt =
+public actual fun resUtilResourceDepEnum(hself: Hresource, enumtype: UInt, prescallback: LpresourceCallbackEx, pparameter: MutPtr): UInt =
     WindowsWin32NetworkingClusteringJniBridge.windowssysWindowsWin32NetworkingClusteringResUtilResourceDepEnum(hself, enumtype.toInt(), 0L, pparameter.rawAddress).toUInt()
 
 public actual fun resUtilResourceTypesEqual(lpszresourcetypename: Pcwstr, hresource: Hresource): Bool =
@@ -2340,55 +2336,55 @@ public actual fun resUtilResourceTypesEqual(lpszresourcetypename: Pcwstr, hresou
 public actual fun resUtilResourcesEqual(hself: Hresource, hresource: Hresource): Bool =
     WindowsWin32NetworkingClusteringJniBridge.windowssysWindowsWin32NetworkingClusteringResUtilResourcesEqual(hself, hresource)
 
-public actual fun resUtilSetBinaryValue(hkeyclusterkey: Hkey, pszvaluename: Pcwstr, pbnewvalue: ConstPtr<UByte>, cbnewvaluesize: UInt, ppboutvalue: MutPtr<MutPtr<UByte>>, pcboutvaluesize: MutPtr<UInt>): UInt =
+public actual fun resUtilSetBinaryValue(hkeyclusterkey: Hkey, pszvaluename: Pcwstr, pbnewvalue: ConstPtr, cbnewvaluesize: UInt, ppboutvalue: MutPtr, pcboutvaluesize: MutPtr): UInt =
     WindowsWin32NetworkingClusteringJniBridge.windowssysWindowsWin32NetworkingClusteringResUtilSetBinaryValue(hkeyclusterkey.rawAddress, pszvaluename.rawAddress, pbnewvalue.rawAddress, cbnewvaluesize.toInt(), ppboutvalue.rawAddress, pcboutvaluesize.rawAddress).toUInt()
 
-public actual fun resUtilSetDwordValue(hkeyclusterkey: Hkey, pszvaluename: Pcwstr, dwnewvalue: UInt, pdwoutvalue: MutPtr<UInt>): UInt =
+public actual fun resUtilSetDwordValue(hkeyclusterkey: Hkey, pszvaluename: Pcwstr, dwnewvalue: UInt, pdwoutvalue: MutPtr): UInt =
     WindowsWin32NetworkingClusteringJniBridge.windowssysWindowsWin32NetworkingClusteringResUtilSetDwordValue(hkeyclusterkey.rawAddress, pszvaluename.rawAddress, dwnewvalue.toInt(), pdwoutvalue.rawAddress).toUInt()
 
-public actual fun resUtilSetExpandSzValue(hkeyclusterkey: Hkey, pszvaluename: Pcwstr, psznewvalue: Pcwstr, ppszoutstring: MutPtr<Pwstr>): UInt =
+public actual fun resUtilSetExpandSzValue(hkeyclusterkey: Hkey, pszvaluename: Pcwstr, psznewvalue: Pcwstr, ppszoutstring: MutPtr): UInt =
     WindowsWin32NetworkingClusteringJniBridge.windowssysWindowsWin32NetworkingClusteringResUtilSetExpandSzValue(hkeyclusterkey.rawAddress, pszvaluename.rawAddress, psznewvalue.rawAddress, ppszoutstring.rawAddress).toUInt()
 
-public actual fun resUtilSetMultiSzValue(hkeyclusterkey: Hkey, pszvaluename: Pcwstr, psznewvalue: Pcwstr, cbnewvaluesize: UInt, ppszoutvalue: MutPtr<Pwstr>, pcboutvaluesize: MutPtr<UInt>): UInt =
+public actual fun resUtilSetMultiSzValue(hkeyclusterkey: Hkey, pszvaluename: Pcwstr, psznewvalue: Pcwstr, cbnewvaluesize: UInt, ppszoutvalue: MutPtr, pcboutvaluesize: MutPtr): UInt =
     WindowsWin32NetworkingClusteringJniBridge.windowssysWindowsWin32NetworkingClusteringResUtilSetMultiSzValue(hkeyclusterkey.rawAddress, pszvaluename.rawAddress, psznewvalue.rawAddress, cbnewvaluesize.toInt(), ppszoutvalue.rawAddress, pcboutvaluesize.rawAddress).toUInt()
 
-public actual fun resUtilSetPrivatePropertyList(hkeyclusterkey: Hkey, pinpropertylist: ConstPtr<CVoid>, cbinpropertylistsize: UInt): UInt =
+public actual fun resUtilSetPrivatePropertyList(hkeyclusterkey: Hkey, pinpropertylist: ConstPtr, cbinpropertylistsize: UInt): UInt =
     WindowsWin32NetworkingClusteringJniBridge.windowssysWindowsWin32NetworkingClusteringResUtilSetPrivatePropertyList(hkeyclusterkey.rawAddress, pinpropertylist.rawAddress, cbinpropertylistsize.toInt()).toUInt()
 
-public actual fun resUtilSetPropertyParameterBlock(hkeyclusterkey: Hkey, ppropertytable: ConstPtr<ResutilPropertyItem>, reserved: MutPtr<CVoid>, pinparams: ConstPtr<UByte>, pinpropertylist: ConstPtr<CVoid>, cbinpropertylistsize: UInt, poutparams: MutPtr<UByte>): UInt =
+public actual fun resUtilSetPropertyParameterBlock(hkeyclusterkey: Hkey, ppropertytable: ConstPtr, reserved: MutPtr, pinparams: ConstPtr, pinpropertylist: ConstPtr, cbinpropertylistsize: UInt, poutparams: MutPtr): UInt =
     WindowsWin32NetworkingClusteringJniBridge.windowssysWindowsWin32NetworkingClusteringResUtilSetPropertyParameterBlock(hkeyclusterkey.rawAddress, ppropertytable.rawAddress, reserved.rawAddress, pinparams.rawAddress, pinpropertylist.rawAddress, cbinpropertylistsize.toInt(), poutparams.rawAddress).toUInt()
 
-public actual fun resUtilSetPropertyParameterBlockEx(hkeyclusterkey: Hkey, ppropertytable: ConstPtr<ResutilPropertyItem>, reserved: MutPtr<CVoid>, pinparams: ConstPtr<UByte>, pinpropertylist: ConstPtr<CVoid>, cbinpropertylistsize: UInt, bforcewrite: Bool, poutparams: MutPtr<UByte>): UInt =
+public actual fun resUtilSetPropertyParameterBlockEx(hkeyclusterkey: Hkey, ppropertytable: ConstPtr, reserved: MutPtr, pinparams: ConstPtr, pinpropertylist: ConstPtr, cbinpropertylistsize: UInt, bforcewrite: Bool, poutparams: MutPtr): UInt =
     WindowsWin32NetworkingClusteringJniBridge.windowssysWindowsWin32NetworkingClusteringResUtilSetPropertyParameterBlockEx(hkeyclusterkey.rawAddress, ppropertytable.rawAddress, reserved.rawAddress, pinparams.rawAddress, pinpropertylist.rawAddress, cbinpropertylistsize.toInt(), bforcewrite, poutparams.rawAddress).toUInt()
 
-public actual fun resUtilSetPropertyTable(hkeyclusterkey: Hkey, ppropertytable: ConstPtr<ResutilPropertyItem>, reserved: ConstPtr<CVoid>, ballowunknownproperties: Bool, pinpropertylist: ConstPtr<CVoid>, cbinpropertylistsize: UInt, poutparams: MutPtr<UByte>): UInt =
+public actual fun resUtilSetPropertyTable(hkeyclusterkey: Hkey, ppropertytable: ConstPtr, reserved: ConstPtr, ballowunknownproperties: Bool, pinpropertylist: ConstPtr, cbinpropertylistsize: UInt, poutparams: MutPtr): UInt =
     WindowsWin32NetworkingClusteringJniBridge.windowssysWindowsWin32NetworkingClusteringResUtilSetPropertyTable(hkeyclusterkey.rawAddress, ppropertytable.rawAddress, reserved.rawAddress, ballowunknownproperties, pinpropertylist.rawAddress, cbinpropertylistsize.toInt(), poutparams.rawAddress).toUInt()
 
-public actual fun resUtilSetPropertyTableEx(hkeyclusterkey: Hkey, ppropertytable: ConstPtr<ResutilPropertyItem>, reserved: MutPtr<CVoid>, ballowunknownproperties: Bool, pinpropertylist: ConstPtr<CVoid>, cbinpropertylistsize: UInt, bforcewrite: Bool, poutparams: MutPtr<UByte>): UInt =
+public actual fun resUtilSetPropertyTableEx(hkeyclusterkey: Hkey, ppropertytable: ConstPtr, reserved: MutPtr, ballowunknownproperties: Bool, pinpropertylist: ConstPtr, cbinpropertylistsize: UInt, bforcewrite: Bool, poutparams: MutPtr): UInt =
     WindowsWin32NetworkingClusteringJniBridge.windowssysWindowsWin32NetworkingClusteringResUtilSetPropertyTableEx(hkeyclusterkey.rawAddress, ppropertytable.rawAddress, reserved.rawAddress, ballowunknownproperties, pinpropertylist.rawAddress, cbinpropertylistsize.toInt(), bforcewrite, poutparams.rawAddress).toUInt()
 
-public actual fun resUtilSetQwordValue(hkeyclusterkey: Hkey, pszvaluename: Pcwstr, qwnewvalue: ULong, pqwoutvalue: MutPtr<ULong>): UInt =
+public actual fun resUtilSetQwordValue(hkeyclusterkey: Hkey, pszvaluename: Pcwstr, qwnewvalue: ULong, pqwoutvalue: MutPtr): UInt =
     WindowsWin32NetworkingClusteringJniBridge.windowssysWindowsWin32NetworkingClusteringResUtilSetQwordValue(hkeyclusterkey.rawAddress, pszvaluename.rawAddress, qwnewvalue.toLong(), pqwoutvalue.rawAddress).toUInt()
 
 public actual fun resUtilSetResourceServiceEnvironment(pszservicename: Pcwstr, hresource: Hresource, pfnlogevent: PlogEventRoutine, hresourcehandle: Long): UInt =
     WindowsWin32NetworkingClusteringJniBridge.windowssysWindowsWin32NetworkingClusteringResUtilSetResourceServiceEnvironment(pszservicename.rawAddress, hresource, 0L, hresourcehandle).toUInt()
 
-public actual fun resUtilSetResourceServiceStartParameters(pszservicename: Pcwstr, schscmhandle: ScHandle, phservice: MutPtr<ScHandle>, pfnlogevent: PlogEventRoutine, hresourcehandle: Long): UInt =
+public actual fun resUtilSetResourceServiceStartParameters(pszservicename: Pcwstr, schscmhandle: ScHandle, phservice: MutPtr, pfnlogevent: PlogEventRoutine, hresourcehandle: Long): UInt =
     WindowsWin32NetworkingClusteringJniBridge.windowssysWindowsWin32NetworkingClusteringResUtilSetResourceServiceStartParameters(pszservicename.rawAddress, schscmhandle.rawAddress, phservice.rawAddress, 0L, hresourcehandle).toUInt()
 
-public actual fun resUtilSetResourceServiceStartParametersEx(pszservicename: Pcwstr, schscmhandle: ScHandle, phservice: MutPtr<ScHandle>, dwdesiredaccess: UInt, pfnlogevent: PlogEventRoutine, hresourcehandle: Long): UInt =
+public actual fun resUtilSetResourceServiceStartParametersEx(pszservicename: Pcwstr, schscmhandle: ScHandle, phservice: MutPtr, dwdesiredaccess: UInt, pfnlogevent: PlogEventRoutine, hresourcehandle: Long): UInt =
     WindowsWin32NetworkingClusteringJniBridge.windowssysWindowsWin32NetworkingClusteringResUtilSetResourceServiceStartParametersEx(pszservicename.rawAddress, schscmhandle.rawAddress, phservice.rawAddress, dwdesiredaccess.toInt(), 0L, hresourcehandle).toUInt()
 
-public actual fun resUtilSetSzValue(hkeyclusterkey: Hkey, pszvaluename: Pcwstr, psznewvalue: Pcwstr, ppszoutstring: MutPtr<Pwstr>): UInt =
+public actual fun resUtilSetSzValue(hkeyclusterkey: Hkey, pszvaluename: Pcwstr, psznewvalue: Pcwstr, ppszoutstring: MutPtr): UInt =
     WindowsWin32NetworkingClusteringJniBridge.windowssysWindowsWin32NetworkingClusteringResUtilSetSzValue(hkeyclusterkey.rawAddress, pszvaluename.rawAddress, psznewvalue.rawAddress, ppszoutstring.rawAddress).toUInt()
 
-public actual fun resUtilSetUnknownProperties(hkeyclusterkey: Hkey, ppropertytable: ConstPtr<ResutilPropertyItem>, pinpropertylist: ConstPtr<CVoid>, cbinpropertylistsize: UInt): UInt =
+public actual fun resUtilSetUnknownProperties(hkeyclusterkey: Hkey, ppropertytable: ConstPtr, pinpropertylist: ConstPtr, cbinpropertylistsize: UInt): UInt =
     WindowsWin32NetworkingClusteringJniBridge.windowssysWindowsWin32NetworkingClusteringResUtilSetUnknownProperties(hkeyclusterkey.rawAddress, ppropertytable.rawAddress, pinpropertylist.rawAddress, cbinpropertylistsize.toInt()).toUInt()
 
-public actual fun resUtilSetValueEx(hkeyclusterkey: Hkey, valuename: Pcwstr, valuetype: UInt, valuedata: ConstPtr<UByte>, valuesize: UInt, flags: UInt): UInt =
+public actual fun resUtilSetValueEx(hkeyclusterkey: Hkey, valuename: Pcwstr, valuetype: UInt, valuedata: ConstPtr, valuesize: UInt, flags: UInt): UInt =
     WindowsWin32NetworkingClusteringJniBridge.windowssysWindowsWin32NetworkingClusteringResUtilSetValueEx(hkeyclusterkey.rawAddress, valuename.rawAddress, valuetype.toInt(), valuedata.rawAddress, valuesize.toInt(), flags.toInt()).toUInt()
 
-public actual fun resUtilStartResourceService(pszservicename: Pcwstr, phservicehandle: MutPtr<ScHandle>): UInt =
+public actual fun resUtilStartResourceService(pszservicename: Pcwstr, phservicehandle: MutPtr): UInt =
     WindowsWin32NetworkingClusteringJniBridge.windowssysWindowsWin32NetworkingClusteringResUtilStartResourceService(pszservicename.rawAddress, phservicehandle.rawAddress).toUInt()
 
 public actual fun resUtilStopResourceService(pszservicename: Pcwstr): UInt =
@@ -2397,13 +2393,13 @@ public actual fun resUtilStopResourceService(pszservicename: Pcwstr): UInt =
 public actual fun resUtilStopService(hservicehandle: ScHandle): UInt =
     WindowsWin32NetworkingClusteringJniBridge.windowssysWindowsWin32NetworkingClusteringResUtilStopService(hservicehandle.rawAddress).toUInt()
 
-public actual fun resUtilTerminateServiceProcessFromResDll(dwservicepid: UInt, boffline: Bool, pdwresourcestate: MutPtr<UInt>, pfnlogevent: PlogEventRoutine, hresourcehandle: Long): UInt =
+public actual fun resUtilTerminateServiceProcessFromResDll(dwservicepid: UInt, boffline: Bool, pdwresourcestate: MutPtr, pfnlogevent: PlogEventRoutine, hresourcehandle: Long): UInt =
     WindowsWin32NetworkingClusteringJniBridge.windowssysWindowsWin32NetworkingClusteringResUtilTerminateServiceProcessFromResDll(dwservicepid.toInt(), boffline, pdwresourcestate.rawAddress, 0L, hresourcehandle).toUInt()
 
-public actual fun resUtilVerifyPrivatePropertyList(pinpropertylist: ConstPtr<CVoid>, cbinpropertylistsize: UInt): UInt =
+public actual fun resUtilVerifyPrivatePropertyList(pinpropertylist: ConstPtr, cbinpropertylistsize: UInt): UInt =
     WindowsWin32NetworkingClusteringJniBridge.windowssysWindowsWin32NetworkingClusteringResUtilVerifyPrivatePropertyList(pinpropertylist.rawAddress, cbinpropertylistsize.toInt()).toUInt()
 
-public actual fun resUtilVerifyPropertyTable(ppropertytable: ConstPtr<ResutilPropertyItem>, reserved: ConstPtr<CVoid>, ballowunknownproperties: Bool, pinpropertylist: ConstPtr<CVoid>, cbinpropertylistsize: UInt, poutparams: MutPtr<UByte>): UInt =
+public actual fun resUtilVerifyPropertyTable(ppropertytable: ConstPtr, reserved: ConstPtr, ballowunknownproperties: Bool, pinpropertylist: ConstPtr, cbinpropertylistsize: UInt, poutparams: MutPtr): UInt =
     WindowsWin32NetworkingClusteringJniBridge.windowssysWindowsWin32NetworkingClusteringResUtilVerifyPropertyTable(ppropertytable.rawAddress, reserved.rawAddress, ballowunknownproperties, pinpropertylist.rawAddress, cbinpropertylistsize.toInt(), poutparams.rawAddress).toUInt()
 
 public actual fun resUtilVerifyResourceService(pszservicename: Pcwstr): UInt =
@@ -2412,7 +2408,7 @@ public actual fun resUtilVerifyResourceService(pszservicename: Pcwstr): UInt =
 public actual fun resUtilVerifyService(hservicehandle: ScHandle): UInt =
     WindowsWin32NetworkingClusteringJniBridge.windowssysWindowsWin32NetworkingClusteringResUtilVerifyService(hservicehandle.rawAddress).toUInt()
 
-public actual fun resUtilVerifyShutdownSafe(flags: UInt, reason: UInt, presult: MutPtr<UInt>): UInt =
+public actual fun resUtilVerifyShutdownSafe(flags: UInt, reason: UInt, presult: MutPtr): UInt =
     WindowsWin32NetworkingClusteringJniBridge.windowssysWindowsWin32NetworkingClusteringResUtilVerifyShutdownSafe(flags.toInt(), reason.toInt(), presult.rawAddress).toUInt()
 
 public actual fun resUtilsDeleteKeyTree(key: Hkey, keyname: Pcwstr, treatnokeyaserror: Bool): UInt =
@@ -2448,10 +2444,10 @@ public actual fun setClusterGroupName(hgroup: Hgroup, lpszgroupname: Pcwstr): UI
 public actual fun setClusterGroupNameEx(hgroup: Hgroup, lpszgroupname: Pcwstr, lpszreason: Pcwstr): UInt =
     WindowsWin32NetworkingClusteringJniBridge.windowssysWindowsWin32NetworkingClusteringSetClusterGroupNameEx(hgroup, lpszgroupname.rawAddress, lpszreason.rawAddress).toUInt()
 
-public actual fun setClusterGroupNodeList(hgroup: Hgroup, nodecount: UInt, nodelist: ConstPtr<Hnode>): UInt =
+public actual fun setClusterGroupNodeList(hgroup: Hgroup, nodecount: UInt, nodelist: ConstPtr): UInt =
     WindowsWin32NetworkingClusteringJniBridge.windowssysWindowsWin32NetworkingClusteringSetClusterGroupNodeList(hgroup, nodecount.toInt(), nodelist.rawAddress).toUInt()
 
-public actual fun setClusterGroupNodeListEx(hgroup: Hgroup, nodecount: UInt, nodelist: ConstPtr<Hnode>, lpszreason: Pcwstr): UInt =
+public actual fun setClusterGroupNodeListEx(hgroup: Hgroup, nodecount: UInt, nodelist: ConstPtr, lpszreason: Pcwstr): UInt =
     WindowsWin32NetworkingClusteringJniBridge.windowssysWindowsWin32NetworkingClusteringSetClusterGroupNodeListEx(hgroup, nodecount.toInt(), nodelist.rawAddress, lpszreason.rawAddress).toUInt()
 
 public actual fun setClusterGroupSetDependencyExpression(hgroupset: Hgroupset, lpszdependencyexprssion: Pcwstr): UInt =
@@ -2472,7 +2468,7 @@ public actual fun setClusterNetworkName(hnetwork: Hnetwork, lpszname: Pcwstr): U
 public actual fun setClusterNetworkNameEx(hnetwork: Hnetwork, lpszname: Pcwstr, lpszreason: Pcwstr): UInt =
     WindowsWin32NetworkingClusteringJniBridge.windowssysWindowsWin32NetworkingClusteringSetClusterNetworkNameEx(hnetwork, lpszname.rawAddress, lpszreason.rawAddress).toUInt()
 
-public actual fun setClusterNetworkPriorityOrder(hcluster: Hcluster, networkcount: UInt, networklist: ConstPtr<Hnetwork>): UInt =
+public actual fun setClusterNetworkPriorityOrder(hcluster: Hcluster, networkcount: UInt, networklist: ConstPtr): UInt =
     WindowsWin32NetworkingClusteringJniBridge.windowssysWindowsWin32NetworkingClusteringSetClusterNetworkPriorityOrder(hcluster, networkcount.toInt(), networklist.rawAddress).toUInt()
 
 public actual fun setClusterQuorumResource(hresource: Hresource, lpszdevicename: Pcwstr, dwmaxquologsize: UInt): UInt =
@@ -2490,7 +2486,7 @@ public actual fun setClusterResourceName(hresource: Hresource, lpszresourcename:
 public actual fun setClusterResourceNameEx(hresource: Hresource, lpszresourcename: Pcwstr, lpszreason: Pcwstr): UInt =
     WindowsWin32NetworkingClusteringJniBridge.windowssysWindowsWin32NetworkingClusteringSetClusterResourceNameEx(hresource, lpszresourcename.rawAddress, lpszreason.rawAddress).toUInt()
 
-public actual fun setClusterServiceAccountPassword(lpszclustername: Pcwstr, lpsznewpassword: Pcwstr, dwflags: UInt, lpreturnstatusbuffer: MutPtr<ClusterSetPasswordStatus>, lpcbreturnstatusbuffersize: MutPtr<UInt>): UInt =
+public actual fun setClusterServiceAccountPassword(lpszclustername: Pcwstr, lpsznewpassword: Pcwstr, dwflags: UInt, lpreturnstatusbuffer: MutPtr, lpcbreturnstatusbuffersize: MutPtr): UInt =
     WindowsWin32NetworkingClusteringJniBridge.windowssysWindowsWin32NetworkingClusteringSetClusterServiceAccountPassword(lpszclustername.rawAddress, lpsznewpassword.rawAddress, dwflags.toInt(), lpreturnstatusbuffer.rawAddress, lpcbreturnstatusbuffersize.rawAddress).toUInt()
 
 public actual fun setGroupDependencyExpression(hgroup: Hgroup, lpszdependencyexpression: Pcwstr): UInt =

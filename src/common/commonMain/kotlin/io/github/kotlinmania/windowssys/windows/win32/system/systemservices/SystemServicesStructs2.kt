@@ -1,7 +1,6 @@
 package io.github.kotlinmania.windowssys.windows.win32.system.systemservices
 
 import io.github.kotlinmania.rustlang.core.ptr.MutPtr
-import io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.Logpalette
 
 public data class UserHmetafilepict(
     public var fContext: Int = 0,
@@ -10,10 +9,10 @@ public data class UserHmetafilepict(
 
 public class UserHmetafilepict0 internal constructor(
     public var hInproc: Int,
-    hRemoteCtorArg: MutPtr<RemoteMetafilepict>,
+    hRemoteCtorArg: MutPtr,
     public var hInproc64: Long,
 ) {
-    public var hRemote: MutPtr<RemoteMetafilepict> = hRemoteCtorArg
+    public var hRemote: MutPtr = hRemoteCtorArg
         internal set
 
     public constructor() : this(
@@ -24,11 +23,11 @@ public class UserHmetafilepict0 internal constructor(
 
     public operator fun component1(): Int = this.hInproc
 
-    public operator fun component2(): MutPtr<RemoteMetafilepict> = this.hRemote
+    public operator fun component2(): MutPtr = this.hRemote
 
     public operator fun component3(): Long = this.hInproc64
 
-    public fun copy(hInproc: Int = this.hInproc, hRemote: MutPtr<RemoteMetafilepict> = this.hRemote, hInproc64: Long = this.hInproc64): UserHmetafilepict0 = UserHmetafilepict0(hInproc = hInproc, hRemoteCtorArg = hRemote, hInproc64 = hInproc64)
+    public fun copy(hInproc: Int = this.hInproc, hRemote: MutPtr = this.hRemote, hInproc64: Long = this.hInproc64): UserHmetafilepict0 = UserHmetafilepict0(hInproc = hInproc, hRemoteCtorArg = hRemote, hInproc64 = hInproc64)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -49,7 +48,7 @@ public class UserHmetafilepict0 internal constructor(
     public companion object {
         public operator fun invoke(
             hInproc: Int = 0,
-            hRemote: MutPtr<RemoteMetafilepict> = MutPtr(0L),
+            hRemote: MutPtr = MutPtr(0L),
             hInproc64: Long = 0L,
         ): UserHmetafilepict0 =
             UserHmetafilepict0(
@@ -67,10 +66,10 @@ public data class UserHpalette(
 
 public class UserHpalette0 internal constructor(
     public var hInproc: Int,
-    hRemoteCtorArg: MutPtr<Logpalette>,
+    hRemoteCtorArg: MutPtr,
     public var hInproc64: Long,
 ) {
-    public var hRemote: MutPtr<Logpalette> = hRemoteCtorArg
+    public var hRemote: MutPtr = hRemoteCtorArg
         internal set
 
     public constructor() : this(
@@ -81,11 +80,11 @@ public class UserHpalette0 internal constructor(
 
     public operator fun component1(): Int = this.hInproc
 
-    public operator fun component2(): MutPtr<Logpalette> = this.hRemote
+    public operator fun component2(): MutPtr = this.hRemote
 
     public operator fun component3(): Long = this.hInproc64
 
-    public fun copy(hInproc: Int = this.hInproc, hRemote: MutPtr<Logpalette> = this.hRemote, hInproc64: Long = this.hInproc64): UserHpalette0 = UserHpalette0(hInproc = hInproc, hRemoteCtorArg = hRemote, hInproc64 = hInproc64)
+    public fun copy(hInproc: Int = this.hInproc, hRemote: MutPtr = this.hRemote, hInproc64: Long = this.hInproc64): UserHpalette0 = UserHpalette0(hInproc = hInproc, hRemoteCtorArg = hRemote, hInproc64 = hInproc64)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -106,7 +105,7 @@ public class UserHpalette0 internal constructor(
     public companion object {
         public operator fun invoke(
             hInproc: Int = 0,
-            hRemote: MutPtr<Logpalette> = MutPtr(0L),
+            hRemote: MutPtr = MutPtr(0L),
             hInproc64: Long = 0L,
         ): UserHpalette0 =
             UserHpalette0(

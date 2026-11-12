@@ -2,16 +2,12 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.networking.httpserver
 
-import io.github.kotlinmania.rustlang.core.ffi.CVoid
 import io.github.kotlinmania.rustlang.core.ptr.ConstPtr
 import io.github.kotlinmania.rustlang.core.ptr.MutPtr
 import io.github.kotlinmania.windowssys.core.Bool
 import io.github.kotlinmania.windowssys.core.Pcstr
 import io.github.kotlinmania.windowssys.core.Pcwstr
-import io.github.kotlinmania.windowssys.core.Pwstr
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Handle
-import io.github.kotlinmania.windowssys.windows.win32.security.SecurityAttributes
-import io.github.kotlinmania.windowssys.windows.win32.system.io.Overlapped
 
 @JsFun("() => { if (typeof globalThis.__km_napi_windowssys !== 'undefined') return globalThis.__km_napi_windowssys !== null; if (typeof process === 'undefined' || !process.versions || !process.versions.node) { globalThis.__km_napi_windowssys = null; return false; } var mod = process.getBuiltinModule ? process.getBuiltinModule('module') : (process.mainModule && process.mainModule.constructor); var req = (mod && mod.createRequire) ? mod.createRequire((process.cwd ? process.cwd() : '.') + '/package.json') : (process.mainModule ? process.mainModule.require : null); if (!req) { globalThis.__km_napi_windowssys = null; return false; } try { globalThis.__km_napi_windowssys = req('@kotlinmania/windowssys-native-bindings'); return true; } catch (_) {} var fs = req('fs'); var path = req('path'); var dir = process.cwd ? process.cwd() : '.'; var rels = ['windowssys_native.node', 'build/node-ffi/windowssys_native.node', 'build/node-ffi/release/windowssys_native.node', 'build/node-ffi/debug/windowssys_native.node', 'src/js/node-windowssys/build/Release/windowssys_native.node', 'src/js/node-windowssys/build/Debug/windowssys_native.node', 'src/js/node-windowssys/dist/build/Release/windowssys_native.node', 'src/js/node-windowssys/dist/build/Debug/windowssys_native.node']; for (var d = 0; d < 8; d++) { for (var i = 0; i < rels.length; i++) { var c = path.resolve(dir, rels[i]); if (fs.existsSync(c)) { globalThis.__km_napi_windowssys = req(c); return true; } } var parent = path.dirname(dir); if (parent === dir) break; dir = parent; } globalThis.__km_napi_windowssys = null; return false; }")
 private external fun initWindowsWin32NetworkingHttpserverNapiAddon(): Boolean
@@ -135,16 +131,16 @@ private external fun wasmWindowssysWindowsWin32NetworkingHttpserverHttpWaitForDi
 @JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssysWindowsWin32NetworkingHttpserverHttpWaitForDisconnectEx(p0, p1, p2, p3)")
 private external fun wasmWindowssysWindowsWin32NetworkingHttpserverHttpWaitForDisconnectEx(p0: String, p1: String, p2: Int, p3: String): Int
 
-public actual fun httpAddFragmentToCache(requestqueuehandle: Handle, urlprefix: Pcwstr, datachunk: ConstPtr<HttpDataChunk>, cachepolicy: ConstPtr<HttpCachePolicy>, overlapped: MutPtr<Overlapped>): UInt =
+public actual fun httpAddFragmentToCache(requestqueuehandle: Handle, urlprefix: Pcwstr, datachunk: ConstPtr, cachepolicy: ConstPtr, overlapped: MutPtr): UInt =
     if (windowsWin32NetworkingHttpserverNapiAvailable) wasmWindowssysWindowsWin32NetworkingHttpserverHttpAddFragmentToCache(requestqueuehandle.rawAddress.toString(), urlprefix.rawAddress.toString(), datachunk.rawAddress.toString(), cachepolicy.rawAddress.toString(), overlapped.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun httpAddUrl(requestqueuehandle: Handle, fullyqualifiedurl: Pcwstr, reserved: ConstPtr<CVoid>): UInt =
+public actual fun httpAddUrl(requestqueuehandle: Handle, fullyqualifiedurl: Pcwstr, reserved: ConstPtr): UInt =
     if (windowsWin32NetworkingHttpserverNapiAvailable) wasmWindowssysWindowsWin32NetworkingHttpserverHttpAddUrl(requestqueuehandle.rawAddress.toString(), fullyqualifiedurl.rawAddress.toString(), reserved.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun httpAddUrlToUrlGroup(urlgroupid: ULong, pfullyqualifiedurl: Pcwstr, urlcontext: ULong, reserved: UInt): UInt =
     if (windowsWin32NetworkingHttpserverNapiAvailable) wasmWindowssysWindowsWin32NetworkingHttpserverHttpAddUrlToUrlGroup(urlgroupid.toString(), pfullyqualifiedurl.rawAddress.toString(), urlcontext.toString(), reserved.toInt()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun httpCancelHttpRequest(requestqueuehandle: Handle, requestid: ULong, overlapped: MutPtr<Overlapped>): UInt =
+public actual fun httpCancelHttpRequest(requestqueuehandle: Handle, requestid: ULong, overlapped: MutPtr): UInt =
     if (windowsWin32NetworkingHttpserverNapiAvailable) wasmWindowssysWindowsWin32NetworkingHttpserverHttpCancelHttpRequest(requestqueuehandle.rawAddress.toString(), requestid.toString(), overlapped.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun httpCloseRequestQueue(requestqueuehandle: Handle): UInt =
@@ -156,67 +152,67 @@ public actual fun httpCloseServerSession(serversessionid: ULong): UInt =
 public actual fun httpCloseUrlGroup(urlgroupid: ULong): UInt =
     if (windowsWin32NetworkingHttpserverNapiAvailable) wasmWindowssysWindowsWin32NetworkingHttpserverHttpCloseUrlGroup(urlgroupid.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun httpCreateHttpHandle(requestqueuehandle: MutPtr<Handle>, reserved: UInt): UInt =
+public actual fun httpCreateHttpHandle(requestqueuehandle: MutPtr, reserved: UInt): UInt =
     if (windowsWin32NetworkingHttpserverNapiAvailable) wasmWindowssysWindowsWin32NetworkingHttpserverHttpCreateHttpHandle(requestqueuehandle.rawAddress.toString(), reserved.toInt()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun httpCreateRequestQueue(version: HttpapiVersion, name: Pcwstr, securityattributes: ConstPtr<SecurityAttributes>, flags: UInt, requestqueuehandle: MutPtr<Handle>): UInt =
+public actual fun httpCreateRequestQueue(version: HttpapiVersion, name: Pcwstr, securityattributes: ConstPtr, flags: UInt, requestqueuehandle: MutPtr): UInt =
     throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun httpCreateServerSession(version: HttpapiVersion, serversessionid: MutPtr<ULong>, reserved: UInt): UInt =
+public actual fun httpCreateServerSession(version: HttpapiVersion, serversessionid: MutPtr, reserved: UInt): UInt =
     throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun httpCreateUrlGroup(serversessionid: ULong, purlgroupid: MutPtr<ULong>, reserved: UInt): UInt =
+public actual fun httpCreateUrlGroup(serversessionid: ULong, purlgroupid: MutPtr, reserved: UInt): UInt =
     if (windowsWin32NetworkingHttpserverNapiAvailable) wasmWindowssysWindowsWin32NetworkingHttpserverHttpCreateUrlGroup(serversessionid.toString(), purlgroupid.rawAddress.toString(), reserved.toInt()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun httpDeclarePush(requestqueuehandle: Handle, requestid: ULong, verb: HttpVerb, path: Pcwstr, query: Pcstr, headers: ConstPtr<HttpRequestHeaders>): UInt =
+public actual fun httpDeclarePush(requestqueuehandle: Handle, requestid: ULong, verb: HttpVerb, path: Pcwstr, query: Pcstr, headers: ConstPtr): UInt =
     if (windowsWin32NetworkingHttpserverNapiAvailable) wasmWindowssysWindowsWin32NetworkingHttpserverHttpDeclarePush(requestqueuehandle.rawAddress.toString(), requestid.toString(), verb, path.rawAddress.toString(), query.rawAddress.toString(), headers.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun httpDelegateRequestEx(requestqueuehandle: Handle, delegatequeuehandle: Handle, requestid: ULong, delegateurlgroupid: ULong, propertyinfosetsize: UInt, propertyinfoset: ConstPtr<HttpDelegateRequestPropertyInfo>): UInt =
+public actual fun httpDelegateRequestEx(requestqueuehandle: Handle, delegatequeuehandle: Handle, requestid: ULong, delegateurlgroupid: ULong, propertyinfosetsize: UInt, propertyinfoset: ConstPtr): UInt =
     if (windowsWin32NetworkingHttpserverNapiAvailable) wasmWindowssysWindowsWin32NetworkingHttpserverHttpDelegateRequestEx(requestqueuehandle.rawAddress.toString(), delegatequeuehandle.rawAddress.toString(), requestid.toString(), delegateurlgroupid.toString(), propertyinfosetsize.toInt(), propertyinfoset.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun httpDeleteServiceConfiguration(servicehandle: Handle, configid: HttpServiceConfigId, pconfiginformation: ConstPtr<CVoid>, configinformationlength: UInt, poverlapped: ConstPtr<Overlapped>): UInt =
+public actual fun httpDeleteServiceConfiguration(servicehandle: Handle, configid: HttpServiceConfigId, pconfiginformation: ConstPtr, configinformationlength: UInt, poverlapped: ConstPtr): UInt =
     if (windowsWin32NetworkingHttpserverNapiAvailable) wasmWindowssysWindowsWin32NetworkingHttpserverHttpDeleteServiceConfiguration(servicehandle.rawAddress.toString(), configid, pconfiginformation.rawAddress.toString(), configinformationlength.toInt(), poverlapped.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun httpFindUrlGroupId(fullyqualifiedurl: Pcwstr, requestqueuehandle: Handle, urlgroupid: MutPtr<ULong>): UInt =
+public actual fun httpFindUrlGroupId(fullyqualifiedurl: Pcwstr, requestqueuehandle: Handle, urlgroupid: MutPtr): UInt =
     if (windowsWin32NetworkingHttpserverNapiAvailable) wasmWindowssysWindowsWin32NetworkingHttpserverHttpFindUrlGroupId(fullyqualifiedurl.rawAddress.toString(), requestqueuehandle.rawAddress.toString(), urlgroupid.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun httpFlushResponseCache(requestqueuehandle: Handle, urlprefix: Pcwstr, flags: UInt, overlapped: MutPtr<Overlapped>): UInt =
+public actual fun httpFlushResponseCache(requestqueuehandle: Handle, urlprefix: Pcwstr, flags: UInt, overlapped: MutPtr): UInt =
     if (windowsWin32NetworkingHttpserverNapiAvailable) wasmWindowssysWindowsWin32NetworkingHttpserverHttpFlushResponseCache(requestqueuehandle.rawAddress.toString(), urlprefix.rawAddress.toString(), flags.toInt(), overlapped.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun httpGetExtension(version: HttpapiVersion, extension: UInt, buffer: MutPtr<CVoid>, buffersize: UInt): UInt =
+public actual fun httpGetExtension(version: HttpapiVersion, extension: UInt, buffer: MutPtr, buffersize: UInt): UInt =
     throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun httpInitialize(version: HttpapiVersion, flags: HttpInitialize, preserved: MutPtr<CVoid>): UInt =
+public actual fun httpInitialize(version: HttpapiVersion, flags: HttpInitialize, preserved: MutPtr): UInt =
     throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun httpIsFeatureSupported(featureid: HttpFeatureId): Bool =
     if (windowsWin32NetworkingHttpserverNapiAvailable) wasmWindowssysWindowsWin32NetworkingHttpserverHttpIsFeatureSupported(featureid) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun httpPrepareUrl(reserved: ConstPtr<CVoid>, flags: UInt, url: Pcwstr, preparedurl: MutPtr<Pwstr>): UInt =
+public actual fun httpPrepareUrl(reserved: ConstPtr, flags: UInt, url: Pcwstr, preparedurl: MutPtr): UInt =
     if (windowsWin32NetworkingHttpserverNapiAvailable) wasmWindowssysWindowsWin32NetworkingHttpserverHttpPrepareUrl(reserved.rawAddress.toString(), flags.toInt(), url.rawAddress.toString(), preparedurl.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun httpQueryRequestQueueProperty(requestqueuehandle: Handle, property: HttpServerProperty, propertyinformation: MutPtr<CVoid>, propertyinformationlength: UInt, reserved1: UInt, returnlength: MutPtr<UInt>, reserved2: ConstPtr<CVoid>): UInt =
+public actual fun httpQueryRequestQueueProperty(requestqueuehandle: Handle, property: HttpServerProperty, propertyinformation: MutPtr, propertyinformationlength: UInt, reserved1: UInt, returnlength: MutPtr, reserved2: ConstPtr): UInt =
     if (windowsWin32NetworkingHttpserverNapiAvailable) wasmWindowssysWindowsWin32NetworkingHttpserverHttpQueryRequestQueueProperty(requestqueuehandle.rawAddress.toString(), property, propertyinformation.rawAddress.toString(), propertyinformationlength.toInt(), reserved1.toInt(), returnlength.rawAddress.toString(), reserved2.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun httpQueryServerSessionProperty(serversessionid: ULong, property: HttpServerProperty, propertyinformation: MutPtr<CVoid>, propertyinformationlength: UInt, returnlength: MutPtr<UInt>): UInt =
+public actual fun httpQueryServerSessionProperty(serversessionid: ULong, property: HttpServerProperty, propertyinformation: MutPtr, propertyinformationlength: UInt, returnlength: MutPtr): UInt =
     if (windowsWin32NetworkingHttpserverNapiAvailable) wasmWindowssysWindowsWin32NetworkingHttpserverHttpQueryServerSessionProperty(serversessionid.toString(), property, propertyinformation.rawAddress.toString(), propertyinformationlength.toInt(), returnlength.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun httpQueryServiceConfiguration(servicehandle: Handle, configid: HttpServiceConfigId, pinput: ConstPtr<CVoid>, inputlength: UInt, poutput: MutPtr<CVoid>, outputlength: UInt, preturnlength: MutPtr<UInt>, poverlapped: ConstPtr<Overlapped>): UInt =
+public actual fun httpQueryServiceConfiguration(servicehandle: Handle, configid: HttpServiceConfigId, pinput: ConstPtr, inputlength: UInt, poutput: MutPtr, outputlength: UInt, preturnlength: MutPtr, poverlapped: ConstPtr): UInt =
     if (windowsWin32NetworkingHttpserverNapiAvailable) wasmWindowssysWindowsWin32NetworkingHttpserverHttpQueryServiceConfiguration(servicehandle.rawAddress.toString(), configid, pinput.rawAddress.toString(), inputlength.toInt(), poutput.rawAddress.toString(), outputlength.toInt(), preturnlength.rawAddress.toString(), poverlapped.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun httpQueryUrlGroupProperty(urlgroupid: ULong, property: HttpServerProperty, propertyinformation: MutPtr<CVoid>, propertyinformationlength: UInt, returnlength: MutPtr<UInt>): UInt =
+public actual fun httpQueryUrlGroupProperty(urlgroupid: ULong, property: HttpServerProperty, propertyinformation: MutPtr, propertyinformationlength: UInt, returnlength: MutPtr): UInt =
     if (windowsWin32NetworkingHttpserverNapiAvailable) wasmWindowssysWindowsWin32NetworkingHttpserverHttpQueryUrlGroupProperty(urlgroupid.toString(), property, propertyinformation.rawAddress.toString(), propertyinformationlength.toInt(), returnlength.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun httpReadFragmentFromCache(requestqueuehandle: Handle, urlprefix: Pcwstr, byterange: ConstPtr<HttpByteRange>, buffer: MutPtr<CVoid>, bufferlength: UInt, bytesread: MutPtr<UInt>, overlapped: MutPtr<Overlapped>): UInt =
+public actual fun httpReadFragmentFromCache(requestqueuehandle: Handle, urlprefix: Pcwstr, byterange: ConstPtr, buffer: MutPtr, bufferlength: UInt, bytesread: MutPtr, overlapped: MutPtr): UInt =
     if (windowsWin32NetworkingHttpserverNapiAvailable) wasmWindowssysWindowsWin32NetworkingHttpserverHttpReadFragmentFromCache(requestqueuehandle.rawAddress.toString(), urlprefix.rawAddress.toString(), byterange.rawAddress.toString(), buffer.rawAddress.toString(), bufferlength.toInt(), bytesread.rawAddress.toString(), overlapped.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun httpReceiveClientCertificate(requestqueuehandle: Handle, connectionid: ULong, flags: UInt, sslclientcertinfo: MutPtr<HttpSslClientCertInfo>, sslclientcertinfosize: UInt, bytesreceived: MutPtr<UInt>, overlapped: MutPtr<Overlapped>): UInt =
+public actual fun httpReceiveClientCertificate(requestqueuehandle: Handle, connectionid: ULong, flags: UInt, sslclientcertinfo: MutPtr, sslclientcertinfosize: UInt, bytesreceived: MutPtr, overlapped: MutPtr): UInt =
     if (windowsWin32NetworkingHttpserverNapiAvailable) wasmWindowssysWindowsWin32NetworkingHttpserverHttpReceiveClientCertificate(requestqueuehandle.rawAddress.toString(), connectionid.toString(), flags.toInt(), sslclientcertinfo.rawAddress.toString(), sslclientcertinfosize.toInt(), bytesreceived.rawAddress.toString(), overlapped.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun httpReceiveHttpRequest(requestqueuehandle: Handle, requestid: ULong, flags: HttpReceiveHttpRequestFlags, requestbuffer: MutPtr<HttpRequestV2>, requestbufferlength: UInt, bytesreturned: MutPtr<UInt>, overlapped: MutPtr<Overlapped>): UInt =
+public actual fun httpReceiveHttpRequest(requestqueuehandle: Handle, requestid: ULong, flags: HttpReceiveHttpRequestFlags, requestbuffer: MutPtr, requestbufferlength: UInt, bytesreturned: MutPtr, overlapped: MutPtr): UInt =
     if (windowsWin32NetworkingHttpserverNapiAvailable) wasmWindowssysWindowsWin32NetworkingHttpserverHttpReceiveHttpRequest(requestqueuehandle.rawAddress.toString(), requestid.toString(), flags.toInt(), requestbuffer.rawAddress.toString(), requestbufferlength.toInt(), bytesreturned.rawAddress.toString(), overlapped.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun httpReceiveRequestEntityBody(requestqueuehandle: Handle, requestid: ULong, flags: UInt, entitybuffer: MutPtr<CVoid>, entitybufferlength: UInt, bytesreturned: MutPtr<UInt>, overlapped: MutPtr<Overlapped>): UInt =
+public actual fun httpReceiveRequestEntityBody(requestqueuehandle: Handle, requestid: ULong, flags: UInt, entitybuffer: MutPtr, entitybufferlength: UInt, bytesreturned: MutPtr, overlapped: MutPtr): UInt =
     if (windowsWin32NetworkingHttpserverNapiAvailable) wasmWindowssysWindowsWin32NetworkingHttpserverHttpReceiveRequestEntityBody(requestqueuehandle.rawAddress.toString(), requestid.toString(), flags.toInt(), entitybuffer.rawAddress.toString(), entitybufferlength.toInt(), bytesreturned.rawAddress.toString(), overlapped.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun httpRemoveUrl(requestqueuehandle: Handle, fullyqualifiedurl: Pcwstr): UInt =
@@ -225,41 +221,41 @@ public actual fun httpRemoveUrl(requestqueuehandle: Handle, fullyqualifiedurl: P
 public actual fun httpRemoveUrlFromUrlGroup(urlgroupid: ULong, pfullyqualifiedurl: Pcwstr, flags: UInt): UInt =
     if (windowsWin32NetworkingHttpserverNapiAvailable) wasmWindowssysWindowsWin32NetworkingHttpserverHttpRemoveUrlFromUrlGroup(urlgroupid.toString(), pfullyqualifiedurl.rawAddress.toString(), flags.toInt()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun httpSendHttpResponse(requestqueuehandle: Handle, requestid: ULong, flags: UInt, httpresponse: ConstPtr<HttpResponseV2>, cachepolicy: ConstPtr<HttpCachePolicy>, bytessent: MutPtr<UInt>, reserved1: ConstPtr<CVoid>, reserved2: UInt, overlapped: MutPtr<Overlapped>, logdata: ConstPtr<HttpLogData>): UInt =
+public actual fun httpSendHttpResponse(requestqueuehandle: Handle, requestid: ULong, flags: UInt, httpresponse: ConstPtr, cachepolicy: ConstPtr, bytessent: MutPtr, reserved1: ConstPtr, reserved2: UInt, overlapped: MutPtr, logdata: ConstPtr): UInt =
     if (windowsWin32NetworkingHttpserverNapiAvailable) wasmWindowssysWindowsWin32NetworkingHttpserverHttpSendHttpResponse(requestqueuehandle.rawAddress.toString(), requestid.toString(), flags.toInt(), httpresponse.rawAddress.toString(), cachepolicy.rawAddress.toString(), bytessent.rawAddress.toString(), reserved1.rawAddress.toString(), reserved2.toInt(), overlapped.rawAddress.toString(), logdata.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun httpSendResponseEntityBody(requestqueuehandle: Handle, requestid: ULong, flags: UInt, entitychunkcount: UShort, entitychunks: ConstPtr<HttpDataChunk>, bytessent: MutPtr<UInt>, reserved1: ConstPtr<CVoid>, reserved2: UInt, overlapped: MutPtr<Overlapped>, logdata: ConstPtr<HttpLogData>): UInt =
+public actual fun httpSendResponseEntityBody(requestqueuehandle: Handle, requestid: ULong, flags: UInt, entitychunkcount: UShort, entitychunks: ConstPtr, bytessent: MutPtr, reserved1: ConstPtr, reserved2: UInt, overlapped: MutPtr, logdata: ConstPtr): UInt =
     if (windowsWin32NetworkingHttpserverNapiAvailable) wasmWindowssysWindowsWin32NetworkingHttpserverHttpSendResponseEntityBody(requestqueuehandle.rawAddress.toString(), requestid.toString(), flags.toInt(), entitychunkcount.toInt(), entitychunks.rawAddress.toString(), bytessent.rawAddress.toString(), reserved1.rawAddress.toString(), reserved2.toInt(), overlapped.rawAddress.toString(), logdata.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun httpSetRequestProperty(requestqueuehandle: Handle, id: ULong, propertyid: HttpRequestProperty, input: ConstPtr<CVoid>, inputpropertysize: UInt, overlapped: ConstPtr<Overlapped>): UInt =
+public actual fun httpSetRequestProperty(requestqueuehandle: Handle, id: ULong, propertyid: HttpRequestProperty, input: ConstPtr, inputpropertysize: UInt, overlapped: ConstPtr): UInt =
     if (windowsWin32NetworkingHttpserverNapiAvailable) wasmWindowssysWindowsWin32NetworkingHttpserverHttpSetRequestProperty(requestqueuehandle.rawAddress.toString(), id.toString(), propertyid, input.rawAddress.toString(), inputpropertysize.toInt(), overlapped.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun httpSetRequestQueueProperty(requestqueuehandle: Handle, property: HttpServerProperty, propertyinformation: ConstPtr<CVoid>, propertyinformationlength: UInt, reserved1: UInt, reserved2: ConstPtr<CVoid>): UInt =
+public actual fun httpSetRequestQueueProperty(requestqueuehandle: Handle, property: HttpServerProperty, propertyinformation: ConstPtr, propertyinformationlength: UInt, reserved1: UInt, reserved2: ConstPtr): UInt =
     if (windowsWin32NetworkingHttpserverNapiAvailable) wasmWindowssysWindowsWin32NetworkingHttpserverHttpSetRequestQueueProperty(requestqueuehandle.rawAddress.toString(), property, propertyinformation.rawAddress.toString(), propertyinformationlength.toInt(), reserved1.toInt(), reserved2.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun httpSetServerSessionProperty(serversessionid: ULong, property: HttpServerProperty, propertyinformation: ConstPtr<CVoid>, propertyinformationlength: UInt): UInt =
+public actual fun httpSetServerSessionProperty(serversessionid: ULong, property: HttpServerProperty, propertyinformation: ConstPtr, propertyinformationlength: UInt): UInt =
     if (windowsWin32NetworkingHttpserverNapiAvailable) wasmWindowssysWindowsWin32NetworkingHttpserverHttpSetServerSessionProperty(serversessionid.toString(), property, propertyinformation.rawAddress.toString(), propertyinformationlength.toInt()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun httpSetServiceConfiguration(servicehandle: Handle, configid: HttpServiceConfigId, pconfiginformation: ConstPtr<CVoid>, configinformationlength: UInt, poverlapped: ConstPtr<Overlapped>): UInt =
+public actual fun httpSetServiceConfiguration(servicehandle: Handle, configid: HttpServiceConfigId, pconfiginformation: ConstPtr, configinformationlength: UInt, poverlapped: ConstPtr): UInt =
     if (windowsWin32NetworkingHttpserverNapiAvailable) wasmWindowssysWindowsWin32NetworkingHttpserverHttpSetServiceConfiguration(servicehandle.rawAddress.toString(), configid, pconfiginformation.rawAddress.toString(), configinformationlength.toInt(), poverlapped.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun httpSetUrlGroupProperty(urlgroupid: ULong, property: HttpServerProperty, propertyinformation: ConstPtr<CVoid>, propertyinformationlength: UInt): UInt =
+public actual fun httpSetUrlGroupProperty(urlgroupid: ULong, property: HttpServerProperty, propertyinformation: ConstPtr, propertyinformationlength: UInt): UInt =
     if (windowsWin32NetworkingHttpserverNapiAvailable) wasmWindowssysWindowsWin32NetworkingHttpserverHttpSetUrlGroupProperty(urlgroupid.toString(), property, propertyinformation.rawAddress.toString(), propertyinformationlength.toInt()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun httpShutdownRequestQueue(requestqueuehandle: Handle): UInt =
     if (windowsWin32NetworkingHttpserverNapiAvailable) wasmWindowssysWindowsWin32NetworkingHttpserverHttpShutdownRequestQueue(requestqueuehandle.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun httpTerminate(flags: HttpInitialize, preserved: MutPtr<CVoid>): UInt =
+public actual fun httpTerminate(flags: HttpInitialize, preserved: MutPtr): UInt =
     if (windowsWin32NetworkingHttpserverNapiAvailable) wasmWindowssysWindowsWin32NetworkingHttpserverHttpTerminate(flags.toInt(), preserved.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun httpUpdateServiceConfiguration(handle: Handle, configid: HttpServiceConfigId, configinfo: ConstPtr<CVoid>, configinfolength: UInt, overlapped: ConstPtr<Overlapped>): UInt =
+public actual fun httpUpdateServiceConfiguration(handle: Handle, configid: HttpServiceConfigId, configinfo: ConstPtr, configinfolength: UInt, overlapped: ConstPtr): UInt =
     if (windowsWin32NetworkingHttpserverNapiAvailable) wasmWindowssysWindowsWin32NetworkingHttpserverHttpUpdateServiceConfiguration(handle.rawAddress.toString(), configid, configinfo.rawAddress.toString(), configinfolength.toInt(), overlapped.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun httpWaitForDemandStart(requestqueuehandle: Handle, overlapped: MutPtr<Overlapped>): UInt =
+public actual fun httpWaitForDemandStart(requestqueuehandle: Handle, overlapped: MutPtr): UInt =
     if (windowsWin32NetworkingHttpserverNapiAvailable) wasmWindowssysWindowsWin32NetworkingHttpserverHttpWaitForDemandStart(requestqueuehandle.rawAddress.toString(), overlapped.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun httpWaitForDisconnect(requestqueuehandle: Handle, connectionid: ULong, overlapped: MutPtr<Overlapped>): UInt =
+public actual fun httpWaitForDisconnect(requestqueuehandle: Handle, connectionid: ULong, overlapped: MutPtr): UInt =
     if (windowsWin32NetworkingHttpserverNapiAvailable) wasmWindowssysWindowsWin32NetworkingHttpserverHttpWaitForDisconnect(requestqueuehandle.rawAddress.toString(), connectionid.toString(), overlapped.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun httpWaitForDisconnectEx(requestqueuehandle: Handle, connectionid: ULong, reserved: UInt, overlapped: MutPtr<Overlapped>): UInt =
+public actual fun httpWaitForDisconnectEx(requestqueuehandle: Handle, connectionid: ULong, reserved: UInt, overlapped: MutPtr): UInt =
     if (windowsWin32NetworkingHttpserverNapiAvailable) wasmWindowssysWindowsWin32NetworkingHttpserverHttpWaitForDisconnectEx(requestqueuehandle.rawAddress.toString(), connectionid.toString(), reserved.toInt(), overlapped.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")

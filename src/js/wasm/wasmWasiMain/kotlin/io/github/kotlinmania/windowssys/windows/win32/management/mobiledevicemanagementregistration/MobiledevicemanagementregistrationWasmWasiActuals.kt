@@ -2,7 +2,6 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.management.mobiledevicemanagementregistration
 
-import io.github.kotlinmania.rustlang.core.ffi.CVoid
 import io.github.kotlinmania.rustlang.core.ptr.MutPtr
 import io.github.kotlinmania.windowssys.core.Bool
 import io.github.kotlinmania.windowssys.core.Hresult
@@ -11,34 +10,34 @@ import io.github.kotlinmania.windowssys.core.Pwstr
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Handle
 
 // The host must provide the C companion wrapper exports in import module windowssys.
-public actual fun applyLocalManagementSyncML(syncmlrequest: Pcwstr, syncmlresult: MutPtr<Pwstr>): Hresult =
+public actual fun applyLocalManagementSyncML(syncmlrequest: Pcwstr, syncmlresult: MutPtr): Hresult =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32ManagementMobiledevicemanagementregistrationApplyLocalManagementSyncML")
 
-public actual fun discoverManagementService(pszupn: Pcwstr, ppmgmtinfo: MutPtr<MutPtr<ManagementServiceInfo>>): Hresult =
+public actual fun discoverManagementService(pszupn: Pcwstr, ppmgmtinfo: MutPtr): Hresult =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32ManagementMobiledevicemanagementregistrationDiscoverManagementService")
 
-public actual fun discoverManagementServiceEx(pszupn: Pcwstr, pszdiscoveryservicecandidate: Pcwstr, ppmgmtinfo: MutPtr<MutPtr<ManagementServiceInfo>>): Hresult =
+public actual fun discoverManagementServiceEx(pszupn: Pcwstr, pszdiscoveryservicecandidate: Pcwstr, ppmgmtinfo: MutPtr): Hresult =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32ManagementMobiledevicemanagementregistrationDiscoverManagementServiceEx")
 
-public actual fun getDeviceManagementConfigInfo(providerid: Pcwstr, configstringbufferlength: MutPtr<UInt>, configstring: Pwstr): Hresult =
+public actual fun getDeviceManagementConfigInfo(providerid: Pcwstr, configstringbufferlength: MutPtr, configstring: Pwstr): Hresult =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32ManagementMobiledevicemanagementregistrationGetDeviceManagementConfigInfo")
 
-public actual fun getDeviceRegistrationInfo(deviceinformationclass: RegistrationInformationClass, ppdeviceregistrationinfo: MutPtr<MutPtr<CVoid>>): Hresult =
+public actual fun getDeviceRegistrationInfo(deviceinformationclass: RegistrationInformationClass, ppdeviceregistrationinfo: MutPtr): Hresult =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32ManagementMobiledevicemanagementregistrationGetDeviceRegistrationInfo")
 
 public actual fun getManagementAppHyperlink(cchhyperlink: UInt, pszhyperlink: Pwstr): Hresult =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32ManagementMobiledevicemanagementregistrationGetManagementAppHyperlink")
 
-public actual fun isDeviceRegisteredWithManagement(pfisdeviceregisteredwithmanagement: MutPtr<Bool>, cchupn: UInt, pszupn: Pwstr): Hresult =
+public actual fun isDeviceRegisteredWithManagement(pfisdeviceregisteredwithmanagement: MutPtr, cchupn: UInt, pszupn: Pwstr): Hresult =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32ManagementMobiledevicemanagementregistrationIsDeviceRegisteredWithManagement")
 
-public actual fun isManagementRegistrationAllowed(pfismanagementregistrationallowed: MutPtr<Bool>): Hresult =
+public actual fun isManagementRegistrationAllowed(pfismanagementregistrationallowed: MutPtr): Hresult =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32ManagementMobiledevicemanagementregistrationIsManagementRegistrationAllowed")
 
-public actual fun isMdmUxWithoutAadAllowed(isenrollmentallowed: MutPtr<Bool>): Hresult =
+public actual fun isMdmUxWithoutAadAllowed(isenrollmentallowed: MutPtr): Hresult =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32ManagementMobiledevicemanagementregistrationIsMdmUxWithoutAadAllowed")
 
-public actual fun registerDeviceWithLocalManagement(alreadyregistered: MutPtr<Bool>): Hresult =
+public actual fun registerDeviceWithLocalManagement(alreadyregistered: MutPtr): Hresult =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32ManagementMobiledevicemanagementregistrationRegisterDeviceWithLocalManagement")
 
 public actual fun registerDeviceWithManagement(pszupn: Pcwstr, ppszmdmserviceuri: Pcwstr, ppzsaccesstoken: Pcwstr): Hresult =

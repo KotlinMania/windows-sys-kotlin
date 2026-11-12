@@ -2,7 +2,6 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.system.recovery
 
-import io.github.kotlinmania.rustlang.core.ffi.CVoid
 import io.github.kotlinmania.rustlang.core.ptr.ConstPtr
 import io.github.kotlinmania.rustlang.core.ptr.MutPtr
 import io.github.kotlinmania.windowssys.core.Bool
@@ -26,16 +25,16 @@ public actual fun applicationRecoveryFinished(bsuccess: Bool) {
     windowssysWindowsWin32SystemRecoveryApplicationRecoveryFinished(bsuccess)
 }
 
-public actual fun applicationRecoveryInProgress(pbcancelled: MutPtr<Bool>): Hresult =
+public actual fun applicationRecoveryInProgress(pbcancelled: MutPtr): Hresult =
     windowssysWindowsWin32SystemRecoveryApplicationRecoveryInProgress(pbcancelled.rawAddress.toCPointer<ByteVar>())
 
-public actual fun getApplicationRecoveryCallback(hprocess: Handle, precoverycallback: MutPtr<ApplicationRecoveryCallback>, ppvparameter: MutPtr<MutPtr<CVoid>>, pdwpinginterval: MutPtr<UInt>, pdwflags: MutPtr<UInt>): Hresult =
+public actual fun getApplicationRecoveryCallback(hprocess: Handle, precoverycallback: MutPtr, ppvparameter: MutPtr, pdwpinginterval: MutPtr, pdwflags: MutPtr): Hresult =
     windowssysWindowsWin32SystemRecoveryGetApplicationRecoveryCallback(hprocess.rawAddress.toCPointer<ByteVar>(), precoverycallback.rawAddress.toCPointer<ByteVar>(), ppvparameter.rawAddress.toCPointer<ByteVar>(), pdwpinginterval.rawAddress.toCPointer<ByteVar>(), pdwflags.rawAddress.toCPointer<ByteVar>())
 
-public actual fun getApplicationRestartSettings(hprocess: Handle, pwzcommandline: Pwstr, pcchsize: MutPtr<UInt>, pdwflags: MutPtr<UInt>): Hresult =
+public actual fun getApplicationRestartSettings(hprocess: Handle, pwzcommandline: Pwstr, pcchsize: MutPtr, pdwflags: MutPtr): Hresult =
     windowssysWindowsWin32SystemRecoveryGetApplicationRestartSettings(hprocess.rawAddress.toCPointer<ByteVar>(), pwzcommandline.rawAddress.toCPointer<ByteVar>(), pcchsize.rawAddress.toCPointer<ByteVar>(), pdwflags.rawAddress.toCPointer<ByteVar>())
 
-public actual fun registerApplicationRecoveryCallback(precoveycallback: ApplicationRecoveryCallback, pvparameter: ConstPtr<CVoid>, dwpinginterval: UInt, dwflags: UInt): Hresult =
+public actual fun registerApplicationRecoveryCallback(precoveycallback: ApplicationRecoveryCallback, pvparameter: ConstPtr, dwpinginterval: UInt, dwflags: UInt): Hresult =
     windowssysWindowsWin32SystemRecoveryRegisterApplicationRecoveryCallback(0L.toCPointer<ByteVar>(), pvparameter.rawAddress.toCPointer<ByteVar>(), dwpinginterval, dwflags)
 
 public actual fun registerApplicationRestart(pwzcommandline: Pcwstr, dwflags: RegisterApplicationRestartFlags): Hresult =

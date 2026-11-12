@@ -1,9 +1,7 @@
 package io.github.kotlinmania.windowssys.windows.win32.system.clrhosting
 
-import io.github.kotlinmania.rustlang.core.ffi.CVoid
 import io.github.kotlinmania.rustlang.core.ptr.ConstPtr
 import io.github.kotlinmania.rustlang.core.ptr.MutPtr
-import io.github.kotlinmania.windowssys.core.Guid
 import io.github.kotlinmania.windowssys.core.Hresult
 
 public typealias AppdomainSecurityFlags = Int
@@ -11,7 +9,7 @@ public typealias AppdomainSecurityFlags = Int
 public typealias BucketParameterIndex = Int
 
 public fun interface CLRCreateInstanceFnPtrFn {
-    public operator fun invoke(clsid: ConstPtr<Guid>, riid: ConstPtr<Guid>, ppinterface: MutPtr<MutPtr<CVoid>>): Hresult
+    public operator fun invoke(clsid: ConstPtr, riid: ConstPtr, ppinterface: MutPtr): Hresult
 }
 
 public typealias CLRCreateInstanceFnPtr = CLRCreateInstanceFnPtrFn?
@@ -37,7 +35,7 @@ public fun interface CallbackThreadUnsetFnPtrFn {
 public typealias CallbackThreadUnsetFnPtr = CallbackThreadUnsetFnPtrFn?
 
 public fun interface CreateInterfaceFnPtrFn {
-    public operator fun invoke(clsid: ConstPtr<Guid>, riid: ConstPtr<Guid>, ppinterface: MutPtr<MutPtr<CVoid>>): Hresult
+    public operator fun invoke(clsid: ConstPtr, riid: ConstPtr, ppinterface: MutPtr): Hresult
 }
 
 public typealias CreateInterfaceFnPtr = CreateInterfaceFnPtrFn?
@@ -79,7 +77,7 @@ public typealias ESymbolReadingPolicy = Int
 public typealias ETaskType = Int
 
 public fun interface FExecuteInAppDomainCallbackFn {
-    public operator fun invoke(cookie: MutPtr<CVoid>): Hresult
+    public operator fun invoke(cookie: MutPtr): Hresult
 }
 
 public typealias FExecuteInAppDomainCallback = FExecuteInAppDomainCallbackFn?
@@ -99,7 +97,7 @@ public typealias MetahostConfigFlags = Int
 public typealias MetahostPolicyFlags = Int
 
 public fun interface PtlsCallbackFunctionFn {
-    public operator fun invoke(midlMidlItfMscoree000000040005: MutPtr<CVoid>)
+    public operator fun invoke(midlMidlItfMscoree000000040005: MutPtr)
 }
 
 public typealias PtlsCallbackFunction = PtlsCallbackFunctionFn?
@@ -107,7 +105,7 @@ public typealias PtlsCallbackFunction = PtlsCallbackFunctionFn?
 public typealias RuntimeInfoFlags = Int
 
 public fun interface RuntimeLoadedCallbackFnPtrFn {
-    public operator fun invoke(pruntimeinfo: MutPtr<CVoid>, pfncallbackthreadset: CallbackThreadSetFnPtr, pfncallbackthreadunset: CallbackThreadUnsetFnPtr)
+    public operator fun invoke(pruntimeinfo: MutPtr, pfncallbackthreadset: CallbackThreadSetFnPtr, pfncallbackthreadunset: CallbackThreadUnsetFnPtr)
 }
 
 public typealias RuntimeLoadedCallbackFnPtr = RuntimeLoadedCallbackFnPtrFn?

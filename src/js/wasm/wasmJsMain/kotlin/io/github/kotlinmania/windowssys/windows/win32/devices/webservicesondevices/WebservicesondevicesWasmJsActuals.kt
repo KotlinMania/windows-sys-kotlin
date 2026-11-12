@@ -2,12 +2,10 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.devices.webservicesondevices
 
-import io.github.kotlinmania.rustlang.core.ffi.CVoid
 import io.github.kotlinmania.rustlang.core.ptr.ConstPtr
 import io.github.kotlinmania.rustlang.core.ptr.MutPtr
 import io.github.kotlinmania.windowssys.core.Hresult
 import io.github.kotlinmania.windowssys.core.Pcwstr
-import io.github.kotlinmania.windowssys.core.Pwstr
 
 @JsFun("() => { if (typeof globalThis.__km_napi_windowssys !== 'undefined') return globalThis.__km_napi_windowssys !== null; if (typeof process === 'undefined' || !process.versions || !process.versions.node) { globalThis.__km_napi_windowssys = null; return false; } var mod = process.getBuiltinModule ? process.getBuiltinModule('module') : (process.mainModule && process.mainModule.constructor); var req = (mod && mod.createRequire) ? mod.createRequire((process.cwd ? process.cwd() : '.') + '/package.json') : (process.mainModule ? process.mainModule.require : null); if (!req) { globalThis.__km_napi_windowssys = null; return false; } try { globalThis.__km_napi_windowssys = req('@kotlinmania/windowssys-native-bindings'); return true; } catch (_) {} var fs = req('fs'); var path = req('path'); var dir = process.cwd ? process.cwd() : '.'; var rels = ['windowssys_native.node', 'build/node-ffi/windowssys_native.node', 'build/node-ffi/release/windowssys_native.node', 'build/node-ffi/debug/windowssys_native.node', 'src/js/node-windowssys/build/Release/windowssys_native.node', 'src/js/node-windowssys/build/Debug/windowssys_native.node', 'src/js/node-windowssys/dist/build/Release/windowssys_native.node', 'src/js/node-windowssys/dist/build/Debug/windowssys_native.node']; for (var d = 0; d < 8; d++) { for (var i = 0; i < rels.length; i++) { var c = path.resolve(dir, rels[i]); if (fs.existsSync(c)) { globalThis.__km_napi_windowssys = req(c); return true; } } var parent = path.dirname(dir); if (parent === dir) break; dir = parent; } globalThis.__km_napi_windowssys = null; return false; }")
 private external fun initWindowsWin32DevicesWebservicesondevicesNapiAddon(): Boolean
@@ -110,10 +108,10 @@ private external fun wasmWindowssysWindowsWin32DevicesWebservicesondevicesWSDXML
 @JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesWebservicesondevicesWSDXMLGetValueFromAny(p0, p1, p2, p3)")
 private external fun wasmWindowssysWindowsWin32DevicesWebservicesondevicesWSDXMLGetValueFromAny(p0: String, p1: String, p2: String, p3: String): Int
 
-public actual fun wSDAllocateLinkedMemory(pparent: MutPtr<CVoid>, cbsize: ULong): MutPtr<CVoid> =
+public actual fun wSDAllocateLinkedMemory(pparent: MutPtr, cbsize: ULong): MutPtr =
     if (windowsWin32DevicesWebservicesondevicesNapiAvailable) MutPtr(wasmWindowssysWindowsWin32DevicesWebservicesondevicesWSDAllocateLinkedMemory(pparent.rawAddress.toString(), cbsize.toString()).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun wSDAttachLinkedMemory(pparent: MutPtr<CVoid>, pchild: MutPtr<CVoid>) {
+public actual fun wSDAttachLinkedMemory(pparent: MutPtr, pchild: MutPtr) {
     if (windowsWin32DevicesWebservicesondevicesNapiAvailable) {
         wasmWindowssysWindowsWin32DevicesWebservicesondevicesWSDAttachLinkedMemory(pparent.rawAddress.toString(), pchild.rawAddress.toString())
     } else {
@@ -121,52 +119,52 @@ public actual fun wSDAttachLinkedMemory(pparent: MutPtr<CVoid>, pchild: MutPtr<C
     }
 }
 
-public actual fun wSDCreateDeviceHost(pszlocalid: Pcwstr, pcontext: MutPtr<CVoid>, ppdevicehost: MutPtr<MutPtr<CVoid>>): Hresult =
+public actual fun wSDCreateDeviceHost(pszlocalid: Pcwstr, pcontext: MutPtr, ppdevicehost: MutPtr): Hresult =
     if (windowsWin32DevicesWebservicesondevicesNapiAvailable) wasmWindowssysWindowsWin32DevicesWebservicesondevicesWSDCreateDeviceHost(pszlocalid.rawAddress.toString(), pcontext.rawAddress.toString(), ppdevicehost.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun wSDCreateDeviceHost2(pszlocalid: Pcwstr, pcontext: MutPtr<CVoid>, pconfigparams: ConstPtr<WsdConfigParam>, dwconfigparamcount: UInt, ppdevicehost: MutPtr<MutPtr<CVoid>>): Hresult =
+public actual fun wSDCreateDeviceHost2(pszlocalid: Pcwstr, pcontext: MutPtr, pconfigparams: ConstPtr, dwconfigparamcount: UInt, ppdevicehost: MutPtr): Hresult =
     if (windowsWin32DevicesWebservicesondevicesNapiAvailable) wasmWindowssysWindowsWin32DevicesWebservicesondevicesWSDCreateDeviceHost2(pszlocalid.rawAddress.toString(), pcontext.rawAddress.toString(), pconfigparams.rawAddress.toString(), dwconfigparamcount.toInt(), ppdevicehost.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun wSDCreateDeviceHostAdvanced(pszlocalid: Pcwstr, pcontext: MutPtr<CVoid>, pphostaddresses: ConstPtr<MutPtr<CVoid>>, dwhostaddresscount: UInt, ppdevicehost: MutPtr<MutPtr<CVoid>>): Hresult =
+public actual fun wSDCreateDeviceHostAdvanced(pszlocalid: Pcwstr, pcontext: MutPtr, pphostaddresses: ConstPtr, dwhostaddresscount: UInt, ppdevicehost: MutPtr): Hresult =
     if (windowsWin32DevicesWebservicesondevicesNapiAvailable) wasmWindowssysWindowsWin32DevicesWebservicesondevicesWSDCreateDeviceHostAdvanced(pszlocalid.rawAddress.toString(), pcontext.rawAddress.toString(), pphostaddresses.rawAddress.toString(), dwhostaddresscount.toInt(), ppdevicehost.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun wSDCreateDeviceProxy(pszdeviceid: Pcwstr, pszlocalid: Pcwstr, pcontext: MutPtr<CVoid>, ppdeviceproxy: MutPtr<MutPtr<CVoid>>): Hresult =
+public actual fun wSDCreateDeviceProxy(pszdeviceid: Pcwstr, pszlocalid: Pcwstr, pcontext: MutPtr, ppdeviceproxy: MutPtr): Hresult =
     if (windowsWin32DevicesWebservicesondevicesNapiAvailable) wasmWindowssysWindowsWin32DevicesWebservicesondevicesWSDCreateDeviceProxy(pszdeviceid.rawAddress.toString(), pszlocalid.rawAddress.toString(), pcontext.rawAddress.toString(), ppdeviceproxy.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun wSDCreateDeviceProxy2(pszdeviceid: Pcwstr, pszlocalid: Pcwstr, pcontext: MutPtr<CVoid>, pconfigparams: ConstPtr<WsdConfigParam>, dwconfigparamcount: UInt, ppdeviceproxy: MutPtr<MutPtr<CVoid>>): Hresult =
+public actual fun wSDCreateDeviceProxy2(pszdeviceid: Pcwstr, pszlocalid: Pcwstr, pcontext: MutPtr, pconfigparams: ConstPtr, dwconfigparamcount: UInt, ppdeviceproxy: MutPtr): Hresult =
     if (windowsWin32DevicesWebservicesondevicesNapiAvailable) wasmWindowssysWindowsWin32DevicesWebservicesondevicesWSDCreateDeviceProxy2(pszdeviceid.rawAddress.toString(), pszlocalid.rawAddress.toString(), pcontext.rawAddress.toString(), pconfigparams.rawAddress.toString(), dwconfigparamcount.toInt(), ppdeviceproxy.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun wSDCreateDeviceProxyAdvanced(pszdeviceid: Pcwstr, pdeviceaddress: MutPtr<CVoid>, pszlocalid: Pcwstr, pcontext: MutPtr<CVoid>, ppdeviceproxy: MutPtr<MutPtr<CVoid>>): Hresult =
+public actual fun wSDCreateDeviceProxyAdvanced(pszdeviceid: Pcwstr, pdeviceaddress: MutPtr, pszlocalid: Pcwstr, pcontext: MutPtr, ppdeviceproxy: MutPtr): Hresult =
     if (windowsWin32DevicesWebservicesondevicesNapiAvailable) wasmWindowssysWindowsWin32DevicesWebservicesondevicesWSDCreateDeviceProxyAdvanced(pszdeviceid.rawAddress.toString(), pdeviceaddress.rawAddress.toString(), pszlocalid.rawAddress.toString(), pcontext.rawAddress.toString(), ppdeviceproxy.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun wSDCreateDiscoveryProvider(pcontext: MutPtr<CVoid>, ppprovider: MutPtr<MutPtr<CVoid>>): Hresult =
+public actual fun wSDCreateDiscoveryProvider(pcontext: MutPtr, ppprovider: MutPtr): Hresult =
     if (windowsWin32DevicesWebservicesondevicesNapiAvailable) wasmWindowssysWindowsWin32DevicesWebservicesondevicesWSDCreateDiscoveryProvider(pcontext.rawAddress.toString(), ppprovider.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun wSDCreateDiscoveryProvider2(pcontext: MutPtr<CVoid>, pconfigparams: ConstPtr<WsdConfigParam>, dwconfigparamcount: UInt, ppprovider: MutPtr<MutPtr<CVoid>>): Hresult =
+public actual fun wSDCreateDiscoveryProvider2(pcontext: MutPtr, pconfigparams: ConstPtr, dwconfigparamcount: UInt, ppprovider: MutPtr): Hresult =
     if (windowsWin32DevicesWebservicesondevicesNapiAvailable) wasmWindowssysWindowsWin32DevicesWebservicesondevicesWSDCreateDiscoveryProvider2(pcontext.rawAddress.toString(), pconfigparams.rawAddress.toString(), dwconfigparamcount.toInt(), ppprovider.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun wSDCreateDiscoveryPublisher(pcontext: MutPtr<CVoid>, pppublisher: MutPtr<MutPtr<CVoid>>): Hresult =
+public actual fun wSDCreateDiscoveryPublisher(pcontext: MutPtr, pppublisher: MutPtr): Hresult =
     if (windowsWin32DevicesWebservicesondevicesNapiAvailable) wasmWindowssysWindowsWin32DevicesWebservicesondevicesWSDCreateDiscoveryPublisher(pcontext.rawAddress.toString(), pppublisher.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun wSDCreateDiscoveryPublisher2(pcontext: MutPtr<CVoid>, pconfigparams: ConstPtr<WsdConfigParam>, dwconfigparamcount: UInt, pppublisher: MutPtr<MutPtr<CVoid>>): Hresult =
+public actual fun wSDCreateDiscoveryPublisher2(pcontext: MutPtr, pconfigparams: ConstPtr, dwconfigparamcount: UInt, pppublisher: MutPtr): Hresult =
     if (windowsWin32DevicesWebservicesondevicesNapiAvailable) wasmWindowssysWindowsWin32DevicesWebservicesondevicesWSDCreateDiscoveryPublisher2(pcontext.rawAddress.toString(), pconfigparams.rawAddress.toString(), dwconfigparamcount.toInt(), pppublisher.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun wSDCreateHttpAddress(ppaddress: MutPtr<MutPtr<CVoid>>): Hresult =
+public actual fun wSDCreateHttpAddress(ppaddress: MutPtr): Hresult =
     if (windowsWin32DevicesWebservicesondevicesNapiAvailable) wasmWindowssysWindowsWin32DevicesWebservicesondevicesWSDCreateHttpAddress(ppaddress.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun wSDCreateHttpMessageParameters(pptxparams: MutPtr<MutPtr<CVoid>>): Hresult =
+public actual fun wSDCreateHttpMessageParameters(pptxparams: MutPtr): Hresult =
     if (windowsWin32DevicesWebservicesondevicesNapiAvailable) wasmWindowssysWindowsWin32DevicesWebservicesondevicesWSDCreateHttpMessageParameters(pptxparams.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun wSDCreateOutboundAttachment(ppattachment: MutPtr<MutPtr<CVoid>>): Hresult =
+public actual fun wSDCreateOutboundAttachment(ppattachment: MutPtr): Hresult =
     if (windowsWin32DevicesWebservicesondevicesNapiAvailable) wasmWindowssysWindowsWin32DevicesWebservicesondevicesWSDCreateOutboundAttachment(ppattachment.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun wSDCreateUdpAddress(ppaddress: MutPtr<MutPtr<CVoid>>): Hresult =
+public actual fun wSDCreateUdpAddress(ppaddress: MutPtr): Hresult =
     if (windowsWin32DevicesWebservicesondevicesNapiAvailable) wasmWindowssysWindowsWin32DevicesWebservicesondevicesWSDCreateUdpAddress(ppaddress.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun wSDCreateUdpMessageParameters(pptxparams: MutPtr<MutPtr<CVoid>>): Hresult =
+public actual fun wSDCreateUdpMessageParameters(pptxparams: MutPtr): Hresult =
     if (windowsWin32DevicesWebservicesondevicesNapiAvailable) wasmWindowssysWindowsWin32DevicesWebservicesondevicesWSDCreateUdpMessageParameters(pptxparams.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun wSDDetachLinkedMemory(pvoid: MutPtr<CVoid>) {
+public actual fun wSDDetachLinkedMemory(pvoid: MutPtr) {
     if (windowsWin32DevicesWebservicesondevicesNapiAvailable) {
         wasmWindowssysWindowsWin32DevicesWebservicesondevicesWSDDetachLinkedMemory(pvoid.rawAddress.toString())
     } else {
@@ -174,7 +172,7 @@ public actual fun wSDDetachLinkedMemory(pvoid: MutPtr<CVoid>) {
     }
 }
 
-public actual fun wSDFreeLinkedMemory(pvoid: MutPtr<CVoid>) {
+public actual fun wSDFreeLinkedMemory(pvoid: MutPtr) {
     if (windowsWin32DevicesWebservicesondevicesNapiAvailable) {
         wasmWindowssysWindowsWin32DevicesWebservicesondevicesWSDFreeLinkedMemory(pvoid.rawAddress.toString())
     } else {
@@ -182,41 +180,41 @@ public actual fun wSDFreeLinkedMemory(pvoid: MutPtr<CVoid>) {
     }
 }
 
-public actual fun wSDGenerateFault(pszcode: Pcwstr, pszsubcode: Pcwstr, pszreason: Pcwstr, pszdetail: Pcwstr, pcontext: MutPtr<CVoid>, ppfault: MutPtr<MutPtr<WsdSoapFault>>): Hresult =
+public actual fun wSDGenerateFault(pszcode: Pcwstr, pszsubcode: Pcwstr, pszreason: Pcwstr, pszdetail: Pcwstr, pcontext: MutPtr, ppfault: MutPtr): Hresult =
     if (windowsWin32DevicesWebservicesondevicesNapiAvailable) wasmWindowssysWindowsWin32DevicesWebservicesondevicesWSDGenerateFault(pszcode.rawAddress.toString(), pszsubcode.rawAddress.toString(), pszreason.rawAddress.toString(), pszdetail.rawAddress.toString(), pcontext.rawAddress.toString(), ppfault.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun wSDGenerateFaultEx(pcode: ConstPtr<WsdxmlName>, psubcode: ConstPtr<WsdxmlName>, preasons: ConstPtr<WsdLocalizedStringList>, pszdetail: Pcwstr, ppfault: MutPtr<MutPtr<WsdSoapFault>>): Hresult =
+public actual fun wSDGenerateFaultEx(pcode: ConstPtr, psubcode: ConstPtr, preasons: ConstPtr, pszdetail: Pcwstr, ppfault: MutPtr): Hresult =
     if (windowsWin32DevicesWebservicesondevicesNapiAvailable) wasmWindowssysWindowsWin32DevicesWebservicesondevicesWSDGenerateFaultEx(pcode.rawAddress.toString(), psubcode.rawAddress.toString(), preasons.rawAddress.toString(), pszdetail.rawAddress.toString(), ppfault.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun wSDGetConfigurationOption(dwoption: UInt, pvoid: MutPtr<CVoid>, cboutbuffer: UInt): Hresult =
+public actual fun wSDGetConfigurationOption(dwoption: UInt, pvoid: MutPtr, cboutbuffer: UInt): Hresult =
     if (windowsWin32DevicesWebservicesondevicesNapiAvailable) wasmWindowssysWindowsWin32DevicesWebservicesondevicesWSDGetConfigurationOption(dwoption.toInt(), pvoid.rawAddress.toString(), cboutbuffer.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun wSDSetConfigurationOption(dwoption: UInt, pvoid: ConstPtr<CVoid>, cbinbuffer: UInt): Hresult =
+public actual fun wSDSetConfigurationOption(dwoption: UInt, pvoid: ConstPtr, cbinbuffer: UInt): Hresult =
     if (windowsWin32DevicesWebservicesondevicesNapiAvailable) wasmWindowssysWindowsWin32DevicesWebservicesondevicesWSDSetConfigurationOption(dwoption.toInt(), pvoid.rawAddress.toString(), cbinbuffer.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun wSDUriDecode(source: Pcwstr, cchsource: UInt, destout: MutPtr<Pwstr>, cchdestout: MutPtr<UInt>): Hresult =
+public actual fun wSDUriDecode(source: Pcwstr, cchsource: UInt, destout: MutPtr, cchdestout: MutPtr): Hresult =
     if (windowsWin32DevicesWebservicesondevicesNapiAvailable) wasmWindowssysWindowsWin32DevicesWebservicesondevicesWSDUriDecode(source.rawAddress.toString(), cchsource.toInt(), destout.rawAddress.toString(), cchdestout.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun wSDUriEncode(source: Pcwstr, cchsource: UInt, destout: MutPtr<Pwstr>, cchdestout: MutPtr<UInt>): Hresult =
+public actual fun wSDUriEncode(source: Pcwstr, cchsource: UInt, destout: MutPtr, cchdestout: MutPtr): Hresult =
     if (windowsWin32DevicesWebservicesondevicesNapiAvailable) wasmWindowssysWindowsWin32DevicesWebservicesondevicesWSDUriEncode(source.rawAddress.toString(), cchsource.toInt(), destout.rawAddress.toString(), cchdestout.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun wSDXMLAddChild(pparent: MutPtr<WsdxmlElement>, pchild: MutPtr<WsdxmlElement>): Hresult =
+public actual fun wSDXMLAddChild(pparent: MutPtr, pchild: MutPtr): Hresult =
     if (windowsWin32DevicesWebservicesondevicesNapiAvailable) wasmWindowssysWindowsWin32DevicesWebservicesondevicesWSDXMLAddChild(pparent.rawAddress.toString(), pchild.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun wSDXMLAddSibling(pfirst: MutPtr<WsdxmlElement>, psecond: MutPtr<WsdxmlElement>): Hresult =
+public actual fun wSDXMLAddSibling(pfirst: MutPtr, psecond: MutPtr): Hresult =
     if (windowsWin32DevicesWebservicesondevicesNapiAvailable) wasmWindowssysWindowsWin32DevicesWebservicesondevicesWSDXMLAddSibling(pfirst.rawAddress.toString(), psecond.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun wSDXMLBuildAnyForSingleElement(pelementname: MutPtr<WsdxmlName>, psztext: Pcwstr, ppany: MutPtr<MutPtr<WsdxmlElement>>): Hresult =
+public actual fun wSDXMLBuildAnyForSingleElement(pelementname: MutPtr, psztext: Pcwstr, ppany: MutPtr): Hresult =
     if (windowsWin32DevicesWebservicesondevicesNapiAvailable) wasmWindowssysWindowsWin32DevicesWebservicesondevicesWSDXMLBuildAnyForSingleElement(pelementname.rawAddress.toString(), psztext.rawAddress.toString(), ppany.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun wSDXMLCleanupElement(pany: MutPtr<WsdxmlElement>): Hresult =
+public actual fun wSDXMLCleanupElement(pany: MutPtr): Hresult =
     if (windowsWin32DevicesWebservicesondevicesNapiAvailable) wasmWindowssysWindowsWin32DevicesWebservicesondevicesWSDXMLCleanupElement(pany.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun wSDXMLCreateContext(ppcontext: MutPtr<MutPtr<CVoid>>): Hresult =
+public actual fun wSDXMLCreateContext(ppcontext: MutPtr): Hresult =
     if (windowsWin32DevicesWebservicesondevicesNapiAvailable) wasmWindowssysWindowsWin32DevicesWebservicesondevicesWSDXMLCreateContext(ppcontext.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun wSDXMLGetNameFromBuiltinNamespace(psznamespace: Pcwstr, pszname: Pcwstr, ppname: MutPtr<MutPtr<WsdxmlName>>): Hresult =
+public actual fun wSDXMLGetNameFromBuiltinNamespace(psznamespace: Pcwstr, pszname: Pcwstr, ppname: MutPtr): Hresult =
     if (windowsWin32DevicesWebservicesondevicesNapiAvailable) wasmWindowssysWindowsWin32DevicesWebservicesondevicesWSDXMLGetNameFromBuiltinNamespace(psznamespace.rawAddress.toString(), pszname.rawAddress.toString(), ppname.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun wSDXMLGetValueFromAny(psznamespace: Pcwstr, pszname: Pcwstr, pany: MutPtr<WsdxmlElement>, ppszvalue: MutPtr<Pcwstr>): Hresult =
+public actual fun wSDXMLGetValueFromAny(psznamespace: Pcwstr, pszname: Pcwstr, pany: MutPtr, ppszvalue: MutPtr): Hresult =
     if (windowsWin32DevicesWebservicesondevicesNapiAvailable) wasmWindowssysWindowsWin32DevicesWebservicesondevicesWSDXMLGetValueFromAny(psznamespace.rawAddress.toString(), pszname.rawAddress.toString(), pany.rawAddress.toString(), ppszvalue.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")

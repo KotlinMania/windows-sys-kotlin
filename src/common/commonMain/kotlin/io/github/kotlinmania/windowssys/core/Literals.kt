@@ -92,10 +92,10 @@ public fun utf16Len(bytes: List<UByte>): Int {
  * A literal UTF-8 string with a trailing null terminator.
  */
 
-public fun s(s: String): ConstPtr<UByte> = kmInternCStr(s)
+public fun s(s: String): ConstPtr = kmInternCStr(s)
 
 /**
  * A literal UTF-16 wide string with a trailing null terminator.
  */
 
-public fun w(s: String): ConstPtr<UShort> = kmInternWideStr(s)
+public fun w(s: String): ConstPtr = kmInternWideStr(s)

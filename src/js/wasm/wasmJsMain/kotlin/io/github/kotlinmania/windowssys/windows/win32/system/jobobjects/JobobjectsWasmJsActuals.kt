@@ -2,14 +2,12 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.system.jobobjects
 
-import io.github.kotlinmania.rustlang.core.ffi.CVoid
 import io.github.kotlinmania.rustlang.core.ptr.ConstPtr
 import io.github.kotlinmania.rustlang.core.ptr.MutPtr
 import io.github.kotlinmania.windowssys.core.Bool
 import io.github.kotlinmania.windowssys.core.Pcstr
 import io.github.kotlinmania.windowssys.core.Pcwstr
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Handle
-import io.github.kotlinmania.windowssys.windows.win32.security.SecurityAttributes
 
 @JsFun("() => { if (typeof globalThis.__km_napi_windowssys !== 'undefined') return globalThis.__km_napi_windowssys !== null; if (typeof process === 'undefined' || !process.versions || !process.versions.node) { globalThis.__km_napi_windowssys = null; return false; } var mod = process.getBuiltinModule ? process.getBuiltinModule('module') : (process.mainModule && process.mainModule.constructor); var req = (mod && mod.createRequire) ? mod.createRequire((process.cwd ? process.cwd() : '.') + '/package.json') : (process.mainModule ? process.mainModule.require : null); if (!req) { globalThis.__km_napi_windowssys = null; return false; } try { globalThis.__km_napi_windowssys = req('@kotlinmania/windowssys-native-bindings'); return true; } catch (_) {} var fs = req('fs'); var path = req('path'); var dir = process.cwd ? process.cwd() : '.'; var rels = ['windowssys_native.node', 'build/node-ffi/windowssys_native.node', 'build/node-ffi/release/windowssys_native.node', 'build/node-ffi/debug/windowssys_native.node', 'src/js/node-windowssys/build/Release/windowssys_native.node', 'src/js/node-windowssys/build/Debug/windowssys_native.node', 'src/js/node-windowssys/dist/build/Release/windowssys_native.node', 'src/js/node-windowssys/dist/build/Debug/windowssys_native.node']; for (var d = 0; d < 8; d++) { for (var i = 0; i < rels.length; i++) { var c = path.resolve(dir, rels[i]); if (fs.existsSync(c)) { globalThis.__km_napi_windowssys = req(c); return true; } } var parent = path.dirname(dir); if (parent === dir) break; dir = parent; } globalThis.__km_napi_windowssys = null; return false; }")
 private external fun initWindowsWin32SystemJobobjectsNapiAddon(): Boolean
@@ -61,16 +59,16 @@ private external fun wasmWindowssysWindowsWin32SystemJobobjectsUserHandleGrantAc
 public actual fun assignProcessToJobObject(hjob: Handle, hprocess: Handle): Bool =
     if (windowsWin32SystemJobobjectsNapiAvailable) wasmWindowssysWindowsWin32SystemJobobjectsAssignProcessToJobObject(hjob.rawAddress.toString(), hprocess.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun createJobObjectA(lpjobattributes: ConstPtr<SecurityAttributes>, lpname: Pcstr): Handle =
+public actual fun createJobObjectA(lpjobattributes: ConstPtr, lpname: Pcstr): Handle =
     if (windowsWin32SystemJobobjectsNapiAvailable) MutPtr(wasmWindowssysWindowsWin32SystemJobobjectsCreateJobObjectA(lpjobattributes.rawAddress.toString(), lpname.rawAddress.toString()).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun createJobObjectW(lpjobattributes: ConstPtr<SecurityAttributes>, lpname: Pcwstr): Handle =
+public actual fun createJobObjectW(lpjobattributes: ConstPtr, lpname: Pcwstr): Handle =
     if (windowsWin32SystemJobobjectsNapiAvailable) MutPtr(wasmWindowssysWindowsWin32SystemJobobjectsCreateJobObjectW(lpjobattributes.rawAddress.toString(), lpname.rawAddress.toString()).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun createJobSet(numjob: UInt, userjobset: ConstPtr<JobSetArray>, flags: UInt): Bool =
+public actual fun createJobSet(numjob: UInt, userjobset: ConstPtr, flags: UInt): Bool =
     if (windowsWin32SystemJobobjectsNapiAvailable) wasmWindowssysWindowsWin32SystemJobobjectsCreateJobSet(numjob.toInt(), userjobset.rawAddress.toString(), flags.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun freeMemoryJobObject(buffer: ConstPtr<CVoid>) {
+public actual fun freeMemoryJobObject(buffer: ConstPtr) {
     if (windowsWin32SystemJobobjectsNapiAvailable) {
         wasmWindowssysWindowsWin32SystemJobobjectsFreeMemoryJobObject(buffer.rawAddress.toString())
     } else {
@@ -78,7 +76,7 @@ public actual fun freeMemoryJobObject(buffer: ConstPtr<CVoid>) {
     }
 }
 
-public actual fun isProcessInJob(processhandle: Handle, jobhandle: Handle, result: MutPtr<Bool>): Bool =
+public actual fun isProcessInJob(processhandle: Handle, jobhandle: Handle, result: MutPtr): Bool =
     if (windowsWin32SystemJobobjectsNapiAvailable) wasmWindowssysWindowsWin32SystemJobobjectsIsProcessInJob(processhandle.rawAddress.toString(), jobhandle.rawAddress.toString(), result.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun openJobObjectA(dwdesiredaccess: UInt, binherithandle: Bool, lpname: Pcstr): Handle =
@@ -87,16 +85,16 @@ public actual fun openJobObjectA(dwdesiredaccess: UInt, binherithandle: Bool, lp
 public actual fun openJobObjectW(dwdesiredaccess: UInt, binherithandle: Bool, lpname: Pcwstr): Handle =
     if (windowsWin32SystemJobobjectsNapiAvailable) MutPtr(wasmWindowssysWindowsWin32SystemJobobjectsOpenJobObjectW(dwdesiredaccess.toInt(), binherithandle, lpname.rawAddress.toString()).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun queryInformationJobObject(hjob: Handle, jobobjectinformationclass: Jobobjectinfoclass, lpjobobjectinformation: MutPtr<CVoid>, cbjobobjectinformationlength: UInt, lpreturnlength: MutPtr<UInt>): Bool =
+public actual fun queryInformationJobObject(hjob: Handle, jobobjectinformationclass: Jobobjectinfoclass, lpjobobjectinformation: MutPtr, cbjobobjectinformationlength: UInt, lpreturnlength: MutPtr): Bool =
     if (windowsWin32SystemJobobjectsNapiAvailable) wasmWindowssysWindowsWin32SystemJobobjectsQueryInformationJobObject(hjob.rawAddress.toString(), jobobjectinformationclass, lpjobobjectinformation.rawAddress.toString(), cbjobobjectinformationlength.toInt(), lpreturnlength.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun queryIoRateControlInformationJobObject(hjob: Handle, volumename: Pcwstr, infoblocks: MutPtr<MutPtr<JobobjectIoRateControlInformation>>, infoblockcount: MutPtr<UInt>): UInt =
+public actual fun queryIoRateControlInformationJobObject(hjob: Handle, volumename: Pcwstr, infoblocks: MutPtr, infoblockcount: MutPtr): UInt =
     if (windowsWin32SystemJobobjectsNapiAvailable) wasmWindowssysWindowsWin32SystemJobobjectsQueryIoRateControlInformationJobObject(hjob.rawAddress.toString(), volumename.rawAddress.toString(), infoblocks.rawAddress.toString(), infoblockcount.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun setInformationJobObject(hjob: Handle, jobobjectinformationclass: Jobobjectinfoclass, lpjobobjectinformation: ConstPtr<CVoid>, cbjobobjectinformationlength: UInt): Bool =
+public actual fun setInformationJobObject(hjob: Handle, jobobjectinformationclass: Jobobjectinfoclass, lpjobobjectinformation: ConstPtr, cbjobobjectinformationlength: UInt): Bool =
     if (windowsWin32SystemJobobjectsNapiAvailable) wasmWindowssysWindowsWin32SystemJobobjectsSetInformationJobObject(hjob.rawAddress.toString(), jobobjectinformationclass, lpjobobjectinformation.rawAddress.toString(), cbjobobjectinformationlength.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun setIoRateControlInformationJobObject(hjob: Handle, ioratecontrolinfo: ConstPtr<JobobjectIoRateControlInformation>): UInt =
+public actual fun setIoRateControlInformationJobObject(hjob: Handle, ioratecontrolinfo: ConstPtr): UInt =
     if (windowsWin32SystemJobobjectsNapiAvailable) wasmWindowssysWindowsWin32SystemJobobjectsSetIoRateControlInformationJobObject(hjob.rawAddress.toString(), ioratecontrolinfo.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun terminateJobObject(hjob: Handle, uexitcode: UInt): Bool =

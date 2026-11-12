@@ -2,7 +2,6 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.system.dataexchange
 
-import io.github.kotlinmania.rustlang.core.ffi.CVoid
 import io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
 import io.github.kotlinmania.rustlang.core.mem.TypeLayout
 import io.github.kotlinmania.rustlang.core.ptr.MutPtr
@@ -204,9 +203,9 @@ public class Convinfo internal constructor(
 public class Copydatastruct internal constructor(
     public var dwData: Int,
     public var cbData: UInt,
-    lpDataCtorArg: MutPtr<CVoid>,
+    lpDataCtorArg: MutPtr,
 ) {
-    public var lpData: MutPtr<CVoid> = lpDataCtorArg
+    public var lpData: MutPtr = lpDataCtorArg
         internal set
 
     public constructor() : this(
@@ -219,9 +218,9 @@ public class Copydatastruct internal constructor(
 
     public operator fun component2(): UInt = this.cbData
 
-    public operator fun component3(): MutPtr<CVoid> = this.lpData
+    public operator fun component3(): MutPtr = this.lpData
 
-    public fun copy(dwData: Int = this.dwData, cbData: UInt = this.cbData, lpData: MutPtr<CVoid> = this.lpData): Copydatastruct = Copydatastruct(dwData = dwData, cbData = cbData, lpDataCtorArg = lpData)
+    public fun copy(dwData: Int = this.dwData, cbData: UInt = this.cbData, lpData: MutPtr = this.lpData): Copydatastruct = Copydatastruct(dwData = dwData, cbData = cbData, lpDataCtorArg = lpData)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -250,7 +249,7 @@ public class Copydatastruct internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 8L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<CVoid>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 16L),
                     )
                 override fun writeNative(addr: Long, value: Copydatastruct) {
@@ -258,7 +257,7 @@ public class Copydatastruct internal constructor(
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 8L, value.cbData)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<CVoid>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 16L, value.lpData)
                 }
             }
@@ -266,7 +265,7 @@ public class Copydatastruct internal constructor(
         public operator fun invoke(
             dwData: Int = 0,
             cbData: UInt = 0u,
-            lpData: MutPtr<CVoid> = MutPtr(0L),
+            lpData: MutPtr = MutPtr(0L),
         ): Copydatastruct =
             Copydatastruct(
                 dwData = dwData,
@@ -576,21 +575,21 @@ public class Hszpair internal constructor(
                     Hszpair(
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<CVoid>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<CVoid>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                     )
                 override fun writeNative(addr: Long, value: Hszpair) {
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<CVoid>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr, value.hszSvc)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<CVoid>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.hszTopic)
                 }
             }

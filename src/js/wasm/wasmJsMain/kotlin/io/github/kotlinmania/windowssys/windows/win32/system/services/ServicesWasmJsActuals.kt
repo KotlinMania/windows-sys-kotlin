@@ -2,7 +2,6 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.system.services
 
-import io.github.kotlinmania.rustlang.core.ffi.CVoid
 import io.github.kotlinmania.rustlang.core.ptr.ConstPtr
 import io.github.kotlinmania.rustlang.core.ptr.MutPtr
 import io.github.kotlinmania.windowssys.core.Bool
@@ -13,7 +12,6 @@ import io.github.kotlinmania.windowssys.core.Pwstr
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Handle
 import io.github.kotlinmania.windowssys.windows.win32.security.ObjectSecurityInformation
 import io.github.kotlinmania.windowssys.windows.win32.security.PsecurityDescriptor
-import io.github.kotlinmania.windowssys.windows.win32.system.registry.Hkey
 
 @JsFun("() => { if (typeof globalThis.__km_napi_windowssys !== 'undefined') return globalThis.__km_napi_windowssys !== null; if (typeof process === 'undefined' || !process.versions || !process.versions.node) { globalThis.__km_napi_windowssys = null; return false; } var mod = process.getBuiltinModule ? process.getBuiltinModule('module') : (process.mainModule && process.mainModule.constructor); var req = (mod && mod.createRequire) ? mod.createRequire((process.cwd ? process.cwd() : '.') + '/package.json') : (process.mainModule ? process.mainModule.require : null); if (!req) { globalThis.__km_napi_windowssys = null; return false; } try { globalThis.__km_napi_windowssys = req('@kotlinmania/windowssys-native-bindings'); return true; } catch (_) {} var fs = req('fs'); var path = req('path'); var dir = process.cwd ? process.cwd() : '.'; var rels = ['windowssys_native.node', 'build/node-ffi/windowssys_native.node', 'build/node-ffi/release/windowssys_native.node', 'build/node-ffi/debug/windowssys_native.node', 'src/js/node-windowssys/build/Release/windowssys_native.node', 'src/js/node-windowssys/build/Debug/windowssys_native.node', 'src/js/node-windowssys/dist/build/Release/windowssys_native.node', 'src/js/node-windowssys/dist/build/Debug/windowssys_native.node']; for (var d = 0; d < 8; d++) { for (var i = 0; i < rels.length; i++) { var c = path.resolve(dir, rels[i]); if (fs.existsSync(c)) { globalThis.__km_napi_windowssys = req(c); return true; } } var parent = path.dirname(dir); if (parent === dir) break; dir = parent; } globalThis.__km_napi_windowssys = null; return false; }")
 private external fun initWindowsWin32SystemServicesNapiAddon(): Boolean
@@ -194,91 +192,91 @@ private external fun wasmWindowssysWindowsWin32SystemServicesUnsubscribeServiceC
 @JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemServicesWaitServiceState(p0, p1, p2, p3)")
 private external fun wasmWindowssysWindowsWin32SystemServicesWaitServiceState(p0: String, p1: Int, p2: Int, p3: String): Int
 
-public actual fun changeServiceConfig2A(hservice: ScHandle, dwinfolevel: ServiceConfig, lpinfo: ConstPtr<CVoid>): Bool =
+public actual fun changeServiceConfig2A(hservice: ScHandle, dwinfolevel: ServiceConfig, lpinfo: ConstPtr): Bool =
     if (windowsWin32SystemServicesNapiAvailable) wasmWindowssysWindowsWin32SystemServicesChangeServiceConfig2A(hservice.rawAddress.toString(), dwinfolevel.toInt(), lpinfo.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun changeServiceConfig2W(hservice: ScHandle, dwinfolevel: ServiceConfig, lpinfo: ConstPtr<CVoid>): Bool =
+public actual fun changeServiceConfig2W(hservice: ScHandle, dwinfolevel: ServiceConfig, lpinfo: ConstPtr): Bool =
     if (windowsWin32SystemServicesNapiAvailable) wasmWindowssysWindowsWin32SystemServicesChangeServiceConfig2W(hservice.rawAddress.toString(), dwinfolevel.toInt(), lpinfo.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun changeServiceConfigA(hservice: ScHandle, dwservicetype: EnumServiceType, dwstarttype: ServiceStartType, dwerrorcontrol: ServiceError, lpbinarypathname: Pcstr, lploadordergroup: Pcstr, lpdwtagid: MutPtr<UInt>, lpdependencies: Pcstr, lpservicestartname: Pcstr, lppassword: Pcstr, lpdisplayname: Pcstr): Bool =
+public actual fun changeServiceConfigA(hservice: ScHandle, dwservicetype: EnumServiceType, dwstarttype: ServiceStartType, dwerrorcontrol: ServiceError, lpbinarypathname: Pcstr, lploadordergroup: Pcstr, lpdwtagid: MutPtr, lpdependencies: Pcstr, lpservicestartname: Pcstr, lppassword: Pcstr, lpdisplayname: Pcstr): Bool =
     if (windowsWin32SystemServicesNapiAvailable) wasmWindowssysWindowsWin32SystemServicesChangeServiceConfigA(hservice.rawAddress.toString(), dwservicetype.toInt(), dwstarttype.toInt(), dwerrorcontrol.toInt(), lpbinarypathname.rawAddress.toString(), lploadordergroup.rawAddress.toString(), lpdwtagid.rawAddress.toString(), lpdependencies.rawAddress.toString(), lpservicestartname.rawAddress.toString(), lppassword.rawAddress.toString(), lpdisplayname.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun changeServiceConfigW(hservice: ScHandle, dwservicetype: EnumServiceType, dwstarttype: ServiceStartType, dwerrorcontrol: ServiceError, lpbinarypathname: Pcwstr, lploadordergroup: Pcwstr, lpdwtagid: MutPtr<UInt>, lpdependencies: Pcwstr, lpservicestartname: Pcwstr, lppassword: Pcwstr, lpdisplayname: Pcwstr): Bool =
+public actual fun changeServiceConfigW(hservice: ScHandle, dwservicetype: EnumServiceType, dwstarttype: ServiceStartType, dwerrorcontrol: ServiceError, lpbinarypathname: Pcwstr, lploadordergroup: Pcwstr, lpdwtagid: MutPtr, lpdependencies: Pcwstr, lpservicestartname: Pcwstr, lppassword: Pcwstr, lpdisplayname: Pcwstr): Bool =
     if (windowsWin32SystemServicesNapiAvailable) wasmWindowssysWindowsWin32SystemServicesChangeServiceConfigW(hservice.rawAddress.toString(), dwservicetype.toInt(), dwstarttype.toInt(), dwerrorcontrol.toInt(), lpbinarypathname.rawAddress.toString(), lploadordergroup.rawAddress.toString(), lpdwtagid.rawAddress.toString(), lpdependencies.rawAddress.toString(), lpservicestartname.rawAddress.toString(), lppassword.rawAddress.toString(), lpdisplayname.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun closeServiceHandle(hscobject: ScHandle): Bool =
     if (windowsWin32SystemServicesNapiAvailable) wasmWindowssysWindowsWin32SystemServicesCloseServiceHandle(hscobject.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun controlService(hservice: ScHandle, dwcontrol: UInt, lpservicestatus: MutPtr<ServiceStatus>): Bool =
+public actual fun controlService(hservice: ScHandle, dwcontrol: UInt, lpservicestatus: MutPtr): Bool =
     if (windowsWin32SystemServicesNapiAvailable) wasmWindowssysWindowsWin32SystemServicesControlService(hservice.rawAddress.toString(), dwcontrol.toInt(), lpservicestatus.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun controlServiceExA(hservice: ScHandle, dwcontrol: UInt, dwinfolevel: UInt, pcontrolparams: MutPtr<CVoid>): Bool =
+public actual fun controlServiceExA(hservice: ScHandle, dwcontrol: UInt, dwinfolevel: UInt, pcontrolparams: MutPtr): Bool =
     if (windowsWin32SystemServicesNapiAvailable) wasmWindowssysWindowsWin32SystemServicesControlServiceExA(hservice.rawAddress.toString(), dwcontrol.toInt(), dwinfolevel.toInt(), pcontrolparams.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun controlServiceExW(hservice: ScHandle, dwcontrol: UInt, dwinfolevel: UInt, pcontrolparams: MutPtr<CVoid>): Bool =
+public actual fun controlServiceExW(hservice: ScHandle, dwcontrol: UInt, dwinfolevel: UInt, pcontrolparams: MutPtr): Bool =
     if (windowsWin32SystemServicesNapiAvailable) wasmWindowssysWindowsWin32SystemServicesControlServiceExW(hservice.rawAddress.toString(), dwcontrol.toInt(), dwinfolevel.toInt(), pcontrolparams.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun createServiceA(hscmanager: ScHandle, lpservicename: Pcstr, lpdisplayname: Pcstr, dwdesiredaccess: UInt, dwservicetype: EnumServiceType, dwstarttype: ServiceStartType, dwerrorcontrol: ServiceError, lpbinarypathname: Pcstr, lploadordergroup: Pcstr, lpdwtagid: MutPtr<UInt>, lpdependencies: Pcstr, lpservicestartname: Pcstr, lppassword: Pcstr): ScHandle =
+public actual fun createServiceA(hscmanager: ScHandle, lpservicename: Pcstr, lpdisplayname: Pcstr, dwdesiredaccess: UInt, dwservicetype: EnumServiceType, dwstarttype: ServiceStartType, dwerrorcontrol: ServiceError, lpbinarypathname: Pcstr, lploadordergroup: Pcstr, lpdwtagid: MutPtr, lpdependencies: Pcstr, lpservicestartname: Pcstr, lppassword: Pcstr): ScHandle =
     if (windowsWin32SystemServicesNapiAvailable) MutPtr(wasmWindowssysWindowsWin32SystemServicesCreateServiceA(hscmanager.rawAddress.toString(), lpservicename.rawAddress.toString(), lpdisplayname.rawAddress.toString(), dwdesiredaccess.toInt(), dwservicetype.toInt(), dwstarttype.toInt(), dwerrorcontrol.toInt(), lpbinarypathname.rawAddress.toString(), lploadordergroup.rawAddress.toString(), lpdwtagid.rawAddress.toString(), lpdependencies.rawAddress.toString(), lpservicestartname.rawAddress.toString(), lppassword.rawAddress.toString()).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun createServiceW(hscmanager: ScHandle, lpservicename: Pcwstr, lpdisplayname: Pcwstr, dwdesiredaccess: UInt, dwservicetype: EnumServiceType, dwstarttype: ServiceStartType, dwerrorcontrol: ServiceError, lpbinarypathname: Pcwstr, lploadordergroup: Pcwstr, lpdwtagid: MutPtr<UInt>, lpdependencies: Pcwstr, lpservicestartname: Pcwstr, lppassword: Pcwstr): ScHandle =
+public actual fun createServiceW(hscmanager: ScHandle, lpservicename: Pcwstr, lpdisplayname: Pcwstr, dwdesiredaccess: UInt, dwservicetype: EnumServiceType, dwstarttype: ServiceStartType, dwerrorcontrol: ServiceError, lpbinarypathname: Pcwstr, lploadordergroup: Pcwstr, lpdwtagid: MutPtr, lpdependencies: Pcwstr, lpservicestartname: Pcwstr, lppassword: Pcwstr): ScHandle =
     if (windowsWin32SystemServicesNapiAvailable) MutPtr(wasmWindowssysWindowsWin32SystemServicesCreateServiceW(hscmanager.rawAddress.toString(), lpservicename.rawAddress.toString(), lpdisplayname.rawAddress.toString(), dwdesiredaccess.toInt(), dwservicetype.toInt(), dwstarttype.toInt(), dwerrorcontrol.toInt(), lpbinarypathname.rawAddress.toString(), lploadordergroup.rawAddress.toString(), lpdwtagid.rawAddress.toString(), lpdependencies.rawAddress.toString(), lpservicestartname.rawAddress.toString(), lppassword.rawAddress.toString()).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun deleteService(hservice: ScHandle): Bool =
     if (windowsWin32SystemServicesNapiAvailable) wasmWindowssysWindowsWin32SystemServicesDeleteService(hservice.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun enumDependentServicesA(hservice: ScHandle, dwservicestate: EnumServiceState, lpservices: MutPtr<EnumServiceStatusa>, cbbufsize: UInt, pcbbytesneeded: MutPtr<UInt>, lpservicesreturned: MutPtr<UInt>): Bool =
+public actual fun enumDependentServicesA(hservice: ScHandle, dwservicestate: EnumServiceState, lpservices: MutPtr, cbbufsize: UInt, pcbbytesneeded: MutPtr, lpservicesreturned: MutPtr): Bool =
     if (windowsWin32SystemServicesNapiAvailable) wasmWindowssysWindowsWin32SystemServicesEnumDependentServicesA(hservice.rawAddress.toString(), dwservicestate.toInt(), lpservices.rawAddress.toString(), cbbufsize.toInt(), pcbbytesneeded.rawAddress.toString(), lpservicesreturned.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun enumDependentServicesW(hservice: ScHandle, dwservicestate: EnumServiceState, lpservices: MutPtr<EnumServiceStatusw>, cbbufsize: UInt, pcbbytesneeded: MutPtr<UInt>, lpservicesreturned: MutPtr<UInt>): Bool =
+public actual fun enumDependentServicesW(hservice: ScHandle, dwservicestate: EnumServiceState, lpservices: MutPtr, cbbufsize: UInt, pcbbytesneeded: MutPtr, lpservicesreturned: MutPtr): Bool =
     if (windowsWin32SystemServicesNapiAvailable) wasmWindowssysWindowsWin32SystemServicesEnumDependentServicesW(hservice.rawAddress.toString(), dwservicestate.toInt(), lpservices.rawAddress.toString(), cbbufsize.toInt(), pcbbytesneeded.rawAddress.toString(), lpservicesreturned.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun enumServicesStatusA(hscmanager: ScHandle, dwservicetype: EnumServiceType, dwservicestate: EnumServiceState, lpservices: MutPtr<EnumServiceStatusa>, cbbufsize: UInt, pcbbytesneeded: MutPtr<UInt>, lpservicesreturned: MutPtr<UInt>, lpresumehandle: MutPtr<UInt>): Bool =
+public actual fun enumServicesStatusA(hscmanager: ScHandle, dwservicetype: EnumServiceType, dwservicestate: EnumServiceState, lpservices: MutPtr, cbbufsize: UInt, pcbbytesneeded: MutPtr, lpservicesreturned: MutPtr, lpresumehandle: MutPtr): Bool =
     if (windowsWin32SystemServicesNapiAvailable) wasmWindowssysWindowsWin32SystemServicesEnumServicesStatusA(hscmanager.rawAddress.toString(), dwservicetype.toInt(), dwservicestate.toInt(), lpservices.rawAddress.toString(), cbbufsize.toInt(), pcbbytesneeded.rawAddress.toString(), lpservicesreturned.rawAddress.toString(), lpresumehandle.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun enumServicesStatusExA(hscmanager: ScHandle, infolevel: ScEnumType, dwservicetype: EnumServiceType, dwservicestate: EnumServiceState, lpservices: MutPtr<UByte>, cbbufsize: UInt, pcbbytesneeded: MutPtr<UInt>, lpservicesreturned: MutPtr<UInt>, lpresumehandle: MutPtr<UInt>, pszgroupname: Pcstr): Bool =
+public actual fun enumServicesStatusExA(hscmanager: ScHandle, infolevel: ScEnumType, dwservicetype: EnumServiceType, dwservicestate: EnumServiceState, lpservices: MutPtr, cbbufsize: UInt, pcbbytesneeded: MutPtr, lpservicesreturned: MutPtr, lpresumehandle: MutPtr, pszgroupname: Pcstr): Bool =
     if (windowsWin32SystemServicesNapiAvailable) wasmWindowssysWindowsWin32SystemServicesEnumServicesStatusExA(hscmanager.rawAddress.toString(), infolevel, dwservicetype.toInt(), dwservicestate.toInt(), lpservices.rawAddress.toString(), cbbufsize.toInt(), pcbbytesneeded.rawAddress.toString(), lpservicesreturned.rawAddress.toString(), lpresumehandle.rawAddress.toString(), pszgroupname.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun enumServicesStatusExW(hscmanager: ScHandle, infolevel: ScEnumType, dwservicetype: EnumServiceType, dwservicestate: EnumServiceState, lpservices: MutPtr<UByte>, cbbufsize: UInt, pcbbytesneeded: MutPtr<UInt>, lpservicesreturned: MutPtr<UInt>, lpresumehandle: MutPtr<UInt>, pszgroupname: Pcwstr): Bool =
+public actual fun enumServicesStatusExW(hscmanager: ScHandle, infolevel: ScEnumType, dwservicetype: EnumServiceType, dwservicestate: EnumServiceState, lpservices: MutPtr, cbbufsize: UInt, pcbbytesneeded: MutPtr, lpservicesreturned: MutPtr, lpresumehandle: MutPtr, pszgroupname: Pcwstr): Bool =
     if (windowsWin32SystemServicesNapiAvailable) wasmWindowssysWindowsWin32SystemServicesEnumServicesStatusExW(hscmanager.rawAddress.toString(), infolevel, dwservicetype.toInt(), dwservicestate.toInt(), lpservices.rawAddress.toString(), cbbufsize.toInt(), pcbbytesneeded.rawAddress.toString(), lpservicesreturned.rawAddress.toString(), lpresumehandle.rawAddress.toString(), pszgroupname.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun enumServicesStatusW(hscmanager: ScHandle, dwservicetype: EnumServiceType, dwservicestate: EnumServiceState, lpservices: MutPtr<EnumServiceStatusw>, cbbufsize: UInt, pcbbytesneeded: MutPtr<UInt>, lpservicesreturned: MutPtr<UInt>, lpresumehandle: MutPtr<UInt>): Bool =
+public actual fun enumServicesStatusW(hscmanager: ScHandle, dwservicetype: EnumServiceType, dwservicestate: EnumServiceState, lpservices: MutPtr, cbbufsize: UInt, pcbbytesneeded: MutPtr, lpservicesreturned: MutPtr, lpresumehandle: MutPtr): Bool =
     if (windowsWin32SystemServicesNapiAvailable) wasmWindowssysWindowsWin32SystemServicesEnumServicesStatusW(hscmanager.rawAddress.toString(), dwservicetype.toInt(), dwservicestate.toInt(), lpservices.rawAddress.toString(), cbbufsize.toInt(), pcbbytesneeded.rawAddress.toString(), lpservicesreturned.rawAddress.toString(), lpresumehandle.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun getServiceDirectory(hservicestatus: ServiceStatusHandle, edirectorytype: ServiceDirectoryType, lppathbuffer: Pwstr, cchpathbufferlength: UInt, lpcchrequiredbufferlength: MutPtr<UInt>): UInt =
+public actual fun getServiceDirectory(hservicestatus: ServiceStatusHandle, edirectorytype: ServiceDirectoryType, lppathbuffer: Pwstr, cchpathbufferlength: UInt, lpcchrequiredbufferlength: MutPtr): UInt =
     if (windowsWin32SystemServicesNapiAvailable) wasmWindowssysWindowsWin32SystemServicesGetServiceDirectory(hservicestatus.rawAddress.toString(), edirectorytype, lppathbuffer.rawAddress.toString(), cchpathbufferlength.toInt(), lpcchrequiredbufferlength.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun getServiceDisplayNameA(hscmanager: ScHandle, lpservicename: Pcstr, lpdisplayname: Pstr, lpcchbuffer: MutPtr<UInt>): Bool =
+public actual fun getServiceDisplayNameA(hscmanager: ScHandle, lpservicename: Pcstr, lpdisplayname: Pstr, lpcchbuffer: MutPtr): Bool =
     if (windowsWin32SystemServicesNapiAvailable) wasmWindowssysWindowsWin32SystemServicesGetServiceDisplayNameA(hscmanager.rawAddress.toString(), lpservicename.rawAddress.toString(), lpdisplayname.rawAddress.toString(), lpcchbuffer.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun getServiceDisplayNameW(hscmanager: ScHandle, lpservicename: Pcwstr, lpdisplayname: Pwstr, lpcchbuffer: MutPtr<UInt>): Bool =
+public actual fun getServiceDisplayNameW(hscmanager: ScHandle, lpservicename: Pcwstr, lpdisplayname: Pwstr, lpcchbuffer: MutPtr): Bool =
     if (windowsWin32SystemServicesNapiAvailable) wasmWindowssysWindowsWin32SystemServicesGetServiceDisplayNameW(hscmanager.rawAddress.toString(), lpservicename.rawAddress.toString(), lpdisplayname.rawAddress.toString(), lpcchbuffer.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun getServiceKeyNameA(hscmanager: ScHandle, lpdisplayname: Pcstr, lpservicename: Pstr, lpcchbuffer: MutPtr<UInt>): Bool =
+public actual fun getServiceKeyNameA(hscmanager: ScHandle, lpdisplayname: Pcstr, lpservicename: Pstr, lpcchbuffer: MutPtr): Bool =
     if (windowsWin32SystemServicesNapiAvailable) wasmWindowssysWindowsWin32SystemServicesGetServiceKeyNameA(hscmanager.rawAddress.toString(), lpdisplayname.rawAddress.toString(), lpservicename.rawAddress.toString(), lpcchbuffer.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun getServiceKeyNameW(hscmanager: ScHandle, lpdisplayname: Pcwstr, lpservicename: Pwstr, lpcchbuffer: MutPtr<UInt>): Bool =
+public actual fun getServiceKeyNameW(hscmanager: ScHandle, lpdisplayname: Pcwstr, lpservicename: Pwstr, lpcchbuffer: MutPtr): Bool =
     if (windowsWin32SystemServicesNapiAvailable) wasmWindowssysWindowsWin32SystemServicesGetServiceKeyNameW(hscmanager.rawAddress.toString(), lpdisplayname.rawAddress.toString(), lpservicename.rawAddress.toString(), lpcchbuffer.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun getServiceRegistryStateKey(servicestatushandle: ServiceStatusHandle, statetype: ServiceRegistryStateType, accessmask: UInt, servicestatekey: MutPtr<Hkey>): UInt =
+public actual fun getServiceRegistryStateKey(servicestatushandle: ServiceStatusHandle, statetype: ServiceRegistryStateType, accessmask: UInt, servicestatekey: MutPtr): UInt =
     if (windowsWin32SystemServicesNapiAvailable) wasmWindowssysWindowsWin32SystemServicesGetServiceRegistryStateKey(servicestatushandle.rawAddress.toString(), statetype, accessmask.toInt(), servicestatekey.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun getSharedServiceDirectory(servicehandle: ScHandle, directorytype: ServiceSharedDirectoryType, pathbuffer: Pwstr, pathbufferlength: UInt, requiredbufferlength: MutPtr<UInt>): UInt =
+public actual fun getSharedServiceDirectory(servicehandle: ScHandle, directorytype: ServiceSharedDirectoryType, pathbuffer: Pwstr, pathbufferlength: UInt, requiredbufferlength: MutPtr): UInt =
     if (windowsWin32SystemServicesNapiAvailable) wasmWindowssysWindowsWin32SystemServicesGetSharedServiceDirectory(servicehandle.rawAddress.toString(), directorytype, pathbuffer.rawAddress.toString(), pathbufferlength.toInt(), requiredbufferlength.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun getSharedServiceRegistryStateKey(servicehandle: ScHandle, statetype: ServiceSharedRegistryStateType, accessmask: UInt, servicestatekey: MutPtr<Hkey>): UInt =
+public actual fun getSharedServiceRegistryStateKey(servicehandle: ScHandle, statetype: ServiceSharedRegistryStateType, accessmask: UInt, servicestatekey: MutPtr): UInt =
     if (windowsWin32SystemServicesNapiAvailable) wasmWindowssysWindowsWin32SystemServicesGetSharedServiceRegistryStateKey(servicehandle.rawAddress.toString(), statetype, accessmask.toInt(), servicestatekey.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun lockServiceDatabase(hscmanager: ScHandle): MutPtr<CVoid> =
+public actual fun lockServiceDatabase(hscmanager: ScHandle): MutPtr =
     if (windowsWin32SystemServicesNapiAvailable) MutPtr(wasmWindowssysWindowsWin32SystemServicesLockServiceDatabase(hscmanager.rawAddress.toString()).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun notifyBootConfigStatus(bootacceptable: Bool): Bool =
     if (windowsWin32SystemServicesNapiAvailable) wasmWindowssysWindowsWin32SystemServicesNotifyBootConfigStatus(bootacceptable) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun notifyServiceStatusChangeA(hservice: ScHandle, dwnotifymask: ServiceNotify, pnotifybuffer: ConstPtr<ServiceNotify2a>): UInt =
+public actual fun notifyServiceStatusChangeA(hservice: ScHandle, dwnotifymask: ServiceNotify, pnotifybuffer: ConstPtr): UInt =
     if (windowsWin32SystemServicesNapiAvailable) wasmWindowssysWindowsWin32SystemServicesNotifyServiceStatusChangeA(hservice.rawAddress.toString(), dwnotifymask.toInt(), pnotifybuffer.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun notifyServiceStatusChangeW(hservice: ScHandle, dwnotifymask: ServiceNotify, pnotifybuffer: ConstPtr<ServiceNotify2w>): UInt =
+public actual fun notifyServiceStatusChangeW(hservice: ScHandle, dwnotifymask: ServiceNotify, pnotifybuffer: ConstPtr): UInt =
     if (windowsWin32SystemServicesNapiAvailable) wasmWindowssysWindowsWin32SystemServicesNotifyServiceStatusChangeW(hservice.rawAddress.toString(), dwnotifymask.toInt(), pnotifybuffer.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun openSCManagerA(lpmachinename: Pcstr, lpdatabasename: Pcstr, dwdesiredaccess: UInt): ScHandle =
@@ -293,43 +291,43 @@ public actual fun openServiceA(hscmanager: ScHandle, lpservicename: Pcstr, dwdes
 public actual fun openServiceW(hscmanager: ScHandle, lpservicename: Pcwstr, dwdesiredaccess: UInt): ScHandle =
     if (windowsWin32SystemServicesNapiAvailable) MutPtr(wasmWindowssysWindowsWin32SystemServicesOpenServiceW(hscmanager.rawAddress.toString(), lpservicename.rawAddress.toString(), dwdesiredaccess.toInt()).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun queryServiceConfig2A(hservice: ScHandle, dwinfolevel: ServiceConfig, lpbuffer: MutPtr<UByte>, cbbufsize: UInt, pcbbytesneeded: MutPtr<UInt>): Bool =
+public actual fun queryServiceConfig2A(hservice: ScHandle, dwinfolevel: ServiceConfig, lpbuffer: MutPtr, cbbufsize: UInt, pcbbytesneeded: MutPtr): Bool =
     if (windowsWin32SystemServicesNapiAvailable) wasmWindowssysWindowsWin32SystemServicesQueryServiceConfig2A(hservice.rawAddress.toString(), dwinfolevel.toInt(), lpbuffer.rawAddress.toString(), cbbufsize.toInt(), pcbbytesneeded.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun queryServiceConfig2W(hservice: ScHandle, dwinfolevel: ServiceConfig, lpbuffer: MutPtr<UByte>, cbbufsize: UInt, pcbbytesneeded: MutPtr<UInt>): Bool =
+public actual fun queryServiceConfig2W(hservice: ScHandle, dwinfolevel: ServiceConfig, lpbuffer: MutPtr, cbbufsize: UInt, pcbbytesneeded: MutPtr): Bool =
     if (windowsWin32SystemServicesNapiAvailable) wasmWindowssysWindowsWin32SystemServicesQueryServiceConfig2W(hservice.rawAddress.toString(), dwinfolevel.toInt(), lpbuffer.rawAddress.toString(), cbbufsize.toInt(), pcbbytesneeded.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun queryServiceConfigA(hservice: ScHandle, lpserviceconfig: MutPtr<QueryServiceConfiga>, cbbufsize: UInt, pcbbytesneeded: MutPtr<UInt>): Bool =
+public actual fun queryServiceConfigA(hservice: ScHandle, lpserviceconfig: MutPtr, cbbufsize: UInt, pcbbytesneeded: MutPtr): Bool =
     if (windowsWin32SystemServicesNapiAvailable) wasmWindowssysWindowsWin32SystemServicesQueryServiceConfigA(hservice.rawAddress.toString(), lpserviceconfig.rawAddress.toString(), cbbufsize.toInt(), pcbbytesneeded.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun queryServiceConfigW(hservice: ScHandle, lpserviceconfig: MutPtr<QueryServiceConfigw>, cbbufsize: UInt, pcbbytesneeded: MutPtr<UInt>): Bool =
+public actual fun queryServiceConfigW(hservice: ScHandle, lpserviceconfig: MutPtr, cbbufsize: UInt, pcbbytesneeded: MutPtr): Bool =
     if (windowsWin32SystemServicesNapiAvailable) wasmWindowssysWindowsWin32SystemServicesQueryServiceConfigW(hservice.rawAddress.toString(), lpserviceconfig.rawAddress.toString(), cbbufsize.toInt(), pcbbytesneeded.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun queryServiceDynamicInformation(hservicestatus: ServiceStatusHandle, dwinfolevel: UInt, ppdynamicinfo: MutPtr<MutPtr<CVoid>>): Bool =
+public actual fun queryServiceDynamicInformation(hservicestatus: ServiceStatusHandle, dwinfolevel: UInt, ppdynamicinfo: MutPtr): Bool =
     if (windowsWin32SystemServicesNapiAvailable) wasmWindowssysWindowsWin32SystemServicesQueryServiceDynamicInformation(hservicestatus.rawAddress.toString(), dwinfolevel.toInt(), ppdynamicinfo.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun queryServiceLockStatusA(hscmanager: ScHandle, lplockstatus: MutPtr<QueryServiceLockStatusa>, cbbufsize: UInt, pcbbytesneeded: MutPtr<UInt>): Bool =
+public actual fun queryServiceLockStatusA(hscmanager: ScHandle, lplockstatus: MutPtr, cbbufsize: UInt, pcbbytesneeded: MutPtr): Bool =
     if (windowsWin32SystemServicesNapiAvailable) wasmWindowssysWindowsWin32SystemServicesQueryServiceLockStatusA(hscmanager.rawAddress.toString(), lplockstatus.rawAddress.toString(), cbbufsize.toInt(), pcbbytesneeded.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun queryServiceLockStatusW(hscmanager: ScHandle, lplockstatus: MutPtr<QueryServiceLockStatusw>, cbbufsize: UInt, pcbbytesneeded: MutPtr<UInt>): Bool =
+public actual fun queryServiceLockStatusW(hscmanager: ScHandle, lplockstatus: MutPtr, cbbufsize: UInt, pcbbytesneeded: MutPtr): Bool =
     if (windowsWin32SystemServicesNapiAvailable) wasmWindowssysWindowsWin32SystemServicesQueryServiceLockStatusW(hscmanager.rawAddress.toString(), lplockstatus.rawAddress.toString(), cbbufsize.toInt(), pcbbytesneeded.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun queryServiceObjectSecurity(hservice: ScHandle, dwsecurityinformation: UInt, lpsecuritydescriptor: PsecurityDescriptor, cbbufsize: UInt, pcbbytesneeded: MutPtr<UInt>): Bool =
+public actual fun queryServiceObjectSecurity(hservice: ScHandle, dwsecurityinformation: UInt, lpsecuritydescriptor: PsecurityDescriptor, cbbufsize: UInt, pcbbytesneeded: MutPtr): Bool =
     if (windowsWin32SystemServicesNapiAvailable) wasmWindowssysWindowsWin32SystemServicesQueryServiceObjectSecurity(hservice.rawAddress.toString(), dwsecurityinformation.toInt(), lpsecuritydescriptor.rawAddress.toString(), cbbufsize.toInt(), pcbbytesneeded.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun queryServiceStatus(hservice: ScHandle, lpservicestatus: MutPtr<ServiceStatus>): Bool =
+public actual fun queryServiceStatus(hservice: ScHandle, lpservicestatus: MutPtr): Bool =
     if (windowsWin32SystemServicesNapiAvailable) wasmWindowssysWindowsWin32SystemServicesQueryServiceStatus(hservice.rawAddress.toString(), lpservicestatus.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun queryServiceStatusEx(hservice: ScHandle, infolevel: ScStatusType, lpbuffer: MutPtr<UByte>, cbbufsize: UInt, pcbbytesneeded: MutPtr<UInt>): Bool =
+public actual fun queryServiceStatusEx(hservice: ScHandle, infolevel: ScStatusType, lpbuffer: MutPtr, cbbufsize: UInt, pcbbytesneeded: MutPtr): Bool =
     if (windowsWin32SystemServicesNapiAvailable) wasmWindowssysWindowsWin32SystemServicesQueryServiceStatusEx(hservice.rawAddress.toString(), infolevel, lpbuffer.rawAddress.toString(), cbbufsize.toInt(), pcbbytesneeded.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun registerServiceCtrlHandlerA(lpservicename: Pcstr, lphandlerproc: LphandlerFunction): ServiceStatusHandle =
     if (windowsWin32SystemServicesNapiAvailable) MutPtr(wasmWindowssysWindowsWin32SystemServicesRegisterServiceCtrlHandlerA(lpservicename.rawAddress.toString(), 0L.toString()).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun registerServiceCtrlHandlerExA(lpservicename: Pcstr, lphandlerproc: LphandlerFunctionEx, lpcontext: ConstPtr<CVoid>): ServiceStatusHandle =
+public actual fun registerServiceCtrlHandlerExA(lpservicename: Pcstr, lphandlerproc: LphandlerFunctionEx, lpcontext: ConstPtr): ServiceStatusHandle =
     if (windowsWin32SystemServicesNapiAvailable) MutPtr(wasmWindowssysWindowsWin32SystemServicesRegisterServiceCtrlHandlerExA(lpservicename.rawAddress.toString(), 0L.toString(), lpcontext.rawAddress.toString()).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun registerServiceCtrlHandlerExW(lpservicename: Pcwstr, lphandlerproc: LphandlerFunctionEx, lpcontext: ConstPtr<CVoid>): ServiceStatusHandle =
+public actual fun registerServiceCtrlHandlerExW(lpservicename: Pcwstr, lphandlerproc: LphandlerFunctionEx, lpcontext: ConstPtr): ServiceStatusHandle =
     if (windowsWin32SystemServicesNapiAvailable) MutPtr(wasmWindowssysWindowsWin32SystemServicesRegisterServiceCtrlHandlerExW(lpservicename.rawAddress.toString(), 0L.toString(), lpcontext.rawAddress.toString()).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun registerServiceCtrlHandlerW(lpservicename: Pcwstr, lphandlerproc: LphandlerFunction): ServiceStatusHandle =
@@ -341,25 +339,25 @@ public actual fun setServiceBits(hservicestatus: ServiceStatusHandle, dwserviceb
 public actual fun setServiceObjectSecurity(hservice: ScHandle, dwsecurityinformation: ObjectSecurityInformation, lpsecuritydescriptor: PsecurityDescriptor): Bool =
     if (windowsWin32SystemServicesNapiAvailable) wasmWindowssysWindowsWin32SystemServicesSetServiceObjectSecurity(hservice.rawAddress.toString(), dwsecurityinformation.toInt(), lpsecuritydescriptor.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun setServiceStatus(hservicestatus: ServiceStatusHandle, lpservicestatus: ConstPtr<ServiceStatus>): Bool =
+public actual fun setServiceStatus(hservicestatus: ServiceStatusHandle, lpservicestatus: ConstPtr): Bool =
     if (windowsWin32SystemServicesNapiAvailable) wasmWindowssysWindowsWin32SystemServicesSetServiceStatus(hservicestatus.rawAddress.toString(), lpservicestatus.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun startServiceA(hservice: ScHandle, dwnumserviceargs: UInt, lpserviceargvectors: ConstPtr<Pcstr>): Bool =
+public actual fun startServiceA(hservice: ScHandle, dwnumserviceargs: UInt, lpserviceargvectors: ConstPtr): Bool =
     if (windowsWin32SystemServicesNapiAvailable) wasmWindowssysWindowsWin32SystemServicesStartServiceA(hservice.rawAddress.toString(), dwnumserviceargs.toInt(), lpserviceargvectors.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun startServiceCtrlDispatcherA(lpservicestarttable: ConstPtr<ServiceTableEntrya>): Bool =
+public actual fun startServiceCtrlDispatcherA(lpservicestarttable: ConstPtr): Bool =
     if (windowsWin32SystemServicesNapiAvailable) wasmWindowssysWindowsWin32SystemServicesStartServiceCtrlDispatcherA(lpservicestarttable.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun startServiceCtrlDispatcherW(lpservicestarttable: ConstPtr<ServiceTableEntryw>): Bool =
+public actual fun startServiceCtrlDispatcherW(lpservicestarttable: ConstPtr): Bool =
     if (windowsWin32SystemServicesNapiAvailable) wasmWindowssysWindowsWin32SystemServicesStartServiceCtrlDispatcherW(lpservicestarttable.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun startServiceW(hservice: ScHandle, dwnumserviceargs: UInt, lpserviceargvectors: ConstPtr<Pcwstr>): Bool =
+public actual fun startServiceW(hservice: ScHandle, dwnumserviceargs: UInt, lpserviceargvectors: ConstPtr): Bool =
     if (windowsWin32SystemServicesNapiAvailable) wasmWindowssysWindowsWin32SystemServicesStartServiceW(hservice.rawAddress.toString(), dwnumserviceargs.toInt(), lpserviceargvectors.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun subscribeServiceChangeNotifications(hservice: ScHandle, eeventtype: ScEventType, pcallback: PscNotificationCallback, pcallbackcontext: ConstPtr<CVoid>, psubscription: MutPtr<PscNotificationRegistration>): UInt =
+public actual fun subscribeServiceChangeNotifications(hservice: ScHandle, eeventtype: ScEventType, pcallback: PscNotificationCallback, pcallbackcontext: ConstPtr, psubscription: MutPtr): UInt =
     if (windowsWin32SystemServicesNapiAvailable) wasmWindowssysWindowsWin32SystemServicesSubscribeServiceChangeNotifications(hservice.rawAddress.toString(), eeventtype, 0L.toString(), pcallbackcontext.rawAddress.toString(), psubscription.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun unlockServiceDatabase(sclock: ConstPtr<CVoid>): Bool =
+public actual fun unlockServiceDatabase(sclock: ConstPtr): Bool =
     if (windowsWin32SystemServicesNapiAvailable) wasmWindowssysWindowsWin32SystemServicesUnlockServiceDatabase(sclock.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun unsubscribeServiceChangeNotifications(psubscription: PscNotificationRegistration) {

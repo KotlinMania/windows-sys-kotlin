@@ -2,7 +2,6 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.graphics.gdi
 
-import io.github.kotlinmania.rustlang.core.ffi.CVoid
 import io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
 import io.github.kotlinmania.rustlang.core.mem.TypeLayout
 import io.github.kotlinmania.rustlang.core.ptr.ConstPtr
@@ -253,9 +252,9 @@ public class Bitmap internal constructor(
     public var bmWidthBytes: Int,
     public var bmPlanes: UShort,
     public var bmBitsPixel: UShort,
-    bmBitsCtorArg: MutPtr<CVoid>,
+    bmBitsCtorArg: MutPtr,
 ) {
-    public var bmBits: MutPtr<CVoid> = bmBitsCtorArg
+    public var bmBits: MutPtr = bmBitsCtorArg
         internal set
 
     public constructor() : this(
@@ -280,9 +279,9 @@ public class Bitmap internal constructor(
 
     public operator fun component6(): UShort = this.bmBitsPixel
 
-    public operator fun component7(): MutPtr<CVoid> = this.bmBits
+    public operator fun component7(): MutPtr = this.bmBits
 
-    public fun copy(bmType: Int = this.bmType, bmWidth: Int = this.bmWidth, bmHeight: Int = this.bmHeight, bmWidthBytes: Int = this.bmWidthBytes, bmPlanes: UShort = this.bmPlanes, bmBitsPixel: UShort = this.bmBitsPixel, bmBits: MutPtr<CVoid> = this.bmBits): Bitmap = Bitmap(bmType = bmType, bmWidth = bmWidth, bmHeight = bmHeight, bmWidthBytes = bmWidthBytes, bmPlanes = bmPlanes, bmBitsPixel = bmBitsPixel, bmBitsCtorArg = bmBits)
+    public fun copy(bmType: Int = this.bmType, bmWidth: Int = this.bmWidth, bmHeight: Int = this.bmHeight, bmWidthBytes: Int = this.bmWidthBytes, bmPlanes: UShort = this.bmPlanes, bmBitsPixel: UShort = this.bmBitsPixel, bmBits: MutPtr = this.bmBits): Bitmap = Bitmap(bmType = bmType, bmWidth = bmWidth, bmHeight = bmHeight, bmWidthBytes = bmWidthBytes, bmPlanes = bmPlanes, bmBitsPixel = bmBitsPixel, bmBitsCtorArg = bmBits)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -323,7 +322,7 @@ public class Bitmap internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16).readNative(addr + 18L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<CVoid>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 24L),
                     )
                 override fun writeNative(addr: Long, value: Bitmap) {
@@ -335,7 +334,7 @@ public class Bitmap internal constructor(
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16).writeNative(addr + 18L, value.bmBitsPixel)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<CVoid>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 24L, value.bmBits)
                 }
             }
@@ -347,7 +346,7 @@ public class Bitmap internal constructor(
             bmWidthBytes: Int = 0,
             bmPlanes: UShort = 0u,
             bmBitsPixel: UShort = 0u,
-            bmBits: MutPtr<CVoid> = MutPtr(0L),
+            bmBits: MutPtr = MutPtr(0L),
         ): Bitmap =
             Bitmap(
                 bmType = bmType,
@@ -3545,9 +3544,9 @@ public data class Fixed(
 public class GcpResultsa internal constructor(
     public var lStructSize: UInt,
     lpOutStringCtorArg: Pstr,
-    lpOrderCtorArg: MutPtr<UInt>,
-    lpDxCtorArg: MutPtr<Int>,
-    lpCaretPosCtorArg: MutPtr<Int>,
+    lpOrderCtorArg: MutPtr,
+    lpDxCtorArg: MutPtr,
+    lpCaretPosCtorArg: MutPtr,
     lpClassCtorArg: Pstr,
     lpGlyphsCtorArg: Pwstr,
     public var nGlyphs: UInt,
@@ -3556,13 +3555,13 @@ public class GcpResultsa internal constructor(
     public var lpOutString: Pstr = lpOutStringCtorArg
         internal set
 
-    public var lpOrder: MutPtr<UInt> = lpOrderCtorArg
+    public var lpOrder: MutPtr = lpOrderCtorArg
         internal set
 
-    public var lpDx: MutPtr<Int> = lpDxCtorArg
+    public var lpDx: MutPtr = lpDxCtorArg
         internal set
 
-    public var lpCaretPos: MutPtr<Int> = lpCaretPosCtorArg
+    public var lpCaretPos: MutPtr = lpCaretPosCtorArg
         internal set
 
     public var lpClass: Pstr = lpClassCtorArg
@@ -3587,11 +3586,11 @@ public class GcpResultsa internal constructor(
 
     public operator fun component2(): Pstr = this.lpOutString
 
-    public operator fun component3(): MutPtr<UInt> = this.lpOrder
+    public operator fun component3(): MutPtr = this.lpOrder
 
-    public operator fun component4(): MutPtr<Int> = this.lpDx
+    public operator fun component4(): MutPtr = this.lpDx
 
-    public operator fun component5(): MutPtr<Int> = this.lpCaretPos
+    public operator fun component5(): MutPtr = this.lpCaretPos
 
     public operator fun component6(): Pstr = this.lpClass
 
@@ -3601,7 +3600,7 @@ public class GcpResultsa internal constructor(
 
     public operator fun component9(): Int = this.nMaxFit
 
-    public fun copy(lStructSize: UInt = this.lStructSize, lpOutString: Pstr = this.lpOutString, lpOrder: MutPtr<UInt> = this.lpOrder, lpDx: MutPtr<Int> = this.lpDx, lpCaretPos: MutPtr<Int> = this.lpCaretPos, lpClass: Pstr = this.lpClass, lpGlyphs: Pwstr = this.lpGlyphs, nGlyphs: UInt = this.nGlyphs, nMaxFit: Int = this.nMaxFit): GcpResultsa = GcpResultsa(lStructSize = lStructSize, lpOutStringCtorArg = lpOutString, lpOrderCtorArg = lpOrder, lpDxCtorArg = lpDx, lpCaretPosCtorArg = lpCaretPos, lpClassCtorArg = lpClass, lpGlyphsCtorArg = lpGlyphs, nGlyphs = nGlyphs, nMaxFit = nMaxFit)
+    public fun copy(lStructSize: UInt = this.lStructSize, lpOutString: Pstr = this.lpOutString, lpOrder: MutPtr = this.lpOrder, lpDx: MutPtr = this.lpDx, lpCaretPos: MutPtr = this.lpCaretPos, lpClass: Pstr = this.lpClass, lpGlyphs: Pwstr = this.lpGlyphs, nGlyphs: UInt = this.nGlyphs, nMaxFit: Int = this.nMaxFit): GcpResultsa = GcpResultsa(lStructSize = lStructSize, lpOutStringCtorArg = lpOutString, lpOrderCtorArg = lpOrder, lpDxCtorArg = lpDx, lpCaretPosCtorArg = lpCaretPos, lpClassCtorArg = lpClass, lpGlyphsCtorArg = lpGlyphs, nGlyphs = nGlyphs, nMaxFit = nMaxFit)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -3635,9 +3634,9 @@ public class GcpResultsa internal constructor(
         public operator fun invoke(
             lStructSize: UInt = 0u,
             lpOutString: Pstr = MutPtr(0L),
-            lpOrder: MutPtr<UInt> = MutPtr(0L),
-            lpDx: MutPtr<Int> = MutPtr(0L),
-            lpCaretPos: MutPtr<Int> = MutPtr(0L),
+            lpOrder: MutPtr = MutPtr(0L),
+            lpDx: MutPtr = MutPtr(0L),
+            lpCaretPos: MutPtr = MutPtr(0L),
             lpClass: Pstr = MutPtr(0L),
             lpGlyphs: Pwstr = MutPtr(0L),
             nGlyphs: UInt = 0u,
@@ -3660,9 +3659,9 @@ public class GcpResultsa internal constructor(
 public class GcpResultsw internal constructor(
     public var lStructSize: UInt,
     lpOutStringCtorArg: Pwstr,
-    lpOrderCtorArg: MutPtr<UInt>,
-    lpDxCtorArg: MutPtr<Int>,
-    lpCaretPosCtorArg: MutPtr<Int>,
+    lpOrderCtorArg: MutPtr,
+    lpDxCtorArg: MutPtr,
+    lpCaretPosCtorArg: MutPtr,
     lpClassCtorArg: Pstr,
     lpGlyphsCtorArg: Pwstr,
     public var nGlyphs: UInt,
@@ -3671,13 +3670,13 @@ public class GcpResultsw internal constructor(
     public var lpOutString: Pwstr = lpOutStringCtorArg
         internal set
 
-    public var lpOrder: MutPtr<UInt> = lpOrderCtorArg
+    public var lpOrder: MutPtr = lpOrderCtorArg
         internal set
 
-    public var lpDx: MutPtr<Int> = lpDxCtorArg
+    public var lpDx: MutPtr = lpDxCtorArg
         internal set
 
-    public var lpCaretPos: MutPtr<Int> = lpCaretPosCtorArg
+    public var lpCaretPos: MutPtr = lpCaretPosCtorArg
         internal set
 
     public var lpClass: Pstr = lpClassCtorArg
@@ -3702,11 +3701,11 @@ public class GcpResultsw internal constructor(
 
     public operator fun component2(): Pwstr = this.lpOutString
 
-    public operator fun component3(): MutPtr<UInt> = this.lpOrder
+    public operator fun component3(): MutPtr = this.lpOrder
 
-    public operator fun component4(): MutPtr<Int> = this.lpDx
+    public operator fun component4(): MutPtr = this.lpDx
 
-    public operator fun component5(): MutPtr<Int> = this.lpCaretPos
+    public operator fun component5(): MutPtr = this.lpCaretPos
 
     public operator fun component6(): Pstr = this.lpClass
 
@@ -3716,7 +3715,7 @@ public class GcpResultsw internal constructor(
 
     public operator fun component9(): Int = this.nMaxFit
 
-    public fun copy(lStructSize: UInt = this.lStructSize, lpOutString: Pwstr = this.lpOutString, lpOrder: MutPtr<UInt> = this.lpOrder, lpDx: MutPtr<Int> = this.lpDx, lpCaretPos: MutPtr<Int> = this.lpCaretPos, lpClass: Pstr = this.lpClass, lpGlyphs: Pwstr = this.lpGlyphs, nGlyphs: UInt = this.nGlyphs, nMaxFit: Int = this.nMaxFit): GcpResultsw = GcpResultsw(lStructSize = lStructSize, lpOutStringCtorArg = lpOutString, lpOrderCtorArg = lpOrder, lpDxCtorArg = lpDx, lpCaretPosCtorArg = lpCaretPos, lpClassCtorArg = lpClass, lpGlyphsCtorArg = lpGlyphs, nGlyphs = nGlyphs, nMaxFit = nMaxFit)
+    public fun copy(lStructSize: UInt = this.lStructSize, lpOutString: Pwstr = this.lpOutString, lpOrder: MutPtr = this.lpOrder, lpDx: MutPtr = this.lpDx, lpCaretPos: MutPtr = this.lpCaretPos, lpClass: Pstr = this.lpClass, lpGlyphs: Pwstr = this.lpGlyphs, nGlyphs: UInt = this.nGlyphs, nMaxFit: Int = this.nMaxFit): GcpResultsw = GcpResultsw(lStructSize = lStructSize, lpOutStringCtorArg = lpOutString, lpOrderCtorArg = lpOrder, lpDxCtorArg = lpDx, lpCaretPosCtorArg = lpCaretPos, lpClassCtorArg = lpClass, lpGlyphsCtorArg = lpGlyphs, nGlyphs = nGlyphs, nMaxFit = nMaxFit)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -3750,9 +3749,9 @@ public class GcpResultsw internal constructor(
         public operator fun invoke(
             lStructSize: UInt = 0u,
             lpOutString: Pwstr = MutPtr(0L),
-            lpOrder: MutPtr<UInt> = MutPtr(0L),
-            lpDx: MutPtr<Int> = MutPtr(0L),
-            lpCaretPos: MutPtr<Int> = MutPtr(0L),
+            lpOrder: MutPtr = MutPtr(0L),
+            lpDx: MutPtr = MutPtr(0L),
+            lpCaretPos: MutPtr = MutPtr(0L),
             lpClass: Pstr = MutPtr(0L),
             lpGlyphs: Pwstr = MutPtr(0L),
             nGlyphs: UInt = 0u,
@@ -3898,7 +3897,7 @@ public class Handletable internal constructor(
                             io.github.kotlinmania.rustlang.core.mem
                                 .FixedArrayTypeLayout(
                                     io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                        .mutPtrLayout<CVoid>(64),
+                                        .mutPtrLayout(64),
                                     (1).toInt(),
                                 )
                         ).readNative(addr),
@@ -3908,7 +3907,7 @@ public class Handletable internal constructor(
                         io.github.kotlinmania.rustlang.core.mem
                             .FixedArrayTypeLayout(
                                 io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                    .mutPtrLayout<CVoid>(64),
+                                    .mutPtrLayout(64),
                                 (1).toInt(),
                             )
                     ).writeNative(addr, value.objectHandle)
@@ -5089,12 +5088,12 @@ public class Polytexta internal constructor(
     lpstrCtorArg: Pcstr,
     public var uiFlags: UInt,
     public var rcl: Rect,
-    pdxCtorArg: MutPtr<Int>,
+    pdxCtorArg: MutPtr,
 ) {
     public var lpstr: Pcstr = lpstrCtorArg
         internal set
 
-    public var pdx: MutPtr<Int> = pdxCtorArg
+    public var pdx: MutPtr = pdxCtorArg
         internal set
 
     public constructor() : this(
@@ -5119,9 +5118,9 @@ public class Polytexta internal constructor(
 
     public operator fun component6(): Rect = this.rcl
 
-    public operator fun component7(): MutPtr<Int> = this.pdx
+    public operator fun component7(): MutPtr = this.pdx
 
-    public fun copy(x: Int = this.x, y: Int = this.y, n: UInt = this.n, lpstr: Pcstr = this.lpstr, uiFlags: UInt = this.uiFlags, rcl: Rect = this.rcl, pdx: MutPtr<Int> = this.pdx): Polytexta = Polytexta(x = x, y = y, n = n, lpstrCtorArg = lpstr, uiFlags = uiFlags, rcl = rcl, pdxCtorArg = pdx)
+    public fun copy(x: Int = this.x, y: Int = this.y, n: UInt = this.n, lpstr: Pcstr = this.lpstr, uiFlags: UInt = this.uiFlags, rcl: Rect = this.rcl, pdx: MutPtr = this.pdx): Polytexta = Polytexta(x = x, y = y, n = n, lpstrCtorArg = lpstr, uiFlags = uiFlags, rcl = rcl, pdxCtorArg = pdx)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -5155,7 +5154,7 @@ public class Polytexta internal constructor(
             lpstr: Pcstr = ConstPtr(0L),
             uiFlags: UInt = 0u,
             rcl: Rect = Rect(),
-            pdx: MutPtr<Int> = MutPtr(0L),
+            pdx: MutPtr = MutPtr(0L),
         ): Polytexta =
             Polytexta(
                 x = x,
@@ -5176,12 +5175,12 @@ public class Polytextw internal constructor(
     lpstrCtorArg: Pcwstr,
     public var uiFlags: UInt,
     public var rcl: Rect,
-    pdxCtorArg: MutPtr<Int>,
+    pdxCtorArg: MutPtr,
 ) {
     public var lpstr: Pcwstr = lpstrCtorArg
         internal set
 
-    public var pdx: MutPtr<Int> = pdxCtorArg
+    public var pdx: MutPtr = pdxCtorArg
         internal set
 
     public constructor() : this(
@@ -5206,9 +5205,9 @@ public class Polytextw internal constructor(
 
     public operator fun component6(): Rect = this.rcl
 
-    public operator fun component7(): MutPtr<Int> = this.pdx
+    public operator fun component7(): MutPtr = this.pdx
 
-    public fun copy(x: Int = this.x, y: Int = this.y, n: UInt = this.n, lpstr: Pcwstr = this.lpstr, uiFlags: UInt = this.uiFlags, rcl: Rect = this.rcl, pdx: MutPtr<Int> = this.pdx): Polytextw = Polytextw(x = x, y = y, n = n, lpstrCtorArg = lpstr, uiFlags = uiFlags, rcl = rcl, pdxCtorArg = pdx)
+    public fun copy(x: Int = this.x, y: Int = this.y, n: UInt = this.n, lpstr: Pcwstr = this.lpstr, uiFlags: UInt = this.uiFlags, rcl: Rect = this.rcl, pdx: MutPtr = this.pdx): Polytextw = Polytextw(x = x, y = y, n = n, lpstrCtorArg = lpstr, uiFlags = uiFlags, rcl = rcl, pdxCtorArg = pdx)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -5242,7 +5241,7 @@ public class Polytextw internal constructor(
             lpstr: Pcwstr = ConstPtr(0L),
             uiFlags: UInt = 0u,
             rcl: Rect = Rect(),
-            pdx: MutPtr<Int> = MutPtr(0L),
+            pdx: MutPtr = MutPtr(0L),
         ): Polytextw =
             Polytextw(
                 x = x,
@@ -5550,9 +5549,9 @@ public data class Trivertex(
 public class Ttembedinfo internal constructor(
     public var usStructSize: UShort,
     public var usRootStrSize: UShort,
-    pusRootStrCtorArg: MutPtr<UShort>,
+    pusRootStrCtorArg: MutPtr,
 ) {
-    public var pusRootStr: MutPtr<UShort> = pusRootStrCtorArg
+    public var pusRootStr: MutPtr = pusRootStrCtorArg
         internal set
 
     public constructor() : this(
@@ -5565,9 +5564,9 @@ public class Ttembedinfo internal constructor(
 
     public operator fun component2(): UShort = this.usRootStrSize
 
-    public operator fun component3(): MutPtr<UShort> = this.pusRootStr
+    public operator fun component3(): MutPtr = this.pusRootStr
 
-    public fun copy(usStructSize: UShort = this.usStructSize, usRootStrSize: UShort = this.usRootStrSize, pusRootStr: MutPtr<UShort> = this.pusRootStr): Ttembedinfo = Ttembedinfo(usStructSize = usStructSize, usRootStrSize = usRootStrSize, pusRootStrCtorArg = pusRootStr)
+    public fun copy(usStructSize: UShort = this.usStructSize, usRootStrSize: UShort = this.usRootStrSize, pusRootStr: MutPtr = this.pusRootStr): Ttembedinfo = Ttembedinfo(usStructSize = usStructSize, usRootStrSize = usRootStrSize, pusRootStrCtorArg = pusRootStr)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -5596,7 +5595,7 @@ public class Ttembedinfo internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16).readNative(addr + 2L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<UShort>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                     )
                 override fun writeNative(addr: Long, value: Ttembedinfo) {
@@ -5604,7 +5603,7 @@ public class Ttembedinfo internal constructor(
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16).writeNative(addr + 2L, value.usRootStrSize)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<UShort>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.pusRootStr)
                 }
             }
@@ -5612,7 +5611,7 @@ public class Ttembedinfo internal constructor(
         public operator fun invoke(
             usStructSize: UShort = 0u,
             usRootStrSize: UShort = 0u,
-            pusRootStr: MutPtr<UShort> = MutPtr(0L),
+            pusRootStr: MutPtr = MutPtr(0L),
         ): Ttembedinfo =
             Ttembedinfo(
                 usStructSize = usStructSize,
@@ -5625,9 +5624,9 @@ public class Ttembedinfo internal constructor(
 public class Ttloadinfo internal constructor(
     public var usStructSize: UShort,
     public var usRefStrSize: UShort,
-    pusRefStrCtorArg: MutPtr<UShort>,
+    pusRefStrCtorArg: MutPtr,
 ) {
-    public var pusRefStr: MutPtr<UShort> = pusRefStrCtorArg
+    public var pusRefStr: MutPtr = pusRefStrCtorArg
         internal set
 
     public constructor() : this(
@@ -5640,9 +5639,9 @@ public class Ttloadinfo internal constructor(
 
     public operator fun component2(): UShort = this.usRefStrSize
 
-    public operator fun component3(): MutPtr<UShort> = this.pusRefStr
+    public operator fun component3(): MutPtr = this.pusRefStr
 
-    public fun copy(usStructSize: UShort = this.usStructSize, usRefStrSize: UShort = this.usRefStrSize, pusRefStr: MutPtr<UShort> = this.pusRefStr): Ttloadinfo = Ttloadinfo(usStructSize = usStructSize, usRefStrSize = usRefStrSize, pusRefStrCtorArg = pusRefStr)
+    public fun copy(usStructSize: UShort = this.usStructSize, usRefStrSize: UShort = this.usRefStrSize, pusRefStr: MutPtr = this.pusRefStr): Ttloadinfo = Ttloadinfo(usStructSize = usStructSize, usRefStrSize = usRefStrSize, pusRefStrCtorArg = pusRefStr)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -5671,7 +5670,7 @@ public class Ttloadinfo internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16).readNative(addr + 2L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<UShort>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                     )
                 override fun writeNative(addr: Long, value: Ttloadinfo) {
@@ -5679,7 +5678,7 @@ public class Ttloadinfo internal constructor(
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16).writeNative(addr + 2L, value.usRefStrSize)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<UShort>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.pusRefStr)
                 }
             }
@@ -5687,7 +5686,7 @@ public class Ttloadinfo internal constructor(
         public operator fun invoke(
             usStructSize: UShort = 0u,
             usRefStrSize: UShort = 0u,
-            pusRefStr: MutPtr<UShort> = MutPtr(0L),
+            pusRefStr: MutPtr = MutPtr(0L),
         ): Ttloadinfo =
             Ttloadinfo(
                 usStructSize = usStructSize,
@@ -5760,9 +5759,9 @@ public class Ttvalidationtestsparams internal constructor(
     public var ulCharSet: UInt,
     public var usReserved1: UShort,
     public var usCharCodeCount: UShort,
-    pusCharCodeSetCtorArg: MutPtr<UShort>,
+    pusCharCodeSetCtorArg: MutPtr,
 ) {
-    public var pusCharCodeSet: MutPtr<UShort> = pusCharCodeSetCtorArg
+    public var pusCharCodeSet: MutPtr = pusCharCodeSetCtorArg
         internal set
 
     public constructor() : this(
@@ -5787,9 +5786,9 @@ public class Ttvalidationtestsparams internal constructor(
 
     public operator fun component6(): UShort = this.usCharCodeCount
 
-    public operator fun component7(): MutPtr<UShort> = this.pusCharCodeSet
+    public operator fun component7(): MutPtr = this.pusCharCodeSet
 
-    public fun copy(ulStructSize: UInt = this.ulStructSize, lTestFromSize: Int = this.lTestFromSize, lTestToSize: Int = this.lTestToSize, ulCharSet: UInt = this.ulCharSet, usReserved1: UShort = this.usReserved1, usCharCodeCount: UShort = this.usCharCodeCount, pusCharCodeSet: MutPtr<UShort> = this.pusCharCodeSet): Ttvalidationtestsparams = Ttvalidationtestsparams(ulStructSize = ulStructSize, lTestFromSize = lTestFromSize, lTestToSize = lTestToSize, ulCharSet = ulCharSet, usReserved1 = usReserved1, usCharCodeCount = usCharCodeCount, pusCharCodeSetCtorArg = pusCharCodeSet)
+    public fun copy(ulStructSize: UInt = this.ulStructSize, lTestFromSize: Int = this.lTestFromSize, lTestToSize: Int = this.lTestToSize, ulCharSet: UInt = this.ulCharSet, usReserved1: UShort = this.usReserved1, usCharCodeCount: UShort = this.usCharCodeCount, pusCharCodeSet: MutPtr = this.pusCharCodeSet): Ttvalidationtestsparams = Ttvalidationtestsparams(ulStructSize = ulStructSize, lTestFromSize = lTestFromSize, lTestToSize = lTestToSize, ulCharSet = ulCharSet, usReserved1 = usReserved1, usCharCodeCount = usCharCodeCount, pusCharCodeSetCtorArg = pusCharCodeSet)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -5830,7 +5829,7 @@ public class Ttvalidationtestsparams internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16).readNative(addr + 18L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<UShort>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 24L),
                     )
                 override fun writeNative(addr: Long, value: Ttvalidationtestsparams) {
@@ -5842,7 +5841,7 @@ public class Ttvalidationtestsparams internal constructor(
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16).writeNative(addr + 18L, value.usCharCodeCount)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<UShort>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 24L, value.pusCharCodeSet)
                 }
             }
@@ -5854,7 +5853,7 @@ public class Ttvalidationtestsparams internal constructor(
             ulCharSet: UInt = 0u,
             usReserved1: UShort = 0u,
             usCharCodeCount: UShort = 0u,
-            pusCharCodeSet: MutPtr<UShort> = MutPtr(0L),
+            pusCharCodeSet: MutPtr = MutPtr(0L),
         ): Ttvalidationtestsparams =
             Ttvalidationtestsparams(
                 ulStructSize = ulStructSize,
@@ -5875,9 +5874,9 @@ public class Ttvalidationtestsparamsex internal constructor(
     public var ulCharSet: UInt,
     public var usReserved1: UShort,
     public var usCharCodeCount: UShort,
-    pulCharCodeSetCtorArg: MutPtr<UInt>,
+    pulCharCodeSetCtorArg: MutPtr,
 ) {
-    public var pulCharCodeSet: MutPtr<UInt> = pulCharCodeSetCtorArg
+    public var pulCharCodeSet: MutPtr = pulCharCodeSetCtorArg
         internal set
 
     public constructor() : this(
@@ -5902,9 +5901,9 @@ public class Ttvalidationtestsparamsex internal constructor(
 
     public operator fun component6(): UShort = this.usCharCodeCount
 
-    public operator fun component7(): MutPtr<UInt> = this.pulCharCodeSet
+    public operator fun component7(): MutPtr = this.pulCharCodeSet
 
-    public fun copy(ulStructSize: UInt = this.ulStructSize, lTestFromSize: Int = this.lTestFromSize, lTestToSize: Int = this.lTestToSize, ulCharSet: UInt = this.ulCharSet, usReserved1: UShort = this.usReserved1, usCharCodeCount: UShort = this.usCharCodeCount, pulCharCodeSet: MutPtr<UInt> = this.pulCharCodeSet): Ttvalidationtestsparamsex = Ttvalidationtestsparamsex(ulStructSize = ulStructSize, lTestFromSize = lTestFromSize, lTestToSize = lTestToSize, ulCharSet = ulCharSet, usReserved1 = usReserved1, usCharCodeCount = usCharCodeCount, pulCharCodeSetCtorArg = pulCharCodeSet)
+    public fun copy(ulStructSize: UInt = this.ulStructSize, lTestFromSize: Int = this.lTestFromSize, lTestToSize: Int = this.lTestToSize, ulCharSet: UInt = this.ulCharSet, usReserved1: UShort = this.usReserved1, usCharCodeCount: UShort = this.usCharCodeCount, pulCharCodeSet: MutPtr = this.pulCharCodeSet): Ttvalidationtestsparamsex = Ttvalidationtestsparamsex(ulStructSize = ulStructSize, lTestFromSize = lTestFromSize, lTestToSize = lTestToSize, ulCharSet = ulCharSet, usReserved1 = usReserved1, usCharCodeCount = usCharCodeCount, pulCharCodeSetCtorArg = pulCharCodeSet)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -5945,7 +5944,7 @@ public class Ttvalidationtestsparamsex internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16).readNative(addr + 18L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<UInt>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 24L),
                     )
                 override fun writeNative(addr: Long, value: Ttvalidationtestsparamsex) {
@@ -5957,7 +5956,7 @@ public class Ttvalidationtestsparamsex internal constructor(
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16).writeNative(addr + 18L, value.usCharCodeCount)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<UInt>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 24L, value.pulCharCodeSet)
                 }
             }
@@ -5969,7 +5968,7 @@ public class Ttvalidationtestsparamsex internal constructor(
             ulCharSet: UInt = 0u,
             usReserved1: UShort = 0u,
             usCharCodeCount: UShort = 0u,
-            pulCharCodeSet: MutPtr<UInt> = MutPtr(0L),
+            pulCharCodeSet: MutPtr = MutPtr(0L),
         ): Ttvalidationtestsparamsex =
             Ttvalidationtestsparamsex(
                 ulStructSize = ulStructSize,
@@ -6046,14 +6045,14 @@ public class Wglswap internal constructor(
                     Wglswap(
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<CVoid>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 8L),
                     )
                 override fun writeNative(addr: Long, value: Wglswap) {
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<CVoid>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr, value.hdc)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 8L, value.uiFlags)
                 }

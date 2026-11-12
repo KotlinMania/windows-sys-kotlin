@@ -2,7 +2,6 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.networking.winsock
 
-import io.github.kotlinmania.rustlang.core.ffi.CVoid
 import io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
 import io.github.kotlinmania.rustlang.core.mem.TypeLayout
 import io.github.kotlinmania.rustlang.core.ptr.MutPtr
@@ -14,7 +13,6 @@ import io.github.kotlinmania.windowssys.windows.win32.foundation.Handle
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Hwnd
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Wparam
 import io.github.kotlinmania.windowssys.windows.win32.system.com.Blob
-import io.github.kotlinmania.windowssys.windows.win32.system.io.Overlapped
 
 public data class SocketSecuritySettingsIpsec(
     public var securityProtocol: SocketSecurityProtocol = 0,
@@ -64,13 +62,13 @@ public data class SocketSecuritySettingsIpsec(
 
 public class SockNotifyRegistration internal constructor(
     public var socket: Socket,
-    completionKeyCtorArg: MutPtr<CVoid>,
+    completionKeyCtorArg: MutPtr,
     public var eventFilter: UShort,
     public var operation: UByte,
     public var triggerFlags: UByte,
     public var registrationResult: UInt,
 ) {
-    public var completionKey: MutPtr<CVoid> = completionKeyCtorArg
+    public var completionKey: MutPtr = completionKeyCtorArg
         internal set
 
     public constructor() : this(
@@ -84,7 +82,7 @@ public class SockNotifyRegistration internal constructor(
 
     public operator fun component1(): Socket = this.socket
 
-    public operator fun component2(): MutPtr<CVoid> = this.completionKey
+    public operator fun component2(): MutPtr = this.completionKey
 
     public operator fun component3(): UShort = this.eventFilter
 
@@ -94,7 +92,7 @@ public class SockNotifyRegistration internal constructor(
 
     public operator fun component6(): UInt = this.registrationResult
 
-    public fun copy(socket: Socket = this.socket, completionKey: MutPtr<CVoid> = this.completionKey, eventFilter: UShort = this.eventFilter, operation: UByte = this.operation, triggerFlags: UByte = this.triggerFlags, registrationResult: UInt = this.registrationResult): SockNotifyRegistration = SockNotifyRegistration(socket = socket, completionKeyCtorArg = completionKey, eventFilter = eventFilter, operation = operation, triggerFlags = triggerFlags, registrationResult = registrationResult)
+    public fun copy(socket: Socket = this.socket, completionKey: MutPtr = this.completionKey, eventFilter: UShort = this.eventFilter, operation: UByte = this.operation, triggerFlags: UByte = this.triggerFlags, registrationResult: UInt = this.registrationResult): SockNotifyRegistration = SockNotifyRegistration(socket = socket, completionKeyCtorArg = completionKey, eventFilter = eventFilter, operation = operation, triggerFlags = triggerFlags, registrationResult = registrationResult)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -128,7 +126,7 @@ public class SockNotifyRegistration internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U64).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<CVoid>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16).readNative(addr + 16L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8).readNative(addr + 18L),
@@ -139,7 +137,7 @@ public class SockNotifyRegistration internal constructor(
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U64).writeNative(addr, value.socket)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<CVoid>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.completionKey)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16).writeNative(addr + 16L, value.eventFilter)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8).writeNative(addr + 18L, value.operation)
@@ -150,7 +148,7 @@ public class SockNotifyRegistration internal constructor(
 
         public operator fun invoke(
             socket: Socket = 0uL,
-            completionKey: MutPtr<CVoid> = MutPtr(0L),
+            completionKey: MutPtr = MutPtr(0L),
             eventFilter: UShort = 0u,
             operation: UByte = 0u,
             triggerFlags: UByte = 0u,
@@ -710,15 +708,15 @@ public data class Timeval(
 }
 
 public class TransmitFileBuffers internal constructor(
-    headCtorArg: MutPtr<CVoid>,
+    headCtorArg: MutPtr,
     public var headLength: UInt,
-    tailCtorArg: MutPtr<CVoid>,
+    tailCtorArg: MutPtr,
     public var tailLength: UInt,
 ) {
-    public var head: MutPtr<CVoid> = headCtorArg
+    public var head: MutPtr = headCtorArg
         internal set
 
-    public var tail: MutPtr<CVoid> = tailCtorArg
+    public var tail: MutPtr = tailCtorArg
         internal set
 
     public constructor() : this(
@@ -728,15 +726,15 @@ public class TransmitFileBuffers internal constructor(
         tailLength = 0u,
     )
 
-    public operator fun component1(): MutPtr<CVoid> = this.head
+    public operator fun component1(): MutPtr = this.head
 
     public operator fun component2(): UInt = this.headLength
 
-    public operator fun component3(): MutPtr<CVoid> = this.tail
+    public operator fun component3(): MutPtr = this.tail
 
     public operator fun component4(): UInt = this.tailLength
 
-    public fun copy(head: MutPtr<CVoid> = this.head, headLength: UInt = this.headLength, tail: MutPtr<CVoid> = this.tail, tailLength: UInt = this.tailLength): TransmitFileBuffers = TransmitFileBuffers(headCtorArg = head, headLength = headLength, tailCtorArg = tail, tailLength = tailLength)
+    public fun copy(head: MutPtr = this.head, headLength: UInt = this.headLength, tail: MutPtr = this.tail, tailLength: UInt = this.tailLength): TransmitFileBuffers = TransmitFileBuffers(headCtorArg = head, headLength = headLength, tailCtorArg = tail, tailLength = tailLength)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -765,33 +763,33 @@ public class TransmitFileBuffers internal constructor(
                     TransmitFileBuffers(
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<CVoid>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 8L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<CVoid>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 16L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 24L),
                     )
                 override fun writeNative(addr: Long, value: TransmitFileBuffers) {
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<CVoid>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr, value.head)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 8L, value.headLength)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<CVoid>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 16L, value.tail)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 24L, value.tailLength)
                 }
             }
 
         public operator fun invoke(
-            head: MutPtr<CVoid> = MutPtr(0L),
+            head: MutPtr = MutPtr(0L),
             headLength: UInt = 0u,
-            tail: MutPtr<CVoid> = MutPtr(0L),
+            tail: MutPtr = MutPtr(0L),
             tailLength: UInt = 0u,
         ): TransmitFileBuffers =
             TransmitFileBuffers(
@@ -811,9 +809,9 @@ public data class TransmitPacketsElement(
 
 public class TransmitPacketsElement0 internal constructor(
     public var anonymous: TransmitPacketsElement00,
-    pBufferCtorArg: MutPtr<CVoid>,
+    pBufferCtorArg: MutPtr,
 ) {
-    public var pBuffer: MutPtr<CVoid> = pBufferCtorArg
+    public var pBuffer: MutPtr = pBufferCtorArg
         internal set
 
     public constructor() : this(
@@ -823,9 +821,9 @@ public class TransmitPacketsElement0 internal constructor(
 
     public operator fun component1(): TransmitPacketsElement00 = this.anonymous
 
-    public operator fun component2(): MutPtr<CVoid> = this.pBuffer
+    public operator fun component2(): MutPtr = this.pBuffer
 
-    public fun copy(anonymous: TransmitPacketsElement00 = this.anonymous, pBuffer: MutPtr<CVoid> = this.pBuffer): TransmitPacketsElement0 = TransmitPacketsElement0(anonymous = anonymous, pBufferCtorArg = pBuffer)
+    public fun copy(anonymous: TransmitPacketsElement00 = this.anonymous, pBuffer: MutPtr = this.pBuffer): TransmitPacketsElement0 = TransmitPacketsElement0(anonymous = anonymous, pBufferCtorArg = pBuffer)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -844,7 +842,7 @@ public class TransmitPacketsElement0 internal constructor(
     public companion object {
         public operator fun invoke(
             anonymous: TransmitPacketsElement00 = TransmitPacketsElement00(),
-            pBuffer: MutPtr<CVoid> = MutPtr(0L),
+            pBuffer: MutPtr = MutPtr(0L),
         ): TransmitPacketsElement0 =
             TransmitPacketsElement0(
                 anonymous = anonymous,
@@ -1408,10 +1406,10 @@ public data class Wsacompletion0(
 )
 
 public class Wsacompletion02 internal constructor(
-    lpOverlappedCtorArg: MutPtr<Overlapped>,
+    lpOverlappedCtorArg: MutPtr,
     public var lpfnCompletionProc: LpwsaoverlappedCompletionRoutine,
 ) {
-    public var lpOverlapped: MutPtr<Overlapped> = lpOverlappedCtorArg
+    public var lpOverlapped: MutPtr = lpOverlappedCtorArg
         internal set
 
     public constructor() : this(
@@ -1419,11 +1417,11 @@ public class Wsacompletion02 internal constructor(
         lpfnCompletionProc = null,
     )
 
-    public operator fun component1(): MutPtr<Overlapped> = this.lpOverlapped
+    public operator fun component1(): MutPtr = this.lpOverlapped
 
     public operator fun component2(): LpwsaoverlappedCompletionRoutine = this.lpfnCompletionProc
 
-    public fun copy(lpOverlapped: MutPtr<Overlapped> = this.lpOverlapped, lpfnCompletionProc: LpwsaoverlappedCompletionRoutine = this.lpfnCompletionProc): Wsacompletion02 = Wsacompletion02(lpOverlappedCtorArg = lpOverlapped, lpfnCompletionProc = lpfnCompletionProc)
+    public fun copy(lpOverlapped: MutPtr = this.lpOverlapped, lpfnCompletionProc: LpwsaoverlappedCompletionRoutine = this.lpfnCompletionProc): Wsacompletion02 = Wsacompletion02(lpOverlappedCtorArg = lpOverlapped, lpfnCompletionProc = lpfnCompletionProc)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -1441,7 +1439,7 @@ public class Wsacompletion02 internal constructor(
 
     public companion object {
         public operator fun invoke(
-            lpOverlapped: MutPtr<Overlapped> = MutPtr(0L),
+            lpOverlapped: MutPtr = MutPtr(0L),
             lpfnCompletionProc: LpwsaoverlappedCompletionRoutine = null,
         ): Wsacompletion02 =
             Wsacompletion02(
@@ -1452,18 +1450,18 @@ public class Wsacompletion02 internal constructor(
 }
 
 public class Wsacompletion01 internal constructor(
-    lpOverlappedCtorArg: MutPtr<Overlapped>,
+    lpOverlappedCtorArg: MutPtr,
 ) {
-    public var lpOverlapped: MutPtr<Overlapped> = lpOverlappedCtorArg
+    public var lpOverlapped: MutPtr = lpOverlappedCtorArg
         internal set
 
     public constructor() : this(
         lpOverlappedCtorArg = MutPtr(0L),
     )
 
-    public operator fun component1(): MutPtr<Overlapped> = this.lpOverlapped
+    public operator fun component1(): MutPtr = this.lpOverlapped
 
-    public fun copy(lpOverlapped: MutPtr<Overlapped> = this.lpOverlapped): Wsacompletion01 = Wsacompletion01(lpOverlappedCtorArg = lpOverlapped)
+    public fun copy(lpOverlapped: MutPtr = this.lpOverlapped): Wsacompletion01 = Wsacompletion01(lpOverlappedCtorArg = lpOverlapped)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -1483,19 +1481,19 @@ public class Wsacompletion01 internal constructor(
                     Wsacompletion01(
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<Overlapped>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr),
                     )
                 override fun writeNative(addr: Long, value: Wsacompletion01) {
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<Overlapped>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr, value.lpOverlapped)
                 }
             }
 
         public operator fun invoke(
-            lpOverlapped: MutPtr<Overlapped> = MutPtr(0L),
+            lpOverlapped: MutPtr = MutPtr(0L),
         ): Wsacompletion01 =
             Wsacompletion01(
                 lpOverlappedCtorArg = lpOverlapped,
@@ -1504,11 +1502,11 @@ public class Wsacompletion01 internal constructor(
 }
 
 public class Wsacompletion03 internal constructor(
-    lpOverlappedCtorArg: MutPtr<Overlapped>,
+    lpOverlappedCtorArg: MutPtr,
     hPortCtorArg: Handle,
     public var key: Int,
 ) {
-    public var lpOverlapped: MutPtr<Overlapped> = lpOverlappedCtorArg
+    public var lpOverlapped: MutPtr = lpOverlappedCtorArg
         internal set
 
     public var hPort: Handle = hPortCtorArg
@@ -1520,13 +1518,13 @@ public class Wsacompletion03 internal constructor(
         key = 0,
     )
 
-    public operator fun component1(): MutPtr<Overlapped> = this.lpOverlapped
+    public operator fun component1(): MutPtr = this.lpOverlapped
 
     public operator fun component2(): Handle = this.hPort
 
     public operator fun component3(): Int = this.key
 
-    public fun copy(lpOverlapped: MutPtr<Overlapped> = this.lpOverlapped, hPort: Handle = this.hPort, key: Int = this.key): Wsacompletion03 = Wsacompletion03(lpOverlappedCtorArg = lpOverlapped, hPortCtorArg = hPort, key = key)
+    public fun copy(lpOverlapped: MutPtr = this.lpOverlapped, hPort: Handle = this.hPort, key: Int = this.key): Wsacompletion03 = Wsacompletion03(lpOverlappedCtorArg = lpOverlapped, hPortCtorArg = hPort, key = key)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -1546,7 +1544,7 @@ public class Wsacompletion03 internal constructor(
 
     public companion object {
         public operator fun invoke(
-            lpOverlapped: MutPtr<Overlapped> = MutPtr(0L),
+            lpOverlapped: MutPtr = MutPtr(0L),
             hPort: Handle = MutPtr(0L),
             key: Int = 0,
         ): Wsacompletion03 =
@@ -1695,17 +1693,17 @@ public class Wsadata internal constructor(
 }
 
 public class Wsamsg internal constructor(
-    nameCtorArg: MutPtr<Sockaddr>,
+    nameCtorArg: MutPtr,
     public var namelen: Int,
-    lpBuffersCtorArg: MutPtr<Wsabuf>,
+    lpBuffersCtorArg: MutPtr,
     public var dwBufferCount: UInt,
     public var control: Wsabuf,
     public var dwFlags: UInt,
 ) {
-    public var name: MutPtr<Sockaddr> = nameCtorArg
+    public var name: MutPtr = nameCtorArg
         internal set
 
-    public var lpBuffers: MutPtr<Wsabuf> = lpBuffersCtorArg
+    public var lpBuffers: MutPtr = lpBuffersCtorArg
         internal set
 
     public constructor() : this(
@@ -1717,11 +1715,11 @@ public class Wsamsg internal constructor(
         dwFlags = 0u,
     )
 
-    public operator fun component1(): MutPtr<Sockaddr> = this.name
+    public operator fun component1(): MutPtr = this.name
 
     public operator fun component2(): Int = this.namelen
 
-    public operator fun component3(): MutPtr<Wsabuf> = this.lpBuffers
+    public operator fun component3(): MutPtr = this.lpBuffers
 
     public operator fun component4(): UInt = this.dwBufferCount
 
@@ -1729,7 +1727,7 @@ public class Wsamsg internal constructor(
 
     public operator fun component6(): UInt = this.dwFlags
 
-    public fun copy(name: MutPtr<Sockaddr> = this.name, namelen: Int = this.namelen, lpBuffers: MutPtr<Wsabuf> = this.lpBuffers, dwBufferCount: UInt = this.dwBufferCount, control: Wsabuf = this.control, dwFlags: UInt = this.dwFlags): Wsamsg = Wsamsg(nameCtorArg = name, namelen = namelen, lpBuffersCtorArg = lpBuffers, dwBufferCount = dwBufferCount, control = control, dwFlags = dwFlags)
+    public fun copy(name: MutPtr = this.name, namelen: Int = this.namelen, lpBuffers: MutPtr = this.lpBuffers, dwBufferCount: UInt = this.dwBufferCount, control: Wsabuf = this.control, dwFlags: UInt = this.dwFlags): Wsamsg = Wsamsg(nameCtorArg = name, namelen = namelen, lpBuffersCtorArg = lpBuffers, dwBufferCount = dwBufferCount, control = control, dwFlags = dwFlags)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -1755,9 +1753,9 @@ public class Wsamsg internal constructor(
 
     public companion object {
         public operator fun invoke(
-            name: MutPtr<Sockaddr> = MutPtr(0L),
+            name: MutPtr = MutPtr(0L),
             namelen: Int = 0,
-            lpBuffers: MutPtr<Wsabuf> = MutPtr(0L),
+            lpBuffers: MutPtr = MutPtr(0L),
             dwBufferCount: UInt = 0u,
             control: Wsabuf = Wsabuf(),
             dwFlags: UInt = 0u,
@@ -2108,12 +2106,12 @@ public class Wsansclassinfoa internal constructor(
     public var dwNameSpace: UInt,
     public var dwValueType: UInt,
     public var dwValueSize: UInt,
-    lpValueCtorArg: MutPtr<CVoid>,
+    lpValueCtorArg: MutPtr,
 ) {
     public var lpszName: Pstr = lpszNameCtorArg
         internal set
 
-    public var lpValue: MutPtr<CVoid> = lpValueCtorArg
+    public var lpValue: MutPtr = lpValueCtorArg
         internal set
 
     public constructor() : this(
@@ -2132,9 +2130,9 @@ public class Wsansclassinfoa internal constructor(
 
     public operator fun component4(): UInt = this.dwValueSize
 
-    public operator fun component5(): MutPtr<CVoid> = this.lpValue
+    public operator fun component5(): MutPtr = this.lpValue
 
-    public fun copy(lpszName: Pstr = this.lpszName, dwNameSpace: UInt = this.dwNameSpace, dwValueType: UInt = this.dwValueType, dwValueSize: UInt = this.dwValueSize, lpValue: MutPtr<CVoid> = this.lpValue): Wsansclassinfoa = Wsansclassinfoa(lpszNameCtorArg = lpszName, dwNameSpace = dwNameSpace, dwValueType = dwValueType, dwValueSize = dwValueSize, lpValueCtorArg = lpValue)
+    public fun copy(lpszName: Pstr = this.lpszName, dwNameSpace: UInt = this.dwNameSpace, dwValueType: UInt = this.dwValueType, dwValueSize: UInt = this.dwValueSize, lpValue: MutPtr = this.lpValue): Wsansclassinfoa = Wsansclassinfoa(lpszNameCtorArg = lpszName, dwNameSpace = dwNameSpace, dwValueType = dwValueType, dwValueSize = dwValueSize, lpValueCtorArg = lpValue)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -2162,7 +2160,7 @@ public class Wsansclassinfoa internal constructor(
             dwNameSpace: UInt = 0u,
             dwValueType: UInt = 0u,
             dwValueSize: UInt = 0u,
-            lpValue: MutPtr<CVoid> = MutPtr(0L),
+            lpValue: MutPtr = MutPtr(0L),
         ): Wsansclassinfoa =
             Wsansclassinfoa(
                 lpszNameCtorArg = lpszName,
@@ -2179,12 +2177,12 @@ public class Wsansclassinfow internal constructor(
     public var dwNameSpace: UInt,
     public var dwValueType: UInt,
     public var dwValueSize: UInt,
-    lpValueCtorArg: MutPtr<CVoid>,
+    lpValueCtorArg: MutPtr,
 ) {
     public var lpszName: Pwstr = lpszNameCtorArg
         internal set
 
-    public var lpValue: MutPtr<CVoid> = lpValueCtorArg
+    public var lpValue: MutPtr = lpValueCtorArg
         internal set
 
     public constructor() : this(
@@ -2203,9 +2201,9 @@ public class Wsansclassinfow internal constructor(
 
     public operator fun component4(): UInt = this.dwValueSize
 
-    public operator fun component5(): MutPtr<CVoid> = this.lpValue
+    public operator fun component5(): MutPtr = this.lpValue
 
-    public fun copy(lpszName: Pwstr = this.lpszName, dwNameSpace: UInt = this.dwNameSpace, dwValueType: UInt = this.dwValueType, dwValueSize: UInt = this.dwValueSize, lpValue: MutPtr<CVoid> = this.lpValue): Wsansclassinfow = Wsansclassinfow(lpszNameCtorArg = lpszName, dwNameSpace = dwNameSpace, dwValueType = dwValueType, dwValueSize = dwValueSize, lpValueCtorArg = lpValue)
+    public fun copy(lpszName: Pwstr = this.lpszName, dwNameSpace: UInt = this.dwNameSpace, dwValueType: UInt = this.dwValueType, dwValueSize: UInt = this.dwValueSize, lpValue: MutPtr = this.lpValue): Wsansclassinfow = Wsansclassinfow(lpszNameCtorArg = lpszName, dwNameSpace = dwNameSpace, dwValueType = dwValueType, dwValueSize = dwValueSize, lpValueCtorArg = lpValue)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -2233,7 +2231,7 @@ public class Wsansclassinfow internal constructor(
             dwNameSpace: UInt = 0u,
             dwValueType: UInt = 0u,
             dwValueSize: UInt = 0u,
-            lpValue: MutPtr<CVoid> = MutPtr(0L),
+            lpValue: MutPtr = MutPtr(0L),
         ): Wsansclassinfow =
             Wsansclassinfow(
                 lpszNameCtorArg = lpszName,
@@ -2395,44 +2393,44 @@ public class WsaprotocolInfow(
 public class Wsaqueryset2a internal constructor(
     public var dwSize: UInt,
     lpszServiceInstanceNameCtorArg: Pstr,
-    lpVersionCtorArg: MutPtr<Wsaversion>,
+    lpVersionCtorArg: MutPtr,
     lpszCommentCtorArg: Pstr,
     public var dwNameSpace: UInt,
-    lpNSProviderIdCtorArg: MutPtr<Guid>,
+    lpNSProviderIdCtorArg: MutPtr,
     lpszContextCtorArg: Pstr,
     public var dwNumberOfProtocols: UInt,
-    lpafpProtocolsCtorArg: MutPtr<Afprotocols>,
+    lpafpProtocolsCtorArg: MutPtr,
     lpszQueryStringCtorArg: Pstr,
     public var dwNumberOfCsAddrs: UInt,
-    lpcsaBufferCtorArg: MutPtr<CsaddrInfo>,
+    lpcsaBufferCtorArg: MutPtr,
     public var dwOutputFlags: UInt,
-    lpBlobCtorArg: MutPtr<Blob>,
+    lpBlobCtorArg: MutPtr,
 ) {
     public var lpszServiceInstanceName: Pstr = lpszServiceInstanceNameCtorArg
         internal set
 
-    public var lpVersion: MutPtr<Wsaversion> = lpVersionCtorArg
+    public var lpVersion: MutPtr = lpVersionCtorArg
         internal set
 
     public var lpszComment: Pstr = lpszCommentCtorArg
         internal set
 
-    public var lpNSProviderId: MutPtr<Guid> = lpNSProviderIdCtorArg
+    public var lpNSProviderId: MutPtr = lpNSProviderIdCtorArg
         internal set
 
     public var lpszContext: Pstr = lpszContextCtorArg
         internal set
 
-    public var lpafpProtocols: MutPtr<Afprotocols> = lpafpProtocolsCtorArg
+    public var lpafpProtocols: MutPtr = lpafpProtocolsCtorArg
         internal set
 
     public var lpszQueryString: Pstr = lpszQueryStringCtorArg
         internal set
 
-    public var lpcsaBuffer: MutPtr<CsaddrInfo> = lpcsaBufferCtorArg
+    public var lpcsaBuffer: MutPtr = lpcsaBufferCtorArg
         internal set
 
-    public var lpBlob: MutPtr<Blob> = lpBlobCtorArg
+    public var lpBlob: MutPtr = lpBlobCtorArg
         internal set
 
     public constructor() : this(
@@ -2456,31 +2454,31 @@ public class Wsaqueryset2a internal constructor(
 
     public operator fun component2(): Pstr = this.lpszServiceInstanceName
 
-    public operator fun component3(): MutPtr<Wsaversion> = this.lpVersion
+    public operator fun component3(): MutPtr = this.lpVersion
 
     public operator fun component4(): Pstr = this.lpszComment
 
     public operator fun component5(): UInt = this.dwNameSpace
 
-    public operator fun component6(): MutPtr<Guid> = this.lpNSProviderId
+    public operator fun component6(): MutPtr = this.lpNSProviderId
 
     public operator fun component7(): Pstr = this.lpszContext
 
     public operator fun component8(): UInt = this.dwNumberOfProtocols
 
-    public operator fun component9(): MutPtr<Afprotocols> = this.lpafpProtocols
+    public operator fun component9(): MutPtr = this.lpafpProtocols
 
     public operator fun component10(): Pstr = this.lpszQueryString
 
     public operator fun component11(): UInt = this.dwNumberOfCsAddrs
 
-    public operator fun component12(): MutPtr<CsaddrInfo> = this.lpcsaBuffer
+    public operator fun component12(): MutPtr = this.lpcsaBuffer
 
     public operator fun component13(): UInt = this.dwOutputFlags
 
-    public operator fun component14(): MutPtr<Blob> = this.lpBlob
+    public operator fun component14(): MutPtr = this.lpBlob
 
-    public fun copy(dwSize: UInt = this.dwSize, lpszServiceInstanceName: Pstr = this.lpszServiceInstanceName, lpVersion: MutPtr<Wsaversion> = this.lpVersion, lpszComment: Pstr = this.lpszComment, dwNameSpace: UInt = this.dwNameSpace, lpNSProviderId: MutPtr<Guid> = this.lpNSProviderId, lpszContext: Pstr = this.lpszContext, dwNumberOfProtocols: UInt = this.dwNumberOfProtocols, lpafpProtocols: MutPtr<Afprotocols> = this.lpafpProtocols, lpszQueryString: Pstr = this.lpszQueryString, dwNumberOfCsAddrs: UInt = this.dwNumberOfCsAddrs, lpcsaBuffer: MutPtr<CsaddrInfo> = this.lpcsaBuffer, dwOutputFlags: UInt = this.dwOutputFlags, lpBlob: MutPtr<Blob> = this.lpBlob): Wsaqueryset2a = Wsaqueryset2a(dwSize = dwSize, lpszServiceInstanceNameCtorArg = lpszServiceInstanceName, lpVersionCtorArg = lpVersion, lpszCommentCtorArg = lpszComment, dwNameSpace = dwNameSpace, lpNSProviderIdCtorArg = lpNSProviderId, lpszContextCtorArg = lpszContext, dwNumberOfProtocols = dwNumberOfProtocols, lpafpProtocolsCtorArg = lpafpProtocols, lpszQueryStringCtorArg = lpszQueryString, dwNumberOfCsAddrs = dwNumberOfCsAddrs, lpcsaBufferCtorArg = lpcsaBuffer, dwOutputFlags = dwOutputFlags, lpBlobCtorArg = lpBlob)
+    public fun copy(dwSize: UInt = this.dwSize, lpszServiceInstanceName: Pstr = this.lpszServiceInstanceName, lpVersion: MutPtr = this.lpVersion, lpszComment: Pstr = this.lpszComment, dwNameSpace: UInt = this.dwNameSpace, lpNSProviderId: MutPtr = this.lpNSProviderId, lpszContext: Pstr = this.lpszContext, dwNumberOfProtocols: UInt = this.dwNumberOfProtocols, lpafpProtocols: MutPtr = this.lpafpProtocols, lpszQueryString: Pstr = this.lpszQueryString, dwNumberOfCsAddrs: UInt = this.dwNumberOfCsAddrs, lpcsaBuffer: MutPtr = this.lpcsaBuffer, dwOutputFlags: UInt = this.dwOutputFlags, lpBlob: MutPtr = this.lpBlob): Wsaqueryset2a = Wsaqueryset2a(dwSize = dwSize, lpszServiceInstanceNameCtorArg = lpszServiceInstanceName, lpVersionCtorArg = lpVersion, lpszCommentCtorArg = lpszComment, dwNameSpace = dwNameSpace, lpNSProviderIdCtorArg = lpNSProviderId, lpszContextCtorArg = lpszContext, dwNumberOfProtocols = dwNumberOfProtocols, lpafpProtocolsCtorArg = lpafpProtocols, lpszQueryStringCtorArg = lpszQueryString, dwNumberOfCsAddrs = dwNumberOfCsAddrs, lpcsaBufferCtorArg = lpcsaBuffer, dwOutputFlags = dwOutputFlags, lpBlobCtorArg = lpBlob)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -2524,18 +2522,18 @@ public class Wsaqueryset2a internal constructor(
         public operator fun invoke(
             dwSize: UInt = 0u,
             lpszServiceInstanceName: Pstr = MutPtr(0L),
-            lpVersion: MutPtr<Wsaversion> = MutPtr(0L),
+            lpVersion: MutPtr = MutPtr(0L),
             lpszComment: Pstr = MutPtr(0L),
             dwNameSpace: UInt = 0u,
-            lpNSProviderId: MutPtr<Guid> = MutPtr(0L),
+            lpNSProviderId: MutPtr = MutPtr(0L),
             lpszContext: Pstr = MutPtr(0L),
             dwNumberOfProtocols: UInt = 0u,
-            lpafpProtocols: MutPtr<Afprotocols> = MutPtr(0L),
+            lpafpProtocols: MutPtr = MutPtr(0L),
             lpszQueryString: Pstr = MutPtr(0L),
             dwNumberOfCsAddrs: UInt = 0u,
-            lpcsaBuffer: MutPtr<CsaddrInfo> = MutPtr(0L),
+            lpcsaBuffer: MutPtr = MutPtr(0L),
             dwOutputFlags: UInt = 0u,
-            lpBlob: MutPtr<Blob> = MutPtr(0L),
+            lpBlob: MutPtr = MutPtr(0L),
         ): Wsaqueryset2a =
             Wsaqueryset2a(
                 dwSize = dwSize,
@@ -2559,44 +2557,44 @@ public class Wsaqueryset2a internal constructor(
 public class Wsaqueryset2w internal constructor(
     public var dwSize: UInt,
     lpszServiceInstanceNameCtorArg: Pwstr,
-    lpVersionCtorArg: MutPtr<Wsaversion>,
+    lpVersionCtorArg: MutPtr,
     lpszCommentCtorArg: Pwstr,
     public var dwNameSpace: UInt,
-    lpNSProviderIdCtorArg: MutPtr<Guid>,
+    lpNSProviderIdCtorArg: MutPtr,
     lpszContextCtorArg: Pwstr,
     public var dwNumberOfProtocols: UInt,
-    lpafpProtocolsCtorArg: MutPtr<Afprotocols>,
+    lpafpProtocolsCtorArg: MutPtr,
     lpszQueryStringCtorArg: Pwstr,
     public var dwNumberOfCsAddrs: UInt,
-    lpcsaBufferCtorArg: MutPtr<CsaddrInfo>,
+    lpcsaBufferCtorArg: MutPtr,
     public var dwOutputFlags: UInt,
-    lpBlobCtorArg: MutPtr<Blob>,
+    lpBlobCtorArg: MutPtr,
 ) {
     public var lpszServiceInstanceName: Pwstr = lpszServiceInstanceNameCtorArg
         internal set
 
-    public var lpVersion: MutPtr<Wsaversion> = lpVersionCtorArg
+    public var lpVersion: MutPtr = lpVersionCtorArg
         internal set
 
     public var lpszComment: Pwstr = lpszCommentCtorArg
         internal set
 
-    public var lpNSProviderId: MutPtr<Guid> = lpNSProviderIdCtorArg
+    public var lpNSProviderId: MutPtr = lpNSProviderIdCtorArg
         internal set
 
     public var lpszContext: Pwstr = lpszContextCtorArg
         internal set
 
-    public var lpafpProtocols: MutPtr<Afprotocols> = lpafpProtocolsCtorArg
+    public var lpafpProtocols: MutPtr = lpafpProtocolsCtorArg
         internal set
 
     public var lpszQueryString: Pwstr = lpszQueryStringCtorArg
         internal set
 
-    public var lpcsaBuffer: MutPtr<CsaddrInfo> = lpcsaBufferCtorArg
+    public var lpcsaBuffer: MutPtr = lpcsaBufferCtorArg
         internal set
 
-    public var lpBlob: MutPtr<Blob> = lpBlobCtorArg
+    public var lpBlob: MutPtr = lpBlobCtorArg
         internal set
 
     public constructor() : this(
@@ -2620,31 +2618,31 @@ public class Wsaqueryset2w internal constructor(
 
     public operator fun component2(): Pwstr = this.lpszServiceInstanceName
 
-    public operator fun component3(): MutPtr<Wsaversion> = this.lpVersion
+    public operator fun component3(): MutPtr = this.lpVersion
 
     public operator fun component4(): Pwstr = this.lpszComment
 
     public operator fun component5(): UInt = this.dwNameSpace
 
-    public operator fun component6(): MutPtr<Guid> = this.lpNSProviderId
+    public operator fun component6(): MutPtr = this.lpNSProviderId
 
     public operator fun component7(): Pwstr = this.lpszContext
 
     public operator fun component8(): UInt = this.dwNumberOfProtocols
 
-    public operator fun component9(): MutPtr<Afprotocols> = this.lpafpProtocols
+    public operator fun component9(): MutPtr = this.lpafpProtocols
 
     public operator fun component10(): Pwstr = this.lpszQueryString
 
     public operator fun component11(): UInt = this.dwNumberOfCsAddrs
 
-    public operator fun component12(): MutPtr<CsaddrInfo> = this.lpcsaBuffer
+    public operator fun component12(): MutPtr = this.lpcsaBuffer
 
     public operator fun component13(): UInt = this.dwOutputFlags
 
-    public operator fun component14(): MutPtr<Blob> = this.lpBlob
+    public operator fun component14(): MutPtr = this.lpBlob
 
-    public fun copy(dwSize: UInt = this.dwSize, lpszServiceInstanceName: Pwstr = this.lpszServiceInstanceName, lpVersion: MutPtr<Wsaversion> = this.lpVersion, lpszComment: Pwstr = this.lpszComment, dwNameSpace: UInt = this.dwNameSpace, lpNSProviderId: MutPtr<Guid> = this.lpNSProviderId, lpszContext: Pwstr = this.lpszContext, dwNumberOfProtocols: UInt = this.dwNumberOfProtocols, lpafpProtocols: MutPtr<Afprotocols> = this.lpafpProtocols, lpszQueryString: Pwstr = this.lpszQueryString, dwNumberOfCsAddrs: UInt = this.dwNumberOfCsAddrs, lpcsaBuffer: MutPtr<CsaddrInfo> = this.lpcsaBuffer, dwOutputFlags: UInt = this.dwOutputFlags, lpBlob: MutPtr<Blob> = this.lpBlob): Wsaqueryset2w = Wsaqueryset2w(dwSize = dwSize, lpszServiceInstanceNameCtorArg = lpszServiceInstanceName, lpVersionCtorArg = lpVersion, lpszCommentCtorArg = lpszComment, dwNameSpace = dwNameSpace, lpNSProviderIdCtorArg = lpNSProviderId, lpszContextCtorArg = lpszContext, dwNumberOfProtocols = dwNumberOfProtocols, lpafpProtocolsCtorArg = lpafpProtocols, lpszQueryStringCtorArg = lpszQueryString, dwNumberOfCsAddrs = dwNumberOfCsAddrs, lpcsaBufferCtorArg = lpcsaBuffer, dwOutputFlags = dwOutputFlags, lpBlobCtorArg = lpBlob)
+    public fun copy(dwSize: UInt = this.dwSize, lpszServiceInstanceName: Pwstr = this.lpszServiceInstanceName, lpVersion: MutPtr = this.lpVersion, lpszComment: Pwstr = this.lpszComment, dwNameSpace: UInt = this.dwNameSpace, lpNSProviderId: MutPtr = this.lpNSProviderId, lpszContext: Pwstr = this.lpszContext, dwNumberOfProtocols: UInt = this.dwNumberOfProtocols, lpafpProtocols: MutPtr = this.lpafpProtocols, lpszQueryString: Pwstr = this.lpszQueryString, dwNumberOfCsAddrs: UInt = this.dwNumberOfCsAddrs, lpcsaBuffer: MutPtr = this.lpcsaBuffer, dwOutputFlags: UInt = this.dwOutputFlags, lpBlob: MutPtr = this.lpBlob): Wsaqueryset2w = Wsaqueryset2w(dwSize = dwSize, lpszServiceInstanceNameCtorArg = lpszServiceInstanceName, lpVersionCtorArg = lpVersion, lpszCommentCtorArg = lpszComment, dwNameSpace = dwNameSpace, lpNSProviderIdCtorArg = lpNSProviderId, lpszContextCtorArg = lpszContext, dwNumberOfProtocols = dwNumberOfProtocols, lpafpProtocolsCtorArg = lpafpProtocols, lpszQueryStringCtorArg = lpszQueryString, dwNumberOfCsAddrs = dwNumberOfCsAddrs, lpcsaBufferCtorArg = lpcsaBuffer, dwOutputFlags = dwOutputFlags, lpBlobCtorArg = lpBlob)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -2688,18 +2686,18 @@ public class Wsaqueryset2w internal constructor(
         public operator fun invoke(
             dwSize: UInt = 0u,
             lpszServiceInstanceName: Pwstr = MutPtr(0L),
-            lpVersion: MutPtr<Wsaversion> = MutPtr(0L),
+            lpVersion: MutPtr = MutPtr(0L),
             lpszComment: Pwstr = MutPtr(0L),
             dwNameSpace: UInt = 0u,
-            lpNSProviderId: MutPtr<Guid> = MutPtr(0L),
+            lpNSProviderId: MutPtr = MutPtr(0L),
             lpszContext: Pwstr = MutPtr(0L),
             dwNumberOfProtocols: UInt = 0u,
-            lpafpProtocols: MutPtr<Afprotocols> = MutPtr(0L),
+            lpafpProtocols: MutPtr = MutPtr(0L),
             lpszQueryString: Pwstr = MutPtr(0L),
             dwNumberOfCsAddrs: UInt = 0u,
-            lpcsaBuffer: MutPtr<CsaddrInfo> = MutPtr(0L),
+            lpcsaBuffer: MutPtr = MutPtr(0L),
             dwOutputFlags: UInt = 0u,
-            lpBlob: MutPtr<Blob> = MutPtr(0L),
+            lpBlob: MutPtr = MutPtr(0L),
         ): Wsaqueryset2w =
             Wsaqueryset2w(
                 dwSize = dwSize,
@@ -2723,48 +2721,48 @@ public class Wsaqueryset2w internal constructor(
 public class Wsaqueryseta internal constructor(
     public var dwSize: UInt,
     lpszServiceInstanceNameCtorArg: Pstr,
-    lpServiceClassIdCtorArg: MutPtr<Guid>,
-    lpVersionCtorArg: MutPtr<Wsaversion>,
+    lpServiceClassIdCtorArg: MutPtr,
+    lpVersionCtorArg: MutPtr,
     lpszCommentCtorArg: Pstr,
     public var dwNameSpace: UInt,
-    lpNSProviderIdCtorArg: MutPtr<Guid>,
+    lpNSProviderIdCtorArg: MutPtr,
     lpszContextCtorArg: Pstr,
     public var dwNumberOfProtocols: UInt,
-    lpafpProtocolsCtorArg: MutPtr<Afprotocols>,
+    lpafpProtocolsCtorArg: MutPtr,
     lpszQueryStringCtorArg: Pstr,
     public var dwNumberOfCsAddrs: UInt,
-    lpcsaBufferCtorArg: MutPtr<CsaddrInfo>,
+    lpcsaBufferCtorArg: MutPtr,
     public var dwOutputFlags: UInt,
-    lpBlobCtorArg: MutPtr<Blob>,
+    lpBlobCtorArg: MutPtr,
 ) {
     public var lpszServiceInstanceName: Pstr = lpszServiceInstanceNameCtorArg
         internal set
 
-    public var lpServiceClassId: MutPtr<Guid> = lpServiceClassIdCtorArg
+    public var lpServiceClassId: MutPtr = lpServiceClassIdCtorArg
         internal set
 
-    public var lpVersion: MutPtr<Wsaversion> = lpVersionCtorArg
+    public var lpVersion: MutPtr = lpVersionCtorArg
         internal set
 
     public var lpszComment: Pstr = lpszCommentCtorArg
         internal set
 
-    public var lpNSProviderId: MutPtr<Guid> = lpNSProviderIdCtorArg
+    public var lpNSProviderId: MutPtr = lpNSProviderIdCtorArg
         internal set
 
     public var lpszContext: Pstr = lpszContextCtorArg
         internal set
 
-    public var lpafpProtocols: MutPtr<Afprotocols> = lpafpProtocolsCtorArg
+    public var lpafpProtocols: MutPtr = lpafpProtocolsCtorArg
         internal set
 
     public var lpszQueryString: Pstr = lpszQueryStringCtorArg
         internal set
 
-    public var lpcsaBuffer: MutPtr<CsaddrInfo> = lpcsaBufferCtorArg
+    public var lpcsaBuffer: MutPtr = lpcsaBufferCtorArg
         internal set
 
-    public var lpBlob: MutPtr<Blob> = lpBlobCtorArg
+    public var lpBlob: MutPtr = lpBlobCtorArg
         internal set
 
     public constructor() : this(
@@ -2789,33 +2787,33 @@ public class Wsaqueryseta internal constructor(
 
     public operator fun component2(): Pstr = this.lpszServiceInstanceName
 
-    public operator fun component3(): MutPtr<Guid> = this.lpServiceClassId
+    public operator fun component3(): MutPtr = this.lpServiceClassId
 
-    public operator fun component4(): MutPtr<Wsaversion> = this.lpVersion
+    public operator fun component4(): MutPtr = this.lpVersion
 
     public operator fun component5(): Pstr = this.lpszComment
 
     public operator fun component6(): UInt = this.dwNameSpace
 
-    public operator fun component7(): MutPtr<Guid> = this.lpNSProviderId
+    public operator fun component7(): MutPtr = this.lpNSProviderId
 
     public operator fun component8(): Pstr = this.lpszContext
 
     public operator fun component9(): UInt = this.dwNumberOfProtocols
 
-    public operator fun component10(): MutPtr<Afprotocols> = this.lpafpProtocols
+    public operator fun component10(): MutPtr = this.lpafpProtocols
 
     public operator fun component11(): Pstr = this.lpszQueryString
 
     public operator fun component12(): UInt = this.dwNumberOfCsAddrs
 
-    public operator fun component13(): MutPtr<CsaddrInfo> = this.lpcsaBuffer
+    public operator fun component13(): MutPtr = this.lpcsaBuffer
 
     public operator fun component14(): UInt = this.dwOutputFlags
 
-    public operator fun component15(): MutPtr<Blob> = this.lpBlob
+    public operator fun component15(): MutPtr = this.lpBlob
 
-    public fun copy(dwSize: UInt = this.dwSize, lpszServiceInstanceName: Pstr = this.lpszServiceInstanceName, lpServiceClassId: MutPtr<Guid> = this.lpServiceClassId, lpVersion: MutPtr<Wsaversion> = this.lpVersion, lpszComment: Pstr = this.lpszComment, dwNameSpace: UInt = this.dwNameSpace, lpNSProviderId: MutPtr<Guid> = this.lpNSProviderId, lpszContext: Pstr = this.lpszContext, dwNumberOfProtocols: UInt = this.dwNumberOfProtocols, lpafpProtocols: MutPtr<Afprotocols> = this.lpafpProtocols, lpszQueryString: Pstr = this.lpszQueryString, dwNumberOfCsAddrs: UInt = this.dwNumberOfCsAddrs, lpcsaBuffer: MutPtr<CsaddrInfo> = this.lpcsaBuffer, dwOutputFlags: UInt = this.dwOutputFlags, lpBlob: MutPtr<Blob> = this.lpBlob): Wsaqueryseta = Wsaqueryseta(dwSize = dwSize, lpszServiceInstanceNameCtorArg = lpszServiceInstanceName, lpServiceClassIdCtorArg = lpServiceClassId, lpVersionCtorArg = lpVersion, lpszCommentCtorArg = lpszComment, dwNameSpace = dwNameSpace, lpNSProviderIdCtorArg = lpNSProviderId, lpszContextCtorArg = lpszContext, dwNumberOfProtocols = dwNumberOfProtocols, lpafpProtocolsCtorArg = lpafpProtocols, lpszQueryStringCtorArg = lpszQueryString, dwNumberOfCsAddrs = dwNumberOfCsAddrs, lpcsaBufferCtorArg = lpcsaBuffer, dwOutputFlags = dwOutputFlags, lpBlobCtorArg = lpBlob)
+    public fun copy(dwSize: UInt = this.dwSize, lpszServiceInstanceName: Pstr = this.lpszServiceInstanceName, lpServiceClassId: MutPtr = this.lpServiceClassId, lpVersion: MutPtr = this.lpVersion, lpszComment: Pstr = this.lpszComment, dwNameSpace: UInt = this.dwNameSpace, lpNSProviderId: MutPtr = this.lpNSProviderId, lpszContext: Pstr = this.lpszContext, dwNumberOfProtocols: UInt = this.dwNumberOfProtocols, lpafpProtocols: MutPtr = this.lpafpProtocols, lpszQueryString: Pstr = this.lpszQueryString, dwNumberOfCsAddrs: UInt = this.dwNumberOfCsAddrs, lpcsaBuffer: MutPtr = this.lpcsaBuffer, dwOutputFlags: UInt = this.dwOutputFlags, lpBlob: MutPtr = this.lpBlob): Wsaqueryseta = Wsaqueryseta(dwSize = dwSize, lpszServiceInstanceNameCtorArg = lpszServiceInstanceName, lpServiceClassIdCtorArg = lpServiceClassId, lpVersionCtorArg = lpVersion, lpszCommentCtorArg = lpszComment, dwNameSpace = dwNameSpace, lpNSProviderIdCtorArg = lpNSProviderId, lpszContextCtorArg = lpszContext, dwNumberOfProtocols = dwNumberOfProtocols, lpafpProtocolsCtorArg = lpafpProtocols, lpszQueryStringCtorArg = lpszQueryString, dwNumberOfCsAddrs = dwNumberOfCsAddrs, lpcsaBufferCtorArg = lpcsaBuffer, dwOutputFlags = dwOutputFlags, lpBlobCtorArg = lpBlob)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -2861,19 +2859,19 @@ public class Wsaqueryseta internal constructor(
         public operator fun invoke(
             dwSize: UInt = 0u,
             lpszServiceInstanceName: Pstr = MutPtr(0L),
-            lpServiceClassId: MutPtr<Guid> = MutPtr(0L),
-            lpVersion: MutPtr<Wsaversion> = MutPtr(0L),
+            lpServiceClassId: MutPtr = MutPtr(0L),
+            lpVersion: MutPtr = MutPtr(0L),
             lpszComment: Pstr = MutPtr(0L),
             dwNameSpace: UInt = 0u,
-            lpNSProviderId: MutPtr<Guid> = MutPtr(0L),
+            lpNSProviderId: MutPtr = MutPtr(0L),
             lpszContext: Pstr = MutPtr(0L),
             dwNumberOfProtocols: UInt = 0u,
-            lpafpProtocols: MutPtr<Afprotocols> = MutPtr(0L),
+            lpafpProtocols: MutPtr = MutPtr(0L),
             lpszQueryString: Pstr = MutPtr(0L),
             dwNumberOfCsAddrs: UInt = 0u,
-            lpcsaBuffer: MutPtr<CsaddrInfo> = MutPtr(0L),
+            lpcsaBuffer: MutPtr = MutPtr(0L),
             dwOutputFlags: UInt = 0u,
-            lpBlob: MutPtr<Blob> = MutPtr(0L),
+            lpBlob: MutPtr = MutPtr(0L),
         ): Wsaqueryseta =
             Wsaqueryseta(
                 dwSize = dwSize,
@@ -2898,48 +2896,48 @@ public class Wsaqueryseta internal constructor(
 public class Wsaquerysetw internal constructor(
     public var dwSize: UInt,
     lpszServiceInstanceNameCtorArg: Pwstr,
-    lpServiceClassIdCtorArg: MutPtr<Guid>,
-    lpVersionCtorArg: MutPtr<Wsaversion>,
+    lpServiceClassIdCtorArg: MutPtr,
+    lpVersionCtorArg: MutPtr,
     lpszCommentCtorArg: Pwstr,
     public var dwNameSpace: UInt,
-    lpNSProviderIdCtorArg: MutPtr<Guid>,
+    lpNSProviderIdCtorArg: MutPtr,
     lpszContextCtorArg: Pwstr,
     public var dwNumberOfProtocols: UInt,
-    lpafpProtocolsCtorArg: MutPtr<Afprotocols>,
+    lpafpProtocolsCtorArg: MutPtr,
     lpszQueryStringCtorArg: Pwstr,
     public var dwNumberOfCsAddrs: UInt,
-    lpcsaBufferCtorArg: MutPtr<CsaddrInfo>,
+    lpcsaBufferCtorArg: MutPtr,
     public var dwOutputFlags: UInt,
-    lpBlobCtorArg: MutPtr<Blob>,
+    lpBlobCtorArg: MutPtr,
 ) {
     public var lpszServiceInstanceName: Pwstr = lpszServiceInstanceNameCtorArg
         internal set
 
-    public var lpServiceClassId: MutPtr<Guid> = lpServiceClassIdCtorArg
+    public var lpServiceClassId: MutPtr = lpServiceClassIdCtorArg
         internal set
 
-    public var lpVersion: MutPtr<Wsaversion> = lpVersionCtorArg
+    public var lpVersion: MutPtr = lpVersionCtorArg
         internal set
 
     public var lpszComment: Pwstr = lpszCommentCtorArg
         internal set
 
-    public var lpNSProviderId: MutPtr<Guid> = lpNSProviderIdCtorArg
+    public var lpNSProviderId: MutPtr = lpNSProviderIdCtorArg
         internal set
 
     public var lpszContext: Pwstr = lpszContextCtorArg
         internal set
 
-    public var lpafpProtocols: MutPtr<Afprotocols> = lpafpProtocolsCtorArg
+    public var lpafpProtocols: MutPtr = lpafpProtocolsCtorArg
         internal set
 
     public var lpszQueryString: Pwstr = lpszQueryStringCtorArg
         internal set
 
-    public var lpcsaBuffer: MutPtr<CsaddrInfo> = lpcsaBufferCtorArg
+    public var lpcsaBuffer: MutPtr = lpcsaBufferCtorArg
         internal set
 
-    public var lpBlob: MutPtr<Blob> = lpBlobCtorArg
+    public var lpBlob: MutPtr = lpBlobCtorArg
         internal set
 
     public constructor() : this(
@@ -2964,33 +2962,33 @@ public class Wsaquerysetw internal constructor(
 
     public operator fun component2(): Pwstr = this.lpszServiceInstanceName
 
-    public operator fun component3(): MutPtr<Guid> = this.lpServiceClassId
+    public operator fun component3(): MutPtr = this.lpServiceClassId
 
-    public operator fun component4(): MutPtr<Wsaversion> = this.lpVersion
+    public operator fun component4(): MutPtr = this.lpVersion
 
     public operator fun component5(): Pwstr = this.lpszComment
 
     public operator fun component6(): UInt = this.dwNameSpace
 
-    public operator fun component7(): MutPtr<Guid> = this.lpNSProviderId
+    public operator fun component7(): MutPtr = this.lpNSProviderId
 
     public operator fun component8(): Pwstr = this.lpszContext
 
     public operator fun component9(): UInt = this.dwNumberOfProtocols
 
-    public operator fun component10(): MutPtr<Afprotocols> = this.lpafpProtocols
+    public operator fun component10(): MutPtr = this.lpafpProtocols
 
     public operator fun component11(): Pwstr = this.lpszQueryString
 
     public operator fun component12(): UInt = this.dwNumberOfCsAddrs
 
-    public operator fun component13(): MutPtr<CsaddrInfo> = this.lpcsaBuffer
+    public operator fun component13(): MutPtr = this.lpcsaBuffer
 
     public operator fun component14(): UInt = this.dwOutputFlags
 
-    public operator fun component15(): MutPtr<Blob> = this.lpBlob
+    public operator fun component15(): MutPtr = this.lpBlob
 
-    public fun copy(dwSize: UInt = this.dwSize, lpszServiceInstanceName: Pwstr = this.lpszServiceInstanceName, lpServiceClassId: MutPtr<Guid> = this.lpServiceClassId, lpVersion: MutPtr<Wsaversion> = this.lpVersion, lpszComment: Pwstr = this.lpszComment, dwNameSpace: UInt = this.dwNameSpace, lpNSProviderId: MutPtr<Guid> = this.lpNSProviderId, lpszContext: Pwstr = this.lpszContext, dwNumberOfProtocols: UInt = this.dwNumberOfProtocols, lpafpProtocols: MutPtr<Afprotocols> = this.lpafpProtocols, lpszQueryString: Pwstr = this.lpszQueryString, dwNumberOfCsAddrs: UInt = this.dwNumberOfCsAddrs, lpcsaBuffer: MutPtr<CsaddrInfo> = this.lpcsaBuffer, dwOutputFlags: UInt = this.dwOutputFlags, lpBlob: MutPtr<Blob> = this.lpBlob): Wsaquerysetw = Wsaquerysetw(dwSize = dwSize, lpszServiceInstanceNameCtorArg = lpszServiceInstanceName, lpServiceClassIdCtorArg = lpServiceClassId, lpVersionCtorArg = lpVersion, lpszCommentCtorArg = lpszComment, dwNameSpace = dwNameSpace, lpNSProviderIdCtorArg = lpNSProviderId, lpszContextCtorArg = lpszContext, dwNumberOfProtocols = dwNumberOfProtocols, lpafpProtocolsCtorArg = lpafpProtocols, lpszQueryStringCtorArg = lpszQueryString, dwNumberOfCsAddrs = dwNumberOfCsAddrs, lpcsaBufferCtorArg = lpcsaBuffer, dwOutputFlags = dwOutputFlags, lpBlobCtorArg = lpBlob)
+    public fun copy(dwSize: UInt = this.dwSize, lpszServiceInstanceName: Pwstr = this.lpszServiceInstanceName, lpServiceClassId: MutPtr = this.lpServiceClassId, lpVersion: MutPtr = this.lpVersion, lpszComment: Pwstr = this.lpszComment, dwNameSpace: UInt = this.dwNameSpace, lpNSProviderId: MutPtr = this.lpNSProviderId, lpszContext: Pwstr = this.lpszContext, dwNumberOfProtocols: UInt = this.dwNumberOfProtocols, lpafpProtocols: MutPtr = this.lpafpProtocols, lpszQueryString: Pwstr = this.lpszQueryString, dwNumberOfCsAddrs: UInt = this.dwNumberOfCsAddrs, lpcsaBuffer: MutPtr = this.lpcsaBuffer, dwOutputFlags: UInt = this.dwOutputFlags, lpBlob: MutPtr = this.lpBlob): Wsaquerysetw = Wsaquerysetw(dwSize = dwSize, lpszServiceInstanceNameCtorArg = lpszServiceInstanceName, lpServiceClassIdCtorArg = lpServiceClassId, lpVersionCtorArg = lpVersion, lpszCommentCtorArg = lpszComment, dwNameSpace = dwNameSpace, lpNSProviderIdCtorArg = lpNSProviderId, lpszContextCtorArg = lpszContext, dwNumberOfProtocols = dwNumberOfProtocols, lpafpProtocolsCtorArg = lpafpProtocols, lpszQueryStringCtorArg = lpszQueryString, dwNumberOfCsAddrs = dwNumberOfCsAddrs, lpcsaBufferCtorArg = lpcsaBuffer, dwOutputFlags = dwOutputFlags, lpBlobCtorArg = lpBlob)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -3036,19 +3034,19 @@ public class Wsaquerysetw internal constructor(
         public operator fun invoke(
             dwSize: UInt = 0u,
             lpszServiceInstanceName: Pwstr = MutPtr(0L),
-            lpServiceClassId: MutPtr<Guid> = MutPtr(0L),
-            lpVersion: MutPtr<Wsaversion> = MutPtr(0L),
+            lpServiceClassId: MutPtr = MutPtr(0L),
+            lpVersion: MutPtr = MutPtr(0L),
             lpszComment: Pwstr = MutPtr(0L),
             dwNameSpace: UInt = 0u,
-            lpNSProviderId: MutPtr<Guid> = MutPtr(0L),
+            lpNSProviderId: MutPtr = MutPtr(0L),
             lpszContext: Pwstr = MutPtr(0L),
             dwNumberOfProtocols: UInt = 0u,
-            lpafpProtocols: MutPtr<Afprotocols> = MutPtr(0L),
+            lpafpProtocols: MutPtr = MutPtr(0L),
             lpszQueryString: Pwstr = MutPtr(0L),
             dwNumberOfCsAddrs: UInt = 0u,
-            lpcsaBuffer: MutPtr<CsaddrInfo> = MutPtr(0L),
+            lpcsaBuffer: MutPtr = MutPtr(0L),
             dwOutputFlags: UInt = 0u,
-            lpBlob: MutPtr<Blob> = MutPtr(0L),
+            lpBlob: MutPtr = MutPtr(0L),
         ): Wsaquerysetw =
             Wsaquerysetw(
                 dwSize = dwSize,
@@ -3071,19 +3069,19 @@ public class Wsaquerysetw internal constructor(
 }
 
 public class Wsasendmsg internal constructor(
-    lpMsgCtorArg: MutPtr<Wsamsg>,
+    lpMsgCtorArg: MutPtr,
     public var dwFlags: UInt,
-    lpNumberOfBytesSentCtorArg: MutPtr<UInt>,
-    lpOverlappedCtorArg: MutPtr<Overlapped>,
+    lpNumberOfBytesSentCtorArg: MutPtr,
+    lpOverlappedCtorArg: MutPtr,
     public var lpCompletionRoutine: LpwsaoverlappedCompletionRoutine,
 ) {
-    public var lpMsg: MutPtr<Wsamsg> = lpMsgCtorArg
+    public var lpMsg: MutPtr = lpMsgCtorArg
         internal set
 
-    public var lpNumberOfBytesSent: MutPtr<UInt> = lpNumberOfBytesSentCtorArg
+    public var lpNumberOfBytesSent: MutPtr = lpNumberOfBytesSentCtorArg
         internal set
 
-    public var lpOverlapped: MutPtr<Overlapped> = lpOverlappedCtorArg
+    public var lpOverlapped: MutPtr = lpOverlappedCtorArg
         internal set
 
     public constructor() : this(
@@ -3094,17 +3092,17 @@ public class Wsasendmsg internal constructor(
         lpCompletionRoutine = null,
     )
 
-    public operator fun component1(): MutPtr<Wsamsg> = this.lpMsg
+    public operator fun component1(): MutPtr = this.lpMsg
 
     public operator fun component2(): UInt = this.dwFlags
 
-    public operator fun component3(): MutPtr<UInt> = this.lpNumberOfBytesSent
+    public operator fun component3(): MutPtr = this.lpNumberOfBytesSent
 
-    public operator fun component4(): MutPtr<Overlapped> = this.lpOverlapped
+    public operator fun component4(): MutPtr = this.lpOverlapped
 
     public operator fun component5(): LpwsaoverlappedCompletionRoutine = this.lpCompletionRoutine
 
-    public fun copy(lpMsg: MutPtr<Wsamsg> = this.lpMsg, dwFlags: UInt = this.dwFlags, lpNumberOfBytesSent: MutPtr<UInt> = this.lpNumberOfBytesSent, lpOverlapped: MutPtr<Overlapped> = this.lpOverlapped, lpCompletionRoutine: LpwsaoverlappedCompletionRoutine = this.lpCompletionRoutine): Wsasendmsg = Wsasendmsg(lpMsgCtorArg = lpMsg, dwFlags = dwFlags, lpNumberOfBytesSentCtorArg = lpNumberOfBytesSent, lpOverlappedCtorArg = lpOverlapped, lpCompletionRoutine = lpCompletionRoutine)
+    public fun copy(lpMsg: MutPtr = this.lpMsg, dwFlags: UInt = this.dwFlags, lpNumberOfBytesSent: MutPtr = this.lpNumberOfBytesSent, lpOverlapped: MutPtr = this.lpOverlapped, lpCompletionRoutine: LpwsaoverlappedCompletionRoutine = this.lpCompletionRoutine): Wsasendmsg = Wsasendmsg(lpMsgCtorArg = lpMsg, dwFlags = dwFlags, lpNumberOfBytesSentCtorArg = lpNumberOfBytesSent, lpOverlappedCtorArg = lpOverlapped, lpCompletionRoutine = lpCompletionRoutine)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -3128,10 +3126,10 @@ public class Wsasendmsg internal constructor(
 
     public companion object {
         public operator fun invoke(
-            lpMsg: MutPtr<Wsamsg> = MutPtr(0L),
+            lpMsg: MutPtr = MutPtr(0L),
             dwFlags: UInt = 0u,
-            lpNumberOfBytesSent: MutPtr<UInt> = MutPtr(0L),
-            lpOverlapped: MutPtr<Overlapped> = MutPtr(0L),
+            lpNumberOfBytesSent: MutPtr = MutPtr(0L),
+            lpOverlapped: MutPtr = MutPtr(0L),
             lpCompletionRoutine: LpwsaoverlappedCompletionRoutine = null,
         ): Wsasendmsg =
             Wsasendmsg(
@@ -3145,18 +3143,18 @@ public class Wsasendmsg internal constructor(
 }
 
 public class Wsaserviceclassinfoa internal constructor(
-    lpServiceClassIdCtorArg: MutPtr<Guid>,
+    lpServiceClassIdCtorArg: MutPtr,
     lpszServiceClassNameCtorArg: Pstr,
     public var dwCount: UInt,
-    lpClassInfosCtorArg: MutPtr<Wsansclassinfoa>,
+    lpClassInfosCtorArg: MutPtr,
 ) {
-    public var lpServiceClassId: MutPtr<Guid> = lpServiceClassIdCtorArg
+    public var lpServiceClassId: MutPtr = lpServiceClassIdCtorArg
         internal set
 
     public var lpszServiceClassName: Pstr = lpszServiceClassNameCtorArg
         internal set
 
-    public var lpClassInfos: MutPtr<Wsansclassinfoa> = lpClassInfosCtorArg
+    public var lpClassInfos: MutPtr = lpClassInfosCtorArg
         internal set
 
     public constructor() : this(
@@ -3166,15 +3164,15 @@ public class Wsaserviceclassinfoa internal constructor(
         lpClassInfosCtorArg = MutPtr(0L),
     )
 
-    public operator fun component1(): MutPtr<Guid> = this.lpServiceClassId
+    public operator fun component1(): MutPtr = this.lpServiceClassId
 
     public operator fun component2(): Pstr = this.lpszServiceClassName
 
     public operator fun component3(): UInt = this.dwCount
 
-    public operator fun component4(): MutPtr<Wsansclassinfoa> = this.lpClassInfos
+    public operator fun component4(): MutPtr = this.lpClassInfos
 
-    public fun copy(lpServiceClassId: MutPtr<Guid> = this.lpServiceClassId, lpszServiceClassName: Pstr = this.lpszServiceClassName, dwCount: UInt = this.dwCount, lpClassInfos: MutPtr<Wsansclassinfoa> = this.lpClassInfos): Wsaserviceclassinfoa = Wsaserviceclassinfoa(lpServiceClassIdCtorArg = lpServiceClassId, lpszServiceClassNameCtorArg = lpszServiceClassName, dwCount = dwCount, lpClassInfosCtorArg = lpClassInfos)
+    public fun copy(lpServiceClassId: MutPtr = this.lpServiceClassId, lpszServiceClassName: Pstr = this.lpszServiceClassName, dwCount: UInt = this.dwCount, lpClassInfos: MutPtr = this.lpClassInfos): Wsaserviceclassinfoa = Wsaserviceclassinfoa(lpServiceClassIdCtorArg = lpServiceClassId, lpszServiceClassNameCtorArg = lpszServiceClassName, dwCount = dwCount, lpClassInfosCtorArg = lpClassInfos)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -3196,10 +3194,10 @@ public class Wsaserviceclassinfoa internal constructor(
 
     public companion object {
         public operator fun invoke(
-            lpServiceClassId: MutPtr<Guid> = MutPtr(0L),
+            lpServiceClassId: MutPtr = MutPtr(0L),
             lpszServiceClassName: Pstr = MutPtr(0L),
             dwCount: UInt = 0u,
-            lpClassInfos: MutPtr<Wsansclassinfoa> = MutPtr(0L),
+            lpClassInfos: MutPtr = MutPtr(0L),
         ): Wsaserviceclassinfoa =
             Wsaserviceclassinfoa(
                 lpServiceClassIdCtorArg = lpServiceClassId,
@@ -3211,18 +3209,18 @@ public class Wsaserviceclassinfoa internal constructor(
 }
 
 public class Wsaserviceclassinfow internal constructor(
-    lpServiceClassIdCtorArg: MutPtr<Guid>,
+    lpServiceClassIdCtorArg: MutPtr,
     lpszServiceClassNameCtorArg: Pwstr,
     public var dwCount: UInt,
-    lpClassInfosCtorArg: MutPtr<Wsansclassinfow>,
+    lpClassInfosCtorArg: MutPtr,
 ) {
-    public var lpServiceClassId: MutPtr<Guid> = lpServiceClassIdCtorArg
+    public var lpServiceClassId: MutPtr = lpServiceClassIdCtorArg
         internal set
 
     public var lpszServiceClassName: Pwstr = lpszServiceClassNameCtorArg
         internal set
 
-    public var lpClassInfos: MutPtr<Wsansclassinfow> = lpClassInfosCtorArg
+    public var lpClassInfos: MutPtr = lpClassInfosCtorArg
         internal set
 
     public constructor() : this(
@@ -3232,15 +3230,15 @@ public class Wsaserviceclassinfow internal constructor(
         lpClassInfosCtorArg = MutPtr(0L),
     )
 
-    public operator fun component1(): MutPtr<Guid> = this.lpServiceClassId
+    public operator fun component1(): MutPtr = this.lpServiceClassId
 
     public operator fun component2(): Pwstr = this.lpszServiceClassName
 
     public operator fun component3(): UInt = this.dwCount
 
-    public operator fun component4(): MutPtr<Wsansclassinfow> = this.lpClassInfos
+    public operator fun component4(): MutPtr = this.lpClassInfos
 
-    public fun copy(lpServiceClassId: MutPtr<Guid> = this.lpServiceClassId, lpszServiceClassName: Pwstr = this.lpszServiceClassName, dwCount: UInt = this.dwCount, lpClassInfos: MutPtr<Wsansclassinfow> = this.lpClassInfos): Wsaserviceclassinfow = Wsaserviceclassinfow(lpServiceClassIdCtorArg = lpServiceClassId, lpszServiceClassNameCtorArg = lpszServiceClassName, dwCount = dwCount, lpClassInfosCtorArg = lpClassInfos)
+    public fun copy(lpServiceClassId: MutPtr = this.lpServiceClassId, lpszServiceClassName: Pwstr = this.lpszServiceClassName, dwCount: UInt = this.dwCount, lpClassInfos: MutPtr = this.lpClassInfos): Wsaserviceclassinfow = Wsaserviceclassinfow(lpServiceClassIdCtorArg = lpServiceClassId, lpszServiceClassNameCtorArg = lpszServiceClassName, dwCount = dwCount, lpClassInfosCtorArg = lpClassInfos)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -3262,10 +3260,10 @@ public class Wsaserviceclassinfow internal constructor(
 
     public companion object {
         public operator fun invoke(
-            lpServiceClassId: MutPtr<Guid> = MutPtr(0L),
+            lpServiceClassId: MutPtr = MutPtr(0L),
             lpszServiceClassName: Pwstr = MutPtr(0L),
             dwCount: UInt = 0u,
-            lpClassInfos: MutPtr<Wsansclassinfow> = MutPtr(0L),
+            lpClassInfos: MutPtr = MutPtr(0L),
         ): Wsaserviceclassinfow =
             Wsaserviceclassinfow(
                 lpServiceClassIdCtorArg = lpServiceClassId,
@@ -3366,9 +3364,9 @@ public data class WsaCompatibilityMode(
 
 public class WscProviderAuditInfo internal constructor(
     public var recordSize: UInt,
-    reservedCtorArg: MutPtr<CVoid>,
+    reservedCtorArg: MutPtr,
 ) {
-    public var reserved: MutPtr<CVoid> = reservedCtorArg
+    public var reserved: MutPtr = reservedCtorArg
         internal set
 
     public constructor() : this(
@@ -3378,9 +3376,9 @@ public class WscProviderAuditInfo internal constructor(
 
     public operator fun component1(): UInt = this.recordSize
 
-    public operator fun component2(): MutPtr<CVoid> = this.reserved
+    public operator fun component2(): MutPtr = this.reserved
 
-    public fun copy(recordSize: UInt = this.recordSize, reserved: MutPtr<CVoid> = this.reserved): WscProviderAuditInfo = WscProviderAuditInfo(recordSize = recordSize, reservedCtorArg = reserved)
+    public fun copy(recordSize: UInt = this.recordSize, reserved: MutPtr = this.reserved): WscProviderAuditInfo = WscProviderAuditInfo(recordSize = recordSize, reservedCtorArg = reserved)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -3406,21 +3404,21 @@ public class WscProviderAuditInfo internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<CVoid>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                     )
                 override fun writeNative(addr: Long, value: WscProviderAuditInfo) {
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr, value.recordSize)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<CVoid>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.reserved)
                 }
             }
 
         public operator fun invoke(
             recordSize: UInt = 0u,
-            reserved: MutPtr<CVoid> = MutPtr(0L),
+            reserved: MutPtr = MutPtr(0L),
         ): WscProviderAuditInfo =
             WscProviderAuditInfo(
                 recordSize = recordSize,
@@ -3529,14 +3527,14 @@ public data class Wspupcalltable(
 
 public class Netent internal constructor(
     nNameCtorArg: Pstr,
-    nAliasesCtorArg: MutPtr<MutPtr<Byte>>,
+    nAliasesCtorArg: MutPtr,
     public var nAddrtype: Short,
     public var nNet: UInt,
 ) {
     public var nName: Pstr = nNameCtorArg
         internal set
 
-    public var nAliases: MutPtr<MutPtr<Byte>> = nAliasesCtorArg
+    public var nAliases: MutPtr = nAliasesCtorArg
         internal set
 
     public constructor() : this(
@@ -3548,13 +3546,13 @@ public class Netent internal constructor(
 
     public operator fun component1(): Pstr = this.nName
 
-    public operator fun component2(): MutPtr<MutPtr<Byte>> = this.nAliases
+    public operator fun component2(): MutPtr = this.nAliases
 
     public operator fun component3(): Short = this.nAddrtype
 
     public operator fun component4(): UInt = this.nNet
 
-    public fun copy(nName: Pstr = this.nName, nAliases: MutPtr<MutPtr<Byte>> = this.nAliases, nAddrtype: Short = this.nAddrtype, nNet: UInt = this.nNet): Netent = Netent(nNameCtorArg = nName, nAliasesCtorArg = nAliases, nAddrtype = nAddrtype, nNet = nNet)
+    public fun copy(nName: Pstr = this.nName, nAliases: MutPtr = this.nAliases, nAddrtype: Short = this.nAddrtype, nNet: UInt = this.nNet): Netent = Netent(nNameCtorArg = nName, nAliasesCtorArg = nAliases, nAddrtype = nAddrtype, nNet = nNet)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -3577,7 +3575,7 @@ public class Netent internal constructor(
     public companion object {
         public operator fun invoke(
             nName: Pstr = MutPtr(0L),
-            nAliases: MutPtr<MutPtr<Byte>> = MutPtr(0L),
+            nAliases: MutPtr = MutPtr(0L),
             nAddrtype: Short = 0,
             nNet: UInt = 0u,
         ): Netent =

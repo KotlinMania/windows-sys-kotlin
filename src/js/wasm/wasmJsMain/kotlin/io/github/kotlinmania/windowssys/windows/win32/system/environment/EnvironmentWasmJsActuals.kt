@@ -2,7 +2,6 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.system.environment
 
-import io.github.kotlinmania.rustlang.core.ffi.CVoid
 import io.github.kotlinmania.rustlang.core.ptr.ConstPtr
 import io.github.kotlinmania.rustlang.core.ptr.MutPtr
 import io.github.kotlinmania.windowssys.core.Bool
@@ -129,34 +128,34 @@ private external fun wasmWindowssysWindowsWin32SystemEnvironmentSetEnvironmentVa
 @JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemEnvironmentTerminateEnclave(p0, p1)")
 private external fun wasmWindowssysWindowsWin32SystemEnvironmentTerminateEnclave(p0: String, p1: Int): Int
 
-public actual fun callEnclave(lproutine: Long, lpparameter: ConstPtr<CVoid>, fwaitforthread: Bool, lpreturnvalue: MutPtr<MutPtr<CVoid>>): Bool =
+public actual fun callEnclave(lproutine: Long, lpparameter: ConstPtr, fwaitforthread: Bool, lpreturnvalue: MutPtr): Bool =
     if (windowsWin32SystemEnvironmentNapiAvailable) wasmWindowssysWindowsWin32SystemEnvironmentCallEnclave(lproutine.toString(), lpparameter.rawAddress.toString(), fwaitforthread, lpreturnvalue.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun createEnclave(hprocess: Handle, lpaddress: ConstPtr<CVoid>, dwsize: ULong, dwinitialcommitment: ULong, flenclavetype: UInt, lpenclaveinformation: ConstPtr<CVoid>, dwinfolength: UInt, lpenclaveerror: MutPtr<UInt>): MutPtr<CVoid> =
+public actual fun createEnclave(hprocess: Handle, lpaddress: ConstPtr, dwsize: ULong, dwinitialcommitment: ULong, flenclavetype: UInt, lpenclaveinformation: ConstPtr, dwinfolength: UInt, lpenclaveerror: MutPtr): MutPtr =
     if (windowsWin32SystemEnvironmentNapiAvailable) MutPtr(wasmWindowssysWindowsWin32SystemEnvironmentCreateEnclave(hprocess.rawAddress.toString(), lpaddress.rawAddress.toString(), dwsize.toString(), dwinitialcommitment.toString(), flenclavetype.toInt(), lpenclaveinformation.rawAddress.toString(), dwinfolength.toInt(), lpenclaveerror.rawAddress.toString()).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun createEnvironmentBlock(lpenvironment: MutPtr<MutPtr<CVoid>>, htoken: Handle, binherit: Bool): Bool =
+public actual fun createEnvironmentBlock(lpenvironment: MutPtr, htoken: Handle, binherit: Bool): Bool =
     if (windowsWin32SystemEnvironmentNapiAvailable) wasmWindowssysWindowsWin32SystemEnvironmentCreateEnvironmentBlock(lpenvironment.rawAddress.toString(), htoken.rawAddress.toString(), binherit) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun deleteEnclave(lpaddress: ConstPtr<CVoid>): Bool =
+public actual fun deleteEnclave(lpaddress: ConstPtr): Bool =
     if (windowsWin32SystemEnvironmentNapiAvailable) wasmWindowssysWindowsWin32SystemEnvironmentDeleteEnclave(lpaddress.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun destroyEnvironmentBlock(lpenvironment: ConstPtr<CVoid>): Bool =
+public actual fun destroyEnvironmentBlock(lpenvironment: ConstPtr): Bool =
     if (windowsWin32SystemEnvironmentNapiAvailable) wasmWindowssysWindowsWin32SystemEnvironmentDestroyEnvironmentBlock(lpenvironment.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun enclaveGetAttestationReport(enclavedata: ConstPtr<UByte>, report: MutPtr<CVoid>, buffersize: UInt, outputsize: MutPtr<UInt>): Hresult =
+public actual fun enclaveGetAttestationReport(enclavedata: ConstPtr, report: MutPtr, buffersize: UInt, outputsize: MutPtr): Hresult =
     if (windowsWin32SystemEnvironmentNapiAvailable) wasmWindowssysWindowsWin32SystemEnvironmentEnclaveGetAttestationReport(enclavedata.rawAddress.toString(), report.rawAddress.toString(), buffersize.toInt(), outputsize.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun enclaveGetEnclaveInformation(informationsize: UInt, enclaveinformation: MutPtr<EnclaveInformation>): Hresult =
+public actual fun enclaveGetEnclaveInformation(informationsize: UInt, enclaveinformation: MutPtr): Hresult =
     if (windowsWin32SystemEnvironmentNapiAvailable) wasmWindowssysWindowsWin32SystemEnvironmentEnclaveGetEnclaveInformation(informationsize.toInt(), enclaveinformation.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun enclaveSealData(datatoencrypt: ConstPtr<CVoid>, datatoencryptsize: UInt, identitypolicy: EnclaveSealingIdentityPolicy, runtimepolicy: UInt, protectedblob: MutPtr<CVoid>, buffersize: UInt, protectedblobsize: MutPtr<UInt>): Hresult =
+public actual fun enclaveSealData(datatoencrypt: ConstPtr, datatoencryptsize: UInt, identitypolicy: EnclaveSealingIdentityPolicy, runtimepolicy: UInt, protectedblob: MutPtr, buffersize: UInt, protectedblobsize: MutPtr): Hresult =
     if (windowsWin32SystemEnvironmentNapiAvailable) wasmWindowssysWindowsWin32SystemEnvironmentEnclaveSealData(datatoencrypt.rawAddress.toString(), datatoencryptsize.toInt(), identitypolicy, runtimepolicy.toInt(), protectedblob.rawAddress.toString(), buffersize.toInt(), protectedblobsize.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun enclaveUnsealData(protectedblob: ConstPtr<CVoid>, protectedblobsize: UInt, decrypteddata: MutPtr<CVoid>, buffersize: UInt, decrypteddatasize: MutPtr<UInt>, sealingidentity: MutPtr<EnclaveIdentity>, unsealingflags: MutPtr<UInt>): Hresult =
+public actual fun enclaveUnsealData(protectedblob: ConstPtr, protectedblobsize: UInt, decrypteddata: MutPtr, buffersize: UInt, decrypteddatasize: MutPtr, sealingidentity: MutPtr, unsealingflags: MutPtr): Hresult =
     if (windowsWin32SystemEnvironmentNapiAvailable) wasmWindowssysWindowsWin32SystemEnvironmentEnclaveUnsealData(protectedblob.rawAddress.toString(), protectedblobsize.toInt(), decrypteddata.rawAddress.toString(), buffersize.toInt(), decrypteddatasize.rawAddress.toString(), sealingidentity.rawAddress.toString(), unsealingflags.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun enclaveVerifyAttestationReport(enclavetype: UInt, report: ConstPtr<CVoid>, reportsize: UInt): Hresult =
+public actual fun enclaveVerifyAttestationReport(enclavetype: UInt, report: ConstPtr, reportsize: UInt): Hresult =
     if (windowsWin32SystemEnvironmentNapiAvailable) wasmWindowssysWindowsWin32SystemEnvironmentEnclaveVerifyAttestationReport(enclavetype.toInt(), report.rawAddress.toString(), reportsize.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun expandEnvironmentStringsA(lpsrc: Pcstr, lpdst: Pstr, nsize: UInt): UInt =
@@ -201,19 +200,19 @@ public actual fun getEnvironmentVariableA(lpname: Pcstr, lpbuffer: Pstr, nsize: 
 public actual fun getEnvironmentVariableW(lpname: Pcwstr, lpbuffer: Pwstr, nsize: UInt): UInt =
     if (windowsWin32SystemEnvironmentNapiAvailable) wasmWindowssysWindowsWin32SystemEnvironmentGetEnvironmentVariableW(lpname.rawAddress.toString(), lpbuffer.rawAddress.toString(), nsize.toInt()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun initializeEnclave(hprocess: Handle, lpaddress: ConstPtr<CVoid>, lpenclaveinformation: ConstPtr<CVoid>, dwinfolength: UInt, lpenclaveerror: MutPtr<UInt>): Bool =
+public actual fun initializeEnclave(hprocess: Handle, lpaddress: ConstPtr, lpenclaveinformation: ConstPtr, dwinfolength: UInt, lpenclaveerror: MutPtr): Bool =
     if (windowsWin32SystemEnvironmentNapiAvailable) wasmWindowssysWindowsWin32SystemEnvironmentInitializeEnclave(hprocess.rawAddress.toString(), lpaddress.rawAddress.toString(), lpenclaveinformation.rawAddress.toString(), dwinfolength.toInt(), lpenclaveerror.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun isEnclaveTypeSupported(flenclavetype: UInt): Bool =
     if (windowsWin32SystemEnvironmentNapiAvailable) wasmWindowssysWindowsWin32SystemEnvironmentIsEnclaveTypeSupported(flenclavetype.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun loadEnclaveData(hprocess: Handle, lpaddress: ConstPtr<CVoid>, lpbuffer: ConstPtr<CVoid>, nsize: ULong, flprotect: UInt, lppageinformation: ConstPtr<CVoid>, dwinfolength: UInt, lpnumberofbyteswritten: MutPtr<ULong>, lpenclaveerror: MutPtr<UInt>): Bool =
+public actual fun loadEnclaveData(hprocess: Handle, lpaddress: ConstPtr, lpbuffer: ConstPtr, nsize: ULong, flprotect: UInt, lppageinformation: ConstPtr, dwinfolength: UInt, lpnumberofbyteswritten: MutPtr, lpenclaveerror: MutPtr): Bool =
     if (windowsWin32SystemEnvironmentNapiAvailable) wasmWindowssysWindowsWin32SystemEnvironmentLoadEnclaveData(hprocess.rawAddress.toString(), lpaddress.rawAddress.toString(), lpbuffer.rawAddress.toString(), nsize.toString(), flprotect.toInt(), lppageinformation.rawAddress.toString(), dwinfolength.toInt(), lpnumberofbyteswritten.rawAddress.toString(), lpenclaveerror.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun loadEnclaveImageA(lpenclaveaddress: ConstPtr<CVoid>, lpimagename: Pcstr): Bool =
+public actual fun loadEnclaveImageA(lpenclaveaddress: ConstPtr, lpimagename: Pcstr): Bool =
     if (windowsWin32SystemEnvironmentNapiAvailable) wasmWindowssysWindowsWin32SystemEnvironmentLoadEnclaveImageA(lpenclaveaddress.rawAddress.toString(), lpimagename.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun loadEnclaveImageW(lpenclaveaddress: ConstPtr<CVoid>, lpimagename: Pcwstr): Bool =
+public actual fun loadEnclaveImageW(lpenclaveaddress: ConstPtr, lpimagename: Pcwstr): Bool =
     if (windowsWin32SystemEnvironmentNapiAvailable) wasmWindowssysWindowsWin32SystemEnvironmentLoadEnclaveImageW(lpenclaveaddress.rawAddress.toString(), lpimagename.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun needCurrentDirectoryForExePathA(exename: Pcstr): Bool =
@@ -237,5 +236,5 @@ public actual fun setEnvironmentVariableA(lpname: Pcstr, lpvalue: Pcstr): Bool =
 public actual fun setEnvironmentVariableW(lpname: Pcwstr, lpvalue: Pcwstr): Bool =
     if (windowsWin32SystemEnvironmentNapiAvailable) wasmWindowssysWindowsWin32SystemEnvironmentSetEnvironmentVariableW(lpname.rawAddress.toString(), lpvalue.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun terminateEnclave(lpaddress: ConstPtr<CVoid>, fwait: Bool): Bool =
+public actual fun terminateEnclave(lpaddress: ConstPtr, fwait: Bool): Bool =
     if (windowsWin32SystemEnvironmentNapiAvailable) wasmWindowssysWindowsWin32SystemEnvironmentTerminateEnclave(lpaddress.rawAddress.toString(), fwait) else throw UnsupportedOperationException("Native FFI addon is not available")

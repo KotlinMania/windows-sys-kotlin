@@ -2,7 +2,6 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.web.internetexplorer
 
-import io.github.kotlinmania.rustlang.core.ffi.CVoid
 import io.github.kotlinmania.rustlang.core.ptr.ConstPtr
 import io.github.kotlinmania.rustlang.core.ptr.MutPtr
 import io.github.kotlinmania.windowssys.core.Bool
@@ -14,12 +13,7 @@ import io.github.kotlinmania.windowssys.core.Pwstr
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Handle
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Hinstance
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Hwnd
-import io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.Rgbquad
-import io.github.kotlinmania.windowssys.windows.win32.security.SecurityAttributes
 import io.github.kotlinmania.windowssys.windows.win32.storage.filesystem.GetFileexInfoLevels
-import io.github.kotlinmania.windowssys.windows.win32.storage.filesystem.Win32FindDataa
-import io.github.kotlinmania.windowssys.windows.win32.system.registry.Hkey
-import io.github.kotlinmania.windowssys.windows.win32.system.threading.ProcessInformation
 
 private object WindowsWin32WebInternetexplorerJniBridge {
     init {
@@ -237,22 +231,22 @@ private object WindowsWin32WebInternetexplorerJniBridge {
     external fun windowssysWindowsWin32WebInternetexplorerSniffStream(pinstream: Long, pnformat: Long, ppoutstream: Long): Int
 }
 
-public actual fun computeInvCMAP(prgbcolors: ConstPtr<Rgbquad>, ncolors: UInt, pinvtable: MutPtr<UByte>, cbtable: UInt): Hresult =
+public actual fun computeInvCMAP(prgbcolors: ConstPtr, ncolors: UInt, pinvtable: MutPtr, cbtable: UInt): Hresult =
     WindowsWin32WebInternetexplorerJniBridge.windowssysWindowsWin32WebInternetexplorerComputeInvCMAP(prgbcolors.rawAddress, ncolors.toInt(), pinvtable.rawAddress, cbtable.toInt())
 
-public actual fun createMIMEMap(ppmap: MutPtr<MutPtr<CVoid>>): Hresult =
+public actual fun createMIMEMap(ppmap: MutPtr): Hresult =
     WindowsWin32WebInternetexplorerJniBridge.windowssysWindowsWin32WebInternetexplorerCreateMIMEMap(ppmap.rawAddress)
 
-public actual fun decodeImage(pstream: MutPtr<CVoid>, pmap: MutPtr<CVoid>, peventsink: MutPtr<CVoid>): Hresult =
+public actual fun decodeImage(pstream: MutPtr, pmap: MutPtr, peventsink: MutPtr): Hresult =
     WindowsWin32WebInternetexplorerJniBridge.windowssysWindowsWin32WebInternetexplorerDecodeImage(pstream.rawAddress, pmap.rawAddress, peventsink.rawAddress)
 
-public actual fun decodeImageEx(pstream: MutPtr<CVoid>, pmap: MutPtr<CVoid>, peventsink: MutPtr<CVoid>, pszmimetypeparam: Pcwstr): Hresult =
+public actual fun decodeImageEx(pstream: MutPtr, pmap: MutPtr, peventsink: MutPtr, pszmimetypeparam: Pcwstr): Hresult =
     WindowsWin32WebInternetexplorerJniBridge.windowssysWindowsWin32WebInternetexplorerDecodeImageEx(pstream.rawAddress, pmap.rawAddress, peventsink.rawAddress, pszmimetypeparam.rawAddress)
 
-public actual fun ditherTo8(pdestbits: MutPtr<UByte>, ndestpitch: Int, psrcbits: MutPtr<UByte>, nsrcpitch: Int, bfidsrc: ConstPtr<Guid>, prgbdestcolors: MutPtr<Rgbquad>, prgbsrccolors: MutPtr<Rgbquad>, pbdestinvmap: MutPtr<UByte>, x: Int, y: Int, cx: Int, cy: Int, ldesttrans: Int, lsrctrans: Int): Hresult =
+public actual fun ditherTo8(pdestbits: MutPtr, ndestpitch: Int, psrcbits: MutPtr, nsrcpitch: Int, bfidsrc: ConstPtr, prgbdestcolors: MutPtr, prgbsrccolors: MutPtr, pbdestinvmap: MutPtr, x: Int, y: Int, cx: Int, cy: Int, ldesttrans: Int, lsrctrans: Int): Hresult =
     WindowsWin32WebInternetexplorerJniBridge.windowssysWindowsWin32WebInternetexplorerDitherTo8(pdestbits.rawAddress, ndestpitch, psrcbits.rawAddress, nsrcpitch, bfidsrc.rawAddress, prgbdestcolors.rawAddress, prgbsrccolors.rawAddress, pbdestinvmap.rawAddress, x, y, cx, cy, ldesttrans, lsrctrans)
 
-public actual fun getMaxMIMEIDBytes(pnmaxbytes: MutPtr<UInt>): Hresult =
+public actual fun getMaxMIMEIDBytes(pnmaxbytes: MutPtr): Hresult =
     WindowsWin32WebInternetexplorerJniBridge.windowssysWindowsWin32WebInternetexplorerGetMaxMIMEIDBytes(pnmaxbytes.rawAddress)
 
 public actual fun iEAssociateThreadWithTab(dwtabthreadid: UInt, dwassociatedthreadid: UInt): Hresult =
@@ -261,10 +255,10 @@ public actual fun iEAssociateThreadWithTab(dwtabthreadid: UInt, dwassociatedthre
 public actual fun iECancelSaveFile(hstate: Handle): Hresult =
     WindowsWin32WebInternetexplorerJniBridge.windowssysWindowsWin32WebInternetexplorerIECancelSaveFile(hstate.rawAddress)
 
-public actual fun iECreateDirectory(lppathname: Pcwstr, lpsecurityattributes: ConstPtr<SecurityAttributes>): Bool =
+public actual fun iECreateDirectory(lppathname: Pcwstr, lpsecurityattributes: ConstPtr): Bool =
     WindowsWin32WebInternetexplorerJniBridge.windowssysWindowsWin32WebInternetexplorerIECreateDirectory(lppathname.rawAddress, lpsecurityattributes.rawAddress)
 
-public actual fun iECreateFile(lpfilename: Pcwstr, dwdesiredaccess: UInt, dwsharemode: UInt, lpsecurityattributes: ConstPtr<SecurityAttributes>, dwcreationdisposition: UInt, dwflagsandattributes: UInt, htemplatefile: Handle): Handle =
+public actual fun iECreateFile(lpfilename: Pcwstr, dwdesiredaccess: UInt, dwsharemode: UInt, lpsecurityattributes: ConstPtr, dwcreationdisposition: UInt, dwflagsandattributes: UInt, htemplatefile: Handle): Handle =
     MutPtr(WindowsWin32WebInternetexplorerJniBridge.windowssysWindowsWin32WebInternetexplorerIECreateFile(lpfilename.rawAddress, dwdesiredaccess.toInt(), dwsharemode.toInt(), lpsecurityattributes.rawAddress, dwcreationdisposition.toInt(), dwflagsandattributes.toInt(), htemplatefile.rawAddress))
 
 public actual fun iEDeleteFile(lpfilename: Pcwstr): Bool =
@@ -273,19 +267,19 @@ public actual fun iEDeleteFile(lpfilename: Pcwstr): Bool =
 public actual fun iEDisassociateThreadWithTab(dwtabthreadid: UInt, dwassociatedthreadid: UInt): Hresult =
     WindowsWin32WebInternetexplorerJniBridge.windowssysWindowsWin32WebInternetexplorerIEDisassociateThreadWithTab(dwtabthreadid.toInt(), dwassociatedthreadid.toInt())
 
-public actual fun iEFindFirstFile(lpfilename: Pcwstr, lpfindfiledata: ConstPtr<Win32FindDataa>): Handle =
+public actual fun iEFindFirstFile(lpfilename: Pcwstr, lpfindfiledata: ConstPtr): Handle =
     MutPtr(WindowsWin32WebInternetexplorerJniBridge.windowssysWindowsWin32WebInternetexplorerIEFindFirstFile(lpfilename.rawAddress, lpfindfiledata.rawAddress))
 
-public actual fun iEGetFileAttributesEx(lpfilename: Pcwstr, finfolevelid: GetFileexInfoLevels, lpfileinformation: ConstPtr<CVoid>): Bool =
+public actual fun iEGetFileAttributesEx(lpfilename: Pcwstr, finfolevelid: GetFileexInfoLevels, lpfileinformation: ConstPtr): Bool =
     WindowsWin32WebInternetexplorerJniBridge.windowssysWindowsWin32WebInternetexplorerIEGetFileAttributesEx(lpfilename.rawAddress, finfolevelid, lpfileinformation.rawAddress)
 
-public actual fun iEGetProtectedModeCookie(lpszurl: Pcwstr, lpszcookiename: Pcwstr, lpszcookiedata: Pwstr, pcchcookiedata: MutPtr<UInt>, dwflags: UInt): Hresult =
+public actual fun iEGetProtectedModeCookie(lpszurl: Pcwstr, lpszcookiename: Pcwstr, lpszcookiedata: Pwstr, pcchcookiedata: MutPtr, dwflags: UInt): Hresult =
     WindowsWin32WebInternetexplorerJniBridge.windowssysWindowsWin32WebInternetexplorerIEGetProtectedModeCookie(lpszurl.rawAddress, lpszcookiename.rawAddress, lpszcookiedata.rawAddress, pcchcookiedata.rawAddress, dwflags.toInt())
 
-public actual fun iEGetWriteableFolderPath(clsidfolderid: ConstPtr<Guid>, lppwstrpath: MutPtr<Pwstr>): Hresult =
+public actual fun iEGetWriteableFolderPath(clsidfolderid: ConstPtr, lppwstrpath: MutPtr): Hresult =
     WindowsWin32WebInternetexplorerJniBridge.windowssysWindowsWin32WebInternetexplorerIEGetWriteableFolderPath(clsidfolderid.rawAddress, lppwstrpath.rawAddress)
 
-public actual fun iEGetWriteableLowHKCU(phkey: MutPtr<Hkey>): Hresult =
+public actual fun iEGetWriteableLowHKCU(phkey: MutPtr): Hresult =
     WindowsWin32WebInternetexplorerJniBridge.windowssysWindowsWin32WebInternetexplorerIEGetWriteableLowHKCU(phkey.rawAddress)
 
 public actual fun iEInPrivateFilteringEnabled(): Bool =
@@ -294,13 +288,13 @@ public actual fun iEInPrivateFilteringEnabled(): Bool =
 public actual fun iEIsInPrivateBrowsing(): Bool =
     WindowsWin32WebInternetexplorerJniBridge.windowssysWindowsWin32WebInternetexplorerIEIsInPrivateBrowsing()
 
-public actual fun iEIsProtectedModeProcess(pbresult: MutPtr<Bool>): Hresult =
+public actual fun iEIsProtectedModeProcess(pbresult: MutPtr): Hresult =
     WindowsWin32WebInternetexplorerJniBridge.windowssysWindowsWin32WebInternetexplorerIEIsProtectedModeProcess(pbresult.rawAddress)
 
 public actual fun iEIsProtectedModeURL(lpwstrurl: Pcwstr): Hresult =
     WindowsWin32WebInternetexplorerJniBridge.windowssysWindowsWin32WebInternetexplorerIEIsProtectedModeURL(lpwstrurl.rawAddress)
 
-public actual fun iELaunchURL(lpwstrurl: Pcwstr, lpprocinfo: MutPtr<ProcessInformation>, lpinfo: ConstPtr<CVoid>): Hresult =
+public actual fun iELaunchURL(lpwstrurl: Pcwstr, lpprocinfo: MutPtr, lpinfo: ConstPtr): Hresult =
     WindowsWin32WebInternetexplorerJniBridge.windowssysWindowsWin32WebInternetexplorerIELaunchURL(lpwstrurl.rawAddress, lpprocinfo.rawAddress, lpinfo.rawAddress)
 
 public actual fun iEMoveFileEx(lpexistingfilename: Pcwstr, lpnewfilename: Pcwstr, dwflags: UInt): Bool =
@@ -309,16 +303,16 @@ public actual fun iEMoveFileEx(lpexistingfilename: Pcwstr, lpnewfilename: Pcwstr
 public actual fun iERefreshElevationPolicy(): Hresult =
     WindowsWin32WebInternetexplorerJniBridge.windowssysWindowsWin32WebInternetexplorerIERefreshElevationPolicy()
 
-public actual fun iERegCreateKeyEx(lpsubkey: Pcwstr, reserved: UInt, lpclass: Pcwstr, dwoptions: UInt, samdesired: UInt, lpsecurityattributes: ConstPtr<SecurityAttributes>, phkresult: MutPtr<Hkey>, lpdwdisposition: MutPtr<UInt>): Hresult =
+public actual fun iERegCreateKeyEx(lpsubkey: Pcwstr, reserved: UInt, lpclass: Pcwstr, dwoptions: UInt, samdesired: UInt, lpsecurityattributes: ConstPtr, phkresult: MutPtr, lpdwdisposition: MutPtr): Hresult =
     WindowsWin32WebInternetexplorerJniBridge.windowssysWindowsWin32WebInternetexplorerIERegCreateKeyEx(lpsubkey.rawAddress, reserved.toInt(), lpclass.rawAddress, dwoptions.toInt(), samdesired.toInt(), lpsecurityattributes.rawAddress, phkresult.rawAddress, lpdwdisposition.rawAddress)
 
-public actual fun iERegSetValueEx(lpsubkey: Pcwstr, lpvaluename: Pcwstr, reserved: UInt, dwtype: UInt, lpdata: ConstPtr<UByte>, cbdata: UInt): Hresult =
+public actual fun iERegSetValueEx(lpsubkey: Pcwstr, lpvaluename: Pcwstr, reserved: UInt, dwtype: UInt, lpdata: ConstPtr, cbdata: UInt): Hresult =
     WindowsWin32WebInternetexplorerJniBridge.windowssysWindowsWin32WebInternetexplorerIERegSetValueEx(lpsubkey.rawAddress, lpvaluename.rawAddress, reserved.toInt(), dwtype.toInt(), lpdata.rawAddress, cbdata.toInt())
 
 public actual fun iERegisterWritableRegistryKey(guid: Guid, lpsubkey: Pcwstr, fsubkeyallowed: Bool): Hresult =
     0
 
-public actual fun iERegisterWritableRegistryValue(guid: Guid, lppath: Pcwstr, lpvaluename: Pcwstr, dwtype: UInt, lpdata: ConstPtr<UByte>, cbmaxdata: UInt): Hresult =
+public actual fun iERegisterWritableRegistryValue(guid: Guid, lppath: Pcwstr, lpvaluename: Pcwstr, dwtype: UInt, lpdata: ConstPtr, cbmaxdata: UInt): Hresult =
     0
 
 public actual fun iERemoveDirectory(lppathname: Pcwstr): Bool =
@@ -330,10 +324,10 @@ public actual fun iESaveFile(hstate: Handle, lpwstrsourcefile: Pcwstr): Hresult 
 public actual fun iESetProtectedModeCookie(lpszurl: Pcwstr, lpszcookiename: Pcwstr, lpszcookiedata: Pcwstr, dwflags: UInt): Hresult =
     WindowsWin32WebInternetexplorerJniBridge.windowssysWindowsWin32WebInternetexplorerIESetProtectedModeCookie(lpszurl.rawAddress, lpszcookiename.rawAddress, lpszcookiedata.rawAddress, dwflags.toInt())
 
-public actual fun iEShowOpenFileDialog(hwnd: Hwnd, lpwstrfilename: Pwstr, cchmaxfilename: UInt, lpwstrinitialdir: Pcwstr, lpwstrfilter: Pcwstr, lpwstrdefext: Pcwstr, dwfilterindex: UInt, dwflags: UInt, phfile: MutPtr<Handle>): Hresult =
+public actual fun iEShowOpenFileDialog(hwnd: Hwnd, lpwstrfilename: Pwstr, cchmaxfilename: UInt, lpwstrinitialdir: Pcwstr, lpwstrfilter: Pcwstr, lpwstrdefext: Pcwstr, dwfilterindex: UInt, dwflags: UInt, phfile: MutPtr): Hresult =
     WindowsWin32WebInternetexplorerJniBridge.windowssysWindowsWin32WebInternetexplorerIEShowOpenFileDialog(hwnd.rawAddress, lpwstrfilename.rawAddress, cchmaxfilename.toInt(), lpwstrinitialdir.rawAddress, lpwstrfilter.rawAddress, lpwstrdefext.rawAddress, dwfilterindex.toInt(), dwflags.toInt(), phfile.rawAddress)
 
-public actual fun iEShowSaveFileDialog(hwnd: Hwnd, lpwstrinitialfilename: Pcwstr, lpwstrinitialdir: Pcwstr, lpwstrfilter: Pcwstr, lpwstrdefext: Pcwstr, dwfilterindex: UInt, dwflags: UInt, lppwstrdestinationfilepath: MutPtr<Pwstr>, phstate: MutPtr<Handle>): Hresult =
+public actual fun iEShowSaveFileDialog(hwnd: Hwnd, lpwstrinitialfilename: Pcwstr, lpwstrinitialdir: Pcwstr, lpwstrfilter: Pcwstr, lpwstrdefext: Pcwstr, dwfilterindex: UInt, dwflags: UInt, lppwstrdestinationfilepath: MutPtr, phstate: MutPtr): Hresult =
     WindowsWin32WebInternetexplorerJniBridge.windowssysWindowsWin32WebInternetexplorerIEShowSaveFileDialog(hwnd.rawAddress, lpwstrinitialfilename.rawAddress, lpwstrinitialdir.rawAddress, lpwstrfilter.rawAddress, lpwstrdefext.rawAddress, dwfilterindex.toInt(), dwflags.toInt(), lppwstrdestinationfilepath.rawAddress, phstate.rawAddress)
 
 public actual fun iETrackingProtectionEnabled(): Bool =
@@ -342,28 +336,28 @@ public actual fun iETrackingProtectionEnabled(): Bool =
 public actual fun iEUnregisterWritableRegistry(guid: Guid): Hresult =
     0
 
-public actual fun identifyMIMEType(pbbytes: ConstPtr<UByte>, nbytes: UInt, pnformat: MutPtr<UInt>): Hresult =
+public actual fun identifyMIMEType(pbbytes: ConstPtr, nbytes: UInt, pnformat: MutPtr): Hresult =
     WindowsWin32WebInternetexplorerJniBridge.windowssysWindowsWin32WebInternetexplorerIdentifyMIMEType(pbbytes.rawAddress, nbytes.toInt(), pnformat.rawAddress)
 
-public actual fun ratingAccessDeniedDialog(hdlg: Hwnd, pszusername: Pcstr, pszcontentdescription: Pcstr, pratingdetails: MutPtr<CVoid>): Hresult =
+public actual fun ratingAccessDeniedDialog(hdlg: Hwnd, pszusername: Pcstr, pszcontentdescription: Pcstr, pratingdetails: MutPtr): Hresult =
     WindowsWin32WebInternetexplorerJniBridge.windowssysWindowsWin32WebInternetexplorerRatingAccessDeniedDialog(hdlg.rawAddress, pszusername.rawAddress, pszcontentdescription.rawAddress, pratingdetails.rawAddress)
 
-public actual fun ratingAccessDeniedDialog2(hdlg: Hwnd, pszusername: Pcstr, pratingdetails: MutPtr<CVoid>): Hresult =
+public actual fun ratingAccessDeniedDialog2(hdlg: Hwnd, pszusername: Pcstr, pratingdetails: MutPtr): Hresult =
     WindowsWin32WebInternetexplorerJniBridge.windowssysWindowsWin32WebInternetexplorerRatingAccessDeniedDialog2(hdlg.rawAddress, pszusername.rawAddress, pratingdetails.rawAddress)
 
-public actual fun ratingAccessDeniedDialog2W(hdlg: Hwnd, pszusername: Pcwstr, pratingdetails: MutPtr<CVoid>): Hresult =
+public actual fun ratingAccessDeniedDialog2W(hdlg: Hwnd, pszusername: Pcwstr, pratingdetails: MutPtr): Hresult =
     WindowsWin32WebInternetexplorerJniBridge.windowssysWindowsWin32WebInternetexplorerRatingAccessDeniedDialog2W(hdlg.rawAddress, pszusername.rawAddress, pratingdetails.rawAddress)
 
-public actual fun ratingAccessDeniedDialogW(hdlg: Hwnd, pszusername: Pcwstr, pszcontentdescription: Pcwstr, pratingdetails: MutPtr<CVoid>): Hresult =
+public actual fun ratingAccessDeniedDialogW(hdlg: Hwnd, pszusername: Pcwstr, pszcontentdescription: Pcwstr, pratingdetails: MutPtr): Hresult =
     WindowsWin32WebInternetexplorerJniBridge.windowssysWindowsWin32WebInternetexplorerRatingAccessDeniedDialogW(hdlg.rawAddress, pszusername.rawAddress, pszcontentdescription.rawAddress, pratingdetails.rawAddress)
 
-public actual fun ratingAddToApprovedSites(hdlg: Hwnd, cbpasswordblob: UInt, pbpasswordblob: MutPtr<UByte>, lpszurl: Pcwstr, falwaysnever: Bool, fsitepage: Bool, fapprovedsitesenforced: Bool): Hresult =
+public actual fun ratingAddToApprovedSites(hdlg: Hwnd, cbpasswordblob: UInt, pbpasswordblob: MutPtr, lpszurl: Pcwstr, falwaysnever: Bool, fsitepage: Bool, fapprovedsitesenforced: Bool): Hresult =
     WindowsWin32WebInternetexplorerJniBridge.windowssysWindowsWin32WebInternetexplorerRatingAddToApprovedSites(hdlg.rawAddress, cbpasswordblob.toInt(), pbpasswordblob.rawAddress, lpszurl.rawAddress, falwaysnever, fsitepage, fapprovedsitesenforced)
 
-public actual fun ratingCheckUserAccess(pszusername: Pcstr, pszurl: Pcstr, pszratinginfo: Pcstr, pdata: ConstPtr<UByte>, cbdata: UInt, ppratingdetails: MutPtr<MutPtr<CVoid>>): Hresult =
+public actual fun ratingCheckUserAccess(pszusername: Pcstr, pszurl: Pcstr, pszratinginfo: Pcstr, pdata: ConstPtr, cbdata: UInt, ppratingdetails: MutPtr): Hresult =
     WindowsWin32WebInternetexplorerJniBridge.windowssysWindowsWin32WebInternetexplorerRatingCheckUserAccess(pszusername.rawAddress, pszurl.rawAddress, pszratinginfo.rawAddress, pdata.rawAddress, cbdata.toInt(), ppratingdetails.rawAddress)
 
-public actual fun ratingCheckUserAccessW(pszusername: Pcwstr, pszurl: Pcwstr, pszratinginfo: Pcwstr, pdata: ConstPtr<UByte>, cbdata: UInt, ppratingdetails: MutPtr<MutPtr<CVoid>>): Hresult =
+public actual fun ratingCheckUserAccessW(pszusername: Pcwstr, pszurl: Pcwstr, pszratinginfo: Pcwstr, pdata: ConstPtr, cbdata: UInt, ppratingdetails: MutPtr): Hresult =
     WindowsWin32WebInternetexplorerJniBridge.windowssysWindowsWin32WebInternetexplorerRatingCheckUserAccessW(pszusername.rawAddress, pszurl.rawAddress, pszratinginfo.rawAddress, pdata.rawAddress, cbdata.toInt(), ppratingdetails.rawAddress)
 
 public actual fun ratingClickedOnPRFInternal(hwndowner: Hwnd, param1: Hinstance, lpszfilename: Pcstr, nshow: Int): Hresult =
@@ -381,7 +375,7 @@ public actual fun ratingEnableW(hwndparent: Hwnd, pszusername: Pcwstr, fenable: 
 public actual fun ratingEnabledQuery(): Hresult =
     WindowsWin32WebInternetexplorerJniBridge.windowssysWindowsWin32WebInternetexplorerRatingEnabledQuery()
 
-public actual fun ratingFreeDetails(pratingdetails: ConstPtr<CVoid>): Hresult =
+public actual fun ratingFreeDetails(pratingdetails: ConstPtr): Hresult =
     WindowsWin32WebInternetexplorerJniBridge.windowssysWindowsWin32WebInternetexplorerRatingFreeDetails(pratingdetails.rawAddress)
 
 public actual fun ratingInit(): Hresult =
@@ -390,10 +384,10 @@ public actual fun ratingInit(): Hresult =
 public actual fun ratingObtainCancel(hratingobtainquery: Handle): Hresult =
     WindowsWin32WebInternetexplorerJniBridge.windowssysWindowsWin32WebInternetexplorerRatingObtainCancel(hratingobtainquery.rawAddress)
 
-public actual fun ratingObtainQuery(psztargeturl: Pcstr, dwuserdata: UInt, fcallback: Long, phratingobtainquery: MutPtr<Handle>): Hresult =
+public actual fun ratingObtainQuery(psztargeturl: Pcstr, dwuserdata: UInt, fcallback: Long, phratingobtainquery: MutPtr): Hresult =
     WindowsWin32WebInternetexplorerJniBridge.windowssysWindowsWin32WebInternetexplorerRatingObtainQuery(psztargeturl.rawAddress, dwuserdata.toInt(), fcallback, phratingobtainquery.rawAddress)
 
-public actual fun ratingObtainQueryW(psztargeturl: Pcwstr, dwuserdata: UInt, fcallback: Long, phratingobtainquery: MutPtr<Handle>): Hresult =
+public actual fun ratingObtainQueryW(psztargeturl: Pcwstr, dwuserdata: UInt, fcallback: Long, phratingobtainquery: MutPtr): Hresult =
     WindowsWin32WebInternetexplorerJniBridge.windowssysWindowsWin32WebInternetexplorerRatingObtainQueryW(psztargeturl.rawAddress, dwuserdata.toInt(), fcallback, phratingobtainquery.rawAddress)
 
 public actual fun ratingSetupUI(hdlg: Hwnd, pszusername: Pcstr): Hresult =
@@ -402,5 +396,5 @@ public actual fun ratingSetupUI(hdlg: Hwnd, pszusername: Pcstr): Hresult =
 public actual fun ratingSetupUIW(hdlg: Hwnd, pszusername: Pcwstr): Hresult =
     WindowsWin32WebInternetexplorerJniBridge.windowssysWindowsWin32WebInternetexplorerRatingSetupUIW(hdlg.rawAddress, pszusername.rawAddress)
 
-public actual fun sniffStream(pinstream: MutPtr<CVoid>, pnformat: MutPtr<UInt>, ppoutstream: MutPtr<MutPtr<CVoid>>): Hresult =
+public actual fun sniffStream(pinstream: MutPtr, pnformat: MutPtr, ppoutstream: MutPtr): Hresult =
     WindowsWin32WebInternetexplorerJniBridge.windowssysWindowsWin32WebInternetexplorerSniffStream(pinstream.rawAddress, pnformat.rawAddress, ppoutstream.rawAddress)

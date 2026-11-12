@@ -2,7 +2,6 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.networking.clustering
 
-import io.github.kotlinmania.rustlang.core.ffi.CVoid
 import io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
 import io.github.kotlinmania.rustlang.core.mem.TypeLayout
 import io.github.kotlinmania.rustlang.core.ptr.ConstPtr
@@ -111,10 +110,10 @@ public data class ClresV4Functions(
 )
 
 public class ClusapiReasonHandler internal constructor(
-    lpParameterCtorArg: MutPtr<CVoid>,
+    lpParameterCtorArg: MutPtr,
     public var pfnHandler: PclusapiPfnReasonHandler,
 ) {
-    public var lpParameter: MutPtr<CVoid> = lpParameterCtorArg
+    public var lpParameter: MutPtr = lpParameterCtorArg
         internal set
 
     public constructor() : this(
@@ -122,11 +121,11 @@ public class ClusapiReasonHandler internal constructor(
         pfnHandler = null,
     )
 
-    public operator fun component1(): MutPtr<CVoid> = this.lpParameter
+    public operator fun component1(): MutPtr = this.lpParameter
 
     public operator fun component2(): PclusapiPfnReasonHandler = this.pfnHandler
 
-    public fun copy(lpParameter: MutPtr<CVoid> = this.lpParameter, pfnHandler: PclusapiPfnReasonHandler = this.pfnHandler): ClusapiReasonHandler = ClusapiReasonHandler(lpParameterCtorArg = lpParameter, pfnHandler = pfnHandler)
+    public fun copy(lpParameter: MutPtr = this.lpParameter, pfnHandler: PclusapiPfnReasonHandler = this.pfnHandler): ClusapiReasonHandler = ClusapiReasonHandler(lpParameterCtorArg = lpParameter, pfnHandler = pfnHandler)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -144,7 +143,7 @@ public class ClusapiReasonHandler internal constructor(
 
     public companion object {
         public operator fun invoke(
-            lpParameter: MutPtr<CVoid> = MutPtr(0L),
+            lpParameter: MutPtr = MutPtr(0L),
             pfnHandler: PclusapiPfnReasonHandler = null,
         ): ClusapiReasonHandler =
             ClusapiReasonHandler(
@@ -210,117 +209,117 @@ public data class CluspropBinary(
 }
 
 public class CluspropBufferHelper internal constructor(
-    pbCtorArg: MutPtr<UByte>,
-    pwCtorArg: MutPtr<UShort>,
-    pdwCtorArg: MutPtr<UInt>,
-    plCtorArg: MutPtr<Int>,
+    pbCtorArg: MutPtr,
+    pwCtorArg: MutPtr,
+    pdwCtorArg: MutPtr,
+    plCtorArg: MutPtr,
     pszCtorArg: Pwstr,
-    pListCtorArg: MutPtr<CluspropList>,
-    pSyntaxCtorArg: MutPtr<CluspropSyntax>,
-    pNameCtorArg: MutPtr<CluspropSz>,
-    pValueCtorArg: MutPtr<CluspropValue>,
-    pBinaryValueCtorArg: MutPtr<CluspropBinary>,
-    pWordValueCtorArg: MutPtr<CluspropWord>,
-    pDwordValueCtorArg: MutPtr<CluspropDword>,
-    pLongValueCtorArg: MutPtr<CluspropLong>,
-    pULargeIntegerValueCtorArg: MutPtr<CluspropUlargeInteger>,
-    pLargeIntegerValueCtorArg: MutPtr<CluspropLargeInteger>,
-    pStringValueCtorArg: MutPtr<CluspropSz>,
-    pMultiSzValueCtorArg: MutPtr<CluspropSz>,
-    pSecurityDescriptorCtorArg: MutPtr<CluspropSecurityDescriptor>,
-    pResourceClassValueCtorArg: MutPtr<CluspropResourceClass>,
-    pResourceClassInfoValueCtorArg: MutPtr<CluspropResourceClassInfo>,
-    pDiskSignatureValueCtorArg: MutPtr<CluspropDword>,
-    pScsiAddressValueCtorArg: MutPtr<CluspropScsiAddress>,
-    pDiskNumberValueCtorArg: MutPtr<CluspropDword>,
-    pPartitionInfoValueCtorArg: MutPtr<CluspropPartitionInfo>,
-    pRequiredDependencyValueCtorArg: MutPtr<CluspropRequiredDependency>,
-    pPartitionInfoValueExCtorArg: MutPtr<CluspropPartitionInfoEx>,
-    pPartitionInfoValueEx2CtorArg: MutPtr<CluspropPartitionInfoEx2>,
-    pFileTimeValueCtorArg: MutPtr<CluspropFiletime>,
+    pListCtorArg: MutPtr,
+    pSyntaxCtorArg: MutPtr,
+    pNameCtorArg: MutPtr,
+    pValueCtorArg: MutPtr,
+    pBinaryValueCtorArg: MutPtr,
+    pWordValueCtorArg: MutPtr,
+    pDwordValueCtorArg: MutPtr,
+    pLongValueCtorArg: MutPtr,
+    pULargeIntegerValueCtorArg: MutPtr,
+    pLargeIntegerValueCtorArg: MutPtr,
+    pStringValueCtorArg: MutPtr,
+    pMultiSzValueCtorArg: MutPtr,
+    pSecurityDescriptorCtorArg: MutPtr,
+    pResourceClassValueCtorArg: MutPtr,
+    pResourceClassInfoValueCtorArg: MutPtr,
+    pDiskSignatureValueCtorArg: MutPtr,
+    pScsiAddressValueCtorArg: MutPtr,
+    pDiskNumberValueCtorArg: MutPtr,
+    pPartitionInfoValueCtorArg: MutPtr,
+    pRequiredDependencyValueCtorArg: MutPtr,
+    pPartitionInfoValueExCtorArg: MutPtr,
+    pPartitionInfoValueEx2CtorArg: MutPtr,
+    pFileTimeValueCtorArg: MutPtr,
 ) {
-    public var pb: MutPtr<UByte> = pbCtorArg
+    public var pb: MutPtr = pbCtorArg
         internal set
 
-    public var pw: MutPtr<UShort> = pwCtorArg
+    public var pw: MutPtr = pwCtorArg
         internal set
 
-    public var pdw: MutPtr<UInt> = pdwCtorArg
+    public var pdw: MutPtr = pdwCtorArg
         internal set
 
-    public var pl: MutPtr<Int> = plCtorArg
+    public var pl: MutPtr = plCtorArg
         internal set
 
     public var psz: Pwstr = pszCtorArg
         internal set
 
-    public var pList: MutPtr<CluspropList> = pListCtorArg
+    public var pList: MutPtr = pListCtorArg
         internal set
 
-    public var pSyntax: MutPtr<CluspropSyntax> = pSyntaxCtorArg
+    public var pSyntax: MutPtr = pSyntaxCtorArg
         internal set
 
-    public var pName: MutPtr<CluspropSz> = pNameCtorArg
+    public var pName: MutPtr = pNameCtorArg
         internal set
 
-    public var pValue: MutPtr<CluspropValue> = pValueCtorArg
+    public var pValue: MutPtr = pValueCtorArg
         internal set
 
-    public var pBinaryValue: MutPtr<CluspropBinary> = pBinaryValueCtorArg
+    public var pBinaryValue: MutPtr = pBinaryValueCtorArg
         internal set
 
-    public var pWordValue: MutPtr<CluspropWord> = pWordValueCtorArg
+    public var pWordValue: MutPtr = pWordValueCtorArg
         internal set
 
-    public var pDwordValue: MutPtr<CluspropDword> = pDwordValueCtorArg
+    public var pDwordValue: MutPtr = pDwordValueCtorArg
         internal set
 
-    public var pLongValue: MutPtr<CluspropLong> = pLongValueCtorArg
+    public var pLongValue: MutPtr = pLongValueCtorArg
         internal set
 
-    public var pULargeIntegerValue: MutPtr<CluspropUlargeInteger> = pULargeIntegerValueCtorArg
+    public var pULargeIntegerValue: MutPtr = pULargeIntegerValueCtorArg
         internal set
 
-    public var pLargeIntegerValue: MutPtr<CluspropLargeInteger> = pLargeIntegerValueCtorArg
+    public var pLargeIntegerValue: MutPtr = pLargeIntegerValueCtorArg
         internal set
 
-    public var pStringValue: MutPtr<CluspropSz> = pStringValueCtorArg
+    public var pStringValue: MutPtr = pStringValueCtorArg
         internal set
 
-    public var pMultiSzValue: MutPtr<CluspropSz> = pMultiSzValueCtorArg
+    public var pMultiSzValue: MutPtr = pMultiSzValueCtorArg
         internal set
 
-    public var pSecurityDescriptor: MutPtr<CluspropSecurityDescriptor> = pSecurityDescriptorCtorArg
+    public var pSecurityDescriptor: MutPtr = pSecurityDescriptorCtorArg
         internal set
 
-    public var pResourceClassValue: MutPtr<CluspropResourceClass> = pResourceClassValueCtorArg
+    public var pResourceClassValue: MutPtr = pResourceClassValueCtorArg
         internal set
 
-    public var pResourceClassInfoValue: MutPtr<CluspropResourceClassInfo> = pResourceClassInfoValueCtorArg
+    public var pResourceClassInfoValue: MutPtr = pResourceClassInfoValueCtorArg
         internal set
 
-    public var pDiskSignatureValue: MutPtr<CluspropDword> = pDiskSignatureValueCtorArg
+    public var pDiskSignatureValue: MutPtr = pDiskSignatureValueCtorArg
         internal set
 
-    public var pScsiAddressValue: MutPtr<CluspropScsiAddress> = pScsiAddressValueCtorArg
+    public var pScsiAddressValue: MutPtr = pScsiAddressValueCtorArg
         internal set
 
-    public var pDiskNumberValue: MutPtr<CluspropDword> = pDiskNumberValueCtorArg
+    public var pDiskNumberValue: MutPtr = pDiskNumberValueCtorArg
         internal set
 
-    public var pPartitionInfoValue: MutPtr<CluspropPartitionInfo> = pPartitionInfoValueCtorArg
+    public var pPartitionInfoValue: MutPtr = pPartitionInfoValueCtorArg
         internal set
 
-    public var pRequiredDependencyValue: MutPtr<CluspropRequiredDependency> = pRequiredDependencyValueCtorArg
+    public var pRequiredDependencyValue: MutPtr = pRequiredDependencyValueCtorArg
         internal set
 
-    public var pPartitionInfoValueEx: MutPtr<CluspropPartitionInfoEx> = pPartitionInfoValueExCtorArg
+    public var pPartitionInfoValueEx: MutPtr = pPartitionInfoValueExCtorArg
         internal set
 
-    public var pPartitionInfoValueEx2: MutPtr<CluspropPartitionInfoEx2> = pPartitionInfoValueEx2CtorArg
+    public var pPartitionInfoValueEx2: MutPtr = pPartitionInfoValueEx2CtorArg
         internal set
 
-    public var pFileTimeValue: MutPtr<CluspropFiletime> = pFileTimeValueCtorArg
+    public var pFileTimeValue: MutPtr = pFileTimeValueCtorArg
         internal set
 
     public constructor() : this(
@@ -356,34 +355,34 @@ public class CluspropBufferHelper internal constructor(
 
     public companion object {
         public operator fun invoke(
-            pb: MutPtr<UByte> = MutPtr(0L),
-            pw: MutPtr<UShort> = MutPtr(0L),
-            pdw: MutPtr<UInt> = MutPtr(0L),
-            pl: MutPtr<Int> = MutPtr(0L),
+            pb: MutPtr = MutPtr(0L),
+            pw: MutPtr = MutPtr(0L),
+            pdw: MutPtr = MutPtr(0L),
+            pl: MutPtr = MutPtr(0L),
             psz: Pwstr = MutPtr(0L),
-            pList: MutPtr<CluspropList> = MutPtr(0L),
-            pSyntax: MutPtr<CluspropSyntax> = MutPtr(0L),
-            pName: MutPtr<CluspropSz> = MutPtr(0L),
-            pValue: MutPtr<CluspropValue> = MutPtr(0L),
-            pBinaryValue: MutPtr<CluspropBinary> = MutPtr(0L),
-            pWordValue: MutPtr<CluspropWord> = MutPtr(0L),
-            pDwordValue: MutPtr<CluspropDword> = MutPtr(0L),
-            pLongValue: MutPtr<CluspropLong> = MutPtr(0L),
-            pULargeIntegerValue: MutPtr<CluspropUlargeInteger> = MutPtr(0L),
-            pLargeIntegerValue: MutPtr<CluspropLargeInteger> = MutPtr(0L),
-            pStringValue: MutPtr<CluspropSz> = MutPtr(0L),
-            pMultiSzValue: MutPtr<CluspropSz> = MutPtr(0L),
-            pSecurityDescriptor: MutPtr<CluspropSecurityDescriptor> = MutPtr(0L),
-            pResourceClassValue: MutPtr<CluspropResourceClass> = MutPtr(0L),
-            pResourceClassInfoValue: MutPtr<CluspropResourceClassInfo> = MutPtr(0L),
-            pDiskSignatureValue: MutPtr<CluspropDword> = MutPtr(0L),
-            pScsiAddressValue: MutPtr<CluspropScsiAddress> = MutPtr(0L),
-            pDiskNumberValue: MutPtr<CluspropDword> = MutPtr(0L),
-            pPartitionInfoValue: MutPtr<CluspropPartitionInfo> = MutPtr(0L),
-            pRequiredDependencyValue: MutPtr<CluspropRequiredDependency> = MutPtr(0L),
-            pPartitionInfoValueEx: MutPtr<CluspropPartitionInfoEx> = MutPtr(0L),
-            pPartitionInfoValueEx2: MutPtr<CluspropPartitionInfoEx2> = MutPtr(0L),
-            pFileTimeValue: MutPtr<CluspropFiletime> = MutPtr(0L),
+            pList: MutPtr = MutPtr(0L),
+            pSyntax: MutPtr = MutPtr(0L),
+            pName: MutPtr = MutPtr(0L),
+            pValue: MutPtr = MutPtr(0L),
+            pBinaryValue: MutPtr = MutPtr(0L),
+            pWordValue: MutPtr = MutPtr(0L),
+            pDwordValue: MutPtr = MutPtr(0L),
+            pLongValue: MutPtr = MutPtr(0L),
+            pULargeIntegerValue: MutPtr = MutPtr(0L),
+            pLargeIntegerValue: MutPtr = MutPtr(0L),
+            pStringValue: MutPtr = MutPtr(0L),
+            pMultiSzValue: MutPtr = MutPtr(0L),
+            pSecurityDescriptor: MutPtr = MutPtr(0L),
+            pResourceClassValue: MutPtr = MutPtr(0L),
+            pResourceClassInfoValue: MutPtr = MutPtr(0L),
+            pDiskSignatureValue: MutPtr = MutPtr(0L),
+            pScsiAddressValue: MutPtr = MutPtr(0L),
+            pDiskNumberValue: MutPtr = MutPtr(0L),
+            pPartitionInfoValue: MutPtr = MutPtr(0L),
+            pRequiredDependencyValue: MutPtr = MutPtr(0L),
+            pPartitionInfoValueEx: MutPtr = MutPtr(0L),
+            pPartitionInfoValueEx2: MutPtr = MutPtr(0L),
+            pFileTimeValue: MutPtr = MutPtr(0L),
         ): CluspropBufferHelper =
             CluspropBufferHelper(
                 pbCtorArg = pb,
@@ -757,13 +756,13 @@ public class ClusterBatchCommand internal constructor(
     public var command: ClusterRegCommand,
     public var dwOptions: UInt,
     wzNameCtorArg: Pcwstr,
-    lpDataCtorArg: ConstPtr<UByte>,
+    lpDataCtorArg: ConstPtr,
     public var cbData: UInt,
 ) {
     public var wzName: Pcwstr = wzNameCtorArg
         internal set
 
-    public var lpData: ConstPtr<UByte> = lpDataCtorArg
+    public var lpData: ConstPtr = lpDataCtorArg
         internal set
 
     public constructor() : this(
@@ -780,11 +779,11 @@ public class ClusterBatchCommand internal constructor(
 
     public operator fun component3(): Pcwstr = this.wzName
 
-    public operator fun component4(): ConstPtr<UByte> = this.lpData
+    public operator fun component4(): ConstPtr = this.lpData
 
     public operator fun component5(): UInt = this.cbData
 
-    public fun copy(command: ClusterRegCommand = this.command, dwOptions: UInt = this.dwOptions, wzName: Pcwstr = this.wzName, lpData: ConstPtr<UByte> = this.lpData, cbData: UInt = this.cbData): ClusterBatchCommand = ClusterBatchCommand(command = command, dwOptions = dwOptions, wzNameCtorArg = wzName, lpDataCtorArg = lpData, cbData = cbData)
+    public fun copy(command: ClusterRegCommand = this.command, dwOptions: UInt = this.dwOptions, wzName: Pcwstr = this.wzName, lpData: ConstPtr = this.lpData, cbData: UInt = this.cbData): ClusterBatchCommand = ClusterBatchCommand(command = command, dwOptions = dwOptions, wzNameCtorArg = wzName, lpDataCtorArg = lpData, cbData = cbData)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -811,7 +810,7 @@ public class ClusterBatchCommand internal constructor(
             command: ClusterRegCommand = 0,
             dwOptions: UInt = 0u,
             wzName: Pcwstr = ConstPtr(0L),
-            lpData: ConstPtr<UByte> = ConstPtr(0L),
+            lpData: ConstPtr = ConstPtr(0L),
             cbData: UInt = 0u,
         ): ClusterBatchCommand =
             ClusterBatchCommand(
@@ -936,9 +935,9 @@ public class ClusterGroupEnumItem internal constructor(
     lpszOwnerNodeCtorArg: Pwstr,
     public var dwFlags: UInt,
     public var cbProperties: UInt,
-    pPropertiesCtorArg: MutPtr<CVoid>,
+    pPropertiesCtorArg: MutPtr,
     public var cbRoProperties: UInt,
-    pRoPropertiesCtorArg: MutPtr<CVoid>,
+    pRoPropertiesCtorArg: MutPtr,
 ) {
     public var lpszId: Pwstr = lpszIdCtorArg
         internal set
@@ -949,10 +948,10 @@ public class ClusterGroupEnumItem internal constructor(
     public var lpszOwnerNode: Pwstr = lpszOwnerNodeCtorArg
         internal set
 
-    public var pProperties: MutPtr<CVoid> = pPropertiesCtorArg
+    public var pProperties: MutPtr = pPropertiesCtorArg
         internal set
 
-    public var pRoProperties: MutPtr<CVoid> = pRoPropertiesCtorArg
+    public var pRoProperties: MutPtr = pRoPropertiesCtorArg
         internal set
 
     public constructor() : this(
@@ -991,13 +990,13 @@ public class ClusterGroupEnumItem internal constructor(
 
     public operator fun component10(): UInt = this.cbProperties
 
-    public operator fun component11(): MutPtr<CVoid> = this.pProperties
+    public operator fun component11(): MutPtr = this.pProperties
 
     public operator fun component12(): UInt = this.cbRoProperties
 
-    public operator fun component13(): MutPtr<CVoid> = this.pRoProperties
+    public operator fun component13(): MutPtr = this.pRoProperties
 
-    public fun copy(dwVersion: UInt = this.dwVersion, cbId: UInt = this.cbId, lpszId: Pwstr = this.lpszId, cbName: UInt = this.cbName, lpszName: Pwstr = this.lpszName, state: ClusterGroupState = this.state, cbOwnerNode: UInt = this.cbOwnerNode, lpszOwnerNode: Pwstr = this.lpszOwnerNode, dwFlags: UInt = this.dwFlags, cbProperties: UInt = this.cbProperties, pProperties: MutPtr<CVoid> = this.pProperties, cbRoProperties: UInt = this.cbRoProperties, pRoProperties: MutPtr<CVoid> = this.pRoProperties): ClusterGroupEnumItem = ClusterGroupEnumItem(dwVersion = dwVersion, cbId = cbId, lpszIdCtorArg = lpszId, cbName = cbName, lpszNameCtorArg = lpszName, state = state, cbOwnerNode = cbOwnerNode, lpszOwnerNodeCtorArg = lpszOwnerNode, dwFlags = dwFlags, cbProperties = cbProperties, pPropertiesCtorArg = pProperties, cbRoProperties = cbRoProperties, pRoPropertiesCtorArg = pRoProperties)
+    public fun copy(dwVersion: UInt = this.dwVersion, cbId: UInt = this.cbId, lpszId: Pwstr = this.lpszId, cbName: UInt = this.cbName, lpszName: Pwstr = this.lpszName, state: ClusterGroupState = this.state, cbOwnerNode: UInt = this.cbOwnerNode, lpszOwnerNode: Pwstr = this.lpszOwnerNode, dwFlags: UInt = this.dwFlags, cbProperties: UInt = this.cbProperties, pProperties: MutPtr = this.pProperties, cbRoProperties: UInt = this.cbRoProperties, pRoProperties: MutPtr = this.pRoProperties): ClusterGroupEnumItem = ClusterGroupEnumItem(dwVersion = dwVersion, cbId = cbId, lpszIdCtorArg = lpszId, cbName = cbName, lpszNameCtorArg = lpszName, state = state, cbOwnerNode = cbOwnerNode, lpszOwnerNodeCtorArg = lpszOwnerNode, dwFlags = dwFlags, cbProperties = cbProperties, pPropertiesCtorArg = pProperties, cbRoProperties = cbRoProperties, pRoPropertiesCtorArg = pRoProperties)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -1047,9 +1046,9 @@ public class ClusterGroupEnumItem internal constructor(
             lpszOwnerNode: Pwstr = MutPtr(0L),
             dwFlags: UInt = 0u,
             cbProperties: UInt = 0u,
-            pProperties: MutPtr<CVoid> = MutPtr(0L),
+            pProperties: MutPtr = MutPtr(0L),
             cbRoProperties: UInt = 0u,
-            pRoProperties: MutPtr<CVoid> = MutPtr(0L),
+            pRoProperties: MutPtr = MutPtr(0L),
         ): ClusterGroupEnumItem =
             ClusterGroupEnumItem(
                 dwVersion = dwVersion,
@@ -1161,9 +1160,9 @@ public class ClusterHealthFault internal constructor(
 
 public class ClusterHealthFaultArray internal constructor(
     public var numFaults: UInt,
-    faultsCtorArg: MutPtr<ClusterHealthFault>,
+    faultsCtorArg: MutPtr,
 ) {
-    public var faults: MutPtr<ClusterHealthFault> = faultsCtorArg
+    public var faults: MutPtr = faultsCtorArg
         internal set
 
     public constructor() : this(
@@ -1173,9 +1172,9 @@ public class ClusterHealthFaultArray internal constructor(
 
     public operator fun component1(): UInt = this.numFaults
 
-    public operator fun component2(): MutPtr<ClusterHealthFault> = this.faults
+    public operator fun component2(): MutPtr = this.faults
 
-    public fun copy(numFaults: UInt = this.numFaults, faults: MutPtr<ClusterHealthFault> = this.faults): ClusterHealthFaultArray = ClusterHealthFaultArray(numFaults = numFaults, faultsCtorArg = faults)
+    public fun copy(numFaults: UInt = this.numFaults, faults: MutPtr = this.faults): ClusterHealthFaultArray = ClusterHealthFaultArray(numFaults = numFaults, faultsCtorArg = faults)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -1201,21 +1200,21 @@ public class ClusterHealthFaultArray internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<ClusterHealthFault>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                     )
                 override fun writeNative(addr: Long, value: ClusterHealthFaultArray) {
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr, value.numFaults)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<ClusterHealthFault>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.faults)
                 }
             }
 
         public operator fun invoke(
             numFaults: UInt = 0u,
-            faults: MutPtr<ClusterHealthFault> = MutPtr(0L),
+            faults: MutPtr = MutPtr(0L),
         ): ClusterHealthFaultArray =
             ClusterHealthFaultArray(
                 numFaults = numFaults,
@@ -1320,7 +1319,7 @@ public class ClusterReadBatchCommand internal constructor(
     public var dwOptions: UInt,
     wzSubkeyNameCtorArg: Pcwstr,
     wzValueNameCtorArg: Pcwstr,
-    lpDataCtorArg: ConstPtr<UByte>,
+    lpDataCtorArg: ConstPtr,
     public var cbData: UInt,
 ) {
     public var wzSubkeyName: Pcwstr = wzSubkeyNameCtorArg
@@ -1329,7 +1328,7 @@ public class ClusterReadBatchCommand internal constructor(
     public var wzValueName: Pcwstr = wzValueNameCtorArg
         internal set
 
-    public var lpData: ConstPtr<UByte> = lpDataCtorArg
+    public var lpData: ConstPtr = lpDataCtorArg
         internal set
 
     public constructor() : this(
@@ -1349,11 +1348,11 @@ public class ClusterReadBatchCommand internal constructor(
 
     public operator fun component4(): Pcwstr = this.wzValueName
 
-    public operator fun component5(): ConstPtr<UByte> = this.lpData
+    public operator fun component5(): ConstPtr = this.lpData
 
     public operator fun component6(): UInt = this.cbData
 
-    public fun copy(command: ClusterRegCommand = this.command, dwOptions: UInt = this.dwOptions, wzSubkeyName: Pcwstr = this.wzSubkeyName, wzValueName: Pcwstr = this.wzValueName, lpData: ConstPtr<UByte> = this.lpData, cbData: UInt = this.cbData): ClusterReadBatchCommand = ClusterReadBatchCommand(command = command, dwOptions = dwOptions, wzSubkeyNameCtorArg = wzSubkeyName, wzValueNameCtorArg = wzValueName, lpDataCtorArg = lpData, cbData = cbData)
+    public fun copy(command: ClusterRegCommand = this.command, dwOptions: UInt = this.dwOptions, wzSubkeyName: Pcwstr = this.wzSubkeyName, wzValueName: Pcwstr = this.wzValueName, lpData: ConstPtr = this.lpData, cbData: UInt = this.cbData): ClusterReadBatchCommand = ClusterReadBatchCommand(command = command, dwOptions = dwOptions, wzSubkeyNameCtorArg = wzSubkeyName, wzValueNameCtorArg = wzValueName, lpDataCtorArg = lpData, cbData = cbData)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -1383,7 +1382,7 @@ public class ClusterReadBatchCommand internal constructor(
             dwOptions: UInt = 0u,
             wzSubkeyName: Pcwstr = ConstPtr(0L),
             wzValueName: Pcwstr = ConstPtr(0L),
-            lpData: ConstPtr<UByte> = ConstPtr(0L),
+            lpData: ConstPtr = ConstPtr(0L),
             cbData: UInt = 0u,
         ): ClusterReadBatchCommand =
             ClusterReadBatchCommand(
@@ -1408,9 +1407,9 @@ public class ClusterResourceEnumItem internal constructor(
     public var cbOwnerGroupId: UInt,
     lpszOwnerGroupIdCtorArg: Pwstr,
     public var cbProperties: UInt,
-    pPropertiesCtorArg: MutPtr<CVoid>,
+    pPropertiesCtorArg: MutPtr,
     public var cbRoProperties: UInt,
-    pRoPropertiesCtorArg: MutPtr<CVoid>,
+    pRoPropertiesCtorArg: MutPtr,
 ) {
     public var lpszId: Pwstr = lpszIdCtorArg
         internal set
@@ -1424,10 +1423,10 @@ public class ClusterResourceEnumItem internal constructor(
     public var lpszOwnerGroupId: Pwstr = lpszOwnerGroupIdCtorArg
         internal set
 
-    public var pProperties: MutPtr<CVoid> = pPropertiesCtorArg
+    public var pProperties: MutPtr = pPropertiesCtorArg
         internal set
 
-    public var pRoProperties: MutPtr<CVoid> = pRoPropertiesCtorArg
+    public var pRoProperties: MutPtr = pRoPropertiesCtorArg
         internal set
 
     public constructor() : this(
@@ -1466,13 +1465,13 @@ public class ClusterResourceEnumItem internal constructor(
 
     public operator fun component10(): UInt = this.cbProperties
 
-    public operator fun component11(): MutPtr<CVoid> = this.pProperties
+    public operator fun component11(): MutPtr = this.pProperties
 
     public operator fun component12(): UInt = this.cbRoProperties
 
-    public operator fun component13(): MutPtr<CVoid> = this.pRoProperties
+    public operator fun component13(): MutPtr = this.pRoProperties
 
-    public fun copy(dwVersion: UInt = this.dwVersion, cbId: UInt = this.cbId, lpszId: Pwstr = this.lpszId, cbName: UInt = this.cbName, lpszName: Pwstr = this.lpszName, cbOwnerGroupName: UInt = this.cbOwnerGroupName, lpszOwnerGroupName: Pwstr = this.lpszOwnerGroupName, cbOwnerGroupId: UInt = this.cbOwnerGroupId, lpszOwnerGroupId: Pwstr = this.lpszOwnerGroupId, cbProperties: UInt = this.cbProperties, pProperties: MutPtr<CVoid> = this.pProperties, cbRoProperties: UInt = this.cbRoProperties, pRoProperties: MutPtr<CVoid> = this.pRoProperties): ClusterResourceEnumItem = ClusterResourceEnumItem(dwVersion = dwVersion, cbId = cbId, lpszIdCtorArg = lpszId, cbName = cbName, lpszNameCtorArg = lpszName, cbOwnerGroupName = cbOwnerGroupName, lpszOwnerGroupNameCtorArg = lpszOwnerGroupName, cbOwnerGroupId = cbOwnerGroupId, lpszOwnerGroupIdCtorArg = lpszOwnerGroupId, cbProperties = cbProperties, pPropertiesCtorArg = pProperties, cbRoProperties = cbRoProperties, pRoPropertiesCtorArg = pRoProperties)
+    public fun copy(dwVersion: UInt = this.dwVersion, cbId: UInt = this.cbId, lpszId: Pwstr = this.lpszId, cbName: UInt = this.cbName, lpszName: Pwstr = this.lpszName, cbOwnerGroupName: UInt = this.cbOwnerGroupName, lpszOwnerGroupName: Pwstr = this.lpszOwnerGroupName, cbOwnerGroupId: UInt = this.cbOwnerGroupId, lpszOwnerGroupId: Pwstr = this.lpszOwnerGroupId, cbProperties: UInt = this.cbProperties, pProperties: MutPtr = this.pProperties, cbRoProperties: UInt = this.cbRoProperties, pRoProperties: MutPtr = this.pRoProperties): ClusterResourceEnumItem = ClusterResourceEnumItem(dwVersion = dwVersion, cbId = cbId, lpszIdCtorArg = lpszId, cbName = cbName, lpszNameCtorArg = lpszName, cbOwnerGroupName = cbOwnerGroupName, lpszOwnerGroupNameCtorArg = lpszOwnerGroupName, cbOwnerGroupId = cbOwnerGroupId, lpszOwnerGroupIdCtorArg = lpszOwnerGroupId, cbProperties = cbProperties, pPropertiesCtorArg = pProperties, cbRoProperties = cbRoProperties, pRoPropertiesCtorArg = pRoProperties)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -1522,9 +1521,9 @@ public class ClusterResourceEnumItem internal constructor(
             cbOwnerGroupId: UInt = 0u,
             lpszOwnerGroupId: Pwstr = MutPtr(0L),
             cbProperties: UInt = 0u,
-            pProperties: MutPtr<CVoid> = MutPtr(0L),
+            pProperties: MutPtr = MutPtr(0L),
             cbRoProperties: UInt = 0u,
-            pRoProperties: MutPtr<CVoid> = MutPtr(0L),
+            pRoProperties: MutPtr = MutPtr(0L),
         ): ClusterResourceEnumItem =
             ClusterResourceEnumItem(
                 dwVersion = dwVersion,
@@ -3160,9 +3159,9 @@ public class CreateClusterConfig internal constructor(
     public var dwVersion: UInt,
     lpszClusterNameCtorArg: Pcwstr,
     public var cNodes: UInt,
-    ppszNodeNamesCtorArg: ConstPtr<Pcwstr>,
+    ppszNodeNamesCtorArg: ConstPtr,
     public var cIpEntries: UInt,
-    pIpEntriesCtorArg: MutPtr<ClusterIpEntry>,
+    pIpEntriesCtorArg: MutPtr,
     public var fEmptyCluster: Boolean,
     public var managementPointType: ClusterMgmtPointType,
     public var managementPointResType: ClusterMgmtPointRestype,
@@ -3170,10 +3169,10 @@ public class CreateClusterConfig internal constructor(
     public var lpszClusterName: Pcwstr = lpszClusterNameCtorArg
         internal set
 
-    public var ppszNodeNames: ConstPtr<Pcwstr> = ppszNodeNamesCtorArg
+    public var ppszNodeNames: ConstPtr = ppszNodeNamesCtorArg
         internal set
 
-    public var pIpEntries: MutPtr<ClusterIpEntry> = pIpEntriesCtorArg
+    public var pIpEntries: MutPtr = pIpEntriesCtorArg
         internal set
 
     public constructor() : this(
@@ -3194,11 +3193,11 @@ public class CreateClusterConfig internal constructor(
 
     public operator fun component3(): UInt = this.cNodes
 
-    public operator fun component4(): ConstPtr<Pcwstr> = this.ppszNodeNames
+    public operator fun component4(): ConstPtr = this.ppszNodeNames
 
     public operator fun component5(): UInt = this.cIpEntries
 
-    public operator fun component6(): MutPtr<ClusterIpEntry> = this.pIpEntries
+    public operator fun component6(): MutPtr = this.pIpEntries
 
     public operator fun component7(): Boolean = this.fEmptyCluster
 
@@ -3206,7 +3205,7 @@ public class CreateClusterConfig internal constructor(
 
     public operator fun component9(): ClusterMgmtPointRestype = this.managementPointResType
 
-    public fun copy(dwVersion: UInt = this.dwVersion, lpszClusterName: Pcwstr = this.lpszClusterName, cNodes: UInt = this.cNodes, ppszNodeNames: ConstPtr<Pcwstr> = this.ppszNodeNames, cIpEntries: UInt = this.cIpEntries, pIpEntries: MutPtr<ClusterIpEntry> = this.pIpEntries, fEmptyCluster: Boolean = this.fEmptyCluster, managementPointType: ClusterMgmtPointType = this.managementPointType, managementPointResType: ClusterMgmtPointRestype = this.managementPointResType): CreateClusterConfig = CreateClusterConfig(dwVersion = dwVersion, lpszClusterNameCtorArg = lpszClusterName, cNodes = cNodes, ppszNodeNamesCtorArg = ppszNodeNames, cIpEntries = cIpEntries, pIpEntriesCtorArg = pIpEntries, fEmptyCluster = fEmptyCluster, managementPointType = managementPointType, managementPointResType = managementPointResType)
+    public fun copy(dwVersion: UInt = this.dwVersion, lpszClusterName: Pcwstr = this.lpszClusterName, cNodes: UInt = this.cNodes, ppszNodeNames: ConstPtr = this.ppszNodeNames, cIpEntries: UInt = this.cIpEntries, pIpEntries: MutPtr = this.pIpEntries, fEmptyCluster: Boolean = this.fEmptyCluster, managementPointType: ClusterMgmtPointType = this.managementPointType, managementPointResType: ClusterMgmtPointRestype = this.managementPointResType): CreateClusterConfig = CreateClusterConfig(dwVersion = dwVersion, lpszClusterNameCtorArg = lpszClusterName, cNodes = cNodes, ppszNodeNamesCtorArg = ppszNodeNames, cIpEntries = cIpEntries, pIpEntriesCtorArg = pIpEntries, fEmptyCluster = fEmptyCluster, managementPointType = managementPointType, managementPointResType = managementPointResType)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -3241,9 +3240,9 @@ public class CreateClusterConfig internal constructor(
             dwVersion: UInt = 0u,
             lpszClusterName: Pcwstr = ConstPtr(0L),
             cNodes: UInt = 0u,
-            ppszNodeNames: ConstPtr<Pcwstr> = ConstPtr(0L),
+            ppszNodeNames: ConstPtr = ConstPtr(0L),
             cIpEntries: UInt = 0u,
-            pIpEntries: MutPtr<ClusterIpEntry> = MutPtr(0L),
+            pIpEntries: MutPtr = MutPtr(0L),
             fEmptyCluster: Boolean = false,
             managementPointType: ClusterMgmtPointType = 0,
             managementPointResType: ClusterMgmtPointRestype = 0,
@@ -4037,21 +4036,21 @@ public class ResutilPropertyItem internal constructor(
 public class ResutilPropertyItem0 internal constructor(
     public var defaultPtr: Int,
     public var default: UInt,
-    lpDefaultCtorArg: MutPtr<CVoid>,
-    largeIntDataCtorArg: MutPtr<ResutilLargeintData>,
-    uLargeIntDataCtorArg: MutPtr<ResutilUlargeintData>,
-    fileTimeDataCtorArg: MutPtr<ResutilFiletimeData>,
+    lpDefaultCtorArg: MutPtr,
+    largeIntDataCtorArg: MutPtr,
+    uLargeIntDataCtorArg: MutPtr,
+    fileTimeDataCtorArg: MutPtr,
 ) {
-    public var lpDefault: MutPtr<CVoid> = lpDefaultCtorArg
+    public var lpDefault: MutPtr = lpDefaultCtorArg
         internal set
 
-    public var largeIntData: MutPtr<ResutilLargeintData> = largeIntDataCtorArg
+    public var largeIntData: MutPtr = largeIntDataCtorArg
         internal set
 
-    public var uLargeIntData: MutPtr<ResutilUlargeintData> = uLargeIntDataCtorArg
+    public var uLargeIntData: MutPtr = uLargeIntDataCtorArg
         internal set
 
-    public var fileTimeData: MutPtr<ResutilFiletimeData> = fileTimeDataCtorArg
+    public var fileTimeData: MutPtr = fileTimeDataCtorArg
         internal set
 
     public constructor() : this(
@@ -4067,15 +4066,15 @@ public class ResutilPropertyItem0 internal constructor(
 
     public operator fun component2(): UInt = this.default
 
-    public operator fun component3(): MutPtr<CVoid> = this.lpDefault
+    public operator fun component3(): MutPtr = this.lpDefault
 
-    public operator fun component4(): MutPtr<ResutilLargeintData> = this.largeIntData
+    public operator fun component4(): MutPtr = this.largeIntData
 
-    public operator fun component5(): MutPtr<ResutilUlargeintData> = this.uLargeIntData
+    public operator fun component5(): MutPtr = this.uLargeIntData
 
-    public operator fun component6(): MutPtr<ResutilFiletimeData> = this.fileTimeData
+    public operator fun component6(): MutPtr = this.fileTimeData
 
-    public fun copy(defaultPtr: Int = this.defaultPtr, default: UInt = this.default, lpDefault: MutPtr<CVoid> = this.lpDefault, largeIntData: MutPtr<ResutilLargeintData> = this.largeIntData, uLargeIntData: MutPtr<ResutilUlargeintData> = this.uLargeIntData, fileTimeData: MutPtr<ResutilFiletimeData> = this.fileTimeData): ResutilPropertyItem0 = ResutilPropertyItem0(defaultPtr = defaultPtr, default = default, lpDefaultCtorArg = lpDefault, largeIntDataCtorArg = largeIntData, uLargeIntDataCtorArg = uLargeIntData, fileTimeDataCtorArg = fileTimeData)
+    public fun copy(defaultPtr: Int = this.defaultPtr, default: UInt = this.default, lpDefault: MutPtr = this.lpDefault, largeIntData: MutPtr = this.largeIntData, uLargeIntData: MutPtr = this.uLargeIntData, fileTimeData: MutPtr = this.fileTimeData): ResutilPropertyItem0 = ResutilPropertyItem0(defaultPtr = defaultPtr, default = default, lpDefaultCtorArg = lpDefault, largeIntDataCtorArg = largeIntData, uLargeIntDataCtorArg = uLargeIntData, fileTimeDataCtorArg = fileTimeData)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -4103,10 +4102,10 @@ public class ResutilPropertyItem0 internal constructor(
         public operator fun invoke(
             defaultPtr: Int = 0,
             default: UInt = 0u,
-            lpDefault: MutPtr<CVoid> = MutPtr(0L),
-            largeIntData: MutPtr<ResutilLargeintData> = MutPtr(0L),
-            uLargeIntData: MutPtr<ResutilUlargeintData> = MutPtr(0L),
-            fileTimeData: MutPtr<ResutilFiletimeData> = MutPtr(0L),
+            lpDefault: MutPtr = MutPtr(0L),
+            largeIntData: MutPtr = MutPtr(0L),
+            uLargeIntData: MutPtr = MutPtr(0L),
+            fileTimeData: MutPtr = MutPtr(0L),
         ): ResutilPropertyItem0 =
             ResutilPropertyItem0(
                 defaultPtr = defaultPtr,

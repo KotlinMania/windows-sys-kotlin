@@ -2,11 +2,9 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.system.diagnostics.debug
 
-import io.github.kotlinmania.rustlang.core.ffi.CVoid
 import io.github.kotlinmania.rustlang.core.ptr.ConstPtr
 import io.github.kotlinmania.rustlang.core.ptr.MutPtr
 import io.github.kotlinmania.windowssys.core.Bool
-import io.github.kotlinmania.windowssys.core.Guid
 import io.github.kotlinmania.windowssys.core.Hresult
 import io.github.kotlinmania.windowssys.core.Pcstr
 import io.github.kotlinmania.windowssys.core.Pcwstr
@@ -16,8 +14,6 @@ import io.github.kotlinmania.windowssys.windows.win32.foundation.Handle
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Hmodule
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Hwnd
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Ntstatus
-import io.github.kotlinmania.windowssys.windows.win32.foundation.Systemtime
-import io.github.kotlinmania.windowssys.windows.win32.security.wintrust.WinCertificate
 import io.github.kotlinmania.windowssys.windows.win32.system.diagnostics.debug.cinterop.windowssysWindowsWin32SystemDiagnosticsDebugAddVectoredContinueHandler
 import io.github.kotlinmania.windowssys.windows.win32.system.diagnostics.debug.cinterop.windowssysWindowsWin32SystemDiagnosticsDebugAddVectoredExceptionHandler
 import io.github.kotlinmania.windowssys.windows.win32.system.diagnostics.debug.cinterop.windowssysWindowsWin32SystemDiagnosticsDebugBeep
@@ -313,10 +309,10 @@ import kotlinx.cinterop.ByteVar
 import kotlinx.cinterop.toCPointer
 import kotlinx.cinterop.toLong
 
-public actual fun addVectoredContinueHandler(first: UInt, handler: PvectoredExceptionHandler): MutPtr<CVoid> =
+public actual fun addVectoredContinueHandler(first: UInt, handler: PvectoredExceptionHandler): MutPtr =
     MutPtr(windowssysWindowsWin32SystemDiagnosticsDebugAddVectoredContinueHandler(first, 0L.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun addVectoredExceptionHandler(first: UInt, handler: PvectoredExceptionHandler): MutPtr<CVoid> =
+public actual fun addVectoredExceptionHandler(first: UInt, handler: PvectoredExceptionHandler): MutPtr =
     MutPtr(windowssysWindowsWin32SystemDiagnosticsDebugAddVectoredExceptionHandler(first, 0L.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
 public actual fun beep(dwfreq: UInt, dwduration: UInt): Bool =
@@ -328,26 +324,26 @@ public actual fun bindImage(imagename: Pcstr, dllpath: Pcstr, symbolpath: Pcstr)
 public actual fun bindImageEx(flags: UInt, imagename: Pcstr, dllpath: Pcstr, symbolpath: Pcstr, statusroutine: PimagehlpStatusRoutine): Bool =
     windowssysWindowsWin32SystemDiagnosticsDebugBindImageEx(flags, imagename.rawAddress.toCPointer<ByteVar>(), dllpath.rawAddress.toCPointer<ByteVar>(), symbolpath.rawAddress.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>())
 
-public actual fun checkRemoteDebuggerPresent(hprocess: Handle, pbdebuggerpresent: MutPtr<Bool>): Bool =
+public actual fun checkRemoteDebuggerPresent(hprocess: Handle, pbdebuggerpresent: MutPtr): Bool =
     windowssysWindowsWin32SystemDiagnosticsDebugCheckRemoteDebuggerPresent(hprocess.rawAddress.toCPointer<ByteVar>(), pbdebuggerpresent.rawAddress.toCPointer<ByteVar>())
 
-public actual fun checkSumMappedFile(baseaddress: ConstPtr<CVoid>, filelength: UInt, headersum: MutPtr<UInt>, checksum: MutPtr<UInt>): MutPtr<ImageNtHeaders64> =
+public actual fun checkSumMappedFile(baseaddress: ConstPtr, filelength: UInt, headersum: MutPtr, checksum: MutPtr): MutPtr =
     MutPtr(windowssysWindowsWin32SystemDiagnosticsDebugCheckSumMappedFile(baseaddress.rawAddress.toCPointer<ByteVar>(), filelength, headersum.rawAddress.toCPointer<ByteVar>(), checksum.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun closeThreadWaitChainSession(wcthandle: ConstPtr<CVoid>) {
+public actual fun closeThreadWaitChainSession(wcthandle: ConstPtr) {
     windowssysWindowsWin32SystemDiagnosticsDebugCloseThreadWaitChainSession(wcthandle.rawAddress.toCPointer<ByteVar>())
 }
 
 public actual fun continueDebugEvent(dwprocessid: UInt, dwthreadid: UInt, dwcontinuestatus: Ntstatus): Bool =
     windowssysWindowsWin32SystemDiagnosticsDebugContinueDebugEvent(dwprocessid, dwthreadid, dwcontinuestatus)
 
-public actual fun copyContext(destination: MutPtr<Context>, contextflags: ContextFlags, source: ConstPtr<Context>): Bool =
+public actual fun copyContext(destination: MutPtr, contextflags: ContextFlags, source: ConstPtr): Bool =
     windowssysWindowsWin32SystemDiagnosticsDebugCopyContext(destination.rawAddress.toCPointer<ByteVar>(), contextflags, source.rawAddress.toCPointer<ByteVar>())
 
-public actual fun dbgHelpCreateUserDump(filename: Pcstr, callback: PdbghelpCreateUserDumpCallback, userdata: ConstPtr<CVoid>): Bool =
+public actual fun dbgHelpCreateUserDump(filename: Pcstr, callback: PdbghelpCreateUserDumpCallback, userdata: ConstPtr): Bool =
     windowssysWindowsWin32SystemDiagnosticsDebugDbgHelpCreateUserDump(filename.rawAddress.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>(), userdata.rawAddress.toCPointer<ByteVar>())
 
-public actual fun dbgHelpCreateUserDumpW(filename: Pcwstr, callback: PdbghelpCreateUserDumpCallback, userdata: ConstPtr<CVoid>): Bool =
+public actual fun dbgHelpCreateUserDumpW(filename: Pcwstr, callback: PdbghelpCreateUserDumpCallback, userdata: ConstPtr): Bool =
     windowssysWindowsWin32SystemDiagnosticsDebugDbgHelpCreateUserDumpW(filename.rawAddress.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>(), userdata.rawAddress.toCPointer<ByteVar>())
 
 public actual fun debugActiveProcess(dwprocessid: UInt): Bool =
@@ -366,40 +362,40 @@ public actual fun debugBreakProcess(process: Handle): Bool =
 public actual fun debugSetProcessKillOnExit(killonexit: Bool): Bool =
     windowssysWindowsWin32SystemDiagnosticsDebugDebugSetProcessKillOnExit(killonexit)
 
-public actual fun decodePointer(ptr: ConstPtr<CVoid>): MutPtr<CVoid> =
+public actual fun decodePointer(ptr: ConstPtr): MutPtr =
     MutPtr(windowssysWindowsWin32SystemDiagnosticsDebugDecodePointer(ptr.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun decodeRemotePointer(processhandle: Handle, ptr: ConstPtr<CVoid>, decodedptr: MutPtr<MutPtr<CVoid>>): Hresult =
+public actual fun decodeRemotePointer(processhandle: Handle, ptr: ConstPtr, decodedptr: MutPtr): Hresult =
     windowssysWindowsWin32SystemDiagnosticsDebugDecodeRemotePointer(processhandle.rawAddress.toCPointer<ByteVar>(), ptr.rawAddress.toCPointer<ByteVar>(), decodedptr.rawAddress.toCPointer<ByteVar>())
 
-public actual fun decodeSystemPointer(ptr: ConstPtr<CVoid>): MutPtr<CVoid> =
+public actual fun decodeSystemPointer(ptr: ConstPtr): MutPtr =
     MutPtr(windowssysWindowsWin32SystemDiagnosticsDebugDecodeSystemPointer(ptr.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun encodePointer(ptr: ConstPtr<CVoid>): MutPtr<CVoid> =
+public actual fun encodePointer(ptr: ConstPtr): MutPtr =
     MutPtr(windowssysWindowsWin32SystemDiagnosticsDebugEncodePointer(ptr.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun encodeRemotePointer(processhandle: Handle, ptr: ConstPtr<CVoid>, encodedptr: MutPtr<MutPtr<CVoid>>): Hresult =
+public actual fun encodeRemotePointer(processhandle: Handle, ptr: ConstPtr, encodedptr: MutPtr): Hresult =
     windowssysWindowsWin32SystemDiagnosticsDebugEncodeRemotePointer(processhandle.rawAddress.toCPointer<ByteVar>(), ptr.rawAddress.toCPointer<ByteVar>(), encodedptr.rawAddress.toCPointer<ByteVar>())
 
-public actual fun encodeSystemPointer(ptr: ConstPtr<CVoid>): MutPtr<CVoid> =
+public actual fun encodeSystemPointer(ptr: ConstPtr): MutPtr =
     MutPtr(windowssysWindowsWin32SystemDiagnosticsDebugEncodeSystemPointer(ptr.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun enumDirTree(hprocess: Handle, rootpath: Pcstr, inputpathname: Pcstr, outputpathbuffer: Pstr, cb: PenumdirtreeCallback, data: ConstPtr<CVoid>): Bool =
+public actual fun enumDirTree(hprocess: Handle, rootpath: Pcstr, inputpathname: Pcstr, outputpathbuffer: Pstr, cb: PenumdirtreeCallback, data: ConstPtr): Bool =
     windowssysWindowsWin32SystemDiagnosticsDebugEnumDirTree(hprocess.rawAddress.toCPointer<ByteVar>(), rootpath.rawAddress.toCPointer<ByteVar>(), inputpathname.rawAddress.toCPointer<ByteVar>(), outputpathbuffer.rawAddress.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>(), data.rawAddress.toCPointer<ByteVar>())
 
-public actual fun enumDirTreeW(hprocess: Handle, rootpath: Pcwstr, inputpathname: Pcwstr, outputpathbuffer: Pwstr, cb: PenumdirtreeCallbackw, data: ConstPtr<CVoid>): Bool =
+public actual fun enumDirTreeW(hprocess: Handle, rootpath: Pcwstr, inputpathname: Pcwstr, outputpathbuffer: Pwstr, cb: PenumdirtreeCallbackw, data: ConstPtr): Bool =
     windowssysWindowsWin32SystemDiagnosticsDebugEnumDirTreeW(hprocess.rawAddress.toCPointer<ByteVar>(), rootpath.rawAddress.toCPointer<ByteVar>(), inputpathname.rawAddress.toCPointer<ByteVar>(), outputpathbuffer.rawAddress.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>(), data.rawAddress.toCPointer<ByteVar>())
 
-public actual fun enumerateLoadedModules64(hprocess: Handle, enumloadedmodulescallback: PenumloadedModulesCallback64, usercontext: ConstPtr<CVoid>): Bool =
+public actual fun enumerateLoadedModules64(hprocess: Handle, enumloadedmodulescallback: PenumloadedModulesCallback64, usercontext: ConstPtr): Bool =
     windowssysWindowsWin32SystemDiagnosticsDebugEnumerateLoadedModules64(hprocess.rawAddress.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>(), usercontext.rawAddress.toCPointer<ByteVar>())
 
-public actual fun enumerateLoadedModulesEx(hprocess: Handle, enumloadedmodulescallback: PenumloadedModulesCallback64, usercontext: ConstPtr<CVoid>): Bool =
+public actual fun enumerateLoadedModulesEx(hprocess: Handle, enumloadedmodulescallback: PenumloadedModulesCallback64, usercontext: ConstPtr): Bool =
     windowssysWindowsWin32SystemDiagnosticsDebugEnumerateLoadedModulesEx(hprocess.rawAddress.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>(), usercontext.rawAddress.toCPointer<ByteVar>())
 
-public actual fun enumerateLoadedModulesExW(hprocess: Handle, enumloadedmodulescallback: PenumloadedModulesCallbackw64, usercontext: ConstPtr<CVoid>): Bool =
+public actual fun enumerateLoadedModulesExW(hprocess: Handle, enumloadedmodulescallback: PenumloadedModulesCallbackw64, usercontext: ConstPtr): Bool =
     windowssysWindowsWin32SystemDiagnosticsDebugEnumerateLoadedModulesExW(hprocess.rawAddress.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>(), usercontext.rawAddress.toCPointer<ByteVar>())
 
-public actual fun enumerateLoadedModulesW64(hprocess: Handle, enumloadedmodulescallback: PenumloadedModulesCallbackw64, usercontext: ConstPtr<CVoid>): Bool =
+public actual fun enumerateLoadedModulesW64(hprocess: Handle, enumloadedmodulescallback: PenumloadedModulesCallbackw64, usercontext: ConstPtr): Bool =
     windowssysWindowsWin32SystemDiagnosticsDebugEnumerateLoadedModulesW64(hprocess.rawAddress.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>(), usercontext.rawAddress.toCPointer<ByteVar>())
 
 public actual fun fatalAppExitA(uaction: UInt, lpmessagetext: Pcstr) {
@@ -418,34 +414,34 @@ public actual fun fatalExit(exitcode: Int): Nothing {
 public actual fun findDebugInfoFile(filename: Pcstr, symbolpath: Pcstr, debugfilepath: Pstr): Handle =
     MutPtr(windowssysWindowsWin32SystemDiagnosticsDebugFindDebugInfoFile(filename.rawAddress.toCPointer<ByteVar>(), symbolpath.rawAddress.toCPointer<ByteVar>(), debugfilepath.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun findDebugInfoFileEx(filename: Pcstr, symbolpath: Pcstr, debugfilepath: Pstr, callback: PfindDebugFileCallback, callerdata: ConstPtr<CVoid>): Handle =
+public actual fun findDebugInfoFileEx(filename: Pcstr, symbolpath: Pcstr, debugfilepath: Pstr, callback: PfindDebugFileCallback, callerdata: ConstPtr): Handle =
     MutPtr(windowssysWindowsWin32SystemDiagnosticsDebugFindDebugInfoFileEx(filename.rawAddress.toCPointer<ByteVar>(), symbolpath.rawAddress.toCPointer<ByteVar>(), debugfilepath.rawAddress.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>(), callerdata.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun findDebugInfoFileExW(filename: Pcwstr, symbolpath: Pcwstr, debugfilepath: Pwstr, callback: PfindDebugFileCallbackw, callerdata: ConstPtr<CVoid>): Handle =
+public actual fun findDebugInfoFileExW(filename: Pcwstr, symbolpath: Pcwstr, debugfilepath: Pwstr, callback: PfindDebugFileCallbackw, callerdata: ConstPtr): Handle =
     MutPtr(windowssysWindowsWin32SystemDiagnosticsDebugFindDebugInfoFileExW(filename.rawAddress.toCPointer<ByteVar>(), symbolpath.rawAddress.toCPointer<ByteVar>(), debugfilepath.rawAddress.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>(), callerdata.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
 public actual fun findExecutableImage(filename: Pcstr, symbolpath: Pcstr, imagefilepath: Pstr): Handle =
     MutPtr(windowssysWindowsWin32SystemDiagnosticsDebugFindExecutableImage(filename.rawAddress.toCPointer<ByteVar>(), symbolpath.rawAddress.toCPointer<ByteVar>(), imagefilepath.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun findExecutableImageEx(filename: Pcstr, symbolpath: Pcstr, imagefilepath: Pstr, callback: PfindExeFileCallback, callerdata: ConstPtr<CVoid>): Handle =
+public actual fun findExecutableImageEx(filename: Pcstr, symbolpath: Pcstr, imagefilepath: Pstr, callback: PfindExeFileCallback, callerdata: ConstPtr): Handle =
     MutPtr(windowssysWindowsWin32SystemDiagnosticsDebugFindExecutableImageEx(filename.rawAddress.toCPointer<ByteVar>(), symbolpath.rawAddress.toCPointer<ByteVar>(), imagefilepath.rawAddress.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>(), callerdata.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun findExecutableImageExW(filename: Pcwstr, symbolpath: Pcwstr, imagefilepath: Pwstr, callback: PfindExeFileCallbackw, callerdata: ConstPtr<CVoid>): Handle =
+public actual fun findExecutableImageExW(filename: Pcwstr, symbolpath: Pcwstr, imagefilepath: Pwstr, callback: PfindExeFileCallbackw, callerdata: ConstPtr): Handle =
     MutPtr(windowssysWindowsWin32SystemDiagnosticsDebugFindExecutableImageExW(filename.rawAddress.toCPointer<ByteVar>(), symbolpath.rawAddress.toCPointer<ByteVar>(), imagefilepath.rawAddress.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>(), callerdata.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun findFileInPath(hprocess: Handle, searchpatha: Pcstr, filename: Pcstr, id: ConstPtr<CVoid>, two: UInt, three: UInt, flags: UInt, filepath: Pstr): Bool =
+public actual fun findFileInPath(hprocess: Handle, searchpatha: Pcstr, filename: Pcstr, id: ConstPtr, two: UInt, three: UInt, flags: UInt, filepath: Pstr): Bool =
     windowssysWindowsWin32SystemDiagnosticsDebugFindFileInPath(hprocess.rawAddress.toCPointer<ByteVar>(), searchpatha.rawAddress.toCPointer<ByteVar>(), filename.rawAddress.toCPointer<ByteVar>(), id.rawAddress.toCPointer<ByteVar>(), two, three, flags, filepath.rawAddress.toCPointer<ByteVar>())
 
 public actual fun findFileInSearchPath(hprocess: Handle, searchpatha: Pcstr, filename: Pcstr, one: UInt, two: UInt, three: UInt, filepath: Pstr): Bool =
     windowssysWindowsWin32SystemDiagnosticsDebugFindFileInSearchPath(hprocess.rawAddress.toCPointer<ByteVar>(), searchpatha.rawAddress.toCPointer<ByteVar>(), filename.rawAddress.toCPointer<ByteVar>(), one, two, three, filepath.rawAddress.toCPointer<ByteVar>())
 
-public actual fun flushInstructionCache(hprocess: Handle, lpbaseaddress: ConstPtr<CVoid>, dwsize: ULong): Bool =
+public actual fun flushInstructionCache(hprocess: Handle, lpbaseaddress: ConstPtr, dwsize: ULong): Bool =
     windowssysWindowsWin32SystemDiagnosticsDebugFlushInstructionCache(hprocess.rawAddress.toCPointer<ByteVar>(), lpbaseaddress.rawAddress.toCPointer<ByteVar>(), dwsize)
 
-public actual fun formatMessageA(dwflags: FormatMessageOptions, lpsource: ConstPtr<CVoid>, dwmessageid: UInt, dwlanguageid: UInt, lpbuffer: Pstr, nsize: UInt, arguments: ConstPtr<ConstPtr<Byte>>): UInt =
+public actual fun formatMessageA(dwflags: FormatMessageOptions, lpsource: ConstPtr, dwmessageid: UInt, dwlanguageid: UInt, lpbuffer: Pstr, nsize: UInt, arguments: ConstPtr): UInt =
     windowssysWindowsWin32SystemDiagnosticsDebugFormatMessageA(dwflags, lpsource.rawAddress.toCPointer<ByteVar>(), dwmessageid, dwlanguageid, lpbuffer.rawAddress.toCPointer<ByteVar>(), nsize, arguments.rawAddress.toCPointer<ByteVar>())
 
-public actual fun formatMessageW(dwflags: FormatMessageOptions, lpsource: ConstPtr<CVoid>, dwmessageid: UInt, dwlanguageid: UInt, lpbuffer: Pwstr, nsize: UInt, arguments: ConstPtr<ConstPtr<Byte>>): UInt =
+public actual fun formatMessageW(dwflags: FormatMessageOptions, lpsource: ConstPtr, dwmessageid: UInt, dwlanguageid: UInt, lpbuffer: Pwstr, nsize: UInt, arguments: ConstPtr): UInt =
     windowssysWindowsWin32SystemDiagnosticsDebugFormatMessageW(dwflags, lpsource.rawAddress.toCPointer<ByteVar>(), dwmessageid, dwlanguageid, lpbuffer.rawAddress.toCPointer<ByteVar>(), nsize, arguments.rawAddress.toCPointer<ByteVar>())
 
 public actual fun getEnabledXStateFeatures(): ULong =
@@ -454,112 +450,112 @@ public actual fun getEnabledXStateFeatures(): ULong =
 public actual fun getErrorMode(): UInt =
     windowssysWindowsWin32SystemDiagnosticsDebugGetErrorMode()
 
-public actual fun getImageConfigInformation(loadedimage: ConstPtr<LoadedImage>, imageconfiginformation: MutPtr<ImageLoadConfigDirectory64>): Bool =
+public actual fun getImageConfigInformation(loadedimage: ConstPtr, imageconfiginformation: MutPtr): Bool =
     windowssysWindowsWin32SystemDiagnosticsDebugGetImageConfigInformation(loadedimage.rawAddress.toCPointer<ByteVar>(), imageconfiginformation.rawAddress.toCPointer<ByteVar>())
 
-public actual fun getImageUnusedHeaderBytes(loadedimage: ConstPtr<LoadedImage>, sizeunusedheaderbytes: MutPtr<UInt>): UInt =
+public actual fun getImageUnusedHeaderBytes(loadedimage: ConstPtr, sizeunusedheaderbytes: MutPtr): UInt =
     windowssysWindowsWin32SystemDiagnosticsDebugGetImageUnusedHeaderBytes(loadedimage.rawAddress.toCPointer<ByteVar>(), sizeunusedheaderbytes.rawAddress.toCPointer<ByteVar>())
 
 public actual fun getSymLoadError(): UInt =
     windowssysWindowsWin32SystemDiagnosticsDebugGetSymLoadError()
 
-public actual fun getThreadContext(hthread: Handle, lpcontext: MutPtr<Context>): Bool =
+public actual fun getThreadContext(hthread: Handle, lpcontext: MutPtr): Bool =
     windowssysWindowsWin32SystemDiagnosticsDebugGetThreadContext(hthread.rawAddress.toCPointer<ByteVar>(), lpcontext.rawAddress.toCPointer<ByteVar>())
 
 public actual fun getThreadErrorMode(): UInt =
     windowssysWindowsWin32SystemDiagnosticsDebugGetThreadErrorMode()
 
-public actual fun getThreadSelectorEntry(hthread: Handle, dwselector: UInt, lpselectorentry: MutPtr<LdtEntry>): Bool =
+public actual fun getThreadSelectorEntry(hthread: Handle, dwselector: UInt, lpselectorentry: MutPtr): Bool =
     windowssysWindowsWin32SystemDiagnosticsDebugGetThreadSelectorEntry(hthread.rawAddress.toCPointer<ByteVar>(), dwselector, lpselectorentry.rawAddress.toCPointer<ByteVar>())
 
-public actual fun getThreadWaitChain(wcthandle: ConstPtr<CVoid>, context: ULong, flags: WaitChainThreadOptions, threadid: UInt, nodecount: MutPtr<UInt>, nodeinfoarray: MutPtr<WaitchainNodeInfo>, iscycle: MutPtr<Bool>): Bool =
+public actual fun getThreadWaitChain(wcthandle: ConstPtr, context: ULong, flags: WaitChainThreadOptions, threadid: UInt, nodecount: MutPtr, nodeinfoarray: MutPtr, iscycle: MutPtr): Bool =
     windowssysWindowsWin32SystemDiagnosticsDebugGetThreadWaitChain(wcthandle.rawAddress.toCPointer<ByteVar>(), context, flags, threadid, nodecount.rawAddress.toCPointer<ByteVar>(), nodeinfoarray.rawAddress.toCPointer<ByteVar>(), iscycle.rawAddress.toCPointer<ByteVar>())
 
 public actual fun getTimestampForLoadedLibrary(module: Hmodule): UInt =
     windowssysWindowsWin32SystemDiagnosticsDebugGetTimestampForLoadedLibrary(module.rawAddress.toCPointer<ByteVar>())
 
-public actual fun getXStateFeaturesMask(context: ConstPtr<Context>, featuremask: MutPtr<ULong>): Bool =
+public actual fun getXStateFeaturesMask(context: ConstPtr, featuremask: MutPtr): Bool =
     windowssysWindowsWin32SystemDiagnosticsDebugGetXStateFeaturesMask(context.rawAddress.toCPointer<ByteVar>(), featuremask.rawAddress.toCPointer<ByteVar>())
 
-public actual fun imageAddCertificate(filehandle: Handle, certificate: ConstPtr<WinCertificate>, index: MutPtr<UInt>): Bool =
+public actual fun imageAddCertificate(filehandle: Handle, certificate: ConstPtr, index: MutPtr): Bool =
     windowssysWindowsWin32SystemDiagnosticsDebugImageAddCertificate(filehandle.rawAddress.toCPointer<ByteVar>(), certificate.rawAddress.toCPointer<ByteVar>(), index.rawAddress.toCPointer<ByteVar>())
 
-public actual fun imageDirectoryEntryToData(base: ConstPtr<CVoid>, mappedasimage: Boolean, directoryentry: ImageDirectoryEntry, size: MutPtr<UInt>): MutPtr<CVoid> =
+public actual fun imageDirectoryEntryToData(base: ConstPtr, mappedasimage: Boolean, directoryentry: ImageDirectoryEntry, size: MutPtr): MutPtr =
     MutPtr(windowssysWindowsWin32SystemDiagnosticsDebugImageDirectoryEntryToData(base.rawAddress.toCPointer<ByteVar>(), mappedasimage, directoryentry, size.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun imageDirectoryEntryToDataEx(base: ConstPtr<CVoid>, mappedasimage: Boolean, directoryentry: ImageDirectoryEntry, size: MutPtr<UInt>, foundheader: MutPtr<MutPtr<ImageSectionHeader>>): MutPtr<CVoid> =
+public actual fun imageDirectoryEntryToDataEx(base: ConstPtr, mappedasimage: Boolean, directoryentry: ImageDirectoryEntry, size: MutPtr, foundheader: MutPtr): MutPtr =
     MutPtr(windowssysWindowsWin32SystemDiagnosticsDebugImageDirectoryEntryToDataEx(base.rawAddress.toCPointer<ByteVar>(), mappedasimage, directoryentry, size.rawAddress.toCPointer<ByteVar>(), foundheader.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun imageEnumerateCertificates(filehandle: Handle, typefilter: UShort, certificatecount: MutPtr<UInt>, indices: MutPtr<UInt>, indexcount: UInt): Bool =
+public actual fun imageEnumerateCertificates(filehandle: Handle, typefilter: UShort, certificatecount: MutPtr, indices: MutPtr, indexcount: UInt): Bool =
     windowssysWindowsWin32SystemDiagnosticsDebugImageEnumerateCertificates(filehandle.rawAddress.toCPointer<ByteVar>(), typefilter, certificatecount.rawAddress.toCPointer<ByteVar>(), indices.rawAddress.toCPointer<ByteVar>(), indexcount)
 
-public actual fun imageGetCertificateData(filehandle: Handle, certificateindex: UInt, certificate: MutPtr<WinCertificate>, requiredlength: MutPtr<UInt>): Bool =
+public actual fun imageGetCertificateData(filehandle: Handle, certificateindex: UInt, certificate: MutPtr, requiredlength: MutPtr): Bool =
     windowssysWindowsWin32SystemDiagnosticsDebugImageGetCertificateData(filehandle.rawAddress.toCPointer<ByteVar>(), certificateindex, certificate.rawAddress.toCPointer<ByteVar>(), requiredlength.rawAddress.toCPointer<ByteVar>())
 
-public actual fun imageGetCertificateHeader(filehandle: Handle, certificateindex: UInt, certificateheader: MutPtr<WinCertificate>): Bool =
+public actual fun imageGetCertificateHeader(filehandle: Handle, certificateindex: UInt, certificateheader: MutPtr): Bool =
     windowssysWindowsWin32SystemDiagnosticsDebugImageGetCertificateHeader(filehandle.rawAddress.toCPointer<ByteVar>(), certificateindex, certificateheader.rawAddress.toCPointer<ByteVar>())
 
-public actual fun imageGetDigestStream(filehandle: Handle, digestlevel: UInt, digestfunction: DigestFunction, digesthandle: ConstPtr<CVoid>): Bool =
+public actual fun imageGetDigestStream(filehandle: Handle, digestlevel: UInt, digestfunction: DigestFunction, digesthandle: ConstPtr): Bool =
     windowssysWindowsWin32SystemDiagnosticsDebugImageGetDigestStream(filehandle.rawAddress.toCPointer<ByteVar>(), digestlevel, 0L.toCPointer<ByteVar>(), digesthandle.rawAddress.toCPointer<ByteVar>())
 
-public actual fun imageLoad(dllname: Pcstr, dllpath: Pcstr): MutPtr<LoadedImage> =
+public actual fun imageLoad(dllname: Pcstr, dllpath: Pcstr): MutPtr =
     MutPtr(windowssysWindowsWin32SystemDiagnosticsDebugImageLoad(dllname.rawAddress.toCPointer<ByteVar>(), dllpath.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun imageNtHeader(base: ConstPtr<CVoid>): MutPtr<ImageNtHeaders64> =
+public actual fun imageNtHeader(base: ConstPtr): MutPtr =
     MutPtr(windowssysWindowsWin32SystemDiagnosticsDebugImageNtHeader(base.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
 public actual fun imageRemoveCertificate(filehandle: Handle, index: UInt): Bool =
     windowssysWindowsWin32SystemDiagnosticsDebugImageRemoveCertificate(filehandle.rawAddress.toCPointer<ByteVar>(), index)
 
-public actual fun imageRvaToSection(ntheaders: ConstPtr<ImageNtHeaders64>, base: ConstPtr<CVoid>, rva: UInt): MutPtr<ImageSectionHeader> =
+public actual fun imageRvaToSection(ntheaders: ConstPtr, base: ConstPtr, rva: UInt): MutPtr =
     MutPtr(windowssysWindowsWin32SystemDiagnosticsDebugImageRvaToSection(ntheaders.rawAddress.toCPointer<ByteVar>(), base.rawAddress.toCPointer<ByteVar>(), rva)?.toLong() ?: 0L)
 
-public actual fun imageRvaToVa(ntheaders: ConstPtr<ImageNtHeaders64>, base: ConstPtr<CVoid>, rva: UInt, lastrvasection: ConstPtr<ConstPtr<ImageSectionHeader>>): MutPtr<CVoid> =
+public actual fun imageRvaToVa(ntheaders: ConstPtr, base: ConstPtr, rva: UInt, lastrvasection: ConstPtr): MutPtr =
     MutPtr(windowssysWindowsWin32SystemDiagnosticsDebugImageRvaToVa(ntheaders.rawAddress.toCPointer<ByteVar>(), base.rawAddress.toCPointer<ByteVar>(), rva, lastrvasection.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun imageUnload(loadedimage: MutPtr<LoadedImage>): Bool =
+public actual fun imageUnload(loadedimage: MutPtr): Bool =
     windowssysWindowsWin32SystemDiagnosticsDebugImageUnload(loadedimage.rawAddress.toCPointer<ByteVar>())
 
-public actual fun imagehlpApiVersion(): MutPtr<ApiVersion> =
+public actual fun imagehlpApiVersion(): MutPtr =
     MutPtr(windowssysWindowsWin32SystemDiagnosticsDebugImagehlpApiVersion()?.toLong() ?: 0L)
 
-public actual fun imagehlpApiVersionEx(appversion: ConstPtr<ApiVersion>): MutPtr<ApiVersion> =
+public actual fun imagehlpApiVersionEx(appversion: ConstPtr): MutPtr =
     MutPtr(windowssysWindowsWin32SystemDiagnosticsDebugImagehlpApiVersionEx(appversion.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun initializeContext(buffer: MutPtr<CVoid>, contextflags: ContextFlags, context: MutPtr<MutPtr<Context>>, contextlength: MutPtr<UInt>): Bool =
+public actual fun initializeContext(buffer: MutPtr, contextflags: ContextFlags, context: MutPtr, contextlength: MutPtr): Bool =
     windowssysWindowsWin32SystemDiagnosticsDebugInitializeContext(buffer.rawAddress.toCPointer<ByteVar>(), contextflags, context.rawAddress.toCPointer<ByteVar>(), contextlength.rawAddress.toCPointer<ByteVar>())
 
-public actual fun initializeContext2(buffer: MutPtr<CVoid>, contextflags: ContextFlags, context: MutPtr<MutPtr<Context>>, contextlength: MutPtr<UInt>, xstatecompactionmask: ULong): Bool =
+public actual fun initializeContext2(buffer: MutPtr, contextflags: ContextFlags, context: MutPtr, contextlength: MutPtr, xstatecompactionmask: ULong): Bool =
     windowssysWindowsWin32SystemDiagnosticsDebugInitializeContext2(buffer.rawAddress.toCPointer<ByteVar>(), contextflags, context.rawAddress.toCPointer<ByteVar>(), contextlength.rawAddress.toCPointer<ByteVar>(), xstatecompactionmask)
 
 public actual fun isDebuggerPresent(): Bool =
     windowssysWindowsWin32SystemDiagnosticsDebugIsDebuggerPresent()
 
-public actual fun locateXStateFeature(context: ConstPtr<Context>, featureid: UInt, length: MutPtr<UInt>): MutPtr<CVoid> =
+public actual fun locateXStateFeature(context: ConstPtr, featureid: UInt, length: MutPtr): MutPtr =
     MutPtr(windowssysWindowsWin32SystemDiagnosticsDebugLocateXStateFeature(context.rawAddress.toCPointer<ByteVar>(), featureid, length.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
 public actual fun makeSureDirectoryPathExists(dirpath: Pcstr): Bool =
     windowssysWindowsWin32SystemDiagnosticsDebugMakeSureDirectoryPathExists(dirpath.rawAddress.toCPointer<ByteVar>())
 
-public actual fun mapAndLoad(imagename: Pcstr, dllpath: Pcstr, loadedimage: MutPtr<LoadedImage>, dotdll: Bool, readonly: Bool): Bool =
+public actual fun mapAndLoad(imagename: Pcstr, dllpath: Pcstr, loadedimage: MutPtr, dotdll: Bool, readonly: Bool): Bool =
     windowssysWindowsWin32SystemDiagnosticsDebugMapAndLoad(imagename.rawAddress.toCPointer<ByteVar>(), dllpath.rawAddress.toCPointer<ByteVar>(), loadedimage.rawAddress.toCPointer<ByteVar>(), dotdll, readonly)
 
-public actual fun mapFileAndCheckSumA(filename: Pcstr, headersum: MutPtr<UInt>, checksum: MutPtr<UInt>): UInt =
+public actual fun mapFileAndCheckSumA(filename: Pcstr, headersum: MutPtr, checksum: MutPtr): UInt =
     windowssysWindowsWin32SystemDiagnosticsDebugMapFileAndCheckSumA(filename.rawAddress.toCPointer<ByteVar>(), headersum.rawAddress.toCPointer<ByteVar>(), checksum.rawAddress.toCPointer<ByteVar>())
 
-public actual fun mapFileAndCheckSumW(filename: Pcwstr, headersum: MutPtr<UInt>, checksum: MutPtr<UInt>): UInt =
+public actual fun mapFileAndCheckSumW(filename: Pcwstr, headersum: MutPtr, checksum: MutPtr): UInt =
     windowssysWindowsWin32SystemDiagnosticsDebugMapFileAndCheckSumW(filename.rawAddress.toCPointer<ByteVar>(), headersum.rawAddress.toCPointer<ByteVar>(), checksum.rawAddress.toCPointer<ByteVar>())
 
 public actual fun messageBeep(utype: MessageboxStyle): Bool =
     windowssysWindowsWin32SystemDiagnosticsDebugMessageBeep(utype)
 
-public actual fun miniDumpReadDumpStream(baseofdump: ConstPtr<CVoid>, streamnumber: UInt, dir: MutPtr<MutPtr<MinidumpDirectory>>, streampointer: MutPtr<MutPtr<CVoid>>, streamsize: MutPtr<UInt>): Bool =
+public actual fun miniDumpReadDumpStream(baseofdump: ConstPtr, streamnumber: UInt, dir: MutPtr, streampointer: MutPtr, streamsize: MutPtr): Bool =
     windowssysWindowsWin32SystemDiagnosticsDebugMiniDumpReadDumpStream(baseofdump.rawAddress.toCPointer<ByteVar>(), streamnumber, dir.rawAddress.toCPointer<ByteVar>(), streampointer.rawAddress.toCPointer<ByteVar>(), streamsize.rawAddress.toCPointer<ByteVar>())
 
-public actual fun miniDumpWriteDump(hprocess: Handle, processid: UInt, hfile: Handle, dumptype: MinidumpType, exceptionparam: ConstPtr<MinidumpExceptionInformation>, userstreamparam: ConstPtr<MinidumpUserStreamInformation>, callbackparam: ConstPtr<MinidumpCallbackInformation>): Bool =
+public actual fun miniDumpWriteDump(hprocess: Handle, processid: UInt, hfile: Handle, dumptype: MinidumpType, exceptionparam: ConstPtr, userstreamparam: ConstPtr, callbackparam: ConstPtr): Bool =
     windowssysWindowsWin32SystemDiagnosticsDebugMiniDumpWriteDump(hprocess.rawAddress.toCPointer<ByteVar>(), processid, hfile.rawAddress.toCPointer<ByteVar>(), dumptype, exceptionparam.rawAddress.toCPointer<ByteVar>(), userstreamparam.rawAddress.toCPointer<ByteVar>(), callbackparam.rawAddress.toCPointer<ByteVar>())
 
-public actual fun openThreadWaitChainSession(flags: OpenThreadWaitChainSessionFlags, callback: Pwaitchaincallback): MutPtr<CVoid> =
+public actual fun openThreadWaitChainSession(flags: OpenThreadWaitChainSessionFlags, callback: Pwaitchaincallback): MutPtr =
     MutPtr(windowssysWindowsWin32SystemDiagnosticsDebugOpenThreadWaitChainSession(flags, 0L.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
 public actual fun outputDebugStringA(lpoutputstring: Pcstr) {
@@ -570,40 +566,40 @@ public actual fun outputDebugStringW(lpoutputstring: Pcwstr) {
     windowssysWindowsWin32SystemDiagnosticsDebugOutputDebugStringW(lpoutputstring.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun raiseException(dwexceptioncode: UInt, dwexceptionflags: UInt, nnumberofarguments: UInt, lparguments: ConstPtr<ULong>) {
+public actual fun raiseException(dwexceptioncode: UInt, dwexceptionflags: UInt, nnumberofarguments: UInt, lparguments: ConstPtr) {
     windowssysWindowsWin32SystemDiagnosticsDebugRaiseException(dwexceptioncode, dwexceptionflags, nnumberofarguments, lparguments.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun raiseFailFastException(pexceptionrecord: ConstPtr<ExceptionRecord>, pcontextrecord: ConstPtr<Context>, dwflags: UInt) {
+public actual fun raiseFailFastException(pexceptionrecord: ConstPtr, pcontextrecord: ConstPtr, dwflags: UInt) {
     windowssysWindowsWin32SystemDiagnosticsDebugRaiseFailFastException(pexceptionrecord.rawAddress.toCPointer<ByteVar>(), pcontextrecord.rawAddress.toCPointer<ByteVar>(), dwflags)
 }
 
-public actual fun rangeMapAddPeImageSections(rmaphandle: ConstPtr<CVoid>, imagename: Pcwstr, mappedimage: ConstPtr<CVoid>, mappingbytes: UInt, imagebase: ULong, usertag: ULong, mappingflags: UInt): Bool =
+public actual fun rangeMapAddPeImageSections(rmaphandle: ConstPtr, imagename: Pcwstr, mappedimage: ConstPtr, mappingbytes: UInt, imagebase: ULong, usertag: ULong, mappingflags: UInt): Bool =
     windowssysWindowsWin32SystemDiagnosticsDebugRangeMapAddPeImageSections(rmaphandle.rawAddress.toCPointer<ByteVar>(), imagename.rawAddress.toCPointer<ByteVar>(), mappedimage.rawAddress.toCPointer<ByteVar>(), mappingbytes, imagebase, usertag, mappingflags)
 
-public actual fun rangeMapCreate(): MutPtr<CVoid> =
+public actual fun rangeMapCreate(): MutPtr =
     MutPtr(windowssysWindowsWin32SystemDiagnosticsDebugRangeMapCreate()?.toLong() ?: 0L)
 
-public actual fun rangeMapFree(rmaphandle: ConstPtr<CVoid>) {
+public actual fun rangeMapFree(rmaphandle: ConstPtr) {
     windowssysWindowsWin32SystemDiagnosticsDebugRangeMapFree(rmaphandle.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun rangeMapRead(rmaphandle: ConstPtr<CVoid>, offset: ULong, buffer: MutPtr<CVoid>, requestbytes: UInt, flags: UInt, donebytes: MutPtr<UInt>): Bool =
+public actual fun rangeMapRead(rmaphandle: ConstPtr, offset: ULong, buffer: MutPtr, requestbytes: UInt, flags: UInt, donebytes: MutPtr): Bool =
     windowssysWindowsWin32SystemDiagnosticsDebugRangeMapRead(rmaphandle.rawAddress.toCPointer<ByteVar>(), offset, buffer.rawAddress.toCPointer<ByteVar>(), requestbytes, flags, donebytes.rawAddress.toCPointer<ByteVar>())
 
-public actual fun rangeMapRemove(rmaphandle: ConstPtr<CVoid>, usertag: ULong): Bool =
+public actual fun rangeMapRemove(rmaphandle: ConstPtr, usertag: ULong): Bool =
     windowssysWindowsWin32SystemDiagnosticsDebugRangeMapRemove(rmaphandle.rawAddress.toCPointer<ByteVar>(), usertag)
 
-public actual fun rangeMapWrite(rmaphandle: ConstPtr<CVoid>, offset: ULong, buffer: ConstPtr<CVoid>, requestbytes: UInt, flags: UInt, donebytes: MutPtr<UInt>): Bool =
+public actual fun rangeMapWrite(rmaphandle: ConstPtr, offset: ULong, buffer: ConstPtr, requestbytes: UInt, flags: UInt, donebytes: MutPtr): Bool =
     windowssysWindowsWin32SystemDiagnosticsDebugRangeMapWrite(rmaphandle.rawAddress.toCPointer<ByteVar>(), offset, buffer.rawAddress.toCPointer<ByteVar>(), requestbytes, flags, donebytes.rawAddress.toCPointer<ByteVar>())
 
-public actual fun reBaseImage(currentimagename: Pcstr, symbolpath: Pcstr, frebase: Bool, frebasesysfileok: Bool, fgoingdown: Bool, checkimagesize: UInt, oldimagesize: MutPtr<UInt>, oldimagebase: MutPtr<ULong>, newimagesize: MutPtr<UInt>, newimagebase: MutPtr<ULong>, timestamp: UInt): Bool =
+public actual fun reBaseImage(currentimagename: Pcstr, symbolpath: Pcstr, frebase: Bool, frebasesysfileok: Bool, fgoingdown: Bool, checkimagesize: UInt, oldimagesize: MutPtr, oldimagebase: MutPtr, newimagesize: MutPtr, newimagebase: MutPtr, timestamp: UInt): Bool =
     windowssysWindowsWin32SystemDiagnosticsDebugReBaseImage(currentimagename.rawAddress.toCPointer<ByteVar>(), symbolpath.rawAddress.toCPointer<ByteVar>(), frebase, frebasesysfileok, fgoingdown, checkimagesize, oldimagesize.rawAddress.toCPointer<ByteVar>(), oldimagebase.rawAddress.toCPointer<ByteVar>(), newimagesize.rawAddress.toCPointer<ByteVar>(), newimagebase.rawAddress.toCPointer<ByteVar>(), timestamp)
 
-public actual fun reBaseImage64(currentimagename: Pcstr, symbolpath: Pcstr, frebase: Bool, frebasesysfileok: Bool, fgoingdown: Bool, checkimagesize: UInt, oldimagesize: MutPtr<UInt>, oldimagebase: MutPtr<ULong>, newimagesize: MutPtr<UInt>, newimagebase: MutPtr<ULong>, timestamp: UInt): Bool =
+public actual fun reBaseImage64(currentimagename: Pcstr, symbolpath: Pcstr, frebase: Bool, frebasesysfileok: Bool, fgoingdown: Bool, checkimagesize: UInt, oldimagesize: MutPtr, oldimagebase: MutPtr, newimagesize: MutPtr, newimagebase: MutPtr, timestamp: UInt): Bool =
     windowssysWindowsWin32SystemDiagnosticsDebugReBaseImage64(currentimagename.rawAddress.toCPointer<ByteVar>(), symbolpath.rawAddress.toCPointer<ByteVar>(), frebase, frebasesysfileok, fgoingdown, checkimagesize, oldimagesize.rawAddress.toCPointer<ByteVar>(), oldimagebase.rawAddress.toCPointer<ByteVar>(), newimagesize.rawAddress.toCPointer<ByteVar>(), newimagebase.rawAddress.toCPointer<ByteVar>(), timestamp)
 
-public actual fun readProcessMemory(hprocess: Handle, lpbaseaddress: ConstPtr<CVoid>, lpbuffer: MutPtr<CVoid>, nsize: ULong, lpnumberofbytesread: MutPtr<ULong>): Bool =
+public actual fun readProcessMemory(hprocess: Handle, lpbaseaddress: ConstPtr, lpbuffer: MutPtr, nsize: ULong, lpnumberofbytesread: MutPtr): Bool =
     windowssysWindowsWin32SystemDiagnosticsDebugReadProcessMemory(hprocess.rawAddress.toCPointer<ByteVar>(), lpbaseaddress.rawAddress.toCPointer<ByteVar>(), lpbuffer.rawAddress.toCPointer<ByteVar>(), nsize, lpnumberofbytesread.rawAddress.toCPointer<ByteVar>())
 
 public actual fun registerWaitChainCOMCallback(callstatecallback: Pcogetcallstate, activationstatecallback: Pcogetactivationstate) {
@@ -614,69 +610,69 @@ public actual fun removeInvalidModuleList(hprocess: Handle) {
     windowssysWindowsWin32SystemDiagnosticsDebugRemoveInvalidModuleList(hprocess.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun removeVectoredContinueHandler(handle: ConstPtr<CVoid>): UInt =
+public actual fun removeVectoredContinueHandler(handle: ConstPtr): UInt =
     windowssysWindowsWin32SystemDiagnosticsDebugRemoveVectoredContinueHandler(handle.rawAddress.toCPointer<ByteVar>())
 
-public actual fun removeVectoredExceptionHandler(handle: ConstPtr<CVoid>): UInt =
+public actual fun removeVectoredExceptionHandler(handle: ConstPtr): UInt =
     windowssysWindowsWin32SystemDiagnosticsDebugRemoveVectoredExceptionHandler(handle.rawAddress.toCPointer<ByteVar>())
 
-public actual fun reportSymbolLoadSummary(hprocess: Handle, ploadmodule: Pcwstr, psymboldata: ConstPtr<DbghelpDataReportStruct>): Bool =
+public actual fun reportSymbolLoadSummary(hprocess: Handle, ploadmodule: Pcwstr, psymboldata: ConstPtr): Bool =
     windowssysWindowsWin32SystemDiagnosticsDebugReportSymbolLoadSummary(hprocess.rawAddress.toCPointer<ByteVar>(), ploadmodule.rawAddress.toCPointer<ByteVar>(), psymboldata.rawAddress.toCPointer<ByteVar>())
 
-public actual fun rtlAddFunctionTable(functiontable: ConstPtr<ImageRuntimeFunctionEntry>, entrycount: UInt, baseaddress: ULong): Boolean =
+public actual fun rtlAddFunctionTable(functiontable: ConstPtr, entrycount: UInt, baseaddress: ULong): Boolean =
     windowssysWindowsWin32SystemDiagnosticsDebugRtlAddFunctionTable(functiontable.rawAddress.toCPointer<ByteVar>(), entrycount, baseaddress)
 
-public actual fun rtlAddGrowableFunctionTable(dynamictable: MutPtr<MutPtr<CVoid>>, functiontable: ConstPtr<ImageRuntimeFunctionEntry>, entrycount: UInt, maximumentrycount: UInt, rangebase: ULong, rangeend: ULong): UInt =
+public actual fun rtlAddGrowableFunctionTable(dynamictable: MutPtr, functiontable: ConstPtr, entrycount: UInt, maximumentrycount: UInt, rangebase: ULong, rangeend: ULong): UInt =
     windowssysWindowsWin32SystemDiagnosticsDebugRtlAddGrowableFunctionTable(dynamictable.rawAddress.toCPointer<ByteVar>(), functiontable.rawAddress.toCPointer<ByteVar>(), entrycount, maximumentrycount, rangebase, rangeend)
 
-public actual fun rtlCaptureContext(contextrecord: MutPtr<Context>) {
+public actual fun rtlCaptureContext(contextrecord: MutPtr) {
     windowssysWindowsWin32SystemDiagnosticsDebugRtlCaptureContext(contextrecord.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun rtlCaptureContext2(contextrecord: MutPtr<Context>) {
+public actual fun rtlCaptureContext2(contextrecord: MutPtr) {
     windowssysWindowsWin32SystemDiagnosticsDebugRtlCaptureContext2(contextrecord.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun rtlCaptureStackBackTrace(framestoskip: UInt, framestocapture: UInt, backtrace: MutPtr<MutPtr<CVoid>>, backtracehash: MutPtr<UInt>): UShort =
+public actual fun rtlCaptureStackBackTrace(framestoskip: UInt, framestocapture: UInt, backtrace: MutPtr, backtracehash: MutPtr): UShort =
     windowssysWindowsWin32SystemDiagnosticsDebugRtlCaptureStackBackTrace(framestoskip, framestocapture, backtrace.rawAddress.toCPointer<ByteVar>(), backtracehash.rawAddress.toCPointer<ByteVar>())
 
-public actual fun rtlDeleteFunctionTable(functiontable: ConstPtr<ImageRuntimeFunctionEntry>): Boolean =
+public actual fun rtlDeleteFunctionTable(functiontable: ConstPtr): Boolean =
     windowssysWindowsWin32SystemDiagnosticsDebugRtlDeleteFunctionTable(functiontable.rawAddress.toCPointer<ByteVar>())
 
-public actual fun rtlDeleteGrowableFunctionTable(dynamictable: ConstPtr<CVoid>) {
+public actual fun rtlDeleteGrowableFunctionTable(dynamictable: ConstPtr) {
     windowssysWindowsWin32SystemDiagnosticsDebugRtlDeleteGrowableFunctionTable(dynamictable.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun rtlGrowFunctionTable(dynamictable: MutPtr<CVoid>, newentrycount: UInt) {
+public actual fun rtlGrowFunctionTable(dynamictable: MutPtr, newentrycount: UInt) {
     windowssysWindowsWin32SystemDiagnosticsDebugRtlGrowFunctionTable(dynamictable.rawAddress.toCPointer<ByteVar>(), newentrycount)
 }
 
-public actual fun rtlInstallFunctionTableCallback(tableidentifier: ULong, baseaddress: ULong, length: UInt, callback: PgetRuntimeFunctionCallback, context: ConstPtr<CVoid>, outofprocesscallbackdll: Pcwstr): Boolean =
+public actual fun rtlInstallFunctionTableCallback(tableidentifier: ULong, baseaddress: ULong, length: UInt, callback: PgetRuntimeFunctionCallback, context: ConstPtr, outofprocesscallbackdll: Pcwstr): Boolean =
     windowssysWindowsWin32SystemDiagnosticsDebugRtlInstallFunctionTableCallback(tableidentifier, baseaddress, length, 0L.toCPointer<ByteVar>(), context.rawAddress.toCPointer<ByteVar>(), outofprocesscallbackdll.rawAddress.toCPointer<ByteVar>())
 
-public actual fun rtlLookupFunctionEntry(controlpc: ULong, imagebase: MutPtr<ULong>, historytable: MutPtr<UnwindHistoryTable>): MutPtr<ImageRuntimeFunctionEntry> =
+public actual fun rtlLookupFunctionEntry(controlpc: ULong, imagebase: MutPtr, historytable: MutPtr): MutPtr =
     MutPtr(windowssysWindowsWin32SystemDiagnosticsDebugRtlLookupFunctionEntry(controlpc, imagebase.rawAddress.toCPointer<ByteVar>(), historytable.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun rtlPcToFileHeader(pcvalue: ConstPtr<CVoid>, baseofimage: MutPtr<MutPtr<CVoid>>): MutPtr<CVoid> =
+public actual fun rtlPcToFileHeader(pcvalue: ConstPtr, baseofimage: MutPtr): MutPtr =
     MutPtr(windowssysWindowsWin32SystemDiagnosticsDebugRtlPcToFileHeader(pcvalue.rawAddress.toCPointer<ByteVar>(), baseofimage.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun rtlRaiseException(exceptionrecord: ConstPtr<ExceptionRecord>) {
+public actual fun rtlRaiseException(exceptionrecord: ConstPtr) {
     windowssysWindowsWin32SystemDiagnosticsDebugRtlRaiseException(exceptionrecord.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun rtlRestoreContext(contextrecord: ConstPtr<Context>, exceptionrecord: ConstPtr<ExceptionRecord>) {
+public actual fun rtlRestoreContext(contextrecord: ConstPtr, exceptionrecord: ConstPtr) {
     windowssysWindowsWin32SystemDiagnosticsDebugRtlRestoreContext(contextrecord.rawAddress.toCPointer<ByteVar>(), exceptionrecord.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun rtlUnwind(targetframe: ConstPtr<CVoid>, targetip: ConstPtr<CVoid>, exceptionrecord: ConstPtr<ExceptionRecord>, returnvalue: ConstPtr<CVoid>) {
+public actual fun rtlUnwind(targetframe: ConstPtr, targetip: ConstPtr, exceptionrecord: ConstPtr, returnvalue: ConstPtr) {
     windowssysWindowsWin32SystemDiagnosticsDebugRtlUnwind(targetframe.rawAddress.toCPointer<ByteVar>(), targetip.rawAddress.toCPointer<ByteVar>(), exceptionrecord.rawAddress.toCPointer<ByteVar>(), returnvalue.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun rtlUnwindEx(targetframe: ConstPtr<CVoid>, targetip: ConstPtr<CVoid>, exceptionrecord: ConstPtr<ExceptionRecord>, returnvalue: ConstPtr<CVoid>, contextrecord: ConstPtr<Context>, historytable: ConstPtr<UnwindHistoryTable>) {
+public actual fun rtlUnwindEx(targetframe: ConstPtr, targetip: ConstPtr, exceptionrecord: ConstPtr, returnvalue: ConstPtr, contextrecord: ConstPtr, historytable: ConstPtr) {
     windowssysWindowsWin32SystemDiagnosticsDebugRtlUnwindEx(targetframe.rawAddress.toCPointer<ByteVar>(), targetip.rawAddress.toCPointer<ByteVar>(), exceptionrecord.rawAddress.toCPointer<ByteVar>(), returnvalue.rawAddress.toCPointer<ByteVar>(), contextrecord.rawAddress.toCPointer<ByteVar>(), historytable.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun rtlVirtualUnwind(handlertype: RtlVirtualUnwindHandlerType, imagebase: ULong, controlpc: ULong, functionentry: ConstPtr<ImageRuntimeFunctionEntry>, contextrecord: MutPtr<Context>, handlerdata: MutPtr<MutPtr<CVoid>>, establisherframe: MutPtr<ULong>, contextpointers: MutPtr<KnonvolatileContextPointers>): ExceptionRoutine =
+public actual fun rtlVirtualUnwind(handlertype: RtlVirtualUnwindHandlerType, imagebase: ULong, controlpc: ULong, functionentry: ConstPtr, contextrecord: MutPtr, handlerdata: MutPtr, establisherframe: MutPtr, contextpointers: MutPtr): ExceptionRoutine =
     null
 
 public actual fun searchTreeForFile(rootpath: Pcstr, inputpathname: Pcstr, outputpathbuffer: Pstr): Bool =
@@ -692,41 +688,41 @@ public actual fun setCheckUserInterruptShared(lpstartaddress: LpcallBackUserInte
 public actual fun setErrorMode(umode: ThreadErrorMode): ThreadErrorMode =
     windowssysWindowsWin32SystemDiagnosticsDebugSetErrorMode(umode)
 
-public actual fun setImageConfigInformation(loadedimage: MutPtr<LoadedImage>, imageconfiginformation: ConstPtr<ImageLoadConfigDirectory64>): Bool =
+public actual fun setImageConfigInformation(loadedimage: MutPtr, imageconfiginformation: ConstPtr): Bool =
     windowssysWindowsWin32SystemDiagnosticsDebugSetImageConfigInformation(loadedimage.rawAddress.toCPointer<ByteVar>(), imageconfiginformation.rawAddress.toCPointer<ByteVar>())
 
 public actual fun setSymLoadError(error: UInt) {
     windowssysWindowsWin32SystemDiagnosticsDebugSetSymLoadError(error)
 }
 
-public actual fun setThreadContext(hthread: Handle, lpcontext: ConstPtr<Context>): Bool =
+public actual fun setThreadContext(hthread: Handle, lpcontext: ConstPtr): Bool =
     windowssysWindowsWin32SystemDiagnosticsDebugSetThreadContext(hthread.rawAddress.toCPointer<ByteVar>(), lpcontext.rawAddress.toCPointer<ByteVar>())
 
-public actual fun setThreadErrorMode(dwnewmode: ThreadErrorMode, lpoldmode: MutPtr<ThreadErrorMode>): Bool =
+public actual fun setThreadErrorMode(dwnewmode: ThreadErrorMode, lpoldmode: MutPtr): Bool =
     windowssysWindowsWin32SystemDiagnosticsDebugSetThreadErrorMode(dwnewmode, lpoldmode.rawAddress.toCPointer<ByteVar>())
 
 public actual fun setUnhandledExceptionFilter(lptoplevelexceptionfilter: LptopLevelExceptionFilter): LptopLevelExceptionFilter =
     null
 
-public actual fun setXStateFeaturesMask(context: MutPtr<Context>, featuremask: ULong): Bool =
+public actual fun setXStateFeaturesMask(context: MutPtr, featuremask: ULong): Bool =
     windowssysWindowsWin32SystemDiagnosticsDebugSetXStateFeaturesMask(context.rawAddress.toCPointer<ByteVar>(), featuremask)
 
-public actual fun stackWalk2(machinetype: UInt, hprocess: Handle, hthread: Handle, stackframe: MutPtr<StackframeEx>, contextrecord: MutPtr<CVoid>, readmemoryroutine: PreadProcessMemoryRoutine64, functiontableaccessroutine: PfunctionTableAccessRoutine64, getmodulebaseroutine: PgetModuleBaseRoutine64, translateaddress: PtranslateAddressRoutine64, gettargetattributevalue: PgetTargetAttributeValue64, flags: UInt): Bool =
+public actual fun stackWalk2(machinetype: UInt, hprocess: Handle, hthread: Handle, stackframe: MutPtr, contextrecord: MutPtr, readmemoryroutine: PreadProcessMemoryRoutine64, functiontableaccessroutine: PfunctionTableAccessRoutine64, getmodulebaseroutine: PgetModuleBaseRoutine64, translateaddress: PtranslateAddressRoutine64, gettargetattributevalue: PgetTargetAttributeValue64, flags: UInt): Bool =
     windowssysWindowsWin32SystemDiagnosticsDebugStackWalk2(machinetype, hprocess.rawAddress.toCPointer<ByteVar>(), hthread.rawAddress.toCPointer<ByteVar>(), stackframe.rawAddress.toCPointer<ByteVar>(), contextrecord.rawAddress.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>(), flags)
 
-public actual fun stackWalk64(machinetype: UInt, hprocess: Handle, hthread: Handle, stackframe: MutPtr<Stackframe64>, contextrecord: MutPtr<CVoid>, readmemoryroutine: PreadProcessMemoryRoutine64, functiontableaccessroutine: PfunctionTableAccessRoutine64, getmodulebaseroutine: PgetModuleBaseRoutine64, translateaddress: PtranslateAddressRoutine64): Bool =
+public actual fun stackWalk64(machinetype: UInt, hprocess: Handle, hthread: Handle, stackframe: MutPtr, contextrecord: MutPtr, readmemoryroutine: PreadProcessMemoryRoutine64, functiontableaccessroutine: PfunctionTableAccessRoutine64, getmodulebaseroutine: PgetModuleBaseRoutine64, translateaddress: PtranslateAddressRoutine64): Bool =
     windowssysWindowsWin32SystemDiagnosticsDebugStackWalk64(machinetype, hprocess.rawAddress.toCPointer<ByteVar>(), hthread.rawAddress.toCPointer<ByteVar>(), stackframe.rawAddress.toCPointer<ByteVar>(), contextrecord.rawAddress.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>())
 
-public actual fun stackWalkEx(machinetype: UInt, hprocess: Handle, hthread: Handle, stackframe: MutPtr<StackframeEx>, contextrecord: MutPtr<CVoid>, readmemoryroutine: PreadProcessMemoryRoutine64, functiontableaccessroutine: PfunctionTableAccessRoutine64, getmodulebaseroutine: PgetModuleBaseRoutine64, translateaddress: PtranslateAddressRoutine64, flags: UInt): Bool =
+public actual fun stackWalkEx(machinetype: UInt, hprocess: Handle, hthread: Handle, stackframe: MutPtr, contextrecord: MutPtr, readmemoryroutine: PreadProcessMemoryRoutine64, functiontableaccessroutine: PfunctionTableAccessRoutine64, getmodulebaseroutine: PgetModuleBaseRoutine64, translateaddress: PtranslateAddressRoutine64, flags: UInt): Bool =
     windowssysWindowsWin32SystemDiagnosticsDebugStackWalkEx(machinetype, hprocess.rawAddress.toCPointer<ByteVar>(), hthread.rawAddress.toCPointer<ByteVar>(), stackframe.rawAddress.toCPointer<ByteVar>(), contextrecord.rawAddress.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>(), flags)
 
-public actual fun symAddSourceStream(hprocess: Handle, base: ULong, streamfile: Pcstr, buffer: ConstPtr<UByte>, size: ULong): Bool =
+public actual fun symAddSourceStream(hprocess: Handle, base: ULong, streamfile: Pcstr, buffer: ConstPtr, size: ULong): Bool =
     windowssysWindowsWin32SystemDiagnosticsDebugSymAddSourceStream(hprocess.rawAddress.toCPointer<ByteVar>(), base, streamfile.rawAddress.toCPointer<ByteVar>(), buffer.rawAddress.toCPointer<ByteVar>(), size)
 
-public actual fun symAddSourceStreamA(hprocess: Handle, base: ULong, streamfile: Pcstr, buffer: ConstPtr<UByte>, size: ULong): Bool =
+public actual fun symAddSourceStreamA(hprocess: Handle, base: ULong, streamfile: Pcstr, buffer: ConstPtr, size: ULong): Bool =
     windowssysWindowsWin32SystemDiagnosticsDebugSymAddSourceStreamA(hprocess.rawAddress.toCPointer<ByteVar>(), base, streamfile.rawAddress.toCPointer<ByteVar>(), buffer.rawAddress.toCPointer<ByteVar>(), size)
 
-public actual fun symAddSourceStreamW(hprocess: Handle, base: ULong, filespec: Pcwstr, buffer: ConstPtr<UByte>, size: ULong): Bool =
+public actual fun symAddSourceStreamW(hprocess: Handle, base: ULong, filespec: Pcwstr, buffer: ConstPtr, size: ULong): Bool =
     windowssysWindowsWin32SystemDiagnosticsDebugSymAddSourceStreamW(hprocess.rawAddress.toCPointer<ByteVar>(), base, filespec.rawAddress.toCPointer<ByteVar>(), buffer.rawAddress.toCPointer<ByteVar>(), size)
 
 public actual fun symAddSymbol(hprocess: Handle, baseofdll: ULong, name: Pcstr, address: ULong, size: UInt, flags: UInt): Bool =
@@ -750,133 +746,133 @@ public actual fun symDeleteSymbol(hprocess: Handle, baseofdll: ULong, name: Pcst
 public actual fun symDeleteSymbolW(hprocess: Handle, baseofdll: ULong, name: Pcwstr, address: ULong, flags: UInt): Bool =
     windowssysWindowsWin32SystemDiagnosticsDebugSymDeleteSymbolW(hprocess.rawAddress.toCPointer<ByteVar>(), baseofdll, name.rawAddress.toCPointer<ByteVar>(), address, flags)
 
-public actual fun symEnumLines(hprocess: Handle, base: ULong, obj: Pcstr, file: Pcstr, enumlinescallback: PsymEnumlinesCallback, usercontext: ConstPtr<CVoid>): Bool =
+public actual fun symEnumLines(hprocess: Handle, base: ULong, obj: Pcstr, file: Pcstr, enumlinescallback: PsymEnumlinesCallback, usercontext: ConstPtr): Bool =
     windowssysWindowsWin32SystemDiagnosticsDebugSymEnumLines(hprocess.rawAddress.toCPointer<ByteVar>(), base, obj.rawAddress.toCPointer<ByteVar>(), file.rawAddress.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>(), usercontext.rawAddress.toCPointer<ByteVar>())
 
-public actual fun symEnumLinesW(hprocess: Handle, base: ULong, obj: Pcwstr, file: Pcwstr, enumlinescallback: PsymEnumlinesCallbackw, usercontext: ConstPtr<CVoid>): Bool =
+public actual fun symEnumLinesW(hprocess: Handle, base: ULong, obj: Pcwstr, file: Pcwstr, enumlinescallback: PsymEnumlinesCallbackw, usercontext: ConstPtr): Bool =
     windowssysWindowsWin32SystemDiagnosticsDebugSymEnumLinesW(hprocess.rawAddress.toCPointer<ByteVar>(), base, obj.rawAddress.toCPointer<ByteVar>(), file.rawAddress.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>(), usercontext.rawAddress.toCPointer<ByteVar>())
 
-public actual fun symEnumProcesses(enumprocessescallback: PsymEnumprocessesCallback, usercontext: ConstPtr<CVoid>): Bool =
+public actual fun symEnumProcesses(enumprocessescallback: PsymEnumprocessesCallback, usercontext: ConstPtr): Bool =
     windowssysWindowsWin32SystemDiagnosticsDebugSymEnumProcesses(0L.toCPointer<ByteVar>(), usercontext.rawAddress.toCPointer<ByteVar>())
 
 public actual fun symEnumSourceFileTokens(hprocess: Handle, base: ULong, callback: Penumsourcefiletokenscallback): Bool =
     windowssysWindowsWin32SystemDiagnosticsDebugSymEnumSourceFileTokens(hprocess.rawAddress.toCPointer<ByteVar>(), base, 0L.toCPointer<ByteVar>())
 
-public actual fun symEnumSourceFiles(hprocess: Handle, modbase: ULong, mask: Pcstr, cbsrcfiles: PsymEnumsourcefilesCallback, usercontext: ConstPtr<CVoid>): Bool =
+public actual fun symEnumSourceFiles(hprocess: Handle, modbase: ULong, mask: Pcstr, cbsrcfiles: PsymEnumsourcefilesCallback, usercontext: ConstPtr): Bool =
     windowssysWindowsWin32SystemDiagnosticsDebugSymEnumSourceFiles(hprocess.rawAddress.toCPointer<ByteVar>(), modbase, mask.rawAddress.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>(), usercontext.rawAddress.toCPointer<ByteVar>())
 
-public actual fun symEnumSourceFilesW(hprocess: Handle, modbase: ULong, mask: Pcwstr, cbsrcfiles: PsymEnumsourcefilesCallbackw, usercontext: ConstPtr<CVoid>): Bool =
+public actual fun symEnumSourceFilesW(hprocess: Handle, modbase: ULong, mask: Pcwstr, cbsrcfiles: PsymEnumsourcefilesCallbackw, usercontext: ConstPtr): Bool =
     windowssysWindowsWin32SystemDiagnosticsDebugSymEnumSourceFilesW(hprocess.rawAddress.toCPointer<ByteVar>(), modbase, mask.rawAddress.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>(), usercontext.rawAddress.toCPointer<ByteVar>())
 
-public actual fun symEnumSourceLines(hprocess: Handle, base: ULong, obj: Pcstr, file: Pcstr, line: UInt, flags: UInt, enumlinescallback: PsymEnumlinesCallback, usercontext: ConstPtr<CVoid>): Bool =
+public actual fun symEnumSourceLines(hprocess: Handle, base: ULong, obj: Pcstr, file: Pcstr, line: UInt, flags: UInt, enumlinescallback: PsymEnumlinesCallback, usercontext: ConstPtr): Bool =
     windowssysWindowsWin32SystemDiagnosticsDebugSymEnumSourceLines(hprocess.rawAddress.toCPointer<ByteVar>(), base, obj.rawAddress.toCPointer<ByteVar>(), file.rawAddress.toCPointer<ByteVar>(), line, flags, 0L.toCPointer<ByteVar>(), usercontext.rawAddress.toCPointer<ByteVar>())
 
-public actual fun symEnumSourceLinesW(hprocess: Handle, base: ULong, obj: Pcwstr, file: Pcwstr, line: UInt, flags: UInt, enumlinescallback: PsymEnumlinesCallbackw, usercontext: ConstPtr<CVoid>): Bool =
+public actual fun symEnumSourceLinesW(hprocess: Handle, base: ULong, obj: Pcwstr, file: Pcwstr, line: UInt, flags: UInt, enumlinescallback: PsymEnumlinesCallbackw, usercontext: ConstPtr): Bool =
     windowssysWindowsWin32SystemDiagnosticsDebugSymEnumSourceLinesW(hprocess.rawAddress.toCPointer<ByteVar>(), base, obj.rawAddress.toCPointer<ByteVar>(), file.rawAddress.toCPointer<ByteVar>(), line, flags, 0L.toCPointer<ByteVar>(), usercontext.rawAddress.toCPointer<ByteVar>())
 
-public actual fun symEnumSym(hprocess: Handle, baseofdll: ULong, enumsymbolscallback: PsymEnumeratesymbolsCallback, usercontext: ConstPtr<CVoid>): Bool =
+public actual fun symEnumSym(hprocess: Handle, baseofdll: ULong, enumsymbolscallback: PsymEnumeratesymbolsCallback, usercontext: ConstPtr): Bool =
     windowssysWindowsWin32SystemDiagnosticsDebugSymEnumSym(hprocess.rawAddress.toCPointer<ByteVar>(), baseofdll, 0L.toCPointer<ByteVar>(), usercontext.rawAddress.toCPointer<ByteVar>())
 
-public actual fun symEnumSymbols(hprocess: Handle, baseofdll: ULong, mask: Pcstr, enumsymbolscallback: PsymEnumeratesymbolsCallback, usercontext: ConstPtr<CVoid>): Bool =
+public actual fun symEnumSymbols(hprocess: Handle, baseofdll: ULong, mask: Pcstr, enumsymbolscallback: PsymEnumeratesymbolsCallback, usercontext: ConstPtr): Bool =
     windowssysWindowsWin32SystemDiagnosticsDebugSymEnumSymbols(hprocess.rawAddress.toCPointer<ByteVar>(), baseofdll, mask.rawAddress.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>(), usercontext.rawAddress.toCPointer<ByteVar>())
 
-public actual fun symEnumSymbolsEx(hprocess: Handle, baseofdll: ULong, mask: Pcstr, enumsymbolscallback: PsymEnumeratesymbolsCallback, usercontext: ConstPtr<CVoid>, options: UInt): Bool =
+public actual fun symEnumSymbolsEx(hprocess: Handle, baseofdll: ULong, mask: Pcstr, enumsymbolscallback: PsymEnumeratesymbolsCallback, usercontext: ConstPtr, options: UInt): Bool =
     windowssysWindowsWin32SystemDiagnosticsDebugSymEnumSymbolsEx(hprocess.rawAddress.toCPointer<ByteVar>(), baseofdll, mask.rawAddress.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>(), usercontext.rawAddress.toCPointer<ByteVar>(), options)
 
-public actual fun symEnumSymbolsExW(hprocess: Handle, baseofdll: ULong, mask: Pcwstr, enumsymbolscallback: PsymEnumeratesymbolsCallbackw, usercontext: ConstPtr<CVoid>, options: UInt): Bool =
+public actual fun symEnumSymbolsExW(hprocess: Handle, baseofdll: ULong, mask: Pcwstr, enumsymbolscallback: PsymEnumeratesymbolsCallbackw, usercontext: ConstPtr, options: UInt): Bool =
     windowssysWindowsWin32SystemDiagnosticsDebugSymEnumSymbolsExW(hprocess.rawAddress.toCPointer<ByteVar>(), baseofdll, mask.rawAddress.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>(), usercontext.rawAddress.toCPointer<ByteVar>(), options)
 
-public actual fun symEnumSymbolsForAddr(hprocess: Handle, address: ULong, enumsymbolscallback: PsymEnumeratesymbolsCallback, usercontext: ConstPtr<CVoid>): Bool =
+public actual fun symEnumSymbolsForAddr(hprocess: Handle, address: ULong, enumsymbolscallback: PsymEnumeratesymbolsCallback, usercontext: ConstPtr): Bool =
     windowssysWindowsWin32SystemDiagnosticsDebugSymEnumSymbolsForAddr(hprocess.rawAddress.toCPointer<ByteVar>(), address, 0L.toCPointer<ByteVar>(), usercontext.rawAddress.toCPointer<ByteVar>())
 
-public actual fun symEnumSymbolsForAddrW(hprocess: Handle, address: ULong, enumsymbolscallback: PsymEnumeratesymbolsCallbackw, usercontext: ConstPtr<CVoid>): Bool =
+public actual fun symEnumSymbolsForAddrW(hprocess: Handle, address: ULong, enumsymbolscallback: PsymEnumeratesymbolsCallbackw, usercontext: ConstPtr): Bool =
     windowssysWindowsWin32SystemDiagnosticsDebugSymEnumSymbolsForAddrW(hprocess.rawAddress.toCPointer<ByteVar>(), address, 0L.toCPointer<ByteVar>(), usercontext.rawAddress.toCPointer<ByteVar>())
 
-public actual fun symEnumSymbolsW(hprocess: Handle, baseofdll: ULong, mask: Pcwstr, enumsymbolscallback: PsymEnumeratesymbolsCallbackw, usercontext: ConstPtr<CVoid>): Bool =
+public actual fun symEnumSymbolsW(hprocess: Handle, baseofdll: ULong, mask: Pcwstr, enumsymbolscallback: PsymEnumeratesymbolsCallbackw, usercontext: ConstPtr): Bool =
     windowssysWindowsWin32SystemDiagnosticsDebugSymEnumSymbolsW(hprocess.rawAddress.toCPointer<ByteVar>(), baseofdll, mask.rawAddress.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>(), usercontext.rawAddress.toCPointer<ByteVar>())
 
-public actual fun symEnumTypes(hprocess: Handle, baseofdll: ULong, enumsymbolscallback: PsymEnumeratesymbolsCallback, usercontext: ConstPtr<CVoid>): Bool =
+public actual fun symEnumTypes(hprocess: Handle, baseofdll: ULong, enumsymbolscallback: PsymEnumeratesymbolsCallback, usercontext: ConstPtr): Bool =
     windowssysWindowsWin32SystemDiagnosticsDebugSymEnumTypes(hprocess.rawAddress.toCPointer<ByteVar>(), baseofdll, 0L.toCPointer<ByteVar>(), usercontext.rawAddress.toCPointer<ByteVar>())
 
-public actual fun symEnumTypesByName(hprocess: Handle, baseofdll: ULong, mask: Pcstr, enumsymbolscallback: PsymEnumeratesymbolsCallback, usercontext: ConstPtr<CVoid>): Bool =
+public actual fun symEnumTypesByName(hprocess: Handle, baseofdll: ULong, mask: Pcstr, enumsymbolscallback: PsymEnumeratesymbolsCallback, usercontext: ConstPtr): Bool =
     windowssysWindowsWin32SystemDiagnosticsDebugSymEnumTypesByName(hprocess.rawAddress.toCPointer<ByteVar>(), baseofdll, mask.rawAddress.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>(), usercontext.rawAddress.toCPointer<ByteVar>())
 
-public actual fun symEnumTypesByNameW(hprocess: Handle, baseofdll: ULong, mask: Pcwstr, enumsymbolscallback: PsymEnumeratesymbolsCallbackw, usercontext: ConstPtr<CVoid>): Bool =
+public actual fun symEnumTypesByNameW(hprocess: Handle, baseofdll: ULong, mask: Pcwstr, enumsymbolscallback: PsymEnumeratesymbolsCallbackw, usercontext: ConstPtr): Bool =
     windowssysWindowsWin32SystemDiagnosticsDebugSymEnumTypesByNameW(hprocess.rawAddress.toCPointer<ByteVar>(), baseofdll, mask.rawAddress.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>(), usercontext.rawAddress.toCPointer<ByteVar>())
 
-public actual fun symEnumTypesW(hprocess: Handle, baseofdll: ULong, enumsymbolscallback: PsymEnumeratesymbolsCallbackw, usercontext: ConstPtr<CVoid>): Bool =
+public actual fun symEnumTypesW(hprocess: Handle, baseofdll: ULong, enumsymbolscallback: PsymEnumeratesymbolsCallbackw, usercontext: ConstPtr): Bool =
     windowssysWindowsWin32SystemDiagnosticsDebugSymEnumTypesW(hprocess.rawAddress.toCPointer<ByteVar>(), baseofdll, 0L.toCPointer<ByteVar>(), usercontext.rawAddress.toCPointer<ByteVar>())
 
-public actual fun symEnumerateModules64(hprocess: Handle, enummodulescallback: PsymEnummodulesCallback64, usercontext: ConstPtr<CVoid>): Bool =
+public actual fun symEnumerateModules64(hprocess: Handle, enummodulescallback: PsymEnummodulesCallback64, usercontext: ConstPtr): Bool =
     windowssysWindowsWin32SystemDiagnosticsDebugSymEnumerateModules64(hprocess.rawAddress.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>(), usercontext.rawAddress.toCPointer<ByteVar>())
 
-public actual fun symEnumerateModulesW64(hprocess: Handle, enummodulescallback: PsymEnummodulesCallbackw64, usercontext: ConstPtr<CVoid>): Bool =
+public actual fun symEnumerateModulesW64(hprocess: Handle, enummodulescallback: PsymEnummodulesCallbackw64, usercontext: ConstPtr): Bool =
     windowssysWindowsWin32SystemDiagnosticsDebugSymEnumerateModulesW64(hprocess.rawAddress.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>(), usercontext.rawAddress.toCPointer<ByteVar>())
 
-public actual fun symEnumerateSymbols64(hprocess: Handle, baseofdll: ULong, enumsymbolscallback: PsymEnumsymbolsCallback64, usercontext: ConstPtr<CVoid>): Bool =
+public actual fun symEnumerateSymbols64(hprocess: Handle, baseofdll: ULong, enumsymbolscallback: PsymEnumsymbolsCallback64, usercontext: ConstPtr): Bool =
     windowssysWindowsWin32SystemDiagnosticsDebugSymEnumerateSymbols64(hprocess.rawAddress.toCPointer<ByteVar>(), baseofdll, 0L.toCPointer<ByteVar>(), usercontext.rawAddress.toCPointer<ByteVar>())
 
-public actual fun symEnumerateSymbolsW64(hprocess: Handle, baseofdll: ULong, enumsymbolscallback: PsymEnumsymbolsCallback64w, usercontext: ConstPtr<CVoid>): Bool =
+public actual fun symEnumerateSymbolsW64(hprocess: Handle, baseofdll: ULong, enumsymbolscallback: PsymEnumsymbolsCallback64w, usercontext: ConstPtr): Bool =
     windowssysWindowsWin32SystemDiagnosticsDebugSymEnumerateSymbolsW64(hprocess.rawAddress.toCPointer<ByteVar>(), baseofdll, 0L.toCPointer<ByteVar>(), usercontext.rawAddress.toCPointer<ByteVar>())
 
-public actual fun symFindDebugInfoFile(hprocess: Handle, filename: Pcstr, debugfilepath: Pstr, callback: PfindDebugFileCallback, callerdata: ConstPtr<CVoid>): Handle =
+public actual fun symFindDebugInfoFile(hprocess: Handle, filename: Pcstr, debugfilepath: Pstr, callback: PfindDebugFileCallback, callerdata: ConstPtr): Handle =
     MutPtr(windowssysWindowsWin32SystemDiagnosticsDebugSymFindDebugInfoFile(hprocess.rawAddress.toCPointer<ByteVar>(), filename.rawAddress.toCPointer<ByteVar>(), debugfilepath.rawAddress.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>(), callerdata.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun symFindDebugInfoFileW(hprocess: Handle, filename: Pcwstr, debugfilepath: Pwstr, callback: PfindDebugFileCallbackw, callerdata: ConstPtr<CVoid>): Handle =
+public actual fun symFindDebugInfoFileW(hprocess: Handle, filename: Pcwstr, debugfilepath: Pwstr, callback: PfindDebugFileCallbackw, callerdata: ConstPtr): Handle =
     MutPtr(windowssysWindowsWin32SystemDiagnosticsDebugSymFindDebugInfoFileW(hprocess.rawAddress.toCPointer<ByteVar>(), filename.rawAddress.toCPointer<ByteVar>(), debugfilepath.rawAddress.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>(), callerdata.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun symFindExecutableImage(hprocess: Handle, filename: Pcstr, imagefilepath: Pstr, callback: PfindExeFileCallback, callerdata: ConstPtr<CVoid>): Handle =
+public actual fun symFindExecutableImage(hprocess: Handle, filename: Pcstr, imagefilepath: Pstr, callback: PfindExeFileCallback, callerdata: ConstPtr): Handle =
     MutPtr(windowssysWindowsWin32SystemDiagnosticsDebugSymFindExecutableImage(hprocess.rawAddress.toCPointer<ByteVar>(), filename.rawAddress.toCPointer<ByteVar>(), imagefilepath.rawAddress.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>(), callerdata.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun symFindExecutableImageW(hprocess: Handle, filename: Pcwstr, imagefilepath: Pwstr, callback: PfindExeFileCallbackw, callerdata: ConstPtr<CVoid>): Handle =
+public actual fun symFindExecutableImageW(hprocess: Handle, filename: Pcwstr, imagefilepath: Pwstr, callback: PfindExeFileCallbackw, callerdata: ConstPtr): Handle =
     MutPtr(windowssysWindowsWin32SystemDiagnosticsDebugSymFindExecutableImageW(hprocess.rawAddress.toCPointer<ByteVar>(), filename.rawAddress.toCPointer<ByteVar>(), imagefilepath.rawAddress.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>(), callerdata.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun symFindFileInPath(hprocess: Handle, searchpatha: Pcstr, filename: Pcstr, id: ConstPtr<CVoid>, two: UInt, three: UInt, flags: SymFindIdOption, foundfile: Pstr, callback: Pfindfileinpathcallback, context: ConstPtr<CVoid>): Bool =
+public actual fun symFindFileInPath(hprocess: Handle, searchpatha: Pcstr, filename: Pcstr, id: ConstPtr, two: UInt, three: UInt, flags: SymFindIdOption, foundfile: Pstr, callback: Pfindfileinpathcallback, context: ConstPtr): Bool =
     windowssysWindowsWin32SystemDiagnosticsDebugSymFindFileInPath(hprocess.rawAddress.toCPointer<ByteVar>(), searchpatha.rawAddress.toCPointer<ByteVar>(), filename.rawAddress.toCPointer<ByteVar>(), id.rawAddress.toCPointer<ByteVar>(), two, three, flags, foundfile.rawAddress.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>(), context.rawAddress.toCPointer<ByteVar>())
 
-public actual fun symFindFileInPathW(hprocess: Handle, searchpatha: Pcwstr, filename: Pcwstr, id: ConstPtr<CVoid>, two: UInt, three: UInt, flags: SymFindIdOption, foundfile: Pwstr, callback: Pfindfileinpathcallbackw, context: ConstPtr<CVoid>): Bool =
+public actual fun symFindFileInPathW(hprocess: Handle, searchpatha: Pcwstr, filename: Pcwstr, id: ConstPtr, two: UInt, three: UInt, flags: SymFindIdOption, foundfile: Pwstr, callback: Pfindfileinpathcallbackw, context: ConstPtr): Bool =
     windowssysWindowsWin32SystemDiagnosticsDebugSymFindFileInPathW(hprocess.rawAddress.toCPointer<ByteVar>(), searchpatha.rawAddress.toCPointer<ByteVar>(), filename.rawAddress.toCPointer<ByteVar>(), id.rawAddress.toCPointer<ByteVar>(), two, three, flags, foundfile.rawAddress.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>(), context.rawAddress.toCPointer<ByteVar>())
 
-public actual fun symFromAddr(hprocess: Handle, address: ULong, displacement: MutPtr<ULong>, symbol: MutPtr<SymbolInfo>): Bool =
+public actual fun symFromAddr(hprocess: Handle, address: ULong, displacement: MutPtr, symbol: MutPtr): Bool =
     windowssysWindowsWin32SystemDiagnosticsDebugSymFromAddr(hprocess.rawAddress.toCPointer<ByteVar>(), address, displacement.rawAddress.toCPointer<ByteVar>(), symbol.rawAddress.toCPointer<ByteVar>())
 
-public actual fun symFromAddrW(hprocess: Handle, address: ULong, displacement: MutPtr<ULong>, symbol: MutPtr<SymbolInfow>): Bool =
+public actual fun symFromAddrW(hprocess: Handle, address: ULong, displacement: MutPtr, symbol: MutPtr): Bool =
     windowssysWindowsWin32SystemDiagnosticsDebugSymFromAddrW(hprocess.rawAddress.toCPointer<ByteVar>(), address, displacement.rawAddress.toCPointer<ByteVar>(), symbol.rawAddress.toCPointer<ByteVar>())
 
-public actual fun symFromIndex(hprocess: Handle, baseofdll: ULong, index: UInt, symbol: MutPtr<SymbolInfo>): Bool =
+public actual fun symFromIndex(hprocess: Handle, baseofdll: ULong, index: UInt, symbol: MutPtr): Bool =
     windowssysWindowsWin32SystemDiagnosticsDebugSymFromIndex(hprocess.rawAddress.toCPointer<ByteVar>(), baseofdll, index, symbol.rawAddress.toCPointer<ByteVar>())
 
-public actual fun symFromIndexW(hprocess: Handle, baseofdll: ULong, index: UInt, symbol: MutPtr<SymbolInfow>): Bool =
+public actual fun symFromIndexW(hprocess: Handle, baseofdll: ULong, index: UInt, symbol: MutPtr): Bool =
     windowssysWindowsWin32SystemDiagnosticsDebugSymFromIndexW(hprocess.rawAddress.toCPointer<ByteVar>(), baseofdll, index, symbol.rawAddress.toCPointer<ByteVar>())
 
-public actual fun symFromInlineContext(hprocess: Handle, address: ULong, inlinecontext: UInt, displacement: MutPtr<ULong>, symbol: MutPtr<SymbolInfo>): Bool =
+public actual fun symFromInlineContext(hprocess: Handle, address: ULong, inlinecontext: UInt, displacement: MutPtr, symbol: MutPtr): Bool =
     windowssysWindowsWin32SystemDiagnosticsDebugSymFromInlineContext(hprocess.rawAddress.toCPointer<ByteVar>(), address, inlinecontext, displacement.rawAddress.toCPointer<ByteVar>(), symbol.rawAddress.toCPointer<ByteVar>())
 
-public actual fun symFromInlineContextW(hprocess: Handle, address: ULong, inlinecontext: UInt, displacement: MutPtr<ULong>, symbol: MutPtr<SymbolInfow>): Bool =
+public actual fun symFromInlineContextW(hprocess: Handle, address: ULong, inlinecontext: UInt, displacement: MutPtr, symbol: MutPtr): Bool =
     windowssysWindowsWin32SystemDiagnosticsDebugSymFromInlineContextW(hprocess.rawAddress.toCPointer<ByteVar>(), address, inlinecontext, displacement.rawAddress.toCPointer<ByteVar>(), symbol.rawAddress.toCPointer<ByteVar>())
 
-public actual fun symFromName(hprocess: Handle, name: Pcstr, symbol: MutPtr<SymbolInfo>): Bool =
+public actual fun symFromName(hprocess: Handle, name: Pcstr, symbol: MutPtr): Bool =
     windowssysWindowsWin32SystemDiagnosticsDebugSymFromName(hprocess.rawAddress.toCPointer<ByteVar>(), name.rawAddress.toCPointer<ByteVar>(), symbol.rawAddress.toCPointer<ByteVar>())
 
-public actual fun symFromNameW(hprocess: Handle, name: Pcwstr, symbol: MutPtr<SymbolInfow>): Bool =
+public actual fun symFromNameW(hprocess: Handle, name: Pcwstr, symbol: MutPtr): Bool =
     windowssysWindowsWin32SystemDiagnosticsDebugSymFromNameW(hprocess.rawAddress.toCPointer<ByteVar>(), name.rawAddress.toCPointer<ByteVar>(), symbol.rawAddress.toCPointer<ByteVar>())
 
-public actual fun symFromToken(hprocess: Handle, base: ULong, token: UInt, symbol: MutPtr<SymbolInfo>): Bool =
+public actual fun symFromToken(hprocess: Handle, base: ULong, token: UInt, symbol: MutPtr): Bool =
     windowssysWindowsWin32SystemDiagnosticsDebugSymFromToken(hprocess.rawAddress.toCPointer<ByteVar>(), base, token, symbol.rawAddress.toCPointer<ByteVar>())
 
-public actual fun symFromTokenW(hprocess: Handle, base: ULong, token: UInt, symbol: MutPtr<SymbolInfow>): Bool =
+public actual fun symFromTokenW(hprocess: Handle, base: ULong, token: UInt, symbol: MutPtr): Bool =
     windowssysWindowsWin32SystemDiagnosticsDebugSymFromTokenW(hprocess.rawAddress.toCPointer<ByteVar>(), base, token, symbol.rawAddress.toCPointer<ByteVar>())
 
-public actual fun symFunctionTableAccess64(hprocess: Handle, addrbase: ULong): MutPtr<CVoid> =
+public actual fun symFunctionTableAccess64(hprocess: Handle, addrbase: ULong): MutPtr =
     MutPtr(windowssysWindowsWin32SystemDiagnosticsDebugSymFunctionTableAccess64(hprocess.rawAddress.toCPointer<ByteVar>(), addrbase)?.toLong() ?: 0L)
 
-public actual fun symFunctionTableAccess64AccessRoutines(hprocess: Handle, addrbase: ULong, readmemoryroutine: PreadProcessMemoryRoutine64, getmodulebaseroutine: PgetModuleBaseRoutine64): MutPtr<CVoid> =
+public actual fun symFunctionTableAccess64AccessRoutines(hprocess: Handle, addrbase: ULong, readmemoryroutine: PreadProcessMemoryRoutine64, getmodulebaseroutine: PgetModuleBaseRoutine64): MutPtr =
     MutPtr(windowssysWindowsWin32SystemDiagnosticsDebugSymFunctionTableAccess64AccessRoutines(hprocess.rawAddress.toCPointer<ByteVar>(), addrbase, 0L.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
 public actual fun symGetExtendedOption(option: ImagehlpExtendedOptions): Bool =
     windowssysWindowsWin32SystemDiagnosticsDebugSymGetExtendedOption(option)
 
-public actual fun symGetFileLineOffsets64(hprocess: Handle, modulename: Pcstr, filename: Pcstr, buffer: MutPtr<ULong>, bufferlines: UInt): UInt =
+public actual fun symGetFileLineOffsets64(hprocess: Handle, modulename: Pcstr, filename: Pcstr, buffer: MutPtr, bufferlines: UInt): UInt =
     windowssysWindowsWin32SystemDiagnosticsDebugSymGetFileLineOffsets64(hprocess.rawAddress.toCPointer<ByteVar>(), modulename.rawAddress.toCPointer<ByteVar>(), filename.rawAddress.toCPointer<ByteVar>(), buffer.rawAddress.toCPointer<ByteVar>(), bufferlines)
 
 public actual fun symGetHomeDirectory(type: UInt, dir: Pstr, size: ULong): Pstr =
@@ -885,55 +881,55 @@ public actual fun symGetHomeDirectory(type: UInt, dir: Pstr, size: ULong): Pstr 
 public actual fun symGetHomeDirectoryW(type: UInt, dir: Pwstr, size: ULong): Pwstr =
     MutPtr(windowssysWindowsWin32SystemDiagnosticsDebugSymGetHomeDirectoryW(type, dir.rawAddress.toCPointer<ByteVar>(), size)?.toLong() ?: 0L)
 
-public actual fun symGetLineFromAddr64(hprocess: Handle, qwaddr: ULong, pdwdisplacement: MutPtr<UInt>, line64: MutPtr<ImagehlpLine64>): Bool =
+public actual fun symGetLineFromAddr64(hprocess: Handle, qwaddr: ULong, pdwdisplacement: MutPtr, line64: MutPtr): Bool =
     windowssysWindowsWin32SystemDiagnosticsDebugSymGetLineFromAddr64(hprocess.rawAddress.toCPointer<ByteVar>(), qwaddr, pdwdisplacement.rawAddress.toCPointer<ByteVar>(), line64.rawAddress.toCPointer<ByteVar>())
 
-public actual fun symGetLineFromAddrW64(hprocess: Handle, dwaddr: ULong, pdwdisplacement: MutPtr<UInt>, line: MutPtr<ImagehlpLinew64>): Bool =
+public actual fun symGetLineFromAddrW64(hprocess: Handle, dwaddr: ULong, pdwdisplacement: MutPtr, line: MutPtr): Bool =
     windowssysWindowsWin32SystemDiagnosticsDebugSymGetLineFromAddrW64(hprocess.rawAddress.toCPointer<ByteVar>(), dwaddr, pdwdisplacement.rawAddress.toCPointer<ByteVar>(), line.rawAddress.toCPointer<ByteVar>())
 
-public actual fun symGetLineFromInlineContext(hprocess: Handle, qwaddr: ULong, inlinecontext: UInt, qwmodulebaseaddress: ULong, pdwdisplacement: MutPtr<UInt>, line64: MutPtr<ImagehlpLine64>): Bool =
+public actual fun symGetLineFromInlineContext(hprocess: Handle, qwaddr: ULong, inlinecontext: UInt, qwmodulebaseaddress: ULong, pdwdisplacement: MutPtr, line64: MutPtr): Bool =
     windowssysWindowsWin32SystemDiagnosticsDebugSymGetLineFromInlineContext(hprocess.rawAddress.toCPointer<ByteVar>(), qwaddr, inlinecontext, qwmodulebaseaddress, pdwdisplacement.rawAddress.toCPointer<ByteVar>(), line64.rawAddress.toCPointer<ByteVar>())
 
-public actual fun symGetLineFromInlineContextW(hprocess: Handle, dwaddr: ULong, inlinecontext: UInt, qwmodulebaseaddress: ULong, pdwdisplacement: MutPtr<UInt>, line: MutPtr<ImagehlpLinew64>): Bool =
+public actual fun symGetLineFromInlineContextW(hprocess: Handle, dwaddr: ULong, inlinecontext: UInt, qwmodulebaseaddress: ULong, pdwdisplacement: MutPtr, line: MutPtr): Bool =
     windowssysWindowsWin32SystemDiagnosticsDebugSymGetLineFromInlineContextW(hprocess.rawAddress.toCPointer<ByteVar>(), dwaddr, inlinecontext, qwmodulebaseaddress, pdwdisplacement.rawAddress.toCPointer<ByteVar>(), line.rawAddress.toCPointer<ByteVar>())
 
-public actual fun symGetLineFromName64(hprocess: Handle, modulename: Pcstr, filename: Pcstr, dwlinenumber: UInt, pldisplacement: MutPtr<Int>, line: MutPtr<ImagehlpLine64>): Bool =
+public actual fun symGetLineFromName64(hprocess: Handle, modulename: Pcstr, filename: Pcstr, dwlinenumber: UInt, pldisplacement: MutPtr, line: MutPtr): Bool =
     windowssysWindowsWin32SystemDiagnosticsDebugSymGetLineFromName64(hprocess.rawAddress.toCPointer<ByteVar>(), modulename.rawAddress.toCPointer<ByteVar>(), filename.rawAddress.toCPointer<ByteVar>(), dwlinenumber, pldisplacement.rawAddress.toCPointer<ByteVar>(), line.rawAddress.toCPointer<ByteVar>())
 
-public actual fun symGetLineFromNameW64(hprocess: Handle, modulename: Pcwstr, filename: Pcwstr, dwlinenumber: UInt, pldisplacement: MutPtr<Int>, line: MutPtr<ImagehlpLinew64>): Bool =
+public actual fun symGetLineFromNameW64(hprocess: Handle, modulename: Pcwstr, filename: Pcwstr, dwlinenumber: UInt, pldisplacement: MutPtr, line: MutPtr): Bool =
     windowssysWindowsWin32SystemDiagnosticsDebugSymGetLineFromNameW64(hprocess.rawAddress.toCPointer<ByteVar>(), modulename.rawAddress.toCPointer<ByteVar>(), filename.rawAddress.toCPointer<ByteVar>(), dwlinenumber, pldisplacement.rawAddress.toCPointer<ByteVar>(), line.rawAddress.toCPointer<ByteVar>())
 
-public actual fun symGetLineNext64(hprocess: Handle, line: MutPtr<ImagehlpLine64>): Bool =
+public actual fun symGetLineNext64(hprocess: Handle, line: MutPtr): Bool =
     windowssysWindowsWin32SystemDiagnosticsDebugSymGetLineNext64(hprocess.rawAddress.toCPointer<ByteVar>(), line.rawAddress.toCPointer<ByteVar>())
 
-public actual fun symGetLineNextW64(hprocess: Handle, line: MutPtr<ImagehlpLinew64>): Bool =
+public actual fun symGetLineNextW64(hprocess: Handle, line: MutPtr): Bool =
     windowssysWindowsWin32SystemDiagnosticsDebugSymGetLineNextW64(hprocess.rawAddress.toCPointer<ByteVar>(), line.rawAddress.toCPointer<ByteVar>())
 
-public actual fun symGetLinePrev64(hprocess: Handle, line: MutPtr<ImagehlpLine64>): Bool =
+public actual fun symGetLinePrev64(hprocess: Handle, line: MutPtr): Bool =
     windowssysWindowsWin32SystemDiagnosticsDebugSymGetLinePrev64(hprocess.rawAddress.toCPointer<ByteVar>(), line.rawAddress.toCPointer<ByteVar>())
 
-public actual fun symGetLinePrevW64(hprocess: Handle, line: MutPtr<ImagehlpLinew64>): Bool =
+public actual fun symGetLinePrevW64(hprocess: Handle, line: MutPtr): Bool =
     windowssysWindowsWin32SystemDiagnosticsDebugSymGetLinePrevW64(hprocess.rawAddress.toCPointer<ByteVar>(), line.rawAddress.toCPointer<ByteVar>())
 
 public actual fun symGetModuleBase64(hprocess: Handle, qwaddr: ULong): ULong =
     windowssysWindowsWin32SystemDiagnosticsDebugSymGetModuleBase64(hprocess.rawAddress.toCPointer<ByteVar>(), qwaddr)
 
-public actual fun symGetModuleInfo64(hprocess: Handle, qwaddr: ULong, moduleinfo: MutPtr<ImagehlpModule64>): Bool =
+public actual fun symGetModuleInfo64(hprocess: Handle, qwaddr: ULong, moduleinfo: MutPtr): Bool =
     windowssysWindowsWin32SystemDiagnosticsDebugSymGetModuleInfo64(hprocess.rawAddress.toCPointer<ByteVar>(), qwaddr, moduleinfo.rawAddress.toCPointer<ByteVar>())
 
-public actual fun symGetModuleInfoW64(hprocess: Handle, qwaddr: ULong, moduleinfo: MutPtr<ImagehlpModulew64>): Bool =
+public actual fun symGetModuleInfoW64(hprocess: Handle, qwaddr: ULong, moduleinfo: MutPtr): Bool =
     windowssysWindowsWin32SystemDiagnosticsDebugSymGetModuleInfoW64(hprocess.rawAddress.toCPointer<ByteVar>(), qwaddr, moduleinfo.rawAddress.toCPointer<ByteVar>())
 
-public actual fun symGetOmaps(hprocess: Handle, baseofdll: ULong, omapto: MutPtr<MutPtr<Omap>>, comapto: MutPtr<ULong>, omapfrom: MutPtr<MutPtr<Omap>>, comapfrom: MutPtr<ULong>): Bool =
+public actual fun symGetOmaps(hprocess: Handle, baseofdll: ULong, omapto: MutPtr, comapto: MutPtr, omapfrom: MutPtr, comapfrom: MutPtr): Bool =
     windowssysWindowsWin32SystemDiagnosticsDebugSymGetOmaps(hprocess.rawAddress.toCPointer<ByteVar>(), baseofdll, omapto.rawAddress.toCPointer<ByteVar>(), comapto.rawAddress.toCPointer<ByteVar>(), omapfrom.rawAddress.toCPointer<ByteVar>(), comapfrom.rawAddress.toCPointer<ByteVar>())
 
 public actual fun symGetOptions(): UInt =
     windowssysWindowsWin32SystemDiagnosticsDebugSymGetOptions()
 
-public actual fun symGetScope(hprocess: Handle, baseofdll: ULong, index: UInt, symbol: MutPtr<SymbolInfo>): Bool =
+public actual fun symGetScope(hprocess: Handle, baseofdll: ULong, index: UInt, symbol: MutPtr): Bool =
     windowssysWindowsWin32SystemDiagnosticsDebugSymGetScope(hprocess.rawAddress.toCPointer<ByteVar>(), baseofdll, index, symbol.rawAddress.toCPointer<ByteVar>())
 
-public actual fun symGetScopeW(hprocess: Handle, baseofdll: ULong, index: UInt, symbol: MutPtr<SymbolInfow>): Bool =
+public actual fun symGetScopeW(hprocess: Handle, baseofdll: ULong, index: UInt, symbol: MutPtr): Bool =
     windowssysWindowsWin32SystemDiagnosticsDebugSymGetScopeW(hprocess.rawAddress.toCPointer<ByteVar>(), baseofdll, index, symbol.rawAddress.toCPointer<ByteVar>())
 
 public actual fun symGetSearchPath(hprocess: Handle, searchpatha: Pstr, searchpathlength: UInt): Bool =
@@ -945,55 +941,55 @@ public actual fun symGetSearchPathW(hprocess: Handle, searchpatha: Pwstr, search
 public actual fun symGetSourceFile(hprocess: Handle, base: ULong, params: Pcstr, filespec: Pcstr, filepath: Pstr, size: UInt): Bool =
     windowssysWindowsWin32SystemDiagnosticsDebugSymGetSourceFile(hprocess.rawAddress.toCPointer<ByteVar>(), base, params.rawAddress.toCPointer<ByteVar>(), filespec.rawAddress.toCPointer<ByteVar>(), filepath.rawAddress.toCPointer<ByteVar>(), size)
 
-public actual fun symGetSourceFileChecksum(hprocess: Handle, base: ULong, filespec: Pcstr, pchecksumtype: MutPtr<UInt>, pchecksum: MutPtr<UByte>, checksumsize: UInt, pactualbyteswritten: MutPtr<UInt>): Bool =
+public actual fun symGetSourceFileChecksum(hprocess: Handle, base: ULong, filespec: Pcstr, pchecksumtype: MutPtr, pchecksum: MutPtr, checksumsize: UInt, pactualbyteswritten: MutPtr): Bool =
     windowssysWindowsWin32SystemDiagnosticsDebugSymGetSourceFileChecksum(hprocess.rawAddress.toCPointer<ByteVar>(), base, filespec.rawAddress.toCPointer<ByteVar>(), pchecksumtype.rawAddress.toCPointer<ByteVar>(), pchecksum.rawAddress.toCPointer<ByteVar>(), checksumsize, pactualbyteswritten.rawAddress.toCPointer<ByteVar>())
 
-public actual fun symGetSourceFileChecksumW(hprocess: Handle, base: ULong, filespec: Pcwstr, pchecksumtype: MutPtr<UInt>, pchecksum: MutPtr<UByte>, checksumsize: UInt, pactualbyteswritten: MutPtr<UInt>): Bool =
+public actual fun symGetSourceFileChecksumW(hprocess: Handle, base: ULong, filespec: Pcwstr, pchecksumtype: MutPtr, pchecksum: MutPtr, checksumsize: UInt, pactualbyteswritten: MutPtr): Bool =
     windowssysWindowsWin32SystemDiagnosticsDebugSymGetSourceFileChecksumW(hprocess.rawAddress.toCPointer<ByteVar>(), base, filespec.rawAddress.toCPointer<ByteVar>(), pchecksumtype.rawAddress.toCPointer<ByteVar>(), pchecksum.rawAddress.toCPointer<ByteVar>(), checksumsize, pactualbyteswritten.rawAddress.toCPointer<ByteVar>())
 
-public actual fun symGetSourceFileFromToken(hprocess: Handle, token: ConstPtr<CVoid>, params: Pcstr, filepath: Pstr, size: UInt): Bool =
+public actual fun symGetSourceFileFromToken(hprocess: Handle, token: ConstPtr, params: Pcstr, filepath: Pstr, size: UInt): Bool =
     windowssysWindowsWin32SystemDiagnosticsDebugSymGetSourceFileFromToken(hprocess.rawAddress.toCPointer<ByteVar>(), token.rawAddress.toCPointer<ByteVar>(), params.rawAddress.toCPointer<ByteVar>(), filepath.rawAddress.toCPointer<ByteVar>(), size)
 
-public actual fun symGetSourceFileFromTokenByTokenName(hprocess: Handle, token: ConstPtr<CVoid>, tokenname: Pcstr, params: Pcstr, filepath: Pstr, size: UInt): Bool =
+public actual fun symGetSourceFileFromTokenByTokenName(hprocess: Handle, token: ConstPtr, tokenname: Pcstr, params: Pcstr, filepath: Pstr, size: UInt): Bool =
     windowssysWindowsWin32SystemDiagnosticsDebugSymGetSourceFileFromTokenByTokenName(hprocess.rawAddress.toCPointer<ByteVar>(), token.rawAddress.toCPointer<ByteVar>(), tokenname.rawAddress.toCPointer<ByteVar>(), params.rawAddress.toCPointer<ByteVar>(), filepath.rawAddress.toCPointer<ByteVar>(), size)
 
-public actual fun symGetSourceFileFromTokenByTokenNameW(hprocess: Handle, token: ConstPtr<CVoid>, tokenname: Pcwstr, params: Pcwstr, filepath: Pwstr, size: UInt): Bool =
+public actual fun symGetSourceFileFromTokenByTokenNameW(hprocess: Handle, token: ConstPtr, tokenname: Pcwstr, params: Pcwstr, filepath: Pwstr, size: UInt): Bool =
     windowssysWindowsWin32SystemDiagnosticsDebugSymGetSourceFileFromTokenByTokenNameW(hprocess.rawAddress.toCPointer<ByteVar>(), token.rawAddress.toCPointer<ByteVar>(), tokenname.rawAddress.toCPointer<ByteVar>(), params.rawAddress.toCPointer<ByteVar>(), filepath.rawAddress.toCPointer<ByteVar>(), size)
 
-public actual fun symGetSourceFileFromTokenW(hprocess: Handle, token: ConstPtr<CVoid>, params: Pcwstr, filepath: Pwstr, size: UInt): Bool =
+public actual fun symGetSourceFileFromTokenW(hprocess: Handle, token: ConstPtr, params: Pcwstr, filepath: Pwstr, size: UInt): Bool =
     windowssysWindowsWin32SystemDiagnosticsDebugSymGetSourceFileFromTokenW(hprocess.rawAddress.toCPointer<ByteVar>(), token.rawAddress.toCPointer<ByteVar>(), params.rawAddress.toCPointer<ByteVar>(), filepath.rawAddress.toCPointer<ByteVar>(), size)
 
-public actual fun symGetSourceFileToken(hprocess: Handle, base: ULong, filespec: Pcstr, token: MutPtr<MutPtr<CVoid>>, size: MutPtr<UInt>): Bool =
+public actual fun symGetSourceFileToken(hprocess: Handle, base: ULong, filespec: Pcstr, token: MutPtr, size: MutPtr): Bool =
     windowssysWindowsWin32SystemDiagnosticsDebugSymGetSourceFileToken(hprocess.rawAddress.toCPointer<ByteVar>(), base, filespec.rawAddress.toCPointer<ByteVar>(), token.rawAddress.toCPointer<ByteVar>(), size.rawAddress.toCPointer<ByteVar>())
 
-public actual fun symGetSourceFileTokenByTokenName(hprocess: Handle, base: ULong, filespec: Pcstr, tokenname: Pcstr, tokenparameters: Pcstr, token: MutPtr<MutPtr<CVoid>>, size: MutPtr<UInt>): Bool =
+public actual fun symGetSourceFileTokenByTokenName(hprocess: Handle, base: ULong, filespec: Pcstr, tokenname: Pcstr, tokenparameters: Pcstr, token: MutPtr, size: MutPtr): Bool =
     windowssysWindowsWin32SystemDiagnosticsDebugSymGetSourceFileTokenByTokenName(hprocess.rawAddress.toCPointer<ByteVar>(), base, filespec.rawAddress.toCPointer<ByteVar>(), tokenname.rawAddress.toCPointer<ByteVar>(), tokenparameters.rawAddress.toCPointer<ByteVar>(), token.rawAddress.toCPointer<ByteVar>(), size.rawAddress.toCPointer<ByteVar>())
 
-public actual fun symGetSourceFileTokenByTokenNameW(hprocess: Handle, base: ULong, filespec: Pcwstr, tokenname: Pcwstr, tokenparameters: Pcwstr, token: MutPtr<MutPtr<CVoid>>, size: MutPtr<UInt>): Bool =
+public actual fun symGetSourceFileTokenByTokenNameW(hprocess: Handle, base: ULong, filespec: Pcwstr, tokenname: Pcwstr, tokenparameters: Pcwstr, token: MutPtr, size: MutPtr): Bool =
     windowssysWindowsWin32SystemDiagnosticsDebugSymGetSourceFileTokenByTokenNameW(hprocess.rawAddress.toCPointer<ByteVar>(), base, filespec.rawAddress.toCPointer<ByteVar>(), tokenname.rawAddress.toCPointer<ByteVar>(), tokenparameters.rawAddress.toCPointer<ByteVar>(), token.rawAddress.toCPointer<ByteVar>(), size.rawAddress.toCPointer<ByteVar>())
 
-public actual fun symGetSourceFileTokenW(hprocess: Handle, base: ULong, filespec: Pcwstr, token: MutPtr<MutPtr<CVoid>>, size: MutPtr<UInt>): Bool =
+public actual fun symGetSourceFileTokenW(hprocess: Handle, base: ULong, filespec: Pcwstr, token: MutPtr, size: MutPtr): Bool =
     windowssysWindowsWin32SystemDiagnosticsDebugSymGetSourceFileTokenW(hprocess.rawAddress.toCPointer<ByteVar>(), base, filespec.rawAddress.toCPointer<ByteVar>(), token.rawAddress.toCPointer<ByteVar>(), size.rawAddress.toCPointer<ByteVar>())
 
 public actual fun symGetSourceFileW(hprocess: Handle, base: ULong, params: Pcwstr, filespec: Pcwstr, filepath: Pwstr, size: UInt): Bool =
     windowssysWindowsWin32SystemDiagnosticsDebugSymGetSourceFileW(hprocess.rawAddress.toCPointer<ByteVar>(), base, params.rawAddress.toCPointer<ByteVar>(), filespec.rawAddress.toCPointer<ByteVar>(), filepath.rawAddress.toCPointer<ByteVar>(), size)
 
-public actual fun symGetSourceVarFromToken(hprocess: Handle, token: ConstPtr<CVoid>, params: Pcstr, varname: Pcstr, value: Pstr, size: UInt): Bool =
+public actual fun symGetSourceVarFromToken(hprocess: Handle, token: ConstPtr, params: Pcstr, varname: Pcstr, value: Pstr, size: UInt): Bool =
     windowssysWindowsWin32SystemDiagnosticsDebugSymGetSourceVarFromToken(hprocess.rawAddress.toCPointer<ByteVar>(), token.rawAddress.toCPointer<ByteVar>(), params.rawAddress.toCPointer<ByteVar>(), varname.rawAddress.toCPointer<ByteVar>(), value.rawAddress.toCPointer<ByteVar>(), size)
 
-public actual fun symGetSourceVarFromTokenW(hprocess: Handle, token: ConstPtr<CVoid>, params: Pcwstr, varname: Pcwstr, value: Pwstr, size: UInt): Bool =
+public actual fun symGetSourceVarFromTokenW(hprocess: Handle, token: ConstPtr, params: Pcwstr, varname: Pcwstr, value: Pwstr, size: UInt): Bool =
     windowssysWindowsWin32SystemDiagnosticsDebugSymGetSourceVarFromTokenW(hprocess.rawAddress.toCPointer<ByteVar>(), token.rawAddress.toCPointer<ByteVar>(), params.rawAddress.toCPointer<ByteVar>(), varname.rawAddress.toCPointer<ByteVar>(), value.rawAddress.toCPointer<ByteVar>(), size)
 
-public actual fun symGetSymFromAddr64(hprocess: Handle, qwaddr: ULong, pdwdisplacement: MutPtr<ULong>, symbol: MutPtr<ImagehlpSymbol64>): Bool =
+public actual fun symGetSymFromAddr64(hprocess: Handle, qwaddr: ULong, pdwdisplacement: MutPtr, symbol: MutPtr): Bool =
     windowssysWindowsWin32SystemDiagnosticsDebugSymGetSymFromAddr64(hprocess.rawAddress.toCPointer<ByteVar>(), qwaddr, pdwdisplacement.rawAddress.toCPointer<ByteVar>(), symbol.rawAddress.toCPointer<ByteVar>())
 
-public actual fun symGetSymFromName64(hprocess: Handle, name: Pcstr, symbol: MutPtr<ImagehlpSymbol64>): Bool =
+public actual fun symGetSymFromName64(hprocess: Handle, name: Pcstr, symbol: MutPtr): Bool =
     windowssysWindowsWin32SystemDiagnosticsDebugSymGetSymFromName64(hprocess.rawAddress.toCPointer<ByteVar>(), name.rawAddress.toCPointer<ByteVar>(), symbol.rawAddress.toCPointer<ByteVar>())
 
-public actual fun symGetSymNext64(hprocess: Handle, symbol: MutPtr<ImagehlpSymbol64>): Bool =
+public actual fun symGetSymNext64(hprocess: Handle, symbol: MutPtr): Bool =
     windowssysWindowsWin32SystemDiagnosticsDebugSymGetSymNext64(hprocess.rawAddress.toCPointer<ByteVar>(), symbol.rawAddress.toCPointer<ByteVar>())
 
-public actual fun symGetSymPrev64(hprocess: Handle, symbol: MutPtr<ImagehlpSymbol64>): Bool =
+public actual fun symGetSymPrev64(hprocess: Handle, symbol: MutPtr): Bool =
     windowssysWindowsWin32SystemDiagnosticsDebugSymGetSymPrev64(hprocess.rawAddress.toCPointer<ByteVar>(), symbol.rawAddress.toCPointer<ByteVar>())
 
 public actual fun symGetSymbolFile(hprocess: Handle, sympath: Pcstr, imagefile: Pcstr, type: UInt, symbolfile: Pstr, csymbolfile: ULong, dbgfile: Pstr, cdbgfile: ULong): Bool =
@@ -1002,19 +998,19 @@ public actual fun symGetSymbolFile(hprocess: Handle, sympath: Pcstr, imagefile: 
 public actual fun symGetSymbolFileW(hprocess: Handle, sympath: Pcwstr, imagefile: Pcwstr, type: UInt, symbolfile: Pwstr, csymbolfile: ULong, dbgfile: Pwstr, cdbgfile: ULong): Bool =
     windowssysWindowsWin32SystemDiagnosticsDebugSymGetSymbolFileW(hprocess.rawAddress.toCPointer<ByteVar>(), sympath.rawAddress.toCPointer<ByteVar>(), imagefile.rawAddress.toCPointer<ByteVar>(), type, symbolfile.rawAddress.toCPointer<ByteVar>(), csymbolfile, dbgfile.rawAddress.toCPointer<ByteVar>(), cdbgfile)
 
-public actual fun symGetTypeFromName(hprocess: Handle, baseofdll: ULong, name: Pcstr, symbol: MutPtr<SymbolInfo>): Bool =
+public actual fun symGetTypeFromName(hprocess: Handle, baseofdll: ULong, name: Pcstr, symbol: MutPtr): Bool =
     windowssysWindowsWin32SystemDiagnosticsDebugSymGetTypeFromName(hprocess.rawAddress.toCPointer<ByteVar>(), baseofdll, name.rawAddress.toCPointer<ByteVar>(), symbol.rawAddress.toCPointer<ByteVar>())
 
-public actual fun symGetTypeFromNameW(hprocess: Handle, baseofdll: ULong, name: Pcwstr, symbol: MutPtr<SymbolInfow>): Bool =
+public actual fun symGetTypeFromNameW(hprocess: Handle, baseofdll: ULong, name: Pcwstr, symbol: MutPtr): Bool =
     windowssysWindowsWin32SystemDiagnosticsDebugSymGetTypeFromNameW(hprocess.rawAddress.toCPointer<ByteVar>(), baseofdll, name.rawAddress.toCPointer<ByteVar>(), symbol.rawAddress.toCPointer<ByteVar>())
 
-public actual fun symGetTypeInfo(hprocess: Handle, modbase: ULong, typeid: UInt, gettype: ImagehlpSymbolTypeInfo, pinfo: MutPtr<CVoid>): Bool =
+public actual fun symGetTypeInfo(hprocess: Handle, modbase: ULong, typeid: UInt, gettype: ImagehlpSymbolTypeInfo, pinfo: MutPtr): Bool =
     windowssysWindowsWin32SystemDiagnosticsDebugSymGetTypeInfo(hprocess.rawAddress.toCPointer<ByteVar>(), modbase, typeid, gettype, pinfo.rawAddress.toCPointer<ByteVar>())
 
-public actual fun symGetTypeInfoEx(hprocess: Handle, modbase: ULong, params: MutPtr<ImagehlpGetTypeInfoParams>): Bool =
+public actual fun symGetTypeInfoEx(hprocess: Handle, modbase: ULong, params: MutPtr): Bool =
     windowssysWindowsWin32SystemDiagnosticsDebugSymGetTypeInfoEx(hprocess.rawAddress.toCPointer<ByteVar>(), modbase, params.rawAddress.toCPointer<ByteVar>())
 
-public actual fun symGetUnwindInfo(hprocess: Handle, address: ULong, buffer: MutPtr<CVoid>, size: MutPtr<UInt>): Bool =
+public actual fun symGetUnwindInfo(hprocess: Handle, address: ULong, buffer: MutPtr, size: MutPtr): Bool =
     windowssysWindowsWin32SystemDiagnosticsDebugSymGetUnwindInfo(hprocess.rawAddress.toCPointer<ByteVar>(), address, buffer.rawAddress.toCPointer<ByteVar>(), size.rawAddress.toCPointer<ByteVar>())
 
 public actual fun symInitialize(hprocess: Handle, usersearchpath: Pcstr, finvadeprocess: Bool): Bool =
@@ -1026,16 +1022,16 @@ public actual fun symInitializeW(hprocess: Handle, usersearchpath: Pcwstr, finva
 public actual fun symLoadModule64(hprocess: Handle, hfile: Handle, imagename: Pcstr, modulename: Pcstr, baseofdll: ULong, sizeofdll: UInt): ULong =
     windowssysWindowsWin32SystemDiagnosticsDebugSymLoadModule64(hprocess.rawAddress.toCPointer<ByteVar>(), hfile.rawAddress.toCPointer<ByteVar>(), imagename.rawAddress.toCPointer<ByteVar>(), modulename.rawAddress.toCPointer<ByteVar>(), baseofdll, sizeofdll)
 
-public actual fun symLoadModuleEx(hprocess: Handle, hfile: Handle, imagename: Pcstr, modulename: Pcstr, baseofdll: ULong, dllsize: UInt, data: ConstPtr<ModloadData>, flags: SymLoadFlags): ULong =
+public actual fun symLoadModuleEx(hprocess: Handle, hfile: Handle, imagename: Pcstr, modulename: Pcstr, baseofdll: ULong, dllsize: UInt, data: ConstPtr, flags: SymLoadFlags): ULong =
     windowssysWindowsWin32SystemDiagnosticsDebugSymLoadModuleEx(hprocess.rawAddress.toCPointer<ByteVar>(), hfile.rawAddress.toCPointer<ByteVar>(), imagename.rawAddress.toCPointer<ByteVar>(), modulename.rawAddress.toCPointer<ByteVar>(), baseofdll, dllsize, data.rawAddress.toCPointer<ByteVar>(), flags)
 
-public actual fun symLoadModuleExW(hprocess: Handle, hfile: Handle, imagename: Pcwstr, modulename: Pcwstr, baseofdll: ULong, dllsize: UInt, data: ConstPtr<ModloadData>, flags: SymLoadFlags): ULong =
+public actual fun symLoadModuleExW(hprocess: Handle, hfile: Handle, imagename: Pcwstr, modulename: Pcwstr, baseofdll: ULong, dllsize: UInt, data: ConstPtr, flags: SymLoadFlags): ULong =
     windowssysWindowsWin32SystemDiagnosticsDebugSymLoadModuleExW(hprocess.rawAddress.toCPointer<ByteVar>(), hfile.rawAddress.toCPointer<ByteVar>(), imagename.rawAddress.toCPointer<ByteVar>(), modulename.rawAddress.toCPointer<ByteVar>(), baseofdll, dllsize, data.rawAddress.toCPointer<ByteVar>(), flags)
 
-public actual fun symMatchFileName(filename: Pcstr, match: Pcstr, filenamestop: MutPtr<Pstr>, matchstop: MutPtr<Pstr>): Bool =
+public actual fun symMatchFileName(filename: Pcstr, match: Pcstr, filenamestop: MutPtr, matchstop: MutPtr): Bool =
     windowssysWindowsWin32SystemDiagnosticsDebugSymMatchFileName(filename.rawAddress.toCPointer<ByteVar>(), match.rawAddress.toCPointer<ByteVar>(), filenamestop.rawAddress.toCPointer<ByteVar>(), matchstop.rawAddress.toCPointer<ByteVar>())
 
-public actual fun symMatchFileNameW(filename: Pcwstr, match: Pcwstr, filenamestop: MutPtr<Pwstr>, matchstop: MutPtr<Pwstr>): Bool =
+public actual fun symMatchFileNameW(filename: Pcwstr, match: Pcwstr, filenamestop: MutPtr, matchstop: MutPtr): Bool =
     windowssysWindowsWin32SystemDiagnosticsDebugSymMatchFileNameW(filename.rawAddress.toCPointer<ByteVar>(), match.rawAddress.toCPointer<ByteVar>(), filenamestop.rawAddress.toCPointer<ByteVar>(), matchstop.rawAddress.toCPointer<ByteVar>())
 
 public actual fun symMatchString(string: Pcstr, expression: Pcstr, fcase: Bool): Bool =
@@ -1047,19 +1043,19 @@ public actual fun symMatchStringA(string: Pcstr, expression: Pcstr, fcase: Bool)
 public actual fun symMatchStringW(string: Pcwstr, expression: Pcwstr, fcase: Bool): Bool =
     windowssysWindowsWin32SystemDiagnosticsDebugSymMatchStringW(string.rawAddress.toCPointer<ByteVar>(), expression.rawAddress.toCPointer<ByteVar>(), fcase)
 
-public actual fun symNext(hprocess: Handle, si: MutPtr<SymbolInfo>): Bool =
+public actual fun symNext(hprocess: Handle, si: MutPtr): Bool =
     windowssysWindowsWin32SystemDiagnosticsDebugSymNext(hprocess.rawAddress.toCPointer<ByteVar>(), si.rawAddress.toCPointer<ByteVar>())
 
-public actual fun symNextW(hprocess: Handle, siw: MutPtr<SymbolInfow>): Bool =
+public actual fun symNextW(hprocess: Handle, siw: MutPtr): Bool =
     windowssysWindowsWin32SystemDiagnosticsDebugSymNextW(hprocess.rawAddress.toCPointer<ByteVar>(), siw.rawAddress.toCPointer<ByteVar>())
 
-public actual fun symPrev(hprocess: Handle, si: MutPtr<SymbolInfo>): Bool =
+public actual fun symPrev(hprocess: Handle, si: MutPtr): Bool =
     windowssysWindowsWin32SystemDiagnosticsDebugSymPrev(hprocess.rawAddress.toCPointer<ByteVar>(), si.rawAddress.toCPointer<ByteVar>())
 
-public actual fun symPrevW(hprocess: Handle, siw: MutPtr<SymbolInfow>): Bool =
+public actual fun symPrevW(hprocess: Handle, siw: MutPtr): Bool =
     windowssysWindowsWin32SystemDiagnosticsDebugSymPrevW(hprocess.rawAddress.toCPointer<ByteVar>(), siw.rawAddress.toCPointer<ByteVar>())
 
-public actual fun symQueryInlineTrace(hprocess: Handle, startaddress: ULong, startcontext: UInt, startretaddress: ULong, curaddress: ULong, curcontext: MutPtr<UInt>, curframeindex: MutPtr<UInt>): Bool =
+public actual fun symQueryInlineTrace(hprocess: Handle, startaddress: ULong, startcontext: UInt, startretaddress: ULong, curaddress: ULong, curcontext: MutPtr, curframeindex: MutPtr): Bool =
     windowssysWindowsWin32SystemDiagnosticsDebugSymQueryInlineTrace(hprocess.rawAddress.toCPointer<ByteVar>(), startaddress, startcontext, startretaddress, curaddress, curcontext.rawAddress.toCPointer<ByteVar>(), curframeindex.rawAddress.toCPointer<ByteVar>())
 
 public actual fun symRefreshModuleList(hprocess: Handle): Bool =
@@ -1074,13 +1070,13 @@ public actual fun symRegisterCallbackW64(hprocess: Handle, callbackfunction: Psy
 public actual fun symRegisterFunctionEntryCallback64(hprocess: Handle, callbackfunction: PsymbolFuncentryCallback64, usercontext: ULong): Bool =
     windowssysWindowsWin32SystemDiagnosticsDebugSymRegisterFunctionEntryCallback64(hprocess.rawAddress.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>(), usercontext)
 
-public actual fun symSearch(hprocess: Handle, baseofdll: ULong, index: UInt, symtag: UInt, mask: Pcstr, address: ULong, enumsymbolscallback: PsymEnumeratesymbolsCallback, usercontext: ConstPtr<CVoid>, options: UInt): Bool =
+public actual fun symSearch(hprocess: Handle, baseofdll: ULong, index: UInt, symtag: UInt, mask: Pcstr, address: ULong, enumsymbolscallback: PsymEnumeratesymbolsCallback, usercontext: ConstPtr, options: UInt): Bool =
     windowssysWindowsWin32SystemDiagnosticsDebugSymSearch(hprocess.rawAddress.toCPointer<ByteVar>(), baseofdll, index, symtag, mask.rawAddress.toCPointer<ByteVar>(), address, 0L.toCPointer<ByteVar>(), usercontext.rawAddress.toCPointer<ByteVar>(), options)
 
-public actual fun symSearchW(hprocess: Handle, baseofdll: ULong, index: UInt, symtag: UInt, mask: Pcwstr, address: ULong, enumsymbolscallback: PsymEnumeratesymbolsCallbackw, usercontext: ConstPtr<CVoid>, options: UInt): Bool =
+public actual fun symSearchW(hprocess: Handle, baseofdll: ULong, index: UInt, symtag: UInt, mask: Pcwstr, address: ULong, enumsymbolscallback: PsymEnumeratesymbolsCallbackw, usercontext: ConstPtr, options: UInt): Bool =
     windowssysWindowsWin32SystemDiagnosticsDebugSymSearchW(hprocess.rawAddress.toCPointer<ByteVar>(), baseofdll, index, symtag, mask.rawAddress.toCPointer<ByteVar>(), address, 0L.toCPointer<ByteVar>(), usercontext.rawAddress.toCPointer<ByteVar>(), options)
 
-public actual fun symSetContext(hprocess: Handle, stackframe: ConstPtr<ImagehlpStackFrame>, context: ConstPtr<CVoid>): Bool =
+public actual fun symSetContext(hprocess: Handle, stackframe: ConstPtr, context: ConstPtr): Bool =
     windowssysWindowsWin32SystemDiagnosticsDebugSymSetContext(hprocess.rawAddress.toCPointer<ByteVar>(), stackframe.rawAddress.toCPointer<ByteVar>(), context.rawAddress.toCPointer<ByteVar>())
 
 public actual fun symSetExtendedOption(option: ImagehlpExtendedOptions, value: Bool): Bool =
@@ -1119,10 +1115,10 @@ public actual fun symSrvDeltaName(hprocess: Handle, sympath: Pcstr, type: Pcstr,
 public actual fun symSrvDeltaNameW(hprocess: Handle, sympath: Pcwstr, type: Pcwstr, file1: Pcwstr, file2: Pcwstr): Pcwstr =
     ConstPtr(windowssysWindowsWin32SystemDiagnosticsDebugSymSrvDeltaNameW(hprocess.rawAddress.toCPointer<ByteVar>(), sympath.rawAddress.toCPointer<ByteVar>(), type.rawAddress.toCPointer<ByteVar>(), file1.rawAddress.toCPointer<ByteVar>(), file2.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun symSrvGetFileIndexInfo(file: Pcstr, info: MutPtr<SymsrvIndexInfo>, flags: UInt): Bool =
+public actual fun symSrvGetFileIndexInfo(file: Pcstr, info: MutPtr, flags: UInt): Bool =
     windowssysWindowsWin32SystemDiagnosticsDebugSymSrvGetFileIndexInfo(file.rawAddress.toCPointer<ByteVar>(), info.rawAddress.toCPointer<ByteVar>(), flags)
 
-public actual fun symSrvGetFileIndexInfoW(file: Pcwstr, info: MutPtr<SymsrvIndexInfow>, flags: UInt): Bool =
+public actual fun symSrvGetFileIndexInfoW(file: Pcwstr, info: MutPtr, flags: UInt): Bool =
     windowssysWindowsWin32SystemDiagnosticsDebugSymSrvGetFileIndexInfoW(file.rawAddress.toCPointer<ByteVar>(), info.rawAddress.toCPointer<ByteVar>(), flags)
 
 public actual fun symSrvGetFileIndexString(hprocess: Handle, srvpath: Pcstr, file: Pcstr, index: Pstr, size: ULong, flags: UInt): Bool =
@@ -1131,10 +1127,10 @@ public actual fun symSrvGetFileIndexString(hprocess: Handle, srvpath: Pcstr, fil
 public actual fun symSrvGetFileIndexStringW(hprocess: Handle, srvpath: Pcwstr, file: Pcwstr, index: Pwstr, size: ULong, flags: UInt): Bool =
     windowssysWindowsWin32SystemDiagnosticsDebugSymSrvGetFileIndexStringW(hprocess.rawAddress.toCPointer<ByteVar>(), srvpath.rawAddress.toCPointer<ByteVar>(), file.rawAddress.toCPointer<ByteVar>(), index.rawAddress.toCPointer<ByteVar>(), size, flags)
 
-public actual fun symSrvGetFileIndexes(file: Pcstr, id: MutPtr<Guid>, val1: MutPtr<UInt>, val2: MutPtr<UInt>, flags: UInt): Bool =
+public actual fun symSrvGetFileIndexes(file: Pcstr, id: MutPtr, val1: MutPtr, val2: MutPtr, flags: UInt): Bool =
     windowssysWindowsWin32SystemDiagnosticsDebugSymSrvGetFileIndexes(file.rawAddress.toCPointer<ByteVar>(), id.rawAddress.toCPointer<ByteVar>(), val1.rawAddress.toCPointer<ByteVar>(), val2.rawAddress.toCPointer<ByteVar>(), flags)
 
-public actual fun symSrvGetFileIndexesW(file: Pcwstr, id: MutPtr<Guid>, val1: MutPtr<UInt>, val2: MutPtr<UInt>, flags: UInt): Bool =
+public actual fun symSrvGetFileIndexesW(file: Pcwstr, id: MutPtr, val1: MutPtr, val2: MutPtr, flags: UInt): Bool =
     windowssysWindowsWin32SystemDiagnosticsDebugSymSrvGetFileIndexesW(file.rawAddress.toCPointer<ByteVar>(), id.rawAddress.toCPointer<ByteVar>(), val1.rawAddress.toCPointer<ByteVar>(), val2.rawAddress.toCPointer<ByteVar>(), flags)
 
 public actual fun symSrvGetSupplement(hprocess: Handle, sympath: Pcstr, node: Pcstr, file: Pcstr): Pcstr =
@@ -1161,7 +1157,7 @@ public actual fun symSrvStoreSupplement(hprocess: Handle, srvpath: Pcstr, node: 
 public actual fun symSrvStoreSupplementW(hprocess: Handle, sympath: Pcwstr, node: Pcwstr, file: Pcwstr, flags: UInt): Pcwstr =
     ConstPtr(windowssysWindowsWin32SystemDiagnosticsDebugSymSrvStoreSupplementW(hprocess.rawAddress.toCPointer<ByteVar>(), sympath.rawAddress.toCPointer<ByteVar>(), node.rawAddress.toCPointer<ByteVar>(), file.rawAddress.toCPointer<ByteVar>(), flags)?.toLong() ?: 0L)
 
-public actual fun symUnDName64(sym: ConstPtr<ImagehlpSymbol64>, undecname: Pstr, undecnamelength: UInt): Bool =
+public actual fun symUnDName64(sym: ConstPtr, undecname: Pstr, undecnamelength: UInt): Bool =
     windowssysWindowsWin32SystemDiagnosticsDebugSymUnDName64(sym.rawAddress.toCPointer<ByteVar>(), undecname.rawAddress.toCPointer<ByteVar>(), undecnamelength)
 
 public actual fun symUnloadModule64(hprocess: Handle, baseofdll: ULong): Bool =
@@ -1171,7 +1167,7 @@ public actual fun terminateProcessOnMemoryExhaustion(failedallocationsize: ULong
     windowssysWindowsWin32SystemDiagnosticsDebugTerminateProcessOnMemoryExhaustion(failedallocationsize)
 }
 
-public actual fun touchFileTimes(filehandle: Handle, psystemtime: ConstPtr<Systemtime>): Bool =
+public actual fun touchFileTimes(filehandle: Handle, psystemtime: ConstPtr): Bool =
     windowssysWindowsWin32SystemDiagnosticsDebugTouchFileTimes(filehandle.rawAddress.toCPointer<ByteVar>(), psystemtime.rawAddress.toCPointer<ByteVar>())
 
 public actual fun unDecorateSymbolName(name: Pcstr, outputstring: Pstr, maxstringlength: UInt, flags: UInt): UInt =
@@ -1180,32 +1176,32 @@ public actual fun unDecorateSymbolName(name: Pcstr, outputstring: Pstr, maxstrin
 public actual fun unDecorateSymbolNameW(name: Pcwstr, outputstring: Pwstr, maxstringlength: UInt, flags: UInt): UInt =
     windowssysWindowsWin32SystemDiagnosticsDebugUnDecorateSymbolNameW(name.rawAddress.toCPointer<ByteVar>(), outputstring.rawAddress.toCPointer<ByteVar>(), maxstringlength, flags)
 
-public actual fun unMapAndLoad(loadedimage: MutPtr<LoadedImage>): Bool =
+public actual fun unMapAndLoad(loadedimage: MutPtr): Bool =
     windowssysWindowsWin32SystemDiagnosticsDebugUnMapAndLoad(loadedimage.rawAddress.toCPointer<ByteVar>())
 
-public actual fun unhandledExceptionFilter(exceptioninfo: ConstPtr<ExceptionPointers>): Int =
+public actual fun unhandledExceptionFilter(exceptioninfo: ConstPtr): Int =
     windowssysWindowsWin32SystemDiagnosticsDebugUnhandledExceptionFilter(exceptioninfo.rawAddress.toCPointer<ByteVar>())
 
-public actual fun updateDebugInfoFile(imagefilename: Pcstr, symbolpath: Pcstr, debugfilepath: Pstr, ntheaders: ConstPtr<ImageNtHeaders32>): Bool =
+public actual fun updateDebugInfoFile(imagefilename: Pcstr, symbolpath: Pcstr, debugfilepath: Pstr, ntheaders: ConstPtr): Bool =
     windowssysWindowsWin32SystemDiagnosticsDebugUpdateDebugInfoFile(imagefilename.rawAddress.toCPointer<ByteVar>(), symbolpath.rawAddress.toCPointer<ByteVar>(), debugfilepath.rawAddress.toCPointer<ByteVar>(), ntheaders.rawAddress.toCPointer<ByteVar>())
 
-public actual fun updateDebugInfoFileEx(imagefilename: Pcstr, symbolpath: Pcstr, debugfilepath: Pstr, ntheaders: ConstPtr<ImageNtHeaders32>, oldchecksum: UInt): Bool =
+public actual fun updateDebugInfoFileEx(imagefilename: Pcstr, symbolpath: Pcstr, debugfilepath: Pstr, ntheaders: ConstPtr, oldchecksum: UInt): Bool =
     windowssysWindowsWin32SystemDiagnosticsDebugUpdateDebugInfoFileEx(imagefilename.rawAddress.toCPointer<ByteVar>(), symbolpath.rawAddress.toCPointer<ByteVar>(), debugfilepath.rawAddress.toCPointer<ByteVar>(), ntheaders.rawAddress.toCPointer<ByteVar>(), oldchecksum)
 
-public actual fun waitForDebugEvent(lpdebugevent: MutPtr<DebugEvent>, dwmilliseconds: UInt): Bool =
+public actual fun waitForDebugEvent(lpdebugevent: MutPtr, dwmilliseconds: UInt): Bool =
     windowssysWindowsWin32SystemDiagnosticsDebugWaitForDebugEvent(lpdebugevent.rawAddress.toCPointer<ByteVar>(), dwmilliseconds)
 
-public actual fun waitForDebugEventEx(lpdebugevent: MutPtr<DebugEvent>, dwmilliseconds: UInt): Bool =
+public actual fun waitForDebugEventEx(lpdebugevent: MutPtr, dwmilliseconds: UInt): Bool =
     windowssysWindowsWin32SystemDiagnosticsDebugWaitForDebugEventEx(lpdebugevent.rawAddress.toCPointer<ByteVar>(), dwmilliseconds)
 
-public actual fun wow64GetThreadContext(hthread: Handle, lpcontext: MutPtr<Wow64Context>): Bool =
+public actual fun wow64GetThreadContext(hthread: Handle, lpcontext: MutPtr): Bool =
     windowssysWindowsWin32SystemDiagnosticsDebugWow64GetThreadContext(hthread.rawAddress.toCPointer<ByteVar>(), lpcontext.rawAddress.toCPointer<ByteVar>())
 
-public actual fun wow64GetThreadSelectorEntry(hthread: Handle, dwselector: UInt, lpselectorentry: MutPtr<Wow64LdtEntry>): Bool =
+public actual fun wow64GetThreadSelectorEntry(hthread: Handle, dwselector: UInt, lpselectorentry: MutPtr): Bool =
     windowssysWindowsWin32SystemDiagnosticsDebugWow64GetThreadSelectorEntry(hthread.rawAddress.toCPointer<ByteVar>(), dwselector, lpselectorentry.rawAddress.toCPointer<ByteVar>())
 
-public actual fun wow64SetThreadContext(hthread: Handle, lpcontext: ConstPtr<Wow64Context>): Bool =
+public actual fun wow64SetThreadContext(hthread: Handle, lpcontext: ConstPtr): Bool =
     windowssysWindowsWin32SystemDiagnosticsDebugWow64SetThreadContext(hthread.rawAddress.toCPointer<ByteVar>(), lpcontext.rawAddress.toCPointer<ByteVar>())
 
-public actual fun writeProcessMemory(hprocess: Handle, lpbaseaddress: ConstPtr<CVoid>, lpbuffer: ConstPtr<CVoid>, nsize: ULong, lpnumberofbyteswritten: MutPtr<ULong>): Bool =
+public actual fun writeProcessMemory(hprocess: Handle, lpbaseaddress: ConstPtr, lpbuffer: ConstPtr, nsize: ULong, lpnumberofbyteswritten: MutPtr): Bool =
     windowssysWindowsWin32SystemDiagnosticsDebugWriteProcessMemory(hprocess.rawAddress.toCPointer<ByteVar>(), lpbaseaddress.rawAddress.toCPointer<ByteVar>(), lpbuffer.rawAddress.toCPointer<ByteVar>(), nsize, lpnumberofbyteswritten.rawAddress.toCPointer<ByteVar>())

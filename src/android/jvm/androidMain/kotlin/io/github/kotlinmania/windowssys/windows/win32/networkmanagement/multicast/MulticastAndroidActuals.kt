@@ -36,20 +36,20 @@ public actual fun mcastApiCleanup() {
     WindowsWin32NetworkmanagementMulticastJniBridge.windowssysWindowsWin32NetworkmanagementMulticastMcastApiCleanup()
 }
 
-public actual fun mcastApiStartup(version: MutPtr<UInt>): UInt =
+public actual fun mcastApiStartup(version: MutPtr): UInt =
     WindowsWin32NetworkmanagementMulticastJniBridge.windowssysWindowsWin32NetworkmanagementMulticastMcastApiStartup(version.rawAddress).toUInt()
 
-public actual fun mcastEnumerateScopes(addrfamily: UShort, requery: Bool, pscopelist: MutPtr<McastScopeEntry>, pscopelen: MutPtr<UInt>, pscopecount: MutPtr<UInt>): UInt =
+public actual fun mcastEnumerateScopes(addrfamily: UShort, requery: Bool, pscopelist: MutPtr, pscopelen: MutPtr, pscopecount: MutPtr): UInt =
     WindowsWin32NetworkmanagementMulticastJniBridge.windowssysWindowsWin32NetworkmanagementMulticastMcastEnumerateScopes(addrfamily.toShort(), requery, pscopelist.rawAddress, pscopelen.rawAddress, pscopecount.rawAddress).toUInt()
 
-public actual fun mcastGenUID(prequestid: MutPtr<McastClientUid>): UInt =
+public actual fun mcastGenUID(prequestid: MutPtr): UInt =
     WindowsWin32NetworkmanagementMulticastJniBridge.windowssysWindowsWin32NetworkmanagementMulticastMcastGenUID(prequestid.rawAddress).toUInt()
 
-public actual fun mcastReleaseAddress(addrfamily: UShort, prequestid: MutPtr<McastClientUid>, preleaserequest: MutPtr<McastLeaseRequest>): UInt =
+public actual fun mcastReleaseAddress(addrfamily: UShort, prequestid: MutPtr, preleaserequest: MutPtr): UInt =
     WindowsWin32NetworkmanagementMulticastJniBridge.windowssysWindowsWin32NetworkmanagementMulticastMcastReleaseAddress(addrfamily.toShort(), prequestid.rawAddress, preleaserequest.rawAddress).toUInt()
 
-public actual fun mcastRenewAddress(addrfamily: UShort, prequestid: MutPtr<McastClientUid>, prenewrequest: MutPtr<McastLeaseRequest>, prenewresponse: MutPtr<McastLeaseResponse>): UInt =
+public actual fun mcastRenewAddress(addrfamily: UShort, prequestid: MutPtr, prenewrequest: MutPtr, prenewresponse: MutPtr): UInt =
     WindowsWin32NetworkmanagementMulticastJniBridge.windowssysWindowsWin32NetworkmanagementMulticastMcastRenewAddress(addrfamily.toShort(), prequestid.rawAddress, prenewrequest.rawAddress, prenewresponse.rawAddress).toUInt()
 
-public actual fun mcastRequestAddress(addrfamily: UShort, prequestid: MutPtr<McastClientUid>, pscopectx: MutPtr<McastScopeCtx>, paddrrequest: MutPtr<McastLeaseRequest>, paddrresponse: MutPtr<McastLeaseResponse>): UInt =
+public actual fun mcastRequestAddress(addrfamily: UShort, prequestid: MutPtr, pscopectx: MutPtr, paddrrequest: MutPtr, paddrresponse: MutPtr): UInt =
     WindowsWin32NetworkmanagementMulticastJniBridge.windowssysWindowsWin32NetworkmanagementMulticastMcastRequestAddress(addrfamily.toShort(), prequestid.rawAddress, pscopectx.rawAddress, paddrrequest.rawAddress, paddrresponse.rawAddress).toUInt()

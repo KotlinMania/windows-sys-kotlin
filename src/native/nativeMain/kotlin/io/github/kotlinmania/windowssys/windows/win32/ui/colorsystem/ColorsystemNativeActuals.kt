@@ -2,7 +2,6 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.ui.colorsystem
 
-import io.github.kotlinmania.rustlang.core.ffi.CVoid
 import io.github.kotlinmania.rustlang.core.ptr.ConstPtr
 import io.github.kotlinmania.rustlang.core.ptr.MutPtr
 import io.github.kotlinmania.windowssys.core.Bool
@@ -16,7 +15,6 @@ import io.github.kotlinmania.windowssys.windows.win32.foundation.Lparam
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Luid
 import io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.Hdc
 import io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.Hpalette
-import io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.Rgbtriple
 import io.github.kotlinmania.windowssys.windows.win32.ui.colorsystem.cinterop.windowssysWindowsWin32UiColorsystemAssociateColorProfileWithDeviceA
 import io.github.kotlinmania.windowssys.windows.win32.ui.colorsystem.cinterop.windowssysWindowsWin32UiColorsystemAssociateColorProfileWithDeviceW
 import io.github.kotlinmania.windowssys.windows.win32.ui.colorsystem.cinterop.windowssysWindowsWin32UiColorsystemCMCheckColors
@@ -142,43 +140,43 @@ public actual fun associateColorProfileWithDeviceA(pmachinename: Pcstr, pprofile
 public actual fun associateColorProfileWithDeviceW(pmachinename: Pcwstr, pprofilename: Pcwstr, pdevicename: Pcwstr): Bool =
     windowssysWindowsWin32UiColorsystemAssociateColorProfileWithDeviceW(pmachinename.rawAddress.toCPointer<ByteVar>(), pprofilename.rawAddress.toCPointer<ByteVar>(), pdevicename.rawAddress.toCPointer<ByteVar>())
 
-public actual fun cMCheckColors(hcmtransform: Long, lpainputcolors: ConstPtr<Color>, ncolors: UInt, ctinput: Colortype, lparesult: MutPtr<UByte>): Bool =
+public actual fun cMCheckColors(hcmtransform: Long, lpainputcolors: ConstPtr, ncolors: UInt, ctinput: Colortype, lparesult: MutPtr): Bool =
     windowssysWindowsWin32UiColorsystemCMCheckColors(hcmtransform, lpainputcolors.rawAddress.toCPointer<ByteVar>(), ncolors, ctinput, lparesult.rawAddress.toCPointer<ByteVar>())
 
-public actual fun cMCheckColorsInGamut(hcmtransform: Long, lpargbtriple: ConstPtr<Rgbtriple>, lparesult: MutPtr<UByte>, ncount: UInt): Bool =
+public actual fun cMCheckColorsInGamut(hcmtransform: Long, lpargbtriple: ConstPtr, lparesult: MutPtr, ncount: UInt): Bool =
     windowssysWindowsWin32UiColorsystemCMCheckColorsInGamut(hcmtransform, lpargbtriple.rawAddress.toCPointer<ByteVar>(), lparesult.rawAddress.toCPointer<ByteVar>(), ncount)
 
-public actual fun cMCheckRGBs(hcmtransform: Long, lpsrcbits: ConstPtr<CVoid>, bminput: Bmformat, dwwidth: UInt, dwheight: UInt, dwstride: UInt, lparesult: MutPtr<UByte>, pfncallback: Lpbmcallbackfn, ulcallbackdata: Lparam): Bool =
+public actual fun cMCheckRGBs(hcmtransform: Long, lpsrcbits: ConstPtr, bminput: Bmformat, dwwidth: UInt, dwheight: UInt, dwstride: UInt, lparesult: MutPtr, pfncallback: Lpbmcallbackfn, ulcallbackdata: Lparam): Bool =
     windowssysWindowsWin32UiColorsystemCMCheckRGBs(hcmtransform, lpsrcbits.rawAddress.toCPointer<ByteVar>(), bminput, dwwidth, dwheight, dwstride, lparesult.rawAddress.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>(), ulcallbackdata)
 
-public actual fun cMConvertColorNameToIndex(hprofile: Long, pacolorname: ConstPtr<ConstPtr<Byte>>, paindex: MutPtr<UInt>, dwcount: UInt): Bool =
+public actual fun cMConvertColorNameToIndex(hprofile: Long, pacolorname: ConstPtr, paindex: MutPtr, dwcount: UInt): Bool =
     windowssysWindowsWin32UiColorsystemCMConvertColorNameToIndex(hprofile, pacolorname.rawAddress.toCPointer<ByteVar>(), paindex.rawAddress.toCPointer<ByteVar>(), dwcount)
 
-public actual fun cMConvertIndexToColorName(hprofile: Long, paindex: ConstPtr<UInt>, pacolorname: MutPtr<MutPtr<Byte>>, dwcount: UInt): Bool =
+public actual fun cMConvertIndexToColorName(hprofile: Long, paindex: ConstPtr, pacolorname: MutPtr, dwcount: UInt): Bool =
     windowssysWindowsWin32UiColorsystemCMConvertIndexToColorName(hprofile, paindex.rawAddress.toCPointer<ByteVar>(), pacolorname.rawAddress.toCPointer<ByteVar>(), dwcount)
 
-public actual fun cMCreateDeviceLinkProfile(pahprofiles: ConstPtr<Long>, nprofiles: UInt, padwintents: ConstPtr<UInt>, nintents: UInt, dwflags: UInt, lpprofiledata: MutPtr<MutPtr<UByte>>): Bool =
+public actual fun cMCreateDeviceLinkProfile(pahprofiles: ConstPtr, nprofiles: UInt, padwintents: ConstPtr, nintents: UInt, dwflags: UInt, lpprofiledata: MutPtr): Bool =
     windowssysWindowsWin32UiColorsystemCMCreateDeviceLinkProfile(pahprofiles.rawAddress.toCPointer<ByteVar>(), nprofiles, padwintents.rawAddress.toCPointer<ByteVar>(), nintents, dwflags, lpprofiledata.rawAddress.toCPointer<ByteVar>())
 
-public actual fun cMCreateMultiProfileTransform(pahprofiles: ConstPtr<Long>, nprofiles: UInt, padwintents: ConstPtr<UInt>, nintents: UInt, dwflags: UInt): Long =
+public actual fun cMCreateMultiProfileTransform(pahprofiles: ConstPtr, nprofiles: UInt, padwintents: ConstPtr, nintents: UInt, dwflags: UInt): Long =
     windowssysWindowsWin32UiColorsystemCMCreateMultiProfileTransform(pahprofiles.rawAddress.toCPointer<ByteVar>(), nprofiles, padwintents.rawAddress.toCPointer<ByteVar>(), nintents, dwflags)
 
-public actual fun cMCreateProfile(lpcolorspace: MutPtr<Logcolorspacea>, lpprofiledata: MutPtr<MutPtr<CVoid>>): Bool =
+public actual fun cMCreateProfile(lpcolorspace: MutPtr, lpprofiledata: MutPtr): Bool =
     windowssysWindowsWin32UiColorsystemCMCreateProfile(lpcolorspace.rawAddress.toCPointer<ByteVar>(), lpprofiledata.rawAddress.toCPointer<ByteVar>())
 
-public actual fun cMCreateProfileW(lpcolorspace: MutPtr<Logcolorspacew>, lpprofiledata: MutPtr<MutPtr<CVoid>>): Bool =
+public actual fun cMCreateProfileW(lpcolorspace: MutPtr, lpprofiledata: MutPtr): Bool =
     windowssysWindowsWin32UiColorsystemCMCreateProfileW(lpcolorspace.rawAddress.toCPointer<ByteVar>(), lpprofiledata.rawAddress.toCPointer<ByteVar>())
 
-public actual fun cMCreateTransform(lpcolorspace: ConstPtr<Logcolorspacea>, lpdevcharacter: ConstPtr<CVoid>, lptargetdevcharacter: ConstPtr<CVoid>): Long =
+public actual fun cMCreateTransform(lpcolorspace: ConstPtr, lpdevcharacter: ConstPtr, lptargetdevcharacter: ConstPtr): Long =
     windowssysWindowsWin32UiColorsystemCMCreateTransform(lpcolorspace.rawAddress.toCPointer<ByteVar>(), lpdevcharacter.rawAddress.toCPointer<ByteVar>(), lptargetdevcharacter.rawAddress.toCPointer<ByteVar>())
 
-public actual fun cMCreateTransformExt(lpcolorspace: ConstPtr<Logcolorspacea>, lpdevcharacter: ConstPtr<CVoid>, lptargetdevcharacter: ConstPtr<CVoid>, dwflags: UInt): Long =
+public actual fun cMCreateTransformExt(lpcolorspace: ConstPtr, lpdevcharacter: ConstPtr, lptargetdevcharacter: ConstPtr, dwflags: UInt): Long =
     windowssysWindowsWin32UiColorsystemCMCreateTransformExt(lpcolorspace.rawAddress.toCPointer<ByteVar>(), lpdevcharacter.rawAddress.toCPointer<ByteVar>(), lptargetdevcharacter.rawAddress.toCPointer<ByteVar>(), dwflags)
 
-public actual fun cMCreateTransformExtW(lpcolorspace: ConstPtr<Logcolorspacew>, lpdevcharacter: ConstPtr<CVoid>, lptargetdevcharacter: ConstPtr<CVoid>, dwflags: UInt): Long =
+public actual fun cMCreateTransformExtW(lpcolorspace: ConstPtr, lpdevcharacter: ConstPtr, lptargetdevcharacter: ConstPtr, dwflags: UInt): Long =
     windowssysWindowsWin32UiColorsystemCMCreateTransformExtW(lpcolorspace.rawAddress.toCPointer<ByteVar>(), lpdevcharacter.rawAddress.toCPointer<ByteVar>(), lptargetdevcharacter.rawAddress.toCPointer<ByteVar>(), dwflags)
 
-public actual fun cMCreateTransformW(lpcolorspace: ConstPtr<Logcolorspacew>, lpdevcharacter: ConstPtr<CVoid>, lptargetdevcharacter: ConstPtr<CVoid>): Long =
+public actual fun cMCreateTransformW(lpcolorspace: ConstPtr, lpdevcharacter: ConstPtr, lptargetdevcharacter: ConstPtr): Long =
     windowssysWindowsWin32UiColorsystemCMCreateTransformW(lpcolorspace.rawAddress.toCPointer<ByteVar>(), lpdevcharacter.rawAddress.toCPointer<ByteVar>(), lptargetdevcharacter.rawAddress.toCPointer<ByteVar>())
 
 public actual fun cMDeleteTransform(hcmtransform: Long): Bool =
@@ -187,31 +185,31 @@ public actual fun cMDeleteTransform(hcmtransform: Long): Bool =
 public actual fun cMGetInfo(dwinfo: UInt): UInt =
     windowssysWindowsWin32UiColorsystemCMGetInfo(dwinfo)
 
-public actual fun cMGetNamedProfileInfo(hprofile: Long, pnamedprofileinfo: MutPtr<NamedProfileInfo>): Bool =
+public actual fun cMGetNamedProfileInfo(hprofile: Long, pnamedprofileinfo: MutPtr): Bool =
     windowssysWindowsWin32UiColorsystemCMGetNamedProfileInfo(hprofile, pnamedprofileinfo.rawAddress.toCPointer<ByteVar>())
 
-public actual fun cMIsProfileValid(hprofile: Long, lpbvalid: MutPtr<Bool>): Bool =
+public actual fun cMIsProfileValid(hprofile: Long, lpbvalid: MutPtr): Bool =
     windowssysWindowsWin32UiColorsystemCMIsProfileValid(hprofile, lpbvalid.rawAddress.toCPointer<ByteVar>())
 
-public actual fun cMTranslateColors(hcmtransform: Long, lpainputcolors: ConstPtr<Color>, ncolors: UInt, ctinput: Colortype, lpaoutputcolors: MutPtr<Color>, ctoutput: Colortype): Bool =
+public actual fun cMTranslateColors(hcmtransform: Long, lpainputcolors: ConstPtr, ncolors: UInt, ctinput: Colortype, lpaoutputcolors: MutPtr, ctoutput: Colortype): Bool =
     windowssysWindowsWin32UiColorsystemCMTranslateColors(hcmtransform, lpainputcolors.rawAddress.toCPointer<ByteVar>(), ncolors, ctinput, lpaoutputcolors.rawAddress.toCPointer<ByteVar>(), ctoutput)
 
-public actual fun cMTranslateRGB(hcmtransform: Long, colorref: Colorref, lpcolorref: MutPtr<UInt>, dwflags: UInt): Bool =
+public actual fun cMTranslateRGB(hcmtransform: Long, colorref: Colorref, lpcolorref: MutPtr, dwflags: UInt): Bool =
     windowssysWindowsWin32UiColorsystemCMTranslateRGB(hcmtransform, colorref, lpcolorref.rawAddress.toCPointer<ByteVar>(), dwflags)
 
-public actual fun cMTranslateRGBs(hcmtransform: Long, lpsrcbits: ConstPtr<CVoid>, bminput: Bmformat, dwwidth: UInt, dwheight: UInt, dwstride: UInt, lpdestbits: MutPtr<CVoid>, bmoutput: Bmformat, dwtranslatedirection: UInt): Bool =
+public actual fun cMTranslateRGBs(hcmtransform: Long, lpsrcbits: ConstPtr, bminput: Bmformat, dwwidth: UInt, dwheight: UInt, dwstride: UInt, lpdestbits: MutPtr, bmoutput: Bmformat, dwtranslatedirection: UInt): Bool =
     windowssysWindowsWin32UiColorsystemCMTranslateRGBs(hcmtransform, lpsrcbits.rawAddress.toCPointer<ByteVar>(), bminput, dwwidth, dwheight, dwstride, lpdestbits.rawAddress.toCPointer<ByteVar>(), bmoutput, dwtranslatedirection)
 
-public actual fun cMTranslateRGBsExt(hcmtransform: Long, lpsrcbits: ConstPtr<CVoid>, bminput: Bmformat, dwwidth: UInt, dwheight: UInt, dwinputstride: UInt, lpdestbits: MutPtr<CVoid>, bmoutput: Bmformat, dwoutputstride: UInt, lpfncallback: Lpbmcallbackfn, ulcallbackdata: Lparam): Bool =
+public actual fun cMTranslateRGBsExt(hcmtransform: Long, lpsrcbits: ConstPtr, bminput: Bmformat, dwwidth: UInt, dwheight: UInt, dwinputstride: UInt, lpdestbits: MutPtr, bmoutput: Bmformat, dwoutputstride: UInt, lpfncallback: Lpbmcallbackfn, ulcallbackdata: Lparam): Bool =
     windowssysWindowsWin32UiColorsystemCMTranslateRGBsExt(hcmtransform, lpsrcbits.rawAddress.toCPointer<ByteVar>(), bminput, dwwidth, dwheight, dwinputstride, lpdestbits.rawAddress.toCPointer<ByteVar>(), bmoutput, dwoutputstride, 0L.toCPointer<ByteVar>(), ulcallbackdata)
 
-public actual fun checkBitmapBits(hcolortransform: Long, psrcbits: ConstPtr<CVoid>, bminput: Bmformat, dwwidth: UInt, dwheight: UInt, dwstride: UInt, paresult: MutPtr<UByte>, pfncallback: Lpbmcallbackfn, lpcallbackdata: Lparam): Bool =
+public actual fun checkBitmapBits(hcolortransform: Long, psrcbits: ConstPtr, bminput: Bmformat, dwwidth: UInt, dwheight: UInt, dwstride: UInt, paresult: MutPtr, pfncallback: Lpbmcallbackfn, lpcallbackdata: Lparam): Bool =
     windowssysWindowsWin32UiColorsystemCheckBitmapBits(hcolortransform, psrcbits.rawAddress.toCPointer<ByteVar>(), bminput, dwwidth, dwheight, dwstride, paresult.rawAddress.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>(), lpcallbackdata)
 
-public actual fun checkColors(hcolortransform: Long, painputcolors: ConstPtr<Color>, ncolors: UInt, ctinput: Colortype, paresult: MutPtr<UByte>): Bool =
+public actual fun checkColors(hcolortransform: Long, painputcolors: ConstPtr, ncolors: UInt, ctinput: Colortype, paresult: MutPtr): Bool =
     windowssysWindowsWin32UiColorsystemCheckColors(hcolortransform, painputcolors.rawAddress.toCPointer<ByteVar>(), ncolors, ctinput, paresult.rawAddress.toCPointer<ByteVar>())
 
-public actual fun checkColorsInGamut(hdc: Hdc, lprgbtriple: ConstPtr<Rgbtriple>, dlpbuffer: MutPtr<CVoid>, ncount: UInt): Bool =
+public actual fun checkColorsInGamut(hdc: Hdc, lprgbtriple: ConstPtr, dlpbuffer: MutPtr, ncount: UInt): Bool =
     windowssysWindowsWin32UiColorsystemCheckColorsInGamut(hdc.rawAddress.toCPointer<ByteVar>(), lprgbtriple.rawAddress.toCPointer<ByteVar>(), dlpbuffer.rawAddress.toCPointer<ByteVar>(), ncount)
 
 public actual fun closeColorProfile(hprofile: Long): Bool =
@@ -226,13 +224,13 @@ public actual fun colorMatchToTarget(hdc: Hdc, hdctarget: Hdc, action: ColorMatc
 public actual fun colorProfileAddDisplayAssociation(scope: WcsProfileManagementScope, profilename: Pcwstr, targetadapterid: Luid, sourceid: UInt, setasdefault: Bool, associateasadvancedcolor: Bool): Hresult =
     0
 
-public actual fun colorProfileGetDisplayDefault(scope: WcsProfileManagementScope, targetadapterid: Luid, sourceid: UInt, profiletype: Colorprofiletype, profilesubtype: Colorprofilesubtype, profilename: MutPtr<Pwstr>): Hresult =
+public actual fun colorProfileGetDisplayDefault(scope: WcsProfileManagementScope, targetadapterid: Luid, sourceid: UInt, profiletype: Colorprofiletype, profilesubtype: Colorprofilesubtype, profilename: MutPtr): Hresult =
     0
 
-public actual fun colorProfileGetDisplayList(scope: WcsProfileManagementScope, targetadapterid: Luid, sourceid: UInt, profilelist: MutPtr<MutPtr<Pwstr>>, profilecount: MutPtr<UInt>): Hresult =
+public actual fun colorProfileGetDisplayList(scope: WcsProfileManagementScope, targetadapterid: Luid, sourceid: UInt, profilelist: MutPtr, profilecount: MutPtr): Hresult =
     0
 
-public actual fun colorProfileGetDisplayUserScope(targetadapterid: Luid, sourceid: UInt, scope: MutPtr<WcsProfileManagementScope>): Hresult =
+public actual fun colorProfileGetDisplayUserScope(targetadapterid: Luid, sourceid: UInt, scope: MutPtr): Hresult =
     0
 
 public actual fun colorProfileRemoveDisplayAssociation(scope: WcsProfileManagementScope, profilename: Pcwstr, targetadapterid: Luid, sourceid: UInt, dissociateadvancedcolor: Bool): Hresult =
@@ -241,34 +239,34 @@ public actual fun colorProfileRemoveDisplayAssociation(scope: WcsProfileManageme
 public actual fun colorProfileSetDisplayDefaultAssociation(scope: WcsProfileManagementScope, profilename: Pcwstr, profiletype: Colorprofiletype, profilesubtype: Colorprofilesubtype, targetadapterid: Luid, sourceid: UInt): Hresult =
     0
 
-public actual fun convertColorNameToIndex(hprofile: Long, pacolorname: ConstPtr<ConstPtr<Byte>>, paindex: MutPtr<UInt>, dwcount: UInt): Bool =
+public actual fun convertColorNameToIndex(hprofile: Long, pacolorname: ConstPtr, paindex: MutPtr, dwcount: UInt): Bool =
     windowssysWindowsWin32UiColorsystemConvertColorNameToIndex(hprofile, pacolorname.rawAddress.toCPointer<ByteVar>(), paindex.rawAddress.toCPointer<ByteVar>(), dwcount)
 
-public actual fun convertIndexToColorName(hprofile: Long, paindex: ConstPtr<UInt>, pacolorname: MutPtr<MutPtr<Byte>>, dwcount: UInt): Bool =
+public actual fun convertIndexToColorName(hprofile: Long, paindex: ConstPtr, pacolorname: MutPtr, dwcount: UInt): Bool =
     windowssysWindowsWin32UiColorsystemConvertIndexToColorName(hprofile, paindex.rawAddress.toCPointer<ByteVar>(), pacolorname.rawAddress.toCPointer<ByteVar>(), dwcount)
 
-public actual fun createColorSpaceA(lplcs: ConstPtr<Logcolorspacea>): Hcolorspace =
+public actual fun createColorSpaceA(lplcs: ConstPtr): Hcolorspace =
     MutPtr(windowssysWindowsWin32UiColorsystemCreateColorSpaceA(lplcs.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun createColorSpaceW(lplcs: ConstPtr<Logcolorspacew>): Hcolorspace =
+public actual fun createColorSpaceW(lplcs: ConstPtr): Hcolorspace =
     MutPtr(windowssysWindowsWin32UiColorsystemCreateColorSpaceW(lplcs.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun createColorTransformA(plogcolorspace: ConstPtr<Logcolorspacea>, hdestprofile: Long, htargetprofile: Long, dwflags: UInt): Long =
+public actual fun createColorTransformA(plogcolorspace: ConstPtr, hdestprofile: Long, htargetprofile: Long, dwflags: UInt): Long =
     windowssysWindowsWin32UiColorsystemCreateColorTransformA(plogcolorspace.rawAddress.toCPointer<ByteVar>(), hdestprofile, htargetprofile, dwflags)
 
-public actual fun createColorTransformW(plogcolorspace: ConstPtr<Logcolorspacew>, hdestprofile: Long, htargetprofile: Long, dwflags: UInt): Long =
+public actual fun createColorTransformW(plogcolorspace: ConstPtr, hdestprofile: Long, htargetprofile: Long, dwflags: UInt): Long =
     windowssysWindowsWin32UiColorsystemCreateColorTransformW(plogcolorspace.rawAddress.toCPointer<ByteVar>(), hdestprofile, htargetprofile, dwflags)
 
-public actual fun createDeviceLinkProfile(hprofile: ConstPtr<Long>, nprofiles: UInt, padwintent: ConstPtr<UInt>, nintents: UInt, dwflags: UInt, pprofiledata: MutPtr<MutPtr<UByte>>, indexpreferredcmm: UInt): Bool =
+public actual fun createDeviceLinkProfile(hprofile: ConstPtr, nprofiles: UInt, padwintent: ConstPtr, nintents: UInt, dwflags: UInt, pprofiledata: MutPtr, indexpreferredcmm: UInt): Bool =
     windowssysWindowsWin32UiColorsystemCreateDeviceLinkProfile(hprofile.rawAddress.toCPointer<ByteVar>(), nprofiles, padwintent.rawAddress.toCPointer<ByteVar>(), nintents, dwflags, pprofiledata.rawAddress.toCPointer<ByteVar>(), indexpreferredcmm)
 
-public actual fun createMultiProfileTransform(pahprofiles: ConstPtr<Long>, nprofiles: UInt, padwintent: ConstPtr<UInt>, nintents: UInt, dwflags: UInt, indexpreferredcmm: UInt): Long =
+public actual fun createMultiProfileTransform(pahprofiles: ConstPtr, nprofiles: UInt, padwintent: ConstPtr, nintents: UInt, dwflags: UInt, indexpreferredcmm: UInt): Long =
     windowssysWindowsWin32UiColorsystemCreateMultiProfileTransform(pahprofiles.rawAddress.toCPointer<ByteVar>(), nprofiles, padwintent.rawAddress.toCPointer<ByteVar>(), nintents, dwflags, indexpreferredcmm)
 
-public actual fun createProfileFromLogColorSpaceA(plogcolorspace: ConstPtr<Logcolorspacea>, pprofile: MutPtr<MutPtr<UByte>>): Bool =
+public actual fun createProfileFromLogColorSpaceA(plogcolorspace: ConstPtr, pprofile: MutPtr): Bool =
     windowssysWindowsWin32UiColorsystemCreateProfileFromLogColorSpaceA(plogcolorspace.rawAddress.toCPointer<ByteVar>(), pprofile.rawAddress.toCPointer<ByteVar>())
 
-public actual fun createProfileFromLogColorSpaceW(plogcolorspace: ConstPtr<Logcolorspacew>, pprofile: MutPtr<MutPtr<UByte>>): Bool =
+public actual fun createProfileFromLogColorSpaceW(plogcolorspace: ConstPtr, pprofile: MutPtr): Bool =
     windowssysWindowsWin32UiColorsystemCreateProfileFromLogColorSpaceW(plogcolorspace.rawAddress.toCPointer<ByteVar>(), pprofile.rawAddress.toCPointer<ByteVar>())
 
 public actual fun deleteColorSpace(hcs: Hcolorspace): Bool =
@@ -283,10 +281,10 @@ public actual fun disassociateColorProfileFromDeviceA(pmachinename: Pcstr, pprof
 public actual fun disassociateColorProfileFromDeviceW(pmachinename: Pcwstr, pprofilename: Pcwstr, pdevicename: Pcwstr): Bool =
     windowssysWindowsWin32UiColorsystemDisassociateColorProfileFromDeviceW(pmachinename.rawAddress.toCPointer<ByteVar>(), pprofilename.rawAddress.toCPointer<ByteVar>(), pdevicename.rawAddress.toCPointer<ByteVar>())
 
-public actual fun enumColorProfilesA(pmachinename: Pcstr, penumrecord: ConstPtr<Enumtypea>, penumerationbuffer: MutPtr<UByte>, pdwsizeofenumerationbuffer: MutPtr<UInt>, pnprofiles: MutPtr<UInt>): Bool =
+public actual fun enumColorProfilesA(pmachinename: Pcstr, penumrecord: ConstPtr, penumerationbuffer: MutPtr, pdwsizeofenumerationbuffer: MutPtr, pnprofiles: MutPtr): Bool =
     windowssysWindowsWin32UiColorsystemEnumColorProfilesA(pmachinename.rawAddress.toCPointer<ByteVar>(), penumrecord.rawAddress.toCPointer<ByteVar>(), penumerationbuffer.rawAddress.toCPointer<ByteVar>(), pdwsizeofenumerationbuffer.rawAddress.toCPointer<ByteVar>(), pnprofiles.rawAddress.toCPointer<ByteVar>())
 
-public actual fun enumColorProfilesW(pmachinename: Pcwstr, penumrecord: ConstPtr<Enumtypew>, penumerationbuffer: MutPtr<UByte>, pdwsizeofenumerationbuffer: MutPtr<UInt>, pnprofiles: MutPtr<UInt>): Bool =
+public actual fun enumColorProfilesW(pmachinename: Pcwstr, penumrecord: ConstPtr, penumerationbuffer: MutPtr, pdwsizeofenumerationbuffer: MutPtr, pnprofiles: MutPtr): Bool =
     windowssysWindowsWin32UiColorsystemEnumColorProfilesW(pmachinename.rawAddress.toCPointer<ByteVar>(), penumrecord.rawAddress.toCPointer<ByteVar>(), penumerationbuffer.rawAddress.toCPointer<ByteVar>(), pdwsizeofenumerationbuffer.rawAddress.toCPointer<ByteVar>(), pnprofiles.rawAddress.toCPointer<ByteVar>())
 
 public actual fun enumICMProfilesA(hdc: Hdc, proc: Icmenumproca, param2: Lparam): Int =
@@ -298,61 +296,61 @@ public actual fun enumICMProfilesW(hdc: Hdc, proc: Icmenumprocw, param2: Lparam)
 public actual fun getCMMInfo(hcolortransform: Long, param1: UInt): UInt =
     windowssysWindowsWin32UiColorsystemGetCMMInfo(hcolortransform, param1)
 
-public actual fun getColorDirectoryA(pmachinename: Pcstr, pbuffer: Pstr, pdwsize: MutPtr<UInt>): Bool =
+public actual fun getColorDirectoryA(pmachinename: Pcstr, pbuffer: Pstr, pdwsize: MutPtr): Bool =
     windowssysWindowsWin32UiColorsystemGetColorDirectoryA(pmachinename.rawAddress.toCPointer<ByteVar>(), pbuffer.rawAddress.toCPointer<ByteVar>(), pdwsize.rawAddress.toCPointer<ByteVar>())
 
-public actual fun getColorDirectoryW(pmachinename: Pcwstr, pbuffer: Pwstr, pdwsize: MutPtr<UInt>): Bool =
+public actual fun getColorDirectoryW(pmachinename: Pcwstr, pbuffer: Pwstr, pdwsize: MutPtr): Bool =
     windowssysWindowsWin32UiColorsystemGetColorDirectoryW(pmachinename.rawAddress.toCPointer<ByteVar>(), pbuffer.rawAddress.toCPointer<ByteVar>(), pdwsize.rawAddress.toCPointer<ByteVar>())
 
-public actual fun getColorProfileElement(hprofile: Long, tag: UInt, dwoffset: UInt, pcbelement: MutPtr<UInt>, pelement: MutPtr<CVoid>, pbreference: MutPtr<Bool>): Bool =
+public actual fun getColorProfileElement(hprofile: Long, tag: UInt, dwoffset: UInt, pcbelement: MutPtr, pelement: MutPtr, pbreference: MutPtr): Bool =
     windowssysWindowsWin32UiColorsystemGetColorProfileElement(hprofile, tag, dwoffset, pcbelement.rawAddress.toCPointer<ByteVar>(), pelement.rawAddress.toCPointer<ByteVar>(), pbreference.rawAddress.toCPointer<ByteVar>())
 
-public actual fun getColorProfileElementTag(hprofile: Long, dwindex: UInt, ptag: MutPtr<UInt>): Bool =
+public actual fun getColorProfileElementTag(hprofile: Long, dwindex: UInt, ptag: MutPtr): Bool =
     windowssysWindowsWin32UiColorsystemGetColorProfileElementTag(hprofile, dwindex, ptag.rawAddress.toCPointer<ByteVar>())
 
-public actual fun getColorProfileFromHandle(hprofile: Long, pprofile: MutPtr<UByte>, pcbprofile: MutPtr<UInt>): Bool =
+public actual fun getColorProfileFromHandle(hprofile: Long, pprofile: MutPtr, pcbprofile: MutPtr): Bool =
     windowssysWindowsWin32UiColorsystemGetColorProfileFromHandle(hprofile, pprofile.rawAddress.toCPointer<ByteVar>(), pcbprofile.rawAddress.toCPointer<ByteVar>())
 
-public actual fun getColorProfileHeader(hprofile: Long, pheader: MutPtr<Profileheader>): Bool =
+public actual fun getColorProfileHeader(hprofile: Long, pheader: MutPtr): Bool =
     windowssysWindowsWin32UiColorsystemGetColorProfileHeader(hprofile, pheader.rawAddress.toCPointer<ByteVar>())
 
 public actual fun getColorSpace(hdc: Hdc): Hcolorspace =
     MutPtr(windowssysWindowsWin32UiColorsystemGetColorSpace(hdc.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun getCountColorProfileElements(hprofile: Long, pnelementcount: MutPtr<UInt>): Bool =
+public actual fun getCountColorProfileElements(hprofile: Long, pnelementcount: MutPtr): Bool =
     windowssysWindowsWin32UiColorsystemGetCountColorProfileElements(hprofile, pnelementcount.rawAddress.toCPointer<ByteVar>())
 
-public actual fun getDeviceGammaRamp(hdc: Hdc, lpramp: MutPtr<CVoid>): Bool =
+public actual fun getDeviceGammaRamp(hdc: Hdc, lpramp: MutPtr): Bool =
     windowssysWindowsWin32UiColorsystemGetDeviceGammaRamp(hdc.rawAddress.toCPointer<ByteVar>(), lpramp.rawAddress.toCPointer<ByteVar>())
 
-public actual fun getICMProfileA(hdc: Hdc, pbufsize: MutPtr<UInt>, pszfilename: Pstr): Bool =
+public actual fun getICMProfileA(hdc: Hdc, pbufsize: MutPtr, pszfilename: Pstr): Bool =
     windowssysWindowsWin32UiColorsystemGetICMProfileA(hdc.rawAddress.toCPointer<ByteVar>(), pbufsize.rawAddress.toCPointer<ByteVar>(), pszfilename.rawAddress.toCPointer<ByteVar>())
 
-public actual fun getICMProfileW(hdc: Hdc, pbufsize: MutPtr<UInt>, pszfilename: Pwstr): Bool =
+public actual fun getICMProfileW(hdc: Hdc, pbufsize: MutPtr, pszfilename: Pwstr): Bool =
     windowssysWindowsWin32UiColorsystemGetICMProfileW(hdc.rawAddress.toCPointer<ByteVar>(), pbufsize.rawAddress.toCPointer<ByteVar>(), pszfilename.rawAddress.toCPointer<ByteVar>())
 
-public actual fun getLogColorSpaceA(hcolorspace: Hcolorspace, lpbuffer: MutPtr<Logcolorspacea>, nsize: UInt): Bool =
+public actual fun getLogColorSpaceA(hcolorspace: Hcolorspace, lpbuffer: MutPtr, nsize: UInt): Bool =
     windowssysWindowsWin32UiColorsystemGetLogColorSpaceA(hcolorspace.rawAddress.toCPointer<ByteVar>(), lpbuffer.rawAddress.toCPointer<ByteVar>(), nsize)
 
-public actual fun getLogColorSpaceW(hcolorspace: Hcolorspace, lpbuffer: MutPtr<Logcolorspacew>, nsize: UInt): Bool =
+public actual fun getLogColorSpaceW(hcolorspace: Hcolorspace, lpbuffer: MutPtr, nsize: UInt): Bool =
     windowssysWindowsWin32UiColorsystemGetLogColorSpaceW(hcolorspace.rawAddress.toCPointer<ByteVar>(), lpbuffer.rawAddress.toCPointer<ByteVar>(), nsize)
 
-public actual fun getNamedProfileInfo(hprofile: Long, pnamedprofileinfo: MutPtr<NamedProfileInfo>): Bool =
+public actual fun getNamedProfileInfo(hprofile: Long, pnamedprofileinfo: MutPtr): Bool =
     windowssysWindowsWin32UiColorsystemGetNamedProfileInfo(hprofile, pnamedprofileinfo.rawAddress.toCPointer<ByteVar>())
 
-public actual fun getPS2ColorRenderingDictionary(hprofile: Long, dwintent: UInt, pps2colorrenderingdictionary: MutPtr<UByte>, pcbps2colorrenderingdictionary: MutPtr<UInt>, pbbinary: MutPtr<Bool>): Bool =
+public actual fun getPS2ColorRenderingDictionary(hprofile: Long, dwintent: UInt, pps2colorrenderingdictionary: MutPtr, pcbps2colorrenderingdictionary: MutPtr, pbbinary: MutPtr): Bool =
     windowssysWindowsWin32UiColorsystemGetPS2ColorRenderingDictionary(hprofile, dwintent, pps2colorrenderingdictionary.rawAddress.toCPointer<ByteVar>(), pcbps2colorrenderingdictionary.rawAddress.toCPointer<ByteVar>(), pbbinary.rawAddress.toCPointer<ByteVar>())
 
-public actual fun getPS2ColorRenderingIntent(hprofile: Long, dwintent: UInt, pbuffer: MutPtr<UByte>, pcbps2colorrenderingintent: MutPtr<UInt>): Bool =
+public actual fun getPS2ColorRenderingIntent(hprofile: Long, dwintent: UInt, pbuffer: MutPtr, pcbps2colorrenderingintent: MutPtr): Bool =
     windowssysWindowsWin32UiColorsystemGetPS2ColorRenderingIntent(hprofile, dwintent, pbuffer.rawAddress.toCPointer<ByteVar>(), pcbps2colorrenderingintent.rawAddress.toCPointer<ByteVar>())
 
-public actual fun getPS2ColorSpaceArray(hprofile: Long, dwintent: UInt, dwcsatype: UInt, pps2colorspacearray: MutPtr<UByte>, pcbps2colorspacearray: MutPtr<UInt>, pbbinary: MutPtr<Bool>): Bool =
+public actual fun getPS2ColorSpaceArray(hprofile: Long, dwintent: UInt, dwcsatype: UInt, pps2colorspacearray: MutPtr, pcbps2colorspacearray: MutPtr, pbbinary: MutPtr): Bool =
     windowssysWindowsWin32UiColorsystemGetPS2ColorSpaceArray(hprofile, dwintent, dwcsatype, pps2colorspacearray.rawAddress.toCPointer<ByteVar>(), pcbps2colorspacearray.rawAddress.toCPointer<ByteVar>(), pbbinary.rawAddress.toCPointer<ByteVar>())
 
-public actual fun getStandardColorSpaceProfileA(pmachinename: Pcstr, dwscs: UInt, pbuffer: Pstr, pcbsize: MutPtr<UInt>): Bool =
+public actual fun getStandardColorSpaceProfileA(pmachinename: Pcstr, dwscs: UInt, pbuffer: Pstr, pcbsize: MutPtr): Bool =
     windowssysWindowsWin32UiColorsystemGetStandardColorSpaceProfileA(pmachinename.rawAddress.toCPointer<ByteVar>(), dwscs, pbuffer.rawAddress.toCPointer<ByteVar>(), pcbsize.rawAddress.toCPointer<ByteVar>())
 
-public actual fun getStandardColorSpaceProfileW(pmachinename: Pcwstr, dwscs: UInt, pbuffer: Pwstr, pcbsize: MutPtr<UInt>): Bool =
+public actual fun getStandardColorSpaceProfileW(pmachinename: Pcwstr, dwscs: UInt, pbuffer: Pwstr, pcbsize: MutPtr): Bool =
     windowssysWindowsWin32UiColorsystemGetStandardColorSpaceProfileW(pmachinename.rawAddress.toCPointer<ByteVar>(), dwscs, pbuffer.rawAddress.toCPointer<ByteVar>(), pcbsize.rawAddress.toCPointer<ByteVar>())
 
 public actual fun installColorProfileA(pmachinename: Pcstr, pprofilename: Pcstr): Bool =
@@ -361,16 +359,16 @@ public actual fun installColorProfileA(pmachinename: Pcstr, pprofilename: Pcstr)
 public actual fun installColorProfileW(pmachinename: Pcwstr, pprofilename: Pcwstr): Bool =
     windowssysWindowsWin32UiColorsystemInstallColorProfileW(pmachinename.rawAddress.toCPointer<ByteVar>(), pprofilename.rawAddress.toCPointer<ByteVar>())
 
-public actual fun isColorProfileTagPresent(hprofile: Long, tag: UInt, pbpresent: MutPtr<Bool>): Bool =
+public actual fun isColorProfileTagPresent(hprofile: Long, tag: UInt, pbpresent: MutPtr): Bool =
     windowssysWindowsWin32UiColorsystemIsColorProfileTagPresent(hprofile, tag, pbpresent.rawAddress.toCPointer<ByteVar>())
 
-public actual fun isColorProfileValid(hprofile: Long, pbvalid: MutPtr<Bool>): Bool =
+public actual fun isColorProfileValid(hprofile: Long, pbvalid: MutPtr): Bool =
     windowssysWindowsWin32UiColorsystemIsColorProfileValid(hprofile, pbvalid.rawAddress.toCPointer<ByteVar>())
 
-public actual fun openColorProfileA(pprofile: ConstPtr<Profile>, dwdesiredaccess: UInt, dwsharemode: UInt, dwcreationmode: UInt): Long =
+public actual fun openColorProfileA(pprofile: ConstPtr, dwdesiredaccess: UInt, dwsharemode: UInt, dwcreationmode: UInt): Long =
     windowssysWindowsWin32UiColorsystemOpenColorProfileA(pprofile.rawAddress.toCPointer<ByteVar>(), dwdesiredaccess, dwsharemode, dwcreationmode)
 
-public actual fun openColorProfileW(pprofile: ConstPtr<Profile>, dwdesiredaccess: UInt, dwsharemode: UInt, dwcreationmode: UInt): Long =
+public actual fun openColorProfileW(pprofile: ConstPtr, dwdesiredaccess: UInt, dwsharemode: UInt, dwcreationmode: UInt): Long =
     windowssysWindowsWin32UiColorsystemOpenColorProfileW(pprofile.rawAddress.toCPointer<ByteVar>(), dwdesiredaccess, dwsharemode, dwcreationmode)
 
 public actual fun registerCMMA(pmachinename: Pcstr, cmmid: UInt, pcmmdll: Pcstr): Bool =
@@ -382,7 +380,7 @@ public actual fun registerCMMW(pmachinename: Pcwstr, cmmid: UInt, pcmmdll: Pcwst
 public actual fun selectCMM(dwcmmtype: UInt): Bool =
     windowssysWindowsWin32UiColorsystemSelectCMM(dwcmmtype)
 
-public actual fun setColorProfileElement(hprofile: Long, tag: UInt, dwoffset: UInt, pcbelement: ConstPtr<UInt>, pelement: ConstPtr<CVoid>): Bool =
+public actual fun setColorProfileElement(hprofile: Long, tag: UInt, dwoffset: UInt, pcbelement: ConstPtr, pelement: ConstPtr): Bool =
     windowssysWindowsWin32UiColorsystemSetColorProfileElement(hprofile, tag, dwoffset, pcbelement.rawAddress.toCPointer<ByteVar>(), pelement.rawAddress.toCPointer<ByteVar>())
 
 public actual fun setColorProfileElementReference(hprofile: Long, newtag: UInt, reftag: UInt): Bool =
@@ -391,13 +389,13 @@ public actual fun setColorProfileElementReference(hprofile: Long, newtag: UInt, 
 public actual fun setColorProfileElementSize(hprofile: Long, tagtype: UInt, pcbelement: UInt): Bool =
     windowssysWindowsWin32UiColorsystemSetColorProfileElementSize(hprofile, tagtype, pcbelement)
 
-public actual fun setColorProfileHeader(hprofile: Long, pheader: ConstPtr<Profileheader>): Bool =
+public actual fun setColorProfileHeader(hprofile: Long, pheader: ConstPtr): Bool =
     windowssysWindowsWin32UiColorsystemSetColorProfileHeader(hprofile, pheader.rawAddress.toCPointer<ByteVar>())
 
 public actual fun setColorSpace(hdc: Hdc, hcs: Hcolorspace): Hcolorspace =
     MutPtr(windowssysWindowsWin32UiColorsystemSetColorSpace(hdc.rawAddress.toCPointer<ByteVar>(), hcs.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun setDeviceGammaRamp(hdc: Hdc, lpramp: ConstPtr<CVoid>): Bool =
+public actual fun setDeviceGammaRamp(hdc: Hdc, lpramp: ConstPtr): Bool =
     windowssysWindowsWin32UiColorsystemSetDeviceGammaRamp(hdc.rawAddress.toCPointer<ByteVar>(), lpramp.rawAddress.toCPointer<ByteVar>())
 
 public actual fun setICMMode(hdc: Hdc, mode: IcmMode): Int =
@@ -415,16 +413,16 @@ public actual fun setStandardColorSpaceProfileA(pmachinename: Pcstr, dwprofileid
 public actual fun setStandardColorSpaceProfileW(pmachinename: Pcwstr, dwprofileid: UInt, pprofilename: Pcwstr): Bool =
     windowssysWindowsWin32UiColorsystemSetStandardColorSpaceProfileW(pmachinename.rawAddress.toCPointer<ByteVar>(), dwprofileid, pprofilename.rawAddress.toCPointer<ByteVar>())
 
-public actual fun setupColorMatchingA(pcms: MutPtr<Colormatchsetupa>): Bool =
+public actual fun setupColorMatchingA(pcms: MutPtr): Bool =
     windowssysWindowsWin32UiColorsystemSetupColorMatchingA(pcms.rawAddress.toCPointer<ByteVar>())
 
-public actual fun setupColorMatchingW(pcms: MutPtr<Colormatchsetupw>): Bool =
+public actual fun setupColorMatchingW(pcms: MutPtr): Bool =
     windowssysWindowsWin32UiColorsystemSetupColorMatchingW(pcms.rawAddress.toCPointer<ByteVar>())
 
-public actual fun translateBitmapBits(hcolortransform: Long, psrcbits: ConstPtr<CVoid>, bminput: Bmformat, dwwidth: UInt, dwheight: UInt, dwinputstride: UInt, pdestbits: MutPtr<CVoid>, bmoutput: Bmformat, dwoutputstride: UInt, pfncallback: Lpbmcallbackfn, ulcallbackdata: Lparam): Bool =
+public actual fun translateBitmapBits(hcolortransform: Long, psrcbits: ConstPtr, bminput: Bmformat, dwwidth: UInt, dwheight: UInt, dwinputstride: UInt, pdestbits: MutPtr, bmoutput: Bmformat, dwoutputstride: UInt, pfncallback: Lpbmcallbackfn, ulcallbackdata: Lparam): Bool =
     windowssysWindowsWin32UiColorsystemTranslateBitmapBits(hcolortransform, psrcbits.rawAddress.toCPointer<ByteVar>(), bminput, dwwidth, dwheight, dwinputstride, pdestbits.rawAddress.toCPointer<ByteVar>(), bmoutput, dwoutputstride, 0L.toCPointer<ByteVar>(), ulcallbackdata)
 
-public actual fun translateColors(hcolortransform: Long, painputcolors: ConstPtr<Color>, ncolors: UInt, ctinput: Colortype, paoutputcolors: MutPtr<Color>, ctoutput: Colortype): Bool =
+public actual fun translateColors(hcolortransform: Long, painputcolors: ConstPtr, ncolors: UInt, ctinput: Colortype, paoutputcolors: MutPtr, ctoutput: Colortype): Bool =
     windowssysWindowsWin32UiColorsystemTranslateColors(hcolortransform, painputcolors.rawAddress.toCPointer<ByteVar>(), ncolors, ctinput, paoutputcolors.rawAddress.toCPointer<ByteVar>(), ctoutput)
 
 public actual fun uninstallColorProfileA(pmachinename: Pcstr, pprofilename: Pcstr, bdelete: Bool): Bool =
@@ -448,7 +446,7 @@ public actual fun updateICMRegKeyW(reserved: UInt, lpszcmid: Pcwstr, lpszfilenam
 public actual fun wcsAssociateColorProfileWithDevice(scope: WcsProfileManagementScope, pprofilename: Pcwstr, pdevicename: Pcwstr): Bool =
     windowssysWindowsWin32UiColorsystemWcsAssociateColorProfileWithDevice(scope, pprofilename.rawAddress.toCPointer<ByteVar>(), pdevicename.rawAddress.toCPointer<ByteVar>())
 
-public actual fun wcsCheckColors(hcolortransform: Long, ncolors: UInt, ninputchannels: UInt, cdtinput: Colordatatype, cbinput: UInt, pinputdata: ConstPtr<CVoid>, paresult: MutPtr<UByte>): Bool =
+public actual fun wcsCheckColors(hcolortransform: Long, ncolors: UInt, ninputchannels: UInt, cdtinput: Colordatatype, cbinput: UInt, pinputdata: ConstPtr, paresult: MutPtr): Bool =
     windowssysWindowsWin32UiColorsystemWcsCheckColors(hcolortransform, ncolors, ninputchannels, cdtinput, cbinput, pinputdata.rawAddress.toCPointer<ByteVar>(), paresult.rawAddress.toCPointer<ByteVar>())
 
 public actual fun wcsCreateIccProfile(hwcsprofile: Long, dwoptions: UInt): Long =
@@ -457,31 +455,31 @@ public actual fun wcsCreateIccProfile(hwcsprofile: Long, dwoptions: UInt): Long 
 public actual fun wcsDisassociateColorProfileFromDevice(scope: WcsProfileManagementScope, pprofilename: Pcwstr, pdevicename: Pcwstr): Bool =
     windowssysWindowsWin32UiColorsystemWcsDisassociateColorProfileFromDevice(scope, pprofilename.rawAddress.toCPointer<ByteVar>(), pdevicename.rawAddress.toCPointer<ByteVar>())
 
-public actual fun wcsEnumColorProfiles(scope: WcsProfileManagementScope, penumrecord: ConstPtr<Enumtypew>, pbuffer: MutPtr<UByte>, dwsize: UInt, pnprofiles: MutPtr<UInt>): Bool =
+public actual fun wcsEnumColorProfiles(scope: WcsProfileManagementScope, penumrecord: ConstPtr, pbuffer: MutPtr, dwsize: UInt, pnprofiles: MutPtr): Bool =
     windowssysWindowsWin32UiColorsystemWcsEnumColorProfiles(scope, penumrecord.rawAddress.toCPointer<ByteVar>(), pbuffer.rawAddress.toCPointer<ByteVar>(), dwsize, pnprofiles.rawAddress.toCPointer<ByteVar>())
 
-public actual fun wcsEnumColorProfilesSize(scope: WcsProfileManagementScope, penumrecord: ConstPtr<Enumtypew>, pdwsize: MutPtr<UInt>): Bool =
+public actual fun wcsEnumColorProfilesSize(scope: WcsProfileManagementScope, penumrecord: ConstPtr, pdwsize: MutPtr): Bool =
     windowssysWindowsWin32UiColorsystemWcsEnumColorProfilesSize(scope, penumrecord.rawAddress.toCPointer<ByteVar>(), pdwsize.rawAddress.toCPointer<ByteVar>())
 
-public actual fun wcsGetCalibrationManagementState(pbisenabled: MutPtr<Bool>): Bool =
+public actual fun wcsGetCalibrationManagementState(pbisenabled: MutPtr): Bool =
     windowssysWindowsWin32UiColorsystemWcsGetCalibrationManagementState(pbisenabled.rawAddress.toCPointer<ByteVar>())
 
 public actual fun wcsGetDefaultColorProfile(scope: WcsProfileManagementScope, pdevicename: Pcwstr, cptcolorprofiletype: Colorprofiletype, cpstcolorprofilesubtype: Colorprofilesubtype, dwprofileid: UInt, cbprofilename: UInt, pprofilename: Pwstr): Bool =
     windowssysWindowsWin32UiColorsystemWcsGetDefaultColorProfile(scope, pdevicename.rawAddress.toCPointer<ByteVar>(), cptcolorprofiletype, cpstcolorprofilesubtype, dwprofileid, cbprofilename, pprofilename.rawAddress.toCPointer<ByteVar>())
 
-public actual fun wcsGetDefaultColorProfileSize(scope: WcsProfileManagementScope, pdevicename: Pcwstr, cptcolorprofiletype: Colorprofiletype, cpstcolorprofilesubtype: Colorprofilesubtype, dwprofileid: UInt, pcbprofilename: MutPtr<UInt>): Bool =
+public actual fun wcsGetDefaultColorProfileSize(scope: WcsProfileManagementScope, pdevicename: Pcwstr, cptcolorprofiletype: Colorprofiletype, cpstcolorprofilesubtype: Colorprofilesubtype, dwprofileid: UInt, pcbprofilename: MutPtr): Bool =
     windowssysWindowsWin32UiColorsystemWcsGetDefaultColorProfileSize(scope, pdevicename.rawAddress.toCPointer<ByteVar>(), cptcolorprofiletype, cpstcolorprofilesubtype, dwprofileid, pcbprofilename.rawAddress.toCPointer<ByteVar>())
 
-public actual fun wcsGetDefaultRenderingIntent(scope: WcsProfileManagementScope, pdwrenderingintent: MutPtr<UInt>): Bool =
+public actual fun wcsGetDefaultRenderingIntent(scope: WcsProfileManagementScope, pdwrenderingintent: MutPtr): Bool =
     windowssysWindowsWin32UiColorsystemWcsGetDefaultRenderingIntent(scope, pdwrenderingintent.rawAddress.toCPointer<ByteVar>())
 
-public actual fun wcsGetUsePerUserProfiles(pdevicename: Pcwstr, dwdeviceclass: UInt, puseperuserprofiles: MutPtr<Bool>): Bool =
+public actual fun wcsGetUsePerUserProfiles(pdevicename: Pcwstr, dwdeviceclass: UInt, puseperuserprofiles: MutPtr): Bool =
     windowssysWindowsWin32UiColorsystemWcsGetUsePerUserProfiles(pdevicename.rawAddress.toCPointer<ByteVar>(), dwdeviceclass, puseperuserprofiles.rawAddress.toCPointer<ByteVar>())
 
-public actual fun wcsOpenColorProfileA(pcdmpprofile: ConstPtr<Profile>, pcampprofile: ConstPtr<Profile>, pgmmpprofile: ConstPtr<Profile>, dwdesireaccess: UInt, dwsharemode: UInt, dwcreationmode: UInt, dwflags: UInt): Long =
+public actual fun wcsOpenColorProfileA(pcdmpprofile: ConstPtr, pcampprofile: ConstPtr, pgmmpprofile: ConstPtr, dwdesireaccess: UInt, dwsharemode: UInt, dwcreationmode: UInt, dwflags: UInt): Long =
     windowssysWindowsWin32UiColorsystemWcsOpenColorProfileA(pcdmpprofile.rawAddress.toCPointer<ByteVar>(), pcampprofile.rawAddress.toCPointer<ByteVar>(), pgmmpprofile.rawAddress.toCPointer<ByteVar>(), dwdesireaccess, dwsharemode, dwcreationmode, dwflags)
 
-public actual fun wcsOpenColorProfileW(pcdmpprofile: ConstPtr<Profile>, pcampprofile: ConstPtr<Profile>, pgmmpprofile: ConstPtr<Profile>, dwdesireaccess: UInt, dwsharemode: UInt, dwcreationmode: UInt, dwflags: UInt): Long =
+public actual fun wcsOpenColorProfileW(pcdmpprofile: ConstPtr, pcampprofile: ConstPtr, pgmmpprofile: ConstPtr, dwdesireaccess: UInt, dwsharemode: UInt, dwcreationmode: UInt, dwflags: UInt): Long =
     windowssysWindowsWin32UiColorsystemWcsOpenColorProfileW(pcdmpprofile.rawAddress.toCPointer<ByteVar>(), pcampprofile.rawAddress.toCPointer<ByteVar>(), pgmmpprofile.rawAddress.toCPointer<ByteVar>(), dwdesireaccess, dwsharemode, dwcreationmode, dwflags)
 
 public actual fun wcsSetCalibrationManagementState(bisenabled: Bool): Bool =
@@ -496,5 +494,5 @@ public actual fun wcsSetDefaultRenderingIntent(scope: WcsProfileManagementScope,
 public actual fun wcsSetUsePerUserProfiles(pdevicename: Pcwstr, dwdeviceclass: UInt, useperuserprofiles: Bool): Bool =
     windowssysWindowsWin32UiColorsystemWcsSetUsePerUserProfiles(pdevicename.rawAddress.toCPointer<ByteVar>(), dwdeviceclass, useperuserprofiles)
 
-public actual fun wcsTranslateColors(hcolortransform: Long, ncolors: UInt, ninputchannels: UInt, cdtinput: Colordatatype, cbinput: UInt, pinputdata: ConstPtr<CVoid>, noutputchannels: UInt, cdtoutput: Colordatatype, cboutput: UInt, poutputdata: MutPtr<CVoid>): Bool =
+public actual fun wcsTranslateColors(hcolortransform: Long, ncolors: UInt, ninputchannels: UInt, cdtinput: Colordatatype, cbinput: UInt, pinputdata: ConstPtr, noutputchannels: UInt, cdtoutput: Colordatatype, cboutput: UInt, poutputdata: MutPtr): Bool =
     windowssysWindowsWin32UiColorsystemWcsTranslateColors(hcolortransform, ncolors, ninputchannels, cdtinput, cbinput, pinputdata.rawAddress.toCPointer<ByteVar>(), noutputchannels, cdtoutput, cboutput, poutputdata.rawAddress.toCPointer<ByteVar>())

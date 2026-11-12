@@ -22,13 +22,13 @@ private external fun wasmWindowssysWindowsWin32StorageOfflinefilesOfflineFilesQu
 @JsFun("() => globalThis.__km_napi_windowssys.windowssysWindowsWin32StorageOfflinefilesOfflineFilesStart()")
 private external fun wasmWindowssysWindowsWin32StorageOfflinefilesOfflineFilesStart(): Int
 
-public actual fun offlineFilesEnable(benable: Bool, pbrebootrequired: MutPtr<Bool>): UInt =
+public actual fun offlineFilesEnable(benable: Bool, pbrebootrequired: MutPtr): UInt =
     if (windowsWin32StorageOfflinefilesNapiAvailable) wasmWindowssysWindowsWin32StorageOfflinefilesOfflineFilesEnable(benable, pbrebootrequired.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun offlineFilesQueryStatus(pbactive: MutPtr<Bool>, pbenabled: MutPtr<Bool>): UInt =
+public actual fun offlineFilesQueryStatus(pbactive: MutPtr, pbenabled: MutPtr): UInt =
     if (windowsWin32StorageOfflinefilesNapiAvailable) wasmWindowssysWindowsWin32StorageOfflinefilesOfflineFilesQueryStatus(pbactive.rawAddress.toString(), pbenabled.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun offlineFilesQueryStatusEx(pbactive: MutPtr<Bool>, pbenabled: MutPtr<Bool>, pbavailable: MutPtr<Bool>): UInt =
+public actual fun offlineFilesQueryStatusEx(pbactive: MutPtr, pbenabled: MutPtr, pbavailable: MutPtr): UInt =
     if (windowsWin32StorageOfflinefilesNapiAvailable) wasmWindowssysWindowsWin32StorageOfflinefilesOfflineFilesQueryStatusEx(pbactive.rawAddress.toString(), pbenabled.rawAddress.toString(), pbavailable.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun offlineFilesStart(): UInt =

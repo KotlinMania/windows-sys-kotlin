@@ -39,20 +39,20 @@ public actual fun mcastApiCleanup() {
     }
 }
 
-public actual fun mcastApiStartup(version: MutPtr<UInt>): UInt =
+public actual fun mcastApiStartup(version: MutPtr): UInt =
     if (windowsWin32NetworkmanagementMulticastNapiAvailable) wasmWindowssysWindowsWin32NetworkmanagementMulticastMcastApiStartup(version.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun mcastEnumerateScopes(addrfamily: UShort, requery: Bool, pscopelist: MutPtr<McastScopeEntry>, pscopelen: MutPtr<UInt>, pscopecount: MutPtr<UInt>): UInt =
+public actual fun mcastEnumerateScopes(addrfamily: UShort, requery: Bool, pscopelist: MutPtr, pscopelen: MutPtr, pscopecount: MutPtr): UInt =
     if (windowsWin32NetworkmanagementMulticastNapiAvailable) wasmWindowssysWindowsWin32NetworkmanagementMulticastMcastEnumerateScopes(addrfamily.toInt(), requery, pscopelist.rawAddress.toString(), pscopelen.rawAddress.toString(), pscopecount.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun mcastGenUID(prequestid: MutPtr<McastClientUid>): UInt =
+public actual fun mcastGenUID(prequestid: MutPtr): UInt =
     if (windowsWin32NetworkmanagementMulticastNapiAvailable) wasmWindowssysWindowsWin32NetworkmanagementMulticastMcastGenUID(prequestid.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun mcastReleaseAddress(addrfamily: UShort, prequestid: MutPtr<McastClientUid>, preleaserequest: MutPtr<McastLeaseRequest>): UInt =
+public actual fun mcastReleaseAddress(addrfamily: UShort, prequestid: MutPtr, preleaserequest: MutPtr): UInt =
     if (windowsWin32NetworkmanagementMulticastNapiAvailable) wasmWindowssysWindowsWin32NetworkmanagementMulticastMcastReleaseAddress(addrfamily.toInt(), prequestid.rawAddress.toString(), preleaserequest.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun mcastRenewAddress(addrfamily: UShort, prequestid: MutPtr<McastClientUid>, prenewrequest: MutPtr<McastLeaseRequest>, prenewresponse: MutPtr<McastLeaseResponse>): UInt =
+public actual fun mcastRenewAddress(addrfamily: UShort, prequestid: MutPtr, prenewrequest: MutPtr, prenewresponse: MutPtr): UInt =
     if (windowsWin32NetworkmanagementMulticastNapiAvailable) wasmWindowssysWindowsWin32NetworkmanagementMulticastMcastRenewAddress(addrfamily.toInt(), prequestid.rawAddress.toString(), prenewrequest.rawAddress.toString(), prenewresponse.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun mcastRequestAddress(addrfamily: UShort, prequestid: MutPtr<McastClientUid>, pscopectx: MutPtr<McastScopeCtx>, paddrrequest: MutPtr<McastLeaseRequest>, paddrresponse: MutPtr<McastLeaseResponse>): UInt =
+public actual fun mcastRequestAddress(addrfamily: UShort, prequestid: MutPtr, pscopectx: MutPtr, paddrrequest: MutPtr, paddrresponse: MutPtr): UInt =
     if (windowsWin32NetworkmanagementMulticastNapiAvailable) wasmWindowssysWindowsWin32NetworkmanagementMulticastMcastRequestAddress(addrfamily.toInt(), prequestid.rawAddress.toString(), pscopectx.rawAddress.toString(), paddrrequest.rawAddress.toString(), paddrresponse.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")

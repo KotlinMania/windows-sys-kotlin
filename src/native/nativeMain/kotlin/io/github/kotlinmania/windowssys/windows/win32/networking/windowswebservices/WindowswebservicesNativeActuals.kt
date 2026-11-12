@@ -2,15 +2,12 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.networking.windowswebservices
 
-import io.github.kotlinmania.rustlang.core.ffi.CVoid
 import io.github.kotlinmania.rustlang.core.ptr.ConstPtr
 import io.github.kotlinmania.rustlang.core.ptr.MutPtr
 import io.github.kotlinmania.windowssys.core.Bool
-import io.github.kotlinmania.windowssys.core.Guid
 import io.github.kotlinmania.windowssys.core.Hresult
 import io.github.kotlinmania.windowssys.core.Pcwstr
 import io.github.kotlinmania.windowssys.core.Pwstr
-import io.github.kotlinmania.windowssys.windows.win32.foundation.Filetime
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Hwnd
 import io.github.kotlinmania.windowssys.windows.win32.networking.windowswebservices.cinterop.windowssysWindowsWin32NetworkingWindowswebservicesWebAuthNAuthenticatorGetAssertion
 import io.github.kotlinmania.windowssys.windows.win32.networking.windowswebservices.cinterop.windowssysWindowsWin32NetworkingWindowswebservicesWebAuthNAuthenticatorMakeCredential
@@ -222,634 +219,634 @@ import kotlinx.cinterop.ByteVar
 import kotlinx.cinterop.toCPointer
 import kotlinx.cinterop.toLong
 
-public actual fun webAuthNAuthenticatorGetAssertion(hwnd: Hwnd, pwszrpid: Pcwstr, pwebauthnclientdata: ConstPtr<WebauthnClientData>, pwebauthngetassertionoptions: ConstPtr<WebauthnAuthenticatorGetAssertionOptions>, ppwebauthnassertion: MutPtr<MutPtr<WebauthnAssertion>>): Hresult =
+public actual fun webAuthNAuthenticatorGetAssertion(hwnd: Hwnd, pwszrpid: Pcwstr, pwebauthnclientdata: ConstPtr, pwebauthngetassertionoptions: ConstPtr, ppwebauthnassertion: MutPtr): Hresult =
     windowssysWindowsWin32NetworkingWindowswebservicesWebAuthNAuthenticatorGetAssertion(hwnd.rawAddress.toCPointer<ByteVar>(), pwszrpid.rawAddress.toCPointer<ByteVar>(), pwebauthnclientdata.rawAddress.toCPointer<ByteVar>(), pwebauthngetassertionoptions.rawAddress.toCPointer<ByteVar>(), ppwebauthnassertion.rawAddress.toCPointer<ByteVar>())
 
-public actual fun webAuthNAuthenticatorMakeCredential(hwnd: Hwnd, prpinformation: ConstPtr<WebauthnRpEntityInformation>, puserinformation: ConstPtr<WebauthnUserEntityInformation>, ppubkeycredparams: ConstPtr<WebauthnCoseCredentialParameters>, pwebauthnclientdata: ConstPtr<WebauthnClientData>, pwebauthnmakecredentialoptions: ConstPtr<WebauthnAuthenticatorMakeCredentialOptions>, ppwebauthncredentialattestation: MutPtr<MutPtr<WebauthnCredentialAttestation>>): Hresult =
+public actual fun webAuthNAuthenticatorMakeCredential(hwnd: Hwnd, prpinformation: ConstPtr, puserinformation: ConstPtr, ppubkeycredparams: ConstPtr, pwebauthnclientdata: ConstPtr, pwebauthnmakecredentialoptions: ConstPtr, ppwebauthncredentialattestation: MutPtr): Hresult =
     windowssysWindowsWin32NetworkingWindowswebservicesWebAuthNAuthenticatorMakeCredential(hwnd.rawAddress.toCPointer<ByteVar>(), prpinformation.rawAddress.toCPointer<ByteVar>(), puserinformation.rawAddress.toCPointer<ByteVar>(), ppubkeycredparams.rawAddress.toCPointer<ByteVar>(), pwebauthnclientdata.rawAddress.toCPointer<ByteVar>(), pwebauthnmakecredentialoptions.rawAddress.toCPointer<ByteVar>(), ppwebauthncredentialattestation.rawAddress.toCPointer<ByteVar>())
 
-public actual fun webAuthNCancelCurrentOperation(pcancellationid: ConstPtr<Guid>): Hresult =
+public actual fun webAuthNCancelCurrentOperation(pcancellationid: ConstPtr): Hresult =
     windowssysWindowsWin32NetworkingWindowswebservicesWebAuthNCancelCurrentOperation(pcancellationid.rawAddress.toCPointer<ByteVar>())
 
-public actual fun webAuthNDeletePlatformCredential(cbcredentialid: UInt, pbcredentialid: ConstPtr<UByte>): Hresult =
+public actual fun webAuthNDeletePlatformCredential(cbcredentialid: UInt, pbcredentialid: ConstPtr): Hresult =
     windowssysWindowsWin32NetworkingWindowswebservicesWebAuthNDeletePlatformCredential(cbcredentialid, pbcredentialid.rawAddress.toCPointer<ByteVar>())
 
-public actual fun webAuthNFreeAssertion(pwebauthnassertion: ConstPtr<WebauthnAssertion>) {
+public actual fun webAuthNFreeAssertion(pwebauthnassertion: ConstPtr) {
     windowssysWindowsWin32NetworkingWindowswebservicesWebAuthNFreeAssertion(pwebauthnassertion.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun webAuthNFreeCredentialAttestation(pwebauthncredentialattestation: ConstPtr<WebauthnCredentialAttestation>) {
+public actual fun webAuthNFreeCredentialAttestation(pwebauthncredentialattestation: ConstPtr) {
     windowssysWindowsWin32NetworkingWindowswebservicesWebAuthNFreeCredentialAttestation(pwebauthncredentialattestation.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun webAuthNFreePlatformCredentialList(pcredentialdetailslist: ConstPtr<WebauthnCredentialDetailsList>) {
+public actual fun webAuthNFreePlatformCredentialList(pcredentialdetailslist: ConstPtr) {
     windowssysWindowsWin32NetworkingWindowswebservicesWebAuthNFreePlatformCredentialList(pcredentialdetailslist.rawAddress.toCPointer<ByteVar>())
 }
 
 public actual fun webAuthNGetApiVersionNumber(): UInt =
     windowssysWindowsWin32NetworkingWindowswebservicesWebAuthNGetApiVersionNumber()
 
-public actual fun webAuthNGetCancellationId(pcancellationid: MutPtr<Guid>): Hresult =
+public actual fun webAuthNGetCancellationId(pcancellationid: MutPtr): Hresult =
     windowssysWindowsWin32NetworkingWindowswebservicesWebAuthNGetCancellationId(pcancellationid.rawAddress.toCPointer<ByteVar>())
 
 public actual fun webAuthNGetErrorName(hr: Hresult): Pcwstr =
     ConstPtr(windowssysWindowsWin32NetworkingWindowswebservicesWebAuthNGetErrorName(hr)?.toLong() ?: 0L)
 
-public actual fun webAuthNGetPlatformCredentialList(pgetcredentialsoptions: ConstPtr<WebauthnGetCredentialsOptions>, ppcredentialdetailslist: MutPtr<MutPtr<WebauthnCredentialDetailsList>>): Hresult =
+public actual fun webAuthNGetPlatformCredentialList(pgetcredentialsoptions: ConstPtr, ppcredentialdetailslist: MutPtr): Hresult =
     windowssysWindowsWin32NetworkingWindowswebservicesWebAuthNGetPlatformCredentialList(pgetcredentialsoptions.rawAddress.toCPointer<ByteVar>(), ppcredentialdetailslist.rawAddress.toCPointer<ByteVar>())
 
 public actual fun webAuthNGetW3CExceptionDOMError(hr: Hresult): Hresult =
     windowssysWindowsWin32NetworkingWindowswebservicesWebAuthNGetW3CExceptionDOMError(hr)
 
-public actual fun webAuthNIsUserVerifyingPlatformAuthenticatorAvailable(pbisuserverifyingplatformauthenticatoravailable: MutPtr<Bool>): Hresult =
+public actual fun webAuthNIsUserVerifyingPlatformAuthenticatorAvailable(pbisuserverifyingplatformauthenticatoravailable: MutPtr): Hresult =
     windowssysWindowsWin32NetworkingWindowswebservicesWebAuthNIsUserVerifyingPlatformAuthenticatorAvailable(pbisuserverifyingplatformauthenticatoravailable.rawAddress.toCPointer<ByteVar>())
 
-public actual fun wsAbandonCall(serviceproxy: ConstPtr<WsServiceProxy>, callid: UInt, error: ConstPtr<WsError>): Hresult =
+public actual fun wsAbandonCall(serviceproxy: ConstPtr, callid: UInt, error: ConstPtr): Hresult =
     windowssysWindowsWin32NetworkingWindowswebservicesWsAbandonCall(serviceproxy.rawAddress.toCPointer<ByteVar>(), callid, error.rawAddress.toCPointer<ByteVar>())
 
-public actual fun wsAbandonMessage(channel: ConstPtr<WsChannel>, message: ConstPtr<WsMessage>, error: ConstPtr<WsError>): Hresult =
+public actual fun wsAbandonMessage(channel: ConstPtr, message: ConstPtr, error: ConstPtr): Hresult =
     windowssysWindowsWin32NetworkingWindowswebservicesWsAbandonMessage(channel.rawAddress.toCPointer<ByteVar>(), message.rawAddress.toCPointer<ByteVar>(), error.rawAddress.toCPointer<ByteVar>())
 
-public actual fun wsAbortChannel(channel: ConstPtr<WsChannel>, error: ConstPtr<WsError>): Hresult =
+public actual fun wsAbortChannel(channel: ConstPtr, error: ConstPtr): Hresult =
     windowssysWindowsWin32NetworkingWindowswebservicesWsAbortChannel(channel.rawAddress.toCPointer<ByteVar>(), error.rawAddress.toCPointer<ByteVar>())
 
-public actual fun wsAbortListener(listener: ConstPtr<WsListener>, error: ConstPtr<WsError>): Hresult =
+public actual fun wsAbortListener(listener: ConstPtr, error: ConstPtr): Hresult =
     windowssysWindowsWin32NetworkingWindowswebservicesWsAbortListener(listener.rawAddress.toCPointer<ByteVar>(), error.rawAddress.toCPointer<ByteVar>())
 
-public actual fun wsAbortServiceHost(servicehost: ConstPtr<WsServiceHost>, error: ConstPtr<WsError>): Hresult =
+public actual fun wsAbortServiceHost(servicehost: ConstPtr, error: ConstPtr): Hresult =
     windowssysWindowsWin32NetworkingWindowswebservicesWsAbortServiceHost(servicehost.rawAddress.toCPointer<ByteVar>(), error.rawAddress.toCPointer<ByteVar>())
 
-public actual fun wsAbortServiceProxy(serviceproxy: ConstPtr<WsServiceProxy>, error: ConstPtr<WsError>): Hresult =
+public actual fun wsAbortServiceProxy(serviceproxy: ConstPtr, error: ConstPtr): Hresult =
     windowssysWindowsWin32NetworkingWindowswebservicesWsAbortServiceProxy(serviceproxy.rawAddress.toCPointer<ByteVar>(), error.rawAddress.toCPointer<ByteVar>())
 
-public actual fun wsAcceptChannel(listener: ConstPtr<WsListener>, channel: ConstPtr<WsChannel>, asynccontext: ConstPtr<WsAsyncContext>, error: ConstPtr<WsError>): Hresult =
+public actual fun wsAcceptChannel(listener: ConstPtr, channel: ConstPtr, asynccontext: ConstPtr, error: ConstPtr): Hresult =
     windowssysWindowsWin32NetworkingWindowswebservicesWsAcceptChannel(listener.rawAddress.toCPointer<ByteVar>(), channel.rawAddress.toCPointer<ByteVar>(), asynccontext.rawAddress.toCPointer<ByteVar>(), error.rawAddress.toCPointer<ByteVar>())
 
-public actual fun wsAddCustomHeader(message: ConstPtr<WsMessage>, headerdescription: ConstPtr<WsElementDescription>, writeoption: WsWriteOption, value: ConstPtr<CVoid>, valuesize: UInt, headerattributes: UInt, error: ConstPtr<WsError>): Hresult =
+public actual fun wsAddCustomHeader(message: ConstPtr, headerdescription: ConstPtr, writeoption: WsWriteOption, value: ConstPtr, valuesize: UInt, headerattributes: UInt, error: ConstPtr): Hresult =
     windowssysWindowsWin32NetworkingWindowswebservicesWsAddCustomHeader(message.rawAddress.toCPointer<ByteVar>(), headerdescription.rawAddress.toCPointer<ByteVar>(), writeoption, value.rawAddress.toCPointer<ByteVar>(), valuesize, headerattributes, error.rawAddress.toCPointer<ByteVar>())
 
-public actual fun wsAddErrorString(error: ConstPtr<WsError>, string: ConstPtr<WsString>): Hresult =
+public actual fun wsAddErrorString(error: ConstPtr, string: ConstPtr): Hresult =
     windowssysWindowsWin32NetworkingWindowswebservicesWsAddErrorString(error.rawAddress.toCPointer<ByteVar>(), string.rawAddress.toCPointer<ByteVar>())
 
-public actual fun wsAddMappedHeader(message: ConstPtr<WsMessage>, headername: ConstPtr<WsXmlString>, valuetype: WsType, writeoption: WsWriteOption, value: ConstPtr<CVoid>, valuesize: UInt, error: ConstPtr<WsError>): Hresult =
+public actual fun wsAddMappedHeader(message: ConstPtr, headername: ConstPtr, valuetype: WsType, writeoption: WsWriteOption, value: ConstPtr, valuesize: UInt, error: ConstPtr): Hresult =
     windowssysWindowsWin32NetworkingWindowswebservicesWsAddMappedHeader(message.rawAddress.toCPointer<ByteVar>(), headername.rawAddress.toCPointer<ByteVar>(), valuetype, writeoption, value.rawAddress.toCPointer<ByteVar>(), valuesize, error.rawAddress.toCPointer<ByteVar>())
 
-public actual fun wsAddressMessage(message: ConstPtr<WsMessage>, address: ConstPtr<WsEndpointAddress>, error: ConstPtr<WsError>): Hresult =
+public actual fun wsAddressMessage(message: ConstPtr, address: ConstPtr, error: ConstPtr): Hresult =
     windowssysWindowsWin32NetworkingWindowswebservicesWsAddressMessage(message.rawAddress.toCPointer<ByteVar>(), address.rawAddress.toCPointer<ByteVar>(), error.rawAddress.toCPointer<ByteVar>())
 
-public actual fun wsAlloc(heap: ConstPtr<WsHeap>, size: ULong, ptr: MutPtr<MutPtr<CVoid>>, error: ConstPtr<WsError>): Hresult =
+public actual fun wsAlloc(heap: ConstPtr, size: ULong, ptr: MutPtr, error: ConstPtr): Hresult =
     windowssysWindowsWin32NetworkingWindowswebservicesWsAlloc(heap.rawAddress.toCPointer<ByteVar>(), size, ptr.rawAddress.toCPointer<ByteVar>(), error.rawAddress.toCPointer<ByteVar>())
 
-public actual fun wsAsyncExecute(asyncstate: ConstPtr<WsAsyncState>, operation: WsAsyncFunction, callbackmodel: WsCallbackModel, callbackstate: ConstPtr<CVoid>, asynccontext: ConstPtr<WsAsyncContext>, error: ConstPtr<WsError>): Hresult =
+public actual fun wsAsyncExecute(asyncstate: ConstPtr, operation: WsAsyncFunction, callbackmodel: WsCallbackModel, callbackstate: ConstPtr, asynccontext: ConstPtr, error: ConstPtr): Hresult =
     windowssysWindowsWin32NetworkingWindowswebservicesWsAsyncExecute(asyncstate.rawAddress.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>(), callbackmodel, callbackstate.rawAddress.toCPointer<ByteVar>(), asynccontext.rawAddress.toCPointer<ByteVar>(), error.rawAddress.toCPointer<ByteVar>())
 
-public actual fun wsCall(serviceproxy: ConstPtr<WsServiceProxy>, operation: ConstPtr<WsOperationDescription>, arguments: ConstPtr<ConstPtr<CVoid>>, heap: ConstPtr<WsHeap>, callproperties: ConstPtr<WsCallProperty>, callpropertycount: UInt, asynccontext: ConstPtr<WsAsyncContext>, error: ConstPtr<WsError>): Hresult =
+public actual fun wsCall(serviceproxy: ConstPtr, operation: ConstPtr, arguments: ConstPtr, heap: ConstPtr, callproperties: ConstPtr, callpropertycount: UInt, asynccontext: ConstPtr, error: ConstPtr): Hresult =
     windowssysWindowsWin32NetworkingWindowswebservicesWsCall(serviceproxy.rawAddress.toCPointer<ByteVar>(), operation.rawAddress.toCPointer<ByteVar>(), arguments.rawAddress.toCPointer<ByteVar>(), heap.rawAddress.toCPointer<ByteVar>(), callproperties.rawAddress.toCPointer<ByteVar>(), callpropertycount, asynccontext.rawAddress.toCPointer<ByteVar>(), error.rawAddress.toCPointer<ByteVar>())
 
-public actual fun wsCheckMustUnderstandHeaders(message: ConstPtr<WsMessage>, error: ConstPtr<WsError>): Hresult =
+public actual fun wsCheckMustUnderstandHeaders(message: ConstPtr, error: ConstPtr): Hresult =
     windowssysWindowsWin32NetworkingWindowswebservicesWsCheckMustUnderstandHeaders(message.rawAddress.toCPointer<ByteVar>(), error.rawAddress.toCPointer<ByteVar>())
 
-public actual fun wsCloseChannel(channel: ConstPtr<WsChannel>, asynccontext: ConstPtr<WsAsyncContext>, error: ConstPtr<WsError>): Hresult =
+public actual fun wsCloseChannel(channel: ConstPtr, asynccontext: ConstPtr, error: ConstPtr): Hresult =
     windowssysWindowsWin32NetworkingWindowswebservicesWsCloseChannel(channel.rawAddress.toCPointer<ByteVar>(), asynccontext.rawAddress.toCPointer<ByteVar>(), error.rawAddress.toCPointer<ByteVar>())
 
-public actual fun wsCloseListener(listener: ConstPtr<WsListener>, asynccontext: ConstPtr<WsAsyncContext>, error: ConstPtr<WsError>): Hresult =
+public actual fun wsCloseListener(listener: ConstPtr, asynccontext: ConstPtr, error: ConstPtr): Hresult =
     windowssysWindowsWin32NetworkingWindowswebservicesWsCloseListener(listener.rawAddress.toCPointer<ByteVar>(), asynccontext.rawAddress.toCPointer<ByteVar>(), error.rawAddress.toCPointer<ByteVar>())
 
-public actual fun wsCloseServiceHost(servicehost: ConstPtr<WsServiceHost>, asynccontext: ConstPtr<WsAsyncContext>, error: ConstPtr<WsError>): Hresult =
+public actual fun wsCloseServiceHost(servicehost: ConstPtr, asynccontext: ConstPtr, error: ConstPtr): Hresult =
     windowssysWindowsWin32NetworkingWindowswebservicesWsCloseServiceHost(servicehost.rawAddress.toCPointer<ByteVar>(), asynccontext.rawAddress.toCPointer<ByteVar>(), error.rawAddress.toCPointer<ByteVar>())
 
-public actual fun wsCloseServiceProxy(serviceproxy: ConstPtr<WsServiceProxy>, asynccontext: ConstPtr<WsAsyncContext>, error: ConstPtr<WsError>): Hresult =
+public actual fun wsCloseServiceProxy(serviceproxy: ConstPtr, asynccontext: ConstPtr, error: ConstPtr): Hresult =
     windowssysWindowsWin32NetworkingWindowswebservicesWsCloseServiceProxy(serviceproxy.rawAddress.toCPointer<ByteVar>(), asynccontext.rawAddress.toCPointer<ByteVar>(), error.rawAddress.toCPointer<ByteVar>())
 
-public actual fun wsCombineUrl(baseurl: ConstPtr<WsString>, referenceurl: ConstPtr<WsString>, flags: UInt, heap: ConstPtr<WsHeap>, resulturl: MutPtr<WsString>, error: ConstPtr<WsError>): Hresult =
+public actual fun wsCombineUrl(baseurl: ConstPtr, referenceurl: ConstPtr, flags: UInt, heap: ConstPtr, resulturl: MutPtr, error: ConstPtr): Hresult =
     windowssysWindowsWin32NetworkingWindowswebservicesWsCombineUrl(baseurl.rawAddress.toCPointer<ByteVar>(), referenceurl.rawAddress.toCPointer<ByteVar>(), flags, heap.rawAddress.toCPointer<ByteVar>(), resulturl.rawAddress.toCPointer<ByteVar>(), error.rawAddress.toCPointer<ByteVar>())
 
-public actual fun wsCopyError(source: ConstPtr<WsError>, destination: ConstPtr<WsError>): Hresult =
+public actual fun wsCopyError(source: ConstPtr, destination: ConstPtr): Hresult =
     windowssysWindowsWin32NetworkingWindowswebservicesWsCopyError(source.rawAddress.toCPointer<ByteVar>(), destination.rawAddress.toCPointer<ByteVar>())
 
-public actual fun wsCopyNode(writer: ConstPtr<WsXmlWriter>, reader: ConstPtr<WsXmlReader>, error: ConstPtr<WsError>): Hresult =
+public actual fun wsCopyNode(writer: ConstPtr, reader: ConstPtr, error: ConstPtr): Hresult =
     windowssysWindowsWin32NetworkingWindowswebservicesWsCopyNode(writer.rawAddress.toCPointer<ByteVar>(), reader.rawAddress.toCPointer<ByteVar>(), error.rawAddress.toCPointer<ByteVar>())
 
-public actual fun wsCreateChannel(channeltype: WsChannelType, channelbinding: WsChannelBinding, properties: ConstPtr<WsChannelProperty>, propertycount: UInt, securitydescription: ConstPtr<WsSecurityDescription>, channel: MutPtr<MutPtr<WsChannel>>, error: ConstPtr<WsError>): Hresult =
+public actual fun wsCreateChannel(channeltype: WsChannelType, channelbinding: WsChannelBinding, properties: ConstPtr, propertycount: UInt, securitydescription: ConstPtr, channel: MutPtr, error: ConstPtr): Hresult =
     windowssysWindowsWin32NetworkingWindowswebservicesWsCreateChannel(channeltype, channelbinding, properties.rawAddress.toCPointer<ByteVar>(), propertycount, securitydescription.rawAddress.toCPointer<ByteVar>(), channel.rawAddress.toCPointer<ByteVar>(), error.rawAddress.toCPointer<ByteVar>())
 
-public actual fun wsCreateChannelForListener(listener: ConstPtr<WsListener>, properties: ConstPtr<WsChannelProperty>, propertycount: UInt, channel: MutPtr<MutPtr<WsChannel>>, error: ConstPtr<WsError>): Hresult =
+public actual fun wsCreateChannelForListener(listener: ConstPtr, properties: ConstPtr, propertycount: UInt, channel: MutPtr, error: ConstPtr): Hresult =
     windowssysWindowsWin32NetworkingWindowswebservicesWsCreateChannelForListener(listener.rawAddress.toCPointer<ByteVar>(), properties.rawAddress.toCPointer<ByteVar>(), propertycount, channel.rawAddress.toCPointer<ByteVar>(), error.rawAddress.toCPointer<ByteVar>())
 
-public actual fun wsCreateError(properties: ConstPtr<WsErrorProperty>, propertycount: UInt, error: MutPtr<MutPtr<WsError>>): Hresult =
+public actual fun wsCreateError(properties: ConstPtr, propertycount: UInt, error: MutPtr): Hresult =
     windowssysWindowsWin32NetworkingWindowswebservicesWsCreateError(properties.rawAddress.toCPointer<ByteVar>(), propertycount, error.rawAddress.toCPointer<ByteVar>())
 
-public actual fun wsCreateFaultFromError(error: ConstPtr<WsError>, faulterrorcode: Hresult, faultdisclosure: WsFaultDisclosure, heap: ConstPtr<WsHeap>, fault: MutPtr<WsFault>): Hresult =
+public actual fun wsCreateFaultFromError(error: ConstPtr, faulterrorcode: Hresult, faultdisclosure: WsFaultDisclosure, heap: ConstPtr, fault: MutPtr): Hresult =
     windowssysWindowsWin32NetworkingWindowswebservicesWsCreateFaultFromError(error.rawAddress.toCPointer<ByteVar>(), faulterrorcode, faultdisclosure, heap.rawAddress.toCPointer<ByteVar>(), fault.rawAddress.toCPointer<ByteVar>())
 
-public actual fun wsCreateHeap(maxsize: ULong, trimsize: ULong, properties: ConstPtr<WsHeapProperty>, propertycount: UInt, heap: MutPtr<MutPtr<WsHeap>>, error: ConstPtr<WsError>): Hresult =
+public actual fun wsCreateHeap(maxsize: ULong, trimsize: ULong, properties: ConstPtr, propertycount: UInt, heap: MutPtr, error: ConstPtr): Hresult =
     windowssysWindowsWin32NetworkingWindowswebservicesWsCreateHeap(maxsize, trimsize, properties.rawAddress.toCPointer<ByteVar>(), propertycount, heap.rawAddress.toCPointer<ByteVar>(), error.rawAddress.toCPointer<ByteVar>())
 
-public actual fun wsCreateListener(channeltype: WsChannelType, channelbinding: WsChannelBinding, properties: ConstPtr<WsListenerProperty>, propertycount: UInt, securitydescription: ConstPtr<WsSecurityDescription>, listener: MutPtr<MutPtr<WsListener>>, error: ConstPtr<WsError>): Hresult =
+public actual fun wsCreateListener(channeltype: WsChannelType, channelbinding: WsChannelBinding, properties: ConstPtr, propertycount: UInt, securitydescription: ConstPtr, listener: MutPtr, error: ConstPtr): Hresult =
     windowssysWindowsWin32NetworkingWindowswebservicesWsCreateListener(channeltype, channelbinding, properties.rawAddress.toCPointer<ByteVar>(), propertycount, securitydescription.rawAddress.toCPointer<ByteVar>(), listener.rawAddress.toCPointer<ByteVar>(), error.rawAddress.toCPointer<ByteVar>())
 
-public actual fun wsCreateMessage(envelopeversion: WsEnvelopeVersion, addressingversion: WsAddressingVersion, properties: ConstPtr<WsMessageProperty>, propertycount: UInt, message: MutPtr<MutPtr<WsMessage>>, error: ConstPtr<WsError>): Hresult =
+public actual fun wsCreateMessage(envelopeversion: WsEnvelopeVersion, addressingversion: WsAddressingVersion, properties: ConstPtr, propertycount: UInt, message: MutPtr, error: ConstPtr): Hresult =
     windowssysWindowsWin32NetworkingWindowswebservicesWsCreateMessage(envelopeversion, addressingversion, properties.rawAddress.toCPointer<ByteVar>(), propertycount, message.rawAddress.toCPointer<ByteVar>(), error.rawAddress.toCPointer<ByteVar>())
 
-public actual fun wsCreateMessageForChannel(channel: ConstPtr<WsChannel>, properties: ConstPtr<WsMessageProperty>, propertycount: UInt, message: MutPtr<MutPtr<WsMessage>>, error: ConstPtr<WsError>): Hresult =
+public actual fun wsCreateMessageForChannel(channel: ConstPtr, properties: ConstPtr, propertycount: UInt, message: MutPtr, error: ConstPtr): Hresult =
     windowssysWindowsWin32NetworkingWindowswebservicesWsCreateMessageForChannel(channel.rawAddress.toCPointer<ByteVar>(), properties.rawAddress.toCPointer<ByteVar>(), propertycount, message.rawAddress.toCPointer<ByteVar>(), error.rawAddress.toCPointer<ByteVar>())
 
-public actual fun wsCreateMetadata(properties: ConstPtr<WsMetadataProperty>, propertycount: UInt, metadata: MutPtr<MutPtr<WsMetadata>>, error: ConstPtr<WsError>): Hresult =
+public actual fun wsCreateMetadata(properties: ConstPtr, propertycount: UInt, metadata: MutPtr, error: ConstPtr): Hresult =
     windowssysWindowsWin32NetworkingWindowswebservicesWsCreateMetadata(properties.rawAddress.toCPointer<ByteVar>(), propertycount, metadata.rawAddress.toCPointer<ByteVar>(), error.rawAddress.toCPointer<ByteVar>())
 
-public actual fun wsCreateReader(properties: ConstPtr<WsXmlReaderProperty>, propertycount: UInt, reader: MutPtr<MutPtr<WsXmlReader>>, error: ConstPtr<WsError>): Hresult =
+public actual fun wsCreateReader(properties: ConstPtr, propertycount: UInt, reader: MutPtr, error: ConstPtr): Hresult =
     windowssysWindowsWin32NetworkingWindowswebservicesWsCreateReader(properties.rawAddress.toCPointer<ByteVar>(), propertycount, reader.rawAddress.toCPointer<ByteVar>(), error.rawAddress.toCPointer<ByteVar>())
 
-public actual fun wsCreateServiceEndpointFromTemplate(channeltype: WsChannelType, properties: ConstPtr<WsServiceEndpointProperty>, propertycount: UInt, addressurl: ConstPtr<WsString>, contract: ConstPtr<WsServiceContract>, authorizationcallback: WsServiceSecurityCallback, heap: ConstPtr<WsHeap>, templatetype: WsBindingTemplateType, templatevalue: ConstPtr<CVoid>, templatesize: UInt, templatedescription: ConstPtr<CVoid>, templatedescriptionsize: UInt, serviceendpoint: MutPtr<MutPtr<WsServiceEndpoint>>, error: ConstPtr<WsError>): Hresult =
+public actual fun wsCreateServiceEndpointFromTemplate(channeltype: WsChannelType, properties: ConstPtr, propertycount: UInt, addressurl: ConstPtr, contract: ConstPtr, authorizationcallback: WsServiceSecurityCallback, heap: ConstPtr, templatetype: WsBindingTemplateType, templatevalue: ConstPtr, templatesize: UInt, templatedescription: ConstPtr, templatedescriptionsize: UInt, serviceendpoint: MutPtr, error: ConstPtr): Hresult =
     windowssysWindowsWin32NetworkingWindowswebservicesWsCreateServiceEndpointFromTemplate(channeltype, properties.rawAddress.toCPointer<ByteVar>(), propertycount, addressurl.rawAddress.toCPointer<ByteVar>(), contract.rawAddress.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>(), heap.rawAddress.toCPointer<ByteVar>(), templatetype, templatevalue.rawAddress.toCPointer<ByteVar>(), templatesize, templatedescription.rawAddress.toCPointer<ByteVar>(), templatedescriptionsize, serviceendpoint.rawAddress.toCPointer<ByteVar>(), error.rawAddress.toCPointer<ByteVar>())
 
-public actual fun wsCreateServiceHost(endpoints: ConstPtr<ConstPtr<WsServiceEndpoint>>, endpointcount: UShort, serviceproperties: ConstPtr<WsServiceProperty>, servicepropertycount: UInt, servicehost: MutPtr<MutPtr<WsServiceHost>>, error: ConstPtr<WsError>): Hresult =
+public actual fun wsCreateServiceHost(endpoints: ConstPtr, endpointcount: UShort, serviceproperties: ConstPtr, servicepropertycount: UInt, servicehost: MutPtr, error: ConstPtr): Hresult =
     windowssysWindowsWin32NetworkingWindowswebservicesWsCreateServiceHost(endpoints.rawAddress.toCPointer<ByteVar>(), endpointcount, serviceproperties.rawAddress.toCPointer<ByteVar>(), servicepropertycount, servicehost.rawAddress.toCPointer<ByteVar>(), error.rawAddress.toCPointer<ByteVar>())
 
-public actual fun wsCreateServiceProxy(channeltype: WsChannelType, channelbinding: WsChannelBinding, securitydescription: ConstPtr<WsSecurityDescription>, properties: ConstPtr<WsProxyProperty>, propertycount: UInt, channelproperties: ConstPtr<WsChannelProperty>, channelpropertycount: UInt, serviceproxy: MutPtr<MutPtr<WsServiceProxy>>, error: ConstPtr<WsError>): Hresult =
+public actual fun wsCreateServiceProxy(channeltype: WsChannelType, channelbinding: WsChannelBinding, securitydescription: ConstPtr, properties: ConstPtr, propertycount: UInt, channelproperties: ConstPtr, channelpropertycount: UInt, serviceproxy: MutPtr, error: ConstPtr): Hresult =
     windowssysWindowsWin32NetworkingWindowswebservicesWsCreateServiceProxy(channeltype, channelbinding, securitydescription.rawAddress.toCPointer<ByteVar>(), properties.rawAddress.toCPointer<ByteVar>(), propertycount, channelproperties.rawAddress.toCPointer<ByteVar>(), channelpropertycount, serviceproxy.rawAddress.toCPointer<ByteVar>(), error.rawAddress.toCPointer<ByteVar>())
 
-public actual fun wsCreateServiceProxyFromTemplate(channeltype: WsChannelType, properties: ConstPtr<WsProxyProperty>, propertycount: UInt, templatetype: WsBindingTemplateType, templatevalue: ConstPtr<CVoid>, templatesize: UInt, templatedescription: ConstPtr<CVoid>, templatedescriptionsize: UInt, serviceproxy: MutPtr<MutPtr<WsServiceProxy>>, error: ConstPtr<WsError>): Hresult =
+public actual fun wsCreateServiceProxyFromTemplate(channeltype: WsChannelType, properties: ConstPtr, propertycount: UInt, templatetype: WsBindingTemplateType, templatevalue: ConstPtr, templatesize: UInt, templatedescription: ConstPtr, templatedescriptionsize: UInt, serviceproxy: MutPtr, error: ConstPtr): Hresult =
     windowssysWindowsWin32NetworkingWindowswebservicesWsCreateServiceProxyFromTemplate(channeltype, properties.rawAddress.toCPointer<ByteVar>(), propertycount, templatetype, templatevalue.rawAddress.toCPointer<ByteVar>(), templatesize, templatedescription.rawAddress.toCPointer<ByteVar>(), templatedescriptionsize, serviceproxy.rawAddress.toCPointer<ByteVar>(), error.rawAddress.toCPointer<ByteVar>())
 
-public actual fun wsCreateWriter(properties: ConstPtr<WsXmlWriterProperty>, propertycount: UInt, writer: MutPtr<MutPtr<WsXmlWriter>>, error: ConstPtr<WsError>): Hresult =
+public actual fun wsCreateWriter(properties: ConstPtr, propertycount: UInt, writer: MutPtr, error: ConstPtr): Hresult =
     windowssysWindowsWin32NetworkingWindowswebservicesWsCreateWriter(properties.rawAddress.toCPointer<ByteVar>(), propertycount, writer.rawAddress.toCPointer<ByteVar>(), error.rawAddress.toCPointer<ByteVar>())
 
-public actual fun wsCreateXmlBuffer(heap: ConstPtr<WsHeap>, properties: ConstPtr<WsXmlBufferProperty>, propertycount: UInt, buffer: MutPtr<MutPtr<WsXmlBuffer>>, error: ConstPtr<WsError>): Hresult =
+public actual fun wsCreateXmlBuffer(heap: ConstPtr, properties: ConstPtr, propertycount: UInt, buffer: MutPtr, error: ConstPtr): Hresult =
     windowssysWindowsWin32NetworkingWindowswebservicesWsCreateXmlBuffer(heap.rawAddress.toCPointer<ByteVar>(), properties.rawAddress.toCPointer<ByteVar>(), propertycount, buffer.rawAddress.toCPointer<ByteVar>(), error.rawAddress.toCPointer<ByteVar>())
 
-public actual fun wsCreateXmlSecurityToken(tokenxml: ConstPtr<WsXmlBuffer>, tokenkey: ConstPtr<WsSecurityKeyHandle>, properties: ConstPtr<WsXmlSecurityTokenProperty>, propertycount: UInt, token: MutPtr<MutPtr<WsSecurityToken>>, error: ConstPtr<WsError>): Hresult =
+public actual fun wsCreateXmlSecurityToken(tokenxml: ConstPtr, tokenkey: ConstPtr, properties: ConstPtr, propertycount: UInt, token: MutPtr, error: ConstPtr): Hresult =
     windowssysWindowsWin32NetworkingWindowswebservicesWsCreateXmlSecurityToken(tokenxml.rawAddress.toCPointer<ByteVar>(), tokenkey.rawAddress.toCPointer<ByteVar>(), properties.rawAddress.toCPointer<ByteVar>(), propertycount, token.rawAddress.toCPointer<ByteVar>(), error.rawAddress.toCPointer<ByteVar>())
 
-public actual fun wsDateTimeToFileTime(datetime: ConstPtr<WsDatetime>, filetime: MutPtr<Filetime>, error: ConstPtr<WsError>): Hresult =
+public actual fun wsDateTimeToFileTime(datetime: ConstPtr, filetime: MutPtr, error: ConstPtr): Hresult =
     windowssysWindowsWin32NetworkingWindowswebservicesWsDateTimeToFileTime(datetime.rawAddress.toCPointer<ByteVar>(), filetime.rawAddress.toCPointer<ByteVar>(), error.rawAddress.toCPointer<ByteVar>())
 
-public actual fun wsDecodeUrl(url: ConstPtr<WsString>, flags: UInt, heap: ConstPtr<WsHeap>, outurl: MutPtr<MutPtr<WsUrl>>, error: ConstPtr<WsError>): Hresult =
+public actual fun wsDecodeUrl(url: ConstPtr, flags: UInt, heap: ConstPtr, outurl: MutPtr, error: ConstPtr): Hresult =
     windowssysWindowsWin32NetworkingWindowswebservicesWsDecodeUrl(url.rawAddress.toCPointer<ByteVar>(), flags, heap.rawAddress.toCPointer<ByteVar>(), outurl.rawAddress.toCPointer<ByteVar>(), error.rawAddress.toCPointer<ByteVar>())
 
-public actual fun wsEncodeUrl(url: ConstPtr<WsUrl>, flags: UInt, heap: ConstPtr<WsHeap>, outurl: MutPtr<WsString>, error: ConstPtr<WsError>): Hresult =
+public actual fun wsEncodeUrl(url: ConstPtr, flags: UInt, heap: ConstPtr, outurl: MutPtr, error: ConstPtr): Hresult =
     windowssysWindowsWin32NetworkingWindowswebservicesWsEncodeUrl(url.rawAddress.toCPointer<ByteVar>(), flags, heap.rawAddress.toCPointer<ByteVar>(), outurl.rawAddress.toCPointer<ByteVar>(), error.rawAddress.toCPointer<ByteVar>())
 
-public actual fun wsEndReaderCanonicalization(reader: ConstPtr<WsXmlReader>, error: ConstPtr<WsError>): Hresult =
+public actual fun wsEndReaderCanonicalization(reader: ConstPtr, error: ConstPtr): Hresult =
     windowssysWindowsWin32NetworkingWindowswebservicesWsEndReaderCanonicalization(reader.rawAddress.toCPointer<ByteVar>(), error.rawAddress.toCPointer<ByteVar>())
 
-public actual fun wsEndWriterCanonicalization(writer: ConstPtr<WsXmlWriter>, error: ConstPtr<WsError>): Hresult =
+public actual fun wsEndWriterCanonicalization(writer: ConstPtr, error: ConstPtr): Hresult =
     windowssysWindowsWin32NetworkingWindowswebservicesWsEndWriterCanonicalization(writer.rawAddress.toCPointer<ByteVar>(), error.rawAddress.toCPointer<ByteVar>())
 
-public actual fun wsFileTimeToDateTime(filetime: ConstPtr<Filetime>, datetime: MutPtr<WsDatetime>, error: ConstPtr<WsError>): Hresult =
+public actual fun wsFileTimeToDateTime(filetime: ConstPtr, datetime: MutPtr, error: ConstPtr): Hresult =
     windowssysWindowsWin32NetworkingWindowswebservicesWsFileTimeToDateTime(filetime.rawAddress.toCPointer<ByteVar>(), datetime.rawAddress.toCPointer<ByteVar>(), error.rawAddress.toCPointer<ByteVar>())
 
-public actual fun wsFillBody(message: ConstPtr<WsMessage>, minsize: UInt, asynccontext: ConstPtr<WsAsyncContext>, error: ConstPtr<WsError>): Hresult =
+public actual fun wsFillBody(message: ConstPtr, minsize: UInt, asynccontext: ConstPtr, error: ConstPtr): Hresult =
     windowssysWindowsWin32NetworkingWindowswebservicesWsFillBody(message.rawAddress.toCPointer<ByteVar>(), minsize, asynccontext.rawAddress.toCPointer<ByteVar>(), error.rawAddress.toCPointer<ByteVar>())
 
-public actual fun wsFillReader(reader: ConstPtr<WsXmlReader>, minsize: UInt, asynccontext: ConstPtr<WsAsyncContext>, error: ConstPtr<WsError>): Hresult =
+public actual fun wsFillReader(reader: ConstPtr, minsize: UInt, asynccontext: ConstPtr, error: ConstPtr): Hresult =
     windowssysWindowsWin32NetworkingWindowswebservicesWsFillReader(reader.rawAddress.toCPointer<ByteVar>(), minsize, asynccontext.rawAddress.toCPointer<ByteVar>(), error.rawAddress.toCPointer<ByteVar>())
 
-public actual fun wsFindAttribute(reader: ConstPtr<WsXmlReader>, localname: ConstPtr<WsXmlString>, ns: ConstPtr<WsXmlString>, required: Bool, attributeindex: MutPtr<UInt>, error: ConstPtr<WsError>): Hresult =
+public actual fun wsFindAttribute(reader: ConstPtr, localname: ConstPtr, ns: ConstPtr, required: Bool, attributeindex: MutPtr, error: ConstPtr): Hresult =
     windowssysWindowsWin32NetworkingWindowswebservicesWsFindAttribute(reader.rawAddress.toCPointer<ByteVar>(), localname.rawAddress.toCPointer<ByteVar>(), ns.rawAddress.toCPointer<ByteVar>(), required, attributeindex.rawAddress.toCPointer<ByteVar>(), error.rawAddress.toCPointer<ByteVar>())
 
-public actual fun wsFlushBody(message: ConstPtr<WsMessage>, minsize: UInt, asynccontext: ConstPtr<WsAsyncContext>, error: ConstPtr<WsError>): Hresult =
+public actual fun wsFlushBody(message: ConstPtr, minsize: UInt, asynccontext: ConstPtr, error: ConstPtr): Hresult =
     windowssysWindowsWin32NetworkingWindowswebservicesWsFlushBody(message.rawAddress.toCPointer<ByteVar>(), minsize, asynccontext.rawAddress.toCPointer<ByteVar>(), error.rawAddress.toCPointer<ByteVar>())
 
-public actual fun wsFlushWriter(writer: ConstPtr<WsXmlWriter>, minsize: UInt, asynccontext: ConstPtr<WsAsyncContext>, error: ConstPtr<WsError>): Hresult =
+public actual fun wsFlushWriter(writer: ConstPtr, minsize: UInt, asynccontext: ConstPtr, error: ConstPtr): Hresult =
     windowssysWindowsWin32NetworkingWindowswebservicesWsFlushWriter(writer.rawAddress.toCPointer<ByteVar>(), minsize, asynccontext.rawAddress.toCPointer<ByteVar>(), error.rawAddress.toCPointer<ByteVar>())
 
-public actual fun wsFreeChannel(channel: ConstPtr<WsChannel>) {
+public actual fun wsFreeChannel(channel: ConstPtr) {
     windowssysWindowsWin32NetworkingWindowswebservicesWsFreeChannel(channel.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun wsFreeError(error: ConstPtr<WsError>) {
+public actual fun wsFreeError(error: ConstPtr) {
     windowssysWindowsWin32NetworkingWindowswebservicesWsFreeError(error.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun wsFreeHeap(heap: ConstPtr<WsHeap>) {
+public actual fun wsFreeHeap(heap: ConstPtr) {
     windowssysWindowsWin32NetworkingWindowswebservicesWsFreeHeap(heap.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun wsFreeListener(listener: ConstPtr<WsListener>) {
+public actual fun wsFreeListener(listener: ConstPtr) {
     windowssysWindowsWin32NetworkingWindowswebservicesWsFreeListener(listener.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun wsFreeMessage(message: ConstPtr<WsMessage>) {
+public actual fun wsFreeMessage(message: ConstPtr) {
     windowssysWindowsWin32NetworkingWindowswebservicesWsFreeMessage(message.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun wsFreeMetadata(metadata: ConstPtr<WsMetadata>) {
+public actual fun wsFreeMetadata(metadata: ConstPtr) {
     windowssysWindowsWin32NetworkingWindowswebservicesWsFreeMetadata(metadata.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun wsFreeReader(reader: ConstPtr<WsXmlReader>) {
+public actual fun wsFreeReader(reader: ConstPtr) {
     windowssysWindowsWin32NetworkingWindowswebservicesWsFreeReader(reader.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun wsFreeSecurityToken(token: ConstPtr<WsSecurityToken>) {
+public actual fun wsFreeSecurityToken(token: ConstPtr) {
     windowssysWindowsWin32NetworkingWindowswebservicesWsFreeSecurityToken(token.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun wsFreeServiceHost(servicehost: ConstPtr<WsServiceHost>) {
+public actual fun wsFreeServiceHost(servicehost: ConstPtr) {
     windowssysWindowsWin32NetworkingWindowswebservicesWsFreeServiceHost(servicehost.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun wsFreeServiceProxy(serviceproxy: ConstPtr<WsServiceProxy>) {
+public actual fun wsFreeServiceProxy(serviceproxy: ConstPtr) {
     windowssysWindowsWin32NetworkingWindowswebservicesWsFreeServiceProxy(serviceproxy.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun wsFreeWriter(writer: ConstPtr<WsXmlWriter>) {
+public actual fun wsFreeWriter(writer: ConstPtr) {
     windowssysWindowsWin32NetworkingWindowswebservicesWsFreeWriter(writer.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun wsGetChannelProperty(channel: ConstPtr<WsChannel>, id: WsChannelPropertyId, value: MutPtr<CVoid>, valuesize: UInt, error: ConstPtr<WsError>): Hresult =
+public actual fun wsGetChannelProperty(channel: ConstPtr, id: WsChannelPropertyId, value: MutPtr, valuesize: UInt, error: ConstPtr): Hresult =
     windowssysWindowsWin32NetworkingWindowswebservicesWsGetChannelProperty(channel.rawAddress.toCPointer<ByteVar>(), id, value.rawAddress.toCPointer<ByteVar>(), valuesize, error.rawAddress.toCPointer<ByteVar>())
 
-public actual fun wsGetCustomHeader(message: ConstPtr<WsMessage>, customheaderdescription: ConstPtr<WsElementDescription>, repeatingoption: WsRepeatingHeaderOption, headerindex: UInt, readoption: WsReadOption, heap: ConstPtr<WsHeap>, value: MutPtr<CVoid>, valuesize: UInt, headerattributes: MutPtr<UInt>, error: ConstPtr<WsError>): Hresult =
+public actual fun wsGetCustomHeader(message: ConstPtr, customheaderdescription: ConstPtr, repeatingoption: WsRepeatingHeaderOption, headerindex: UInt, readoption: WsReadOption, heap: ConstPtr, value: MutPtr, valuesize: UInt, headerattributes: MutPtr, error: ConstPtr): Hresult =
     windowssysWindowsWin32NetworkingWindowswebservicesWsGetCustomHeader(message.rawAddress.toCPointer<ByteVar>(), customheaderdescription.rawAddress.toCPointer<ByteVar>(), repeatingoption, headerindex, readoption, heap.rawAddress.toCPointer<ByteVar>(), value.rawAddress.toCPointer<ByteVar>(), valuesize, headerattributes.rawAddress.toCPointer<ByteVar>(), error.rawAddress.toCPointer<ByteVar>())
 
-public actual fun wsGetDictionary(encoding: WsEncoding, dictionary: MutPtr<MutPtr<WsXmlDictionary>>, error: ConstPtr<WsError>): Hresult =
+public actual fun wsGetDictionary(encoding: WsEncoding, dictionary: MutPtr, error: ConstPtr): Hresult =
     windowssysWindowsWin32NetworkingWindowswebservicesWsGetDictionary(encoding, dictionary.rawAddress.toCPointer<ByteVar>(), error.rawAddress.toCPointer<ByteVar>())
 
-public actual fun wsGetErrorProperty(error: ConstPtr<WsError>, id: WsErrorPropertyId, buffer: MutPtr<CVoid>, buffersize: UInt): Hresult =
+public actual fun wsGetErrorProperty(error: ConstPtr, id: WsErrorPropertyId, buffer: MutPtr, buffersize: UInt): Hresult =
     windowssysWindowsWin32NetworkingWindowswebservicesWsGetErrorProperty(error.rawAddress.toCPointer<ByteVar>(), id, buffer.rawAddress.toCPointer<ByteVar>(), buffersize)
 
-public actual fun wsGetErrorString(error: ConstPtr<WsError>, index: UInt, string: MutPtr<WsString>): Hresult =
+public actual fun wsGetErrorString(error: ConstPtr, index: UInt, string: MutPtr): Hresult =
     windowssysWindowsWin32NetworkingWindowswebservicesWsGetErrorString(error.rawAddress.toCPointer<ByteVar>(), index, string.rawAddress.toCPointer<ByteVar>())
 
-public actual fun wsGetFaultErrorDetail(error: ConstPtr<WsError>, faultdetaildescription: ConstPtr<WsFaultDetailDescription>, readoption: WsReadOption, heap: ConstPtr<WsHeap>, value: MutPtr<CVoid>, valuesize: UInt): Hresult =
+public actual fun wsGetFaultErrorDetail(error: ConstPtr, faultdetaildescription: ConstPtr, readoption: WsReadOption, heap: ConstPtr, value: MutPtr, valuesize: UInt): Hresult =
     windowssysWindowsWin32NetworkingWindowswebservicesWsGetFaultErrorDetail(error.rawAddress.toCPointer<ByteVar>(), faultdetaildescription.rawAddress.toCPointer<ByteVar>(), readoption, heap.rawAddress.toCPointer<ByteVar>(), value.rawAddress.toCPointer<ByteVar>(), valuesize)
 
-public actual fun wsGetFaultErrorProperty(error: ConstPtr<WsError>, id: WsFaultErrorPropertyId, buffer: MutPtr<CVoid>, buffersize: UInt): Hresult =
+public actual fun wsGetFaultErrorProperty(error: ConstPtr, id: WsFaultErrorPropertyId, buffer: MutPtr, buffersize: UInt): Hresult =
     windowssysWindowsWin32NetworkingWindowswebservicesWsGetFaultErrorProperty(error.rawAddress.toCPointer<ByteVar>(), id, buffer.rawAddress.toCPointer<ByteVar>(), buffersize)
 
-public actual fun wsGetHeader(message: ConstPtr<WsMessage>, headertype: WsHeaderType, valuetype: WsType, readoption: WsReadOption, heap: ConstPtr<WsHeap>, value: MutPtr<CVoid>, valuesize: UInt, error: ConstPtr<WsError>): Hresult =
+public actual fun wsGetHeader(message: ConstPtr, headertype: WsHeaderType, valuetype: WsType, readoption: WsReadOption, heap: ConstPtr, value: MutPtr, valuesize: UInt, error: ConstPtr): Hresult =
     windowssysWindowsWin32NetworkingWindowswebservicesWsGetHeader(message.rawAddress.toCPointer<ByteVar>(), headertype, valuetype, readoption, heap.rawAddress.toCPointer<ByteVar>(), value.rawAddress.toCPointer<ByteVar>(), valuesize, error.rawAddress.toCPointer<ByteVar>())
 
-public actual fun wsGetHeaderAttributes(message: ConstPtr<WsMessage>, reader: ConstPtr<WsXmlReader>, headerattributes: MutPtr<UInt>, error: ConstPtr<WsError>): Hresult =
+public actual fun wsGetHeaderAttributes(message: ConstPtr, reader: ConstPtr, headerattributes: MutPtr, error: ConstPtr): Hresult =
     windowssysWindowsWin32NetworkingWindowswebservicesWsGetHeaderAttributes(message.rawAddress.toCPointer<ByteVar>(), reader.rawAddress.toCPointer<ByteVar>(), headerattributes.rawAddress.toCPointer<ByteVar>(), error.rawAddress.toCPointer<ByteVar>())
 
-public actual fun wsGetHeapProperty(heap: ConstPtr<WsHeap>, id: WsHeapPropertyId, value: MutPtr<CVoid>, valuesize: UInt, error: ConstPtr<WsError>): Hresult =
+public actual fun wsGetHeapProperty(heap: ConstPtr, id: WsHeapPropertyId, value: MutPtr, valuesize: UInt, error: ConstPtr): Hresult =
     windowssysWindowsWin32NetworkingWindowswebservicesWsGetHeapProperty(heap.rawAddress.toCPointer<ByteVar>(), id, value.rawAddress.toCPointer<ByteVar>(), valuesize, error.rawAddress.toCPointer<ByteVar>())
 
-public actual fun wsGetListenerProperty(listener: ConstPtr<WsListener>, id: WsListenerPropertyId, value: MutPtr<CVoid>, valuesize: UInt, error: ConstPtr<WsError>): Hresult =
+public actual fun wsGetListenerProperty(listener: ConstPtr, id: WsListenerPropertyId, value: MutPtr, valuesize: UInt, error: ConstPtr): Hresult =
     windowssysWindowsWin32NetworkingWindowswebservicesWsGetListenerProperty(listener.rawAddress.toCPointer<ByteVar>(), id, value.rawAddress.toCPointer<ByteVar>(), valuesize, error.rawAddress.toCPointer<ByteVar>())
 
-public actual fun wsGetMappedHeader(message: ConstPtr<WsMessage>, headername: ConstPtr<WsXmlString>, repeatingoption: WsRepeatingHeaderOption, headerindex: UInt, valuetype: WsType, readoption: WsReadOption, heap: ConstPtr<WsHeap>, value: MutPtr<CVoid>, valuesize: UInt, error: ConstPtr<WsError>): Hresult =
+public actual fun wsGetMappedHeader(message: ConstPtr, headername: ConstPtr, repeatingoption: WsRepeatingHeaderOption, headerindex: UInt, valuetype: WsType, readoption: WsReadOption, heap: ConstPtr, value: MutPtr, valuesize: UInt, error: ConstPtr): Hresult =
     windowssysWindowsWin32NetworkingWindowswebservicesWsGetMappedHeader(message.rawAddress.toCPointer<ByteVar>(), headername.rawAddress.toCPointer<ByteVar>(), repeatingoption, headerindex, valuetype, readoption, heap.rawAddress.toCPointer<ByteVar>(), value.rawAddress.toCPointer<ByteVar>(), valuesize, error.rawAddress.toCPointer<ByteVar>())
 
-public actual fun wsGetMessageProperty(message: ConstPtr<WsMessage>, id: WsMessagePropertyId, value: MutPtr<CVoid>, valuesize: UInt, error: ConstPtr<WsError>): Hresult =
+public actual fun wsGetMessageProperty(message: ConstPtr, id: WsMessagePropertyId, value: MutPtr, valuesize: UInt, error: ConstPtr): Hresult =
     windowssysWindowsWin32NetworkingWindowswebservicesWsGetMessageProperty(message.rawAddress.toCPointer<ByteVar>(), id, value.rawAddress.toCPointer<ByteVar>(), valuesize, error.rawAddress.toCPointer<ByteVar>())
 
-public actual fun wsGetMetadataEndpoints(metadata: ConstPtr<WsMetadata>, endpoints: MutPtr<WsMetadataEndpoints>, error: ConstPtr<WsError>): Hresult =
+public actual fun wsGetMetadataEndpoints(metadata: ConstPtr, endpoints: MutPtr, error: ConstPtr): Hresult =
     windowssysWindowsWin32NetworkingWindowswebservicesWsGetMetadataEndpoints(metadata.rawAddress.toCPointer<ByteVar>(), endpoints.rawAddress.toCPointer<ByteVar>(), error.rawAddress.toCPointer<ByteVar>())
 
-public actual fun wsGetMetadataProperty(metadata: ConstPtr<WsMetadata>, id: WsMetadataPropertyId, value: MutPtr<CVoid>, valuesize: UInt, error: ConstPtr<WsError>): Hresult =
+public actual fun wsGetMetadataProperty(metadata: ConstPtr, id: WsMetadataPropertyId, value: MutPtr, valuesize: UInt, error: ConstPtr): Hresult =
     windowssysWindowsWin32NetworkingWindowswebservicesWsGetMetadataProperty(metadata.rawAddress.toCPointer<ByteVar>(), id, value.rawAddress.toCPointer<ByteVar>(), valuesize, error.rawAddress.toCPointer<ByteVar>())
 
-public actual fun wsGetMissingMetadataDocumentAddress(metadata: ConstPtr<WsMetadata>, address: MutPtr<MutPtr<WsEndpointAddress>>, error: ConstPtr<WsError>): Hresult =
+public actual fun wsGetMissingMetadataDocumentAddress(metadata: ConstPtr, address: MutPtr, error: ConstPtr): Hresult =
     windowssysWindowsWin32NetworkingWindowswebservicesWsGetMissingMetadataDocumentAddress(metadata.rawAddress.toCPointer<ByteVar>(), address.rawAddress.toCPointer<ByteVar>(), error.rawAddress.toCPointer<ByteVar>())
 
-public actual fun wsGetNamespaceFromPrefix(reader: ConstPtr<WsXmlReader>, prefix: ConstPtr<WsXmlString>, required: Bool, ns: MutPtr<MutPtr<WsXmlString>>, error: ConstPtr<WsError>): Hresult =
+public actual fun wsGetNamespaceFromPrefix(reader: ConstPtr, prefix: ConstPtr, required: Bool, ns: MutPtr, error: ConstPtr): Hresult =
     windowssysWindowsWin32NetworkingWindowswebservicesWsGetNamespaceFromPrefix(reader.rawAddress.toCPointer<ByteVar>(), prefix.rawAddress.toCPointer<ByteVar>(), required, ns.rawAddress.toCPointer<ByteVar>(), error.rawAddress.toCPointer<ByteVar>())
 
-public actual fun wsGetOperationContextProperty(context: ConstPtr<WsOperationContext>, id: WsOperationContextPropertyId, value: MutPtr<CVoid>, valuesize: UInt, error: ConstPtr<WsError>): Hresult =
+public actual fun wsGetOperationContextProperty(context: ConstPtr, id: WsOperationContextPropertyId, value: MutPtr, valuesize: UInt, error: ConstPtr): Hresult =
     windowssysWindowsWin32NetworkingWindowswebservicesWsGetOperationContextProperty(context.rawAddress.toCPointer<ByteVar>(), id, value.rawAddress.toCPointer<ByteVar>(), valuesize, error.rawAddress.toCPointer<ByteVar>())
 
-public actual fun wsGetPolicyAlternativeCount(policy: ConstPtr<WsPolicy>, count: MutPtr<UInt>, error: ConstPtr<WsError>): Hresult =
+public actual fun wsGetPolicyAlternativeCount(policy: ConstPtr, count: MutPtr, error: ConstPtr): Hresult =
     windowssysWindowsWin32NetworkingWindowswebservicesWsGetPolicyAlternativeCount(policy.rawAddress.toCPointer<ByteVar>(), count.rawAddress.toCPointer<ByteVar>(), error.rawAddress.toCPointer<ByteVar>())
 
-public actual fun wsGetPolicyProperty(policy: ConstPtr<WsPolicy>, id: WsPolicyPropertyId, value: MutPtr<CVoid>, valuesize: UInt, error: ConstPtr<WsError>): Hresult =
+public actual fun wsGetPolicyProperty(policy: ConstPtr, id: WsPolicyPropertyId, value: MutPtr, valuesize: UInt, error: ConstPtr): Hresult =
     windowssysWindowsWin32NetworkingWindowswebservicesWsGetPolicyProperty(policy.rawAddress.toCPointer<ByteVar>(), id, value.rawAddress.toCPointer<ByteVar>(), valuesize, error.rawAddress.toCPointer<ByteVar>())
 
-public actual fun wsGetPrefixFromNamespace(writer: ConstPtr<WsXmlWriter>, ns: ConstPtr<WsXmlString>, required: Bool, prefix: MutPtr<MutPtr<WsXmlString>>, error: ConstPtr<WsError>): Hresult =
+public actual fun wsGetPrefixFromNamespace(writer: ConstPtr, ns: ConstPtr, required: Bool, prefix: MutPtr, error: ConstPtr): Hresult =
     windowssysWindowsWin32NetworkingWindowswebservicesWsGetPrefixFromNamespace(writer.rawAddress.toCPointer<ByteVar>(), ns.rawAddress.toCPointer<ByteVar>(), required, prefix.rawAddress.toCPointer<ByteVar>(), error.rawAddress.toCPointer<ByteVar>())
 
-public actual fun wsGetReaderNode(xmlreader: ConstPtr<WsXmlReader>, node: MutPtr<MutPtr<WsXmlNode>>, error: ConstPtr<WsError>): Hresult =
+public actual fun wsGetReaderNode(xmlreader: ConstPtr, node: MutPtr, error: ConstPtr): Hresult =
     windowssysWindowsWin32NetworkingWindowswebservicesWsGetReaderNode(xmlreader.rawAddress.toCPointer<ByteVar>(), node.rawAddress.toCPointer<ByteVar>(), error.rawAddress.toCPointer<ByteVar>())
 
-public actual fun wsGetReaderPosition(reader: ConstPtr<WsXmlReader>, nodeposition: MutPtr<WsXmlNodePosition>, error: ConstPtr<WsError>): Hresult =
+public actual fun wsGetReaderPosition(reader: ConstPtr, nodeposition: MutPtr, error: ConstPtr): Hresult =
     windowssysWindowsWin32NetworkingWindowswebservicesWsGetReaderPosition(reader.rawAddress.toCPointer<ByteVar>(), nodeposition.rawAddress.toCPointer<ByteVar>(), error.rawAddress.toCPointer<ByteVar>())
 
-public actual fun wsGetReaderProperty(reader: ConstPtr<WsXmlReader>, id: WsXmlReaderPropertyId, value: MutPtr<CVoid>, valuesize: UInt, error: ConstPtr<WsError>): Hresult =
+public actual fun wsGetReaderProperty(reader: ConstPtr, id: WsXmlReaderPropertyId, value: MutPtr, valuesize: UInt, error: ConstPtr): Hresult =
     windowssysWindowsWin32NetworkingWindowswebservicesWsGetReaderProperty(reader.rawAddress.toCPointer<ByteVar>(), id, value.rawAddress.toCPointer<ByteVar>(), valuesize, error.rawAddress.toCPointer<ByteVar>())
 
-public actual fun wsGetSecurityContextProperty(securitycontext: ConstPtr<WsSecurityContext>, id: WsSecurityContextPropertyId, value: MutPtr<CVoid>, valuesize: UInt, error: ConstPtr<WsError>): Hresult =
+public actual fun wsGetSecurityContextProperty(securitycontext: ConstPtr, id: WsSecurityContextPropertyId, value: MutPtr, valuesize: UInt, error: ConstPtr): Hresult =
     windowssysWindowsWin32NetworkingWindowswebservicesWsGetSecurityContextProperty(securitycontext.rawAddress.toCPointer<ByteVar>(), id, value.rawAddress.toCPointer<ByteVar>(), valuesize, error.rawAddress.toCPointer<ByteVar>())
 
-public actual fun wsGetSecurityTokenProperty(securitytoken: ConstPtr<WsSecurityToken>, id: WsSecurityTokenPropertyId, value: MutPtr<CVoid>, valuesize: UInt, heap: ConstPtr<WsHeap>, error: ConstPtr<WsError>): Hresult =
+public actual fun wsGetSecurityTokenProperty(securitytoken: ConstPtr, id: WsSecurityTokenPropertyId, value: MutPtr, valuesize: UInt, heap: ConstPtr, error: ConstPtr): Hresult =
     windowssysWindowsWin32NetworkingWindowswebservicesWsGetSecurityTokenProperty(securitytoken.rawAddress.toCPointer<ByteVar>(), id, value.rawAddress.toCPointer<ByteVar>(), valuesize, heap.rawAddress.toCPointer<ByteVar>(), error.rawAddress.toCPointer<ByteVar>())
 
-public actual fun wsGetServiceHostProperty(servicehost: ConstPtr<WsServiceHost>, id: WsServicePropertyId, value: MutPtr<CVoid>, valuesize: UInt, error: ConstPtr<WsError>): Hresult =
+public actual fun wsGetServiceHostProperty(servicehost: ConstPtr, id: WsServicePropertyId, value: MutPtr, valuesize: UInt, error: ConstPtr): Hresult =
     windowssysWindowsWin32NetworkingWindowswebservicesWsGetServiceHostProperty(servicehost.rawAddress.toCPointer<ByteVar>(), id, value.rawAddress.toCPointer<ByteVar>(), valuesize, error.rawAddress.toCPointer<ByteVar>())
 
-public actual fun wsGetServiceProxyProperty(serviceproxy: ConstPtr<WsServiceProxy>, id: WsProxyPropertyId, value: MutPtr<CVoid>, valuesize: UInt, error: ConstPtr<WsError>): Hresult =
+public actual fun wsGetServiceProxyProperty(serviceproxy: ConstPtr, id: WsProxyPropertyId, value: MutPtr, valuesize: UInt, error: ConstPtr): Hresult =
     windowssysWindowsWin32NetworkingWindowswebservicesWsGetServiceProxyProperty(serviceproxy.rawAddress.toCPointer<ByteVar>(), id, value.rawAddress.toCPointer<ByteVar>(), valuesize, error.rawAddress.toCPointer<ByteVar>())
 
-public actual fun wsGetWriterPosition(writer: ConstPtr<WsXmlWriter>, nodeposition: MutPtr<WsXmlNodePosition>, error: ConstPtr<WsError>): Hresult =
+public actual fun wsGetWriterPosition(writer: ConstPtr, nodeposition: MutPtr, error: ConstPtr): Hresult =
     windowssysWindowsWin32NetworkingWindowswebservicesWsGetWriterPosition(writer.rawAddress.toCPointer<ByteVar>(), nodeposition.rawAddress.toCPointer<ByteVar>(), error.rawAddress.toCPointer<ByteVar>())
 
-public actual fun wsGetWriterProperty(writer: ConstPtr<WsXmlWriter>, id: WsXmlWriterPropertyId, value: MutPtr<CVoid>, valuesize: UInt, error: ConstPtr<WsError>): Hresult =
+public actual fun wsGetWriterProperty(writer: ConstPtr, id: WsXmlWriterPropertyId, value: MutPtr, valuesize: UInt, error: ConstPtr): Hresult =
     windowssysWindowsWin32NetworkingWindowswebservicesWsGetWriterProperty(writer.rawAddress.toCPointer<ByteVar>(), id, value.rawAddress.toCPointer<ByteVar>(), valuesize, error.rawAddress.toCPointer<ByteVar>())
 
-public actual fun wsGetXmlAttribute(reader: ConstPtr<WsXmlReader>, localname: ConstPtr<WsXmlString>, heap: ConstPtr<WsHeap>, valuechars: MutPtr<MutPtr<UShort>>, valuecharcount: MutPtr<UInt>, error: ConstPtr<WsError>): Hresult =
+public actual fun wsGetXmlAttribute(reader: ConstPtr, localname: ConstPtr, heap: ConstPtr, valuechars: MutPtr, valuecharcount: MutPtr, error: ConstPtr): Hresult =
     windowssysWindowsWin32NetworkingWindowswebservicesWsGetXmlAttribute(reader.rawAddress.toCPointer<ByteVar>(), localname.rawAddress.toCPointer<ByteVar>(), heap.rawAddress.toCPointer<ByteVar>(), valuechars.rawAddress.toCPointer<ByteVar>(), valuecharcount.rawAddress.toCPointer<ByteVar>(), error.rawAddress.toCPointer<ByteVar>())
 
-public actual fun wsInitializeMessage(message: ConstPtr<WsMessage>, initialization: WsMessageInitialization, sourcemessage: ConstPtr<WsMessage>, error: ConstPtr<WsError>): Hresult =
+public actual fun wsInitializeMessage(message: ConstPtr, initialization: WsMessageInitialization, sourcemessage: ConstPtr, error: ConstPtr): Hresult =
     windowssysWindowsWin32NetworkingWindowswebservicesWsInitializeMessage(message.rawAddress.toCPointer<ByteVar>(), initialization, sourcemessage.rawAddress.toCPointer<ByteVar>(), error.rawAddress.toCPointer<ByteVar>())
 
-public actual fun wsMarkHeaderAsUnderstood(message: ConstPtr<WsMessage>, headerposition: ConstPtr<WsXmlNodePosition>, error: ConstPtr<WsError>): Hresult =
+public actual fun wsMarkHeaderAsUnderstood(message: ConstPtr, headerposition: ConstPtr, error: ConstPtr): Hresult =
     windowssysWindowsWin32NetworkingWindowswebservicesWsMarkHeaderAsUnderstood(message.rawAddress.toCPointer<ByteVar>(), headerposition.rawAddress.toCPointer<ByteVar>(), error.rawAddress.toCPointer<ByteVar>())
 
-public actual fun wsMatchPolicyAlternative(policy: ConstPtr<WsPolicy>, alternativeindex: UInt, policyconstraints: ConstPtr<WsPolicyConstraints>, matchrequired: Bool, heap: ConstPtr<WsHeap>, error: ConstPtr<WsError>): Hresult =
+public actual fun wsMatchPolicyAlternative(policy: ConstPtr, alternativeindex: UInt, policyconstraints: ConstPtr, matchrequired: Bool, heap: ConstPtr, error: ConstPtr): Hresult =
     windowssysWindowsWin32NetworkingWindowswebservicesWsMatchPolicyAlternative(policy.rawAddress.toCPointer<ByteVar>(), alternativeindex, policyconstraints.rawAddress.toCPointer<ByteVar>(), matchrequired, heap.rawAddress.toCPointer<ByteVar>(), error.rawAddress.toCPointer<ByteVar>())
 
-public actual fun wsMoveReader(reader: ConstPtr<WsXmlReader>, moveto: WsMoveTo, found: MutPtr<Bool>, error: ConstPtr<WsError>): Hresult =
+public actual fun wsMoveReader(reader: ConstPtr, moveto: WsMoveTo, found: MutPtr, error: ConstPtr): Hresult =
     windowssysWindowsWin32NetworkingWindowswebservicesWsMoveReader(reader.rawAddress.toCPointer<ByteVar>(), moveto, found.rawAddress.toCPointer<ByteVar>(), error.rawAddress.toCPointer<ByteVar>())
 
-public actual fun wsMoveWriter(writer: ConstPtr<WsXmlWriter>, moveto: WsMoveTo, found: MutPtr<Bool>, error: ConstPtr<WsError>): Hresult =
+public actual fun wsMoveWriter(writer: ConstPtr, moveto: WsMoveTo, found: MutPtr, error: ConstPtr): Hresult =
     windowssysWindowsWin32NetworkingWindowswebservicesWsMoveWriter(writer.rawAddress.toCPointer<ByteVar>(), moveto, found.rawAddress.toCPointer<ByteVar>(), error.rawAddress.toCPointer<ByteVar>())
 
-public actual fun wsOpenChannel(channel: ConstPtr<WsChannel>, endpointaddress: ConstPtr<WsEndpointAddress>, asynccontext: ConstPtr<WsAsyncContext>, error: ConstPtr<WsError>): Hresult =
+public actual fun wsOpenChannel(channel: ConstPtr, endpointaddress: ConstPtr, asynccontext: ConstPtr, error: ConstPtr): Hresult =
     windowssysWindowsWin32NetworkingWindowswebservicesWsOpenChannel(channel.rawAddress.toCPointer<ByteVar>(), endpointaddress.rawAddress.toCPointer<ByteVar>(), asynccontext.rawAddress.toCPointer<ByteVar>(), error.rawAddress.toCPointer<ByteVar>())
 
-public actual fun wsOpenListener(listener: ConstPtr<WsListener>, url: ConstPtr<WsString>, asynccontext: ConstPtr<WsAsyncContext>, error: ConstPtr<WsError>): Hresult =
+public actual fun wsOpenListener(listener: ConstPtr, url: ConstPtr, asynccontext: ConstPtr, error: ConstPtr): Hresult =
     windowssysWindowsWin32NetworkingWindowswebservicesWsOpenListener(listener.rawAddress.toCPointer<ByteVar>(), url.rawAddress.toCPointer<ByteVar>(), asynccontext.rawAddress.toCPointer<ByteVar>(), error.rawAddress.toCPointer<ByteVar>())
 
-public actual fun wsOpenServiceHost(servicehost: ConstPtr<WsServiceHost>, asynccontext: ConstPtr<WsAsyncContext>, error: ConstPtr<WsError>): Hresult =
+public actual fun wsOpenServiceHost(servicehost: ConstPtr, asynccontext: ConstPtr, error: ConstPtr): Hresult =
     windowssysWindowsWin32NetworkingWindowswebservicesWsOpenServiceHost(servicehost.rawAddress.toCPointer<ByteVar>(), asynccontext.rawAddress.toCPointer<ByteVar>(), error.rawAddress.toCPointer<ByteVar>())
 
-public actual fun wsOpenServiceProxy(serviceproxy: ConstPtr<WsServiceProxy>, address: ConstPtr<WsEndpointAddress>, asynccontext: ConstPtr<WsAsyncContext>, error: ConstPtr<WsError>): Hresult =
+public actual fun wsOpenServiceProxy(serviceproxy: ConstPtr, address: ConstPtr, asynccontext: ConstPtr, error: ConstPtr): Hresult =
     windowssysWindowsWin32NetworkingWindowswebservicesWsOpenServiceProxy(serviceproxy.rawAddress.toCPointer<ByteVar>(), address.rawAddress.toCPointer<ByteVar>(), asynccontext.rawAddress.toCPointer<ByteVar>(), error.rawAddress.toCPointer<ByteVar>())
 
-public actual fun wsPullBytes(writer: ConstPtr<WsXmlWriter>, callback: WsPullBytesCallback, callbackstate: ConstPtr<CVoid>, error: ConstPtr<WsError>): Hresult =
+public actual fun wsPullBytes(writer: ConstPtr, callback: WsPullBytesCallback, callbackstate: ConstPtr, error: ConstPtr): Hresult =
     windowssysWindowsWin32NetworkingWindowswebservicesWsPullBytes(writer.rawAddress.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>(), callbackstate.rawAddress.toCPointer<ByteVar>(), error.rawAddress.toCPointer<ByteVar>())
 
-public actual fun wsPushBytes(writer: ConstPtr<WsXmlWriter>, callback: WsPushBytesCallback, callbackstate: ConstPtr<CVoid>, error: ConstPtr<WsError>): Hresult =
+public actual fun wsPushBytes(writer: ConstPtr, callback: WsPushBytesCallback, callbackstate: ConstPtr, error: ConstPtr): Hresult =
     windowssysWindowsWin32NetworkingWindowswebservicesWsPushBytes(writer.rawAddress.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>(), callbackstate.rawAddress.toCPointer<ByteVar>(), error.rawAddress.toCPointer<ByteVar>())
 
-public actual fun wsReadArray(reader: ConstPtr<WsXmlReader>, localname: ConstPtr<WsXmlString>, ns: ConstPtr<WsXmlString>, valuetype: WsValueType, array: MutPtr<CVoid>, arraysize: UInt, itemoffset: UInt, itemcount: UInt, actualitemcount: MutPtr<UInt>, error: ConstPtr<WsError>): Hresult =
+public actual fun wsReadArray(reader: ConstPtr, localname: ConstPtr, ns: ConstPtr, valuetype: WsValueType, array: MutPtr, arraysize: UInt, itemoffset: UInt, itemcount: UInt, actualitemcount: MutPtr, error: ConstPtr): Hresult =
     windowssysWindowsWin32NetworkingWindowswebservicesWsReadArray(reader.rawAddress.toCPointer<ByteVar>(), localname.rawAddress.toCPointer<ByteVar>(), ns.rawAddress.toCPointer<ByteVar>(), valuetype, array.rawAddress.toCPointer<ByteVar>(), arraysize, itemoffset, itemcount, actualitemcount.rawAddress.toCPointer<ByteVar>(), error.rawAddress.toCPointer<ByteVar>())
 
-public actual fun wsReadAttribute(reader: ConstPtr<WsXmlReader>, attributedescription: ConstPtr<WsAttributeDescription>, readoption: WsReadOption, heap: ConstPtr<WsHeap>, value: MutPtr<CVoid>, valuesize: UInt, error: ConstPtr<WsError>): Hresult =
+public actual fun wsReadAttribute(reader: ConstPtr, attributedescription: ConstPtr, readoption: WsReadOption, heap: ConstPtr, value: MutPtr, valuesize: UInt, error: ConstPtr): Hresult =
     windowssysWindowsWin32NetworkingWindowswebservicesWsReadAttribute(reader.rawAddress.toCPointer<ByteVar>(), attributedescription.rawAddress.toCPointer<ByteVar>(), readoption, heap.rawAddress.toCPointer<ByteVar>(), value.rawAddress.toCPointer<ByteVar>(), valuesize, error.rawAddress.toCPointer<ByteVar>())
 
-public actual fun wsReadBody(message: ConstPtr<WsMessage>, bodydescription: ConstPtr<WsElementDescription>, readoption: WsReadOption, heap: ConstPtr<WsHeap>, value: MutPtr<CVoid>, valuesize: UInt, error: ConstPtr<WsError>): Hresult =
+public actual fun wsReadBody(message: ConstPtr, bodydescription: ConstPtr, readoption: WsReadOption, heap: ConstPtr, value: MutPtr, valuesize: UInt, error: ConstPtr): Hresult =
     windowssysWindowsWin32NetworkingWindowswebservicesWsReadBody(message.rawAddress.toCPointer<ByteVar>(), bodydescription.rawAddress.toCPointer<ByteVar>(), readoption, heap.rawAddress.toCPointer<ByteVar>(), value.rawAddress.toCPointer<ByteVar>(), valuesize, error.rawAddress.toCPointer<ByteVar>())
 
-public actual fun wsReadBytes(reader: ConstPtr<WsXmlReader>, bytes: MutPtr<CVoid>, maxbytecount: UInt, actualbytecount: MutPtr<UInt>, error: ConstPtr<WsError>): Hresult =
+public actual fun wsReadBytes(reader: ConstPtr, bytes: MutPtr, maxbytecount: UInt, actualbytecount: MutPtr, error: ConstPtr): Hresult =
     windowssysWindowsWin32NetworkingWindowswebservicesWsReadBytes(reader.rawAddress.toCPointer<ByteVar>(), bytes.rawAddress.toCPointer<ByteVar>(), maxbytecount, actualbytecount.rawAddress.toCPointer<ByteVar>(), error.rawAddress.toCPointer<ByteVar>())
 
-public actual fun wsReadChars(reader: ConstPtr<WsXmlReader>, chars: Pwstr, maxcharcount: UInt, actualcharcount: MutPtr<UInt>, error: ConstPtr<WsError>): Hresult =
+public actual fun wsReadChars(reader: ConstPtr, chars: Pwstr, maxcharcount: UInt, actualcharcount: MutPtr, error: ConstPtr): Hresult =
     windowssysWindowsWin32NetworkingWindowswebservicesWsReadChars(reader.rawAddress.toCPointer<ByteVar>(), chars.rawAddress.toCPointer<ByteVar>(), maxcharcount, actualcharcount.rawAddress.toCPointer<ByteVar>(), error.rawAddress.toCPointer<ByteVar>())
 
-public actual fun wsReadCharsUtf8(reader: ConstPtr<WsXmlReader>, bytes: MutPtr<UByte>, maxbytecount: UInt, actualbytecount: MutPtr<UInt>, error: ConstPtr<WsError>): Hresult =
+public actual fun wsReadCharsUtf8(reader: ConstPtr, bytes: MutPtr, maxbytecount: UInt, actualbytecount: MutPtr, error: ConstPtr): Hresult =
     windowssysWindowsWin32NetworkingWindowswebservicesWsReadCharsUtf8(reader.rawAddress.toCPointer<ByteVar>(), bytes.rawAddress.toCPointer<ByteVar>(), maxbytecount, actualbytecount.rawAddress.toCPointer<ByteVar>(), error.rawAddress.toCPointer<ByteVar>())
 
-public actual fun wsReadElement(reader: ConstPtr<WsXmlReader>, elementdescription: ConstPtr<WsElementDescription>, readoption: WsReadOption, heap: ConstPtr<WsHeap>, value: MutPtr<CVoid>, valuesize: UInt, error: ConstPtr<WsError>): Hresult =
+public actual fun wsReadElement(reader: ConstPtr, elementdescription: ConstPtr, readoption: WsReadOption, heap: ConstPtr, value: MutPtr, valuesize: UInt, error: ConstPtr): Hresult =
     windowssysWindowsWin32NetworkingWindowswebservicesWsReadElement(reader.rawAddress.toCPointer<ByteVar>(), elementdescription.rawAddress.toCPointer<ByteVar>(), readoption, heap.rawAddress.toCPointer<ByteVar>(), value.rawAddress.toCPointer<ByteVar>(), valuesize, error.rawAddress.toCPointer<ByteVar>())
 
-public actual fun wsReadEndAttribute(reader: ConstPtr<WsXmlReader>, error: ConstPtr<WsError>): Hresult =
+public actual fun wsReadEndAttribute(reader: ConstPtr, error: ConstPtr): Hresult =
     windowssysWindowsWin32NetworkingWindowswebservicesWsReadEndAttribute(reader.rawAddress.toCPointer<ByteVar>(), error.rawAddress.toCPointer<ByteVar>())
 
-public actual fun wsReadEndElement(reader: ConstPtr<WsXmlReader>, error: ConstPtr<WsError>): Hresult =
+public actual fun wsReadEndElement(reader: ConstPtr, error: ConstPtr): Hresult =
     windowssysWindowsWin32NetworkingWindowswebservicesWsReadEndElement(reader.rawAddress.toCPointer<ByteVar>(), error.rawAddress.toCPointer<ByteVar>())
 
-public actual fun wsReadEndpointAddressExtension(reader: ConstPtr<WsXmlReader>, endpointaddress: ConstPtr<WsEndpointAddress>, extensiontype: WsEndpointAddressExtensionType, readoption: WsReadOption, heap: ConstPtr<WsHeap>, value: MutPtr<CVoid>, valuesize: UInt, error: ConstPtr<WsError>): Hresult =
+public actual fun wsReadEndpointAddressExtension(reader: ConstPtr, endpointaddress: ConstPtr, extensiontype: WsEndpointAddressExtensionType, readoption: WsReadOption, heap: ConstPtr, value: MutPtr, valuesize: UInt, error: ConstPtr): Hresult =
     windowssysWindowsWin32NetworkingWindowswebservicesWsReadEndpointAddressExtension(reader.rawAddress.toCPointer<ByteVar>(), endpointaddress.rawAddress.toCPointer<ByteVar>(), extensiontype, readoption, heap.rawAddress.toCPointer<ByteVar>(), value.rawAddress.toCPointer<ByteVar>(), valuesize, error.rawAddress.toCPointer<ByteVar>())
 
-public actual fun wsReadEnvelopeEnd(message: ConstPtr<WsMessage>, error: ConstPtr<WsError>): Hresult =
+public actual fun wsReadEnvelopeEnd(message: ConstPtr, error: ConstPtr): Hresult =
     windowssysWindowsWin32NetworkingWindowswebservicesWsReadEnvelopeEnd(message.rawAddress.toCPointer<ByteVar>(), error.rawAddress.toCPointer<ByteVar>())
 
-public actual fun wsReadEnvelopeStart(message: ConstPtr<WsMessage>, reader: ConstPtr<WsXmlReader>, donecallback: WsMessageDoneCallback, donecallbackstate: ConstPtr<CVoid>, error: ConstPtr<WsError>): Hresult =
+public actual fun wsReadEnvelopeStart(message: ConstPtr, reader: ConstPtr, donecallback: WsMessageDoneCallback, donecallbackstate: ConstPtr, error: ConstPtr): Hresult =
     windowssysWindowsWin32NetworkingWindowswebservicesWsReadEnvelopeStart(message.rawAddress.toCPointer<ByteVar>(), reader.rawAddress.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>(), donecallbackstate.rawAddress.toCPointer<ByteVar>(), error.rawAddress.toCPointer<ByteVar>())
 
-public actual fun wsReadMessageEnd(channel: ConstPtr<WsChannel>, message: ConstPtr<WsMessage>, asynccontext: ConstPtr<WsAsyncContext>, error: ConstPtr<WsError>): Hresult =
+public actual fun wsReadMessageEnd(channel: ConstPtr, message: ConstPtr, asynccontext: ConstPtr, error: ConstPtr): Hresult =
     windowssysWindowsWin32NetworkingWindowswebservicesWsReadMessageEnd(channel.rawAddress.toCPointer<ByteVar>(), message.rawAddress.toCPointer<ByteVar>(), asynccontext.rawAddress.toCPointer<ByteVar>(), error.rawAddress.toCPointer<ByteVar>())
 
-public actual fun wsReadMessageStart(channel: ConstPtr<WsChannel>, message: ConstPtr<WsMessage>, asynccontext: ConstPtr<WsAsyncContext>, error: ConstPtr<WsError>): Hresult =
+public actual fun wsReadMessageStart(channel: ConstPtr, message: ConstPtr, asynccontext: ConstPtr, error: ConstPtr): Hresult =
     windowssysWindowsWin32NetworkingWindowswebservicesWsReadMessageStart(channel.rawAddress.toCPointer<ByteVar>(), message.rawAddress.toCPointer<ByteVar>(), asynccontext.rawAddress.toCPointer<ByteVar>(), error.rawAddress.toCPointer<ByteVar>())
 
-public actual fun wsReadMetadata(metadata: ConstPtr<WsMetadata>, reader: ConstPtr<WsXmlReader>, url: ConstPtr<WsString>, error: ConstPtr<WsError>): Hresult =
+public actual fun wsReadMetadata(metadata: ConstPtr, reader: ConstPtr, url: ConstPtr, error: ConstPtr): Hresult =
     windowssysWindowsWin32NetworkingWindowswebservicesWsReadMetadata(metadata.rawAddress.toCPointer<ByteVar>(), reader.rawAddress.toCPointer<ByteVar>(), url.rawAddress.toCPointer<ByteVar>(), error.rawAddress.toCPointer<ByteVar>())
 
-public actual fun wsReadNode(reader: ConstPtr<WsXmlReader>, error: ConstPtr<WsError>): Hresult =
+public actual fun wsReadNode(reader: ConstPtr, error: ConstPtr): Hresult =
     windowssysWindowsWin32NetworkingWindowswebservicesWsReadNode(reader.rawAddress.toCPointer<ByteVar>(), error.rawAddress.toCPointer<ByteVar>())
 
-public actual fun wsReadQualifiedName(reader: ConstPtr<WsXmlReader>, heap: ConstPtr<WsHeap>, prefix: MutPtr<WsXmlString>, localname: MutPtr<WsXmlString>, ns: MutPtr<WsXmlString>, error: ConstPtr<WsError>): Hresult =
+public actual fun wsReadQualifiedName(reader: ConstPtr, heap: ConstPtr, prefix: MutPtr, localname: MutPtr, ns: MutPtr, error: ConstPtr): Hresult =
     windowssysWindowsWin32NetworkingWindowswebservicesWsReadQualifiedName(reader.rawAddress.toCPointer<ByteVar>(), heap.rawAddress.toCPointer<ByteVar>(), prefix.rawAddress.toCPointer<ByteVar>(), localname.rawAddress.toCPointer<ByteVar>(), ns.rawAddress.toCPointer<ByteVar>(), error.rawAddress.toCPointer<ByteVar>())
 
-public actual fun wsReadStartAttribute(reader: ConstPtr<WsXmlReader>, attributeindex: UInt, error: ConstPtr<WsError>): Hresult =
+public actual fun wsReadStartAttribute(reader: ConstPtr, attributeindex: UInt, error: ConstPtr): Hresult =
     windowssysWindowsWin32NetworkingWindowswebservicesWsReadStartAttribute(reader.rawAddress.toCPointer<ByteVar>(), attributeindex, error.rawAddress.toCPointer<ByteVar>())
 
-public actual fun wsReadStartElement(reader: ConstPtr<WsXmlReader>, error: ConstPtr<WsError>): Hresult =
+public actual fun wsReadStartElement(reader: ConstPtr, error: ConstPtr): Hresult =
     windowssysWindowsWin32NetworkingWindowswebservicesWsReadStartElement(reader.rawAddress.toCPointer<ByteVar>(), error.rawAddress.toCPointer<ByteVar>())
 
-public actual fun wsReadToStartElement(reader: ConstPtr<WsXmlReader>, localname: ConstPtr<WsXmlString>, ns: ConstPtr<WsXmlString>, found: MutPtr<Bool>, error: ConstPtr<WsError>): Hresult =
+public actual fun wsReadToStartElement(reader: ConstPtr, localname: ConstPtr, ns: ConstPtr, found: MutPtr, error: ConstPtr): Hresult =
     windowssysWindowsWin32NetworkingWindowswebservicesWsReadToStartElement(reader.rawAddress.toCPointer<ByteVar>(), localname.rawAddress.toCPointer<ByteVar>(), ns.rawAddress.toCPointer<ByteVar>(), found.rawAddress.toCPointer<ByteVar>(), error.rawAddress.toCPointer<ByteVar>())
 
-public actual fun wsReadType(reader: ConstPtr<WsXmlReader>, typemapping: WsTypeMapping, type: WsType, typedescription: ConstPtr<CVoid>, readoption: WsReadOption, heap: ConstPtr<WsHeap>, value: MutPtr<CVoid>, valuesize: UInt, error: ConstPtr<WsError>): Hresult =
+public actual fun wsReadType(reader: ConstPtr, typemapping: WsTypeMapping, type: WsType, typedescription: ConstPtr, readoption: WsReadOption, heap: ConstPtr, value: MutPtr, valuesize: UInt, error: ConstPtr): Hresult =
     windowssysWindowsWin32NetworkingWindowswebservicesWsReadType(reader.rawAddress.toCPointer<ByteVar>(), typemapping, type, typedescription.rawAddress.toCPointer<ByteVar>(), readoption, heap.rawAddress.toCPointer<ByteVar>(), value.rawAddress.toCPointer<ByteVar>(), valuesize, error.rawAddress.toCPointer<ByteVar>())
 
-public actual fun wsReadValue(reader: ConstPtr<WsXmlReader>, valuetype: WsValueType, value: MutPtr<CVoid>, valuesize: UInt, error: ConstPtr<WsError>): Hresult =
+public actual fun wsReadValue(reader: ConstPtr, valuetype: WsValueType, value: MutPtr, valuesize: UInt, error: ConstPtr): Hresult =
     windowssysWindowsWin32NetworkingWindowswebservicesWsReadValue(reader.rawAddress.toCPointer<ByteVar>(), valuetype, value.rawAddress.toCPointer<ByteVar>(), valuesize, error.rawAddress.toCPointer<ByteVar>())
 
-public actual fun wsReadXmlBuffer(reader: ConstPtr<WsXmlReader>, heap: ConstPtr<WsHeap>, xmlbuffer: MutPtr<MutPtr<WsXmlBuffer>>, error: ConstPtr<WsError>): Hresult =
+public actual fun wsReadXmlBuffer(reader: ConstPtr, heap: ConstPtr, xmlbuffer: MutPtr, error: ConstPtr): Hresult =
     windowssysWindowsWin32NetworkingWindowswebservicesWsReadXmlBuffer(reader.rawAddress.toCPointer<ByteVar>(), heap.rawAddress.toCPointer<ByteVar>(), xmlbuffer.rawAddress.toCPointer<ByteVar>(), error.rawAddress.toCPointer<ByteVar>())
 
-public actual fun wsReadXmlBufferFromBytes(reader: ConstPtr<WsXmlReader>, encoding: ConstPtr<WsXmlReaderEncoding>, properties: ConstPtr<WsXmlReaderProperty>, propertycount: UInt, bytes: ConstPtr<CVoid>, bytecount: UInt, heap: ConstPtr<WsHeap>, xmlbuffer: MutPtr<MutPtr<WsXmlBuffer>>, error: ConstPtr<WsError>): Hresult =
+public actual fun wsReadXmlBufferFromBytes(reader: ConstPtr, encoding: ConstPtr, properties: ConstPtr, propertycount: UInt, bytes: ConstPtr, bytecount: UInt, heap: ConstPtr, xmlbuffer: MutPtr, error: ConstPtr): Hresult =
     windowssysWindowsWin32NetworkingWindowswebservicesWsReadXmlBufferFromBytes(reader.rawAddress.toCPointer<ByteVar>(), encoding.rawAddress.toCPointer<ByteVar>(), properties.rawAddress.toCPointer<ByteVar>(), propertycount, bytes.rawAddress.toCPointer<ByteVar>(), bytecount, heap.rawAddress.toCPointer<ByteVar>(), xmlbuffer.rawAddress.toCPointer<ByteVar>(), error.rawAddress.toCPointer<ByteVar>())
 
-public actual fun wsReceiveMessage(channel: ConstPtr<WsChannel>, message: ConstPtr<WsMessage>, messagedescriptions: ConstPtr<ConstPtr<WsMessageDescription>>, messagedescriptioncount: UInt, receiveoption: WsReceiveOption, readbodyoption: WsReadOption, heap: ConstPtr<WsHeap>, value: MutPtr<CVoid>, valuesize: UInt, index: MutPtr<UInt>, asynccontext: ConstPtr<WsAsyncContext>, error: ConstPtr<WsError>): Hresult =
+public actual fun wsReceiveMessage(channel: ConstPtr, message: ConstPtr, messagedescriptions: ConstPtr, messagedescriptioncount: UInt, receiveoption: WsReceiveOption, readbodyoption: WsReadOption, heap: ConstPtr, value: MutPtr, valuesize: UInt, index: MutPtr, asynccontext: ConstPtr, error: ConstPtr): Hresult =
     windowssysWindowsWin32NetworkingWindowswebservicesWsReceiveMessage(channel.rawAddress.toCPointer<ByteVar>(), message.rawAddress.toCPointer<ByteVar>(), messagedescriptions.rawAddress.toCPointer<ByteVar>(), messagedescriptioncount, receiveoption, readbodyoption, heap.rawAddress.toCPointer<ByteVar>(), value.rawAddress.toCPointer<ByteVar>(), valuesize, index.rawAddress.toCPointer<ByteVar>(), asynccontext.rawAddress.toCPointer<ByteVar>(), error.rawAddress.toCPointer<ByteVar>())
 
-public actual fun wsRegisterOperationForCancel(context: ConstPtr<WsOperationContext>, cancelcallback: WsOperationCancelCallback, freestatecallback: WsOperationFreeStateCallback, userstate: ConstPtr<CVoid>, error: ConstPtr<WsError>): Hresult =
+public actual fun wsRegisterOperationForCancel(context: ConstPtr, cancelcallback: WsOperationCancelCallback, freestatecallback: WsOperationFreeStateCallback, userstate: ConstPtr, error: ConstPtr): Hresult =
     windowssysWindowsWin32NetworkingWindowswebservicesWsRegisterOperationForCancel(context.rawAddress.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>(), userstate.rawAddress.toCPointer<ByteVar>(), error.rawAddress.toCPointer<ByteVar>())
 
-public actual fun wsRemoveCustomHeader(message: ConstPtr<WsMessage>, headername: ConstPtr<WsXmlString>, headerns: ConstPtr<WsXmlString>, error: ConstPtr<WsError>): Hresult =
+public actual fun wsRemoveCustomHeader(message: ConstPtr, headername: ConstPtr, headerns: ConstPtr, error: ConstPtr): Hresult =
     windowssysWindowsWin32NetworkingWindowswebservicesWsRemoveCustomHeader(message.rawAddress.toCPointer<ByteVar>(), headername.rawAddress.toCPointer<ByteVar>(), headerns.rawAddress.toCPointer<ByteVar>(), error.rawAddress.toCPointer<ByteVar>())
 
-public actual fun wsRemoveHeader(message: ConstPtr<WsMessage>, headertype: WsHeaderType, error: ConstPtr<WsError>): Hresult =
+public actual fun wsRemoveHeader(message: ConstPtr, headertype: WsHeaderType, error: ConstPtr): Hresult =
     windowssysWindowsWin32NetworkingWindowswebservicesWsRemoveHeader(message.rawAddress.toCPointer<ByteVar>(), headertype, error.rawAddress.toCPointer<ByteVar>())
 
-public actual fun wsRemoveMappedHeader(message: ConstPtr<WsMessage>, headername: ConstPtr<WsXmlString>, error: ConstPtr<WsError>): Hresult =
+public actual fun wsRemoveMappedHeader(message: ConstPtr, headername: ConstPtr, error: ConstPtr): Hresult =
     windowssysWindowsWin32NetworkingWindowswebservicesWsRemoveMappedHeader(message.rawAddress.toCPointer<ByteVar>(), headername.rawAddress.toCPointer<ByteVar>(), error.rawAddress.toCPointer<ByteVar>())
 
-public actual fun wsRemoveNode(nodeposition: ConstPtr<WsXmlNodePosition>, error: ConstPtr<WsError>): Hresult =
+public actual fun wsRemoveNode(nodeposition: ConstPtr, error: ConstPtr): Hresult =
     windowssysWindowsWin32NetworkingWindowswebservicesWsRemoveNode(nodeposition.rawAddress.toCPointer<ByteVar>(), error.rawAddress.toCPointer<ByteVar>())
 
-public actual fun wsRequestReply(channel: ConstPtr<WsChannel>, requestmessage: ConstPtr<WsMessage>, requestmessagedescription: ConstPtr<WsMessageDescription>, writeoption: WsWriteOption, requestbodyvalue: ConstPtr<CVoid>, requestbodyvaluesize: UInt, replymessage: ConstPtr<WsMessage>, replymessagedescription: ConstPtr<WsMessageDescription>, readoption: WsReadOption, heap: ConstPtr<WsHeap>, value: MutPtr<CVoid>, valuesize: UInt, asynccontext: ConstPtr<WsAsyncContext>, error: ConstPtr<WsError>): Hresult =
+public actual fun wsRequestReply(channel: ConstPtr, requestmessage: ConstPtr, requestmessagedescription: ConstPtr, writeoption: WsWriteOption, requestbodyvalue: ConstPtr, requestbodyvaluesize: UInt, replymessage: ConstPtr, replymessagedescription: ConstPtr, readoption: WsReadOption, heap: ConstPtr, value: MutPtr, valuesize: UInt, asynccontext: ConstPtr, error: ConstPtr): Hresult =
     windowssysWindowsWin32NetworkingWindowswebservicesWsRequestReply(channel.rawAddress.toCPointer<ByteVar>(), requestmessage.rawAddress.toCPointer<ByteVar>(), requestmessagedescription.rawAddress.toCPointer<ByteVar>(), writeoption, requestbodyvalue.rawAddress.toCPointer<ByteVar>(), requestbodyvaluesize, replymessage.rawAddress.toCPointer<ByteVar>(), replymessagedescription.rawAddress.toCPointer<ByteVar>(), readoption, heap.rawAddress.toCPointer<ByteVar>(), value.rawAddress.toCPointer<ByteVar>(), valuesize, asynccontext.rawAddress.toCPointer<ByteVar>(), error.rawAddress.toCPointer<ByteVar>())
 
-public actual fun wsRequestSecurityToken(channel: ConstPtr<WsChannel>, properties: ConstPtr<WsRequestSecurityTokenProperty>, propertycount: UInt, token: MutPtr<MutPtr<WsSecurityToken>>, asynccontext: ConstPtr<WsAsyncContext>, error: ConstPtr<WsError>): Hresult =
+public actual fun wsRequestSecurityToken(channel: ConstPtr, properties: ConstPtr, propertycount: UInt, token: MutPtr, asynccontext: ConstPtr, error: ConstPtr): Hresult =
     windowssysWindowsWin32NetworkingWindowswebservicesWsRequestSecurityToken(channel.rawAddress.toCPointer<ByteVar>(), properties.rawAddress.toCPointer<ByteVar>(), propertycount, token.rawAddress.toCPointer<ByteVar>(), asynccontext.rawAddress.toCPointer<ByteVar>(), error.rawAddress.toCPointer<ByteVar>())
 
-public actual fun wsResetChannel(channel: ConstPtr<WsChannel>, error: ConstPtr<WsError>): Hresult =
+public actual fun wsResetChannel(channel: ConstPtr, error: ConstPtr): Hresult =
     windowssysWindowsWin32NetworkingWindowswebservicesWsResetChannel(channel.rawAddress.toCPointer<ByteVar>(), error.rawAddress.toCPointer<ByteVar>())
 
-public actual fun wsResetError(error: ConstPtr<WsError>): Hresult =
+public actual fun wsResetError(error: ConstPtr): Hresult =
     windowssysWindowsWin32NetworkingWindowswebservicesWsResetError(error.rawAddress.toCPointer<ByteVar>())
 
-public actual fun wsResetHeap(heap: ConstPtr<WsHeap>, error: ConstPtr<WsError>): Hresult =
+public actual fun wsResetHeap(heap: ConstPtr, error: ConstPtr): Hresult =
     windowssysWindowsWin32NetworkingWindowswebservicesWsResetHeap(heap.rawAddress.toCPointer<ByteVar>(), error.rawAddress.toCPointer<ByteVar>())
 
-public actual fun wsResetListener(listener: ConstPtr<WsListener>, error: ConstPtr<WsError>): Hresult =
+public actual fun wsResetListener(listener: ConstPtr, error: ConstPtr): Hresult =
     windowssysWindowsWin32NetworkingWindowswebservicesWsResetListener(listener.rawAddress.toCPointer<ByteVar>(), error.rawAddress.toCPointer<ByteVar>())
 
-public actual fun wsResetMessage(message: ConstPtr<WsMessage>, error: ConstPtr<WsError>): Hresult =
+public actual fun wsResetMessage(message: ConstPtr, error: ConstPtr): Hresult =
     windowssysWindowsWin32NetworkingWindowswebservicesWsResetMessage(message.rawAddress.toCPointer<ByteVar>(), error.rawAddress.toCPointer<ByteVar>())
 
-public actual fun wsResetMetadata(metadata: ConstPtr<WsMetadata>, error: ConstPtr<WsError>): Hresult =
+public actual fun wsResetMetadata(metadata: ConstPtr, error: ConstPtr): Hresult =
     windowssysWindowsWin32NetworkingWindowswebservicesWsResetMetadata(metadata.rawAddress.toCPointer<ByteVar>(), error.rawAddress.toCPointer<ByteVar>())
 
-public actual fun wsResetServiceHost(servicehost: ConstPtr<WsServiceHost>, error: ConstPtr<WsError>): Hresult =
+public actual fun wsResetServiceHost(servicehost: ConstPtr, error: ConstPtr): Hresult =
     windowssysWindowsWin32NetworkingWindowswebservicesWsResetServiceHost(servicehost.rawAddress.toCPointer<ByteVar>(), error.rawAddress.toCPointer<ByteVar>())
 
-public actual fun wsResetServiceProxy(serviceproxy: ConstPtr<WsServiceProxy>, error: ConstPtr<WsError>): Hresult =
+public actual fun wsResetServiceProxy(serviceproxy: ConstPtr, error: ConstPtr): Hresult =
     windowssysWindowsWin32NetworkingWindowswebservicesWsResetServiceProxy(serviceproxy.rawAddress.toCPointer<ByteVar>(), error.rawAddress.toCPointer<ByteVar>())
 
-public actual fun wsRevokeSecurityContext(securitycontext: ConstPtr<WsSecurityContext>, error: ConstPtr<WsError>): Hresult =
+public actual fun wsRevokeSecurityContext(securitycontext: ConstPtr, error: ConstPtr): Hresult =
     windowssysWindowsWin32NetworkingWindowswebservicesWsRevokeSecurityContext(securitycontext.rawAddress.toCPointer<ByteVar>(), error.rawAddress.toCPointer<ByteVar>())
 
-public actual fun wsSendFaultMessageForError(channel: ConstPtr<WsChannel>, replymessage: ConstPtr<WsMessage>, faulterror: ConstPtr<WsError>, faulterrorcode: Hresult, faultdisclosure: WsFaultDisclosure, requestmessage: ConstPtr<WsMessage>, asynccontext: ConstPtr<WsAsyncContext>, error: ConstPtr<WsError>): Hresult =
+public actual fun wsSendFaultMessageForError(channel: ConstPtr, replymessage: ConstPtr, faulterror: ConstPtr, faulterrorcode: Hresult, faultdisclosure: WsFaultDisclosure, requestmessage: ConstPtr, asynccontext: ConstPtr, error: ConstPtr): Hresult =
     windowssysWindowsWin32NetworkingWindowswebservicesWsSendFaultMessageForError(channel.rawAddress.toCPointer<ByteVar>(), replymessage.rawAddress.toCPointer<ByteVar>(), faulterror.rawAddress.toCPointer<ByteVar>(), faulterrorcode, faultdisclosure, requestmessage.rawAddress.toCPointer<ByteVar>(), asynccontext.rawAddress.toCPointer<ByteVar>(), error.rawAddress.toCPointer<ByteVar>())
 
-public actual fun wsSendMessage(channel: ConstPtr<WsChannel>, message: ConstPtr<WsMessage>, messagedescription: ConstPtr<WsMessageDescription>, writeoption: WsWriteOption, bodyvalue: ConstPtr<CVoid>, bodyvaluesize: UInt, asynccontext: ConstPtr<WsAsyncContext>, error: ConstPtr<WsError>): Hresult =
+public actual fun wsSendMessage(channel: ConstPtr, message: ConstPtr, messagedescription: ConstPtr, writeoption: WsWriteOption, bodyvalue: ConstPtr, bodyvaluesize: UInt, asynccontext: ConstPtr, error: ConstPtr): Hresult =
     windowssysWindowsWin32NetworkingWindowswebservicesWsSendMessage(channel.rawAddress.toCPointer<ByteVar>(), message.rawAddress.toCPointer<ByteVar>(), messagedescription.rawAddress.toCPointer<ByteVar>(), writeoption, bodyvalue.rawAddress.toCPointer<ByteVar>(), bodyvaluesize, asynccontext.rawAddress.toCPointer<ByteVar>(), error.rawAddress.toCPointer<ByteVar>())
 
-public actual fun wsSendReplyMessage(channel: ConstPtr<WsChannel>, replymessage: ConstPtr<WsMessage>, replymessagedescription: ConstPtr<WsMessageDescription>, writeoption: WsWriteOption, replybodyvalue: ConstPtr<CVoid>, replybodyvaluesize: UInt, requestmessage: ConstPtr<WsMessage>, asynccontext: ConstPtr<WsAsyncContext>, error: ConstPtr<WsError>): Hresult =
+public actual fun wsSendReplyMessage(channel: ConstPtr, replymessage: ConstPtr, replymessagedescription: ConstPtr, writeoption: WsWriteOption, replybodyvalue: ConstPtr, replybodyvaluesize: UInt, requestmessage: ConstPtr, asynccontext: ConstPtr, error: ConstPtr): Hresult =
     windowssysWindowsWin32NetworkingWindowswebservicesWsSendReplyMessage(channel.rawAddress.toCPointer<ByteVar>(), replymessage.rawAddress.toCPointer<ByteVar>(), replymessagedescription.rawAddress.toCPointer<ByteVar>(), writeoption, replybodyvalue.rawAddress.toCPointer<ByteVar>(), replybodyvaluesize, requestmessage.rawAddress.toCPointer<ByteVar>(), asynccontext.rawAddress.toCPointer<ByteVar>(), error.rawAddress.toCPointer<ByteVar>())
 
-public actual fun wsSetChannelProperty(channel: ConstPtr<WsChannel>, id: WsChannelPropertyId, value: ConstPtr<CVoid>, valuesize: UInt, error: ConstPtr<WsError>): Hresult =
+public actual fun wsSetChannelProperty(channel: ConstPtr, id: WsChannelPropertyId, value: ConstPtr, valuesize: UInt, error: ConstPtr): Hresult =
     windowssysWindowsWin32NetworkingWindowswebservicesWsSetChannelProperty(channel.rawAddress.toCPointer<ByteVar>(), id, value.rawAddress.toCPointer<ByteVar>(), valuesize, error.rawAddress.toCPointer<ByteVar>())
 
-public actual fun wsSetErrorProperty(error: ConstPtr<WsError>, id: WsErrorPropertyId, value: ConstPtr<CVoid>, valuesize: UInt): Hresult =
+public actual fun wsSetErrorProperty(error: ConstPtr, id: WsErrorPropertyId, value: ConstPtr, valuesize: UInt): Hresult =
     windowssysWindowsWin32NetworkingWindowswebservicesWsSetErrorProperty(error.rawAddress.toCPointer<ByteVar>(), id, value.rawAddress.toCPointer<ByteVar>(), valuesize)
 
-public actual fun wsSetFaultErrorDetail(error: ConstPtr<WsError>, faultdetaildescription: ConstPtr<WsFaultDetailDescription>, writeoption: WsWriteOption, value: ConstPtr<CVoid>, valuesize: UInt): Hresult =
+public actual fun wsSetFaultErrorDetail(error: ConstPtr, faultdetaildescription: ConstPtr, writeoption: WsWriteOption, value: ConstPtr, valuesize: UInt): Hresult =
     windowssysWindowsWin32NetworkingWindowswebservicesWsSetFaultErrorDetail(error.rawAddress.toCPointer<ByteVar>(), faultdetaildescription.rawAddress.toCPointer<ByteVar>(), writeoption, value.rawAddress.toCPointer<ByteVar>(), valuesize)
 
-public actual fun wsSetFaultErrorProperty(error: ConstPtr<WsError>, id: WsFaultErrorPropertyId, value: ConstPtr<CVoid>, valuesize: UInt): Hresult =
+public actual fun wsSetFaultErrorProperty(error: ConstPtr, id: WsFaultErrorPropertyId, value: ConstPtr, valuesize: UInt): Hresult =
     windowssysWindowsWin32NetworkingWindowswebservicesWsSetFaultErrorProperty(error.rawAddress.toCPointer<ByteVar>(), id, value.rawAddress.toCPointer<ByteVar>(), valuesize)
 
-public actual fun wsSetHeader(message: ConstPtr<WsMessage>, headertype: WsHeaderType, valuetype: WsType, writeoption: WsWriteOption, value: ConstPtr<CVoid>, valuesize: UInt, error: ConstPtr<WsError>): Hresult =
+public actual fun wsSetHeader(message: ConstPtr, headertype: WsHeaderType, valuetype: WsType, writeoption: WsWriteOption, value: ConstPtr, valuesize: UInt, error: ConstPtr): Hresult =
     windowssysWindowsWin32NetworkingWindowswebservicesWsSetHeader(message.rawAddress.toCPointer<ByteVar>(), headertype, valuetype, writeoption, value.rawAddress.toCPointer<ByteVar>(), valuesize, error.rawAddress.toCPointer<ByteVar>())
 
-public actual fun wsSetInput(reader: ConstPtr<WsXmlReader>, encoding: ConstPtr<WsXmlReaderEncoding>, input: ConstPtr<WsXmlReaderInput>, properties: ConstPtr<WsXmlReaderProperty>, propertycount: UInt, error: ConstPtr<WsError>): Hresult =
+public actual fun wsSetInput(reader: ConstPtr, encoding: ConstPtr, input: ConstPtr, properties: ConstPtr, propertycount: UInt, error: ConstPtr): Hresult =
     windowssysWindowsWin32NetworkingWindowswebservicesWsSetInput(reader.rawAddress.toCPointer<ByteVar>(), encoding.rawAddress.toCPointer<ByteVar>(), input.rawAddress.toCPointer<ByteVar>(), properties.rawAddress.toCPointer<ByteVar>(), propertycount, error.rawAddress.toCPointer<ByteVar>())
 
-public actual fun wsSetInputToBuffer(reader: ConstPtr<WsXmlReader>, buffer: ConstPtr<WsXmlBuffer>, properties: ConstPtr<WsXmlReaderProperty>, propertycount: UInt, error: ConstPtr<WsError>): Hresult =
+public actual fun wsSetInputToBuffer(reader: ConstPtr, buffer: ConstPtr, properties: ConstPtr, propertycount: UInt, error: ConstPtr): Hresult =
     windowssysWindowsWin32NetworkingWindowswebservicesWsSetInputToBuffer(reader.rawAddress.toCPointer<ByteVar>(), buffer.rawAddress.toCPointer<ByteVar>(), properties.rawAddress.toCPointer<ByteVar>(), propertycount, error.rawAddress.toCPointer<ByteVar>())
 
-public actual fun wsSetListenerProperty(listener: ConstPtr<WsListener>, id: WsListenerPropertyId, value: ConstPtr<CVoid>, valuesize: UInt, error: ConstPtr<WsError>): Hresult =
+public actual fun wsSetListenerProperty(listener: ConstPtr, id: WsListenerPropertyId, value: ConstPtr, valuesize: UInt, error: ConstPtr): Hresult =
     windowssysWindowsWin32NetworkingWindowswebservicesWsSetListenerProperty(listener.rawAddress.toCPointer<ByteVar>(), id, value.rawAddress.toCPointer<ByteVar>(), valuesize, error.rawAddress.toCPointer<ByteVar>())
 
-public actual fun wsSetMessageProperty(message: ConstPtr<WsMessage>, id: WsMessagePropertyId, value: ConstPtr<CVoid>, valuesize: UInt, error: ConstPtr<WsError>): Hresult =
+public actual fun wsSetMessageProperty(message: ConstPtr, id: WsMessagePropertyId, value: ConstPtr, valuesize: UInt, error: ConstPtr): Hresult =
     windowssysWindowsWin32NetworkingWindowswebservicesWsSetMessageProperty(message.rawAddress.toCPointer<ByteVar>(), id, value.rawAddress.toCPointer<ByteVar>(), valuesize, error.rawAddress.toCPointer<ByteVar>())
 
-public actual fun wsSetOutput(writer: ConstPtr<WsXmlWriter>, encoding: ConstPtr<WsXmlWriterEncoding>, output: ConstPtr<WsXmlWriterOutput>, properties: ConstPtr<WsXmlWriterProperty>, propertycount: UInt, error: ConstPtr<WsError>): Hresult =
+public actual fun wsSetOutput(writer: ConstPtr, encoding: ConstPtr, output: ConstPtr, properties: ConstPtr, propertycount: UInt, error: ConstPtr): Hresult =
     windowssysWindowsWin32NetworkingWindowswebservicesWsSetOutput(writer.rawAddress.toCPointer<ByteVar>(), encoding.rawAddress.toCPointer<ByteVar>(), output.rawAddress.toCPointer<ByteVar>(), properties.rawAddress.toCPointer<ByteVar>(), propertycount, error.rawAddress.toCPointer<ByteVar>())
 
-public actual fun wsSetOutputToBuffer(writer: ConstPtr<WsXmlWriter>, buffer: ConstPtr<WsXmlBuffer>, properties: ConstPtr<WsXmlWriterProperty>, propertycount: UInt, error: ConstPtr<WsError>): Hresult =
+public actual fun wsSetOutputToBuffer(writer: ConstPtr, buffer: ConstPtr, properties: ConstPtr, propertycount: UInt, error: ConstPtr): Hresult =
     windowssysWindowsWin32NetworkingWindowswebservicesWsSetOutputToBuffer(writer.rawAddress.toCPointer<ByteVar>(), buffer.rawAddress.toCPointer<ByteVar>(), properties.rawAddress.toCPointer<ByteVar>(), propertycount, error.rawAddress.toCPointer<ByteVar>())
 
-public actual fun wsSetReaderPosition(reader: ConstPtr<WsXmlReader>, nodeposition: ConstPtr<WsXmlNodePosition>, error: ConstPtr<WsError>): Hresult =
+public actual fun wsSetReaderPosition(reader: ConstPtr, nodeposition: ConstPtr, error: ConstPtr): Hresult =
     windowssysWindowsWin32NetworkingWindowswebservicesWsSetReaderPosition(reader.rawAddress.toCPointer<ByteVar>(), nodeposition.rawAddress.toCPointer<ByteVar>(), error.rawAddress.toCPointer<ByteVar>())
 
-public actual fun wsSetWriterPosition(writer: ConstPtr<WsXmlWriter>, nodeposition: ConstPtr<WsXmlNodePosition>, error: ConstPtr<WsError>): Hresult =
+public actual fun wsSetWriterPosition(writer: ConstPtr, nodeposition: ConstPtr, error: ConstPtr): Hresult =
     windowssysWindowsWin32NetworkingWindowswebservicesWsSetWriterPosition(writer.rawAddress.toCPointer<ByteVar>(), nodeposition.rawAddress.toCPointer<ByteVar>(), error.rawAddress.toCPointer<ByteVar>())
 
-public actual fun wsShutdownSessionChannel(channel: ConstPtr<WsChannel>, asynccontext: ConstPtr<WsAsyncContext>, error: ConstPtr<WsError>): Hresult =
+public actual fun wsShutdownSessionChannel(channel: ConstPtr, asynccontext: ConstPtr, error: ConstPtr): Hresult =
     windowssysWindowsWin32NetworkingWindowswebservicesWsShutdownSessionChannel(channel.rawAddress.toCPointer<ByteVar>(), asynccontext.rawAddress.toCPointer<ByteVar>(), error.rawAddress.toCPointer<ByteVar>())
 
-public actual fun wsSkipNode(reader: ConstPtr<WsXmlReader>, error: ConstPtr<WsError>): Hresult =
+public actual fun wsSkipNode(reader: ConstPtr, error: ConstPtr): Hresult =
     windowssysWindowsWin32NetworkingWindowswebservicesWsSkipNode(reader.rawAddress.toCPointer<ByteVar>(), error.rawAddress.toCPointer<ByteVar>())
 
-public actual fun wsStartReaderCanonicalization(reader: ConstPtr<WsXmlReader>, writecallback: WsWriteCallback, writecallbackstate: ConstPtr<CVoid>, properties: ConstPtr<WsXmlCanonicalizationProperty>, propertycount: UInt, error: ConstPtr<WsError>): Hresult =
+public actual fun wsStartReaderCanonicalization(reader: ConstPtr, writecallback: WsWriteCallback, writecallbackstate: ConstPtr, properties: ConstPtr, propertycount: UInt, error: ConstPtr): Hresult =
     windowssysWindowsWin32NetworkingWindowswebservicesWsStartReaderCanonicalization(reader.rawAddress.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>(), writecallbackstate.rawAddress.toCPointer<ByteVar>(), properties.rawAddress.toCPointer<ByteVar>(), propertycount, error.rawAddress.toCPointer<ByteVar>())
 
-public actual fun wsStartWriterCanonicalization(writer: ConstPtr<WsXmlWriter>, writecallback: WsWriteCallback, writecallbackstate: ConstPtr<CVoid>, properties: ConstPtr<WsXmlCanonicalizationProperty>, propertycount: UInt, error: ConstPtr<WsError>): Hresult =
+public actual fun wsStartWriterCanonicalization(writer: ConstPtr, writecallback: WsWriteCallback, writecallbackstate: ConstPtr, properties: ConstPtr, propertycount: UInt, error: ConstPtr): Hresult =
     windowssysWindowsWin32NetworkingWindowswebservicesWsStartWriterCanonicalization(writer.rawAddress.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>(), writecallbackstate.rawAddress.toCPointer<ByteVar>(), properties.rawAddress.toCPointer<ByteVar>(), propertycount, error.rawAddress.toCPointer<ByteVar>())
 
-public actual fun wsTrimXmlWhitespace(chars: Pcwstr, charcount: UInt, trimmedchars: MutPtr<MutPtr<UShort>>, trimmedcount: MutPtr<UInt>, error: ConstPtr<WsError>): Hresult =
+public actual fun wsTrimXmlWhitespace(chars: Pcwstr, charcount: UInt, trimmedchars: MutPtr, trimmedcount: MutPtr, error: ConstPtr): Hresult =
     windowssysWindowsWin32NetworkingWindowswebservicesWsTrimXmlWhitespace(chars.rawAddress.toCPointer<ByteVar>(), charcount, trimmedchars.rawAddress.toCPointer<ByteVar>(), trimmedcount.rawAddress.toCPointer<ByteVar>(), error.rawAddress.toCPointer<ByteVar>())
 
-public actual fun wsVerifyXmlNCName(ncnamechars: Pcwstr, ncnamecharcount: UInt, error: ConstPtr<WsError>): Hresult =
+public actual fun wsVerifyXmlNCName(ncnamechars: Pcwstr, ncnamecharcount: UInt, error: ConstPtr): Hresult =
     windowssysWindowsWin32NetworkingWindowswebservicesWsVerifyXmlNCName(ncnamechars.rawAddress.toCPointer<ByteVar>(), ncnamecharcount, error.rawAddress.toCPointer<ByteVar>())
 
-public actual fun wsWriteArray(writer: ConstPtr<WsXmlWriter>, localname: ConstPtr<WsXmlString>, ns: ConstPtr<WsXmlString>, valuetype: WsValueType, array: ConstPtr<CVoid>, arraysize: UInt, itemoffset: UInt, itemcount: UInt, error: ConstPtr<WsError>): Hresult =
+public actual fun wsWriteArray(writer: ConstPtr, localname: ConstPtr, ns: ConstPtr, valuetype: WsValueType, array: ConstPtr, arraysize: UInt, itemoffset: UInt, itemcount: UInt, error: ConstPtr): Hresult =
     windowssysWindowsWin32NetworkingWindowswebservicesWsWriteArray(writer.rawAddress.toCPointer<ByteVar>(), localname.rawAddress.toCPointer<ByteVar>(), ns.rawAddress.toCPointer<ByteVar>(), valuetype, array.rawAddress.toCPointer<ByteVar>(), arraysize, itemoffset, itemcount, error.rawAddress.toCPointer<ByteVar>())
 
-public actual fun wsWriteAttribute(writer: ConstPtr<WsXmlWriter>, attributedescription: ConstPtr<WsAttributeDescription>, writeoption: WsWriteOption, value: ConstPtr<CVoid>, valuesize: UInt, error: ConstPtr<WsError>): Hresult =
+public actual fun wsWriteAttribute(writer: ConstPtr, attributedescription: ConstPtr, writeoption: WsWriteOption, value: ConstPtr, valuesize: UInt, error: ConstPtr): Hresult =
     windowssysWindowsWin32NetworkingWindowswebservicesWsWriteAttribute(writer.rawAddress.toCPointer<ByteVar>(), attributedescription.rawAddress.toCPointer<ByteVar>(), writeoption, value.rawAddress.toCPointer<ByteVar>(), valuesize, error.rawAddress.toCPointer<ByteVar>())
 
-public actual fun wsWriteBody(message: ConstPtr<WsMessage>, bodydescription: ConstPtr<WsElementDescription>, writeoption: WsWriteOption, value: ConstPtr<CVoid>, valuesize: UInt, error: ConstPtr<WsError>): Hresult =
+public actual fun wsWriteBody(message: ConstPtr, bodydescription: ConstPtr, writeoption: WsWriteOption, value: ConstPtr, valuesize: UInt, error: ConstPtr): Hresult =
     windowssysWindowsWin32NetworkingWindowswebservicesWsWriteBody(message.rawAddress.toCPointer<ByteVar>(), bodydescription.rawAddress.toCPointer<ByteVar>(), writeoption, value.rawAddress.toCPointer<ByteVar>(), valuesize, error.rawAddress.toCPointer<ByteVar>())
 
-public actual fun wsWriteBytes(writer: ConstPtr<WsXmlWriter>, bytes: ConstPtr<CVoid>, bytecount: UInt, error: ConstPtr<WsError>): Hresult =
+public actual fun wsWriteBytes(writer: ConstPtr, bytes: ConstPtr, bytecount: UInt, error: ConstPtr): Hresult =
     windowssysWindowsWin32NetworkingWindowswebservicesWsWriteBytes(writer.rawAddress.toCPointer<ByteVar>(), bytes.rawAddress.toCPointer<ByteVar>(), bytecount, error.rawAddress.toCPointer<ByteVar>())
 
-public actual fun wsWriteChars(writer: ConstPtr<WsXmlWriter>, chars: Pcwstr, charcount: UInt, error: ConstPtr<WsError>): Hresult =
+public actual fun wsWriteChars(writer: ConstPtr, chars: Pcwstr, charcount: UInt, error: ConstPtr): Hresult =
     windowssysWindowsWin32NetworkingWindowswebservicesWsWriteChars(writer.rawAddress.toCPointer<ByteVar>(), chars.rawAddress.toCPointer<ByteVar>(), charcount, error.rawAddress.toCPointer<ByteVar>())
 
-public actual fun wsWriteCharsUtf8(writer: ConstPtr<WsXmlWriter>, bytes: ConstPtr<UByte>, bytecount: UInt, error: ConstPtr<WsError>): Hresult =
+public actual fun wsWriteCharsUtf8(writer: ConstPtr, bytes: ConstPtr, bytecount: UInt, error: ConstPtr): Hresult =
     windowssysWindowsWin32NetworkingWindowswebservicesWsWriteCharsUtf8(writer.rawAddress.toCPointer<ByteVar>(), bytes.rawAddress.toCPointer<ByteVar>(), bytecount, error.rawAddress.toCPointer<ByteVar>())
 
-public actual fun wsWriteElement(writer: ConstPtr<WsXmlWriter>, elementdescription: ConstPtr<WsElementDescription>, writeoption: WsWriteOption, value: ConstPtr<CVoid>, valuesize: UInt, error: ConstPtr<WsError>): Hresult =
+public actual fun wsWriteElement(writer: ConstPtr, elementdescription: ConstPtr, writeoption: WsWriteOption, value: ConstPtr, valuesize: UInt, error: ConstPtr): Hresult =
     windowssysWindowsWin32NetworkingWindowswebservicesWsWriteElement(writer.rawAddress.toCPointer<ByteVar>(), elementdescription.rawAddress.toCPointer<ByteVar>(), writeoption, value.rawAddress.toCPointer<ByteVar>(), valuesize, error.rawAddress.toCPointer<ByteVar>())
 
-public actual fun wsWriteEndAttribute(writer: ConstPtr<WsXmlWriter>, error: ConstPtr<WsError>): Hresult =
+public actual fun wsWriteEndAttribute(writer: ConstPtr, error: ConstPtr): Hresult =
     windowssysWindowsWin32NetworkingWindowswebservicesWsWriteEndAttribute(writer.rawAddress.toCPointer<ByteVar>(), error.rawAddress.toCPointer<ByteVar>())
 
-public actual fun wsWriteEndCData(writer: ConstPtr<WsXmlWriter>, error: ConstPtr<WsError>): Hresult =
+public actual fun wsWriteEndCData(writer: ConstPtr, error: ConstPtr): Hresult =
     windowssysWindowsWin32NetworkingWindowswebservicesWsWriteEndCData(writer.rawAddress.toCPointer<ByteVar>(), error.rawAddress.toCPointer<ByteVar>())
 
-public actual fun wsWriteEndElement(writer: ConstPtr<WsXmlWriter>, error: ConstPtr<WsError>): Hresult =
+public actual fun wsWriteEndElement(writer: ConstPtr, error: ConstPtr): Hresult =
     windowssysWindowsWin32NetworkingWindowswebservicesWsWriteEndElement(writer.rawAddress.toCPointer<ByteVar>(), error.rawAddress.toCPointer<ByteVar>())
 
-public actual fun wsWriteEndStartElement(writer: ConstPtr<WsXmlWriter>, error: ConstPtr<WsError>): Hresult =
+public actual fun wsWriteEndStartElement(writer: ConstPtr, error: ConstPtr): Hresult =
     windowssysWindowsWin32NetworkingWindowswebservicesWsWriteEndStartElement(writer.rawAddress.toCPointer<ByteVar>(), error.rawAddress.toCPointer<ByteVar>())
 
-public actual fun wsWriteEnvelopeEnd(message: ConstPtr<WsMessage>, error: ConstPtr<WsError>): Hresult =
+public actual fun wsWriteEnvelopeEnd(message: ConstPtr, error: ConstPtr): Hresult =
     windowssysWindowsWin32NetworkingWindowswebservicesWsWriteEnvelopeEnd(message.rawAddress.toCPointer<ByteVar>(), error.rawAddress.toCPointer<ByteVar>())
 
-public actual fun wsWriteEnvelopeStart(message: ConstPtr<WsMessage>, writer: ConstPtr<WsXmlWriter>, donecallback: WsMessageDoneCallback, donecallbackstate: ConstPtr<CVoid>, error: ConstPtr<WsError>): Hresult =
+public actual fun wsWriteEnvelopeStart(message: ConstPtr, writer: ConstPtr, donecallback: WsMessageDoneCallback, donecallbackstate: ConstPtr, error: ConstPtr): Hresult =
     windowssysWindowsWin32NetworkingWindowswebservicesWsWriteEnvelopeStart(message.rawAddress.toCPointer<ByteVar>(), writer.rawAddress.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>(), donecallbackstate.rawAddress.toCPointer<ByteVar>(), error.rawAddress.toCPointer<ByteVar>())
 
-public actual fun wsWriteMessageEnd(channel: ConstPtr<WsChannel>, message: ConstPtr<WsMessage>, asynccontext: ConstPtr<WsAsyncContext>, error: ConstPtr<WsError>): Hresult =
+public actual fun wsWriteMessageEnd(channel: ConstPtr, message: ConstPtr, asynccontext: ConstPtr, error: ConstPtr): Hresult =
     windowssysWindowsWin32NetworkingWindowswebservicesWsWriteMessageEnd(channel.rawAddress.toCPointer<ByteVar>(), message.rawAddress.toCPointer<ByteVar>(), asynccontext.rawAddress.toCPointer<ByteVar>(), error.rawAddress.toCPointer<ByteVar>())
 
-public actual fun wsWriteMessageStart(channel: ConstPtr<WsChannel>, message: ConstPtr<WsMessage>, asynccontext: ConstPtr<WsAsyncContext>, error: ConstPtr<WsError>): Hresult =
+public actual fun wsWriteMessageStart(channel: ConstPtr, message: ConstPtr, asynccontext: ConstPtr, error: ConstPtr): Hresult =
     windowssysWindowsWin32NetworkingWindowswebservicesWsWriteMessageStart(channel.rawAddress.toCPointer<ByteVar>(), message.rawAddress.toCPointer<ByteVar>(), asynccontext.rawAddress.toCPointer<ByteVar>(), error.rawAddress.toCPointer<ByteVar>())
 
-public actual fun wsWriteNode(writer: ConstPtr<WsXmlWriter>, node: ConstPtr<WsXmlNode>, error: ConstPtr<WsError>): Hresult =
+public actual fun wsWriteNode(writer: ConstPtr, node: ConstPtr, error: ConstPtr): Hresult =
     windowssysWindowsWin32NetworkingWindowswebservicesWsWriteNode(writer.rawAddress.toCPointer<ByteVar>(), node.rawAddress.toCPointer<ByteVar>(), error.rawAddress.toCPointer<ByteVar>())
 
-public actual fun wsWriteQualifiedName(writer: ConstPtr<WsXmlWriter>, prefix: ConstPtr<WsXmlString>, localname: ConstPtr<WsXmlString>, ns: ConstPtr<WsXmlString>, error: ConstPtr<WsError>): Hresult =
+public actual fun wsWriteQualifiedName(writer: ConstPtr, prefix: ConstPtr, localname: ConstPtr, ns: ConstPtr, error: ConstPtr): Hresult =
     windowssysWindowsWin32NetworkingWindowswebservicesWsWriteQualifiedName(writer.rawAddress.toCPointer<ByteVar>(), prefix.rawAddress.toCPointer<ByteVar>(), localname.rawAddress.toCPointer<ByteVar>(), ns.rawAddress.toCPointer<ByteVar>(), error.rawAddress.toCPointer<ByteVar>())
 
-public actual fun wsWriteStartAttribute(writer: ConstPtr<WsXmlWriter>, prefix: ConstPtr<WsXmlString>, localname: ConstPtr<WsXmlString>, ns: ConstPtr<WsXmlString>, singlequote: Bool, error: ConstPtr<WsError>): Hresult =
+public actual fun wsWriteStartAttribute(writer: ConstPtr, prefix: ConstPtr, localname: ConstPtr, ns: ConstPtr, singlequote: Bool, error: ConstPtr): Hresult =
     windowssysWindowsWin32NetworkingWindowswebservicesWsWriteStartAttribute(writer.rawAddress.toCPointer<ByteVar>(), prefix.rawAddress.toCPointer<ByteVar>(), localname.rawAddress.toCPointer<ByteVar>(), ns.rawAddress.toCPointer<ByteVar>(), singlequote, error.rawAddress.toCPointer<ByteVar>())
 
-public actual fun wsWriteStartCData(writer: ConstPtr<WsXmlWriter>, error: ConstPtr<WsError>): Hresult =
+public actual fun wsWriteStartCData(writer: ConstPtr, error: ConstPtr): Hresult =
     windowssysWindowsWin32NetworkingWindowswebservicesWsWriteStartCData(writer.rawAddress.toCPointer<ByteVar>(), error.rawAddress.toCPointer<ByteVar>())
 
-public actual fun wsWriteStartElement(writer: ConstPtr<WsXmlWriter>, prefix: ConstPtr<WsXmlString>, localname: ConstPtr<WsXmlString>, ns: ConstPtr<WsXmlString>, error: ConstPtr<WsError>): Hresult =
+public actual fun wsWriteStartElement(writer: ConstPtr, prefix: ConstPtr, localname: ConstPtr, ns: ConstPtr, error: ConstPtr): Hresult =
     windowssysWindowsWin32NetworkingWindowswebservicesWsWriteStartElement(writer.rawAddress.toCPointer<ByteVar>(), prefix.rawAddress.toCPointer<ByteVar>(), localname.rawAddress.toCPointer<ByteVar>(), ns.rawAddress.toCPointer<ByteVar>(), error.rawAddress.toCPointer<ByteVar>())
 
-public actual fun wsWriteText(writer: ConstPtr<WsXmlWriter>, text: ConstPtr<WsXmlText>, error: ConstPtr<WsError>): Hresult =
+public actual fun wsWriteText(writer: ConstPtr, text: ConstPtr, error: ConstPtr): Hresult =
     windowssysWindowsWin32NetworkingWindowswebservicesWsWriteText(writer.rawAddress.toCPointer<ByteVar>(), text.rawAddress.toCPointer<ByteVar>(), error.rawAddress.toCPointer<ByteVar>())
 
-public actual fun wsWriteType(writer: ConstPtr<WsXmlWriter>, typemapping: WsTypeMapping, type: WsType, typedescription: ConstPtr<CVoid>, writeoption: WsWriteOption, value: ConstPtr<CVoid>, valuesize: UInt, error: ConstPtr<WsError>): Hresult =
+public actual fun wsWriteType(writer: ConstPtr, typemapping: WsTypeMapping, type: WsType, typedescription: ConstPtr, writeoption: WsWriteOption, value: ConstPtr, valuesize: UInt, error: ConstPtr): Hresult =
     windowssysWindowsWin32NetworkingWindowswebservicesWsWriteType(writer.rawAddress.toCPointer<ByteVar>(), typemapping, type, typedescription.rawAddress.toCPointer<ByteVar>(), writeoption, value.rawAddress.toCPointer<ByteVar>(), valuesize, error.rawAddress.toCPointer<ByteVar>())
 
-public actual fun wsWriteValue(writer: ConstPtr<WsXmlWriter>, valuetype: WsValueType, value: ConstPtr<CVoid>, valuesize: UInt, error: ConstPtr<WsError>): Hresult =
+public actual fun wsWriteValue(writer: ConstPtr, valuetype: WsValueType, value: ConstPtr, valuesize: UInt, error: ConstPtr): Hresult =
     windowssysWindowsWin32NetworkingWindowswebservicesWsWriteValue(writer.rawAddress.toCPointer<ByteVar>(), valuetype, value.rawAddress.toCPointer<ByteVar>(), valuesize, error.rawAddress.toCPointer<ByteVar>())
 
-public actual fun wsWriteXmlBuffer(writer: ConstPtr<WsXmlWriter>, xmlbuffer: ConstPtr<WsXmlBuffer>, error: ConstPtr<WsError>): Hresult =
+public actual fun wsWriteXmlBuffer(writer: ConstPtr, xmlbuffer: ConstPtr, error: ConstPtr): Hresult =
     windowssysWindowsWin32NetworkingWindowswebservicesWsWriteXmlBuffer(writer.rawAddress.toCPointer<ByteVar>(), xmlbuffer.rawAddress.toCPointer<ByteVar>(), error.rawAddress.toCPointer<ByteVar>())
 
-public actual fun wsWriteXmlBufferToBytes(writer: ConstPtr<WsXmlWriter>, xmlbuffer: ConstPtr<WsXmlBuffer>, encoding: ConstPtr<WsXmlWriterEncoding>, properties: ConstPtr<WsXmlWriterProperty>, propertycount: UInt, heap: ConstPtr<WsHeap>, bytes: MutPtr<MutPtr<CVoid>>, bytecount: MutPtr<UInt>, error: ConstPtr<WsError>): Hresult =
+public actual fun wsWriteXmlBufferToBytes(writer: ConstPtr, xmlbuffer: ConstPtr, encoding: ConstPtr, properties: ConstPtr, propertycount: UInt, heap: ConstPtr, bytes: MutPtr, bytecount: MutPtr, error: ConstPtr): Hresult =
     windowssysWindowsWin32NetworkingWindowswebservicesWsWriteXmlBufferToBytes(writer.rawAddress.toCPointer<ByteVar>(), xmlbuffer.rawAddress.toCPointer<ByteVar>(), encoding.rawAddress.toCPointer<ByteVar>(), properties.rawAddress.toCPointer<ByteVar>(), propertycount, heap.rawAddress.toCPointer<ByteVar>(), bytes.rawAddress.toCPointer<ByteVar>(), bytecount.rawAddress.toCPointer<ByteVar>(), error.rawAddress.toCPointer<ByteVar>())
 
-public actual fun wsWriteXmlnsAttribute(writer: ConstPtr<WsXmlWriter>, prefix: ConstPtr<WsXmlString>, ns: ConstPtr<WsXmlString>, singlequote: Bool, error: ConstPtr<WsError>): Hresult =
+public actual fun wsWriteXmlnsAttribute(writer: ConstPtr, prefix: ConstPtr, ns: ConstPtr, singlequote: Bool, error: ConstPtr): Hresult =
     windowssysWindowsWin32NetworkingWindowswebservicesWsWriteXmlnsAttribute(writer.rawAddress.toCPointer<ByteVar>(), prefix.rawAddress.toCPointer<ByteVar>(), ns.rawAddress.toCPointer<ByteVar>(), singlequote, error.rawAddress.toCPointer<ByteVar>())
 
-public actual fun wsXmlStringEquals(string1: ConstPtr<WsXmlString>, string2: ConstPtr<WsXmlString>, error: ConstPtr<WsError>): Hresult =
+public actual fun wsXmlStringEquals(string1: ConstPtr, string2: ConstPtr, error: ConstPtr): Hresult =
     windowssysWindowsWin32NetworkingWindowswebservicesWsXmlStringEquals(string1.rawAddress.toCPointer<ByteVar>(), string2.rawAddress.toCPointer<ByteVar>(), error.rawAddress.toCPointer<ByteVar>())

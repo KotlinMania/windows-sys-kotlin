@@ -30,19 +30,19 @@ public actual fun ecClose(obj: Long): Bool =
 public actual fun ecDeleteSubscription(subscriptionname: Pcwstr, flags: UInt): Bool =
     windowssysWindowsWin32SystemEventcollectorEcDeleteSubscription(subscriptionname.rawAddress.toCPointer<ByteVar>(), flags)
 
-public actual fun ecEnumNextSubscription(subscriptionenum: Long, subscriptionnamebuffersize: UInt, subscriptionnamebuffer: Pwstr, subscriptionnamebufferused: MutPtr<UInt>): Bool =
+public actual fun ecEnumNextSubscription(subscriptionenum: Long, subscriptionnamebuffersize: UInt, subscriptionnamebuffer: Pwstr, subscriptionnamebufferused: MutPtr): Bool =
     windowssysWindowsWin32SystemEventcollectorEcEnumNextSubscription(subscriptionenum, subscriptionnamebuffersize, subscriptionnamebuffer.rawAddress.toCPointer<ByteVar>(), subscriptionnamebufferused.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ecGetObjectArrayProperty(objectarray: Long, propertyid: EcSubscriptionPropertyId, arrayindex: UInt, flags: UInt, propertyvaluebuffersize: UInt, propertyvaluebuffer: MutPtr<EcVariant>, propertyvaluebufferused: MutPtr<UInt>): Bool =
+public actual fun ecGetObjectArrayProperty(objectarray: Long, propertyid: EcSubscriptionPropertyId, arrayindex: UInt, flags: UInt, propertyvaluebuffersize: UInt, propertyvaluebuffer: MutPtr, propertyvaluebufferused: MutPtr): Bool =
     windowssysWindowsWin32SystemEventcollectorEcGetObjectArrayProperty(objectarray, propertyid, arrayindex, flags, propertyvaluebuffersize, propertyvaluebuffer.rawAddress.toCPointer<ByteVar>(), propertyvaluebufferused.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ecGetObjectArraySize(objectarray: Long, objectarraysize: MutPtr<UInt>): Bool =
+public actual fun ecGetObjectArraySize(objectarray: Long, objectarraysize: MutPtr): Bool =
     windowssysWindowsWin32SystemEventcollectorEcGetObjectArraySize(objectarray, objectarraysize.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ecGetSubscriptionProperty(subscription: Long, propertyid: EcSubscriptionPropertyId, flags: UInt, propertyvaluebuffersize: UInt, propertyvaluebuffer: MutPtr<EcVariant>, propertyvaluebufferused: MutPtr<UInt>): Bool =
+public actual fun ecGetSubscriptionProperty(subscription: Long, propertyid: EcSubscriptionPropertyId, flags: UInt, propertyvaluebuffersize: UInt, propertyvaluebuffer: MutPtr, propertyvaluebufferused: MutPtr): Bool =
     windowssysWindowsWin32SystemEventcollectorEcGetSubscriptionProperty(subscription, propertyid, flags, propertyvaluebuffersize, propertyvaluebuffer.rawAddress.toCPointer<ByteVar>(), propertyvaluebufferused.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ecGetSubscriptionRunTimeStatus(subscriptionname: Pcwstr, statusinfoid: EcSubscriptionRuntimeStatusInfoId, eventsourcename: Pcwstr, flags: UInt, statusvaluebuffersize: UInt, statusvaluebuffer: MutPtr<EcVariant>, statusvaluebufferused: MutPtr<UInt>): Bool =
+public actual fun ecGetSubscriptionRunTimeStatus(subscriptionname: Pcwstr, statusinfoid: EcSubscriptionRuntimeStatusInfoId, eventsourcename: Pcwstr, flags: UInt, statusvaluebuffersize: UInt, statusvaluebuffer: MutPtr, statusvaluebufferused: MutPtr): Bool =
     windowssysWindowsWin32SystemEventcollectorEcGetSubscriptionRunTimeStatus(subscriptionname.rawAddress.toCPointer<ByteVar>(), statusinfoid, eventsourcename.rawAddress.toCPointer<ByteVar>(), flags, statusvaluebuffersize, statusvaluebuffer.rawAddress.toCPointer<ByteVar>(), statusvaluebufferused.rawAddress.toCPointer<ByteVar>())
 
 public actual fun ecInsertObjectArrayElement(objectarray: Long, arrayindex: UInt): Bool =
@@ -63,8 +63,8 @@ public actual fun ecRetrySubscription(subscriptionname: Pcwstr, eventsourcename:
 public actual fun ecSaveSubscription(subscription: Long, flags: UInt): Bool =
     windowssysWindowsWin32SystemEventcollectorEcSaveSubscription(subscription, flags)
 
-public actual fun ecSetObjectArrayProperty(objectarray: Long, propertyid: EcSubscriptionPropertyId, arrayindex: UInt, flags: UInt, propertyvalue: MutPtr<EcVariant>): Bool =
+public actual fun ecSetObjectArrayProperty(objectarray: Long, propertyid: EcSubscriptionPropertyId, arrayindex: UInt, flags: UInt, propertyvalue: MutPtr): Bool =
     windowssysWindowsWin32SystemEventcollectorEcSetObjectArrayProperty(objectarray, propertyid, arrayindex, flags, propertyvalue.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ecSetSubscriptionProperty(subscription: Long, propertyid: EcSubscriptionPropertyId, flags: UInt, propertyvalue: MutPtr<EcVariant>): Bool =
+public actual fun ecSetSubscriptionProperty(subscription: Long, propertyid: EcSubscriptionPropertyId, flags: UInt, propertyvalue: MutPtr): Bool =
     windowssysWindowsWin32SystemEventcollectorEcSetSubscriptionProperty(subscription, propertyid, flags, propertyvalue.rawAddress.toCPointer<ByteVar>())

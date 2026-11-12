@@ -1,24 +1,11 @@
 package io.github.kotlinmania.windowssys.windows.wdk.system.systemservices
 
-import io.github.kotlinmania.rustlang.core.ffi.CVoid
 import io.github.kotlinmania.rustlang.core.ptr.ConstPtr
 import io.github.kotlinmania.rustlang.core.ptr.MutPtr
 import io.github.kotlinmania.windowssys.core.Guid
 import io.github.kotlinmania.windowssys.core.Pcstr
 import io.github.kotlinmania.windowssys.core.Pcwstr
-import io.github.kotlinmania.windowssys.core.Pwstr
-import io.github.kotlinmania.windowssys.windows.wdk.foundation.DeviceObject
-import io.github.kotlinmania.windowssys.windows.wdk.foundation.DmaCommonBufferVector
 import io.github.kotlinmania.windowssys.windows.wdk.foundation.DriverControl
-import io.github.kotlinmania.windowssys.windows.wdk.foundation.DriverObject
-import io.github.kotlinmania.windowssys.windows.wdk.foundation.FileObject
-import io.github.kotlinmania.windowssys.windows.wdk.foundation.IommuDmaDevice
-import io.github.kotlinmania.windowssys.windows.wdk.foundation.IommuDmaDomain
-import io.github.kotlinmania.windowssys.windows.wdk.foundation.Irp
-import io.github.kotlinmania.windowssys.windows.wdk.foundation.Kdpc
-import io.github.kotlinmania.windowssys.windows.wdk.foundation.Kenlistment
-import io.github.kotlinmania.windowssys.windows.wdk.foundation.Mdl
-import io.github.kotlinmania.windowssys.windows.wdk.foundation.ObjectAttributes
 import io.github.kotlinmania.windowssys.windows.wdk.foundation.PbusHandler
 import io.github.kotlinmania.windowssys.windows.wdk.foundation.Peprocess
 import io.github.kotlinmania.windowssys.windows.wdk.foundation.Pesilo
@@ -27,21 +14,12 @@ import io.github.kotlinmania.windowssys.windows.wdk.foundation.PioWorkitem
 import io.github.kotlinmania.windowssys.windows.wdk.foundation.PoolType
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Handle
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Ntstatus
-import io.github.kotlinmania.windowssys.windows.win32.foundation.UnicodeString
 import io.github.kotlinmania.windowssys.windows.win32.security.PsecurityDescriptor
-import io.github.kotlinmania.windowssys.windows.win32.storage.filesystem.ClsLsn
-import io.github.kotlinmania.windowssys.windows.win32.system.diagnostics.debug.IpmiOsSelRecord
-import io.github.kotlinmania.windowssys.windows.win32.system.diagnostics.debug.WheaErrorSourceDescriptor
-import io.github.kotlinmania.windowssys.windows.win32.system.diagnostics.etw.EventFilterDescriptor
-import io.github.kotlinmania.windowssys.windows.win32.system.io.IoStatusBlock
-import io.github.kotlinmania.windowssys.windows.win32.system.ioctl.DriveLayoutInformation
-import io.github.kotlinmania.windowssys.windows.win32.system.kernel.ListEntry
 import io.github.kotlinmania.windowssys.windows.win32.system.power.SystemPowerState
 import io.github.kotlinmania.windowssys.windows.win32.system.systemservices.TransactionInformationClass
-import io.github.kotlinmania.windowssys.windows.win32.system.threading.InitOnce
 
 public fun interface AllocateFunctionFn {
-    public operator fun invoke(pooltype: PoolType, numberofbytes: ULong, tag: UInt): MutPtr<CVoid>
+    public operator fun invoke(pooltype: PoolType, numberofbytes: ULong, tag: UInt): MutPtr
 }
 
 public typealias AllocateFunction = AllocateFunctionFn?
@@ -61,7 +39,7 @@ public typealias BdcbClassification = Int
 public typealias BdcbStatusUpdateType = Int
 
 public fun interface BootDriverCallbackFunctionFn {
-    public operator fun invoke(callbackcontext: ConstPtr<CVoid>, classification: BdcbCallbackType, imageinformation: MutPtr<BdcbImageInformation>)
+    public operator fun invoke(callbackcontext: ConstPtr, classification: BdcbCallbackType, imageinformation: MutPtr)
 }
 
 public typealias BootDriverCallbackFunction = BootDriverCallbackFunctionFn?
@@ -87,31 +65,31 @@ public typealias CreateFileType = Int
 public typealias D3coldLastTransitionStatus = Int
 
 public fun interface D3coldRequestAuxPowerFn {
-    public operator fun invoke(context: ConstPtr<CVoid>, auxpowerinmilliwatts: UInt, retryinseconds: MutPtr<UInt>): Ntstatus
+    public operator fun invoke(context: ConstPtr, auxpowerinmilliwatts: UInt, retryinseconds: MutPtr): Ntstatus
 }
 
 public typealias D3coldRequestAuxPower = D3coldRequestAuxPowerFn?
 
 public fun interface D3coldRequestCorePowerRailFn {
-    public operator fun invoke(context: ConstPtr<CVoid>, corepowerrailneeded: Boolean)
+    public operator fun invoke(context: ConstPtr, corepowerrailneeded: Boolean)
 }
 
 public typealias D3coldRequestCorePowerRail = D3coldRequestCorePowerRailFn?
 
 public fun interface D3coldRequestPerstDelayFn {
-    public operator fun invoke(context: ConstPtr<CVoid>, delayinmicroseconds: UInt): Ntstatus
+    public operator fun invoke(context: ConstPtr, delayinmicroseconds: UInt): Ntstatus
 }
 
 public typealias D3coldRequestPerstDelay = D3coldRequestPerstDelayFn?
 
 public fun interface DeviceBusSpecificResetHandlerFn {
-    public operator fun invoke(interfacecontext: ConstPtr<CVoid>, bustype: ConstPtr<Guid>, resettypeselected: DeviceBusSpecificResetType, flags: ConstPtr<BusSpecificResetFlags>, resetparameters: ConstPtr<CVoid>): Ntstatus
+    public operator fun invoke(interfacecontext: ConstPtr, bustype: ConstPtr, resettypeselected: DeviceBusSpecificResetType, flags: ConstPtr, resetparameters: ConstPtr): Ntstatus
 }
 
 public typealias DeviceBusSpecificResetHandler = DeviceBusSpecificResetHandlerFn?
 
 public fun interface DeviceChangeCompleteCallbackFn {
-    public operator fun invoke(context: MutPtr<CVoid>)
+    public operator fun invoke(context: MutPtr)
 }
 
 public typealias DeviceChangeCompleteCallback = DeviceChangeCompleteCallbackFn?
@@ -121,7 +99,7 @@ public typealias DeviceDirectoryType = Int
 public typealias DeviceInstallState = Int
 
 public fun interface DeviceQueryBusSpecificResetHandlerFn {
-    public operator fun invoke(interfacecontext: ConstPtr<CVoid>, resetinfocount: MutPtr<UInt>, resetinfosupported: MutPtr<DeviceBusSpecificResetInfo>): Ntstatus
+    public operator fun invoke(interfacecontext: ConstPtr, resetinfocount: MutPtr, resetinfosupported: MutPtr): Ntstatus
 }
 
 public typealias DeviceQueryBusSpecificResetHandler = DeviceQueryBusSpecificResetHandlerFn?
@@ -133,13 +111,13 @@ public typealias DeviceRelationType = Int
 public typealias DeviceRemovalPolicy = Int
 
 public fun interface DeviceResetCompletionFn {
-    public operator fun invoke(status: Ntstatus, context: MutPtr<CVoid>)
+    public operator fun invoke(status: Ntstatus, context: MutPtr)
 }
 
 public typealias DeviceResetCompletion = DeviceResetCompletionFn?
 
 public fun interface DeviceResetHandlerFn {
-    public operator fun invoke(interfacecontext: ConstPtr<CVoid>, resettype: DeviceResetType, flags: UInt, resetparameters: ConstPtr<CVoid>): Ntstatus
+    public operator fun invoke(interfacecontext: ConstPtr, resettype: DeviceResetType, flags: UInt, resetparameters: ConstPtr): Ntstatus
 }
 
 public typealias DeviceResetHandler = DeviceResetHandlerFn?
@@ -159,7 +137,7 @@ public typealias DmaCommonBufferExtendedConfigurationAccessType = Int
 public typealias DmaCommonBufferExtendedConfigurationType = Int
 
 public fun interface DmaCompletionRoutineFn {
-    public operator fun invoke(dmaadapter: ConstPtr<DmaAdapter>, deviceobject: ConstPtr<DeviceObject>, completioncontext: ConstPtr<CVoid>, status: DmaCompletionStatus)
+    public operator fun invoke(dmaadapter: ConstPtr, deviceobject: ConstPtr, completioncontext: ConstPtr, status: DmaCompletionStatus)
 }
 
 public typealias DmaCompletionRoutine = DmaCompletionRoutineFn?
@@ -175,7 +153,7 @@ public typealias DomainConfigurationArch = Int
 public typealias DriverDirectoryType = Int
 
 public fun interface DriverListControlFn {
-    public operator fun invoke(deviceobject: ConstPtr<DeviceObject>, irp: ConstPtr<Irp>, scattergather: ConstPtr<ScatterGatherList>, context: ConstPtr<CVoid>)
+    public operator fun invoke(deviceobject: ConstPtr, irp: ConstPtr, scattergather: ConstPtr, context: ConstPtr)
 }
 
 public typealias DriverListControl = DriverListControlFn?
@@ -185,19 +163,19 @@ public typealias DriverRegkeyType = Int
 public typealias DriverRuntimeInitFlags = Int
 
 public fun interface EnableVirtualizationFn {
-    public operator fun invoke(context: MutPtr<CVoid>, numvfs: UShort, enablevfmigration: Boolean, enablemigrationinterrupt: Boolean, enablevirtualization: Boolean): Ntstatus
+    public operator fun invoke(context: MutPtr, numvfs: UShort, enablevfmigration: Boolean, enablemigrationinterrupt: Boolean, enablevirtualization: Boolean): Ntstatus
 }
 
 public typealias EnableVirtualization = EnableVirtualizationFn?
 
 public fun interface EtwenablecallbackFn {
-    public operator fun invoke(sourceid: ConstPtr<Guid>, controlcode: UInt, level: UByte, matchanykeyword: ULong, matchallkeyword: ULong, filterdata: ConstPtr<EventFilterDescriptor>, callbackcontext: MutPtr<CVoid>)
+    public operator fun invoke(sourceid: ConstPtr, controlcode: UInt, level: UByte, matchanykeyword: ULong, matchallkeyword: ULong, filterdata: ConstPtr, callbackcontext: MutPtr)
 }
 
 public typealias Etwenablecallback = EtwenablecallbackFn?
 
 public fun interface ExpandStackCalloutFn {
-    public operator fun invoke(parameter: ConstPtr<CVoid>)
+    public operator fun invoke(parameter: ConstPtr)
 }
 
 public typealias ExpandStackCallout = ExpandStackCalloutFn?
@@ -205,19 +183,19 @@ public typealias ExpandStackCallout = ExpandStackCalloutFn?
 public typealias ExtendedAgpRegister = Int
 
 public fun interface ExtCallbackFn {
-    public operator fun invoke(timer: PexTimer, context: ConstPtr<CVoid>)
+    public operator fun invoke(timer: PexTimer, context: ConstPtr)
 }
 
 public typealias ExtCallback = ExtCallbackFn?
 
 public fun interface ExtDeleteCallbackFn {
-    public operator fun invoke(context: ConstPtr<CVoid>)
+    public operator fun invoke(context: ConstPtr)
 }
 
 public typealias ExtDeleteCallback = ExtDeleteCallbackFn?
 
 public fun interface ExCallbackFunctionFn {
-    public operator fun invoke(callbackcontext: ConstPtr<CVoid>, argument1: ConstPtr<CVoid>, argument2: ConstPtr<CVoid>): Ntstatus
+    public operator fun invoke(callbackcontext: ConstPtr, argument1: ConstPtr, argument2: ConstPtr): Ntstatus
 }
 
 public typealias ExCallbackFunction = ExCallbackFunctionFn?
@@ -229,109 +207,109 @@ public typealias FaultInformationArch = Int
 public typealias FaultInformationArm64Type = Int
 
 public fun interface FpgaBusScanFn {
-    public operator fun invoke(context: ConstPtr<CVoid>)
+    public operator fun invoke(context: ConstPtr)
 }
 
 public typealias FpgaBusScan = FpgaBusScanFn?
 
 public fun interface FpgaControlConfigSpaceFn {
-    public operator fun invoke(context: ConstPtr<CVoid>, enable: Boolean): Ntstatus
+    public operator fun invoke(context: ConstPtr, enable: Boolean): Ntstatus
 }
 
 public typealias FpgaControlConfigSpace = FpgaControlConfigSpaceFn?
 
 public fun interface FpgaControlErrorReportingFn {
-    public operator fun invoke(context: ConstPtr<CVoid>, uncorrectablemask: UInt, correctablemask: UInt, disableerrorreporting: Boolean): Ntstatus
+    public operator fun invoke(context: ConstPtr, uncorrectablemask: UInt, correctablemask: UInt, disableerrorreporting: Boolean): Ntstatus
 }
 
 public typealias FpgaControlErrorReporting = FpgaControlErrorReportingFn?
 
 public fun interface FpgaControlLinkFn {
-    public operator fun invoke(context: ConstPtr<CVoid>, enable: Boolean): Ntstatus
+    public operator fun invoke(context: ConstPtr, enable: Boolean): Ntstatus
 }
 
 public typealias FpgaControlLink = FpgaControlLinkFn?
 
 public fun interface FreeFunctionFn {
-    public operator fun invoke(buffer: ConstPtr<CVoid>)
+    public operator fun invoke(buffer: ConstPtr)
 }
 
 public typealias FreeFunction = FreeFunctionFn?
 
 public fun interface FwmiNotificationCallbackFn {
-    public operator fun invoke(wnode: MutPtr<CVoid>, context: MutPtr<CVoid>)
+    public operator fun invoke(wnode: MutPtr, context: MutPtr)
 }
 
 public typealias FwmiNotificationCallback = FwmiNotificationCallbackFn?
 
 public fun interface GetD3coldCapabilityFn {
-    public operator fun invoke(context: ConstPtr<CVoid>, d3coldsupported: MutPtr<Boolean>): Ntstatus
+    public operator fun invoke(context: ConstPtr, d3coldsupported: MutPtr): Ntstatus
 }
 
 public typealias GetD3coldCapability = GetD3coldCapabilityFn?
 
 public fun interface GetD3coldLastTransitionStatusFn {
-    public operator fun invoke(context: ConstPtr<CVoid>, lasttransitionstatus: MutPtr<D3coldLastTransitionStatus>)
+    public operator fun invoke(context: ConstPtr, lasttransitionstatus: MutPtr)
 }
 
 public typealias GetD3coldLastTransitionStatus = GetD3coldLastTransitionStatusFn?
 
 public fun interface GetDeviceResetStatusFn {
-    public operator fun invoke(interfacecontext: ConstPtr<CVoid>, isresetting: MutPtr<Boolean>, resettypeselected: MutPtr<DeviceBusSpecificResetType>, flags: MutPtr<DeviceResetStatusFlags>): Ntstatus
+    public operator fun invoke(interfacecontext: ConstPtr, isresetting: MutPtr, resettypeselected: MutPtr, flags: MutPtr): Ntstatus
 }
 
 public typealias GetDeviceResetStatus = GetDeviceResetStatusFn?
 
 public fun interface GetDmaAdapterFn {
-    public operator fun invoke(context: MutPtr<CVoid>, devicedescriptor: ConstPtr<DeviceDescription>, numberofmapregisters: MutPtr<UInt>): MutPtr<DmaAdapter>
+    public operator fun invoke(context: MutPtr, devicedescriptor: ConstPtr, numberofmapregisters: MutPtr): MutPtr
 }
 
 public typealias GetDmaAdapter = GetDmaAdapterFn?
 
 public fun interface GetIdleWakeInfoFn {
-    public operator fun invoke(context: ConstPtr<CVoid>, systempowerstate: SystemPowerState, deepestwakeabledstate: MutPtr<DeviceWakeDepth>): Ntstatus
+    public operator fun invoke(context: ConstPtr, systempowerstate: SystemPowerState, deepestwakeabledstate: MutPtr): Ntstatus
 }
 
 public typealias GetIdleWakeInfo = GetIdleWakeInfoFn?
 
 public fun interface GetSdevIdentifierFn {
-    public operator fun invoke(interfacecontext: ConstPtr<CVoid>): ULong
+    public operator fun invoke(interfacecontext: ConstPtr): ULong
 }
 
 public typealias GetSdevIdentifier = GetSdevIdentifierFn?
 
 public fun interface GetSetDeviceDataFn {
-    public operator fun invoke(context: MutPtr<CVoid>, datatype: UInt, buffer: MutPtr<CVoid>, offset: UInt, length: UInt): UInt
+    public operator fun invoke(context: MutPtr, datatype: UInt, buffer: MutPtr, offset: UInt, length: UInt): UInt
 }
 
 public typealias GetSetDeviceData = GetSetDeviceDataFn?
 
 public fun interface GetUpdatedBusResourceFn {
-    public operator fun invoke(context: ConstPtr<CVoid>, updatedresourcelist: MutPtr<MutPtr<CmResourceList>>, updatedtranslatedresourcelist: MutPtr<MutPtr<CmResourceList>>): Ntstatus
+    public operator fun invoke(context: ConstPtr, updatedresourcelist: MutPtr, updatedtranslatedresourcelist: MutPtr): Ntstatus
 }
 
 public typealias GetUpdatedBusResource = GetUpdatedBusResourceFn?
 
 public fun interface GetVirtualDeviceDataFn {
-    public operator fun invoke(context: MutPtr<CVoid>, virtualfunction: UShort, buffer: MutPtr<CVoid>, offset: UInt, length: UInt): UInt
+    public operator fun invoke(context: MutPtr, virtualfunction: UShort, buffer: MutPtr, offset: UInt, length: UInt): UInt
 }
 
 public typealias GetVirtualDeviceData = GetVirtualDeviceDataFn?
 
 public fun interface GetVirtualDeviceLocationFn {
-    public operator fun invoke(context: MutPtr<CVoid>, virtualfunction: UShort, segmentnumber: MutPtr<UShort>, busnumber: MutPtr<UByte>, functionnumber: MutPtr<UByte>): Ntstatus
+    public operator fun invoke(context: MutPtr, virtualfunction: UShort, segmentnumber: MutPtr, busnumber: MutPtr, functionnumber: MutPtr): Ntstatus
 }
 
 public typealias GetVirtualDeviceLocation = GetVirtualDeviceLocationFn?
 
 public fun interface GetVirtualDeviceResourcesFn {
-    public operator fun invoke(context: MutPtr<CVoid>, capturedbusnumbers: MutPtr<UByte>)
+    public operator fun invoke(context: MutPtr, capturedbusnumbers: MutPtr)
 }
 
 public typealias GetVirtualDeviceResources = GetVirtualDeviceResourcesFn?
 
 public fun interface GetVirtualFunctionProbedBarsFn {
-    public operator fun invoke(context: MutPtr<CVoid>, baseregistervalues: MutPtr<UInt>): Ntstatus
+    public operator fun invoke(context: MutPtr, baseregistervalues: MutPtr): Ntstatus
 }
 
 public typealias GetVirtualFunctionProbedBars = GetVirtualFunctionProbedBarsFn?
@@ -349,7 +327,7 @@ public typealias HalSetInformationClass = Int
 public typealias HardwareCounterType = Int
 
 public fun interface HvlWheaErrorNotificationFn {
-    public operator fun invoke(recoverycontext: ConstPtr<WheaRecoveryContext>, platformdirected: Boolean, poisoned: Boolean): Ntstatus
+    public operator fun invoke(recoverycontext: ConstPtr, platformdirected: Boolean, poisoned: Boolean): Ntstatus
 }
 
 public typealias HvlWheaErrorNotification = HvlWheaErrorNotificationFn?
@@ -361,7 +339,7 @@ public typealias InterfaceType = Int
 public typealias InterlockedResult = Int
 
 public fun interface IommuDeviceCreateFn {
-    public operator fun invoke(deviceobject: ConstPtr<DeviceObject>, deviceconfig: ConstPtr<IommuDeviceCreationConfiguration>, dmadeviceout: MutPtr<MutPtr<IommuDmaDevice>>): Ntstatus
+    public operator fun invoke(deviceobject: ConstPtr, deviceconfig: ConstPtr, dmadeviceout: MutPtr): Ntstatus
 }
 
 public typealias IommuDeviceCreate = IommuDeviceCreateFn?
@@ -369,19 +347,19 @@ public typealias IommuDeviceCreate = IommuDeviceCreateFn?
 public typealias IommuDeviceCreationConfigurationType = Int
 
 public fun interface IommuDeviceDeleteFn {
-    public operator fun invoke(dmadevice: ConstPtr<IommuDmaDevice>): Ntstatus
+    public operator fun invoke(dmadevice: ConstPtr): Ntstatus
 }
 
 public typealias IommuDeviceDelete = IommuDeviceDeleteFn?
 
 public fun interface IommuDeviceFaultHandlerFn {
-    public operator fun invoke(context: MutPtr<CVoid>, faultinformation: MutPtr<FaultInformation>)
+    public operator fun invoke(context: MutPtr, faultinformation: MutPtr)
 }
 
 public typealias IommuDeviceFaultHandler = IommuDeviceFaultHandlerFn?
 
 public fun interface IommuDeviceQueryDomainTypesFn {
-    public operator fun invoke(dmadevice: ConstPtr<IommuDmaDevice>, availabledomains: MutPtr<UInt>)
+    public operator fun invoke(dmadevice: ConstPtr, availabledomains: MutPtr)
 }
 
 public typealias IommuDeviceQueryDomainTypes = IommuDeviceQueryDomainTypesFn?
@@ -391,97 +369,97 @@ public typealias IommuDmaDomainType = Int
 public typealias IommuDmaLogicalAllocatorType = Int
 
 public fun interface IommuDomainAttachDeviceFn {
-    public operator fun invoke(domain: ConstPtr<IommuDmaDomain>, physicaldeviceobject: ConstPtr<DeviceObject>, inputmappingidbase: UInt, mappingcount: UInt): Ntstatus
+    public operator fun invoke(domain: ConstPtr, physicaldeviceobject: ConstPtr, inputmappingidbase: UInt, mappingcount: UInt): Ntstatus
 }
 
 public typealias IommuDomainAttachDevice = IommuDomainAttachDeviceFn?
 
 public fun interface IommuDomainAttachDeviceExFn {
-    public operator fun invoke(domain: ConstPtr<IommuDmaDomain>, dmadevice: ConstPtr<IommuDmaDevice>): Ntstatus
+    public operator fun invoke(domain: ConstPtr, dmadevice: ConstPtr): Ntstatus
 }
 
 public typealias IommuDomainAttachDeviceEx = IommuDomainAttachDeviceExFn?
 
 public fun interface IommuDomainConfigureFn {
-    public operator fun invoke(domain: ConstPtr<IommuDmaDomain>, configuration: ConstPtr<DomainConfiguration>): Ntstatus
+    public operator fun invoke(domain: ConstPtr, configuration: ConstPtr): Ntstatus
 }
 
 public typealias IommuDomainConfigure = IommuDomainConfigureFn?
 
 public fun interface IommuDomainCreateFn {
-    public operator fun invoke(osmanagedpagetable: Boolean, domainout: MutPtr<MutPtr<IommuDmaDomain>>): Ntstatus
+    public operator fun invoke(osmanagedpagetable: Boolean, domainout: MutPtr): Ntstatus
 }
 
 public typealias IommuDomainCreate = IommuDomainCreateFn?
 
 public fun interface IommuDomainCreateExFn {
-    public operator fun invoke(domaintype: IommuDmaDomainType, flags: IommuDmaDomainCreationFlags, logicalallocatorconfig: ConstPtr<IommuDmaLogicalAllocatorConfig>, reservedregions: ConstPtr<IommuDmaReservedRegion>, domainout: MutPtr<MutPtr<IommuDmaDomain>>): Ntstatus
+    public operator fun invoke(domaintype: IommuDmaDomainType, flags: IommuDmaDomainCreationFlags, logicalallocatorconfig: ConstPtr, reservedregions: ConstPtr, domainout: MutPtr): Ntstatus
 }
 
 public typealias IommuDomainCreateEx = IommuDomainCreateExFn?
 
 public fun interface IommuDomainDeleteFn {
-    public operator fun invoke(domain: ConstPtr<IommuDmaDomain>): Ntstatus
+    public operator fun invoke(domain: ConstPtr): Ntstatus
 }
 
 public typealias IommuDomainDelete = IommuDomainDeleteFn?
 
 public fun interface IommuDomainDetachDeviceFn {
-    public operator fun invoke(domain: ConstPtr<IommuDmaDomain>, physicaldeviceobject: ConstPtr<DeviceObject>, inputmappingid: UInt): Ntstatus
+    public operator fun invoke(domain: ConstPtr, physicaldeviceobject: ConstPtr, inputmappingid: UInt): Ntstatus
 }
 
 public typealias IommuDomainDetachDevice = IommuDomainDetachDeviceFn?
 
 public fun interface IommuDomainDetachDeviceExFn {
-    public operator fun invoke(dmadevice: ConstPtr<IommuDmaDevice>): Ntstatus
+    public operator fun invoke(dmadevice: ConstPtr): Ntstatus
 }
 
 public typealias IommuDomainDetachDeviceEx = IommuDomainDetachDeviceExFn?
 
 public fun interface IommuFlushDomainFn {
-    public operator fun invoke(domain: ConstPtr<IommuDmaDomain>): Ntstatus
+    public operator fun invoke(domain: ConstPtr): Ntstatus
 }
 
 public typealias IommuFlushDomain = IommuFlushDomainFn?
 
 public fun interface IommuFlushDomainVaListFn {
-    public operator fun invoke(domain: ConstPtr<IommuDmaDomain>, lastlevel: Boolean, number: UInt, valist: ConstPtr<CVoid>): Ntstatus
+    public operator fun invoke(domain: ConstPtr, lastlevel: Boolean, number: UInt, valist: ConstPtr): Ntstatus
 }
 
 public typealias IommuFlushDomainVaList = IommuFlushDomainVaListFn?
 
 public fun interface IommuFreeReservedLogicalAddressRangeFn {
-    public operator fun invoke(logicaladdresstoken: ConstPtr<IommuDmaLogicalAddressToken>): Ntstatus
+    public operator fun invoke(logicaladdresstoken: ConstPtr): Ntstatus
 }
 
 public typealias IommuFreeReservedLogicalAddressRange = IommuFreeReservedLogicalAddressRangeFn?
 
 public fun interface IommuInterfaceStateChangeCallbackFn {
-    public operator fun invoke(statechange: ConstPtr<IommuInterfaceStateChange>, context: ConstPtr<CVoid>)
+    public operator fun invoke(statechange: ConstPtr, context: ConstPtr)
 }
 
 public typealias IommuInterfaceStateChangeCallback = IommuInterfaceStateChangeCallbackFn?
 
 public fun interface IommuMapIdentityRangeFn {
-    public operator fun invoke(domain: ConstPtr<IommuDmaDomain>, permissions: UInt, mdl: ConstPtr<Mdl>): Ntstatus
+    public operator fun invoke(domain: ConstPtr, permissions: UInt, mdl: ConstPtr): Ntstatus
 }
 
 public typealias IommuMapIdentityRange = IommuMapIdentityRangeFn?
 
 public fun interface IommuMapIdentityRangeExFn {
-    public operator fun invoke(domain: ConstPtr<IommuDmaDomain>, permissions: UInt, physicaladdresstomap: ConstPtr<IommuMapPhysicalAddress>): Ntstatus
+    public operator fun invoke(domain: ConstPtr, permissions: UInt, physicaladdresstomap: ConstPtr): Ntstatus
 }
 
 public typealias IommuMapIdentityRangeEx = IommuMapIdentityRangeExFn?
 
 public fun interface IommuMapLogicalRangeFn {
-    public operator fun invoke(domain: ConstPtr<IommuDmaDomain>, permissions: UInt, mdl: ConstPtr<Mdl>, logicaladdress: ULong): Ntstatus
+    public operator fun invoke(domain: ConstPtr, permissions: UInt, mdl: ConstPtr, logicaladdress: ULong): Ntstatus
 }
 
 public typealias IommuMapLogicalRange = IommuMapLogicalRangeFn?
 
 public fun interface IommuMapLogicalRangeExFn {
-    public operator fun invoke(domain: ConstPtr<IommuDmaDomain>, permissions: UInt, physicaladdresstomap: ConstPtr<IommuMapPhysicalAddress>, explicitlogicaladdress: ConstPtr<ULong>, minlogicaladdress: ConstPtr<ULong>, maxlogicaladdress: ConstPtr<ULong>, logicaladdressout: MutPtr<ULong>): Ntstatus
+    public operator fun invoke(domain: ConstPtr, permissions: UInt, physicaladdresstomap: ConstPtr, explicitlogicaladdress: ConstPtr, minlogicaladdress: ConstPtr, maxlogicaladdress: ConstPtr, logicaladdressout: MutPtr): Ntstatus
 }
 
 public typealias IommuMapLogicalRangeEx = IommuMapLogicalRangeExFn?
@@ -489,67 +467,67 @@ public typealias IommuMapLogicalRangeEx = IommuMapLogicalRangeExFn?
 public typealias IommuMapPhysicalAddressType = Int
 
 public fun interface IommuMapReservedLogicalRangeFn {
-    public operator fun invoke(logicaladdresstoken: MutPtr<IommuDmaLogicalAddressToken>, offset: ULong, permissions: UInt, physicaladdresstomap: ConstPtr<IommuMapPhysicalAddress>, mappedsegment: MutPtr<IommuDmaLogicalAddressTokenMappedSegment>): Ntstatus
+    public operator fun invoke(logicaladdresstoken: MutPtr, offset: ULong, permissions: UInt, physicaladdresstomap: ConstPtr, mappedsegment: MutPtr): Ntstatus
 }
 
 public typealias IommuMapReservedLogicalRange = IommuMapReservedLogicalRangeFn?
 
 public fun interface IommuQueryInputMappingsFn {
-    public operator fun invoke(physicaldeviceobject: ConstPtr<DeviceObject>, buffer: MutPtr<InputMappingElement>, bufferlength: UInt, returnlength: MutPtr<UInt>): Ntstatus
+    public operator fun invoke(physicaldeviceobject: ConstPtr, buffer: MutPtr, bufferlength: UInt, returnlength: MutPtr): Ntstatus
 }
 
 public typealias IommuQueryInputMappings = IommuQueryInputMappingsFn?
 
 public fun interface IommuRegisterInterfaceStateChangeCallbackFn {
-    public operator fun invoke(statechangecallback: PiommuInterfaceStateChangeCallback, context: ConstPtr<CVoid>, dmadevice: ConstPtr<IommuDmaDevice>, statefields: ConstPtr<IommuInterfaceStateChangeFields>): Ntstatus
+    public operator fun invoke(statechangecallback: PiommuInterfaceStateChangeCallback, context: ConstPtr, dmadevice: ConstPtr, statefields: ConstPtr): Ntstatus
 }
 
 public typealias IommuRegisterInterfaceStateChangeCallback = IommuRegisterInterfaceStateChangeCallbackFn?
 
 public fun interface IommuReserveLogicalAddressRangeFn {
-    public operator fun invoke(domain: ConstPtr<IommuDmaDomain>, size: ULong, explicitlogicaladdress: ConstPtr<ULong>, minlogicaladdress: ConstPtr<ULong>, maxlogicaladdress: ConstPtr<ULong>, logicaladdresstoken: MutPtr<MutPtr<IommuDmaLogicalAddressToken>>): Ntstatus
+    public operator fun invoke(domain: ConstPtr, size: ULong, explicitlogicaladdress: ConstPtr, minlogicaladdress: ConstPtr, maxlogicaladdress: ConstPtr, logicaladdresstoken: MutPtr): Ntstatus
 }
 
 public typealias IommuReserveLogicalAddressRange = IommuReserveLogicalAddressRangeFn?
 
 public fun interface IommuSetDeviceFaultReportingFn {
-    public operator fun invoke(physicaldeviceobject: ConstPtr<DeviceObject>, inputmappingidbase: UInt, enable: Boolean, faultconfig: ConstPtr<DeviceFaultConfiguration>): Ntstatus
+    public operator fun invoke(physicaldeviceobject: ConstPtr, inputmappingidbase: UInt, enable: Boolean, faultconfig: ConstPtr): Ntstatus
 }
 
 public typealias IommuSetDeviceFaultReporting = IommuSetDeviceFaultReportingFn?
 
 public fun interface IommuSetDeviceFaultReportingExFn {
-    public operator fun invoke(dmadevice: ConstPtr<IommuDmaDevice>, inputmappingidbase: UInt, enable: Boolean, faultconfig: ConstPtr<DeviceFaultConfiguration>): Ntstatus
+    public operator fun invoke(dmadevice: ConstPtr, inputmappingidbase: UInt, enable: Boolean, faultconfig: ConstPtr): Ntstatus
 }
 
 public typealias IommuSetDeviceFaultReportingEx = IommuSetDeviceFaultReportingExFn?
 
 public fun interface IommuUnmapIdentityRangeFn {
-    public operator fun invoke(domain: ConstPtr<IommuDmaDomain>, mdl: ConstPtr<Mdl>): Ntstatus
+    public operator fun invoke(domain: ConstPtr, mdl: ConstPtr): Ntstatus
 }
 
 public typealias IommuUnmapIdentityRange = IommuUnmapIdentityRangeFn?
 
 public fun interface IommuUnmapIdentityRangeExFn {
-    public operator fun invoke(domain: ConstPtr<IommuDmaDomain>, mappedphysicaladdress: ConstPtr<IommuMapPhysicalAddress>): Ntstatus
+    public operator fun invoke(domain: ConstPtr, mappedphysicaladdress: ConstPtr): Ntstatus
 }
 
 public typealias IommuUnmapIdentityRangeEx = IommuUnmapIdentityRangeExFn?
 
 public fun interface IommuUnmapLogicalRangeFn {
-    public operator fun invoke(domain: ConstPtr<IommuDmaDomain>, logicaladdress: ULong, numberofpages: ULong): Ntstatus
+    public operator fun invoke(domain: ConstPtr, logicaladdress: ULong, numberofpages: ULong): Ntstatus
 }
 
 public typealias IommuUnmapLogicalRange = IommuUnmapLogicalRangeFn?
 
 public fun interface IommuUnmapReservedLogicalRangeFn {
-    public operator fun invoke(mappedsegment: MutPtr<IommuDmaLogicalAddressTokenMappedSegment>): Ntstatus
+    public operator fun invoke(mappedsegment: MutPtr): Ntstatus
 }
 
 public typealias IommuUnmapReservedLogicalRange = IommuUnmapReservedLogicalRangeFn?
 
 public fun interface IommuUnregisterInterfaceStateChangeCallbackFn {
-    public operator fun invoke(statechangecallback: PiommuInterfaceStateChangeCallback, dmadevice: ConstPtr<IommuDmaDevice>): Ntstatus
+    public operator fun invoke(statechangecallback: PiommuInterfaceStateChangeCallback, dmadevice: ConstPtr): Ntstatus
 }
 
 public typealias IommuUnregisterInterfaceStateChangeCallback = IommuUnregisterInterfaceStateChangeCallbackFn?
@@ -561,7 +539,7 @@ public typealias IoAccessType = Int
 public typealias IoAllocationAction = Int
 
 public fun interface IoCompletionRoutineFn {
-    public operator fun invoke(deviceobject: ConstPtr<DeviceObject>, irp: ConstPtr<Irp>, context: ConstPtr<CVoid>): Ntstatus
+    public operator fun invoke(deviceobject: ConstPtr, irp: ConstPtr, context: ConstPtr): Ntstatus
 }
 
 public typealias IoCompletionRoutine = IoCompletionRoutineFn?
@@ -573,49 +551,49 @@ public typealias IoContainerInformationClass = Int
 public typealias IoContainerNotificationClass = Int
 
 public fun interface IoCsqAcquireLockFn {
-    public operator fun invoke(csq: ConstPtr<IoCsq>, irql: MutPtr<UByte>)
+    public operator fun invoke(csq: ConstPtr, irql: MutPtr)
 }
 
 public typealias IoCsqAcquireLock = IoCsqAcquireLockFn?
 
 public fun interface IoCsqCompleteCanceledIrpFn {
-    public operator fun invoke(csq: ConstPtr<IoCsq>, irp: ConstPtr<Irp>)
+    public operator fun invoke(csq: ConstPtr, irp: ConstPtr)
 }
 
 public typealias IoCsqCompleteCanceledIrp = IoCsqCompleteCanceledIrpFn?
 
 public fun interface IoCsqInsertIrpFn {
-    public operator fun invoke(csq: ConstPtr<IoCsq>, irp: ConstPtr<Irp>)
+    public operator fun invoke(csq: ConstPtr, irp: ConstPtr)
 }
 
 public typealias IoCsqInsertIrp = IoCsqInsertIrpFn?
 
 public fun interface IoCsqInsertIrpExFn {
-    public operator fun invoke(csq: ConstPtr<IoCsq>, irp: ConstPtr<Irp>, insertcontext: ConstPtr<CVoid>): Ntstatus
+    public operator fun invoke(csq: ConstPtr, irp: ConstPtr, insertcontext: ConstPtr): Ntstatus
 }
 
 public typealias IoCsqInsertIrpEx = IoCsqInsertIrpExFn?
 
 public fun interface IoCsqPeekNextIrpFn {
-    public operator fun invoke(csq: ConstPtr<IoCsq>, irp: ConstPtr<Irp>, peekcontext: ConstPtr<CVoid>): MutPtr<Irp>
+    public operator fun invoke(csq: ConstPtr, irp: ConstPtr, peekcontext: ConstPtr): MutPtr
 }
 
 public typealias IoCsqPeekNextIrp = IoCsqPeekNextIrpFn?
 
 public fun interface IoCsqReleaseLockFn {
-    public operator fun invoke(csq: ConstPtr<IoCsq>, irql: UByte)
+    public operator fun invoke(csq: ConstPtr, irql: UByte)
 }
 
 public typealias IoCsqReleaseLock = IoCsqReleaseLockFn?
 
 public fun interface IoCsqRemoveIrpFn {
-    public operator fun invoke(csq: ConstPtr<IoCsq>, irp: ConstPtr<Irp>)
+    public operator fun invoke(csq: ConstPtr, irp: ConstPtr)
 }
 
 public typealias IoCsqRemoveIrp = IoCsqRemoveIrpFn?
 
 public fun interface IoDpcRoutineFn {
-    public operator fun invoke(dpc: ConstPtr<Kdpc>, deviceobject: ConstPtr<DeviceObject>, irp: MutPtr<Irp>, context: ConstPtr<CVoid>)
+    public operator fun invoke(dpc: ConstPtr, deviceobject: ConstPtr, irp: MutPtr, context: ConstPtr)
 }
 
 public typealias IoDpcRoutine = IoDpcRoutineFn?
@@ -625,7 +603,7 @@ public typealias IoNotificationEventCategory = Int
 public typealias IoPagingPriority = Int
 
 public fun interface IoPersistedMemoryEnumerationCallbackFn {
-    public operator fun invoke(driverobject: ConstPtr<DriverObject>, physicaldeviceobject: ConstPtr<DeviceObject>, physicaldeviceid: ConstPtr<UnicodeString>, datatag: ConstPtr<UShort>, dataversion: ConstPtr<UInt>, context: ConstPtr<CVoid>): Ntstatus
+    public operator fun invoke(driverobject: ConstPtr, physicaldeviceobject: ConstPtr, physicaldeviceid: ConstPtr, datatag: ConstPtr, dataversion: ConstPtr, context: ConstPtr): Ntstatus
 }
 
 public typealias IoPersistedMemoryEnumerationCallback = IoPersistedMemoryEnumerationCallbackFn?
@@ -635,7 +613,7 @@ public typealias IoQueryDeviceDataFormat = Int
 public typealias IoSessionEvent = Int
 
 public fun interface IoSessionNotificationFunctionFn {
-    public operator fun invoke(sessionobject: ConstPtr<CVoid>, ioobject: ConstPtr<CVoid>, event: UInt, context: ConstPtr<CVoid>, notificationpayload: ConstPtr<CVoid>, payloadlength: UInt): Ntstatus
+    public operator fun invoke(sessionobject: ConstPtr, ioobject: ConstPtr, event: UInt, context: ConstPtr, notificationpayload: ConstPtr, payloadlength: UInt): Ntstatus
 }
 
 public typealias IoSessionNotificationFunction = IoSessionNotificationFunctionFn?
@@ -643,19 +621,19 @@ public typealias IoSessionNotificationFunction = IoSessionNotificationFunctionFn
 public typealias IoSessionState = Int
 
 public fun interface IoTimerRoutineFn {
-    public operator fun invoke(deviceobject: ConstPtr<DeviceObject>, context: ConstPtr<CVoid>)
+    public operator fun invoke(deviceobject: ConstPtr, context: ConstPtr)
 }
 
 public typealias IoTimerRoutine = IoTimerRoutineFn?
 
 public fun interface IoWorkitemRoutineFn {
-    public operator fun invoke(deviceobject: ConstPtr<DeviceObject>, context: ConstPtr<CVoid>)
+    public operator fun invoke(deviceobject: ConstPtr, context: ConstPtr)
 }
 
 public typealias IoWorkitemRoutine = IoWorkitemRoutineFn?
 
 public fun interface IoWorkitemRoutineExFn {
-    public operator fun invoke(ioobject: ConstPtr<CVoid>, context: ConstPtr<CVoid>, ioworkitem: PioWorkitem)
+    public operator fun invoke(ioobject: ConstPtr, context: ConstPtr, ioworkitem: PioWorkitem)
 }
 
 public typealias IoWorkitemRoutineEx = IoWorkitemRoutineExFn?
@@ -671,7 +649,7 @@ public typealias KbugcheckBufferDumpState = Int
 public typealias KbugcheckCallbackReason = Int
 
 public fun interface KbugcheckCallbackRoutineFn {
-    public operator fun invoke(buffer: MutPtr<CVoid>, length: UInt)
+    public operator fun invoke(buffer: MutPtr, length: UInt)
 }
 
 public typealias KbugcheckCallbackRoutine = KbugcheckCallbackRoutineFn?
@@ -679,13 +657,13 @@ public typealias KbugcheckCallbackRoutine = KbugcheckCallbackRoutineFn?
 public typealias KbugcheckDumpIoType = Int
 
 public fun interface KbugcheckReasonCallbackRoutineFn {
-    public operator fun invoke(reason: KbugcheckCallbackReason, record: ConstPtr<KbugcheckReasonCallbackRecord>, reasonspecificdata: MutPtr<CVoid>, reasonspecificdatalength: UInt)
+    public operator fun invoke(reason: KbugcheckCallbackReason, record: ConstPtr, reasonspecificdata: MutPtr, reasonspecificdatalength: UInt)
 }
 
 public typealias KbugcheckReasonCallbackRoutine = KbugcheckReasonCallbackRoutineFn?
 
 public fun interface KdeferredRoutineFn {
-    public operator fun invoke(dpc: ConstPtr<Kdpc>, deferredcontext: ConstPtr<CVoid>, systemargument1: ConstPtr<CVoid>, systemargument2: ConstPtr<CVoid>)
+    public operator fun invoke(dpc: ConstPtr, deferredcontext: ConstPtr, systemargument1: ConstPtr, systemargument2: ConstPtr)
 }
 
 public typealias KdeferredRoutine = KdeferredRoutineFn?
@@ -711,7 +689,7 @@ public fun interface KipiBroadcastWorkerFn {
 public typealias KipiBroadcastWorker = KipiBroadcastWorkerFn?
 
 public fun interface KmessageServiceRoutineFn {
-    public operator fun invoke(interrupt: ConstPtr<Long>, servicecontext: ConstPtr<CVoid>, messageid: UInt): Boolean
+    public operator fun invoke(interrupt: ConstPtr, servicecontext: ConstPtr, messageid: UInt): Boolean
 }
 
 public typealias KmessageServiceRoutine = KmessageServiceRoutineFn?
@@ -719,19 +697,19 @@ public typealias KmessageServiceRoutine = KmessageServiceRoutineFn?
 public typealias KprofileSource = Int
 
 public fun interface KserviceRoutineFn {
-    public operator fun invoke(interrupt: ConstPtr<Long>, servicecontext: ConstPtr<CVoid>): Boolean
+    public operator fun invoke(interrupt: ConstPtr, servicecontext: ConstPtr): Boolean
 }
 
 public typealias KserviceRoutine = KserviceRoutineFn?
 
 public fun interface KstartRoutineFn {
-    public operator fun invoke(startcontext: ConstPtr<CVoid>)
+    public operator fun invoke(startcontext: ConstPtr)
 }
 
 public typealias KstartRoutine = KstartRoutineFn?
 
 public fun interface KsynchronizeRoutineFn {
-    public operator fun invoke(synchronizecontext: ConstPtr<CVoid>): Boolean
+    public operator fun invoke(synchronizecontext: ConstPtr): Boolean
 }
 
 public typealias KsynchronizeRoutine = KsynchronizeRoutineFn?
@@ -753,7 +731,7 @@ public typealias MemSectionExtendedParameterType = Int
 public typealias MmMdlPageContentsState = Int
 
 public fun interface MmMdlRoutineFn {
-    public operator fun invoke(drivercontext: ConstPtr<CVoid>, mappedva: ConstPtr<CVoid>)
+    public operator fun invoke(drivercontext: ConstPtr, mappedva: ConstPtr)
 }
 
 public typealias MmMdlRoutine = MmMdlRoutineFn?
@@ -767,31 +745,31 @@ public typealias MmSystemsize = Int
 public typealias Mode = Int
 
 public fun interface NmiCallbackFn {
-    public operator fun invoke(context: ConstPtr<CVoid>, handled: Boolean): Boolean
+    public operator fun invoke(context: ConstPtr, handled: Boolean): Boolean
 }
 
 public typealias NmiCallback = NmiCallbackFn?
 
 public fun interface NpemControlEnableDisableFn {
-    public operator fun invoke(context: ConstPtr<CVoid>, enablenpem: Boolean): Ntstatus
+    public operator fun invoke(context: ConstPtr, enablenpem: Boolean): Ntstatus
 }
 
 public typealias NpemControlEnableDisable = NpemControlEnableDisableFn?
 
 public fun interface NpemControlQueryControlFn {
-    public operator fun invoke(context: ConstPtr<CVoid>): UInt
+    public operator fun invoke(context: ConstPtr): UInt
 }
 
 public typealias NpemControlQueryControl = NpemControlQueryControlFn?
 
 public fun interface NpemControlQueryStandardCapabilitiesFn {
-    public operator fun invoke(context: ConstPtr<CVoid>, standardcapabilities: MutPtr<NpemCapabilityStandard>): Ntstatus
+    public operator fun invoke(context: ConstPtr, standardcapabilities: MutPtr): Ntstatus
 }
 
 public typealias NpemControlQueryStandardCapabilities = NpemControlQueryStandardCapabilitiesFn?
 
 public fun interface NpemControlSetStandardControlFn {
-    public operator fun invoke(context: ConstPtr<CVoid>, standardcontrol: NpemControlStandardControlBit, set: Boolean): Ntstatus
+    public operator fun invoke(context: ConstPtr, standardcontrol: NpemControlStandardControlBit, set: Boolean): Ntstatus
 }
 
 public typealias NpemControlSetStandardControl = NpemControlSetStandardControlFn?
@@ -799,7 +777,7 @@ public typealias NpemControlSetStandardControl = NpemControlSetStandardControlFn
 public typealias NpemControlStandardControlBit = Int
 
 public fun interface NtfsDerefExportedSecurityDescriptorFn {
-    public operator fun invoke(vcb: ConstPtr<CVoid>, securitydescriptor: PsecurityDescriptor)
+    public operator fun invoke(vcb: ConstPtr, securitydescriptor: PsecurityDescriptor)
 }
 
 public typealias NtfsDerefExportedSecurityDescriptor = NtfsDerefExportedSecurityDescriptorFn?
@@ -807,61 +785,61 @@ public typealias NtfsDerefExportedSecurityDescriptor = NtfsDerefExportedSecurity
 public typealias ObPreopCallbackStatus = Int
 
 public fun interface PallocateAdapterChannelFn {
-    public operator fun invoke(dmaadapter: ConstPtr<DmaAdapter>, deviceobject: ConstPtr<DeviceObject>, numberofmapregisters: UInt, executionroutine: DriverControl, context: ConstPtr<CVoid>): Ntstatus
+    public operator fun invoke(dmaadapter: ConstPtr, deviceobject: ConstPtr, numberofmapregisters: UInt, executionroutine: DriverControl, context: ConstPtr): Ntstatus
 }
 
 public typealias PallocateAdapterChannel = PallocateAdapterChannelFn?
 
 public fun interface PallocateAdapterChannelExFn {
-    public operator fun invoke(dmaadapter: ConstPtr<DmaAdapter>, deviceobject: ConstPtr<DeviceObject>, dmatransfercontext: ConstPtr<CVoid>, numberofmapregisters: UInt, flags: UInt, executionroutine: DriverControl, executioncontext: ConstPtr<CVoid>, mapregisterbase: MutPtr<MutPtr<CVoid>>): Ntstatus
+    public operator fun invoke(dmaadapter: ConstPtr, deviceobject: ConstPtr, dmatransfercontext: ConstPtr, numberofmapregisters: UInt, flags: UInt, executionroutine: DriverControl, executioncontext: ConstPtr, mapregisterbase: MutPtr): Ntstatus
 }
 
 public typealias PallocateAdapterChannelEx = PallocateAdapterChannelExFn?
 
 public fun interface PallocateCommonBufferFn {
-    public operator fun invoke(dmaadapter: ConstPtr<DmaAdapter>, length: UInt, logicaladdress: MutPtr<Long>, cacheenabled: Boolean): MutPtr<CVoid>
+    public operator fun invoke(dmaadapter: ConstPtr, length: UInt, logicaladdress: MutPtr, cacheenabled: Boolean): MutPtr
 }
 
 public typealias PallocateCommonBuffer = PallocateCommonBufferFn?
 
 public fun interface PallocateCommonBufferExFn {
-    public operator fun invoke(dmaadapter: ConstPtr<DmaAdapter>, maximumaddress: ConstPtr<Long>, length: UInt, logicaladdress: MutPtr<Long>, cacheenabled: Boolean, preferrednode: UInt): MutPtr<CVoid>
+    public operator fun invoke(dmaadapter: ConstPtr, maximumaddress: ConstPtr, length: UInt, logicaladdress: MutPtr, cacheenabled: Boolean, preferrednode: UInt): MutPtr
 }
 
 public typealias PallocateCommonBufferEx = PallocateCommonBufferExFn?
 
 public fun interface PallocateCommonBufferVectorFn {
-    public operator fun invoke(dmaadapter: ConstPtr<DmaAdapter>, lowaddress: Long, highaddress: Long, cachetype: MemoryCachingType, idealnode: UInt, flags: UInt, numberofelements: UInt, sizeofelements: ULong, vectorout: MutPtr<MutPtr<DmaCommonBufferVector>>): Ntstatus
+    public operator fun invoke(dmaadapter: ConstPtr, lowaddress: Long, highaddress: Long, cachetype: MemoryCachingType, idealnode: UInt, flags: UInt, numberofelements: UInt, sizeofelements: ULong, vectorout: MutPtr): Ntstatus
 }
 
 public typealias PallocateCommonBufferVector = PallocateCommonBufferVectorFn?
 
 public fun interface PallocateCommonBufferWithBoundsFn {
-    public operator fun invoke(dmaadapter: ConstPtr<DmaAdapter>, minimumaddress: ConstPtr<Long>, maximumaddress: ConstPtr<Long>, length: UInt, flags: UInt, cachetype: ConstPtr<MemoryCachingType>, preferrednode: UInt, logicaladdress: MutPtr<Long>): MutPtr<CVoid>
+    public operator fun invoke(dmaadapter: ConstPtr, minimumaddress: ConstPtr, maximumaddress: ConstPtr, length: UInt, flags: UInt, cachetype: ConstPtr, preferrednode: UInt, logicaladdress: MutPtr): MutPtr
 }
 
 public typealias PallocateCommonBufferWithBounds = PallocateCommonBufferWithBoundsFn?
 
 public fun interface PallocateDomainCommonBufferFn {
-    public operator fun invoke(dmaadapter: ConstPtr<DmaAdapter>, domainhandle: Handle, maximumaddress: ConstPtr<Long>, length: UInt, flags: UInt, cachetype: ConstPtr<MemoryCachingType>, preferrednode: UInt, logicaladdress: MutPtr<Long>, virtualaddress: MutPtr<MutPtr<CVoid>>): Ntstatus
+    public operator fun invoke(dmaadapter: ConstPtr, domainhandle: Handle, maximumaddress: ConstPtr, length: UInt, flags: UInt, cachetype: ConstPtr, preferrednode: UInt, logicaladdress: MutPtr, virtualaddress: MutPtr): Ntstatus
 }
 
 public typealias PallocateDomainCommonBuffer = PallocateDomainCommonBufferFn?
 
 public fun interface PallocateFunctionFn {
-    public operator fun invoke(): MutPtr<CVoid>
+    public operator fun invoke(): MutPtr
 }
 
 public typealias PallocateFunction = PallocateFunctionFn?
 
 public fun interface PallocateFunctionExFn {
-    public operator fun invoke(): MutPtr<CVoid>
+    public operator fun invoke(): MutPtr
 }
 
 public typealias PallocateFunctionEx = PallocateFunctionExFn?
 
 public fun interface ParbiterHandlerFn {
-    public operator fun invoke(context: MutPtr<CVoid>, action: ArbiterAction, parameters: MutPtr<ArbiterParameters>): Ntstatus
+    public operator fun invoke(context: MutPtr, action: ArbiterAction, parameters: MutPtr): Ntstatus
 }
 
 public typealias ParbiterHandler = ParbiterHandlerFn?
@@ -881,25 +859,25 @@ public fun interface PboundCallbackFn {
 public typealias PboundCallback = PboundCallbackFn?
 
 public fun interface PbuildMdlFromScatterGatherListFn {
-    public operator fun invoke(dmaadapter: ConstPtr<DmaAdapter>, scattergather: ConstPtr<ScatterGatherList>, originalmdl: ConstPtr<Mdl>, targetmdl: MutPtr<MutPtr<Mdl>>): Ntstatus
+    public operator fun invoke(dmaadapter: ConstPtr, scattergather: ConstPtr, originalmdl: ConstPtr, targetmdl: MutPtr): Ntstatus
 }
 
 public typealias PbuildMdlFromScatterGatherList = PbuildMdlFromScatterGatherListFn?
 
 public fun interface PbuildScatterGatherListFn {
-    public operator fun invoke(dmaadapter: ConstPtr<DmaAdapter>, deviceobject: ConstPtr<DeviceObject>, mdl: ConstPtr<Mdl>, currentva: ConstPtr<CVoid>, length: UInt, executionroutine: DriverListControl, context: ConstPtr<CVoid>, writetodevice: Boolean, scattergatherbuffer: ConstPtr<CVoid>, scattergatherlength: UInt): Ntstatus
+    public operator fun invoke(dmaadapter: ConstPtr, deviceobject: ConstPtr, mdl: ConstPtr, currentva: ConstPtr, length: UInt, executionroutine: DriverListControl, context: ConstPtr, writetodevice: Boolean, scattergatherbuffer: ConstPtr, scattergatherlength: UInt): Ntstatus
 }
 
 public typealias PbuildScatterGatherList = PbuildScatterGatherListFn?
 
 public fun interface PbuildScatterGatherListExFn {
-    public operator fun invoke(dmaadapter: ConstPtr<DmaAdapter>, deviceobject: ConstPtr<DeviceObject>, dmatransfercontext: ConstPtr<CVoid>, mdl: ConstPtr<Mdl>, offset: ULong, length: UInt, flags: UInt, executionroutine: DriverListControl, context: ConstPtr<CVoid>, writetodevice: Boolean, scattergatherbuffer: ConstPtr<CVoid>, scattergatherlength: UInt, dmacompletionroutine: PdmaCompletionRoutine, completioncontext: ConstPtr<CVoid>, scattergatherlist: MutPtr<CVoid>): Ntstatus
+    public operator fun invoke(dmaadapter: ConstPtr, deviceobject: ConstPtr, dmatransfercontext: ConstPtr, mdl: ConstPtr, offset: ULong, length: UInt, flags: UInt, executionroutine: DriverListControl, context: ConstPtr, writetodevice: Boolean, scattergatherbuffer: ConstPtr, scattergatherlength: UInt, dmacompletionroutine: PdmaCompletionRoutine, completioncontext: ConstPtr, scattergatherlist: MutPtr): Ntstatus
 }
 
 public typealias PbuildScatterGatherListEx = PbuildScatterGatherListExFn?
 
 public fun interface PcalculateScatterGatherListSizeFn {
-    public operator fun invoke(dmaadapter: ConstPtr<DmaAdapter>, mdl: ConstPtr<Mdl>, currentva: ConstPtr<CVoid>, length: UInt, scattergatherlistsize: MutPtr<UInt>, pnumberofmapregisters: MutPtr<UInt>): Ntstatus
+    public operator fun invoke(dmaadapter: ConstPtr, mdl: ConstPtr, currentva: ConstPtr, length: UInt, scattergatherlistsize: MutPtr, pnumberofmapregisters: MutPtr): Ntstatus
 }
 
 public typealias PcalculateScatterGatherListSize = PcalculateScatterGatherListSizeFn?
@@ -911,13 +889,13 @@ public fun interface PcallbackFunctionFn {
 public typealias PcallbackFunction = PcallbackFunctionFn?
 
 public fun interface PcancelAdapterChannelFn {
-    public operator fun invoke(dmaadapter: ConstPtr<DmaAdapter>, deviceobject: ConstPtr<DeviceObject>, dmatransfercontext: ConstPtr<CVoid>): Boolean
+    public operator fun invoke(dmaadapter: ConstPtr, deviceobject: ConstPtr, dmatransfercontext: ConstPtr): Boolean
 }
 
 public typealias PcancelAdapterChannel = PcancelAdapterChannelFn?
 
 public fun interface PcancelMappedTransferFn {
-    public operator fun invoke(dmaadapter: ConstPtr<DmaAdapter>, dmatransfercontext: ConstPtr<CVoid>): Ntstatus
+    public operator fun invoke(dmaadapter: ConstPtr, dmatransfercontext: ConstPtr): Ntstatus
 }
 
 public typealias PcancelMappedTransfer = PcancelMappedTransferFn?
@@ -943,13 +921,13 @@ public typealias PciExpressCardPresence = Int
 public typealias PciExpressDeviceType = Int
 
 public fun interface PciExpressEnterLinkQuiescentModeFn {
-    public operator fun invoke(context: MutPtr<CVoid>): Ntstatus
+    public operator fun invoke(context: MutPtr): Ntstatus
 }
 
 public typealias PciExpressEnterLinkQuiescentMode = PciExpressEnterLinkQuiescentModeFn?
 
 public fun interface PciExpressExitLinkQuiescentModeFn {
-    public operator fun invoke(context: MutPtr<CVoid>): Ntstatus
+    public operator fun invoke(context: MutPtr): Ntstatus
 }
 
 public typealias PciExpressExitLinkQuiescentMode = PciExpressExitLinkQuiescentModeFn?
@@ -971,7 +949,7 @@ public typealias PciExpressPowerState = Int
 public typealias PciExpressRcb = Int
 
 public fun interface PciExpressWakeControlFn {
-    public operator fun invoke(context: ConstPtr<CVoid>, enablewake: Boolean)
+    public operator fun invoke(context: ConstPtr, enablewake: Boolean)
 }
 
 public typealias PciExpressWakeControl = PciExpressWakeControlFn?
@@ -985,121 +963,121 @@ public fun interface PciIsDevicePresentFn {
 public typealias PciIsDevicePresent = PciIsDevicePresentFn?
 
 public fun interface PciIsDevicePresentExFn {
-    public operator fun invoke(context: ConstPtr<CVoid>, parameters: ConstPtr<PciDevicePresenceParameters>): Boolean
+    public operator fun invoke(context: ConstPtr, parameters: ConstPtr): Boolean
 }
 
 public typealias PciIsDevicePresentEx = PciIsDevicePresentExFn?
 
 public fun interface PciLineToPinFn {
-    public operator fun invoke(context: ConstPtr<CVoid>, pcinewdata: ConstPtr<PciCommonConfig>, pciolddata: ConstPtr<PciCommonConfig>)
+    public operator fun invoke(context: ConstPtr, pcinewdata: ConstPtr, pciolddata: ConstPtr)
 }
 
 public typealias PciLineToPin = PciLineToPinFn?
 
 public fun interface PciMsixGetEntryFn {
-    public operator fun invoke(context: ConstPtr<CVoid>, tableentry: UInt, messagenumber: MutPtr<UInt>, masked: MutPtr<Boolean>): Ntstatus
+    public operator fun invoke(context: ConstPtr, tableentry: UInt, messagenumber: MutPtr, masked: MutPtr): Ntstatus
 }
 
 public typealias PciMsixGetEntry = PciMsixGetEntryFn?
 
 public fun interface PciMsixGetTableSizeFn {
-    public operator fun invoke(context: ConstPtr<CVoid>, tablesize: MutPtr<UInt>): Ntstatus
+    public operator fun invoke(context: ConstPtr, tablesize: MutPtr): Ntstatus
 }
 
 public typealias PciMsixGetTableSize = PciMsixGetTableSizeFn?
 
 public fun interface PciMsixMaskunmaskEntryFn {
-    public operator fun invoke(context: ConstPtr<CVoid>, tableentry: UInt): Ntstatus
+    public operator fun invoke(context: ConstPtr, tableentry: UInt): Ntstatus
 }
 
 public typealias PciMsixMaskunmaskEntry = PciMsixMaskunmaskEntryFn?
 
 public fun interface PciMsixSetEntryFn {
-    public operator fun invoke(context: ConstPtr<CVoid>, tableentry: UInt, messagenumber: UInt): Ntstatus
+    public operator fun invoke(context: ConstPtr, tableentry: UInt, messagenumber: UInt): Ntstatus
 }
 
 public typealias PciMsixSetEntry = PciMsixSetEntryFn?
 
 public fun interface PciPinToLineFn {
-    public operator fun invoke(context: ConstPtr<CVoid>, pcidata: ConstPtr<PciCommonConfig>)
+    public operator fun invoke(context: ConstPtr, pcidata: ConstPtr)
 }
 
 public typealias PciPinToLine = PciPinToLineFn?
 
 public fun interface PciPrepareMultistageResumeFn {
-    public operator fun invoke(context: ConstPtr<CVoid>)
+    public operator fun invoke(context: ConstPtr)
 }
 
 public typealias PciPrepareMultistageResume = PciPrepareMultistageResumeFn?
 
 public fun interface PciReadWriteConfigFn {
-    public operator fun invoke(context: ConstPtr<CVoid>, busoffset: UInt, slot: UInt, buffer: ConstPtr<CVoid>, offset: UInt, length: UInt): UInt
+    public operator fun invoke(context: ConstPtr, busoffset: UInt, slot: UInt, buffer: ConstPtr, offset: UInt, length: UInt): UInt
 }
 
 public typealias PciReadWriteConfig = PciReadWriteConfigFn?
 
 public fun interface PciRootBusCapabilityFn {
-    public operator fun invoke(context: ConstPtr<CVoid>, hardwarecapability: MutPtr<PciRootBusHardwareCapability>)
+    public operator fun invoke(context: ConstPtr, hardwarecapability: MutPtr)
 }
 
 public typealias PciRootBusCapability = PciRootBusCapabilityFn?
 
 public fun interface PciSetAcsFn {
-    public operator fun invoke(context: MutPtr<CVoid>, enablesourcevalidation: PciAcsBit, enabletranslationblocking: PciAcsBit, enablep2prequestredirect: PciAcsBit, enablecompletionredirect: PciAcsBit, enableupstreamforwarding: PciAcsBit, enableegresscontrol: PciAcsBit, enabledirecttranslatedp2p: PciAcsBit): Ntstatus
+    public operator fun invoke(context: MutPtr, enablesourcevalidation: PciAcsBit, enabletranslationblocking: PciAcsBit, enablep2prequestredirect: PciAcsBit, enablecompletionredirect: PciAcsBit, enableupstreamforwarding: PciAcsBit, enableegresscontrol: PciAcsBit, enabledirecttranslatedp2p: PciAcsBit): Ntstatus
 }
 
 public typealias PciSetAcs = PciSetAcsFn?
 
 public fun interface PciSetAcs2Fn {
-    public operator fun invoke(context: MutPtr<CVoid>, scenariostomodify: UInt, scenariostate: UInt): Ntstatus
+    public operator fun invoke(context: MutPtr, scenariostomodify: UInt, scenariostate: UInt): Ntstatus
 }
 
 public typealias PciSetAcs2 = PciSetAcs2Fn?
 
 public fun interface PciSetAtsFn {
-    public operator fun invoke(context: ConstPtr<CVoid>, enableats: Boolean): Ntstatus
+    public operator fun invoke(context: ConstPtr, enableats: Boolean): Ntstatus
 }
 
 public typealias PciSetAts = PciSetAtsFn?
 
 public fun interface PclfsClientAdvanceTailCallbackFn {
-    public operator fun invoke(logfile: ConstPtr<FileObject>, targetlsn: ConstPtr<ClsLsn>, clientdata: ConstPtr<CVoid>): Ntstatus
+    public operator fun invoke(logfile: ConstPtr, targetlsn: ConstPtr, clientdata: ConstPtr): Ntstatus
 }
 
 public typealias PclfsClientAdvanceTailCallback = PclfsClientAdvanceTailCallbackFn?
 
 public fun interface PclfsClientLffHandlerCompleteCallbackFn {
-    public operator fun invoke(logfile: ConstPtr<FileObject>, operationstatus: Ntstatus, logispinned: Boolean, clientdata: ConstPtr<CVoid>)
+    public operator fun invoke(logfile: ConstPtr, operationstatus: Ntstatus, logispinned: Boolean, clientdata: ConstPtr)
 }
 
 public typealias PclfsClientLffHandlerCompleteCallback = PclfsClientLffHandlerCompleteCallbackFn?
 
 public fun interface PclfsClientLogUnpinnedCallbackFn {
-    public operator fun invoke(logfile: ConstPtr<FileObject>, clientdata: ConstPtr<CVoid>)
+    public operator fun invoke(logfile: ConstPtr, clientdata: ConstPtr)
 }
 
 public typealias PclfsClientLogUnpinnedCallback = PclfsClientLogUnpinnedCallbackFn?
 
 public fun interface PclfsSetLogSizeCompleteCallbackFn {
-    public operator fun invoke(logfile: ConstPtr<FileObject>, operationstatus: Ntstatus, clientdata: ConstPtr<CVoid>)
+    public operator fun invoke(logfile: ConstPtr, operationstatus: Ntstatus, clientdata: ConstPtr)
 }
 
 public typealias PclfsSetLogSizeCompleteCallback = PclfsSetLogSizeCompleteCallbackFn?
 
 public fun interface PconfigureAdapterChannelFn {
-    public operator fun invoke(dmaadapter: ConstPtr<DmaAdapter>, functionnumber: UInt, context: ConstPtr<CVoid>): Ntstatus
+    public operator fun invoke(dmaadapter: ConstPtr, functionnumber: UInt, context: ConstPtr): Ntstatus
 }
 
 public typealias PconfigureAdapterChannel = PconfigureAdapterChannelFn?
 
 public fun interface PcrashdumpPowerOnFn {
-    public operator fun invoke(context: ConstPtr<CVoid>): Ntstatus
+    public operator fun invoke(context: ConstPtr): Ntstatus
 }
 
 public typealias PcrashdumpPowerOn = PcrashdumpPowerOnFn?
 
 public fun interface PcreateCommonBufferFromMdlFn {
-    public operator fun invoke(dmaadapter: ConstPtr<DmaAdapter>, mdl: ConstPtr<Mdl>, extendedconfigs: ConstPtr<DmaCommonBufferExtendedConfiguration>, extendedconfigscount: UInt, logicaladdress: MutPtr<Long>): Ntstatus
+    public operator fun invoke(dmaadapter: ConstPtr, mdl: ConstPtr, extendedconfigs: ConstPtr, extendedconfigscount: UInt, logicaladdress: MutPtr): Ntstatus
 }
 
 public typealias PcreateCommonBufferFromMdl = PcreateCommonBufferFromMdlFn?
@@ -1111,7 +1089,7 @@ public fun interface PcreateProcessNotifyRoutineFn {
 public typealias PcreateProcessNotifyRoutine = PcreateProcessNotifyRoutineFn?
 
 public fun interface PcreateProcessNotifyRoutineExFn {
-    public operator fun invoke(process: Peprocess, processid: Handle, createinfo: MutPtr<PsCreateNotifyInfo>)
+    public operator fun invoke(process: Peprocess, processid: Handle, createinfo: MutPtr)
 }
 
 public typealias PcreateProcessNotifyRoutineEx = PcreateProcessNotifyRoutineExFn?
@@ -1123,7 +1101,7 @@ public fun interface PcreateThreadNotifyRoutineFn {
 public typealias PcreateThreadNotifyRoutine = PcreateThreadNotifyRoutineFn?
 
 public fun interface PcwCallbackFn {
-    public operator fun invoke(type: PcwCallbackType, info: ConstPtr<PcwCallbackInformation>, context: ConstPtr<CVoid>): Ntstatus
+    public operator fun invoke(type: PcwCallbackType, info: ConstPtr, context: ConstPtr): Ntstatus
 }
 
 public typealias PcwCallback = PcwCallbackFn?
@@ -1151,13 +1129,13 @@ public fun interface Pd3coldRequestPerstDelayFn {
 public typealias Pd3coldRequestPerstDelay = Pd3coldRequestPerstDelayFn?
 
 public fun interface PdebugDeviceFoundFunctionFn {
-    public operator fun invoke(device: MutPtr<DebugDeviceDescriptor>): KdCallbackAction
+    public operator fun invoke(device: MutPtr): KdCallbackAction
 }
 
 public typealias PdebugDeviceFoundFunction = PdebugDeviceFoundFunctionFn?
 
 public fun interface PdebugPrintCallbackFn {
-    public operator fun invoke(output: ConstPtr<io.github.kotlinmania.windowssys.windows.win32.system.kernel.String>, componentid: UInt, level: UInt)
+    public operator fun invoke(output: ConstPtr, componentid: UInt, level: UInt)
 }
 
 public typealias PdebugPrintCallback = PdebugPrintCallbackFn?
@@ -1175,13 +1153,13 @@ public fun interface PdeviceChangeCompleteCallbackFn {
 public typealias PdeviceChangeCompleteCallback = PdeviceChangeCompleteCallbackFn?
 
 public fun interface PdeviceNotifyCallbackFn {
-    public operator fun invoke(param0: MutPtr<CVoid>, param1: UInt)
+    public operator fun invoke(param0: MutPtr, param1: UInt)
 }
 
 public typealias PdeviceNotifyCallback = PdeviceNotifyCallbackFn?
 
 public fun interface PdeviceNotifyCallback2Fn {
-    public operator fun invoke(notificationcontext: MutPtr<CVoid>, notifycode: UInt)
+    public operator fun invoke(notificationcontext: MutPtr, notifycode: UInt)
 }
 
 public typealias PdeviceNotifyCallback2 = PdeviceNotifyCallback2Fn?
@@ -1211,25 +1189,25 @@ public fun interface PdmaCompletionRoutineFn {
 public typealias PdmaCompletionRoutine = PdmaCompletionRoutineFn?
 
 public fun interface PdriverCmcExceptionCallbackFn {
-    public operator fun invoke(context: ConstPtr<CVoid>, cmclog: ConstPtr<McaException>)
+    public operator fun invoke(context: ConstPtr, cmclog: ConstPtr)
 }
 
 public typealias PdriverCmcExceptionCallback = PdriverCmcExceptionCallbackFn?
 
 public fun interface PdriverCpeExceptionCallbackFn {
-    public operator fun invoke(context: ConstPtr<CVoid>, cmclog: ConstPtr<McaException>)
+    public operator fun invoke(context: ConstPtr, cmclog: ConstPtr)
 }
 
 public typealias PdriverCpeExceptionCallback = PdriverCpeExceptionCallbackFn?
 
 public fun interface PdriverExcptnCallbackFn {
-    public operator fun invoke(context: ConstPtr<CVoid>, banklog: ConstPtr<McaException>)
+    public operator fun invoke(context: ConstPtr, banklog: ConstPtr)
 }
 
 public typealias PdriverExcptnCallback = PdriverExcptnCallbackFn?
 
 public fun interface PdriverVerifierThunkRoutineFn {
-    public operator fun invoke(context: ConstPtr<CVoid>): ULong
+    public operator fun invoke(context: ConstPtr): ULong
 }
 
 public typealias PdriverVerifierThunkRoutine = PdriverVerifierThunkRoutineFn?
@@ -1271,31 +1249,31 @@ public fun interface PexCallbackFunctionFn {
 public typealias PexCallbackFunction = PexCallbackFunctionFn?
 
 public fun interface PflushAdapterBuffersFn {
-    public operator fun invoke(dmaadapter: ConstPtr<DmaAdapter>, mdl: ConstPtr<Mdl>, mapregisterbase: ConstPtr<CVoid>, currentva: ConstPtr<CVoid>, length: UInt, writetodevice: Boolean): Boolean
+    public operator fun invoke(dmaadapter: ConstPtr, mdl: ConstPtr, mapregisterbase: ConstPtr, currentva: ConstPtr, length: UInt, writetodevice: Boolean): Boolean
 }
 
 public typealias PflushAdapterBuffers = PflushAdapterBuffersFn?
 
 public fun interface PflushAdapterBuffersExFn {
-    public operator fun invoke(dmaadapter: ConstPtr<DmaAdapter>, mdl: ConstPtr<Mdl>, mapregisterbase: ConstPtr<CVoid>, offset: ULong, length: UInt, writetodevice: Boolean): Ntstatus
+    public operator fun invoke(dmaadapter: ConstPtr, mdl: ConstPtr, mapregisterbase: ConstPtr, offset: ULong, length: UInt, writetodevice: Boolean): Ntstatus
 }
 
 public typealias PflushAdapterBuffersEx = PflushAdapterBuffersExFn?
 
 public fun interface PflushDmaBufferFn {
-    public operator fun invoke(dmaadapter: ConstPtr<DmaAdapter>, mdl: ConstPtr<Mdl>, readoperation: Boolean): Ntstatus
+    public operator fun invoke(dmaadapter: ConstPtr, mdl: ConstPtr, readoperation: Boolean): Ntstatus
 }
 
 public typealias PflushDmaBuffer = PflushDmaBufferFn?
 
 public fun interface PfnfthFn {
-    public operator fun invoke(systemfirmwaretableinfo: MutPtr<SystemFirmwareTableInformation>): Ntstatus
+    public operator fun invoke(systemfirmwaretableinfo: MutPtr): Ntstatus
 }
 
 public typealias Pfnfth = PfnfthFn?
 
 public fun interface PfnInUsePageOfflineNotifyFn {
-    public operator fun invoke(page: UInt, flags: Boolean, poisoned: Boolean, context: ConstPtr<CVoid>): Boolean
+    public operator fun invoke(page: UInt, flags: Boolean, poisoned: Boolean, context: ConstPtr): Boolean
 }
 
 public typealias PfnInUsePageOfflineNotify = PfnInUsePageOfflineNotifyFn?
@@ -1307,19 +1285,19 @@ public fun interface PfnNtCommitTransactionFn {
 public typealias PfnNtCommitTransaction = PfnNtCommitTransactionFn?
 
 public fun interface PfnNtCreateTransactionFn {
-    public operator fun invoke(transactionhandle: MutPtr<Handle>, desiredaccess: UInt, objectattributes: ConstPtr<ObjectAttributes>, uow: ConstPtr<Guid>, tmhandle: Handle, createoptions: UInt, isolationlevel: UInt, isolationflags: UInt, timeout: ConstPtr<Long>, description: ConstPtr<UnicodeString>): Ntstatus
+    public operator fun invoke(transactionhandle: MutPtr, desiredaccess: UInt, objectattributes: ConstPtr, uow: ConstPtr, tmhandle: Handle, createoptions: UInt, isolationlevel: UInt, isolationflags: UInt, timeout: ConstPtr, description: ConstPtr): Ntstatus
 }
 
 public typealias PfnNtCreateTransaction = PfnNtCreateTransactionFn?
 
 public fun interface PfnNtOpenTransactionFn {
-    public operator fun invoke(transactionhandle: MutPtr<Handle>, desiredaccess: UInt, objectattributes: ConstPtr<ObjectAttributes>, uow: ConstPtr<Guid>, tmhandle: Handle): Ntstatus
+    public operator fun invoke(transactionhandle: MutPtr, desiredaccess: UInt, objectattributes: ConstPtr, uow: ConstPtr, tmhandle: Handle): Ntstatus
 }
 
 public typealias PfnNtOpenTransaction = PfnNtOpenTransactionFn?
 
 public fun interface PfnNtQueryInformationTransactionFn {
-    public operator fun invoke(transactionhandle: Handle, transactioninformationclass: TransactionInformationClass, transactioninformation: MutPtr<CVoid>, transactioninformationlength: UInt, returnlength: MutPtr<UInt>): Ntstatus
+    public operator fun invoke(transactionhandle: Handle, transactioninformationclass: TransactionInformationClass, transactioninformation: MutPtr, transactioninformationlength: UInt, returnlength: MutPtr): Ntstatus
 }
 
 public typealias PfnNtQueryInformationTransaction = PfnNtQueryInformationTransactionFn?
@@ -1331,7 +1309,7 @@ public fun interface PfnNtRollbackTransactionFn {
 public typealias PfnNtRollbackTransaction = PfnNtRollbackTransactionFn?
 
 public fun interface PfnNtSetInformationTransactionFn {
-    public operator fun invoke(transactionhandle: Handle, transactioninformationclass: TransactionInformationClass, transactioninformation: ConstPtr<CVoid>, transactioninformationlength: UInt): Ntstatus
+    public operator fun invoke(transactionhandle: Handle, transactioninformationclass: TransactionInformationClass, transactioninformation: ConstPtr, transactioninformationlength: UInt): Ntstatus
 }
 
 public typealias PfnNtSetInformationTransaction = PfnNtSetInformationTransactionFn?
@@ -1349,7 +1327,7 @@ public fun interface PfnRtlIsServicePackVersionInstalledFn {
 public typealias PfnRtlIsServicePackVersionInstalled = PfnRtlIsServicePackVersionInstalledFn?
 
 public fun interface PfnWheaHighIrqlLogSelEventHandlerFn {
-    public operator fun invoke(context: ConstPtr<CVoid>, osselrecord: ConstPtr<IpmiOsSelRecord>): Ntstatus
+    public operator fun invoke(context: ConstPtr, osselrecord: ConstPtr): Ntstatus
 }
 
 public typealias PfnWheaHighIrqlLogSelEventHandler = PfnWheaHighIrqlLogSelEventHandlerFn?
@@ -1379,31 +1357,31 @@ public fun interface PfpgaControlLinkFn {
 public typealias PfpgaControlLink = PfpgaControlLinkFn?
 
 public fun interface PfreeAdapterChannelFn {
-    public operator fun invoke(dmaadapter: ConstPtr<DmaAdapter>)
+    public operator fun invoke(dmaadapter: ConstPtr)
 }
 
 public typealias PfreeAdapterChannel = PfreeAdapterChannelFn?
 
 public fun interface PfreeAdapterObjectFn {
-    public operator fun invoke(dmaadapter: ConstPtr<DmaAdapter>, allocationaction: IoAllocationAction)
+    public operator fun invoke(dmaadapter: ConstPtr, allocationaction: IoAllocationAction)
 }
 
 public typealias PfreeAdapterObject = PfreeAdapterObjectFn?
 
 public fun interface PfreeCommonBufferFn {
-    public operator fun invoke(dmaadapter: ConstPtr<DmaAdapter>, length: UInt, logicaladdress: Long, virtualaddress: ConstPtr<CVoid>, cacheenabled: Boolean)
+    public operator fun invoke(dmaadapter: ConstPtr, length: UInt, logicaladdress: Long, virtualaddress: ConstPtr, cacheenabled: Boolean)
 }
 
 public typealias PfreeCommonBuffer = PfreeCommonBufferFn?
 
 public fun interface PfreeCommonBufferFromVectorFn {
-    public operator fun invoke(dmaadapter: ConstPtr<DmaAdapter>, vector: ConstPtr<DmaCommonBufferVector>, index: UInt)
+    public operator fun invoke(dmaadapter: ConstPtr, vector: ConstPtr, index: UInt)
 }
 
 public typealias PfreeCommonBufferFromVector = PfreeCommonBufferFromVectorFn?
 
 public fun interface PfreeCommonBufferVectorFn {
-    public operator fun invoke(dmaadapter: ConstPtr<DmaAdapter>, vector: ConstPtr<DmaCommonBufferVector>)
+    public operator fun invoke(dmaadapter: ConstPtr, vector: ConstPtr)
 }
 
 public typealias PfreeCommonBufferVector = PfreeCommonBufferVectorFn?
@@ -1415,13 +1393,13 @@ public fun interface PfreeFunctionExFn {
 public typealias PfreeFunctionEx = PfreeFunctionExFn?
 
 public fun interface PfreeMapRegistersFn {
-    public operator fun invoke(dmaadapter: ConstPtr<DmaAdapter>, mapregisterbase: MutPtr<CVoid>, numberofmapregisters: UInt)
+    public operator fun invoke(dmaadapter: ConstPtr, mapregisterbase: MutPtr, numberofmapregisters: UInt)
 }
 
 public typealias PfreeMapRegisters = PfreeMapRegistersFn?
 
 public fun interface PgetCommonBufferFromVectorByIndexFn {
-    public operator fun invoke(dmaadapter: ConstPtr<DmaAdapter>, vector: ConstPtr<DmaCommonBufferVector>, index: UInt, virtualaddressout: MutPtr<MutPtr<CVoid>>, logicaladdressout: MutPtr<Long>)
+    public operator fun invoke(dmaadapter: ConstPtr, vector: ConstPtr, index: UInt, virtualaddressout: MutPtr, logicaladdressout: MutPtr)
 }
 
 public typealias PgetCommonBufferFromVectorByIndex = PgetCommonBufferFromVectorByIndexFn?
@@ -1445,31 +1423,31 @@ public fun interface PgetDeviceResetStatusFn {
 public typealias PgetDeviceResetStatus = PgetDeviceResetStatusFn?
 
 public fun interface PgetDmaAdapterFn {
-    public operator fun invoke(): MutPtr<DmaAdapter>
+    public operator fun invoke(): MutPtr
 }
 
 public typealias PgetDmaAdapter = PgetDmaAdapterFn?
 
 public fun interface PgetDmaAdapterInfoFn {
-    public operator fun invoke(dmaadapter: ConstPtr<DmaAdapter>, adapterinfo: MutPtr<DmaAdapterInfo>): Ntstatus
+    public operator fun invoke(dmaadapter: ConstPtr, adapterinfo: MutPtr): Ntstatus
 }
 
 public typealias PgetDmaAdapterInfo = PgetDmaAdapterInfoFn?
 
 public fun interface PgetDmaAlignmentFn {
-    public operator fun invoke(dmaadapter: ConstPtr<DmaAdapter>): UInt
+    public operator fun invoke(dmaadapter: ConstPtr): UInt
 }
 
 public typealias PgetDmaAlignment = PgetDmaAlignmentFn?
 
 public fun interface PgetDmaDomainFn {
-    public operator fun invoke(dmaadapter: ConstPtr<DmaAdapter>): Handle
+    public operator fun invoke(dmaadapter: ConstPtr): Handle
 }
 
 public typealias PgetDmaDomain = PgetDmaDomainFn?
 
 public fun interface PgetDmaTransferInfoFn {
-    public operator fun invoke(dmaadapter: ConstPtr<DmaAdapter>, mdl: ConstPtr<Mdl>, offset: ULong, length: UInt, writeonly: Boolean, transferinfo: MutPtr<DmaTransferInfo>): Ntstatus
+    public operator fun invoke(dmaadapter: ConstPtr, mdl: ConstPtr, offset: ULong, length: UInt, writeonly: Boolean, transferinfo: MutPtr): Ntstatus
 }
 
 public typealias PgetDmaTransferInfo = PgetDmaTransferInfoFn?
@@ -1481,19 +1459,19 @@ public fun interface PgetIdleWakeInfoFn {
 public typealias PgetIdleWakeInfo = PgetIdleWakeInfoFn?
 
 public fun interface PgetLocationStringFn {
-    public operator fun invoke(context: MutPtr<CVoid>, locationstrings: MutPtr<Pwstr>): Ntstatus
+    public operator fun invoke(context: MutPtr, locationstrings: MutPtr): Ntstatus
 }
 
 public typealias PgetLocationString = PgetLocationStringFn?
 
 public fun interface PgetScatterGatherListFn {
-    public operator fun invoke(dmaadapter: ConstPtr<DmaAdapter>, deviceobject: ConstPtr<DeviceObject>, mdl: ConstPtr<Mdl>, currentva: ConstPtr<CVoid>, length: UInt, executionroutine: DriverListControl, context: ConstPtr<CVoid>, writetodevice: Boolean): Ntstatus
+    public operator fun invoke(dmaadapter: ConstPtr, deviceobject: ConstPtr, mdl: ConstPtr, currentva: ConstPtr, length: UInt, executionroutine: DriverListControl, context: ConstPtr, writetodevice: Boolean): Ntstatus
 }
 
 public typealias PgetScatterGatherList = PgetScatterGatherListFn?
 
 public fun interface PgetScatterGatherListExFn {
-    public operator fun invoke(dmaadapter: ConstPtr<DmaAdapter>, deviceobject: ConstPtr<DeviceObject>, dmatransfercontext: ConstPtr<CVoid>, mdl: ConstPtr<Mdl>, offset: ULong, length: UInt, flags: UInt, executionroutine: DriverListControl, context: ConstPtr<CVoid>, writetodevice: Boolean, dmacompletionroutine: PdmaCompletionRoutine, completioncontext: ConstPtr<CVoid>, scattergatherlist: MutPtr<MutPtr<ScatterGatherList>>): Ntstatus
+    public operator fun invoke(dmaadapter: ConstPtr, deviceobject: ConstPtr, dmatransfercontext: ConstPtr, mdl: ConstPtr, offset: ULong, length: UInt, flags: UInt, executionroutine: DriverListControl, context: ConstPtr, writetodevice: Boolean, dmacompletionroutine: PdmaCompletionRoutine, completioncontext: ConstPtr, scattergatherlist: MutPtr): Ntstatus
 }
 
 public typealias PgetScatterGatherListEx = PgetScatterGatherListExFn?
@@ -1541,79 +1519,79 @@ public fun interface PgetVirtualFunctionProbedBarsFn {
 public typealias PgetVirtualFunctionProbedBars = PgetVirtualFunctionProbedBarsFn?
 
 public fun interface PgpeClearStatusFn {
-    public operator fun invoke(param0: MutPtr<DeviceObject>, param1: MutPtr<CVoid>): Ntstatus
+    public operator fun invoke(param0: MutPtr, param1: MutPtr): Ntstatus
 }
 
 public typealias PgpeClearStatus = PgpeClearStatusFn?
 
 public fun interface PgpeClearStatus2Fn {
-    public operator fun invoke(context: MutPtr<CVoid>, objectcontext: MutPtr<CVoid>): Ntstatus
+    public operator fun invoke(context: MutPtr, objectcontext: MutPtr): Ntstatus
 }
 
 public typealias PgpeClearStatus2 = PgpeClearStatus2Fn?
 
 public fun interface PgpeConnectVectorFn {
-    public operator fun invoke(param0: MutPtr<DeviceObject>, param1: UInt, param2: KinterruptMode, param3: Boolean, param4: PgpeServiceRoutine, param5: MutPtr<CVoid>, param6: MutPtr<CVoid>): Ntstatus
+    public operator fun invoke(param0: MutPtr, param1: UInt, param2: KinterruptMode, param3: Boolean, param4: PgpeServiceRoutine, param5: MutPtr, param6: MutPtr): Ntstatus
 }
 
 public typealias PgpeConnectVector = PgpeConnectVectorFn?
 
 public fun interface PgpeConnectVector2Fn {
-    public operator fun invoke(context: MutPtr<CVoid>, gpenumber: UInt, mode: KinterruptMode, shareable: Boolean, serviceroutine: PgpeServiceRoutine, servicecontext: MutPtr<CVoid>, objectcontext: MutPtr<MutPtr<CVoid>>): Ntstatus
+    public operator fun invoke(context: MutPtr, gpenumber: UInt, mode: KinterruptMode, shareable: Boolean, serviceroutine: PgpeServiceRoutine, servicecontext: MutPtr, objectcontext: MutPtr): Ntstatus
 }
 
 public typealias PgpeConnectVector2 = PgpeConnectVector2Fn?
 
 public fun interface PgpeDisableEventFn {
-    public operator fun invoke(param0: MutPtr<DeviceObject>, param1: MutPtr<CVoid>): Ntstatus
+    public operator fun invoke(param0: MutPtr, param1: MutPtr): Ntstatus
 }
 
 public typealias PgpeDisableEvent = PgpeDisableEventFn?
 
 public fun interface PgpeDisableEvent2Fn {
-    public operator fun invoke(context: MutPtr<CVoid>, objectcontext: MutPtr<CVoid>): Ntstatus
+    public operator fun invoke(context: MutPtr, objectcontext: MutPtr): Ntstatus
 }
 
 public typealias PgpeDisableEvent2 = PgpeDisableEvent2Fn?
 
 public fun interface PgpeDisconnectVectorFn {
-    public operator fun invoke(param0: MutPtr<CVoid>): Ntstatus
+    public operator fun invoke(param0: MutPtr): Ntstatus
 }
 
 public typealias PgpeDisconnectVector = PgpeDisconnectVectorFn?
 
 public fun interface PgpeDisconnectVector2Fn {
-    public operator fun invoke(context: MutPtr<CVoid>, objectcontext: MutPtr<CVoid>): Ntstatus
+    public operator fun invoke(context: MutPtr, objectcontext: MutPtr): Ntstatus
 }
 
 public typealias PgpeDisconnectVector2 = PgpeDisconnectVector2Fn?
 
 public fun interface PgpeEnableEventFn {
-    public operator fun invoke(param0: MutPtr<DeviceObject>, param1: MutPtr<CVoid>): Ntstatus
+    public operator fun invoke(param0: MutPtr, param1: MutPtr): Ntstatus
 }
 
 public typealias PgpeEnableEvent = PgpeEnableEventFn?
 
 public fun interface PgpeEnableEvent2Fn {
-    public operator fun invoke(context: MutPtr<CVoid>, objectcontext: MutPtr<CVoid>): Ntstatus
+    public operator fun invoke(context: MutPtr, objectcontext: MutPtr): Ntstatus
 }
 
 public typealias PgpeEnableEvent2 = PgpeEnableEvent2Fn?
 
 public fun interface PgpeServiceRoutineFn {
-    public operator fun invoke(param0: MutPtr<CVoid>, param1: MutPtr<CVoid>): Boolean
+    public operator fun invoke(param0: MutPtr, param1: MutPtr): Boolean
 }
 
 public typealias PgpeServiceRoutine = PgpeServiceRoutineFn?
 
 public fun interface PgpeServiceRoutine2Fn {
-    public operator fun invoke(objectcontext: MutPtr<CVoid>, servicecontext: MutPtr<CVoid>): Boolean
+    public operator fun invoke(objectcontext: MutPtr, servicecontext: MutPtr): Boolean
 }
 
 public typealias PgpeServiceRoutine2 = PgpeServiceRoutine2Fn?
 
 public fun interface PhalioreadwritehandlerFn {
-    public operator fun invoke(fread: Boolean, dwaddr: UInt, dwsize: UInt, pdwdata: MutPtr<UInt>): Ntstatus
+    public operator fun invoke(fread: Boolean, dwaddr: UInt, dwsize: UInt, pdwdata: MutPtr): Ntstatus
 }
 
 public typealias Phalioreadwritehandler = PhalioreadwritehandlerFn?
@@ -1625,7 +1603,7 @@ public fun interface PhalmcainterfacelockFn {
 public typealias Phalmcainterfacelock = PhalmcainterfacelockFn?
 
 public fun interface PhalmcainterfacereadregisterFn {
-    public operator fun invoke(banknumber: UByte, exception: MutPtr<CVoid>): Ntstatus
+    public operator fun invoke(banknumber: UByte, exception: MutPtr): Ntstatus
 }
 
 public typealias Phalmcainterfacereadregister = PhalmcainterfacereadregisterFn?
@@ -1651,19 +1629,19 @@ public typealias PhvlWheaErrorNotification = PhvlWheaErrorNotificationFn?
 public typealias PhysicalCounterResourceDescriptorType = Int
 
 public fun interface PinitializeDmaTransferContextFn {
-    public operator fun invoke(dmaadapter: ConstPtr<DmaAdapter>, dmatransfercontext: MutPtr<CVoid>): Ntstatus
+    public operator fun invoke(dmaadapter: ConstPtr, dmatransfercontext: MutPtr): Ntstatus
 }
 
 public typealias PinitializeDmaTransferContext = PinitializeDmaTransferContextFn?
 
 public fun interface PinterfaceDereferenceFn {
-    public operator fun invoke(context: MutPtr<CVoid>)
+    public operator fun invoke(context: MutPtr)
 }
 
 public typealias PinterfaceDereference = PinterfaceDereferenceFn?
 
 public fun interface PinterfaceReferenceFn {
-    public operator fun invoke(context: MutPtr<CVoid>)
+    public operator fun invoke(context: MutPtr)
 }
 
 public typealias PinterfaceReference = PinterfaceReferenceFn?
@@ -1885,7 +1863,7 @@ public fun interface PioCsqInsertIrpExFn {
 public typealias PioCsqInsertIrpEx = PioCsqInsertIrpExFn?
 
 public fun interface PioCsqPeekNextIrpFn {
-    public operator fun invoke(): MutPtr<Irp>
+    public operator fun invoke(): MutPtr
 }
 
 public typealias PioCsqPeekNextIrp = PioCsqPeekNextIrpFn?
@@ -1903,7 +1881,7 @@ public fun interface PioCsqRemoveIrpFn {
 public typealias PioCsqRemoveIrp = PioCsqRemoveIrpFn?
 
 public fun interface PioDeviceEjectCallbackFn {
-    public operator fun invoke(status: Ntstatus, context: MutPtr<CVoid>)
+    public operator fun invoke(status: Ntstatus, context: MutPtr)
 }
 
 public typealias PioDeviceEjectCallback = PioDeviceEjectCallbackFn?
@@ -1921,7 +1899,7 @@ public fun interface PioPersistedMemoryEnumerationCallbackFn {
 public typealias PioPersistedMemoryEnumerationCallback = PioPersistedMemoryEnumerationCallbackFn?
 
 public fun interface PioQueryDeviceRoutineFn {
-    public operator fun invoke(context: ConstPtr<CVoid>, pathname: ConstPtr<UnicodeString>, bustype: InterfaceType, busnumber: UInt, businformation: ConstPtr<ConstPtr<KeyValueFullInformation>>, controllertype: ConfigurationType, controllernumber: UInt, controllerinformation: ConstPtr<ConstPtr<KeyValueFullInformation>>, peripheraltype: ConfigurationType, peripheralnumber: UInt, peripheralinformation: ConstPtr<ConstPtr<KeyValueFullInformation>>): Ntstatus
+    public operator fun invoke(context: ConstPtr, pathname: ConstPtr, bustype: InterfaceType, busnumber: UInt, businformation: ConstPtr, controllertype: ConfigurationType, controllernumber: UInt, controllerinformation: ConstPtr, peripheraltype: ConfigurationType, peripheralnumber: UInt, peripheralinformation: ConstPtr): Ntstatus
 }
 
 public typealias PioQueryDeviceRoutine = PioQueryDeviceRoutineFn?
@@ -1951,7 +1929,7 @@ public fun interface PioWorkitemRoutineExFn {
 public typealias PioWorkitemRoutineEx = PioWorkitemRoutineExFn?
 
 public fun interface PjoinDmaDomainFn {
-    public operator fun invoke(dmaadapter: ConstPtr<DmaAdapter>, domainhandle: Handle): Ntstatus
+    public operator fun invoke(dmaadapter: ConstPtr, domainhandle: Handle): Ntstatus
 }
 
 public typealias PjoinDmaDomain = PjoinDmaDomainFn?
@@ -1999,31 +1977,31 @@ public fun interface PksynchronizeRoutineFn {
 public typealias PksynchronizeRoutine = PksynchronizeRoutineFn?
 
 public fun interface PleaveDmaDomainFn {
-    public operator fun invoke(dmaadapter: ConstPtr<DmaAdapter>): Ntstatus
+    public operator fun invoke(dmaadapter: ConstPtr): Ntstatus
 }
 
 public typealias PleaveDmaDomain = PleaveDmaDomainFn?
 
 public fun interface PloadImageNotifyRoutineFn {
-    public operator fun invoke(fullimagename: ConstPtr<UnicodeString>, processid: Handle, imageinfo: ConstPtr<ImageInfo>)
+    public operator fun invoke(fullimagename: ConstPtr, processid: Handle, imageinfo: ConstPtr)
 }
 
 public typealias PloadImageNotifyRoutine = PloadImageNotifyRoutineFn?
 
 public fun interface PmapTransferFn {
-    public operator fun invoke(dmaadapter: ConstPtr<DmaAdapter>, mdl: ConstPtr<Mdl>, mapregisterbase: ConstPtr<CVoid>, currentva: ConstPtr<CVoid>, length: MutPtr<UInt>, writetodevice: Boolean): Long
+    public operator fun invoke(dmaadapter: ConstPtr, mdl: ConstPtr, mapregisterbase: ConstPtr, currentva: ConstPtr, length: MutPtr, writetodevice: Boolean): Long
 }
 
 public typealias PmapTransfer = PmapTransferFn?
 
 public fun interface PmapTransferExFn {
-    public operator fun invoke(dmaadapter: ConstPtr<DmaAdapter>, mdl: ConstPtr<Mdl>, mapregisterbase: ConstPtr<CVoid>, offset: ULong, deviceoffset: UInt, length: MutPtr<UInt>, writetodevice: Boolean, scattergatherbuffer: MutPtr<ScatterGatherList>, scattergatherbufferlength: UInt, dmacompletionroutine: PdmaCompletionRoutine, completioncontext: ConstPtr<CVoid>): Ntstatus
+    public operator fun invoke(dmaadapter: ConstPtr, mdl: ConstPtr, mapregisterbase: ConstPtr, offset: ULong, deviceoffset: UInt, length: MutPtr, writetodevice: Boolean, scattergatherbuffer: MutPtr, scattergatherbufferlength: UInt, dmacompletionroutine: PdmaCompletionRoutine, completioncontext: ConstPtr): Ntstatus
 }
 
 public typealias PmapTransferEx = PmapTransferExFn?
 
 public fun interface PmmDllInitializeFn {
-    public operator fun invoke(registrypath: ConstPtr<UnicodeString>): Ntstatus
+    public operator fun invoke(registrypath: ConstPtr): Ntstatus
 }
 
 public typealias PmmDllInitialize = PmmDllInitializeFn?
@@ -2035,7 +2013,7 @@ public fun interface PmmDllUnloadFn {
 public typealias PmmDllUnload = PmmDllUnloadFn?
 
 public fun interface PmmGetSystemRoutineAddressExFn {
-    public operator fun invoke(modulename: ConstPtr<UnicodeString>, functionname: Pcstr): MutPtr<CVoid>
+    public operator fun invoke(modulename: ConstPtr, functionname: Pcstr): MutPtr
 }
 
 public typealias PmmGetSystemRoutineAddressEx = PmmGetSystemRoutineAddressExFn?
@@ -2047,7 +2025,7 @@ public fun interface PmmMdlRoutineFn {
 public typealias PmmMdlRoutine = PmmMdlRoutineFn?
 
 public fun interface PmmRotateCopyCallbackFunctionFn {
-    public operator fun invoke(destinationmdl: ConstPtr<Mdl>, sourcemdl: ConstPtr<Mdl>, context: ConstPtr<CVoid>): Ntstatus
+    public operator fun invoke(destinationmdl: ConstPtr, sourcemdl: ConstPtr, context: ConstPtr): Ntstatus
 }
 
 public typealias PmmRotateCopyCallbackFunction = PmmRotateCopyCallbackFunctionFn?
@@ -2089,13 +2067,13 @@ public fun interface PntfsDerefExportedSecurityDescriptorFn {
 public typealias PntfsDerefExportedSecurityDescriptor = PntfsDerefExportedSecurityDescriptorFn?
 
 public fun interface PobPostOperationCallbackFn {
-    public operator fun invoke(registrationcontext: ConstPtr<CVoid>, operationinformation: ConstPtr<ObPostOperationInformation>)
+    public operator fun invoke(registrationcontext: ConstPtr, operationinformation: ConstPtr)
 }
 
 public typealias PobPostOperationCallback = PobPostOperationCallbackFn?
 
 public fun interface PobPreOperationCallbackFn {
-    public operator fun invoke(registrationcontext: ConstPtr<CVoid>, operationinformation: MutPtr<ObPreOperationInformation>): ObPreopCallbackStatus
+    public operator fun invoke(registrationcontext: ConstPtr, operationinformation: MutPtr): ObPreopCallbackStatus
 }
 
 public typealias PobPreOperationCallback = PobPreOperationCallbackFn?
@@ -2109,7 +2087,7 @@ public typealias PowerMonitorRequestType = Int
 public typealias PowerPlatformRole = Int
 
 public fun interface PowerSettingCallbackFn {
-    public operator fun invoke(settingguid: ConstPtr<Guid>, value: ConstPtr<CVoid>, valuelength: UInt, context: MutPtr<CVoid>): Ntstatus
+    public operator fun invoke(settingguid: ConstPtr, value: ConstPtr, valuelength: UInt, context: MutPtr): Ntstatus
 }
 
 public typealias PowerSettingCallback = PowerSettingCallbackFn?
@@ -2119,61 +2097,61 @@ public typealias PowerStateType = Int
 public typealias PowerUserPresenceType = Int
 
 public fun interface PoFxComponentActiveConditionCallbackFn {
-    public operator fun invoke(context: ConstPtr<CVoid>, component: UInt)
+    public operator fun invoke(context: ConstPtr, component: UInt)
 }
 
 public typealias PoFxComponentActiveConditionCallback = PoFxComponentActiveConditionCallbackFn?
 
 public fun interface PoFxComponentCriticalTransitionCallbackFn {
-    public operator fun invoke(context: ConstPtr<CVoid>, component: UInt, active: Boolean)
+    public operator fun invoke(context: ConstPtr, component: UInt, active: Boolean)
 }
 
 public typealias PoFxComponentCriticalTransitionCallback = PoFxComponentCriticalTransitionCallbackFn?
 
 public fun interface PoFxComponentIdleConditionCallbackFn {
-    public operator fun invoke(context: ConstPtr<CVoid>, component: UInt)
+    public operator fun invoke(context: ConstPtr, component: UInt)
 }
 
 public typealias PoFxComponentIdleConditionCallback = PoFxComponentIdleConditionCallbackFn?
 
 public fun interface PoFxComponentIdleStateCallbackFn {
-    public operator fun invoke(context: ConstPtr<CVoid>, component: UInt, state: UInt)
+    public operator fun invoke(context: ConstPtr, component: UInt, state: UInt)
 }
 
 public typealias PoFxComponentIdleStateCallback = PoFxComponentIdleStateCallbackFn?
 
 public fun interface PoFxComponentPerfStateCallbackFn {
-    public operator fun invoke(context: ConstPtr<CVoid>, component: UInt, succeeded: Boolean, requestcontext: ConstPtr<CVoid>)
+    public operator fun invoke(context: ConstPtr, component: UInt, succeeded: Boolean, requestcontext: ConstPtr)
 }
 
 public typealias PoFxComponentPerfStateCallback = PoFxComponentPerfStateCallbackFn?
 
 public fun interface PoFxDevicePowerNotRequiredCallbackFn {
-    public operator fun invoke(context: ConstPtr<CVoid>)
+    public operator fun invoke(context: ConstPtr)
 }
 
 public typealias PoFxDevicePowerNotRequiredCallback = PoFxDevicePowerNotRequiredCallbackFn?
 
 public fun interface PoFxDevicePowerRequiredCallbackFn {
-    public operator fun invoke(context: ConstPtr<CVoid>)
+    public operator fun invoke(context: ConstPtr)
 }
 
 public typealias PoFxDevicePowerRequiredCallback = PoFxDevicePowerRequiredCallbackFn?
 
 public fun interface PoFxDirectedPowerDownCallbackFn {
-    public operator fun invoke(context: ConstPtr<CVoid>, flags: UInt)
+    public operator fun invoke(context: ConstPtr, flags: UInt)
 }
 
 public typealias PoFxDirectedPowerDownCallback = PoFxDirectedPowerDownCallbackFn?
 
 public fun interface PoFxDirectedPowerUpCallbackFn {
-    public operator fun invoke(context: ConstPtr<CVoid>, flags: UInt)
+    public operator fun invoke(context: ConstPtr, flags: UInt)
 }
 
 public typealias PoFxDirectedPowerUpCallback = PoFxDirectedPowerUpCallbackFn?
 
 public fun interface PoFxDripsWatchdogCallbackFn {
-    public operator fun invoke(context: ConstPtr<CVoid>, physicaldeviceobject: ConstPtr<DeviceObject>, uniqueid: UInt)
+    public operator fun invoke(context: ConstPtr, physicaldeviceobject: ConstPtr, uniqueid: UInt)
 }
 
 public typealias PoFxDripsWatchdogCallback = PoFxDripsWatchdogCallbackFn?
@@ -2183,7 +2161,7 @@ public typealias PoFxPerfStateType = Int
 public typealias PoFxPerfStateUnit = Int
 
 public fun interface PoFxPowerControlCallbackFn {
-    public operator fun invoke(devicecontext: ConstPtr<CVoid>, powercontrolcode: ConstPtr<Guid>, inbuffer: ConstPtr<CVoid>, inbuffersize: ULong, outbuffer: MutPtr<CVoid>, outbuffersize: ULong, bytesreturned: MutPtr<ULong>): Ntstatus
+    public operator fun invoke(devicecontext: ConstPtr, powercontrolcode: ConstPtr, inbuffer: ConstPtr, inbuffersize: ULong, outbuffer: MutPtr, outbuffersize: ULong, bytesreturned: MutPtr): Ntstatus
 }
 
 public typealias PoFxPowerControlCallback = PoFxPowerControlCallbackFn?
@@ -2203,13 +2181,13 @@ public fun interface PpciExpressExitLinkQuiescentModeFn {
 public typealias PpciExpressExitLinkQuiescentMode = PpciExpressExitLinkQuiescentModeFn?
 
 public fun interface PpciExpressRootPortReadConfigSpaceFn {
-    public operator fun invoke(context: ConstPtr<CVoid>, buffer: MutPtr<CVoid>, offset: UInt, length: UInt): UInt
+    public operator fun invoke(context: ConstPtr, buffer: MutPtr, offset: UInt, length: UInt): UInt
 }
 
 public typealias PpciExpressRootPortReadConfigSpace = PpciExpressRootPortReadConfigSpaceFn?
 
 public fun interface PpciExpressRootPortWriteConfigSpaceFn {
-    public operator fun invoke(context: ConstPtr<CVoid>, buffer: ConstPtr<CVoid>, offset: UInt, length: UInt): UInt
+    public operator fun invoke(context: ConstPtr, buffer: ConstPtr, offset: UInt, length: UInt): UInt
 }
 
 public typealias PpciExpressRootPortWriteConfigSpace = PpciExpressRootPortWriteConfigSpaceFn?
@@ -2311,7 +2289,7 @@ public fun interface PpcwCallbackFn {
 public typealias PpcwCallback = PpcwCallbackFn?
 
 public fun interface PphysicalCounterEventBufferOverflowHandlerFn {
-    public operator fun invoke(eventbuffer: ConstPtr<CVoid>, entrysize: ULong, numberofentries: ULong, owninghandle: Handle)
+    public operator fun invoke(eventbuffer: ConstPtr, entrysize: ULong, numberofentries: ULong, owninghandle: Handle)
 }
 
 public typealias PphysicalCounterEventBufferOverflowHandler = PphysicalCounterEventBufferOverflowHandlerFn?
@@ -2431,109 +2409,109 @@ public fun interface PptmDeviceQueryTimeSourceFn {
 public typealias PptmDeviceQueryTimeSource = PptmDeviceQueryTimeSourceFn?
 
 public fun interface PputDmaAdapterFn {
-    public operator fun invoke(dmaadapter: MutPtr<DmaAdapter>)
+    public operator fun invoke(dmaadapter: MutPtr)
 }
 
 public typealias PputDmaAdapter = PputDmaAdapterFn?
 
 public fun interface PputScatterGatherListFn {
-    public operator fun invoke(dmaadapter: ConstPtr<DmaAdapter>, scattergather: ConstPtr<ScatterGatherList>, writetodevice: Boolean)
+    public operator fun invoke(dmaadapter: ConstPtr, scattergather: ConstPtr, writetodevice: Boolean)
 }
 
 public typealias PputScatterGatherList = PputScatterGatherListFn?
 
 public fun interface PqueryextendedaddressFn {
-    public operator fun invoke(context: ConstPtr<CVoid>, extendedaddress: MutPtr<ULong>)
+    public operator fun invoke(context: ConstPtr, extendedaddress: MutPtr)
 }
 
 public typealias Pqueryextendedaddress = PqueryextendedaddressFn?
 
 public fun interface PreadDmaCounterFn {
-    public operator fun invoke(dmaadapter: ConstPtr<DmaAdapter>): UInt
+    public operator fun invoke(dmaadapter: ConstPtr): UInt
 }
 
 public typealias PreadDmaCounter = PreadDmaCounterFn?
 
 public fun interface PreenumerateSelfFn {
-    public operator fun invoke(context: ConstPtr<CVoid>)
+    public operator fun invoke(context: ConstPtr)
 }
 
 public typealias PreenumerateSelf = PreenumerateSelfFn?
 
 public fun interface PregisterForDeviceNotificationsFn {
-    public operator fun invoke(param0: MutPtr<DeviceObject>, param1: PdeviceNotifyCallback, param2: MutPtr<CVoid>): Ntstatus
+    public operator fun invoke(param0: MutPtr, param1: PdeviceNotifyCallback, param2: MutPtr): Ntstatus
 }
 
 public typealias PregisterForDeviceNotifications = PregisterForDeviceNotificationsFn?
 
 public fun interface PregisterForDeviceNotifications2Fn {
-    public operator fun invoke(context: MutPtr<CVoid>, notificationhandler: PdeviceNotifyCallback2, notificationcontext: MutPtr<CVoid>): Ntstatus
+    public operator fun invoke(context: MutPtr, notificationhandler: PdeviceNotifyCallback2, notificationcontext: MutPtr): Ntstatus
 }
 
 public typealias PregisterForDeviceNotifications2 = PregisterForDeviceNotifications2Fn?
 
 public fun interface PreplaceBeginFn {
-    public operator fun invoke(parameters: ConstPtr<PnpReplaceParameters>, context: MutPtr<MutPtr<CVoid>>): Ntstatus
+    public operator fun invoke(parameters: ConstPtr, context: MutPtr): Ntstatus
 }
 
 public typealias PreplaceBegin = PreplaceBeginFn?
 
 public fun interface PreplaceDriverInitFn {
-    public operator fun invoke(iface: MutPtr<PnpReplaceDriverInterface>, unused: ConstPtr<CVoid>): Ntstatus
+    public operator fun invoke(iface: MutPtr, unused: ConstPtr): Ntstatus
 }
 
 public typealias PreplaceDriverInit = PreplaceDriverInitFn?
 
 public fun interface PreplaceEnableDisableHardwareQuiesceFn {
-    public operator fun invoke(context: ConstPtr<CVoid>, enable: Boolean): Ntstatus
+    public operator fun invoke(context: ConstPtr, enable: Boolean): Ntstatus
 }
 
 public typealias PreplaceEnableDisableHardwareQuiesce = PreplaceEnableDisableHardwareQuiesceFn?
 
 public fun interface PreplaceEndFn {
-    public operator fun invoke(context: ConstPtr<CVoid>): Ntstatus
+    public operator fun invoke(context: ConstPtr): Ntstatus
 }
 
 public typealias PreplaceEnd = PreplaceEndFn?
 
 public fun interface PreplaceGetMemoryDestinationFn {
-    public operator fun invoke(context: ConstPtr<CVoid>, sourceaddress: Long, destinationaddress: MutPtr<Long>): Ntstatus
+    public operator fun invoke(context: ConstPtr, sourceaddress: Long, destinationaddress: MutPtr): Ntstatus
 }
 
 public typealias PreplaceGetMemoryDestination = PreplaceGetMemoryDestinationFn?
 
 public fun interface PreplaceInitiateHardwareMirrorFn {
-    public operator fun invoke(context: ConstPtr<CVoid>): Ntstatus
+    public operator fun invoke(context: ConstPtr): Ntstatus
 }
 
 public typealias PreplaceInitiateHardwareMirror = PreplaceInitiateHardwareMirrorFn?
 
 public fun interface PreplaceMapMemoryFn {
-    public operator fun invoke(targetphysicaladdress: Long, sparephysicaladdress: Long, numberofbytes: MutPtr<Long>, targetaddress: MutPtr<MutPtr<CVoid>>, spareaddress: MutPtr<MutPtr<CVoid>>): Ntstatus
+    public operator fun invoke(targetphysicaladdress: Long, sparephysicaladdress: Long, numberofbytes: MutPtr, targetaddress: MutPtr, spareaddress: MutPtr): Ntstatus
 }
 
 public typealias PreplaceMapMemory = PreplaceMapMemoryFn?
 
 public fun interface PreplaceMirrorPhysicalMemoryFn {
-    public operator fun invoke(context: ConstPtr<CVoid>, physicaladdress: Long, bytecount: Long): Ntstatus
+    public operator fun invoke(context: ConstPtr, physicaladdress: Long, bytecount: Long): Ntstatus
 }
 
 public typealias PreplaceMirrorPhysicalMemory = PreplaceMirrorPhysicalMemoryFn?
 
 public fun interface PreplaceMirrorPlatformMemoryFn {
-    public operator fun invoke(context: ConstPtr<CVoid>): Ntstatus
+    public operator fun invoke(context: ConstPtr): Ntstatus
 }
 
 public typealias PreplaceMirrorPlatformMemory = PreplaceMirrorPlatformMemoryFn?
 
 public fun interface PreplaceSetProcessorIdFn {
-    public operator fun invoke(context: ConstPtr<CVoid>, apicid: UInt, target: Boolean): Ntstatus
+    public operator fun invoke(context: ConstPtr, apicid: UInt, target: Boolean): Ntstatus
 }
 
 public typealias PreplaceSetProcessorId = PreplaceSetProcessorIdFn?
 
 public fun interface PreplaceSwapFn {
-    public operator fun invoke(context: ConstPtr<CVoid>): Ntstatus
+    public operator fun invoke(context: ConstPtr): Ntstatus
 }
 
 public typealias PreplaceSwap = PreplaceSwapFn?
@@ -2551,19 +2529,19 @@ public fun interface PrequestPowerCompleteFn {
 public typealias PrequestPowerComplete = PrequestPowerCompleteFn?
 
 public fun interface ProcessorCallbackFunctionFn {
-    public operator fun invoke(callbackcontext: ConstPtr<CVoid>, changecontext: ConstPtr<KeProcessorChangeNotifyContext>, operationstatus: MutPtr<Int>)
+    public operator fun invoke(callbackcontext: ConstPtr, changecontext: ConstPtr, operationstatus: MutPtr)
 }
 
 public typealias ProcessorCallbackFunction = ProcessorCallbackFunctionFn?
 
 public fun interface ProcessorHaltRoutineFn {
-    public operator fun invoke(context: MutPtr<CVoid>): Ntstatus
+    public operator fun invoke(context: MutPtr): Ntstatus
 }
 
 public typealias ProcessorHaltRoutine = ProcessorHaltRoutineFn?
 
 public fun interface PrtlAvlAllocateRoutineFn {
-    public operator fun invoke(): MutPtr<CVoid>
+    public operator fun invoke(): MutPtr
 }
 
 public typealias PrtlAvlAllocateRoutine = PrtlAvlAllocateRoutineFn?
@@ -2587,7 +2565,7 @@ public fun interface PrtlAvlMatchFunctionFn {
 public typealias PrtlAvlMatchFunction = PrtlAvlMatchFunctionFn?
 
 public fun interface PrtlGenericAllocateRoutineFn {
-    public operator fun invoke(): MutPtr<CVoid>
+    public operator fun invoke(): MutPtr
 }
 
 public typealias PrtlGenericAllocateRoutine = PrtlGenericAllocateRoutineFn?
@@ -2651,31 +2629,31 @@ public fun interface PseImageVerificationCallbackFunctionFn {
 public typealias PseImageVerificationCallbackFunction = PseImageVerificationCallbackFunctionFn?
 
 public fun interface PshedPiAttemptErrorRecoveryFn {
-    public operator fun invoke(plugincontext: MutPtr<CVoid>, bufferlength: UInt, errorrecord: ConstPtr<WheaErrorRecord>): Ntstatus
+    public operator fun invoke(plugincontext: MutPtr, bufferlength: UInt, errorrecord: ConstPtr): Ntstatus
 }
 
 public typealias PshedPiAttemptErrorRecovery = PshedPiAttemptErrorRecoveryFn?
 
 public fun interface PshedPiClearErrorRecordFn {
-    public operator fun invoke(plugincontext: MutPtr<CVoid>, flags: UInt, errorrecordid: ULong): Ntstatus
+    public operator fun invoke(plugincontext: MutPtr, flags: UInt, errorrecordid: ULong): Ntstatus
 }
 
 public typealias PshedPiClearErrorRecord = PshedPiClearErrorRecordFn?
 
 public fun interface PshedPiClearErrorStatusFn {
-    public operator fun invoke(plugincontext: MutPtr<CVoid>, errorsource: ConstPtr<WheaErrorSourceDescriptor>, bufferlength: UInt, errorrecord: ConstPtr<WheaErrorRecord>): Ntstatus
+    public operator fun invoke(plugincontext: MutPtr, errorsource: ConstPtr, bufferlength: UInt, errorrecord: ConstPtr): Ntstatus
 }
 
 public typealias PshedPiClearErrorStatus = PshedPiClearErrorStatusFn?
 
 public fun interface PshedPiDisableErrorSourceFn {
-    public operator fun invoke(plugincontext: MutPtr<CVoid>, errorsource: ConstPtr<WheaErrorSourceDescriptor>): Ntstatus
+    public operator fun invoke(plugincontext: MutPtr, errorsource: ConstPtr): Ntstatus
 }
 
 public typealias PshedPiDisableErrorSource = PshedPiDisableErrorSourceFn?
 
 public fun interface PshedPiEnableErrorSourceFn {
-    public operator fun invoke(plugincontext: MutPtr<CVoid>, errorsource: ConstPtr<WheaErrorSourceDescriptor>): Ntstatus
+    public operator fun invoke(plugincontext: MutPtr, errorsource: ConstPtr): Ntstatus
 }
 
 public typealias PshedPiEnableErrorSource = PshedPiEnableErrorSourceFn?
@@ -2683,97 +2661,97 @@ public typealias PshedPiEnableErrorSource = PshedPiEnableErrorSourceFn?
 public typealias PshedPiErrReadingPcieOverrides = Int
 
 public fun interface PshedPiFinalizeErrorRecordFn {
-    public operator fun invoke(plugincontext: MutPtr<CVoid>, errorsource: ConstPtr<WheaErrorSourceDescriptor>, bufferlength: UInt, errorrecord: MutPtr<WheaErrorRecord>): Ntstatus
+    public operator fun invoke(plugincontext: MutPtr, errorsource: ConstPtr, bufferlength: UInt, errorrecord: MutPtr): Ntstatus
 }
 
 public typealias PshedPiFinalizeErrorRecord = PshedPiFinalizeErrorRecordFn?
 
 public fun interface PshedPiGetAllErrorSourcesFn {
-    public operator fun invoke(plugincontext: MutPtr<CVoid>, count: MutPtr<UInt>, errorsrcs: MutPtr<MutPtr<WheaErrorSourceDescriptor>>, length: MutPtr<UInt>): Ntstatus
+    public operator fun invoke(plugincontext: MutPtr, count: MutPtr, errorsrcs: MutPtr, length: MutPtr): Ntstatus
 }
 
 public typealias PshedPiGetAllErrorSources = PshedPiGetAllErrorSourcesFn?
 
 public fun interface PshedPiGetErrorSourceInfoFn {
-    public operator fun invoke(plugincontext: MutPtr<CVoid>, errorsource: MutPtr<WheaErrorSourceDescriptor>): Ntstatus
+    public operator fun invoke(plugincontext: MutPtr, errorsource: MutPtr): Ntstatus
 }
 
 public typealias PshedPiGetErrorSourceInfo = PshedPiGetErrorSourceInfoFn?
 
 public fun interface PshedPiGetInjectionCapabilitiesFn {
-    public operator fun invoke(plugincontext: MutPtr<CVoid>, capabilities: MutPtr<WheaErrorInjectionCapabilities>): Ntstatus
+    public operator fun invoke(plugincontext: MutPtr, capabilities: MutPtr): Ntstatus
 }
 
 public typealias PshedPiGetInjectionCapabilities = PshedPiGetInjectionCapabilitiesFn?
 
 public fun interface PshedPiInjectErrorFn {
-    public operator fun invoke(plugincontext: MutPtr<CVoid>, errortype: ULong, parameter1: ULong, parameter2: ULong, parameter3: ULong, parameter4: ULong): Ntstatus
+    public operator fun invoke(plugincontext: MutPtr, errortype: ULong, parameter1: ULong, parameter2: ULong, parameter3: ULong, parameter4: ULong): Ntstatus
 }
 
 public typealias PshedPiInjectError = PshedPiInjectErrorFn?
 
 public fun interface PshedPiReadErrorRecordFn {
-    public operator fun invoke(plugincontext: MutPtr<CVoid>, flags: UInt, errorrecordid: ULong, nexterrorrecordid: MutPtr<ULong>, recordlength: MutPtr<UInt>, errorrecord: MutPtr<WheaErrorRecord>): Ntstatus
+    public operator fun invoke(plugincontext: MutPtr, flags: UInt, errorrecordid: ULong, nexterrorrecordid: MutPtr, recordlength: MutPtr, errorrecord: MutPtr): Ntstatus
 }
 
 public typealias PshedPiReadErrorRecord = PshedPiReadErrorRecordFn?
 
 public fun interface PshedPiRetrieveErrorInfoFn {
-    public operator fun invoke(plugincontext: MutPtr<CVoid>, errorsource: ConstPtr<WheaErrorSourceDescriptor>, bufferlength: ULong, packet: MutPtr<WheaErrorPacketV2>): Ntstatus
+    public operator fun invoke(plugincontext: MutPtr, errorsource: ConstPtr, bufferlength: ULong, packet: MutPtr): Ntstatus
 }
 
 public typealias PshedPiRetrieveErrorInfo = PshedPiRetrieveErrorInfoFn?
 
 public fun interface PshedPiSetErrorSourceInfoFn {
-    public operator fun invoke(plugincontext: MutPtr<CVoid>, errorsource: ConstPtr<WheaErrorSourceDescriptor>): Ntstatus
+    public operator fun invoke(plugincontext: MutPtr, errorsource: ConstPtr): Ntstatus
 }
 
 public typealias PshedPiSetErrorSourceInfo = PshedPiSetErrorSourceInfoFn?
 
 public fun interface PshedPiWriteErrorRecordFn {
-    public operator fun invoke(plugincontext: MutPtr<CVoid>, flags: UInt, recordlength: UInt, errorrecord: ConstPtr<WheaErrorRecord>): Ntstatus
+    public operator fun invoke(plugincontext: MutPtr, flags: UInt, recordlength: UInt, errorrecord: ConstPtr): Ntstatus
 }
 
 public typealias PshedPiWriteErrorRecord = PshedPiWriteErrorRecordFn?
 
 public fun interface PtimerApcRoutineFn {
-    public operator fun invoke(timercontext: ConstPtr<CVoid>, timerlowvalue: UInt, timerhighvalue: Int)
+    public operator fun invoke(timercontext: ConstPtr, timerlowvalue: UInt, timerhighvalue: Int)
 }
 
 public typealias PtimerApcRoutine = PtimerApcRoutineFn?
 
 public fun interface PtmDeviceDisableFn {
-    public operator fun invoke(context: ConstPtr<CVoid>): Ntstatus
+    public operator fun invoke(context: ConstPtr): Ntstatus
 }
 
 public typealias PtmDeviceDisable = PtmDeviceDisableFn?
 
 public fun interface PtmDeviceEnableFn {
-    public operator fun invoke(context: ConstPtr<CVoid>): Ntstatus
+    public operator fun invoke(context: ConstPtr): Ntstatus
 }
 
 public typealias PtmDeviceEnable = PtmDeviceEnableFn?
 
 public fun interface PtmDeviceQueryGranularityFn {
-    public operator fun invoke(context: ConstPtr<CVoid>, granularity: MutPtr<UByte>): Ntstatus
+    public operator fun invoke(context: ConstPtr, granularity: MutPtr): Ntstatus
 }
 
 public typealias PtmDeviceQueryGranularity = PtmDeviceQueryGranularityFn?
 
 public fun interface PtmDeviceQueryTimeSourceFn {
-    public operator fun invoke(context: ConstPtr<CVoid>, timesource: MutPtr<UInt>): Ntstatus
+    public operator fun invoke(context: ConstPtr, timesource: MutPtr): Ntstatus
 }
 
 public typealias PtmDeviceQueryTimeSource = PtmDeviceQueryTimeSourceFn?
 
 public fun interface PtmPropagateRoutineFn {
-    public operator fun invoke(propagationcookie: ConstPtr<CVoid>, callbackdata: ConstPtr<CVoid>, propagationstatus: Ntstatus, transactionguid: Guid): Ntstatus
+    public operator fun invoke(propagationcookie: ConstPtr, callbackdata: ConstPtr, propagationstatus: Ntstatus, transactionguid: Guid): Ntstatus
 }
 
 public typealias PtmPropagateRoutine = PtmPropagateRoutineFn?
 
 public fun interface PtmRmNotificationFn {
-    public operator fun invoke(enlistmentobject: ConstPtr<Kenlistment>, rmcontext: ConstPtr<CVoid>, transactioncontext: ConstPtr<CVoid>, transactionnotification: UInt, tmvirtualclock: MutPtr<Long>, argumentlength: UInt, argument: ConstPtr<CVoid>): Ntstatus
+    public operator fun invoke(enlistmentobject: ConstPtr, rmcontext: ConstPtr, transactioncontext: ConstPtr, transactionnotification: UInt, tmvirtualclock: MutPtr, argumentlength: UInt, argument: ConstPtr): Ntstatus
 }
 
 public typealias PtmRmNotification = PtmRmNotificationFn?
@@ -2785,37 +2763,37 @@ public fun interface PtranslateBusAddressFn {
 public typealias PtranslateBusAddress = PtranslateBusAddressFn?
 
 public fun interface PtranslateResourceHandlerFn {
-    public operator fun invoke(context: MutPtr<CVoid>, source: ConstPtr<CmPartialResourceDescriptor>, direction: ResourceTranslationDirection, alternativescount: UInt, alternatives: ConstPtr<IoResourceDescriptor>, physicaldeviceobject: ConstPtr<DeviceObject>, target: MutPtr<CmPartialResourceDescriptor>): Ntstatus
+    public operator fun invoke(context: MutPtr, source: ConstPtr, direction: ResourceTranslationDirection, alternativescount: UInt, alternatives: ConstPtr, physicaldeviceobject: ConstPtr, target: MutPtr): Ntstatus
 }
 
 public typealias PtranslateResourceHandler = PtranslateResourceHandlerFn?
 
 public fun interface PtranslateResourceRequirementsHandlerFn {
-    public operator fun invoke(context: MutPtr<CVoid>, source: ConstPtr<IoResourceDescriptor>, physicaldeviceobject: ConstPtr<DeviceObject>, targetcount: MutPtr<UInt>, target: MutPtr<MutPtr<IoResourceDescriptor>>): Ntstatus
+    public operator fun invoke(context: MutPtr, source: ConstPtr, physicaldeviceobject: ConstPtr, targetcount: MutPtr, target: MutPtr): Ntstatus
 }
 
 public typealias PtranslateResourceRequirementsHandler = PtranslateResourceRequirementsHandlerFn?
 
 public fun interface PunregisterForDeviceNotificationsFn {
-    public operator fun invoke(param0: MutPtr<DeviceObject>, param1: PdeviceNotifyCallback)
+    public operator fun invoke(param0: MutPtr, param1: PdeviceNotifyCallback)
 }
 
 public typealias PunregisterForDeviceNotifications = PunregisterForDeviceNotificationsFn?
 
 public fun interface PunregisterForDeviceNotifications2Fn {
-    public operator fun invoke(context: MutPtr<CVoid>)
+    public operator fun invoke(context: MutPtr)
 }
 
 public typealias PunregisterForDeviceNotifications2 = PunregisterForDeviceNotifications2Fn?
 
 public fun interface PciLine2PinFn {
-    public operator fun invoke(bushandler: ConstPtr<Long>, roothandler: ConstPtr<Long>, slotnumber: PciSlotNumber, pcinewdata: ConstPtr<PciCommonConfig>, pciolddata: ConstPtr<PciCommonConfig>)
+    public operator fun invoke(bushandler: ConstPtr, roothandler: ConstPtr, slotnumber: PciSlotNumber, pcinewdata: ConstPtr, pciolddata: ConstPtr)
 }
 
 public typealias PciLine2Pin = PciLine2PinFn?
 
 public fun interface PciPin2LineFn {
-    public operator fun invoke(bushandler: ConstPtr<Long>, roothandler: ConstPtr<Long>, slotnumber: PciSlotNumber, pcidata: ConstPtr<PciCommonConfig>)
+    public operator fun invoke(bushandler: ConstPtr, roothandler: ConstPtr, slotnumber: PciSlotNumber, pcidata: ConstPtr)
 }
 
 public typealias PciPin2Line = PciPin2LineFn?
@@ -2823,7 +2801,7 @@ public typealias PciPin2Line = PciPin2LineFn?
 public typealias RegNotifyClass = Int
 
 public fun interface RequestPowerCompleteFn {
-    public operator fun invoke(deviceobject: ConstPtr<DeviceObject>, minorfunction: UByte, powerstate: PowerState, context: ConstPtr<CVoid>, iostatus: ConstPtr<IoStatusBlock>)
+    public operator fun invoke(deviceobject: ConstPtr, minorfunction: UByte, powerstate: PowerState, context: ConstPtr, iostatus: ConstPtr)
 }
 
 public typealias RequestPowerComplete = RequestPowerCompleteFn?
@@ -2831,31 +2809,31 @@ public typealias RequestPowerComplete = RequestPowerCompleteFn?
 public typealias ResourceTranslationDirection = Int
 
 public fun interface RtlAvlAllocateRoutineFn {
-    public operator fun invoke(table: ConstPtr<RtlAvlTable>, bytesize: UInt): MutPtr<CVoid>
+    public operator fun invoke(table: ConstPtr, bytesize: UInt): MutPtr
 }
 
 public typealias RtlAvlAllocateRoutine = RtlAvlAllocateRoutineFn?
 
 public fun interface RtlAvlCompareRoutineFn {
-    public operator fun invoke(table: ConstPtr<RtlAvlTable>, firststruct: ConstPtr<CVoid>, secondstruct: ConstPtr<CVoid>): RtlGenericCompareResults
+    public operator fun invoke(table: ConstPtr, firststruct: ConstPtr, secondstruct: ConstPtr): RtlGenericCompareResults
 }
 
 public typealias RtlAvlCompareRoutine = RtlAvlCompareRoutineFn?
 
 public fun interface RtlAvlFreeRoutineFn {
-    public operator fun invoke(table: ConstPtr<RtlAvlTable>, buffer: ConstPtr<CVoid>)
+    public operator fun invoke(table: ConstPtr, buffer: ConstPtr)
 }
 
 public typealias RtlAvlFreeRoutine = RtlAvlFreeRoutineFn?
 
 public fun interface RtlAvlMatchFunctionFn {
-    public operator fun invoke(table: ConstPtr<RtlAvlTable>, userdata: ConstPtr<CVoid>, matchdata: ConstPtr<CVoid>): Ntstatus
+    public operator fun invoke(table: ConstPtr, userdata: ConstPtr, matchdata: ConstPtr): Ntstatus
 }
 
 public typealias RtlAvlMatchFunction = RtlAvlMatchFunctionFn?
 
 public fun interface RtlGenericAllocateRoutineFn {
-    public operator fun invoke(table: ConstPtr<RtlGenericTable>, bytesize: UInt): MutPtr<CVoid>
+    public operator fun invoke(table: ConstPtr, bytesize: UInt): MutPtr
 }
 
 public typealias RtlGenericAllocateRoutine = RtlGenericAllocateRoutineFn?
@@ -2863,37 +2841,37 @@ public typealias RtlGenericAllocateRoutine = RtlGenericAllocateRoutineFn?
 public typealias RtlGenericCompareResults = Int
 
 public fun interface RtlGenericCompareRoutineFn {
-    public operator fun invoke(table: ConstPtr<RtlGenericTable>, firststruct: ConstPtr<CVoid>, secondstruct: ConstPtr<CVoid>): RtlGenericCompareResults
+    public operator fun invoke(table: ConstPtr, firststruct: ConstPtr, secondstruct: ConstPtr): RtlGenericCompareResults
 }
 
 public typealias RtlGenericCompareRoutine = RtlGenericCompareRoutineFn?
 
 public fun interface RtlGenericFreeRoutineFn {
-    public operator fun invoke(table: ConstPtr<RtlGenericTable>, buffer: ConstPtr<CVoid>)
+    public operator fun invoke(table: ConstPtr, buffer: ConstPtr)
 }
 
 public typealias RtlGenericFreeRoutine = RtlGenericFreeRoutineFn?
 
 public fun interface RtlQueryRegistryRoutineFn {
-    public operator fun invoke(valuename: Pcwstr, valuetype: UInt, valuedata: ConstPtr<CVoid>, valuelength: UInt, context: ConstPtr<CVoid>, entrycontext: ConstPtr<CVoid>): Ntstatus
+    public operator fun invoke(valuename: Pcwstr, valuetype: UInt, valuedata: ConstPtr, valuelength: UInt, context: ConstPtr, entrycontext: ConstPtr): Ntstatus
 }
 
 public typealias RtlQueryRegistryRoutine = RtlQueryRegistryRoutineFn?
 
 public fun interface RtlRunOnceInitFnFn {
-    public operator fun invoke(runonce: MutPtr<InitOnce>, parameter: MutPtr<CVoid>, context: MutPtr<MutPtr<CVoid>>): UInt
+    public operator fun invoke(runonce: MutPtr, parameter: MutPtr, context: MutPtr): UInt
 }
 
 public typealias RtlRunOnceInitFn = RtlRunOnceInitFnFn?
 
 public fun interface SecureDriverProcessDereferenceFn {
-    public operator fun invoke(interfacecontext: ConstPtr<CVoid>, process: Peprocess)
+    public operator fun invoke(interfacecontext: ConstPtr, process: Peprocess)
 }
 
 public typealias SecureDriverProcessDereference = SecureDriverProcessDereferenceFn?
 
 public fun interface SecureDriverProcessReferenceFn {
-    public operator fun invoke(interfacecontext: ConstPtr<CVoid>): Peprocess
+    public operator fun invoke(interfacecontext: ConstPtr): Peprocess
 }
 
 public typealias SecureDriverProcessReference = SecureDriverProcessReferenceFn?
@@ -2903,13 +2881,13 @@ public typealias SecurityContextTrackingMode = UByte
 public typealias SecurityOperationCode = Int
 
 public fun interface SetD3coldSupportFn {
-    public operator fun invoke(context: ConstPtr<CVoid>, d3coldsupport: Boolean)
+    public operator fun invoke(context: ConstPtr, d3coldsupport: Boolean)
 }
 
 public typealias SetD3coldSupport = SetD3coldSupportFn?
 
 public fun interface SetVirtualDeviceDataFn {
-    public operator fun invoke(context: MutPtr<CVoid>, virtualfunction: UShort, buffer: ConstPtr<CVoid>, offset: UInt, length: UInt): UInt
+    public operator fun invoke(context: MutPtr, virtualfunction: UShort, buffer: ConstPtr, offset: UInt, length: UInt): UInt
 }
 
 public typealias SetVirtualDeviceData = SetVirtualDeviceDataFn?
@@ -2917,7 +2895,7 @@ public typealias SetVirtualDeviceData = SetVirtualDeviceDataFn?
 public typealias SeImageType = Int
 
 public fun interface SeImageVerificationCallbackFunctionFn {
-    public operator fun invoke(callbackcontext: ConstPtr<CVoid>, imagetype: SeImageType, imageinformation: MutPtr<BdcbImageInformation>)
+    public operator fun invoke(callbackcontext: ConstPtr, imagetype: SeImageType, imageinformation: MutPtr)
 }
 
 public typealias SeImageVerificationCallbackFunction = SeImageVerificationCallbackFunctionFn?
@@ -2925,7 +2903,7 @@ public typealias SeImageVerificationCallbackFunction = SeImageVerificationCallba
 public typealias SeImageVerificationCallbackType = Int
 
 public fun interface SiloContextCleanupCallbackFn {
-    public operator fun invoke(silocontext: ConstPtr<CVoid>)
+    public operator fun invoke(silocontext: ConstPtr)
 }
 
 public typealias SiloContextCleanupCallback = SiloContextCleanupCallbackFn?
@@ -2957,7 +2935,7 @@ public typealias TableSearchResult = Int
 public typealias TraceInformationClass = Int
 
 public fun interface TranslateBusAddressFn {
-    public operator fun invoke(context: MutPtr<CVoid>, busaddress: Long, length: UInt, addressspace: MutPtr<UInt>, translatedaddress: MutPtr<Long>): Boolean
+    public operator fun invoke(context: MutPtr, busaddress: Long, length: UInt, addressspace: MutPtr, translatedaddress: MutPtr): Boolean
 }
 
 public typealias TranslateBusAddress = TranslateBusAddressFn?
@@ -3043,7 +3021,7 @@ public fun interface WmiNotificationCallbackFn {
 public typealias WmiNotificationCallback = WmiNotificationCallbackFn?
 
 public fun interface WorkerThreadRoutineFn {
-    public operator fun invoke(parameter: ConstPtr<CVoid>)
+    public operator fun invoke(parameter: ConstPtr)
 }
 
 public typealias WorkerThreadRoutine = WorkerThreadRoutineFn?
@@ -3051,7 +3029,7 @@ public typealias WorkerThreadRoutine = WorkerThreadRoutineFn?
 public typealias WorkQueueType = Int
 
 public fun interface PHalAssignSlotResourcesFn {
-    public operator fun invoke(registrypath: ConstPtr<UnicodeString>, driverclassname: ConstPtr<UnicodeString>, driverobject: ConstPtr<DriverObject>, deviceobject: ConstPtr<DeviceObject>, bustype: InterfaceType, busnumber: UInt, slotnumber: UInt, allocatedresources: MutPtr<MutPtr<CmResourceList>>): Ntstatus
+    public operator fun invoke(registrypath: ConstPtr, driverclassname: ConstPtr, driverobject: ConstPtr, deviceobject: ConstPtr, bustype: InterfaceType, busnumber: UInt, slotnumber: UInt, allocatedresources: MutPtr): Ntstatus
 }
 
 public typealias PHalAssignSlotResources = PHalAssignSlotResourcesFn?
@@ -3069,37 +3047,37 @@ public fun interface PHalEndOfBootFn {
 public typealias PHalEndOfBoot = PHalEndOfBootFn?
 
 public fun interface PHalExamineMbrFn {
-    public operator fun invoke(deviceobject: ConstPtr<DeviceObject>, sectorsize: UInt, mbrtypeidentifier: UInt, buffer: MutPtr<MutPtr<CVoid>>)
+    public operator fun invoke(deviceobject: ConstPtr, sectorsize: UInt, mbrtypeidentifier: UInt, buffer: MutPtr)
 }
 
 public typealias PHalExamineMbr = PHalExamineMbrFn?
 
 public fun interface PHalFindBusAddressTranslationFn {
-    public operator fun invoke(busaddress: Long, addressspace: MutPtr<UInt>, translatedaddress: MutPtr<Long>, context: MutPtr<ULong>, nextbus: Boolean): Boolean
+    public operator fun invoke(busaddress: Long, addressspace: MutPtr, translatedaddress: MutPtr, context: MutPtr, nextbus: Boolean): Boolean
 }
 
 public typealias PHalFindBusAddressTranslation = PHalFindBusAddressTranslationFn?
 
 public fun interface PHalGetAcpiTableFn {
-    public operator fun invoke(signature: UInt, oemid: Pcstr, oemtableid: Pcstr): MutPtr<CVoid>
+    public operator fun invoke(signature: UInt, oemid: Pcstr, oemtableid: Pcstr): MutPtr
 }
 
 public typealias PHalGetAcpiTable = PHalGetAcpiTableFn?
 
 public fun interface PHalGetDmaAdapterFn {
-    public operator fun invoke(physicaldeviceobject: ConstPtr<CVoid>, devicedescriptor: ConstPtr<DeviceDescription>, numberofmapregisters: MutPtr<UInt>): MutPtr<DmaAdapter>
+    public operator fun invoke(physicaldeviceobject: ConstPtr, devicedescriptor: ConstPtr, numberofmapregisters: MutPtr): MutPtr
 }
 
 public typealias PHalGetDmaAdapter = PHalGetDmaAdapterFn?
 
 public fun interface PHalGetInterruptTranslatorFn {
-    public operator fun invoke(parentinterfacetype: InterfaceType, parentbusnumber: UInt, bridgeinterfacetype: InterfaceType, size: UShort, version: UShort, translator: MutPtr<TranslatorInterface>, bridgebusnumber: MutPtr<UInt>): Ntstatus
+    public operator fun invoke(parentinterfacetype: InterfaceType, parentbusnumber: UInt, bridgeinterfacetype: InterfaceType, size: UShort, version: UShort, translator: MutPtr, bridgebusnumber: MutPtr): Ntstatus
 }
 
 public typealias PHalGetInterruptTranslator = PHalGetInterruptTranslatorFn?
 
 public fun interface PHalGetPrmCacheFn {
-    public operator fun invoke(firmwarelist: MutPtr<MutPtr<ListEntry>>, updatelist: MutPtr<MutPtr<ListEntry>>)
+    public operator fun invoke(firmwarelist: MutPtr, updatelist: MutPtr)
 }
 
 public typealias PHalGetPrmCache = PHalGetPrmCacheFn?
@@ -3123,25 +3101,25 @@ public fun interface PHalInitPnpDriverFn {
 public typealias PHalInitPnpDriver = PHalInitPnpDriverFn?
 
 public fun interface PHalInitPowerManagementFn {
-    public operator fun invoke(pmdriverdispatchtable: ConstPtr<PmDispatchTable>, pmhaldispatchtable: MutPtr<MutPtr<PmDispatchTable>>): Ntstatus
+    public operator fun invoke(pmdriverdispatchtable: ConstPtr, pmhaldispatchtable: MutPtr): Ntstatus
 }
 
 public typealias PHalInitPowerManagement = PHalInitPowerManagementFn?
 
 public fun interface PHalIoReadPartitionTableFn {
-    public operator fun invoke(deviceobject: ConstPtr<DeviceObject>, sectorsize: UInt, returnrecognizedpartitions: Boolean, partitionbuffer: MutPtr<MutPtr<DriveLayoutInformation>>): Ntstatus
+    public operator fun invoke(deviceobject: ConstPtr, sectorsize: UInt, returnrecognizedpartitions: Boolean, partitionbuffer: MutPtr): Ntstatus
 }
 
 public typealias PHalIoReadPartitionTable = PHalIoReadPartitionTableFn?
 
 public fun interface PHalIoSetPartitionInformationFn {
-    public operator fun invoke(deviceobject: ConstPtr<DeviceObject>, sectorsize: UInt, partitionnumber: UInt, partitiontype: UInt): Ntstatus
+    public operator fun invoke(deviceobject: ConstPtr, sectorsize: UInt, partitionnumber: UInt, partitiontype: UInt): Ntstatus
 }
 
 public typealias PHalIoSetPartitionInformation = PHalIoSetPartitionInformationFn?
 
 public fun interface PHalIoWritePartitionTableFn {
-    public operator fun invoke(deviceobject: ConstPtr<DeviceObject>, sectorsize: UInt, sectorspertrack: UInt, numberofheads: UInt, partitionbuffer: ConstPtr<DriveLayoutInformation>): Ntstatus
+    public operator fun invoke(deviceobject: ConstPtr, sectorsize: UInt, sectorspertrack: UInt, numberofheads: UInt, partitionbuffer: ConstPtr): Ntstatus
 }
 
 public typealias PHalIoWritePartitionTable = PHalIoWritePartitionTableFn?
@@ -3159,13 +3137,13 @@ public fun interface PHalMirrorVerifyFn {
 public typealias PHalMirrorVerify = PHalMirrorVerifyFn?
 
 public fun interface PHalQueryBusSlotsFn {
-    public operator fun invoke(bushandler: PbusHandler, buffersize: UInt, slotnumbers: MutPtr<UInt>, returnedlength: MutPtr<UInt>): Ntstatus
+    public operator fun invoke(bushandler: PbusHandler, buffersize: UInt, slotnumbers: MutPtr, returnedlength: MutPtr): Ntstatus
 }
 
 public typealias PHalQueryBusSlots = PHalQueryBusSlotsFn?
 
 public fun interface PHalQuerySystemInformationFn {
-    public operator fun invoke(informationclass: HalQueryInformationClass, buffersize: UInt, buffer: MutPtr<CVoid>, returnedlength: MutPtr<UInt>): Ntstatus
+    public operator fun invoke(informationclass: HalQueryInformationClass, buffersize: UInt, buffer: MutPtr, returnedlength: MutPtr): Ntstatus
 }
 
 public typealias PHalQuerySystemInformation = PHalQuerySystemInformationFn?
@@ -3189,7 +3167,7 @@ public fun interface PHalSetPciErrorHandlerCallbackFn {
 public typealias PHalSetPciErrorHandlerCallback = PHalSetPciErrorHandlerCallbackFn?
 
 public fun interface PHalSetSystemInformationFn {
-    public operator fun invoke(informationclass: HalSetInformationClass, buffersize: UInt, buffer: ConstPtr<CVoid>): Ntstatus
+    public operator fun invoke(informationclass: HalSetInformationClass, buffersize: UInt, buffer: ConstPtr): Ntstatus
 }
 
 public typealias PHalSetSystemInformation = PHalSetSystemInformationFn?
@@ -3201,7 +3179,7 @@ public fun interface PHalStartMirroringFn {
 public typealias PHalStartMirroring = PHalStartMirroringFn?
 
 public fun interface PHalTranslateBusAddressFn {
-    public operator fun invoke(interfacetype: InterfaceType, busnumber: UInt, busaddress: Long, addressspace: MutPtr<UInt>, translatedaddress: MutPtr<Long>): Boolean
+    public operator fun invoke(interfacetype: InterfaceType, busnumber: UInt, busaddress: Long, addressspace: MutPtr, translatedaddress: MutPtr): Boolean
 }
 
 public typealias PHalTranslateBusAddress = PHalTranslateBusAddressFn?
@@ -3219,61 +3197,61 @@ public fun interface PKdCheckPowerButtonFn {
 public typealias PKdCheckPowerButton = PKdCheckPowerButtonFn?
 
 public fun interface PKdEnumerateDebuggingDevicesFn {
-    public operator fun invoke(loaderblock: ConstPtr<CVoid>, device: MutPtr<DebugDeviceDescriptor>, callback: PdebugDeviceFoundFunction): Ntstatus
+    public operator fun invoke(loaderblock: ConstPtr, device: MutPtr, callback: PdebugDeviceFoundFunction): Ntstatus
 }
 
 public typealias PKdEnumerateDebuggingDevices = PKdEnumerateDebuggingDevicesFn?
 
 public fun interface PKdGetAcpiTablePhase0Fn {
-    public operator fun invoke(loaderblock: ConstPtr<Long>, signature: UInt): MutPtr<CVoid>
+    public operator fun invoke(loaderblock: ConstPtr, signature: UInt): MutPtr
 }
 
 public typealias PKdGetAcpiTablePhase0 = PKdGetAcpiTablePhase0Fn?
 
 public fun interface PKdGetPciDataByOffsetFn {
-    public operator fun invoke(busnumber: UInt, slotnumber: UInt, buffer: MutPtr<CVoid>, offset: UInt, length: UInt): UInt
+    public operator fun invoke(busnumber: UInt, slotnumber: UInt, buffer: MutPtr, offset: UInt, length: UInt): UInt
 }
 
 public typealias PKdGetPciDataByOffset = PKdGetPciDataByOffsetFn?
 
 public fun interface PKdMapPhysicalMemory64Fn {
-    public operator fun invoke(physicaladdress: Long, numberpages: UInt, flushcurrenttlb: Boolean): MutPtr<CVoid>
+    public operator fun invoke(physicaladdress: Long, numberpages: UInt, flushcurrenttlb: Boolean): MutPtr
 }
 
 public typealias PKdMapPhysicalMemory64 = PKdMapPhysicalMemory64Fn?
 
 public fun interface PKdReleaseIntegratedDeviceForDebuggingFn {
-    public operator fun invoke(integrateddevice: MutPtr<DebugDeviceDescriptor>): Ntstatus
+    public operator fun invoke(integrateddevice: MutPtr): Ntstatus
 }
 
 public typealias PKdReleaseIntegratedDeviceForDebugging = PKdReleaseIntegratedDeviceForDebuggingFn?
 
 public fun interface PKdReleasePciDeviceForDebuggingFn {
-    public operator fun invoke(pcidevice: MutPtr<DebugDeviceDescriptor>): Ntstatus
+    public operator fun invoke(pcidevice: MutPtr): Ntstatus
 }
 
 public typealias PKdReleasePciDeviceForDebugging = PKdReleasePciDeviceForDebuggingFn?
 
 public fun interface PKdSetPciDataByOffsetFn {
-    public operator fun invoke(busnumber: UInt, slotnumber: UInt, buffer: ConstPtr<CVoid>, offset: UInt, length: UInt): UInt
+    public operator fun invoke(busnumber: UInt, slotnumber: UInt, buffer: ConstPtr, offset: UInt, length: UInt): UInt
 }
 
 public typealias PKdSetPciDataByOffset = PKdSetPciDataByOffsetFn?
 
 public fun interface PKdSetupIntegratedDeviceForDebuggingFn {
-    public operator fun invoke(loaderblock: ConstPtr<CVoid>, integrateddevice: MutPtr<DebugDeviceDescriptor>): Ntstatus
+    public operator fun invoke(loaderblock: ConstPtr, integrateddevice: MutPtr): Ntstatus
 }
 
 public typealias PKdSetupIntegratedDeviceForDebugging = PKdSetupIntegratedDeviceForDebuggingFn?
 
 public fun interface PKdSetupPciDeviceForDebuggingFn {
-    public operator fun invoke(loaderblock: ConstPtr<CVoid>, pcidevice: MutPtr<DebugDeviceDescriptor>): Ntstatus
+    public operator fun invoke(loaderblock: ConstPtr, pcidevice: MutPtr): Ntstatus
 }
 
 public typealias PKdSetupPciDeviceForDebugging = PKdSetupPciDeviceForDebuggingFn?
 
 public fun interface PKdUnmapVirtualAddressFn {
-    public operator fun invoke(virtualaddress: ConstPtr<CVoid>, numberpages: UInt, flushcurrenttlb: Boolean)
+    public operator fun invoke(virtualaddress: ConstPtr, numberpages: UInt, flushcurrenttlb: Boolean)
 }
 
 public typealias PKdUnmapVirtualAddress = PKdUnmapVirtualAddressFn?

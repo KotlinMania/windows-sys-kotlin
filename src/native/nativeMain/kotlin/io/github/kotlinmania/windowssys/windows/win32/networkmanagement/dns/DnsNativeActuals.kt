@@ -2,7 +2,6 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.networkmanagement.dns
 
-import io.github.kotlinmania.rustlang.core.ffi.CVoid
 import io.github.kotlinmania.rustlang.core.ptr.ConstPtr
 import io.github.kotlinmania.rustlang.core.ptr.MutPtr
 import io.github.kotlinmania.windowssys.core.Bool
@@ -78,16 +77,16 @@ import kotlinx.cinterop.ByteVar
 import kotlinx.cinterop.toCPointer
 import kotlinx.cinterop.toLong
 
-public actual fun dnsAcquireContextHandleA(credentialflags: UInt, credentials: ConstPtr<CVoid>, pcontext: MutPtr<Handle>): Int =
+public actual fun dnsAcquireContextHandleA(credentialflags: UInt, credentials: ConstPtr, pcontext: MutPtr): Int =
     windowssysWindowsWin32NetworkmanagementDnsDnsAcquireContextHandleA(credentialflags, credentials.rawAddress.toCPointer<ByteVar>(), pcontext.rawAddress.toCPointer<ByteVar>())
 
-public actual fun dnsAcquireContextHandleW(credentialflags: UInt, credentials: ConstPtr<CVoid>, pcontext: MutPtr<Handle>): Int =
+public actual fun dnsAcquireContextHandleW(credentialflags: UInt, credentials: ConstPtr, pcontext: MutPtr): Int =
     windowssysWindowsWin32NetworkmanagementDnsDnsAcquireContextHandleW(credentialflags, credentials.rawAddress.toCPointer<ByteVar>(), pcontext.rawAddress.toCPointer<ByteVar>())
 
-public actual fun dnsCancelQuery(pcancelhandle: ConstPtr<DnsQueryCancel>): Int =
+public actual fun dnsCancelQuery(pcancelhandle: ConstPtr): Int =
     windowssysWindowsWin32NetworkmanagementDnsDnsCancelQuery(pcancelhandle.rawAddress.toCPointer<ByteVar>())
 
-public actual fun dnsCancelQueryRaw(cancelhandle: ConstPtr<DnsQueryRawCancel>): Int =
+public actual fun dnsCancelQueryRaw(cancelhandle: ConstPtr): Int =
     windowssysWindowsWin32NetworkmanagementDnsDnsCancelQueryRaw(cancelhandle.rawAddress.toCPointer<ByteVar>())
 
 public actual fun dnsConnectionDeletePolicyEntries(policyentrytag: DnsConnectionPolicyTag): UInt =
@@ -96,57 +95,57 @@ public actual fun dnsConnectionDeletePolicyEntries(policyentrytag: DnsConnection
 public actual fun dnsConnectionDeleteProxyInfo(pwszconnectionname: Pcwstr, type: DnsConnectionProxyType): UInt =
     windowssysWindowsWin32NetworkmanagementDnsDnsConnectionDeleteProxyInfo(pwszconnectionname.rawAddress.toCPointer<ByteVar>(), type)
 
-public actual fun dnsConnectionFreeNameList(pnamelist: MutPtr<DnsConnectionNameList>) {
+public actual fun dnsConnectionFreeNameList(pnamelist: MutPtr) {
     windowssysWindowsWin32NetworkmanagementDnsDnsConnectionFreeNameList(pnamelist.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun dnsConnectionFreeProxyInfo(pproxyinfo: MutPtr<DnsConnectionProxyInfo>) {
+public actual fun dnsConnectionFreeProxyInfo(pproxyinfo: MutPtr) {
     windowssysWindowsWin32NetworkmanagementDnsDnsConnectionFreeProxyInfo(pproxyinfo.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun dnsConnectionFreeProxyInfoEx(pproxyinfoex: MutPtr<DnsConnectionProxyInfoEx>) {
+public actual fun dnsConnectionFreeProxyInfoEx(pproxyinfoex: MutPtr) {
     windowssysWindowsWin32NetworkmanagementDnsDnsConnectionFreeProxyInfoEx(pproxyinfoex.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun dnsConnectionFreeProxyList(pproxylist: MutPtr<DnsConnectionProxyList>) {
+public actual fun dnsConnectionFreeProxyList(pproxylist: MutPtr) {
     windowssysWindowsWin32NetworkmanagementDnsDnsConnectionFreeProxyList(pproxylist.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun dnsConnectionGetNameList(pnamelist: MutPtr<DnsConnectionNameList>): UInt =
+public actual fun dnsConnectionGetNameList(pnamelist: MutPtr): UInt =
     windowssysWindowsWin32NetworkmanagementDnsDnsConnectionGetNameList(pnamelist.rawAddress.toCPointer<ByteVar>())
 
-public actual fun dnsConnectionGetProxyInfo(pwszconnectionname: Pcwstr, type: DnsConnectionProxyType, pproxyinfo: MutPtr<DnsConnectionProxyInfo>): UInt =
+public actual fun dnsConnectionGetProxyInfo(pwszconnectionname: Pcwstr, type: DnsConnectionProxyType, pproxyinfo: MutPtr): UInt =
     windowssysWindowsWin32NetworkmanagementDnsDnsConnectionGetProxyInfo(pwszconnectionname.rawAddress.toCPointer<ByteVar>(), type, pproxyinfo.rawAddress.toCPointer<ByteVar>())
 
-public actual fun dnsConnectionGetProxyInfoForHostUrl(pwszhosturl: Pcwstr, pselectioncontext: ConstPtr<UByte>, dwselectioncontextlength: UInt, dwexplicitinterfaceindex: UInt, pproxyinfoex: MutPtr<DnsConnectionProxyInfoEx>): UInt =
+public actual fun dnsConnectionGetProxyInfoForHostUrl(pwszhosturl: Pcwstr, pselectioncontext: ConstPtr, dwselectioncontextlength: UInt, dwexplicitinterfaceindex: UInt, pproxyinfoex: MutPtr): UInt =
     windowssysWindowsWin32NetworkmanagementDnsDnsConnectionGetProxyInfoForHostUrl(pwszhosturl.rawAddress.toCPointer<ByteVar>(), pselectioncontext.rawAddress.toCPointer<ByteVar>(), dwselectioncontextlength, dwexplicitinterfaceindex, pproxyinfoex.rawAddress.toCPointer<ByteVar>())
 
-public actual fun dnsConnectionGetProxyInfoForHostUrlEx(pwszhosturl: Pcwstr, pselectioncontext: ConstPtr<UByte>, dwselectioncontextlength: UInt, dwexplicitinterfaceindex: UInt, pwszconnectionname: Pcwstr, pproxyinfoex: MutPtr<DnsConnectionProxyInfoEx>): UInt =
+public actual fun dnsConnectionGetProxyInfoForHostUrlEx(pwszhosturl: Pcwstr, pselectioncontext: ConstPtr, dwselectioncontextlength: UInt, dwexplicitinterfaceindex: UInt, pwszconnectionname: Pcwstr, pproxyinfoex: MutPtr): UInt =
     windowssysWindowsWin32NetworkmanagementDnsDnsConnectionGetProxyInfoForHostUrlEx(pwszhosturl.rawAddress.toCPointer<ByteVar>(), pselectioncontext.rawAddress.toCPointer<ByteVar>(), dwselectioncontextlength, dwexplicitinterfaceindex, pwszconnectionname.rawAddress.toCPointer<ByteVar>(), pproxyinfoex.rawAddress.toCPointer<ByteVar>())
 
-public actual fun dnsConnectionGetProxyList(pwszconnectionname: Pcwstr, pproxylist: MutPtr<DnsConnectionProxyList>): UInt =
+public actual fun dnsConnectionGetProxyList(pwszconnectionname: Pcwstr, pproxylist: MutPtr): UInt =
     windowssysWindowsWin32NetworkmanagementDnsDnsConnectionGetProxyList(pwszconnectionname.rawAddress.toCPointer<ByteVar>(), pproxylist.rawAddress.toCPointer<ByteVar>())
 
-public actual fun dnsConnectionSetPolicyEntries(policyentrytag: DnsConnectionPolicyTag, ppolicyentrylist: ConstPtr<DnsConnectionPolicyEntryList>): UInt =
+public actual fun dnsConnectionSetPolicyEntries(policyentrytag: DnsConnectionPolicyTag, ppolicyentrylist: ConstPtr): UInt =
     windowssysWindowsWin32NetworkmanagementDnsDnsConnectionSetPolicyEntries(policyentrytag, ppolicyentrylist.rawAddress.toCPointer<ByteVar>())
 
-public actual fun dnsConnectionSetProxyInfo(pwszconnectionname: Pcwstr, type: DnsConnectionProxyType, pproxyinfo: ConstPtr<DnsConnectionProxyInfo>): UInt =
+public actual fun dnsConnectionSetProxyInfo(pwszconnectionname: Pcwstr, type: DnsConnectionProxyType, pproxyinfo: ConstPtr): UInt =
     windowssysWindowsWin32NetworkmanagementDnsDnsConnectionSetProxyInfo(pwszconnectionname.rawAddress.toCPointer<ByteVar>(), type, pproxyinfo.rawAddress.toCPointer<ByteVar>())
 
-public actual fun dnsConnectionUpdateIfIndexTable(pconnectionifindexentries: ConstPtr<DnsConnectionIfindexList>): UInt =
+public actual fun dnsConnectionUpdateIfIndexTable(pconnectionifindexentries: ConstPtr): UInt =
     windowssysWindowsWin32NetworkmanagementDnsDnsConnectionUpdateIfIndexTable(pconnectionifindexentries.rawAddress.toCPointer<ByteVar>())
 
-public actual fun dnsExtractRecordsFromMessageUtf8(pdnsbuffer: ConstPtr<DnsMessageBuffer>, wmessagelength: UShort, pprecord: MutPtr<MutPtr<DnsRecorda>>): Int =
+public actual fun dnsExtractRecordsFromMessageUtf8(pdnsbuffer: ConstPtr, wmessagelength: UShort, pprecord: MutPtr): Int =
     windowssysWindowsWin32NetworkmanagementDnsDnsExtractRecordsFromMessageUtf8(pdnsbuffer.rawAddress.toCPointer<ByteVar>(), wmessagelength, pprecord.rawAddress.toCPointer<ByteVar>())
 
-public actual fun dnsExtractRecordsFromMessageW(pdnsbuffer: ConstPtr<DnsMessageBuffer>, wmessagelength: UShort, pprecord: MutPtr<MutPtr<DnsRecorda>>): Int =
+public actual fun dnsExtractRecordsFromMessageW(pdnsbuffer: ConstPtr, wmessagelength: UShort, pprecord: MutPtr): Int =
     windowssysWindowsWin32NetworkmanagementDnsDnsExtractRecordsFromMessageW(pdnsbuffer.rawAddress.toCPointer<ByteVar>(), wmessagelength, pprecord.rawAddress.toCPointer<ByteVar>())
 
-public actual fun dnsFree(pdata: ConstPtr<CVoid>, freetype: DnsFreeType) {
+public actual fun dnsFree(pdata: ConstPtr, freetype: DnsFreeType) {
     windowssysWindowsWin32NetworkmanagementDnsDnsFree(pdata.rawAddress.toCPointer<ByteVar>(), freetype)
 }
 
-public actual fun dnsFreeCustomServers(pcservers: MutPtr<UInt>, ppservers: MutPtr<MutPtr<DnsCustomServer>>) {
+public actual fun dnsFreeCustomServers(pcservers: MutPtr, ppservers: MutPtr) {
     windowssysWindowsWin32NetworkmanagementDnsDnsFreeCustomServers(pcservers.rawAddress.toCPointer<ByteVar>(), ppservers.rawAddress.toCPointer<ByteVar>())
 }
 
@@ -154,19 +153,19 @@ public actual fun dnsFreeProxyName(proxyname: Pcwstr) {
     windowssysWindowsWin32NetworkmanagementDnsDnsFreeProxyName(proxyname.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun dnsGetApplicationSettings(pcservers: MutPtr<UInt>, ppdefaultservers: MutPtr<MutPtr<DnsCustomServer>>, psettings: MutPtr<DnsApplicationSettings>): UInt =
+public actual fun dnsGetApplicationSettings(pcservers: MutPtr, ppdefaultservers: MutPtr, psettings: MutPtr): UInt =
     windowssysWindowsWin32NetworkmanagementDnsDnsGetApplicationSettings(pcservers.rawAddress.toCPointer<ByteVar>(), ppdefaultservers.rawAddress.toCPointer<ByteVar>(), psettings.rawAddress.toCPointer<ByteVar>())
 
-public actual fun dnsGetProxyInformation(hostname: Pcwstr, proxyinformation: MutPtr<DnsProxyInformation>, defaultproxyinformation: MutPtr<DnsProxyInformation>, completionroutine: DnsProxyCompletionRoutine, completioncontext: ConstPtr<CVoid>): UInt =
+public actual fun dnsGetProxyInformation(hostname: Pcwstr, proxyinformation: MutPtr, defaultproxyinformation: MutPtr, completionroutine: DnsProxyCompletionRoutine, completioncontext: ConstPtr): UInt =
     windowssysWindowsWin32NetworkmanagementDnsDnsGetProxyInformation(hostname.rawAddress.toCPointer<ByteVar>(), proxyinformation.rawAddress.toCPointer<ByteVar>(), defaultproxyinformation.rawAddress.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>(), completioncontext.rawAddress.toCPointer<ByteVar>())
 
-public actual fun dnsModifyRecordsInSetA(paddrecords: ConstPtr<DnsRecorda>, pdeleterecords: ConstPtr<DnsRecorda>, options: UInt, hcredentials: Handle, pextralist: MutPtr<CVoid>, preserved: MutPtr<CVoid>): Int =
+public actual fun dnsModifyRecordsInSetA(paddrecords: ConstPtr, pdeleterecords: ConstPtr, options: UInt, hcredentials: Handle, pextralist: MutPtr, preserved: MutPtr): Int =
     windowssysWindowsWin32NetworkmanagementDnsDnsModifyRecordsInSetA(paddrecords.rawAddress.toCPointer<ByteVar>(), pdeleterecords.rawAddress.toCPointer<ByteVar>(), options, hcredentials.rawAddress.toCPointer<ByteVar>(), pextralist.rawAddress.toCPointer<ByteVar>(), preserved.rawAddress.toCPointer<ByteVar>())
 
-public actual fun dnsModifyRecordsInSetUtf8(paddrecords: ConstPtr<DnsRecorda>, pdeleterecords: ConstPtr<DnsRecorda>, options: UInt, hcredentials: Handle, pextralist: MutPtr<CVoid>, preserved: MutPtr<CVoid>): Int =
+public actual fun dnsModifyRecordsInSetUtf8(paddrecords: ConstPtr, pdeleterecords: ConstPtr, options: UInt, hcredentials: Handle, pextralist: MutPtr, preserved: MutPtr): Int =
     windowssysWindowsWin32NetworkmanagementDnsDnsModifyRecordsInSetUtf8(paddrecords.rawAddress.toCPointer<ByteVar>(), pdeleterecords.rawAddress.toCPointer<ByteVar>(), options, hcredentials.rawAddress.toCPointer<ByteVar>(), pextralist.rawAddress.toCPointer<ByteVar>(), preserved.rawAddress.toCPointer<ByteVar>())
 
-public actual fun dnsModifyRecordsInSetW(paddrecords: ConstPtr<DnsRecorda>, pdeleterecords: ConstPtr<DnsRecorda>, options: UInt, hcredentials: Handle, pextralist: MutPtr<CVoid>, preserved: MutPtr<CVoid>): Int =
+public actual fun dnsModifyRecordsInSetW(paddrecords: ConstPtr, pdeleterecords: ConstPtr, options: UInt, hcredentials: Handle, pextralist: MutPtr, preserved: MutPtr): Int =
     windowssysWindowsWin32NetworkmanagementDnsDnsModifyRecordsInSetW(paddrecords.rawAddress.toCPointer<ByteVar>(), pdeleterecords.rawAddress.toCPointer<ByteVar>(), options, hcredentials.rawAddress.toCPointer<ByteVar>(), pextralist.rawAddress.toCPointer<ByteVar>(), preserved.rawAddress.toCPointer<ByteVar>())
 
 public actual fun dnsNameCompareA(pname1: Pcstr, pname2: Pcstr): Bool =
@@ -175,94 +174,94 @@ public actual fun dnsNameCompareA(pname1: Pcstr, pname2: Pcstr): Bool =
 public actual fun dnsNameCompareW(pname1: Pcwstr, pname2: Pcwstr): Bool =
     windowssysWindowsWin32NetworkmanagementDnsDnsNameCompareW(pname1.rawAddress.toCPointer<ByteVar>(), pname2.rawAddress.toCPointer<ByteVar>())
 
-public actual fun dnsQueryConfig(config: DnsConfigType, flag: UInt, pwsadaptername: Pcwstr, preserved: ConstPtr<CVoid>, pbuffer: MutPtr<CVoid>, pbuflen: MutPtr<UInt>): Int =
+public actual fun dnsQueryConfig(config: DnsConfigType, flag: UInt, pwsadaptername: Pcwstr, preserved: ConstPtr, pbuffer: MutPtr, pbuflen: MutPtr): Int =
     windowssysWindowsWin32NetworkmanagementDnsDnsQueryConfig(config, flag, pwsadaptername.rawAddress.toCPointer<ByteVar>(), preserved.rawAddress.toCPointer<ByteVar>(), pbuffer.rawAddress.toCPointer<ByteVar>(), pbuflen.rawAddress.toCPointer<ByteVar>())
 
-public actual fun dnsQueryEx(pqueryrequest: ConstPtr<DnsQueryRequest>, pqueryresults: MutPtr<DnsQueryResult>, pcancelhandle: MutPtr<DnsQueryCancel>): Int =
+public actual fun dnsQueryEx(pqueryrequest: ConstPtr, pqueryresults: MutPtr, pcancelhandle: MutPtr): Int =
     windowssysWindowsWin32NetworkmanagementDnsDnsQueryEx(pqueryrequest.rawAddress.toCPointer<ByteVar>(), pqueryresults.rawAddress.toCPointer<ByteVar>(), pcancelhandle.rawAddress.toCPointer<ByteVar>())
 
-public actual fun dnsQueryRaw(queryrequest: ConstPtr<DnsQueryRawRequest>, cancelhandle: MutPtr<DnsQueryRawCancel>): Int =
+public actual fun dnsQueryRaw(queryrequest: ConstPtr, cancelhandle: MutPtr): Int =
     windowssysWindowsWin32NetworkmanagementDnsDnsQueryRaw(queryrequest.rawAddress.toCPointer<ByteVar>(), cancelhandle.rawAddress.toCPointer<ByteVar>())
 
-public actual fun dnsQueryRawResultFree(queryresults: ConstPtr<DnsQueryRawResult>) {
+public actual fun dnsQueryRawResultFree(queryresults: ConstPtr) {
     windowssysWindowsWin32NetworkmanagementDnsDnsQueryRawResultFree(queryresults.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun dnsQueryA(pszname: Pcstr, wtype: DnsType, options: DnsQueryOptions, pextra: MutPtr<CVoid>, ppqueryresults: MutPtr<MutPtr<DnsRecorda>>, preserved: MutPtr<MutPtr<CVoid>>): Win32Error =
+public actual fun dnsQueryA(pszname: Pcstr, wtype: DnsType, options: DnsQueryOptions, pextra: MutPtr, ppqueryresults: MutPtr, preserved: MutPtr): Win32Error =
     windowssysWindowsWin32NetworkmanagementDnsDnsQueryA(pszname.rawAddress.toCPointer<ByteVar>(), wtype, options, pextra.rawAddress.toCPointer<ByteVar>(), ppqueryresults.rawAddress.toCPointer<ByteVar>(), preserved.rawAddress.toCPointer<ByteVar>())
 
-public actual fun dnsQueryUtf8(pszname: Pcstr, wtype: DnsType, options: DnsQueryOptions, pextra: MutPtr<CVoid>, ppqueryresults: MutPtr<MutPtr<DnsRecorda>>, preserved: MutPtr<MutPtr<CVoid>>): Win32Error =
+public actual fun dnsQueryUtf8(pszname: Pcstr, wtype: DnsType, options: DnsQueryOptions, pextra: MutPtr, ppqueryresults: MutPtr, preserved: MutPtr): Win32Error =
     windowssysWindowsWin32NetworkmanagementDnsDnsQueryUtf8(pszname.rawAddress.toCPointer<ByteVar>(), wtype, options, pextra.rawAddress.toCPointer<ByteVar>(), ppqueryresults.rawAddress.toCPointer<ByteVar>(), preserved.rawAddress.toCPointer<ByteVar>())
 
-public actual fun dnsQueryW(pszname: Pcwstr, wtype: DnsType, options: DnsQueryOptions, pextra: MutPtr<CVoid>, ppqueryresults: MutPtr<MutPtr<DnsRecorda>>, preserved: MutPtr<MutPtr<CVoid>>): Win32Error =
+public actual fun dnsQueryW(pszname: Pcwstr, wtype: DnsType, options: DnsQueryOptions, pextra: MutPtr, ppqueryresults: MutPtr, preserved: MutPtr): Win32Error =
     windowssysWindowsWin32NetworkmanagementDnsDnsQueryW(pszname.rawAddress.toCPointer<ByteVar>(), wtype, options, pextra.rawAddress.toCPointer<ByteVar>(), ppqueryresults.rawAddress.toCPointer<ByteVar>(), preserved.rawAddress.toCPointer<ByteVar>())
 
-public actual fun dnsRecordCompare(precord1: ConstPtr<DnsRecorda>, precord2: ConstPtr<DnsRecorda>): Bool =
+public actual fun dnsRecordCompare(precord1: ConstPtr, precord2: ConstPtr): Bool =
     windowssysWindowsWin32NetworkmanagementDnsDnsRecordCompare(precord1.rawAddress.toCPointer<ByteVar>(), precord2.rawAddress.toCPointer<ByteVar>())
 
-public actual fun dnsRecordCopyEx(precord: ConstPtr<DnsRecorda>, charsetin: DnsCharset, charsetout: DnsCharset): MutPtr<DnsRecorda> =
+public actual fun dnsRecordCopyEx(precord: ConstPtr, charsetin: DnsCharset, charsetout: DnsCharset): MutPtr =
     MutPtr(windowssysWindowsWin32NetworkmanagementDnsDnsRecordCopyEx(precord.rawAddress.toCPointer<ByteVar>(), charsetin, charsetout)?.toLong() ?: 0L)
 
-public actual fun dnsRecordSetCompare(prr1: MutPtr<DnsRecorda>, prr2: MutPtr<DnsRecorda>, ppdiff1: MutPtr<MutPtr<DnsRecorda>>, ppdiff2: MutPtr<MutPtr<DnsRecorda>>): Bool =
+public actual fun dnsRecordSetCompare(prr1: MutPtr, prr2: MutPtr, ppdiff1: MutPtr, ppdiff2: MutPtr): Bool =
     windowssysWindowsWin32NetworkmanagementDnsDnsRecordSetCompare(prr1.rawAddress.toCPointer<ByteVar>(), prr2.rawAddress.toCPointer<ByteVar>(), ppdiff1.rawAddress.toCPointer<ByteVar>(), ppdiff2.rawAddress.toCPointer<ByteVar>())
 
-public actual fun dnsRecordSetCopyEx(precordset: ConstPtr<DnsRecorda>, charsetin: DnsCharset, charsetout: DnsCharset): MutPtr<DnsRecorda> =
+public actual fun dnsRecordSetCopyEx(precordset: ConstPtr, charsetin: DnsCharset, charsetout: DnsCharset): MutPtr =
     MutPtr(windowssysWindowsWin32NetworkmanagementDnsDnsRecordSetCopyEx(precordset.rawAddress.toCPointer<ByteVar>(), charsetin, charsetout)?.toLong() ?: 0L)
 
-public actual fun dnsRecordSetDetach(precordlist: MutPtr<DnsRecorda>): MutPtr<DnsRecorda> =
+public actual fun dnsRecordSetDetach(precordlist: MutPtr): MutPtr =
     MutPtr(windowssysWindowsWin32NetworkmanagementDnsDnsRecordSetDetach(precordlist.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
 public actual fun dnsReleaseContextHandle(hcontext: Handle) {
     windowssysWindowsWin32NetworkmanagementDnsDnsReleaseContextHandle(hcontext.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun dnsReplaceRecordSetA(preplaceset: ConstPtr<DnsRecorda>, options: UInt, hcontext: Handle, pextrainfo: MutPtr<CVoid>, preserved: MutPtr<CVoid>): Int =
+public actual fun dnsReplaceRecordSetA(preplaceset: ConstPtr, options: UInt, hcontext: Handle, pextrainfo: MutPtr, preserved: MutPtr): Int =
     windowssysWindowsWin32NetworkmanagementDnsDnsReplaceRecordSetA(preplaceset.rawAddress.toCPointer<ByteVar>(), options, hcontext.rawAddress.toCPointer<ByteVar>(), pextrainfo.rawAddress.toCPointer<ByteVar>(), preserved.rawAddress.toCPointer<ByteVar>())
 
-public actual fun dnsReplaceRecordSetUTF8(preplaceset: ConstPtr<DnsRecorda>, options: UInt, hcontext: Handle, pextrainfo: MutPtr<CVoid>, preserved: MutPtr<CVoid>): Int =
+public actual fun dnsReplaceRecordSetUTF8(preplaceset: ConstPtr, options: UInt, hcontext: Handle, pextrainfo: MutPtr, preserved: MutPtr): Int =
     windowssysWindowsWin32NetworkmanagementDnsDnsReplaceRecordSetUTF8(preplaceset.rawAddress.toCPointer<ByteVar>(), options, hcontext.rawAddress.toCPointer<ByteVar>(), pextrainfo.rawAddress.toCPointer<ByteVar>(), preserved.rawAddress.toCPointer<ByteVar>())
 
-public actual fun dnsReplaceRecordSetW(preplaceset: ConstPtr<DnsRecorda>, options: UInt, hcontext: Handle, pextrainfo: MutPtr<CVoid>, preserved: MutPtr<CVoid>): Int =
+public actual fun dnsReplaceRecordSetW(preplaceset: ConstPtr, options: UInt, hcontext: Handle, pextrainfo: MutPtr, preserved: MutPtr): Int =
     windowssysWindowsWin32NetworkmanagementDnsDnsReplaceRecordSetW(preplaceset.rawAddress.toCPointer<ByteVar>(), options, hcontext.rawAddress.toCPointer<ByteVar>(), pextrainfo.rawAddress.toCPointer<ByteVar>(), preserved.rawAddress.toCPointer<ByteVar>())
 
-public actual fun dnsServiceBrowse(prequest: ConstPtr<DnsServiceBrowseRequest>, pcancel: MutPtr<DnsServiceCancel>): Int =
+public actual fun dnsServiceBrowse(prequest: ConstPtr, pcancel: MutPtr): Int =
     windowssysWindowsWin32NetworkmanagementDnsDnsServiceBrowse(prequest.rawAddress.toCPointer<ByteVar>(), pcancel.rawAddress.toCPointer<ByteVar>())
 
-public actual fun dnsServiceBrowseCancel(pcancelhandle: ConstPtr<DnsServiceCancel>): Int =
+public actual fun dnsServiceBrowseCancel(pcancelhandle: ConstPtr): Int =
     windowssysWindowsWin32NetworkmanagementDnsDnsServiceBrowseCancel(pcancelhandle.rawAddress.toCPointer<ByteVar>())
 
-public actual fun dnsServiceConstructInstance(pservicename: Pcwstr, phostname: Pcwstr, pip4: ConstPtr<UInt>, pip6: ConstPtr<Ip6Address>, wport: UShort, wpriority: UShort, wweight: UShort, dwpropertiescount: UInt, keys: ConstPtr<Pcwstr>, values: ConstPtr<Pcwstr>): MutPtr<DnsServiceInstance> =
+public actual fun dnsServiceConstructInstance(pservicename: Pcwstr, phostname: Pcwstr, pip4: ConstPtr, pip6: ConstPtr, wport: UShort, wpriority: UShort, wweight: UShort, dwpropertiescount: UInt, keys: ConstPtr, values: ConstPtr): MutPtr =
     MutPtr(windowssysWindowsWin32NetworkmanagementDnsDnsServiceConstructInstance(pservicename.rawAddress.toCPointer<ByteVar>(), phostname.rawAddress.toCPointer<ByteVar>(), pip4.rawAddress.toCPointer<ByteVar>(), pip6.rawAddress.toCPointer<ByteVar>(), wport, wpriority, wweight, dwpropertiescount, keys.rawAddress.toCPointer<ByteVar>(), values.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun dnsServiceCopyInstance(porig: ConstPtr<DnsServiceInstance>): MutPtr<DnsServiceInstance> =
+public actual fun dnsServiceCopyInstance(porig: ConstPtr): MutPtr =
     MutPtr(windowssysWindowsWin32NetworkmanagementDnsDnsServiceCopyInstance(porig.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun dnsServiceDeRegister(prequest: ConstPtr<DnsServiceRegisterRequest>, pcancel: MutPtr<DnsServiceCancel>): UInt =
+public actual fun dnsServiceDeRegister(prequest: ConstPtr, pcancel: MutPtr): UInt =
     windowssysWindowsWin32NetworkmanagementDnsDnsServiceDeRegister(prequest.rawAddress.toCPointer<ByteVar>(), pcancel.rawAddress.toCPointer<ByteVar>())
 
-public actual fun dnsServiceFreeInstance(pinstance: ConstPtr<DnsServiceInstance>) {
+public actual fun dnsServiceFreeInstance(pinstance: ConstPtr) {
     windowssysWindowsWin32NetworkmanagementDnsDnsServiceFreeInstance(pinstance.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun dnsServiceRegister(prequest: ConstPtr<DnsServiceRegisterRequest>, pcancel: MutPtr<DnsServiceCancel>): UInt =
+public actual fun dnsServiceRegister(prequest: ConstPtr, pcancel: MutPtr): UInt =
     windowssysWindowsWin32NetworkmanagementDnsDnsServiceRegister(prequest.rawAddress.toCPointer<ByteVar>(), pcancel.rawAddress.toCPointer<ByteVar>())
 
-public actual fun dnsServiceRegisterCancel(pcancelhandle: ConstPtr<DnsServiceCancel>): UInt =
+public actual fun dnsServiceRegisterCancel(pcancelhandle: ConstPtr): UInt =
     windowssysWindowsWin32NetworkmanagementDnsDnsServiceRegisterCancel(pcancelhandle.rawAddress.toCPointer<ByteVar>())
 
-public actual fun dnsServiceResolve(prequest: ConstPtr<DnsServiceResolveRequest>, pcancel: MutPtr<DnsServiceCancel>): Int =
+public actual fun dnsServiceResolve(prequest: ConstPtr, pcancel: MutPtr): Int =
     windowssysWindowsWin32NetworkmanagementDnsDnsServiceResolve(prequest.rawAddress.toCPointer<ByteVar>(), pcancel.rawAddress.toCPointer<ByteVar>())
 
-public actual fun dnsServiceResolveCancel(pcancelhandle: ConstPtr<DnsServiceCancel>): Int =
+public actual fun dnsServiceResolveCancel(pcancelhandle: ConstPtr): Int =
     windowssysWindowsWin32NetworkmanagementDnsDnsServiceResolveCancel(pcancelhandle.rawAddress.toCPointer<ByteVar>())
 
-public actual fun dnsSetApplicationSettings(cservers: UInt, pservers: ConstPtr<DnsCustomServer>, psettings: ConstPtr<DnsApplicationSettings>): UInt =
+public actual fun dnsSetApplicationSettings(cservers: UInt, pservers: ConstPtr, psettings: ConstPtr): UInt =
     windowssysWindowsWin32NetworkmanagementDnsDnsSetApplicationSettings(cservers, pservers.rawAddress.toCPointer<ByteVar>(), psettings.rawAddress.toCPointer<ByteVar>())
 
-public actual fun dnsStartMulticastQuery(pqueryrequest: ConstPtr<MdnsQueryRequest>, phandle: MutPtr<MdnsQueryHandle>): Int =
+public actual fun dnsStartMulticastQuery(pqueryrequest: ConstPtr, phandle: MutPtr): Int =
     windowssysWindowsWin32NetworkmanagementDnsDnsStartMulticastQuery(pqueryrequest.rawAddress.toCPointer<ByteVar>(), phandle.rawAddress.toCPointer<ByteVar>())
 
-public actual fun dnsStopMulticastQuery(phandle: MutPtr<MdnsQueryHandle>): Int =
+public actual fun dnsStopMulticastQuery(phandle: MutPtr): Int =
     windowssysWindowsWin32NetworkmanagementDnsDnsStopMulticastQuery(phandle.rawAddress.toCPointer<ByteVar>())
 
 public actual fun dnsValidateNameA(pszname: Pcstr, format: DnsNameFormat): Int =
@@ -274,8 +273,8 @@ public actual fun dnsValidateNameUtf8(pszname: Pcstr, format: DnsNameFormat): In
 public actual fun dnsValidateNameW(pszname: Pcwstr, format: DnsNameFormat): Int =
     windowssysWindowsWin32NetworkmanagementDnsDnsValidateNameW(pszname.rawAddress.toCPointer<ByteVar>(), format)
 
-public actual fun dnsWriteQuestionToBufferUtf8(pdnsbuffer: MutPtr<DnsMessageBuffer>, pdwbuffersize: MutPtr<UInt>, pszname: Pcstr, wtype: UShort, xid: UShort, frecursiondesired: Bool): Bool =
+public actual fun dnsWriteQuestionToBufferUtf8(pdnsbuffer: MutPtr, pdwbuffersize: MutPtr, pszname: Pcstr, wtype: UShort, xid: UShort, frecursiondesired: Bool): Bool =
     windowssysWindowsWin32NetworkmanagementDnsDnsWriteQuestionToBufferUtf8(pdnsbuffer.rawAddress.toCPointer<ByteVar>(), pdwbuffersize.rawAddress.toCPointer<ByteVar>(), pszname.rawAddress.toCPointer<ByteVar>(), wtype, xid, frecursiondesired)
 
-public actual fun dnsWriteQuestionToBufferW(pdnsbuffer: MutPtr<DnsMessageBuffer>, pdwbuffersize: MutPtr<UInt>, pszname: Pcwstr, wtype: UShort, xid: UShort, frecursiondesired: Bool): Bool =
+public actual fun dnsWriteQuestionToBufferW(pdnsbuffer: MutPtr, pdwbuffersize: MutPtr, pszname: Pcwstr, wtype: UShort, xid: UShort, frecursiondesired: Bool): Bool =
     windowssysWindowsWin32NetworkmanagementDnsDnsWriteQuestionToBufferW(pdnsbuffer.rawAddress.toCPointer<ByteVar>(), pdwbuffersize.rawAddress.toCPointer<ByteVar>(), pszname.rawAddress.toCPointer<ByteVar>(), wtype, xid, frecursiondesired)

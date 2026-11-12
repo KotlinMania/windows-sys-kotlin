@@ -73,14 +73,14 @@ public class Kbdnlstables internal constructor(
     public var oEMIdentifier: UShort,
     public var layoutInformation: UShort,
     public var numOfVkToF: UInt,
-    pVkToFCtorArg: MutPtr<VkF>,
+    pVkToFCtorArg: MutPtr,
     public var numOfMouseVKey: Int,
-    pusMouseVKeyCtorArg: MutPtr<UShort>,
+    pusMouseVKeyCtorArg: MutPtr,
 ) {
-    public var pVkToF: MutPtr<VkF> = pVkToFCtorArg
+    public var pVkToF: MutPtr = pVkToFCtorArg
         internal set
 
-    public var pusMouseVKey: MutPtr<UShort> = pusMouseVKeyCtorArg
+    public var pusMouseVKey: MutPtr = pusMouseVKeyCtorArg
         internal set
 
     public constructor() : this(
@@ -98,13 +98,13 @@ public class Kbdnlstables internal constructor(
 
     public operator fun component3(): UInt = this.numOfVkToF
 
-    public operator fun component4(): MutPtr<VkF> = this.pVkToF
+    public operator fun component4(): MutPtr = this.pVkToF
 
     public operator fun component5(): Int = this.numOfMouseVKey
 
-    public operator fun component6(): MutPtr<UShort> = this.pusMouseVKey
+    public operator fun component6(): MutPtr = this.pusMouseVKey
 
-    public fun copy(oEMIdentifier: UShort = this.oEMIdentifier, layoutInformation: UShort = this.layoutInformation, numOfVkToF: UInt = this.numOfVkToF, pVkToF: MutPtr<VkF> = this.pVkToF, numOfMouseVKey: Int = this.numOfMouseVKey, pusMouseVKey: MutPtr<UShort> = this.pusMouseVKey): Kbdnlstables = Kbdnlstables(oEMIdentifier = oEMIdentifier, layoutInformation = layoutInformation, numOfVkToF = numOfVkToF, pVkToFCtorArg = pVkToF, numOfMouseVKey = numOfMouseVKey, pusMouseVKeyCtorArg = pusMouseVKey)
+    public fun copy(oEMIdentifier: UShort = this.oEMIdentifier, layoutInformation: UShort = this.layoutInformation, numOfVkToF: UInt = this.numOfVkToF, pVkToF: MutPtr = this.pVkToF, numOfMouseVKey: Int = this.numOfMouseVKey, pusMouseVKey: MutPtr = this.pusMouseVKey): Kbdnlstables = Kbdnlstables(oEMIdentifier = oEMIdentifier, layoutInformation = layoutInformation, numOfVkToF = numOfVkToF, pVkToFCtorArg = pVkToF, numOfMouseVKey = numOfMouseVKey, pusMouseVKeyCtorArg = pusMouseVKey)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -140,12 +140,12 @@ public class Kbdnlstables internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 4L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<VkF>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr + 16L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<UShort>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 24L),
                     )
                 override fun writeNative(addr: Long, value: Kbdnlstables) {
@@ -154,12 +154,12 @@ public class Kbdnlstables internal constructor(
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 4L, value.numOfVkToF)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<VkF>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.pVkToF)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr + 16L, value.numOfMouseVKey)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<UShort>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 24L, value.pusMouseVKey)
                 }
             }
@@ -168,9 +168,9 @@ public class Kbdnlstables internal constructor(
             oEMIdentifier: UShort = 0u,
             layoutInformation: UShort = 0u,
             numOfVkToF: UInt = 0u,
-            pVkToF: MutPtr<VkF> = MutPtr(0L),
+            pVkToF: MutPtr = MutPtr(0L),
             numOfMouseVKey: Int = 0,
-            pusMouseVKey: MutPtr<UShort> = MutPtr(0L),
+            pusMouseVKey: MutPtr = MutPtr(0L),
         ): Kbdnlstables =
             Kbdnlstables(
                 oEMIdentifier = oEMIdentifier,
@@ -184,51 +184,51 @@ public class Kbdnlstables internal constructor(
 }
 
 public class Kbdtables internal constructor(
-    pCharModifiersCtorArg: MutPtr<Modifiers>,
-    pVkToWcharTableCtorArg: MutPtr<VkToWcharTable>,
-    pDeadKeyCtorArg: MutPtr<Deadkey>,
-    pKeyNamesCtorArg: MutPtr<VscLpwstr>,
-    pKeyNamesExtCtorArg: MutPtr<VscLpwstr>,
-    pKeyNamesDeadCtorArg: MutPtr<MutPtr<UShort>>,
-    pusVSCtoVKCtorArg: MutPtr<UShort>,
+    pCharModifiersCtorArg: MutPtr,
+    pVkToWcharTableCtorArg: MutPtr,
+    pDeadKeyCtorArg: MutPtr,
+    pKeyNamesCtorArg: MutPtr,
+    pKeyNamesExtCtorArg: MutPtr,
+    pKeyNamesDeadCtorArg: MutPtr,
+    pusVSCtoVKCtorArg: MutPtr,
     public var bMaxVSCtoVK: UByte,
-    pVsctoVkE0CtorArg: MutPtr<VscVk>,
-    pVsctoVkE1CtorArg: MutPtr<VscVk>,
+    pVsctoVkE0CtorArg: MutPtr,
+    pVsctoVkE1CtorArg: MutPtr,
     public var fLocaleFlags: UInt,
     public var nLgMax: UByte,
     public var cbLgEntry: UByte,
-    pLigatureCtorArg: MutPtr<Ligature1>,
+    pLigatureCtorArg: MutPtr,
     public var dwType: UInt,
     public var dwSubType: UInt,
 ) {
-    public var pCharModifiers: MutPtr<Modifiers> = pCharModifiersCtorArg
+    public var pCharModifiers: MutPtr = pCharModifiersCtorArg
         internal set
 
-    public var pVkToWcharTable: MutPtr<VkToWcharTable> = pVkToWcharTableCtorArg
+    public var pVkToWcharTable: MutPtr = pVkToWcharTableCtorArg
         internal set
 
-    public var pDeadKey: MutPtr<Deadkey> = pDeadKeyCtorArg
+    public var pDeadKey: MutPtr = pDeadKeyCtorArg
         internal set
 
-    public var pKeyNames: MutPtr<VscLpwstr> = pKeyNamesCtorArg
+    public var pKeyNames: MutPtr = pKeyNamesCtorArg
         internal set
 
-    public var pKeyNamesExt: MutPtr<VscLpwstr> = pKeyNamesExtCtorArg
+    public var pKeyNamesExt: MutPtr = pKeyNamesExtCtorArg
         internal set
 
-    public var pKeyNamesDead: MutPtr<MutPtr<UShort>> = pKeyNamesDeadCtorArg
+    public var pKeyNamesDead: MutPtr = pKeyNamesDeadCtorArg
         internal set
 
-    public var pusVSCtoVK: MutPtr<UShort> = pusVSCtoVKCtorArg
+    public var pusVSCtoVK: MutPtr = pusVSCtoVKCtorArg
         internal set
 
-    public var pVsctoVkE0: MutPtr<VscVk> = pVsctoVkE0CtorArg
+    public var pVsctoVkE0: MutPtr = pVsctoVkE0CtorArg
         internal set
 
-    public var pVsctoVkE1: MutPtr<VscVk> = pVsctoVkE1CtorArg
+    public var pVsctoVkE1: MutPtr = pVsctoVkE1CtorArg
         internal set
 
-    public var pLigature: MutPtr<Ligature1> = pLigatureCtorArg
+    public var pLigature: MutPtr = pLigatureCtorArg
         internal set
 
     public constructor() : this(
@@ -250,25 +250,25 @@ public class Kbdtables internal constructor(
         dwSubType = 0u,
     )
 
-    public operator fun component1(): MutPtr<Modifiers> = this.pCharModifiers
+    public operator fun component1(): MutPtr = this.pCharModifiers
 
-    public operator fun component2(): MutPtr<VkToWcharTable> = this.pVkToWcharTable
+    public operator fun component2(): MutPtr = this.pVkToWcharTable
 
-    public operator fun component3(): MutPtr<Deadkey> = this.pDeadKey
+    public operator fun component3(): MutPtr = this.pDeadKey
 
-    public operator fun component4(): MutPtr<VscLpwstr> = this.pKeyNames
+    public operator fun component4(): MutPtr = this.pKeyNames
 
-    public operator fun component5(): MutPtr<VscLpwstr> = this.pKeyNamesExt
+    public operator fun component5(): MutPtr = this.pKeyNamesExt
 
-    public operator fun component6(): MutPtr<MutPtr<UShort>> = this.pKeyNamesDead
+    public operator fun component6(): MutPtr = this.pKeyNamesDead
 
-    public operator fun component7(): MutPtr<UShort> = this.pusVSCtoVK
+    public operator fun component7(): MutPtr = this.pusVSCtoVK
 
     public operator fun component8(): UByte = this.bMaxVSCtoVK
 
-    public operator fun component9(): MutPtr<VscVk> = this.pVsctoVkE0
+    public operator fun component9(): MutPtr = this.pVsctoVkE0
 
-    public operator fun component10(): MutPtr<VscVk> = this.pVsctoVkE1
+    public operator fun component10(): MutPtr = this.pVsctoVkE1
 
     public operator fun component11(): UInt = this.fLocaleFlags
 
@@ -276,13 +276,13 @@ public class Kbdtables internal constructor(
 
     public operator fun component13(): UByte = this.cbLgEntry
 
-    public operator fun component14(): MutPtr<Ligature1> = this.pLigature
+    public operator fun component14(): MutPtr = this.pLigature
 
     public operator fun component15(): UInt = this.dwType
 
     public operator fun component16(): UInt = this.dwSubType
 
-    public fun copy(pCharModifiers: MutPtr<Modifiers> = this.pCharModifiers, pVkToWcharTable: MutPtr<VkToWcharTable> = this.pVkToWcharTable, pDeadKey: MutPtr<Deadkey> = this.pDeadKey, pKeyNames: MutPtr<VscLpwstr> = this.pKeyNames, pKeyNamesExt: MutPtr<VscLpwstr> = this.pKeyNamesExt, pKeyNamesDead: MutPtr<MutPtr<UShort>> = this.pKeyNamesDead, pusVSCtoVK: MutPtr<UShort> = this.pusVSCtoVK, bMaxVSCtoVK: UByte = this.bMaxVSCtoVK, pVsctoVkE0: MutPtr<VscVk> = this.pVsctoVkE0, pVsctoVkE1: MutPtr<VscVk> = this.pVsctoVkE1, fLocaleFlags: UInt = this.fLocaleFlags, nLgMax: UByte = this.nLgMax, cbLgEntry: UByte = this.cbLgEntry, pLigature: MutPtr<Ligature1> = this.pLigature, dwType: UInt = this.dwType, dwSubType: UInt = this.dwSubType): Kbdtables = Kbdtables(pCharModifiersCtorArg = pCharModifiers, pVkToWcharTableCtorArg = pVkToWcharTable, pDeadKeyCtorArg = pDeadKey, pKeyNamesCtorArg = pKeyNames, pKeyNamesExtCtorArg = pKeyNamesExt, pKeyNamesDeadCtorArg = pKeyNamesDead, pusVSCtoVKCtorArg = pusVSCtoVK, bMaxVSCtoVK = bMaxVSCtoVK, pVsctoVkE0CtorArg = pVsctoVkE0, pVsctoVkE1CtorArg = pVsctoVkE1, fLocaleFlags = fLocaleFlags, nLgMax = nLgMax, cbLgEntry = cbLgEntry, pLigatureCtorArg = pLigature, dwType = dwType, dwSubType = dwSubType)
+    public fun copy(pCharModifiers: MutPtr = this.pCharModifiers, pVkToWcharTable: MutPtr = this.pVkToWcharTable, pDeadKey: MutPtr = this.pDeadKey, pKeyNames: MutPtr = this.pKeyNames, pKeyNamesExt: MutPtr = this.pKeyNamesExt, pKeyNamesDead: MutPtr = this.pKeyNamesDead, pusVSCtoVK: MutPtr = this.pusVSCtoVK, bMaxVSCtoVK: UByte = this.bMaxVSCtoVK, pVsctoVkE0: MutPtr = this.pVsctoVkE0, pVsctoVkE1: MutPtr = this.pVsctoVkE1, fLocaleFlags: UInt = this.fLocaleFlags, nLgMax: UByte = this.nLgMax, cbLgEntry: UByte = this.cbLgEntry, pLigature: MutPtr = this.pLigature, dwType: UInt = this.dwType, dwSubType: UInt = this.dwSubType): Kbdtables = Kbdtables(pCharModifiersCtorArg = pCharModifiers, pVkToWcharTableCtorArg = pVkToWcharTable, pDeadKeyCtorArg = pDeadKey, pKeyNamesCtorArg = pKeyNames, pKeyNamesExtCtorArg = pKeyNamesExt, pKeyNamesDeadCtorArg = pKeyNamesDead, pusVSCtoVKCtorArg = pusVSCtoVK, bMaxVSCtoVK = bMaxVSCtoVK, pVsctoVkE0CtorArg = pVsctoVkE0, pVsctoVkE1CtorArg = pVsctoVkE1, fLocaleFlags = fLocaleFlags, nLgMax = nLgMax, cbLgEntry = cbLgEntry, pLigatureCtorArg = pLigature, dwType = dwType, dwSubType = dwSubType)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -335,47 +335,47 @@ public class Kbdtables internal constructor(
                     Kbdtables(
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<Modifiers>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<VkToWcharTable>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<Deadkey>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 16L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<VscLpwstr>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 24L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<VscLpwstr>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 32L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<MutPtr<UShort>>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 40L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<UShort>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 48L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8).readNative(addr + 56L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<VscVk>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 64L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<VscVk>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 72L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 80L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8).readNative(addr + 84L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8).readNative(addr + 85L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<Ligature1>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 88L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 96L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 100L),
@@ -383,47 +383,47 @@ public class Kbdtables internal constructor(
                 override fun writeNative(addr: Long, value: Kbdtables) {
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<Modifiers>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr, value.pCharModifiers)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<VkToWcharTable>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.pVkToWcharTable)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<Deadkey>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 16L, value.pDeadKey)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<VscLpwstr>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 24L, value.pKeyNames)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<VscLpwstr>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 32L, value.pKeyNamesExt)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<MutPtr<UShort>>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 40L, value.pKeyNamesDead)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<UShort>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 48L, value.pusVSCtoVK)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8).writeNative(addr + 56L, value.bMaxVSCtoVK)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<VscVk>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 64L, value.pVsctoVkE0)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<VscVk>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 72L, value.pVsctoVkE1)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 80L, value.fLocaleFlags)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8).writeNative(addr + 84L, value.nLgMax)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8).writeNative(addr + 85L, value.cbLgEntry)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<Ligature1>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 88L, value.pLigature)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 96L, value.dwType)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 100L, value.dwSubType)
@@ -431,20 +431,20 @@ public class Kbdtables internal constructor(
             }
 
         public operator fun invoke(
-            pCharModifiers: MutPtr<Modifiers> = MutPtr(0L),
-            pVkToWcharTable: MutPtr<VkToWcharTable> = MutPtr(0L),
-            pDeadKey: MutPtr<Deadkey> = MutPtr(0L),
-            pKeyNames: MutPtr<VscLpwstr> = MutPtr(0L),
-            pKeyNamesExt: MutPtr<VscLpwstr> = MutPtr(0L),
-            pKeyNamesDead: MutPtr<MutPtr<UShort>> = MutPtr(0L),
-            pusVSCtoVK: MutPtr<UShort> = MutPtr(0L),
+            pCharModifiers: MutPtr = MutPtr(0L),
+            pVkToWcharTable: MutPtr = MutPtr(0L),
+            pDeadKey: MutPtr = MutPtr(0L),
+            pKeyNames: MutPtr = MutPtr(0L),
+            pKeyNamesExt: MutPtr = MutPtr(0L),
+            pKeyNamesDead: MutPtr = MutPtr(0L),
+            pusVSCtoVK: MutPtr = MutPtr(0L),
             bMaxVSCtoVK: UByte = 0u,
-            pVsctoVkE0: MutPtr<VscVk> = MutPtr(0L),
-            pVsctoVkE1: MutPtr<VscVk> = MutPtr(0L),
+            pVsctoVkE0: MutPtr = MutPtr(0L),
+            pVsctoVkE1: MutPtr = MutPtr(0L),
             fLocaleFlags: UInt = 0u,
             nLgMax: UByte = 0u,
             cbLgEntry: UByte = 0u,
-            pLigature: MutPtr<Ligature1> = MutPtr(0L),
+            pLigature: MutPtr = MutPtr(0L),
             dwType: UInt = 0u,
             dwSubType: UInt = 0u,
         ): Kbdtables =
@@ -858,11 +858,11 @@ public data class Ligature5(
 }
 
 public class Modifiers internal constructor(
-    pVkToBitCtorArg: MutPtr<VkToBit>,
+    pVkToBitCtorArg: MutPtr,
     public var wMaxModBits: UShort,
     public var modNumber: UByteArray,
 ) {
-    public var pVkToBit: MutPtr<VkToBit> = pVkToBitCtorArg
+    public var pVkToBit: MutPtr = pVkToBitCtorArg
         internal set
 
     public constructor() : this(
@@ -871,13 +871,13 @@ public class Modifiers internal constructor(
         modNumber = UByteArray(1),
     )
 
-    public operator fun component1(): MutPtr<VkToBit> = this.pVkToBit
+    public operator fun component1(): MutPtr = this.pVkToBit
 
     public operator fun component2(): UShort = this.wMaxModBits
 
     public operator fun component3(): UByteArray = this.modNumber
 
-    public fun copy(pVkToBit: MutPtr<VkToBit> = this.pVkToBit, wMaxModBits: UShort = this.wMaxModBits, modNumber: UByteArray = this.modNumber): Modifiers = Modifiers(pVkToBitCtorArg = pVkToBit, wMaxModBits = wMaxModBits, modNumber = modNumber)
+    public fun copy(pVkToBit: MutPtr = this.pVkToBit, wMaxModBits: UShort = this.wMaxModBits, modNumber: UByteArray = this.modNumber): Modifiers = Modifiers(pVkToBitCtorArg = pVkToBit, wMaxModBits = wMaxModBits, modNumber = modNumber)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -904,7 +904,7 @@ public class Modifiers internal constructor(
                     Modifiers(
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<VkToBit>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16).readNative(addr + 8L),
                         (
@@ -915,7 +915,7 @@ public class Modifiers internal constructor(
                 override fun writeNative(addr: Long, value: Modifiers) {
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<VkToBit>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr, value.pVkToBit)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16).writeNative(addr + 8L, value.wMaxModBits)
                     (
@@ -926,7 +926,7 @@ public class Modifiers internal constructor(
             }
 
         public operator fun invoke(
-            pVkToBit: MutPtr<VkToBit> = MutPtr(0L),
+            pVkToBit: MutPtr = MutPtr(0L),
             wMaxModBits: UShort = 0u,
             modNumber: UByteArray = UByteArray(1),
         ): Modifiers =
@@ -1621,11 +1621,11 @@ public data class VkToWchars9(
 }
 
 public class VkToWcharTable internal constructor(
-    pVkToWcharsCtorArg: MutPtr<VkToWchars1>,
+    pVkToWcharsCtorArg: MutPtr,
     public var nModifications: UByte,
     public var cbSize: UByte,
 ) {
-    public var pVkToWchars: MutPtr<VkToWchars1> = pVkToWcharsCtorArg
+    public var pVkToWchars: MutPtr = pVkToWcharsCtorArg
         internal set
 
     public constructor() : this(
@@ -1634,13 +1634,13 @@ public class VkToWcharTable internal constructor(
         cbSize = 0u,
     )
 
-    public operator fun component1(): MutPtr<VkToWchars1> = this.pVkToWchars
+    public operator fun component1(): MutPtr = this.pVkToWchars
 
     public operator fun component2(): UByte = this.nModifications
 
     public operator fun component3(): UByte = this.cbSize
 
-    public fun copy(pVkToWchars: MutPtr<VkToWchars1> = this.pVkToWchars, nModifications: UByte = this.nModifications, cbSize: UByte = this.cbSize): VkToWcharTable = VkToWcharTable(pVkToWcharsCtorArg = pVkToWchars, nModifications = nModifications, cbSize = cbSize)
+    public fun copy(pVkToWchars: MutPtr = this.pVkToWchars, nModifications: UByte = this.nModifications, cbSize: UByte = this.cbSize): VkToWcharTable = VkToWcharTable(pVkToWcharsCtorArg = pVkToWchars, nModifications = nModifications, cbSize = cbSize)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -1667,7 +1667,7 @@ public class VkToWcharTable internal constructor(
                     VkToWcharTable(
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<VkToWchars1>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8).readNative(addr + 8L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8).readNative(addr + 9L),
@@ -1675,7 +1675,7 @@ public class VkToWcharTable internal constructor(
                 override fun writeNative(addr: Long, value: VkToWcharTable) {
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<VkToWchars1>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr, value.pVkToWchars)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8).writeNative(addr + 8L, value.nModifications)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8).writeNative(addr + 9L, value.cbSize)
@@ -1683,7 +1683,7 @@ public class VkToWcharTable internal constructor(
             }
 
         public operator fun invoke(
-            pVkToWchars: MutPtr<VkToWchars1> = MutPtr(0L),
+            pVkToWchars: MutPtr = MutPtr(0L),
             nModifications: UByte = 0u,
             cbSize: UByte = 0u,
         ): VkToWcharTable =

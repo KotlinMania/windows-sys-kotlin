@@ -2,7 +2,6 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.networkmanagement.iphelper
 
-import io.github.kotlinmania.rustlang.core.ffi.CVoid
 import io.github.kotlinmania.rustlang.core.ptr.ConstPtr
 import io.github.kotlinmania.rustlang.core.ptr.MutPtr
 import io.github.kotlinmania.windowssys.core.Bool
@@ -14,11 +13,6 @@ import io.github.kotlinmania.windowssys.core.Pwstr
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Handle
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Win32Error
 import io.github.kotlinmania.windowssys.windows.win32.networking.winsock.AddressFamily
-import io.github.kotlinmania.windowssys.windows.win32.networking.winsock.NlNetworkConnectivityHint
-import io.github.kotlinmania.windowssys.windows.win32.networking.winsock.Sockaddr
-import io.github.kotlinmania.windowssys.windows.win32.networking.winsock.SockaddrIn6
-import io.github.kotlinmania.windowssys.windows.win32.networking.winsock.SockaddrIn6Pair
-import io.github.kotlinmania.windowssys.windows.win32.networking.winsock.SockaddrInet
 import io.github.kotlinmania.windowssys.windows.win32.networkmanagement.iphelper.cinterop.windowssysWindowsWin32NetworkmanagementIphelperAddIPAddress
 import io.github.kotlinmania.windowssys.windows.win32.networkmanagement.iphelper.cinterop.windowssysWindowsWin32NetworkmanagementIphelperCancelIPChangeNotify
 import io.github.kotlinmania.windowssys.windows.win32.networkmanagement.iphelper.cinterop.windowssysWindowsWin32NetworkmanagementIphelperCancelIfTimestampConfigChange
@@ -219,17 +213,15 @@ import io.github.kotlinmania.windowssys.windows.win32.networkmanagement.iphelper
 import io.github.kotlinmania.windowssys.windows.win32.networkmanagement.iphelper.cinterop.windowssysWindowsWin32NetworkmanagementIphelperUnenableRouter
 import io.github.kotlinmania.windowssys.windows.win32.networkmanagement.iphelper.cinterop.windowssysWindowsWin32NetworkmanagementIphelperUnregisterInterfaceTimestampConfigChange
 import io.github.kotlinmania.windowssys.windows.win32.networkmanagement.ndis.NetIfCompartmentId
-import io.github.kotlinmania.windowssys.windows.win32.networkmanagement.ndis.NetLuidLh
-import io.github.kotlinmania.windowssys.windows.win32.system.io.Overlapped
 import io.github.kotlinmania.windowssys.windows.win32.system.io.PioApcRoutine
 import kotlinx.cinterop.ByteVar
 import kotlinx.cinterop.toCPointer
 import kotlinx.cinterop.toLong
 
-public actual fun addIPAddress(address: UInt, ipmask: UInt, ifindex: UInt, ntecontext: MutPtr<UInt>, nteinstance: MutPtr<UInt>): UInt =
+public actual fun addIPAddress(address: UInt, ipmask: UInt, ifindex: UInt, ntecontext: MutPtr, nteinstance: MutPtr): UInt =
     windowssysWindowsWin32NetworkmanagementIphelperAddIPAddress(address, ipmask, ifindex, ntecontext.rawAddress.toCPointer<ByteVar>(), nteinstance.rawAddress.toCPointer<ByteVar>())
 
-public actual fun cancelIPChangeNotify(notifyoverlapped: ConstPtr<Overlapped>): Bool =
+public actual fun cancelIPChangeNotify(notifyoverlapped: ConstPtr): Bool =
     windowssysWindowsWin32NetworkmanagementIphelperCancelIPChangeNotify(notifyoverlapped.rawAddress.toCPointer<ByteVar>())
 
 public actual fun cancelIfTimestampConfigChange(notificationhandle: Hiftimestampchange) {
@@ -239,97 +231,97 @@ public actual fun cancelIfTimestampConfigChange(notificationhandle: Hiftimestamp
 public actual fun cancelMibChangeNotify2(notificationhandle: Handle): Win32Error =
     windowssysWindowsWin32NetworkmanagementIphelperCancelMibChangeNotify2(notificationhandle.rawAddress.toCPointer<ByteVar>())
 
-public actual fun captureInterfaceHardwareCrossTimestamp(interfaceluid: ConstPtr<NetLuidLh>, crosstimestamp: MutPtr<InterfaceHardwareCrosstimestamp>): UInt =
+public actual fun captureInterfaceHardwareCrossTimestamp(interfaceluid: ConstPtr, crosstimestamp: MutPtr): UInt =
     windowssysWindowsWin32NetworkmanagementIphelperCaptureInterfaceHardwareCrossTimestamp(interfaceluid.rawAddress.toCPointer<ByteVar>(), crosstimestamp.rawAddress.toCPointer<ByteVar>())
 
-public actual fun convertCompartmentGuidToId(compartmentguid: ConstPtr<Guid>, compartmentid: MutPtr<UInt>): Win32Error =
+public actual fun convertCompartmentGuidToId(compartmentguid: ConstPtr, compartmentid: MutPtr): Win32Error =
     windowssysWindowsWin32NetworkmanagementIphelperConvertCompartmentGuidToId(compartmentguid.rawAddress.toCPointer<ByteVar>(), compartmentid.rawAddress.toCPointer<ByteVar>())
 
-public actual fun convertCompartmentIdToGuid(compartmentid: NetIfCompartmentId, compartmentguid: MutPtr<Guid>): Win32Error =
+public actual fun convertCompartmentIdToGuid(compartmentid: NetIfCompartmentId, compartmentguid: MutPtr): Win32Error =
     windowssysWindowsWin32NetworkmanagementIphelperConvertCompartmentIdToGuid(compartmentid, compartmentguid.rawAddress.toCPointer<ByteVar>())
 
-public actual fun convertInterfaceAliasToLuid(interfacealias: Pcwstr, interfaceluid: MutPtr<NetLuidLh>): Win32Error =
+public actual fun convertInterfaceAliasToLuid(interfacealias: Pcwstr, interfaceluid: MutPtr): Win32Error =
     windowssysWindowsWin32NetworkmanagementIphelperConvertInterfaceAliasToLuid(interfacealias.rawAddress.toCPointer<ByteVar>(), interfaceluid.rawAddress.toCPointer<ByteVar>())
 
-public actual fun convertInterfaceGuidToLuid(interfaceguid: ConstPtr<Guid>, interfaceluid: MutPtr<NetLuidLh>): Win32Error =
+public actual fun convertInterfaceGuidToLuid(interfaceguid: ConstPtr, interfaceluid: MutPtr): Win32Error =
     windowssysWindowsWin32NetworkmanagementIphelperConvertInterfaceGuidToLuid(interfaceguid.rawAddress.toCPointer<ByteVar>(), interfaceluid.rawAddress.toCPointer<ByteVar>())
 
-public actual fun convertInterfaceIndexToLuid(interfaceindex: UInt, interfaceluid: MutPtr<NetLuidLh>): Win32Error =
+public actual fun convertInterfaceIndexToLuid(interfaceindex: UInt, interfaceluid: MutPtr): Win32Error =
     windowssysWindowsWin32NetworkmanagementIphelperConvertInterfaceIndexToLuid(interfaceindex, interfaceluid.rawAddress.toCPointer<ByteVar>())
 
-public actual fun convertInterfaceLuidToAlias(interfaceluid: ConstPtr<NetLuidLh>, interfacealias: Pwstr, length: ULong): Win32Error =
+public actual fun convertInterfaceLuidToAlias(interfaceluid: ConstPtr, interfacealias: Pwstr, length: ULong): Win32Error =
     windowssysWindowsWin32NetworkmanagementIphelperConvertInterfaceLuidToAlias(interfaceluid.rawAddress.toCPointer<ByteVar>(), interfacealias.rawAddress.toCPointer<ByteVar>(), length)
 
-public actual fun convertInterfaceLuidToGuid(interfaceluid: ConstPtr<NetLuidLh>, interfaceguid: MutPtr<Guid>): Win32Error =
+public actual fun convertInterfaceLuidToGuid(interfaceluid: ConstPtr, interfaceguid: MutPtr): Win32Error =
     windowssysWindowsWin32NetworkmanagementIphelperConvertInterfaceLuidToGuid(interfaceluid.rawAddress.toCPointer<ByteVar>(), interfaceguid.rawAddress.toCPointer<ByteVar>())
 
-public actual fun convertInterfaceLuidToIndex(interfaceluid: ConstPtr<NetLuidLh>, interfaceindex: MutPtr<UInt>): Win32Error =
+public actual fun convertInterfaceLuidToIndex(interfaceluid: ConstPtr, interfaceindex: MutPtr): Win32Error =
     windowssysWindowsWin32NetworkmanagementIphelperConvertInterfaceLuidToIndex(interfaceluid.rawAddress.toCPointer<ByteVar>(), interfaceindex.rawAddress.toCPointer<ByteVar>())
 
-public actual fun convertInterfaceLuidToNameA(interfaceluid: ConstPtr<NetLuidLh>, interfacename: Pstr, length: ULong): Win32Error =
+public actual fun convertInterfaceLuidToNameA(interfaceluid: ConstPtr, interfacename: Pstr, length: ULong): Win32Error =
     windowssysWindowsWin32NetworkmanagementIphelperConvertInterfaceLuidToNameA(interfaceluid.rawAddress.toCPointer<ByteVar>(), interfacename.rawAddress.toCPointer<ByteVar>(), length)
 
-public actual fun convertInterfaceLuidToNameW(interfaceluid: ConstPtr<NetLuidLh>, interfacename: Pwstr, length: ULong): Win32Error =
+public actual fun convertInterfaceLuidToNameW(interfaceluid: ConstPtr, interfacename: Pwstr, length: ULong): Win32Error =
     windowssysWindowsWin32NetworkmanagementIphelperConvertInterfaceLuidToNameW(interfaceluid.rawAddress.toCPointer<ByteVar>(), interfacename.rawAddress.toCPointer<ByteVar>(), length)
 
-public actual fun convertInterfaceNameToLuidA(interfacename: Pcstr, interfaceluid: MutPtr<NetLuidLh>): Win32Error =
+public actual fun convertInterfaceNameToLuidA(interfacename: Pcstr, interfaceluid: MutPtr): Win32Error =
     windowssysWindowsWin32NetworkmanagementIphelperConvertInterfaceNameToLuidA(interfacename.rawAddress.toCPointer<ByteVar>(), interfaceluid.rawAddress.toCPointer<ByteVar>())
 
-public actual fun convertInterfaceNameToLuidW(interfacename: Pcwstr, interfaceluid: MutPtr<NetLuidLh>): Win32Error =
+public actual fun convertInterfaceNameToLuidW(interfacename: Pcwstr, interfaceluid: MutPtr): Win32Error =
     windowssysWindowsWin32NetworkmanagementIphelperConvertInterfaceNameToLuidW(interfacename.rawAddress.toCPointer<ByteVar>(), interfaceluid.rawAddress.toCPointer<ByteVar>())
 
-public actual fun convertIpv4MaskToLength(mask: UInt, masklength: MutPtr<UByte>): Win32Error =
+public actual fun convertIpv4MaskToLength(mask: UInt, masklength: MutPtr): Win32Error =
     windowssysWindowsWin32NetworkmanagementIphelperConvertIpv4MaskToLength(mask, masklength.rawAddress.toCPointer<ByteVar>())
 
-public actual fun convertLengthToIpv4Mask(masklength: UInt, mask: MutPtr<UInt>): Win32Error =
+public actual fun convertLengthToIpv4Mask(masklength: UInt, mask: MutPtr): Win32Error =
     windowssysWindowsWin32NetworkmanagementIphelperConvertLengthToIpv4Mask(masklength, mask.rawAddress.toCPointer<ByteVar>())
 
-public actual fun createAnycastIpAddressEntry(row: ConstPtr<MibAnycastipaddressRow>): Win32Error =
+public actual fun createAnycastIpAddressEntry(row: ConstPtr): Win32Error =
     windowssysWindowsWin32NetworkmanagementIphelperCreateAnycastIpAddressEntry(row.rawAddress.toCPointer<ByteVar>())
 
-public actual fun createIpForwardEntry(proute: ConstPtr<MibIpforwardrow>): UInt =
+public actual fun createIpForwardEntry(proute: ConstPtr): UInt =
     windowssysWindowsWin32NetworkmanagementIphelperCreateIpForwardEntry(proute.rawAddress.toCPointer<ByteVar>())
 
-public actual fun createIpForwardEntry2(row: ConstPtr<MibIpforwardRow2>): Win32Error =
+public actual fun createIpForwardEntry2(row: ConstPtr): Win32Error =
     windowssysWindowsWin32NetworkmanagementIphelperCreateIpForwardEntry2(row.rawAddress.toCPointer<ByteVar>())
 
-public actual fun createIpNetEntry(parpentry: ConstPtr<MibIpnetrowLh>): UInt =
+public actual fun createIpNetEntry(parpentry: ConstPtr): UInt =
     windowssysWindowsWin32NetworkmanagementIphelperCreateIpNetEntry(parpentry.rawAddress.toCPointer<ByteVar>())
 
-public actual fun createIpNetEntry2(row: ConstPtr<MibIpnetRow2>): Win32Error =
+public actual fun createIpNetEntry2(row: ConstPtr): Win32Error =
     windowssysWindowsWin32NetworkmanagementIphelperCreateIpNetEntry2(row.rawAddress.toCPointer<ByteVar>())
 
-public actual fun createPersistentTcpPortReservation(startport: UShort, numberofports: UShort, token: MutPtr<ULong>): UInt =
+public actual fun createPersistentTcpPortReservation(startport: UShort, numberofports: UShort, token: MutPtr): UInt =
     windowssysWindowsWin32NetworkmanagementIphelperCreatePersistentTcpPortReservation(startport, numberofports, token.rawAddress.toCPointer<ByteVar>())
 
-public actual fun createPersistentUdpPortReservation(startport: UShort, numberofports: UShort, token: MutPtr<ULong>): UInt =
+public actual fun createPersistentUdpPortReservation(startport: UShort, numberofports: UShort, token: MutPtr): UInt =
     windowssysWindowsWin32NetworkmanagementIphelperCreatePersistentUdpPortReservation(startport, numberofports, token.rawAddress.toCPointer<ByteVar>())
 
 public actual fun createProxyArpEntry(dwaddress: UInt, dwmask: UInt, dwifindex: UInt): UInt =
     windowssysWindowsWin32NetworkmanagementIphelperCreateProxyArpEntry(dwaddress, dwmask, dwifindex)
 
-public actual fun createSortedAddressPairs(sourceaddresslist: ConstPtr<SockaddrIn6>, sourceaddresscount: UInt, destinationaddresslist: ConstPtr<SockaddrIn6>, destinationaddresscount: UInt, addresssortoptions: UInt, sortedaddresspairlist: MutPtr<MutPtr<SockaddrIn6Pair>>, sortedaddresspaircount: MutPtr<UInt>): Win32Error =
+public actual fun createSortedAddressPairs(sourceaddresslist: ConstPtr, sourceaddresscount: UInt, destinationaddresslist: ConstPtr, destinationaddresscount: UInt, addresssortoptions: UInt, sortedaddresspairlist: MutPtr, sortedaddresspaircount: MutPtr): Win32Error =
     windowssysWindowsWin32NetworkmanagementIphelperCreateSortedAddressPairs(sourceaddresslist.rawAddress.toCPointer<ByteVar>(), sourceaddresscount, destinationaddresslist.rawAddress.toCPointer<ByteVar>(), destinationaddresscount, addresssortoptions, sortedaddresspairlist.rawAddress.toCPointer<ByteVar>(), sortedaddresspaircount.rawAddress.toCPointer<ByteVar>())
 
-public actual fun createUnicastIpAddressEntry(row: ConstPtr<MibUnicastipaddressRow>): Win32Error =
+public actual fun createUnicastIpAddressEntry(row: ConstPtr): Win32Error =
     windowssysWindowsWin32NetworkmanagementIphelperCreateUnicastIpAddressEntry(row.rawAddress.toCPointer<ByteVar>())
 
-public actual fun deleteAnycastIpAddressEntry(row: ConstPtr<MibAnycastipaddressRow>): Win32Error =
+public actual fun deleteAnycastIpAddressEntry(row: ConstPtr): Win32Error =
     windowssysWindowsWin32NetworkmanagementIphelperDeleteAnycastIpAddressEntry(row.rawAddress.toCPointer<ByteVar>())
 
 public actual fun deleteIPAddress(ntecontext: UInt): UInt =
     windowssysWindowsWin32NetworkmanagementIphelperDeleteIPAddress(ntecontext)
 
-public actual fun deleteIpForwardEntry(proute: ConstPtr<MibIpforwardrow>): UInt =
+public actual fun deleteIpForwardEntry(proute: ConstPtr): UInt =
     windowssysWindowsWin32NetworkmanagementIphelperDeleteIpForwardEntry(proute.rawAddress.toCPointer<ByteVar>())
 
-public actual fun deleteIpForwardEntry2(row: ConstPtr<MibIpforwardRow2>): Win32Error =
+public actual fun deleteIpForwardEntry2(row: ConstPtr): Win32Error =
     windowssysWindowsWin32NetworkmanagementIphelperDeleteIpForwardEntry2(row.rawAddress.toCPointer<ByteVar>())
 
-public actual fun deleteIpNetEntry(parpentry: ConstPtr<MibIpnetrowLh>): UInt =
+public actual fun deleteIpNetEntry(parpentry: ConstPtr): UInt =
     windowssysWindowsWin32NetworkmanagementIphelperDeleteIpNetEntry(parpentry.rawAddress.toCPointer<ByteVar>())
 
-public actual fun deleteIpNetEntry2(row: ConstPtr<MibIpnetRow2>): Win32Error =
+public actual fun deleteIpNetEntry2(row: ConstPtr): Win32Error =
     windowssysWindowsWin32NetworkmanagementIphelperDeleteIpNetEntry2(row.rawAddress.toCPointer<ByteVar>())
 
 public actual fun deletePersistentTcpPortReservation(startport: UShort, numberofports: UShort): UInt =
@@ -341,13 +333,13 @@ public actual fun deletePersistentUdpPortReservation(startport: UShort, numberof
 public actual fun deleteProxyArpEntry(dwaddress: UInt, dwmask: UInt, dwifindex: UInt): UInt =
     windowssysWindowsWin32NetworkmanagementIphelperDeleteProxyArpEntry(dwaddress, dwmask, dwifindex)
 
-public actual fun deleteUnicastIpAddressEntry(row: ConstPtr<MibUnicastipaddressRow>): Win32Error =
+public actual fun deleteUnicastIpAddressEntry(row: ConstPtr): Win32Error =
     windowssysWindowsWin32NetworkmanagementIphelperDeleteUnicastIpAddressEntry(row.rawAddress.toCPointer<ByteVar>())
 
-public actual fun disableMediaSense(phandle: MutPtr<Handle>, poverlapped: ConstPtr<Overlapped>): UInt =
+public actual fun disableMediaSense(phandle: MutPtr, poverlapped: ConstPtr): UInt =
     windowssysWindowsWin32NetworkmanagementIphelperDisableMediaSense(phandle.rawAddress.toCPointer<ByteVar>(), poverlapped.rawAddress.toCPointer<ByteVar>())
 
-public actual fun enableRouter(phandle: MutPtr<Handle>, poverlapped: MutPtr<Overlapped>): UInt =
+public actual fun enableRouter(phandle: MutPtr, poverlapped: MutPtr): UInt =
     windowssysWindowsWin32NetworkmanagementIphelperEnableRouter(phandle.rawAddress.toCPointer<ByteVar>(), poverlapped.rawAddress.toCPointer<ByteVar>())
 
 public actual fun flushIpNetTable(dwifindex: UInt): UInt =
@@ -359,272 +351,272 @@ public actual fun flushIpNetTable2(family: AddressFamily, interfaceindex: UInt):
 public actual fun flushIpPathTable(family: AddressFamily): Win32Error =
     windowssysWindowsWin32NetworkmanagementIphelperFlushIpPathTable(family)
 
-public actual fun freeDnsSettings(settings: MutPtr<DnsSettings>) {
+public actual fun freeDnsSettings(settings: MutPtr) {
     windowssysWindowsWin32NetworkmanagementIphelperFreeDnsSettings(settings.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun freeInterfaceDnsSettings(settings: MutPtr<DnsInterfaceSettings>) {
+public actual fun freeInterfaceDnsSettings(settings: MutPtr) {
     windowssysWindowsWin32NetworkmanagementIphelperFreeInterfaceDnsSettings(settings.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun freeMibTable(memory: ConstPtr<CVoid>) {
+public actual fun freeMibTable(memory: ConstPtr) {
     windowssysWindowsWin32NetworkmanagementIphelperFreeMibTable(memory.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun getAdapterIndex(adaptername: Pcwstr, ifindex: MutPtr<UInt>): UInt =
+public actual fun getAdapterIndex(adaptername: Pcwstr, ifindex: MutPtr): UInt =
     windowssysWindowsWin32NetworkmanagementIphelperGetAdapterIndex(adaptername.rawAddress.toCPointer<ByteVar>(), ifindex.rawAddress.toCPointer<ByteVar>())
 
-public actual fun getAdapterOrderMap(): MutPtr<IpAdapterOrderMap> =
+public actual fun getAdapterOrderMap(): MutPtr =
     MutPtr(windowssysWindowsWin32NetworkmanagementIphelperGetAdapterOrderMap()?.toLong() ?: 0L)
 
-public actual fun getAdaptersAddresses(family: UInt, flags: GetAdaptersAddressesFlags, reserved: ConstPtr<CVoid>, adapteraddresses: MutPtr<IpAdapterAddressesLh>, sizepointer: MutPtr<UInt>): UInt =
+public actual fun getAdaptersAddresses(family: UInt, flags: GetAdaptersAddressesFlags, reserved: ConstPtr, adapteraddresses: MutPtr, sizepointer: MutPtr): UInt =
     windowssysWindowsWin32NetworkmanagementIphelperGetAdaptersAddresses(family, flags, reserved.rawAddress.toCPointer<ByteVar>(), adapteraddresses.rawAddress.toCPointer<ByteVar>(), sizepointer.rawAddress.toCPointer<ByteVar>())
 
-public actual fun getAdaptersInfo(adapterinfo: MutPtr<IpAdapterInfo>, sizepointer: MutPtr<UInt>): UInt =
+public actual fun getAdaptersInfo(adapterinfo: MutPtr, sizepointer: MutPtr): UInt =
     windowssysWindowsWin32NetworkmanagementIphelperGetAdaptersInfo(adapterinfo.rawAddress.toCPointer<ByteVar>(), sizepointer.rawAddress.toCPointer<ByteVar>())
 
-public actual fun getAnycastIpAddressEntry(row: MutPtr<MibAnycastipaddressRow>): Win32Error =
+public actual fun getAnycastIpAddressEntry(row: MutPtr): Win32Error =
     windowssysWindowsWin32NetworkmanagementIphelperGetAnycastIpAddressEntry(row.rawAddress.toCPointer<ByteVar>())
 
-public actual fun getAnycastIpAddressTable(family: AddressFamily, table: MutPtr<MutPtr<MibAnycastipaddressTable>>): Win32Error =
+public actual fun getAnycastIpAddressTable(family: AddressFamily, table: MutPtr): Win32Error =
     windowssysWindowsWin32NetworkmanagementIphelperGetAnycastIpAddressTable(family, table.rawAddress.toCPointer<ByteVar>())
 
-public actual fun getBestInterface(dwdestaddr: UInt, pdwbestifindex: MutPtr<UInt>): UInt =
+public actual fun getBestInterface(dwdestaddr: UInt, pdwbestifindex: MutPtr): UInt =
     windowssysWindowsWin32NetworkmanagementIphelperGetBestInterface(dwdestaddr, pdwbestifindex.rawAddress.toCPointer<ByteVar>())
 
-public actual fun getBestInterfaceEx(pdestaddr: ConstPtr<Sockaddr>, pdwbestifindex: MutPtr<UInt>): UInt =
+public actual fun getBestInterfaceEx(pdestaddr: ConstPtr, pdwbestifindex: MutPtr): UInt =
     windowssysWindowsWin32NetworkmanagementIphelperGetBestInterfaceEx(pdestaddr.rawAddress.toCPointer<ByteVar>(), pdwbestifindex.rawAddress.toCPointer<ByteVar>())
 
-public actual fun getBestRoute(dwdestaddr: UInt, dwsourceaddr: UInt, pbestroute: MutPtr<MibIpforwardrow>): UInt =
+public actual fun getBestRoute(dwdestaddr: UInt, dwsourceaddr: UInt, pbestroute: MutPtr): UInt =
     windowssysWindowsWin32NetworkmanagementIphelperGetBestRoute(dwdestaddr, dwsourceaddr, pbestroute.rawAddress.toCPointer<ByteVar>())
 
-public actual fun getBestRoute2(interfaceluid: ConstPtr<NetLuidLh>, interfaceindex: UInt, sourceaddress: ConstPtr<SockaddrInet>, destinationaddress: ConstPtr<SockaddrInet>, addresssortoptions: UInt, bestroute: MutPtr<MibIpforwardRow2>, bestsourceaddress: MutPtr<SockaddrInet>): Win32Error =
+public actual fun getBestRoute2(interfaceluid: ConstPtr, interfaceindex: UInt, sourceaddress: ConstPtr, destinationaddress: ConstPtr, addresssortoptions: UInt, bestroute: MutPtr, bestsourceaddress: MutPtr): Win32Error =
     windowssysWindowsWin32NetworkmanagementIphelperGetBestRoute2(interfaceluid.rawAddress.toCPointer<ByteVar>(), interfaceindex, sourceaddress.rawAddress.toCPointer<ByteVar>(), destinationaddress.rawAddress.toCPointer<ByteVar>(), addresssortoptions, bestroute.rawAddress.toCPointer<ByteVar>(), bestsourceaddress.rawAddress.toCPointer<ByteVar>())
 
 public actual fun getCurrentThreadCompartmentId(): NetIfCompartmentId =
     windowssysWindowsWin32NetworkmanagementIphelperGetCurrentThreadCompartmentId()
 
-public actual fun getCurrentThreadCompartmentScope(compartmentscope: MutPtr<UInt>, compartmentid: MutPtr<UInt>) {
+public actual fun getCurrentThreadCompartmentScope(compartmentscope: MutPtr, compartmentid: MutPtr) {
     windowssysWindowsWin32NetworkmanagementIphelperGetCurrentThreadCompartmentScope(compartmentscope.rawAddress.toCPointer<ByteVar>(), compartmentid.rawAddress.toCPointer<ByteVar>())
 }
 
 public actual fun getDefaultCompartmentId(): NetIfCompartmentId =
     windowssysWindowsWin32NetworkmanagementIphelperGetDefaultCompartmentId()
 
-public actual fun getDnsSettings(settings: MutPtr<DnsSettings>): Win32Error =
+public actual fun getDnsSettings(settings: MutPtr): Win32Error =
     windowssysWindowsWin32NetworkmanagementIphelperGetDnsSettings(settings.rawAddress.toCPointer<ByteVar>())
 
-public actual fun getExtendedTcpTable(ptcptable: MutPtr<CVoid>, pdwsize: MutPtr<UInt>, border: Bool, ulaf: UInt, tableclass: TcpTableClass, reserved: UInt): UInt =
+public actual fun getExtendedTcpTable(ptcptable: MutPtr, pdwsize: MutPtr, border: Bool, ulaf: UInt, tableclass: TcpTableClass, reserved: UInt): UInt =
     windowssysWindowsWin32NetworkmanagementIphelperGetExtendedTcpTable(ptcptable.rawAddress.toCPointer<ByteVar>(), pdwsize.rawAddress.toCPointer<ByteVar>(), border, ulaf, tableclass, reserved)
 
-public actual fun getExtendedUdpTable(pudptable: MutPtr<CVoid>, pdwsize: MutPtr<UInt>, border: Bool, ulaf: UInt, tableclass: UdpTableClass, reserved: UInt): UInt =
+public actual fun getExtendedUdpTable(pudptable: MutPtr, pdwsize: MutPtr, border: Bool, ulaf: UInt, tableclass: UdpTableClass, reserved: UInt): UInt =
     windowssysWindowsWin32NetworkmanagementIphelperGetExtendedUdpTable(pudptable.rawAddress.toCPointer<ByteVar>(), pdwsize.rawAddress.toCPointer<ByteVar>(), border, ulaf, tableclass, reserved)
 
 public actual fun getFriendlyIfIndex(ifindex: UInt): UInt =
     windowssysWindowsWin32NetworkmanagementIphelperGetFriendlyIfIndex(ifindex)
 
-public actual fun getIcmpStatistics(statistics: MutPtr<MibIcmp>): UInt =
+public actual fun getIcmpStatistics(statistics: MutPtr): UInt =
     windowssysWindowsWin32NetworkmanagementIphelperGetIcmpStatistics(statistics.rawAddress.toCPointer<ByteVar>())
 
-public actual fun getIcmpStatisticsEx(statistics: MutPtr<MibIcmpExXpsp1>, family: UInt): UInt =
+public actual fun getIcmpStatisticsEx(statistics: MutPtr, family: UInt): UInt =
     windowssysWindowsWin32NetworkmanagementIphelperGetIcmpStatisticsEx(statistics.rawAddress.toCPointer<ByteVar>(), family)
 
-public actual fun getIfEntry(pifrow: MutPtr<MibIfrow>): UInt =
+public actual fun getIfEntry(pifrow: MutPtr): UInt =
     windowssysWindowsWin32NetworkmanagementIphelperGetIfEntry(pifrow.rawAddress.toCPointer<ByteVar>())
 
-public actual fun getIfEntry2(row: MutPtr<MibIfRow2>): Win32Error =
+public actual fun getIfEntry2(row: MutPtr): Win32Error =
     windowssysWindowsWin32NetworkmanagementIphelperGetIfEntry2(row.rawAddress.toCPointer<ByteVar>())
 
-public actual fun getIfEntry2Ex(level: MibIfEntryLevel, row: MutPtr<MibIfRow2>): Win32Error =
+public actual fun getIfEntry2Ex(level: MibIfEntryLevel, row: MutPtr): Win32Error =
     windowssysWindowsWin32NetworkmanagementIphelperGetIfEntry2Ex(level, row.rawAddress.toCPointer<ByteVar>())
 
-public actual fun getIfStackTable(table: MutPtr<MutPtr<MibIfstackTable>>): Win32Error =
+public actual fun getIfStackTable(table: MutPtr): Win32Error =
     windowssysWindowsWin32NetworkmanagementIphelperGetIfStackTable(table.rawAddress.toCPointer<ByteVar>())
 
-public actual fun getIfTable(piftable: MutPtr<MibIftable>, pdwsize: MutPtr<UInt>, border: Bool): UInt =
+public actual fun getIfTable(piftable: MutPtr, pdwsize: MutPtr, border: Bool): UInt =
     windowssysWindowsWin32NetworkmanagementIphelperGetIfTable(piftable.rawAddress.toCPointer<ByteVar>(), pdwsize.rawAddress.toCPointer<ByteVar>(), border)
 
-public actual fun getIfTable2(table: MutPtr<MutPtr<MibIfTable2>>): Win32Error =
+public actual fun getIfTable2(table: MutPtr): Win32Error =
     windowssysWindowsWin32NetworkmanagementIphelperGetIfTable2(table.rawAddress.toCPointer<ByteVar>())
 
-public actual fun getIfTable2Ex(level: MibIfTableLevel, table: MutPtr<MutPtr<MibIfTable2>>): Win32Error =
+public actual fun getIfTable2Ex(level: MibIfTableLevel, table: MutPtr): Win32Error =
     windowssysWindowsWin32NetworkmanagementIphelperGetIfTable2Ex(level, table.rawAddress.toCPointer<ByteVar>())
 
-public actual fun getInterfaceActiveTimestampCapabilities(interfaceluid: ConstPtr<NetLuidLh>, timestampcapabilites: MutPtr<InterfaceTimestampCapabilities>): UInt =
+public actual fun getInterfaceActiveTimestampCapabilities(interfaceluid: ConstPtr, timestampcapabilites: MutPtr): UInt =
     windowssysWindowsWin32NetworkmanagementIphelperGetInterfaceActiveTimestampCapabilities(interfaceluid.rawAddress.toCPointer<ByteVar>(), timestampcapabilites.rawAddress.toCPointer<ByteVar>())
 
-public actual fun getInterfaceCurrentTimestampCapabilities(interfaceluid: ConstPtr<NetLuidLh>, timestampcapabilites: MutPtr<InterfaceTimestampCapabilities>): UInt =
+public actual fun getInterfaceCurrentTimestampCapabilities(interfaceluid: ConstPtr, timestampcapabilites: MutPtr): UInt =
     windowssysWindowsWin32NetworkmanagementIphelperGetInterfaceCurrentTimestampCapabilities(interfaceluid.rawAddress.toCPointer<ByteVar>(), timestampcapabilites.rawAddress.toCPointer<ByteVar>())
 
-public actual fun getInterfaceDnsSettings(iface: Guid, settings: MutPtr<DnsInterfaceSettings>): Win32Error =
+public actual fun getInterfaceDnsSettings(iface: Guid, settings: MutPtr): Win32Error =
     0u
 
-public actual fun getInterfaceHardwareTimestampCapabilities(interfaceluid: ConstPtr<NetLuidLh>, timestampcapabilites: MutPtr<InterfaceTimestampCapabilities>): UInt =
+public actual fun getInterfaceHardwareTimestampCapabilities(interfaceluid: ConstPtr, timestampcapabilites: MutPtr): UInt =
     windowssysWindowsWin32NetworkmanagementIphelperGetInterfaceHardwareTimestampCapabilities(interfaceluid.rawAddress.toCPointer<ByteVar>(), timestampcapabilites.rawAddress.toCPointer<ByteVar>())
 
-public actual fun getInterfaceInfo(piftable: MutPtr<IpInterfaceInfo>, dwoutbuflen: MutPtr<UInt>): UInt =
+public actual fun getInterfaceInfo(piftable: MutPtr, dwoutbuflen: MutPtr): UInt =
     windowssysWindowsWin32NetworkmanagementIphelperGetInterfaceInfo(piftable.rawAddress.toCPointer<ByteVar>(), dwoutbuflen.rawAddress.toCPointer<ByteVar>())
 
-public actual fun getInterfaceSupportedTimestampCapabilities(interfaceluid: ConstPtr<NetLuidLh>, timestampcapabilites: MutPtr<InterfaceTimestampCapabilities>): UInt =
+public actual fun getInterfaceSupportedTimestampCapabilities(interfaceluid: ConstPtr, timestampcapabilites: MutPtr): UInt =
     windowssysWindowsWin32NetworkmanagementIphelperGetInterfaceSupportedTimestampCapabilities(interfaceluid.rawAddress.toCPointer<ByteVar>(), timestampcapabilites.rawAddress.toCPointer<ByteVar>())
 
-public actual fun getInvertedIfStackTable(table: MutPtr<MutPtr<MibInvertedifstackTable>>): Win32Error =
+public actual fun getInvertedIfStackTable(table: MutPtr): Win32Error =
     windowssysWindowsWin32NetworkmanagementIphelperGetInvertedIfStackTable(table.rawAddress.toCPointer<ByteVar>())
 
-public actual fun getIpAddrTable(pipaddrtable: MutPtr<MibIpaddrtable>, pdwsize: MutPtr<UInt>, border: Bool): UInt =
+public actual fun getIpAddrTable(pipaddrtable: MutPtr, pdwsize: MutPtr, border: Bool): UInt =
     windowssysWindowsWin32NetworkmanagementIphelperGetIpAddrTable(pipaddrtable.rawAddress.toCPointer<ByteVar>(), pdwsize.rawAddress.toCPointer<ByteVar>(), border)
 
-public actual fun getIpErrorString(errorcode: UInt, buffer: Pwstr, size: MutPtr<UInt>): UInt =
+public actual fun getIpErrorString(errorcode: UInt, buffer: Pwstr, size: MutPtr): UInt =
     windowssysWindowsWin32NetworkmanagementIphelperGetIpErrorString(errorcode, buffer.rawAddress.toCPointer<ByteVar>(), size.rawAddress.toCPointer<ByteVar>())
 
-public actual fun getIpForwardEntry2(row: MutPtr<MibIpforwardRow2>): Win32Error =
+public actual fun getIpForwardEntry2(row: MutPtr): Win32Error =
     windowssysWindowsWin32NetworkmanagementIphelperGetIpForwardEntry2(row.rawAddress.toCPointer<ByteVar>())
 
-public actual fun getIpForwardTable(pipforwardtable: MutPtr<MibIpforwardtable>, pdwsize: MutPtr<UInt>, border: Bool): UInt =
+public actual fun getIpForwardTable(pipforwardtable: MutPtr, pdwsize: MutPtr, border: Bool): UInt =
     windowssysWindowsWin32NetworkmanagementIphelperGetIpForwardTable(pipforwardtable.rawAddress.toCPointer<ByteVar>(), pdwsize.rawAddress.toCPointer<ByteVar>(), border)
 
-public actual fun getIpForwardTable2(family: AddressFamily, table: MutPtr<MutPtr<MibIpforwardTable2>>): Win32Error =
+public actual fun getIpForwardTable2(family: AddressFamily, table: MutPtr): Win32Error =
     windowssysWindowsWin32NetworkmanagementIphelperGetIpForwardTable2(family, table.rawAddress.toCPointer<ByteVar>())
 
-public actual fun getIpInterfaceEntry(row: MutPtr<MibIpinterfaceRow>): Win32Error =
+public actual fun getIpInterfaceEntry(row: MutPtr): Win32Error =
     windowssysWindowsWin32NetworkmanagementIphelperGetIpInterfaceEntry(row.rawAddress.toCPointer<ByteVar>())
 
-public actual fun getIpInterfaceTable(family: AddressFamily, table: MutPtr<MutPtr<MibIpinterfaceTable>>): Win32Error =
+public actual fun getIpInterfaceTable(family: AddressFamily, table: MutPtr): Win32Error =
     windowssysWindowsWin32NetworkmanagementIphelperGetIpInterfaceTable(family, table.rawAddress.toCPointer<ByteVar>())
 
-public actual fun getIpNetEntry2(row: MutPtr<MibIpnetRow2>): Win32Error =
+public actual fun getIpNetEntry2(row: MutPtr): Win32Error =
     windowssysWindowsWin32NetworkmanagementIphelperGetIpNetEntry2(row.rawAddress.toCPointer<ByteVar>())
 
-public actual fun getIpNetTable(ipnettable: MutPtr<MibIpnettable>, sizepointer: MutPtr<UInt>, order: Bool): UInt =
+public actual fun getIpNetTable(ipnettable: MutPtr, sizepointer: MutPtr, order: Bool): UInt =
     windowssysWindowsWin32NetworkmanagementIphelperGetIpNetTable(ipnettable.rawAddress.toCPointer<ByteVar>(), sizepointer.rawAddress.toCPointer<ByteVar>(), order)
 
-public actual fun getIpNetTable2(family: AddressFamily, table: MutPtr<MutPtr<MibIpnetTable2>>): Win32Error =
+public actual fun getIpNetTable2(family: AddressFamily, table: MutPtr): Win32Error =
     windowssysWindowsWin32NetworkmanagementIphelperGetIpNetTable2(family, table.rawAddress.toCPointer<ByteVar>())
 
-public actual fun getIpNetworkConnectionBandwidthEstimates(interfaceindex: UInt, addressfamily: AddressFamily, bandwidthestimates: MutPtr<MibIpNetworkConnectionBandwidthEstimates>): Win32Error =
+public actual fun getIpNetworkConnectionBandwidthEstimates(interfaceindex: UInt, addressfamily: AddressFamily, bandwidthestimates: MutPtr): Win32Error =
     windowssysWindowsWin32NetworkmanagementIphelperGetIpNetworkConnectionBandwidthEstimates(interfaceindex, addressfamily, bandwidthestimates.rawAddress.toCPointer<ByteVar>())
 
-public actual fun getIpPathEntry(row: MutPtr<MibIppathRow>): Win32Error =
+public actual fun getIpPathEntry(row: MutPtr): Win32Error =
     windowssysWindowsWin32NetworkmanagementIphelperGetIpPathEntry(row.rawAddress.toCPointer<ByteVar>())
 
-public actual fun getIpPathTable(family: AddressFamily, table: MutPtr<MutPtr<MibIppathTable>>): Win32Error =
+public actual fun getIpPathTable(family: AddressFamily, table: MutPtr): Win32Error =
     windowssysWindowsWin32NetworkmanagementIphelperGetIpPathTable(family, table.rawAddress.toCPointer<ByteVar>())
 
-public actual fun getIpStatistics(statistics: MutPtr<MibIpstatsLh>): UInt =
+public actual fun getIpStatistics(statistics: MutPtr): UInt =
     windowssysWindowsWin32NetworkmanagementIphelperGetIpStatistics(statistics.rawAddress.toCPointer<ByteVar>())
 
-public actual fun getIpStatisticsEx(statistics: MutPtr<MibIpstatsLh>, family: UInt): UInt =
+public actual fun getIpStatisticsEx(statistics: MutPtr, family: UInt): UInt =
     windowssysWindowsWin32NetworkmanagementIphelperGetIpStatisticsEx(statistics.rawAddress.toCPointer<ByteVar>(), family)
 
 public actual fun getJobCompartmentId(jobhandle: Handle): NetIfCompartmentId =
     windowssysWindowsWin32NetworkmanagementIphelperGetJobCompartmentId(jobhandle.rawAddress.toCPointer<ByteVar>())
 
-public actual fun getMulticastIpAddressEntry(row: MutPtr<MibMulticastipaddressRow>): Win32Error =
+public actual fun getMulticastIpAddressEntry(row: MutPtr): Win32Error =
     windowssysWindowsWin32NetworkmanagementIphelperGetMulticastIpAddressEntry(row.rawAddress.toCPointer<ByteVar>())
 
-public actual fun getMulticastIpAddressTable(family: AddressFamily, table: MutPtr<MutPtr<MibMulticastipaddressTable>>): Win32Error =
+public actual fun getMulticastIpAddressTable(family: AddressFamily, table: MutPtr): Win32Error =
     windowssysWindowsWin32NetworkmanagementIphelperGetMulticastIpAddressTable(family, table.rawAddress.toCPointer<ByteVar>())
 
-public actual fun getNetworkConnectivityHint(connectivityhint: MutPtr<NlNetworkConnectivityHint>): Win32Error =
+public actual fun getNetworkConnectivityHint(connectivityhint: MutPtr): Win32Error =
     windowssysWindowsWin32NetworkmanagementIphelperGetNetworkConnectivityHint(connectivityhint.rawAddress.toCPointer<ByteVar>())
 
-public actual fun getNetworkConnectivityHintForInterface(interfaceindex: UInt, connectivityhint: MutPtr<NlNetworkConnectivityHint>): Win32Error =
+public actual fun getNetworkConnectivityHintForInterface(interfaceindex: UInt, connectivityhint: MutPtr): Win32Error =
     windowssysWindowsWin32NetworkmanagementIphelperGetNetworkConnectivityHintForInterface(interfaceindex, connectivityhint.rawAddress.toCPointer<ByteVar>())
 
-public actual fun getNetworkInformation(networkguid: ConstPtr<Guid>, compartmentid: MutPtr<UInt>, siteid: MutPtr<UInt>, networkname: Pwstr, length: UInt): Win32Error =
+public actual fun getNetworkInformation(networkguid: ConstPtr, compartmentid: MutPtr, siteid: MutPtr, networkname: Pwstr, length: UInt): Win32Error =
     windowssysWindowsWin32NetworkmanagementIphelperGetNetworkInformation(networkguid.rawAddress.toCPointer<ByteVar>(), compartmentid.rawAddress.toCPointer<ByteVar>(), siteid.rawAddress.toCPointer<ByteVar>(), networkname.rawAddress.toCPointer<ByteVar>(), length)
 
-public actual fun getNetworkParams(pfixedinfo: MutPtr<FixedInfoW2ksp1>, poutbuflen: MutPtr<UInt>): Win32Error =
+public actual fun getNetworkParams(pfixedinfo: MutPtr, poutbuflen: MutPtr): Win32Error =
     windowssysWindowsWin32NetworkmanagementIphelperGetNetworkParams(pfixedinfo.rawAddress.toCPointer<ByteVar>(), poutbuflen.rawAddress.toCPointer<ByteVar>())
 
-public actual fun getNumberOfInterfaces(pdwnumif: MutPtr<UInt>): UInt =
+public actual fun getNumberOfInterfaces(pdwnumif: MutPtr): UInt =
     windowssysWindowsWin32NetworkmanagementIphelperGetNumberOfInterfaces(pdwnumif.rawAddress.toCPointer<ByteVar>())
 
-public actual fun getOwnerModuleFromPidAndInfo(ulpid: UInt, pinfo: ConstPtr<ULong>, cls: TcpipOwnerModuleInfoClass, pbuffer: MutPtr<CVoid>, pdwsize: MutPtr<UInt>): UInt =
+public actual fun getOwnerModuleFromPidAndInfo(ulpid: UInt, pinfo: ConstPtr, cls: TcpipOwnerModuleInfoClass, pbuffer: MutPtr, pdwsize: MutPtr): UInt =
     windowssysWindowsWin32NetworkmanagementIphelperGetOwnerModuleFromPidAndInfo(ulpid, pinfo.rawAddress.toCPointer<ByteVar>(), cls, pbuffer.rawAddress.toCPointer<ByteVar>(), pdwsize.rawAddress.toCPointer<ByteVar>())
 
-public actual fun getOwnerModuleFromTcp6Entry(ptcpentry: ConstPtr<MibTcp6rowOwnerModule>, cls: TcpipOwnerModuleInfoClass, pbuffer: MutPtr<CVoid>, pdwsize: MutPtr<UInt>): UInt =
+public actual fun getOwnerModuleFromTcp6Entry(ptcpentry: ConstPtr, cls: TcpipOwnerModuleInfoClass, pbuffer: MutPtr, pdwsize: MutPtr): UInt =
     windowssysWindowsWin32NetworkmanagementIphelperGetOwnerModuleFromTcp6Entry(ptcpentry.rawAddress.toCPointer<ByteVar>(), cls, pbuffer.rawAddress.toCPointer<ByteVar>(), pdwsize.rawAddress.toCPointer<ByteVar>())
 
-public actual fun getOwnerModuleFromTcpEntry(ptcpentry: ConstPtr<MibTcprowOwnerModule>, cls: TcpipOwnerModuleInfoClass, pbuffer: MutPtr<CVoid>, pdwsize: MutPtr<UInt>): UInt =
+public actual fun getOwnerModuleFromTcpEntry(ptcpentry: ConstPtr, cls: TcpipOwnerModuleInfoClass, pbuffer: MutPtr, pdwsize: MutPtr): UInt =
     windowssysWindowsWin32NetworkmanagementIphelperGetOwnerModuleFromTcpEntry(ptcpentry.rawAddress.toCPointer<ByteVar>(), cls, pbuffer.rawAddress.toCPointer<ByteVar>(), pdwsize.rawAddress.toCPointer<ByteVar>())
 
-public actual fun getOwnerModuleFromUdp6Entry(pudpentry: ConstPtr<MibUdp6rowOwnerModule>, cls: TcpipOwnerModuleInfoClass, pbuffer: MutPtr<CVoid>, pdwsize: MutPtr<UInt>): UInt =
+public actual fun getOwnerModuleFromUdp6Entry(pudpentry: ConstPtr, cls: TcpipOwnerModuleInfoClass, pbuffer: MutPtr, pdwsize: MutPtr): UInt =
     windowssysWindowsWin32NetworkmanagementIphelperGetOwnerModuleFromUdp6Entry(pudpentry.rawAddress.toCPointer<ByteVar>(), cls, pbuffer.rawAddress.toCPointer<ByteVar>(), pdwsize.rawAddress.toCPointer<ByteVar>())
 
-public actual fun getOwnerModuleFromUdpEntry(pudpentry: ConstPtr<MibUdprowOwnerModule>, cls: TcpipOwnerModuleInfoClass, pbuffer: MutPtr<CVoid>, pdwsize: MutPtr<UInt>): UInt =
+public actual fun getOwnerModuleFromUdpEntry(pudpentry: ConstPtr, cls: TcpipOwnerModuleInfoClass, pbuffer: MutPtr, pdwsize: MutPtr): UInt =
     windowssysWindowsWin32NetworkmanagementIphelperGetOwnerModuleFromUdpEntry(pudpentry.rawAddress.toCPointer<ByteVar>(), cls, pbuffer.rawAddress.toCPointer<ByteVar>(), pdwsize.rawAddress.toCPointer<ByteVar>())
 
-public actual fun getPerAdapterInfo(ifindex: UInt, pperadapterinfo: MutPtr<IpPerAdapterInfoW2ksp1>, poutbuflen: MutPtr<UInt>): UInt =
+public actual fun getPerAdapterInfo(ifindex: UInt, pperadapterinfo: MutPtr, poutbuflen: MutPtr): UInt =
     windowssysWindowsWin32NetworkmanagementIphelperGetPerAdapterInfo(ifindex, pperadapterinfo.rawAddress.toCPointer<ByteVar>(), poutbuflen.rawAddress.toCPointer<ByteVar>())
 
-public actual fun getPerTcp6ConnectionEStats(row: ConstPtr<MibTcp6row>, estatstype: TcpEstatsType, rw: MutPtr<UByte>, rwversion: UInt, rwsize: UInt, ros: MutPtr<UByte>, rosversion: UInt, rossize: UInt, rod: MutPtr<UByte>, rodversion: UInt, rodsize: UInt): UInt =
+public actual fun getPerTcp6ConnectionEStats(row: ConstPtr, estatstype: TcpEstatsType, rw: MutPtr, rwversion: UInt, rwsize: UInt, ros: MutPtr, rosversion: UInt, rossize: UInt, rod: MutPtr, rodversion: UInt, rodsize: UInt): UInt =
     windowssysWindowsWin32NetworkmanagementIphelperGetPerTcp6ConnectionEStats(row.rawAddress.toCPointer<ByteVar>(), estatstype, rw.rawAddress.toCPointer<ByteVar>(), rwversion, rwsize, ros.rawAddress.toCPointer<ByteVar>(), rosversion, rossize, rod.rawAddress.toCPointer<ByteVar>(), rodversion, rodsize)
 
-public actual fun getPerTcpConnectionEStats(row: ConstPtr<MibTcprowLh>, estatstype: TcpEstatsType, rw: MutPtr<UByte>, rwversion: UInt, rwsize: UInt, ros: MutPtr<UByte>, rosversion: UInt, rossize: UInt, rod: MutPtr<UByte>, rodversion: UInt, rodsize: UInt): UInt =
+public actual fun getPerTcpConnectionEStats(row: ConstPtr, estatstype: TcpEstatsType, rw: MutPtr, rwversion: UInt, rwsize: UInt, ros: MutPtr, rosversion: UInt, rossize: UInt, rod: MutPtr, rodversion: UInt, rodsize: UInt): UInt =
     windowssysWindowsWin32NetworkmanagementIphelperGetPerTcpConnectionEStats(row.rawAddress.toCPointer<ByteVar>(), estatstype, rw.rawAddress.toCPointer<ByteVar>(), rwversion, rwsize, ros.rawAddress.toCPointer<ByteVar>(), rosversion, rossize, rod.rawAddress.toCPointer<ByteVar>(), rodversion, rodsize)
 
-public actual fun getRTTAndHopCount(destipaddress: UInt, hopcount: MutPtr<UInt>, maxhops: UInt, rtt: MutPtr<UInt>): Bool =
+public actual fun getRTTAndHopCount(destipaddress: UInt, hopcount: MutPtr, maxhops: UInt, rtt: MutPtr): Bool =
     windowssysWindowsWin32NetworkmanagementIphelperGetRTTAndHopCount(destipaddress, hopcount.rawAddress.toCPointer<ByteVar>(), maxhops, rtt.rawAddress.toCPointer<ByteVar>())
 
 public actual fun getSessionCompartmentId(sessionid: UInt): NetIfCompartmentId =
     windowssysWindowsWin32NetworkmanagementIphelperGetSessionCompartmentId(sessionid)
 
-public actual fun getTcp6Table(tcptable: MutPtr<MibTcp6table>, sizepointer: MutPtr<UInt>, order: Bool): UInt =
+public actual fun getTcp6Table(tcptable: MutPtr, sizepointer: MutPtr, order: Bool): UInt =
     windowssysWindowsWin32NetworkmanagementIphelperGetTcp6Table(tcptable.rawAddress.toCPointer<ByteVar>(), sizepointer.rawAddress.toCPointer<ByteVar>(), order)
 
-public actual fun getTcp6Table2(tcptable: MutPtr<MibTcp6table2>, sizepointer: MutPtr<UInt>, order: Bool): UInt =
+public actual fun getTcp6Table2(tcptable: MutPtr, sizepointer: MutPtr, order: Bool): UInt =
     windowssysWindowsWin32NetworkmanagementIphelperGetTcp6Table2(tcptable.rawAddress.toCPointer<ByteVar>(), sizepointer.rawAddress.toCPointer<ByteVar>(), order)
 
-public actual fun getTcpStatistics(statistics: MutPtr<MibTcpstatsLh>): UInt =
+public actual fun getTcpStatistics(statistics: MutPtr): UInt =
     windowssysWindowsWin32NetworkmanagementIphelperGetTcpStatistics(statistics.rawAddress.toCPointer<ByteVar>())
 
-public actual fun getTcpStatisticsEx(statistics: MutPtr<MibTcpstatsLh>, family: UInt): UInt =
+public actual fun getTcpStatisticsEx(statistics: MutPtr, family: UInt): UInt =
     windowssysWindowsWin32NetworkmanagementIphelperGetTcpStatisticsEx(statistics.rawAddress.toCPointer<ByteVar>(), family)
 
-public actual fun getTcpStatisticsEx2(statistics: MutPtr<MibTcpstats2>, family: UInt): UInt =
+public actual fun getTcpStatisticsEx2(statistics: MutPtr, family: UInt): UInt =
     windowssysWindowsWin32NetworkmanagementIphelperGetTcpStatisticsEx2(statistics.rawAddress.toCPointer<ByteVar>(), family)
 
-public actual fun getTcpTable(tcptable: MutPtr<MibTcptable>, sizepointer: MutPtr<UInt>, order: Bool): UInt =
+public actual fun getTcpTable(tcptable: MutPtr, sizepointer: MutPtr, order: Bool): UInt =
     windowssysWindowsWin32NetworkmanagementIphelperGetTcpTable(tcptable.rawAddress.toCPointer<ByteVar>(), sizepointer.rawAddress.toCPointer<ByteVar>(), order)
 
-public actual fun getTcpTable2(tcptable: MutPtr<MibTcptable2>, sizepointer: MutPtr<UInt>, order: Bool): UInt =
+public actual fun getTcpTable2(tcptable: MutPtr, sizepointer: MutPtr, order: Bool): UInt =
     windowssysWindowsWin32NetworkmanagementIphelperGetTcpTable2(tcptable.rawAddress.toCPointer<ByteVar>(), sizepointer.rawAddress.toCPointer<ByteVar>(), order)
 
-public actual fun getTeredoPort(port: MutPtr<UShort>): Win32Error =
+public actual fun getTeredoPort(port: MutPtr): Win32Error =
     windowssysWindowsWin32NetworkmanagementIphelperGetTeredoPort(port.rawAddress.toCPointer<ByteVar>())
 
-public actual fun getUdp6Table(udp6table: MutPtr<MibUdp6table>, sizepointer: MutPtr<UInt>, order: Bool): UInt =
+public actual fun getUdp6Table(udp6table: MutPtr, sizepointer: MutPtr, order: Bool): UInt =
     windowssysWindowsWin32NetworkmanagementIphelperGetUdp6Table(udp6table.rawAddress.toCPointer<ByteVar>(), sizepointer.rawAddress.toCPointer<ByteVar>(), order)
 
-public actual fun getUdpStatistics(stats: MutPtr<MibUdpstats>): UInt =
+public actual fun getUdpStatistics(stats: MutPtr): UInt =
     windowssysWindowsWin32NetworkmanagementIphelperGetUdpStatistics(stats.rawAddress.toCPointer<ByteVar>())
 
-public actual fun getUdpStatisticsEx(statistics: MutPtr<MibUdpstats>, family: UInt): UInt =
+public actual fun getUdpStatisticsEx(statistics: MutPtr, family: UInt): UInt =
     windowssysWindowsWin32NetworkmanagementIphelperGetUdpStatisticsEx(statistics.rawAddress.toCPointer<ByteVar>(), family)
 
-public actual fun getUdpStatisticsEx2(statistics: MutPtr<MibUdpstats2>, family: UInt): UInt =
+public actual fun getUdpStatisticsEx2(statistics: MutPtr, family: UInt): UInt =
     windowssysWindowsWin32NetworkmanagementIphelperGetUdpStatisticsEx2(statistics.rawAddress.toCPointer<ByteVar>(), family)
 
-public actual fun getUdpTable(udptable: MutPtr<MibUdptable>, sizepointer: MutPtr<UInt>, order: Bool): UInt =
+public actual fun getUdpTable(udptable: MutPtr, sizepointer: MutPtr, order: Bool): UInt =
     windowssysWindowsWin32NetworkmanagementIphelperGetUdpTable(udptable.rawAddress.toCPointer<ByteVar>(), sizepointer.rawAddress.toCPointer<ByteVar>(), order)
 
-public actual fun getUniDirectionalAdapterInfo(pipifinfo: MutPtr<IpUnidirectionalAdapterAddress>, dwoutbuflen: MutPtr<UInt>): UInt =
+public actual fun getUniDirectionalAdapterInfo(pipifinfo: MutPtr, dwoutbuflen: MutPtr): UInt =
     windowssysWindowsWin32NetworkmanagementIphelperGetUniDirectionalAdapterInfo(pipifinfo.rawAddress.toCPointer<ByteVar>(), dwoutbuflen.rawAddress.toCPointer<ByteVar>())
 
-public actual fun getUnicastIpAddressEntry(row: MutPtr<MibUnicastipaddressRow>): Win32Error =
+public actual fun getUnicastIpAddressEntry(row: MutPtr): Win32Error =
     windowssysWindowsWin32NetworkmanagementIphelperGetUnicastIpAddressEntry(row.rawAddress.toCPointer<ByteVar>())
 
-public actual fun getUnicastIpAddressTable(family: AddressFamily, table: MutPtr<MutPtr<MibUnicastipaddressTable>>): Win32Error =
+public actual fun getUnicastIpAddressTable(family: AddressFamily, table: MutPtr): Win32Error =
     windowssysWindowsWin32NetworkmanagementIphelperGetUnicastIpAddressTable(family, table.rawAddress.toCPointer<ByteVar>())
 
 public actual fun icmp6CreateFile(): Handle =
     MutPtr(windowssysWindowsWin32NetworkmanagementIphelperIcmp6CreateFile()?.toLong() ?: 0L)
 
-public actual fun icmp6ParseReplies(replybuffer: MutPtr<CVoid>, replysize: UInt): UInt =
+public actual fun icmp6ParseReplies(replybuffer: MutPtr, replysize: UInt): UInt =
     windowssysWindowsWin32NetworkmanagementIphelperIcmp6ParseReplies(replybuffer.rawAddress.toCPointer<ByteVar>(), replysize)
 
-public actual fun icmp6SendEcho2(icmphandle: Handle, event: Handle, apcroutine: PioApcRoutine, apccontext: ConstPtr<CVoid>, sourceaddress: ConstPtr<SockaddrIn6>, destinationaddress: ConstPtr<SockaddrIn6>, requestdata: ConstPtr<CVoid>, requestsize: UShort, requestoptions: ConstPtr<IpOptionInformation>, replybuffer: MutPtr<CVoid>, replysize: UInt, timeout: UInt): UInt =
+public actual fun icmp6SendEcho2(icmphandle: Handle, event: Handle, apcroutine: PioApcRoutine, apccontext: ConstPtr, sourceaddress: ConstPtr, destinationaddress: ConstPtr, requestdata: ConstPtr, requestsize: UShort, requestoptions: ConstPtr, replybuffer: MutPtr, replysize: UInt, timeout: UInt): UInt =
     windowssysWindowsWin32NetworkmanagementIphelperIcmp6SendEcho2(icmphandle.rawAddress.toCPointer<ByteVar>(), event.rawAddress.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>(), apccontext.rawAddress.toCPointer<ByteVar>(), sourceaddress.rawAddress.toCPointer<ByteVar>(), destinationaddress.rawAddress.toCPointer<ByteVar>(), requestdata.rawAddress.toCPointer<ByteVar>(), requestsize, requestoptions.rawAddress.toCPointer<ByteVar>(), replybuffer.rawAddress.toCPointer<ByteVar>(), replysize, timeout)
 
 public actual fun icmpCloseHandle(icmphandle: Handle): Bool =
@@ -633,136 +625,136 @@ public actual fun icmpCloseHandle(icmphandle: Handle): Bool =
 public actual fun icmpCreateFile(): Handle =
     MutPtr(windowssysWindowsWin32NetworkmanagementIphelperIcmpCreateFile()?.toLong() ?: 0L)
 
-public actual fun icmpParseReplies(replybuffer: MutPtr<CVoid>, replysize: UInt): UInt =
+public actual fun icmpParseReplies(replybuffer: MutPtr, replysize: UInt): UInt =
     windowssysWindowsWin32NetworkmanagementIphelperIcmpParseReplies(replybuffer.rawAddress.toCPointer<ByteVar>(), replysize)
 
-public actual fun icmpSendEcho(icmphandle: Handle, destinationaddress: UInt, requestdata: ConstPtr<CVoid>, requestsize: UShort, requestoptions: ConstPtr<IpOptionInformation>, replybuffer: MutPtr<CVoid>, replysize: UInt, timeout: UInt): UInt =
+public actual fun icmpSendEcho(icmphandle: Handle, destinationaddress: UInt, requestdata: ConstPtr, requestsize: UShort, requestoptions: ConstPtr, replybuffer: MutPtr, replysize: UInt, timeout: UInt): UInt =
     windowssysWindowsWin32NetworkmanagementIphelperIcmpSendEcho(icmphandle.rawAddress.toCPointer<ByteVar>(), destinationaddress, requestdata.rawAddress.toCPointer<ByteVar>(), requestsize, requestoptions.rawAddress.toCPointer<ByteVar>(), replybuffer.rawAddress.toCPointer<ByteVar>(), replysize, timeout)
 
-public actual fun icmpSendEcho2(icmphandle: Handle, event: Handle, apcroutine: PioApcRoutine, apccontext: ConstPtr<CVoid>, destinationaddress: UInt, requestdata: ConstPtr<CVoid>, requestsize: UShort, requestoptions: ConstPtr<IpOptionInformation>, replybuffer: MutPtr<CVoid>, replysize: UInt, timeout: UInt): UInt =
+public actual fun icmpSendEcho2(icmphandle: Handle, event: Handle, apcroutine: PioApcRoutine, apccontext: ConstPtr, destinationaddress: UInt, requestdata: ConstPtr, requestsize: UShort, requestoptions: ConstPtr, replybuffer: MutPtr, replysize: UInt, timeout: UInt): UInt =
     windowssysWindowsWin32NetworkmanagementIphelperIcmpSendEcho2(icmphandle.rawAddress.toCPointer<ByteVar>(), event.rawAddress.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>(), apccontext.rawAddress.toCPointer<ByteVar>(), destinationaddress, requestdata.rawAddress.toCPointer<ByteVar>(), requestsize, requestoptions.rawAddress.toCPointer<ByteVar>(), replybuffer.rawAddress.toCPointer<ByteVar>(), replysize, timeout)
 
-public actual fun icmpSendEcho2Ex(icmphandle: Handle, event: Handle, apcroutine: PioApcRoutine, apccontext: ConstPtr<CVoid>, sourceaddress: UInt, destinationaddress: UInt, requestdata: ConstPtr<CVoid>, requestsize: UShort, requestoptions: ConstPtr<IpOptionInformation>, replybuffer: MutPtr<CVoid>, replysize: UInt, timeout: UInt): UInt =
+public actual fun icmpSendEcho2Ex(icmphandle: Handle, event: Handle, apcroutine: PioApcRoutine, apccontext: ConstPtr, sourceaddress: UInt, destinationaddress: UInt, requestdata: ConstPtr, requestsize: UShort, requestoptions: ConstPtr, replybuffer: MutPtr, replysize: UInt, timeout: UInt): UInt =
     windowssysWindowsWin32NetworkmanagementIphelperIcmpSendEcho2Ex(icmphandle.rawAddress.toCPointer<ByteVar>(), event.rawAddress.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>(), apccontext.rawAddress.toCPointer<ByteVar>(), sourceaddress, destinationaddress, requestdata.rawAddress.toCPointer<ByteVar>(), requestsize, requestoptions.rawAddress.toCPointer<ByteVar>(), replybuffer.rawAddress.toCPointer<ByteVar>(), replysize, timeout)
 
-public actual fun initializeIpForwardEntry(row: MutPtr<MibIpforwardRow2>) {
+public actual fun initializeIpForwardEntry(row: MutPtr) {
     windowssysWindowsWin32NetworkmanagementIphelperInitializeIpForwardEntry(row.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun initializeIpInterfaceEntry(row: MutPtr<MibIpinterfaceRow>) {
+public actual fun initializeIpInterfaceEntry(row: MutPtr) {
     windowssysWindowsWin32NetworkmanagementIphelperInitializeIpInterfaceEntry(row.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun initializeUnicastIpAddressEntry(row: MutPtr<MibUnicastipaddressRow>) {
+public actual fun initializeUnicastIpAddressEntry(row: MutPtr) {
     windowssysWindowsWin32NetworkmanagementIphelperInitializeUnicastIpAddressEntry(row.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun ipReleaseAddress(adapterinfo: ConstPtr<IpAdapterIndexMap>): UInt =
+public actual fun ipReleaseAddress(adapterinfo: ConstPtr): UInt =
     windowssysWindowsWin32NetworkmanagementIphelperIpReleaseAddress(adapterinfo.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ipRenewAddress(adapterinfo: ConstPtr<IpAdapterIndexMap>): UInt =
+public actual fun ipRenewAddress(adapterinfo: ConstPtr): UInt =
     windowssysWindowsWin32NetworkmanagementIphelperIpRenewAddress(adapterinfo.rawAddress.toCPointer<ByteVar>())
 
-public actual fun lookupPersistentTcpPortReservation(startport: UShort, numberofports: UShort, token: MutPtr<ULong>): UInt =
+public actual fun lookupPersistentTcpPortReservation(startport: UShort, numberofports: UShort, token: MutPtr): UInt =
     windowssysWindowsWin32NetworkmanagementIphelperLookupPersistentTcpPortReservation(startport, numberofports, token.rawAddress.toCPointer<ByteVar>())
 
-public actual fun lookupPersistentUdpPortReservation(startport: UShort, numberofports: UShort, token: MutPtr<ULong>): UInt =
+public actual fun lookupPersistentUdpPortReservation(startport: UShort, numberofports: UShort, token: MutPtr): UInt =
     windowssysWindowsWin32NetworkmanagementIphelperLookupPersistentUdpPortReservation(startport, numberofports, token.rawAddress.toCPointer<ByteVar>())
 
-public actual fun nhpAllocateAndGetInterfaceInfoFromStack(pptable: MutPtr<MutPtr<IpInterfaceNameInfoW2ksp1>>, pdwcount: MutPtr<UInt>, border: Bool, hheap: Handle, dwflags: UInt): UInt =
+public actual fun nhpAllocateAndGetInterfaceInfoFromStack(pptable: MutPtr, pdwcount: MutPtr, border: Bool, hheap: Handle, dwflags: UInt): UInt =
     windowssysWindowsWin32NetworkmanagementIphelperNhpAllocateAndGetInterfaceInfoFromStack(pptable.rawAddress.toCPointer<ByteVar>(), pdwcount.rawAddress.toCPointer<ByteVar>(), border, hheap.rawAddress.toCPointer<ByteVar>(), dwflags)
 
-public actual fun notifyAddrChange(handle: MutPtr<Handle>, overlapped: ConstPtr<Overlapped>): UInt =
+public actual fun notifyAddrChange(handle: MutPtr, overlapped: ConstPtr): UInt =
     windowssysWindowsWin32NetworkmanagementIphelperNotifyAddrChange(handle.rawAddress.toCPointer<ByteVar>(), overlapped.rawAddress.toCPointer<ByteVar>())
 
-public actual fun notifyIfTimestampConfigChange(callercontext: ConstPtr<CVoid>, callback: PinterfaceTimestampConfigChangeCallback, notificationhandle: MutPtr<Hiftimestampchange>): UInt =
+public actual fun notifyIfTimestampConfigChange(callercontext: ConstPtr, callback: PinterfaceTimestampConfigChangeCallback, notificationhandle: MutPtr): UInt =
     windowssysWindowsWin32NetworkmanagementIphelperNotifyIfTimestampConfigChange(callercontext.rawAddress.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>(), notificationhandle.rawAddress.toCPointer<ByteVar>())
 
-public actual fun notifyIpInterfaceChange(family: AddressFamily, callback: PipinterfaceChangeCallback, callercontext: ConstPtr<CVoid>, initialnotification: Boolean, notificationhandle: MutPtr<Handle>): Win32Error =
+public actual fun notifyIpInterfaceChange(family: AddressFamily, callback: PipinterfaceChangeCallback, callercontext: ConstPtr, initialnotification: Boolean, notificationhandle: MutPtr): Win32Error =
     windowssysWindowsWin32NetworkmanagementIphelperNotifyIpInterfaceChange(family, 0L.toCPointer<ByteVar>(), callercontext.rawAddress.toCPointer<ByteVar>(), initialnotification, notificationhandle.rawAddress.toCPointer<ByteVar>())
 
-public actual fun notifyNetworkConnectivityHintChange(callback: PnetworkConnectivityHintChangeCallback, callercontext: ConstPtr<CVoid>, initialnotification: Boolean, notificationhandle: MutPtr<Handle>): Win32Error =
+public actual fun notifyNetworkConnectivityHintChange(callback: PnetworkConnectivityHintChangeCallback, callercontext: ConstPtr, initialnotification: Boolean, notificationhandle: MutPtr): Win32Error =
     windowssysWindowsWin32NetworkmanagementIphelperNotifyNetworkConnectivityHintChange(0L.toCPointer<ByteVar>(), callercontext.rawAddress.toCPointer<ByteVar>(), initialnotification, notificationhandle.rawAddress.toCPointer<ByteVar>())
 
-public actual fun notifyRouteChange(handle: MutPtr<Handle>, overlapped: ConstPtr<Overlapped>): UInt =
+public actual fun notifyRouteChange(handle: MutPtr, overlapped: ConstPtr): UInt =
     windowssysWindowsWin32NetworkmanagementIphelperNotifyRouteChange(handle.rawAddress.toCPointer<ByteVar>(), overlapped.rawAddress.toCPointer<ByteVar>())
 
-public actual fun notifyRouteChange2(addressfamily: AddressFamily, callback: PipforwardChangeCallback, callercontext: ConstPtr<CVoid>, initialnotification: Boolean, notificationhandle: MutPtr<Handle>): Win32Error =
+public actual fun notifyRouteChange2(addressfamily: AddressFamily, callback: PipforwardChangeCallback, callercontext: ConstPtr, initialnotification: Boolean, notificationhandle: MutPtr): Win32Error =
     windowssysWindowsWin32NetworkmanagementIphelperNotifyRouteChange2(addressfamily, 0L.toCPointer<ByteVar>(), callercontext.rawAddress.toCPointer<ByteVar>(), initialnotification, notificationhandle.rawAddress.toCPointer<ByteVar>())
 
-public actual fun notifyStableUnicastIpAddressTable(family: AddressFamily, table: MutPtr<MutPtr<MibUnicastipaddressTable>>, callercallback: PstableUnicastIpaddressTableCallback, callercontext: ConstPtr<CVoid>, notificationhandle: MutPtr<Handle>): Win32Error =
+public actual fun notifyStableUnicastIpAddressTable(family: AddressFamily, table: MutPtr, callercallback: PstableUnicastIpaddressTableCallback, callercontext: ConstPtr, notificationhandle: MutPtr): Win32Error =
     windowssysWindowsWin32NetworkmanagementIphelperNotifyStableUnicastIpAddressTable(family, table.rawAddress.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>(), callercontext.rawAddress.toCPointer<ByteVar>(), notificationhandle.rawAddress.toCPointer<ByteVar>())
 
-public actual fun notifyTeredoPortChange(callback: PteredoPortChangeCallback, callercontext: ConstPtr<CVoid>, initialnotification: Boolean, notificationhandle: MutPtr<Handle>): Win32Error =
+public actual fun notifyTeredoPortChange(callback: PteredoPortChangeCallback, callercontext: ConstPtr, initialnotification: Boolean, notificationhandle: MutPtr): Win32Error =
     windowssysWindowsWin32NetworkmanagementIphelperNotifyTeredoPortChange(0L.toCPointer<ByteVar>(), callercontext.rawAddress.toCPointer<ByteVar>(), initialnotification, notificationhandle.rawAddress.toCPointer<ByteVar>())
 
-public actual fun notifyUnicastIpAddressChange(family: AddressFamily, callback: PunicastIpaddressChangeCallback, callercontext: ConstPtr<CVoid>, initialnotification: Boolean, notificationhandle: MutPtr<Handle>): Win32Error =
+public actual fun notifyUnicastIpAddressChange(family: AddressFamily, callback: PunicastIpaddressChangeCallback, callercontext: ConstPtr, initialnotification: Boolean, notificationhandle: MutPtr): Win32Error =
     windowssysWindowsWin32NetworkmanagementIphelperNotifyUnicastIpAddressChange(family, 0L.toCPointer<ByteVar>(), callercontext.rawAddress.toCPointer<ByteVar>(), initialnotification, notificationhandle.rawAddress.toCPointer<ByteVar>())
 
-public actual fun parseNetworkString(networkstring: Pcwstr, types: UInt, addressinfo: MutPtr<NetAddressInfo>, portnumber: MutPtr<UShort>, prefixlength: MutPtr<UByte>): UInt =
+public actual fun parseNetworkString(networkstring: Pcwstr, types: UInt, addressinfo: MutPtr, portnumber: MutPtr, prefixlength: MutPtr): UInt =
     windowssysWindowsWin32NetworkmanagementIphelperParseNetworkString(networkstring.rawAddress.toCPointer<ByteVar>(), types, addressinfo.rawAddress.toCPointer<ByteVar>(), portnumber.rawAddress.toCPointer<ByteVar>(), prefixlength.rawAddress.toCPointer<ByteVar>())
 
-public actual fun pfAddFiltersToInterface(ih: MutPtr<CVoid>, cinfilters: UInt, pfiltin: MutPtr<PfFilterDescriptor>, coutfilters: UInt, pfiltout: MutPtr<PfFilterDescriptor>, pfhandle: MutPtr<MutPtr<CVoid>>): UInt =
+public actual fun pfAddFiltersToInterface(ih: MutPtr, cinfilters: UInt, pfiltin: MutPtr, coutfilters: UInt, pfiltout: MutPtr, pfhandle: MutPtr): UInt =
     windowssysWindowsWin32NetworkmanagementIphelperPfAddFiltersToInterface(ih.rawAddress.toCPointer<ByteVar>(), cinfilters, pfiltin.rawAddress.toCPointer<ByteVar>(), coutfilters, pfiltout.rawAddress.toCPointer<ByteVar>(), pfhandle.rawAddress.toCPointer<ByteVar>())
 
-public actual fun pfAddGlobalFilterToInterface(pinterface: MutPtr<CVoid>, gffilter: GlobalFilter): UInt =
+public actual fun pfAddGlobalFilterToInterface(pinterface: MutPtr, gffilter: GlobalFilter): UInt =
     windowssysWindowsWin32NetworkmanagementIphelperPfAddGlobalFilterToInterface(pinterface.rawAddress.toCPointer<ByteVar>(), gffilter)
 
-public actual fun pfBindInterfaceToIPAddress(pinterface: MutPtr<CVoid>, pfattype: Pfaddresstype, ipaddress: MutPtr<UByte>): UInt =
+public actual fun pfBindInterfaceToIPAddress(pinterface: MutPtr, pfattype: Pfaddresstype, ipaddress: MutPtr): UInt =
     windowssysWindowsWin32NetworkmanagementIphelperPfBindInterfaceToIPAddress(pinterface.rawAddress.toCPointer<ByteVar>(), pfattype, ipaddress.rawAddress.toCPointer<ByteVar>())
 
-public actual fun pfBindInterfaceToIndex(pinterface: MutPtr<CVoid>, dwindex: UInt, pfatlinktype: Pfaddresstype, linkipaddress: MutPtr<UByte>): UInt =
+public actual fun pfBindInterfaceToIndex(pinterface: MutPtr, dwindex: UInt, pfatlinktype: Pfaddresstype, linkipaddress: MutPtr): UInt =
     windowssysWindowsWin32NetworkmanagementIphelperPfBindInterfaceToIndex(pinterface.rawAddress.toCPointer<ByteVar>(), dwindex, pfatlinktype, linkipaddress.rawAddress.toCPointer<ByteVar>())
 
-public actual fun pfCreateInterface(dwname: UInt, inaction: PfforwardAction, outaction: PfforwardAction, buselog: Bool, bmustbeunique: Bool, ppinterface: MutPtr<MutPtr<CVoid>>): UInt =
+public actual fun pfCreateInterface(dwname: UInt, inaction: PfforwardAction, outaction: PfforwardAction, buselog: Bool, bmustbeunique: Bool, ppinterface: MutPtr): UInt =
     windowssysWindowsWin32NetworkmanagementIphelperPfCreateInterface(dwname, inaction, outaction, buselog, bmustbeunique, ppinterface.rawAddress.toCPointer<ByteVar>())
 
-public actual fun pfDeleteInterface(pinterface: MutPtr<CVoid>): UInt =
+public actual fun pfDeleteInterface(pinterface: MutPtr): UInt =
     windowssysWindowsWin32NetworkmanagementIphelperPfDeleteInterface(pinterface.rawAddress.toCPointer<ByteVar>())
 
 public actual fun pfDeleteLog(): UInt =
     windowssysWindowsWin32NetworkmanagementIphelperPfDeleteLog()
 
-public actual fun pfGetInterfaceStatistics(pinterface: MutPtr<CVoid>, ppfstats: MutPtr<PfInterfaceStats>, pdwbuffersize: MutPtr<UInt>, fresetcounters: Bool): UInt =
+public actual fun pfGetInterfaceStatistics(pinterface: MutPtr, ppfstats: MutPtr, pdwbuffersize: MutPtr, fresetcounters: Bool): UInt =
     windowssysWindowsWin32NetworkmanagementIphelperPfGetInterfaceStatistics(pinterface.rawAddress.toCPointer<ByteVar>(), ppfstats.rawAddress.toCPointer<ByteVar>(), pdwbuffersize.rawAddress.toCPointer<ByteVar>(), fresetcounters)
 
 public actual fun pfMakeLog(hevent: Handle): UInt =
     windowssysWindowsWin32NetworkmanagementIphelperPfMakeLog(hevent.rawAddress.toCPointer<ByteVar>())
 
-public actual fun pfRebindFilters(pinterface: MutPtr<CVoid>, platebindinfo: MutPtr<PfLatebindInfo>): UInt =
+public actual fun pfRebindFilters(pinterface: MutPtr, platebindinfo: MutPtr): UInt =
     windowssysWindowsWin32NetworkmanagementIphelperPfRebindFilters(pinterface.rawAddress.toCPointer<ByteVar>(), platebindinfo.rawAddress.toCPointer<ByteVar>())
 
-public actual fun pfRemoveFilterHandles(pinterface: MutPtr<CVoid>, cfilters: UInt, pvhandles: MutPtr<MutPtr<CVoid>>): UInt =
+public actual fun pfRemoveFilterHandles(pinterface: MutPtr, cfilters: UInt, pvhandles: MutPtr): UInt =
     windowssysWindowsWin32NetworkmanagementIphelperPfRemoveFilterHandles(pinterface.rawAddress.toCPointer<ByteVar>(), cfilters, pvhandles.rawAddress.toCPointer<ByteVar>())
 
-public actual fun pfRemoveFiltersFromInterface(ih: MutPtr<CVoid>, cinfilters: UInt, pfiltin: MutPtr<PfFilterDescriptor>, coutfilters: UInt, pfiltout: MutPtr<PfFilterDescriptor>): UInt =
+public actual fun pfRemoveFiltersFromInterface(ih: MutPtr, cinfilters: UInt, pfiltin: MutPtr, coutfilters: UInt, pfiltout: MutPtr): UInt =
     windowssysWindowsWin32NetworkmanagementIphelperPfRemoveFiltersFromInterface(ih.rawAddress.toCPointer<ByteVar>(), cinfilters, pfiltin.rawAddress.toCPointer<ByteVar>(), coutfilters, pfiltout.rawAddress.toCPointer<ByteVar>())
 
-public actual fun pfRemoveGlobalFilterFromInterface(pinterface: MutPtr<CVoid>, gffilter: GlobalFilter): UInt =
+public actual fun pfRemoveGlobalFilterFromInterface(pinterface: MutPtr, gffilter: GlobalFilter): UInt =
     windowssysWindowsWin32NetworkmanagementIphelperPfRemoveGlobalFilterFromInterface(pinterface.rawAddress.toCPointer<ByteVar>(), gffilter)
 
-public actual fun pfSetLogBuffer(pbbuffer: MutPtr<UByte>, dwsize: UInt, dwthreshold: UInt, dwentries: UInt, pdwloggedentries: MutPtr<UInt>, pdwlostentries: MutPtr<UInt>, pdwsizeused: MutPtr<UInt>): UInt =
+public actual fun pfSetLogBuffer(pbbuffer: MutPtr, dwsize: UInt, dwthreshold: UInt, dwentries: UInt, pdwloggedentries: MutPtr, pdwlostentries: MutPtr, pdwsizeused: MutPtr): UInt =
     windowssysWindowsWin32NetworkmanagementIphelperPfSetLogBuffer(pbbuffer.rawAddress.toCPointer<ByteVar>(), dwsize, dwthreshold, dwentries, pdwloggedentries.rawAddress.toCPointer<ByteVar>(), pdwlostentries.rawAddress.toCPointer<ByteVar>(), pdwsizeused.rawAddress.toCPointer<ByteVar>())
 
-public actual fun pfTestPacket(pininterface: MutPtr<CVoid>, poutinterface: MutPtr<CVoid>, cbytes: UInt, pbpacket: MutPtr<UByte>, ppaction: MutPtr<PfforwardAction>): UInt =
+public actual fun pfTestPacket(pininterface: MutPtr, poutinterface: MutPtr, cbytes: UInt, pbpacket: MutPtr, ppaction: MutPtr): UInt =
     windowssysWindowsWin32NetworkmanagementIphelperPfTestPacket(pininterface.rawAddress.toCPointer<ByteVar>(), poutinterface.rawAddress.toCPointer<ByteVar>(), cbytes, pbpacket.rawAddress.toCPointer<ByteVar>(), ppaction.rawAddress.toCPointer<ByteVar>())
 
-public actual fun pfUnBindInterface(pinterface: MutPtr<CVoid>): UInt =
+public actual fun pfUnBindInterface(pinterface: MutPtr): UInt =
     windowssysWindowsWin32NetworkmanagementIphelperPfUnBindInterface(pinterface.rawAddress.toCPointer<ByteVar>())
 
-public actual fun registerInterfaceTimestampConfigChange(callback: PinterfaceTimestampConfigChangeCallback, callercontext: ConstPtr<CVoid>, notificationhandle: MutPtr<Hiftimestampchange>): UInt =
+public actual fun registerInterfaceTimestampConfigChange(callback: PinterfaceTimestampConfigChangeCallback, callercontext: ConstPtr, notificationhandle: MutPtr): UInt =
     windowssysWindowsWin32NetworkmanagementIphelperRegisterInterfaceTimestampConfigChange(0L.toCPointer<ByteVar>(), callercontext.rawAddress.toCPointer<ByteVar>(), notificationhandle.rawAddress.toCPointer<ByteVar>())
 
-public actual fun resolveIpNetEntry2(row: MutPtr<MibIpnetRow2>, sourceaddress: ConstPtr<SockaddrInet>): Win32Error =
+public actual fun resolveIpNetEntry2(row: MutPtr, sourceaddress: ConstPtr): Win32Error =
     windowssysWindowsWin32NetworkmanagementIphelperResolveIpNetEntry2(row.rawAddress.toCPointer<ByteVar>(), sourceaddress.rawAddress.toCPointer<ByteVar>())
 
-public actual fun resolveNeighbor(networkaddress: ConstPtr<Sockaddr>, physicaladdress: MutPtr<CVoid>, physicaladdresslength: MutPtr<UInt>): UInt =
+public actual fun resolveNeighbor(networkaddress: ConstPtr, physicaladdress: MutPtr, physicaladdresslength: MutPtr): UInt =
     windowssysWindowsWin32NetworkmanagementIphelperResolveNeighbor(networkaddress.rawAddress.toCPointer<ByteVar>(), physicaladdress.rawAddress.toCPointer<ByteVar>(), physicaladdresslength.rawAddress.toCPointer<ByteVar>())
 
-public actual fun restoreMediaSense(poverlapped: ConstPtr<Overlapped>, lpdwenablecount: MutPtr<UInt>): UInt =
+public actual fun restoreMediaSense(poverlapped: ConstPtr, lpdwenablecount: MutPtr): UInt =
     windowssysWindowsWin32NetworkmanagementIphelperRestoreMediaSense(poverlapped.rawAddress.toCPointer<ByteVar>(), lpdwenablecount.rawAddress.toCPointer<ByteVar>())
 
-public actual fun sendARP(destip: UInt, srcip: UInt, pmacaddr: MutPtr<CVoid>, phyaddrlen: MutPtr<UInt>): UInt =
+public actual fun sendARP(destip: UInt, srcip: UInt, pmacaddr: MutPtr, phyaddrlen: MutPtr): UInt =
     windowssysWindowsWin32NetworkmanagementIphelperSendARP(destip, srcip, pmacaddr.rawAddress.toCPointer<ByteVar>(), phyaddrlen.rawAddress.toCPointer<ByteVar>())
 
 public actual fun setCurrentThreadCompartmentId(compartmentid: NetIfCompartmentId): Win32Error =
@@ -771,34 +763,34 @@ public actual fun setCurrentThreadCompartmentId(compartmentid: NetIfCompartmentI
 public actual fun setCurrentThreadCompartmentScope(compartmentscope: UInt): Win32Error =
     windowssysWindowsWin32NetworkmanagementIphelperSetCurrentThreadCompartmentScope(compartmentscope)
 
-public actual fun setDnsSettings(settings: ConstPtr<DnsSettings>): Win32Error =
+public actual fun setDnsSettings(settings: ConstPtr): Win32Error =
     windowssysWindowsWin32NetworkmanagementIphelperSetDnsSettings(settings.rawAddress.toCPointer<ByteVar>())
 
-public actual fun setIfEntry(pifrow: ConstPtr<MibIfrow>): UInt =
+public actual fun setIfEntry(pifrow: ConstPtr): UInt =
     windowssysWindowsWin32NetworkmanagementIphelperSetIfEntry(pifrow.rawAddress.toCPointer<ByteVar>())
 
-public actual fun setInterfaceDnsSettings(iface: Guid, settings: ConstPtr<DnsInterfaceSettings>): Win32Error =
+public actual fun setInterfaceDnsSettings(iface: Guid, settings: ConstPtr): Win32Error =
     0u
 
-public actual fun setIpForwardEntry(proute: ConstPtr<MibIpforwardrow>): UInt =
+public actual fun setIpForwardEntry(proute: ConstPtr): UInt =
     windowssysWindowsWin32NetworkmanagementIphelperSetIpForwardEntry(proute.rawAddress.toCPointer<ByteVar>())
 
-public actual fun setIpForwardEntry2(route: ConstPtr<MibIpforwardRow2>): Win32Error =
+public actual fun setIpForwardEntry2(route: ConstPtr): Win32Error =
     windowssysWindowsWin32NetworkmanagementIphelperSetIpForwardEntry2(route.rawAddress.toCPointer<ByteVar>())
 
-public actual fun setIpInterfaceEntry(row: MutPtr<MibIpinterfaceRow>): Win32Error =
+public actual fun setIpInterfaceEntry(row: MutPtr): Win32Error =
     windowssysWindowsWin32NetworkmanagementIphelperSetIpInterfaceEntry(row.rawAddress.toCPointer<ByteVar>())
 
-public actual fun setIpNetEntry(parpentry: ConstPtr<MibIpnetrowLh>): UInt =
+public actual fun setIpNetEntry(parpentry: ConstPtr): UInt =
     windowssysWindowsWin32NetworkmanagementIphelperSetIpNetEntry(parpentry.rawAddress.toCPointer<ByteVar>())
 
-public actual fun setIpNetEntry2(row: ConstPtr<MibIpnetRow2>): Win32Error =
+public actual fun setIpNetEntry2(row: ConstPtr): Win32Error =
     windowssysWindowsWin32NetworkmanagementIphelperSetIpNetEntry2(row.rawAddress.toCPointer<ByteVar>())
 
-public actual fun setIpStatistics(pipstats: ConstPtr<MibIpstatsLh>): UInt =
+public actual fun setIpStatistics(pipstats: ConstPtr): UInt =
     windowssysWindowsWin32NetworkmanagementIphelperSetIpStatistics(pipstats.rawAddress.toCPointer<ByteVar>())
 
-public actual fun setIpStatisticsEx(statistics: ConstPtr<MibIpstatsLh>, family: UInt): UInt =
+public actual fun setIpStatisticsEx(statistics: ConstPtr, family: UInt): UInt =
     windowssysWindowsWin32NetworkmanagementIphelperSetIpStatisticsEx(statistics.rawAddress.toCPointer<ByteVar>(), family)
 
 public actual fun setIpTTL(nttl: UInt): UInt =
@@ -807,25 +799,25 @@ public actual fun setIpTTL(nttl: UInt): UInt =
 public actual fun setJobCompartmentId(jobhandle: Handle, compartmentid: NetIfCompartmentId): Win32Error =
     windowssysWindowsWin32NetworkmanagementIphelperSetJobCompartmentId(jobhandle.rawAddress.toCPointer<ByteVar>(), compartmentid)
 
-public actual fun setNetworkInformation(networkguid: ConstPtr<Guid>, compartmentid: NetIfCompartmentId, networkname: Pcwstr): Win32Error =
+public actual fun setNetworkInformation(networkguid: ConstPtr, compartmentid: NetIfCompartmentId, networkname: Pcwstr): Win32Error =
     windowssysWindowsWin32NetworkmanagementIphelperSetNetworkInformation(networkguid.rawAddress.toCPointer<ByteVar>(), compartmentid, networkname.rawAddress.toCPointer<ByteVar>())
 
-public actual fun setPerTcp6ConnectionEStats(row: ConstPtr<MibTcp6row>, estatstype: TcpEstatsType, rw: ConstPtr<UByte>, rwversion: UInt, rwsize: UInt, offset: UInt): UInt =
+public actual fun setPerTcp6ConnectionEStats(row: ConstPtr, estatstype: TcpEstatsType, rw: ConstPtr, rwversion: UInt, rwsize: UInt, offset: UInt): UInt =
     windowssysWindowsWin32NetworkmanagementIphelperSetPerTcp6ConnectionEStats(row.rawAddress.toCPointer<ByteVar>(), estatstype, rw.rawAddress.toCPointer<ByteVar>(), rwversion, rwsize, offset)
 
-public actual fun setPerTcpConnectionEStats(row: ConstPtr<MibTcprowLh>, estatstype: TcpEstatsType, rw: ConstPtr<UByte>, rwversion: UInt, rwsize: UInt, offset: UInt): UInt =
+public actual fun setPerTcpConnectionEStats(row: ConstPtr, estatstype: TcpEstatsType, rw: ConstPtr, rwversion: UInt, rwsize: UInt, offset: UInt): UInt =
     windowssysWindowsWin32NetworkmanagementIphelperSetPerTcpConnectionEStats(row.rawAddress.toCPointer<ByteVar>(), estatstype, rw.rawAddress.toCPointer<ByteVar>(), rwversion, rwsize, offset)
 
 public actual fun setSessionCompartmentId(sessionid: UInt, compartmentid: NetIfCompartmentId): Win32Error =
     windowssysWindowsWin32NetworkmanagementIphelperSetSessionCompartmentId(sessionid, compartmentid)
 
-public actual fun setTcpEntry(ptcprow: ConstPtr<MibTcprowLh>): UInt =
+public actual fun setTcpEntry(ptcprow: ConstPtr): UInt =
     windowssysWindowsWin32NetworkmanagementIphelperSetTcpEntry(ptcprow.rawAddress.toCPointer<ByteVar>())
 
-public actual fun setUnicastIpAddressEntry(row: ConstPtr<MibUnicastipaddressRow>): Win32Error =
+public actual fun setUnicastIpAddressEntry(row: ConstPtr): Win32Error =
     windowssysWindowsWin32NetworkmanagementIphelperSetUnicastIpAddressEntry(row.rawAddress.toCPointer<ByteVar>())
 
-public actual fun unenableRouter(poverlapped: ConstPtr<Overlapped>, lpdwenablecount: MutPtr<UInt>): UInt =
+public actual fun unenableRouter(poverlapped: ConstPtr, lpdwenablecount: MutPtr): UInt =
     windowssysWindowsWin32NetworkmanagementIphelperUnenableRouter(poverlapped.rawAddress.toCPointer<ByteVar>(), lpdwenablecount.rawAddress.toCPointer<ByteVar>())
 
 public actual fun unregisterInterfaceTimestampConfigChange(notificationhandle: Hiftimestampchange) {

@@ -1,6 +1,5 @@
 package io.github.kotlinmania.windowssys.windows.win32.storage.cabinets
 
-import io.github.kotlinmania.rustlang.core.ffi.CVoid
 import io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
 import io.github.kotlinmania.rustlang.core.mem.TypeLayout
 import io.github.kotlinmania.rustlang.core.ptr.MutPtr
@@ -178,10 +177,10 @@ public data class Fdicabinetinfo(
 
 public class Fdidecrypt internal constructor(
     public var fdidt: Fdidecrypttype,
-    pvUserCtorArg: MutPtr<CVoid>,
+    pvUserCtorArg: MutPtr,
     public var anonymous: Fdidecrypt0,
 ) {
-    public var pvUser: MutPtr<CVoid> = pvUserCtorArg
+    public var pvUser: MutPtr = pvUserCtorArg
         internal set
 
     public constructor() : this(
@@ -192,11 +191,11 @@ public class Fdidecrypt internal constructor(
 
     public operator fun component1(): Fdidecrypttype = this.fdidt
 
-    public operator fun component2(): MutPtr<CVoid> = this.pvUser
+    public operator fun component2(): MutPtr = this.pvUser
 
     public operator fun component3(): Fdidecrypt0 = this.anonymous
 
-    public fun copy(fdidt: Fdidecrypttype = this.fdidt, pvUser: MutPtr<CVoid> = this.pvUser, anonymous: Fdidecrypt0 = this.anonymous): Fdidecrypt = Fdidecrypt(fdidt = fdidt, pvUserCtorArg = pvUser, anonymous = anonymous)
+    public fun copy(fdidt: Fdidecrypttype = this.fdidt, pvUser: MutPtr = this.pvUser, anonymous: Fdidecrypt0 = this.anonymous): Fdidecrypt = Fdidecrypt(fdidt = fdidt, pvUserCtorArg = pvUser, anonymous = anonymous)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -217,7 +216,7 @@ public class Fdidecrypt internal constructor(
     public companion object {
         public operator fun invoke(
             fdidt: Fdidecrypttype = 0,
-            pvUser: MutPtr<CVoid> = MutPtr(0L),
+            pvUser: MutPtr = MutPtr(0L),
             anonymous: Fdidecrypt0 = Fdidecrypt0(),
         ): Fdidecrypt =
             Fdidecrypt(
@@ -235,12 +234,12 @@ public data class Fdidecrypt0(
 )
 
 public class Fdidecrypt00 internal constructor(
-    pHeaderReserveCtorArg: MutPtr<CVoid>,
+    pHeaderReserveCtorArg: MutPtr,
     public var cbHeaderReserve: UShort,
     public var setID: UShort,
     public var iCabinet: Int,
 ) {
-    public var pHeaderReserve: MutPtr<CVoid> = pHeaderReserveCtorArg
+    public var pHeaderReserve: MutPtr = pHeaderReserveCtorArg
         internal set
 
     public constructor() : this(
@@ -250,7 +249,7 @@ public class Fdidecrypt00 internal constructor(
         iCabinet = 0,
     )
 
-    public operator fun component1(): MutPtr<CVoid> = this.pHeaderReserve
+    public operator fun component1(): MutPtr = this.pHeaderReserve
 
     public operator fun component2(): UShort = this.cbHeaderReserve
 
@@ -258,7 +257,7 @@ public class Fdidecrypt00 internal constructor(
 
     public operator fun component4(): Int = this.iCabinet
 
-    public fun copy(pHeaderReserve: MutPtr<CVoid> = this.pHeaderReserve, cbHeaderReserve: UShort = this.cbHeaderReserve, setID: UShort = this.setID, iCabinet: Int = this.iCabinet): Fdidecrypt00 = Fdidecrypt00(pHeaderReserveCtorArg = pHeaderReserve, cbHeaderReserve = cbHeaderReserve, setID = setID, iCabinet = iCabinet)
+    public fun copy(pHeaderReserve: MutPtr = this.pHeaderReserve, cbHeaderReserve: UShort = this.cbHeaderReserve, setID: UShort = this.setID, iCabinet: Int = this.iCabinet): Fdidecrypt00 = Fdidecrypt00(pHeaderReserveCtorArg = pHeaderReserve, cbHeaderReserve = cbHeaderReserve, setID = setID, iCabinet = iCabinet)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -287,7 +286,7 @@ public class Fdidecrypt00 internal constructor(
                     Fdidecrypt00(
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<CVoid>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16).readNative(addr + 8L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16).readNative(addr + 10L),
@@ -296,7 +295,7 @@ public class Fdidecrypt00 internal constructor(
                 override fun writeNative(addr: Long, value: Fdidecrypt00) {
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<CVoid>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr, value.pHeaderReserve)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16).writeNative(addr + 8L, value.cbHeaderReserve)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16).writeNative(addr + 10L, value.setID)
@@ -305,7 +304,7 @@ public class Fdidecrypt00 internal constructor(
             }
 
         public operator fun invoke(
-            pHeaderReserve: MutPtr<CVoid> = MutPtr(0L),
+            pHeaderReserve: MutPtr = MutPtr(0L),
             cbHeaderReserve: UShort = 0u,
             setID: UShort = 0u,
             iCabinet: Int = 0,
@@ -320,17 +319,17 @@ public class Fdidecrypt00 internal constructor(
 }
 
 public class Fdidecrypt02 internal constructor(
-    pDataReserveCtorArg: MutPtr<CVoid>,
+    pDataReserveCtorArg: MutPtr,
     public var cbDataReserve: UShort,
-    pbDataCtorArg: MutPtr<CVoid>,
+    pbDataCtorArg: MutPtr,
     public var cbData: UShort,
     public var fSplit: Bool,
     public var cbPartial: UShort,
 ) {
-    public var pDataReserve: MutPtr<CVoid> = pDataReserveCtorArg
+    public var pDataReserve: MutPtr = pDataReserveCtorArg
         internal set
 
-    public var pbData: MutPtr<CVoid> = pbDataCtorArg
+    public var pbData: MutPtr = pbDataCtorArg
         internal set
 
     public constructor() : this(
@@ -342,11 +341,11 @@ public class Fdidecrypt02 internal constructor(
         cbPartial = 0u,
     )
 
-    public operator fun component1(): MutPtr<CVoid> = this.pDataReserve
+    public operator fun component1(): MutPtr = this.pDataReserve
 
     public operator fun component2(): UShort = this.cbDataReserve
 
-    public operator fun component3(): MutPtr<CVoid> = this.pbData
+    public operator fun component3(): MutPtr = this.pbData
 
     public operator fun component4(): UShort = this.cbData
 
@@ -354,7 +353,7 @@ public class Fdidecrypt02 internal constructor(
 
     public operator fun component6(): UShort = this.cbPartial
 
-    public fun copy(pDataReserve: MutPtr<CVoid> = this.pDataReserve, cbDataReserve: UShort = this.cbDataReserve, pbData: MutPtr<CVoid> = this.pbData, cbData: UShort = this.cbData, fSplit: Bool = this.fSplit, cbPartial: UShort = this.cbPartial): Fdidecrypt02 = Fdidecrypt02(pDataReserveCtorArg = pDataReserve, cbDataReserve = cbDataReserve, pbDataCtorArg = pbData, cbData = cbData, fSplit = fSplit, cbPartial = cbPartial)
+    public fun copy(pDataReserve: MutPtr = this.pDataReserve, cbDataReserve: UShort = this.cbDataReserve, pbData: MutPtr = this.pbData, cbData: UShort = this.cbData, fSplit: Bool = this.fSplit, cbPartial: UShort = this.cbPartial): Fdidecrypt02 = Fdidecrypt02(pDataReserveCtorArg = pDataReserve, cbDataReserve = cbDataReserve, pbDataCtorArg = pbData, cbData = cbData, fSplit = fSplit, cbPartial = cbPartial)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -387,12 +386,12 @@ public class Fdidecrypt02 internal constructor(
                     Fdidecrypt02(
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<CVoid>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16).readNative(addr + 8L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<CVoid>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 16L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16).readNative(addr + 24L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr + 28L),
@@ -401,12 +400,12 @@ public class Fdidecrypt02 internal constructor(
                 override fun writeNative(addr: Long, value: Fdidecrypt02) {
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<CVoid>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr, value.pDataReserve)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16).writeNative(addr + 8L, value.cbDataReserve)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<CVoid>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 16L, value.pbData)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16).writeNative(addr + 24L, value.cbData)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr + 28L, value.fSplit)
@@ -415,9 +414,9 @@ public class Fdidecrypt02 internal constructor(
             }
 
         public operator fun invoke(
-            pDataReserve: MutPtr<CVoid> = MutPtr(0L),
+            pDataReserve: MutPtr = MutPtr(0L),
             cbDataReserve: UShort = 0u,
-            pbData: MutPtr<CVoid> = MutPtr(0L),
+            pbData: MutPtr = MutPtr(0L),
             cbData: UShort = 0u,
             fSplit: Bool = 0,
             cbPartial: UShort = 0u,
@@ -434,11 +433,11 @@ public class Fdidecrypt02 internal constructor(
 }
 
 public class Fdidecrypt01 internal constructor(
-    pFolderReserveCtorArg: MutPtr<CVoid>,
+    pFolderReserveCtorArg: MutPtr,
     public var cbFolderReserve: UShort,
     public var iFolder: UShort,
 ) {
-    public var pFolderReserve: MutPtr<CVoid> = pFolderReserveCtorArg
+    public var pFolderReserve: MutPtr = pFolderReserveCtorArg
         internal set
 
     public constructor() : this(
@@ -447,13 +446,13 @@ public class Fdidecrypt01 internal constructor(
         iFolder = 0u,
     )
 
-    public operator fun component1(): MutPtr<CVoid> = this.pFolderReserve
+    public operator fun component1(): MutPtr = this.pFolderReserve
 
     public operator fun component2(): UShort = this.cbFolderReserve
 
     public operator fun component3(): UShort = this.iFolder
 
-    public fun copy(pFolderReserve: MutPtr<CVoid> = this.pFolderReserve, cbFolderReserve: UShort = this.cbFolderReserve, iFolder: UShort = this.iFolder): Fdidecrypt01 = Fdidecrypt01(pFolderReserveCtorArg = pFolderReserve, cbFolderReserve = cbFolderReserve, iFolder = iFolder)
+    public fun copy(pFolderReserve: MutPtr = this.pFolderReserve, cbFolderReserve: UShort = this.cbFolderReserve, iFolder: UShort = this.iFolder): Fdidecrypt01 = Fdidecrypt01(pFolderReserveCtorArg = pFolderReserve, cbFolderReserve = cbFolderReserve, iFolder = iFolder)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -480,7 +479,7 @@ public class Fdidecrypt01 internal constructor(
                     Fdidecrypt01(
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<CVoid>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16).readNative(addr + 8L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16).readNative(addr + 10L),
@@ -488,7 +487,7 @@ public class Fdidecrypt01 internal constructor(
                 override fun writeNative(addr: Long, value: Fdidecrypt01) {
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<CVoid>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr, value.pFolderReserve)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16).writeNative(addr + 8L, value.cbFolderReserve)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16).writeNative(addr + 10L, value.iFolder)
@@ -496,7 +495,7 @@ public class Fdidecrypt01 internal constructor(
             }
 
         public operator fun invoke(
-            pFolderReserve: MutPtr<CVoid> = MutPtr(0L),
+            pFolderReserve: MutPtr = MutPtr(0L),
             cbFolderReserve: UShort = 0u,
             iFolder: UShort = 0u,
         ): Fdidecrypt01 =
@@ -513,7 +512,7 @@ public class Fdinotification internal constructor(
     psz1CtorArg: Pstr,
     psz2CtorArg: Pstr,
     psz3CtorArg: Pstr,
-    pvCtorArg: MutPtr<CVoid>,
+    pvCtorArg: MutPtr,
     public var hf: Int,
     public var date: UShort,
     public var time: UShort,
@@ -532,7 +531,7 @@ public class Fdinotification internal constructor(
     public var psz3: Pstr = psz3CtorArg
         internal set
 
-    public var pv: MutPtr<CVoid> = pvCtorArg
+    public var pv: MutPtr = pvCtorArg
         internal set
 
     public constructor() : this(
@@ -559,7 +558,7 @@ public class Fdinotification internal constructor(
 
     public operator fun component4(): Pstr = this.psz3
 
-    public operator fun component5(): MutPtr<CVoid> = this.pv
+    public operator fun component5(): MutPtr = this.pv
 
     public operator fun component6(): Int = this.hf
 
@@ -577,7 +576,7 @@ public class Fdinotification internal constructor(
 
     public operator fun component13(): Fdierror = this.fdie
 
-    public fun copy(cb: Int = this.cb, psz1: Pstr = this.psz1, psz2: Pstr = this.psz2, psz3: Pstr = this.psz3, pv: MutPtr<CVoid> = this.pv, hf: Int = this.hf, date: UShort = this.date, time: UShort = this.time, attribs: UShort = this.attribs, setID: UShort = this.setID, iCabinet: UShort = this.iCabinet, iFolder: UShort = this.iFolder, fdie: Fdierror = this.fdie): Fdinotification = Fdinotification(cb = cb, psz1CtorArg = psz1, psz2CtorArg = psz2, psz3CtorArg = psz3, pvCtorArg = pv, hf = hf, date = date, time = time, attribs = attribs, setID = setID, iCabinet = iCabinet, iFolder = iFolder, fdie = fdie)
+    public fun copy(cb: Int = this.cb, psz1: Pstr = this.psz1, psz2: Pstr = this.psz2, psz3: Pstr = this.psz3, pv: MutPtr = this.pv, hf: Int = this.hf, date: UShort = this.date, time: UShort = this.time, attribs: UShort = this.attribs, setID: UShort = this.setID, iCabinet: UShort = this.iCabinet, iFolder: UShort = this.iFolder, fdie: Fdierror = this.fdie): Fdinotification = Fdinotification(cb = cb, psz1CtorArg = psz1, psz2CtorArg = psz2, psz3CtorArg = psz3, pvCtorArg = pv, hf = hf, date = date, time = time, attribs = attribs, setID = setID, iCabinet = iCabinet, iFolder = iFolder, fdie = fdie)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -621,7 +620,7 @@ public class Fdinotification internal constructor(
             psz1: Pstr = MutPtr(0L),
             psz2: Pstr = MutPtr(0L),
             psz3: Pstr = MutPtr(0L),
-            pv: MutPtr<CVoid> = MutPtr(0L),
+            pv: MutPtr = MutPtr(0L),
             hf: Int = 0,
             date: UShort = 0u,
             time: UShort = 0u,

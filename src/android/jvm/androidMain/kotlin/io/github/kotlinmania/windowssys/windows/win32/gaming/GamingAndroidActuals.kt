@@ -2,7 +2,6 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.gaming
 
-import io.github.kotlinmania.rustlang.core.ffi.CVoid
 import io.github.kotlinmania.rustlang.core.ptr.ConstPtr
 import io.github.kotlinmania.rustlang.core.ptr.MutPtr
 import io.github.kotlinmania.windowssys.core.Bool
@@ -105,25 +104,25 @@ private object WindowsWin32GamingJniBridge {
     external fun windowssysWindowsWin32GamingTryCancelPendingGameUI(): Int
 }
 
-public actual fun checkGamingPrivilegeSilently(privilegeid: UInt, scope: Hstring, policy: Hstring, hasprivilege: MutPtr<Bool>): Hresult =
+public actual fun checkGamingPrivilegeSilently(privilegeid: UInt, scope: Hstring, policy: Hstring, hasprivilege: MutPtr): Hresult =
     WindowsWin32GamingJniBridge.windowssysWindowsWin32GamingCheckGamingPrivilegeSilently(privilegeid.toInt(), scope.rawAddress, policy.rawAddress, hasprivilege.rawAddress)
 
-public actual fun checkGamingPrivilegeSilentlyForUser(user: MutPtr<CVoid>, privilegeid: UInt, scope: Hstring, policy: Hstring, hasprivilege: MutPtr<Bool>): Hresult =
+public actual fun checkGamingPrivilegeSilentlyForUser(user: MutPtr, privilegeid: UInt, scope: Hstring, policy: Hstring, hasprivilege: MutPtr): Hresult =
     WindowsWin32GamingJniBridge.windowssysWindowsWin32GamingCheckGamingPrivilegeSilentlyForUser(user.rawAddress, privilegeid.toInt(), scope.rawAddress, policy.rawAddress, hasprivilege.rawAddress)
 
-public actual fun checkGamingPrivilegeWithUI(privilegeid: UInt, scope: Hstring, policy: Hstring, friendlymessage: Hstring, completionroutine: GameUICompletionRoutine, context: ConstPtr<CVoid>): Hresult =
+public actual fun checkGamingPrivilegeWithUI(privilegeid: UInt, scope: Hstring, policy: Hstring, friendlymessage: Hstring, completionroutine: GameUICompletionRoutine, context: ConstPtr): Hresult =
     WindowsWin32GamingJniBridge.windowssysWindowsWin32GamingCheckGamingPrivilegeWithUI(privilegeid.toInt(), scope.rawAddress, policy.rawAddress, friendlymessage.rawAddress, 0L, context.rawAddress)
 
-public actual fun checkGamingPrivilegeWithUIForUser(user: MutPtr<CVoid>, privilegeid: UInt, scope: Hstring, policy: Hstring, friendlymessage: Hstring, completionroutine: GameUICompletionRoutine, context: ConstPtr<CVoid>): Hresult =
+public actual fun checkGamingPrivilegeWithUIForUser(user: MutPtr, privilegeid: UInt, scope: Hstring, policy: Hstring, friendlymessage: Hstring, completionroutine: GameUICompletionRoutine, context: ConstPtr): Hresult =
     WindowsWin32GamingJniBridge.windowssysWindowsWin32GamingCheckGamingPrivilegeWithUIForUser(user.rawAddress, privilegeid.toInt(), scope.rawAddress, policy.rawAddress, friendlymessage.rawAddress, 0L, context.rawAddress)
 
-public actual fun getExpandedResourceExclusiveCpuCount(exclusivecpucount: MutPtr<UInt>): Hresult =
+public actual fun getExpandedResourceExclusiveCpuCount(exclusivecpucount: MutPtr): Hresult =
     WindowsWin32GamingJniBridge.windowssysWindowsWin32GamingGetExpandedResourceExclusiveCpuCount(exclusivecpucount.rawAddress)
 
-public actual fun getGamingDeviceModelInformation(information: MutPtr<GamingDeviceModelInformation>): Hresult =
+public actual fun getGamingDeviceModelInformation(information: MutPtr): Hresult =
     WindowsWin32GamingJniBridge.windowssysWindowsWin32GamingGetGamingDeviceModelInformation(information.rawAddress)
 
-public actual fun hasExpandedResources(hasexpandedresources: MutPtr<Bool>): Hresult =
+public actual fun hasExpandedResources(hasexpandedresources: MutPtr): Hresult =
     WindowsWin32GamingJniBridge.windowssysWindowsWin32GamingHasExpandedResources(hasexpandedresources.rawAddress)
 
 public actual fun processPendingGameUI(waitforcompletion: Bool): Hresult =
@@ -132,64 +131,64 @@ public actual fun processPendingGameUI(waitforcompletion: Bool): Hresult =
 public actual fun releaseExclusiveCpuSets(): Hresult =
     WindowsWin32GamingJniBridge.windowssysWindowsWin32GamingReleaseExclusiveCpuSets()
 
-public actual fun showChangeFriendRelationshipUI(targetuserxuid: Hstring, completionroutine: GameUICompletionRoutine, context: ConstPtr<CVoid>): Hresult =
+public actual fun showChangeFriendRelationshipUI(targetuserxuid: Hstring, completionroutine: GameUICompletionRoutine, context: ConstPtr): Hresult =
     WindowsWin32GamingJniBridge.windowssysWindowsWin32GamingShowChangeFriendRelationshipUI(targetuserxuid.rawAddress, 0L, context.rawAddress)
 
-public actual fun showChangeFriendRelationshipUIForUser(user: MutPtr<CVoid>, targetuserxuid: Hstring, completionroutine: GameUICompletionRoutine, context: ConstPtr<CVoid>): Hresult =
+public actual fun showChangeFriendRelationshipUIForUser(user: MutPtr, targetuserxuid: Hstring, completionroutine: GameUICompletionRoutine, context: ConstPtr): Hresult =
     WindowsWin32GamingJniBridge.windowssysWindowsWin32GamingShowChangeFriendRelationshipUIForUser(user.rawAddress, targetuserxuid.rawAddress, 0L, context.rawAddress)
 
-public actual fun showCustomizeUserProfileUI(completionroutine: GameUICompletionRoutine, context: ConstPtr<CVoid>): Hresult =
+public actual fun showCustomizeUserProfileUI(completionroutine: GameUICompletionRoutine, context: ConstPtr): Hresult =
     WindowsWin32GamingJniBridge.windowssysWindowsWin32GamingShowCustomizeUserProfileUI(0L, context.rawAddress)
 
-public actual fun showCustomizeUserProfileUIForUser(user: MutPtr<CVoid>, completionroutine: GameUICompletionRoutine, context: ConstPtr<CVoid>): Hresult =
+public actual fun showCustomizeUserProfileUIForUser(user: MutPtr, completionroutine: GameUICompletionRoutine, context: ConstPtr): Hresult =
     WindowsWin32GamingJniBridge.windowssysWindowsWin32GamingShowCustomizeUserProfileUIForUser(user.rawAddress, 0L, context.rawAddress)
 
-public actual fun showFindFriendsUI(completionroutine: GameUICompletionRoutine, context: ConstPtr<CVoid>): Hresult =
+public actual fun showFindFriendsUI(completionroutine: GameUICompletionRoutine, context: ConstPtr): Hresult =
     WindowsWin32GamingJniBridge.windowssysWindowsWin32GamingShowFindFriendsUI(0L, context.rawAddress)
 
-public actual fun showFindFriendsUIForUser(user: MutPtr<CVoid>, completionroutine: GameUICompletionRoutine, context: ConstPtr<CVoid>): Hresult =
+public actual fun showFindFriendsUIForUser(user: MutPtr, completionroutine: GameUICompletionRoutine, context: ConstPtr): Hresult =
     WindowsWin32GamingJniBridge.windowssysWindowsWin32GamingShowFindFriendsUIForUser(user.rawAddress, 0L, context.rawAddress)
 
-public actual fun showGameInfoUI(titleid: UInt, completionroutine: GameUICompletionRoutine, context: ConstPtr<CVoid>): Hresult =
+public actual fun showGameInfoUI(titleid: UInt, completionroutine: GameUICompletionRoutine, context: ConstPtr): Hresult =
     WindowsWin32GamingJniBridge.windowssysWindowsWin32GamingShowGameInfoUI(titleid.toInt(), 0L, context.rawAddress)
 
-public actual fun showGameInfoUIForUser(user: MutPtr<CVoid>, titleid: UInt, completionroutine: GameUICompletionRoutine, context: ConstPtr<CVoid>): Hresult =
+public actual fun showGameInfoUIForUser(user: MutPtr, titleid: UInt, completionroutine: GameUICompletionRoutine, context: ConstPtr): Hresult =
     WindowsWin32GamingJniBridge.windowssysWindowsWin32GamingShowGameInfoUIForUser(user.rawAddress, titleid.toInt(), 0L, context.rawAddress)
 
-public actual fun showGameInviteUI(serviceconfigurationid: Hstring, sessiontemplatename: Hstring, sessionid: Hstring, invitationdisplaytext: Hstring, completionroutine: GameUICompletionRoutine, context: ConstPtr<CVoid>): Hresult =
+public actual fun showGameInviteUI(serviceconfigurationid: Hstring, sessiontemplatename: Hstring, sessionid: Hstring, invitationdisplaytext: Hstring, completionroutine: GameUICompletionRoutine, context: ConstPtr): Hresult =
     WindowsWin32GamingJniBridge.windowssysWindowsWin32GamingShowGameInviteUI(serviceconfigurationid.rawAddress, sessiontemplatename.rawAddress, sessionid.rawAddress, invitationdisplaytext.rawAddress, 0L, context.rawAddress)
 
-public actual fun showGameInviteUIForUser(user: MutPtr<CVoid>, serviceconfigurationid: Hstring, sessiontemplatename: Hstring, sessionid: Hstring, invitationdisplaytext: Hstring, completionroutine: GameUICompletionRoutine, context: ConstPtr<CVoid>): Hresult =
+public actual fun showGameInviteUIForUser(user: MutPtr, serviceconfigurationid: Hstring, sessiontemplatename: Hstring, sessionid: Hstring, invitationdisplaytext: Hstring, completionroutine: GameUICompletionRoutine, context: ConstPtr): Hresult =
     WindowsWin32GamingJniBridge.windowssysWindowsWin32GamingShowGameInviteUIForUser(user.rawAddress, serviceconfigurationid.rawAddress, sessiontemplatename.rawAddress, sessionid.rawAddress, invitationdisplaytext.rawAddress, 0L, context.rawAddress)
 
-public actual fun showGameInviteUIWithContext(serviceconfigurationid: Hstring, sessiontemplatename: Hstring, sessionid: Hstring, invitationdisplaytext: Hstring, customactivationcontext: Hstring, completionroutine: GameUICompletionRoutine, context: ConstPtr<CVoid>): Hresult =
+public actual fun showGameInviteUIWithContext(serviceconfigurationid: Hstring, sessiontemplatename: Hstring, sessionid: Hstring, invitationdisplaytext: Hstring, customactivationcontext: Hstring, completionroutine: GameUICompletionRoutine, context: ConstPtr): Hresult =
     WindowsWin32GamingJniBridge.windowssysWindowsWin32GamingShowGameInviteUIWithContext(serviceconfigurationid.rawAddress, sessiontemplatename.rawAddress, sessionid.rawAddress, invitationdisplaytext.rawAddress, customactivationcontext.rawAddress, 0L, context.rawAddress)
 
-public actual fun showGameInviteUIWithContextForUser(user: MutPtr<CVoid>, serviceconfigurationid: Hstring, sessiontemplatename: Hstring, sessionid: Hstring, invitationdisplaytext: Hstring, customactivationcontext: Hstring, completionroutine: GameUICompletionRoutine, context: ConstPtr<CVoid>): Hresult =
+public actual fun showGameInviteUIWithContextForUser(user: MutPtr, serviceconfigurationid: Hstring, sessiontemplatename: Hstring, sessionid: Hstring, invitationdisplaytext: Hstring, customactivationcontext: Hstring, completionroutine: GameUICompletionRoutine, context: ConstPtr): Hresult =
     WindowsWin32GamingJniBridge.windowssysWindowsWin32GamingShowGameInviteUIWithContextForUser(user.rawAddress, serviceconfigurationid.rawAddress, sessiontemplatename.rawAddress, sessionid.rawAddress, invitationdisplaytext.rawAddress, customactivationcontext.rawAddress, 0L, context.rawAddress)
 
-public actual fun showPlayerPickerUI(promptdisplaytext: Hstring, xuids: ConstPtr<Hstring>, xuidscount: ULong, preselectedxuids: ConstPtr<Hstring>, preselectedxuidscount: ULong, minselectioncount: ULong, maxselectioncount: ULong, completionroutine: PlayerPickerUICompletionRoutine, context: ConstPtr<CVoid>): Hresult =
+public actual fun showPlayerPickerUI(promptdisplaytext: Hstring, xuids: ConstPtr, xuidscount: ULong, preselectedxuids: ConstPtr, preselectedxuidscount: ULong, minselectioncount: ULong, maxselectioncount: ULong, completionroutine: PlayerPickerUICompletionRoutine, context: ConstPtr): Hresult =
     WindowsWin32GamingJniBridge.windowssysWindowsWin32GamingShowPlayerPickerUI(promptdisplaytext.rawAddress, xuids.rawAddress, xuidscount.toLong(), preselectedxuids.rawAddress, preselectedxuidscount.toLong(), minselectioncount.toLong(), maxselectioncount.toLong(), 0L, context.rawAddress)
 
-public actual fun showPlayerPickerUIForUser(user: MutPtr<CVoid>, promptdisplaytext: Hstring, xuids: ConstPtr<Hstring>, xuidscount: ULong, preselectedxuids: ConstPtr<Hstring>, preselectedxuidscount: ULong, minselectioncount: ULong, maxselectioncount: ULong, completionroutine: PlayerPickerUICompletionRoutine, context: ConstPtr<CVoid>): Hresult =
+public actual fun showPlayerPickerUIForUser(user: MutPtr, promptdisplaytext: Hstring, xuids: ConstPtr, xuidscount: ULong, preselectedxuids: ConstPtr, preselectedxuidscount: ULong, minselectioncount: ULong, maxselectioncount: ULong, completionroutine: PlayerPickerUICompletionRoutine, context: ConstPtr): Hresult =
     WindowsWin32GamingJniBridge.windowssysWindowsWin32GamingShowPlayerPickerUIForUser(user.rawAddress, promptdisplaytext.rawAddress, xuids.rawAddress, xuidscount.toLong(), preselectedxuids.rawAddress, preselectedxuidscount.toLong(), minselectioncount.toLong(), maxselectioncount.toLong(), 0L, context.rawAddress)
 
-public actual fun showProfileCardUI(targetuserxuid: Hstring, completionroutine: GameUICompletionRoutine, context: ConstPtr<CVoid>): Hresult =
+public actual fun showProfileCardUI(targetuserxuid: Hstring, completionroutine: GameUICompletionRoutine, context: ConstPtr): Hresult =
     WindowsWin32GamingJniBridge.windowssysWindowsWin32GamingShowProfileCardUI(targetuserxuid.rawAddress, 0L, context.rawAddress)
 
-public actual fun showProfileCardUIForUser(user: MutPtr<CVoid>, targetuserxuid: Hstring, completionroutine: GameUICompletionRoutine, context: ConstPtr<CVoid>): Hresult =
+public actual fun showProfileCardUIForUser(user: MutPtr, targetuserxuid: Hstring, completionroutine: GameUICompletionRoutine, context: ConstPtr): Hresult =
     WindowsWin32GamingJniBridge.windowssysWindowsWin32GamingShowProfileCardUIForUser(user.rawAddress, targetuserxuid.rawAddress, 0L, context.rawAddress)
 
-public actual fun showTitleAchievementsUI(titleid: UInt, completionroutine: GameUICompletionRoutine, context: ConstPtr<CVoid>): Hresult =
+public actual fun showTitleAchievementsUI(titleid: UInt, completionroutine: GameUICompletionRoutine, context: ConstPtr): Hresult =
     WindowsWin32GamingJniBridge.windowssysWindowsWin32GamingShowTitleAchievementsUI(titleid.toInt(), 0L, context.rawAddress)
 
-public actual fun showTitleAchievementsUIForUser(user: MutPtr<CVoid>, titleid: UInt, completionroutine: GameUICompletionRoutine, context: ConstPtr<CVoid>): Hresult =
+public actual fun showTitleAchievementsUIForUser(user: MutPtr, titleid: UInt, completionroutine: GameUICompletionRoutine, context: ConstPtr): Hresult =
     WindowsWin32GamingJniBridge.windowssysWindowsWin32GamingShowTitleAchievementsUIForUser(user.rawAddress, titleid.toInt(), 0L, context.rawAddress)
 
-public actual fun showUserSettingsUI(completionroutine: GameUICompletionRoutine, context: ConstPtr<CVoid>): Hresult =
+public actual fun showUserSettingsUI(completionroutine: GameUICompletionRoutine, context: ConstPtr): Hresult =
     WindowsWin32GamingJniBridge.windowssysWindowsWin32GamingShowUserSettingsUI(0L, context.rawAddress)
 
-public actual fun showUserSettingsUIForUser(user: MutPtr<CVoid>, completionroutine: GameUICompletionRoutine, context: ConstPtr<CVoid>): Hresult =
+public actual fun showUserSettingsUIForUser(user: MutPtr, completionroutine: GameUICompletionRoutine, context: ConstPtr): Hresult =
     WindowsWin32GamingJniBridge.windowssysWindowsWin32GamingShowUserSettingsUIForUser(user.rawAddress, 0L, context.rawAddress)
 
 public actual fun tryCancelPendingGameUI(): Bool =

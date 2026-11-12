@@ -2,14 +2,11 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.system.hostcomputesystem
 
-import io.github.kotlinmania.rustlang.core.ffi.CVoid
 import io.github.kotlinmania.rustlang.core.ptr.ConstPtr
 import io.github.kotlinmania.rustlang.core.ptr.MutPtr
 import io.github.kotlinmania.windowssys.core.Hresult
 import io.github.kotlinmania.windowssys.core.Pcwstr
-import io.github.kotlinmania.windowssys.core.Pwstr
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Handle
-import io.github.kotlinmania.windowssys.windows.win32.security.SecurityDescriptor
 
 @JsFun("() => { if (typeof globalThis.__km_napi_windowssys !== 'undefined') return globalThis.__km_napi_windowssys !== null; if (typeof process === 'undefined' || !process.versions || !process.versions.node) { globalThis.__km_napi_windowssys = null; return false; } var mod = process.getBuiltinModule ? process.getBuiltinModule('module') : (process.mainModule && process.mainModule.constructor); var req = (mod && mod.createRequire) ? mod.createRequire((process.cwd ? process.cwd() : '.') + '/package.json') : (process.mainModule ? process.mainModule.require : null); if (!req) { globalThis.__km_napi_windowssys = null; return false; } try { globalThis.__km_napi_windowssys = req('@kotlinmania/windowssys-native-bindings'); return true; } catch (_) {} var fs = req('fs'); var path = req('path'); var dir = process.cwd ? process.cwd() : '.'; var rels = ['windowssys_native.node', 'build/node-ffi/windowssys_native.node', 'build/node-ffi/release/windowssys_native.node', 'build/node-ffi/debug/windowssys_native.node', 'src/js/node-windowssys/build/Release/windowssys_native.node', 'src/js/node-windowssys/build/Debug/windowssys_native.node', 'src/js/node-windowssys/dist/build/Release/windowssys_native.node', 'src/js/node-windowssys/dist/build/Debug/windowssys_native.node']; for (var d = 0; d < 8; d++) { for (var i = 0; i < rels.length; i++) { var c = path.resolve(dir, rels[i]); if (fs.existsSync(c)) { globalThis.__km_napi_windowssys = req(c); return true; } } var parent = path.dirname(dir); if (parent === dir) break; dir = parent; } globalThis.__km_napi_windowssys = null; return false; }")
 private external fun initWindowsWin32SystemHostcomputesystemNapiAddon(): Boolean
@@ -250,10 +247,10 @@ public actual fun hcsCloseProcess(process: HcsProcess) {
 public actual fun hcsCrashComputeSystem(computesystem: HcsSystem, operation: HcsOperation, options: Pcwstr): Hresult =
     if (windowsWin32SystemHostcomputesystemNapiAvailable) wasmWindowssysWindowsWin32SystemHostcomputesystemHcsCrashComputeSystem(computesystem.rawAddress.toString(), operation.rawAddress.toString(), options.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun hcsCreateComputeSystem(id: Pcwstr, configuration: Pcwstr, operation: HcsOperation, securitydescriptor: ConstPtr<SecurityDescriptor>, computesystem: MutPtr<HcsSystem>): Hresult =
+public actual fun hcsCreateComputeSystem(id: Pcwstr, configuration: Pcwstr, operation: HcsOperation, securitydescriptor: ConstPtr, computesystem: MutPtr): Hresult =
     if (windowsWin32SystemHostcomputesystemNapiAvailable) wasmWindowssysWindowsWin32SystemHostcomputesystemHcsCreateComputeSystem(id.rawAddress.toString(), configuration.rawAddress.toString(), operation.rawAddress.toString(), securitydescriptor.rawAddress.toString(), computesystem.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun hcsCreateComputeSystemInNamespace(idnamespace: Pcwstr, id: Pcwstr, configuration: Pcwstr, operation: HcsOperation, options: ConstPtr<HcsCreateOptions>, computesystem: MutPtr<HcsSystem>): Hresult =
+public actual fun hcsCreateComputeSystemInNamespace(idnamespace: Pcwstr, id: Pcwstr, configuration: Pcwstr, operation: HcsOperation, options: ConstPtr, computesystem: MutPtr): Hresult =
     if (windowsWin32SystemHostcomputesystemNapiAvailable) wasmWindowssysWindowsWin32SystemHostcomputesystemHcsCreateComputeSystemInNamespace(idnamespace.rawAddress.toString(), id.rawAddress.toString(), configuration.rawAddress.toString(), operation.rawAddress.toString(), options.rawAddress.toString(), computesystem.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun hcsCreateEmptyGuestStateFile(gueststatefilepath: Pcwstr): Hresult =
@@ -262,13 +259,13 @@ public actual fun hcsCreateEmptyGuestStateFile(gueststatefilepath: Pcwstr): Hres
 public actual fun hcsCreateEmptyRuntimeStateFile(runtimestatefilepath: Pcwstr): Hresult =
     if (windowsWin32SystemHostcomputesystemNapiAvailable) wasmWindowssysWindowsWin32SystemHostcomputesystemHcsCreateEmptyRuntimeStateFile(runtimestatefilepath.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun hcsCreateOperation(context: ConstPtr<CVoid>, callback: HcsOperationCompletion): HcsOperation =
+public actual fun hcsCreateOperation(context: ConstPtr, callback: HcsOperationCompletion): HcsOperation =
     if (windowsWin32SystemHostcomputesystemNapiAvailable) MutPtr(wasmWindowssysWindowsWin32SystemHostcomputesystemHcsCreateOperation(context.rawAddress.toString(), 0L.toString()).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun hcsCreateOperationWithNotifications(eventtypes: HcsOperationOptions, context: ConstPtr<CVoid>, callback: HcsEventCallback): HcsOperation =
+public actual fun hcsCreateOperationWithNotifications(eventtypes: HcsOperationOptions, context: ConstPtr, callback: HcsEventCallback): HcsOperation =
     if (windowsWin32SystemHostcomputesystemNapiAvailable) MutPtr(wasmWindowssysWindowsWin32SystemHostcomputesystemHcsCreateOperationWithNotifications(eventtypes, context.rawAddress.toString(), 0L.toString()).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun hcsCreateProcess(computesystem: HcsSystem, processparameters: Pcwstr, operation: HcsOperation, securitydescriptor: ConstPtr<SecurityDescriptor>, process: MutPtr<HcsProcess>): Hresult =
+public actual fun hcsCreateProcess(computesystem: HcsSystem, processparameters: Pcwstr, operation: HcsOperation, securitydescriptor: ConstPtr, process: MutPtr): Hresult =
     if (windowsWin32SystemHostcomputesystemNapiAvailable) wasmWindowssysWindowsWin32SystemHostcomputesystemHcsCreateProcess(computesystem.rawAddress.toString(), processparameters.rawAddress.toString(), operation.rawAddress.toString(), securitydescriptor.rawAddress.toString(), process.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun hcsDestroyLayer(layerpath: Pcwstr): Hresult =
@@ -298,19 +295,19 @@ public actual fun hcsGetComputeSystemFromOperation(operation: HcsOperation): Hcs
 public actual fun hcsGetComputeSystemProperties(computesystem: HcsSystem, operation: HcsOperation, propertyquery: Pcwstr): Hresult =
     if (windowsWin32SystemHostcomputesystemNapiAvailable) wasmWindowssysWindowsWin32SystemHostcomputesystemHcsGetComputeSystemProperties(computesystem.rawAddress.toString(), operation.rawAddress.toString(), propertyquery.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun hcsGetLayerVhdMountPath(vhdhandle: Handle, mountpath: MutPtr<Pwstr>): Hresult =
+public actual fun hcsGetLayerVhdMountPath(vhdhandle: Handle, mountpath: MutPtr): Hresult =
     if (windowsWin32SystemHostcomputesystemNapiAvailable) wasmWindowssysWindowsWin32SystemHostcomputesystemHcsGetLayerVhdMountPath(vhdhandle.rawAddress.toString(), mountpath.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun hcsGetOperationContext(operation: HcsOperation): MutPtr<CVoid> =
+public actual fun hcsGetOperationContext(operation: HcsOperation): MutPtr =
     if (windowsWin32SystemHostcomputesystemNapiAvailable) MutPtr(wasmWindowssysWindowsWin32SystemHostcomputesystemHcsGetOperationContext(operation.rawAddress.toString()).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun hcsGetOperationId(operation: HcsOperation): ULong =
     if (windowsWin32SystemHostcomputesystemNapiAvailable) wasmWindowssysWindowsWin32SystemHostcomputesystemHcsGetOperationId(operation.rawAddress.toString()).toULong() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun hcsGetOperationResult(operation: HcsOperation, resultdocument: MutPtr<Pwstr>): Hresult =
+public actual fun hcsGetOperationResult(operation: HcsOperation, resultdocument: MutPtr): Hresult =
     if (windowsWin32SystemHostcomputesystemNapiAvailable) wasmWindowssysWindowsWin32SystemHostcomputesystemHcsGetOperationResult(operation.rawAddress.toString(), resultdocument.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun hcsGetOperationResultAndProcessInfo(operation: HcsOperation, processinformation: MutPtr<HcsProcessInformation>, resultdocument: MutPtr<Pwstr>): Hresult =
+public actual fun hcsGetOperationResultAndProcessInfo(operation: HcsOperation, processinformation: MutPtr, resultdocument: MutPtr): Hresult =
     if (windowsWin32SystemHostcomputesystemNapiAvailable) wasmWindowssysWindowsWin32SystemHostcomputesystemHcsGetOperationResultAndProcessInfo(operation.rawAddress.toString(), processinformation.rawAddress.toString(), resultdocument.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun hcsGetOperationType(operation: HcsOperation): HcsOperationType =
@@ -325,10 +322,10 @@ public actual fun hcsGetProcessInfo(process: HcsProcess, operation: HcsOperation
 public actual fun hcsGetProcessProperties(process: HcsProcess, operation: HcsOperation, propertyquery: Pcwstr): Hresult =
     if (windowsWin32SystemHostcomputesystemNapiAvailable) wasmWindowssysWindowsWin32SystemHostcomputesystemHcsGetProcessProperties(process.rawAddress.toString(), operation.rawAddress.toString(), propertyquery.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun hcsGetProcessorCompatibilityFromSavedState(runtimefilename: Pcwstr, processorfeaturesstring: MutPtr<Pcwstr>): Hresult =
+public actual fun hcsGetProcessorCompatibilityFromSavedState(runtimefilename: Pcwstr, processorfeaturesstring: MutPtr): Hresult =
     if (windowsWin32SystemHostcomputesystemNapiAvailable) wasmWindowssysWindowsWin32SystemHostcomputesystemHcsGetProcessorCompatibilityFromSavedState(runtimefilename.rawAddress.toString(), processorfeaturesstring.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun hcsGetServiceProperties(propertyquery: Pcwstr, result: MutPtr<Pwstr>): Hresult =
+public actual fun hcsGetServiceProperties(propertyquery: Pcwstr, result: MutPtr): Hresult =
     if (windowsWin32SystemHostcomputesystemNapiAvailable) wasmWindowssysWindowsWin32SystemHostcomputesystemHcsGetServiceProperties(propertyquery.rawAddress.toString(), result.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun hcsGrantVmAccess(vmid: Pcwstr, filepath: Pcwstr): Hresult =
@@ -352,16 +349,16 @@ public actual fun hcsModifyComputeSystem(computesystem: HcsSystem, operation: Hc
 public actual fun hcsModifyProcess(process: HcsProcess, operation: HcsOperation, settings: Pcwstr): Hresult =
     if (windowsWin32SystemHostcomputesystemNapiAvailable) wasmWindowssysWindowsWin32SystemHostcomputesystemHcsModifyProcess(process.rawAddress.toString(), operation.rawAddress.toString(), settings.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun hcsModifyServiceSettings(settings: Pcwstr, result: MutPtr<Pwstr>): Hresult =
+public actual fun hcsModifyServiceSettings(settings: Pcwstr, result: MutPtr): Hresult =
     if (windowsWin32SystemHostcomputesystemNapiAvailable) wasmWindowssysWindowsWin32SystemHostcomputesystemHcsModifyServiceSettings(settings.rawAddress.toString(), result.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun hcsOpenComputeSystem(id: Pcwstr, requestedaccess: UInt, computesystem: MutPtr<HcsSystem>): Hresult =
+public actual fun hcsOpenComputeSystem(id: Pcwstr, requestedaccess: UInt, computesystem: MutPtr): Hresult =
     if (windowsWin32SystemHostcomputesystemNapiAvailable) wasmWindowssysWindowsWin32SystemHostcomputesystemHcsOpenComputeSystem(id.rawAddress.toString(), requestedaccess.toInt(), computesystem.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun hcsOpenComputeSystemInNamespace(idnamespace: Pcwstr, id: Pcwstr, requestedaccess: UInt, computesystem: MutPtr<HcsSystem>): Hresult =
+public actual fun hcsOpenComputeSystemInNamespace(idnamespace: Pcwstr, id: Pcwstr, requestedaccess: UInt, computesystem: MutPtr): Hresult =
     if (windowsWin32SystemHostcomputesystemNapiAvailable) wasmWindowssysWindowsWin32SystemHostcomputesystemHcsOpenComputeSystemInNamespace(idnamespace.rawAddress.toString(), id.rawAddress.toString(), requestedaccess.toInt(), computesystem.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun hcsOpenProcess(computesystem: HcsSystem, processid: UInt, requestedaccess: UInt, process: MutPtr<HcsProcess>): Hresult =
+public actual fun hcsOpenProcess(computesystem: HcsSystem, processid: UInt, requestedaccess: UInt, process: MutPtr): Hresult =
     if (windowsWin32SystemHostcomputesystemNapiAvailable) wasmWindowssysWindowsWin32SystemHostcomputesystemHcsOpenProcess(computesystem.rawAddress.toString(), processid.toInt(), requestedaccess.toInt(), process.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun hcsPauseComputeSystem(computesystem: HcsSystem, operation: HcsOperation, options: Pcwstr): Hresult =
@@ -379,16 +376,16 @@ public actual fun hcsRevokeVmGroupAccess(filepath: Pcwstr): Hresult =
 public actual fun hcsSaveComputeSystem(computesystem: HcsSystem, operation: HcsOperation, options: Pcwstr): Hresult =
     if (windowsWin32SystemHostcomputesystemNapiAvailable) wasmWindowssysWindowsWin32SystemHostcomputesystemHcsSaveComputeSystem(computesystem.rawAddress.toString(), operation.rawAddress.toString(), options.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun hcsSetComputeSystemCallback(computesystem: HcsSystem, callbackoptions: HcsEventOptions, context: ConstPtr<CVoid>, callback: HcsEventCallback): Hresult =
+public actual fun hcsSetComputeSystemCallback(computesystem: HcsSystem, callbackoptions: HcsEventOptions, context: ConstPtr, callback: HcsEventCallback): Hresult =
     if (windowsWin32SystemHostcomputesystemNapiAvailable) wasmWindowssysWindowsWin32SystemHostcomputesystemHcsSetComputeSystemCallback(computesystem.rawAddress.toString(), callbackoptions, context.rawAddress.toString(), 0L.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun hcsSetOperationCallback(operation: HcsOperation, context: ConstPtr<CVoid>, callback: HcsOperationCompletion): Hresult =
+public actual fun hcsSetOperationCallback(operation: HcsOperation, context: ConstPtr, callback: HcsOperationCompletion): Hresult =
     if (windowsWin32SystemHostcomputesystemNapiAvailable) wasmWindowssysWindowsWin32SystemHostcomputesystemHcsSetOperationCallback(operation.rawAddress.toString(), context.rawAddress.toString(), 0L.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun hcsSetOperationContext(operation: HcsOperation, context: ConstPtr<CVoid>): Hresult =
+public actual fun hcsSetOperationContext(operation: HcsOperation, context: ConstPtr): Hresult =
     if (windowsWin32SystemHostcomputesystemNapiAvailable) wasmWindowssysWindowsWin32SystemHostcomputesystemHcsSetOperationContext(operation.rawAddress.toString(), context.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun hcsSetProcessCallback(process: HcsProcess, callbackoptions: HcsEventOptions, context: ConstPtr<CVoid>, callback: HcsEventCallback): Hresult =
+public actual fun hcsSetProcessCallback(process: HcsProcess, callbackoptions: HcsEventOptions, context: ConstPtr, callback: HcsEventCallback): Hresult =
     if (windowsWin32SystemHostcomputesystemNapiAvailable) wasmWindowssysWindowsWin32SystemHostcomputesystemHcsSetProcessCallback(process.rawAddress.toString(), callbackoptions, context.rawAddress.toString(), 0L.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun hcsSetupBaseOSLayer(layerpath: Pcwstr, vhdhandle: Handle, options: Pcwstr): Hresult =
@@ -415,14 +412,14 @@ public actual fun hcsTerminateComputeSystem(computesystem: HcsSystem, operation:
 public actual fun hcsTerminateProcess(process: HcsProcess, operation: HcsOperation, options: Pcwstr): Hresult =
     if (windowsWin32SystemHostcomputesystemNapiAvailable) wasmWindowssysWindowsWin32SystemHostcomputesystemHcsTerminateProcess(process.rawAddress.toString(), operation.rawAddress.toString(), options.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun hcsWaitForComputeSystemExit(computesystem: HcsSystem, timeoutms: UInt, result: MutPtr<Pwstr>): Hresult =
+public actual fun hcsWaitForComputeSystemExit(computesystem: HcsSystem, timeoutms: UInt, result: MutPtr): Hresult =
     if (windowsWin32SystemHostcomputesystemNapiAvailable) wasmWindowssysWindowsWin32SystemHostcomputesystemHcsWaitForComputeSystemExit(computesystem.rawAddress.toString(), timeoutms.toInt(), result.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun hcsWaitForOperationResult(operation: HcsOperation, timeoutms: UInt, resultdocument: MutPtr<Pwstr>): Hresult =
+public actual fun hcsWaitForOperationResult(operation: HcsOperation, timeoutms: UInt, resultdocument: MutPtr): Hresult =
     if (windowsWin32SystemHostcomputesystemNapiAvailable) wasmWindowssysWindowsWin32SystemHostcomputesystemHcsWaitForOperationResult(operation.rawAddress.toString(), timeoutms.toInt(), resultdocument.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun hcsWaitForOperationResultAndProcessInfo(operation: HcsOperation, timeoutms: UInt, processinformation: MutPtr<HcsProcessInformation>, resultdocument: MutPtr<Pwstr>): Hresult =
+public actual fun hcsWaitForOperationResultAndProcessInfo(operation: HcsOperation, timeoutms: UInt, processinformation: MutPtr, resultdocument: MutPtr): Hresult =
     if (windowsWin32SystemHostcomputesystemNapiAvailable) wasmWindowssysWindowsWin32SystemHostcomputesystemHcsWaitForOperationResultAndProcessInfo(operation.rawAddress.toString(), timeoutms.toInt(), processinformation.rawAddress.toString(), resultdocument.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun hcsWaitForProcessExit(computesystem: HcsProcess, timeoutms: UInt, result: MutPtr<Pwstr>): Hresult =
+public actual fun hcsWaitForProcessExit(computesystem: HcsProcess, timeoutms: UInt, result: MutPtr): Hresult =
     if (windowsWin32SystemHostcomputesystemNapiAvailable) wasmWindowssysWindowsWin32SystemHostcomputesystemHcsWaitForProcessExit(computesystem.rawAddress.toString(), timeoutms.toInt(), result.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")

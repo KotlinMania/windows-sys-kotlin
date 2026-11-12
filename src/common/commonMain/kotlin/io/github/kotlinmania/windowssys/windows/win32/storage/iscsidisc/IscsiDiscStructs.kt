@@ -2,7 +2,6 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.storage.iscsidisc
 
-import io.github.kotlinmania.rustlang.core.ffi.CVoid
 import io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
 import io.github.kotlinmania.rustlang.core.mem.TypeLayout
 import io.github.kotlinmania.rustlang.core.ptr.MutPtr
@@ -21,11 +20,11 @@ public class AtaPassThroughDirect internal constructor(
     public var dataTransferLength: UInt,
     public var timeOutValue: UInt,
     public var reservedAsUlong: UInt,
-    dataBufferCtorArg: MutPtr<CVoid>,
+    dataBufferCtorArg: MutPtr,
     public var previousTaskFile: UByteArray,
     public var currentTaskFile: UByteArray,
 ) {
-    public var dataBuffer: MutPtr<CVoid> = dataBufferCtorArg
+    public var dataBuffer: MutPtr = dataBufferCtorArg
         internal set
 
     public constructor() : this(
@@ -61,13 +60,13 @@ public class AtaPassThroughDirect internal constructor(
 
     public operator fun component9(): UInt = this.reservedAsUlong
 
-    public operator fun component10(): MutPtr<CVoid> = this.dataBuffer
+    public operator fun component10(): MutPtr = this.dataBuffer
 
     public operator fun component11(): UByteArray = this.previousTaskFile
 
     public operator fun component12(): UByteArray = this.currentTaskFile
 
-    public fun copy(length: UShort = this.length, ataFlags: UShort = this.ataFlags, pathId: UByte = this.pathId, targetId: UByte = this.targetId, lun: UByte = this.lun, reservedAsUchar: UByte = this.reservedAsUchar, dataTransferLength: UInt = this.dataTransferLength, timeOutValue: UInt = this.timeOutValue, reservedAsUlong: UInt = this.reservedAsUlong, dataBuffer: MutPtr<CVoid> = this.dataBuffer, previousTaskFile: UByteArray = this.previousTaskFile, currentTaskFile: UByteArray = this.currentTaskFile): AtaPassThroughDirect = AtaPassThroughDirect(length = length, ataFlags = ataFlags, pathId = pathId, targetId = targetId, lun = lun, reservedAsUchar = reservedAsUchar, dataTransferLength = dataTransferLength, timeOutValue = timeOutValue, reservedAsUlong = reservedAsUlong, dataBufferCtorArg = dataBuffer, previousTaskFile = previousTaskFile, currentTaskFile = currentTaskFile)
+    public fun copy(length: UShort = this.length, ataFlags: UShort = this.ataFlags, pathId: UByte = this.pathId, targetId: UByte = this.targetId, lun: UByte = this.lun, reservedAsUchar: UByte = this.reservedAsUchar, dataTransferLength: UInt = this.dataTransferLength, timeOutValue: UInt = this.timeOutValue, reservedAsUlong: UInt = this.reservedAsUlong, dataBuffer: MutPtr = this.dataBuffer, previousTaskFile: UByteArray = this.previousTaskFile, currentTaskFile: UByteArray = this.currentTaskFile): AtaPassThroughDirect = AtaPassThroughDirect(length = length, ataFlags = ataFlags, pathId = pathId, targetId = targetId, lun = lun, reservedAsUchar = reservedAsUchar, dataTransferLength = dataTransferLength, timeOutValue = timeOutValue, reservedAsUlong = reservedAsUlong, dataBufferCtorArg = dataBuffer, previousTaskFile = previousTaskFile, currentTaskFile = currentTaskFile)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -121,7 +120,7 @@ public class AtaPassThroughDirect internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 16L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<CVoid>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 24L),
                         (
                             io.github.kotlinmania.rustlang.core.mem
@@ -144,7 +143,7 @@ public class AtaPassThroughDirect internal constructor(
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 16L, value.reservedAsUlong)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<CVoid>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 24L, value.dataBuffer)
                     (
                         io.github.kotlinmania.rustlang.core.mem
@@ -167,7 +166,7 @@ public class AtaPassThroughDirect internal constructor(
             dataTransferLength: UInt = 0u,
             timeOutValue: UInt = 0u,
             reservedAsUlong: UInt = 0u,
-            dataBuffer: MutPtr<CVoid> = MutPtr(0L),
+            dataBuffer: MutPtr = MutPtr(0L),
             previousTaskFile: UByteArray = UByteArray(8),
             currentTaskFile: UByteArray = UByteArray(8),
         ): AtaPassThroughDirect =
@@ -198,11 +197,11 @@ public class AtaPassThroughDirect32 internal constructor(
     public var dataTransferLength: UInt,
     public var timeOutValue: UInt,
     public var reservedAsUlong: UInt,
-    dataBufferCtorArg: MutPtr<CVoid>,
+    dataBufferCtorArg: MutPtr,
     public var previousTaskFile: UByteArray,
     public var currentTaskFile: UByteArray,
 ) {
-    public var dataBuffer: MutPtr<CVoid> = dataBufferCtorArg
+    public var dataBuffer: MutPtr = dataBufferCtorArg
         internal set
 
     public constructor() : this(
@@ -238,13 +237,13 @@ public class AtaPassThroughDirect32 internal constructor(
 
     public operator fun component9(): UInt = this.reservedAsUlong
 
-    public operator fun component10(): MutPtr<CVoid> = this.dataBuffer
+    public operator fun component10(): MutPtr = this.dataBuffer
 
     public operator fun component11(): UByteArray = this.previousTaskFile
 
     public operator fun component12(): UByteArray = this.currentTaskFile
 
-    public fun copy(length: UShort = this.length, ataFlags: UShort = this.ataFlags, pathId: UByte = this.pathId, targetId: UByte = this.targetId, lun: UByte = this.lun, reservedAsUchar: UByte = this.reservedAsUchar, dataTransferLength: UInt = this.dataTransferLength, timeOutValue: UInt = this.timeOutValue, reservedAsUlong: UInt = this.reservedAsUlong, dataBuffer: MutPtr<CVoid> = this.dataBuffer, previousTaskFile: UByteArray = this.previousTaskFile, currentTaskFile: UByteArray = this.currentTaskFile): AtaPassThroughDirect32 = AtaPassThroughDirect32(length = length, ataFlags = ataFlags, pathId = pathId, targetId = targetId, lun = lun, reservedAsUchar = reservedAsUchar, dataTransferLength = dataTransferLength, timeOutValue = timeOutValue, reservedAsUlong = reservedAsUlong, dataBufferCtorArg = dataBuffer, previousTaskFile = previousTaskFile, currentTaskFile = currentTaskFile)
+    public fun copy(length: UShort = this.length, ataFlags: UShort = this.ataFlags, pathId: UByte = this.pathId, targetId: UByte = this.targetId, lun: UByte = this.lun, reservedAsUchar: UByte = this.reservedAsUchar, dataTransferLength: UInt = this.dataTransferLength, timeOutValue: UInt = this.timeOutValue, reservedAsUlong: UInt = this.reservedAsUlong, dataBuffer: MutPtr = this.dataBuffer, previousTaskFile: UByteArray = this.previousTaskFile, currentTaskFile: UByteArray = this.currentTaskFile): AtaPassThroughDirect32 = AtaPassThroughDirect32(length = length, ataFlags = ataFlags, pathId = pathId, targetId = targetId, lun = lun, reservedAsUchar = reservedAsUchar, dataTransferLength = dataTransferLength, timeOutValue = timeOutValue, reservedAsUlong = reservedAsUlong, dataBufferCtorArg = dataBuffer, previousTaskFile = previousTaskFile, currentTaskFile = currentTaskFile)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -298,7 +297,7 @@ public class AtaPassThroughDirect32 internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 16L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<CVoid>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 24L),
                         (
                             io.github.kotlinmania.rustlang.core.mem
@@ -321,7 +320,7 @@ public class AtaPassThroughDirect32 internal constructor(
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 16L, value.reservedAsUlong)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<CVoid>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 24L, value.dataBuffer)
                     (
                         io.github.kotlinmania.rustlang.core.mem
@@ -344,7 +343,7 @@ public class AtaPassThroughDirect32 internal constructor(
             dataTransferLength: UInt = 0u,
             timeOutValue: UInt = 0u,
             reservedAsUlong: UInt = 0u,
-            dataBuffer: MutPtr<CVoid> = MutPtr(0L),
+            dataBuffer: MutPtr = MutPtr(0L),
             previousTaskFile: UByteArray = UByteArray(8),
             currentTaskFile: UByteArray = UByteArray(8),
         ): AtaPassThroughDirect32 =
@@ -635,11 +634,11 @@ public data class DsmNotificationRequestBlock(
 }
 
 public class DumpDriver internal constructor(
-    dumpDriverListCtorArg: MutPtr<CVoid>,
+    dumpDriverListCtorArg: MutPtr,
     public var driverName: UShortArray,
     public var baseName: UShortArray,
 ) {
-    public var dumpDriverList: MutPtr<CVoid> = dumpDriverListCtorArg
+    public var dumpDriverList: MutPtr = dumpDriverListCtorArg
         internal set
 
     public constructor() : this(
@@ -648,13 +647,13 @@ public class DumpDriver internal constructor(
         baseName = UShortArray(15),
     )
 
-    public operator fun component1(): MutPtr<CVoid> = this.dumpDriverList
+    public operator fun component1(): MutPtr = this.dumpDriverList
 
     public operator fun component2(): UShortArray = this.driverName
 
     public operator fun component3(): UShortArray = this.baseName
 
-    public fun copy(dumpDriverList: MutPtr<CVoid> = this.dumpDriverList, driverName: UShortArray = this.driverName, baseName: UShortArray = this.baseName): DumpDriver = DumpDriver(dumpDriverListCtorArg = dumpDriverList, driverName = driverName, baseName = baseName)
+    public fun copy(dumpDriverList: MutPtr = this.dumpDriverList, driverName: UShortArray = this.driverName, baseName: UShortArray = this.baseName): DumpDriver = DumpDriver(dumpDriverListCtorArg = dumpDriverList, driverName = driverName, baseName = baseName)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -681,7 +680,7 @@ public class DumpDriver internal constructor(
                     DumpDriver(
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<CVoid>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem
@@ -695,7 +694,7 @@ public class DumpDriver internal constructor(
                 override fun writeNative(addr: Long, value: DumpDriver) {
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<CVoid>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr, value.dumpDriverList)
                     (
                         io.github.kotlinmania.rustlang.core.mem
@@ -709,7 +708,7 @@ public class DumpDriver internal constructor(
             }
 
         public operator fun invoke(
-            dumpDriverList: MutPtr<CVoid> = MutPtr(0L),
+            dumpDriverList: MutPtr = MutPtr(0L),
             driverName: UShortArray = UShortArray(15),
             baseName: UShortArray = UShortArray(15),
         ): DumpDriver =
@@ -722,12 +721,12 @@ public class DumpDriver internal constructor(
 }
 
 public class DumpDriverEx internal constructor(
-    dumpDriverListCtorArg: MutPtr<CVoid>,
+    dumpDriverListCtorArg: MutPtr,
     public var driverName: UShortArray,
     public var baseName: UShortArray,
     public var driverFullPath: NtscsiUnicodeString,
 ) {
-    public var dumpDriverList: MutPtr<CVoid> = dumpDriverListCtorArg
+    public var dumpDriverList: MutPtr = dumpDriverListCtorArg
         internal set
 
     public constructor() : this(
@@ -737,7 +736,7 @@ public class DumpDriverEx internal constructor(
         driverFullPath = NtscsiUnicodeString(),
     )
 
-    public operator fun component1(): MutPtr<CVoid> = this.dumpDriverList
+    public operator fun component1(): MutPtr = this.dumpDriverList
 
     public operator fun component2(): UShortArray = this.driverName
 
@@ -745,7 +744,7 @@ public class DumpDriverEx internal constructor(
 
     public operator fun component4(): NtscsiUnicodeString = this.driverFullPath
 
-    public fun copy(dumpDriverList: MutPtr<CVoid> = this.dumpDriverList, driverName: UShortArray = this.driverName, baseName: UShortArray = this.baseName, driverFullPath: NtscsiUnicodeString = this.driverFullPath): DumpDriverEx = DumpDriverEx(dumpDriverListCtorArg = dumpDriverList, driverName = driverName, baseName = baseName, driverFullPath = driverFullPath)
+    public fun copy(dumpDriverList: MutPtr = this.dumpDriverList, driverName: UShortArray = this.driverName, baseName: UShortArray = this.baseName, driverFullPath: NtscsiUnicodeString = this.driverFullPath): DumpDriverEx = DumpDriverEx(dumpDriverListCtorArg = dumpDriverList, driverName = driverName, baseName = baseName, driverFullPath = driverFullPath)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -767,7 +766,7 @@ public class DumpDriverEx internal constructor(
 
     public companion object {
         public operator fun invoke(
-            dumpDriverList: MutPtr<CVoid> = MutPtr(0L),
+            dumpDriverList: MutPtr = MutPtr(0L),
             driverName: UShortArray = UShortArray(15),
             baseName: UShortArray = UShortArray(15),
             driverFullPath: NtscsiUnicodeString = NtscsiUnicodeString(),
@@ -782,30 +781,30 @@ public class DumpDriverEx internal constructor(
 }
 
 public class DumpPointers internal constructor(
-    adapterObjectCtorArg: MutPtr<AdapterObject>,
-    mappedRegisterBaseCtorArg: MutPtr<CVoid>,
-    dumpDataCtorArg: MutPtr<CVoid>,
-    commonBufferVaCtorArg: MutPtr<CVoid>,
+    adapterObjectCtorArg: MutPtr,
+    mappedRegisterBaseCtorArg: MutPtr,
+    dumpDataCtorArg: MutPtr,
+    commonBufferVaCtorArg: MutPtr,
     public var commonBufferPa: Long,
     public var commonBufferSize: UInt,
     public var allocateCommonBuffers: Boolean,
     public var useDiskDump: Boolean,
     public var spare1: UByteArray,
-    deviceObjectCtorArg: MutPtr<CVoid>,
+    deviceObjectCtorArg: MutPtr,
 ) {
-    public var adapterObject: MutPtr<AdapterObject> = adapterObjectCtorArg
+    public var adapterObject: MutPtr = adapterObjectCtorArg
         internal set
 
-    public var mappedRegisterBase: MutPtr<CVoid> = mappedRegisterBaseCtorArg
+    public var mappedRegisterBase: MutPtr = mappedRegisterBaseCtorArg
         internal set
 
-    public var dumpData: MutPtr<CVoid> = dumpDataCtorArg
+    public var dumpData: MutPtr = dumpDataCtorArg
         internal set
 
-    public var commonBufferVa: MutPtr<CVoid> = commonBufferVaCtorArg
+    public var commonBufferVa: MutPtr = commonBufferVaCtorArg
         internal set
 
-    public var deviceObject: MutPtr<CVoid> = deviceObjectCtorArg
+    public var deviceObject: MutPtr = deviceObjectCtorArg
         internal set
 
     public constructor() : this(
@@ -821,13 +820,13 @@ public class DumpPointers internal constructor(
         deviceObjectCtorArg = MutPtr(0L),
     )
 
-    public operator fun component1(): MutPtr<AdapterObject> = this.adapterObject
+    public operator fun component1(): MutPtr = this.adapterObject
 
-    public operator fun component2(): MutPtr<CVoid> = this.mappedRegisterBase
+    public operator fun component2(): MutPtr = this.mappedRegisterBase
 
-    public operator fun component3(): MutPtr<CVoid> = this.dumpData
+    public operator fun component3(): MutPtr = this.dumpData
 
-    public operator fun component4(): MutPtr<CVoid> = this.commonBufferVa
+    public operator fun component4(): MutPtr = this.commonBufferVa
 
     public operator fun component5(): Long = this.commonBufferPa
 
@@ -839,9 +838,9 @@ public class DumpPointers internal constructor(
 
     public operator fun component9(): UByteArray = this.spare1
 
-    public operator fun component10(): MutPtr<CVoid> = this.deviceObject
+    public operator fun component10(): MutPtr = this.deviceObject
 
-    public fun copy(adapterObject: MutPtr<AdapterObject> = this.adapterObject, mappedRegisterBase: MutPtr<CVoid> = this.mappedRegisterBase, dumpData: MutPtr<CVoid> = this.dumpData, commonBufferVa: MutPtr<CVoid> = this.commonBufferVa, commonBufferPa: Long = this.commonBufferPa, commonBufferSize: UInt = this.commonBufferSize, allocateCommonBuffers: Boolean = this.allocateCommonBuffers, useDiskDump: Boolean = this.useDiskDump, spare1: UByteArray = this.spare1, deviceObject: MutPtr<CVoid> = this.deviceObject): DumpPointers = DumpPointers(adapterObjectCtorArg = adapterObject, mappedRegisterBaseCtorArg = mappedRegisterBase, dumpDataCtorArg = dumpData, commonBufferVaCtorArg = commonBufferVa, commonBufferPa = commonBufferPa, commonBufferSize = commonBufferSize, allocateCommonBuffers = allocateCommonBuffers, useDiskDump = useDiskDump, spare1 = spare1, deviceObjectCtorArg = deviceObject)
+    public fun copy(adapterObject: MutPtr = this.adapterObject, mappedRegisterBase: MutPtr = this.mappedRegisterBase, dumpData: MutPtr = this.dumpData, commonBufferVa: MutPtr = this.commonBufferVa, commonBufferPa: Long = this.commonBufferPa, commonBufferSize: UInt = this.commonBufferSize, allocateCommonBuffers: Boolean = this.allocateCommonBuffers, useDiskDump: Boolean = this.useDiskDump, spare1: UByteArray = this.spare1, deviceObject: MutPtr = this.deviceObject): DumpPointers = DumpPointers(adapterObjectCtorArg = adapterObject, mappedRegisterBaseCtorArg = mappedRegisterBase, dumpDataCtorArg = dumpData, commonBufferVaCtorArg = commonBufferVa, commonBufferPa = commonBufferPa, commonBufferSize = commonBufferSize, allocateCommonBuffers = allocateCommonBuffers, useDiskDump = useDiskDump, spare1 = spare1, deviceObjectCtorArg = deviceObject)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -882,19 +881,19 @@ public class DumpPointers internal constructor(
                     DumpPointers(
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<AdapterObject>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<CVoid>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<CVoid>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 16L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<CVoid>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 24L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I64).readNative(addr + 32L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 40L),
@@ -906,25 +905,25 @@ public class DumpPointers internal constructor(
                         ).readNative(addr + 46L).toUByteArray(),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<CVoid>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 48L),
                     )
                 override fun writeNative(addr: Long, value: DumpPointers) {
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<AdapterObject>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr, value.adapterObject)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<CVoid>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.mappedRegisterBase)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<CVoid>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 16L, value.dumpData)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<CVoid>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 24L, value.commonBufferVa)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I64).writeNative(addr + 32L, value.commonBufferPa)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 40L, value.commonBufferSize)
@@ -936,22 +935,22 @@ public class DumpPointers internal constructor(
                     ).writeNative(addr + 46L, value.spare1.toList())
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<CVoid>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 48L, value.deviceObject)
                 }
             }
 
         public operator fun invoke(
-            adapterObject: MutPtr<AdapterObject> = MutPtr(0L),
-            mappedRegisterBase: MutPtr<CVoid> = MutPtr(0L),
-            dumpData: MutPtr<CVoid> = MutPtr(0L),
-            commonBufferVa: MutPtr<CVoid> = MutPtr(0L),
+            adapterObject: MutPtr = MutPtr(0L),
+            mappedRegisterBase: MutPtr = MutPtr(0L),
+            dumpData: MutPtr = MutPtr(0L),
+            commonBufferVa: MutPtr = MutPtr(0L),
             commonBufferPa: Long = 0L,
             commonBufferSize: UInt = 0u,
             allocateCommonBuffers: Boolean = false,
             useDiskDump: Boolean = false,
             spare1: UByteArray = UByteArray(2),
-            deviceObject: MutPtr<CVoid> = MutPtr(0L),
+            deviceObject: MutPtr = MutPtr(0L),
         ): DumpPointers =
             DumpPointers(
                 adapterObjectCtorArg = adapterObject,
@@ -970,44 +969,44 @@ public class DumpPointers internal constructor(
 
 public class DumpPointersEx internal constructor(
     public var header: DumpPointersVersion,
-    dumpDataCtorArg: MutPtr<CVoid>,
-    commonBufferVaCtorArg: MutPtr<CVoid>,
+    dumpDataCtorArg: MutPtr,
+    commonBufferVaCtorArg: MutPtr,
     public var commonBufferSize: UInt,
     public var allocateCommonBuffers: Boolean,
-    deviceObjectCtorArg: MutPtr<CVoid>,
-    driverListCtorArg: MutPtr<CVoid>,
+    deviceObjectCtorArg: MutPtr,
+    driverListCtorArg: MutPtr,
     public var dwPortFlags: UInt,
     public var maxDeviceDumpSectionSize: UInt,
     public var maxDeviceDumpLevel: UInt,
     public var maxTransferSize: UInt,
-    adapterObjectCtorArg: MutPtr<CVoid>,
-    mappedRegisterBaseCtorArg: MutPtr<CVoid>,
-    deviceReadyCtorArg: MutPtr<Boolean>,
+    adapterObjectCtorArg: MutPtr,
+    mappedRegisterBaseCtorArg: MutPtr,
+    deviceReadyCtorArg: MutPtr,
     public var dumpDevicePowerOn: PdumpDevicePoweronRoutine,
-    dumpDevicePowerOnContextCtorArg: MutPtr<CVoid>,
+    dumpDevicePowerOnContextCtorArg: MutPtr,
 ) {
-    public var dumpData: MutPtr<CVoid> = dumpDataCtorArg
+    public var dumpData: MutPtr = dumpDataCtorArg
         internal set
 
-    public var commonBufferVa: MutPtr<CVoid> = commonBufferVaCtorArg
+    public var commonBufferVa: MutPtr = commonBufferVaCtorArg
         internal set
 
-    public var deviceObject: MutPtr<CVoid> = deviceObjectCtorArg
+    public var deviceObject: MutPtr = deviceObjectCtorArg
         internal set
 
-    public var driverList: MutPtr<CVoid> = driverListCtorArg
+    public var driverList: MutPtr = driverListCtorArg
         internal set
 
-    public var adapterObject: MutPtr<CVoid> = adapterObjectCtorArg
+    public var adapterObject: MutPtr = adapterObjectCtorArg
         internal set
 
-    public var mappedRegisterBase: MutPtr<CVoid> = mappedRegisterBaseCtorArg
+    public var mappedRegisterBase: MutPtr = mappedRegisterBaseCtorArg
         internal set
 
-    public var deviceReady: MutPtr<Boolean> = deviceReadyCtorArg
+    public var deviceReady: MutPtr = deviceReadyCtorArg
         internal set
 
-    public var dumpDevicePowerOnContext: MutPtr<CVoid> = dumpDevicePowerOnContextCtorArg
+    public var dumpDevicePowerOnContext: MutPtr = dumpDevicePowerOnContextCtorArg
         internal set
 
     public constructor() : this(
@@ -1031,17 +1030,17 @@ public class DumpPointersEx internal constructor(
 
     public operator fun component1(): DumpPointersVersion = this.header
 
-    public operator fun component2(): MutPtr<CVoid> = this.dumpData
+    public operator fun component2(): MutPtr = this.dumpData
 
-    public operator fun component3(): MutPtr<CVoid> = this.commonBufferVa
+    public operator fun component3(): MutPtr = this.commonBufferVa
 
     public operator fun component4(): UInt = this.commonBufferSize
 
     public operator fun component5(): Boolean = this.allocateCommonBuffers
 
-    public operator fun component6(): MutPtr<CVoid> = this.deviceObject
+    public operator fun component6(): MutPtr = this.deviceObject
 
-    public operator fun component7(): MutPtr<CVoid> = this.driverList
+    public operator fun component7(): MutPtr = this.driverList
 
     public operator fun component8(): UInt = this.dwPortFlags
 
@@ -1051,17 +1050,17 @@ public class DumpPointersEx internal constructor(
 
     public operator fun component11(): UInt = this.maxTransferSize
 
-    public operator fun component12(): MutPtr<CVoid> = this.adapterObject
+    public operator fun component12(): MutPtr = this.adapterObject
 
-    public operator fun component13(): MutPtr<CVoid> = this.mappedRegisterBase
+    public operator fun component13(): MutPtr = this.mappedRegisterBase
 
-    public operator fun component14(): MutPtr<Boolean> = this.deviceReady
+    public operator fun component14(): MutPtr = this.deviceReady
 
     public operator fun component15(): PdumpDevicePoweronRoutine = this.dumpDevicePowerOn
 
-    public operator fun component16(): MutPtr<CVoid> = this.dumpDevicePowerOnContext
+    public operator fun component16(): MutPtr = this.dumpDevicePowerOnContext
 
-    public fun copy(header: DumpPointersVersion = this.header, dumpData: MutPtr<CVoid> = this.dumpData, commonBufferVa: MutPtr<CVoid> = this.commonBufferVa, commonBufferSize: UInt = this.commonBufferSize, allocateCommonBuffers: Boolean = this.allocateCommonBuffers, deviceObject: MutPtr<CVoid> = this.deviceObject, driverList: MutPtr<CVoid> = this.driverList, dwPortFlags: UInt = this.dwPortFlags, maxDeviceDumpSectionSize: UInt = this.maxDeviceDumpSectionSize, maxDeviceDumpLevel: UInt = this.maxDeviceDumpLevel, maxTransferSize: UInt = this.maxTransferSize, adapterObject: MutPtr<CVoid> = this.adapterObject, mappedRegisterBase: MutPtr<CVoid> = this.mappedRegisterBase, deviceReady: MutPtr<Boolean> = this.deviceReady, dumpDevicePowerOn: PdumpDevicePoweronRoutine = this.dumpDevicePowerOn, dumpDevicePowerOnContext: MutPtr<CVoid> = this.dumpDevicePowerOnContext): DumpPointersEx = DumpPointersEx(header = header, dumpDataCtorArg = dumpData, commonBufferVaCtorArg = commonBufferVa, commonBufferSize = commonBufferSize, allocateCommonBuffers = allocateCommonBuffers, deviceObjectCtorArg = deviceObject, driverListCtorArg = driverList, dwPortFlags = dwPortFlags, maxDeviceDumpSectionSize = maxDeviceDumpSectionSize, maxDeviceDumpLevel = maxDeviceDumpLevel, maxTransferSize = maxTransferSize, adapterObjectCtorArg = adapterObject, mappedRegisterBaseCtorArg = mappedRegisterBase, deviceReadyCtorArg = deviceReady, dumpDevicePowerOn = dumpDevicePowerOn, dumpDevicePowerOnContextCtorArg = dumpDevicePowerOnContext)
+    public fun copy(header: DumpPointersVersion = this.header, dumpData: MutPtr = this.dumpData, commonBufferVa: MutPtr = this.commonBufferVa, commonBufferSize: UInt = this.commonBufferSize, allocateCommonBuffers: Boolean = this.allocateCommonBuffers, deviceObject: MutPtr = this.deviceObject, driverList: MutPtr = this.driverList, dwPortFlags: UInt = this.dwPortFlags, maxDeviceDumpSectionSize: UInt = this.maxDeviceDumpSectionSize, maxDeviceDumpLevel: UInt = this.maxDeviceDumpLevel, maxTransferSize: UInt = this.maxTransferSize, adapterObject: MutPtr = this.adapterObject, mappedRegisterBase: MutPtr = this.mappedRegisterBase, deviceReady: MutPtr = this.deviceReady, dumpDevicePowerOn: PdumpDevicePoweronRoutine = this.dumpDevicePowerOn, dumpDevicePowerOnContext: MutPtr = this.dumpDevicePowerOnContext): DumpPointersEx = DumpPointersEx(header = header, dumpDataCtorArg = dumpData, commonBufferVaCtorArg = commonBufferVa, commonBufferSize = commonBufferSize, allocateCommonBuffers = allocateCommonBuffers, deviceObjectCtorArg = deviceObject, driverListCtorArg = driverList, dwPortFlags = dwPortFlags, maxDeviceDumpSectionSize = maxDeviceDumpSectionSize, maxDeviceDumpLevel = maxDeviceDumpLevel, maxTransferSize = maxTransferSize, adapterObjectCtorArg = adapterObject, mappedRegisterBaseCtorArg = mappedRegisterBase, deviceReadyCtorArg = deviceReady, dumpDevicePowerOn = dumpDevicePowerOn, dumpDevicePowerOnContextCtorArg = dumpDevicePowerOnContext)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -1108,21 +1107,21 @@ public class DumpPointersEx internal constructor(
     public companion object {
         public operator fun invoke(
             header: DumpPointersVersion = DumpPointersVersion(),
-            dumpData: MutPtr<CVoid> = MutPtr(0L),
-            commonBufferVa: MutPtr<CVoid> = MutPtr(0L),
+            dumpData: MutPtr = MutPtr(0L),
+            commonBufferVa: MutPtr = MutPtr(0L),
             commonBufferSize: UInt = 0u,
             allocateCommonBuffers: Boolean = false,
-            deviceObject: MutPtr<CVoid> = MutPtr(0L),
-            driverList: MutPtr<CVoid> = MutPtr(0L),
+            deviceObject: MutPtr = MutPtr(0L),
+            driverList: MutPtr = MutPtr(0L),
             dwPortFlags: UInt = 0u,
             maxDeviceDumpSectionSize: UInt = 0u,
             maxDeviceDumpLevel: UInt = 0u,
             maxTransferSize: UInt = 0u,
-            adapterObject: MutPtr<CVoid> = MutPtr(0L),
-            mappedRegisterBase: MutPtr<CVoid> = MutPtr(0L),
-            deviceReady: MutPtr<Boolean> = MutPtr(0L),
+            adapterObject: MutPtr = MutPtr(0L),
+            mappedRegisterBase: MutPtr = MutPtr(0L),
+            deviceReady: MutPtr = MutPtr(0L),
             dumpDevicePowerOn: PdumpDevicePoweronRoutine = null,
-            dumpDevicePowerOnContext: MutPtr<CVoid> = MutPtr(0L),
+            dumpDevicePowerOnContext: MutPtr = MutPtr(0L),
         ): DumpPointersEx =
             DumpPointersEx(
                 header = header,
@@ -1514,14 +1513,14 @@ public class IkeAuthenticationPresharedKey internal constructor(
     public var securityFlags: ULong,
     public var idType: UByte,
     public var idLengthInBytes: UInt,
-    idCtorArg: MutPtr<UByte>,
+    idCtorArg: MutPtr,
     public var keyLengthInBytes: UInt,
-    keyCtorArg: MutPtr<UByte>,
+    keyCtorArg: MutPtr,
 ) {
-    public var id: MutPtr<UByte> = idCtorArg
+    public var id: MutPtr = idCtorArg
         internal set
 
-    public var key: MutPtr<UByte> = keyCtorArg
+    public var key: MutPtr = keyCtorArg
         internal set
 
     public constructor() : this(
@@ -1539,13 +1538,13 @@ public class IkeAuthenticationPresharedKey internal constructor(
 
     public operator fun component3(): UInt = this.idLengthInBytes
 
-    public operator fun component4(): MutPtr<UByte> = this.id
+    public operator fun component4(): MutPtr = this.id
 
     public operator fun component5(): UInt = this.keyLengthInBytes
 
-    public operator fun component6(): MutPtr<UByte> = this.key
+    public operator fun component6(): MutPtr = this.key
 
-    public fun copy(securityFlags: ULong = this.securityFlags, idType: UByte = this.idType, idLengthInBytes: UInt = this.idLengthInBytes, id: MutPtr<UByte> = this.id, keyLengthInBytes: UInt = this.keyLengthInBytes, key: MutPtr<UByte> = this.key): IkeAuthenticationPresharedKey = IkeAuthenticationPresharedKey(securityFlags = securityFlags, idType = idType, idLengthInBytes = idLengthInBytes, idCtorArg = id, keyLengthInBytes = keyLengthInBytes, keyCtorArg = key)
+    public fun copy(securityFlags: ULong = this.securityFlags, idType: UByte = this.idType, idLengthInBytes: UInt = this.idLengthInBytes, id: MutPtr = this.id, keyLengthInBytes: UInt = this.keyLengthInBytes, key: MutPtr = this.key): IkeAuthenticationPresharedKey = IkeAuthenticationPresharedKey(securityFlags = securityFlags, idType = idType, idLengthInBytes = idLengthInBytes, idCtorArg = id, keyLengthInBytes = keyLengthInBytes, keyCtorArg = key)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -1581,12 +1580,12 @@ public class IkeAuthenticationPresharedKey internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 12L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<UByte>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 16L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 24L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<UByte>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 32L),
                     )
                 override fun writeNative(addr: Long, value: IkeAuthenticationPresharedKey) {
@@ -1595,12 +1594,12 @@ public class IkeAuthenticationPresharedKey internal constructor(
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 12L, value.idLengthInBytes)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<UByte>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 16L, value.id)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 24L, value.keyLengthInBytes)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<UByte>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 32L, value.key)
                 }
             }
@@ -1609,9 +1608,9 @@ public class IkeAuthenticationPresharedKey internal constructor(
             securityFlags: ULong = 0uL,
             idType: UByte = 0u,
             idLengthInBytes: UInt = 0u,
-            id: MutPtr<UByte> = MutPtr(0L),
+            id: MutPtr = MutPtr(0L),
             keyLengthInBytes: UInt = 0u,
-            key: MutPtr<UByte> = MutPtr(0L),
+            key: MutPtr = MutPtr(0L),
         ): IkeAuthenticationPresharedKey =
             IkeAuthenticationPresharedKey(
                 securityFlags = securityFlags,
@@ -1951,13 +1950,13 @@ public class IscsiLoginOptions internal constructor(
     public var defaultTime2Retain: UInt,
     public var usernameLength: UInt,
     public var passwordLength: UInt,
-    usernameCtorArg: MutPtr<UByte>,
-    passwordCtorArg: MutPtr<UByte>,
+    usernameCtorArg: MutPtr,
+    passwordCtorArg: MutPtr,
 ) {
-    public var username: MutPtr<UByte> = usernameCtorArg
+    public var username: MutPtr = usernameCtorArg
         internal set
 
-    public var password: MutPtr<UByte> = passwordCtorArg
+    public var password: MutPtr = passwordCtorArg
         internal set
 
     public constructor() : this(
@@ -1998,11 +1997,11 @@ public class IscsiLoginOptions internal constructor(
 
     public operator fun component11(): UInt = this.passwordLength
 
-    public operator fun component12(): MutPtr<UByte> = this.username
+    public operator fun component12(): MutPtr = this.username
 
-    public operator fun component13(): MutPtr<UByte> = this.password
+    public operator fun component13(): MutPtr = this.password
 
-    public fun copy(version: UInt = this.version, informationSpecified: UInt = this.informationSpecified, loginFlags: UInt = this.loginFlags, authType: IscsiAuthTypes = this.authType, headerDigest: IscsiDigestTypes = this.headerDigest, dataDigest: IscsiDigestTypes = this.dataDigest, maximumConnections: UInt = this.maximumConnections, defaultTime2Wait: UInt = this.defaultTime2Wait, defaultTime2Retain: UInt = this.defaultTime2Retain, usernameLength: UInt = this.usernameLength, passwordLength: UInt = this.passwordLength, username: MutPtr<UByte> = this.username, password: MutPtr<UByte> = this.password): IscsiLoginOptions = IscsiLoginOptions(version = version, informationSpecified = informationSpecified, loginFlags = loginFlags, authType = authType, headerDigest = headerDigest, dataDigest = dataDigest, maximumConnections = maximumConnections, defaultTime2Wait = defaultTime2Wait, defaultTime2Retain = defaultTime2Retain, usernameLength = usernameLength, passwordLength = passwordLength, usernameCtorArg = username, passwordCtorArg = password)
+    public fun copy(version: UInt = this.version, informationSpecified: UInt = this.informationSpecified, loginFlags: UInt = this.loginFlags, authType: IscsiAuthTypes = this.authType, headerDigest: IscsiDigestTypes = this.headerDigest, dataDigest: IscsiDigestTypes = this.dataDigest, maximumConnections: UInt = this.maximumConnections, defaultTime2Wait: UInt = this.defaultTime2Wait, defaultTime2Retain: UInt = this.defaultTime2Retain, usernameLength: UInt = this.usernameLength, passwordLength: UInt = this.passwordLength, username: MutPtr = this.username, password: MutPtr = this.password): IscsiLoginOptions = IscsiLoginOptions(version = version, informationSpecified = informationSpecified, loginFlags = loginFlags, authType = authType, headerDigest = headerDigest, dataDigest = dataDigest, maximumConnections = maximumConnections, defaultTime2Wait = defaultTime2Wait, defaultTime2Retain = defaultTime2Retain, usernameLength = usernameLength, passwordLength = passwordLength, usernameCtorArg = username, passwordCtorArg = password)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -2060,11 +2059,11 @@ public class IscsiLoginOptions internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 40L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<UByte>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 48L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<UByte>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 56L),
                     )
                 override fun writeNative(addr: Long, value: IscsiLoginOptions) {
@@ -2081,11 +2080,11 @@ public class IscsiLoginOptions internal constructor(
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 40L, value.passwordLength)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<UByte>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 48L, value.username)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<UByte>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 56L, value.password)
                 }
             }
@@ -2102,8 +2101,8 @@ public class IscsiLoginOptions internal constructor(
             defaultTime2Retain: UInt = 0u,
             usernameLength: UInt = 0u,
             passwordLength: UInt = 0u,
-            username: MutPtr<UByte> = MutPtr(0L),
-            password: MutPtr<UByte> = MutPtr(0L),
+            username: MutPtr = MutPtr(0L),
+            password: MutPtr = MutPtr(0L),
         ): IscsiLoginOptions =
             IscsiLoginOptions(
                 version = version,
@@ -2131,7 +2130,7 @@ public class IscsiSessionInfoa internal constructor(
     public var isid: UByteArray,
     public var tsid: UByteArray,
     public var connectionCount: UInt,
-    connectionsCtorArg: MutPtr<IscsiConnectionInfoa>,
+    connectionsCtorArg: MutPtr,
 ) {
     public var initiatorName: Pstr = initiatorNameCtorArg
         internal set
@@ -2142,7 +2141,7 @@ public class IscsiSessionInfoa internal constructor(
     public var targetName: Pstr = targetNameCtorArg
         internal set
 
-    public var connections: MutPtr<IscsiConnectionInfoa> = connectionsCtorArg
+    public var connections: MutPtr = connectionsCtorArg
         internal set
 
     public constructor() : this(
@@ -2170,9 +2169,9 @@ public class IscsiSessionInfoa internal constructor(
 
     public operator fun component7(): UInt = this.connectionCount
 
-    public operator fun component8(): MutPtr<IscsiConnectionInfoa> = this.connections
+    public operator fun component8(): MutPtr = this.connections
 
-    public fun copy(sessionId: IscsiUniqueSessionId = this.sessionId, initiatorName: Pstr = this.initiatorName, targetNodeName: Pstr = this.targetNodeName, targetName: Pstr = this.targetName, isid: UByteArray = this.isid, tsid: UByteArray = this.tsid, connectionCount: UInt = this.connectionCount, connections: MutPtr<IscsiConnectionInfoa> = this.connections): IscsiSessionInfoa = IscsiSessionInfoa(sessionId = sessionId, initiatorNameCtorArg = initiatorName, targetNodeNameCtorArg = targetNodeName, targetNameCtorArg = targetName, isid = isid, tsid = tsid, connectionCount = connectionCount, connectionsCtorArg = connections)
+    public fun copy(sessionId: IscsiUniqueSessionId = this.sessionId, initiatorName: Pstr = this.initiatorName, targetNodeName: Pstr = this.targetNodeName, targetName: Pstr = this.targetName, isid: UByteArray = this.isid, tsid: UByteArray = this.tsid, connectionCount: UInt = this.connectionCount, connections: MutPtr = this.connections): IscsiSessionInfoa = IscsiSessionInfoa(sessionId = sessionId, initiatorNameCtorArg = initiatorName, targetNodeNameCtorArg = targetNodeName, targetNameCtorArg = targetName, isid = isid, tsid = tsid, connectionCount = connectionCount, connectionsCtorArg = connections)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -2209,7 +2208,7 @@ public class IscsiSessionInfoa internal constructor(
             isid: UByteArray = UByteArray(6),
             tsid: UByteArray = UByteArray(2),
             connectionCount: UInt = 0u,
-            connections: MutPtr<IscsiConnectionInfoa> = MutPtr(0L),
+            connections: MutPtr = MutPtr(0L),
         ): IscsiSessionInfoa =
             IscsiSessionInfoa(
                 sessionId = sessionId,
@@ -2232,7 +2231,7 @@ public class IscsiSessionInfow internal constructor(
     public var isid: UByteArray,
     public var tsid: UByteArray,
     public var connectionCount: UInt,
-    connectionsCtorArg: MutPtr<IscsiConnectionInfow>,
+    connectionsCtorArg: MutPtr,
 ) {
     public var initiatorName: Pwstr = initiatorNameCtorArg
         internal set
@@ -2243,7 +2242,7 @@ public class IscsiSessionInfow internal constructor(
     public var targetName: Pwstr = targetNameCtorArg
         internal set
 
-    public var connections: MutPtr<IscsiConnectionInfow> = connectionsCtorArg
+    public var connections: MutPtr = connectionsCtorArg
         internal set
 
     public constructor() : this(
@@ -2271,9 +2270,9 @@ public class IscsiSessionInfow internal constructor(
 
     public operator fun component7(): UInt = this.connectionCount
 
-    public operator fun component8(): MutPtr<IscsiConnectionInfow> = this.connections
+    public operator fun component8(): MutPtr = this.connections
 
-    public fun copy(sessionId: IscsiUniqueSessionId = this.sessionId, initiatorName: Pwstr = this.initiatorName, targetNodeName: Pwstr = this.targetNodeName, targetName: Pwstr = this.targetName, isid: UByteArray = this.isid, tsid: UByteArray = this.tsid, connectionCount: UInt = this.connectionCount, connections: MutPtr<IscsiConnectionInfow> = this.connections): IscsiSessionInfow = IscsiSessionInfow(sessionId = sessionId, initiatorNameCtorArg = initiatorName, targetNodeNameCtorArg = targetNodeName, targetNameCtorArg = targetName, isid = isid, tsid = tsid, connectionCount = connectionCount, connectionsCtorArg = connections)
+    public fun copy(sessionId: IscsiUniqueSessionId = this.sessionId, initiatorName: Pwstr = this.initiatorName, targetNodeName: Pwstr = this.targetNodeName, targetName: Pwstr = this.targetName, isid: UByteArray = this.isid, tsid: UByteArray = this.tsid, connectionCount: UInt = this.connectionCount, connections: MutPtr = this.connections): IscsiSessionInfow = IscsiSessionInfow(sessionId = sessionId, initiatorNameCtorArg = initiatorName, targetNodeNameCtorArg = targetNodeName, targetNameCtorArg = targetName, isid = isid, tsid = tsid, connectionCount = connectionCount, connectionsCtorArg = connections)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -2310,7 +2309,7 @@ public class IscsiSessionInfow internal constructor(
             isid: UByteArray = UByteArray(6),
             tsid: UByteArray = UByteArray(2),
             connectionCount: UInt = 0u,
-            connections: MutPtr<IscsiConnectionInfow> = MutPtr(0L),
+            connections: MutPtr = MutPtr(0L),
         ): IscsiSessionInfow =
             IscsiSessionInfow(
                 sessionId = sessionId,
@@ -2338,9 +2337,9 @@ public class IscsiSessionInfoEx internal constructor(
     public var maxBurstLength: UInt,
     public var maximumConnections: UInt,
     public var connectionCount: UInt,
-    connectionsCtorArg: MutPtr<IscsiConnectionInfoEx>,
+    connectionsCtorArg: MutPtr,
 ) {
-    public var connections: MutPtr<IscsiConnectionInfoEx> = connectionsCtorArg
+    public var connections: MutPtr = connectionsCtorArg
         internal set
 
     public constructor() : this(
@@ -2383,9 +2382,9 @@ public class IscsiSessionInfoEx internal constructor(
 
     public operator fun component12(): UInt = this.connectionCount
 
-    public operator fun component13(): MutPtr<IscsiConnectionInfoEx> = this.connections
+    public operator fun component13(): MutPtr = this.connections
 
-    public fun copy(sessionId: IscsiUniqueSessionId = this.sessionId, initialR2t: Boolean = this.initialR2t, immediateData: Boolean = this.immediateData, type: UByte = this.type, dataSequenceInOrder: Boolean = this.dataSequenceInOrder, dataPduInOrder: Boolean = this.dataPduInOrder, errorRecoveryLevel: UByte = this.errorRecoveryLevel, maxOutstandingR2t: UInt = this.maxOutstandingR2t, firstBurstLength: UInt = this.firstBurstLength, maxBurstLength: UInt = this.maxBurstLength, maximumConnections: UInt = this.maximumConnections, connectionCount: UInt = this.connectionCount, connections: MutPtr<IscsiConnectionInfoEx> = this.connections): IscsiSessionInfoEx = IscsiSessionInfoEx(sessionId = sessionId, initialR2t = initialR2t, immediateData = immediateData, type = type, dataSequenceInOrder = dataSequenceInOrder, dataPduInOrder = dataPduInOrder, errorRecoveryLevel = errorRecoveryLevel, maxOutstandingR2t = maxOutstandingR2t, firstBurstLength = firstBurstLength, maxBurstLength = maxBurstLength, maximumConnections = maximumConnections, connectionCount = connectionCount, connectionsCtorArg = connections)
+    public fun copy(sessionId: IscsiUniqueSessionId = this.sessionId, initialR2t: Boolean = this.initialR2t, immediateData: Boolean = this.immediateData, type: UByte = this.type, dataSequenceInOrder: Boolean = this.dataSequenceInOrder, dataPduInOrder: Boolean = this.dataPduInOrder, errorRecoveryLevel: UByte = this.errorRecoveryLevel, maxOutstandingR2t: UInt = this.maxOutstandingR2t, firstBurstLength: UInt = this.firstBurstLength, maxBurstLength: UInt = this.maxBurstLength, maximumConnections: UInt = this.maximumConnections, connectionCount: UInt = this.connectionCount, connections: MutPtr = this.connections): IscsiSessionInfoEx = IscsiSessionInfoEx(sessionId = sessionId, initialR2t = initialR2t, immediateData = immediateData, type = type, dataSequenceInOrder = dataSequenceInOrder, dataPduInOrder = dataPduInOrder, errorRecoveryLevel = errorRecoveryLevel, maxOutstandingR2t = maxOutstandingR2t, firstBurstLength = firstBurstLength, maxBurstLength = maxBurstLength, maximumConnections = maximumConnections, connectionCount = connectionCount, connectionsCtorArg = connections)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -2444,7 +2443,7 @@ public class IscsiSessionInfoEx internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 40L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<IscsiConnectionInfoEx>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 48L),
                     )
                 override fun writeNative(addr: Long, value: IscsiSessionInfoEx) {
@@ -2462,7 +2461,7 @@ public class IscsiSessionInfoEx internal constructor(
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 40L, value.connectionCount)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<IscsiConnectionInfoEx>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 48L, value.connections)
                 }
             }
@@ -2480,7 +2479,7 @@ public class IscsiSessionInfoEx internal constructor(
             maxBurstLength: UInt = 0u,
             maximumConnections: UInt = 0u,
             connectionCount: UInt = 0u,
-            connections: MutPtr<IscsiConnectionInfoEx> = MutPtr(0L),
+            connections: MutPtr = MutPtr(0L),
         ): IscsiSessionInfoEx =
             IscsiSessionInfoEx(
                 sessionId = sessionId,
@@ -2508,9 +2507,9 @@ public class IscsiTargetMappinga internal constructor(
     public var oSBusNumber: UInt,
     public var oSTargetNumber: UInt,
     public var lUNCount: UInt,
-    lUNListCtorArg: MutPtr<ScsiLunList>,
+    lUNListCtorArg: MutPtr,
 ) {
-    public var lUNList: MutPtr<ScsiLunList> = lUNListCtorArg
+    public var lUNList: MutPtr = lUNListCtorArg
         internal set
 
     public constructor() : this(
@@ -2538,9 +2537,9 @@ public class IscsiTargetMappinga internal constructor(
 
     public operator fun component7(): UInt = this.lUNCount
 
-    public operator fun component8(): MutPtr<ScsiLunList> = this.lUNList
+    public operator fun component8(): MutPtr = this.lUNList
 
-    public fun copy(initiatorName: ByteArray = this.initiatorName, targetName: ByteArray = this.targetName, oSDeviceName: ByteArray = this.oSDeviceName, sessionId: IscsiUniqueSessionId = this.sessionId, oSBusNumber: UInt = this.oSBusNumber, oSTargetNumber: UInt = this.oSTargetNumber, lUNCount: UInt = this.lUNCount, lUNList: MutPtr<ScsiLunList> = this.lUNList): IscsiTargetMappinga = IscsiTargetMappinga(initiatorName = initiatorName, targetName = targetName, oSDeviceName = oSDeviceName, sessionId = sessionId, oSBusNumber = oSBusNumber, oSTargetNumber = oSTargetNumber, lUNCount = lUNCount, lUNListCtorArg = lUNList)
+    public fun copy(initiatorName: ByteArray = this.initiatorName, targetName: ByteArray = this.targetName, oSDeviceName: ByteArray = this.oSDeviceName, sessionId: IscsiUniqueSessionId = this.sessionId, oSBusNumber: UInt = this.oSBusNumber, oSTargetNumber: UInt = this.oSTargetNumber, lUNCount: UInt = this.lUNCount, lUNList: MutPtr = this.lUNList): IscsiTargetMappinga = IscsiTargetMappinga(initiatorName = initiatorName, targetName = targetName, oSDeviceName = oSDeviceName, sessionId = sessionId, oSBusNumber = oSBusNumber, oSTargetNumber = oSTargetNumber, lUNCount = lUNCount, lUNListCtorArg = lUNList)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -2593,7 +2592,7 @@ public class IscsiTargetMappinga internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 768L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<ScsiLunList>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 776L),
                     )
                 override fun writeNative(addr: Long, value: IscsiTargetMappinga) {
@@ -2615,7 +2614,7 @@ public class IscsiTargetMappinga internal constructor(
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 768L, value.lUNCount)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<ScsiLunList>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 776L, value.lUNList)
                 }
             }
@@ -2628,7 +2627,7 @@ public class IscsiTargetMappinga internal constructor(
             oSBusNumber: UInt = 0u,
             oSTargetNumber: UInt = 0u,
             lUNCount: UInt = 0u,
-            lUNList: MutPtr<ScsiLunList> = MutPtr(0L),
+            lUNList: MutPtr = MutPtr(0L),
         ): IscsiTargetMappinga =
             IscsiTargetMappinga(
                 initiatorName = initiatorName,
@@ -2651,9 +2650,9 @@ public class IscsiTargetMappingw internal constructor(
     public var oSBusNumber: UInt,
     public var oSTargetNumber: UInt,
     public var lUNCount: UInt,
-    lUNListCtorArg: MutPtr<ScsiLunList>,
+    lUNListCtorArg: MutPtr,
 ) {
-    public var lUNList: MutPtr<ScsiLunList> = lUNListCtorArg
+    public var lUNList: MutPtr = lUNListCtorArg
         internal set
 
     public constructor() : this(
@@ -2681,9 +2680,9 @@ public class IscsiTargetMappingw internal constructor(
 
     public operator fun component7(): UInt = this.lUNCount
 
-    public operator fun component8(): MutPtr<ScsiLunList> = this.lUNList
+    public operator fun component8(): MutPtr = this.lUNList
 
-    public fun copy(initiatorName: UShortArray = this.initiatorName, targetName: UShortArray = this.targetName, oSDeviceName: UShortArray = this.oSDeviceName, sessionId: IscsiUniqueSessionId = this.sessionId, oSBusNumber: UInt = this.oSBusNumber, oSTargetNumber: UInt = this.oSTargetNumber, lUNCount: UInt = this.lUNCount, lUNList: MutPtr<ScsiLunList> = this.lUNList): IscsiTargetMappingw = IscsiTargetMappingw(initiatorName = initiatorName, targetName = targetName, oSDeviceName = oSDeviceName, sessionId = sessionId, oSBusNumber = oSBusNumber, oSTargetNumber = oSTargetNumber, lUNCount = lUNCount, lUNListCtorArg = lUNList)
+    public fun copy(initiatorName: UShortArray = this.initiatorName, targetName: UShortArray = this.targetName, oSDeviceName: UShortArray = this.oSDeviceName, sessionId: IscsiUniqueSessionId = this.sessionId, oSBusNumber: UInt = this.oSBusNumber, oSTargetNumber: UInt = this.oSTargetNumber, lUNCount: UInt = this.lUNCount, lUNList: MutPtr = this.lUNList): IscsiTargetMappingw = IscsiTargetMappingw(initiatorName = initiatorName, targetName = targetName, oSDeviceName = oSDeviceName, sessionId = sessionId, oSBusNumber = oSBusNumber, oSTargetNumber = oSTargetNumber, lUNCount = lUNCount, lUNListCtorArg = lUNList)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -2736,7 +2735,7 @@ public class IscsiTargetMappingw internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 1504L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<ScsiLunList>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 1512L),
                     )
                 override fun writeNative(addr: Long, value: IscsiTargetMappingw) {
@@ -2758,7 +2757,7 @@ public class IscsiTargetMappingw internal constructor(
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 1504L, value.lUNCount)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<ScsiLunList>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 1512L, value.lUNList)
                 }
             }
@@ -2771,7 +2770,7 @@ public class IscsiTargetMappingw internal constructor(
             oSBusNumber: UInt = 0u,
             oSTargetNumber: UInt = 0u,
             lUNCount: UInt = 0u,
-            lUNList: MutPtr<ScsiLunList> = MutPtr(0L),
+            lUNList: MutPtr = MutPtr(0L),
         ): IscsiTargetMappingw =
             IscsiTargetMappingw(
                 initiatorName = initiatorName,
@@ -3952,10 +3951,10 @@ public class PersistentIscsiLoginInfoa internal constructor(
     public var initiatorPortNumber: UInt,
     public var targetPortal: IscsiTargetPortala,
     public var securityFlags: ULong,
-    mappingsCtorArg: MutPtr<IscsiTargetMappinga>,
+    mappingsCtorArg: MutPtr,
     public var loginOptions: IscsiLoginOptions,
 ) {
-    public var mappings: MutPtr<IscsiTargetMappinga> = mappingsCtorArg
+    public var mappings: MutPtr = mappingsCtorArg
         internal set
 
     public constructor() : this(
@@ -3981,11 +3980,11 @@ public class PersistentIscsiLoginInfoa internal constructor(
 
     public operator fun component6(): ULong = this.securityFlags
 
-    public operator fun component7(): MutPtr<IscsiTargetMappinga> = this.mappings
+    public operator fun component7(): MutPtr = this.mappings
 
     public operator fun component8(): IscsiLoginOptions = this.loginOptions
 
-    public fun copy(targetName: ByteArray = this.targetName, isInformationalSession: Boolean = this.isInformationalSession, initiatorInstance: ByteArray = this.initiatorInstance, initiatorPortNumber: UInt = this.initiatorPortNumber, targetPortal: IscsiTargetPortala = this.targetPortal, securityFlags: ULong = this.securityFlags, mappings: MutPtr<IscsiTargetMappinga> = this.mappings, loginOptions: IscsiLoginOptions = this.loginOptions): PersistentIscsiLoginInfoa = PersistentIscsiLoginInfoa(targetName = targetName, isInformationalSession = isInformationalSession, initiatorInstance = initiatorInstance, initiatorPortNumber = initiatorPortNumber, targetPortal = targetPortal, securityFlags = securityFlags, mappingsCtorArg = mappings, loginOptions = loginOptions)
+    public fun copy(targetName: ByteArray = this.targetName, isInformationalSession: Boolean = this.isInformationalSession, initiatorInstance: ByteArray = this.initiatorInstance, initiatorPortNumber: UInt = this.initiatorPortNumber, targetPortal: IscsiTargetPortala = this.targetPortal, securityFlags: ULong = this.securityFlags, mappings: MutPtr = this.mappings, loginOptions: IscsiLoginOptions = this.loginOptions): PersistentIscsiLoginInfoa = PersistentIscsiLoginInfoa(targetName = targetName, isInformationalSession = isInformationalSession, initiatorInstance = initiatorInstance, initiatorPortNumber = initiatorPortNumber, targetPortal = targetPortal, securityFlags = securityFlags, mappingsCtorArg = mappings, loginOptions = loginOptions)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -4034,7 +4033,7 @@ public class PersistentIscsiLoginInfoa internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U64).readNative(addr + 1008L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<IscsiTargetMappinga>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 1016L),
                         (IscsiLoginOptions.typeLayout()).readNative(addr + 1024L),
                     )
@@ -4053,7 +4052,7 @@ public class PersistentIscsiLoginInfoa internal constructor(
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U64).writeNative(addr + 1008L, value.securityFlags)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<IscsiTargetMappinga>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 1016L, value.mappings)
                     (IscsiLoginOptions.typeLayout()).writeNative(addr + 1024L, value.loginOptions)
                 }
@@ -4066,7 +4065,7 @@ public class PersistentIscsiLoginInfoa internal constructor(
             initiatorPortNumber: UInt = 0u,
             targetPortal: IscsiTargetPortala = IscsiTargetPortala(),
             securityFlags: ULong = 0uL,
-            mappings: MutPtr<IscsiTargetMappinga> = MutPtr(0L),
+            mappings: MutPtr = MutPtr(0L),
             loginOptions: IscsiLoginOptions = IscsiLoginOptions(),
         ): PersistentIscsiLoginInfoa =
             PersistentIscsiLoginInfoa(
@@ -4089,10 +4088,10 @@ public class PersistentIscsiLoginInfow internal constructor(
     public var initiatorPortNumber: UInt,
     public var targetPortal: IscsiTargetPortalw,
     public var securityFlags: ULong,
-    mappingsCtorArg: MutPtr<IscsiTargetMappingw>,
+    mappingsCtorArg: MutPtr,
     public var loginOptions: IscsiLoginOptions,
 ) {
-    public var mappings: MutPtr<IscsiTargetMappingw> = mappingsCtorArg
+    public var mappings: MutPtr = mappingsCtorArg
         internal set
 
     public constructor() : this(
@@ -4118,11 +4117,11 @@ public class PersistentIscsiLoginInfow internal constructor(
 
     public operator fun component6(): ULong = this.securityFlags
 
-    public operator fun component7(): MutPtr<IscsiTargetMappingw> = this.mappings
+    public operator fun component7(): MutPtr = this.mappings
 
     public operator fun component8(): IscsiLoginOptions = this.loginOptions
 
-    public fun copy(targetName: UShortArray = this.targetName, isInformationalSession: Boolean = this.isInformationalSession, initiatorInstance: UShortArray = this.initiatorInstance, initiatorPortNumber: UInt = this.initiatorPortNumber, targetPortal: IscsiTargetPortalw = this.targetPortal, securityFlags: ULong = this.securityFlags, mappings: MutPtr<IscsiTargetMappingw> = this.mappings, loginOptions: IscsiLoginOptions = this.loginOptions): PersistentIscsiLoginInfow = PersistentIscsiLoginInfow(targetName = targetName, isInformationalSession = isInformationalSession, initiatorInstance = initiatorInstance, initiatorPortNumber = initiatorPortNumber, targetPortal = targetPortal, securityFlags = securityFlags, mappingsCtorArg = mappings, loginOptions = loginOptions)
+    public fun copy(targetName: UShortArray = this.targetName, isInformationalSession: Boolean = this.isInformationalSession, initiatorInstance: UShortArray = this.initiatorInstance, initiatorPortNumber: UInt = this.initiatorPortNumber, targetPortal: IscsiTargetPortalw = this.targetPortal, securityFlags: ULong = this.securityFlags, mappings: MutPtr = this.mappings, loginOptions: IscsiLoginOptions = this.loginOptions): PersistentIscsiLoginInfow = PersistentIscsiLoginInfow(targetName = targetName, isInformationalSession = isInformationalSession, initiatorInstance = initiatorInstance, initiatorPortNumber = initiatorPortNumber, targetPortal = targetPortal, securityFlags = securityFlags, mappingsCtorArg = mappings, loginOptions = loginOptions)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -4171,7 +4170,7 @@ public class PersistentIscsiLoginInfow internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U64).readNative(addr + 2000L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<IscsiTargetMappingw>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 2008L),
                         (IscsiLoginOptions.typeLayout()).readNative(addr + 2016L),
                     )
@@ -4190,7 +4189,7 @@ public class PersistentIscsiLoginInfow internal constructor(
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U64).writeNative(addr + 2000L, value.securityFlags)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<IscsiTargetMappingw>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 2008L, value.mappings)
                     (IscsiLoginOptions.typeLayout()).writeNative(addr + 2016L, value.loginOptions)
                 }
@@ -4203,7 +4202,7 @@ public class PersistentIscsiLoginInfow internal constructor(
             initiatorPortNumber: UInt = 0u,
             targetPortal: IscsiTargetPortalw = IscsiTargetPortalw(),
             securityFlags: ULong = 0uL,
-            mappings: MutPtr<IscsiTargetMappingw> = MutPtr(0L),
+            mappings: MutPtr = MutPtr(0L),
             loginOptions: IscsiLoginOptions = IscsiLoginOptions(),
         ): PersistentIscsiLoginInfow =
             PersistentIscsiLoginInfow(
@@ -4709,11 +4708,11 @@ public class ScsiPassThroughDirect internal constructor(
     public var dataIn: UByte,
     public var dataTransferLength: UInt,
     public var timeOutValue: UInt,
-    dataBufferCtorArg: MutPtr<CVoid>,
+    dataBufferCtorArg: MutPtr,
     public var senseInfoOffset: UInt,
     public var cdb: UByteArray,
 ) {
-    public var dataBuffer: MutPtr<CVoid> = dataBufferCtorArg
+    public var dataBuffer: MutPtr = dataBufferCtorArg
         internal set
 
     public constructor() : this(
@@ -4752,13 +4751,13 @@ public class ScsiPassThroughDirect internal constructor(
 
     public operator fun component10(): UInt = this.timeOutValue
 
-    public operator fun component11(): MutPtr<CVoid> = this.dataBuffer
+    public operator fun component11(): MutPtr = this.dataBuffer
 
     public operator fun component12(): UInt = this.senseInfoOffset
 
     public operator fun component13(): UByteArray = this.cdb
 
-    public fun copy(length: UShort = this.length, scsiStatus: UByte = this.scsiStatus, pathId: UByte = this.pathId, targetId: UByte = this.targetId, lun: UByte = this.lun, cdbLength: UByte = this.cdbLength, senseInfoLength: UByte = this.senseInfoLength, dataIn: UByte = this.dataIn, dataTransferLength: UInt = this.dataTransferLength, timeOutValue: UInt = this.timeOutValue, dataBuffer: MutPtr<CVoid> = this.dataBuffer, senseInfoOffset: UInt = this.senseInfoOffset, cdb: UByteArray = this.cdb): ScsiPassThroughDirect = ScsiPassThroughDirect(length = length, scsiStatus = scsiStatus, pathId = pathId, targetId = targetId, lun = lun, cdbLength = cdbLength, senseInfoLength = senseInfoLength, dataIn = dataIn, dataTransferLength = dataTransferLength, timeOutValue = timeOutValue, dataBufferCtorArg = dataBuffer, senseInfoOffset = senseInfoOffset, cdb = cdb)
+    public fun copy(length: UShort = this.length, scsiStatus: UByte = this.scsiStatus, pathId: UByte = this.pathId, targetId: UByte = this.targetId, lun: UByte = this.lun, cdbLength: UByte = this.cdbLength, senseInfoLength: UByte = this.senseInfoLength, dataIn: UByte = this.dataIn, dataTransferLength: UInt = this.dataTransferLength, timeOutValue: UInt = this.timeOutValue, dataBuffer: MutPtr = this.dataBuffer, senseInfoOffset: UInt = this.senseInfoOffset, cdb: UByteArray = this.cdb): ScsiPassThroughDirect = ScsiPassThroughDirect(length = length, scsiStatus = scsiStatus, pathId = pathId, targetId = targetId, lun = lun, cdbLength = cdbLength, senseInfoLength = senseInfoLength, dataIn = dataIn, dataTransferLength = dataTransferLength, timeOutValue = timeOutValue, dataBufferCtorArg = dataBuffer, senseInfoOffset = senseInfoOffset, cdb = cdb)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -4815,7 +4814,7 @@ public class ScsiPassThroughDirect internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 16L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<CVoid>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 24L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 32L),
                         (
@@ -4836,7 +4835,7 @@ public class ScsiPassThroughDirect internal constructor(
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 16L, value.timeOutValue)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<CVoid>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 24L, value.dataBuffer)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 32L, value.senseInfoOffset)
                     (
@@ -4857,7 +4856,7 @@ public class ScsiPassThroughDirect internal constructor(
             dataIn: UByte = 0u,
             dataTransferLength: UInt = 0u,
             timeOutValue: UInt = 0u,
-            dataBuffer: MutPtr<CVoid> = MutPtr(0L),
+            dataBuffer: MutPtr = MutPtr(0L),
             senseInfoOffset: UInt = 0u,
             cdb: UByteArray = UByteArray(16),
         ): ScsiPassThroughDirect =
@@ -4890,11 +4889,11 @@ public class ScsiPassThroughDirect32 internal constructor(
     public var dataIn: UByte,
     public var dataTransferLength: UInt,
     public var timeOutValue: UInt,
-    dataBufferCtorArg: MutPtr<CVoid>,
+    dataBufferCtorArg: MutPtr,
     public var senseInfoOffset: UInt,
     public var cdb: UByteArray,
 ) {
-    public var dataBuffer: MutPtr<CVoid> = dataBufferCtorArg
+    public var dataBuffer: MutPtr = dataBufferCtorArg
         internal set
 
     public constructor() : this(
@@ -4933,13 +4932,13 @@ public class ScsiPassThroughDirect32 internal constructor(
 
     public operator fun component10(): UInt = this.timeOutValue
 
-    public operator fun component11(): MutPtr<CVoid> = this.dataBuffer
+    public operator fun component11(): MutPtr = this.dataBuffer
 
     public operator fun component12(): UInt = this.senseInfoOffset
 
     public operator fun component13(): UByteArray = this.cdb
 
-    public fun copy(length: UShort = this.length, scsiStatus: UByte = this.scsiStatus, pathId: UByte = this.pathId, targetId: UByte = this.targetId, lun: UByte = this.lun, cdbLength: UByte = this.cdbLength, senseInfoLength: UByte = this.senseInfoLength, dataIn: UByte = this.dataIn, dataTransferLength: UInt = this.dataTransferLength, timeOutValue: UInt = this.timeOutValue, dataBuffer: MutPtr<CVoid> = this.dataBuffer, senseInfoOffset: UInt = this.senseInfoOffset, cdb: UByteArray = this.cdb): ScsiPassThroughDirect32 = ScsiPassThroughDirect32(length = length, scsiStatus = scsiStatus, pathId = pathId, targetId = targetId, lun = lun, cdbLength = cdbLength, senseInfoLength = senseInfoLength, dataIn = dataIn, dataTransferLength = dataTransferLength, timeOutValue = timeOutValue, dataBufferCtorArg = dataBuffer, senseInfoOffset = senseInfoOffset, cdb = cdb)
+    public fun copy(length: UShort = this.length, scsiStatus: UByte = this.scsiStatus, pathId: UByte = this.pathId, targetId: UByte = this.targetId, lun: UByte = this.lun, cdbLength: UByte = this.cdbLength, senseInfoLength: UByte = this.senseInfoLength, dataIn: UByte = this.dataIn, dataTransferLength: UInt = this.dataTransferLength, timeOutValue: UInt = this.timeOutValue, dataBuffer: MutPtr = this.dataBuffer, senseInfoOffset: UInt = this.senseInfoOffset, cdb: UByteArray = this.cdb): ScsiPassThroughDirect32 = ScsiPassThroughDirect32(length = length, scsiStatus = scsiStatus, pathId = pathId, targetId = targetId, lun = lun, cdbLength = cdbLength, senseInfoLength = senseInfoLength, dataIn = dataIn, dataTransferLength = dataTransferLength, timeOutValue = timeOutValue, dataBufferCtorArg = dataBuffer, senseInfoOffset = senseInfoOffset, cdb = cdb)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -4996,7 +4995,7 @@ public class ScsiPassThroughDirect32 internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 16L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<CVoid>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 24L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 32L),
                         (
@@ -5017,7 +5016,7 @@ public class ScsiPassThroughDirect32 internal constructor(
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 16L, value.timeOutValue)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<CVoid>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 24L, value.dataBuffer)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 32L, value.senseInfoOffset)
                     (
@@ -5038,7 +5037,7 @@ public class ScsiPassThroughDirect32 internal constructor(
             dataIn: UByte = 0u,
             dataTransferLength: UInt = 0u,
             timeOutValue: UInt = 0u,
-            dataBuffer: MutPtr<CVoid> = MutPtr(0L),
+            dataBuffer: MutPtr = MutPtr(0L),
             senseInfoOffset: UInt = 0u,
             cdb: UByteArray = UByteArray(16),
         ): ScsiPassThroughDirect32 =
@@ -5074,14 +5073,14 @@ public class ScsiPassThroughDirect32Ex internal constructor(
     public var senseInfoOffset: UInt,
     public var dataOutTransferLength: UInt,
     public var dataInTransferLength: UInt,
-    dataOutBufferCtorArg: MutPtr<CVoid>,
-    dataInBufferCtorArg: MutPtr<CVoid>,
+    dataOutBufferCtorArg: MutPtr,
+    dataInBufferCtorArg: MutPtr,
     public var cdb: UByteArray,
 ) {
-    public var dataOutBuffer: MutPtr<CVoid> = dataOutBufferCtorArg
+    public var dataOutBuffer: MutPtr = dataOutBufferCtorArg
         internal set
 
-    public var dataInBuffer: MutPtr<CVoid> = dataInBufferCtorArg
+    public var dataInBuffer: MutPtr = dataInBufferCtorArg
         internal set
 
     public constructor() : this(
@@ -5129,13 +5128,13 @@ public class ScsiPassThroughDirect32Ex internal constructor(
 
     public operator fun component13(): UInt = this.dataInTransferLength
 
-    public operator fun component14(): MutPtr<CVoid> = this.dataOutBuffer
+    public operator fun component14(): MutPtr = this.dataOutBuffer
 
-    public operator fun component15(): MutPtr<CVoid> = this.dataInBuffer
+    public operator fun component15(): MutPtr = this.dataInBuffer
 
     public operator fun component16(): UByteArray = this.cdb
 
-    public fun copy(version: UInt = this.version, length: UInt = this.length, cdbLength: UInt = this.cdbLength, storAddressLength: UInt = this.storAddressLength, scsiStatus: UByte = this.scsiStatus, senseInfoLength: UByte = this.senseInfoLength, dataDirection: UByte = this.dataDirection, reserved: UByte = this.reserved, timeOutValue: UInt = this.timeOutValue, storAddressOffset: UInt = this.storAddressOffset, senseInfoOffset: UInt = this.senseInfoOffset, dataOutTransferLength: UInt = this.dataOutTransferLength, dataInTransferLength: UInt = this.dataInTransferLength, dataOutBuffer: MutPtr<CVoid> = this.dataOutBuffer, dataInBuffer: MutPtr<CVoid> = this.dataInBuffer, cdb: UByteArray = this.cdb): ScsiPassThroughDirect32Ex = ScsiPassThroughDirect32Ex(version = version, length = length, cdbLength = cdbLength, storAddressLength = storAddressLength, scsiStatus = scsiStatus, senseInfoLength = senseInfoLength, dataDirection = dataDirection, reserved = reserved, timeOutValue = timeOutValue, storAddressOffset = storAddressOffset, senseInfoOffset = senseInfoOffset, dataOutTransferLength = dataOutTransferLength, dataInTransferLength = dataInTransferLength, dataOutBufferCtorArg = dataOutBuffer, dataInBufferCtorArg = dataInBuffer, cdb = cdb)
+    public fun copy(version: UInt = this.version, length: UInt = this.length, cdbLength: UInt = this.cdbLength, storAddressLength: UInt = this.storAddressLength, scsiStatus: UByte = this.scsiStatus, senseInfoLength: UByte = this.senseInfoLength, dataDirection: UByte = this.dataDirection, reserved: UByte = this.reserved, timeOutValue: UInt = this.timeOutValue, storAddressOffset: UInt = this.storAddressOffset, senseInfoOffset: UInt = this.senseInfoOffset, dataOutTransferLength: UInt = this.dataOutTransferLength, dataInTransferLength: UInt = this.dataInTransferLength, dataOutBuffer: MutPtr = this.dataOutBuffer, dataInBuffer: MutPtr = this.dataInBuffer, cdb: UByteArray = this.cdb): ScsiPassThroughDirect32Ex = ScsiPassThroughDirect32Ex(version = version, length = length, cdbLength = cdbLength, storAddressLength = storAddressLength, scsiStatus = scsiStatus, senseInfoLength = senseInfoLength, dataDirection = dataDirection, reserved = reserved, timeOutValue = timeOutValue, storAddressOffset = storAddressOffset, senseInfoOffset = senseInfoOffset, dataOutTransferLength = dataOutTransferLength, dataInTransferLength = dataInTransferLength, dataOutBufferCtorArg = dataOutBuffer, dataInBufferCtorArg = dataInBuffer, cdb = cdb)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -5201,11 +5200,11 @@ public class ScsiPassThroughDirect32Ex internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 36L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<CVoid>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 40L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<CVoid>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 48L),
                         (
                             io.github.kotlinmania.rustlang.core.mem
@@ -5228,11 +5227,11 @@ public class ScsiPassThroughDirect32Ex internal constructor(
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 36L, value.dataInTransferLength)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<CVoid>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 40L, value.dataOutBuffer)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<CVoid>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 48L, value.dataInBuffer)
                     (
                         io.github.kotlinmania.rustlang.core.mem
@@ -5255,8 +5254,8 @@ public class ScsiPassThroughDirect32Ex internal constructor(
             senseInfoOffset: UInt = 0u,
             dataOutTransferLength: UInt = 0u,
             dataInTransferLength: UInt = 0u,
-            dataOutBuffer: MutPtr<CVoid> = MutPtr(0L),
-            dataInBuffer: MutPtr<CVoid> = MutPtr(0L),
+            dataOutBuffer: MutPtr = MutPtr(0L),
+            dataInBuffer: MutPtr = MutPtr(0L),
             cdb: UByteArray = UByteArray(1),
         ): ScsiPassThroughDirect32Ex =
             ScsiPassThroughDirect32Ex(
@@ -5294,14 +5293,14 @@ public class ScsiPassThroughDirectEx internal constructor(
     public var senseInfoOffset: UInt,
     public var dataOutTransferLength: UInt,
     public var dataInTransferLength: UInt,
-    dataOutBufferCtorArg: MutPtr<CVoid>,
-    dataInBufferCtorArg: MutPtr<CVoid>,
+    dataOutBufferCtorArg: MutPtr,
+    dataInBufferCtorArg: MutPtr,
     public var cdb: UByteArray,
 ) {
-    public var dataOutBuffer: MutPtr<CVoid> = dataOutBufferCtorArg
+    public var dataOutBuffer: MutPtr = dataOutBufferCtorArg
         internal set
 
-    public var dataInBuffer: MutPtr<CVoid> = dataInBufferCtorArg
+    public var dataInBuffer: MutPtr = dataInBufferCtorArg
         internal set
 
     public constructor() : this(
@@ -5349,13 +5348,13 @@ public class ScsiPassThroughDirectEx internal constructor(
 
     public operator fun component13(): UInt = this.dataInTransferLength
 
-    public operator fun component14(): MutPtr<CVoid> = this.dataOutBuffer
+    public operator fun component14(): MutPtr = this.dataOutBuffer
 
-    public operator fun component15(): MutPtr<CVoid> = this.dataInBuffer
+    public operator fun component15(): MutPtr = this.dataInBuffer
 
     public operator fun component16(): UByteArray = this.cdb
 
-    public fun copy(version: UInt = this.version, length: UInt = this.length, cdbLength: UInt = this.cdbLength, storAddressLength: UInt = this.storAddressLength, scsiStatus: UByte = this.scsiStatus, senseInfoLength: UByte = this.senseInfoLength, dataDirection: UByte = this.dataDirection, reserved: UByte = this.reserved, timeOutValue: UInt = this.timeOutValue, storAddressOffset: UInt = this.storAddressOffset, senseInfoOffset: UInt = this.senseInfoOffset, dataOutTransferLength: UInt = this.dataOutTransferLength, dataInTransferLength: UInt = this.dataInTransferLength, dataOutBuffer: MutPtr<CVoid> = this.dataOutBuffer, dataInBuffer: MutPtr<CVoid> = this.dataInBuffer, cdb: UByteArray = this.cdb): ScsiPassThroughDirectEx = ScsiPassThroughDirectEx(version = version, length = length, cdbLength = cdbLength, storAddressLength = storAddressLength, scsiStatus = scsiStatus, senseInfoLength = senseInfoLength, dataDirection = dataDirection, reserved = reserved, timeOutValue = timeOutValue, storAddressOffset = storAddressOffset, senseInfoOffset = senseInfoOffset, dataOutTransferLength = dataOutTransferLength, dataInTransferLength = dataInTransferLength, dataOutBufferCtorArg = dataOutBuffer, dataInBufferCtorArg = dataInBuffer, cdb = cdb)
+    public fun copy(version: UInt = this.version, length: UInt = this.length, cdbLength: UInt = this.cdbLength, storAddressLength: UInt = this.storAddressLength, scsiStatus: UByte = this.scsiStatus, senseInfoLength: UByte = this.senseInfoLength, dataDirection: UByte = this.dataDirection, reserved: UByte = this.reserved, timeOutValue: UInt = this.timeOutValue, storAddressOffset: UInt = this.storAddressOffset, senseInfoOffset: UInt = this.senseInfoOffset, dataOutTransferLength: UInt = this.dataOutTransferLength, dataInTransferLength: UInt = this.dataInTransferLength, dataOutBuffer: MutPtr = this.dataOutBuffer, dataInBuffer: MutPtr = this.dataInBuffer, cdb: UByteArray = this.cdb): ScsiPassThroughDirectEx = ScsiPassThroughDirectEx(version = version, length = length, cdbLength = cdbLength, storAddressLength = storAddressLength, scsiStatus = scsiStatus, senseInfoLength = senseInfoLength, dataDirection = dataDirection, reserved = reserved, timeOutValue = timeOutValue, storAddressOffset = storAddressOffset, senseInfoOffset = senseInfoOffset, dataOutTransferLength = dataOutTransferLength, dataInTransferLength = dataInTransferLength, dataOutBufferCtorArg = dataOutBuffer, dataInBufferCtorArg = dataInBuffer, cdb = cdb)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -5421,11 +5420,11 @@ public class ScsiPassThroughDirectEx internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 36L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<CVoid>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 40L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<CVoid>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 48L),
                         (
                             io.github.kotlinmania.rustlang.core.mem
@@ -5448,11 +5447,11 @@ public class ScsiPassThroughDirectEx internal constructor(
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 36L, value.dataInTransferLength)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<CVoid>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 40L, value.dataOutBuffer)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<CVoid>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 48L, value.dataInBuffer)
                     (
                         io.github.kotlinmania.rustlang.core.mem
@@ -5475,8 +5474,8 @@ public class ScsiPassThroughDirectEx internal constructor(
             senseInfoOffset: UInt = 0u,
             dataOutTransferLength: UInt = 0u,
             dataInTransferLength: UInt = 0u,
-            dataOutBuffer: MutPtr<CVoid> = MutPtr(0L),
-            dataInBuffer: MutPtr<CVoid> = MutPtr(0L),
+            dataOutBuffer: MutPtr = MutPtr(0L),
+            dataInBuffer: MutPtr = MutPtr(0L),
             cdb: UByteArray = UByteArray(1),
         ): ScsiPassThroughDirectEx =
             ScsiPassThroughDirectEx(

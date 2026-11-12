@@ -2,7 +2,6 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.system.remotemanagement
 
-import io.github.kotlinmania.rustlang.core.ffi.CVoid
 import io.github.kotlinmania.rustlang.core.ptr.ConstPtr
 import io.github.kotlinmania.rustlang.core.ptr.MutPtr
 import io.github.kotlinmania.windowssys.core.Bool
@@ -166,7 +165,7 @@ private object WindowsWin32SystemRemotemanagementJniBridge {
     external fun windowssysWindowsWin32SystemRemotemanagementWSManSignalShell(shell: Long, command: Long, flags: Int, code: Long, async: Long, signaloperation: Long)
 }
 
-public actual fun wSManCloseCommand(commandhandle: WsmanCommandHandle, flags: UInt, async: ConstPtr<WsmanShellAsync>) {
+public actual fun wSManCloseCommand(commandhandle: WsmanCommandHandle, flags: UInt, async: ConstPtr) {
     WindowsWin32SystemRemotemanagementJniBridge.windowssysWindowsWin32SystemRemotemanagementWSManCloseCommand(commandhandle, flags.toInt(), async.rawAddress)
 }
 
@@ -176,105 +175,105 @@ public actual fun wSManCloseOperation(operationhandle: WsmanOperationHandle, fla
 public actual fun wSManCloseSession(session: WsmanSessionHandle, flags: UInt): UInt =
     WindowsWin32SystemRemotemanagementJniBridge.windowssysWindowsWin32SystemRemotemanagementWSManCloseSession(session, flags.toInt()).toUInt()
 
-public actual fun wSManCloseShell(shellhandle: WsmanShellHandle, flags: UInt, async: ConstPtr<WsmanShellAsync>) {
+public actual fun wSManCloseShell(shellhandle: WsmanShellHandle, flags: UInt, async: ConstPtr) {
     WindowsWin32SystemRemotemanagementJniBridge.windowssysWindowsWin32SystemRemotemanagementWSManCloseShell(shellhandle, flags.toInt(), async.rawAddress)
 }
 
-public actual fun wSManConnectShell(session: WsmanSessionHandle, flags: UInt, resourceuri: Pcwstr, shellid: Pcwstr, options: ConstPtr<WsmanOptionSet>, connectxml: ConstPtr<WsmanData>, async: ConstPtr<WsmanShellAsync>, shell: MutPtr<WsmanShellHandle>) {
+public actual fun wSManConnectShell(session: WsmanSessionHandle, flags: UInt, resourceuri: Pcwstr, shellid: Pcwstr, options: ConstPtr, connectxml: ConstPtr, async: ConstPtr, shell: MutPtr) {
     WindowsWin32SystemRemotemanagementJniBridge.windowssysWindowsWin32SystemRemotemanagementWSManConnectShell(session, flags.toInt(), resourceuri.rawAddress, shellid.rawAddress, options.rawAddress, connectxml.rawAddress, async.rawAddress, shell.rawAddress)
 }
 
-public actual fun wSManConnectShellCommand(shell: WsmanShellHandle, flags: UInt, commandid: Pcwstr, options: ConstPtr<WsmanOptionSet>, connectxml: ConstPtr<WsmanData>, async: ConstPtr<WsmanShellAsync>, command: MutPtr<WsmanCommandHandle>) {
+public actual fun wSManConnectShellCommand(shell: WsmanShellHandle, flags: UInt, commandid: Pcwstr, options: ConstPtr, connectxml: ConstPtr, async: ConstPtr, command: MutPtr) {
     WindowsWin32SystemRemotemanagementJniBridge.windowssysWindowsWin32SystemRemotemanagementWSManConnectShellCommand(shell, flags.toInt(), commandid.rawAddress, options.rawAddress, connectxml.rawAddress, async.rawAddress, command.rawAddress)
 }
 
-public actual fun wSManCreateSession(apihandle: WsmanApiHandle, connection: Pcwstr, flags: UInt, serverauthenticationcredentials: ConstPtr<WsmanAuthenticationCredentials>, proxyinfo: ConstPtr<WsmanProxyInfo>, session: MutPtr<WsmanSessionHandle>): UInt =
+public actual fun wSManCreateSession(apihandle: WsmanApiHandle, connection: Pcwstr, flags: UInt, serverauthenticationcredentials: ConstPtr, proxyinfo: ConstPtr, session: MutPtr): UInt =
     WindowsWin32SystemRemotemanagementJniBridge.windowssysWindowsWin32SystemRemotemanagementWSManCreateSession(apihandle, connection.rawAddress, flags.toInt(), serverauthenticationcredentials.rawAddress, proxyinfo.rawAddress, session.rawAddress).toUInt()
 
-public actual fun wSManCreateShell(session: WsmanSessionHandle, flags: UInt, resourceuri: Pcwstr, startupinfo: ConstPtr<WsmanShellStartupInfoV11>, options: ConstPtr<WsmanOptionSet>, createxml: ConstPtr<WsmanData>, async: ConstPtr<WsmanShellAsync>, shell: MutPtr<WsmanShellHandle>) {
+public actual fun wSManCreateShell(session: WsmanSessionHandle, flags: UInt, resourceuri: Pcwstr, startupinfo: ConstPtr, options: ConstPtr, createxml: ConstPtr, async: ConstPtr, shell: MutPtr) {
     WindowsWin32SystemRemotemanagementJniBridge.windowssysWindowsWin32SystemRemotemanagementWSManCreateShell(session, flags.toInt(), resourceuri.rawAddress, startupinfo.rawAddress, options.rawAddress, createxml.rawAddress, async.rawAddress, shell.rawAddress)
 }
 
-public actual fun wSManCreateShellEx(session: WsmanSessionHandle, flags: UInt, resourceuri: Pcwstr, shellid: Pcwstr, startupinfo: ConstPtr<WsmanShellStartupInfoV11>, options: ConstPtr<WsmanOptionSet>, createxml: ConstPtr<WsmanData>, async: ConstPtr<WsmanShellAsync>, shell: MutPtr<WsmanShellHandle>) {
+public actual fun wSManCreateShellEx(session: WsmanSessionHandle, flags: UInt, resourceuri: Pcwstr, shellid: Pcwstr, startupinfo: ConstPtr, options: ConstPtr, createxml: ConstPtr, async: ConstPtr, shell: MutPtr) {
     WindowsWin32SystemRemotemanagementJniBridge.windowssysWindowsWin32SystemRemotemanagementWSManCreateShellEx(session, flags.toInt(), resourceuri.rawAddress, shellid.rawAddress, startupinfo.rawAddress, options.rawAddress, createxml.rawAddress, async.rawAddress, shell.rawAddress)
 }
 
 public actual fun wSManDeinitialize(apihandle: WsmanApiHandle, flags: UInt): UInt =
     WindowsWin32SystemRemotemanagementJniBridge.windowssysWindowsWin32SystemRemotemanagementWSManDeinitialize(apihandle, flags.toInt()).toUInt()
 
-public actual fun wSManDisconnectShell(shell: WsmanShellHandle, flags: UInt, disconnectinfo: ConstPtr<WsmanShellDisconnectInfo>, async: ConstPtr<WsmanShellAsync>) {
+public actual fun wSManDisconnectShell(shell: WsmanShellHandle, flags: UInt, disconnectinfo: ConstPtr, async: ConstPtr) {
     WindowsWin32SystemRemotemanagementJniBridge.windowssysWindowsWin32SystemRemotemanagementWSManDisconnectShell(shell, flags.toInt(), disconnectinfo.rawAddress, async.rawAddress)
 }
 
-public actual fun wSManGetErrorMessage(apihandle: WsmanApiHandle, flags: UInt, languagecode: Pcwstr, errorcode: UInt, messagelength: UInt, message: Pwstr, messagelengthused: MutPtr<UInt>): UInt =
+public actual fun wSManGetErrorMessage(apihandle: WsmanApiHandle, flags: UInt, languagecode: Pcwstr, errorcode: UInt, messagelength: UInt, message: Pwstr, messagelengthused: MutPtr): UInt =
     WindowsWin32SystemRemotemanagementJniBridge.windowssysWindowsWin32SystemRemotemanagementWSManGetErrorMessage(apihandle, flags.toInt(), languagecode.rawAddress, errorcode.toInt(), messagelength.toInt(), message.rawAddress, messagelengthused.rawAddress).toUInt()
 
-public actual fun wSManGetSessionOptionAsDword(session: WsmanSessionHandle, option: WSManSessionOption, value: MutPtr<UInt>): UInt =
+public actual fun wSManGetSessionOptionAsDword(session: WsmanSessionHandle, option: WSManSessionOption, value: MutPtr): UInt =
     WindowsWin32SystemRemotemanagementJniBridge.windowssysWindowsWin32SystemRemotemanagementWSManGetSessionOptionAsDword(session, option, value.rawAddress).toUInt()
 
-public actual fun wSManGetSessionOptionAsString(session: WsmanSessionHandle, option: WSManSessionOption, stringlength: UInt, string: Pwstr, stringlengthused: MutPtr<UInt>): UInt =
+public actual fun wSManGetSessionOptionAsString(session: WsmanSessionHandle, option: WSManSessionOption, stringlength: UInt, string: Pwstr, stringlengthused: MutPtr): UInt =
     WindowsWin32SystemRemotemanagementJniBridge.windowssysWindowsWin32SystemRemotemanagementWSManGetSessionOptionAsString(session, option, stringlength.toInt(), string.rawAddress, stringlengthused.rawAddress).toUInt()
 
-public actual fun wSManInitialize(flags: UInt, apihandle: MutPtr<WsmanApiHandle>): UInt =
+public actual fun wSManInitialize(flags: UInt, apihandle: MutPtr): UInt =
     WindowsWin32SystemRemotemanagementJniBridge.windowssysWindowsWin32SystemRemotemanagementWSManInitialize(flags.toInt(), apihandle.rawAddress).toUInt()
 
-public actual fun wSManPluginAuthzOperationComplete(senderdetails: ConstPtr<WsmanSenderDetails>, flags: UInt, userauthorizationcontext: ConstPtr<CVoid>, errorcode: UInt, extendederrorinformation: Pcwstr): UInt =
+public actual fun wSManPluginAuthzOperationComplete(senderdetails: ConstPtr, flags: UInt, userauthorizationcontext: ConstPtr, errorcode: UInt, extendederrorinformation: Pcwstr): UInt =
     WindowsWin32SystemRemotemanagementJniBridge.windowssysWindowsWin32SystemRemotemanagementWSManPluginAuthzOperationComplete(senderdetails.rawAddress, flags.toInt(), userauthorizationcontext.rawAddress, errorcode.toInt(), extendederrorinformation.rawAddress).toUInt()
 
-public actual fun wSManPluginAuthzQueryQuotaComplete(senderdetails: ConstPtr<WsmanSenderDetails>, flags: UInt, quota: ConstPtr<WsmanAuthzQuota>, errorcode: UInt, extendederrorinformation: Pcwstr): UInt =
+public actual fun wSManPluginAuthzQueryQuotaComplete(senderdetails: ConstPtr, flags: UInt, quota: ConstPtr, errorcode: UInt, extendederrorinformation: Pcwstr): UInt =
     WindowsWin32SystemRemotemanagementJniBridge.windowssysWindowsWin32SystemRemotemanagementWSManPluginAuthzQueryQuotaComplete(senderdetails.rawAddress, flags.toInt(), quota.rawAddress, errorcode.toInt(), extendederrorinformation.rawAddress).toUInt()
 
-public actual fun wSManPluginAuthzUserComplete(senderdetails: ConstPtr<WsmanSenderDetails>, flags: UInt, userauthorizationcontext: ConstPtr<CVoid>, impersonationtoken: Handle, userisadministrator: Bool, errorcode: UInt, extendederrorinformation: Pcwstr): UInt =
+public actual fun wSManPluginAuthzUserComplete(senderdetails: ConstPtr, flags: UInt, userauthorizationcontext: ConstPtr, impersonationtoken: Handle, userisadministrator: Bool, errorcode: UInt, extendederrorinformation: Pcwstr): UInt =
     WindowsWin32SystemRemotemanagementJniBridge.windowssysWindowsWin32SystemRemotemanagementWSManPluginAuthzUserComplete(senderdetails.rawAddress, flags.toInt(), userauthorizationcontext.rawAddress, impersonationtoken.rawAddress, userisadministrator, errorcode.toInt(), extendederrorinformation.rawAddress).toUInt()
 
-public actual fun wSManPluginFreeRequestDetails(requestdetails: ConstPtr<WsmanPluginRequest>): UInt =
+public actual fun wSManPluginFreeRequestDetails(requestdetails: ConstPtr): UInt =
     WindowsWin32SystemRemotemanagementJniBridge.windowssysWindowsWin32SystemRemotemanagementWSManPluginFreeRequestDetails(requestdetails.rawAddress).toUInt()
 
-public actual fun wSManPluginGetConfiguration(plugincontext: ConstPtr<CVoid>, flags: UInt, data: MutPtr<WsmanData>): UInt =
+public actual fun wSManPluginGetConfiguration(plugincontext: ConstPtr, flags: UInt, data: MutPtr): UInt =
     WindowsWin32SystemRemotemanagementJniBridge.windowssysWindowsWin32SystemRemotemanagementWSManPluginGetConfiguration(plugincontext.rawAddress, flags.toInt(), data.rawAddress).toUInt()
 
-public actual fun wSManPluginGetOperationParameters(requestdetails: ConstPtr<WsmanPluginRequest>, flags: UInt, data: MutPtr<WsmanData>): UInt =
+public actual fun wSManPluginGetOperationParameters(requestdetails: ConstPtr, flags: UInt, data: MutPtr): UInt =
     WindowsWin32SystemRemotemanagementJniBridge.windowssysWindowsWin32SystemRemotemanagementWSManPluginGetOperationParameters(requestdetails.rawAddress, flags.toInt(), data.rawAddress).toUInt()
 
-public actual fun wSManPluginOperationComplete(requestdetails: ConstPtr<WsmanPluginRequest>, flags: UInt, errorcode: UInt, extendedinformation: Pcwstr): UInt =
+public actual fun wSManPluginOperationComplete(requestdetails: ConstPtr, flags: UInt, errorcode: UInt, extendedinformation: Pcwstr): UInt =
     WindowsWin32SystemRemotemanagementJniBridge.windowssysWindowsWin32SystemRemotemanagementWSManPluginOperationComplete(requestdetails.rawAddress, flags.toInt(), errorcode.toInt(), extendedinformation.rawAddress).toUInt()
 
-public actual fun wSManPluginReceiveResult(requestdetails: ConstPtr<WsmanPluginRequest>, flags: UInt, stream: Pcwstr, streamresult: ConstPtr<WsmanData>, commandstate: Pcwstr, exitcode: UInt): UInt =
+public actual fun wSManPluginReceiveResult(requestdetails: ConstPtr, flags: UInt, stream: Pcwstr, streamresult: ConstPtr, commandstate: Pcwstr, exitcode: UInt): UInt =
     WindowsWin32SystemRemotemanagementJniBridge.windowssysWindowsWin32SystemRemotemanagementWSManPluginReceiveResult(requestdetails.rawAddress, flags.toInt(), stream.rawAddress, streamresult.rawAddress, commandstate.rawAddress, exitcode.toInt()).toUInt()
 
-public actual fun wSManPluginReportCompletion(plugincontext: ConstPtr<CVoid>, flags: UInt): UInt =
+public actual fun wSManPluginReportCompletion(plugincontext: ConstPtr, flags: UInt): UInt =
     WindowsWin32SystemRemotemanagementJniBridge.windowssysWindowsWin32SystemRemotemanagementWSManPluginReportCompletion(plugincontext.rawAddress, flags.toInt()).toUInt()
 
-public actual fun wSManPluginReportContext(requestdetails: ConstPtr<WsmanPluginRequest>, flags: UInt, context: ConstPtr<CVoid>): UInt =
+public actual fun wSManPluginReportContext(requestdetails: ConstPtr, flags: UInt, context: ConstPtr): UInt =
     WindowsWin32SystemRemotemanagementJniBridge.windowssysWindowsWin32SystemRemotemanagementWSManPluginReportContext(requestdetails.rawAddress, flags.toInt(), context.rawAddress).toUInt()
 
-public actual fun wSManReceiveShellOutput(shell: WsmanShellHandle, command: WsmanCommandHandle, flags: UInt, desiredstreamset: ConstPtr<WsmanStreamIdSet>, async: ConstPtr<WsmanShellAsync>, receiveoperation: MutPtr<WsmanOperationHandle>) {
+public actual fun wSManReceiveShellOutput(shell: WsmanShellHandle, command: WsmanCommandHandle, flags: UInt, desiredstreamset: ConstPtr, async: ConstPtr, receiveoperation: MutPtr) {
     WindowsWin32SystemRemotemanagementJniBridge.windowssysWindowsWin32SystemRemotemanagementWSManReceiveShellOutput(shell, command, flags.toInt(), desiredstreamset.rawAddress, async.rawAddress, receiveoperation.rawAddress)
 }
 
-public actual fun wSManReconnectShell(shell: WsmanShellHandle, flags: UInt, async: ConstPtr<WsmanShellAsync>) {
+public actual fun wSManReconnectShell(shell: WsmanShellHandle, flags: UInt, async: ConstPtr) {
     WindowsWin32SystemRemotemanagementJniBridge.windowssysWindowsWin32SystemRemotemanagementWSManReconnectShell(shell, flags.toInt(), async.rawAddress)
 }
 
-public actual fun wSManReconnectShellCommand(commandhandle: WsmanCommandHandle, flags: UInt, async: ConstPtr<WsmanShellAsync>) {
+public actual fun wSManReconnectShellCommand(commandhandle: WsmanCommandHandle, flags: UInt, async: ConstPtr) {
     WindowsWin32SystemRemotemanagementJniBridge.windowssysWindowsWin32SystemRemotemanagementWSManReconnectShellCommand(commandhandle, flags.toInt(), async.rawAddress)
 }
 
-public actual fun wSManRunShellCommand(shell: WsmanShellHandle, flags: UInt, commandline: Pcwstr, args: ConstPtr<WsmanCommandArgSet>, options: ConstPtr<WsmanOptionSet>, async: ConstPtr<WsmanShellAsync>, command: MutPtr<WsmanCommandHandle>) {
+public actual fun wSManRunShellCommand(shell: WsmanShellHandle, flags: UInt, commandline: Pcwstr, args: ConstPtr, options: ConstPtr, async: ConstPtr, command: MutPtr) {
     WindowsWin32SystemRemotemanagementJniBridge.windowssysWindowsWin32SystemRemotemanagementWSManRunShellCommand(shell, flags.toInt(), commandline.rawAddress, args.rawAddress, options.rawAddress, async.rawAddress, command.rawAddress)
 }
 
-public actual fun wSManRunShellCommandEx(shell: WsmanShellHandle, flags: UInt, commandid: Pcwstr, commandline: Pcwstr, args: ConstPtr<WsmanCommandArgSet>, options: ConstPtr<WsmanOptionSet>, async: ConstPtr<WsmanShellAsync>, command: MutPtr<WsmanCommandHandle>) {
+public actual fun wSManRunShellCommandEx(shell: WsmanShellHandle, flags: UInt, commandid: Pcwstr, commandline: Pcwstr, args: ConstPtr, options: ConstPtr, async: ConstPtr, command: MutPtr) {
     WindowsWin32SystemRemotemanagementJniBridge.windowssysWindowsWin32SystemRemotemanagementWSManRunShellCommandEx(shell, flags.toInt(), commandid.rawAddress, commandline.rawAddress, args.rawAddress, options.rawAddress, async.rawAddress, command.rawAddress)
 }
 
-public actual fun wSManSendShellInput(shell: WsmanShellHandle, command: WsmanCommandHandle, flags: UInt, streamid: Pcwstr, streamdata: ConstPtr<WsmanData>, endofstream: Bool, async: ConstPtr<WsmanShellAsync>, sendoperation: MutPtr<WsmanOperationHandle>) {
+public actual fun wSManSendShellInput(shell: WsmanShellHandle, command: WsmanCommandHandle, flags: UInt, streamid: Pcwstr, streamdata: ConstPtr, endofstream: Bool, async: ConstPtr, sendoperation: MutPtr) {
     WindowsWin32SystemRemotemanagementJniBridge.windowssysWindowsWin32SystemRemotemanagementWSManSendShellInput(shell, command, flags.toInt(), streamid.rawAddress, streamdata.rawAddress, endofstream, async.rawAddress, sendoperation.rawAddress)
 }
 
-public actual fun wSManSetSessionOption(session: WsmanSessionHandle, option: WSManSessionOption, data: ConstPtr<WsmanData>): UInt =
+public actual fun wSManSetSessionOption(session: WsmanSessionHandle, option: WSManSessionOption, data: ConstPtr): UInt =
     WindowsWin32SystemRemotemanagementJniBridge.windowssysWindowsWin32SystemRemotemanagementWSManSetSessionOption(session, option, data.rawAddress).toUInt()
 
-public actual fun wSManSignalShell(shell: WsmanShellHandle, command: WsmanCommandHandle, flags: UInt, code: Pcwstr, async: ConstPtr<WsmanShellAsync>, signaloperation: MutPtr<WsmanOperationHandle>) {
+public actual fun wSManSignalShell(shell: WsmanShellHandle, command: WsmanCommandHandle, flags: UInt, code: Pcwstr, async: ConstPtr, signaloperation: MutPtr) {
     WindowsWin32SystemRemotemanagementJniBridge.windowssysWindowsWin32SystemRemotemanagementWSManSignalShell(shell, command, flags.toInt(), code.rawAddress, async.rawAddress, signaloperation.rawAddress)
 }

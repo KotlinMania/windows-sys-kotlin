@@ -88,13 +88,13 @@ public actual fun closeHandle(hobject: Handle): Bool =
 public actual fun compareObjectHandles(hfirstobjecthandle: Handle, hsecondobjecthandle: Handle): Bool =
     WindowsWin32FoundationJniBridge.windowssysWindowsWin32FoundationCompareObjectHandles(hfirstobjecthandle.rawAddress, hsecondobjecthandle.rawAddress)
 
-public actual fun duplicateHandle(hsourceprocesshandle: Handle, hsourcehandle: Handle, htargetprocesshandle: Handle, lptargethandle: MutPtr<Handle>, dwdesiredaccess: UInt, binherithandle: Bool, dwoptions: DuplicateHandleOptions): Bool =
+public actual fun duplicateHandle(hsourceprocesshandle: Handle, hsourcehandle: Handle, htargetprocesshandle: Handle, lptargethandle: MutPtr, dwdesiredaccess: UInt, binherithandle: Bool, dwoptions: DuplicateHandleOptions): Bool =
     WindowsWin32FoundationJniBridge.windowssysWindowsWin32FoundationDuplicateHandle(hsourceprocesshandle.rawAddress, hsourcehandle.rawAddress, htargetprocesshandle.rawAddress, lptargethandle.rawAddress, dwdesiredaccess.toInt(), binherithandle, dwoptions.toInt())
 
 public actual fun freeLibrary(hlibmodule: Hmodule): Bool =
     WindowsWin32FoundationJniBridge.windowssysWindowsWin32FoundationFreeLibrary(hlibmodule.rawAddress)
 
-public actual fun getHandleInformation(hobject: Handle, lpdwflags: MutPtr<UInt>): Bool =
+public actual fun getHandleInformation(hobject: Handle, lpdwflags: MutPtr): Bool =
     WindowsWin32FoundationJniBridge.windowssysWindowsWin32FoundationGetHandleInformation(hobject.rawAddress, lpdwflags.rawAddress)
 
 public actual fun getLastError(): Win32Error =
@@ -136,10 +136,10 @@ public actual fun sysFreeString(bstrstring: Bstr) {
     WindowsWin32FoundationJniBridge.windowssysWindowsWin32FoundationSysFreeString(bstrstring.rawAddress)
 }
 
-public actual fun sysReAllocString(pbstr: MutPtr<Bstr>, psz: Pcwstr): Int =
+public actual fun sysReAllocString(pbstr: MutPtr, psz: Pcwstr): Int =
     WindowsWin32FoundationJniBridge.windowssysWindowsWin32FoundationSysReAllocString(pbstr.rawAddress, psz.rawAddress)
 
-public actual fun sysReAllocStringLen(pbstr: MutPtr<Bstr>, psz: Pcwstr, len: UInt): Int =
+public actual fun sysReAllocStringLen(pbstr: MutPtr, psz: Pcwstr, len: UInt): Int =
     WindowsWin32FoundationJniBridge.windowssysWindowsWin32FoundationSysReAllocStringLen(pbstr.rawAddress, psz.rawAddress, len.toInt())
 
 public actual fun sysReleaseString(bstrstring: Bstr) {

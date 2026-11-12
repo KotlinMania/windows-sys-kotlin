@@ -2,14 +2,10 @@
 
 package io.github.kotlinmania.windowssys.windows.wdk.system.registry
 
-import io.github.kotlinmania.rustlang.core.ffi.CVoid
 import io.github.kotlinmania.rustlang.core.ptr.ConstPtr
 import io.github.kotlinmania.rustlang.core.ptr.MutPtr
-import io.github.kotlinmania.windowssys.windows.wdk.foundation.ObjectAttributes
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Handle
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Ntstatus
-import io.github.kotlinmania.windowssys.windows.win32.foundation.UnicodeString
-import io.github.kotlinmania.windowssys.windows.win32.system.io.IoStatusBlock
 import io.github.kotlinmania.windowssys.windows.win32.system.io.PioApcRoutine
 
 @JsFun("() => { if (typeof globalThis.__km_napi_windowssys !== 'undefined') return globalThis.__km_napi_windowssys !== null; if (typeof process === 'undefined' || !process.versions || !process.versions.node) { globalThis.__km_napi_windowssys = null; return false; } var mod = process.getBuiltinModule ? process.getBuiltinModule('module') : (process.mainModule && process.mainModule.constructor); var req = (mod && mod.createRequire) ? mod.createRequire((process.cwd ? process.cwd() : '.') + '/package.json') : (process.mainModule ? process.mainModule.require : null); if (!req) { globalThis.__km_napi_windowssys = null; return false; } try { globalThis.__km_napi_windowssys = req('@kotlinmania/windowssys-native-bindings'); return true; } catch (_) {} var fs = req('fs'); var path = req('path'); var dir = process.cwd ? process.cwd() : '.'; var rels = ['windowssys_native.node', 'build/node-ffi/windowssys_native.node', 'build/node-ffi/release/windowssys_native.node', 'build/node-ffi/debug/windowssys_native.node', 'src/js/node-windowssys/build/Release/windowssys_native.node', 'src/js/node-windowssys/build/Debug/windowssys_native.node', 'src/js/node-windowssys/dist/build/Release/windowssys_native.node', 'src/js/node-windowssys/dist/build/Debug/windowssys_native.node']; for (var d = 0; d < 8; d++) { for (var i = 0; i < rels.length; i++) { var c = path.resolve(dir, rels[i]); if (fs.existsSync(c)) { globalThis.__km_napi_windowssys = req(c); return true; } } var parent = path.dirname(dir); if (parent === dir) break; dir = parent; } globalThis.__km_napi_windowssys = null; return false; }")
@@ -170,58 +166,58 @@ private external fun wasmWindowssysWindowsWdkSystemRegistryZwSetValueKey(p0: Str
 public actual fun ntCommitRegistryTransaction(transactionhandle: Handle, flags: UInt): Ntstatus =
     if (windowsWdkSystemRegistryNapiAvailable) wasmWindowssysWindowsWdkSystemRegistryNtCommitRegistryTransaction(transactionhandle.rawAddress.toString(), flags.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ntCreateKey(keyhandle: MutPtr<Handle>, desiredaccess: UInt, objectattributes: ConstPtr<ObjectAttributes>, titleindex: UInt, cls: ConstPtr<UnicodeString>, createoptions: UInt, disposition: MutPtr<UInt>): Ntstatus =
+public actual fun ntCreateKey(keyhandle: MutPtr, desiredaccess: UInt, objectattributes: ConstPtr, titleindex: UInt, cls: ConstPtr, createoptions: UInt, disposition: MutPtr): Ntstatus =
     if (windowsWdkSystemRegistryNapiAvailable) wasmWindowssysWindowsWdkSystemRegistryNtCreateKey(keyhandle.rawAddress.toString(), desiredaccess.toInt(), objectattributes.rawAddress.toString(), titleindex.toInt(), cls.rawAddress.toString(), createoptions.toInt(), disposition.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ntCreateKeyTransacted(keyhandle: MutPtr<Handle>, desiredaccess: UInt, objectattributes: ConstPtr<ObjectAttributes>, titleindex: UInt, cls: ConstPtr<UnicodeString>, createoptions: UInt, transactionhandle: Handle, disposition: MutPtr<UInt>): Ntstatus =
+public actual fun ntCreateKeyTransacted(keyhandle: MutPtr, desiredaccess: UInt, objectattributes: ConstPtr, titleindex: UInt, cls: ConstPtr, createoptions: UInt, transactionhandle: Handle, disposition: MutPtr): Ntstatus =
     if (windowsWdkSystemRegistryNapiAvailable) wasmWindowssysWindowsWdkSystemRegistryNtCreateKeyTransacted(keyhandle.rawAddress.toString(), desiredaccess.toInt(), objectattributes.rawAddress.toString(), titleindex.toInt(), cls.rawAddress.toString(), createoptions.toInt(), transactionhandle.rawAddress.toString(), disposition.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ntCreateRegistryTransaction(transactionhandle: MutPtr<Handle>, desiredaccess: UInt, objectattributes: ConstPtr<ObjectAttributes>, createoptions: UInt): Ntstatus =
+public actual fun ntCreateRegistryTransaction(transactionhandle: MutPtr, desiredaccess: UInt, objectattributes: ConstPtr, createoptions: UInt): Ntstatus =
     if (windowsWdkSystemRegistryNapiAvailable) wasmWindowssysWindowsWdkSystemRegistryNtCreateRegistryTransaction(transactionhandle.rawAddress.toString(), desiredaccess.toInt(), objectattributes.rawAddress.toString(), createoptions.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun ntDeleteKey(keyhandle: Handle): Ntstatus =
     if (windowsWdkSystemRegistryNapiAvailable) wasmWindowssysWindowsWdkSystemRegistryNtDeleteKey(keyhandle.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ntDeleteValueKey(keyhandle: Handle, valuename: ConstPtr<UnicodeString>): Ntstatus =
+public actual fun ntDeleteValueKey(keyhandle: Handle, valuename: ConstPtr): Ntstatus =
     if (windowsWdkSystemRegistryNapiAvailable) wasmWindowssysWindowsWdkSystemRegistryNtDeleteValueKey(keyhandle.rawAddress.toString(), valuename.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ntEnumerateKey(keyhandle: Handle, index: UInt, keyinformationclass: KeyInformationClass, keyinformation: MutPtr<CVoid>, length: UInt, resultlength: MutPtr<UInt>): Ntstatus =
+public actual fun ntEnumerateKey(keyhandle: Handle, index: UInt, keyinformationclass: KeyInformationClass, keyinformation: MutPtr, length: UInt, resultlength: MutPtr): Ntstatus =
     if (windowsWdkSystemRegistryNapiAvailable) wasmWindowssysWindowsWdkSystemRegistryNtEnumerateKey(keyhandle.rawAddress.toString(), index.toInt(), keyinformationclass, keyinformation.rawAddress.toString(), length.toInt(), resultlength.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ntEnumerateValueKey(keyhandle: Handle, index: UInt, keyvalueinformationclass: KeyValueInformationClass, keyvalueinformation: MutPtr<CVoid>, length: UInt, resultlength: MutPtr<UInt>): Ntstatus =
+public actual fun ntEnumerateValueKey(keyhandle: Handle, index: UInt, keyvalueinformationclass: KeyValueInformationClass, keyvalueinformation: MutPtr, length: UInt, resultlength: MutPtr): Ntstatus =
     if (windowsWdkSystemRegistryNapiAvailable) wasmWindowssysWindowsWdkSystemRegistryNtEnumerateValueKey(keyhandle.rawAddress.toString(), index.toInt(), keyvalueinformationclass, keyvalueinformation.rawAddress.toString(), length.toInt(), resultlength.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun ntFlushKey(keyhandle: Handle): Ntstatus =
     if (windowsWdkSystemRegistryNapiAvailable) wasmWindowssysWindowsWdkSystemRegistryNtFlushKey(keyhandle.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ntNotifyChangeMultipleKeys(masterkeyhandle: Handle, count: UInt, subordinateobjects: ConstPtr<ObjectAttributes>, event: Handle, apcroutine: PioApcRoutine, apccontext: ConstPtr<CVoid>, iostatusblock: MutPtr<IoStatusBlock>, completionfilter: UInt, watchtree: Boolean, buffer: MutPtr<CVoid>, buffersize: UInt, asynchronous: Boolean): Ntstatus =
+public actual fun ntNotifyChangeMultipleKeys(masterkeyhandle: Handle, count: UInt, subordinateobjects: ConstPtr, event: Handle, apcroutine: PioApcRoutine, apccontext: ConstPtr, iostatusblock: MutPtr, completionfilter: UInt, watchtree: Boolean, buffer: MutPtr, buffersize: UInt, asynchronous: Boolean): Ntstatus =
     if (windowsWdkSystemRegistryNapiAvailable) wasmWindowssysWindowsWdkSystemRegistryNtNotifyChangeMultipleKeys(masterkeyhandle.rawAddress.toString(), count.toInt(), subordinateobjects.rawAddress.toString(), event.rawAddress.toString(), 0L.toString(), apccontext.rawAddress.toString(), iostatusblock.rawAddress.toString(), completionfilter.toInt(), watchtree, buffer.rawAddress.toString(), buffersize.toInt(), asynchronous) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ntOpenKey(keyhandle: MutPtr<Handle>, desiredaccess: UInt, objectattributes: ConstPtr<ObjectAttributes>): Ntstatus =
+public actual fun ntOpenKey(keyhandle: MutPtr, desiredaccess: UInt, objectattributes: ConstPtr): Ntstatus =
     if (windowsWdkSystemRegistryNapiAvailable) wasmWindowssysWindowsWdkSystemRegistryNtOpenKey(keyhandle.rawAddress.toString(), desiredaccess.toInt(), objectattributes.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ntOpenKeyEx(keyhandle: MutPtr<Handle>, desiredaccess: UInt, objectattributes: ConstPtr<ObjectAttributes>, openoptions: UInt): Ntstatus =
+public actual fun ntOpenKeyEx(keyhandle: MutPtr, desiredaccess: UInt, objectattributes: ConstPtr, openoptions: UInt): Ntstatus =
     if (windowsWdkSystemRegistryNapiAvailable) wasmWindowssysWindowsWdkSystemRegistryNtOpenKeyEx(keyhandle.rawAddress.toString(), desiredaccess.toInt(), objectattributes.rawAddress.toString(), openoptions.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ntOpenKeyTransacted(keyhandle: MutPtr<Handle>, desiredaccess: UInt, objectattributes: ConstPtr<ObjectAttributes>, transactionhandle: Handle): Ntstatus =
+public actual fun ntOpenKeyTransacted(keyhandle: MutPtr, desiredaccess: UInt, objectattributes: ConstPtr, transactionhandle: Handle): Ntstatus =
     if (windowsWdkSystemRegistryNapiAvailable) wasmWindowssysWindowsWdkSystemRegistryNtOpenKeyTransacted(keyhandle.rawAddress.toString(), desiredaccess.toInt(), objectattributes.rawAddress.toString(), transactionhandle.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ntOpenKeyTransactedEx(keyhandle: MutPtr<Handle>, desiredaccess: UInt, objectattributes: ConstPtr<ObjectAttributes>, openoptions: UInt, transactionhandle: Handle): Ntstatus =
+public actual fun ntOpenKeyTransactedEx(keyhandle: MutPtr, desiredaccess: UInt, objectattributes: ConstPtr, openoptions: UInt, transactionhandle: Handle): Ntstatus =
     if (windowsWdkSystemRegistryNapiAvailable) wasmWindowssysWindowsWdkSystemRegistryNtOpenKeyTransactedEx(keyhandle.rawAddress.toString(), desiredaccess.toInt(), objectattributes.rawAddress.toString(), openoptions.toInt(), transactionhandle.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ntOpenRegistryTransaction(transactionhandle: MutPtr<Handle>, desiredaccess: UInt, objectattributes: ConstPtr<ObjectAttributes>): Ntstatus =
+public actual fun ntOpenRegistryTransaction(transactionhandle: MutPtr, desiredaccess: UInt, objectattributes: ConstPtr): Ntstatus =
     if (windowsWdkSystemRegistryNapiAvailable) wasmWindowssysWindowsWdkSystemRegistryNtOpenRegistryTransaction(transactionhandle.rawAddress.toString(), desiredaccess.toInt(), objectattributes.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ntQueryKey(keyhandle: Handle, keyinformationclass: KeyInformationClass, keyinformation: MutPtr<CVoid>, length: UInt, resultlength: MutPtr<UInt>): Ntstatus =
+public actual fun ntQueryKey(keyhandle: Handle, keyinformationclass: KeyInformationClass, keyinformation: MutPtr, length: UInt, resultlength: MutPtr): Ntstatus =
     if (windowsWdkSystemRegistryNapiAvailable) wasmWindowssysWindowsWdkSystemRegistryNtQueryKey(keyhandle.rawAddress.toString(), keyinformationclass, keyinformation.rawAddress.toString(), length.toInt(), resultlength.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ntQueryMultipleValueKey(keyhandle: Handle, valueentries: MutPtr<KeyValueEntry>, entrycount: UInt, valuebuffer: MutPtr<CVoid>, bufferlength: MutPtr<UInt>, requiredbufferlength: MutPtr<UInt>): Ntstatus =
+public actual fun ntQueryMultipleValueKey(keyhandle: Handle, valueentries: MutPtr, entrycount: UInt, valuebuffer: MutPtr, bufferlength: MutPtr, requiredbufferlength: MutPtr): Ntstatus =
     if (windowsWdkSystemRegistryNapiAvailable) wasmWindowssysWindowsWdkSystemRegistryNtQueryMultipleValueKey(keyhandle.rawAddress.toString(), valueentries.rawAddress.toString(), entrycount.toInt(), valuebuffer.rawAddress.toString(), bufferlength.rawAddress.toString(), requiredbufferlength.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ntQueryValueKey(keyhandle: Handle, valuename: ConstPtr<UnicodeString>, keyvalueinformationclass: KeyValueInformationClass, keyvalueinformation: MutPtr<CVoid>, length: UInt, resultlength: MutPtr<UInt>): Ntstatus =
+public actual fun ntQueryValueKey(keyhandle: Handle, valuename: ConstPtr, keyvalueinformationclass: KeyValueInformationClass, keyvalueinformation: MutPtr, length: UInt, resultlength: MutPtr): Ntstatus =
     if (windowsWdkSystemRegistryNapiAvailable) wasmWindowssysWindowsWdkSystemRegistryNtQueryValueKey(keyhandle.rawAddress.toString(), valuename.rawAddress.toString(), keyvalueinformationclass, keyvalueinformation.rawAddress.toString(), length.toInt(), resultlength.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ntRenameKey(keyhandle: Handle, newname: ConstPtr<UnicodeString>): Ntstatus =
+public actual fun ntRenameKey(keyhandle: Handle, newname: ConstPtr): Ntstatus =
     if (windowsWdkSystemRegistryNapiAvailable) wasmWindowssysWindowsWdkSystemRegistryNtRenameKey(keyhandle.rawAddress.toString(), newname.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun ntRestoreKey(keyhandle: Handle, filehandle: Handle, flags: UInt): Ntstatus =
@@ -236,67 +232,67 @@ public actual fun ntSaveKey(keyhandle: Handle, filehandle: Handle): Ntstatus =
 public actual fun ntSaveKeyEx(keyhandle: Handle, filehandle: Handle, format: UInt): Ntstatus =
     if (windowsWdkSystemRegistryNapiAvailable) wasmWindowssysWindowsWdkSystemRegistryNtSaveKeyEx(keyhandle.rawAddress.toString(), filehandle.rawAddress.toString(), format.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ntSetInformationKey(keyhandle: Handle, keysetinformationclass: KeySetInformationClass, keysetinformation: ConstPtr<CVoid>, keysetinformationlength: UInt): Ntstatus =
+public actual fun ntSetInformationKey(keyhandle: Handle, keysetinformationclass: KeySetInformationClass, keysetinformation: ConstPtr, keysetinformationlength: UInt): Ntstatus =
     if (windowsWdkSystemRegistryNapiAvailable) wasmWindowssysWindowsWdkSystemRegistryNtSetInformationKey(keyhandle.rawAddress.toString(), keysetinformationclass, keysetinformation.rawAddress.toString(), keysetinformationlength.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ntSetValueKey(keyhandle: Handle, valuename: ConstPtr<UnicodeString>, titleindex: UInt, type: UInt, data: ConstPtr<CVoid>, datasize: UInt): Ntstatus =
+public actual fun ntSetValueKey(keyhandle: Handle, valuename: ConstPtr, titleindex: UInt, type: UInt, data: ConstPtr, datasize: UInt): Ntstatus =
     if (windowsWdkSystemRegistryNapiAvailable) wasmWindowssysWindowsWdkSystemRegistryNtSetValueKey(keyhandle.rawAddress.toString(), valuename.rawAddress.toString(), titleindex.toInt(), type.toInt(), data.rawAddress.toString(), datasize.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun zwCommitRegistryTransaction(transactionhandle: Handle, flags: UInt): Ntstatus =
     if (windowsWdkSystemRegistryNapiAvailable) wasmWindowssysWindowsWdkSystemRegistryZwCommitRegistryTransaction(transactionhandle.rawAddress.toString(), flags.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun zwCreateKey(keyhandle: MutPtr<Handle>, desiredaccess: UInt, objectattributes: ConstPtr<ObjectAttributes>, titleindex: UInt, cls: ConstPtr<UnicodeString>, createoptions: UInt, disposition: MutPtr<UInt>): Ntstatus =
+public actual fun zwCreateKey(keyhandle: MutPtr, desiredaccess: UInt, objectattributes: ConstPtr, titleindex: UInt, cls: ConstPtr, createoptions: UInt, disposition: MutPtr): Ntstatus =
     if (windowsWdkSystemRegistryNapiAvailable) wasmWindowssysWindowsWdkSystemRegistryZwCreateKey(keyhandle.rawAddress.toString(), desiredaccess.toInt(), objectattributes.rawAddress.toString(), titleindex.toInt(), cls.rawAddress.toString(), createoptions.toInt(), disposition.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun zwCreateKeyTransacted(keyhandle: MutPtr<Handle>, desiredaccess: UInt, objectattributes: ConstPtr<ObjectAttributes>, titleindex: UInt, cls: ConstPtr<UnicodeString>, createoptions: UInt, transactionhandle: Handle, disposition: MutPtr<UInt>): Ntstatus =
+public actual fun zwCreateKeyTransacted(keyhandle: MutPtr, desiredaccess: UInt, objectattributes: ConstPtr, titleindex: UInt, cls: ConstPtr, createoptions: UInt, transactionhandle: Handle, disposition: MutPtr): Ntstatus =
     if (windowsWdkSystemRegistryNapiAvailable) wasmWindowssysWindowsWdkSystemRegistryZwCreateKeyTransacted(keyhandle.rawAddress.toString(), desiredaccess.toInt(), objectattributes.rawAddress.toString(), titleindex.toInt(), cls.rawAddress.toString(), createoptions.toInt(), transactionhandle.rawAddress.toString(), disposition.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun zwCreateRegistryTransaction(transactionhandle: MutPtr<Handle>, desiredaccess: UInt, objectattributes: ConstPtr<ObjectAttributes>, createoptions: UInt): Ntstatus =
+public actual fun zwCreateRegistryTransaction(transactionhandle: MutPtr, desiredaccess: UInt, objectattributes: ConstPtr, createoptions: UInt): Ntstatus =
     if (windowsWdkSystemRegistryNapiAvailable) wasmWindowssysWindowsWdkSystemRegistryZwCreateRegistryTransaction(transactionhandle.rawAddress.toString(), desiredaccess.toInt(), objectattributes.rawAddress.toString(), createoptions.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun zwDeleteKey(keyhandle: Handle): Ntstatus =
     if (windowsWdkSystemRegistryNapiAvailable) wasmWindowssysWindowsWdkSystemRegistryZwDeleteKey(keyhandle.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun zwDeleteValueKey(keyhandle: Handle, valuename: ConstPtr<UnicodeString>): Ntstatus =
+public actual fun zwDeleteValueKey(keyhandle: Handle, valuename: ConstPtr): Ntstatus =
     if (windowsWdkSystemRegistryNapiAvailable) wasmWindowssysWindowsWdkSystemRegistryZwDeleteValueKey(keyhandle.rawAddress.toString(), valuename.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun zwEnumerateKey(keyhandle: Handle, index: UInt, keyinformationclass: KeyInformationClass, keyinformation: MutPtr<CVoid>, length: UInt, resultlength: MutPtr<UInt>): Ntstatus =
+public actual fun zwEnumerateKey(keyhandle: Handle, index: UInt, keyinformationclass: KeyInformationClass, keyinformation: MutPtr, length: UInt, resultlength: MutPtr): Ntstatus =
     if (windowsWdkSystemRegistryNapiAvailable) wasmWindowssysWindowsWdkSystemRegistryZwEnumerateKey(keyhandle.rawAddress.toString(), index.toInt(), keyinformationclass, keyinformation.rawAddress.toString(), length.toInt(), resultlength.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun zwEnumerateValueKey(keyhandle: Handle, index: UInt, keyvalueinformationclass: KeyValueInformationClass, keyvalueinformation: MutPtr<CVoid>, length: UInt, resultlength: MutPtr<UInt>): Ntstatus =
+public actual fun zwEnumerateValueKey(keyhandle: Handle, index: UInt, keyvalueinformationclass: KeyValueInformationClass, keyvalueinformation: MutPtr, length: UInt, resultlength: MutPtr): Ntstatus =
     if (windowsWdkSystemRegistryNapiAvailable) wasmWindowssysWindowsWdkSystemRegistryZwEnumerateValueKey(keyhandle.rawAddress.toString(), index.toInt(), keyvalueinformationclass, keyvalueinformation.rawAddress.toString(), length.toInt(), resultlength.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun zwFlushKey(keyhandle: Handle): Ntstatus =
     if (windowsWdkSystemRegistryNapiAvailable) wasmWindowssysWindowsWdkSystemRegistryZwFlushKey(keyhandle.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun zwNotifyChangeMultipleKeys(masterkeyhandle: Handle, count: UInt, subordinateobjects: ConstPtr<ObjectAttributes>, event: Handle, apcroutine: PioApcRoutine, apccontext: ConstPtr<CVoid>, iostatusblock: MutPtr<IoStatusBlock>, completionfilter: UInt, watchtree: Boolean, buffer: MutPtr<CVoid>, buffersize: UInt, asynchronous: Boolean): Ntstatus =
+public actual fun zwNotifyChangeMultipleKeys(masterkeyhandle: Handle, count: UInt, subordinateobjects: ConstPtr, event: Handle, apcroutine: PioApcRoutine, apccontext: ConstPtr, iostatusblock: MutPtr, completionfilter: UInt, watchtree: Boolean, buffer: MutPtr, buffersize: UInt, asynchronous: Boolean): Ntstatus =
     if (windowsWdkSystemRegistryNapiAvailable) wasmWindowssysWindowsWdkSystemRegistryZwNotifyChangeMultipleKeys(masterkeyhandle.rawAddress.toString(), count.toInt(), subordinateobjects.rawAddress.toString(), event.rawAddress.toString(), 0L.toString(), apccontext.rawAddress.toString(), iostatusblock.rawAddress.toString(), completionfilter.toInt(), watchtree, buffer.rawAddress.toString(), buffersize.toInt(), asynchronous) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun zwOpenKey(keyhandle: MutPtr<Handle>, desiredaccess: UInt, objectattributes: ConstPtr<ObjectAttributes>): Ntstatus =
+public actual fun zwOpenKey(keyhandle: MutPtr, desiredaccess: UInt, objectattributes: ConstPtr): Ntstatus =
     if (windowsWdkSystemRegistryNapiAvailable) wasmWindowssysWindowsWdkSystemRegistryZwOpenKey(keyhandle.rawAddress.toString(), desiredaccess.toInt(), objectattributes.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun zwOpenKeyEx(keyhandle: MutPtr<Handle>, desiredaccess: UInt, objectattributes: ConstPtr<ObjectAttributes>, openoptions: UInt): Ntstatus =
+public actual fun zwOpenKeyEx(keyhandle: MutPtr, desiredaccess: UInt, objectattributes: ConstPtr, openoptions: UInt): Ntstatus =
     if (windowsWdkSystemRegistryNapiAvailable) wasmWindowssysWindowsWdkSystemRegistryZwOpenKeyEx(keyhandle.rawAddress.toString(), desiredaccess.toInt(), objectattributes.rawAddress.toString(), openoptions.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun zwOpenKeyTransacted(keyhandle: MutPtr<Handle>, desiredaccess: UInt, objectattributes: ConstPtr<ObjectAttributes>, transactionhandle: Handle): Ntstatus =
+public actual fun zwOpenKeyTransacted(keyhandle: MutPtr, desiredaccess: UInt, objectattributes: ConstPtr, transactionhandle: Handle): Ntstatus =
     if (windowsWdkSystemRegistryNapiAvailable) wasmWindowssysWindowsWdkSystemRegistryZwOpenKeyTransacted(keyhandle.rawAddress.toString(), desiredaccess.toInt(), objectattributes.rawAddress.toString(), transactionhandle.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun zwOpenKeyTransactedEx(keyhandle: MutPtr<Handle>, desiredaccess: UInt, objectattributes: ConstPtr<ObjectAttributes>, openoptions: UInt, transactionhandle: Handle): Ntstatus =
+public actual fun zwOpenKeyTransactedEx(keyhandle: MutPtr, desiredaccess: UInt, objectattributes: ConstPtr, openoptions: UInt, transactionhandle: Handle): Ntstatus =
     if (windowsWdkSystemRegistryNapiAvailable) wasmWindowssysWindowsWdkSystemRegistryZwOpenKeyTransactedEx(keyhandle.rawAddress.toString(), desiredaccess.toInt(), objectattributes.rawAddress.toString(), openoptions.toInt(), transactionhandle.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun zwOpenRegistryTransaction(transactionhandle: MutPtr<Handle>, desiredaccess: UInt, objectattributes: ConstPtr<ObjectAttributes>): Ntstatus =
+public actual fun zwOpenRegistryTransaction(transactionhandle: MutPtr, desiredaccess: UInt, objectattributes: ConstPtr): Ntstatus =
     if (windowsWdkSystemRegistryNapiAvailable) wasmWindowssysWindowsWdkSystemRegistryZwOpenRegistryTransaction(transactionhandle.rawAddress.toString(), desiredaccess.toInt(), objectattributes.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun zwQueryKey(keyhandle: Handle, keyinformationclass: KeyInformationClass, keyinformation: MutPtr<CVoid>, length: UInt, resultlength: MutPtr<UInt>): Ntstatus =
+public actual fun zwQueryKey(keyhandle: Handle, keyinformationclass: KeyInformationClass, keyinformation: MutPtr, length: UInt, resultlength: MutPtr): Ntstatus =
     if (windowsWdkSystemRegistryNapiAvailable) wasmWindowssysWindowsWdkSystemRegistryZwQueryKey(keyhandle.rawAddress.toString(), keyinformationclass, keyinformation.rawAddress.toString(), length.toInt(), resultlength.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun zwQueryMultipleValueKey(keyhandle: Handle, valueentries: MutPtr<KeyValueEntry>, entrycount: UInt, valuebuffer: MutPtr<CVoid>, bufferlength: MutPtr<UInt>, requiredbufferlength: MutPtr<UInt>): Ntstatus =
+public actual fun zwQueryMultipleValueKey(keyhandle: Handle, valueentries: MutPtr, entrycount: UInt, valuebuffer: MutPtr, bufferlength: MutPtr, requiredbufferlength: MutPtr): Ntstatus =
     if (windowsWdkSystemRegistryNapiAvailable) wasmWindowssysWindowsWdkSystemRegistryZwQueryMultipleValueKey(keyhandle.rawAddress.toString(), valueentries.rawAddress.toString(), entrycount.toInt(), valuebuffer.rawAddress.toString(), bufferlength.rawAddress.toString(), requiredbufferlength.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun zwQueryValueKey(keyhandle: Handle, valuename: ConstPtr<UnicodeString>, keyvalueinformationclass: KeyValueInformationClass, keyvalueinformation: MutPtr<CVoid>, length: UInt, resultlength: MutPtr<UInt>): Ntstatus =
+public actual fun zwQueryValueKey(keyhandle: Handle, valuename: ConstPtr, keyvalueinformationclass: KeyValueInformationClass, keyvalueinformation: MutPtr, length: UInt, resultlength: MutPtr): Ntstatus =
     if (windowsWdkSystemRegistryNapiAvailable) wasmWindowssysWindowsWdkSystemRegistryZwQueryValueKey(keyhandle.rawAddress.toString(), valuename.rawAddress.toString(), keyvalueinformationclass, keyvalueinformation.rawAddress.toString(), length.toInt(), resultlength.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun zwRenameKey(keyhandle: Handle, newname: ConstPtr<UnicodeString>): Ntstatus =
+public actual fun zwRenameKey(keyhandle: Handle, newname: ConstPtr): Ntstatus =
     if (windowsWdkSystemRegistryNapiAvailable) wasmWindowssysWindowsWdkSystemRegistryZwRenameKey(keyhandle.rawAddress.toString(), newname.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun zwRestoreKey(keyhandle: Handle, filehandle: Handle, flags: UInt): Ntstatus =
@@ -311,8 +307,8 @@ public actual fun zwSaveKey(keyhandle: Handle, filehandle: Handle): Ntstatus =
 public actual fun zwSaveKeyEx(keyhandle: Handle, filehandle: Handle, format: UInt): Ntstatus =
     if (windowsWdkSystemRegistryNapiAvailable) wasmWindowssysWindowsWdkSystemRegistryZwSaveKeyEx(keyhandle.rawAddress.toString(), filehandle.rawAddress.toString(), format.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun zwSetInformationKey(keyhandle: Handle, keysetinformationclass: KeySetInformationClass, keysetinformation: ConstPtr<CVoid>, keysetinformationlength: UInt): Ntstatus =
+public actual fun zwSetInformationKey(keyhandle: Handle, keysetinformationclass: KeySetInformationClass, keysetinformation: ConstPtr, keysetinformationlength: UInt): Ntstatus =
     if (windowsWdkSystemRegistryNapiAvailable) wasmWindowssysWindowsWdkSystemRegistryZwSetInformationKey(keyhandle.rawAddress.toString(), keysetinformationclass, keysetinformation.rawAddress.toString(), keysetinformationlength.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun zwSetValueKey(keyhandle: Handle, valuename: ConstPtr<UnicodeString>, titleindex: UInt, type: UInt, data: ConstPtr<CVoid>, datasize: UInt): Ntstatus =
+public actual fun zwSetValueKey(keyhandle: Handle, valuename: ConstPtr, titleindex: UInt, type: UInt, data: ConstPtr, datasize: UInt): Ntstatus =
     if (windowsWdkSystemRegistryNapiAvailable) wasmWindowssysWindowsWdkSystemRegistryZwSetValueKey(keyhandle.rawAddress.toString(), valuename.rawAddress.toString(), titleindex.toInt(), type.toInt(), data.rawAddress.toString(), datasize.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")

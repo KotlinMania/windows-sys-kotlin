@@ -2,10 +2,8 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.devices.tapi
 
-import io.github.kotlinmania.rustlang.core.ffi.CVoid
 import io.github.kotlinmania.rustlang.core.ptr.ConstPtr
 import io.github.kotlinmania.rustlang.core.ptr.MutPtr
-import io.github.kotlinmania.windowssys.core.Guid
 import io.github.kotlinmania.windowssys.core.Hresult
 import io.github.kotlinmania.windowssys.core.Pcstr
 import io.github.kotlinmania.windowssys.core.Pcwstr
@@ -14,7 +12,6 @@ import io.github.kotlinmania.windowssys.core.Pwstr
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Hinstance
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Hwnd
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Wparam
-import io.github.kotlinmania.windowssys.windows.win32.ui.windowsandmessaging.Hicon
 
 @JsFun("() => { if (typeof globalThis.__km_napi_windowssys !== 'undefined') return globalThis.__km_napi_windowssys !== null; if (typeof process === 'undefined' || !process.versions || !process.versions.node) { globalThis.__km_napi_windowssys = null; return false; } var mod = process.getBuiltinModule ? process.getBuiltinModule('module') : (process.mainModule && process.mainModule.constructor); var req = (mod && mod.createRequire) ? mod.createRequire((process.cwd ? process.cwd() : '.') + '/package.json') : (process.mainModule ? process.mainModule.require : null); if (!req) { globalThis.__km_napi_windowssys = null; return false; } try { globalThis.__km_napi_windowssys = req('@kotlinmania/windowssys-native-bindings'); return true; } catch (_) {} var fs = req('fs'); var path = req('path'); var dir = process.cwd ? process.cwd() : '.'; var rels = ['windowssys_native.node', 'build/node-ffi/windowssys_native.node', 'build/node-ffi/release/windowssys_native.node', 'build/node-ffi/debug/windowssys_native.node', 'src/js/node-windowssys/build/Release/windowssys_native.node', 'src/js/node-windowssys/build/Debug/windowssys_native.node', 'src/js/node-windowssys/dist/build/Release/windowssys_native.node', 'src/js/node-windowssys/dist/build/Debug/windowssys_native.node']; for (var d = 0; d < 8; d++) { for (var i = 0; i < rels.length; i++) { var c = path.resolve(dir, rels[i]); if (fs.existsSync(c)) { globalThis.__km_napi_windowssys = req(c); return true; } } var parent = path.dirname(dir); if (parent === dir) break; dir = parent; } globalThis.__km_napi_windowssys = null; return false; }")
 private external fun initWindowsWin32DevicesTapiNapiAddon(): Boolean
@@ -777,31 +774,31 @@ private external fun wasmWindowssysWindowsWin32DevicesTapiTapiRequestMediaCallA(
 @JsFun("(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesTapiTapiRequestMediaCallW(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9)")
 private external fun wasmWindowssysWindowsWin32DevicesTapiTapiRequestMediaCallW(p0: String, p1: String, p2: String, p3: String, p4: Int, p5: Int, p6: String, p7: String, p8: String, p9: String): Int
 
-public actual fun getTnefStreamCodepage(lpstream: MutPtr<CVoid>, lpulcodepage: MutPtr<UInt>, lpulsubcodepage: MutPtr<UInt>): Hresult =
+public actual fun getTnefStreamCodepage(lpstream: MutPtr, lpulcodepage: MutPtr, lpulsubcodepage: MutPtr): Hresult =
     if (windowsWin32DevicesTapiNapiAvailable) wasmWindowssysWindowsWin32DevicesTapiGetTnefStreamCodepage(lpstream.rawAddress.toString(), lpulcodepage.rawAddress.toString(), lpulsubcodepage.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun openTnefStream(lpvsupport: MutPtr<CVoid>, lpstream: MutPtr<CVoid>, lpszstreamname: ConstPtr<Byte>, ulflags: UInt, lpmessage: MutPtr<CVoid>, wkeyval: UShort, lpptnef: MutPtr<MutPtr<CVoid>>): Hresult =
+public actual fun openTnefStream(lpvsupport: MutPtr, lpstream: MutPtr, lpszstreamname: ConstPtr, ulflags: UInt, lpmessage: MutPtr, wkeyval: UShort, lpptnef: MutPtr): Hresult =
     if (windowsWin32DevicesTapiNapiAvailable) wasmWindowssysWindowsWin32DevicesTapiOpenTnefStream(lpvsupport.rawAddress.toString(), lpstream.rawAddress.toString(), lpszstreamname.rawAddress.toString(), ulflags.toInt(), lpmessage.rawAddress.toString(), wkeyval.toInt(), lpptnef.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun openTnefStreamEx(lpvsupport: MutPtr<CVoid>, lpstream: MutPtr<CVoid>, lpszstreamname: ConstPtr<Byte>, ulflags: UInt, lpmessage: MutPtr<CVoid>, wkeyval: UShort, lpadressbook: MutPtr<CVoid>, lpptnef: MutPtr<MutPtr<CVoid>>): Hresult =
+public actual fun openTnefStreamEx(lpvsupport: MutPtr, lpstream: MutPtr, lpszstreamname: ConstPtr, ulflags: UInt, lpmessage: MutPtr, wkeyval: UShort, lpadressbook: MutPtr, lpptnef: MutPtr): Hresult =
     if (windowsWin32DevicesTapiNapiAvailable) wasmWindowssysWindowsWin32DevicesTapiOpenTnefStreamEx(lpvsupport.rawAddress.toString(), lpstream.rawAddress.toString(), lpszstreamname.rawAddress.toString(), ulflags.toInt(), lpmessage.rawAddress.toString(), wkeyval.toInt(), lpadressbook.rawAddress.toString(), lpptnef.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun lineAccept(hcall: UInt, lpsuseruserinfo: Pcstr, dwsize: UInt): Int =
     if (windowsWin32DevicesTapiNapiAvailable) wasmWindowssysWindowsWin32DevicesTapiLineAccept(hcall.toInt(), lpsuseruserinfo.rawAddress.toString(), dwsize.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun lineAddProvider(lpszproviderfilename: Pcstr, hwndowner: Hwnd, lpdwpermanentproviderid: MutPtr<UInt>): Int =
+public actual fun lineAddProvider(lpszproviderfilename: Pcstr, hwndowner: Hwnd, lpdwpermanentproviderid: MutPtr): Int =
     if (windowsWin32DevicesTapiNapiAvailable) wasmWindowssysWindowsWin32DevicesTapiLineAddProvider(lpszproviderfilename.rawAddress.toString(), hwndowner.rawAddress.toString(), lpdwpermanentproviderid.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun lineAddProviderA(lpszproviderfilename: Pcstr, hwndowner: Hwnd, lpdwpermanentproviderid: MutPtr<UInt>): Int =
+public actual fun lineAddProviderA(lpszproviderfilename: Pcstr, hwndowner: Hwnd, lpdwpermanentproviderid: MutPtr): Int =
     if (windowsWin32DevicesTapiNapiAvailable) wasmWindowssysWindowsWin32DevicesTapiLineAddProviderA(lpszproviderfilename.rawAddress.toString(), hwndowner.rawAddress.toString(), lpdwpermanentproviderid.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun lineAddProviderW(lpszproviderfilename: Pcwstr, hwndowner: Hwnd, lpdwpermanentproviderid: MutPtr<UInt>): Int =
+public actual fun lineAddProviderW(lpszproviderfilename: Pcwstr, hwndowner: Hwnd, lpdwpermanentproviderid: MutPtr): Int =
     if (windowsWin32DevicesTapiNapiAvailable) wasmWindowssysWindowsWin32DevicesTapiLineAddProviderW(lpszproviderfilename.rawAddress.toString(), hwndowner.rawAddress.toString(), lpdwpermanentproviderid.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun lineAddToConference(hconfcall: UInt, hconsultcall: UInt): Int =
     if (windowsWin32DevicesTapiNapiAvailable) wasmWindowssysWindowsWin32DevicesTapiLineAddToConference(hconfcall.toInt(), hconsultcall.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun lineAgentSpecific(hline: UInt, dwaddressid: UInt, dwagentextensionidindex: UInt, lpparams: MutPtr<CVoid>, dwsize: UInt): Int =
+public actual fun lineAgentSpecific(hline: UInt, dwaddressid: UInt, dwagentextensionidindex: UInt, lpparams: MutPtr, dwsize: UInt): Int =
     if (windowsWin32DevicesTapiNapiAvailable) wasmWindowssysWindowsWin32DevicesTapiLineAgentSpecific(hline.toInt(), dwaddressid.toInt(), dwagentextensionidindex.toInt(), lpparams.rawAddress.toString(), dwsize.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun lineAnswer(hcall: UInt, lpsuseruserinfo: Pcstr, dwsize: UInt): Int =
@@ -819,10 +816,10 @@ public actual fun lineBlindTransferW(hcall: UInt, lpszdestaddressw: Pcwstr, dwco
 public actual fun lineClose(hline: UInt): Int =
     if (windowsWin32DevicesTapiNapiAvailable) wasmWindowssysWindowsWin32DevicesTapiLineClose(hline.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun lineCompleteCall(hcall: UInt, lpdwcompletionid: MutPtr<UInt>, dwcompletionmode: UInt, dwmessageid: UInt): Int =
+public actual fun lineCompleteCall(hcall: UInt, lpdwcompletionid: MutPtr, dwcompletionmode: UInt, dwmessageid: UInt): Int =
     if (windowsWin32DevicesTapiNapiAvailable) wasmWindowssysWindowsWin32DevicesTapiLineCompleteCall(hcall.toInt(), lpdwcompletionid.rawAddress.toString(), dwcompletionmode.toInt(), dwmessageid.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun lineCompleteTransfer(hcall: UInt, hconsultcall: UInt, lphconfcall: MutPtr<UInt>, dwtransfermode: UInt): Int =
+public actual fun lineCompleteTransfer(hcall: UInt, hconsultcall: UInt, lphconfcall: MutPtr, dwtransfermode: UInt): Int =
     if (windowsWin32DevicesTapiNapiAvailable) wasmWindowssysWindowsWin32DevicesTapiLineCompleteTransfer(hcall.toInt(), hconsultcall.toInt(), lphconfcall.rawAddress.toString(), dwtransfermode.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun lineConfigDialog(dwdeviceid: UInt, hwndowner: Hwnd, lpszdeviceclass: Pcstr): Int =
@@ -831,13 +828,13 @@ public actual fun lineConfigDialog(dwdeviceid: UInt, hwndowner: Hwnd, lpszdevice
 public actual fun lineConfigDialogA(dwdeviceid: UInt, hwndowner: Hwnd, lpszdeviceclass: Pcstr): Int =
     if (windowsWin32DevicesTapiNapiAvailable) wasmWindowssysWindowsWin32DevicesTapiLineConfigDialogA(dwdeviceid.toInt(), hwndowner.rawAddress.toString(), lpszdeviceclass.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun lineConfigDialogEdit(dwdeviceid: UInt, hwndowner: Hwnd, lpszdeviceclass: Pcstr, lpdeviceconfigin: ConstPtr<CVoid>, dwsize: UInt, lpdeviceconfigout: MutPtr<Varstring>): Int =
+public actual fun lineConfigDialogEdit(dwdeviceid: UInt, hwndowner: Hwnd, lpszdeviceclass: Pcstr, lpdeviceconfigin: ConstPtr, dwsize: UInt, lpdeviceconfigout: MutPtr): Int =
     if (windowsWin32DevicesTapiNapiAvailable) wasmWindowssysWindowsWin32DevicesTapiLineConfigDialogEdit(dwdeviceid.toInt(), hwndowner.rawAddress.toString(), lpszdeviceclass.rawAddress.toString(), lpdeviceconfigin.rawAddress.toString(), dwsize.toInt(), lpdeviceconfigout.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun lineConfigDialogEditA(dwdeviceid: UInt, hwndowner: Hwnd, lpszdeviceclass: Pcstr, lpdeviceconfigin: ConstPtr<CVoid>, dwsize: UInt, lpdeviceconfigout: MutPtr<Varstring>): Int =
+public actual fun lineConfigDialogEditA(dwdeviceid: UInt, hwndowner: Hwnd, lpszdeviceclass: Pcstr, lpdeviceconfigin: ConstPtr, dwsize: UInt, lpdeviceconfigout: MutPtr): Int =
     if (windowsWin32DevicesTapiNapiAvailable) wasmWindowssysWindowsWin32DevicesTapiLineConfigDialogEditA(dwdeviceid.toInt(), hwndowner.rawAddress.toString(), lpszdeviceclass.rawAddress.toString(), lpdeviceconfigin.rawAddress.toString(), dwsize.toInt(), lpdeviceconfigout.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun lineConfigDialogEditW(dwdeviceid: UInt, hwndowner: Hwnd, lpszdeviceclass: Pcwstr, lpdeviceconfigin: ConstPtr<CVoid>, dwsize: UInt, lpdeviceconfigout: MutPtr<Varstring>): Int =
+public actual fun lineConfigDialogEditW(dwdeviceid: UInt, hwndowner: Hwnd, lpszdeviceclass: Pcwstr, lpdeviceconfigin: ConstPtr, dwsize: UInt, lpdeviceconfigout: MutPtr): Int =
     if (windowsWin32DevicesTapiNapiAvailable) wasmWindowssysWindowsWin32DevicesTapiLineConfigDialogEditW(dwdeviceid.toInt(), hwndowner.rawAddress.toString(), lpszdeviceclass.rawAddress.toString(), lpdeviceconfigin.rawAddress.toString(), dwsize.toInt(), lpdeviceconfigout.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun lineConfigDialogW(dwdeviceid: UInt, hwndowner: Hwnd, lpszdeviceclass: Pcwstr): Int =
@@ -846,25 +843,25 @@ public actual fun lineConfigDialogW(dwdeviceid: UInt, hwndowner: Hwnd, lpszdevic
 public actual fun lineConfigProvider(hwndowner: Hwnd, dwpermanentproviderid: UInt): Int =
     if (windowsWin32DevicesTapiNapiAvailable) wasmWindowssysWindowsWin32DevicesTapiLineConfigProvider(hwndowner.rawAddress.toString(), dwpermanentproviderid.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun lineCreateAgentA(hline: UInt, lpszagentid: Pcstr, lpszagentpin: Pcstr, lphagent: MutPtr<UInt>): Int =
+public actual fun lineCreateAgentA(hline: UInt, lpszagentid: Pcstr, lpszagentpin: Pcstr, lphagent: MutPtr): Int =
     if (windowsWin32DevicesTapiNapiAvailable) wasmWindowssysWindowsWin32DevicesTapiLineCreateAgentA(hline.toInt(), lpszagentid.rawAddress.toString(), lpszagentpin.rawAddress.toString(), lphagent.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun lineCreateAgentSessionA(hline: UInt, hagent: UInt, lpszagentpin: Pcstr, dwworkingaddressid: UInt, lpgroupid: MutPtr<Guid>, lphagentsession: MutPtr<UInt>): Int =
+public actual fun lineCreateAgentSessionA(hline: UInt, hagent: UInt, lpszagentpin: Pcstr, dwworkingaddressid: UInt, lpgroupid: MutPtr, lphagentsession: MutPtr): Int =
     if (windowsWin32DevicesTapiNapiAvailable) wasmWindowssysWindowsWin32DevicesTapiLineCreateAgentSessionA(hline.toInt(), hagent.toInt(), lpszagentpin.rawAddress.toString(), dwworkingaddressid.toInt(), lpgroupid.rawAddress.toString(), lphagentsession.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun lineCreateAgentSessionW(hline: UInt, hagent: UInt, lpszagentpin: Pcwstr, dwworkingaddressid: UInt, lpgroupid: MutPtr<Guid>, lphagentsession: MutPtr<UInt>): Int =
+public actual fun lineCreateAgentSessionW(hline: UInt, hagent: UInt, lpszagentpin: Pcwstr, dwworkingaddressid: UInt, lpgroupid: MutPtr, lphagentsession: MutPtr): Int =
     if (windowsWin32DevicesTapiNapiAvailable) wasmWindowssysWindowsWin32DevicesTapiLineCreateAgentSessionW(hline.toInt(), hagent.toInt(), lpszagentpin.rawAddress.toString(), dwworkingaddressid.toInt(), lpgroupid.rawAddress.toString(), lphagentsession.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun lineCreateAgentW(hline: UInt, lpszagentid: Pcwstr, lpszagentpin: Pcwstr, lphagent: MutPtr<UInt>): Int =
+public actual fun lineCreateAgentW(hline: UInt, lpszagentid: Pcwstr, lpszagentpin: Pcwstr, lphagent: MutPtr): Int =
     if (windowsWin32DevicesTapiNapiAvailable) wasmWindowssysWindowsWin32DevicesTapiLineCreateAgentW(hline.toInt(), lpszagentid.rawAddress.toString(), lpszagentpin.rawAddress.toString(), lphagent.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun lineDeallocateCall(hcall: UInt): Int =
     if (windowsWin32DevicesTapiNapiAvailable) wasmWindowssysWindowsWin32DevicesTapiLineDeallocateCall(hcall.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun lineDevSpecific(hline: UInt, dwaddressid: UInt, hcall: UInt, lpparams: MutPtr<CVoid>, dwsize: UInt): Int =
+public actual fun lineDevSpecific(hline: UInt, dwaddressid: UInt, hcall: UInt, lpparams: MutPtr, dwsize: UInt): Int =
     if (windowsWin32DevicesTapiNapiAvailable) wasmWindowssysWindowsWin32DevicesTapiLineDevSpecific(hline.toInt(), dwaddressid.toInt(), hcall.toInt(), lpparams.rawAddress.toString(), dwsize.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun lineDevSpecificFeature(hline: UInt, dwfeature: UInt, lpparams: MutPtr<CVoid>, dwsize: UInt): Int =
+public actual fun lineDevSpecificFeature(hline: UInt, dwfeature: UInt, lpparams: MutPtr, dwsize: UInt): Int =
     if (windowsWin32DevicesTapiNapiAvailable) wasmWindowssysWindowsWin32DevicesTapiLineDevSpecificFeature(hline.toInt(), dwfeature.toInt(), lpparams.rawAddress.toString(), dwsize.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun lineDial(hcall: UInt, lpszdestaddress: Pcstr, dwcountrycode: UInt): Int =
@@ -879,13 +876,13 @@ public actual fun lineDialW(hcall: UInt, lpszdestaddress: Pcwstr, dwcountrycode:
 public actual fun lineDrop(hcall: UInt, lpsuseruserinfo: Pcstr, dwsize: UInt): Int =
     if (windowsWin32DevicesTapiNapiAvailable) wasmWindowssysWindowsWin32DevicesTapiLineDrop(hcall.toInt(), lpsuseruserinfo.rawAddress.toString(), dwsize.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun lineForward(hline: UInt, balladdresses: UInt, dwaddressid: UInt, lpforwardlist: ConstPtr<Lineforwardlist>, dwnumringsnoanswer: UInt, lphconsultcall: MutPtr<UInt>, lpcallparams: ConstPtr<Linecallparams>): Int =
+public actual fun lineForward(hline: UInt, balladdresses: UInt, dwaddressid: UInt, lpforwardlist: ConstPtr, dwnumringsnoanswer: UInt, lphconsultcall: MutPtr, lpcallparams: ConstPtr): Int =
     if (windowsWin32DevicesTapiNapiAvailable) wasmWindowssysWindowsWin32DevicesTapiLineForward(hline.toInt(), balladdresses.toInt(), dwaddressid.toInt(), lpforwardlist.rawAddress.toString(), dwnumringsnoanswer.toInt(), lphconsultcall.rawAddress.toString(), lpcallparams.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun lineForwardA(hline: UInt, balladdresses: UInt, dwaddressid: UInt, lpforwardlist: ConstPtr<Lineforwardlist>, dwnumringsnoanswer: UInt, lphconsultcall: MutPtr<UInt>, lpcallparams: ConstPtr<Linecallparams>): Int =
+public actual fun lineForwardA(hline: UInt, balladdresses: UInt, dwaddressid: UInt, lpforwardlist: ConstPtr, dwnumringsnoanswer: UInt, lphconsultcall: MutPtr, lpcallparams: ConstPtr): Int =
     if (windowsWin32DevicesTapiNapiAvailable) wasmWindowssysWindowsWin32DevicesTapiLineForwardA(hline.toInt(), balladdresses.toInt(), dwaddressid.toInt(), lpforwardlist.rawAddress.toString(), dwnumringsnoanswer.toInt(), lphconsultcall.rawAddress.toString(), lpcallparams.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun lineForwardW(hline: UInt, balladdresses: UInt, dwaddressid: UInt, lpforwardlist: ConstPtr<Lineforwardlist>, dwnumringsnoanswer: UInt, lphconsultcall: MutPtr<UInt>, lpcallparams: ConstPtr<Linecallparams>): Int =
+public actual fun lineForwardW(hline: UInt, balladdresses: UInt, dwaddressid: UInt, lpforwardlist: ConstPtr, dwnumringsnoanswer: UInt, lphconsultcall: MutPtr, lpcallparams: ConstPtr): Int =
     if (windowsWin32DevicesTapiNapiAvailable) wasmWindowssysWindowsWin32DevicesTapiLineForwardW(hline.toInt(), balladdresses.toInt(), dwaddressid.toInt(), lpforwardlist.rawAddress.toString(), dwnumringsnoanswer.toInt(), lphconsultcall.rawAddress.toString(), lpcallparams.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun lineGatherDigits(hcall: UInt, dwdigitmodes: UInt, lpsdigits: Pstr, dwnumdigits: UInt, lpszterminationdigits: Pcstr, dwfirstdigittimeout: UInt, dwinterdigittimeout: UInt): Int =
@@ -906,202 +903,202 @@ public actual fun lineGenerateDigitsA(hcall: UInt, dwdigitmode: UInt, lpszdigits
 public actual fun lineGenerateDigitsW(hcall: UInt, dwdigitmode: UInt, lpszdigits: Pcwstr, dwduration: UInt): Int =
     if (windowsWin32DevicesTapiNapiAvailable) wasmWindowssysWindowsWin32DevicesTapiLineGenerateDigitsW(hcall.toInt(), dwdigitmode.toInt(), lpszdigits.rawAddress.toString(), dwduration.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun lineGenerateTone(hcall: UInt, dwtonemode: UInt, dwduration: UInt, dwnumtones: UInt, lptones: ConstPtr<Linegeneratetone>): Int =
+public actual fun lineGenerateTone(hcall: UInt, dwtonemode: UInt, dwduration: UInt, dwnumtones: UInt, lptones: ConstPtr): Int =
     if (windowsWin32DevicesTapiNapiAvailable) wasmWindowssysWindowsWin32DevicesTapiLineGenerateTone(hcall.toInt(), dwtonemode.toInt(), dwduration.toInt(), dwnumtones.toInt(), lptones.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun lineGetAddressCaps(hlineapp: UInt, dwdeviceid: UInt, dwaddressid: UInt, dwapiversion: UInt, dwextversion: UInt, lpaddresscaps: MutPtr<Lineaddresscaps>): Int =
+public actual fun lineGetAddressCaps(hlineapp: UInt, dwdeviceid: UInt, dwaddressid: UInt, dwapiversion: UInt, dwextversion: UInt, lpaddresscaps: MutPtr): Int =
     if (windowsWin32DevicesTapiNapiAvailable) wasmWindowssysWindowsWin32DevicesTapiLineGetAddressCaps(hlineapp.toInt(), dwdeviceid.toInt(), dwaddressid.toInt(), dwapiversion.toInt(), dwextversion.toInt(), lpaddresscaps.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun lineGetAddressCapsA(hlineapp: UInt, dwdeviceid: UInt, dwaddressid: UInt, dwapiversion: UInt, dwextversion: UInt, lpaddresscaps: MutPtr<Lineaddresscaps>): Int =
+public actual fun lineGetAddressCapsA(hlineapp: UInt, dwdeviceid: UInt, dwaddressid: UInt, dwapiversion: UInt, dwextversion: UInt, lpaddresscaps: MutPtr): Int =
     if (windowsWin32DevicesTapiNapiAvailable) wasmWindowssysWindowsWin32DevicesTapiLineGetAddressCapsA(hlineapp.toInt(), dwdeviceid.toInt(), dwaddressid.toInt(), dwapiversion.toInt(), dwextversion.toInt(), lpaddresscaps.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun lineGetAddressCapsW(hlineapp: UInt, dwdeviceid: UInt, dwaddressid: UInt, dwapiversion: UInt, dwextversion: UInt, lpaddresscaps: MutPtr<Lineaddresscaps>): Int =
+public actual fun lineGetAddressCapsW(hlineapp: UInt, dwdeviceid: UInt, dwaddressid: UInt, dwapiversion: UInt, dwextversion: UInt, lpaddresscaps: MutPtr): Int =
     if (windowsWin32DevicesTapiNapiAvailable) wasmWindowssysWindowsWin32DevicesTapiLineGetAddressCapsW(hlineapp.toInt(), dwdeviceid.toInt(), dwaddressid.toInt(), dwapiversion.toInt(), dwextversion.toInt(), lpaddresscaps.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun lineGetAddressID(hline: UInt, lpdwaddressid: MutPtr<UInt>, dwaddressmode: UInt, lpsaddress: Pcstr, dwsize: UInt): Int =
+public actual fun lineGetAddressID(hline: UInt, lpdwaddressid: MutPtr, dwaddressmode: UInt, lpsaddress: Pcstr, dwsize: UInt): Int =
     if (windowsWin32DevicesTapiNapiAvailable) wasmWindowssysWindowsWin32DevicesTapiLineGetAddressID(hline.toInt(), lpdwaddressid.rawAddress.toString(), dwaddressmode.toInt(), lpsaddress.rawAddress.toString(), dwsize.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun lineGetAddressIDA(hline: UInt, lpdwaddressid: MutPtr<UInt>, dwaddressmode: UInt, lpsaddress: Pcstr, dwsize: UInt): Int =
+public actual fun lineGetAddressIDA(hline: UInt, lpdwaddressid: MutPtr, dwaddressmode: UInt, lpsaddress: Pcstr, dwsize: UInt): Int =
     if (windowsWin32DevicesTapiNapiAvailable) wasmWindowssysWindowsWin32DevicesTapiLineGetAddressIDA(hline.toInt(), lpdwaddressid.rawAddress.toString(), dwaddressmode.toInt(), lpsaddress.rawAddress.toString(), dwsize.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun lineGetAddressIDW(hline: UInt, lpdwaddressid: MutPtr<UInt>, dwaddressmode: UInt, lpsaddress: Pcwstr, dwsize: UInt): Int =
+public actual fun lineGetAddressIDW(hline: UInt, lpdwaddressid: MutPtr, dwaddressmode: UInt, lpsaddress: Pcwstr, dwsize: UInt): Int =
     if (windowsWin32DevicesTapiNapiAvailable) wasmWindowssysWindowsWin32DevicesTapiLineGetAddressIDW(hline.toInt(), lpdwaddressid.rawAddress.toString(), dwaddressmode.toInt(), lpsaddress.rawAddress.toString(), dwsize.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun lineGetAddressStatus(hline: UInt, dwaddressid: UInt, lpaddressstatus: MutPtr<Lineaddressstatus>): Int =
+public actual fun lineGetAddressStatus(hline: UInt, dwaddressid: UInt, lpaddressstatus: MutPtr): Int =
     if (windowsWin32DevicesTapiNapiAvailable) wasmWindowssysWindowsWin32DevicesTapiLineGetAddressStatus(hline.toInt(), dwaddressid.toInt(), lpaddressstatus.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun lineGetAddressStatusA(hline: UInt, dwaddressid: UInt, lpaddressstatus: MutPtr<Lineaddressstatus>): Int =
+public actual fun lineGetAddressStatusA(hline: UInt, dwaddressid: UInt, lpaddressstatus: MutPtr): Int =
     if (windowsWin32DevicesTapiNapiAvailable) wasmWindowssysWindowsWin32DevicesTapiLineGetAddressStatusA(hline.toInt(), dwaddressid.toInt(), lpaddressstatus.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun lineGetAddressStatusW(hline: UInt, dwaddressid: UInt, lpaddressstatus: MutPtr<Lineaddressstatus>): Int =
+public actual fun lineGetAddressStatusW(hline: UInt, dwaddressid: UInt, lpaddressstatus: MutPtr): Int =
     if (windowsWin32DevicesTapiNapiAvailable) wasmWindowssysWindowsWin32DevicesTapiLineGetAddressStatusW(hline.toInt(), dwaddressid.toInt(), lpaddressstatus.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun lineGetAgentActivityListA(hline: UInt, dwaddressid: UInt, lpagentactivitylist: MutPtr<Lineagentactivitylist>): Int =
+public actual fun lineGetAgentActivityListA(hline: UInt, dwaddressid: UInt, lpagentactivitylist: MutPtr): Int =
     if (windowsWin32DevicesTapiNapiAvailable) wasmWindowssysWindowsWin32DevicesTapiLineGetAgentActivityListA(hline.toInt(), dwaddressid.toInt(), lpagentactivitylist.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun lineGetAgentActivityListW(hline: UInt, dwaddressid: UInt, lpagentactivitylist: MutPtr<Lineagentactivitylist>): Int =
+public actual fun lineGetAgentActivityListW(hline: UInt, dwaddressid: UInt, lpagentactivitylist: MutPtr): Int =
     if (windowsWin32DevicesTapiNapiAvailable) wasmWindowssysWindowsWin32DevicesTapiLineGetAgentActivityListW(hline.toInt(), dwaddressid.toInt(), lpagentactivitylist.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun lineGetAgentCapsA(hlineapp: UInt, dwdeviceid: UInt, dwaddressid: UInt, dwappapiversion: UInt, lpagentcaps: MutPtr<Lineagentcaps>): Int =
+public actual fun lineGetAgentCapsA(hlineapp: UInt, dwdeviceid: UInt, dwaddressid: UInt, dwappapiversion: UInt, lpagentcaps: MutPtr): Int =
     if (windowsWin32DevicesTapiNapiAvailable) wasmWindowssysWindowsWin32DevicesTapiLineGetAgentCapsA(hlineapp.toInt(), dwdeviceid.toInt(), dwaddressid.toInt(), dwappapiversion.toInt(), lpagentcaps.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun lineGetAgentCapsW(hlineapp: UInt, dwdeviceid: UInt, dwaddressid: UInt, dwappapiversion: UInt, lpagentcaps: MutPtr<Lineagentcaps>): Int =
+public actual fun lineGetAgentCapsW(hlineapp: UInt, dwdeviceid: UInt, dwaddressid: UInt, dwappapiversion: UInt, lpagentcaps: MutPtr): Int =
     if (windowsWin32DevicesTapiNapiAvailable) wasmWindowssysWindowsWin32DevicesTapiLineGetAgentCapsW(hlineapp.toInt(), dwdeviceid.toInt(), dwaddressid.toInt(), dwappapiversion.toInt(), lpagentcaps.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun lineGetAgentGroupListA(hline: UInt, dwaddressid: UInt, lpagentgrouplist: MutPtr<Lineagentgrouplist>): Int =
+public actual fun lineGetAgentGroupListA(hline: UInt, dwaddressid: UInt, lpagentgrouplist: MutPtr): Int =
     if (windowsWin32DevicesTapiNapiAvailable) wasmWindowssysWindowsWin32DevicesTapiLineGetAgentGroupListA(hline.toInt(), dwaddressid.toInt(), lpagentgrouplist.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun lineGetAgentGroupListW(hline: UInt, dwaddressid: UInt, lpagentgrouplist: MutPtr<Lineagentgrouplist>): Int =
+public actual fun lineGetAgentGroupListW(hline: UInt, dwaddressid: UInt, lpagentgrouplist: MutPtr): Int =
     if (windowsWin32DevicesTapiNapiAvailable) wasmWindowssysWindowsWin32DevicesTapiLineGetAgentGroupListW(hline.toInt(), dwaddressid.toInt(), lpagentgrouplist.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun lineGetAgentInfo(hline: UInt, hagent: UInt, lpagentinfo: MutPtr<Lineagentinfo>): Int =
+public actual fun lineGetAgentInfo(hline: UInt, hagent: UInt, lpagentinfo: MutPtr): Int =
     if (windowsWin32DevicesTapiNapiAvailable) wasmWindowssysWindowsWin32DevicesTapiLineGetAgentInfo(hline.toInt(), hagent.toInt(), lpagentinfo.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun lineGetAgentSessionInfo(hline: UInt, hagentsession: UInt, lpagentsessioninfo: MutPtr<Lineagentsessioninfo>): Int =
+public actual fun lineGetAgentSessionInfo(hline: UInt, hagentsession: UInt, lpagentsessioninfo: MutPtr): Int =
     if (windowsWin32DevicesTapiNapiAvailable) wasmWindowssysWindowsWin32DevicesTapiLineGetAgentSessionInfo(hline.toInt(), hagentsession.toInt(), lpagentsessioninfo.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun lineGetAgentSessionList(hline: UInt, hagent: UInt, lpagentsessionlist: MutPtr<Lineagentsessionlist>): Int =
+public actual fun lineGetAgentSessionList(hline: UInt, hagent: UInt, lpagentsessionlist: MutPtr): Int =
     if (windowsWin32DevicesTapiNapiAvailable) wasmWindowssysWindowsWin32DevicesTapiLineGetAgentSessionList(hline.toInt(), hagent.toInt(), lpagentsessionlist.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun lineGetAgentStatusA(hline: UInt, dwaddressid: UInt, lpagentstatus: MutPtr<Lineagentstatus>): Int =
+public actual fun lineGetAgentStatusA(hline: UInt, dwaddressid: UInt, lpagentstatus: MutPtr): Int =
     if (windowsWin32DevicesTapiNapiAvailable) wasmWindowssysWindowsWin32DevicesTapiLineGetAgentStatusA(hline.toInt(), dwaddressid.toInt(), lpagentstatus.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun lineGetAgentStatusW(hline: UInt, dwaddressid: UInt, lpagentstatus: MutPtr<Lineagentstatus>): Int =
+public actual fun lineGetAgentStatusW(hline: UInt, dwaddressid: UInt, lpagentstatus: MutPtr): Int =
     if (windowsWin32DevicesTapiNapiAvailable) wasmWindowssysWindowsWin32DevicesTapiLineGetAgentStatusW(hline.toInt(), dwaddressid.toInt(), lpagentstatus.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun lineGetAppPriority(lpszappfilename: Pcstr, dwmediamode: UInt, lpextensionid: MutPtr<Lineextensionid>, dwrequestmode: UInt, lpextensionname: MutPtr<Varstring>, lpdwpriority: MutPtr<UInt>): Int =
+public actual fun lineGetAppPriority(lpszappfilename: Pcstr, dwmediamode: UInt, lpextensionid: MutPtr, dwrequestmode: UInt, lpextensionname: MutPtr, lpdwpriority: MutPtr): Int =
     if (windowsWin32DevicesTapiNapiAvailable) wasmWindowssysWindowsWin32DevicesTapiLineGetAppPriority(lpszappfilename.rawAddress.toString(), dwmediamode.toInt(), lpextensionid.rawAddress.toString(), dwrequestmode.toInt(), lpextensionname.rawAddress.toString(), lpdwpriority.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun lineGetAppPriorityA(lpszappfilename: Pcstr, dwmediamode: UInt, lpextensionid: MutPtr<Lineextensionid>, dwrequestmode: UInt, lpextensionname: MutPtr<Varstring>, lpdwpriority: MutPtr<UInt>): Int =
+public actual fun lineGetAppPriorityA(lpszappfilename: Pcstr, dwmediamode: UInt, lpextensionid: MutPtr, dwrequestmode: UInt, lpextensionname: MutPtr, lpdwpriority: MutPtr): Int =
     if (windowsWin32DevicesTapiNapiAvailable) wasmWindowssysWindowsWin32DevicesTapiLineGetAppPriorityA(lpszappfilename.rawAddress.toString(), dwmediamode.toInt(), lpextensionid.rawAddress.toString(), dwrequestmode.toInt(), lpextensionname.rawAddress.toString(), lpdwpriority.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun lineGetAppPriorityW(lpszappfilename: Pcwstr, dwmediamode: UInt, lpextensionid: MutPtr<Lineextensionid>, dwrequestmode: UInt, lpextensionname: MutPtr<Varstring>, lpdwpriority: MutPtr<UInt>): Int =
+public actual fun lineGetAppPriorityW(lpszappfilename: Pcwstr, dwmediamode: UInt, lpextensionid: MutPtr, dwrequestmode: UInt, lpextensionname: MutPtr, lpdwpriority: MutPtr): Int =
     if (windowsWin32DevicesTapiNapiAvailable) wasmWindowssysWindowsWin32DevicesTapiLineGetAppPriorityW(lpszappfilename.rawAddress.toString(), dwmediamode.toInt(), lpextensionid.rawAddress.toString(), dwrequestmode.toInt(), lpextensionname.rawAddress.toString(), lpdwpriority.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun lineGetCallInfo(hcall: UInt, lpcallinfo: MutPtr<Linecallinfo>): Int =
+public actual fun lineGetCallInfo(hcall: UInt, lpcallinfo: MutPtr): Int =
     if (windowsWin32DevicesTapiNapiAvailable) wasmWindowssysWindowsWin32DevicesTapiLineGetCallInfo(hcall.toInt(), lpcallinfo.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun lineGetCallInfoA(hcall: UInt, lpcallinfo: MutPtr<Linecallinfo>): Int =
+public actual fun lineGetCallInfoA(hcall: UInt, lpcallinfo: MutPtr): Int =
     if (windowsWin32DevicesTapiNapiAvailable) wasmWindowssysWindowsWin32DevicesTapiLineGetCallInfoA(hcall.toInt(), lpcallinfo.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun lineGetCallInfoW(hcall: UInt, lpcallinfo: MutPtr<Linecallinfo>): Int =
+public actual fun lineGetCallInfoW(hcall: UInt, lpcallinfo: MutPtr): Int =
     if (windowsWin32DevicesTapiNapiAvailable) wasmWindowssysWindowsWin32DevicesTapiLineGetCallInfoW(hcall.toInt(), lpcallinfo.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun lineGetCallStatus(hcall: UInt, lpcallstatus: MutPtr<Linecallstatus>): Int =
+public actual fun lineGetCallStatus(hcall: UInt, lpcallstatus: MutPtr): Int =
     if (windowsWin32DevicesTapiNapiAvailable) wasmWindowssysWindowsWin32DevicesTapiLineGetCallStatus(hcall.toInt(), lpcallstatus.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun lineGetConfRelatedCalls(hcall: UInt, lpcalllist: MutPtr<Linecalllist>): Int =
+public actual fun lineGetConfRelatedCalls(hcall: UInt, lpcalllist: MutPtr): Int =
     if (windowsWin32DevicesTapiNapiAvailable) wasmWindowssysWindowsWin32DevicesTapiLineGetConfRelatedCalls(hcall.toInt(), lpcalllist.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun lineGetCountry(dwcountryid: UInt, dwapiversion: UInt, lplinecountrylist: MutPtr<Linecountrylist>): Int =
+public actual fun lineGetCountry(dwcountryid: UInt, dwapiversion: UInt, lplinecountrylist: MutPtr): Int =
     if (windowsWin32DevicesTapiNapiAvailable) wasmWindowssysWindowsWin32DevicesTapiLineGetCountry(dwcountryid.toInt(), dwapiversion.toInt(), lplinecountrylist.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun lineGetCountryA(dwcountryid: UInt, dwapiversion: UInt, lplinecountrylist: MutPtr<Linecountrylist>): Int =
+public actual fun lineGetCountryA(dwcountryid: UInt, dwapiversion: UInt, lplinecountrylist: MutPtr): Int =
     if (windowsWin32DevicesTapiNapiAvailable) wasmWindowssysWindowsWin32DevicesTapiLineGetCountryA(dwcountryid.toInt(), dwapiversion.toInt(), lplinecountrylist.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun lineGetCountryW(dwcountryid: UInt, dwapiversion: UInt, lplinecountrylist: MutPtr<Linecountrylist>): Int =
+public actual fun lineGetCountryW(dwcountryid: UInt, dwapiversion: UInt, lplinecountrylist: MutPtr): Int =
     if (windowsWin32DevicesTapiNapiAvailable) wasmWindowssysWindowsWin32DevicesTapiLineGetCountryW(dwcountryid.toInt(), dwapiversion.toInt(), lplinecountrylist.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun lineGetDevCaps(hlineapp: UInt, dwdeviceid: UInt, dwapiversion: UInt, dwextversion: UInt, lplinedevcaps: MutPtr<Linedevcaps>): Int =
+public actual fun lineGetDevCaps(hlineapp: UInt, dwdeviceid: UInt, dwapiversion: UInt, dwextversion: UInt, lplinedevcaps: MutPtr): Int =
     if (windowsWin32DevicesTapiNapiAvailable) wasmWindowssysWindowsWin32DevicesTapiLineGetDevCaps(hlineapp.toInt(), dwdeviceid.toInt(), dwapiversion.toInt(), dwextversion.toInt(), lplinedevcaps.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun lineGetDevCapsA(hlineapp: UInt, dwdeviceid: UInt, dwapiversion: UInt, dwextversion: UInt, lplinedevcaps: MutPtr<Linedevcaps>): Int =
+public actual fun lineGetDevCapsA(hlineapp: UInt, dwdeviceid: UInt, dwapiversion: UInt, dwextversion: UInt, lplinedevcaps: MutPtr): Int =
     if (windowsWin32DevicesTapiNapiAvailable) wasmWindowssysWindowsWin32DevicesTapiLineGetDevCapsA(hlineapp.toInt(), dwdeviceid.toInt(), dwapiversion.toInt(), dwextversion.toInt(), lplinedevcaps.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun lineGetDevCapsW(hlineapp: UInt, dwdeviceid: UInt, dwapiversion: UInt, dwextversion: UInt, lplinedevcaps: MutPtr<Linedevcaps>): Int =
+public actual fun lineGetDevCapsW(hlineapp: UInt, dwdeviceid: UInt, dwapiversion: UInt, dwextversion: UInt, lplinedevcaps: MutPtr): Int =
     if (windowsWin32DevicesTapiNapiAvailable) wasmWindowssysWindowsWin32DevicesTapiLineGetDevCapsW(hlineapp.toInt(), dwdeviceid.toInt(), dwapiversion.toInt(), dwextversion.toInt(), lplinedevcaps.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun lineGetDevConfig(dwdeviceid: UInt, lpdeviceconfig: MutPtr<Varstring>, lpszdeviceclass: Pcstr): Int =
+public actual fun lineGetDevConfig(dwdeviceid: UInt, lpdeviceconfig: MutPtr, lpszdeviceclass: Pcstr): Int =
     if (windowsWin32DevicesTapiNapiAvailable) wasmWindowssysWindowsWin32DevicesTapiLineGetDevConfig(dwdeviceid.toInt(), lpdeviceconfig.rawAddress.toString(), lpszdeviceclass.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun lineGetDevConfigA(dwdeviceid: UInt, lpdeviceconfig: MutPtr<Varstring>, lpszdeviceclass: Pcstr): Int =
+public actual fun lineGetDevConfigA(dwdeviceid: UInt, lpdeviceconfig: MutPtr, lpszdeviceclass: Pcstr): Int =
     if (windowsWin32DevicesTapiNapiAvailable) wasmWindowssysWindowsWin32DevicesTapiLineGetDevConfigA(dwdeviceid.toInt(), lpdeviceconfig.rawAddress.toString(), lpszdeviceclass.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun lineGetDevConfigW(dwdeviceid: UInt, lpdeviceconfig: MutPtr<Varstring>, lpszdeviceclass: Pcwstr): Int =
+public actual fun lineGetDevConfigW(dwdeviceid: UInt, lpdeviceconfig: MutPtr, lpszdeviceclass: Pcwstr): Int =
     if (windowsWin32DevicesTapiNapiAvailable) wasmWindowssysWindowsWin32DevicesTapiLineGetDevConfigW(dwdeviceid.toInt(), lpdeviceconfig.rawAddress.toString(), lpszdeviceclass.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun lineGetGroupListA(hline: UInt, lpgrouplist: MutPtr<Lineagentgrouplist>): Int =
+public actual fun lineGetGroupListA(hline: UInt, lpgrouplist: MutPtr): Int =
     if (windowsWin32DevicesTapiNapiAvailable) wasmWindowssysWindowsWin32DevicesTapiLineGetGroupListA(hline.toInt(), lpgrouplist.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun lineGetGroupListW(hline: UInt, lpgrouplist: MutPtr<Lineagentgrouplist>): Int =
+public actual fun lineGetGroupListW(hline: UInt, lpgrouplist: MutPtr): Int =
     if (windowsWin32DevicesTapiNapiAvailable) wasmWindowssysWindowsWin32DevicesTapiLineGetGroupListW(hline.toInt(), lpgrouplist.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun lineGetID(hline: UInt, dwaddressid: UInt, hcall: UInt, dwselect: UInt, lpdeviceid: MutPtr<Varstring>, lpszdeviceclass: Pcstr): Int =
+public actual fun lineGetID(hline: UInt, dwaddressid: UInt, hcall: UInt, dwselect: UInt, lpdeviceid: MutPtr, lpszdeviceclass: Pcstr): Int =
     if (windowsWin32DevicesTapiNapiAvailable) wasmWindowssysWindowsWin32DevicesTapiLineGetID(hline.toInt(), dwaddressid.toInt(), hcall.toInt(), dwselect.toInt(), lpdeviceid.rawAddress.toString(), lpszdeviceclass.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun lineGetIDA(hline: UInt, dwaddressid: UInt, hcall: UInt, dwselect: UInt, lpdeviceid: MutPtr<Varstring>, lpszdeviceclass: Pcstr): Int =
+public actual fun lineGetIDA(hline: UInt, dwaddressid: UInt, hcall: UInt, dwselect: UInt, lpdeviceid: MutPtr, lpszdeviceclass: Pcstr): Int =
     if (windowsWin32DevicesTapiNapiAvailable) wasmWindowssysWindowsWin32DevicesTapiLineGetIDA(hline.toInt(), dwaddressid.toInt(), hcall.toInt(), dwselect.toInt(), lpdeviceid.rawAddress.toString(), lpszdeviceclass.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun lineGetIDW(hline: UInt, dwaddressid: UInt, hcall: UInt, dwselect: UInt, lpdeviceid: MutPtr<Varstring>, lpszdeviceclass: Pcwstr): Int =
+public actual fun lineGetIDW(hline: UInt, dwaddressid: UInt, hcall: UInt, dwselect: UInt, lpdeviceid: MutPtr, lpszdeviceclass: Pcwstr): Int =
     if (windowsWin32DevicesTapiNapiAvailable) wasmWindowssysWindowsWin32DevicesTapiLineGetIDW(hline.toInt(), dwaddressid.toInt(), hcall.toInt(), dwselect.toInt(), lpdeviceid.rawAddress.toString(), lpszdeviceclass.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun lineGetIcon(dwdeviceid: UInt, lpszdeviceclass: Pcstr, lphicon: MutPtr<Hicon>): Int =
+public actual fun lineGetIcon(dwdeviceid: UInt, lpszdeviceclass: Pcstr, lphicon: MutPtr): Int =
     if (windowsWin32DevicesTapiNapiAvailable) wasmWindowssysWindowsWin32DevicesTapiLineGetIcon(dwdeviceid.toInt(), lpszdeviceclass.rawAddress.toString(), lphicon.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun lineGetIconA(dwdeviceid: UInt, lpszdeviceclass: Pcstr, lphicon: MutPtr<Hicon>): Int =
+public actual fun lineGetIconA(dwdeviceid: UInt, lpszdeviceclass: Pcstr, lphicon: MutPtr): Int =
     if (windowsWin32DevicesTapiNapiAvailable) wasmWindowssysWindowsWin32DevicesTapiLineGetIconA(dwdeviceid.toInt(), lpszdeviceclass.rawAddress.toString(), lphicon.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun lineGetIconW(dwdeviceid: UInt, lpszdeviceclass: Pcwstr, lphicon: MutPtr<Hicon>): Int =
+public actual fun lineGetIconW(dwdeviceid: UInt, lpszdeviceclass: Pcwstr, lphicon: MutPtr): Int =
     if (windowsWin32DevicesTapiNapiAvailable) wasmWindowssysWindowsWin32DevicesTapiLineGetIconW(dwdeviceid.toInt(), lpszdeviceclass.rawAddress.toString(), lphicon.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun lineGetLineDevStatus(hline: UInt, lplinedevstatus: MutPtr<Linedevstatus>): Int =
+public actual fun lineGetLineDevStatus(hline: UInt, lplinedevstatus: MutPtr): Int =
     if (windowsWin32DevicesTapiNapiAvailable) wasmWindowssysWindowsWin32DevicesTapiLineGetLineDevStatus(hline.toInt(), lplinedevstatus.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun lineGetLineDevStatusA(hline: UInt, lplinedevstatus: MutPtr<Linedevstatus>): Int =
+public actual fun lineGetLineDevStatusA(hline: UInt, lplinedevstatus: MutPtr): Int =
     if (windowsWin32DevicesTapiNapiAvailable) wasmWindowssysWindowsWin32DevicesTapiLineGetLineDevStatusA(hline.toInt(), lplinedevstatus.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun lineGetLineDevStatusW(hline: UInt, lplinedevstatus: MutPtr<Linedevstatus>): Int =
+public actual fun lineGetLineDevStatusW(hline: UInt, lplinedevstatus: MutPtr): Int =
     if (windowsWin32DevicesTapiNapiAvailable) wasmWindowssysWindowsWin32DevicesTapiLineGetLineDevStatusW(hline.toInt(), lplinedevstatus.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun lineGetMessage(hlineapp: UInt, lpmessage: MutPtr<Linemessage>, dwtimeout: UInt): Int =
+public actual fun lineGetMessage(hlineapp: UInt, lpmessage: MutPtr, dwtimeout: UInt): Int =
     if (windowsWin32DevicesTapiNapiAvailable) wasmWindowssysWindowsWin32DevicesTapiLineGetMessage(hlineapp.toInt(), lpmessage.rawAddress.toString(), dwtimeout.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun lineGetNewCalls(hline: UInt, dwaddressid: UInt, dwselect: UInt, lpcalllist: MutPtr<Linecalllist>): Int =
+public actual fun lineGetNewCalls(hline: UInt, dwaddressid: UInt, dwselect: UInt, lpcalllist: MutPtr): Int =
     if (windowsWin32DevicesTapiNapiAvailable) wasmWindowssysWindowsWin32DevicesTapiLineGetNewCalls(hline.toInt(), dwaddressid.toInt(), dwselect.toInt(), lpcalllist.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun lineGetNumRings(hline: UInt, dwaddressid: UInt, lpdwnumrings: MutPtr<UInt>): Int =
+public actual fun lineGetNumRings(hline: UInt, dwaddressid: UInt, lpdwnumrings: MutPtr): Int =
     if (windowsWin32DevicesTapiNapiAvailable) wasmWindowssysWindowsWin32DevicesTapiLineGetNumRings(hline.toInt(), dwaddressid.toInt(), lpdwnumrings.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun lineGetProviderList(dwapiversion: UInt, lpproviderlist: MutPtr<Lineproviderlist>): Int =
+public actual fun lineGetProviderList(dwapiversion: UInt, lpproviderlist: MutPtr): Int =
     if (windowsWin32DevicesTapiNapiAvailable) wasmWindowssysWindowsWin32DevicesTapiLineGetProviderList(dwapiversion.toInt(), lpproviderlist.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun lineGetProviderListA(dwapiversion: UInt, lpproviderlist: MutPtr<Lineproviderlist>): Int =
+public actual fun lineGetProviderListA(dwapiversion: UInt, lpproviderlist: MutPtr): Int =
     if (windowsWin32DevicesTapiNapiAvailable) wasmWindowssysWindowsWin32DevicesTapiLineGetProviderListA(dwapiversion.toInt(), lpproviderlist.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun lineGetProviderListW(dwapiversion: UInt, lpproviderlist: MutPtr<Lineproviderlist>): Int =
+public actual fun lineGetProviderListW(dwapiversion: UInt, lpproviderlist: MutPtr): Int =
     if (windowsWin32DevicesTapiNapiAvailable) wasmWindowssysWindowsWin32DevicesTapiLineGetProviderListW(dwapiversion.toInt(), lpproviderlist.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun lineGetProxyStatus(hlineapp: UInt, dwdeviceid: UInt, dwappapiversion: UInt, lplineproxyreqestlist: MutPtr<Lineproxyrequestlist>): Int =
+public actual fun lineGetProxyStatus(hlineapp: UInt, dwdeviceid: UInt, dwappapiversion: UInt, lplineproxyreqestlist: MutPtr): Int =
     if (windowsWin32DevicesTapiNapiAvailable) wasmWindowssysWindowsWin32DevicesTapiLineGetProxyStatus(hlineapp.toInt(), dwdeviceid.toInt(), dwappapiversion.toInt(), lplineproxyreqestlist.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun lineGetQueueInfo(hline: UInt, dwqueueid: UInt, lplinequeueinfo: MutPtr<Linequeueinfo>): Int =
+public actual fun lineGetQueueInfo(hline: UInt, dwqueueid: UInt, lplinequeueinfo: MutPtr): Int =
     if (windowsWin32DevicesTapiNapiAvailable) wasmWindowssysWindowsWin32DevicesTapiLineGetQueueInfo(hline.toInt(), dwqueueid.toInt(), lplinequeueinfo.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun lineGetQueueListA(hline: UInt, lpgroupid: MutPtr<Guid>, lpqueuelist: MutPtr<Linequeuelist>): Int =
+public actual fun lineGetQueueListA(hline: UInt, lpgroupid: MutPtr, lpqueuelist: MutPtr): Int =
     if (windowsWin32DevicesTapiNapiAvailable) wasmWindowssysWindowsWin32DevicesTapiLineGetQueueListA(hline.toInt(), lpgroupid.rawAddress.toString(), lpqueuelist.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun lineGetQueueListW(hline: UInt, lpgroupid: MutPtr<Guid>, lpqueuelist: MutPtr<Linequeuelist>): Int =
+public actual fun lineGetQueueListW(hline: UInt, lpgroupid: MutPtr, lpqueuelist: MutPtr): Int =
     if (windowsWin32DevicesTapiNapiAvailable) wasmWindowssysWindowsWin32DevicesTapiLineGetQueueListW(hline.toInt(), lpgroupid.rawAddress.toString(), lpqueuelist.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun lineGetRequest(hlineapp: UInt, dwrequestmode: UInt, lprequestbuffer: MutPtr<CVoid>): Int =
+public actual fun lineGetRequest(hlineapp: UInt, dwrequestmode: UInt, lprequestbuffer: MutPtr): Int =
     if (windowsWin32DevicesTapiNapiAvailable) wasmWindowssysWindowsWin32DevicesTapiLineGetRequest(hlineapp.toInt(), dwrequestmode.toInt(), lprequestbuffer.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun lineGetRequestA(hlineapp: UInt, dwrequestmode: UInt, lprequestbuffer: MutPtr<CVoid>): Int =
+public actual fun lineGetRequestA(hlineapp: UInt, dwrequestmode: UInt, lprequestbuffer: MutPtr): Int =
     if (windowsWin32DevicesTapiNapiAvailable) wasmWindowssysWindowsWin32DevicesTapiLineGetRequestA(hlineapp.toInt(), dwrequestmode.toInt(), lprequestbuffer.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun lineGetRequestW(hlineapp: UInt, dwrequestmode: UInt, lprequestbuffer: MutPtr<CVoid>): Int =
+public actual fun lineGetRequestW(hlineapp: UInt, dwrequestmode: UInt, lprequestbuffer: MutPtr): Int =
     if (windowsWin32DevicesTapiNapiAvailable) wasmWindowssysWindowsWin32DevicesTapiLineGetRequestW(hlineapp.toInt(), dwrequestmode.toInt(), lprequestbuffer.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun lineGetStatusMessages(hline: UInt, lpdwlinestates: MutPtr<UInt>, lpdwaddressstates: MutPtr<UInt>): Int =
+public actual fun lineGetStatusMessages(hline: UInt, lpdwlinestates: MutPtr, lpdwaddressstates: MutPtr): Int =
     if (windowsWin32DevicesTapiNapiAvailable) wasmWindowssysWindowsWin32DevicesTapiLineGetStatusMessages(hline.toInt(), lpdwlinestates.rawAddress.toString(), lpdwaddressstates.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun lineGetTranslateCaps(hlineapp: UInt, dwapiversion: UInt, lptranslatecaps: MutPtr<Linetranslatecaps>): Int =
+public actual fun lineGetTranslateCaps(hlineapp: UInt, dwapiversion: UInt, lptranslatecaps: MutPtr): Int =
     if (windowsWin32DevicesTapiNapiAvailable) wasmWindowssysWindowsWin32DevicesTapiLineGetTranslateCaps(hlineapp.toInt(), dwapiversion.toInt(), lptranslatecaps.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun lineGetTranslateCapsA(hlineapp: UInt, dwapiversion: UInt, lptranslatecaps: MutPtr<Linetranslatecaps>): Int =
+public actual fun lineGetTranslateCapsA(hlineapp: UInt, dwapiversion: UInt, lptranslatecaps: MutPtr): Int =
     if (windowsWin32DevicesTapiNapiAvailable) wasmWindowssysWindowsWin32DevicesTapiLineGetTranslateCapsA(hlineapp.toInt(), dwapiversion.toInt(), lptranslatecaps.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun lineGetTranslateCapsW(hlineapp: UInt, dwapiversion: UInt, lptranslatecaps: MutPtr<Linetranslatecaps>): Int =
+public actual fun lineGetTranslateCapsW(hlineapp: UInt, dwapiversion: UInt, lptranslatecaps: MutPtr): Int =
     if (windowsWin32DevicesTapiNapiAvailable) wasmWindowssysWindowsWin32DevicesTapiLineGetTranslateCapsW(hlineapp.toInt(), dwapiversion.toInt(), lptranslatecaps.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun lineHandoff(hcall: UInt, lpszfilename: Pcstr, dwmediamode: UInt): Int =
@@ -1116,22 +1113,22 @@ public actual fun lineHandoffW(hcall: UInt, lpszfilename: Pcwstr, dwmediamode: U
 public actual fun lineHold(hcall: UInt): Int =
     if (windowsWin32DevicesTapiNapiAvailable) wasmWindowssysWindowsWin32DevicesTapiLineHold(hcall.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun lineInitialize(lphlineapp: MutPtr<UInt>, hinstance: Hinstance, lpfncallback: Linecallback, lpszappname: Pcstr, lpdwnumdevs: MutPtr<UInt>): Int =
+public actual fun lineInitialize(lphlineapp: MutPtr, hinstance: Hinstance, lpfncallback: Linecallback, lpszappname: Pcstr, lpdwnumdevs: MutPtr): Int =
     if (windowsWin32DevicesTapiNapiAvailable) wasmWindowssysWindowsWin32DevicesTapiLineInitialize(lphlineapp.rawAddress.toString(), hinstance.rawAddress.toString(), 0L.toString(), lpszappname.rawAddress.toString(), lpdwnumdevs.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun lineInitializeExA(lphlineapp: MutPtr<UInt>, hinstance: Hinstance, lpfncallback: Linecallback, lpszfriendlyappname: Pcstr, lpdwnumdevs: MutPtr<UInt>, lpdwapiversion: MutPtr<UInt>, lplineinitializeexparams: MutPtr<Lineinitializeexparams>): Int =
+public actual fun lineInitializeExA(lphlineapp: MutPtr, hinstance: Hinstance, lpfncallback: Linecallback, lpszfriendlyappname: Pcstr, lpdwnumdevs: MutPtr, lpdwapiversion: MutPtr, lplineinitializeexparams: MutPtr): Int =
     if (windowsWin32DevicesTapiNapiAvailable) wasmWindowssysWindowsWin32DevicesTapiLineInitializeExA(lphlineapp.rawAddress.toString(), hinstance.rawAddress.toString(), 0L.toString(), lpszfriendlyappname.rawAddress.toString(), lpdwnumdevs.rawAddress.toString(), lpdwapiversion.rawAddress.toString(), lplineinitializeexparams.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun lineInitializeExW(lphlineapp: MutPtr<UInt>, hinstance: Hinstance, lpfncallback: Linecallback, lpszfriendlyappname: Pcwstr, lpdwnumdevs: MutPtr<UInt>, lpdwapiversion: MutPtr<UInt>, lplineinitializeexparams: MutPtr<Lineinitializeexparams>): Int =
+public actual fun lineInitializeExW(lphlineapp: MutPtr, hinstance: Hinstance, lpfncallback: Linecallback, lpszfriendlyappname: Pcwstr, lpdwnumdevs: MutPtr, lpdwapiversion: MutPtr, lplineinitializeexparams: MutPtr): Int =
     if (windowsWin32DevicesTapiNapiAvailable) wasmWindowssysWindowsWin32DevicesTapiLineInitializeExW(lphlineapp.rawAddress.toString(), hinstance.rawAddress.toString(), 0L.toString(), lpszfriendlyappname.rawAddress.toString(), lpdwnumdevs.rawAddress.toString(), lpdwapiversion.rawAddress.toString(), lplineinitializeexparams.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun lineMakeCall(hline: UInt, lphcall: MutPtr<UInt>, lpszdestaddress: Pcstr, dwcountrycode: UInt, lpcallparams: ConstPtr<Linecallparams>): Int =
+public actual fun lineMakeCall(hline: UInt, lphcall: MutPtr, lpszdestaddress: Pcstr, dwcountrycode: UInt, lpcallparams: ConstPtr): Int =
     if (windowsWin32DevicesTapiNapiAvailable) wasmWindowssysWindowsWin32DevicesTapiLineMakeCall(hline.toInt(), lphcall.rawAddress.toString(), lpszdestaddress.rawAddress.toString(), dwcountrycode.toInt(), lpcallparams.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun lineMakeCallA(hline: UInt, lphcall: MutPtr<UInt>, lpszdestaddress: Pcstr, dwcountrycode: UInt, lpcallparams: ConstPtr<Linecallparams>): Int =
+public actual fun lineMakeCallA(hline: UInt, lphcall: MutPtr, lpszdestaddress: Pcstr, dwcountrycode: UInt, lpcallparams: ConstPtr): Int =
     if (windowsWin32DevicesTapiNapiAvailable) wasmWindowssysWindowsWin32DevicesTapiLineMakeCallA(hline.toInt(), lphcall.rawAddress.toString(), lpszdestaddress.rawAddress.toString(), dwcountrycode.toInt(), lpcallparams.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun lineMakeCallW(hline: UInt, lphcall: MutPtr<UInt>, lpszdestaddress: Pcwstr, dwcountrycode: UInt, lpcallparams: ConstPtr<Linecallparams>): Int =
+public actual fun lineMakeCallW(hline: UInt, lphcall: MutPtr, lpszdestaddress: Pcwstr, dwcountrycode: UInt, lpcallparams: ConstPtr): Int =
     if (windowsWin32DevicesTapiNapiAvailable) wasmWindowssysWindowsWin32DevicesTapiLineMakeCallW(hline.toInt(), lphcall.rawAddress.toString(), lpszdestaddress.rawAddress.toString(), dwcountrycode.toInt(), lpcallparams.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun lineMonitorDigits(hcall: UInt, dwdigitmodes: UInt): Int =
@@ -1140,55 +1137,55 @@ public actual fun lineMonitorDigits(hcall: UInt, dwdigitmodes: UInt): Int =
 public actual fun lineMonitorMedia(hcall: UInt, dwmediamodes: UInt): Int =
     if (windowsWin32DevicesTapiNapiAvailable) wasmWindowssysWindowsWin32DevicesTapiLineMonitorMedia(hcall.toInt(), dwmediamodes.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun lineMonitorTones(hcall: UInt, lptonelist: ConstPtr<Linemonitortone>, dwnumentries: UInt): Int =
+public actual fun lineMonitorTones(hcall: UInt, lptonelist: ConstPtr, dwnumentries: UInt): Int =
     if (windowsWin32DevicesTapiNapiAvailable) wasmWindowssysWindowsWin32DevicesTapiLineMonitorTones(hcall.toInt(), lptonelist.rawAddress.toString(), dwnumentries.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun lineNegotiateAPIVersion(hlineapp: UInt, dwdeviceid: UInt, dwapilowversion: UInt, dwapihighversion: UInt, lpdwapiversion: MutPtr<UInt>, lpextensionid: MutPtr<Lineextensionid>): Int =
+public actual fun lineNegotiateAPIVersion(hlineapp: UInt, dwdeviceid: UInt, dwapilowversion: UInt, dwapihighversion: UInt, lpdwapiversion: MutPtr, lpextensionid: MutPtr): Int =
     if (windowsWin32DevicesTapiNapiAvailable) wasmWindowssysWindowsWin32DevicesTapiLineNegotiateAPIVersion(hlineapp.toInt(), dwdeviceid.toInt(), dwapilowversion.toInt(), dwapihighversion.toInt(), lpdwapiversion.rawAddress.toString(), lpextensionid.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun lineNegotiateExtVersion(hlineapp: UInt, dwdeviceid: UInt, dwapiversion: UInt, dwextlowversion: UInt, dwexthighversion: UInt, lpdwextversion: MutPtr<UInt>): Int =
+public actual fun lineNegotiateExtVersion(hlineapp: UInt, dwdeviceid: UInt, dwapiversion: UInt, dwextlowversion: UInt, dwexthighversion: UInt, lpdwextversion: MutPtr): Int =
     if (windowsWin32DevicesTapiNapiAvailable) wasmWindowssysWindowsWin32DevicesTapiLineNegotiateExtVersion(hlineapp.toInt(), dwdeviceid.toInt(), dwapiversion.toInt(), dwextlowversion.toInt(), dwexthighversion.toInt(), lpdwextversion.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun lineOpen(hlineapp: UInt, dwdeviceid: UInt, lphline: MutPtr<UInt>, dwapiversion: UInt, dwextversion: UInt, dwcallbackinstance: ULong, dwprivileges: UInt, dwmediamodes: UInt, lpcallparams: ConstPtr<Linecallparams>): Int =
+public actual fun lineOpen(hlineapp: UInt, dwdeviceid: UInt, lphline: MutPtr, dwapiversion: UInt, dwextversion: UInt, dwcallbackinstance: ULong, dwprivileges: UInt, dwmediamodes: UInt, lpcallparams: ConstPtr): Int =
     if (windowsWin32DevicesTapiNapiAvailable) wasmWindowssysWindowsWin32DevicesTapiLineOpen(hlineapp.toInt(), dwdeviceid.toInt(), lphline.rawAddress.toString(), dwapiversion.toInt(), dwextversion.toInt(), dwcallbackinstance.toString(), dwprivileges.toInt(), dwmediamodes.toInt(), lpcallparams.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun lineOpenA(hlineapp: UInt, dwdeviceid: UInt, lphline: MutPtr<UInt>, dwapiversion: UInt, dwextversion: UInt, dwcallbackinstance: ULong, dwprivileges: UInt, dwmediamodes: UInt, lpcallparams: ConstPtr<Linecallparams>): Int =
+public actual fun lineOpenA(hlineapp: UInt, dwdeviceid: UInt, lphline: MutPtr, dwapiversion: UInt, dwextversion: UInt, dwcallbackinstance: ULong, dwprivileges: UInt, dwmediamodes: UInt, lpcallparams: ConstPtr): Int =
     if (windowsWin32DevicesTapiNapiAvailable) wasmWindowssysWindowsWin32DevicesTapiLineOpenA(hlineapp.toInt(), dwdeviceid.toInt(), lphline.rawAddress.toString(), dwapiversion.toInt(), dwextversion.toInt(), dwcallbackinstance.toString(), dwprivileges.toInt(), dwmediamodes.toInt(), lpcallparams.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun lineOpenW(hlineapp: UInt, dwdeviceid: UInt, lphline: MutPtr<UInt>, dwapiversion: UInt, dwextversion: UInt, dwcallbackinstance: ULong, dwprivileges: UInt, dwmediamodes: UInt, lpcallparams: ConstPtr<Linecallparams>): Int =
+public actual fun lineOpenW(hlineapp: UInt, dwdeviceid: UInt, lphline: MutPtr, dwapiversion: UInt, dwextversion: UInt, dwcallbackinstance: ULong, dwprivileges: UInt, dwmediamodes: UInt, lpcallparams: ConstPtr): Int =
     if (windowsWin32DevicesTapiNapiAvailable) wasmWindowssysWindowsWin32DevicesTapiLineOpenW(hlineapp.toInt(), dwdeviceid.toInt(), lphline.rawAddress.toString(), dwapiversion.toInt(), dwextversion.toInt(), dwcallbackinstance.toString(), dwprivileges.toInt(), dwmediamodes.toInt(), lpcallparams.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun linePark(hcall: UInt, dwparkmode: UInt, lpszdiraddress: Pcstr, lpnondiraddress: MutPtr<Varstring>): Int =
+public actual fun linePark(hcall: UInt, dwparkmode: UInt, lpszdiraddress: Pcstr, lpnondiraddress: MutPtr): Int =
     if (windowsWin32DevicesTapiNapiAvailable) wasmWindowssysWindowsWin32DevicesTapiLinePark(hcall.toInt(), dwparkmode.toInt(), lpszdiraddress.rawAddress.toString(), lpnondiraddress.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun lineParkA(hcall: UInt, dwparkmode: UInt, lpszdiraddress: Pcstr, lpnondiraddress: MutPtr<Varstring>): Int =
+public actual fun lineParkA(hcall: UInt, dwparkmode: UInt, lpszdiraddress: Pcstr, lpnondiraddress: MutPtr): Int =
     if (windowsWin32DevicesTapiNapiAvailable) wasmWindowssysWindowsWin32DevicesTapiLineParkA(hcall.toInt(), dwparkmode.toInt(), lpszdiraddress.rawAddress.toString(), lpnondiraddress.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun lineParkW(hcall: UInt, dwparkmode: UInt, lpszdiraddress: Pcwstr, lpnondiraddress: MutPtr<Varstring>): Int =
+public actual fun lineParkW(hcall: UInt, dwparkmode: UInt, lpszdiraddress: Pcwstr, lpnondiraddress: MutPtr): Int =
     if (windowsWin32DevicesTapiNapiAvailable) wasmWindowssysWindowsWin32DevicesTapiLineParkW(hcall.toInt(), dwparkmode.toInt(), lpszdiraddress.rawAddress.toString(), lpnondiraddress.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun linePickup(hline: UInt, dwaddressid: UInt, lphcall: MutPtr<UInt>, lpszdestaddress: Pcstr, lpszgroupid: Pcstr): Int =
+public actual fun linePickup(hline: UInt, dwaddressid: UInt, lphcall: MutPtr, lpszdestaddress: Pcstr, lpszgroupid: Pcstr): Int =
     if (windowsWin32DevicesTapiNapiAvailable) wasmWindowssysWindowsWin32DevicesTapiLinePickup(hline.toInt(), dwaddressid.toInt(), lphcall.rawAddress.toString(), lpszdestaddress.rawAddress.toString(), lpszgroupid.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun linePickupA(hline: UInt, dwaddressid: UInt, lphcall: MutPtr<UInt>, lpszdestaddress: Pcstr, lpszgroupid: Pcstr): Int =
+public actual fun linePickupA(hline: UInt, dwaddressid: UInt, lphcall: MutPtr, lpszdestaddress: Pcstr, lpszgroupid: Pcstr): Int =
     if (windowsWin32DevicesTapiNapiAvailable) wasmWindowssysWindowsWin32DevicesTapiLinePickupA(hline.toInt(), dwaddressid.toInt(), lphcall.rawAddress.toString(), lpszdestaddress.rawAddress.toString(), lpszgroupid.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun linePickupW(hline: UInt, dwaddressid: UInt, lphcall: MutPtr<UInt>, lpszdestaddress: Pcwstr, lpszgroupid: Pcwstr): Int =
+public actual fun linePickupW(hline: UInt, dwaddressid: UInt, lphcall: MutPtr, lpszdestaddress: Pcwstr, lpszgroupid: Pcwstr): Int =
     if (windowsWin32DevicesTapiNapiAvailable) wasmWindowssysWindowsWin32DevicesTapiLinePickupW(hline.toInt(), dwaddressid.toInt(), lphcall.rawAddress.toString(), lpszdestaddress.rawAddress.toString(), lpszgroupid.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun linePrepareAddToConference(hconfcall: UInt, lphconsultcall: MutPtr<UInt>, lpcallparams: ConstPtr<Linecallparams>): Int =
+public actual fun linePrepareAddToConference(hconfcall: UInt, lphconsultcall: MutPtr, lpcallparams: ConstPtr): Int =
     if (windowsWin32DevicesTapiNapiAvailable) wasmWindowssysWindowsWin32DevicesTapiLinePrepareAddToConference(hconfcall.toInt(), lphconsultcall.rawAddress.toString(), lpcallparams.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun linePrepareAddToConferenceA(hconfcall: UInt, lphconsultcall: MutPtr<UInt>, lpcallparams: ConstPtr<Linecallparams>): Int =
+public actual fun linePrepareAddToConferenceA(hconfcall: UInt, lphconsultcall: MutPtr, lpcallparams: ConstPtr): Int =
     if (windowsWin32DevicesTapiNapiAvailable) wasmWindowssysWindowsWin32DevicesTapiLinePrepareAddToConferenceA(hconfcall.toInt(), lphconsultcall.rawAddress.toString(), lpcallparams.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun linePrepareAddToConferenceW(hconfcall: UInt, lphconsultcall: MutPtr<UInt>, lpcallparams: ConstPtr<Linecallparams>): Int =
+public actual fun linePrepareAddToConferenceW(hconfcall: UInt, lphconsultcall: MutPtr, lpcallparams: ConstPtr): Int =
     if (windowsWin32DevicesTapiNapiAvailable) wasmWindowssysWindowsWin32DevicesTapiLinePrepareAddToConferenceW(hconfcall.toInt(), lphconsultcall.rawAddress.toString(), lpcallparams.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun lineProxyMessage(hline: UInt, hcall: UInt, dwmsg: UInt, dwparam1: UInt, dwparam2: UInt, dwparam3: UInt): Int =
     if (windowsWin32DevicesTapiNapiAvailable) wasmWindowssysWindowsWin32DevicesTapiLineProxyMessage(hline.toInt(), hcall.toInt(), dwmsg.toInt(), dwparam1.toInt(), dwparam2.toInt(), dwparam3.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun lineProxyResponse(hline: UInt, lpproxyrequest: MutPtr<Lineproxyrequest>, dwresult: UInt): Int =
+public actual fun lineProxyResponse(hline: UInt, lpproxyrequest: MutPtr, dwresult: UInt): Int =
     if (windowsWin32DevicesTapiNapiAvailable) wasmWindowssysWindowsWin32DevicesTapiLineProxyResponse(hline.toInt(), lpproxyrequest.rawAddress.toString(), dwresult.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun lineRedirect(hcall: UInt, lpszdestaddress: Pcstr, dwcountrycode: UInt): Int =
@@ -1221,7 +1218,7 @@ public actual fun lineSendUserUserInfo(hcall: UInt, lpsuseruserinfo: Pcstr, dwsi
 public actual fun lineSetAgentActivity(hline: UInt, dwaddressid: UInt, dwactivityid: UInt): Int =
     if (windowsWin32DevicesTapiNapiAvailable) wasmWindowssysWindowsWin32DevicesTapiLineSetAgentActivity(hline.toInt(), dwaddressid.toInt(), dwactivityid.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun lineSetAgentGroup(hline: UInt, dwaddressid: UInt, lpagentgrouplist: MutPtr<Lineagentgrouplist>): Int =
+public actual fun lineSetAgentGroup(hline: UInt, dwaddressid: UInt, lpagentgrouplist: MutPtr): Int =
     if (windowsWin32DevicesTapiNapiAvailable) wasmWindowssysWindowsWin32DevicesTapiLineSetAgentGroup(hline.toInt(), dwaddressid.toInt(), lpagentgrouplist.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun lineSetAgentMeasurementPeriod(hline: UInt, hagent: UInt, dwmeasurementperiod: UInt): Int =
@@ -1236,28 +1233,28 @@ public actual fun lineSetAgentState(hline: UInt, dwaddressid: UInt, dwagentstate
 public actual fun lineSetAgentStateEx(hline: UInt, hagent: UInt, dwagentstate: UInt, dwnextagentstate: UInt): Int =
     if (windowsWin32DevicesTapiNapiAvailable) wasmWindowssysWindowsWin32DevicesTapiLineSetAgentStateEx(hline.toInt(), hagent.toInt(), dwagentstate.toInt(), dwnextagentstate.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun lineSetAppPriority(lpszappfilename: Pcstr, dwmediamode: UInt, lpextensionid: MutPtr<Lineextensionid>, dwrequestmode: UInt, lpszextensionname: Pcstr, dwpriority: UInt): Int =
+public actual fun lineSetAppPriority(lpszappfilename: Pcstr, dwmediamode: UInt, lpextensionid: MutPtr, dwrequestmode: UInt, lpszextensionname: Pcstr, dwpriority: UInt): Int =
     if (windowsWin32DevicesTapiNapiAvailable) wasmWindowssysWindowsWin32DevicesTapiLineSetAppPriority(lpszappfilename.rawAddress.toString(), dwmediamode.toInt(), lpextensionid.rawAddress.toString(), dwrequestmode.toInt(), lpszextensionname.rawAddress.toString(), dwpriority.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun lineSetAppPriorityA(lpszappfilename: Pcstr, dwmediamode: UInt, lpextensionid: MutPtr<Lineextensionid>, dwrequestmode: UInt, lpszextensionname: Pcstr, dwpriority: UInt): Int =
+public actual fun lineSetAppPriorityA(lpszappfilename: Pcstr, dwmediamode: UInt, lpextensionid: MutPtr, dwrequestmode: UInt, lpszextensionname: Pcstr, dwpriority: UInt): Int =
     if (windowsWin32DevicesTapiNapiAvailable) wasmWindowssysWindowsWin32DevicesTapiLineSetAppPriorityA(lpszappfilename.rawAddress.toString(), dwmediamode.toInt(), lpextensionid.rawAddress.toString(), dwrequestmode.toInt(), lpszextensionname.rawAddress.toString(), dwpriority.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun lineSetAppPriorityW(lpszappfilename: Pcwstr, dwmediamode: UInt, lpextensionid: MutPtr<Lineextensionid>, dwrequestmode: UInt, lpszextensionname: Pcwstr, dwpriority: UInt): Int =
+public actual fun lineSetAppPriorityW(lpszappfilename: Pcwstr, dwmediamode: UInt, lpextensionid: MutPtr, dwrequestmode: UInt, lpszextensionname: Pcwstr, dwpriority: UInt): Int =
     if (windowsWin32DevicesTapiNapiAvailable) wasmWindowssysWindowsWin32DevicesTapiLineSetAppPriorityW(lpszappfilename.rawAddress.toString(), dwmediamode.toInt(), lpextensionid.rawAddress.toString(), dwrequestmode.toInt(), lpszextensionname.rawAddress.toString(), dwpriority.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun lineSetAppSpecific(hcall: UInt, dwappspecific: UInt): Int =
     if (windowsWin32DevicesTapiNapiAvailable) wasmWindowssysWindowsWin32DevicesTapiLineSetAppSpecific(hcall.toInt(), dwappspecific.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun lineSetCallData(hcall: UInt, lpcalldata: MutPtr<CVoid>, dwsize: UInt): Int =
+public actual fun lineSetCallData(hcall: UInt, lpcalldata: MutPtr, dwsize: UInt): Int =
     if (windowsWin32DevicesTapiNapiAvailable) wasmWindowssysWindowsWin32DevicesTapiLineSetCallData(hcall.toInt(), lpcalldata.rawAddress.toString(), dwsize.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun lineSetCallParams(hcall: UInt, dwbearermode: UInt, dwminrate: UInt, dwmaxrate: UInt, lpdialparams: ConstPtr<Linedialparams>): Int =
+public actual fun lineSetCallParams(hcall: UInt, dwbearermode: UInt, dwminrate: UInt, dwmaxrate: UInt, lpdialparams: ConstPtr): Int =
     if (windowsWin32DevicesTapiNapiAvailable) wasmWindowssysWindowsWin32DevicesTapiLineSetCallParams(hcall.toInt(), dwbearermode.toInt(), dwminrate.toInt(), dwmaxrate.toInt(), lpdialparams.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun lineSetCallPrivilege(hcall: UInt, dwcallprivilege: UInt): Int =
     if (windowsWin32DevicesTapiNapiAvailable) wasmWindowssysWindowsWin32DevicesTapiLineSetCallPrivilege(hcall.toInt(), dwcallprivilege.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun lineSetCallQualityOfService(hcall: UInt, lpsendingflowspec: MutPtr<CVoid>, dwsendingflowspecsize: UInt, lpreceivingflowspec: MutPtr<CVoid>, dwreceivingflowspecsize: UInt): Int =
+public actual fun lineSetCallQualityOfService(hcall: UInt, lpsendingflowspec: MutPtr, dwsendingflowspecsize: UInt, lpreceivingflowspec: MutPtr, dwreceivingflowspecsize: UInt): Int =
     if (windowsWin32DevicesTapiNapiAvailable) wasmWindowssysWindowsWin32DevicesTapiLineSetCallQualityOfService(hcall.toInt(), lpsendingflowspec.rawAddress.toString(), dwsendingflowspecsize.toInt(), lpreceivingflowspec.rawAddress.toString(), dwreceivingflowspecsize.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun lineSetCallTreatment(hcall: UInt, dwtreatment: UInt): Int =
@@ -1266,19 +1263,19 @@ public actual fun lineSetCallTreatment(hcall: UInt, dwtreatment: UInt): Int =
 public actual fun lineSetCurrentLocation(hlineapp: UInt, dwlocation: UInt): Int =
     if (windowsWin32DevicesTapiNapiAvailable) wasmWindowssysWindowsWin32DevicesTapiLineSetCurrentLocation(hlineapp.toInt(), dwlocation.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun lineSetDevConfig(dwdeviceid: UInt, lpdeviceconfig: ConstPtr<CVoid>, dwsize: UInt, lpszdeviceclass: Pcstr): Int =
+public actual fun lineSetDevConfig(dwdeviceid: UInt, lpdeviceconfig: ConstPtr, dwsize: UInt, lpszdeviceclass: Pcstr): Int =
     if (windowsWin32DevicesTapiNapiAvailable) wasmWindowssysWindowsWin32DevicesTapiLineSetDevConfig(dwdeviceid.toInt(), lpdeviceconfig.rawAddress.toString(), dwsize.toInt(), lpszdeviceclass.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun lineSetDevConfigA(dwdeviceid: UInt, lpdeviceconfig: ConstPtr<CVoid>, dwsize: UInt, lpszdeviceclass: Pcstr): Int =
+public actual fun lineSetDevConfigA(dwdeviceid: UInt, lpdeviceconfig: ConstPtr, dwsize: UInt, lpszdeviceclass: Pcstr): Int =
     if (windowsWin32DevicesTapiNapiAvailable) wasmWindowssysWindowsWin32DevicesTapiLineSetDevConfigA(dwdeviceid.toInt(), lpdeviceconfig.rawAddress.toString(), dwsize.toInt(), lpszdeviceclass.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun lineSetDevConfigW(dwdeviceid: UInt, lpdeviceconfig: ConstPtr<CVoid>, dwsize: UInt, lpszdeviceclass: Pcwstr): Int =
+public actual fun lineSetDevConfigW(dwdeviceid: UInt, lpdeviceconfig: ConstPtr, dwsize: UInt, lpszdeviceclass: Pcwstr): Int =
     if (windowsWin32DevicesTapiNapiAvailable) wasmWindowssysWindowsWin32DevicesTapiLineSetDevConfigW(dwdeviceid.toInt(), lpdeviceconfig.rawAddress.toString(), dwsize.toInt(), lpszdeviceclass.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun lineSetLineDevStatus(hline: UInt, dwstatustochange: UInt, fstatus: UInt): Int =
     if (windowsWin32DevicesTapiNapiAvailable) wasmWindowssysWindowsWin32DevicesTapiLineSetLineDevStatus(hline.toInt(), dwstatustochange.toInt(), fstatus.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun lineSetMediaControl(hline: UInt, dwaddressid: UInt, hcall: UInt, dwselect: UInt, lpdigitlist: ConstPtr<Linemediacontroldigit>, dwdigitnumentries: UInt, lpmedialist: ConstPtr<Linemediacontrolmedia>, dwmedianumentries: UInt, lptonelist: ConstPtr<Linemediacontroltone>, dwtonenumentries: UInt, lpcallstatelist: ConstPtr<Linemediacontrolcallstate>, dwcallstatenumentries: UInt): Int =
+public actual fun lineSetMediaControl(hline: UInt, dwaddressid: UInt, hcall: UInt, dwselect: UInt, lpdigitlist: ConstPtr, dwdigitnumentries: UInt, lpmedialist: ConstPtr, dwmedianumentries: UInt, lptonelist: ConstPtr, dwtonenumentries: UInt, lpcallstatelist: ConstPtr, dwcallstatenumentries: UInt): Int =
     if (windowsWin32DevicesTapiNapiAvailable) wasmWindowssysWindowsWin32DevicesTapiLineSetMediaControl(hline.toInt(), dwaddressid.toInt(), hcall.toInt(), dwselect.toInt(), lpdigitlist.rawAddress.toString(), dwdigitnumentries.toInt(), lpmedialist.rawAddress.toString(), dwmedianumentries.toInt(), lptonelist.rawAddress.toString(), dwtonenumentries.toInt(), lpcallstatelist.rawAddress.toString(), dwcallstatenumentries.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun lineSetMediaMode(hcall: UInt, dwmediamodes: UInt): Int =
@@ -1305,22 +1302,22 @@ public actual fun lineSetTollListA(hlineapp: UInt, dwdeviceid: UInt, lpszaddress
 public actual fun lineSetTollListW(hlineapp: UInt, dwdeviceid: UInt, lpszaddressinw: Pcwstr, dwtolllistoption: UInt): Int =
     if (windowsWin32DevicesTapiNapiAvailable) wasmWindowssysWindowsWin32DevicesTapiLineSetTollListW(hlineapp.toInt(), dwdeviceid.toInt(), lpszaddressinw.rawAddress.toString(), dwtolllistoption.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun lineSetupConference(hcall: UInt, hline: UInt, lphconfcall: MutPtr<UInt>, lphconsultcall: MutPtr<UInt>, dwnumparties: UInt, lpcallparams: ConstPtr<Linecallparams>): Int =
+public actual fun lineSetupConference(hcall: UInt, hline: UInt, lphconfcall: MutPtr, lphconsultcall: MutPtr, dwnumparties: UInt, lpcallparams: ConstPtr): Int =
     if (windowsWin32DevicesTapiNapiAvailable) wasmWindowssysWindowsWin32DevicesTapiLineSetupConference(hcall.toInt(), hline.toInt(), lphconfcall.rawAddress.toString(), lphconsultcall.rawAddress.toString(), dwnumparties.toInt(), lpcallparams.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun lineSetupConferenceA(hcall: UInt, hline: UInt, lphconfcall: MutPtr<UInt>, lphconsultcall: MutPtr<UInt>, dwnumparties: UInt, lpcallparams: ConstPtr<Linecallparams>): Int =
+public actual fun lineSetupConferenceA(hcall: UInt, hline: UInt, lphconfcall: MutPtr, lphconsultcall: MutPtr, dwnumparties: UInt, lpcallparams: ConstPtr): Int =
     if (windowsWin32DevicesTapiNapiAvailable) wasmWindowssysWindowsWin32DevicesTapiLineSetupConferenceA(hcall.toInt(), hline.toInt(), lphconfcall.rawAddress.toString(), lphconsultcall.rawAddress.toString(), dwnumparties.toInt(), lpcallparams.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun lineSetupConferenceW(hcall: UInt, hline: UInt, lphconfcall: MutPtr<UInt>, lphconsultcall: MutPtr<UInt>, dwnumparties: UInt, lpcallparams: ConstPtr<Linecallparams>): Int =
+public actual fun lineSetupConferenceW(hcall: UInt, hline: UInt, lphconfcall: MutPtr, lphconsultcall: MutPtr, dwnumparties: UInt, lpcallparams: ConstPtr): Int =
     if (windowsWin32DevicesTapiNapiAvailable) wasmWindowssysWindowsWin32DevicesTapiLineSetupConferenceW(hcall.toInt(), hline.toInt(), lphconfcall.rawAddress.toString(), lphconsultcall.rawAddress.toString(), dwnumparties.toInt(), lpcallparams.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun lineSetupTransfer(hcall: UInt, lphconsultcall: MutPtr<UInt>, lpcallparams: ConstPtr<Linecallparams>): Int =
+public actual fun lineSetupTransfer(hcall: UInt, lphconsultcall: MutPtr, lpcallparams: ConstPtr): Int =
     if (windowsWin32DevicesTapiNapiAvailable) wasmWindowssysWindowsWin32DevicesTapiLineSetupTransfer(hcall.toInt(), lphconsultcall.rawAddress.toString(), lpcallparams.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun lineSetupTransferA(hcall: UInt, lphconsultcall: MutPtr<UInt>, lpcallparams: ConstPtr<Linecallparams>): Int =
+public actual fun lineSetupTransferA(hcall: UInt, lphconsultcall: MutPtr, lpcallparams: ConstPtr): Int =
     if (windowsWin32DevicesTapiNapiAvailable) wasmWindowssysWindowsWin32DevicesTapiLineSetupTransferA(hcall.toInt(), lphconsultcall.rawAddress.toString(), lpcallparams.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun lineSetupTransferW(hcall: UInt, lphconsultcall: MutPtr<UInt>, lpcallparams: ConstPtr<Linecallparams>): Int =
+public actual fun lineSetupTransferW(hcall: UInt, lphconsultcall: MutPtr, lpcallparams: ConstPtr): Int =
     if (windowsWin32DevicesTapiNapiAvailable) wasmWindowssysWindowsWin32DevicesTapiLineSetupTransferW(hcall.toInt(), lphconsultcall.rawAddress.toString(), lpcallparams.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun lineShutdown(hlineapp: UInt): Int =
@@ -1329,13 +1326,13 @@ public actual fun lineShutdown(hlineapp: UInt): Int =
 public actual fun lineSwapHold(hactivecall: UInt, hheldcall: UInt): Int =
     if (windowsWin32DevicesTapiNapiAvailable) wasmWindowssysWindowsWin32DevicesTapiLineSwapHold(hactivecall.toInt(), hheldcall.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun lineTranslateAddress(hlineapp: UInt, dwdeviceid: UInt, dwapiversion: UInt, lpszaddressin: Pcstr, dwcard: UInt, dwtranslateoptions: UInt, lptranslateoutput: MutPtr<Linetranslateoutput>): Int =
+public actual fun lineTranslateAddress(hlineapp: UInt, dwdeviceid: UInt, dwapiversion: UInt, lpszaddressin: Pcstr, dwcard: UInt, dwtranslateoptions: UInt, lptranslateoutput: MutPtr): Int =
     if (windowsWin32DevicesTapiNapiAvailable) wasmWindowssysWindowsWin32DevicesTapiLineTranslateAddress(hlineapp.toInt(), dwdeviceid.toInt(), dwapiversion.toInt(), lpszaddressin.rawAddress.toString(), dwcard.toInt(), dwtranslateoptions.toInt(), lptranslateoutput.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun lineTranslateAddressA(hlineapp: UInt, dwdeviceid: UInt, dwapiversion: UInt, lpszaddressin: Pcstr, dwcard: UInt, dwtranslateoptions: UInt, lptranslateoutput: MutPtr<Linetranslateoutput>): Int =
+public actual fun lineTranslateAddressA(hlineapp: UInt, dwdeviceid: UInt, dwapiversion: UInt, lpszaddressin: Pcstr, dwcard: UInt, dwtranslateoptions: UInt, lptranslateoutput: MutPtr): Int =
     if (windowsWin32DevicesTapiNapiAvailable) wasmWindowssysWindowsWin32DevicesTapiLineTranslateAddressA(hlineapp.toInt(), dwdeviceid.toInt(), dwapiversion.toInt(), lpszaddressin.rawAddress.toString(), dwcard.toInt(), dwtranslateoptions.toInt(), lptranslateoutput.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun lineTranslateAddressW(hlineapp: UInt, dwdeviceid: UInt, dwapiversion: UInt, lpszaddressin: Pcwstr, dwcard: UInt, dwtranslateoptions: UInt, lptranslateoutput: MutPtr<Linetranslateoutput>): Int =
+public actual fun lineTranslateAddressW(hlineapp: UInt, dwdeviceid: UInt, dwapiversion: UInt, lpszaddressin: Pcwstr, dwcard: UInt, dwtranslateoptions: UInt, lptranslateoutput: MutPtr): Int =
     if (windowsWin32DevicesTapiNapiAvailable) wasmWindowssysWindowsWin32DevicesTapiLineTranslateAddressW(hlineapp.toInt(), dwdeviceid.toInt(), dwapiversion.toInt(), lpszaddressin.rawAddress.toString(), dwcard.toInt(), dwtranslateoptions.toInt(), lptranslateoutput.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun lineTranslateDialog(hlineapp: UInt, dwdeviceid: UInt, dwapiversion: UInt, hwndowner: Hwnd, lpszaddressin: Pcstr): Int =
@@ -1353,13 +1350,13 @@ public actual fun lineUncompleteCall(hline: UInt, dwcompletionid: UInt): Int =
 public actual fun lineUnhold(hcall: UInt): Int =
     if (windowsWin32DevicesTapiNapiAvailable) wasmWindowssysWindowsWin32DevicesTapiLineUnhold(hcall.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun lineUnpark(hline: UInt, dwaddressid: UInt, lphcall: MutPtr<UInt>, lpszdestaddress: Pcstr): Int =
+public actual fun lineUnpark(hline: UInt, dwaddressid: UInt, lphcall: MutPtr, lpszdestaddress: Pcstr): Int =
     if (windowsWin32DevicesTapiNapiAvailable) wasmWindowssysWindowsWin32DevicesTapiLineUnpark(hline.toInt(), dwaddressid.toInt(), lphcall.rawAddress.toString(), lpszdestaddress.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun lineUnparkA(hline: UInt, dwaddressid: UInt, lphcall: MutPtr<UInt>, lpszdestaddress: Pcstr): Int =
+public actual fun lineUnparkA(hline: UInt, dwaddressid: UInt, lphcall: MutPtr, lpszdestaddress: Pcstr): Int =
     if (windowsWin32DevicesTapiNapiAvailable) wasmWindowssysWindowsWin32DevicesTapiLineUnparkA(hline.toInt(), dwaddressid.toInt(), lphcall.rawAddress.toString(), lpszdestaddress.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun lineUnparkW(hline: UInt, dwaddressid: UInt, lphcall: MutPtr<UInt>, lpszdestaddress: Pcwstr): Int =
+public actual fun lineUnparkW(hline: UInt, dwaddressid: UInt, lphcall: MutPtr, lpszdestaddress: Pcwstr): Int =
     if (windowsWin32DevicesTapiNapiAvailable) wasmWindowssysWindowsWin32DevicesTapiLineUnparkW(hline.toInt(), dwaddressid.toInt(), lphcall.rawAddress.toString(), lpszdestaddress.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun phoneClose(hphone: UInt): Int =
@@ -1374,109 +1371,109 @@ public actual fun phoneConfigDialogA(dwdeviceid: UInt, hwndowner: Hwnd, lpszdevi
 public actual fun phoneConfigDialogW(dwdeviceid: UInt, hwndowner: Hwnd, lpszdeviceclass: Pcwstr): Int =
     if (windowsWin32DevicesTapiNapiAvailable) wasmWindowssysWindowsWin32DevicesTapiPhoneConfigDialogW(dwdeviceid.toInt(), hwndowner.rawAddress.toString(), lpszdeviceclass.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun phoneDevSpecific(hphone: UInt, lpparams: MutPtr<CVoid>, dwsize: UInt): Int =
+public actual fun phoneDevSpecific(hphone: UInt, lpparams: MutPtr, dwsize: UInt): Int =
     if (windowsWin32DevicesTapiNapiAvailable) wasmWindowssysWindowsWin32DevicesTapiPhoneDevSpecific(hphone.toInt(), lpparams.rawAddress.toString(), dwsize.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun phoneGetButtonInfo(hphone: UInt, dwbuttonlampid: UInt, lpbuttoninfo: MutPtr<Phonebuttoninfo>): Int =
+public actual fun phoneGetButtonInfo(hphone: UInt, dwbuttonlampid: UInt, lpbuttoninfo: MutPtr): Int =
     if (windowsWin32DevicesTapiNapiAvailable) wasmWindowssysWindowsWin32DevicesTapiPhoneGetButtonInfo(hphone.toInt(), dwbuttonlampid.toInt(), lpbuttoninfo.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun phoneGetButtonInfoA(hphone: UInt, dwbuttonlampid: UInt, lpbuttoninfo: MutPtr<Phonebuttoninfo>): Int =
+public actual fun phoneGetButtonInfoA(hphone: UInt, dwbuttonlampid: UInt, lpbuttoninfo: MutPtr): Int =
     if (windowsWin32DevicesTapiNapiAvailable) wasmWindowssysWindowsWin32DevicesTapiPhoneGetButtonInfoA(hphone.toInt(), dwbuttonlampid.toInt(), lpbuttoninfo.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun phoneGetButtonInfoW(hphone: UInt, dwbuttonlampid: UInt, lpbuttoninfo: MutPtr<Phonebuttoninfo>): Int =
+public actual fun phoneGetButtonInfoW(hphone: UInt, dwbuttonlampid: UInt, lpbuttoninfo: MutPtr): Int =
     if (windowsWin32DevicesTapiNapiAvailable) wasmWindowssysWindowsWin32DevicesTapiPhoneGetButtonInfoW(hphone.toInt(), dwbuttonlampid.toInt(), lpbuttoninfo.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun phoneGetData(hphone: UInt, dwdataid: UInt, lpdata: MutPtr<CVoid>, dwsize: UInt): Int =
+public actual fun phoneGetData(hphone: UInt, dwdataid: UInt, lpdata: MutPtr, dwsize: UInt): Int =
     if (windowsWin32DevicesTapiNapiAvailable) wasmWindowssysWindowsWin32DevicesTapiPhoneGetData(hphone.toInt(), dwdataid.toInt(), lpdata.rawAddress.toString(), dwsize.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun phoneGetDevCaps(hphoneapp: UInt, dwdeviceid: UInt, dwapiversion: UInt, dwextversion: UInt, lpphonecaps: MutPtr<Phonecaps>): Int =
+public actual fun phoneGetDevCaps(hphoneapp: UInt, dwdeviceid: UInt, dwapiversion: UInt, dwextversion: UInt, lpphonecaps: MutPtr): Int =
     if (windowsWin32DevicesTapiNapiAvailable) wasmWindowssysWindowsWin32DevicesTapiPhoneGetDevCaps(hphoneapp.toInt(), dwdeviceid.toInt(), dwapiversion.toInt(), dwextversion.toInt(), lpphonecaps.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun phoneGetDevCapsA(hphoneapp: UInt, dwdeviceid: UInt, dwapiversion: UInt, dwextversion: UInt, lpphonecaps: MutPtr<Phonecaps>): Int =
+public actual fun phoneGetDevCapsA(hphoneapp: UInt, dwdeviceid: UInt, dwapiversion: UInt, dwextversion: UInt, lpphonecaps: MutPtr): Int =
     if (windowsWin32DevicesTapiNapiAvailable) wasmWindowssysWindowsWin32DevicesTapiPhoneGetDevCapsA(hphoneapp.toInt(), dwdeviceid.toInt(), dwapiversion.toInt(), dwextversion.toInt(), lpphonecaps.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun phoneGetDevCapsW(hphoneapp: UInt, dwdeviceid: UInt, dwapiversion: UInt, dwextversion: UInt, lpphonecaps: MutPtr<Phonecaps>): Int =
+public actual fun phoneGetDevCapsW(hphoneapp: UInt, dwdeviceid: UInt, dwapiversion: UInt, dwextversion: UInt, lpphonecaps: MutPtr): Int =
     if (windowsWin32DevicesTapiNapiAvailable) wasmWindowssysWindowsWin32DevicesTapiPhoneGetDevCapsW(hphoneapp.toInt(), dwdeviceid.toInt(), dwapiversion.toInt(), dwextversion.toInt(), lpphonecaps.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun phoneGetDisplay(hphone: UInt, lpdisplay: MutPtr<Varstring>): Int =
+public actual fun phoneGetDisplay(hphone: UInt, lpdisplay: MutPtr): Int =
     if (windowsWin32DevicesTapiNapiAvailable) wasmWindowssysWindowsWin32DevicesTapiPhoneGetDisplay(hphone.toInt(), lpdisplay.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun phoneGetGain(hphone: UInt, dwhookswitchdev: UInt, lpdwgain: MutPtr<UInt>): Int =
+public actual fun phoneGetGain(hphone: UInt, dwhookswitchdev: UInt, lpdwgain: MutPtr): Int =
     if (windowsWin32DevicesTapiNapiAvailable) wasmWindowssysWindowsWin32DevicesTapiPhoneGetGain(hphone.toInt(), dwhookswitchdev.toInt(), lpdwgain.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun phoneGetHookSwitch(hphone: UInt, lpdwhookswitchdevs: MutPtr<UInt>): Int =
+public actual fun phoneGetHookSwitch(hphone: UInt, lpdwhookswitchdevs: MutPtr): Int =
     if (windowsWin32DevicesTapiNapiAvailable) wasmWindowssysWindowsWin32DevicesTapiPhoneGetHookSwitch(hphone.toInt(), lpdwhookswitchdevs.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun phoneGetID(hphone: UInt, lpdeviceid: MutPtr<Varstring>, lpszdeviceclass: Pcstr): Int =
+public actual fun phoneGetID(hphone: UInt, lpdeviceid: MutPtr, lpszdeviceclass: Pcstr): Int =
     if (windowsWin32DevicesTapiNapiAvailable) wasmWindowssysWindowsWin32DevicesTapiPhoneGetID(hphone.toInt(), lpdeviceid.rawAddress.toString(), lpszdeviceclass.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun phoneGetIDA(hphone: UInt, lpdeviceid: MutPtr<Varstring>, lpszdeviceclass: Pcstr): Int =
+public actual fun phoneGetIDA(hphone: UInt, lpdeviceid: MutPtr, lpszdeviceclass: Pcstr): Int =
     if (windowsWin32DevicesTapiNapiAvailable) wasmWindowssysWindowsWin32DevicesTapiPhoneGetIDA(hphone.toInt(), lpdeviceid.rawAddress.toString(), lpszdeviceclass.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun phoneGetIDW(hphone: UInt, lpdeviceid: MutPtr<Varstring>, lpszdeviceclass: Pcwstr): Int =
+public actual fun phoneGetIDW(hphone: UInt, lpdeviceid: MutPtr, lpszdeviceclass: Pcwstr): Int =
     if (windowsWin32DevicesTapiNapiAvailable) wasmWindowssysWindowsWin32DevicesTapiPhoneGetIDW(hphone.toInt(), lpdeviceid.rawAddress.toString(), lpszdeviceclass.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun phoneGetIcon(dwdeviceid: UInt, lpszdeviceclass: Pcstr, lphicon: MutPtr<Hicon>): Int =
+public actual fun phoneGetIcon(dwdeviceid: UInt, lpszdeviceclass: Pcstr, lphicon: MutPtr): Int =
     if (windowsWin32DevicesTapiNapiAvailable) wasmWindowssysWindowsWin32DevicesTapiPhoneGetIcon(dwdeviceid.toInt(), lpszdeviceclass.rawAddress.toString(), lphicon.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun phoneGetIconA(dwdeviceid: UInt, lpszdeviceclass: Pcstr, lphicon: MutPtr<Hicon>): Int =
+public actual fun phoneGetIconA(dwdeviceid: UInt, lpszdeviceclass: Pcstr, lphicon: MutPtr): Int =
     if (windowsWin32DevicesTapiNapiAvailable) wasmWindowssysWindowsWin32DevicesTapiPhoneGetIconA(dwdeviceid.toInt(), lpszdeviceclass.rawAddress.toString(), lphicon.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun phoneGetIconW(dwdeviceid: UInt, lpszdeviceclass: Pcwstr, lphicon: MutPtr<Hicon>): Int =
+public actual fun phoneGetIconW(dwdeviceid: UInt, lpszdeviceclass: Pcwstr, lphicon: MutPtr): Int =
     if (windowsWin32DevicesTapiNapiAvailable) wasmWindowssysWindowsWin32DevicesTapiPhoneGetIconW(dwdeviceid.toInt(), lpszdeviceclass.rawAddress.toString(), lphicon.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun phoneGetLamp(hphone: UInt, dwbuttonlampid: UInt, lpdwlampmode: MutPtr<UInt>): Int =
+public actual fun phoneGetLamp(hphone: UInt, dwbuttonlampid: UInt, lpdwlampmode: MutPtr): Int =
     if (windowsWin32DevicesTapiNapiAvailable) wasmWindowssysWindowsWin32DevicesTapiPhoneGetLamp(hphone.toInt(), dwbuttonlampid.toInt(), lpdwlampmode.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun phoneGetMessage(hphoneapp: UInt, lpmessage: MutPtr<Phonemessage>, dwtimeout: UInt): Int =
+public actual fun phoneGetMessage(hphoneapp: UInt, lpmessage: MutPtr, dwtimeout: UInt): Int =
     if (windowsWin32DevicesTapiNapiAvailable) wasmWindowssysWindowsWin32DevicesTapiPhoneGetMessage(hphoneapp.toInt(), lpmessage.rawAddress.toString(), dwtimeout.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun phoneGetRing(hphone: UInt, lpdwringmode: MutPtr<UInt>, lpdwvolume: MutPtr<UInt>): Int =
+public actual fun phoneGetRing(hphone: UInt, lpdwringmode: MutPtr, lpdwvolume: MutPtr): Int =
     if (windowsWin32DevicesTapiNapiAvailable) wasmWindowssysWindowsWin32DevicesTapiPhoneGetRing(hphone.toInt(), lpdwringmode.rawAddress.toString(), lpdwvolume.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun phoneGetStatus(hphone: UInt, lpphonestatus: MutPtr<Phonestatus>): Int =
+public actual fun phoneGetStatus(hphone: UInt, lpphonestatus: MutPtr): Int =
     if (windowsWin32DevicesTapiNapiAvailable) wasmWindowssysWindowsWin32DevicesTapiPhoneGetStatus(hphone.toInt(), lpphonestatus.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun phoneGetStatusA(hphone: UInt, lpphonestatus: MutPtr<Phonestatus>): Int =
+public actual fun phoneGetStatusA(hphone: UInt, lpphonestatus: MutPtr): Int =
     if (windowsWin32DevicesTapiNapiAvailable) wasmWindowssysWindowsWin32DevicesTapiPhoneGetStatusA(hphone.toInt(), lpphonestatus.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun phoneGetStatusMessages(hphone: UInt, lpdwphonestates: MutPtr<UInt>, lpdwbuttonmodes: MutPtr<UInt>, lpdwbuttonstates: MutPtr<UInt>): Int =
+public actual fun phoneGetStatusMessages(hphone: UInt, lpdwphonestates: MutPtr, lpdwbuttonmodes: MutPtr, lpdwbuttonstates: MutPtr): Int =
     if (windowsWin32DevicesTapiNapiAvailable) wasmWindowssysWindowsWin32DevicesTapiPhoneGetStatusMessages(hphone.toInt(), lpdwphonestates.rawAddress.toString(), lpdwbuttonmodes.rawAddress.toString(), lpdwbuttonstates.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun phoneGetStatusW(hphone: UInt, lpphonestatus: MutPtr<Phonestatus>): Int =
+public actual fun phoneGetStatusW(hphone: UInt, lpphonestatus: MutPtr): Int =
     if (windowsWin32DevicesTapiNapiAvailable) wasmWindowssysWindowsWin32DevicesTapiPhoneGetStatusW(hphone.toInt(), lpphonestatus.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun phoneGetVolume(hphone: UInt, dwhookswitchdev: UInt, lpdwvolume: MutPtr<UInt>): Int =
+public actual fun phoneGetVolume(hphone: UInt, dwhookswitchdev: UInt, lpdwvolume: MutPtr): Int =
     if (windowsWin32DevicesTapiNapiAvailable) wasmWindowssysWindowsWin32DevicesTapiPhoneGetVolume(hphone.toInt(), dwhookswitchdev.toInt(), lpdwvolume.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun phoneInitialize(lphphoneapp: MutPtr<UInt>, hinstance: Hinstance, lpfncallback: Phonecallback, lpszappname: Pcstr, lpdwnumdevs: MutPtr<UInt>): Int =
+public actual fun phoneInitialize(lphphoneapp: MutPtr, hinstance: Hinstance, lpfncallback: Phonecallback, lpszappname: Pcstr, lpdwnumdevs: MutPtr): Int =
     if (windowsWin32DevicesTapiNapiAvailable) wasmWindowssysWindowsWin32DevicesTapiPhoneInitialize(lphphoneapp.rawAddress.toString(), hinstance.rawAddress.toString(), 0L.toString(), lpszappname.rawAddress.toString(), lpdwnumdevs.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun phoneInitializeExA(lphphoneapp: MutPtr<UInt>, hinstance: Hinstance, lpfncallback: Phonecallback, lpszfriendlyappname: Pcstr, lpdwnumdevs: MutPtr<UInt>, lpdwapiversion: MutPtr<UInt>, lpphoneinitializeexparams: MutPtr<Phoneinitializeexparams>): Int =
+public actual fun phoneInitializeExA(lphphoneapp: MutPtr, hinstance: Hinstance, lpfncallback: Phonecallback, lpszfriendlyappname: Pcstr, lpdwnumdevs: MutPtr, lpdwapiversion: MutPtr, lpphoneinitializeexparams: MutPtr): Int =
     if (windowsWin32DevicesTapiNapiAvailable) wasmWindowssysWindowsWin32DevicesTapiPhoneInitializeExA(lphphoneapp.rawAddress.toString(), hinstance.rawAddress.toString(), 0L.toString(), lpszfriendlyappname.rawAddress.toString(), lpdwnumdevs.rawAddress.toString(), lpdwapiversion.rawAddress.toString(), lpphoneinitializeexparams.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun phoneInitializeExW(lphphoneapp: MutPtr<UInt>, hinstance: Hinstance, lpfncallback: Phonecallback, lpszfriendlyappname: Pcwstr, lpdwnumdevs: MutPtr<UInt>, lpdwapiversion: MutPtr<UInt>, lpphoneinitializeexparams: MutPtr<Phoneinitializeexparams>): Int =
+public actual fun phoneInitializeExW(lphphoneapp: MutPtr, hinstance: Hinstance, lpfncallback: Phonecallback, lpszfriendlyappname: Pcwstr, lpdwnumdevs: MutPtr, lpdwapiversion: MutPtr, lpphoneinitializeexparams: MutPtr): Int =
     if (windowsWin32DevicesTapiNapiAvailable) wasmWindowssysWindowsWin32DevicesTapiPhoneInitializeExW(lphphoneapp.rawAddress.toString(), hinstance.rawAddress.toString(), 0L.toString(), lpszfriendlyappname.rawAddress.toString(), lpdwnumdevs.rawAddress.toString(), lpdwapiversion.rawAddress.toString(), lpphoneinitializeexparams.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun phoneNegotiateAPIVersion(hphoneapp: UInt, dwdeviceid: UInt, dwapilowversion: UInt, dwapihighversion: UInt, lpdwapiversion: MutPtr<UInt>, lpextensionid: MutPtr<Phoneextensionid>): Int =
+public actual fun phoneNegotiateAPIVersion(hphoneapp: UInt, dwdeviceid: UInt, dwapilowversion: UInt, dwapihighversion: UInt, lpdwapiversion: MutPtr, lpextensionid: MutPtr): Int =
     if (windowsWin32DevicesTapiNapiAvailable) wasmWindowssysWindowsWin32DevicesTapiPhoneNegotiateAPIVersion(hphoneapp.toInt(), dwdeviceid.toInt(), dwapilowversion.toInt(), dwapihighversion.toInt(), lpdwapiversion.rawAddress.toString(), lpextensionid.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun phoneNegotiateExtVersion(hphoneapp: UInt, dwdeviceid: UInt, dwapiversion: UInt, dwextlowversion: UInt, dwexthighversion: UInt, lpdwextversion: MutPtr<UInt>): Int =
+public actual fun phoneNegotiateExtVersion(hphoneapp: UInt, dwdeviceid: UInt, dwapiversion: UInt, dwextlowversion: UInt, dwexthighversion: UInt, lpdwextversion: MutPtr): Int =
     if (windowsWin32DevicesTapiNapiAvailable) wasmWindowssysWindowsWin32DevicesTapiPhoneNegotiateExtVersion(hphoneapp.toInt(), dwdeviceid.toInt(), dwapiversion.toInt(), dwextlowversion.toInt(), dwexthighversion.toInt(), lpdwextversion.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun phoneOpen(hphoneapp: UInt, dwdeviceid: UInt, lphphone: MutPtr<UInt>, dwapiversion: UInt, dwextversion: UInt, dwcallbackinstance: ULong, dwprivilege: UInt): Int =
+public actual fun phoneOpen(hphoneapp: UInt, dwdeviceid: UInt, lphphone: MutPtr, dwapiversion: UInt, dwextversion: UInt, dwcallbackinstance: ULong, dwprivilege: UInt): Int =
     if (windowsWin32DevicesTapiNapiAvailable) wasmWindowssysWindowsWin32DevicesTapiPhoneOpen(hphoneapp.toInt(), dwdeviceid.toInt(), lphphone.rawAddress.toString(), dwapiversion.toInt(), dwextversion.toInt(), dwcallbackinstance.toString(), dwprivilege.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun phoneSetButtonInfo(hphone: UInt, dwbuttonlampid: UInt, lpbuttoninfo: ConstPtr<Phonebuttoninfo>): Int =
+public actual fun phoneSetButtonInfo(hphone: UInt, dwbuttonlampid: UInt, lpbuttoninfo: ConstPtr): Int =
     if (windowsWin32DevicesTapiNapiAvailable) wasmWindowssysWindowsWin32DevicesTapiPhoneSetButtonInfo(hphone.toInt(), dwbuttonlampid.toInt(), lpbuttoninfo.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun phoneSetButtonInfoA(hphone: UInt, dwbuttonlampid: UInt, lpbuttoninfo: ConstPtr<Phonebuttoninfo>): Int =
+public actual fun phoneSetButtonInfoA(hphone: UInt, dwbuttonlampid: UInt, lpbuttoninfo: ConstPtr): Int =
     if (windowsWin32DevicesTapiNapiAvailable) wasmWindowssysWindowsWin32DevicesTapiPhoneSetButtonInfoA(hphone.toInt(), dwbuttonlampid.toInt(), lpbuttoninfo.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun phoneSetButtonInfoW(hphone: UInt, dwbuttonlampid: UInt, lpbuttoninfo: ConstPtr<Phonebuttoninfo>): Int =
+public actual fun phoneSetButtonInfoW(hphone: UInt, dwbuttonlampid: UInt, lpbuttoninfo: ConstPtr): Int =
     if (windowsWin32DevicesTapiNapiAvailable) wasmWindowssysWindowsWin32DevicesTapiPhoneSetButtonInfoW(hphone.toInt(), dwbuttonlampid.toInt(), lpbuttoninfo.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun phoneSetData(hphone: UInt, dwdataid: UInt, lpdata: ConstPtr<CVoid>, dwsize: UInt): Int =
+public actual fun phoneSetData(hphone: UInt, dwdataid: UInt, lpdata: ConstPtr, dwsize: UInt): Int =
     if (windowsWin32DevicesTapiNapiAvailable) wasmWindowssysWindowsWin32DevicesTapiPhoneSetData(hphone.toInt(), dwdataid.toInt(), lpdata.rawAddress.toString(), dwsize.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun phoneSetDisplay(hphone: UInt, dwrow: UInt, dwcolumn: UInt, lpsdisplay: Pcstr, dwsize: UInt): Int =

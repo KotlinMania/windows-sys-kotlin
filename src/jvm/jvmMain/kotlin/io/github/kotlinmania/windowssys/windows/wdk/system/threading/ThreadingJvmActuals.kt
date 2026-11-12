@@ -2,15 +2,12 @@
 
 package io.github.kotlinmania.windowssys.windows.wdk.system.threading
 
-import io.github.kotlinmania.rustlang.core.ffi.CVoid
 import io.github.kotlinmania.rustlang.core.ptr.ConstPtr
 import io.github.kotlinmania.rustlang.core.ptr.MutPtr
-import io.github.kotlinmania.windowssys.windows.wdk.foundation.ObjectAttributes
 import io.github.kotlinmania.windowssys.windows.wdk.system.systemservices.PtimerApcRoutine
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Handle
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Ntstatus
 import io.github.kotlinmania.windowssys.windows.win32.system.kernel.TimerType
-import io.github.kotlinmania.windowssys.windows.win32.system.windowsprogramming.ClientId
 
 private object WindowsWdkSystemThreadingJniBridge {
     init {
@@ -141,74 +138,74 @@ private object WindowsWdkSystemThreadingJniBridge {
     external fun windowssysWindowsWdkSystemThreadingZwWaitForSingleObject(handle: Long, alertable: Boolean, timeout: Long): Int
 }
 
-public actual fun ntCancelTimer(timerhandle: Handle, currentstate: MutPtr<Boolean>): Ntstatus =
+public actual fun ntCancelTimer(timerhandle: Handle, currentstate: MutPtr): Ntstatus =
     WindowsWdkSystemThreadingJniBridge.windowssysWindowsWdkSystemThreadingNtCancelTimer(timerhandle.rawAddress, currentstate.rawAddress)
 
-public actual fun ntCreateTimer(timerhandle: MutPtr<Handle>, desiredaccess: UInt, objectattributes: ConstPtr<ObjectAttributes>, timertype: TimerType): Ntstatus =
+public actual fun ntCreateTimer(timerhandle: MutPtr, desiredaccess: UInt, objectattributes: ConstPtr, timertype: TimerType): Ntstatus =
     WindowsWdkSystemThreadingJniBridge.windowssysWindowsWdkSystemThreadingNtCreateTimer(timerhandle.rawAddress, desiredaccess.toInt(), objectattributes.rawAddress, timertype)
 
-public actual fun ntOpenEvent(eventhandle: MutPtr<Handle>, desiredaccess: UInt, objectattributes: ConstPtr<ObjectAttributes>): Ntstatus =
+public actual fun ntOpenEvent(eventhandle: MutPtr, desiredaccess: UInt, objectattributes: ConstPtr): Ntstatus =
     WindowsWdkSystemThreadingJniBridge.windowssysWindowsWdkSystemThreadingNtOpenEvent(eventhandle.rawAddress, desiredaccess.toInt(), objectattributes.rawAddress)
 
-public actual fun ntOpenProcess(processhandle: MutPtr<Handle>, desiredaccess: UInt, objectattributes: ConstPtr<ObjectAttributes>, clientid: ConstPtr<ClientId>): Ntstatus =
+public actual fun ntOpenProcess(processhandle: MutPtr, desiredaccess: UInt, objectattributes: ConstPtr, clientid: ConstPtr): Ntstatus =
     WindowsWdkSystemThreadingJniBridge.windowssysWindowsWdkSystemThreadingNtOpenProcess(processhandle.rawAddress, desiredaccess.toInt(), objectattributes.rawAddress, clientid.rawAddress)
 
-public actual fun ntOpenTimer(timerhandle: MutPtr<Handle>, desiredaccess: UInt, objectattributes: ConstPtr<ObjectAttributes>): Ntstatus =
+public actual fun ntOpenTimer(timerhandle: MutPtr, desiredaccess: UInt, objectattributes: ConstPtr): Ntstatus =
     WindowsWdkSystemThreadingJniBridge.windowssysWindowsWdkSystemThreadingNtOpenTimer(timerhandle.rawAddress, desiredaccess.toInt(), objectattributes.rawAddress)
 
-public actual fun ntQueryInformationProcess(processhandle: Handle, processinformationclass: Processinfoclass, processinformation: MutPtr<CVoid>, processinformationlength: UInt, returnlength: MutPtr<UInt>): Ntstatus =
+public actual fun ntQueryInformationProcess(processhandle: Handle, processinformationclass: Processinfoclass, processinformation: MutPtr, processinformationlength: UInt, returnlength: MutPtr): Ntstatus =
     WindowsWdkSystemThreadingJniBridge.windowssysWindowsWdkSystemThreadingNtQueryInformationProcess(processhandle.rawAddress, processinformationclass, processinformation.rawAddress, processinformationlength.toInt(), returnlength.rawAddress)
 
-public actual fun ntQueryInformationThread(threadhandle: Handle, threadinformationclass: Threadinfoclass, threadinformation: MutPtr<CVoid>, threadinformationlength: UInt, returnlength: MutPtr<UInt>): Ntstatus =
+public actual fun ntQueryInformationThread(threadhandle: Handle, threadinformationclass: Threadinfoclass, threadinformation: MutPtr, threadinformationlength: UInt, returnlength: MutPtr): Ntstatus =
     WindowsWdkSystemThreadingJniBridge.windowssysWindowsWdkSystemThreadingNtQueryInformationThread(threadhandle.rawAddress, threadinformationclass, threadinformation.rawAddress, threadinformationlength.toInt(), returnlength.rawAddress)
 
-public actual fun ntSetInformationThread(threadhandle: Handle, threadinformationclass: Threadinfoclass, threadinformation: ConstPtr<CVoid>, threadinformationlength: UInt): Ntstatus =
+public actual fun ntSetInformationThread(threadhandle: Handle, threadinformationclass: Threadinfoclass, threadinformation: ConstPtr, threadinformationlength: UInt): Ntstatus =
     WindowsWdkSystemThreadingJniBridge.windowssysWindowsWdkSystemThreadingNtSetInformationThread(threadhandle.rawAddress, threadinformationclass, threadinformation.rawAddress, threadinformationlength.toInt())
 
-public actual fun ntSetTimer(timerhandle: Handle, duetime: ConstPtr<Long>, timerapcroutine: PtimerApcRoutine, timercontext: ConstPtr<CVoid>, resumetimer: Boolean, period: Int, previousstate: MutPtr<Boolean>): Ntstatus =
+public actual fun ntSetTimer(timerhandle: Handle, duetime: ConstPtr, timerapcroutine: PtimerApcRoutine, timercontext: ConstPtr, resumetimer: Boolean, period: Int, previousstate: MutPtr): Ntstatus =
     WindowsWdkSystemThreadingJniBridge.windowssysWindowsWdkSystemThreadingNtSetTimer(timerhandle.rawAddress, duetime.rawAddress, 0L, timercontext.rawAddress, resumetimer, period, previousstate.rawAddress)
 
-public actual fun ntSetTimerEx(timerhandle: Handle, timersetinformationclass: TimerSetInformationClass, timersetinformation: MutPtr<CVoid>, timersetinformationlength: UInt): Ntstatus =
+public actual fun ntSetTimerEx(timerhandle: Handle, timersetinformationclass: TimerSetInformationClass, timersetinformation: MutPtr, timersetinformationlength: UInt): Ntstatus =
     WindowsWdkSystemThreadingJniBridge.windowssysWindowsWdkSystemThreadingNtSetTimerEx(timerhandle.rawAddress, timersetinformationclass, timersetinformation.rawAddress, timersetinformationlength.toInt())
 
 public actual fun ntTerminateProcess(processhandle: Handle, exitstatus: Ntstatus): Ntstatus =
     WindowsWdkSystemThreadingJniBridge.windowssysWindowsWdkSystemThreadingNtTerminateProcess(processhandle.rawAddress, exitstatus)
 
-public actual fun ntWaitForSingleObject(handle: Handle, alertable: Boolean, timeout: MutPtr<Long>): Ntstatus =
+public actual fun ntWaitForSingleObject(handle: Handle, alertable: Boolean, timeout: MutPtr): Ntstatus =
     WindowsWdkSystemThreadingJniBridge.windowssysWindowsWdkSystemThreadingNtWaitForSingleObject(handle.rawAddress, alertable, timeout.rawAddress)
 
-public actual fun zwCancelTimer(timerhandle: Handle, currentstate: MutPtr<Boolean>): Ntstatus =
+public actual fun zwCancelTimer(timerhandle: Handle, currentstate: MutPtr): Ntstatus =
     WindowsWdkSystemThreadingJniBridge.windowssysWindowsWdkSystemThreadingZwCancelTimer(timerhandle.rawAddress, currentstate.rawAddress)
 
-public actual fun zwCreateTimer(timerhandle: MutPtr<Handle>, desiredaccess: UInt, objectattributes: ConstPtr<ObjectAttributes>, timertype: TimerType): Ntstatus =
+public actual fun zwCreateTimer(timerhandle: MutPtr, desiredaccess: UInt, objectattributes: ConstPtr, timertype: TimerType): Ntstatus =
     WindowsWdkSystemThreadingJniBridge.windowssysWindowsWdkSystemThreadingZwCreateTimer(timerhandle.rawAddress, desiredaccess.toInt(), objectattributes.rawAddress, timertype)
 
-public actual fun zwOpenEvent(eventhandle: MutPtr<Handle>, desiredaccess: UInt, objectattributes: ConstPtr<ObjectAttributes>): Ntstatus =
+public actual fun zwOpenEvent(eventhandle: MutPtr, desiredaccess: UInt, objectattributes: ConstPtr): Ntstatus =
     WindowsWdkSystemThreadingJniBridge.windowssysWindowsWdkSystemThreadingZwOpenEvent(eventhandle.rawAddress, desiredaccess.toInt(), objectattributes.rawAddress)
 
-public actual fun zwOpenProcess(processhandle: MutPtr<Handle>, desiredaccess: UInt, objectattributes: ConstPtr<ObjectAttributes>, clientid: ConstPtr<ClientId>): Ntstatus =
+public actual fun zwOpenProcess(processhandle: MutPtr, desiredaccess: UInt, objectattributes: ConstPtr, clientid: ConstPtr): Ntstatus =
     WindowsWdkSystemThreadingJniBridge.windowssysWindowsWdkSystemThreadingZwOpenProcess(processhandle.rawAddress, desiredaccess.toInt(), objectattributes.rawAddress, clientid.rawAddress)
 
-public actual fun zwOpenTimer(timerhandle: MutPtr<Handle>, desiredaccess: UInt, objectattributes: ConstPtr<ObjectAttributes>): Ntstatus =
+public actual fun zwOpenTimer(timerhandle: MutPtr, desiredaccess: UInt, objectattributes: ConstPtr): Ntstatus =
     WindowsWdkSystemThreadingJniBridge.windowssysWindowsWdkSystemThreadingZwOpenTimer(timerhandle.rawAddress, desiredaccess.toInt(), objectattributes.rawAddress)
 
-public actual fun zwQueryInformationProcess(processhandle: Handle, processinformationclass: Processinfoclass, processinformation: MutPtr<CVoid>, processinformationlength: UInt, returnlength: MutPtr<UInt>): Ntstatus =
+public actual fun zwQueryInformationProcess(processhandle: Handle, processinformationclass: Processinfoclass, processinformation: MutPtr, processinformationlength: UInt, returnlength: MutPtr): Ntstatus =
     WindowsWdkSystemThreadingJniBridge.windowssysWindowsWdkSystemThreadingZwQueryInformationProcess(processhandle.rawAddress, processinformationclass, processinformation.rawAddress, processinformationlength.toInt(), returnlength.rawAddress)
 
-public actual fun zwQueryInformationThread(threadhandle: Handle, threadinformationclass: Threadinfoclass, threadinformation: MutPtr<CVoid>, threadinformationlength: UInt, returnlength: MutPtr<UInt>): Ntstatus =
+public actual fun zwQueryInformationThread(threadhandle: Handle, threadinformationclass: Threadinfoclass, threadinformation: MutPtr, threadinformationlength: UInt, returnlength: MutPtr): Ntstatus =
     WindowsWdkSystemThreadingJniBridge.windowssysWindowsWdkSystemThreadingZwQueryInformationThread(threadhandle.rawAddress, threadinformationclass, threadinformation.rawAddress, threadinformationlength.toInt(), returnlength.rawAddress)
 
-public actual fun zwSetInformationThread(threadhandle: Handle, threadinformationclass: Threadinfoclass, threadinformation: ConstPtr<CVoid>, threadinformationlength: UInt): Ntstatus =
+public actual fun zwSetInformationThread(threadhandle: Handle, threadinformationclass: Threadinfoclass, threadinformation: ConstPtr, threadinformationlength: UInt): Ntstatus =
     WindowsWdkSystemThreadingJniBridge.windowssysWindowsWdkSystemThreadingZwSetInformationThread(threadhandle.rawAddress, threadinformationclass, threadinformation.rawAddress, threadinformationlength.toInt())
 
-public actual fun zwSetTimer(timerhandle: Handle, duetime: ConstPtr<Long>, timerapcroutine: PtimerApcRoutine, timercontext: ConstPtr<CVoid>, resumetimer: Boolean, period: Int, previousstate: MutPtr<Boolean>): Ntstatus =
+public actual fun zwSetTimer(timerhandle: Handle, duetime: ConstPtr, timerapcroutine: PtimerApcRoutine, timercontext: ConstPtr, resumetimer: Boolean, period: Int, previousstate: MutPtr): Ntstatus =
     WindowsWdkSystemThreadingJniBridge.windowssysWindowsWdkSystemThreadingZwSetTimer(timerhandle.rawAddress, duetime.rawAddress, 0L, timercontext.rawAddress, resumetimer, period, previousstate.rawAddress)
 
-public actual fun zwSetTimerEx(timerhandle: Handle, timersetinformationclass: TimerSetInformationClass, timersetinformation: MutPtr<CVoid>, timersetinformationlength: UInt): Ntstatus =
+public actual fun zwSetTimerEx(timerhandle: Handle, timersetinformationclass: TimerSetInformationClass, timersetinformation: MutPtr, timersetinformationlength: UInt): Ntstatus =
     WindowsWdkSystemThreadingJniBridge.windowssysWindowsWdkSystemThreadingZwSetTimerEx(timerhandle.rawAddress, timersetinformationclass, timersetinformation.rawAddress, timersetinformationlength.toInt())
 
 public actual fun zwTerminateProcess(processhandle: Handle, exitstatus: Ntstatus): Ntstatus =
     WindowsWdkSystemThreadingJniBridge.windowssysWindowsWdkSystemThreadingZwTerminateProcess(processhandle.rawAddress, exitstatus)
 
-public actual fun zwWaitForSingleObject(handle: Handle, alertable: Boolean, timeout: ConstPtr<Long>): Ntstatus =
+public actual fun zwWaitForSingleObject(handle: Handle, alertable: Boolean, timeout: ConstPtr): Ntstatus =
     WindowsWdkSystemThreadingJniBridge.windowssysWindowsWdkSystemThreadingZwWaitForSingleObject(handle.rawAddress, alertable, timeout.rawAddress)

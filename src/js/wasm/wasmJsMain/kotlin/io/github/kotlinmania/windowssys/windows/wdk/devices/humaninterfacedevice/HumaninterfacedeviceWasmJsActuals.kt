@@ -2,7 +2,6 @@
 
 package io.github.kotlinmania.windowssys.windows.wdk.devices.humaninterfacedevice
 
-import io.github.kotlinmania.rustlang.core.ffi.CVoid
 import io.github.kotlinmania.rustlang.core.ptr.ConstPtr
 import io.github.kotlinmania.rustlang.core.ptr.MutPtr
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Ntstatus
@@ -27,13 +26,13 @@ private external fun wasmWindowssysWindowsWdkDevicesHumaninterfacedeviceVhfReadR
 @JsFun("(p0) => globalThis.__km_napi_windowssys.windowssysWindowsWdkDevicesHumaninterfacedeviceVhfStart(p0)")
 private external fun wasmWindowssysWindowsWdkDevicesHumaninterfacedeviceVhfStart(p0: String): Int
 
-public actual fun vhfAsyncOperationComplete(vhfoperationhandle: ConstPtr<CVoid>, completionstatus: Ntstatus): Ntstatus =
+public actual fun vhfAsyncOperationComplete(vhfoperationhandle: ConstPtr, completionstatus: Ntstatus): Ntstatus =
     if (windowsWdkDevicesHumaninterfacedeviceNapiAvailable) wasmWindowssysWindowsWdkDevicesHumaninterfacedeviceVhfAsyncOperationComplete(vhfoperationhandle.rawAddress.toString(), completionstatus) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun vhfCreate(vhfconfig: ConstPtr<VhfConfig>, vhfhandle: MutPtr<MutPtr<CVoid>>): Ntstatus =
+public actual fun vhfCreate(vhfconfig: ConstPtr, vhfhandle: MutPtr): Ntstatus =
     if (windowsWdkDevicesHumaninterfacedeviceNapiAvailable) wasmWindowssysWindowsWdkDevicesHumaninterfacedeviceVhfCreate(vhfconfig.rawAddress.toString(), vhfhandle.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun vhfDelete(vhfhandle: ConstPtr<CVoid>, wait: Boolean) {
+public actual fun vhfDelete(vhfhandle: ConstPtr, wait: Boolean) {
     if (windowsWdkDevicesHumaninterfacedeviceNapiAvailable) {
         wasmWindowssysWindowsWdkDevicesHumaninterfacedeviceVhfDelete(vhfhandle.rawAddress.toString(), wait)
     } else {
@@ -41,8 +40,8 @@ public actual fun vhfDelete(vhfhandle: ConstPtr<CVoid>, wait: Boolean) {
     }
 }
 
-public actual fun vhfReadReportSubmit(vhfhandle: ConstPtr<CVoid>, hidtransferpacket: ConstPtr<HidXferPacket>): Ntstatus =
+public actual fun vhfReadReportSubmit(vhfhandle: ConstPtr, hidtransferpacket: ConstPtr): Ntstatus =
     if (windowsWdkDevicesHumaninterfacedeviceNapiAvailable) wasmWindowssysWindowsWdkDevicesHumaninterfacedeviceVhfReadReportSubmit(vhfhandle.rawAddress.toString(), hidtransferpacket.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun vhfStart(vhfhandle: ConstPtr<CVoid>): Ntstatus =
+public actual fun vhfStart(vhfhandle: ConstPtr): Ntstatus =
     if (windowsWdkDevicesHumaninterfacedeviceNapiAvailable) wasmWindowssysWindowsWdkDevicesHumaninterfacedeviceVhfStart(vhfhandle.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")

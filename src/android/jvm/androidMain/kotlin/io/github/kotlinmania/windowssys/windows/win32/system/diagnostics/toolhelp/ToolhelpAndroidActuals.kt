@@ -2,7 +2,6 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.system.diagnostics.toolhelp
 
-import io.github.kotlinmania.rustlang.core.ffi.CVoid
 import io.github.kotlinmania.rustlang.core.ptr.ConstPtr
 import io.github.kotlinmania.rustlang.core.ptr.MutPtr
 import io.github.kotlinmania.windowssys.core.Bool
@@ -65,47 +64,47 @@ private object WindowsWin32SystemDiagnosticsToolhelpJniBridge {
 public actual fun createToolhelp32Snapshot(dwflags: CreateToolhelpSnapshotFlags, th32processid: UInt): Handle =
     MutPtr(WindowsWin32SystemDiagnosticsToolhelpJniBridge.windowssysWindowsWin32SystemDiagnosticsToolhelpCreateToolhelp32Snapshot(dwflags.toInt(), th32processid.toInt()))
 
-public actual fun heap32First(lphe: MutPtr<Heapentry32>, th32processid: UInt, th32heapid: ULong): Bool =
+public actual fun heap32First(lphe: MutPtr, th32processid: UInt, th32heapid: ULong): Bool =
     WindowsWin32SystemDiagnosticsToolhelpJniBridge.windowssysWindowsWin32SystemDiagnosticsToolhelpHeap32First(lphe.rawAddress, th32processid.toInt(), th32heapid.toLong())
 
-public actual fun heap32ListFirst(hsnapshot: Handle, lphl: MutPtr<Heaplist32>): Bool =
+public actual fun heap32ListFirst(hsnapshot: Handle, lphl: MutPtr): Bool =
     WindowsWin32SystemDiagnosticsToolhelpJniBridge.windowssysWindowsWin32SystemDiagnosticsToolhelpHeap32ListFirst(hsnapshot.rawAddress, lphl.rawAddress)
 
-public actual fun heap32ListNext(hsnapshot: Handle, lphl: MutPtr<Heaplist32>): Bool =
+public actual fun heap32ListNext(hsnapshot: Handle, lphl: MutPtr): Bool =
     WindowsWin32SystemDiagnosticsToolhelpJniBridge.windowssysWindowsWin32SystemDiagnosticsToolhelpHeap32ListNext(hsnapshot.rawAddress, lphl.rawAddress)
 
-public actual fun heap32Next(lphe: MutPtr<Heapentry32>): Bool =
+public actual fun heap32Next(lphe: MutPtr): Bool =
     WindowsWin32SystemDiagnosticsToolhelpJniBridge.windowssysWindowsWin32SystemDiagnosticsToolhelpHeap32Next(lphe.rawAddress)
 
-public actual fun module32First(hsnapshot: Handle, lpme: MutPtr<Moduleentry32>): Bool =
+public actual fun module32First(hsnapshot: Handle, lpme: MutPtr): Bool =
     WindowsWin32SystemDiagnosticsToolhelpJniBridge.windowssysWindowsWin32SystemDiagnosticsToolhelpModule32First(hsnapshot.rawAddress, lpme.rawAddress)
 
-public actual fun module32FirstW(hsnapshot: Handle, lpme: MutPtr<Moduleentry32w>): Bool =
+public actual fun module32FirstW(hsnapshot: Handle, lpme: MutPtr): Bool =
     WindowsWin32SystemDiagnosticsToolhelpJniBridge.windowssysWindowsWin32SystemDiagnosticsToolhelpModule32FirstW(hsnapshot.rawAddress, lpme.rawAddress)
 
-public actual fun module32Next(hsnapshot: Handle, lpme: MutPtr<Moduleentry32>): Bool =
+public actual fun module32Next(hsnapshot: Handle, lpme: MutPtr): Bool =
     WindowsWin32SystemDiagnosticsToolhelpJniBridge.windowssysWindowsWin32SystemDiagnosticsToolhelpModule32Next(hsnapshot.rawAddress, lpme.rawAddress)
 
-public actual fun module32NextW(hsnapshot: Handle, lpme: MutPtr<Moduleentry32w>): Bool =
+public actual fun module32NextW(hsnapshot: Handle, lpme: MutPtr): Bool =
     WindowsWin32SystemDiagnosticsToolhelpJniBridge.windowssysWindowsWin32SystemDiagnosticsToolhelpModule32NextW(hsnapshot.rawAddress, lpme.rawAddress)
 
-public actual fun process32First(hsnapshot: Handle, lppe: MutPtr<Processentry32>): Bool =
+public actual fun process32First(hsnapshot: Handle, lppe: MutPtr): Bool =
     WindowsWin32SystemDiagnosticsToolhelpJniBridge.windowssysWindowsWin32SystemDiagnosticsToolhelpProcess32First(hsnapshot.rawAddress, lppe.rawAddress)
 
-public actual fun process32FirstW(hsnapshot: Handle, lppe: MutPtr<Processentry32w>): Bool =
+public actual fun process32FirstW(hsnapshot: Handle, lppe: MutPtr): Bool =
     WindowsWin32SystemDiagnosticsToolhelpJniBridge.windowssysWindowsWin32SystemDiagnosticsToolhelpProcess32FirstW(hsnapshot.rawAddress, lppe.rawAddress)
 
-public actual fun process32Next(hsnapshot: Handle, lppe: MutPtr<Processentry32>): Bool =
+public actual fun process32Next(hsnapshot: Handle, lppe: MutPtr): Bool =
     WindowsWin32SystemDiagnosticsToolhelpJniBridge.windowssysWindowsWin32SystemDiagnosticsToolhelpProcess32Next(hsnapshot.rawAddress, lppe.rawAddress)
 
-public actual fun process32NextW(hsnapshot: Handle, lppe: MutPtr<Processentry32w>): Bool =
+public actual fun process32NextW(hsnapshot: Handle, lppe: MutPtr): Bool =
     WindowsWin32SystemDiagnosticsToolhelpJniBridge.windowssysWindowsWin32SystemDiagnosticsToolhelpProcess32NextW(hsnapshot.rawAddress, lppe.rawAddress)
 
-public actual fun thread32First(hsnapshot: Handle, lpte: MutPtr<Threadentry32>): Bool =
+public actual fun thread32First(hsnapshot: Handle, lpte: MutPtr): Bool =
     WindowsWin32SystemDiagnosticsToolhelpJniBridge.windowssysWindowsWin32SystemDiagnosticsToolhelpThread32First(hsnapshot.rawAddress, lpte.rawAddress)
 
-public actual fun thread32Next(hsnapshot: Handle, lpte: MutPtr<Threadentry32>): Bool =
+public actual fun thread32Next(hsnapshot: Handle, lpte: MutPtr): Bool =
     WindowsWin32SystemDiagnosticsToolhelpJniBridge.windowssysWindowsWin32SystemDiagnosticsToolhelpThread32Next(hsnapshot.rawAddress, lpte.rawAddress)
 
-public actual fun toolhelp32ReadProcessMemory(th32processid: UInt, lpbaseaddress: ConstPtr<CVoid>, lpbuffer: MutPtr<CVoid>, cbread: ULong, lpnumberofbytesread: MutPtr<ULong>): Bool =
+public actual fun toolhelp32ReadProcessMemory(th32processid: UInt, lpbaseaddress: ConstPtr, lpbuffer: MutPtr, cbread: ULong, lpnumberofbytesread: MutPtr): Bool =
     WindowsWin32SystemDiagnosticsToolhelpJniBridge.windowssysWindowsWin32SystemDiagnosticsToolhelpToolhelp32ReadProcessMemory(th32processid.toInt(), lpbaseaddress.rawAddress, lpbuffer.rawAddress, cbread.toLong(), lpnumberofbytesread.rawAddress)

@@ -68,8 +68,8 @@ private object WindowsWin32StorageOperationrecorderJniBridge {
     external fun windowssysWindowsWin32StorageOperationrecorderOperationStart(operationstartparams: Long): Int
 }
 
-public actual fun operationEnd(operationendparams: ConstPtr<OperationEndParameters>): Bool =
+public actual fun operationEnd(operationendparams: ConstPtr): Bool =
     WindowsWin32StorageOperationrecorderJniBridge.windowssysWindowsWin32StorageOperationrecorderOperationEnd(operationendparams.rawAddress)
 
-public actual fun operationStart(operationstartparams: ConstPtr<OperationStartParameters>): Bool =
+public actual fun operationStart(operationstartparams: ConstPtr): Bool =
     WindowsWin32StorageOperationrecorderJniBridge.windowssysWindowsWin32StorageOperationrecorderOperationStart(operationstartparams.rawAddress)

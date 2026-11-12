@@ -6,8 +6,8 @@ import io.github.kotlinmania.rustlang.core.ptr.ConstPtr
 import io.github.kotlinmania.windowssys.core.Bool
 
 // The host must provide the C companion wrapper exports in import module windowssys.
-public actual fun operationEnd(operationendparams: ConstPtr<OperationEndParameters>): Bool =
+public actual fun operationEnd(operationendparams: ConstPtr): Bool =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32StorageOperationrecorderOperationEnd")
 
-public actual fun operationStart(operationstartparams: ConstPtr<OperationStartParameters>): Bool =
+public actual fun operationStart(operationstartparams: ConstPtr): Bool =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32StorageOperationrecorderOperationStart")

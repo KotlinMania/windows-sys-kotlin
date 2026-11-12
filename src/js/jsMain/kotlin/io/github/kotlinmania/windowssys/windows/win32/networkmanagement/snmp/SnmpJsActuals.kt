@@ -2,13 +2,11 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.networkmanagement.snmp
 
-import io.github.kotlinmania.rustlang.core.ffi.CVoid
 import io.github.kotlinmania.rustlang.core.ptr.ConstPtr
 import io.github.kotlinmania.rustlang.core.ptr.MutPtr
 import io.github.kotlinmania.windowssys.core.Bool
 import io.github.kotlinmania.windowssys.core.Pcstr
 import io.github.kotlinmania.windowssys.core.Pstr
-import io.github.kotlinmania.windowssys.windows.win32.foundation.Handle
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Hwnd
 
 private val windowsWin32NetworkmanagementSnmpNapiAddon: dynamic =
@@ -26,7 +24,7 @@ public actual fun snmpCleanupEx(): UInt =
 public actual fun snmpClose(session: Long): UInt =
     if (windowsWin32NetworkmanagementSnmpNapiAddon != null) (windowsWin32NetworkmanagementSnmpNapiAddon.windowssysWindowsWin32NetworkmanagementSnmpSnmpClose(session.toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun snmpContextToStr(context: Long, string: MutPtr<SmiOctets>): UInt =
+public actual fun snmpContextToStr(context: Long, string: MutPtr): UInt =
     if (windowsWin32NetworkmanagementSnmpNapiAddon != null) (windowsWin32NetworkmanagementSnmpNapiAddon.windowssysWindowsWin32NetworkmanagementSnmpSnmpContextToStr(context.toString(), string.rawAddress.toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun snmpCountVbl(vbl: Long): UInt =
@@ -35,13 +33,13 @@ public actual fun snmpCountVbl(vbl: Long): UInt =
 public actual fun snmpCreatePdu(session: Long, pduType: SnmpPduType, requestId: Int, errorStatus: Int, errorIndex: Int, varbindlist: Long): Long =
     if (windowsWin32NetworkmanagementSnmpNapiAddon != null) (windowsWin32NetworkmanagementSnmpNapiAddon.windowssysWindowsWin32NetworkmanagementSnmpSnmpCreatePdu(session.toString(), pduType.toInt(), requestId, errorStatus, errorIndex, varbindlist.toString()) as String).toLong() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun snmpCreateSession(hwnd: Hwnd, wmsg: UInt, fcallback: SnmpapiCallback, lpclientdata: MutPtr<CVoid>): Long =
+public actual fun snmpCreateSession(hwnd: Hwnd, wmsg: UInt, fcallback: SnmpapiCallback, lpclientdata: MutPtr): Long =
     if (windowsWin32NetworkmanagementSnmpNapiAddon != null) (windowsWin32NetworkmanagementSnmpNapiAddon.windowssysWindowsWin32NetworkmanagementSnmpSnmpCreateSession(hwnd.rawAddress.toString(), wmsg.toInt(), 0L.toString(), lpclientdata.rawAddress.toString()) as String).toLong() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun snmpCreateVbl(session: Long, name: MutPtr<SmiOid>, value: MutPtr<SmiValue>): Long =
+public actual fun snmpCreateVbl(session: Long, name: MutPtr, value: MutPtr): Long =
     if (windowsWin32NetworkmanagementSnmpNapiAddon != null) (windowsWin32NetworkmanagementSnmpNapiAddon.windowssysWindowsWin32NetworkmanagementSnmpSnmpCreateVbl(session.toString(), name.rawAddress.toString(), value.rawAddress.toString()) as String).toLong() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun snmpDecodeMsg(session: Long, srcentity: MutPtr<Long>, dstentity: MutPtr<Long>, context: MutPtr<Long>, pdu: MutPtr<Long>, msgbufdesc: MutPtr<SmiOctets>): UInt =
+public actual fun snmpDecodeMsg(session: Long, srcentity: MutPtr, dstentity: MutPtr, context: MutPtr, pdu: MutPtr, msgbufdesc: MutPtr): UInt =
     if (windowsWin32NetworkmanagementSnmpNapiAddon != null) (windowsWin32NetworkmanagementSnmpNapiAddon.windowssysWindowsWin32NetworkmanagementSnmpSnmpDecodeMsg(session.toString(), srcentity.rawAddress.toString(), dstentity.rawAddress.toString(), context.rawAddress.toString(), pdu.rawAddress.toString(), msgbufdesc.rawAddress.toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun snmpDeleteVb(vbl: Long, index: UInt): UInt =
@@ -53,7 +51,7 @@ public actual fun snmpDuplicatePdu(session: Long, pdu: Long): Long =
 public actual fun snmpDuplicateVbl(session: Long, vbl: Long): Long =
     if (windowsWin32NetworkmanagementSnmpNapiAddon != null) (windowsWin32NetworkmanagementSnmpNapiAddon.windowssysWindowsWin32NetworkmanagementSnmpSnmpDuplicateVbl(session.toString(), vbl.toString()) as String).toLong() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun snmpEncodeMsg(session: Long, srcentity: Long, dstentity: Long, context: Long, pdu: Long, msgbufdesc: MutPtr<SmiOctets>): UInt =
+public actual fun snmpEncodeMsg(session: Long, srcentity: Long, dstentity: Long, context: Long, pdu: Long, msgbufdesc: MutPtr): UInt =
     if (windowsWin32NetworkmanagementSnmpNapiAddon != null) (windowsWin32NetworkmanagementSnmpNapiAddon.windowssysWindowsWin32NetworkmanagementSnmpSnmpEncodeMsg(session.toString(), srcentity.toString(), dstentity.toString(), context.toString(), pdu.toString(), msgbufdesc.rawAddress.toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun snmpEntityToStr(entity: Long, size: UInt, string: Pstr): UInt =
@@ -62,7 +60,7 @@ public actual fun snmpEntityToStr(entity: Long, size: UInt, string: Pstr): UInt 
 public actual fun snmpFreeContext(context: Long): UInt =
     if (windowsWin32NetworkmanagementSnmpNapiAddon != null) (windowsWin32NetworkmanagementSnmpNapiAddon.windowssysWindowsWin32NetworkmanagementSnmpSnmpFreeContext(context.toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun snmpFreeDescriptor(syntax: UInt, descriptor: MutPtr<SmiOctets>): UInt =
+public actual fun snmpFreeDescriptor(syntax: UInt, descriptor: MutPtr): UInt =
     if (windowsWin32NetworkmanagementSnmpNapiAddon != null) (windowsWin32NetworkmanagementSnmpNapiAddon.windowssysWindowsWin32NetworkmanagementSnmpSnmpFreeDescriptor(syntax.toInt(), descriptor.rawAddress.toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun snmpFreeEntity(entity: Long): UInt =
@@ -77,25 +75,25 @@ public actual fun snmpFreeVbl(vbl: Long): UInt =
 public actual fun snmpGetLastError(session: Long): UInt =
     if (windowsWin32NetworkmanagementSnmpNapiAddon != null) (windowsWin32NetworkmanagementSnmpNapiAddon.windowssysWindowsWin32NetworkmanagementSnmpSnmpGetLastError(session.toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun snmpGetPduData(pdu: Long, pduType: MutPtr<SnmpPduType>, requestId: MutPtr<Int>, errorStatus: MutPtr<SnmpError>, errorIndex: MutPtr<Int>, varbindlist: MutPtr<Long>): UInt =
+public actual fun snmpGetPduData(pdu: Long, pduType: MutPtr, requestId: MutPtr, errorStatus: MutPtr, errorIndex: MutPtr, varbindlist: MutPtr): UInt =
     if (windowsWin32NetworkmanagementSnmpNapiAddon != null) (windowsWin32NetworkmanagementSnmpNapiAddon.windowssysWindowsWin32NetworkmanagementSnmpSnmpGetPduData(pdu.toString(), pduType.rawAddress.toString(), requestId.rawAddress.toString(), errorStatus.rawAddress.toString(), errorIndex.rawAddress.toString(), varbindlist.rawAddress.toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun snmpGetRetransmitMode(nretransmitmode: MutPtr<SnmpStatus>): UInt =
+public actual fun snmpGetRetransmitMode(nretransmitmode: MutPtr): UInt =
     if (windowsWin32NetworkmanagementSnmpNapiAddon != null) (windowsWin32NetworkmanagementSnmpNapiAddon.windowssysWindowsWin32NetworkmanagementSnmpSnmpGetRetransmitMode(nretransmitmode.rawAddress.toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun snmpGetRetry(hentity: Long, npolicyretry: MutPtr<UInt>, nactualretry: MutPtr<UInt>): UInt =
+public actual fun snmpGetRetry(hentity: Long, npolicyretry: MutPtr, nactualretry: MutPtr): UInt =
     if (windowsWin32NetworkmanagementSnmpNapiAddon != null) (windowsWin32NetworkmanagementSnmpNapiAddon.windowssysWindowsWin32NetworkmanagementSnmpSnmpGetRetry(hentity.toString(), npolicyretry.rawAddress.toString(), nactualretry.rawAddress.toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun snmpGetTimeout(hentity: Long, npolicytimeout: MutPtr<UInt>, nactualtimeout: MutPtr<UInt>): UInt =
+public actual fun snmpGetTimeout(hentity: Long, npolicytimeout: MutPtr, nactualtimeout: MutPtr): UInt =
     if (windowsWin32NetworkmanagementSnmpNapiAddon != null) (windowsWin32NetworkmanagementSnmpNapiAddon.windowssysWindowsWin32NetworkmanagementSnmpSnmpGetTimeout(hentity.toString(), npolicytimeout.rawAddress.toString(), nactualtimeout.rawAddress.toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun snmpGetTranslateMode(ntranslatemode: MutPtr<SnmpApiTranslateMode>): UInt =
+public actual fun snmpGetTranslateMode(ntranslatemode: MutPtr): UInt =
     if (windowsWin32NetworkmanagementSnmpNapiAddon != null) (windowsWin32NetworkmanagementSnmpNapiAddon.windowssysWindowsWin32NetworkmanagementSnmpSnmpGetTranslateMode(ntranslatemode.rawAddress.toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun snmpGetVb(vbl: Long, index: UInt, name: MutPtr<SmiOid>, value: MutPtr<SmiValue>): UInt =
+public actual fun snmpGetVb(vbl: Long, index: UInt, name: MutPtr, value: MutPtr): UInt =
     if (windowsWin32NetworkmanagementSnmpNapiAddon != null) (windowsWin32NetworkmanagementSnmpNapiAddon.windowssysWindowsWin32NetworkmanagementSnmpSnmpGetVb(vbl.toString(), index.toInt(), name.rawAddress.toString(), value.rawAddress.toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun snmpGetVendorInfo(vendorinfo: MutPtr<SmiVendorinfo>): UInt =
+public actual fun snmpGetVendorInfo(vendorinfo: MutPtr): UInt =
     if (windowsWin32NetworkmanagementSnmpNapiAddon != null) (windowsWin32NetworkmanagementSnmpNapiAddon.windowssysWindowsWin32NetworkmanagementSnmpSnmpGetVendorInfo(vendorinfo.rawAddress.toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun snmpListen(hentity: Long, lstatus: SnmpStatus): UInt =
@@ -104,55 +102,55 @@ public actual fun snmpListen(hentity: Long, lstatus: SnmpStatus): UInt =
 public actual fun snmpListenEx(hentity: Long, lstatus: UInt, nuseentityaddr: UInt): UInt =
     if (windowsWin32NetworkmanagementSnmpNapiAddon != null) (windowsWin32NetworkmanagementSnmpNapiAddon.windowssysWindowsWin32NetworkmanagementSnmpSnmpListenEx(hentity.toString(), lstatus.toInt(), nuseentityaddr.toInt()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun snmpMgrClose(session: MutPtr<CVoid>): Bool =
+public actual fun snmpMgrClose(session: MutPtr): Bool =
     if (windowsWin32NetworkmanagementSnmpNapiAddon != null) (windowsWin32NetworkmanagementSnmpNapiAddon.windowssysWindowsWin32NetworkmanagementSnmpSnmpMgrClose(session.rawAddress.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun snmpMgrCtl(session: MutPtr<CVoid>, dwctlcode: UInt, lpvinbuffer: MutPtr<CVoid>, cbinbuffer: UInt, lpvoutbuffer: MutPtr<CVoid>, cboutbuffer: UInt, lpcbbytesreturned: MutPtr<UInt>): Bool =
+public actual fun snmpMgrCtl(session: MutPtr, dwctlcode: UInt, lpvinbuffer: MutPtr, cbinbuffer: UInt, lpvoutbuffer: MutPtr, cboutbuffer: UInt, lpcbbytesreturned: MutPtr): Bool =
     if (windowsWin32NetworkmanagementSnmpNapiAddon != null) (windowsWin32NetworkmanagementSnmpNapiAddon.windowssysWindowsWin32NetworkmanagementSnmpSnmpMgrCtl(session.rawAddress.toString(), dwctlcode.toInt(), lpvinbuffer.rawAddress.toString(), cbinbuffer.toInt(), lpvoutbuffer.rawAddress.toString(), cboutbuffer.toInt(), lpcbbytesreturned.rawAddress.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun snmpMgrGetTrap(enterprise: MutPtr<AsnObjectIdentifier>, ipaddress: MutPtr<AsnOctetString>, generictrap: MutPtr<SnmpGenerictrap>, specifictrap: MutPtr<Int>, timestamp: MutPtr<UInt>, variablebindings: MutPtr<SnmpVarBindList>): Bool =
+public actual fun snmpMgrGetTrap(enterprise: MutPtr, ipaddress: MutPtr, generictrap: MutPtr, specifictrap: MutPtr, timestamp: MutPtr, variablebindings: MutPtr): Bool =
     if (windowsWin32NetworkmanagementSnmpNapiAddon != null) (windowsWin32NetworkmanagementSnmpNapiAddon.windowssysWindowsWin32NetworkmanagementSnmpSnmpMgrGetTrap(enterprise.rawAddress.toString(), ipaddress.rawAddress.toString(), generictrap.rawAddress.toString(), specifictrap.rawAddress.toString(), timestamp.rawAddress.toString(), variablebindings.rawAddress.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun snmpMgrGetTrapEx(enterprise: MutPtr<AsnObjectIdentifier>, agentaddress: MutPtr<AsnOctetString>, sourceaddress: MutPtr<AsnOctetString>, generictrap: MutPtr<SnmpGenerictrap>, specifictrap: MutPtr<Int>, community: MutPtr<AsnOctetString>, timestamp: MutPtr<UInt>, variablebindings: MutPtr<SnmpVarBindList>): Bool =
+public actual fun snmpMgrGetTrapEx(enterprise: MutPtr, agentaddress: MutPtr, sourceaddress: MutPtr, generictrap: MutPtr, specifictrap: MutPtr, community: MutPtr, timestamp: MutPtr, variablebindings: MutPtr): Bool =
     if (windowsWin32NetworkmanagementSnmpNapiAddon != null) (windowsWin32NetworkmanagementSnmpNapiAddon.windowssysWindowsWin32NetworkmanagementSnmpSnmpMgrGetTrapEx(enterprise.rawAddress.toString(), agentaddress.rawAddress.toString(), sourceaddress.rawAddress.toString(), generictrap.rawAddress.toString(), specifictrap.rawAddress.toString(), community.rawAddress.toString(), timestamp.rawAddress.toString(), variablebindings.rawAddress.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun snmpMgrOidToStr(oid: MutPtr<AsnObjectIdentifier>, string: MutPtr<Pstr>): Bool =
+public actual fun snmpMgrOidToStr(oid: MutPtr, string: MutPtr): Bool =
     if (windowsWin32NetworkmanagementSnmpNapiAddon != null) (windowsWin32NetworkmanagementSnmpNapiAddon.windowssysWindowsWin32NetworkmanagementSnmpSnmpMgrOidToStr(oid.rawAddress.toString(), string.rawAddress.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun snmpMgrOpen(lpagentaddress: Pcstr, lpagentcommunity: Pcstr, ntimeout: Int, nretries: Int): MutPtr<CVoid> =
+public actual fun snmpMgrOpen(lpagentaddress: Pcstr, lpagentcommunity: Pcstr, ntimeout: Int, nretries: Int): MutPtr =
     if (windowsWin32NetworkmanagementSnmpNapiAddon != null) MutPtr((windowsWin32NetworkmanagementSnmpNapiAddon.windowssysWindowsWin32NetworkmanagementSnmpSnmpMgrOpen(lpagentaddress.rawAddress.toString(), lpagentcommunity.rawAddress.toString(), ntimeout, nretries) as String).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun snmpMgrRequest(session: MutPtr<CVoid>, requesttype: UByte, variablebindings: MutPtr<SnmpVarBindList>, errorstatus: MutPtr<SnmpErrorStatus>, errorindex: MutPtr<Int>): Int =
+public actual fun snmpMgrRequest(session: MutPtr, requesttype: UByte, variablebindings: MutPtr, errorstatus: MutPtr, errorindex: MutPtr): Int =
     if (windowsWin32NetworkmanagementSnmpNapiAddon != null) (windowsWin32NetworkmanagementSnmpNapiAddon.windowssysWindowsWin32NetworkmanagementSnmpSnmpMgrRequest(session.rawAddress.toString(), requesttype.toInt(), variablebindings.rawAddress.toString(), errorstatus.rawAddress.toString(), errorindex.rawAddress.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun snmpMgrStrToOid(string: Pcstr, oid: MutPtr<AsnObjectIdentifier>): Bool =
+public actual fun snmpMgrStrToOid(string: Pcstr, oid: MutPtr): Bool =
     if (windowsWin32NetworkmanagementSnmpNapiAddon != null) (windowsWin32NetworkmanagementSnmpNapiAddon.windowssysWindowsWin32NetworkmanagementSnmpSnmpMgrStrToOid(string.rawAddress.toString(), oid.rawAddress.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun snmpMgrTrapListen(phtrapavailable: MutPtr<Handle>): Bool =
+public actual fun snmpMgrTrapListen(phtrapavailable: MutPtr): Bool =
     if (windowsWin32NetworkmanagementSnmpNapiAddon != null) (windowsWin32NetworkmanagementSnmpNapiAddon.windowssysWindowsWin32NetworkmanagementSnmpSnmpMgrTrapListen(phtrapavailable.rawAddress.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun snmpOidCompare(xoid: MutPtr<SmiOid>, yoid: MutPtr<SmiOid>, maxlen: UInt, result: MutPtr<Int>): UInt =
+public actual fun snmpOidCompare(xoid: MutPtr, yoid: MutPtr, maxlen: UInt, result: MutPtr): UInt =
     if (windowsWin32NetworkmanagementSnmpNapiAddon != null) (windowsWin32NetworkmanagementSnmpNapiAddon.windowssysWindowsWin32NetworkmanagementSnmpSnmpOidCompare(xoid.rawAddress.toString(), yoid.rawAddress.toString(), maxlen.toInt(), result.rawAddress.toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun snmpOidCopy(srcoid: MutPtr<SmiOid>, dstoid: MutPtr<SmiOid>): UInt =
+public actual fun snmpOidCopy(srcoid: MutPtr, dstoid: MutPtr): UInt =
     if (windowsWin32NetworkmanagementSnmpNapiAddon != null) (windowsWin32NetworkmanagementSnmpNapiAddon.windowssysWindowsWin32NetworkmanagementSnmpSnmpOidCopy(srcoid.rawAddress.toString(), dstoid.rawAddress.toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun snmpOidToStr(srcoid: ConstPtr<SmiOid>, size: UInt, string: Pstr): UInt =
+public actual fun snmpOidToStr(srcoid: ConstPtr, size: UInt, string: Pstr): UInt =
     if (windowsWin32NetworkmanagementSnmpNapiAddon != null) (windowsWin32NetworkmanagementSnmpNapiAddon.windowssysWindowsWin32NetworkmanagementSnmpSnmpOidToStr(srcoid.rawAddress.toString(), size.toInt(), string.rawAddress.toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun snmpOpen(hwnd: Hwnd, wmsg: UInt): Long =
     if (windowsWin32NetworkmanagementSnmpNapiAddon != null) (windowsWin32NetworkmanagementSnmpNapiAddon.windowssysWindowsWin32NetworkmanagementSnmpSnmpOpen(hwnd.rawAddress.toString(), wmsg.toInt()) as String).toLong() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun snmpRecvMsg(session: Long, srcentity: MutPtr<Long>, dstentity: MutPtr<Long>, context: MutPtr<Long>, pdu: MutPtr<Long>): UInt =
+public actual fun snmpRecvMsg(session: Long, srcentity: MutPtr, dstentity: MutPtr, context: MutPtr, pdu: MutPtr): UInt =
     if (windowsWin32NetworkmanagementSnmpNapiAddon != null) (windowsWin32NetworkmanagementSnmpNapiAddon.windowssysWindowsWin32NetworkmanagementSnmpSnmpRecvMsg(session.toString(), srcentity.rawAddress.toString(), dstentity.rawAddress.toString(), context.rawAddress.toString(), pdu.rawAddress.toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun snmpRegister(session: Long, srcentity: Long, dstentity: Long, context: Long, notification: MutPtr<SmiOid>, state: SnmpStatus): UInt =
+public actual fun snmpRegister(session: Long, srcentity: Long, dstentity: Long, context: Long, notification: MutPtr, state: SnmpStatus): UInt =
     if (windowsWin32NetworkmanagementSnmpNapiAddon != null) (windowsWin32NetworkmanagementSnmpNapiAddon.windowssysWindowsWin32NetworkmanagementSnmpSnmpRegister(session.toString(), srcentity.toString(), dstentity.toString(), context.toString(), notification.rawAddress.toString(), state.toInt()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun snmpSendMsg(session: Long, srcentity: Long, dstentity: Long, context: Long, pdu: Long): UInt =
     if (windowsWin32NetworkmanagementSnmpNapiAddon != null) (windowsWin32NetworkmanagementSnmpNapiAddon.windowssysWindowsWin32NetworkmanagementSnmpSnmpSendMsg(session.toString(), srcentity.toString(), dstentity.toString(), context.toString(), pdu.toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun snmpSetPduData(pdu: Long, pduType: ConstPtr<Int>, requestId: ConstPtr<Int>, nonRepeaters: ConstPtr<Int>, maxRepetitions: ConstPtr<Int>, varbindlist: ConstPtr<Long>): UInt =
+public actual fun snmpSetPduData(pdu: Long, pduType: ConstPtr, requestId: ConstPtr, nonRepeaters: ConstPtr, maxRepetitions: ConstPtr, varbindlist: ConstPtr): UInt =
     if (windowsWin32NetworkmanagementSnmpNapiAddon != null) (windowsWin32NetworkmanagementSnmpNapiAddon.windowssysWindowsWin32NetworkmanagementSnmpSnmpSetPduData(pdu.toString(), pduType.rawAddress.toString(), requestId.rawAddress.toString(), nonRepeaters.rawAddress.toString(), maxRepetitions.rawAddress.toString(), varbindlist.rawAddress.toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun snmpSetPort(hentity: Long, nport: UInt): UInt =
@@ -170,22 +168,22 @@ public actual fun snmpSetTimeout(hentity: Long, npolicytimeout: UInt): UInt =
 public actual fun snmpSetTranslateMode(ntranslatemode: SnmpApiTranslateMode): UInt =
     if (windowsWin32NetworkmanagementSnmpNapiAddon != null) (windowsWin32NetworkmanagementSnmpNapiAddon.windowssysWindowsWin32NetworkmanagementSnmpSnmpSetTranslateMode(ntranslatemode.toInt()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun snmpSetVb(vbl: Long, index: UInt, name: MutPtr<SmiOid>, value: MutPtr<SmiValue>): UInt =
+public actual fun snmpSetVb(vbl: Long, index: UInt, name: MutPtr, value: MutPtr): UInt =
     if (windowsWin32NetworkmanagementSnmpNapiAddon != null) (windowsWin32NetworkmanagementSnmpNapiAddon.windowssysWindowsWin32NetworkmanagementSnmpSnmpSetVb(vbl.toString(), index.toInt(), name.rawAddress.toString(), value.rawAddress.toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun snmpStartup(nmajorversion: MutPtr<UInt>, nminorversion: MutPtr<UInt>, nlevel: MutPtr<UInt>, ntranslatemode: MutPtr<SnmpApiTranslateMode>, nretransmitmode: MutPtr<SnmpStatus>): UInt =
+public actual fun snmpStartup(nmajorversion: MutPtr, nminorversion: MutPtr, nlevel: MutPtr, ntranslatemode: MutPtr, nretransmitmode: MutPtr): UInt =
     if (windowsWin32NetworkmanagementSnmpNapiAddon != null) (windowsWin32NetworkmanagementSnmpNapiAddon.windowssysWindowsWin32NetworkmanagementSnmpSnmpStartup(nmajorversion.rawAddress.toString(), nminorversion.rawAddress.toString(), nlevel.rawAddress.toString(), ntranslatemode.rawAddress.toString(), nretransmitmode.rawAddress.toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun snmpStartupEx(nmajorversion: MutPtr<UInt>, nminorversion: MutPtr<UInt>, nlevel: MutPtr<UInt>, ntranslatemode: MutPtr<SnmpApiTranslateMode>, nretransmitmode: MutPtr<SnmpStatus>): UInt =
+public actual fun snmpStartupEx(nmajorversion: MutPtr, nminorversion: MutPtr, nlevel: MutPtr, ntranslatemode: MutPtr, nretransmitmode: MutPtr): UInt =
     if (windowsWin32NetworkmanagementSnmpNapiAddon != null) (windowsWin32NetworkmanagementSnmpNapiAddon.windowssysWindowsWin32NetworkmanagementSnmpSnmpStartupEx(nmajorversion.rawAddress.toString(), nminorversion.rawAddress.toString(), nlevel.rawAddress.toString(), ntranslatemode.rawAddress.toString(), nretransmitmode.rawAddress.toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun snmpStrToContext(session: Long, string: MutPtr<SmiOctets>): Long =
+public actual fun snmpStrToContext(session: Long, string: MutPtr): Long =
     if (windowsWin32NetworkmanagementSnmpNapiAddon != null) (windowsWin32NetworkmanagementSnmpNapiAddon.windowssysWindowsWin32NetworkmanagementSnmpSnmpStrToContext(session.toString(), string.rawAddress.toString()) as String).toLong() else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun snmpStrToEntity(session: Long, string: Pcstr): Long =
     if (windowsWin32NetworkmanagementSnmpNapiAddon != null) (windowsWin32NetworkmanagementSnmpNapiAddon.windowssysWindowsWin32NetworkmanagementSnmpSnmpStrToEntity(session.toString(), string.rawAddress.toString()) as String).toLong() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun snmpStrToOid(string: Pcstr, dstoid: MutPtr<SmiOid>): UInt =
+public actual fun snmpStrToOid(string: Pcstr, dstoid: MutPtr): UInt =
     if (windowsWin32NetworkmanagementSnmpNapiAddon != null) (windowsWin32NetworkmanagementSnmpNapiAddon.windowssysWindowsWin32NetworkmanagementSnmpSnmpStrToOid(string.rawAddress.toString(), dstoid.rawAddress.toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun snmpSvcGetUptime(): UInt =
@@ -207,10 +205,10 @@ public actual fun snmpSvcSetLogType(nlogtype: Int) {
     }
 }
 
-public actual fun snmpUtilAsnAnyCpy(panydst: MutPtr<AsnAny>, panysrc: MutPtr<AsnAny>): Int =
+public actual fun snmpUtilAsnAnyCpy(panydst: MutPtr, panysrc: MutPtr): Int =
     if (windowsWin32NetworkmanagementSnmpNapiAddon != null) (windowsWin32NetworkmanagementSnmpNapiAddon.windowssysWindowsWin32NetworkmanagementSnmpSnmpUtilAsnAnyCpy(panydst.rawAddress.toString(), panysrc.rawAddress.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun snmpUtilAsnAnyFree(pany: MutPtr<AsnAny>) {
+public actual fun snmpUtilAsnAnyFree(pany: MutPtr) {
     if (windowsWin32NetworkmanagementSnmpNapiAddon != null) {
         windowsWin32NetworkmanagementSnmpNapiAddon.windowssysWindowsWin32NetworkmanagementSnmpSnmpUtilAsnAnyFree(pany.rawAddress.toString())
     } else {
@@ -226,13 +224,13 @@ public actual fun snmpUtilDbgPrint(nloglevel: SnmpLog, szformat: Pcstr, vararg v
     }
 }
 
-public actual fun snmpUtilIdsToA(ids: MutPtr<UInt>, idlength: UInt): Pstr =
+public actual fun snmpUtilIdsToA(ids: MutPtr, idlength: UInt): Pstr =
     if (windowsWin32NetworkmanagementSnmpNapiAddon != null) MutPtr((windowsWin32NetworkmanagementSnmpNapiAddon.windowssysWindowsWin32NetworkmanagementSnmpSnmpUtilIdsToA(ids.rawAddress.toString(), idlength.toInt()) as String).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun snmpUtilMemAlloc(nbytes: UInt): MutPtr<CVoid> =
+public actual fun snmpUtilMemAlloc(nbytes: UInt): MutPtr =
     if (windowsWin32NetworkmanagementSnmpNapiAddon != null) MutPtr((windowsWin32NetworkmanagementSnmpNapiAddon.windowssysWindowsWin32NetworkmanagementSnmpSnmpUtilMemAlloc(nbytes.toInt()) as String).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun snmpUtilMemFree(pmem: MutPtr<CVoid>) {
+public actual fun snmpUtilMemFree(pmem: MutPtr) {
     if (windowsWin32NetworkmanagementSnmpNapiAddon != null) {
         windowsWin32NetworkmanagementSnmpNapiAddon.windowssysWindowsWin32NetworkmanagementSnmpSnmpUtilMemFree(pmem.rawAddress.toString())
     } else {
@@ -240,16 +238,16 @@ public actual fun snmpUtilMemFree(pmem: MutPtr<CVoid>) {
     }
 }
 
-public actual fun snmpUtilMemReAlloc(pmem: MutPtr<CVoid>, nbytes: UInt): MutPtr<CVoid> =
+public actual fun snmpUtilMemReAlloc(pmem: MutPtr, nbytes: UInt): MutPtr =
     if (windowsWin32NetworkmanagementSnmpNapiAddon != null) MutPtr((windowsWin32NetworkmanagementSnmpNapiAddon.windowssysWindowsWin32NetworkmanagementSnmpSnmpUtilMemReAlloc(pmem.rawAddress.toString(), nbytes.toInt()) as String).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun snmpUtilOctetsCmp(poctets1: MutPtr<AsnOctetString>, poctets2: MutPtr<AsnOctetString>): Int =
+public actual fun snmpUtilOctetsCmp(poctets1: MutPtr, poctets2: MutPtr): Int =
     if (windowsWin32NetworkmanagementSnmpNapiAddon != null) (windowsWin32NetworkmanagementSnmpNapiAddon.windowssysWindowsWin32NetworkmanagementSnmpSnmpUtilOctetsCmp(poctets1.rawAddress.toString(), poctets2.rawAddress.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun snmpUtilOctetsCpy(poctetsdst: MutPtr<AsnOctetString>, poctetssrc: MutPtr<AsnOctetString>): Int =
+public actual fun snmpUtilOctetsCpy(poctetsdst: MutPtr, poctetssrc: MutPtr): Int =
     if (windowsWin32NetworkmanagementSnmpNapiAddon != null) (windowsWin32NetworkmanagementSnmpNapiAddon.windowssysWindowsWin32NetworkmanagementSnmpSnmpUtilOctetsCpy(poctetsdst.rawAddress.toString(), poctetssrc.rawAddress.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun snmpUtilOctetsFree(poctets: MutPtr<AsnOctetString>) {
+public actual fun snmpUtilOctetsFree(poctets: MutPtr) {
     if (windowsWin32NetworkmanagementSnmpNapiAddon != null) {
         windowsWin32NetworkmanagementSnmpNapiAddon.windowssysWindowsWin32NetworkmanagementSnmpSnmpUtilOctetsFree(poctets.rawAddress.toString())
     } else {
@@ -257,19 +255,19 @@ public actual fun snmpUtilOctetsFree(poctets: MutPtr<AsnOctetString>) {
     }
 }
 
-public actual fun snmpUtilOctetsNCmp(poctets1: MutPtr<AsnOctetString>, poctets2: MutPtr<AsnOctetString>, nchars: UInt): Int =
+public actual fun snmpUtilOctetsNCmp(poctets1: MutPtr, poctets2: MutPtr, nchars: UInt): Int =
     if (windowsWin32NetworkmanagementSnmpNapiAddon != null) (windowsWin32NetworkmanagementSnmpNapiAddon.windowssysWindowsWin32NetworkmanagementSnmpSnmpUtilOctetsNCmp(poctets1.rawAddress.toString(), poctets2.rawAddress.toString(), nchars.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun snmpUtilOidAppend(poiddst: MutPtr<AsnObjectIdentifier>, poidsrc: MutPtr<AsnObjectIdentifier>): Int =
+public actual fun snmpUtilOidAppend(poiddst: MutPtr, poidsrc: MutPtr): Int =
     if (windowsWin32NetworkmanagementSnmpNapiAddon != null) (windowsWin32NetworkmanagementSnmpNapiAddon.windowssysWindowsWin32NetworkmanagementSnmpSnmpUtilOidAppend(poiddst.rawAddress.toString(), poidsrc.rawAddress.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun snmpUtilOidCmp(poid1: MutPtr<AsnObjectIdentifier>, poid2: MutPtr<AsnObjectIdentifier>): Int =
+public actual fun snmpUtilOidCmp(poid1: MutPtr, poid2: MutPtr): Int =
     if (windowsWin32NetworkmanagementSnmpNapiAddon != null) (windowsWin32NetworkmanagementSnmpNapiAddon.windowssysWindowsWin32NetworkmanagementSnmpSnmpUtilOidCmp(poid1.rawAddress.toString(), poid2.rawAddress.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun snmpUtilOidCpy(poiddst: MutPtr<AsnObjectIdentifier>, poidsrc: MutPtr<AsnObjectIdentifier>): Int =
+public actual fun snmpUtilOidCpy(poiddst: MutPtr, poidsrc: MutPtr): Int =
     if (windowsWin32NetworkmanagementSnmpNapiAddon != null) (windowsWin32NetworkmanagementSnmpNapiAddon.windowssysWindowsWin32NetworkmanagementSnmpSnmpUtilOidCpy(poiddst.rawAddress.toString(), poidsrc.rawAddress.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun snmpUtilOidFree(poid: MutPtr<AsnObjectIdentifier>) {
+public actual fun snmpUtilOidFree(poid: MutPtr) {
     if (windowsWin32NetworkmanagementSnmpNapiAddon != null) {
         windowsWin32NetworkmanagementSnmpNapiAddon.windowssysWindowsWin32NetworkmanagementSnmpSnmpUtilOidFree(poid.rawAddress.toString())
     } else {
@@ -277,13 +275,13 @@ public actual fun snmpUtilOidFree(poid: MutPtr<AsnObjectIdentifier>) {
     }
 }
 
-public actual fun snmpUtilOidNCmp(poid1: MutPtr<AsnObjectIdentifier>, poid2: MutPtr<AsnObjectIdentifier>, nsubids: UInt): Int =
+public actual fun snmpUtilOidNCmp(poid1: MutPtr, poid2: MutPtr, nsubids: UInt): Int =
     if (windowsWin32NetworkmanagementSnmpNapiAddon != null) (windowsWin32NetworkmanagementSnmpNapiAddon.windowssysWindowsWin32NetworkmanagementSnmpSnmpUtilOidNCmp(poid1.rawAddress.toString(), poid2.rawAddress.toString(), nsubids.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun snmpUtilOidToA(oid: MutPtr<AsnObjectIdentifier>): Pstr =
+public actual fun snmpUtilOidToA(oid: MutPtr): Pstr =
     if (windowsWin32NetworkmanagementSnmpNapiAddon != null) MutPtr((windowsWin32NetworkmanagementSnmpNapiAddon.windowssysWindowsWin32NetworkmanagementSnmpSnmpUtilOidToA(oid.rawAddress.toString()) as String).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun snmpUtilPrintAsnAny(pany: MutPtr<AsnAny>) {
+public actual fun snmpUtilPrintAsnAny(pany: MutPtr) {
     if (windowsWin32NetworkmanagementSnmpNapiAddon != null) {
         windowsWin32NetworkmanagementSnmpNapiAddon.windowssysWindowsWin32NetworkmanagementSnmpSnmpUtilPrintAsnAny(pany.rawAddress.toString())
     } else {
@@ -291,7 +289,7 @@ public actual fun snmpUtilPrintAsnAny(pany: MutPtr<AsnAny>) {
     }
 }
 
-public actual fun snmpUtilPrintOid(oid: MutPtr<AsnObjectIdentifier>) {
+public actual fun snmpUtilPrintOid(oid: MutPtr) {
     if (windowsWin32NetworkmanagementSnmpNapiAddon != null) {
         windowsWin32NetworkmanagementSnmpNapiAddon.windowssysWindowsWin32NetworkmanagementSnmpSnmpUtilPrintOid(oid.rawAddress.toString())
     } else {
@@ -299,10 +297,10 @@ public actual fun snmpUtilPrintOid(oid: MutPtr<AsnObjectIdentifier>) {
     }
 }
 
-public actual fun snmpUtilVarBindCpy(pvbdst: MutPtr<SnmpVarBind>, pvbsrc: MutPtr<SnmpVarBind>): Int =
+public actual fun snmpUtilVarBindCpy(pvbdst: MutPtr, pvbsrc: MutPtr): Int =
     if (windowsWin32NetworkmanagementSnmpNapiAddon != null) (windowsWin32NetworkmanagementSnmpNapiAddon.windowssysWindowsWin32NetworkmanagementSnmpSnmpUtilVarBindCpy(pvbdst.rawAddress.toString(), pvbsrc.rawAddress.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun snmpUtilVarBindFree(pvb: MutPtr<SnmpVarBind>) {
+public actual fun snmpUtilVarBindFree(pvb: MutPtr) {
     if (windowsWin32NetworkmanagementSnmpNapiAddon != null) {
         windowsWin32NetworkmanagementSnmpNapiAddon.windowssysWindowsWin32NetworkmanagementSnmpSnmpUtilVarBindFree(pvb.rawAddress.toString())
     } else {
@@ -310,10 +308,10 @@ public actual fun snmpUtilVarBindFree(pvb: MutPtr<SnmpVarBind>) {
     }
 }
 
-public actual fun snmpUtilVarBindListCpy(pvbldst: MutPtr<SnmpVarBindList>, pvblsrc: MutPtr<SnmpVarBindList>): Int =
+public actual fun snmpUtilVarBindListCpy(pvbldst: MutPtr, pvblsrc: MutPtr): Int =
     if (windowsWin32NetworkmanagementSnmpNapiAddon != null) (windowsWin32NetworkmanagementSnmpNapiAddon.windowssysWindowsWin32NetworkmanagementSnmpSnmpUtilVarBindListCpy(pvbldst.rawAddress.toString(), pvblsrc.rawAddress.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun snmpUtilVarBindListFree(pvbl: MutPtr<SnmpVarBindList>) {
+public actual fun snmpUtilVarBindListFree(pvbl: MutPtr) {
     if (windowsWin32NetworkmanagementSnmpNapiAddon != null) {
         windowsWin32NetworkmanagementSnmpNapiAddon.windowssysWindowsWin32NetworkmanagementSnmpSnmpUtilVarBindListFree(pvbl.rawAddress.toString())
     } else {

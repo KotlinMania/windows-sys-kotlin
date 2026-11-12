@@ -2,7 +2,6 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.data.htmlhelp
 
-import io.github.kotlinmania.rustlang.core.ffi.CVoid
 import io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
 import io.github.kotlinmania.rustlang.core.mem.TypeLayout
 import io.github.kotlinmania.rustlang.core.ptr.ConstPtr
@@ -50,13 +49,13 @@ public data class CProperty(
 
 public class Cproperty0 internal constructor(
     lpszwDataCtorArg: Pwstr,
-    lpvDataCtorArg: MutPtr<CVoid>,
+    lpvDataCtorArg: MutPtr,
     public var dwValue: UInt,
 ) {
     public var lpszwData: Pwstr = lpszwDataCtorArg
         internal set
 
-    public var lpvData: MutPtr<CVoid> = lpvDataCtorArg
+    public var lpvData: MutPtr = lpvDataCtorArg
         internal set
 
     public constructor() : this(
@@ -67,11 +66,11 @@ public class Cproperty0 internal constructor(
 
     public operator fun component1(): Pwstr = this.lpszwData
 
-    public operator fun component2(): MutPtr<CVoid> = this.lpvData
+    public operator fun component2(): MutPtr = this.lpvData
 
     public operator fun component3(): UInt = this.dwValue
 
-    public fun copy(lpszwData: Pwstr = this.lpszwData, lpvData: MutPtr<CVoid> = this.lpvData, dwValue: UInt = this.dwValue): Cproperty0 = Cproperty0(lpszwDataCtorArg = lpszwData, lpvDataCtorArg = lpvData, dwValue = dwValue)
+    public fun copy(lpszwData: Pwstr = this.lpszwData, lpvData: MutPtr = this.lpvData, dwValue: UInt = this.dwValue): Cproperty0 = Cproperty0(lpszwDataCtorArg = lpszwData, lpvDataCtorArg = lpvData, dwValue = dwValue)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -92,7 +91,7 @@ public class Cproperty0 internal constructor(
     public companion object {
         public operator fun invoke(
             lpszwData: Pwstr = MutPtr(0L),
-            lpvData: MutPtr<CVoid> = MutPtr(0L),
+            lpvData: MutPtr = MutPtr(0L),
             dwValue: UInt = 0u,
         ): Cproperty0 =
             Cproperty0(
@@ -107,12 +106,12 @@ public class Hhntrack internal constructor(
     public var hdr: Nmhdr,
     pszCurUrlCtorArg: Pcstr,
     public var idAction: Int,
-    phhWinTypeCtorArg: MutPtr<HhWintype>,
+    phhWinTypeCtorArg: MutPtr,
 ) {
     public var pszCurUrl: Pcstr = pszCurUrlCtorArg
         internal set
 
-    public var phhWinType: MutPtr<HhWintype> = phhWinTypeCtorArg
+    public var phhWinType: MutPtr = phhWinTypeCtorArg
         internal set
 
     public constructor() : this(
@@ -128,9 +127,9 @@ public class Hhntrack internal constructor(
 
     public operator fun component3(): Int = this.idAction
 
-    public operator fun component4(): MutPtr<HhWintype> = this.phhWinType
+    public operator fun component4(): MutPtr = this.phhWinType
 
-    public fun copy(hdr: Nmhdr = this.hdr, pszCurUrl: Pcstr = this.pszCurUrl, idAction: Int = this.idAction, phhWinType: MutPtr<HhWintype> = this.phhWinType): Hhntrack = Hhntrack(hdr = hdr, pszCurUrlCtorArg = pszCurUrl, idAction = idAction, phhWinTypeCtorArg = phhWinType)
+    public fun copy(hdr: Nmhdr = this.hdr, pszCurUrl: Pcstr = this.pszCurUrl, idAction: Int = this.idAction, phhWinType: MutPtr = this.phhWinType): Hhntrack = Hhntrack(hdr = hdr, pszCurUrlCtorArg = pszCurUrl, idAction = idAction, phhWinTypeCtorArg = phhWinType)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -155,7 +154,7 @@ public class Hhntrack internal constructor(
             hdr: Nmhdr = Nmhdr(),
             pszCurUrl: Pcstr = ConstPtr(0L),
             idAction: Int = 0,
-            phhWinType: MutPtr<HhWintype> = MutPtr(0L),
+            phhWinType: MutPtr = MutPtr(0L),
         ): Hhntrack =
             Hhntrack(
                 hdr = hdr,
@@ -213,26 +212,26 @@ public class HhnNotify internal constructor(
 public class HhAklink internal constructor(
     public var cbStruct: Int,
     public var fReserved: Bool,
-    pszKeywordsCtorArg: MutPtr<Byte>,
-    pszUrlCtorArg: MutPtr<Byte>,
-    pszMsgTextCtorArg: MutPtr<Byte>,
-    pszMsgTitleCtorArg: MutPtr<Byte>,
-    pszWindowCtorArg: MutPtr<Byte>,
+    pszKeywordsCtorArg: MutPtr,
+    pszUrlCtorArg: MutPtr,
+    pszMsgTextCtorArg: MutPtr,
+    pszMsgTitleCtorArg: MutPtr,
+    pszWindowCtorArg: MutPtr,
     public var fIndexOnFail: Bool,
 ) {
-    public var pszKeywords: MutPtr<Byte> = pszKeywordsCtorArg
+    public var pszKeywords: MutPtr = pszKeywordsCtorArg
         internal set
 
-    public var pszUrl: MutPtr<Byte> = pszUrlCtorArg
+    public var pszUrl: MutPtr = pszUrlCtorArg
         internal set
 
-    public var pszMsgText: MutPtr<Byte> = pszMsgTextCtorArg
+    public var pszMsgText: MutPtr = pszMsgTextCtorArg
         internal set
 
-    public var pszMsgTitle: MutPtr<Byte> = pszMsgTitleCtorArg
+    public var pszMsgTitle: MutPtr = pszMsgTitleCtorArg
         internal set
 
-    public var pszWindow: MutPtr<Byte> = pszWindowCtorArg
+    public var pszWindow: MutPtr = pszWindowCtorArg
         internal set
 
     public constructor() : this(
@@ -250,19 +249,19 @@ public class HhAklink internal constructor(
 
     public operator fun component2(): Bool = this.fReserved
 
-    public operator fun component3(): MutPtr<Byte> = this.pszKeywords
+    public operator fun component3(): MutPtr = this.pszKeywords
 
-    public operator fun component4(): MutPtr<Byte> = this.pszUrl
+    public operator fun component4(): MutPtr = this.pszUrl
 
-    public operator fun component5(): MutPtr<Byte> = this.pszMsgText
+    public operator fun component5(): MutPtr = this.pszMsgText
 
-    public operator fun component6(): MutPtr<Byte> = this.pszMsgTitle
+    public operator fun component6(): MutPtr = this.pszMsgTitle
 
-    public operator fun component7(): MutPtr<Byte> = this.pszWindow
+    public operator fun component7(): MutPtr = this.pszWindow
 
     public operator fun component8(): Bool = this.fIndexOnFail
 
-    public fun copy(cbStruct: Int = this.cbStruct, fReserved: Bool = this.fReserved, pszKeywords: MutPtr<Byte> = this.pszKeywords, pszUrl: MutPtr<Byte> = this.pszUrl, pszMsgText: MutPtr<Byte> = this.pszMsgText, pszMsgTitle: MutPtr<Byte> = this.pszMsgTitle, pszWindow: MutPtr<Byte> = this.pszWindow, fIndexOnFail: Bool = this.fIndexOnFail): HhAklink = HhAklink(cbStruct = cbStruct, fReserved = fReserved, pszKeywordsCtorArg = pszKeywords, pszUrlCtorArg = pszUrl, pszMsgTextCtorArg = pszMsgText, pszMsgTitleCtorArg = pszMsgTitle, pszWindowCtorArg = pszWindow, fIndexOnFail = fIndexOnFail)
+    public fun copy(cbStruct: Int = this.cbStruct, fReserved: Bool = this.fReserved, pszKeywords: MutPtr = this.pszKeywords, pszUrl: MutPtr = this.pszUrl, pszMsgText: MutPtr = this.pszMsgText, pszMsgTitle: MutPtr = this.pszMsgTitle, pszWindow: MutPtr = this.pszWindow, fIndexOnFail: Bool = this.fIndexOnFail): HhAklink = HhAklink(cbStruct = cbStruct, fReserved = fReserved, pszKeywordsCtorArg = pszKeywords, pszUrlCtorArg = pszUrl, pszMsgTextCtorArg = pszMsgText, pszMsgTitleCtorArg = pszMsgTitle, pszWindowCtorArg = pszWindow, fIndexOnFail = fIndexOnFail)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -301,23 +300,23 @@ public class HhAklink internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr + 4L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<Byte>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<Byte>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 16L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<Byte>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 24L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<Byte>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 32L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<Byte>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 40L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr + 48L),
                     )
@@ -326,23 +325,23 @@ public class HhAklink internal constructor(
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr + 4L, value.fReserved)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<Byte>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.pszKeywords)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<Byte>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 16L, value.pszUrl)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<Byte>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 24L, value.pszMsgText)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<Byte>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 32L, value.pszMsgTitle)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<Byte>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 40L, value.pszWindow)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr + 48L, value.fIndexOnFail)
                 }
@@ -351,11 +350,11 @@ public class HhAklink internal constructor(
         public operator fun invoke(
             cbStruct: Int = 0,
             fReserved: Bool = 0,
-            pszKeywords: MutPtr<Byte> = MutPtr(0L),
-            pszUrl: MutPtr<Byte> = MutPtr(0L),
-            pszMsgText: MutPtr<Byte> = MutPtr(0L),
-            pszMsgTitle: MutPtr<Byte> = MutPtr(0L),
-            pszWindow: MutPtr<Byte> = MutPtr(0L),
+            pszKeywords: MutPtr = MutPtr(0L),
+            pszUrl: MutPtr = MutPtr(0L),
+            pszMsgText: MutPtr = MutPtr(0L),
+            pszMsgTitle: MutPtr = MutPtr(0L),
+            pszWindow: MutPtr = MutPtr(0L),
             fIndexOnFail: Bool = 0,
         ): HhAklink =
             HhAklink(
@@ -503,17 +502,17 @@ public class HhEnumIt internal constructor(
 public class HhFtsQuery internal constructor(
     public var cbStruct: Int,
     public var fUniCodeStrings: Bool,
-    pszSearchQueryCtorArg: MutPtr<Byte>,
+    pszSearchQueryCtorArg: MutPtr,
     public var iProximity: Int,
     public var fStemmedSearch: Bool,
     public var fTitleOnly: Bool,
     public var fExecute: Bool,
-    pszWindowCtorArg: MutPtr<Byte>,
+    pszWindowCtorArg: MutPtr,
 ) {
-    public var pszSearchQuery: MutPtr<Byte> = pszSearchQueryCtorArg
+    public var pszSearchQuery: MutPtr = pszSearchQueryCtorArg
         internal set
 
-    public var pszWindow: MutPtr<Byte> = pszWindowCtorArg
+    public var pszWindow: MutPtr = pszWindowCtorArg
         internal set
 
     public constructor() : this(
@@ -531,7 +530,7 @@ public class HhFtsQuery internal constructor(
 
     public operator fun component2(): Bool = this.fUniCodeStrings
 
-    public operator fun component3(): MutPtr<Byte> = this.pszSearchQuery
+    public operator fun component3(): MutPtr = this.pszSearchQuery
 
     public operator fun component4(): Int = this.iProximity
 
@@ -541,9 +540,9 @@ public class HhFtsQuery internal constructor(
 
     public operator fun component7(): Bool = this.fExecute
 
-    public operator fun component8(): MutPtr<Byte> = this.pszWindow
+    public operator fun component8(): MutPtr = this.pszWindow
 
-    public fun copy(cbStruct: Int = this.cbStruct, fUniCodeStrings: Bool = this.fUniCodeStrings, pszSearchQuery: MutPtr<Byte> = this.pszSearchQuery, iProximity: Int = this.iProximity, fStemmedSearch: Bool = this.fStemmedSearch, fTitleOnly: Bool = this.fTitleOnly, fExecute: Bool = this.fExecute, pszWindow: MutPtr<Byte> = this.pszWindow): HhFtsQuery = HhFtsQuery(cbStruct = cbStruct, fUniCodeStrings = fUniCodeStrings, pszSearchQueryCtorArg = pszSearchQuery, iProximity = iProximity, fStemmedSearch = fStemmedSearch, fTitleOnly = fTitleOnly, fExecute = fExecute, pszWindowCtorArg = pszWindow)
+    public fun copy(cbStruct: Int = this.cbStruct, fUniCodeStrings: Bool = this.fUniCodeStrings, pszSearchQuery: MutPtr = this.pszSearchQuery, iProximity: Int = this.iProximity, fStemmedSearch: Bool = this.fStemmedSearch, fTitleOnly: Bool = this.fTitleOnly, fExecute: Bool = this.fExecute, pszWindow: MutPtr = this.pszWindow): HhFtsQuery = HhFtsQuery(cbStruct = cbStruct, fUniCodeStrings = fUniCodeStrings, pszSearchQueryCtorArg = pszSearchQuery, iProximity = iProximity, fStemmedSearch = fStemmedSearch, fTitleOnly = fTitleOnly, fExecute = fExecute, pszWindowCtorArg = pszWindow)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -582,7 +581,7 @@ public class HhFtsQuery internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr + 4L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<Byte>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr + 16L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr + 20L),
@@ -590,7 +589,7 @@ public class HhFtsQuery internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr + 28L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<Byte>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 32L),
                     )
                 override fun writeNative(addr: Long, value: HhFtsQuery) {
@@ -598,7 +597,7 @@ public class HhFtsQuery internal constructor(
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr + 4L, value.fUniCodeStrings)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<Byte>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.pszSearchQuery)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr + 16L, value.iProximity)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr + 20L, value.fStemmedSearch)
@@ -606,7 +605,7 @@ public class HhFtsQuery internal constructor(
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr + 28L, value.fExecute)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<Byte>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 32L, value.pszWindow)
                 }
             }
@@ -614,12 +613,12 @@ public class HhFtsQuery internal constructor(
         public operator fun invoke(
             cbStruct: Int = 0,
             fUniCodeStrings: Bool = 0,
-            pszSearchQuery: MutPtr<Byte> = MutPtr(0L),
+            pszSearchQuery: MutPtr = MutPtr(0L),
             iProximity: Int = 0,
             fStemmedSearch: Bool = 0,
             fTitleOnly: Bool = 0,
             fExecute: Bool = 0,
-            pszWindow: MutPtr<Byte> = MutPtr(0L),
+            pszWindow: MutPtr = MutPtr(0L),
         ): HhFtsQuery =
             HhFtsQuery(
                 cbStruct = cbStruct,
@@ -643,20 +642,20 @@ public class HhPopup internal constructor(
     public var cbStruct: Int,
     hinstCtorArg: Hinstance,
     public var idString: UInt,
-    pszTextCtorArg: MutPtr<Byte>,
+    pszTextCtorArg: MutPtr,
     public var pt: Point,
     public var clrForeground: Colorref,
     public var clrBackground: Colorref,
     public var rcMargins: Rect,
-    pszFontCtorArg: MutPtr<Byte>,
+    pszFontCtorArg: MutPtr,
 ) {
     public var hinst: Hinstance = hinstCtorArg
         internal set
 
-    public var pszText: MutPtr<Byte> = pszTextCtorArg
+    public var pszText: MutPtr = pszTextCtorArg
         internal set
 
-    public var pszFont: MutPtr<Byte> = pszFontCtorArg
+    public var pszFont: MutPtr = pszFontCtorArg
         internal set
 
     public constructor() : this(
@@ -677,7 +676,7 @@ public class HhPopup internal constructor(
 
     public operator fun component3(): UInt = this.idString
 
-    public operator fun component4(): MutPtr<Byte> = this.pszText
+    public operator fun component4(): MutPtr = this.pszText
 
     public operator fun component5(): Point = this.pt
 
@@ -687,9 +686,9 @@ public class HhPopup internal constructor(
 
     public operator fun component8(): Rect = this.rcMargins
 
-    public operator fun component9(): MutPtr<Byte> = this.pszFont
+    public operator fun component9(): MutPtr = this.pszFont
 
-    public fun copy(cbStruct: Int = this.cbStruct, hinst: Hinstance = this.hinst, idString: UInt = this.idString, pszText: MutPtr<Byte> = this.pszText, pt: Point = this.pt, clrForeground: Colorref = this.clrForeground, clrBackground: Colorref = this.clrBackground, rcMargins: Rect = this.rcMargins, pszFont: MutPtr<Byte> = this.pszFont): HhPopup = HhPopup(cbStruct = cbStruct, hinstCtorArg = hinst, idString = idString, pszTextCtorArg = pszText, pt = pt, clrForeground = clrForeground, clrBackground = clrBackground, rcMargins = rcMargins, pszFontCtorArg = pszFont)
+    public fun copy(cbStruct: Int = this.cbStruct, hinst: Hinstance = this.hinst, idString: UInt = this.idString, pszText: MutPtr = this.pszText, pt: Point = this.pt, clrForeground: Colorref = this.clrForeground, clrBackground: Colorref = this.clrBackground, rcMargins: Rect = this.rcMargins, pszFont: MutPtr = this.pszFont): HhPopup = HhPopup(cbStruct = cbStruct, hinstCtorArg = hinst, idString = idString, pszTextCtorArg = pszText, pt = pt, clrForeground = clrForeground, clrBackground = clrBackground, rcMargins = rcMargins, pszFontCtorArg = pszFont)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -724,12 +723,12 @@ public class HhPopup internal constructor(
             cbStruct: Int = 0,
             hinst: Hinstance = MutPtr(0L),
             idString: UInt = 0u,
-            pszText: MutPtr<Byte> = MutPtr(0L),
+            pszText: MutPtr = MutPtr(0L),
             pt: Point = Point(),
             clrForeground: Colorref = 0u,
             clrBackground: Colorref = 0u,
             rcMargins: Rect = Rect(),
-            pszFont: MutPtr<Byte> = MutPtr(0L),
+            pszFont: MutPtr = MutPtr(0L),
         ): HhPopup =
             HhPopup(
                 cbStruct = cbStruct,
@@ -803,26 +802,26 @@ public class HhSetInfotype internal constructor(
 public class HhWintype internal constructor(
     public var cbStruct: Int,
     public var fUniCodeStrings: Bool,
-    pszTypeCtorArg: MutPtr<Byte>,
+    pszTypeCtorArg: MutPtr,
     public var fsValidMembers: UInt,
     public var fsWinProperties: UInt,
-    pszCaptionCtorArg: MutPtr<Byte>,
+    pszCaptionCtorArg: MutPtr,
     public var dwStyles: UInt,
     public var dwExStyles: UInt,
     public var rcWindowPos: Rect,
     public var nShowState: Int,
     hwndHelpCtorArg: Hwnd,
     hwndCallerCtorArg: Hwnd,
-    paInfoTypesCtorArg: MutPtr<UInt>,
+    paInfoTypesCtorArg: MutPtr,
     hwndToolBarCtorArg: Hwnd,
     hwndNavigationCtorArg: Hwnd,
     hwndHTMLCtorArg: Hwnd,
     public var iNavWidth: Int,
     public var rcHTML: Rect,
-    pszTocCtorArg: MutPtr<Byte>,
-    pszIndexCtorArg: MutPtr<Byte>,
-    pszFileCtorArg: MutPtr<Byte>,
-    pszHomeCtorArg: MutPtr<Byte>,
+    pszTocCtorArg: MutPtr,
+    pszIndexCtorArg: MutPtr,
+    pszFileCtorArg: MutPtr,
+    pszHomeCtorArg: MutPtr,
     public var fsToolBarFlags: UInt,
     public var fNotExpanded: Bool,
     public var curNavType: Int,
@@ -830,18 +829,18 @@ public class HhWintype internal constructor(
     public var idNotify: Int,
     public var tabOrder: UByteArray,
     public var cHistory: Int,
-    pszJump1CtorArg: MutPtr<Byte>,
-    pszJump2CtorArg: MutPtr<Byte>,
-    pszUrlJump1CtorArg: MutPtr<Byte>,
-    pszUrlJump2CtorArg: MutPtr<Byte>,
+    pszJump1CtorArg: MutPtr,
+    pszJump2CtorArg: MutPtr,
+    pszUrlJump1CtorArg: MutPtr,
+    pszUrlJump2CtorArg: MutPtr,
     public var rcMinSize: Rect,
     public var cbInfoTypes: Int,
-    pszCustomTabsCtorArg: MutPtr<Byte>,
+    pszCustomTabsCtorArg: MutPtr,
 ) {
-    public var pszType: MutPtr<Byte> = pszTypeCtorArg
+    public var pszType: MutPtr = pszTypeCtorArg
         internal set
 
-    public var pszCaption: MutPtr<Byte> = pszCaptionCtorArg
+    public var pszCaption: MutPtr = pszCaptionCtorArg
         internal set
 
     public var hwndHelp: Hwnd = hwndHelpCtorArg
@@ -850,7 +849,7 @@ public class HhWintype internal constructor(
     public var hwndCaller: Hwnd = hwndCallerCtorArg
         internal set
 
-    public var paInfoTypes: MutPtr<UInt> = paInfoTypesCtorArg
+    public var paInfoTypes: MutPtr = paInfoTypesCtorArg
         internal set
 
     public var hwndToolBar: Hwnd = hwndToolBarCtorArg
@@ -862,31 +861,31 @@ public class HhWintype internal constructor(
     public var hwndHTML: Hwnd = hwndHTMLCtorArg
         internal set
 
-    public var pszToc: MutPtr<Byte> = pszTocCtorArg
+    public var pszToc: MutPtr = pszTocCtorArg
         internal set
 
-    public var pszIndex: MutPtr<Byte> = pszIndexCtorArg
+    public var pszIndex: MutPtr = pszIndexCtorArg
         internal set
 
-    public var pszFile: MutPtr<Byte> = pszFileCtorArg
+    public var pszFile: MutPtr = pszFileCtorArg
         internal set
 
-    public var pszHome: MutPtr<Byte> = pszHomeCtorArg
+    public var pszHome: MutPtr = pszHomeCtorArg
         internal set
 
-    public var pszJump1: MutPtr<Byte> = pszJump1CtorArg
+    public var pszJump1: MutPtr = pszJump1CtorArg
         internal set
 
-    public var pszJump2: MutPtr<Byte> = pszJump2CtorArg
+    public var pszJump2: MutPtr = pszJump2CtorArg
         internal set
 
-    public var pszUrlJump1: MutPtr<Byte> = pszUrlJump1CtorArg
+    public var pszUrlJump1: MutPtr = pszUrlJump1CtorArg
         internal set
 
-    public var pszUrlJump2: MutPtr<Byte> = pszUrlJump2CtorArg
+    public var pszUrlJump2: MutPtr = pszUrlJump2CtorArg
         internal set
 
-    public var pszCustomTabs: MutPtr<Byte> = pszCustomTabsCtorArg
+    public var pszCustomTabs: MutPtr = pszCustomTabsCtorArg
         internal set
 
     public constructor() : this(
@@ -932,26 +931,26 @@ public class HhWintype internal constructor(
         public operator fun invoke(
             cbStruct: Int = 0,
             fUniCodeStrings: Bool = 0,
-            pszType: MutPtr<Byte> = MutPtr(0L),
+            pszType: MutPtr = MutPtr(0L),
             fsValidMembers: UInt = 0u,
             fsWinProperties: UInt = 0u,
-            pszCaption: MutPtr<Byte> = MutPtr(0L),
+            pszCaption: MutPtr = MutPtr(0L),
             dwStyles: UInt = 0u,
             dwExStyles: UInt = 0u,
             rcWindowPos: Rect = Rect(),
             nShowState: Int = 0,
             hwndHelp: Hwnd = MutPtr(0L),
             hwndCaller: Hwnd = MutPtr(0L),
-            paInfoTypes: MutPtr<UInt> = MutPtr(0L),
+            paInfoTypes: MutPtr = MutPtr(0L),
             hwndToolBar: Hwnd = MutPtr(0L),
             hwndNavigation: Hwnd = MutPtr(0L),
             hwndHTML: Hwnd = MutPtr(0L),
             iNavWidth: Int = 0,
             rcHTML: Rect = Rect(),
-            pszToc: MutPtr<Byte> = MutPtr(0L),
-            pszIndex: MutPtr<Byte> = MutPtr(0L),
-            pszFile: MutPtr<Byte> = MutPtr(0L),
-            pszHome: MutPtr<Byte> = MutPtr(0L),
+            pszToc: MutPtr = MutPtr(0L),
+            pszIndex: MutPtr = MutPtr(0L),
+            pszFile: MutPtr = MutPtr(0L),
+            pszHome: MutPtr = MutPtr(0L),
             fsToolBarFlags: UInt = 0u,
             fNotExpanded: Bool = 0,
             curNavType: Int = 0,
@@ -959,13 +958,13 @@ public class HhWintype internal constructor(
             idNotify: Int = 0,
             tabOrder: UByteArray = UByteArray(20),
             cHistory: Int = 0,
-            pszJump1: MutPtr<Byte> = MutPtr(0L),
-            pszJump2: MutPtr<Byte> = MutPtr(0L),
-            pszUrlJump1: MutPtr<Byte> = MutPtr(0L),
-            pszUrlJump2: MutPtr<Byte> = MutPtr(0L),
+            pszJump1: MutPtr = MutPtr(0L),
+            pszJump2: MutPtr = MutPtr(0L),
+            pszUrlJump1: MutPtr = MutPtr(0L),
+            pszUrlJump2: MutPtr = MutPtr(0L),
             rcMinSize: Rect = Rect(),
             cbInfoTypes: Int = 0,
-            pszCustomTabs: MutPtr<Byte> = MutPtr(0L),
+            pszCustomTabs: MutPtr = MutPtr(0L),
         ): HhWintype =
             HhWintype(
                 cbStruct = cbStruct,

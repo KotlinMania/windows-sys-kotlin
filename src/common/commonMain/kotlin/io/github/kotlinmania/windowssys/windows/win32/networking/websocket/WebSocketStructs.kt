@@ -1,6 +1,5 @@
 package io.github.kotlinmania.windowssys.windows.win32.networking.websocket
 
-import io.github.kotlinmania.rustlang.core.ffi.CVoid
 import io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
 import io.github.kotlinmania.rustlang.core.mem.TypeLayout
 import io.github.kotlinmania.rustlang.core.ptr.MutPtr
@@ -12,11 +11,11 @@ public data class WebSocketBuffer(
 )
 
 public class WebSocketBuffer1 internal constructor(
-    pbReasonCtorArg: MutPtr<UByte>,
+    pbReasonCtorArg: MutPtr,
     public var ulReasonLength: UInt,
     public var usStatus: UShort,
 ) {
-    public var pbReason: MutPtr<UByte> = pbReasonCtorArg
+    public var pbReason: MutPtr = pbReasonCtorArg
         internal set
 
     public constructor() : this(
@@ -25,13 +24,13 @@ public class WebSocketBuffer1 internal constructor(
         usStatus = 0u,
     )
 
-    public operator fun component1(): MutPtr<UByte> = this.pbReason
+    public operator fun component1(): MutPtr = this.pbReason
 
     public operator fun component2(): UInt = this.ulReasonLength
 
     public operator fun component3(): UShort = this.usStatus
 
-    public fun copy(pbReason: MutPtr<UByte> = this.pbReason, ulReasonLength: UInt = this.ulReasonLength, usStatus: UShort = this.usStatus): WebSocketBuffer1 = WebSocketBuffer1(pbReasonCtorArg = pbReason, ulReasonLength = ulReasonLength, usStatus = usStatus)
+    public fun copy(pbReason: MutPtr = this.pbReason, ulReasonLength: UInt = this.ulReasonLength, usStatus: UShort = this.usStatus): WebSocketBuffer1 = WebSocketBuffer1(pbReasonCtorArg = pbReason, ulReasonLength = ulReasonLength, usStatus = usStatus)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -58,7 +57,7 @@ public class WebSocketBuffer1 internal constructor(
                     WebSocketBuffer1(
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<UByte>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 8L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16).readNative(addr + 12L),
@@ -66,7 +65,7 @@ public class WebSocketBuffer1 internal constructor(
                 override fun writeNative(addr: Long, value: WebSocketBuffer1) {
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<UByte>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr, value.pbReason)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 8L, value.ulReasonLength)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16).writeNative(addr + 12L, value.usStatus)
@@ -74,7 +73,7 @@ public class WebSocketBuffer1 internal constructor(
             }
 
         public operator fun invoke(
-            pbReason: MutPtr<UByte> = MutPtr(0L),
+            pbReason: MutPtr = MutPtr(0L),
             ulReasonLength: UInt = 0u,
             usStatus: UShort = 0u,
         ): WebSocketBuffer1 =
@@ -87,10 +86,10 @@ public class WebSocketBuffer1 internal constructor(
 }
 
 public class WebSocketBuffer0 internal constructor(
-    pbBufferCtorArg: MutPtr<UByte>,
+    pbBufferCtorArg: MutPtr,
     public var ulBufferLength: UInt,
 ) {
-    public var pbBuffer: MutPtr<UByte> = pbBufferCtorArg
+    public var pbBuffer: MutPtr = pbBufferCtorArg
         internal set
 
     public constructor() : this(
@@ -98,11 +97,11 @@ public class WebSocketBuffer0 internal constructor(
         ulBufferLength = 0u,
     )
 
-    public operator fun component1(): MutPtr<UByte> = this.pbBuffer
+    public operator fun component1(): MutPtr = this.pbBuffer
 
     public operator fun component2(): UInt = this.ulBufferLength
 
-    public fun copy(pbBuffer: MutPtr<UByte> = this.pbBuffer, ulBufferLength: UInt = this.ulBufferLength): WebSocketBuffer0 = WebSocketBuffer0(pbBufferCtorArg = pbBuffer, ulBufferLength = ulBufferLength)
+    public fun copy(pbBuffer: MutPtr = this.pbBuffer, ulBufferLength: UInt = this.ulBufferLength): WebSocketBuffer0 = WebSocketBuffer0(pbBufferCtorArg = pbBuffer, ulBufferLength = ulBufferLength)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -127,21 +126,21 @@ public class WebSocketBuffer0 internal constructor(
                     WebSocketBuffer0(
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<UByte>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 8L),
                     )
                 override fun writeNative(addr: Long, value: WebSocketBuffer0) {
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<UByte>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr, value.pbBuffer)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 8L, value.ulBufferLength)
                 }
             }
 
         public operator fun invoke(
-            pbBuffer: MutPtr<UByte> = MutPtr(0L),
+            pbBuffer: MutPtr = MutPtr(0L),
             ulBufferLength: UInt = 0u,
         ): WebSocketBuffer0 =
             WebSocketBuffer0(
@@ -216,10 +215,10 @@ public class WebSocketHttpHeader internal constructor(
 
 public class WebSocketProperty internal constructor(
     public var type: WebSocketPropertyType,
-    pvValueCtorArg: MutPtr<CVoid>,
+    pvValueCtorArg: MutPtr,
     public var ulValueSize: UInt,
 ) {
-    public var pvValue: MutPtr<CVoid> = pvValueCtorArg
+    public var pvValue: MutPtr = pvValueCtorArg
         internal set
 
     public constructor() : this(
@@ -230,11 +229,11 @@ public class WebSocketProperty internal constructor(
 
     public operator fun component1(): WebSocketPropertyType = this.type
 
-    public operator fun component2(): MutPtr<CVoid> = this.pvValue
+    public operator fun component2(): MutPtr = this.pvValue
 
     public operator fun component3(): UInt = this.ulValueSize
 
-    public fun copy(type: WebSocketPropertyType = this.type, pvValue: MutPtr<CVoid> = this.pvValue, ulValueSize: UInt = this.ulValueSize): WebSocketProperty = WebSocketProperty(type = type, pvValueCtorArg = pvValue, ulValueSize = ulValueSize)
+    public fun copy(type: WebSocketPropertyType = this.type, pvValue: MutPtr = this.pvValue, ulValueSize: UInt = this.ulValueSize): WebSocketProperty = WebSocketProperty(type = type, pvValueCtorArg = pvValue, ulValueSize = ulValueSize)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -262,7 +261,7 @@ public class WebSocketProperty internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<CVoid>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 16L),
                     )
@@ -270,7 +269,7 @@ public class WebSocketProperty internal constructor(
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr, value.type)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<CVoid>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.pvValue)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 16L, value.ulValueSize)
                 }
@@ -278,7 +277,7 @@ public class WebSocketProperty internal constructor(
 
         public operator fun invoke(
             type: WebSocketPropertyType = 0,
-            pvValue: MutPtr<CVoid> = MutPtr(0L),
+            pvValue: MutPtr = MutPtr(0L),
             ulValueSize: UInt = 0u,
         ): WebSocketProperty =
             WebSocketProperty(

@@ -2,11 +2,9 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.system.addressbook
 
-import io.github.kotlinmania.rustlang.core.ffi.CVoid
 import io.github.kotlinmania.rustlang.core.ptr.ConstPtr
 import io.github.kotlinmania.rustlang.core.ptr.MutPtr
 import io.github.kotlinmania.windowssys.core.Bool
-import io.github.kotlinmania.windowssys.core.Guid
 import io.github.kotlinmania.windowssys.core.Hresult
 import io.github.kotlinmania.windowssys.core.Pcstr
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Filetime
@@ -67,48 +65,48 @@ import kotlinx.cinterop.ByteVar
 import kotlinx.cinterop.toCPointer
 import kotlinx.cinterop.toLong
 
-public actual fun buildDisplayTable(lpallocatebuffer: Lpallocatebuffer, lpallocatemore: Lpallocatemore, lpfreebuffer: Lpfreebuffer, lpmalloc: MutPtr<CVoid>, hinstance: Hinstance, cpages: UInt, lppage: MutPtr<Dtpage>, ulflags: UInt, lpptable: MutPtr<MutPtr<CVoid>>, lpptbldata: MutPtr<MutPtr<CVoid>>): Hresult =
+public actual fun buildDisplayTable(lpallocatebuffer: Lpallocatebuffer, lpallocatemore: Lpallocatemore, lpfreebuffer: Lpfreebuffer, lpmalloc: MutPtr, hinstance: Hinstance, cpages: UInt, lppage: MutPtr, ulflags: UInt, lpptable: MutPtr, lpptbldata: MutPtr): Hresult =
     windowssysWindowsWin32SystemAddressbookBuildDisplayTable(0L.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>(), lpmalloc.rawAddress.toCPointer<ByteVar>(), hinstance.rawAddress.toCPointer<ByteVar>(), cpages, lppage.rawAddress.toCPointer<ByteVar>(), ulflags, lpptable.rawAddress.toCPointer<ByteVar>(), lpptbldata.rawAddress.toCPointer<ByteVar>())
 
-public actual fun changeIdleRoutine(ftg: MutPtr<CVoid>, lpfnidle: Pfnidle, lpvidleparam: MutPtr<CVoid>, priidle: Short, csecidle: UInt, iroidle: UShort, ircidle: UShort) {
+public actual fun changeIdleRoutine(ftg: MutPtr, lpfnidle: Pfnidle, lpvidleparam: MutPtr, priidle: Short, csecidle: UInt, iroidle: UShort, ircidle: UShort) {
     windowssysWindowsWin32SystemAddressbookChangeIdleRoutine(ftg.rawAddress.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>(), lpvidleparam.rawAddress.toCPointer<ByteVar>(), priidle, csecidle, iroidle, ircidle)
 }
 
-public actual fun createIProp(lpinterface: MutPtr<Guid>, lpallocatebuffer: Lpallocatebuffer, lpallocatemore: Lpallocatemore, lpfreebuffer: Lpfreebuffer, lpvreserved: MutPtr<CVoid>, lpppropdata: MutPtr<MutPtr<CVoid>>): Int =
+public actual fun createIProp(lpinterface: MutPtr, lpallocatebuffer: Lpallocatebuffer, lpallocatemore: Lpallocatemore, lpfreebuffer: Lpfreebuffer, lpvreserved: MutPtr, lpppropdata: MutPtr): Int =
     windowssysWindowsWin32SystemAddressbookCreateIProp(lpinterface.rawAddress.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>(), lpvreserved.rawAddress.toCPointer<ByteVar>(), lpppropdata.rawAddress.toCPointer<ByteVar>())
 
-public actual fun createTable(lpinterface: MutPtr<Guid>, lpallocatebuffer: Lpallocatebuffer, lpallocatemore: Lpallocatemore, lpfreebuffer: Lpfreebuffer, lpvreserved: MutPtr<CVoid>, ultabletype: UInt, ulproptagindexcolumn: UInt, lpsproptagarraycolumns: MutPtr<SPropTagArray>, lpptabledata: MutPtr<MutPtr<CVoid>>): Int =
+public actual fun createTable(lpinterface: MutPtr, lpallocatebuffer: Lpallocatebuffer, lpallocatemore: Lpallocatemore, lpfreebuffer: Lpfreebuffer, lpvreserved: MutPtr, ultabletype: UInt, ulproptagindexcolumn: UInt, lpsproptagarraycolumns: MutPtr, lpptabledata: MutPtr): Int =
     windowssysWindowsWin32SystemAddressbookCreateTable(lpinterface.rawAddress.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>(), lpvreserved.rawAddress.toCPointer<ByteVar>(), ultabletype, ulproptagindexcolumn, lpsproptagarraycolumns.rawAddress.toCPointer<ByteVar>(), lpptabledata.rawAddress.toCPointer<ByteVar>())
 
 public actual fun deinitMapiUtil() {
     windowssysWindowsWin32SystemAddressbookDeinitMapiUtil()
 }
 
-public actual fun deregisterIdleRoutine(ftg: MutPtr<CVoid>) {
+public actual fun deregisterIdleRoutine(ftg: MutPtr) {
     windowssysWindowsWin32SystemAddressbookDeregisterIdleRoutine(ftg.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun enableIdleRoutine(ftg: MutPtr<CVoid>, fenable: Bool) {
+public actual fun enableIdleRoutine(ftg: MutPtr, fenable: Bool) {
     windowssysWindowsWin32SystemAddressbookEnableIdleRoutine(ftg.rawAddress.toCPointer<ByteVar>(), fenable)
 }
 
-public actual fun fEqualNames(lpname1: MutPtr<Mapinameid>, lpname2: MutPtr<Mapinameid>): Bool =
+public actual fun fEqualNames(lpname1: MutPtr, lpname2: MutPtr): Bool =
     windowssysWindowsWin32SystemAddressbookFEqualNames(lpname1.rawAddress.toCPointer<ByteVar>(), lpname2.rawAddress.toCPointer<ByteVar>())
 
-public actual fun fPropCompareProp(lpspropvalue1: MutPtr<SPropValue>, ulrelop: UInt, lpspropvalue2: MutPtr<SPropValue>): Bool =
+public actual fun fPropCompareProp(lpspropvalue1: MutPtr, ulrelop: UInt, lpspropvalue2: MutPtr): Bool =
     windowssysWindowsWin32SystemAddressbookFPropCompareProp(lpspropvalue1.rawAddress.toCPointer<ByteVar>(), ulrelop, lpspropvalue2.rawAddress.toCPointer<ByteVar>())
 
-public actual fun fPropContainsProp(lpspropvaluedst: MutPtr<SPropValue>, lpspropvaluesrc: MutPtr<SPropValue>, ulfuzzylevel: UInt): Bool =
+public actual fun fPropContainsProp(lpspropvaluedst: MutPtr, lpspropvaluesrc: MutPtr, ulfuzzylevel: UInt): Bool =
     windowssysWindowsWin32SystemAddressbookFPropContainsProp(lpspropvaluedst.rawAddress.toCPointer<ByteVar>(), lpspropvaluesrc.rawAddress.toCPointer<ByteVar>(), ulfuzzylevel)
 
-public actual fun fPropExists(lpmapiprop: MutPtr<CVoid>, ulproptag: UInt): Bool =
+public actual fun fPropExists(lpmapiprop: MutPtr, ulproptag: UInt): Bool =
     windowssysWindowsWin32SystemAddressbookFPropExists(lpmapiprop.rawAddress.toCPointer<ByteVar>(), ulproptag)
 
-public actual fun freePadrlist(lpadrlist: MutPtr<Adrlist>) {
+public actual fun freePadrlist(lpadrlist: MutPtr) {
     windowssysWindowsWin32SystemAddressbookFreePadrlist(lpadrlist.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun freeProws(lprows: MutPtr<SRowSet>) {
+public actual fun freeProws(lprows: MutPtr) {
     windowssysWindowsWin32SystemAddressbookFreeProws(lprows.rawAddress.toCPointer<ByteVar>())
 }
 
@@ -127,80 +125,80 @@ public actual fun ftNegFt(ft: Filetime): Filetime =
 public actual fun ftSubFt(ftminuend: Filetime, ftsubtrahend: Filetime): Filetime =
     Filetime()
 
-public actual fun ftgRegisterIdleRoutine(lpfnidle: Pfnidle, lpvidleparam: MutPtr<CVoid>, priidle: Short, csecidle: UInt, iroidle: UShort): MutPtr<CVoid> =
+public actual fun ftgRegisterIdleRoutine(lpfnidle: Pfnidle, lpvidleparam: MutPtr, priidle: Short, csecidle: UInt, iroidle: UShort): MutPtr =
     MutPtr(windowssysWindowsWin32SystemAddressbookFtgRegisterIdleRoutine(0L.toCPointer<ByteVar>(), lpvidleparam.rawAddress.toCPointer<ByteVar>(), priidle, csecidle, iroidle)?.toLong() ?: 0L)
 
-public actual fun hrAddColumns(lptbl: MutPtr<CVoid>, lpproptagcolumnsnew: MutPtr<SPropTagArray>, lpallocatebuffer: Lpallocatebuffer, lpfreebuffer: Lpfreebuffer): Hresult =
+public actual fun hrAddColumns(lptbl: MutPtr, lpproptagcolumnsnew: MutPtr, lpallocatebuffer: Lpallocatebuffer, lpfreebuffer: Lpfreebuffer): Hresult =
     windowssysWindowsWin32SystemAddressbookHrAddColumns(lptbl.rawAddress.toCPointer<ByteVar>(), lpproptagcolumnsnew.rawAddress.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>())
 
-public actual fun hrAddColumnsEx(lptbl: MutPtr<CVoid>, lpproptagcolumnsnew: MutPtr<SPropTagArray>, lpallocatebuffer: Lpallocatebuffer, lpfreebuffer: Lpfreebuffer, lpfnfiltercolumns: Long): Hresult =
+public actual fun hrAddColumnsEx(lptbl: MutPtr, lpproptagcolumnsnew: MutPtr, lpallocatebuffer: Lpallocatebuffer, lpfreebuffer: Lpfreebuffer, lpfnfiltercolumns: Long): Hresult =
     windowssysWindowsWin32SystemAddressbookHrAddColumnsEx(lptbl.rawAddress.toCPointer<ByteVar>(), lpproptagcolumnsnew.rawAddress.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>(), lpfnfiltercolumns)
 
-public actual fun hrAllocAdviseSink(lpfncallback: Lpnotifcallback, lpvcontext: MutPtr<CVoid>, lppadvisesink: MutPtr<MutPtr<CVoid>>): Hresult =
+public actual fun hrAllocAdviseSink(lpfncallback: Lpnotifcallback, lpvcontext: MutPtr, lppadvisesink: MutPtr): Hresult =
     windowssysWindowsWin32SystemAddressbookHrAllocAdviseSink(0L.toCPointer<ByteVar>(), lpvcontext.rawAddress.toCPointer<ByteVar>(), lppadvisesink.rawAddress.toCPointer<ByteVar>())
 
 public actual fun hrDispatchNotifications(ulflags: UInt): Hresult =
     windowssysWindowsWin32SystemAddressbookHrDispatchNotifications(ulflags)
 
-public actual fun hrGetOneProp(lpmapiprop: MutPtr<CVoid>, ulproptag: UInt, lppprop: MutPtr<MutPtr<SPropValue>>): Hresult =
+public actual fun hrGetOneProp(lpmapiprop: MutPtr, ulproptag: UInt, lppprop: MutPtr): Hresult =
     windowssysWindowsWin32SystemAddressbookHrGetOneProp(lpmapiprop.rawAddress.toCPointer<ByteVar>(), ulproptag, lppprop.rawAddress.toCPointer<ByteVar>())
 
-public actual fun hrIStorageFromStream(lpunkin: MutPtr<CVoid>, lpinterface: MutPtr<Guid>, ulflags: UInt, lppstorageout: MutPtr<MutPtr<CVoid>>): Hresult =
+public actual fun hrIStorageFromStream(lpunkin: MutPtr, lpinterface: MutPtr, ulflags: UInt, lppstorageout: MutPtr): Hresult =
     windowssysWindowsWin32SystemAddressbookHrIStorageFromStream(lpunkin.rawAddress.toCPointer<ByteVar>(), lpinterface.rawAddress.toCPointer<ByteVar>(), ulflags, lppstorageout.rawAddress.toCPointer<ByteVar>())
 
-public actual fun hrQueryAllRows(lptable: MutPtr<CVoid>, lpproptags: MutPtr<SPropTagArray>, lprestriction: MutPtr<SRestriction>, lpsortorderset: MutPtr<SSortOrderSet>, crowsmax: Int, lpprows: MutPtr<MutPtr<SRowSet>>): Hresult =
+public actual fun hrQueryAllRows(lptable: MutPtr, lpproptags: MutPtr, lprestriction: MutPtr, lpsortorderset: MutPtr, crowsmax: Int, lpprows: MutPtr): Hresult =
     windowssysWindowsWin32SystemAddressbookHrQueryAllRows(lptable.rawAddress.toCPointer<ByteVar>(), lpproptags.rawAddress.toCPointer<ByteVar>(), lprestriction.rawAddress.toCPointer<ByteVar>(), lpsortorderset.rawAddress.toCPointer<ByteVar>(), crowsmax, lpprows.rawAddress.toCPointer<ByteVar>())
 
-public actual fun hrSetOneProp(lpmapiprop: MutPtr<CVoid>, lpprop: MutPtr<SPropValue>): Hresult =
+public actual fun hrSetOneProp(lpmapiprop: MutPtr, lpprop: MutPtr): Hresult =
     windowssysWindowsWin32SystemAddressbookHrSetOneProp(lpmapiprop.rawAddress.toCPointer<ByteVar>(), lpprop.rawAddress.toCPointer<ByteVar>())
 
-public actual fun hrThisThreadAdviseSink(lpadvisesink: MutPtr<CVoid>, lppadvisesink: MutPtr<MutPtr<CVoid>>): Hresult =
+public actual fun hrThisThreadAdviseSink(lpadvisesink: MutPtr, lppadvisesink: MutPtr): Hresult =
     windowssysWindowsWin32SystemAddressbookHrThisThreadAdviseSink(lpadvisesink.rawAddress.toCPointer<ByteVar>(), lppadvisesink.rawAddress.toCPointer<ByteVar>())
 
-public actual fun lPropCompareProp(lpspropvaluea: MutPtr<SPropValue>, lpspropvalueb: MutPtr<SPropValue>): Int =
+public actual fun lPropCompareProp(lpspropvaluea: MutPtr, lpspropvalueb: MutPtr): Int =
     windowssysWindowsWin32SystemAddressbookLPropCompareProp(lpspropvaluea.rawAddress.toCPointer<ByteVar>(), lpspropvalueb.rawAddress.toCPointer<ByteVar>())
 
-public actual fun lpValFindProp(ulproptag: UInt, cvalues: UInt, lpproparray: MutPtr<SPropValue>): MutPtr<SPropValue> =
+public actual fun lpValFindProp(ulproptag: UInt, cvalues: UInt, lpproparray: MutPtr): MutPtr =
     MutPtr(windowssysWindowsWin32SystemAddressbookLpValFindProp(ulproptag, cvalues, lpproparray.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
 public actual fun mAPIDeinitIdle() {
     windowssysWindowsWin32SystemAddressbookMAPIDeinitIdle()
 }
 
-public actual fun mAPIGetDefaultMalloc(): MutPtr<CVoid> =
+public actual fun mAPIGetDefaultMalloc(): MutPtr =
     MutPtr(windowssysWindowsWin32SystemAddressbookMAPIGetDefaultMalloc()?.toLong() ?: 0L)
 
-public actual fun mAPIInitIdle(lpvreserved: MutPtr<CVoid>): Int =
+public actual fun mAPIInitIdle(lpvreserved: MutPtr): Int =
     windowssysWindowsWin32SystemAddressbookMAPIInitIdle(lpvreserved.rawAddress.toCPointer<ByteVar>())
 
-public actual fun openStreamOnFile(lpallocatebuffer: Lpallocatebuffer, lpfreebuffer: Lpfreebuffer, ulflags: UInt, lpszfilename: ConstPtr<Byte>, lpszprefix: ConstPtr<Byte>, lppstream: MutPtr<MutPtr<CVoid>>): Hresult =
+public actual fun openStreamOnFile(lpallocatebuffer: Lpallocatebuffer, lpfreebuffer: Lpfreebuffer, ulflags: UInt, lpszfilename: ConstPtr, lpszprefix: ConstPtr, lppstream: MutPtr): Hresult =
     windowssysWindowsWin32SystemAddressbookOpenStreamOnFile(0L.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>(), ulflags, lpszfilename.rawAddress.toCPointer<ByteVar>(), lpszprefix.rawAddress.toCPointer<ByteVar>(), lppstream.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ppropFindProp(lpproparray: MutPtr<SPropValue>, cvalues: UInt, ulproptag: UInt): MutPtr<SPropValue> =
+public actual fun ppropFindProp(lpproparray: MutPtr, cvalues: UInt, ulproptag: UInt): MutPtr =
     MutPtr(windowssysWindowsWin32SystemAddressbookPpropFindProp(lpproparray.rawAddress.toCPointer<ByteVar>(), cvalues, ulproptag)?.toLong() ?: 0L)
 
-public actual fun propCopyMore(lpspropvaluedest: MutPtr<SPropValue>, lpspropvaluesrc: MutPtr<SPropValue>, lpfallocmore: Lpallocatemore, lpvobject: MutPtr<CVoid>): Int =
+public actual fun propCopyMore(lpspropvaluedest: MutPtr, lpspropvaluesrc: MutPtr, lpfallocmore: Lpallocatemore, lpvobject: MutPtr): Int =
     windowssysWindowsWin32SystemAddressbookPropCopyMore(lpspropvaluedest.rawAddress.toCPointer<ByteVar>(), lpspropvaluesrc.rawAddress.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>(), lpvobject.rawAddress.toCPointer<ByteVar>())
 
-public actual fun rTFSync(lpmessage: MutPtr<CVoid>, ulflags: UInt, lpfmessageupdated: MutPtr<Bool>): Hresult =
+public actual fun rTFSync(lpmessage: MutPtr, ulflags: UInt, lpfmessageupdated: MutPtr): Hresult =
     windowssysWindowsWin32SystemAddressbookRTFSync(lpmessage.rawAddress.toCPointer<ByteVar>(), ulflags, lpfmessageupdated.rawAddress.toCPointer<ByteVar>())
 
-public actual fun scCopyNotifications(cnotification: Int, lpnotifications: MutPtr<Notification>, lpvdst: MutPtr<CVoid>, lpcb: MutPtr<UInt>): Int =
+public actual fun scCopyNotifications(cnotification: Int, lpnotifications: MutPtr, lpvdst: MutPtr, lpcb: MutPtr): Int =
     windowssysWindowsWin32SystemAddressbookScCopyNotifications(cnotification, lpnotifications.rawAddress.toCPointer<ByteVar>(), lpvdst.rawAddress.toCPointer<ByteVar>(), lpcb.rawAddress.toCPointer<ByteVar>())
 
-public actual fun scCopyProps(cvalues: Int, lpproparray: MutPtr<SPropValue>, lpvdst: MutPtr<CVoid>, lpcb: MutPtr<UInt>): Int =
+public actual fun scCopyProps(cvalues: Int, lpproparray: MutPtr, lpvdst: MutPtr, lpcb: MutPtr): Int =
     windowssysWindowsWin32SystemAddressbookScCopyProps(cvalues, lpproparray.rawAddress.toCPointer<ByteVar>(), lpvdst.rawAddress.toCPointer<ByteVar>(), lpcb.rawAddress.toCPointer<ByteVar>())
 
-public actual fun scCountNotifications(cnotifications: Int, lpnotifications: MutPtr<Notification>, lpcb: MutPtr<UInt>): Int =
+public actual fun scCountNotifications(cnotifications: Int, lpnotifications: MutPtr, lpcb: MutPtr): Int =
     windowssysWindowsWin32SystemAddressbookScCountNotifications(cnotifications, lpnotifications.rawAddress.toCPointer<ByteVar>(), lpcb.rawAddress.toCPointer<ByteVar>())
 
-public actual fun scCountProps(cvalues: Int, lpproparray: MutPtr<SPropValue>, lpcb: MutPtr<UInt>): Int =
+public actual fun scCountProps(cvalues: Int, lpproparray: MutPtr, lpcb: MutPtr): Int =
     windowssysWindowsWin32SystemAddressbookScCountProps(cvalues, lpproparray.rawAddress.toCPointer<ByteVar>(), lpcb.rawAddress.toCPointer<ByteVar>())
 
-public actual fun scCreateConversationIndex(cbparent: UInt, lpbparent: MutPtr<UByte>, lpcbconvindex: MutPtr<UInt>, lppbconvindex: MutPtr<MutPtr<UByte>>): Int =
+public actual fun scCreateConversationIndex(cbparent: UInt, lpbparent: MutPtr, lpcbconvindex: MutPtr, lppbconvindex: MutPtr): Int =
     windowssysWindowsWin32SystemAddressbookScCreateConversationIndex(cbparent, lpbparent.rawAddress.toCPointer<ByteVar>(), lpcbconvindex.rawAddress.toCPointer<ByteVar>(), lppbconvindex.rawAddress.toCPointer<ByteVar>())
 
-public actual fun scDupPropset(cvalues: Int, lpproparray: MutPtr<SPropValue>, lpallocatebuffer: Lpallocatebuffer, lppproparray: MutPtr<MutPtr<SPropValue>>): Int =
+public actual fun scDupPropset(cvalues: Int, lpproparray: MutPtr, lpallocatebuffer: Lpallocatebuffer, lppproparray: MutPtr): Int =
     windowssysWindowsWin32SystemAddressbookScDupPropset(cvalues, lpproparray.rawAddress.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>(), lppproparray.rawAddress.toCPointer<ByteVar>())
 
 public actual fun scInitMapiUtil(ulflags: UInt): Int =
@@ -209,38 +207,38 @@ public actual fun scInitMapiUtil(ulflags: UInt): Int =
 public actual fun scLocalPathFromUNC(lpszunc: Pcstr, lpszlocal: Pcstr, cchlocal: UInt): Int =
     windowssysWindowsWin32SystemAddressbookScLocalPathFromUNC(lpszunc.rawAddress.toCPointer<ByteVar>(), lpszlocal.rawAddress.toCPointer<ByteVar>(), cchlocal)
 
-public actual fun scRelocNotifications(cnotification: Int, lpnotifications: MutPtr<Notification>, lpvbaseold: MutPtr<CVoid>, lpvbasenew: MutPtr<CVoid>, lpcb: MutPtr<UInt>): Int =
+public actual fun scRelocNotifications(cnotification: Int, lpnotifications: MutPtr, lpvbaseold: MutPtr, lpvbasenew: MutPtr, lpcb: MutPtr): Int =
     windowssysWindowsWin32SystemAddressbookScRelocNotifications(cnotification, lpnotifications.rawAddress.toCPointer<ByteVar>(), lpvbaseold.rawAddress.toCPointer<ByteVar>(), lpvbasenew.rawAddress.toCPointer<ByteVar>(), lpcb.rawAddress.toCPointer<ByteVar>())
 
-public actual fun scRelocProps(cvalues: Int, lpproparray: MutPtr<SPropValue>, lpvbaseold: MutPtr<CVoid>, lpvbasenew: MutPtr<CVoid>, lpcb: MutPtr<UInt>): Int =
+public actual fun scRelocProps(cvalues: Int, lpproparray: MutPtr, lpvbaseold: MutPtr, lpvbasenew: MutPtr, lpcb: MutPtr): Int =
     windowssysWindowsWin32SystemAddressbookScRelocProps(cvalues, lpproparray.rawAddress.toCPointer<ByteVar>(), lpvbaseold.rawAddress.toCPointer<ByteVar>(), lpvbasenew.rawAddress.toCPointer<ByteVar>(), lpcb.rawAddress.toCPointer<ByteVar>())
 
 public actual fun scUNCFromLocalPath(lpszlocal: Pcstr, lpszunc: Pcstr, cchunc: UInt): Int =
     windowssysWindowsWin32SystemAddressbookScUNCFromLocalPath(lpszlocal.rawAddress.toCPointer<ByteVar>(), lpszunc.rawAddress.toCPointer<ByteVar>(), cchunc)
 
-public actual fun szFindCh(lpsz: MutPtr<Byte>, ch: UShort): MutPtr<Byte> =
+public actual fun szFindCh(lpsz: MutPtr, ch: UShort): MutPtr =
     MutPtr(windowssysWindowsWin32SystemAddressbookSzFindCh(lpsz.rawAddress.toCPointer<ByteVar>(), ch)?.toLong() ?: 0L)
 
-public actual fun szFindLastCh(lpsz: MutPtr<Byte>, ch: UShort): MutPtr<Byte> =
+public actual fun szFindLastCh(lpsz: MutPtr, ch: UShort): MutPtr =
     MutPtr(windowssysWindowsWin32SystemAddressbookSzFindLastCh(lpsz.rawAddress.toCPointer<ByteVar>(), ch)?.toLong() ?: 0L)
 
-public actual fun szFindSz(lpsz: MutPtr<Byte>, lpszkey: MutPtr<Byte>): MutPtr<Byte> =
+public actual fun szFindSz(lpsz: MutPtr, lpszkey: MutPtr): MutPtr =
     MutPtr(windowssysWindowsWin32SystemAddressbookSzFindSz(lpsz.rawAddress.toCPointer<ByteVar>(), lpszkey.rawAddress.toCPointer<ByteVar>())?.toLong() ?: 0L)
 
-public actual fun uFromSz(lpsz: MutPtr<Byte>): UInt =
+public actual fun uFromSz(lpsz: MutPtr): UInt =
     windowssysWindowsWin32SystemAddressbookUFromSz(lpsz.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ulAddRef(lpunk: MutPtr<CVoid>): UInt =
+public actual fun ulAddRef(lpunk: MutPtr): UInt =
     windowssysWindowsWin32SystemAddressbookUlAddRef(lpunk.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ulPropSize(lpspropvalue: MutPtr<SPropValue>): UInt =
+public actual fun ulPropSize(lpspropvalue: MutPtr): UInt =
     windowssysWindowsWin32SystemAddressbookUlPropSize(lpspropvalue.rawAddress.toCPointer<ByteVar>())
 
-public actual fun ulRelease(lpunk: MutPtr<CVoid>): UInt =
+public actual fun ulRelease(lpunk: MutPtr): UInt =
     windowssysWindowsWin32SystemAddressbookUlRelease(lpunk.rawAddress.toCPointer<ByteVar>())
 
-public actual fun wrapCompressedRTFStream(lpcompressedrtfstream: MutPtr<CVoid>, ulflags: UInt, lpuncompressedrtfstream: MutPtr<MutPtr<CVoid>>): Hresult =
+public actual fun wrapCompressedRTFStream(lpcompressedrtfstream: MutPtr, ulflags: UInt, lpuncompressedrtfstream: MutPtr): Hresult =
     windowssysWindowsWin32SystemAddressbookWrapCompressedRTFStream(lpcompressedrtfstream.rawAddress.toCPointer<ByteVar>(), ulflags, lpuncompressedrtfstream.rawAddress.toCPointer<ByteVar>())
 
-public actual fun wrapStoreEntryID(ulflags: UInt, lpszdllname: ConstPtr<Byte>, cborigentry: UInt, lporigentry: ConstPtr<Entryid>, lpcbwrappedentry: MutPtr<UInt>, lppwrappedentry: MutPtr<MutPtr<Entryid>>): Hresult =
+public actual fun wrapStoreEntryID(ulflags: UInt, lpszdllname: ConstPtr, cborigentry: UInt, lporigentry: ConstPtr, lpcbwrappedentry: MutPtr, lppwrappedentry: MutPtr): Hresult =
     windowssysWindowsWin32SystemAddressbookWrapStoreEntryID(ulflags, lpszdllname.rawAddress.toCPointer<ByteVar>(), cborigentry, lporigentry.rawAddress.toCPointer<ByteVar>(), lpcbwrappedentry.rawAddress.toCPointer<ByteVar>(), lppwrappedentry.rawAddress.toCPointer<ByteVar>())

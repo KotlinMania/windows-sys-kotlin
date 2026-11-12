@@ -2,7 +2,6 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.networkmanagement.iphelper
 
-import io.github.kotlinmania.rustlang.core.ffi.CVoid
 import io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
 import io.github.kotlinmania.rustlang.core.mem.TypeLayout
 import io.github.kotlinmania.rustlang.core.ptr.MutPtr
@@ -237,9 +236,9 @@ public class DnsInterfaceSettings3 internal constructor(
     public var disableUnconstrainedQueries: UInt,
     supplementalSearchListCtorArg: Pwstr,
     public var cServerProperties: UInt,
-    serverPropertiesCtorArg: MutPtr<DnsServerProperty>,
+    serverPropertiesCtorArg: MutPtr,
     public var cProfileServerProperties: UInt,
-    profileServerPropertiesCtorArg: MutPtr<DnsServerProperty>,
+    profileServerPropertiesCtorArg: MutPtr,
 ) {
     public var domain: Pwstr = domainCtorArg
         internal set
@@ -256,10 +255,10 @@ public class DnsInterfaceSettings3 internal constructor(
     public var supplementalSearchList: Pwstr = supplementalSearchListCtorArg
         internal set
 
-    public var serverProperties: MutPtr<DnsServerProperty> = serverPropertiesCtorArg
+    public var serverProperties: MutPtr = serverPropertiesCtorArg
         internal set
 
-    public var profileServerProperties: MutPtr<DnsServerProperty> = profileServerPropertiesCtorArg
+    public var profileServerProperties: MutPtr = profileServerPropertiesCtorArg
         internal set
 
     public constructor() : this(
@@ -307,13 +306,13 @@ public class DnsInterfaceSettings3 internal constructor(
 
     public operator fun component13(): UInt = this.cServerProperties
 
-    public operator fun component14(): MutPtr<DnsServerProperty> = this.serverProperties
+    public operator fun component14(): MutPtr = this.serverProperties
 
     public operator fun component15(): UInt = this.cProfileServerProperties
 
-    public operator fun component16(): MutPtr<DnsServerProperty> = this.profileServerProperties
+    public operator fun component16(): MutPtr = this.profileServerProperties
 
-    public fun copy(version: UInt = this.version, flags: ULong = this.flags, domain: Pwstr = this.domain, nameServer: Pwstr = this.nameServer, searchList: Pwstr = this.searchList, registrationEnabled: UInt = this.registrationEnabled, registerAdapterName: UInt = this.registerAdapterName, enableLLMNR: UInt = this.enableLLMNR, queryAdapterName: UInt = this.queryAdapterName, profileNameServer: Pwstr = this.profileNameServer, disableUnconstrainedQueries: UInt = this.disableUnconstrainedQueries, supplementalSearchList: Pwstr = this.supplementalSearchList, cServerProperties: UInt = this.cServerProperties, serverProperties: MutPtr<DnsServerProperty> = this.serverProperties, cProfileServerProperties: UInt = this.cProfileServerProperties, profileServerProperties: MutPtr<DnsServerProperty> = this.profileServerProperties): DnsInterfaceSettings3 = DnsInterfaceSettings3(version = version, flags = flags, domainCtorArg = domain, nameServerCtorArg = nameServer, searchListCtorArg = searchList, registrationEnabled = registrationEnabled, registerAdapterName = registerAdapterName, enableLLMNR = enableLLMNR, queryAdapterName = queryAdapterName, profileNameServerCtorArg = profileNameServer, disableUnconstrainedQueries = disableUnconstrainedQueries, supplementalSearchListCtorArg = supplementalSearchList, cServerProperties = cServerProperties, serverPropertiesCtorArg = serverProperties, cProfileServerProperties = cProfileServerProperties, profileServerPropertiesCtorArg = profileServerProperties)
+    public fun copy(version: UInt = this.version, flags: ULong = this.flags, domain: Pwstr = this.domain, nameServer: Pwstr = this.nameServer, searchList: Pwstr = this.searchList, registrationEnabled: UInt = this.registrationEnabled, registerAdapterName: UInt = this.registerAdapterName, enableLLMNR: UInt = this.enableLLMNR, queryAdapterName: UInt = this.queryAdapterName, profileNameServer: Pwstr = this.profileNameServer, disableUnconstrainedQueries: UInt = this.disableUnconstrainedQueries, supplementalSearchList: Pwstr = this.supplementalSearchList, cServerProperties: UInt = this.cServerProperties, serverProperties: MutPtr = this.serverProperties, cProfileServerProperties: UInt = this.cProfileServerProperties, profileServerProperties: MutPtr = this.profileServerProperties): DnsInterfaceSettings3 = DnsInterfaceSettings3(version = version, flags = flags, domainCtorArg = domain, nameServerCtorArg = nameServer, searchListCtorArg = searchList, registrationEnabled = registrationEnabled, registerAdapterName = registerAdapterName, enableLLMNR = enableLLMNR, queryAdapterName = queryAdapterName, profileNameServerCtorArg = profileNameServer, disableUnconstrainedQueries = disableUnconstrainedQueries, supplementalSearchListCtorArg = supplementalSearchList, cServerProperties = cServerProperties, serverPropertiesCtorArg = serverProperties, cProfileServerProperties = cProfileServerProperties, profileServerPropertiesCtorArg = profileServerProperties)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -372,9 +371,9 @@ public class DnsInterfaceSettings3 internal constructor(
             disableUnconstrainedQueries: UInt = 0u,
             supplementalSearchList: Pwstr = MutPtr(0L),
             cServerProperties: UInt = 0u,
-            serverProperties: MutPtr<DnsServerProperty> = MutPtr(0L),
+            serverProperties: MutPtr = MutPtr(0L),
             cProfileServerProperties: UInt = 0u,
-            profileServerProperties: MutPtr<DnsServerProperty> = MutPtr(0L),
+            profileServerProperties: MutPtr = MutPtr(0L),
         ): DnsInterfaceSettings3 =
             DnsInterfaceSettings3(
                 version = version,
@@ -411,9 +410,9 @@ public class DnsInterfaceSettings4 internal constructor(
     public var disableUnconstrainedQueries: UInt,
     supplementalSearchListCtorArg: Pwstr,
     public var cServerProperties: UInt,
-    serverPropertiesCtorArg: MutPtr<DnsServerProperty>,
+    serverPropertiesCtorArg: MutPtr,
     public var cProfileServerProperties: UInt,
-    profileServerPropertiesCtorArg: MutPtr<DnsServerProperty>,
+    profileServerPropertiesCtorArg: MutPtr,
     public var encryptedDnsAdapterFlags: UInt,
 ) {
     public var domain: Pwstr = domainCtorArg
@@ -431,10 +430,10 @@ public class DnsInterfaceSettings4 internal constructor(
     public var supplementalSearchList: Pwstr = supplementalSearchListCtorArg
         internal set
 
-    public var serverProperties: MutPtr<DnsServerProperty> = serverPropertiesCtorArg
+    public var serverProperties: MutPtr = serverPropertiesCtorArg
         internal set
 
-    public var profileServerProperties: MutPtr<DnsServerProperty> = profileServerPropertiesCtorArg
+    public var profileServerProperties: MutPtr = profileServerPropertiesCtorArg
         internal set
 
     public constructor() : this(
@@ -472,9 +471,9 @@ public class DnsInterfaceSettings4 internal constructor(
             disableUnconstrainedQueries: UInt = 0u,
             supplementalSearchList: Pwstr = MutPtr(0L),
             cServerProperties: UInt = 0u,
-            serverProperties: MutPtr<DnsServerProperty> = MutPtr(0L),
+            serverProperties: MutPtr = MutPtr(0L),
             cProfileServerProperties: UInt = 0u,
-            profileServerProperties: MutPtr<DnsServerProperty> = MutPtr(0L),
+            profileServerProperties: MutPtr = MutPtr(0L),
             encryptedDnsAdapterFlags: UInt = 0u,
         ): DnsInterfaceSettings4 =
             DnsInterfaceSettings4(
@@ -559,18 +558,18 @@ public data class DnsServerProperty(
 )
 
 public class DnsServerPropertyTypes internal constructor(
-    dohSettingsCtorArg: MutPtr<DnsDohServerSettings>,
+    dohSettingsCtorArg: MutPtr,
 ) {
-    public var dohSettings: MutPtr<DnsDohServerSettings> = dohSettingsCtorArg
+    public var dohSettings: MutPtr = dohSettingsCtorArg
         internal set
 
     public constructor() : this(
         dohSettingsCtorArg = MutPtr(0L),
     )
 
-    public operator fun component1(): MutPtr<DnsDohServerSettings> = this.dohSettings
+    public operator fun component1(): MutPtr = this.dohSettings
 
-    public fun copy(dohSettings: MutPtr<DnsDohServerSettings> = this.dohSettings): DnsServerPropertyTypes = DnsServerPropertyTypes(dohSettingsCtorArg = dohSettings)
+    public fun copy(dohSettings: MutPtr = this.dohSettings): DnsServerPropertyTypes = DnsServerPropertyTypes(dohSettingsCtorArg = dohSettings)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -583,7 +582,7 @@ public class DnsServerPropertyTypes internal constructor(
 
     public companion object {
         public operator fun invoke(
-            dohSettings: MutPtr<DnsDohServerSettings> = MutPtr(0L),
+            dohSettings: MutPtr = MutPtr(0L),
         ): DnsServerPropertyTypes =
             DnsServerPropertyTypes(
                 dohSettingsCtorArg = dohSettings,
@@ -750,7 +749,7 @@ public class DnsSettings2 internal constructor(
 public class FixedInfoW2ksp1 internal constructor(
     public var hostName: ByteArray,
     public var domainName: ByteArray,
-    currentDnsServerCtorArg: MutPtr<IpAddrString>,
+    currentDnsServerCtorArg: MutPtr,
     public var dnsServerList: IpAddrString,
     public var nodeType: UInt,
     public var scopeId: ByteArray,
@@ -758,7 +757,7 @@ public class FixedInfoW2ksp1 internal constructor(
     public var enableProxy: UInt,
     public var enableDns: UInt,
 ) {
-    public var currentDnsServer: MutPtr<IpAddrString> = currentDnsServerCtorArg
+    public var currentDnsServer: MutPtr = currentDnsServerCtorArg
         internal set
 
     public constructor() : this(
@@ -777,7 +776,7 @@ public class FixedInfoW2ksp1 internal constructor(
 
     public operator fun component2(): ByteArray = this.domainName
 
-    public operator fun component3(): MutPtr<IpAddrString> = this.currentDnsServer
+    public operator fun component3(): MutPtr = this.currentDnsServer
 
     public operator fun component4(): IpAddrString = this.dnsServerList
 
@@ -791,7 +790,7 @@ public class FixedInfoW2ksp1 internal constructor(
 
     public operator fun component9(): UInt = this.enableDns
 
-    public fun copy(hostName: ByteArray = this.hostName, domainName: ByteArray = this.domainName, currentDnsServer: MutPtr<IpAddrString> = this.currentDnsServer, dnsServerList: IpAddrString = this.dnsServerList, nodeType: UInt = this.nodeType, scopeId: ByteArray = this.scopeId, enableRouting: UInt = this.enableRouting, enableProxy: UInt = this.enableProxy, enableDns: UInt = this.enableDns): FixedInfoW2ksp1 = FixedInfoW2ksp1(hostName = hostName, domainName = domainName, currentDnsServerCtorArg = currentDnsServer, dnsServerList = dnsServerList, nodeType = nodeType, scopeId = scopeId, enableRouting = enableRouting, enableProxy = enableProxy, enableDns = enableDns)
+    public fun copy(hostName: ByteArray = this.hostName, domainName: ByteArray = this.domainName, currentDnsServer: MutPtr = this.currentDnsServer, dnsServerList: IpAddrString = this.dnsServerList, nodeType: UInt = this.nodeType, scopeId: ByteArray = this.scopeId, enableRouting: UInt = this.enableRouting, enableProxy: UInt = this.enableProxy, enableDns: UInt = this.enableDns): FixedInfoW2ksp1 = FixedInfoW2ksp1(hostName = hostName, domainName = domainName, currentDnsServerCtorArg = currentDnsServer, dnsServerList = dnsServerList, nodeType = nodeType, scopeId = scopeId, enableRouting = enableRouting, enableProxy = enableProxy, enableDns = enableDns)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -838,7 +837,7 @@ public class FixedInfoW2ksp1 internal constructor(
                         ).readNative(addr + 132L).toByteArray(),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<IpAddrString>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 264L),
                         (IpAddrString.typeLayout()).readNative(addr + 272L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 320L),
@@ -861,7 +860,7 @@ public class FixedInfoW2ksp1 internal constructor(
                     ).writeNative(addr + 132L, value.domainName.toList())
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<IpAddrString>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 264L, value.currentDnsServer)
                     (IpAddrString.typeLayout()).writeNative(addr + 272L, value.dnsServerList)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 320L, value.nodeType)
@@ -878,7 +877,7 @@ public class FixedInfoW2ksp1 internal constructor(
         public operator fun invoke(
             hostName: ByteArray = ByteArray(132),
             domainName: ByteArray = ByteArray(132),
-            currentDnsServer: MutPtr<IpAddrString> = MutPtr(0L),
+            currentDnsServer: MutPtr = MutPtr(0L),
             dnsServerList: IpAddrString = IpAddrString(),
             nodeType: UInt = 0u,
             scopeId: ByteArray = ByteArray(260),
@@ -931,10 +930,10 @@ public class IcmpEchoReply internal constructor(
     public var roundTripTime: UInt,
     public var dataSize: UShort,
     public var reserved: UShort,
-    dataCtorArg: MutPtr<CVoid>,
+    dataCtorArg: MutPtr,
     public var options: IpOptionInformation,
 ) {
-    public var data: MutPtr<CVoid> = dataCtorArg
+    public var data: MutPtr = dataCtorArg
         internal set
 
     public constructor() : this(
@@ -957,11 +956,11 @@ public class IcmpEchoReply internal constructor(
 
     public operator fun component5(): UShort = this.reserved
 
-    public operator fun component6(): MutPtr<CVoid> = this.data
+    public operator fun component6(): MutPtr = this.data
 
     public operator fun component7(): IpOptionInformation = this.options
 
-    public fun copy(address: UInt = this.address, status: UInt = this.status, roundTripTime: UInt = this.roundTripTime, dataSize: UShort = this.dataSize, reserved: UShort = this.reserved, data: MutPtr<CVoid> = this.data, options: IpOptionInformation = this.options): IcmpEchoReply = IcmpEchoReply(address = address, status = status, roundTripTime = roundTripTime, dataSize = dataSize, reserved = reserved, dataCtorArg = data, options = options)
+    public fun copy(address: UInt = this.address, status: UInt = this.status, roundTripTime: UInt = this.roundTripTime, dataSize: UShort = this.dataSize, reserved: UShort = this.reserved, data: MutPtr = this.data, options: IpOptionInformation = this.options): IcmpEchoReply = IcmpEchoReply(address = address, status = status, roundTripTime = roundTripTime, dataSize = dataSize, reserved = reserved, dataCtorArg = data, options = options)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -1001,7 +1000,7 @@ public class IcmpEchoReply internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16).readNative(addr + 14L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<CVoid>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 16L),
                         (IpOptionInformation.typeLayout()).readNative(addr + 24L),
                     )
@@ -1013,7 +1012,7 @@ public class IcmpEchoReply internal constructor(
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16).writeNative(addr + 14L, value.reserved)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<CVoid>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 16L, value.data)
                     (IpOptionInformation.typeLayout()).writeNative(addr + 24L, value.options)
                 }
@@ -1025,7 +1024,7 @@ public class IcmpEchoReply internal constructor(
             roundTripTime: UInt = 0u,
             dataSize: UShort = 0u,
             reserved: UShort = 0u,
-            data: MutPtr<CVoid> = MutPtr(0L),
+            data: MutPtr = MutPtr(0L),
             options: IpOptionInformation = IpOptionInformation(),
         ): IcmpEchoReply =
             IcmpEchoReply(
@@ -1046,10 +1045,10 @@ public class IcmpEchoReply32 internal constructor(
     public var roundTripTime: UInt,
     public var dataSize: UShort,
     public var reserved: UShort,
-    dataCtorArg: MutPtr<CVoid>,
+    dataCtorArg: MutPtr,
     public var options: IpOptionInformation32,
 ) {
-    public var data: MutPtr<CVoid> = dataCtorArg
+    public var data: MutPtr = dataCtorArg
         internal set
 
     public constructor() : this(
@@ -1072,11 +1071,11 @@ public class IcmpEchoReply32 internal constructor(
 
     public operator fun component5(): UShort = this.reserved
 
-    public operator fun component6(): MutPtr<CVoid> = this.data
+    public operator fun component6(): MutPtr = this.data
 
     public operator fun component7(): IpOptionInformation32 = this.options
 
-    public fun copy(address: UInt = this.address, status: UInt = this.status, roundTripTime: UInt = this.roundTripTime, dataSize: UShort = this.dataSize, reserved: UShort = this.reserved, data: MutPtr<CVoid> = this.data, options: IpOptionInformation32 = this.options): IcmpEchoReply32 = IcmpEchoReply32(address = address, status = status, roundTripTime = roundTripTime, dataSize = dataSize, reserved = reserved, dataCtorArg = data, options = options)
+    public fun copy(address: UInt = this.address, status: UInt = this.status, roundTripTime: UInt = this.roundTripTime, dataSize: UShort = this.dataSize, reserved: UShort = this.reserved, data: MutPtr = this.data, options: IpOptionInformation32 = this.options): IcmpEchoReply32 = IcmpEchoReply32(address = address, status = status, roundTripTime = roundTripTime, dataSize = dataSize, reserved = reserved, dataCtorArg = data, options = options)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -1116,7 +1115,7 @@ public class IcmpEchoReply32 internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16).readNative(addr + 14L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<CVoid>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 16L),
                         (IpOptionInformation32.typeLayout()).readNative(addr + 24L),
                     )
@@ -1128,7 +1127,7 @@ public class IcmpEchoReply32 internal constructor(
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16).writeNative(addr + 14L, value.reserved)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<CVoid>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 16L, value.data)
                     (IpOptionInformation32.typeLayout()).writeNative(addr + 24L, value.options)
                 }
@@ -1140,7 +1139,7 @@ public class IcmpEchoReply32 internal constructor(
             roundTripTime: UInt = 0u,
             dataSize: UShort = 0u,
             reserved: UShort = 0u,
-            data: MutPtr<CVoid> = MutPtr(0L),
+            data: MutPtr = MutPtr(0L),
             options: IpOptionInformation32 = IpOptionInformation32(),
         ): IcmpEchoReply32 =
             IcmpEchoReply32(
@@ -1336,12 +1335,12 @@ public data class Ipv6AddressEx(
 
 public class IpAdapterAddressesLh internal constructor(
     public var anonymous1: IpAdapterAddressesLh0,
-    nextCtorArg: MutPtr<IpAdapterAddressesLh>,
+    nextCtorArg: MutPtr,
     adapterNameCtorArg: Pstr,
-    firstUnicastAddressCtorArg: MutPtr<IpAdapterUnicastAddressLh>,
-    firstAnycastAddressCtorArg: MutPtr<IpAdapterAnycastAddressXp>,
-    firstMulticastAddressCtorArg: MutPtr<IpAdapterMulticastAddressXp>,
-    firstDnsServerAddressCtorArg: MutPtr<IpAdapterDnsServerAddressXp>,
+    firstUnicastAddressCtorArg: MutPtr,
+    firstAnycastAddressCtorArg: MutPtr,
+    firstMulticastAddressCtorArg: MutPtr,
+    firstDnsServerAddressCtorArg: MutPtr,
     dnsSuffixCtorArg: Pwstr,
     descriptionCtorArg: Pwstr,
     friendlyNameCtorArg: Pwstr,
@@ -1353,11 +1352,11 @@ public class IpAdapterAddressesLh internal constructor(
     public var operStatus: IfOperStatus,
     public var ipv6IfIndex: UInt,
     public var zoneIndices: UIntArray,
-    firstPrefixCtorArg: MutPtr<IpAdapterPrefixXp>,
+    firstPrefixCtorArg: MutPtr,
     public var transmitLinkSpeed: ULong,
     public var receiveLinkSpeed: ULong,
-    firstWinsServerAddressCtorArg: MutPtr<IpAdapterWinsServerAddressLh>,
-    firstGatewayAddressCtorArg: MutPtr<IpAdapterGatewayAddressLh>,
+    firstWinsServerAddressCtorArg: MutPtr,
+    firstGatewayAddressCtorArg: MutPtr,
     public var ipv4Metric: UInt,
     public var ipv6Metric: UInt,
     public var luid: NetLuidLh,
@@ -1370,24 +1369,24 @@ public class IpAdapterAddressesLh internal constructor(
     public var dhcpv6ClientDuid: UByteArray,
     public var dhcpv6ClientDuidLength: UInt,
     public var dhcpv6Iaid: UInt,
-    firstDnsSuffixCtorArg: MutPtr<IpAdapterDnsSuffix>,
+    firstDnsSuffixCtorArg: MutPtr,
 ) {
-    public var next: MutPtr<IpAdapterAddressesLh> = nextCtorArg
+    public var next: MutPtr = nextCtorArg
         internal set
 
     public var adapterName: Pstr = adapterNameCtorArg
         internal set
 
-    public var firstUnicastAddress: MutPtr<IpAdapterUnicastAddressLh> = firstUnicastAddressCtorArg
+    public var firstUnicastAddress: MutPtr = firstUnicastAddressCtorArg
         internal set
 
-    public var firstAnycastAddress: MutPtr<IpAdapterAnycastAddressXp> = firstAnycastAddressCtorArg
+    public var firstAnycastAddress: MutPtr = firstAnycastAddressCtorArg
         internal set
 
-    public var firstMulticastAddress: MutPtr<IpAdapterMulticastAddressXp> = firstMulticastAddressCtorArg
+    public var firstMulticastAddress: MutPtr = firstMulticastAddressCtorArg
         internal set
 
-    public var firstDnsServerAddress: MutPtr<IpAdapterDnsServerAddressXp> = firstDnsServerAddressCtorArg
+    public var firstDnsServerAddress: MutPtr = firstDnsServerAddressCtorArg
         internal set
 
     public var dnsSuffix: Pwstr = dnsSuffixCtorArg
@@ -1399,16 +1398,16 @@ public class IpAdapterAddressesLh internal constructor(
     public var friendlyName: Pwstr = friendlyNameCtorArg
         internal set
 
-    public var firstPrefix: MutPtr<IpAdapterPrefixXp> = firstPrefixCtorArg
+    public var firstPrefix: MutPtr = firstPrefixCtorArg
         internal set
 
-    public var firstWinsServerAddress: MutPtr<IpAdapterWinsServerAddressLh> = firstWinsServerAddressCtorArg
+    public var firstWinsServerAddress: MutPtr = firstWinsServerAddressCtorArg
         internal set
 
-    public var firstGatewayAddress: MutPtr<IpAdapterGatewayAddressLh> = firstGatewayAddressCtorArg
+    public var firstGatewayAddress: MutPtr = firstGatewayAddressCtorArg
         internal set
 
-    public var firstDnsSuffix: MutPtr<IpAdapterDnsSuffix> = firstDnsSuffixCtorArg
+    public var firstDnsSuffix: MutPtr = firstDnsSuffixCtorArg
         internal set
 
     public constructor() : this(
@@ -1453,12 +1452,12 @@ public class IpAdapterAddressesLh internal constructor(
     public companion object {
         public operator fun invoke(
             anonymous1: IpAdapterAddressesLh0 = IpAdapterAddressesLh0(),
-            next: MutPtr<IpAdapterAddressesLh> = MutPtr(0L),
+            next: MutPtr = MutPtr(0L),
             adapterName: Pstr = MutPtr(0L),
-            firstUnicastAddress: MutPtr<IpAdapterUnicastAddressLh> = MutPtr(0L),
-            firstAnycastAddress: MutPtr<IpAdapterAnycastAddressXp> = MutPtr(0L),
-            firstMulticastAddress: MutPtr<IpAdapterMulticastAddressXp> = MutPtr(0L),
-            firstDnsServerAddress: MutPtr<IpAdapterDnsServerAddressXp> = MutPtr(0L),
+            firstUnicastAddress: MutPtr = MutPtr(0L),
+            firstAnycastAddress: MutPtr = MutPtr(0L),
+            firstMulticastAddress: MutPtr = MutPtr(0L),
+            firstDnsServerAddress: MutPtr = MutPtr(0L),
             dnsSuffix: Pwstr = MutPtr(0L),
             description: Pwstr = MutPtr(0L),
             friendlyName: Pwstr = MutPtr(0L),
@@ -1470,11 +1469,11 @@ public class IpAdapterAddressesLh internal constructor(
             operStatus: IfOperStatus = 0,
             ipv6IfIndex: UInt = 0u,
             zoneIndices: UIntArray = UIntArray(16),
-            firstPrefix: MutPtr<IpAdapterPrefixXp> = MutPtr(0L),
+            firstPrefix: MutPtr = MutPtr(0L),
             transmitLinkSpeed: ULong = 0uL,
             receiveLinkSpeed: ULong = 0uL,
-            firstWinsServerAddress: MutPtr<IpAdapterWinsServerAddressLh> = MutPtr(0L),
-            firstGatewayAddress: MutPtr<IpAdapterGatewayAddressLh> = MutPtr(0L),
+            firstWinsServerAddress: MutPtr = MutPtr(0L),
+            firstGatewayAddress: MutPtr = MutPtr(0L),
             ipv4Metric: UInt = 0u,
             ipv6Metric: UInt = 0u,
             luid: NetLuidLh = NetLuidLh(),
@@ -1487,7 +1486,7 @@ public class IpAdapterAddressesLh internal constructor(
             dhcpv6ClientDuid: UByteArray = UByteArray(130),
             dhcpv6ClientDuidLength: UInt = 0u,
             dhcpv6Iaid: UInt = 0u,
-            firstDnsSuffix: MutPtr<IpAdapterDnsSuffix> = MutPtr(0L),
+            firstDnsSuffix: MutPtr = MutPtr(0L),
         ): IpAdapterAddressesLh =
             IpAdapterAddressesLh(
                 anonymous1 = anonymous1,
@@ -1583,12 +1582,12 @@ public data class IpAdapterAddressesLh10(
 
 public class IpAdapterAddressesXp internal constructor(
     public var anonymous: IpAdapterAddressesXp0,
-    nextCtorArg: MutPtr<IpAdapterAddressesXp>,
+    nextCtorArg: MutPtr,
     adapterNameCtorArg: Pstr,
-    firstUnicastAddressCtorArg: MutPtr<IpAdapterUnicastAddressXp>,
-    firstAnycastAddressCtorArg: MutPtr<IpAdapterAnycastAddressXp>,
-    firstMulticastAddressCtorArg: MutPtr<IpAdapterMulticastAddressXp>,
-    firstDnsServerAddressCtorArg: MutPtr<IpAdapterDnsServerAddressXp>,
+    firstUnicastAddressCtorArg: MutPtr,
+    firstAnycastAddressCtorArg: MutPtr,
+    firstMulticastAddressCtorArg: MutPtr,
+    firstDnsServerAddressCtorArg: MutPtr,
     dnsSuffixCtorArg: Pwstr,
     descriptionCtorArg: Pwstr,
     friendlyNameCtorArg: Pwstr,
@@ -1600,24 +1599,24 @@ public class IpAdapterAddressesXp internal constructor(
     public var operStatus: IfOperStatus,
     public var ipv6IfIndex: UInt,
     public var zoneIndices: UIntArray,
-    firstPrefixCtorArg: MutPtr<IpAdapterPrefixXp>,
+    firstPrefixCtorArg: MutPtr,
 ) {
-    public var next: MutPtr<IpAdapterAddressesXp> = nextCtorArg
+    public var next: MutPtr = nextCtorArg
         internal set
 
     public var adapterName: Pstr = adapterNameCtorArg
         internal set
 
-    public var firstUnicastAddress: MutPtr<IpAdapterUnicastAddressXp> = firstUnicastAddressCtorArg
+    public var firstUnicastAddress: MutPtr = firstUnicastAddressCtorArg
         internal set
 
-    public var firstAnycastAddress: MutPtr<IpAdapterAnycastAddressXp> = firstAnycastAddressCtorArg
+    public var firstAnycastAddress: MutPtr = firstAnycastAddressCtorArg
         internal set
 
-    public var firstMulticastAddress: MutPtr<IpAdapterMulticastAddressXp> = firstMulticastAddressCtorArg
+    public var firstMulticastAddress: MutPtr = firstMulticastAddressCtorArg
         internal set
 
-    public var firstDnsServerAddress: MutPtr<IpAdapterDnsServerAddressXp> = firstDnsServerAddressCtorArg
+    public var firstDnsServerAddress: MutPtr = firstDnsServerAddressCtorArg
         internal set
 
     public var dnsSuffix: Pwstr = dnsSuffixCtorArg
@@ -1629,7 +1628,7 @@ public class IpAdapterAddressesXp internal constructor(
     public var friendlyName: Pwstr = friendlyNameCtorArg
         internal set
 
-    public var firstPrefix: MutPtr<IpAdapterPrefixXp> = firstPrefixCtorArg
+    public var firstPrefix: MutPtr = firstPrefixCtorArg
         internal set
 
     public constructor() : this(
@@ -1657,12 +1656,12 @@ public class IpAdapterAddressesXp internal constructor(
     public companion object {
         public operator fun invoke(
             anonymous: IpAdapterAddressesXp0 = IpAdapterAddressesXp0(),
-            next: MutPtr<IpAdapterAddressesXp> = MutPtr(0L),
+            next: MutPtr = MutPtr(0L),
             adapterName: Pstr = MutPtr(0L),
-            firstUnicastAddress: MutPtr<IpAdapterUnicastAddressXp> = MutPtr(0L),
-            firstAnycastAddress: MutPtr<IpAdapterAnycastAddressXp> = MutPtr(0L),
-            firstMulticastAddress: MutPtr<IpAdapterMulticastAddressXp> = MutPtr(0L),
-            firstDnsServerAddress: MutPtr<IpAdapterDnsServerAddressXp> = MutPtr(0L),
+            firstUnicastAddress: MutPtr = MutPtr(0L),
+            firstAnycastAddress: MutPtr = MutPtr(0L),
+            firstMulticastAddress: MutPtr = MutPtr(0L),
+            firstDnsServerAddress: MutPtr = MutPtr(0L),
             dnsSuffix: Pwstr = MutPtr(0L),
             description: Pwstr = MutPtr(0L),
             friendlyName: Pwstr = MutPtr(0L),
@@ -1674,7 +1673,7 @@ public class IpAdapterAddressesXp internal constructor(
             operStatus: IfOperStatus = 0,
             ipv6IfIndex: UInt = 0u,
             zoneIndices: UIntArray = UIntArray(16),
-            firstPrefix: MutPtr<IpAdapterPrefixXp> = MutPtr(0L),
+            firstPrefix: MutPtr = MutPtr(0L),
         ): IpAdapterAddressesXp =
             IpAdapterAddressesXp(
                 anonymous = anonymous,
@@ -1729,10 +1728,10 @@ public data class IpAdapterAddressesXp00(
 
 public class IpAdapterAnycastAddressXp internal constructor(
     public var anonymous: IpAdapterAnycastAddressXp0,
-    nextCtorArg: MutPtr<IpAdapterAnycastAddressXp>,
+    nextCtorArg: MutPtr,
     public var address: SocketAddress,
 ) {
-    public var next: MutPtr<IpAdapterAnycastAddressXp> = nextCtorArg
+    public var next: MutPtr = nextCtorArg
         internal set
 
     public constructor() : this(
@@ -1743,11 +1742,11 @@ public class IpAdapterAnycastAddressXp internal constructor(
 
     public operator fun component1(): IpAdapterAnycastAddressXp0 = this.anonymous
 
-    public operator fun component2(): MutPtr<IpAdapterAnycastAddressXp> = this.next
+    public operator fun component2(): MutPtr = this.next
 
     public operator fun component3(): SocketAddress = this.address
 
-    public fun copy(anonymous: IpAdapterAnycastAddressXp0 = this.anonymous, next: MutPtr<IpAdapterAnycastAddressXp> = this.next, address: SocketAddress = this.address): IpAdapterAnycastAddressXp = IpAdapterAnycastAddressXp(anonymous = anonymous, nextCtorArg = next, address = address)
+    public fun copy(anonymous: IpAdapterAnycastAddressXp0 = this.anonymous, next: MutPtr = this.next, address: SocketAddress = this.address): IpAdapterAnycastAddressXp = IpAdapterAnycastAddressXp(anonymous = anonymous, nextCtorArg = next, address = address)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -1768,7 +1767,7 @@ public class IpAdapterAnycastAddressXp internal constructor(
     public companion object {
         public operator fun invoke(
             anonymous: IpAdapterAnycastAddressXp0 = IpAdapterAnycastAddressXp0(),
-            next: MutPtr<IpAdapterAnycastAddressXp> = MutPtr(0L),
+            next: MutPtr = MutPtr(0L),
             address: SocketAddress = SocketAddress(),
         ): IpAdapterAnycastAddressXp =
             IpAdapterAnycastAddressXp(
@@ -1808,10 +1807,10 @@ public data class IpAdapterAnycastAddressXp00(
 
 public class IpAdapterDnsServerAddressXp internal constructor(
     public var anonymous: IpAdapterDnsServerAddressXp0,
-    nextCtorArg: MutPtr<IpAdapterDnsServerAddressXp>,
+    nextCtorArg: MutPtr,
     public var address: SocketAddress,
 ) {
-    public var next: MutPtr<IpAdapterDnsServerAddressXp> = nextCtorArg
+    public var next: MutPtr = nextCtorArg
         internal set
 
     public constructor() : this(
@@ -1822,11 +1821,11 @@ public class IpAdapterDnsServerAddressXp internal constructor(
 
     public operator fun component1(): IpAdapterDnsServerAddressXp0 = this.anonymous
 
-    public operator fun component2(): MutPtr<IpAdapterDnsServerAddressXp> = this.next
+    public operator fun component2(): MutPtr = this.next
 
     public operator fun component3(): SocketAddress = this.address
 
-    public fun copy(anonymous: IpAdapterDnsServerAddressXp0 = this.anonymous, next: MutPtr<IpAdapterDnsServerAddressXp> = this.next, address: SocketAddress = this.address): IpAdapterDnsServerAddressXp = IpAdapterDnsServerAddressXp(anonymous = anonymous, nextCtorArg = next, address = address)
+    public fun copy(anonymous: IpAdapterDnsServerAddressXp0 = this.anonymous, next: MutPtr = this.next, address: SocketAddress = this.address): IpAdapterDnsServerAddressXp = IpAdapterDnsServerAddressXp(anonymous = anonymous, nextCtorArg = next, address = address)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -1847,7 +1846,7 @@ public class IpAdapterDnsServerAddressXp internal constructor(
     public companion object {
         public operator fun invoke(
             anonymous: IpAdapterDnsServerAddressXp0 = IpAdapterDnsServerAddressXp0(),
-            next: MutPtr<IpAdapterDnsServerAddressXp> = MutPtr(0L),
+            next: MutPtr = MutPtr(0L),
             address: SocketAddress = SocketAddress(),
         ): IpAdapterDnsServerAddressXp =
             IpAdapterDnsServerAddressXp(
@@ -1886,10 +1885,10 @@ public data class IpAdapterDnsServerAddressXp00(
 }
 
 public class IpAdapterDnsSuffix internal constructor(
-    nextCtorArg: MutPtr<IpAdapterDnsSuffix>,
+    nextCtorArg: MutPtr,
     public var string: UShortArray,
 ) {
-    public var next: MutPtr<IpAdapterDnsSuffix> = nextCtorArg
+    public var next: MutPtr = nextCtorArg
         internal set
 
     public constructor() : this(
@@ -1897,11 +1896,11 @@ public class IpAdapterDnsSuffix internal constructor(
         string = UShortArray(256),
     )
 
-    public operator fun component1(): MutPtr<IpAdapterDnsSuffix> = this.next
+    public operator fun component1(): MutPtr = this.next
 
     public operator fun component2(): UShortArray = this.string
 
-    public fun copy(next: MutPtr<IpAdapterDnsSuffix> = this.next, string: UShortArray = this.string): IpAdapterDnsSuffix = IpAdapterDnsSuffix(nextCtorArg = next, string = string)
+    public fun copy(next: MutPtr = this.next, string: UShortArray = this.string): IpAdapterDnsSuffix = IpAdapterDnsSuffix(nextCtorArg = next, string = string)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -1926,7 +1925,7 @@ public class IpAdapterDnsSuffix internal constructor(
                     IpAdapterDnsSuffix(
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<IpAdapterDnsSuffix>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem
@@ -1936,7 +1935,7 @@ public class IpAdapterDnsSuffix internal constructor(
                 override fun writeNative(addr: Long, value: IpAdapterDnsSuffix) {
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<IpAdapterDnsSuffix>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr, value.next)
                     (
                         io.github.kotlinmania.rustlang.core.mem
@@ -1946,7 +1945,7 @@ public class IpAdapterDnsSuffix internal constructor(
             }
 
         public operator fun invoke(
-            next: MutPtr<IpAdapterDnsSuffix> = MutPtr(0L),
+            next: MutPtr = MutPtr(0L),
             string: UShortArray = UShortArray(256),
         ): IpAdapterDnsSuffix =
             IpAdapterDnsSuffix(
@@ -1958,10 +1957,10 @@ public class IpAdapterDnsSuffix internal constructor(
 
 public class IpAdapterGatewayAddressLh internal constructor(
     public var anonymous: IpAdapterGatewayAddressLh0,
-    nextCtorArg: MutPtr<IpAdapterGatewayAddressLh>,
+    nextCtorArg: MutPtr,
     public var address: SocketAddress,
 ) {
-    public var next: MutPtr<IpAdapterGatewayAddressLh> = nextCtorArg
+    public var next: MutPtr = nextCtorArg
         internal set
 
     public constructor() : this(
@@ -1972,11 +1971,11 @@ public class IpAdapterGatewayAddressLh internal constructor(
 
     public operator fun component1(): IpAdapterGatewayAddressLh0 = this.anonymous
 
-    public operator fun component2(): MutPtr<IpAdapterGatewayAddressLh> = this.next
+    public operator fun component2(): MutPtr = this.next
 
     public operator fun component3(): SocketAddress = this.address
 
-    public fun copy(anonymous: IpAdapterGatewayAddressLh0 = this.anonymous, next: MutPtr<IpAdapterGatewayAddressLh> = this.next, address: SocketAddress = this.address): IpAdapterGatewayAddressLh = IpAdapterGatewayAddressLh(anonymous = anonymous, nextCtorArg = next, address = address)
+    public fun copy(anonymous: IpAdapterGatewayAddressLh0 = this.anonymous, next: MutPtr = this.next, address: SocketAddress = this.address): IpAdapterGatewayAddressLh = IpAdapterGatewayAddressLh(anonymous = anonymous, nextCtorArg = next, address = address)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -1997,7 +1996,7 @@ public class IpAdapterGatewayAddressLh internal constructor(
     public companion object {
         public operator fun invoke(
             anonymous: IpAdapterGatewayAddressLh0 = IpAdapterGatewayAddressLh0(),
-            next: MutPtr<IpAdapterGatewayAddressLh> = MutPtr(0L),
+            next: MutPtr = MutPtr(0L),
             address: SocketAddress = SocketAddress(),
         ): IpAdapterGatewayAddressLh =
             IpAdapterGatewayAddressLh(
@@ -2078,7 +2077,7 @@ public data class IpAdapterIndexMap(
 }
 
 public class IpAdapterInfo internal constructor(
-    nextCtorArg: MutPtr<IpAdapterInfo>,
+    nextCtorArg: MutPtr,
     public var comboIndex: UInt,
     public var adapterName: ByteArray,
     public var description: ByteArray,
@@ -2087,7 +2086,7 @@ public class IpAdapterInfo internal constructor(
     public var index: UInt,
     public var type: UInt,
     public var dhcpEnabled: UInt,
-    currentIpAddressCtorArg: MutPtr<IpAddrString>,
+    currentIpAddressCtorArg: MutPtr,
     public var ipAddressList: IpAddrString,
     public var gatewayList: IpAddrString,
     public var dhcpServer: IpAddrString,
@@ -2097,10 +2096,10 @@ public class IpAdapterInfo internal constructor(
     public var leaseObtained: Long,
     public var leaseExpires: Long,
 ) {
-    public var next: MutPtr<IpAdapterInfo> = nextCtorArg
+    public var next: MutPtr = nextCtorArg
         internal set
 
-    public var currentIpAddress: MutPtr<IpAddrString> = currentIpAddressCtorArg
+    public var currentIpAddress: MutPtr = currentIpAddressCtorArg
         internal set
 
     public constructor() : this(
@@ -2133,7 +2132,7 @@ public class IpAdapterInfo internal constructor(
                     IpAdapterInfo(
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<IpAdapterInfo>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 8L),
                         (
@@ -2154,7 +2153,7 @@ public class IpAdapterInfo internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 424L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<IpAddrString>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 432L),
                         (IpAddrString.typeLayout()).readNative(addr + 440L),
                         (IpAddrString.typeLayout()).readNative(addr + 488L),
@@ -2168,7 +2167,7 @@ public class IpAdapterInfo internal constructor(
                 override fun writeNative(addr: Long, value: IpAdapterInfo) {
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<IpAdapterInfo>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr, value.next)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 8L, value.comboIndex)
                     (
@@ -2189,7 +2188,7 @@ public class IpAdapterInfo internal constructor(
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 424L, value.dhcpEnabled)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<IpAddrString>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 432L, value.currentIpAddress)
                     (IpAddrString.typeLayout()).writeNative(addr + 440L, value.ipAddressList)
                     (IpAddrString.typeLayout()).writeNative(addr + 488L, value.gatewayList)
@@ -2203,7 +2202,7 @@ public class IpAdapterInfo internal constructor(
             }
 
         public operator fun invoke(
-            next: MutPtr<IpAdapterInfo> = MutPtr(0L),
+            next: MutPtr = MutPtr(0L),
             comboIndex: UInt = 0u,
             adapterName: ByteArray = ByteArray(260),
             description: ByteArray = ByteArray(132),
@@ -2212,7 +2211,7 @@ public class IpAdapterInfo internal constructor(
             index: UInt = 0u,
             type: UInt = 0u,
             dhcpEnabled: UInt = 0u,
-            currentIpAddress: MutPtr<IpAddrString> = MutPtr(0L),
+            currentIpAddress: MutPtr = MutPtr(0L),
             ipAddressList: IpAddrString = IpAddrString(),
             gatewayList: IpAddrString = IpAddrString(),
             dhcpServer: IpAddrString = IpAddrString(),
@@ -2247,10 +2246,10 @@ public class IpAdapterInfo internal constructor(
 
 public class IpAdapterMulticastAddressXp internal constructor(
     public var anonymous: IpAdapterMulticastAddressXp0,
-    nextCtorArg: MutPtr<IpAdapterMulticastAddressXp>,
+    nextCtorArg: MutPtr,
     public var address: SocketAddress,
 ) {
-    public var next: MutPtr<IpAdapterMulticastAddressXp> = nextCtorArg
+    public var next: MutPtr = nextCtorArg
         internal set
 
     public constructor() : this(
@@ -2261,11 +2260,11 @@ public class IpAdapterMulticastAddressXp internal constructor(
 
     public operator fun component1(): IpAdapterMulticastAddressXp0 = this.anonymous
 
-    public operator fun component2(): MutPtr<IpAdapterMulticastAddressXp> = this.next
+    public operator fun component2(): MutPtr = this.next
 
     public operator fun component3(): SocketAddress = this.address
 
-    public fun copy(anonymous: IpAdapterMulticastAddressXp0 = this.anonymous, next: MutPtr<IpAdapterMulticastAddressXp> = this.next, address: SocketAddress = this.address): IpAdapterMulticastAddressXp = IpAdapterMulticastAddressXp(anonymous = anonymous, nextCtorArg = next, address = address)
+    public fun copy(anonymous: IpAdapterMulticastAddressXp0 = this.anonymous, next: MutPtr = this.next, address: SocketAddress = this.address): IpAdapterMulticastAddressXp = IpAdapterMulticastAddressXp(anonymous = anonymous, nextCtorArg = next, address = address)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -2286,7 +2285,7 @@ public class IpAdapterMulticastAddressXp internal constructor(
     public companion object {
         public operator fun invoke(
             anonymous: IpAdapterMulticastAddressXp0 = IpAdapterMulticastAddressXp0(),
-            next: MutPtr<IpAdapterMulticastAddressXp> = MutPtr(0L),
+            next: MutPtr = MutPtr(0L),
             address: SocketAddress = SocketAddress(),
         ): IpAdapterMulticastAddressXp =
             IpAdapterMulticastAddressXp(
@@ -2368,11 +2367,11 @@ public data class IpAdapterOrderMap(
 
 public class IpAdapterPrefixXp internal constructor(
     public var anonymous: IpAdapterPrefixXp0,
-    nextCtorArg: MutPtr<IpAdapterPrefixXp>,
+    nextCtorArg: MutPtr,
     public var address: SocketAddress,
     public var prefixLength: UInt,
 ) {
-    public var next: MutPtr<IpAdapterPrefixXp> = nextCtorArg
+    public var next: MutPtr = nextCtorArg
         internal set
 
     public constructor() : this(
@@ -2384,13 +2383,13 @@ public class IpAdapterPrefixXp internal constructor(
 
     public operator fun component1(): IpAdapterPrefixXp0 = this.anonymous
 
-    public operator fun component2(): MutPtr<IpAdapterPrefixXp> = this.next
+    public operator fun component2(): MutPtr = this.next
 
     public operator fun component3(): SocketAddress = this.address
 
     public operator fun component4(): UInt = this.prefixLength
 
-    public fun copy(anonymous: IpAdapterPrefixXp0 = this.anonymous, next: MutPtr<IpAdapterPrefixXp> = this.next, address: SocketAddress = this.address, prefixLength: UInt = this.prefixLength): IpAdapterPrefixXp = IpAdapterPrefixXp(anonymous = anonymous, nextCtorArg = next, address = address, prefixLength = prefixLength)
+    public fun copy(anonymous: IpAdapterPrefixXp0 = this.anonymous, next: MutPtr = this.next, address: SocketAddress = this.address, prefixLength: UInt = this.prefixLength): IpAdapterPrefixXp = IpAdapterPrefixXp(anonymous = anonymous, nextCtorArg = next, address = address, prefixLength = prefixLength)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -2413,7 +2412,7 @@ public class IpAdapterPrefixXp internal constructor(
     public companion object {
         public operator fun invoke(
             anonymous: IpAdapterPrefixXp0 = IpAdapterPrefixXp0(),
-            next: MutPtr<IpAdapterPrefixXp> = MutPtr(0L),
+            next: MutPtr = MutPtr(0L),
             address: SocketAddress = SocketAddress(),
             prefixLength: UInt = 0u,
         ): IpAdapterPrefixXp =
@@ -2455,7 +2454,7 @@ public data class IpAdapterPrefixXp00(
 
 public class IpAdapterUnicastAddressLh internal constructor(
     public var anonymous: IpAdapterUnicastAddressLh0,
-    nextCtorArg: MutPtr<IpAdapterUnicastAddressLh>,
+    nextCtorArg: MutPtr,
     public var address: SocketAddress,
     public var prefixOrigin: NlPrefixOrigin,
     public var suffixOrigin: NlSuffixOrigin,
@@ -2465,7 +2464,7 @@ public class IpAdapterUnicastAddressLh internal constructor(
     public var leaseLifetime: UInt,
     public var onLinkPrefixLength: UByte,
 ) {
-    public var next: MutPtr<IpAdapterUnicastAddressLh> = nextCtorArg
+    public var next: MutPtr = nextCtorArg
         internal set
 
     public constructor() : this(
@@ -2483,7 +2482,7 @@ public class IpAdapterUnicastAddressLh internal constructor(
 
     public operator fun component1(): IpAdapterUnicastAddressLh0 = this.anonymous
 
-    public operator fun component2(): MutPtr<IpAdapterUnicastAddressLh> = this.next
+    public operator fun component2(): MutPtr = this.next
 
     public operator fun component3(): SocketAddress = this.address
 
@@ -2501,7 +2500,7 @@ public class IpAdapterUnicastAddressLh internal constructor(
 
     public operator fun component10(): UByte = this.onLinkPrefixLength
 
-    public fun copy(anonymous: IpAdapterUnicastAddressLh0 = this.anonymous, next: MutPtr<IpAdapterUnicastAddressLh> = this.next, address: SocketAddress = this.address, prefixOrigin: NlPrefixOrigin = this.prefixOrigin, suffixOrigin: NlSuffixOrigin = this.suffixOrigin, dadState: NlDadState = this.dadState, validLifetime: UInt = this.validLifetime, preferredLifetime: UInt = this.preferredLifetime, leaseLifetime: UInt = this.leaseLifetime, onLinkPrefixLength: UByte = this.onLinkPrefixLength): IpAdapterUnicastAddressLh = IpAdapterUnicastAddressLh(anonymous = anonymous, nextCtorArg = next, address = address, prefixOrigin = prefixOrigin, suffixOrigin = suffixOrigin, dadState = dadState, validLifetime = validLifetime, preferredLifetime = preferredLifetime, leaseLifetime = leaseLifetime, onLinkPrefixLength = onLinkPrefixLength)
+    public fun copy(anonymous: IpAdapterUnicastAddressLh0 = this.anonymous, next: MutPtr = this.next, address: SocketAddress = this.address, prefixOrigin: NlPrefixOrigin = this.prefixOrigin, suffixOrigin: NlSuffixOrigin = this.suffixOrigin, dadState: NlDadState = this.dadState, validLifetime: UInt = this.validLifetime, preferredLifetime: UInt = this.preferredLifetime, leaseLifetime: UInt = this.leaseLifetime, onLinkPrefixLength: UByte = this.onLinkPrefixLength): IpAdapterUnicastAddressLh = IpAdapterUnicastAddressLh(anonymous = anonymous, nextCtorArg = next, address = address, prefixOrigin = prefixOrigin, suffixOrigin = suffixOrigin, dadState = dadState, validLifetime = validLifetime, preferredLifetime = preferredLifetime, leaseLifetime = leaseLifetime, onLinkPrefixLength = onLinkPrefixLength)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -2536,7 +2535,7 @@ public class IpAdapterUnicastAddressLh internal constructor(
     public companion object {
         public operator fun invoke(
             anonymous: IpAdapterUnicastAddressLh0 = IpAdapterUnicastAddressLh0(),
-            next: MutPtr<IpAdapterUnicastAddressLh> = MutPtr(0L),
+            next: MutPtr = MutPtr(0L),
             address: SocketAddress = SocketAddress(),
             prefixOrigin: NlPrefixOrigin = 0,
             suffixOrigin: NlSuffixOrigin = 0,
@@ -2590,7 +2589,7 @@ public data class IpAdapterUnicastAddressLh00(
 
 public class IpAdapterUnicastAddressXp internal constructor(
     public var anonymous: IpAdapterUnicastAddressXp0,
-    nextCtorArg: MutPtr<IpAdapterUnicastAddressXp>,
+    nextCtorArg: MutPtr,
     public var address: SocketAddress,
     public var prefixOrigin: NlPrefixOrigin,
     public var suffixOrigin: NlSuffixOrigin,
@@ -2599,7 +2598,7 @@ public class IpAdapterUnicastAddressXp internal constructor(
     public var preferredLifetime: UInt,
     public var leaseLifetime: UInt,
 ) {
-    public var next: MutPtr<IpAdapterUnicastAddressXp> = nextCtorArg
+    public var next: MutPtr = nextCtorArg
         internal set
 
     public constructor() : this(
@@ -2616,7 +2615,7 @@ public class IpAdapterUnicastAddressXp internal constructor(
 
     public operator fun component1(): IpAdapterUnicastAddressXp0 = this.anonymous
 
-    public operator fun component2(): MutPtr<IpAdapterUnicastAddressXp> = this.next
+    public operator fun component2(): MutPtr = this.next
 
     public operator fun component3(): SocketAddress = this.address
 
@@ -2632,7 +2631,7 @@ public class IpAdapterUnicastAddressXp internal constructor(
 
     public operator fun component9(): UInt = this.leaseLifetime
 
-    public fun copy(anonymous: IpAdapterUnicastAddressXp0 = this.anonymous, next: MutPtr<IpAdapterUnicastAddressXp> = this.next, address: SocketAddress = this.address, prefixOrigin: NlPrefixOrigin = this.prefixOrigin, suffixOrigin: NlSuffixOrigin = this.suffixOrigin, dadState: NlDadState = this.dadState, validLifetime: UInt = this.validLifetime, preferredLifetime: UInt = this.preferredLifetime, leaseLifetime: UInt = this.leaseLifetime): IpAdapterUnicastAddressXp = IpAdapterUnicastAddressXp(anonymous = anonymous, nextCtorArg = next, address = address, prefixOrigin = prefixOrigin, suffixOrigin = suffixOrigin, dadState = dadState, validLifetime = validLifetime, preferredLifetime = preferredLifetime, leaseLifetime = leaseLifetime)
+    public fun copy(anonymous: IpAdapterUnicastAddressXp0 = this.anonymous, next: MutPtr = this.next, address: SocketAddress = this.address, prefixOrigin: NlPrefixOrigin = this.prefixOrigin, suffixOrigin: NlSuffixOrigin = this.suffixOrigin, dadState: NlDadState = this.dadState, validLifetime: UInt = this.validLifetime, preferredLifetime: UInt = this.preferredLifetime, leaseLifetime: UInt = this.leaseLifetime): IpAdapterUnicastAddressXp = IpAdapterUnicastAddressXp(anonymous = anonymous, nextCtorArg = next, address = address, prefixOrigin = prefixOrigin, suffixOrigin = suffixOrigin, dadState = dadState, validLifetime = validLifetime, preferredLifetime = preferredLifetime, leaseLifetime = leaseLifetime)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -2665,7 +2664,7 @@ public class IpAdapterUnicastAddressXp internal constructor(
     public companion object {
         public operator fun invoke(
             anonymous: IpAdapterUnicastAddressXp0 = IpAdapterUnicastAddressXp0(),
-            next: MutPtr<IpAdapterUnicastAddressXp> = MutPtr(0L),
+            next: MutPtr = MutPtr(0L),
             address: SocketAddress = SocketAddress(),
             prefixOrigin: NlPrefixOrigin = 0,
             suffixOrigin: NlSuffixOrigin = 0,
@@ -2717,10 +2716,10 @@ public data class IpAdapterUnicastAddressXp00(
 
 public class IpAdapterWinsServerAddressLh internal constructor(
     public var anonymous: IpAdapterWinsServerAddressLh0,
-    nextCtorArg: MutPtr<IpAdapterWinsServerAddressLh>,
+    nextCtorArg: MutPtr,
     public var address: SocketAddress,
 ) {
-    public var next: MutPtr<IpAdapterWinsServerAddressLh> = nextCtorArg
+    public var next: MutPtr = nextCtorArg
         internal set
 
     public constructor() : this(
@@ -2731,11 +2730,11 @@ public class IpAdapterWinsServerAddressLh internal constructor(
 
     public operator fun component1(): IpAdapterWinsServerAddressLh0 = this.anonymous
 
-    public operator fun component2(): MutPtr<IpAdapterWinsServerAddressLh> = this.next
+    public operator fun component2(): MutPtr = this.next
 
     public operator fun component3(): SocketAddress = this.address
 
-    public fun copy(anonymous: IpAdapterWinsServerAddressLh0 = this.anonymous, next: MutPtr<IpAdapterWinsServerAddressLh> = this.next, address: SocketAddress = this.address): IpAdapterWinsServerAddressLh = IpAdapterWinsServerAddressLh(anonymous = anonymous, nextCtorArg = next, address = address)
+    public fun copy(anonymous: IpAdapterWinsServerAddressLh0 = this.anonymous, next: MutPtr = this.next, address: SocketAddress = this.address): IpAdapterWinsServerAddressLh = IpAdapterWinsServerAddressLh(anonymous = anonymous, nextCtorArg = next, address = address)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -2756,7 +2755,7 @@ public class IpAdapterWinsServerAddressLh internal constructor(
     public companion object {
         public operator fun invoke(
             anonymous: IpAdapterWinsServerAddressLh0 = IpAdapterWinsServerAddressLh0(),
-            next: MutPtr<IpAdapterWinsServerAddressLh> = MutPtr(0L),
+            next: MutPtr = MutPtr(0L),
             address: SocketAddress = SocketAddress(),
         ): IpAdapterWinsServerAddressLh =
             IpAdapterWinsServerAddressLh(
@@ -2834,12 +2833,12 @@ public data class IpAddressString(
 }
 
 public class IpAddrString internal constructor(
-    nextCtorArg: MutPtr<IpAddrString>,
+    nextCtorArg: MutPtr,
     public var ipAddress: IpAddressString,
     public var ipMask: IpAddressString,
     public var context: UInt,
 ) {
-    public var next: MutPtr<IpAddrString> = nextCtorArg
+    public var next: MutPtr = nextCtorArg
         internal set
 
     public constructor() : this(
@@ -2849,7 +2848,7 @@ public class IpAddrString internal constructor(
         context = 0u,
     )
 
-    public operator fun component1(): MutPtr<IpAddrString> = this.next
+    public operator fun component1(): MutPtr = this.next
 
     public operator fun component2(): IpAddressString = this.ipAddress
 
@@ -2857,7 +2856,7 @@ public class IpAddrString internal constructor(
 
     public operator fun component4(): UInt = this.context
 
-    public fun copy(next: MutPtr<IpAddrString> = this.next, ipAddress: IpAddressString = this.ipAddress, ipMask: IpAddressString = this.ipMask, context: UInt = this.context): IpAddrString = IpAddrString(nextCtorArg = next, ipAddress = ipAddress, ipMask = ipMask, context = context)
+    public fun copy(next: MutPtr = this.next, ipAddress: IpAddressString = this.ipAddress, ipMask: IpAddressString = this.ipMask, context: UInt = this.context): IpAddrString = IpAddrString(nextCtorArg = next, ipAddress = ipAddress, ipMask = ipMask, context = context)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -2886,7 +2885,7 @@ public class IpAddrString internal constructor(
                     IpAddrString(
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<IpAddrString>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr),
                         (IpAddressString.typeLayout()).readNative(addr + 8L),
                         (IpAddressString.typeLayout()).readNative(addr + 24L),
@@ -2895,7 +2894,7 @@ public class IpAddrString internal constructor(
                 override fun writeNative(addr: Long, value: IpAddrString) {
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<IpAddrString>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr, value.next)
                     (IpAddressString.typeLayout()).writeNative(addr + 8L, value.ipAddress)
                     (IpAddressString.typeLayout()).writeNative(addr + 24L, value.ipMask)
@@ -2904,7 +2903,7 @@ public class IpAddrString internal constructor(
             }
 
         public operator fun invoke(
-            next: MutPtr<IpAddrString> = MutPtr(0L),
+            next: MutPtr = MutPtr(0L),
             ipAddress: IpAddressString = IpAddressString(),
             ipMask: IpAddressString = IpAddressString(),
             context: UInt = 0u,
@@ -2988,9 +2987,9 @@ public class IpOptionInformation internal constructor(
     public var tos: UByte,
     public var flags: UByte,
     public var optionsSize: UByte,
-    optionsDataCtorArg: MutPtr<UByte>,
+    optionsDataCtorArg: MutPtr,
 ) {
-    public var optionsData: MutPtr<UByte> = optionsDataCtorArg
+    public var optionsData: MutPtr = optionsDataCtorArg
         internal set
 
     public constructor() : this(
@@ -3009,9 +3008,9 @@ public class IpOptionInformation internal constructor(
 
     public operator fun component4(): UByte = this.optionsSize
 
-    public operator fun component5(): MutPtr<UByte> = this.optionsData
+    public operator fun component5(): MutPtr = this.optionsData
 
-    public fun copy(ttl: UByte = this.ttl, tos: UByte = this.tos, flags: UByte = this.flags, optionsSize: UByte = this.optionsSize, optionsData: MutPtr<UByte> = this.optionsData): IpOptionInformation = IpOptionInformation(ttl = ttl, tos = tos, flags = flags, optionsSize = optionsSize, optionsDataCtorArg = optionsData)
+    public fun copy(ttl: UByte = this.ttl, tos: UByte = this.tos, flags: UByte = this.flags, optionsSize: UByte = this.optionsSize, optionsData: MutPtr = this.optionsData): IpOptionInformation = IpOptionInformation(ttl = ttl, tos = tos, flags = flags, optionsSize = optionsSize, optionsDataCtorArg = optionsData)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -3046,7 +3045,7 @@ public class IpOptionInformation internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8).readNative(addr + 3L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<UByte>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                     )
                 override fun writeNative(addr: Long, value: IpOptionInformation) {
@@ -3056,7 +3055,7 @@ public class IpOptionInformation internal constructor(
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8).writeNative(addr + 3L, value.optionsSize)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<UByte>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.optionsData)
                 }
             }
@@ -3066,7 +3065,7 @@ public class IpOptionInformation internal constructor(
             tos: UByte = 0u,
             flags: UByte = 0u,
             optionsSize: UByte = 0u,
-            optionsData: MutPtr<UByte> = MutPtr(0L),
+            optionsData: MutPtr = MutPtr(0L),
         ): IpOptionInformation =
             IpOptionInformation(
                 ttl = ttl,
@@ -3083,9 +3082,9 @@ public class IpOptionInformation32 internal constructor(
     public var tos: UByte,
     public var flags: UByte,
     public var optionsSize: UByte,
-    optionsDataCtorArg: MutPtr<UByte>,
+    optionsDataCtorArg: MutPtr,
 ) {
-    public var optionsData: MutPtr<UByte> = optionsDataCtorArg
+    public var optionsData: MutPtr = optionsDataCtorArg
         internal set
 
     public constructor() : this(
@@ -3104,9 +3103,9 @@ public class IpOptionInformation32 internal constructor(
 
     public operator fun component4(): UByte = this.optionsSize
 
-    public operator fun component5(): MutPtr<UByte> = this.optionsData
+    public operator fun component5(): MutPtr = this.optionsData
 
-    public fun copy(ttl: UByte = this.ttl, tos: UByte = this.tos, flags: UByte = this.flags, optionsSize: UByte = this.optionsSize, optionsData: MutPtr<UByte> = this.optionsData): IpOptionInformation32 = IpOptionInformation32(ttl = ttl, tos = tos, flags = flags, optionsSize = optionsSize, optionsDataCtorArg = optionsData)
+    public fun copy(ttl: UByte = this.ttl, tos: UByte = this.tos, flags: UByte = this.flags, optionsSize: UByte = this.optionsSize, optionsData: MutPtr = this.optionsData): IpOptionInformation32 = IpOptionInformation32(ttl = ttl, tos = tos, flags = flags, optionsSize = optionsSize, optionsDataCtorArg = optionsData)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -3141,7 +3140,7 @@ public class IpOptionInformation32 internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8).readNative(addr + 3L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<UByte>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                     )
                 override fun writeNative(addr: Long, value: IpOptionInformation32) {
@@ -3151,7 +3150,7 @@ public class IpOptionInformation32 internal constructor(
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8).writeNative(addr + 3L, value.optionsSize)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<UByte>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.optionsData)
                 }
             }
@@ -3161,7 +3160,7 @@ public class IpOptionInformation32 internal constructor(
             tos: UByte = 0u,
             flags: UByte = 0u,
             optionsSize: UByte = 0u,
-            optionsData: MutPtr<UByte> = MutPtr(0L),
+            optionsData: MutPtr = MutPtr(0L),
         ): IpOptionInformation32 =
             IpOptionInformation32(
                 ttl = ttl,
@@ -3176,10 +3175,10 @@ public class IpOptionInformation32 internal constructor(
 public class IpPerAdapterInfoW2ksp1 internal constructor(
     public var autoconfigEnabled: UInt,
     public var autoconfigActive: UInt,
-    currentDnsServerCtorArg: MutPtr<IpAddrString>,
+    currentDnsServerCtorArg: MutPtr,
     public var dnsServerList: IpAddrString,
 ) {
-    public var currentDnsServer: MutPtr<IpAddrString> = currentDnsServerCtorArg
+    public var currentDnsServer: MutPtr = currentDnsServerCtorArg
         internal set
 
     public constructor() : this(
@@ -3193,11 +3192,11 @@ public class IpPerAdapterInfoW2ksp1 internal constructor(
 
     public operator fun component2(): UInt = this.autoconfigActive
 
-    public operator fun component3(): MutPtr<IpAddrString> = this.currentDnsServer
+    public operator fun component3(): MutPtr = this.currentDnsServer
 
     public operator fun component4(): IpAddrString = this.dnsServerList
 
-    public fun copy(autoconfigEnabled: UInt = this.autoconfigEnabled, autoconfigActive: UInt = this.autoconfigActive, currentDnsServer: MutPtr<IpAddrString> = this.currentDnsServer, dnsServerList: IpAddrString = this.dnsServerList): IpPerAdapterInfoW2ksp1 = IpPerAdapterInfoW2ksp1(autoconfigEnabled = autoconfigEnabled, autoconfigActive = autoconfigActive, currentDnsServerCtorArg = currentDnsServer, dnsServerList = dnsServerList)
+    public fun copy(autoconfigEnabled: UInt = this.autoconfigEnabled, autoconfigActive: UInt = this.autoconfigActive, currentDnsServer: MutPtr = this.currentDnsServer, dnsServerList: IpAddrString = this.dnsServerList): IpPerAdapterInfoW2ksp1 = IpPerAdapterInfoW2ksp1(autoconfigEnabled = autoconfigEnabled, autoconfigActive = autoconfigActive, currentDnsServerCtorArg = currentDnsServer, dnsServerList = dnsServerList)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -3228,7 +3227,7 @@ public class IpPerAdapterInfoW2ksp1 internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 4L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<IpAddrString>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                         (IpAddrString.typeLayout()).readNative(addr + 16L),
                     )
@@ -3237,7 +3236,7 @@ public class IpPerAdapterInfoW2ksp1 internal constructor(
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 4L, value.autoconfigActive)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<IpAddrString>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.currentDnsServer)
                     (IpAddrString.typeLayout()).writeNative(addr + 16L, value.dnsServerList)
                 }
@@ -3246,7 +3245,7 @@ public class IpPerAdapterInfoW2ksp1 internal constructor(
         public operator fun invoke(
             autoconfigEnabled: UInt = 0u,
             autoconfigActive: UInt = 0u,
-            currentDnsServer: MutPtr<IpAddrString> = MutPtr(0L),
+            currentDnsServer: MutPtr = MutPtr(0L),
             dnsServerList: IpAddrString = IpAddrString(),
         ): IpPerAdapterInfoW2ksp1 =
             IpPerAdapterInfoW2ksp1(
@@ -4511,13 +4510,13 @@ public data class MibIpmcastOifStatsLh(
 public class MibIpmcastOifStatsW2k internal constructor(
     public var dwOutIfIndex: UInt,
     public var dwNextHopAddr: UInt,
-    pvDialContextCtorArg: MutPtr<CVoid>,
+    pvDialContextCtorArg: MutPtr,
     public var ulTtlTooLow: UInt,
     public var ulFragNeeded: UInt,
     public var ulOutPackets: UInt,
     public var ulOutDiscards: UInt,
 ) {
-    public var pvDialContext: MutPtr<CVoid> = pvDialContextCtorArg
+    public var pvDialContext: MutPtr = pvDialContextCtorArg
         internal set
 
     public constructor() : this(
@@ -4534,7 +4533,7 @@ public class MibIpmcastOifStatsW2k internal constructor(
 
     public operator fun component2(): UInt = this.dwNextHopAddr
 
-    public operator fun component3(): MutPtr<CVoid> = this.pvDialContext
+    public operator fun component3(): MutPtr = this.pvDialContext
 
     public operator fun component4(): UInt = this.ulTtlTooLow
 
@@ -4544,7 +4543,7 @@ public class MibIpmcastOifStatsW2k internal constructor(
 
     public operator fun component7(): UInt = this.ulOutDiscards
 
-    public fun copy(dwOutIfIndex: UInt = this.dwOutIfIndex, dwNextHopAddr: UInt = this.dwNextHopAddr, pvDialContext: MutPtr<CVoid> = this.pvDialContext, ulTtlTooLow: UInt = this.ulTtlTooLow, ulFragNeeded: UInt = this.ulFragNeeded, ulOutPackets: UInt = this.ulOutPackets, ulOutDiscards: UInt = this.ulOutDiscards): MibIpmcastOifStatsW2k = MibIpmcastOifStatsW2k(dwOutIfIndex = dwOutIfIndex, dwNextHopAddr = dwNextHopAddr, pvDialContextCtorArg = pvDialContext, ulTtlTooLow = ulTtlTooLow, ulFragNeeded = ulFragNeeded, ulOutPackets = ulOutPackets, ulOutDiscards = ulOutDiscards)
+    public fun copy(dwOutIfIndex: UInt = this.dwOutIfIndex, dwNextHopAddr: UInt = this.dwNextHopAddr, pvDialContext: MutPtr = this.pvDialContext, ulTtlTooLow: UInt = this.ulTtlTooLow, ulFragNeeded: UInt = this.ulFragNeeded, ulOutPackets: UInt = this.ulOutPackets, ulOutDiscards: UInt = this.ulOutDiscards): MibIpmcastOifStatsW2k = MibIpmcastOifStatsW2k(dwOutIfIndex = dwOutIfIndex, dwNextHopAddr = dwNextHopAddr, pvDialContextCtorArg = pvDialContext, ulTtlTooLow = ulTtlTooLow, ulFragNeeded = ulFragNeeded, ulOutPackets = ulOutPackets, ulOutDiscards = ulOutDiscards)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -4581,7 +4580,7 @@ public class MibIpmcastOifStatsW2k internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 4L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<CVoid>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 16L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 20L),
@@ -4593,7 +4592,7 @@ public class MibIpmcastOifStatsW2k internal constructor(
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 4L, value.dwNextHopAddr)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<CVoid>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.pvDialContext)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 16L, value.ulTtlTooLow)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 20L, value.ulFragNeeded)
@@ -4605,7 +4604,7 @@ public class MibIpmcastOifStatsW2k internal constructor(
         public operator fun invoke(
             dwOutIfIndex: UInt = 0u,
             dwNextHopAddr: UInt = 0u,
-            pvDialContext: MutPtr<CVoid> = MutPtr(0L),
+            pvDialContext: MutPtr = MutPtr(0L),
             ulTtlTooLow: UInt = 0u,
             ulFragNeeded: UInt = 0u,
             ulOutPackets: UInt = 0u,
@@ -4626,10 +4625,10 @@ public class MibIpmcastOifStatsW2k internal constructor(
 public class MibIpmcastOifW2k internal constructor(
     public var dwOutIfIndex: UInt,
     public var dwNextHopAddr: UInt,
-    pvReservedCtorArg: MutPtr<CVoid>,
+    pvReservedCtorArg: MutPtr,
     public var dwReserved: UInt,
 ) {
-    public var pvReserved: MutPtr<CVoid> = pvReservedCtorArg
+    public var pvReserved: MutPtr = pvReservedCtorArg
         internal set
 
     public constructor() : this(
@@ -4643,11 +4642,11 @@ public class MibIpmcastOifW2k internal constructor(
 
     public operator fun component2(): UInt = this.dwNextHopAddr
 
-    public operator fun component3(): MutPtr<CVoid> = this.pvReserved
+    public operator fun component3(): MutPtr = this.pvReserved
 
     public operator fun component4(): UInt = this.dwReserved
 
-    public fun copy(dwOutIfIndex: UInt = this.dwOutIfIndex, dwNextHopAddr: UInt = this.dwNextHopAddr, pvReserved: MutPtr<CVoid> = this.pvReserved, dwReserved: UInt = this.dwReserved): MibIpmcastOifW2k = MibIpmcastOifW2k(dwOutIfIndex = dwOutIfIndex, dwNextHopAddr = dwNextHopAddr, pvReservedCtorArg = pvReserved, dwReserved = dwReserved)
+    public fun copy(dwOutIfIndex: UInt = this.dwOutIfIndex, dwNextHopAddr: UInt = this.dwNextHopAddr, pvReserved: MutPtr = this.pvReserved, dwReserved: UInt = this.dwReserved): MibIpmcastOifW2k = MibIpmcastOifW2k(dwOutIfIndex = dwOutIfIndex, dwNextHopAddr = dwNextHopAddr, pvReservedCtorArg = pvReserved, dwReserved = dwReserved)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -4678,7 +4677,7 @@ public class MibIpmcastOifW2k internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 4L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<CVoid>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 16L),
                     )
@@ -4687,7 +4686,7 @@ public class MibIpmcastOifW2k internal constructor(
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 4L, value.dwNextHopAddr)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<CVoid>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.pvReserved)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 16L, value.dwReserved)
                 }
@@ -4696,7 +4695,7 @@ public class MibIpmcastOifW2k internal constructor(
         public operator fun invoke(
             dwOutIfIndex: UInt = 0u,
             dwNextHopAddr: UInt = 0u,
-            pvReserved: MutPtr<CVoid> = MutPtr(0L),
+            pvReserved: MutPtr = MutPtr(0L),
             dwReserved: UInt = 0u,
         ): MibIpmcastOifW2k =
             MibIpmcastOifW2k(
@@ -5152,9 +5151,9 @@ public data class MibMfeStatsTable(
 
 public class MibMfeStatsTableExXp internal constructor(
     public var dwNumEntries: UInt,
-    tableCtorArg: List<MutPtr<MibIpmcastMfeStatsExXp>>,
+    tableCtorArg: List<MutPtr>,
 ) {
-    public var table: List<MutPtr<MibIpmcastMfeStatsExXp>> = tableCtorArg
+    public var table: List<MutPtr> = tableCtorArg
         internal set
 
     public constructor() : this(
@@ -5164,9 +5163,9 @@ public class MibMfeStatsTableExXp internal constructor(
 
     public operator fun component1(): UInt = this.dwNumEntries
 
-    public operator fun component2(): List<MutPtr<MibIpmcastMfeStatsExXp>> = this.table
+    public operator fun component2(): List<MutPtr> = this.table
 
-    public fun copy(dwNumEntries: UInt = this.dwNumEntries, table: List<MutPtr<MibIpmcastMfeStatsExXp>> = this.table): MibMfeStatsTableExXp = MibMfeStatsTableExXp(dwNumEntries = dwNumEntries, tableCtorArg = table)
+    public fun copy(dwNumEntries: UInt = this.dwNumEntries, table: List<MutPtr> = this.table): MibMfeStatsTableExXp = MibMfeStatsTableExXp(dwNumEntries = dwNumEntries, tableCtorArg = table)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -5194,7 +5193,7 @@ public class MibMfeStatsTableExXp internal constructor(
                             io.github.kotlinmania.rustlang.core.mem
                                 .FixedArrayTypeLayout(
                                     io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                        .mutPtrLayout<MibIpmcastMfeStatsExXp>(64),
+                                        .mutPtrLayout(64),
                                     (1).toInt(),
                                 )
                         ).readNative(addr + 8L),
@@ -5205,7 +5204,7 @@ public class MibMfeStatsTableExXp internal constructor(
                         io.github.kotlinmania.rustlang.core.mem
                             .FixedArrayTypeLayout(
                                 io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                    .mutPtrLayout<MibIpmcastMfeStatsExXp>(64),
+                                    .mutPtrLayout(64),
                                 (1).toInt(),
                             )
                     ).writeNative(addr + 8L, value.table)
@@ -5214,7 +5213,7 @@ public class MibMfeStatsTableExXp internal constructor(
 
         public operator fun invoke(
             dwNumEntries: UInt = 0u,
-            table: List<MutPtr<MibIpmcastMfeStatsExXp>> = List(1) { MutPtr(0L) },
+            table: List<MutPtr> = List(1) { MutPtr(0L) },
         ): MibMfeStatsTableExXp =
             MibMfeStatsTableExXp(
                 dwNumEntries = dwNumEntries,
@@ -6732,10 +6731,10 @@ public class PfFilterDescriptor internal constructor(
     public var dwFilterFlags: UInt,
     public var dwRule: UInt,
     public var pfatType: Pfaddresstype,
-    srcAddrCtorArg: MutPtr<UByte>,
-    srcMaskCtorArg: MutPtr<UByte>,
-    dstAddrCtorArg: MutPtr<UByte>,
-    dstMaskCtorArg: MutPtr<UByte>,
+    srcAddrCtorArg: MutPtr,
+    srcMaskCtorArg: MutPtr,
+    dstAddrCtorArg: MutPtr,
+    dstMaskCtorArg: MutPtr,
     public var dwProtocol: UInt,
     public var fLateBound: UInt,
     public var wSrcPort: UShort,
@@ -6743,16 +6742,16 @@ public class PfFilterDescriptor internal constructor(
     public var wSrcPortHighRange: UShort,
     public var wDstPortHighRange: UShort,
 ) {
-    public var srcAddr: MutPtr<UByte> = srcAddrCtorArg
+    public var srcAddr: MutPtr = srcAddrCtorArg
         internal set
 
-    public var srcMask: MutPtr<UByte> = srcMaskCtorArg
+    public var srcMask: MutPtr = srcMaskCtorArg
         internal set
 
-    public var dstAddr: MutPtr<UByte> = dstAddrCtorArg
+    public var dstAddr: MutPtr = dstAddrCtorArg
         internal set
 
-    public var dstMask: MutPtr<UByte> = dstMaskCtorArg
+    public var dstMask: MutPtr = dstMaskCtorArg
         internal set
 
     public constructor() : this(
@@ -6777,13 +6776,13 @@ public class PfFilterDescriptor internal constructor(
 
     public operator fun component3(): Pfaddresstype = this.pfatType
 
-    public operator fun component4(): MutPtr<UByte> = this.srcAddr
+    public operator fun component4(): MutPtr = this.srcAddr
 
-    public operator fun component5(): MutPtr<UByte> = this.srcMask
+    public operator fun component5(): MutPtr = this.srcMask
 
-    public operator fun component6(): MutPtr<UByte> = this.dstAddr
+    public operator fun component6(): MutPtr = this.dstAddr
 
-    public operator fun component7(): MutPtr<UByte> = this.dstMask
+    public operator fun component7(): MutPtr = this.dstMask
 
     public operator fun component8(): UInt = this.dwProtocol
 
@@ -6797,7 +6796,7 @@ public class PfFilterDescriptor internal constructor(
 
     public operator fun component13(): UShort = this.wDstPortHighRange
 
-    public fun copy(dwFilterFlags: UInt = this.dwFilterFlags, dwRule: UInt = this.dwRule, pfatType: Pfaddresstype = this.pfatType, srcAddr: MutPtr<UByte> = this.srcAddr, srcMask: MutPtr<UByte> = this.srcMask, dstAddr: MutPtr<UByte> = this.dstAddr, dstMask: MutPtr<UByte> = this.dstMask, dwProtocol: UInt = this.dwProtocol, fLateBound: UInt = this.fLateBound, wSrcPort: UShort = this.wSrcPort, wDstPort: UShort = this.wDstPort, wSrcPortHighRange: UShort = this.wSrcPortHighRange, wDstPortHighRange: UShort = this.wDstPortHighRange): PfFilterDescriptor = PfFilterDescriptor(dwFilterFlags = dwFilterFlags, dwRule = dwRule, pfatType = pfatType, srcAddrCtorArg = srcAddr, srcMaskCtorArg = srcMask, dstAddrCtorArg = dstAddr, dstMaskCtorArg = dstMask, dwProtocol = dwProtocol, fLateBound = fLateBound, wSrcPort = wSrcPort, wDstPort = wDstPort, wSrcPortHighRange = wSrcPortHighRange, wDstPortHighRange = wDstPortHighRange)
+    public fun copy(dwFilterFlags: UInt = this.dwFilterFlags, dwRule: UInt = this.dwRule, pfatType: Pfaddresstype = this.pfatType, srcAddr: MutPtr = this.srcAddr, srcMask: MutPtr = this.srcMask, dstAddr: MutPtr = this.dstAddr, dstMask: MutPtr = this.dstMask, dwProtocol: UInt = this.dwProtocol, fLateBound: UInt = this.fLateBound, wSrcPort: UShort = this.wSrcPort, wDstPort: UShort = this.wDstPort, wSrcPortHighRange: UShort = this.wSrcPortHighRange, wDstPortHighRange: UShort = this.wDstPortHighRange): PfFilterDescriptor = PfFilterDescriptor(dwFilterFlags = dwFilterFlags, dwRule = dwRule, pfatType = pfatType, srcAddrCtorArg = srcAddr, srcMaskCtorArg = srcMask, dstAddrCtorArg = dstAddr, dstMaskCtorArg = dstMask, dwProtocol = dwProtocol, fLateBound = fLateBound, wSrcPort = wSrcPort, wDstPort = wDstPort, wSrcPortHighRange = wSrcPortHighRange, wDstPortHighRange = wDstPortHighRange)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -6847,19 +6846,19 @@ public class PfFilterDescriptor internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr + 8L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<UByte>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 16L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<UByte>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 24L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<UByte>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 32L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<UByte>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 40L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 48L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 52L),
@@ -6874,19 +6873,19 @@ public class PfFilterDescriptor internal constructor(
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr + 8L, value.pfatType)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<UByte>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 16L, value.srcAddr)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<UByte>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 24L, value.srcMask)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<UByte>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 32L, value.dstAddr)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<UByte>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 40L, value.dstMask)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 48L, value.dwProtocol)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 52L, value.fLateBound)
@@ -6901,10 +6900,10 @@ public class PfFilterDescriptor internal constructor(
             dwFilterFlags: UInt = 0u,
             dwRule: UInt = 0u,
             pfatType: Pfaddresstype = 0,
-            srcAddr: MutPtr<UByte> = MutPtr(0L),
-            srcMask: MutPtr<UByte> = MutPtr(0L),
-            dstAddr: MutPtr<UByte> = MutPtr(0L),
-            dstMask: MutPtr<UByte> = MutPtr(0L),
+            srcAddr: MutPtr = MutPtr(0L),
+            srcMask: MutPtr = MutPtr(0L),
+            dstAddr: MutPtr = MutPtr(0L),
+            dstMask: MutPtr = MutPtr(0L),
             dwProtocol: UInt = 0u,
             fLateBound: UInt = 0u,
             wSrcPort: UShort = 0u,
@@ -6953,7 +6952,7 @@ public data class PfFilterStats(
 }
 
 public class PfInterfaceStats internal constructor(
-    pvDriverContextCtorArg: MutPtr<CVoid>,
+    pvDriverContextCtorArg: MutPtr,
     public var dwFlags: UInt,
     public var dwInDrops: UInt,
     public var dwOutDrops: UInt,
@@ -6970,7 +6969,7 @@ public class PfInterfaceStats internal constructor(
     public var dwLostLogEntries: UInt,
     public var filterInfo: List<PfFilterStats>,
 ) {
-    public var pvDriverContext: MutPtr<CVoid> = pvDriverContextCtorArg
+    public var pvDriverContext: MutPtr = pvDriverContextCtorArg
         internal set
 
     public constructor() : this(
@@ -6992,7 +6991,7 @@ public class PfInterfaceStats internal constructor(
         filterInfo = List(1) { PfFilterStats() },
     )
 
-    public operator fun component1(): MutPtr<CVoid> = this.pvDriverContext
+    public operator fun component1(): MutPtr = this.pvDriverContext
 
     public operator fun component2(): UInt = this.dwFlags
 
@@ -7024,7 +7023,7 @@ public class PfInterfaceStats internal constructor(
 
     public operator fun component16(): List<PfFilterStats> = this.filterInfo
 
-    public fun copy(pvDriverContext: MutPtr<CVoid> = this.pvDriverContext, dwFlags: UInt = this.dwFlags, dwInDrops: UInt = this.dwInDrops, dwOutDrops: UInt = this.dwOutDrops, eaInAction: PfforwardAction = this.eaInAction, eaOutAction: PfforwardAction = this.eaOutAction, dwNumInFilters: UInt = this.dwNumInFilters, dwNumOutFilters: UInt = this.dwNumOutFilters, dwFrag: UInt = this.dwFrag, dwSpoof: UInt = this.dwSpoof, dwReserved1: UInt = this.dwReserved1, dwReserved2: UInt = this.dwReserved2, liSYN: Long = this.liSYN, liTotalLogged: Long = this.liTotalLogged, dwLostLogEntries: UInt = this.dwLostLogEntries, filterInfo: List<PfFilterStats> = this.filterInfo): PfInterfaceStats = PfInterfaceStats(pvDriverContextCtorArg = pvDriverContext, dwFlags = dwFlags, dwInDrops = dwInDrops, dwOutDrops = dwOutDrops, eaInAction = eaInAction, eaOutAction = eaOutAction, dwNumInFilters = dwNumInFilters, dwNumOutFilters = dwNumOutFilters, dwFrag = dwFrag, dwSpoof = dwSpoof, dwReserved1 = dwReserved1, dwReserved2 = dwReserved2, liSYN = liSYN, liTotalLogged = liTotalLogged, dwLostLogEntries = dwLostLogEntries, filterInfo = filterInfo)
+    public fun copy(pvDriverContext: MutPtr = this.pvDriverContext, dwFlags: UInt = this.dwFlags, dwInDrops: UInt = this.dwInDrops, dwOutDrops: UInt = this.dwOutDrops, eaInAction: PfforwardAction = this.eaInAction, eaOutAction: PfforwardAction = this.eaOutAction, dwNumInFilters: UInt = this.dwNumInFilters, dwNumOutFilters: UInt = this.dwNumOutFilters, dwFrag: UInt = this.dwFrag, dwSpoof: UInt = this.dwSpoof, dwReserved1: UInt = this.dwReserved1, dwReserved2: UInt = this.dwReserved2, liSYN: Long = this.liSYN, liTotalLogged: Long = this.liTotalLogged, dwLostLogEntries: UInt = this.dwLostLogEntries, filterInfo: List<PfFilterStats> = this.filterInfo): PfInterfaceStats = PfInterfaceStats(pvDriverContextCtorArg = pvDriverContext, dwFlags = dwFlags, dwInDrops = dwInDrops, dwOutDrops = dwOutDrops, eaInAction = eaInAction, eaOutAction = eaOutAction, dwNumInFilters = dwNumInFilters, dwNumOutFilters = dwNumOutFilters, dwFrag = dwFrag, dwSpoof = dwSpoof, dwReserved1 = dwReserved1, dwReserved2 = dwReserved2, liSYN = liSYN, liTotalLogged = liTotalLogged, dwLostLogEntries = dwLostLogEntries, filterInfo = filterInfo)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -7077,7 +7076,7 @@ public class PfInterfaceStats internal constructor(
                     PfInterfaceStats(
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<CVoid>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 8L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 12L),
@@ -7101,7 +7100,7 @@ public class PfInterfaceStats internal constructor(
                 override fun writeNative(addr: Long, value: PfInterfaceStats) {
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<CVoid>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr, value.pvDriverContext)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 8L, value.dwFlags)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 12L, value.dwInDrops)
@@ -7125,7 +7124,7 @@ public class PfInterfaceStats internal constructor(
             }
 
         public operator fun invoke(
-            pvDriverContext: MutPtr<CVoid> = MutPtr(0L),
+            pvDriverContext: MutPtr = MutPtr(0L),
             dwFlags: UInt = 0u,
             dwInDrops: UInt = 0u,
             dwOutDrops: UInt = 0u,
@@ -7164,17 +7163,17 @@ public class PfInterfaceStats internal constructor(
 }
 
 public class PfLatebindInfo internal constructor(
-    srcAddrCtorArg: MutPtr<UByte>,
-    dstAddrCtorArg: MutPtr<UByte>,
-    maskCtorArg: MutPtr<UByte>,
+    srcAddrCtorArg: MutPtr,
+    dstAddrCtorArg: MutPtr,
+    maskCtorArg: MutPtr,
 ) {
-    public var srcAddr: MutPtr<UByte> = srcAddrCtorArg
+    public var srcAddr: MutPtr = srcAddrCtorArg
         internal set
 
-    public var dstAddr: MutPtr<UByte> = dstAddrCtorArg
+    public var dstAddr: MutPtr = dstAddrCtorArg
         internal set
 
-    public var mask: MutPtr<UByte> = maskCtorArg
+    public var mask: MutPtr = maskCtorArg
         internal set
 
     public constructor() : this(
@@ -7183,13 +7182,13 @@ public class PfLatebindInfo internal constructor(
         maskCtorArg = MutPtr(0L),
     )
 
-    public operator fun component1(): MutPtr<UByte> = this.srcAddr
+    public operator fun component1(): MutPtr = this.srcAddr
 
-    public operator fun component2(): MutPtr<UByte> = this.dstAddr
+    public operator fun component2(): MutPtr = this.dstAddr
 
-    public operator fun component3(): MutPtr<UByte> = this.mask
+    public operator fun component3(): MutPtr = this.mask
 
-    public fun copy(srcAddr: MutPtr<UByte> = this.srcAddr, dstAddr: MutPtr<UByte> = this.dstAddr, mask: MutPtr<UByte> = this.mask): PfLatebindInfo = PfLatebindInfo(srcAddrCtorArg = srcAddr, dstAddrCtorArg = dstAddr, maskCtorArg = mask)
+    public fun copy(srcAddr: MutPtr = this.srcAddr, dstAddr: MutPtr = this.dstAddr, mask: MutPtr = this.mask): PfLatebindInfo = PfLatebindInfo(srcAddrCtorArg = srcAddr, dstAddrCtorArg = dstAddr, maskCtorArg = mask)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -7216,37 +7215,37 @@ public class PfLatebindInfo internal constructor(
                     PfLatebindInfo(
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<UByte>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<UByte>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<UByte>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 16L),
                     )
                 override fun writeNative(addr: Long, value: PfLatebindInfo) {
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<UByte>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr, value.srcAddr)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<UByte>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.dstAddr)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<UByte>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 16L, value.mask)
                 }
             }
 
         public operator fun invoke(
-            srcAddr: MutPtr<UByte> = MutPtr(0L),
-            dstAddr: MutPtr<UByte> = MutPtr(0L),
-            mask: MutPtr<UByte> = MutPtr(0L),
+            srcAddr: MutPtr = MutPtr(0L),
+            dstAddr: MutPtr = MutPtr(0L),
+            mask: MutPtr = MutPtr(0L),
         ): PfLatebindInfo =
             PfLatebindInfo(
                 srcAddrCtorArg = srcAddr,

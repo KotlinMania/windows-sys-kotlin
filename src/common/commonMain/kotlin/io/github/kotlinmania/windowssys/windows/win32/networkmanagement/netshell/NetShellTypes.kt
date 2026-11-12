@@ -1,12 +1,9 @@
 package io.github.kotlinmania.windowssys.windows.win32.networkmanagement.netshell
 
-import io.github.kotlinmania.rustlang.core.ffi.CVoid
 import io.github.kotlinmania.rustlang.core.ptr.ConstPtr
 import io.github.kotlinmania.rustlang.core.ptr.MutPtr
 import io.github.kotlinmania.windowssys.core.Bool
-import io.github.kotlinmania.windowssys.core.Guid
 import io.github.kotlinmania.windowssys.core.Pcwstr
-import io.github.kotlinmania.windowssys.core.Pwstr
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Handle
 
 public typealias NsCmdFlags = Int
@@ -24,7 +21,7 @@ public fun interface PfnCustomHelpFn {
 public typealias PfnCustomHelp = PfnCustomHelpFn?
 
 public fun interface PfnHandleCmdFn {
-    public operator fun invoke(pwszmachine: Pcwstr, ppwcarguments: MutPtr<Pwstr>, dwcurrentindex: UInt, dwargcount: UInt, dwflags: UInt, pvdata: ConstPtr<CVoid>, pbdone: MutPtr<Bool>): UInt
+    public operator fun invoke(pwszmachine: Pcwstr, ppwcarguments: MutPtr, dwcurrentindex: UInt, dwargcount: UInt, dwflags: UInt, pvdata: ConstPtr, pbdone: MutPtr): UInt
 }
 
 public typealias PfnHandleCmd = PfnHandleCmdFn?
@@ -48,13 +45,13 @@ public fun interface PnsContextConnectFnFn {
 public typealias PnsContextConnectFn = PnsContextConnectFnFn?
 
 public fun interface PnsContextDumpFnFn {
-    public operator fun invoke(pwszrouter: Pcwstr, ppwcarguments: ConstPtr<Pcwstr>, dwargcount: UInt, pvdata: ConstPtr<CVoid>): UInt
+    public operator fun invoke(pwszrouter: Pcwstr, ppwcarguments: ConstPtr, dwargcount: UInt, pvdata: ConstPtr): UInt
 }
 
 public typealias PnsContextDumpFn = PnsContextDumpFnFn?
 
 public fun interface PnsDllInitFnFn {
-    public operator fun invoke(dwnetshversion: UInt, preserved: MutPtr<CVoid>): UInt
+    public operator fun invoke(dwnetshversion: UInt, preserved: MutPtr): UInt
 }
 
 public typealias PnsDllInitFn = PnsDllInitFnFn?
@@ -66,7 +63,7 @@ public fun interface PnsDllStopFnFn {
 public typealias PnsDllStopFn = PnsDllStopFnFn?
 
 public fun interface PnsHelperStartFnFn {
-    public operator fun invoke(pguidparent: ConstPtr<Guid>, dwversion: UInt): UInt
+    public operator fun invoke(pguidparent: ConstPtr, dwversion: UInt): UInt
 }
 
 public typealias PnsHelperStartFn = PnsHelperStartFnFn?

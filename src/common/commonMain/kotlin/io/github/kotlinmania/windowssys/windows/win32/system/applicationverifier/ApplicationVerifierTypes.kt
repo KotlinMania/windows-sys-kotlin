@@ -1,22 +1,21 @@
 package io.github.kotlinmania.windowssys.windows.win32.system.applicationverifier
 
-import io.github.kotlinmania.rustlang.core.ffi.CVoid
 import io.github.kotlinmania.rustlang.core.ptr.MutPtr
 
 public fun interface AvrfHandleoperationEnumerateCallbackFn {
-    public operator fun invoke(handleoperation: MutPtr<AvrfHandleOperation>, enumerationcontext: MutPtr<CVoid>, enumerationlevel: MutPtr<UInt>): UInt
+    public operator fun invoke(handleoperation: MutPtr, enumerationcontext: MutPtr, enumerationlevel: MutPtr): UInt
 }
 
 public typealias AvrfHandleoperationEnumerateCallback = AvrfHandleoperationEnumerateCallbackFn?
 
 public fun interface AvrfHeapallocationEnumerateCallbackFn {
-    public operator fun invoke(heapallocation: MutPtr<AvrfHeapAllocation>, enumerationcontext: MutPtr<CVoid>, enumerationlevel: MutPtr<UInt>): UInt
+    public operator fun invoke(heapallocation: MutPtr, enumerationcontext: MutPtr, enumerationlevel: MutPtr): UInt
 }
 
 public typealias AvrfHeapallocationEnumerateCallback = AvrfHeapallocationEnumerateCallbackFn?
 
 public fun interface AvrfResourceEnumerateCallbackFn {
-    public operator fun invoke(resourcedescription: MutPtr<CVoid>, enumerationcontext: MutPtr<CVoid>, enumerationlevel: MutPtr<UInt>): UInt
+    public operator fun invoke(resourcedescription: MutPtr, enumerationcontext: MutPtr, enumerationlevel: MutPtr): UInt
 }
 
 public typealias AvrfResourceEnumerateCallback = AvrfResourceEnumerateCallbackFn?

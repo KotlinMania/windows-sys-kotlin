@@ -2,7 +2,6 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.system.systeminformation
 
-import io.github.kotlinmania.rustlang.core.ffi.CVoid
 import io.github.kotlinmania.rustlang.core.ptr.ConstPtr
 import io.github.kotlinmania.rustlang.core.ptr.MutPtr
 import io.github.kotlinmania.windowssys.core.Bool
@@ -11,9 +10,7 @@ import io.github.kotlinmania.windowssys.core.Pcstr
 import io.github.kotlinmania.windowssys.core.Pcwstr
 import io.github.kotlinmania.windowssys.core.Pstr
 import io.github.kotlinmania.windowssys.core.Pwstr
-import io.github.kotlinmania.windowssys.windows.win32.foundation.Filetime
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Handle
-import io.github.kotlinmania.windowssys.windows.win32.foundation.Systemtime
 
 @JsFun("() => { if (typeof globalThis.__km_napi_windowssys !== 'undefined') return globalThis.__km_napi_windowssys !== null; if (typeof process === 'undefined' || !process.versions || !process.versions.node) { globalThis.__km_napi_windowssys = null; return false; } var mod = process.getBuiltinModule ? process.getBuiltinModule('module') : (process.mainModule && process.mainModule.constructor); var req = (mod && mod.createRequire) ? mod.createRequire((process.cwd ? process.cwd() : '.') + '/package.json') : (process.mainModule ? process.mainModule.require : null); if (!req) { globalThis.__km_napi_windowssys = null; return false; } try { globalThis.__km_napi_windowssys = req('@kotlinmania/windowssys-native-bindings'); return true; } catch (_) {} var fs = req('fs'); var path = req('path'); var dir = process.cwd ? process.cwd() : '.'; var rels = ['windowssys_native.node', 'build/node-ffi/windowssys_native.node', 'build/node-ffi/release/windowssys_native.node', 'build/node-ffi/debug/windowssys_native.node', 'src/js/node-windowssys/build/Release/windowssys_native.node', 'src/js/node-windowssys/build/Debug/windowssys_native.node', 'src/js/node-windowssys/dist/build/Release/windowssys_native.node', 'src/js/node-windowssys/dist/build/Debug/windowssys_native.node']; for (var d = 0; d < 8; d++) { for (var i = 0; i < rels.length; i++) { var c = path.resolve(dir, rels[i]); if (fs.existsSync(c)) { globalThis.__km_napi_windowssys = req(c); return true; } } var parent = path.dirname(dir); if (parent === dir) break; dir = parent; } globalThis.__km_napi_windowssys = null; return false; }")
 private external fun initWindowsWin32SystemSysteminformationNapiAddon(): Boolean
@@ -209,28 +206,28 @@ private external fun wasmWindowssysWindowsWin32SystemSysteminformationVerifyVers
 @JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemSysteminformationVerifyVersionInfoW(p0, p1, p2)")
 private external fun wasmWindowssysWindowsWin32SystemSysteminformationVerifyVersionInfoW(p0: String, p1: Int, p2: String): Int
 
-public actual fun dnsHostnameToComputerNameExW(hostname: Pcwstr, computername: Pwstr, nsize: MutPtr<UInt>): Bool =
+public actual fun dnsHostnameToComputerNameExW(hostname: Pcwstr, computername: Pwstr, nsize: MutPtr): Bool =
     if (windowsWin32SystemSysteminformationNapiAvailable) wasmWindowssysWindowsWin32SystemSysteminformationDnsHostnameToComputerNameExW(hostname.rawAddress.toString(), computername.rawAddress.toString(), nsize.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun enumSystemFirmwareTables(firmwaretableprovidersignature: FirmwareTableProvider, pfirmwaretableenumbuffer: MutPtr<UByte>, buffersize: UInt): UInt =
+public actual fun enumSystemFirmwareTables(firmwaretableprovidersignature: FirmwareTableProvider, pfirmwaretableenumbuffer: MutPtr, buffersize: UInt): UInt =
     if (windowsWin32SystemSysteminformationNapiAvailable) wasmWindowssysWindowsWin32SystemSysteminformationEnumSystemFirmwareTables(firmwaretableprovidersignature.toInt(), pfirmwaretableenumbuffer.rawAddress.toString(), buffersize.toInt()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun getComputerNameExA(nametype: ComputerNameFormat, lpbuffer: Pstr, nsize: MutPtr<UInt>): Bool =
+public actual fun getComputerNameExA(nametype: ComputerNameFormat, lpbuffer: Pstr, nsize: MutPtr): Bool =
     if (windowsWin32SystemSysteminformationNapiAvailable) wasmWindowssysWindowsWin32SystemSysteminformationGetComputerNameExA(nametype, lpbuffer.rawAddress.toString(), nsize.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun getComputerNameExW(nametype: ComputerNameFormat, lpbuffer: Pwstr, nsize: MutPtr<UInt>): Bool =
+public actual fun getComputerNameExW(nametype: ComputerNameFormat, lpbuffer: Pwstr, nsize: MutPtr): Bool =
     if (windowsWin32SystemSysteminformationNapiAvailable) wasmWindowssysWindowsWin32SystemSysteminformationGetComputerNameExW(nametype, lpbuffer.rawAddress.toString(), nsize.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun getDeveloperDriveEnablementState(): DeveloperDriveEnablementState =
     if (windowsWin32SystemSysteminformationNapiAvailable) wasmWindowssysWindowsWin32SystemSysteminformationGetDeveloperDriveEnablementState() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun getFirmwareType(firmwaretype: MutPtr<FirmwareType>): Bool =
+public actual fun getFirmwareType(firmwaretype: MutPtr): Bool =
     if (windowsWin32SystemSysteminformationNapiAvailable) wasmWindowssysWindowsWin32SystemSysteminformationGetFirmwareType(firmwaretype.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun getIntegratedDisplaySize(sizeininches: MutPtr<Double>): Hresult =
+public actual fun getIntegratedDisplaySize(sizeininches: MutPtr): Hresult =
     if (windowsWin32SystemSysteminformationNapiAvailable) wasmWindowssysWindowsWin32SystemSysteminformationGetIntegratedDisplaySize(sizeininches.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun getLocalTime(lpsystemtime: MutPtr<Systemtime>) {
+public actual fun getLocalTime(lpsystemtime: MutPtr) {
     if (windowsWin32SystemSysteminformationNapiAvailable) {
         wasmWindowssysWindowsWin32SystemSysteminformationGetLocalTime(lpsystemtime.rawAddress.toString())
     } else {
@@ -238,13 +235,13 @@ public actual fun getLocalTime(lpsystemtime: MutPtr<Systemtime>) {
     }
 }
 
-public actual fun getLogicalProcessorInformation(buffer: MutPtr<SystemLogicalProcessorInformation>, returnedlength: MutPtr<UInt>): Bool =
+public actual fun getLogicalProcessorInformation(buffer: MutPtr, returnedlength: MutPtr): Bool =
     if (windowsWin32SystemSysteminformationNapiAvailable) wasmWindowssysWindowsWin32SystemSysteminformationGetLogicalProcessorInformation(buffer.rawAddress.toString(), returnedlength.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun getLogicalProcessorInformationEx(relationshiptype: LogicalProcessorRelationship, buffer: MutPtr<SystemLogicalProcessorInformationEx>, returnedlength: MutPtr<UInt>): Bool =
+public actual fun getLogicalProcessorInformationEx(relationshiptype: LogicalProcessorRelationship, buffer: MutPtr, returnedlength: MutPtr): Bool =
     if (windowsWin32SystemSysteminformationNapiAvailable) wasmWindowssysWindowsWin32SystemSysteminformationGetLogicalProcessorInformationEx(relationshiptype, buffer.rawAddress.toString(), returnedlength.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun getNativeSystemInfo(lpsysteminfo: MutPtr<SystemInfo>) {
+public actual fun getNativeSystemInfo(lpsysteminfo: MutPtr) {
     if (windowsWin32SystemSysteminformationNapiAvailable) {
         wasmWindowssysWindowsWin32SystemSysteminformationGetNativeSystemInfo(lpsysteminfo.rawAddress.toString())
     } else {
@@ -252,22 +249,22 @@ public actual fun getNativeSystemInfo(lpsysteminfo: MutPtr<SystemInfo>) {
     }
 }
 
-public actual fun getOsManufacturingMode(pbenabled: MutPtr<Bool>): Bool =
+public actual fun getOsManufacturingMode(pbenabled: MutPtr): Bool =
     if (windowsWin32SystemSysteminformationNapiAvailable) wasmWindowssysWindowsWin32SystemSysteminformationGetOsManufacturingMode(pbenabled.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun getOsSafeBootMode(flags: MutPtr<UInt>): Bool =
+public actual fun getOsSafeBootMode(flags: MutPtr): Bool =
     if (windowsWin32SystemSysteminformationNapiAvailable) wasmWindowssysWindowsWin32SystemSysteminformationGetOsSafeBootMode(flags.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun getPhysicallyInstalledSystemMemory(totalmemoryinkilobytes: MutPtr<ULong>): Bool =
+public actual fun getPhysicallyInstalledSystemMemory(totalmemoryinkilobytes: MutPtr): Bool =
     if (windowsWin32SystemSysteminformationNapiAvailable) wasmWindowssysWindowsWin32SystemSysteminformationGetPhysicallyInstalledSystemMemory(totalmemoryinkilobytes.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun getProcessorSystemCycleTime(group: UShort, buffer: MutPtr<SystemProcessorCycleTimeInformation>, returnedlength: MutPtr<UInt>): Bool =
+public actual fun getProcessorSystemCycleTime(group: UShort, buffer: MutPtr, returnedlength: MutPtr): Bool =
     if (windowsWin32SystemSysteminformationNapiAvailable) wasmWindowssysWindowsWin32SystemSysteminformationGetProcessorSystemCycleTime(group.toInt(), buffer.rawAddress.toString(), returnedlength.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun getProductInfo(dwosmajorversion: UInt, dwosminorversion: UInt, dwspmajorversion: UInt, dwspminorversion: UInt, pdwreturnedproducttype: MutPtr<OsProductType>): Bool =
+public actual fun getProductInfo(dwosmajorversion: UInt, dwosminorversion: UInt, dwspmajorversion: UInt, dwspminorversion: UInt, pdwreturnedproducttype: MutPtr): Bool =
     if (windowsWin32SystemSysteminformationNapiAvailable) wasmWindowssysWindowsWin32SystemSysteminformationGetProductInfo(dwosmajorversion.toInt(), dwosminorversion.toInt(), dwspmajorversion.toInt(), dwspminorversion.toInt(), pdwreturnedproducttype.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun getSystemCpuSetInformation(information: MutPtr<SystemCpuSetInformation>, bufferlength: UInt, returnedlength: MutPtr<UInt>, process: Handle, flags: UInt): Bool =
+public actual fun getSystemCpuSetInformation(information: MutPtr, bufferlength: UInt, returnedlength: MutPtr, process: Handle, flags: UInt): Bool =
     if (windowsWin32SystemSysteminformationNapiAvailable) wasmWindowssysWindowsWin32SystemSysteminformationGetSystemCpuSetInformation(information.rawAddress.toString(), bufferlength.toInt(), returnedlength.rawAddress.toString(), process.rawAddress.toString(), flags.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun getSystemDEPPolicy(): DepSystemPolicyType =
@@ -279,10 +276,10 @@ public actual fun getSystemDirectoryA(lpbuffer: Pstr, usize: UInt): UInt =
 public actual fun getSystemDirectoryW(lpbuffer: Pwstr, usize: UInt): UInt =
     if (windowsWin32SystemSysteminformationNapiAvailable) wasmWindowssysWindowsWin32SystemSysteminformationGetSystemDirectoryW(lpbuffer.rawAddress.toString(), usize.toInt()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun getSystemFirmwareTable(firmwaretableprovidersignature: FirmwareTableProvider, firmwaretableid: UInt, pfirmwaretablebuffer: MutPtr<UByte>, buffersize: UInt): UInt =
+public actual fun getSystemFirmwareTable(firmwaretableprovidersignature: FirmwareTableProvider, firmwaretableid: UInt, pfirmwaretablebuffer: MutPtr, buffersize: UInt): UInt =
     if (windowsWin32SystemSysteminformationNapiAvailable) wasmWindowssysWindowsWin32SystemSysteminformationGetSystemFirmwareTable(firmwaretableprovidersignature.toInt(), firmwaretableid.toInt(), pfirmwaretablebuffer.rawAddress.toString(), buffersize.toInt()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun getSystemInfo(lpsysteminfo: MutPtr<SystemInfo>) {
+public actual fun getSystemInfo(lpsysteminfo: MutPtr) {
     if (windowsWin32SystemSysteminformationNapiAvailable) {
         wasmWindowssysWindowsWin32SystemSysteminformationGetSystemInfo(lpsysteminfo.rawAddress.toString())
     } else {
@@ -290,10 +287,10 @@ public actual fun getSystemInfo(lpsysteminfo: MutPtr<SystemInfo>) {
     }
 }
 
-public actual fun getSystemLeapSecondInformation(enabled: MutPtr<Bool>, flags: MutPtr<UInt>): Bool =
+public actual fun getSystemLeapSecondInformation(enabled: MutPtr, flags: MutPtr): Bool =
     if (windowsWin32SystemSysteminformationNapiAvailable) wasmWindowssysWindowsWin32SystemSysteminformationGetSystemLeapSecondInformation(enabled.rawAddress.toString(), flags.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun getSystemTime(lpsystemtime: MutPtr<Systemtime>) {
+public actual fun getSystemTime(lpsystemtime: MutPtr) {
     if (windowsWin32SystemSysteminformationNapiAvailable) {
         wasmWindowssysWindowsWin32SystemSysteminformationGetSystemTime(lpsystemtime.rawAddress.toString())
     } else {
@@ -301,13 +298,13 @@ public actual fun getSystemTime(lpsystemtime: MutPtr<Systemtime>) {
     }
 }
 
-public actual fun getSystemTimeAdjustment(lptimeadjustment: MutPtr<UInt>, lptimeincrement: MutPtr<UInt>, lptimeadjustmentdisabled: MutPtr<Bool>): Bool =
+public actual fun getSystemTimeAdjustment(lptimeadjustment: MutPtr, lptimeincrement: MutPtr, lptimeadjustmentdisabled: MutPtr): Bool =
     if (windowsWin32SystemSysteminformationNapiAvailable) wasmWindowssysWindowsWin32SystemSysteminformationGetSystemTimeAdjustment(lptimeadjustment.rawAddress.toString(), lptimeincrement.rawAddress.toString(), lptimeadjustmentdisabled.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun getSystemTimeAdjustmentPrecise(lptimeadjustment: MutPtr<ULong>, lptimeincrement: MutPtr<ULong>, lptimeadjustmentdisabled: MutPtr<Bool>): Bool =
+public actual fun getSystemTimeAdjustmentPrecise(lptimeadjustment: MutPtr, lptimeincrement: MutPtr, lptimeadjustmentdisabled: MutPtr): Bool =
     if (windowsWin32SystemSysteminformationNapiAvailable) wasmWindowssysWindowsWin32SystemSysteminformationGetSystemTimeAdjustmentPrecise(lptimeadjustment.rawAddress.toString(), lptimeincrement.rawAddress.toString(), lptimeadjustmentdisabled.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun getSystemTimeAsFileTime(lpsystemtimeasfiletime: MutPtr<Filetime>) {
+public actual fun getSystemTimeAsFileTime(lpsystemtimeasfiletime: MutPtr) {
     if (windowsWin32SystemSysteminformationNapiAvailable) {
         wasmWindowssysWindowsWin32SystemSysteminformationGetSystemTimeAsFileTime(lpsystemtimeasfiletime.rawAddress.toString())
     } else {
@@ -315,7 +312,7 @@ public actual fun getSystemTimeAsFileTime(lpsystemtimeasfiletime: MutPtr<Filetim
     }
 }
 
-public actual fun getSystemTimePreciseAsFileTime(lpsystemtimeasfiletime: MutPtr<Filetime>) {
+public actual fun getSystemTimePreciseAsFileTime(lpsystemtimeasfiletime: MutPtr) {
     if (windowsWin32SystemSysteminformationNapiAvailable) {
         wasmWindowssysWindowsWin32SystemSysteminformationGetSystemTimePreciseAsFileTime(lpsystemtimeasfiletime.rawAddress.toString())
     } else {
@@ -350,10 +347,10 @@ public actual fun getTickCount64(): ULong =
 public actual fun getVersion(): UInt =
     if (windowsWin32SystemSysteminformationNapiAvailable) wasmWindowssysWindowsWin32SystemSysteminformationGetVersion().toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun getVersionExA(lpversioninformation: MutPtr<Osversioninfoa>): Bool =
+public actual fun getVersionExA(lpversioninformation: MutPtr): Bool =
     if (windowsWin32SystemSysteminformationNapiAvailable) wasmWindowssysWindowsWin32SystemSysteminformationGetVersionExA(lpversioninformation.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun getVersionExW(lpversioninformation: MutPtr<Osversioninfow>): Bool =
+public actual fun getVersionExW(lpversioninformation: MutPtr): Bool =
     if (windowsWin32SystemSysteminformationNapiAvailable) wasmWindowssysWindowsWin32SystemSysteminformationGetVersionExW(lpversioninformation.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun getWindowsDirectoryA(lpbuffer: Pstr, usize: UInt): UInt =
@@ -362,7 +359,7 @@ public actual fun getWindowsDirectoryA(lpbuffer: Pstr, usize: UInt): UInt =
 public actual fun getWindowsDirectoryW(lpbuffer: Pwstr, usize: UInt): UInt =
     if (windowsWin32SystemSysteminformationNapiAvailable) wasmWindowssysWindowsWin32SystemSysteminformationGetWindowsDirectoryW(lpbuffer.rawAddress.toString(), usize.toInt()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun globalMemoryStatus(lpbuffer: MutPtr<Memorystatus>) {
+public actual fun globalMemoryStatus(lpbuffer: MutPtr) {
     if (windowsWin32SystemSysteminformationNapiAvailable) {
         wasmWindowssysWindowsWin32SystemSysteminformationGlobalMemoryStatus(lpbuffer.rawAddress.toString())
     } else {
@@ -370,19 +367,19 @@ public actual fun globalMemoryStatus(lpbuffer: MutPtr<Memorystatus>) {
     }
 }
 
-public actual fun globalMemoryStatusEx(lpbuffer: MutPtr<Memorystatusex>): Bool =
+public actual fun globalMemoryStatusEx(lpbuffer: MutPtr): Bool =
     if (windowsWin32SystemSysteminformationNapiAvailable) wasmWindowssysWindowsWin32SystemSysteminformationGlobalMemoryStatusEx(lpbuffer.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun isUserCetAvailableInEnvironment(usercetenvironment: UserCetEnvironment): Bool =
     if (windowsWin32SystemSysteminformationNapiAvailable) wasmWindowssysWindowsWin32SystemSysteminformationIsUserCetAvailableInEnvironment(usercetenvironment.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun isWow64GuestMachineSupported(wowguestmachine: ImageFileMachine, machineissupported: MutPtr<Bool>): Hresult =
+public actual fun isWow64GuestMachineSupported(wowguestmachine: ImageFileMachine, machineissupported: MutPtr): Hresult =
     if (windowsWin32SystemSysteminformationNapiAvailable) wasmWindowssysWindowsWin32SystemSysteminformationIsWow64GuestMachineSupported(wowguestmachine.toInt(), machineissupported.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rtlConvertDeviceFamilyInfoToString(puldevicefamilybuffersize: MutPtr<UInt>, puldeviceformbuffersize: MutPtr<UInt>, devicefamily: Pwstr, deviceform: Pwstr): UInt =
+public actual fun rtlConvertDeviceFamilyInfoToString(puldevicefamilybuffersize: MutPtr, puldeviceformbuffersize: MutPtr, devicefamily: Pwstr, deviceform: Pwstr): UInt =
     if (windowsWin32SystemSysteminformationNapiAvailable) wasmWindowssysWindowsWin32SystemSysteminformationRtlConvertDeviceFamilyInfoToString(puldevicefamilybuffersize.rawAddress.toString(), puldeviceformbuffersize.rawAddress.toString(), devicefamily.rawAddress.toString(), deviceform.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rtlGetDeviceFamilyInfoEnum(pulluapinfo: MutPtr<ULong>, puldevicefamily: MutPtr<Devicefamilyinfoenum>, puldeviceform: MutPtr<Devicefamilydeviceform>) {
+public actual fun rtlGetDeviceFamilyInfoEnum(pulluapinfo: MutPtr, puldevicefamily: MutPtr, puldeviceform: MutPtr) {
     if (windowsWin32SystemSysteminformationNapiAvailable) {
         wasmWindowssysWindowsWin32SystemSysteminformationRtlGetDeviceFamilyInfoEnum(pulluapinfo.rawAddress.toString(), puldevicefamily.rawAddress.toString(), puldeviceform.rawAddress.toString())
     } else {
@@ -390,16 +387,16 @@ public actual fun rtlGetDeviceFamilyInfoEnum(pulluapinfo: MutPtr<ULong>, puldevi
     }
 }
 
-public actual fun rtlGetProductInfo(osmajorversion: UInt, osminorversion: UInt, spmajorversion: UInt, spminorversion: UInt, returnedproducttype: MutPtr<UInt>): Boolean =
+public actual fun rtlGetProductInfo(osmajorversion: UInt, osminorversion: UInt, spmajorversion: UInt, spminorversion: UInt, returnedproducttype: MutPtr): Boolean =
     if (windowsWin32SystemSysteminformationNapiAvailable) wasmWindowssysWindowsWin32SystemSysteminformationRtlGetProductInfo(osmajorversion.toInt(), osminorversion.toInt(), spmajorversion.toInt(), spminorversion.toInt(), returnedproducttype.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rtlGetSystemGlobalData(dataid: RtlSystemGlobalDataId, buffer: MutPtr<CVoid>, size: UInt): UInt =
+public actual fun rtlGetSystemGlobalData(dataid: RtlSystemGlobalDataId, buffer: MutPtr, size: UInt): UInt =
     if (windowsWin32SystemSysteminformationNapiAvailable) wasmWindowssysWindowsWin32SystemSysteminformationRtlGetSystemGlobalData(dataid, buffer.rawAddress.toString(), size.toInt()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun rtlOsDeploymentState(flags: UInt): OsDeployementStateValues =
     if (windowsWin32SystemSysteminformationNapiAvailable) wasmWindowssysWindowsWin32SystemSysteminformationRtlOsDeploymentState(flags.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rtlSwitchedVVI(versioninfo: ConstPtr<Osversioninfoexw>, typemask: UInt, conditionmask: ULong): UInt =
+public actual fun rtlSwitchedVVI(versioninfo: ConstPtr, typemask: UInt, conditionmask: ULong): UInt =
     if (windowsWin32SystemSysteminformationNapiAvailable) wasmWindowssysWindowsWin32SystemSysteminformationRtlSwitchedVVI(versioninfo.rawAddress.toString(), typemask.toInt(), conditionmask.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun setComputerNameA(lpcomputername: Pcstr): Bool =
@@ -417,10 +414,10 @@ public actual fun setComputerNameExW(nametype: ComputerNameFormat, lpbuffer: Pcw
 public actual fun setComputerNameW(lpcomputername: Pcwstr): Bool =
     if (windowsWin32SystemSysteminformationNapiAvailable) wasmWindowssysWindowsWin32SystemSysteminformationSetComputerNameW(lpcomputername.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun setLocalTime(lpsystemtime: ConstPtr<Systemtime>): Bool =
+public actual fun setLocalTime(lpsystemtime: ConstPtr): Bool =
     if (windowsWin32SystemSysteminformationNapiAvailable) wasmWindowssysWindowsWin32SystemSysteminformationSetLocalTime(lpsystemtime.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun setSystemTime(lpsystemtime: ConstPtr<Systemtime>): Bool =
+public actual fun setSystemTime(lpsystemtime: ConstPtr): Bool =
     if (windowsWin32SystemSysteminformationNapiAvailable) wasmWindowssysWindowsWin32SystemSysteminformationSetSystemTime(lpsystemtime.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun setSystemTimeAdjustment(dwtimeadjustment: UInt, btimeadjustmentdisabled: Bool): Bool =
@@ -432,8 +429,8 @@ public actual fun setSystemTimeAdjustmentPrecise(dwtimeadjustment: ULong, btimea
 public actual fun verSetConditionMask(conditionmask: ULong, typemask: VerFlags, condition: UByte): ULong =
     if (windowsWin32SystemSysteminformationNapiAvailable) wasmWindowssysWindowsWin32SystemSysteminformationVerSetConditionMask(conditionmask.toString(), typemask.toInt(), condition.toInt()).toULong() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun verifyVersionInfoA(lpversioninformation: MutPtr<Osversioninfoexa>, dwtypemask: VerFlags, dwlconditionmask: ULong): Bool =
+public actual fun verifyVersionInfoA(lpversioninformation: MutPtr, dwtypemask: VerFlags, dwlconditionmask: ULong): Bool =
     if (windowsWin32SystemSysteminformationNapiAvailable) wasmWindowssysWindowsWin32SystemSysteminformationVerifyVersionInfoA(lpversioninformation.rawAddress.toString(), dwtypemask.toInt(), dwlconditionmask.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun verifyVersionInfoW(lpversioninformation: MutPtr<Osversioninfoexw>, dwtypemask: VerFlags, dwlconditionmask: ULong): Bool =
+public actual fun verifyVersionInfoW(lpversioninformation: MutPtr, dwtypemask: VerFlags, dwlconditionmask: ULong): Bool =
     if (windowsWin32SystemSysteminformationNapiAvailable) wasmWindowssysWindowsWin32SystemSysteminformationVerifyVersionInfoW(lpversioninformation.rawAddress.toString(), dwtypemask.toInt(), dwlconditionmask.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")

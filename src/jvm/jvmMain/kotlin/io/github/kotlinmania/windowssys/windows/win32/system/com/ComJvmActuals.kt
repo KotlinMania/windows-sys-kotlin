@@ -2,17 +2,13 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.system.com
 
-import io.github.kotlinmania.rustlang.core.ffi.CVoid
 import io.github.kotlinmania.rustlang.core.ptr.ConstPtr
 import io.github.kotlinmania.rustlang.core.ptr.MutPtr
 import io.github.kotlinmania.windowssys.core.Bool
-import io.github.kotlinmania.windowssys.core.Guid
 import io.github.kotlinmania.windowssys.core.Hresult
 import io.github.kotlinmania.windowssys.core.Pcstr
 import io.github.kotlinmania.windowssys.core.Pcwstr
 import io.github.kotlinmania.windowssys.core.Pwstr
-import io.github.kotlinmania.windowssys.windows.win32.foundation.Filetime
-import io.github.kotlinmania.windowssys.windows.win32.foundation.Handle
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Hinstance
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Hwnd
 import io.github.kotlinmania.windowssys.windows.win32.security.PsecurityDescriptor
@@ -404,25 +400,25 @@ private object WindowsWin32SystemComJniBridge {
     external fun windowssysWindowsWin32SystemComStringFromIID(rclsid: Long, lplpsz: Long): Int
 }
 
-public actual fun bindMoniker(pmk: MutPtr<CVoid>, grfopt: UInt, iidresult: ConstPtr<Guid>, ppvresult: MutPtr<MutPtr<CVoid>>): Hresult =
+public actual fun bindMoniker(pmk: MutPtr, grfopt: UInt, iidresult: ConstPtr, ppvresult: MutPtr): Hresult =
     WindowsWin32SystemComJniBridge.windowssysWindowsWin32SystemComBindMoniker(pmk.rawAddress, grfopt.toInt(), iidresult.rawAddress, ppvresult.rawAddress)
 
-public actual fun cLSIDFromProgID(lpszprogid: Pcwstr, lpclsid: MutPtr<Guid>): Hresult =
+public actual fun cLSIDFromProgID(lpszprogid: Pcwstr, lpclsid: MutPtr): Hresult =
     WindowsWin32SystemComJniBridge.windowssysWindowsWin32SystemComCLSIDFromProgID(lpszprogid.rawAddress, lpclsid.rawAddress)
 
-public actual fun cLSIDFromProgIDEx(lpszprogid: Pcwstr, lpclsid: MutPtr<Guid>): Hresult =
+public actual fun cLSIDFromProgIDEx(lpszprogid: Pcwstr, lpclsid: MutPtr): Hresult =
     WindowsWin32SystemComJniBridge.windowssysWindowsWin32SystemComCLSIDFromProgIDEx(lpszprogid.rawAddress, lpclsid.rawAddress)
 
-public actual fun cLSIDFromString(lpsz: Pcwstr, pclsid: MutPtr<Guid>): Hresult =
+public actual fun cLSIDFromString(lpsz: Pcwstr, pclsid: MutPtr): Hresult =
     WindowsWin32SystemComJniBridge.windowssysWindowsWin32SystemComCLSIDFromString(lpsz.rawAddress, pclsid.rawAddress)
 
 public actual fun coAddRefServerProcess(): UInt =
     WindowsWin32SystemComJniBridge.windowssysWindowsWin32SystemComCoAddRefServerProcess().toUInt()
 
-public actual fun coAllowSetForegroundWindow(punk: MutPtr<CVoid>, lpvreserved: ConstPtr<CVoid>): Hresult =
+public actual fun coAllowSetForegroundWindow(punk: MutPtr, lpvreserved: ConstPtr): Hresult =
     WindowsWin32SystemComJniBridge.windowssysWindowsWin32SystemComCoAllowSetForegroundWindow(punk.rawAddress, lpvreserved.rawAddress)
 
-public actual fun coAllowUnmarshalerCLSID(clsid: ConstPtr<Guid>): Hresult =
+public actual fun coAllowUnmarshalerCLSID(clsid: ConstPtr): Hresult =
     WindowsWin32SystemComJniBridge.windowssysWindowsWin32SystemComCoAllowUnmarshalerCLSID(clsid.rawAddress)
 
 public actual fun coBuildVersion(): UInt =
@@ -431,46 +427,46 @@ public actual fun coBuildVersion(): UInt =
 public actual fun coCancelCall(dwthreadid: UInt, ultimeout: UInt): Hresult =
     WindowsWin32SystemComJniBridge.windowssysWindowsWin32SystemComCoCancelCall(dwthreadid.toInt(), ultimeout.toInt())
 
-public actual fun coCopyProxy(pproxy: MutPtr<CVoid>, ppcopy: MutPtr<MutPtr<CVoid>>): Hresult =
+public actual fun coCopyProxy(pproxy: MutPtr, ppcopy: MutPtr): Hresult =
     WindowsWin32SystemComJniBridge.windowssysWindowsWin32SystemComCoCopyProxy(pproxy.rawAddress, ppcopy.rawAddress)
 
-public actual fun coCreateFreeThreadedMarshaler(punkouter: MutPtr<CVoid>, ppunkmarshal: MutPtr<MutPtr<CVoid>>): Hresult =
+public actual fun coCreateFreeThreadedMarshaler(punkouter: MutPtr, ppunkmarshal: MutPtr): Hresult =
     WindowsWin32SystemComJniBridge.windowssysWindowsWin32SystemComCoCreateFreeThreadedMarshaler(punkouter.rawAddress, ppunkmarshal.rawAddress)
 
-public actual fun coCreateGuid(pguid: MutPtr<Guid>): Hresult =
+public actual fun coCreateGuid(pguid: MutPtr): Hresult =
     WindowsWin32SystemComJniBridge.windowssysWindowsWin32SystemComCoCreateGuid(pguid.rawAddress)
 
-public actual fun coCreateInstance(rclsid: ConstPtr<Guid>, punkouter: MutPtr<CVoid>, dwclscontext: Clsctx, riid: ConstPtr<Guid>, ppv: MutPtr<MutPtr<CVoid>>): Hresult =
+public actual fun coCreateInstance(rclsid: ConstPtr, punkouter: MutPtr, dwclscontext: Clsctx, riid: ConstPtr, ppv: MutPtr): Hresult =
     WindowsWin32SystemComJniBridge.windowssysWindowsWin32SystemComCoCreateInstance(rclsid.rawAddress, punkouter.rawAddress, dwclscontext.toInt(), riid.rawAddress, ppv.rawAddress)
 
-public actual fun coCreateInstanceEx(clsid: ConstPtr<Guid>, punkouter: MutPtr<CVoid>, dwclsctx: Clsctx, pserverinfo: ConstPtr<Coserverinfo>, dwcount: UInt, presults: MutPtr<MultiQi>): Hresult =
+public actual fun coCreateInstanceEx(clsid: ConstPtr, punkouter: MutPtr, dwclsctx: Clsctx, pserverinfo: ConstPtr, dwcount: UInt, presults: MutPtr): Hresult =
     WindowsWin32SystemComJniBridge.windowssysWindowsWin32SystemComCoCreateInstanceEx(clsid.rawAddress, punkouter.rawAddress, dwclsctx.toInt(), pserverinfo.rawAddress, dwcount.toInt(), presults.rawAddress)
 
-public actual fun coCreateInstanceFromApp(clsid: ConstPtr<Guid>, punkouter: MutPtr<CVoid>, dwclsctx: Clsctx, reserved: ConstPtr<CVoid>, dwcount: UInt, presults: MutPtr<MultiQi>): Hresult =
+public actual fun coCreateInstanceFromApp(clsid: ConstPtr, punkouter: MutPtr, dwclsctx: Clsctx, reserved: ConstPtr, dwcount: UInt, presults: MutPtr): Hresult =
     WindowsWin32SystemComJniBridge.windowssysWindowsWin32SystemComCoCreateInstanceFromApp(clsid.rawAddress, punkouter.rawAddress, dwclsctx.toInt(), reserved.rawAddress, dwcount.toInt(), presults.rawAddress)
 
 public actual fun coDecrementMTAUsage(cookie: CoMtaUsageCookie): Hresult =
     WindowsWin32SystemComJniBridge.windowssysWindowsWin32SystemComCoDecrementMTAUsage(cookie.rawAddress)
 
-public actual fun coDisableCallCancellation(preserved: ConstPtr<CVoid>): Hresult =
+public actual fun coDisableCallCancellation(preserved: ConstPtr): Hresult =
     WindowsWin32SystemComJniBridge.windowssysWindowsWin32SystemComCoDisableCallCancellation(preserved.rawAddress)
 
 public actual fun coDisconnectContext(dwtimeout: UInt): Hresult =
     WindowsWin32SystemComJniBridge.windowssysWindowsWin32SystemComCoDisconnectContext(dwtimeout.toInt())
 
-public actual fun coDisconnectObject(punk: MutPtr<CVoid>, dwreserved: UInt): Hresult =
+public actual fun coDisconnectObject(punk: MutPtr, dwreserved: UInt): Hresult =
     WindowsWin32SystemComJniBridge.windowssysWindowsWin32SystemComCoDisconnectObject(punk.rawAddress, dwreserved.toInt())
 
-public actual fun coDosDateTimeToFileTime(ndosdate: UShort, ndostime: UShort, lpfiletime: MutPtr<Filetime>): Bool =
+public actual fun coDosDateTimeToFileTime(ndosdate: UShort, ndostime: UShort, lpfiletime: MutPtr): Bool =
     WindowsWin32SystemComJniBridge.windowssysWindowsWin32SystemComCoDosDateTimeToFileTime(ndosdate.toShort(), ndostime.toShort(), lpfiletime.rawAddress)
 
-public actual fun coEnableCallCancellation(preserved: ConstPtr<CVoid>): Hresult =
+public actual fun coEnableCallCancellation(preserved: ConstPtr): Hresult =
     WindowsWin32SystemComJniBridge.windowssysWindowsWin32SystemComCoEnableCallCancellation(preserved.rawAddress)
 
-public actual fun coFileTimeNow(lpfiletime: MutPtr<Filetime>): Hresult =
+public actual fun coFileTimeNow(lpfiletime: MutPtr): Hresult =
     WindowsWin32SystemComJniBridge.windowssysWindowsWin32SystemComCoFileTimeNow(lpfiletime.rawAddress)
 
-public actual fun coFileTimeToDosDateTime(lpfiletime: ConstPtr<Filetime>, lpdosdate: MutPtr<UShort>, lpdostime: MutPtr<UShort>): Bool =
+public actual fun coFileTimeToDosDateTime(lpfiletime: ConstPtr, lpdosdate: MutPtr, lpdostime: MutPtr): Bool =
     WindowsWin32SystemComJniBridge.windowssysWindowsWin32SystemComCoFileTimeToDosDateTime(lpfiletime.rawAddress, lpdosdate.rawAddress, lpdostime.rawAddress)
 
 public actual fun coFreeAllLibraries() {
@@ -489,112 +485,112 @@ public actual fun coFreeUnusedLibrariesEx(dwunloaddelay: UInt, dwreserved: UInt)
     WindowsWin32SystemComJniBridge.windowssysWindowsWin32SystemComCoFreeUnusedLibrariesEx(dwunloaddelay.toInt(), dwreserved.toInt())
 }
 
-public actual fun coGetApartmentType(papttype: MutPtr<Apttype>, paptqualifier: MutPtr<Apttypequalifier>): Hresult =
+public actual fun coGetApartmentType(papttype: MutPtr, paptqualifier: MutPtr): Hresult =
     WindowsWin32SystemComJniBridge.windowssysWindowsWin32SystemComCoGetApartmentType(papttype.rawAddress, paptqualifier.rawAddress)
 
-public actual fun coGetCallContext(riid: ConstPtr<Guid>, ppinterface: MutPtr<MutPtr<CVoid>>): Hresult =
+public actual fun coGetCallContext(riid: ConstPtr, ppinterface: MutPtr): Hresult =
     WindowsWin32SystemComJniBridge.windowssysWindowsWin32SystemComCoGetCallContext(riid.rawAddress, ppinterface.rawAddress)
 
-public actual fun coGetCallerTID(lpdwtid: MutPtr<UInt>): Hresult =
+public actual fun coGetCallerTID(lpdwtid: MutPtr): Hresult =
     WindowsWin32SystemComJniBridge.windowssysWindowsWin32SystemComCoGetCallerTID(lpdwtid.rawAddress)
 
-public actual fun coGetCancelObject(dwthreadid: UInt, iid: ConstPtr<Guid>, ppunk: MutPtr<MutPtr<CVoid>>): Hresult =
+public actual fun coGetCancelObject(dwthreadid: UInt, iid: ConstPtr, ppunk: MutPtr): Hresult =
     WindowsWin32SystemComJniBridge.windowssysWindowsWin32SystemComCoGetCancelObject(dwthreadid.toInt(), iid.rawAddress, ppunk.rawAddress)
 
-public actual fun coGetClassObject(rclsid: ConstPtr<Guid>, dwclscontext: UInt, pvreserved: ConstPtr<CVoid>, riid: ConstPtr<Guid>, ppv: MutPtr<MutPtr<CVoid>>): Hresult =
+public actual fun coGetClassObject(rclsid: ConstPtr, dwclscontext: UInt, pvreserved: ConstPtr, riid: ConstPtr, ppv: MutPtr): Hresult =
     WindowsWin32SystemComJniBridge.windowssysWindowsWin32SystemComCoGetClassObject(rclsid.rawAddress, dwclscontext.toInt(), pvreserved.rawAddress, riid.rawAddress, ppv.rawAddress)
 
-public actual fun coGetContextToken(ptoken: MutPtr<ULong>): Hresult =
+public actual fun coGetContextToken(ptoken: MutPtr): Hresult =
     WindowsWin32SystemComJniBridge.windowssysWindowsWin32SystemComCoGetContextToken(ptoken.rawAddress)
 
-public actual fun coGetCurrentLogicalThreadId(pguid: MutPtr<Guid>): Hresult =
+public actual fun coGetCurrentLogicalThreadId(pguid: MutPtr): Hresult =
     WindowsWin32SystemComJniBridge.windowssysWindowsWin32SystemComCoGetCurrentLogicalThreadId(pguid.rawAddress)
 
 public actual fun coGetCurrentProcess(): UInt =
     WindowsWin32SystemComJniBridge.windowssysWindowsWin32SystemComCoGetCurrentProcess().toUInt()
 
-public actual fun coGetMalloc(dwmemcontext: UInt, ppmalloc: MutPtr<MutPtr<CVoid>>): Hresult =
+public actual fun coGetMalloc(dwmemcontext: UInt, ppmalloc: MutPtr): Hresult =
     WindowsWin32SystemComJniBridge.windowssysWindowsWin32SystemComCoGetMalloc(dwmemcontext.toInt(), ppmalloc.rawAddress)
 
-public actual fun coGetObject(pszname: Pcwstr, pbindoptions: ConstPtr<BindOpts>, riid: ConstPtr<Guid>, ppv: MutPtr<MutPtr<CVoid>>): Hresult =
+public actual fun coGetObject(pszname: Pcwstr, pbindoptions: ConstPtr, riid: ConstPtr, ppv: MutPtr): Hresult =
     WindowsWin32SystemComJniBridge.windowssysWindowsWin32SystemComCoGetObject(pszname.rawAddress, pbindoptions.rawAddress, riid.rawAddress, ppv.rawAddress)
 
-public actual fun coGetObjectContext(riid: ConstPtr<Guid>, ppv: MutPtr<MutPtr<CVoid>>): Hresult =
+public actual fun coGetObjectContext(riid: ConstPtr, ppv: MutPtr): Hresult =
     WindowsWin32SystemComJniBridge.windowssysWindowsWin32SystemComCoGetObjectContext(riid.rawAddress, ppv.rawAddress)
 
-public actual fun coGetPSClsid(riid: ConstPtr<Guid>, pclsid: MutPtr<Guid>): Hresult =
+public actual fun coGetPSClsid(riid: ConstPtr, pclsid: MutPtr): Hresult =
     WindowsWin32SystemComJniBridge.windowssysWindowsWin32SystemComCoGetPSClsid(riid.rawAddress, pclsid.rawAddress)
 
-public actual fun coGetSystemSecurityPermissions(comsdtype: Comsd, ppsd: MutPtr<PsecurityDescriptor>): Hresult =
+public actual fun coGetSystemSecurityPermissions(comsdtype: Comsd, ppsd: MutPtr): Hresult =
     WindowsWin32SystemComJniBridge.windowssysWindowsWin32SystemComCoGetSystemSecurityPermissions(comsdtype, ppsd.rawAddress)
 
-public actual fun coGetTreatAsClass(clsidold: ConstPtr<Guid>, pclsidnew: MutPtr<Guid>): Hresult =
+public actual fun coGetTreatAsClass(clsidold: ConstPtr, pclsidnew: MutPtr): Hresult =
     WindowsWin32SystemComJniBridge.windowssysWindowsWin32SystemComCoGetTreatAsClass(clsidold.rawAddress, pclsidnew.rawAddress)
 
 public actual fun coImpersonateClient(): Hresult =
     WindowsWin32SystemComJniBridge.windowssysWindowsWin32SystemComCoImpersonateClient()
 
-public actual fun coIncrementMTAUsage(pcookie: MutPtr<CoMtaUsageCookie>): Hresult =
+public actual fun coIncrementMTAUsage(pcookie: MutPtr): Hresult =
     WindowsWin32SystemComJniBridge.windowssysWindowsWin32SystemComCoIncrementMTAUsage(pcookie.rawAddress)
 
-public actual fun coInitialize(pvreserved: ConstPtr<CVoid>): Hresult =
+public actual fun coInitialize(pvreserved: ConstPtr): Hresult =
     WindowsWin32SystemComJniBridge.windowssysWindowsWin32SystemComCoInitialize(pvreserved.rawAddress)
 
-public actual fun coInitializeEx(pvreserved: ConstPtr<CVoid>, dwcoinit: UInt): Hresult =
+public actual fun coInitializeEx(pvreserved: ConstPtr, dwcoinit: UInt): Hresult =
     WindowsWin32SystemComJniBridge.windowssysWindowsWin32SystemComCoInitializeEx(pvreserved.rawAddress, dwcoinit.toInt())
 
-public actual fun coInitializeSecurity(psecdesc: PsecurityDescriptor, cauthsvc: Int, asauthsvc: ConstPtr<SoleAuthenticationService>, preserved1: ConstPtr<CVoid>, dwauthnlevel: RpcCAuthnLevel, dwimplevel: RpcCImpLevel, pauthlist: ConstPtr<CVoid>, dwcapabilities: UInt, preserved3: ConstPtr<CVoid>): Hresult =
+public actual fun coInitializeSecurity(psecdesc: PsecurityDescriptor, cauthsvc: Int, asauthsvc: ConstPtr, preserved1: ConstPtr, dwauthnlevel: RpcCAuthnLevel, dwimplevel: RpcCImpLevel, pauthlist: ConstPtr, dwcapabilities: UInt, preserved3: ConstPtr): Hresult =
     WindowsWin32SystemComJniBridge.windowssysWindowsWin32SystemComCoInitializeSecurity(psecdesc.rawAddress, cauthsvc, asauthsvc.rawAddress, preserved1.rawAddress, dwauthnlevel.toInt(), dwimplevel.toInt(), pauthlist.rawAddress, dwcapabilities.toInt(), preserved3.rawAddress)
 
-public actual fun coInstall(pbc: MutPtr<CVoid>, dwflags: UInt, pclassspec: ConstPtr<UClsspec>, pquery: ConstPtr<Querycontext>, pszcodebase: Pcwstr): Hresult =
+public actual fun coInstall(pbc: MutPtr, dwflags: UInt, pclassspec: ConstPtr, pquery: ConstPtr, pszcodebase: Pcwstr): Hresult =
     WindowsWin32SystemComJniBridge.windowssysWindowsWin32SystemComCoInstall(pbc.rawAddress, dwflags.toInt(), pclassspec.rawAddress, pquery.rawAddress, pszcodebase.rawAddress)
 
 public actual fun coInvalidateRemoteMachineBindings(pszmachinename: Pcwstr): Hresult =
     WindowsWin32SystemComJniBridge.windowssysWindowsWin32SystemComCoInvalidateRemoteMachineBindings(pszmachinename.rawAddress)
 
-public actual fun coIsHandlerConnected(punk: MutPtr<CVoid>): Bool =
+public actual fun coIsHandlerConnected(punk: MutPtr): Bool =
     WindowsWin32SystemComJniBridge.windowssysWindowsWin32SystemComCoIsHandlerConnected(punk.rawAddress)
 
-public actual fun coIsOle1Class(rclsid: ConstPtr<Guid>): Bool =
+public actual fun coIsOle1Class(rclsid: ConstPtr): Bool =
     WindowsWin32SystemComJniBridge.windowssysWindowsWin32SystemComCoIsOle1Class(rclsid.rawAddress)
 
 public actual fun coLoadLibrary(lpszlibname: Pcwstr, bautofree: Bool): Hinstance =
     MutPtr(WindowsWin32SystemComJniBridge.windowssysWindowsWin32SystemComCoLoadLibrary(lpszlibname.rawAddress, bautofree))
 
-public actual fun coLockObjectExternal(punk: MutPtr<CVoid>, flock: Bool, flastunlockreleases: Bool): Hresult =
+public actual fun coLockObjectExternal(punk: MutPtr, flock: Bool, flastunlockreleases: Bool): Hresult =
     WindowsWin32SystemComJniBridge.windowssysWindowsWin32SystemComCoLockObjectExternal(punk.rawAddress, flock, flastunlockreleases)
 
-public actual fun coQueryAuthenticationServices(pcauthsvc: MutPtr<UInt>, asauthsvc: MutPtr<MutPtr<SoleAuthenticationService>>): Hresult =
+public actual fun coQueryAuthenticationServices(pcauthsvc: MutPtr, asauthsvc: MutPtr): Hresult =
     WindowsWin32SystemComJniBridge.windowssysWindowsWin32SystemComCoQueryAuthenticationServices(pcauthsvc.rawAddress, asauthsvc.rawAddress)
 
-public actual fun coQueryClientBlanket(pauthnsvc: MutPtr<UInt>, pauthzsvc: MutPtr<UInt>, pserverprincname: MutPtr<Pwstr>, pauthnlevel: MutPtr<UInt>, pimplevel: MutPtr<UInt>, pprivs: MutPtr<MutPtr<CVoid>>, pcapabilities: MutPtr<UInt>): Hresult =
+public actual fun coQueryClientBlanket(pauthnsvc: MutPtr, pauthzsvc: MutPtr, pserverprincname: MutPtr, pauthnlevel: MutPtr, pimplevel: MutPtr, pprivs: MutPtr, pcapabilities: MutPtr): Hresult =
     WindowsWin32SystemComJniBridge.windowssysWindowsWin32SystemComCoQueryClientBlanket(pauthnsvc.rawAddress, pauthzsvc.rawAddress, pserverprincname.rawAddress, pauthnlevel.rawAddress, pimplevel.rawAddress, pprivs.rawAddress, pcapabilities.rawAddress)
 
-public actual fun coQueryProxyBlanket(pproxy: MutPtr<CVoid>, pwauthnsvc: MutPtr<UInt>, pauthzsvc: MutPtr<UInt>, pserverprincname: MutPtr<Pwstr>, pauthnlevel: MutPtr<UInt>, pimplevel: MutPtr<UInt>, pauthinfo: MutPtr<MutPtr<CVoid>>, pcapabilites: MutPtr<UInt>): Hresult =
+public actual fun coQueryProxyBlanket(pproxy: MutPtr, pwauthnsvc: MutPtr, pauthzsvc: MutPtr, pserverprincname: MutPtr, pauthnlevel: MutPtr, pimplevel: MutPtr, pauthinfo: MutPtr, pcapabilites: MutPtr): Hresult =
     WindowsWin32SystemComJniBridge.windowssysWindowsWin32SystemComCoQueryProxyBlanket(pproxy.rawAddress, pwauthnsvc.rawAddress, pauthzsvc.rawAddress, pserverprincname.rawAddress, pauthnlevel.rawAddress, pimplevel.rawAddress, pauthinfo.rawAddress, pcapabilites.rawAddress)
 
-public actual fun coRegisterActivationFilter(pactivationfilter: MutPtr<CVoid>): Hresult =
+public actual fun coRegisterActivationFilter(pactivationfilter: MutPtr): Hresult =
     WindowsWin32SystemComJniBridge.windowssysWindowsWin32SystemComCoRegisterActivationFilter(pactivationfilter.rawAddress)
 
-public actual fun coRegisterChannelHook(extensionuuid: ConstPtr<Guid>, pchannelhook: MutPtr<CVoid>): Hresult =
+public actual fun coRegisterChannelHook(extensionuuid: ConstPtr, pchannelhook: MutPtr): Hresult =
     WindowsWin32SystemComJniBridge.windowssysWindowsWin32SystemComCoRegisterChannelHook(extensionuuid.rawAddress, pchannelhook.rawAddress)
 
-public actual fun coRegisterClassObject(rclsid: ConstPtr<Guid>, punk: MutPtr<CVoid>, dwclscontext: Clsctx, flags: UInt, lpdwregister: MutPtr<UInt>): Hresult =
+public actual fun coRegisterClassObject(rclsid: ConstPtr, punk: MutPtr, dwclscontext: Clsctx, flags: UInt, lpdwregister: MutPtr): Hresult =
     WindowsWin32SystemComJniBridge.windowssysWindowsWin32SystemComCoRegisterClassObject(rclsid.rawAddress, punk.rawAddress, dwclscontext.toInt(), flags.toInt(), lpdwregister.rawAddress)
 
-public actual fun coRegisterDeviceCatalog(deviceinstanceid: Pcwstr, cookie: MutPtr<CoDeviceCatalogCookie>): Hresult =
+public actual fun coRegisterDeviceCatalog(deviceinstanceid: Pcwstr, cookie: MutPtr): Hresult =
     WindowsWin32SystemComJniBridge.windowssysWindowsWin32SystemComCoRegisterDeviceCatalog(deviceinstanceid.rawAddress, cookie.rawAddress)
 
-public actual fun coRegisterInitializeSpy(pspy: MutPtr<CVoid>, pulicookie: MutPtr<ULong>): Hresult =
+public actual fun coRegisterInitializeSpy(pspy: MutPtr, pulicookie: MutPtr): Hresult =
     WindowsWin32SystemComJniBridge.windowssysWindowsWin32SystemComCoRegisterInitializeSpy(pspy.rawAddress, pulicookie.rawAddress)
 
-public actual fun coRegisterMallocSpy(pmallocspy: MutPtr<CVoid>): Hresult =
+public actual fun coRegisterMallocSpy(pmallocspy: MutPtr): Hresult =
     WindowsWin32SystemComJniBridge.windowssysWindowsWin32SystemComCoRegisterMallocSpy(pmallocspy.rawAddress)
 
-public actual fun coRegisterPSClsid(riid: ConstPtr<Guid>, rclsid: ConstPtr<Guid>): Hresult =
+public actual fun coRegisterPSClsid(riid: ConstPtr, rclsid: ConstPtr): Hresult =
     WindowsWin32SystemComJniBridge.windowssysWindowsWin32SystemComCoRegisterPSClsid(riid.rawAddress, rclsid.rawAddress)
 
-public actual fun coRegisterSurrogate(psurrogate: MutPtr<CVoid>): Hresult =
+public actual fun coRegisterSurrogate(psurrogate: MutPtr): Hresult =
     WindowsWin32SystemComJniBridge.windowssysWindowsWin32SystemComCoRegisterSurrogate(psurrogate.rawAddress)
 
 public actual fun coReleaseServerProcess(): UInt =
@@ -618,124 +614,124 @@ public actual fun coRevokeInitializeSpy(ulicookie: ULong): Hresult =
 public actual fun coRevokeMallocSpy(): Hresult =
     WindowsWin32SystemComJniBridge.windowssysWindowsWin32SystemComCoRevokeMallocSpy()
 
-public actual fun coSetCancelObject(punk: MutPtr<CVoid>): Hresult =
+public actual fun coSetCancelObject(punk: MutPtr): Hresult =
     WindowsWin32SystemComJniBridge.windowssysWindowsWin32SystemComCoSetCancelObject(punk.rawAddress)
 
-public actual fun coSetProxyBlanket(pproxy: MutPtr<CVoid>, dwauthnsvc: UInt, dwauthzsvc: UInt, pserverprincname: Pcwstr, dwauthnlevel: RpcCAuthnLevel, dwimplevel: RpcCImpLevel, pauthinfo: ConstPtr<CVoid>, dwcapabilities: UInt): Hresult =
+public actual fun coSetProxyBlanket(pproxy: MutPtr, dwauthnsvc: UInt, dwauthzsvc: UInt, pserverprincname: Pcwstr, dwauthnlevel: RpcCAuthnLevel, dwimplevel: RpcCImpLevel, pauthinfo: ConstPtr, dwcapabilities: UInt): Hresult =
     WindowsWin32SystemComJniBridge.windowssysWindowsWin32SystemComCoSetProxyBlanket(pproxy.rawAddress, dwauthnsvc.toInt(), dwauthzsvc.toInt(), pserverprincname.rawAddress, dwauthnlevel.toInt(), dwimplevel.toInt(), pauthinfo.rawAddress, dwcapabilities.toInt())
 
 public actual fun coSuspendClassObjects(): Hresult =
     WindowsWin32SystemComJniBridge.windowssysWindowsWin32SystemComCoSuspendClassObjects()
 
-public actual fun coSwitchCallContext(pnewobject: MutPtr<CVoid>, ppoldobject: MutPtr<MutPtr<CVoid>>): Hresult =
+public actual fun coSwitchCallContext(pnewobject: MutPtr, ppoldobject: MutPtr): Hresult =
     WindowsWin32SystemComJniBridge.windowssysWindowsWin32SystemComCoSwitchCallContext(pnewobject.rawAddress, ppoldobject.rawAddress)
 
-public actual fun coTaskMemAlloc(cb: ULong): MutPtr<CVoid> =
+public actual fun coTaskMemAlloc(cb: ULong): MutPtr =
     MutPtr(WindowsWin32SystemComJniBridge.windowssysWindowsWin32SystemComCoTaskMemAlloc(cb.toLong()))
 
-public actual fun coTaskMemFree(pv: ConstPtr<CVoid>) {
+public actual fun coTaskMemFree(pv: ConstPtr) {
     WindowsWin32SystemComJniBridge.windowssysWindowsWin32SystemComCoTaskMemFree(pv.rawAddress)
 }
 
-public actual fun coTaskMemRealloc(pv: ConstPtr<CVoid>, cb: ULong): MutPtr<CVoid> =
+public actual fun coTaskMemRealloc(pv: ConstPtr, cb: ULong): MutPtr =
     MutPtr(WindowsWin32SystemComJniBridge.windowssysWindowsWin32SystemComCoTaskMemRealloc(pv.rawAddress, cb.toLong()))
 
 public actual fun coTestCancel(): Hresult =
     WindowsWin32SystemComJniBridge.windowssysWindowsWin32SystemComCoTestCancel()
 
-public actual fun coTreatAsClass(clsidold: ConstPtr<Guid>, clsidnew: ConstPtr<Guid>): Hresult =
+public actual fun coTreatAsClass(clsidold: ConstPtr, clsidnew: ConstPtr): Hresult =
     WindowsWin32SystemComJniBridge.windowssysWindowsWin32SystemComCoTreatAsClass(clsidold.rawAddress, clsidnew.rawAddress)
 
 public actual fun coUninitialize() {
     WindowsWin32SystemComJniBridge.windowssysWindowsWin32SystemComCoUninitialize()
 }
 
-public actual fun coWaitForMultipleHandles(dwflags: UInt, dwtimeout: UInt, chandles: UInt, phandles: ConstPtr<Handle>, lpdwindex: MutPtr<UInt>): Hresult =
+public actual fun coWaitForMultipleHandles(dwflags: UInt, dwtimeout: UInt, chandles: UInt, phandles: ConstPtr, lpdwindex: MutPtr): Hresult =
     WindowsWin32SystemComJniBridge.windowssysWindowsWin32SystemComCoWaitForMultipleHandles(dwflags.toInt(), dwtimeout.toInt(), chandles.toInt(), phandles.rawAddress, lpdwindex.rawAddress)
 
-public actual fun coWaitForMultipleObjects(dwflags: UInt, dwtimeout: UInt, chandles: UInt, phandles: ConstPtr<Handle>, lpdwindex: MutPtr<UInt>): Hresult =
+public actual fun coWaitForMultipleObjects(dwflags: UInt, dwtimeout: UInt, chandles: UInt, phandles: ConstPtr, lpdwindex: MutPtr): Hresult =
     WindowsWin32SystemComJniBridge.windowssysWindowsWin32SystemComCoWaitForMultipleObjects(dwflags.toInt(), dwtimeout.toInt(), chandles.toInt(), phandles.rawAddress, lpdwindex.rawAddress)
 
-public actual fun createAntiMoniker(ppmk: MutPtr<MutPtr<CVoid>>): Hresult =
+public actual fun createAntiMoniker(ppmk: MutPtr): Hresult =
     WindowsWin32SystemComJniBridge.windowssysWindowsWin32SystemComCreateAntiMoniker(ppmk.rawAddress)
 
-public actual fun createBindCtx(reserved: UInt, ppbc: MutPtr<MutPtr<CVoid>>): Hresult =
+public actual fun createBindCtx(reserved: UInt, ppbc: MutPtr): Hresult =
     WindowsWin32SystemComJniBridge.windowssysWindowsWin32SystemComCreateBindCtx(reserved.toInt(), ppbc.rawAddress)
 
-public actual fun createClassMoniker(rclsid: ConstPtr<Guid>, ppmk: MutPtr<MutPtr<CVoid>>): Hresult =
+public actual fun createClassMoniker(rclsid: ConstPtr, ppmk: MutPtr): Hresult =
     WindowsWin32SystemComJniBridge.windowssysWindowsWin32SystemComCreateClassMoniker(rclsid.rawAddress, ppmk.rawAddress)
 
-public actual fun createDataAdviseHolder(ppdaholder: MutPtr<MutPtr<CVoid>>): Hresult =
+public actual fun createDataAdviseHolder(ppdaholder: MutPtr): Hresult =
     WindowsWin32SystemComJniBridge.windowssysWindowsWin32SystemComCreateDataAdviseHolder(ppdaholder.rawAddress)
 
-public actual fun createDataCache(punkouter: MutPtr<CVoid>, rclsid: ConstPtr<Guid>, iid: ConstPtr<Guid>, ppv: MutPtr<MutPtr<CVoid>>): Hresult =
+public actual fun createDataCache(punkouter: MutPtr, rclsid: ConstPtr, iid: ConstPtr, ppv: MutPtr): Hresult =
     WindowsWin32SystemComJniBridge.windowssysWindowsWin32SystemComCreateDataCache(punkouter.rawAddress, rclsid.rawAddress, iid.rawAddress, ppv.rawAddress)
 
-public actual fun createFileMoniker(lpszpathname: Pcwstr, ppmk: MutPtr<MutPtr<CVoid>>): Hresult =
+public actual fun createFileMoniker(lpszpathname: Pcwstr, ppmk: MutPtr): Hresult =
     WindowsWin32SystemComJniBridge.windowssysWindowsWin32SystemComCreateFileMoniker(lpszpathname.rawAddress, ppmk.rawAddress)
 
-public actual fun createGenericComposite(pmkfirst: MutPtr<CVoid>, pmkrest: MutPtr<CVoid>, ppmkcomposite: MutPtr<MutPtr<CVoid>>): Hresult =
+public actual fun createGenericComposite(pmkfirst: MutPtr, pmkrest: MutPtr, ppmkcomposite: MutPtr): Hresult =
     WindowsWin32SystemComJniBridge.windowssysWindowsWin32SystemComCreateGenericComposite(pmkfirst.rawAddress, pmkrest.rawAddress, ppmkcomposite.rawAddress)
 
-public actual fun createIUriBuilder(piuri: MutPtr<CVoid>, dwflags: UInt, dwreserved: ULong, ppiuribuilder: MutPtr<MutPtr<CVoid>>): Hresult =
+public actual fun createIUriBuilder(piuri: MutPtr, dwflags: UInt, dwreserved: ULong, ppiuribuilder: MutPtr): Hresult =
     WindowsWin32SystemComJniBridge.windowssysWindowsWin32SystemComCreateIUriBuilder(piuri.rawAddress, dwflags.toInt(), dwreserved.toLong(), ppiuribuilder.rawAddress)
 
-public actual fun createItemMoniker(lpszdelim: Pcwstr, lpszitem: Pcwstr, ppmk: MutPtr<MutPtr<CVoid>>): Hresult =
+public actual fun createItemMoniker(lpszdelim: Pcwstr, lpszitem: Pcwstr, ppmk: MutPtr): Hresult =
     WindowsWin32SystemComJniBridge.windowssysWindowsWin32SystemComCreateItemMoniker(lpszdelim.rawAddress, lpszitem.rawAddress, ppmk.rawAddress)
 
-public actual fun createObjrefMoniker(punk: MutPtr<CVoid>, ppmk: MutPtr<MutPtr<CVoid>>): Hresult =
+public actual fun createObjrefMoniker(punk: MutPtr, ppmk: MutPtr): Hresult =
     WindowsWin32SystemComJniBridge.windowssysWindowsWin32SystemComCreateObjrefMoniker(punk.rawAddress, ppmk.rawAddress)
 
-public actual fun createPointerMoniker(punk: MutPtr<CVoid>, ppmk: MutPtr<MutPtr<CVoid>>): Hresult =
+public actual fun createPointerMoniker(punk: MutPtr, ppmk: MutPtr): Hresult =
     WindowsWin32SystemComJniBridge.windowssysWindowsWin32SystemComCreatePointerMoniker(punk.rawAddress, ppmk.rawAddress)
 
-public actual fun createStdProgressIndicator(hwndparent: Hwnd, psztitle: Pcwstr, pibsccaller: MutPtr<CVoid>, ppibsc: MutPtr<MutPtr<CVoid>>): Hresult =
+public actual fun createStdProgressIndicator(hwndparent: Hwnd, psztitle: Pcwstr, pibsccaller: MutPtr, ppibsc: MutPtr): Hresult =
     WindowsWin32SystemComJniBridge.windowssysWindowsWin32SystemComCreateStdProgressIndicator(hwndparent.rawAddress, psztitle.rawAddress, pibsccaller.rawAddress, ppibsc.rawAddress)
 
-public actual fun createUri(pwzuri: Pcwstr, dwflags: UriCreateFlags, dwreserved: ULong, ppuri: MutPtr<MutPtr<CVoid>>): Hresult =
+public actual fun createUri(pwzuri: Pcwstr, dwflags: UriCreateFlags, dwreserved: ULong, ppuri: MutPtr): Hresult =
     WindowsWin32SystemComJniBridge.windowssysWindowsWin32SystemComCreateUri(pwzuri.rawAddress, dwflags.toInt(), dwreserved.toLong(), ppuri.rawAddress)
 
-public actual fun createUriFromMultiByteString(pszansiinputuri: Pcstr, dwencodingflags: UInt, dwcodepage: UInt, dwcreateflags: UInt, dwreserved: ULong, ppuri: MutPtr<MutPtr<CVoid>>): Hresult =
+public actual fun createUriFromMultiByteString(pszansiinputuri: Pcstr, dwencodingflags: UInt, dwcodepage: UInt, dwcreateflags: UInt, dwreserved: ULong, ppuri: MutPtr): Hresult =
     WindowsWin32SystemComJniBridge.windowssysWindowsWin32SystemComCreateUriFromMultiByteString(pszansiinputuri.rawAddress, dwencodingflags.toInt(), dwcodepage.toInt(), dwcreateflags.toInt(), dwreserved.toLong(), ppuri.rawAddress)
 
-public actual fun createUriWithFragment(pwzuri: Pcwstr, pwzfragment: Pcwstr, dwflags: UInt, dwreserved: ULong, ppuri: MutPtr<MutPtr<CVoid>>): Hresult =
+public actual fun createUriWithFragment(pwzuri: Pcwstr, pwzfragment: Pcwstr, dwflags: UInt, dwreserved: ULong, ppuri: MutPtr): Hresult =
     WindowsWin32SystemComJniBridge.windowssysWindowsWin32SystemComCreateUriWithFragment(pwzuri.rawAddress, pwzfragment.rawAddress, dwflags.toInt(), dwreserved.toLong(), ppuri.rawAddress)
 
-public actual fun dcomChannelSetHResult(pvreserved: ConstPtr<CVoid>, pulreserved: ConstPtr<UInt>, appshr: Hresult): Hresult =
+public actual fun dcomChannelSetHResult(pvreserved: ConstPtr, pulreserved: ConstPtr, appshr: Hresult): Hresult =
     WindowsWin32SystemComJniBridge.windowssysWindowsWin32SystemComDcomChannelSetHResult(pvreserved.rawAddress, pulreserved.rawAddress, appshr)
 
-public actual fun getClassFile(szfilename: Pcwstr, pclsid: MutPtr<Guid>): Hresult =
+public actual fun getClassFile(szfilename: Pcwstr, pclsid: MutPtr): Hresult =
     WindowsWin32SystemComJniBridge.windowssysWindowsWin32SystemComGetClassFile(szfilename.rawAddress, pclsid.rawAddress)
 
-public actual fun getErrorInfo(dwreserved: UInt, pperrinfo: MutPtr<MutPtr<CVoid>>): Hresult =
+public actual fun getErrorInfo(dwreserved: UInt, pperrinfo: MutPtr): Hresult =
     WindowsWin32SystemComJniBridge.windowssysWindowsWin32SystemComGetErrorInfo(dwreserved.toInt(), pperrinfo.rawAddress)
 
-public actual fun getRunningObjectTable(reserved: UInt, pprot: MutPtr<MutPtr<CVoid>>): Hresult =
+public actual fun getRunningObjectTable(reserved: UInt, pprot: MutPtr): Hresult =
     WindowsWin32SystemComJniBridge.windowssysWindowsWin32SystemComGetRunningObjectTable(reserved.toInt(), pprot.rawAddress)
 
-public actual fun iIDFromString(lpsz: Pcwstr, lpiid: MutPtr<Guid>): Hresult =
+public actual fun iIDFromString(lpsz: Pcwstr, lpiid: MutPtr): Hresult =
     WindowsWin32SystemComJniBridge.windowssysWindowsWin32SystemComIIDFromString(lpsz.rawAddress, lpiid.rawAddress)
 
-public actual fun mkParseDisplayName(pbc: MutPtr<CVoid>, szusername: Pcwstr, pcheaten: MutPtr<UInt>, ppmk: MutPtr<MutPtr<CVoid>>): Hresult =
+public actual fun mkParseDisplayName(pbc: MutPtr, szusername: Pcwstr, pcheaten: MutPtr, ppmk: MutPtr): Hresult =
     WindowsWin32SystemComJniBridge.windowssysWindowsWin32SystemComMkParseDisplayName(pbc.rawAddress, szusername.rawAddress, pcheaten.rawAddress, ppmk.rawAddress)
 
-public actual fun monikerCommonPrefixWith(pmkthis: MutPtr<CVoid>, pmkother: MutPtr<CVoid>, ppmkcommon: MutPtr<MutPtr<CVoid>>): Hresult =
+public actual fun monikerCommonPrefixWith(pmkthis: MutPtr, pmkother: MutPtr, ppmkcommon: MutPtr): Hresult =
     WindowsWin32SystemComJniBridge.windowssysWindowsWin32SystemComMonikerCommonPrefixWith(pmkthis.rawAddress, pmkother.rawAddress, ppmkcommon.rawAddress)
 
-public actual fun monikerRelativePathTo(pmksrc: MutPtr<CVoid>, pmkdest: MutPtr<CVoid>, ppmkrelpath: MutPtr<MutPtr<CVoid>>, dwreserved: Bool): Hresult =
+public actual fun monikerRelativePathTo(pmksrc: MutPtr, pmkdest: MutPtr, ppmkrelpath: MutPtr, dwreserved: Bool): Hresult =
     WindowsWin32SystemComJniBridge.windowssysWindowsWin32SystemComMonikerRelativePathTo(pmksrc.rawAddress, pmkdest.rawAddress, ppmkrelpath.rawAddress, dwreserved)
 
-public actual fun progIDFromCLSID(clsid: ConstPtr<Guid>, lplpszprogid: MutPtr<Pwstr>): Hresult =
+public actual fun progIDFromCLSID(clsid: ConstPtr, lplpszprogid: MutPtr): Hresult =
     WindowsWin32SystemComJniBridge.windowssysWindowsWin32SystemComProgIDFromCLSID(clsid.rawAddress, lplpszprogid.rawAddress)
 
-public actual fun setErrorInfo(dwreserved: UInt, perrinfo: MutPtr<CVoid>): Hresult =
+public actual fun setErrorInfo(dwreserved: UInt, perrinfo: MutPtr): Hresult =
     WindowsWin32SystemComJniBridge.windowssysWindowsWin32SystemComSetErrorInfo(dwreserved.toInt(), perrinfo.rawAddress)
 
-public actual fun stringFromCLSID(rclsid: ConstPtr<Guid>, lplpsz: MutPtr<Pwstr>): Hresult =
+public actual fun stringFromCLSID(rclsid: ConstPtr, lplpsz: MutPtr): Hresult =
     WindowsWin32SystemComJniBridge.windowssysWindowsWin32SystemComStringFromCLSID(rclsid.rawAddress, lplpsz.rawAddress)
 
-public actual fun stringFromGUID2(rguid: ConstPtr<Guid>, lpsz: Pwstr, cchmax: Int): Int =
+public actual fun stringFromGUID2(rguid: ConstPtr, lpsz: Pwstr, cchmax: Int): Int =
     WindowsWin32SystemComJniBridge.windowssysWindowsWin32SystemComStringFromGUID2(rguid.rawAddress, lpsz.rawAddress, cchmax)
 
-public actual fun stringFromIID(rclsid: ConstPtr<Guid>, lplpsz: MutPtr<Pwstr>): Hresult =
+public actual fun stringFromIID(rclsid: ConstPtr, lplpsz: MutPtr): Hresult =
     WindowsWin32SystemComJniBridge.windowssysWindowsWin32SystemComStringFromIID(rclsid.rawAddress, lplpsz.rawAddress)

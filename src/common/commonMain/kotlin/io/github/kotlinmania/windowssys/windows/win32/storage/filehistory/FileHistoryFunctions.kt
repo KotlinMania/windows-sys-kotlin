@@ -8,7 +8,7 @@ public expect fun fhServiceBlockBackup(pipe: FhServicePipeHandle): Hresult
 
 public expect fun fhServiceClosePipe(pipe: FhServicePipeHandle): Hresult
 
-public expect fun fhServiceOpenPipe(startserviceifstopped: Bool, pipe: MutPtr<FhServicePipeHandle>): Hresult
+public expect fun fhServiceOpenPipe(startserviceifstopped: Bool, pipe: MutPtr): Hresult
 
 public expect fun fhServiceReloadConfiguration(pipe: FhServicePipeHandle): Hresult
 

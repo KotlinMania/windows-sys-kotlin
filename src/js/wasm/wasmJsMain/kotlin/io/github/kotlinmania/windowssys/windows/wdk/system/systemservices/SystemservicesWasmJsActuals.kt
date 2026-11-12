@@ -2,36 +2,17 @@
 
 package io.github.kotlinmania.windowssys.windows.wdk.system.systemservices
 
-import io.github.kotlinmania.rustlang.core.ffi.CVoid
 import io.github.kotlinmania.rustlang.core.ptr.ConstPtr
 import io.github.kotlinmania.rustlang.core.ptr.MutPtr
-import io.github.kotlinmania.windowssys.core.Guid
 import io.github.kotlinmania.windowssys.core.Pcstr
 import io.github.kotlinmania.windowssys.core.Pcwstr
 import io.github.kotlinmania.windowssys.core.Pstr
 import io.github.kotlinmania.windowssys.core.Pwstr
-import io.github.kotlinmania.windowssys.windows.wdk.foundation.DeviceObject
 import io.github.kotlinmania.windowssys.windows.wdk.foundation.DriverCancel
 import io.github.kotlinmania.windowssys.windows.wdk.foundation.DriverControl
 import io.github.kotlinmania.windowssys.windows.wdk.foundation.DriverNotificationCallbackRoutine
-import io.github.kotlinmania.windowssys.windows.wdk.foundation.DriverObject
 import io.github.kotlinmania.windowssys.windows.wdk.foundation.DriverReinitialize
-import io.github.kotlinmania.windowssys.windows.wdk.foundation.Eresource
-import io.github.kotlinmania.windowssys.windows.wdk.foundation.FastMutex
-import io.github.kotlinmania.windowssys.windows.wdk.foundation.FileObject
 import io.github.kotlinmania.windowssys.windows.wdk.foundation.IoPriorityHint
-import io.github.kotlinmania.windowssys.windows.wdk.foundation.Irp
-import io.github.kotlinmania.windowssys.windows.wdk.foundation.KdeviceQueue
-import io.github.kotlinmania.windowssys.windows.wdk.foundation.Kdpc
-import io.github.kotlinmania.windowssys.windows.wdk.foundation.Kenlistment
-import io.github.kotlinmania.windowssys.windows.wdk.foundation.Kevent
-import io.github.kotlinmania.windowssys.windows.wdk.foundation.Kmutant
-import io.github.kotlinmania.windowssys.windows.wdk.foundation.Kresourcemanager
-import io.github.kotlinmania.windowssys.windows.wdk.foundation.Ktm
-import io.github.kotlinmania.windowssys.windows.wdk.foundation.Ktransaction
-import io.github.kotlinmania.windowssys.windows.wdk.foundation.KwaitBlock
-import io.github.kotlinmania.windowssys.windows.wdk.foundation.Mdl
-import io.github.kotlinmania.windowssys.windows.wdk.foundation.ObjectAttributes
 import io.github.kotlinmania.windowssys.windows.wdk.foundation.PaffinityToken
 import io.github.kotlinmania.windowssys.windows.wdk.foundation.PcallbackObject
 import io.github.kotlinmania.windowssys.windows.wdk.foundation.Pejob
@@ -53,55 +34,25 @@ import io.github.kotlinmania.windowssys.windows.wdk.foundation.PpcwBuffer
 import io.github.kotlinmania.windowssys.windows.wdk.foundation.PpcwInstance
 import io.github.kotlinmania.windowssys.windows.wdk.foundation.PpcwRegistration
 import io.github.kotlinmania.windowssys.windows.wdk.foundation.PsiloMonitor
-import io.github.kotlinmania.windowssys.windows.wdk.foundation.RtlSplayLinks
-import io.github.kotlinmania.windowssys.windows.wdk.foundation.SecuritySubjectContext
-import io.github.kotlinmania.windowssys.windows.wdk.foundation.Vpb
-import io.github.kotlinmania.windowssys.windows.wdk.foundation.WorkQueueItem
 import io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.FileInformationClass
-import io.github.kotlinmania.windowssys.windows.win32.devices.properties.Devproptype
-import io.github.kotlinmania.windowssys.windows.win32.foundation.Devpropkey
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Handle
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Luid
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Ntstatus
-import io.github.kotlinmania.windowssys.windows.win32.foundation.UnicodeString
-import io.github.kotlinmania.windowssys.windows.win32.security.Acl
-import io.github.kotlinmania.windowssys.windows.win32.security.GenericMapping
-import io.github.kotlinmania.windowssys.windows.win32.security.PrivilegeSet
 import io.github.kotlinmania.windowssys.windows.win32.security.PsecurityDescriptor
 import io.github.kotlinmania.windowssys.windows.win32.security.Psid
-import io.github.kotlinmania.windowssys.windows.win32.security.authentication.identity.SeAdtParameterArray
 import io.github.kotlinmania.windowssys.windows.win32.security.authentication.identity.SeAdtParameterType
 import io.github.kotlinmania.windowssys.windows.win32.storage.filesystem.ClfsContextMode
 import io.github.kotlinmania.windowssys.windows.win32.storage.filesystem.ClfsIostatsClass
-import io.github.kotlinmania.windowssys.windows.win32.storage.filesystem.ClfsMgmtPolicy
 import io.github.kotlinmania.windowssys.windows.win32.storage.filesystem.ClfsMgmtPolicyType
-import io.github.kotlinmania.windowssys.windows.win32.storage.filesystem.ClsInformation
 import io.github.kotlinmania.windowssys.windows.win32.storage.filesystem.ClsLogInformationClass
 import io.github.kotlinmania.windowssys.windows.win32.storage.filesystem.ClsLsn
-import io.github.kotlinmania.windowssys.windows.win32.storage.filesystem.ClsScanContext
-import io.github.kotlinmania.windowssys.windows.win32.storage.filesystem.ClsWriteEntry
-import io.github.kotlinmania.windowssys.windows.win32.storage.filesystem.FileSegmentElement
-import io.github.kotlinmania.windowssys.windows.win32.storage.filesystem.TransactionNotification
-import io.github.kotlinmania.windowssys.windows.win32.storage.iscsidisc.AdapterObject
 import io.github.kotlinmania.windowssys.windows.win32.system.diagnostics.debug.BugcheckError
-import io.github.kotlinmania.windowssys.windows.win32.system.diagnostics.debug.WheaDriverBufferSet
-import io.github.kotlinmania.windowssys.windows.win32.system.diagnostics.debug.WheaErrorSourceConfigurationDeviceDriver
-import io.github.kotlinmania.windowssys.windows.win32.system.diagnostics.debug.WheaErrorSourceDescriptor
 import io.github.kotlinmania.windowssys.windows.win32.system.diagnostics.debug.WheaErrorSourceState
 import io.github.kotlinmania.windowssys.windows.win32.system.diagnostics.debug.WheaErrorSourceType
-import io.github.kotlinmania.windowssys.windows.win32.system.diagnostics.etw.EventDataDescriptor
-import io.github.kotlinmania.windowssys.windows.win32.system.diagnostics.etw.EventDescriptor
 import io.github.kotlinmania.windowssys.windows.win32.system.diagnostics.etw.EventInfoClass
 import io.github.kotlinmania.windowssys.windows.win32.system.diagnostics.etw.Reghandle
-import io.github.kotlinmania.windowssys.windows.win32.system.io.IoStatusBlock
 import io.github.kotlinmania.windowssys.windows.win32.system.io.PioApcRoutine
-import io.github.kotlinmania.windowssys.windows.win32.system.ioctl.CreateDisk
-import io.github.kotlinmania.windowssys.windows.win32.system.ioctl.DriveLayoutInformation
-import io.github.kotlinmania.windowssys.windows.win32.system.ioctl.DriveLayoutInformationEx
-import io.github.kotlinmania.windowssys.windows.win32.system.ioctl.SetPartitionInformationEx
 import io.github.kotlinmania.windowssys.windows.win32.system.kernel.EventType
-import io.github.kotlinmania.windowssys.windows.win32.system.kernel.NtProductType
-import io.github.kotlinmania.windowssys.windows.win32.system.kernel.ProcessorNumber
 import io.github.kotlinmania.windowssys.windows.win32.system.kernel.SuiteType
 import io.github.kotlinmania.windowssys.windows.win32.system.kernel.TimerType
 import io.github.kotlinmania.windowssys.windows.win32.system.kernel.WaitType
@@ -109,20 +60,13 @@ import io.github.kotlinmania.windowssys.windows.win32.system.power.DevicePowerSt
 import io.github.kotlinmania.windowssys.windows.win32.system.power.PowerInformationLevel
 import io.github.kotlinmania.windowssys.windows.win32.system.power.PowerRequestType
 import io.github.kotlinmania.windowssys.windows.win32.system.systeminformation.FirmwareType
-import io.github.kotlinmania.windowssys.windows.win32.system.systeminformation.GroupAffinity
 import io.github.kotlinmania.windowssys.windows.win32.system.systeminformation.LogicalProcessorRelationship
-import io.github.kotlinmania.windowssys.windows.win32.system.systeminformation.Osversioninfoexw
-import io.github.kotlinmania.windowssys.windows.win32.system.systeminformation.Osversioninfow
 import io.github.kotlinmania.windowssys.windows.win32.system.systeminformation.RtlSystemGlobalDataId
-import io.github.kotlinmania.windowssys.windows.win32.system.systeminformation.SystemLogicalProcessorInformationEx
 import io.github.kotlinmania.windowssys.windows.win32.system.systemservices.EnlistmentInformationClass
-import io.github.kotlinmania.windowssys.windows.win32.system.systemservices.KtmobjectCursor
 import io.github.kotlinmania.windowssys.windows.win32.system.systemservices.KtmobjectType
 import io.github.kotlinmania.windowssys.windows.win32.system.systemservices.ResourcemanagerInformationClass
 import io.github.kotlinmania.windowssys.windows.win32.system.systemservices.TransactionInformationClass
 import io.github.kotlinmania.windowssys.windows.win32.system.systemservices.TransactionmanagerInformationClass
-import io.github.kotlinmania.windowssys.windows.win32.system.threading.InitOnce
-import io.github.kotlinmania.windowssys.windows.win32.system.windowsprogramming.ClientId
 
 @JsFun("() => { if (typeof globalThis.__km_napi_windowssys !== 'undefined') return globalThis.__km_napi_windowssys !== null; if (typeof process === 'undefined' || !process.versions || !process.versions.node) { globalThis.__km_napi_windowssys = null; return false; } var mod = process.getBuiltinModule ? process.getBuiltinModule('module') : (process.mainModule && process.mainModule.constructor); var req = (mod && mod.createRequire) ? mod.createRequire((process.cwd ? process.cwd() : '.') + '/package.json') : (process.mainModule ? process.mainModule.require : null); if (!req) { globalThis.__km_napi_windowssys = null; return false; } try { globalThis.__km_napi_windowssys = req('@kotlinmania/windowssys-native-bindings'); return true; } catch (_) {} var fs = req('fs'); var path = req('path'); var dir = process.cwd ? process.cwd() : '.'; var rels = ['windowssys_native.node', 'build/node-ffi/windowssys_native.node', 'build/node-ffi/release/windowssys_native.node', 'build/node-ffi/debug/windowssys_native.node', 'src/js/node-windowssys/build/Release/windowssys_native.node', 'src/js/node-windowssys/build/Debug/windowssys_native.node', 'src/js/node-windowssys/dist/build/Release/windowssys_native.node', 'src/js/node-windowssys/dist/build/Debug/windowssys_native.node']; for (var d = 0; d < 8; d++) { for (var i = 0; i < rels.length; i++) { var c = path.resolve(dir, rels[i]); if (fs.existsSync(c)) { globalThis.__km_napi_windowssys = req(c); return true; } } var parent = path.dirname(dir); if (parent === dir) break; dir = parent; } globalThis.__km_napi_windowssys = null; return false; }")
 private external fun initWindowsWdkSystemSystemservicesNapiAddon(): Boolean
@@ -3555,49 +3499,49 @@ private external fun wasmWindowssysWindowsWdkSystemSystemservicesVDbgPrintEx(p0:
 @JsFun("(p0, p1, p2, p3, p4) => globalThis.__km_napi_windowssys.windowssysWindowsWdkSystemSystemservicesVDbgPrintExWithPrefix(p0, p1, p2, p3, p4)")
 private external fun wasmWindowssysWindowsWdkSystemSystemservicesVDbgPrintExWithPrefix(p0: String, p1: Int, p2: Int, p3: String, p4: String): Int
 
-public actual fun clfsAddLogContainer(plfolog: ConstPtr<FileObject>, pcbcontainer: ConstPtr<ULong>, puszcontainerpath: ConstPtr<UnicodeString>): Ntstatus =
+public actual fun clfsAddLogContainer(plfolog: ConstPtr, pcbcontainer: ConstPtr, puszcontainerpath: ConstPtr): Ntstatus =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesClfsAddLogContainer(plfolog.rawAddress.toString(), pcbcontainer.rawAddress.toString(), puszcontainerpath.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun clfsAddLogContainerSet(plfolog: ConstPtr<FileObject>, ccontainers: UShort, pcbcontainer: ConstPtr<ULong>, rguszcontainerpath: ConstPtr<UnicodeString>): Ntstatus =
+public actual fun clfsAddLogContainerSet(plfolog: ConstPtr, ccontainers: UShort, pcbcontainer: ConstPtr, rguszcontainerpath: ConstPtr): Ntstatus =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesClfsAddLogContainerSet(plfolog.rawAddress.toString(), ccontainers.toInt(), pcbcontainer.rawAddress.toString(), rguszcontainerpath.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun clfsAdvanceLogBase(pvmarshalcontext: MutPtr<CVoid>, plsnbase: ConstPtr<ClsLsn>, fflags: UInt): Ntstatus =
+public actual fun clfsAdvanceLogBase(pvmarshalcontext: MutPtr, plsnbase: ConstPtr, fflags: UInt): Ntstatus =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesClfsAdvanceLogBase(pvmarshalcontext.rawAddress.toString(), plsnbase.rawAddress.toString(), fflags.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun clfsAlignReservedLog(pvmarshalcontext: ConstPtr<CVoid>, crecords: UInt, rgcbreservation: ConstPtr<Long>, pcbalignreservation: MutPtr<Long>): Ntstatus =
+public actual fun clfsAlignReservedLog(pvmarshalcontext: ConstPtr, crecords: UInt, rgcbreservation: ConstPtr, pcbalignreservation: MutPtr): Ntstatus =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesClfsAlignReservedLog(pvmarshalcontext.rawAddress.toString(), crecords.toInt(), rgcbreservation.rawAddress.toString(), pcbalignreservation.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun clfsAllocReservedLog(pvmarshalcontext: ConstPtr<CVoid>, crecords: UInt, pcbadjustment: ConstPtr<Long>): Ntstatus =
+public actual fun clfsAllocReservedLog(pvmarshalcontext: ConstPtr, crecords: UInt, pcbadjustment: ConstPtr): Ntstatus =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesClfsAllocReservedLog(pvmarshalcontext.rawAddress.toString(), crecords.toInt(), pcbadjustment.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun clfsCloseAndResetLogFile(plfolog: ConstPtr<FileObject>): Ntstatus =
+public actual fun clfsCloseAndResetLogFile(plfolog: ConstPtr): Ntstatus =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesClfsCloseAndResetLogFile(plfolog.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun clfsCloseLogFileObject(plfolog: ConstPtr<FileObject>): Ntstatus =
+public actual fun clfsCloseLogFileObject(plfolog: ConstPtr): Ntstatus =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesClfsCloseLogFileObject(plfolog.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun clfsCreateLogFile(pplfolog: MutPtr<MutPtr<FileObject>>, puszlogfilename: ConstPtr<UnicodeString>, fdesiredaccess: UInt, dwsharemode: UInt, psdlogfile: PsecurityDescriptor, fcreatedisposition: UInt, fcreateoptions: UInt, fflagsandattributes: UInt, flogoptionflag: UInt, pvcontext: ConstPtr<CVoid>, cbcontext: UInt): Ntstatus =
+public actual fun clfsCreateLogFile(pplfolog: MutPtr, puszlogfilename: ConstPtr, fdesiredaccess: UInt, dwsharemode: UInt, psdlogfile: PsecurityDescriptor, fcreatedisposition: UInt, fcreateoptions: UInt, fflagsandattributes: UInt, flogoptionflag: UInt, pvcontext: ConstPtr, cbcontext: UInt): Ntstatus =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesClfsCreateLogFile(pplfolog.rawAddress.toString(), puszlogfilename.rawAddress.toString(), fdesiredaccess.toInt(), dwsharemode.toInt(), psdlogfile.rawAddress.toString(), fcreatedisposition.toInt(), fcreateoptions.toInt(), fflagsandattributes.toInt(), flogoptionflag.toInt(), pvcontext.rawAddress.toString(), cbcontext.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun clfsCreateMarshallingArea(plfolog: ConstPtr<FileObject>, epooltype: PoolType, pfnallocbuffer: PallocateFunction, pfnfreebuffer: PfreeFunction, cbmarshallingbuffer: UInt, cmaxwritebuffers: UInt, cmaxreadbuffers: UInt, ppvmarshalcontext: MutPtr<MutPtr<CVoid>>): Ntstatus =
+public actual fun clfsCreateMarshallingArea(plfolog: ConstPtr, epooltype: PoolType, pfnallocbuffer: PallocateFunction, pfnfreebuffer: PfreeFunction, cbmarshallingbuffer: UInt, cmaxwritebuffers: UInt, cmaxreadbuffers: UInt, ppvmarshalcontext: MutPtr): Ntstatus =
     throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun clfsCreateMarshallingAreaEx(plfolog: ConstPtr<FileObject>, epooltype: PoolType, pfnallocbuffer: PallocateFunction, pfnfreebuffer: PfreeFunction, cbmarshallingbuffer: UInt, cmaxwritebuffers: UInt, cmaxreadbuffers: UInt, calignmentsize: UInt, fflags: ULong, ppvmarshalcontext: MutPtr<MutPtr<CVoid>>): Ntstatus =
+public actual fun clfsCreateMarshallingAreaEx(plfolog: ConstPtr, epooltype: PoolType, pfnallocbuffer: PallocateFunction, pfnfreebuffer: PfreeFunction, cbmarshallingbuffer: UInt, cmaxwritebuffers: UInt, cmaxreadbuffers: UInt, calignmentsize: UInt, fflags: ULong, ppvmarshalcontext: MutPtr): Ntstatus =
     throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun clfsCreateScanContext(plfolog: ConstPtr<FileObject>, cfromcontainer: UInt, ccontainers: UInt, escanmode: UByte, pcxscan: MutPtr<ClsScanContext>): Ntstatus =
+public actual fun clfsCreateScanContext(plfolog: ConstPtr, cfromcontainer: UInt, ccontainers: UInt, escanmode: UByte, pcxscan: MutPtr): Ntstatus =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesClfsCreateScanContext(plfolog.rawAddress.toString(), cfromcontainer.toInt(), ccontainers.toInt(), escanmode.toInt(), pcxscan.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun clfsDeleteLogByPointer(plfolog: ConstPtr<FileObject>): Ntstatus =
+public actual fun clfsDeleteLogByPointer(plfolog: ConstPtr): Ntstatus =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesClfsDeleteLogByPointer(plfolog.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun clfsDeleteLogFile(puszlogfilename: ConstPtr<UnicodeString>, pvreserved: ConstPtr<CVoid>, flogoptionflag: UInt, pvcontext: ConstPtr<CVoid>, cbcontext: UInt): Ntstatus =
+public actual fun clfsDeleteLogFile(puszlogfilename: ConstPtr, pvreserved: ConstPtr, flogoptionflag: UInt, pvcontext: ConstPtr, cbcontext: UInt): Ntstatus =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesClfsDeleteLogFile(puszlogfilename.rawAddress.toString(), pvreserved.rawAddress.toString(), flogoptionflag.toInt(), pvcontext.rawAddress.toString(), cbcontext.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun clfsDeleteMarshallingArea(pvmarshalcontext: ConstPtr<CVoid>): Ntstatus =
+public actual fun clfsDeleteMarshallingArea(pvmarshalcontext: ConstPtr): Ntstatus =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesClfsDeleteMarshallingArea(pvmarshalcontext.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun clfsEarlierLsn(plsn: ConstPtr<ClsLsn>): ClsLsn =
+public actual fun clfsEarlierLsn(plsn: ConstPtr): ClsLsn =
     throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun clfsFinalize() {
@@ -3608,139 +3552,139 @@ public actual fun clfsFinalize() {
     }
 }
 
-public actual fun clfsFlushBuffers(pvmarshalcontext: ConstPtr<CVoid>): Ntstatus =
+public actual fun clfsFlushBuffers(pvmarshalcontext: ConstPtr): Ntstatus =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesClfsFlushBuffers(pvmarshalcontext.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun clfsFlushToLsn(pvmarshalcontext: ConstPtr<CVoid>, plsnflush: ConstPtr<ClsLsn>, plsnlastflushed: MutPtr<ClsLsn>): Ntstatus =
+public actual fun clfsFlushToLsn(pvmarshalcontext: ConstPtr, plsnflush: ConstPtr, plsnlastflushed: MutPtr): Ntstatus =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesClfsFlushToLsn(pvmarshalcontext.rawAddress.toString(), plsnflush.rawAddress.toString(), plsnlastflushed.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun clfsFreeReservedLog(pvmarshalcontext: ConstPtr<CVoid>, crecords: UInt, pcbadjustment: ConstPtr<Long>): Ntstatus =
+public actual fun clfsFreeReservedLog(pvmarshalcontext: ConstPtr, crecords: UInt, pcbadjustment: ConstPtr): Ntstatus =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesClfsFreeReservedLog(pvmarshalcontext.rawAddress.toString(), crecords.toInt(), pcbadjustment.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun clfsGetContainerName(plfolog: ConstPtr<FileObject>, cidlogicalcontainer: UInt, puszcontainername: MutPtr<UnicodeString>, pcactuallencontainername: MutPtr<UInt>): Ntstatus =
+public actual fun clfsGetContainerName(plfolog: ConstPtr, cidlogicalcontainer: UInt, puszcontainername: MutPtr, pcactuallencontainername: MutPtr): Ntstatus =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesClfsGetContainerName(plfolog.rawAddress.toString(), cidlogicalcontainer.toInt(), puszcontainername.rawAddress.toString(), pcactuallencontainername.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun clfsGetIoStatistics(plfolog: ConstPtr<FileObject>, pvstatsbuffer: MutPtr<CVoid>, cbstatsbuffer: UInt, estatsclass: ClfsIostatsClass, pcbstatswritten: MutPtr<UInt>): Ntstatus =
+public actual fun clfsGetIoStatistics(plfolog: ConstPtr, pvstatsbuffer: MutPtr, cbstatsbuffer: UInt, estatsclass: ClfsIostatsClass, pcbstatswritten: MutPtr): Ntstatus =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesClfsGetIoStatistics(plfolog.rawAddress.toString(), pvstatsbuffer.rawAddress.toString(), cbstatsbuffer.toInt(), estatsclass, pcbstatswritten.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun clfsGetLogFileInformation(plfolog: ConstPtr<FileObject>, pinfobuffer: MutPtr<ClsInformation>, pcbinfobuffer: MutPtr<UInt>): Ntstatus =
+public actual fun clfsGetLogFileInformation(plfolog: ConstPtr, pinfobuffer: MutPtr, pcbinfobuffer: MutPtr): Ntstatus =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesClfsGetLogFileInformation(plfolog.rawAddress.toString(), pinfobuffer.rawAddress.toString(), pcbinfobuffer.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun clfsInitialize(): Ntstatus =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesClfsInitialize() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun clfsLaterLsn(plsn: ConstPtr<ClsLsn>): ClsLsn =
+public actual fun clfsLaterLsn(plsn: ConstPtr): ClsLsn =
     throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun clfsLsnBlockOffset(plsn: ConstPtr<ClsLsn>): UInt =
+public actual fun clfsLsnBlockOffset(plsn: ConstPtr): UInt =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesClfsLsnBlockOffset(plsn.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun clfsLsnContainer(plsn: ConstPtr<ClsLsn>): UInt =
+public actual fun clfsLsnContainer(plsn: ConstPtr): UInt =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesClfsLsnContainer(plsn.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun clfsLsnCreate(cidcontainer: UInt, offblock: UInt, crecord: UInt): ClsLsn =
     throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun clfsLsnDifference(plsnstart: ConstPtr<ClsLsn>, plsnfinish: ConstPtr<ClsLsn>, cbcontainer: UInt, cbmaxblock: UInt, pcbdifference: MutPtr<Long>): Ntstatus =
+public actual fun clfsLsnDifference(plsnstart: ConstPtr, plsnfinish: ConstPtr, cbcontainer: UInt, cbmaxblock: UInt, pcbdifference: MutPtr): Ntstatus =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesClfsLsnDifference(plsnstart.rawAddress.toString(), plsnfinish.rawAddress.toString(), cbcontainer.toInt(), cbmaxblock.toInt(), pcbdifference.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun clfsLsnEqual(plsn1: ConstPtr<ClsLsn>, plsn2: ConstPtr<ClsLsn>): Boolean =
+public actual fun clfsLsnEqual(plsn1: ConstPtr, plsn2: ConstPtr): Boolean =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesClfsLsnEqual(plsn1.rawAddress.toString(), plsn2.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun clfsLsnGreater(plsn1: ConstPtr<ClsLsn>, plsn2: ConstPtr<ClsLsn>): Boolean =
+public actual fun clfsLsnGreater(plsn1: ConstPtr, plsn2: ConstPtr): Boolean =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesClfsLsnGreater(plsn1.rawAddress.toString(), plsn2.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun clfsLsnInvalid(plsn: ConstPtr<ClsLsn>): Boolean =
+public actual fun clfsLsnInvalid(plsn: ConstPtr): Boolean =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesClfsLsnInvalid(plsn.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun clfsLsnLess(plsn1: ConstPtr<ClsLsn>, plsn2: ConstPtr<ClsLsn>): Boolean =
+public actual fun clfsLsnLess(plsn1: ConstPtr, plsn2: ConstPtr): Boolean =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesClfsLsnLess(plsn1.rawAddress.toString(), plsn2.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun clfsLsnNull(plsn: ConstPtr<ClsLsn>): Boolean =
+public actual fun clfsLsnNull(plsn: ConstPtr): Boolean =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesClfsLsnNull(plsn.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun clfsLsnRecordSequence(plsn: ConstPtr<ClsLsn>): UInt =
+public actual fun clfsLsnRecordSequence(plsn: ConstPtr): UInt =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesClfsLsnRecordSequence(plsn.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun clfsMgmtDeregisterManagedClient(clientcookie: ConstPtr<CVoid>): Ntstatus =
+public actual fun clfsMgmtDeregisterManagedClient(clientcookie: ConstPtr): Ntstatus =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesClfsMgmtDeregisterManagedClient(clientcookie.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun clfsMgmtHandleLogFileFull(client: ConstPtr<CVoid>): Ntstatus =
+public actual fun clfsMgmtHandleLogFileFull(client: ConstPtr): Ntstatus =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesClfsMgmtHandleLogFileFull(client.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun clfsMgmtInstallPolicy(logfile: ConstPtr<FileObject>, policy: ConstPtr<ClfsMgmtPolicy>, policylength: UInt): Ntstatus =
+public actual fun clfsMgmtInstallPolicy(logfile: ConstPtr, policy: ConstPtr, policylength: UInt): Ntstatus =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesClfsMgmtInstallPolicy(logfile.rawAddress.toString(), policy.rawAddress.toString(), policylength.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun clfsMgmtQueryPolicy(logfile: ConstPtr<FileObject>, policytype: ClfsMgmtPolicyType, policy: MutPtr<ClfsMgmtPolicy>, policylength: MutPtr<UInt>): Ntstatus =
+public actual fun clfsMgmtQueryPolicy(logfile: ConstPtr, policytype: ClfsMgmtPolicyType, policy: MutPtr, policylength: MutPtr): Ntstatus =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesClfsMgmtQueryPolicy(logfile.rawAddress.toString(), policytype, policy.rawAddress.toString(), policylength.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun clfsMgmtRegisterManagedClient(logfile: ConstPtr<FileObject>, registrationdata: ConstPtr<ClfsMgmtClientRegistration>, clientcookie: MutPtr<MutPtr<CVoid>>): Ntstatus =
+public actual fun clfsMgmtRegisterManagedClient(logfile: ConstPtr, registrationdata: ConstPtr, clientcookie: MutPtr): Ntstatus =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesClfsMgmtRegisterManagedClient(logfile.rawAddress.toString(), registrationdata.rawAddress.toString(), clientcookie.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun clfsMgmtRemovePolicy(logfile: ConstPtr<FileObject>, policytype: ClfsMgmtPolicyType): Ntstatus =
+public actual fun clfsMgmtRemovePolicy(logfile: ConstPtr, policytype: ClfsMgmtPolicyType): Ntstatus =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesClfsMgmtRemovePolicy(logfile.rawAddress.toString(), policytype) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun clfsMgmtSetLogFileSize(logfile: ConstPtr<FileObject>, newsizeincontainers: ConstPtr<ULong>, resultingsizeincontainers: MutPtr<ULong>, completionroutine: PclfsSetLogSizeCompleteCallback, completionroutinedata: ConstPtr<CVoid>): Ntstatus =
+public actual fun clfsMgmtSetLogFileSize(logfile: ConstPtr, newsizeincontainers: ConstPtr, resultingsizeincontainers: MutPtr, completionroutine: PclfsSetLogSizeCompleteCallback, completionroutinedata: ConstPtr): Ntstatus =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesClfsMgmtSetLogFileSize(logfile.rawAddress.toString(), newsizeincontainers.rawAddress.toString(), resultingsizeincontainers.rawAddress.toString(), 0L.toString(), completionroutinedata.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun clfsMgmtSetLogFileSizeAsClient(logfile: ConstPtr<FileObject>, clientcookie: ConstPtr<ConstPtr<CVoid>>, newsizeincontainers: ConstPtr<ULong>, resultingsizeincontainers: MutPtr<ULong>, completionroutine: PclfsSetLogSizeCompleteCallback, completionroutinedata: ConstPtr<CVoid>): Ntstatus =
+public actual fun clfsMgmtSetLogFileSizeAsClient(logfile: ConstPtr, clientcookie: ConstPtr, newsizeincontainers: ConstPtr, resultingsizeincontainers: MutPtr, completionroutine: PclfsSetLogSizeCompleteCallback, completionroutinedata: ConstPtr): Ntstatus =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesClfsMgmtSetLogFileSizeAsClient(logfile.rawAddress.toString(), clientcookie.rawAddress.toString(), newsizeincontainers.rawAddress.toString(), resultingsizeincontainers.rawAddress.toString(), 0L.toString(), completionroutinedata.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun clfsMgmtTailAdvanceFailure(client: ConstPtr<CVoid>, reason: Ntstatus): Ntstatus =
+public actual fun clfsMgmtTailAdvanceFailure(client: ConstPtr, reason: Ntstatus): Ntstatus =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesClfsMgmtTailAdvanceFailure(client.rawAddress.toString(), reason) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun clfsQueryLogFileInformation(plfolog: ConstPtr<FileObject>, einformationclass: ClsLogInformationClass, pinfoinputbuffer: ConstPtr<CVoid>, cbinfoinputbuffer: UInt, pinfobuffer: MutPtr<CVoid>, pcbinfobuffer: MutPtr<UInt>): Ntstatus =
+public actual fun clfsQueryLogFileInformation(plfolog: ConstPtr, einformationclass: ClsLogInformationClass, pinfoinputbuffer: ConstPtr, cbinfoinputbuffer: UInt, pinfobuffer: MutPtr, pcbinfobuffer: MutPtr): Ntstatus =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesClfsQueryLogFileInformation(plfolog.rawAddress.toString(), einformationclass, pinfoinputbuffer.rawAddress.toString(), cbinfoinputbuffer.toInt(), pinfobuffer.rawAddress.toString(), pcbinfobuffer.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun clfsReadLogRecord(pvmarshalcontext: ConstPtr<CVoid>, plsnfirst: MutPtr<ClsLsn>, pecontextmode: ClfsContextMode, ppvreadbuffer: MutPtr<MutPtr<CVoid>>, pcbreadbuffer: MutPtr<UInt>, perecordtype: MutPtr<UByte>, plsnundonext: MutPtr<ClsLsn>, plsnprevious: MutPtr<ClsLsn>, ppvreadcontext: MutPtr<MutPtr<CVoid>>): Ntstatus =
+public actual fun clfsReadLogRecord(pvmarshalcontext: ConstPtr, plsnfirst: MutPtr, pecontextmode: ClfsContextMode, ppvreadbuffer: MutPtr, pcbreadbuffer: MutPtr, perecordtype: MutPtr, plsnundonext: MutPtr, plsnprevious: MutPtr, ppvreadcontext: MutPtr): Ntstatus =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesClfsReadLogRecord(pvmarshalcontext.rawAddress.toString(), plsnfirst.rawAddress.toString(), pecontextmode, ppvreadbuffer.rawAddress.toString(), pcbreadbuffer.rawAddress.toString(), perecordtype.rawAddress.toString(), plsnundonext.rawAddress.toString(), plsnprevious.rawAddress.toString(), ppvreadcontext.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun clfsReadNextLogRecord(pvreadcontext: MutPtr<CVoid>, ppvbuffer: MutPtr<MutPtr<CVoid>>, pcbbuffer: MutPtr<UInt>, perecordtype: MutPtr<UByte>, plsnuser: ConstPtr<ClsLsn>, plsnundonext: MutPtr<ClsLsn>, plsnprevious: MutPtr<ClsLsn>, plsnrecord: MutPtr<ClsLsn>): Ntstatus =
+public actual fun clfsReadNextLogRecord(pvreadcontext: MutPtr, ppvbuffer: MutPtr, pcbbuffer: MutPtr, perecordtype: MutPtr, plsnuser: ConstPtr, plsnundonext: MutPtr, plsnprevious: MutPtr, plsnrecord: MutPtr): Ntstatus =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesClfsReadNextLogRecord(pvreadcontext.rawAddress.toString(), ppvbuffer.rawAddress.toString(), pcbbuffer.rawAddress.toString(), perecordtype.rawAddress.toString(), plsnuser.rawAddress.toString(), plsnundonext.rawAddress.toString(), plsnprevious.rawAddress.toString(), plsnrecord.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun clfsReadPreviousRestartArea(pvreadcontext: ConstPtr<CVoid>, ppvrestartbuffer: MutPtr<MutPtr<CVoid>>, pcbrestartbuffer: MutPtr<UInt>, plsnrestart: MutPtr<ClsLsn>): Ntstatus =
+public actual fun clfsReadPreviousRestartArea(pvreadcontext: ConstPtr, ppvrestartbuffer: MutPtr, pcbrestartbuffer: MutPtr, plsnrestart: MutPtr): Ntstatus =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesClfsReadPreviousRestartArea(pvreadcontext.rawAddress.toString(), ppvrestartbuffer.rawAddress.toString(), pcbrestartbuffer.rawAddress.toString(), plsnrestart.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun clfsReadRestartArea(pvmarshalcontext: MutPtr<CVoid>, ppvrestartbuffer: MutPtr<MutPtr<CVoid>>, pcbrestartbuffer: MutPtr<UInt>, plsn: MutPtr<ClsLsn>, ppvreadcontext: MutPtr<MutPtr<CVoid>>): Ntstatus =
+public actual fun clfsReadRestartArea(pvmarshalcontext: MutPtr, ppvrestartbuffer: MutPtr, pcbrestartbuffer: MutPtr, plsn: MutPtr, ppvreadcontext: MutPtr): Ntstatus =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesClfsReadRestartArea(pvmarshalcontext.rawAddress.toString(), ppvrestartbuffer.rawAddress.toString(), pcbrestartbuffer.rawAddress.toString(), plsn.rawAddress.toString(), ppvreadcontext.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun clfsRemoveLogContainer(plfolog: ConstPtr<FileObject>, puszcontainerpath: ConstPtr<UnicodeString>, fforce: Boolean): Ntstatus =
+public actual fun clfsRemoveLogContainer(plfolog: ConstPtr, puszcontainerpath: ConstPtr, fforce: Boolean): Ntstatus =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesClfsRemoveLogContainer(plfolog.rawAddress.toString(), puszcontainerpath.rawAddress.toString(), fforce) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun clfsRemoveLogContainerSet(plfolog: ConstPtr<FileObject>, ccontainers: UShort, rgwszcontainerpath: ConstPtr<UnicodeString>, fforce: Boolean): Ntstatus =
+public actual fun clfsRemoveLogContainerSet(plfolog: ConstPtr, ccontainers: UShort, rgwszcontainerpath: ConstPtr, fforce: Boolean): Ntstatus =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesClfsRemoveLogContainerSet(plfolog.rawAddress.toString(), ccontainers.toInt(), rgwszcontainerpath.rawAddress.toString(), fforce) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun clfsReserveAndAppendLog(pvmarshalcontext: ConstPtr<CVoid>, rgwriteentries: ConstPtr<ClsWriteEntry>, cwriteentries: UInt, plsnundonext: ConstPtr<ClsLsn>, plsnprevious: ConstPtr<ClsLsn>, creserverecords: UInt, rgcbreservation: MutPtr<Long>, fflags: UInt, plsn: MutPtr<ClsLsn>): Ntstatus =
+public actual fun clfsReserveAndAppendLog(pvmarshalcontext: ConstPtr, rgwriteentries: ConstPtr, cwriteentries: UInt, plsnundonext: ConstPtr, plsnprevious: ConstPtr, creserverecords: UInt, rgcbreservation: MutPtr, fflags: UInt, plsn: MutPtr): Ntstatus =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesClfsReserveAndAppendLog(pvmarshalcontext.rawAddress.toString(), rgwriteentries.rawAddress.toString(), cwriteentries.toInt(), plsnundonext.rawAddress.toString(), plsnprevious.rawAddress.toString(), creserverecords.toInt(), rgcbreservation.rawAddress.toString(), fflags.toInt(), plsn.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun clfsReserveAndAppendLogAligned(pvmarshalcontext: ConstPtr<CVoid>, rgwriteentries: ConstPtr<ClsWriteEntry>, cwriteentries: UInt, cbentryalignment: UInt, plsnundonext: ConstPtr<ClsLsn>, plsnprevious: ConstPtr<ClsLsn>, creserverecords: UInt, rgcbreservation: MutPtr<Long>, fflags: UInt, plsn: MutPtr<ClsLsn>): Ntstatus =
+public actual fun clfsReserveAndAppendLogAligned(pvmarshalcontext: ConstPtr, rgwriteentries: ConstPtr, cwriteentries: UInt, cbentryalignment: UInt, plsnundonext: ConstPtr, plsnprevious: ConstPtr, creserverecords: UInt, rgcbreservation: MutPtr, fflags: UInt, plsn: MutPtr): Ntstatus =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesClfsReserveAndAppendLogAligned(pvmarshalcontext.rawAddress.toString(), rgwriteentries.rawAddress.toString(), cwriteentries.toInt(), cbentryalignment.toInt(), plsnundonext.rawAddress.toString(), plsnprevious.rawAddress.toString(), creserverecords.toInt(), rgcbreservation.rawAddress.toString(), fflags.toInt(), plsn.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun clfsScanLogContainers(pcxscan: MutPtr<ClsScanContext>, escanmode: UByte): Ntstatus =
+public actual fun clfsScanLogContainers(pcxscan: MutPtr, escanmode: UByte): Ntstatus =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesClfsScanLogContainers(pcxscan.rawAddress.toString(), escanmode.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun clfsSetArchiveTail(plfolog: ConstPtr<FileObject>, plsnarchivetail: ConstPtr<ClsLsn>): Ntstatus =
+public actual fun clfsSetArchiveTail(plfolog: ConstPtr, plsnarchivetail: ConstPtr): Ntstatus =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesClfsSetArchiveTail(plfolog.rawAddress.toString(), plsnarchivetail.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun clfsSetEndOfLog(plfolog: ConstPtr<FileObject>, plsnend: ConstPtr<ClsLsn>): Ntstatus =
+public actual fun clfsSetEndOfLog(plfolog: ConstPtr, plsnend: ConstPtr): Ntstatus =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesClfsSetEndOfLog(plfolog.rawAddress.toString(), plsnend.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun clfsSetLogFileInformation(plfolog: ConstPtr<FileObject>, einformationclass: ClsLogInformationClass, pinfobuffer: ConstPtr<CVoid>, cbbuffer: UInt): Ntstatus =
+public actual fun clfsSetLogFileInformation(plfolog: ConstPtr, einformationclass: ClsLogInformationClass, pinfobuffer: ConstPtr, cbbuffer: UInt): Ntstatus =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesClfsSetLogFileInformation(plfolog.rawAddress.toString(), einformationclass, pinfobuffer.rawAddress.toString(), cbbuffer.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun clfsTerminateReadLog(pvcursorcontext: ConstPtr<CVoid>): Ntstatus =
+public actual fun clfsTerminateReadLog(pvcursorcontext: ConstPtr): Ntstatus =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesClfsTerminateReadLog(pvcursorcontext.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun clfsWriteRestartArea(pvmarshalcontext: MutPtr<CVoid>, pvrestartbuffer: ConstPtr<CVoid>, cbrestartbuffer: UInt, plsnbase: ConstPtr<ClsLsn>, fflags: UInt, pcbwritten: MutPtr<UInt>, plsnnext: MutPtr<ClsLsn>): Ntstatus =
+public actual fun clfsWriteRestartArea(pvmarshalcontext: MutPtr, pvrestartbuffer: ConstPtr, cbrestartbuffer: UInt, plsnbase: ConstPtr, fflags: UInt, pcbwritten: MutPtr, plsnnext: MutPtr): Ntstatus =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesClfsWriteRestartArea(pvmarshalcontext.rawAddress.toString(), pvrestartbuffer.rawAddress.toString(), cbrestartbuffer.toInt(), plsnbase.rawAddress.toString(), fflags.toInt(), pcbwritten.rawAddress.toString(), plsnnext.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun cmCallbackGetKeyObjectID(cookie: ConstPtr<Long>, obj: ConstPtr<CVoid>, objectid: MutPtr<ULong>, objectname: MutPtr<MutPtr<UnicodeString>>): Ntstatus =
+public actual fun cmCallbackGetKeyObjectID(cookie: ConstPtr, obj: ConstPtr, objectid: MutPtr, objectname: MutPtr): Ntstatus =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesCmCallbackGetKeyObjectID(cookie.rawAddress.toString(), obj.rawAddress.toString(), objectid.rawAddress.toString(), objectname.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun cmCallbackGetKeyObjectIDEx(cookie: ConstPtr<Long>, obj: ConstPtr<CVoid>, objectid: MutPtr<ULong>, objectname: MutPtr<MutPtr<UnicodeString>>, flags: UInt): Ntstatus =
+public actual fun cmCallbackGetKeyObjectIDEx(cookie: ConstPtr, obj: ConstPtr, objectid: MutPtr, objectname: MutPtr, flags: UInt): Ntstatus =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesCmCallbackGetKeyObjectIDEx(cookie.rawAddress.toString(), obj.rawAddress.toString(), objectid.rawAddress.toString(), objectname.rawAddress.toString(), flags.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun cmCallbackReleaseKeyObjectIDEx(objectname: ConstPtr<UnicodeString>) {
+public actual fun cmCallbackReleaseKeyObjectIDEx(objectname: ConstPtr) {
     if (windowsWdkSystemSystemservicesNapiAvailable) {
         wasmWindowssysWindowsWdkSystemSystemservicesCmCallbackReleaseKeyObjectIDEx(objectname.rawAddress.toString())
     } else {
@@ -3748,10 +3692,10 @@ public actual fun cmCallbackReleaseKeyObjectIDEx(objectname: ConstPtr<UnicodeStr
     }
 }
 
-public actual fun cmGetBoundTransaction(cookie: ConstPtr<Long>, obj: ConstPtr<CVoid>): MutPtr<CVoid> =
+public actual fun cmGetBoundTransaction(cookie: ConstPtr, obj: ConstPtr): MutPtr =
     if (windowsWdkSystemSystemservicesNapiAvailable) MutPtr(wasmWindowssysWindowsWdkSystemSystemservicesCmGetBoundTransaction(cookie.rawAddress.toString(), obj.rawAddress.toString()).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun cmGetCallbackVersion(major: MutPtr<UInt>, minor: MutPtr<UInt>) {
+public actual fun cmGetCallbackVersion(major: MutPtr, minor: MutPtr) {
     if (windowsWdkSystemSystemservicesNapiAvailable) {
         wasmWindowssysWindowsWdkSystemSystemservicesCmGetCallbackVersion(major.rawAddress.toString(), minor.rawAddress.toString())
     } else {
@@ -3759,13 +3703,13 @@ public actual fun cmGetCallbackVersion(major: MutPtr<UInt>, minor: MutPtr<UInt>)
     }
 }
 
-public actual fun cmRegisterCallback(function: PexCallbackFunction, context: ConstPtr<CVoid>, cookie: MutPtr<Long>): Ntstatus =
+public actual fun cmRegisterCallback(function: PexCallbackFunction, context: ConstPtr, cookie: MutPtr): Ntstatus =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesCmRegisterCallback(0L.toString(), context.rawAddress.toString(), cookie.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun cmRegisterCallbackEx(function: PexCallbackFunction, altitude: ConstPtr<UnicodeString>, driver: ConstPtr<CVoid>, context: ConstPtr<CVoid>, cookie: MutPtr<Long>, reserved: ConstPtr<CVoid>): Ntstatus =
+public actual fun cmRegisterCallbackEx(function: PexCallbackFunction, altitude: ConstPtr, driver: ConstPtr, context: ConstPtr, cookie: MutPtr, reserved: ConstPtr): Ntstatus =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesCmRegisterCallbackEx(0L.toString(), altitude.rawAddress.toString(), driver.rawAddress.toString(), context.rawAddress.toString(), cookie.rawAddress.toString(), reserved.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun cmSetCallbackObjectContext(obj: MutPtr<CVoid>, cookie: ConstPtr<Long>, newcontext: ConstPtr<CVoid>, oldcontext: MutPtr<MutPtr<CVoid>>): Ntstatus =
+public actual fun cmSetCallbackObjectContext(obj: MutPtr, cookie: ConstPtr, newcontext: ConstPtr, oldcontext: MutPtr): Ntstatus =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesCmSetCallbackObjectContext(obj.rawAddress.toString(), cookie.rawAddress.toString(), newcontext.rawAddress.toString(), oldcontext.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun cmUnRegisterCallback(cookie: Long): Ntstatus =
@@ -3800,37 +3744,37 @@ public actual fun dbgSetDebugFilterState(componentid: UInt, level: UInt, state: 
 public actual fun dbgSetDebugPrintCallback(debugprintcallback: PdebugPrintCallback, enable: Boolean): Ntstatus =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesDbgSetDebugPrintCallback(0L.toString(), enable) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun etwActivityIdControl(controlcode: UInt, activityid: MutPtr<Guid>): Ntstatus =
+public actual fun etwActivityIdControl(controlcode: UInt, activityid: MutPtr): Ntstatus =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesEtwActivityIdControl(controlcode.toInt(), activityid.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun etwEventEnabled(reghandle: Reghandle, eventdescriptor: ConstPtr<EventDescriptor>): Boolean =
+public actual fun etwEventEnabled(reghandle: Reghandle, eventdescriptor: ConstPtr): Boolean =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesEtwEventEnabled(reghandle.toString(), eventdescriptor.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun etwProviderEnabled(reghandle: Reghandle, level: UByte, keyword: ULong): Boolean =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesEtwProviderEnabled(reghandle.toString(), level.toInt(), keyword.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun etwRegister(providerid: ConstPtr<Guid>, enablecallback: Petwenablecallback, callbackcontext: ConstPtr<CVoid>, reghandle: MutPtr<Reghandle>): Ntstatus =
+public actual fun etwRegister(providerid: ConstPtr, enablecallback: Petwenablecallback, callbackcontext: ConstPtr, reghandle: MutPtr): Ntstatus =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesEtwRegister(providerid.rawAddress.toString(), 0L.toString(), callbackcontext.rawAddress.toString(), reghandle.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun etwSetInformation(reghandle: Reghandle, informationclass: EventInfoClass, eventinformation: ConstPtr<CVoid>, informationlength: UInt): Ntstatus =
+public actual fun etwSetInformation(reghandle: Reghandle, informationclass: EventInfoClass, eventinformation: ConstPtr, informationlength: UInt): Ntstatus =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesEtwSetInformation(reghandle.toString(), informationclass, eventinformation.rawAddress.toString(), informationlength.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun etwUnregister(reghandle: Reghandle): Ntstatus =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesEtwUnregister(reghandle.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun etwWrite(reghandle: Reghandle, eventdescriptor: ConstPtr<EventDescriptor>, activityid: ConstPtr<Guid>, userdatacount: UInt, userdata: ConstPtr<EventDataDescriptor>): Ntstatus =
+public actual fun etwWrite(reghandle: Reghandle, eventdescriptor: ConstPtr, activityid: ConstPtr, userdatacount: UInt, userdata: ConstPtr): Ntstatus =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesEtwWrite(reghandle.toString(), eventdescriptor.rawAddress.toString(), activityid.rawAddress.toString(), userdatacount.toInt(), userdata.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun etwWriteEx(reghandle: Reghandle, eventdescriptor: ConstPtr<EventDescriptor>, filter: ULong, flags: UInt, activityid: ConstPtr<Guid>, relatedactivityid: ConstPtr<Guid>, userdatacount: UInt, userdata: ConstPtr<EventDataDescriptor>): Ntstatus =
+public actual fun etwWriteEx(reghandle: Reghandle, eventdescriptor: ConstPtr, filter: ULong, flags: UInt, activityid: ConstPtr, relatedactivityid: ConstPtr, userdatacount: UInt, userdata: ConstPtr): Ntstatus =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesEtwWriteEx(reghandle.toString(), eventdescriptor.rawAddress.toString(), filter.toString(), flags.toInt(), activityid.rawAddress.toString(), relatedactivityid.rawAddress.toString(), userdatacount.toInt(), userdata.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun etwWriteString(reghandle: Reghandle, level: UByte, keyword: ULong, activityid: ConstPtr<Guid>, string: Pcwstr): Ntstatus =
+public actual fun etwWriteString(reghandle: Reghandle, level: UByte, keyword: ULong, activityid: ConstPtr, string: Pcwstr): Ntstatus =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesEtwWriteString(reghandle.toString(), level.toInt(), keyword.toString(), activityid.rawAddress.toString(), string.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun etwWriteTransfer(reghandle: Reghandle, eventdescriptor: ConstPtr<EventDescriptor>, activityid: ConstPtr<Guid>, relatedactivityid: ConstPtr<Guid>, userdatacount: UInt, userdata: ConstPtr<EventDataDescriptor>): Ntstatus =
+public actual fun etwWriteTransfer(reghandle: Reghandle, eventdescriptor: ConstPtr, activityid: ConstPtr, relatedactivityid: ConstPtr, userdatacount: UInt, userdata: ConstPtr): Ntstatus =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesEtwWriteTransfer(reghandle.toString(), eventdescriptor.rawAddress.toString(), activityid.rawAddress.toString(), relatedactivityid.rawAddress.toString(), userdatacount.toInt(), userdata.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun exAcquireFastMutex(fastmutex: MutPtr<FastMutex>) {
+public actual fun exAcquireFastMutex(fastmutex: MutPtr) {
     if (windowsWdkSystemSystemservicesNapiAvailable) {
         wasmWindowssysWindowsWdkSystemSystemservicesExAcquireFastMutex(fastmutex.rawAddress.toString())
     } else {
@@ -3838,7 +3782,7 @@ public actual fun exAcquireFastMutex(fastmutex: MutPtr<FastMutex>) {
     }
 }
 
-public actual fun exAcquireFastMutexUnsafe(fastmutex: MutPtr<FastMutex>) {
+public actual fun exAcquireFastMutexUnsafe(fastmutex: MutPtr) {
     if (windowsWdkSystemSystemservicesNapiAvailable) {
         wasmWindowssysWindowsWdkSystemSystemservicesExAcquireFastMutexUnsafe(fastmutex.rawAddress.toString())
     } else {
@@ -3846,7 +3790,7 @@ public actual fun exAcquireFastMutexUnsafe(fastmutex: MutPtr<FastMutex>) {
     }
 }
 
-public actual fun exAcquirePushLockExclusiveEx(pushlock: MutPtr<ULong>, flags: UInt) {
+public actual fun exAcquirePushLockExclusiveEx(pushlock: MutPtr, flags: UInt) {
     if (windowsWdkSystemSystemservicesNapiAvailable) {
         wasmWindowssysWindowsWdkSystemSystemservicesExAcquirePushLockExclusiveEx(pushlock.rawAddress.toString(), flags.toInt())
     } else {
@@ -3854,7 +3798,7 @@ public actual fun exAcquirePushLockExclusiveEx(pushlock: MutPtr<ULong>, flags: U
     }
 }
 
-public actual fun exAcquirePushLockSharedEx(pushlock: MutPtr<ULong>, flags: UInt) {
+public actual fun exAcquirePushLockSharedEx(pushlock: MutPtr, flags: UInt) {
     if (windowsWdkSystemSystemservicesNapiAvailable) {
         wasmWindowssysWindowsWdkSystemSystemservicesExAcquirePushLockSharedEx(pushlock.rawAddress.toString(), flags.toInt())
     } else {
@@ -3862,13 +3806,13 @@ public actual fun exAcquirePushLockSharedEx(pushlock: MutPtr<ULong>, flags: UInt
     }
 }
 
-public actual fun exAcquireResourceExclusiveLite(resource: MutPtr<Eresource>, wait: Boolean): Boolean =
+public actual fun exAcquireResourceExclusiveLite(resource: MutPtr, wait: Boolean): Boolean =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesExAcquireResourceExclusiveLite(resource.rawAddress.toString(), wait) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun exAcquireResourceSharedLite(resource: MutPtr<Eresource>, wait: Boolean): Boolean =
+public actual fun exAcquireResourceSharedLite(resource: MutPtr, wait: Boolean): Boolean =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesExAcquireResourceSharedLite(resource.rawAddress.toString(), wait) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun exAcquireRundownProtection(runref: MutPtr<ExRundownRef>): Boolean =
+public actual fun exAcquireRundownProtection(runref: MutPtr): Boolean =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesExAcquireRundownProtection(runref.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun exAcquireRundownProtectionCacheAware(runrefcacheaware: PexRundownRefCacheAware): Boolean =
@@ -3877,19 +3821,19 @@ public actual fun exAcquireRundownProtectionCacheAware(runrefcacheaware: PexRund
 public actual fun exAcquireRundownProtectionCacheAwareEx(runrefcacheaware: PexRundownRefCacheAware, count: UInt): Boolean =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesExAcquireRundownProtectionCacheAwareEx(runrefcacheaware.toString(), count.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun exAcquireRundownProtectionEx(runref: MutPtr<ExRundownRef>, count: UInt): Boolean =
+public actual fun exAcquireRundownProtectionEx(runref: MutPtr, count: UInt): Boolean =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesExAcquireRundownProtectionEx(runref.rawAddress.toString(), count.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun exAcquireSharedStarveExclusive(resource: MutPtr<Eresource>, wait: Boolean): Boolean =
+public actual fun exAcquireSharedStarveExclusive(resource: MutPtr, wait: Boolean): Boolean =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesExAcquireSharedStarveExclusive(resource.rawAddress.toString(), wait) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun exAcquireSharedWaitForExclusive(resource: MutPtr<Eresource>, wait: Boolean): Boolean =
+public actual fun exAcquireSharedWaitForExclusive(resource: MutPtr, wait: Boolean): Boolean =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesExAcquireSharedWaitForExclusive(resource.rawAddress.toString(), wait) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun exAcquireSpinLockExclusive(spinlock: MutPtr<Int>): UByte =
+public actual fun exAcquireSpinLockExclusive(spinlock: MutPtr): UByte =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesExAcquireSpinLockExclusive(spinlock.rawAddress.toString()).toUByte() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun exAcquireSpinLockExclusiveAtDpcLevel(spinlock: MutPtr<Int>) {
+public actual fun exAcquireSpinLockExclusiveAtDpcLevel(spinlock: MutPtr) {
     if (windowsWdkSystemSystemservicesNapiAvailable) {
         wasmWindowssysWindowsWdkSystemSystemservicesExAcquireSpinLockExclusiveAtDpcLevel(spinlock.rawAddress.toString())
     } else {
@@ -3897,10 +3841,10 @@ public actual fun exAcquireSpinLockExclusiveAtDpcLevel(spinlock: MutPtr<Int>) {
     }
 }
 
-public actual fun exAcquireSpinLockShared(spinlock: MutPtr<Int>): UByte =
+public actual fun exAcquireSpinLockShared(spinlock: MutPtr): UByte =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesExAcquireSpinLockShared(spinlock.rawAddress.toString()).toUByte() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun exAcquireSpinLockSharedAtDpcLevel(spinlock: MutPtr<Int>) {
+public actual fun exAcquireSpinLockSharedAtDpcLevel(spinlock: MutPtr) {
     if (windowsWdkSystemSystemservicesNapiAvailable) {
         wasmWindowssysWindowsWdkSystemSystemservicesExAcquireSpinLockSharedAtDpcLevel(spinlock.rawAddress.toString())
     } else {
@@ -3911,31 +3855,31 @@ public actual fun exAcquireSpinLockSharedAtDpcLevel(spinlock: MutPtr<Int>) {
 public actual fun exAllocateCacheAwareRundownProtection(pooltype: PoolType, pooltag: UInt): PexRundownRefCacheAware =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesExAllocateCacheAwareRundownProtection(pooltype, pooltag.toInt()).toLong() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun exAllocatePool(pooltype: PoolType, numberofbytes: ULong): MutPtr<CVoid> =
+public actual fun exAllocatePool(pooltype: PoolType, numberofbytes: ULong): MutPtr =
     if (windowsWdkSystemSystemservicesNapiAvailable) MutPtr(wasmWindowssysWindowsWdkSystemSystemservicesExAllocatePool(pooltype, numberofbytes.toString()).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun exAllocatePool2(flags: ULong, numberofbytes: ULong, tag: UInt): MutPtr<CVoid> =
+public actual fun exAllocatePool2(flags: ULong, numberofbytes: ULong, tag: UInt): MutPtr =
     if (windowsWdkSystemSystemservicesNapiAvailable) MutPtr(wasmWindowssysWindowsWdkSystemSystemservicesExAllocatePool2(flags.toString(), numberofbytes.toString(), tag.toInt()).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun exAllocatePool3(flags: ULong, numberofbytes: ULong, tag: UInt, extendedparameters: ConstPtr<PoolExtendedParameter>, extendedparameterscount: UInt): MutPtr<CVoid> =
+public actual fun exAllocatePool3(flags: ULong, numberofbytes: ULong, tag: UInt, extendedparameters: ConstPtr, extendedparameterscount: UInt): MutPtr =
     if (windowsWdkSystemSystemservicesNapiAvailable) MutPtr(wasmWindowssysWindowsWdkSystemSystemservicesExAllocatePool3(flags.toString(), numberofbytes.toString(), tag.toInt(), extendedparameters.rawAddress.toString(), extendedparameterscount.toInt()).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun exAllocatePoolWithQuota(pooltype: PoolType, numberofbytes: ULong): MutPtr<CVoid> =
+public actual fun exAllocatePoolWithQuota(pooltype: PoolType, numberofbytes: ULong): MutPtr =
     if (windowsWdkSystemSystemservicesNapiAvailable) MutPtr(wasmWindowssysWindowsWdkSystemSystemservicesExAllocatePoolWithQuota(pooltype, numberofbytes.toString()).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun exAllocatePoolWithQuotaTag(pooltype: PoolType, numberofbytes: ULong, tag: UInt): MutPtr<CVoid> =
+public actual fun exAllocatePoolWithQuotaTag(pooltype: PoolType, numberofbytes: ULong, tag: UInt): MutPtr =
     if (windowsWdkSystemSystemservicesNapiAvailable) MutPtr(wasmWindowssysWindowsWdkSystemSystemservicesExAllocatePoolWithQuotaTag(pooltype, numberofbytes.toString(), tag.toInt()).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun exAllocatePoolWithTag(pooltype: PoolType, numberofbytes: ULong, tag: UInt): MutPtr<CVoid> =
+public actual fun exAllocatePoolWithTag(pooltype: PoolType, numberofbytes: ULong, tag: UInt): MutPtr =
     if (windowsWdkSystemSystemservicesNapiAvailable) MutPtr(wasmWindowssysWindowsWdkSystemSystemservicesExAllocatePoolWithTag(pooltype, numberofbytes.toString(), tag.toInt()).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun exAllocatePoolWithTagPriority(pooltype: PoolType, numberofbytes: ULong, tag: UInt, priority: ExPoolPriority): MutPtr<CVoid> =
+public actual fun exAllocatePoolWithTagPriority(pooltype: PoolType, numberofbytes: ULong, tag: UInt, priority: ExPoolPriority): MutPtr =
     if (windowsWdkSystemSystemservicesNapiAvailable) MutPtr(wasmWindowssysWindowsWdkSystemSystemservicesExAllocatePoolWithTagPriority(pooltype, numberofbytes.toString(), tag.toInt(), priority).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun exAllocateTimer(callback: PextCallback, callbackcontext: ConstPtr<CVoid>, attributes: UInt): PexTimer =
+public actual fun exAllocateTimer(callback: PextCallback, callbackcontext: ConstPtr, attributes: UInt): PexTimer =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesExAllocateTimer(0L.toString(), callbackcontext.rawAddress.toString(), attributes.toInt()).toLong() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun exCancelTimer(timer: PexTimer, parameters: ConstPtr<CVoid>): Boolean =
+public actual fun exCancelTimer(timer: PexTimer, parameters: ConstPtr): Boolean =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesExCancelTimer(timer.toString(), parameters.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun exCleanupRundownProtectionCacheAware(runrefcacheaware: PexRundownRefCacheAware) {
@@ -3946,7 +3890,7 @@ public actual fun exCleanupRundownProtectionCacheAware(runrefcacheaware: PexRund
     }
 }
 
-public actual fun exConvertExclusiveToSharedLite(resource: MutPtr<Eresource>) {
+public actual fun exConvertExclusiveToSharedLite(resource: MutPtr) {
     if (windowsWdkSystemSystemservicesNapiAvailable) {
         wasmWindowssysWindowsWdkSystemSystemservicesExConvertExclusiveToSharedLite(resource.rawAddress.toString())
     } else {
@@ -3954,16 +3898,16 @@ public actual fun exConvertExclusiveToSharedLite(resource: MutPtr<Eresource>) {
     }
 }
 
-public actual fun exCreateCallback(callbackobject: MutPtr<PcallbackObject>, objectattributes: ConstPtr<ObjectAttributes>, create: Boolean, allowmultiplecallbacks: Boolean): Ntstatus =
+public actual fun exCreateCallback(callbackobject: MutPtr, objectattributes: ConstPtr, create: Boolean, allowmultiplecallbacks: Boolean): Ntstatus =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesExCreateCallback(callbackobject.rawAddress.toString(), objectattributes.rawAddress.toString(), create, allowmultiplecallbacks) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun exCreatePool(flags: UInt, tag: ULong, params: ConstPtr<PoolCreateExtendedParams>, poolhandle: MutPtr<Handle>): Ntstatus =
+public actual fun exCreatePool(flags: UInt, tag: ULong, params: ConstPtr, poolhandle: MutPtr): Ntstatus =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesExCreatePool(flags.toInt(), tag.toString(), params.rawAddress.toString(), poolhandle.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun exDeleteResourceLite(resource: MutPtr<Eresource>): Ntstatus =
+public actual fun exDeleteResourceLite(resource: MutPtr): Ntstatus =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesExDeleteResourceLite(resource.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun exDeleteTimer(timer: PexTimer, cancel: Boolean, wait: Boolean, parameters: ConstPtr<ExtDeleteParameters>): Boolean =
+public actual fun exDeleteTimer(timer: PexTimer, cancel: Boolean, wait: Boolean, parameters: ConstPtr): Boolean =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesExDeleteTimer(timer.toString(), cancel, wait, parameters.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun exDestroyPool(poolhandle: Handle) {
@@ -3974,19 +3918,19 @@ public actual fun exDestroyPool(poolhandle: Handle) {
     }
 }
 
-public actual fun exEnterCriticalRegionAndAcquireResourceExclusive(resource: MutPtr<Eresource>): MutPtr<CVoid> =
+public actual fun exEnterCriticalRegionAndAcquireResourceExclusive(resource: MutPtr): MutPtr =
     if (windowsWdkSystemSystemservicesNapiAvailable) MutPtr(wasmWindowssysWindowsWdkSystemSystemservicesExEnterCriticalRegionAndAcquireResourceExclusive(resource.rawAddress.toString()).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun exEnterCriticalRegionAndAcquireResourceShared(resource: MutPtr<Eresource>): MutPtr<CVoid> =
+public actual fun exEnterCriticalRegionAndAcquireResourceShared(resource: MutPtr): MutPtr =
     if (windowsWdkSystemSystemservicesNapiAvailable) MutPtr(wasmWindowssysWindowsWdkSystemSystemservicesExEnterCriticalRegionAndAcquireResourceShared(resource.rawAddress.toString()).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun exEnterCriticalRegionAndAcquireSharedWaitForExclusive(resource: MutPtr<Eresource>): MutPtr<CVoid> =
+public actual fun exEnterCriticalRegionAndAcquireSharedWaitForExclusive(resource: MutPtr): MutPtr =
     if (windowsWdkSystemSystemservicesNapiAvailable) MutPtr(wasmWindowssysWindowsWdkSystemSystemservicesExEnterCriticalRegionAndAcquireSharedWaitForExclusive(resource.rawAddress.toString()).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun exEnumerateSystemFirmwareTables(firmwaretableprovidersignature: UInt, firmwaretablebuffer: MutPtr<CVoid>, bufferlength: UInt, returnlength: MutPtr<UInt>): Ntstatus =
+public actual fun exEnumerateSystemFirmwareTables(firmwaretableprovidersignature: UInt, firmwaretablebuffer: MutPtr, bufferlength: UInt, returnlength: MutPtr): Ntstatus =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesExEnumerateSystemFirmwareTables(firmwaretableprovidersignature.toInt(), firmwaretablebuffer.rawAddress.toString(), bufferlength.toInt(), returnlength.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun exExtendZone(zone: MutPtr<ZoneHeader>, segment: MutPtr<CVoid>, segmentsize: UInt): Ntstatus =
+public actual fun exExtendZone(zone: MutPtr, segment: MutPtr, segmentsize: UInt): Ntstatus =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesExExtendZone(zone.rawAddress.toString(), segment.rawAddress.toString(), segmentsize.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun exFreeCacheAwareRundownProtection(runrefcacheaware: PexRundownRefCacheAware) {
@@ -3997,7 +3941,7 @@ public actual fun exFreeCacheAwareRundownProtection(runrefcacheaware: PexRundown
     }
 }
 
-public actual fun exFreePool(p: MutPtr<CVoid>) {
+public actual fun exFreePool(p: MutPtr) {
     if (windowsWdkSystemSystemservicesNapiAvailable) {
         wasmWindowssysWindowsWdkSystemSystemservicesExFreePool(p.rawAddress.toString())
     } else {
@@ -4005,7 +3949,7 @@ public actual fun exFreePool(p: MutPtr<CVoid>) {
     }
 }
 
-public actual fun exFreePool2(p: MutPtr<CVoid>, tag: UInt, extendedparameters: ConstPtr<PoolExtendedParameter>, extendedparameterscount: UInt) {
+public actual fun exFreePool2(p: MutPtr, tag: UInt, extendedparameters: ConstPtr, extendedparameterscount: UInt) {
     if (windowsWdkSystemSystemservicesNapiAvailable) {
         wasmWindowssysWindowsWdkSystemSystemservicesExFreePool2(p.rawAddress.toString(), tag.toInt(), extendedparameters.rawAddress.toString(), extendedparameterscount.toInt())
     } else {
@@ -4013,7 +3957,7 @@ public actual fun exFreePool2(p: MutPtr<CVoid>, tag: UInt, extendedparameters: C
     }
 }
 
-public actual fun exFreePoolWithTag(p: MutPtr<CVoid>, tag: UInt) {
+public actual fun exFreePoolWithTag(p: MutPtr, tag: UInt) {
     if (windowsWdkSystemSystemservicesNapiAvailable) {
         wasmWindowssysWindowsWdkSystemSystemservicesExFreePoolWithTag(p.rawAddress.toString(), tag.toInt())
     } else {
@@ -4021,10 +3965,10 @@ public actual fun exFreePoolWithTag(p: MutPtr<CVoid>, tag: UInt) {
     }
 }
 
-public actual fun exGetExclusiveWaiterCount(resource: ConstPtr<Eresource>): UInt =
+public actual fun exGetExclusiveWaiterCount(resource: ConstPtr): UInt =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesExGetExclusiveWaiterCount(resource.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun exGetFirmwareEnvironmentVariable(variablename: ConstPtr<UnicodeString>, vendorguid: ConstPtr<Guid>, value: MutPtr<CVoid>, valuelength: MutPtr<UInt>, attributes: MutPtr<UInt>): Ntstatus =
+public actual fun exGetFirmwareEnvironmentVariable(variablename: ConstPtr, vendorguid: ConstPtr, value: MutPtr, valuelength: MutPtr, attributes: MutPtr): Ntstatus =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesExGetFirmwareEnvironmentVariable(variablename.rawAddress.toString(), vendorguid.rawAddress.toString(), value.rawAddress.toString(), valuelength.rawAddress.toString(), attributes.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun exGetFirmwareType(): FirmwareType =
@@ -4033,13 +3977,13 @@ public actual fun exGetFirmwareType(): FirmwareType =
 public actual fun exGetPreviousMode(): Byte =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesExGetPreviousMode().toByte() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun exGetSharedWaiterCount(resource: ConstPtr<Eresource>): UInt =
+public actual fun exGetSharedWaiterCount(resource: ConstPtr): UInt =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesExGetSharedWaiterCount(resource.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun exGetSystemFirmwareTable(firmwaretableprovidersignature: UInt, firmwaretableid: UInt, firmwaretablebuffer: MutPtr<CVoid>, bufferlength: UInt, returnlength: MutPtr<UInt>): Ntstatus =
+public actual fun exGetSystemFirmwareTable(firmwaretableprovidersignature: UInt, firmwaretableid: UInt, firmwaretablebuffer: MutPtr, bufferlength: UInt, returnlength: MutPtr): Ntstatus =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesExGetSystemFirmwareTable(firmwaretableprovidersignature.toInt(), firmwaretableid.toInt(), firmwaretablebuffer.rawAddress.toString(), bufferlength.toInt(), returnlength.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun exInitializePushLock(pushlock: MutPtr<ULong>) {
+public actual fun exInitializePushLock(pushlock: MutPtr) {
     if (windowsWdkSystemSystemservicesNapiAvailable) {
         wasmWindowssysWindowsWdkSystemSystemservicesExInitializePushLock(pushlock.rawAddress.toString())
     } else {
@@ -4047,10 +3991,10 @@ public actual fun exInitializePushLock(pushlock: MutPtr<ULong>) {
     }
 }
 
-public actual fun exInitializeResourceLite(resource: MutPtr<Eresource>): Ntstatus =
+public actual fun exInitializeResourceLite(resource: MutPtr): Ntstatus =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesExInitializeResourceLite(resource.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun exInitializeRundownProtection(runref: MutPtr<ExRundownRef>) {
+public actual fun exInitializeRundownProtection(runref: MutPtr) {
     if (windowsWdkSystemSystemservicesNapiAvailable) {
         wasmWindowssysWindowsWdkSystemSystemservicesExInitializeRundownProtection(runref.rawAddress.toString())
     } else {
@@ -4074,13 +4018,13 @@ public actual fun exInitializeRundownProtectionCacheAwareEx(runrefcacheaware: Pe
     }
 }
 
-public actual fun exInitializeZone(zone: MutPtr<ZoneHeader>, blocksize: UInt, initialsegment: MutPtr<CVoid>, initialsegmentsize: UInt): Ntstatus =
+public actual fun exInitializeZone(zone: MutPtr, blocksize: UInt, initialsegment: MutPtr, initialsegmentsize: UInt): Ntstatus =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesExInitializeZone(zone.rawAddress.toString(), blocksize.toInt(), initialsegment.rawAddress.toString(), initialsegmentsize.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun exInterlockedAddLargeInteger(addend: MutPtr<Long>, increment: Long, lock: MutPtr<ULong>): Long =
+public actual fun exInterlockedAddLargeInteger(addend: MutPtr, increment: Long, lock: MutPtr): Long =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesExInterlockedAddLargeInteger(addend.rawAddress.toString(), increment.toString(), lock.rawAddress.toString()).toLong() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun exInterlockedExtendZone(zone: MutPtr<ZoneHeader>, segment: MutPtr<CVoid>, segmentsize: UInt, lock: MutPtr<ULong>): Ntstatus =
+public actual fun exInterlockedExtendZone(zone: MutPtr, segment: MutPtr, segmentsize: UInt, lock: MutPtr): Ntstatus =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesExInterlockedExtendZone(zone.rawAddress.toString(), segment.rawAddress.toString(), segmentsize.toInt(), lock.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun exIsManufacturingModeEnabled(): Boolean =
@@ -4089,16 +4033,16 @@ public actual fun exIsManufacturingModeEnabled(): Boolean =
 public actual fun exIsProcessorFeaturePresent(processorfeature: UInt): Boolean =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesExIsProcessorFeaturePresent(processorfeature.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun exIsResourceAcquiredExclusiveLite(resource: ConstPtr<Eresource>): Boolean =
+public actual fun exIsResourceAcquiredExclusiveLite(resource: ConstPtr): Boolean =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesExIsResourceAcquiredExclusiveLite(resource.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun exIsResourceAcquiredSharedLite(resource: ConstPtr<Eresource>): UInt =
+public actual fun exIsResourceAcquiredSharedLite(resource: ConstPtr): UInt =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesExIsResourceAcquiredSharedLite(resource.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun exIsSoftBoot(): Boolean =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesExIsSoftBoot() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun exLocalTimeToSystemTime(localtime: ConstPtr<Long>, systemtime: MutPtr<Long>) {
+public actual fun exLocalTimeToSystemTime(localtime: ConstPtr, systemtime: MutPtr) {
     if (windowsWdkSystemSystemservicesNapiAvailable) {
         wasmWindowssysWindowsWdkSystemSystemservicesExLocalTimeToSystemTime(localtime.rawAddress.toString(), systemtime.rawAddress.toString())
     } else {
@@ -4106,7 +4050,7 @@ public actual fun exLocalTimeToSystemTime(localtime: ConstPtr<Long>, systemtime:
     }
 }
 
-public actual fun exNotifyCallback(callbackobject: ConstPtr<CVoid>, argument1: ConstPtr<CVoid>, argument2: ConstPtr<CVoid>) {
+public actual fun exNotifyCallback(callbackobject: ConstPtr, argument1: ConstPtr, argument2: ConstPtr) {
     if (windowsWdkSystemSystemservicesNapiAvailable) {
         wasmWindowssysWindowsWdkSystemSystemservicesExNotifyCallback(callbackobject.rawAddress.toString(), argument1.rawAddress.toString(), argument2.rawAddress.toString())
     } else {
@@ -4114,7 +4058,7 @@ public actual fun exNotifyCallback(callbackobject: ConstPtr<CVoid>, argument1: C
     }
 }
 
-public actual fun exQueryTimerResolution(maximumtime: MutPtr<UInt>, minimumtime: MutPtr<UInt>, currenttime: MutPtr<UInt>) {
+public actual fun exQueryTimerResolution(maximumtime: MutPtr, minimumtime: MutPtr, currenttime: MutPtr) {
     if (windowsWdkSystemSystemservicesNapiAvailable) {
         wasmWindowssysWindowsWdkSystemSystemservicesExQueryTimerResolution(maximumtime.rawAddress.toString(), minimumtime.rawAddress.toString(), currenttime.rawAddress.toString())
     } else {
@@ -4122,7 +4066,7 @@ public actual fun exQueryTimerResolution(maximumtime: MutPtr<UInt>, minimumtime:
     }
 }
 
-public actual fun exQueueWorkItem(workitem: MutPtr<WorkQueueItem>, queuetype: WorkQueueType) {
+public actual fun exQueueWorkItem(workitem: MutPtr, queuetype: WorkQueueType) {
     if (windowsWdkSystemSystemservicesNapiAvailable) {
         wasmWindowssysWindowsWdkSystemSystemservicesExQueueWorkItem(workitem.rawAddress.toString(), queuetype)
     } else {
@@ -4154,7 +4098,7 @@ public actual fun exRaiseStatus(status: Ntstatus) {
     }
 }
 
-public actual fun exReInitializeRundownProtection(runref: MutPtr<ExRundownRef>) {
+public actual fun exReInitializeRundownProtection(runref: MutPtr) {
     if (windowsWdkSystemSystemservicesNapiAvailable) {
         wasmWindowssysWindowsWdkSystemSystemservicesExReInitializeRundownProtection(runref.rawAddress.toString())
     } else {
@@ -4170,13 +4114,13 @@ public actual fun exReInitializeRundownProtectionCacheAware(runrefcacheaware: Pe
     }
 }
 
-public actual fun exRegisterCallback(callbackobject: PcallbackObject, callbackfunction: PcallbackFunction, callbackcontext: ConstPtr<CVoid>): MutPtr<CVoid> =
+public actual fun exRegisterCallback(callbackobject: PcallbackObject, callbackfunction: PcallbackFunction, callbackcontext: ConstPtr): MutPtr =
     if (windowsWdkSystemSystemservicesNapiAvailable) MutPtr(wasmWindowssysWindowsWdkSystemSystemservicesExRegisterCallback(callbackobject.toString(), 0L.toString(), callbackcontext.rawAddress.toString()).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun exReinitializeResourceLite(resource: MutPtr<Eresource>): Ntstatus =
+public actual fun exReinitializeResourceLite(resource: MutPtr): Ntstatus =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesExReinitializeResourceLite(resource.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun exReleaseFastMutex(fastmutex: MutPtr<FastMutex>) {
+public actual fun exReleaseFastMutex(fastmutex: MutPtr) {
     if (windowsWdkSystemSystemservicesNapiAvailable) {
         wasmWindowssysWindowsWdkSystemSystemservicesExReleaseFastMutex(fastmutex.rawAddress.toString())
     } else {
@@ -4184,7 +4128,7 @@ public actual fun exReleaseFastMutex(fastmutex: MutPtr<FastMutex>) {
     }
 }
 
-public actual fun exReleaseFastMutexUnsafe(fastmutex: MutPtr<FastMutex>) {
+public actual fun exReleaseFastMutexUnsafe(fastmutex: MutPtr) {
     if (windowsWdkSystemSystemservicesNapiAvailable) {
         wasmWindowssysWindowsWdkSystemSystemservicesExReleaseFastMutexUnsafe(fastmutex.rawAddress.toString())
     } else {
@@ -4192,7 +4136,7 @@ public actual fun exReleaseFastMutexUnsafe(fastmutex: MutPtr<FastMutex>) {
     }
 }
 
-public actual fun exReleasePushLockExclusiveEx(pushlock: MutPtr<ULong>, flags: UInt) {
+public actual fun exReleasePushLockExclusiveEx(pushlock: MutPtr, flags: UInt) {
     if (windowsWdkSystemSystemservicesNapiAvailable) {
         wasmWindowssysWindowsWdkSystemSystemservicesExReleasePushLockExclusiveEx(pushlock.rawAddress.toString(), flags.toInt())
     } else {
@@ -4200,7 +4144,7 @@ public actual fun exReleasePushLockExclusiveEx(pushlock: MutPtr<ULong>, flags: U
     }
 }
 
-public actual fun exReleasePushLockSharedEx(pushlock: MutPtr<ULong>, flags: UInt) {
+public actual fun exReleasePushLockSharedEx(pushlock: MutPtr, flags: UInt) {
     if (windowsWdkSystemSystemservicesNapiAvailable) {
         wasmWindowssysWindowsWdkSystemSystemservicesExReleasePushLockSharedEx(pushlock.rawAddress.toString(), flags.toInt())
     } else {
@@ -4208,7 +4152,7 @@ public actual fun exReleasePushLockSharedEx(pushlock: MutPtr<ULong>, flags: UInt
     }
 }
 
-public actual fun exReleaseResourceAndLeaveCriticalRegion(resource: MutPtr<Eresource>) {
+public actual fun exReleaseResourceAndLeaveCriticalRegion(resource: MutPtr) {
     if (windowsWdkSystemSystemservicesNapiAvailable) {
         wasmWindowssysWindowsWdkSystemSystemservicesExReleaseResourceAndLeaveCriticalRegion(resource.rawAddress.toString())
     } else {
@@ -4216,7 +4160,7 @@ public actual fun exReleaseResourceAndLeaveCriticalRegion(resource: MutPtr<Ereso
     }
 }
 
-public actual fun exReleaseResourceForThreadLite(resource: MutPtr<Eresource>, resourcethreadid: ULong) {
+public actual fun exReleaseResourceForThreadLite(resource: MutPtr, resourcethreadid: ULong) {
     if (windowsWdkSystemSystemservicesNapiAvailable) {
         wasmWindowssysWindowsWdkSystemSystemservicesExReleaseResourceForThreadLite(resource.rawAddress.toString(), resourcethreadid.toString())
     } else {
@@ -4224,7 +4168,7 @@ public actual fun exReleaseResourceForThreadLite(resource: MutPtr<Eresource>, re
     }
 }
 
-public actual fun exReleaseResourceLite(resource: MutPtr<Eresource>) {
+public actual fun exReleaseResourceLite(resource: MutPtr) {
     if (windowsWdkSystemSystemservicesNapiAvailable) {
         wasmWindowssysWindowsWdkSystemSystemservicesExReleaseResourceLite(resource.rawAddress.toString())
     } else {
@@ -4232,7 +4176,7 @@ public actual fun exReleaseResourceLite(resource: MutPtr<Eresource>) {
     }
 }
 
-public actual fun exReleaseRundownProtection(runref: MutPtr<ExRundownRef>) {
+public actual fun exReleaseRundownProtection(runref: MutPtr) {
     if (windowsWdkSystemSystemservicesNapiAvailable) {
         wasmWindowssysWindowsWdkSystemSystemservicesExReleaseRundownProtection(runref.rawAddress.toString())
     } else {
@@ -4256,7 +4200,7 @@ public actual fun exReleaseRundownProtectionCacheAwareEx(runref: PexRundownRefCa
     }
 }
 
-public actual fun exReleaseRundownProtectionEx(runref: MutPtr<ExRundownRef>, count: UInt) {
+public actual fun exReleaseRundownProtectionEx(runref: MutPtr, count: UInt) {
     if (windowsWdkSystemSystemservicesNapiAvailable) {
         wasmWindowssysWindowsWdkSystemSystemservicesExReleaseRundownProtectionEx(runref.rawAddress.toString(), count.toInt())
     } else {
@@ -4264,7 +4208,7 @@ public actual fun exReleaseRundownProtectionEx(runref: MutPtr<ExRundownRef>, cou
     }
 }
 
-public actual fun exReleaseSpinLockExclusive(spinlock: MutPtr<Int>, oldirql: UByte) {
+public actual fun exReleaseSpinLockExclusive(spinlock: MutPtr, oldirql: UByte) {
     if (windowsWdkSystemSystemservicesNapiAvailable) {
         wasmWindowssysWindowsWdkSystemSystemservicesExReleaseSpinLockExclusive(spinlock.rawAddress.toString(), oldirql.toInt())
     } else {
@@ -4272,7 +4216,7 @@ public actual fun exReleaseSpinLockExclusive(spinlock: MutPtr<Int>, oldirql: UBy
     }
 }
 
-public actual fun exReleaseSpinLockExclusiveFromDpcLevel(spinlock: MutPtr<Int>) {
+public actual fun exReleaseSpinLockExclusiveFromDpcLevel(spinlock: MutPtr) {
     if (windowsWdkSystemSystemservicesNapiAvailable) {
         wasmWindowssysWindowsWdkSystemSystemservicesExReleaseSpinLockExclusiveFromDpcLevel(spinlock.rawAddress.toString())
     } else {
@@ -4280,7 +4224,7 @@ public actual fun exReleaseSpinLockExclusiveFromDpcLevel(spinlock: MutPtr<Int>) 
     }
 }
 
-public actual fun exReleaseSpinLockShared(spinlock: MutPtr<Int>, oldirql: UByte) {
+public actual fun exReleaseSpinLockShared(spinlock: MutPtr, oldirql: UByte) {
     if (windowsWdkSystemSystemservicesNapiAvailable) {
         wasmWindowssysWindowsWdkSystemSystemservicesExReleaseSpinLockShared(spinlock.rawAddress.toString(), oldirql.toInt())
     } else {
@@ -4288,7 +4232,7 @@ public actual fun exReleaseSpinLockShared(spinlock: MutPtr<Int>, oldirql: UByte)
     }
 }
 
-public actual fun exReleaseSpinLockSharedFromDpcLevel(spinlock: MutPtr<Int>) {
+public actual fun exReleaseSpinLockSharedFromDpcLevel(spinlock: MutPtr) {
     if (windowsWdkSystemSystemservicesNapiAvailable) {
         wasmWindowssysWindowsWdkSystemSystemservicesExReleaseSpinLockSharedFromDpcLevel(spinlock.rawAddress.toString())
     } else {
@@ -4296,7 +4240,7 @@ public actual fun exReleaseSpinLockSharedFromDpcLevel(spinlock: MutPtr<Int>) {
     }
 }
 
-public actual fun exRundownCompleted(runref: MutPtr<ExRundownRef>) {
+public actual fun exRundownCompleted(runref: MutPtr) {
     if (windowsWdkSystemSystemservicesNapiAvailable) {
         wasmWindowssysWindowsWdkSystemSystemservicesExRundownCompleted(runref.rawAddress.toString())
     } else {
@@ -4312,16 +4256,16 @@ public actual fun exRundownCompletedCacheAware(runrefcacheaware: PexRundownRefCa
     }
 }
 
-public actual fun exSecurePoolUpdate(securepoolhandle: Handle, tag: UInt, allocation: ConstPtr<CVoid>, cookie: ULong, offset: ULong, size: ULong, buffer: ConstPtr<CVoid>): Ntstatus =
+public actual fun exSecurePoolUpdate(securepoolhandle: Handle, tag: UInt, allocation: ConstPtr, cookie: ULong, offset: ULong, size: ULong, buffer: ConstPtr): Ntstatus =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesExSecurePoolUpdate(securepoolhandle.rawAddress.toString(), tag.toInt(), allocation.rawAddress.toString(), cookie.toString(), offset.toString(), size.toString(), buffer.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun exSecurePoolValidate(securepoolhandle: Handle, tag: UInt, allocation: ConstPtr<CVoid>, cookie: ULong): UInt =
+public actual fun exSecurePoolValidate(securepoolhandle: Handle, tag: UInt, allocation: ConstPtr, cookie: ULong): UInt =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesExSecurePoolValidate(securepoolhandle.rawAddress.toString(), tag.toInt(), allocation.rawAddress.toString(), cookie.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun exSetFirmwareEnvironmentVariable(variablename: ConstPtr<UnicodeString>, vendorguid: ConstPtr<Guid>, value: ConstPtr<CVoid>, valuelength: UInt, attributes: UInt): Ntstatus =
+public actual fun exSetFirmwareEnvironmentVariable(variablename: ConstPtr, vendorguid: ConstPtr, value: ConstPtr, valuelength: UInt, attributes: UInt): Ntstatus =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesExSetFirmwareEnvironmentVariable(variablename.rawAddress.toString(), vendorguid.rawAddress.toString(), value.rawAddress.toString(), valuelength.toInt(), attributes.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun exSetResourceOwnerPointer(resource: MutPtr<Eresource>, ownerpointer: ConstPtr<CVoid>) {
+public actual fun exSetResourceOwnerPointer(resource: MutPtr, ownerpointer: ConstPtr) {
     if (windowsWdkSystemSystemservicesNapiAvailable) {
         wasmWindowssysWindowsWdkSystemSystemservicesExSetResourceOwnerPointer(resource.rawAddress.toString(), ownerpointer.rawAddress.toString())
     } else {
@@ -4329,7 +4273,7 @@ public actual fun exSetResourceOwnerPointer(resource: MutPtr<Eresource>, ownerpo
     }
 }
 
-public actual fun exSetResourceOwnerPointerEx(resource: MutPtr<Eresource>, ownerpointer: ConstPtr<CVoid>, flags: UInt) {
+public actual fun exSetResourceOwnerPointerEx(resource: MutPtr, ownerpointer: ConstPtr, flags: UInt) {
     if (windowsWdkSystemSystemservicesNapiAvailable) {
         wasmWindowssysWindowsWdkSystemSystemservicesExSetResourceOwnerPointerEx(resource.rawAddress.toString(), ownerpointer.rawAddress.toString(), flags.toInt())
     } else {
@@ -4337,7 +4281,7 @@ public actual fun exSetResourceOwnerPointerEx(resource: MutPtr<Eresource>, owner
     }
 }
 
-public actual fun exSetTimer(timer: PexTimer, duetime: Long, period: Long, parameters: ConstPtr<ExtSetParametersV0>): Boolean =
+public actual fun exSetTimer(timer: PexTimer, duetime: Long, period: Long, parameters: ConstPtr): Boolean =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesExSetTimer(timer.toString(), duetime.toString(), period.toString(), parameters.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun exSetTimerResolution(desiredtime: UInt, setresolution: Boolean): UInt =
@@ -4346,7 +4290,7 @@ public actual fun exSetTimerResolution(desiredtime: UInt, setresolution: Boolean
 public actual fun exSizeOfRundownProtectionCacheAware(): ULong =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesExSizeOfRundownProtectionCacheAware().toULong() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun exSystemTimeToLocalTime(systemtime: ConstPtr<Long>, localtime: MutPtr<Long>) {
+public actual fun exSystemTimeToLocalTime(systemtime: ConstPtr, localtime: MutPtr) {
     if (windowsWdkSystemSystemservicesNapiAvailable) {
         wasmWindowssysWindowsWdkSystemSystemservicesExSystemTimeToLocalTime(systemtime.rawAddress.toString(), localtime.rawAddress.toString())
     } else {
@@ -4354,19 +4298,19 @@ public actual fun exSystemTimeToLocalTime(systemtime: ConstPtr<Long>, localtime:
     }
 }
 
-public actual fun exTryAcquireSpinLockExclusiveAtDpcLevel(spinlock: MutPtr<Int>): UInt =
+public actual fun exTryAcquireSpinLockExclusiveAtDpcLevel(spinlock: MutPtr): UInt =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesExTryAcquireSpinLockExclusiveAtDpcLevel(spinlock.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun exTryAcquireSpinLockSharedAtDpcLevel(spinlock: MutPtr<Int>): UInt =
+public actual fun exTryAcquireSpinLockSharedAtDpcLevel(spinlock: MutPtr): UInt =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesExTryAcquireSpinLockSharedAtDpcLevel(spinlock.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun exTryConvertSharedSpinLockExclusive(spinlock: MutPtr<Int>): UInt =
+public actual fun exTryConvertSharedSpinLockExclusive(spinlock: MutPtr): UInt =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesExTryConvertSharedSpinLockExclusive(spinlock.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun exTryToAcquireFastMutex(fastmutex: MutPtr<FastMutex>): Boolean =
+public actual fun exTryToAcquireFastMutex(fastmutex: MutPtr): Boolean =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesExTryToAcquireFastMutex(fastmutex.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun exUnregisterCallback(callbackregistration: MutPtr<CVoid>) {
+public actual fun exUnregisterCallback(callbackregistration: MutPtr) {
     if (windowsWdkSystemSystemservicesNapiAvailable) {
         wasmWindowssysWindowsWdkSystemSystemservicesExUnregisterCallback(callbackregistration.rawAddress.toString())
     } else {
@@ -4374,13 +4318,13 @@ public actual fun exUnregisterCallback(callbackregistration: MutPtr<CVoid>) {
     }
 }
 
-public actual fun exUuidCreate(uuid: MutPtr<Guid>): Ntstatus =
+public actual fun exUuidCreate(uuid: MutPtr): Ntstatus =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesExUuidCreate(uuid.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun exVerifySuite(suitetype: SuiteType): Boolean =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesExVerifySuite(suitetype) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun exWaitForRundownProtectionRelease(runref: MutPtr<ExRundownRef>) {
+public actual fun exWaitForRundownProtectionRelease(runref: MutPtr) {
     if (windowsWdkSystemSystemservicesNapiAvailable) {
         wasmWindowssysWindowsWdkSystemSystemservicesExWaitForRundownProtectionRelease(runref.rawAddress.toString())
     } else {
@@ -4407,22 +4351,22 @@ public actual fun halAcquireDisplayOwnership(resetdisplayparameters: PhalResetDi
     }
 }
 
-public actual fun halAllocateAdapterChannel(adapterobject: ConstPtr<AdapterObject>, wcb: ConstPtr<WaitContextBlock>, numberofmapregisters: UInt, executionroutine: DriverControl): Ntstatus =
+public actual fun halAllocateAdapterChannel(adapterobject: ConstPtr, wcb: ConstPtr, numberofmapregisters: UInt, executionroutine: DriverControl): Ntstatus =
     throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun halAllocateCommonBuffer(adapterobject: ConstPtr<AdapterObject>, length: UInt, logicaladdress: MutPtr<Long>, cacheenabled: Boolean): MutPtr<CVoid> =
+public actual fun halAllocateCommonBuffer(adapterobject: ConstPtr, length: UInt, logicaladdress: MutPtr, cacheenabled: Boolean): MutPtr =
     if (windowsWdkSystemSystemservicesNapiAvailable) MutPtr(wasmWindowssysWindowsWdkSystemSystemservicesHalAllocateCommonBuffer(adapterobject.rawAddress.toString(), length.toInt(), logicaladdress.rawAddress.toString(), cacheenabled).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun halAllocateCrashDumpRegisters(adapterobject: ConstPtr<AdapterObject>, numberofmapregisters: MutPtr<UInt>): MutPtr<CVoid> =
+public actual fun halAllocateCrashDumpRegisters(adapterobject: ConstPtr, numberofmapregisters: MutPtr): MutPtr =
     if (windowsWdkSystemSystemservicesNapiAvailable) MutPtr(wasmWindowssysWindowsWdkSystemSystemservicesHalAllocateCrashDumpRegisters(adapterobject.rawAddress.toString(), numberofmapregisters.rawAddress.toString()).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun halAllocateHardwareCounters(groupaffinty: ConstPtr<GroupAffinity>, groupcount: UInt, resourcelist: ConstPtr<PhysicalCounterResourceList>, countersethandle: MutPtr<Handle>): Ntstatus =
+public actual fun halAllocateHardwareCounters(groupaffinty: ConstPtr, groupcount: UInt, resourcelist: ConstPtr, countersethandle: MutPtr): Ntstatus =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesHalAllocateHardwareCounters(groupaffinty.rawAddress.toString(), groupcount.toInt(), resourcelist.rawAddress.toString(), countersethandle.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun halAssignSlotResources(registrypath: ConstPtr<UnicodeString>, driverclassname: ConstPtr<UnicodeString>, driverobject: ConstPtr<DriverObject>, deviceobject: ConstPtr<DeviceObject>, bustype: InterfaceType, busnumber: UInt, slotnumber: UInt, allocatedresources: MutPtr<MutPtr<CmResourceList>>): Ntstatus =
+public actual fun halAssignSlotResources(registrypath: ConstPtr, driverclassname: ConstPtr, driverobject: ConstPtr, deviceobject: ConstPtr, bustype: InterfaceType, busnumber: UInt, slotnumber: UInt, allocatedresources: MutPtr): Ntstatus =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesHalAssignSlotResources(registrypath.rawAddress.toString(), driverclassname.rawAddress.toString(), driverobject.rawAddress.toString(), deviceobject.rawAddress.toString(), bustype, busnumber.toInt(), slotnumber.toInt(), allocatedresources.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun halBugCheckSystem(errorsource: ConstPtr<WheaErrorSourceDescriptor>, errorrecord: ConstPtr<WheaErrorRecord>) {
+public actual fun halBugCheckSystem(errorsource: ConstPtr, errorrecord: ConstPtr) {
     if (windowsWdkSystemSystemservicesNapiAvailable) {
         wasmWindowssysWindowsWdkSystemSystemservicesHalBugCheckSystem(errorsource.rawAddress.toString(), errorrecord.rawAddress.toString())
     } else {
@@ -4430,13 +4374,13 @@ public actual fun halBugCheckSystem(errorsource: ConstPtr<WheaErrorSourceDescrip
     }
 }
 
-public actual fun halDmaAllocateCrashDumpRegistersEx(adapter: ConstPtr<AdapterObject>, numberofmapregisters: UInt, type: HalDmaCrashDumpRegisterType, mapregisterbase: MutPtr<MutPtr<CVoid>>, mapregistersavailable: MutPtr<UInt>): Ntstatus =
+public actual fun halDmaAllocateCrashDumpRegistersEx(adapter: ConstPtr, numberofmapregisters: UInt, type: HalDmaCrashDumpRegisterType, mapregisterbase: MutPtr, mapregistersavailable: MutPtr): Ntstatus =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesHalDmaAllocateCrashDumpRegistersEx(adapter.rawAddress.toString(), numberofmapregisters.toInt(), type, mapregisterbase.rawAddress.toString(), mapregistersavailable.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun halDmaFreeCrashDumpRegistersEx(adapter: ConstPtr<AdapterObject>, type: HalDmaCrashDumpRegisterType): Ntstatus =
+public actual fun halDmaFreeCrashDumpRegistersEx(adapter: ConstPtr, type: HalDmaCrashDumpRegisterType): Ntstatus =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesHalDmaFreeCrashDumpRegistersEx(adapter.rawAddress.toString(), type) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun halExamineMBR(deviceobject: ConstPtr<DeviceObject>, sectorsize: UInt, mbrtypeidentifier: UInt, buffer: MutPtr<MutPtr<CVoid>>) {
+public actual fun halExamineMBR(deviceobject: ConstPtr, sectorsize: UInt, mbrtypeidentifier: UInt, buffer: MutPtr) {
     if (windowsWdkSystemSystemservicesNapiAvailable) {
         wasmWindowssysWindowsWdkSystemSystemservicesHalExamineMBR(deviceobject.rawAddress.toString(), sectorsize.toInt(), mbrtypeidentifier.toInt(), buffer.rawAddress.toString())
     } else {
@@ -4444,7 +4388,7 @@ public actual fun halExamineMBR(deviceobject: ConstPtr<DeviceObject>, sectorsize
     }
 }
 
-public actual fun halFreeCommonBuffer(adapterobject: ConstPtr<AdapterObject>, length: UInt, logicaladdress: Long, virtualaddress: ConstPtr<CVoid>, cacheenabled: Boolean) {
+public actual fun halFreeCommonBuffer(adapterobject: ConstPtr, length: UInt, logicaladdress: Long, virtualaddress: ConstPtr, cacheenabled: Boolean) {
     if (windowsWdkSystemSystemservicesNapiAvailable) {
         wasmWindowssysWindowsWdkSystemSystemservicesHalFreeCommonBuffer(adapterobject.rawAddress.toString(), length.toInt(), logicaladdress.toString(), virtualaddress.rawAddress.toString(), cacheenabled)
     } else {
@@ -4455,31 +4399,31 @@ public actual fun halFreeCommonBuffer(adapterobject: ConstPtr<AdapterObject>, le
 public actual fun halFreeHardwareCounters(countersethandle: Handle): Ntstatus =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesHalFreeHardwareCounters(countersethandle.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun halGetAdapter(devicedescription: ConstPtr<DeviceDescription>, numberofmapregisters: MutPtr<UInt>): MutPtr<AdapterObject> =
+public actual fun halGetAdapter(devicedescription: ConstPtr, numberofmapregisters: MutPtr): MutPtr =
     if (windowsWdkSystemSystemservicesNapiAvailable) MutPtr(wasmWindowssysWindowsWdkSystemSystemservicesHalGetAdapter(devicedescription.rawAddress.toString(), numberofmapregisters.rawAddress.toString()).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun halGetBusData(busdatatype: BusDataType, busnumber: UInt, slotnumber: UInt, buffer: MutPtr<CVoid>, length: UInt): UInt =
+public actual fun halGetBusData(busdatatype: BusDataType, busnumber: UInt, slotnumber: UInt, buffer: MutPtr, length: UInt): UInt =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesHalGetBusData(busdatatype, busnumber.toInt(), slotnumber.toInt(), buffer.rawAddress.toString(), length.toInt()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun halGetBusDataByOffset(busdatatype: BusDataType, busnumber: UInt, slotnumber: UInt, buffer: MutPtr<CVoid>, offset: UInt, length: UInt): UInt =
+public actual fun halGetBusDataByOffset(busdatatype: BusDataType, busnumber: UInt, slotnumber: UInt, buffer: MutPtr, offset: UInt, length: UInt): UInt =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesHalGetBusDataByOffset(busdatatype, busnumber.toInt(), slotnumber.toInt(), buffer.rawAddress.toString(), offset.toInt(), length.toInt()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun halGetInterruptVector(interfacetype: InterfaceType, busnumber: UInt, businterruptlevel: UInt, businterruptvector: UInt, irql: MutPtr<UByte>, affinity: MutPtr<ULong>): UInt =
+public actual fun halGetInterruptVector(interfacetype: InterfaceType, busnumber: UInt, businterruptlevel: UInt, businterruptvector: UInt, irql: MutPtr, affinity: MutPtr): UInt =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesHalGetInterruptVector(interfacetype, busnumber.toInt(), businterruptlevel.toInt(), businterruptvector.toInt(), irql.rawAddress.toString(), affinity.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun halMakeBeep(frequency: UInt): Boolean =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesHalMakeBeep(frequency.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun halReadDmaCounter(adapterobject: ConstPtr<AdapterObject>): UInt =
+public actual fun halReadDmaCounter(adapterobject: ConstPtr): UInt =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesHalReadDmaCounter(adapterobject.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun halSetBusData(busdatatype: BusDataType, busnumber: UInt, slotnumber: UInt, buffer: ConstPtr<CVoid>, length: UInt): UInt =
+public actual fun halSetBusData(busdatatype: BusDataType, busnumber: UInt, slotnumber: UInt, buffer: ConstPtr, length: UInt): UInt =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesHalSetBusData(busdatatype, busnumber.toInt(), slotnumber.toInt(), buffer.rawAddress.toString(), length.toInt()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun halSetBusDataByOffset(busdatatype: BusDataType, busnumber: UInt, slotnumber: UInt, buffer: ConstPtr<CVoid>, offset: UInt, length: UInt): UInt =
+public actual fun halSetBusDataByOffset(busdatatype: BusDataType, busnumber: UInt, slotnumber: UInt, buffer: ConstPtr, offset: UInt, length: UInt): UInt =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesHalSetBusDataByOffset(busdatatype, busnumber.toInt(), slotnumber.toInt(), buffer.rawAddress.toString(), offset.toInt(), length.toInt()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun halTranslateBusAddress(interfacetype: InterfaceType, busnumber: UInt, busaddress: Long, addressspace: MutPtr<UInt>, translatedaddress: MutPtr<Long>): Boolean =
+public actual fun halTranslateBusAddress(interfacetype: InterfaceType, busnumber: UInt, busaddress: Long, addressspace: MutPtr, translatedaddress: MutPtr): Boolean =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesHalTranslateBusAddress(interfacetype, busnumber.toInt(), busaddress.toString(), addressspace.rawAddress.toString(), translatedaddress.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun hvlRegisterWheaErrorNotification(callback: PhvlWheaErrorNotification): Ntstatus =
@@ -4488,7 +4432,7 @@ public actual fun hvlRegisterWheaErrorNotification(callback: PhvlWheaErrorNotifi
 public actual fun hvlUnregisterWheaErrorNotification(callback: PhvlWheaErrorNotification): Ntstatus =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesHvlUnregisterWheaErrorNotification(0L.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ioAcquireCancelSpinLock(irql: MutPtr<UByte>) {
+public actual fun ioAcquireCancelSpinLock(irql: MutPtr) {
     if (windowsWdkSystemSystemservicesNapiAvailable) {
         wasmWindowssysWindowsWdkSystemSystemservicesIoAcquireCancelSpinLock(irql.rawAddress.toString())
     } else {
@@ -4496,63 +4440,63 @@ public actual fun ioAcquireCancelSpinLock(irql: MutPtr<UByte>) {
     }
 }
 
-public actual fun ioAcquireKsrPersistentMemory(driverobject: ConstPtr<DriverObject>, physicaldeviceobject: ConstPtr<DeviceObject>, buffer: MutPtr<CVoid>, size: MutPtr<ULong>): Ntstatus =
+public actual fun ioAcquireKsrPersistentMemory(driverobject: ConstPtr, physicaldeviceobject: ConstPtr, buffer: MutPtr, size: MutPtr): Ntstatus =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesIoAcquireKsrPersistentMemory(driverobject.rawAddress.toString(), physicaldeviceobject.rawAddress.toString(), buffer.rawAddress.toString(), size.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ioAcquireKsrPersistentMemoryEx(driverobject: ConstPtr<DriverObject>, physicaldeviceobject: ConstPtr<DeviceObject>, physicaldeviceid: ConstPtr<UnicodeString>, datatag: ConstPtr<UShort>, dataversion: MutPtr<UInt>, buffer: MutPtr<CVoid>, size: MutPtr<ULong>): Ntstatus =
+public actual fun ioAcquireKsrPersistentMemoryEx(driverobject: ConstPtr, physicaldeviceobject: ConstPtr, physicaldeviceid: ConstPtr, datatag: ConstPtr, dataversion: MutPtr, buffer: MutPtr, size: MutPtr): Ntstatus =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesIoAcquireKsrPersistentMemoryEx(driverobject.rawAddress.toString(), physicaldeviceobject.rawAddress.toString(), physicaldeviceid.rawAddress.toString(), datatag.rawAddress.toString(), dataversion.rawAddress.toString(), buffer.rawAddress.toString(), size.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ioAcquireRemoveLockEx(removelock: MutPtr<IoRemoveLock>, tag: ConstPtr<CVoid>, file: Pcstr, line: UInt, remlocksize: UInt): Ntstatus =
+public actual fun ioAcquireRemoveLockEx(removelock: MutPtr, tag: ConstPtr, file: Pcstr, line: UInt, remlocksize: UInt): Ntstatus =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesIoAcquireRemoveLockEx(removelock.rawAddress.toString(), tag.rawAddress.toString(), file.rawAddress.toString(), line.toInt(), remlocksize.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ioAllocateAdapterChannel(adapterobject: ConstPtr<AdapterObject>, deviceobject: ConstPtr<DeviceObject>, numberofmapregisters: UInt, executionroutine: DriverControl, context: ConstPtr<CVoid>): Ntstatus =
+public actual fun ioAllocateAdapterChannel(adapterobject: ConstPtr, deviceobject: ConstPtr, numberofmapregisters: UInt, executionroutine: DriverControl, context: ConstPtr): Ntstatus =
     throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ioAllocateController(controllerobject: ConstPtr<ControllerObject>, deviceobject: ConstPtr<DeviceObject>, executionroutine: DriverControl, context: ConstPtr<CVoid>): Unit = throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun ioAllocateController(controllerobject: ConstPtr, deviceobject: ConstPtr, executionroutine: DriverControl, context: ConstPtr): Unit = throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ioAllocateDriverObjectExtension(driverobject: ConstPtr<DriverObject>, clientidentificationaddress: ConstPtr<CVoid>, driverobjectextensionsize: UInt, driverobjectextension: MutPtr<MutPtr<CVoid>>): Ntstatus =
+public actual fun ioAllocateDriverObjectExtension(driverobject: ConstPtr, clientidentificationaddress: ConstPtr, driverobjectextensionsize: UInt, driverobjectextension: MutPtr): Ntstatus =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesIoAllocateDriverObjectExtension(driverobject.rawAddress.toString(), clientidentificationaddress.rawAddress.toString(), driverobjectextensionsize.toInt(), driverobjectextension.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ioAllocateErrorLogEntry(ioobject: ConstPtr<CVoid>, entrysize: UByte): MutPtr<CVoid> =
+public actual fun ioAllocateErrorLogEntry(ioobject: ConstPtr, entrysize: UByte): MutPtr =
     if (windowsWdkSystemSystemservicesNapiAvailable) MutPtr(wasmWindowssysWindowsWdkSystemSystemservicesIoAllocateErrorLogEntry(ioobject.rawAddress.toString(), entrysize.toInt()).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ioAllocateIrp(stacksize: Byte, chargequota: Boolean): MutPtr<Irp> =
+public actual fun ioAllocateIrp(stacksize: Byte, chargequota: Boolean): MutPtr =
     if (windowsWdkSystemSystemservicesNapiAvailable) MutPtr(wasmWindowssysWindowsWdkSystemSystemservicesIoAllocateIrp(stacksize.toInt(), chargequota).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ioAllocateIrpEx(deviceobject: ConstPtr<DeviceObject>, stacksize: Byte, chargequota: Boolean): MutPtr<Irp> =
+public actual fun ioAllocateIrpEx(deviceobject: ConstPtr, stacksize: Byte, chargequota: Boolean): MutPtr =
     if (windowsWdkSystemSystemservicesNapiAvailable) MutPtr(wasmWindowssysWindowsWdkSystemSystemservicesIoAllocateIrpEx(deviceobject.rawAddress.toString(), stacksize.toInt(), chargequota).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ioAllocateMdl(virtualaddress: ConstPtr<CVoid>, length: UInt, secondarybuffer: Boolean, chargequota: Boolean, irp: MutPtr<Irp>): MutPtr<Mdl> =
+public actual fun ioAllocateMdl(virtualaddress: ConstPtr, length: UInt, secondarybuffer: Boolean, chargequota: Boolean, irp: MutPtr): MutPtr =
     if (windowsWdkSystemSystemservicesNapiAvailable) MutPtr(wasmWindowssysWindowsWdkSystemSystemservicesIoAllocateMdl(virtualaddress.rawAddress.toString(), length.toInt(), secondarybuffer, chargequota, irp.rawAddress.toString()).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ioAllocateSfioStreamIdentifier(fileobject: ConstPtr<FileObject>, length: UInt, signature: ConstPtr<CVoid>, streamidentifier: MutPtr<MutPtr<CVoid>>): Ntstatus =
+public actual fun ioAllocateSfioStreamIdentifier(fileobject: ConstPtr, length: UInt, signature: ConstPtr, streamidentifier: MutPtr): Ntstatus =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesIoAllocateSfioStreamIdentifier(fileobject.rawAddress.toString(), length.toInt(), signature.rawAddress.toString(), streamidentifier.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ioAllocateWorkItem(deviceobject: ConstPtr<DeviceObject>): PioWorkitem =
+public actual fun ioAllocateWorkItem(deviceobject: ConstPtr): PioWorkitem =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesIoAllocateWorkItem(deviceobject.rawAddress.toString()).toLong() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ioAssignResources(registrypath: ConstPtr<UnicodeString>, driverclassname: ConstPtr<UnicodeString>, driverobject: ConstPtr<DriverObject>, deviceobject: ConstPtr<DeviceObject>, requestedresources: ConstPtr<IoResourceRequirementsList>, allocatedresources: MutPtr<MutPtr<CmResourceList>>): Ntstatus =
+public actual fun ioAssignResources(registrypath: ConstPtr, driverclassname: ConstPtr, driverobject: ConstPtr, deviceobject: ConstPtr, requestedresources: ConstPtr, allocatedresources: MutPtr): Ntstatus =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesIoAssignResources(registrypath.rawAddress.toString(), driverclassname.rawAddress.toString(), driverobject.rawAddress.toString(), deviceobject.rawAddress.toString(), requestedresources.rawAddress.toString(), allocatedresources.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ioAttachDevice(sourcedevice: ConstPtr<DeviceObject>, targetdevice: ConstPtr<UnicodeString>, attacheddevice: MutPtr<MutPtr<DeviceObject>>): Ntstatus =
+public actual fun ioAttachDevice(sourcedevice: ConstPtr, targetdevice: ConstPtr, attacheddevice: MutPtr): Ntstatus =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesIoAttachDevice(sourcedevice.rawAddress.toString(), targetdevice.rawAddress.toString(), attacheddevice.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ioAttachDeviceByPointer(sourcedevice: ConstPtr<DeviceObject>, targetdevice: ConstPtr<DeviceObject>): Ntstatus =
+public actual fun ioAttachDeviceByPointer(sourcedevice: ConstPtr, targetdevice: ConstPtr): Ntstatus =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesIoAttachDeviceByPointer(sourcedevice.rawAddress.toString(), targetdevice.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ioAttachDeviceToDeviceStack(sourcedevice: ConstPtr<DeviceObject>, targetdevice: ConstPtr<DeviceObject>): MutPtr<DeviceObject> =
+public actual fun ioAttachDeviceToDeviceStack(sourcedevice: ConstPtr, targetdevice: ConstPtr): MutPtr =
     if (windowsWdkSystemSystemservicesNapiAvailable) MutPtr(wasmWindowssysWindowsWdkSystemSystemservicesIoAttachDeviceToDeviceStack(sourcedevice.rawAddress.toString(), targetdevice.rawAddress.toString()).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ioAttachDeviceToDeviceStackSafe(sourcedevice: ConstPtr<DeviceObject>, targetdevice: ConstPtr<DeviceObject>, attachedtodeviceobject: MutPtr<MutPtr<DeviceObject>>): Ntstatus =
+public actual fun ioAttachDeviceToDeviceStackSafe(sourcedevice: ConstPtr, targetdevice: ConstPtr, attachedtodeviceobject: MutPtr): Ntstatus =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesIoAttachDeviceToDeviceStackSafe(sourcedevice.rawAddress.toString(), targetdevice.rawAddress.toString(), attachedtodeviceobject.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ioBuildAsynchronousFsdRequest(majorfunction: UInt, deviceobject: ConstPtr<DeviceObject>, buffer: MutPtr<CVoid>, length: UInt, startingoffset: ConstPtr<Long>, iostatusblock: ConstPtr<IoStatusBlock>): MutPtr<Irp> =
+public actual fun ioBuildAsynchronousFsdRequest(majorfunction: UInt, deviceobject: ConstPtr, buffer: MutPtr, length: UInt, startingoffset: ConstPtr, iostatusblock: ConstPtr): MutPtr =
     if (windowsWdkSystemSystemservicesNapiAvailable) MutPtr(wasmWindowssysWindowsWdkSystemSystemservicesIoBuildAsynchronousFsdRequest(majorfunction.toInt(), deviceobject.rawAddress.toString(), buffer.rawAddress.toString(), length.toInt(), startingoffset.rawAddress.toString(), iostatusblock.rawAddress.toString()).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ioBuildDeviceIoControlRequest(iocontrolcode: UInt, deviceobject: ConstPtr<DeviceObject>, inputbuffer: ConstPtr<CVoid>, inputbufferlength: UInt, outputbuffer: MutPtr<CVoid>, outputbufferlength: UInt, internaldeviceiocontrol: Boolean, event: ConstPtr<Kevent>, iostatusblock: MutPtr<IoStatusBlock>): MutPtr<Irp> =
+public actual fun ioBuildDeviceIoControlRequest(iocontrolcode: UInt, deviceobject: ConstPtr, inputbuffer: ConstPtr, inputbufferlength: UInt, outputbuffer: MutPtr, outputbufferlength: UInt, internaldeviceiocontrol: Boolean, event: ConstPtr, iostatusblock: MutPtr): MutPtr =
     if (windowsWdkSystemSystemservicesNapiAvailable) MutPtr(wasmWindowssysWindowsWdkSystemSystemservicesIoBuildDeviceIoControlRequest(iocontrolcode.toInt(), deviceobject.rawAddress.toString(), inputbuffer.rawAddress.toString(), inputbufferlength.toInt(), outputbuffer.rawAddress.toString(), outputbufferlength.toInt(), internaldeviceiocontrol, event.rawAddress.toString(), iostatusblock.rawAddress.toString()).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ioBuildPartialMdl(sourcemdl: ConstPtr<Mdl>, targetmdl: MutPtr<Mdl>, virtualaddress: MutPtr<CVoid>, length: UInt) {
+public actual fun ioBuildPartialMdl(sourcemdl: ConstPtr, targetmdl: MutPtr, virtualaddress: MutPtr, length: UInt) {
     if (windowsWdkSystemSystemservicesNapiAvailable) {
         wasmWindowssysWindowsWdkSystemSystemservicesIoBuildPartialMdl(sourcemdl.rawAddress.toString(), targetmdl.rawAddress.toString(), virtualaddress.rawAddress.toString(), length.toInt())
     } else {
@@ -4560,10 +4504,10 @@ public actual fun ioBuildPartialMdl(sourcemdl: ConstPtr<Mdl>, targetmdl: MutPtr<
     }
 }
 
-public actual fun ioBuildSynchronousFsdRequest(majorfunction: UInt, deviceobject: ConstPtr<DeviceObject>, buffer: MutPtr<CVoid>, length: UInt, startingoffset: ConstPtr<Long>, event: ConstPtr<Kevent>, iostatusblock: MutPtr<IoStatusBlock>): MutPtr<Irp> =
+public actual fun ioBuildSynchronousFsdRequest(majorfunction: UInt, deviceobject: ConstPtr, buffer: MutPtr, length: UInt, startingoffset: ConstPtr, event: ConstPtr, iostatusblock: MutPtr): MutPtr =
     if (windowsWdkSystemSystemservicesNapiAvailable) MutPtr(wasmWindowssysWindowsWdkSystemSystemservicesIoBuildSynchronousFsdRequest(majorfunction.toInt(), deviceobject.rawAddress.toString(), buffer.rawAddress.toString(), length.toInt(), startingoffset.rawAddress.toString(), event.rawAddress.toString(), iostatusblock.rawAddress.toString()).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ioCancelFileOpen(deviceobject: ConstPtr<DeviceObject>, fileobject: ConstPtr<FileObject>) {
+public actual fun ioCancelFileOpen(deviceobject: ConstPtr, fileobject: ConstPtr) {
     if (windowsWdkSystemSystemservicesNapiAvailable) {
         wasmWindowssysWindowsWdkSystemSystemservicesIoCancelFileOpen(deviceobject.rawAddress.toString(), fileobject.rawAddress.toString())
     } else {
@@ -4571,19 +4515,19 @@ public actual fun ioCancelFileOpen(deviceobject: ConstPtr<DeviceObject>, fileobj
     }
 }
 
-public actual fun ioCancelIrp(irp: ConstPtr<Irp>): Boolean =
+public actual fun ioCancelIrp(irp: ConstPtr): Boolean =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesIoCancelIrp(irp.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ioCheckLinkShareAccess(desiredaccess: UInt, desiredshareaccess: UInt, fileobject: MutPtr<FileObject>, shareaccess: MutPtr<ShareAccess>, linkshareaccess: MutPtr<LinkShareAccess>, ioshareaccessflags: UInt): Ntstatus =
+public actual fun ioCheckLinkShareAccess(desiredaccess: UInt, desiredshareaccess: UInt, fileobject: MutPtr, shareaccess: MutPtr, linkshareaccess: MutPtr, ioshareaccessflags: UInt): Ntstatus =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesIoCheckLinkShareAccess(desiredaccess.toInt(), desiredshareaccess.toInt(), fileobject.rawAddress.toString(), shareaccess.rawAddress.toString(), linkshareaccess.rawAddress.toString(), ioshareaccessflags.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ioCheckShareAccess(desiredaccess: UInt, desiredshareaccess: UInt, fileobject: MutPtr<FileObject>, shareaccess: MutPtr<ShareAccess>, update: Boolean): Ntstatus =
+public actual fun ioCheckShareAccess(desiredaccess: UInt, desiredshareaccess: UInt, fileobject: MutPtr, shareaccess: MutPtr, update: Boolean): Ntstatus =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesIoCheckShareAccess(desiredaccess.toInt(), desiredshareaccess.toInt(), fileobject.rawAddress.toString(), shareaccess.rawAddress.toString(), update) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ioCheckShareAccessEx(desiredaccess: UInt, desiredshareaccess: UInt, fileobject: MutPtr<FileObject>, shareaccess: MutPtr<ShareAccess>, update: Boolean, writepermission: ConstPtr<Boolean>): Ntstatus =
+public actual fun ioCheckShareAccessEx(desiredaccess: UInt, desiredshareaccess: UInt, fileobject: MutPtr, shareaccess: MutPtr, update: Boolean, writepermission: ConstPtr): Ntstatus =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesIoCheckShareAccessEx(desiredaccess.toInt(), desiredshareaccess.toInt(), fileobject.rawAddress.toString(), shareaccess.rawAddress.toString(), update, writepermission.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ioCleanupIrp(irp: MutPtr<Irp>) {
+public actual fun ioCleanupIrp(irp: MutPtr) {
     if (windowsWdkSystemSystemservicesNapiAvailable) {
         wasmWindowssysWindowsWdkSystemSystemservicesIoCleanupIrp(irp.rawAddress.toString())
     } else {
@@ -4591,7 +4535,7 @@ public actual fun ioCleanupIrp(irp: MutPtr<Irp>) {
     }
 }
 
-public actual fun ioClearActivityIdThread(originalid: ConstPtr<Guid>) {
+public actual fun ioClearActivityIdThread(originalid: ConstPtr) {
     if (windowsWdkSystemSystemservicesNapiAvailable) {
         wasmWindowssysWindowsWdkSystemSystemservicesIoClearActivityIdThread(originalid.rawAddress.toString())
     } else {
@@ -4599,7 +4543,7 @@ public actual fun ioClearActivityIdThread(originalid: ConstPtr<Guid>) {
     }
 }
 
-public actual fun ioClearIrpExtraCreateParameter(irp: MutPtr<Irp>) {
+public actual fun ioClearIrpExtraCreateParameter(irp: MutPtr) {
     if (windowsWdkSystemSystemservicesNapiAvailable) {
         wasmWindowssysWindowsWdkSystemSystemservicesIoClearIrpExtraCreateParameter(irp.rawAddress.toString())
     } else {
@@ -4607,52 +4551,52 @@ public actual fun ioClearIrpExtraCreateParameter(irp: MutPtr<Irp>) {
     }
 }
 
-public actual fun ioConnectInterrupt(interruptobject: MutPtr<Pkinterrupt>, serviceroutine: PkserviceRoutine, servicecontext: ConstPtr<CVoid>, spinlock: ConstPtr<ULong>, vector: UInt, irql: UByte, synchronizeirql: UByte, interruptmode: KinterruptMode, sharevector: Boolean, processorenablemask: ULong, floatingsave: Boolean): Ntstatus =
+public actual fun ioConnectInterrupt(interruptobject: MutPtr, serviceroutine: PkserviceRoutine, servicecontext: ConstPtr, spinlock: ConstPtr, vector: UInt, irql: UByte, synchronizeirql: UByte, interruptmode: KinterruptMode, sharevector: Boolean, processorenablemask: ULong, floatingsave: Boolean): Ntstatus =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesIoConnectInterrupt(interruptobject.rawAddress.toString(), 0L.toString(), servicecontext.rawAddress.toString(), spinlock.rawAddress.toString(), vector.toInt(), irql.toInt(), synchronizeirql.toInt(), interruptmode, sharevector, processorenablemask.toString(), floatingsave) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ioConnectInterruptEx(parameters: MutPtr<IoConnectInterruptParameters>): Ntstatus =
+public actual fun ioConnectInterruptEx(parameters: MutPtr): Ntstatus =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesIoConnectInterruptEx(parameters.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ioCreateController(size: UInt): MutPtr<ControllerObject> =
+public actual fun ioCreateController(size: UInt): MutPtr =
     if (windowsWdkSystemSystemservicesNapiAvailable) MutPtr(wasmWindowssysWindowsWdkSystemSystemservicesIoCreateController(size.toInt()).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ioCreateDevice(driverobject: ConstPtr<DriverObject>, deviceextensionsize: UInt, devicename: ConstPtr<UnicodeString>, devicetype: UInt, devicecharacteristics: UInt, exclusive: Boolean, deviceobject: MutPtr<MutPtr<DeviceObject>>): Ntstatus =
+public actual fun ioCreateDevice(driverobject: ConstPtr, deviceextensionsize: UInt, devicename: ConstPtr, devicetype: UInt, devicecharacteristics: UInt, exclusive: Boolean, deviceobject: MutPtr): Ntstatus =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesIoCreateDevice(driverobject.rawAddress.toString(), deviceextensionsize.toInt(), devicename.rawAddress.toString(), devicetype.toInt(), devicecharacteristics.toInt(), exclusive, deviceobject.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ioCreateDisk(deviceobject: ConstPtr<DeviceObject>, disk: ConstPtr<CreateDisk>): Ntstatus =
+public actual fun ioCreateDisk(deviceobject: ConstPtr, disk: ConstPtr): Ntstatus =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesIoCreateDisk(deviceobject.rawAddress.toString(), disk.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ioCreateFile(filehandle: MutPtr<Handle>, desiredaccess: UInt, objectattributes: ConstPtr<ObjectAttributes>, iostatusblock: MutPtr<IoStatusBlock>, allocationsize: ConstPtr<Long>, fileattributes: UInt, shareaccess: UInt, disposition: UInt, createoptions: UInt, eabuffer: ConstPtr<CVoid>, ealength: UInt, createfiletype: CreateFileType, internalparameters: ConstPtr<CVoid>, options: UInt): Ntstatus =
+public actual fun ioCreateFile(filehandle: MutPtr, desiredaccess: UInt, objectattributes: ConstPtr, iostatusblock: MutPtr, allocationsize: ConstPtr, fileattributes: UInt, shareaccess: UInt, disposition: UInt, createoptions: UInt, eabuffer: ConstPtr, ealength: UInt, createfiletype: CreateFileType, internalparameters: ConstPtr, options: UInt): Ntstatus =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesIoCreateFile(filehandle.rawAddress.toString(), desiredaccess.toInt(), objectattributes.rawAddress.toString(), iostatusblock.rawAddress.toString(), allocationsize.rawAddress.toString(), fileattributes.toInt(), shareaccess.toInt(), disposition.toInt(), createoptions.toInt(), eabuffer.rawAddress.toString(), ealength.toInt(), createfiletype, internalparameters.rawAddress.toString(), options.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ioCreateFileEx(filehandle: MutPtr<Handle>, desiredaccess: UInt, objectattributes: ConstPtr<ObjectAttributes>, iostatusblock: MutPtr<IoStatusBlock>, allocationsize: ConstPtr<Long>, fileattributes: UInt, shareaccess: UInt, disposition: UInt, createoptions: UInt, eabuffer: ConstPtr<CVoid>, ealength: UInt, createfiletype: CreateFileType, internalparameters: ConstPtr<CVoid>, options: UInt, drivercontext: ConstPtr<IoDriverCreateContext>): Ntstatus =
+public actual fun ioCreateFileEx(filehandle: MutPtr, desiredaccess: UInt, objectattributes: ConstPtr, iostatusblock: MutPtr, allocationsize: ConstPtr, fileattributes: UInt, shareaccess: UInt, disposition: UInt, createoptions: UInt, eabuffer: ConstPtr, ealength: UInt, createfiletype: CreateFileType, internalparameters: ConstPtr, options: UInt, drivercontext: ConstPtr): Ntstatus =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesIoCreateFileEx(filehandle.rawAddress.toString(), desiredaccess.toInt(), objectattributes.rawAddress.toString(), iostatusblock.rawAddress.toString(), allocationsize.rawAddress.toString(), fileattributes.toInt(), shareaccess.toInt(), disposition.toInt(), createoptions.toInt(), eabuffer.rawAddress.toString(), ealength.toInt(), createfiletype, internalparameters.rawAddress.toString(), options.toInt(), drivercontext.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ioCreateFileSpecifyDeviceObjectHint(filehandle: MutPtr<Handle>, desiredaccess: UInt, objectattributes: ConstPtr<ObjectAttributes>, iostatusblock: MutPtr<IoStatusBlock>, allocationsize: ConstPtr<Long>, fileattributes: UInt, shareaccess: UInt, disposition: UInt, createoptions: UInt, eabuffer: ConstPtr<CVoid>, ealength: UInt, createfiletype: CreateFileType, internalparameters: ConstPtr<CVoid>, options: UInt, deviceobject: ConstPtr<CVoid>): Ntstatus =
+public actual fun ioCreateFileSpecifyDeviceObjectHint(filehandle: MutPtr, desiredaccess: UInt, objectattributes: ConstPtr, iostatusblock: MutPtr, allocationsize: ConstPtr, fileattributes: UInt, shareaccess: UInt, disposition: UInt, createoptions: UInt, eabuffer: ConstPtr, ealength: UInt, createfiletype: CreateFileType, internalparameters: ConstPtr, options: UInt, deviceobject: ConstPtr): Ntstatus =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesIoCreateFileSpecifyDeviceObjectHint(filehandle.rawAddress.toString(), desiredaccess.toInt(), objectattributes.rawAddress.toString(), iostatusblock.rawAddress.toString(), allocationsize.rawAddress.toString(), fileattributes.toInt(), shareaccess.toInt(), disposition.toInt(), createoptions.toInt(), eabuffer.rawAddress.toString(), ealength.toInt(), createfiletype, internalparameters.rawAddress.toString(), options.toInt(), deviceobject.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ioCreateNotificationEvent(eventname: ConstPtr<UnicodeString>, eventhandle: MutPtr<Handle>): MutPtr<Kevent> =
+public actual fun ioCreateNotificationEvent(eventname: ConstPtr, eventhandle: MutPtr): MutPtr =
     if (windowsWdkSystemSystemservicesNapiAvailable) MutPtr(wasmWindowssysWindowsWdkSystemSystemservicesIoCreateNotificationEvent(eventname.rawAddress.toString(), eventhandle.rawAddress.toString()).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ioCreateSymbolicLink(symboliclinkname: ConstPtr<UnicodeString>, devicename: ConstPtr<UnicodeString>): Ntstatus =
+public actual fun ioCreateSymbolicLink(symboliclinkname: ConstPtr, devicename: ConstPtr): Ntstatus =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesIoCreateSymbolicLink(symboliclinkname.rawAddress.toString(), devicename.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ioCreateSynchronizationEvent(eventname: ConstPtr<UnicodeString>, eventhandle: MutPtr<Handle>): MutPtr<Kevent> =
+public actual fun ioCreateSynchronizationEvent(eventname: ConstPtr, eventhandle: MutPtr): MutPtr =
     if (windowsWdkSystemSystemservicesNapiAvailable) MutPtr(wasmWindowssysWindowsWdkSystemSystemservicesIoCreateSynchronizationEvent(eventname.rawAddress.toString(), eventhandle.rawAddress.toString()).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ioCreateSystemThread(ioobject: MutPtr<CVoid>, threadhandle: MutPtr<Handle>, desiredaccess: UInt, objectattributes: ConstPtr<ObjectAttributes>, processhandle: Handle, clientid: MutPtr<ClientId>, startroutine: PkstartRoutine, startcontext: ConstPtr<CVoid>): Ntstatus =
+public actual fun ioCreateSystemThread(ioobject: MutPtr, threadhandle: MutPtr, desiredaccess: UInt, objectattributes: ConstPtr, processhandle: Handle, clientid: MutPtr, startroutine: PkstartRoutine, startcontext: ConstPtr): Ntstatus =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesIoCreateSystemThread(ioobject.rawAddress.toString(), threadhandle.rawAddress.toString(), desiredaccess.toInt(), objectattributes.rawAddress.toString(), processhandle.rawAddress.toString(), clientid.rawAddress.toString(), 0L.toString(), startcontext.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ioCreateUnprotectedSymbolicLink(symboliclinkname: ConstPtr<UnicodeString>, devicename: ConstPtr<UnicodeString>): Ntstatus =
+public actual fun ioCreateUnprotectedSymbolicLink(symboliclinkname: ConstPtr, devicename: ConstPtr): Ntstatus =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesIoCreateUnprotectedSymbolicLink(symboliclinkname.rawAddress.toString(), devicename.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ioCsqInitialize(csq: MutPtr<IoCsq>, csqinsertirp: PioCsqInsertIrp, csqremoveirp: PioCsqRemoveIrp, csqpeeknextirp: PioCsqPeekNextIrp, csqacquirelock: PioCsqAcquireLock, csqreleaselock: PioCsqReleaseLock, csqcompletecanceledirp: PioCsqCompleteCanceledIrp): Ntstatus =
+public actual fun ioCsqInitialize(csq: MutPtr, csqinsertirp: PioCsqInsertIrp, csqremoveirp: PioCsqRemoveIrp, csqpeeknextirp: PioCsqPeekNextIrp, csqacquirelock: PioCsqAcquireLock, csqreleaselock: PioCsqReleaseLock, csqcompletecanceledirp: PioCsqCompleteCanceledIrp): Ntstatus =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesIoCsqInitialize(csq.rawAddress.toString(), 0L.toString(), 0L.toString(), 0L.toString(), 0L.toString(), 0L.toString(), 0L.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ioCsqInitializeEx(csq: MutPtr<IoCsq>, csqinsertirp: PioCsqInsertIrpEx, csqremoveirp: PioCsqRemoveIrp, csqpeeknextirp: PioCsqPeekNextIrp, csqacquirelock: PioCsqAcquireLock, csqreleaselock: PioCsqReleaseLock, csqcompletecanceledirp: PioCsqCompleteCanceledIrp): Ntstatus =
+public actual fun ioCsqInitializeEx(csq: MutPtr, csqinsertirp: PioCsqInsertIrpEx, csqremoveirp: PioCsqRemoveIrp, csqpeeknextirp: PioCsqPeekNextIrp, csqacquirelock: PioCsqAcquireLock, csqreleaselock: PioCsqReleaseLock, csqcompletecanceledirp: PioCsqCompleteCanceledIrp): Ntstatus =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesIoCsqInitializeEx(csq.rawAddress.toString(), 0L.toString(), 0L.toString(), 0L.toString(), 0L.toString(), 0L.toString(), 0L.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ioCsqInsertIrp(csq: MutPtr<IoCsq>, irp: MutPtr<Irp>, context: MutPtr<IoCsqIrpContext>) {
+public actual fun ioCsqInsertIrp(csq: MutPtr, irp: MutPtr, context: MutPtr) {
     if (windowsWdkSystemSystemservicesNapiAvailable) {
         wasmWindowssysWindowsWdkSystemSystemservicesIoCsqInsertIrp(csq.rawAddress.toString(), irp.rawAddress.toString(), context.rawAddress.toString())
     } else {
@@ -4660,19 +4604,19 @@ public actual fun ioCsqInsertIrp(csq: MutPtr<IoCsq>, irp: MutPtr<Irp>, context: 
     }
 }
 
-public actual fun ioCsqInsertIrpEx(csq: MutPtr<IoCsq>, irp: MutPtr<Irp>, context: MutPtr<IoCsqIrpContext>, insertcontext: ConstPtr<CVoid>): Ntstatus =
+public actual fun ioCsqInsertIrpEx(csq: MutPtr, irp: MutPtr, context: MutPtr, insertcontext: ConstPtr): Ntstatus =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesIoCsqInsertIrpEx(csq.rawAddress.toString(), irp.rawAddress.toString(), context.rawAddress.toString(), insertcontext.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ioCsqRemoveIrp(csq: MutPtr<IoCsq>, context: MutPtr<IoCsqIrpContext>): MutPtr<Irp> =
+public actual fun ioCsqRemoveIrp(csq: MutPtr, context: MutPtr): MutPtr =
     if (windowsWdkSystemSystemservicesNapiAvailable) MutPtr(wasmWindowssysWindowsWdkSystemSystemservicesIoCsqRemoveIrp(csq.rawAddress.toString(), context.rawAddress.toString()).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ioCsqRemoveNextIrp(csq: MutPtr<IoCsq>, peekcontext: ConstPtr<CVoid>): MutPtr<Irp> =
+public actual fun ioCsqRemoveNextIrp(csq: MutPtr, peekcontext: ConstPtr): MutPtr =
     if (windowsWdkSystemSystemservicesNapiAvailable) MutPtr(wasmWindowssysWindowsWdkSystemSystemservicesIoCsqRemoveNextIrp(csq.rawAddress.toString(), peekcontext.rawAddress.toString()).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ioDecrementKeepAliveCount(fileobject: MutPtr<FileObject>, process: Peprocess): Ntstatus =
+public actual fun ioDecrementKeepAliveCount(fileobject: MutPtr, process: Peprocess): Ntstatus =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesIoDecrementKeepAliveCount(fileobject.rawAddress.toString(), process.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ioDeleteController(controllerobject: ConstPtr<ControllerObject>) {
+public actual fun ioDeleteController(controllerobject: ConstPtr) {
     if (windowsWdkSystemSystemservicesNapiAvailable) {
         wasmWindowssysWindowsWdkSystemSystemservicesIoDeleteController(controllerobject.rawAddress.toString())
     } else {
@@ -4680,7 +4624,7 @@ public actual fun ioDeleteController(controllerobject: ConstPtr<ControllerObject
     }
 }
 
-public actual fun ioDeleteDevice(deviceobject: ConstPtr<DeviceObject>) {
+public actual fun ioDeleteDevice(deviceobject: ConstPtr) {
     if (windowsWdkSystemSystemservicesNapiAvailable) {
         wasmWindowssysWindowsWdkSystemSystemservicesIoDeleteDevice(deviceobject.rawAddress.toString())
     } else {
@@ -4688,10 +4632,10 @@ public actual fun ioDeleteDevice(deviceobject: ConstPtr<DeviceObject>) {
     }
 }
 
-public actual fun ioDeleteSymbolicLink(symboliclinkname: ConstPtr<UnicodeString>): Ntstatus =
+public actual fun ioDeleteSymbolicLink(symboliclinkname: ConstPtr): Ntstatus =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesIoDeleteSymbolicLink(symboliclinkname.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ioDetachDevice(targetdevice: MutPtr<DeviceObject>) {
+public actual fun ioDetachDevice(targetdevice: MutPtr) {
     if (windowsWdkSystemSystemservicesNapiAvailable) {
         wasmWindowssysWindowsWdkSystemSystemservicesIoDetachDevice(targetdevice.rawAddress.toString())
     } else {
@@ -4707,7 +4651,7 @@ public actual fun ioDisconnectInterrupt(interruptobject: Pkinterrupt) {
     }
 }
 
-public actual fun ioDisconnectInterruptEx(parameters: ConstPtr<IoDisconnectInterruptParameters>) {
+public actual fun ioDisconnectInterruptEx(parameters: ConstPtr) {
     if (windowsWdkSystemSystemservicesNapiAvailable) {
         wasmWindowssysWindowsWdkSystemSystemservicesIoDisconnectInterruptEx(parameters.rawAddress.toString())
     } else {
@@ -4715,16 +4659,16 @@ public actual fun ioDisconnectInterruptEx(parameters: ConstPtr<IoDisconnectInter
     }
 }
 
-public actual fun ioEnumerateKsrPersistentMemoryEx(driverobject: ConstPtr<DriverObject>, physicaldeviceobject: ConstPtr<DeviceObject>, physicaldeviceid: ConstPtr<UnicodeString>, callback: PioPersistedMemoryEnumerationCallback, callbackcontext: ConstPtr<CVoid>): Ntstatus =
+public actual fun ioEnumerateKsrPersistentMemoryEx(driverobject: ConstPtr, physicaldeviceobject: ConstPtr, physicaldeviceid: ConstPtr, callback: PioPersistedMemoryEnumerationCallback, callbackcontext: ConstPtr): Ntstatus =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesIoEnumerateKsrPersistentMemoryEx(driverobject.rawAddress.toString(), physicaldeviceobject.rawAddress.toString(), physicaldeviceid.rawAddress.toString(), 0L.toString(), callbackcontext.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ioFlushAdapterBuffers(adapterobject: ConstPtr<AdapterObject>, mdl: ConstPtr<Mdl>, mapregisterbase: ConstPtr<CVoid>, currentva: ConstPtr<CVoid>, length: UInt, writetodevice: Boolean): Boolean =
+public actual fun ioFlushAdapterBuffers(adapterobject: ConstPtr, mdl: ConstPtr, mapregisterbase: ConstPtr, currentva: ConstPtr, length: UInt, writetodevice: Boolean): Boolean =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesIoFlushAdapterBuffers(adapterobject.rawAddress.toString(), mdl.rawAddress.toString(), mapregisterbase.rawAddress.toString(), currentva.rawAddress.toString(), length.toInt(), writetodevice) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ioForwardIrpSynchronously(deviceobject: ConstPtr<DeviceObject>, irp: ConstPtr<Irp>): Boolean =
+public actual fun ioForwardIrpSynchronously(deviceobject: ConstPtr, irp: ConstPtr): Boolean =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesIoForwardIrpSynchronously(deviceobject.rawAddress.toString(), irp.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ioFreeAdapterChannel(adapterobject: ConstPtr<AdapterObject>) {
+public actual fun ioFreeAdapterChannel(adapterobject: ConstPtr) {
     if (windowsWdkSystemSystemservicesNapiAvailable) {
         wasmWindowssysWindowsWdkSystemSystemservicesIoFreeAdapterChannel(adapterobject.rawAddress.toString())
     } else {
@@ -4732,7 +4676,7 @@ public actual fun ioFreeAdapterChannel(adapterobject: ConstPtr<AdapterObject>) {
     }
 }
 
-public actual fun ioFreeController(controllerobject: ConstPtr<ControllerObject>) {
+public actual fun ioFreeController(controllerobject: ConstPtr) {
     if (windowsWdkSystemSystemservicesNapiAvailable) {
         wasmWindowssysWindowsWdkSystemSystemservicesIoFreeController(controllerobject.rawAddress.toString())
     } else {
@@ -4740,7 +4684,7 @@ public actual fun ioFreeController(controllerobject: ConstPtr<ControllerObject>)
     }
 }
 
-public actual fun ioFreeErrorLogEntry(elentry: ConstPtr<CVoid>) {
+public actual fun ioFreeErrorLogEntry(elentry: ConstPtr) {
     if (windowsWdkSystemSystemservicesNapiAvailable) {
         wasmWindowssysWindowsWdkSystemSystemservicesIoFreeErrorLogEntry(elentry.rawAddress.toString())
     } else {
@@ -4748,7 +4692,7 @@ public actual fun ioFreeErrorLogEntry(elentry: ConstPtr<CVoid>) {
     }
 }
 
-public actual fun ioFreeIrp(irp: ConstPtr<Irp>) {
+public actual fun ioFreeIrp(irp: ConstPtr) {
     if (windowsWdkSystemSystemservicesNapiAvailable) {
         wasmWindowssysWindowsWdkSystemSystemservicesIoFreeIrp(irp.rawAddress.toString())
     } else {
@@ -4756,10 +4700,10 @@ public actual fun ioFreeIrp(irp: ConstPtr<Irp>) {
     }
 }
 
-public actual fun ioFreeKsrPersistentMemory(datahandle: ConstPtr<CVoid>): Ntstatus =
+public actual fun ioFreeKsrPersistentMemory(datahandle: ConstPtr): Ntstatus =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesIoFreeKsrPersistentMemory(datahandle.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ioFreeMapRegisters(adapterobject: ConstPtr<AdapterObject>, mapregisterbase: ConstPtr<CVoid>, numberofmapregisters: UInt) {
+public actual fun ioFreeMapRegisters(adapterobject: ConstPtr, mapregisterbase: ConstPtr, numberofmapregisters: UInt) {
     if (windowsWdkSystemSystemservicesNapiAvailable) {
         wasmWindowssysWindowsWdkSystemSystemservicesIoFreeMapRegisters(adapterobject.rawAddress.toString(), mapregisterbase.rawAddress.toString(), numberofmapregisters.toInt())
     } else {
@@ -4767,7 +4711,7 @@ public actual fun ioFreeMapRegisters(adapterobject: ConstPtr<AdapterObject>, map
     }
 }
 
-public actual fun ioFreeMdl(mdl: MutPtr<Mdl>) {
+public actual fun ioFreeMdl(mdl: MutPtr) {
     if (windowsWdkSystemSystemservicesNapiAvailable) {
         wasmWindowssysWindowsWdkSystemSystemservicesIoFreeMdl(mdl.rawAddress.toString())
     } else {
@@ -4775,7 +4719,7 @@ public actual fun ioFreeMdl(mdl: MutPtr<Mdl>) {
     }
 }
 
-public actual fun ioFreeSfioStreamIdentifier(fileobject: ConstPtr<FileObject>, signature: ConstPtr<CVoid>): Ntstatus =
+public actual fun ioFreeSfioStreamIdentifier(fileobject: ConstPtr, signature: ConstPtr): Ntstatus =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesIoFreeSfioStreamIdentifier(fileobject.rawAddress.toString(), signature.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun ioFreeWorkItem(ioworkitem: PioWorkitem) {
@@ -4786,109 +4730,109 @@ public actual fun ioFreeWorkItem(ioworkitem: PioWorkitem) {
     }
 }
 
-public actual fun ioGetActivityIdIrp(irp: ConstPtr<Irp>, guid: MutPtr<Guid>): Ntstatus =
+public actual fun ioGetActivityIdIrp(irp: ConstPtr, guid: MutPtr): Ntstatus =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesIoGetActivityIdIrp(irp.rawAddress.toString(), guid.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ioGetActivityIdThread(): MutPtr<Guid> =
+public actual fun ioGetActivityIdThread(): MutPtr =
     if (windowsWdkSystemSystemservicesNapiAvailable) MutPtr(wasmWindowssysWindowsWdkSystemSystemservicesIoGetActivityIdThread().toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ioGetAffinityInterrupt(interruptobject: Pkinterrupt, groupaffinity: MutPtr<GroupAffinity>): Ntstatus =
+public actual fun ioGetAffinityInterrupt(interruptobject: Pkinterrupt, groupaffinity: MutPtr): Ntstatus =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesIoGetAffinityInterrupt(interruptobject.toString(), groupaffinity.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ioGetAttachedDeviceReference(deviceobject: ConstPtr<DeviceObject>): MutPtr<DeviceObject> =
+public actual fun ioGetAttachedDeviceReference(deviceobject: ConstPtr): MutPtr =
     if (windowsWdkSystemSystemservicesNapiAvailable) MutPtr(wasmWindowssysWindowsWdkSystemSystemservicesIoGetAttachedDeviceReference(deviceobject.rawAddress.toString()).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ioGetBootDiskInformation(bootdiskinformation: MutPtr<BootdiskInformation>, size: UInt): Ntstatus =
+public actual fun ioGetBootDiskInformation(bootdiskinformation: MutPtr, size: UInt): Ntstatus =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesIoGetBootDiskInformation(bootdiskinformation.rawAddress.toString(), size.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ioGetBootDiskInformationLite(bootdiskinformation: MutPtr<MutPtr<BootdiskInformationLite>>): Ntstatus =
+public actual fun ioGetBootDiskInformationLite(bootdiskinformation: MutPtr): Ntstatus =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesIoGetBootDiskInformationLite(bootdiskinformation.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ioGetConfigurationInformation(): MutPtr<ConfigurationInformation> =
+public actual fun ioGetConfigurationInformation(): MutPtr =
     if (windowsWdkSystemSystemservicesNapiAvailable) MutPtr(wasmWindowssysWindowsWdkSystemSystemservicesIoGetConfigurationInformation().toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ioGetContainerInformation(informationclass: IoContainerInformationClass, containerobject: ConstPtr<CVoid>, buffer: MutPtr<CVoid>, bufferlength: UInt): Ntstatus =
+public actual fun ioGetContainerInformation(informationclass: IoContainerInformationClass, containerobject: ConstPtr, buffer: MutPtr, bufferlength: UInt): Ntstatus =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesIoGetContainerInformation(informationclass, containerobject.rawAddress.toString(), buffer.rawAddress.toString(), bufferlength.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun ioGetCurrentProcess(): Peprocess =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesIoGetCurrentProcess().toLong() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ioGetDeviceDirectory(physicaldeviceobject: ConstPtr<DeviceObject>, directorytype: DeviceDirectoryType, flags: UInt, reserved: ConstPtr<CVoid>, devicedirectoryhandle: MutPtr<Handle>): Ntstatus =
+public actual fun ioGetDeviceDirectory(physicaldeviceobject: ConstPtr, directorytype: DeviceDirectoryType, flags: UInt, reserved: ConstPtr, devicedirectoryhandle: MutPtr): Ntstatus =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesIoGetDeviceDirectory(physicaldeviceobject.rawAddress.toString(), directorytype, flags.toInt(), reserved.rawAddress.toString(), devicedirectoryhandle.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ioGetDeviceInterfaceAlias(symboliclinkname: ConstPtr<UnicodeString>, aliasinterfaceclassguid: ConstPtr<Guid>, aliassymboliclinkname: MutPtr<UnicodeString>): Ntstatus =
+public actual fun ioGetDeviceInterfaceAlias(symboliclinkname: ConstPtr, aliasinterfaceclassguid: ConstPtr, aliassymboliclinkname: MutPtr): Ntstatus =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesIoGetDeviceInterfaceAlias(symboliclinkname.rawAddress.toString(), aliasinterfaceclassguid.rawAddress.toString(), aliassymboliclinkname.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ioGetDeviceInterfacePropertyData(symboliclinkname: ConstPtr<UnicodeString>, propertykey: ConstPtr<Devpropkey>, lcid: UInt, flags: UInt, size: UInt, data: MutPtr<CVoid>, requiredsize: MutPtr<UInt>, type: MutPtr<Devproptype>): Ntstatus =
+public actual fun ioGetDeviceInterfacePropertyData(symboliclinkname: ConstPtr, propertykey: ConstPtr, lcid: UInt, flags: UInt, size: UInt, data: MutPtr, requiredsize: MutPtr, type: MutPtr): Ntstatus =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesIoGetDeviceInterfacePropertyData(symboliclinkname.rawAddress.toString(), propertykey.rawAddress.toString(), lcid.toInt(), flags.toInt(), size.toInt(), data.rawAddress.toString(), requiredsize.rawAddress.toString(), type.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ioGetDeviceInterfaces(interfaceclassguid: ConstPtr<Guid>, physicaldeviceobject: ConstPtr<DeviceObject>, flags: UInt, symboliclinklist: MutPtr<Pwstr>): Ntstatus =
+public actual fun ioGetDeviceInterfaces(interfaceclassguid: ConstPtr, physicaldeviceobject: ConstPtr, flags: UInt, symboliclinklist: MutPtr): Ntstatus =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesIoGetDeviceInterfaces(interfaceclassguid.rawAddress.toString(), physicaldeviceobject.rawAddress.toString(), flags.toInt(), symboliclinklist.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ioGetDeviceNumaNode(pdo: ConstPtr<DeviceObject>, nodenumber: MutPtr<UShort>): Ntstatus =
+public actual fun ioGetDeviceNumaNode(pdo: ConstPtr, nodenumber: MutPtr): Ntstatus =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesIoGetDeviceNumaNode(pdo.rawAddress.toString(), nodenumber.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ioGetDeviceObjectPointer(objectname: ConstPtr<UnicodeString>, desiredaccess: UInt, fileobject: MutPtr<MutPtr<FileObject>>, deviceobject: MutPtr<MutPtr<DeviceObject>>): Ntstatus =
+public actual fun ioGetDeviceObjectPointer(objectname: ConstPtr, desiredaccess: UInt, fileobject: MutPtr, deviceobject: MutPtr): Ntstatus =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesIoGetDeviceObjectPointer(objectname.rawAddress.toString(), desiredaccess.toInt(), fileobject.rawAddress.toString(), deviceobject.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ioGetDeviceProperty(deviceobject: ConstPtr<DeviceObject>, deviceproperty: DeviceRegistryProperty, bufferlength: UInt, propertybuffer: MutPtr<CVoid>, resultlength: MutPtr<UInt>): Ntstatus =
+public actual fun ioGetDeviceProperty(deviceobject: ConstPtr, deviceproperty: DeviceRegistryProperty, bufferlength: UInt, propertybuffer: MutPtr, resultlength: MutPtr): Ntstatus =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesIoGetDeviceProperty(deviceobject.rawAddress.toString(), deviceproperty, bufferlength.toInt(), propertybuffer.rawAddress.toString(), resultlength.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ioGetDevicePropertyData(pdo: ConstPtr<DeviceObject>, propertykey: ConstPtr<Devpropkey>, lcid: UInt, flags: UInt, size: UInt, data: MutPtr<CVoid>, requiredsize: MutPtr<UInt>, type: MutPtr<Devproptype>): Ntstatus =
+public actual fun ioGetDevicePropertyData(pdo: ConstPtr, propertykey: ConstPtr, lcid: UInt, flags: UInt, size: UInt, data: MutPtr, requiredsize: MutPtr, type: MutPtr): Ntstatus =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesIoGetDevicePropertyData(pdo.rawAddress.toString(), propertykey.rawAddress.toString(), lcid.toInt(), flags.toInt(), size.toInt(), data.rawAddress.toString(), requiredsize.rawAddress.toString(), type.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ioGetDmaAdapter(physicaldeviceobject: ConstPtr<DeviceObject>, devicedescription: ConstPtr<DeviceDescription>, numberofmapregisters: MutPtr<UInt>): MutPtr<DmaAdapter> =
+public actual fun ioGetDmaAdapter(physicaldeviceobject: ConstPtr, devicedescription: ConstPtr, numberofmapregisters: MutPtr): MutPtr =
     if (windowsWdkSystemSystemservicesNapiAvailable) MutPtr(wasmWindowssysWindowsWdkSystemSystemservicesIoGetDmaAdapter(physicaldeviceobject.rawAddress.toString(), devicedescription.rawAddress.toString(), numberofmapregisters.rawAddress.toString()).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ioGetDriverDirectory(driverobject: ConstPtr<DriverObject>, directorytype: DriverDirectoryType, flags: UInt, driverdirectoryhandle: MutPtr<Handle>): Ntstatus =
+public actual fun ioGetDriverDirectory(driverobject: ConstPtr, directorytype: DriverDirectoryType, flags: UInt, driverdirectoryhandle: MutPtr): Ntstatus =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesIoGetDriverDirectory(driverobject.rawAddress.toString(), directorytype, flags.toInt(), driverdirectoryhandle.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ioGetDriverObjectExtension(driverobject: ConstPtr<DriverObject>, clientidentificationaddress: ConstPtr<CVoid>): MutPtr<CVoid> =
+public actual fun ioGetDriverObjectExtension(driverobject: ConstPtr, clientidentificationaddress: ConstPtr): MutPtr =
     if (windowsWdkSystemSystemservicesNapiAvailable) MutPtr(wasmWindowssysWindowsWdkSystemSystemservicesIoGetDriverObjectExtension(driverobject.rawAddress.toString(), clientidentificationaddress.rawAddress.toString()).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ioGetFileObjectGenericMapping(): MutPtr<GenericMapping> =
+public actual fun ioGetFileObjectGenericMapping(): MutPtr =
     if (windowsWdkSystemSystemservicesNapiAvailable) MutPtr(wasmWindowssysWindowsWdkSystemSystemservicesIoGetFileObjectGenericMapping().toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ioGetFsZeroingOffset(irp: ConstPtr<Irp>, zeroingoffset: MutPtr<UInt>): Ntstatus =
+public actual fun ioGetFsZeroingOffset(irp: ConstPtr, zeroingoffset: MutPtr): Ntstatus =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesIoGetFsZeroingOffset(irp.rawAddress.toString(), zeroingoffset.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ioGetInitialStack(): MutPtr<CVoid> =
+public actual fun ioGetInitialStack(): MutPtr =
     if (windowsWdkSystemSystemservicesNapiAvailable) MutPtr(wasmWindowssysWindowsWdkSystemSystemservicesIoGetInitialStack().toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ioGetInitiatorProcess(fileobject: ConstPtr<FileObject>): Peprocess =
+public actual fun ioGetInitiatorProcess(fileobject: ConstPtr): Peprocess =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesIoGetInitiatorProcess(fileobject.rawAddress.toString()).toLong() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ioGetIoAttributionHandle(irp: ConstPtr<Irp>, ioattributionhandle: MutPtr<MutPtr<CVoid>>): Ntstatus =
+public actual fun ioGetIoAttributionHandle(irp: ConstPtr, ioattributionhandle: MutPtr): Ntstatus =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesIoGetIoAttributionHandle(irp.rawAddress.toString(), ioattributionhandle.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ioGetIoPriorityHint(irp: ConstPtr<Irp>): IoPriorityHint =
+public actual fun ioGetIoPriorityHint(irp: ConstPtr): IoPriorityHint =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesIoGetIoPriorityHint(irp.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ioGetIommuInterface(version: UInt, interfaceout: MutPtr<DmaIommuInterface>): Ntstatus =
+public actual fun ioGetIommuInterface(version: UInt, interfaceout: MutPtr): Ntstatus =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesIoGetIommuInterface(version.toInt(), interfaceout.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ioGetIommuInterfaceEx(version: UInt, flags: ULong, interfaceout: MutPtr<DmaIommuInterfaceEx>): Ntstatus =
+public actual fun ioGetIommuInterfaceEx(version: UInt, flags: ULong, interfaceout: MutPtr): Ntstatus =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesIoGetIommuInterfaceEx(version.toInt(), flags.toString(), interfaceout.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ioGetIrpExtraCreateParameter(irp: ConstPtr<Irp>, extracreateparameter: MutPtr<MutPtr<Long>>): Ntstatus =
+public actual fun ioGetIrpExtraCreateParameter(irp: ConstPtr, extracreateparameter: MutPtr): Ntstatus =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesIoGetIrpExtraCreateParameter(irp.rawAddress.toString(), extracreateparameter.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ioGetPagingIoPriority(irp: ConstPtr<Irp>): IoPagingPriority =
+public actual fun ioGetPagingIoPriority(irp: ConstPtr): IoPagingPriority =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesIoGetPagingIoPriority(irp.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ioGetRelatedDeviceObject(fileobject: ConstPtr<FileObject>): MutPtr<DeviceObject> =
+public actual fun ioGetRelatedDeviceObject(fileobject: ConstPtr): MutPtr =
     if (windowsWdkSystemSystemservicesNapiAvailable) MutPtr(wasmWindowssysWindowsWdkSystemSystemservicesIoGetRelatedDeviceObject(fileobject.rawAddress.toString()).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ioGetSfioStreamIdentifier(fileobject: ConstPtr<FileObject>, signature: ConstPtr<CVoid>): MutPtr<CVoid> =
+public actual fun ioGetSfioStreamIdentifier(fileobject: ConstPtr, signature: ConstPtr): MutPtr =
     if (windowsWdkSystemSystemservicesNapiAvailable) MutPtr(wasmWindowssysWindowsWdkSystemSystemservicesIoGetSfioStreamIdentifier(fileobject.rawAddress.toString(), signature.rawAddress.toString()).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ioGetSilo(fileobject: ConstPtr<FileObject>): Pesilo =
+public actual fun ioGetSilo(fileobject: ConstPtr): Pesilo =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesIoGetSilo(fileobject.rawAddress.toString()).toLong() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ioGetSiloParameters(fileobject: ConstPtr<FileObject>): MutPtr<IoFoextSiloParameters> =
+public actual fun ioGetSiloParameters(fileobject: ConstPtr): MutPtr =
     if (windowsWdkSystemSystemservicesNapiAvailable) MutPtr(wasmWindowssysWindowsWdkSystemSystemservicesIoGetSiloParameters(fileobject.rawAddress.toString()).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ioGetStackLimits(lowlimit: MutPtr<ULong>, highlimit: MutPtr<ULong>) {
+public actual fun ioGetStackLimits(lowlimit: MutPtr, highlimit: MutPtr) {
     if (windowsWdkSystemSystemservicesNapiAvailable) {
         wasmWindowssysWindowsWdkSystemSystemservicesIoGetStackLimits(lowlimit.rawAddress.toString(), highlimit.rawAddress.toString())
     } else {
@@ -4896,16 +4840,16 @@ public actual fun ioGetStackLimits(lowlimit: MutPtr<ULong>, highlimit: MutPtr<UL
     }
 }
 
-public actual fun ioGetTopLevelIrp(): MutPtr<Irp> =
+public actual fun ioGetTopLevelIrp(): MutPtr =
     if (windowsWdkSystemSystemservicesNapiAvailable) MutPtr(wasmWindowssysWindowsWdkSystemSystemservicesIoGetTopLevelIrp().toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ioGetTransactionParameterBlock(fileobject: ConstPtr<FileObject>): MutPtr<TxnParameterBlock> =
+public actual fun ioGetTransactionParameterBlock(fileobject: ConstPtr): MutPtr =
     if (windowsWdkSystemSystemservicesNapiAvailable) MutPtr(wasmWindowssysWindowsWdkSystemSystemservicesIoGetTransactionParameterBlock(fileobject.rawAddress.toString()).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ioIncrementKeepAliveCount(fileobject: MutPtr<FileObject>, process: Peprocess): Ntstatus =
+public actual fun ioIncrementKeepAliveCount(fileobject: MutPtr, process: Peprocess): Ntstatus =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesIoIncrementKeepAliveCount(fileobject.rawAddress.toString(), process.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ioInitializeIrp(irp: MutPtr<Irp>, packetsize: UShort, stacksize: Byte) {
+public actual fun ioInitializeIrp(irp: MutPtr, packetsize: UShort, stacksize: Byte) {
     if (windowsWdkSystemSystemservicesNapiAvailable) {
         wasmWindowssysWindowsWdkSystemSystemservicesIoInitializeIrp(irp.rawAddress.toString(), packetsize.toInt(), stacksize.toInt())
     } else {
@@ -4913,7 +4857,7 @@ public actual fun ioInitializeIrp(irp: MutPtr<Irp>, packetsize: UShort, stacksiz
     }
 }
 
-public actual fun ioInitializeIrpEx(irp: MutPtr<Irp>, deviceobject: ConstPtr<DeviceObject>, packetsize: UShort, stacksize: Byte) {
+public actual fun ioInitializeIrpEx(irp: MutPtr, deviceobject: ConstPtr, packetsize: UShort, stacksize: Byte) {
     if (windowsWdkSystemSystemservicesNapiAvailable) {
         wasmWindowssysWindowsWdkSystemSystemservicesIoInitializeIrpEx(irp.rawAddress.toString(), deviceobject.rawAddress.toString(), packetsize.toInt(), stacksize.toInt())
     } else {
@@ -4921,7 +4865,7 @@ public actual fun ioInitializeIrpEx(irp: MutPtr<Irp>, deviceobject: ConstPtr<Dev
     }
 }
 
-public actual fun ioInitializeRemoveLockEx(lock: MutPtr<IoRemoveLock>, allocatetag: UInt, maxlockedminutes: UInt, highwatermark: UInt, remlocksize: UInt) {
+public actual fun ioInitializeRemoveLockEx(lock: MutPtr, allocatetag: UInt, maxlockedminutes: UInt, highwatermark: UInt, remlocksize: UInt) {
     if (windowsWdkSystemSystemservicesNapiAvailable) {
         wasmWindowssysWindowsWdkSystemSystemservicesIoInitializeRemoveLockEx(lock.rawAddress.toString(), allocatetag.toInt(), maxlockedminutes.toInt(), highwatermark.toInt(), remlocksize.toInt())
     } else {
@@ -4929,10 +4873,10 @@ public actual fun ioInitializeRemoveLockEx(lock: MutPtr<IoRemoveLock>, allocatet
     }
 }
 
-public actual fun ioInitializeTimer(deviceobject: ConstPtr<DeviceObject>, timerroutine: PioTimerRoutine, context: ConstPtr<CVoid>): Ntstatus =
+public actual fun ioInitializeTimer(deviceobject: ConstPtr, timerroutine: PioTimerRoutine, context: ConstPtr): Ntstatus =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesIoInitializeTimer(deviceobject.rawAddress.toString(), 0L.toString(), context.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ioInitializeWorkItem(ioobject: ConstPtr<CVoid>, ioworkitem: PioWorkitem) {
+public actual fun ioInitializeWorkItem(ioobject: ConstPtr, ioworkitem: PioWorkitem) {
     if (windowsWdkSystemSystemservicesNapiAvailable) {
         wasmWindowssysWindowsWdkSystemSystemservicesIoInitializeWorkItem(ioobject.rawAddress.toString(), ioworkitem.toString())
     } else {
@@ -4940,7 +4884,7 @@ public actual fun ioInitializeWorkItem(ioobject: ConstPtr<CVoid>, ioworkitem: Pi
     }
 }
 
-public actual fun ioInvalidateDeviceRelations(deviceobject: ConstPtr<DeviceObject>, type: DeviceRelationType) {
+public actual fun ioInvalidateDeviceRelations(deviceobject: ConstPtr, type: DeviceRelationType) {
     if (windowsWdkSystemSystemservicesNapiAvailable) {
         wasmWindowssysWindowsWdkSystemSystemservicesIoInvalidateDeviceRelations(deviceobject.rawAddress.toString(), type)
     } else {
@@ -4948,7 +4892,7 @@ public actual fun ioInvalidateDeviceRelations(deviceobject: ConstPtr<DeviceObjec
     }
 }
 
-public actual fun ioInvalidateDeviceState(physicaldeviceobject: ConstPtr<DeviceObject>) {
+public actual fun ioInvalidateDeviceState(physicaldeviceobject: ConstPtr) {
     if (windowsWdkSystemSystemservicesNapiAvailable) {
         wasmWindowssysWindowsWdkSystemSystemservicesIoInvalidateDeviceState(physicaldeviceobject.rawAddress.toString())
     } else {
@@ -4956,16 +4900,16 @@ public actual fun ioInvalidateDeviceState(physicaldeviceobject: ConstPtr<DeviceO
     }
 }
 
-public actual fun ioIs32bitProcess(irp: ConstPtr<Irp>): Boolean =
+public actual fun ioIs32bitProcess(irp: ConstPtr): Boolean =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesIoIs32bitProcess(irp.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ioIsFileObjectIgnoringSharing(fileobject: ConstPtr<FileObject>): Boolean =
+public actual fun ioIsFileObjectIgnoringSharing(fileobject: ConstPtr): Boolean =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesIoIsFileObjectIgnoringSharing(fileobject.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ioIsFileOriginRemote(fileobject: ConstPtr<FileObject>): Boolean =
+public actual fun ioIsFileOriginRemote(fileobject: ConstPtr): Boolean =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesIoIsFileOriginRemote(fileobject.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ioIsInitiator32bitProcess(irp: ConstPtr<Irp>): Boolean =
+public actual fun ioIsInitiator32bitProcess(irp: ConstPtr): Boolean =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesIoIsInitiator32bitProcess(irp.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun ioIsValidIrpStatus(status: Ntstatus): UInt =
@@ -4974,43 +4918,43 @@ public actual fun ioIsValidIrpStatus(status: Ntstatus): UInt =
 public actual fun ioIsWdmVersionAvailable(majorversion: UByte, minorversion: UByte): Boolean =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesIoIsWdmVersionAvailable(majorversion.toInt(), minorversion.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ioMakeAssociatedIrp(irp: ConstPtr<Irp>, stacksize: Byte): MutPtr<Irp> =
+public actual fun ioMakeAssociatedIrp(irp: ConstPtr, stacksize: Byte): MutPtr =
     if (windowsWdkSystemSystemservicesNapiAvailable) MutPtr(wasmWindowssysWindowsWdkSystemSystemservicesIoMakeAssociatedIrp(irp.rawAddress.toString(), stacksize.toInt()).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ioMakeAssociatedIrpEx(irp: ConstPtr<Irp>, deviceobject: ConstPtr<DeviceObject>, stacksize: Byte): MutPtr<Irp> =
+public actual fun ioMakeAssociatedIrpEx(irp: ConstPtr, deviceobject: ConstPtr, stacksize: Byte): MutPtr =
     if (windowsWdkSystemSystemservicesNapiAvailable) MutPtr(wasmWindowssysWindowsWdkSystemSystemservicesIoMakeAssociatedIrpEx(irp.rawAddress.toString(), deviceobject.rawAddress.toString(), stacksize.toInt()).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ioMapTransfer(adapterobject: ConstPtr<AdapterObject>, mdl: ConstPtr<Mdl>, mapregisterbase: ConstPtr<CVoid>, currentva: ConstPtr<CVoid>, length: MutPtr<UInt>, writetodevice: Boolean): Long =
+public actual fun ioMapTransfer(adapterobject: ConstPtr, mdl: ConstPtr, mapregisterbase: ConstPtr, currentva: ConstPtr, length: MutPtr, writetodevice: Boolean): Long =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesIoMapTransfer(adapterobject.rawAddress.toString(), mdl.rawAddress.toString(), mapregisterbase.rawAddress.toString(), currentva.rawAddress.toString(), length.rawAddress.toString(), writetodevice).toLong() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ioOpenDeviceInterfaceRegistryKey(symboliclinkname: ConstPtr<UnicodeString>, desiredaccess: UInt, deviceinterfaceregkey: MutPtr<Handle>): Ntstatus =
+public actual fun ioOpenDeviceInterfaceRegistryKey(symboliclinkname: ConstPtr, desiredaccess: UInt, deviceinterfaceregkey: MutPtr): Ntstatus =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesIoOpenDeviceInterfaceRegistryKey(symboliclinkname.rawAddress.toString(), desiredaccess.toInt(), deviceinterfaceregkey.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ioOpenDeviceRegistryKey(deviceobject: ConstPtr<DeviceObject>, devinstkeytype: UInt, desiredaccess: UInt, deviceregkey: MutPtr<Handle>): Ntstatus =
+public actual fun ioOpenDeviceRegistryKey(deviceobject: ConstPtr, devinstkeytype: UInt, desiredaccess: UInt, deviceregkey: MutPtr): Ntstatus =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesIoOpenDeviceRegistryKey(deviceobject.rawAddress.toString(), devinstkeytype.toInt(), desiredaccess.toInt(), deviceregkey.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ioOpenDriverRegistryKey(driverobject: ConstPtr<DriverObject>, regkeytype: DriverRegkeyType, desiredaccess: UInt, flags: UInt, driverregkey: MutPtr<Handle>): Ntstatus =
+public actual fun ioOpenDriverRegistryKey(driverobject: ConstPtr, regkeytype: DriverRegkeyType, desiredaccess: UInt, flags: UInt, driverregkey: MutPtr): Ntstatus =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesIoOpenDriverRegistryKey(driverobject.rawAddress.toString(), regkeytype, desiredaccess.toInt(), flags.toInt(), driverregkey.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ioPropagateActivityIdToThread(irp: ConstPtr<Irp>, propagatedid: MutPtr<Guid>, originalid: MutPtr<MutPtr<Guid>>): Ntstatus =
+public actual fun ioPropagateActivityIdToThread(irp: ConstPtr, propagatedid: MutPtr, originalid: MutPtr): Ntstatus =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesIoPropagateActivityIdToThread(irp.rawAddress.toString(), propagatedid.rawAddress.toString(), originalid.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ioQueryDeviceDescription(bustype: ConstPtr<InterfaceType>, busnumber: ConstPtr<UInt>, controllertype: ConstPtr<ConfigurationType>, controllernumber: ConstPtr<UInt>, peripheraltype: ConstPtr<ConfigurationType>, peripheralnumber: ConstPtr<UInt>, calloutroutine: PioQueryDeviceRoutine, context: MutPtr<CVoid>): Ntstatus =
+public actual fun ioQueryDeviceDescription(bustype: ConstPtr, busnumber: ConstPtr, controllertype: ConstPtr, controllernumber: ConstPtr, peripheraltype: ConstPtr, peripheralnumber: ConstPtr, calloutroutine: PioQueryDeviceRoutine, context: MutPtr): Ntstatus =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesIoQueryDeviceDescription(bustype.rawAddress.toString(), busnumber.rawAddress.toString(), controllertype.rawAddress.toString(), controllernumber.rawAddress.toString(), peripheraltype.rawAddress.toString(), peripheralnumber.rawAddress.toString(), 0L.toString(), context.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ioQueryFullDriverPath(driverobject: ConstPtr<DriverObject>, fullpath: MutPtr<UnicodeString>): Ntstatus =
+public actual fun ioQueryFullDriverPath(driverobject: ConstPtr, fullpath: MutPtr): Ntstatus =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesIoQueryFullDriverPath(driverobject.rawAddress.toString(), fullpath.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ioQueryInformationByName(objectattributes: ConstPtr<ObjectAttributes>, iostatusblock: MutPtr<IoStatusBlock>, fileinformation: MutPtr<CVoid>, length: UInt, fileinformationclass: FileInformationClass, options: UInt, drivercontext: ConstPtr<IoDriverCreateContext>): Ntstatus =
+public actual fun ioQueryInformationByName(objectattributes: ConstPtr, iostatusblock: MutPtr, fileinformation: MutPtr, length: UInt, fileinformationclass: FileInformationClass, options: UInt, drivercontext: ConstPtr): Ntstatus =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesIoQueryInformationByName(objectattributes.rawAddress.toString(), iostatusblock.rawAddress.toString(), fileinformation.rawAddress.toString(), length.toInt(), fileinformationclass, options.toInt(), drivercontext.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ioQueryKsrPersistentMemorySize(driverobject: ConstPtr<DriverObject>, physicaldeviceobject: ConstPtr<DeviceObject>, buffersize: MutPtr<ULong>): Ntstatus =
+public actual fun ioQueryKsrPersistentMemorySize(driverobject: ConstPtr, physicaldeviceobject: ConstPtr, buffersize: MutPtr): Ntstatus =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesIoQueryKsrPersistentMemorySize(driverobject.rawAddress.toString(), physicaldeviceobject.rawAddress.toString(), buffersize.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ioQueryKsrPersistentMemorySizeEx(driverobject: ConstPtr<DriverObject>, physicaldeviceobject: ConstPtr<DeviceObject>, physicaldeviceid: ConstPtr<UnicodeString>, datatag: ConstPtr<UShort>, dataversion: MutPtr<UInt>, buffersize: MutPtr<ULong>): Ntstatus =
+public actual fun ioQueryKsrPersistentMemorySizeEx(driverobject: ConstPtr, physicaldeviceobject: ConstPtr, physicaldeviceid: ConstPtr, datatag: ConstPtr, dataversion: MutPtr, buffersize: MutPtr): Ntstatus =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesIoQueryKsrPersistentMemorySizeEx(driverobject.rawAddress.toString(), physicaldeviceobject.rawAddress.toString(), physicaldeviceid.rawAddress.toString(), datatag.rawAddress.toString(), dataversion.rawAddress.toString(), buffersize.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ioQueueWorkItem(ioworkitem: PioWorkitem, workerroutine: PioWorkitemRoutine, queuetype: WorkQueueType, context: ConstPtr<CVoid>) {
+public actual fun ioQueueWorkItem(ioworkitem: PioWorkitem, workerroutine: PioWorkitemRoutine, queuetype: WorkQueueType, context: ConstPtr) {
     if (windowsWdkSystemSystemservicesNapiAvailable) {
         wasmWindowssysWindowsWdkSystemSystemservicesIoQueueWorkItem(ioworkitem.toString(), 0L.toString(), queuetype, context.rawAddress.toString())
     } else {
@@ -5018,7 +4962,7 @@ public actual fun ioQueueWorkItem(ioworkitem: PioWorkitem, workerroutine: PioWor
     }
 }
 
-public actual fun ioQueueWorkItemEx(ioworkitem: PioWorkitem, workerroutine: PioWorkitemRoutineEx, queuetype: WorkQueueType, context: ConstPtr<CVoid>) {
+public actual fun ioQueueWorkItemEx(ioworkitem: PioWorkitem, workerroutine: PioWorkitemRoutineEx, queuetype: WorkQueueType, context: ConstPtr) {
     if (windowsWdkSystemSystemservicesNapiAvailable) {
         wasmWindowssysWindowsWdkSystemSystemservicesIoQueueWorkItemEx(ioworkitem.toString(), 0L.toString(), queuetype, context.rawAddress.toString())
     } else {
@@ -5026,7 +4970,7 @@ public actual fun ioQueueWorkItemEx(ioworkitem: PioWorkitem, workerroutine: PioW
     }
 }
 
-public actual fun ioRaiseHardError(irp: ConstPtr<Irp>, vpb: ConstPtr<Vpb>, realdeviceobject: ConstPtr<DeviceObject>) {
+public actual fun ioRaiseHardError(irp: ConstPtr, vpb: ConstPtr, realdeviceobject: ConstPtr) {
     if (windowsWdkSystemSystemservicesNapiAvailable) {
         wasmWindowssysWindowsWdkSystemSystemservicesIoRaiseHardError(irp.rawAddress.toString(), vpb.rawAddress.toString(), realdeviceobject.rawAddress.toString())
     } else {
@@ -5034,41 +4978,41 @@ public actual fun ioRaiseHardError(irp: ConstPtr<Irp>, vpb: ConstPtr<Vpb>, reald
     }
 }
 
-public actual fun ioRaiseInformationalHardError(errorstatus: Ntstatus, string: ConstPtr<UnicodeString>, thread: Pkthread): Boolean =
+public actual fun ioRaiseInformationalHardError(errorstatus: Ntstatus, string: ConstPtr, thread: Pkthread): Boolean =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesIoRaiseInformationalHardError(errorstatus, string.rawAddress.toString(), thread.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ioReadDiskSignature(deviceobject: ConstPtr<DeviceObject>, bytespersector: UInt, signature: MutPtr<DiskSignature>): Ntstatus =
+public actual fun ioReadDiskSignature(deviceobject: ConstPtr, bytespersector: UInt, signature: MutPtr): Ntstatus =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesIoReadDiskSignature(deviceobject.rawAddress.toString(), bytespersector.toInt(), signature.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ioReadPartitionTable(deviceobject: ConstPtr<DeviceObject>, sectorsize: UInt, returnrecognizedpartitions: Boolean, partitionbuffer: MutPtr<MutPtr<DriveLayoutInformation>>): Ntstatus =
+public actual fun ioReadPartitionTable(deviceobject: ConstPtr, sectorsize: UInt, returnrecognizedpartitions: Boolean, partitionbuffer: MutPtr): Ntstatus =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesIoReadPartitionTable(deviceobject.rawAddress.toString(), sectorsize.toInt(), returnrecognizedpartitions, partitionbuffer.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ioReadPartitionTableEx(deviceobject: ConstPtr<DeviceObject>, drivelayout: MutPtr<MutPtr<DriveLayoutInformationEx>>): Ntstatus =
+public actual fun ioReadPartitionTableEx(deviceobject: ConstPtr, drivelayout: MutPtr): Ntstatus =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesIoReadPartitionTableEx(deviceobject.rawAddress.toString(), drivelayout.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ioRecordIoAttribution(opaquehandle: MutPtr<CVoid>, attributioninformation: ConstPtr<IoAttributionInformation>): Ntstatus =
+public actual fun ioRecordIoAttribution(opaquehandle: MutPtr, attributioninformation: ConstPtr): Ntstatus =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesIoRecordIoAttribution(opaquehandle.rawAddress.toString(), attributioninformation.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ioRegisterBootDriverCallback(callbackfunction: PbootDriverCallbackFunction, callbackcontext: ConstPtr<CVoid>): MutPtr<CVoid> =
+public actual fun ioRegisterBootDriverCallback(callbackfunction: PbootDriverCallbackFunction, callbackcontext: ConstPtr): MutPtr =
     if (windowsWdkSystemSystemservicesNapiAvailable) MutPtr(wasmWindowssysWindowsWdkSystemSystemservicesIoRegisterBootDriverCallback(0L.toString(), callbackcontext.rawAddress.toString()).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ioRegisterBootDriverReinitialization(driverobject: ConstPtr<DriverObject>, driverreinitializationroutine: DriverReinitialize, context: ConstPtr<CVoid>): Unit = throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun ioRegisterBootDriverReinitialization(driverobject: ConstPtr, driverreinitializationroutine: DriverReinitialize, context: ConstPtr): Unit = throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ioRegisterContainerNotification(notificationclass: IoContainerNotificationClass, callbackfunction: PioContainerNotificationFunction, notificationinformation: ConstPtr<CVoid>, notificationinformationlength: UInt, callbackregistration: MutPtr<CVoid>): Ntstatus =
+public actual fun ioRegisterContainerNotification(notificationclass: IoContainerNotificationClass, callbackfunction: PioContainerNotificationFunction, notificationinformation: ConstPtr, notificationinformationlength: UInt, callbackregistration: MutPtr): Ntstatus =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesIoRegisterContainerNotification(notificationclass, 0L.toString(), notificationinformation.rawAddress.toString(), notificationinformationlength.toInt(), callbackregistration.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ioRegisterDeviceInterface(physicaldeviceobject: ConstPtr<DeviceObject>, interfaceclassguid: ConstPtr<Guid>, referencestring: ConstPtr<UnicodeString>, symboliclinkname: MutPtr<UnicodeString>): Ntstatus =
+public actual fun ioRegisterDeviceInterface(physicaldeviceobject: ConstPtr, interfaceclassguid: ConstPtr, referencestring: ConstPtr, symboliclinkname: MutPtr): Ntstatus =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesIoRegisterDeviceInterface(physicaldeviceobject.rawAddress.toString(), interfaceclassguid.rawAddress.toString(), referencestring.rawAddress.toString(), symboliclinkname.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ioRegisterDriverReinitialization(driverobject: ConstPtr<DriverObject>, driverreinitializationroutine: DriverReinitialize, context: ConstPtr<CVoid>): Unit = throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun ioRegisterDriverReinitialization(driverobject: ConstPtr, driverreinitializationroutine: DriverReinitialize, context: ConstPtr): Unit = throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ioRegisterLastChanceShutdownNotification(deviceobject: ConstPtr<DeviceObject>): Ntstatus =
+public actual fun ioRegisterLastChanceShutdownNotification(deviceobject: ConstPtr): Ntstatus =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesIoRegisterLastChanceShutdownNotification(deviceobject.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ioRegisterPlugPlayNotification(eventcategory: IoNotificationEventCategory, eventcategoryflags: UInt, eventcategorydata: ConstPtr<CVoid>, driverobject: ConstPtr<DriverObject>, callbackroutine: DriverNotificationCallbackRoutine, context: MutPtr<CVoid>, notificationentry: MutPtr<MutPtr<CVoid>>): Ntstatus =
+public actual fun ioRegisterPlugPlayNotification(eventcategory: IoNotificationEventCategory, eventcategoryflags: UInt, eventcategorydata: ConstPtr, driverobject: ConstPtr, callbackroutine: DriverNotificationCallbackRoutine, context: MutPtr, notificationentry: MutPtr): Ntstatus =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesIoRegisterPlugPlayNotification(eventcategory, eventcategoryflags.toInt(), eventcategorydata.rawAddress.toString(), driverobject.rawAddress.toString(), 0L.toString(), context.rawAddress.toString(), notificationentry.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ioRegisterShutdownNotification(deviceobject: ConstPtr<DeviceObject>): Ntstatus =
+public actual fun ioRegisterShutdownNotification(deviceobject: ConstPtr): Ntstatus =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesIoRegisterShutdownNotification(deviceobject.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun ioReleaseCancelSpinLock(irql: UByte) {
@@ -5079,7 +5023,7 @@ public actual fun ioReleaseCancelSpinLock(irql: UByte) {
     }
 }
 
-public actual fun ioReleaseRemoveLockAndWaitEx(removelock: MutPtr<IoRemoveLock>, tag: ConstPtr<CVoid>, remlocksize: UInt) {
+public actual fun ioReleaseRemoveLockAndWaitEx(removelock: MutPtr, tag: ConstPtr, remlocksize: UInt) {
     if (windowsWdkSystemSystemservicesNapiAvailable) {
         wasmWindowssysWindowsWdkSystemSystemservicesIoReleaseRemoveLockAndWaitEx(removelock.rawAddress.toString(), tag.rawAddress.toString(), remlocksize.toInt())
     } else {
@@ -5087,7 +5031,7 @@ public actual fun ioReleaseRemoveLockAndWaitEx(removelock: MutPtr<IoRemoveLock>,
     }
 }
 
-public actual fun ioReleaseRemoveLockEx(removelock: MutPtr<IoRemoveLock>, tag: ConstPtr<CVoid>, remlocksize: UInt) {
+public actual fun ioReleaseRemoveLockEx(removelock: MutPtr, tag: ConstPtr, remlocksize: UInt) {
     if (windowsWdkSystemSystemservicesNapiAvailable) {
         wasmWindowssysWindowsWdkSystemSystemservicesIoReleaseRemoveLockEx(removelock.rawAddress.toString(), tag.rawAddress.toString(), remlocksize.toInt())
     } else {
@@ -5095,7 +5039,7 @@ public actual fun ioReleaseRemoveLockEx(removelock: MutPtr<IoRemoveLock>, tag: C
     }
 }
 
-public actual fun ioRemoveLinkShareAccess(fileobject: ConstPtr<FileObject>, shareaccess: MutPtr<ShareAccess>, linkshareaccess: MutPtr<LinkShareAccess>) {
+public actual fun ioRemoveLinkShareAccess(fileobject: ConstPtr, shareaccess: MutPtr, linkshareaccess: MutPtr) {
     if (windowsWdkSystemSystemservicesNapiAvailable) {
         wasmWindowssysWindowsWdkSystemSystemservicesIoRemoveLinkShareAccess(fileobject.rawAddress.toString(), shareaccess.rawAddress.toString(), linkshareaccess.rawAddress.toString())
     } else {
@@ -5103,7 +5047,7 @@ public actual fun ioRemoveLinkShareAccess(fileobject: ConstPtr<FileObject>, shar
     }
 }
 
-public actual fun ioRemoveLinkShareAccessEx(fileobject: ConstPtr<FileObject>, shareaccess: MutPtr<ShareAccess>, linkshareaccess: MutPtr<LinkShareAccess>, ioshareaccessflags: UInt) {
+public actual fun ioRemoveLinkShareAccessEx(fileobject: ConstPtr, shareaccess: MutPtr, linkshareaccess: MutPtr, ioshareaccessflags: UInt) {
     if (windowsWdkSystemSystemservicesNapiAvailable) {
         wasmWindowssysWindowsWdkSystemSystemservicesIoRemoveLinkShareAccessEx(fileobject.rawAddress.toString(), shareaccess.rawAddress.toString(), linkshareaccess.rawAddress.toString(), ioshareaccessflags.toInt())
     } else {
@@ -5111,7 +5055,7 @@ public actual fun ioRemoveLinkShareAccessEx(fileobject: ConstPtr<FileObject>, sh
     }
 }
 
-public actual fun ioRemoveShareAccess(fileobject: ConstPtr<FileObject>, shareaccess: MutPtr<ShareAccess>) {
+public actual fun ioRemoveShareAccess(fileobject: ConstPtr, shareaccess: MutPtr) {
     if (windowsWdkSystemSystemservicesNapiAvailable) {
         wasmWindowssysWindowsWdkSystemSystemservicesIoRemoveShareAccess(fileobject.rawAddress.toString(), shareaccess.rawAddress.toString())
     } else {
@@ -5119,13 +5063,13 @@ public actual fun ioRemoveShareAccess(fileobject: ConstPtr<FileObject>, shareacc
     }
 }
 
-public actual fun ioReplacePartitionUnit(targetpdo: ConstPtr<DeviceObject>, sparepdo: ConstPtr<DeviceObject>, flags: UInt): Ntstatus =
+public actual fun ioReplacePartitionUnit(targetpdo: ConstPtr, sparepdo: ConstPtr, flags: UInt): Ntstatus =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesIoReplacePartitionUnit(targetpdo.rawAddress.toString(), sparepdo.rawAddress.toString(), flags.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ioReportDetectedDevice(driverobject: ConstPtr<DriverObject>, legacybustype: InterfaceType, busnumber: UInt, slotnumber: UInt, resourcelist: ConstPtr<CmResourceList>, resourcerequirements: ConstPtr<IoResourceRequirementsList>, resourceassigned: Boolean, deviceobject: MutPtr<MutPtr<DeviceObject>>): Ntstatus =
+public actual fun ioReportDetectedDevice(driverobject: ConstPtr, legacybustype: InterfaceType, busnumber: UInt, slotnumber: UInt, resourcelist: ConstPtr, resourcerequirements: ConstPtr, resourceassigned: Boolean, deviceobject: MutPtr): Ntstatus =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesIoReportDetectedDevice(driverobject.rawAddress.toString(), legacybustype, busnumber.toInt(), slotnumber.toInt(), resourcelist.rawAddress.toString(), resourcerequirements.rawAddress.toString(), resourceassigned, deviceobject.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ioReportInterruptActive(parameters: ConstPtr<IoReportInterruptActiveStateParameters>) {
+public actual fun ioReportInterruptActive(parameters: ConstPtr) {
     if (windowsWdkSystemSystemservicesNapiAvailable) {
         wasmWindowssysWindowsWdkSystemSystemservicesIoReportInterruptActive(parameters.rawAddress.toString())
     } else {
@@ -5133,7 +5077,7 @@ public actual fun ioReportInterruptActive(parameters: ConstPtr<IoReportInterrupt
     }
 }
 
-public actual fun ioReportInterruptInactive(parameters: ConstPtr<IoReportInterruptActiveStateParameters>) {
+public actual fun ioReportInterruptInactive(parameters: ConstPtr) {
     if (windowsWdkSystemSystemservicesNapiAvailable) {
         wasmWindowssysWindowsWdkSystemSystemservicesIoReportInterruptInactive(parameters.rawAddress.toString())
     } else {
@@ -5141,22 +5085,22 @@ public actual fun ioReportInterruptInactive(parameters: ConstPtr<IoReportInterru
     }
 }
 
-public actual fun ioReportResourceForDetection(driverobject: ConstPtr<DriverObject>, driverlist: ConstPtr<CmResourceList>, driverlistsize: UInt, deviceobject: ConstPtr<DeviceObject>, devicelist: ConstPtr<CmResourceList>, devicelistsize: UInt, conflictdetected: MutPtr<Boolean>): Ntstatus =
+public actual fun ioReportResourceForDetection(driverobject: ConstPtr, driverlist: ConstPtr, driverlistsize: UInt, deviceobject: ConstPtr, devicelist: ConstPtr, devicelistsize: UInt, conflictdetected: MutPtr): Ntstatus =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesIoReportResourceForDetection(driverobject.rawAddress.toString(), driverlist.rawAddress.toString(), driverlistsize.toInt(), deviceobject.rawAddress.toString(), devicelist.rawAddress.toString(), devicelistsize.toInt(), conflictdetected.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ioReportResourceUsage(driverclassname: ConstPtr<UnicodeString>, driverobject: ConstPtr<DriverObject>, driverlist: ConstPtr<CmResourceList>, driverlistsize: UInt, deviceobject: ConstPtr<DeviceObject>, devicelist: ConstPtr<CmResourceList>, devicelistsize: UInt, overrideconflict: Boolean, conflictdetected: MutPtr<Boolean>): Ntstatus =
+public actual fun ioReportResourceUsage(driverclassname: ConstPtr, driverobject: ConstPtr, driverlist: ConstPtr, driverlistsize: UInt, deviceobject: ConstPtr, devicelist: ConstPtr, devicelistsize: UInt, overrideconflict: Boolean, conflictdetected: MutPtr): Ntstatus =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesIoReportResourceUsage(driverclassname.rawAddress.toString(), driverobject.rawAddress.toString(), driverlist.rawAddress.toString(), driverlistsize.toInt(), deviceobject.rawAddress.toString(), devicelist.rawAddress.toString(), devicelistsize.toInt(), overrideconflict, conflictdetected.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ioReportRootDevice(driverobject: ConstPtr<DriverObject>): Ntstatus =
+public actual fun ioReportRootDevice(driverobject: ConstPtr): Ntstatus =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesIoReportRootDevice(driverobject.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ioReportTargetDeviceChange(physicaldeviceobject: ConstPtr<DeviceObject>, notificationstructure: ConstPtr<CVoid>): Ntstatus =
+public actual fun ioReportTargetDeviceChange(physicaldeviceobject: ConstPtr, notificationstructure: ConstPtr): Ntstatus =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesIoReportTargetDeviceChange(physicaldeviceobject.rawAddress.toString(), notificationstructure.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ioReportTargetDeviceChangeAsynchronous(physicaldeviceobject: ConstPtr<DeviceObject>, notificationstructure: ConstPtr<CVoid>, callback: PdeviceChangeCompleteCallback, context: ConstPtr<CVoid>): Ntstatus =
+public actual fun ioReportTargetDeviceChangeAsynchronous(physicaldeviceobject: ConstPtr, notificationstructure: ConstPtr, callback: PdeviceChangeCompleteCallback, context: ConstPtr): Ntstatus =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesIoReportTargetDeviceChangeAsynchronous(physicaldeviceobject.rawAddress.toString(), notificationstructure.rawAddress.toString(), 0L.toString(), context.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ioRequestDeviceEject(physicaldeviceobject: ConstPtr<DeviceObject>) {
+public actual fun ioRequestDeviceEject(physicaldeviceobject: ConstPtr) {
     if (windowsWdkSystemSystemservicesNapiAvailable) {
         wasmWindowssysWindowsWdkSystemSystemservicesIoRequestDeviceEject(physicaldeviceobject.rawAddress.toString())
     } else {
@@ -5164,16 +5108,16 @@ public actual fun ioRequestDeviceEject(physicaldeviceobject: ConstPtr<DeviceObje
     }
 }
 
-public actual fun ioRequestDeviceEjectEx(physicaldeviceobject: ConstPtr<DeviceObject>, callback: PioDeviceEjectCallback, context: ConstPtr<CVoid>, driverobject: ConstPtr<DriverObject>): Ntstatus =
+public actual fun ioRequestDeviceEjectEx(physicaldeviceobject: ConstPtr, callback: PioDeviceEjectCallback, context: ConstPtr, driverobject: ConstPtr): Ntstatus =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesIoRequestDeviceEjectEx(physicaldeviceobject.rawAddress.toString(), 0L.toString(), context.rawAddress.toString(), driverobject.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ioReserveKsrPersistentMemory(driverobject: ConstPtr<DriverObject>, physicaldeviceobject: ConstPtr<DeviceObject>, size: ULong, flags: UInt, datahandle: MutPtr<MutPtr<CVoid>>): Ntstatus =
+public actual fun ioReserveKsrPersistentMemory(driverobject: ConstPtr, physicaldeviceobject: ConstPtr, size: ULong, flags: UInt, datahandle: MutPtr): Ntstatus =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesIoReserveKsrPersistentMemory(driverobject.rawAddress.toString(), physicaldeviceobject.rawAddress.toString(), size.toString(), flags.toInt(), datahandle.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ioReserveKsrPersistentMemoryEx(driverobject: ConstPtr<DriverObject>, physicaldeviceobject: ConstPtr<DeviceObject>, physicaldeviceid: ConstPtr<UnicodeString>, datatag: ConstPtr<UShort>, dataversion: UInt, size: ULong, flags: UInt, datahandle: MutPtr<MutPtr<CVoid>>): Ntstatus =
+public actual fun ioReserveKsrPersistentMemoryEx(driverobject: ConstPtr, physicaldeviceobject: ConstPtr, physicaldeviceid: ConstPtr, datatag: ConstPtr, dataversion: UInt, size: ULong, flags: UInt, datahandle: MutPtr): Ntstatus =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesIoReserveKsrPersistentMemoryEx(driverobject.rawAddress.toString(), physicaldeviceobject.rawAddress.toString(), physicaldeviceid.rawAddress.toString(), datatag.rawAddress.toString(), dataversion.toInt(), size.toString(), flags.toInt(), datahandle.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ioReuseIrp(irp: MutPtr<Irp>, iostatus: Ntstatus) {
+public actual fun ioReuseIrp(irp: MutPtr, iostatus: Ntstatus) {
     if (windowsWdkSystemSystemservicesNapiAvailable) {
         wasmWindowssysWindowsWdkSystemSystemservicesIoReuseIrp(irp.rawAddress.toString(), iostatus)
     } else {
@@ -5181,37 +5125,37 @@ public actual fun ioReuseIrp(irp: MutPtr<Irp>, iostatus: Ntstatus) {
     }
 }
 
-public actual fun ioSetActivityIdIrp(irp: MutPtr<Irp>, guid: ConstPtr<Guid>): Ntstatus =
+public actual fun ioSetActivityIdIrp(irp: MutPtr, guid: ConstPtr): Ntstatus =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesIoSetActivityIdIrp(irp.rawAddress.toString(), guid.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ioSetActivityIdThread(activityid: ConstPtr<Guid>): MutPtr<Guid> =
+public actual fun ioSetActivityIdThread(activityid: ConstPtr): MutPtr =
     if (windowsWdkSystemSystemservicesNapiAvailable) MutPtr(wasmWindowssysWindowsWdkSystemSystemservicesIoSetActivityIdThread(activityid.rawAddress.toString()).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ioSetCompletionRoutineEx(deviceobject: ConstPtr<DeviceObject>, irp: ConstPtr<Irp>, completionroutine: PioCompletionRoutine, context: ConstPtr<CVoid>, invokeonsuccess: Boolean, invokeonerror: Boolean, invokeoncancel: Boolean): Ntstatus =
+public actual fun ioSetCompletionRoutineEx(deviceobject: ConstPtr, irp: ConstPtr, completionroutine: PioCompletionRoutine, context: ConstPtr, invokeonsuccess: Boolean, invokeonerror: Boolean, invokeoncancel: Boolean): Ntstatus =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesIoSetCompletionRoutineEx(deviceobject.rawAddress.toString(), irp.rawAddress.toString(), 0L.toString(), context.rawAddress.toString(), invokeonsuccess, invokeonerror, invokeoncancel) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ioSetDeviceInterfacePropertyData(symboliclinkname: ConstPtr<UnicodeString>, propertykey: ConstPtr<Devpropkey>, lcid: UInt, flags: UInt, type: UInt, size: UInt, data: ConstPtr<CVoid>): Ntstatus =
+public actual fun ioSetDeviceInterfacePropertyData(symboliclinkname: ConstPtr, propertykey: ConstPtr, lcid: UInt, flags: UInt, type: UInt, size: UInt, data: ConstPtr): Ntstatus =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesIoSetDeviceInterfacePropertyData(symboliclinkname.rawAddress.toString(), propertykey.rawAddress.toString(), lcid.toInt(), flags.toInt(), type.toInt(), size.toInt(), data.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ioSetDeviceInterfaceState(symboliclinkname: ConstPtr<UnicodeString>, enable: Boolean): Ntstatus =
+public actual fun ioSetDeviceInterfaceState(symboliclinkname: ConstPtr, enable: Boolean): Ntstatus =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesIoSetDeviceInterfaceState(symboliclinkname.rawAddress.toString(), enable) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ioSetDevicePropertyData(pdo: ConstPtr<DeviceObject>, propertykey: ConstPtr<Devpropkey>, lcid: UInt, flags: UInt, type: UInt, size: UInt, data: ConstPtr<CVoid>): Ntstatus =
+public actual fun ioSetDevicePropertyData(pdo: ConstPtr, propertykey: ConstPtr, lcid: UInt, flags: UInt, type: UInt, size: UInt, data: ConstPtr): Ntstatus =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesIoSetDevicePropertyData(pdo.rawAddress.toString(), propertykey.rawAddress.toString(), lcid.toInt(), flags.toInt(), type.toInt(), size.toInt(), data.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ioSetFileObjectIgnoreSharing(fileobject: ConstPtr<FileObject>): Ntstatus =
+public actual fun ioSetFileObjectIgnoreSharing(fileobject: ConstPtr): Ntstatus =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesIoSetFileObjectIgnoreSharing(fileobject.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ioSetFileOrigin(fileobject: ConstPtr<FileObject>, remote: Boolean): Ntstatus =
+public actual fun ioSetFileOrigin(fileobject: ConstPtr, remote: Boolean): Ntstatus =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesIoSetFileOrigin(fileobject.rawAddress.toString(), remote) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ioSetFsZeroingOffset(irp: MutPtr<Irp>, zeroingoffset: UInt): Ntstatus =
+public actual fun ioSetFsZeroingOffset(irp: MutPtr, zeroingoffset: UInt): Ntstatus =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesIoSetFsZeroingOffset(irp.rawAddress.toString(), zeroingoffset.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ioSetFsZeroingOffsetRequired(irp: MutPtr<Irp>): Ntstatus =
+public actual fun ioSetFsZeroingOffsetRequired(irp: MutPtr): Ntstatus =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesIoSetFsZeroingOffsetRequired(irp.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ioSetHardErrorOrVerifyDevice(irp: ConstPtr<Irp>, deviceobject: ConstPtr<DeviceObject>) {
+public actual fun ioSetHardErrorOrVerifyDevice(irp: ConstPtr, deviceobject: ConstPtr) {
     if (windowsWdkSystemSystemservicesNapiAvailable) {
         wasmWindowssysWindowsWdkSystemSystemservicesIoSetHardErrorOrVerifyDevice(irp.rawAddress.toString(), deviceobject.rawAddress.toString())
     } else {
@@ -5219,16 +5163,16 @@ public actual fun ioSetHardErrorOrVerifyDevice(irp: ConstPtr<Irp>, deviceobject:
     }
 }
 
-public actual fun ioSetIoAttributionIrp(irp: MutPtr<Irp>, attributionsource: ConstPtr<CVoid>, flags: UInt): Ntstatus =
+public actual fun ioSetIoAttributionIrp(irp: MutPtr, attributionsource: ConstPtr, flags: UInt): Ntstatus =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesIoSetIoAttributionIrp(irp.rawAddress.toString(), attributionsource.rawAddress.toString(), flags.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ioSetIoPriorityHint(irp: ConstPtr<Irp>, priorityhint: IoPriorityHint): Ntstatus =
+public actual fun ioSetIoPriorityHint(irp: ConstPtr, priorityhint: IoPriorityHint): Ntstatus =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesIoSetIoPriorityHint(irp.rawAddress.toString(), priorityhint) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ioSetIrpExtraCreateParameter(irp: MutPtr<Irp>, extracreateparameter: ConstPtr<Long>): Ntstatus =
+public actual fun ioSetIrpExtraCreateParameter(irp: MutPtr, extracreateparameter: ConstPtr): Ntstatus =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesIoSetIrpExtraCreateParameter(irp.rawAddress.toString(), extracreateparameter.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ioSetLinkShareAccess(desiredaccess: UInt, desiredshareaccess: UInt, fileobject: MutPtr<FileObject>, shareaccess: MutPtr<ShareAccess>, linkshareaccess: MutPtr<LinkShareAccess>, ioshareaccessflags: UInt) {
+public actual fun ioSetLinkShareAccess(desiredaccess: UInt, desiredshareaccess: UInt, fileobject: MutPtr, shareaccess: MutPtr, linkshareaccess: MutPtr, ioshareaccessflags: UInt) {
     if (windowsWdkSystemSystemservicesNapiAvailable) {
         wasmWindowssysWindowsWdkSystemSystemservicesIoSetLinkShareAccess(desiredaccess.toInt(), desiredshareaccess.toInt(), fileobject.rawAddress.toString(), shareaccess.rawAddress.toString(), linkshareaccess.rawAddress.toString(), ioshareaccessflags.toInt())
     } else {
@@ -5236,7 +5180,7 @@ public actual fun ioSetLinkShareAccess(desiredaccess: UInt, desiredshareaccess: 
     }
 }
 
-public actual fun ioSetMasterIrpStatus(masterirp: MutPtr<Irp>, status: Ntstatus) {
+public actual fun ioSetMasterIrpStatus(masterirp: MutPtr, status: Ntstatus) {
     if (windowsWdkSystemSystemservicesNapiAvailable) {
         wasmWindowssysWindowsWdkSystemSystemservicesIoSetMasterIrpStatus(masterirp.rawAddress.toString(), status)
     } else {
@@ -5244,13 +5188,13 @@ public actual fun ioSetMasterIrpStatus(masterirp: MutPtr<Irp>, status: Ntstatus)
     }
 }
 
-public actual fun ioSetPartitionInformation(deviceobject: ConstPtr<DeviceObject>, sectorsize: UInt, partitionnumber: UInt, partitiontype: UInt): Ntstatus =
+public actual fun ioSetPartitionInformation(deviceobject: ConstPtr, sectorsize: UInt, partitionnumber: UInt, partitiontype: UInt): Ntstatus =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesIoSetPartitionInformation(deviceobject.rawAddress.toString(), sectorsize.toInt(), partitionnumber.toInt(), partitiontype.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ioSetPartitionInformationEx(deviceobject: ConstPtr<DeviceObject>, partitionnumber: UInt, partitioninfo: ConstPtr<SetPartitionInformationEx>): Ntstatus =
+public actual fun ioSetPartitionInformationEx(deviceobject: ConstPtr, partitionnumber: UInt, partitioninfo: ConstPtr): Ntstatus =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesIoSetPartitionInformationEx(deviceobject.rawAddress.toString(), partitionnumber.toInt(), partitioninfo.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ioSetShareAccess(desiredaccess: UInt, desiredshareaccess: UInt, fileobject: MutPtr<FileObject>, shareaccess: MutPtr<ShareAccess>) {
+public actual fun ioSetShareAccess(desiredaccess: UInt, desiredshareaccess: UInt, fileobject: MutPtr, shareaccess: MutPtr) {
     if (windowsWdkSystemSystemservicesNapiAvailable) {
         wasmWindowssysWindowsWdkSystemSystemservicesIoSetShareAccess(desiredaccess.toInt(), desiredshareaccess.toInt(), fileobject.rawAddress.toString(), shareaccess.rawAddress.toString())
     } else {
@@ -5258,7 +5202,7 @@ public actual fun ioSetShareAccess(desiredaccess: UInt, desiredshareaccess: UInt
     }
 }
 
-public actual fun ioSetShareAccessEx(desiredaccess: UInt, desiredshareaccess: UInt, fileobject: MutPtr<FileObject>, shareaccess: MutPtr<ShareAccess>, writepermission: ConstPtr<Boolean>) {
+public actual fun ioSetShareAccessEx(desiredaccess: UInt, desiredshareaccess: UInt, fileobject: MutPtr, shareaccess: MutPtr, writepermission: ConstPtr) {
     if (windowsWdkSystemSystemservicesNapiAvailable) {
         wasmWindowssysWindowsWdkSystemSystemservicesIoSetShareAccessEx(desiredaccess.toInt(), desiredshareaccess.toInt(), fileobject.rawAddress.toString(), shareaccess.rawAddress.toString(), writepermission.rawAddress.toString())
     } else {
@@ -5266,7 +5210,7 @@ public actual fun ioSetShareAccessEx(desiredaccess: UInt, desiredshareaccess: UI
     }
 }
 
-public actual fun ioSetStartIoAttributes(deviceobject: ConstPtr<DeviceObject>, deferredstartio: Boolean, noncancelable: Boolean) {
+public actual fun ioSetStartIoAttributes(deviceobject: ConstPtr, deferredstartio: Boolean, noncancelable: Boolean) {
     if (windowsWdkSystemSystemservicesNapiAvailable) {
         wasmWindowssysWindowsWdkSystemSystemservicesIoSetStartIoAttributes(deviceobject.rawAddress.toString(), deferredstartio, noncancelable)
     } else {
@@ -5274,13 +5218,13 @@ public actual fun ioSetStartIoAttributes(deviceobject: ConstPtr<DeviceObject>, d
     }
 }
 
-public actual fun ioSetSystemPartition(volumenamestring: ConstPtr<UnicodeString>): Ntstatus =
+public actual fun ioSetSystemPartition(volumenamestring: ConstPtr): Ntstatus =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesIoSetSystemPartition(volumenamestring.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun ioSetThreadHardErrorMode(enableharderrors: Boolean): Boolean =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesIoSetThreadHardErrorMode(enableharderrors) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ioSetTopLevelIrp(irp: ConstPtr<Irp>) {
+public actual fun ioSetTopLevelIrp(irp: ConstPtr) {
     if (windowsWdkSystemSystemservicesNapiAvailable) {
         wasmWindowssysWindowsWdkSystemSystemservicesIoSetTopLevelIrp(irp.rawAddress.toString())
     } else {
@@ -5288,13 +5232,13 @@ public actual fun ioSetTopLevelIrp(irp: ConstPtr<Irp>) {
     }
 }
 
-public actual fun ioSizeOfIrpEx(deviceobject: ConstPtr<DeviceObject>, stacksize: Byte): UShort =
+public actual fun ioSizeOfIrpEx(deviceobject: ConstPtr, stacksize: Byte): UShort =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesIoSizeOfIrpEx(deviceobject.rawAddress.toString(), stacksize.toInt()).toUShort() else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun ioSizeofWorkItem(): UInt =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesIoSizeofWorkItem().toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ioStartNextPacket(deviceobject: ConstPtr<DeviceObject>, cancelable: Boolean) {
+public actual fun ioStartNextPacket(deviceobject: ConstPtr, cancelable: Boolean) {
     if (windowsWdkSystemSystemservicesNapiAvailable) {
         wasmWindowssysWindowsWdkSystemSystemservicesIoStartNextPacket(deviceobject.rawAddress.toString(), cancelable)
     } else {
@@ -5302,7 +5246,7 @@ public actual fun ioStartNextPacket(deviceobject: ConstPtr<DeviceObject>, cancel
     }
 }
 
-public actual fun ioStartNextPacketByKey(deviceobject: ConstPtr<DeviceObject>, cancelable: Boolean, key: UInt) {
+public actual fun ioStartNextPacketByKey(deviceobject: ConstPtr, cancelable: Boolean, key: UInt) {
     if (windowsWdkSystemSystemservicesNapiAvailable) {
         wasmWindowssysWindowsWdkSystemSystemservicesIoStartNextPacketByKey(deviceobject.rawAddress.toString(), cancelable, key.toInt())
     } else {
@@ -5310,9 +5254,9 @@ public actual fun ioStartNextPacketByKey(deviceobject: ConstPtr<DeviceObject>, c
     }
 }
 
-public actual fun ioStartPacket(deviceobject: ConstPtr<DeviceObject>, irp: ConstPtr<Irp>, key: ConstPtr<UInt>, cancelfunction: DriverCancel): Unit = throw UnsupportedOperationException("Native FFI addon is not available")
+public actual fun ioStartPacket(deviceobject: ConstPtr, irp: ConstPtr, key: ConstPtr, cancelfunction: DriverCancel): Unit = throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ioStartTimer(deviceobject: ConstPtr<DeviceObject>) {
+public actual fun ioStartTimer(deviceobject: ConstPtr) {
     if (windowsWdkSystemSystemservicesNapiAvailable) {
         wasmWindowssysWindowsWdkSystemSystemservicesIoStartTimer(deviceobject.rawAddress.toString())
     } else {
@@ -5320,7 +5264,7 @@ public actual fun ioStartTimer(deviceobject: ConstPtr<DeviceObject>) {
     }
 }
 
-public actual fun ioStopTimer(deviceobject: ConstPtr<DeviceObject>) {
+public actual fun ioStopTimer(deviceobject: ConstPtr) {
     if (windowsWdkSystemSystemservicesNapiAvailable) {
         wasmWindowssysWindowsWdkSystemSystemservicesIoStopTimer(deviceobject.rawAddress.toString())
     } else {
@@ -5328,10 +5272,10 @@ public actual fun ioStopTimer(deviceobject: ConstPtr<DeviceObject>) {
     }
 }
 
-public actual fun ioSynchronousCallDriver(deviceobject: ConstPtr<DeviceObject>, irp: ConstPtr<Irp>): Ntstatus =
+public actual fun ioSynchronousCallDriver(deviceobject: ConstPtr, irp: ConstPtr): Ntstatus =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesIoSynchronousCallDriver(deviceobject.rawAddress.toString(), irp.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ioTransferActivityId(activityid: ConstPtr<Guid>, relatedactivityid: ConstPtr<Guid>) {
+public actual fun ioTransferActivityId(activityid: ConstPtr, relatedactivityid: ConstPtr) {
     if (windowsWdkSystemSystemservicesNapiAvailable) {
         wasmWindowssysWindowsWdkSystemSystemservicesIoTransferActivityId(activityid.rawAddress.toString(), relatedactivityid.rawAddress.toString())
     } else {
@@ -5339,10 +5283,10 @@ public actual fun ioTransferActivityId(activityid: ConstPtr<Guid>, relatedactivi
     }
 }
 
-public actual fun ioTranslateBusAddress(interfacetype: InterfaceType, busnumber: UInt, busaddress: Long, addressspace: MutPtr<UInt>, translatedaddress: MutPtr<Long>): Boolean =
+public actual fun ioTranslateBusAddress(interfacetype: InterfaceType, busnumber: UInt, busaddress: Long, addressspace: MutPtr, translatedaddress: MutPtr): Boolean =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesIoTranslateBusAddress(interfacetype, busnumber.toInt(), busaddress.toString(), addressspace.rawAddress.toString(), translatedaddress.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ioTryQueueWorkItem(ioworkitem: PioWorkitem, workerroutine: PioWorkitemRoutineEx, queuetype: WorkQueueType, context: ConstPtr<CVoid>): Boolean =
+public actual fun ioTryQueueWorkItem(ioworkitem: PioWorkitem, workerroutine: PioWorkitemRoutineEx, queuetype: WorkQueueType, context: ConstPtr): Boolean =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesIoTryQueueWorkItem(ioworkitem.toString(), 0L.toString(), queuetype, context.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun ioUninitializeWorkItem(ioworkitem: PioWorkitem) {
@@ -5353,7 +5297,7 @@ public actual fun ioUninitializeWorkItem(ioworkitem: PioWorkitem) {
     }
 }
 
-public actual fun ioUnregisterBootDriverCallback(callbackhandle: ConstPtr<CVoid>) {
+public actual fun ioUnregisterBootDriverCallback(callbackhandle: ConstPtr) {
     if (windowsWdkSystemSystemservicesNapiAvailable) {
         wasmWindowssysWindowsWdkSystemSystemservicesIoUnregisterBootDriverCallback(callbackhandle.rawAddress.toString())
     } else {
@@ -5361,7 +5305,7 @@ public actual fun ioUnregisterBootDriverCallback(callbackhandle: ConstPtr<CVoid>
     }
 }
 
-public actual fun ioUnregisterContainerNotification(callbackregistration: ConstPtr<CVoid>) {
+public actual fun ioUnregisterContainerNotification(callbackregistration: ConstPtr) {
     if (windowsWdkSystemSystemservicesNapiAvailable) {
         wasmWindowssysWindowsWdkSystemSystemservicesIoUnregisterContainerNotification(callbackregistration.rawAddress.toString())
     } else {
@@ -5369,13 +5313,13 @@ public actual fun ioUnregisterContainerNotification(callbackregistration: ConstP
     }
 }
 
-public actual fun ioUnregisterPlugPlayNotification(notificationentry: ConstPtr<CVoid>): Ntstatus =
+public actual fun ioUnregisterPlugPlayNotification(notificationentry: ConstPtr): Ntstatus =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesIoUnregisterPlugPlayNotification(notificationentry.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ioUnregisterPlugPlayNotificationEx(notificationentry: ConstPtr<CVoid>): Ntstatus =
+public actual fun ioUnregisterPlugPlayNotificationEx(notificationentry: ConstPtr): Ntstatus =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesIoUnregisterPlugPlayNotificationEx(notificationentry.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ioUnregisterShutdownNotification(deviceobject: ConstPtr<DeviceObject>) {
+public actual fun ioUnregisterShutdownNotification(deviceobject: ConstPtr) {
     if (windowsWdkSystemSystemservicesNapiAvailable) {
         wasmWindowssysWindowsWdkSystemSystemservicesIoUnregisterShutdownNotification(deviceobject.rawAddress.toString())
     } else {
@@ -5383,7 +5327,7 @@ public actual fun ioUnregisterShutdownNotification(deviceobject: ConstPtr<Device
     }
 }
 
-public actual fun ioUpdateLinkShareAccess(fileobject: ConstPtr<FileObject>, shareaccess: MutPtr<ShareAccess>, linkshareaccess: MutPtr<LinkShareAccess>) {
+public actual fun ioUpdateLinkShareAccess(fileobject: ConstPtr, shareaccess: MutPtr, linkshareaccess: MutPtr) {
     if (windowsWdkSystemSystemservicesNapiAvailable) {
         wasmWindowssysWindowsWdkSystemSystemservicesIoUpdateLinkShareAccess(fileobject.rawAddress.toString(), shareaccess.rawAddress.toString(), linkshareaccess.rawAddress.toString())
     } else {
@@ -5391,7 +5335,7 @@ public actual fun ioUpdateLinkShareAccess(fileobject: ConstPtr<FileObject>, shar
     }
 }
 
-public actual fun ioUpdateLinkShareAccessEx(fileobject: ConstPtr<FileObject>, shareaccess: MutPtr<ShareAccess>, linkshareaccess: MutPtr<LinkShareAccess>, ioshareaccessflags: UInt) {
+public actual fun ioUpdateLinkShareAccessEx(fileobject: ConstPtr, shareaccess: MutPtr, linkshareaccess: MutPtr, ioshareaccessflags: UInt) {
     if (windowsWdkSystemSystemservicesNapiAvailable) {
         wasmWindowssysWindowsWdkSystemSystemservicesIoUpdateLinkShareAccessEx(fileobject.rawAddress.toString(), shareaccess.rawAddress.toString(), linkshareaccess.rawAddress.toString(), ioshareaccessflags.toInt())
     } else {
@@ -5399,7 +5343,7 @@ public actual fun ioUpdateLinkShareAccessEx(fileobject: ConstPtr<FileObject>, sh
     }
 }
 
-public actual fun ioUpdateShareAccess(fileobject: ConstPtr<FileObject>, shareaccess: MutPtr<ShareAccess>) {
+public actual fun ioUpdateShareAccess(fileobject: ConstPtr, shareaccess: MutPtr) {
     if (windowsWdkSystemSystemservicesNapiAvailable) {
         wasmWindowssysWindowsWdkSystemSystemservicesIoUpdateShareAccess(fileobject.rawAddress.toString(), shareaccess.rawAddress.toString())
     } else {
@@ -5407,76 +5351,76 @@ public actual fun ioUpdateShareAccess(fileobject: ConstPtr<FileObject>, shareacc
     }
 }
 
-public actual fun ioValidateDeviceIoControlAccess(irp: ConstPtr<Irp>, requiredaccess: UInt): Ntstatus =
+public actual fun ioValidateDeviceIoControlAccess(irp: ConstPtr, requiredaccess: UInt): Ntstatus =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesIoValidateDeviceIoControlAccess(irp.rawAddress.toString(), requiredaccess.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ioVerifyPartitionTable(deviceobject: ConstPtr<DeviceObject>, fixerrors: Boolean): Ntstatus =
+public actual fun ioVerifyPartitionTable(deviceobject: ConstPtr, fixerrors: Boolean): Ntstatus =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesIoVerifyPartitionTable(deviceobject.rawAddress.toString(), fixerrors) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ioVolumeDeviceNameToGuid(volumedevicename: ConstPtr<UnicodeString>, guid: MutPtr<Guid>): Ntstatus =
+public actual fun ioVolumeDeviceNameToGuid(volumedevicename: ConstPtr, guid: MutPtr): Ntstatus =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesIoVolumeDeviceNameToGuid(volumedevicename.rawAddress.toString(), guid.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ioVolumeDeviceNameToGuidPath(volumedevicename: ConstPtr<UnicodeString>, guidpath: MutPtr<UnicodeString>): Ntstatus =
+public actual fun ioVolumeDeviceNameToGuidPath(volumedevicename: ConstPtr, guidpath: MutPtr): Ntstatus =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesIoVolumeDeviceNameToGuidPath(volumedevicename.rawAddress.toString(), guidpath.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ioVolumeDeviceToDosName(volumedeviceobject: ConstPtr<CVoid>, dosname: MutPtr<UnicodeString>): Ntstatus =
+public actual fun ioVolumeDeviceToDosName(volumedeviceobject: ConstPtr, dosname: MutPtr): Ntstatus =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesIoVolumeDeviceToDosName(volumedeviceobject.rawAddress.toString(), dosname.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ioVolumeDeviceToGuid(volumedeviceobject: ConstPtr<CVoid>, guid: MutPtr<Guid>): Ntstatus =
+public actual fun ioVolumeDeviceToGuid(volumedeviceobject: ConstPtr, guid: MutPtr): Ntstatus =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesIoVolumeDeviceToGuid(volumedeviceobject.rawAddress.toString(), guid.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ioVolumeDeviceToGuidPath(volumedeviceobject: ConstPtr<CVoid>, guidpath: MutPtr<UnicodeString>): Ntstatus =
+public actual fun ioVolumeDeviceToGuidPath(volumedeviceobject: ConstPtr, guidpath: MutPtr): Ntstatus =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesIoVolumeDeviceToGuidPath(volumedeviceobject.rawAddress.toString(), guidpath.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ioWMIAllocateInstanceIds(guid: ConstPtr<Guid>, instancecount: UInt, firstinstanceid: MutPtr<UInt>): Ntstatus =
+public actual fun ioWMIAllocateInstanceIds(guid: ConstPtr, instancecount: UInt, firstinstanceid: MutPtr): Ntstatus =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesIoWMIAllocateInstanceIds(guid.rawAddress.toString(), instancecount.toInt(), firstinstanceid.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ioWMIDeviceObjectToInstanceName(datablockobject: ConstPtr<CVoid>, deviceobject: ConstPtr<DeviceObject>, instancename: MutPtr<UnicodeString>): Ntstatus =
+public actual fun ioWMIDeviceObjectToInstanceName(datablockobject: ConstPtr, deviceobject: ConstPtr, instancename: MutPtr): Ntstatus =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesIoWMIDeviceObjectToInstanceName(datablockobject.rawAddress.toString(), deviceobject.rawAddress.toString(), instancename.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ioWMIExecuteMethod(datablockobject: ConstPtr<CVoid>, instancename: ConstPtr<UnicodeString>, methodid: UInt, inbuffersize: UInt, outbuffersize: MutPtr<UInt>, inoutbuffer: MutPtr<UByte>): Ntstatus =
+public actual fun ioWMIExecuteMethod(datablockobject: ConstPtr, instancename: ConstPtr, methodid: UInt, inbuffersize: UInt, outbuffersize: MutPtr, inoutbuffer: MutPtr): Ntstatus =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesIoWMIExecuteMethod(datablockobject.rawAddress.toString(), instancename.rawAddress.toString(), methodid.toInt(), inbuffersize.toInt(), outbuffersize.rawAddress.toString(), inoutbuffer.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ioWMIHandleToInstanceName(datablockobject: ConstPtr<CVoid>, filehandle: Handle, instancename: MutPtr<UnicodeString>): Ntstatus =
+public actual fun ioWMIHandleToInstanceName(datablockobject: ConstPtr, filehandle: Handle, instancename: MutPtr): Ntstatus =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesIoWMIHandleToInstanceName(datablockobject.rawAddress.toString(), filehandle.rawAddress.toString(), instancename.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ioWMIOpenBlock(guid: ConstPtr<Guid>, desiredaccess: UInt, datablockobject: MutPtr<MutPtr<CVoid>>): Ntstatus =
+public actual fun ioWMIOpenBlock(guid: ConstPtr, desiredaccess: UInt, datablockobject: MutPtr): Ntstatus =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesIoWMIOpenBlock(guid.rawAddress.toString(), desiredaccess.toInt(), datablockobject.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ioWMIQueryAllData(datablockobject: ConstPtr<CVoid>, inoutbuffersize: MutPtr<UInt>, outbuffer: MutPtr<CVoid>): Ntstatus =
+public actual fun ioWMIQueryAllData(datablockobject: ConstPtr, inoutbuffersize: MutPtr, outbuffer: MutPtr): Ntstatus =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesIoWMIQueryAllData(datablockobject.rawAddress.toString(), inoutbuffersize.rawAddress.toString(), outbuffer.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ioWMIQueryAllDataMultiple(datablockobjectlist: ConstPtr<ConstPtr<CVoid>>, objectcount: UInt, inoutbuffersize: MutPtr<UInt>, outbuffer: MutPtr<CVoid>): Ntstatus =
+public actual fun ioWMIQueryAllDataMultiple(datablockobjectlist: ConstPtr, objectcount: UInt, inoutbuffersize: MutPtr, outbuffer: MutPtr): Ntstatus =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesIoWMIQueryAllDataMultiple(datablockobjectlist.rawAddress.toString(), objectcount.toInt(), inoutbuffersize.rawAddress.toString(), outbuffer.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ioWMIQuerySingleInstance(datablockobject: ConstPtr<CVoid>, instancename: ConstPtr<UnicodeString>, inoutbuffersize: MutPtr<UInt>, outbuffer: MutPtr<CVoid>): Ntstatus =
+public actual fun ioWMIQuerySingleInstance(datablockobject: ConstPtr, instancename: ConstPtr, inoutbuffersize: MutPtr, outbuffer: MutPtr): Ntstatus =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesIoWMIQuerySingleInstance(datablockobject.rawAddress.toString(), instancename.rawAddress.toString(), inoutbuffersize.rawAddress.toString(), outbuffer.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ioWMIQuerySingleInstanceMultiple(datablockobjectlist: ConstPtr<ConstPtr<CVoid>>, instancenames: ConstPtr<UnicodeString>, objectcount: UInt, inoutbuffersize: MutPtr<UInt>, outbuffer: MutPtr<CVoid>): Ntstatus =
+public actual fun ioWMIQuerySingleInstanceMultiple(datablockobjectlist: ConstPtr, instancenames: ConstPtr, objectcount: UInt, inoutbuffersize: MutPtr, outbuffer: MutPtr): Ntstatus =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesIoWMIQuerySingleInstanceMultiple(datablockobjectlist.rawAddress.toString(), instancenames.rawAddress.toString(), objectcount.toInt(), inoutbuffersize.rawAddress.toString(), outbuffer.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ioWMIRegistrationControl(deviceobject: ConstPtr<DeviceObject>, action: UInt): Ntstatus =
+public actual fun ioWMIRegistrationControl(deviceobject: ConstPtr, action: UInt): Ntstatus =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesIoWMIRegistrationControl(deviceobject.rawAddress.toString(), action.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ioWMISetNotificationCallback(obj: MutPtr<CVoid>, callback: WmiNotificationCallback, context: ConstPtr<CVoid>): Ntstatus =
+public actual fun ioWMISetNotificationCallback(obj: MutPtr, callback: WmiNotificationCallback, context: ConstPtr): Ntstatus =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesIoWMISetNotificationCallback(obj.rawAddress.toString(), 0L.toString(), context.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ioWMISetSingleInstance(datablockobject: ConstPtr<CVoid>, instancename: ConstPtr<UnicodeString>, version: UInt, valuebuffersize: UInt, valuebuffer: ConstPtr<CVoid>): Ntstatus =
+public actual fun ioWMISetSingleInstance(datablockobject: ConstPtr, instancename: ConstPtr, version: UInt, valuebuffersize: UInt, valuebuffer: ConstPtr): Ntstatus =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesIoWMISetSingleInstance(datablockobject.rawAddress.toString(), instancename.rawAddress.toString(), version.toInt(), valuebuffersize.toInt(), valuebuffer.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ioWMISetSingleItem(datablockobject: ConstPtr<CVoid>, instancename: ConstPtr<UnicodeString>, dataitemid: UInt, version: UInt, valuebuffersize: UInt, valuebuffer: ConstPtr<CVoid>): Ntstatus =
+public actual fun ioWMISetSingleItem(datablockobject: ConstPtr, instancename: ConstPtr, dataitemid: UInt, version: UInt, valuebuffersize: UInt, valuebuffer: ConstPtr): Ntstatus =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesIoWMISetSingleItem(datablockobject.rawAddress.toString(), instancename.rawAddress.toString(), dataitemid.toInt(), version.toInt(), valuebuffersize.toInt(), valuebuffer.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ioWMISuggestInstanceName(physicaldeviceobject: ConstPtr<DeviceObject>, symboliclinkname: ConstPtr<UnicodeString>, combinenames: Boolean, suggestedinstancename: MutPtr<UnicodeString>): Ntstatus =
+public actual fun ioWMISuggestInstanceName(physicaldeviceobject: ConstPtr, symboliclinkname: ConstPtr, combinenames: Boolean, suggestedinstancename: MutPtr): Ntstatus =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesIoWMISuggestInstanceName(physicaldeviceobject.rawAddress.toString(), symboliclinkname.rawAddress.toString(), combinenames, suggestedinstancename.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ioWMIWriteEvent(wnodeeventitem: MutPtr<CVoid>): Ntstatus =
+public actual fun ioWMIWriteEvent(wnodeeventitem: MutPtr): Ntstatus =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesIoWMIWriteEvent(wnodeeventitem.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun ioWithinStackLimits(regionstart: ULong, regionsize: ULong): UInt =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesIoWithinStackLimits(regionstart.toString(), regionsize.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ioWriteErrorLogEntry(elentry: ConstPtr<CVoid>) {
+public actual fun ioWriteErrorLogEntry(elentry: ConstPtr) {
     if (windowsWdkSystemSystemservicesNapiAvailable) {
         wasmWindowssysWindowsWdkSystemSystemservicesIoWriteErrorLogEntry(elentry.rawAddress.toString())
     } else {
@@ -5484,19 +5428,19 @@ public actual fun ioWriteErrorLogEntry(elentry: ConstPtr<CVoid>) {
     }
 }
 
-public actual fun ioWriteKsrPersistentMemory(datahandle: ConstPtr<CVoid>, buffer: ConstPtr<CVoid>, size: ULong): Ntstatus =
+public actual fun ioWriteKsrPersistentMemory(datahandle: ConstPtr, buffer: ConstPtr, size: ULong): Ntstatus =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesIoWriteKsrPersistentMemory(datahandle.rawAddress.toString(), buffer.rawAddress.toString(), size.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ioWritePartitionTable(deviceobject: ConstPtr<DeviceObject>, sectorsize: UInt, sectorspertrack: UInt, numberofheads: UInt, partitionbuffer: ConstPtr<DriveLayoutInformation>): Ntstatus =
+public actual fun ioWritePartitionTable(deviceobject: ConstPtr, sectorsize: UInt, sectorspertrack: UInt, numberofheads: UInt, partitionbuffer: ConstPtr): Ntstatus =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesIoWritePartitionTable(deviceobject.rawAddress.toString(), sectorsize.toInt(), sectorspertrack.toInt(), numberofheads.toInt(), partitionbuffer.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ioWritePartitionTableEx(deviceobject: ConstPtr<DeviceObject>, drivelayout: ConstPtr<DriveLayoutInformationEx>): Ntstatus =
+public actual fun ioWritePartitionTableEx(deviceobject: ConstPtr, drivelayout: ConstPtr): Ntstatus =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesIoWritePartitionTableEx(deviceobject.rawAddress.toString(), drivelayout.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun iofCallDriver(deviceobject: ConstPtr<DeviceObject>, irp: MutPtr<Irp>): Ntstatus =
+public actual fun iofCallDriver(deviceobject: ConstPtr, irp: MutPtr): Ntstatus =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesIofCallDriver(deviceobject.rawAddress.toString(), irp.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun iofCompleteRequest(irp: ConstPtr<Irp>, priorityboost: Byte) {
+public actual fun iofCompleteRequest(irp: ConstPtr, priorityboost: Byte) {
     if (windowsWdkSystemSystemservicesNapiAvailable) {
         wasmWindowssysWindowsWdkSystemSystemservicesIofCompleteRequest(irp.rawAddress.toString(), priorityboost.toInt())
     } else {
@@ -5504,7 +5448,7 @@ public actual fun iofCompleteRequest(irp: ConstPtr<Irp>, priorityboost: Byte) {
     }
 }
 
-public actual fun kdChangeOption(option: KdOption, inbufferbytes: UInt, inbuffer: ConstPtr<CVoid>, outbufferbytes: UInt, outbuffer: MutPtr<CVoid>, outbufferneeded: MutPtr<UInt>): Ntstatus =
+public actual fun kdChangeOption(option: KdOption, inbufferbytes: UInt, inbuffer: ConstPtr, outbufferbytes: UInt, outbuffer: MutPtr, outbufferneeded: MutPtr): Ntstatus =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesKdChangeOption(option, inbufferbytes.toInt(), inbuffer.rawAddress.toString(), outbufferbytes.toInt(), outbuffer.rawAddress.toString(), outbufferneeded.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun kdDisableDebugger(): Ntstatus =
@@ -5516,7 +5460,7 @@ public actual fun kdEnableDebugger(): Ntstatus =
 public actual fun kdRefreshDebuggerNotPresent(): Boolean =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesKdRefreshDebuggerNotPresent() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun keAcquireGuardedMutex(mutex: MutPtr<FastMutex>) {
+public actual fun keAcquireGuardedMutex(mutex: MutPtr) {
     if (windowsWdkSystemSystemservicesNapiAvailable) {
         wasmWindowssysWindowsWdkSystemSystemservicesKeAcquireGuardedMutex(mutex.rawAddress.toString())
     } else {
@@ -5524,7 +5468,7 @@ public actual fun keAcquireGuardedMutex(mutex: MutPtr<FastMutex>) {
     }
 }
 
-public actual fun keAcquireGuardedMutexUnsafe(fastmutex: MutPtr<FastMutex>) {
+public actual fun keAcquireGuardedMutexUnsafe(fastmutex: MutPtr) {
     if (windowsWdkSystemSystemservicesNapiAvailable) {
         wasmWindowssysWindowsWdkSystemSystemservicesKeAcquireGuardedMutexUnsafe(fastmutex.rawAddress.toString())
     } else {
@@ -5532,7 +5476,7 @@ public actual fun keAcquireGuardedMutexUnsafe(fastmutex: MutPtr<FastMutex>) {
     }
 }
 
-public actual fun keAcquireInStackQueuedSpinLock(spinlock: MutPtr<ULong>, lockhandle: MutPtr<KlockQueueHandle>) {
+public actual fun keAcquireInStackQueuedSpinLock(spinlock: MutPtr, lockhandle: MutPtr) {
     if (windowsWdkSystemSystemservicesNapiAvailable) {
         wasmWindowssysWindowsWdkSystemSystemservicesKeAcquireInStackQueuedSpinLock(spinlock.rawAddress.toString(), lockhandle.rawAddress.toString())
     } else {
@@ -5540,7 +5484,7 @@ public actual fun keAcquireInStackQueuedSpinLock(spinlock: MutPtr<ULong>, lockha
     }
 }
 
-public actual fun keAcquireInStackQueuedSpinLockAtDpcLevel(spinlock: MutPtr<ULong>, lockhandle: MutPtr<KlockQueueHandle>) {
+public actual fun keAcquireInStackQueuedSpinLockAtDpcLevel(spinlock: MutPtr, lockhandle: MutPtr) {
     if (windowsWdkSystemSystemservicesNapiAvailable) {
         wasmWindowssysWindowsWdkSystemSystemservicesKeAcquireInStackQueuedSpinLockAtDpcLevel(spinlock.rawAddress.toString(), lockhandle.rawAddress.toString())
     } else {
@@ -5548,7 +5492,7 @@ public actual fun keAcquireInStackQueuedSpinLockAtDpcLevel(spinlock: MutPtr<ULon
     }
 }
 
-public actual fun keAcquireInStackQueuedSpinLockForDpc(spinlock: MutPtr<ULong>, lockhandle: MutPtr<KlockQueueHandle>) {
+public actual fun keAcquireInStackQueuedSpinLockForDpc(spinlock: MutPtr, lockhandle: MutPtr) {
     if (windowsWdkSystemSystemservicesNapiAvailable) {
         wasmWindowssysWindowsWdkSystemSystemservicesKeAcquireInStackQueuedSpinLockForDpc(spinlock.rawAddress.toString(), lockhandle.rawAddress.toString())
     } else {
@@ -5559,10 +5503,10 @@ public actual fun keAcquireInStackQueuedSpinLockForDpc(spinlock: MutPtr<ULong>, 
 public actual fun keAcquireInterruptSpinLock(interrupt: Pkinterrupt): UByte =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesKeAcquireInterruptSpinLock(interrupt.toString()).toUByte() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun keAcquireSpinLockForDpc(spinlock: MutPtr<ULong>): UByte =
+public actual fun keAcquireSpinLockForDpc(spinlock: MutPtr): UByte =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesKeAcquireSpinLockForDpc(spinlock.rawAddress.toString()).toUByte() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun keAddTriageDumpDataBlock(ktriagedumpdataarray: MutPtr<KtriageDumpDataArray>, address: ConstPtr<CVoid>, size: ULong): Ntstatus =
+public actual fun keAddTriageDumpDataBlock(ktriagedumpdataarray: MutPtr, address: ConstPtr, size: ULong): Ntstatus =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesKeAddTriageDumpDataBlock(ktriagedumpdataarray.rawAddress.toString(), address.rawAddress.toString(), size.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun keAreAllApcsDisabled(): Boolean =
@@ -5587,10 +5531,10 @@ public actual fun keBugCheckEx(bugcheckcode: BugcheckError, bugcheckparameter1: 
     }
 }
 
-public actual fun keCancelTimer(param0: MutPtr<Ktimer>): Boolean =
+public actual fun keCancelTimer(param0: MutPtr): Boolean =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesKeCancelTimer(param0.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun keClearEvent(event: MutPtr<Kevent>) {
+public actual fun keClearEvent(event: MutPtr) {
     if (windowsWdkSystemSystemservicesNapiAvailable) {
         wasmWindowssysWindowsWdkSystemSystemservicesKeClearEvent(event.rawAddress.toString())
     } else {
@@ -5598,28 +5542,28 @@ public actual fun keClearEvent(event: MutPtr<Kevent>) {
     }
 }
 
-public actual fun keConvertAuxiliaryCounterToPerformanceCounter(auxiliarycountervalue: ULong, performancecountervalue: MutPtr<ULong>, conversionerror: MutPtr<ULong>): Ntstatus =
+public actual fun keConvertAuxiliaryCounterToPerformanceCounter(auxiliarycountervalue: ULong, performancecountervalue: MutPtr, conversionerror: MutPtr): Ntstatus =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesKeConvertAuxiliaryCounterToPerformanceCounter(auxiliarycountervalue.toString(), performancecountervalue.rawAddress.toString(), conversionerror.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun keConvertPerformanceCounterToAuxiliaryCounter(performancecountervalue: ULong, auxiliarycountervalue: MutPtr<ULong>, conversionerror: MutPtr<ULong>): Ntstatus =
+public actual fun keConvertPerformanceCounterToAuxiliaryCounter(performancecountervalue: ULong, auxiliarycountervalue: MutPtr, conversionerror: MutPtr): Ntstatus =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesKeConvertPerformanceCounterToAuxiliaryCounter(performancecountervalue.toString(), auxiliarycountervalue.rawAddress.toString(), conversionerror.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun keDelayExecutionThread(waitmode: Byte, alertable: Boolean, interval: ConstPtr<Long>): Ntstatus =
+public actual fun keDelayExecutionThread(waitmode: Byte, alertable: Boolean, interval: ConstPtr): Ntstatus =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesKeDelayExecutionThread(waitmode.toInt(), alertable, interval.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun keDeregisterBoundCallback(handle: ConstPtr<CVoid>): Ntstatus =
+public actual fun keDeregisterBoundCallback(handle: ConstPtr): Ntstatus =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesKeDeregisterBoundCallback(handle.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun keDeregisterBugCheckCallback(callbackrecord: MutPtr<KbugcheckCallbackRecord>): Boolean =
+public actual fun keDeregisterBugCheckCallback(callbackrecord: MutPtr): Boolean =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesKeDeregisterBugCheckCallback(callbackrecord.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun keDeregisterBugCheckReasonCallback(callbackrecord: MutPtr<KbugcheckReasonCallbackRecord>): Boolean =
+public actual fun keDeregisterBugCheckReasonCallback(callbackrecord: MutPtr): Boolean =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesKeDeregisterBugCheckReasonCallback(callbackrecord.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun keDeregisterNmiCallback(handle: ConstPtr<CVoid>): Ntstatus =
+public actual fun keDeregisterNmiCallback(handle: ConstPtr): Ntstatus =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesKeDeregisterNmiCallback(handle.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun keDeregisterProcessorChangeCallback(callbackhandle: ConstPtr<CVoid>) {
+public actual fun keDeregisterProcessorChangeCallback(callbackhandle: ConstPtr) {
     if (windowsWdkSystemSystemservicesNapiAvailable) {
         wasmWindowssysWindowsWdkSystemSystemservicesKeDeregisterProcessorChangeCallback(callbackhandle.rawAddress.toString())
     } else {
@@ -5643,13 +5587,13 @@ public actual fun keEnterGuardedRegion() {
     }
 }
 
-public actual fun keExpandKernelStackAndCallout(callout: PexpandStackCallout, parameter: ConstPtr<CVoid>, size: ULong): Ntstatus =
+public actual fun keExpandKernelStackAndCallout(callout: PexpandStackCallout, parameter: ConstPtr, size: ULong): Ntstatus =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesKeExpandKernelStackAndCallout(0L.toString(), parameter.rawAddress.toString(), size.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun keExpandKernelStackAndCalloutEx(callout: PexpandStackCallout, parameter: ConstPtr<CVoid>, size: ULong, wait: Boolean, context: ConstPtr<CVoid>): Ntstatus =
+public actual fun keExpandKernelStackAndCalloutEx(callout: PexpandStackCallout, parameter: ConstPtr, size: ULong, wait: Boolean, context: ConstPtr): Ntstatus =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesKeExpandKernelStackAndCalloutEx(0L.toString(), parameter.rawAddress.toString(), size.toString(), wait, context.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun keFlushIoBuffers(mdl: ConstPtr<Mdl>, readoperation: Boolean, dmaoperation: Boolean) {
+public actual fun keFlushIoBuffers(mdl: ConstPtr, readoperation: Boolean, dmaoperation: Boolean) {
     if (windowsWdkSystemSystemservicesNapiAvailable) {
         wasmWindowssysWindowsWdkSystemSystemservicesKeFlushIoBuffers(mdl.rawAddress.toString(), readoperation, dmaoperation)
     } else {
@@ -5679,22 +5623,22 @@ public actual fun keGetCurrentIrql(): UByte =
 public actual fun keGetCurrentNodeNumber(): UShort =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesKeGetCurrentNodeNumber().toUShort() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun keGetCurrentProcessorNumberEx(procnumber: MutPtr<ProcessorNumber>): UInt =
+public actual fun keGetCurrentProcessorNumberEx(procnumber: MutPtr): UInt =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesKeGetCurrentProcessorNumberEx(procnumber.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun keGetProcessorIndexFromNumber(procnumber: ConstPtr<ProcessorNumber>): UInt =
+public actual fun keGetProcessorIndexFromNumber(procnumber: ConstPtr): UInt =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesKeGetProcessorIndexFromNumber(procnumber.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun keGetProcessorNumberFromIndex(procindex: UInt, procnumber: MutPtr<ProcessorNumber>): Ntstatus =
+public actual fun keGetProcessorNumberFromIndex(procindex: UInt, procnumber: MutPtr): Ntstatus =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesKeGetProcessorNumberFromIndex(procindex.toInt(), procnumber.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun keGetRecommendedSharedDataAlignment(): UInt =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesKeGetRecommendedSharedDataAlignment().toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun keInitializeCrashDumpHeader(dumptype: UInt, flags: UInt, buffer: MutPtr<CVoid>, buffersize: UInt, bufferneeded: MutPtr<UInt>): Ntstatus =
+public actual fun keInitializeCrashDumpHeader(dumptype: UInt, flags: UInt, buffer: MutPtr, buffersize: UInt, bufferneeded: MutPtr): Ntstatus =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesKeInitializeCrashDumpHeader(dumptype.toInt(), flags.toInt(), buffer.rawAddress.toString(), buffersize.toInt(), bufferneeded.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun keInitializeDeviceQueue(devicequeue: MutPtr<KdeviceQueue>) {
+public actual fun keInitializeDeviceQueue(devicequeue: MutPtr) {
     if (windowsWdkSystemSystemservicesNapiAvailable) {
         wasmWindowssysWindowsWdkSystemSystemservicesKeInitializeDeviceQueue(devicequeue.rawAddress.toString())
     } else {
@@ -5702,7 +5646,7 @@ public actual fun keInitializeDeviceQueue(devicequeue: MutPtr<KdeviceQueue>) {
     }
 }
 
-public actual fun keInitializeDpc(dpc: MutPtr<Kdpc>, deferredroutine: PkdeferredRoutine, deferredcontext: ConstPtr<CVoid>) {
+public actual fun keInitializeDpc(dpc: MutPtr, deferredroutine: PkdeferredRoutine, deferredcontext: ConstPtr) {
     if (windowsWdkSystemSystemservicesNapiAvailable) {
         wasmWindowssysWindowsWdkSystemSystemservicesKeInitializeDpc(dpc.rawAddress.toString(), 0L.toString(), deferredcontext.rawAddress.toString())
     } else {
@@ -5710,7 +5654,7 @@ public actual fun keInitializeDpc(dpc: MutPtr<Kdpc>, deferredroutine: Pkdeferred
     }
 }
 
-public actual fun keInitializeEvent(event: MutPtr<Kevent>, type: EventType, state: Boolean) {
+public actual fun keInitializeEvent(event: MutPtr, type: EventType, state: Boolean) {
     if (windowsWdkSystemSystemservicesNapiAvailable) {
         wasmWindowssysWindowsWdkSystemSystemservicesKeInitializeEvent(event.rawAddress.toString(), type, state)
     } else {
@@ -5718,7 +5662,7 @@ public actual fun keInitializeEvent(event: MutPtr<Kevent>, type: EventType, stat
     }
 }
 
-public actual fun keInitializeGuardedMutex(mutex: MutPtr<FastMutex>) {
+public actual fun keInitializeGuardedMutex(mutex: MutPtr) {
     if (windowsWdkSystemSystemservicesNapiAvailable) {
         wasmWindowssysWindowsWdkSystemSystemservicesKeInitializeGuardedMutex(mutex.rawAddress.toString())
     } else {
@@ -5726,7 +5670,7 @@ public actual fun keInitializeGuardedMutex(mutex: MutPtr<FastMutex>) {
     }
 }
 
-public actual fun keInitializeMutex(mutex: MutPtr<Kmutant>, level: UInt) {
+public actual fun keInitializeMutex(mutex: MutPtr, level: UInt) {
     if (windowsWdkSystemSystemservicesNapiAvailable) {
         wasmWindowssysWindowsWdkSystemSystemservicesKeInitializeMutex(mutex.rawAddress.toString(), level.toInt())
     } else {
@@ -5734,7 +5678,7 @@ public actual fun keInitializeMutex(mutex: MutPtr<Kmutant>, level: UInt) {
     }
 }
 
-public actual fun keInitializeSemaphore(semaphore: MutPtr<Ksemaphore>, count: Int, limit: Int) {
+public actual fun keInitializeSemaphore(semaphore: MutPtr, count: Int, limit: Int) {
     if (windowsWdkSystemSystemservicesNapiAvailable) {
         wasmWindowssysWindowsWdkSystemSystemservicesKeInitializeSemaphore(semaphore.rawAddress.toString(), count, limit)
     } else {
@@ -5742,7 +5686,7 @@ public actual fun keInitializeSemaphore(semaphore: MutPtr<Ksemaphore>, count: In
     }
 }
 
-public actual fun keInitializeSpinLock(spinlock: MutPtr<ULong>) {
+public actual fun keInitializeSpinLock(spinlock: MutPtr) {
     if (windowsWdkSystemSystemservicesNapiAvailable) {
         wasmWindowssysWindowsWdkSystemSystemservicesKeInitializeSpinLock(spinlock.rawAddress.toString())
     } else {
@@ -5750,7 +5694,7 @@ public actual fun keInitializeSpinLock(spinlock: MutPtr<ULong>) {
     }
 }
 
-public actual fun keInitializeThreadedDpc(dpc: MutPtr<Kdpc>, deferredroutine: PkdeferredRoutine, deferredcontext: ConstPtr<CVoid>) {
+public actual fun keInitializeThreadedDpc(dpc: MutPtr, deferredroutine: PkdeferredRoutine, deferredcontext: ConstPtr) {
     if (windowsWdkSystemSystemservicesNapiAvailable) {
         wasmWindowssysWindowsWdkSystemSystemservicesKeInitializeThreadedDpc(dpc.rawAddress.toString(), 0L.toString(), deferredcontext.rawAddress.toString())
     } else {
@@ -5758,7 +5702,7 @@ public actual fun keInitializeThreadedDpc(dpc: MutPtr<Kdpc>, deferredroutine: Pk
     }
 }
 
-public actual fun keInitializeTimer(timer: MutPtr<Ktimer>) {
+public actual fun keInitializeTimer(timer: MutPtr) {
     if (windowsWdkSystemSystemservicesNapiAvailable) {
         wasmWindowssysWindowsWdkSystemSystemservicesKeInitializeTimer(timer.rawAddress.toString())
     } else {
@@ -5766,7 +5710,7 @@ public actual fun keInitializeTimer(timer: MutPtr<Ktimer>) {
     }
 }
 
-public actual fun keInitializeTimerEx(timer: MutPtr<Ktimer>, type: TimerType) {
+public actual fun keInitializeTimerEx(timer: MutPtr, type: TimerType) {
     if (windowsWdkSystemSystemservicesNapiAvailable) {
         wasmWindowssysWindowsWdkSystemSystemservicesKeInitializeTimerEx(timer.rawAddress.toString(), type)
     } else {
@@ -5774,22 +5718,22 @@ public actual fun keInitializeTimerEx(timer: MutPtr<Ktimer>, type: TimerType) {
     }
 }
 
-public actual fun keInitializeTriageDumpDataArray(ktriagedumpdataarray: MutPtr<KtriageDumpDataArray>, size: UInt): Ntstatus =
+public actual fun keInitializeTriageDumpDataArray(ktriagedumpdataarray: MutPtr, size: UInt): Ntstatus =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesKeInitializeTriageDumpDataArray(ktriagedumpdataarray.rawAddress.toString(), size.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun keInsertByKeyDeviceQueue(devicequeue: MutPtr<KdeviceQueue>, devicequeueentry: MutPtr<KdeviceQueueEntry>, sortkey: UInt): Boolean =
+public actual fun keInsertByKeyDeviceQueue(devicequeue: MutPtr, devicequeueentry: MutPtr, sortkey: UInt): Boolean =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesKeInsertByKeyDeviceQueue(devicequeue.rawAddress.toString(), devicequeueentry.rawAddress.toString(), sortkey.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun keInsertDeviceQueue(devicequeue: MutPtr<KdeviceQueue>, devicequeueentry: MutPtr<KdeviceQueueEntry>): Boolean =
+public actual fun keInsertDeviceQueue(devicequeue: MutPtr, devicequeueentry: MutPtr): Boolean =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesKeInsertDeviceQueue(devicequeue.rawAddress.toString(), devicequeueentry.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun keInsertQueueDpc(dpc: MutPtr<Kdpc>, systemargument1: ConstPtr<CVoid>, systemargument2: ConstPtr<CVoid>): Boolean =
+public actual fun keInsertQueueDpc(dpc: MutPtr, systemargument1: ConstPtr, systemargument2: ConstPtr): Boolean =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesKeInsertQueueDpc(dpc.rawAddress.toString(), systemargument1.rawAddress.toString(), systemargument2.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun keInvalidateAllCaches(): Boolean =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesKeInvalidateAllCaches() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun keInvalidateRangeAllCaches(baseaddress: ConstPtr<CVoid>, length: UInt) {
+public actual fun keInvalidateRangeAllCaches(baseaddress: ConstPtr, length: UInt) {
     if (windowsWdkSystemSystemservicesNapiAvailable) {
         wasmWindowssysWindowsWdkSystemSystemservicesKeInvalidateRangeAllCaches(baseaddress.rawAddress.toString(), length.toInt())
     } else {
@@ -5819,13 +5763,13 @@ public actual fun keLeaveGuardedRegion() {
     }
 }
 
-public actual fun kePulseEvent(event: MutPtr<Kevent>, increment: Int, wait: Boolean): Int =
+public actual fun kePulseEvent(event: MutPtr, increment: Int, wait: Boolean): Int =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesKePulseEvent(event.rawAddress.toString(), increment, wait) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun keQueryActiveGroupCount(): UShort =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesKeQueryActiveGroupCount().toUShort() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun keQueryActiveProcessorCount(activeprocessors: MutPtr<ULong>): UInt =
+public actual fun keQueryActiveProcessorCount(activeprocessors: MutPtr): UInt =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesKeQueryActiveProcessorCount(activeprocessors.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun keQueryActiveProcessorCountEx(groupnumber: UShort): UInt =
@@ -5834,25 +5778,25 @@ public actual fun keQueryActiveProcessorCountEx(groupnumber: UShort): UInt =
 public actual fun keQueryActiveProcessors(): ULong =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesKeQueryActiveProcessors().toULong() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun keQueryAuxiliaryCounterFrequency(auxiliarycounterfrequency: MutPtr<ULong>): Ntstatus =
+public actual fun keQueryAuxiliaryCounterFrequency(auxiliarycounterfrequency: MutPtr): Ntstatus =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesKeQueryAuxiliaryCounterFrequency(auxiliarycounterfrequency.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun keQueryDpcWatchdogInformation(watchdoginformation: MutPtr<KdpcWatchdogInformation>): Ntstatus =
+public actual fun keQueryDpcWatchdogInformation(watchdoginformation: MutPtr): Ntstatus =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesKeQueryDpcWatchdogInformation(watchdoginformation.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun keQueryGroupAffinity(groupnumber: UShort): ULong =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesKeQueryGroupAffinity(groupnumber.toInt()).toULong() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun keQueryHardwareCounterConfiguration(counterarray: MutPtr<HardwareCounter>, maximumcount: UInt, count: MutPtr<UInt>): Ntstatus =
+public actual fun keQueryHardwareCounterConfiguration(counterarray: MutPtr, maximumcount: UInt, count: MutPtr): Ntstatus =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesKeQueryHardwareCounterConfiguration(counterarray.rawAddress.toString(), maximumcount.toInt(), count.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun keQueryHighestNodeNumber(): UShort =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesKeQueryHighestNodeNumber().toUShort() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun keQueryInterruptTimePrecise(qpctimestamp: MutPtr<ULong>): ULong =
+public actual fun keQueryInterruptTimePrecise(qpctimestamp: MutPtr): ULong =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesKeQueryInterruptTimePrecise(qpctimestamp.rawAddress.toString()).toULong() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun keQueryLogicalProcessorRelationship(processornumber: ConstPtr<ProcessorNumber>, relationshiptype: LogicalProcessorRelationship, information: MutPtr<SystemLogicalProcessorInformationEx>, length: MutPtr<UInt>): Ntstatus =
+public actual fun keQueryLogicalProcessorRelationship(processornumber: ConstPtr, relationshiptype: LogicalProcessorRelationship, information: MutPtr, length: MutPtr): Ntstatus =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesKeQueryLogicalProcessorRelationship(processornumber.rawAddress.toString(), relationshiptype, information.rawAddress.toString(), length.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun keQueryMaximumGroupCount(): UShort =
@@ -5864,7 +5808,7 @@ public actual fun keQueryMaximumProcessorCount(): UInt =
 public actual fun keQueryMaximumProcessorCountEx(groupnumber: UShort): UInt =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesKeQueryMaximumProcessorCountEx(groupnumber.toInt()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun keQueryNodeActiveAffinity(nodenumber: UShort, affinity: MutPtr<GroupAffinity>, count: MutPtr<UShort>) {
+public actual fun keQueryNodeActiveAffinity(nodenumber: UShort, affinity: MutPtr, count: MutPtr) {
     if (windowsWdkSystemSystemservicesNapiAvailable) {
         wasmWindowssysWindowsWdkSystemSystemservicesKeQueryNodeActiveAffinity(nodenumber.toInt(), affinity.rawAddress.toString(), count.rawAddress.toString())
     } else {
@@ -5872,7 +5816,7 @@ public actual fun keQueryNodeActiveAffinity(nodenumber: UShort, affinity: MutPtr
     }
 }
 
-public actual fun keQueryNodeActiveAffinity2(nodenumber: UShort, groupaffinities: MutPtr<GroupAffinity>, groupaffinitiescount: UShort, groupaffinitiesrequired: MutPtr<UShort>): Ntstatus =
+public actual fun keQueryNodeActiveAffinity2(nodenumber: UShort, groupaffinities: MutPtr, groupaffinitiescount: UShort, groupaffinitiesrequired: MutPtr): Ntstatus =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesKeQueryNodeActiveAffinity2(nodenumber.toInt(), groupaffinities.rawAddress.toString(), groupaffinitiescount.toInt(), groupaffinitiesrequired.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun keQueryNodeActiveProcessorCount(nodenumber: UShort): UInt =
@@ -5881,16 +5825,16 @@ public actual fun keQueryNodeActiveProcessorCount(nodenumber: UShort): UInt =
 public actual fun keQueryNodeMaximumProcessorCount(nodenumber: UShort): UShort =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesKeQueryNodeMaximumProcessorCount(nodenumber.toInt()).toUShort() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun keQueryPerformanceCounter(performancefrequency: MutPtr<Long>): Long =
+public actual fun keQueryPerformanceCounter(performancefrequency: MutPtr): Long =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesKeQueryPerformanceCounter(performancefrequency.rawAddress.toString()).toLong() else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun keQueryPriorityThread(thread: Pkthread): Int =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesKeQueryPriorityThread(thread.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun keQueryRuntimeThread(thread: Pkthread, usertime: MutPtr<UInt>): UInt =
+public actual fun keQueryRuntimeThread(thread: Pkthread, usertime: MutPtr): UInt =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesKeQueryRuntimeThread(thread.toString(), usertime.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun keQuerySystemTimePrecise(currenttime: MutPtr<Long>) {
+public actual fun keQuerySystemTimePrecise(currenttime: MutPtr) {
     if (windowsWdkSystemSystemservicesNapiAvailable) {
         wasmWindowssysWindowsWdkSystemSystemservicesKeQuerySystemTimePrecise(currenttime.rawAddress.toString())
     } else {
@@ -5901,43 +5845,43 @@ public actual fun keQuerySystemTimePrecise(currenttime: MutPtr<Long>) {
 public actual fun keQueryTimeIncrement(): UInt =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesKeQueryTimeIncrement().toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun keQueryTotalCycleTimeThread(thread: Pkthread, cycletimestamp: MutPtr<ULong>): ULong =
+public actual fun keQueryTotalCycleTimeThread(thread: Pkthread, cycletimestamp: MutPtr): ULong =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesKeQueryTotalCycleTimeThread(thread.toString(), cycletimestamp.rawAddress.toString()).toULong() else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun keQueryUnbiasedInterruptTime(): ULong =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesKeQueryUnbiasedInterruptTime().toULong() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun keQueryUnbiasedInterruptTimePrecise(qpctimestamp: MutPtr<ULong>): ULong =
+public actual fun keQueryUnbiasedInterruptTimePrecise(qpctimestamp: MutPtr): ULong =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesKeQueryUnbiasedInterruptTimePrecise(qpctimestamp.rawAddress.toString()).toULong() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun keReadStateEvent(event: ConstPtr<Kevent>): Int =
+public actual fun keReadStateEvent(event: ConstPtr): Int =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesKeReadStateEvent(event.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun keReadStateMutex(mutex: ConstPtr<Kmutant>): Int =
+public actual fun keReadStateMutex(mutex: ConstPtr): Int =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesKeReadStateMutex(mutex.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun keReadStateSemaphore(semaphore: ConstPtr<Ksemaphore>): Int =
+public actual fun keReadStateSemaphore(semaphore: ConstPtr): Int =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesKeReadStateSemaphore(semaphore.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun keReadStateTimer(timer: ConstPtr<Ktimer>): Boolean =
+public actual fun keReadStateTimer(timer: ConstPtr): Boolean =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesKeReadStateTimer(timer.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun keRegisterBoundCallback(callbackroutine: PboundCallback): MutPtr<CVoid> =
+public actual fun keRegisterBoundCallback(callbackroutine: PboundCallback): MutPtr =
     if (windowsWdkSystemSystemservicesNapiAvailable) MutPtr(wasmWindowssysWindowsWdkSystemSystemservicesKeRegisterBoundCallback(0L.toString()).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun keRegisterBugCheckCallback(callbackrecord: MutPtr<KbugcheckCallbackRecord>, callbackroutine: PkbugcheckCallbackRoutine, buffer: ConstPtr<CVoid>, length: UInt, component: ConstPtr<UByte>): Boolean =
+public actual fun keRegisterBugCheckCallback(callbackrecord: MutPtr, callbackroutine: PkbugcheckCallbackRoutine, buffer: ConstPtr, length: UInt, component: ConstPtr): Boolean =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesKeRegisterBugCheckCallback(callbackrecord.rawAddress.toString(), 0L.toString(), buffer.rawAddress.toString(), length.toInt(), component.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun keRegisterBugCheckReasonCallback(callbackrecord: MutPtr<KbugcheckReasonCallbackRecord>, callbackroutine: PkbugcheckReasonCallbackRoutine, reason: KbugcheckCallbackReason, component: ConstPtr<UByte>): Boolean =
+public actual fun keRegisterBugCheckReasonCallback(callbackrecord: MutPtr, callbackroutine: PkbugcheckReasonCallbackRoutine, reason: KbugcheckCallbackReason, component: ConstPtr): Boolean =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesKeRegisterBugCheckReasonCallback(callbackrecord.rawAddress.toString(), 0L.toString(), reason, component.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun keRegisterNmiCallback(callbackroutine: PnmiCallback, context: ConstPtr<CVoid>): MutPtr<CVoid> =
+public actual fun keRegisterNmiCallback(callbackroutine: PnmiCallback, context: ConstPtr): MutPtr =
     if (windowsWdkSystemSystemservicesNapiAvailable) MutPtr(wasmWindowssysWindowsWdkSystemSystemservicesKeRegisterNmiCallback(0L.toString(), context.rawAddress.toString()).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun keRegisterProcessorChangeCallback(callbackfunction: PprocessorCallbackFunction, callbackcontext: ConstPtr<CVoid>, flags: UInt): MutPtr<CVoid> =
+public actual fun keRegisterProcessorChangeCallback(callbackfunction: PprocessorCallbackFunction, callbackcontext: ConstPtr, flags: UInt): MutPtr =
     if (windowsWdkSystemSystemservicesNapiAvailable) MutPtr(wasmWindowssysWindowsWdkSystemSystemservicesKeRegisterProcessorChangeCallback(0L.toString(), callbackcontext.rawAddress.toString(), flags.toInt()).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun keReleaseGuardedMutex(mutex: MutPtr<FastMutex>) {
+public actual fun keReleaseGuardedMutex(mutex: MutPtr) {
     if (windowsWdkSystemSystemservicesNapiAvailable) {
         wasmWindowssysWindowsWdkSystemSystemservicesKeReleaseGuardedMutex(mutex.rawAddress.toString())
     } else {
@@ -5945,7 +5889,7 @@ public actual fun keReleaseGuardedMutex(mutex: MutPtr<FastMutex>) {
     }
 }
 
-public actual fun keReleaseGuardedMutexUnsafe(fastmutex: MutPtr<FastMutex>) {
+public actual fun keReleaseGuardedMutexUnsafe(fastmutex: MutPtr) {
     if (windowsWdkSystemSystemservicesNapiAvailable) {
         wasmWindowssysWindowsWdkSystemSystemservicesKeReleaseGuardedMutexUnsafe(fastmutex.rawAddress.toString())
     } else {
@@ -5953,7 +5897,7 @@ public actual fun keReleaseGuardedMutexUnsafe(fastmutex: MutPtr<FastMutex>) {
     }
 }
 
-public actual fun keReleaseInStackQueuedSpinLock(lockhandle: ConstPtr<KlockQueueHandle>) {
+public actual fun keReleaseInStackQueuedSpinLock(lockhandle: ConstPtr) {
     if (windowsWdkSystemSystemservicesNapiAvailable) {
         wasmWindowssysWindowsWdkSystemSystemservicesKeReleaseInStackQueuedSpinLock(lockhandle.rawAddress.toString())
     } else {
@@ -5961,7 +5905,7 @@ public actual fun keReleaseInStackQueuedSpinLock(lockhandle: ConstPtr<KlockQueue
     }
 }
 
-public actual fun keReleaseInStackQueuedSpinLockForDpc(lockhandle: ConstPtr<KlockQueueHandle>) {
+public actual fun keReleaseInStackQueuedSpinLockForDpc(lockhandle: ConstPtr) {
     if (windowsWdkSystemSystemservicesNapiAvailable) {
         wasmWindowssysWindowsWdkSystemSystemservicesKeReleaseInStackQueuedSpinLockForDpc(lockhandle.rawAddress.toString())
     } else {
@@ -5969,7 +5913,7 @@ public actual fun keReleaseInStackQueuedSpinLockForDpc(lockhandle: ConstPtr<Kloc
     }
 }
 
-public actual fun keReleaseInStackQueuedSpinLockFromDpcLevel(lockhandle: ConstPtr<KlockQueueHandle>) {
+public actual fun keReleaseInStackQueuedSpinLockFromDpcLevel(lockhandle: ConstPtr) {
     if (windowsWdkSystemSystemservicesNapiAvailable) {
         wasmWindowssysWindowsWdkSystemSystemservicesKeReleaseInStackQueuedSpinLockFromDpcLevel(lockhandle.rawAddress.toString())
     } else {
@@ -5985,13 +5929,13 @@ public actual fun keReleaseInterruptSpinLock(interrupt: Pkinterrupt, oldirql: UB
     }
 }
 
-public actual fun keReleaseMutex(mutex: MutPtr<Kmutant>, wait: Boolean): Int =
+public actual fun keReleaseMutex(mutex: MutPtr, wait: Boolean): Int =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesKeReleaseMutex(mutex.rawAddress.toString(), wait) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun keReleaseSemaphore(semaphore: MutPtr<Ksemaphore>, increment: Int, adjustment: Int, wait: Boolean): Int =
+public actual fun keReleaseSemaphore(semaphore: MutPtr, increment: Int, adjustment: Int, wait: Boolean): Int =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesKeReleaseSemaphore(semaphore.rawAddress.toString(), increment, adjustment, wait) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun keReleaseSpinLockForDpc(spinlock: MutPtr<ULong>, oldirql: UByte) {
+public actual fun keReleaseSpinLockForDpc(spinlock: MutPtr, oldirql: UByte) {
     if (windowsWdkSystemSystemservicesNapiAvailable) {
         wasmWindowssysWindowsWdkSystemSystemservicesKeReleaseSpinLockForDpc(spinlock.rawAddress.toString(), oldirql.toInt())
     } else {
@@ -5999,28 +5943,28 @@ public actual fun keReleaseSpinLockForDpc(spinlock: MutPtr<ULong>, oldirql: UByt
     }
 }
 
-public actual fun keRemoveByKeyDeviceQueue(devicequeue: MutPtr<KdeviceQueue>, sortkey: UInt): MutPtr<KdeviceQueueEntry> =
+public actual fun keRemoveByKeyDeviceQueue(devicequeue: MutPtr, sortkey: UInt): MutPtr =
     if (windowsWdkSystemSystemservicesNapiAvailable) MutPtr(wasmWindowssysWindowsWdkSystemSystemservicesKeRemoveByKeyDeviceQueue(devicequeue.rawAddress.toString(), sortkey.toInt()).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun keRemoveByKeyDeviceQueueIfBusy(devicequeue: MutPtr<KdeviceQueue>, sortkey: UInt): MutPtr<KdeviceQueueEntry> =
+public actual fun keRemoveByKeyDeviceQueueIfBusy(devicequeue: MutPtr, sortkey: UInt): MutPtr =
     if (windowsWdkSystemSystemservicesNapiAvailable) MutPtr(wasmWindowssysWindowsWdkSystemSystemservicesKeRemoveByKeyDeviceQueueIfBusy(devicequeue.rawAddress.toString(), sortkey.toInt()).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun keRemoveDeviceQueue(devicequeue: MutPtr<KdeviceQueue>): MutPtr<KdeviceQueueEntry> =
+public actual fun keRemoveDeviceQueue(devicequeue: MutPtr): MutPtr =
     if (windowsWdkSystemSystemservicesNapiAvailable) MutPtr(wasmWindowssysWindowsWdkSystemSystemservicesKeRemoveDeviceQueue(devicequeue.rawAddress.toString()).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun keRemoveEntryDeviceQueue(devicequeue: MutPtr<KdeviceQueue>, devicequeueentry: MutPtr<KdeviceQueueEntry>): Boolean =
+public actual fun keRemoveEntryDeviceQueue(devicequeue: MutPtr, devicequeueentry: MutPtr): Boolean =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesKeRemoveEntryDeviceQueue(devicequeue.rawAddress.toString(), devicequeueentry.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun keRemoveQueueDpc(dpc: MutPtr<Kdpc>): Boolean =
+public actual fun keRemoveQueueDpc(dpc: MutPtr): Boolean =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesKeRemoveQueueDpc(dpc.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun keRemoveQueueDpcEx(dpc: MutPtr<Kdpc>, waitifactive: Boolean): Boolean =
+public actual fun keRemoveQueueDpcEx(dpc: MutPtr, waitifactive: Boolean): Boolean =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesKeRemoveQueueDpcEx(dpc.rawAddress.toString(), waitifactive) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun keResetEvent(event: MutPtr<Kevent>): Int =
+public actual fun keResetEvent(event: MutPtr): Int =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesKeResetEvent(event.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun keRestoreExtendedProcessorState(xstatesave: ConstPtr<XstateSave>) {
+public actual fun keRestoreExtendedProcessorState(xstatesave: ConstPtr) {
     if (windowsWdkSystemSystemservicesNapiAvailable) {
         wasmWindowssysWindowsWdkSystemSystemservicesKeRestoreExtendedProcessorState(xstatesave.rawAddress.toString())
     } else {
@@ -6044,7 +5988,7 @@ public actual fun keRevertToUserAffinityThreadEx(affinity: ULong) {
     }
 }
 
-public actual fun keRevertToUserGroupAffinityThread(previousaffinity: ConstPtr<GroupAffinity>) {
+public actual fun keRevertToUserGroupAffinityThread(previousaffinity: ConstPtr) {
     if (windowsWdkSystemSystemservicesNapiAvailable) {
         wasmWindowssysWindowsWdkSystemSystemservicesKeRevertToUserGroupAffinityThread(previousaffinity.rawAddress.toString())
     } else {
@@ -6052,22 +5996,22 @@ public actual fun keRevertToUserGroupAffinityThread(previousaffinity: ConstPtr<G
     }
 }
 
-public actual fun keSaveExtendedProcessorState(mask: ULong, xstatesave: MutPtr<XstateSave>): Ntstatus =
+public actual fun keSaveExtendedProcessorState(mask: ULong, xstatesave: MutPtr): Ntstatus =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesKeSaveExtendedProcessorState(mask.toString(), xstatesave.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun keSetBasePriorityThread(thread: Pkthread, increment: Int): Int =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesKeSetBasePriorityThread(thread.toString(), increment) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun keSetCoalescableTimer(timer: MutPtr<Ktimer>, duetime: Long, period: UInt, tolerabledelay: UInt, dpc: ConstPtr<Kdpc>): Boolean =
+public actual fun keSetCoalescableTimer(timer: MutPtr, duetime: Long, period: UInt, tolerabledelay: UInt, dpc: ConstPtr): Boolean =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesKeSetCoalescableTimer(timer.rawAddress.toString(), duetime.toString(), period.toInt(), tolerabledelay.toInt(), dpc.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun keSetEvent(event: MutPtr<Kevent>, increment: Int, wait: Boolean): Int =
+public actual fun keSetEvent(event: MutPtr, increment: Int, wait: Boolean): Int =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesKeSetEvent(event.rawAddress.toString(), increment, wait) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun keSetHardwareCounterConfiguration(counterarray: ConstPtr<HardwareCounter>, count: UInt): Ntstatus =
+public actual fun keSetHardwareCounterConfiguration(counterarray: ConstPtr, count: UInt): Ntstatus =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesKeSetHardwareCounterConfiguration(counterarray.rawAddress.toString(), count.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun keSetImportanceDpc(dpc: MutPtr<Kdpc>, importance: KdpcImportance) {
+public actual fun keSetImportanceDpc(dpc: MutPtr, importance: KdpcImportance) {
     if (windowsWdkSystemSystemservicesNapiAvailable) {
         wasmWindowssysWindowsWdkSystemSystemservicesKeSetImportanceDpc(dpc.rawAddress.toString(), importance)
     } else {
@@ -6089,7 +6033,7 @@ public actual fun keSetSystemAffinityThread(affinity: ULong) {
 public actual fun keSetSystemAffinityThreadEx(affinity: ULong): ULong =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesKeSetSystemAffinityThreadEx(affinity.toString()).toULong() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun keSetSystemGroupAffinityThread(affinity: ConstPtr<GroupAffinity>, previousaffinity: MutPtr<GroupAffinity>) {
+public actual fun keSetSystemGroupAffinityThread(affinity: ConstPtr, previousaffinity: MutPtr) {
     if (windowsWdkSystemSystemservicesNapiAvailable) {
         wasmWindowssysWindowsWdkSystemSystemservicesKeSetSystemGroupAffinityThread(affinity.rawAddress.toString(), previousaffinity.rawAddress.toString())
     } else {
@@ -6097,7 +6041,7 @@ public actual fun keSetSystemGroupAffinityThread(affinity: ConstPtr<GroupAffinit
     }
 }
 
-public actual fun keSetTargetProcessorDpc(dpc: MutPtr<Kdpc>, number: Byte) {
+public actual fun keSetTargetProcessorDpc(dpc: MutPtr, number: Byte) {
     if (windowsWdkSystemSystemservicesNapiAvailable) {
         wasmWindowssysWindowsWdkSystemSystemservicesKeSetTargetProcessorDpc(dpc.rawAddress.toString(), number.toInt())
     } else {
@@ -6105,13 +6049,13 @@ public actual fun keSetTargetProcessorDpc(dpc: MutPtr<Kdpc>, number: Byte) {
     }
 }
 
-public actual fun keSetTargetProcessorDpcEx(dpc: MutPtr<Kdpc>, procnumber: ConstPtr<ProcessorNumber>): Ntstatus =
+public actual fun keSetTargetProcessorDpcEx(dpc: MutPtr, procnumber: ConstPtr): Ntstatus =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesKeSetTargetProcessorDpcEx(dpc.rawAddress.toString(), procnumber.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun keSetTimer(timer: MutPtr<Ktimer>, duetime: Long, dpc: ConstPtr<Kdpc>): Boolean =
+public actual fun keSetTimer(timer: MutPtr, duetime: Long, dpc: ConstPtr): Boolean =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesKeSetTimer(timer.rawAddress.toString(), duetime.toString(), dpc.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun keSetTimerEx(timer: MutPtr<Ktimer>, duetime: Long, period: Int, dpc: ConstPtr<Kdpc>): Boolean =
+public actual fun keSetTimerEx(timer: MutPtr, duetime: Long, period: Int, dpc: ConstPtr): Boolean =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesKeSetTimerEx(timer.rawAddress.toString(), duetime.toString(), period, dpc.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun keShouldYieldProcessor(): UInt =
@@ -6125,82 +6069,82 @@ public actual fun keStallExecutionProcessor(microseconds: UInt) {
     }
 }
 
-public actual fun keSynchronizeExecution(interrupt: Pkinterrupt, synchronizeroutine: PksynchronizeRoutine, synchronizecontext: ConstPtr<CVoid>): Boolean =
+public actual fun keSynchronizeExecution(interrupt: Pkinterrupt, synchronizeroutine: PksynchronizeRoutine, synchronizecontext: ConstPtr): Boolean =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesKeSynchronizeExecution(interrupt.toString(), 0L.toString(), synchronizecontext.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun keTestSpinLock(spinlock: ConstPtr<ULong>): Boolean =
+public actual fun keTestSpinLock(spinlock: ConstPtr): Boolean =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesKeTestSpinLock(spinlock.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun keTryToAcquireGuardedMutex(mutex: MutPtr<FastMutex>): Boolean =
+public actual fun keTryToAcquireGuardedMutex(mutex: MutPtr): Boolean =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesKeTryToAcquireGuardedMutex(mutex.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun keTryToAcquireSpinLockAtDpcLevel(spinlock: MutPtr<ULong>): Boolean =
+public actual fun keTryToAcquireSpinLockAtDpcLevel(spinlock: MutPtr): Boolean =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesKeTryToAcquireSpinLockAtDpcLevel(spinlock.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun keWaitForMultipleObjects(count: UInt, obj: ConstPtr<ConstPtr<CVoid>>, waittype: WaitType, waitreason: KwaitReason, waitmode: Byte, alertable: Boolean, timeout: ConstPtr<Long>, waitblockarray: MutPtr<KwaitBlock>): Ntstatus =
+public actual fun keWaitForMultipleObjects(count: UInt, obj: ConstPtr, waittype: WaitType, waitreason: KwaitReason, waitmode: Byte, alertable: Boolean, timeout: ConstPtr, waitblockarray: MutPtr): Ntstatus =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesKeWaitForMultipleObjects(count.toInt(), obj.rawAddress.toString(), waittype, waitreason, waitmode.toInt(), alertable, timeout.rawAddress.toString(), waitblockarray.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun keWaitForSingleObject(obj: ConstPtr<CVoid>, waitreason: KwaitReason, waitmode: Byte, alertable: Boolean, timeout: ConstPtr<Long>): Ntstatus =
+public actual fun keWaitForSingleObject(obj: ConstPtr, waitreason: KwaitReason, waitmode: Byte, alertable: Boolean, timeout: ConstPtr): Ntstatus =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesKeWaitForSingleObject(obj.rawAddress.toString(), waitreason, waitmode.toInt(), alertable, timeout.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun kfRaiseIrql(newirql: UByte): UByte =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesKfRaiseIrql(newirql.toInt()).toUByte() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun mmAddPhysicalMemory(startaddress: ConstPtr<Long>, numberofbytes: MutPtr<Long>): Ntstatus =
+public actual fun mmAddPhysicalMemory(startaddress: ConstPtr, numberofbytes: MutPtr): Ntstatus =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesMmAddPhysicalMemory(startaddress.rawAddress.toString(), numberofbytes.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun mmAddVerifierSpecialThunks(entryroutine: ULong, thunkbuffer: ConstPtr<CVoid>, thunkbuffersize: UInt): Ntstatus =
+public actual fun mmAddVerifierSpecialThunks(entryroutine: ULong, thunkbuffer: ConstPtr, thunkbuffersize: UInt): Ntstatus =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesMmAddVerifierSpecialThunks(entryroutine.toString(), thunkbuffer.rawAddress.toString(), thunkbuffersize.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun mmAddVerifierThunks(thunkbuffer: ConstPtr<CVoid>, thunkbuffersize: UInt): Ntstatus =
+public actual fun mmAddVerifierThunks(thunkbuffer: ConstPtr, thunkbuffersize: UInt): Ntstatus =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesMmAddVerifierThunks(thunkbuffer.rawAddress.toString(), thunkbuffersize.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun mmAdvanceMdl(mdl: MutPtr<Mdl>, numberofbytes: UInt): Ntstatus =
+public actual fun mmAdvanceMdl(mdl: MutPtr, numberofbytes: UInt): Ntstatus =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesMmAdvanceMdl(mdl.rawAddress.toString(), numberofbytes.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun mmAllocateContiguousMemory(numberofbytes: ULong, highestacceptableaddress: Long): MutPtr<CVoid> =
+public actual fun mmAllocateContiguousMemory(numberofbytes: ULong, highestacceptableaddress: Long): MutPtr =
     if (windowsWdkSystemSystemservicesNapiAvailable) MutPtr(wasmWindowssysWindowsWdkSystemSystemservicesMmAllocateContiguousMemory(numberofbytes.toString(), highestacceptableaddress.toString()).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun mmAllocateContiguousMemoryEx(numberofbytes: ConstPtr<ULong>, lowestacceptableaddress: Long, highestacceptableaddress: Long, boundaryaddressmultiple: Long, preferrednode: UInt, protect: UInt, partitionobject: ConstPtr<CVoid>, tag: UInt, flags: UInt, baseaddress: MutPtr<MutPtr<CVoid>>): Ntstatus =
+public actual fun mmAllocateContiguousMemoryEx(numberofbytes: ConstPtr, lowestacceptableaddress: Long, highestacceptableaddress: Long, boundaryaddressmultiple: Long, preferrednode: UInt, protect: UInt, partitionobject: ConstPtr, tag: UInt, flags: UInt, baseaddress: MutPtr): Ntstatus =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesMmAllocateContiguousMemoryEx(numberofbytes.rawAddress.toString(), lowestacceptableaddress.toString(), highestacceptableaddress.toString(), boundaryaddressmultiple.toString(), preferrednode.toInt(), protect.toInt(), partitionobject.rawAddress.toString(), tag.toInt(), flags.toInt(), baseaddress.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun mmAllocateContiguousMemorySpecifyCache(numberofbytes: ULong, lowestacceptableaddress: Long, highestacceptableaddress: Long, boundaryaddressmultiple: Long, cachetype: MemoryCachingType): MutPtr<CVoid> =
+public actual fun mmAllocateContiguousMemorySpecifyCache(numberofbytes: ULong, lowestacceptableaddress: Long, highestacceptableaddress: Long, boundaryaddressmultiple: Long, cachetype: MemoryCachingType): MutPtr =
     if (windowsWdkSystemSystemservicesNapiAvailable) MutPtr(wasmWindowssysWindowsWdkSystemSystemservicesMmAllocateContiguousMemorySpecifyCache(numberofbytes.toString(), lowestacceptableaddress.toString(), highestacceptableaddress.toString(), boundaryaddressmultiple.toString(), cachetype).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun mmAllocateContiguousMemorySpecifyCacheNode(numberofbytes: ULong, lowestacceptableaddress: Long, highestacceptableaddress: Long, boundaryaddressmultiple: Long, cachetype: MemoryCachingType, preferrednode: UInt): MutPtr<CVoid> =
+public actual fun mmAllocateContiguousMemorySpecifyCacheNode(numberofbytes: ULong, lowestacceptableaddress: Long, highestacceptableaddress: Long, boundaryaddressmultiple: Long, cachetype: MemoryCachingType, preferrednode: UInt): MutPtr =
     if (windowsWdkSystemSystemservicesNapiAvailable) MutPtr(wasmWindowssysWindowsWdkSystemSystemservicesMmAllocateContiguousMemorySpecifyCacheNode(numberofbytes.toString(), lowestacceptableaddress.toString(), highestacceptableaddress.toString(), boundaryaddressmultiple.toString(), cachetype, preferrednode.toInt()).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun mmAllocateContiguousNodeMemory(numberofbytes: ULong, lowestacceptableaddress: Long, highestacceptableaddress: Long, boundaryaddressmultiple: Long, protect: UInt, preferrednode: UInt): MutPtr<CVoid> =
+public actual fun mmAllocateContiguousNodeMemory(numberofbytes: ULong, lowestacceptableaddress: Long, highestacceptableaddress: Long, boundaryaddressmultiple: Long, protect: UInt, preferrednode: UInt): MutPtr =
     if (windowsWdkSystemSystemservicesNapiAvailable) MutPtr(wasmWindowssysWindowsWdkSystemSystemservicesMmAllocateContiguousNodeMemory(numberofbytes.toString(), lowestacceptableaddress.toString(), highestacceptableaddress.toString(), boundaryaddressmultiple.toString(), protect.toInt(), preferrednode.toInt()).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun mmAllocateMappingAddress(numberofbytes: ULong, pooltag: UInt): MutPtr<CVoid> =
+public actual fun mmAllocateMappingAddress(numberofbytes: ULong, pooltag: UInt): MutPtr =
     if (windowsWdkSystemSystemservicesNapiAvailable) MutPtr(wasmWindowssysWindowsWdkSystemSystemservicesMmAllocateMappingAddress(numberofbytes.toString(), pooltag.toInt()).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun mmAllocateMappingAddressEx(numberofbytes: ULong, pooltag: UInt, flags: UInt): MutPtr<CVoid> =
+public actual fun mmAllocateMappingAddressEx(numberofbytes: ULong, pooltag: UInt, flags: UInt): MutPtr =
     if (windowsWdkSystemSystemservicesNapiAvailable) MutPtr(wasmWindowssysWindowsWdkSystemSystemservicesMmAllocateMappingAddressEx(numberofbytes.toString(), pooltag.toInt(), flags.toInt()).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun mmAllocateMdlForIoSpace(physicaladdresslist: ConstPtr<MmPhysicalAddressList>, numberofentries: ULong, newmdl: MutPtr<MutPtr<Mdl>>): Ntstatus =
+public actual fun mmAllocateMdlForIoSpace(physicaladdresslist: ConstPtr, numberofentries: ULong, newmdl: MutPtr): Ntstatus =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesMmAllocateMdlForIoSpace(physicaladdresslist.rawAddress.toString(), numberofentries.toString(), newmdl.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun mmAllocateNodePagesForMdlEx(lowaddress: Long, highaddress: Long, skipbytes: Long, totalbytes: ULong, cachetype: MemoryCachingType, idealnode: UInt, flags: UInt): MutPtr<Mdl> =
+public actual fun mmAllocateNodePagesForMdlEx(lowaddress: Long, highaddress: Long, skipbytes: Long, totalbytes: ULong, cachetype: MemoryCachingType, idealnode: UInt, flags: UInt): MutPtr =
     if (windowsWdkSystemSystemservicesNapiAvailable) MutPtr(wasmWindowssysWindowsWdkSystemSystemservicesMmAllocateNodePagesForMdlEx(lowaddress.toString(), highaddress.toString(), skipbytes.toString(), totalbytes.toString(), cachetype, idealnode.toInt(), flags.toInt()).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun mmAllocateNonCachedMemory(numberofbytes: ULong): MutPtr<CVoid> =
+public actual fun mmAllocateNonCachedMemory(numberofbytes: ULong): MutPtr =
     if (windowsWdkSystemSystemservicesNapiAvailable) MutPtr(wasmWindowssysWindowsWdkSystemSystemservicesMmAllocateNonCachedMemory(numberofbytes.toString()).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun mmAllocatePagesForMdl(lowaddress: Long, highaddress: Long, skipbytes: Long, totalbytes: ULong): MutPtr<Mdl> =
+public actual fun mmAllocatePagesForMdl(lowaddress: Long, highaddress: Long, skipbytes: Long, totalbytes: ULong): MutPtr =
     if (windowsWdkSystemSystemservicesNapiAvailable) MutPtr(wasmWindowssysWindowsWdkSystemSystemservicesMmAllocatePagesForMdl(lowaddress.toString(), highaddress.toString(), skipbytes.toString(), totalbytes.toString()).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun mmAllocatePagesForMdlEx(lowaddress: Long, highaddress: Long, skipbytes: Long, totalbytes: ULong, cachetype: MemoryCachingType, flags: UInt): MutPtr<Mdl> =
+public actual fun mmAllocatePagesForMdlEx(lowaddress: Long, highaddress: Long, skipbytes: Long, totalbytes: ULong, cachetype: MemoryCachingType, flags: UInt): MutPtr =
     if (windowsWdkSystemSystemservicesNapiAvailable) MutPtr(wasmWindowssysWindowsWdkSystemSystemservicesMmAllocatePagesForMdlEx(lowaddress.toString(), highaddress.toString(), skipbytes.toString(), totalbytes.toString(), cachetype, flags.toInt()).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun mmAllocatePartitionNodePagesForMdlEx(lowaddress: Long, highaddress: Long, skipbytes: Long, totalbytes: ULong, cachetype: MemoryCachingType, idealnode: UInt, flags: UInt, partitionobject: ConstPtr<CVoid>): MutPtr<Mdl> =
+public actual fun mmAllocatePartitionNodePagesForMdlEx(lowaddress: Long, highaddress: Long, skipbytes: Long, totalbytes: ULong, cachetype: MemoryCachingType, idealnode: UInt, flags: UInt, partitionobject: ConstPtr): MutPtr =
     if (windowsWdkSystemSystemservicesNapiAvailable) MutPtr(wasmWindowssysWindowsWdkSystemSystemservicesMmAllocatePartitionNodePagesForMdlEx(lowaddress.toString(), highaddress.toString(), skipbytes.toString(), totalbytes.toString(), cachetype, idealnode.toInt(), flags.toInt(), partitionobject.rawAddress.toString()).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun mmAreMdlPagesCached(memorydescriptorlist: ConstPtr<Mdl>): UInt =
+public actual fun mmAreMdlPagesCached(memorydescriptorlist: ConstPtr): UInt =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesMmAreMdlPagesCached(memorydescriptorlist.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun mmBuildMdlForNonPagedPool(memorydescriptorlist: MutPtr<Mdl>) {
+public actual fun mmBuildMdlForNonPagedPool(memorydescriptorlist: MutPtr) {
     if (windowsWdkSystemSystemservicesNapiAvailable) {
         wasmWindowssysWindowsWdkSystemSystemservicesMmBuildMdlForNonPagedPool(memorydescriptorlist.rawAddress.toString())
     } else {
@@ -6208,16 +6152,16 @@ public actual fun mmBuildMdlForNonPagedPool(memorydescriptorlist: MutPtr<Mdl>) {
     }
 }
 
-public actual fun mmCopyMemory(targetaddress: ConstPtr<CVoid>, sourceaddress: MmCopyAddress, numberofbytes: ULong, flags: UInt, numberofbytestransferred: MutPtr<ULong>): Ntstatus =
+public actual fun mmCopyMemory(targetaddress: ConstPtr, sourceaddress: MmCopyAddress, numberofbytes: ULong, flags: UInt, numberofbytestransferred: MutPtr): Ntstatus =
     throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun mmCreateMdl(memorydescriptorlist: MutPtr<Mdl>, base: ConstPtr<CVoid>, length: ULong): MutPtr<Mdl> =
+public actual fun mmCreateMdl(memorydescriptorlist: MutPtr, base: ConstPtr, length: ULong): MutPtr =
     if (windowsWdkSystemSystemservicesNapiAvailable) MutPtr(wasmWindowssysWindowsWdkSystemSystemservicesMmCreateMdl(memorydescriptorlist.rawAddress.toString(), base.rawAddress.toString(), length.toString()).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun mmCreateMirror(): Ntstatus =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesMmCreateMirror() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun mmFreeContiguousMemory(baseaddress: ConstPtr<CVoid>) {
+public actual fun mmFreeContiguousMemory(baseaddress: ConstPtr) {
     if (windowsWdkSystemSystemservicesNapiAvailable) {
         wasmWindowssysWindowsWdkSystemSystemservicesMmFreeContiguousMemory(baseaddress.rawAddress.toString())
     } else {
@@ -6225,7 +6169,7 @@ public actual fun mmFreeContiguousMemory(baseaddress: ConstPtr<CVoid>) {
     }
 }
 
-public actual fun mmFreeContiguousMemorySpecifyCache(baseaddress: ConstPtr<CVoid>, numberofbytes: ULong, cachetype: MemoryCachingType) {
+public actual fun mmFreeContiguousMemorySpecifyCache(baseaddress: ConstPtr, numberofbytes: ULong, cachetype: MemoryCachingType) {
     if (windowsWdkSystemSystemservicesNapiAvailable) {
         wasmWindowssysWindowsWdkSystemSystemservicesMmFreeContiguousMemorySpecifyCache(baseaddress.rawAddress.toString(), numberofbytes.toString(), cachetype)
     } else {
@@ -6233,7 +6177,7 @@ public actual fun mmFreeContiguousMemorySpecifyCache(baseaddress: ConstPtr<CVoid
     }
 }
 
-public actual fun mmFreeMappingAddress(baseaddress: ConstPtr<CVoid>, pooltag: UInt) {
+public actual fun mmFreeMappingAddress(baseaddress: ConstPtr, pooltag: UInt) {
     if (windowsWdkSystemSystemservicesNapiAvailable) {
         wasmWindowssysWindowsWdkSystemSystemservicesMmFreeMappingAddress(baseaddress.rawAddress.toString(), pooltag.toInt())
     } else {
@@ -6241,7 +6185,7 @@ public actual fun mmFreeMappingAddress(baseaddress: ConstPtr<CVoid>, pooltag: UI
     }
 }
 
-public actual fun mmFreeNonCachedMemory(baseaddress: ConstPtr<CVoid>, numberofbytes: ULong) {
+public actual fun mmFreeNonCachedMemory(baseaddress: ConstPtr, numberofbytes: ULong) {
     if (windowsWdkSystemSystemservicesNapiAvailable) {
         wasmWindowssysWindowsWdkSystemSystemservicesMmFreeNonCachedMemory(baseaddress.rawAddress.toString(), numberofbytes.toString())
     } else {
@@ -6249,7 +6193,7 @@ public actual fun mmFreeNonCachedMemory(baseaddress: ConstPtr<CVoid>, numberofby
     }
 }
 
-public actual fun mmFreePagesFromMdl(memorydescriptorlist: MutPtr<Mdl>) {
+public actual fun mmFreePagesFromMdl(memorydescriptorlist: MutPtr) {
     if (windowsWdkSystemSystemservicesNapiAvailable) {
         wasmWindowssysWindowsWdkSystemSystemservicesMmFreePagesFromMdl(memorydescriptorlist.rawAddress.toString())
     } else {
@@ -6257,7 +6201,7 @@ public actual fun mmFreePagesFromMdl(memorydescriptorlist: MutPtr<Mdl>) {
     }
 }
 
-public actual fun mmFreePagesFromMdlEx(memorydescriptorlist: MutPtr<Mdl>, flags: UInt) {
+public actual fun mmFreePagesFromMdlEx(memorydescriptorlist: MutPtr, flags: UInt) {
     if (windowsWdkSystemSystemservicesNapiAvailable) {
         wasmWindowssysWindowsWdkSystemSystemservicesMmFreePagesFromMdlEx(memorydescriptorlist.rawAddress.toString(), flags.toInt())
     } else {
@@ -6265,58 +6209,58 @@ public actual fun mmFreePagesFromMdlEx(memorydescriptorlist: MutPtr<Mdl>, flags:
     }
 }
 
-public actual fun mmGetCacheAttribute(physicaladdress: Long, cachetype: MutPtr<MemoryCachingType>): Ntstatus =
+public actual fun mmGetCacheAttribute(physicaladdress: Long, cachetype: MutPtr): Ntstatus =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesMmGetCacheAttribute(physicaladdress.toString(), cachetype.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun mmGetCacheAttributeEx(physicaladdress: Long, flags: UInt, cachetype: MutPtr<MemoryCachingType>): Ntstatus =
+public actual fun mmGetCacheAttributeEx(physicaladdress: Long, flags: UInt, cachetype: MutPtr): Ntstatus =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesMmGetCacheAttributeEx(physicaladdress.toString(), flags.toInt(), cachetype.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun mmGetPhysicalAddress(baseaddress: ConstPtr<CVoid>): Long =
+public actual fun mmGetPhysicalAddress(baseaddress: ConstPtr): Long =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesMmGetPhysicalAddress(baseaddress.rawAddress.toString()).toLong() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun mmGetPhysicalMemoryRanges(): MutPtr<PhysicalMemoryRange> =
+public actual fun mmGetPhysicalMemoryRanges(): MutPtr =
     if (windowsWdkSystemSystemservicesNapiAvailable) MutPtr(wasmWindowssysWindowsWdkSystemSystemservicesMmGetPhysicalMemoryRanges().toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun mmGetPhysicalMemoryRangesEx(partitionobject: ConstPtr<CVoid>): MutPtr<PhysicalMemoryRange> =
+public actual fun mmGetPhysicalMemoryRangesEx(partitionobject: ConstPtr): MutPtr =
     if (windowsWdkSystemSystemservicesNapiAvailable) MutPtr(wasmWindowssysWindowsWdkSystemSystemservicesMmGetPhysicalMemoryRangesEx(partitionobject.rawAddress.toString()).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun mmGetPhysicalMemoryRangesEx2(partitionobject: ConstPtr<CVoid>, flags: UInt): MutPtr<PhysicalMemoryRange> =
+public actual fun mmGetPhysicalMemoryRangesEx2(partitionobject: ConstPtr, flags: UInt): MutPtr =
     if (windowsWdkSystemSystemservicesNapiAvailable) MutPtr(wasmWindowssysWindowsWdkSystemSystemservicesMmGetPhysicalMemoryRangesEx2(partitionobject.rawAddress.toString(), flags.toInt()).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun mmGetSystemRoutineAddress(systemroutinename: ConstPtr<UnicodeString>): MutPtr<CVoid> =
+public actual fun mmGetSystemRoutineAddress(systemroutinename: ConstPtr): MutPtr =
     if (windowsWdkSystemSystemservicesNapiAvailable) MutPtr(wasmWindowssysWindowsWdkSystemSystemservicesMmGetSystemRoutineAddress(systemroutinename.rawAddress.toString()).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun mmGetVirtualForPhysical(physicaladdress: Long): MutPtr<CVoid> =
+public actual fun mmGetVirtualForPhysical(physicaladdress: Long): MutPtr =
     if (windowsWdkSystemSystemservicesNapiAvailable) MutPtr(wasmWindowssysWindowsWdkSystemSystemservicesMmGetVirtualForPhysical(physicaladdress.toString()).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun mmIsAddressValid(virtualaddress: ConstPtr<CVoid>): Boolean =
+public actual fun mmIsAddressValid(virtualaddress: ConstPtr): Boolean =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesMmIsAddressValid(virtualaddress.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun mmIsDriverSuspectForVerifier(driverobject: ConstPtr<DriverObject>): UInt =
+public actual fun mmIsDriverSuspectForVerifier(driverobject: ConstPtr): UInt =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesMmIsDriverSuspectForVerifier(driverobject.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun mmIsDriverVerifying(driverobject: ConstPtr<DriverObject>): UInt =
+public actual fun mmIsDriverVerifying(driverobject: ConstPtr): UInt =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesMmIsDriverVerifying(driverobject.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun mmIsDriverVerifyingByAddress(addresswithinsection: ConstPtr<CVoid>): UInt =
+public actual fun mmIsDriverVerifyingByAddress(addresswithinsection: ConstPtr): UInt =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesMmIsDriverVerifyingByAddress(addresswithinsection.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun mmIsIoSpaceActive(startaddress: Long, numberofbytes: ULong): UInt =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesMmIsIoSpaceActive(startaddress.toString(), numberofbytes.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun mmIsNonPagedSystemAddressValid(virtualaddress: ConstPtr<CVoid>): Boolean =
+public actual fun mmIsNonPagedSystemAddressValid(virtualaddress: ConstPtr): Boolean =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesMmIsNonPagedSystemAddressValid(virtualaddress.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun mmIsThisAnNtAsSystem(): Boolean =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesMmIsThisAnNtAsSystem() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun mmIsVerifierEnabled(verifierflags: MutPtr<UInt>): Ntstatus =
+public actual fun mmIsVerifierEnabled(verifierflags: MutPtr): Ntstatus =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesMmIsVerifierEnabled(verifierflags.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun mmLockPagableDataSection(addresswithinsection: ConstPtr<CVoid>): MutPtr<CVoid> =
+public actual fun mmLockPagableDataSection(addresswithinsection: ConstPtr): MutPtr =
     if (windowsWdkSystemSystemservicesNapiAvailable) MutPtr(wasmWindowssysWindowsWdkSystemSystemservicesMmLockPagableDataSection(addresswithinsection.rawAddress.toString()).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun mmLockPagableSectionByHandle(imagesectionhandle: ConstPtr<CVoid>) {
+public actual fun mmLockPagableSectionByHandle(imagesectionhandle: ConstPtr) {
     if (windowsWdkSystemSystemservicesNapiAvailable) {
         wasmWindowssysWindowsWdkSystemSystemservicesMmLockPagableSectionByHandle(imagesectionhandle.rawAddress.toString())
     } else {
@@ -6324,52 +6268,52 @@ public actual fun mmLockPagableSectionByHandle(imagesectionhandle: ConstPtr<CVoi
     }
 }
 
-public actual fun mmMapIoSpace(physicaladdress: Long, numberofbytes: ULong, cachetype: MemoryCachingType): MutPtr<CVoid> =
+public actual fun mmMapIoSpace(physicaladdress: Long, numberofbytes: ULong, cachetype: MemoryCachingType): MutPtr =
     if (windowsWdkSystemSystemservicesNapiAvailable) MutPtr(wasmWindowssysWindowsWdkSystemSystemservicesMmMapIoSpace(physicaladdress.toString(), numberofbytes.toString(), cachetype).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun mmMapIoSpaceEx(physicaladdress: Long, numberofbytes: ULong, protect: UInt): MutPtr<CVoid> =
+public actual fun mmMapIoSpaceEx(physicaladdress: Long, numberofbytes: ULong, protect: UInt): MutPtr =
     if (windowsWdkSystemSystemservicesNapiAvailable) MutPtr(wasmWindowssysWindowsWdkSystemSystemservicesMmMapIoSpaceEx(physicaladdress.toString(), numberofbytes.toString(), protect.toInt()).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun mmMapLockedPages(memorydescriptorlist: MutPtr<Mdl>, accessmode: Byte): MutPtr<CVoid> =
+public actual fun mmMapLockedPages(memorydescriptorlist: MutPtr, accessmode: Byte): MutPtr =
     if (windowsWdkSystemSystemservicesNapiAvailable) MutPtr(wasmWindowssysWindowsWdkSystemSystemservicesMmMapLockedPages(memorydescriptorlist.rawAddress.toString(), accessmode.toInt()).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun mmMapLockedPagesSpecifyCache(memorydescriptorlist: MutPtr<Mdl>, accessmode: Byte, cachetype: MemoryCachingType, requestedaddress: ConstPtr<CVoid>, bugcheckonfailure: UInt, priority: UInt): MutPtr<CVoid> =
+public actual fun mmMapLockedPagesSpecifyCache(memorydescriptorlist: MutPtr, accessmode: Byte, cachetype: MemoryCachingType, requestedaddress: ConstPtr, bugcheckonfailure: UInt, priority: UInt): MutPtr =
     if (windowsWdkSystemSystemservicesNapiAvailable) MutPtr(wasmWindowssysWindowsWdkSystemSystemservicesMmMapLockedPagesSpecifyCache(memorydescriptorlist.rawAddress.toString(), accessmode.toInt(), cachetype, requestedaddress.rawAddress.toString(), bugcheckonfailure.toInt(), priority.toInt()).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun mmMapLockedPagesWithReservedMapping(mappingaddress: ConstPtr<CVoid>, pooltag: UInt, memorydescriptorlist: MutPtr<Mdl>, cachetype: MemoryCachingType): MutPtr<CVoid> =
+public actual fun mmMapLockedPagesWithReservedMapping(mappingaddress: ConstPtr, pooltag: UInt, memorydescriptorlist: MutPtr, cachetype: MemoryCachingType): MutPtr =
     if (windowsWdkSystemSystemservicesNapiAvailable) MutPtr(wasmWindowssysWindowsWdkSystemSystemservicesMmMapLockedPagesWithReservedMapping(mappingaddress.rawAddress.toString(), pooltag.toInt(), memorydescriptorlist.rawAddress.toString(), cachetype).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun mmMapMdl(memorydescriptorlist: MutPtr<Mdl>, protection: UInt, driverroutine: PmmMdlRoutine, drivercontext: ConstPtr<CVoid>): Ntstatus =
+public actual fun mmMapMdl(memorydescriptorlist: MutPtr, protection: UInt, driverroutine: PmmMdlRoutine, drivercontext: ConstPtr): Ntstatus =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesMmMapMdl(memorydescriptorlist.rawAddress.toString(), protection.toInt(), 0L.toString(), drivercontext.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun mmMapMemoryDumpMdlEx(va: ConstPtr<CVoid>, pagetotal: UInt, memorydumpmdl: MutPtr<Mdl>, flags: UInt): Ntstatus =
+public actual fun mmMapMemoryDumpMdlEx(va: ConstPtr, pagetotal: UInt, memorydumpmdl: MutPtr, flags: UInt): Ntstatus =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesMmMapMemoryDumpMdlEx(va.rawAddress.toString(), pagetotal.toInt(), memorydumpmdl.rawAddress.toString(), flags.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun mmMapUserAddressesToPage(baseaddress: ConstPtr<CVoid>, numberofbytes: ULong, pageaddress: ConstPtr<CVoid>): Ntstatus =
+public actual fun mmMapUserAddressesToPage(baseaddress: ConstPtr, numberofbytes: ULong, pageaddress: ConstPtr): Ntstatus =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesMmMapUserAddressesToPage(baseaddress.rawAddress.toString(), numberofbytes.toString(), pageaddress.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun mmMapVideoDisplay(physicaladdress: Long, numberofbytes: ULong, cachetype: MemoryCachingType): MutPtr<CVoid> =
+public actual fun mmMapVideoDisplay(physicaladdress: Long, numberofbytes: ULong, cachetype: MemoryCachingType): MutPtr =
     if (windowsWdkSystemSystemservicesNapiAvailable) MutPtr(wasmWindowssysWindowsWdkSystemSystemservicesMmMapVideoDisplay(physicaladdress.toString(), numberofbytes.toString(), cachetype).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun mmMapViewInSessionSpace(section: ConstPtr<CVoid>, mappedbase: MutPtr<MutPtr<CVoid>>, viewsize: MutPtr<ULong>): Ntstatus =
+public actual fun mmMapViewInSessionSpace(section: ConstPtr, mappedbase: MutPtr, viewsize: MutPtr): Ntstatus =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesMmMapViewInSessionSpace(section.rawAddress.toString(), mappedbase.rawAddress.toString(), viewsize.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun mmMapViewInSessionSpaceEx(section: ConstPtr<CVoid>, mappedbase: MutPtr<MutPtr<CVoid>>, viewsize: MutPtr<ULong>, sectionoffset: MutPtr<Long>, flags: ULong): Ntstatus =
+public actual fun mmMapViewInSessionSpaceEx(section: ConstPtr, mappedbase: MutPtr, viewsize: MutPtr, sectionoffset: MutPtr, flags: ULong): Ntstatus =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesMmMapViewInSessionSpaceEx(section.rawAddress.toString(), mappedbase.rawAddress.toString(), viewsize.rawAddress.toString(), sectionoffset.rawAddress.toString(), flags.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun mmMapViewInSystemSpace(section: ConstPtr<CVoid>, mappedbase: MutPtr<MutPtr<CVoid>>, viewsize: MutPtr<ULong>): Ntstatus =
+public actual fun mmMapViewInSystemSpace(section: ConstPtr, mappedbase: MutPtr, viewsize: MutPtr): Ntstatus =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesMmMapViewInSystemSpace(section.rawAddress.toString(), mappedbase.rawAddress.toString(), viewsize.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun mmMapViewInSystemSpaceEx(section: ConstPtr<CVoid>, mappedbase: MutPtr<MutPtr<CVoid>>, viewsize: MutPtr<ULong>, sectionoffset: MutPtr<Long>, flags: ULong): Ntstatus =
+public actual fun mmMapViewInSystemSpaceEx(section: ConstPtr, mappedbase: MutPtr, viewsize: MutPtr, sectionoffset: MutPtr, flags: ULong): Ntstatus =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesMmMapViewInSystemSpaceEx(section.rawAddress.toString(), mappedbase.rawAddress.toString(), viewsize.rawAddress.toString(), sectionoffset.rawAddress.toString(), flags.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun mmMdlPageContentsState(memorydescriptorlist: MutPtr<Mdl>, state: MmMdlPageContentsState): MmMdlPageContentsState =
+public actual fun mmMdlPageContentsState(memorydescriptorlist: MutPtr, state: MmMdlPageContentsState): MmMdlPageContentsState =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesMmMdlPageContentsState(memorydescriptorlist.rawAddress.toString(), state) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun mmPageEntireDriver(addresswithinsection: ConstPtr<CVoid>): MutPtr<CVoid> =
+public actual fun mmPageEntireDriver(addresswithinsection: ConstPtr): MutPtr =
     if (windowsWdkSystemSystemservicesNapiAvailable) MutPtr(wasmWindowssysWindowsWdkSystemSystemservicesMmPageEntireDriver(addresswithinsection.rawAddress.toString()).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun mmProbeAndLockPages(memorydescriptorlist: MutPtr<Mdl>, accessmode: Byte, operation: LockOperation) {
+public actual fun mmProbeAndLockPages(memorydescriptorlist: MutPtr, accessmode: Byte, operation: LockOperation) {
     if (windowsWdkSystemSystemservicesNapiAvailable) {
         wasmWindowssysWindowsWdkSystemSystemservicesMmProbeAndLockPages(memorydescriptorlist.rawAddress.toString(), accessmode.toInt(), operation)
     } else {
@@ -6377,7 +6321,7 @@ public actual fun mmProbeAndLockPages(memorydescriptorlist: MutPtr<Mdl>, accessm
     }
 }
 
-public actual fun mmProbeAndLockProcessPages(memorydescriptorlist: MutPtr<Mdl>, process: Peprocess, accessmode: Byte, operation: LockOperation) {
+public actual fun mmProbeAndLockProcessPages(memorydescriptorlist: MutPtr, process: Peprocess, accessmode: Byte, operation: LockOperation) {
     if (windowsWdkSystemSystemservicesNapiAvailable) {
         wasmWindowssysWindowsWdkSystemSystemservicesMmProbeAndLockProcessPages(memorydescriptorlist.rawAddress.toString(), process.toString(), accessmode.toInt(), operation)
     } else {
@@ -6385,7 +6329,7 @@ public actual fun mmProbeAndLockProcessPages(memorydescriptorlist: MutPtr<Mdl>, 
     }
 }
 
-public actual fun mmProbeAndLockSelectedPages(memorydescriptorlist: MutPtr<Mdl>, segmentarray: ConstPtr<FileSegmentElement>, accessmode: Byte, operation: LockOperation) {
+public actual fun mmProbeAndLockSelectedPages(memorydescriptorlist: MutPtr, segmentarray: ConstPtr, accessmode: Byte, operation: LockOperation) {
     if (windowsWdkSystemSystemservicesNapiAvailable) {
         wasmWindowssysWindowsWdkSystemSystemservicesMmProbeAndLockSelectedPages(memorydescriptorlist.rawAddress.toString(), segmentarray.rawAddress.toString(), accessmode.toInt(), operation)
     } else {
@@ -6393,19 +6337,19 @@ public actual fun mmProbeAndLockSelectedPages(memorydescriptorlist: MutPtr<Mdl>,
     }
 }
 
-public actual fun mmProtectDriverSection(addresswithinsection: ConstPtr<CVoid>, size: ULong, flags: UInt): Ntstatus =
+public actual fun mmProtectDriverSection(addresswithinsection: ConstPtr, size: ULong, flags: UInt): Ntstatus =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesMmProtectDriverSection(addresswithinsection.rawAddress.toString(), size.toString(), flags.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun mmProtectMdlSystemAddress(memorydescriptorlist: ConstPtr<Mdl>, newprotect: UInt): Ntstatus =
+public actual fun mmProtectMdlSystemAddress(memorydescriptorlist: ConstPtr, newprotect: UInt): Ntstatus =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesMmProtectMdlSystemAddress(memorydescriptorlist.rawAddress.toString(), newprotect.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun mmQuerySystemSize(): MmSystemsize =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesMmQuerySystemSize() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun mmRemovePhysicalMemory(startaddress: ConstPtr<Long>, numberofbytes: MutPtr<Long>): Ntstatus =
+public actual fun mmRemovePhysicalMemory(startaddress: ConstPtr, numberofbytes: MutPtr): Ntstatus =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesMmRemovePhysicalMemory(startaddress.rawAddress.toString(), numberofbytes.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun mmResetDriverPaging(addresswithinsection: ConstPtr<CVoid>) {
+public actual fun mmResetDriverPaging(addresswithinsection: ConstPtr) {
     if (windowsWdkSystemSystemservicesNapiAvailable) {
         wasmWindowssysWindowsWdkSystemSystemservicesMmResetDriverPaging(addresswithinsection.rawAddress.toString())
     } else {
@@ -6413,22 +6357,22 @@ public actual fun mmResetDriverPaging(addresswithinsection: ConstPtr<CVoid>) {
     }
 }
 
-public actual fun mmRotatePhysicalView(virtualaddress: ConstPtr<CVoid>, numberofbytes: MutPtr<ULong>, newmdl: ConstPtr<Mdl>, direction: MmRotateDirection, copyfunction: PmmRotateCopyCallbackFunction, context: ConstPtr<CVoid>): Ntstatus =
+public actual fun mmRotatePhysicalView(virtualaddress: ConstPtr, numberofbytes: MutPtr, newmdl: ConstPtr, direction: MmRotateDirection, copyfunction: PmmRotateCopyCallbackFunction, context: ConstPtr): Ntstatus =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesMmRotatePhysicalView(virtualaddress.rawAddress.toString(), numberofbytes.rawAddress.toString(), newmdl.rawAddress.toString(), direction, 0L.toString(), context.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun mmSecureVirtualMemory(address: ConstPtr<CVoid>, size: ULong, probemode: UInt): Handle =
+public actual fun mmSecureVirtualMemory(address: ConstPtr, size: ULong, probemode: UInt): Handle =
     if (windowsWdkSystemSystemservicesNapiAvailable) MutPtr(wasmWindowssysWindowsWdkSystemSystemservicesMmSecureVirtualMemory(address.rawAddress.toString(), size.toString(), probemode.toInt()).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun mmSecureVirtualMemoryEx(address: ConstPtr<CVoid>, size: ULong, probemode: UInt, flags: UInt): Handle =
+public actual fun mmSecureVirtualMemoryEx(address: ConstPtr, size: ULong, probemode: UInt, flags: UInt): Handle =
     if (windowsWdkSystemSystemservicesNapiAvailable) MutPtr(wasmWindowssysWindowsWdkSystemSystemservicesMmSecureVirtualMemoryEx(address.rawAddress.toString(), size.toString(), probemode.toInt(), flags.toInt()).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun mmSetPermanentCacheAttribute(startaddress: Long, numberofbytes: Long, cachetype: MemoryCachingType, flags: UInt): Ntstatus =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesMmSetPermanentCacheAttribute(startaddress.toString(), numberofbytes.toString(), cachetype, flags.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun mmSizeOfMdl(base: ConstPtr<CVoid>, length: ULong): ULong =
+public actual fun mmSizeOfMdl(base: ConstPtr, length: ULong): ULong =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesMmSizeOfMdl(base.rawAddress.toString(), length.toString()).toULong() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun mmUnlockPagableImageSection(imagesectionhandle: ConstPtr<CVoid>) {
+public actual fun mmUnlockPagableImageSection(imagesectionhandle: ConstPtr) {
     if (windowsWdkSystemSystemservicesNapiAvailable) {
         wasmWindowssysWindowsWdkSystemSystemservicesMmUnlockPagableImageSection(imagesectionhandle.rawAddress.toString())
     } else {
@@ -6436,7 +6380,7 @@ public actual fun mmUnlockPagableImageSection(imagesectionhandle: ConstPtr<CVoid
     }
 }
 
-public actual fun mmUnlockPages(memorydescriptorlist: MutPtr<Mdl>) {
+public actual fun mmUnlockPages(memorydescriptorlist: MutPtr) {
     if (windowsWdkSystemSystemservicesNapiAvailable) {
         wasmWindowssysWindowsWdkSystemSystemservicesMmUnlockPages(memorydescriptorlist.rawAddress.toString())
     } else {
@@ -6444,7 +6388,7 @@ public actual fun mmUnlockPages(memorydescriptorlist: MutPtr<Mdl>) {
     }
 }
 
-public actual fun mmUnmapIoSpace(baseaddress: ConstPtr<CVoid>, numberofbytes: ULong) {
+public actual fun mmUnmapIoSpace(baseaddress: ConstPtr, numberofbytes: ULong) {
     if (windowsWdkSystemSystemservicesNapiAvailable) {
         wasmWindowssysWindowsWdkSystemSystemservicesMmUnmapIoSpace(baseaddress.rawAddress.toString(), numberofbytes.toString())
     } else {
@@ -6452,7 +6396,7 @@ public actual fun mmUnmapIoSpace(baseaddress: ConstPtr<CVoid>, numberofbytes: UL
     }
 }
 
-public actual fun mmUnmapLockedPages(baseaddress: ConstPtr<CVoid>, memorydescriptorlist: MutPtr<Mdl>) {
+public actual fun mmUnmapLockedPages(baseaddress: ConstPtr, memorydescriptorlist: MutPtr) {
     if (windowsWdkSystemSystemservicesNapiAvailable) {
         wasmWindowssysWindowsWdkSystemSystemservicesMmUnmapLockedPages(baseaddress.rawAddress.toString(), memorydescriptorlist.rawAddress.toString())
     } else {
@@ -6460,7 +6404,7 @@ public actual fun mmUnmapLockedPages(baseaddress: ConstPtr<CVoid>, memorydescrip
     }
 }
 
-public actual fun mmUnmapReservedMapping(baseaddress: ConstPtr<CVoid>, pooltag: UInt, memorydescriptorlist: MutPtr<Mdl>) {
+public actual fun mmUnmapReservedMapping(baseaddress: ConstPtr, pooltag: UInt, memorydescriptorlist: MutPtr) {
     if (windowsWdkSystemSystemservicesNapiAvailable) {
         wasmWindowssysWindowsWdkSystemSystemservicesMmUnmapReservedMapping(baseaddress.rawAddress.toString(), pooltag.toInt(), memorydescriptorlist.rawAddress.toString())
     } else {
@@ -6468,7 +6412,7 @@ public actual fun mmUnmapReservedMapping(baseaddress: ConstPtr<CVoid>, pooltag: 
     }
 }
 
-public actual fun mmUnmapVideoDisplay(baseaddress: ConstPtr<CVoid>, numberofbytes: ULong) {
+public actual fun mmUnmapVideoDisplay(baseaddress: ConstPtr, numberofbytes: ULong) {
     if (windowsWdkSystemSystemservicesNapiAvailable) {
         wasmWindowssysWindowsWdkSystemSystemservicesMmUnmapVideoDisplay(baseaddress.rawAddress.toString(), numberofbytes.toString())
     } else {
@@ -6476,10 +6420,10 @@ public actual fun mmUnmapVideoDisplay(baseaddress: ConstPtr<CVoid>, numberofbyte
     }
 }
 
-public actual fun mmUnmapViewInSessionSpace(mappedbase: ConstPtr<CVoid>): Ntstatus =
+public actual fun mmUnmapViewInSessionSpace(mappedbase: ConstPtr): Ntstatus =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesMmUnmapViewInSessionSpace(mappedbase.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun mmUnmapViewInSystemSpace(mappedbase: ConstPtr<CVoid>): Ntstatus =
+public actual fun mmUnmapViewInSystemSpace(mappedbase: ConstPtr): Ntstatus =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesMmUnmapViewInSystemSpace(mappedbase.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun mmUnsecureVirtualMemory(securehandle: Handle) {
@@ -6490,97 +6434,97 @@ public actual fun mmUnsecureVirtualMemory(securehandle: Handle) {
     }
 }
 
-public actual fun ntAllocateLocallyUniqueId(luid: MutPtr<Luid>): Ntstatus =
+public actual fun ntAllocateLocallyUniqueId(luid: MutPtr): Ntstatus =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesNtAllocateLocallyUniqueId(luid.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ntCommitComplete(enlistmenthandle: Handle, tmvirtualclock: ConstPtr<Long>): Ntstatus =
+public actual fun ntCommitComplete(enlistmenthandle: Handle, tmvirtualclock: ConstPtr): Ntstatus =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesNtCommitComplete(enlistmenthandle.rawAddress.toString(), tmvirtualclock.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ntCommitEnlistment(enlistmenthandle: Handle, tmvirtualclock: ConstPtr<Long>): Ntstatus =
+public actual fun ntCommitEnlistment(enlistmenthandle: Handle, tmvirtualclock: ConstPtr): Ntstatus =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesNtCommitEnlistment(enlistmenthandle.rawAddress.toString(), tmvirtualclock.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun ntCommitTransaction(transactionhandle: Handle, wait: Boolean): Ntstatus =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesNtCommitTransaction(transactionhandle.rawAddress.toString(), wait) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ntCreateEnlistment(enlistmenthandle: MutPtr<Handle>, desiredaccess: UInt, resourcemanagerhandle: Handle, transactionhandle: Handle, objectattributes: ConstPtr<ObjectAttributes>, createoptions: UInt, notificationmask: UInt, enlistmentkey: ConstPtr<CVoid>): Ntstatus =
+public actual fun ntCreateEnlistment(enlistmenthandle: MutPtr, desiredaccess: UInt, resourcemanagerhandle: Handle, transactionhandle: Handle, objectattributes: ConstPtr, createoptions: UInt, notificationmask: UInt, enlistmentkey: ConstPtr): Ntstatus =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesNtCreateEnlistment(enlistmenthandle.rawAddress.toString(), desiredaccess.toInt(), resourcemanagerhandle.rawAddress.toString(), transactionhandle.rawAddress.toString(), objectattributes.rawAddress.toString(), createoptions.toInt(), notificationmask.toInt(), enlistmentkey.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ntCreateResourceManager(resourcemanagerhandle: MutPtr<Handle>, desiredaccess: UInt, tmhandle: Handle, rmguid: ConstPtr<Guid>, objectattributes: ConstPtr<ObjectAttributes>, createoptions: UInt, description: ConstPtr<UnicodeString>): Ntstatus =
+public actual fun ntCreateResourceManager(resourcemanagerhandle: MutPtr, desiredaccess: UInt, tmhandle: Handle, rmguid: ConstPtr, objectattributes: ConstPtr, createoptions: UInt, description: ConstPtr): Ntstatus =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesNtCreateResourceManager(resourcemanagerhandle.rawAddress.toString(), desiredaccess.toInt(), tmhandle.rawAddress.toString(), rmguid.rawAddress.toString(), objectattributes.rawAddress.toString(), createoptions.toInt(), description.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ntCreateTransaction(transactionhandle: MutPtr<Handle>, desiredaccess: UInt, objectattributes: ConstPtr<ObjectAttributes>, uow: ConstPtr<Guid>, tmhandle: Handle, createoptions: UInt, isolationlevel: UInt, isolationflags: UInt, timeout: ConstPtr<Long>, description: ConstPtr<UnicodeString>): Ntstatus =
+public actual fun ntCreateTransaction(transactionhandle: MutPtr, desiredaccess: UInt, objectattributes: ConstPtr, uow: ConstPtr, tmhandle: Handle, createoptions: UInt, isolationlevel: UInt, isolationflags: UInt, timeout: ConstPtr, description: ConstPtr): Ntstatus =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesNtCreateTransaction(transactionhandle.rawAddress.toString(), desiredaccess.toInt(), objectattributes.rawAddress.toString(), uow.rawAddress.toString(), tmhandle.rawAddress.toString(), createoptions.toInt(), isolationlevel.toInt(), isolationflags.toInt(), timeout.rawAddress.toString(), description.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ntCreateTransactionManager(tmhandle: MutPtr<Handle>, desiredaccess: UInt, objectattributes: ConstPtr<ObjectAttributes>, logfilename: ConstPtr<UnicodeString>, createoptions: UInt, commitstrength: UInt): Ntstatus =
+public actual fun ntCreateTransactionManager(tmhandle: MutPtr, desiredaccess: UInt, objectattributes: ConstPtr, logfilename: ConstPtr, createoptions: UInt, commitstrength: UInt): Ntstatus =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesNtCreateTransactionManager(tmhandle.rawAddress.toString(), desiredaccess.toInt(), objectattributes.rawAddress.toString(), logfilename.rawAddress.toString(), createoptions.toInt(), commitstrength.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ntDisplayString(string: ConstPtr<UnicodeString>): Ntstatus =
+public actual fun ntDisplayString(string: ConstPtr): Ntstatus =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesNtDisplayString(string.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ntEnumerateTransactionObject(rootobjecthandle: Handle, querytype: KtmobjectType, objectcursor: MutPtr<KtmobjectCursor>, objectcursorlength: UInt, returnlength: MutPtr<UInt>): Ntstatus =
+public actual fun ntEnumerateTransactionObject(rootobjecthandle: Handle, querytype: KtmobjectType, objectcursor: MutPtr, objectcursorlength: UInt, returnlength: MutPtr): Ntstatus =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesNtEnumerateTransactionObject(rootobjecthandle.rawAddress.toString(), querytype, objectcursor.rawAddress.toString(), objectcursorlength.toInt(), returnlength.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ntGetNotificationResourceManager(resourcemanagerhandle: Handle, transactionnotification: MutPtr<TransactionNotification>, notificationlength: UInt, timeout: ConstPtr<Long>, returnlength: MutPtr<UInt>, asynchronous: UInt, asynchronouscontext: ULong): Ntstatus =
+public actual fun ntGetNotificationResourceManager(resourcemanagerhandle: Handle, transactionnotification: MutPtr, notificationlength: UInt, timeout: ConstPtr, returnlength: MutPtr, asynchronous: UInt, asynchronouscontext: ULong): Ntstatus =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesNtGetNotificationResourceManager(resourcemanagerhandle.rawAddress.toString(), transactionnotification.rawAddress.toString(), notificationlength.toInt(), timeout.rawAddress.toString(), returnlength.rawAddress.toString(), asynchronous.toInt(), asynchronouscontext.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ntLoadDriver(driverservicename: ConstPtr<UnicodeString>): Ntstatus =
+public actual fun ntLoadDriver(driverservicename: ConstPtr): Ntstatus =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesNtLoadDriver(driverservicename.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun ntMakeTemporaryObject(handle: Handle): Ntstatus =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesNtMakeTemporaryObject(handle.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ntManagePartition(targethandle: Handle, sourcehandle: Handle, partitioninformationclass: PartitionInformationClass, partitioninformation: MutPtr<CVoid>, partitioninformationlength: UInt): Ntstatus =
+public actual fun ntManagePartition(targethandle: Handle, sourcehandle: Handle, partitioninformationclass: PartitionInformationClass, partitioninformation: MutPtr, partitioninformationlength: UInt): Ntstatus =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesNtManagePartition(targethandle.rawAddress.toString(), sourcehandle.rawAddress.toString(), partitioninformationclass, partitioninformation.rawAddress.toString(), partitioninformationlength.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ntOpenEnlistment(enlistmenthandle: MutPtr<Handle>, desiredaccess: UInt, resourcemanagerhandle: Handle, enlistmentguid: ConstPtr<Guid>, objectattributes: ConstPtr<ObjectAttributes>): Ntstatus =
+public actual fun ntOpenEnlistment(enlistmenthandle: MutPtr, desiredaccess: UInt, resourcemanagerhandle: Handle, enlistmentguid: ConstPtr, objectattributes: ConstPtr): Ntstatus =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesNtOpenEnlistment(enlistmenthandle.rawAddress.toString(), desiredaccess.toInt(), resourcemanagerhandle.rawAddress.toString(), enlistmentguid.rawAddress.toString(), objectattributes.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ntOpenResourceManager(resourcemanagerhandle: MutPtr<Handle>, desiredaccess: UInt, tmhandle: Handle, resourcemanagerguid: ConstPtr<Guid>, objectattributes: ConstPtr<ObjectAttributes>): Ntstatus =
+public actual fun ntOpenResourceManager(resourcemanagerhandle: MutPtr, desiredaccess: UInt, tmhandle: Handle, resourcemanagerguid: ConstPtr, objectattributes: ConstPtr): Ntstatus =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesNtOpenResourceManager(resourcemanagerhandle.rawAddress.toString(), desiredaccess.toInt(), tmhandle.rawAddress.toString(), resourcemanagerguid.rawAddress.toString(), objectattributes.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ntOpenTransaction(transactionhandle: MutPtr<Handle>, desiredaccess: UInt, objectattributes: ConstPtr<ObjectAttributes>, uow: ConstPtr<Guid>, tmhandle: Handle): Ntstatus =
+public actual fun ntOpenTransaction(transactionhandle: MutPtr, desiredaccess: UInt, objectattributes: ConstPtr, uow: ConstPtr, tmhandle: Handle): Ntstatus =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesNtOpenTransaction(transactionhandle.rawAddress.toString(), desiredaccess.toInt(), objectattributes.rawAddress.toString(), uow.rawAddress.toString(), tmhandle.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ntOpenTransactionManager(tmhandle: MutPtr<Handle>, desiredaccess: UInt, objectattributes: ConstPtr<ObjectAttributes>, logfilename: ConstPtr<UnicodeString>, tmidentity: ConstPtr<Guid>, openoptions: UInt): Ntstatus =
+public actual fun ntOpenTransactionManager(tmhandle: MutPtr, desiredaccess: UInt, objectattributes: ConstPtr, logfilename: ConstPtr, tmidentity: ConstPtr, openoptions: UInt): Ntstatus =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesNtOpenTransactionManager(tmhandle.rawAddress.toString(), desiredaccess.toInt(), objectattributes.rawAddress.toString(), logfilename.rawAddress.toString(), tmidentity.rawAddress.toString(), openoptions.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ntPowerInformation(informationlevel: PowerInformationLevel, inputbuffer: ConstPtr<CVoid>, inputbufferlength: UInt, outputbuffer: MutPtr<CVoid>, outputbufferlength: UInt): Ntstatus =
+public actual fun ntPowerInformation(informationlevel: PowerInformationLevel, inputbuffer: ConstPtr, inputbufferlength: UInt, outputbuffer: MutPtr, outputbufferlength: UInt): Ntstatus =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesNtPowerInformation(informationlevel, inputbuffer.rawAddress.toString(), inputbufferlength.toInt(), outputbuffer.rawAddress.toString(), outputbufferlength.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ntPrePrepareComplete(enlistmenthandle: Handle, tmvirtualclock: ConstPtr<Long>): Ntstatus =
+public actual fun ntPrePrepareComplete(enlistmenthandle: Handle, tmvirtualclock: ConstPtr): Ntstatus =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesNtPrePrepareComplete(enlistmenthandle.rawAddress.toString(), tmvirtualclock.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ntPrePrepareEnlistment(enlistmenthandle: Handle, tmvirtualclock: ConstPtr<Long>): Ntstatus =
+public actual fun ntPrePrepareEnlistment(enlistmenthandle: Handle, tmvirtualclock: ConstPtr): Ntstatus =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesNtPrePrepareEnlistment(enlistmenthandle.rawAddress.toString(), tmvirtualclock.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ntPrepareComplete(enlistmenthandle: Handle, tmvirtualclock: ConstPtr<Long>): Ntstatus =
+public actual fun ntPrepareComplete(enlistmenthandle: Handle, tmvirtualclock: ConstPtr): Ntstatus =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesNtPrepareComplete(enlistmenthandle.rawAddress.toString(), tmvirtualclock.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ntPrepareEnlistment(enlistmenthandle: Handle, tmvirtualclock: ConstPtr<Long>): Ntstatus =
+public actual fun ntPrepareEnlistment(enlistmenthandle: Handle, tmvirtualclock: ConstPtr): Ntstatus =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesNtPrepareEnlistment(enlistmenthandle.rawAddress.toString(), tmvirtualclock.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ntPropagationComplete(resourcemanagerhandle: Handle, requestcookie: UInt, bufferlength: UInt, buffer: ConstPtr<CVoid>): Ntstatus =
+public actual fun ntPropagationComplete(resourcemanagerhandle: Handle, requestcookie: UInt, bufferlength: UInt, buffer: ConstPtr): Ntstatus =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesNtPropagationComplete(resourcemanagerhandle.rawAddress.toString(), requestcookie.toInt(), bufferlength.toInt(), buffer.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun ntPropagationFailed(resourcemanagerhandle: Handle, requestcookie: UInt, propstatus: Ntstatus): Ntstatus =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesNtPropagationFailed(resourcemanagerhandle.rawAddress.toString(), requestcookie.toInt(), propstatus) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ntQueryInformationEnlistment(enlistmenthandle: Handle, enlistmentinformationclass: EnlistmentInformationClass, enlistmentinformation: MutPtr<CVoid>, enlistmentinformationlength: UInt, returnlength: MutPtr<UInt>): Ntstatus =
+public actual fun ntQueryInformationEnlistment(enlistmenthandle: Handle, enlistmentinformationclass: EnlistmentInformationClass, enlistmentinformation: MutPtr, enlistmentinformationlength: UInt, returnlength: MutPtr): Ntstatus =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesNtQueryInformationEnlistment(enlistmenthandle.rawAddress.toString(), enlistmentinformationclass, enlistmentinformation.rawAddress.toString(), enlistmentinformationlength.toInt(), returnlength.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ntQueryInformationResourceManager(resourcemanagerhandle: Handle, resourcemanagerinformationclass: ResourcemanagerInformationClass, resourcemanagerinformation: MutPtr<CVoid>, resourcemanagerinformationlength: UInt, returnlength: MutPtr<UInt>): Ntstatus =
+public actual fun ntQueryInformationResourceManager(resourcemanagerhandle: Handle, resourcemanagerinformationclass: ResourcemanagerInformationClass, resourcemanagerinformation: MutPtr, resourcemanagerinformationlength: UInt, returnlength: MutPtr): Ntstatus =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesNtQueryInformationResourceManager(resourcemanagerhandle.rawAddress.toString(), resourcemanagerinformationclass, resourcemanagerinformation.rawAddress.toString(), resourcemanagerinformationlength.toInt(), returnlength.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ntQueryInformationTransaction(transactionhandle: Handle, transactioninformationclass: TransactionInformationClass, transactioninformation: MutPtr<CVoid>, transactioninformationlength: UInt, returnlength: MutPtr<UInt>): Ntstatus =
+public actual fun ntQueryInformationTransaction(transactionhandle: Handle, transactioninformationclass: TransactionInformationClass, transactioninformation: MutPtr, transactioninformationlength: UInt, returnlength: MutPtr): Ntstatus =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesNtQueryInformationTransaction(transactionhandle.rawAddress.toString(), transactioninformationclass, transactioninformation.rawAddress.toString(), transactioninformationlength.toInt(), returnlength.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ntQueryInformationTransactionManager(transactionmanagerhandle: Handle, transactionmanagerinformationclass: TransactionmanagerInformationClass, transactionmanagerinformation: MutPtr<CVoid>, transactionmanagerinformationlength: UInt, returnlength: MutPtr<UInt>): Ntstatus =
+public actual fun ntQueryInformationTransactionManager(transactionmanagerhandle: Handle, transactionmanagerinformationclass: TransactionmanagerInformationClass, transactionmanagerinformation: MutPtr, transactionmanagerinformationlength: UInt, returnlength: MutPtr): Ntstatus =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesNtQueryInformationTransactionManager(transactionmanagerhandle.rawAddress.toString(), transactionmanagerinformationclass, transactionmanagerinformation.rawAddress.toString(), transactionmanagerinformationlength.toInt(), returnlength.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ntReadOnlyEnlistment(enlistmenthandle: Handle, tmvirtualclock: ConstPtr<Long>): Ntstatus =
+public actual fun ntReadOnlyEnlistment(enlistmenthandle: Handle, tmvirtualclock: ConstPtr): Ntstatus =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesNtReadOnlyEnlistment(enlistmenthandle.rawAddress.toString(), tmvirtualclock.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ntRecoverEnlistment(enlistmenthandle: Handle, enlistmentkey: ConstPtr<CVoid>): Ntstatus =
+public actual fun ntRecoverEnlistment(enlistmenthandle: Handle, enlistmentkey: ConstPtr): Ntstatus =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesNtRecoverEnlistment(enlistmenthandle.rawAddress.toString(), enlistmentkey.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun ntRecoverResourceManager(resourcemanagerhandle: Handle): Ntstatus =
@@ -6589,46 +6533,46 @@ public actual fun ntRecoverResourceManager(resourcemanagerhandle: Handle): Ntsta
 public actual fun ntRecoverTransactionManager(transactionmanagerhandle: Handle): Ntstatus =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesNtRecoverTransactionManager(transactionmanagerhandle.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ntRegisterProtocolAddressInformation(resourcemanager: Handle, protocolid: ConstPtr<Guid>, protocolinformationsize: UInt, protocolinformation: ConstPtr<CVoid>, createoptions: UInt): Ntstatus =
+public actual fun ntRegisterProtocolAddressInformation(resourcemanager: Handle, protocolid: ConstPtr, protocolinformationsize: UInt, protocolinformation: ConstPtr, createoptions: UInt): Ntstatus =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesNtRegisterProtocolAddressInformation(resourcemanager.rawAddress.toString(), protocolid.rawAddress.toString(), protocolinformationsize.toInt(), protocolinformation.rawAddress.toString(), createoptions.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ntRenameTransactionManager(logfilename: ConstPtr<UnicodeString>, existingtransactionmanagerguid: ConstPtr<Guid>): Ntstatus =
+public actual fun ntRenameTransactionManager(logfilename: ConstPtr, existingtransactionmanagerguid: ConstPtr): Ntstatus =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesNtRenameTransactionManager(logfilename.rawAddress.toString(), existingtransactionmanagerguid.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ntRollbackComplete(enlistmenthandle: Handle, tmvirtualclock: ConstPtr<Long>): Ntstatus =
+public actual fun ntRollbackComplete(enlistmenthandle: Handle, tmvirtualclock: ConstPtr): Ntstatus =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesNtRollbackComplete(enlistmenthandle.rawAddress.toString(), tmvirtualclock.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ntRollbackEnlistment(enlistmenthandle: Handle, tmvirtualclock: ConstPtr<Long>): Ntstatus =
+public actual fun ntRollbackEnlistment(enlistmenthandle: Handle, tmvirtualclock: ConstPtr): Ntstatus =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesNtRollbackEnlistment(enlistmenthandle.rawAddress.toString(), tmvirtualclock.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun ntRollbackTransaction(transactionhandle: Handle, wait: Boolean): Ntstatus =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesNtRollbackTransaction(transactionhandle.rawAddress.toString(), wait) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ntRollforwardTransactionManager(transactionmanagerhandle: Handle, tmvirtualclock: ConstPtr<Long>): Ntstatus =
+public actual fun ntRollforwardTransactionManager(transactionmanagerhandle: Handle, tmvirtualclock: ConstPtr): Ntstatus =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesNtRollforwardTransactionManager(transactionmanagerhandle.rawAddress.toString(), tmvirtualclock.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ntSetInformationEnlistment(enlistmenthandle: Handle, enlistmentinformationclass: EnlistmentInformationClass, enlistmentinformation: ConstPtr<CVoid>, enlistmentinformationlength: UInt): Ntstatus =
+public actual fun ntSetInformationEnlistment(enlistmenthandle: Handle, enlistmentinformationclass: EnlistmentInformationClass, enlistmentinformation: ConstPtr, enlistmentinformationlength: UInt): Ntstatus =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesNtSetInformationEnlistment(enlistmenthandle.rawAddress.toString(), enlistmentinformationclass, enlistmentinformation.rawAddress.toString(), enlistmentinformationlength.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ntSetInformationResourceManager(resourcemanagerhandle: Handle, resourcemanagerinformationclass: ResourcemanagerInformationClass, resourcemanagerinformation: ConstPtr<CVoid>, resourcemanagerinformationlength: UInt): Ntstatus =
+public actual fun ntSetInformationResourceManager(resourcemanagerhandle: Handle, resourcemanagerinformationclass: ResourcemanagerInformationClass, resourcemanagerinformation: ConstPtr, resourcemanagerinformationlength: UInt): Ntstatus =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesNtSetInformationResourceManager(resourcemanagerhandle.rawAddress.toString(), resourcemanagerinformationclass, resourcemanagerinformation.rawAddress.toString(), resourcemanagerinformationlength.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ntSetInformationTransaction(transactionhandle: Handle, transactioninformationclass: TransactionInformationClass, transactioninformation: ConstPtr<CVoid>, transactioninformationlength: UInt): Ntstatus =
+public actual fun ntSetInformationTransaction(transactionhandle: Handle, transactioninformationclass: TransactionInformationClass, transactioninformation: ConstPtr, transactioninformationlength: UInt): Ntstatus =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesNtSetInformationTransaction(transactionhandle.rawAddress.toString(), transactioninformationclass, transactioninformation.rawAddress.toString(), transactioninformationlength.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ntSetInformationTransactionManager(tmhandle: Handle, transactionmanagerinformationclass: TransactionmanagerInformationClass, transactionmanagerinformation: ConstPtr<CVoid>, transactionmanagerinformationlength: UInt): Ntstatus =
+public actual fun ntSetInformationTransactionManager(tmhandle: Handle, transactionmanagerinformationclass: TransactionmanagerInformationClass, transactionmanagerinformation: ConstPtr, transactionmanagerinformationlength: UInt): Ntstatus =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesNtSetInformationTransactionManager(tmhandle.rawAddress.toString(), transactionmanagerinformationclass, transactionmanagerinformation.rawAddress.toString(), transactionmanagerinformationlength.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ntSinglePhaseReject(enlistmenthandle: Handle, tmvirtualclock: ConstPtr<Long>): Ntstatus =
+public actual fun ntSinglePhaseReject(enlistmenthandle: Handle, tmvirtualclock: ConstPtr): Ntstatus =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesNtSinglePhaseReject(enlistmenthandle.rawAddress.toString(), tmvirtualclock.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ntUnloadDriver(driverservicename: ConstPtr<UnicodeString>): Ntstatus =
+public actual fun ntUnloadDriver(driverservicename: ConstPtr): Ntstatus =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesNtUnloadDriver(driverservicename.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun obCloseHandle(handle: Handle, previousmode: Byte): Ntstatus =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesObCloseHandle(handle.rawAddress.toString(), previousmode.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun obDereferenceObjectDeferDelete(obj: ConstPtr<CVoid>) {
+public actual fun obDereferenceObjectDeferDelete(obj: ConstPtr) {
     if (windowsWdkSystemSystemservicesNapiAvailable) {
         wasmWindowssysWindowsWdkSystemSystemservicesObDereferenceObjectDeferDelete(obj.rawAddress.toString())
     } else {
@@ -6636,7 +6580,7 @@ public actual fun obDereferenceObjectDeferDelete(obj: ConstPtr<CVoid>) {
     }
 }
 
-public actual fun obDereferenceObjectDeferDeleteWithTag(obj: ConstPtr<CVoid>, tag: UInt) {
+public actual fun obDereferenceObjectDeferDeleteWithTag(obj: ConstPtr, tag: UInt) {
     if (windowsWdkSystemSystemservicesNapiAvailable) {
         wasmWindowssysWindowsWdkSystemSystemservicesObDereferenceObjectDeferDeleteWithTag(obj.rawAddress.toString(), tag.toInt())
     } else {
@@ -6647,28 +6591,28 @@ public actual fun obDereferenceObjectDeferDeleteWithTag(obj: ConstPtr<CVoid>, ta
 public actual fun obGetFilterVersion(): UShort =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesObGetFilterVersion().toUShort() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun obGetObjectSecurity(obj: ConstPtr<CVoid>, securitydescriptor: MutPtr<PsecurityDescriptor>, memoryallocated: MutPtr<Boolean>): Ntstatus =
+public actual fun obGetObjectSecurity(obj: ConstPtr, securitydescriptor: MutPtr, memoryallocated: MutPtr): Ntstatus =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesObGetObjectSecurity(obj.rawAddress.toString(), securitydescriptor.rawAddress.toString(), memoryallocated.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun obReferenceObjectByHandle(handle: Handle, desiredaccess: UInt, objecttype: PobjectType, accessmode: Byte, obj: MutPtr<MutPtr<CVoid>>, handleinformation: MutPtr<ObjectHandleInformation>): Ntstatus =
+public actual fun obReferenceObjectByHandle(handle: Handle, desiredaccess: UInt, objecttype: PobjectType, accessmode: Byte, obj: MutPtr, handleinformation: MutPtr): Ntstatus =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesObReferenceObjectByHandle(handle.rawAddress.toString(), desiredaccess.toInt(), objecttype.toString(), accessmode.toInt(), obj.rawAddress.toString(), handleinformation.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun obReferenceObjectByHandleWithTag(handle: Handle, desiredaccess: UInt, objecttype: PobjectType, accessmode: Byte, tag: UInt, obj: MutPtr<MutPtr<CVoid>>, handleinformation: MutPtr<ObjectHandleInformation>): Ntstatus =
+public actual fun obReferenceObjectByHandleWithTag(handle: Handle, desiredaccess: UInt, objecttype: PobjectType, accessmode: Byte, tag: UInt, obj: MutPtr, handleinformation: MutPtr): Ntstatus =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesObReferenceObjectByHandleWithTag(handle.rawAddress.toString(), desiredaccess.toInt(), objecttype.toString(), accessmode.toInt(), tag.toInt(), obj.rawAddress.toString(), handleinformation.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun obReferenceObjectByPointer(obj: ConstPtr<CVoid>, desiredaccess: UInt, objecttype: PobjectType, accessmode: Byte): Ntstatus =
+public actual fun obReferenceObjectByPointer(obj: ConstPtr, desiredaccess: UInt, objecttype: PobjectType, accessmode: Byte): Ntstatus =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesObReferenceObjectByPointer(obj.rawAddress.toString(), desiredaccess.toInt(), objecttype.toString(), accessmode.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun obReferenceObjectByPointerWithTag(obj: ConstPtr<CVoid>, desiredaccess: UInt, objecttype: PobjectType, accessmode: Byte, tag: UInt): Ntstatus =
+public actual fun obReferenceObjectByPointerWithTag(obj: ConstPtr, desiredaccess: UInt, objecttype: PobjectType, accessmode: Byte, tag: UInt): Ntstatus =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesObReferenceObjectByPointerWithTag(obj.rawAddress.toString(), desiredaccess.toInt(), objecttype.toString(), accessmode.toInt(), tag.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun obReferenceObjectSafe(obj: ConstPtr<CVoid>): Boolean =
+public actual fun obReferenceObjectSafe(obj: ConstPtr): Boolean =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesObReferenceObjectSafe(obj.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun obReferenceObjectSafeWithTag(obj: ConstPtr<CVoid>, tag: UInt): Boolean =
+public actual fun obReferenceObjectSafeWithTag(obj: ConstPtr, tag: UInt): Boolean =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesObReferenceObjectSafeWithTag(obj.rawAddress.toString(), tag.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun obRegisterCallbacks(callbackregistration: ConstPtr<ObCallbackRegistration>, registrationhandle: MutPtr<MutPtr<CVoid>>): Ntstatus =
+public actual fun obRegisterCallbacks(callbackregistration: ConstPtr, registrationhandle: MutPtr): Ntstatus =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesObRegisterCallbacks(callbackregistration.rawAddress.toString(), registrationhandle.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun obReleaseObjectSecurity(securitydescriptor: PsecurityDescriptor, memoryallocated: Boolean) {
@@ -6679,7 +6623,7 @@ public actual fun obReleaseObjectSecurity(securitydescriptor: PsecurityDescripto
     }
 }
 
-public actual fun obUnRegisterCallbacks(registrationhandle: ConstPtr<CVoid>) {
+public actual fun obUnRegisterCallbacks(registrationhandle: ConstPtr) {
     if (windowsWdkSystemSystemservicesNapiAvailable) {
         wasmWindowssysWindowsWdkSystemSystemservicesObUnRegisterCallbacks(registrationhandle.rawAddress.toString())
     } else {
@@ -6687,19 +6631,19 @@ public actual fun obUnRegisterCallbacks(registrationhandle: ConstPtr<CVoid>) {
     }
 }
 
-public actual fun obfDereferenceObject(obj: ConstPtr<CVoid>): Long =
+public actual fun obfDereferenceObject(obj: ConstPtr): Long =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesObfDereferenceObject(obj.rawAddress.toString()).toLong() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun obfDereferenceObjectWithTag(obj: ConstPtr<CVoid>, tag: UInt): Long =
+public actual fun obfDereferenceObjectWithTag(obj: ConstPtr, tag: UInt): Long =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesObfDereferenceObjectWithTag(obj.rawAddress.toString(), tag.toInt()).toLong() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun obfReferenceObject(obj: ConstPtr<CVoid>): Long =
+public actual fun obfReferenceObject(obj: ConstPtr): Long =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesObfReferenceObject(obj.rawAddress.toString()).toLong() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun obfReferenceObjectWithTag(obj: ConstPtr<CVoid>, tag: UInt): Long =
+public actual fun obfReferenceObjectWithTag(obj: ConstPtr, tag: UInt): Long =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesObfReferenceObjectWithTag(obj.rawAddress.toString(), tag.toInt()).toLong() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun pcwAddInstance(buffer: PpcwBuffer, name: ConstPtr<UnicodeString>, id: UInt, count: UInt, data: ConstPtr<PcwData>): Ntstatus =
+public actual fun pcwAddInstance(buffer: PpcwBuffer, name: ConstPtr, id: UInt, count: UInt, data: ConstPtr): Ntstatus =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesPcwAddInstance(buffer.toString(), name.rawAddress.toString(), id.toInt(), count.toInt(), data.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun pcwCloseInstance(instance: PpcwInstance) {
@@ -6710,10 +6654,10 @@ public actual fun pcwCloseInstance(instance: PpcwInstance) {
     }
 }
 
-public actual fun pcwCreateInstance(instance: MutPtr<PpcwInstance>, registration: PpcwRegistration, name: ConstPtr<UnicodeString>, count: UInt, data: ConstPtr<PcwData>): Ntstatus =
+public actual fun pcwCreateInstance(instance: MutPtr, registration: PpcwRegistration, name: ConstPtr, count: UInt, data: ConstPtr): Ntstatus =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesPcwCreateInstance(instance.rawAddress.toString(), registration.toString(), name.rawAddress.toString(), count.toInt(), data.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun pcwRegister(registration: MutPtr<PpcwRegistration>, info: ConstPtr<PcwRegistrationInformation>): Ntstatus =
+public actual fun pcwRegister(registration: MutPtr, info: ConstPtr): Ntstatus =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesPcwRegister(registration.rawAddress.toString(), info.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun pcwUnregister(registration: PpcwRegistration) {
@@ -6724,19 +6668,19 @@ public actual fun pcwUnregister(registration: PpcwRegistration) {
     }
 }
 
-public actual fun poCallDriver(deviceobject: ConstPtr<DeviceObject>, irp: MutPtr<Irp>): Ntstatus =
+public actual fun poCallDriver(deviceobject: ConstPtr, irp: MutPtr): Ntstatus =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesPoCallDriver(deviceobject.rawAddress.toString(), irp.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun poClearPowerRequest(powerrequest: MutPtr<CVoid>, type: PowerRequestType): Ntstatus =
+public actual fun poClearPowerRequest(powerrequest: MutPtr, type: PowerRequestType): Ntstatus =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesPoClearPowerRequest(powerrequest.rawAddress.toString(), type) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun poCreatePowerRequest(powerrequest: MutPtr<MutPtr<CVoid>>, deviceobject: ConstPtr<DeviceObject>, context: ConstPtr<CountedReasonContext>): Ntstatus =
+public actual fun poCreatePowerRequest(powerrequest: MutPtr, deviceobject: ConstPtr, context: ConstPtr): Ntstatus =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesPoCreatePowerRequest(powerrequest.rawAddress.toString(), deviceobject.rawAddress.toString(), context.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun poCreateThermalRequest(thermalrequest: MutPtr<MutPtr<CVoid>>, targetdeviceobject: ConstPtr<DeviceObject>, policydeviceobject: ConstPtr<DeviceObject>, context: ConstPtr<CountedReasonContext>, flags: UInt): Ntstatus =
+public actual fun poCreateThermalRequest(thermalrequest: MutPtr, targetdeviceobject: ConstPtr, policydeviceobject: ConstPtr, context: ConstPtr, flags: UInt): Ntstatus =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesPoCreateThermalRequest(thermalrequest.rawAddress.toString(), targetdeviceobject.rawAddress.toString(), policydeviceobject.rawAddress.toString(), context.rawAddress.toString(), flags.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun poDeletePowerRequest(powerrequest: MutPtr<CVoid>) {
+public actual fun poDeletePowerRequest(powerrequest: MutPtr) {
     if (windowsWdkSystemSystemservicesNapiAvailable) {
         wasmWindowssysWindowsWdkSystemSystemservicesPoDeletePowerRequest(powerrequest.rawAddress.toString())
     } else {
@@ -6744,7 +6688,7 @@ public actual fun poDeletePowerRequest(powerrequest: MutPtr<CVoid>) {
     }
 }
 
-public actual fun poDeleteThermalRequest(thermalrequest: MutPtr<CVoid>) {
+public actual fun poDeleteThermalRequest(thermalrequest: MutPtr) {
     if (windowsWdkSystemSystemservicesNapiAvailable) {
         wasmWindowssysWindowsWdkSystemSystemservicesPoDeleteThermalRequest(thermalrequest.rawAddress.toString())
     } else {
@@ -6752,7 +6696,7 @@ public actual fun poDeleteThermalRequest(thermalrequest: MutPtr<CVoid>) {
     }
 }
 
-public actual fun poEndDeviceBusy(idlepointer: MutPtr<UInt>) {
+public actual fun poEndDeviceBusy(idlepointer: MutPtr) {
     if (windowsWdkSystemSystemservicesNapiAvailable) {
         wasmWindowssysWindowsWdkSystemSystemservicesPoEndDeviceBusy(idlepointer.rawAddress.toString())
     } else {
@@ -6808,7 +6752,7 @@ public actual fun poFxIdleComponent(handle: Pohandle, component: UInt, flags: UI
     }
 }
 
-public actual fun poFxIssueComponentPerfStateChange(handle: Pohandle, flags: UInt, component: UInt, perfchange: ConstPtr<PoFxPerfStateChange>, context: ConstPtr<CVoid>) {
+public actual fun poFxIssueComponentPerfStateChange(handle: Pohandle, flags: UInt, component: UInt, perfchange: ConstPtr, context: ConstPtr) {
     if (windowsWdkSystemSystemservicesNapiAvailable) {
         wasmWindowssysWindowsWdkSystemSystemservicesPoFxIssueComponentPerfStateChange(handle.rawAddress.toString(), flags.toInt(), component.toInt(), perfchange.rawAddress.toString(), context.rawAddress.toString())
     } else {
@@ -6816,7 +6760,7 @@ public actual fun poFxIssueComponentPerfStateChange(handle: Pohandle, flags: UIn
     }
 }
 
-public actual fun poFxIssueComponentPerfStateChangeMultiple(handle: Pohandle, flags: UInt, component: UInt, perfchangescount: UInt, perfchanges: ConstPtr<PoFxPerfStateChange>, context: ConstPtr<CVoid>) {
+public actual fun poFxIssueComponentPerfStateChangeMultiple(handle: Pohandle, flags: UInt, component: UInt, perfchangescount: UInt, perfchanges: ConstPtr, context: ConstPtr) {
     if (windowsWdkSystemSystemservicesNapiAvailable) {
         wasmWindowssysWindowsWdkSystemSystemservicesPoFxIssueComponentPerfStateChangeMultiple(handle.rawAddress.toString(), flags.toInt(), component.toInt(), perfchangescount.toInt(), perfchanges.rawAddress.toString(), context.rawAddress.toString())
     } else {
@@ -6824,7 +6768,7 @@ public actual fun poFxIssueComponentPerfStateChangeMultiple(handle: Pohandle, fl
     }
 }
 
-public actual fun poFxNotifySurprisePowerOn(pdo: ConstPtr<DeviceObject>) {
+public actual fun poFxNotifySurprisePowerOn(pdo: ConstPtr) {
     if (windowsWdkSystemSystemservicesNapiAvailable) {
         wasmWindowssysWindowsWdkSystemSystemservicesPoFxNotifySurprisePowerOn(pdo.rawAddress.toString())
     } else {
@@ -6832,25 +6776,25 @@ public actual fun poFxNotifySurprisePowerOn(pdo: ConstPtr<DeviceObject>) {
     }
 }
 
-public actual fun poFxPowerControl(handle: Pohandle, powercontrolcode: ConstPtr<Guid>, inbuffer: ConstPtr<CVoid>, inbuffersize: ULong, outbuffer: MutPtr<CVoid>, outbuffersize: ULong, bytesreturned: MutPtr<ULong>): Ntstatus =
+public actual fun poFxPowerControl(handle: Pohandle, powercontrolcode: ConstPtr, inbuffer: ConstPtr, inbuffersize: ULong, outbuffer: MutPtr, outbuffersize: ULong, bytesreturned: MutPtr): Ntstatus =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesPoFxPowerControl(handle.rawAddress.toString(), powercontrolcode.rawAddress.toString(), inbuffer.rawAddress.toString(), inbuffersize.toString(), outbuffer.rawAddress.toString(), outbuffersize.toString(), bytesreturned.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun poFxPowerOnCrashdumpDevice(handle: Pohandle, context: ConstPtr<CVoid>): Ntstatus =
+public actual fun poFxPowerOnCrashdumpDevice(handle: Pohandle, context: ConstPtr): Ntstatus =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesPoFxPowerOnCrashdumpDevice(handle.rawAddress.toString(), context.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun poFxQueryCurrentComponentPerfState(handle: Pohandle, flags: UInt, component: UInt, setindex: UInt, currentperf: MutPtr<ULong>): Ntstatus =
+public actual fun poFxQueryCurrentComponentPerfState(handle: Pohandle, flags: UInt, component: UInt, setindex: UInt, currentperf: MutPtr): Ntstatus =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesPoFxQueryCurrentComponentPerfState(handle.rawAddress.toString(), flags.toInt(), component.toInt(), setindex.toInt(), currentperf.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun poFxRegisterComponentPerfStates(handle: Pohandle, component: UInt, flags: ULong, componentperfstatecallback: PpoFxComponentPerfStateCallback, inputstateinfo: ConstPtr<PoFxComponentPerfInfo>, outputstateinfo: MutPtr<MutPtr<PoFxComponentPerfInfo>>): Ntstatus =
+public actual fun poFxRegisterComponentPerfStates(handle: Pohandle, component: UInt, flags: ULong, componentperfstatecallback: PpoFxComponentPerfStateCallback, inputstateinfo: ConstPtr, outputstateinfo: MutPtr): Ntstatus =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesPoFxRegisterComponentPerfStates(handle.rawAddress.toString(), component.toInt(), flags.toString(), 0L.toString(), inputstateinfo.rawAddress.toString(), outputstateinfo.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun poFxRegisterCrashdumpDevice(handle: Pohandle): Ntstatus =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesPoFxRegisterCrashdumpDevice(handle.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun poFxRegisterDevice(pdo: ConstPtr<DeviceObject>, device: ConstPtr<PoFxDeviceV1>, handle: MutPtr<Pohandle>): Ntstatus =
+public actual fun poFxRegisterDevice(pdo: ConstPtr, device: ConstPtr, handle: MutPtr): Ntstatus =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesPoFxRegisterDevice(pdo.rawAddress.toString(), device.rawAddress.toString(), handle.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun poFxRegisterDripsWatchdogCallback(handle: Pohandle, callback: PpoFxDripsWatchdogCallback, includechilddevices: Boolean, matchingdriverobject: ConstPtr<DriverObject>) {
+public actual fun poFxRegisterDripsWatchdogCallback(handle: Pohandle, callback: PpoFxDripsWatchdogCallback, includechilddevices: Boolean, matchingdriverobject: ConstPtr) {
     if (windowsWdkSystemSystemservicesNapiAvailable) {
         wasmWindowssysWindowsWdkSystemSystemservicesPoFxRegisterDripsWatchdogCallback(handle.rawAddress.toString(), 0L.toString(), includechilddevices, matchingdriverobject.rawAddress.toString())
     } else {
@@ -6917,28 +6861,28 @@ public actual fun poFxUnregisterDevice(handle: Pohandle) {
     }
 }
 
-public actual fun poGetSystemWake(irp: ConstPtr<Irp>): Boolean =
+public actual fun poGetSystemWake(irp: ConstPtr): Boolean =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesPoGetSystemWake(irp.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun poGetThermalRequestSupport(thermalrequest: ConstPtr<CVoid>, type: PoThermalRequestType): Boolean =
+public actual fun poGetThermalRequestSupport(thermalrequest: ConstPtr, type: PoThermalRequestType): Boolean =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesPoGetThermalRequestSupport(thermalrequest.rawAddress.toString(), type) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun poQueryWatchdogTime(pdo: ConstPtr<DeviceObject>, secondsremaining: MutPtr<UInt>): Boolean =
+public actual fun poQueryWatchdogTime(pdo: ConstPtr, secondsremaining: MutPtr): Boolean =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesPoQueryWatchdogTime(pdo.rawAddress.toString(), secondsremaining.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun poRegisterDeviceForIdleDetection(deviceobject: ConstPtr<DeviceObject>, conservationidletime: UInt, performanceidletime: UInt, state: DevicePowerState): MutPtr<UInt> =
+public actual fun poRegisterDeviceForIdleDetection(deviceobject: ConstPtr, conservationidletime: UInt, performanceidletime: UInt, state: DevicePowerState): MutPtr =
     if (windowsWdkSystemSystemservicesNapiAvailable) MutPtr(wasmWindowssysWindowsWdkSystemSystemservicesPoRegisterDeviceForIdleDetection(deviceobject.rawAddress.toString(), conservationidletime.toInt(), performanceidletime.toInt(), state).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun poRegisterPowerSettingCallback(deviceobject: ConstPtr<DeviceObject>, settingguid: ConstPtr<Guid>, callback: PpowerSettingCallback, context: ConstPtr<CVoid>, handle: MutPtr<MutPtr<CVoid>>): Ntstatus =
+public actual fun poRegisterPowerSettingCallback(deviceobject: ConstPtr, settingguid: ConstPtr, callback: PpowerSettingCallback, context: ConstPtr, handle: MutPtr): Ntstatus =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesPoRegisterPowerSettingCallback(deviceobject.rawAddress.toString(), settingguid.rawAddress.toString(), 0L.toString(), context.rawAddress.toString(), handle.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun poRegisterSystemState(statehandle: MutPtr<CVoid>, flags: UInt): MutPtr<CVoid> =
+public actual fun poRegisterSystemState(statehandle: MutPtr, flags: UInt): MutPtr =
     if (windowsWdkSystemSystemservicesNapiAvailable) MutPtr(wasmWindowssysWindowsWdkSystemSystemservicesPoRegisterSystemState(statehandle.rawAddress.toString(), flags.toInt()).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun poRequestPowerIrp(deviceobject: ConstPtr<DeviceObject>, minorfunction: UByte, powerstate: PowerState, completionfunction: PrequestPowerComplete, context: ConstPtr<CVoid>, irp: MutPtr<MutPtr<Irp>>): Ntstatus =
+public actual fun poRequestPowerIrp(deviceobject: ConstPtr, minorfunction: UByte, powerstate: PowerState, completionfunction: PrequestPowerComplete, context: ConstPtr, irp: MutPtr): Ntstatus =
     throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun poSetDeviceBusyEx(idlepointer: MutPtr<UInt>) {
+public actual fun poSetDeviceBusyEx(idlepointer: MutPtr) {
     if (windowsWdkSystemSystemservicesNapiAvailable) {
         wasmWindowssysWindowsWdkSystemSystemservicesPoSetDeviceBusyEx(idlepointer.rawAddress.toString())
     } else {
@@ -6946,7 +6890,7 @@ public actual fun poSetDeviceBusyEx(idlepointer: MutPtr<UInt>) {
     }
 }
 
-public actual fun poSetHiberRange(memorymap: ConstPtr<CVoid>, flags: UInt, address: ConstPtr<CVoid>, length: ULong, tag: UInt) {
+public actual fun poSetHiberRange(memorymap: ConstPtr, flags: UInt, address: ConstPtr, length: ULong, tag: UInt) {
     if (windowsWdkSystemSystemservicesNapiAvailable) {
         wasmWindowssysWindowsWdkSystemSystemservicesPoSetHiberRange(memorymap.rawAddress.toString(), flags.toInt(), address.rawAddress.toString(), length.toString(), tag.toInt())
     } else {
@@ -6954,10 +6898,10 @@ public actual fun poSetHiberRange(memorymap: ConstPtr<CVoid>, flags: UInt, addre
     }
 }
 
-public actual fun poSetPowerRequest(powerrequest: MutPtr<CVoid>, type: PowerRequestType): Ntstatus =
+public actual fun poSetPowerRequest(powerrequest: MutPtr, type: PowerRequestType): Ntstatus =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesPoSetPowerRequest(powerrequest.rawAddress.toString(), type) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun poSetPowerState(deviceobject: ConstPtr<DeviceObject>, type: PowerStateType, state: PowerState): PowerState =
+public actual fun poSetPowerState(deviceobject: ConstPtr, type: PowerStateType, state: PowerState): PowerState =
     throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun poSetSystemState(flags: UInt) {
@@ -6968,7 +6912,7 @@ public actual fun poSetSystemState(flags: UInt) {
     }
 }
 
-public actual fun poSetSystemWake(irp: MutPtr<Irp>) {
+public actual fun poSetSystemWake(irp: MutPtr) {
     if (windowsWdkSystemSystemservicesNapiAvailable) {
         wasmWindowssysWindowsWdkSystemSystemservicesPoSetSystemWake(irp.rawAddress.toString())
     } else {
@@ -6976,7 +6920,7 @@ public actual fun poSetSystemWake(irp: MutPtr<Irp>) {
     }
 }
 
-public actual fun poSetSystemWakeDevice(deviceobject: ConstPtr<DeviceObject>) {
+public actual fun poSetSystemWakeDevice(deviceobject: ConstPtr) {
     if (windowsWdkSystemSystemservicesNapiAvailable) {
         wasmWindowssysWindowsWdkSystemSystemservicesPoSetSystemWakeDevice(deviceobject.rawAddress.toString())
     } else {
@@ -6984,13 +6928,13 @@ public actual fun poSetSystemWakeDevice(deviceobject: ConstPtr<DeviceObject>) {
     }
 }
 
-public actual fun poSetThermalActiveCooling(thermalrequest: MutPtr<CVoid>, engaged: Boolean): Ntstatus =
+public actual fun poSetThermalActiveCooling(thermalrequest: MutPtr, engaged: Boolean): Ntstatus =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesPoSetThermalActiveCooling(thermalrequest.rawAddress.toString(), engaged) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun poSetThermalPassiveCooling(thermalrequest: MutPtr<CVoid>, throttle: UByte): Ntstatus =
+public actual fun poSetThermalPassiveCooling(thermalrequest: MutPtr, throttle: UByte): Ntstatus =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesPoSetThermalPassiveCooling(thermalrequest.rawAddress.toString(), throttle.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun poStartDeviceBusy(idlepointer: MutPtr<UInt>) {
+public actual fun poStartDeviceBusy(idlepointer: MutPtr) {
     if (windowsWdkSystemSystemservicesNapiAvailable) {
         wasmWindowssysWindowsWdkSystemSystemservicesPoStartDeviceBusy(idlepointer.rawAddress.toString())
     } else {
@@ -6998,7 +6942,7 @@ public actual fun poStartDeviceBusy(idlepointer: MutPtr<UInt>) {
     }
 }
 
-public actual fun poStartNextPowerIrp(irp: MutPtr<Irp>) {
+public actual fun poStartNextPowerIrp(irp: MutPtr) {
     if (windowsWdkSystemSystemservicesNapiAvailable) {
         wasmWindowssysWindowsWdkSystemSystemservicesPoStartNextPowerIrp(irp.rawAddress.toString())
     } else {
@@ -7006,10 +6950,10 @@ public actual fun poStartNextPowerIrp(irp: MutPtr<Irp>) {
     }
 }
 
-public actual fun poUnregisterPowerSettingCallback(handle: MutPtr<CVoid>): Ntstatus =
+public actual fun poUnregisterPowerSettingCallback(handle: MutPtr): Ntstatus =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesPoUnregisterPowerSettingCallback(handle.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun poUnregisterSystemState(statehandle: MutPtr<CVoid>) {
+public actual fun poUnregisterSystemState(statehandle: MutPtr) {
     if (windowsWdkSystemSystemservicesNapiAvailable) {
         wasmWindowssysWindowsWdkSystemSystemservicesPoUnregisterSystemState(statehandle.rawAddress.toString())
     } else {
@@ -7017,7 +6961,7 @@ public actual fun poUnregisterSystemState(statehandle: MutPtr<CVoid>) {
     }
 }
 
-public actual fun probeForRead(address: ConstPtr<CVoid>, length: ULong, alignment: UInt) {
+public actual fun probeForRead(address: ConstPtr, length: ULong, alignment: UInt) {
     if (windowsWdkSystemSystemservicesNapiAvailable) {
         wasmWindowssysWindowsWdkSystemSystemservicesProbeForRead(address.rawAddress.toString(), length.toString(), alignment.toInt())
     } else {
@@ -7025,7 +6969,7 @@ public actual fun probeForRead(address: ConstPtr<CVoid>, length: ULong, alignmen
     }
 }
 
-public actual fun probeForWrite(address: MutPtr<CVoid>, length: ULong, alignment: UInt) {
+public actual fun probeForWrite(address: MutPtr, length: ULong, alignment: UInt) {
     if (windowsWdkSystemSystemservicesNapiAvailable) {
         wasmWindowssysWindowsWdkSystemSystemservicesProbeForWrite(address.rawAddress.toString(), length.toString(), alignment.toInt())
     } else {
@@ -7036,22 +6980,22 @@ public actual fun probeForWrite(address: MutPtr<CVoid>, length: ULong, alignment
 public actual fun psAcquireSiloHardReference(silo: Pesilo): Ntstatus =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesPsAcquireSiloHardReference(silo.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun psAllocSiloContextSlot(reserved: ULong, returnedcontextslot: MutPtr<UInt>): Ntstatus =
+public actual fun psAllocSiloContextSlot(reserved: ULong, returnedcontextslot: MutPtr): Ntstatus =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesPsAllocSiloContextSlot(reserved.toString(), returnedcontextslot.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun psAllocateAffinityToken(affinitytoken: MutPtr<PaffinityToken>): Ntstatus =
+public actual fun psAllocateAffinityToken(affinitytoken: MutPtr): Ntstatus =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesPsAllocateAffinityToken(affinitytoken.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun psAttachSiloToCurrentThread(silo: Pesilo): Pesilo =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesPsAttachSiloToCurrentThread(silo.toString()).toLong() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun psCreateSiloContext(silo: Pesilo, size: UInt, pooltype: PoolType, contextcleanupcallback: SiloContextCleanupCallback, returnedsilocontext: MutPtr<MutPtr<CVoid>>): Ntstatus =
+public actual fun psCreateSiloContext(silo: Pesilo, size: UInt, pooltype: PoolType, contextcleanupcallback: SiloContextCleanupCallback, returnedsilocontext: MutPtr): Ntstatus =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesPsCreateSiloContext(silo.toString(), size.toInt(), pooltype, 0L.toString(), returnedsilocontext.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun psCreateSystemThread(threadhandle: MutPtr<Handle>, desiredaccess: UInt, objectattributes: ConstPtr<ObjectAttributes>, processhandle: Handle, clientid: MutPtr<ClientId>, startroutine: PkstartRoutine, startcontext: ConstPtr<CVoid>): Ntstatus =
+public actual fun psCreateSystemThread(threadhandle: MutPtr, desiredaccess: UInt, objectattributes: ConstPtr, processhandle: Handle, clientid: MutPtr, startroutine: PkstartRoutine, startcontext: ConstPtr): Ntstatus =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesPsCreateSystemThread(threadhandle.rawAddress.toString(), desiredaccess.toInt(), objectattributes.rawAddress.toString(), processhandle.rawAddress.toString(), clientid.rawAddress.toString(), 0L.toString(), startcontext.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun psDereferenceSiloContext(silocontext: ConstPtr<CVoid>) {
+public actual fun psDereferenceSiloContext(silocontext: ConstPtr) {
     if (windowsWdkSystemSystemservicesNapiAvailable) {
         wasmWindowssysWindowsWdkSystemSystemservicesPsDereferenceSiloContext(silocontext.rawAddress.toString())
     } else {
@@ -7084,7 +7028,7 @@ public actual fun psGetCurrentProcessId(): Handle =
 public actual fun psGetCurrentServerSilo(): Pesilo =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesPsGetCurrentServerSilo().toLong() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun psGetCurrentServerSiloName(): MutPtr<UnicodeString> =
+public actual fun psGetCurrentServerSiloName(): MutPtr =
     if (windowsWdkSystemSystemservicesNapiAvailable) MutPtr(wasmWindowssysWindowsWdkSystemSystemservicesPsGetCurrentServerSiloName().toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun psGetCurrentSilo(): Pesilo =
@@ -7093,7 +7037,7 @@ public actual fun psGetCurrentSilo(): Pesilo =
 public actual fun psGetCurrentThreadId(): Handle =
     if (windowsWdkSystemSystemservicesNapiAvailable) MutPtr(wasmWindowssysWindowsWdkSystemSystemservicesPsGetCurrentThreadId().toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun psGetCurrentThreadTeb(): MutPtr<CVoid> =
+public actual fun psGetCurrentThreadTeb(): MutPtr =
     if (windowsWdkSystemSystemservicesNapiAvailable) MutPtr(wasmWindowssysWindowsWdkSystemSystemservicesPsGetCurrentThreadTeb().toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun psGetEffectiveServerSilo(silo: Pesilo): Pesilo =
@@ -7102,16 +7046,16 @@ public actual fun psGetEffectiveServerSilo(silo: Pesilo): Pesilo =
 public actual fun psGetHostSilo(): Pesilo =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesPsGetHostSilo().toLong() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun psGetJobServerSilo(job: Pejob, serversilo: MutPtr<Pesilo>): Ntstatus =
+public actual fun psGetJobServerSilo(job: Pejob, serversilo: MutPtr): Ntstatus =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesPsGetJobServerSilo(job.toString(), serversilo.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun psGetJobSilo(job: Pejob, silo: MutPtr<Pesilo>): Ntstatus =
+public actual fun psGetJobSilo(job: Pejob, silo: MutPtr): Ntstatus =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesPsGetJobSilo(job.toString(), silo.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun psGetParentSilo(job: Pejob): Pesilo =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesPsGetParentSilo(job.toString()).toLong() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun psGetPermanentSiloContext(silo: Pesilo, contextslot: UInt, returnedsilocontext: MutPtr<MutPtr<CVoid>>): Ntstatus =
+public actual fun psGetPermanentSiloContext(silo: Pesilo, contextslot: UInt, returnedsilocontext: MutPtr): Ntstatus =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesPsGetPermanentSiloContext(silo.toString(), contextslot.toInt(), returnedsilocontext.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun psGetProcessCreateTimeQuadPart(process: Peprocess): Long =
@@ -7129,10 +7073,10 @@ public actual fun psGetProcessStartKey(process: Peprocess): ULong =
 public actual fun psGetServerSiloServiceSessionId(silo: Pesilo): UInt =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesPsGetServerSiloServiceSessionId(silo.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun psGetSiloContainerId(silo: Pesilo): MutPtr<Guid> =
+public actual fun psGetSiloContainerId(silo: Pesilo): MutPtr =
     if (windowsWdkSystemSystemservicesNapiAvailable) MutPtr(wasmWindowssysWindowsWdkSystemSystemservicesPsGetSiloContainerId(silo.toString()).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun psGetSiloContext(silo: Pesilo, contextslot: UInt, returnedsilocontext: MutPtr<MutPtr<CVoid>>): Ntstatus =
+public actual fun psGetSiloContext(silo: Pesilo, contextslot: UInt, returnedsilocontext: MutPtr): Ntstatus =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesPsGetSiloContext(silo.toString(), contextslot.toInt(), returnedsilocontext.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun psGetSiloMonitorContextSlot(monitor: PsiloMonitor): UInt =
@@ -7150,19 +7094,19 @@ public actual fun psGetThreadId(thread: Pethread): Handle =
 public actual fun psGetThreadProcessId(thread: Pethread): Handle =
     if (windowsWdkSystemSystemservicesNapiAvailable) MutPtr(wasmWindowssysWindowsWdkSystemSystemservicesPsGetThreadProcessId(thread.toString()).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun psGetThreadProperty(thread: Pethread, key: ULong, flags: UInt): MutPtr<CVoid> =
+public actual fun psGetThreadProperty(thread: Pethread, key: ULong, flags: UInt): MutPtr =
     if (windowsWdkSystemSystemservicesNapiAvailable) MutPtr(wasmWindowssysWindowsWdkSystemSystemservicesPsGetThreadProperty(thread.toString(), key.toString(), flags.toInt()).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun psGetThreadServerSilo(thread: Pethread): Pesilo =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesPsGetThreadServerSilo(thread.toString()).toLong() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun psGetVersion(majorversion: MutPtr<UInt>, minorversion: MutPtr<UInt>, buildnumber: MutPtr<UInt>, csdversion: MutPtr<UnicodeString>): Boolean =
+public actual fun psGetVersion(majorversion: MutPtr, minorversion: MutPtr, buildnumber: MutPtr, csdversion: MutPtr): Boolean =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesPsGetVersion(majorversion.rawAddress.toString(), minorversion.rawAddress.toString(), buildnumber.rawAddress.toString(), csdversion.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun psInsertPermanentSiloContext(silo: Pesilo, contextslot: UInt, silocontext: ConstPtr<CVoid>): Ntstatus =
+public actual fun psInsertPermanentSiloContext(silo: Pesilo, contextslot: UInt, silocontext: ConstPtr): Ntstatus =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesPsInsertPermanentSiloContext(silo.toString(), contextslot.toInt(), silocontext.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun psInsertSiloContext(silo: Pesilo, contextslot: UInt, silocontext: ConstPtr<CVoid>): Ntstatus =
+public actual fun psInsertSiloContext(silo: Pesilo, contextslot: UInt, silocontext: ConstPtr): Ntstatus =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesPsInsertSiloContext(silo.toString(), contextslot.toInt(), silocontext.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun psIsCurrentThreadInServerSilo(): Boolean =
@@ -7177,10 +7121,10 @@ public actual fun psIsHostSilo(silo: Pesilo): Boolean =
 public actual fun psMakeSiloContextPermanent(silo: Pesilo, contextslot: UInt): Ntstatus =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesPsMakeSiloContextPermanent(silo.toString(), contextslot.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun psQueryTotalCycleTimeProcess(process: Peprocess, cycletimestamp: MutPtr<ULong>): ULong =
+public actual fun psQueryTotalCycleTimeProcess(process: Peprocess, cycletimestamp: MutPtr): ULong =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesPsQueryTotalCycleTimeProcess(process.toString(), cycletimestamp.rawAddress.toString()).toULong() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun psReferenceSiloContext(silocontext: ConstPtr<CVoid>) {
+public actual fun psReferenceSiloContext(silocontext: ConstPtr) {
     if (windowsWdkSystemSystemservicesNapiAvailable) {
         wasmWindowssysWindowsWdkSystemSystemservicesPsReferenceSiloContext(silocontext.rawAddress.toString())
     } else {
@@ -7188,7 +7132,7 @@ public actual fun psReferenceSiloContext(silocontext: ConstPtr<CVoid>) {
     }
 }
 
-public actual fun psRegisterSiloMonitor(registration: ConstPtr<SiloMonitorRegistration>, returnedmonitor: MutPtr<PsiloMonitor>): Ntstatus =
+public actual fun psRegisterSiloMonitor(registration: ConstPtr, returnedmonitor: MutPtr): Ntstatus =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesPsRegisterSiloMonitor(registration.rawAddress.toString(), returnedmonitor.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun psReleaseSiloHardReference(silo: Pesilo) {
@@ -7205,10 +7149,10 @@ public actual fun psRemoveCreateThreadNotifyRoutine(notifyroutine: PcreateThread
 public actual fun psRemoveLoadImageNotifyRoutine(notifyroutine: PloadImageNotifyRoutine): Ntstatus =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesPsRemoveLoadImageNotifyRoutine(0L.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun psRemoveSiloContext(silo: Pesilo, contextslot: UInt, removedsilocontext: MutPtr<MutPtr<CVoid>>): Ntstatus =
+public actual fun psRemoveSiloContext(silo: Pesilo, contextslot: UInt, removedsilocontext: MutPtr): Ntstatus =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesPsRemoveSiloContext(silo.toString(), contextslot.toInt(), removedsilocontext.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun psReplaceSiloContext(silo: Pesilo, contextslot: UInt, newsilocontext: ConstPtr<CVoid>, oldsilocontext: MutPtr<MutPtr<CVoid>>): Ntstatus =
+public actual fun psReplaceSiloContext(silo: Pesilo, contextslot: UInt, newsilocontext: ConstPtr, oldsilocontext: MutPtr): Ntstatus =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesPsReplaceSiloContext(silo.toString(), contextslot.toInt(), newsilocontext.rawAddress.toString(), oldsilocontext.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun psRevertToUserMultipleGroupAffinityThread(affinitytoken: PaffinityToken) {
@@ -7225,13 +7169,13 @@ public actual fun psSetCreateProcessNotifyRoutine(notifyroutine: PcreateProcessN
 public actual fun psSetCreateProcessNotifyRoutineEx(notifyroutine: PcreateProcessNotifyRoutineEx, remove: Boolean): Ntstatus =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesPsSetCreateProcessNotifyRoutineEx(0L.toString(), remove) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun psSetCreateProcessNotifyRoutineEx2(notifytype: Pscreateprocessnotifytype, notifyinformation: ConstPtr<CVoid>, remove: Boolean): Ntstatus =
+public actual fun psSetCreateProcessNotifyRoutineEx2(notifytype: Pscreateprocessnotifytype, notifyinformation: ConstPtr, remove: Boolean): Ntstatus =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesPsSetCreateProcessNotifyRoutineEx2(notifytype, notifyinformation.rawAddress.toString(), remove) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun psSetCreateThreadNotifyRoutine(notifyroutine: PcreateThreadNotifyRoutine): Ntstatus =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesPsSetCreateThreadNotifyRoutine(0L.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun psSetCreateThreadNotifyRoutineEx(notifytype: Pscreatethreadnotifytype, notifyinformation: ConstPtr<CVoid>): Ntstatus =
+public actual fun psSetCreateThreadNotifyRoutineEx(notifytype: Pscreatethreadnotifytype, notifyinformation: ConstPtr): Ntstatus =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesPsSetCreateThreadNotifyRoutineEx(notifytype, notifyinformation.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun psSetCurrentThreadPrefetching(prefetching: Boolean): Boolean =
@@ -7243,7 +7187,7 @@ public actual fun psSetLoadImageNotifyRoutine(notifyroutine: PloadImageNotifyRou
 public actual fun psSetLoadImageNotifyRoutineEx(notifyroutine: PloadImageNotifyRoutine, flags: ULong): Ntstatus =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesPsSetLoadImageNotifyRoutineEx(0L.toString(), flags.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun psSetSystemMultipleGroupAffinityThread(groupaffinities: ConstPtr<GroupAffinity>, groupcount: UShort, affinitytoken: PaffinityToken): Ntstatus =
+public actual fun psSetSystemMultipleGroupAffinityThread(groupaffinities: ConstPtr, groupcount: UShort, affinitytoken: PaffinityToken): Ntstatus =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesPsSetSystemMultipleGroupAffinityThread(groupaffinities.rawAddress.toString(), groupcount.toInt(), affinitytoken.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun psStartSiloMonitor(monitor: PsiloMonitor): Ntstatus =
@@ -7268,13 +7212,13 @@ public actual fun psUnregisterSiloMonitor(monitor: PsiloMonitor) {
     }
 }
 
-public actual fun psWrapApcWow64Thread(apccontext: MutPtr<MutPtr<CVoid>>, apcroutine: MutPtr<MutPtr<CVoid>>): Ntstatus =
+public actual fun psWrapApcWow64Thread(apccontext: MutPtr, apcroutine: MutPtr): Ntstatus =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesPsWrapApcWow64Thread(apccontext.rawAddress.toString(), apcroutine.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun pshedAllocateMemory(size: UInt): MutPtr<CVoid> =
+public actual fun pshedAllocateMemory(size: UInt): MutPtr =
     if (windowsWdkSystemSystemservicesNapiAvailable) MutPtr(wasmWindowssysWindowsWdkSystemSystemservicesPshedAllocateMemory(size.toInt()).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun pshedFreeMemory(address: ConstPtr<CVoid>) {
+public actual fun pshedFreeMemory(address: ConstPtr) {
     if (windowsWdkSystemSystemservicesNapiAvailable) {
         wasmWindowssysWindowsWdkSystemSystemservicesPshedFreeMemory(address.rawAddress.toString())
     } else {
@@ -7285,13 +7229,13 @@ public actual fun pshedFreeMemory(address: ConstPtr<CVoid>) {
 public actual fun pshedIsSystemWheaEnabled(): Boolean =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesPshedIsSystemWheaEnabled() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun pshedRegisterPlugin(packet: MutPtr<WheaPshedPluginRegistrationPacketV2>): Ntstatus =
+public actual fun pshedRegisterPlugin(packet: MutPtr): Ntstatus =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesPshedRegisterPlugin(packet.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun pshedSynchronizeExecution(errorsource: ConstPtr<WheaErrorSourceDescriptor>, synchronizeroutine: PksynchronizeRoutine, synchronizecontext: ConstPtr<CVoid>): Boolean =
+public actual fun pshedSynchronizeExecution(errorsource: ConstPtr, synchronizeroutine: PksynchronizeRoutine, synchronizecontext: ConstPtr): Boolean =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesPshedSynchronizeExecution(errorsource.rawAddress.toString(), 0L.toString(), synchronizecontext.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun pshedUnregisterPlugin(pluginhandle: ConstPtr<CVoid>) {
+public actual fun pshedUnregisterPlugin(pluginhandle: ConstPtr) {
     if (windowsWdkSystemSystemservicesNapiAvailable) {
         wasmWindowssysWindowsWdkSystemSystemservicesPshedUnregisterPlugin(pluginhandle.rawAddress.toString())
     } else {
@@ -7299,19 +7243,19 @@ public actual fun pshedUnregisterPlugin(pluginhandle: ConstPtr<CVoid>) {
     }
 }
 
-public actual fun rtlAppendUnicodeStringToString(destination: MutPtr<UnicodeString>, source: ConstPtr<UnicodeString>): Ntstatus =
+public actual fun rtlAppendUnicodeStringToString(destination: MutPtr, source: ConstPtr): Ntstatus =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesRtlAppendUnicodeStringToString(destination.rawAddress.toString(), source.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rtlAppendUnicodeToString(destination: MutPtr<UnicodeString>, source: Pcwstr): Ntstatus =
+public actual fun rtlAppendUnicodeToString(destination: MutPtr, source: Pcwstr): Ntstatus =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesRtlAppendUnicodeToString(destination.rawAddress.toString(), source.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rtlAreBitsClear(bitmapheader: ConstPtr<RtlBitmap>, startingindex: UInt, length: UInt): Boolean =
+public actual fun rtlAreBitsClear(bitmapheader: ConstPtr, startingindex: UInt, length: UInt): Boolean =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesRtlAreBitsClear(bitmapheader.rawAddress.toString(), startingindex.toInt(), length.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rtlAreBitsSet(bitmapheader: ConstPtr<RtlBitmap>, startingindex: UInt, length: UInt): Boolean =
+public actual fun rtlAreBitsSet(bitmapheader: ConstPtr, startingindex: UInt, length: UInt): Boolean =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesRtlAreBitsSet(bitmapheader.rawAddress.toString(), startingindex.toInt(), length.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rtlAssert(voidfailedassertion: ConstPtr<CVoid>, voidfilename: ConstPtr<CVoid>, linenumber: UInt, mutablemessage: Pcstr) {
+public actual fun rtlAssert(voidfailedassertion: ConstPtr, voidfilename: ConstPtr, linenumber: UInt, mutablemessage: Pcstr) {
     if (windowsWdkSystemSystemservicesNapiAvailable) {
         wasmWindowssysWindowsWdkSystemSystemservicesRtlAssert(voidfailedassertion.rawAddress.toString(), voidfilename.rawAddress.toString(), linenumber.toInt(), mutablemessage.rawAddress.toString())
     } else {
@@ -7322,7 +7266,7 @@ public actual fun rtlAssert(voidfailedassertion: ConstPtr<CVoid>, voidfilename: 
 public actual fun rtlCheckRegistryKey(relativeto: UInt, path: Pcwstr): Ntstatus =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesRtlCheckRegistryKey(relativeto.toInt(), path.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rtlClearAllBits(bitmapheader: ConstPtr<RtlBitmap>) {
+public actual fun rtlClearAllBits(bitmapheader: ConstPtr) {
     if (windowsWdkSystemSystemservicesNapiAvailable) {
         wasmWindowssysWindowsWdkSystemSystemservicesRtlClearAllBits(bitmapheader.rawAddress.toString())
     } else {
@@ -7330,7 +7274,7 @@ public actual fun rtlClearAllBits(bitmapheader: ConstPtr<RtlBitmap>) {
     }
 }
 
-public actual fun rtlClearBit(bitmapheader: ConstPtr<RtlBitmap>, bitnumber: UInt) {
+public actual fun rtlClearBit(bitmapheader: ConstPtr, bitnumber: UInt) {
     if (windowsWdkSystemSystemservicesNapiAvailable) {
         wasmWindowssysWindowsWdkSystemSystemservicesRtlClearBit(bitmapheader.rawAddress.toString(), bitnumber.toInt())
     } else {
@@ -7338,7 +7282,7 @@ public actual fun rtlClearBit(bitmapheader: ConstPtr<RtlBitmap>, bitnumber: UInt
     }
 }
 
-public actual fun rtlClearBits(bitmapheader: ConstPtr<RtlBitmap>, startingindex: UInt, numbertoclear: UInt) {
+public actual fun rtlClearBits(bitmapheader: ConstPtr, startingindex: UInt, numbertoclear: UInt) {
     if (windowsWdkSystemSystemservicesNapiAvailable) {
         wasmWindowssysWindowsWdkSystemSystemservicesRtlClearBits(bitmapheader.rawAddress.toString(), startingindex.toInt(), numbertoclear.toInt())
     } else {
@@ -7346,25 +7290,25 @@ public actual fun rtlClearBits(bitmapheader: ConstPtr<RtlBitmap>, startingindex:
     }
 }
 
-public actual fun rtlCmDecodeMemIoResource(descriptor: ConstPtr<CmPartialResourceDescriptor>, start: MutPtr<ULong>): ULong =
+public actual fun rtlCmDecodeMemIoResource(descriptor: ConstPtr, start: MutPtr): ULong =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesRtlCmDecodeMemIoResource(descriptor.rawAddress.toString(), start.rawAddress.toString()).toULong() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rtlCmEncodeMemIoResource(descriptor: ConstPtr<CmPartialResourceDescriptor>, type: UByte, length: ULong, start: ULong): Ntstatus =
+public actual fun rtlCmEncodeMemIoResource(descriptor: ConstPtr, type: UByte, length: ULong, start: ULong): Ntstatus =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesRtlCmEncodeMemIoResource(descriptor.rawAddress.toString(), type.toInt(), length.toString(), start.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rtlCompareString(string1: ConstPtr<io.github.kotlinmania.windowssys.windows.win32.system.kernel.String>, string2: ConstPtr<io.github.kotlinmania.windowssys.windows.win32.system.kernel.String>, caseinsensitive: Boolean): Int =
+public actual fun rtlCompareString(string1: ConstPtr, string2: ConstPtr, caseinsensitive: Boolean): Int =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesRtlCompareString(string1.rawAddress.toString(), string2.rawAddress.toString(), caseinsensitive) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rtlCompareUnicodeString(string1: ConstPtr<UnicodeString>, string2: ConstPtr<UnicodeString>, caseinsensitive: Boolean): Int =
+public actual fun rtlCompareUnicodeString(string1: ConstPtr, string2: ConstPtr, caseinsensitive: Boolean): Int =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesRtlCompareUnicodeString(string1.rawAddress.toString(), string2.rawAddress.toString(), caseinsensitive) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rtlCompareUnicodeStrings(string1: ConstPtr<UShort>, string1length: ULong, string2: ConstPtr<UShort>, string2length: ULong, caseinsensitive: Boolean): Int =
+public actual fun rtlCompareUnicodeStrings(string1: ConstPtr, string1length: ULong, string2: ConstPtr, string2length: ULong, caseinsensitive: Boolean): Int =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesRtlCompareUnicodeStrings(string1.rawAddress.toString(), string1length.toString(), string2.rawAddress.toString(), string2length.toString(), caseinsensitive) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rtlContractHashTable(hashtable: ConstPtr<RtlDynamicHashTable>): Boolean =
+public actual fun rtlContractHashTable(hashtable: ConstPtr): Boolean =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesRtlContractHashTable(hashtable.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rtlCopyBitMap(source: ConstPtr<RtlBitmap>, destination: ConstPtr<RtlBitmap>, targetbit: UInt) {
+public actual fun rtlCopyBitMap(source: ConstPtr, destination: ConstPtr, targetbit: UInt) {
     if (windowsWdkSystemSystemservicesNapiAvailable) {
         wasmWindowssysWindowsWdkSystemSystemservicesRtlCopyBitMap(source.rawAddress.toString(), destination.rawAddress.toString(), targetbit.toInt())
     } else {
@@ -7372,7 +7316,7 @@ public actual fun rtlCopyBitMap(source: ConstPtr<RtlBitmap>, destination: ConstP
     }
 }
 
-public actual fun rtlCopyString(destinationstring: MutPtr<io.github.kotlinmania.windowssys.windows.win32.system.kernel.String>, sourcestring: ConstPtr<io.github.kotlinmania.windowssys.windows.win32.system.kernel.String>) {
+public actual fun rtlCopyString(destinationstring: MutPtr, sourcestring: ConstPtr) {
     if (windowsWdkSystemSystemservicesNapiAvailable) {
         wasmWindowssysWindowsWdkSystemSystemservicesRtlCopyString(destinationstring.rawAddress.toString(), sourcestring.rawAddress.toString())
     } else {
@@ -7380,7 +7324,7 @@ public actual fun rtlCopyString(destinationstring: MutPtr<io.github.kotlinmania.
     }
 }
 
-public actual fun rtlCopyUnicodeString(destinationstring: MutPtr<UnicodeString>, sourcestring: ConstPtr<UnicodeString>) {
+public actual fun rtlCopyUnicodeString(destinationstring: MutPtr, sourcestring: ConstPtr) {
     if (windowsWdkSystemSystemservicesNapiAvailable) {
         wasmWindowssysWindowsWdkSystemSystemservicesRtlCopyUnicodeString(destinationstring.rawAddress.toString(), sourcestring.rawAddress.toString())
     } else {
@@ -7388,10 +7332,10 @@ public actual fun rtlCopyUnicodeString(destinationstring: MutPtr<UnicodeString>,
     }
 }
 
-public actual fun rtlCreateHashTable(hashtable: MutPtr<MutPtr<RtlDynamicHashTable>>, shift: UInt, flags: UInt): Boolean =
+public actual fun rtlCreateHashTable(hashtable: MutPtr, shift: UInt, flags: UInt): Boolean =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesRtlCreateHashTable(hashtable.rawAddress.toString(), shift.toInt(), flags.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rtlCreateHashTableEx(hashtable: MutPtr<MutPtr<RtlDynamicHashTable>>, initialsize: UInt, shift: UInt, flags: UInt): Boolean =
+public actual fun rtlCreateHashTableEx(hashtable: MutPtr, initialsize: UInt, shift: UInt, flags: UInt): Boolean =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesRtlCreateHashTableEx(hashtable.rawAddress.toString(), initialsize.toInt(), shift.toInt(), flags.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun rtlCreateRegistryKey(relativeto: UInt, path: Pcwstr): Ntstatus =
@@ -7400,16 +7344,16 @@ public actual fun rtlCreateRegistryKey(relativeto: UInt, path: Pcwstr): Ntstatus
 public actual fun rtlCreateSecurityDescriptor(securitydescriptor: PsecurityDescriptor, revision: UInt): Ntstatus =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesRtlCreateSecurityDescriptor(securitydescriptor.rawAddress.toString(), revision.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rtlDelete(links: ConstPtr<RtlSplayLinks>): MutPtr<RtlSplayLinks> =
+public actual fun rtlDelete(links: ConstPtr): MutPtr =
     if (windowsWdkSystemSystemservicesNapiAvailable) MutPtr(wasmWindowssysWindowsWdkSystemSystemservicesRtlDelete(links.rawAddress.toString()).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rtlDeleteElementGenericTable(table: ConstPtr<RtlGenericTable>, buffer: ConstPtr<CVoid>): Boolean =
+public actual fun rtlDeleteElementGenericTable(table: ConstPtr, buffer: ConstPtr): Boolean =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesRtlDeleteElementGenericTable(table.rawAddress.toString(), buffer.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rtlDeleteElementGenericTableAvl(table: ConstPtr<RtlAvlTable>, buffer: ConstPtr<CVoid>): Boolean =
+public actual fun rtlDeleteElementGenericTableAvl(table: ConstPtr, buffer: ConstPtr): Boolean =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesRtlDeleteElementGenericTableAvl(table.rawAddress.toString(), buffer.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rtlDeleteElementGenericTableAvlEx(table: ConstPtr<RtlAvlTable>, nodeorparent: ConstPtr<CVoid>) {
+public actual fun rtlDeleteElementGenericTableAvlEx(table: ConstPtr, nodeorparent: ConstPtr) {
     if (windowsWdkSystemSystemservicesNapiAvailable) {
         wasmWindowssysWindowsWdkSystemSystemservicesRtlDeleteElementGenericTableAvlEx(table.rawAddress.toString(), nodeorparent.rawAddress.toString())
     } else {
@@ -7417,7 +7361,7 @@ public actual fun rtlDeleteElementGenericTableAvlEx(table: ConstPtr<RtlAvlTable>
     }
 }
 
-public actual fun rtlDeleteHashTable(hashtable: ConstPtr<RtlDynamicHashTable>) {
+public actual fun rtlDeleteHashTable(hashtable: ConstPtr) {
     if (windowsWdkSystemSystemservicesNapiAvailable) {
         wasmWindowssysWindowsWdkSystemSystemservicesRtlDeleteHashTable(hashtable.rawAddress.toString())
     } else {
@@ -7425,7 +7369,7 @@ public actual fun rtlDeleteHashTable(hashtable: ConstPtr<RtlDynamicHashTable>) {
     }
 }
 
-public actual fun rtlDeleteNoSplay(links: ConstPtr<RtlSplayLinks>, root: MutPtr<MutPtr<RtlSplayLinks>>) {
+public actual fun rtlDeleteNoSplay(links: ConstPtr, root: MutPtr) {
     if (windowsWdkSystemSystemservicesNapiAvailable) {
         wasmWindowssysWindowsWdkSystemSystemservicesRtlDeleteNoSplay(links.rawAddress.toString(), root.rawAddress.toString())
     } else {
@@ -7439,7 +7383,7 @@ public actual fun rtlDeleteRegistryValue(relativeto: UInt, path: Pcwstr, valuena
 public actual fun rtlDowncaseUnicodeChar(sourcecharacter: UShort): UShort =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesRtlDowncaseUnicodeChar(sourcecharacter.toInt()).toUShort() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rtlEndEnumerationHashTable(hashtable: ConstPtr<RtlDynamicHashTable>, enumerator: MutPtr<RtlDynamicHashTableEnumerator>) {
+public actual fun rtlEndEnumerationHashTable(hashtable: ConstPtr, enumerator: MutPtr) {
     if (windowsWdkSystemSystemservicesNapiAvailable) {
         wasmWindowssysWindowsWdkSystemSystemservicesRtlEndEnumerationHashTable(hashtable.rawAddress.toString(), enumerator.rawAddress.toString())
     } else {
@@ -7447,7 +7391,7 @@ public actual fun rtlEndEnumerationHashTable(hashtable: ConstPtr<RtlDynamicHashT
     }
 }
 
-public actual fun rtlEndStrongEnumerationHashTable(hashtable: ConstPtr<RtlDynamicHashTable>, enumerator: MutPtr<RtlDynamicHashTableEnumerator>) {
+public actual fun rtlEndStrongEnumerationHashTable(hashtable: ConstPtr, enumerator: MutPtr) {
     if (windowsWdkSystemSystemservicesNapiAvailable) {
         wasmWindowssysWindowsWdkSystemSystemservicesRtlEndStrongEnumerationHashTable(hashtable.rawAddress.toString(), enumerator.rawAddress.toString())
     } else {
@@ -7455,7 +7399,7 @@ public actual fun rtlEndStrongEnumerationHashTable(hashtable: ConstPtr<RtlDynami
     }
 }
 
-public actual fun rtlEndWeakEnumerationHashTable(hashtable: ConstPtr<RtlDynamicHashTable>, enumerator: MutPtr<RtlDynamicHashTableEnumerator>) {
+public actual fun rtlEndWeakEnumerationHashTable(hashtable: ConstPtr, enumerator: MutPtr) {
     if (windowsWdkSystemSystemservicesNapiAvailable) {
         wasmWindowssysWindowsWdkSystemSystemservicesRtlEndWeakEnumerationHashTable(hashtable.rawAddress.toString(), enumerator.rawAddress.toString())
     } else {
@@ -7463,34 +7407,34 @@ public actual fun rtlEndWeakEnumerationHashTable(hashtable: ConstPtr<RtlDynamicH
     }
 }
 
-public actual fun rtlEnumerateEntryHashTable(hashtable: ConstPtr<RtlDynamicHashTable>, enumerator: MutPtr<RtlDynamicHashTableEnumerator>): MutPtr<RtlDynamicHashTableEntry> =
+public actual fun rtlEnumerateEntryHashTable(hashtable: ConstPtr, enumerator: MutPtr): MutPtr =
     if (windowsWdkSystemSystemservicesNapiAvailable) MutPtr(wasmWindowssysWindowsWdkSystemSystemservicesRtlEnumerateEntryHashTable(hashtable.rawAddress.toString(), enumerator.rawAddress.toString()).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rtlEnumerateGenericTable(table: ConstPtr<RtlGenericTable>, restart: Boolean): MutPtr<CVoid> =
+public actual fun rtlEnumerateGenericTable(table: ConstPtr, restart: Boolean): MutPtr =
     if (windowsWdkSystemSystemservicesNapiAvailable) MutPtr(wasmWindowssysWindowsWdkSystemSystemservicesRtlEnumerateGenericTable(table.rawAddress.toString(), restart).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rtlEnumerateGenericTableAvl(table: ConstPtr<RtlAvlTable>, restart: Boolean): MutPtr<CVoid> =
+public actual fun rtlEnumerateGenericTableAvl(table: ConstPtr, restart: Boolean): MutPtr =
     if (windowsWdkSystemSystemservicesNapiAvailable) MutPtr(wasmWindowssysWindowsWdkSystemSystemservicesRtlEnumerateGenericTableAvl(table.rawAddress.toString(), restart).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rtlEnumerateGenericTableLikeADirectory(table: ConstPtr<RtlAvlTable>, matchfunction: PrtlAvlMatchFunction, matchdata: ConstPtr<CVoid>, nextflag: UInt, restartkey: MutPtr<MutPtr<CVoid>>, deletecount: MutPtr<UInt>, buffer: ConstPtr<CVoid>): MutPtr<CVoid> =
+public actual fun rtlEnumerateGenericTableLikeADirectory(table: ConstPtr, matchfunction: PrtlAvlMatchFunction, matchdata: ConstPtr, nextflag: UInt, restartkey: MutPtr, deletecount: MutPtr, buffer: ConstPtr): MutPtr =
     if (windowsWdkSystemSystemservicesNapiAvailable) MutPtr(wasmWindowssysWindowsWdkSystemSystemservicesRtlEnumerateGenericTableLikeADirectory(table.rawAddress.toString(), 0L.toString(), matchdata.rawAddress.toString(), nextflag.toInt(), restartkey.rawAddress.toString(), deletecount.rawAddress.toString(), buffer.rawAddress.toString()).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rtlEnumerateGenericTableWithoutSplaying(table: ConstPtr<RtlGenericTable>, restartkey: MutPtr<MutPtr<CVoid>>): MutPtr<CVoid> =
+public actual fun rtlEnumerateGenericTableWithoutSplaying(table: ConstPtr, restartkey: MutPtr): MutPtr =
     if (windowsWdkSystemSystemservicesNapiAvailable) MutPtr(wasmWindowssysWindowsWdkSystemSystemservicesRtlEnumerateGenericTableWithoutSplaying(table.rawAddress.toString(), restartkey.rawAddress.toString()).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rtlEnumerateGenericTableWithoutSplayingAvl(table: ConstPtr<RtlAvlTable>, restartkey: MutPtr<MutPtr<CVoid>>): MutPtr<CVoid> =
+public actual fun rtlEnumerateGenericTableWithoutSplayingAvl(table: ConstPtr, restartkey: MutPtr): MutPtr =
     if (windowsWdkSystemSystemservicesNapiAvailable) MutPtr(wasmWindowssysWindowsWdkSystemSystemservicesRtlEnumerateGenericTableWithoutSplayingAvl(table.rawAddress.toString(), restartkey.rawAddress.toString()).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rtlEqualString(string1: ConstPtr<io.github.kotlinmania.windowssys.windows.win32.system.kernel.String>, string2: ConstPtr<io.github.kotlinmania.windowssys.windows.win32.system.kernel.String>, caseinsensitive: Boolean): Boolean =
+public actual fun rtlEqualString(string1: ConstPtr, string2: ConstPtr, caseinsensitive: Boolean): Boolean =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesRtlEqualString(string1.rawAddress.toString(), string2.rawAddress.toString(), caseinsensitive) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rtlEqualUnicodeString(string1: ConstPtr<UnicodeString>, string2: ConstPtr<UnicodeString>, caseinsensitive: Boolean): Boolean =
+public actual fun rtlEqualUnicodeString(string1: ConstPtr, string2: ConstPtr, caseinsensitive: Boolean): Boolean =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesRtlEqualUnicodeString(string1.rawAddress.toString(), string2.rawAddress.toString(), caseinsensitive) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rtlExpandHashTable(hashtable: ConstPtr<RtlDynamicHashTable>): Boolean =
+public actual fun rtlExpandHashTable(hashtable: ConstPtr): Boolean =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesRtlExpandHashTable(hashtable.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rtlExtractBitMap(source: ConstPtr<RtlBitmap>, destination: ConstPtr<RtlBitmap>, targetbit: UInt, numberofbits: UInt) {
+public actual fun rtlExtractBitMap(source: ConstPtr, destination: ConstPtr, targetbit: UInt, numberofbits: UInt) {
     if (windowsWdkSystemSystemservicesNapiAvailable) {
         wasmWindowssysWindowsWdkSystemSystemservicesRtlExtractBitMap(source.rawAddress.toString(), destination.rawAddress.toString(), targetbit.toInt(), numberofbits.toInt())
     } else {
@@ -7498,43 +7442,43 @@ public actual fun rtlExtractBitMap(source: ConstPtr<RtlBitmap>, destination: Con
     }
 }
 
-public actual fun rtlFindClearBits(bitmapheader: ConstPtr<RtlBitmap>, numbertofind: UInt, hintindex: UInt): UInt =
+public actual fun rtlFindClearBits(bitmapheader: ConstPtr, numbertofind: UInt, hintindex: UInt): UInt =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesRtlFindClearBits(bitmapheader.rawAddress.toString(), numbertofind.toInt(), hintindex.toInt()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rtlFindClearBitsAndSet(bitmapheader: ConstPtr<RtlBitmap>, numbertofind: UInt, hintindex: UInt): UInt =
+public actual fun rtlFindClearBitsAndSet(bitmapheader: ConstPtr, numbertofind: UInt, hintindex: UInt): UInt =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesRtlFindClearBitsAndSet(bitmapheader.rawAddress.toString(), numbertofind.toInt(), hintindex.toInt()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rtlFindClearRuns(bitmapheader: ConstPtr<RtlBitmap>, runarray: MutPtr<RtlBitmapRun>, sizeofrunarray: UInt, locatelongestruns: Boolean): UInt =
+public actual fun rtlFindClearRuns(bitmapheader: ConstPtr, runarray: MutPtr, sizeofrunarray: UInt, locatelongestruns: Boolean): UInt =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesRtlFindClearRuns(bitmapheader.rawAddress.toString(), runarray.rawAddress.toString(), sizeofrunarray.toInt(), locatelongestruns).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rtlFindClosestEncodableLength(sourcelength: ULong, targetlength: MutPtr<ULong>): Ntstatus =
+public actual fun rtlFindClosestEncodableLength(sourcelength: ULong, targetlength: MutPtr): Ntstatus =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesRtlFindClosestEncodableLength(sourcelength.toString(), targetlength.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rtlFindFirstRunClear(bitmapheader: ConstPtr<RtlBitmap>, startingindex: MutPtr<UInt>): UInt =
+public actual fun rtlFindFirstRunClear(bitmapheader: ConstPtr, startingindex: MutPtr): UInt =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesRtlFindFirstRunClear(bitmapheader.rawAddress.toString(), startingindex.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rtlFindLastBackwardRunClear(bitmapheader: ConstPtr<RtlBitmap>, fromindex: UInt, startingrunindex: MutPtr<UInt>): UInt =
+public actual fun rtlFindLastBackwardRunClear(bitmapheader: ConstPtr, fromindex: UInt, startingrunindex: MutPtr): UInt =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesRtlFindLastBackwardRunClear(bitmapheader.rawAddress.toString(), fromindex.toInt(), startingrunindex.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun rtlFindLeastSignificantBit(set: ULong): Byte =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesRtlFindLeastSignificantBit(set.toString()).toByte() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rtlFindLongestRunClear(bitmapheader: ConstPtr<RtlBitmap>, startingindex: MutPtr<UInt>): UInt =
+public actual fun rtlFindLongestRunClear(bitmapheader: ConstPtr, startingindex: MutPtr): UInt =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesRtlFindLongestRunClear(bitmapheader.rawAddress.toString(), startingindex.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun rtlFindMostSignificantBit(set: ULong): Byte =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesRtlFindMostSignificantBit(set.toString()).toByte() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rtlFindNextForwardRunClear(bitmapheader: ConstPtr<RtlBitmap>, fromindex: UInt, startingrunindex: MutPtr<UInt>): UInt =
+public actual fun rtlFindNextForwardRunClear(bitmapheader: ConstPtr, fromindex: UInt, startingrunindex: MutPtr): UInt =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesRtlFindNextForwardRunClear(bitmapheader.rawAddress.toString(), fromindex.toInt(), startingrunindex.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rtlFindSetBits(bitmapheader: ConstPtr<RtlBitmap>, numbertofind: UInt, hintindex: UInt): UInt =
+public actual fun rtlFindSetBits(bitmapheader: ConstPtr, numbertofind: UInt, hintindex: UInt): UInt =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesRtlFindSetBits(bitmapheader.rawAddress.toString(), numbertofind.toInt(), hintindex.toInt()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rtlFindSetBitsAndClear(bitmapheader: ConstPtr<RtlBitmap>, numbertofind: UInt, hintindex: UInt): UInt =
+public actual fun rtlFindSetBitsAndClear(bitmapheader: ConstPtr, numbertofind: UInt, hintindex: UInt): UInt =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesRtlFindSetBitsAndClear(bitmapheader.rawAddress.toString(), numbertofind.toInt(), hintindex.toInt()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rtlFreeUTF8String(utf8string: MutPtr<io.github.kotlinmania.windowssys.windows.win32.system.kernel.String>) {
+public actual fun rtlFreeUTF8String(utf8string: MutPtr) {
     if (windowsWdkSystemSystemservicesNapiAvailable) {
         wasmWindowssysWindowsWdkSystemSystemservicesRtlFreeUTF8String(utf8string.rawAddress.toString())
     } else {
@@ -7542,16 +7486,16 @@ public actual fun rtlFreeUTF8String(utf8string: MutPtr<io.github.kotlinmania.win
     }
 }
 
-public actual fun rtlGUIDFromString(guidstring: ConstPtr<UnicodeString>, guid: MutPtr<Guid>): Ntstatus =
+public actual fun rtlGUIDFromString(guidstring: ConstPtr, guid: MutPtr): Ntstatus =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesRtlGUIDFromString(guidstring.rawAddress.toString(), guid.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rtlGenerateClass5Guid(namespaceguid: ConstPtr<Guid>, buffer: ConstPtr<CVoid>, buffersize: UInt, guid: MutPtr<Guid>): Ntstatus =
+public actual fun rtlGenerateClass5Guid(namespaceguid: ConstPtr, buffer: ConstPtr, buffersize: UInt, guid: MutPtr): Ntstatus =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesRtlGenerateClass5Guid(namespaceguid.rawAddress.toString(), buffer.rawAddress.toString(), buffersize.toInt(), guid.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun rtlGetActiveConsoleId(): UInt =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesRtlGetActiveConsoleId().toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rtlGetCallersAddress(callersaddress: MutPtr<MutPtr<CVoid>>, callerscaller: MutPtr<MutPtr<CVoid>>) {
+public actual fun rtlGetCallersAddress(callersaddress: MutPtr, callerscaller: MutPtr) {
     if (windowsWdkSystemSystemservicesNapiAvailable) {
         wasmWindowssysWindowsWdkSystemSystemservicesRtlGetCallersAddress(callersaddress.rawAddress.toString(), callerscaller.rawAddress.toString())
     } else {
@@ -7562,43 +7506,43 @@ public actual fun rtlGetCallersAddress(callersaddress: MutPtr<MutPtr<CVoid>>, ca
 public actual fun rtlGetConsoleSessionForegroundProcessId(): ULong =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesRtlGetConsoleSessionForegroundProcessId().toULong() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rtlGetElementGenericTable(table: ConstPtr<RtlGenericTable>, i: UInt): MutPtr<CVoid> =
+public actual fun rtlGetElementGenericTable(table: ConstPtr, i: UInt): MutPtr =
     if (windowsWdkSystemSystemservicesNapiAvailable) MutPtr(wasmWindowssysWindowsWdkSystemSystemservicesRtlGetElementGenericTable(table.rawAddress.toString(), i.toInt()).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rtlGetElementGenericTableAvl(table: ConstPtr<RtlAvlTable>, i: UInt): MutPtr<CVoid> =
+public actual fun rtlGetElementGenericTableAvl(table: ConstPtr, i: UInt): MutPtr =
     if (windowsWdkSystemSystemservicesNapiAvailable) MutPtr(wasmWindowssysWindowsWdkSystemSystemservicesRtlGetElementGenericTableAvl(table.rawAddress.toString(), i.toInt()).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun rtlGetEnabledExtendedFeatures(featuremask: ULong): ULong =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesRtlGetEnabledExtendedFeatures(featuremask.toString()).toULong() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rtlGetNextEntryHashTable(hashtable: ConstPtr<RtlDynamicHashTable>, context: ConstPtr<RtlDynamicHashTableContext>): MutPtr<RtlDynamicHashTableEntry> =
+public actual fun rtlGetNextEntryHashTable(hashtable: ConstPtr, context: ConstPtr): MutPtr =
     if (windowsWdkSystemSystemservicesNapiAvailable) MutPtr(wasmWindowssysWindowsWdkSystemSystemservicesRtlGetNextEntryHashTable(hashtable.rawAddress.toString(), context.rawAddress.toString()).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rtlGetNtProductType(ntproducttype: MutPtr<NtProductType>): Boolean =
+public actual fun rtlGetNtProductType(ntproducttype: MutPtr): Boolean =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesRtlGetNtProductType(ntproducttype.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun rtlGetNtSystemRoot(): Pcwstr =
     if (windowsWdkSystemSystemservicesNapiAvailable) ConstPtr(wasmWindowssysWindowsWdkSystemSystemservicesRtlGetNtSystemRoot().toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rtlGetPersistedStateLocation(sourceid: Pcwstr, customvalue: Pcwstr, defaultpath: Pcwstr, statelocationtype: StateLocationType, targetpath: Pwstr, bufferlengthin: UInt, bufferlengthout: MutPtr<UInt>): Ntstatus =
+public actual fun rtlGetPersistedStateLocation(sourceid: Pcwstr, customvalue: Pcwstr, defaultpath: Pcwstr, statelocationtype: StateLocationType, targetpath: Pwstr, bufferlengthin: UInt, bufferlengthout: MutPtr): Ntstatus =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesRtlGetPersistedStateLocation(sourceid.rawAddress.toString(), customvalue.rawAddress.toString(), defaultpath.rawAddress.toString(), statelocationtype, targetpath.rawAddress.toString(), bufferlengthin.toInt(), bufferlengthout.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun rtlGetSuiteMask(): UInt =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesRtlGetSuiteMask().toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rtlGetVersion(lpversioninformation: MutPtr<Osversioninfow>): Ntstatus =
+public actual fun rtlGetVersion(lpversioninformation: MutPtr): Ntstatus =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesRtlGetVersion(lpversioninformation.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rtlHashUnicodeString(string: ConstPtr<UnicodeString>, caseinsensitive: Boolean, hashalgorithm: UInt, hashvalue: MutPtr<UInt>): Ntstatus =
+public actual fun rtlHashUnicodeString(string: ConstPtr, caseinsensitive: Boolean, hashalgorithm: UInt, hashvalue: MutPtr): Ntstatus =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesRtlHashUnicodeString(string.rawAddress.toString(), caseinsensitive, hashalgorithm.toInt(), hashvalue.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rtlInitEnumerationHashTable(hashtable: ConstPtr<RtlDynamicHashTable>, enumerator: MutPtr<RtlDynamicHashTableEnumerator>): Boolean =
+public actual fun rtlInitEnumerationHashTable(hashtable: ConstPtr, enumerator: MutPtr): Boolean =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesRtlInitEnumerationHashTable(hashtable.rawAddress.toString(), enumerator.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rtlInitStrongEnumerationHashTable(hashtable: ConstPtr<RtlDynamicHashTable>, enumerator: MutPtr<RtlDynamicHashTableEnumerator>): Boolean =
+public actual fun rtlInitStrongEnumerationHashTable(hashtable: ConstPtr, enumerator: MutPtr): Boolean =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesRtlInitStrongEnumerationHashTable(hashtable.rawAddress.toString(), enumerator.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rtlInitUTF8String(destinationstring: MutPtr<io.github.kotlinmania.windowssys.windows.win32.system.kernel.String>, sourcestring: ConstPtr<Byte>) {
+public actual fun rtlInitUTF8String(destinationstring: MutPtr, sourcestring: ConstPtr) {
     if (windowsWdkSystemSystemservicesNapiAvailable) {
         wasmWindowssysWindowsWdkSystemSystemservicesRtlInitUTF8String(destinationstring.rawAddress.toString(), sourcestring.rawAddress.toString())
     } else {
@@ -7606,13 +7550,13 @@ public actual fun rtlInitUTF8String(destinationstring: MutPtr<io.github.kotlinma
     }
 }
 
-public actual fun rtlInitUTF8StringEx(destinationstring: MutPtr<io.github.kotlinmania.windowssys.windows.win32.system.kernel.String>, sourcestring: ConstPtr<Byte>): Ntstatus =
+public actual fun rtlInitUTF8StringEx(destinationstring: MutPtr, sourcestring: ConstPtr): Ntstatus =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesRtlInitUTF8StringEx(destinationstring.rawAddress.toString(), sourcestring.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rtlInitWeakEnumerationHashTable(hashtable: ConstPtr<RtlDynamicHashTable>, enumerator: MutPtr<RtlDynamicHashTableEnumerator>): Boolean =
+public actual fun rtlInitWeakEnumerationHashTable(hashtable: ConstPtr, enumerator: MutPtr): Boolean =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesRtlInitWeakEnumerationHashTable(hashtable.rawAddress.toString(), enumerator.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rtlInitializeBitMap(bitmapheader: MutPtr<RtlBitmap>, bitmapbuffer: ConstPtr<UInt>, sizeofbitmap: UInt) {
+public actual fun rtlInitializeBitMap(bitmapheader: MutPtr, bitmapbuffer: ConstPtr, sizeofbitmap: UInt) {
     if (windowsWdkSystemSystemservicesNapiAvailable) {
         wasmWindowssysWindowsWdkSystemSystemservicesRtlInitializeBitMap(bitmapheader.rawAddress.toString(), bitmapbuffer.rawAddress.toString(), sizeofbitmap.toInt())
     } else {
@@ -7620,7 +7564,7 @@ public actual fun rtlInitializeBitMap(bitmapheader: MutPtr<RtlBitmap>, bitmapbuf
     }
 }
 
-public actual fun rtlInitializeGenericTable(table: MutPtr<RtlGenericTable>, compareroutine: PrtlGenericCompareRoutine, allocateroutine: PrtlGenericAllocateRoutine, freeroutine: PrtlGenericFreeRoutine, tablecontext: ConstPtr<CVoid>) {
+public actual fun rtlInitializeGenericTable(table: MutPtr, compareroutine: PrtlGenericCompareRoutine, allocateroutine: PrtlGenericAllocateRoutine, freeroutine: PrtlGenericFreeRoutine, tablecontext: ConstPtr) {
     if (windowsWdkSystemSystemservicesNapiAvailable) {
         wasmWindowssysWindowsWdkSystemSystemservicesRtlInitializeGenericTable(table.rawAddress.toString(), 0L.toString(), 0L.toString(), 0L.toString(), tablecontext.rawAddress.toString())
     } else {
@@ -7628,7 +7572,7 @@ public actual fun rtlInitializeGenericTable(table: MutPtr<RtlGenericTable>, comp
     }
 }
 
-public actual fun rtlInitializeGenericTableAvl(table: MutPtr<RtlAvlTable>, compareroutine: PrtlAvlCompareRoutine, allocateroutine: PrtlAvlAllocateRoutine, freeroutine: PrtlAvlFreeRoutine, tablecontext: ConstPtr<CVoid>) {
+public actual fun rtlInitializeGenericTableAvl(table: MutPtr, compareroutine: PrtlAvlCompareRoutine, allocateroutine: PrtlAvlAllocateRoutine, freeroutine: PrtlAvlFreeRoutine, tablecontext: ConstPtr) {
     if (windowsWdkSystemSystemservicesNapiAvailable) {
         wasmWindowssysWindowsWdkSystemSystemservicesRtlInitializeGenericTableAvl(table.rawAddress.toString(), 0L.toString(), 0L.toString(), 0L.toString(), tablecontext.rawAddress.toString())
     } else {
@@ -7636,40 +7580,40 @@ public actual fun rtlInitializeGenericTableAvl(table: MutPtr<RtlAvlTable>, compa
     }
 }
 
-public actual fun rtlInsertElementGenericTable(table: ConstPtr<RtlGenericTable>, buffer: ConstPtr<CVoid>, buffersize: UInt, newelement: MutPtr<Boolean>): MutPtr<CVoid> =
+public actual fun rtlInsertElementGenericTable(table: ConstPtr, buffer: ConstPtr, buffersize: UInt, newelement: MutPtr): MutPtr =
     if (windowsWdkSystemSystemservicesNapiAvailable) MutPtr(wasmWindowssysWindowsWdkSystemSystemservicesRtlInsertElementGenericTable(table.rawAddress.toString(), buffer.rawAddress.toString(), buffersize.toInt(), newelement.rawAddress.toString()).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rtlInsertElementGenericTableAvl(table: ConstPtr<RtlAvlTable>, buffer: ConstPtr<CVoid>, buffersize: UInt, newelement: MutPtr<Boolean>): MutPtr<CVoid> =
+public actual fun rtlInsertElementGenericTableAvl(table: ConstPtr, buffer: ConstPtr, buffersize: UInt, newelement: MutPtr): MutPtr =
     if (windowsWdkSystemSystemservicesNapiAvailable) MutPtr(wasmWindowssysWindowsWdkSystemSystemservicesRtlInsertElementGenericTableAvl(table.rawAddress.toString(), buffer.rawAddress.toString(), buffersize.toInt(), newelement.rawAddress.toString()).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rtlInsertElementGenericTableFull(table: ConstPtr<RtlGenericTable>, buffer: ConstPtr<CVoid>, buffersize: UInt, newelement: MutPtr<Boolean>, nodeorparent: ConstPtr<CVoid>, searchresult: TableSearchResult): MutPtr<CVoid> =
+public actual fun rtlInsertElementGenericTableFull(table: ConstPtr, buffer: ConstPtr, buffersize: UInt, newelement: MutPtr, nodeorparent: ConstPtr, searchresult: TableSearchResult): MutPtr =
     if (windowsWdkSystemSystemservicesNapiAvailable) MutPtr(wasmWindowssysWindowsWdkSystemSystemservicesRtlInsertElementGenericTableFull(table.rawAddress.toString(), buffer.rawAddress.toString(), buffersize.toInt(), newelement.rawAddress.toString(), nodeorparent.rawAddress.toString(), searchresult).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rtlInsertElementGenericTableFullAvl(table: ConstPtr<RtlAvlTable>, buffer: ConstPtr<CVoid>, buffersize: UInt, newelement: MutPtr<Boolean>, nodeorparent: ConstPtr<CVoid>, searchresult: TableSearchResult): MutPtr<CVoid> =
+public actual fun rtlInsertElementGenericTableFullAvl(table: ConstPtr, buffer: ConstPtr, buffersize: UInt, newelement: MutPtr, nodeorparent: ConstPtr, searchresult: TableSearchResult): MutPtr =
     if (windowsWdkSystemSystemservicesNapiAvailable) MutPtr(wasmWindowssysWindowsWdkSystemSystemservicesRtlInsertElementGenericTableFullAvl(table.rawAddress.toString(), buffer.rawAddress.toString(), buffersize.toInt(), newelement.rawAddress.toString(), nodeorparent.rawAddress.toString(), searchresult).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rtlInsertEntryHashTable(hashtable: ConstPtr<RtlDynamicHashTable>, entry: ConstPtr<RtlDynamicHashTableEntry>, signature: ULong, context: MutPtr<RtlDynamicHashTableContext>): Boolean =
+public actual fun rtlInsertEntryHashTable(hashtable: ConstPtr, entry: ConstPtr, signature: ULong, context: MutPtr): Boolean =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesRtlInsertEntryHashTable(hashtable.rawAddress.toString(), entry.rawAddress.toString(), signature.toString(), context.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rtlInt64ToUnicodeString(value: ULong, base: UInt, string: MutPtr<UnicodeString>): Ntstatus =
+public actual fun rtlInt64ToUnicodeString(value: ULong, base: UInt, string: MutPtr): Ntstatus =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesRtlInt64ToUnicodeString(value.toString(), base.toInt(), string.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rtlIntegerToUnicodeString(value: UInt, base: UInt, string: MutPtr<UnicodeString>): Ntstatus =
+public actual fun rtlIntegerToUnicodeString(value: UInt, base: UInt, string: MutPtr): Ntstatus =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesRtlIntegerToUnicodeString(value.toInt(), base.toInt(), string.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rtlIoDecodeMemIoResource(descriptor: ConstPtr<IoResourceDescriptor>, alignment: MutPtr<ULong>, minimumaddress: MutPtr<ULong>, maximumaddress: MutPtr<ULong>): ULong =
+public actual fun rtlIoDecodeMemIoResource(descriptor: ConstPtr, alignment: MutPtr, minimumaddress: MutPtr, maximumaddress: MutPtr): ULong =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesRtlIoDecodeMemIoResource(descriptor.rawAddress.toString(), alignment.rawAddress.toString(), minimumaddress.rawAddress.toString(), maximumaddress.rawAddress.toString()).toULong() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rtlIoEncodeMemIoResource(descriptor: ConstPtr<IoResourceDescriptor>, type: UByte, length: ULong, alignment: ULong, minimumaddress: ULong, maximumaddress: ULong): Ntstatus =
+public actual fun rtlIoEncodeMemIoResource(descriptor: ConstPtr, type: UByte, length: ULong, alignment: ULong, minimumaddress: ULong, maximumaddress: ULong): Ntstatus =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesRtlIoEncodeMemIoResource(descriptor.rawAddress.toString(), type.toInt(), length.toString(), alignment.toString(), minimumaddress.toString(), maximumaddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun rtlIsApiSetImplemented(apisetname: Pcstr): Ntstatus =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesRtlIsApiSetImplemented(apisetname.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rtlIsGenericTableEmpty(table: ConstPtr<RtlGenericTable>): Boolean =
+public actual fun rtlIsGenericTableEmpty(table: ConstPtr): Boolean =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesRtlIsGenericTableEmpty(table.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rtlIsGenericTableEmptyAvl(table: ConstPtr<RtlAvlTable>): Boolean =
+public actual fun rtlIsGenericTableEmptyAvl(table: ConstPtr): Boolean =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesRtlIsGenericTableEmptyAvl(table.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun rtlIsMultiSessionSku(): Boolean =
@@ -7687,31 +7631,31 @@ public actual fun rtlIsServicePackVersionInstalled(version: UInt): Boolean =
 public actual fun rtlIsStateSeparationEnabled(): Boolean =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesRtlIsStateSeparationEnabled() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rtlIsUntrustedObject(handle: Handle, obj: ConstPtr<CVoid>, untrustedobject: MutPtr<Boolean>): Ntstatus =
+public actual fun rtlIsUntrustedObject(handle: Handle, obj: ConstPtr, untrustedobject: MutPtr): Ntstatus =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesRtlIsUntrustedObject(handle.rawAddress.toString(), obj.rawAddress.toString(), untrustedobject.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun rtlLengthSecurityDescriptor(securitydescriptor: PsecurityDescriptor): UInt =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesRtlLengthSecurityDescriptor(securitydescriptor.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rtlLookupElementGenericTable(table: ConstPtr<RtlGenericTable>, buffer: ConstPtr<CVoid>): MutPtr<CVoid> =
+public actual fun rtlLookupElementGenericTable(table: ConstPtr, buffer: ConstPtr): MutPtr =
     if (windowsWdkSystemSystemservicesNapiAvailable) MutPtr(wasmWindowssysWindowsWdkSystemSystemservicesRtlLookupElementGenericTable(table.rawAddress.toString(), buffer.rawAddress.toString()).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rtlLookupElementGenericTableAvl(table: ConstPtr<RtlAvlTable>, buffer: ConstPtr<CVoid>): MutPtr<CVoid> =
+public actual fun rtlLookupElementGenericTableAvl(table: ConstPtr, buffer: ConstPtr): MutPtr =
     if (windowsWdkSystemSystemservicesNapiAvailable) MutPtr(wasmWindowssysWindowsWdkSystemSystemservicesRtlLookupElementGenericTableAvl(table.rawAddress.toString(), buffer.rawAddress.toString()).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rtlLookupElementGenericTableFull(table: ConstPtr<RtlGenericTable>, buffer: ConstPtr<CVoid>, nodeorparent: MutPtr<MutPtr<CVoid>>, searchresult: MutPtr<TableSearchResult>): MutPtr<CVoid> =
+public actual fun rtlLookupElementGenericTableFull(table: ConstPtr, buffer: ConstPtr, nodeorparent: MutPtr, searchresult: MutPtr): MutPtr =
     if (windowsWdkSystemSystemservicesNapiAvailable) MutPtr(wasmWindowssysWindowsWdkSystemSystemservicesRtlLookupElementGenericTableFull(table.rawAddress.toString(), buffer.rawAddress.toString(), nodeorparent.rawAddress.toString(), searchresult.rawAddress.toString()).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rtlLookupElementGenericTableFullAvl(table: ConstPtr<RtlAvlTable>, buffer: ConstPtr<CVoid>, nodeorparent: MutPtr<MutPtr<CVoid>>, searchresult: MutPtr<TableSearchResult>): MutPtr<CVoid> =
+public actual fun rtlLookupElementGenericTableFullAvl(table: ConstPtr, buffer: ConstPtr, nodeorparent: MutPtr, searchresult: MutPtr): MutPtr =
     if (windowsWdkSystemSystemservicesNapiAvailable) MutPtr(wasmWindowssysWindowsWdkSystemSystemservicesRtlLookupElementGenericTableFullAvl(table.rawAddress.toString(), buffer.rawAddress.toString(), nodeorparent.rawAddress.toString(), searchresult.rawAddress.toString()).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rtlLookupEntryHashTable(hashtable: ConstPtr<RtlDynamicHashTable>, signature: ULong, context: MutPtr<RtlDynamicHashTableContext>): MutPtr<RtlDynamicHashTableEntry> =
+public actual fun rtlLookupEntryHashTable(hashtable: ConstPtr, signature: ULong, context: MutPtr): MutPtr =
     if (windowsWdkSystemSystemservicesNapiAvailable) MutPtr(wasmWindowssysWindowsWdkSystemSystemservicesRtlLookupEntryHashTable(hashtable.rawAddress.toString(), signature.toString(), context.rawAddress.toString()).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rtlLookupFirstMatchingElementGenericTableAvl(table: ConstPtr<RtlAvlTable>, buffer: ConstPtr<CVoid>, restartkey: MutPtr<MutPtr<CVoid>>): MutPtr<CVoid> =
+public actual fun rtlLookupFirstMatchingElementGenericTableAvl(table: ConstPtr, buffer: ConstPtr, restartkey: MutPtr): MutPtr =
     if (windowsWdkSystemSystemservicesNapiAvailable) MutPtr(wasmWindowssysWindowsWdkSystemSystemservicesRtlLookupFirstMatchingElementGenericTableAvl(table.rawAddress.toString(), buffer.rawAddress.toString(), restartkey.rawAddress.toString()).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rtlMapGenericMask(accessmask: MutPtr<UInt>, genericmapping: ConstPtr<GenericMapping>) {
+public actual fun rtlMapGenericMask(accessmask: MutPtr, genericmapping: ConstPtr) {
     if (windowsWdkSystemSystemservicesNapiAvailable) {
         wasmWindowssysWindowsWdkSystemSystemservicesRtlMapGenericMask(accessmask.rawAddress.toString(), genericmapping.rawAddress.toString())
     } else {
@@ -7719,31 +7663,31 @@ public actual fun rtlMapGenericMask(accessmask: MutPtr<UInt>, genericmapping: Co
     }
 }
 
-public actual fun rtlNormalizeSecurityDescriptor(securitydescriptor: MutPtr<PsecurityDescriptor>, securitydescriptorlength: UInt, newsecuritydescriptor: MutPtr<PsecurityDescriptor>, newsecuritydescriptorlength: MutPtr<UInt>, checkonly: Boolean): Boolean =
+public actual fun rtlNormalizeSecurityDescriptor(securitydescriptor: MutPtr, securitydescriptorlength: UInt, newsecuritydescriptor: MutPtr, newsecuritydescriptorlength: MutPtr, checkonly: Boolean): Boolean =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesRtlNormalizeSecurityDescriptor(securitydescriptor.rawAddress.toString(), securitydescriptorlength.toInt(), newsecuritydescriptor.rawAddress.toString(), newsecuritydescriptorlength.rawAddress.toString(), checkonly) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rtlNumberGenericTableElements(table: ConstPtr<RtlGenericTable>): UInt =
+public actual fun rtlNumberGenericTableElements(table: ConstPtr): UInt =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesRtlNumberGenericTableElements(table.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rtlNumberGenericTableElementsAvl(table: ConstPtr<RtlAvlTable>): UInt =
+public actual fun rtlNumberGenericTableElementsAvl(table: ConstPtr): UInt =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesRtlNumberGenericTableElementsAvl(table.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rtlNumberOfClearBits(bitmapheader: ConstPtr<RtlBitmap>): UInt =
+public actual fun rtlNumberOfClearBits(bitmapheader: ConstPtr): UInt =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesRtlNumberOfClearBits(bitmapheader.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rtlNumberOfClearBitsInRange(bitmapheader: ConstPtr<RtlBitmap>, startingindex: UInt, length: UInt): UInt =
+public actual fun rtlNumberOfClearBitsInRange(bitmapheader: ConstPtr, startingindex: UInt, length: UInt): UInt =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesRtlNumberOfClearBitsInRange(bitmapheader.rawAddress.toString(), startingindex.toInt(), length.toInt()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rtlNumberOfSetBits(bitmapheader: ConstPtr<RtlBitmap>): UInt =
+public actual fun rtlNumberOfSetBits(bitmapheader: ConstPtr): UInt =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesRtlNumberOfSetBits(bitmapheader.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rtlNumberOfSetBitsInRange(bitmapheader: ConstPtr<RtlBitmap>, startingindex: UInt, length: UInt): UInt =
+public actual fun rtlNumberOfSetBitsInRange(bitmapheader: ConstPtr, startingindex: UInt, length: UInt): UInt =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesRtlNumberOfSetBitsInRange(bitmapheader.rawAddress.toString(), startingindex.toInt(), length.toInt()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun rtlNumberOfSetBitsUlongPtr(target: ULong): UInt =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesRtlNumberOfSetBitsUlongPtr(target.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rtlPrefetchMemoryNonTemporal(source: ConstPtr<CVoid>, length: ULong) {
+public actual fun rtlPrefetchMemoryNonTemporal(source: ConstPtr, length: ULong) {
     if (windowsWdkSystemSystemservicesNapiAvailable) {
         wasmWindowssysWindowsWdkSystemSystemservicesRtlPrefetchMemoryNonTemporal(source.rawAddress.toString(), length.toString())
     } else {
@@ -7751,37 +7695,37 @@ public actual fun rtlPrefetchMemoryNonTemporal(source: ConstPtr<CVoid>, length: 
     }
 }
 
-public actual fun rtlPrefixUnicodeString(string1: ConstPtr<UnicodeString>, string2: ConstPtr<UnicodeString>, caseinsensitive: Boolean): Boolean =
+public actual fun rtlPrefixUnicodeString(string1: ConstPtr, string2: ConstPtr, caseinsensitive: Boolean): Boolean =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesRtlPrefixUnicodeString(string1.rawAddress.toString(), string2.rawAddress.toString(), caseinsensitive) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rtlQueryRegistryValueWithFallback(primaryhandle: Handle, fallbackhandle: Handle, valuename: ConstPtr<UnicodeString>, valuelength: UInt, valuetype: MutPtr<UInt>, valuedata: MutPtr<CVoid>, resultlength: MutPtr<UInt>): Ntstatus =
+public actual fun rtlQueryRegistryValueWithFallback(primaryhandle: Handle, fallbackhandle: Handle, valuename: ConstPtr, valuelength: UInt, valuetype: MutPtr, valuedata: MutPtr, resultlength: MutPtr): Ntstatus =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesRtlQueryRegistryValueWithFallback(primaryhandle.rawAddress.toString(), fallbackhandle.rawAddress.toString(), valuename.rawAddress.toString(), valuelength.toInt(), valuetype.rawAddress.toString(), valuedata.rawAddress.toString(), resultlength.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rtlQueryRegistryValues(relativeto: UInt, path: Pcwstr, querytable: MutPtr<RtlQueryRegistryTable>, context: ConstPtr<CVoid>, environment: ConstPtr<CVoid>): Ntstatus =
+public actual fun rtlQueryRegistryValues(relativeto: UInt, path: Pcwstr, querytable: MutPtr, context: ConstPtr, environment: ConstPtr): Ntstatus =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesRtlQueryRegistryValues(relativeto.toInt(), path.rawAddress.toString(), querytable.rawAddress.toString(), context.rawAddress.toString(), environment.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rtlQueryValidationRunlevel(componentname: ConstPtr<UnicodeString>): UInt =
+public actual fun rtlQueryValidationRunlevel(componentname: ConstPtr): UInt =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesRtlQueryValidationRunlevel(componentname.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rtlRealPredecessor(links: ConstPtr<RtlSplayLinks>): MutPtr<RtlSplayLinks> =
+public actual fun rtlRealPredecessor(links: ConstPtr): MutPtr =
     if (windowsWdkSystemSystemservicesNapiAvailable) MutPtr(wasmWindowssysWindowsWdkSystemSystemservicesRtlRealPredecessor(links.rawAddress.toString()).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rtlRealSuccessor(links: ConstPtr<RtlSplayLinks>): MutPtr<RtlSplayLinks> =
+public actual fun rtlRealSuccessor(links: ConstPtr): MutPtr =
     if (windowsWdkSystemSystemservicesNapiAvailable) MutPtr(wasmWindowssysWindowsWdkSystemSystemservicesRtlRealSuccessor(links.rawAddress.toString()).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rtlRemoveEntryHashTable(hashtable: ConstPtr<RtlDynamicHashTable>, entry: ConstPtr<RtlDynamicHashTableEntry>, context: MutPtr<RtlDynamicHashTableContext>): Boolean =
+public actual fun rtlRemoveEntryHashTable(hashtable: ConstPtr, entry: ConstPtr, context: MutPtr): Boolean =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesRtlRemoveEntryHashTable(hashtable.rawAddress.toString(), entry.rawAddress.toString(), context.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rtlRunOnceBeginInitialize(runonce: MutPtr<InitOnce>, flags: UInt, context: MutPtr<MutPtr<CVoid>>): Ntstatus =
+public actual fun rtlRunOnceBeginInitialize(runonce: MutPtr, flags: UInt, context: MutPtr): Ntstatus =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesRtlRunOnceBeginInitialize(runonce.rawAddress.toString(), flags.toInt(), context.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rtlRunOnceComplete(runonce: MutPtr<InitOnce>, flags: UInt, context: ConstPtr<CVoid>): Ntstatus =
+public actual fun rtlRunOnceComplete(runonce: MutPtr, flags: UInt, context: ConstPtr): Ntstatus =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesRtlRunOnceComplete(runonce.rawAddress.toString(), flags.toInt(), context.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rtlRunOnceExecuteOnce(runonce: MutPtr<InitOnce>, initfn: PrtlRunOnceInitFn, parameter: MutPtr<CVoid>, context: MutPtr<MutPtr<CVoid>>): Ntstatus =
+public actual fun rtlRunOnceExecuteOnce(runonce: MutPtr, initfn: PrtlRunOnceInitFn, parameter: MutPtr, context: MutPtr): Ntstatus =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesRtlRunOnceExecuteOnce(runonce.rawAddress.toString(), 0L.toString(), parameter.rawAddress.toString(), context.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rtlRunOnceInitialize(runonce: MutPtr<InitOnce>) {
+public actual fun rtlRunOnceInitialize(runonce: MutPtr) {
     if (windowsWdkSystemSystemservicesNapiAvailable) {
         wasmWindowssysWindowsWdkSystemSystemservicesRtlRunOnceInitialize(runonce.rawAddress.toString())
     } else {
@@ -7789,7 +7733,7 @@ public actual fun rtlRunOnceInitialize(runonce: MutPtr<InitOnce>) {
     }
 }
 
-public actual fun rtlSetAllBits(bitmapheader: ConstPtr<RtlBitmap>) {
+public actual fun rtlSetAllBits(bitmapheader: ConstPtr) {
     if (windowsWdkSystemSystemservicesNapiAvailable) {
         wasmWindowssysWindowsWdkSystemSystemservicesRtlSetAllBits(bitmapheader.rawAddress.toString())
     } else {
@@ -7797,7 +7741,7 @@ public actual fun rtlSetAllBits(bitmapheader: ConstPtr<RtlBitmap>) {
     }
 }
 
-public actual fun rtlSetBit(bitmapheader: ConstPtr<RtlBitmap>, bitnumber: UInt) {
+public actual fun rtlSetBit(bitmapheader: ConstPtr, bitnumber: UInt) {
     if (windowsWdkSystemSystemservicesNapiAvailable) {
         wasmWindowssysWindowsWdkSystemSystemservicesRtlSetBit(bitmapheader.rawAddress.toString(), bitnumber.toInt())
     } else {
@@ -7805,7 +7749,7 @@ public actual fun rtlSetBit(bitmapheader: ConstPtr<RtlBitmap>, bitnumber: UInt) 
     }
 }
 
-public actual fun rtlSetBits(bitmapheader: ConstPtr<RtlBitmap>, startingindex: UInt, numbertoset: UInt) {
+public actual fun rtlSetBits(bitmapheader: ConstPtr, startingindex: UInt, numbertoset: UInt) {
     if (windowsWdkSystemSystemservicesNapiAvailable) {
         wasmWindowssysWindowsWdkSystemSystemservicesRtlSetBits(bitmapheader.rawAddress.toString(), startingindex.toInt(), numbertoset.toInt())
     } else {
@@ -7813,37 +7757,37 @@ public actual fun rtlSetBits(bitmapheader: ConstPtr<RtlBitmap>, startingindex: U
     }
 }
 
-public actual fun rtlSetDaclSecurityDescriptor(securitydescriptor: PsecurityDescriptor, daclpresent: Boolean, dacl: ConstPtr<Acl>, dacldefaulted: Boolean): Ntstatus =
+public actual fun rtlSetDaclSecurityDescriptor(securitydescriptor: PsecurityDescriptor, daclpresent: Boolean, dacl: ConstPtr, dacldefaulted: Boolean): Ntstatus =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesRtlSetDaclSecurityDescriptor(securitydescriptor.rawAddress.toString(), daclpresent, dacl.rawAddress.toString(), dacldefaulted) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rtlSetSystemGlobalData(dataid: RtlSystemGlobalDataId, buffer: ConstPtr<CVoid>, size: UInt): Ntstatus =
+public actual fun rtlSetSystemGlobalData(dataid: RtlSystemGlobalDataId, buffer: ConstPtr, size: UInt): Ntstatus =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesRtlSetSystemGlobalData(dataid, buffer.rawAddress.toString(), size.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rtlSplay(links: MutPtr<RtlSplayLinks>): MutPtr<RtlSplayLinks> =
+public actual fun rtlSplay(links: MutPtr): MutPtr =
     if (windowsWdkSystemSystemservicesNapiAvailable) MutPtr(wasmWindowssysWindowsWdkSystemSystemservicesRtlSplay(links.rawAddress.toString()).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rtlStringFromGUID(guid: ConstPtr<Guid>, guidstring: MutPtr<UnicodeString>): Ntstatus =
+public actual fun rtlStringFromGUID(guid: ConstPtr, guidstring: MutPtr): Ntstatus =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesRtlStringFromGUID(guid.rawAddress.toString(), guidstring.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rtlStronglyEnumerateEntryHashTable(hashtable: ConstPtr<RtlDynamicHashTable>, enumerator: MutPtr<RtlDynamicHashTableEnumerator>): MutPtr<RtlDynamicHashTableEntry> =
+public actual fun rtlStronglyEnumerateEntryHashTable(hashtable: ConstPtr, enumerator: MutPtr): MutPtr =
     if (windowsWdkSystemSystemservicesNapiAvailable) MutPtr(wasmWindowssysWindowsWdkSystemSystemservicesRtlStronglyEnumerateEntryHashTable(hashtable.rawAddress.toString(), enumerator.rawAddress.toString()).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rtlSubtreePredecessor(links: ConstPtr<RtlSplayLinks>): MutPtr<RtlSplayLinks> =
+public actual fun rtlSubtreePredecessor(links: ConstPtr): MutPtr =
     if (windowsWdkSystemSystemservicesNapiAvailable) MutPtr(wasmWindowssysWindowsWdkSystemSystemservicesRtlSubtreePredecessor(links.rawAddress.toString()).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rtlSubtreeSuccessor(links: ConstPtr<RtlSplayLinks>): MutPtr<RtlSplayLinks> =
+public actual fun rtlSubtreeSuccessor(links: ConstPtr): MutPtr =
     if (windowsWdkSystemSystemservicesNapiAvailable) MutPtr(wasmWindowssysWindowsWdkSystemSystemservicesRtlSubtreeSuccessor(links.rawAddress.toString()).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rtlSuffixUnicodeString(string1: ConstPtr<UnicodeString>, string2: ConstPtr<UnicodeString>, caseinsensitive: Boolean): Boolean =
+public actual fun rtlSuffixUnicodeString(string1: ConstPtr, string2: ConstPtr, caseinsensitive: Boolean): Boolean =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesRtlSuffixUnicodeString(string1.rawAddress.toString(), string2.rawAddress.toString(), caseinsensitive) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rtlTestBit(bitmapheader: ConstPtr<RtlBitmap>, bitnumber: UInt): Boolean =
+public actual fun rtlTestBit(bitmapheader: ConstPtr, bitnumber: UInt): Boolean =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesRtlTestBit(bitmapheader.rawAddress.toString(), bitnumber.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rtlTimeFieldsToTime(timefields: ConstPtr<TimeFields>, time: MutPtr<Long>): Boolean =
+public actual fun rtlTimeFieldsToTime(timefields: ConstPtr, time: MutPtr): Boolean =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesRtlTimeFieldsToTime(timefields.rawAddress.toString(), time.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rtlTimeToTimeFields(time: ConstPtr<Long>, timefields: MutPtr<TimeFields>) {
+public actual fun rtlTimeToTimeFields(time: ConstPtr, timefields: MutPtr) {
     if (windowsWdkSystemSystemservicesNapiAvailable) {
         wasmWindowssysWindowsWdkSystemSystemservicesRtlTimeToTimeFields(time.rawAddress.toString(), timefields.rawAddress.toString())
     } else {
@@ -7851,34 +7795,34 @@ public actual fun rtlTimeToTimeFields(time: ConstPtr<Long>, timefields: MutPtr<T
     }
 }
 
-public actual fun rtlUTF8StringToUnicodeString(destinationstring: MutPtr<UnicodeString>, sourcestring: ConstPtr<io.github.kotlinmania.windowssys.windows.win32.system.kernel.String>, allocatedestinationstring: Boolean): Ntstatus =
+public actual fun rtlUTF8StringToUnicodeString(destinationstring: MutPtr, sourcestring: ConstPtr, allocatedestinationstring: Boolean): Ntstatus =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesRtlUTF8StringToUnicodeString(destinationstring.rawAddress.toString(), sourcestring.rawAddress.toString(), allocatedestinationstring) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rtlUTF8ToUnicodeN(unicodestringdestination: Pwstr, unicodestringmaxbytecount: UInt, unicodestringactualbytecount: MutPtr<UInt>, utf8stringsource: Pcstr, utf8stringbytecount: UInt): Ntstatus =
+public actual fun rtlUTF8ToUnicodeN(unicodestringdestination: Pwstr, unicodestringmaxbytecount: UInt, unicodestringactualbytecount: MutPtr, utf8stringsource: Pcstr, utf8stringbytecount: UInt): Ntstatus =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesRtlUTF8ToUnicodeN(unicodestringdestination.rawAddress.toString(), unicodestringmaxbytecount.toInt(), unicodestringactualbytecount.rawAddress.toString(), utf8stringsource.rawAddress.toString(), utf8stringbytecount.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rtlUnicodeStringToInt64(string: ConstPtr<UnicodeString>, base: UInt, number: MutPtr<Long>, endpointer: MutPtr<Pwstr>): Ntstatus =
+public actual fun rtlUnicodeStringToInt64(string: ConstPtr, base: UInt, number: MutPtr, endpointer: MutPtr): Ntstatus =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesRtlUnicodeStringToInt64(string.rawAddress.toString(), base.toInt(), number.rawAddress.toString(), endpointer.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rtlUnicodeStringToInteger(string: ConstPtr<UnicodeString>, base: UInt, value: MutPtr<UInt>): Ntstatus =
+public actual fun rtlUnicodeStringToInteger(string: ConstPtr, base: UInt, value: MutPtr): Ntstatus =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesRtlUnicodeStringToInteger(string.rawAddress.toString(), base.toInt(), value.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rtlUnicodeStringToUTF8String(destinationstring: MutPtr<io.github.kotlinmania.windowssys.windows.win32.system.kernel.String>, sourcestring: ConstPtr<UnicodeString>, allocatedestinationstring: Boolean): Ntstatus =
+public actual fun rtlUnicodeStringToUTF8String(destinationstring: MutPtr, sourcestring: ConstPtr, allocatedestinationstring: Boolean): Ntstatus =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesRtlUnicodeStringToUTF8String(destinationstring.rawAddress.toString(), sourcestring.rawAddress.toString(), allocatedestinationstring) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rtlUnicodeToUTF8N(utf8stringdestination: Pstr, utf8stringmaxbytecount: UInt, utf8stringactualbytecount: MutPtr<UInt>, unicodestringsource: ConstPtr<UShort>, unicodestringbytecount: UInt): Ntstatus =
+public actual fun rtlUnicodeToUTF8N(utf8stringdestination: Pstr, utf8stringmaxbytecount: UInt, utf8stringactualbytecount: MutPtr, unicodestringsource: ConstPtr, unicodestringbytecount: UInt): Ntstatus =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesRtlUnicodeToUTF8N(utf8stringdestination.rawAddress.toString(), utf8stringmaxbytecount.toInt(), utf8stringactualbytecount.rawAddress.toString(), unicodestringsource.rawAddress.toString(), unicodestringbytecount.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun rtlUpcaseUnicodeChar(sourcecharacter: UShort): UShort =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesRtlUpcaseUnicodeChar(sourcecharacter.toInt()).toUShort() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rtlUpcaseUnicodeString(destinationstring: MutPtr<UnicodeString>, sourcestring: ConstPtr<UnicodeString>, allocatedestinationstring: Boolean): Ntstatus =
+public actual fun rtlUpcaseUnicodeString(destinationstring: MutPtr, sourcestring: ConstPtr, allocatedestinationstring: Boolean): Ntstatus =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesRtlUpcaseUnicodeString(destinationstring.rawAddress.toString(), sourcestring.rawAddress.toString(), allocatedestinationstring) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun rtlUpperChar(character: Byte): Byte =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesRtlUpperChar(character.toInt()).toByte() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rtlUpperString(destinationstring: MutPtr<io.github.kotlinmania.windowssys.windows.win32.system.kernel.String>, sourcestring: ConstPtr<io.github.kotlinmania.windowssys.windows.win32.system.kernel.String>) {
+public actual fun rtlUpperString(destinationstring: MutPtr, sourcestring: ConstPtr) {
     if (windowsWdkSystemSystemservicesNapiAvailable) {
         wasmWindowssysWindowsWdkSystemSystemservicesRtlUpperString(destinationstring.rawAddress.toString(), sourcestring.rawAddress.toString())
     } else {
@@ -7892,37 +7836,37 @@ public actual fun rtlValidRelativeSecurityDescriptor(securitydescriptorinput: Ps
 public actual fun rtlValidSecurityDescriptor(securitydescriptor: PsecurityDescriptor): Boolean =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesRtlValidSecurityDescriptor(securitydescriptor.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rtlVerifyVersionInfo(versioninfo: ConstPtr<Osversioninfoexw>, typemask: UInt, conditionmask: ULong): Ntstatus =
+public actual fun rtlVerifyVersionInfo(versioninfo: ConstPtr, typemask: UInt, conditionmask: ULong): Ntstatus =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesRtlVerifyVersionInfo(versioninfo.rawAddress.toString(), typemask.toInt(), conditionmask.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rtlVolumeDeviceToDosName(volumedeviceobject: ConstPtr<CVoid>, dosname: MutPtr<UnicodeString>): Ntstatus =
+public actual fun rtlVolumeDeviceToDosName(volumedeviceobject: ConstPtr, dosname: MutPtr): Ntstatus =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesRtlVolumeDeviceToDosName(volumedeviceobject.rawAddress.toString(), dosname.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rtlWalkFrameChain(callers: MutPtr<MutPtr<CVoid>>, count: UInt, flags: UInt): UInt =
+public actual fun rtlWalkFrameChain(callers: MutPtr, count: UInt, flags: UInt): UInt =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesRtlWalkFrameChain(callers.rawAddress.toString(), count.toInt(), flags.toInt()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rtlWeaklyEnumerateEntryHashTable(hashtable: ConstPtr<RtlDynamicHashTable>, enumerator: MutPtr<RtlDynamicHashTableEnumerator>): MutPtr<RtlDynamicHashTableEntry> =
+public actual fun rtlWeaklyEnumerateEntryHashTable(hashtable: ConstPtr, enumerator: MutPtr): MutPtr =
     if (windowsWdkSystemSystemservicesNapiAvailable) MutPtr(wasmWindowssysWindowsWdkSystemSystemservicesRtlWeaklyEnumerateEntryHashTable(hashtable.rawAddress.toString(), enumerator.rawAddress.toString()).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rtlWriteRegistryValue(relativeto: UInt, path: Pcwstr, valuename: Pcwstr, valuetype: UInt, valuedata: ConstPtr<CVoid>, valuelength: UInt): Ntstatus =
+public actual fun rtlWriteRegistryValue(relativeto: UInt, path: Pcwstr, valuename: Pcwstr, valuetype: UInt, valuedata: ConstPtr, valuelength: UInt): Ntstatus =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesRtlWriteRegistryValue(relativeto.toInt(), path.rawAddress.toString(), valuename.rawAddress.toString(), valuetype.toInt(), valuedata.rawAddress.toString(), valuelength.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rtlxAnsiStringToUnicodeSize(ansistring: ConstPtr<io.github.kotlinmania.windowssys.windows.win32.system.kernel.String>): UInt =
+public actual fun rtlxAnsiStringToUnicodeSize(ansistring: ConstPtr): UInt =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesRtlxAnsiStringToUnicodeSize(ansistring.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rtlxUnicodeStringToAnsiSize(unicodestring: ConstPtr<UnicodeString>): UInt =
+public actual fun rtlxUnicodeStringToAnsiSize(unicodestring: ConstPtr): UInt =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesRtlxUnicodeStringToAnsiSize(unicodestring.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun seAccessCheck(securitydescriptor: PsecurityDescriptor, subjectsecuritycontext: ConstPtr<SecuritySubjectContext>, subjectcontextlocked: Boolean, desiredaccess: UInt, previouslygrantedaccess: UInt, privileges: MutPtr<MutPtr<PrivilegeSet>>, genericmapping: ConstPtr<GenericMapping>, accessmode: Byte, grantedaccess: MutPtr<UInt>, accessstatus: MutPtr<Int>): Boolean =
+public actual fun seAccessCheck(securitydescriptor: PsecurityDescriptor, subjectsecuritycontext: ConstPtr, subjectcontextlocked: Boolean, desiredaccess: UInt, previouslygrantedaccess: UInt, privileges: MutPtr, genericmapping: ConstPtr, accessmode: Byte, grantedaccess: MutPtr, accessstatus: MutPtr): Boolean =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesSeAccessCheck(securitydescriptor.rawAddress.toString(), subjectsecuritycontext.rawAddress.toString(), subjectcontextlocked, desiredaccess.toInt(), previouslygrantedaccess.toInt(), privileges.rawAddress.toString(), genericmapping.rawAddress.toString(), accessmode.toInt(), grantedaccess.rawAddress.toString(), accessstatus.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun seAssignSecurity(parentdescriptor: PsecurityDescriptor, explicitdescriptor: PsecurityDescriptor, newdescriptor: MutPtr<PsecurityDescriptor>, isdirectoryobject: Boolean, subjectcontext: ConstPtr<SecuritySubjectContext>, genericmapping: ConstPtr<GenericMapping>, pooltype: PoolType): Ntstatus =
+public actual fun seAssignSecurity(parentdescriptor: PsecurityDescriptor, explicitdescriptor: PsecurityDescriptor, newdescriptor: MutPtr, isdirectoryobject: Boolean, subjectcontext: ConstPtr, genericmapping: ConstPtr, pooltype: PoolType): Ntstatus =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesSeAssignSecurity(parentdescriptor.rawAddress.toString(), explicitdescriptor.rawAddress.toString(), newdescriptor.rawAddress.toString(), isdirectoryobject, subjectcontext.rawAddress.toString(), genericmapping.rawAddress.toString(), pooltype) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun seAssignSecurityEx(parentdescriptor: PsecurityDescriptor, explicitdescriptor: PsecurityDescriptor, newdescriptor: MutPtr<PsecurityDescriptor>, objecttype: ConstPtr<Guid>, isdirectoryobject: Boolean, autoinheritflags: UInt, subjectcontext: ConstPtr<SecuritySubjectContext>, genericmapping: ConstPtr<GenericMapping>, pooltype: PoolType): Ntstatus =
+public actual fun seAssignSecurityEx(parentdescriptor: PsecurityDescriptor, explicitdescriptor: PsecurityDescriptor, newdescriptor: MutPtr, objecttype: ConstPtr, isdirectoryobject: Boolean, autoinheritflags: UInt, subjectcontext: ConstPtr, genericmapping: ConstPtr, pooltype: PoolType): Ntstatus =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesSeAssignSecurityEx(parentdescriptor.rawAddress.toString(), explicitdescriptor.rawAddress.toString(), newdescriptor.rawAddress.toString(), objecttype.rawAddress.toString(), isdirectoryobject, autoinheritflags.toInt(), subjectcontext.rawAddress.toString(), genericmapping.rawAddress.toString(), pooltype) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun seCaptureSubjectContext(subjectcontext: MutPtr<SecuritySubjectContext>) {
+public actual fun seCaptureSubjectContext(subjectcontext: MutPtr) {
     if (windowsWdkSystemSystemservicesNapiAvailable) {
         wasmWindowssysWindowsWdkSystemSystemservicesSeCaptureSubjectContext(subjectcontext.rawAddress.toString())
     } else {
@@ -7930,16 +7874,16 @@ public actual fun seCaptureSubjectContext(subjectcontext: MutPtr<SecuritySubject
     }
 }
 
-public actual fun seComputeAutoInheritByObjectType(objecttype: ConstPtr<CVoid>, securitydescriptor: PsecurityDescriptor, parentsecuritydescriptor: PsecurityDescriptor): UInt =
+public actual fun seComputeAutoInheritByObjectType(objecttype: ConstPtr, securitydescriptor: PsecurityDescriptor, parentsecuritydescriptor: PsecurityDescriptor): UInt =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesSeComputeAutoInheritByObjectType(objecttype.rawAddress.toString(), securitydescriptor.rawAddress.toString(), parentsecuritydescriptor.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun seDeassignSecurity(securitydescriptor: MutPtr<PsecurityDescriptor>): Ntstatus =
+public actual fun seDeassignSecurity(securitydescriptor: MutPtr): Ntstatus =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesSeDeassignSecurity(securitydescriptor.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun seEtwWriteKMCveEvent(cveid: ConstPtr<UnicodeString>, additionaldetails: ConstPtr<UnicodeString>): Ntstatus =
+public actual fun seEtwWriteKMCveEvent(cveid: ConstPtr, additionaldetails: ConstPtr): Ntstatus =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesSeEtwWriteKMCveEvent(cveid.rawAddress.toString(), additionaldetails.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun seLockSubjectContext(subjectcontext: ConstPtr<SecuritySubjectContext>) {
+public actual fun seLockSubjectContext(subjectcontext: ConstPtr) {
     if (windowsWdkSystemSystemservicesNapiAvailable) {
         wasmWindowssysWindowsWdkSystemSystemservicesSeLockSubjectContext(subjectcontext.rawAddress.toString())
     } else {
@@ -7947,10 +7891,10 @@ public actual fun seLockSubjectContext(subjectcontext: ConstPtr<SecuritySubjectC
     }
 }
 
-public actual fun seRegisterImageVerificationCallback(imagetype: SeImageType, callbacktype: SeImageVerificationCallbackType, callbackfunction: PseImageVerificationCallbackFunction, callbackcontext: ConstPtr<CVoid>, token: ConstPtr<CVoid>, callbackhandle: MutPtr<MutPtr<CVoid>>): Ntstatus =
+public actual fun seRegisterImageVerificationCallback(imagetype: SeImageType, callbacktype: SeImageVerificationCallbackType, callbackfunction: PseImageVerificationCallbackFunction, callbackcontext: ConstPtr, token: ConstPtr, callbackhandle: MutPtr): Ntstatus =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesSeRegisterImageVerificationCallback(imagetype, callbacktype, 0L.toString(), callbackcontext.rawAddress.toString(), token.rawAddress.toString(), callbackhandle.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun seReleaseSubjectContext(subjectcontext: MutPtr<SecuritySubjectContext>) {
+public actual fun seReleaseSubjectContext(subjectcontext: MutPtr) {
     if (windowsWdkSystemSystemservicesNapiAvailable) {
         wasmWindowssysWindowsWdkSystemSystemservicesSeReleaseSubjectContext(subjectcontext.rawAddress.toString())
     } else {
@@ -7958,16 +7902,16 @@ public actual fun seReleaseSubjectContext(subjectcontext: MutPtr<SecuritySubject
     }
 }
 
-public actual fun seReportSecurityEvent(flags: UInt, sourcename: ConstPtr<UnicodeString>, usersid: Psid, auditparameters: ConstPtr<SeAdtParameterArray>): Ntstatus =
+public actual fun seReportSecurityEvent(flags: UInt, sourcename: ConstPtr, usersid: Psid, auditparameters: ConstPtr): Ntstatus =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesSeReportSecurityEvent(flags.toInt(), sourcename.rawAddress.toString(), usersid.rawAddress.toString(), auditparameters.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun seSetAuditParameter(auditparameters: MutPtr<SeAdtParameterArray>, type: SeAdtParameterType, index: UInt, data: ConstPtr<CVoid>): Ntstatus =
+public actual fun seSetAuditParameter(auditparameters: MutPtr, type: SeAdtParameterType, index: UInt, data: ConstPtr): Ntstatus =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesSeSetAuditParameter(auditparameters.rawAddress.toString(), type, index.toInt(), data.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun seSinglePrivilegeCheck(privilegevalue: Luid, previousmode: Byte): Boolean =
     throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun seUnlockSubjectContext(subjectcontext: ConstPtr<SecuritySubjectContext>) {
+public actual fun seUnlockSubjectContext(subjectcontext: ConstPtr) {
     if (windowsWdkSystemSystemservicesNapiAvailable) {
         wasmWindowssysWindowsWdkSystemSystemservicesSeUnlockSubjectContext(subjectcontext.rawAddress.toString())
     } else {
@@ -7975,7 +7919,7 @@ public actual fun seUnlockSubjectContext(subjectcontext: ConstPtr<SecuritySubjec
     }
 }
 
-public actual fun seUnregisterImageVerificationCallback(callbackhandle: ConstPtr<CVoid>) {
+public actual fun seUnregisterImageVerificationCallback(callbackhandle: ConstPtr) {
     if (windowsWdkSystemSystemservicesNapiAvailable) {
         wasmWindowssysWindowsWdkSystemSystemservicesSeUnregisterImageVerificationCallback(callbackhandle.rawAddress.toString())
     } else {
@@ -7986,25 +7930,25 @@ public actual fun seUnregisterImageVerificationCallback(callbackhandle: ConstPtr
 public actual fun seValidSecurityDescriptor(length: UInt, securitydescriptor: PsecurityDescriptor): Boolean =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesSeValidSecurityDescriptor(length.toInt(), securitydescriptor.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun tmCommitComplete(enlistment: ConstPtr<Kenlistment>, tmvirtualclock: ConstPtr<Long>): Ntstatus =
+public actual fun tmCommitComplete(enlistment: ConstPtr, tmvirtualclock: ConstPtr): Ntstatus =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesTmCommitComplete(enlistment.rawAddress.toString(), tmvirtualclock.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun tmCommitEnlistment(enlistment: ConstPtr<Kenlistment>, tmvirtualclock: ConstPtr<Long>): Ntstatus =
+public actual fun tmCommitEnlistment(enlistment: ConstPtr, tmvirtualclock: ConstPtr): Ntstatus =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesTmCommitEnlistment(enlistment.rawAddress.toString(), tmvirtualclock.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun tmCommitTransaction(transaction: ConstPtr<Ktransaction>, wait: Boolean): Ntstatus =
+public actual fun tmCommitTransaction(transaction: ConstPtr, wait: Boolean): Ntstatus =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesTmCommitTransaction(transaction.rawAddress.toString(), wait) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun tmCreateEnlistment(enlistmenthandle: MutPtr<Handle>, previousmode: Byte, desiredaccess: UInt, objectattributes: ConstPtr<ObjectAttributes>, resourcemanager: ConstPtr<Long>, transaction: ConstPtr<Ktransaction>, createoptions: UInt, notificationmask: UInt, enlistmentkey: ConstPtr<CVoid>): Ntstatus =
+public actual fun tmCreateEnlistment(enlistmenthandle: MutPtr, previousmode: Byte, desiredaccess: UInt, objectattributes: ConstPtr, resourcemanager: ConstPtr, transaction: ConstPtr, createoptions: UInt, notificationmask: UInt, enlistmentkey: ConstPtr): Ntstatus =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesTmCreateEnlistment(enlistmenthandle.rawAddress.toString(), previousmode.toInt(), desiredaccess.toInt(), objectattributes.rawAddress.toString(), resourcemanager.rawAddress.toString(), transaction.rawAddress.toString(), createoptions.toInt(), notificationmask.toInt(), enlistmentkey.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun tmDereferenceEnlistmentKey(enlistment: ConstPtr<Kenlistment>, lastreference: MutPtr<Boolean>): Ntstatus =
+public actual fun tmDereferenceEnlistmentKey(enlistment: ConstPtr, lastreference: MutPtr): Ntstatus =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesTmDereferenceEnlistmentKey(enlistment.rawAddress.toString(), lastreference.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun tmEnableCallbacks(resourcemanager: ConstPtr<Kresourcemanager>, callbackroutine: PtmRmNotification, rmkey: ConstPtr<CVoid>): Ntstatus =
+public actual fun tmEnableCallbacks(resourcemanager: ConstPtr, callbackroutine: PtmRmNotification, rmkey: ConstPtr): Ntstatus =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesTmEnableCallbacks(resourcemanager.rawAddress.toString(), 0L.toString(), rmkey.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun tmGetTransactionId(transaction: ConstPtr<Ktransaction>, transactionid: MutPtr<Guid>) {
+public actual fun tmGetTransactionId(transaction: ConstPtr, transactionid: MutPtr) {
     if (windowsWdkSystemSystemservicesNapiAvailable) {
         wasmWindowssysWindowsWdkSystemSystemservicesTmGetTransactionId(transaction.rawAddress.toString(), transactionid.rawAddress.toString())
     } else {
@@ -8012,85 +7956,85 @@ public actual fun tmGetTransactionId(transaction: ConstPtr<Ktransaction>, transa
     }
 }
 
-public actual fun tmInitializeTransactionManager(transactionmanager: ConstPtr<Long>, logfilename: ConstPtr<UnicodeString>, tmid: ConstPtr<Guid>, createoptions: UInt): Ntstatus =
+public actual fun tmInitializeTransactionManager(transactionmanager: ConstPtr, logfilename: ConstPtr, tmid: ConstPtr, createoptions: UInt): Ntstatus =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesTmInitializeTransactionManager(transactionmanager.rawAddress.toString(), logfilename.rawAddress.toString(), tmid.rawAddress.toString(), createoptions.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun tmIsTransactionActive(transaction: ConstPtr<Ktransaction>): Boolean =
+public actual fun tmIsTransactionActive(transaction: ConstPtr): Boolean =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesTmIsTransactionActive(transaction.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun tmPrePrepareComplete(enlistment: ConstPtr<Kenlistment>, tmvirtualclock: ConstPtr<Long>): Ntstatus =
+public actual fun tmPrePrepareComplete(enlistment: ConstPtr, tmvirtualclock: ConstPtr): Ntstatus =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesTmPrePrepareComplete(enlistment.rawAddress.toString(), tmvirtualclock.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun tmPrePrepareEnlistment(enlistment: ConstPtr<Kenlistment>, tmvirtualclock: ConstPtr<Long>): Ntstatus =
+public actual fun tmPrePrepareEnlistment(enlistment: ConstPtr, tmvirtualclock: ConstPtr): Ntstatus =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesTmPrePrepareEnlistment(enlistment.rawAddress.toString(), tmvirtualclock.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun tmPrepareComplete(enlistment: ConstPtr<Kenlistment>, tmvirtualclock: ConstPtr<Long>): Ntstatus =
+public actual fun tmPrepareComplete(enlistment: ConstPtr, tmvirtualclock: ConstPtr): Ntstatus =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesTmPrepareComplete(enlistment.rawAddress.toString(), tmvirtualclock.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun tmPrepareEnlistment(enlistment: ConstPtr<Kenlistment>, tmvirtualclock: ConstPtr<Long>): Ntstatus =
+public actual fun tmPrepareEnlistment(enlistment: ConstPtr, tmvirtualclock: ConstPtr): Ntstatus =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesTmPrepareEnlistment(enlistment.rawAddress.toString(), tmvirtualclock.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun tmPropagationComplete(resourcemanager: ConstPtr<Kresourcemanager>, requestcookie: UInt, bufferlength: UInt, buffer: ConstPtr<CVoid>): Ntstatus =
+public actual fun tmPropagationComplete(resourcemanager: ConstPtr, requestcookie: UInt, bufferlength: UInt, buffer: ConstPtr): Ntstatus =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesTmPropagationComplete(resourcemanager.rawAddress.toString(), requestcookie.toInt(), bufferlength.toInt(), buffer.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun tmPropagationFailed(resourcemanager: ConstPtr<Kresourcemanager>, requestcookie: UInt, status: Ntstatus): Ntstatus =
+public actual fun tmPropagationFailed(resourcemanager: ConstPtr, requestcookie: UInt, status: Ntstatus): Ntstatus =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesTmPropagationFailed(resourcemanager.rawAddress.toString(), requestcookie.toInt(), status) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun tmReadOnlyEnlistment(enlistment: ConstPtr<Kenlistment>, tmvirtualclock: ConstPtr<Long>): Ntstatus =
+public actual fun tmReadOnlyEnlistment(enlistment: ConstPtr, tmvirtualclock: ConstPtr): Ntstatus =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesTmReadOnlyEnlistment(enlistment.rawAddress.toString(), tmvirtualclock.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun tmRecoverEnlistment(enlistment: ConstPtr<Kenlistment>, enlistmentkey: ConstPtr<CVoid>): Ntstatus =
+public actual fun tmRecoverEnlistment(enlistment: ConstPtr, enlistmentkey: ConstPtr): Ntstatus =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesTmRecoverEnlistment(enlistment.rawAddress.toString(), enlistmentkey.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun tmRecoverResourceManager(resourcemanager: ConstPtr<Kresourcemanager>): Ntstatus =
+public actual fun tmRecoverResourceManager(resourcemanager: ConstPtr): Ntstatus =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesTmRecoverResourceManager(resourcemanager.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun tmRecoverTransactionManager(tm: ConstPtr<Ktm>, targetvirtualclock: ConstPtr<Long>): Ntstatus =
+public actual fun tmRecoverTransactionManager(tm: ConstPtr, targetvirtualclock: ConstPtr): Ntstatus =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesTmRecoverTransactionManager(tm.rawAddress.toString(), targetvirtualclock.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun tmReferenceEnlistmentKey(enlistment: ConstPtr<Kenlistment>, key: MutPtr<MutPtr<CVoid>>): Ntstatus =
+public actual fun tmReferenceEnlistmentKey(enlistment: ConstPtr, key: MutPtr): Ntstatus =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesTmReferenceEnlistmentKey(enlistment.rawAddress.toString(), key.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun tmRenameTransactionManager(logfilename: ConstPtr<UnicodeString>, existingtransactionmanagerguid: ConstPtr<Guid>): Ntstatus =
+public actual fun tmRenameTransactionManager(logfilename: ConstPtr, existingtransactionmanagerguid: ConstPtr): Ntstatus =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesTmRenameTransactionManager(logfilename.rawAddress.toString(), existingtransactionmanagerguid.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun tmRequestOutcomeEnlistment(enlistment: ConstPtr<Kenlistment>, tmvirtualclock: ConstPtr<Long>): Ntstatus =
+public actual fun tmRequestOutcomeEnlistment(enlistment: ConstPtr, tmvirtualclock: ConstPtr): Ntstatus =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesTmRequestOutcomeEnlistment(enlistment.rawAddress.toString(), tmvirtualclock.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun tmRollbackComplete(enlistment: ConstPtr<Kenlistment>, tmvirtualclock: ConstPtr<Long>): Ntstatus =
+public actual fun tmRollbackComplete(enlistment: ConstPtr, tmvirtualclock: ConstPtr): Ntstatus =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesTmRollbackComplete(enlistment.rawAddress.toString(), tmvirtualclock.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun tmRollbackEnlistment(enlistment: ConstPtr<Kenlistment>, tmvirtualclock: ConstPtr<Long>): Ntstatus =
+public actual fun tmRollbackEnlistment(enlistment: ConstPtr, tmvirtualclock: ConstPtr): Ntstatus =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesTmRollbackEnlistment(enlistment.rawAddress.toString(), tmvirtualclock.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun tmRollbackTransaction(transaction: ConstPtr<Ktransaction>, wait: Boolean): Ntstatus =
+public actual fun tmRollbackTransaction(transaction: ConstPtr, wait: Boolean): Ntstatus =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesTmRollbackTransaction(transaction.rawAddress.toString(), wait) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun tmSinglePhaseReject(enlistment: ConstPtr<Kenlistment>, tmvirtualclock: ConstPtr<Long>): Ntstatus =
+public actual fun tmSinglePhaseReject(enlistment: ConstPtr, tmvirtualclock: ConstPtr): Ntstatus =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesTmSinglePhaseReject(enlistment.rawAddress.toString(), tmvirtualclock.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun vslCreateSecureSection(handle: MutPtr<Handle>, targetprocess: Peprocess, mdl: ConstPtr<Mdl>, devicepageprotection: UInt, attributes: UInt): Ntstatus =
+public actual fun vslCreateSecureSection(handle: MutPtr, targetprocess: Peprocess, mdl: ConstPtr, devicepageprotection: UInt, attributes: UInt): Ntstatus =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesVslCreateSecureSection(handle.rawAddress.toString(), targetprocess.toString(), mdl.rawAddress.toString(), devicepageprotection.toInt(), attributes.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun vslDeleteSecureSection(globalhandle: Handle): Ntstatus =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesVslDeleteSecureSection(globalhandle.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun wheaAddErrorSource(errorsource: ConstPtr<WheaErrorSourceDescriptor>, context: ConstPtr<CVoid>): Ntstatus =
+public actual fun wheaAddErrorSource(errorsource: ConstPtr, context: ConstPtr): Ntstatus =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesWheaAddErrorSource(errorsource.rawAddress.toString(), context.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun wheaAddErrorSourceDeviceDriver(context: MutPtr<CVoid>, configuration: ConstPtr<WheaErrorSourceConfigurationDeviceDriver>, numberpreallocatederrorreports: UInt): Ntstatus =
+public actual fun wheaAddErrorSourceDeviceDriver(context: MutPtr, configuration: ConstPtr, numberpreallocatederrorreports: UInt): Ntstatus =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesWheaAddErrorSourceDeviceDriver(context.rawAddress.toString(), configuration.rawAddress.toString(), numberpreallocatederrorreports.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun wheaAddErrorSourceDeviceDriverV1(context: MutPtr<CVoid>, configuration: ConstPtr<WheaErrorSourceConfigurationDeviceDriver>, numbufferstopreallocate: UInt, maxdatalength: UInt): Ntstatus =
+public actual fun wheaAddErrorSourceDeviceDriverV1(context: MutPtr, configuration: ConstPtr, numbufferstopreallocate: UInt, maxdatalength: UInt): Ntstatus =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesWheaAddErrorSourceDeviceDriverV1(context.rawAddress.toString(), configuration.rawAddress.toString(), numbufferstopreallocate.toInt(), maxdatalength.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun wheaAddHwErrorReportSectionDeviceDriver(errorhandle: ConstPtr<CVoid>, sectiondatalength: UInt, bufferset: MutPtr<WheaDriverBufferSet>): Ntstatus =
+public actual fun wheaAddHwErrorReportSectionDeviceDriver(errorhandle: ConstPtr, sectiondatalength: UInt, bufferset: MutPtr): Ntstatus =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesWheaAddHwErrorReportSectionDeviceDriver(errorhandle.rawAddress.toString(), sectiondatalength.toInt(), bufferset.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun wheaConfigureErrorSource(sourcetype: WheaErrorSourceType, configuration: ConstPtr<WheaErrorSourceConfiguration>): Ntstatus =
+public actual fun wheaConfigureErrorSource(sourcetype: WheaErrorSourceType, configuration: ConstPtr): Ntstatus =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesWheaConfigureErrorSource(sourcetype, configuration.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun wheaCreateHwErrorReportDeviceDriver(errorsourceid: UInt, deviceobject: ConstPtr<DeviceObject>): MutPtr<CVoid> =
+public actual fun wheaCreateHwErrorReportDeviceDriver(errorsourceid: UInt, deviceobject: ConstPtr): MutPtr =
     if (windowsWdkSystemSystemservicesNapiAvailable) MutPtr(wasmWindowssysWindowsWdkSystemSystemservicesWheaCreateHwErrorReportDeviceDriver(errorsourceid.toInt(), deviceobject.rawAddress.toString()).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun wheaErrorSourceGetState(errorsourceid: UInt): WheaErrorSourceState =
@@ -8099,7 +8043,7 @@ public actual fun wheaErrorSourceGetState(errorsourceid: UInt): WheaErrorSourceS
 public actual fun wheaGetNotifyAllOfflinesPolicy(): Boolean =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesWheaGetNotifyAllOfflinesPolicy() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun wheaHighIrqlLogSelEventHandlerRegister(handler: PfnWheaHighIrqlLogSelEventHandler, context: ConstPtr<CVoid>): Boolean =
+public actual fun wheaHighIrqlLogSelEventHandlerRegister(handler: PfnWheaHighIrqlLogSelEventHandler, context: ConstPtr): Boolean =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesWheaHighIrqlLogSelEventHandlerRegister(0L.toString(), context.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun wheaHighIrqlLogSelEventHandlerUnregister() {
@@ -8110,25 +8054,25 @@ public actual fun wheaHighIrqlLogSelEventHandlerUnregister() {
     }
 }
 
-public actual fun wheaHwErrorReportAbandonDeviceDriver(errorhandle: ConstPtr<CVoid>): Ntstatus =
+public actual fun wheaHwErrorReportAbandonDeviceDriver(errorhandle: ConstPtr): Ntstatus =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesWheaHwErrorReportAbandonDeviceDriver(errorhandle.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun wheaHwErrorReportSetSectionNameDeviceDriver(bufferset: ConstPtr<WheaDriverBufferSet>, namelength: UInt, name: ConstPtr<UByte>): Ntstatus =
+public actual fun wheaHwErrorReportSetSectionNameDeviceDriver(bufferset: ConstPtr, namelength: UInt, name: ConstPtr): Ntstatus =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesWheaHwErrorReportSetSectionNameDeviceDriver(bufferset.rawAddress.toString(), namelength.toInt(), name.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun wheaHwErrorReportSetSeverityDeviceDriver(errorhandle: ConstPtr<CVoid>, errorseverity: WheaErrorSeverity): Ntstatus =
+public actual fun wheaHwErrorReportSetSeverityDeviceDriver(errorhandle: ConstPtr, errorseverity: WheaErrorSeverity): Ntstatus =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesWheaHwErrorReportSetSeverityDeviceDriver(errorhandle.rawAddress.toString(), errorseverity) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun wheaHwErrorReportSubmitDeviceDriver(errorhandle: ConstPtr<CVoid>): Ntstatus =
+public actual fun wheaHwErrorReportSubmitDeviceDriver(errorhandle: ConstPtr): Ntstatus =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesWheaHwErrorReportSubmitDeviceDriver(errorhandle.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun wheaInitializeRecordHeader(header: MutPtr<WheaErrorRecordHeader>): Ntstatus =
+public actual fun wheaInitializeRecordHeader(header: MutPtr): Ntstatus =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesWheaInitializeRecordHeader(header.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun wheaIsCriticalState(): Boolean =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesWheaIsCriticalState() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun wheaLogInternalEvent(entry: ConstPtr<WheaEventLogEntry>) {
+public actual fun wheaLogInternalEvent(entry: ConstPtr) {
     if (windowsWdkSystemSystemservicesNapiAvailable) {
         wasmWindowssysWindowsWdkSystemSystemservicesWheaLogInternalEvent(entry.rawAddress.toString())
     } else {
@@ -8136,7 +8080,7 @@ public actual fun wheaLogInternalEvent(entry: ConstPtr<WheaEventLogEntry>) {
     }
 }
 
-public actual fun wheaRegisterInUsePageOfflineNotification(callback: PfnInUsePageOfflineNotify, context: ConstPtr<CVoid>): Ntstatus =
+public actual fun wheaRegisterInUsePageOfflineNotification(callback: PfnInUsePageOfflineNotify, context: ConstPtr): Ntstatus =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesWheaRegisterInUsePageOfflineNotification(0L.toString(), context.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun wheaRemoveErrorSource(errorsourceid: UInt) {
@@ -8150,10 +8094,10 @@ public actual fun wheaRemoveErrorSource(errorsourceid: UInt) {
 public actual fun wheaRemoveErrorSourceDeviceDriver(errorsourceid: UInt): Ntstatus =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesWheaRemoveErrorSourceDeviceDriver(errorsourceid.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun wheaReportHwError(errorpacket: MutPtr<WheaErrorPacketV2>): Ntstatus =
+public actual fun wheaReportHwError(errorpacket: MutPtr): Ntstatus =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesWheaReportHwError(errorpacket.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun wheaReportHwErrorDeviceDriver(errorsourceid: UInt, deviceobject: ConstPtr<DeviceObject>, errordata: ConstPtr<UByte>, errordatalength: UInt, sectiontypeguid: ConstPtr<Guid>, errorseverity: WheaErrorSeverity, devicefriendlyname: Pcstr): Ntstatus =
+public actual fun wheaReportHwErrorDeviceDriver(errorsourceid: UInt, deviceobject: ConstPtr, errordata: ConstPtr, errordatalength: UInt, sectiontypeguid: ConstPtr, errorseverity: WheaErrorSeverity, devicefriendlyname: Pcstr): Ntstatus =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesWheaReportHwErrorDeviceDriver(errorsourceid.toInt(), deviceobject.rawAddress.toString(), errordata.rawAddress.toString(), errordatalength.toInt(), sectiontypeguid.rawAddress.toString(), errorseverity, devicefriendlyname.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun wheaUnconfigureErrorSource(sourcetype: WheaErrorSourceType): Ntstatus =
@@ -8162,130 +8106,130 @@ public actual fun wheaUnconfigureErrorSource(sourcetype: WheaErrorSourceType): N
 public actual fun wheaUnregisterInUsePageOfflineNotification(callback: PfnInUsePageOfflineNotify): Ntstatus =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesWheaUnregisterInUsePageOfflineNotification(0L.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun wmiQueryTraceInformation(traceinformationclass: TraceInformationClass, traceinformation: MutPtr<CVoid>, traceinformationlength: UInt, requiredlength: MutPtr<UInt>, buffer: ConstPtr<CVoid>): Ntstatus =
+public actual fun wmiQueryTraceInformation(traceinformationclass: TraceInformationClass, traceinformation: MutPtr, traceinformationlength: UInt, requiredlength: MutPtr, buffer: ConstPtr): Ntstatus =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesWmiQueryTraceInformation(traceinformationclass, traceinformation.rawAddress.toString(), traceinformationlength.toInt(), requiredlength.rawAddress.toString(), buffer.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun zwAllocateLocallyUniqueId(luid: MutPtr<Luid>): Ntstatus =
+public actual fun zwAllocateLocallyUniqueId(luid: MutPtr): Ntstatus =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesZwAllocateLocallyUniqueId(luid.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun zwClose(handle: Handle): Ntstatus =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesZwClose(handle.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun zwCommitComplete(enlistmenthandle: Handle, tmvirtualclock: ConstPtr<Long>): Ntstatus =
+public actual fun zwCommitComplete(enlistmenthandle: Handle, tmvirtualclock: ConstPtr): Ntstatus =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesZwCommitComplete(enlistmenthandle.rawAddress.toString(), tmvirtualclock.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun zwCommitEnlistment(enlistmenthandle: Handle, tmvirtualclock: ConstPtr<Long>): Ntstatus =
+public actual fun zwCommitEnlistment(enlistmenthandle: Handle, tmvirtualclock: ConstPtr): Ntstatus =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesZwCommitEnlistment(enlistmenthandle.rawAddress.toString(), tmvirtualclock.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun zwCommitTransaction(transactionhandle: Handle, wait: Boolean): Ntstatus =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesZwCommitTransaction(transactionhandle.rawAddress.toString(), wait) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun zwCreateEnlistment(enlistmenthandle: MutPtr<Handle>, desiredaccess: UInt, resourcemanagerhandle: Handle, transactionhandle: Handle, objectattributes: ConstPtr<ObjectAttributes>, createoptions: UInt, notificationmask: UInt, enlistmentkey: ConstPtr<CVoid>): Ntstatus =
+public actual fun zwCreateEnlistment(enlistmenthandle: MutPtr, desiredaccess: UInt, resourcemanagerhandle: Handle, transactionhandle: Handle, objectattributes: ConstPtr, createoptions: UInt, notificationmask: UInt, enlistmentkey: ConstPtr): Ntstatus =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesZwCreateEnlistment(enlistmenthandle.rawAddress.toString(), desiredaccess.toInt(), resourcemanagerhandle.rawAddress.toString(), transactionhandle.rawAddress.toString(), objectattributes.rawAddress.toString(), createoptions.toInt(), notificationmask.toInt(), enlistmentkey.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun zwCreateFile(filehandle: MutPtr<Handle>, desiredaccess: UInt, objectattributes: ConstPtr<ObjectAttributes>, iostatusblock: MutPtr<IoStatusBlock>, allocationsize: ConstPtr<Long>, fileattributes: UInt, shareaccess: UInt, createdisposition: UInt, createoptions: UInt, eabuffer: ConstPtr<CVoid>, ealength: UInt): Ntstatus =
+public actual fun zwCreateFile(filehandle: MutPtr, desiredaccess: UInt, objectattributes: ConstPtr, iostatusblock: MutPtr, allocationsize: ConstPtr, fileattributes: UInt, shareaccess: UInt, createdisposition: UInt, createoptions: UInt, eabuffer: ConstPtr, ealength: UInt): Ntstatus =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesZwCreateFile(filehandle.rawAddress.toString(), desiredaccess.toInt(), objectattributes.rawAddress.toString(), iostatusblock.rawAddress.toString(), allocationsize.rawAddress.toString(), fileattributes.toInt(), shareaccess.toInt(), createdisposition.toInt(), createoptions.toInt(), eabuffer.rawAddress.toString(), ealength.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun zwCreateResourceManager(resourcemanagerhandle: MutPtr<Handle>, desiredaccess: UInt, tmhandle: Handle, resourcemanagerguid: ConstPtr<Guid>, objectattributes: ConstPtr<ObjectAttributes>, createoptions: UInt, description: ConstPtr<UnicodeString>): Ntstatus =
+public actual fun zwCreateResourceManager(resourcemanagerhandle: MutPtr, desiredaccess: UInt, tmhandle: Handle, resourcemanagerguid: ConstPtr, objectattributes: ConstPtr, createoptions: UInt, description: ConstPtr): Ntstatus =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesZwCreateResourceManager(resourcemanagerhandle.rawAddress.toString(), desiredaccess.toInt(), tmhandle.rawAddress.toString(), resourcemanagerguid.rawAddress.toString(), objectattributes.rawAddress.toString(), createoptions.toInt(), description.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun zwCreateSection(sectionhandle: MutPtr<Handle>, desiredaccess: UInt, objectattributes: ConstPtr<ObjectAttributes>, maximumsize: ConstPtr<Long>, sectionpageprotection: UInt, allocationattributes: UInt, filehandle: Handle): Ntstatus =
+public actual fun zwCreateSection(sectionhandle: MutPtr, desiredaccess: UInt, objectattributes: ConstPtr, maximumsize: ConstPtr, sectionpageprotection: UInt, allocationattributes: UInt, filehandle: Handle): Ntstatus =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesZwCreateSection(sectionhandle.rawAddress.toString(), desiredaccess.toInt(), objectattributes.rawAddress.toString(), maximumsize.rawAddress.toString(), sectionpageprotection.toInt(), allocationattributes.toInt(), filehandle.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun zwCreateTransaction(transactionhandle: MutPtr<Handle>, desiredaccess: UInt, objectattributes: ConstPtr<ObjectAttributes>, uow: ConstPtr<Guid>, tmhandle: Handle, createoptions: UInt, isolationlevel: UInt, isolationflags: UInt, timeout: ConstPtr<Long>, description: ConstPtr<UnicodeString>): Ntstatus =
+public actual fun zwCreateTransaction(transactionhandle: MutPtr, desiredaccess: UInt, objectattributes: ConstPtr, uow: ConstPtr, tmhandle: Handle, createoptions: UInt, isolationlevel: UInt, isolationflags: UInt, timeout: ConstPtr, description: ConstPtr): Ntstatus =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesZwCreateTransaction(transactionhandle.rawAddress.toString(), desiredaccess.toInt(), objectattributes.rawAddress.toString(), uow.rawAddress.toString(), tmhandle.rawAddress.toString(), createoptions.toInt(), isolationlevel.toInt(), isolationflags.toInt(), timeout.rawAddress.toString(), description.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun zwCreateTransactionManager(tmhandle: MutPtr<Handle>, desiredaccess: UInt, objectattributes: ConstPtr<ObjectAttributes>, logfilename: ConstPtr<UnicodeString>, createoptions: UInt, commitstrength: UInt): Ntstatus =
+public actual fun zwCreateTransactionManager(tmhandle: MutPtr, desiredaccess: UInt, objectattributes: ConstPtr, logfilename: ConstPtr, createoptions: UInt, commitstrength: UInt): Ntstatus =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesZwCreateTransactionManager(tmhandle.rawAddress.toString(), desiredaccess.toInt(), objectattributes.rawAddress.toString(), logfilename.rawAddress.toString(), createoptions.toInt(), commitstrength.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun zwDeviceIoControlFile(filehandle: Handle, event: Handle, apcroutine: PioApcRoutine, apccontext: ConstPtr<CVoid>, iostatusblock: MutPtr<IoStatusBlock>, iocontrolcode: UInt, inputbuffer: ConstPtr<CVoid>, inputbufferlength: UInt, outputbuffer: MutPtr<CVoid>, outputbufferlength: UInt): Ntstatus =
+public actual fun zwDeviceIoControlFile(filehandle: Handle, event: Handle, apcroutine: PioApcRoutine, apccontext: ConstPtr, iostatusblock: MutPtr, iocontrolcode: UInt, inputbuffer: ConstPtr, inputbufferlength: UInt, outputbuffer: MutPtr, outputbufferlength: UInt): Ntstatus =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesZwDeviceIoControlFile(filehandle.rawAddress.toString(), event.rawAddress.toString(), 0L.toString(), apccontext.rawAddress.toString(), iostatusblock.rawAddress.toString(), iocontrolcode.toInt(), inputbuffer.rawAddress.toString(), inputbufferlength.toInt(), outputbuffer.rawAddress.toString(), outputbufferlength.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun zwDisplayString(string: ConstPtr<UnicodeString>): Ntstatus =
+public actual fun zwDisplayString(string: ConstPtr): Ntstatus =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesZwDisplayString(string.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun zwEnumerateTransactionObject(rootobjecthandle: Handle, querytype: KtmobjectType, objectcursor: MutPtr<KtmobjectCursor>, objectcursorlength: UInt, returnlength: MutPtr<UInt>): Ntstatus =
+public actual fun zwEnumerateTransactionObject(rootobjecthandle: Handle, querytype: KtmobjectType, objectcursor: MutPtr, objectcursorlength: UInt, returnlength: MutPtr): Ntstatus =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesZwEnumerateTransactionObject(rootobjecthandle.rawAddress.toString(), querytype, objectcursor.rawAddress.toString(), objectcursorlength.toInt(), returnlength.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun zwGetNotificationResourceManager(resourcemanagerhandle: Handle, transactionnotification: MutPtr<TransactionNotification>, notificationlength: UInt, timeout: ConstPtr<Long>, returnlength: MutPtr<UInt>, asynchronous: UInt, asynchronouscontext: ULong): Ntstatus =
+public actual fun zwGetNotificationResourceManager(resourcemanagerhandle: Handle, transactionnotification: MutPtr, notificationlength: UInt, timeout: ConstPtr, returnlength: MutPtr, asynchronous: UInt, asynchronouscontext: ULong): Ntstatus =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesZwGetNotificationResourceManager(resourcemanagerhandle.rawAddress.toString(), transactionnotification.rawAddress.toString(), notificationlength.toInt(), timeout.rawAddress.toString(), returnlength.rawAddress.toString(), asynchronous.toInt(), asynchronouscontext.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun zwLoadDriver(driverservicename: ConstPtr<UnicodeString>): Ntstatus =
+public actual fun zwLoadDriver(driverservicename: ConstPtr): Ntstatus =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesZwLoadDriver(driverservicename.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun zwMakeTemporaryObject(handle: Handle): Ntstatus =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesZwMakeTemporaryObject(handle.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun zwManagePartition(targethandle: Handle, sourcehandle: Handle, partitioninformationclass: PartitionInformationClass, partitioninformation: MutPtr<CVoid>, partitioninformationlength: UInt): Ntstatus =
+public actual fun zwManagePartition(targethandle: Handle, sourcehandle: Handle, partitioninformationclass: PartitionInformationClass, partitioninformation: MutPtr, partitioninformationlength: UInt): Ntstatus =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesZwManagePartition(targethandle.rawAddress.toString(), sourcehandle.rawAddress.toString(), partitioninformationclass, partitioninformation.rawAddress.toString(), partitioninformationlength.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun zwOpenEnlistment(enlistmenthandle: MutPtr<Handle>, desiredaccess: UInt, rmhandle: Handle, enlistmentguid: ConstPtr<Guid>, objectattributes: ConstPtr<ObjectAttributes>): Ntstatus =
+public actual fun zwOpenEnlistment(enlistmenthandle: MutPtr, desiredaccess: UInt, rmhandle: Handle, enlistmentguid: ConstPtr, objectattributes: ConstPtr): Ntstatus =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesZwOpenEnlistment(enlistmenthandle.rawAddress.toString(), desiredaccess.toInt(), rmhandle.rawAddress.toString(), enlistmentguid.rawAddress.toString(), objectattributes.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun zwOpenFile(filehandle: MutPtr<Handle>, desiredaccess: UInt, objectattributes: ConstPtr<ObjectAttributes>, iostatusblock: MutPtr<IoStatusBlock>, shareaccess: UInt, openoptions: UInt): Ntstatus =
+public actual fun zwOpenFile(filehandle: MutPtr, desiredaccess: UInt, objectattributes: ConstPtr, iostatusblock: MutPtr, shareaccess: UInt, openoptions: UInt): Ntstatus =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesZwOpenFile(filehandle.rawAddress.toString(), desiredaccess.toInt(), objectattributes.rawAddress.toString(), iostatusblock.rawAddress.toString(), shareaccess.toInt(), openoptions.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun zwOpenResourceManager(resourcemanagerhandle: MutPtr<Handle>, desiredaccess: UInt, tmhandle: Handle, resourcemanagerguid: ConstPtr<Guid>, objectattributes: ConstPtr<ObjectAttributes>): Ntstatus =
+public actual fun zwOpenResourceManager(resourcemanagerhandle: MutPtr, desiredaccess: UInt, tmhandle: Handle, resourcemanagerguid: ConstPtr, objectattributes: ConstPtr): Ntstatus =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesZwOpenResourceManager(resourcemanagerhandle.rawAddress.toString(), desiredaccess.toInt(), tmhandle.rawAddress.toString(), resourcemanagerguid.rawAddress.toString(), objectattributes.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun zwOpenSymbolicLinkObject(linkhandle: MutPtr<Handle>, desiredaccess: UInt, objectattributes: ConstPtr<ObjectAttributes>): Ntstatus =
+public actual fun zwOpenSymbolicLinkObject(linkhandle: MutPtr, desiredaccess: UInt, objectattributes: ConstPtr): Ntstatus =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesZwOpenSymbolicLinkObject(linkhandle.rawAddress.toString(), desiredaccess.toInt(), objectattributes.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun zwOpenTransaction(transactionhandle: MutPtr<Handle>, desiredaccess: UInt, objectattributes: ConstPtr<ObjectAttributes>, uow: ConstPtr<Guid>, tmhandle: Handle): Ntstatus =
+public actual fun zwOpenTransaction(transactionhandle: MutPtr, desiredaccess: UInt, objectattributes: ConstPtr, uow: ConstPtr, tmhandle: Handle): Ntstatus =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesZwOpenTransaction(transactionhandle.rawAddress.toString(), desiredaccess.toInt(), objectattributes.rawAddress.toString(), uow.rawAddress.toString(), tmhandle.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun zwOpenTransactionManager(tmhandle: MutPtr<Handle>, desiredaccess: UInt, objectattributes: ConstPtr<ObjectAttributes>, logfilename: ConstPtr<UnicodeString>, tmidentity: ConstPtr<Guid>, openoptions: UInt): Ntstatus =
+public actual fun zwOpenTransactionManager(tmhandle: MutPtr, desiredaccess: UInt, objectattributes: ConstPtr, logfilename: ConstPtr, tmidentity: ConstPtr, openoptions: UInt): Ntstatus =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesZwOpenTransactionManager(tmhandle.rawAddress.toString(), desiredaccess.toInt(), objectattributes.rawAddress.toString(), logfilename.rawAddress.toString(), tmidentity.rawAddress.toString(), openoptions.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun zwPowerInformation(informationlevel: PowerInformationLevel, inputbuffer: ConstPtr<CVoid>, inputbufferlength: UInt, outputbuffer: MutPtr<CVoid>, outputbufferlength: UInt): Ntstatus =
+public actual fun zwPowerInformation(informationlevel: PowerInformationLevel, inputbuffer: ConstPtr, inputbufferlength: UInt, outputbuffer: MutPtr, outputbufferlength: UInt): Ntstatus =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesZwPowerInformation(informationlevel, inputbuffer.rawAddress.toString(), inputbufferlength.toInt(), outputbuffer.rawAddress.toString(), outputbufferlength.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun zwPrePrepareComplete(enlistmenthandle: Handle, tmvirtualclock: ConstPtr<Long>): Ntstatus =
+public actual fun zwPrePrepareComplete(enlistmenthandle: Handle, tmvirtualclock: ConstPtr): Ntstatus =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesZwPrePrepareComplete(enlistmenthandle.rawAddress.toString(), tmvirtualclock.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun zwPrePrepareEnlistment(enlistmenthandle: Handle, tmvirtualclock: ConstPtr<Long>): Ntstatus =
+public actual fun zwPrePrepareEnlistment(enlistmenthandle: Handle, tmvirtualclock: ConstPtr): Ntstatus =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesZwPrePrepareEnlistment(enlistmenthandle.rawAddress.toString(), tmvirtualclock.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun zwPrepareComplete(enlistmenthandle: Handle, tmvirtualclock: ConstPtr<Long>): Ntstatus =
+public actual fun zwPrepareComplete(enlistmenthandle: Handle, tmvirtualclock: ConstPtr): Ntstatus =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesZwPrepareComplete(enlistmenthandle.rawAddress.toString(), tmvirtualclock.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun zwPrepareEnlistment(enlistmenthandle: Handle, tmvirtualclock: ConstPtr<Long>): Ntstatus =
+public actual fun zwPrepareEnlistment(enlistmenthandle: Handle, tmvirtualclock: ConstPtr): Ntstatus =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesZwPrepareEnlistment(enlistmenthandle.rawAddress.toString(), tmvirtualclock.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun zwPropagationComplete(resourcemanagerhandle: Handle, requestcookie: UInt, bufferlength: UInt, buffer: ConstPtr<CVoid>): Ntstatus =
+public actual fun zwPropagationComplete(resourcemanagerhandle: Handle, requestcookie: UInt, bufferlength: UInt, buffer: ConstPtr): Ntstatus =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesZwPropagationComplete(resourcemanagerhandle.rawAddress.toString(), requestcookie.toInt(), bufferlength.toInt(), buffer.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun zwPropagationFailed(resourcemanagerhandle: Handle, requestcookie: UInt, propstatus: Ntstatus): Ntstatus =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesZwPropagationFailed(resourcemanagerhandle.rawAddress.toString(), requestcookie.toInt(), propstatus) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun zwQueryInformationByName(objectattributes: ConstPtr<ObjectAttributes>, iostatusblock: MutPtr<IoStatusBlock>, fileinformation: MutPtr<CVoid>, length: UInt, fileinformationclass: FileInformationClass): Ntstatus =
+public actual fun zwQueryInformationByName(objectattributes: ConstPtr, iostatusblock: MutPtr, fileinformation: MutPtr, length: UInt, fileinformationclass: FileInformationClass): Ntstatus =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesZwQueryInformationByName(objectattributes.rawAddress.toString(), iostatusblock.rawAddress.toString(), fileinformation.rawAddress.toString(), length.toInt(), fileinformationclass) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun zwQueryInformationEnlistment(enlistmenthandle: Handle, enlistmentinformationclass: EnlistmentInformationClass, enlistmentinformation: MutPtr<CVoid>, enlistmentinformationlength: UInt, returnlength: MutPtr<UInt>): Ntstatus =
+public actual fun zwQueryInformationEnlistment(enlistmenthandle: Handle, enlistmentinformationclass: EnlistmentInformationClass, enlistmentinformation: MutPtr, enlistmentinformationlength: UInt, returnlength: MutPtr): Ntstatus =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesZwQueryInformationEnlistment(enlistmenthandle.rawAddress.toString(), enlistmentinformationclass, enlistmentinformation.rawAddress.toString(), enlistmentinformationlength.toInt(), returnlength.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun zwQueryInformationFile(filehandle: Handle, iostatusblock: MutPtr<IoStatusBlock>, fileinformation: MutPtr<CVoid>, length: UInt, fileinformationclass: FileInformationClass): Ntstatus =
+public actual fun zwQueryInformationFile(filehandle: Handle, iostatusblock: MutPtr, fileinformation: MutPtr, length: UInt, fileinformationclass: FileInformationClass): Ntstatus =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesZwQueryInformationFile(filehandle.rawAddress.toString(), iostatusblock.rawAddress.toString(), fileinformation.rawAddress.toString(), length.toInt(), fileinformationclass) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun zwQueryInformationResourceManager(resourcemanagerhandle: Handle, resourcemanagerinformationclass: ResourcemanagerInformationClass, resourcemanagerinformation: MutPtr<CVoid>, resourcemanagerinformationlength: UInt, returnlength: MutPtr<UInt>): Ntstatus =
+public actual fun zwQueryInformationResourceManager(resourcemanagerhandle: Handle, resourcemanagerinformationclass: ResourcemanagerInformationClass, resourcemanagerinformation: MutPtr, resourcemanagerinformationlength: UInt, returnlength: MutPtr): Ntstatus =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesZwQueryInformationResourceManager(resourcemanagerhandle.rawAddress.toString(), resourcemanagerinformationclass, resourcemanagerinformation.rawAddress.toString(), resourcemanagerinformationlength.toInt(), returnlength.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun zwQueryInformationTransaction(transactionhandle: Handle, transactioninformationclass: TransactionInformationClass, transactioninformation: MutPtr<CVoid>, transactioninformationlength: UInt, returnlength: MutPtr<UInt>): Ntstatus =
+public actual fun zwQueryInformationTransaction(transactionhandle: Handle, transactioninformationclass: TransactionInformationClass, transactioninformation: MutPtr, transactioninformationlength: UInt, returnlength: MutPtr): Ntstatus =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesZwQueryInformationTransaction(transactionhandle.rawAddress.toString(), transactioninformationclass, transactioninformation.rawAddress.toString(), transactioninformationlength.toInt(), returnlength.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun zwQueryInformationTransactionManager(transactionmanagerhandle: Handle, transactionmanagerinformationclass: TransactionmanagerInformationClass, transactionmanagerinformation: MutPtr<CVoid>, transactionmanagerinformationlength: UInt, returnlength: MutPtr<UInt>): Ntstatus =
+public actual fun zwQueryInformationTransactionManager(transactionmanagerhandle: Handle, transactionmanagerinformationclass: TransactionmanagerInformationClass, transactionmanagerinformation: MutPtr, transactionmanagerinformationlength: UInt, returnlength: MutPtr): Ntstatus =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesZwQueryInformationTransactionManager(transactionmanagerhandle.rawAddress.toString(), transactionmanagerinformationclass, transactionmanagerinformation.rawAddress.toString(), transactionmanagerinformationlength.toInt(), returnlength.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun zwQuerySymbolicLinkObject(linkhandle: Handle, linktarget: MutPtr<UnicodeString>, returnedlength: MutPtr<UInt>): Ntstatus =
+public actual fun zwQuerySymbolicLinkObject(linkhandle: Handle, linktarget: MutPtr, returnedlength: MutPtr): Ntstatus =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesZwQuerySymbolicLinkObject(linkhandle.rawAddress.toString(), linktarget.rawAddress.toString(), returnedlength.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun zwReadFile(filehandle: Handle, event: Handle, apcroutine: PioApcRoutine, apccontext: ConstPtr<CVoid>, iostatusblock: MutPtr<IoStatusBlock>, buffer: MutPtr<CVoid>, length: UInt, byteoffset: ConstPtr<Long>, key: ConstPtr<UInt>): Ntstatus =
+public actual fun zwReadFile(filehandle: Handle, event: Handle, apcroutine: PioApcRoutine, apccontext: ConstPtr, iostatusblock: MutPtr, buffer: MutPtr, length: UInt, byteoffset: ConstPtr, key: ConstPtr): Ntstatus =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesZwReadFile(filehandle.rawAddress.toString(), event.rawAddress.toString(), 0L.toString(), apccontext.rawAddress.toString(), iostatusblock.rawAddress.toString(), buffer.rawAddress.toString(), length.toInt(), byteoffset.rawAddress.toString(), key.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun zwReadOnlyEnlistment(enlistmenthandle: Handle, tmvirtualclock: ConstPtr<Long>): Ntstatus =
+public actual fun zwReadOnlyEnlistment(enlistmenthandle: Handle, tmvirtualclock: ConstPtr): Ntstatus =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesZwReadOnlyEnlistment(enlistmenthandle.rawAddress.toString(), tmvirtualclock.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun zwRecoverEnlistment(enlistmenthandle: Handle, enlistmentkey: ConstPtr<CVoid>): Ntstatus =
+public actual fun zwRecoverEnlistment(enlistmenthandle: Handle, enlistmentkey: ConstPtr): Ntstatus =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesZwRecoverEnlistment(enlistmenthandle.rawAddress.toString(), enlistmentkey.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun zwRecoverResourceManager(resourcemanagerhandle: Handle): Ntstatus =
@@ -8294,50 +8238,50 @@ public actual fun zwRecoverResourceManager(resourcemanagerhandle: Handle): Ntsta
 public actual fun zwRecoverTransactionManager(transactionmanagerhandle: Handle): Ntstatus =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesZwRecoverTransactionManager(transactionmanagerhandle.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun zwRegisterProtocolAddressInformation(resourcemanager: Handle, protocolid: ConstPtr<Guid>, protocolinformationsize: UInt, protocolinformation: ConstPtr<CVoid>, createoptions: UInt): Ntstatus =
+public actual fun zwRegisterProtocolAddressInformation(resourcemanager: Handle, protocolid: ConstPtr, protocolinformationsize: UInt, protocolinformation: ConstPtr, createoptions: UInt): Ntstatus =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesZwRegisterProtocolAddressInformation(resourcemanager.rawAddress.toString(), protocolid.rawAddress.toString(), protocolinformationsize.toInt(), protocolinformation.rawAddress.toString(), createoptions.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun zwRenameTransactionManager(logfilename: ConstPtr<UnicodeString>, existingtransactionmanagerguid: ConstPtr<Guid>): Ntstatus =
+public actual fun zwRenameTransactionManager(logfilename: ConstPtr, existingtransactionmanagerguid: ConstPtr): Ntstatus =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesZwRenameTransactionManager(logfilename.rawAddress.toString(), existingtransactionmanagerguid.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun zwRollbackComplete(enlistmenthandle: Handle, tmvirtualclock: ConstPtr<Long>): Ntstatus =
+public actual fun zwRollbackComplete(enlistmenthandle: Handle, tmvirtualclock: ConstPtr): Ntstatus =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesZwRollbackComplete(enlistmenthandle.rawAddress.toString(), tmvirtualclock.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun zwRollbackEnlistment(enlistmenthandle: Handle, tmvirtualclock: ConstPtr<Long>): Ntstatus =
+public actual fun zwRollbackEnlistment(enlistmenthandle: Handle, tmvirtualclock: ConstPtr): Ntstatus =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesZwRollbackEnlistment(enlistmenthandle.rawAddress.toString(), tmvirtualclock.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun zwRollbackTransaction(transactionhandle: Handle, wait: Boolean): Ntstatus =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesZwRollbackTransaction(transactionhandle.rawAddress.toString(), wait) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun zwRollforwardTransactionManager(transactionmanagerhandle: Handle, tmvirtualclock: ConstPtr<Long>): Ntstatus =
+public actual fun zwRollforwardTransactionManager(transactionmanagerhandle: Handle, tmvirtualclock: ConstPtr): Ntstatus =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesZwRollforwardTransactionManager(transactionmanagerhandle.rawAddress.toString(), tmvirtualclock.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun zwSetInformationEnlistment(enlistmenthandle: Handle, enlistmentinformationclass: EnlistmentInformationClass, enlistmentinformation: ConstPtr<CVoid>, enlistmentinformationlength: UInt): Ntstatus =
+public actual fun zwSetInformationEnlistment(enlistmenthandle: Handle, enlistmentinformationclass: EnlistmentInformationClass, enlistmentinformation: ConstPtr, enlistmentinformationlength: UInt): Ntstatus =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesZwSetInformationEnlistment(enlistmenthandle.rawAddress.toString(), enlistmentinformationclass, enlistmentinformation.rawAddress.toString(), enlistmentinformationlength.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun zwSetInformationFile(filehandle: Handle, iostatusblock: MutPtr<IoStatusBlock>, fileinformation: ConstPtr<CVoid>, length: UInt, fileinformationclass: FileInformationClass): Ntstatus =
+public actual fun zwSetInformationFile(filehandle: Handle, iostatusblock: MutPtr, fileinformation: ConstPtr, length: UInt, fileinformationclass: FileInformationClass): Ntstatus =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesZwSetInformationFile(filehandle.rawAddress.toString(), iostatusblock.rawAddress.toString(), fileinformation.rawAddress.toString(), length.toInt(), fileinformationclass) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun zwSetInformationResourceManager(resourcemanagerhandle: Handle, resourcemanagerinformationclass: ResourcemanagerInformationClass, resourcemanagerinformation: ConstPtr<CVoid>, resourcemanagerinformationlength: UInt): Ntstatus =
+public actual fun zwSetInformationResourceManager(resourcemanagerhandle: Handle, resourcemanagerinformationclass: ResourcemanagerInformationClass, resourcemanagerinformation: ConstPtr, resourcemanagerinformationlength: UInt): Ntstatus =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesZwSetInformationResourceManager(resourcemanagerhandle.rawAddress.toString(), resourcemanagerinformationclass, resourcemanagerinformation.rawAddress.toString(), resourcemanagerinformationlength.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun zwSetInformationTransaction(transactionhandle: Handle, transactioninformationclass: TransactionInformationClass, transactioninformation: ConstPtr<CVoid>, transactioninformationlength: UInt): Ntstatus =
+public actual fun zwSetInformationTransaction(transactionhandle: Handle, transactioninformationclass: TransactionInformationClass, transactioninformation: ConstPtr, transactioninformationlength: UInt): Ntstatus =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesZwSetInformationTransaction(transactionhandle.rawAddress.toString(), transactioninformationclass, transactioninformation.rawAddress.toString(), transactioninformationlength.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun zwSetInformationTransactionManager(tmhandle: Handle, transactionmanagerinformationclass: TransactionmanagerInformationClass, transactionmanagerinformation: ConstPtr<CVoid>, transactionmanagerinformationlength: UInt): Ntstatus =
+public actual fun zwSetInformationTransactionManager(tmhandle: Handle, transactionmanagerinformationclass: TransactionmanagerInformationClass, transactionmanagerinformation: ConstPtr, transactionmanagerinformationlength: UInt): Ntstatus =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesZwSetInformationTransactionManager(tmhandle.rawAddress.toString(), transactionmanagerinformationclass, transactionmanagerinformation.rawAddress.toString(), transactionmanagerinformationlength.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun zwSinglePhaseReject(enlistmenthandle: Handle, tmvirtualclock: ConstPtr<Long>): Ntstatus =
+public actual fun zwSinglePhaseReject(enlistmenthandle: Handle, tmvirtualclock: ConstPtr): Ntstatus =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesZwSinglePhaseReject(enlistmenthandle.rawAddress.toString(), tmvirtualclock.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun zwUnloadDriver(driverservicename: ConstPtr<UnicodeString>): Ntstatus =
+public actual fun zwUnloadDriver(driverservicename: ConstPtr): Ntstatus =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesZwUnloadDriver(driverservicename.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun zwWriteFile(filehandle: Handle, event: Handle, apcroutine: PioApcRoutine, apccontext: ConstPtr<CVoid>, iostatusblock: MutPtr<IoStatusBlock>, buffer: ConstPtr<CVoid>, length: UInt, byteoffset: ConstPtr<Long>, key: ConstPtr<UInt>): Ntstatus =
+public actual fun zwWriteFile(filehandle: Handle, event: Handle, apcroutine: PioApcRoutine, apccontext: ConstPtr, iostatusblock: MutPtr, buffer: ConstPtr, length: UInt, byteoffset: ConstPtr, key: ConstPtr): Ntstatus =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesZwWriteFile(filehandle.rawAddress.toString(), event.rawAddress.toString(), 0L.toString(), apccontext.rawAddress.toString(), iostatusblock.rawAddress.toString(), buffer.rawAddress.toString(), length.toInt(), byteoffset.rawAddress.toString(), key.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun vDbgPrintEx(componentid: UInt, level: UInt, format: Pcstr, arglist: ConstPtr<Byte>): UInt =
+public actual fun vDbgPrintEx(componentid: UInt, level: UInt, format: Pcstr, arglist: ConstPtr): UInt =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesVDbgPrintEx(componentid.toInt(), level.toInt(), format.rawAddress.toString(), arglist.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun vDbgPrintExWithPrefix(prefix: Pcstr, componentid: UInt, level: UInt, format: Pcstr, arglist: ConstPtr<Byte>): UInt =
+public actual fun vDbgPrintExWithPrefix(prefix: Pcstr, componentid: UInt, level: UInt, format: Pcstr, arglist: ConstPtr): UInt =
     if (windowsWdkSystemSystemservicesNapiAvailable) wasmWindowssysWindowsWdkSystemSystemservicesVDbgPrintExWithPrefix(prefix.rawAddress.toString(), componentid.toInt(), level.toInt(), format.rawAddress.toString(), arglist.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")

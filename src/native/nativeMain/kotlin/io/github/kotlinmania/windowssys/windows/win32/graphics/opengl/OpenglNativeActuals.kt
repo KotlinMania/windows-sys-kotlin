@@ -2,13 +2,11 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.graphics.opengl
 
-import io.github.kotlinmania.rustlang.core.ffi.CVoid
 import io.github.kotlinmania.rustlang.core.ptr.ConstPtr
 import io.github.kotlinmania.rustlang.core.ptr.MutPtr
 import io.github.kotlinmania.windowssys.core.Bool
 import io.github.kotlinmania.windowssys.core.Pcstr
 import io.github.kotlinmania.windowssys.core.Pcwstr
-import io.github.kotlinmania.windowssys.windows.win32.foundation.Colorref
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Proc
 import io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.Hdc
 import io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.Henhmetafile
@@ -427,19 +425,19 @@ import kotlinx.cinterop.ByteVar
 import kotlinx.cinterop.toCPointer
 import kotlinx.cinterop.toLong
 
-public actual fun choosePixelFormat(hdc: Hdc, ppfd: ConstPtr<Pixelformatdescriptor>): Int =
+public actual fun choosePixelFormat(hdc: Hdc, ppfd: ConstPtr): Int =
     windowssysWindowsWin32GraphicsOpenglChoosePixelFormat(hdc.rawAddress.toCPointer<ByteVar>(), ppfd.rawAddress.toCPointer<ByteVar>())
 
-public actual fun describePixelFormat(hdc: Hdc, ipixelformat: Int, nbytes: UInt, ppfd: MutPtr<Pixelformatdescriptor>): Int =
+public actual fun describePixelFormat(hdc: Hdc, ipixelformat: Int, nbytes: UInt, ppfd: MutPtr): Int =
     windowssysWindowsWin32GraphicsOpenglDescribePixelFormat(hdc.rawAddress.toCPointer<ByteVar>(), ipixelformat, nbytes, ppfd.rawAddress.toCPointer<ByteVar>())
 
-public actual fun getEnhMetaFilePixelFormat(hemf: Henhmetafile, cbbuffer: UInt, ppfd: MutPtr<Pixelformatdescriptor>): UInt =
+public actual fun getEnhMetaFilePixelFormat(hemf: Henhmetafile, cbbuffer: UInt, ppfd: MutPtr): UInt =
     windowssysWindowsWin32GraphicsOpenglGetEnhMetaFilePixelFormat(hemf.rawAddress.toCPointer<ByteVar>(), cbbuffer, ppfd.rawAddress.toCPointer<ByteVar>())
 
 public actual fun getPixelFormat(hdc: Hdc): Int =
     windowssysWindowsWin32GraphicsOpenglGetPixelFormat(hdc.rawAddress.toCPointer<ByteVar>())
 
-public actual fun setPixelFormat(hdc: Hdc, format: Int, ppfd: ConstPtr<Pixelformatdescriptor>): Bool =
+public actual fun setPixelFormat(hdc: Hdc, format: Int, ppfd: ConstPtr): Bool =
     windowssysWindowsWin32GraphicsOpenglSetPixelFormat(hdc.rawAddress.toCPointer<ByteVar>(), format, ppfd.rawAddress.toCPointer<ByteVar>())
 
 public actual fun swapBuffers(param0: Hdc): Bool =
@@ -453,7 +451,7 @@ public actual fun glAlphaFunc(func: UInt, ref: Float) {
     windowssysWindowsWin32GraphicsOpenglGlAlphaFunc(func, ref)
 }
 
-public actual fun glAreTexturesResident(n: Int, textures: ConstPtr<UInt>, residences: MutPtr<UByte>): UByte =
+public actual fun glAreTexturesResident(n: Int, textures: ConstPtr, residences: MutPtr): UByte =
     windowssysWindowsWin32GraphicsOpenglGlAreTexturesResident(n, textures.rawAddress.toCPointer<ByteVar>(), residences.rawAddress.toCPointer<ByteVar>())
 
 public actual fun glArrayElement(i: Int) {
@@ -468,7 +466,7 @@ public actual fun glBindTexture(target: UInt, texture: UInt) {
     windowssysWindowsWin32GraphicsOpenglGlBindTexture(target, texture)
 }
 
-public actual fun glBitmap(width: Int, height: Int, xorig: Float, yorig: Float, xmove: Float, ymove: Float, bitmap: ConstPtr<UByte>) {
+public actual fun glBitmap(width: Int, height: Int, xorig: Float, yorig: Float, xmove: Float, ymove: Float, bitmap: ConstPtr) {
     windowssysWindowsWin32GraphicsOpenglGlBitmap(width, height, xorig, yorig, xmove, ymove, bitmap.rawAddress.toCPointer<ByteVar>())
 }
 
@@ -480,7 +478,7 @@ public actual fun glCallList(list: UInt) {
     windowssysWindowsWin32GraphicsOpenglGlCallList(list)
 }
 
-public actual fun glCallLists(n: Int, type: UInt, lists: ConstPtr<CVoid>) {
+public actual fun glCallLists(n: Int, type: UInt, lists: ConstPtr) {
     windowssysWindowsWin32GraphicsOpenglGlCallLists(n, type, lists.rawAddress.toCPointer<ByteVar>())
 }
 
@@ -508,7 +506,7 @@ public actual fun glClearStencil(s: Int) {
     windowssysWindowsWin32GraphicsOpenglGlClearStencil(s)
 }
 
-public actual fun glClipPlane(plane: UInt, equation: ConstPtr<Double>) {
+public actual fun glClipPlane(plane: UInt, equation: ConstPtr) {
     windowssysWindowsWin32GraphicsOpenglGlClipPlane(plane, equation.rawAddress.toCPointer<ByteVar>())
 }
 
@@ -516,7 +514,7 @@ public actual fun glColor3b(red: Byte, green: Byte, blue: Byte) {
     windowssysWindowsWin32GraphicsOpenglGlColor3b(red, green, blue)
 }
 
-public actual fun glColor3bv(v: ConstPtr<Byte>) {
+public actual fun glColor3bv(v: ConstPtr) {
     windowssysWindowsWin32GraphicsOpenglGlColor3bv(v.rawAddress.toCPointer<ByteVar>())
 }
 
@@ -524,7 +522,7 @@ public actual fun glColor3d(red: Double, green: Double, blue: Double) {
     windowssysWindowsWin32GraphicsOpenglGlColor3d(red, green, blue)
 }
 
-public actual fun glColor3dv(v: ConstPtr<Double>) {
+public actual fun glColor3dv(v: ConstPtr) {
     windowssysWindowsWin32GraphicsOpenglGlColor3dv(v.rawAddress.toCPointer<ByteVar>())
 }
 
@@ -532,7 +530,7 @@ public actual fun glColor3f(red: Float, green: Float, blue: Float) {
     windowssysWindowsWin32GraphicsOpenglGlColor3f(red, green, blue)
 }
 
-public actual fun glColor3fv(v: ConstPtr<Float>) {
+public actual fun glColor3fv(v: ConstPtr) {
     windowssysWindowsWin32GraphicsOpenglGlColor3fv(v.rawAddress.toCPointer<ByteVar>())
 }
 
@@ -540,7 +538,7 @@ public actual fun glColor3i(red: Int, green: Int, blue: Int) {
     windowssysWindowsWin32GraphicsOpenglGlColor3i(red, green, blue)
 }
 
-public actual fun glColor3iv(v: ConstPtr<Int>) {
+public actual fun glColor3iv(v: ConstPtr) {
     windowssysWindowsWin32GraphicsOpenglGlColor3iv(v.rawAddress.toCPointer<ByteVar>())
 }
 
@@ -548,7 +546,7 @@ public actual fun glColor3s(red: Short, green: Short, blue: Short) {
     windowssysWindowsWin32GraphicsOpenglGlColor3s(red, green, blue)
 }
 
-public actual fun glColor3sv(v: ConstPtr<Short>) {
+public actual fun glColor3sv(v: ConstPtr) {
     windowssysWindowsWin32GraphicsOpenglGlColor3sv(v.rawAddress.toCPointer<ByteVar>())
 }
 
@@ -556,7 +554,7 @@ public actual fun glColor3ub(red: UByte, green: UByte, blue: UByte) {
     windowssysWindowsWin32GraphicsOpenglGlColor3ub(red, green, blue)
 }
 
-public actual fun glColor3ubv(v: ConstPtr<UByte>) {
+public actual fun glColor3ubv(v: ConstPtr) {
     windowssysWindowsWin32GraphicsOpenglGlColor3ubv(v.rawAddress.toCPointer<ByteVar>())
 }
 
@@ -564,7 +562,7 @@ public actual fun glColor3ui(red: UInt, green: UInt, blue: UInt) {
     windowssysWindowsWin32GraphicsOpenglGlColor3ui(red, green, blue)
 }
 
-public actual fun glColor3uiv(v: ConstPtr<UInt>) {
+public actual fun glColor3uiv(v: ConstPtr) {
     windowssysWindowsWin32GraphicsOpenglGlColor3uiv(v.rawAddress.toCPointer<ByteVar>())
 }
 
@@ -572,7 +570,7 @@ public actual fun glColor3us(red: UShort, green: UShort, blue: UShort) {
     windowssysWindowsWin32GraphicsOpenglGlColor3us(red, green, blue)
 }
 
-public actual fun glColor3usv(v: ConstPtr<UShort>) {
+public actual fun glColor3usv(v: ConstPtr) {
     windowssysWindowsWin32GraphicsOpenglGlColor3usv(v.rawAddress.toCPointer<ByteVar>())
 }
 
@@ -580,7 +578,7 @@ public actual fun glColor4b(red: Byte, green: Byte, blue: Byte, alpha: Byte) {
     windowssysWindowsWin32GraphicsOpenglGlColor4b(red, green, blue, alpha)
 }
 
-public actual fun glColor4bv(v: ConstPtr<Byte>) {
+public actual fun glColor4bv(v: ConstPtr) {
     windowssysWindowsWin32GraphicsOpenglGlColor4bv(v.rawAddress.toCPointer<ByteVar>())
 }
 
@@ -588,7 +586,7 @@ public actual fun glColor4d(red: Double, green: Double, blue: Double, alpha: Dou
     windowssysWindowsWin32GraphicsOpenglGlColor4d(red, green, blue, alpha)
 }
 
-public actual fun glColor4dv(v: ConstPtr<Double>) {
+public actual fun glColor4dv(v: ConstPtr) {
     windowssysWindowsWin32GraphicsOpenglGlColor4dv(v.rawAddress.toCPointer<ByteVar>())
 }
 
@@ -596,7 +594,7 @@ public actual fun glColor4f(red: Float, green: Float, blue: Float, alpha: Float)
     windowssysWindowsWin32GraphicsOpenglGlColor4f(red, green, blue, alpha)
 }
 
-public actual fun glColor4fv(v: ConstPtr<Float>) {
+public actual fun glColor4fv(v: ConstPtr) {
     windowssysWindowsWin32GraphicsOpenglGlColor4fv(v.rawAddress.toCPointer<ByteVar>())
 }
 
@@ -604,7 +602,7 @@ public actual fun glColor4i(red: Int, green: Int, blue: Int, alpha: Int) {
     windowssysWindowsWin32GraphicsOpenglGlColor4i(red, green, blue, alpha)
 }
 
-public actual fun glColor4iv(v: ConstPtr<Int>) {
+public actual fun glColor4iv(v: ConstPtr) {
     windowssysWindowsWin32GraphicsOpenglGlColor4iv(v.rawAddress.toCPointer<ByteVar>())
 }
 
@@ -612,7 +610,7 @@ public actual fun glColor4s(red: Short, green: Short, blue: Short, alpha: Short)
     windowssysWindowsWin32GraphicsOpenglGlColor4s(red, green, blue, alpha)
 }
 
-public actual fun glColor4sv(v: ConstPtr<Short>) {
+public actual fun glColor4sv(v: ConstPtr) {
     windowssysWindowsWin32GraphicsOpenglGlColor4sv(v.rawAddress.toCPointer<ByteVar>())
 }
 
@@ -620,7 +618,7 @@ public actual fun glColor4ub(red: UByte, green: UByte, blue: UByte, alpha: UByte
     windowssysWindowsWin32GraphicsOpenglGlColor4ub(red, green, blue, alpha)
 }
 
-public actual fun glColor4ubv(v: ConstPtr<UByte>) {
+public actual fun glColor4ubv(v: ConstPtr) {
     windowssysWindowsWin32GraphicsOpenglGlColor4ubv(v.rawAddress.toCPointer<ByteVar>())
 }
 
@@ -628,7 +626,7 @@ public actual fun glColor4ui(red: UInt, green: UInt, blue: UInt, alpha: UInt) {
     windowssysWindowsWin32GraphicsOpenglGlColor4ui(red, green, blue, alpha)
 }
 
-public actual fun glColor4uiv(v: ConstPtr<UInt>) {
+public actual fun glColor4uiv(v: ConstPtr) {
     windowssysWindowsWin32GraphicsOpenglGlColor4uiv(v.rawAddress.toCPointer<ByteVar>())
 }
 
@@ -636,7 +634,7 @@ public actual fun glColor4us(red: UShort, green: UShort, blue: UShort, alpha: US
     windowssysWindowsWin32GraphicsOpenglGlColor4us(red, green, blue, alpha)
 }
 
-public actual fun glColor4usv(v: ConstPtr<UShort>) {
+public actual fun glColor4usv(v: ConstPtr) {
     windowssysWindowsWin32GraphicsOpenglGlColor4usv(v.rawAddress.toCPointer<ByteVar>())
 }
 
@@ -648,7 +646,7 @@ public actual fun glColorMaterial(face: UInt, mode: UInt) {
     windowssysWindowsWin32GraphicsOpenglGlColorMaterial(face, mode)
 }
 
-public actual fun glColorPointer(size: Int, type: UInt, stride: Int, pointer: ConstPtr<CVoid>) {
+public actual fun glColorPointer(size: Int, type: UInt, stride: Int, pointer: ConstPtr) {
     windowssysWindowsWin32GraphicsOpenglGlColorPointer(size, type, stride, pointer.rawAddress.toCPointer<ByteVar>())
 }
 
@@ -680,7 +678,7 @@ public actual fun glDeleteLists(list: UInt, range: Int) {
     windowssysWindowsWin32GraphicsOpenglGlDeleteLists(list, range)
 }
 
-public actual fun glDeleteTextures(n: Int, textures: ConstPtr<UInt>) {
+public actual fun glDeleteTextures(n: Int, textures: ConstPtr) {
     windowssysWindowsWin32GraphicsOpenglGlDeleteTextures(n, textures.rawAddress.toCPointer<ByteVar>())
 }
 
@@ -712,11 +710,11 @@ public actual fun glDrawBuffer(mode: UInt) {
     windowssysWindowsWin32GraphicsOpenglGlDrawBuffer(mode)
 }
 
-public actual fun glDrawElements(mode: UInt, count: Int, type: UInt, indices: ConstPtr<CVoid>) {
+public actual fun glDrawElements(mode: UInt, count: Int, type: UInt, indices: ConstPtr) {
     windowssysWindowsWin32GraphicsOpenglGlDrawElements(mode, count, type, indices.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun glDrawPixels(width: Int, height: Int, format: UInt, type: UInt, pixels: ConstPtr<CVoid>) {
+public actual fun glDrawPixels(width: Int, height: Int, format: UInt, type: UInt, pixels: ConstPtr) {
     windowssysWindowsWin32GraphicsOpenglGlDrawPixels(width, height, format, type, pixels.rawAddress.toCPointer<ByteVar>())
 }
 
@@ -724,11 +722,11 @@ public actual fun glEdgeFlag(flag: UByte) {
     windowssysWindowsWin32GraphicsOpenglGlEdgeFlag(flag)
 }
 
-public actual fun glEdgeFlagPointer(stride: Int, pointer: ConstPtr<CVoid>) {
+public actual fun glEdgeFlagPointer(stride: Int, pointer: ConstPtr) {
     windowssysWindowsWin32GraphicsOpenglGlEdgeFlagPointer(stride, pointer.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun glEdgeFlagv(flag: ConstPtr<UByte>) {
+public actual fun glEdgeFlagv(flag: ConstPtr) {
     windowssysWindowsWin32GraphicsOpenglGlEdgeFlagv(flag.rawAddress.toCPointer<ByteVar>())
 }
 
@@ -752,7 +750,7 @@ public actual fun glEvalCoord1d(u: Double) {
     windowssysWindowsWin32GraphicsOpenglGlEvalCoord1d(u)
 }
 
-public actual fun glEvalCoord1dv(u: ConstPtr<Double>) {
+public actual fun glEvalCoord1dv(u: ConstPtr) {
     windowssysWindowsWin32GraphicsOpenglGlEvalCoord1dv(u.rawAddress.toCPointer<ByteVar>())
 }
 
@@ -760,7 +758,7 @@ public actual fun glEvalCoord1f(u: Float) {
     windowssysWindowsWin32GraphicsOpenglGlEvalCoord1f(u)
 }
 
-public actual fun glEvalCoord1fv(u: ConstPtr<Float>) {
+public actual fun glEvalCoord1fv(u: ConstPtr) {
     windowssysWindowsWin32GraphicsOpenglGlEvalCoord1fv(u.rawAddress.toCPointer<ByteVar>())
 }
 
@@ -768,7 +766,7 @@ public actual fun glEvalCoord2d(u: Double, v: Double) {
     windowssysWindowsWin32GraphicsOpenglGlEvalCoord2d(u, v)
 }
 
-public actual fun glEvalCoord2dv(u: ConstPtr<Double>) {
+public actual fun glEvalCoord2dv(u: ConstPtr) {
     windowssysWindowsWin32GraphicsOpenglGlEvalCoord2dv(u.rawAddress.toCPointer<ByteVar>())
 }
 
@@ -776,7 +774,7 @@ public actual fun glEvalCoord2f(u: Float, v: Float) {
     windowssysWindowsWin32GraphicsOpenglGlEvalCoord2f(u, v)
 }
 
-public actual fun glEvalCoord2fv(u: ConstPtr<Float>) {
+public actual fun glEvalCoord2fv(u: ConstPtr) {
     windowssysWindowsWin32GraphicsOpenglGlEvalCoord2fv(u.rawAddress.toCPointer<ByteVar>())
 }
 
@@ -796,7 +794,7 @@ public actual fun glEvalPoint2(i: Int, j: Int) {
     windowssysWindowsWin32GraphicsOpenglGlEvalPoint2(i, j)
 }
 
-public actual fun glFeedbackBuffer(size: Int, type: UInt, buffer: MutPtr<Float>) {
+public actual fun glFeedbackBuffer(size: Int, type: UInt, buffer: MutPtr) {
     windowssysWindowsWin32GraphicsOpenglGlFeedbackBuffer(size, type, buffer.rawAddress.toCPointer<ByteVar>())
 }
 
@@ -812,7 +810,7 @@ public actual fun glFogf(pname: UInt, param1: Float) {
     windowssysWindowsWin32GraphicsOpenglGlFogf(pname, param1)
 }
 
-public actual fun glFogfv(pname: UInt, params: ConstPtr<Float>) {
+public actual fun glFogfv(pname: UInt, params: ConstPtr) {
     windowssysWindowsWin32GraphicsOpenglGlFogfv(pname, params.rawAddress.toCPointer<ByteVar>())
 }
 
@@ -820,7 +818,7 @@ public actual fun glFogi(pname: UInt, param1: Int) {
     windowssysWindowsWin32GraphicsOpenglGlFogi(pname, param1)
 }
 
-public actual fun glFogiv(pname: UInt, params: ConstPtr<Int>) {
+public actual fun glFogiv(pname: UInt, params: ConstPtr) {
     windowssysWindowsWin32GraphicsOpenglGlFogiv(pname, params.rawAddress.toCPointer<ByteVar>())
 }
 
@@ -835,121 +833,121 @@ public actual fun glFrustum(left: Double, right: Double, bottom: Double, top: Do
 public actual fun glGenLists(range: Int): UInt =
     windowssysWindowsWin32GraphicsOpenglGlGenLists(range)
 
-public actual fun glGenTextures(n: Int, textures: MutPtr<UInt>) {
+public actual fun glGenTextures(n: Int, textures: MutPtr) {
     windowssysWindowsWin32GraphicsOpenglGlGenTextures(n, textures.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun glGetBooleanv(pname: UInt, params: MutPtr<UByte>) {
+public actual fun glGetBooleanv(pname: UInt, params: MutPtr) {
     windowssysWindowsWin32GraphicsOpenglGlGetBooleanv(pname, params.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun glGetClipPlane(plane: UInt, equation: MutPtr<Double>) {
+public actual fun glGetClipPlane(plane: UInt, equation: MutPtr) {
     windowssysWindowsWin32GraphicsOpenglGlGetClipPlane(plane, equation.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun glGetDoublev(pname: UInt, params: MutPtr<Double>) {
+public actual fun glGetDoublev(pname: UInt, params: MutPtr) {
     windowssysWindowsWin32GraphicsOpenglGlGetDoublev(pname, params.rawAddress.toCPointer<ByteVar>())
 }
 
 public actual fun glGetError(): UInt =
     windowssysWindowsWin32GraphicsOpenglGlGetError()
 
-public actual fun glGetFloatv(pname: UInt, params: MutPtr<Float>) {
+public actual fun glGetFloatv(pname: UInt, params: MutPtr) {
     windowssysWindowsWin32GraphicsOpenglGlGetFloatv(pname, params.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun glGetIntegerv(pname: UInt, params: MutPtr<Int>) {
+public actual fun glGetIntegerv(pname: UInt, params: MutPtr) {
     windowssysWindowsWin32GraphicsOpenglGlGetIntegerv(pname, params.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun glGetLightfv(light: UInt, pname: UInt, params: MutPtr<Float>) {
+public actual fun glGetLightfv(light: UInt, pname: UInt, params: MutPtr) {
     windowssysWindowsWin32GraphicsOpenglGlGetLightfv(light, pname, params.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun glGetLightiv(light: UInt, pname: UInt, params: MutPtr<Int>) {
+public actual fun glGetLightiv(light: UInt, pname: UInt, params: MutPtr) {
     windowssysWindowsWin32GraphicsOpenglGlGetLightiv(light, pname, params.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun glGetMapdv(target: UInt, query: UInt, v: MutPtr<Double>) {
+public actual fun glGetMapdv(target: UInt, query: UInt, v: MutPtr) {
     windowssysWindowsWin32GraphicsOpenglGlGetMapdv(target, query, v.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun glGetMapfv(target: UInt, query: UInt, v: MutPtr<Float>) {
+public actual fun glGetMapfv(target: UInt, query: UInt, v: MutPtr) {
     windowssysWindowsWin32GraphicsOpenglGlGetMapfv(target, query, v.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun glGetMapiv(target: UInt, query: UInt, v: MutPtr<Int>) {
+public actual fun glGetMapiv(target: UInt, query: UInt, v: MutPtr) {
     windowssysWindowsWin32GraphicsOpenglGlGetMapiv(target, query, v.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun glGetMaterialfv(face: UInt, pname: UInt, params: MutPtr<Float>) {
+public actual fun glGetMaterialfv(face: UInt, pname: UInt, params: MutPtr) {
     windowssysWindowsWin32GraphicsOpenglGlGetMaterialfv(face, pname, params.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun glGetMaterialiv(face: UInt, pname: UInt, params: MutPtr<Int>) {
+public actual fun glGetMaterialiv(face: UInt, pname: UInt, params: MutPtr) {
     windowssysWindowsWin32GraphicsOpenglGlGetMaterialiv(face, pname, params.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun glGetPixelMapfv(map: UInt, values: MutPtr<Float>) {
+public actual fun glGetPixelMapfv(map: UInt, values: MutPtr) {
     windowssysWindowsWin32GraphicsOpenglGlGetPixelMapfv(map, values.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun glGetPixelMapuiv(map: UInt, values: MutPtr<UInt>) {
+public actual fun glGetPixelMapuiv(map: UInt, values: MutPtr) {
     windowssysWindowsWin32GraphicsOpenglGlGetPixelMapuiv(map, values.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun glGetPixelMapusv(map: UInt, values: MutPtr<UShort>) {
+public actual fun glGetPixelMapusv(map: UInt, values: MutPtr) {
     windowssysWindowsWin32GraphicsOpenglGlGetPixelMapusv(map, values.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun glGetPointerv(pname: UInt, params: MutPtr<MutPtr<CVoid>>) {
+public actual fun glGetPointerv(pname: UInt, params: MutPtr) {
     windowssysWindowsWin32GraphicsOpenglGlGetPointerv(pname, params.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun glGetPolygonStipple(mask: MutPtr<UByte>) {
+public actual fun glGetPolygonStipple(mask: MutPtr) {
     windowssysWindowsWin32GraphicsOpenglGlGetPolygonStipple(mask.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun glGetString(name: UInt): MutPtr<UByte> =
+public actual fun glGetString(name: UInt): MutPtr =
     MutPtr(windowssysWindowsWin32GraphicsOpenglGlGetString(name)?.toLong() ?: 0L)
 
-public actual fun glGetTexEnvfv(target: UInt, pname: UInt, params: MutPtr<Float>) {
+public actual fun glGetTexEnvfv(target: UInt, pname: UInt, params: MutPtr) {
     windowssysWindowsWin32GraphicsOpenglGlGetTexEnvfv(target, pname, params.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun glGetTexEnviv(target: UInt, pname: UInt, params: MutPtr<Int>) {
+public actual fun glGetTexEnviv(target: UInt, pname: UInt, params: MutPtr) {
     windowssysWindowsWin32GraphicsOpenglGlGetTexEnviv(target, pname, params.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun glGetTexGendv(coord: UInt, pname: UInt, params: MutPtr<Double>) {
+public actual fun glGetTexGendv(coord: UInt, pname: UInt, params: MutPtr) {
     windowssysWindowsWin32GraphicsOpenglGlGetTexGendv(coord, pname, params.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun glGetTexGenfv(coord: UInt, pname: UInt, params: MutPtr<Float>) {
+public actual fun glGetTexGenfv(coord: UInt, pname: UInt, params: MutPtr) {
     windowssysWindowsWin32GraphicsOpenglGlGetTexGenfv(coord, pname, params.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun glGetTexGeniv(coord: UInt, pname: UInt, params: MutPtr<Int>) {
+public actual fun glGetTexGeniv(coord: UInt, pname: UInt, params: MutPtr) {
     windowssysWindowsWin32GraphicsOpenglGlGetTexGeniv(coord, pname, params.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun glGetTexImage(target: UInt, level: Int, format: UInt, type: UInt, pixels: MutPtr<CVoid>) {
+public actual fun glGetTexImage(target: UInt, level: Int, format: UInt, type: UInt, pixels: MutPtr) {
     windowssysWindowsWin32GraphicsOpenglGlGetTexImage(target, level, format, type, pixels.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun glGetTexLevelParameterfv(target: UInt, level: Int, pname: UInt, params: MutPtr<Float>) {
+public actual fun glGetTexLevelParameterfv(target: UInt, level: Int, pname: UInt, params: MutPtr) {
     windowssysWindowsWin32GraphicsOpenglGlGetTexLevelParameterfv(target, level, pname, params.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun glGetTexLevelParameteriv(target: UInt, level: Int, pname: UInt, params: MutPtr<Int>) {
+public actual fun glGetTexLevelParameteriv(target: UInt, level: Int, pname: UInt, params: MutPtr) {
     windowssysWindowsWin32GraphicsOpenglGlGetTexLevelParameteriv(target, level, pname, params.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun glGetTexParameterfv(target: UInt, pname: UInt, params: MutPtr<Float>) {
+public actual fun glGetTexParameterfv(target: UInt, pname: UInt, params: MutPtr) {
     windowssysWindowsWin32GraphicsOpenglGlGetTexParameterfv(target, pname, params.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun glGetTexParameteriv(target: UInt, pname: UInt, params: MutPtr<Int>) {
+public actual fun glGetTexParameteriv(target: UInt, pname: UInt, params: MutPtr) {
     windowssysWindowsWin32GraphicsOpenglGlGetTexParameteriv(target, pname, params.rawAddress.toCPointer<ByteVar>())
 }
 
@@ -961,7 +959,7 @@ public actual fun glIndexMask(mask: UInt) {
     windowssysWindowsWin32GraphicsOpenglGlIndexMask(mask)
 }
 
-public actual fun glIndexPointer(type: UInt, stride: Int, pointer: ConstPtr<CVoid>) {
+public actual fun glIndexPointer(type: UInt, stride: Int, pointer: ConstPtr) {
     windowssysWindowsWin32GraphicsOpenglGlIndexPointer(type, stride, pointer.rawAddress.toCPointer<ByteVar>())
 }
 
@@ -969,7 +967,7 @@ public actual fun glIndexd(c: Double) {
     windowssysWindowsWin32GraphicsOpenglGlIndexd(c)
 }
 
-public actual fun glIndexdv(c: ConstPtr<Double>) {
+public actual fun glIndexdv(c: ConstPtr) {
     windowssysWindowsWin32GraphicsOpenglGlIndexdv(c.rawAddress.toCPointer<ByteVar>())
 }
 
@@ -977,7 +975,7 @@ public actual fun glIndexf(c: Float) {
     windowssysWindowsWin32GraphicsOpenglGlIndexf(c)
 }
 
-public actual fun glIndexfv(c: ConstPtr<Float>) {
+public actual fun glIndexfv(c: ConstPtr) {
     windowssysWindowsWin32GraphicsOpenglGlIndexfv(c.rawAddress.toCPointer<ByteVar>())
 }
 
@@ -985,7 +983,7 @@ public actual fun glIndexi(c: Int) {
     windowssysWindowsWin32GraphicsOpenglGlIndexi(c)
 }
 
-public actual fun glIndexiv(c: ConstPtr<Int>) {
+public actual fun glIndexiv(c: ConstPtr) {
     windowssysWindowsWin32GraphicsOpenglGlIndexiv(c.rawAddress.toCPointer<ByteVar>())
 }
 
@@ -993,7 +991,7 @@ public actual fun glIndexs(c: Short) {
     windowssysWindowsWin32GraphicsOpenglGlIndexs(c)
 }
 
-public actual fun glIndexsv(c: ConstPtr<Short>) {
+public actual fun glIndexsv(c: ConstPtr) {
     windowssysWindowsWin32GraphicsOpenglGlIndexsv(c.rawAddress.toCPointer<ByteVar>())
 }
 
@@ -1001,7 +999,7 @@ public actual fun glIndexub(c: UByte) {
     windowssysWindowsWin32GraphicsOpenglGlIndexub(c)
 }
 
-public actual fun glIndexubv(c: ConstPtr<UByte>) {
+public actual fun glIndexubv(c: ConstPtr) {
     windowssysWindowsWin32GraphicsOpenglGlIndexubv(c.rawAddress.toCPointer<ByteVar>())
 }
 
@@ -1009,7 +1007,7 @@ public actual fun glInitNames() {
     windowssysWindowsWin32GraphicsOpenglGlInitNames()
 }
 
-public actual fun glInterleavedArrays(format: UInt, stride: Int, pointer: ConstPtr<CVoid>) {
+public actual fun glInterleavedArrays(format: UInt, stride: Int, pointer: ConstPtr) {
     windowssysWindowsWin32GraphicsOpenglGlInterleavedArrays(format, stride, pointer.rawAddress.toCPointer<ByteVar>())
 }
 
@@ -1026,7 +1024,7 @@ public actual fun glLightModelf(pname: UInt, param1: Float) {
     windowssysWindowsWin32GraphicsOpenglGlLightModelf(pname, param1)
 }
 
-public actual fun glLightModelfv(pname: UInt, params: ConstPtr<Float>) {
+public actual fun glLightModelfv(pname: UInt, params: ConstPtr) {
     windowssysWindowsWin32GraphicsOpenglGlLightModelfv(pname, params.rawAddress.toCPointer<ByteVar>())
 }
 
@@ -1034,7 +1032,7 @@ public actual fun glLightModeli(pname: UInt, param1: Int) {
     windowssysWindowsWin32GraphicsOpenglGlLightModeli(pname, param1)
 }
 
-public actual fun glLightModeliv(pname: UInt, params: ConstPtr<Int>) {
+public actual fun glLightModeliv(pname: UInt, params: ConstPtr) {
     windowssysWindowsWin32GraphicsOpenglGlLightModeliv(pname, params.rawAddress.toCPointer<ByteVar>())
 }
 
@@ -1042,7 +1040,7 @@ public actual fun glLightf(light: UInt, pname: UInt, param2: Float) {
     windowssysWindowsWin32GraphicsOpenglGlLightf(light, pname, param2)
 }
 
-public actual fun glLightfv(light: UInt, pname: UInt, params: ConstPtr<Float>) {
+public actual fun glLightfv(light: UInt, pname: UInt, params: ConstPtr) {
     windowssysWindowsWin32GraphicsOpenglGlLightfv(light, pname, params.rawAddress.toCPointer<ByteVar>())
 }
 
@@ -1050,7 +1048,7 @@ public actual fun glLighti(light: UInt, pname: UInt, param2: Int) {
     windowssysWindowsWin32GraphicsOpenglGlLighti(light, pname, param2)
 }
 
-public actual fun glLightiv(light: UInt, pname: UInt, params: ConstPtr<Int>) {
+public actual fun glLightiv(light: UInt, pname: UInt, params: ConstPtr) {
     windowssysWindowsWin32GraphicsOpenglGlLightiv(light, pname, params.rawAddress.toCPointer<ByteVar>())
 }
 
@@ -1070,11 +1068,11 @@ public actual fun glLoadIdentity() {
     windowssysWindowsWin32GraphicsOpenglGlLoadIdentity()
 }
 
-public actual fun glLoadMatrixd(m: ConstPtr<Double>) {
+public actual fun glLoadMatrixd(m: ConstPtr) {
     windowssysWindowsWin32GraphicsOpenglGlLoadMatrixd(m.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun glLoadMatrixf(m: ConstPtr<Float>) {
+public actual fun glLoadMatrixf(m: ConstPtr) {
     windowssysWindowsWin32GraphicsOpenglGlLoadMatrixf(m.rawAddress.toCPointer<ByteVar>())
 }
 
@@ -1086,19 +1084,19 @@ public actual fun glLogicOp(opcode: UInt) {
     windowssysWindowsWin32GraphicsOpenglGlLogicOp(opcode)
 }
 
-public actual fun glMap1d(target: UInt, u1: Double, u2: Double, stride: Int, order: Int, points: ConstPtr<Double>) {
+public actual fun glMap1d(target: UInt, u1: Double, u2: Double, stride: Int, order: Int, points: ConstPtr) {
     windowssysWindowsWin32GraphicsOpenglGlMap1d(target, u1, u2, stride, order, points.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun glMap1f(target: UInt, u1: Float, u2: Float, stride: Int, order: Int, points: ConstPtr<Float>) {
+public actual fun glMap1f(target: UInt, u1: Float, u2: Float, stride: Int, order: Int, points: ConstPtr) {
     windowssysWindowsWin32GraphicsOpenglGlMap1f(target, u1, u2, stride, order, points.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun glMap2d(target: UInt, u1: Double, u2: Double, ustride: Int, uorder: Int, v1: Double, v2: Double, vstride: Int, vorder: Int, points: ConstPtr<Double>) {
+public actual fun glMap2d(target: UInt, u1: Double, u2: Double, ustride: Int, uorder: Int, v1: Double, v2: Double, vstride: Int, vorder: Int, points: ConstPtr) {
     windowssysWindowsWin32GraphicsOpenglGlMap2d(target, u1, u2, ustride, uorder, v1, v2, vstride, vorder, points.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun glMap2f(target: UInt, u1: Float, u2: Float, ustride: Int, uorder: Int, v1: Float, v2: Float, vstride: Int, vorder: Int, points: ConstPtr<Float>) {
+public actual fun glMap2f(target: UInt, u1: Float, u2: Float, ustride: Int, uorder: Int, v1: Float, v2: Float, vstride: Int, vorder: Int, points: ConstPtr) {
     windowssysWindowsWin32GraphicsOpenglGlMap2f(target, u1, u2, ustride, uorder, v1, v2, vstride, vorder, points.rawAddress.toCPointer<ByteVar>())
 }
 
@@ -1122,7 +1120,7 @@ public actual fun glMaterialf(face: UInt, pname: UInt, param2: Float) {
     windowssysWindowsWin32GraphicsOpenglGlMaterialf(face, pname, param2)
 }
 
-public actual fun glMaterialfv(face: UInt, pname: UInt, params: ConstPtr<Float>) {
+public actual fun glMaterialfv(face: UInt, pname: UInt, params: ConstPtr) {
     windowssysWindowsWin32GraphicsOpenglGlMaterialfv(face, pname, params.rawAddress.toCPointer<ByteVar>())
 }
 
@@ -1130,7 +1128,7 @@ public actual fun glMateriali(face: UInt, pname: UInt, param2: Int) {
     windowssysWindowsWin32GraphicsOpenglGlMateriali(face, pname, param2)
 }
 
-public actual fun glMaterialiv(face: UInt, pname: UInt, params: ConstPtr<Int>) {
+public actual fun glMaterialiv(face: UInt, pname: UInt, params: ConstPtr) {
     windowssysWindowsWin32GraphicsOpenglGlMaterialiv(face, pname, params.rawAddress.toCPointer<ByteVar>())
 }
 
@@ -1138,11 +1136,11 @@ public actual fun glMatrixMode(mode: UInt) {
     windowssysWindowsWin32GraphicsOpenglGlMatrixMode(mode)
 }
 
-public actual fun glMultMatrixd(m: ConstPtr<Double>) {
+public actual fun glMultMatrixd(m: ConstPtr) {
     windowssysWindowsWin32GraphicsOpenglGlMultMatrixd(m.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun glMultMatrixf(m: ConstPtr<Float>) {
+public actual fun glMultMatrixf(m: ConstPtr) {
     windowssysWindowsWin32GraphicsOpenglGlMultMatrixf(m.rawAddress.toCPointer<ByteVar>())
 }
 
@@ -1154,7 +1152,7 @@ public actual fun glNormal3b(nx: Byte, ny: Byte, nz: Byte) {
     windowssysWindowsWin32GraphicsOpenglGlNormal3b(nx, ny, nz)
 }
 
-public actual fun glNormal3bv(v: ConstPtr<Byte>) {
+public actual fun glNormal3bv(v: ConstPtr) {
     windowssysWindowsWin32GraphicsOpenglGlNormal3bv(v.rawAddress.toCPointer<ByteVar>())
 }
 
@@ -1162,7 +1160,7 @@ public actual fun glNormal3d(nx: Double, ny: Double, nz: Double) {
     windowssysWindowsWin32GraphicsOpenglGlNormal3d(nx, ny, nz)
 }
 
-public actual fun glNormal3dv(v: ConstPtr<Double>) {
+public actual fun glNormal3dv(v: ConstPtr) {
     windowssysWindowsWin32GraphicsOpenglGlNormal3dv(v.rawAddress.toCPointer<ByteVar>())
 }
 
@@ -1170,7 +1168,7 @@ public actual fun glNormal3f(nx: Float, ny: Float, nz: Float) {
     windowssysWindowsWin32GraphicsOpenglGlNormal3f(nx, ny, nz)
 }
 
-public actual fun glNormal3fv(v: ConstPtr<Float>) {
+public actual fun glNormal3fv(v: ConstPtr) {
     windowssysWindowsWin32GraphicsOpenglGlNormal3fv(v.rawAddress.toCPointer<ByteVar>())
 }
 
@@ -1178,7 +1176,7 @@ public actual fun glNormal3i(nx: Int, ny: Int, nz: Int) {
     windowssysWindowsWin32GraphicsOpenglGlNormal3i(nx, ny, nz)
 }
 
-public actual fun glNormal3iv(v: ConstPtr<Int>) {
+public actual fun glNormal3iv(v: ConstPtr) {
     windowssysWindowsWin32GraphicsOpenglGlNormal3iv(v.rawAddress.toCPointer<ByteVar>())
 }
 
@@ -1186,11 +1184,11 @@ public actual fun glNormal3s(nx: Short, ny: Short, nz: Short) {
     windowssysWindowsWin32GraphicsOpenglGlNormal3s(nx, ny, nz)
 }
 
-public actual fun glNormal3sv(v: ConstPtr<Short>) {
+public actual fun glNormal3sv(v: ConstPtr) {
     windowssysWindowsWin32GraphicsOpenglGlNormal3sv(v.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun glNormalPointer(type: UInt, stride: Int, pointer: ConstPtr<CVoid>) {
+public actual fun glNormalPointer(type: UInt, stride: Int, pointer: ConstPtr) {
     windowssysWindowsWin32GraphicsOpenglGlNormalPointer(type, stride, pointer.rawAddress.toCPointer<ByteVar>())
 }
 
@@ -1202,15 +1200,15 @@ public actual fun glPassThrough(token: Float) {
     windowssysWindowsWin32GraphicsOpenglGlPassThrough(token)
 }
 
-public actual fun glPixelMapfv(map: UInt, mapsize: Int, values: ConstPtr<Float>) {
+public actual fun glPixelMapfv(map: UInt, mapsize: Int, values: ConstPtr) {
     windowssysWindowsWin32GraphicsOpenglGlPixelMapfv(map, mapsize, values.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun glPixelMapuiv(map: UInt, mapsize: Int, values: ConstPtr<UInt>) {
+public actual fun glPixelMapuiv(map: UInt, mapsize: Int, values: ConstPtr) {
     windowssysWindowsWin32GraphicsOpenglGlPixelMapuiv(map, mapsize, values.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun glPixelMapusv(map: UInt, mapsize: Int, values: ConstPtr<UShort>) {
+public actual fun glPixelMapusv(map: UInt, mapsize: Int, values: ConstPtr) {
     windowssysWindowsWin32GraphicsOpenglGlPixelMapusv(map, mapsize, values.rawAddress.toCPointer<ByteVar>())
 }
 
@@ -1246,7 +1244,7 @@ public actual fun glPolygonOffset(factor: Float, units: Float) {
     windowssysWindowsWin32GraphicsOpenglGlPolygonOffset(factor, units)
 }
 
-public actual fun glPolygonStipple(mask: ConstPtr<UByte>) {
+public actual fun glPolygonStipple(mask: ConstPtr) {
     windowssysWindowsWin32GraphicsOpenglGlPolygonStipple(mask.rawAddress.toCPointer<ByteVar>())
 }
 
@@ -1266,7 +1264,7 @@ public actual fun glPopName() {
     windowssysWindowsWin32GraphicsOpenglGlPopName()
 }
 
-public actual fun glPrioritizeTextures(n: Int, textures: ConstPtr<UInt>, priorities: ConstPtr<Float>) {
+public actual fun glPrioritizeTextures(n: Int, textures: ConstPtr, priorities: ConstPtr) {
     windowssysWindowsWin32GraphicsOpenglGlPrioritizeTextures(n, textures.rawAddress.toCPointer<ByteVar>(), priorities.rawAddress.toCPointer<ByteVar>())
 }
 
@@ -1290,7 +1288,7 @@ public actual fun glRasterPos2d(x: Double, y: Double) {
     windowssysWindowsWin32GraphicsOpenglGlRasterPos2d(x, y)
 }
 
-public actual fun glRasterPos2dv(v: ConstPtr<Double>) {
+public actual fun glRasterPos2dv(v: ConstPtr) {
     windowssysWindowsWin32GraphicsOpenglGlRasterPos2dv(v.rawAddress.toCPointer<ByteVar>())
 }
 
@@ -1298,7 +1296,7 @@ public actual fun glRasterPos2f(x: Float, y: Float) {
     windowssysWindowsWin32GraphicsOpenglGlRasterPos2f(x, y)
 }
 
-public actual fun glRasterPos2fv(v: ConstPtr<Float>) {
+public actual fun glRasterPos2fv(v: ConstPtr) {
     windowssysWindowsWin32GraphicsOpenglGlRasterPos2fv(v.rawAddress.toCPointer<ByteVar>())
 }
 
@@ -1306,7 +1304,7 @@ public actual fun glRasterPos2i(x: Int, y: Int) {
     windowssysWindowsWin32GraphicsOpenglGlRasterPos2i(x, y)
 }
 
-public actual fun glRasterPos2iv(v: ConstPtr<Int>) {
+public actual fun glRasterPos2iv(v: ConstPtr) {
     windowssysWindowsWin32GraphicsOpenglGlRasterPos2iv(v.rawAddress.toCPointer<ByteVar>())
 }
 
@@ -1314,7 +1312,7 @@ public actual fun glRasterPos2s(x: Short, y: Short) {
     windowssysWindowsWin32GraphicsOpenglGlRasterPos2s(x, y)
 }
 
-public actual fun glRasterPos2sv(v: ConstPtr<Short>) {
+public actual fun glRasterPos2sv(v: ConstPtr) {
     windowssysWindowsWin32GraphicsOpenglGlRasterPos2sv(v.rawAddress.toCPointer<ByteVar>())
 }
 
@@ -1322,7 +1320,7 @@ public actual fun glRasterPos3d(x: Double, y: Double, z: Double) {
     windowssysWindowsWin32GraphicsOpenglGlRasterPos3d(x, y, z)
 }
 
-public actual fun glRasterPos3dv(v: ConstPtr<Double>) {
+public actual fun glRasterPos3dv(v: ConstPtr) {
     windowssysWindowsWin32GraphicsOpenglGlRasterPos3dv(v.rawAddress.toCPointer<ByteVar>())
 }
 
@@ -1330,7 +1328,7 @@ public actual fun glRasterPos3f(x: Float, y: Float, z: Float) {
     windowssysWindowsWin32GraphicsOpenglGlRasterPos3f(x, y, z)
 }
 
-public actual fun glRasterPos3fv(v: ConstPtr<Float>) {
+public actual fun glRasterPos3fv(v: ConstPtr) {
     windowssysWindowsWin32GraphicsOpenglGlRasterPos3fv(v.rawAddress.toCPointer<ByteVar>())
 }
 
@@ -1338,7 +1336,7 @@ public actual fun glRasterPos3i(x: Int, y: Int, z: Int) {
     windowssysWindowsWin32GraphicsOpenglGlRasterPos3i(x, y, z)
 }
 
-public actual fun glRasterPos3iv(v: ConstPtr<Int>) {
+public actual fun glRasterPos3iv(v: ConstPtr) {
     windowssysWindowsWin32GraphicsOpenglGlRasterPos3iv(v.rawAddress.toCPointer<ByteVar>())
 }
 
@@ -1346,7 +1344,7 @@ public actual fun glRasterPos3s(x: Short, y: Short, z: Short) {
     windowssysWindowsWin32GraphicsOpenglGlRasterPos3s(x, y, z)
 }
 
-public actual fun glRasterPos3sv(v: ConstPtr<Short>) {
+public actual fun glRasterPos3sv(v: ConstPtr) {
     windowssysWindowsWin32GraphicsOpenglGlRasterPos3sv(v.rawAddress.toCPointer<ByteVar>())
 }
 
@@ -1354,7 +1352,7 @@ public actual fun glRasterPos4d(x: Double, y: Double, z: Double, w: Double) {
     windowssysWindowsWin32GraphicsOpenglGlRasterPos4d(x, y, z, w)
 }
 
-public actual fun glRasterPos4dv(v: ConstPtr<Double>) {
+public actual fun glRasterPos4dv(v: ConstPtr) {
     windowssysWindowsWin32GraphicsOpenglGlRasterPos4dv(v.rawAddress.toCPointer<ByteVar>())
 }
 
@@ -1362,7 +1360,7 @@ public actual fun glRasterPos4f(x: Float, y: Float, z: Float, w: Float) {
     windowssysWindowsWin32GraphicsOpenglGlRasterPos4f(x, y, z, w)
 }
 
-public actual fun glRasterPos4fv(v: ConstPtr<Float>) {
+public actual fun glRasterPos4fv(v: ConstPtr) {
     windowssysWindowsWin32GraphicsOpenglGlRasterPos4fv(v.rawAddress.toCPointer<ByteVar>())
 }
 
@@ -1370,7 +1368,7 @@ public actual fun glRasterPos4i(x: Int, y: Int, z: Int, w: Int) {
     windowssysWindowsWin32GraphicsOpenglGlRasterPos4i(x, y, z, w)
 }
 
-public actual fun glRasterPos4iv(v: ConstPtr<Int>) {
+public actual fun glRasterPos4iv(v: ConstPtr) {
     windowssysWindowsWin32GraphicsOpenglGlRasterPos4iv(v.rawAddress.toCPointer<ByteVar>())
 }
 
@@ -1378,7 +1376,7 @@ public actual fun glRasterPos4s(x: Short, y: Short, z: Short, w: Short) {
     windowssysWindowsWin32GraphicsOpenglGlRasterPos4s(x, y, z, w)
 }
 
-public actual fun glRasterPos4sv(v: ConstPtr<Short>) {
+public actual fun glRasterPos4sv(v: ConstPtr) {
     windowssysWindowsWin32GraphicsOpenglGlRasterPos4sv(v.rawAddress.toCPointer<ByteVar>())
 }
 
@@ -1386,7 +1384,7 @@ public actual fun glReadBuffer(mode: UInt) {
     windowssysWindowsWin32GraphicsOpenglGlReadBuffer(mode)
 }
 
-public actual fun glReadPixels(x: Int, y: Int, width: Int, height: Int, format: UInt, type: UInt, pixels: MutPtr<CVoid>) {
+public actual fun glReadPixels(x: Int, y: Int, width: Int, height: Int, format: UInt, type: UInt, pixels: MutPtr) {
     windowssysWindowsWin32GraphicsOpenglGlReadPixels(x, y, width, height, format, type, pixels.rawAddress.toCPointer<ByteVar>())
 }
 
@@ -1394,7 +1392,7 @@ public actual fun glRectd(x1: Double, y1: Double, x2: Double, y2: Double) {
     windowssysWindowsWin32GraphicsOpenglGlRectd(x1, y1, x2, y2)
 }
 
-public actual fun glRectdv(v1: ConstPtr<Double>, v2: ConstPtr<Double>) {
+public actual fun glRectdv(v1: ConstPtr, v2: ConstPtr) {
     windowssysWindowsWin32GraphicsOpenglGlRectdv(v1.rawAddress.toCPointer<ByteVar>(), v2.rawAddress.toCPointer<ByteVar>())
 }
 
@@ -1402,7 +1400,7 @@ public actual fun glRectf(x1: Float, y1: Float, x2: Float, y2: Float) {
     windowssysWindowsWin32GraphicsOpenglGlRectf(x1, y1, x2, y2)
 }
 
-public actual fun glRectfv(v1: ConstPtr<Float>, v2: ConstPtr<Float>) {
+public actual fun glRectfv(v1: ConstPtr, v2: ConstPtr) {
     windowssysWindowsWin32GraphicsOpenglGlRectfv(v1.rawAddress.toCPointer<ByteVar>(), v2.rawAddress.toCPointer<ByteVar>())
 }
 
@@ -1410,7 +1408,7 @@ public actual fun glRecti(x1: Int, y1: Int, x2: Int, y2: Int) {
     windowssysWindowsWin32GraphicsOpenglGlRecti(x1, y1, x2, y2)
 }
 
-public actual fun glRectiv(v1: ConstPtr<Int>, v2: ConstPtr<Int>) {
+public actual fun glRectiv(v1: ConstPtr, v2: ConstPtr) {
     windowssysWindowsWin32GraphicsOpenglGlRectiv(v1.rawAddress.toCPointer<ByteVar>(), v2.rawAddress.toCPointer<ByteVar>())
 }
 
@@ -1418,7 +1416,7 @@ public actual fun glRects(x1: Short, y1: Short, x2: Short, y2: Short) {
     windowssysWindowsWin32GraphicsOpenglGlRects(x1, y1, x2, y2)
 }
 
-public actual fun glRectsv(v1: ConstPtr<Short>, v2: ConstPtr<Short>) {
+public actual fun glRectsv(v1: ConstPtr, v2: ConstPtr) {
     windowssysWindowsWin32GraphicsOpenglGlRectsv(v1.rawAddress.toCPointer<ByteVar>(), v2.rawAddress.toCPointer<ByteVar>())
 }
 
@@ -1445,7 +1443,7 @@ public actual fun glScissor(x: Int, y: Int, width: Int, height: Int) {
     windowssysWindowsWin32GraphicsOpenglGlScissor(x, y, width, height)
 }
 
-public actual fun glSelectBuffer(size: Int, buffer: MutPtr<UInt>) {
+public actual fun glSelectBuffer(size: Int, buffer: MutPtr) {
     windowssysWindowsWin32GraphicsOpenglGlSelectBuffer(size, buffer.rawAddress.toCPointer<ByteVar>())
 }
 
@@ -1469,7 +1467,7 @@ public actual fun glTexCoord1d(s: Double) {
     windowssysWindowsWin32GraphicsOpenglGlTexCoord1d(s)
 }
 
-public actual fun glTexCoord1dv(v: ConstPtr<Double>) {
+public actual fun glTexCoord1dv(v: ConstPtr) {
     windowssysWindowsWin32GraphicsOpenglGlTexCoord1dv(v.rawAddress.toCPointer<ByteVar>())
 }
 
@@ -1477,7 +1475,7 @@ public actual fun glTexCoord1f(s: Float) {
     windowssysWindowsWin32GraphicsOpenglGlTexCoord1f(s)
 }
 
-public actual fun glTexCoord1fv(v: ConstPtr<Float>) {
+public actual fun glTexCoord1fv(v: ConstPtr) {
     windowssysWindowsWin32GraphicsOpenglGlTexCoord1fv(v.rawAddress.toCPointer<ByteVar>())
 }
 
@@ -1485,7 +1483,7 @@ public actual fun glTexCoord1i(s: Int) {
     windowssysWindowsWin32GraphicsOpenglGlTexCoord1i(s)
 }
 
-public actual fun glTexCoord1iv(v: ConstPtr<Int>) {
+public actual fun glTexCoord1iv(v: ConstPtr) {
     windowssysWindowsWin32GraphicsOpenglGlTexCoord1iv(v.rawAddress.toCPointer<ByteVar>())
 }
 
@@ -1493,7 +1491,7 @@ public actual fun glTexCoord1s(s: Short) {
     windowssysWindowsWin32GraphicsOpenglGlTexCoord1s(s)
 }
 
-public actual fun glTexCoord1sv(v: ConstPtr<Short>) {
+public actual fun glTexCoord1sv(v: ConstPtr) {
     windowssysWindowsWin32GraphicsOpenglGlTexCoord1sv(v.rawAddress.toCPointer<ByteVar>())
 }
 
@@ -1501,7 +1499,7 @@ public actual fun glTexCoord2d(s: Double, t: Double) {
     windowssysWindowsWin32GraphicsOpenglGlTexCoord2d(s, t)
 }
 
-public actual fun glTexCoord2dv(v: ConstPtr<Double>) {
+public actual fun glTexCoord2dv(v: ConstPtr) {
     windowssysWindowsWin32GraphicsOpenglGlTexCoord2dv(v.rawAddress.toCPointer<ByteVar>())
 }
 
@@ -1509,7 +1507,7 @@ public actual fun glTexCoord2f(s: Float, t: Float) {
     windowssysWindowsWin32GraphicsOpenglGlTexCoord2f(s, t)
 }
 
-public actual fun glTexCoord2fv(v: ConstPtr<Float>) {
+public actual fun glTexCoord2fv(v: ConstPtr) {
     windowssysWindowsWin32GraphicsOpenglGlTexCoord2fv(v.rawAddress.toCPointer<ByteVar>())
 }
 
@@ -1517,7 +1515,7 @@ public actual fun glTexCoord2i(s: Int, t: Int) {
     windowssysWindowsWin32GraphicsOpenglGlTexCoord2i(s, t)
 }
 
-public actual fun glTexCoord2iv(v: ConstPtr<Int>) {
+public actual fun glTexCoord2iv(v: ConstPtr) {
     windowssysWindowsWin32GraphicsOpenglGlTexCoord2iv(v.rawAddress.toCPointer<ByteVar>())
 }
 
@@ -1525,7 +1523,7 @@ public actual fun glTexCoord2s(s: Short, t: Short) {
     windowssysWindowsWin32GraphicsOpenglGlTexCoord2s(s, t)
 }
 
-public actual fun glTexCoord2sv(v: ConstPtr<Short>) {
+public actual fun glTexCoord2sv(v: ConstPtr) {
     windowssysWindowsWin32GraphicsOpenglGlTexCoord2sv(v.rawAddress.toCPointer<ByteVar>())
 }
 
@@ -1533,7 +1531,7 @@ public actual fun glTexCoord3d(s: Double, t: Double, r: Double) {
     windowssysWindowsWin32GraphicsOpenglGlTexCoord3d(s, t, r)
 }
 
-public actual fun glTexCoord3dv(v: ConstPtr<Double>) {
+public actual fun glTexCoord3dv(v: ConstPtr) {
     windowssysWindowsWin32GraphicsOpenglGlTexCoord3dv(v.rawAddress.toCPointer<ByteVar>())
 }
 
@@ -1541,7 +1539,7 @@ public actual fun glTexCoord3f(s: Float, t: Float, r: Float) {
     windowssysWindowsWin32GraphicsOpenglGlTexCoord3f(s, t, r)
 }
 
-public actual fun glTexCoord3fv(v: ConstPtr<Float>) {
+public actual fun glTexCoord3fv(v: ConstPtr) {
     windowssysWindowsWin32GraphicsOpenglGlTexCoord3fv(v.rawAddress.toCPointer<ByteVar>())
 }
 
@@ -1549,7 +1547,7 @@ public actual fun glTexCoord3i(s: Int, t: Int, r: Int) {
     windowssysWindowsWin32GraphicsOpenglGlTexCoord3i(s, t, r)
 }
 
-public actual fun glTexCoord3iv(v: ConstPtr<Int>) {
+public actual fun glTexCoord3iv(v: ConstPtr) {
     windowssysWindowsWin32GraphicsOpenglGlTexCoord3iv(v.rawAddress.toCPointer<ByteVar>())
 }
 
@@ -1557,7 +1555,7 @@ public actual fun glTexCoord3s(s: Short, t: Short, r: Short) {
     windowssysWindowsWin32GraphicsOpenglGlTexCoord3s(s, t, r)
 }
 
-public actual fun glTexCoord3sv(v: ConstPtr<Short>) {
+public actual fun glTexCoord3sv(v: ConstPtr) {
     windowssysWindowsWin32GraphicsOpenglGlTexCoord3sv(v.rawAddress.toCPointer<ByteVar>())
 }
 
@@ -1565,7 +1563,7 @@ public actual fun glTexCoord4d(s: Double, t: Double, r: Double, q: Double) {
     windowssysWindowsWin32GraphicsOpenglGlTexCoord4d(s, t, r, q)
 }
 
-public actual fun glTexCoord4dv(v: ConstPtr<Double>) {
+public actual fun glTexCoord4dv(v: ConstPtr) {
     windowssysWindowsWin32GraphicsOpenglGlTexCoord4dv(v.rawAddress.toCPointer<ByteVar>())
 }
 
@@ -1573,7 +1571,7 @@ public actual fun glTexCoord4f(s: Float, t: Float, r: Float, q: Float) {
     windowssysWindowsWin32GraphicsOpenglGlTexCoord4f(s, t, r, q)
 }
 
-public actual fun glTexCoord4fv(v: ConstPtr<Float>) {
+public actual fun glTexCoord4fv(v: ConstPtr) {
     windowssysWindowsWin32GraphicsOpenglGlTexCoord4fv(v.rawAddress.toCPointer<ByteVar>())
 }
 
@@ -1581,7 +1579,7 @@ public actual fun glTexCoord4i(s: Int, t: Int, r: Int, q: Int) {
     windowssysWindowsWin32GraphicsOpenglGlTexCoord4i(s, t, r, q)
 }
 
-public actual fun glTexCoord4iv(v: ConstPtr<Int>) {
+public actual fun glTexCoord4iv(v: ConstPtr) {
     windowssysWindowsWin32GraphicsOpenglGlTexCoord4iv(v.rawAddress.toCPointer<ByteVar>())
 }
 
@@ -1589,11 +1587,11 @@ public actual fun glTexCoord4s(s: Short, t: Short, r: Short, q: Short) {
     windowssysWindowsWin32GraphicsOpenglGlTexCoord4s(s, t, r, q)
 }
 
-public actual fun glTexCoord4sv(v: ConstPtr<Short>) {
+public actual fun glTexCoord4sv(v: ConstPtr) {
     windowssysWindowsWin32GraphicsOpenglGlTexCoord4sv(v.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun glTexCoordPointer(size: Int, type: UInt, stride: Int, pointer: ConstPtr<CVoid>) {
+public actual fun glTexCoordPointer(size: Int, type: UInt, stride: Int, pointer: ConstPtr) {
     windowssysWindowsWin32GraphicsOpenglGlTexCoordPointer(size, type, stride, pointer.rawAddress.toCPointer<ByteVar>())
 }
 
@@ -1601,7 +1599,7 @@ public actual fun glTexEnvf(target: UInt, pname: UInt, param2: Float) {
     windowssysWindowsWin32GraphicsOpenglGlTexEnvf(target, pname, param2)
 }
 
-public actual fun glTexEnvfv(target: UInt, pname: UInt, params: ConstPtr<Float>) {
+public actual fun glTexEnvfv(target: UInt, pname: UInt, params: ConstPtr) {
     windowssysWindowsWin32GraphicsOpenglGlTexEnvfv(target, pname, params.rawAddress.toCPointer<ByteVar>())
 }
 
@@ -1609,7 +1607,7 @@ public actual fun glTexEnvi(target: UInt, pname: UInt, param2: Int) {
     windowssysWindowsWin32GraphicsOpenglGlTexEnvi(target, pname, param2)
 }
 
-public actual fun glTexEnviv(target: UInt, pname: UInt, params: ConstPtr<Int>) {
+public actual fun glTexEnviv(target: UInt, pname: UInt, params: ConstPtr) {
     windowssysWindowsWin32GraphicsOpenglGlTexEnviv(target, pname, params.rawAddress.toCPointer<ByteVar>())
 }
 
@@ -1617,7 +1615,7 @@ public actual fun glTexGend(coord: UInt, pname: UInt, param2: Double) {
     windowssysWindowsWin32GraphicsOpenglGlTexGend(coord, pname, param2)
 }
 
-public actual fun glTexGendv(coord: UInt, pname: UInt, params: ConstPtr<Double>) {
+public actual fun glTexGendv(coord: UInt, pname: UInt, params: ConstPtr) {
     windowssysWindowsWin32GraphicsOpenglGlTexGendv(coord, pname, params.rawAddress.toCPointer<ByteVar>())
 }
 
@@ -1625,7 +1623,7 @@ public actual fun glTexGenf(coord: UInt, pname: UInt, param2: Float) {
     windowssysWindowsWin32GraphicsOpenglGlTexGenf(coord, pname, param2)
 }
 
-public actual fun glTexGenfv(coord: UInt, pname: UInt, params: ConstPtr<Float>) {
+public actual fun glTexGenfv(coord: UInt, pname: UInt, params: ConstPtr) {
     windowssysWindowsWin32GraphicsOpenglGlTexGenfv(coord, pname, params.rawAddress.toCPointer<ByteVar>())
 }
 
@@ -1633,15 +1631,15 @@ public actual fun glTexGeni(coord: UInt, pname: UInt, param2: Int) {
     windowssysWindowsWin32GraphicsOpenglGlTexGeni(coord, pname, param2)
 }
 
-public actual fun glTexGeniv(coord: UInt, pname: UInt, params: ConstPtr<Int>) {
+public actual fun glTexGeniv(coord: UInt, pname: UInt, params: ConstPtr) {
     windowssysWindowsWin32GraphicsOpenglGlTexGeniv(coord, pname, params.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun glTexImage1D(target: UInt, level: Int, internalformat: Int, width: Int, border: Int, format: UInt, type: UInt, pixels: ConstPtr<CVoid>) {
+public actual fun glTexImage1D(target: UInt, level: Int, internalformat: Int, width: Int, border: Int, format: UInt, type: UInt, pixels: ConstPtr) {
     windowssysWindowsWin32GraphicsOpenglGlTexImage1D(target, level, internalformat, width, border, format, type, pixels.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun glTexImage2D(target: UInt, level: Int, internalformat: Int, width: Int, height: Int, border: Int, format: UInt, type: UInt, pixels: ConstPtr<CVoid>) {
+public actual fun glTexImage2D(target: UInt, level: Int, internalformat: Int, width: Int, height: Int, border: Int, format: UInt, type: UInt, pixels: ConstPtr) {
     windowssysWindowsWin32GraphicsOpenglGlTexImage2D(target, level, internalformat, width, height, border, format, type, pixels.rawAddress.toCPointer<ByteVar>())
 }
 
@@ -1649,7 +1647,7 @@ public actual fun glTexParameterf(target: UInt, pname: UInt, param2: Float) {
     windowssysWindowsWin32GraphicsOpenglGlTexParameterf(target, pname, param2)
 }
 
-public actual fun glTexParameterfv(target: UInt, pname: UInt, params: ConstPtr<Float>) {
+public actual fun glTexParameterfv(target: UInt, pname: UInt, params: ConstPtr) {
     windowssysWindowsWin32GraphicsOpenglGlTexParameterfv(target, pname, params.rawAddress.toCPointer<ByteVar>())
 }
 
@@ -1657,15 +1655,15 @@ public actual fun glTexParameteri(target: UInt, pname: UInt, param2: Int) {
     windowssysWindowsWin32GraphicsOpenglGlTexParameteri(target, pname, param2)
 }
 
-public actual fun glTexParameteriv(target: UInt, pname: UInt, params: ConstPtr<Int>) {
+public actual fun glTexParameteriv(target: UInt, pname: UInt, params: ConstPtr) {
     windowssysWindowsWin32GraphicsOpenglGlTexParameteriv(target, pname, params.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun glTexSubImage1D(target: UInt, level: Int, xoffset: Int, width: Int, format: UInt, type: UInt, pixels: ConstPtr<CVoid>) {
+public actual fun glTexSubImage1D(target: UInt, level: Int, xoffset: Int, width: Int, format: UInt, type: UInt, pixels: ConstPtr) {
     windowssysWindowsWin32GraphicsOpenglGlTexSubImage1D(target, level, xoffset, width, format, type, pixels.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun glTexSubImage2D(target: UInt, level: Int, xoffset: Int, yoffset: Int, width: Int, height: Int, format: UInt, type: UInt, pixels: ConstPtr<CVoid>) {
+public actual fun glTexSubImage2D(target: UInt, level: Int, xoffset: Int, yoffset: Int, width: Int, height: Int, format: UInt, type: UInt, pixels: ConstPtr) {
     windowssysWindowsWin32GraphicsOpenglGlTexSubImage2D(target, level, xoffset, yoffset, width, height, format, type, pixels.rawAddress.toCPointer<ByteVar>())
 }
 
@@ -1681,7 +1679,7 @@ public actual fun glVertex2d(x: Double, y: Double) {
     windowssysWindowsWin32GraphicsOpenglGlVertex2d(x, y)
 }
 
-public actual fun glVertex2dv(v: ConstPtr<Double>) {
+public actual fun glVertex2dv(v: ConstPtr) {
     windowssysWindowsWin32GraphicsOpenglGlVertex2dv(v.rawAddress.toCPointer<ByteVar>())
 }
 
@@ -1689,7 +1687,7 @@ public actual fun glVertex2f(x: Float, y: Float) {
     windowssysWindowsWin32GraphicsOpenglGlVertex2f(x, y)
 }
 
-public actual fun glVertex2fv(v: ConstPtr<Float>) {
+public actual fun glVertex2fv(v: ConstPtr) {
     windowssysWindowsWin32GraphicsOpenglGlVertex2fv(v.rawAddress.toCPointer<ByteVar>())
 }
 
@@ -1697,7 +1695,7 @@ public actual fun glVertex2i(x: Int, y: Int) {
     windowssysWindowsWin32GraphicsOpenglGlVertex2i(x, y)
 }
 
-public actual fun glVertex2iv(v: ConstPtr<Int>) {
+public actual fun glVertex2iv(v: ConstPtr) {
     windowssysWindowsWin32GraphicsOpenglGlVertex2iv(v.rawAddress.toCPointer<ByteVar>())
 }
 
@@ -1705,7 +1703,7 @@ public actual fun glVertex2s(x: Short, y: Short) {
     windowssysWindowsWin32GraphicsOpenglGlVertex2s(x, y)
 }
 
-public actual fun glVertex2sv(v: ConstPtr<Short>) {
+public actual fun glVertex2sv(v: ConstPtr) {
     windowssysWindowsWin32GraphicsOpenglGlVertex2sv(v.rawAddress.toCPointer<ByteVar>())
 }
 
@@ -1713,7 +1711,7 @@ public actual fun glVertex3d(x: Double, y: Double, z: Double) {
     windowssysWindowsWin32GraphicsOpenglGlVertex3d(x, y, z)
 }
 
-public actual fun glVertex3dv(v: ConstPtr<Double>) {
+public actual fun glVertex3dv(v: ConstPtr) {
     windowssysWindowsWin32GraphicsOpenglGlVertex3dv(v.rawAddress.toCPointer<ByteVar>())
 }
 
@@ -1721,7 +1719,7 @@ public actual fun glVertex3f(x: Float, y: Float, z: Float) {
     windowssysWindowsWin32GraphicsOpenglGlVertex3f(x, y, z)
 }
 
-public actual fun glVertex3fv(v: ConstPtr<Float>) {
+public actual fun glVertex3fv(v: ConstPtr) {
     windowssysWindowsWin32GraphicsOpenglGlVertex3fv(v.rawAddress.toCPointer<ByteVar>())
 }
 
@@ -1729,7 +1727,7 @@ public actual fun glVertex3i(x: Int, y: Int, z: Int) {
     windowssysWindowsWin32GraphicsOpenglGlVertex3i(x, y, z)
 }
 
-public actual fun glVertex3iv(v: ConstPtr<Int>) {
+public actual fun glVertex3iv(v: ConstPtr) {
     windowssysWindowsWin32GraphicsOpenglGlVertex3iv(v.rawAddress.toCPointer<ByteVar>())
 }
 
@@ -1737,7 +1735,7 @@ public actual fun glVertex3s(x: Short, y: Short, z: Short) {
     windowssysWindowsWin32GraphicsOpenglGlVertex3s(x, y, z)
 }
 
-public actual fun glVertex3sv(v: ConstPtr<Short>) {
+public actual fun glVertex3sv(v: ConstPtr) {
     windowssysWindowsWin32GraphicsOpenglGlVertex3sv(v.rawAddress.toCPointer<ByteVar>())
 }
 
@@ -1745,7 +1743,7 @@ public actual fun glVertex4d(x: Double, y: Double, z: Double, w: Double) {
     windowssysWindowsWin32GraphicsOpenglGlVertex4d(x, y, z, w)
 }
 
-public actual fun glVertex4dv(v: ConstPtr<Double>) {
+public actual fun glVertex4dv(v: ConstPtr) {
     windowssysWindowsWin32GraphicsOpenglGlVertex4dv(v.rawAddress.toCPointer<ByteVar>())
 }
 
@@ -1753,7 +1751,7 @@ public actual fun glVertex4f(x: Float, y: Float, z: Float, w: Float) {
     windowssysWindowsWin32GraphicsOpenglGlVertex4f(x, y, z, w)
 }
 
-public actual fun glVertex4fv(v: ConstPtr<Float>) {
+public actual fun glVertex4fv(v: ConstPtr) {
     windowssysWindowsWin32GraphicsOpenglGlVertex4fv(v.rawAddress.toCPointer<ByteVar>())
 }
 
@@ -1761,7 +1759,7 @@ public actual fun glVertex4i(x: Int, y: Int, z: Int, w: Int) {
     windowssysWindowsWin32GraphicsOpenglGlVertex4i(x, y, z, w)
 }
 
-public actual fun glVertex4iv(v: ConstPtr<Int>) {
+public actual fun glVertex4iv(v: ConstPtr) {
     windowssysWindowsWin32GraphicsOpenglGlVertex4iv(v.rawAddress.toCPointer<ByteVar>())
 }
 
@@ -1769,11 +1767,11 @@ public actual fun glVertex4s(x: Short, y: Short, z: Short, w: Short) {
     windowssysWindowsWin32GraphicsOpenglGlVertex4s(x, y, z, w)
 }
 
-public actual fun glVertex4sv(v: ConstPtr<Short>) {
+public actual fun glVertex4sv(v: ConstPtr) {
     windowssysWindowsWin32GraphicsOpenglGlVertex4sv(v.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun glVertexPointer(size: Int, type: UInt, stride: Int, pointer: ConstPtr<CVoid>) {
+public actual fun glVertexPointer(size: Int, type: UInt, stride: Int, pointer: ConstPtr) {
     windowssysWindowsWin32GraphicsOpenglGlVertexPointer(size, type, stride, pointer.rawAddress.toCPointer<ByteVar>())
 }
 
@@ -1781,82 +1779,82 @@ public actual fun glViewport(x: Int, y: Int, width: Int, height: Int) {
     windowssysWindowsWin32GraphicsOpenglGlViewport(x, y, width, height)
 }
 
-public actual fun gluBeginCurve(nobj: MutPtr<GLUnurbs>) {
+public actual fun gluBeginCurve(nobj: MutPtr) {
     windowssysWindowsWin32GraphicsOpenglGluBeginCurve(nobj.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun gluBeginPolygon(tess: MutPtr<GLUtesselator>) {
+public actual fun gluBeginPolygon(tess: MutPtr) {
     windowssysWindowsWin32GraphicsOpenglGluBeginPolygon(tess.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun gluBeginSurface(nobj: MutPtr<GLUnurbs>) {
+public actual fun gluBeginSurface(nobj: MutPtr) {
     windowssysWindowsWin32GraphicsOpenglGluBeginSurface(nobj.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun gluBeginTrim(nobj: MutPtr<GLUnurbs>) {
+public actual fun gluBeginTrim(nobj: MutPtr) {
     windowssysWindowsWin32GraphicsOpenglGluBeginTrim(nobj.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun gluBuild1DMipmaps(target: UInt, components: Int, width: Int, format: UInt, type: UInt, data: ConstPtr<CVoid>): Int =
+public actual fun gluBuild1DMipmaps(target: UInt, components: Int, width: Int, format: UInt, type: UInt, data: ConstPtr): Int =
     windowssysWindowsWin32GraphicsOpenglGluBuild1DMipmaps(target, components, width, format, type, data.rawAddress.toCPointer<ByteVar>())
 
-public actual fun gluBuild2DMipmaps(target: UInt, components: Int, width: Int, height: Int, format: UInt, type: UInt, data: ConstPtr<CVoid>): Int =
+public actual fun gluBuild2DMipmaps(target: UInt, components: Int, width: Int, height: Int, format: UInt, type: UInt, data: ConstPtr): Int =
     windowssysWindowsWin32GraphicsOpenglGluBuild2DMipmaps(target, components, width, height, format, type, data.rawAddress.toCPointer<ByteVar>())
 
-public actual fun gluCylinder(qobj: MutPtr<GLUquadric>, baseradius: Double, topradius: Double, height: Double, slices: Int, stacks: Int) {
+public actual fun gluCylinder(qobj: MutPtr, baseradius: Double, topradius: Double, height: Double, slices: Int, stacks: Int) {
     windowssysWindowsWin32GraphicsOpenglGluCylinder(qobj.rawAddress.toCPointer<ByteVar>(), baseradius, topradius, height, slices, stacks)
 }
 
-public actual fun gluDeleteNurbsRenderer(nobj: MutPtr<GLUnurbs>) {
+public actual fun gluDeleteNurbsRenderer(nobj: MutPtr) {
     windowssysWindowsWin32GraphicsOpenglGluDeleteNurbsRenderer(nobj.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun gluDeleteQuadric(state: MutPtr<GLUquadric>) {
+public actual fun gluDeleteQuadric(state: MutPtr) {
     windowssysWindowsWin32GraphicsOpenglGluDeleteQuadric(state.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun gluDeleteTess(tess: MutPtr<GLUtesselator>) {
+public actual fun gluDeleteTess(tess: MutPtr) {
     windowssysWindowsWin32GraphicsOpenglGluDeleteTess(tess.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun gluDisk(qobj: MutPtr<GLUquadric>, innerradius: Double, outerradius: Double, slices: Int, loops: Int) {
+public actual fun gluDisk(qobj: MutPtr, innerradius: Double, outerradius: Double, slices: Int, loops: Int) {
     windowssysWindowsWin32GraphicsOpenglGluDisk(qobj.rawAddress.toCPointer<ByteVar>(), innerradius, outerradius, slices, loops)
 }
 
-public actual fun gluEndCurve(nobj: MutPtr<GLUnurbs>) {
+public actual fun gluEndCurve(nobj: MutPtr) {
     windowssysWindowsWin32GraphicsOpenglGluEndCurve(nobj.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun gluEndPolygon(tess: MutPtr<GLUtesselator>) {
+public actual fun gluEndPolygon(tess: MutPtr) {
     windowssysWindowsWin32GraphicsOpenglGluEndPolygon(tess.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun gluEndSurface(nobj: MutPtr<GLUnurbs>) {
+public actual fun gluEndSurface(nobj: MutPtr) {
     windowssysWindowsWin32GraphicsOpenglGluEndSurface(nobj.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun gluEndTrim(nobj: MutPtr<GLUnurbs>) {
+public actual fun gluEndTrim(nobj: MutPtr) {
     windowssysWindowsWin32GraphicsOpenglGluEndTrim(nobj.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun gluErrorString(errcode: UInt): MutPtr<UByte> =
+public actual fun gluErrorString(errcode: UInt): MutPtr =
     MutPtr(windowssysWindowsWin32GraphicsOpenglGluErrorString(errcode)?.toLong() ?: 0L)
 
 public actual fun gluErrorUnicodeStringEXT(errcode: UInt): Pcwstr =
     ConstPtr(windowssysWindowsWin32GraphicsOpenglGluErrorUnicodeStringEXT(errcode)?.toLong() ?: 0L)
 
-public actual fun gluGetNurbsProperty(nobj: MutPtr<GLUnurbs>, property: UInt, value: MutPtr<Float>) {
+public actual fun gluGetNurbsProperty(nobj: MutPtr, property: UInt, value: MutPtr) {
     windowssysWindowsWin32GraphicsOpenglGluGetNurbsProperty(nobj.rawAddress.toCPointer<ByteVar>(), property, value.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun gluGetString(name: UInt): MutPtr<UByte> =
+public actual fun gluGetString(name: UInt): MutPtr =
     MutPtr(windowssysWindowsWin32GraphicsOpenglGluGetString(name)?.toLong() ?: 0L)
 
-public actual fun gluGetTessProperty(tess: MutPtr<GLUtesselator>, which: UInt, value: MutPtr<Double>) {
+public actual fun gluGetTessProperty(tess: MutPtr, which: UInt, value: MutPtr) {
     windowssysWindowsWin32GraphicsOpenglGluGetTessProperty(tess.rawAddress.toCPointer<ByteVar>(), which, value.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun gluLoadSamplingMatrices(nobj: MutPtr<GLUnurbs>, modelmatrix: ConstPtr<Float>, projmatrix: ConstPtr<Float>, viewport: ConstPtr<Int>) {
+public actual fun gluLoadSamplingMatrices(nobj: MutPtr, modelmatrix: ConstPtr, projmatrix: ConstPtr, viewport: ConstPtr) {
     windowssysWindowsWin32GraphicsOpenglGluLoadSamplingMatrices(nobj.rawAddress.toCPointer<ByteVar>(), modelmatrix.rawAddress.toCPointer<ByteVar>(), projmatrix.rawAddress.toCPointer<ByteVar>(), viewport.rawAddress.toCPointer<ByteVar>())
 }
 
@@ -1864,32 +1862,32 @@ public actual fun gluLookAt(eyex: Double, eyey: Double, eyez: Double, centerx: D
     windowssysWindowsWin32GraphicsOpenglGluLookAt(eyex, eyey, eyez, centerx, centery, centerz, upx, upy, upz)
 }
 
-public actual fun gluNewNurbsRenderer(): MutPtr<GLUnurbs> =
+public actual fun gluNewNurbsRenderer(): MutPtr =
     MutPtr(windowssysWindowsWin32GraphicsOpenglGluNewNurbsRenderer()?.toLong() ?: 0L)
 
-public actual fun gluNewQuadric(): MutPtr<GLUquadric> =
+public actual fun gluNewQuadric(): MutPtr =
     MutPtr(windowssysWindowsWin32GraphicsOpenglGluNewQuadric()?.toLong() ?: 0L)
 
-public actual fun gluNewTess(): MutPtr<GLUtesselator> =
+public actual fun gluNewTess(): MutPtr =
     MutPtr(windowssysWindowsWin32GraphicsOpenglGluNewTess()?.toLong() ?: 0L)
 
-public actual fun gluNextContour(tess: MutPtr<GLUtesselator>, type: UInt) {
+public actual fun gluNextContour(tess: MutPtr, type: UInt) {
     windowssysWindowsWin32GraphicsOpenglGluNextContour(tess.rawAddress.toCPointer<ByteVar>(), type)
 }
 
-public actual fun gluNurbsCallback(nobj: MutPtr<GLUnurbs>, which: UInt, fn: Long) {
+public actual fun gluNurbsCallback(nobj: MutPtr, which: UInt, fn: Long) {
     windowssysWindowsWin32GraphicsOpenglGluNurbsCallback(nobj.rawAddress.toCPointer<ByteVar>(), which, fn)
 }
 
-public actual fun gluNurbsCurve(nobj: MutPtr<GLUnurbs>, nknots: Int, knot: MutPtr<Float>, stride: Int, ctlarray: MutPtr<Float>, order: Int, type: UInt) {
+public actual fun gluNurbsCurve(nobj: MutPtr, nknots: Int, knot: MutPtr, stride: Int, ctlarray: MutPtr, order: Int, type: UInt) {
     windowssysWindowsWin32GraphicsOpenglGluNurbsCurve(nobj.rawAddress.toCPointer<ByteVar>(), nknots, knot.rawAddress.toCPointer<ByteVar>(), stride, ctlarray.rawAddress.toCPointer<ByteVar>(), order, type)
 }
 
-public actual fun gluNurbsProperty(nobj: MutPtr<GLUnurbs>, property: UInt, value: Float) {
+public actual fun gluNurbsProperty(nobj: MutPtr, property: UInt, value: Float) {
     windowssysWindowsWin32GraphicsOpenglGluNurbsProperty(nobj.rawAddress.toCPointer<ByteVar>(), property, value)
 }
 
-public actual fun gluNurbsSurface(nobj: MutPtr<GLUnurbs>, sknotCount: Int, sknot: MutPtr<Float>, tknotCount: Int, tknot: MutPtr<Float>, sStride: Int, tStride: Int, ctlarray: MutPtr<Float>, sorder: Int, torder: Int, type: UInt) {
+public actual fun gluNurbsSurface(nobj: MutPtr, sknotCount: Int, sknot: MutPtr, tknotCount: Int, tknot: MutPtr, sStride: Int, tStride: Int, ctlarray: MutPtr, sorder: Int, torder: Int, type: UInt) {
     windowssysWindowsWin32GraphicsOpenglGluNurbsSurface(nobj.rawAddress.toCPointer<ByteVar>(), sknotCount, sknot.rawAddress.toCPointer<ByteVar>(), tknotCount, tknot.rawAddress.toCPointer<ByteVar>(), sStride, tStride, ctlarray.rawAddress.toCPointer<ByteVar>(), sorder, torder, type)
 }
 
@@ -1897,7 +1895,7 @@ public actual fun gluOrtho2D(left: Double, right: Double, bottom: Double, top: D
     windowssysWindowsWin32GraphicsOpenglGluOrtho2D(left, right, bottom, top)
 }
 
-public actual fun gluPartialDisk(qobj: MutPtr<GLUquadric>, innerradius: Double, outerradius: Double, slices: Int, loops: Int, startangle: Double, sweepangle: Double) {
+public actual fun gluPartialDisk(qobj: MutPtr, innerradius: Double, outerradius: Double, slices: Int, loops: Int, startangle: Double, sweepangle: Double) {
     windowssysWindowsWin32GraphicsOpenglGluPartialDisk(qobj.rawAddress.toCPointer<ByteVar>(), innerradius, outerradius, slices, loops, startangle, sweepangle)
 }
 
@@ -1905,77 +1903,77 @@ public actual fun gluPerspective(fovy: Double, aspect: Double, znear: Double, zf
     windowssysWindowsWin32GraphicsOpenglGluPerspective(fovy, aspect, znear, zfar)
 }
 
-public actual fun gluPickMatrix(x: Double, y: Double, width: Double, height: Double, viewport: MutPtr<Int>) {
+public actual fun gluPickMatrix(x: Double, y: Double, width: Double, height: Double, viewport: MutPtr) {
     windowssysWindowsWin32GraphicsOpenglGluPickMatrix(x, y, width, height, viewport.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun gluProject(objx: Double, objy: Double, objz: Double, modelmatrix: ConstPtr<Double>, projmatrix: ConstPtr<Double>, viewport: ConstPtr<Int>, winx: MutPtr<Double>, winy: MutPtr<Double>, winz: MutPtr<Double>): Int =
+public actual fun gluProject(objx: Double, objy: Double, objz: Double, modelmatrix: ConstPtr, projmatrix: ConstPtr, viewport: ConstPtr, winx: MutPtr, winy: MutPtr, winz: MutPtr): Int =
     windowssysWindowsWin32GraphicsOpenglGluProject(objx, objy, objz, modelmatrix.rawAddress.toCPointer<ByteVar>(), projmatrix.rawAddress.toCPointer<ByteVar>(), viewport.rawAddress.toCPointer<ByteVar>(), winx.rawAddress.toCPointer<ByteVar>(), winy.rawAddress.toCPointer<ByteVar>(), winz.rawAddress.toCPointer<ByteVar>())
 
-public actual fun gluPwlCurve(nobj: MutPtr<GLUnurbs>, count: Int, array: MutPtr<Float>, stride: Int, type: UInt) {
+public actual fun gluPwlCurve(nobj: MutPtr, count: Int, array: MutPtr, stride: Int, type: UInt) {
     windowssysWindowsWin32GraphicsOpenglGluPwlCurve(nobj.rawAddress.toCPointer<ByteVar>(), count, array.rawAddress.toCPointer<ByteVar>(), stride, type)
 }
 
-public actual fun gluQuadricCallback(qobj: MutPtr<GLUquadric>, which: UInt, fn: Long) {
+public actual fun gluQuadricCallback(qobj: MutPtr, which: UInt, fn: Long) {
     windowssysWindowsWin32GraphicsOpenglGluQuadricCallback(qobj.rawAddress.toCPointer<ByteVar>(), which, fn)
 }
 
-public actual fun gluQuadricDrawStyle(quadobject: MutPtr<GLUquadric>, drawstyle: UInt) {
+public actual fun gluQuadricDrawStyle(quadobject: MutPtr, drawstyle: UInt) {
     windowssysWindowsWin32GraphicsOpenglGluQuadricDrawStyle(quadobject.rawAddress.toCPointer<ByteVar>(), drawstyle)
 }
 
-public actual fun gluQuadricNormals(quadobject: MutPtr<GLUquadric>, normals: UInt) {
+public actual fun gluQuadricNormals(quadobject: MutPtr, normals: UInt) {
     windowssysWindowsWin32GraphicsOpenglGluQuadricNormals(quadobject.rawAddress.toCPointer<ByteVar>(), normals)
 }
 
-public actual fun gluQuadricOrientation(quadobject: MutPtr<GLUquadric>, orientation: UInt) {
+public actual fun gluQuadricOrientation(quadobject: MutPtr, orientation: UInt) {
     windowssysWindowsWin32GraphicsOpenglGluQuadricOrientation(quadobject.rawAddress.toCPointer<ByteVar>(), orientation)
 }
 
-public actual fun gluQuadricTexture(quadobject: MutPtr<GLUquadric>, texturecoords: UByte) {
+public actual fun gluQuadricTexture(quadobject: MutPtr, texturecoords: UByte) {
     windowssysWindowsWin32GraphicsOpenglGluQuadricTexture(quadobject.rawAddress.toCPointer<ByteVar>(), texturecoords)
 }
 
-public actual fun gluScaleImage(format: UInt, widthin: Int, heightin: Int, typein: UInt, datain: ConstPtr<CVoid>, widthout: Int, heightout: Int, typeout: UInt, dataout: MutPtr<CVoid>): Int =
+public actual fun gluScaleImage(format: UInt, widthin: Int, heightin: Int, typein: UInt, datain: ConstPtr, widthout: Int, heightout: Int, typeout: UInt, dataout: MutPtr): Int =
     windowssysWindowsWin32GraphicsOpenglGluScaleImage(format, widthin, heightin, typein, datain.rawAddress.toCPointer<ByteVar>(), widthout, heightout, typeout, dataout.rawAddress.toCPointer<ByteVar>())
 
-public actual fun gluSphere(qobj: MutPtr<GLUquadric>, radius: Double, slices: Int, stacks: Int) {
+public actual fun gluSphere(qobj: MutPtr, radius: Double, slices: Int, stacks: Int) {
     windowssysWindowsWin32GraphicsOpenglGluSphere(qobj.rawAddress.toCPointer<ByteVar>(), radius, slices, stacks)
 }
 
-public actual fun gluTessBeginContour(tess: MutPtr<GLUtesselator>) {
+public actual fun gluTessBeginContour(tess: MutPtr) {
     windowssysWindowsWin32GraphicsOpenglGluTessBeginContour(tess.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun gluTessBeginPolygon(tess: MutPtr<GLUtesselator>, polygonData: MutPtr<CVoid>) {
+public actual fun gluTessBeginPolygon(tess: MutPtr, polygonData: MutPtr) {
     windowssysWindowsWin32GraphicsOpenglGluTessBeginPolygon(tess.rawAddress.toCPointer<ByteVar>(), polygonData.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun gluTessCallback(tess: MutPtr<GLUtesselator>, which: UInt, fn: Long) {
+public actual fun gluTessCallback(tess: MutPtr, which: UInt, fn: Long) {
     windowssysWindowsWin32GraphicsOpenglGluTessCallback(tess.rawAddress.toCPointer<ByteVar>(), which, fn)
 }
 
-public actual fun gluTessEndContour(tess: MutPtr<GLUtesselator>) {
+public actual fun gluTessEndContour(tess: MutPtr) {
     windowssysWindowsWin32GraphicsOpenglGluTessEndContour(tess.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun gluTessEndPolygon(tess: MutPtr<GLUtesselator>) {
+public actual fun gluTessEndPolygon(tess: MutPtr) {
     windowssysWindowsWin32GraphicsOpenglGluTessEndPolygon(tess.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun gluTessNormal(tess: MutPtr<GLUtesselator>, x: Double, y: Double, z: Double) {
+public actual fun gluTessNormal(tess: MutPtr, x: Double, y: Double, z: Double) {
     windowssysWindowsWin32GraphicsOpenglGluTessNormal(tess.rawAddress.toCPointer<ByteVar>(), x, y, z)
 }
 
-public actual fun gluTessProperty(tess: MutPtr<GLUtesselator>, which: UInt, value: Double) {
+public actual fun gluTessProperty(tess: MutPtr, which: UInt, value: Double) {
     windowssysWindowsWin32GraphicsOpenglGluTessProperty(tess.rawAddress.toCPointer<ByteVar>(), which, value)
 }
 
-public actual fun gluTessVertex(tess: MutPtr<GLUtesselator>, coords: MutPtr<Double>, data: MutPtr<CVoid>) {
+public actual fun gluTessVertex(tess: MutPtr, coords: MutPtr, data: MutPtr) {
     windowssysWindowsWin32GraphicsOpenglGluTessVertex(tess.rawAddress.toCPointer<ByteVar>(), coords.rawAddress.toCPointer<ByteVar>(), data.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun gluUnProject(winx: Double, winy: Double, winz: Double, modelmatrix: ConstPtr<Double>, projmatrix: ConstPtr<Double>, viewport: ConstPtr<Int>, objx: MutPtr<Double>, objy: MutPtr<Double>, objz: MutPtr<Double>): Int =
+public actual fun gluUnProject(winx: Double, winy: Double, winz: Double, modelmatrix: ConstPtr, projmatrix: ConstPtr, viewport: ConstPtr, objx: MutPtr, objy: MutPtr, objz: MutPtr): Int =
     windowssysWindowsWin32GraphicsOpenglGluUnProject(winx, winy, winz, modelmatrix.rawAddress.toCPointer<ByteVar>(), projmatrix.rawAddress.toCPointer<ByteVar>(), viewport.rawAddress.toCPointer<ByteVar>(), objx.rawAddress.toCPointer<ByteVar>(), objy.rawAddress.toCPointer<ByteVar>(), objz.rawAddress.toCPointer<ByteVar>())
 
 public actual fun wglCopyContext(param0: Hglrc, param1: Hglrc, param2: UInt): Bool =
@@ -1990,7 +1988,7 @@ public actual fun wglCreateLayerContext(param0: Hdc, param1: Int): Hglrc =
 public actual fun wglDeleteContext(param0: Hglrc): Bool =
     windowssysWindowsWin32GraphicsOpenglWglDeleteContext(param0.rawAddress.toCPointer<ByteVar>())
 
-public actual fun wglDescribeLayerPlane(param0: Hdc, param1: Int, param2: Int, param3: UInt, param4: MutPtr<Layerplanedescriptor>): Bool =
+public actual fun wglDescribeLayerPlane(param0: Hdc, param1: Int, param2: Int, param3: UInt, param4: MutPtr): Bool =
     windowssysWindowsWin32GraphicsOpenglWglDescribeLayerPlane(param0.rawAddress.toCPointer<ByteVar>(), param1, param2, param3, param4.rawAddress.toCPointer<ByteVar>())
 
 public actual fun wglGetCurrentContext(): Hglrc =
@@ -1999,7 +1997,7 @@ public actual fun wglGetCurrentContext(): Hglrc =
 public actual fun wglGetCurrentDC(): Hdc =
     MutPtr(windowssysWindowsWin32GraphicsOpenglWglGetCurrentDC()?.toLong() ?: 0L)
 
-public actual fun wglGetLayerPaletteEntries(param0: Hdc, param1: Int, param2: Int, param3: Int, param4: MutPtr<Colorref>): Int =
+public actual fun wglGetLayerPaletteEntries(param0: Hdc, param1: Int, param2: Int, param3: Int, param4: MutPtr): Int =
     windowssysWindowsWin32GraphicsOpenglWglGetLayerPaletteEntries(param0.rawAddress.toCPointer<ByteVar>(), param1, param2, param3, param4.rawAddress.toCPointer<ByteVar>())
 
 public actual fun wglGetProcAddress(param0: Pcstr): Proc =
@@ -2011,7 +2009,7 @@ public actual fun wglMakeCurrent(param0: Hdc, param1: Hglrc): Bool =
 public actual fun wglRealizeLayerPalette(param0: Hdc, param1: Int, param2: Bool): Bool =
     windowssysWindowsWin32GraphicsOpenglWglRealizeLayerPalette(param0.rawAddress.toCPointer<ByteVar>(), param1, param2)
 
-public actual fun wglSetLayerPaletteEntries(param0: Hdc, param1: Int, param2: Int, param3: Int, param4: ConstPtr<Colorref>): Int =
+public actual fun wglSetLayerPaletteEntries(param0: Hdc, param1: Int, param2: Int, param3: Int, param4: ConstPtr): Int =
     windowssysWindowsWin32GraphicsOpenglWglSetLayerPaletteEntries(param0.rawAddress.toCPointer<ByteVar>(), param1, param2, param3, param4.rawAddress.toCPointer<ByteVar>())
 
 public actual fun wglShareLists(param0: Hglrc, param1: Hglrc): Bool =
@@ -2026,8 +2024,8 @@ public actual fun wglUseFontBitmapsA(param0: Hdc, param1: UInt, param2: UInt, pa
 public actual fun wglUseFontBitmapsW(param0: Hdc, param1: UInt, param2: UInt, param3: UInt): Bool =
     windowssysWindowsWin32GraphicsOpenglWglUseFontBitmapsW(param0.rawAddress.toCPointer<ByteVar>(), param1, param2, param3)
 
-public actual fun wglUseFontOutlinesA(param0: Hdc, param1: UInt, param2: UInt, param3: UInt, param4: Float, param5: Float, param6: Int, param7: MutPtr<Glyphmetricsfloat>): Bool =
+public actual fun wglUseFontOutlinesA(param0: Hdc, param1: UInt, param2: UInt, param3: UInt, param4: Float, param5: Float, param6: Int, param7: MutPtr): Bool =
     windowssysWindowsWin32GraphicsOpenglWglUseFontOutlinesA(param0.rawAddress.toCPointer<ByteVar>(), param1, param2, param3, param4, param5, param6, param7.rawAddress.toCPointer<ByteVar>())
 
-public actual fun wglUseFontOutlinesW(param0: Hdc, param1: UInt, param2: UInt, param3: UInt, param4: Float, param5: Float, param6: Int, param7: MutPtr<Glyphmetricsfloat>): Bool =
+public actual fun wglUseFontOutlinesW(param0: Hdc, param1: UInt, param2: UInt, param3: UInt, param4: Float, param5: Float, param6: Int, param7: MutPtr): Bool =
     windowssysWindowsWin32GraphicsOpenglWglUseFontOutlinesW(param0.rawAddress.toCPointer<ByteVar>(), param1, param2, param3, param4, param5, param6, param7.rawAddress.toCPointer<ByteVar>())

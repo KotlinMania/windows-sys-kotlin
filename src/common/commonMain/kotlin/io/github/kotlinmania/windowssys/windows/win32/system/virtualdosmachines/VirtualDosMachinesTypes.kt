@@ -1,16 +1,14 @@
 package io.github.kotlinmania.windowssys.windows.win32.system.virtualdosmachines
 
-import io.github.kotlinmania.rustlang.core.ffi.CVoid
 import io.github.kotlinmania.rustlang.core.ptr.MutPtr
 import io.github.kotlinmania.windowssys.core.Bool
 import io.github.kotlinmania.windowssys.core.Pcstr
 import io.github.kotlinmania.windowssys.core.Pstr
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Handle
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Lparam
-import io.github.kotlinmania.windowssys.windows.win32.system.diagnostics.debug.DebugEvent
 
 public fun interface DebugeventprocFn {
-    public operator fun invoke(param0: MutPtr<DebugEvent>, param1: MutPtr<CVoid>): UInt
+    public operator fun invoke(param0: MutPtr, param1: MutPtr): UInt
 }
 
 public typealias Debugeventproc = DebugeventprocFn?
@@ -28,7 +26,7 @@ public fun interface TaskenumprocFn {
 public typealias Taskenumproc = TaskenumprocFn?
 
 public fun interface TaskenumprocexFn {
-    public operator fun invoke(dwthreadid: UInt, hmod16: UShort, htask16: UShort, pszmodname: MutPtr<Byte>, pszfilename: MutPtr<Byte>, lpuserdefined: Lparam): Bool
+    public operator fun invoke(dwthreadid: UInt, hmod16: UShort, htask16: UShort, pszmodname: MutPtr, pszfilename: MutPtr, lpuserdefined: Lparam): Bool
 }
 
 public typealias Taskenumprocex = TaskenumprocexFn?
@@ -64,13 +62,13 @@ public fun interface VdmenumtaskwowprocFn {
 public typealias Vdmenumtaskwowproc = VdmenumtaskwowprocFn?
 
 public fun interface VdmgetaddrexpressionprocFn {
-    public operator fun invoke(param0: Pcstr, param1: Pcstr, param2: MutPtr<UShort>, param3: MutPtr<UInt>, param4: MutPtr<UShort>): Bool
+    public operator fun invoke(param0: Pcstr, param1: Pcstr, param2: MutPtr, param3: MutPtr, param4: MutPtr): Bool
 }
 
 public typealias Vdmgetaddrexpressionproc = VdmgetaddrexpressionprocFn?
 
 public fun interface VdmgetcontextprocFn {
-    public operator fun invoke(param0: Handle, param1: Handle, param2: MutPtr<Vdmcontext>): Bool
+    public operator fun invoke(param0: Handle, param1: Handle, param2: MutPtr): Bool
 }
 
 public typealias Vdmgetcontextproc = VdmgetcontextprocFn?
@@ -82,7 +80,7 @@ public fun interface VdmgetdbgflagsprocFn {
 public typealias Vdmgetdbgflagsproc = VdmgetdbgflagsprocFn?
 
 public fun interface VdmgetmoduleselectorprocFn {
-    public operator fun invoke(param0: Handle, param1: Handle, param2: UInt, param3: Pcstr, param4: MutPtr<UShort>): Bool
+    public operator fun invoke(param0: Handle, param1: Handle, param2: UInt, param3: Pcstr, param4: MutPtr): Bool
 }
 
 public typealias Vdmgetmoduleselectorproc = VdmgetmoduleselectorprocFn?
@@ -100,31 +98,31 @@ public fun interface VdmgetsegmentinfoprocFn {
 public typealias Vdmgetsegmentinfoproc = VdmgetsegmentinfoprocFn?
 
 public fun interface VdmgetselectormoduleprocFn {
-    public operator fun invoke(param0: Handle, param1: Handle, param2: UShort, param3: MutPtr<UInt>, param4: Pcstr, param5: UInt, param6: Pcstr, param7: UInt): Bool
+    public operator fun invoke(param0: Handle, param1: Handle, param2: UShort, param3: MutPtr, param4: Pcstr, param5: UInt, param6: Pcstr, param7: UInt): Bool
 }
 
 public typealias Vdmgetselectormoduleproc = VdmgetselectormoduleprocFn?
 
 public fun interface VdmgetsymbolprocFn {
-    public operator fun invoke(param0: Pcstr, param1: UShort, param2: UInt, param3: Bool, param4: Bool, param5: Pstr, param6: MutPtr<UInt>): Bool
+    public operator fun invoke(param0: Pcstr, param1: UShort, param2: UInt, param3: Bool, param4: Bool, param5: Pstr, param6: MutPtr): Bool
 }
 
 public typealias Vdmgetsymbolproc = VdmgetsymbolprocFn?
 
 public fun interface VdmgetthreadselectorentryprocFn {
-    public operator fun invoke(param0: Handle, param1: Handle, param2: UInt, param3: MutPtr<VdmldtEntry>): Bool
+    public operator fun invoke(param0: Handle, param1: Handle, param2: UInt, param3: MutPtr): Bool
 }
 
 public typealias Vdmgetthreadselectorentryproc = VdmgetthreadselectorentryprocFn?
 
 public fun interface VdmglobalfirstprocFn {
-    public operator fun invoke(param0: Handle, param1: Handle, param2: MutPtr<Globalentry>, param3: UShort, param4: Debugeventproc, param5: MutPtr<CVoid>): Bool
+    public operator fun invoke(param0: Handle, param1: Handle, param2: MutPtr, param3: UShort, param4: Debugeventproc, param5: MutPtr): Bool
 }
 
 public typealias Vdmglobalfirstproc = VdmglobalfirstprocFn?
 
 public fun interface VdmglobalnextprocFn {
-    public operator fun invoke(param0: Handle, param1: Handle, param2: MutPtr<Globalentry>, param3: UShort, param4: Debugeventproc, param5: MutPtr<CVoid>): Bool
+    public operator fun invoke(param0: Handle, param1: Handle, param2: MutPtr, param3: UShort, param4: Debugeventproc, param5: MutPtr): Bool
 }
 
 public typealias Vdmglobalnextproc = VdmglobalnextprocFn?
@@ -142,25 +140,25 @@ public fun interface VdmkillwowprocFn {
 public typealias Vdmkillwowproc = VdmkillwowprocFn?
 
 public fun interface VdmmodulefirstprocFn {
-    public operator fun invoke(param0: Handle, param1: Handle, param2: MutPtr<Moduleentry>, param3: Debugeventproc, param4: MutPtr<CVoid>): Bool
+    public operator fun invoke(param0: Handle, param1: Handle, param2: MutPtr, param3: Debugeventproc, param4: MutPtr): Bool
 }
 
 public typealias Vdmmodulefirstproc = VdmmodulefirstprocFn?
 
 public fun interface VdmmodulenextprocFn {
-    public operator fun invoke(param0: Handle, param1: Handle, param2: MutPtr<Moduleentry>, param3: Debugeventproc, param4: MutPtr<CVoid>): Bool
+    public operator fun invoke(param0: Handle, param1: Handle, param2: MutPtr, param3: Debugeventproc, param4: MutPtr): Bool
 }
 
 public typealias Vdmmodulenextproc = VdmmodulenextprocFn?
 
 public fun interface VdmprocessexceptionprocFn {
-    public operator fun invoke(param0: MutPtr<DebugEvent>): Bool
+    public operator fun invoke(param0: MutPtr): Bool
 }
 
 public typealias Vdmprocessexceptionproc = VdmprocessexceptionprocFn?
 
 public fun interface VdmsetcontextprocFn {
-    public operator fun invoke(param0: Handle, param1: Handle, param2: MutPtr<Vdmcontext>): Bool
+    public operator fun invoke(param0: Handle, param1: Handle, param2: MutPtr): Bool
 }
 
 public typealias Vdmsetcontextproc = VdmsetcontextprocFn?

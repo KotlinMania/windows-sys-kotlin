@@ -2,7 +2,6 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.system.remotedesktop
 
-import io.github.kotlinmania.rustlang.core.ffi.CVoid
 import io.github.kotlinmania.rustlang.core.ptr.ConstPtr
 import io.github.kotlinmania.rustlang.core.ptr.MutPtr
 import io.github.kotlinmania.windowssys.core.Bool
@@ -10,12 +9,10 @@ import io.github.kotlinmania.windowssys.core.Hresult
 import io.github.kotlinmania.windowssys.core.Pcstr
 import io.github.kotlinmania.windowssys.core.Pcwstr
 import io.github.kotlinmania.windowssys.core.Pstr
-import io.github.kotlinmania.windowssys.core.Pwstr
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Handle
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Hwnd
 import io.github.kotlinmania.windowssys.windows.win32.security.ObjectSecurityInformation
 import io.github.kotlinmania.windowssys.windows.win32.security.PsecurityDescriptor
-import io.github.kotlinmania.windowssys.windows.win32.ui.windowsandmessaging.MessageboxResult
 import io.github.kotlinmania.windowssys.windows.win32.ui.windowsandmessaging.MessageboxStyle
 
 private object WindowsWin32SystemRemotedesktopJniBridge {
@@ -270,7 +267,7 @@ private object WindowsWin32SystemRemotedesktopJniBridge {
     external fun windowssysWindowsWin32SystemRemotedesktopWTSWaitSystemEvent(hserver: Long, eventmask: Int, peventflags: Long): Int
 }
 
-public actual fun processIdToSessionId(dwprocessid: UInt, psessionid: MutPtr<UInt>): Bool =
+public actual fun processIdToSessionId(dwprocessid: UInt, psessionid: MutPtr): Bool =
     WindowsWin32SystemRemotedesktopJniBridge.windowssysWindowsWin32SystemRemotedesktopProcessIdToSessionId(dwprocessid.toInt(), psessionid.rawAddress)
 
 public actual fun wTSCloseServer(hserver: Handle) {
@@ -283,10 +280,10 @@ public actual fun wTSConnectSessionA(logonid: UInt, targetlogonid: UInt, ppasswo
 public actual fun wTSConnectSessionW(logonid: UInt, targetlogonid: UInt, ppassword: Pcwstr, bwait: Bool): Bool =
     WindowsWin32SystemRemotedesktopJniBridge.windowssysWindowsWin32SystemRemotedesktopWTSConnectSessionW(logonid.toInt(), targetlogonid.toInt(), ppassword.rawAddress, bwait)
 
-public actual fun wTSCreateListenerA(hserver: Handle, preserved: ConstPtr<CVoid>, reserved: UInt, plistenername: Pcstr, pbuffer: ConstPtr<Wtslistenerconfiga>, flag: UInt): Bool =
+public actual fun wTSCreateListenerA(hserver: Handle, preserved: ConstPtr, reserved: UInt, plistenername: Pcstr, pbuffer: ConstPtr, flag: UInt): Bool =
     WindowsWin32SystemRemotedesktopJniBridge.windowssysWindowsWin32SystemRemotedesktopWTSCreateListenerA(hserver.rawAddress, preserved.rawAddress, reserved.toInt(), plistenername.rawAddress, pbuffer.rawAddress, flag.toInt())
 
-public actual fun wTSCreateListenerW(hserver: Handle, preserved: ConstPtr<CVoid>, reserved: UInt, plistenername: Pcwstr, pbuffer: ConstPtr<Wtslistenerconfigw>, flag: UInt): Bool =
+public actual fun wTSCreateListenerW(hserver: Handle, preserved: ConstPtr, reserved: UInt, plistenername: Pcwstr, pbuffer: ConstPtr, flag: UInt): Bool =
     WindowsWin32SystemRemotedesktopJniBridge.windowssysWindowsWin32SystemRemotedesktopWTSCreateListenerW(hserver.rawAddress, preserved.rawAddress, reserved.toInt(), plistenername.rawAddress, pbuffer.rawAddress, flag.toInt())
 
 public actual fun wTSDisconnectSession(hserver: Handle, sessionid: UInt, bwait: Bool): Bool =
@@ -295,65 +292,65 @@ public actual fun wTSDisconnectSession(hserver: Handle, sessionid: UInt, bwait: 
 public actual fun wTSEnableChildSessions(benable: Bool): Bool =
     WindowsWin32SystemRemotedesktopJniBridge.windowssysWindowsWin32SystemRemotedesktopWTSEnableChildSessions(benable)
 
-public actual fun wTSEnumerateListenersA(hserver: Handle, preserved: ConstPtr<CVoid>, reserved: UInt, plisteners: MutPtr<MutPtr<Byte>>, pcount: MutPtr<UInt>): Bool =
+public actual fun wTSEnumerateListenersA(hserver: Handle, preserved: ConstPtr, reserved: UInt, plisteners: MutPtr, pcount: MutPtr): Bool =
     WindowsWin32SystemRemotedesktopJniBridge.windowssysWindowsWin32SystemRemotedesktopWTSEnumerateListenersA(hserver.rawAddress, preserved.rawAddress, reserved.toInt(), plisteners.rawAddress, pcount.rawAddress)
 
-public actual fun wTSEnumerateListenersW(hserver: Handle, preserved: ConstPtr<CVoid>, reserved: UInt, plisteners: MutPtr<MutPtr<UShort>>, pcount: MutPtr<UInt>): Bool =
+public actual fun wTSEnumerateListenersW(hserver: Handle, preserved: ConstPtr, reserved: UInt, plisteners: MutPtr, pcount: MutPtr): Bool =
     WindowsWin32SystemRemotedesktopJniBridge.windowssysWindowsWin32SystemRemotedesktopWTSEnumerateListenersW(hserver.rawAddress, preserved.rawAddress, reserved.toInt(), plisteners.rawAddress, pcount.rawAddress)
 
-public actual fun wTSEnumerateProcessesA(hserver: Handle, reserved: UInt, version: UInt, ppprocessinfo: MutPtr<MutPtr<WtsProcessInfoa>>, pcount: MutPtr<UInt>): Bool =
+public actual fun wTSEnumerateProcessesA(hserver: Handle, reserved: UInt, version: UInt, ppprocessinfo: MutPtr, pcount: MutPtr): Bool =
     WindowsWin32SystemRemotedesktopJniBridge.windowssysWindowsWin32SystemRemotedesktopWTSEnumerateProcessesA(hserver.rawAddress, reserved.toInt(), version.toInt(), ppprocessinfo.rawAddress, pcount.rawAddress)
 
-public actual fun wTSEnumerateProcessesExA(hserver: Handle, plevel: MutPtr<UInt>, sessionid: UInt, ppprocessinfo: MutPtr<Pstr>, pcount: MutPtr<UInt>): Bool =
+public actual fun wTSEnumerateProcessesExA(hserver: Handle, plevel: MutPtr, sessionid: UInt, ppprocessinfo: MutPtr, pcount: MutPtr): Bool =
     WindowsWin32SystemRemotedesktopJniBridge.windowssysWindowsWin32SystemRemotedesktopWTSEnumerateProcessesExA(hserver.rawAddress, plevel.rawAddress, sessionid.toInt(), ppprocessinfo.rawAddress, pcount.rawAddress)
 
-public actual fun wTSEnumerateProcessesExW(hserver: Handle, plevel: MutPtr<UInt>, sessionid: UInt, ppprocessinfo: MutPtr<Pwstr>, pcount: MutPtr<UInt>): Bool =
+public actual fun wTSEnumerateProcessesExW(hserver: Handle, plevel: MutPtr, sessionid: UInt, ppprocessinfo: MutPtr, pcount: MutPtr): Bool =
     WindowsWin32SystemRemotedesktopJniBridge.windowssysWindowsWin32SystemRemotedesktopWTSEnumerateProcessesExW(hserver.rawAddress, plevel.rawAddress, sessionid.toInt(), ppprocessinfo.rawAddress, pcount.rawAddress)
 
-public actual fun wTSEnumerateProcessesW(hserver: Handle, reserved: UInt, version: UInt, ppprocessinfo: MutPtr<MutPtr<WtsProcessInfow>>, pcount: MutPtr<UInt>): Bool =
+public actual fun wTSEnumerateProcessesW(hserver: Handle, reserved: UInt, version: UInt, ppprocessinfo: MutPtr, pcount: MutPtr): Bool =
     WindowsWin32SystemRemotedesktopJniBridge.windowssysWindowsWin32SystemRemotedesktopWTSEnumerateProcessesW(hserver.rawAddress, reserved.toInt(), version.toInt(), ppprocessinfo.rawAddress, pcount.rawAddress)
 
-public actual fun wTSEnumerateServersA(pdomainname: Pcstr, reserved: UInt, version: UInt, ppserverinfo: MutPtr<MutPtr<WtsServerInfoa>>, pcount: MutPtr<UInt>): Bool =
+public actual fun wTSEnumerateServersA(pdomainname: Pcstr, reserved: UInt, version: UInt, ppserverinfo: MutPtr, pcount: MutPtr): Bool =
     WindowsWin32SystemRemotedesktopJniBridge.windowssysWindowsWin32SystemRemotedesktopWTSEnumerateServersA(pdomainname.rawAddress, reserved.toInt(), version.toInt(), ppserverinfo.rawAddress, pcount.rawAddress)
 
-public actual fun wTSEnumerateServersW(pdomainname: Pcwstr, reserved: UInt, version: UInt, ppserverinfo: MutPtr<MutPtr<WtsServerInfow>>, pcount: MutPtr<UInt>): Bool =
+public actual fun wTSEnumerateServersW(pdomainname: Pcwstr, reserved: UInt, version: UInt, ppserverinfo: MutPtr, pcount: MutPtr): Bool =
     WindowsWin32SystemRemotedesktopJniBridge.windowssysWindowsWin32SystemRemotedesktopWTSEnumerateServersW(pdomainname.rawAddress, reserved.toInt(), version.toInt(), ppserverinfo.rawAddress, pcount.rawAddress)
 
-public actual fun wTSEnumerateSessionsA(hserver: Handle, reserved: UInt, version: UInt, ppsessioninfo: MutPtr<MutPtr<WtsSessionInfoa>>, pcount: MutPtr<UInt>): Bool =
+public actual fun wTSEnumerateSessionsA(hserver: Handle, reserved: UInt, version: UInt, ppsessioninfo: MutPtr, pcount: MutPtr): Bool =
     WindowsWin32SystemRemotedesktopJniBridge.windowssysWindowsWin32SystemRemotedesktopWTSEnumerateSessionsA(hserver.rawAddress, reserved.toInt(), version.toInt(), ppsessioninfo.rawAddress, pcount.rawAddress)
 
-public actual fun wTSEnumerateSessionsExA(hserver: Handle, plevel: MutPtr<UInt>, filter: UInt, ppsessioninfo: MutPtr<MutPtr<WtsSessionInfo1a>>, pcount: MutPtr<UInt>): Bool =
+public actual fun wTSEnumerateSessionsExA(hserver: Handle, plevel: MutPtr, filter: UInt, ppsessioninfo: MutPtr, pcount: MutPtr): Bool =
     WindowsWin32SystemRemotedesktopJniBridge.windowssysWindowsWin32SystemRemotedesktopWTSEnumerateSessionsExA(hserver.rawAddress, plevel.rawAddress, filter.toInt(), ppsessioninfo.rawAddress, pcount.rawAddress)
 
-public actual fun wTSEnumerateSessionsExW(hserver: Handle, plevel: MutPtr<UInt>, filter: UInt, ppsessioninfo: MutPtr<MutPtr<WtsSessionInfo1w>>, pcount: MutPtr<UInt>): Bool =
+public actual fun wTSEnumerateSessionsExW(hserver: Handle, plevel: MutPtr, filter: UInt, ppsessioninfo: MutPtr, pcount: MutPtr): Bool =
     WindowsWin32SystemRemotedesktopJniBridge.windowssysWindowsWin32SystemRemotedesktopWTSEnumerateSessionsExW(hserver.rawAddress, plevel.rawAddress, filter.toInt(), ppsessioninfo.rawAddress, pcount.rawAddress)
 
-public actual fun wTSEnumerateSessionsW(hserver: Handle, reserved: UInt, version: UInt, ppsessioninfo: MutPtr<MutPtr<WtsSessionInfow>>, pcount: MutPtr<UInt>): Bool =
+public actual fun wTSEnumerateSessionsW(hserver: Handle, reserved: UInt, version: UInt, ppsessioninfo: MutPtr, pcount: MutPtr): Bool =
     WindowsWin32SystemRemotedesktopJniBridge.windowssysWindowsWin32SystemRemotedesktopWTSEnumerateSessionsW(hserver.rawAddress, reserved.toInt(), version.toInt(), ppsessioninfo.rawAddress, pcount.rawAddress)
 
-public actual fun wTSFreeMemory(pmemory: MutPtr<CVoid>) {
+public actual fun wTSFreeMemory(pmemory: MutPtr) {
     WindowsWin32SystemRemotedesktopJniBridge.windowssysWindowsWin32SystemRemotedesktopWTSFreeMemory(pmemory.rawAddress)
 }
 
-public actual fun wTSFreeMemoryExA(wtstypeclass: WtsTypeClass, pmemory: ConstPtr<CVoid>, numberofentries: UInt): Bool =
+public actual fun wTSFreeMemoryExA(wtstypeclass: WtsTypeClass, pmemory: ConstPtr, numberofentries: UInt): Bool =
     WindowsWin32SystemRemotedesktopJniBridge.windowssysWindowsWin32SystemRemotedesktopWTSFreeMemoryExA(wtstypeclass, pmemory.rawAddress, numberofentries.toInt())
 
-public actual fun wTSFreeMemoryExW(wtstypeclass: WtsTypeClass, pmemory: ConstPtr<CVoid>, numberofentries: UInt): Bool =
+public actual fun wTSFreeMemoryExW(wtstypeclass: WtsTypeClass, pmemory: ConstPtr, numberofentries: UInt): Bool =
     WindowsWin32SystemRemotedesktopJniBridge.windowssysWindowsWin32SystemRemotedesktopWTSFreeMemoryExW(wtstypeclass, pmemory.rawAddress, numberofentries.toInt())
 
 public actual fun wTSGetActiveConsoleSessionId(): UInt =
     WindowsWin32SystemRemotedesktopJniBridge.windowssysWindowsWin32SystemRemotedesktopWTSGetActiveConsoleSessionId().toUInt()
 
-public actual fun wTSGetChildSessionId(psessionid: MutPtr<UInt>): Bool =
+public actual fun wTSGetChildSessionId(psessionid: MutPtr): Bool =
     WindowsWin32SystemRemotedesktopJniBridge.windowssysWindowsWin32SystemRemotedesktopWTSGetChildSessionId(psessionid.rawAddress)
 
-public actual fun wTSGetListenerSecurityA(hserver: Handle, preserved: ConstPtr<CVoid>, reserved: UInt, plistenername: Pcstr, securityinformation: ObjectSecurityInformation, psecuritydescriptor: PsecurityDescriptor, nlength: UInt, lpnlengthneeded: MutPtr<UInt>): Bool =
+public actual fun wTSGetListenerSecurityA(hserver: Handle, preserved: ConstPtr, reserved: UInt, plistenername: Pcstr, securityinformation: ObjectSecurityInformation, psecuritydescriptor: PsecurityDescriptor, nlength: UInt, lpnlengthneeded: MutPtr): Bool =
     WindowsWin32SystemRemotedesktopJniBridge.windowssysWindowsWin32SystemRemotedesktopWTSGetListenerSecurityA(hserver.rawAddress, preserved.rawAddress, reserved.toInt(), plistenername.rawAddress, securityinformation.toInt(), psecuritydescriptor.rawAddress, nlength.toInt(), lpnlengthneeded.rawAddress)
 
-public actual fun wTSGetListenerSecurityW(hserver: Handle, preserved: ConstPtr<CVoid>, reserved: UInt, plistenername: Pcwstr, securityinformation: ObjectSecurityInformation, psecuritydescriptor: PsecurityDescriptor, nlength: UInt, lpnlengthneeded: MutPtr<UInt>): Bool =
+public actual fun wTSGetListenerSecurityW(hserver: Handle, preserved: ConstPtr, reserved: UInt, plistenername: Pcwstr, securityinformation: ObjectSecurityInformation, psecuritydescriptor: PsecurityDescriptor, nlength: UInt, lpnlengthneeded: MutPtr): Bool =
     WindowsWin32SystemRemotedesktopJniBridge.windowssysWindowsWin32SystemRemotedesktopWTSGetListenerSecurityW(hserver.rawAddress, preserved.rawAddress, reserved.toInt(), plistenername.rawAddress, securityinformation.toInt(), psecuritydescriptor.rawAddress, nlength.toInt(), lpnlengthneeded.rawAddress)
 
-public actual fun wTSIsChildSessionsEnabled(pbenabled: MutPtr<Bool>): Bool =
+public actual fun wTSIsChildSessionsEnabled(pbenabled: MutPtr): Bool =
     WindowsWin32SystemRemotedesktopJniBridge.windowssysWindowsWin32SystemRemotedesktopWTSIsChildSessionsEnabled(pbenabled.rawAddress)
 
 public actual fun wTSLogoffSession(hserver: Handle, sessionid: UInt, bwait: Bool): Bool =
@@ -371,25 +368,25 @@ public actual fun wTSOpenServerExW(pservername: Pcwstr): Handle =
 public actual fun wTSOpenServerW(pservername: Pcwstr): Handle =
     MutPtr(WindowsWin32SystemRemotedesktopJniBridge.windowssysWindowsWin32SystemRemotedesktopWTSOpenServerW(pservername.rawAddress))
 
-public actual fun wTSQueryListenerConfigA(hserver: Handle, preserved: ConstPtr<CVoid>, reserved: UInt, plistenername: Pcstr, pbuffer: MutPtr<Wtslistenerconfiga>): Bool =
+public actual fun wTSQueryListenerConfigA(hserver: Handle, preserved: ConstPtr, reserved: UInt, plistenername: Pcstr, pbuffer: MutPtr): Bool =
     WindowsWin32SystemRemotedesktopJniBridge.windowssysWindowsWin32SystemRemotedesktopWTSQueryListenerConfigA(hserver.rawAddress, preserved.rawAddress, reserved.toInt(), plistenername.rawAddress, pbuffer.rawAddress)
 
-public actual fun wTSQueryListenerConfigW(hserver: Handle, preserved: ConstPtr<CVoid>, reserved: UInt, plistenername: Pcwstr, pbuffer: MutPtr<Wtslistenerconfigw>): Bool =
+public actual fun wTSQueryListenerConfigW(hserver: Handle, preserved: ConstPtr, reserved: UInt, plistenername: Pcwstr, pbuffer: MutPtr): Bool =
     WindowsWin32SystemRemotedesktopJniBridge.windowssysWindowsWin32SystemRemotedesktopWTSQueryListenerConfigW(hserver.rawAddress, preserved.rawAddress, reserved.toInt(), plistenername.rawAddress, pbuffer.rawAddress)
 
-public actual fun wTSQuerySessionInformationA(hserver: Handle, sessionid: UInt, wtsinfoclass: WtsInfoClass, ppbuffer: MutPtr<Pstr>, pbytesreturned: MutPtr<UInt>): Bool =
+public actual fun wTSQuerySessionInformationA(hserver: Handle, sessionid: UInt, wtsinfoclass: WtsInfoClass, ppbuffer: MutPtr, pbytesreturned: MutPtr): Bool =
     WindowsWin32SystemRemotedesktopJniBridge.windowssysWindowsWin32SystemRemotedesktopWTSQuerySessionInformationA(hserver.rawAddress, sessionid.toInt(), wtsinfoclass, ppbuffer.rawAddress, pbytesreturned.rawAddress)
 
-public actual fun wTSQuerySessionInformationW(hserver: Handle, sessionid: UInt, wtsinfoclass: WtsInfoClass, ppbuffer: MutPtr<Pwstr>, pbytesreturned: MutPtr<UInt>): Bool =
+public actual fun wTSQuerySessionInformationW(hserver: Handle, sessionid: UInt, wtsinfoclass: WtsInfoClass, ppbuffer: MutPtr, pbytesreturned: MutPtr): Bool =
     WindowsWin32SystemRemotedesktopJniBridge.windowssysWindowsWin32SystemRemotedesktopWTSQuerySessionInformationW(hserver.rawAddress, sessionid.toInt(), wtsinfoclass, ppbuffer.rawAddress, pbytesreturned.rawAddress)
 
-public actual fun wTSQueryUserConfigA(pservername: Pcstr, pusername: Pcstr, wtsconfigclass: WtsConfigClass, ppbuffer: MutPtr<Pstr>, pbytesreturned: MutPtr<UInt>): Bool =
+public actual fun wTSQueryUserConfigA(pservername: Pcstr, pusername: Pcstr, wtsconfigclass: WtsConfigClass, ppbuffer: MutPtr, pbytesreturned: MutPtr): Bool =
     WindowsWin32SystemRemotedesktopJniBridge.windowssysWindowsWin32SystemRemotedesktopWTSQueryUserConfigA(pservername.rawAddress, pusername.rawAddress, wtsconfigclass, ppbuffer.rawAddress, pbytesreturned.rawAddress)
 
-public actual fun wTSQueryUserConfigW(pservername: Pcwstr, pusername: Pcwstr, wtsconfigclass: WtsConfigClass, ppbuffer: MutPtr<Pwstr>, pbytesreturned: MutPtr<UInt>): Bool =
+public actual fun wTSQueryUserConfigW(pservername: Pcwstr, pusername: Pcwstr, wtsconfigclass: WtsConfigClass, ppbuffer: MutPtr, pbytesreturned: MutPtr): Bool =
     WindowsWin32SystemRemotedesktopJniBridge.windowssysWindowsWin32SystemRemotedesktopWTSQueryUserConfigW(pservername.rawAddress, pusername.rawAddress, wtsconfigclass, ppbuffer.rawAddress, pbytesreturned.rawAddress)
 
-public actual fun wTSQueryUserToken(sessionid: UInt, phtoken: MutPtr<Handle>): Bool =
+public actual fun wTSQueryUserToken(sessionid: UInt, phtoken: MutPtr): Bool =
     WindowsWin32SystemRemotedesktopJniBridge.windowssysWindowsWin32SystemRemotedesktopWTSQueryUserToken(sessionid.toInt(), phtoken.rawAddress)
 
 public actual fun wTSRegisterSessionNotification(hwnd: Hwnd, dwflags: UInt): Bool =
@@ -398,19 +395,19 @@ public actual fun wTSRegisterSessionNotification(hwnd: Hwnd, dwflags: UInt): Boo
 public actual fun wTSRegisterSessionNotificationEx(hserver: Handle, hwnd: Hwnd, dwflags: UInt): Bool =
     WindowsWin32SystemRemotedesktopJniBridge.windowssysWindowsWin32SystemRemotedesktopWTSRegisterSessionNotificationEx(hserver.rawAddress, hwnd.rawAddress, dwflags.toInt())
 
-public actual fun wTSSendMessageA(hserver: Handle, sessionid: UInt, ptitle: Pcstr, titlelength: UInt, pmessage: Pcstr, messagelength: UInt, style: MessageboxStyle, timeout: UInt, presponse: MutPtr<MessageboxResult>, bwait: Bool): Bool =
+public actual fun wTSSendMessageA(hserver: Handle, sessionid: UInt, ptitle: Pcstr, titlelength: UInt, pmessage: Pcstr, messagelength: UInt, style: MessageboxStyle, timeout: UInt, presponse: MutPtr, bwait: Bool): Bool =
     WindowsWin32SystemRemotedesktopJniBridge.windowssysWindowsWin32SystemRemotedesktopWTSSendMessageA(hserver.rawAddress, sessionid.toInt(), ptitle.rawAddress, titlelength.toInt(), pmessage.rawAddress, messagelength.toInt(), style.toInt(), timeout.toInt(), presponse.rawAddress, bwait)
 
-public actual fun wTSSendMessageW(hserver: Handle, sessionid: UInt, ptitle: Pcwstr, titlelength: UInt, pmessage: Pcwstr, messagelength: UInt, style: MessageboxStyle, timeout: UInt, presponse: MutPtr<MessageboxResult>, bwait: Bool): Bool =
+public actual fun wTSSendMessageW(hserver: Handle, sessionid: UInt, ptitle: Pcwstr, titlelength: UInt, pmessage: Pcwstr, messagelength: UInt, style: MessageboxStyle, timeout: UInt, presponse: MutPtr, bwait: Bool): Bool =
     WindowsWin32SystemRemotedesktopJniBridge.windowssysWindowsWin32SystemRemotedesktopWTSSendMessageW(hserver.rawAddress, sessionid.toInt(), ptitle.rawAddress, titlelength.toInt(), pmessage.rawAddress, messagelength.toInt(), style.toInt(), timeout.toInt(), presponse.rawAddress, bwait)
 
-public actual fun wTSSetListenerSecurityA(hserver: Handle, preserved: ConstPtr<CVoid>, reserved: UInt, plistenername: Pcstr, securityinformation: ObjectSecurityInformation, psecuritydescriptor: PsecurityDescriptor): Bool =
+public actual fun wTSSetListenerSecurityA(hserver: Handle, preserved: ConstPtr, reserved: UInt, plistenername: Pcstr, securityinformation: ObjectSecurityInformation, psecuritydescriptor: PsecurityDescriptor): Bool =
     WindowsWin32SystemRemotedesktopJniBridge.windowssysWindowsWin32SystemRemotedesktopWTSSetListenerSecurityA(hserver.rawAddress, preserved.rawAddress, reserved.toInt(), plistenername.rawAddress, securityinformation.toInt(), psecuritydescriptor.rawAddress)
 
-public actual fun wTSSetListenerSecurityW(hserver: Handle, preserved: ConstPtr<CVoid>, reserved: UInt, plistenername: Pcwstr, securityinformation: ObjectSecurityInformation, psecuritydescriptor: PsecurityDescriptor): Bool =
+public actual fun wTSSetListenerSecurityW(hserver: Handle, preserved: ConstPtr, reserved: UInt, plistenername: Pcwstr, securityinformation: ObjectSecurityInformation, psecuritydescriptor: PsecurityDescriptor): Bool =
     WindowsWin32SystemRemotedesktopJniBridge.windowssysWindowsWin32SystemRemotedesktopWTSSetListenerSecurityW(hserver.rawAddress, preserved.rawAddress, reserved.toInt(), plistenername.rawAddress, securityinformation.toInt(), psecuritydescriptor.rawAddress)
 
-public actual fun wTSSetRenderHint(prenderhintid: MutPtr<ULong>, hwndowner: Hwnd, renderhinttype: UInt, cbhintdatalength: UInt, phintdata: ConstPtr<UByte>): Hresult =
+public actual fun wTSSetRenderHint(prenderhintid: MutPtr, hwndowner: Hwnd, renderhinttype: UInt, cbhintdatalength: UInt, phintdata: ConstPtr): Hresult =
     WindowsWin32SystemRemotedesktopJniBridge.windowssysWindowsWin32SystemRemotedesktopWTSSetRenderHint(prenderhintid.rawAddress, hwndowner.rawAddress, renderhinttype.toInt(), cbhintdatalength.toInt(), phintdata.rawAddress)
 
 public actual fun wTSSetUserConfigA(pservername: Pcstr, pusername: Pcstr, wtsconfigclass: WtsConfigClass, pbuffer: Pcstr, datalength: UInt): Bool =
@@ -455,14 +452,14 @@ public actual fun wTSVirtualChannelPurgeInput(hchannelhandle: Handle): Bool =
 public actual fun wTSVirtualChannelPurgeOutput(hchannelhandle: Handle): Bool =
     WindowsWin32SystemRemotedesktopJniBridge.windowssysWindowsWin32SystemRemotedesktopWTSVirtualChannelPurgeOutput(hchannelhandle.rawAddress)
 
-public actual fun wTSVirtualChannelQuery(hchannelhandle: Handle, param1: WtsVirtualClass, ppbuffer: MutPtr<MutPtr<CVoid>>, pbytesreturned: MutPtr<UInt>): Bool =
+public actual fun wTSVirtualChannelQuery(hchannelhandle: Handle, param1: WtsVirtualClass, ppbuffer: MutPtr, pbytesreturned: MutPtr): Bool =
     WindowsWin32SystemRemotedesktopJniBridge.windowssysWindowsWin32SystemRemotedesktopWTSVirtualChannelQuery(hchannelhandle.rawAddress, param1, ppbuffer.rawAddress, pbytesreturned.rawAddress)
 
-public actual fun wTSVirtualChannelRead(hchannelhandle: Handle, timeout: UInt, buffer: Pstr, buffersize: UInt, pbytesread: MutPtr<UInt>): Bool =
+public actual fun wTSVirtualChannelRead(hchannelhandle: Handle, timeout: UInt, buffer: Pstr, buffersize: UInt, pbytesread: MutPtr): Bool =
     WindowsWin32SystemRemotedesktopJniBridge.windowssysWindowsWin32SystemRemotedesktopWTSVirtualChannelRead(hchannelhandle.rawAddress, timeout.toInt(), buffer.rawAddress, buffersize.toInt(), pbytesread.rawAddress)
 
-public actual fun wTSVirtualChannelWrite(hchannelhandle: Handle, buffer: Pcstr, length: UInt, pbyteswritten: MutPtr<UInt>): Bool =
+public actual fun wTSVirtualChannelWrite(hchannelhandle: Handle, buffer: Pcstr, length: UInt, pbyteswritten: MutPtr): Bool =
     WindowsWin32SystemRemotedesktopJniBridge.windowssysWindowsWin32SystemRemotedesktopWTSVirtualChannelWrite(hchannelhandle.rawAddress, buffer.rawAddress, length.toInt(), pbyteswritten.rawAddress)
 
-public actual fun wTSWaitSystemEvent(hserver: Handle, eventmask: UInt, peventflags: MutPtr<UInt>): Bool =
+public actual fun wTSWaitSystemEvent(hserver: Handle, eventmask: UInt, peventflags: MutPtr): Bool =
     WindowsWin32SystemRemotedesktopJniBridge.windowssysWindowsWin32SystemRemotedesktopWTSWaitSystemEvent(hserver.rawAddress, eventmask.toInt(), peventflags.rawAddress)

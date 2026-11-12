@@ -16,13 +16,13 @@ public actual fun closeHandle(hobject: Handle): Bool =
 public actual fun compareObjectHandles(hfirstobjecthandle: Handle, hsecondobjecthandle: Handle): Bool =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32FoundationCompareObjectHandles")
 
-public actual fun duplicateHandle(hsourceprocesshandle: Handle, hsourcehandle: Handle, htargetprocesshandle: Handle, lptargethandle: MutPtr<Handle>, dwdesiredaccess: UInt, binherithandle: Bool, dwoptions: DuplicateHandleOptions): Bool =
+public actual fun duplicateHandle(hsourceprocesshandle: Handle, hsourcehandle: Handle, htargetprocesshandle: Handle, lptargethandle: MutPtr, dwdesiredaccess: UInt, binherithandle: Bool, dwoptions: DuplicateHandleOptions): Bool =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32FoundationDuplicateHandle")
 
 public actual fun freeLibrary(hlibmodule: Hmodule): Bool =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32FoundationFreeLibrary")
 
-public actual fun getHandleInformation(hobject: Handle, lpdwflags: MutPtr<UInt>): Bool =
+public actual fun getHandleInformation(hobject: Handle, lpdwflags: MutPtr): Bool =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32FoundationGetHandleInformation")
 
 @kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32FoundationGetLastError")
@@ -72,10 +72,10 @@ public actual fun sysAllocStringLen(strin: Pcwstr, ui: UInt): Bstr =
 
 public actual fun sysFreeString(bstrstring: Bstr): Unit = throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32FoundationSysFreeString")
 
-public actual fun sysReAllocString(pbstr: MutPtr<Bstr>, psz: Pcwstr): Int =
+public actual fun sysReAllocString(pbstr: MutPtr, psz: Pcwstr): Int =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32FoundationSysReAllocString")
 
-public actual fun sysReAllocStringLen(pbstr: MutPtr<Bstr>, psz: Pcwstr, len: UInt): Int =
+public actual fun sysReAllocStringLen(pbstr: MutPtr, psz: Pcwstr, len: UInt): Int =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32FoundationSysReAllocStringLen")
 
 public actual fun sysReleaseString(bstrstring: Bstr): Unit = throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32FoundationSysReleaseString")

@@ -45,13 +45,13 @@ public typealias Enumrestypeprocw = EnumrestypeprocwFn?
 public typealias LoadLibraryFlags = UInt
 
 public fun interface PgetModuleHandleExaFn {
-    public operator fun invoke(dwflags: UInt, lpmodulename: Pcstr, phmodule: MutPtr<Hmodule>): Bool
+    public operator fun invoke(dwflags: UInt, lpmodulename: Pcstr, phmodule: MutPtr): Bool
 }
 
 public typealias PgetModuleHandleExa = PgetModuleHandleExaFn?
 
 public fun interface PgetModuleHandleExwFn {
-    public operator fun invoke(dwflags: UInt, lpmodulename: Pcwstr, phmodule: MutPtr<Hmodule>): Bool
+    public operator fun invoke(dwflags: UInt, lpmodulename: Pcwstr, phmodule: MutPtr): Bool
 }
 
 public typealias PgetModuleHandleExw = PgetModuleHandleExwFn?

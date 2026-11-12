@@ -1,20 +1,18 @@
 package io.github.kotlinmania.windowssys.windows.win32.devices.enumeration.pnp
 
 import io.github.kotlinmania.rustlang.core.ptr.ConstPtr
-import io.github.kotlinmania.windowssys.core.Guid
 import io.github.kotlinmania.windowssys.core.Pcwstr
-import io.github.kotlinmania.windowssys.windows.win32.security.SecurityDescriptor
 
 public class SwDeviceCreateInfo internal constructor(
     public var cbSize: UInt,
     pszInstanceIdCtorArg: Pcwstr,
     pszzHardwareIdsCtorArg: Pcwstr,
     pszzCompatibleIdsCtorArg: Pcwstr,
-    pContainerIdCtorArg: ConstPtr<Guid>,
+    pContainerIdCtorArg: ConstPtr,
     public var capabilityFlags: UInt,
     pszDeviceDescriptionCtorArg: Pcwstr,
     pszDeviceLocationCtorArg: Pcwstr,
-    pSecurityDescriptorCtorArg: ConstPtr<SecurityDescriptor>,
+    pSecurityDescriptorCtorArg: ConstPtr,
 ) {
     public var pszInstanceId: Pcwstr = pszInstanceIdCtorArg
         internal set
@@ -25,7 +23,7 @@ public class SwDeviceCreateInfo internal constructor(
     public var pszzCompatibleIds: Pcwstr = pszzCompatibleIdsCtorArg
         internal set
 
-    public var pContainerId: ConstPtr<Guid> = pContainerIdCtorArg
+    public var pContainerId: ConstPtr = pContainerIdCtorArg
         internal set
 
     public var pszDeviceDescription: Pcwstr = pszDeviceDescriptionCtorArg
@@ -34,7 +32,7 @@ public class SwDeviceCreateInfo internal constructor(
     public var pszDeviceLocation: Pcwstr = pszDeviceLocationCtorArg
         internal set
 
-    public var pSecurityDescriptor: ConstPtr<SecurityDescriptor> = pSecurityDescriptorCtorArg
+    public var pSecurityDescriptor: ConstPtr = pSecurityDescriptorCtorArg
         internal set
 
     public constructor() : this(
@@ -57,7 +55,7 @@ public class SwDeviceCreateInfo internal constructor(
 
     public operator fun component4(): Pcwstr = this.pszzCompatibleIds
 
-    public operator fun component5(): ConstPtr<Guid> = this.pContainerId
+    public operator fun component5(): ConstPtr = this.pContainerId
 
     public operator fun component6(): UInt = this.capabilityFlags
 
@@ -65,9 +63,9 @@ public class SwDeviceCreateInfo internal constructor(
 
     public operator fun component8(): Pcwstr = this.pszDeviceLocation
 
-    public operator fun component9(): ConstPtr<SecurityDescriptor> = this.pSecurityDescriptor
+    public operator fun component9(): ConstPtr = this.pSecurityDescriptor
 
-    public fun copy(cbSize: UInt = this.cbSize, pszInstanceId: Pcwstr = this.pszInstanceId, pszzHardwareIds: Pcwstr = this.pszzHardwareIds, pszzCompatibleIds: Pcwstr = this.pszzCompatibleIds, pContainerId: ConstPtr<Guid> = this.pContainerId, capabilityFlags: UInt = this.capabilityFlags, pszDeviceDescription: Pcwstr = this.pszDeviceDescription, pszDeviceLocation: Pcwstr = this.pszDeviceLocation, pSecurityDescriptor: ConstPtr<SecurityDescriptor> = this.pSecurityDescriptor): SwDeviceCreateInfo = SwDeviceCreateInfo(cbSize = cbSize, pszInstanceIdCtorArg = pszInstanceId, pszzHardwareIdsCtorArg = pszzHardwareIds, pszzCompatibleIdsCtorArg = pszzCompatibleIds, pContainerIdCtorArg = pContainerId, capabilityFlags = capabilityFlags, pszDeviceDescriptionCtorArg = pszDeviceDescription, pszDeviceLocationCtorArg = pszDeviceLocation, pSecurityDescriptorCtorArg = pSecurityDescriptor)
+    public fun copy(cbSize: UInt = this.cbSize, pszInstanceId: Pcwstr = this.pszInstanceId, pszzHardwareIds: Pcwstr = this.pszzHardwareIds, pszzCompatibleIds: Pcwstr = this.pszzCompatibleIds, pContainerId: ConstPtr = this.pContainerId, capabilityFlags: UInt = this.capabilityFlags, pszDeviceDescription: Pcwstr = this.pszDeviceDescription, pszDeviceLocation: Pcwstr = this.pszDeviceLocation, pSecurityDescriptor: ConstPtr = this.pSecurityDescriptor): SwDeviceCreateInfo = SwDeviceCreateInfo(cbSize = cbSize, pszInstanceIdCtorArg = pszInstanceId, pszzHardwareIdsCtorArg = pszzHardwareIds, pszzCompatibleIdsCtorArg = pszzCompatibleIds, pContainerIdCtorArg = pContainerId, capabilityFlags = capabilityFlags, pszDeviceDescriptionCtorArg = pszDeviceDescription, pszDeviceLocationCtorArg = pszDeviceLocation, pSecurityDescriptorCtorArg = pSecurityDescriptor)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -103,11 +101,11 @@ public class SwDeviceCreateInfo internal constructor(
             pszInstanceId: Pcwstr = ConstPtr(0L),
             pszzHardwareIds: Pcwstr = ConstPtr(0L),
             pszzCompatibleIds: Pcwstr = ConstPtr(0L),
-            pContainerId: ConstPtr<Guid> = ConstPtr(0L),
+            pContainerId: ConstPtr = ConstPtr(0L),
             capabilityFlags: UInt = 0u,
             pszDeviceDescription: Pcwstr = ConstPtr(0L),
             pszDeviceLocation: Pcwstr = ConstPtr(0L),
-            pSecurityDescriptor: ConstPtr<SecurityDescriptor> = ConstPtr(0L),
+            pSecurityDescriptor: ConstPtr = ConstPtr(0L),
         ): SwDeviceCreateInfo =
             SwDeviceCreateInfo(
                 cbSize = cbSize,

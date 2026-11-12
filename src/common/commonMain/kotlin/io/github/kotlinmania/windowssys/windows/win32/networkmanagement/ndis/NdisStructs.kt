@@ -2,7 +2,6 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.networkmanagement.ndis
 
-import io.github.kotlinmania.rustlang.core.ffi.CVoid
 import io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
 import io.github.kotlinmania.rustlang.core.mem.TypeLayout
 import io.github.kotlinmania.rustlang.core.ptr.MutPtr
@@ -1973,22 +1972,22 @@ public data class NdisPnpCapabilities(
 }
 
 public class NdisPort internal constructor(
-    nextCtorArg: MutPtr<NdisPort>,
-    ndisReservedCtorArg: MutPtr<CVoid>,
-    miniportReservedCtorArg: MutPtr<CVoid>,
-    protocolReservedCtorArg: MutPtr<CVoid>,
+    nextCtorArg: MutPtr,
+    ndisReservedCtorArg: MutPtr,
+    miniportReservedCtorArg: MutPtr,
+    protocolReservedCtorArg: MutPtr,
     public var portCharacteristics: NdisPortCharacteristics,
 ) {
-    public var next: MutPtr<NdisPort> = nextCtorArg
+    public var next: MutPtr = nextCtorArg
         internal set
 
-    public var ndisReserved: MutPtr<CVoid> = ndisReservedCtorArg
+    public var ndisReserved: MutPtr = ndisReservedCtorArg
         internal set
 
-    public var miniportReserved: MutPtr<CVoid> = miniportReservedCtorArg
+    public var miniportReserved: MutPtr = miniportReservedCtorArg
         internal set
 
-    public var protocolReserved: MutPtr<CVoid> = protocolReservedCtorArg
+    public var protocolReserved: MutPtr = protocolReservedCtorArg
         internal set
 
     public constructor() : this(
@@ -1999,17 +1998,17 @@ public class NdisPort internal constructor(
         portCharacteristics = NdisPortCharacteristics(),
     )
 
-    public operator fun component1(): MutPtr<NdisPort> = this.next
+    public operator fun component1(): MutPtr = this.next
 
-    public operator fun component2(): MutPtr<CVoid> = this.ndisReserved
+    public operator fun component2(): MutPtr = this.ndisReserved
 
-    public operator fun component3(): MutPtr<CVoid> = this.miniportReserved
+    public operator fun component3(): MutPtr = this.miniportReserved
 
-    public operator fun component4(): MutPtr<CVoid> = this.protocolReserved
+    public operator fun component4(): MutPtr = this.protocolReserved
 
     public operator fun component5(): NdisPortCharacteristics = this.portCharacteristics
 
-    public fun copy(next: MutPtr<NdisPort> = this.next, ndisReserved: MutPtr<CVoid> = this.ndisReserved, miniportReserved: MutPtr<CVoid> = this.miniportReserved, protocolReserved: MutPtr<CVoid> = this.protocolReserved, portCharacteristics: NdisPortCharacteristics = this.portCharacteristics): NdisPort = NdisPort(nextCtorArg = next, ndisReservedCtorArg = ndisReserved, miniportReservedCtorArg = miniportReserved, protocolReservedCtorArg = protocolReserved, portCharacteristics = portCharacteristics)
+    public fun copy(next: MutPtr = this.next, ndisReserved: MutPtr = this.ndisReserved, miniportReserved: MutPtr = this.miniportReserved, protocolReserved: MutPtr = this.protocolReserved, portCharacteristics: NdisPortCharacteristics = this.portCharacteristics): NdisPort = NdisPort(nextCtorArg = next, ndisReservedCtorArg = ndisReserved, miniportReservedCtorArg = miniportReserved, protocolReservedCtorArg = protocolReserved, portCharacteristics = portCharacteristics)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -2040,48 +2039,48 @@ public class NdisPort internal constructor(
                     NdisPort(
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<NdisPort>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<CVoid>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<CVoid>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 16L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<CVoid>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 24L),
                         (NdisPortCharacteristics.typeLayout()).readNative(addr + 32L),
                     )
                 override fun writeNative(addr: Long, value: NdisPort) {
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<NdisPort>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr, value.next)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<CVoid>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.ndisReserved)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<CVoid>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 16L, value.miniportReserved)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<CVoid>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 24L, value.protocolReserved)
                     (NdisPortCharacteristics.typeLayout()).writeNative(addr + 32L, value.portCharacteristics)
                 }
             }
 
         public operator fun invoke(
-            next: MutPtr<NdisPort> = MutPtr(0L),
-            ndisReserved: MutPtr<CVoid> = MutPtr(0L),
-            miniportReserved: MutPtr<CVoid> = MutPtr(0L),
-            protocolReserved: MutPtr<CVoid> = MutPtr(0L),
+            next: MutPtr = MutPtr(0L),
+            ndisReserved: MutPtr = MutPtr(0L),
+            miniportReserved: MutPtr = MutPtr(0L),
+            protocolReserved: MutPtr = MutPtr(0L),
             portCharacteristics: NdisPortCharacteristics = NdisPortCharacteristics(),
         ): NdisPort =
             NdisPort(

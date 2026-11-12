@@ -6,7 +6,6 @@ import io.github.kotlinmania.rustlang.core.ptr.MutPtr
 import io.github.kotlinmania.windowssys.core.Bool
 import io.github.kotlinmania.windowssys.core.Hresult
 import io.github.kotlinmania.windowssys.core.Pcwstr
-import io.github.kotlinmania.windowssys.core.Pstr
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Handle
 
 private val windowsWin32SystemSubsystemforlinuxNapiAddon: dynamic =
@@ -15,16 +14,16 @@ private val windowsWin32SystemSubsystemforlinuxNapiAddon: dynamic =
 public actual fun wslConfigureDistribution(distributionname: Pcwstr, defaultuid: UInt, wsldistributionflags: WslDistributionFlags): Hresult =
     if (windowsWin32SystemSubsystemforlinuxNapiAddon != null) (windowsWin32SystemSubsystemforlinuxNapiAddon.windowssysWindowsWin32SystemSubsystemforlinuxWslConfigureDistribution(distributionname.rawAddress.toString(), defaultuid.toInt(), wsldistributionflags) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun wslGetDistributionConfiguration(distributionname: Pcwstr, distributionversion: MutPtr<UInt>, defaultuid: MutPtr<UInt>, wsldistributionflags: MutPtr<WslDistributionFlags>, defaultenvironmentvariables: MutPtr<MutPtr<Pstr>>, defaultenvironmentvariablecount: MutPtr<UInt>): Hresult =
+public actual fun wslGetDistributionConfiguration(distributionname: Pcwstr, distributionversion: MutPtr, defaultuid: MutPtr, wsldistributionflags: MutPtr, defaultenvironmentvariables: MutPtr, defaultenvironmentvariablecount: MutPtr): Hresult =
     if (windowsWin32SystemSubsystemforlinuxNapiAddon != null) (windowsWin32SystemSubsystemforlinuxNapiAddon.windowssysWindowsWin32SystemSubsystemforlinuxWslGetDistributionConfiguration(distributionname.rawAddress.toString(), distributionversion.rawAddress.toString(), defaultuid.rawAddress.toString(), wsldistributionflags.rawAddress.toString(), defaultenvironmentvariables.rawAddress.toString(), defaultenvironmentvariablecount.rawAddress.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun wslIsDistributionRegistered(distributionname: Pcwstr): Bool =
     if (windowsWin32SystemSubsystemforlinuxNapiAddon != null) (windowsWin32SystemSubsystemforlinuxNapiAddon.windowssysWindowsWin32SystemSubsystemforlinuxWslIsDistributionRegistered(distributionname.rawAddress.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun wslLaunch(distributionname: Pcwstr, command: Pcwstr, usecurrentworkingdirectory: Bool, stdin: Handle, stdout: Handle, stderr: Handle, process: MutPtr<Handle>): Hresult =
+public actual fun wslLaunch(distributionname: Pcwstr, command: Pcwstr, usecurrentworkingdirectory: Bool, stdin: Handle, stdout: Handle, stderr: Handle, process: MutPtr): Hresult =
     if (windowsWin32SystemSubsystemforlinuxNapiAddon != null) (windowsWin32SystemSubsystemforlinuxNapiAddon.windowssysWindowsWin32SystemSubsystemforlinuxWslLaunch(distributionname.rawAddress.toString(), command.rawAddress.toString(), usecurrentworkingdirectory, stdin.rawAddress.toString(), stdout.rawAddress.toString(), stderr.rawAddress.toString(), process.rawAddress.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun wslLaunchInteractive(distributionname: Pcwstr, command: Pcwstr, usecurrentworkingdirectory: Bool, exitcode: MutPtr<UInt>): Hresult =
+public actual fun wslLaunchInteractive(distributionname: Pcwstr, command: Pcwstr, usecurrentworkingdirectory: Bool, exitcode: MutPtr): Hresult =
     if (windowsWin32SystemSubsystemforlinuxNapiAddon != null) (windowsWin32SystemSubsystemforlinuxNapiAddon.windowssysWindowsWin32SystemSubsystemforlinuxWslLaunchInteractive(distributionname.rawAddress.toString(), command.rawAddress.toString(), usecurrentworkingdirectory, exitcode.rawAddress.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun wslRegisterDistribution(distributionname: Pcwstr, targzfilename: Pcwstr): Hresult =

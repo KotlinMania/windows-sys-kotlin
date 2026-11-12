@@ -31,10 +31,10 @@ private external fun wasmWindowssysWindowsWin32SystemKernelRtlInterlockedPushLis
 @JsFun("(p0) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemKernelRtlQueryDepthSList(p0)")
 private external fun wasmWindowssysWindowsWin32SystemKernelRtlQueryDepthSList(p0: kotlin.String): Int
 
-public actual fun rtlFirstEntrySList(listhead: ConstPtr<SlistHeader>): MutPtr<SlistEntry> =
+public actual fun rtlFirstEntrySList(listhead: ConstPtr): MutPtr =
     if (windowsWin32SystemKernelNapiAvailable) MutPtr(wasmWindowssysWindowsWin32SystemKernelRtlFirstEntrySList(listhead.rawAddress.toString()).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rtlInitializeSListHead(listhead: MutPtr<SlistHeader>) {
+public actual fun rtlInitializeSListHead(listhead: MutPtr) {
     if (windowsWin32SystemKernelNapiAvailable) {
         wasmWindowssysWindowsWin32SystemKernelRtlInitializeSListHead(listhead.rawAddress.toString())
     } else {
@@ -42,17 +42,17 @@ public actual fun rtlInitializeSListHead(listhead: MutPtr<SlistHeader>) {
     }
 }
 
-public actual fun rtlInterlockedFlushSList(listhead: MutPtr<SlistHeader>): MutPtr<SlistEntry> =
+public actual fun rtlInterlockedFlushSList(listhead: MutPtr): MutPtr =
     if (windowsWin32SystemKernelNapiAvailable) MutPtr(wasmWindowssysWindowsWin32SystemKernelRtlInterlockedFlushSList(listhead.rawAddress.toString()).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rtlInterlockedPopEntrySList(listhead: MutPtr<SlistHeader>): MutPtr<SlistEntry> =
+public actual fun rtlInterlockedPopEntrySList(listhead: MutPtr): MutPtr =
     if (windowsWin32SystemKernelNapiAvailable) MutPtr(wasmWindowssysWindowsWin32SystemKernelRtlInterlockedPopEntrySList(listhead.rawAddress.toString()).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rtlInterlockedPushEntrySList(listhead: MutPtr<SlistHeader>, listentry: MutPtr<SlistEntry>): MutPtr<SlistEntry> =
+public actual fun rtlInterlockedPushEntrySList(listhead: MutPtr, listentry: MutPtr): MutPtr =
     if (windowsWin32SystemKernelNapiAvailable) MutPtr(wasmWindowssysWindowsWin32SystemKernelRtlInterlockedPushEntrySList(listhead.rawAddress.toString(), listentry.rawAddress.toString()).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rtlInterlockedPushListSListEx(listhead: MutPtr<SlistHeader>, list: MutPtr<SlistEntry>, listend: MutPtr<SlistEntry>, count: UInt): MutPtr<SlistEntry> =
+public actual fun rtlInterlockedPushListSListEx(listhead: MutPtr, list: MutPtr, listend: MutPtr, count: UInt): MutPtr =
     if (windowsWin32SystemKernelNapiAvailable) MutPtr(wasmWindowssysWindowsWin32SystemKernelRtlInterlockedPushListSListEx(listhead.rawAddress.toString(), list.rawAddress.toString(), listend.rawAddress.toString(), count.toInt()).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun rtlQueryDepthSList(listhead: ConstPtr<SlistHeader>): UShort =
+public actual fun rtlQueryDepthSList(listhead: ConstPtr): UShort =
     if (windowsWin32SystemKernelNapiAvailable) wasmWindowssysWindowsWin32SystemKernelRtlQueryDepthSList(listhead.rawAddress.toString()).toUShort() else throw UnsupportedOperationException("Native FFI addon is not available")

@@ -2,15 +2,12 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.security.cryptography.catalog
 
-import io.github.kotlinmania.rustlang.core.ffi.CVoid
 import io.github.kotlinmania.rustlang.core.ptr.ConstPtr
 import io.github.kotlinmania.rustlang.core.ptr.MutPtr
 import io.github.kotlinmania.windowssys.core.Bool
-import io.github.kotlinmania.windowssys.core.Guid
 import io.github.kotlinmania.windowssys.core.Pcwstr
 import io.github.kotlinmania.windowssys.core.Pwstr
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Handle
-import io.github.kotlinmania.windowssys.windows.win32.security.cryptography.CertStrongSignPara
 
 @JsFun("() => { if (typeof globalThis.__km_napi_windowssys !== 'undefined') return globalThis.__km_napi_windowssys !== null; if (typeof process === 'undefined' || !process.versions || !process.versions.node) { globalThis.__km_napi_windowssys = null; return false; } var mod = process.getBuiltinModule ? process.getBuiltinModule('module') : (process.mainModule && process.mainModule.constructor); var req = (mod && mod.createRequire) ? mod.createRequire((process.cwd ? process.cwd() : '.') + '/package.json') : (process.mainModule ? process.mainModule.require : null); if (!req) { globalThis.__km_napi_windowssys = null; return false; } try { globalThis.__km_napi_windowssys = req('@kotlinmania/windowssys-native-bindings'); return true; } catch (_) {} var fs = req('fs'); var path = req('path'); var dir = process.cwd ? process.cwd() : '.'; var rels = ['windowssys_native.node', 'build/node-ffi/windowssys_native.node', 'build/node-ffi/release/windowssys_native.node', 'build/node-ffi/debug/windowssys_native.node', 'src/js/node-windowssys/build/Release/windowssys_native.node', 'src/js/node-windowssys/build/Debug/windowssys_native.node', 'src/js/node-windowssys/dist/build/Release/windowssys_native.node', 'src/js/node-windowssys/dist/build/Debug/windowssys_native.node']; for (var d = 0; d < 8; d++) { for (var i = 0; i < rels.length; i++) { var c = path.resolve(dir, rels[i]); if (fs.existsSync(c)) { globalThis.__km_napi_windowssys = req(c); return true; } } var parent = path.dirname(dir); if (parent === dir) break; dir = parent; } globalThis.__km_napi_windowssys = null; return false; }")
 private external fun initWindowsWin32SecurityCryptographyCatalogNapiAddon(): Boolean
@@ -125,22 +122,22 @@ private external fun wasmWindowssysWindowsWin32SecurityCryptographyCatalogCryptC
 @JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SecurityCryptographyCatalogIsCatalogFile(p0, p1)")
 private external fun wasmWindowssysWindowsWin32SecurityCryptographyCatalogIsCatalogFile(p0: String, p1: String): Int
 
-public actual fun cryptCATAdminAcquireContext(phcatadmin: MutPtr<Long>, pgsubsystem: ConstPtr<Guid>, dwflags: UInt): Bool =
+public actual fun cryptCATAdminAcquireContext(phcatadmin: MutPtr, pgsubsystem: ConstPtr, dwflags: UInt): Bool =
     if (windowsWin32SecurityCryptographyCatalogNapiAvailable) wasmWindowssysWindowsWin32SecurityCryptographyCatalogCryptCATAdminAcquireContext(phcatadmin.rawAddress.toString(), pgsubsystem.rawAddress.toString(), dwflags.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun cryptCATAdminAcquireContext2(phcatadmin: MutPtr<Long>, pgsubsystem: ConstPtr<Guid>, pwszhashalgorithm: Pcwstr, pstronghashpolicy: ConstPtr<CertStrongSignPara>, dwflags: UInt): Bool =
+public actual fun cryptCATAdminAcquireContext2(phcatadmin: MutPtr, pgsubsystem: ConstPtr, pwszhashalgorithm: Pcwstr, pstronghashpolicy: ConstPtr, dwflags: UInt): Bool =
     if (windowsWin32SecurityCryptographyCatalogNapiAvailable) wasmWindowssysWindowsWin32SecurityCryptographyCatalogCryptCATAdminAcquireContext2(phcatadmin.rawAddress.toString(), pgsubsystem.rawAddress.toString(), pwszhashalgorithm.rawAddress.toString(), pstronghashpolicy.rawAddress.toString(), dwflags.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun cryptCATAdminAddCatalog(hcatadmin: Long, pwszcatalogfile: Pcwstr, pwszselectbasename: Pcwstr, dwflags: UInt): Long =
     if (windowsWin32SecurityCryptographyCatalogNapiAvailable) wasmWindowssysWindowsWin32SecurityCryptographyCatalogCryptCATAdminAddCatalog(hcatadmin.toString(), pwszcatalogfile.rawAddress.toString(), pwszselectbasename.rawAddress.toString(), dwflags.toInt()).toLong() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun cryptCATAdminCalcHashFromFileHandle(hfile: Handle, pcbhash: MutPtr<UInt>, pbhash: MutPtr<UByte>, dwflags: UInt): Bool =
+public actual fun cryptCATAdminCalcHashFromFileHandle(hfile: Handle, pcbhash: MutPtr, pbhash: MutPtr, dwflags: UInt): Bool =
     if (windowsWin32SecurityCryptographyCatalogNapiAvailable) wasmWindowssysWindowsWin32SecurityCryptographyCatalogCryptCATAdminCalcHashFromFileHandle(hfile.rawAddress.toString(), pcbhash.rawAddress.toString(), pbhash.rawAddress.toString(), dwflags.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun cryptCATAdminCalcHashFromFileHandle2(hcatadmin: Long, hfile: Handle, pcbhash: MutPtr<UInt>, pbhash: MutPtr<UByte>, dwflags: UInt): Bool =
+public actual fun cryptCATAdminCalcHashFromFileHandle2(hcatadmin: Long, hfile: Handle, pcbhash: MutPtr, pbhash: MutPtr, dwflags: UInt): Bool =
     if (windowsWin32SecurityCryptographyCatalogNapiAvailable) wasmWindowssysWindowsWin32SecurityCryptographyCatalogCryptCATAdminCalcHashFromFileHandle2(hcatadmin.toString(), hfile.rawAddress.toString(), pcbhash.rawAddress.toString(), pbhash.rawAddress.toString(), dwflags.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun cryptCATAdminEnumCatalogFromHash(hcatadmin: Long, pbhash: ConstPtr<UByte>, cbhash: UInt, dwflags: UInt, phprevcatinfo: MutPtr<Long>): Long =
+public actual fun cryptCATAdminEnumCatalogFromHash(hcatadmin: Long, pbhash: ConstPtr, cbhash: UInt, dwflags: UInt, phprevcatinfo: MutPtr): Long =
     if (windowsWin32SecurityCryptographyCatalogNapiAvailable) wasmWindowssysWindowsWin32SecurityCryptographyCatalogCryptCATAdminEnumCatalogFromHash(hcatadmin.toString(), pbhash.rawAddress.toString(), cbhash.toInt(), dwflags.toInt(), phprevcatinfo.rawAddress.toString()).toLong() else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun cryptCATAdminPauseServiceForBackup(dwflags: UInt, fresume: Bool): Bool =
@@ -155,49 +152,49 @@ public actual fun cryptCATAdminReleaseContext(hcatadmin: Long, dwflags: UInt): B
 public actual fun cryptCATAdminRemoveCatalog(hcatadmin: Long, pwszcatalogfile: Pcwstr, dwflags: UInt): Bool =
     if (windowsWin32SecurityCryptographyCatalogNapiAvailable) wasmWindowssysWindowsWin32SecurityCryptographyCatalogCryptCATAdminRemoveCatalog(hcatadmin.toString(), pwszcatalogfile.rawAddress.toString(), dwflags.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun cryptCATAdminResolveCatalogPath(hcatadmin: Long, pwszcatalogfile: Pcwstr, pscatinfo: MutPtr<CatalogInfo>, dwflags: UInt): Bool =
+public actual fun cryptCATAdminResolveCatalogPath(hcatadmin: Long, pwszcatalogfile: Pcwstr, pscatinfo: MutPtr, dwflags: UInt): Bool =
     if (windowsWin32SecurityCryptographyCatalogNapiAvailable) wasmWindowssysWindowsWin32SecurityCryptographyCatalogCryptCATAdminResolveCatalogPath(hcatadmin.toString(), pwszcatalogfile.rawAddress.toString(), pscatinfo.rawAddress.toString(), dwflags.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun cryptCATAllocSortedMemberInfo(hcatalog: Handle, pwszreferencetag: Pcwstr): MutPtr<Cryptcatmember> =
+public actual fun cryptCATAllocSortedMemberInfo(hcatalog: Handle, pwszreferencetag: Pcwstr): MutPtr =
     if (windowsWin32SecurityCryptographyCatalogNapiAvailable) MutPtr(wasmWindowssysWindowsWin32SecurityCryptographyCatalogCryptCATAllocSortedMemberInfo(hcatalog.rawAddress.toString(), pwszreferencetag.rawAddress.toString()).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun cryptCATCDFClose(pcdf: MutPtr<Cryptcatcdf>): Bool =
+public actual fun cryptCATCDFClose(pcdf: MutPtr): Bool =
     if (windowsWin32SecurityCryptographyCatalogNapiAvailable) wasmWindowssysWindowsWin32SecurityCryptographyCatalogCryptCATCDFClose(pcdf.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun cryptCATCDFEnumAttributes(pcdf: MutPtr<Cryptcatcdf>, pmember: MutPtr<Cryptcatmember>, pprevattr: MutPtr<Cryptcatattribute>, pfnparseerror: PfnCdfParseErrorCallback): MutPtr<Cryptcatattribute> =
+public actual fun cryptCATCDFEnumAttributes(pcdf: MutPtr, pmember: MutPtr, pprevattr: MutPtr, pfnparseerror: PfnCdfParseErrorCallback): MutPtr =
     if (windowsWin32SecurityCryptographyCatalogNapiAvailable) MutPtr(wasmWindowssysWindowsWin32SecurityCryptographyCatalogCryptCATCDFEnumAttributes(pcdf.rawAddress.toString(), pmember.rawAddress.toString(), pprevattr.rawAddress.toString(), 0L.toString()).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun cryptCATCDFEnumAttributesWithCDFTag(pcdf: ConstPtr<Cryptcatcdf>, pwszmembertag: Pcwstr, pmember: ConstPtr<Cryptcatmember>, pprevattr: ConstPtr<Cryptcatattribute>, pfnparseerror: PfnCdfParseErrorCallback): MutPtr<Cryptcatattribute> =
+public actual fun cryptCATCDFEnumAttributesWithCDFTag(pcdf: ConstPtr, pwszmembertag: Pcwstr, pmember: ConstPtr, pprevattr: ConstPtr, pfnparseerror: PfnCdfParseErrorCallback): MutPtr =
     if (windowsWin32SecurityCryptographyCatalogNapiAvailable) MutPtr(wasmWindowssysWindowsWin32SecurityCryptographyCatalogCryptCATCDFEnumAttributesWithCDFTag(pcdf.rawAddress.toString(), pwszmembertag.rawAddress.toString(), pmember.rawAddress.toString(), pprevattr.rawAddress.toString(), 0L.toString()).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun cryptCATCDFEnumCatAttributes(pcdf: MutPtr<Cryptcatcdf>, pprevattr: MutPtr<Cryptcatattribute>, pfnparseerror: PfnCdfParseErrorCallback): MutPtr<Cryptcatattribute> =
+public actual fun cryptCATCDFEnumCatAttributes(pcdf: MutPtr, pprevattr: MutPtr, pfnparseerror: PfnCdfParseErrorCallback): MutPtr =
     if (windowsWin32SecurityCryptographyCatalogNapiAvailable) MutPtr(wasmWindowssysWindowsWin32SecurityCryptographyCatalogCryptCATCDFEnumCatAttributes(pcdf.rawAddress.toString(), pprevattr.rawAddress.toString(), 0L.toString()).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun cryptCATCDFEnumMembers(pcdf: MutPtr<Cryptcatcdf>, pprevmember: MutPtr<Cryptcatmember>, pfnparseerror: PfnCdfParseErrorCallback): MutPtr<Cryptcatmember> =
+public actual fun cryptCATCDFEnumMembers(pcdf: MutPtr, pprevmember: MutPtr, pfnparseerror: PfnCdfParseErrorCallback): MutPtr =
     if (windowsWin32SecurityCryptographyCatalogNapiAvailable) MutPtr(wasmWindowssysWindowsWin32SecurityCryptographyCatalogCryptCATCDFEnumMembers(pcdf.rawAddress.toString(), pprevmember.rawAddress.toString(), 0L.toString()).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun cryptCATCDFEnumMembersByCDFTagEx(pcdf: ConstPtr<Cryptcatcdf>, pwszprevcdftag: Pwstr, pfnparseerror: PfnCdfParseErrorCallback, ppmember: ConstPtr<ConstPtr<Cryptcatmember>>, fcontinueonerror: Bool, pvreserved: ConstPtr<CVoid>): Pwstr =
+public actual fun cryptCATCDFEnumMembersByCDFTagEx(pcdf: ConstPtr, pwszprevcdftag: Pwstr, pfnparseerror: PfnCdfParseErrorCallback, ppmember: ConstPtr, fcontinueonerror: Bool, pvreserved: ConstPtr): Pwstr =
     if (windowsWin32SecurityCryptographyCatalogNapiAvailable) MutPtr(wasmWindowssysWindowsWin32SecurityCryptographyCatalogCryptCATCDFEnumMembersByCDFTagEx(pcdf.rawAddress.toString(), pwszprevcdftag.rawAddress.toString(), 0L.toString(), ppmember.rawAddress.toString(), fcontinueonerror, pvreserved.rawAddress.toString()).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun cryptCATCDFOpen(pwszfilepath: Pcwstr, pfnparseerror: PfnCdfParseErrorCallback): MutPtr<Cryptcatcdf> =
+public actual fun cryptCATCDFOpen(pwszfilepath: Pcwstr, pfnparseerror: PfnCdfParseErrorCallback): MutPtr =
     if (windowsWin32SecurityCryptographyCatalogNapiAvailable) MutPtr(wasmWindowssysWindowsWin32SecurityCryptographyCatalogCryptCATCDFOpen(pwszfilepath.rawAddress.toString(), 0L.toString()).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun cryptCATCatalogInfoFromContext(hcatinfo: Long, pscatinfo: MutPtr<CatalogInfo>, dwflags: UInt): Bool =
+public actual fun cryptCATCatalogInfoFromContext(hcatinfo: Long, pscatinfo: MutPtr, dwflags: UInt): Bool =
     if (windowsWin32SecurityCryptographyCatalogNapiAvailable) wasmWindowssysWindowsWin32SecurityCryptographyCatalogCryptCATCatalogInfoFromContext(hcatinfo.toString(), pscatinfo.rawAddress.toString(), dwflags.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun cryptCATClose(hcatalog: Handle): Bool =
     if (windowsWin32SecurityCryptographyCatalogNapiAvailable) wasmWindowssysWindowsWin32SecurityCryptographyCatalogCryptCATClose(hcatalog.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun cryptCATEnumerateAttr(hcatalog: Handle, pcatmember: MutPtr<Cryptcatmember>, pprevattr: MutPtr<Cryptcatattribute>): MutPtr<Cryptcatattribute> =
+public actual fun cryptCATEnumerateAttr(hcatalog: Handle, pcatmember: MutPtr, pprevattr: MutPtr): MutPtr =
     if (windowsWin32SecurityCryptographyCatalogNapiAvailable) MutPtr(wasmWindowssysWindowsWin32SecurityCryptographyCatalogCryptCATEnumerateAttr(hcatalog.rawAddress.toString(), pcatmember.rawAddress.toString(), pprevattr.rawAddress.toString()).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun cryptCATEnumerateCatAttr(hcatalog: Handle, pprevattr: MutPtr<Cryptcatattribute>): MutPtr<Cryptcatattribute> =
+public actual fun cryptCATEnumerateCatAttr(hcatalog: Handle, pprevattr: MutPtr): MutPtr =
     if (windowsWin32SecurityCryptographyCatalogNapiAvailable) MutPtr(wasmWindowssysWindowsWin32SecurityCryptographyCatalogCryptCATEnumerateCatAttr(hcatalog.rawAddress.toString(), pprevattr.rawAddress.toString()).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun cryptCATEnumerateMember(hcatalog: Handle, pprevmember: MutPtr<Cryptcatmember>): MutPtr<Cryptcatmember> =
+public actual fun cryptCATEnumerateMember(hcatalog: Handle, pprevmember: MutPtr): MutPtr =
     if (windowsWin32SecurityCryptographyCatalogNapiAvailable) MutPtr(wasmWindowssysWindowsWin32SecurityCryptographyCatalogCryptCATEnumerateMember(hcatalog.rawAddress.toString(), pprevmember.rawAddress.toString()).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun cryptCATFreeSortedMemberInfo(hcatalog: Handle, pcatmember: MutPtr<Cryptcatmember>) {
+public actual fun cryptCATFreeSortedMemberInfo(hcatalog: Handle, pcatmember: MutPtr) {
     if (windowsWin32SecurityCryptographyCatalogNapiAvailable) {
         wasmWindowssysWindowsWin32SecurityCryptographyCatalogCryptCATFreeSortedMemberInfo(hcatalog.rawAddress.toString(), pcatmember.rawAddress.toString())
     } else {
@@ -205,16 +202,16 @@ public actual fun cryptCATFreeSortedMemberInfo(hcatalog: Handle, pcatmember: Mut
     }
 }
 
-public actual fun cryptCATGetAttrInfo(hcatalog: Handle, pcatmember: MutPtr<Cryptcatmember>, pwszreferencetag: Pcwstr): MutPtr<Cryptcatattribute> =
+public actual fun cryptCATGetAttrInfo(hcatalog: Handle, pcatmember: MutPtr, pwszreferencetag: Pcwstr): MutPtr =
     if (windowsWin32SecurityCryptographyCatalogNapiAvailable) MutPtr(wasmWindowssysWindowsWin32SecurityCryptographyCatalogCryptCATGetAttrInfo(hcatalog.rawAddress.toString(), pcatmember.rawAddress.toString(), pwszreferencetag.rawAddress.toString()).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun cryptCATGetCatAttrInfo(hcatalog: Handle, pwszreferencetag: Pcwstr): MutPtr<Cryptcatattribute> =
+public actual fun cryptCATGetCatAttrInfo(hcatalog: Handle, pwszreferencetag: Pcwstr): MutPtr =
     if (windowsWin32SecurityCryptographyCatalogNapiAvailable) MutPtr(wasmWindowssysWindowsWin32SecurityCryptographyCatalogCryptCATGetCatAttrInfo(hcatalog.rawAddress.toString(), pwszreferencetag.rawAddress.toString()).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun cryptCATGetMemberInfo(hcatalog: Handle, pwszreferencetag: Pcwstr): MutPtr<Cryptcatmember> =
+public actual fun cryptCATGetMemberInfo(hcatalog: Handle, pwszreferencetag: Pcwstr): MutPtr =
     if (windowsWin32SecurityCryptographyCatalogNapiAvailable) MutPtr(wasmWindowssysWindowsWin32SecurityCryptographyCatalogCryptCATGetMemberInfo(hcatalog.rawAddress.toString(), pwszreferencetag.rawAddress.toString()).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun cryptCATHandleFromStore(pcatstore: MutPtr<Cryptcatstore>): Handle =
+public actual fun cryptCATHandleFromStore(pcatstore: MutPtr): Handle =
     if (windowsWin32SecurityCryptographyCatalogNapiAvailable) MutPtr(wasmWindowssysWindowsWin32SecurityCryptographyCatalogCryptCATHandleFromStore(pcatstore.rawAddress.toString()).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun cryptCATOpen(pwszfilename: Pcwstr, fdwopenflags: CryptcatOpenFlags, hprov: ULong, dwpublicversion: CryptcatVersion, dwencodingtype: UInt): Handle =
@@ -223,16 +220,16 @@ public actual fun cryptCATOpen(pwszfilename: Pcwstr, fdwopenflags: CryptcatOpenF
 public actual fun cryptCATPersistStore(hcatalog: Handle): Bool =
     if (windowsWin32SecurityCryptographyCatalogNapiAvailable) wasmWindowssysWindowsWin32SecurityCryptographyCatalogCryptCATPersistStore(hcatalog.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun cryptCATPutAttrInfo(hcatalog: Handle, pcatmember: MutPtr<Cryptcatmember>, pwszreferencetag: Pcwstr, dwattrtypeandaction: UInt, cbdata: UInt, pbdata: MutPtr<UByte>): MutPtr<Cryptcatattribute> =
+public actual fun cryptCATPutAttrInfo(hcatalog: Handle, pcatmember: MutPtr, pwszreferencetag: Pcwstr, dwattrtypeandaction: UInt, cbdata: UInt, pbdata: MutPtr): MutPtr =
     if (windowsWin32SecurityCryptographyCatalogNapiAvailable) MutPtr(wasmWindowssysWindowsWin32SecurityCryptographyCatalogCryptCATPutAttrInfo(hcatalog.rawAddress.toString(), pcatmember.rawAddress.toString(), pwszreferencetag.rawAddress.toString(), dwattrtypeandaction.toInt(), cbdata.toInt(), pbdata.rawAddress.toString()).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun cryptCATPutCatAttrInfo(hcatalog: Handle, pwszreferencetag: Pcwstr, dwattrtypeandaction: UInt, cbdata: UInt, pbdata: MutPtr<UByte>): MutPtr<Cryptcatattribute> =
+public actual fun cryptCATPutCatAttrInfo(hcatalog: Handle, pwszreferencetag: Pcwstr, dwattrtypeandaction: UInt, cbdata: UInt, pbdata: MutPtr): MutPtr =
     if (windowsWin32SecurityCryptographyCatalogNapiAvailable) MutPtr(wasmWindowssysWindowsWin32SecurityCryptographyCatalogCryptCATPutCatAttrInfo(hcatalog.rawAddress.toString(), pwszreferencetag.rawAddress.toString(), dwattrtypeandaction.toInt(), cbdata.toInt(), pbdata.rawAddress.toString()).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun cryptCATPutMemberInfo(hcatalog: Handle, pwszfilename: Pcwstr, pwszreferencetag: Pcwstr, pgsubjecttype: MutPtr<Guid>, dwcertversion: UInt, cbsipindirectdata: UInt, pbsipindirectdata: MutPtr<UByte>): MutPtr<Cryptcatmember> =
+public actual fun cryptCATPutMemberInfo(hcatalog: Handle, pwszfilename: Pcwstr, pwszreferencetag: Pcwstr, pgsubjecttype: MutPtr, dwcertversion: UInt, cbsipindirectdata: UInt, pbsipindirectdata: MutPtr): MutPtr =
     if (windowsWin32SecurityCryptographyCatalogNapiAvailable) MutPtr(wasmWindowssysWindowsWin32SecurityCryptographyCatalogCryptCATPutMemberInfo(hcatalog.rawAddress.toString(), pwszfilename.rawAddress.toString(), pwszreferencetag.rawAddress.toString(), pgsubjecttype.rawAddress.toString(), dwcertversion.toInt(), cbsipindirectdata.toInt(), pbsipindirectdata.rawAddress.toString()).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun cryptCATStoreFromHandle(hcatalog: Handle): MutPtr<Cryptcatstore> =
+public actual fun cryptCATStoreFromHandle(hcatalog: Handle): MutPtr =
     if (windowsWin32SecurityCryptographyCatalogNapiAvailable) MutPtr(wasmWindowssysWindowsWin32SecurityCryptographyCatalogCryptCATStoreFromHandle(hcatalog.rawAddress.toString()).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun isCatalogFile(hfile: Handle, pwszfilename: Pcwstr): Bool =

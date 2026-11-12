@@ -2,17 +2,13 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.system.com
 
-import io.github.kotlinmania.rustlang.core.ffi.CVoid
 import io.github.kotlinmania.rustlang.core.ptr.ConstPtr
 import io.github.kotlinmania.rustlang.core.ptr.MutPtr
 import io.github.kotlinmania.windowssys.core.Bool
-import io.github.kotlinmania.windowssys.core.Guid
 import io.github.kotlinmania.windowssys.core.Hresult
 import io.github.kotlinmania.windowssys.core.Pcstr
 import io.github.kotlinmania.windowssys.core.Pcwstr
 import io.github.kotlinmania.windowssys.core.Pwstr
-import io.github.kotlinmania.windowssys.windows.win32.foundation.Filetime
-import io.github.kotlinmania.windowssys.windows.win32.foundation.Handle
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Hinstance
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Hwnd
 import io.github.kotlinmania.windowssys.windows.win32.security.PsecurityDescriptor
@@ -130,25 +126,25 @@ import kotlinx.cinterop.ByteVar
 import kotlinx.cinterop.toCPointer
 import kotlinx.cinterop.toLong
 
-public actual fun bindMoniker(pmk: MutPtr<CVoid>, grfopt: UInt, iidresult: ConstPtr<Guid>, ppvresult: MutPtr<MutPtr<CVoid>>): Hresult =
+public actual fun bindMoniker(pmk: MutPtr, grfopt: UInt, iidresult: ConstPtr, ppvresult: MutPtr): Hresult =
     windowssysWindowsWin32SystemComBindMoniker(pmk.rawAddress.toCPointer<ByteVar>(), grfopt, iidresult.rawAddress.toCPointer<ByteVar>(), ppvresult.rawAddress.toCPointer<ByteVar>())
 
-public actual fun cLSIDFromProgID(lpszprogid: Pcwstr, lpclsid: MutPtr<Guid>): Hresult =
+public actual fun cLSIDFromProgID(lpszprogid: Pcwstr, lpclsid: MutPtr): Hresult =
     windowssysWindowsWin32SystemComCLSIDFromProgID(lpszprogid.rawAddress.toCPointer<ByteVar>(), lpclsid.rawAddress.toCPointer<ByteVar>())
 
-public actual fun cLSIDFromProgIDEx(lpszprogid: Pcwstr, lpclsid: MutPtr<Guid>): Hresult =
+public actual fun cLSIDFromProgIDEx(lpszprogid: Pcwstr, lpclsid: MutPtr): Hresult =
     windowssysWindowsWin32SystemComCLSIDFromProgIDEx(lpszprogid.rawAddress.toCPointer<ByteVar>(), lpclsid.rawAddress.toCPointer<ByteVar>())
 
-public actual fun cLSIDFromString(lpsz: Pcwstr, pclsid: MutPtr<Guid>): Hresult =
+public actual fun cLSIDFromString(lpsz: Pcwstr, pclsid: MutPtr): Hresult =
     windowssysWindowsWin32SystemComCLSIDFromString(lpsz.rawAddress.toCPointer<ByteVar>(), pclsid.rawAddress.toCPointer<ByteVar>())
 
 public actual fun coAddRefServerProcess(): UInt =
     windowssysWindowsWin32SystemComCoAddRefServerProcess()
 
-public actual fun coAllowSetForegroundWindow(punk: MutPtr<CVoid>, lpvreserved: ConstPtr<CVoid>): Hresult =
+public actual fun coAllowSetForegroundWindow(punk: MutPtr, lpvreserved: ConstPtr): Hresult =
     windowssysWindowsWin32SystemComCoAllowSetForegroundWindow(punk.rawAddress.toCPointer<ByteVar>(), lpvreserved.rawAddress.toCPointer<ByteVar>())
 
-public actual fun coAllowUnmarshalerCLSID(clsid: ConstPtr<Guid>): Hresult =
+public actual fun coAllowUnmarshalerCLSID(clsid: ConstPtr): Hresult =
     windowssysWindowsWin32SystemComCoAllowUnmarshalerCLSID(clsid.rawAddress.toCPointer<ByteVar>())
 
 public actual fun coBuildVersion(): UInt =
@@ -157,46 +153,46 @@ public actual fun coBuildVersion(): UInt =
 public actual fun coCancelCall(dwthreadid: UInt, ultimeout: UInt): Hresult =
     windowssysWindowsWin32SystemComCoCancelCall(dwthreadid, ultimeout)
 
-public actual fun coCopyProxy(pproxy: MutPtr<CVoid>, ppcopy: MutPtr<MutPtr<CVoid>>): Hresult =
+public actual fun coCopyProxy(pproxy: MutPtr, ppcopy: MutPtr): Hresult =
     windowssysWindowsWin32SystemComCoCopyProxy(pproxy.rawAddress.toCPointer<ByteVar>(), ppcopy.rawAddress.toCPointer<ByteVar>())
 
-public actual fun coCreateFreeThreadedMarshaler(punkouter: MutPtr<CVoid>, ppunkmarshal: MutPtr<MutPtr<CVoid>>): Hresult =
+public actual fun coCreateFreeThreadedMarshaler(punkouter: MutPtr, ppunkmarshal: MutPtr): Hresult =
     windowssysWindowsWin32SystemComCoCreateFreeThreadedMarshaler(punkouter.rawAddress.toCPointer<ByteVar>(), ppunkmarshal.rawAddress.toCPointer<ByteVar>())
 
-public actual fun coCreateGuid(pguid: MutPtr<Guid>): Hresult =
+public actual fun coCreateGuid(pguid: MutPtr): Hresult =
     windowssysWindowsWin32SystemComCoCreateGuid(pguid.rawAddress.toCPointer<ByteVar>())
 
-public actual fun coCreateInstance(rclsid: ConstPtr<Guid>, punkouter: MutPtr<CVoid>, dwclscontext: Clsctx, riid: ConstPtr<Guid>, ppv: MutPtr<MutPtr<CVoid>>): Hresult =
+public actual fun coCreateInstance(rclsid: ConstPtr, punkouter: MutPtr, dwclscontext: Clsctx, riid: ConstPtr, ppv: MutPtr): Hresult =
     windowssysWindowsWin32SystemComCoCreateInstance(rclsid.rawAddress.toCPointer<ByteVar>(), punkouter.rawAddress.toCPointer<ByteVar>(), dwclscontext, riid.rawAddress.toCPointer<ByteVar>(), ppv.rawAddress.toCPointer<ByteVar>())
 
-public actual fun coCreateInstanceEx(clsid: ConstPtr<Guid>, punkouter: MutPtr<CVoid>, dwclsctx: Clsctx, pserverinfo: ConstPtr<Coserverinfo>, dwcount: UInt, presults: MutPtr<MultiQi>): Hresult =
+public actual fun coCreateInstanceEx(clsid: ConstPtr, punkouter: MutPtr, dwclsctx: Clsctx, pserverinfo: ConstPtr, dwcount: UInt, presults: MutPtr): Hresult =
     windowssysWindowsWin32SystemComCoCreateInstanceEx(clsid.rawAddress.toCPointer<ByteVar>(), punkouter.rawAddress.toCPointer<ByteVar>(), dwclsctx, pserverinfo.rawAddress.toCPointer<ByteVar>(), dwcount, presults.rawAddress.toCPointer<ByteVar>())
 
-public actual fun coCreateInstanceFromApp(clsid: ConstPtr<Guid>, punkouter: MutPtr<CVoid>, dwclsctx: Clsctx, reserved: ConstPtr<CVoid>, dwcount: UInt, presults: MutPtr<MultiQi>): Hresult =
+public actual fun coCreateInstanceFromApp(clsid: ConstPtr, punkouter: MutPtr, dwclsctx: Clsctx, reserved: ConstPtr, dwcount: UInt, presults: MutPtr): Hresult =
     windowssysWindowsWin32SystemComCoCreateInstanceFromApp(clsid.rawAddress.toCPointer<ByteVar>(), punkouter.rawAddress.toCPointer<ByteVar>(), dwclsctx, reserved.rawAddress.toCPointer<ByteVar>(), dwcount, presults.rawAddress.toCPointer<ByteVar>())
 
 public actual fun coDecrementMTAUsage(cookie: CoMtaUsageCookie): Hresult =
     windowssysWindowsWin32SystemComCoDecrementMTAUsage(cookie.rawAddress.toCPointer<ByteVar>())
 
-public actual fun coDisableCallCancellation(preserved: ConstPtr<CVoid>): Hresult =
+public actual fun coDisableCallCancellation(preserved: ConstPtr): Hresult =
     windowssysWindowsWin32SystemComCoDisableCallCancellation(preserved.rawAddress.toCPointer<ByteVar>())
 
 public actual fun coDisconnectContext(dwtimeout: UInt): Hresult =
     windowssysWindowsWin32SystemComCoDisconnectContext(dwtimeout)
 
-public actual fun coDisconnectObject(punk: MutPtr<CVoid>, dwreserved: UInt): Hresult =
+public actual fun coDisconnectObject(punk: MutPtr, dwreserved: UInt): Hresult =
     windowssysWindowsWin32SystemComCoDisconnectObject(punk.rawAddress.toCPointer<ByteVar>(), dwreserved)
 
-public actual fun coDosDateTimeToFileTime(ndosdate: UShort, ndostime: UShort, lpfiletime: MutPtr<Filetime>): Bool =
+public actual fun coDosDateTimeToFileTime(ndosdate: UShort, ndostime: UShort, lpfiletime: MutPtr): Bool =
     windowssysWindowsWin32SystemComCoDosDateTimeToFileTime(ndosdate, ndostime, lpfiletime.rawAddress.toCPointer<ByteVar>())
 
-public actual fun coEnableCallCancellation(preserved: ConstPtr<CVoid>): Hresult =
+public actual fun coEnableCallCancellation(preserved: ConstPtr): Hresult =
     windowssysWindowsWin32SystemComCoEnableCallCancellation(preserved.rawAddress.toCPointer<ByteVar>())
 
-public actual fun coFileTimeNow(lpfiletime: MutPtr<Filetime>): Hresult =
+public actual fun coFileTimeNow(lpfiletime: MutPtr): Hresult =
     windowssysWindowsWin32SystemComCoFileTimeNow(lpfiletime.rawAddress.toCPointer<ByteVar>())
 
-public actual fun coFileTimeToDosDateTime(lpfiletime: ConstPtr<Filetime>, lpdosdate: MutPtr<UShort>, lpdostime: MutPtr<UShort>): Bool =
+public actual fun coFileTimeToDosDateTime(lpfiletime: ConstPtr, lpdosdate: MutPtr, lpdostime: MutPtr): Bool =
     windowssysWindowsWin32SystemComCoFileTimeToDosDateTime(lpfiletime.rawAddress.toCPointer<ByteVar>(), lpdosdate.rawAddress.toCPointer<ByteVar>(), lpdostime.rawAddress.toCPointer<ByteVar>())
 
 public actual fun coFreeAllLibraries() {
@@ -215,112 +211,112 @@ public actual fun coFreeUnusedLibrariesEx(dwunloaddelay: UInt, dwreserved: UInt)
     windowssysWindowsWin32SystemComCoFreeUnusedLibrariesEx(dwunloaddelay, dwreserved)
 }
 
-public actual fun coGetApartmentType(papttype: MutPtr<Apttype>, paptqualifier: MutPtr<Apttypequalifier>): Hresult =
+public actual fun coGetApartmentType(papttype: MutPtr, paptqualifier: MutPtr): Hresult =
     windowssysWindowsWin32SystemComCoGetApartmentType(papttype.rawAddress.toCPointer<ByteVar>(), paptqualifier.rawAddress.toCPointer<ByteVar>())
 
-public actual fun coGetCallContext(riid: ConstPtr<Guid>, ppinterface: MutPtr<MutPtr<CVoid>>): Hresult =
+public actual fun coGetCallContext(riid: ConstPtr, ppinterface: MutPtr): Hresult =
     windowssysWindowsWin32SystemComCoGetCallContext(riid.rawAddress.toCPointer<ByteVar>(), ppinterface.rawAddress.toCPointer<ByteVar>())
 
-public actual fun coGetCallerTID(lpdwtid: MutPtr<UInt>): Hresult =
+public actual fun coGetCallerTID(lpdwtid: MutPtr): Hresult =
     windowssysWindowsWin32SystemComCoGetCallerTID(lpdwtid.rawAddress.toCPointer<ByteVar>())
 
-public actual fun coGetCancelObject(dwthreadid: UInt, iid: ConstPtr<Guid>, ppunk: MutPtr<MutPtr<CVoid>>): Hresult =
+public actual fun coGetCancelObject(dwthreadid: UInt, iid: ConstPtr, ppunk: MutPtr): Hresult =
     windowssysWindowsWin32SystemComCoGetCancelObject(dwthreadid, iid.rawAddress.toCPointer<ByteVar>(), ppunk.rawAddress.toCPointer<ByteVar>())
 
-public actual fun coGetClassObject(rclsid: ConstPtr<Guid>, dwclscontext: UInt, pvreserved: ConstPtr<CVoid>, riid: ConstPtr<Guid>, ppv: MutPtr<MutPtr<CVoid>>): Hresult =
+public actual fun coGetClassObject(rclsid: ConstPtr, dwclscontext: UInt, pvreserved: ConstPtr, riid: ConstPtr, ppv: MutPtr): Hresult =
     windowssysWindowsWin32SystemComCoGetClassObject(rclsid.rawAddress.toCPointer<ByteVar>(), dwclscontext, pvreserved.rawAddress.toCPointer<ByteVar>(), riid.rawAddress.toCPointer<ByteVar>(), ppv.rawAddress.toCPointer<ByteVar>())
 
-public actual fun coGetContextToken(ptoken: MutPtr<ULong>): Hresult =
+public actual fun coGetContextToken(ptoken: MutPtr): Hresult =
     windowssysWindowsWin32SystemComCoGetContextToken(ptoken.rawAddress.toCPointer<ByteVar>())
 
-public actual fun coGetCurrentLogicalThreadId(pguid: MutPtr<Guid>): Hresult =
+public actual fun coGetCurrentLogicalThreadId(pguid: MutPtr): Hresult =
     windowssysWindowsWin32SystemComCoGetCurrentLogicalThreadId(pguid.rawAddress.toCPointer<ByteVar>())
 
 public actual fun coGetCurrentProcess(): UInt =
     windowssysWindowsWin32SystemComCoGetCurrentProcess()
 
-public actual fun coGetMalloc(dwmemcontext: UInt, ppmalloc: MutPtr<MutPtr<CVoid>>): Hresult =
+public actual fun coGetMalloc(dwmemcontext: UInt, ppmalloc: MutPtr): Hresult =
     windowssysWindowsWin32SystemComCoGetMalloc(dwmemcontext, ppmalloc.rawAddress.toCPointer<ByteVar>())
 
-public actual fun coGetObject(pszname: Pcwstr, pbindoptions: ConstPtr<BindOpts>, riid: ConstPtr<Guid>, ppv: MutPtr<MutPtr<CVoid>>): Hresult =
+public actual fun coGetObject(pszname: Pcwstr, pbindoptions: ConstPtr, riid: ConstPtr, ppv: MutPtr): Hresult =
     windowssysWindowsWin32SystemComCoGetObject(pszname.rawAddress.toCPointer<ByteVar>(), pbindoptions.rawAddress.toCPointer<ByteVar>(), riid.rawAddress.toCPointer<ByteVar>(), ppv.rawAddress.toCPointer<ByteVar>())
 
-public actual fun coGetObjectContext(riid: ConstPtr<Guid>, ppv: MutPtr<MutPtr<CVoid>>): Hresult =
+public actual fun coGetObjectContext(riid: ConstPtr, ppv: MutPtr): Hresult =
     windowssysWindowsWin32SystemComCoGetObjectContext(riid.rawAddress.toCPointer<ByteVar>(), ppv.rawAddress.toCPointer<ByteVar>())
 
-public actual fun coGetPSClsid(riid: ConstPtr<Guid>, pclsid: MutPtr<Guid>): Hresult =
+public actual fun coGetPSClsid(riid: ConstPtr, pclsid: MutPtr): Hresult =
     windowssysWindowsWin32SystemComCoGetPSClsid(riid.rawAddress.toCPointer<ByteVar>(), pclsid.rawAddress.toCPointer<ByteVar>())
 
-public actual fun coGetSystemSecurityPermissions(comsdtype: Comsd, ppsd: MutPtr<PsecurityDescriptor>): Hresult =
+public actual fun coGetSystemSecurityPermissions(comsdtype: Comsd, ppsd: MutPtr): Hresult =
     windowssysWindowsWin32SystemComCoGetSystemSecurityPermissions(comsdtype, ppsd.rawAddress.toCPointer<ByteVar>())
 
-public actual fun coGetTreatAsClass(clsidold: ConstPtr<Guid>, pclsidnew: MutPtr<Guid>): Hresult =
+public actual fun coGetTreatAsClass(clsidold: ConstPtr, pclsidnew: MutPtr): Hresult =
     windowssysWindowsWin32SystemComCoGetTreatAsClass(clsidold.rawAddress.toCPointer<ByteVar>(), pclsidnew.rawAddress.toCPointer<ByteVar>())
 
 public actual fun coImpersonateClient(): Hresult =
     windowssysWindowsWin32SystemComCoImpersonateClient()
 
-public actual fun coIncrementMTAUsage(pcookie: MutPtr<CoMtaUsageCookie>): Hresult =
+public actual fun coIncrementMTAUsage(pcookie: MutPtr): Hresult =
     windowssysWindowsWin32SystemComCoIncrementMTAUsage(pcookie.rawAddress.toCPointer<ByteVar>())
 
-public actual fun coInitialize(pvreserved: ConstPtr<CVoid>): Hresult =
+public actual fun coInitialize(pvreserved: ConstPtr): Hresult =
     windowssysWindowsWin32SystemComCoInitialize(pvreserved.rawAddress.toCPointer<ByteVar>())
 
-public actual fun coInitializeEx(pvreserved: ConstPtr<CVoid>, dwcoinit: UInt): Hresult =
+public actual fun coInitializeEx(pvreserved: ConstPtr, dwcoinit: UInt): Hresult =
     windowssysWindowsWin32SystemComCoInitializeEx(pvreserved.rawAddress.toCPointer<ByteVar>(), dwcoinit)
 
-public actual fun coInitializeSecurity(psecdesc: PsecurityDescriptor, cauthsvc: Int, asauthsvc: ConstPtr<SoleAuthenticationService>, preserved1: ConstPtr<CVoid>, dwauthnlevel: RpcCAuthnLevel, dwimplevel: RpcCImpLevel, pauthlist: ConstPtr<CVoid>, dwcapabilities: UInt, preserved3: ConstPtr<CVoid>): Hresult =
+public actual fun coInitializeSecurity(psecdesc: PsecurityDescriptor, cauthsvc: Int, asauthsvc: ConstPtr, preserved1: ConstPtr, dwauthnlevel: RpcCAuthnLevel, dwimplevel: RpcCImpLevel, pauthlist: ConstPtr, dwcapabilities: UInt, preserved3: ConstPtr): Hresult =
     windowssysWindowsWin32SystemComCoInitializeSecurity(psecdesc.rawAddress.toCPointer<ByteVar>(), cauthsvc, asauthsvc.rawAddress.toCPointer<ByteVar>(), preserved1.rawAddress.toCPointer<ByteVar>(), dwauthnlevel, dwimplevel, pauthlist.rawAddress.toCPointer<ByteVar>(), dwcapabilities, preserved3.rawAddress.toCPointer<ByteVar>())
 
-public actual fun coInstall(pbc: MutPtr<CVoid>, dwflags: UInt, pclassspec: ConstPtr<UClsspec>, pquery: ConstPtr<Querycontext>, pszcodebase: Pcwstr): Hresult =
+public actual fun coInstall(pbc: MutPtr, dwflags: UInt, pclassspec: ConstPtr, pquery: ConstPtr, pszcodebase: Pcwstr): Hresult =
     windowssysWindowsWin32SystemComCoInstall(pbc.rawAddress.toCPointer<ByteVar>(), dwflags, pclassspec.rawAddress.toCPointer<ByteVar>(), pquery.rawAddress.toCPointer<ByteVar>(), pszcodebase.rawAddress.toCPointer<ByteVar>())
 
 public actual fun coInvalidateRemoteMachineBindings(pszmachinename: Pcwstr): Hresult =
     windowssysWindowsWin32SystemComCoInvalidateRemoteMachineBindings(pszmachinename.rawAddress.toCPointer<ByteVar>())
 
-public actual fun coIsHandlerConnected(punk: MutPtr<CVoid>): Bool =
+public actual fun coIsHandlerConnected(punk: MutPtr): Bool =
     windowssysWindowsWin32SystemComCoIsHandlerConnected(punk.rawAddress.toCPointer<ByteVar>())
 
-public actual fun coIsOle1Class(rclsid: ConstPtr<Guid>): Bool =
+public actual fun coIsOle1Class(rclsid: ConstPtr): Bool =
     windowssysWindowsWin32SystemComCoIsOle1Class(rclsid.rawAddress.toCPointer<ByteVar>())
 
 public actual fun coLoadLibrary(lpszlibname: Pcwstr, bautofree: Bool): Hinstance =
     MutPtr(windowssysWindowsWin32SystemComCoLoadLibrary(lpszlibname.rawAddress.toCPointer<ByteVar>(), bautofree)?.toLong() ?: 0L)
 
-public actual fun coLockObjectExternal(punk: MutPtr<CVoid>, flock: Bool, flastunlockreleases: Bool): Hresult =
+public actual fun coLockObjectExternal(punk: MutPtr, flock: Bool, flastunlockreleases: Bool): Hresult =
     windowssysWindowsWin32SystemComCoLockObjectExternal(punk.rawAddress.toCPointer<ByteVar>(), flock, flastunlockreleases)
 
-public actual fun coQueryAuthenticationServices(pcauthsvc: MutPtr<UInt>, asauthsvc: MutPtr<MutPtr<SoleAuthenticationService>>): Hresult =
+public actual fun coQueryAuthenticationServices(pcauthsvc: MutPtr, asauthsvc: MutPtr): Hresult =
     windowssysWindowsWin32SystemComCoQueryAuthenticationServices(pcauthsvc.rawAddress.toCPointer<ByteVar>(), asauthsvc.rawAddress.toCPointer<ByteVar>())
 
-public actual fun coQueryClientBlanket(pauthnsvc: MutPtr<UInt>, pauthzsvc: MutPtr<UInt>, pserverprincname: MutPtr<Pwstr>, pauthnlevel: MutPtr<UInt>, pimplevel: MutPtr<UInt>, pprivs: MutPtr<MutPtr<CVoid>>, pcapabilities: MutPtr<UInt>): Hresult =
+public actual fun coQueryClientBlanket(pauthnsvc: MutPtr, pauthzsvc: MutPtr, pserverprincname: MutPtr, pauthnlevel: MutPtr, pimplevel: MutPtr, pprivs: MutPtr, pcapabilities: MutPtr): Hresult =
     windowssysWindowsWin32SystemComCoQueryClientBlanket(pauthnsvc.rawAddress.toCPointer<ByteVar>(), pauthzsvc.rawAddress.toCPointer<ByteVar>(), pserverprincname.rawAddress.toCPointer<ByteVar>(), pauthnlevel.rawAddress.toCPointer<ByteVar>(), pimplevel.rawAddress.toCPointer<ByteVar>(), pprivs.rawAddress.toCPointer<ByteVar>(), pcapabilities.rawAddress.toCPointer<ByteVar>())
 
-public actual fun coQueryProxyBlanket(pproxy: MutPtr<CVoid>, pwauthnsvc: MutPtr<UInt>, pauthzsvc: MutPtr<UInt>, pserverprincname: MutPtr<Pwstr>, pauthnlevel: MutPtr<UInt>, pimplevel: MutPtr<UInt>, pauthinfo: MutPtr<MutPtr<CVoid>>, pcapabilites: MutPtr<UInt>): Hresult =
+public actual fun coQueryProxyBlanket(pproxy: MutPtr, pwauthnsvc: MutPtr, pauthzsvc: MutPtr, pserverprincname: MutPtr, pauthnlevel: MutPtr, pimplevel: MutPtr, pauthinfo: MutPtr, pcapabilites: MutPtr): Hresult =
     windowssysWindowsWin32SystemComCoQueryProxyBlanket(pproxy.rawAddress.toCPointer<ByteVar>(), pwauthnsvc.rawAddress.toCPointer<ByteVar>(), pauthzsvc.rawAddress.toCPointer<ByteVar>(), pserverprincname.rawAddress.toCPointer<ByteVar>(), pauthnlevel.rawAddress.toCPointer<ByteVar>(), pimplevel.rawAddress.toCPointer<ByteVar>(), pauthinfo.rawAddress.toCPointer<ByteVar>(), pcapabilites.rawAddress.toCPointer<ByteVar>())
 
-public actual fun coRegisterActivationFilter(pactivationfilter: MutPtr<CVoid>): Hresult =
+public actual fun coRegisterActivationFilter(pactivationfilter: MutPtr): Hresult =
     windowssysWindowsWin32SystemComCoRegisterActivationFilter(pactivationfilter.rawAddress.toCPointer<ByteVar>())
 
-public actual fun coRegisterChannelHook(extensionuuid: ConstPtr<Guid>, pchannelhook: MutPtr<CVoid>): Hresult =
+public actual fun coRegisterChannelHook(extensionuuid: ConstPtr, pchannelhook: MutPtr): Hresult =
     windowssysWindowsWin32SystemComCoRegisterChannelHook(extensionuuid.rawAddress.toCPointer<ByteVar>(), pchannelhook.rawAddress.toCPointer<ByteVar>())
 
-public actual fun coRegisterClassObject(rclsid: ConstPtr<Guid>, punk: MutPtr<CVoid>, dwclscontext: Clsctx, flags: UInt, lpdwregister: MutPtr<UInt>): Hresult =
+public actual fun coRegisterClassObject(rclsid: ConstPtr, punk: MutPtr, dwclscontext: Clsctx, flags: UInt, lpdwregister: MutPtr): Hresult =
     windowssysWindowsWin32SystemComCoRegisterClassObject(rclsid.rawAddress.toCPointer<ByteVar>(), punk.rawAddress.toCPointer<ByteVar>(), dwclscontext, flags, lpdwregister.rawAddress.toCPointer<ByteVar>())
 
-public actual fun coRegisterDeviceCatalog(deviceinstanceid: Pcwstr, cookie: MutPtr<CoDeviceCatalogCookie>): Hresult =
+public actual fun coRegisterDeviceCatalog(deviceinstanceid: Pcwstr, cookie: MutPtr): Hresult =
     windowssysWindowsWin32SystemComCoRegisterDeviceCatalog(deviceinstanceid.rawAddress.toCPointer<ByteVar>(), cookie.rawAddress.toCPointer<ByteVar>())
 
-public actual fun coRegisterInitializeSpy(pspy: MutPtr<CVoid>, pulicookie: MutPtr<ULong>): Hresult =
+public actual fun coRegisterInitializeSpy(pspy: MutPtr, pulicookie: MutPtr): Hresult =
     windowssysWindowsWin32SystemComCoRegisterInitializeSpy(pspy.rawAddress.toCPointer<ByteVar>(), pulicookie.rawAddress.toCPointer<ByteVar>())
 
-public actual fun coRegisterMallocSpy(pmallocspy: MutPtr<CVoid>): Hresult =
+public actual fun coRegisterMallocSpy(pmallocspy: MutPtr): Hresult =
     windowssysWindowsWin32SystemComCoRegisterMallocSpy(pmallocspy.rawAddress.toCPointer<ByteVar>())
 
-public actual fun coRegisterPSClsid(riid: ConstPtr<Guid>, rclsid: ConstPtr<Guid>): Hresult =
+public actual fun coRegisterPSClsid(riid: ConstPtr, rclsid: ConstPtr): Hresult =
     windowssysWindowsWin32SystemComCoRegisterPSClsid(riid.rawAddress.toCPointer<ByteVar>(), rclsid.rawAddress.toCPointer<ByteVar>())
 
-public actual fun coRegisterSurrogate(psurrogate: MutPtr<CVoid>): Hresult =
+public actual fun coRegisterSurrogate(psurrogate: MutPtr): Hresult =
     windowssysWindowsWin32SystemComCoRegisterSurrogate(psurrogate.rawAddress.toCPointer<ByteVar>())
 
 public actual fun coReleaseServerProcess(): UInt =
@@ -344,124 +340,124 @@ public actual fun coRevokeInitializeSpy(ulicookie: ULong): Hresult =
 public actual fun coRevokeMallocSpy(): Hresult =
     windowssysWindowsWin32SystemComCoRevokeMallocSpy()
 
-public actual fun coSetCancelObject(punk: MutPtr<CVoid>): Hresult =
+public actual fun coSetCancelObject(punk: MutPtr): Hresult =
     windowssysWindowsWin32SystemComCoSetCancelObject(punk.rawAddress.toCPointer<ByteVar>())
 
-public actual fun coSetProxyBlanket(pproxy: MutPtr<CVoid>, dwauthnsvc: UInt, dwauthzsvc: UInt, pserverprincname: Pcwstr, dwauthnlevel: RpcCAuthnLevel, dwimplevel: RpcCImpLevel, pauthinfo: ConstPtr<CVoid>, dwcapabilities: UInt): Hresult =
+public actual fun coSetProxyBlanket(pproxy: MutPtr, dwauthnsvc: UInt, dwauthzsvc: UInt, pserverprincname: Pcwstr, dwauthnlevel: RpcCAuthnLevel, dwimplevel: RpcCImpLevel, pauthinfo: ConstPtr, dwcapabilities: UInt): Hresult =
     windowssysWindowsWin32SystemComCoSetProxyBlanket(pproxy.rawAddress.toCPointer<ByteVar>(), dwauthnsvc, dwauthzsvc, pserverprincname.rawAddress.toCPointer<ByteVar>(), dwauthnlevel, dwimplevel, pauthinfo.rawAddress.toCPointer<ByteVar>(), dwcapabilities)
 
 public actual fun coSuspendClassObjects(): Hresult =
     windowssysWindowsWin32SystemComCoSuspendClassObjects()
 
-public actual fun coSwitchCallContext(pnewobject: MutPtr<CVoid>, ppoldobject: MutPtr<MutPtr<CVoid>>): Hresult =
+public actual fun coSwitchCallContext(pnewobject: MutPtr, ppoldobject: MutPtr): Hresult =
     windowssysWindowsWin32SystemComCoSwitchCallContext(pnewobject.rawAddress.toCPointer<ByteVar>(), ppoldobject.rawAddress.toCPointer<ByteVar>())
 
-public actual fun coTaskMemAlloc(cb: ULong): MutPtr<CVoid> =
+public actual fun coTaskMemAlloc(cb: ULong): MutPtr =
     MutPtr(windowssysWindowsWin32SystemComCoTaskMemAlloc(cb)?.toLong() ?: 0L)
 
-public actual fun coTaskMemFree(pv: ConstPtr<CVoid>) {
+public actual fun coTaskMemFree(pv: ConstPtr) {
     windowssysWindowsWin32SystemComCoTaskMemFree(pv.rawAddress.toCPointer<ByteVar>())
 }
 
-public actual fun coTaskMemRealloc(pv: ConstPtr<CVoid>, cb: ULong): MutPtr<CVoid> =
+public actual fun coTaskMemRealloc(pv: ConstPtr, cb: ULong): MutPtr =
     MutPtr(windowssysWindowsWin32SystemComCoTaskMemRealloc(pv.rawAddress.toCPointer<ByteVar>(), cb)?.toLong() ?: 0L)
 
 public actual fun coTestCancel(): Hresult =
     windowssysWindowsWin32SystemComCoTestCancel()
 
-public actual fun coTreatAsClass(clsidold: ConstPtr<Guid>, clsidnew: ConstPtr<Guid>): Hresult =
+public actual fun coTreatAsClass(clsidold: ConstPtr, clsidnew: ConstPtr): Hresult =
     windowssysWindowsWin32SystemComCoTreatAsClass(clsidold.rawAddress.toCPointer<ByteVar>(), clsidnew.rawAddress.toCPointer<ByteVar>())
 
 public actual fun coUninitialize() {
     windowssysWindowsWin32SystemComCoUninitialize()
 }
 
-public actual fun coWaitForMultipleHandles(dwflags: UInt, dwtimeout: UInt, chandles: UInt, phandles: ConstPtr<Handle>, lpdwindex: MutPtr<UInt>): Hresult =
+public actual fun coWaitForMultipleHandles(dwflags: UInt, dwtimeout: UInt, chandles: UInt, phandles: ConstPtr, lpdwindex: MutPtr): Hresult =
     windowssysWindowsWin32SystemComCoWaitForMultipleHandles(dwflags, dwtimeout, chandles, phandles.rawAddress.toCPointer<ByteVar>(), lpdwindex.rawAddress.toCPointer<ByteVar>())
 
-public actual fun coWaitForMultipleObjects(dwflags: UInt, dwtimeout: UInt, chandles: UInt, phandles: ConstPtr<Handle>, lpdwindex: MutPtr<UInt>): Hresult =
+public actual fun coWaitForMultipleObjects(dwflags: UInt, dwtimeout: UInt, chandles: UInt, phandles: ConstPtr, lpdwindex: MutPtr): Hresult =
     windowssysWindowsWin32SystemComCoWaitForMultipleObjects(dwflags, dwtimeout, chandles, phandles.rawAddress.toCPointer<ByteVar>(), lpdwindex.rawAddress.toCPointer<ByteVar>())
 
-public actual fun createAntiMoniker(ppmk: MutPtr<MutPtr<CVoid>>): Hresult =
+public actual fun createAntiMoniker(ppmk: MutPtr): Hresult =
     windowssysWindowsWin32SystemComCreateAntiMoniker(ppmk.rawAddress.toCPointer<ByteVar>())
 
-public actual fun createBindCtx(reserved: UInt, ppbc: MutPtr<MutPtr<CVoid>>): Hresult =
+public actual fun createBindCtx(reserved: UInt, ppbc: MutPtr): Hresult =
     windowssysWindowsWin32SystemComCreateBindCtx(reserved, ppbc.rawAddress.toCPointer<ByteVar>())
 
-public actual fun createClassMoniker(rclsid: ConstPtr<Guid>, ppmk: MutPtr<MutPtr<CVoid>>): Hresult =
+public actual fun createClassMoniker(rclsid: ConstPtr, ppmk: MutPtr): Hresult =
     windowssysWindowsWin32SystemComCreateClassMoniker(rclsid.rawAddress.toCPointer<ByteVar>(), ppmk.rawAddress.toCPointer<ByteVar>())
 
-public actual fun createDataAdviseHolder(ppdaholder: MutPtr<MutPtr<CVoid>>): Hresult =
+public actual fun createDataAdviseHolder(ppdaholder: MutPtr): Hresult =
     windowssysWindowsWin32SystemComCreateDataAdviseHolder(ppdaholder.rawAddress.toCPointer<ByteVar>())
 
-public actual fun createDataCache(punkouter: MutPtr<CVoid>, rclsid: ConstPtr<Guid>, iid: ConstPtr<Guid>, ppv: MutPtr<MutPtr<CVoid>>): Hresult =
+public actual fun createDataCache(punkouter: MutPtr, rclsid: ConstPtr, iid: ConstPtr, ppv: MutPtr): Hresult =
     windowssysWindowsWin32SystemComCreateDataCache(punkouter.rawAddress.toCPointer<ByteVar>(), rclsid.rawAddress.toCPointer<ByteVar>(), iid.rawAddress.toCPointer<ByteVar>(), ppv.rawAddress.toCPointer<ByteVar>())
 
-public actual fun createFileMoniker(lpszpathname: Pcwstr, ppmk: MutPtr<MutPtr<CVoid>>): Hresult =
+public actual fun createFileMoniker(lpszpathname: Pcwstr, ppmk: MutPtr): Hresult =
     windowssysWindowsWin32SystemComCreateFileMoniker(lpszpathname.rawAddress.toCPointer<ByteVar>(), ppmk.rawAddress.toCPointer<ByteVar>())
 
-public actual fun createGenericComposite(pmkfirst: MutPtr<CVoid>, pmkrest: MutPtr<CVoid>, ppmkcomposite: MutPtr<MutPtr<CVoid>>): Hresult =
+public actual fun createGenericComposite(pmkfirst: MutPtr, pmkrest: MutPtr, ppmkcomposite: MutPtr): Hresult =
     windowssysWindowsWin32SystemComCreateGenericComposite(pmkfirst.rawAddress.toCPointer<ByteVar>(), pmkrest.rawAddress.toCPointer<ByteVar>(), ppmkcomposite.rawAddress.toCPointer<ByteVar>())
 
-public actual fun createIUriBuilder(piuri: MutPtr<CVoid>, dwflags: UInt, dwreserved: ULong, ppiuribuilder: MutPtr<MutPtr<CVoid>>): Hresult =
+public actual fun createIUriBuilder(piuri: MutPtr, dwflags: UInt, dwreserved: ULong, ppiuribuilder: MutPtr): Hresult =
     windowssysWindowsWin32SystemComCreateIUriBuilder(piuri.rawAddress.toCPointer<ByteVar>(), dwflags, dwreserved, ppiuribuilder.rawAddress.toCPointer<ByteVar>())
 
-public actual fun createItemMoniker(lpszdelim: Pcwstr, lpszitem: Pcwstr, ppmk: MutPtr<MutPtr<CVoid>>): Hresult =
+public actual fun createItemMoniker(lpszdelim: Pcwstr, lpszitem: Pcwstr, ppmk: MutPtr): Hresult =
     windowssysWindowsWin32SystemComCreateItemMoniker(lpszdelim.rawAddress.toCPointer<ByteVar>(), lpszitem.rawAddress.toCPointer<ByteVar>(), ppmk.rawAddress.toCPointer<ByteVar>())
 
-public actual fun createObjrefMoniker(punk: MutPtr<CVoid>, ppmk: MutPtr<MutPtr<CVoid>>): Hresult =
+public actual fun createObjrefMoniker(punk: MutPtr, ppmk: MutPtr): Hresult =
     windowssysWindowsWin32SystemComCreateObjrefMoniker(punk.rawAddress.toCPointer<ByteVar>(), ppmk.rawAddress.toCPointer<ByteVar>())
 
-public actual fun createPointerMoniker(punk: MutPtr<CVoid>, ppmk: MutPtr<MutPtr<CVoid>>): Hresult =
+public actual fun createPointerMoniker(punk: MutPtr, ppmk: MutPtr): Hresult =
     windowssysWindowsWin32SystemComCreatePointerMoniker(punk.rawAddress.toCPointer<ByteVar>(), ppmk.rawAddress.toCPointer<ByteVar>())
 
-public actual fun createStdProgressIndicator(hwndparent: Hwnd, psztitle: Pcwstr, pibsccaller: MutPtr<CVoid>, ppibsc: MutPtr<MutPtr<CVoid>>): Hresult =
+public actual fun createStdProgressIndicator(hwndparent: Hwnd, psztitle: Pcwstr, pibsccaller: MutPtr, ppibsc: MutPtr): Hresult =
     windowssysWindowsWin32SystemComCreateStdProgressIndicator(hwndparent.rawAddress.toCPointer<ByteVar>(), psztitle.rawAddress.toCPointer<ByteVar>(), pibsccaller.rawAddress.toCPointer<ByteVar>(), ppibsc.rawAddress.toCPointer<ByteVar>())
 
-public actual fun createUri(pwzuri: Pcwstr, dwflags: UriCreateFlags, dwreserved: ULong, ppuri: MutPtr<MutPtr<CVoid>>): Hresult =
+public actual fun createUri(pwzuri: Pcwstr, dwflags: UriCreateFlags, dwreserved: ULong, ppuri: MutPtr): Hresult =
     windowssysWindowsWin32SystemComCreateUri(pwzuri.rawAddress.toCPointer<ByteVar>(), dwflags, dwreserved, ppuri.rawAddress.toCPointer<ByteVar>())
 
-public actual fun createUriFromMultiByteString(pszansiinputuri: Pcstr, dwencodingflags: UInt, dwcodepage: UInt, dwcreateflags: UInt, dwreserved: ULong, ppuri: MutPtr<MutPtr<CVoid>>): Hresult =
+public actual fun createUriFromMultiByteString(pszansiinputuri: Pcstr, dwencodingflags: UInt, dwcodepage: UInt, dwcreateflags: UInt, dwreserved: ULong, ppuri: MutPtr): Hresult =
     windowssysWindowsWin32SystemComCreateUriFromMultiByteString(pszansiinputuri.rawAddress.toCPointer<ByteVar>(), dwencodingflags, dwcodepage, dwcreateflags, dwreserved, ppuri.rawAddress.toCPointer<ByteVar>())
 
-public actual fun createUriWithFragment(pwzuri: Pcwstr, pwzfragment: Pcwstr, dwflags: UInt, dwreserved: ULong, ppuri: MutPtr<MutPtr<CVoid>>): Hresult =
+public actual fun createUriWithFragment(pwzuri: Pcwstr, pwzfragment: Pcwstr, dwflags: UInt, dwreserved: ULong, ppuri: MutPtr): Hresult =
     windowssysWindowsWin32SystemComCreateUriWithFragment(pwzuri.rawAddress.toCPointer<ByteVar>(), pwzfragment.rawAddress.toCPointer<ByteVar>(), dwflags, dwreserved, ppuri.rawAddress.toCPointer<ByteVar>())
 
-public actual fun dcomChannelSetHResult(pvreserved: ConstPtr<CVoid>, pulreserved: ConstPtr<UInt>, appshr: Hresult): Hresult =
+public actual fun dcomChannelSetHResult(pvreserved: ConstPtr, pulreserved: ConstPtr, appshr: Hresult): Hresult =
     windowssysWindowsWin32SystemComDcomChannelSetHResult(pvreserved.rawAddress.toCPointer<ByteVar>(), pulreserved.rawAddress.toCPointer<ByteVar>(), appshr)
 
-public actual fun getClassFile(szfilename: Pcwstr, pclsid: MutPtr<Guid>): Hresult =
+public actual fun getClassFile(szfilename: Pcwstr, pclsid: MutPtr): Hresult =
     windowssysWindowsWin32SystemComGetClassFile(szfilename.rawAddress.toCPointer<ByteVar>(), pclsid.rawAddress.toCPointer<ByteVar>())
 
-public actual fun getErrorInfo(dwreserved: UInt, pperrinfo: MutPtr<MutPtr<CVoid>>): Hresult =
+public actual fun getErrorInfo(dwreserved: UInt, pperrinfo: MutPtr): Hresult =
     windowssysWindowsWin32SystemComGetErrorInfo(dwreserved, pperrinfo.rawAddress.toCPointer<ByteVar>())
 
-public actual fun getRunningObjectTable(reserved: UInt, pprot: MutPtr<MutPtr<CVoid>>): Hresult =
+public actual fun getRunningObjectTable(reserved: UInt, pprot: MutPtr): Hresult =
     windowssysWindowsWin32SystemComGetRunningObjectTable(reserved, pprot.rawAddress.toCPointer<ByteVar>())
 
-public actual fun iIDFromString(lpsz: Pcwstr, lpiid: MutPtr<Guid>): Hresult =
+public actual fun iIDFromString(lpsz: Pcwstr, lpiid: MutPtr): Hresult =
     windowssysWindowsWin32SystemComIIDFromString(lpsz.rawAddress.toCPointer<ByteVar>(), lpiid.rawAddress.toCPointer<ByteVar>())
 
-public actual fun mkParseDisplayName(pbc: MutPtr<CVoid>, szusername: Pcwstr, pcheaten: MutPtr<UInt>, ppmk: MutPtr<MutPtr<CVoid>>): Hresult =
+public actual fun mkParseDisplayName(pbc: MutPtr, szusername: Pcwstr, pcheaten: MutPtr, ppmk: MutPtr): Hresult =
     windowssysWindowsWin32SystemComMkParseDisplayName(pbc.rawAddress.toCPointer<ByteVar>(), szusername.rawAddress.toCPointer<ByteVar>(), pcheaten.rawAddress.toCPointer<ByteVar>(), ppmk.rawAddress.toCPointer<ByteVar>())
 
-public actual fun monikerCommonPrefixWith(pmkthis: MutPtr<CVoid>, pmkother: MutPtr<CVoid>, ppmkcommon: MutPtr<MutPtr<CVoid>>): Hresult =
+public actual fun monikerCommonPrefixWith(pmkthis: MutPtr, pmkother: MutPtr, ppmkcommon: MutPtr): Hresult =
     windowssysWindowsWin32SystemComMonikerCommonPrefixWith(pmkthis.rawAddress.toCPointer<ByteVar>(), pmkother.rawAddress.toCPointer<ByteVar>(), ppmkcommon.rawAddress.toCPointer<ByteVar>())
 
-public actual fun monikerRelativePathTo(pmksrc: MutPtr<CVoid>, pmkdest: MutPtr<CVoid>, ppmkrelpath: MutPtr<MutPtr<CVoid>>, dwreserved: Bool): Hresult =
+public actual fun monikerRelativePathTo(pmksrc: MutPtr, pmkdest: MutPtr, ppmkrelpath: MutPtr, dwreserved: Bool): Hresult =
     windowssysWindowsWin32SystemComMonikerRelativePathTo(pmksrc.rawAddress.toCPointer<ByteVar>(), pmkdest.rawAddress.toCPointer<ByteVar>(), ppmkrelpath.rawAddress.toCPointer<ByteVar>(), dwreserved)
 
-public actual fun progIDFromCLSID(clsid: ConstPtr<Guid>, lplpszprogid: MutPtr<Pwstr>): Hresult =
+public actual fun progIDFromCLSID(clsid: ConstPtr, lplpszprogid: MutPtr): Hresult =
     windowssysWindowsWin32SystemComProgIDFromCLSID(clsid.rawAddress.toCPointer<ByteVar>(), lplpszprogid.rawAddress.toCPointer<ByteVar>())
 
-public actual fun setErrorInfo(dwreserved: UInt, perrinfo: MutPtr<CVoid>): Hresult =
+public actual fun setErrorInfo(dwreserved: UInt, perrinfo: MutPtr): Hresult =
     windowssysWindowsWin32SystemComSetErrorInfo(dwreserved, perrinfo.rawAddress.toCPointer<ByteVar>())
 
-public actual fun stringFromCLSID(rclsid: ConstPtr<Guid>, lplpsz: MutPtr<Pwstr>): Hresult =
+public actual fun stringFromCLSID(rclsid: ConstPtr, lplpsz: MutPtr): Hresult =
     windowssysWindowsWin32SystemComStringFromCLSID(rclsid.rawAddress.toCPointer<ByteVar>(), lplpsz.rawAddress.toCPointer<ByteVar>())
 
-public actual fun stringFromGUID2(rguid: ConstPtr<Guid>, lpsz: Pwstr, cchmax: Int): Int =
+public actual fun stringFromGUID2(rguid: ConstPtr, lpsz: Pwstr, cchmax: Int): Int =
     windowssysWindowsWin32SystemComStringFromGUID2(rguid.rawAddress.toCPointer<ByteVar>(), lpsz.rawAddress.toCPointer<ByteVar>(), cchmax)
 
-public actual fun stringFromIID(rclsid: ConstPtr<Guid>, lplpsz: MutPtr<Pwstr>): Hresult =
+public actual fun stringFromIID(rclsid: ConstPtr, lplpsz: MutPtr): Hresult =
     windowssysWindowsWin32SystemComStringFromIID(rclsid.rawAddress.toCPointer<ByteVar>(), lplpsz.rawAddress.toCPointer<ByteVar>())

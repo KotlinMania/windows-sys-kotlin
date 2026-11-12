@@ -1,6 +1,5 @@
 package io.github.kotlinmania.windowssys
 
-import io.github.kotlinmania.rustlang.core.ffi.CVoid
 import io.github.kotlinmania.rustlang.core.ptr.MutPtr
 import io.github.kotlinmania.windowssys.windows.win32.foundation.FALSE
 import io.github.kotlinmania.windowssys.windows.win32.foundation.INVALID_HANDLE_VALUE
@@ -17,6 +16,6 @@ class FoundationBoolTest {
 
     @Test
     fun testInvalidHandleValue() {
-        assertEquals(MutPtr<CVoid>(-1L), INVALID_HANDLE_VALUE)
+        assertEquals(MutPtr(-1L), INVALID_HANDLE_VALUE)
     }
 }

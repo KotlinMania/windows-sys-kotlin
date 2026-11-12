@@ -65,5 +65,5 @@ private object WindowsWin32SystemWmiJniBridge {
     external fun windowssysWindowsWin32SystemWmiMiApplicationInitializeV1(flags: Int, applicationid: Long, extendederror: Long, application: Long): Int
 }
 
-public actual fun miApplicationInitializeV1(flags: UInt, applicationid: ConstPtr<UShort>, extendederror: MutPtr<MutPtr<MiInstance>>, application: MutPtr<MiApplication>): MiResult =
+public actual fun miApplicationInitializeV1(flags: UInt, applicationid: ConstPtr, extendederror: MutPtr, application: MutPtr): MiResult =
     WindowsWin32SystemWmiJniBridge.windowssysWindowsWin32SystemWmiMiApplicationInitializeV1(flags.toInt(), applicationid.rawAddress, extendederror.rawAddress, application.rawAddress)

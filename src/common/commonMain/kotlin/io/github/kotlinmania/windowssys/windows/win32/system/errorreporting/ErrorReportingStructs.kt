@@ -2,7 +2,6 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.system.errorreporting
 
-import io.github.kotlinmania.rustlang.core.ffi.CVoid
 import io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
 import io.github.kotlinmania.rustlang.core.mem.TypeLayout
 import io.github.kotlinmania.rustlang.core.ptr.ConstPtr
@@ -15,7 +14,6 @@ import io.github.kotlinmania.windowssys.windows.win32.foundation.Filetime
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Handle
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Hwnd
 import io.github.kotlinmania.windowssys.windows.win32.system.diagnostics.debug.Context
-import io.github.kotlinmania.windowssys.windows.win32.system.diagnostics.debug.ExceptionPointers
 import io.github.kotlinmania.windowssys.windows.win32.system.diagnostics.debug.ExceptionRecord
 
 public data class WerDumpCustomOptions(
@@ -216,11 +214,11 @@ public class WerDumpCustomOptionsV3 internal constructor(
     public var wzPreferredModuleList: UShortArray,
     public var dwPreferredModuleResetFlags: UInt,
     public var dwOtherModuleResetFlags: UInt,
-    pvDumpKeyCtorArg: MutPtr<CVoid>,
+    pvDumpKeyCtorArg: MutPtr,
     hSnapshotCtorArg: Handle,
     public var dwThreadID: UInt,
 ) {
-    public var pvDumpKey: MutPtr<CVoid> = pvDumpKeyCtorArg
+    public var pvDumpKey: MutPtr = pvDumpKeyCtorArg
         internal set
 
     public var hSnapshot: Handle = hSnapshotCtorArg
@@ -271,13 +269,13 @@ public class WerDumpCustomOptionsV3 internal constructor(
 
     public operator fun component13(): UInt = this.dwOtherModuleResetFlags
 
-    public operator fun component14(): MutPtr<CVoid> = this.pvDumpKey
+    public operator fun component14(): MutPtr = this.pvDumpKey
 
     public operator fun component15(): Handle = this.hSnapshot
 
     public operator fun component16(): UInt = this.dwThreadID
 
-    public fun copy(dwSize: UInt = this.dwSize, dwMask: UInt = this.dwMask, dwDumpFlags: UInt = this.dwDumpFlags, bOnlyThisThread: Bool = this.bOnlyThisThread, dwExceptionThreadFlags: UInt = this.dwExceptionThreadFlags, dwOtherThreadFlags: UInt = this.dwOtherThreadFlags, dwExceptionThreadExFlags: UInt = this.dwExceptionThreadExFlags, dwOtherThreadExFlags: UInt = this.dwOtherThreadExFlags, dwPreferredModuleFlags: UInt = this.dwPreferredModuleFlags, dwOtherModuleFlags: UInt = this.dwOtherModuleFlags, wzPreferredModuleList: UShortArray = this.wzPreferredModuleList, dwPreferredModuleResetFlags: UInt = this.dwPreferredModuleResetFlags, dwOtherModuleResetFlags: UInt = this.dwOtherModuleResetFlags, pvDumpKey: MutPtr<CVoid> = this.pvDumpKey, hSnapshot: Handle = this.hSnapshot, dwThreadID: UInt = this.dwThreadID): WerDumpCustomOptionsV3 = WerDumpCustomOptionsV3(dwSize = dwSize, dwMask = dwMask, dwDumpFlags = dwDumpFlags, bOnlyThisThread = bOnlyThisThread, dwExceptionThreadFlags = dwExceptionThreadFlags, dwOtherThreadFlags = dwOtherThreadFlags, dwExceptionThreadExFlags = dwExceptionThreadExFlags, dwOtherThreadExFlags = dwOtherThreadExFlags, dwPreferredModuleFlags = dwPreferredModuleFlags, dwOtherModuleFlags = dwOtherModuleFlags, wzPreferredModuleList = wzPreferredModuleList, dwPreferredModuleResetFlags = dwPreferredModuleResetFlags, dwOtherModuleResetFlags = dwOtherModuleResetFlags, pvDumpKeyCtorArg = pvDumpKey, hSnapshotCtorArg = hSnapshot, dwThreadID = dwThreadID)
+    public fun copy(dwSize: UInt = this.dwSize, dwMask: UInt = this.dwMask, dwDumpFlags: UInt = this.dwDumpFlags, bOnlyThisThread: Bool = this.bOnlyThisThread, dwExceptionThreadFlags: UInt = this.dwExceptionThreadFlags, dwOtherThreadFlags: UInt = this.dwOtherThreadFlags, dwExceptionThreadExFlags: UInt = this.dwExceptionThreadExFlags, dwOtherThreadExFlags: UInt = this.dwOtherThreadExFlags, dwPreferredModuleFlags: UInt = this.dwPreferredModuleFlags, dwOtherModuleFlags: UInt = this.dwOtherModuleFlags, wzPreferredModuleList: UShortArray = this.wzPreferredModuleList, dwPreferredModuleResetFlags: UInt = this.dwPreferredModuleResetFlags, dwOtherModuleResetFlags: UInt = this.dwOtherModuleResetFlags, pvDumpKey: MutPtr = this.pvDumpKey, hSnapshot: Handle = this.hSnapshot, dwThreadID: UInt = this.dwThreadID): WerDumpCustomOptionsV3 = WerDumpCustomOptionsV3(dwSize = dwSize, dwMask = dwMask, dwDumpFlags = dwDumpFlags, bOnlyThisThread = bOnlyThisThread, dwExceptionThreadFlags = dwExceptionThreadFlags, dwOtherThreadFlags = dwOtherThreadFlags, dwExceptionThreadExFlags = dwExceptionThreadExFlags, dwOtherThreadExFlags = dwOtherThreadExFlags, dwPreferredModuleFlags = dwPreferredModuleFlags, dwOtherModuleFlags = dwOtherModuleFlags, wzPreferredModuleList = wzPreferredModuleList, dwPreferredModuleResetFlags = dwPreferredModuleResetFlags, dwOtherModuleResetFlags = dwOtherModuleResetFlags, pvDumpKeyCtorArg = pvDumpKey, hSnapshotCtorArg = hSnapshot, dwThreadID = dwThreadID)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -336,7 +334,7 @@ public class WerDumpCustomOptionsV3 internal constructor(
             wzPreferredModuleList: UShortArray = UShortArray(256),
             dwPreferredModuleResetFlags: UInt = 0u,
             dwOtherModuleResetFlags: UInt = 0u,
-            pvDumpKey: MutPtr<CVoid> = MutPtr(0L),
+            pvDumpKey: MutPtr = MutPtr(0L),
             hSnapshot: Handle = MutPtr(0L),
             dwThreadID: UInt = 0u,
         ): WerDumpCustomOptionsV3 =
@@ -362,10 +360,10 @@ public class WerDumpCustomOptionsV3 internal constructor(
 }
 
 public class WerExceptionInformation internal constructor(
-    pExceptionPointersCtorArg: MutPtr<ExceptionPointers>,
+    pExceptionPointersCtorArg: MutPtr,
     public var bClientPointers: Bool,
 ) {
-    public var pExceptionPointers: MutPtr<ExceptionPointers> = pExceptionPointersCtorArg
+    public var pExceptionPointers: MutPtr = pExceptionPointersCtorArg
         internal set
 
     public constructor() : this(
@@ -373,11 +371,11 @@ public class WerExceptionInformation internal constructor(
         bClientPointers = 0,
     )
 
-    public operator fun component1(): MutPtr<ExceptionPointers> = this.pExceptionPointers
+    public operator fun component1(): MutPtr = this.pExceptionPointers
 
     public operator fun component2(): Bool = this.bClientPointers
 
-    public fun copy(pExceptionPointers: MutPtr<ExceptionPointers> = this.pExceptionPointers, bClientPointers: Bool = this.bClientPointers): WerExceptionInformation = WerExceptionInformation(pExceptionPointersCtorArg = pExceptionPointers, bClientPointers = bClientPointers)
+    public fun copy(pExceptionPointers: MutPtr = this.pExceptionPointers, bClientPointers: Bool = this.bClientPointers): WerExceptionInformation = WerExceptionInformation(pExceptionPointersCtorArg = pExceptionPointers, bClientPointers = bClientPointers)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -402,21 +400,21 @@ public class WerExceptionInformation internal constructor(
                     WerExceptionInformation(
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<ExceptionPointers>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr + 8L),
                     )
                 override fun writeNative(addr: Long, value: WerExceptionInformation) {
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<ExceptionPointers>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr, value.pExceptionPointers)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr + 8L, value.bClientPointers)
                 }
             }
 
         public operator fun invoke(
-            pExceptionPointers: MutPtr<ExceptionPointers> = MutPtr(0L),
+            pExceptionPointers: MutPtr = MutPtr(0L),
             bClientPointers: Bool = 0,
         ): WerExceptionInformation =
             WerExceptionInformation(

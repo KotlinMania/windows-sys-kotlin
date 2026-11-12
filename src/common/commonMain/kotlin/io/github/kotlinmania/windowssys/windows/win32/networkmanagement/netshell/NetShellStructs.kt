@@ -1,6 +1,5 @@
 package io.github.kotlinmania.windowssys.windows.win32.networkmanagement.netshell
 
-import io.github.kotlinmania.rustlang.core.ffi.CVoid
 import io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
 import io.github.kotlinmania.rustlang.core.mem.TypeLayout
 import io.github.kotlinmania.rustlang.core.ptr.ConstPtr
@@ -99,13 +98,13 @@ public class CmdGroupEntry internal constructor(
     public var dwShortCmdHelpToken: UInt,
     public var ulCmdGroupSize: UInt,
     public var dwFlags: UInt,
-    pCmdGroupCtorArg: MutPtr<CmdEntry>,
+    pCmdGroupCtorArg: MutPtr,
     public var pOsVersionCheck: PnsOsversioncheck,
 ) {
     public var pwszCmdGroupToken: Pcwstr = pwszCmdGroupTokenCtorArg
         internal set
 
-    public var pCmdGroup: MutPtr<CmdEntry> = pCmdGroupCtorArg
+    public var pCmdGroup: MutPtr = pCmdGroupCtorArg
         internal set
 
     public constructor() : this(
@@ -125,11 +124,11 @@ public class CmdGroupEntry internal constructor(
 
     public operator fun component4(): UInt = this.dwFlags
 
-    public operator fun component5(): MutPtr<CmdEntry> = this.pCmdGroup
+    public operator fun component5(): MutPtr = this.pCmdGroup
 
     public operator fun component6(): PnsOsversioncheck = this.pOsVersionCheck
 
-    public fun copy(pwszCmdGroupToken: Pcwstr = this.pwszCmdGroupToken, dwShortCmdHelpToken: UInt = this.dwShortCmdHelpToken, ulCmdGroupSize: UInt = this.ulCmdGroupSize, dwFlags: UInt = this.dwFlags, pCmdGroup: MutPtr<CmdEntry> = this.pCmdGroup, pOsVersionCheck: PnsOsversioncheck = this.pOsVersionCheck): CmdGroupEntry = CmdGroupEntry(pwszCmdGroupTokenCtorArg = pwszCmdGroupToken, dwShortCmdHelpToken = dwShortCmdHelpToken, ulCmdGroupSize = ulCmdGroupSize, dwFlags = dwFlags, pCmdGroupCtorArg = pCmdGroup, pOsVersionCheck = pOsVersionCheck)
+    public fun copy(pwszCmdGroupToken: Pcwstr = this.pwszCmdGroupToken, dwShortCmdHelpToken: UInt = this.dwShortCmdHelpToken, ulCmdGroupSize: UInt = this.ulCmdGroupSize, dwFlags: UInt = this.dwFlags, pCmdGroup: MutPtr = this.pCmdGroup, pOsVersionCheck: PnsOsversioncheck = this.pOsVersionCheck): CmdGroupEntry = CmdGroupEntry(pwszCmdGroupTokenCtorArg = pwszCmdGroupToken, dwShortCmdHelpToken = dwShortCmdHelpToken, ulCmdGroupSize = ulCmdGroupSize, dwFlags = dwFlags, pCmdGroupCtorArg = pCmdGroup, pOsVersionCheck = pOsVersionCheck)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -159,7 +158,7 @@ public class CmdGroupEntry internal constructor(
             dwShortCmdHelpToken: UInt = 0u,
             ulCmdGroupSize: UInt = 0u,
             dwFlags: UInt = 0u,
-            pCmdGroup: MutPtr<CmdEntry> = MutPtr(0L),
+            pCmdGroup: MutPtr = MutPtr(0L),
             pOsVersionCheck: PnsOsversioncheck = null,
         ): CmdGroupEntry =
             CmdGroupEntry(
@@ -180,25 +179,25 @@ public class NsContextAttributes internal constructor(
     public var dwFlags: UInt,
     public var ulPriority: UInt,
     public var ulNumTopCmds: UInt,
-    pTopCmdsCtorArg: MutPtr<CmdEntry>,
+    pTopCmdsCtorArg: MutPtr,
     public var ulNumGroups: UInt,
-    pCmdGroupsCtorArg: MutPtr<CmdGroupEntry>,
+    pCmdGroupsCtorArg: MutPtr,
     public var pfnCommitFn: PnsContextCommitFn,
     public var pfnDumpFn: PnsContextDumpFn,
     public var pfnConnectFn: PnsContextConnectFn,
-    pReservedCtorArg: MutPtr<CVoid>,
+    pReservedCtorArg: MutPtr,
     public var pfnOsVersionCheck: PnsOsversioncheck,
 ) {
     public var pwszContext: Pwstr = pwszContextCtorArg
         internal set
 
-    public var pTopCmds: MutPtr<CmdEntry> = pTopCmdsCtorArg
+    public var pTopCmds: MutPtr = pTopCmdsCtorArg
         internal set
 
-    public var pCmdGroups: MutPtr<CmdGroupEntry> = pCmdGroupsCtorArg
+    public var pCmdGroups: MutPtr = pCmdGroupsCtorArg
         internal set
 
-    public var pReserved: MutPtr<CVoid> = pReservedCtorArg
+    public var pReserved: MutPtr = pReservedCtorArg
         internal set
 
     public constructor() : this(
@@ -230,11 +229,11 @@ public class NsContextAttributes internal constructor(
 
     public operator fun component6(): UInt = this.ulNumTopCmds
 
-    public operator fun component7(): MutPtr<CmdEntry> = this.pTopCmds
+    public operator fun component7(): MutPtr = this.pTopCmds
 
     public operator fun component8(): UInt = this.ulNumGroups
 
-    public operator fun component9(): MutPtr<CmdGroupEntry> = this.pCmdGroups
+    public operator fun component9(): MutPtr = this.pCmdGroups
 
     public operator fun component10(): PnsContextCommitFn = this.pfnCommitFn
 
@@ -242,11 +241,11 @@ public class NsContextAttributes internal constructor(
 
     public operator fun component12(): PnsContextConnectFn = this.pfnConnectFn
 
-    public operator fun component13(): MutPtr<CVoid> = this.pReserved
+    public operator fun component13(): MutPtr = this.pReserved
 
     public operator fun component14(): PnsOsversioncheck = this.pfnOsVersionCheck
 
-    public fun copy(anonymous: NsContextAttributes0 = this.anonymous, pwszContext: Pwstr = this.pwszContext, guidHelper: Guid = this.guidHelper, dwFlags: UInt = this.dwFlags, ulPriority: UInt = this.ulPriority, ulNumTopCmds: UInt = this.ulNumTopCmds, pTopCmds: MutPtr<CmdEntry> = this.pTopCmds, ulNumGroups: UInt = this.ulNumGroups, pCmdGroups: MutPtr<CmdGroupEntry> = this.pCmdGroups, pfnCommitFn: PnsContextCommitFn = this.pfnCommitFn, pfnDumpFn: PnsContextDumpFn = this.pfnDumpFn, pfnConnectFn: PnsContextConnectFn = this.pfnConnectFn, pReserved: MutPtr<CVoid> = this.pReserved, pfnOsVersionCheck: PnsOsversioncheck = this.pfnOsVersionCheck): NsContextAttributes = NsContextAttributes(anonymous = anonymous, pwszContextCtorArg = pwszContext, guidHelper = guidHelper, dwFlags = dwFlags, ulPriority = ulPriority, ulNumTopCmds = ulNumTopCmds, pTopCmdsCtorArg = pTopCmds, ulNumGroups = ulNumGroups, pCmdGroupsCtorArg = pCmdGroups, pfnCommitFn = pfnCommitFn, pfnDumpFn = pfnDumpFn, pfnConnectFn = pfnConnectFn, pReservedCtorArg = pReserved, pfnOsVersionCheck = pfnOsVersionCheck)
+    public fun copy(anonymous: NsContextAttributes0 = this.anonymous, pwszContext: Pwstr = this.pwszContext, guidHelper: Guid = this.guidHelper, dwFlags: UInt = this.dwFlags, ulPriority: UInt = this.ulPriority, ulNumTopCmds: UInt = this.ulNumTopCmds, pTopCmds: MutPtr = this.pTopCmds, ulNumGroups: UInt = this.ulNumGroups, pCmdGroups: MutPtr = this.pCmdGroups, pfnCommitFn: PnsContextCommitFn = this.pfnCommitFn, pfnDumpFn: PnsContextDumpFn = this.pfnDumpFn, pfnConnectFn: PnsContextConnectFn = this.pfnConnectFn, pReserved: MutPtr = this.pReserved, pfnOsVersionCheck: PnsOsversioncheck = this.pfnOsVersionCheck): NsContextAttributes = NsContextAttributes(anonymous = anonymous, pwszContextCtorArg = pwszContext, guidHelper = guidHelper, dwFlags = dwFlags, ulPriority = ulPriority, ulNumTopCmds = ulNumTopCmds, pTopCmdsCtorArg = pTopCmds, ulNumGroups = ulNumGroups, pCmdGroupsCtorArg = pCmdGroups, pfnCommitFn = pfnCommitFn, pfnDumpFn = pfnDumpFn, pfnConnectFn = pfnConnectFn, pReservedCtorArg = pReserved, pfnOsVersionCheck = pfnOsVersionCheck)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -294,13 +293,13 @@ public class NsContextAttributes internal constructor(
             dwFlags: UInt = 0u,
             ulPriority: UInt = 0u,
             ulNumTopCmds: UInt = 0u,
-            pTopCmds: MutPtr<CmdEntry> = MutPtr(0L),
+            pTopCmds: MutPtr = MutPtr(0L),
             ulNumGroups: UInt = 0u,
-            pCmdGroups: MutPtr<CmdGroupEntry> = MutPtr(0L),
+            pCmdGroups: MutPtr = MutPtr(0L),
             pfnCommitFn: PnsContextCommitFn = null,
             pfnDumpFn: PnsContextDumpFn = null,
             pfnConnectFn: PnsContextConnectFn = null,
-            pReserved: MutPtr<CVoid> = MutPtr(0L),
+            pReserved: MutPtr = MutPtr(0L),
             pfnOsVersionCheck: PnsOsversioncheck = null,
         ): NsContextAttributes =
             NsContextAttributes(

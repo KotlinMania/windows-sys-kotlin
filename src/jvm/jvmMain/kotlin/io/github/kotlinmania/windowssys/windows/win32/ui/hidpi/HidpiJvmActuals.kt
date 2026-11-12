@@ -2,15 +2,12 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.ui.hidpi
 
-import io.github.kotlinmania.rustlang.core.ffi.CVoid
 import io.github.kotlinmania.rustlang.core.ptr.MutPtr
 import io.github.kotlinmania.windowssys.core.Bool
 import io.github.kotlinmania.windowssys.core.Hresult
 import io.github.kotlinmania.windowssys.core.Pcwstr
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Handle
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Hwnd
-import io.github.kotlinmania.windowssys.windows.win32.foundation.Point
-import io.github.kotlinmania.windowssys.windows.win32.foundation.Rect
 import io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.Hmonitor
 import io.github.kotlinmania.windowssys.windows.win32.ui.controls.Htheme
 import io.github.kotlinmania.windowssys.windows.win32.ui.windowsandmessaging.SystemMetricsIndex
@@ -161,7 +158,7 @@ private object WindowsWin32UiHidpiJniBridge {
     external fun windowssysWindowsWin32UiHidpiSystemParametersInfoForDpi(uiaction: Int, uiparam: Int, pvparam: Long, fwinini: Int, dpi: Int): Int
 }
 
-public actual fun adjustWindowRectExForDpi(lprect: MutPtr<Rect>, dwstyle: WindowStyle, bmenu: Bool, dwexstyle: WindowExStyle, dpi: UInt): Bool =
+public actual fun adjustWindowRectExForDpi(lprect: MutPtr, dwstyle: WindowStyle, bmenu: Bool, dwexstyle: WindowExStyle, dpi: UInt): Bool =
     WindowsWin32UiHidpiJniBridge.windowssysWindowsWin32UiHidpiAdjustWindowRectExForDpi(lprect.rawAddress, dwstyle.toInt(), bmenu, dwexstyle.toInt(), dpi.toInt())
 
 public actual fun areDpiAwarenessContextsEqual(dpicontexta: DpiAwarenessContext, dpicontextb: DpiAwarenessContext): Bool =
@@ -182,7 +179,7 @@ public actual fun getDialogDpiChangeBehavior(hdlg: Hwnd): DialogDpiChangeBehavio
 public actual fun getDpiAwarenessContextForProcess(hprocess: Handle): DpiAwarenessContext =
     MutPtr(WindowsWin32UiHidpiJniBridge.windowssysWindowsWin32UiHidpiGetDpiAwarenessContextForProcess(hprocess.rawAddress))
 
-public actual fun getDpiForMonitor(hmonitor: Hmonitor, dpitype: MonitorDpiType, dpix: MutPtr<UInt>, dpiy: MutPtr<UInt>): Hresult =
+public actual fun getDpiForMonitor(hmonitor: Hmonitor, dpitype: MonitorDpiType, dpix: MutPtr, dpiy: MutPtr): Hresult =
     WindowsWin32UiHidpiJniBridge.windowssysWindowsWin32UiHidpiGetDpiForMonitor(hmonitor.rawAddress, dpitype, dpix.rawAddress, dpiy.rawAddress)
 
 public actual fun getDpiForSystem(): UInt =
@@ -194,7 +191,7 @@ public actual fun getDpiForWindow(hwnd: Hwnd): UInt =
 public actual fun getDpiFromDpiAwarenessContext(value: DpiAwarenessContext): UInt =
     WindowsWin32UiHidpiJniBridge.windowssysWindowsWin32UiHidpiGetDpiFromDpiAwarenessContext(value.rawAddress).toUInt()
 
-public actual fun getProcessDpiAwareness(hprocess: Handle, value: MutPtr<ProcessDpiAwareness>): Hresult =
+public actual fun getProcessDpiAwareness(hprocess: Handle, value: MutPtr): Hresult =
     WindowsWin32UiHidpiJniBridge.windowssysWindowsWin32UiHidpiGetProcessDpiAwareness(hprocess.rawAddress, value.rawAddress)
 
 public actual fun getSystemDpiForProcess(hprocess: Handle): UInt =
@@ -218,13 +215,13 @@ public actual fun getWindowDpiHostingBehavior(hwnd: Hwnd): DpiHostingBehavior =
 public actual fun isValidDpiAwarenessContext(value: DpiAwarenessContext): Bool =
     WindowsWin32UiHidpiJniBridge.windowssysWindowsWin32UiHidpiIsValidDpiAwarenessContext(value.rawAddress)
 
-public actual fun logicalToPhysicalPointForPerMonitorDPI(hwnd: Hwnd, lppoint: MutPtr<Point>): Bool =
+public actual fun logicalToPhysicalPointForPerMonitorDPI(hwnd: Hwnd, lppoint: MutPtr): Bool =
     WindowsWin32UiHidpiJniBridge.windowssysWindowsWin32UiHidpiLogicalToPhysicalPointForPerMonitorDPI(hwnd.rawAddress, lppoint.rawAddress)
 
 public actual fun openThemeDataForDpi(hwnd: Hwnd, pszclasslist: Pcwstr, dpi: UInt): Htheme =
     WindowsWin32UiHidpiJniBridge.windowssysWindowsWin32UiHidpiOpenThemeDataForDpi(hwnd.rawAddress, pszclasslist.rawAddress, dpi.toInt())
 
-public actual fun physicalToLogicalPointForPerMonitorDPI(hwnd: Hwnd, lppoint: MutPtr<Point>): Bool =
+public actual fun physicalToLogicalPointForPerMonitorDPI(hwnd: Hwnd, lppoint: MutPtr): Bool =
     WindowsWin32UiHidpiJniBridge.windowssysWindowsWin32UiHidpiPhysicalToLogicalPointForPerMonitorDPI(hwnd.rawAddress, lppoint.rawAddress)
 
 public actual fun setDialogControlDpiChangeBehavior(hwnd: Hwnd, mask: DialogControlDpiChangeBehaviors, values: DialogControlDpiChangeBehaviors): Bool =
@@ -245,5 +242,5 @@ public actual fun setThreadDpiAwarenessContext(dpicontext: DpiAwarenessContext):
 public actual fun setThreadDpiHostingBehavior(value: DpiHostingBehavior): DpiHostingBehavior =
     WindowsWin32UiHidpiJniBridge.windowssysWindowsWin32UiHidpiSetThreadDpiHostingBehavior(value)
 
-public actual fun systemParametersInfoForDpi(uiaction: UInt, uiparam: UInt, pvparam: MutPtr<CVoid>, fwinini: UInt, dpi: UInt): Bool =
+public actual fun systemParametersInfoForDpi(uiaction: UInt, uiparam: UInt, pvparam: MutPtr, fwinini: UInt, dpi: UInt): Bool =
     WindowsWin32UiHidpiJniBridge.windowssysWindowsWin32UiHidpiSystemParametersInfoForDpi(uiaction.toInt(), uiparam.toInt(), pvparam.rawAddress, fwinini.toInt(), dpi.toInt())

@@ -2,7 +2,6 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.ui.windowsandmessaging
 
-import io.github.kotlinmania.rustlang.core.ffi.CVoid
 import io.github.kotlinmania.rustlang.core.ptr.ConstPtr
 import io.github.kotlinmania.rustlang.core.ptr.MutPtr
 import io.github.kotlinmania.windowssys.core.Bool
@@ -18,11 +17,8 @@ import io.github.kotlinmania.windowssys.windows.win32.foundation.Hwnd
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Lparam
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Lresult
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Point
-import io.github.kotlinmania.windowssys.windows.win32.foundation.Rect
-import io.github.kotlinmania.windowssys.windows.win32.foundation.Size
 import io.github.kotlinmania.windowssys.windows.win32.foundation.WaitEvent
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Wparam
-import io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.Blendfunction
 import io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.Hbitmap
 import io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.Hbrush
 import io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.Hdc
@@ -1233,10 +1229,10 @@ private external fun wasmWindowssysWindowsWin32UiWindowsandmessagingWvsprintfA(p
 @JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssysWindowsWin32UiWindowsandmessagingWvsprintfW(p0, p1, p2)")
 private external fun wasmWindowssysWindowsWin32UiWindowsandmessagingWvsprintfW(p0: String, p1: String, p2: String): Int
 
-public actual fun adjustWindowRect(lprect: MutPtr<Rect>, dwstyle: WindowStyle, bmenu: Bool): Bool =
+public actual fun adjustWindowRect(lprect: MutPtr, dwstyle: WindowStyle, bmenu: Bool): Bool =
     if (windowsWin32UiWindowsandmessagingNapiAvailable) wasmWindowssysWindowsWin32UiWindowsandmessagingAdjustWindowRect(lprect.rawAddress.toString(), dwstyle.toInt(), bmenu) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun adjustWindowRectEx(lprect: MutPtr<Rect>, dwstyle: WindowStyle, bmenu: Bool, dwexstyle: WindowExStyle): Bool =
+public actual fun adjustWindowRectEx(lprect: MutPtr, dwstyle: WindowStyle, bmenu: Bool, dwexstyle: WindowExStyle): Bool =
     if (windowsWin32UiWindowsandmessagingNapiAvailable) wasmWindowssysWindowsWin32UiWindowsandmessagingAdjustWindowRectEx(lprect.rawAddress.toString(), dwstyle.toInt(), bmenu, dwexstyle.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun allowSetForegroundWindow(dwprocessid: UInt): Bool =
@@ -1263,13 +1259,13 @@ public actual fun beginDeferWindowPos(nnumwindows: Int): Hdwp =
 public actual fun bringWindowToTop(hwnd: Hwnd): Bool =
     if (windowsWin32UiWindowsandmessagingNapiAvailable) wasmWindowssysWindowsWin32UiWindowsandmessagingBringWindowToTop(hwnd.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun calculatePopupWindowPosition(anchorpoint: ConstPtr<Point>, windowsize: ConstPtr<Size>, flags: UInt, excluderect: ConstPtr<Rect>, popupwindowposition: MutPtr<Rect>): Bool =
+public actual fun calculatePopupWindowPosition(anchorpoint: ConstPtr, windowsize: ConstPtr, flags: UInt, excluderect: ConstPtr, popupwindowposition: MutPtr): Bool =
     if (windowsWin32UiWindowsandmessagingNapiAvailable) wasmWindowssysWindowsWin32UiWindowsandmessagingCalculatePopupWindowPosition(anchorpoint.rawAddress.toString(), windowsize.rawAddress.toString(), flags.toInt(), excluderect.rawAddress.toString(), popupwindowposition.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun callMsgFilterA(lpmsg: ConstPtr<Msg>, ncode: Int): Bool =
+public actual fun callMsgFilterA(lpmsg: ConstPtr, ncode: Int): Bool =
     if (windowsWin32UiWindowsandmessagingNapiAvailable) wasmWindowssysWindowsWin32UiWindowsandmessagingCallMsgFilterA(lpmsg.rawAddress.toString(), ncode) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun callMsgFilterW(lpmsg: ConstPtr<Msg>, ncode: Int): Bool =
+public actual fun callMsgFilterW(lpmsg: ConstPtr, ncode: Int): Bool =
     if (windowsWin32UiWindowsandmessagingNapiAvailable) wasmWindowssysWindowsWin32UiWindowsandmessagingCallMsgFilterW(lpmsg.rawAddress.toString(), ncode) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun callNextHookEx(hhk: Hhook, ncode: Int, wparam: Wparam, lparam: Lparam): Lresult =
@@ -1284,7 +1280,7 @@ public actual fun callWindowProcW(lpprevwndfunc: Wndproc, hwnd: Hwnd, msg: UInt,
 public actual fun cancelShutdown(): Bool =
     if (windowsWin32UiWindowsandmessagingNapiAvailable) wasmWindowssysWindowsWin32UiWindowsandmessagingCancelShutdown() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun cascadeWindows(hwndparent: Hwnd, whow: CascadeWindowsHow, lprect: ConstPtr<Rect>, ckids: UInt, lpkids: ConstPtr<Hwnd>): UShort =
+public actual fun cascadeWindows(hwndparent: Hwnd, whow: CascadeWindowsHow, lprect: ConstPtr, ckids: UInt, lpkids: ConstPtr): UShort =
     if (windowsWin32UiWindowsandmessagingNapiAvailable) wasmWindowssysWindowsWin32UiWindowsandmessagingCascadeWindows(hwndparent.rawAddress.toString(), whow.toInt(), lprect.rawAddress.toString(), ckids.toInt(), lpkids.rawAddress.toString()).toUShort() else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun changeMenuA(hmenu: Hmenu, cmd: UInt, lpsznewitem: Pcstr, cmdinsert: UInt, flags: UInt): Bool =
@@ -1296,7 +1292,7 @@ public actual fun changeMenuW(hmenu: Hmenu, cmd: UInt, lpsznewitem: Pcwstr, cmdi
 public actual fun changeWindowMessageFilter(message: UInt, dwflag: ChangeWindowMessageFilterFlags): Bool =
     if (windowsWin32UiWindowsandmessagingNapiAvailable) wasmWindowssysWindowsWin32UiWindowsandmessagingChangeWindowMessageFilter(message.toInt(), dwflag.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun changeWindowMessageFilterEx(hwnd: Hwnd, message: UInt, action: WindowMessageFilterAction, pchangefilterstruct: MutPtr<Changefilterstruct>): Bool =
+public actual fun changeWindowMessageFilterEx(hwnd: Hwnd, message: UInt, action: WindowMessageFilterAction, pchangefilterstruct: MutPtr): Bool =
     if (windowsWin32UiWindowsandmessagingNapiAvailable) wasmWindowssysWindowsWin32UiWindowsandmessagingChangeWindowMessageFilterEx(hwnd.rawAddress.toString(), message.toInt(), action.toInt(), pchangefilterstruct.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun charLowerA(lpsz: Pstr): Pstr =
@@ -1365,16 +1361,16 @@ public actual fun childWindowFromPoint(hwndparent: Hwnd, point: Point): Hwnd =
 public actual fun childWindowFromPointEx(hwnd: Hwnd, pt: Point, flags: CwpFlags): Hwnd =
     throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun clipCursor(lprect: ConstPtr<Rect>): Bool =
+public actual fun clipCursor(lprect: ConstPtr): Bool =
     if (windowsWin32UiWindowsandmessagingNapiAvailable) wasmWindowssysWindowsWin32UiWindowsandmessagingClipCursor(lprect.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun closeWindow(hwnd: Hwnd): Bool =
     if (windowsWin32UiWindowsandmessagingNapiAvailable) wasmWindowssysWindowsWin32UiWindowsandmessagingCloseWindow(hwnd.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun copyAcceleratorTableA(haccelsrc: Haccel, lpacceldst: MutPtr<Accel>, caccelentries: Int): Int =
+public actual fun copyAcceleratorTableA(haccelsrc: Haccel, lpacceldst: MutPtr, caccelentries: Int): Int =
     if (windowsWin32UiWindowsandmessagingNapiAvailable) wasmWindowssysWindowsWin32UiWindowsandmessagingCopyAcceleratorTableA(haccelsrc.rawAddress.toString(), lpacceldst.rawAddress.toString(), caccelentries) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun copyAcceleratorTableW(haccelsrc: Haccel, lpacceldst: MutPtr<Accel>, caccelentries: Int): Int =
+public actual fun copyAcceleratorTableW(haccelsrc: Haccel, lpacceldst: MutPtr, caccelentries: Int): Int =
     if (windowsWin32UiWindowsandmessagingNapiAvailable) wasmWindowssysWindowsWin32UiWindowsandmessagingCopyAcceleratorTableW(haccelsrc.rawAddress.toString(), lpacceldst.rawAddress.toString(), caccelentries) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun copyIcon(hicon: Hicon): Hicon =
@@ -1383,22 +1379,22 @@ public actual fun copyIcon(hicon: Hicon): Hicon =
 public actual fun copyImage(h: Handle, type: GdiImageType, cx: Int, cy: Int, flags: ImageFlags): Handle =
     if (windowsWin32UiWindowsandmessagingNapiAvailable) MutPtr(wasmWindowssysWindowsWin32UiWindowsandmessagingCopyImage(h.rawAddress.toString(), type.toInt(), cx, cy, flags.toInt()).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun createAcceleratorTableA(paccel: ConstPtr<Accel>, caccel: Int): Haccel =
+public actual fun createAcceleratorTableA(paccel: ConstPtr, caccel: Int): Haccel =
     if (windowsWin32UiWindowsandmessagingNapiAvailable) MutPtr(wasmWindowssysWindowsWin32UiWindowsandmessagingCreateAcceleratorTableA(paccel.rawAddress.toString(), caccel).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun createAcceleratorTableW(paccel: ConstPtr<Accel>, caccel: Int): Haccel =
+public actual fun createAcceleratorTableW(paccel: ConstPtr, caccel: Int): Haccel =
     if (windowsWin32UiWindowsandmessagingNapiAvailable) MutPtr(wasmWindowssysWindowsWin32UiWindowsandmessagingCreateAcceleratorTableW(paccel.rawAddress.toString(), caccel).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun createCaret(hwnd: Hwnd, hbitmap: Hbitmap, nwidth: Int, nheight: Int): Bool =
     if (windowsWin32UiWindowsandmessagingNapiAvailable) wasmWindowssysWindowsWin32UiWindowsandmessagingCreateCaret(hwnd.rawAddress.toString(), hbitmap.rawAddress.toString(), nwidth, nheight) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun createCursor(hinst: Hinstance, xhotspot: Int, yhotspot: Int, nwidth: Int, nheight: Int, pvandplane: ConstPtr<CVoid>, pvxorplane: ConstPtr<CVoid>): Hcursor =
+public actual fun createCursor(hinst: Hinstance, xhotspot: Int, yhotspot: Int, nwidth: Int, nheight: Int, pvandplane: ConstPtr, pvxorplane: ConstPtr): Hcursor =
     if (windowsWin32UiWindowsandmessagingNapiAvailable) MutPtr(wasmWindowssysWindowsWin32UiWindowsandmessagingCreateCursor(hinst.rawAddress.toString(), xhotspot, yhotspot, nwidth, nheight, pvandplane.rawAddress.toString(), pvxorplane.rawAddress.toString()).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun createDialogIndirectParamA(hinstance: Hinstance, lptemplate: ConstPtr<Dlgtemplate>, hwndparent: Hwnd, lpdialogfunc: Dlgproc, dwinitparam: Lparam): Hwnd =
+public actual fun createDialogIndirectParamA(hinstance: Hinstance, lptemplate: ConstPtr, hwndparent: Hwnd, lpdialogfunc: Dlgproc, dwinitparam: Lparam): Hwnd =
     if (windowsWin32UiWindowsandmessagingNapiAvailable) MutPtr(wasmWindowssysWindowsWin32UiWindowsandmessagingCreateDialogIndirectParamA(hinstance.rawAddress.toString(), lptemplate.rawAddress.toString(), hwndparent.rawAddress.toString(), 0L.toString(), dwinitparam.toString()).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun createDialogIndirectParamW(hinstance: Hinstance, lptemplate: ConstPtr<Dlgtemplate>, hwndparent: Hwnd, lpdialogfunc: Dlgproc, dwinitparam: Lparam): Hwnd =
+public actual fun createDialogIndirectParamW(hinstance: Hinstance, lptemplate: ConstPtr, hwndparent: Hwnd, lpdialogfunc: Dlgproc, dwinitparam: Lparam): Hwnd =
     if (windowsWin32UiWindowsandmessagingNapiAvailable) MutPtr(wasmWindowssysWindowsWin32UiWindowsandmessagingCreateDialogIndirectParamW(hinstance.rawAddress.toString(), lptemplate.rawAddress.toString(), hwndparent.rawAddress.toString(), 0L.toString(), dwinitparam.toString()).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun createDialogParamA(hinstance: Hinstance, lptemplatename: Pcstr, hwndparent: Hwnd, lpdialogfunc: Dlgproc, dwinitparam: Lparam): Hwnd =
@@ -1407,16 +1403,16 @@ public actual fun createDialogParamA(hinstance: Hinstance, lptemplatename: Pcstr
 public actual fun createDialogParamW(hinstance: Hinstance, lptemplatename: Pcwstr, hwndparent: Hwnd, lpdialogfunc: Dlgproc, dwinitparam: Lparam): Hwnd =
     if (windowsWin32UiWindowsandmessagingNapiAvailable) MutPtr(wasmWindowssysWindowsWin32UiWindowsandmessagingCreateDialogParamW(hinstance.rawAddress.toString(), lptemplatename.rawAddress.toString(), hwndparent.rawAddress.toString(), 0L.toString(), dwinitparam.toString()).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun createIcon(hinstance: Hinstance, nwidth: Int, nheight: Int, cplanes: UByte, cbitspixel: UByte, lpbandbits: ConstPtr<UByte>, lpbxorbits: ConstPtr<UByte>): Hicon =
+public actual fun createIcon(hinstance: Hinstance, nwidth: Int, nheight: Int, cplanes: UByte, cbitspixel: UByte, lpbandbits: ConstPtr, lpbxorbits: ConstPtr): Hicon =
     if (windowsWin32UiWindowsandmessagingNapiAvailable) MutPtr(wasmWindowssysWindowsWin32UiWindowsandmessagingCreateIcon(hinstance.rawAddress.toString(), nwidth, nheight, cplanes.toInt(), cbitspixel.toInt(), lpbandbits.rawAddress.toString(), lpbxorbits.rawAddress.toString()).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun createIconFromResource(presbits: ConstPtr<UByte>, dwressize: UInt, ficon: Bool, dwver: UInt): Hicon =
+public actual fun createIconFromResource(presbits: ConstPtr, dwressize: UInt, ficon: Bool, dwver: UInt): Hicon =
     if (windowsWin32UiWindowsandmessagingNapiAvailable) MutPtr(wasmWindowssysWindowsWin32UiWindowsandmessagingCreateIconFromResource(presbits.rawAddress.toString(), dwressize.toInt(), ficon, dwver.toInt()).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun createIconFromResourceEx(presbits: ConstPtr<UByte>, dwressize: UInt, ficon: Bool, dwver: UInt, cxdesired: Int, cydesired: Int, flags: ImageFlags): Hicon =
+public actual fun createIconFromResourceEx(presbits: ConstPtr, dwressize: UInt, ficon: Bool, dwver: UInt, cxdesired: Int, cydesired: Int, flags: ImageFlags): Hicon =
     if (windowsWin32UiWindowsandmessagingNapiAvailable) MutPtr(wasmWindowssysWindowsWin32UiWindowsandmessagingCreateIconFromResourceEx(presbits.rawAddress.toString(), dwressize.toInt(), ficon, dwver.toInt(), cxdesired, cydesired, flags.toInt()).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun createIconIndirect(piconinfo: ConstPtr<Iconinfo>): Hicon =
+public actual fun createIconIndirect(piconinfo: ConstPtr): Hicon =
     if (windowsWin32UiWindowsandmessagingNapiAvailable) MutPtr(wasmWindowssysWindowsWin32UiWindowsandmessagingCreateIconIndirect(piconinfo.rawAddress.toString()).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun createMDIWindowA(lpclassname: Pcstr, lpwindowname: Pcstr, dwstyle: WindowStyle, x: Int, y: Int, nwidth: Int, nheight: Int, hwndparent: Hwnd, hinstance: Hinstance, lparam: Lparam): Hwnd =
@@ -1431,13 +1427,13 @@ public actual fun createMenu(): Hmenu =
 public actual fun createPopupMenu(): Hmenu =
     if (windowsWin32UiWindowsandmessagingNapiAvailable) MutPtr(wasmWindowssysWindowsWin32UiWindowsandmessagingCreatePopupMenu().toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun createResourceIndexer(projectroot: Pcwstr, extensiondllpath: Pcwstr, ppresourceindexer: MutPtr<MutPtr<CVoid>>): Hresult =
+public actual fun createResourceIndexer(projectroot: Pcwstr, extensiondllpath: Pcwstr, ppresourceindexer: MutPtr): Hresult =
     if (windowsWin32UiWindowsandmessagingNapiAvailable) wasmWindowssysWindowsWin32UiWindowsandmessagingCreateResourceIndexer(projectroot.rawAddress.toString(), extensiondllpath.rawAddress.toString(), ppresourceindexer.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun createWindowExA(dwexstyle: WindowExStyle, lpclassname: Pcstr, lpwindowname: Pcstr, dwstyle: WindowStyle, x: Int, y: Int, nwidth: Int, nheight: Int, hwndparent: Hwnd, hmenu: Hmenu, hinstance: Hinstance, lpparam: ConstPtr<CVoid>): Hwnd =
+public actual fun createWindowExA(dwexstyle: WindowExStyle, lpclassname: Pcstr, lpwindowname: Pcstr, dwstyle: WindowStyle, x: Int, y: Int, nwidth: Int, nheight: Int, hwndparent: Hwnd, hmenu: Hmenu, hinstance: Hinstance, lpparam: ConstPtr): Hwnd =
     if (windowsWin32UiWindowsandmessagingNapiAvailable) MutPtr(wasmWindowssysWindowsWin32UiWindowsandmessagingCreateWindowExA(dwexstyle.toInt(), lpclassname.rawAddress.toString(), lpwindowname.rawAddress.toString(), dwstyle.toInt(), x, y, nwidth, nheight, hwndparent.rawAddress.toString(), hmenu.rawAddress.toString(), hinstance.rawAddress.toString(), lpparam.rawAddress.toString()).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun createWindowExW(dwexstyle: WindowExStyle, lpclassname: Pcwstr, lpwindowname: Pcwstr, dwstyle: WindowStyle, x: Int, y: Int, nwidth: Int, nheight: Int, hwndparent: Hwnd, hmenu: Hmenu, hinstance: Hinstance, lpparam: ConstPtr<CVoid>): Hwnd =
+public actual fun createWindowExW(dwexstyle: WindowExStyle, lpclassname: Pcwstr, lpwindowname: Pcwstr, dwstyle: WindowStyle, x: Int, y: Int, nwidth: Int, nheight: Int, hwndparent: Hwnd, hmenu: Hmenu, hinstance: Hinstance, lpparam: ConstPtr): Hwnd =
     if (windowsWin32UiWindowsandmessagingNapiAvailable) MutPtr(wasmWindowssysWindowsWin32UiWindowsandmessagingCreateWindowExW(dwexstyle.toInt(), lpclassname.rawAddress.toString(), lpwindowname.rawAddress.toString(), dwstyle.toInt(), x, y, nwidth, nheight, hwndparent.rawAddress.toString(), hmenu.rawAddress.toString(), hinstance.rawAddress.toString(), lpparam.rawAddress.toString()).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun defDlgProcA(hdlg: Hwnd, msg: UInt, wparam: Wparam, lparam: Lparam): Lresult =
@@ -1485,7 +1481,7 @@ public actual fun destroyCursor(hcursor: Hcursor): Bool =
 public actual fun destroyIcon(hicon: Hicon): Bool =
     if (windowsWin32UiWindowsandmessagingNapiAvailable) wasmWindowssysWindowsWin32UiWindowsandmessagingDestroyIcon(hicon.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun destroyIndexedResults(resourceuri: Pcwstr, qualifiercount: UInt, qualifiers: ConstPtr<IndexedResourceQualifier>) {
+public actual fun destroyIndexedResults(resourceuri: Pcwstr, qualifiercount: UInt, qualifiers: ConstPtr) {
     if (windowsWin32UiWindowsandmessagingNapiAvailable) {
         wasmWindowssysWindowsWin32UiWindowsandmessagingDestroyIndexedResults(resourceuri.rawAddress.toString(), qualifiercount.toInt(), qualifiers.rawAddress.toString())
     } else {
@@ -1496,7 +1492,7 @@ public actual fun destroyIndexedResults(resourceuri: Pcwstr, qualifiercount: UIn
 public actual fun destroyMenu(hmenu: Hmenu): Bool =
     if (windowsWin32UiWindowsandmessagingNapiAvailable) wasmWindowssysWindowsWin32UiWindowsandmessagingDestroyMenu(hmenu.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun destroyResourceIndexer(resourceindexer: ConstPtr<CVoid>) {
+public actual fun destroyResourceIndexer(resourceindexer: ConstPtr) {
     if (windowsWin32UiWindowsandmessagingNapiAvailable) {
         wasmWindowssysWindowsWin32UiWindowsandmessagingDestroyResourceIndexer(resourceindexer.rawAddress.toString())
     } else {
@@ -1507,10 +1503,10 @@ public actual fun destroyResourceIndexer(resourceindexer: ConstPtr<CVoid>) {
 public actual fun destroyWindow(hwnd: Hwnd): Bool =
     if (windowsWin32UiWindowsandmessagingNapiAvailable) wasmWindowssysWindowsWin32UiWindowsandmessagingDestroyWindow(hwnd.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun dialogBoxIndirectParamA(hinstance: Hinstance, hdialogtemplate: ConstPtr<Dlgtemplate>, hwndparent: Hwnd, lpdialogfunc: Dlgproc, dwinitparam: Lparam): Long =
+public actual fun dialogBoxIndirectParamA(hinstance: Hinstance, hdialogtemplate: ConstPtr, hwndparent: Hwnd, lpdialogfunc: Dlgproc, dwinitparam: Lparam): Long =
     if (windowsWin32UiWindowsandmessagingNapiAvailable) wasmWindowssysWindowsWin32UiWindowsandmessagingDialogBoxIndirectParamA(hinstance.rawAddress.toString(), hdialogtemplate.rawAddress.toString(), hwndparent.rawAddress.toString(), 0L.toString(), dwinitparam.toString()).toLong() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun dialogBoxIndirectParamW(hinstance: Hinstance, hdialogtemplate: ConstPtr<Dlgtemplate>, hwndparent: Hwnd, lpdialogfunc: Dlgproc, dwinitparam: Lparam): Long =
+public actual fun dialogBoxIndirectParamW(hinstance: Hinstance, hdialogtemplate: ConstPtr, hwndparent: Hwnd, lpdialogfunc: Dlgproc, dwinitparam: Lparam): Long =
     if (windowsWin32UiWindowsandmessagingNapiAvailable) wasmWindowssysWindowsWin32UiWindowsandmessagingDialogBoxIndirectParamW(hinstance.rawAddress.toString(), hdialogtemplate.rawAddress.toString(), hwndparent.rawAddress.toString(), 0L.toString(), dwinitparam.toString()).toLong() else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun dialogBoxParamA(hinstance: Hinstance, lptemplatename: Pcstr, hwndparent: Hwnd, lpdialogfunc: Dlgproc, dwinitparam: Lparam): Long =
@@ -1527,10 +1523,10 @@ public actual fun disableProcessWindowsGhosting() {
     }
 }
 
-public actual fun dispatchMessageA(lpmsg: ConstPtr<Msg>): Lresult =
+public actual fun dispatchMessageA(lpmsg: ConstPtr): Lresult =
     if (windowsWin32UiWindowsandmessagingNapiAvailable) wasmWindowssysWindowsWin32UiWindowsandmessagingDispatchMessageA(lpmsg.rawAddress.toString()).toLong() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun dispatchMessageW(lpmsg: ConstPtr<Msg>): Lresult =
+public actual fun dispatchMessageW(lpmsg: ConstPtr): Lresult =
     if (windowsWin32UiWindowsandmessagingNapiAvailable) wasmWindowssysWindowsWin32UiWindowsandmessagingDispatchMessageW(lpmsg.rawAddress.toString()).toLong() else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun dragObject(hwndparent: Hwnd, hwndfrom: Hwnd, fmt: UInt, data: ULong, hcur: Hcursor): UInt =
@@ -1593,13 +1589,13 @@ public actual fun findWindowW(lpclassname: Pcwstr, lpwindowname: Pcwstr): Hwnd =
 public actual fun flashWindow(hwnd: Hwnd, binvert: Bool): Bool =
     if (windowsWin32UiWindowsandmessagingNapiAvailable) wasmWindowssysWindowsWin32UiWindowsandmessagingFlashWindow(hwnd.rawAddress.toString(), binvert) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun flashWindowEx(pfwi: ConstPtr<Flashwinfo>): Bool =
+public actual fun flashWindowEx(pfwi: ConstPtr): Bool =
     if (windowsWin32UiWindowsandmessagingNapiAvailable) wasmWindowssysWindowsWin32UiWindowsandmessagingFlashWindowEx(pfwi.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun getAltTabInfoA(hwnd: Hwnd, iitem: Int, pati: MutPtr<Alttabinfo>, pszitemtext: Pstr, cchitemtext: UInt): Bool =
+public actual fun getAltTabInfoA(hwnd: Hwnd, iitem: Int, pati: MutPtr, pszitemtext: Pstr, cchitemtext: UInt): Bool =
     if (windowsWin32UiWindowsandmessagingNapiAvailable) wasmWindowssysWindowsWin32UiWindowsandmessagingGetAltTabInfoA(hwnd.rawAddress.toString(), iitem, pati.rawAddress.toString(), pszitemtext.rawAddress.toString(), cchitemtext.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun getAltTabInfoW(hwnd: Hwnd, iitem: Int, pati: MutPtr<Alttabinfo>, pszitemtext: Pwstr, cchitemtext: UInt): Bool =
+public actual fun getAltTabInfoW(hwnd: Hwnd, iitem: Int, pati: MutPtr, pszitemtext: Pwstr, cchitemtext: UInt): Bool =
     if (windowsWin32UiWindowsandmessagingNapiAvailable) wasmWindowssysWindowsWin32UiWindowsandmessagingGetAltTabInfoW(hwnd.rawAddress.toString(), iitem, pati.rawAddress.toString(), pszitemtext.rawAddress.toString(), cchitemtext.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun getAncestor(hwnd: Hwnd, gaflags: GetAncestorFlags): Hwnd =
@@ -1608,19 +1604,19 @@ public actual fun getAncestor(hwnd: Hwnd, gaflags: GetAncestorFlags): Hwnd =
 public actual fun getCaretBlinkTime(): UInt =
     if (windowsWin32UiWindowsandmessagingNapiAvailable) wasmWindowssysWindowsWin32UiWindowsandmessagingGetCaretBlinkTime().toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun getCaretPos(lppoint: MutPtr<Point>): Bool =
+public actual fun getCaretPos(lppoint: MutPtr): Bool =
     if (windowsWin32UiWindowsandmessagingNapiAvailable) wasmWindowssysWindowsWin32UiWindowsandmessagingGetCaretPos(lppoint.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun getClassInfoA(hinstance: Hinstance, lpclassname: Pcstr, lpwndclass: MutPtr<Wndclassa>): Bool =
+public actual fun getClassInfoA(hinstance: Hinstance, lpclassname: Pcstr, lpwndclass: MutPtr): Bool =
     if (windowsWin32UiWindowsandmessagingNapiAvailable) wasmWindowssysWindowsWin32UiWindowsandmessagingGetClassInfoA(hinstance.rawAddress.toString(), lpclassname.rawAddress.toString(), lpwndclass.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun getClassInfoExA(hinstance: Hinstance, lpszclass: Pcstr, lpwcx: MutPtr<Wndclassexa>): Bool =
+public actual fun getClassInfoExA(hinstance: Hinstance, lpszclass: Pcstr, lpwcx: MutPtr): Bool =
     if (windowsWin32UiWindowsandmessagingNapiAvailable) wasmWindowssysWindowsWin32UiWindowsandmessagingGetClassInfoExA(hinstance.rawAddress.toString(), lpszclass.rawAddress.toString(), lpwcx.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun getClassInfoExW(hinstance: Hinstance, lpszclass: Pcwstr, lpwcx: MutPtr<Wndclassexw>): Bool =
+public actual fun getClassInfoExW(hinstance: Hinstance, lpszclass: Pcwstr, lpwcx: MutPtr): Bool =
     if (windowsWin32UiWindowsandmessagingNapiAvailable) wasmWindowssysWindowsWin32UiWindowsandmessagingGetClassInfoExW(hinstance.rawAddress.toString(), lpszclass.rawAddress.toString(), lpwcx.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun getClassInfoW(hinstance: Hinstance, lpclassname: Pcwstr, lpwndclass: MutPtr<Wndclassw>): Bool =
+public actual fun getClassInfoW(hinstance: Hinstance, lpclassname: Pcwstr, lpwndclass: MutPtr): Bool =
     if (windowsWin32UiWindowsandmessagingNapiAvailable) wasmWindowssysWindowsWin32UiWindowsandmessagingGetClassInfoW(hinstance.rawAddress.toString(), lpclassname.rawAddress.toString(), lpwndclass.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun getClassLongA(hwnd: Hwnd, nindex: GetClassLongIndex): UInt =
@@ -1644,19 +1640,19 @@ public actual fun getClassNameW(hwnd: Hwnd, lpclassname: Pwstr, nmaxcount: Int):
 public actual fun getClassWord(hwnd: Hwnd, nindex: Int): UShort =
     if (windowsWin32UiWindowsandmessagingNapiAvailable) wasmWindowssysWindowsWin32UiWindowsandmessagingGetClassWord(hwnd.rawAddress.toString(), nindex).toUShort() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun getClientRect(hwnd: Hwnd, lprect: MutPtr<Rect>): Bool =
+public actual fun getClientRect(hwnd: Hwnd, lprect: MutPtr): Bool =
     if (windowsWin32UiWindowsandmessagingNapiAvailable) wasmWindowssysWindowsWin32UiWindowsandmessagingGetClientRect(hwnd.rawAddress.toString(), lprect.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun getClipCursor(lprect: MutPtr<Rect>): Bool =
+public actual fun getClipCursor(lprect: MutPtr): Bool =
     if (windowsWin32UiWindowsandmessagingNapiAvailable) wasmWindowssysWindowsWin32UiWindowsandmessagingGetClipCursor(lprect.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun getCursor(): Hcursor =
     if (windowsWin32UiWindowsandmessagingNapiAvailable) MutPtr(wasmWindowssysWindowsWin32UiWindowsandmessagingGetCursor().toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun getCursorInfo(pci: MutPtr<Cursorinfo>): Bool =
+public actual fun getCursorInfo(pci: MutPtr): Bool =
     if (windowsWin32UiWindowsandmessagingNapiAvailable) wasmWindowssysWindowsWin32UiWindowsandmessagingGetCursorInfo(pci.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun getCursorPos(lppoint: MutPtr<Point>): Bool =
+public actual fun getCursorPos(lppoint: MutPtr): Bool =
     if (windowsWin32UiWindowsandmessagingNapiAvailable) wasmWindowssysWindowsWin32UiWindowsandmessagingGetCursorPos(lppoint.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun getDesktopWindow(): Hwnd =
@@ -1671,7 +1667,7 @@ public actual fun getDlgCtrlID(hwnd: Hwnd): Int =
 public actual fun getDlgItem(hdlg: Hwnd, niddlgitem: Int): Hwnd =
     if (windowsWin32UiWindowsandmessagingNapiAvailable) MutPtr(wasmWindowssysWindowsWin32UiWindowsandmessagingGetDlgItem(hdlg.rawAddress.toString(), niddlgitem).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun getDlgItemInt(hdlg: Hwnd, niddlgitem: Int, lptranslated: MutPtr<Bool>, bsigned: Bool): UInt =
+public actual fun getDlgItemInt(hdlg: Hwnd, niddlgitem: Int, lptranslated: MutPtr, bsigned: Bool): UInt =
     if (windowsWin32UiWindowsandmessagingNapiAvailable) wasmWindowssysWindowsWin32UiWindowsandmessagingGetDlgItemInt(hdlg.rawAddress.toString(), niddlgitem, lptranslated.rawAddress.toString(), bsigned).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun getDlgItemTextA(hdlg: Hwnd, niddlgitem: Int, lpstring: Pstr, cchmax: Int): UInt =
@@ -1683,16 +1679,16 @@ public actual fun getDlgItemTextW(hdlg: Hwnd, niddlgitem: Int, lpstring: Pwstr, 
 public actual fun getForegroundWindow(): Hwnd =
     if (windowsWin32UiWindowsandmessagingNapiAvailable) MutPtr(wasmWindowssysWindowsWin32UiWindowsandmessagingGetForegroundWindow().toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun getGUIThreadInfo(idthread: UInt, pgui: MutPtr<Guithreadinfo>): Bool =
+public actual fun getGUIThreadInfo(idthread: UInt, pgui: MutPtr): Bool =
     if (windowsWin32UiWindowsandmessagingNapiAvailable) wasmWindowssysWindowsWin32UiWindowsandmessagingGetGUIThreadInfo(idthread.toInt(), pgui.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun getIconInfo(hicon: Hicon, piconinfo: MutPtr<Iconinfo>): Bool =
+public actual fun getIconInfo(hicon: Hicon, piconinfo: MutPtr): Bool =
     if (windowsWin32UiWindowsandmessagingNapiAvailable) wasmWindowssysWindowsWin32UiWindowsandmessagingGetIconInfo(hicon.rawAddress.toString(), piconinfo.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun getIconInfoExA(hicon: Hicon, piconinfo: MutPtr<Iconinfoexa>): Bool =
+public actual fun getIconInfoExA(hicon: Hicon, piconinfo: MutPtr): Bool =
     if (windowsWin32UiWindowsandmessagingNapiAvailable) wasmWindowssysWindowsWin32UiWindowsandmessagingGetIconInfoExA(hicon.rawAddress.toString(), piconinfo.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun getIconInfoExW(hicon: Hicon, piconinfo: MutPtr<Iconinfoexw>): Bool =
+public actual fun getIconInfoExW(hicon: Hicon, piconinfo: MutPtr): Bool =
     if (windowsWin32UiWindowsandmessagingNapiAvailable) wasmWindowssysWindowsWin32UiWindowsandmessagingGetIconInfoExW(hicon.rawAddress.toString(), piconinfo.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun getInputState(): Bool =
@@ -1701,13 +1697,13 @@ public actual fun getInputState(): Bool =
 public actual fun getLastActivePopup(hwnd: Hwnd): Hwnd =
     if (windowsWin32UiWindowsandmessagingNapiAvailable) MutPtr(wasmWindowssysWindowsWin32UiWindowsandmessagingGetLastActivePopup(hwnd.rawAddress.toString()).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun getLayeredWindowAttributes(hwnd: Hwnd, pcrkey: MutPtr<Colorref>, pbalpha: MutPtr<UByte>, pdwflags: MutPtr<LayeredWindowAttributesFlags>): Bool =
+public actual fun getLayeredWindowAttributes(hwnd: Hwnd, pcrkey: MutPtr, pbalpha: MutPtr, pdwflags: MutPtr): Bool =
     if (windowsWin32UiWindowsandmessagingNapiAvailable) wasmWindowssysWindowsWin32UiWindowsandmessagingGetLayeredWindowAttributes(hwnd.rawAddress.toString(), pcrkey.rawAddress.toString(), pbalpha.rawAddress.toString(), pdwflags.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun getMenu(hwnd: Hwnd): Hmenu =
     if (windowsWin32UiWindowsandmessagingNapiAvailable) MutPtr(wasmWindowssysWindowsWin32UiWindowsandmessagingGetMenu(hwnd.rawAddress.toString()).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun getMenuBarInfo(hwnd: Hwnd, idobject: ObjectIdentifier, iditem: Int, pmbi: MutPtr<Menubarinfo>): Bool =
+public actual fun getMenuBarInfo(hwnd: Hwnd, idobject: ObjectIdentifier, iditem: Int, pmbi: MutPtr): Bool =
     if (windowsWin32UiWindowsandmessagingNapiAvailable) wasmWindowssysWindowsWin32UiWindowsandmessagingGetMenuBarInfo(hwnd.rawAddress.toString(), idobject, iditem, pmbi.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun getMenuCheckMarkDimensions(): Int =
@@ -1716,7 +1712,7 @@ public actual fun getMenuCheckMarkDimensions(): Int =
 public actual fun getMenuDefaultItem(hmenu: Hmenu, fbypos: UInt, gmdiflags: GetMenuDefaultItemFlags): UInt =
     if (windowsWin32UiWindowsandmessagingNapiAvailable) wasmWindowssysWindowsWin32UiWindowsandmessagingGetMenuDefaultItem(hmenu.rawAddress.toString(), fbypos.toInt(), gmdiflags.toInt()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun getMenuInfo(param0: Hmenu, param1: MutPtr<Menuinfo>): Bool =
+public actual fun getMenuInfo(param0: Hmenu, param1: MutPtr): Bool =
     if (windowsWin32UiWindowsandmessagingNapiAvailable) wasmWindowssysWindowsWin32UiWindowsandmessagingGetMenuInfo(param0.rawAddress.toString(), param1.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun getMenuItemCount(hmenu: Hmenu): Int =
@@ -1725,13 +1721,13 @@ public actual fun getMenuItemCount(hmenu: Hmenu): Int =
 public actual fun getMenuItemID(hmenu: Hmenu, npos: Int): UInt =
     if (windowsWin32UiWindowsandmessagingNapiAvailable) wasmWindowssysWindowsWin32UiWindowsandmessagingGetMenuItemID(hmenu.rawAddress.toString(), npos).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun getMenuItemInfoA(hmenu: Hmenu, item: UInt, fbyposition: Bool, lpmii: MutPtr<Menuiteminfoa>): Bool =
+public actual fun getMenuItemInfoA(hmenu: Hmenu, item: UInt, fbyposition: Bool, lpmii: MutPtr): Bool =
     if (windowsWin32UiWindowsandmessagingNapiAvailable) wasmWindowssysWindowsWin32UiWindowsandmessagingGetMenuItemInfoA(hmenu.rawAddress.toString(), item.toInt(), fbyposition, lpmii.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun getMenuItemInfoW(hmenu: Hmenu, item: UInt, fbyposition: Bool, lpmii: MutPtr<Menuiteminfow>): Bool =
+public actual fun getMenuItemInfoW(hmenu: Hmenu, item: UInt, fbyposition: Bool, lpmii: MutPtr): Bool =
     if (windowsWin32UiWindowsandmessagingNapiAvailable) wasmWindowssysWindowsWin32UiWindowsandmessagingGetMenuItemInfoW(hmenu.rawAddress.toString(), item.toInt(), fbyposition, lpmii.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun getMenuItemRect(hwnd: Hwnd, hmenu: Hmenu, uitem: UInt, lprcitem: MutPtr<Rect>): Bool =
+public actual fun getMenuItemRect(hwnd: Hwnd, hmenu: Hmenu, uitem: UInt, lprcitem: MutPtr): Bool =
     if (windowsWin32UiWindowsandmessagingNapiAvailable) wasmWindowssysWindowsWin32UiWindowsandmessagingGetMenuItemRect(hwnd.rawAddress.toString(), hmenu.rawAddress.toString(), uitem.toInt(), lprcitem.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun getMenuState(hmenu: Hmenu, uid: UInt, uflags: MenuItemFlags): UInt =
@@ -1743,7 +1739,7 @@ public actual fun getMenuStringA(hmenu: Hmenu, uiditem: UInt, lpstring: Pstr, cc
 public actual fun getMenuStringW(hmenu: Hmenu, uiditem: UInt, lpstring: Pwstr, cchmax: Int, flags: MenuItemFlags): Int =
     if (windowsWin32UiWindowsandmessagingNapiAvailable) wasmWindowssysWindowsWin32UiWindowsandmessagingGetMenuStringW(hmenu.rawAddress.toString(), uiditem.toInt(), lpstring.rawAddress.toString(), cchmax, flags.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun getMessageA(lpmsg: MutPtr<Msg>, hwnd: Hwnd, wmsgfiltermin: UInt, wmsgfiltermax: UInt): Bool =
+public actual fun getMessageA(lpmsg: MutPtr, hwnd: Hwnd, wmsgfiltermin: UInt, wmsgfiltermax: UInt): Bool =
     if (windowsWin32UiWindowsandmessagingNapiAvailable) wasmWindowssysWindowsWin32UiWindowsandmessagingGetMessageA(lpmsg.rawAddress.toString(), hwnd.rawAddress.toString(), wmsgfiltermin.toInt(), wmsgfiltermax.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun getMessageExtraInfo(): Lparam =
@@ -1755,7 +1751,7 @@ public actual fun getMessagePos(): UInt =
 public actual fun getMessageTime(): Int =
     if (windowsWin32UiWindowsandmessagingNapiAvailable) wasmWindowssysWindowsWin32UiWindowsandmessagingGetMessageTime() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun getMessageW(lpmsg: MutPtr<Msg>, hwnd: Hwnd, wmsgfiltermin: UInt, wmsgfiltermax: UInt): Bool =
+public actual fun getMessageW(lpmsg: MutPtr, hwnd: Hwnd, wmsgfiltermin: UInt, wmsgfiltermax: UInt): Bool =
     if (windowsWin32UiWindowsandmessagingNapiAvailable) wasmWindowssysWindowsWin32UiWindowsandmessagingGetMessageW(lpmsg.rawAddress.toString(), hwnd.rawAddress.toString(), wmsgfiltermin.toInt(), wmsgfiltermax.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun getNextDlgGroupItem(hdlg: Hwnd, hctl: Hwnd, bprevious: Bool): Hwnd =
@@ -1767,10 +1763,10 @@ public actual fun getNextDlgTabItem(hdlg: Hwnd, hctl: Hwnd, bprevious: Bool): Hw
 public actual fun getParent(hwnd: Hwnd): Hwnd =
     if (windowsWin32UiWindowsandmessagingNapiAvailable) MutPtr(wasmWindowssysWindowsWin32UiWindowsandmessagingGetParent(hwnd.rawAddress.toString()).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun getPhysicalCursorPos(lppoint: MutPtr<Point>): Bool =
+public actual fun getPhysicalCursorPos(lppoint: MutPtr): Bool =
     if (windowsWin32UiWindowsandmessagingNapiAvailable) wasmWindowssysWindowsWin32UiWindowsandmessagingGetPhysicalCursorPos(lppoint.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun getProcessDefaultLayout(pdwdefaultlayout: MutPtr<UInt>): Bool =
+public actual fun getProcessDefaultLayout(pdwdefaultlayout: MutPtr): Bool =
     if (windowsWin32UiWindowsandmessagingNapiAvailable) wasmWindowssysWindowsWin32UiWindowsandmessagingGetProcessDefaultLayout(pdwdefaultlayout.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun getPropA(hwnd: Hwnd, lpstring: Pcstr): Handle =
@@ -1782,16 +1778,16 @@ public actual fun getPropW(hwnd: Hwnd, lpstring: Pcwstr): Handle =
 public actual fun getQueueStatus(flags: QueueStatusFlags): UInt =
     if (windowsWin32UiWindowsandmessagingNapiAvailable) wasmWindowssysWindowsWin32UiWindowsandmessagingGetQueueStatus(flags.toInt()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun getScrollBarInfo(hwnd: Hwnd, idobject: ObjectIdentifier, psbi: MutPtr<Scrollbarinfo>): Bool =
+public actual fun getScrollBarInfo(hwnd: Hwnd, idobject: ObjectIdentifier, psbi: MutPtr): Bool =
     if (windowsWin32UiWindowsandmessagingNapiAvailable) wasmWindowssysWindowsWin32UiWindowsandmessagingGetScrollBarInfo(hwnd.rawAddress.toString(), idobject, psbi.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun getScrollInfo(hwnd: Hwnd, nbar: ScrollbarConstants, lpsi: MutPtr<Scrollinfo>): Bool =
+public actual fun getScrollInfo(hwnd: Hwnd, nbar: ScrollbarConstants, lpsi: MutPtr): Bool =
     if (windowsWin32UiWindowsandmessagingNapiAvailable) wasmWindowssysWindowsWin32UiWindowsandmessagingGetScrollInfo(hwnd.rawAddress.toString(), nbar, lpsi.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun getScrollPos(hwnd: Hwnd, nbar: ScrollbarConstants): Int =
     if (windowsWin32UiWindowsandmessagingNapiAvailable) wasmWindowssysWindowsWin32UiWindowsandmessagingGetScrollPos(hwnd.rawAddress.toString(), nbar) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun getScrollRange(hwnd: Hwnd, nbar: ScrollbarConstants, lpminpos: MutPtr<Int>, lpmaxpos: MutPtr<Int>): Bool =
+public actual fun getScrollRange(hwnd: Hwnd, nbar: ScrollbarConstants, lpminpos: MutPtr, lpmaxpos: MutPtr): Bool =
     if (windowsWin32UiWindowsandmessagingNapiAvailable) wasmWindowssysWindowsWin32UiWindowsandmessagingGetScrollRange(hwnd.rawAddress.toString(), nbar, lpminpos.rawAddress.toString(), lpmaxpos.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun getShellWindow(): Hwnd =
@@ -1806,7 +1802,7 @@ public actual fun getSystemMenu(hwnd: Hwnd, brevert: Bool): Hmenu =
 public actual fun getSystemMetrics(nindex: SystemMetricsIndex): Int =
     if (windowsWin32UiWindowsandmessagingNapiAvailable) wasmWindowssysWindowsWin32UiWindowsandmessagingGetSystemMetrics(nindex) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun getTitleBarInfo(hwnd: Hwnd, pti: MutPtr<Titlebarinfo>): Bool =
+public actual fun getTitleBarInfo(hwnd: Hwnd, pti: MutPtr): Bool =
     if (windowsWin32UiWindowsandmessagingNapiAvailable) wasmWindowssysWindowsWin32UiWindowsandmessagingGetTitleBarInfo(hwnd.rawAddress.toString(), pti.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun getTopWindow(hwnd: Hwnd): Hwnd =
@@ -1815,10 +1811,10 @@ public actual fun getTopWindow(hwnd: Hwnd): Hwnd =
 public actual fun getWindow(hwnd: Hwnd, ucmd: GetWindowCmd): Hwnd =
     if (windowsWin32UiWindowsandmessagingNapiAvailable) MutPtr(wasmWindowssysWindowsWin32UiWindowsandmessagingGetWindow(hwnd.rawAddress.toString(), ucmd.toInt()).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun getWindowDisplayAffinity(hwnd: Hwnd, pdwaffinity: MutPtr<UInt>): Bool =
+public actual fun getWindowDisplayAffinity(hwnd: Hwnd, pdwaffinity: MutPtr): Bool =
     if (windowsWin32UiWindowsandmessagingNapiAvailable) wasmWindowssysWindowsWin32UiWindowsandmessagingGetWindowDisplayAffinity(hwnd.rawAddress.toString(), pdwaffinity.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun getWindowInfo(hwnd: Hwnd, pwi: MutPtr<Windowinfo>): Bool =
+public actual fun getWindowInfo(hwnd: Hwnd, pwi: MutPtr): Bool =
     if (windowsWin32UiWindowsandmessagingNapiAvailable) wasmWindowssysWindowsWin32UiWindowsandmessagingGetWindowInfo(hwnd.rawAddress.toString(), pwi.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun getWindowLongA(hwnd: Hwnd, nindex: WindowLongPtrIndex): Int =
@@ -1839,10 +1835,10 @@ public actual fun getWindowModuleFileNameA(hwnd: Hwnd, pszfilename: Pstr, cchfil
 public actual fun getWindowModuleFileNameW(hwnd: Hwnd, pszfilename: Pwstr, cchfilenamemax: UInt): UInt =
     if (windowsWin32UiWindowsandmessagingNapiAvailable) wasmWindowssysWindowsWin32UiWindowsandmessagingGetWindowModuleFileNameW(hwnd.rawAddress.toString(), pszfilename.rawAddress.toString(), cchfilenamemax.toInt()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun getWindowPlacement(hwnd: Hwnd, lpwndpl: MutPtr<Windowplacement>): Bool =
+public actual fun getWindowPlacement(hwnd: Hwnd, lpwndpl: MutPtr): Bool =
     if (windowsWin32UiWindowsandmessagingNapiAvailable) wasmWindowssysWindowsWin32UiWindowsandmessagingGetWindowPlacement(hwnd.rawAddress.toString(), lpwndpl.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun getWindowRect(hwnd: Hwnd, lprect: MutPtr<Rect>): Bool =
+public actual fun getWindowRect(hwnd: Hwnd, lprect: MutPtr): Bool =
     if (windowsWin32UiWindowsandmessagingNapiAvailable) wasmWindowssysWindowsWin32UiWindowsandmessagingGetWindowRect(hwnd.rawAddress.toString(), lprect.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun getWindowTextA(hwnd: Hwnd, lpstring: Pstr, nmaxcount: Int): Int =
@@ -1857,7 +1853,7 @@ public actual fun getWindowTextLengthW(hwnd: Hwnd): Int =
 public actual fun getWindowTextW(hwnd: Hwnd, lpstring: Pwstr, nmaxcount: Int): Int =
     if (windowsWin32UiWindowsandmessagingNapiAvailable) wasmWindowssysWindowsWin32UiWindowsandmessagingGetWindowTextW(hwnd.rawAddress.toString(), lpstring.rawAddress.toString(), nmaxcount) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun getWindowThreadProcessId(hwnd: Hwnd, lpdwprocessid: MutPtr<UInt>): UInt =
+public actual fun getWindowThreadProcessId(hwnd: Hwnd, lpdwprocessid: MutPtr): UInt =
     if (windowsWin32UiWindowsandmessagingNapiAvailable) wasmWindowssysWindowsWin32UiWindowsandmessagingGetWindowThreadProcessId(hwnd.rawAddress.toString(), lpdwprocessid.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun getWindowWord(hwnd: Hwnd, nindex: Int): UShort =
@@ -1872,10 +1868,10 @@ public actual fun hiliteMenuItem(hwnd: Hwnd, hmenu: Hmenu, uidhiliteitem: UInt, 
 public actual fun inSendMessage(): Bool =
     if (windowsWin32UiWindowsandmessagingNapiAvailable) wasmWindowssysWindowsWin32UiWindowsandmessagingInSendMessage() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun inSendMessageEx(lpreserved: ConstPtr<CVoid>): UInt =
+public actual fun inSendMessageEx(lpreserved: ConstPtr): UInt =
     if (windowsWin32UiWindowsandmessagingNapiAvailable) wasmWindowssysWindowsWin32UiWindowsandmessagingInSendMessageEx(lpreserved.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun indexFilePath(resourceindexer: ConstPtr<CVoid>, filepath: Pcwstr, ppresourceuri: MutPtr<Pwstr>, pqualifiercount: MutPtr<UInt>, ppqualifiers: MutPtr<MutPtr<IndexedResourceQualifier>>): Hresult =
+public actual fun indexFilePath(resourceindexer: ConstPtr, filepath: Pcwstr, ppresourceuri: MutPtr, pqualifiercount: MutPtr, ppqualifiers: MutPtr): Hresult =
     if (windowsWin32UiWindowsandmessagingNapiAvailable) wasmWindowssysWindowsWin32UiWindowsandmessagingIndexFilePath(resourceindexer.rawAddress.toString(), filepath.rawAddress.toString(), ppresourceuri.rawAddress.toString(), pqualifiercount.rawAddress.toString(), ppqualifiers.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun inheritWindowMonitor(hwnd: Hwnd, hwndinherit: Hwnd): Bool =
@@ -1884,10 +1880,10 @@ public actual fun inheritWindowMonitor(hwnd: Hwnd, hwndinherit: Hwnd): Bool =
 public actual fun insertMenuA(hmenu: Hmenu, uposition: UInt, uflags: MenuItemFlags, uidnewitem: ULong, lpnewitem: Pcstr): Bool =
     if (windowsWin32UiWindowsandmessagingNapiAvailable) wasmWindowssysWindowsWin32UiWindowsandmessagingInsertMenuA(hmenu.rawAddress.toString(), uposition.toInt(), uflags.toInt(), uidnewitem.toString(), lpnewitem.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun insertMenuItemA(hmenu: Hmenu, item: UInt, fbyposition: Bool, lpmi: ConstPtr<Menuiteminfoa>): Bool =
+public actual fun insertMenuItemA(hmenu: Hmenu, item: UInt, fbyposition: Bool, lpmi: ConstPtr): Bool =
     if (windowsWin32UiWindowsandmessagingNapiAvailable) wasmWindowssysWindowsWin32UiWindowsandmessagingInsertMenuItemA(hmenu.rawAddress.toString(), item.toInt(), fbyposition, lpmi.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun insertMenuItemW(hmenu: Hmenu, item: UInt, fbyposition: Bool, lpmi: ConstPtr<Menuiteminfow>): Bool =
+public actual fun insertMenuItemW(hmenu: Hmenu, item: UInt, fbyposition: Bool, lpmi: ConstPtr): Bool =
     if (windowsWin32UiWindowsandmessagingNapiAvailable) wasmWindowssysWindowsWin32UiWindowsandmessagingInsertMenuItemW(hmenu.rawAddress.toString(), item.toInt(), fbyposition, lpmi.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun insertMenuW(hmenu: Hmenu, uposition: UInt, uflags: MenuItemFlags, uidnewitem: ULong, lpnewitem: Pcwstr): Bool =
@@ -1920,10 +1916,10 @@ public actual fun isCharUpperW(ch: UShort): Bool =
 public actual fun isChild(hwndparent: Hwnd, hwnd: Hwnd): Bool =
     if (windowsWin32UiWindowsandmessagingNapiAvailable) wasmWindowssysWindowsWin32UiWindowsandmessagingIsChild(hwndparent.rawAddress.toString(), hwnd.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun isDialogMessageA(hdlg: Hwnd, lpmsg: ConstPtr<Msg>): Bool =
+public actual fun isDialogMessageA(hdlg: Hwnd, lpmsg: ConstPtr): Bool =
     if (windowsWin32UiWindowsandmessagingNapiAvailable) wasmWindowssysWindowsWin32UiWindowsandmessagingIsDialogMessageA(hdlg.rawAddress.toString(), lpmsg.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun isDialogMessageW(hdlg: Hwnd, lpmsg: ConstPtr<Msg>): Bool =
+public actual fun isDialogMessageW(hdlg: Hwnd, lpmsg: ConstPtr): Bool =
     if (windowsWin32UiWindowsandmessagingNapiAvailable) wasmWindowssysWindowsWin32UiWindowsandmessagingIsDialogMessageW(hdlg.rawAddress.toString(), lpmsg.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun isGUIThread(bconvert: Bool): Bool =
@@ -1995,10 +1991,10 @@ public actual fun loadImageW(hinst: Hinstance, name: Pcwstr, type: GdiImageType,
 public actual fun loadMenuA(hinstance: Hinstance, lpmenuname: Pcstr): Hmenu =
     if (windowsWin32UiWindowsandmessagingNapiAvailable) MutPtr(wasmWindowssysWindowsWin32UiWindowsandmessagingLoadMenuA(hinstance.rawAddress.toString(), lpmenuname.rawAddress.toString()).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun loadMenuIndirectA(lpmenutemplate: ConstPtr<CVoid>): Hmenu =
+public actual fun loadMenuIndirectA(lpmenutemplate: ConstPtr): Hmenu =
     if (windowsWin32UiWindowsandmessagingNapiAvailable) MutPtr(wasmWindowssysWindowsWin32UiWindowsandmessagingLoadMenuIndirectA(lpmenutemplate.rawAddress.toString()).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun loadMenuIndirectW(lpmenutemplate: ConstPtr<CVoid>): Hmenu =
+public actual fun loadMenuIndirectW(lpmenutemplate: ConstPtr): Hmenu =
     if (windowsWin32UiWindowsandmessagingNapiAvailable) MutPtr(wasmWindowssysWindowsWin32UiWindowsandmessagingLoadMenuIndirectW(lpmenutemplate.rawAddress.toString()).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun loadMenuW(hinstance: Hinstance, lpmenuname: Pcwstr): Hmenu =
@@ -2013,16 +2009,16 @@ public actual fun loadStringW(hinstance: Hinstance, uid: UInt, lpbuffer: Pwstr, 
 public actual fun lockSetForegroundWindow(ulockcode: ForegroundWindowLockCode): Bool =
     if (windowsWin32UiWindowsandmessagingNapiAvailable) wasmWindowssysWindowsWin32UiWindowsandmessagingLockSetForegroundWindow(ulockcode.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun logicalToPhysicalPoint(hwnd: Hwnd, lppoint: MutPtr<Point>): Bool =
+public actual fun logicalToPhysicalPoint(hwnd: Hwnd, lppoint: MutPtr): Bool =
     if (windowsWin32UiWindowsandmessagingNapiAvailable) wasmWindowssysWindowsWin32UiWindowsandmessagingLogicalToPhysicalPoint(hwnd.rawAddress.toString(), lppoint.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun lookupIconIdFromDirectory(presbits: ConstPtr<UByte>, ficon: Bool): Int =
+public actual fun lookupIconIdFromDirectory(presbits: ConstPtr, ficon: Bool): Int =
     if (windowsWin32UiWindowsandmessagingNapiAvailable) wasmWindowssysWindowsWin32UiWindowsandmessagingLookupIconIdFromDirectory(presbits.rawAddress.toString(), ficon) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun lookupIconIdFromDirectoryEx(presbits: ConstPtr<UByte>, ficon: Bool, cxdesired: Int, cydesired: Int, flags: ImageFlags): Int =
+public actual fun lookupIconIdFromDirectoryEx(presbits: ConstPtr, ficon: Bool, cxdesired: Int, cydesired: Int, flags: ImageFlags): Int =
     if (windowsWin32UiWindowsandmessagingNapiAvailable) wasmWindowssysWindowsWin32UiWindowsandmessagingLookupIconIdFromDirectoryEx(presbits.rawAddress.toString(), ficon, cxdesired, cydesired, flags.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun mapDialogRect(hdlg: Hwnd, lprect: MutPtr<Rect>): Bool =
+public actual fun mapDialogRect(hdlg: Hwnd, lprect: MutPtr): Bool =
     if (windowsWin32UiWindowsandmessagingNapiAvailable) wasmWindowssysWindowsWin32UiWindowsandmessagingMapDialogRect(hdlg.rawAddress.toString(), lprect.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun menuItemFromPoint(hwnd: Hwnd, hmenu: Hmenu, ptscreen: Point): Int =
@@ -2037,10 +2033,10 @@ public actual fun messageBoxExA(hwnd: Hwnd, lptext: Pcstr, lpcaption: Pcstr, uty
 public actual fun messageBoxExW(hwnd: Hwnd, lptext: Pcwstr, lpcaption: Pcwstr, utype: MessageboxStyle, wlanguageid: UShort): MessageboxResult =
     if (windowsWin32UiWindowsandmessagingNapiAvailable) wasmWindowssysWindowsWin32UiWindowsandmessagingMessageBoxExW(hwnd.rawAddress.toString(), lptext.rawAddress.toString(), lpcaption.rawAddress.toString(), utype.toInt(), wlanguageid.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun messageBoxIndirectA(lpmbp: ConstPtr<Msgboxparamsa>): MessageboxResult =
+public actual fun messageBoxIndirectA(lpmbp: ConstPtr): MessageboxResult =
     if (windowsWin32UiWindowsandmessagingNapiAvailable) wasmWindowssysWindowsWin32UiWindowsandmessagingMessageBoxIndirectA(lpmbp.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun messageBoxIndirectW(lpmbp: ConstPtr<Msgboxparamsw>): MessageboxResult =
+public actual fun messageBoxIndirectW(lpmbp: ConstPtr): MessageboxResult =
     if (windowsWin32UiWindowsandmessagingNapiAvailable) wasmWindowssysWindowsWin32UiWindowsandmessagingMessageBoxIndirectW(lpmbp.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun messageBoxW(hwnd: Hwnd, lptext: Pcwstr, lpcaption: Pcwstr, utype: MessageboxStyle): MessageboxResult =
@@ -2058,55 +2054,55 @@ public actual fun moveWindow(hwnd: Hwnd, x: Int, y: Int, nwidth: Int, nheight: I
 public actual fun mrmCreateConfig(platformversion: MrmPlatformVersion, defaultqualifiers: Pcwstr, outputxmlfile: Pcwstr): Hresult =
     if (windowsWin32UiWindowsandmessagingNapiAvailable) wasmWindowssysWindowsWin32UiWindowsandmessagingMrmCreateConfig(platformversion, defaultqualifiers.rawAddress.toString(), outputxmlfile.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun mrmCreateConfigInMemory(platformversion: MrmPlatformVersion, defaultqualifiers: Pcwstr, outputxmldata: MutPtr<MutPtr<UByte>>, outputxmlsize: MutPtr<UInt>): Hresult =
+public actual fun mrmCreateConfigInMemory(platformversion: MrmPlatformVersion, defaultqualifiers: Pcwstr, outputxmldata: MutPtr, outputxmlsize: MutPtr): Hresult =
     if (windowsWin32UiWindowsandmessagingNapiAvailable) wasmWindowssysWindowsWin32UiWindowsandmessagingMrmCreateConfigInMemory(platformversion, defaultqualifiers.rawAddress.toString(), outputxmldata.rawAddress.toString(), outputxmlsize.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun mrmCreateResourceFile(indexer: MrmResourceIndexerHandle, packagingmode: MrmPackagingMode, packagingoptions: MrmPackagingOptions, outputdirectory: Pcwstr): Hresult =
     throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun mrmCreateResourceFileInMemory(indexer: MrmResourceIndexerHandle, packagingmode: MrmPackagingMode, packagingoptions: MrmPackagingOptions, outputpridata: MutPtr<MutPtr<UByte>>, outputprisize: MutPtr<UInt>): Hresult =
+public actual fun mrmCreateResourceFileInMemory(indexer: MrmResourceIndexerHandle, packagingmode: MrmPackagingMode, packagingoptions: MrmPackagingOptions, outputpridata: MutPtr, outputprisize: MutPtr): Hresult =
     throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun mrmCreateResourceFileWithChecksum(indexer: MrmResourceIndexerHandle, packagingmode: MrmPackagingMode, packagingoptions: MrmPackagingOptions, checksum: UInt, outputdirectory: Pcwstr): Hresult =
     throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun mrmCreateResourceIndexer(packagefamilyname: Pcwstr, projectroot: Pcwstr, platformversion: MrmPlatformVersion, defaultqualifiers: Pcwstr, indexer: MutPtr<MrmResourceIndexerHandle>): Hresult =
+public actual fun mrmCreateResourceIndexer(packagefamilyname: Pcwstr, projectroot: Pcwstr, platformversion: MrmPlatformVersion, defaultqualifiers: Pcwstr, indexer: MutPtr): Hresult =
     if (windowsWin32UiWindowsandmessagingNapiAvailable) wasmWindowssysWindowsWin32UiWindowsandmessagingMrmCreateResourceIndexer(packagefamilyname.rawAddress.toString(), projectroot.rawAddress.toString(), platformversion, defaultqualifiers.rawAddress.toString(), indexer.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun mrmCreateResourceIndexerFromPreviousPriData(projectroot: Pcwstr, platformversion: MrmPlatformVersion, defaultqualifiers: Pcwstr, pridata: ConstPtr<UByte>, prisize: UInt, indexer: MutPtr<MrmResourceIndexerHandle>): Hresult =
+public actual fun mrmCreateResourceIndexerFromPreviousPriData(projectroot: Pcwstr, platformversion: MrmPlatformVersion, defaultqualifiers: Pcwstr, pridata: ConstPtr, prisize: UInt, indexer: MutPtr): Hresult =
     if (windowsWin32UiWindowsandmessagingNapiAvailable) wasmWindowssysWindowsWin32UiWindowsandmessagingMrmCreateResourceIndexerFromPreviousPriData(projectroot.rawAddress.toString(), platformversion, defaultqualifiers.rawAddress.toString(), pridata.rawAddress.toString(), prisize.toInt(), indexer.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun mrmCreateResourceIndexerFromPreviousPriFile(projectroot: Pcwstr, platformversion: MrmPlatformVersion, defaultqualifiers: Pcwstr, prifile: Pcwstr, indexer: MutPtr<MrmResourceIndexerHandle>): Hresult =
+public actual fun mrmCreateResourceIndexerFromPreviousPriFile(projectroot: Pcwstr, platformversion: MrmPlatformVersion, defaultqualifiers: Pcwstr, prifile: Pcwstr, indexer: MutPtr): Hresult =
     if (windowsWin32UiWindowsandmessagingNapiAvailable) wasmWindowssysWindowsWin32UiWindowsandmessagingMrmCreateResourceIndexerFromPreviousPriFile(projectroot.rawAddress.toString(), platformversion, defaultqualifiers.rawAddress.toString(), prifile.rawAddress.toString(), indexer.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun mrmCreateResourceIndexerFromPreviousSchemaData(projectroot: Pcwstr, platformversion: MrmPlatformVersion, defaultqualifiers: Pcwstr, schemaxmldata: ConstPtr<UByte>, schemaxmlsize: UInt, indexer: MutPtr<MrmResourceIndexerHandle>): Hresult =
+public actual fun mrmCreateResourceIndexerFromPreviousSchemaData(projectroot: Pcwstr, platformversion: MrmPlatformVersion, defaultqualifiers: Pcwstr, schemaxmldata: ConstPtr, schemaxmlsize: UInt, indexer: MutPtr): Hresult =
     if (windowsWin32UiWindowsandmessagingNapiAvailable) wasmWindowssysWindowsWin32UiWindowsandmessagingMrmCreateResourceIndexerFromPreviousSchemaData(projectroot.rawAddress.toString(), platformversion, defaultqualifiers.rawAddress.toString(), schemaxmldata.rawAddress.toString(), schemaxmlsize.toInt(), indexer.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun mrmCreateResourceIndexerFromPreviousSchemaFile(projectroot: Pcwstr, platformversion: MrmPlatformVersion, defaultqualifiers: Pcwstr, schemafile: Pcwstr, indexer: MutPtr<MrmResourceIndexerHandle>): Hresult =
+public actual fun mrmCreateResourceIndexerFromPreviousSchemaFile(projectroot: Pcwstr, platformversion: MrmPlatformVersion, defaultqualifiers: Pcwstr, schemafile: Pcwstr, indexer: MutPtr): Hresult =
     if (windowsWin32UiWindowsandmessagingNapiAvailable) wasmWindowssysWindowsWin32UiWindowsandmessagingMrmCreateResourceIndexerFromPreviousSchemaFile(projectroot.rawAddress.toString(), platformversion, defaultqualifiers.rawAddress.toString(), schemafile.rawAddress.toString(), indexer.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun mrmCreateResourceIndexerWithFlags(packagefamilyname: Pcwstr, projectroot: Pcwstr, platformversion: MrmPlatformVersion, defaultqualifiers: Pcwstr, flags: MrmIndexerFlags, indexer: MutPtr<MrmResourceIndexerHandle>): Hresult =
+public actual fun mrmCreateResourceIndexerWithFlags(packagefamilyname: Pcwstr, projectroot: Pcwstr, platformversion: MrmPlatformVersion, defaultqualifiers: Pcwstr, flags: MrmIndexerFlags, indexer: MutPtr): Hresult =
     if (windowsWin32UiWindowsandmessagingNapiAvailable) wasmWindowssysWindowsWin32UiWindowsandmessagingMrmCreateResourceIndexerWithFlags(packagefamilyname.rawAddress.toString(), projectroot.rawAddress.toString(), platformversion, defaultqualifiers.rawAddress.toString(), flags, indexer.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun mrmDestroyIndexerAndMessages(indexer: MrmResourceIndexerHandle): Hresult =
     throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun mrmDumpPriDataInMemory(inputpridata: ConstPtr<UByte>, inputprisize: UInt, schemapridata: ConstPtr<UByte>, schemaprisize: UInt, dumptype: MrmDumpType, outputxmldata: MutPtr<MutPtr<UByte>>, outputxmlsize: MutPtr<UInt>): Hresult =
+public actual fun mrmDumpPriDataInMemory(inputpridata: ConstPtr, inputprisize: UInt, schemapridata: ConstPtr, schemaprisize: UInt, dumptype: MrmDumpType, outputxmldata: MutPtr, outputxmlsize: MutPtr): Hresult =
     if (windowsWin32UiWindowsandmessagingNapiAvailable) wasmWindowssysWindowsWin32UiWindowsandmessagingMrmDumpPriDataInMemory(inputpridata.rawAddress.toString(), inputprisize.toInt(), schemapridata.rawAddress.toString(), schemaprisize.toInt(), dumptype, outputxmldata.rawAddress.toString(), outputxmlsize.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun mrmDumpPriFile(indexfilename: Pcwstr, schemaprifile: Pcwstr, dumptype: MrmDumpType, outputxmlfile: Pcwstr): Hresult =
     if (windowsWin32UiWindowsandmessagingNapiAvailable) wasmWindowssysWindowsWin32UiWindowsandmessagingMrmDumpPriFile(indexfilename.rawAddress.toString(), schemaprifile.rawAddress.toString(), dumptype, outputxmlfile.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun mrmDumpPriFileInMemory(indexfilename: Pcwstr, schemaprifile: Pcwstr, dumptype: MrmDumpType, outputxmldata: MutPtr<MutPtr<UByte>>, outputxmlsize: MutPtr<UInt>): Hresult =
+public actual fun mrmDumpPriFileInMemory(indexfilename: Pcwstr, schemaprifile: Pcwstr, dumptype: MrmDumpType, outputxmldata: MutPtr, outputxmlsize: MutPtr): Hresult =
     if (windowsWin32UiWindowsandmessagingNapiAvailable) wasmWindowssysWindowsWin32UiWindowsandmessagingMrmDumpPriFileInMemory(indexfilename.rawAddress.toString(), schemaprifile.rawAddress.toString(), dumptype, outputxmldata.rawAddress.toString(), outputxmlsize.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun mrmFreeMemory(data: ConstPtr<UByte>): Hresult =
+public actual fun mrmFreeMemory(data: ConstPtr): Hresult =
     if (windowsWin32UiWindowsandmessagingNapiAvailable) wasmWindowssysWindowsWin32UiWindowsandmessagingMrmFreeMemory(data.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun mrmGetPriFileContentChecksum(prifile: Pcwstr, checksum: MutPtr<UInt>): Hresult =
+public actual fun mrmGetPriFileContentChecksum(prifile: Pcwstr, checksum: MutPtr): Hresult =
     if (windowsWin32UiWindowsandmessagingNapiAvailable) wasmWindowssysWindowsWin32UiWindowsandmessagingMrmGetPriFileContentChecksum(prifile.rawAddress.toString(), checksum.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun mrmIndexEmbeddedData(indexer: MrmResourceIndexerHandle, resourceuri: Pcwstr, embeddeddata: ConstPtr<UByte>, embeddeddatasize: UInt, qualifiers: Pcwstr): Hresult =
+public actual fun mrmIndexEmbeddedData(indexer: MrmResourceIndexerHandle, resourceuri: Pcwstr, embeddeddata: ConstPtr, embeddeddatasize: UInt, qualifiers: Pcwstr): Hresult =
     throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun mrmIndexFile(indexer: MrmResourceIndexerHandle, resourceuri: Pcwstr, filepath: Pcwstr, qualifiers: Pcwstr): Hresult =
@@ -2121,13 +2117,13 @@ public actual fun mrmIndexResourceContainerAutoQualifiers(indexer: MrmResourceIn
 public actual fun mrmIndexString(indexer: MrmResourceIndexerHandle, resourceuri: Pcwstr, resourcestring: Pcwstr, qualifiers: Pcwstr): Hresult =
     throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun mrmPeekResourceIndexerMessages(handle: MrmResourceIndexerHandle, messages: MutPtr<MutPtr<MrmResourceIndexerMessage>>, nummsgs: MutPtr<UInt>): Hresult =
+public actual fun mrmPeekResourceIndexerMessages(handle: MrmResourceIndexerHandle, messages: MutPtr, nummsgs: MutPtr): Hresult =
     throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun msgWaitForMultipleObjects(ncount: UInt, phandles: ConstPtr<Handle>, fwaitall: Bool, dwmilliseconds: UInt, dwwakemask: QueueStatusFlags): WaitEvent =
+public actual fun msgWaitForMultipleObjects(ncount: UInt, phandles: ConstPtr, fwaitall: Bool, dwmilliseconds: UInt, dwwakemask: QueueStatusFlags): WaitEvent =
     if (windowsWin32UiWindowsandmessagingNapiAvailable) wasmWindowssysWindowsWin32UiWindowsandmessagingMsgWaitForMultipleObjects(ncount.toInt(), phandles.rawAddress.toString(), fwaitall, dwmilliseconds.toInt(), dwwakemask.toInt()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun msgWaitForMultipleObjectsEx(ncount: UInt, phandles: ConstPtr<Handle>, dwmilliseconds: UInt, dwwakemask: QueueStatusFlags, dwflags: MsgWaitForMultipleObjectsExFlags): WaitEvent =
+public actual fun msgWaitForMultipleObjectsEx(ncount: UInt, phandles: ConstPtr, dwmilliseconds: UInt, dwwakemask: QueueStatusFlags, dwflags: MsgWaitForMultipleObjectsExFlags): WaitEvent =
     if (windowsWin32UiWindowsandmessagingNapiAvailable) wasmWindowssysWindowsWin32UiWindowsandmessagingMsgWaitForMultipleObjectsEx(ncount.toInt(), phandles.rawAddress.toString(), dwmilliseconds.toInt(), dwwakemask.toInt(), dwflags.toInt()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun oemToCharA(psrc: Pcstr, pdst: Pstr): Bool =
@@ -2145,13 +2141,13 @@ public actual fun oemToCharW(psrc: Pcstr, pdst: Pwstr): Bool =
 public actual fun openIcon(hwnd: Hwnd): Bool =
     if (windowsWin32UiWindowsandmessagingNapiAvailable) wasmWindowssysWindowsWin32UiWindowsandmessagingOpenIcon(hwnd.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun peekMessageA(lpmsg: MutPtr<Msg>, hwnd: Hwnd, wmsgfiltermin: UInt, wmsgfiltermax: UInt, wremovemsg: PeekMessageRemoveType): Bool =
+public actual fun peekMessageA(lpmsg: MutPtr, hwnd: Hwnd, wmsgfiltermin: UInt, wmsgfiltermax: UInt, wremovemsg: PeekMessageRemoveType): Bool =
     if (windowsWin32UiWindowsandmessagingNapiAvailable) wasmWindowssysWindowsWin32UiWindowsandmessagingPeekMessageA(lpmsg.rawAddress.toString(), hwnd.rawAddress.toString(), wmsgfiltermin.toInt(), wmsgfiltermax.toInt(), wremovemsg.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun peekMessageW(lpmsg: MutPtr<Msg>, hwnd: Hwnd, wmsgfiltermin: UInt, wmsgfiltermax: UInt, wremovemsg: PeekMessageRemoveType): Bool =
+public actual fun peekMessageW(lpmsg: MutPtr, hwnd: Hwnd, wmsgfiltermin: UInt, wmsgfiltermax: UInt, wremovemsg: PeekMessageRemoveType): Bool =
     if (windowsWin32UiWindowsandmessagingNapiAvailable) wasmWindowssysWindowsWin32UiWindowsandmessagingPeekMessageW(lpmsg.rawAddress.toString(), hwnd.rawAddress.toString(), wmsgfiltermin.toInt(), wmsgfiltermax.toInt(), wremovemsg.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun physicalToLogicalPoint(hwnd: Hwnd, lppoint: MutPtr<Point>): Bool =
+public actual fun physicalToLogicalPoint(hwnd: Hwnd, lppoint: MutPtr): Bool =
     if (windowsWin32UiWindowsandmessagingNapiAvailable) wasmWindowssysWindowsWin32UiWindowsandmessagingPhysicalToLogicalPoint(hwnd.rawAddress.toString(), lppoint.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun postMessageA(hwnd: Hwnd, msg: UInt, wparam: Wparam, lparam: Lparam): Bool =
@@ -2174,10 +2170,10 @@ public actual fun postThreadMessageA(idthread: UInt, msg: UInt, wparam: Wparam, 
 public actual fun postThreadMessageW(idthread: UInt, msg: UInt, wparam: Wparam, lparam: Lparam): Bool =
     if (windowsWin32UiWindowsandmessagingNapiAvailable) wasmWindowssysWindowsWin32UiWindowsandmessagingPostThreadMessageW(idthread.toInt(), msg.toInt(), wparam.toString(), lparam.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun privateExtractIconsA(szfilename: Pcstr, niconindex: Int, cxicon: Int, cyicon: Int, phicon: MutPtr<Hicon>, piconid: MutPtr<UInt>, nicons: UInt, flags: UInt): UInt =
+public actual fun privateExtractIconsA(szfilename: Pcstr, niconindex: Int, cxicon: Int, cyicon: Int, phicon: MutPtr, piconid: MutPtr, nicons: UInt, flags: UInt): UInt =
     if (windowsWin32UiWindowsandmessagingNapiAvailable) wasmWindowssysWindowsWin32UiWindowsandmessagingPrivateExtractIconsA(szfilename.rawAddress.toString(), niconindex, cxicon, cyicon, phicon.rawAddress.toString(), piconid.rawAddress.toString(), nicons.toInt(), flags.toInt()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun privateExtractIconsW(szfilename: Pcwstr, niconindex: Int, cxicon: Int, cyicon: Int, phicon: MutPtr<Hicon>, piconid: MutPtr<UInt>, nicons: UInt, flags: UInt): UInt =
+public actual fun privateExtractIconsW(szfilename: Pcwstr, niconindex: Int, cxicon: Int, cyicon: Int, phicon: MutPtr, piconid: MutPtr, nicons: UInt, flags: UInt): UInt =
     if (windowsWin32UiWindowsandmessagingNapiAvailable) wasmWindowssysWindowsWin32UiWindowsandmessagingPrivateExtractIconsW(szfilename.rawAddress.toString(), niconindex, cxicon, cyicon, phicon.rawAddress.toString(), piconid.rawAddress.toString(), nicons.toInt(), flags.toInt()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun realChildWindowFromPoint(hwndparent: Hwnd, ptparentclientcoords: Point): Hwnd =
@@ -2189,22 +2185,22 @@ public actual fun realGetWindowClassA(hwnd: Hwnd, ptszclassname: Pstr, cchclassn
 public actual fun realGetWindowClassW(hwnd: Hwnd, ptszclassname: Pwstr, cchclassnamemax: UInt): UInt =
     if (windowsWin32UiWindowsandmessagingNapiAvailable) wasmWindowssysWindowsWin32UiWindowsandmessagingRealGetWindowClassW(hwnd.rawAddress.toString(), ptszclassname.rawAddress.toString(), cchclassnamemax.toInt()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun registerClassA(lpwndclass: ConstPtr<Wndclassa>): UShort =
+public actual fun registerClassA(lpwndclass: ConstPtr): UShort =
     if (windowsWin32UiWindowsandmessagingNapiAvailable) wasmWindowssysWindowsWin32UiWindowsandmessagingRegisterClassA(lpwndclass.rawAddress.toString()).toUShort() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun registerClassExA(param0: ConstPtr<Wndclassexa>): UShort =
+public actual fun registerClassExA(param0: ConstPtr): UShort =
     if (windowsWin32UiWindowsandmessagingNapiAvailable) wasmWindowssysWindowsWin32UiWindowsandmessagingRegisterClassExA(param0.rawAddress.toString()).toUShort() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun registerClassExW(param0: ConstPtr<Wndclassexw>): UShort =
+public actual fun registerClassExW(param0: ConstPtr): UShort =
     if (windowsWin32UiWindowsandmessagingNapiAvailable) wasmWindowssysWindowsWin32UiWindowsandmessagingRegisterClassExW(param0.rawAddress.toString()).toUShort() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun registerClassW(lpwndclass: ConstPtr<Wndclassw>): UShort =
+public actual fun registerClassW(lpwndclass: ConstPtr): UShort =
     if (windowsWin32UiWindowsandmessagingNapiAvailable) wasmWindowssysWindowsWin32UiWindowsandmessagingRegisterClassW(lpwndclass.rawAddress.toString()).toUShort() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun registerDeviceNotificationA(hrecipient: Handle, notificationfilter: ConstPtr<CVoid>, flags: RegisterNotificationFlags): Hdevnotify =
+public actual fun registerDeviceNotificationA(hrecipient: Handle, notificationfilter: ConstPtr, flags: RegisterNotificationFlags): Hdevnotify =
     if (windowsWin32UiWindowsandmessagingNapiAvailable) MutPtr(wasmWindowssysWindowsWin32UiWindowsandmessagingRegisterDeviceNotificationA(hrecipient.rawAddress.toString(), notificationfilter.rawAddress.toString(), flags.toInt()).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun registerDeviceNotificationW(hrecipient: Handle, notificationfilter: ConstPtr<CVoid>, flags: RegisterNotificationFlags): Hdevnotify =
+public actual fun registerDeviceNotificationW(hrecipient: Handle, notificationfilter: ConstPtr, flags: RegisterNotificationFlags): Hdevnotify =
     if (windowsWin32UiWindowsandmessagingNapiAvailable) MutPtr(wasmWindowssysWindowsWin32UiWindowsandmessagingRegisterDeviceNotificationW(hrecipient.rawAddress.toString(), notificationfilter.rawAddress.toString(), flags.toInt()).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun registerForTooltipDismissNotification(hwnd: Hwnd, tdflags: TooltipDismissFlags): Bool =
@@ -2231,13 +2227,13 @@ public actual fun removePropW(hwnd: Hwnd, lpstring: Pcwstr): Handle =
 public actual fun replyMessage(lresult: Lresult): Bool =
     if (windowsWin32UiWindowsandmessagingNapiAvailable) wasmWindowssysWindowsWin32UiWindowsandmessagingReplyMessage(lresult.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun scrollDC(hdc: Hdc, dx: Int, dy: Int, lprcscroll: ConstPtr<Rect>, lprcclip: ConstPtr<Rect>, hrgnupdate: Hrgn, lprcupdate: MutPtr<Rect>): Bool =
+public actual fun scrollDC(hdc: Hdc, dx: Int, dy: Int, lprcscroll: ConstPtr, lprcclip: ConstPtr, hrgnupdate: Hrgn, lprcupdate: MutPtr): Bool =
     if (windowsWin32UiWindowsandmessagingNapiAvailable) wasmWindowssysWindowsWin32UiWindowsandmessagingScrollDC(hdc.rawAddress.toString(), dx, dy, lprcscroll.rawAddress.toString(), lprcclip.rawAddress.toString(), hrgnupdate.rawAddress.toString(), lprcupdate.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun scrollWindow(hwnd: Hwnd, xamount: Int, yamount: Int, lprect: ConstPtr<Rect>, lpcliprect: ConstPtr<Rect>): Bool =
+public actual fun scrollWindow(hwnd: Hwnd, xamount: Int, yamount: Int, lprect: ConstPtr, lpcliprect: ConstPtr): Bool =
     if (windowsWin32UiWindowsandmessagingNapiAvailable) wasmWindowssysWindowsWin32UiWindowsandmessagingScrollWindow(hwnd.rawAddress.toString(), xamount, yamount, lprect.rawAddress.toString(), lpcliprect.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun scrollWindowEx(hwnd: Hwnd, dx: Int, dy: Int, prcscroll: ConstPtr<Rect>, prcclip: ConstPtr<Rect>, hrgnupdate: Hrgn, prcupdate: MutPtr<Rect>, flags: ScrollWindowFlags): Int =
+public actual fun scrollWindowEx(hwnd: Hwnd, dx: Int, dy: Int, prcscroll: ConstPtr, prcclip: ConstPtr, hrgnupdate: Hrgn, prcupdate: MutPtr, flags: ScrollWindowFlags): Int =
     if (windowsWin32UiWindowsandmessagingNapiAvailable) wasmWindowssysWindowsWin32UiWindowsandmessagingScrollWindowEx(hwnd.rawAddress.toString(), dx, dy, prcscroll.rawAddress.toString(), prcclip.rawAddress.toString(), hrgnupdate.rawAddress.toString(), prcupdate.rawAddress.toString(), flags.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun sendDlgItemMessageA(hdlg: Hwnd, niddlgitem: Int, msg: UInt, wparam: Wparam, lparam: Lparam): Lresult =
@@ -2255,10 +2251,10 @@ public actual fun sendMessageCallbackA(hwnd: Hwnd, msg: UInt, wparam: Wparam, lp
 public actual fun sendMessageCallbackW(hwnd: Hwnd, msg: UInt, wparam: Wparam, lparam: Lparam, lpresultcallback: Sendasyncproc, dwdata: ULong): Bool =
     if (windowsWin32UiWindowsandmessagingNapiAvailable) wasmWindowssysWindowsWin32UiWindowsandmessagingSendMessageCallbackW(hwnd.rawAddress.toString(), msg.toInt(), wparam.toString(), lparam.toString(), 0L.toString(), dwdata.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun sendMessageTimeoutA(hwnd: Hwnd, msg: UInt, wparam: Wparam, lparam: Lparam, fuflags: SendMessageTimeoutFlags, utimeout: UInt, lpdwresult: MutPtr<ULong>): Lresult =
+public actual fun sendMessageTimeoutA(hwnd: Hwnd, msg: UInt, wparam: Wparam, lparam: Lparam, fuflags: SendMessageTimeoutFlags, utimeout: UInt, lpdwresult: MutPtr): Lresult =
     if (windowsWin32UiWindowsandmessagingNapiAvailable) wasmWindowssysWindowsWin32UiWindowsandmessagingSendMessageTimeoutA(hwnd.rawAddress.toString(), msg.toInt(), wparam.toString(), lparam.toString(), fuflags.toInt(), utimeout.toInt(), lpdwresult.rawAddress.toString()).toLong() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun sendMessageTimeoutW(hwnd: Hwnd, msg: UInt, wparam: Wparam, lparam: Lparam, fuflags: SendMessageTimeoutFlags, utimeout: UInt, lpdwresult: MutPtr<ULong>): Lresult =
+public actual fun sendMessageTimeoutW(hwnd: Hwnd, msg: UInt, wparam: Wparam, lparam: Lparam, fuflags: SendMessageTimeoutFlags, utimeout: UInt, lpdwresult: MutPtr): Lresult =
     if (windowsWin32UiWindowsandmessagingNapiAvailable) wasmWindowssysWindowsWin32UiWindowsandmessagingSendMessageTimeoutW(hwnd.rawAddress.toString(), msg.toInt(), wparam.toString(), lparam.toString(), fuflags.toInt(), utimeout.toInt(), lpdwresult.rawAddress.toString()).toLong() else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun sendMessageW(hwnd: Hwnd, msg: UInt, wparam: Wparam, lparam: Lparam): Lresult =
@@ -2270,7 +2266,7 @@ public actual fun sendNotifyMessageA(hwnd: Hwnd, msg: UInt, wparam: Wparam, lpar
 public actual fun sendNotifyMessageW(hwnd: Hwnd, msg: UInt, wparam: Wparam, lparam: Lparam): Bool =
     if (windowsWin32UiWindowsandmessagingNapiAvailable) wasmWindowssysWindowsWin32UiWindowsandmessagingSendNotifyMessageW(hwnd.rawAddress.toString(), msg.toInt(), wparam.toString(), lparam.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun setAdditionalForegroundBoostProcesses(toplevelwindow: Hwnd, processhandlecount: UInt, processhandlearray: ConstPtr<Handle>): Bool =
+public actual fun setAdditionalForegroundBoostProcesses(toplevelwindow: Hwnd, processhandlecount: UInt, processhandlearray: ConstPtr): Bool =
     if (windowsWin32UiWindowsandmessagingNapiAvailable) wasmWindowssysWindowsWin32UiWindowsandmessagingSetAdditionalForegroundBoostProcesses(toplevelwindow.rawAddress.toString(), processhandlecount.toInt(), processhandlearray.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun setCaretBlinkTime(umseconds: UInt): Bool =
@@ -2332,16 +2328,16 @@ public actual fun setMenu(hwnd: Hwnd, hmenu: Hmenu): Bool =
 public actual fun setMenuDefaultItem(hmenu: Hmenu, uitem: UInt, fbypos: UInt): Bool =
     if (windowsWin32UiWindowsandmessagingNapiAvailable) wasmWindowssysWindowsWin32UiWindowsandmessagingSetMenuDefaultItem(hmenu.rawAddress.toString(), uitem.toInt(), fbypos.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun setMenuInfo(param0: Hmenu, param1: ConstPtr<Menuinfo>): Bool =
+public actual fun setMenuInfo(param0: Hmenu, param1: ConstPtr): Bool =
     if (windowsWin32UiWindowsandmessagingNapiAvailable) wasmWindowssysWindowsWin32UiWindowsandmessagingSetMenuInfo(param0.rawAddress.toString(), param1.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun setMenuItemBitmaps(hmenu: Hmenu, uposition: UInt, uflags: MenuItemFlags, hbitmapunchecked: Hbitmap, hbitmapchecked: Hbitmap): Bool =
     if (windowsWin32UiWindowsandmessagingNapiAvailable) wasmWindowssysWindowsWin32UiWindowsandmessagingSetMenuItemBitmaps(hmenu.rawAddress.toString(), uposition.toInt(), uflags.toInt(), hbitmapunchecked.rawAddress.toString(), hbitmapchecked.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun setMenuItemInfoA(hmenu: Hmenu, item: UInt, fbypositon: Bool, lpmii: ConstPtr<Menuiteminfoa>): Bool =
+public actual fun setMenuItemInfoA(hmenu: Hmenu, item: UInt, fbypositon: Bool, lpmii: ConstPtr): Bool =
     if (windowsWin32UiWindowsandmessagingNapiAvailable) wasmWindowssysWindowsWin32UiWindowsandmessagingSetMenuItemInfoA(hmenu.rawAddress.toString(), item.toInt(), fbypositon, lpmii.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun setMenuItemInfoW(hmenu: Hmenu, item: UInt, fbypositon: Bool, lpmii: ConstPtr<Menuiteminfow>): Bool =
+public actual fun setMenuItemInfoW(hmenu: Hmenu, item: UInt, fbypositon: Bool, lpmii: ConstPtr): Bool =
     if (windowsWin32UiWindowsandmessagingNapiAvailable) wasmWindowssysWindowsWin32UiWindowsandmessagingSetMenuItemInfoW(hmenu.rawAddress.toString(), item.toInt(), fbypositon, lpmii.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun setMessageExtraInfo(lparam: Lparam): Lparam =
@@ -2389,7 +2385,7 @@ public actual fun setWindowLongPtrW(hwnd: Hwnd, nindex: WindowLongPtrIndex, dwne
 public actual fun setWindowLongW(hwnd: Hwnd, nindex: WindowLongPtrIndex, dwnewlong: Int): Int =
     if (windowsWin32UiWindowsandmessagingNapiAvailable) wasmWindowssysWindowsWin32UiWindowsandmessagingSetWindowLongW(hwnd.rawAddress.toString(), nindex, dwnewlong) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun setWindowPlacement(hwnd: Hwnd, lpwndpl: ConstPtr<Windowplacement>): Bool =
+public actual fun setWindowPlacement(hwnd: Hwnd, lpwndpl: ConstPtr): Bool =
     if (windowsWin32UiWindowsandmessagingNapiAvailable) wasmWindowssysWindowsWin32UiWindowsandmessagingSetWindowPlacement(hwnd.rawAddress.toString(), lpwndpl.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun setWindowPos(hwnd: Hwnd, hwndinsertafter: Hwnd, x: Int, y: Int, cx: Int, cy: Int, uflags: SetWindowPosFlags): Bool =
@@ -2442,31 +2438,31 @@ public actual fun switchToThisWindow(hwnd: Hwnd, funknown: Bool) {
     }
 }
 
-public actual fun systemParametersInfoA(uiaction: SystemParametersInfoAction, uiparam: UInt, pvparam: MutPtr<CVoid>, fwinini: SystemParametersInfoUpdateFlags): Bool =
+public actual fun systemParametersInfoA(uiaction: SystemParametersInfoAction, uiparam: UInt, pvparam: MutPtr, fwinini: SystemParametersInfoUpdateFlags): Bool =
     if (windowsWin32UiWindowsandmessagingNapiAvailable) wasmWindowssysWindowsWin32UiWindowsandmessagingSystemParametersInfoA(uiaction.toInt(), uiparam.toInt(), pvparam.rawAddress.toString(), fwinini.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun systemParametersInfoW(uiaction: SystemParametersInfoAction, uiparam: UInt, pvparam: MutPtr<CVoid>, fwinini: SystemParametersInfoUpdateFlags): Bool =
+public actual fun systemParametersInfoW(uiaction: SystemParametersInfoAction, uiparam: UInt, pvparam: MutPtr, fwinini: SystemParametersInfoUpdateFlags): Bool =
     if (windowsWin32UiWindowsandmessagingNapiAvailable) wasmWindowssysWindowsWin32UiWindowsandmessagingSystemParametersInfoW(uiaction.toInt(), uiparam.toInt(), pvparam.rawAddress.toString(), fwinini.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun tileWindows(hwndparent: Hwnd, whow: TileWindowsHow, lprect: ConstPtr<Rect>, ckids: UInt, lpkids: ConstPtr<Hwnd>): UShort =
+public actual fun tileWindows(hwndparent: Hwnd, whow: TileWindowsHow, lprect: ConstPtr, ckids: UInt, lpkids: ConstPtr): UShort =
     if (windowsWin32UiWindowsandmessagingNapiAvailable) wasmWindowssysWindowsWin32UiWindowsandmessagingTileWindows(hwndparent.rawAddress.toString(), whow.toInt(), lprect.rawAddress.toString(), ckids.toInt(), lpkids.rawAddress.toString()).toUShort() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun trackPopupMenu(hmenu: Hmenu, uflags: TrackPopupMenuFlags, x: Int, y: Int, nreserved: Int, hwnd: Hwnd, prcrect: ConstPtr<Rect>): Bool =
+public actual fun trackPopupMenu(hmenu: Hmenu, uflags: TrackPopupMenuFlags, x: Int, y: Int, nreserved: Int, hwnd: Hwnd, prcrect: ConstPtr): Bool =
     if (windowsWin32UiWindowsandmessagingNapiAvailable) wasmWindowssysWindowsWin32UiWindowsandmessagingTrackPopupMenu(hmenu.rawAddress.toString(), uflags.toInt(), x, y, nreserved, hwnd.rawAddress.toString(), prcrect.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun trackPopupMenuEx(hmenu: Hmenu, uflags: UInt, x: Int, y: Int, hwnd: Hwnd, lptpm: ConstPtr<Tpmparams>): Bool =
+public actual fun trackPopupMenuEx(hmenu: Hmenu, uflags: UInt, x: Int, y: Int, hwnd: Hwnd, lptpm: ConstPtr): Bool =
     if (windowsWin32UiWindowsandmessagingNapiAvailable) wasmWindowssysWindowsWin32UiWindowsandmessagingTrackPopupMenuEx(hmenu.rawAddress.toString(), uflags.toInt(), x, y, hwnd.rawAddress.toString(), lptpm.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun translateAcceleratorA(hwnd: Hwnd, hacctable: Haccel, lpmsg: ConstPtr<Msg>): Int =
+public actual fun translateAcceleratorA(hwnd: Hwnd, hacctable: Haccel, lpmsg: ConstPtr): Int =
     if (windowsWin32UiWindowsandmessagingNapiAvailable) wasmWindowssysWindowsWin32UiWindowsandmessagingTranslateAcceleratorA(hwnd.rawAddress.toString(), hacctable.rawAddress.toString(), lpmsg.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun translateAcceleratorW(hwnd: Hwnd, hacctable: Haccel, lpmsg: ConstPtr<Msg>): Int =
+public actual fun translateAcceleratorW(hwnd: Hwnd, hacctable: Haccel, lpmsg: ConstPtr): Int =
     if (windowsWin32UiWindowsandmessagingNapiAvailable) wasmWindowssysWindowsWin32UiWindowsandmessagingTranslateAcceleratorW(hwnd.rawAddress.toString(), hacctable.rawAddress.toString(), lpmsg.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun translateMDISysAccel(hwndclient: Hwnd, lpmsg: ConstPtr<Msg>): Bool =
+public actual fun translateMDISysAccel(hwndclient: Hwnd, lpmsg: ConstPtr): Bool =
     if (windowsWin32UiWindowsandmessagingNapiAvailable) wasmWindowssysWindowsWin32UiWindowsandmessagingTranslateMDISysAccel(hwndclient.rawAddress.toString(), lpmsg.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun translateMessage(lpmsg: ConstPtr<Msg>): Bool =
+public actual fun translateMessage(lpmsg: ConstPtr): Bool =
     if (windowsWin32UiWindowsandmessagingNapiAvailable) wasmWindowssysWindowsWin32UiWindowsandmessagingTranslateMessage(lpmsg.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun unhookWindowsHook(ncode: Int, pfnfilterproc: Hookproc): Bool =
@@ -2484,10 +2480,10 @@ public actual fun unregisterClassW(lpclassname: Pcwstr, hinstance: Hinstance): B
 public actual fun unregisterDeviceNotification(handle: Hdevnotify): Bool =
     if (windowsWin32UiWindowsandmessagingNapiAvailable) wasmWindowssysWindowsWin32UiWindowsandmessagingUnregisterDeviceNotification(handle.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun updateLayeredWindow(hwnd: Hwnd, hdcdst: Hdc, pptdst: ConstPtr<Point>, psize: ConstPtr<Size>, hdcsrc: Hdc, pptsrc: ConstPtr<Point>, crkey: Colorref, pblend: ConstPtr<Blendfunction>, dwflags: UpdateLayeredWindowFlags): Bool =
+public actual fun updateLayeredWindow(hwnd: Hwnd, hdcdst: Hdc, pptdst: ConstPtr, psize: ConstPtr, hdcsrc: Hdc, pptsrc: ConstPtr, crkey: Colorref, pblend: ConstPtr, dwflags: UpdateLayeredWindowFlags): Bool =
     if (windowsWin32UiWindowsandmessagingNapiAvailable) wasmWindowssysWindowsWin32UiWindowsandmessagingUpdateLayeredWindow(hwnd.rawAddress.toString(), hdcdst.rawAddress.toString(), pptdst.rawAddress.toString(), psize.rawAddress.toString(), hdcsrc.rawAddress.toString(), pptsrc.rawAddress.toString(), crkey.toInt(), pblend.rawAddress.toString(), dwflags.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun updateLayeredWindowIndirect(hwnd: Hwnd, pulwinfo: ConstPtr<Updatelayeredwindowinfo>): Bool =
+public actual fun updateLayeredWindowIndirect(hwnd: Hwnd, pulwinfo: ConstPtr): Bool =
     if (windowsWin32UiWindowsandmessagingNapiAvailable) wasmWindowssysWindowsWin32UiWindowsandmessagingUpdateLayeredWindowIndirect(hwnd.rawAddress.toString(), pulwinfo.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun waitMessage(): Bool =
@@ -2505,8 +2501,8 @@ public actual fun wsprintfA(param0: Pstr, param1: Pcstr, vararg variadicArgs: Lo
 public actual fun wsprintfW(param0: Pwstr, param1: Pcwstr, vararg variadicArgs: Long): Int =
     if (windowsWin32UiWindowsandmessagingNapiAvailable) wasmWindowssysWindowsWin32UiWindowsandmessagingWsprintfW(param0.rawAddress.toString(), param1.rawAddress.toString(), variadicArgs.size.coerceAtMost(4), (if (variadicArgs.size > 0) variadicArgs[0] else 0L).toString(), (if (variadicArgs.size > 1) variadicArgs[1] else 0L).toString(), (if (variadicArgs.size > 2) variadicArgs[2] else 0L).toString(), (if (variadicArgs.size > 3) variadicArgs[3] else 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun wvsprintfA(param0: Pstr, param1: Pcstr, arglist: ConstPtr<Byte>): Int =
+public actual fun wvsprintfA(param0: Pstr, param1: Pcstr, arglist: ConstPtr): Int =
     if (windowsWin32UiWindowsandmessagingNapiAvailable) wasmWindowssysWindowsWin32UiWindowsandmessagingWvsprintfA(param0.rawAddress.toString(), param1.rawAddress.toString(), arglist.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun wvsprintfW(param0: Pwstr, param1: Pcwstr, arglist: ConstPtr<Byte>): Int =
+public actual fun wvsprintfW(param0: Pwstr, param1: Pcwstr, arglist: ConstPtr): Int =
     if (windowsWin32UiWindowsandmessagingNapiAvailable) wasmWindowssysWindowsWin32UiWindowsandmessagingWvsprintfW(param0.rawAddress.toString(), param1.rawAddress.toString(), arglist.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")

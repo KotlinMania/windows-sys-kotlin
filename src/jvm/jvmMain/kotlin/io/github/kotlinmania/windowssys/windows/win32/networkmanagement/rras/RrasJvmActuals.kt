@@ -2,7 +2,6 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.networkmanagement.rras
 
-import io.github.kotlinmania.rustlang.core.ffi.CVoid
 import io.github.kotlinmania.rustlang.core.ptr.ConstPtr
 import io.github.kotlinmania.rustlang.core.ptr.MutPtr
 import io.github.kotlinmania.windowssys.core.Bool
@@ -13,7 +12,6 @@ import io.github.kotlinmania.windowssys.core.Pwstr
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Handle
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Hwnd
 import io.github.kotlinmania.windowssys.windows.win32.networking.winsock.In6Addr
-import io.github.kotlinmania.windowssys.windows.win32.networkmanagement.iphelper.MibIpmcastMfe
 
 private object WindowsWin32NetworkmanagementRrasJniBridge {
     init {
@@ -909,37 +907,37 @@ public actual fun mgmDeRegisterMProtocol(hprotocol: Handle): UInt =
 public actual fun mgmDeleteGroupMembershipEntry(hprotocol: Handle, dwsourceaddr: UInt, dwsourcemask: UInt, dwgroupaddr: UInt, dwgroupmask: UInt, dwifindex: UInt, dwifnexthopipaddr: UInt, dwflags: UInt): UInt =
     WindowsWin32NetworkmanagementRrasJniBridge.windowssysWindowsWin32NetworkmanagementRrasMgmDeleteGroupMembershipEntry(hprotocol.rawAddress, dwsourceaddr.toInt(), dwsourcemask.toInt(), dwgroupaddr.toInt(), dwgroupmask.toInt(), dwifindex.toInt(), dwifnexthopipaddr.toInt(), dwflags.toInt()).toUInt()
 
-public actual fun mgmGetFirstMfe(pdwbuffersize: MutPtr<UInt>, pbbuffer: MutPtr<UByte>, pdwnumentries: MutPtr<UInt>): UInt =
+public actual fun mgmGetFirstMfe(pdwbuffersize: MutPtr, pbbuffer: MutPtr, pdwnumentries: MutPtr): UInt =
     WindowsWin32NetworkmanagementRrasJniBridge.windowssysWindowsWin32NetworkmanagementRrasMgmGetFirstMfe(pdwbuffersize.rawAddress, pbbuffer.rawAddress, pdwnumentries.rawAddress).toUInt()
 
-public actual fun mgmGetFirstMfeStats(pdwbuffersize: MutPtr<UInt>, pbbuffer: MutPtr<UByte>, pdwnumentries: MutPtr<UInt>, dwflags: UInt): UInt =
+public actual fun mgmGetFirstMfeStats(pdwbuffersize: MutPtr, pbbuffer: MutPtr, pdwnumentries: MutPtr, dwflags: UInt): UInt =
     WindowsWin32NetworkmanagementRrasJniBridge.windowssysWindowsWin32NetworkmanagementRrasMgmGetFirstMfeStats(pdwbuffersize.rawAddress, pbbuffer.rawAddress, pdwnumentries.rawAddress, dwflags.toInt()).toUInt()
 
-public actual fun mgmGetMfe(pimm: MutPtr<MibIpmcastMfe>, pdwbuffersize: MutPtr<UInt>, pbbuffer: MutPtr<UByte>): UInt =
+public actual fun mgmGetMfe(pimm: MutPtr, pdwbuffersize: MutPtr, pbbuffer: MutPtr): UInt =
     WindowsWin32NetworkmanagementRrasJniBridge.windowssysWindowsWin32NetworkmanagementRrasMgmGetMfe(pimm.rawAddress, pdwbuffersize.rawAddress, pbbuffer.rawAddress).toUInt()
 
-public actual fun mgmGetMfeStats(pimm: MutPtr<MibIpmcastMfe>, pdwbuffersize: MutPtr<UInt>, pbbuffer: MutPtr<UByte>, dwflags: UInt): UInt =
+public actual fun mgmGetMfeStats(pimm: MutPtr, pdwbuffersize: MutPtr, pbbuffer: MutPtr, dwflags: UInt): UInt =
     WindowsWin32NetworkmanagementRrasJniBridge.windowssysWindowsWin32NetworkmanagementRrasMgmGetMfeStats(pimm.rawAddress, pdwbuffersize.rawAddress, pbbuffer.rawAddress, dwflags.toInt()).toUInt()
 
-public actual fun mgmGetNextMfe(pimmstart: MutPtr<MibIpmcastMfe>, pdwbuffersize: MutPtr<UInt>, pbbuffer: MutPtr<UByte>, pdwnumentries: MutPtr<UInt>): UInt =
+public actual fun mgmGetNextMfe(pimmstart: MutPtr, pdwbuffersize: MutPtr, pbbuffer: MutPtr, pdwnumentries: MutPtr): UInt =
     WindowsWin32NetworkmanagementRrasJniBridge.windowssysWindowsWin32NetworkmanagementRrasMgmGetNextMfe(pimmstart.rawAddress, pdwbuffersize.rawAddress, pbbuffer.rawAddress, pdwnumentries.rawAddress).toUInt()
 
-public actual fun mgmGetNextMfeStats(pimmstart: MutPtr<MibIpmcastMfe>, pdwbuffersize: MutPtr<UInt>, pbbuffer: MutPtr<UByte>, pdwnumentries: MutPtr<UInt>, dwflags: UInt): UInt =
+public actual fun mgmGetNextMfeStats(pimmstart: MutPtr, pdwbuffersize: MutPtr, pbbuffer: MutPtr, pdwnumentries: MutPtr, dwflags: UInt): UInt =
     WindowsWin32NetworkmanagementRrasJniBridge.windowssysWindowsWin32NetworkmanagementRrasMgmGetNextMfeStats(pimmstart.rawAddress, pdwbuffersize.rawAddress, pbbuffer.rawAddress, pdwnumentries.rawAddress, dwflags.toInt()).toUInt()
 
-public actual fun mgmGetProtocolOnInterface(dwifindex: UInt, dwifnexthopaddr: UInt, pdwifprotocolid: MutPtr<UInt>, pdwifcomponentid: MutPtr<UInt>): UInt =
+public actual fun mgmGetProtocolOnInterface(dwifindex: UInt, dwifnexthopaddr: UInt, pdwifprotocolid: MutPtr, pdwifcomponentid: MutPtr): UInt =
     WindowsWin32NetworkmanagementRrasJniBridge.windowssysWindowsWin32NetworkmanagementRrasMgmGetProtocolOnInterface(dwifindex.toInt(), dwifnexthopaddr.toInt(), pdwifprotocolid.rawAddress, pdwifcomponentid.rawAddress).toUInt()
 
 public actual fun mgmGroupEnumerationEnd(henum: Handle): UInt =
     WindowsWin32NetworkmanagementRrasJniBridge.windowssysWindowsWin32NetworkmanagementRrasMgmGroupEnumerationEnd(henum.rawAddress).toUInt()
 
-public actual fun mgmGroupEnumerationGetNext(henum: Handle, pdwbuffersize: MutPtr<UInt>, pbbuffer: MutPtr<UByte>, pdwnumentries: MutPtr<UInt>): UInt =
+public actual fun mgmGroupEnumerationGetNext(henum: Handle, pdwbuffersize: MutPtr, pbbuffer: MutPtr, pdwnumentries: MutPtr): UInt =
     WindowsWin32NetworkmanagementRrasJniBridge.windowssysWindowsWin32NetworkmanagementRrasMgmGroupEnumerationGetNext(henum.rawAddress, pdwbuffersize.rawAddress, pbbuffer.rawAddress, pdwnumentries.rawAddress).toUInt()
 
-public actual fun mgmGroupEnumerationStart(hprotocol: Handle, metenumtype: MgmEnumTypes, phenumhandle: MutPtr<Handle>): UInt =
+public actual fun mgmGroupEnumerationStart(hprotocol: Handle, metenumtype: MgmEnumTypes, phenumhandle: MutPtr): UInt =
     WindowsWin32NetworkmanagementRrasJniBridge.windowssysWindowsWin32NetworkmanagementRrasMgmGroupEnumerationStart(hprotocol.rawAddress, metenumtype, phenumhandle.rawAddress).toUInt()
 
-public actual fun mgmRegisterMProtocol(prpiinfo: MutPtr<RoutingProtocolConfig>, dwprotocolid: UInt, dwcomponentid: UInt, phprotocol: MutPtr<Handle>): UInt =
+public actual fun mgmRegisterMProtocol(prpiinfo: MutPtr, dwprotocolid: UInt, dwcomponentid: UInt, phprotocol: MutPtr): UInt =
     WindowsWin32NetworkmanagementRrasJniBridge.windowssysWindowsWin32NetworkmanagementRrasMgmRegisterMProtocol(prpiinfo.rawAddress, dwprotocolid.toInt(), dwcomponentid.toInt(), phprotocol.rawAddress).toUInt()
 
 public actual fun mgmReleaseInterfaceOwnership(hprotocol: Handle, dwifindex: UInt, dwifnexthopaddr: UInt): UInt =
@@ -948,22 +946,22 @@ public actual fun mgmReleaseInterfaceOwnership(hprotocol: Handle, dwifindex: UIn
 public actual fun mgmTakeInterfaceOwnership(hprotocol: Handle, dwifindex: UInt, dwifnexthopaddr: UInt): UInt =
     WindowsWin32NetworkmanagementRrasJniBridge.windowssysWindowsWin32NetworkmanagementRrasMgmTakeInterfaceOwnership(hprotocol.rawAddress, dwifindex.toInt(), dwifnexthopaddr.toInt()).toUInt()
 
-public actual fun mprAdminBufferFree(pbuffer: ConstPtr<CVoid>): UInt =
+public actual fun mprAdminBufferFree(pbuffer: ConstPtr): UInt =
     WindowsWin32NetworkmanagementRrasJniBridge.windowssysWindowsWin32NetworkmanagementRrasMprAdminBufferFree(pbuffer.rawAddress).toUInt()
 
 public actual fun mprAdminConnectionClearStats(hrasserver: Long, hrasconnection: Handle): UInt =
     WindowsWin32NetworkmanagementRrasJniBridge.windowssysWindowsWin32NetworkmanagementRrasMprAdminConnectionClearStats(hrasserver, hrasconnection.rawAddress).toUInt()
 
-public actual fun mprAdminConnectionEnum(hrasserver: Long, dwlevel: UInt, lplpbbuffer: MutPtr<MutPtr<UByte>>, dwprefmaxlen: UInt, lpdwentriesread: MutPtr<UInt>, lpdwtotalentries: MutPtr<UInt>, lpdwresumehandle: ConstPtr<UInt>): UInt =
+public actual fun mprAdminConnectionEnum(hrasserver: Long, dwlevel: UInt, lplpbbuffer: MutPtr, dwprefmaxlen: UInt, lpdwentriesread: MutPtr, lpdwtotalentries: MutPtr, lpdwresumehandle: ConstPtr): UInt =
     WindowsWin32NetworkmanagementRrasJniBridge.windowssysWindowsWin32NetworkmanagementRrasMprAdminConnectionEnum(hrasserver, dwlevel.toInt(), lplpbbuffer.rawAddress, dwprefmaxlen.toInt(), lpdwentriesread.rawAddress, lpdwtotalentries.rawAddress, lpdwresumehandle.rawAddress).toUInt()
 
-public actual fun mprAdminConnectionEnumEx(hrasserver: Long, pobjectheader: ConstPtr<MprapiObjectHeader>, dwpreferedmaxlen: UInt, lpdwentriesread: MutPtr<UInt>, lpdwtotalentries: MutPtr<UInt>, pprasconn: MutPtr<MutPtr<RasConnectionEx>>, lpdwresumehandle: ConstPtr<UInt>): UInt =
+public actual fun mprAdminConnectionEnumEx(hrasserver: Long, pobjectheader: ConstPtr, dwpreferedmaxlen: UInt, lpdwentriesread: MutPtr, lpdwtotalentries: MutPtr, pprasconn: MutPtr, lpdwresumehandle: ConstPtr): UInt =
     WindowsWin32NetworkmanagementRrasJniBridge.windowssysWindowsWin32NetworkmanagementRrasMprAdminConnectionEnumEx(hrasserver, pobjectheader.rawAddress, dwpreferedmaxlen.toInt(), lpdwentriesread.rawAddress, lpdwtotalentries.rawAddress, pprasconn.rawAddress, lpdwresumehandle.rawAddress).toUInt()
 
-public actual fun mprAdminConnectionGetInfo(hrasserver: Long, dwlevel: UInt, hrasconnection: Handle, lplpbbuffer: MutPtr<MutPtr<UByte>>): UInt =
+public actual fun mprAdminConnectionGetInfo(hrasserver: Long, dwlevel: UInt, hrasconnection: Handle, lplpbbuffer: MutPtr): UInt =
     WindowsWin32NetworkmanagementRrasJniBridge.windowssysWindowsWin32NetworkmanagementRrasMprAdminConnectionGetInfo(hrasserver, dwlevel.toInt(), hrasconnection.rawAddress, lplpbbuffer.rawAddress).toUInt()
 
-public actual fun mprAdminConnectionGetInfoEx(hrasserver: Long, hrasconnection: Handle, prasconnection: MutPtr<RasConnectionEx>): UInt =
+public actual fun mprAdminConnectionGetInfoEx(hrasserver: Long, hrasconnection: Handle, prasconnection: MutPtr): UInt =
     WindowsWin32NetworkmanagementRrasJniBridge.windowssysWindowsWin32NetworkmanagementRrasMprAdminConnectionGetInfoEx(hrasserver, hrasconnection.rawAddress, prasconnection.rawAddress).toUInt()
 
 public actual fun mprAdminConnectionRemoveQuarantine(hrasserver: Handle, hrasconnection: Handle, fisipaddress: Bool): UInt =
@@ -972,13 +970,13 @@ public actual fun mprAdminConnectionRemoveQuarantine(hrasserver: Handle, hrascon
 public actual fun mprAdminDeregisterConnectionNotification(hmprserver: Long, heventnotification: Handle): UInt =
     WindowsWin32NetworkmanagementRrasJniBridge.windowssysWindowsWin32NetworkmanagementRrasMprAdminDeregisterConnectionNotification(hmprserver, heventnotification.rawAddress).toUInt()
 
-public actual fun mprAdminDeviceEnum(hmprserver: Long, dwlevel: UInt, lplpbbuffer: MutPtr<MutPtr<UByte>>, lpdwtotalentries: MutPtr<UInt>): UInt =
+public actual fun mprAdminDeviceEnum(hmprserver: Long, dwlevel: UInt, lplpbbuffer: MutPtr, lpdwtotalentries: MutPtr): UInt =
     WindowsWin32NetworkmanagementRrasJniBridge.windowssysWindowsWin32NetworkmanagementRrasMprAdminDeviceEnum(hmprserver, dwlevel.toInt(), lplpbbuffer.rawAddress, lpdwtotalentries.rawAddress).toUInt()
 
 public actual fun mprAdminEstablishDomainRasServer(pszdomain: Pcwstr, pszmachine: Pcwstr, benable: Bool): UInt =
     WindowsWin32NetworkmanagementRrasJniBridge.windowssysWindowsWin32NetworkmanagementRrasMprAdminEstablishDomainRasServer(pszdomain.rawAddress, pszmachine.rawAddress, benable).toUInt()
 
-public actual fun mprAdminGetErrorString(dwerror: UInt, lplpwserrorstring: MutPtr<Pwstr>): UInt =
+public actual fun mprAdminGetErrorString(dwerror: UInt, lplpwserrorstring: MutPtr): UInt =
     WindowsWin32NetworkmanagementRrasJniBridge.windowssysWindowsWin32NetworkmanagementRrasMprAdminGetErrorString(dwerror.toInt(), lplpwserrorstring.rawAddress).toUInt()
 
 public actual fun mprAdminGetPDCServer(lpszdomain: Pcwstr, lpszserver: Pcwstr, lpszpdcserver: Pwstr): UInt =
@@ -987,64 +985,64 @@ public actual fun mprAdminGetPDCServer(lpszdomain: Pcwstr, lpszserver: Pcwstr, l
 public actual fun mprAdminInterfaceConnect(hmprserver: Long, hinterface: Handle, hevent: Handle, fsynchronous: Bool): UInt =
     WindowsWin32NetworkmanagementRrasJniBridge.windowssysWindowsWin32NetworkmanagementRrasMprAdminInterfaceConnect(hmprserver, hinterface.rawAddress, hevent.rawAddress, fsynchronous).toUInt()
 
-public actual fun mprAdminInterfaceCreate(hmprserver: Long, dwlevel: UInt, lpbbuffer: ConstPtr<UByte>, phinterface: MutPtr<Handle>): UInt =
+public actual fun mprAdminInterfaceCreate(hmprserver: Long, dwlevel: UInt, lpbbuffer: ConstPtr, phinterface: MutPtr): UInt =
     WindowsWin32NetworkmanagementRrasJniBridge.windowssysWindowsWin32NetworkmanagementRrasMprAdminInterfaceCreate(hmprserver, dwlevel.toInt(), lpbbuffer.rawAddress, phinterface.rawAddress).toUInt()
 
 public actual fun mprAdminInterfaceDelete(hmprserver: Long, hinterface: Handle): UInt =
     WindowsWin32NetworkmanagementRrasJniBridge.windowssysWindowsWin32NetworkmanagementRrasMprAdminInterfaceDelete(hmprserver, hinterface.rawAddress).toUInt()
 
-public actual fun mprAdminInterfaceDeviceGetInfo(hmprserver: Long, hinterface: Handle, dwindex: UInt, dwlevel: UInt, lplpbuffer: MutPtr<MutPtr<UByte>>): UInt =
+public actual fun mprAdminInterfaceDeviceGetInfo(hmprserver: Long, hinterface: Handle, dwindex: UInt, dwlevel: UInt, lplpbuffer: MutPtr): UInt =
     WindowsWin32NetworkmanagementRrasJniBridge.windowssysWindowsWin32NetworkmanagementRrasMprAdminInterfaceDeviceGetInfo(hmprserver, hinterface.rawAddress, dwindex.toInt(), dwlevel.toInt(), lplpbuffer.rawAddress).toUInt()
 
-public actual fun mprAdminInterfaceDeviceSetInfo(hmprserver: Long, hinterface: Handle, dwindex: UInt, dwlevel: UInt, lpbbuffer: ConstPtr<UByte>): UInt =
+public actual fun mprAdminInterfaceDeviceSetInfo(hmprserver: Long, hinterface: Handle, dwindex: UInt, dwlevel: UInt, lpbbuffer: ConstPtr): UInt =
     WindowsWin32NetworkmanagementRrasJniBridge.windowssysWindowsWin32NetworkmanagementRrasMprAdminInterfaceDeviceSetInfo(hmprserver, hinterface.rawAddress, dwindex.toInt(), dwlevel.toInt(), lpbbuffer.rawAddress).toUInt()
 
 public actual fun mprAdminInterfaceDisconnect(hmprserver: Long, hinterface: Handle): UInt =
     WindowsWin32NetworkmanagementRrasJniBridge.windowssysWindowsWin32NetworkmanagementRrasMprAdminInterfaceDisconnect(hmprserver, hinterface.rawAddress).toUInt()
 
-public actual fun mprAdminInterfaceEnum(hmprserver: Long, dwlevel: UInt, lplpbbuffer: MutPtr<MutPtr<UByte>>, dwprefmaxlen: UInt, lpdwentriesread: MutPtr<UInt>, lpdwtotalentries: MutPtr<UInt>, lpdwresumehandle: ConstPtr<UInt>): UInt =
+public actual fun mprAdminInterfaceEnum(hmprserver: Long, dwlevel: UInt, lplpbbuffer: MutPtr, dwprefmaxlen: UInt, lpdwentriesread: MutPtr, lpdwtotalentries: MutPtr, lpdwresumehandle: ConstPtr): UInt =
     WindowsWin32NetworkmanagementRrasJniBridge.windowssysWindowsWin32NetworkmanagementRrasMprAdminInterfaceEnum(hmprserver, dwlevel.toInt(), lplpbbuffer.rawAddress, dwprefmaxlen.toInt(), lpdwentriesread.rawAddress, lpdwtotalentries.rawAddress, lpdwresumehandle.rawAddress).toUInt()
 
 public actual fun mprAdminInterfaceGetCredentials(lpwsserver: Pcwstr, lpwsinterfacename: Pcwstr, lpwsusername: Pwstr, lpwspassword: Pwstr, lpwsdomainname: Pwstr): UInt =
     WindowsWin32NetworkmanagementRrasJniBridge.windowssysWindowsWin32NetworkmanagementRrasMprAdminInterfaceGetCredentials(lpwsserver.rawAddress, lpwsinterfacename.rawAddress, lpwsusername.rawAddress, lpwspassword.rawAddress, lpwsdomainname.rawAddress).toUInt()
 
-public actual fun mprAdminInterfaceGetCredentialsEx(hmprserver: Long, hinterface: Handle, dwlevel: UInt, lplpbbuffer: MutPtr<MutPtr<UByte>>): UInt =
+public actual fun mprAdminInterfaceGetCredentialsEx(hmprserver: Long, hinterface: Handle, dwlevel: UInt, lplpbbuffer: MutPtr): UInt =
     WindowsWin32NetworkmanagementRrasJniBridge.windowssysWindowsWin32NetworkmanagementRrasMprAdminInterfaceGetCredentialsEx(hmprserver, hinterface.rawAddress, dwlevel.toInt(), lplpbbuffer.rawAddress).toUInt()
 
-public actual fun mprAdminInterfaceGetCustomInfoEx(hmprserver: Long, hinterface: Handle, pcustominfo: MutPtr<MprIfCustominfoex2>): UInt =
+public actual fun mprAdminInterfaceGetCustomInfoEx(hmprserver: Long, hinterface: Handle, pcustominfo: MutPtr): UInt =
     WindowsWin32NetworkmanagementRrasJniBridge.windowssysWindowsWin32NetworkmanagementRrasMprAdminInterfaceGetCustomInfoEx(hmprserver, hinterface.rawAddress, pcustominfo.rawAddress).toUInt()
 
-public actual fun mprAdminInterfaceGetHandle(hmprserver: Long, lpwsinterfacename: Pcwstr, phinterface: MutPtr<Handle>, fincludeclientinterfaces: Bool): UInt =
+public actual fun mprAdminInterfaceGetHandle(hmprserver: Long, lpwsinterfacename: Pcwstr, phinterface: MutPtr, fincludeclientinterfaces: Bool): UInt =
     WindowsWin32NetworkmanagementRrasJniBridge.windowssysWindowsWin32NetworkmanagementRrasMprAdminInterfaceGetHandle(hmprserver, lpwsinterfacename.rawAddress, phinterface.rawAddress, fincludeclientinterfaces).toUInt()
 
-public actual fun mprAdminInterfaceGetInfo(hmprserver: Long, hinterface: Handle, dwlevel: UInt, lplpbbuffer: ConstPtr<ConstPtr<UByte>>): UInt =
+public actual fun mprAdminInterfaceGetInfo(hmprserver: Long, hinterface: Handle, dwlevel: UInt, lplpbbuffer: ConstPtr): UInt =
     WindowsWin32NetworkmanagementRrasJniBridge.windowssysWindowsWin32NetworkmanagementRrasMprAdminInterfaceGetInfo(hmprserver, hinterface.rawAddress, dwlevel.toInt(), lplpbbuffer.rawAddress).toUInt()
 
-public actual fun mprAdminInterfaceQueryUpdateResult(hmprserver: Long, hinterface: Handle, dwprotocolid: UInt, lpdwupdateresult: MutPtr<UInt>): UInt =
+public actual fun mprAdminInterfaceQueryUpdateResult(hmprserver: Long, hinterface: Handle, dwprotocolid: UInt, lpdwupdateresult: MutPtr): UInt =
     WindowsWin32NetworkmanagementRrasJniBridge.windowssysWindowsWin32NetworkmanagementRrasMprAdminInterfaceQueryUpdateResult(hmprserver, hinterface.rawAddress, dwprotocolid.toInt(), lpdwupdateresult.rawAddress).toUInt()
 
 public actual fun mprAdminInterfaceSetCredentials(lpwsserver: Pcwstr, lpwsinterfacename: Pcwstr, lpwsusername: Pcwstr, lpwsdomainname: Pcwstr, lpwspassword: Pcwstr): UInt =
     WindowsWin32NetworkmanagementRrasJniBridge.windowssysWindowsWin32NetworkmanagementRrasMprAdminInterfaceSetCredentials(lpwsserver.rawAddress, lpwsinterfacename.rawAddress, lpwsusername.rawAddress, lpwsdomainname.rawAddress, lpwspassword.rawAddress).toUInt()
 
-public actual fun mprAdminInterfaceSetCredentialsEx(hmprserver: Long, hinterface: Handle, dwlevel: UInt, lpbbuffer: ConstPtr<UByte>): UInt =
+public actual fun mprAdminInterfaceSetCredentialsEx(hmprserver: Long, hinterface: Handle, dwlevel: UInt, lpbbuffer: ConstPtr): UInt =
     WindowsWin32NetworkmanagementRrasJniBridge.windowssysWindowsWin32NetworkmanagementRrasMprAdminInterfaceSetCredentialsEx(hmprserver, hinterface.rawAddress, dwlevel.toInt(), lpbbuffer.rawAddress).toUInt()
 
-public actual fun mprAdminInterfaceSetCustomInfoEx(hmprserver: Long, hinterface: Handle, pcustominfo: ConstPtr<MprIfCustominfoex2>): UInt =
+public actual fun mprAdminInterfaceSetCustomInfoEx(hmprserver: Long, hinterface: Handle, pcustominfo: ConstPtr): UInt =
     WindowsWin32NetworkmanagementRrasJniBridge.windowssysWindowsWin32NetworkmanagementRrasMprAdminInterfaceSetCustomInfoEx(hmprserver, hinterface.rawAddress, pcustominfo.rawAddress).toUInt()
 
-public actual fun mprAdminInterfaceSetInfo(hmprserver: Long, hinterface: Handle, dwlevel: UInt, lpbbuffer: ConstPtr<UByte>): UInt =
+public actual fun mprAdminInterfaceSetInfo(hmprserver: Long, hinterface: Handle, dwlevel: UInt, lpbbuffer: ConstPtr): UInt =
     WindowsWin32NetworkmanagementRrasJniBridge.windowssysWindowsWin32NetworkmanagementRrasMprAdminInterfaceSetInfo(hmprserver, hinterface.rawAddress, dwlevel.toInt(), lpbbuffer.rawAddress).toUInt()
 
-public actual fun mprAdminInterfaceTransportAdd(hmprserver: Long, hinterface: Handle, dwtransportid: UInt, pinterfaceinfo: ConstPtr<UByte>, dwinterfaceinfosize: UInt): UInt =
+public actual fun mprAdminInterfaceTransportAdd(hmprserver: Long, hinterface: Handle, dwtransportid: UInt, pinterfaceinfo: ConstPtr, dwinterfaceinfosize: UInt): UInt =
     WindowsWin32NetworkmanagementRrasJniBridge.windowssysWindowsWin32NetworkmanagementRrasMprAdminInterfaceTransportAdd(hmprserver, hinterface.rawAddress, dwtransportid.toInt(), pinterfaceinfo.rawAddress, dwinterfaceinfosize.toInt()).toUInt()
 
-public actual fun mprAdminInterfaceTransportGetInfo(hmprserver: Long, hinterface: Handle, dwtransportid: UInt, ppinterfaceinfo: MutPtr<MutPtr<UByte>>, lpdwinterfaceinfosize: MutPtr<UInt>): UInt =
+public actual fun mprAdminInterfaceTransportGetInfo(hmprserver: Long, hinterface: Handle, dwtransportid: UInt, ppinterfaceinfo: MutPtr, lpdwinterfaceinfosize: MutPtr): UInt =
     WindowsWin32NetworkmanagementRrasJniBridge.windowssysWindowsWin32NetworkmanagementRrasMprAdminInterfaceTransportGetInfo(hmprserver, hinterface.rawAddress, dwtransportid.toInt(), ppinterfaceinfo.rawAddress, lpdwinterfaceinfosize.rawAddress).toUInt()
 
 public actual fun mprAdminInterfaceTransportRemove(hmprserver: Long, hinterface: Handle, dwtransportid: UInt): UInt =
     WindowsWin32NetworkmanagementRrasJniBridge.windowssysWindowsWin32NetworkmanagementRrasMprAdminInterfaceTransportRemove(hmprserver, hinterface.rawAddress, dwtransportid.toInt()).toUInt()
 
-public actual fun mprAdminInterfaceTransportSetInfo(hmprserver: Long, hinterface: Handle, dwtransportid: UInt, pinterfaceinfo: ConstPtr<UByte>, dwinterfaceinfosize: UInt): UInt =
+public actual fun mprAdminInterfaceTransportSetInfo(hmprserver: Long, hinterface: Handle, dwtransportid: UInt, pinterfaceinfo: ConstPtr, dwinterfaceinfosize: UInt): UInt =
     WindowsWin32NetworkmanagementRrasJniBridge.windowssysWindowsWin32NetworkmanagementRrasMprAdminInterfaceTransportSetInfo(hmprserver, hinterface.rawAddress, dwtransportid.toInt(), pinterfaceinfo.rawAddress, dwinterfaceinfosize.toInt()).toUInt()
 
 public actual fun mprAdminInterfaceUpdatePhonebookInfo(hmprserver: Long, hinterface: Handle): UInt =
@@ -1053,37 +1051,37 @@ public actual fun mprAdminInterfaceUpdatePhonebookInfo(hmprserver: Long, hinterf
 public actual fun mprAdminInterfaceUpdateRoutes(hmprserver: Long, hinterface: Handle, dwprotocolid: UInt, hevent: Handle): UInt =
     WindowsWin32NetworkmanagementRrasJniBridge.windowssysWindowsWin32NetworkmanagementRrasMprAdminInterfaceUpdateRoutes(hmprserver, hinterface.rawAddress, dwprotocolid.toInt(), hevent.rawAddress).toUInt()
 
-public actual fun mprAdminIsDomainRasServer(pszdomain: Pcwstr, pszmachine: Pcwstr, pbisrasserver: MutPtr<Bool>): UInt =
+public actual fun mprAdminIsDomainRasServer(pszdomain: Pcwstr, pszmachine: Pcwstr, pbisrasserver: MutPtr): UInt =
     WindowsWin32NetworkmanagementRrasJniBridge.windowssysWindowsWin32NetworkmanagementRrasMprAdminIsDomainRasServer(pszdomain.rawAddress, pszmachine.rawAddress, pbisrasserver.rawAddress).toUInt()
 
-public actual fun mprAdminIsServiceInitialized(lpwsservername: Pcwstr, fisserviceinitialized: ConstPtr<Bool>): UInt =
+public actual fun mprAdminIsServiceInitialized(lpwsservername: Pcwstr, fisserviceinitialized: ConstPtr): UInt =
     WindowsWin32NetworkmanagementRrasJniBridge.windowssysWindowsWin32NetworkmanagementRrasMprAdminIsServiceInitialized(lpwsservername.rawAddress, fisserviceinitialized.rawAddress).toUInt()
 
 public actual fun mprAdminIsServiceRunning(lpwsservername: Pcwstr): Bool =
     WindowsWin32NetworkmanagementRrasJniBridge.windowssysWindowsWin32NetworkmanagementRrasMprAdminIsServiceRunning(lpwsservername.rawAddress)
 
-public actual fun mprAdminMIBBufferFree(pbuffer: ConstPtr<CVoid>): UInt =
+public actual fun mprAdminMIBBufferFree(pbuffer: ConstPtr): UInt =
     WindowsWin32NetworkmanagementRrasJniBridge.windowssysWindowsWin32NetworkmanagementRrasMprAdminMIBBufferFree(pbuffer.rawAddress).toUInt()
 
-public actual fun mprAdminMIBEntryCreate(hmibserver: Long, dwpid: UInt, dwroutingpid: UInt, lpentry: ConstPtr<CVoid>, dwentrysize: UInt): UInt =
+public actual fun mprAdminMIBEntryCreate(hmibserver: Long, dwpid: UInt, dwroutingpid: UInt, lpentry: ConstPtr, dwentrysize: UInt): UInt =
     WindowsWin32NetworkmanagementRrasJniBridge.windowssysWindowsWin32NetworkmanagementRrasMprAdminMIBEntryCreate(hmibserver, dwpid.toInt(), dwroutingpid.toInt(), lpentry.rawAddress, dwentrysize.toInt()).toUInt()
 
-public actual fun mprAdminMIBEntryDelete(hmibserver: Long, dwprotocolid: UInt, dwroutingpid: UInt, lpentry: ConstPtr<CVoid>, dwentrysize: UInt): UInt =
+public actual fun mprAdminMIBEntryDelete(hmibserver: Long, dwprotocolid: UInt, dwroutingpid: UInt, lpentry: ConstPtr, dwentrysize: UInt): UInt =
     WindowsWin32NetworkmanagementRrasJniBridge.windowssysWindowsWin32NetworkmanagementRrasMprAdminMIBEntryDelete(hmibserver, dwprotocolid.toInt(), dwroutingpid.toInt(), lpentry.rawAddress, dwentrysize.toInt()).toUInt()
 
-public actual fun mprAdminMIBEntryGet(hmibserver: Long, dwprotocolid: UInt, dwroutingpid: UInt, lpinentry: ConstPtr<CVoid>, dwinentrysize: UInt, lplpoutentry: MutPtr<MutPtr<CVoid>>, lpoutentrysize: MutPtr<UInt>): UInt =
+public actual fun mprAdminMIBEntryGet(hmibserver: Long, dwprotocolid: UInt, dwroutingpid: UInt, lpinentry: ConstPtr, dwinentrysize: UInt, lplpoutentry: MutPtr, lpoutentrysize: MutPtr): UInt =
     WindowsWin32NetworkmanagementRrasJniBridge.windowssysWindowsWin32NetworkmanagementRrasMprAdminMIBEntryGet(hmibserver, dwprotocolid.toInt(), dwroutingpid.toInt(), lpinentry.rawAddress, dwinentrysize.toInt(), lplpoutentry.rawAddress, lpoutentrysize.rawAddress).toUInt()
 
-public actual fun mprAdminMIBEntryGetFirst(hmibserver: Long, dwprotocolid: UInt, dwroutingpid: UInt, lpinentry: ConstPtr<CVoid>, dwinentrysize: UInt, lplpoutentry: MutPtr<MutPtr<CVoid>>, lpoutentrysize: MutPtr<UInt>): UInt =
+public actual fun mprAdminMIBEntryGetFirst(hmibserver: Long, dwprotocolid: UInt, dwroutingpid: UInt, lpinentry: ConstPtr, dwinentrysize: UInt, lplpoutentry: MutPtr, lpoutentrysize: MutPtr): UInt =
     WindowsWin32NetworkmanagementRrasJniBridge.windowssysWindowsWin32NetworkmanagementRrasMprAdminMIBEntryGetFirst(hmibserver, dwprotocolid.toInt(), dwroutingpid.toInt(), lpinentry.rawAddress, dwinentrysize.toInt(), lplpoutentry.rawAddress, lpoutentrysize.rawAddress).toUInt()
 
-public actual fun mprAdminMIBEntryGetNext(hmibserver: Long, dwprotocolid: UInt, dwroutingpid: UInt, lpinentry: ConstPtr<CVoid>, dwinentrysize: UInt, lplpoutentry: MutPtr<MutPtr<CVoid>>, lpoutentrysize: MutPtr<UInt>): UInt =
+public actual fun mprAdminMIBEntryGetNext(hmibserver: Long, dwprotocolid: UInt, dwroutingpid: UInt, lpinentry: ConstPtr, dwinentrysize: UInt, lplpoutentry: MutPtr, lpoutentrysize: MutPtr): UInt =
     WindowsWin32NetworkmanagementRrasJniBridge.windowssysWindowsWin32NetworkmanagementRrasMprAdminMIBEntryGetNext(hmibserver, dwprotocolid.toInt(), dwroutingpid.toInt(), lpinentry.rawAddress, dwinentrysize.toInt(), lplpoutentry.rawAddress, lpoutentrysize.rawAddress).toUInt()
 
-public actual fun mprAdminMIBEntrySet(hmibserver: Long, dwprotocolid: UInt, dwroutingpid: UInt, lpentry: ConstPtr<CVoid>, dwentrysize: UInt): UInt =
+public actual fun mprAdminMIBEntrySet(hmibserver: Long, dwprotocolid: UInt, dwroutingpid: UInt, lpentry: ConstPtr, dwentrysize: UInt): UInt =
     WindowsWin32NetworkmanagementRrasJniBridge.windowssysWindowsWin32NetworkmanagementRrasMprAdminMIBEntrySet(hmibserver, dwprotocolid.toInt(), dwroutingpid.toInt(), lpentry.rawAddress, dwentrysize.toInt()).toUInt()
 
-public actual fun mprAdminMIBServerConnect(lpwsservername: Pcwstr, phmibserver: MutPtr<Long>): UInt =
+public actual fun mprAdminMIBServerConnect(lpwsservername: Pcwstr, phmibserver: MutPtr): UInt =
     WindowsWin32NetworkmanagementRrasJniBridge.windowssysWindowsWin32NetworkmanagementRrasMprAdminMIBServerConnect(lpwsservername.rawAddress, phmibserver.rawAddress).toUInt()
 
 public actual fun mprAdminMIBServerDisconnect(hmibserver: Long) {
@@ -1096,10 +1094,10 @@ public actual fun mprAdminPortClearStats(hrasserver: Long, hport: Handle): UInt 
 public actual fun mprAdminPortDisconnect(hrasserver: Long, hport: Handle): UInt =
     WindowsWin32NetworkmanagementRrasJniBridge.windowssysWindowsWin32NetworkmanagementRrasMprAdminPortDisconnect(hrasserver, hport.rawAddress).toUInt()
 
-public actual fun mprAdminPortEnum(hrasserver: Long, dwlevel: UInt, hrasconnection: Handle, lplpbbuffer: MutPtr<MutPtr<UByte>>, dwprefmaxlen: UInt, lpdwentriesread: MutPtr<UInt>, lpdwtotalentries: MutPtr<UInt>, lpdwresumehandle: ConstPtr<UInt>): UInt =
+public actual fun mprAdminPortEnum(hrasserver: Long, dwlevel: UInt, hrasconnection: Handle, lplpbbuffer: MutPtr, dwprefmaxlen: UInt, lpdwentriesread: MutPtr, lpdwtotalentries: MutPtr, lpdwresumehandle: ConstPtr): UInt =
     WindowsWin32NetworkmanagementRrasJniBridge.windowssysWindowsWin32NetworkmanagementRrasMprAdminPortEnum(hrasserver, dwlevel.toInt(), hrasconnection.rawAddress, lplpbbuffer.rawAddress, dwprefmaxlen.toInt(), lpdwentriesread.rawAddress, lpdwtotalentries.rawAddress, lpdwresumehandle.rawAddress).toUInt()
 
-public actual fun mprAdminPortGetInfo(hrasserver: Long, dwlevel: UInt, hport: Handle, lplpbbuffer: MutPtr<MutPtr<UByte>>): UInt =
+public actual fun mprAdminPortGetInfo(hrasserver: Long, dwlevel: UInt, hport: Handle, lplpbbuffer: MutPtr): UInt =
     WindowsWin32NetworkmanagementRrasJniBridge.windowssysWindowsWin32NetworkmanagementRrasMprAdminPortGetInfo(hrasserver, dwlevel.toInt(), hport.rawAddress, lplpbbuffer.rawAddress).toUInt()
 
 public actual fun mprAdminPortReset(hrasserver: Long, hport: Handle): UInt =
@@ -1111,56 +1109,56 @@ public actual fun mprAdminRegisterConnectionNotification(hmprserver: Long, heven
 public actual fun mprAdminSendUserMessage(hmprserver: Long, hconnection: Handle, lpwszmessage: Pcwstr): UInt =
     WindowsWin32NetworkmanagementRrasJniBridge.windowssysWindowsWin32NetworkmanagementRrasMprAdminSendUserMessage(hmprserver, hconnection.rawAddress, lpwszmessage.rawAddress).toUInt()
 
-public actual fun mprAdminServerConnect(lpwsservername: Pcwstr, phmprserver: MutPtr<Long>): UInt =
+public actual fun mprAdminServerConnect(lpwsservername: Pcwstr, phmprserver: MutPtr): UInt =
     WindowsWin32NetworkmanagementRrasJniBridge.windowssysWindowsWin32NetworkmanagementRrasMprAdminServerConnect(lpwsservername.rawAddress, phmprserver.rawAddress).toUInt()
 
 public actual fun mprAdminServerDisconnect(hmprserver: Long) {
     WindowsWin32NetworkmanagementRrasJniBridge.windowssysWindowsWin32NetworkmanagementRrasMprAdminServerDisconnect(hmprserver)
 }
 
-public actual fun mprAdminServerGetCredentials(hmprserver: Long, dwlevel: UInt, lplpbbuffer: ConstPtr<ConstPtr<UByte>>): UInt =
+public actual fun mprAdminServerGetCredentials(hmprserver: Long, dwlevel: UInt, lplpbbuffer: ConstPtr): UInt =
     WindowsWin32NetworkmanagementRrasJniBridge.windowssysWindowsWin32NetworkmanagementRrasMprAdminServerGetCredentials(hmprserver, dwlevel.toInt(), lplpbbuffer.rawAddress).toUInt()
 
-public actual fun mprAdminServerGetInfo(hmprserver: Long, dwlevel: UInt, lplpbbuffer: MutPtr<MutPtr<UByte>>): UInt =
+public actual fun mprAdminServerGetInfo(hmprserver: Long, dwlevel: UInt, lplpbbuffer: MutPtr): UInt =
     WindowsWin32NetworkmanagementRrasJniBridge.windowssysWindowsWin32NetworkmanagementRrasMprAdminServerGetInfo(hmprserver, dwlevel.toInt(), lplpbbuffer.rawAddress).toUInt()
 
-public actual fun mprAdminServerGetInfoEx(hmprserver: Long, pserverinfo: MutPtr<MprServerEx1>): UInt =
+public actual fun mprAdminServerGetInfoEx(hmprserver: Long, pserverinfo: MutPtr): UInt =
     WindowsWin32NetworkmanagementRrasJniBridge.windowssysWindowsWin32NetworkmanagementRrasMprAdminServerGetInfoEx(hmprserver, pserverinfo.rawAddress).toUInt()
 
-public actual fun mprAdminServerSetCredentials(hmprserver: Long, dwlevel: UInt, lpbbuffer: ConstPtr<UByte>): UInt =
+public actual fun mprAdminServerSetCredentials(hmprserver: Long, dwlevel: UInt, lpbbuffer: ConstPtr): UInt =
     WindowsWin32NetworkmanagementRrasJniBridge.windowssysWindowsWin32NetworkmanagementRrasMprAdminServerSetCredentials(hmprserver, dwlevel.toInt(), lpbbuffer.rawAddress).toUInt()
 
-public actual fun mprAdminServerSetInfo(hmprserver: Long, dwlevel: UInt, lpbbuffer: ConstPtr<UByte>): UInt =
+public actual fun mprAdminServerSetInfo(hmprserver: Long, dwlevel: UInt, lpbbuffer: ConstPtr): UInt =
     WindowsWin32NetworkmanagementRrasJniBridge.windowssysWindowsWin32NetworkmanagementRrasMprAdminServerSetInfo(hmprserver, dwlevel.toInt(), lpbbuffer.rawAddress).toUInt()
 
-public actual fun mprAdminServerSetInfoEx(hmprserver: Long, pserverinfo: ConstPtr<MprServerSetConfigEx1>): UInt =
+public actual fun mprAdminServerSetInfoEx(hmprserver: Long, pserverinfo: ConstPtr): UInt =
     WindowsWin32NetworkmanagementRrasJniBridge.windowssysWindowsWin32NetworkmanagementRrasMprAdminServerSetInfoEx(hmprserver, pserverinfo.rawAddress).toUInt()
 
-public actual fun mprAdminTransportCreate(hmprserver: Long, dwtransportid: UInt, lpwstransportname: Pcwstr, pglobalinfo: ConstPtr<UByte>, dwglobalinfosize: UInt, pclientinterfaceinfo: ConstPtr<UByte>, dwclientinterfaceinfosize: UInt, lpwsdllpath: Pcwstr): UInt =
+public actual fun mprAdminTransportCreate(hmprserver: Long, dwtransportid: UInt, lpwstransportname: Pcwstr, pglobalinfo: ConstPtr, dwglobalinfosize: UInt, pclientinterfaceinfo: ConstPtr, dwclientinterfaceinfosize: UInt, lpwsdllpath: Pcwstr): UInt =
     WindowsWin32NetworkmanagementRrasJniBridge.windowssysWindowsWin32NetworkmanagementRrasMprAdminTransportCreate(hmprserver, dwtransportid.toInt(), lpwstransportname.rawAddress, pglobalinfo.rawAddress, dwglobalinfosize.toInt(), pclientinterfaceinfo.rawAddress, dwclientinterfaceinfosize.toInt(), lpwsdllpath.rawAddress).toUInt()
 
-public actual fun mprAdminTransportGetInfo(hmprserver: Long, dwtransportid: UInt, ppglobalinfo: MutPtr<MutPtr<UByte>>, lpdwglobalinfosize: MutPtr<UInt>, ppclientinterfaceinfo: MutPtr<MutPtr<UByte>>, lpdwclientinterfaceinfosize: MutPtr<UInt>): UInt =
+public actual fun mprAdminTransportGetInfo(hmprserver: Long, dwtransportid: UInt, ppglobalinfo: MutPtr, lpdwglobalinfosize: MutPtr, ppclientinterfaceinfo: MutPtr, lpdwclientinterfaceinfosize: MutPtr): UInt =
     WindowsWin32NetworkmanagementRrasJniBridge.windowssysWindowsWin32NetworkmanagementRrasMprAdminTransportGetInfo(hmprserver, dwtransportid.toInt(), ppglobalinfo.rawAddress, lpdwglobalinfosize.rawAddress, ppclientinterfaceinfo.rawAddress, lpdwclientinterfaceinfosize.rawAddress).toUInt()
 
-public actual fun mprAdminTransportSetInfo(hmprserver: Long, dwtransportid: UInt, pglobalinfo: ConstPtr<UByte>, dwglobalinfosize: UInt, pclientinterfaceinfo: ConstPtr<UByte>, dwclientinterfaceinfosize: UInt): UInt =
+public actual fun mprAdminTransportSetInfo(hmprserver: Long, dwtransportid: UInt, pglobalinfo: ConstPtr, dwglobalinfosize: UInt, pclientinterfaceinfo: ConstPtr, dwclientinterfaceinfosize: UInt): UInt =
     WindowsWin32NetworkmanagementRrasJniBridge.windowssysWindowsWin32NetworkmanagementRrasMprAdminTransportSetInfo(hmprserver, dwtransportid.toInt(), pglobalinfo.rawAddress, dwglobalinfosize.toInt(), pclientinterfaceinfo.rawAddress, dwclientinterfaceinfosize.toInt()).toUInt()
 
-public actual fun mprAdminUpdateConnection(hrasserver: Long, hrasconnection: Handle, prasupdateconnection: ConstPtr<RasUpdateConnection>): UInt =
+public actual fun mprAdminUpdateConnection(hrasserver: Long, hrasconnection: Handle, prasupdateconnection: ConstPtr): UInt =
     WindowsWin32NetworkmanagementRrasJniBridge.windowssysWindowsWin32NetworkmanagementRrasMprAdminUpdateConnection(hrasserver, hrasconnection.rawAddress, prasupdateconnection.rawAddress).toUInt()
 
-public actual fun mprAdminUserGetInfo(lpszserver: Pcwstr, lpszuser: Pcwstr, dwlevel: UInt, lpbbuffer: MutPtr<UByte>): UInt =
+public actual fun mprAdminUserGetInfo(lpszserver: Pcwstr, lpszuser: Pcwstr, dwlevel: UInt, lpbbuffer: MutPtr): UInt =
     WindowsWin32NetworkmanagementRrasJniBridge.windowssysWindowsWin32NetworkmanagementRrasMprAdminUserGetInfo(lpszserver.rawAddress, lpszuser.rawAddress, dwlevel.toInt(), lpbbuffer.rawAddress).toUInt()
 
-public actual fun mprAdminUserSetInfo(lpszserver: Pcwstr, lpszuser: Pcwstr, dwlevel: UInt, lpbbuffer: ConstPtr<UByte>): UInt =
+public actual fun mprAdminUserSetInfo(lpszserver: Pcwstr, lpszuser: Pcwstr, dwlevel: UInt, lpbbuffer: ConstPtr): UInt =
     WindowsWin32NetworkmanagementRrasJniBridge.windowssysWindowsWin32NetworkmanagementRrasMprAdminUserSetInfo(lpszserver.rawAddress, lpszuser.rawAddress, dwlevel.toInt(), lpbbuffer.rawAddress).toUInt()
 
-public actual fun mprConfigBufferFree(pbuffer: ConstPtr<CVoid>): UInt =
+public actual fun mprConfigBufferFree(pbuffer: ConstPtr): UInt =
     WindowsWin32NetworkmanagementRrasJniBridge.windowssysWindowsWin32NetworkmanagementRrasMprConfigBufferFree(pbuffer.rawAddress).toUInt()
 
-public actual fun mprConfigFilterGetInfo(hmprconfig: Handle, dwlevel: UInt, dwtransportid: UInt, lpbuffer: MutPtr<UByte>): UInt =
+public actual fun mprConfigFilterGetInfo(hmprconfig: Handle, dwlevel: UInt, dwtransportid: UInt, lpbuffer: MutPtr): UInt =
     WindowsWin32NetworkmanagementRrasJniBridge.windowssysWindowsWin32NetworkmanagementRrasMprConfigFilterGetInfo(hmprconfig.rawAddress, dwlevel.toInt(), dwtransportid.toInt(), lpbuffer.rawAddress).toUInt()
 
-public actual fun mprConfigFilterSetInfo(hmprconfig: Handle, dwlevel: UInt, dwtransportid: UInt, lpbuffer: ConstPtr<UByte>): UInt =
+public actual fun mprConfigFilterSetInfo(hmprconfig: Handle, dwlevel: UInt, dwtransportid: UInt, lpbuffer: ConstPtr): UInt =
     WindowsWin32NetworkmanagementRrasJniBridge.windowssysWindowsWin32NetworkmanagementRrasMprConfigFilterSetInfo(hmprconfig.rawAddress, dwlevel.toInt(), dwtransportid.toInt(), lpbuffer.rawAddress).toUInt()
 
 public actual fun mprConfigGetFriendlyName(hmprconfig: Handle, pszguidname: Pcwstr, pszbuffer: Pwstr, dwbuffersize: UInt): UInt =
@@ -1169,65 +1167,65 @@ public actual fun mprConfigGetFriendlyName(hmprconfig: Handle, pszguidname: Pcws
 public actual fun mprConfigGetGuidName(hmprconfig: Handle, pszfriendlyname: Pcwstr, pszbuffer: Pwstr, dwbuffersize: UInt): UInt =
     WindowsWin32NetworkmanagementRrasJniBridge.windowssysWindowsWin32NetworkmanagementRrasMprConfigGetGuidName(hmprconfig.rawAddress, pszfriendlyname.rawAddress, pszbuffer.rawAddress, dwbuffersize.toInt()).toUInt()
 
-public actual fun mprConfigInterfaceCreate(hmprconfig: Handle, dwlevel: UInt, lpbbuffer: ConstPtr<UByte>, phrouterinterface: MutPtr<Handle>): UInt =
+public actual fun mprConfigInterfaceCreate(hmprconfig: Handle, dwlevel: UInt, lpbbuffer: ConstPtr, phrouterinterface: MutPtr): UInt =
     WindowsWin32NetworkmanagementRrasJniBridge.windowssysWindowsWin32NetworkmanagementRrasMprConfigInterfaceCreate(hmprconfig.rawAddress, dwlevel.toInt(), lpbbuffer.rawAddress, phrouterinterface.rawAddress).toUInt()
 
 public actual fun mprConfigInterfaceDelete(hmprconfig: Handle, hrouterinterface: Handle): UInt =
     WindowsWin32NetworkmanagementRrasJniBridge.windowssysWindowsWin32NetworkmanagementRrasMprConfigInterfaceDelete(hmprconfig.rawAddress, hrouterinterface.rawAddress).toUInt()
 
-public actual fun mprConfigInterfaceEnum(hmprconfig: Handle, dwlevel: UInt, lplpbuffer: MutPtr<MutPtr<UByte>>, dwprefmaxlen: UInt, lpdwentriesread: MutPtr<UInt>, lpdwtotalentries: MutPtr<UInt>, lpdwresumehandle: MutPtr<UInt>): UInt =
+public actual fun mprConfigInterfaceEnum(hmprconfig: Handle, dwlevel: UInt, lplpbuffer: MutPtr, dwprefmaxlen: UInt, lpdwentriesread: MutPtr, lpdwtotalentries: MutPtr, lpdwresumehandle: MutPtr): UInt =
     WindowsWin32NetworkmanagementRrasJniBridge.windowssysWindowsWin32NetworkmanagementRrasMprConfigInterfaceEnum(hmprconfig.rawAddress, dwlevel.toInt(), lplpbuffer.rawAddress, dwprefmaxlen.toInt(), lpdwentriesread.rawAddress, lpdwtotalentries.rawAddress, lpdwresumehandle.rawAddress).toUInt()
 
-public actual fun mprConfigInterfaceGetCustomInfoEx(hmprconfig: Handle, hrouterinterface: Handle, pcustominfo: MutPtr<MprIfCustominfoex2>): UInt =
+public actual fun mprConfigInterfaceGetCustomInfoEx(hmprconfig: Handle, hrouterinterface: Handle, pcustominfo: MutPtr): UInt =
     WindowsWin32NetworkmanagementRrasJniBridge.windowssysWindowsWin32NetworkmanagementRrasMprConfigInterfaceGetCustomInfoEx(hmprconfig.rawAddress, hrouterinterface.rawAddress, pcustominfo.rawAddress).toUInt()
 
-public actual fun mprConfigInterfaceGetHandle(hmprconfig: Handle, lpwsinterfacename: Pcwstr, phrouterinterface: MutPtr<Handle>): UInt =
+public actual fun mprConfigInterfaceGetHandle(hmprconfig: Handle, lpwsinterfacename: Pcwstr, phrouterinterface: MutPtr): UInt =
     WindowsWin32NetworkmanagementRrasJniBridge.windowssysWindowsWin32NetworkmanagementRrasMprConfigInterfaceGetHandle(hmprconfig.rawAddress, lpwsinterfacename.rawAddress, phrouterinterface.rawAddress).toUInt()
 
-public actual fun mprConfigInterfaceGetInfo(hmprconfig: Handle, hrouterinterface: Handle, dwlevel: UInt, lplpbuffer: MutPtr<MutPtr<UByte>>, lpdwbuffersize: MutPtr<UInt>): UInt =
+public actual fun mprConfigInterfaceGetInfo(hmprconfig: Handle, hrouterinterface: Handle, dwlevel: UInt, lplpbuffer: MutPtr, lpdwbuffersize: MutPtr): UInt =
     WindowsWin32NetworkmanagementRrasJniBridge.windowssysWindowsWin32NetworkmanagementRrasMprConfigInterfaceGetInfo(hmprconfig.rawAddress, hrouterinterface.rawAddress, dwlevel.toInt(), lplpbuffer.rawAddress, lpdwbuffersize.rawAddress).toUInt()
 
-public actual fun mprConfigInterfaceSetCustomInfoEx(hmprconfig: Handle, hrouterinterface: Handle, pcustominfo: ConstPtr<MprIfCustominfoex2>): UInt =
+public actual fun mprConfigInterfaceSetCustomInfoEx(hmprconfig: Handle, hrouterinterface: Handle, pcustominfo: ConstPtr): UInt =
     WindowsWin32NetworkmanagementRrasJniBridge.windowssysWindowsWin32NetworkmanagementRrasMprConfigInterfaceSetCustomInfoEx(hmprconfig.rawAddress, hrouterinterface.rawAddress, pcustominfo.rawAddress).toUInt()
 
-public actual fun mprConfigInterfaceSetInfo(hmprconfig: Handle, hrouterinterface: Handle, dwlevel: UInt, lpbbuffer: ConstPtr<UByte>): UInt =
+public actual fun mprConfigInterfaceSetInfo(hmprconfig: Handle, hrouterinterface: Handle, dwlevel: UInt, lpbbuffer: ConstPtr): UInt =
     WindowsWin32NetworkmanagementRrasJniBridge.windowssysWindowsWin32NetworkmanagementRrasMprConfigInterfaceSetInfo(hmprconfig.rawAddress, hrouterinterface.rawAddress, dwlevel.toInt(), lpbbuffer.rawAddress).toUInt()
 
-public actual fun mprConfigInterfaceTransportAdd(hmprconfig: Handle, hrouterinterface: Handle, dwtransportid: UInt, lpwstransportname: Pcwstr, pinterfaceinfo: ConstPtr<UByte>, dwinterfaceinfosize: UInt, phrouteriftransport: MutPtr<Handle>): UInt =
+public actual fun mprConfigInterfaceTransportAdd(hmprconfig: Handle, hrouterinterface: Handle, dwtransportid: UInt, lpwstransportname: Pcwstr, pinterfaceinfo: ConstPtr, dwinterfaceinfosize: UInt, phrouteriftransport: MutPtr): UInt =
     WindowsWin32NetworkmanagementRrasJniBridge.windowssysWindowsWin32NetworkmanagementRrasMprConfigInterfaceTransportAdd(hmprconfig.rawAddress, hrouterinterface.rawAddress, dwtransportid.toInt(), lpwstransportname.rawAddress, pinterfaceinfo.rawAddress, dwinterfaceinfosize.toInt(), phrouteriftransport.rawAddress).toUInt()
 
-public actual fun mprConfigInterfaceTransportEnum(hmprconfig: Handle, hrouterinterface: Handle, dwlevel: UInt, lplpbuffer: MutPtr<MutPtr<UByte>>, dwprefmaxlen: UInt, lpdwentriesread: MutPtr<UInt>, lpdwtotalentries: MutPtr<UInt>, lpdwresumehandle: MutPtr<UInt>): UInt =
+public actual fun mprConfigInterfaceTransportEnum(hmprconfig: Handle, hrouterinterface: Handle, dwlevel: UInt, lplpbuffer: MutPtr, dwprefmaxlen: UInt, lpdwentriesread: MutPtr, lpdwtotalentries: MutPtr, lpdwresumehandle: MutPtr): UInt =
     WindowsWin32NetworkmanagementRrasJniBridge.windowssysWindowsWin32NetworkmanagementRrasMprConfigInterfaceTransportEnum(hmprconfig.rawAddress, hrouterinterface.rawAddress, dwlevel.toInt(), lplpbuffer.rawAddress, dwprefmaxlen.toInt(), lpdwentriesread.rawAddress, lpdwtotalentries.rawAddress, lpdwresumehandle.rawAddress).toUInt()
 
-public actual fun mprConfigInterfaceTransportGetHandle(hmprconfig: Handle, hrouterinterface: Handle, dwtransportid: UInt, phrouteriftransport: MutPtr<Handle>): UInt =
+public actual fun mprConfigInterfaceTransportGetHandle(hmprconfig: Handle, hrouterinterface: Handle, dwtransportid: UInt, phrouteriftransport: MutPtr): UInt =
     WindowsWin32NetworkmanagementRrasJniBridge.windowssysWindowsWin32NetworkmanagementRrasMprConfigInterfaceTransportGetHandle(hmprconfig.rawAddress, hrouterinterface.rawAddress, dwtransportid.toInt(), phrouteriftransport.rawAddress).toUInt()
 
-public actual fun mprConfigInterfaceTransportGetInfo(hmprconfig: Handle, hrouterinterface: Handle, hrouteriftransport: Handle, ppinterfaceinfo: MutPtr<MutPtr<UByte>>, lpdwinterfaceinfosize: MutPtr<UInt>): UInt =
+public actual fun mprConfigInterfaceTransportGetInfo(hmprconfig: Handle, hrouterinterface: Handle, hrouteriftransport: Handle, ppinterfaceinfo: MutPtr, lpdwinterfaceinfosize: MutPtr): UInt =
     WindowsWin32NetworkmanagementRrasJniBridge.windowssysWindowsWin32NetworkmanagementRrasMprConfigInterfaceTransportGetInfo(hmprconfig.rawAddress, hrouterinterface.rawAddress, hrouteriftransport.rawAddress, ppinterfaceinfo.rawAddress, lpdwinterfaceinfosize.rawAddress).toUInt()
 
 public actual fun mprConfigInterfaceTransportRemove(hmprconfig: Handle, hrouterinterface: Handle, hrouteriftransport: Handle): UInt =
     WindowsWin32NetworkmanagementRrasJniBridge.windowssysWindowsWin32NetworkmanagementRrasMprConfigInterfaceTransportRemove(hmprconfig.rawAddress, hrouterinterface.rawAddress, hrouteriftransport.rawAddress).toUInt()
 
-public actual fun mprConfigInterfaceTransportSetInfo(hmprconfig: Handle, hrouterinterface: Handle, hrouteriftransport: Handle, pinterfaceinfo: ConstPtr<UByte>, dwinterfaceinfosize: UInt): UInt =
+public actual fun mprConfigInterfaceTransportSetInfo(hmprconfig: Handle, hrouterinterface: Handle, hrouteriftransport: Handle, pinterfaceinfo: ConstPtr, dwinterfaceinfosize: UInt): UInt =
     WindowsWin32NetworkmanagementRrasJniBridge.windowssysWindowsWin32NetworkmanagementRrasMprConfigInterfaceTransportSetInfo(hmprconfig.rawAddress, hrouterinterface.rawAddress, hrouteriftransport.rawAddress, pinterfaceinfo.rawAddress, dwinterfaceinfosize.toInt()).toUInt()
 
 public actual fun mprConfigServerBackup(hmprconfig: Handle, lpwspath: Pcwstr): UInt =
     WindowsWin32NetworkmanagementRrasJniBridge.windowssysWindowsWin32NetworkmanagementRrasMprConfigServerBackup(hmprconfig.rawAddress, lpwspath.rawAddress).toUInt()
 
-public actual fun mprConfigServerConnect(lpwsservername: Pcwstr, phmprconfig: MutPtr<Handle>): UInt =
+public actual fun mprConfigServerConnect(lpwsservername: Pcwstr, phmprconfig: MutPtr): UInt =
     WindowsWin32NetworkmanagementRrasJniBridge.windowssysWindowsWin32NetworkmanagementRrasMprConfigServerConnect(lpwsservername.rawAddress, phmprconfig.rawAddress).toUInt()
 
 public actual fun mprConfigServerDisconnect(hmprconfig: Handle) {
     WindowsWin32NetworkmanagementRrasJniBridge.windowssysWindowsWin32NetworkmanagementRrasMprConfigServerDisconnect(hmprconfig.rawAddress)
 }
 
-public actual fun mprConfigServerGetInfo(hmprconfig: Handle, dwlevel: UInt, lplpbbuffer: MutPtr<MutPtr<UByte>>): UInt =
+public actual fun mprConfigServerGetInfo(hmprconfig: Handle, dwlevel: UInt, lplpbbuffer: MutPtr): UInt =
     WindowsWin32NetworkmanagementRrasJniBridge.windowssysWindowsWin32NetworkmanagementRrasMprConfigServerGetInfo(hmprconfig.rawAddress, dwlevel.toInt(), lplpbbuffer.rawAddress).toUInt()
 
-public actual fun mprConfigServerGetInfoEx(hmprconfig: Handle, pserverinfo: MutPtr<MprServerEx1>): UInt =
+public actual fun mprConfigServerGetInfoEx(hmprconfig: Handle, pserverinfo: MutPtr): UInt =
     WindowsWin32NetworkmanagementRrasJniBridge.windowssysWindowsWin32NetworkmanagementRrasMprConfigServerGetInfoEx(hmprconfig.rawAddress, pserverinfo.rawAddress).toUInt()
 
-public actual fun mprConfigServerInstall(dwlevel: UInt, pbuffer: ConstPtr<CVoid>): UInt =
+public actual fun mprConfigServerInstall(dwlevel: UInt, pbuffer: ConstPtr): UInt =
     WindowsWin32NetworkmanagementRrasJniBridge.windowssysWindowsWin32NetworkmanagementRrasMprConfigServerInstall(dwlevel.toInt(), pbuffer.rawAddress).toUInt()
 
 public actual fun mprConfigServerRefresh(hmprconfig: Handle): UInt =
@@ -1236,55 +1234,55 @@ public actual fun mprConfigServerRefresh(hmprconfig: Handle): UInt =
 public actual fun mprConfigServerRestore(hmprconfig: Handle, lpwspath: Pcwstr): UInt =
     WindowsWin32NetworkmanagementRrasJniBridge.windowssysWindowsWin32NetworkmanagementRrasMprConfigServerRestore(hmprconfig.rawAddress, lpwspath.rawAddress).toUInt()
 
-public actual fun mprConfigServerSetInfo(hmprserver: Long, dwlevel: UInt, lpbbuffer: ConstPtr<UByte>): UInt =
+public actual fun mprConfigServerSetInfo(hmprserver: Long, dwlevel: UInt, lpbbuffer: ConstPtr): UInt =
     WindowsWin32NetworkmanagementRrasJniBridge.windowssysWindowsWin32NetworkmanagementRrasMprConfigServerSetInfo(hmprserver, dwlevel.toInt(), lpbbuffer.rawAddress).toUInt()
 
-public actual fun mprConfigServerSetInfoEx(hmprconfig: Handle, psetserverconfig: ConstPtr<MprServerSetConfigEx1>): UInt =
+public actual fun mprConfigServerSetInfoEx(hmprconfig: Handle, psetserverconfig: ConstPtr): UInt =
     WindowsWin32NetworkmanagementRrasJniBridge.windowssysWindowsWin32NetworkmanagementRrasMprConfigServerSetInfoEx(hmprconfig.rawAddress, psetserverconfig.rawAddress).toUInt()
 
-public actual fun mprConfigTransportCreate(hmprconfig: Handle, dwtransportid: UInt, lpwstransportname: Pcwstr, pglobalinfo: ConstPtr<UByte>, dwglobalinfosize: UInt, pclientinterfaceinfo: ConstPtr<UByte>, dwclientinterfaceinfosize: UInt, lpwsdllpath: Pcwstr, phroutertransport: MutPtr<Handle>): UInt =
+public actual fun mprConfigTransportCreate(hmprconfig: Handle, dwtransportid: UInt, lpwstransportname: Pcwstr, pglobalinfo: ConstPtr, dwglobalinfosize: UInt, pclientinterfaceinfo: ConstPtr, dwclientinterfaceinfosize: UInt, lpwsdllpath: Pcwstr, phroutertransport: MutPtr): UInt =
     WindowsWin32NetworkmanagementRrasJniBridge.windowssysWindowsWin32NetworkmanagementRrasMprConfigTransportCreate(hmprconfig.rawAddress, dwtransportid.toInt(), lpwstransportname.rawAddress, pglobalinfo.rawAddress, dwglobalinfosize.toInt(), pclientinterfaceinfo.rawAddress, dwclientinterfaceinfosize.toInt(), lpwsdllpath.rawAddress, phroutertransport.rawAddress).toUInt()
 
 public actual fun mprConfigTransportDelete(hmprconfig: Handle, hroutertransport: Handle): UInt =
     WindowsWin32NetworkmanagementRrasJniBridge.windowssysWindowsWin32NetworkmanagementRrasMprConfigTransportDelete(hmprconfig.rawAddress, hroutertransport.rawAddress).toUInt()
 
-public actual fun mprConfigTransportEnum(hmprconfig: Handle, dwlevel: UInt, lplpbuffer: MutPtr<MutPtr<UByte>>, dwprefmaxlen: UInt, lpdwentriesread: MutPtr<UInt>, lpdwtotalentries: MutPtr<UInt>, lpdwresumehandle: MutPtr<UInt>): UInt =
+public actual fun mprConfigTransportEnum(hmprconfig: Handle, dwlevel: UInt, lplpbuffer: MutPtr, dwprefmaxlen: UInt, lpdwentriesread: MutPtr, lpdwtotalentries: MutPtr, lpdwresumehandle: MutPtr): UInt =
     WindowsWin32NetworkmanagementRrasJniBridge.windowssysWindowsWin32NetworkmanagementRrasMprConfigTransportEnum(hmprconfig.rawAddress, dwlevel.toInt(), lplpbuffer.rawAddress, dwprefmaxlen.toInt(), lpdwentriesread.rawAddress, lpdwtotalentries.rawAddress, lpdwresumehandle.rawAddress).toUInt()
 
-public actual fun mprConfigTransportGetHandle(hmprconfig: Handle, dwtransportid: UInt, phroutertransport: MutPtr<Handle>): UInt =
+public actual fun mprConfigTransportGetHandle(hmprconfig: Handle, dwtransportid: UInt, phroutertransport: MutPtr): UInt =
     WindowsWin32NetworkmanagementRrasJniBridge.windowssysWindowsWin32NetworkmanagementRrasMprConfigTransportGetHandle(hmprconfig.rawAddress, dwtransportid.toInt(), phroutertransport.rawAddress).toUInt()
 
-public actual fun mprConfigTransportGetInfo(hmprconfig: Handle, hroutertransport: Handle, ppglobalinfo: MutPtr<MutPtr<UByte>>, lpdwglobalinfosize: MutPtr<UInt>, ppclientinterfaceinfo: MutPtr<MutPtr<UByte>>, lpdwclientinterfaceinfosize: MutPtr<UInt>, lplpwsdllpath: MutPtr<Pwstr>): UInt =
+public actual fun mprConfigTransportGetInfo(hmprconfig: Handle, hroutertransport: Handle, ppglobalinfo: MutPtr, lpdwglobalinfosize: MutPtr, ppclientinterfaceinfo: MutPtr, lpdwclientinterfaceinfosize: MutPtr, lplpwsdllpath: MutPtr): UInt =
     WindowsWin32NetworkmanagementRrasJniBridge.windowssysWindowsWin32NetworkmanagementRrasMprConfigTransportGetInfo(hmprconfig.rawAddress, hroutertransport.rawAddress, ppglobalinfo.rawAddress, lpdwglobalinfosize.rawAddress, ppclientinterfaceinfo.rawAddress, lpdwclientinterfaceinfosize.rawAddress, lplpwsdllpath.rawAddress).toUInt()
 
-public actual fun mprConfigTransportSetInfo(hmprconfig: Handle, hroutertransport: Handle, pglobalinfo: ConstPtr<UByte>, dwglobalinfosize: UInt, pclientinterfaceinfo: ConstPtr<UByte>, dwclientinterfaceinfosize: UInt, lpwsdllpath: Pcwstr): UInt =
+public actual fun mprConfigTransportSetInfo(hmprconfig: Handle, hroutertransport: Handle, pglobalinfo: ConstPtr, dwglobalinfosize: UInt, pclientinterfaceinfo: ConstPtr, dwclientinterfaceinfosize: UInt, lpwsdllpath: Pcwstr): UInt =
     WindowsWin32NetworkmanagementRrasJniBridge.windowssysWindowsWin32NetworkmanagementRrasMprConfigTransportSetInfo(hmprconfig.rawAddress, hroutertransport.rawAddress, pglobalinfo.rawAddress, dwglobalinfosize.toInt(), pclientinterfaceinfo.rawAddress, dwclientinterfaceinfosize.toInt(), lpwsdllpath.rawAddress).toUInt()
 
-public actual fun mprInfoBlockAdd(lpheader: ConstPtr<CVoid>, dwinfotype: UInt, dwitemsize: UInt, dwitemcount: UInt, lpitemdata: ConstPtr<UByte>, lplpnewheader: MutPtr<MutPtr<CVoid>>): UInt =
+public actual fun mprInfoBlockAdd(lpheader: ConstPtr, dwinfotype: UInt, dwitemsize: UInt, dwitemcount: UInt, lpitemdata: ConstPtr, lplpnewheader: MutPtr): UInt =
     WindowsWin32NetworkmanagementRrasJniBridge.windowssysWindowsWin32NetworkmanagementRrasMprInfoBlockAdd(lpheader.rawAddress, dwinfotype.toInt(), dwitemsize.toInt(), dwitemcount.toInt(), lpitemdata.rawAddress, lplpnewheader.rawAddress).toUInt()
 
-public actual fun mprInfoBlockFind(lpheader: ConstPtr<CVoid>, dwinfotype: UInt, lpdwitemsize: MutPtr<UInt>, lpdwitemcount: MutPtr<UInt>, lplpitemdata: MutPtr<MutPtr<UByte>>): UInt =
+public actual fun mprInfoBlockFind(lpheader: ConstPtr, dwinfotype: UInt, lpdwitemsize: MutPtr, lpdwitemcount: MutPtr, lplpitemdata: MutPtr): UInt =
     WindowsWin32NetworkmanagementRrasJniBridge.windowssysWindowsWin32NetworkmanagementRrasMprInfoBlockFind(lpheader.rawAddress, dwinfotype.toInt(), lpdwitemsize.rawAddress, lpdwitemcount.rawAddress, lplpitemdata.rawAddress).toUInt()
 
-public actual fun mprInfoBlockQuerySize(lpheader: ConstPtr<CVoid>): UInt =
+public actual fun mprInfoBlockQuerySize(lpheader: ConstPtr): UInt =
     WindowsWin32NetworkmanagementRrasJniBridge.windowssysWindowsWin32NetworkmanagementRrasMprInfoBlockQuerySize(lpheader.rawAddress).toUInt()
 
-public actual fun mprInfoBlockRemove(lpheader: ConstPtr<CVoid>, dwinfotype: UInt, lplpnewheader: MutPtr<MutPtr<CVoid>>): UInt =
+public actual fun mprInfoBlockRemove(lpheader: ConstPtr, dwinfotype: UInt, lplpnewheader: MutPtr): UInt =
     WindowsWin32NetworkmanagementRrasJniBridge.windowssysWindowsWin32NetworkmanagementRrasMprInfoBlockRemove(lpheader.rawAddress, dwinfotype.toInt(), lplpnewheader.rawAddress).toUInt()
 
-public actual fun mprInfoBlockSet(lpheader: ConstPtr<CVoid>, dwinfotype: UInt, dwitemsize: UInt, dwitemcount: UInt, lpitemdata: ConstPtr<UByte>, lplpnewheader: MutPtr<MutPtr<CVoid>>): UInt =
+public actual fun mprInfoBlockSet(lpheader: ConstPtr, dwinfotype: UInt, dwitemsize: UInt, dwitemcount: UInt, lpitemdata: ConstPtr, lplpnewheader: MutPtr): UInt =
     WindowsWin32NetworkmanagementRrasJniBridge.windowssysWindowsWin32NetworkmanagementRrasMprInfoBlockSet(lpheader.rawAddress, dwinfotype.toInt(), dwitemsize.toInt(), dwitemcount.toInt(), lpitemdata.rawAddress, lplpnewheader.rawAddress).toUInt()
 
-public actual fun mprInfoCreate(dwversion: UInt, lplpnewheader: MutPtr<MutPtr<CVoid>>): UInt =
+public actual fun mprInfoCreate(dwversion: UInt, lplpnewheader: MutPtr): UInt =
     WindowsWin32NetworkmanagementRrasJniBridge.windowssysWindowsWin32NetworkmanagementRrasMprInfoCreate(dwversion.toInt(), lplpnewheader.rawAddress).toUInt()
 
-public actual fun mprInfoDelete(lpheader: ConstPtr<CVoid>): UInt =
+public actual fun mprInfoDelete(lpheader: ConstPtr): UInt =
     WindowsWin32NetworkmanagementRrasJniBridge.windowssysWindowsWin32NetworkmanagementRrasMprInfoDelete(lpheader.rawAddress).toUInt()
 
-public actual fun mprInfoDuplicate(lpheader: ConstPtr<CVoid>, lplpnewheader: MutPtr<MutPtr<CVoid>>): UInt =
+public actual fun mprInfoDuplicate(lpheader: ConstPtr, lplpnewheader: MutPtr): UInt =
     WindowsWin32NetworkmanagementRrasJniBridge.windowssysWindowsWin32NetworkmanagementRrasMprInfoDuplicate(lpheader.rawAddress, lplpnewheader.rawAddress).toUInt()
 
-public actual fun mprInfoRemoveAll(lpheader: ConstPtr<CVoid>, lplpnewheader: MutPtr<MutPtr<CVoid>>): UInt =
+public actual fun mprInfoRemoveAll(lpheader: ConstPtr, lplpnewheader: MutPtr): UInt =
     WindowsWin32NetworkmanagementRrasJniBridge.windowssysWindowsWin32NetworkmanagementRrasMprInfoRemoveAll(lpheader.rawAddress, lplpnewheader.rawAddress).toUInt()
 
 public actual fun rasClearConnectionStatistics(hrasconn: Hrasconn): UInt =
@@ -1317,16 +1315,16 @@ public actual fun rasDeleteSubEntryA(pszphonebook: Pcstr, pszentry: Pcstr, dwsub
 public actual fun rasDeleteSubEntryW(pszphonebook: Pcwstr, pszentry: Pcwstr, dwsubentryid: UInt): UInt =
     WindowsWin32NetworkmanagementRrasJniBridge.windowssysWindowsWin32NetworkmanagementRrasRasDeleteSubEntryW(pszphonebook.rawAddress, pszentry.rawAddress, dwsubentryid.toInt()).toUInt()
 
-public actual fun rasDialA(param0: ConstPtr<Rasdialextensions>, param1: Pcstr, param2: ConstPtr<Rasdialparamsa>, param3: UInt, param4: ConstPtr<CVoid>, param5: MutPtr<Hrasconn>): UInt =
+public actual fun rasDialA(param0: ConstPtr, param1: Pcstr, param2: ConstPtr, param3: UInt, param4: ConstPtr, param5: MutPtr): UInt =
     WindowsWin32NetworkmanagementRrasJniBridge.windowssysWindowsWin32NetworkmanagementRrasRasDialA(param0.rawAddress, param1.rawAddress, param2.rawAddress, param3.toInt(), param4.rawAddress, param5.rawAddress).toUInt()
 
-public actual fun rasDialDlgA(lpszphonebook: Pcstr, lpszentry: Pcstr, lpszphonenumber: Pcstr, lpinfo: MutPtr<Rasdialdlg>): Bool =
+public actual fun rasDialDlgA(lpszphonebook: Pcstr, lpszentry: Pcstr, lpszphonenumber: Pcstr, lpinfo: MutPtr): Bool =
     WindowsWin32NetworkmanagementRrasJniBridge.windowssysWindowsWin32NetworkmanagementRrasRasDialDlgA(lpszphonebook.rawAddress, lpszentry.rawAddress, lpszphonenumber.rawAddress, lpinfo.rawAddress)
 
-public actual fun rasDialDlgW(lpszphonebook: Pcwstr, lpszentry: Pcwstr, lpszphonenumber: Pcwstr, lpinfo: MutPtr<Rasdialdlg>): Bool =
+public actual fun rasDialDlgW(lpszphonebook: Pcwstr, lpszentry: Pcwstr, lpszphonenumber: Pcwstr, lpinfo: MutPtr): Bool =
     WindowsWin32NetworkmanagementRrasJniBridge.windowssysWindowsWin32NetworkmanagementRrasRasDialDlgW(lpszphonebook.rawAddress, lpszentry.rawAddress, lpszphonenumber.rawAddress, lpinfo.rawAddress)
 
-public actual fun rasDialW(param0: ConstPtr<Rasdialextensions>, param1: Pcwstr, param2: ConstPtr<Rasdialparamsw>, param3: UInt, param4: ConstPtr<CVoid>, param5: MutPtr<Hrasconn>): UInt =
+public actual fun rasDialW(param0: ConstPtr, param1: Pcwstr, param2: ConstPtr, param3: UInt, param4: ConstPtr, param5: MutPtr): UInt =
     WindowsWin32NetworkmanagementRrasJniBridge.windowssysWindowsWin32NetworkmanagementRrasRasDialW(param0.rawAddress, param1.rawAddress, param2.rawAddress, param3.toInt(), param4.rawAddress, param5.rawAddress).toUInt()
 
 public actual fun rasEditPhonebookEntryA(param0: Hwnd, param1: Pcstr, param2: Pcstr): UInt =
@@ -1335,111 +1333,111 @@ public actual fun rasEditPhonebookEntryA(param0: Hwnd, param1: Pcstr, param2: Pc
 public actual fun rasEditPhonebookEntryW(param0: Hwnd, param1: Pcwstr, param2: Pcwstr): UInt =
     WindowsWin32NetworkmanagementRrasJniBridge.windowssysWindowsWin32NetworkmanagementRrasRasEditPhonebookEntryW(param0.rawAddress, param1.rawAddress, param2.rawAddress).toUInt()
 
-public actual fun rasEntryDlgA(lpszphonebook: Pcstr, lpszentry: Pcstr, lpinfo: MutPtr<Rasentrydlga>): Bool =
+public actual fun rasEntryDlgA(lpszphonebook: Pcstr, lpszentry: Pcstr, lpinfo: MutPtr): Bool =
     WindowsWin32NetworkmanagementRrasJniBridge.windowssysWindowsWin32NetworkmanagementRrasRasEntryDlgA(lpszphonebook.rawAddress, lpszentry.rawAddress, lpinfo.rawAddress)
 
-public actual fun rasEntryDlgW(lpszphonebook: Pcwstr, lpszentry: Pcwstr, lpinfo: MutPtr<Rasentrydlgw>): Bool =
+public actual fun rasEntryDlgW(lpszphonebook: Pcwstr, lpszentry: Pcwstr, lpinfo: MutPtr): Bool =
     WindowsWin32NetworkmanagementRrasJniBridge.windowssysWindowsWin32NetworkmanagementRrasRasEntryDlgW(lpszphonebook.rawAddress, lpszentry.rawAddress, lpinfo.rawAddress)
 
-public actual fun rasEnumAutodialAddressesA(lpprasautodialaddresses: MutPtr<Pstr>, lpdwcbrasautodialaddresses: MutPtr<UInt>, lpdwcrasautodialaddresses: MutPtr<UInt>): UInt =
+public actual fun rasEnumAutodialAddressesA(lpprasautodialaddresses: MutPtr, lpdwcbrasautodialaddresses: MutPtr, lpdwcrasautodialaddresses: MutPtr): UInt =
     WindowsWin32NetworkmanagementRrasJniBridge.windowssysWindowsWin32NetworkmanagementRrasRasEnumAutodialAddressesA(lpprasautodialaddresses.rawAddress, lpdwcbrasautodialaddresses.rawAddress, lpdwcrasautodialaddresses.rawAddress).toUInt()
 
-public actual fun rasEnumAutodialAddressesW(lpprasautodialaddresses: MutPtr<Pwstr>, lpdwcbrasautodialaddresses: MutPtr<UInt>, lpdwcrasautodialaddresses: MutPtr<UInt>): UInt =
+public actual fun rasEnumAutodialAddressesW(lpprasautodialaddresses: MutPtr, lpdwcbrasautodialaddresses: MutPtr, lpdwcrasautodialaddresses: MutPtr): UInt =
     WindowsWin32NetworkmanagementRrasJniBridge.windowssysWindowsWin32NetworkmanagementRrasRasEnumAutodialAddressesW(lpprasautodialaddresses.rawAddress, lpdwcbrasautodialaddresses.rawAddress, lpdwcrasautodialaddresses.rawAddress).toUInt()
 
-public actual fun rasEnumConnectionsA(param0: MutPtr<Rasconna>, param1: MutPtr<UInt>, param2: MutPtr<UInt>): UInt =
+public actual fun rasEnumConnectionsA(param0: MutPtr, param1: MutPtr, param2: MutPtr): UInt =
     WindowsWin32NetworkmanagementRrasJniBridge.windowssysWindowsWin32NetworkmanagementRrasRasEnumConnectionsA(param0.rawAddress, param1.rawAddress, param2.rawAddress).toUInt()
 
-public actual fun rasEnumConnectionsW(param0: MutPtr<Rasconnw>, param1: MutPtr<UInt>, param2: MutPtr<UInt>): UInt =
+public actual fun rasEnumConnectionsW(param0: MutPtr, param1: MutPtr, param2: MutPtr): UInt =
     WindowsWin32NetworkmanagementRrasJniBridge.windowssysWindowsWin32NetworkmanagementRrasRasEnumConnectionsW(param0.rawAddress, param1.rawAddress, param2.rawAddress).toUInt()
 
-public actual fun rasEnumDevicesA(param0: MutPtr<Rasdevinfoa>, param1: MutPtr<UInt>, param2: MutPtr<UInt>): UInt =
+public actual fun rasEnumDevicesA(param0: MutPtr, param1: MutPtr, param2: MutPtr): UInt =
     WindowsWin32NetworkmanagementRrasJniBridge.windowssysWindowsWin32NetworkmanagementRrasRasEnumDevicesA(param0.rawAddress, param1.rawAddress, param2.rawAddress).toUInt()
 
-public actual fun rasEnumDevicesW(param0: MutPtr<Rasdevinfow>, param1: MutPtr<UInt>, param2: MutPtr<UInt>): UInt =
+public actual fun rasEnumDevicesW(param0: MutPtr, param1: MutPtr, param2: MutPtr): UInt =
     WindowsWin32NetworkmanagementRrasJniBridge.windowssysWindowsWin32NetworkmanagementRrasRasEnumDevicesW(param0.rawAddress, param1.rawAddress, param2.rawAddress).toUInt()
 
-public actual fun rasEnumEntriesA(param0: Pcstr, param1: Pcstr, param2: MutPtr<Rasentrynamea>, param3: MutPtr<UInt>, param4: MutPtr<UInt>): UInt =
+public actual fun rasEnumEntriesA(param0: Pcstr, param1: Pcstr, param2: MutPtr, param3: MutPtr, param4: MutPtr): UInt =
     WindowsWin32NetworkmanagementRrasJniBridge.windowssysWindowsWin32NetworkmanagementRrasRasEnumEntriesA(param0.rawAddress, param1.rawAddress, param2.rawAddress, param3.rawAddress, param4.rawAddress).toUInt()
 
-public actual fun rasEnumEntriesW(param0: Pcwstr, param1: Pcwstr, param2: MutPtr<Rasentrynamew>, param3: MutPtr<UInt>, param4: MutPtr<UInt>): UInt =
+public actual fun rasEnumEntriesW(param0: Pcwstr, param1: Pcwstr, param2: MutPtr, param3: MutPtr, param4: MutPtr): UInt =
     WindowsWin32NetworkmanagementRrasJniBridge.windowssysWindowsWin32NetworkmanagementRrasRasEnumEntriesW(param0.rawAddress, param1.rawAddress, param2.rawAddress, param3.rawAddress, param4.rawAddress).toUInt()
 
-public actual fun rasFreeEapUserIdentityA(praseapuseridentity: ConstPtr<Raseapuseridentitya>) {
+public actual fun rasFreeEapUserIdentityA(praseapuseridentity: ConstPtr) {
     WindowsWin32NetworkmanagementRrasJniBridge.windowssysWindowsWin32NetworkmanagementRrasRasFreeEapUserIdentityA(praseapuseridentity.rawAddress)
 }
 
-public actual fun rasFreeEapUserIdentityW(praseapuseridentity: ConstPtr<Raseapuseridentityw>) {
+public actual fun rasFreeEapUserIdentityW(praseapuseridentity: ConstPtr) {
     WindowsWin32NetworkmanagementRrasJniBridge.windowssysWindowsWin32NetworkmanagementRrasRasFreeEapUserIdentityW(praseapuseridentity.rawAddress)
 }
 
-public actual fun rasGetAutodialAddressA(param0: Pcstr, param1: ConstPtr<UInt>, param2: MutPtr<Rasautodialentrya>, param3: MutPtr<UInt>, param4: MutPtr<UInt>): UInt =
+public actual fun rasGetAutodialAddressA(param0: Pcstr, param1: ConstPtr, param2: MutPtr, param3: MutPtr, param4: MutPtr): UInt =
     WindowsWin32NetworkmanagementRrasJniBridge.windowssysWindowsWin32NetworkmanagementRrasRasGetAutodialAddressA(param0.rawAddress, param1.rawAddress, param2.rawAddress, param3.rawAddress, param4.rawAddress).toUInt()
 
-public actual fun rasGetAutodialAddressW(param0: Pcwstr, param1: ConstPtr<UInt>, param2: MutPtr<Rasautodialentryw>, param3: MutPtr<UInt>, param4: MutPtr<UInt>): UInt =
+public actual fun rasGetAutodialAddressW(param0: Pcwstr, param1: ConstPtr, param2: MutPtr, param3: MutPtr, param4: MutPtr): UInt =
     WindowsWin32NetworkmanagementRrasJniBridge.windowssysWindowsWin32NetworkmanagementRrasRasGetAutodialAddressW(param0.rawAddress, param1.rawAddress, param2.rawAddress, param3.rawAddress, param4.rawAddress).toUInt()
 
-public actual fun rasGetAutodialEnableA(param0: UInt, param1: MutPtr<Bool>): UInt =
+public actual fun rasGetAutodialEnableA(param0: UInt, param1: MutPtr): UInt =
     WindowsWin32NetworkmanagementRrasJniBridge.windowssysWindowsWin32NetworkmanagementRrasRasGetAutodialEnableA(param0.toInt(), param1.rawAddress).toUInt()
 
-public actual fun rasGetAutodialEnableW(param0: UInt, param1: MutPtr<Bool>): UInt =
+public actual fun rasGetAutodialEnableW(param0: UInt, param1: MutPtr): UInt =
     WindowsWin32NetworkmanagementRrasJniBridge.windowssysWindowsWin32NetworkmanagementRrasRasGetAutodialEnableW(param0.toInt(), param1.rawAddress).toUInt()
 
-public actual fun rasGetAutodialParamA(param0: UInt, param1: MutPtr<CVoid>, param2: MutPtr<UInt>): UInt =
+public actual fun rasGetAutodialParamA(param0: UInt, param1: MutPtr, param2: MutPtr): UInt =
     WindowsWin32NetworkmanagementRrasJniBridge.windowssysWindowsWin32NetworkmanagementRrasRasGetAutodialParamA(param0.toInt(), param1.rawAddress, param2.rawAddress).toUInt()
 
-public actual fun rasGetAutodialParamW(param0: UInt, param1: MutPtr<CVoid>, param2: MutPtr<UInt>): UInt =
+public actual fun rasGetAutodialParamW(param0: UInt, param1: MutPtr, param2: MutPtr): UInt =
     WindowsWin32NetworkmanagementRrasJniBridge.windowssysWindowsWin32NetworkmanagementRrasRasGetAutodialParamW(param0.toInt(), param1.rawAddress, param2.rawAddress).toUInt()
 
-public actual fun rasGetConnectStatusA(param0: Hrasconn, param1: MutPtr<Rasconnstatusa>): UInt =
+public actual fun rasGetConnectStatusA(param0: Hrasconn, param1: MutPtr): UInt =
     WindowsWin32NetworkmanagementRrasJniBridge.windowssysWindowsWin32NetworkmanagementRrasRasGetConnectStatusA(param0.rawAddress, param1.rawAddress).toUInt()
 
-public actual fun rasGetConnectStatusW(param0: Hrasconn, param1: MutPtr<Rasconnstatusw>): UInt =
+public actual fun rasGetConnectStatusW(param0: Hrasconn, param1: MutPtr): UInt =
     WindowsWin32NetworkmanagementRrasJniBridge.windowssysWindowsWin32NetworkmanagementRrasRasGetConnectStatusW(param0.rawAddress, param1.rawAddress).toUInt()
 
-public actual fun rasGetConnectionStatistics(hrasconn: Hrasconn, lpstatistics: MutPtr<RasStats>): UInt =
+public actual fun rasGetConnectionStatistics(hrasconn: Hrasconn, lpstatistics: MutPtr): UInt =
     WindowsWin32NetworkmanagementRrasJniBridge.windowssysWindowsWin32NetworkmanagementRrasRasGetConnectionStatistics(hrasconn.rawAddress, lpstatistics.rawAddress).toUInt()
 
-public actual fun rasGetCountryInfoA(param0: MutPtr<Rasctryinfo>, param1: MutPtr<UInt>): UInt =
+public actual fun rasGetCountryInfoA(param0: MutPtr, param1: MutPtr): UInt =
     WindowsWin32NetworkmanagementRrasJniBridge.windowssysWindowsWin32NetworkmanagementRrasRasGetCountryInfoA(param0.rawAddress, param1.rawAddress).toUInt()
 
-public actual fun rasGetCountryInfoW(param0: MutPtr<Rasctryinfo>, param1: MutPtr<UInt>): UInt =
+public actual fun rasGetCountryInfoW(param0: MutPtr, param1: MutPtr): UInt =
     WindowsWin32NetworkmanagementRrasJniBridge.windowssysWindowsWin32NetworkmanagementRrasRasGetCountryInfoW(param0.rawAddress, param1.rawAddress).toUInt()
 
-public actual fun rasGetCredentialsA(param0: Pcstr, param1: Pcstr, param2: MutPtr<Rascredentialsa>): UInt =
+public actual fun rasGetCredentialsA(param0: Pcstr, param1: Pcstr, param2: MutPtr): UInt =
     WindowsWin32NetworkmanagementRrasJniBridge.windowssysWindowsWin32NetworkmanagementRrasRasGetCredentialsA(param0.rawAddress, param1.rawAddress, param2.rawAddress).toUInt()
 
-public actual fun rasGetCredentialsW(param0: Pcwstr, param1: Pcwstr, param2: MutPtr<Rascredentialsw>): UInt =
+public actual fun rasGetCredentialsW(param0: Pcwstr, param1: Pcwstr, param2: MutPtr): UInt =
     WindowsWin32NetworkmanagementRrasJniBridge.windowssysWindowsWin32NetworkmanagementRrasRasGetCredentialsW(param0.rawAddress, param1.rawAddress, param2.rawAddress).toUInt()
 
-public actual fun rasGetCustomAuthDataA(pszphonebook: Pcstr, pszentry: Pcstr, pbcustomauthdata: MutPtr<UByte>, pdwsizeofcustomauthdata: MutPtr<UInt>): UInt =
+public actual fun rasGetCustomAuthDataA(pszphonebook: Pcstr, pszentry: Pcstr, pbcustomauthdata: MutPtr, pdwsizeofcustomauthdata: MutPtr): UInt =
     WindowsWin32NetworkmanagementRrasJniBridge.windowssysWindowsWin32NetworkmanagementRrasRasGetCustomAuthDataA(pszphonebook.rawAddress, pszentry.rawAddress, pbcustomauthdata.rawAddress, pdwsizeofcustomauthdata.rawAddress).toUInt()
 
-public actual fun rasGetCustomAuthDataW(pszphonebook: Pcwstr, pszentry: Pcwstr, pbcustomauthdata: MutPtr<UByte>, pdwsizeofcustomauthdata: MutPtr<UInt>): UInt =
+public actual fun rasGetCustomAuthDataW(pszphonebook: Pcwstr, pszentry: Pcwstr, pbcustomauthdata: MutPtr, pdwsizeofcustomauthdata: MutPtr): UInt =
     WindowsWin32NetworkmanagementRrasJniBridge.windowssysWindowsWin32NetworkmanagementRrasRasGetCustomAuthDataW(pszphonebook.rawAddress, pszentry.rawAddress, pbcustomauthdata.rawAddress, pdwsizeofcustomauthdata.rawAddress).toUInt()
 
-public actual fun rasGetEapUserDataA(htoken: Handle, pszphonebook: Pcstr, pszentry: Pcstr, pbeapdata: MutPtr<UByte>, pdwsizeofeapdata: MutPtr<UInt>): UInt =
+public actual fun rasGetEapUserDataA(htoken: Handle, pszphonebook: Pcstr, pszentry: Pcstr, pbeapdata: MutPtr, pdwsizeofeapdata: MutPtr): UInt =
     WindowsWin32NetworkmanagementRrasJniBridge.windowssysWindowsWin32NetworkmanagementRrasRasGetEapUserDataA(htoken.rawAddress, pszphonebook.rawAddress, pszentry.rawAddress, pbeapdata.rawAddress, pdwsizeofeapdata.rawAddress).toUInt()
 
-public actual fun rasGetEapUserDataW(htoken: Handle, pszphonebook: Pcwstr, pszentry: Pcwstr, pbeapdata: MutPtr<UByte>, pdwsizeofeapdata: MutPtr<UInt>): UInt =
+public actual fun rasGetEapUserDataW(htoken: Handle, pszphonebook: Pcwstr, pszentry: Pcwstr, pbeapdata: MutPtr, pdwsizeofeapdata: MutPtr): UInt =
     WindowsWin32NetworkmanagementRrasJniBridge.windowssysWindowsWin32NetworkmanagementRrasRasGetEapUserDataW(htoken.rawAddress, pszphonebook.rawAddress, pszentry.rawAddress, pbeapdata.rawAddress, pdwsizeofeapdata.rawAddress).toUInt()
 
-public actual fun rasGetEapUserIdentityA(pszphonebook: Pcstr, pszentry: Pcstr, dwflags: UInt, hwnd: Hwnd, ppraseapuseridentity: MutPtr<MutPtr<Raseapuseridentitya>>): UInt =
+public actual fun rasGetEapUserIdentityA(pszphonebook: Pcstr, pszentry: Pcstr, dwflags: UInt, hwnd: Hwnd, ppraseapuseridentity: MutPtr): UInt =
     WindowsWin32NetworkmanagementRrasJniBridge.windowssysWindowsWin32NetworkmanagementRrasRasGetEapUserIdentityA(pszphonebook.rawAddress, pszentry.rawAddress, dwflags.toInt(), hwnd.rawAddress, ppraseapuseridentity.rawAddress).toUInt()
 
-public actual fun rasGetEapUserIdentityW(pszphonebook: Pcwstr, pszentry: Pcwstr, dwflags: UInt, hwnd: Hwnd, ppraseapuseridentity: MutPtr<MutPtr<Raseapuseridentityw>>): UInt =
+public actual fun rasGetEapUserIdentityW(pszphonebook: Pcwstr, pszentry: Pcwstr, dwflags: UInt, hwnd: Hwnd, ppraseapuseridentity: MutPtr): UInt =
     WindowsWin32NetworkmanagementRrasJniBridge.windowssysWindowsWin32NetworkmanagementRrasRasGetEapUserIdentityW(pszphonebook.rawAddress, pszentry.rawAddress, dwflags.toInt(), hwnd.rawAddress, ppraseapuseridentity.rawAddress).toUInt()
 
-public actual fun rasGetEntryDialParamsA(param0: Pcstr, param1: MutPtr<Rasdialparamsa>, param2: MutPtr<Bool>): UInt =
+public actual fun rasGetEntryDialParamsA(param0: Pcstr, param1: MutPtr, param2: MutPtr): UInt =
     WindowsWin32NetworkmanagementRrasJniBridge.windowssysWindowsWin32NetworkmanagementRrasRasGetEntryDialParamsA(param0.rawAddress, param1.rawAddress, param2.rawAddress).toUInt()
 
-public actual fun rasGetEntryDialParamsW(param0: Pcwstr, param1: MutPtr<Rasdialparamsw>, param2: MutPtr<Bool>): UInt =
+public actual fun rasGetEntryDialParamsW(param0: Pcwstr, param1: MutPtr, param2: MutPtr): UInt =
     WindowsWin32NetworkmanagementRrasJniBridge.windowssysWindowsWin32NetworkmanagementRrasRasGetEntryDialParamsW(param0.rawAddress, param1.rawAddress, param2.rawAddress).toUInt()
 
-public actual fun rasGetEntryPropertiesA(param0: Pcstr, param1: Pcstr, param2: MutPtr<Rasentrya>, param3: MutPtr<UInt>, param4: MutPtr<UByte>, param5: MutPtr<UInt>): UInt =
+public actual fun rasGetEntryPropertiesA(param0: Pcstr, param1: Pcstr, param2: MutPtr, param3: MutPtr, param4: MutPtr, param5: MutPtr): UInt =
     WindowsWin32NetworkmanagementRrasJniBridge.windowssysWindowsWin32NetworkmanagementRrasRasGetEntryPropertiesA(param0.rawAddress, param1.rawAddress, param2.rawAddress, param3.rawAddress, param4.rawAddress, param5.rawAddress).toUInt()
 
-public actual fun rasGetEntryPropertiesW(param0: Pcwstr, param1: Pcwstr, param2: MutPtr<Rasentryw>, param3: MutPtr<UInt>, param4: MutPtr<UByte>, param5: MutPtr<UInt>): UInt =
+public actual fun rasGetEntryPropertiesW(param0: Pcwstr, param1: Pcwstr, param2: MutPtr, param3: MutPtr, param4: MutPtr, param5: MutPtr): UInt =
     WindowsWin32NetworkmanagementRrasJniBridge.windowssysWindowsWin32NetworkmanagementRrasRasGetEntryPropertiesW(param0.rawAddress, param1.rawAddress, param2.rawAddress, param3.rawAddress, param4.rawAddress, param5.rawAddress).toUInt()
 
 public actual fun rasGetErrorStringA(resourceid: UInt, lpszstring: Pstr, inbufsize: UInt): UInt =
@@ -1448,31 +1446,31 @@ public actual fun rasGetErrorStringA(resourceid: UInt, lpszstring: Pstr, inbufsi
 public actual fun rasGetErrorStringW(resourceid: UInt, lpszstring: Pwstr, inbufsize: UInt): UInt =
     WindowsWin32NetworkmanagementRrasJniBridge.windowssysWindowsWin32NetworkmanagementRrasRasGetErrorStringW(resourceid.toInt(), lpszstring.rawAddress, inbufsize.toInt()).toUInt()
 
-public actual fun rasGetLinkStatistics(hrasconn: Hrasconn, dwsubentry: UInt, lpstatistics: MutPtr<RasStats>): UInt =
+public actual fun rasGetLinkStatistics(hrasconn: Hrasconn, dwsubentry: UInt, lpstatistics: MutPtr): UInt =
     WindowsWin32NetworkmanagementRrasJniBridge.windowssysWindowsWin32NetworkmanagementRrasRasGetLinkStatistics(hrasconn.rawAddress, dwsubentry.toInt(), lpstatistics.rawAddress).toUInt()
 
 public actual fun rasGetPCscf(lpszpcscf: Pwstr): UInt =
     WindowsWin32NetworkmanagementRrasJniBridge.windowssysWindowsWin32NetworkmanagementRrasRasGetPCscf(lpszpcscf.rawAddress).toUInt()
 
-public actual fun rasGetProjectionInfoA(param0: Hrasconn, param1: Rasprojection, param2: MutPtr<CVoid>, param3: MutPtr<UInt>): UInt =
+public actual fun rasGetProjectionInfoA(param0: Hrasconn, param1: Rasprojection, param2: MutPtr, param3: MutPtr): UInt =
     WindowsWin32NetworkmanagementRrasJniBridge.windowssysWindowsWin32NetworkmanagementRrasRasGetProjectionInfoA(param0.rawAddress, param1, param2.rawAddress, param3.rawAddress).toUInt()
 
-public actual fun rasGetProjectionInfoEx(hrasconn: Hrasconn, prasprojection: MutPtr<RasProjectionInfo>, lpdwsize: MutPtr<UInt>): UInt =
+public actual fun rasGetProjectionInfoEx(hrasconn: Hrasconn, prasprojection: MutPtr, lpdwsize: MutPtr): UInt =
     WindowsWin32NetworkmanagementRrasJniBridge.windowssysWindowsWin32NetworkmanagementRrasRasGetProjectionInfoEx(hrasconn.rawAddress, prasprojection.rawAddress, lpdwsize.rawAddress).toUInt()
 
-public actual fun rasGetProjectionInfoW(param0: Hrasconn, param1: Rasprojection, param2: MutPtr<CVoid>, param3: MutPtr<UInt>): UInt =
+public actual fun rasGetProjectionInfoW(param0: Hrasconn, param1: Rasprojection, param2: MutPtr, param3: MutPtr): UInt =
     WindowsWin32NetworkmanagementRrasJniBridge.windowssysWindowsWin32NetworkmanagementRrasRasGetProjectionInfoW(param0.rawAddress, param1, param2.rawAddress, param3.rawAddress).toUInt()
 
-public actual fun rasGetSubEntryHandleA(param0: Hrasconn, param1: UInt, param2: MutPtr<Hrasconn>): UInt =
+public actual fun rasGetSubEntryHandleA(param0: Hrasconn, param1: UInt, param2: MutPtr): UInt =
     WindowsWin32NetworkmanagementRrasJniBridge.windowssysWindowsWin32NetworkmanagementRrasRasGetSubEntryHandleA(param0.rawAddress, param1.toInt(), param2.rawAddress).toUInt()
 
-public actual fun rasGetSubEntryHandleW(param0: Hrasconn, param1: UInt, param2: MutPtr<Hrasconn>): UInt =
+public actual fun rasGetSubEntryHandleW(param0: Hrasconn, param1: UInt, param2: MutPtr): UInt =
     WindowsWin32NetworkmanagementRrasJniBridge.windowssysWindowsWin32NetworkmanagementRrasRasGetSubEntryHandleW(param0.rawAddress, param1.toInt(), param2.rawAddress).toUInt()
 
-public actual fun rasGetSubEntryPropertiesA(param0: Pcstr, param1: Pcstr, param2: UInt, param3: MutPtr<Rassubentrya>, param4: MutPtr<UInt>, param5: MutPtr<UByte>, param6: MutPtr<UInt>): UInt =
+public actual fun rasGetSubEntryPropertiesA(param0: Pcstr, param1: Pcstr, param2: UInt, param3: MutPtr, param4: MutPtr, param5: MutPtr, param6: MutPtr): UInt =
     WindowsWin32NetworkmanagementRrasJniBridge.windowssysWindowsWin32NetworkmanagementRrasRasGetSubEntryPropertiesA(param0.rawAddress, param1.rawAddress, param2.toInt(), param3.rawAddress, param4.rawAddress, param5.rawAddress, param6.rawAddress).toUInt()
 
-public actual fun rasGetSubEntryPropertiesW(param0: Pcwstr, param1: Pcwstr, param2: UInt, param3: MutPtr<Rassubentryw>, param4: MutPtr<UInt>, param5: MutPtr<UByte>, param6: MutPtr<UInt>): UInt =
+public actual fun rasGetSubEntryPropertiesW(param0: Pcwstr, param1: Pcwstr, param2: UInt, param3: MutPtr, param4: MutPtr, param5: MutPtr, param6: MutPtr): UInt =
     WindowsWin32NetworkmanagementRrasJniBridge.windowssysWindowsWin32NetworkmanagementRrasRasGetSubEntryPropertiesW(param0.rawAddress, param1.rawAddress, param2.toInt(), param3.rawAddress, param4.rawAddress, param5.rawAddress, param6.rawAddress).toUInt()
 
 public actual fun rasHangUpA(param0: Hrasconn): UInt =
@@ -1481,13 +1479,13 @@ public actual fun rasHangUpA(param0: Hrasconn): UInt =
 public actual fun rasHangUpW(param0: Hrasconn): UInt =
     WindowsWin32NetworkmanagementRrasJniBridge.windowssysWindowsWin32NetworkmanagementRrasRasHangUpW(param0.rawAddress).toUInt()
 
-public actual fun rasInvokeEapUI(param0: Hrasconn, param1: UInt, param2: ConstPtr<Rasdialextensions>, param3: Hwnd): UInt =
+public actual fun rasInvokeEapUI(param0: Hrasconn, param1: UInt, param2: ConstPtr, param3: Hwnd): UInt =
     WindowsWin32NetworkmanagementRrasJniBridge.windowssysWindowsWin32NetworkmanagementRrasRasInvokeEapUI(param0.rawAddress, param1.toInt(), param2.rawAddress, param3.rawAddress).toUInt()
 
-public actual fun rasPhonebookDlgA(lpszphonebook: Pcstr, lpszentry: Pcstr, lpinfo: MutPtr<Raspbdlga>): Bool =
+public actual fun rasPhonebookDlgA(lpszphonebook: Pcstr, lpszentry: Pcstr, lpinfo: MutPtr): Bool =
     WindowsWin32NetworkmanagementRrasJniBridge.windowssysWindowsWin32NetworkmanagementRrasRasPhonebookDlgA(lpszphonebook.rawAddress, lpszentry.rawAddress, lpinfo.rawAddress)
 
-public actual fun rasPhonebookDlgW(lpszphonebook: Pcwstr, lpszentry: Pcwstr, lpinfo: MutPtr<Raspbdlgw>): Bool =
+public actual fun rasPhonebookDlgW(lpszphonebook: Pcwstr, lpszentry: Pcwstr, lpinfo: MutPtr): Bool =
     WindowsWin32NetworkmanagementRrasJniBridge.windowssysWindowsWin32NetworkmanagementRrasRasPhonebookDlgW(lpszphonebook.rawAddress, lpszentry.rawAddress, lpinfo.rawAddress)
 
 public actual fun rasRenameEntryA(param0: Pcstr, param1: Pcstr, param2: Pcstr): UInt =
@@ -1496,10 +1494,10 @@ public actual fun rasRenameEntryA(param0: Pcstr, param1: Pcstr, param2: Pcstr): 
 public actual fun rasRenameEntryW(param0: Pcwstr, param1: Pcwstr, param2: Pcwstr): UInt =
     WindowsWin32NetworkmanagementRrasJniBridge.windowssysWindowsWin32NetworkmanagementRrasRasRenameEntryW(param0.rawAddress, param1.rawAddress, param2.rawAddress).toUInt()
 
-public actual fun rasSetAutodialAddressA(param0: Pcstr, param1: UInt, param2: ConstPtr<Rasautodialentrya>, param3: UInt, param4: UInt): UInt =
+public actual fun rasSetAutodialAddressA(param0: Pcstr, param1: UInt, param2: ConstPtr, param3: UInt, param4: UInt): UInt =
     WindowsWin32NetworkmanagementRrasJniBridge.windowssysWindowsWin32NetworkmanagementRrasRasSetAutodialAddressA(param0.rawAddress, param1.toInt(), param2.rawAddress, param3.toInt(), param4.toInt()).toUInt()
 
-public actual fun rasSetAutodialAddressW(param0: Pcwstr, param1: UInt, param2: ConstPtr<Rasautodialentryw>, param3: UInt, param4: UInt): UInt =
+public actual fun rasSetAutodialAddressW(param0: Pcwstr, param1: UInt, param2: ConstPtr, param3: UInt, param4: UInt): UInt =
     WindowsWin32NetworkmanagementRrasJniBridge.windowssysWindowsWin32NetworkmanagementRrasRasSetAutodialAddressW(param0.rawAddress, param1.toInt(), param2.rawAddress, param3.toInt(), param4.toInt()).toUInt()
 
 public actual fun rasSetAutodialEnableA(param0: UInt, param1: Bool): UInt =
@@ -1508,49 +1506,49 @@ public actual fun rasSetAutodialEnableA(param0: UInt, param1: Bool): UInt =
 public actual fun rasSetAutodialEnableW(param0: UInt, param1: Bool): UInt =
     WindowsWin32NetworkmanagementRrasJniBridge.windowssysWindowsWin32NetworkmanagementRrasRasSetAutodialEnableW(param0.toInt(), param1).toUInt()
 
-public actual fun rasSetAutodialParamA(param0: UInt, param1: ConstPtr<CVoid>, param2: UInt): UInt =
+public actual fun rasSetAutodialParamA(param0: UInt, param1: ConstPtr, param2: UInt): UInt =
     WindowsWin32NetworkmanagementRrasJniBridge.windowssysWindowsWin32NetworkmanagementRrasRasSetAutodialParamA(param0.toInt(), param1.rawAddress, param2.toInt()).toUInt()
 
-public actual fun rasSetAutodialParamW(param0: UInt, param1: ConstPtr<CVoid>, param2: UInt): UInt =
+public actual fun rasSetAutodialParamW(param0: UInt, param1: ConstPtr, param2: UInt): UInt =
     WindowsWin32NetworkmanagementRrasJniBridge.windowssysWindowsWin32NetworkmanagementRrasRasSetAutodialParamW(param0.toInt(), param1.rawAddress, param2.toInt()).toUInt()
 
-public actual fun rasSetCredentialsA(param0: Pcstr, param1: Pcstr, param2: ConstPtr<Rascredentialsa>, param3: Bool): UInt =
+public actual fun rasSetCredentialsA(param0: Pcstr, param1: Pcstr, param2: ConstPtr, param3: Bool): UInt =
     WindowsWin32NetworkmanagementRrasJniBridge.windowssysWindowsWin32NetworkmanagementRrasRasSetCredentialsA(param0.rawAddress, param1.rawAddress, param2.rawAddress, param3).toUInt()
 
-public actual fun rasSetCredentialsW(param0: Pcwstr, param1: Pcwstr, param2: ConstPtr<Rascredentialsw>, param3: Bool): UInt =
+public actual fun rasSetCredentialsW(param0: Pcwstr, param1: Pcwstr, param2: ConstPtr, param3: Bool): UInt =
     WindowsWin32NetworkmanagementRrasJniBridge.windowssysWindowsWin32NetworkmanagementRrasRasSetCredentialsW(param0.rawAddress, param1.rawAddress, param2.rawAddress, param3).toUInt()
 
-public actual fun rasSetCustomAuthDataA(pszphonebook: Pcstr, pszentry: Pcstr, pbcustomauthdata: ConstPtr<UByte>, dwsizeofcustomauthdata: UInt): UInt =
+public actual fun rasSetCustomAuthDataA(pszphonebook: Pcstr, pszentry: Pcstr, pbcustomauthdata: ConstPtr, dwsizeofcustomauthdata: UInt): UInt =
     WindowsWin32NetworkmanagementRrasJniBridge.windowssysWindowsWin32NetworkmanagementRrasRasSetCustomAuthDataA(pszphonebook.rawAddress, pszentry.rawAddress, pbcustomauthdata.rawAddress, dwsizeofcustomauthdata.toInt()).toUInt()
 
-public actual fun rasSetCustomAuthDataW(pszphonebook: Pcwstr, pszentry: Pcwstr, pbcustomauthdata: ConstPtr<UByte>, dwsizeofcustomauthdata: UInt): UInt =
+public actual fun rasSetCustomAuthDataW(pszphonebook: Pcwstr, pszentry: Pcwstr, pbcustomauthdata: ConstPtr, dwsizeofcustomauthdata: UInt): UInt =
     WindowsWin32NetworkmanagementRrasJniBridge.windowssysWindowsWin32NetworkmanagementRrasRasSetCustomAuthDataW(pszphonebook.rawAddress, pszentry.rawAddress, pbcustomauthdata.rawAddress, dwsizeofcustomauthdata.toInt()).toUInt()
 
-public actual fun rasSetEapUserDataA(htoken: Handle, pszphonebook: Pcstr, pszentry: Pcstr, pbeapdata: ConstPtr<UByte>, dwsizeofeapdata: UInt): UInt =
+public actual fun rasSetEapUserDataA(htoken: Handle, pszphonebook: Pcstr, pszentry: Pcstr, pbeapdata: ConstPtr, dwsizeofeapdata: UInt): UInt =
     WindowsWin32NetworkmanagementRrasJniBridge.windowssysWindowsWin32NetworkmanagementRrasRasSetEapUserDataA(htoken.rawAddress, pszphonebook.rawAddress, pszentry.rawAddress, pbeapdata.rawAddress, dwsizeofeapdata.toInt()).toUInt()
 
-public actual fun rasSetEapUserDataW(htoken: Handle, pszphonebook: Pcwstr, pszentry: Pcwstr, pbeapdata: ConstPtr<UByte>, dwsizeofeapdata: UInt): UInt =
+public actual fun rasSetEapUserDataW(htoken: Handle, pszphonebook: Pcwstr, pszentry: Pcwstr, pbeapdata: ConstPtr, dwsizeofeapdata: UInt): UInt =
     WindowsWin32NetworkmanagementRrasJniBridge.windowssysWindowsWin32NetworkmanagementRrasRasSetEapUserDataW(htoken.rawAddress, pszphonebook.rawAddress, pszentry.rawAddress, pbeapdata.rawAddress, dwsizeofeapdata.toInt()).toUInt()
 
-public actual fun rasSetEntryDialParamsA(param0: Pcstr, param1: ConstPtr<Rasdialparamsa>, param2: Bool): UInt =
+public actual fun rasSetEntryDialParamsA(param0: Pcstr, param1: ConstPtr, param2: Bool): UInt =
     WindowsWin32NetworkmanagementRrasJniBridge.windowssysWindowsWin32NetworkmanagementRrasRasSetEntryDialParamsA(param0.rawAddress, param1.rawAddress, param2).toUInt()
 
-public actual fun rasSetEntryDialParamsW(param0: Pcwstr, param1: ConstPtr<Rasdialparamsw>, param2: Bool): UInt =
+public actual fun rasSetEntryDialParamsW(param0: Pcwstr, param1: ConstPtr, param2: Bool): UInt =
     WindowsWin32NetworkmanagementRrasJniBridge.windowssysWindowsWin32NetworkmanagementRrasRasSetEntryDialParamsW(param0.rawAddress, param1.rawAddress, param2).toUInt()
 
-public actual fun rasSetEntryPropertiesA(param0: Pcstr, param1: Pcstr, param2: ConstPtr<Rasentrya>, param3: UInt, param4: ConstPtr<UByte>, param5: UInt): UInt =
+public actual fun rasSetEntryPropertiesA(param0: Pcstr, param1: Pcstr, param2: ConstPtr, param3: UInt, param4: ConstPtr, param5: UInt): UInt =
     WindowsWin32NetworkmanagementRrasJniBridge.windowssysWindowsWin32NetworkmanagementRrasRasSetEntryPropertiesA(param0.rawAddress, param1.rawAddress, param2.rawAddress, param3.toInt(), param4.rawAddress, param5.toInt()).toUInt()
 
-public actual fun rasSetEntryPropertiesW(param0: Pcwstr, param1: Pcwstr, param2: ConstPtr<Rasentryw>, param3: UInt, param4: ConstPtr<UByte>, param5: UInt): UInt =
+public actual fun rasSetEntryPropertiesW(param0: Pcwstr, param1: Pcwstr, param2: ConstPtr, param3: UInt, param4: ConstPtr, param5: UInt): UInt =
     WindowsWin32NetworkmanagementRrasJniBridge.windowssysWindowsWin32NetworkmanagementRrasRasSetEntryPropertiesW(param0.rawAddress, param1.rawAddress, param2.rawAddress, param3.toInt(), param4.rawAddress, param5.toInt()).toUInt()
 
-public actual fun rasSetSubEntryPropertiesA(param0: Pcstr, param1: Pcstr, param2: UInt, param3: ConstPtr<Rassubentrya>, param4: UInt, param5: ConstPtr<UByte>, param6: UInt): UInt =
+public actual fun rasSetSubEntryPropertiesA(param0: Pcstr, param1: Pcstr, param2: UInt, param3: ConstPtr, param4: UInt, param5: ConstPtr, param6: UInt): UInt =
     WindowsWin32NetworkmanagementRrasJniBridge.windowssysWindowsWin32NetworkmanagementRrasRasSetSubEntryPropertiesA(param0.rawAddress, param1.rawAddress, param2.toInt(), param3.rawAddress, param4.toInt(), param5.rawAddress, param6.toInt()).toUInt()
 
-public actual fun rasSetSubEntryPropertiesW(param0: Pcwstr, param1: Pcwstr, param2: UInt, param3: ConstPtr<Rassubentryw>, param4: UInt, param5: ConstPtr<UByte>, param6: UInt): UInt =
+public actual fun rasSetSubEntryPropertiesW(param0: Pcwstr, param1: Pcwstr, param2: UInt, param3: ConstPtr, param4: UInt, param5: ConstPtr, param6: UInt): UInt =
     WindowsWin32NetworkmanagementRrasJniBridge.windowssysWindowsWin32NetworkmanagementRrasRasSetSubEntryPropertiesW(param0.rawAddress, param1.rawAddress, param2.toInt(), param3.rawAddress, param4.toInt(), param5.rawAddress, param6.toInt()).toUInt()
 
-public actual fun rasUpdateConnection(hrasconn: Hrasconn, lprasupdateconn: ConstPtr<Rasupdateconn>): UInt =
+public actual fun rasUpdateConnection(hrasconn: Hrasconn, lprasupdateconn: ConstPtr): UInt =
     WindowsWin32NetworkmanagementRrasJniBridge.windowssysWindowsWin32NetworkmanagementRrasRasUpdateConnection(hrasconn.rawAddress, lprasupdateconn.rawAddress).toUInt()
 
 public actual fun rasValidateEntryNameA(param0: Pcstr, param1: Pcstr): UInt =
@@ -1559,46 +1557,46 @@ public actual fun rasValidateEntryNameA(param0: Pcstr, param1: Pcstr): UInt =
 public actual fun rasValidateEntryNameW(param0: Pcwstr, param1: Pcwstr): UInt =
     WindowsWin32NetworkmanagementRrasJniBridge.windowssysWindowsWin32NetworkmanagementRrasRasValidateEntryNameW(param0.rawAddress, param1.rawAddress).toUInt()
 
-public actual fun rtmAddNextHop(rtmreghandle: Long, nexthopinfo: MutPtr<RtmNexthopInfo>, nexthophandle: MutPtr<Long>, changeflags: MutPtr<UInt>): UInt =
+public actual fun rtmAddNextHop(rtmreghandle: Long, nexthopinfo: MutPtr, nexthophandle: MutPtr, changeflags: MutPtr): UInt =
     WindowsWin32NetworkmanagementRrasJniBridge.windowssysWindowsWin32NetworkmanagementRrasRtmAddNextHop(rtmreghandle, nexthopinfo.rawAddress, nexthophandle.rawAddress, changeflags.rawAddress).toUInt()
 
-public actual fun rtmAddRouteToDest(rtmreghandle: Long, routehandle: MutPtr<Long>, destaddress: MutPtr<RtmNetAddress>, routeinfo: MutPtr<RtmRouteInfo>, timetolive: UInt, routelisthandle: Long, notifytype: UInt, notifyhandle: Long, changeflags: MutPtr<UInt>): UInt =
+public actual fun rtmAddRouteToDest(rtmreghandle: Long, routehandle: MutPtr, destaddress: MutPtr, routeinfo: MutPtr, timetolive: UInt, routelisthandle: Long, notifytype: UInt, notifyhandle: Long, changeflags: MutPtr): UInt =
     WindowsWin32NetworkmanagementRrasJniBridge.windowssysWindowsWin32NetworkmanagementRrasRtmAddRouteToDest(rtmreghandle, routehandle.rawAddress, destaddress.rawAddress, routeinfo.rawAddress, timetolive.toInt(), routelisthandle, notifytype.toInt(), notifyhandle, changeflags.rawAddress).toUInt()
 
 public actual fun rtmBlockMethods(rtmreghandle: Long, targethandle: Handle, targettype: UByte, blockingflag: UInt): UInt =
     WindowsWin32NetworkmanagementRrasJniBridge.windowssysWindowsWin32NetworkmanagementRrasRtmBlockMethods(rtmreghandle, targethandle.rawAddress, targettype.toByte(), blockingflag.toInt()).toUInt()
 
-public actual fun rtmConvertIpv6AddressAndLengthToNetAddress(pnetaddress: MutPtr<RtmNetAddress>, address: In6Addr, dwlength: UInt, dwaddresssize: UInt): UInt =
+public actual fun rtmConvertIpv6AddressAndLengthToNetAddress(pnetaddress: MutPtr, address: In6Addr, dwlength: UInt, dwaddresssize: UInt): UInt =
     0u
 
-public actual fun rtmConvertNetAddressToIpv6AddressAndLength(pnetaddress: MutPtr<RtmNetAddress>, paddress: MutPtr<In6Addr>, plength: MutPtr<UInt>, dwaddresssize: UInt): UInt =
+public actual fun rtmConvertNetAddressToIpv6AddressAndLength(pnetaddress: MutPtr, paddress: MutPtr, plength: MutPtr, dwaddresssize: UInt): UInt =
     WindowsWin32NetworkmanagementRrasJniBridge.windowssysWindowsWin32NetworkmanagementRrasRtmConvertNetAddressToIpv6AddressAndLength(pnetaddress.rawAddress, paddress.rawAddress, plength.rawAddress, dwaddresssize.toInt()).toUInt()
 
-public actual fun rtmCreateDestEnum(rtmreghandle: Long, targetviews: UInt, enumflags: UInt, netaddress: MutPtr<RtmNetAddress>, protocolid: UInt, rtmenumhandle: MutPtr<Long>): UInt =
+public actual fun rtmCreateDestEnum(rtmreghandle: Long, targetviews: UInt, enumflags: UInt, netaddress: MutPtr, protocolid: UInt, rtmenumhandle: MutPtr): UInt =
     WindowsWin32NetworkmanagementRrasJniBridge.windowssysWindowsWin32NetworkmanagementRrasRtmCreateDestEnum(rtmreghandle, targetviews.toInt(), enumflags.toInt(), netaddress.rawAddress, protocolid.toInt(), rtmenumhandle.rawAddress).toUInt()
 
-public actual fun rtmCreateNextHopEnum(rtmreghandle: Long, enumflags: UInt, netaddress: MutPtr<RtmNetAddress>, rtmenumhandle: MutPtr<Long>): UInt =
+public actual fun rtmCreateNextHopEnum(rtmreghandle: Long, enumflags: UInt, netaddress: MutPtr, rtmenumhandle: MutPtr): UInt =
     WindowsWin32NetworkmanagementRrasJniBridge.windowssysWindowsWin32NetworkmanagementRrasRtmCreateNextHopEnum(rtmreghandle, enumflags.toInt(), netaddress.rawAddress, rtmenumhandle.rawAddress).toUInt()
 
-public actual fun rtmCreateRouteEnum(rtmreghandle: Long, desthandle: Long, targetviews: UInt, enumflags: UInt, startdest: MutPtr<RtmNetAddress>, matchingflags: UInt, criteriaroute: MutPtr<RtmRouteInfo>, criteriainterface: UInt, rtmenumhandle: MutPtr<Long>): UInt =
+public actual fun rtmCreateRouteEnum(rtmreghandle: Long, desthandle: Long, targetviews: UInt, enumflags: UInt, startdest: MutPtr, matchingflags: UInt, criteriaroute: MutPtr, criteriainterface: UInt, rtmenumhandle: MutPtr): UInt =
     WindowsWin32NetworkmanagementRrasJniBridge.windowssysWindowsWin32NetworkmanagementRrasRtmCreateRouteEnum(rtmreghandle, desthandle, targetviews.toInt(), enumflags.toInt(), startdest.rawAddress, matchingflags.toInt(), criteriaroute.rawAddress, criteriainterface.toInt(), rtmenumhandle.rawAddress).toUInt()
 
-public actual fun rtmCreateRouteList(rtmreghandle: Long, routelisthandle: MutPtr<Long>): UInt =
+public actual fun rtmCreateRouteList(rtmreghandle: Long, routelisthandle: MutPtr): UInt =
     WindowsWin32NetworkmanagementRrasJniBridge.windowssysWindowsWin32NetworkmanagementRrasRtmCreateRouteList(rtmreghandle, routelisthandle.rawAddress).toUInt()
 
-public actual fun rtmCreateRouteListEnum(rtmreghandle: Long, routelisthandle: Long, rtmenumhandle: MutPtr<Long>): UInt =
+public actual fun rtmCreateRouteListEnum(rtmreghandle: Long, routelisthandle: Long, rtmenumhandle: MutPtr): UInt =
     WindowsWin32NetworkmanagementRrasJniBridge.windowssysWindowsWin32NetworkmanagementRrasRtmCreateRouteListEnum(rtmreghandle, routelisthandle, rtmenumhandle.rawAddress).toUInt()
 
 public actual fun rtmDeleteEnumHandle(rtmreghandle: Long, enumhandle: Long): UInt =
     WindowsWin32NetworkmanagementRrasJniBridge.windowssysWindowsWin32NetworkmanagementRrasRtmDeleteEnumHandle(rtmreghandle, enumhandle).toUInt()
 
-public actual fun rtmDeleteNextHop(rtmreghandle: Long, nexthophandle: Long, nexthopinfo: MutPtr<RtmNexthopInfo>): UInt =
+public actual fun rtmDeleteNextHop(rtmreghandle: Long, nexthophandle: Long, nexthopinfo: MutPtr): UInt =
     WindowsWin32NetworkmanagementRrasJniBridge.windowssysWindowsWin32NetworkmanagementRrasRtmDeleteNextHop(rtmreghandle, nexthophandle, nexthopinfo.rawAddress).toUInt()
 
 public actual fun rtmDeleteRouteList(rtmreghandle: Long, routelisthandle: Long): UInt =
     WindowsWin32NetworkmanagementRrasJniBridge.windowssysWindowsWin32NetworkmanagementRrasRtmDeleteRouteList(rtmreghandle, routelisthandle).toUInt()
 
-public actual fun rtmDeleteRouteToDest(rtmreghandle: Long, routehandle: Long, changeflags: MutPtr<UInt>): UInt =
+public actual fun rtmDeleteRouteToDest(rtmreghandle: Long, routehandle: Long, changeflags: MutPtr): UInt =
     WindowsWin32NetworkmanagementRrasJniBridge.windowssysWindowsWin32NetworkmanagementRrasRtmDeleteRouteToDest(rtmreghandle, routehandle, changeflags.rawAddress).toUInt()
 
 public actual fun rtmDeregisterEntity(rtmreghandle: Long): UInt =
@@ -1607,131 +1605,131 @@ public actual fun rtmDeregisterEntity(rtmreghandle: Long): UInt =
 public actual fun rtmDeregisterFromChangeNotification(rtmreghandle: Long, notifyhandle: Long): UInt =
     WindowsWin32NetworkmanagementRrasJniBridge.windowssysWindowsWin32NetworkmanagementRrasRtmDeregisterFromChangeNotification(rtmreghandle, notifyhandle).toUInt()
 
-public actual fun rtmFindNextHop(rtmreghandle: Long, nexthopinfo: MutPtr<RtmNexthopInfo>, nexthophandle: MutPtr<Long>, nexthoppointer: MutPtr<MutPtr<RtmNexthopInfo>>): UInt =
+public actual fun rtmFindNextHop(rtmreghandle: Long, nexthopinfo: MutPtr, nexthophandle: MutPtr, nexthoppointer: MutPtr): UInt =
     WindowsWin32NetworkmanagementRrasJniBridge.windowssysWindowsWin32NetworkmanagementRrasRtmFindNextHop(rtmreghandle, nexthopinfo.rawAddress, nexthophandle.rawAddress, nexthoppointer.rawAddress).toUInt()
 
-public actual fun rtmGetChangeStatus(rtmreghandle: Long, notifyhandle: Long, desthandle: Long, changestatus: MutPtr<Bool>): UInt =
+public actual fun rtmGetChangeStatus(rtmreghandle: Long, notifyhandle: Long, desthandle: Long, changestatus: MutPtr): UInt =
     WindowsWin32NetworkmanagementRrasJniBridge.windowssysWindowsWin32NetworkmanagementRrasRtmGetChangeStatus(rtmreghandle, notifyhandle, desthandle, changestatus.rawAddress).toUInt()
 
-public actual fun rtmGetChangedDests(rtmreghandle: Long, notifyhandle: Long, numdests: MutPtr<UInt>, changeddests: MutPtr<RtmDestInfo>): UInt =
+public actual fun rtmGetChangedDests(rtmreghandle: Long, notifyhandle: Long, numdests: MutPtr, changeddests: MutPtr): UInt =
     WindowsWin32NetworkmanagementRrasJniBridge.windowssysWindowsWin32NetworkmanagementRrasRtmGetChangedDests(rtmreghandle, notifyhandle, numdests.rawAddress, changeddests.rawAddress).toUInt()
 
-public actual fun rtmGetDestInfo(rtmreghandle: Long, desthandle: Long, protocolid: UInt, targetviews: UInt, destinfo: MutPtr<RtmDestInfo>): UInt =
+public actual fun rtmGetDestInfo(rtmreghandle: Long, desthandle: Long, protocolid: UInt, targetviews: UInt, destinfo: MutPtr): UInt =
     WindowsWin32NetworkmanagementRrasJniBridge.windowssysWindowsWin32NetworkmanagementRrasRtmGetDestInfo(rtmreghandle, desthandle, protocolid.toInt(), targetviews.toInt(), destinfo.rawAddress).toUInt()
 
-public actual fun rtmGetEntityInfo(rtmreghandle: Long, entityhandle: Long, entityinfo: MutPtr<RtmEntityInfo>): UInt =
+public actual fun rtmGetEntityInfo(rtmreghandle: Long, entityhandle: Long, entityinfo: MutPtr): UInt =
     WindowsWin32NetworkmanagementRrasJniBridge.windowssysWindowsWin32NetworkmanagementRrasRtmGetEntityInfo(rtmreghandle, entityhandle, entityinfo.rawAddress).toUInt()
 
-public actual fun rtmGetEntityMethods(rtmreghandle: Long, entityhandle: Long, nummethods: MutPtr<UInt>, exptmethods: MutPtr<RtmEntityExportMethod>): UInt =
+public actual fun rtmGetEntityMethods(rtmreghandle: Long, entityhandle: Long, nummethods: MutPtr, exptmethods: MutPtr): UInt =
     WindowsWin32NetworkmanagementRrasJniBridge.windowssysWindowsWin32NetworkmanagementRrasRtmGetEntityMethods(rtmreghandle, entityhandle, nummethods.rawAddress, exptmethods.rawAddress).toUInt()
 
-public actual fun rtmGetEnumDests(rtmreghandle: Long, enumhandle: Long, numdests: MutPtr<UInt>, destinfos: MutPtr<RtmDestInfo>): UInt =
+public actual fun rtmGetEnumDests(rtmreghandle: Long, enumhandle: Long, numdests: MutPtr, destinfos: MutPtr): UInt =
     WindowsWin32NetworkmanagementRrasJniBridge.windowssysWindowsWin32NetworkmanagementRrasRtmGetEnumDests(rtmreghandle, enumhandle, numdests.rawAddress, destinfos.rawAddress).toUInt()
 
-public actual fun rtmGetEnumNextHops(rtmreghandle: Long, enumhandle: Long, numnexthops: MutPtr<UInt>, nexthophandles: MutPtr<Long>): UInt =
+public actual fun rtmGetEnumNextHops(rtmreghandle: Long, enumhandle: Long, numnexthops: MutPtr, nexthophandles: MutPtr): UInt =
     WindowsWin32NetworkmanagementRrasJniBridge.windowssysWindowsWin32NetworkmanagementRrasRtmGetEnumNextHops(rtmreghandle, enumhandle, numnexthops.rawAddress, nexthophandles.rawAddress).toUInt()
 
-public actual fun rtmGetEnumRoutes(rtmreghandle: Long, enumhandle: Long, numroutes: MutPtr<UInt>, routehandles: MutPtr<Long>): UInt =
+public actual fun rtmGetEnumRoutes(rtmreghandle: Long, enumhandle: Long, numroutes: MutPtr, routehandles: MutPtr): UInt =
     WindowsWin32NetworkmanagementRrasJniBridge.windowssysWindowsWin32NetworkmanagementRrasRtmGetEnumRoutes(rtmreghandle, enumhandle, numroutes.rawAddress, routehandles.rawAddress).toUInt()
 
-public actual fun rtmGetExactMatchDestination(rtmreghandle: Long, destaddress: MutPtr<RtmNetAddress>, protocolid: UInt, targetviews: UInt, destinfo: MutPtr<RtmDestInfo>): UInt =
+public actual fun rtmGetExactMatchDestination(rtmreghandle: Long, destaddress: MutPtr, protocolid: UInt, targetviews: UInt, destinfo: MutPtr): UInt =
     WindowsWin32NetworkmanagementRrasJniBridge.windowssysWindowsWin32NetworkmanagementRrasRtmGetExactMatchDestination(rtmreghandle, destaddress.rawAddress, protocolid.toInt(), targetviews.toInt(), destinfo.rawAddress).toUInt()
 
-public actual fun rtmGetExactMatchRoute(rtmreghandle: Long, destaddress: MutPtr<RtmNetAddress>, matchingflags: UInt, routeinfo: MutPtr<RtmRouteInfo>, interfaceindex: UInt, targetviews: UInt, routehandle: MutPtr<Long>): UInt =
+public actual fun rtmGetExactMatchRoute(rtmreghandle: Long, destaddress: MutPtr, matchingflags: UInt, routeinfo: MutPtr, interfaceindex: UInt, targetviews: UInt, routehandle: MutPtr): UInt =
     WindowsWin32NetworkmanagementRrasJniBridge.windowssysWindowsWin32NetworkmanagementRrasRtmGetExactMatchRoute(rtmreghandle, destaddress.rawAddress, matchingflags.toInt(), routeinfo.rawAddress, interfaceindex.toInt(), targetviews.toInt(), routehandle.rawAddress).toUInt()
 
-public actual fun rtmGetLessSpecificDestination(rtmreghandle: Long, desthandle: Long, protocolid: UInt, targetviews: UInt, destinfo: MutPtr<RtmDestInfo>): UInt =
+public actual fun rtmGetLessSpecificDestination(rtmreghandle: Long, desthandle: Long, protocolid: UInt, targetviews: UInt, destinfo: MutPtr): UInt =
     WindowsWin32NetworkmanagementRrasJniBridge.windowssysWindowsWin32NetworkmanagementRrasRtmGetLessSpecificDestination(rtmreghandle, desthandle, protocolid.toInt(), targetviews.toInt(), destinfo.rawAddress).toUInt()
 
-public actual fun rtmGetListEnumRoutes(rtmreghandle: Long, enumhandle: Long, numroutes: MutPtr<UInt>, routehandles: MutPtr<Long>): UInt =
+public actual fun rtmGetListEnumRoutes(rtmreghandle: Long, enumhandle: Long, numroutes: MutPtr, routehandles: MutPtr): UInt =
     WindowsWin32NetworkmanagementRrasJniBridge.windowssysWindowsWin32NetworkmanagementRrasRtmGetListEnumRoutes(rtmreghandle, enumhandle, numroutes.rawAddress, routehandles.rawAddress).toUInt()
 
-public actual fun rtmGetMostSpecificDestination(rtmreghandle: Long, destaddress: MutPtr<RtmNetAddress>, protocolid: UInt, targetviews: UInt, destinfo: MutPtr<RtmDestInfo>): UInt =
+public actual fun rtmGetMostSpecificDestination(rtmreghandle: Long, destaddress: MutPtr, protocolid: UInt, targetviews: UInt, destinfo: MutPtr): UInt =
     WindowsWin32NetworkmanagementRrasJniBridge.windowssysWindowsWin32NetworkmanagementRrasRtmGetMostSpecificDestination(rtmreghandle, destaddress.rawAddress, protocolid.toInt(), targetviews.toInt(), destinfo.rawAddress).toUInt()
 
-public actual fun rtmGetNextHopInfo(rtmreghandle: Long, nexthophandle: Long, nexthopinfo: MutPtr<RtmNexthopInfo>): UInt =
+public actual fun rtmGetNextHopInfo(rtmreghandle: Long, nexthophandle: Long, nexthopinfo: MutPtr): UInt =
     WindowsWin32NetworkmanagementRrasJniBridge.windowssysWindowsWin32NetworkmanagementRrasRtmGetNextHopInfo(rtmreghandle, nexthophandle, nexthopinfo.rawAddress).toUInt()
 
-public actual fun rtmGetNextHopPointer(rtmreghandle: Long, nexthophandle: Long, nexthoppointer: MutPtr<MutPtr<RtmNexthopInfo>>): UInt =
+public actual fun rtmGetNextHopPointer(rtmreghandle: Long, nexthophandle: Long, nexthoppointer: MutPtr): UInt =
     WindowsWin32NetworkmanagementRrasJniBridge.windowssysWindowsWin32NetworkmanagementRrasRtmGetNextHopPointer(rtmreghandle, nexthophandle, nexthoppointer.rawAddress).toUInt()
 
-public actual fun rtmGetOpaqueInformationPointer(rtmreghandle: Long, desthandle: Long, opaqueinfopointer: MutPtr<MutPtr<CVoid>>): UInt =
+public actual fun rtmGetOpaqueInformationPointer(rtmreghandle: Long, desthandle: Long, opaqueinfopointer: MutPtr): UInt =
     WindowsWin32NetworkmanagementRrasJniBridge.windowssysWindowsWin32NetworkmanagementRrasRtmGetOpaqueInformationPointer(rtmreghandle, desthandle, opaqueinfopointer.rawAddress).toUInt()
 
-public actual fun rtmGetRegisteredEntities(rtmreghandle: Long, numentities: MutPtr<UInt>, entityhandles: MutPtr<Long>, entityinfos: MutPtr<RtmEntityInfo>): UInt =
+public actual fun rtmGetRegisteredEntities(rtmreghandle: Long, numentities: MutPtr, entityhandles: MutPtr, entityinfos: MutPtr): UInt =
     WindowsWin32NetworkmanagementRrasJniBridge.windowssysWindowsWin32NetworkmanagementRrasRtmGetRegisteredEntities(rtmreghandle, numentities.rawAddress, entityhandles.rawAddress, entityinfos.rawAddress).toUInt()
 
-public actual fun rtmGetRouteInfo(rtmreghandle: Long, routehandle: Long, routeinfo: MutPtr<RtmRouteInfo>, destaddress: MutPtr<RtmNetAddress>): UInt =
+public actual fun rtmGetRouteInfo(rtmreghandle: Long, routehandle: Long, routeinfo: MutPtr, destaddress: MutPtr): UInt =
     WindowsWin32NetworkmanagementRrasJniBridge.windowssysWindowsWin32NetworkmanagementRrasRtmGetRouteInfo(rtmreghandle, routehandle, routeinfo.rawAddress, destaddress.rawAddress).toUInt()
 
-public actual fun rtmGetRoutePointer(rtmreghandle: Long, routehandle: Long, routepointer: MutPtr<MutPtr<RtmRouteInfo>>): UInt =
+public actual fun rtmGetRoutePointer(rtmreghandle: Long, routehandle: Long, routepointer: MutPtr): UInt =
     WindowsWin32NetworkmanagementRrasJniBridge.windowssysWindowsWin32NetworkmanagementRrasRtmGetRoutePointer(rtmreghandle, routehandle, routepointer.rawAddress).toUInt()
 
 public actual fun rtmHoldDestination(rtmreghandle: Long, desthandle: Long, targetviews: UInt, holdtime: UInt): UInt =
     WindowsWin32NetworkmanagementRrasJniBridge.windowssysWindowsWin32NetworkmanagementRrasRtmHoldDestination(rtmreghandle, desthandle, targetviews.toInt(), holdtime.toInt()).toUInt()
 
-public actual fun rtmIgnoreChangedDests(rtmreghandle: Long, notifyhandle: Long, numdests: UInt, changeddests: MutPtr<Long>): UInt =
+public actual fun rtmIgnoreChangedDests(rtmreghandle: Long, notifyhandle: Long, numdests: UInt, changeddests: MutPtr): UInt =
     WindowsWin32NetworkmanagementRrasJniBridge.windowssysWindowsWin32NetworkmanagementRrasRtmIgnoreChangedDests(rtmreghandle, notifyhandle, numdests.toInt(), changeddests.rawAddress).toUInt()
 
-public actual fun rtmInsertInRouteList(rtmreghandle: Long, routelisthandle: Long, numroutes: UInt, routehandles: MutPtr<Long>): UInt =
+public actual fun rtmInsertInRouteList(rtmreghandle: Long, routelisthandle: Long, numroutes: UInt, routehandles: MutPtr): UInt =
     WindowsWin32NetworkmanagementRrasJniBridge.windowssysWindowsWin32NetworkmanagementRrasRtmInsertInRouteList(rtmreghandle, routelisthandle, numroutes.toInt(), routehandles.rawAddress).toUInt()
 
-public actual fun rtmInvokeMethod(rtmreghandle: Long, entityhandle: Long, input: MutPtr<RtmEntityMethodInput>, outputsize: MutPtr<UInt>, output: MutPtr<RtmEntityMethodOutput>): UInt =
+public actual fun rtmInvokeMethod(rtmreghandle: Long, entityhandle: Long, input: MutPtr, outputsize: MutPtr, output: MutPtr): UInt =
     WindowsWin32NetworkmanagementRrasJniBridge.windowssysWindowsWin32NetworkmanagementRrasRtmInvokeMethod(rtmreghandle, entityhandle, input.rawAddress, outputsize.rawAddress, output.rawAddress).toUInt()
 
-public actual fun rtmIsBestRoute(rtmreghandle: Long, routehandle: Long, bestinviews: MutPtr<UInt>): UInt =
+public actual fun rtmIsBestRoute(rtmreghandle: Long, routehandle: Long, bestinviews: MutPtr): UInt =
     WindowsWin32NetworkmanagementRrasJniBridge.windowssysWindowsWin32NetworkmanagementRrasRtmIsBestRoute(rtmreghandle, routehandle, bestinviews.rawAddress).toUInt()
 
-public actual fun rtmIsMarkedForChangeNotification(rtmreghandle: Long, notifyhandle: Long, desthandle: Long, destmarked: MutPtr<Bool>): UInt =
+public actual fun rtmIsMarkedForChangeNotification(rtmreghandle: Long, notifyhandle: Long, desthandle: Long, destmarked: MutPtr): UInt =
     WindowsWin32NetworkmanagementRrasJniBridge.windowssysWindowsWin32NetworkmanagementRrasRtmIsMarkedForChangeNotification(rtmreghandle, notifyhandle, desthandle, destmarked.rawAddress).toUInt()
 
 public actual fun rtmLockDestination(rtmreghandle: Long, desthandle: Long, exclusive: Bool, lockdest: Bool): UInt =
     WindowsWin32NetworkmanagementRrasJniBridge.windowssysWindowsWin32NetworkmanagementRrasRtmLockDestination(rtmreghandle, desthandle, exclusive, lockdest).toUInt()
 
-public actual fun rtmLockNextHop(rtmreghandle: Long, nexthophandle: Long, exclusive: Bool, locknexthop: Bool, nexthoppointer: MutPtr<MutPtr<RtmNexthopInfo>>): UInt =
+public actual fun rtmLockNextHop(rtmreghandle: Long, nexthophandle: Long, exclusive: Bool, locknexthop: Bool, nexthoppointer: MutPtr): UInt =
     WindowsWin32NetworkmanagementRrasJniBridge.windowssysWindowsWin32NetworkmanagementRrasRtmLockNextHop(rtmreghandle, nexthophandle, exclusive, locknexthop, nexthoppointer.rawAddress).toUInt()
 
-public actual fun rtmLockRoute(rtmreghandle: Long, routehandle: Long, exclusive: Bool, lockroute: Bool, routepointer: MutPtr<MutPtr<RtmRouteInfo>>): UInt =
+public actual fun rtmLockRoute(rtmreghandle: Long, routehandle: Long, exclusive: Bool, lockroute: Bool, routepointer: MutPtr): UInt =
     WindowsWin32NetworkmanagementRrasJniBridge.windowssysWindowsWin32NetworkmanagementRrasRtmLockRoute(rtmreghandle, routehandle, exclusive, lockroute, routepointer.rawAddress).toUInt()
 
 public actual fun rtmMarkDestForChangeNotification(rtmreghandle: Long, notifyhandle: Long, desthandle: Long, markdest: Bool): UInt =
     WindowsWin32NetworkmanagementRrasJniBridge.windowssysWindowsWin32NetworkmanagementRrasRtmMarkDestForChangeNotification(rtmreghandle, notifyhandle, desthandle, markdest).toUInt()
 
-public actual fun rtmReferenceHandles(rtmreghandle: Long, numhandles: UInt, rtmhandles: MutPtr<Handle>): UInt =
+public actual fun rtmReferenceHandles(rtmreghandle: Long, numhandles: UInt, rtmhandles: MutPtr): UInt =
     WindowsWin32NetworkmanagementRrasJniBridge.windowssysWindowsWin32NetworkmanagementRrasRtmReferenceHandles(rtmreghandle, numhandles.toInt(), rtmhandles.rawAddress).toUInt()
 
-public actual fun rtmRegisterEntity(rtmentityinfo: MutPtr<RtmEntityInfo>, exportmethods: MutPtr<RtmEntityExportMethods>, eventcallback: RtmEventCallback, reserveopaquepointer: Bool, rtmregprofile: MutPtr<RtmRegnProfile>, rtmreghandle: MutPtr<Long>): UInt =
+public actual fun rtmRegisterEntity(rtmentityinfo: MutPtr, exportmethods: MutPtr, eventcallback: RtmEventCallback, reserveopaquepointer: Bool, rtmregprofile: MutPtr, rtmreghandle: MutPtr): UInt =
     WindowsWin32NetworkmanagementRrasJniBridge.windowssysWindowsWin32NetworkmanagementRrasRtmRegisterEntity(rtmentityinfo.rawAddress, exportmethods.rawAddress, 0L, reserveopaquepointer, rtmregprofile.rawAddress, rtmreghandle.rawAddress).toUInt()
 
-public actual fun rtmRegisterForChangeNotification(rtmreghandle: Long, targetviews: UInt, notifyflags: UInt, notifycontext: MutPtr<CVoid>, notifyhandle: MutPtr<Long>): UInt =
+public actual fun rtmRegisterForChangeNotification(rtmreghandle: Long, targetviews: UInt, notifyflags: UInt, notifycontext: MutPtr, notifyhandle: MutPtr): UInt =
     WindowsWin32NetworkmanagementRrasJniBridge.windowssysWindowsWin32NetworkmanagementRrasRtmRegisterForChangeNotification(rtmreghandle, targetviews.toInt(), notifyflags.toInt(), notifycontext.rawAddress, notifyhandle.rawAddress).toUInt()
 
-public actual fun rtmReleaseChangedDests(rtmreghandle: Long, notifyhandle: Long, numdests: UInt, changeddests: MutPtr<RtmDestInfo>): UInt =
+public actual fun rtmReleaseChangedDests(rtmreghandle: Long, notifyhandle: Long, numdests: UInt, changeddests: MutPtr): UInt =
     WindowsWin32NetworkmanagementRrasJniBridge.windowssysWindowsWin32NetworkmanagementRrasRtmReleaseChangedDests(rtmreghandle, notifyhandle, numdests.toInt(), changeddests.rawAddress).toUInt()
 
-public actual fun rtmReleaseDestInfo(rtmreghandle: Long, destinfo: MutPtr<RtmDestInfo>): UInt =
+public actual fun rtmReleaseDestInfo(rtmreghandle: Long, destinfo: MutPtr): UInt =
     WindowsWin32NetworkmanagementRrasJniBridge.windowssysWindowsWin32NetworkmanagementRrasRtmReleaseDestInfo(rtmreghandle, destinfo.rawAddress).toUInt()
 
-public actual fun rtmReleaseDests(rtmreghandle: Long, numdests: UInt, destinfos: MutPtr<RtmDestInfo>): UInt =
+public actual fun rtmReleaseDests(rtmreghandle: Long, numdests: UInt, destinfos: MutPtr): UInt =
     WindowsWin32NetworkmanagementRrasJniBridge.windowssysWindowsWin32NetworkmanagementRrasRtmReleaseDests(rtmreghandle, numdests.toInt(), destinfos.rawAddress).toUInt()
 
-public actual fun rtmReleaseEntities(rtmreghandle: Long, numentities: UInt, entityhandles: MutPtr<Long>): UInt =
+public actual fun rtmReleaseEntities(rtmreghandle: Long, numentities: UInt, entityhandles: MutPtr): UInt =
     WindowsWin32NetworkmanagementRrasJniBridge.windowssysWindowsWin32NetworkmanagementRrasRtmReleaseEntities(rtmreghandle, numentities.toInt(), entityhandles.rawAddress).toUInt()
 
-public actual fun rtmReleaseEntityInfo(rtmreghandle: Long, entityinfo: MutPtr<RtmEntityInfo>): UInt =
+public actual fun rtmReleaseEntityInfo(rtmreghandle: Long, entityinfo: MutPtr): UInt =
     WindowsWin32NetworkmanagementRrasJniBridge.windowssysWindowsWin32NetworkmanagementRrasRtmReleaseEntityInfo(rtmreghandle, entityinfo.rawAddress).toUInt()
 
-public actual fun rtmReleaseNextHopInfo(rtmreghandle: Long, nexthopinfo: MutPtr<RtmNexthopInfo>): UInt =
+public actual fun rtmReleaseNextHopInfo(rtmreghandle: Long, nexthopinfo: MutPtr): UInt =
     WindowsWin32NetworkmanagementRrasJniBridge.windowssysWindowsWin32NetworkmanagementRrasRtmReleaseNextHopInfo(rtmreghandle, nexthopinfo.rawAddress).toUInt()
 
-public actual fun rtmReleaseNextHops(rtmreghandle: Long, numnexthops: UInt, nexthophandles: MutPtr<Long>): UInt =
+public actual fun rtmReleaseNextHops(rtmreghandle: Long, numnexthops: UInt, nexthophandles: MutPtr): UInt =
     WindowsWin32NetworkmanagementRrasJniBridge.windowssysWindowsWin32NetworkmanagementRrasRtmReleaseNextHops(rtmreghandle, numnexthops.toInt(), nexthophandles.rawAddress).toUInt()
 
-public actual fun rtmReleaseRouteInfo(rtmreghandle: Long, routeinfo: MutPtr<RtmRouteInfo>): UInt =
+public actual fun rtmReleaseRouteInfo(rtmreghandle: Long, routeinfo: MutPtr): UInt =
     WindowsWin32NetworkmanagementRrasJniBridge.windowssysWindowsWin32NetworkmanagementRrasRtmReleaseRouteInfo(rtmreghandle, routeinfo.rawAddress).toUInt()
 
-public actual fun rtmReleaseRoutes(rtmreghandle: Long, numroutes: UInt, routehandles: MutPtr<Long>): UInt =
+public actual fun rtmReleaseRoutes(rtmreghandle: Long, numroutes: UInt, routehandles: MutPtr): UInt =
     WindowsWin32NetworkmanagementRrasJniBridge.windowssysWindowsWin32NetworkmanagementRrasRtmReleaseRoutes(rtmreghandle, numroutes.toInt(), routehandles.rawAddress).toUInt()
 
-public actual fun rtmUpdateAndUnlockRoute(rtmreghandle: Long, routehandle: Long, timetolive: UInt, routelisthandle: Long, notifytype: UInt, notifyhandle: Long, changeflags: MutPtr<UInt>): UInt =
+public actual fun rtmUpdateAndUnlockRoute(rtmreghandle: Long, routehandle: Long, timetolive: UInt, routelisthandle: Long, notifytype: UInt, notifyhandle: Long, changeflags: MutPtr): UInt =
     WindowsWin32NetworkmanagementRrasJniBridge.windowssysWindowsWin32NetworkmanagementRrasRtmUpdateAndUnlockRoute(rtmreghandle, routehandle, timetolive.toInt(), routelisthandle, notifytype.toInt(), notifyhandle, changeflags.rawAddress).toUInt()

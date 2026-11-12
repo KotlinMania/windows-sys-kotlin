@@ -2,7 +2,6 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.graphics.printing
 
-import io.github.kotlinmania.rustlang.core.ffi.CVoid
 import io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
 import io.github.kotlinmania.rustlang.core.mem.TypeLayout
 import io.github.kotlinmania.rustlang.core.ptr.ConstPtr
@@ -26,8 +25,6 @@ import io.github.kotlinmania.windowssys.windows.win32.foundation.Pointl
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Rectl
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Size
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Systemtime
-import io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.Devmodea
-import io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.Devmodew
 import io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.Panose
 import io.github.kotlinmania.windowssys.windows.win32.security.PsecurityDescriptor
 import io.github.kotlinmania.windowssys.windows.win32.system.registry.Hkey
@@ -507,9 +504,9 @@ public class BidiResponseData internal constructor(
 
 public class BinaryContainer internal constructor(
     public var cbBuf: UInt,
-    pDataCtorArg: MutPtr<UByte>,
+    pDataCtorArg: MutPtr,
 ) {
-    public var pData: MutPtr<UByte> = pDataCtorArg
+    public var pData: MutPtr = pDataCtorArg
         internal set
 
     public constructor() : this(
@@ -519,9 +516,9 @@ public class BinaryContainer internal constructor(
 
     public operator fun component1(): UInt = this.cbBuf
 
-    public operator fun component2(): MutPtr<UByte> = this.pData
+    public operator fun component2(): MutPtr = this.pData
 
-    public fun copy(cbBuf: UInt = this.cbBuf, pData: MutPtr<UByte> = this.pData): BinaryContainer = BinaryContainer(cbBuf = cbBuf, pDataCtorArg = pData)
+    public fun copy(cbBuf: UInt = this.cbBuf, pData: MutPtr = this.pData): BinaryContainer = BinaryContainer(cbBuf = cbBuf, pDataCtorArg = pData)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -547,21 +544,21 @@ public class BinaryContainer internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<UByte>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                     )
                 override fun writeNative(addr: Long, value: BinaryContainer) {
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr, value.cbBuf)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<UByte>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.pData)
                 }
             }
 
         public operator fun invoke(
             cbBuf: UInt = 0u,
-            pData: MutPtr<UByte> = MutPtr(0L),
+            pData: MutPtr = MutPtr(0L),
         ): BinaryContainer =
             BinaryContainer(
                 cbBuf = cbBuf,
@@ -967,16 +964,16 @@ public class Compropsheetui internal constructor(
     public var cbSize: UShort,
     public var flags: UShort,
     hInstCallerCtorArg: Hinstance,
-    pCallerNameCtorArg: MutPtr<Byte>,
+    pCallerNameCtorArg: MutPtr,
     public var userData: Int,
-    pHelpFileCtorArg: MutPtr<Byte>,
+    pHelpFileCtorArg: MutPtr,
     public var pfnCallBack: Cpsuicallback,
-    pOptItemCtorArg: MutPtr<Optitem>,
-    pDlgPageCtorArg: MutPtr<Dlgpage>,
+    pOptItemCtorArg: MutPtr,
+    pDlgPageCtorArg: MutPtr,
     public var cOptItem: UShort,
     public var cDlgPage: UShort,
     public var iconID: Int,
-    pOptItemNameCtorArg: MutPtr<Byte>,
+    pOptItemNameCtorArg: MutPtr,
     public var callerVersion: UShort,
     public var optItemVersion: UShort,
     public var dwReserved: IntArray,
@@ -984,19 +981,19 @@ public class Compropsheetui internal constructor(
     public var hInstCaller: Hinstance = hInstCallerCtorArg
         internal set
 
-    public var pCallerName: MutPtr<Byte> = pCallerNameCtorArg
+    public var pCallerName: MutPtr = pCallerNameCtorArg
         internal set
 
-    public var pHelpFile: MutPtr<Byte> = pHelpFileCtorArg
+    public var pHelpFile: MutPtr = pHelpFileCtorArg
         internal set
 
-    public var pOptItem: MutPtr<Optitem> = pOptItemCtorArg
+    public var pOptItem: MutPtr = pOptItemCtorArg
         internal set
 
-    public var pDlgPage: MutPtr<Dlgpage> = pDlgPageCtorArg
+    public var pDlgPage: MutPtr = pDlgPageCtorArg
         internal set
 
-    public var pOptItemName: MutPtr<Byte> = pOptItemNameCtorArg
+    public var pOptItemName: MutPtr = pOptItemNameCtorArg
         internal set
 
     public constructor() : this(
@@ -1024,17 +1021,17 @@ public class Compropsheetui internal constructor(
 
     public operator fun component3(): Hinstance = this.hInstCaller
 
-    public operator fun component4(): MutPtr<Byte> = this.pCallerName
+    public operator fun component4(): MutPtr = this.pCallerName
 
     public operator fun component5(): Int = this.userData
 
-    public operator fun component6(): MutPtr<Byte> = this.pHelpFile
+    public operator fun component6(): MutPtr = this.pHelpFile
 
     public operator fun component7(): Cpsuicallback = this.pfnCallBack
 
-    public operator fun component8(): MutPtr<Optitem> = this.pOptItem
+    public operator fun component8(): MutPtr = this.pOptItem
 
-    public operator fun component9(): MutPtr<Dlgpage> = this.pDlgPage
+    public operator fun component9(): MutPtr = this.pDlgPage
 
     public operator fun component10(): UShort = this.cOptItem
 
@@ -1042,7 +1039,7 @@ public class Compropsheetui internal constructor(
 
     public operator fun component12(): Int = this.iconID
 
-    public operator fun component13(): MutPtr<Byte> = this.pOptItemName
+    public operator fun component13(): MutPtr = this.pOptItemName
 
     public operator fun component14(): UShort = this.callerVersion
 
@@ -1050,7 +1047,7 @@ public class Compropsheetui internal constructor(
 
     public operator fun component16(): IntArray = this.dwReserved
 
-    public fun copy(cbSize: UShort = this.cbSize, flags: UShort = this.flags, hInstCaller: Hinstance = this.hInstCaller, pCallerName: MutPtr<Byte> = this.pCallerName, userData: Int = this.userData, pHelpFile: MutPtr<Byte> = this.pHelpFile, pfnCallBack: Cpsuicallback = this.pfnCallBack, pOptItem: MutPtr<Optitem> = this.pOptItem, pDlgPage: MutPtr<Dlgpage> = this.pDlgPage, cOptItem: UShort = this.cOptItem, cDlgPage: UShort = this.cDlgPage, iconID: Int = this.iconID, pOptItemName: MutPtr<Byte> = this.pOptItemName, callerVersion: UShort = this.callerVersion, optItemVersion: UShort = this.optItemVersion, dwReserved: IntArray = this.dwReserved): Compropsheetui = Compropsheetui(cbSize = cbSize, flags = flags, hInstCallerCtorArg = hInstCaller, pCallerNameCtorArg = pCallerName, userData = userData, pHelpFileCtorArg = pHelpFile, pfnCallBack = pfnCallBack, pOptItemCtorArg = pOptItem, pDlgPageCtorArg = pDlgPage, cOptItem = cOptItem, cDlgPage = cDlgPage, iconID = iconID, pOptItemNameCtorArg = pOptItemName, callerVersion = callerVersion, optItemVersion = optItemVersion, dwReserved = dwReserved)
+    public fun copy(cbSize: UShort = this.cbSize, flags: UShort = this.flags, hInstCaller: Hinstance = this.hInstCaller, pCallerName: MutPtr = this.pCallerName, userData: Int = this.userData, pHelpFile: MutPtr = this.pHelpFile, pfnCallBack: Cpsuicallback = this.pfnCallBack, pOptItem: MutPtr = this.pOptItem, pDlgPage: MutPtr = this.pDlgPage, cOptItem: UShort = this.cOptItem, cDlgPage: UShort = this.cDlgPage, iconID: Int = this.iconID, pOptItemName: MutPtr = this.pOptItemName, callerVersion: UShort = this.callerVersion, optItemVersion: UShort = this.optItemVersion, dwReserved: IntArray = this.dwReserved): Compropsheetui = Compropsheetui(cbSize = cbSize, flags = flags, hInstCallerCtorArg = hInstCaller, pCallerNameCtorArg = pCallerName, userData = userData, pHelpFileCtorArg = pHelpFile, pfnCallBack = pfnCallBack, pOptItemCtorArg = pOptItem, pDlgPageCtorArg = pDlgPage, cOptItem = cOptItem, cDlgPage = cDlgPage, iconID = iconID, pOptItemNameCtorArg = pOptItemName, callerVersion = callerVersion, optItemVersion = optItemVersion, dwReserved = dwReserved)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -1099,16 +1096,16 @@ public class Compropsheetui internal constructor(
             cbSize: UShort = 0u,
             flags: UShort = 0u,
             hInstCaller: Hinstance = MutPtr(0L),
-            pCallerName: MutPtr<Byte> = MutPtr(0L),
+            pCallerName: MutPtr = MutPtr(0L),
             userData: Int = 0,
-            pHelpFile: MutPtr<Byte> = MutPtr(0L),
+            pHelpFile: MutPtr = MutPtr(0L),
             pfnCallBack: Cpsuicallback = null,
-            pOptItem: MutPtr<Optitem> = MutPtr(0L),
-            pDlgPage: MutPtr<Dlgpage> = MutPtr(0L),
+            pOptItem: MutPtr = MutPtr(0L),
+            pDlgPage: MutPtr = MutPtr(0L),
             cOptItem: UShort = 0u,
             cDlgPage: UShort = 0u,
             iconID: Int = 0,
-            pOptItemName: MutPtr<Byte> = MutPtr(0L),
+            pOptItemName: MutPtr = MutPtr(0L),
             callerVersion: UShort = 0u,
             optItemVersion: UShort = 0u,
             dwReserved: IntArray = IntArray(4),
@@ -1230,10 +1227,10 @@ public class Cpsuicbparam internal constructor(
     public var cbSize: UShort,
     public var reason: UShort,
     hDlgCtorArg: Hwnd,
-    pOptItemCtorArg: MutPtr<Optitem>,
+    pOptItemCtorArg: MutPtr,
     public var cOptItem: UShort,
     public var flags: UShort,
-    pCurItemCtorArg: MutPtr<Optitem>,
+    pCurItemCtorArg: MutPtr,
     public var anonymous: Cpsuicbparam0,
     public var userData: Int,
     public var result: Int,
@@ -1241,10 +1238,10 @@ public class Cpsuicbparam internal constructor(
     public var hDlg: Hwnd = hDlgCtorArg
         internal set
 
-    public var pOptItem: MutPtr<Optitem> = pOptItemCtorArg
+    public var pOptItem: MutPtr = pOptItemCtorArg
         internal set
 
-    public var pCurItem: MutPtr<Optitem> = pCurItemCtorArg
+    public var pCurItem: MutPtr = pCurItemCtorArg
         internal set
 
     public constructor() : this(
@@ -1266,13 +1263,13 @@ public class Cpsuicbparam internal constructor(
 
     public operator fun component3(): Hwnd = this.hDlg
 
-    public operator fun component4(): MutPtr<Optitem> = this.pOptItem
+    public operator fun component4(): MutPtr = this.pOptItem
 
     public operator fun component5(): UShort = this.cOptItem
 
     public operator fun component6(): UShort = this.flags
 
-    public operator fun component7(): MutPtr<Optitem> = this.pCurItem
+    public operator fun component7(): MutPtr = this.pCurItem
 
     public operator fun component8(): Cpsuicbparam0 = this.anonymous
 
@@ -1280,7 +1277,7 @@ public class Cpsuicbparam internal constructor(
 
     public operator fun component10(): Int = this.result
 
-    public fun copy(cbSize: UShort = this.cbSize, reason: UShort = this.reason, hDlg: Hwnd = this.hDlg, pOptItem: MutPtr<Optitem> = this.pOptItem, cOptItem: UShort = this.cOptItem, flags: UShort = this.flags, pCurItem: MutPtr<Optitem> = this.pCurItem, anonymous: Cpsuicbparam0 = this.anonymous, userData: Int = this.userData, result: Int = this.result): Cpsuicbparam = Cpsuicbparam(cbSize = cbSize, reason = reason, hDlgCtorArg = hDlg, pOptItemCtorArg = pOptItem, cOptItem = cOptItem, flags = flags, pCurItemCtorArg = pCurItem, anonymous = anonymous, userData = userData, result = result)
+    public fun copy(cbSize: UShort = this.cbSize, reason: UShort = this.reason, hDlg: Hwnd = this.hDlg, pOptItem: MutPtr = this.pOptItem, cOptItem: UShort = this.cOptItem, flags: UShort = this.flags, pCurItem: MutPtr = this.pCurItem, anonymous: Cpsuicbparam0 = this.anonymous, userData: Int = this.userData, result: Int = this.result): Cpsuicbparam = Cpsuicbparam(cbSize = cbSize, reason = reason, hDlgCtorArg = hDlg, pOptItemCtorArg = pOptItem, cOptItem = cOptItem, flags = flags, pCurItemCtorArg = pCurItem, anonymous = anonymous, userData = userData, result = result)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -1317,10 +1314,10 @@ public class Cpsuicbparam internal constructor(
             cbSize: UShort = 0u,
             reason: UShort = 0u,
             hDlg: Hwnd = MutPtr(0L),
-            pOptItem: MutPtr<Optitem> = MutPtr(0L),
+            pOptItem: MutPtr = MutPtr(0L),
             cOptItem: UShort = 0u,
             flags: UShort = 0u,
-            pCurItem: MutPtr<Optitem> = MutPtr(0L),
+            pCurItem: MutPtr = MutPtr(0L),
             anonymous: Cpsuicbparam0 = Cpsuicbparam0(),
             userData: Int = 0,
             result: Int = 0,
@@ -1342,9 +1339,9 @@ public class Cpsuicbparam internal constructor(
 
 public class Cpsuicbparam0 internal constructor(
     public var oldSel: Int,
-    pOldSelCtorArg: MutPtr<Byte>,
+    pOldSelCtorArg: MutPtr,
 ) {
-    public var pOldSel: MutPtr<Byte> = pOldSelCtorArg
+    public var pOldSel: MutPtr = pOldSelCtorArg
         internal set
 
     public constructor() : this(
@@ -1354,9 +1351,9 @@ public class Cpsuicbparam0 internal constructor(
 
     public operator fun component1(): Int = this.oldSel
 
-    public operator fun component2(): MutPtr<Byte> = this.pOldSel
+    public operator fun component2(): MutPtr = this.pOldSel
 
-    public fun copy(oldSel: Int = this.oldSel, pOldSel: MutPtr<Byte> = this.pOldSel): Cpsuicbparam0 = Cpsuicbparam0(oldSel = oldSel, pOldSelCtorArg = pOldSel)
+    public fun copy(oldSel: Int = this.oldSel, pOldSel: MutPtr = this.pOldSel): Cpsuicbparam0 = Cpsuicbparam0(oldSel = oldSel, pOldSelCtorArg = pOldSel)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -1375,7 +1372,7 @@ public class Cpsuicbparam0 internal constructor(
     public companion object {
         public operator fun invoke(
             oldSel: Int = 0,
-            pOldSel: MutPtr<Byte> = MutPtr(0L),
+            pOldSel: MutPtr = MutPtr(0L),
         ): Cpsuicbparam0 =
             Cpsuicbparam0(
                 oldSel = oldSel,
@@ -1386,9 +1383,9 @@ public class Cpsuicbparam0 internal constructor(
 
 public class Cpsuidatablock internal constructor(
     public var cbData: UInt,
-    pbDataCtorArg: MutPtr<UByte>,
+    pbDataCtorArg: MutPtr,
 ) {
-    public var pbData: MutPtr<UByte> = pbDataCtorArg
+    public var pbData: MutPtr = pbDataCtorArg
         internal set
 
     public constructor() : this(
@@ -1398,9 +1395,9 @@ public class Cpsuidatablock internal constructor(
 
     public operator fun component1(): UInt = this.cbData
 
-    public operator fun component2(): MutPtr<UByte> = this.pbData
+    public operator fun component2(): MutPtr = this.pbData
 
-    public fun copy(cbData: UInt = this.cbData, pbData: MutPtr<UByte> = this.pbData): Cpsuidatablock = Cpsuidatablock(cbData = cbData, pbDataCtorArg = pbData)
+    public fun copy(cbData: UInt = this.cbData, pbData: MutPtr = this.pbData): Cpsuidatablock = Cpsuidatablock(cbData = cbData, pbDataCtorArg = pbData)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -1426,21 +1423,21 @@ public class Cpsuidatablock internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<UByte>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                     )
                 override fun writeNative(addr: Long, value: Cpsuidatablock) {
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr, value.cbData)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<UByte>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.pbData)
                 }
             }
 
         public operator fun invoke(
             cbData: UInt = 0u,
-            pbData: MutPtr<UByte> = MutPtr(0L),
+            pbData: MutPtr = MutPtr(0L),
         ): Cpsuidatablock =
             Cpsuidatablock(
                 cbData = cbData,
@@ -1633,12 +1630,12 @@ public class Devicepropertyheader internal constructor(
     public var cbSize: UShort,
     public var flags: UShort,
     hPrinterCtorArg: Handle,
-    pszPrinterNameCtorArg: MutPtr<Byte>,
+    pszPrinterNameCtorArg: MutPtr,
 ) {
     public var hPrinter: Handle = hPrinterCtorArg
         internal set
 
-    public var pszPrinterName: MutPtr<Byte> = pszPrinterNameCtorArg
+    public var pszPrinterName: MutPtr = pszPrinterNameCtorArg
         internal set
 
     public constructor() : this(
@@ -1654,9 +1651,9 @@ public class Devicepropertyheader internal constructor(
 
     public operator fun component3(): Handle = this.hPrinter
 
-    public operator fun component4(): MutPtr<Byte> = this.pszPrinterName
+    public operator fun component4(): MutPtr = this.pszPrinterName
 
-    public fun copy(cbSize: UShort = this.cbSize, flags: UShort = this.flags, hPrinter: Handle = this.hPrinter, pszPrinterName: MutPtr<Byte> = this.pszPrinterName): Devicepropertyheader = Devicepropertyheader(cbSize = cbSize, flags = flags, hPrinterCtorArg = hPrinter, pszPrinterNameCtorArg = pszPrinterName)
+    public fun copy(cbSize: UShort = this.cbSize, flags: UShort = this.flags, hPrinter: Handle = this.hPrinter, pszPrinterName: MutPtr = this.pszPrinterName): Devicepropertyheader = Devicepropertyheader(cbSize = cbSize, flags = flags, hPrinterCtorArg = hPrinter, pszPrinterNameCtorArg = pszPrinterName)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -1681,7 +1678,7 @@ public class Devicepropertyheader internal constructor(
             cbSize: UShort = 0u,
             flags: UShort = 0u,
             hPrinter: Handle = MutPtr(0L),
-            pszPrinterName: MutPtr<Byte> = MutPtr(0L),
+            pszPrinterName: MutPtr = MutPtr(0L),
         ): Devicepropertyheader =
             Devicepropertyheader(
                 cbSize = cbSize,
@@ -1696,7 +1693,7 @@ public class DevqueryprintInfo internal constructor(
     public var cbSize: UShort,
     public var level: UShort,
     hPrinterCtorArg: Handle,
-    pDevModeCtorArg: MutPtr<Devmodea>,
+    pDevModeCtorArg: MutPtr,
     pszErrorStrCtorArg: Pwstr,
     public var cchErrorStr: UInt,
     public var cchNeeded: UInt,
@@ -1704,7 +1701,7 @@ public class DevqueryprintInfo internal constructor(
     public var hPrinter: Handle = hPrinterCtorArg
         internal set
 
-    public var pDevMode: MutPtr<Devmodea> = pDevModeCtorArg
+    public var pDevMode: MutPtr = pDevModeCtorArg
         internal set
 
     public var pszErrorStr: Pwstr = pszErrorStrCtorArg
@@ -1726,7 +1723,7 @@ public class DevqueryprintInfo internal constructor(
 
     public operator fun component3(): Handle = this.hPrinter
 
-    public operator fun component4(): MutPtr<Devmodea> = this.pDevMode
+    public operator fun component4(): MutPtr = this.pDevMode
 
     public operator fun component5(): Pwstr = this.pszErrorStr
 
@@ -1734,7 +1731,7 @@ public class DevqueryprintInfo internal constructor(
 
     public operator fun component7(): UInt = this.cchNeeded
 
-    public fun copy(cbSize: UShort = this.cbSize, level: UShort = this.level, hPrinter: Handle = this.hPrinter, pDevMode: MutPtr<Devmodea> = this.pDevMode, pszErrorStr: Pwstr = this.pszErrorStr, cchErrorStr: UInt = this.cchErrorStr, cchNeeded: UInt = this.cchNeeded): DevqueryprintInfo = DevqueryprintInfo(cbSize = cbSize, level = level, hPrinterCtorArg = hPrinter, pDevModeCtorArg = pDevMode, pszErrorStrCtorArg = pszErrorStr, cchErrorStr = cchErrorStr, cchNeeded = cchNeeded)
+    public fun copy(cbSize: UShort = this.cbSize, level: UShort = this.level, hPrinter: Handle = this.hPrinter, pDevMode: MutPtr = this.pDevMode, pszErrorStr: Pwstr = this.pszErrorStr, cchErrorStr: UInt = this.cchErrorStr, cchNeeded: UInt = this.cchNeeded): DevqueryprintInfo = DevqueryprintInfo(cbSize = cbSize, level = level, hPrinterCtorArg = hPrinter, pDevModeCtorArg = pDevMode, pszErrorStrCtorArg = pszErrorStr, cchErrorStr = cchErrorStr, cchNeeded = cchNeeded)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -1765,7 +1762,7 @@ public class DevqueryprintInfo internal constructor(
             cbSize: UShort = 0u,
             level: UShort = 0u,
             hPrinter: Handle = MutPtr(0L),
-            pDevMode: MutPtr<Devmodea> = MutPtr(0L),
+            pDevMode: MutPtr = MutPtr(0L),
             pszErrorStr: Pwstr = MutPtr(0L),
             cchErrorStr: UInt = 0u,
             cchNeeded: UInt = 0u,
@@ -1786,11 +1783,11 @@ public class Dlgpage internal constructor(
     public var cbSize: UShort,
     public var flags: UShort,
     public var dlgProc: Dlgproc,
-    pTabNameCtorArg: MutPtr<Byte>,
+    pTabNameCtorArg: MutPtr,
     public var iconID: Int,
     public var anonymous: Dlgpage0,
 ) {
-    public var pTabName: MutPtr<Byte> = pTabNameCtorArg
+    public var pTabName: MutPtr = pTabNameCtorArg
         internal set
 
     public constructor() : this(
@@ -1808,13 +1805,13 @@ public class Dlgpage internal constructor(
 
     public operator fun component3(): Dlgproc = this.dlgProc
 
-    public operator fun component4(): MutPtr<Byte> = this.pTabName
+    public operator fun component4(): MutPtr = this.pTabName
 
     public operator fun component5(): Int = this.iconID
 
     public operator fun component6(): Dlgpage0 = this.anonymous
 
-    public fun copy(cbSize: UShort = this.cbSize, flags: UShort = this.flags, dlgProc: Dlgproc = this.dlgProc, pTabName: MutPtr<Byte> = this.pTabName, iconID: Int = this.iconID, anonymous: Dlgpage0 = this.anonymous): Dlgpage = Dlgpage(cbSize = cbSize, flags = flags, dlgProc = dlgProc, pTabNameCtorArg = pTabName, iconID = iconID, anonymous = anonymous)
+    public fun copy(cbSize: UShort = this.cbSize, flags: UShort = this.flags, dlgProc: Dlgproc = this.dlgProc, pTabName: MutPtr = this.pTabName, iconID: Int = this.iconID, anonymous: Dlgpage0 = this.anonymous): Dlgpage = Dlgpage(cbSize = cbSize, flags = flags, dlgProc = dlgProc, pTabNameCtorArg = pTabName, iconID = iconID, anonymous = anonymous)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -1843,7 +1840,7 @@ public class Dlgpage internal constructor(
             cbSize: UShort = 0u,
             flags: UShort = 0u,
             dlgProc: Dlgproc = null,
-            pTabName: MutPtr<Byte> = MutPtr(0L),
+            pTabName: MutPtr = MutPtr(0L),
             iconID: Int = 0,
             anonymous: Dlgpage0 = Dlgpage0(),
         ): Dlgpage =
@@ -1905,7 +1902,7 @@ public class Dlgpage0 internal constructor(
 public class DoceventCreatedcpre internal constructor(
     pszDriverCtorArg: Pwstr,
     pszDeviceCtorArg: Pwstr,
-    pdmCtorArg: MutPtr<Devmodew>,
+    pdmCtorArg: MutPtr,
     public var bIC: Bool,
 ) {
     public var pszDriver: Pwstr = pszDriverCtorArg
@@ -1914,7 +1911,7 @@ public class DoceventCreatedcpre internal constructor(
     public var pszDevice: Pwstr = pszDeviceCtorArg
         internal set
 
-    public var pdm: MutPtr<Devmodew> = pdmCtorArg
+    public var pdm: MutPtr = pdmCtorArg
         internal set
 
     public constructor() : this(
@@ -1928,11 +1925,11 @@ public class DoceventCreatedcpre internal constructor(
 
     public operator fun component2(): Pwstr = this.pszDevice
 
-    public operator fun component3(): MutPtr<Devmodew> = this.pdm
+    public operator fun component3(): MutPtr = this.pdm
 
     public operator fun component4(): Bool = this.bIC
 
-    public fun copy(pszDriver: Pwstr = this.pszDriver, pszDevice: Pwstr = this.pszDevice, pdm: MutPtr<Devmodew> = this.pdm, bIC: Bool = this.bIC): DoceventCreatedcpre = DoceventCreatedcpre(pszDriverCtorArg = pszDriver, pszDeviceCtorArg = pszDevice, pdmCtorArg = pdm, bIC = bIC)
+    public fun copy(pszDriver: Pwstr = this.pszDriver, pszDevice: Pwstr = this.pszDevice, pdm: MutPtr = this.pdm, bIC: Bool = this.bIC): DoceventCreatedcpre = DoceventCreatedcpre(pszDriverCtorArg = pszDriver, pszDeviceCtorArg = pszDevice, pdmCtorArg = pdm, bIC = bIC)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -1956,7 +1953,7 @@ public class DoceventCreatedcpre internal constructor(
         public operator fun invoke(
             pszDriver: Pwstr = MutPtr(0L),
             pszDevice: Pwstr = MutPtr(0L),
-            pdm: MutPtr<Devmodew> = MutPtr(0L),
+            pdm: MutPtr = MutPtr(0L),
             bIC: Bool = 0,
         ): DoceventCreatedcpre =
             DoceventCreatedcpre(
@@ -1971,9 +1968,9 @@ public class DoceventCreatedcpre internal constructor(
 public class DoceventEscape internal constructor(
     public var iEscape: Int,
     public var cjInput: Int,
-    pvInDataCtorArg: MutPtr<CVoid>,
+    pvInDataCtorArg: MutPtr,
 ) {
-    public var pvInData: MutPtr<CVoid> = pvInDataCtorArg
+    public var pvInData: MutPtr = pvInDataCtorArg
         internal set
 
     public constructor() : this(
@@ -1986,9 +1983,9 @@ public class DoceventEscape internal constructor(
 
     public operator fun component2(): Int = this.cjInput
 
-    public operator fun component3(): MutPtr<CVoid> = this.pvInData
+    public operator fun component3(): MutPtr = this.pvInData
 
-    public fun copy(iEscape: Int = this.iEscape, cjInput: Int = this.cjInput, pvInData: MutPtr<CVoid> = this.pvInData): DoceventEscape = DoceventEscape(iEscape = iEscape, cjInput = cjInput, pvInDataCtorArg = pvInData)
+    public fun copy(iEscape: Int = this.iEscape, cjInput: Int = this.cjInput, pvInData: MutPtr = this.pvInData): DoceventEscape = DoceventEscape(iEscape = iEscape, cjInput = cjInput, pvInDataCtorArg = pvInData)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -2017,7 +2014,7 @@ public class DoceventEscape internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr + 4L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<CVoid>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                     )
                 override fun writeNative(addr: Long, value: DoceventEscape) {
@@ -2025,7 +2022,7 @@ public class DoceventEscape internal constructor(
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr + 4L, value.cjInput)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<CVoid>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.pvInData)
                 }
             }
@@ -2033,7 +2030,7 @@ public class DoceventEscape internal constructor(
         public operator fun invoke(
             iEscape: Int = 0,
             cjInput: Int = 0,
-            pvInData: MutPtr<CVoid> = MutPtr(0L),
+            pvInData: MutPtr = MutPtr(0L),
         ): DoceventEscape =
             DoceventEscape(
                 iEscape = iEscape,
@@ -2104,22 +2101,22 @@ public class Documentpropertyheader internal constructor(
     public var cbSize: UShort,
     public var reserved: UShort,
     hPrinterCtorArg: Handle,
-    pszPrinterNameCtorArg: MutPtr<Byte>,
-    pdmInCtorArg: MutPtr<Devmodea>,
-    pdmOutCtorArg: MutPtr<Devmodea>,
+    pszPrinterNameCtorArg: MutPtr,
+    pdmInCtorArg: MutPtr,
+    pdmOutCtorArg: MutPtr,
     public var cbOut: UInt,
     public var fMode: UInt,
 ) {
     public var hPrinter: Handle = hPrinterCtorArg
         internal set
 
-    public var pszPrinterName: MutPtr<Byte> = pszPrinterNameCtorArg
+    public var pszPrinterName: MutPtr = pszPrinterNameCtorArg
         internal set
 
-    public var pdmIn: MutPtr<Devmodea> = pdmInCtorArg
+    public var pdmIn: MutPtr = pdmInCtorArg
         internal set
 
-    public var pdmOut: MutPtr<Devmodea> = pdmOutCtorArg
+    public var pdmOut: MutPtr = pdmOutCtorArg
         internal set
 
     public constructor() : this(
@@ -2139,17 +2136,17 @@ public class Documentpropertyheader internal constructor(
 
     public operator fun component3(): Handle = this.hPrinter
 
-    public operator fun component4(): MutPtr<Byte> = this.pszPrinterName
+    public operator fun component4(): MutPtr = this.pszPrinterName
 
-    public operator fun component5(): MutPtr<Devmodea> = this.pdmIn
+    public operator fun component5(): MutPtr = this.pdmIn
 
-    public operator fun component6(): MutPtr<Devmodea> = this.pdmOut
+    public operator fun component6(): MutPtr = this.pdmOut
 
     public operator fun component7(): UInt = this.cbOut
 
     public operator fun component8(): UInt = this.fMode
 
-    public fun copy(cbSize: UShort = this.cbSize, reserved: UShort = this.reserved, hPrinter: Handle = this.hPrinter, pszPrinterName: MutPtr<Byte> = this.pszPrinterName, pdmIn: MutPtr<Devmodea> = this.pdmIn, pdmOut: MutPtr<Devmodea> = this.pdmOut, cbOut: UInt = this.cbOut, fMode: UInt = this.fMode): Documentpropertyheader = Documentpropertyheader(cbSize = cbSize, reserved = reserved, hPrinterCtorArg = hPrinter, pszPrinterNameCtorArg = pszPrinterName, pdmInCtorArg = pdmIn, pdmOutCtorArg = pdmOut, cbOut = cbOut, fMode = fMode)
+    public fun copy(cbSize: UShort = this.cbSize, reserved: UShort = this.reserved, hPrinter: Handle = this.hPrinter, pszPrinterName: MutPtr = this.pszPrinterName, pdmIn: MutPtr = this.pdmIn, pdmOut: MutPtr = this.pdmOut, cbOut: UInt = this.cbOut, fMode: UInt = this.fMode): Documentpropertyheader = Documentpropertyheader(cbSize = cbSize, reserved = reserved, hPrinterCtorArg = hPrinter, pszPrinterNameCtorArg = pszPrinterName, pdmInCtorArg = pdmIn, pdmOutCtorArg = pdmOut, cbOut = cbOut, fMode = fMode)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -2182,9 +2179,9 @@ public class Documentpropertyheader internal constructor(
             cbSize: UShort = 0u,
             reserved: UShort = 0u,
             hPrinter: Handle = MutPtr(0L),
-            pszPrinterName: MutPtr<Byte> = MutPtr(0L),
-            pdmIn: MutPtr<Devmodea> = MutPtr(0L),
-            pdmOut: MutPtr<Devmodea> = MutPtr(0L),
+            pszPrinterName: MutPtr = MutPtr(0L),
+            pdmIn: MutPtr = MutPtr(0L),
+            pdmOut: MutPtr = MutPtr(0L),
             cbOut: UInt = 0u,
             fMode: UInt = 0u,
         ): Documentpropertyheader =
@@ -2598,19 +2595,19 @@ public class DocInfo3w internal constructor(
 }
 
 public class DocInfoInternal internal constructor(
-    pDocNameCtorArg: MutPtr<Byte>,
-    pOutputFileCtorArg: MutPtr<Byte>,
-    pDatatypeCtorArg: MutPtr<Byte>,
+    pDocNameCtorArg: MutPtr,
+    pOutputFileCtorArg: MutPtr,
+    pDatatypeCtorArg: MutPtr,
     public var bLowILJob: Bool,
     hTokenLowILCtorArg: Handle,
 ) {
-    public var pDocName: MutPtr<Byte> = pDocNameCtorArg
+    public var pDocName: MutPtr = pDocNameCtorArg
         internal set
 
-    public var pOutputFile: MutPtr<Byte> = pOutputFileCtorArg
+    public var pOutputFile: MutPtr = pOutputFileCtorArg
         internal set
 
-    public var pDatatype: MutPtr<Byte> = pDatatypeCtorArg
+    public var pDatatype: MutPtr = pDatatypeCtorArg
         internal set
 
     public var hTokenLowIL: Handle = hTokenLowILCtorArg
@@ -2624,17 +2621,17 @@ public class DocInfoInternal internal constructor(
         hTokenLowILCtorArg = MutPtr(0L),
     )
 
-    public operator fun component1(): MutPtr<Byte> = this.pDocName
+    public operator fun component1(): MutPtr = this.pDocName
 
-    public operator fun component2(): MutPtr<Byte> = this.pOutputFile
+    public operator fun component2(): MutPtr = this.pOutputFile
 
-    public operator fun component3(): MutPtr<Byte> = this.pDatatype
+    public operator fun component3(): MutPtr = this.pDatatype
 
     public operator fun component4(): Bool = this.bLowILJob
 
     public operator fun component5(): Handle = this.hTokenLowIL
 
-    public fun copy(pDocName: MutPtr<Byte> = this.pDocName, pOutputFile: MutPtr<Byte> = this.pOutputFile, pDatatype: MutPtr<Byte> = this.pDatatype, bLowILJob: Bool = this.bLowILJob, hTokenLowIL: Handle = this.hTokenLowIL): DocInfoInternal = DocInfoInternal(pDocNameCtorArg = pDocName, pOutputFileCtorArg = pOutputFile, pDatatypeCtorArg = pDatatype, bLowILJob = bLowILJob, hTokenLowILCtorArg = hTokenLowIL)
+    public fun copy(pDocName: MutPtr = this.pDocName, pOutputFile: MutPtr = this.pOutputFile, pDatatype: MutPtr = this.pDatatype, bLowILJob: Bool = this.bLowILJob, hTokenLowIL: Handle = this.hTokenLowIL): DocInfoInternal = DocInfoInternal(pDocNameCtorArg = pDocName, pOutputFileCtorArg = pOutputFile, pDatatypeCtorArg = pDatatype, bLowILJob = bLowILJob, hTokenLowILCtorArg = hTokenLowIL)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -2658,9 +2655,9 @@ public class DocInfoInternal internal constructor(
 
     public companion object {
         public operator fun invoke(
-            pDocName: MutPtr<Byte> = MutPtr(0L),
-            pOutputFile: MutPtr<Byte> = MutPtr(0L),
-            pDatatype: MutPtr<Byte> = MutPtr(0L),
+            pDocName: MutPtr = MutPtr(0L),
+            pOutputFile: MutPtr = MutPtr(0L),
+            pDatatype: MutPtr = MutPtr(0L),
             bLowILJob: Bool = 0,
             hTokenLowIL: Handle = MutPtr(0L),
         ): DocInfoInternal =
@@ -4277,13 +4274,13 @@ public class DriverInfo8w internal constructor(
 }
 
 public class DriverUpgradeInfo1 internal constructor(
-    pPrinterNameCtorArg: MutPtr<Byte>,
-    pOldDriverDirectoryCtorArg: MutPtr<Byte>,
+    pPrinterNameCtorArg: MutPtr,
+    pOldDriverDirectoryCtorArg: MutPtr,
 ) {
-    public var pPrinterName: MutPtr<Byte> = pPrinterNameCtorArg
+    public var pPrinterName: MutPtr = pPrinterNameCtorArg
         internal set
 
-    public var pOldDriverDirectory: MutPtr<Byte> = pOldDriverDirectoryCtorArg
+    public var pOldDriverDirectory: MutPtr = pOldDriverDirectoryCtorArg
         internal set
 
     public constructor() : this(
@@ -4291,11 +4288,11 @@ public class DriverUpgradeInfo1 internal constructor(
         pOldDriverDirectoryCtorArg = MutPtr(0L),
     )
 
-    public operator fun component1(): MutPtr<Byte> = this.pPrinterName
+    public operator fun component1(): MutPtr = this.pPrinterName
 
-    public operator fun component2(): MutPtr<Byte> = this.pOldDriverDirectory
+    public operator fun component2(): MutPtr = this.pOldDriverDirectory
 
-    public fun copy(pPrinterName: MutPtr<Byte> = this.pPrinterName, pOldDriverDirectory: MutPtr<Byte> = this.pOldDriverDirectory): DriverUpgradeInfo1 = DriverUpgradeInfo1(pPrinterNameCtorArg = pPrinterName, pOldDriverDirectoryCtorArg = pOldDriverDirectory)
+    public fun copy(pPrinterName: MutPtr = this.pPrinterName, pOldDriverDirectory: MutPtr = this.pOldDriverDirectory): DriverUpgradeInfo1 = DriverUpgradeInfo1(pPrinterNameCtorArg = pPrinterName, pOldDriverDirectoryCtorArg = pOldDriverDirectory)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -4320,28 +4317,28 @@ public class DriverUpgradeInfo1 internal constructor(
                     DriverUpgradeInfo1(
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<Byte>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<Byte>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                     )
                 override fun writeNative(addr: Long, value: DriverUpgradeInfo1) {
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<Byte>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr, value.pPrinterName)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<Byte>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.pOldDriverDirectory)
                 }
             }
 
         public operator fun invoke(
-            pPrinterName: MutPtr<Byte> = MutPtr(0L),
-            pOldDriverDirectory: MutPtr<Byte> = MutPtr(0L),
+            pPrinterName: MutPtr = MutPtr(0L),
+            pOldDriverDirectory: MutPtr = MutPtr(0L),
         ): DriverUpgradeInfo1 =
             DriverUpgradeInfo1(
                 pPrinterNameCtorArg = pPrinterName,
@@ -4351,54 +4348,54 @@ public class DriverUpgradeInfo1 internal constructor(
 }
 
 public class DriverUpgradeInfo2 internal constructor(
-    pPrinterNameCtorArg: MutPtr<Byte>,
-    pOldDriverDirectoryCtorArg: MutPtr<Byte>,
+    pPrinterNameCtorArg: MutPtr,
+    pOldDriverDirectoryCtorArg: MutPtr,
     public var cVersion: UInt,
-    pNameCtorArg: MutPtr<Byte>,
-    pEnvironmentCtorArg: MutPtr<Byte>,
-    pDriverPathCtorArg: MutPtr<Byte>,
-    pDataFileCtorArg: MutPtr<Byte>,
-    pConfigFileCtorArg: MutPtr<Byte>,
-    pHelpFileCtorArg: MutPtr<Byte>,
-    pDependentFilesCtorArg: MutPtr<Byte>,
-    pMonitorNameCtorArg: MutPtr<Byte>,
-    pDefaultDataTypeCtorArg: MutPtr<Byte>,
-    pszzPreviousNamesCtorArg: MutPtr<Byte>,
+    pNameCtorArg: MutPtr,
+    pEnvironmentCtorArg: MutPtr,
+    pDriverPathCtorArg: MutPtr,
+    pDataFileCtorArg: MutPtr,
+    pConfigFileCtorArg: MutPtr,
+    pHelpFileCtorArg: MutPtr,
+    pDependentFilesCtorArg: MutPtr,
+    pMonitorNameCtorArg: MutPtr,
+    pDefaultDataTypeCtorArg: MutPtr,
+    pszzPreviousNamesCtorArg: MutPtr,
 ) {
-    public var pPrinterName: MutPtr<Byte> = pPrinterNameCtorArg
+    public var pPrinterName: MutPtr = pPrinterNameCtorArg
         internal set
 
-    public var pOldDriverDirectory: MutPtr<Byte> = pOldDriverDirectoryCtorArg
+    public var pOldDriverDirectory: MutPtr = pOldDriverDirectoryCtorArg
         internal set
 
-    public var pName: MutPtr<Byte> = pNameCtorArg
+    public var pName: MutPtr = pNameCtorArg
         internal set
 
-    public var pEnvironment: MutPtr<Byte> = pEnvironmentCtorArg
+    public var pEnvironment: MutPtr = pEnvironmentCtorArg
         internal set
 
-    public var pDriverPath: MutPtr<Byte> = pDriverPathCtorArg
+    public var pDriverPath: MutPtr = pDriverPathCtorArg
         internal set
 
-    public var pDataFile: MutPtr<Byte> = pDataFileCtorArg
+    public var pDataFile: MutPtr = pDataFileCtorArg
         internal set
 
-    public var pConfigFile: MutPtr<Byte> = pConfigFileCtorArg
+    public var pConfigFile: MutPtr = pConfigFileCtorArg
         internal set
 
-    public var pHelpFile: MutPtr<Byte> = pHelpFileCtorArg
+    public var pHelpFile: MutPtr = pHelpFileCtorArg
         internal set
 
-    public var pDependentFiles: MutPtr<Byte> = pDependentFilesCtorArg
+    public var pDependentFiles: MutPtr = pDependentFilesCtorArg
         internal set
 
-    public var pMonitorName: MutPtr<Byte> = pMonitorNameCtorArg
+    public var pMonitorName: MutPtr = pMonitorNameCtorArg
         internal set
 
-    public var pDefaultDataType: MutPtr<Byte> = pDefaultDataTypeCtorArg
+    public var pDefaultDataType: MutPtr = pDefaultDataTypeCtorArg
         internal set
 
-    public var pszzPreviousNames: MutPtr<Byte> = pszzPreviousNamesCtorArg
+    public var pszzPreviousNames: MutPtr = pszzPreviousNamesCtorArg
         internal set
 
     public constructor() : this(
@@ -4417,33 +4414,33 @@ public class DriverUpgradeInfo2 internal constructor(
         pszzPreviousNamesCtorArg = MutPtr(0L),
     )
 
-    public operator fun component1(): MutPtr<Byte> = this.pPrinterName
+    public operator fun component1(): MutPtr = this.pPrinterName
 
-    public operator fun component2(): MutPtr<Byte> = this.pOldDriverDirectory
+    public operator fun component2(): MutPtr = this.pOldDriverDirectory
 
     public operator fun component3(): UInt = this.cVersion
 
-    public operator fun component4(): MutPtr<Byte> = this.pName
+    public operator fun component4(): MutPtr = this.pName
 
-    public operator fun component5(): MutPtr<Byte> = this.pEnvironment
+    public operator fun component5(): MutPtr = this.pEnvironment
 
-    public operator fun component6(): MutPtr<Byte> = this.pDriverPath
+    public operator fun component6(): MutPtr = this.pDriverPath
 
-    public operator fun component7(): MutPtr<Byte> = this.pDataFile
+    public operator fun component7(): MutPtr = this.pDataFile
 
-    public operator fun component8(): MutPtr<Byte> = this.pConfigFile
+    public operator fun component8(): MutPtr = this.pConfigFile
 
-    public operator fun component9(): MutPtr<Byte> = this.pHelpFile
+    public operator fun component9(): MutPtr = this.pHelpFile
 
-    public operator fun component10(): MutPtr<Byte> = this.pDependentFiles
+    public operator fun component10(): MutPtr = this.pDependentFiles
 
-    public operator fun component11(): MutPtr<Byte> = this.pMonitorName
+    public operator fun component11(): MutPtr = this.pMonitorName
 
-    public operator fun component12(): MutPtr<Byte> = this.pDefaultDataType
+    public operator fun component12(): MutPtr = this.pDefaultDataType
 
-    public operator fun component13(): MutPtr<Byte> = this.pszzPreviousNames
+    public operator fun component13(): MutPtr = this.pszzPreviousNames
 
-    public fun copy(pPrinterName: MutPtr<Byte> = this.pPrinterName, pOldDriverDirectory: MutPtr<Byte> = this.pOldDriverDirectory, cVersion: UInt = this.cVersion, pName: MutPtr<Byte> = this.pName, pEnvironment: MutPtr<Byte> = this.pEnvironment, pDriverPath: MutPtr<Byte> = this.pDriverPath, pDataFile: MutPtr<Byte> = this.pDataFile, pConfigFile: MutPtr<Byte> = this.pConfigFile, pHelpFile: MutPtr<Byte> = this.pHelpFile, pDependentFiles: MutPtr<Byte> = this.pDependentFiles, pMonitorName: MutPtr<Byte> = this.pMonitorName, pDefaultDataType: MutPtr<Byte> = this.pDefaultDataType, pszzPreviousNames: MutPtr<Byte> = this.pszzPreviousNames): DriverUpgradeInfo2 = DriverUpgradeInfo2(pPrinterNameCtorArg = pPrinterName, pOldDriverDirectoryCtorArg = pOldDriverDirectory, cVersion = cVersion, pNameCtorArg = pName, pEnvironmentCtorArg = pEnvironment, pDriverPathCtorArg = pDriverPath, pDataFileCtorArg = pDataFile, pConfigFileCtorArg = pConfigFile, pHelpFileCtorArg = pHelpFile, pDependentFilesCtorArg = pDependentFiles, pMonitorNameCtorArg = pMonitorName, pDefaultDataTypeCtorArg = pDefaultDataType, pszzPreviousNamesCtorArg = pszzPreviousNames)
+    public fun copy(pPrinterName: MutPtr = this.pPrinterName, pOldDriverDirectory: MutPtr = this.pOldDriverDirectory, cVersion: UInt = this.cVersion, pName: MutPtr = this.pName, pEnvironment: MutPtr = this.pEnvironment, pDriverPath: MutPtr = this.pDriverPath, pDataFile: MutPtr = this.pDataFile, pConfigFile: MutPtr = this.pConfigFile, pHelpFile: MutPtr = this.pHelpFile, pDependentFiles: MutPtr = this.pDependentFiles, pMonitorName: MutPtr = this.pMonitorName, pDefaultDataType: MutPtr = this.pDefaultDataType, pszzPreviousNames: MutPtr = this.pszzPreviousNames): DriverUpgradeInfo2 = DriverUpgradeInfo2(pPrinterNameCtorArg = pPrinterName, pOldDriverDirectoryCtorArg = pOldDriverDirectory, cVersion = cVersion, pNameCtorArg = pName, pEnvironmentCtorArg = pEnvironment, pDriverPathCtorArg = pDriverPath, pDataFileCtorArg = pDataFile, pConfigFileCtorArg = pConfigFile, pHelpFileCtorArg = pHelpFile, pDependentFilesCtorArg = pDependentFiles, pMonitorNameCtorArg = pMonitorName, pDefaultDataTypeCtorArg = pDefaultDataType, pszzPreviousNamesCtorArg = pszzPreviousNames)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -4490,121 +4487,121 @@ public class DriverUpgradeInfo2 internal constructor(
                     DriverUpgradeInfo2(
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<Byte>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<Byte>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 16L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<Byte>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 24L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<Byte>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 32L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<Byte>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 40L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<Byte>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 48L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<Byte>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 56L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<Byte>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 64L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<Byte>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 72L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<Byte>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 80L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<Byte>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 88L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<Byte>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 96L),
                     )
                 override fun writeNative(addr: Long, value: DriverUpgradeInfo2) {
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<Byte>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr, value.pPrinterName)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<Byte>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.pOldDriverDirectory)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 16L, value.cVersion)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<Byte>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 24L, value.pName)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<Byte>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 32L, value.pEnvironment)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<Byte>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 40L, value.pDriverPath)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<Byte>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 48L, value.pDataFile)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<Byte>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 56L, value.pConfigFile)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<Byte>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 64L, value.pHelpFile)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<Byte>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 72L, value.pDependentFiles)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<Byte>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 80L, value.pMonitorName)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<Byte>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 88L, value.pDefaultDataType)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<Byte>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 96L, value.pszzPreviousNames)
                 }
             }
 
         public operator fun invoke(
-            pPrinterName: MutPtr<Byte> = MutPtr(0L),
-            pOldDriverDirectory: MutPtr<Byte> = MutPtr(0L),
+            pPrinterName: MutPtr = MutPtr(0L),
+            pOldDriverDirectory: MutPtr = MutPtr(0L),
             cVersion: UInt = 0u,
-            pName: MutPtr<Byte> = MutPtr(0L),
-            pEnvironment: MutPtr<Byte> = MutPtr(0L),
-            pDriverPath: MutPtr<Byte> = MutPtr(0L),
-            pDataFile: MutPtr<Byte> = MutPtr(0L),
-            pConfigFile: MutPtr<Byte> = MutPtr(0L),
-            pHelpFile: MutPtr<Byte> = MutPtr(0L),
-            pDependentFiles: MutPtr<Byte> = MutPtr(0L),
-            pMonitorName: MutPtr<Byte> = MutPtr(0L),
-            pDefaultDataType: MutPtr<Byte> = MutPtr(0L),
-            pszzPreviousNames: MutPtr<Byte> = MutPtr(0L),
+            pName: MutPtr = MutPtr(0L),
+            pEnvironment: MutPtr = MutPtr(0L),
+            pDriverPath: MutPtr = MutPtr(0L),
+            pDataFile: MutPtr = MutPtr(0L),
+            pConfigFile: MutPtr = MutPtr(0L),
+            pHelpFile: MutPtr = MutPtr(0L),
+            pDependentFiles: MutPtr = MutPtr(0L),
+            pMonitorName: MutPtr = MutPtr(0L),
+            pDefaultDataType: MutPtr = MutPtr(0L),
+            pszzPreviousNames: MutPtr = MutPtr(0L),
         ): DriverUpgradeInfo2 =
             DriverUpgradeInfo2(
                 pPrinterNameCtorArg = pPrinterName,
@@ -4627,20 +4624,20 @@ public class DriverUpgradeInfo2 internal constructor(
 public class Extchkbox internal constructor(
     public var cbSize: UShort,
     public var flags: UShort,
-    pTitleCtorArg: MutPtr<Byte>,
-    pSeparatorCtorArg: MutPtr<Byte>,
-    pCheckedNameCtorArg: MutPtr<Byte>,
+    pTitleCtorArg: MutPtr,
+    pSeparatorCtorArg: MutPtr,
+    pCheckedNameCtorArg: MutPtr,
     public var iconID: Int,
     public var wReserved: UShortArray,
     public var dwReserved: IntArray,
 ) {
-    public var pTitle: MutPtr<Byte> = pTitleCtorArg
+    public var pTitle: MutPtr = pTitleCtorArg
         internal set
 
-    public var pSeparator: MutPtr<Byte> = pSeparatorCtorArg
+    public var pSeparator: MutPtr = pSeparatorCtorArg
         internal set
 
-    public var pCheckedName: MutPtr<Byte> = pCheckedNameCtorArg
+    public var pCheckedName: MutPtr = pCheckedNameCtorArg
         internal set
 
     public constructor() : this(
@@ -4658,11 +4655,11 @@ public class Extchkbox internal constructor(
 
     public operator fun component2(): UShort = this.flags
 
-    public operator fun component3(): MutPtr<Byte> = this.pTitle
+    public operator fun component3(): MutPtr = this.pTitle
 
-    public operator fun component4(): MutPtr<Byte> = this.pSeparator
+    public operator fun component4(): MutPtr = this.pSeparator
 
-    public operator fun component5(): MutPtr<Byte> = this.pCheckedName
+    public operator fun component5(): MutPtr = this.pCheckedName
 
     public operator fun component6(): Int = this.iconID
 
@@ -4670,7 +4667,7 @@ public class Extchkbox internal constructor(
 
     public operator fun component8(): IntArray = this.dwReserved
 
-    public fun copy(cbSize: UShort = this.cbSize, flags: UShort = this.flags, pTitle: MutPtr<Byte> = this.pTitle, pSeparator: MutPtr<Byte> = this.pSeparator, pCheckedName: MutPtr<Byte> = this.pCheckedName, iconID: Int = this.iconID, wReserved: UShortArray = this.wReserved, dwReserved: IntArray = this.dwReserved): Extchkbox = Extchkbox(cbSize = cbSize, flags = flags, pTitleCtorArg = pTitle, pSeparatorCtorArg = pSeparator, pCheckedNameCtorArg = pCheckedName, iconID = iconID, wReserved = wReserved, dwReserved = dwReserved)
+    public fun copy(cbSize: UShort = this.cbSize, flags: UShort = this.flags, pTitle: MutPtr = this.pTitle, pSeparator: MutPtr = this.pSeparator, pCheckedName: MutPtr = this.pCheckedName, iconID: Int = this.iconID, wReserved: UShortArray = this.wReserved, dwReserved: IntArray = this.dwReserved): Extchkbox = Extchkbox(cbSize = cbSize, flags = flags, pTitleCtorArg = pTitle, pSeparatorCtorArg = pSeparator, pCheckedNameCtorArg = pCheckedName, iconID = iconID, wReserved = wReserved, dwReserved = dwReserved)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -4709,15 +4706,15 @@ public class Extchkbox internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16).readNative(addr + 2L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<Byte>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<Byte>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 16L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<Byte>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 24L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.USIZE64).readNative(addr + 32L),
                         (
@@ -4734,15 +4731,15 @@ public class Extchkbox internal constructor(
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16).writeNative(addr + 2L, value.flags)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<Byte>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.pTitle)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<Byte>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 16L, value.pSeparator)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<Byte>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 24L, value.pCheckedName)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.USIZE64).writeNative(addr + 32L, value.iconID)
                     (
@@ -4759,9 +4756,9 @@ public class Extchkbox internal constructor(
         public operator fun invoke(
             cbSize: UShort = 0u,
             flags: UShort = 0u,
-            pTitle: MutPtr<Byte> = MutPtr(0L),
-            pSeparator: MutPtr<Byte> = MutPtr(0L),
-            pCheckedName: MutPtr<Byte> = MutPtr(0L),
+            pTitle: MutPtr = MutPtr(0L),
+            pSeparator: MutPtr = MutPtr(0L),
+            pCheckedName: MutPtr = MutPtr(0L),
             iconID: Int = 0,
             wReserved: UShortArray = UShortArray(4),
             dwReserved: IntArray = IntArray(2),
@@ -4782,13 +4779,13 @@ public class Extchkbox internal constructor(
 public class Extpush internal constructor(
     public var cbSize: UShort,
     public var flags: UShort,
-    pTitleCtorArg: MutPtr<Byte>,
+    pTitleCtorArg: MutPtr,
     public var anonymous1: Extpush0,
     public var iconID: Int,
     public var anonymous2: Extpush1,
     public var dwReserved: IntArray,
 ) {
-    public var pTitle: MutPtr<Byte> = pTitleCtorArg
+    public var pTitle: MutPtr = pTitleCtorArg
         internal set
 
     public constructor() : this(
@@ -4805,7 +4802,7 @@ public class Extpush internal constructor(
 
     public operator fun component2(): UShort = this.flags
 
-    public operator fun component3(): MutPtr<Byte> = this.pTitle
+    public operator fun component3(): MutPtr = this.pTitle
 
     public operator fun component4(): Extpush0 = this.anonymous1
 
@@ -4815,7 +4812,7 @@ public class Extpush internal constructor(
 
     public operator fun component7(): IntArray = this.dwReserved
 
-    public fun copy(cbSize: UShort = this.cbSize, flags: UShort = this.flags, pTitle: MutPtr<Byte> = this.pTitle, anonymous1: Extpush0 = this.anonymous1, iconID: Int = this.iconID, anonymous2: Extpush1 = this.anonymous2, dwReserved: IntArray = this.dwReserved): Extpush = Extpush(cbSize = cbSize, flags = flags, pTitleCtorArg = pTitle, anonymous1 = anonymous1, iconID = iconID, anonymous2 = anonymous2, dwReserved = dwReserved)
+    public fun copy(cbSize: UShort = this.cbSize, flags: UShort = this.flags, pTitle: MutPtr = this.pTitle, anonymous1: Extpush0 = this.anonymous1, iconID: Int = this.iconID, anonymous2: Extpush1 = this.anonymous2, dwReserved: IntArray = this.dwReserved): Extpush = Extpush(cbSize = cbSize, flags = flags, pTitleCtorArg = pTitle, anonymous1 = anonymous1, iconID = iconID, anonymous2 = anonymous2, dwReserved = dwReserved)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -4845,7 +4842,7 @@ public class Extpush internal constructor(
         public operator fun invoke(
             cbSize: UShort = 0u,
             flags: UShort = 0u,
-            pTitle: MutPtr<Byte> = MutPtr(0L),
+            pTitle: MutPtr = MutPtr(0L),
             anonymous1: Extpush0 = Extpush0(),
             iconID: Int = 0,
             anonymous2: Extpush1 = Extpush1(),
@@ -5447,7 +5444,7 @@ public class ImgErrorInfo internal constructor(
     devDescriptionCtorArg: Bstr,
     public var errorID: Guid,
     public var cUserParameters: UInt,
-    aUserParametersCtorArg: MutPtr<Bstr>,
+    aUserParametersCtorArg: MutPtr,
     userFallbackCtorArg: Bstr,
     public var exceptionID: UInt,
 ) {
@@ -5463,7 +5460,7 @@ public class ImgErrorInfo internal constructor(
     public var devDescription: Bstr = devDescriptionCtorArg
         internal set
 
-    public var aUserParameters: MutPtr<Bstr> = aUserParametersCtorArg
+    public var aUserParameters: MutPtr = aUserParametersCtorArg
         internal set
 
     public var userFallback: Bstr = userFallbackCtorArg
@@ -5499,13 +5496,13 @@ public class ImgErrorInfo internal constructor(
 
     public operator fun component8(): UInt = this.cUserParameters
 
-    public operator fun component9(): MutPtr<Bstr> = this.aUserParameters
+    public operator fun component9(): MutPtr = this.aUserParameters
 
     public operator fun component10(): Bstr = this.userFallback
 
     public operator fun component11(): UInt = this.exceptionID
 
-    public fun copy(description: Bstr = this.description, guid: Guid = this.guid, helpContext: UInt = this.helpContext, helpFile: Bstr = this.helpFile, source: Bstr = this.source, devDescription: Bstr = this.devDescription, errorID: Guid = this.errorID, cUserParameters: UInt = this.cUserParameters, aUserParameters: MutPtr<Bstr> = this.aUserParameters, userFallback: Bstr = this.userFallback, exceptionID: UInt = this.exceptionID): ImgErrorInfo = ImgErrorInfo(descriptionCtorArg = description, guid = guid, helpContext = helpContext, helpFileCtorArg = helpFile, sourceCtorArg = source, devDescriptionCtorArg = devDescription, errorID = errorID, cUserParameters = cUserParameters, aUserParametersCtorArg = aUserParameters, userFallbackCtorArg = userFallback, exceptionID = exceptionID)
+    public fun copy(description: Bstr = this.description, guid: Guid = this.guid, helpContext: UInt = this.helpContext, helpFile: Bstr = this.helpFile, source: Bstr = this.source, devDescription: Bstr = this.devDescription, errorID: Guid = this.errorID, cUserParameters: UInt = this.cUserParameters, aUserParameters: MutPtr = this.aUserParameters, userFallback: Bstr = this.userFallback, exceptionID: UInt = this.exceptionID): ImgErrorInfo = ImgErrorInfo(descriptionCtorArg = description, guid = guid, helpContext = helpContext, helpFileCtorArg = helpFile, sourceCtorArg = source, devDescriptionCtorArg = devDescription, errorID = errorID, cUserParameters = cUserParameters, aUserParametersCtorArg = aUserParameters, userFallbackCtorArg = userFallback, exceptionID = exceptionID)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -5549,7 +5546,7 @@ public class ImgErrorInfo internal constructor(
             devDescription: Bstr = ConstPtr(0L),
             errorID: Guid = Guid(),
             cUserParameters: UInt = 0u,
-            aUserParameters: MutPtr<Bstr> = MutPtr(0L),
+            aUserParameters: MutPtr = MutPtr(0L),
             userFallback: Bstr = ConstPtr(0L),
             exceptionID: UInt = 0u,
         ): ImgErrorInfo =
@@ -5874,7 +5871,7 @@ public class JobInfo2a internal constructor(
     pPrintProcessorCtorArg: Pstr,
     pParametersCtorArg: Pstr,
     pDriverNameCtorArg: Pstr,
-    pDevModeCtorArg: MutPtr<Devmodea>,
+    pDevModeCtorArg: MutPtr,
     pStatusCtorArg: Pstr,
     pSecurityDescriptorCtorArg: PsecurityDescriptor,
     public var status: UInt,
@@ -5915,7 +5912,7 @@ public class JobInfo2a internal constructor(
     public var pDriverName: Pstr = pDriverNameCtorArg
         internal set
 
-    public var pDevMode: MutPtr<Devmodea> = pDevModeCtorArg
+    public var pDevMode: MutPtr = pDevModeCtorArg
         internal set
 
     public var pStatus: Pstr = pStatusCtorArg
@@ -5962,7 +5959,7 @@ public class JobInfo2a internal constructor(
             pPrintProcessor: Pstr = MutPtr(0L),
             pParameters: Pstr = MutPtr(0L),
             pDriverName: Pstr = MutPtr(0L),
-            pDevMode: MutPtr<Devmodea> = MutPtr(0L),
+            pDevMode: MutPtr = MutPtr(0L),
             pStatus: Pstr = MutPtr(0L),
             pSecurityDescriptor: PsecurityDescriptor = MutPtr(0L),
             status: UInt = 0u,
@@ -6015,7 +6012,7 @@ public class JobInfo2w internal constructor(
     pPrintProcessorCtorArg: Pwstr,
     pParametersCtorArg: Pwstr,
     pDriverNameCtorArg: Pwstr,
-    pDevModeCtorArg: MutPtr<Devmodew>,
+    pDevModeCtorArg: MutPtr,
     pStatusCtorArg: Pwstr,
     pSecurityDescriptorCtorArg: PsecurityDescriptor,
     public var status: UInt,
@@ -6056,7 +6053,7 @@ public class JobInfo2w internal constructor(
     public var pDriverName: Pwstr = pDriverNameCtorArg
         internal set
 
-    public var pDevMode: MutPtr<Devmodew> = pDevModeCtorArg
+    public var pDevMode: MutPtr = pDevModeCtorArg
         internal set
 
     public var pStatus: Pwstr = pStatusCtorArg
@@ -6103,7 +6100,7 @@ public class JobInfo2w internal constructor(
             pPrintProcessor: Pwstr = MutPtr(0L),
             pParameters: Pwstr = MutPtr(0L),
             pDriverName: Pwstr = MutPtr(0L),
-            pDevMode: MutPtr<Devmodew> = MutPtr(0L),
+            pDevMode: MutPtr = MutPtr(0L),
             pStatus: Pwstr = MutPtr(0L),
             pSecurityDescriptor: PsecurityDescriptor = MutPtr(0L),
             status: UInt = 0u,
@@ -6181,7 +6178,7 @@ public class JobInfo4a internal constructor(
     pPrintProcessorCtorArg: Pstr,
     pParametersCtorArg: Pstr,
     pDriverNameCtorArg: Pstr,
-    pDevModeCtorArg: MutPtr<Devmodea>,
+    pDevModeCtorArg: MutPtr,
     pStatusCtorArg: Pstr,
     pSecurityDescriptorCtorArg: PsecurityDescriptor,
     public var status: UInt,
@@ -6223,7 +6220,7 @@ public class JobInfo4a internal constructor(
     public var pDriverName: Pstr = pDriverNameCtorArg
         internal set
 
-    public var pDevMode: MutPtr<Devmodea> = pDevModeCtorArg
+    public var pDevMode: MutPtr = pDevModeCtorArg
         internal set
 
     public var pStatus: Pstr = pStatusCtorArg
@@ -6271,7 +6268,7 @@ public class JobInfo4a internal constructor(
             pPrintProcessor: Pstr = MutPtr(0L),
             pParameters: Pstr = MutPtr(0L),
             pDriverName: Pstr = MutPtr(0L),
-            pDevMode: MutPtr<Devmodea> = MutPtr(0L),
+            pDevMode: MutPtr = MutPtr(0L),
             pStatus: Pstr = MutPtr(0L),
             pSecurityDescriptor: PsecurityDescriptor = MutPtr(0L),
             status: UInt = 0u,
@@ -6326,7 +6323,7 @@ public class JobInfo4w internal constructor(
     pPrintProcessorCtorArg: Pwstr,
     pParametersCtorArg: Pwstr,
     pDriverNameCtorArg: Pwstr,
-    pDevModeCtorArg: MutPtr<Devmodew>,
+    pDevModeCtorArg: MutPtr,
     pStatusCtorArg: Pwstr,
     pSecurityDescriptorCtorArg: PsecurityDescriptor,
     public var status: UInt,
@@ -6368,7 +6365,7 @@ public class JobInfo4w internal constructor(
     public var pDriverName: Pwstr = pDriverNameCtorArg
         internal set
 
-    public var pDevMode: MutPtr<Devmodew> = pDevModeCtorArg
+    public var pDevMode: MutPtr = pDevModeCtorArg
         internal set
 
     public var pStatus: Pwstr = pStatusCtorArg
@@ -6416,7 +6413,7 @@ public class JobInfo4w internal constructor(
             pPrintProcessor: Pwstr = MutPtr(0L),
             pParameters: Pwstr = MutPtr(0L),
             pDriverName: Pwstr = MutPtr(0L),
-            pDevMode: MutPtr<Devmodew> = MutPtr(0L),
+            pDevMode: MutPtr = MutPtr(0L),
             pStatus: Pwstr = MutPtr(0L),
             pSecurityDescriptor: PsecurityDescriptor = MutPtr(0L),
             status: UInt = 0u,
@@ -6606,7 +6603,7 @@ public class Monitorinit internal constructor(
     public var cbSize: UInt,
     hSpoolerCtorArg: Handle,
     hckRegistryRootCtorArg: Hkey,
-    pMonitorRegCtorArg: MutPtr<Monitorreg>,
+    pMonitorRegCtorArg: MutPtr,
     public var bLocal: Bool,
     pszServerNameCtorArg: Pcwstr,
 ) {
@@ -6616,7 +6613,7 @@ public class Monitorinit internal constructor(
     public var hckRegistryRoot: Hkey = hckRegistryRootCtorArg
         internal set
 
-    public var pMonitorReg: MutPtr<Monitorreg> = pMonitorRegCtorArg
+    public var pMonitorReg: MutPtr = pMonitorRegCtorArg
         internal set
 
     public var pszServerName: Pcwstr = pszServerNameCtorArg
@@ -6637,13 +6634,13 @@ public class Monitorinit internal constructor(
 
     public operator fun component3(): Hkey = this.hckRegistryRoot
 
-    public operator fun component4(): MutPtr<Monitorreg> = this.pMonitorReg
+    public operator fun component4(): MutPtr = this.pMonitorReg
 
     public operator fun component5(): Bool = this.bLocal
 
     public operator fun component6(): Pcwstr = this.pszServerName
 
-    public fun copy(cbSize: UInt = this.cbSize, hSpooler: Handle = this.hSpooler, hckRegistryRoot: Hkey = this.hckRegistryRoot, pMonitorReg: MutPtr<Monitorreg> = this.pMonitorReg, bLocal: Bool = this.bLocal, pszServerName: Pcwstr = this.pszServerName): Monitorinit = Monitorinit(cbSize = cbSize, hSpoolerCtorArg = hSpooler, hckRegistryRootCtorArg = hckRegistryRoot, pMonitorRegCtorArg = pMonitorReg, bLocal = bLocal, pszServerNameCtorArg = pszServerName)
+    public fun copy(cbSize: UInt = this.cbSize, hSpooler: Handle = this.hSpooler, hckRegistryRoot: Hkey = this.hckRegistryRoot, pMonitorReg: MutPtr = this.pMonitorReg, bLocal: Bool = this.bLocal, pszServerName: Pcwstr = this.pszServerName): Monitorinit = Monitorinit(cbSize = cbSize, hSpoolerCtorArg = hSpooler, hckRegistryRootCtorArg = hckRegistryRoot, pMonitorRegCtorArg = pMonitorReg, bLocal = bLocal, pszServerNameCtorArg = pszServerName)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -6672,7 +6669,7 @@ public class Monitorinit internal constructor(
             cbSize: UInt = 0u,
             hSpooler: Handle = MutPtr(0L),
             hckRegistryRoot: Hkey = MutPtr(0L),
-            pMonitorReg: MutPtr<Monitorreg> = MutPtr(0L),
+            pMonitorReg: MutPtr = MutPtr(0L),
             bLocal: Bool = 0,
             pszServerName: Pcwstr = ConstPtr(0L),
         ): Monitorinit =
@@ -7230,9 +7227,9 @@ public class NotificationConfig1 internal constructor(
     public var cbSize: UInt,
     public var fdwFlags: UInt,
     public var pfnNotifyCallback: RouterNotifyCallback,
-    pContextCtorArg: MutPtr<CVoid>,
+    pContextCtorArg: MutPtr,
 ) {
-    public var pContext: MutPtr<CVoid> = pContextCtorArg
+    public var pContext: MutPtr = pContextCtorArg
         internal set
 
     public constructor() : this(
@@ -7248,9 +7245,9 @@ public class NotificationConfig1 internal constructor(
 
     public operator fun component3(): RouterNotifyCallback = this.pfnNotifyCallback
 
-    public operator fun component4(): MutPtr<CVoid> = this.pContext
+    public operator fun component4(): MutPtr = this.pContext
 
-    public fun copy(cbSize: UInt = this.cbSize, fdwFlags: UInt = this.fdwFlags, pfnNotifyCallback: RouterNotifyCallback = this.pfnNotifyCallback, pContext: MutPtr<CVoid> = this.pContext): NotificationConfig1 = NotificationConfig1(cbSize = cbSize, fdwFlags = fdwFlags, pfnNotifyCallback = pfnNotifyCallback, pContextCtorArg = pContext)
+    public fun copy(cbSize: UInt = this.cbSize, fdwFlags: UInt = this.fdwFlags, pfnNotifyCallback: RouterNotifyCallback = this.pfnNotifyCallback, pContext: MutPtr = this.pContext): NotificationConfig1 = NotificationConfig1(cbSize = cbSize, fdwFlags = fdwFlags, pfnNotifyCallback = pfnNotifyCallback, pContextCtorArg = pContext)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -7275,7 +7272,7 @@ public class NotificationConfig1 internal constructor(
             cbSize: UInt = 0u,
             fdwFlags: UInt = 0u,
             pfnNotifyCallback: RouterNotifyCallback = null,
-            pContext: MutPtr<CVoid> = MutPtr(0L),
+            pContext: MutPtr = MutPtr(0L),
         ): NotificationConfig1 =
             NotificationConfig1(
                 cbSize = cbSize,
@@ -7288,22 +7285,22 @@ public class NotificationConfig1 internal constructor(
 
 public class Oemcuipparam internal constructor(
     public var cbSize: UInt,
-    poemuiobjCtorArg: MutPtr<Oemuiobj>,
+    poemuiobjCtorArg: MutPtr,
     hPrinterCtorArg: Handle,
     pPrinterNameCtorArg: Pwstr,
     hModuleCtorArg: Handle,
     hOEMHeapCtorArg: Handle,
-    pPublicDMCtorArg: MutPtr<Devmodea>,
-    pOEMDMCtorArg: MutPtr<CVoid>,
+    pPublicDMCtorArg: MutPtr,
+    pOEMDMCtorArg: MutPtr,
     public var dwFlags: UInt,
-    pDrvOptItemsCtorArg: MutPtr<Optitem>,
+    pDrvOptItemsCtorArg: MutPtr,
     public var cDrvOptItems: UInt,
-    pOEMOptItemsCtorArg: MutPtr<Optitem>,
+    pOEMOptItemsCtorArg: MutPtr,
     public var cOEMOptItems: UInt,
-    pOEMUserDataCtorArg: MutPtr<CVoid>,
+    pOEMUserDataCtorArg: MutPtr,
     public var oEMCUIPCallback: Oemcuipcallback,
 ) {
-    public var poemuiobj: MutPtr<Oemuiobj> = poemuiobjCtorArg
+    public var poemuiobj: MutPtr = poemuiobjCtorArg
         internal set
 
     public var hPrinter: Handle = hPrinterCtorArg
@@ -7318,19 +7315,19 @@ public class Oemcuipparam internal constructor(
     public var hOEMHeap: Handle = hOEMHeapCtorArg
         internal set
 
-    public var pPublicDM: MutPtr<Devmodea> = pPublicDMCtorArg
+    public var pPublicDM: MutPtr = pPublicDMCtorArg
         internal set
 
-    public var pOEMDM: MutPtr<CVoid> = pOEMDMCtorArg
+    public var pOEMDM: MutPtr = pOEMDMCtorArg
         internal set
 
-    public var pDrvOptItems: MutPtr<Optitem> = pDrvOptItemsCtorArg
+    public var pDrvOptItems: MutPtr = pDrvOptItemsCtorArg
         internal set
 
-    public var pOEMOptItems: MutPtr<Optitem> = pOEMOptItemsCtorArg
+    public var pOEMOptItems: MutPtr = pOEMOptItemsCtorArg
         internal set
 
-    public var pOEMUserData: MutPtr<CVoid> = pOEMUserDataCtorArg
+    public var pOEMUserData: MutPtr = pOEMUserDataCtorArg
         internal set
 
     public constructor() : this(
@@ -7353,7 +7350,7 @@ public class Oemcuipparam internal constructor(
 
     public operator fun component1(): UInt = this.cbSize
 
-    public operator fun component2(): MutPtr<Oemuiobj> = this.poemuiobj
+    public operator fun component2(): MutPtr = this.poemuiobj
 
     public operator fun component3(): Handle = this.hPrinter
 
@@ -7363,25 +7360,25 @@ public class Oemcuipparam internal constructor(
 
     public operator fun component6(): Handle = this.hOEMHeap
 
-    public operator fun component7(): MutPtr<Devmodea> = this.pPublicDM
+    public operator fun component7(): MutPtr = this.pPublicDM
 
-    public operator fun component8(): MutPtr<CVoid> = this.pOEMDM
+    public operator fun component8(): MutPtr = this.pOEMDM
 
     public operator fun component9(): UInt = this.dwFlags
 
-    public operator fun component10(): MutPtr<Optitem> = this.pDrvOptItems
+    public operator fun component10(): MutPtr = this.pDrvOptItems
 
     public operator fun component11(): UInt = this.cDrvOptItems
 
-    public operator fun component12(): MutPtr<Optitem> = this.pOEMOptItems
+    public operator fun component12(): MutPtr = this.pOEMOptItems
 
     public operator fun component13(): UInt = this.cOEMOptItems
 
-    public operator fun component14(): MutPtr<CVoid> = this.pOEMUserData
+    public operator fun component14(): MutPtr = this.pOEMUserData
 
     public operator fun component15(): Oemcuipcallback = this.oEMCUIPCallback
 
-    public fun copy(cbSize: UInt = this.cbSize, poemuiobj: MutPtr<Oemuiobj> = this.poemuiobj, hPrinter: Handle = this.hPrinter, pPrinterName: Pwstr = this.pPrinterName, hModule: Handle = this.hModule, hOEMHeap: Handle = this.hOEMHeap, pPublicDM: MutPtr<Devmodea> = this.pPublicDM, pOEMDM: MutPtr<CVoid> = this.pOEMDM, dwFlags: UInt = this.dwFlags, pDrvOptItems: MutPtr<Optitem> = this.pDrvOptItems, cDrvOptItems: UInt = this.cDrvOptItems, pOEMOptItems: MutPtr<Optitem> = this.pOEMOptItems, cOEMOptItems: UInt = this.cOEMOptItems, pOEMUserData: MutPtr<CVoid> = this.pOEMUserData, oEMCUIPCallback: Oemcuipcallback = this.oEMCUIPCallback): Oemcuipparam = Oemcuipparam(cbSize = cbSize, poemuiobjCtorArg = poemuiobj, hPrinterCtorArg = hPrinter, pPrinterNameCtorArg = pPrinterName, hModuleCtorArg = hModule, hOEMHeapCtorArg = hOEMHeap, pPublicDMCtorArg = pPublicDM, pOEMDMCtorArg = pOEMDM, dwFlags = dwFlags, pDrvOptItemsCtorArg = pDrvOptItems, cDrvOptItems = cDrvOptItems, pOEMOptItemsCtorArg = pOEMOptItems, cOEMOptItems = cOEMOptItems, pOEMUserDataCtorArg = pOEMUserData, oEMCUIPCallback = oEMCUIPCallback)
+    public fun copy(cbSize: UInt = this.cbSize, poemuiobj: MutPtr = this.poemuiobj, hPrinter: Handle = this.hPrinter, pPrinterName: Pwstr = this.pPrinterName, hModule: Handle = this.hModule, hOEMHeap: Handle = this.hOEMHeap, pPublicDM: MutPtr = this.pPublicDM, pOEMDM: MutPtr = this.pOEMDM, dwFlags: UInt = this.dwFlags, pDrvOptItems: MutPtr = this.pDrvOptItems, cDrvOptItems: UInt = this.cDrvOptItems, pOEMOptItems: MutPtr = this.pOEMOptItems, cOEMOptItems: UInt = this.cOEMOptItems, pOEMUserData: MutPtr = this.pOEMUserData, oEMCUIPCallback: Oemcuipcallback = this.oEMCUIPCallback): Oemcuipparam = Oemcuipparam(cbSize = cbSize, poemuiobjCtorArg = poemuiobj, hPrinterCtorArg = hPrinter, pPrinterNameCtorArg = pPrinterName, hModuleCtorArg = hModule, hOEMHeapCtorArg = hOEMHeap, pPublicDMCtorArg = pPublicDM, pOEMDMCtorArg = pOEMDM, dwFlags = dwFlags, pDrvOptItemsCtorArg = pDrvOptItems, cDrvOptItems = cDrvOptItems, pOEMOptItemsCtorArg = pOEMOptItems, cOEMOptItems = cOEMOptItems, pOEMUserDataCtorArg = pOEMUserData, oEMCUIPCallback = oEMCUIPCallback)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -7426,19 +7423,19 @@ public class Oemcuipparam internal constructor(
     public companion object {
         public operator fun invoke(
             cbSize: UInt = 0u,
-            poemuiobj: MutPtr<Oemuiobj> = MutPtr(0L),
+            poemuiobj: MutPtr = MutPtr(0L),
             hPrinter: Handle = MutPtr(0L),
             pPrinterName: Pwstr = MutPtr(0L),
             hModule: Handle = MutPtr(0L),
             hOEMHeap: Handle = MutPtr(0L),
-            pPublicDM: MutPtr<Devmodea> = MutPtr(0L),
-            pOEMDM: MutPtr<CVoid> = MutPtr(0L),
+            pPublicDM: MutPtr = MutPtr(0L),
+            pOEMDM: MutPtr = MutPtr(0L),
             dwFlags: UInt = 0u,
-            pDrvOptItems: MutPtr<Optitem> = MutPtr(0L),
+            pDrvOptItems: MutPtr = MutPtr(0L),
             cDrvOptItems: UInt = 0u,
-            pOEMOptItems: MutPtr<Optitem> = MutPtr(0L),
+            pOEMOptItems: MutPtr = MutPtr(0L),
             cOEMOptItems: UInt = 0u,
-            pOEMUserData: MutPtr<CVoid> = MutPtr(0L),
+            pOEMUserData: MutPtr = MutPtr(0L),
             oEMCUIPCallback: Oemcuipcallback = null,
         ): Oemcuipparam =
             Oemcuipparam(
@@ -7463,16 +7460,16 @@ public class Oemcuipparam internal constructor(
 
 public class Oemdmparam internal constructor(
     public var cbSize: UInt,
-    pdriverobjCtorArg: MutPtr<CVoid>,
+    pdriverobjCtorArg: MutPtr,
     hPrinterCtorArg: Handle,
     hModuleCtorArg: Handle,
-    pPublicDMInCtorArg: MutPtr<Devmodea>,
-    pPublicDMOutCtorArg: MutPtr<Devmodea>,
-    pOEMDMInCtorArg: MutPtr<CVoid>,
-    pOEMDMOutCtorArg: MutPtr<CVoid>,
+    pPublicDMInCtorArg: MutPtr,
+    pPublicDMOutCtorArg: MutPtr,
+    pOEMDMInCtorArg: MutPtr,
+    pOEMDMOutCtorArg: MutPtr,
     public var cbBufSize: UInt,
 ) {
-    public var pdriverobj: MutPtr<CVoid> = pdriverobjCtorArg
+    public var pdriverobj: MutPtr = pdriverobjCtorArg
         internal set
 
     public var hPrinter: Handle = hPrinterCtorArg
@@ -7481,16 +7478,16 @@ public class Oemdmparam internal constructor(
     public var hModule: Handle = hModuleCtorArg
         internal set
 
-    public var pPublicDMIn: MutPtr<Devmodea> = pPublicDMInCtorArg
+    public var pPublicDMIn: MutPtr = pPublicDMInCtorArg
         internal set
 
-    public var pPublicDMOut: MutPtr<Devmodea> = pPublicDMOutCtorArg
+    public var pPublicDMOut: MutPtr = pPublicDMOutCtorArg
         internal set
 
-    public var pOEMDMIn: MutPtr<CVoid> = pOEMDMInCtorArg
+    public var pOEMDMIn: MutPtr = pOEMDMInCtorArg
         internal set
 
-    public var pOEMDMOut: MutPtr<CVoid> = pOEMDMOutCtorArg
+    public var pOEMDMOut: MutPtr = pOEMDMOutCtorArg
         internal set
 
     public constructor() : this(
@@ -7507,23 +7504,23 @@ public class Oemdmparam internal constructor(
 
     public operator fun component1(): UInt = this.cbSize
 
-    public operator fun component2(): MutPtr<CVoid> = this.pdriverobj
+    public operator fun component2(): MutPtr = this.pdriverobj
 
     public operator fun component3(): Handle = this.hPrinter
 
     public operator fun component4(): Handle = this.hModule
 
-    public operator fun component5(): MutPtr<Devmodea> = this.pPublicDMIn
+    public operator fun component5(): MutPtr = this.pPublicDMIn
 
-    public operator fun component6(): MutPtr<Devmodea> = this.pPublicDMOut
+    public operator fun component6(): MutPtr = this.pPublicDMOut
 
-    public operator fun component7(): MutPtr<CVoid> = this.pOEMDMIn
+    public operator fun component7(): MutPtr = this.pOEMDMIn
 
-    public operator fun component8(): MutPtr<CVoid> = this.pOEMDMOut
+    public operator fun component8(): MutPtr = this.pOEMDMOut
 
     public operator fun component9(): UInt = this.cbBufSize
 
-    public fun copy(cbSize: UInt = this.cbSize, pdriverobj: MutPtr<CVoid> = this.pdriverobj, hPrinter: Handle = this.hPrinter, hModule: Handle = this.hModule, pPublicDMIn: MutPtr<Devmodea> = this.pPublicDMIn, pPublicDMOut: MutPtr<Devmodea> = this.pPublicDMOut, pOEMDMIn: MutPtr<CVoid> = this.pOEMDMIn, pOEMDMOut: MutPtr<CVoid> = this.pOEMDMOut, cbBufSize: UInt = this.cbBufSize): Oemdmparam = Oemdmparam(cbSize = cbSize, pdriverobjCtorArg = pdriverobj, hPrinterCtorArg = hPrinter, hModuleCtorArg = hModule, pPublicDMInCtorArg = pPublicDMIn, pPublicDMOutCtorArg = pPublicDMOut, pOEMDMInCtorArg = pOEMDMIn, pOEMDMOutCtorArg = pOEMDMOut, cbBufSize = cbBufSize)
+    public fun copy(cbSize: UInt = this.cbSize, pdriverobj: MutPtr = this.pdriverobj, hPrinter: Handle = this.hPrinter, hModule: Handle = this.hModule, pPublicDMIn: MutPtr = this.pPublicDMIn, pPublicDMOut: MutPtr = this.pPublicDMOut, pOEMDMIn: MutPtr = this.pOEMDMIn, pOEMDMOut: MutPtr = this.pOEMDMOut, cbBufSize: UInt = this.cbBufSize): Oemdmparam = Oemdmparam(cbSize = cbSize, pdriverobjCtorArg = pdriverobj, hPrinterCtorArg = hPrinter, hModuleCtorArg = hModule, pPublicDMInCtorArg = pPublicDMIn, pPublicDMOutCtorArg = pPublicDMOut, pOEMDMInCtorArg = pOEMDMIn, pOEMDMOutCtorArg = pOEMDMOut, cbBufSize = cbBufSize)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -7556,13 +7553,13 @@ public class Oemdmparam internal constructor(
     public companion object {
         public operator fun invoke(
             cbSize: UInt = 0u,
-            pdriverobj: MutPtr<CVoid> = MutPtr(0L),
+            pdriverobj: MutPtr = MutPtr(0L),
             hPrinter: Handle = MutPtr(0L),
             hModule: Handle = MutPtr(0L),
-            pPublicDMIn: MutPtr<Devmodea> = MutPtr(0L),
-            pPublicDMOut: MutPtr<Devmodea> = MutPtr(0L),
-            pOEMDMIn: MutPtr<CVoid> = MutPtr(0L),
-            pOEMDMOut: MutPtr<CVoid> = MutPtr(0L),
+            pPublicDMIn: MutPtr = MutPtr(0L),
+            pPublicDMOut: MutPtr = MutPtr(0L),
+            pOEMDMIn: MutPtr = MutPtr(0L),
+            pOEMDMOut: MutPtr = MutPtr(0L),
             cbBufSize: UInt = 0u,
         ): Oemdmparam =
             Oemdmparam(
@@ -7666,9 +7663,9 @@ public class Oemfontinstparam internal constructor(
 
 public class Oemuiobj internal constructor(
     public var cbSize: UInt,
-    pOemUIProcsCtorArg: MutPtr<Oemuiprocs>,
+    pOemUIProcsCtorArg: MutPtr,
 ) {
-    public var pOemUIProcs: MutPtr<Oemuiprocs> = pOemUIProcsCtorArg
+    public var pOemUIProcs: MutPtr = pOemUIProcsCtorArg
         internal set
 
     public constructor() : this(
@@ -7678,9 +7675,9 @@ public class Oemuiobj internal constructor(
 
     public operator fun component1(): UInt = this.cbSize
 
-    public operator fun component2(): MutPtr<Oemuiprocs> = this.pOemUIProcs
+    public operator fun component2(): MutPtr = this.pOemUIProcs
 
-    public fun copy(cbSize: UInt = this.cbSize, pOemUIProcs: MutPtr<Oemuiprocs> = this.pOemUIProcs): Oemuiobj = Oemuiobj(cbSize = cbSize, pOemUIProcsCtorArg = pOemUIProcs)
+    public fun copy(cbSize: UInt = this.cbSize, pOemUIProcs: MutPtr = this.pOemUIProcs): Oemuiobj = Oemuiobj(cbSize = cbSize, pOemUIProcsCtorArg = pOemUIProcs)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -7706,21 +7703,21 @@ public class Oemuiobj internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<Oemuiprocs>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                     )
                 override fun writeNative(addr: Long, value: Oemuiobj) {
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr, value.cbSize)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<Oemuiprocs>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.pOemUIProcs)
                 }
             }
 
         public operator fun invoke(
             cbSize: UInt = 0u,
-            pOemUIProcs: MutPtr<Oemuiprocs> = MutPtr(0L),
+            pOemUIProcs: MutPtr = MutPtr(0L),
         ): Oemuiobj =
             Oemuiobj(
                 cbSize = cbSize,
@@ -7736,18 +7733,18 @@ public data class Oemuiprocs(
 
 public class Oemuipsparam internal constructor(
     public var cbSize: UInt,
-    poemuiobjCtorArg: MutPtr<Oemuiobj>,
+    poemuiobjCtorArg: MutPtr,
     hPrinterCtorArg: Handle,
     pPrinterNameCtorArg: Pwstr,
     hModuleCtorArg: Handle,
     hOEMHeapCtorArg: Handle,
-    pPublicDMCtorArg: MutPtr<Devmodea>,
-    pOEMDMCtorArg: MutPtr<CVoid>,
-    pOEMUserDataCtorArg: MutPtr<CVoid>,
+    pPublicDMCtorArg: MutPtr,
+    pOEMDMCtorArg: MutPtr,
+    pOEMUserDataCtorArg: MutPtr,
     public var dwFlags: UInt,
-    pOemEntryCtorArg: MutPtr<CVoid>,
+    pOemEntryCtorArg: MutPtr,
 ) {
-    public var poemuiobj: MutPtr<Oemuiobj> = poemuiobjCtorArg
+    public var poemuiobj: MutPtr = poemuiobjCtorArg
         internal set
 
     public var hPrinter: Handle = hPrinterCtorArg
@@ -7762,16 +7759,16 @@ public class Oemuipsparam internal constructor(
     public var hOEMHeap: Handle = hOEMHeapCtorArg
         internal set
 
-    public var pPublicDM: MutPtr<Devmodea> = pPublicDMCtorArg
+    public var pPublicDM: MutPtr = pPublicDMCtorArg
         internal set
 
-    public var pOEMDM: MutPtr<CVoid> = pOEMDMCtorArg
+    public var pOEMDM: MutPtr = pOEMDMCtorArg
         internal set
 
-    public var pOEMUserData: MutPtr<CVoid> = pOEMUserDataCtorArg
+    public var pOEMUserData: MutPtr = pOEMUserDataCtorArg
         internal set
 
-    public var pOemEntry: MutPtr<CVoid> = pOemEntryCtorArg
+    public var pOemEntry: MutPtr = pOemEntryCtorArg
         internal set
 
     public constructor() : this(
@@ -7790,7 +7787,7 @@ public class Oemuipsparam internal constructor(
 
     public operator fun component1(): UInt = this.cbSize
 
-    public operator fun component2(): MutPtr<Oemuiobj> = this.poemuiobj
+    public operator fun component2(): MutPtr = this.poemuiobj
 
     public operator fun component3(): Handle = this.hPrinter
 
@@ -7800,17 +7797,17 @@ public class Oemuipsparam internal constructor(
 
     public operator fun component6(): Handle = this.hOEMHeap
 
-    public operator fun component7(): MutPtr<Devmodea> = this.pPublicDM
+    public operator fun component7(): MutPtr = this.pPublicDM
 
-    public operator fun component8(): MutPtr<CVoid> = this.pOEMDM
+    public operator fun component8(): MutPtr = this.pOEMDM
 
-    public operator fun component9(): MutPtr<CVoid> = this.pOEMUserData
+    public operator fun component9(): MutPtr = this.pOEMUserData
 
     public operator fun component10(): UInt = this.dwFlags
 
-    public operator fun component11(): MutPtr<CVoid> = this.pOemEntry
+    public operator fun component11(): MutPtr = this.pOemEntry
 
-    public fun copy(cbSize: UInt = this.cbSize, poemuiobj: MutPtr<Oemuiobj> = this.poemuiobj, hPrinter: Handle = this.hPrinter, pPrinterName: Pwstr = this.pPrinterName, hModule: Handle = this.hModule, hOEMHeap: Handle = this.hOEMHeap, pPublicDM: MutPtr<Devmodea> = this.pPublicDM, pOEMDM: MutPtr<CVoid> = this.pOEMDM, pOEMUserData: MutPtr<CVoid> = this.pOEMUserData, dwFlags: UInt = this.dwFlags, pOemEntry: MutPtr<CVoid> = this.pOemEntry): Oemuipsparam = Oemuipsparam(cbSize = cbSize, poemuiobjCtorArg = poemuiobj, hPrinterCtorArg = hPrinter, pPrinterNameCtorArg = pPrinterName, hModuleCtorArg = hModule, hOEMHeapCtorArg = hOEMHeap, pPublicDMCtorArg = pPublicDM, pOEMDMCtorArg = pOEMDM, pOEMUserDataCtorArg = pOEMUserData, dwFlags = dwFlags, pOemEntryCtorArg = pOemEntry)
+    public fun copy(cbSize: UInt = this.cbSize, poemuiobj: MutPtr = this.poemuiobj, hPrinter: Handle = this.hPrinter, pPrinterName: Pwstr = this.pPrinterName, hModule: Handle = this.hModule, hOEMHeap: Handle = this.hOEMHeap, pPublicDM: MutPtr = this.pPublicDM, pOEMDM: MutPtr = this.pOEMDM, pOEMUserData: MutPtr = this.pOEMUserData, dwFlags: UInt = this.dwFlags, pOemEntry: MutPtr = this.pOemEntry): Oemuipsparam = Oemuipsparam(cbSize = cbSize, poemuiobjCtorArg = poemuiobj, hPrinterCtorArg = hPrinter, pPrinterNameCtorArg = pPrinterName, hModuleCtorArg = hModule, hOEMHeapCtorArg = hOEMHeap, pPublicDMCtorArg = pPublicDM, pOEMDMCtorArg = pOEMDM, pOEMUserDataCtorArg = pOEMUserData, dwFlags = dwFlags, pOemEntryCtorArg = pOemEntry)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -7847,16 +7844,16 @@ public class Oemuipsparam internal constructor(
     public companion object {
         public operator fun invoke(
             cbSize: UInt = 0u,
-            poemuiobj: MutPtr<Oemuiobj> = MutPtr(0L),
+            poemuiobj: MutPtr = MutPtr(0L),
             hPrinter: Handle = MutPtr(0L),
             pPrinterName: Pwstr = MutPtr(0L),
             hModule: Handle = MutPtr(0L),
             hOEMHeap: Handle = MutPtr(0L),
-            pPublicDM: MutPtr<Devmodea> = MutPtr(0L),
-            pOEMDM: MutPtr<CVoid> = MutPtr(0L),
-            pOEMUserData: MutPtr<CVoid> = MutPtr(0L),
+            pPublicDM: MutPtr = MutPtr(0L),
+            pOEMDM: MutPtr = MutPtr(0L),
+            pOEMUserData: MutPtr = MutPtr(0L),
             dwFlags: UInt = 0u,
-            pOemEntry: MutPtr<CVoid> = MutPtr(0L),
+            pOemEntry: MutPtr = MutPtr(0L),
         ): Oemuipsparam =
             Oemuipsparam(
                 cbSize = cbSize,
@@ -7903,13 +7900,13 @@ public class Oiext internal constructor(
     public var cbSize: UShort,
     public var flags: UShort,
     hInstCallerCtorArg: Hinstance,
-    pHelpFileCtorArg: MutPtr<Byte>,
+    pHelpFileCtorArg: MutPtr,
     public var dwReserved: IntArray,
 ) {
     public var hInstCaller: Hinstance = hInstCallerCtorArg
         internal set
 
-    public var pHelpFile: MutPtr<Byte> = pHelpFileCtorArg
+    public var pHelpFile: MutPtr = pHelpFileCtorArg
         internal set
 
     public constructor() : this(
@@ -7926,11 +7923,11 @@ public class Oiext internal constructor(
 
     public operator fun component3(): Hinstance = this.hInstCaller
 
-    public operator fun component4(): MutPtr<Byte> = this.pHelpFile
+    public operator fun component4(): MutPtr = this.pHelpFile
 
     public operator fun component5(): IntArray = this.dwReserved
 
-    public fun copy(cbSize: UShort = this.cbSize, flags: UShort = this.flags, hInstCaller: Hinstance = this.hInstCaller, pHelpFile: MutPtr<Byte> = this.pHelpFile, dwReserved: IntArray = this.dwReserved): Oiext = Oiext(cbSize = cbSize, flags = flags, hInstCallerCtorArg = hInstCaller, pHelpFileCtorArg = pHelpFile, dwReserved = dwReserved)
+    public fun copy(cbSize: UShort = this.cbSize, flags: UShort = this.flags, hInstCaller: Hinstance = this.hInstCaller, pHelpFile: MutPtr = this.pHelpFile, dwReserved: IntArray = this.dwReserved): Oiext = Oiext(cbSize = cbSize, flags = flags, hInstCallerCtorArg = hInstCaller, pHelpFileCtorArg = pHelpFile, dwReserved = dwReserved)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -7957,7 +7954,7 @@ public class Oiext internal constructor(
             cbSize: UShort = 0u,
             flags: UShort = 0u,
             hInstCaller: Hinstance = MutPtr(0L),
-            pHelpFile: MutPtr<Byte> = MutPtr(0L),
+            pHelpFile: MutPtr = MutPtr(0L),
             dwReserved: IntArray = IntArray(4),
         ): Oiext =
             Oiext(
@@ -7974,11 +7971,11 @@ public class Optcombo internal constructor(
     public var cbSize: UShort,
     public var flags: UByte,
     public var cListItem: UShort,
-    pListItemCtorArg: MutPtr<Optparam>,
+    pListItemCtorArg: MutPtr,
     public var sel: Int,
     public var dwReserved: UIntArray,
 ) {
-    public var pListItem: MutPtr<Optparam> = pListItemCtorArg
+    public var pListItem: MutPtr = pListItemCtorArg
         internal set
 
     public constructor() : this(
@@ -7996,13 +7993,13 @@ public class Optcombo internal constructor(
 
     public operator fun component3(): UShort = this.cListItem
 
-    public operator fun component4(): MutPtr<Optparam> = this.pListItem
+    public operator fun component4(): MutPtr = this.pListItem
 
     public operator fun component5(): Int = this.sel
 
     public operator fun component6(): UIntArray = this.dwReserved
 
-    public fun copy(cbSize: UShort = this.cbSize, flags: UByte = this.flags, cListItem: UShort = this.cListItem, pListItem: MutPtr<Optparam> = this.pListItem, sel: Int = this.sel, dwReserved: UIntArray = this.dwReserved): Optcombo = Optcombo(cbSize = cbSize, flags = flags, cListItem = cListItem, pListItemCtorArg = pListItem, sel = sel, dwReserved = dwReserved)
+    public fun copy(cbSize: UShort = this.cbSize, flags: UByte = this.flags, cListItem: UShort = this.cListItem, pListItem: MutPtr = this.pListItem, sel: Int = this.sel, dwReserved: UIntArray = this.dwReserved): Optcombo = Optcombo(cbSize = cbSize, flags = flags, cListItem = cListItem, pListItemCtorArg = pListItem, sel = sel, dwReserved = dwReserved)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -8038,7 +8035,7 @@ public class Optcombo internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16).readNative(addr + 4L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<Optparam>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr + 16L),
                         (
@@ -8052,7 +8049,7 @@ public class Optcombo internal constructor(
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16).writeNative(addr + 4L, value.cListItem)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<Optparam>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.pListItem)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr + 16L, value.sel)
                     (
@@ -8066,7 +8063,7 @@ public class Optcombo internal constructor(
             cbSize: UShort = 0u,
             flags: UByte = 0u,
             cListItem: UShort = 0u,
-            pListItem: MutPtr<Optparam> = MutPtr(0L),
+            pListItem: MutPtr = MutPtr(0L),
             sel: Int = 0,
             dwReserved: UIntArray = UIntArray(3),
         ): Optcombo =
@@ -8087,24 +8084,24 @@ public class Optitem internal constructor(
     public var dlgPageIdx: UByte,
     public var flags: UInt,
     public var userData: Int,
-    pNameCtorArg: MutPtr<Byte>,
+    pNameCtorArg: MutPtr,
     public var anonymous1: Optitem0,
     public var anonymous2: Optitem1,
-    pOptTypeCtorArg: MutPtr<Opttype>,
+    pOptTypeCtorArg: MutPtr,
     public var helpIndex: UInt,
     public var dMPubID: UByte,
     public var userItemID: UByte,
     public var wReserved: UShort,
-    pOIExtCtorArg: MutPtr<Oiext>,
+    pOIExtCtorArg: MutPtr,
     public var dwReserved: IntArray,
 ) {
-    public var pName: MutPtr<Byte> = pNameCtorArg
+    public var pName: MutPtr = pNameCtorArg
         internal set
 
-    public var pOptType: MutPtr<Opttype> = pOptTypeCtorArg
+    public var pOptType: MutPtr = pOptTypeCtorArg
         internal set
 
-    public var pOIExt: MutPtr<Oiext> = pOIExtCtorArg
+    public var pOIExt: MutPtr = pOIExtCtorArg
         internal set
 
     public constructor() : this(
@@ -8135,13 +8132,13 @@ public class Optitem internal constructor(
 
     public operator fun component5(): Int = this.userData
 
-    public operator fun component6(): MutPtr<Byte> = this.pName
+    public operator fun component6(): MutPtr = this.pName
 
     public operator fun component7(): Optitem0 = this.anonymous1
 
     public operator fun component8(): Optitem1 = this.anonymous2
 
-    public operator fun component9(): MutPtr<Opttype> = this.pOptType
+    public operator fun component9(): MutPtr = this.pOptType
 
     public operator fun component10(): UInt = this.helpIndex
 
@@ -8151,11 +8148,11 @@ public class Optitem internal constructor(
 
     public operator fun component13(): UShort = this.wReserved
 
-    public operator fun component14(): MutPtr<Oiext> = this.pOIExt
+    public operator fun component14(): MutPtr = this.pOIExt
 
     public operator fun component15(): IntArray = this.dwReserved
 
-    public fun copy(cbSize: UShort = this.cbSize, level: UByte = this.level, dlgPageIdx: UByte = this.dlgPageIdx, flags: UInt = this.flags, userData: Int = this.userData, pName: MutPtr<Byte> = this.pName, anonymous1: Optitem0 = this.anonymous1, anonymous2: Optitem1 = this.anonymous2, pOptType: MutPtr<Opttype> = this.pOptType, helpIndex: UInt = this.helpIndex, dMPubID: UByte = this.dMPubID, userItemID: UByte = this.userItemID, wReserved: UShort = this.wReserved, pOIExt: MutPtr<Oiext> = this.pOIExt, dwReserved: IntArray = this.dwReserved): Optitem = Optitem(cbSize = cbSize, level = level, dlgPageIdx = dlgPageIdx, flags = flags, userData = userData, pNameCtorArg = pName, anonymous1 = anonymous1, anonymous2 = anonymous2, pOptTypeCtorArg = pOptType, helpIndex = helpIndex, dMPubID = dMPubID, userItemID = userItemID, wReserved = wReserved, pOIExtCtorArg = pOIExt, dwReserved = dwReserved)
+    public fun copy(cbSize: UShort = this.cbSize, level: UByte = this.level, dlgPageIdx: UByte = this.dlgPageIdx, flags: UInt = this.flags, userData: Int = this.userData, pName: MutPtr = this.pName, anonymous1: Optitem0 = this.anonymous1, anonymous2: Optitem1 = this.anonymous2, pOptType: MutPtr = this.pOptType, helpIndex: UInt = this.helpIndex, dMPubID: UByte = this.dMPubID, userItemID: UByte = this.userItemID, wReserved: UShort = this.wReserved, pOIExt: MutPtr = this.pOIExt, dwReserved: IntArray = this.dwReserved): Optitem = Optitem(cbSize = cbSize, level = level, dlgPageIdx = dlgPageIdx, flags = flags, userData = userData, pNameCtorArg = pName, anonymous1 = anonymous1, anonymous2 = anonymous2, pOptTypeCtorArg = pOptType, helpIndex = helpIndex, dMPubID = dMPubID, userItemID = userItemID, wReserved = wReserved, pOIExtCtorArg = pOIExt, dwReserved = dwReserved)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -8204,15 +8201,15 @@ public class Optitem internal constructor(
             dlgPageIdx: UByte = 0u,
             flags: UInt = 0u,
             userData: Int = 0,
-            pName: MutPtr<Byte> = MutPtr(0L),
+            pName: MutPtr = MutPtr(0L),
             anonymous1: Optitem0 = Optitem0(),
             anonymous2: Optitem1 = Optitem1(),
-            pOptType: MutPtr<Opttype> = MutPtr(0L),
+            pOptType: MutPtr = MutPtr(0L),
             helpIndex: UInt = 0u,
             dMPubID: UByte = 0u,
             userItemID: UByte = 0u,
             wReserved: UShort = 0u,
-            pOIExt: MutPtr<Oiext> = MutPtr(0L),
+            pOIExt: MutPtr = MutPtr(0L),
             dwReserved: IntArray = IntArray(3),
         ): Optitem =
             Optitem(
@@ -8237,9 +8234,9 @@ public class Optitem internal constructor(
 
 public class Optitem0 internal constructor(
     public var sel: Int,
-    pSelCtorArg: MutPtr<Byte>,
+    pSelCtorArg: MutPtr,
 ) {
-    public var pSel: MutPtr<Byte> = pSelCtorArg
+    public var pSel: MutPtr = pSelCtorArg
         internal set
 
     public constructor() : this(
@@ -8249,9 +8246,9 @@ public class Optitem0 internal constructor(
 
     public operator fun component1(): Int = this.sel
 
-    public operator fun component2(): MutPtr<Byte> = this.pSel
+    public operator fun component2(): MutPtr = this.pSel
 
-    public fun copy(sel: Int = this.sel, pSel: MutPtr<Byte> = this.pSel): Optitem0 = Optitem0(sel = sel, pSelCtorArg = pSel)
+    public fun copy(sel: Int = this.sel, pSel: MutPtr = this.pSel): Optitem0 = Optitem0(sel = sel, pSelCtorArg = pSel)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -8270,7 +8267,7 @@ public class Optitem0 internal constructor(
     public companion object {
         public operator fun invoke(
             sel: Int = 0,
-            pSel: MutPtr<Byte> = MutPtr(0L),
+            pSel: MutPtr = MutPtr(0L),
         ): Optitem0 =
             Optitem0(
                 sel = sel,
@@ -8280,13 +8277,13 @@ public class Optitem0 internal constructor(
 }
 
 public class Optitem1 internal constructor(
-    pExtChkBoxCtorArg: MutPtr<Extchkbox>,
-    pExtPushCtorArg: MutPtr<Extpush>,
+    pExtChkBoxCtorArg: MutPtr,
+    pExtPushCtorArg: MutPtr,
 ) {
-    public var pExtChkBox: MutPtr<Extchkbox> = pExtChkBoxCtorArg
+    public var pExtChkBox: MutPtr = pExtChkBoxCtorArg
         internal set
 
-    public var pExtPush: MutPtr<Extpush> = pExtPushCtorArg
+    public var pExtPush: MutPtr = pExtPushCtorArg
         internal set
 
     public constructor() : this(
@@ -8294,11 +8291,11 @@ public class Optitem1 internal constructor(
         pExtPushCtorArg = MutPtr(0L),
     )
 
-    public operator fun component1(): MutPtr<Extchkbox> = this.pExtChkBox
+    public operator fun component1(): MutPtr = this.pExtChkBox
 
-    public operator fun component2(): MutPtr<Extpush> = this.pExtPush
+    public operator fun component2(): MutPtr = this.pExtPush
 
-    public fun copy(pExtChkBox: MutPtr<Extchkbox> = this.pExtChkBox, pExtPush: MutPtr<Extpush> = this.pExtPush): Optitem1 = Optitem1(pExtChkBoxCtorArg = pExtChkBox, pExtPushCtorArg = pExtPush)
+    public fun copy(pExtChkBox: MutPtr = this.pExtChkBox, pExtPush: MutPtr = this.pExtPush): Optitem1 = Optitem1(pExtChkBoxCtorArg = pExtChkBox, pExtPushCtorArg = pExtPush)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -8316,8 +8313,8 @@ public class Optitem1 internal constructor(
 
     public companion object {
         public operator fun invoke(
-            pExtChkBox: MutPtr<Extchkbox> = MutPtr(0L),
-            pExtPush: MutPtr<Extpush> = MutPtr(0L),
+            pExtChkBox: MutPtr = MutPtr(0L),
+            pExtPush: MutPtr = MutPtr(0L),
         ): Optitem1 =
             Optitem1(
                 pExtChkBoxCtorArg = pExtChkBox,
@@ -8330,12 +8327,12 @@ public class Optparam internal constructor(
     public var cbSize: UShort,
     public var flags: UByte,
     public var style: UByte,
-    pDataCtorArg: MutPtr<Byte>,
+    pDataCtorArg: MutPtr,
     public var iconID: Int,
     public var lParam: Lparam,
     public var dwReserved: IntArray,
 ) {
-    public var pData: MutPtr<Byte> = pDataCtorArg
+    public var pData: MutPtr = pDataCtorArg
         internal set
 
     public constructor() : this(
@@ -8354,7 +8351,7 @@ public class Optparam internal constructor(
 
     public operator fun component3(): UByte = this.style
 
-    public operator fun component4(): MutPtr<Byte> = this.pData
+    public operator fun component4(): MutPtr = this.pData
 
     public operator fun component5(): Int = this.iconID
 
@@ -8362,7 +8359,7 @@ public class Optparam internal constructor(
 
     public operator fun component7(): IntArray = this.dwReserved
 
-    public fun copy(cbSize: UShort = this.cbSize, flags: UByte = this.flags, style: UByte = this.style, pData: MutPtr<Byte> = this.pData, iconID: Int = this.iconID, lParam: Lparam = this.lParam, dwReserved: IntArray = this.dwReserved): Optparam = Optparam(cbSize = cbSize, flags = flags, style = style, pDataCtorArg = pData, iconID = iconID, lParam = lParam, dwReserved = dwReserved)
+    public fun copy(cbSize: UShort = this.cbSize, flags: UByte = this.flags, style: UByte = this.style, pData: MutPtr = this.pData, iconID: Int = this.iconID, lParam: Lparam = this.lParam, dwReserved: IntArray = this.dwReserved): Optparam = Optparam(cbSize = cbSize, flags = flags, style = style, pDataCtorArg = pData, iconID = iconID, lParam = lParam, dwReserved = dwReserved)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -8400,7 +8397,7 @@ public class Optparam internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8).readNative(addr + 3L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<Byte>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.USIZE64).readNative(addr + 16L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I64).readNative(addr + 24L),
@@ -8415,7 +8412,7 @@ public class Optparam internal constructor(
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U8).writeNative(addr + 3L, value.style)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<Byte>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.pData)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.USIZE64).writeNative(addr + 16L, value.iconID)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I64).writeNative(addr + 24L, value.lParam)
@@ -8430,7 +8427,7 @@ public class Optparam internal constructor(
             cbSize: UShort = 0u,
             flags: UByte = 0u,
             style: UByte = 0u,
-            pData: MutPtr<Byte> = MutPtr(0L),
+            pData: MutPtr = MutPtr(0L),
             iconID: Int = 0,
             lParam: Lparam = 0L,
             dwReserved: IntArray = IntArray(2),
@@ -8453,12 +8450,12 @@ public class Opttype internal constructor(
     public var flags: UByte,
     public var count: UShort,
     public var begCtrlID: UShort,
-    pOptParamCtorArg: MutPtr<Optparam>,
+    pOptParamCtorArg: MutPtr,
     public var style: UShort,
     public var wReserved: UShortArray,
     public var dwReserved: IntArray,
 ) {
-    public var pOptParam: MutPtr<Optparam> = pOptParamCtorArg
+    public var pOptParam: MutPtr = pOptParamCtorArg
         internal set
 
     public constructor() : this(
@@ -8483,7 +8480,7 @@ public class Opttype internal constructor(
 
     public operator fun component5(): UShort = this.begCtrlID
 
-    public operator fun component6(): MutPtr<Optparam> = this.pOptParam
+    public operator fun component6(): MutPtr = this.pOptParam
 
     public operator fun component7(): UShort = this.style
 
@@ -8491,7 +8488,7 @@ public class Opttype internal constructor(
 
     public operator fun component9(): IntArray = this.dwReserved
 
-    public fun copy(cbSize: UShort = this.cbSize, type: UByte = this.type, flags: UByte = this.flags, count: UShort = this.count, begCtrlID: UShort = this.begCtrlID, pOptParam: MutPtr<Optparam> = this.pOptParam, style: UShort = this.style, wReserved: UShortArray = this.wReserved, dwReserved: IntArray = this.dwReserved): Opttype = Opttype(cbSize = cbSize, type = type, flags = flags, count = count, begCtrlID = begCtrlID, pOptParamCtorArg = pOptParam, style = style, wReserved = wReserved, dwReserved = dwReserved)
+    public fun copy(cbSize: UShort = this.cbSize, type: UByte = this.type, flags: UByte = this.flags, count: UShort = this.count, begCtrlID: UShort = this.begCtrlID, pOptParam: MutPtr = this.pOptParam, style: UShort = this.style, wReserved: UShortArray = this.wReserved, dwReserved: IntArray = this.dwReserved): Opttype = Opttype(cbSize = cbSize, type = type, flags = flags, count = count, begCtrlID = begCtrlID, pOptParamCtorArg = pOptParam, style = style, wReserved = wReserved, dwReserved = dwReserved)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -8535,7 +8532,7 @@ public class Opttype internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16).readNative(addr + 6L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<Optparam>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16).readNative(addr + 16L),
                         (
@@ -8555,7 +8552,7 @@ public class Opttype internal constructor(
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16).writeNative(addr + 6L, value.begCtrlID)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<Optparam>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.pOptParam)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16).writeNative(addr + 16L, value.style)
                     (
@@ -8575,7 +8572,7 @@ public class Opttype internal constructor(
             flags: UByte = 0u,
             count: UShort = 0u,
             begCtrlID: UShort = 0u,
-            pOptParam: MutPtr<Optparam> = MutPtr(0L),
+            pOptParam: MutPtr = MutPtr(0L),
             style: UShort = 0u,
             wReserved: UShortArray = UShortArray(3),
             dwReserved: IntArray = IntArray(3),
@@ -9291,13 +9288,13 @@ public class PrinterConnectionInfo1w internal constructor(
 
 public class PrinterDefaultsa internal constructor(
     pDatatypeCtorArg: Pstr,
-    pDevModeCtorArg: MutPtr<Devmodea>,
+    pDevModeCtorArg: MutPtr,
     public var desiredAccess: PrinterAccessRights,
 ) {
     public var pDatatype: Pstr = pDatatypeCtorArg
         internal set
 
-    public var pDevMode: MutPtr<Devmodea> = pDevModeCtorArg
+    public var pDevMode: MutPtr = pDevModeCtorArg
         internal set
 
     public constructor() : this(
@@ -9308,11 +9305,11 @@ public class PrinterDefaultsa internal constructor(
 
     public operator fun component1(): Pstr = this.pDatatype
 
-    public operator fun component2(): MutPtr<Devmodea> = this.pDevMode
+    public operator fun component2(): MutPtr = this.pDevMode
 
     public operator fun component3(): PrinterAccessRights = this.desiredAccess
 
-    public fun copy(pDatatype: Pstr = this.pDatatype, pDevMode: MutPtr<Devmodea> = this.pDevMode, desiredAccess: PrinterAccessRights = this.desiredAccess): PrinterDefaultsa = PrinterDefaultsa(pDatatypeCtorArg = pDatatype, pDevModeCtorArg = pDevMode, desiredAccess = desiredAccess)
+    public fun copy(pDatatype: Pstr = this.pDatatype, pDevMode: MutPtr = this.pDevMode, desiredAccess: PrinterAccessRights = this.desiredAccess): PrinterDefaultsa = PrinterDefaultsa(pDatatypeCtorArg = pDatatype, pDevModeCtorArg = pDevMode, desiredAccess = desiredAccess)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -9333,7 +9330,7 @@ public class PrinterDefaultsa internal constructor(
     public companion object {
         public operator fun invoke(
             pDatatype: Pstr = MutPtr(0L),
-            pDevMode: MutPtr<Devmodea> = MutPtr(0L),
+            pDevMode: MutPtr = MutPtr(0L),
             desiredAccess: PrinterAccessRights = 0u,
         ): PrinterDefaultsa =
             PrinterDefaultsa(
@@ -9346,13 +9343,13 @@ public class PrinterDefaultsa internal constructor(
 
 public class PrinterDefaultsw internal constructor(
     pDatatypeCtorArg: Pwstr,
-    pDevModeCtorArg: MutPtr<Devmodew>,
+    pDevModeCtorArg: MutPtr,
     public var desiredAccess: PrinterAccessRights,
 ) {
     public var pDatatype: Pwstr = pDatatypeCtorArg
         internal set
 
-    public var pDevMode: MutPtr<Devmodew> = pDevModeCtorArg
+    public var pDevMode: MutPtr = pDevModeCtorArg
         internal set
 
     public constructor() : this(
@@ -9363,11 +9360,11 @@ public class PrinterDefaultsw internal constructor(
 
     public operator fun component1(): Pwstr = this.pDatatype
 
-    public operator fun component2(): MutPtr<Devmodew> = this.pDevMode
+    public operator fun component2(): MutPtr = this.pDevMode
 
     public operator fun component3(): PrinterAccessRights = this.desiredAccess
 
-    public fun copy(pDatatype: Pwstr = this.pDatatype, pDevMode: MutPtr<Devmodew> = this.pDevMode, desiredAccess: PrinterAccessRights = this.desiredAccess): PrinterDefaultsw = PrinterDefaultsw(pDatatypeCtorArg = pDatatype, pDevModeCtorArg = pDevMode, desiredAccess = desiredAccess)
+    public fun copy(pDatatype: Pwstr = this.pDatatype, pDevMode: MutPtr = this.pDevMode, desiredAccess: PrinterAccessRights = this.desiredAccess): PrinterDefaultsw = PrinterDefaultsw(pDatatypeCtorArg = pDatatype, pDevModeCtorArg = pDevMode, desiredAccess = desiredAccess)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -9388,7 +9385,7 @@ public class PrinterDefaultsw internal constructor(
     public companion object {
         public operator fun invoke(
             pDatatype: Pwstr = MutPtr(0L),
-            pDevMode: MutPtr<Devmodew> = MutPtr(0L),
+            pDevMode: MutPtr = MutPtr(0L),
             desiredAccess: PrinterAccessRights = 0u,
         ): PrinterDefaultsw =
             PrinterDefaultsw(
@@ -9403,13 +9400,13 @@ public class PrinterEnumValuesa internal constructor(
     pValueNameCtorArg: Pstr,
     public var cbValueName: UInt,
     public var dwType: UInt,
-    pDataCtorArg: MutPtr<UByte>,
+    pDataCtorArg: MutPtr,
     public var cbData: UInt,
 ) {
     public var pValueName: Pstr = pValueNameCtorArg
         internal set
 
-    public var pData: MutPtr<UByte> = pDataCtorArg
+    public var pData: MutPtr = pDataCtorArg
         internal set
 
     public constructor() : this(
@@ -9426,11 +9423,11 @@ public class PrinterEnumValuesa internal constructor(
 
     public operator fun component3(): UInt = this.dwType
 
-    public operator fun component4(): MutPtr<UByte> = this.pData
+    public operator fun component4(): MutPtr = this.pData
 
     public operator fun component5(): UInt = this.cbData
 
-    public fun copy(pValueName: Pstr = this.pValueName, cbValueName: UInt = this.cbValueName, dwType: UInt = this.dwType, pData: MutPtr<UByte> = this.pData, cbData: UInt = this.cbData): PrinterEnumValuesa = PrinterEnumValuesa(pValueNameCtorArg = pValueName, cbValueName = cbValueName, dwType = dwType, pDataCtorArg = pData, cbData = cbData)
+    public fun copy(pValueName: Pstr = this.pValueName, cbValueName: UInt = this.cbValueName, dwType: UInt = this.dwType, pData: MutPtr = this.pData, cbData: UInt = this.cbData): PrinterEnumValuesa = PrinterEnumValuesa(pValueNameCtorArg = pValueName, cbValueName = cbValueName, dwType = dwType, pDataCtorArg = pData, cbData = cbData)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -9457,7 +9454,7 @@ public class PrinterEnumValuesa internal constructor(
             pValueName: Pstr = MutPtr(0L),
             cbValueName: UInt = 0u,
             dwType: UInt = 0u,
-            pData: MutPtr<UByte> = MutPtr(0L),
+            pData: MutPtr = MutPtr(0L),
             cbData: UInt = 0u,
         ): PrinterEnumValuesa =
             PrinterEnumValuesa(
@@ -9474,13 +9471,13 @@ public class PrinterEnumValuesw internal constructor(
     pValueNameCtorArg: Pwstr,
     public var cbValueName: UInt,
     public var dwType: UInt,
-    pDataCtorArg: MutPtr<UByte>,
+    pDataCtorArg: MutPtr,
     public var cbData: UInt,
 ) {
     public var pValueName: Pwstr = pValueNameCtorArg
         internal set
 
-    public var pData: MutPtr<UByte> = pDataCtorArg
+    public var pData: MutPtr = pDataCtorArg
         internal set
 
     public constructor() : this(
@@ -9497,11 +9494,11 @@ public class PrinterEnumValuesw internal constructor(
 
     public operator fun component3(): UInt = this.dwType
 
-    public operator fun component4(): MutPtr<UByte> = this.pData
+    public operator fun component4(): MutPtr = this.pData
 
     public operator fun component5(): UInt = this.cbData
 
-    public fun copy(pValueName: Pwstr = this.pValueName, cbValueName: UInt = this.cbValueName, dwType: UInt = this.dwType, pData: MutPtr<UByte> = this.pData, cbData: UInt = this.cbData): PrinterEnumValuesw = PrinterEnumValuesw(pValueNameCtorArg = pValueName, cbValueName = cbValueName, dwType = dwType, pDataCtorArg = pData, cbData = cbData)
+    public fun copy(pValueName: Pwstr = this.pValueName, cbValueName: UInt = this.cbValueName, dwType: UInt = this.dwType, pData: MutPtr = this.pData, cbData: UInt = this.cbData): PrinterEnumValuesw = PrinterEnumValuesw(pValueNameCtorArg = pValueName, cbValueName = cbValueName, dwType = dwType, pDataCtorArg = pData, cbData = cbData)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -9528,7 +9525,7 @@ public class PrinterEnumValuesw internal constructor(
             pValueName: Pwstr = MutPtr(0L),
             cbValueName: UInt = 0u,
             dwType: UInt = 0u,
-            pData: MutPtr<UByte> = MutPtr(0L),
+            pData: MutPtr = MutPtr(0L),
             cbData: UInt = 0u,
         ): PrinterEnumValuesw =
             PrinterEnumValuesw(
@@ -9567,18 +9564,18 @@ public data class PrinterEventAttributesInfo(
 }
 
 public class PrinterHandle internal constructor(
-    valueCtorArg: MutPtr<CVoid>,
+    valueCtorArg: MutPtr,
 ) {
-    public var value: MutPtr<CVoid> = valueCtorArg
+    public var value: MutPtr = valueCtorArg
         internal set
 
     public constructor() : this(
         valueCtorArg = MutPtr(0L),
     )
 
-    public operator fun component1(): MutPtr<CVoid> = this.value
+    public operator fun component1(): MutPtr = this.value
 
-    public fun copy(value: MutPtr<CVoid> = this.value): PrinterHandle = PrinterHandle(valueCtorArg = value)
+    public fun copy(value: MutPtr = this.value): PrinterHandle = PrinterHandle(valueCtorArg = value)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -9598,19 +9595,19 @@ public class PrinterHandle internal constructor(
                     PrinterHandle(
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<CVoid>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr),
                     )
                 override fun writeNative(addr: Long, value: PrinterHandle) {
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<CVoid>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr, value.value)
                 }
             }
 
         public operator fun invoke(
-            value: MutPtr<CVoid> = MutPtr(0L),
+            value: MutPtr = MutPtr(0L),
         ): PrinterHandle =
             PrinterHandle(
                 valueCtorArg = value,
@@ -9758,7 +9755,7 @@ public class PrinterInfo2a internal constructor(
     pDriverNameCtorArg: Pstr,
     pCommentCtorArg: Pstr,
     pLocationCtorArg: Pstr,
-    pDevModeCtorArg: MutPtr<Devmodea>,
+    pDevModeCtorArg: MutPtr,
     pSepFileCtorArg: Pstr,
     pPrintProcessorCtorArg: Pstr,
     pDatatypeCtorArg: Pstr,
@@ -9794,7 +9791,7 @@ public class PrinterInfo2a internal constructor(
     public var pLocation: Pstr = pLocationCtorArg
         internal set
 
-    public var pDevMode: MutPtr<Devmodea> = pDevModeCtorArg
+    public var pDevMode: MutPtr = pDevModeCtorArg
         internal set
 
     public var pSepFile: Pstr = pSepFileCtorArg
@@ -9845,7 +9842,7 @@ public class PrinterInfo2a internal constructor(
             pDriverName: Pstr = MutPtr(0L),
             pComment: Pstr = MutPtr(0L),
             pLocation: Pstr = MutPtr(0L),
-            pDevMode: MutPtr<Devmodea> = MutPtr(0L),
+            pDevMode: MutPtr = MutPtr(0L),
             pSepFile: Pstr = MutPtr(0L),
             pPrintProcessor: Pstr = MutPtr(0L),
             pDatatype: Pstr = MutPtr(0L),
@@ -9894,7 +9891,7 @@ public class PrinterInfo2w internal constructor(
     pDriverNameCtorArg: Pwstr,
     pCommentCtorArg: Pwstr,
     pLocationCtorArg: Pwstr,
-    pDevModeCtorArg: MutPtr<Devmodew>,
+    pDevModeCtorArg: MutPtr,
     pSepFileCtorArg: Pwstr,
     pPrintProcessorCtorArg: Pwstr,
     pDatatypeCtorArg: Pwstr,
@@ -9930,7 +9927,7 @@ public class PrinterInfo2w internal constructor(
     public var pLocation: Pwstr = pLocationCtorArg
         internal set
 
-    public var pDevMode: MutPtr<Devmodew> = pDevModeCtorArg
+    public var pDevMode: MutPtr = pDevModeCtorArg
         internal set
 
     public var pSepFile: Pwstr = pSepFileCtorArg
@@ -9981,7 +9978,7 @@ public class PrinterInfo2w internal constructor(
             pDriverName: Pwstr = MutPtr(0L),
             pComment: Pwstr = MutPtr(0L),
             pLocation: Pwstr = MutPtr(0L),
-            pDevMode: MutPtr<Devmodew> = MutPtr(0L),
+            pDevMode: MutPtr = MutPtr(0L),
             pSepFile: Pwstr = MutPtr(0L),
             pPrintProcessor: Pwstr = MutPtr(0L),
             pDatatype: Pwstr = MutPtr(0L),
@@ -10415,18 +10412,18 @@ public class PrinterInfo7w internal constructor(
 }
 
 public class PrinterInfo8a internal constructor(
-    pDevModeCtorArg: MutPtr<Devmodea>,
+    pDevModeCtorArg: MutPtr,
 ) {
-    public var pDevMode: MutPtr<Devmodea> = pDevModeCtorArg
+    public var pDevMode: MutPtr = pDevModeCtorArg
         internal set
 
     public constructor() : this(
         pDevModeCtorArg = MutPtr(0L),
     )
 
-    public operator fun component1(): MutPtr<Devmodea> = this.pDevMode
+    public operator fun component1(): MutPtr = this.pDevMode
 
-    public fun copy(pDevMode: MutPtr<Devmodea> = this.pDevMode): PrinterInfo8a = PrinterInfo8a(pDevModeCtorArg = pDevMode)
+    public fun copy(pDevMode: MutPtr = this.pDevMode): PrinterInfo8a = PrinterInfo8a(pDevModeCtorArg = pDevMode)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -10446,19 +10443,19 @@ public class PrinterInfo8a internal constructor(
                     PrinterInfo8a(
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<Devmodea>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr),
                     )
                 override fun writeNative(addr: Long, value: PrinterInfo8a) {
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<Devmodea>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr, value.pDevMode)
                 }
             }
 
         public operator fun invoke(
-            pDevMode: MutPtr<Devmodea> = MutPtr(0L),
+            pDevMode: MutPtr = MutPtr(0L),
         ): PrinterInfo8a =
             PrinterInfo8a(
                 pDevModeCtorArg = pDevMode,
@@ -10467,18 +10464,18 @@ public class PrinterInfo8a internal constructor(
 }
 
 public class PrinterInfo8w internal constructor(
-    pDevModeCtorArg: MutPtr<Devmodew>,
+    pDevModeCtorArg: MutPtr,
 ) {
-    public var pDevMode: MutPtr<Devmodew> = pDevModeCtorArg
+    public var pDevMode: MutPtr = pDevModeCtorArg
         internal set
 
     public constructor() : this(
         pDevModeCtorArg = MutPtr(0L),
     )
 
-    public operator fun component1(): MutPtr<Devmodew> = this.pDevMode
+    public operator fun component1(): MutPtr = this.pDevMode
 
-    public fun copy(pDevMode: MutPtr<Devmodew> = this.pDevMode): PrinterInfo8w = PrinterInfo8w(pDevModeCtorArg = pDevMode)
+    public fun copy(pDevMode: MutPtr = this.pDevMode): PrinterInfo8w = PrinterInfo8w(pDevModeCtorArg = pDevMode)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -10498,19 +10495,19 @@ public class PrinterInfo8w internal constructor(
                     PrinterInfo8w(
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<Devmodew>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr),
                     )
                 override fun writeNative(addr: Long, value: PrinterInfo8w) {
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<Devmodew>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr, value.pDevMode)
                 }
             }
 
         public operator fun invoke(
-            pDevMode: MutPtr<Devmodew> = MutPtr(0L),
+            pDevMode: MutPtr = MutPtr(0L),
         ): PrinterInfo8w =
             PrinterInfo8w(
                 pDevModeCtorArg = pDevMode,
@@ -10519,18 +10516,18 @@ public class PrinterInfo8w internal constructor(
 }
 
 public class PrinterInfo9a internal constructor(
-    pDevModeCtorArg: MutPtr<Devmodea>,
+    pDevModeCtorArg: MutPtr,
 ) {
-    public var pDevMode: MutPtr<Devmodea> = pDevModeCtorArg
+    public var pDevMode: MutPtr = pDevModeCtorArg
         internal set
 
     public constructor() : this(
         pDevModeCtorArg = MutPtr(0L),
     )
 
-    public operator fun component1(): MutPtr<Devmodea> = this.pDevMode
+    public operator fun component1(): MutPtr = this.pDevMode
 
-    public fun copy(pDevMode: MutPtr<Devmodea> = this.pDevMode): PrinterInfo9a = PrinterInfo9a(pDevModeCtorArg = pDevMode)
+    public fun copy(pDevMode: MutPtr = this.pDevMode): PrinterInfo9a = PrinterInfo9a(pDevModeCtorArg = pDevMode)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -10550,19 +10547,19 @@ public class PrinterInfo9a internal constructor(
                     PrinterInfo9a(
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<Devmodea>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr),
                     )
                 override fun writeNative(addr: Long, value: PrinterInfo9a) {
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<Devmodea>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr, value.pDevMode)
                 }
             }
 
         public operator fun invoke(
-            pDevMode: MutPtr<Devmodea> = MutPtr(0L),
+            pDevMode: MutPtr = MutPtr(0L),
         ): PrinterInfo9a =
             PrinterInfo9a(
                 pDevModeCtorArg = pDevMode,
@@ -10571,18 +10568,18 @@ public class PrinterInfo9a internal constructor(
 }
 
 public class PrinterInfo9w internal constructor(
-    pDevModeCtorArg: MutPtr<Devmodew>,
+    pDevModeCtorArg: MutPtr,
 ) {
-    public var pDevMode: MutPtr<Devmodew> = pDevModeCtorArg
+    public var pDevMode: MutPtr = pDevModeCtorArg
         internal set
 
     public constructor() : this(
         pDevModeCtorArg = MutPtr(0L),
     )
 
-    public operator fun component1(): MutPtr<Devmodew> = this.pDevMode
+    public operator fun component1(): MutPtr = this.pDevMode
 
-    public fun copy(pDevMode: MutPtr<Devmodew> = this.pDevMode): PrinterInfo9w = PrinterInfo9w(pDevModeCtorArg = pDevMode)
+    public fun copy(pDevMode: MutPtr = this.pDevMode): PrinterInfo9w = PrinterInfo9w(pDevModeCtorArg = pDevMode)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -10602,19 +10599,19 @@ public class PrinterInfo9w internal constructor(
                     PrinterInfo9w(
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<Devmodew>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr),
                     )
                 override fun writeNative(addr: Long, value: PrinterInfo9w) {
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<Devmodew>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr, value.pDevMode)
                 }
             }
 
         public operator fun invoke(
-            pDevMode: MutPtr<Devmodew> = MutPtr(0L),
+            pDevMode: MutPtr = MutPtr(0L),
         ): PrinterInfo9w =
             PrinterInfo9w(
                 pDevModeCtorArg = pDevMode,
@@ -10658,9 +10655,9 @@ public data class PrinterNotifyInfoData0(
 
 public class PrinterNotifyInfoData00 internal constructor(
     public var cbBuf: UInt,
-    pBufCtorArg: MutPtr<CVoid>,
+    pBufCtorArg: MutPtr,
 ) {
-    public var pBuf: MutPtr<CVoid> = pBufCtorArg
+    public var pBuf: MutPtr = pBufCtorArg
         internal set
 
     public constructor() : this(
@@ -10670,9 +10667,9 @@ public class PrinterNotifyInfoData00 internal constructor(
 
     public operator fun component1(): UInt = this.cbBuf
 
-    public operator fun component2(): MutPtr<CVoid> = this.pBuf
+    public operator fun component2(): MutPtr = this.pBuf
 
-    public fun copy(cbBuf: UInt = this.cbBuf, pBuf: MutPtr<CVoid> = this.pBuf): PrinterNotifyInfoData00 = PrinterNotifyInfoData00(cbBuf = cbBuf, pBufCtorArg = pBuf)
+    public fun copy(cbBuf: UInt = this.cbBuf, pBuf: MutPtr = this.pBuf): PrinterNotifyInfoData00 = PrinterNotifyInfoData00(cbBuf = cbBuf, pBufCtorArg = pBuf)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -10698,21 +10695,21 @@ public class PrinterNotifyInfoData00 internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<CVoid>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                     )
                 override fun writeNative(addr: Long, value: PrinterNotifyInfoData00) {
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr, value.cbBuf)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<CVoid>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.pBuf)
                 }
             }
 
         public operator fun invoke(
             cbBuf: UInt = 0u,
-            pBuf: MutPtr<CVoid> = MutPtr(0L),
+            pBuf: MutPtr = MutPtr(0L),
         ): PrinterNotifyInfoData00 =
             PrinterNotifyInfoData00(
                 cbBuf = cbBuf,
@@ -10750,9 +10747,9 @@ public class PrinterNotifyOptions internal constructor(
     public var version: UInt,
     public var flags: UInt,
     public var count: UInt,
-    pTypesCtorArg: MutPtr<PrinterNotifyOptionsType>,
+    pTypesCtorArg: MutPtr,
 ) {
-    public var pTypes: MutPtr<PrinterNotifyOptionsType> = pTypesCtorArg
+    public var pTypes: MutPtr = pTypesCtorArg
         internal set
 
     public constructor() : this(
@@ -10768,9 +10765,9 @@ public class PrinterNotifyOptions internal constructor(
 
     public operator fun component3(): UInt = this.count
 
-    public operator fun component4(): MutPtr<PrinterNotifyOptionsType> = this.pTypes
+    public operator fun component4(): MutPtr = this.pTypes
 
-    public fun copy(version: UInt = this.version, flags: UInt = this.flags, count: UInt = this.count, pTypes: MutPtr<PrinterNotifyOptionsType> = this.pTypes): PrinterNotifyOptions = PrinterNotifyOptions(version = version, flags = flags, count = count, pTypesCtorArg = pTypes)
+    public fun copy(version: UInt = this.version, flags: UInt = this.flags, count: UInt = this.count, pTypes: MutPtr = this.pTypes): PrinterNotifyOptions = PrinterNotifyOptions(version = version, flags = flags, count = count, pTypesCtorArg = pTypes)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -10802,7 +10799,7 @@ public class PrinterNotifyOptions internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 8L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<PrinterNotifyOptionsType>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 16L),
                     )
                 override fun writeNative(addr: Long, value: PrinterNotifyOptions) {
@@ -10811,7 +10808,7 @@ public class PrinterNotifyOptions internal constructor(
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 8L, value.count)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<PrinterNotifyOptionsType>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 16L, value.pTypes)
                 }
             }
@@ -10820,7 +10817,7 @@ public class PrinterNotifyOptions internal constructor(
             version: UInt = 0u,
             flags: UInt = 0u,
             count: UInt = 0u,
-            pTypes: MutPtr<PrinterNotifyOptionsType> = MutPtr(0L),
+            pTypes: MutPtr = MutPtr(0L),
         ): PrinterNotifyOptions =
             PrinterNotifyOptions(
                 version = version,
@@ -10837,9 +10834,9 @@ public class PrinterNotifyOptionsType internal constructor(
     public var reserved1: UInt,
     public var reserved2: UInt,
     public var count: UInt,
-    pFieldsCtorArg: MutPtr<UShort>,
+    pFieldsCtorArg: MutPtr,
 ) {
-    public var pFields: MutPtr<UShort> = pFieldsCtorArg
+    public var pFields: MutPtr = pFieldsCtorArg
         internal set
 
     public constructor() : this(
@@ -10861,9 +10858,9 @@ public class PrinterNotifyOptionsType internal constructor(
 
     public operator fun component5(): UInt = this.count
 
-    public operator fun component6(): MutPtr<UShort> = this.pFields
+    public operator fun component6(): MutPtr = this.pFields
 
-    public fun copy(type: UShort = this.type, reserved0: UShort = this.reserved0, reserved1: UInt = this.reserved1, reserved2: UInt = this.reserved2, count: UInt = this.count, pFields: MutPtr<UShort> = this.pFields): PrinterNotifyOptionsType = PrinterNotifyOptionsType(type = type, reserved0 = reserved0, reserved1 = reserved1, reserved2 = reserved2, count = count, pFieldsCtorArg = pFields)
+    public fun copy(type: UShort = this.type, reserved0: UShort = this.reserved0, reserved1: UInt = this.reserved1, reserved2: UInt = this.reserved2, count: UInt = this.count, pFields: MutPtr = this.pFields): PrinterNotifyOptionsType = PrinterNotifyOptionsType(type = type, reserved0 = reserved0, reserved1 = reserved1, reserved2 = reserved2, count = count, pFieldsCtorArg = pFields)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -10901,7 +10898,7 @@ public class PrinterNotifyOptionsType internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 12L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<UShort>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 16L),
                     )
                 override fun writeNative(addr: Long, value: PrinterNotifyOptionsType) {
@@ -10912,7 +10909,7 @@ public class PrinterNotifyOptionsType internal constructor(
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 12L, value.count)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<UShort>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 16L, value.pFields)
                 }
             }
@@ -10923,7 +10920,7 @@ public class PrinterNotifyOptionsType internal constructor(
             reserved1: UInt = 0u,
             reserved2: UInt = 0u,
             count: UInt = 0u,
-            pFields: MutPtr<UShort> = MutPtr(0L),
+            pFields: MutPtr = MutPtr(0L),
         ): PrinterNotifyOptionsType =
             PrinterNotifyOptionsType(
                 type = type,
@@ -11043,7 +11040,7 @@ public class Printifi32(
 )
 
 public class Printprocessoropendata internal constructor(
-    pDevModeCtorArg: MutPtr<Devmodea>,
+    pDevModeCtorArg: MutPtr,
     pDatatypeCtorArg: Pwstr,
     pParametersCtorArg: Pwstr,
     pDocumentNameCtorArg: Pwstr,
@@ -11051,7 +11048,7 @@ public class Printprocessoropendata internal constructor(
     pOutputFileCtorArg: Pwstr,
     pPrinterNameCtorArg: Pwstr,
 ) {
-    public var pDevMode: MutPtr<Devmodea> = pDevModeCtorArg
+    public var pDevMode: MutPtr = pDevModeCtorArg
         internal set
 
     public var pDatatype: Pwstr = pDatatypeCtorArg
@@ -11079,7 +11076,7 @@ public class Printprocessoropendata internal constructor(
         pPrinterNameCtorArg = MutPtr(0L),
     )
 
-    public operator fun component1(): MutPtr<Devmodea> = this.pDevMode
+    public operator fun component1(): MutPtr = this.pDevMode
 
     public operator fun component2(): Pwstr = this.pDatatype
 
@@ -11093,7 +11090,7 @@ public class Printprocessoropendata internal constructor(
 
     public operator fun component7(): Pwstr = this.pPrinterName
 
-    public fun copy(pDevMode: MutPtr<Devmodea> = this.pDevMode, pDatatype: Pwstr = this.pDatatype, pParameters: Pwstr = this.pParameters, pDocumentName: Pwstr = this.pDocumentName, jobId: UInt = this.jobId, pOutputFile: Pwstr = this.pOutputFile, pPrinterName: Pwstr = this.pPrinterName): Printprocessoropendata = Printprocessoropendata(pDevModeCtorArg = pDevMode, pDatatypeCtorArg = pDatatype, pParametersCtorArg = pParameters, pDocumentNameCtorArg = pDocumentName, jobId = jobId, pOutputFileCtorArg = pOutputFile, pPrinterNameCtorArg = pPrinterName)
+    public fun copy(pDevMode: MutPtr = this.pDevMode, pDatatype: Pwstr = this.pDatatype, pParameters: Pwstr = this.pParameters, pDocumentName: Pwstr = this.pDocumentName, jobId: UInt = this.jobId, pOutputFile: Pwstr = this.pOutputFile, pPrinterName: Pwstr = this.pPrinterName): Printprocessoropendata = Printprocessoropendata(pDevModeCtorArg = pDevMode, pDatatypeCtorArg = pDatatype, pParametersCtorArg = pParameters, pDocumentNameCtorArg = pDocumentName, jobId = jobId, pOutputFileCtorArg = pOutputFile, pPrinterNameCtorArg = pPrinterName)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -11121,7 +11118,7 @@ public class Printprocessoropendata internal constructor(
 
     public companion object {
         public operator fun invoke(
-            pDevMode: MutPtr<Devmodea> = MutPtr(0L),
+            pDevMode: MutPtr = MutPtr(0L),
             pDatatype: Pwstr = MutPtr(0L),
             pParameters: Pwstr = MutPtr(0L),
             pDocumentName: Pwstr = MutPtr(0L),
@@ -11965,12 +11962,12 @@ public class PropsheetuiInfo internal constructor(
 public class PropsheetuiInfoHeader internal constructor(
     public var cbSize: UShort,
     public var flags: UShort,
-    pTitleCtorArg: MutPtr<Byte>,
+    pTitleCtorArg: MutPtr,
     hWndParentCtorArg: Hwnd,
     hInstCtorArg: Hinstance,
     public var anonymous: PropsheetuiInfoHeader0,
 ) {
-    public var pTitle: MutPtr<Byte> = pTitleCtorArg
+    public var pTitle: MutPtr = pTitleCtorArg
         internal set
 
     public var hWndParent: Hwnd = hWndParentCtorArg
@@ -11992,7 +11989,7 @@ public class PropsheetuiInfoHeader internal constructor(
 
     public operator fun component2(): UShort = this.flags
 
-    public operator fun component3(): MutPtr<Byte> = this.pTitle
+    public operator fun component3(): MutPtr = this.pTitle
 
     public operator fun component4(): Hwnd = this.hWndParent
 
@@ -12000,7 +11997,7 @@ public class PropsheetuiInfoHeader internal constructor(
 
     public operator fun component6(): PropsheetuiInfoHeader0 = this.anonymous
 
-    public fun copy(cbSize: UShort = this.cbSize, flags: UShort = this.flags, pTitle: MutPtr<Byte> = this.pTitle, hWndParent: Hwnd = this.hWndParent, hInst: Hinstance = this.hInst, anonymous: PropsheetuiInfoHeader0 = this.anonymous): PropsheetuiInfoHeader = PropsheetuiInfoHeader(cbSize = cbSize, flags = flags, pTitleCtorArg = pTitle, hWndParentCtorArg = hWndParent, hInstCtorArg = hInst, anonymous = anonymous)
+    public fun copy(cbSize: UShort = this.cbSize, flags: UShort = this.flags, pTitle: MutPtr = this.pTitle, hWndParent: Hwnd = this.hWndParent, hInst: Hinstance = this.hInst, anonymous: PropsheetuiInfoHeader0 = this.anonymous): PropsheetuiInfoHeader = PropsheetuiInfoHeader(cbSize = cbSize, flags = flags, pTitleCtorArg = pTitle, hWndParentCtorArg = hWndParent, hInstCtorArg = hInst, anonymous = anonymous)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -12028,7 +12025,7 @@ public class PropsheetuiInfoHeader internal constructor(
         public operator fun invoke(
             cbSize: UShort = 0u,
             flags: UShort = 0u,
-            pTitle: MutPtr<Byte> = MutPtr(0L),
+            pTitle: MutPtr = MutPtr(0L),
             hWndParent: Hwnd = MutPtr(0L),
             hInst: Hinstance = MutPtr(0L),
             anonymous: PropsheetuiInfoHeader0 = PropsheetuiInfoHeader0(),
@@ -12454,9 +12451,9 @@ public class PrintNamedProperty internal constructor(
 
 public class PrintPropertiesCollection internal constructor(
     public var numberOfProperties: UInt,
-    propertiesCollectionCtorArg: MutPtr<PrintNamedProperty>,
+    propertiesCollectionCtorArg: MutPtr,
 ) {
-    public var propertiesCollection: MutPtr<PrintNamedProperty> = propertiesCollectionCtorArg
+    public var propertiesCollection: MutPtr = propertiesCollectionCtorArg
         internal set
 
     public constructor() : this(
@@ -12466,9 +12463,9 @@ public class PrintPropertiesCollection internal constructor(
 
     public operator fun component1(): UInt = this.numberOfProperties
 
-    public operator fun component2(): MutPtr<PrintNamedProperty> = this.propertiesCollection
+    public operator fun component2(): MutPtr = this.propertiesCollection
 
-    public fun copy(numberOfProperties: UInt = this.numberOfProperties, propertiesCollection: MutPtr<PrintNamedProperty> = this.propertiesCollection): PrintPropertiesCollection = PrintPropertiesCollection(numberOfProperties = numberOfProperties, propertiesCollectionCtorArg = propertiesCollection)
+    public fun copy(numberOfProperties: UInt = this.numberOfProperties, propertiesCollection: MutPtr = this.propertiesCollection): PrintPropertiesCollection = PrintPropertiesCollection(numberOfProperties = numberOfProperties, propertiesCollectionCtorArg = propertiesCollection)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -12494,21 +12491,21 @@ public class PrintPropertiesCollection internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<PrintNamedProperty>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                     )
                 override fun writeNative(addr: Long, value: PrintPropertiesCollection) {
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr, value.numberOfProperties)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<PrintNamedProperty>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.propertiesCollection)
                 }
             }
 
         public operator fun invoke(
             numberOfProperties: UInt = 0u,
-            propertiesCollection: MutPtr<PrintNamedProperty> = MutPtr(0L),
+            propertiesCollection: MutPtr = MutPtr(0L),
         ): PrintPropertiesCollection =
             PrintPropertiesCollection(
                 numberOfProperties = numberOfProperties,
@@ -12592,9 +12589,9 @@ public class PrintPropertyValue0 internal constructor(
 
 public class PrintPropertyValue00 internal constructor(
     public var cbBuf: UInt,
-    pBufCtorArg: MutPtr<CVoid>,
+    pBufCtorArg: MutPtr,
 ) {
-    public var pBuf: MutPtr<CVoid> = pBufCtorArg
+    public var pBuf: MutPtr = pBufCtorArg
         internal set
 
     public constructor() : this(
@@ -12604,9 +12601,9 @@ public class PrintPropertyValue00 internal constructor(
 
     public operator fun component1(): UInt = this.cbBuf
 
-    public operator fun component2(): MutPtr<CVoid> = this.pBuf
+    public operator fun component2(): MutPtr = this.pBuf
 
-    public fun copy(cbBuf: UInt = this.cbBuf, pBuf: MutPtr<CVoid> = this.pBuf): PrintPropertyValue00 = PrintPropertyValue00(cbBuf = cbBuf, pBufCtorArg = pBuf)
+    public fun copy(cbBuf: UInt = this.cbBuf, pBuf: MutPtr = this.pBuf): PrintPropertyValue00 = PrintPropertyValue00(cbBuf = cbBuf, pBufCtorArg = pBuf)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -12632,21 +12629,21 @@ public class PrintPropertyValue00 internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<CVoid>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                     )
                 override fun writeNative(addr: Long, value: PrintPropertyValue00) {
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr, value.cbBuf)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<CVoid>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.pBuf)
                 }
             }
 
         public operator fun invoke(
             cbBuf: UInt = 0u,
-            pBuf: MutPtr<CVoid> = MutPtr(0L),
+            pBuf: MutPtr = MutPtr(0L),
         ): PrintPropertyValue00 =
             PrintPropertyValue00(
                 cbBuf = cbBuf,

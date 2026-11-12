@@ -2,7 +2,6 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.system.tpmbaseservices
 
-import io.github.kotlinmania.rustlang.core.ffi.CVoid
 import io.github.kotlinmania.rustlang.core.ptr.ConstPtr
 import io.github.kotlinmania.rustlang.core.ptr.MutPtr
 import io.github.kotlinmania.windowssys.core.Bool
@@ -56,44 +55,44 @@ private external fun wasmWindowssysWindowsWin32SystemTpmbaseservicesTbsipContext
 @JsFun("(p0, p1, p2, p3, p4, p5, p6) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemTpmbaseservicesTbsipSubmitCommand(p0, p1, p2, p3, p4, p5, p6)")
 private external fun wasmWindowssysWindowsWin32SystemTpmbaseservicesTbsipSubmitCommand(p0: String, p1: Int, p2: Int, p3: String, p4: Int, p5: String, p6: String): Int
 
-public actual fun getDeviceID(pbwindowsaik: MutPtr<UByte>, cbwindowsaik: UInt, pcbresult: MutPtr<UInt>, pfprotectedbytpm: MutPtr<Bool>): Hresult =
+public actual fun getDeviceID(pbwindowsaik: MutPtr, cbwindowsaik: UInt, pcbresult: MutPtr, pfprotectedbytpm: MutPtr): Hresult =
     if (windowsWin32SystemTpmbaseservicesNapiAvailable) wasmWindowssysWindowsWin32SystemTpmbaseservicesGetDeviceID(pbwindowsaik.rawAddress.toString(), cbwindowsaik.toInt(), pcbresult.rawAddress.toString(), pfprotectedbytpm.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun getDeviceIDString(pszwindowsaik: Pwstr, cchwindowsaik: UInt, pcchresult: MutPtr<UInt>, pfprotectedbytpm: MutPtr<Bool>): Hresult =
+public actual fun getDeviceIDString(pszwindowsaik: Pwstr, cchwindowsaik: UInt, pcchresult: MutPtr, pfprotectedbytpm: MutPtr): Hresult =
     if (windowsWin32SystemTpmbaseservicesNapiAvailable) wasmWindowssysWindowsWin32SystemTpmbaseservicesGetDeviceIDString(pszwindowsaik.rawAddress.toString(), cchwindowsaik.toInt(), pcchresult.rawAddress.toString(), pfprotectedbytpm.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun tbsiContextCreate(pcontextparams: ConstPtr<TbsContextParams>, phcontext: MutPtr<MutPtr<CVoid>>): UInt =
+public actual fun tbsiContextCreate(pcontextparams: ConstPtr, phcontext: MutPtr): UInt =
     if (windowsWin32SystemTpmbaseservicesNapiAvailable) wasmWindowssysWindowsWin32SystemTpmbaseservicesTbsiContextCreate(pcontextparams.rawAddress.toString(), phcontext.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun tbsiCreateWindowsKey(keyhandle: UInt): UInt =
     if (windowsWin32SystemTpmbaseservicesNapiAvailable) wasmWindowssysWindowsWin32SystemTpmbaseservicesTbsiCreateWindowsKey(keyhandle.toInt()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun tbsiGetDeviceInfo(size: UInt, info: MutPtr<CVoid>): UInt =
+public actual fun tbsiGetDeviceInfo(size: UInt, info: MutPtr): UInt =
     if (windowsWin32SystemTpmbaseservicesNapiAvailable) wasmWindowssysWindowsWin32SystemTpmbaseservicesTbsiGetDeviceInfo(size.toInt(), info.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun tbsiGetOwnerAuth(hcontext: ConstPtr<CVoid>, ownerauthtype: UInt, poutputbuf: MutPtr<UByte>, poutputbuflen: MutPtr<UInt>): UInt =
+public actual fun tbsiGetOwnerAuth(hcontext: ConstPtr, ownerauthtype: UInt, poutputbuf: MutPtr, poutputbuflen: MutPtr): UInt =
     if (windowsWin32SystemTpmbaseservicesNapiAvailable) wasmWindowssysWindowsWin32SystemTpmbaseservicesTbsiGetOwnerAuth(hcontext.rawAddress.toString(), ownerauthtype.toInt(), poutputbuf.rawAddress.toString(), poutputbuflen.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun tbsiGetTcgLog(hcontext: ConstPtr<CVoid>, poutputbuf: MutPtr<UByte>, poutputbuflen: MutPtr<UInt>): UInt =
+public actual fun tbsiGetTcgLog(hcontext: ConstPtr, poutputbuf: MutPtr, poutputbuflen: MutPtr): UInt =
     if (windowsWin32SystemTpmbaseservicesNapiAvailable) wasmWindowssysWindowsWin32SystemTpmbaseservicesTbsiGetTcgLog(hcontext.rawAddress.toString(), poutputbuf.rawAddress.toString(), poutputbuflen.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun tbsiGetTcgLogEx(logtype: UInt, pboutput: MutPtr<UByte>, pcboutput: MutPtr<UInt>): UInt =
+public actual fun tbsiGetTcgLogEx(logtype: UInt, pboutput: MutPtr, pcboutput: MutPtr): UInt =
     if (windowsWin32SystemTpmbaseservicesNapiAvailable) wasmWindowssysWindowsWin32SystemTpmbaseservicesTbsiGetTcgLogEx(logtype.toInt(), pboutput.rawAddress.toString(), pcboutput.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun tbsiIsTpmPresent(): Bool =
     if (windowsWin32SystemTpmbaseservicesNapiAvailable) wasmWindowssysWindowsWin32SystemTpmbaseservicesTbsiIsTpmPresent() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun tbsiPhysicalPresenceCommand(hcontext: ConstPtr<CVoid>, pabinput: ConstPtr<UByte>, cbinput: UInt, paboutput: MutPtr<UByte>, pcboutput: MutPtr<UInt>): UInt =
+public actual fun tbsiPhysicalPresenceCommand(hcontext: ConstPtr, pabinput: ConstPtr, cbinput: UInt, paboutput: MutPtr, pcboutput: MutPtr): UInt =
     if (windowsWin32SystemTpmbaseservicesNapiAvailable) wasmWindowssysWindowsWin32SystemTpmbaseservicesTbsiPhysicalPresenceCommand(hcontext.rawAddress.toString(), pabinput.rawAddress.toString(), cbinput.toInt(), paboutput.rawAddress.toString(), pcboutput.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun tbsiRevokeAttestation(): UInt =
     if (windowsWin32SystemTpmbaseservicesNapiAvailable) wasmWindowssysWindowsWin32SystemTpmbaseservicesTbsiRevokeAttestation().toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun tbsipCancelCommands(hcontext: ConstPtr<CVoid>): UInt =
+public actual fun tbsipCancelCommands(hcontext: ConstPtr): UInt =
     if (windowsWin32SystemTpmbaseservicesNapiAvailable) wasmWindowssysWindowsWin32SystemTpmbaseservicesTbsipCancelCommands(hcontext.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun tbsipContextClose(hcontext: ConstPtr<CVoid>): UInt =
+public actual fun tbsipContextClose(hcontext: ConstPtr): UInt =
     if (windowsWin32SystemTpmbaseservicesNapiAvailable) wasmWindowssysWindowsWin32SystemTpmbaseservicesTbsipContextClose(hcontext.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun tbsipSubmitCommand(hcontext: ConstPtr<CVoid>, locality: TbsCommandLocality, priority: TbsCommandPriority, pabcommand: ConstPtr<UByte>, cbcommand: UInt, pabresult: MutPtr<UByte>, pcbresult: MutPtr<UInt>): UInt =
+public actual fun tbsipSubmitCommand(hcontext: ConstPtr, locality: TbsCommandLocality, priority: TbsCommandPriority, pabcommand: ConstPtr, cbcommand: UInt, pabresult: MutPtr, pcbresult: MutPtr): UInt =
     if (windowsWin32SystemTpmbaseservicesNapiAvailable) wasmWindowssysWindowsWin32SystemTpmbaseservicesTbsipSubmitCommand(hcontext.rawAddress.toString(), locality.toInt(), priority.toInt(), pabcommand.rawAddress.toString(), cbcommand.toInt(), pabresult.rawAddress.toString(), pcbresult.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")

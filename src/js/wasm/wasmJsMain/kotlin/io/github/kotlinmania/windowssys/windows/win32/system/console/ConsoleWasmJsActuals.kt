@@ -2,7 +2,6 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.system.console
 
-import io.github.kotlinmania.rustlang.core.ffi.CVoid
 import io.github.kotlinmania.rustlang.core.ptr.ConstPtr
 import io.github.kotlinmania.rustlang.core.ptr.MutPtr
 import io.github.kotlinmania.windowssys.core.Bool
@@ -14,7 +13,6 @@ import io.github.kotlinmania.windowssys.core.Pwstr
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Handle
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Hwnd
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Ntstatus
-import io.github.kotlinmania.windowssys.windows.win32.security.SecurityAttributes
 
 @JsFun("() => { if (typeof globalThis.__km_napi_windowssys !== 'undefined') return globalThis.__km_napi_windowssys !== null; if (typeof process === 'undefined' || !process.versions || !process.versions.node) { globalThis.__km_napi_windowssys = null; return false; } var mod = process.getBuiltinModule ? process.getBuiltinModule('module') : (process.mainModule && process.mainModule.constructor); var req = (mod && mod.createRequire) ? mod.createRequire((process.cwd ? process.cwd() : '.') + '/package.json') : (process.mainModule ? process.mainModule.require : null); if (!req) { globalThis.__km_napi_windowssys = null; return false; } try { globalThis.__km_napi_windowssys = req('@kotlinmania/windowssys-native-bindings'); return true; } catch (_) {} var fs = req('fs'); var path = req('path'); var dir = process.cwd ? process.cwd() : '.'; var rels = ['windowssys_native.node', 'build/node-ffi/windowssys_native.node', 'build/node-ffi/release/windowssys_native.node', 'build/node-ffi/debug/windowssys_native.node', 'src/js/node-windowssys/build/Release/windowssys_native.node', 'src/js/node-windowssys/build/Debug/windowssys_native.node', 'src/js/node-windowssys/dist/build/Release/windowssys_native.node', 'src/js/node-windowssys/dist/build/Debug/windowssys_native.node']; for (var d = 0; d < 8; d++) { for (var i = 0; i < rels.length; i++) { var c = path.resolve(dir, rels[i]); if (fs.existsSync(c)) { globalThis.__km_napi_windowssys = req(c); return true; } } var parent = path.dirname(dir); if (parent === dir) break; dir = parent; } globalThis.__km_napi_windowssys = null; return false; }")
 private external fun initWindowsWin32SystemConsoleNapiAddon(): Boolean
@@ -263,13 +261,13 @@ public actual fun closePseudoConsole(hpc: Hpcon) {
     }
 }
 
-public actual fun consoleControl(command: Consolecontrol, consoleinformation: ConstPtr<CVoid>, consoleinformationlength: UInt): Ntstatus =
+public actual fun consoleControl(command: Consolecontrol, consoleinformation: ConstPtr, consoleinformationlength: UInt): Ntstatus =
     if (windowsWin32SystemConsoleNapiAvailable) wasmWindowssysWindowsWin32SystemConsoleConsoleControl(command, consoleinformation.rawAddress.toString(), consoleinformationlength.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun createConsoleScreenBuffer(dwdesiredaccess: UInt, dwsharemode: UInt, lpsecurityattributes: ConstPtr<SecurityAttributes>, dwflags: UInt, lpscreenbufferdata: ConstPtr<CVoid>): Handle =
+public actual fun createConsoleScreenBuffer(dwdesiredaccess: UInt, dwsharemode: UInt, lpsecurityattributes: ConstPtr, dwflags: UInt, lpscreenbufferdata: ConstPtr): Handle =
     if (windowsWin32SystemConsoleNapiAvailable) MutPtr(wasmWindowssysWindowsWin32SystemConsoleCreateConsoleScreenBuffer(dwdesiredaccess.toInt(), dwsharemode.toInt(), lpsecurityattributes.rawAddress.toString(), dwflags.toInt(), lpscreenbufferdata.rawAddress.toString()).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun createPseudoConsole(size: Coord, hinput: Handle, houtput: Handle, dwflags: UInt, phpc: MutPtr<Hpcon>): Hresult =
+public actual fun createPseudoConsole(size: Coord, hinput: Handle, houtput: Handle, dwflags: UInt, phpc: MutPtr): Hresult =
     throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun expungeConsoleCommandHistoryA(exename: Pcstr) {
@@ -288,13 +286,13 @@ public actual fun expungeConsoleCommandHistoryW(exename: Pcwstr) {
     }
 }
 
-public actual fun fillConsoleOutputAttribute(hconsoleoutput: Handle, wattribute: UShort, nlength: UInt, dwwritecoord: Coord, lpnumberofattrswritten: MutPtr<UInt>): Bool =
+public actual fun fillConsoleOutputAttribute(hconsoleoutput: Handle, wattribute: UShort, nlength: UInt, dwwritecoord: Coord, lpnumberofattrswritten: MutPtr): Bool =
     throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun fillConsoleOutputCharacterA(hconsoleoutput: Handle, ccharacter: Byte, nlength: UInt, dwwritecoord: Coord, lpnumberofcharswritten: MutPtr<UInt>): Bool =
+public actual fun fillConsoleOutputCharacterA(hconsoleoutput: Handle, ccharacter: Byte, nlength: UInt, dwwritecoord: Coord, lpnumberofcharswritten: MutPtr): Bool =
     throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun fillConsoleOutputCharacterW(hconsoleoutput: Handle, ccharacter: UShort, nlength: UInt, dwwritecoord: Coord, lpnumberofcharswritten: MutPtr<UInt>): Bool =
+public actual fun fillConsoleOutputCharacterW(hconsoleoutput: Handle, ccharacter: UShort, nlength: UInt, dwwritecoord: Coord, lpnumberofcharswritten: MutPtr): Bool =
     throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun flushConsoleInputBuffer(hconsoleinput: Handle): Bool =
@@ -351,19 +349,19 @@ public actual fun getConsoleCommandHistoryLengthW(exename: Pcwstr): UInt =
 public actual fun getConsoleCommandHistoryW(commands: Pwstr, commandbufferlength: UInt, exename: Pcwstr): UInt =
     if (windowsWin32SystemConsoleNapiAvailable) wasmWindowssysWindowsWin32SystemConsoleGetConsoleCommandHistoryW(commands.rawAddress.toString(), commandbufferlength.toInt(), exename.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun getConsoleCursorInfo(hconsoleoutput: Handle, lpconsolecursorinfo: MutPtr<ConsoleCursorInfo>): Bool =
+public actual fun getConsoleCursorInfo(hconsoleoutput: Handle, lpconsolecursorinfo: MutPtr): Bool =
     if (windowsWin32SystemConsoleNapiAvailable) wasmWindowssysWindowsWin32SystemConsoleGetConsoleCursorInfo(hconsoleoutput.rawAddress.toString(), lpconsolecursorinfo.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun getConsoleDisplayMode(lpmodeflags: MutPtr<UInt>): Bool =
+public actual fun getConsoleDisplayMode(lpmodeflags: MutPtr): Bool =
     if (windowsWin32SystemConsoleNapiAvailable) wasmWindowssysWindowsWin32SystemConsoleGetConsoleDisplayMode(lpmodeflags.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun getConsoleFontSize(hconsoleoutput: Handle, nfont: UInt): Coord =
     throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun getConsoleHistoryInfo(lpconsolehistoryinfo: MutPtr<ConsoleHistoryInfo>): Bool =
+public actual fun getConsoleHistoryInfo(lpconsolehistoryinfo: MutPtr): Bool =
     if (windowsWin32SystemConsoleNapiAvailable) wasmWindowssysWindowsWin32SystemConsoleGetConsoleHistoryInfo(lpconsolehistoryinfo.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun getConsoleMode(hconsolehandle: Handle, lpmode: MutPtr<ConsoleMode>): Bool =
+public actual fun getConsoleMode(hconsolehandle: Handle, lpmode: MutPtr): Bool =
     if (windowsWin32SystemConsoleNapiAvailable) wasmWindowssysWindowsWin32SystemConsoleGetConsoleMode(hconsolehandle.rawAddress.toString(), lpmode.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun getConsoleOriginalTitleA(lpconsoletitle: Pstr, nsize: UInt): UInt =
@@ -375,16 +373,16 @@ public actual fun getConsoleOriginalTitleW(lpconsoletitle: Pwstr, nsize: UInt): 
 public actual fun getConsoleOutputCP(): UInt =
     if (windowsWin32SystemConsoleNapiAvailable) wasmWindowssysWindowsWin32SystemConsoleGetConsoleOutputCP().toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun getConsoleProcessList(lpdwprocesslist: MutPtr<UInt>, dwprocesscount: UInt): UInt =
+public actual fun getConsoleProcessList(lpdwprocesslist: MutPtr, dwprocesscount: UInt): UInt =
     if (windowsWin32SystemConsoleNapiAvailable) wasmWindowssysWindowsWin32SystemConsoleGetConsoleProcessList(lpdwprocesslist.rawAddress.toString(), dwprocesscount.toInt()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun getConsoleScreenBufferInfo(hconsoleoutput: Handle, lpconsolescreenbufferinfo: MutPtr<ConsoleScreenBufferInfo>): Bool =
+public actual fun getConsoleScreenBufferInfo(hconsoleoutput: Handle, lpconsolescreenbufferinfo: MutPtr): Bool =
     if (windowsWin32SystemConsoleNapiAvailable) wasmWindowssysWindowsWin32SystemConsoleGetConsoleScreenBufferInfo(hconsoleoutput.rawAddress.toString(), lpconsolescreenbufferinfo.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun getConsoleScreenBufferInfoEx(hconsoleoutput: Handle, lpconsolescreenbufferinfoex: MutPtr<ConsoleScreenBufferInfoex>): Bool =
+public actual fun getConsoleScreenBufferInfoEx(hconsoleoutput: Handle, lpconsolescreenbufferinfoex: MutPtr): Bool =
     if (windowsWin32SystemConsoleNapiAvailable) wasmWindowssysWindowsWin32SystemConsoleGetConsoleScreenBufferInfoEx(hconsoleoutput.rawAddress.toString(), lpconsolescreenbufferinfoex.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun getConsoleSelectionInfo(lpconsoleselectioninfo: MutPtr<ConsoleSelectionInfo>): Bool =
+public actual fun getConsoleSelectionInfo(lpconsoleselectioninfo: MutPtr): Bool =
     if (windowsWin32SystemConsoleNapiAvailable) wasmWindowssysWindowsWin32SystemConsoleGetConsoleSelectionInfo(lpconsoleselectioninfo.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun getConsoleTitleA(lpconsoletitle: Pstr, nsize: UInt): UInt =
@@ -396,64 +394,64 @@ public actual fun getConsoleTitleW(lpconsoletitle: Pwstr, nsize: UInt): UInt =
 public actual fun getConsoleWindow(): Hwnd =
     if (windowsWin32SystemConsoleNapiAvailable) MutPtr(wasmWindowssysWindowsWin32SystemConsoleGetConsoleWindow().toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun getCurrentConsoleFont(hconsoleoutput: Handle, bmaximumwindow: Bool, lpconsolecurrentfont: MutPtr<ConsoleFontInfo>): Bool =
+public actual fun getCurrentConsoleFont(hconsoleoutput: Handle, bmaximumwindow: Bool, lpconsolecurrentfont: MutPtr): Bool =
     if (windowsWin32SystemConsoleNapiAvailable) wasmWindowssysWindowsWin32SystemConsoleGetCurrentConsoleFont(hconsoleoutput.rawAddress.toString(), bmaximumwindow, lpconsolecurrentfont.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun getCurrentConsoleFontEx(hconsoleoutput: Handle, bmaximumwindow: Bool, lpconsolecurrentfontex: MutPtr<ConsoleFontInfoex>): Bool =
+public actual fun getCurrentConsoleFontEx(hconsoleoutput: Handle, bmaximumwindow: Bool, lpconsolecurrentfontex: MutPtr): Bool =
     if (windowsWin32SystemConsoleNapiAvailable) wasmWindowssysWindowsWin32SystemConsoleGetCurrentConsoleFontEx(hconsoleoutput.rawAddress.toString(), bmaximumwindow, lpconsolecurrentfontex.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun getLargestConsoleWindowSize(hconsoleoutput: Handle): Coord =
     throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun getNumberOfConsoleInputEvents(hconsoleinput: Handle, lpnumberofevents: MutPtr<UInt>): Bool =
+public actual fun getNumberOfConsoleInputEvents(hconsoleinput: Handle, lpnumberofevents: MutPtr): Bool =
     if (windowsWin32SystemConsoleNapiAvailable) wasmWindowssysWindowsWin32SystemConsoleGetNumberOfConsoleInputEvents(hconsoleinput.rawAddress.toString(), lpnumberofevents.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun getNumberOfConsoleMouseButtons(lpnumberofmousebuttons: MutPtr<UInt>): Bool =
+public actual fun getNumberOfConsoleMouseButtons(lpnumberofmousebuttons: MutPtr): Bool =
     if (windowsWin32SystemConsoleNapiAvailable) wasmWindowssysWindowsWin32SystemConsoleGetNumberOfConsoleMouseButtons(lpnumberofmousebuttons.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun getStdHandle(nstdhandle: StdHandle): Handle =
     if (windowsWin32SystemConsoleNapiAvailable) MutPtr(wasmWindowssysWindowsWin32SystemConsoleGetStdHandle(nstdhandle.toInt()).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun peekConsoleInputA(hconsoleinput: Handle, lpbuffer: MutPtr<InputRecord>, nlength: UInt, lpnumberofeventsread: MutPtr<UInt>): Bool =
+public actual fun peekConsoleInputA(hconsoleinput: Handle, lpbuffer: MutPtr, nlength: UInt, lpnumberofeventsread: MutPtr): Bool =
     if (windowsWin32SystemConsoleNapiAvailable) wasmWindowssysWindowsWin32SystemConsolePeekConsoleInputA(hconsoleinput.rawAddress.toString(), lpbuffer.rawAddress.toString(), nlength.toInt(), lpnumberofeventsread.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun peekConsoleInputW(hconsoleinput: Handle, lpbuffer: MutPtr<InputRecord>, nlength: UInt, lpnumberofeventsread: MutPtr<UInt>): Bool =
+public actual fun peekConsoleInputW(hconsoleinput: Handle, lpbuffer: MutPtr, nlength: UInt, lpnumberofeventsread: MutPtr): Bool =
     if (windowsWin32SystemConsoleNapiAvailable) wasmWindowssysWindowsWin32SystemConsolePeekConsoleInputW(hconsoleinput.rawAddress.toString(), lpbuffer.rawAddress.toString(), nlength.toInt(), lpnumberofeventsread.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun readConsoleA(hconsoleinput: Handle, lpbuffer: MutPtr<CVoid>, nnumberofcharstoread: UInt, lpnumberofcharsread: MutPtr<UInt>, pinputcontrol: ConstPtr<ConsoleReadconsoleControl>): Bool =
+public actual fun readConsoleA(hconsoleinput: Handle, lpbuffer: MutPtr, nnumberofcharstoread: UInt, lpnumberofcharsread: MutPtr, pinputcontrol: ConstPtr): Bool =
     if (windowsWin32SystemConsoleNapiAvailable) wasmWindowssysWindowsWin32SystemConsoleReadConsoleA(hconsoleinput.rawAddress.toString(), lpbuffer.rawAddress.toString(), nnumberofcharstoread.toInt(), lpnumberofcharsread.rawAddress.toString(), pinputcontrol.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun readConsoleInputA(hconsoleinput: Handle, lpbuffer: MutPtr<InputRecord>, nlength: UInt, lpnumberofeventsread: MutPtr<UInt>): Bool =
+public actual fun readConsoleInputA(hconsoleinput: Handle, lpbuffer: MutPtr, nlength: UInt, lpnumberofeventsread: MutPtr): Bool =
     if (windowsWin32SystemConsoleNapiAvailable) wasmWindowssysWindowsWin32SystemConsoleReadConsoleInputA(hconsoleinput.rawAddress.toString(), lpbuffer.rawAddress.toString(), nlength.toInt(), lpnumberofeventsread.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun readConsoleInputW(hconsoleinput: Handle, lpbuffer: MutPtr<InputRecord>, nlength: UInt, lpnumberofeventsread: MutPtr<UInt>): Bool =
+public actual fun readConsoleInputW(hconsoleinput: Handle, lpbuffer: MutPtr, nlength: UInt, lpnumberofeventsread: MutPtr): Bool =
     if (windowsWin32SystemConsoleNapiAvailable) wasmWindowssysWindowsWin32SystemConsoleReadConsoleInputW(hconsoleinput.rawAddress.toString(), lpbuffer.rawAddress.toString(), nlength.toInt(), lpnumberofeventsread.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun readConsoleOutputA(hconsoleoutput: Handle, lpbuffer: MutPtr<CharInfo>, dwbuffersize: Coord, dwbuffercoord: Coord, lpreadregion: MutPtr<SmallRect>): Bool =
+public actual fun readConsoleOutputA(hconsoleoutput: Handle, lpbuffer: MutPtr, dwbuffersize: Coord, dwbuffercoord: Coord, lpreadregion: MutPtr): Bool =
     throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun readConsoleOutputAttribute(hconsoleoutput: Handle, lpattribute: MutPtr<UShort>, nlength: UInt, dwreadcoord: Coord, lpnumberofattrsread: MutPtr<UInt>): Bool =
+public actual fun readConsoleOutputAttribute(hconsoleoutput: Handle, lpattribute: MutPtr, nlength: UInt, dwreadcoord: Coord, lpnumberofattrsread: MutPtr): Bool =
     throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun readConsoleOutputCharacterA(hconsoleoutput: Handle, lpcharacter: Pstr, nlength: UInt, dwreadcoord: Coord, lpnumberofcharsread: MutPtr<UInt>): Bool =
+public actual fun readConsoleOutputCharacterA(hconsoleoutput: Handle, lpcharacter: Pstr, nlength: UInt, dwreadcoord: Coord, lpnumberofcharsread: MutPtr): Bool =
     throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun readConsoleOutputCharacterW(hconsoleoutput: Handle, lpcharacter: Pwstr, nlength: UInt, dwreadcoord: Coord, lpnumberofcharsread: MutPtr<UInt>): Bool =
+public actual fun readConsoleOutputCharacterW(hconsoleoutput: Handle, lpcharacter: Pwstr, nlength: UInt, dwreadcoord: Coord, lpnumberofcharsread: MutPtr): Bool =
     throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun readConsoleOutputW(hconsoleoutput: Handle, lpbuffer: MutPtr<CharInfo>, dwbuffersize: Coord, dwbuffercoord: Coord, lpreadregion: MutPtr<SmallRect>): Bool =
+public actual fun readConsoleOutputW(hconsoleoutput: Handle, lpbuffer: MutPtr, dwbuffersize: Coord, dwbuffercoord: Coord, lpreadregion: MutPtr): Bool =
     throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun readConsoleW(hconsoleinput: Handle, lpbuffer: MutPtr<CVoid>, nnumberofcharstoread: UInt, lpnumberofcharsread: MutPtr<UInt>, pinputcontrol: ConstPtr<ConsoleReadconsoleControl>): Bool =
+public actual fun readConsoleW(hconsoleinput: Handle, lpbuffer: MutPtr, nnumberofcharstoread: UInt, lpnumberofcharsread: MutPtr, pinputcontrol: ConstPtr): Bool =
     if (windowsWin32SystemConsoleNapiAvailable) wasmWindowssysWindowsWin32SystemConsoleReadConsoleW(hconsoleinput.rawAddress.toString(), lpbuffer.rawAddress.toString(), nnumberofcharstoread.toInt(), lpnumberofcharsread.rawAddress.toString(), pinputcontrol.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun resizePseudoConsole(hpc: Hpcon, size: Coord): Hresult =
     throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun scrollConsoleScreenBufferA(hconsoleoutput: Handle, lpscrollrectangle: ConstPtr<SmallRect>, lpcliprectangle: ConstPtr<SmallRect>, dwdestinationorigin: Coord, lpfill: ConstPtr<CharInfo>): Bool =
+public actual fun scrollConsoleScreenBufferA(hconsoleoutput: Handle, lpscrollrectangle: ConstPtr, lpcliprectangle: ConstPtr, dwdestinationorigin: Coord, lpfill: ConstPtr): Bool =
     throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun scrollConsoleScreenBufferW(hconsoleoutput: Handle, lpscrollrectangle: ConstPtr<SmallRect>, lpcliprectangle: ConstPtr<SmallRect>, dwdestinationorigin: Coord, lpfill: ConstPtr<CharInfo>): Bool =
+public actual fun scrollConsoleScreenBufferW(hconsoleoutput: Handle, lpscrollrectangle: ConstPtr, lpcliprectangle: ConstPtr, dwdestinationorigin: Coord, lpfill: ConstPtr): Bool =
     throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun setConsoleActiveScreenBuffer(hconsoleoutput: Handle): Bool =
@@ -465,16 +463,16 @@ public actual fun setConsoleCP(wcodepageid: UInt): Bool =
 public actual fun setConsoleCtrlHandler(handlerroutine: PhandlerRoutine, add: Bool): Bool =
     if (windowsWin32SystemConsoleNapiAvailable) wasmWindowssysWindowsWin32SystemConsoleSetConsoleCtrlHandler(0L.toString(), add) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun setConsoleCursorInfo(hconsoleoutput: Handle, lpconsolecursorinfo: ConstPtr<ConsoleCursorInfo>): Bool =
+public actual fun setConsoleCursorInfo(hconsoleoutput: Handle, lpconsolecursorinfo: ConstPtr): Bool =
     if (windowsWin32SystemConsoleNapiAvailable) wasmWindowssysWindowsWin32SystemConsoleSetConsoleCursorInfo(hconsoleoutput.rawAddress.toString(), lpconsolecursorinfo.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun setConsoleCursorPosition(hconsoleoutput: Handle, dwcursorposition: Coord): Bool =
     throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun setConsoleDisplayMode(hconsoleoutput: Handle, dwflags: UInt, lpnewscreenbufferdimensions: MutPtr<Coord>): Bool =
+public actual fun setConsoleDisplayMode(hconsoleoutput: Handle, dwflags: UInt, lpnewscreenbufferdimensions: MutPtr): Bool =
     if (windowsWin32SystemConsoleNapiAvailable) wasmWindowssysWindowsWin32SystemConsoleSetConsoleDisplayMode(hconsoleoutput.rawAddress.toString(), dwflags.toInt(), lpnewscreenbufferdimensions.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun setConsoleHistoryInfo(lpconsolehistoryinfo: ConstPtr<ConsoleHistoryInfo>): Bool =
+public actual fun setConsoleHistoryInfo(lpconsolehistoryinfo: ConstPtr): Bool =
     if (windowsWin32SystemConsoleNapiAvailable) wasmWindowssysWindowsWin32SystemConsoleSetConsoleHistoryInfo(lpconsolehistoryinfo.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun setConsoleMode(hconsolehandle: Handle, dwmode: ConsoleMode): Bool =
@@ -489,7 +487,7 @@ public actual fun setConsoleNumberOfCommandsW(number: UInt, exename: Pcwstr): Bo
 public actual fun setConsoleOutputCP(wcodepageid: UInt): Bool =
     if (windowsWin32SystemConsoleNapiAvailable) wasmWindowssysWindowsWin32SystemConsoleSetConsoleOutputCP(wcodepageid.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun setConsoleScreenBufferInfoEx(hconsoleoutput: Handle, lpconsolescreenbufferinfoex: ConstPtr<ConsoleScreenBufferInfoex>): Bool =
+public actual fun setConsoleScreenBufferInfoEx(hconsoleoutput: Handle, lpconsolescreenbufferinfoex: ConstPtr): Bool =
     if (windowsWin32SystemConsoleNapiAvailable) wasmWindowssysWindowsWin32SystemConsoleSetConsoleScreenBufferInfoEx(hconsoleoutput.rawAddress.toString(), lpconsolescreenbufferinfoex.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun setConsoleScreenBufferSize(hconsoleoutput: Handle, dwsize: Coord): Bool =
@@ -504,41 +502,41 @@ public actual fun setConsoleTitleA(lpconsoletitle: Pcstr): Bool =
 public actual fun setConsoleTitleW(lpconsoletitle: Pcwstr): Bool =
     if (windowsWin32SystemConsoleNapiAvailable) wasmWindowssysWindowsWin32SystemConsoleSetConsoleTitleW(lpconsoletitle.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun setConsoleWindowInfo(hconsoleoutput: Handle, babsolute: Bool, lpconsolewindow: ConstPtr<SmallRect>): Bool =
+public actual fun setConsoleWindowInfo(hconsoleoutput: Handle, babsolute: Bool, lpconsolewindow: ConstPtr): Bool =
     if (windowsWin32SystemConsoleNapiAvailable) wasmWindowssysWindowsWin32SystemConsoleSetConsoleWindowInfo(hconsoleoutput.rawAddress.toString(), babsolute, lpconsolewindow.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun setCurrentConsoleFontEx(hconsoleoutput: Handle, bmaximumwindow: Bool, lpconsolecurrentfontex: ConstPtr<ConsoleFontInfoex>): Bool =
+public actual fun setCurrentConsoleFontEx(hconsoleoutput: Handle, bmaximumwindow: Bool, lpconsolecurrentfontex: ConstPtr): Bool =
     if (windowsWin32SystemConsoleNapiAvailable) wasmWindowssysWindowsWin32SystemConsoleSetCurrentConsoleFontEx(hconsoleoutput.rawAddress.toString(), bmaximumwindow, lpconsolecurrentfontex.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun setStdHandle(nstdhandle: StdHandle, hhandle: Handle): Bool =
     if (windowsWin32SystemConsoleNapiAvailable) wasmWindowssysWindowsWin32SystemConsoleSetStdHandle(nstdhandle.toInt(), hhandle.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun setStdHandleEx(nstdhandle: StdHandle, hhandle: Handle, phprevvalue: MutPtr<Handle>): Bool =
+public actual fun setStdHandleEx(nstdhandle: StdHandle, hhandle: Handle, phprevvalue: MutPtr): Bool =
     if (windowsWin32SystemConsoleNapiAvailable) wasmWindowssysWindowsWin32SystemConsoleSetStdHandleEx(nstdhandle.toInt(), hhandle.rawAddress.toString(), phprevvalue.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun writeConsoleA(hconsoleoutput: Handle, lpbuffer: Pcstr, nnumberofcharstowrite: UInt, lpnumberofcharswritten: MutPtr<UInt>, lpreserved: ConstPtr<CVoid>): Bool =
+public actual fun writeConsoleA(hconsoleoutput: Handle, lpbuffer: Pcstr, nnumberofcharstowrite: UInt, lpnumberofcharswritten: MutPtr, lpreserved: ConstPtr): Bool =
     if (windowsWin32SystemConsoleNapiAvailable) wasmWindowssysWindowsWin32SystemConsoleWriteConsoleA(hconsoleoutput.rawAddress.toString(), lpbuffer.rawAddress.toString(), nnumberofcharstowrite.toInt(), lpnumberofcharswritten.rawAddress.toString(), lpreserved.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun writeConsoleInputA(hconsoleinput: Handle, lpbuffer: ConstPtr<InputRecord>, nlength: UInt, lpnumberofeventswritten: MutPtr<UInt>): Bool =
+public actual fun writeConsoleInputA(hconsoleinput: Handle, lpbuffer: ConstPtr, nlength: UInt, lpnumberofeventswritten: MutPtr): Bool =
     if (windowsWin32SystemConsoleNapiAvailable) wasmWindowssysWindowsWin32SystemConsoleWriteConsoleInputA(hconsoleinput.rawAddress.toString(), lpbuffer.rawAddress.toString(), nlength.toInt(), lpnumberofeventswritten.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun writeConsoleInputW(hconsoleinput: Handle, lpbuffer: ConstPtr<InputRecord>, nlength: UInt, lpnumberofeventswritten: MutPtr<UInt>): Bool =
+public actual fun writeConsoleInputW(hconsoleinput: Handle, lpbuffer: ConstPtr, nlength: UInt, lpnumberofeventswritten: MutPtr): Bool =
     if (windowsWin32SystemConsoleNapiAvailable) wasmWindowssysWindowsWin32SystemConsoleWriteConsoleInputW(hconsoleinput.rawAddress.toString(), lpbuffer.rawAddress.toString(), nlength.toInt(), lpnumberofeventswritten.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun writeConsoleOutputA(hconsoleoutput: Handle, lpbuffer: ConstPtr<CharInfo>, dwbuffersize: Coord, dwbuffercoord: Coord, lpwriteregion: MutPtr<SmallRect>): Bool =
+public actual fun writeConsoleOutputA(hconsoleoutput: Handle, lpbuffer: ConstPtr, dwbuffersize: Coord, dwbuffercoord: Coord, lpwriteregion: MutPtr): Bool =
     throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun writeConsoleOutputAttribute(hconsoleoutput: Handle, lpattribute: ConstPtr<UShort>, nlength: UInt, dwwritecoord: Coord, lpnumberofattrswritten: MutPtr<UInt>): Bool =
+public actual fun writeConsoleOutputAttribute(hconsoleoutput: Handle, lpattribute: ConstPtr, nlength: UInt, dwwritecoord: Coord, lpnumberofattrswritten: MutPtr): Bool =
     throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun writeConsoleOutputCharacterA(hconsoleoutput: Handle, lpcharacter: Pcstr, nlength: UInt, dwwritecoord: Coord, lpnumberofcharswritten: MutPtr<UInt>): Bool =
+public actual fun writeConsoleOutputCharacterA(hconsoleoutput: Handle, lpcharacter: Pcstr, nlength: UInt, dwwritecoord: Coord, lpnumberofcharswritten: MutPtr): Bool =
     throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun writeConsoleOutputCharacterW(hconsoleoutput: Handle, lpcharacter: Pcwstr, nlength: UInt, dwwritecoord: Coord, lpnumberofcharswritten: MutPtr<UInt>): Bool =
+public actual fun writeConsoleOutputCharacterW(hconsoleoutput: Handle, lpcharacter: Pcwstr, nlength: UInt, dwwritecoord: Coord, lpnumberofcharswritten: MutPtr): Bool =
     throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun writeConsoleOutputW(hconsoleoutput: Handle, lpbuffer: ConstPtr<CharInfo>, dwbuffersize: Coord, dwbuffercoord: Coord, lpwriteregion: MutPtr<SmallRect>): Bool =
+public actual fun writeConsoleOutputW(hconsoleoutput: Handle, lpbuffer: ConstPtr, dwbuffersize: Coord, dwbuffercoord: Coord, lpwriteregion: MutPtr): Bool =
     throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun writeConsoleW(hconsoleoutput: Handle, lpbuffer: Pcwstr, nnumberofcharstowrite: UInt, lpnumberofcharswritten: MutPtr<UInt>, lpreserved: ConstPtr<CVoid>): Bool =
+public actual fun writeConsoleW(hconsoleoutput: Handle, lpbuffer: Pcwstr, nnumberofcharstowrite: UInt, lpnumberofcharswritten: MutPtr, lpreserved: ConstPtr): Bool =
     if (windowsWin32SystemConsoleNapiAvailable) wasmWindowssysWindowsWin32SystemConsoleWriteConsoleW(hconsoleoutput.rawAddress.toString(), lpbuffer.rawAddress.toString(), nnumberofcharstowrite.toInt(), lpnumberofcharswritten.rawAddress.toString(), lpreserved.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")

@@ -148,18 +148,18 @@ public data class WlanConnectionNotificationData(
 public class WlanConnectionParameters internal constructor(
     public var wlanConnectionMode: WlanConnectionMode,
     strProfileCtorArg: Pcwstr,
-    pDot11SsidCtorArg: MutPtr<Dot11Ssid>,
-    pDesiredBssidListCtorArg: MutPtr<Dot11BssidList>,
+    pDot11SsidCtorArg: MutPtr,
+    pDesiredBssidListCtorArg: MutPtr,
     public var dot11BssType: Dot11BssType,
     public var dwFlags: UInt,
 ) {
     public var strProfile: Pcwstr = strProfileCtorArg
         internal set
 
-    public var pDot11Ssid: MutPtr<Dot11Ssid> = pDot11SsidCtorArg
+    public var pDot11Ssid: MutPtr = pDot11SsidCtorArg
         internal set
 
-    public var pDesiredBssidList: MutPtr<Dot11BssidList> = pDesiredBssidListCtorArg
+    public var pDesiredBssidList: MutPtr = pDesiredBssidListCtorArg
         internal set
 
     public constructor() : this(
@@ -175,15 +175,15 @@ public class WlanConnectionParameters internal constructor(
 
     public operator fun component2(): Pcwstr = this.strProfile
 
-    public operator fun component3(): MutPtr<Dot11Ssid> = this.pDot11Ssid
+    public operator fun component3(): MutPtr = this.pDot11Ssid
 
-    public operator fun component4(): MutPtr<Dot11BssidList> = this.pDesiredBssidList
+    public operator fun component4(): MutPtr = this.pDesiredBssidList
 
     public operator fun component5(): Dot11BssType = this.dot11BssType
 
     public operator fun component6(): UInt = this.dwFlags
 
-    public fun copy(wlanConnectionMode: WlanConnectionMode = this.wlanConnectionMode, strProfile: Pcwstr = this.strProfile, pDot11Ssid: MutPtr<Dot11Ssid> = this.pDot11Ssid, pDesiredBssidList: MutPtr<Dot11BssidList> = this.pDesiredBssidList, dot11BssType: Dot11BssType = this.dot11BssType, dwFlags: UInt = this.dwFlags): WlanConnectionParameters = WlanConnectionParameters(wlanConnectionMode = wlanConnectionMode, strProfileCtorArg = strProfile, pDot11SsidCtorArg = pDot11Ssid, pDesiredBssidListCtorArg = pDesiredBssidList, dot11BssType = dot11BssType, dwFlags = dwFlags)
+    public fun copy(wlanConnectionMode: WlanConnectionMode = this.wlanConnectionMode, strProfile: Pcwstr = this.strProfile, pDot11Ssid: MutPtr = this.pDot11Ssid, pDesiredBssidList: MutPtr = this.pDesiredBssidList, dot11BssType: Dot11BssType = this.dot11BssType, dwFlags: UInt = this.dwFlags): WlanConnectionParameters = WlanConnectionParameters(wlanConnectionMode = wlanConnectionMode, strProfileCtorArg = strProfile, pDot11SsidCtorArg = pDot11Ssid, pDesiredBssidListCtorArg = pDesiredBssidList, dot11BssType = dot11BssType, dwFlags = dwFlags)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -211,8 +211,8 @@ public class WlanConnectionParameters internal constructor(
         public operator fun invoke(
             wlanConnectionMode: WlanConnectionMode = 0,
             strProfile: Pcwstr = ConstPtr(0L),
-            pDot11Ssid: MutPtr<Dot11Ssid> = MutPtr(0L),
-            pDesiredBssidList: MutPtr<Dot11BssidList> = MutPtr(0L),
+            pDot11Ssid: MutPtr = MutPtr(0L),
+            pDesiredBssidList: MutPtr = MutPtr(0L),
             dot11BssType: Dot11BssType = 0,
             dwFlags: UInt = 0u,
         ): WlanConnectionParameters =
@@ -230,26 +230,26 @@ public class WlanConnectionParameters internal constructor(
 public class WlanConnectionParametersV2 internal constructor(
     public var wlanConnectionMode: WlanConnectionMode,
     strProfileCtorArg: Pcwstr,
-    pDot11SsidCtorArg: MutPtr<Dot11Ssid>,
-    pDot11HessidCtorArg: MutPtr<UByte>,
-    pDesiredBssidListCtorArg: MutPtr<Dot11BssidList>,
+    pDot11SsidCtorArg: MutPtr,
+    pDot11HessidCtorArg: MutPtr,
+    pDesiredBssidListCtorArg: MutPtr,
     public var dot11BssType: Dot11BssType,
     public var dwFlags: UInt,
-    pDot11AccessNetworkOptionsCtorArg: MutPtr<Dot11Accessnetworkoptions>,
+    pDot11AccessNetworkOptionsCtorArg: MutPtr,
 ) {
     public var strProfile: Pcwstr = strProfileCtorArg
         internal set
 
-    public var pDot11Ssid: MutPtr<Dot11Ssid> = pDot11SsidCtorArg
+    public var pDot11Ssid: MutPtr = pDot11SsidCtorArg
         internal set
 
-    public var pDot11Hessid: MutPtr<UByte> = pDot11HessidCtorArg
+    public var pDot11Hessid: MutPtr = pDot11HessidCtorArg
         internal set
 
-    public var pDesiredBssidList: MutPtr<Dot11BssidList> = pDesiredBssidListCtorArg
+    public var pDesiredBssidList: MutPtr = pDesiredBssidListCtorArg
         internal set
 
-    public var pDot11AccessNetworkOptions: MutPtr<Dot11Accessnetworkoptions> = pDot11AccessNetworkOptionsCtorArg
+    public var pDot11AccessNetworkOptions: MutPtr = pDot11AccessNetworkOptionsCtorArg
         internal set
 
     public constructor() : this(
@@ -267,19 +267,19 @@ public class WlanConnectionParametersV2 internal constructor(
 
     public operator fun component2(): Pcwstr = this.strProfile
 
-    public operator fun component3(): MutPtr<Dot11Ssid> = this.pDot11Ssid
+    public operator fun component3(): MutPtr = this.pDot11Ssid
 
-    public operator fun component4(): MutPtr<UByte> = this.pDot11Hessid
+    public operator fun component4(): MutPtr = this.pDot11Hessid
 
-    public operator fun component5(): MutPtr<Dot11BssidList> = this.pDesiredBssidList
+    public operator fun component5(): MutPtr = this.pDesiredBssidList
 
     public operator fun component6(): Dot11BssType = this.dot11BssType
 
     public operator fun component7(): UInt = this.dwFlags
 
-    public operator fun component8(): MutPtr<Dot11Accessnetworkoptions> = this.pDot11AccessNetworkOptions
+    public operator fun component8(): MutPtr = this.pDot11AccessNetworkOptions
 
-    public fun copy(wlanConnectionMode: WlanConnectionMode = this.wlanConnectionMode, strProfile: Pcwstr = this.strProfile, pDot11Ssid: MutPtr<Dot11Ssid> = this.pDot11Ssid, pDot11Hessid: MutPtr<UByte> = this.pDot11Hessid, pDesiredBssidList: MutPtr<Dot11BssidList> = this.pDesiredBssidList, dot11BssType: Dot11BssType = this.dot11BssType, dwFlags: UInt = this.dwFlags, pDot11AccessNetworkOptions: MutPtr<Dot11Accessnetworkoptions> = this.pDot11AccessNetworkOptions): WlanConnectionParametersV2 = WlanConnectionParametersV2(wlanConnectionMode = wlanConnectionMode, strProfileCtorArg = strProfile, pDot11SsidCtorArg = pDot11Ssid, pDot11HessidCtorArg = pDot11Hessid, pDesiredBssidListCtorArg = pDesiredBssidList, dot11BssType = dot11BssType, dwFlags = dwFlags, pDot11AccessNetworkOptionsCtorArg = pDot11AccessNetworkOptions)
+    public fun copy(wlanConnectionMode: WlanConnectionMode = this.wlanConnectionMode, strProfile: Pcwstr = this.strProfile, pDot11Ssid: MutPtr = this.pDot11Ssid, pDot11Hessid: MutPtr = this.pDot11Hessid, pDesiredBssidList: MutPtr = this.pDesiredBssidList, dot11BssType: Dot11BssType = this.dot11BssType, dwFlags: UInt = this.dwFlags, pDot11AccessNetworkOptions: MutPtr = this.pDot11AccessNetworkOptions): WlanConnectionParametersV2 = WlanConnectionParametersV2(wlanConnectionMode = wlanConnectionMode, strProfileCtorArg = strProfile, pDot11SsidCtorArg = pDot11Ssid, pDot11HessidCtorArg = pDot11Hessid, pDesiredBssidListCtorArg = pDesiredBssidList, dot11BssType = dot11BssType, dwFlags = dwFlags, pDot11AccessNetworkOptionsCtorArg = pDot11AccessNetworkOptions)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -311,12 +311,12 @@ public class WlanConnectionParametersV2 internal constructor(
         public operator fun invoke(
             wlanConnectionMode: WlanConnectionMode = 0,
             strProfile: Pcwstr = ConstPtr(0L),
-            pDot11Ssid: MutPtr<Dot11Ssid> = MutPtr(0L),
-            pDot11Hessid: MutPtr<UByte> = MutPtr(0L),
-            pDesiredBssidList: MutPtr<Dot11BssidList> = MutPtr(0L),
+            pDot11Ssid: MutPtr = MutPtr(0L),
+            pDot11Hessid: MutPtr = MutPtr(0L),
+            pDesiredBssidList: MutPtr = MutPtr(0L),
             dot11BssType: Dot11BssType = 0,
             dwFlags: UInt = 0u,
-            pDot11AccessNetworkOptions: MutPtr<Dot11Accessnetworkoptions> = MutPtr(0L),
+            pDot11AccessNetworkOptions: MutPtr = MutPtr(0L),
         ): WlanConnectionParametersV2 =
             WlanConnectionParametersV2(
                 wlanConnectionMode = wlanConnectionMode,

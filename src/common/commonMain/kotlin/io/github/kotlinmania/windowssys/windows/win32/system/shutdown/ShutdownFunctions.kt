@@ -11,7 +11,7 @@ public expect fun abortSystemShutdownA(lpmachinename: Pcstr): Bool
 
 public expect fun abortSystemShutdownW(lpmachinename: Pcwstr): Bool
 
-public expect fun checkForHiberboot(phiberboot: MutPtr<Boolean>, bclearflag: Boolean): UInt
+public expect fun checkForHiberboot(phiberboot: MutPtr, bclearflag: Boolean): UInt
 
 public expect fun exitWindowsEx(uflags: ExitWindowsFlags, dwreason: ShutdownReason): Bool
 
@@ -33,4 +33,4 @@ public expect fun shutdownBlockReasonCreate(hwnd: Hwnd, pwszreason: Pcwstr): Boo
 
 public expect fun shutdownBlockReasonDestroy(hwnd: Hwnd): Bool
 
-public expect fun shutdownBlockReasonQuery(hwnd: Hwnd, pwszbuff: Pwstr, pcchbuff: MutPtr<UInt>): Bool
+public expect fun shutdownBlockReasonQuery(hwnd: Hwnd, pwszbuff: Pwstr, pcchbuff: MutPtr): Bool

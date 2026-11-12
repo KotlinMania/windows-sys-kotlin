@@ -79,25 +79,25 @@ private external fun wasmWindowssysWindowsWin32UiControlsDialogsReplaceTextA(p0:
 @JsFun("(p0) => globalThis.__km_napi_windowssys.windowssysWindowsWin32UiControlsDialogsReplaceTextW(p0)")
 private external fun wasmWindowssysWindowsWin32UiControlsDialogsReplaceTextW(p0: String): String
 
-public actual fun chooseColorA(param0: MutPtr<Choosecolora>): Bool =
+public actual fun chooseColorA(param0: MutPtr): Bool =
     if (windowsWin32UiControlsDialogsNapiAvailable) wasmWindowssysWindowsWin32UiControlsDialogsChooseColorA(param0.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun chooseColorW(param0: MutPtr<Choosecolorw>): Bool =
+public actual fun chooseColorW(param0: MutPtr): Bool =
     if (windowsWin32UiControlsDialogsNapiAvailable) wasmWindowssysWindowsWin32UiControlsDialogsChooseColorW(param0.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun chooseFontA(param0: MutPtr<Choosefonta>): Bool =
+public actual fun chooseFontA(param0: MutPtr): Bool =
     if (windowsWin32UiControlsDialogsNapiAvailable) wasmWindowssysWindowsWin32UiControlsDialogsChooseFontA(param0.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun chooseFontW(param0: MutPtr<Choosefontw>): Bool =
+public actual fun chooseFontW(param0: MutPtr): Bool =
     if (windowsWin32UiControlsDialogsNapiAvailable) wasmWindowssysWindowsWin32UiControlsDialogsChooseFontW(param0.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun commDlgExtendedError(): CommonDlgErrors =
     if (windowsWin32UiControlsDialogsNapiAvailable) wasmWindowssysWindowsWin32UiControlsDialogsCommDlgExtendedError().toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun findTextA(param0: MutPtr<Findreplacea>): Hwnd =
+public actual fun findTextA(param0: MutPtr): Hwnd =
     if (windowsWin32UiControlsDialogsNapiAvailable) MutPtr(wasmWindowssysWindowsWin32UiControlsDialogsFindTextA(param0.rawAddress.toString()).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun findTextW(param0: MutPtr<Findreplacew>): Hwnd =
+public actual fun findTextW(param0: MutPtr): Hwnd =
     if (windowsWin32UiControlsDialogsNapiAvailable) MutPtr(wasmWindowssysWindowsWin32UiControlsDialogsFindTextW(param0.rawAddress.toString()).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun getFileTitleA(param0: Pcstr, buf: Pstr, cchsize: UShort): Short =
@@ -106,38 +106,38 @@ public actual fun getFileTitleA(param0: Pcstr, buf: Pstr, cchsize: UShort): Shor
 public actual fun getFileTitleW(param0: Pcwstr, buf: Pwstr, cchsize: UShort): Short =
     if (windowsWin32UiControlsDialogsNapiAvailable) wasmWindowssysWindowsWin32UiControlsDialogsGetFileTitleW(param0.rawAddress.toString(), buf.rawAddress.toString(), cchsize.toInt()).toShort() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun getOpenFileNameA(param0: MutPtr<Openfilenamea>): Bool =
+public actual fun getOpenFileNameA(param0: MutPtr): Bool =
     if (windowsWin32UiControlsDialogsNapiAvailable) wasmWindowssysWindowsWin32UiControlsDialogsGetOpenFileNameA(param0.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun getOpenFileNameW(param0: MutPtr<Openfilenamew>): Bool =
+public actual fun getOpenFileNameW(param0: MutPtr): Bool =
     if (windowsWin32UiControlsDialogsNapiAvailable) wasmWindowssysWindowsWin32UiControlsDialogsGetOpenFileNameW(param0.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun getSaveFileNameA(param0: MutPtr<Openfilenamea>): Bool =
+public actual fun getSaveFileNameA(param0: MutPtr): Bool =
     if (windowsWin32UiControlsDialogsNapiAvailable) wasmWindowssysWindowsWin32UiControlsDialogsGetSaveFileNameA(param0.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun getSaveFileNameW(param0: MutPtr<Openfilenamew>): Bool =
+public actual fun getSaveFileNameW(param0: MutPtr): Bool =
     if (windowsWin32UiControlsDialogsNapiAvailable) wasmWindowssysWindowsWin32UiControlsDialogsGetSaveFileNameW(param0.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun pageSetupDlgA(param0: MutPtr<Pagesetupdlga>): Bool =
+public actual fun pageSetupDlgA(param0: MutPtr): Bool =
     if (windowsWin32UiControlsDialogsNapiAvailable) wasmWindowssysWindowsWin32UiControlsDialogsPageSetupDlgA(param0.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun pageSetupDlgW(param0: MutPtr<Pagesetupdlgw>): Bool =
+public actual fun pageSetupDlgW(param0: MutPtr): Bool =
     if (windowsWin32UiControlsDialogsNapiAvailable) wasmWindowssysWindowsWin32UiControlsDialogsPageSetupDlgW(param0.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun printDlgA(ppd: MutPtr<Printdlga>): Bool =
+public actual fun printDlgA(ppd: MutPtr): Bool =
     if (windowsWin32UiControlsDialogsNapiAvailable) wasmWindowssysWindowsWin32UiControlsDialogsPrintDlgA(ppd.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun printDlgExA(ppd: MutPtr<Printdlgexa>): Hresult =
+public actual fun printDlgExA(ppd: MutPtr): Hresult =
     if (windowsWin32UiControlsDialogsNapiAvailable) wasmWindowssysWindowsWin32UiControlsDialogsPrintDlgExA(ppd.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun printDlgExW(ppd: MutPtr<Printdlgexw>): Hresult =
+public actual fun printDlgExW(ppd: MutPtr): Hresult =
     if (windowsWin32UiControlsDialogsNapiAvailable) wasmWindowssysWindowsWin32UiControlsDialogsPrintDlgExW(ppd.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun printDlgW(ppd: MutPtr<Printdlgw>): Bool =
+public actual fun printDlgW(ppd: MutPtr): Bool =
     if (windowsWin32UiControlsDialogsNapiAvailable) wasmWindowssysWindowsWin32UiControlsDialogsPrintDlgW(ppd.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun replaceTextA(param0: MutPtr<Findreplacea>): Hwnd =
+public actual fun replaceTextA(param0: MutPtr): Hwnd =
     if (windowsWin32UiControlsDialogsNapiAvailable) MutPtr(wasmWindowssysWindowsWin32UiControlsDialogsReplaceTextA(param0.rawAddress.toString()).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun replaceTextW(param0: MutPtr<Findreplacew>): Hwnd =
+public actual fun replaceTextW(param0: MutPtr): Hwnd =
     if (windowsWin32UiControlsDialogsNapiAvailable) MutPtr(wasmWindowssysWindowsWin32UiControlsDialogsReplaceTextW(param0.rawAddress.toString()).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")

@@ -2,14 +2,12 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.security.cryptography.ui
 
-import io.github.kotlinmania.rustlang.core.ffi.CVoid
 import io.github.kotlinmania.rustlang.core.ptr.ConstPtr
 import io.github.kotlinmania.rustlang.core.ptr.MutPtr
 import io.github.kotlinmania.windowssys.core.Bool
 import io.github.kotlinmania.windowssys.core.Hresult
 import io.github.kotlinmania.windowssys.core.Pcwstr
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Hwnd
-import io.github.kotlinmania.windowssys.windows.win32.security.cryptography.CertContext
 import io.github.kotlinmania.windowssys.windows.win32.security.cryptography.Hcertstore
 
 private object WindowsWin32SecurityCryptographyUiJniBridge {
@@ -99,32 +97,32 @@ private object WindowsWin32SecurityCryptographyUiJniBridge {
     external fun windowssysWindowsWin32SecurityCryptographyUiCryptUIWizImport(dwflags: Int, hwndparent: Long, pwszwizardtitle: Long, pimportsrc: Long, hdestcertstore: Long): Int
 }
 
-public actual fun certSelectionGetSerializedBlob(pcsi: ConstPtr<CertSelectuiInput>, ppoutbuffer: MutPtr<MutPtr<CVoid>>, puloutbuffersize: MutPtr<UInt>): Hresult =
+public actual fun certSelectionGetSerializedBlob(pcsi: ConstPtr, ppoutbuffer: MutPtr, puloutbuffersize: MutPtr): Hresult =
     WindowsWin32SecurityCryptographyUiJniBridge.windowssysWindowsWin32SecurityCryptographyUiCertSelectionGetSerializedBlob(pcsi.rawAddress, ppoutbuffer.rawAddress, puloutbuffersize.rawAddress)
 
-public actual fun cryptUIDlgCertMgr(pcryptuicertmgr: ConstPtr<CryptuiCertMgrStruct>): Bool =
+public actual fun cryptUIDlgCertMgr(pcryptuicertmgr: ConstPtr): Bool =
     WindowsWin32SecurityCryptographyUiJniBridge.windowssysWindowsWin32SecurityCryptographyUiCryptUIDlgCertMgr(pcryptuicertmgr.rawAddress)
 
-public actual fun cryptUIDlgSelectCertificateFromStore(hcertstore: Hcertstore, hwnd: Hwnd, pwsztitle: Pcwstr, pwszdisplaystring: Pcwstr, dwdontusecolumn: UInt, dwflags: UInt, pvreserved: ConstPtr<CVoid>): MutPtr<CertContext> =
+public actual fun cryptUIDlgSelectCertificateFromStore(hcertstore: Hcertstore, hwnd: Hwnd, pwsztitle: Pcwstr, pwszdisplaystring: Pcwstr, dwdontusecolumn: UInt, dwflags: UInt, pvreserved: ConstPtr): MutPtr =
     MutPtr(WindowsWin32SecurityCryptographyUiJniBridge.windowssysWindowsWin32SecurityCryptographyUiCryptUIDlgSelectCertificateFromStore(hcertstore.rawAddress, hwnd.rawAddress, pwsztitle.rawAddress, pwszdisplaystring.rawAddress, dwdontusecolumn.toInt(), dwflags.toInt(), pvreserved.rawAddress))
 
-public actual fun cryptUIDlgViewCertificateA(pcertviewinfo: ConstPtr<CryptuiViewcertificateStructa>, pfpropertieschanged: MutPtr<Bool>): Bool =
+public actual fun cryptUIDlgViewCertificateA(pcertviewinfo: ConstPtr, pfpropertieschanged: MutPtr): Bool =
     WindowsWin32SecurityCryptographyUiJniBridge.windowssysWindowsWin32SecurityCryptographyUiCryptUIDlgViewCertificateA(pcertviewinfo.rawAddress, pfpropertieschanged.rawAddress)
 
-public actual fun cryptUIDlgViewCertificateW(pcertviewinfo: ConstPtr<CryptuiViewcertificateStructw>, pfpropertieschanged: MutPtr<Bool>): Bool =
+public actual fun cryptUIDlgViewCertificateW(pcertviewinfo: ConstPtr, pfpropertieschanged: MutPtr): Bool =
     WindowsWin32SecurityCryptographyUiJniBridge.windowssysWindowsWin32SecurityCryptographyUiCryptUIDlgViewCertificateW(pcertviewinfo.rawAddress, pfpropertieschanged.rawAddress)
 
-public actual fun cryptUIDlgViewContext(dwcontexttype: UInt, pvcontext: ConstPtr<CVoid>, hwnd: Hwnd, pwsztitle: Pcwstr, dwflags: UInt, pvreserved: ConstPtr<CVoid>): Bool =
+public actual fun cryptUIDlgViewContext(dwcontexttype: UInt, pvcontext: ConstPtr, hwnd: Hwnd, pwsztitle: Pcwstr, dwflags: UInt, pvreserved: ConstPtr): Bool =
     WindowsWin32SecurityCryptographyUiJniBridge.windowssysWindowsWin32SecurityCryptographyUiCryptUIDlgViewContext(dwcontexttype.toInt(), pvcontext.rawAddress, hwnd.rawAddress, pwsztitle.rawAddress, dwflags.toInt(), pvreserved.rawAddress)
 
-public actual fun cryptUIWizDigitalSign(dwflags: UInt, hwndparent: Hwnd, pwszwizardtitle: Pcwstr, pdigitalsigninfo: ConstPtr<CryptuiWizDigitalSignInfo>, ppsigncontext: MutPtr<MutPtr<CryptuiWizDigitalSignContext>>): Bool =
+public actual fun cryptUIWizDigitalSign(dwflags: UInt, hwndparent: Hwnd, pwszwizardtitle: Pcwstr, pdigitalsigninfo: ConstPtr, ppsigncontext: MutPtr): Bool =
     WindowsWin32SecurityCryptographyUiJniBridge.windowssysWindowsWin32SecurityCryptographyUiCryptUIWizDigitalSign(dwflags.toInt(), hwndparent.rawAddress, pwszwizardtitle.rawAddress, pdigitalsigninfo.rawAddress, ppsigncontext.rawAddress)
 
-public actual fun cryptUIWizExport(dwflags: CryptuiWizFlags, hwndparent: Hwnd, pwszwizardtitle: Pcwstr, pexportinfo: ConstPtr<CryptuiWizExportInfo>, pvoid: ConstPtr<CVoid>): Bool =
+public actual fun cryptUIWizExport(dwflags: CryptuiWizFlags, hwndparent: Hwnd, pwszwizardtitle: Pcwstr, pexportinfo: ConstPtr, pvoid: ConstPtr): Bool =
     WindowsWin32SecurityCryptographyUiJniBridge.windowssysWindowsWin32SecurityCryptographyUiCryptUIWizExport(dwflags.toInt(), hwndparent.rawAddress, pwszwizardtitle.rawAddress, pexportinfo.rawAddress, pvoid.rawAddress)
 
-public actual fun cryptUIWizFreeDigitalSignContext(psigncontext: ConstPtr<CryptuiWizDigitalSignContext>): Bool =
+public actual fun cryptUIWizFreeDigitalSignContext(psigncontext: ConstPtr): Bool =
     WindowsWin32SecurityCryptographyUiJniBridge.windowssysWindowsWin32SecurityCryptographyUiCryptUIWizFreeDigitalSignContext(psigncontext.rawAddress)
 
-public actual fun cryptUIWizImport(dwflags: CryptuiWizFlags, hwndparent: Hwnd, pwszwizardtitle: Pcwstr, pimportsrc: ConstPtr<CryptuiWizImportSrcInfo>, hdestcertstore: Hcertstore): Bool =
+public actual fun cryptUIWizImport(dwflags: CryptuiWizFlags, hwndparent: Hwnd, pwszwizardtitle: Pcwstr, pimportsrc: ConstPtr, hdestcertstore: Hcertstore): Bool =
     WindowsWin32SecurityCryptographyUiJniBridge.windowssysWindowsWin32SecurityCryptographyUiCryptUIWizImport(dwflags.toInt(), hwndparent.rawAddress, pwszwizardtitle.rawAddress, pimportsrc.rawAddress, hdestcertstore.rawAddress)

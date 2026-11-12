@@ -1,6 +1,5 @@
 package io.github.kotlinmania.windowssys.core
 
-import io.github.kotlinmania.rustlang.core.ffi.CVoid
 import io.github.kotlinmania.rustlang.core.ptr.ConstPtr
 import io.github.kotlinmania.rustlang.core.ptr.MutPtr
 
@@ -8,14 +7,14 @@ public typealias Bool = Int
 
 public typealias Hresult = Int
 
-public typealias Pstr = MutPtr<UByte>
+public typealias Pstr = MutPtr
 
-public typealias Pwstr = MutPtr<UShort>
+public typealias Pwstr = MutPtr
 
-public typealias Pcstr = ConstPtr<UByte>
+public typealias Pcstr = ConstPtr
 
-public typealias Pcwstr = ConstPtr<UShort>
+public typealias Pcwstr = ConstPtr
 
-public typealias Bstr = ConstPtr<UShort>
+public typealias Bstr = ConstPtr
 
-public typealias Hstring = MutPtr<CVoid>
+public typealias Hstring = MutPtr

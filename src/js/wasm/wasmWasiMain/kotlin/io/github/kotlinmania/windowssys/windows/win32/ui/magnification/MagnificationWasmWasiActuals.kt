@@ -9,28 +9,28 @@ import io.github.kotlinmania.windowssys.windows.win32.foundation.Hwnd
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Rect
 
 // The host must provide the C companion wrapper exports in import module windowssys.
-public actual fun magGetColorEffect(hwnd: Hwnd, peffect: MutPtr<Magcoloreffect>): Bool =
+public actual fun magGetColorEffect(hwnd: Hwnd, peffect: MutPtr): Bool =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32UiMagnificationMagGetColorEffect")
 
-public actual fun magGetFullscreenColorEffect(peffect: MutPtr<Magcoloreffect>): Bool =
+public actual fun magGetFullscreenColorEffect(peffect: MutPtr): Bool =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32UiMagnificationMagGetFullscreenColorEffect")
 
-public actual fun magGetFullscreenTransform(pmaglevel: MutPtr<Float>, pxoffset: MutPtr<Int>, pyoffset: MutPtr<Int>): Bool =
+public actual fun magGetFullscreenTransform(pmaglevel: MutPtr, pxoffset: MutPtr, pyoffset: MutPtr): Bool =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32UiMagnificationMagGetFullscreenTransform")
 
 public actual fun magGetImageScalingCallback(hwnd: Hwnd): MagImageScalingCallback =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32UiMagnificationMagGetImageScalingCallback")
 
-public actual fun magGetInputTransform(pfenabled: MutPtr<Bool>, prectsource: MutPtr<Rect>, prectdest: MutPtr<Rect>): Bool =
+public actual fun magGetInputTransform(pfenabled: MutPtr, prectsource: MutPtr, prectdest: MutPtr): Bool =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32UiMagnificationMagGetInputTransform")
 
-public actual fun magGetWindowFilterList(hwnd: Hwnd, pdwfiltermode: MutPtr<MwFiltermode>, count: Int, phwnd: MutPtr<Hwnd>): Int =
+public actual fun magGetWindowFilterList(hwnd: Hwnd, pdwfiltermode: MutPtr, count: Int, phwnd: MutPtr): Int =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32UiMagnificationMagGetWindowFilterList")
 
-public actual fun magGetWindowSource(hwnd: Hwnd, prect: MutPtr<Rect>): Bool =
+public actual fun magGetWindowSource(hwnd: Hwnd, prect: MutPtr): Bool =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32UiMagnificationMagGetWindowSource")
 
-public actual fun magGetWindowTransform(hwnd: Hwnd, ptransform: MutPtr<Magtransform>): Bool =
+public actual fun magGetWindowTransform(hwnd: Hwnd, ptransform: MutPtr): Bool =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32UiMagnificationMagGetWindowTransform")
 
 @kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32UiMagnificationMagInitialize")
@@ -39,10 +39,10 @@ private external fun wasiWindowssysWindowsWin32UiMagnificationMagInitialize(): I
 public actual fun magInitialize(): Bool =
     wasiWindowssysWindowsWin32UiMagnificationMagInitialize()
 
-public actual fun magSetColorEffect(hwnd: Hwnd, peffect: MutPtr<Magcoloreffect>): Bool =
+public actual fun magSetColorEffect(hwnd: Hwnd, peffect: MutPtr): Bool =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32UiMagnificationMagSetColorEffect")
 
-public actual fun magSetFullscreenColorEffect(peffect: ConstPtr<Magcoloreffect>): Bool =
+public actual fun magSetFullscreenColorEffect(peffect: ConstPtr): Bool =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32UiMagnificationMagSetFullscreenColorEffect")
 
 @kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32UiMagnificationMagSetFullscreenTransform")
@@ -54,16 +54,16 @@ public actual fun magSetFullscreenTransform(maglevel: Float, xoffset: Int, yoffs
 public actual fun magSetImageScalingCallback(hwnd: Hwnd, callback: MagImageScalingCallback): Bool =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32UiMagnificationMagSetImageScalingCallback")
 
-public actual fun magSetInputTransform(fenabled: Bool, prectsource: ConstPtr<Rect>, prectdest: ConstPtr<Rect>): Bool =
+public actual fun magSetInputTransform(fenabled: Bool, prectsource: ConstPtr, prectdest: ConstPtr): Bool =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32UiMagnificationMagSetInputTransform")
 
-public actual fun magSetWindowFilterList(hwnd: Hwnd, dwfiltermode: MwFiltermode, count: Int, phwnd: MutPtr<Hwnd>): Bool =
+public actual fun magSetWindowFilterList(hwnd: Hwnd, dwfiltermode: MwFiltermode, count: Int, phwnd: MutPtr): Bool =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32UiMagnificationMagSetWindowFilterList")
 
 public actual fun magSetWindowSource(hwnd: Hwnd, rect: Rect): Bool =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32UiMagnificationMagSetWindowSource")
 
-public actual fun magSetWindowTransform(hwnd: Hwnd, ptransform: MutPtr<Magtransform>): Bool =
+public actual fun magSetWindowTransform(hwnd: Hwnd, ptransform: MutPtr): Bool =
     throw UnsupportedOperationException("WasmWasi FFI requires a host memory/callback/aggregate or variadic ABI adapter for windowssysWindowsWin32UiMagnificationMagSetWindowTransform")
 
 @kotlin.wasm.WasmImport("windowssys", "windowssysWindowsWin32UiMagnificationMagShowSystemCursor")

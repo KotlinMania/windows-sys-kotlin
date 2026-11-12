@@ -1,6 +1,5 @@
 package io.github.kotlinmania.windowssys.windows.win32.security.cryptography
 
-import io.github.kotlinmania.rustlang.core.ffi.CVoid
 import io.github.kotlinmania.rustlang.core.ptr.MutPtr
 import io.github.kotlinmania.windowssys.U128
 import io.github.kotlinmania.windowssys.core.Guid
@@ -79,31 +78,31 @@ public val TLS_RSA_WITH_RC4_128_SHA: UInt = 5u
 
 public val TPM_RSA_SRK_SEAL_KEY: Pcwstr = w("MICROSOFT_PCP_KSP_RSA_SEAL_KEY_3BD1C4BF-004E-4E2F-8A4D-0BF633DCB074")
 
-public val URL_OID_CERTIFICATE_CRL_DIST_POINT: Pcstr = MutPtr<CVoid>(2.toLong())
+public val URL_OID_CERTIFICATE_CRL_DIST_POINT: Pcstr = MutPtr(2.toLong())
 
-public val URL_OID_CERTIFICATE_CRL_DIST_POINT_AND_OCSP: Pcstr = MutPtr<CVoid>(11.toLong())
+public val URL_OID_CERTIFICATE_CRL_DIST_POINT_AND_OCSP: Pcstr = MutPtr(11.toLong())
 
-public val URL_OID_CERTIFICATE_FRESHEST_CRL: Pcstr = MutPtr<CVoid>(6.toLong())
+public val URL_OID_CERTIFICATE_FRESHEST_CRL: Pcstr = MutPtr(6.toLong())
 
-public val URL_OID_CERTIFICATE_ISSUER: Pcstr = MutPtr<CVoid>(1.toLong())
+public val URL_OID_CERTIFICATE_ISSUER: Pcstr = MutPtr(1.toLong())
 
-public val URL_OID_CERTIFICATE_OCSP: Pcstr = MutPtr<CVoid>(9.toLong())
+public val URL_OID_CERTIFICATE_OCSP: Pcstr = MutPtr(9.toLong())
 
-public val URL_OID_CERTIFICATE_OCSP_AND_CRL_DIST_POINT: Pcstr = MutPtr<CVoid>(10.toLong())
+public val URL_OID_CERTIFICATE_OCSP_AND_CRL_DIST_POINT: Pcstr = MutPtr(10.toLong())
 
-public val URL_OID_CERTIFICATE_ONLY_OCSP: Pcstr = MutPtr<CVoid>(13.toLong())
+public val URL_OID_CERTIFICATE_ONLY_OCSP: Pcstr = MutPtr(13.toLong())
 
-public val URL_OID_CRL_FRESHEST_CRL: Pcstr = MutPtr<CVoid>(7.toLong())
+public val URL_OID_CRL_FRESHEST_CRL: Pcstr = MutPtr(7.toLong())
 
-public val URL_OID_CRL_ISSUER: Pcstr = MutPtr<CVoid>(5.toLong())
+public val URL_OID_CRL_ISSUER: Pcstr = MutPtr(5.toLong())
 
-public val URL_OID_CROSS_CERT_DIST_POINT: Pcstr = MutPtr<CVoid>(8.toLong())
+public val URL_OID_CROSS_CERT_DIST_POINT: Pcstr = MutPtr(8.toLong())
 
-public val URL_OID_CROSS_CERT_SUBJECT_INFO_ACCESS: Pcstr = MutPtr<CVoid>(12.toLong())
+public val URL_OID_CROSS_CERT_SUBJECT_INFO_ACCESS: Pcstr = MutPtr(12.toLong())
 
-public val URL_OID_CTL_ISSUER: Pcstr = MutPtr<CVoid>(3.toLong())
+public val URL_OID_CTL_ISSUER: Pcstr = MutPtr(3.toLong())
 
-public val URL_OID_CTL_NEXT_UPDATE: Pcstr = MutPtr<CVoid>(4.toLong())
+public val URL_OID_CTL_NEXT_UPDATE: Pcstr = MutPtr(4.toLong())
 
 public val URL_OID_GET_OBJECT_URL_FUNC: Pcstr = s("UrlDllGetObjectUrl")
 
@@ -121,131 +120,131 @@ public val USER_READ_WRITE_AC: CardFileAccessCondition = 5
 
 public val USER_WRITE_EXECUTE_AC: CardFileAccessCondition = 2
 
-public val X509_ALGORITHM_IDENTIFIER: Pcstr = MutPtr<CVoid>(74.toLong())
+public val X509_ALGORITHM_IDENTIFIER: Pcstr = MutPtr(74.toLong())
 
-public val X509_ALTERNATE_NAME: Pcstr = MutPtr<CVoid>(12.toLong())
+public val X509_ALTERNATE_NAME: Pcstr = MutPtr(12.toLong())
 
 public val X509_ANY_STRING: Int = 6
 
 public val X509_ASN_ENCODING: CertQueryEncodingType = 1u
 
-public val X509_AUTHORITY_INFO_ACCESS: Pcstr = MutPtr<CVoid>(32.toLong())
+public val X509_AUTHORITY_INFO_ACCESS: Pcstr = MutPtr(32.toLong())
 
-public val X509_AUTHORITY_KEY_ID: Pcstr = MutPtr<CVoid>(9.toLong())
+public val X509_AUTHORITY_KEY_ID: Pcstr = MutPtr(9.toLong())
 
-public val X509_AUTHORITY_KEY_ID2: Pcstr = MutPtr<CVoid>(31.toLong())
+public val X509_AUTHORITY_KEY_ID2: Pcstr = MutPtr(31.toLong())
 
-public val X509_BASIC_CONSTRAINTS: Pcstr = MutPtr<CVoid>(13.toLong())
+public val X509_BASIC_CONSTRAINTS: Pcstr = MutPtr(13.toLong())
 
-public val X509_BASIC_CONSTRAINTS2: Pcstr = MutPtr<CVoid>(15.toLong())
+public val X509_BASIC_CONSTRAINTS2: Pcstr = MutPtr(15.toLong())
 
-public val X509_BIOMETRIC_EXT: Pcstr = MutPtr<CVoid>(71.toLong())
+public val X509_BIOMETRIC_EXT: Pcstr = MutPtr(71.toLong())
 
-public val X509_BITS: Pcstr = MutPtr<CVoid>(26.toLong())
+public val X509_BITS: Pcstr = MutPtr(26.toLong())
 
-public val X509_BITS_WITHOUT_TRAILING_ZEROES: Pcstr = MutPtr<CVoid>(51.toLong())
+public val X509_BITS_WITHOUT_TRAILING_ZEROES: Pcstr = MutPtr(51.toLong())
 
-public val X509_CERT: Pcstr = MutPtr<CVoid>(1.toLong())
+public val X509_CERT: Pcstr = MutPtr(1.toLong())
 
-public val X509_CERTIFICATE_TEMPLATE: Pcstr = MutPtr<CVoid>(64.toLong())
+public val X509_CERTIFICATE_TEMPLATE: Pcstr = MutPtr(64.toLong())
 
-public val X509_CERT_BUNDLE: Pcstr = MutPtr<CVoid>(81.toLong())
+public val X509_CERT_BUNDLE: Pcstr = MutPtr(81.toLong())
 
-public val X509_CERT_CRL_TO_BE_SIGNED: Pcstr = MutPtr<CVoid>(3.toLong())
+public val X509_CERT_CRL_TO_BE_SIGNED: Pcstr = MutPtr(3.toLong())
 
-public val X509_CERT_PAIR: Pcstr = MutPtr<CVoid>(53.toLong())
+public val X509_CERT_PAIR: Pcstr = MutPtr(53.toLong())
 
-public val X509_CERT_POLICIES: Pcstr = MutPtr<CVoid>(16.toLong())
+public val X509_CERT_POLICIES: Pcstr = MutPtr(16.toLong())
 
-public val X509_CERT_REQUEST_TO_BE_SIGNED: Pcstr = MutPtr<CVoid>(4.toLong())
+public val X509_CERT_REQUEST_TO_BE_SIGNED: Pcstr = MutPtr(4.toLong())
 
-public val X509_CERT_TO_BE_SIGNED: Pcstr = MutPtr<CVoid>(2.toLong())
+public val X509_CERT_TO_BE_SIGNED: Pcstr = MutPtr(2.toLong())
 
-public val X509_CHOICE_OF_TIME: Pcstr = MutPtr<CVoid>(30.toLong())
+public val X509_CHOICE_OF_TIME: Pcstr = MutPtr(30.toLong())
 
-public val X509_CRL_DIST_POINTS: Pcstr = MutPtr<CVoid>(35.toLong())
+public val X509_CRL_DIST_POINTS: Pcstr = MutPtr(35.toLong())
 
 public val X509_CRL_REASON_CODE: Int = 29
 
-public val X509_CROSS_CERT_DIST_POINTS: Pcstr = MutPtr<CVoid>(58.toLong())
+public val X509_CROSS_CERT_DIST_POINTS: Pcstr = MutPtr(58.toLong())
 
-public val X509_DH_PARAMETERS: Pcstr = MutPtr<CVoid>(47.toLong())
+public val X509_DH_PARAMETERS: Pcstr = MutPtr(47.toLong())
 
 public val X509_DH_PUBLICKEY: Int = 38
 
-public val X509_DSS_PARAMETERS: Pcstr = MutPtr<CVoid>(39.toLong())
+public val X509_DSS_PARAMETERS: Pcstr = MutPtr(39.toLong())
 
 public val X509_DSS_PUBLICKEY: Int = 38
 
-public val X509_DSS_SIGNATURE: Pcstr = MutPtr<CVoid>(40.toLong())
+public val X509_DSS_SIGNATURE: Pcstr = MutPtr(40.toLong())
 
-public val X509_ECC_PARAMETERS: Pcstr = MutPtr<CVoid>(85.toLong())
+public val X509_ECC_PARAMETERS: Pcstr = MutPtr(85.toLong())
 
-public val X509_ECC_PRIVATE_KEY: Pcstr = MutPtr<CVoid>(82.toLong())
+public val X509_ECC_PRIVATE_KEY: Pcstr = MutPtr(82.toLong())
 
-public val X509_ECC_SIGNATURE: Pcstr = MutPtr<CVoid>(47.toLong())
+public val X509_ECC_SIGNATURE: Pcstr = MutPtr(47.toLong())
 
-public val X509_ENHANCED_KEY_USAGE: Pcstr = MutPtr<CVoid>(36.toLong())
+public val X509_ENHANCED_KEY_USAGE: Pcstr = MutPtr(36.toLong())
 
-public val X509_ENUMERATED: Pcstr = MutPtr<CVoid>(29.toLong())
+public val X509_ENUMERATED: Pcstr = MutPtr(29.toLong())
 
-public val X509_EXTENSIONS: Pcstr = MutPtr<CVoid>(5.toLong())
+public val X509_EXTENSIONS: Pcstr = MutPtr(5.toLong())
 
-public val X509_INTEGER: Pcstr = MutPtr<CVoid>(27.toLong())
+public val X509_INTEGER: Pcstr = MutPtr(27.toLong())
 
-public val X509_ISSUING_DIST_POINT: Pcstr = MutPtr<CVoid>(54.toLong())
+public val X509_ISSUING_DIST_POINT: Pcstr = MutPtr(54.toLong())
 
-public val X509_KEYGEN_REQUEST_TO_BE_SIGNED: Pcstr = MutPtr<CVoid>(21.toLong())
+public val X509_KEYGEN_REQUEST_TO_BE_SIGNED: Pcstr = MutPtr(21.toLong())
 
-public val X509_KEY_ATTRIBUTES: Pcstr = MutPtr<CVoid>(10.toLong())
+public val X509_KEY_ATTRIBUTES: Pcstr = MutPtr(10.toLong())
 
-public val X509_KEY_USAGE: Pcstr = MutPtr<CVoid>(14.toLong())
+public val X509_KEY_USAGE: Pcstr = MutPtr(14.toLong())
 
-public val X509_KEY_USAGE_RESTRICTION: Pcstr = MutPtr<CVoid>(11.toLong())
+public val X509_KEY_USAGE_RESTRICTION: Pcstr = MutPtr(11.toLong())
 
-public val X509_LOGOTYPE_EXT: Pcstr = MutPtr<CVoid>(70.toLong())
+public val X509_LOGOTYPE_EXT: Pcstr = MutPtr(70.toLong())
 
-public val X509_MULTI_BYTE_INTEGER: Pcstr = MutPtr<CVoid>(28.toLong())
+public val X509_MULTI_BYTE_INTEGER: Pcstr = MutPtr(28.toLong())
 
-public val X509_MULTI_BYTE_UINT: Pcstr = MutPtr<CVoid>(38.toLong())
+public val X509_MULTI_BYTE_UINT: Pcstr = MutPtr(38.toLong())
 
-public val X509_NAME: Pcstr = MutPtr<CVoid>(7.toLong())
+public val X509_NAME: Pcstr = MutPtr(7.toLong())
 
-public val X509_NAME_CONSTRAINTS: Pcstr = MutPtr<CVoid>(55.toLong())
+public val X509_NAME_CONSTRAINTS: Pcstr = MutPtr(55.toLong())
 
-public val X509_NAME_VALUE: Pcstr = MutPtr<CVoid>(6.toLong())
+public val X509_NAME_VALUE: Pcstr = MutPtr(6.toLong())
 
 public val X509_NDR_ENCODING: UInt = 2u
 
-public val X509_OBJECT_IDENTIFIER: Pcstr = MutPtr<CVoid>(73.toLong())
+public val X509_OBJECT_IDENTIFIER: Pcstr = MutPtr(73.toLong())
 
-public val X509_OCTET_STRING: Pcstr = MutPtr<CVoid>(25.toLong())
+public val X509_OCTET_STRING: Pcstr = MutPtr(25.toLong())
 
-public val X509_PKIX_POLICY_QUALIFIER_USERNOTICE: Pcstr = MutPtr<CVoid>(46.toLong())
+public val X509_PKIX_POLICY_QUALIFIER_USERNOTICE: Pcstr = MutPtr(46.toLong())
 
-public val X509_POLICY_CONSTRAINTS: Pcstr = MutPtr<CVoid>(57.toLong())
+public val X509_POLICY_CONSTRAINTS: Pcstr = MutPtr(57.toLong())
 
-public val X509_POLICY_MAPPINGS: Pcstr = MutPtr<CVoid>(56.toLong())
+public val X509_POLICY_MAPPINGS: Pcstr = MutPtr(56.toLong())
 
-public val X509_PUBLIC_KEY_INFO: Pcstr = MutPtr<CVoid>(8.toLong())
+public val X509_PUBLIC_KEY_INFO: Pcstr = MutPtr(8.toLong())
 
-public val X509_QC_STATEMENTS_EXT: Pcstr = MutPtr<CVoid>(42.toLong())
+public val X509_QC_STATEMENTS_EXT: Pcstr = MutPtr(42.toLong())
 
-public val X509_SEQUENCE_OF_ANY: Pcstr = MutPtr<CVoid>(34.toLong())
+public val X509_SEQUENCE_OF_ANY: Pcstr = MutPtr(34.toLong())
 
-public val X509_SUBJECT_DIR_ATTRS: Pcstr = MutPtr<CVoid>(84.toLong())
+public val X509_SUBJECT_DIR_ATTRS: Pcstr = MutPtr(84.toLong())
 
 public val X509_SUBJECT_INFO_ACCESS: Int = 32
 
 public val X509_UNICODE_ANY_STRING: Int = 24
 
-public val X509_UNICODE_NAME: Pcstr = MutPtr<CVoid>(20.toLong())
+public val X509_UNICODE_NAME: Pcstr = MutPtr(20.toLong())
 
-public val X509_UNICODE_NAME_VALUE: Pcstr = MutPtr<CVoid>(24.toLong())
+public val X509_UNICODE_NAME_VALUE: Pcstr = MutPtr(24.toLong())
 
-public val X942_DH_PARAMETERS: Pcstr = MutPtr<CVoid>(50.toLong())
+public val X942_DH_PARAMETERS: Pcstr = MutPtr(50.toLong())
 
-public val X942_OTHER_INFO: Pcstr = MutPtr<CVoid>(52.toLong())
+public val X942_OTHER_INFO: Pcstr = MutPtr(52.toLong())
 
 public val ZERO_PADDING: UInt = 3u
 

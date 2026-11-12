@@ -2,10 +2,8 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.media.kernelstreaming
 
-import io.github.kotlinmania.rustlang.core.ffi.CVoid
 import io.github.kotlinmania.rustlang.core.ptr.ConstPtr
 import io.github.kotlinmania.rustlang.core.ptr.MutPtr
-import io.github.kotlinmania.windowssys.core.Guid
 import io.github.kotlinmania.windowssys.core.Hresult
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Handle
 
@@ -53,41 +51,41 @@ private external fun wasmWindowssysWindowsWin32MediaKernelstreamingKsResolveRequ
 @JsFun("(p0, p1, p2, p3, p4, p5, p6) => globalThis.__km_napi_windowssys.windowssysWindowsWin32MediaKernelstreamingKsSynchronousDeviceControl(p0, p1, p2, p3, p4, p5, p6)")
 private external fun wasmWindowssysWindowsWin32MediaKernelstreamingKsSynchronousDeviceControl(p0: String, p1: Int, p2: String, p3: Int, p4: String, p5: Int, p6: String): Int
 
-public actual fun ksCreateAllocator(connectionhandle: Handle, allocatorframing: ConstPtr<KsallocatorFraming>, allocatorhandle: MutPtr<Handle>): UInt =
+public actual fun ksCreateAllocator(connectionhandle: Handle, allocatorframing: ConstPtr, allocatorhandle: MutPtr): UInt =
     if (windowsWin32MediaKernelstreamingNapiAvailable) wasmWindowssysWindowsWin32MediaKernelstreamingKsCreateAllocator(connectionhandle.rawAddress.toString(), allocatorframing.rawAddress.toString(), allocatorhandle.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ksCreateAllocator2(connectionhandle: Handle, allocatorframing: ConstPtr<KsallocatorFraming>, allocatorhandle: MutPtr<Handle>): Hresult =
+public actual fun ksCreateAllocator2(connectionhandle: Handle, allocatorframing: ConstPtr, allocatorhandle: MutPtr): Hresult =
     if (windowsWin32MediaKernelstreamingNapiAvailable) wasmWindowssysWindowsWin32MediaKernelstreamingKsCreateAllocator2(connectionhandle.rawAddress.toString(), allocatorframing.rawAddress.toString(), allocatorhandle.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ksCreateClock(connectionhandle: Handle, clockcreate: ConstPtr<KsclockCreate>, clockhandle: MutPtr<Handle>): UInt =
+public actual fun ksCreateClock(connectionhandle: Handle, clockcreate: ConstPtr, clockhandle: MutPtr): UInt =
     if (windowsWin32MediaKernelstreamingNapiAvailable) wasmWindowssysWindowsWin32MediaKernelstreamingKsCreateClock(connectionhandle.rawAddress.toString(), clockcreate.rawAddress.toString(), clockhandle.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ksCreateClock2(connectionhandle: Handle, clockcreate: ConstPtr<KsclockCreate>, clockhandle: MutPtr<Handle>): Hresult =
+public actual fun ksCreateClock2(connectionhandle: Handle, clockcreate: ConstPtr, clockhandle: MutPtr): Hresult =
     if (windowsWin32MediaKernelstreamingNapiAvailable) wasmWindowssysWindowsWin32MediaKernelstreamingKsCreateClock2(connectionhandle.rawAddress.toString(), clockcreate.rawAddress.toString(), clockhandle.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ksCreatePin(filterhandle: Handle, connect: ConstPtr<KspinConnect>, desiredaccess: UInt, connectionhandle: MutPtr<Handle>): UInt =
+public actual fun ksCreatePin(filterhandle: Handle, connect: ConstPtr, desiredaccess: UInt, connectionhandle: MutPtr): UInt =
     if (windowsWin32MediaKernelstreamingNapiAvailable) wasmWindowssysWindowsWin32MediaKernelstreamingKsCreatePin(filterhandle.rawAddress.toString(), connect.rawAddress.toString(), desiredaccess.toInt(), connectionhandle.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ksCreatePin2(filterhandle: Handle, connect: ConstPtr<KspinConnect>, desiredaccess: UInt, connectionhandle: MutPtr<Handle>): Hresult =
+public actual fun ksCreatePin2(filterhandle: Handle, connect: ConstPtr, desiredaccess: UInt, connectionhandle: MutPtr): Hresult =
     if (windowsWin32MediaKernelstreamingNapiAvailable) wasmWindowssysWindowsWin32MediaKernelstreamingKsCreatePin2(filterhandle.rawAddress.toString(), connect.rawAddress.toString(), desiredaccess.toInt(), connectionhandle.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ksCreateTopologyNode(parenthandle: Handle, nodecreate: ConstPtr<KsnodeCreate>, desiredaccess: UInt, nodehandle: MutPtr<Handle>): UInt =
+public actual fun ksCreateTopologyNode(parenthandle: Handle, nodecreate: ConstPtr, desiredaccess: UInt, nodehandle: MutPtr): UInt =
     if (windowsWin32MediaKernelstreamingNapiAvailable) wasmWindowssysWindowsWin32MediaKernelstreamingKsCreateTopologyNode(parenthandle.rawAddress.toString(), nodecreate.rawAddress.toString(), desiredaccess.toInt(), nodehandle.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ksCreateTopologyNode2(parenthandle: Handle, nodecreate: ConstPtr<KsnodeCreate>, desiredaccess: UInt, nodehandle: MutPtr<Handle>): Hresult =
+public actual fun ksCreateTopologyNode2(parenthandle: Handle, nodecreate: ConstPtr, desiredaccess: UInt, nodehandle: MutPtr): Hresult =
     if (windowsWin32MediaKernelstreamingNapiAvailable) wasmWindowssysWindowsWin32MediaKernelstreamingKsCreateTopologyNode2(parenthandle.rawAddress.toString(), nodecreate.rawAddress.toString(), desiredaccess.toInt(), nodehandle.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ksGetMediaTypeCount(filterhandle: Handle, pinfactoryid: UInt, mediatypecount: MutPtr<UInt>): Hresult =
+public actual fun ksGetMediaTypeCount(filterhandle: Handle, pinfactoryid: UInt, mediatypecount: MutPtr): Hresult =
     if (windowsWin32MediaKernelstreamingNapiAvailable) wasmWindowssysWindowsWin32MediaKernelstreamingKsGetMediaTypeCount(filterhandle.rawAddress.toString(), pinfactoryid.toInt(), mediatypecount.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ksGetMultiplePinFactoryItems(filterhandle: Handle, pinfactoryid: UInt, propertyid: UInt, items: MutPtr<MutPtr<CVoid>>): Hresult =
+public actual fun ksGetMultiplePinFactoryItems(filterhandle: Handle, pinfactoryid: UInt, propertyid: UInt, items: MutPtr): Hresult =
     if (windowsWin32MediaKernelstreamingNapiAvailable) wasmWindowssysWindowsWin32MediaKernelstreamingKsGetMultiplePinFactoryItems(filterhandle.rawAddress.toString(), pinfactoryid.toInt(), propertyid.toInt(), items.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ksOpenDefaultDevice(category: ConstPtr<Guid>, access: UInt, devicehandle: MutPtr<Handle>): Hresult =
+public actual fun ksOpenDefaultDevice(category: ConstPtr, access: UInt, devicehandle: MutPtr): Hresult =
     if (windowsWin32MediaKernelstreamingNapiAvailable) wasmWindowssysWindowsWin32MediaKernelstreamingKsOpenDefaultDevice(category.rawAddress.toString(), access.toInt(), devicehandle.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ksResolveRequiredAttributes(datarange: ConstPtr<Ksdataformat>, attributes: ConstPtr<KsmultipleItem>): Hresult =
+public actual fun ksResolveRequiredAttributes(datarange: ConstPtr, attributes: ConstPtr): Hresult =
     if (windowsWin32MediaKernelstreamingNapiAvailable) wasmWindowssysWindowsWin32MediaKernelstreamingKsResolveRequiredAttributes(datarange.rawAddress.toString(), attributes.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ksSynchronousDeviceControl(handle: Handle, iocontrol: UInt, inbuffer: ConstPtr<CVoid>, inlength: UInt, outbuffer: MutPtr<CVoid>, outlength: UInt, bytesreturned: MutPtr<UInt>): Hresult =
+public actual fun ksSynchronousDeviceControl(handle: Handle, iocontrol: UInt, inbuffer: ConstPtr, inlength: UInt, outbuffer: MutPtr, outlength: UInt, bytesreturned: MutPtr): Hresult =
     if (windowsWin32MediaKernelstreamingNapiAvailable) wasmWindowssysWindowsWin32MediaKernelstreamingKsSynchronousDeviceControl(handle.rawAddress.toString(), iocontrol.toInt(), inbuffer.rawAddress.toString(), inlength.toInt(), outbuffer.rawAddress.toString(), outlength.toInt(), bytesreturned.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")

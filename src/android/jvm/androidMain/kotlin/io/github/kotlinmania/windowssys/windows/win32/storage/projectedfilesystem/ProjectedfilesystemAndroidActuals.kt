@@ -2,10 +2,8 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.storage.projectedfilesystem
 
-import io.github.kotlinmania.rustlang.core.ffi.CVoid
 import io.github.kotlinmania.rustlang.core.ptr.ConstPtr
 import io.github.kotlinmania.rustlang.core.ptr.MutPtr
-import io.github.kotlinmania.windowssys.core.Guid
 import io.github.kotlinmania.windowssys.core.Hresult
 import io.github.kotlinmania.windowssys.core.Pcwstr
 
@@ -72,16 +70,16 @@ private object WindowsWin32StorageProjectedfilesystemJniBridge {
     external fun windowssysWindowsWin32StorageProjectedfilesystemPrjWritePlaceholderInfo2(namespacevirtualizationcontext: Long, destinationfilename: Long, placeholderinfo: Long, placeholderinfosize: Int, extendedinfo: Long): Int
 }
 
-public actual fun prjAllocateAlignedBuffer(namespacevirtualizationcontext: PrjNamespaceVirtualizationContext, size: ULong): MutPtr<CVoid> =
+public actual fun prjAllocateAlignedBuffer(namespacevirtualizationcontext: PrjNamespaceVirtualizationContext, size: ULong): MutPtr =
     MutPtr(WindowsWin32StorageProjectedfilesystemJniBridge.windowssysWindowsWin32StorageProjectedfilesystemPrjAllocateAlignedBuffer(namespacevirtualizationcontext.rawAddress, size.toLong()))
 
-public actual fun prjClearNegativePathCache(namespacevirtualizationcontext: PrjNamespaceVirtualizationContext, totalentrynumber: MutPtr<UInt>): Hresult =
+public actual fun prjClearNegativePathCache(namespacevirtualizationcontext: PrjNamespaceVirtualizationContext, totalentrynumber: MutPtr): Hresult =
     WindowsWin32StorageProjectedfilesystemJniBridge.windowssysWindowsWin32StorageProjectedfilesystemPrjClearNegativePathCache(namespacevirtualizationcontext.rawAddress, totalentrynumber.rawAddress)
 
-public actual fun prjCompleteCommand(namespacevirtualizationcontext: PrjNamespaceVirtualizationContext, commandid: Int, completionresult: Hresult, extendedparameters: ConstPtr<PrjCompleteCommandExtendedParameters>): Hresult =
+public actual fun prjCompleteCommand(namespacevirtualizationcontext: PrjNamespaceVirtualizationContext, commandid: Int, completionresult: Hresult, extendedparameters: ConstPtr): Hresult =
     WindowsWin32StorageProjectedfilesystemJniBridge.windowssysWindowsWin32StorageProjectedfilesystemPrjCompleteCommand(namespacevirtualizationcontext.rawAddress, commandid, completionresult, extendedparameters.rawAddress)
 
-public actual fun prjDeleteFile(namespacevirtualizationcontext: PrjNamespaceVirtualizationContext, destinationfilename: Pcwstr, updateflags: PrjUpdateTypes, failurereason: MutPtr<PrjUpdateFailureCauses>): Hresult =
+public actual fun prjDeleteFile(namespacevirtualizationcontext: PrjNamespaceVirtualizationContext, destinationfilename: Pcwstr, updateflags: PrjUpdateTypes, failurereason: MutPtr): Hresult =
     WindowsWin32StorageProjectedfilesystemJniBridge.windowssysWindowsWin32StorageProjectedfilesystemPrjDeleteFile(namespacevirtualizationcontext.rawAddress, destinationfilename.rawAddress, updateflags, failurereason.rawAddress)
 
 public actual fun prjDoesNameContainWildCards(filename: Pcwstr): Boolean =
@@ -93,40 +91,40 @@ public actual fun prjFileNameCompare(filename1: Pcwstr, filename2: Pcwstr): Int 
 public actual fun prjFileNameMatch(filenametocheck: Pcwstr, pattern: Pcwstr): Boolean =
     WindowsWin32StorageProjectedfilesystemJniBridge.windowssysWindowsWin32StorageProjectedfilesystemPrjFileNameMatch(filenametocheck.rawAddress, pattern.rawAddress)
 
-public actual fun prjFillDirEntryBuffer(filename: Pcwstr, filebasicinfo: ConstPtr<PrjFileBasicInfo>, direntrybufferhandle: PrjDirEntryBufferHandle): Hresult =
+public actual fun prjFillDirEntryBuffer(filename: Pcwstr, filebasicinfo: ConstPtr, direntrybufferhandle: PrjDirEntryBufferHandle): Hresult =
     WindowsWin32StorageProjectedfilesystemJniBridge.windowssysWindowsWin32StorageProjectedfilesystemPrjFillDirEntryBuffer(filename.rawAddress, filebasicinfo.rawAddress, direntrybufferhandle.rawAddress)
 
-public actual fun prjFillDirEntryBuffer2(direntrybufferhandle: PrjDirEntryBufferHandle, filename: Pcwstr, filebasicinfo: ConstPtr<PrjFileBasicInfo>, extendedinfo: ConstPtr<PrjExtendedInfo>): Hresult =
+public actual fun prjFillDirEntryBuffer2(direntrybufferhandle: PrjDirEntryBufferHandle, filename: Pcwstr, filebasicinfo: ConstPtr, extendedinfo: ConstPtr): Hresult =
     WindowsWin32StorageProjectedfilesystemJniBridge.windowssysWindowsWin32StorageProjectedfilesystemPrjFillDirEntryBuffer2(direntrybufferhandle.rawAddress, filename.rawAddress, filebasicinfo.rawAddress, extendedinfo.rawAddress)
 
-public actual fun prjFreeAlignedBuffer(buffer: ConstPtr<CVoid>) {
+public actual fun prjFreeAlignedBuffer(buffer: ConstPtr) {
     WindowsWin32StorageProjectedfilesystemJniBridge.windowssysWindowsWin32StorageProjectedfilesystemPrjFreeAlignedBuffer(buffer.rawAddress)
 }
 
-public actual fun prjGetOnDiskFileState(destinationfilename: Pcwstr, filestate: MutPtr<PrjFileState>): Hresult =
+public actual fun prjGetOnDiskFileState(destinationfilename: Pcwstr, filestate: MutPtr): Hresult =
     WindowsWin32StorageProjectedfilesystemJniBridge.windowssysWindowsWin32StorageProjectedfilesystemPrjGetOnDiskFileState(destinationfilename.rawAddress, filestate.rawAddress)
 
-public actual fun prjGetVirtualizationInstanceInfo(namespacevirtualizationcontext: PrjNamespaceVirtualizationContext, virtualizationinstanceinfo: MutPtr<PrjVirtualizationInstanceInfo>): Hresult =
+public actual fun prjGetVirtualizationInstanceInfo(namespacevirtualizationcontext: PrjNamespaceVirtualizationContext, virtualizationinstanceinfo: MutPtr): Hresult =
     WindowsWin32StorageProjectedfilesystemJniBridge.windowssysWindowsWin32StorageProjectedfilesystemPrjGetVirtualizationInstanceInfo(namespacevirtualizationcontext.rawAddress, virtualizationinstanceinfo.rawAddress)
 
-public actual fun prjMarkDirectoryAsPlaceholder(rootpathname: Pcwstr, targetpathname: Pcwstr, versioninfo: ConstPtr<PrjPlaceholderVersionInfo>, virtualizationinstanceid: ConstPtr<Guid>): Hresult =
+public actual fun prjMarkDirectoryAsPlaceholder(rootpathname: Pcwstr, targetpathname: Pcwstr, versioninfo: ConstPtr, virtualizationinstanceid: ConstPtr): Hresult =
     WindowsWin32StorageProjectedfilesystemJniBridge.windowssysWindowsWin32StorageProjectedfilesystemPrjMarkDirectoryAsPlaceholder(rootpathname.rawAddress, targetpathname.rawAddress, versioninfo.rawAddress, virtualizationinstanceid.rawAddress)
 
-public actual fun prjStartVirtualizing(virtualizationrootpath: Pcwstr, callbacks: ConstPtr<PrjCallbacks>, instancecontext: ConstPtr<CVoid>, options: ConstPtr<PrjStartvirtualizingOptions>, namespacevirtualizationcontext: MutPtr<PrjNamespaceVirtualizationContext>): Hresult =
+public actual fun prjStartVirtualizing(virtualizationrootpath: Pcwstr, callbacks: ConstPtr, instancecontext: ConstPtr, options: ConstPtr, namespacevirtualizationcontext: MutPtr): Hresult =
     WindowsWin32StorageProjectedfilesystemJniBridge.windowssysWindowsWin32StorageProjectedfilesystemPrjStartVirtualizing(virtualizationrootpath.rawAddress, callbacks.rawAddress, instancecontext.rawAddress, options.rawAddress, namespacevirtualizationcontext.rawAddress)
 
 public actual fun prjStopVirtualizing(namespacevirtualizationcontext: PrjNamespaceVirtualizationContext) {
     WindowsWin32StorageProjectedfilesystemJniBridge.windowssysWindowsWin32StorageProjectedfilesystemPrjStopVirtualizing(namespacevirtualizationcontext.rawAddress)
 }
 
-public actual fun prjUpdateFileIfNeeded(namespacevirtualizationcontext: PrjNamespaceVirtualizationContext, destinationfilename: Pcwstr, placeholderinfo: ConstPtr<PrjPlaceholderInfo>, placeholderinfosize: UInt, updateflags: PrjUpdateTypes, failurereason: MutPtr<PrjUpdateFailureCauses>): Hresult =
+public actual fun prjUpdateFileIfNeeded(namespacevirtualizationcontext: PrjNamespaceVirtualizationContext, destinationfilename: Pcwstr, placeholderinfo: ConstPtr, placeholderinfosize: UInt, updateflags: PrjUpdateTypes, failurereason: MutPtr): Hresult =
     WindowsWin32StorageProjectedfilesystemJniBridge.windowssysWindowsWin32StorageProjectedfilesystemPrjUpdateFileIfNeeded(namespacevirtualizationcontext.rawAddress, destinationfilename.rawAddress, placeholderinfo.rawAddress, placeholderinfosize.toInt(), updateflags, failurereason.rawAddress)
 
-public actual fun prjWriteFileData(namespacevirtualizationcontext: PrjNamespaceVirtualizationContext, datastreamid: ConstPtr<Guid>, buffer: ConstPtr<CVoid>, byteoffset: ULong, length: UInt): Hresult =
+public actual fun prjWriteFileData(namespacevirtualizationcontext: PrjNamespaceVirtualizationContext, datastreamid: ConstPtr, buffer: ConstPtr, byteoffset: ULong, length: UInt): Hresult =
     WindowsWin32StorageProjectedfilesystemJniBridge.windowssysWindowsWin32StorageProjectedfilesystemPrjWriteFileData(namespacevirtualizationcontext.rawAddress, datastreamid.rawAddress, buffer.rawAddress, byteoffset.toLong(), length.toInt())
 
-public actual fun prjWritePlaceholderInfo(namespacevirtualizationcontext: PrjNamespaceVirtualizationContext, destinationfilename: Pcwstr, placeholderinfo: ConstPtr<PrjPlaceholderInfo>, placeholderinfosize: UInt): Hresult =
+public actual fun prjWritePlaceholderInfo(namespacevirtualizationcontext: PrjNamespaceVirtualizationContext, destinationfilename: Pcwstr, placeholderinfo: ConstPtr, placeholderinfosize: UInt): Hresult =
     WindowsWin32StorageProjectedfilesystemJniBridge.windowssysWindowsWin32StorageProjectedfilesystemPrjWritePlaceholderInfo(namespacevirtualizationcontext.rawAddress, destinationfilename.rawAddress, placeholderinfo.rawAddress, placeholderinfosize.toInt())
 
-public actual fun prjWritePlaceholderInfo2(namespacevirtualizationcontext: PrjNamespaceVirtualizationContext, destinationfilename: Pcwstr, placeholderinfo: ConstPtr<PrjPlaceholderInfo>, placeholderinfosize: UInt, extendedinfo: ConstPtr<PrjExtendedInfo>): Hresult =
+public actual fun prjWritePlaceholderInfo2(namespacevirtualizationcontext: PrjNamespaceVirtualizationContext, destinationfilename: Pcwstr, placeholderinfo: ConstPtr, placeholderinfosize: UInt, extendedinfo: ConstPtr): Hresult =
     WindowsWin32StorageProjectedfilesystemJniBridge.windowssysWindowsWin32StorageProjectedfilesystemPrjWritePlaceholderInfo2(namespacevirtualizationcontext.rawAddress, destinationfilename.rawAddress, placeholderinfo.rawAddress, placeholderinfosize.toInt(), extendedinfo.rawAddress)

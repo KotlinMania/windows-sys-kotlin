@@ -1,6 +1,5 @@
 package io.github.kotlinmania.windowssys.windows.win32.media.multimedia
 
-import io.github.kotlinmania.rustlang.core.ffi.CVoid
 import io.github.kotlinmania.rustlang.core.ptr.ConstPtr
 import io.github.kotlinmania.rustlang.core.ptr.MutPtr
 import io.github.kotlinmania.windowssys.core.Bool
@@ -9,8 +8,6 @@ import io.github.kotlinmania.windowssys.core.Pcwstr
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Hwnd
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Lparam
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Lresult
-import io.github.kotlinmania.windowssys.windows.win32.media.audio.Wavehdr
-import io.github.kotlinmania.windowssys.windows.win32.system.io.Overlapped
 import io.github.kotlinmania.windowssys.windows.win32.ui.controls.Lpfnsvaddpropsheetpage
 
 public fun interface AvisavecallbackFn {
@@ -50,13 +47,13 @@ public fun interface CapstatuscallbackwFn {
 public typealias Capstatuscallbackw = CapstatuscallbackwFn?
 
 public fun interface CapvideocallbackFn {
-    public operator fun invoke(hwnd: Hwnd, lpvhdr: ConstPtr<Videohdr>): Lresult
+    public operator fun invoke(hwnd: Hwnd, lpvhdr: ConstPtr): Lresult
 }
 
 public typealias Capvideocallback = CapvideocallbackFn?
 
 public fun interface CapwavecallbackFn {
-    public operator fun invoke(hwnd: Hwnd, lpwhdr: ConstPtr<Wavehdr>): Lresult
+    public operator fun invoke(hwnd: Hwnd, lpwhdr: ConstPtr): Lresult
 }
 
 public typealias Capwavecallback = CapwavecallbackFn?
@@ -79,16 +76,16 @@ public fun interface DriverprocFn {
 
 public typealias Driverproc = DriverprocFn?
 
-public typealias Hdrvr = MutPtr<CVoid>
+public typealias Hdrvr = MutPtr
 
-public typealias Hic = MutPtr<CVoid>
+public typealias Hic = MutPtr
 
-public typealias Hmmio = MutPtr<CVoid>
+public typealias Hmmio = MutPtr
 
-public typealias Hvideo = MutPtr<CVoid>
+public typealias Hvideo = MutPtr
 
 public fun interface LpfnextdevioFn {
-    public operator fun invoke(lparam: Lparam, dwflags: UInt, dwiocontrolcode: UInt, lpinbuffer: MutPtr<CVoid>, ninbuffersize: UInt, lpoutbuffer: MutPtr<CVoid>, noutbuffersize: UInt, lpbytesreturned: MutPtr<UInt>, lpoverlapped: MutPtr<Overlapped>): Bool
+    public operator fun invoke(lparam: Lparam, dwflags: UInt, dwiocontrolcode: UInt, lpinbuffer: MutPtr, ninbuffersize: UInt, lpoutbuffer: MutPtr, noutbuffersize: UInt, lpbytesreturned: MutPtr, lpoverlapped: MutPtr): Bool
 }
 
 public typealias Lpfnextdevio = LpfnextdevioFn?
@@ -106,7 +103,7 @@ public fun interface LptaskcallbackFn {
 public typealias Lptaskcallback = LptaskcallbackFn?
 
 public fun interface VFWWDMExtensionProcFn {
-    public operator fun invoke(pfndeviceiocontrol: MutPtr<CVoid>, pfnaddpropertypage: Lpfnsvaddpropsheetpage, lparam: Lparam): UInt
+    public operator fun invoke(pfndeviceiocontrol: MutPtr, pfnaddpropertypage: Lpfnsvaddpropsheetpage, lparam: Lparam): UInt
 }
 
 public typealias VFWWDMExtensionProc = VFWWDMExtensionProcFn?

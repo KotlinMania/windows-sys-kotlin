@@ -4,7 +4,6 @@ package io.github.kotlinmania.windowssys.windows.win32.devices.portabledevices
 
 import io.github.kotlinmania.rustlang.core.ptr.ConstPtr
 import io.github.kotlinmania.rustlang.core.ptr.MutPtr
-import io.github.kotlinmania.windowssys.core.Bstr
 import io.github.kotlinmania.windowssys.core.Hresult
 import io.github.kotlinmania.windowssys.core.Pcwstr
 
@@ -16,5 +15,5 @@ private val windowsWin32DevicesPortabledevicesNapiAvailable: Boolean = initWindo
 @JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssysWindowsWin32DevicesPortabledevicesDMProcessConfigXMLFiltered(p0, p1, p2, p3)")
 private external fun wasmWindowssysWindowsWin32DevicesPortabledevicesDMProcessConfigXMLFiltered(p0: String, p1: String, p2: Int, p3: String): Int
 
-public actual fun dMProcessConfigXMLFiltered(pszxmlin: Pcwstr, rgszallowedcspnodes: ConstPtr<Pcwstr>, dwnumallowedcspnodes: UInt, pbstrxmlout: MutPtr<Bstr>): Hresult =
+public actual fun dMProcessConfigXMLFiltered(pszxmlin: Pcwstr, rgszallowedcspnodes: ConstPtr, dwnumallowedcspnodes: UInt, pbstrxmlout: MutPtr): Hresult =
     if (windowsWin32DevicesPortabledevicesNapiAvailable) wasmWindowssysWindowsWin32DevicesPortabledevicesDMProcessConfigXMLFiltered(pszxmlin.rawAddress.toString(), rgszallowedcspnodes.rawAddress.toString(), dwnumallowedcspnodes.toInt(), pbstrxmlout.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")

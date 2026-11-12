@@ -2,20 +2,14 @@
 
 package io.github.kotlinmania.windowssys.windows.wdk.system.systemservices
 
-import io.github.kotlinmania.rustlang.core.ffi.CVoid
 import io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
 import io.github.kotlinmania.rustlang.core.mem.TypeLayout
 import io.github.kotlinmania.rustlang.core.ptr.MutPtr
 import io.github.kotlinmania.windowssys.core.Guid
 import io.github.kotlinmania.windowssys.core.Pwstr
 import io.github.kotlinmania.windowssys.windows.wdk.foundation.DriverControl
-import io.github.kotlinmania.windowssys.windows.wdk.foundation.FileObject
-import io.github.kotlinmania.windowssys.windows.wdk.foundation.Kdpc
-import io.github.kotlinmania.windowssys.windows.wdk.foundation.ObjectNameInformation
-import io.github.kotlinmania.windowssys.windows.wdk.foundation.RtlSplayLinks
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Handle
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Ntstatus
-import io.github.kotlinmania.windowssys.windows.win32.foundation.UnicodeString
 import io.github.kotlinmania.windowssys.windows.win32.security.PsecurityDescriptor
 import io.github.kotlinmania.windowssys.windows.win32.system.diagnostics.debug.WheaErrorSourceDescriptor
 import io.github.kotlinmania.windowssys.windows.win32.system.diagnostics.debug.WheaErrorSourceType
@@ -23,43 +17,43 @@ import io.github.kotlinmania.windowssys.windows.win32.system.diagnostics.debug.W
 import io.github.kotlinmania.windowssys.windows.win32.system.kernel.ListEntry
 
 public class RegLoadKeyInformation internal constructor(
-    objCtorArg: MutPtr<CVoid>,
-    keyNameCtorArg: MutPtr<UnicodeString>,
-    sourceFileCtorArg: MutPtr<UnicodeString>,
+    objCtorArg: MutPtr,
+    keyNameCtorArg: MutPtr,
+    sourceFileCtorArg: MutPtr,
     public var flags: UInt,
-    trustClassObjectCtorArg: MutPtr<CVoid>,
-    userEventCtorArg: MutPtr<CVoid>,
+    trustClassObjectCtorArg: MutPtr,
+    userEventCtorArg: MutPtr,
     public var desiredAccess: UInt,
-    rootHandleCtorArg: MutPtr<Handle>,
-    callContextCtorArg: MutPtr<CVoid>,
-    objectContextCtorArg: MutPtr<CVoid>,
-    reservedCtorArg: MutPtr<CVoid>,
+    rootHandleCtorArg: MutPtr,
+    callContextCtorArg: MutPtr,
+    objectContextCtorArg: MutPtr,
+    reservedCtorArg: MutPtr,
 ) {
-    public var obj: MutPtr<CVoid> = objCtorArg
+    public var obj: MutPtr = objCtorArg
         internal set
 
-    public var keyName: MutPtr<UnicodeString> = keyNameCtorArg
+    public var keyName: MutPtr = keyNameCtorArg
         internal set
 
-    public var sourceFile: MutPtr<UnicodeString> = sourceFileCtorArg
+    public var sourceFile: MutPtr = sourceFileCtorArg
         internal set
 
-    public var trustClassObject: MutPtr<CVoid> = trustClassObjectCtorArg
+    public var trustClassObject: MutPtr = trustClassObjectCtorArg
         internal set
 
-    public var userEvent: MutPtr<CVoid> = userEventCtorArg
+    public var userEvent: MutPtr = userEventCtorArg
         internal set
 
-    public var rootHandle: MutPtr<Handle> = rootHandleCtorArg
+    public var rootHandle: MutPtr = rootHandleCtorArg
         internal set
 
-    public var callContext: MutPtr<CVoid> = callContextCtorArg
+    public var callContext: MutPtr = callContextCtorArg
         internal set
 
-    public var objectContext: MutPtr<CVoid> = objectContextCtorArg
+    public var objectContext: MutPtr = objectContextCtorArg
         internal set
 
-    public var reserved: MutPtr<CVoid> = reservedCtorArg
+    public var reserved: MutPtr = reservedCtorArg
         internal set
 
     public constructor() : this(
@@ -76,29 +70,29 @@ public class RegLoadKeyInformation internal constructor(
         reservedCtorArg = MutPtr(0L),
     )
 
-    public operator fun component1(): MutPtr<CVoid> = this.obj
+    public operator fun component1(): MutPtr = this.obj
 
-    public operator fun component2(): MutPtr<UnicodeString> = this.keyName
+    public operator fun component2(): MutPtr = this.keyName
 
-    public operator fun component3(): MutPtr<UnicodeString> = this.sourceFile
+    public operator fun component3(): MutPtr = this.sourceFile
 
     public operator fun component4(): UInt = this.flags
 
-    public operator fun component5(): MutPtr<CVoid> = this.trustClassObject
+    public operator fun component5(): MutPtr = this.trustClassObject
 
-    public operator fun component6(): MutPtr<CVoid> = this.userEvent
+    public operator fun component6(): MutPtr = this.userEvent
 
     public operator fun component7(): UInt = this.desiredAccess
 
-    public operator fun component8(): MutPtr<Handle> = this.rootHandle
+    public operator fun component8(): MutPtr = this.rootHandle
 
-    public operator fun component9(): MutPtr<CVoid> = this.callContext
+    public operator fun component9(): MutPtr = this.callContext
 
-    public operator fun component10(): MutPtr<CVoid> = this.objectContext
+    public operator fun component10(): MutPtr = this.objectContext
 
-    public operator fun component11(): MutPtr<CVoid> = this.reserved
+    public operator fun component11(): MutPtr = this.reserved
 
-    public fun copy(obj: MutPtr<CVoid> = this.obj, keyName: MutPtr<UnicodeString> = this.keyName, sourceFile: MutPtr<UnicodeString> = this.sourceFile, flags: UInt = this.flags, trustClassObject: MutPtr<CVoid> = this.trustClassObject, userEvent: MutPtr<CVoid> = this.userEvent, desiredAccess: UInt = this.desiredAccess, rootHandle: MutPtr<Handle> = this.rootHandle, callContext: MutPtr<CVoid> = this.callContext, objectContext: MutPtr<CVoid> = this.objectContext, reserved: MutPtr<CVoid> = this.reserved): RegLoadKeyInformation = RegLoadKeyInformation(objCtorArg = obj, keyNameCtorArg = keyName, sourceFileCtorArg = sourceFile, flags = flags, trustClassObjectCtorArg = trustClassObject, userEventCtorArg = userEvent, desiredAccess = desiredAccess, rootHandleCtorArg = rootHandle, callContextCtorArg = callContext, objectContextCtorArg = objectContext, reservedCtorArg = reserved)
+    public fun copy(obj: MutPtr = this.obj, keyName: MutPtr = this.keyName, sourceFile: MutPtr = this.sourceFile, flags: UInt = this.flags, trustClassObject: MutPtr = this.trustClassObject, userEvent: MutPtr = this.userEvent, desiredAccess: UInt = this.desiredAccess, rootHandle: MutPtr = this.rootHandle, callContext: MutPtr = this.callContext, objectContext: MutPtr = this.objectContext, reserved: MutPtr = this.reserved): RegLoadKeyInformation = RegLoadKeyInformation(objCtorArg = obj, keyNameCtorArg = keyName, sourceFileCtorArg = sourceFile, flags = flags, trustClassObjectCtorArg = trustClassObject, userEventCtorArg = userEvent, desiredAccess = desiredAccess, rootHandleCtorArg = rootHandle, callContextCtorArg = callContext, objectContextCtorArg = objectContext, reservedCtorArg = reserved)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -141,97 +135,97 @@ public class RegLoadKeyInformation internal constructor(
                     RegLoadKeyInformation(
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<CVoid>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<UnicodeString>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<UnicodeString>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 16L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 24L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<CVoid>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 32L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<CVoid>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 40L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 48L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<Handle>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 56L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<CVoid>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 64L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<CVoid>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 72L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<CVoid>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 80L),
                     )
                 override fun writeNative(addr: Long, value: RegLoadKeyInformation) {
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<CVoid>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr, value.obj)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<UnicodeString>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.keyName)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<UnicodeString>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 16L, value.sourceFile)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 24L, value.flags)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<CVoid>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 32L, value.trustClassObject)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<CVoid>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 40L, value.userEvent)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 48L, value.desiredAccess)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<Handle>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 56L, value.rootHandle)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<CVoid>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 64L, value.callContext)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<CVoid>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 72L, value.objectContext)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<CVoid>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 80L, value.reserved)
                 }
             }
 
         public operator fun invoke(
-            obj: MutPtr<CVoid> = MutPtr(0L),
-            keyName: MutPtr<UnicodeString> = MutPtr(0L),
-            sourceFile: MutPtr<UnicodeString> = MutPtr(0L),
+            obj: MutPtr = MutPtr(0L),
+            keyName: MutPtr = MutPtr(0L),
+            sourceFile: MutPtr = MutPtr(0L),
             flags: UInt = 0u,
-            trustClassObject: MutPtr<CVoid> = MutPtr(0L),
-            userEvent: MutPtr<CVoid> = MutPtr(0L),
+            trustClassObject: MutPtr = MutPtr(0L),
+            userEvent: MutPtr = MutPtr(0L),
             desiredAccess: UInt = 0u,
-            rootHandle: MutPtr<Handle> = MutPtr(0L),
-            callContext: MutPtr<CVoid> = MutPtr(0L),
-            objectContext: MutPtr<CVoid> = MutPtr(0L),
-            reserved: MutPtr<CVoid> = MutPtr(0L),
+            rootHandle: MutPtr = MutPtr(0L),
+            callContext: MutPtr = MutPtr(0L),
+            objectContext: MutPtr = MutPtr(0L),
+            reserved: MutPtr = MutPtr(0L),
         ): RegLoadKeyInformation =
             RegLoadKeyInformation(
                 objCtorArg = obj,
@@ -250,44 +244,44 @@ public class RegLoadKeyInformation internal constructor(
 }
 
 public class RegLoadKeyInformationV2 internal constructor(
-    objCtorArg: MutPtr<CVoid>,
-    keyNameCtorArg: MutPtr<UnicodeString>,
-    sourceFileCtorArg: MutPtr<UnicodeString>,
+    objCtorArg: MutPtr,
+    keyNameCtorArg: MutPtr,
+    sourceFileCtorArg: MutPtr,
     public var flags: UInt,
-    trustClassObjectCtorArg: MutPtr<CVoid>,
-    userEventCtorArg: MutPtr<CVoid>,
+    trustClassObjectCtorArg: MutPtr,
+    userEventCtorArg: MutPtr,
     public var desiredAccess: UInt,
-    rootHandleCtorArg: MutPtr<Handle>,
-    callContextCtorArg: MutPtr<CVoid>,
-    objectContextCtorArg: MutPtr<CVoid>,
+    rootHandleCtorArg: MutPtr,
+    callContextCtorArg: MutPtr,
+    objectContextCtorArg: MutPtr,
     public var version: Int,
-    fileAccessTokenCtorArg: MutPtr<CVoid>,
+    fileAccessTokenCtorArg: MutPtr,
 ) {
-    public var obj: MutPtr<CVoid> = objCtorArg
+    public var obj: MutPtr = objCtorArg
         internal set
 
-    public var keyName: MutPtr<UnicodeString> = keyNameCtorArg
+    public var keyName: MutPtr = keyNameCtorArg
         internal set
 
-    public var sourceFile: MutPtr<UnicodeString> = sourceFileCtorArg
+    public var sourceFile: MutPtr = sourceFileCtorArg
         internal set
 
-    public var trustClassObject: MutPtr<CVoid> = trustClassObjectCtorArg
+    public var trustClassObject: MutPtr = trustClassObjectCtorArg
         internal set
 
-    public var userEvent: MutPtr<CVoid> = userEventCtorArg
+    public var userEvent: MutPtr = userEventCtorArg
         internal set
 
-    public var rootHandle: MutPtr<Handle> = rootHandleCtorArg
+    public var rootHandle: MutPtr = rootHandleCtorArg
         internal set
 
-    public var callContext: MutPtr<CVoid> = callContextCtorArg
+    public var callContext: MutPtr = callContextCtorArg
         internal set
 
-    public var objectContext: MutPtr<CVoid> = objectContextCtorArg
+    public var objectContext: MutPtr = objectContextCtorArg
         internal set
 
-    public var fileAccessToken: MutPtr<CVoid> = fileAccessTokenCtorArg
+    public var fileAccessToken: MutPtr = fileAccessTokenCtorArg
         internal set
 
     public constructor() : this(
@@ -305,31 +299,31 @@ public class RegLoadKeyInformationV2 internal constructor(
         fileAccessTokenCtorArg = MutPtr(0L),
     )
 
-    public operator fun component1(): MutPtr<CVoid> = this.obj
+    public operator fun component1(): MutPtr = this.obj
 
-    public operator fun component2(): MutPtr<UnicodeString> = this.keyName
+    public operator fun component2(): MutPtr = this.keyName
 
-    public operator fun component3(): MutPtr<UnicodeString> = this.sourceFile
+    public operator fun component3(): MutPtr = this.sourceFile
 
     public operator fun component4(): UInt = this.flags
 
-    public operator fun component5(): MutPtr<CVoid> = this.trustClassObject
+    public operator fun component5(): MutPtr = this.trustClassObject
 
-    public operator fun component6(): MutPtr<CVoid> = this.userEvent
+    public operator fun component6(): MutPtr = this.userEvent
 
     public operator fun component7(): UInt = this.desiredAccess
 
-    public operator fun component8(): MutPtr<Handle> = this.rootHandle
+    public operator fun component8(): MutPtr = this.rootHandle
 
-    public operator fun component9(): MutPtr<CVoid> = this.callContext
+    public operator fun component9(): MutPtr = this.callContext
 
-    public operator fun component10(): MutPtr<CVoid> = this.objectContext
+    public operator fun component10(): MutPtr = this.objectContext
 
     public operator fun component11(): Int = this.version
 
-    public operator fun component12(): MutPtr<CVoid> = this.fileAccessToken
+    public operator fun component12(): MutPtr = this.fileAccessToken
 
-    public fun copy(obj: MutPtr<CVoid> = this.obj, keyName: MutPtr<UnicodeString> = this.keyName, sourceFile: MutPtr<UnicodeString> = this.sourceFile, flags: UInt = this.flags, trustClassObject: MutPtr<CVoid> = this.trustClassObject, userEvent: MutPtr<CVoid> = this.userEvent, desiredAccess: UInt = this.desiredAccess, rootHandle: MutPtr<Handle> = this.rootHandle, callContext: MutPtr<CVoid> = this.callContext, objectContext: MutPtr<CVoid> = this.objectContext, version: Int = this.version, fileAccessToken: MutPtr<CVoid> = this.fileAccessToken): RegLoadKeyInformationV2 = RegLoadKeyInformationV2(objCtorArg = obj, keyNameCtorArg = keyName, sourceFileCtorArg = sourceFile, flags = flags, trustClassObjectCtorArg = trustClassObject, userEventCtorArg = userEvent, desiredAccess = desiredAccess, rootHandleCtorArg = rootHandle, callContextCtorArg = callContext, objectContextCtorArg = objectContext, version = version, fileAccessTokenCtorArg = fileAccessToken)
+    public fun copy(obj: MutPtr = this.obj, keyName: MutPtr = this.keyName, sourceFile: MutPtr = this.sourceFile, flags: UInt = this.flags, trustClassObject: MutPtr = this.trustClassObject, userEvent: MutPtr = this.userEvent, desiredAccess: UInt = this.desiredAccess, rootHandle: MutPtr = this.rootHandle, callContext: MutPtr = this.callContext, objectContext: MutPtr = this.objectContext, version: Int = this.version, fileAccessToken: MutPtr = this.fileAccessToken): RegLoadKeyInformationV2 = RegLoadKeyInformationV2(objCtorArg = obj, keyNameCtorArg = keyName, sourceFileCtorArg = sourceFile, flags = flags, trustClassObjectCtorArg = trustClassObject, userEventCtorArg = userEvent, desiredAccess = desiredAccess, rootHandleCtorArg = rootHandle, callContextCtorArg = callContext, objectContextCtorArg = objectContext, version = version, fileAccessTokenCtorArg = fileAccessToken)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -374,100 +368,100 @@ public class RegLoadKeyInformationV2 internal constructor(
                     RegLoadKeyInformationV2(
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<CVoid>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<UnicodeString>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<UnicodeString>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 16L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 24L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<CVoid>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 32L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<CVoid>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 40L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 48L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<Handle>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 56L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<CVoid>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 64L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<CVoid>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 72L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.USIZE64).readNative(addr + 80L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<CVoid>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 88L),
                     )
                 override fun writeNative(addr: Long, value: RegLoadKeyInformationV2) {
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<CVoid>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr, value.obj)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<UnicodeString>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.keyName)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<UnicodeString>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 16L, value.sourceFile)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 24L, value.flags)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<CVoid>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 32L, value.trustClassObject)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<CVoid>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 40L, value.userEvent)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 48L, value.desiredAccess)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<Handle>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 56L, value.rootHandle)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<CVoid>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 64L, value.callContext)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<CVoid>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 72L, value.objectContext)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.USIZE64).writeNative(addr + 80L, value.version)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<CVoid>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 88L, value.fileAccessToken)
                 }
             }
 
         public operator fun invoke(
-            obj: MutPtr<CVoid> = MutPtr(0L),
-            keyName: MutPtr<UnicodeString> = MutPtr(0L),
-            sourceFile: MutPtr<UnicodeString> = MutPtr(0L),
+            obj: MutPtr = MutPtr(0L),
+            keyName: MutPtr = MutPtr(0L),
+            sourceFile: MutPtr = MutPtr(0L),
             flags: UInt = 0u,
-            trustClassObject: MutPtr<CVoid> = MutPtr(0L),
-            userEvent: MutPtr<CVoid> = MutPtr(0L),
+            trustClassObject: MutPtr = MutPtr(0L),
+            userEvent: MutPtr = MutPtr(0L),
             desiredAccess: UInt = 0u,
-            rootHandle: MutPtr<Handle> = MutPtr(0L),
-            callContext: MutPtr<CVoid> = MutPtr(0L),
-            objectContext: MutPtr<CVoid> = MutPtr(0L),
+            rootHandle: MutPtr = MutPtr(0L),
+            callContext: MutPtr = MutPtr(0L),
+            objectContext: MutPtr = MutPtr(0L),
             version: Int = 0,
-            fileAccessToken: MutPtr<CVoid> = MutPtr(0L),
+            fileAccessToken: MutPtr = MutPtr(0L),
         ): RegLoadKeyInformationV2 =
             RegLoadKeyInformationV2(
                 objCtorArg = obj,
@@ -487,14 +481,14 @@ public class RegLoadKeyInformationV2 internal constructor(
 }
 
 public class RegPostCreateKeyInformation internal constructor(
-    completeNameCtorArg: MutPtr<UnicodeString>,
-    objCtorArg: MutPtr<CVoid>,
+    completeNameCtorArg: MutPtr,
+    objCtorArg: MutPtr,
     public var status: Ntstatus,
 ) {
-    public var completeName: MutPtr<UnicodeString> = completeNameCtorArg
+    public var completeName: MutPtr = completeNameCtorArg
         internal set
 
-    public var obj: MutPtr<CVoid> = objCtorArg
+    public var obj: MutPtr = objCtorArg
         internal set
 
     public constructor() : this(
@@ -503,13 +497,13 @@ public class RegPostCreateKeyInformation internal constructor(
         status = 0,
     )
 
-    public operator fun component1(): MutPtr<UnicodeString> = this.completeName
+    public operator fun component1(): MutPtr = this.completeName
 
-    public operator fun component2(): MutPtr<CVoid> = this.obj
+    public operator fun component2(): MutPtr = this.obj
 
     public operator fun component3(): Ntstatus = this.status
 
-    public fun copy(completeName: MutPtr<UnicodeString> = this.completeName, obj: MutPtr<CVoid> = this.obj, status: Ntstatus = this.status): RegPostCreateKeyInformation = RegPostCreateKeyInformation(completeNameCtorArg = completeName, objCtorArg = obj, status = status)
+    public fun copy(completeName: MutPtr = this.completeName, obj: MutPtr = this.obj, status: Ntstatus = this.status): RegPostCreateKeyInformation = RegPostCreateKeyInformation(completeNameCtorArg = completeName, objCtorArg = obj, status = status)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -536,30 +530,30 @@ public class RegPostCreateKeyInformation internal constructor(
                     RegPostCreateKeyInformation(
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<UnicodeString>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<CVoid>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr + 16L),
                     )
                 override fun writeNative(addr: Long, value: RegPostCreateKeyInformation) {
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<UnicodeString>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr, value.completeName)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<CVoid>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.obj)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr + 16L, value.status)
                 }
             }
 
         public operator fun invoke(
-            completeName: MutPtr<UnicodeString> = MutPtr(0L),
-            obj: MutPtr<CVoid> = MutPtr(0L),
+            completeName: MutPtr = MutPtr(0L),
+            obj: MutPtr = MutPtr(0L),
             status: Ntstatus = 0,
         ): RegPostCreateKeyInformation =
             RegPostCreateKeyInformation(
@@ -571,27 +565,27 @@ public class RegPostCreateKeyInformation internal constructor(
 }
 
 public class RegPostOperationInformation internal constructor(
-    objCtorArg: MutPtr<CVoid>,
+    objCtorArg: MutPtr,
     public var status: Ntstatus,
-    preInformationCtorArg: MutPtr<CVoid>,
+    preInformationCtorArg: MutPtr,
     public var returnStatus: Ntstatus,
-    callContextCtorArg: MutPtr<CVoid>,
-    objectContextCtorArg: MutPtr<CVoid>,
-    reservedCtorArg: MutPtr<CVoid>,
+    callContextCtorArg: MutPtr,
+    objectContextCtorArg: MutPtr,
+    reservedCtorArg: MutPtr,
 ) {
-    public var obj: MutPtr<CVoid> = objCtorArg
+    public var obj: MutPtr = objCtorArg
         internal set
 
-    public var preInformation: MutPtr<CVoid> = preInformationCtorArg
+    public var preInformation: MutPtr = preInformationCtorArg
         internal set
 
-    public var callContext: MutPtr<CVoid> = callContextCtorArg
+    public var callContext: MutPtr = callContextCtorArg
         internal set
 
-    public var objectContext: MutPtr<CVoid> = objectContextCtorArg
+    public var objectContext: MutPtr = objectContextCtorArg
         internal set
 
-    public var reserved: MutPtr<CVoid> = reservedCtorArg
+    public var reserved: MutPtr = reservedCtorArg
         internal set
 
     public constructor() : this(
@@ -604,21 +598,21 @@ public class RegPostOperationInformation internal constructor(
         reservedCtorArg = MutPtr(0L),
     )
 
-    public operator fun component1(): MutPtr<CVoid> = this.obj
+    public operator fun component1(): MutPtr = this.obj
 
     public operator fun component2(): Ntstatus = this.status
 
-    public operator fun component3(): MutPtr<CVoid> = this.preInformation
+    public operator fun component3(): MutPtr = this.preInformation
 
     public operator fun component4(): Ntstatus = this.returnStatus
 
-    public operator fun component5(): MutPtr<CVoid> = this.callContext
+    public operator fun component5(): MutPtr = this.callContext
 
-    public operator fun component6(): MutPtr<CVoid> = this.objectContext
+    public operator fun component6(): MutPtr = this.objectContext
 
-    public operator fun component7(): MutPtr<CVoid> = this.reserved
+    public operator fun component7(): MutPtr = this.reserved
 
-    public fun copy(obj: MutPtr<CVoid> = this.obj, status: Ntstatus = this.status, preInformation: MutPtr<CVoid> = this.preInformation, returnStatus: Ntstatus = this.returnStatus, callContext: MutPtr<CVoid> = this.callContext, objectContext: MutPtr<CVoid> = this.objectContext, reserved: MutPtr<CVoid> = this.reserved): RegPostOperationInformation = RegPostOperationInformation(objCtorArg = obj, status = status, preInformationCtorArg = preInformation, returnStatus = returnStatus, callContextCtorArg = callContext, objectContextCtorArg = objectContext, reservedCtorArg = reserved)
+    public fun copy(obj: MutPtr = this.obj, status: Ntstatus = this.status, preInformation: MutPtr = this.preInformation, returnStatus: Ntstatus = this.returnStatus, callContext: MutPtr = this.callContext, objectContext: MutPtr = this.objectContext, reserved: MutPtr = this.reserved): RegPostOperationInformation = RegPostOperationInformation(objCtorArg = obj, status = status, preInformationCtorArg = preInformation, returnStatus = returnStatus, callContextCtorArg = callContext, objectContextCtorArg = objectContext, reservedCtorArg = reserved)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -653,61 +647,61 @@ public class RegPostOperationInformation internal constructor(
                     RegPostOperationInformation(
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<CVoid>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr + 8L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<CVoid>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 16L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr + 24L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<CVoid>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 32L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<CVoid>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 40L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<CVoid>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 48L),
                     )
                 override fun writeNative(addr: Long, value: RegPostOperationInformation) {
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<CVoid>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr, value.obj)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr + 8L, value.status)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<CVoid>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 16L, value.preInformation)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr + 24L, value.returnStatus)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<CVoid>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 32L, value.callContext)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<CVoid>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 40L, value.objectContext)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<CVoid>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 48L, value.reserved)
                 }
             }
 
         public operator fun invoke(
-            obj: MutPtr<CVoid> = MutPtr(0L),
+            obj: MutPtr = MutPtr(0L),
             status: Ntstatus = 0,
-            preInformation: MutPtr<CVoid> = MutPtr(0L),
+            preInformation: MutPtr = MutPtr(0L),
             returnStatus: Ntstatus = 0,
-            callContext: MutPtr<CVoid> = MutPtr(0L),
-            objectContext: MutPtr<CVoid> = MutPtr(0L),
-            reserved: MutPtr<CVoid> = MutPtr(0L),
+            callContext: MutPtr = MutPtr(0L),
+            objectContext: MutPtr = MutPtr(0L),
+            reserved: MutPtr = MutPtr(0L),
         ): RegPostOperationInformation =
             RegPostOperationInformation(
                 objCtorArg = obj,
@@ -722,18 +716,18 @@ public class RegPostOperationInformation internal constructor(
 }
 
 public class RegPreCreateKeyInformation internal constructor(
-    completeNameCtorArg: MutPtr<UnicodeString>,
+    completeNameCtorArg: MutPtr,
 ) {
-    public var completeName: MutPtr<UnicodeString> = completeNameCtorArg
+    public var completeName: MutPtr = completeNameCtorArg
         internal set
 
     public constructor() : this(
         completeNameCtorArg = MutPtr(0L),
     )
 
-    public operator fun component1(): MutPtr<UnicodeString> = this.completeName
+    public operator fun component1(): MutPtr = this.completeName
 
-    public fun copy(completeName: MutPtr<UnicodeString> = this.completeName): RegPreCreateKeyInformation = RegPreCreateKeyInformation(completeNameCtorArg = completeName)
+    public fun copy(completeName: MutPtr = this.completeName): RegPreCreateKeyInformation = RegPreCreateKeyInformation(completeNameCtorArg = completeName)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -753,19 +747,19 @@ public class RegPreCreateKeyInformation internal constructor(
                     RegPreCreateKeyInformation(
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<UnicodeString>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr),
                     )
                 override fun writeNative(addr: Long, value: RegPreCreateKeyInformation) {
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<UnicodeString>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr, value.completeName)
                 }
             }
 
         public operator fun invoke(
-            completeName: MutPtr<UnicodeString> = MutPtr(0L),
+            completeName: MutPtr = MutPtr(0L),
         ): RegPreCreateKeyInformation =
             RegPreCreateKeyInformation(
                 completeNameCtorArg = completeName,
@@ -774,30 +768,30 @@ public class RegPreCreateKeyInformation internal constructor(
 }
 
 public class RegQueryKeyName internal constructor(
-    objCtorArg: MutPtr<CVoid>,
-    objectNameInfoCtorArg: MutPtr<ObjectNameInformation>,
+    objCtorArg: MutPtr,
+    objectNameInfoCtorArg: MutPtr,
     public var length: UInt,
-    returnLengthCtorArg: MutPtr<UInt>,
-    callContextCtorArg: MutPtr<CVoid>,
-    objectContextCtorArg: MutPtr<CVoid>,
-    reservedCtorArg: MutPtr<CVoid>,
+    returnLengthCtorArg: MutPtr,
+    callContextCtorArg: MutPtr,
+    objectContextCtorArg: MutPtr,
+    reservedCtorArg: MutPtr,
 ) {
-    public var obj: MutPtr<CVoid> = objCtorArg
+    public var obj: MutPtr = objCtorArg
         internal set
 
-    public var objectNameInfo: MutPtr<ObjectNameInformation> = objectNameInfoCtorArg
+    public var objectNameInfo: MutPtr = objectNameInfoCtorArg
         internal set
 
-    public var returnLength: MutPtr<UInt> = returnLengthCtorArg
+    public var returnLength: MutPtr = returnLengthCtorArg
         internal set
 
-    public var callContext: MutPtr<CVoid> = callContextCtorArg
+    public var callContext: MutPtr = callContextCtorArg
         internal set
 
-    public var objectContext: MutPtr<CVoid> = objectContextCtorArg
+    public var objectContext: MutPtr = objectContextCtorArg
         internal set
 
-    public var reserved: MutPtr<CVoid> = reservedCtorArg
+    public var reserved: MutPtr = reservedCtorArg
         internal set
 
     public constructor() : this(
@@ -810,21 +804,21 @@ public class RegQueryKeyName internal constructor(
         reservedCtorArg = MutPtr(0L),
     )
 
-    public operator fun component1(): MutPtr<CVoid> = this.obj
+    public operator fun component1(): MutPtr = this.obj
 
-    public operator fun component2(): MutPtr<ObjectNameInformation> = this.objectNameInfo
+    public operator fun component2(): MutPtr = this.objectNameInfo
 
     public operator fun component3(): UInt = this.length
 
-    public operator fun component4(): MutPtr<UInt> = this.returnLength
+    public operator fun component4(): MutPtr = this.returnLength
 
-    public operator fun component5(): MutPtr<CVoid> = this.callContext
+    public operator fun component5(): MutPtr = this.callContext
 
-    public operator fun component6(): MutPtr<CVoid> = this.objectContext
+    public operator fun component6(): MutPtr = this.objectContext
 
-    public operator fun component7(): MutPtr<CVoid> = this.reserved
+    public operator fun component7(): MutPtr = this.reserved
 
-    public fun copy(obj: MutPtr<CVoid> = this.obj, objectNameInfo: MutPtr<ObjectNameInformation> = this.objectNameInfo, length: UInt = this.length, returnLength: MutPtr<UInt> = this.returnLength, callContext: MutPtr<CVoid> = this.callContext, objectContext: MutPtr<CVoid> = this.objectContext, reserved: MutPtr<CVoid> = this.reserved): RegQueryKeyName = RegQueryKeyName(objCtorArg = obj, objectNameInfoCtorArg = objectNameInfo, length = length, returnLengthCtorArg = returnLength, callContextCtorArg = callContext, objectContextCtorArg = objectContext, reservedCtorArg = reserved)
+    public fun copy(obj: MutPtr = this.obj, objectNameInfo: MutPtr = this.objectNameInfo, length: UInt = this.length, returnLength: MutPtr = this.returnLength, callContext: MutPtr = this.callContext, objectContext: MutPtr = this.objectContext, reserved: MutPtr = this.reserved): RegQueryKeyName = RegQueryKeyName(objCtorArg = obj, objectNameInfoCtorArg = objectNameInfo, length = length, returnLengthCtorArg = returnLength, callContextCtorArg = callContext, objectContextCtorArg = objectContext, reservedCtorArg = reserved)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -859,67 +853,67 @@ public class RegQueryKeyName internal constructor(
                     RegQueryKeyName(
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<CVoid>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<ObjectNameInformation>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 16L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<UInt>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 24L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<CVoid>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 32L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<CVoid>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 40L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<CVoid>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 48L),
                     )
                 override fun writeNative(addr: Long, value: RegQueryKeyName) {
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<CVoid>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr, value.obj)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<ObjectNameInformation>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.objectNameInfo)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 16L, value.length)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<UInt>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 24L, value.returnLength)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<CVoid>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 32L, value.callContext)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<CVoid>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 40L, value.objectContext)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<CVoid>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 48L, value.reserved)
                 }
             }
 
         public operator fun invoke(
-            obj: MutPtr<CVoid> = MutPtr(0L),
-            objectNameInfo: MutPtr<ObjectNameInformation> = MutPtr(0L),
+            obj: MutPtr = MutPtr(0L),
+            objectNameInfo: MutPtr = MutPtr(0L),
             length: UInt = 0u,
-            returnLength: MutPtr<UInt> = MutPtr(0L),
-            callContext: MutPtr<CVoid> = MutPtr(0L),
-            objectContext: MutPtr<CVoid> = MutPtr(0L),
-            reserved: MutPtr<CVoid> = MutPtr(0L),
+            returnLength: MutPtr = MutPtr(0L),
+            callContext: MutPtr = MutPtr(0L),
+            objectContext: MutPtr = MutPtr(0L),
+            reserved: MutPtr = MutPtr(0L),
         ): RegQueryKeyName =
             RegQueryKeyName(
                 objCtorArg = obj,
@@ -934,33 +928,33 @@ public class RegQueryKeyName internal constructor(
 }
 
 public class RegQueryKeySecurityInformation internal constructor(
-    objCtorArg: MutPtr<CVoid>,
-    securityInformationCtorArg: MutPtr<UInt>,
+    objCtorArg: MutPtr,
+    securityInformationCtorArg: MutPtr,
     securityDescriptorCtorArg: PsecurityDescriptor,
-    lengthCtorArg: MutPtr<UInt>,
-    callContextCtorArg: MutPtr<CVoid>,
-    objectContextCtorArg: MutPtr<CVoid>,
-    reservedCtorArg: MutPtr<CVoid>,
+    lengthCtorArg: MutPtr,
+    callContextCtorArg: MutPtr,
+    objectContextCtorArg: MutPtr,
+    reservedCtorArg: MutPtr,
 ) {
-    public var obj: MutPtr<CVoid> = objCtorArg
+    public var obj: MutPtr = objCtorArg
         internal set
 
-    public var securityInformation: MutPtr<UInt> = securityInformationCtorArg
+    public var securityInformation: MutPtr = securityInformationCtorArg
         internal set
 
     public var securityDescriptor: PsecurityDescriptor = securityDescriptorCtorArg
         internal set
 
-    public var length: MutPtr<UInt> = lengthCtorArg
+    public var length: MutPtr = lengthCtorArg
         internal set
 
-    public var callContext: MutPtr<CVoid> = callContextCtorArg
+    public var callContext: MutPtr = callContextCtorArg
         internal set
 
-    public var objectContext: MutPtr<CVoid> = objectContextCtorArg
+    public var objectContext: MutPtr = objectContextCtorArg
         internal set
 
-    public var reserved: MutPtr<CVoid> = reservedCtorArg
+    public var reserved: MutPtr = reservedCtorArg
         internal set
 
     public constructor() : this(
@@ -973,21 +967,21 @@ public class RegQueryKeySecurityInformation internal constructor(
         reservedCtorArg = MutPtr(0L),
     )
 
-    public operator fun component1(): MutPtr<CVoid> = this.obj
+    public operator fun component1(): MutPtr = this.obj
 
-    public operator fun component2(): MutPtr<UInt> = this.securityInformation
+    public operator fun component2(): MutPtr = this.securityInformation
 
     public operator fun component3(): PsecurityDescriptor = this.securityDescriptor
 
-    public operator fun component4(): MutPtr<UInt> = this.length
+    public operator fun component4(): MutPtr = this.length
 
-    public operator fun component5(): MutPtr<CVoid> = this.callContext
+    public operator fun component5(): MutPtr = this.callContext
 
-    public operator fun component6(): MutPtr<CVoid> = this.objectContext
+    public operator fun component6(): MutPtr = this.objectContext
 
-    public operator fun component7(): MutPtr<CVoid> = this.reserved
+    public operator fun component7(): MutPtr = this.reserved
 
-    public fun copy(obj: MutPtr<CVoid> = this.obj, securityInformation: MutPtr<UInt> = this.securityInformation, securityDescriptor: PsecurityDescriptor = this.securityDescriptor, length: MutPtr<UInt> = this.length, callContext: MutPtr<CVoid> = this.callContext, objectContext: MutPtr<CVoid> = this.objectContext, reserved: MutPtr<CVoid> = this.reserved): RegQueryKeySecurityInformation = RegQueryKeySecurityInformation(objCtorArg = obj, securityInformationCtorArg = securityInformation, securityDescriptorCtorArg = securityDescriptor, lengthCtorArg = length, callContextCtorArg = callContext, objectContextCtorArg = objectContext, reservedCtorArg = reserved)
+    public fun copy(obj: MutPtr = this.obj, securityInformation: MutPtr = this.securityInformation, securityDescriptor: PsecurityDescriptor = this.securityDescriptor, length: MutPtr = this.length, callContext: MutPtr = this.callContext, objectContext: MutPtr = this.objectContext, reserved: MutPtr = this.reserved): RegQueryKeySecurityInformation = RegQueryKeySecurityInformation(objCtorArg = obj, securityInformationCtorArg = securityInformation, securityDescriptorCtorArg = securityDescriptor, lengthCtorArg = length, callContextCtorArg = callContext, objectContextCtorArg = objectContext, reservedCtorArg = reserved)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -1015,13 +1009,13 @@ public class RegQueryKeySecurityInformation internal constructor(
 
     public companion object {
         public operator fun invoke(
-            obj: MutPtr<CVoid> = MutPtr(0L),
-            securityInformation: MutPtr<UInt> = MutPtr(0L),
+            obj: MutPtr = MutPtr(0L),
+            securityInformation: MutPtr = MutPtr(0L),
             securityDescriptor: PsecurityDescriptor = MutPtr(0L),
-            length: MutPtr<UInt> = MutPtr(0L),
-            callContext: MutPtr<CVoid> = MutPtr(0L),
-            objectContext: MutPtr<CVoid> = MutPtr(0L),
-            reserved: MutPtr<CVoid> = MutPtr(0L),
+            length: MutPtr = MutPtr(0L),
+            callContext: MutPtr = MutPtr(0L),
+            objectContext: MutPtr = MutPtr(0L),
+            reserved: MutPtr = MutPtr(0L),
         ): RegQueryKeySecurityInformation =
             RegQueryKeySecurityInformation(
                 objCtorArg = obj,
@@ -1036,25 +1030,25 @@ public class RegQueryKeySecurityInformation internal constructor(
 }
 
 public class RegRenameKeyInformation internal constructor(
-    objCtorArg: MutPtr<CVoid>,
-    newNameCtorArg: MutPtr<UnicodeString>,
-    callContextCtorArg: MutPtr<CVoid>,
-    objectContextCtorArg: MutPtr<CVoid>,
-    reservedCtorArg: MutPtr<CVoid>,
+    objCtorArg: MutPtr,
+    newNameCtorArg: MutPtr,
+    callContextCtorArg: MutPtr,
+    objectContextCtorArg: MutPtr,
+    reservedCtorArg: MutPtr,
 ) {
-    public var obj: MutPtr<CVoid> = objCtorArg
+    public var obj: MutPtr = objCtorArg
         internal set
 
-    public var newName: MutPtr<UnicodeString> = newNameCtorArg
+    public var newName: MutPtr = newNameCtorArg
         internal set
 
-    public var callContext: MutPtr<CVoid> = callContextCtorArg
+    public var callContext: MutPtr = callContextCtorArg
         internal set
 
-    public var objectContext: MutPtr<CVoid> = objectContextCtorArg
+    public var objectContext: MutPtr = objectContextCtorArg
         internal set
 
-    public var reserved: MutPtr<CVoid> = reservedCtorArg
+    public var reserved: MutPtr = reservedCtorArg
         internal set
 
     public constructor() : this(
@@ -1065,17 +1059,17 @@ public class RegRenameKeyInformation internal constructor(
         reservedCtorArg = MutPtr(0L),
     )
 
-    public operator fun component1(): MutPtr<CVoid> = this.obj
+    public operator fun component1(): MutPtr = this.obj
 
-    public operator fun component2(): MutPtr<UnicodeString> = this.newName
+    public operator fun component2(): MutPtr = this.newName
 
-    public operator fun component3(): MutPtr<CVoid> = this.callContext
+    public operator fun component3(): MutPtr = this.callContext
 
-    public operator fun component4(): MutPtr<CVoid> = this.objectContext
+    public operator fun component4(): MutPtr = this.objectContext
 
-    public operator fun component5(): MutPtr<CVoid> = this.reserved
+    public operator fun component5(): MutPtr = this.reserved
 
-    public fun copy(obj: MutPtr<CVoid> = this.obj, newName: MutPtr<UnicodeString> = this.newName, callContext: MutPtr<CVoid> = this.callContext, objectContext: MutPtr<CVoid> = this.objectContext, reserved: MutPtr<CVoid> = this.reserved): RegRenameKeyInformation = RegRenameKeyInformation(objCtorArg = obj, newNameCtorArg = newName, callContextCtorArg = callContext, objectContextCtorArg = objectContext, reservedCtorArg = reserved)
+    public fun copy(obj: MutPtr = this.obj, newName: MutPtr = this.newName, callContext: MutPtr = this.callContext, objectContext: MutPtr = this.objectContext, reserved: MutPtr = this.reserved): RegRenameKeyInformation = RegRenameKeyInformation(objCtorArg = obj, newNameCtorArg = newName, callContextCtorArg = callContext, objectContextCtorArg = objectContext, reservedCtorArg = reserved)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -1106,55 +1100,55 @@ public class RegRenameKeyInformation internal constructor(
                     RegRenameKeyInformation(
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<CVoid>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<UnicodeString>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<CVoid>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 16L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<CVoid>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 24L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<CVoid>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 32L),
                     )
                 override fun writeNative(addr: Long, value: RegRenameKeyInformation) {
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<CVoid>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr, value.obj)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<UnicodeString>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.newName)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<CVoid>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 16L, value.callContext)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<CVoid>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 24L, value.objectContext)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<CVoid>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 32L, value.reserved)
                 }
             }
 
         public operator fun invoke(
-            obj: MutPtr<CVoid> = MutPtr(0L),
-            newName: MutPtr<UnicodeString> = MutPtr(0L),
-            callContext: MutPtr<CVoid> = MutPtr(0L),
-            objectContext: MutPtr<CVoid> = MutPtr(0L),
-            reserved: MutPtr<CVoid> = MutPtr(0L),
+            obj: MutPtr = MutPtr(0L),
+            newName: MutPtr = MutPtr(0L),
+            callContext: MutPtr = MutPtr(0L),
+            objectContext: MutPtr = MutPtr(0L),
+            reserved: MutPtr = MutPtr(0L),
         ): RegRenameKeyInformation =
             RegRenameKeyInformation(
                 objCtorArg = obj,
@@ -1167,29 +1161,29 @@ public class RegRenameKeyInformation internal constructor(
 }
 
 public class RegReplaceKeyInformation internal constructor(
-    objCtorArg: MutPtr<CVoid>,
-    oldFileNameCtorArg: MutPtr<UnicodeString>,
-    newFileNameCtorArg: MutPtr<UnicodeString>,
-    callContextCtorArg: MutPtr<CVoid>,
-    objectContextCtorArg: MutPtr<CVoid>,
-    reservedCtorArg: MutPtr<CVoid>,
+    objCtorArg: MutPtr,
+    oldFileNameCtorArg: MutPtr,
+    newFileNameCtorArg: MutPtr,
+    callContextCtorArg: MutPtr,
+    objectContextCtorArg: MutPtr,
+    reservedCtorArg: MutPtr,
 ) {
-    public var obj: MutPtr<CVoid> = objCtorArg
+    public var obj: MutPtr = objCtorArg
         internal set
 
-    public var oldFileName: MutPtr<UnicodeString> = oldFileNameCtorArg
+    public var oldFileName: MutPtr = oldFileNameCtorArg
         internal set
 
-    public var newFileName: MutPtr<UnicodeString> = newFileNameCtorArg
+    public var newFileName: MutPtr = newFileNameCtorArg
         internal set
 
-    public var callContext: MutPtr<CVoid> = callContextCtorArg
+    public var callContext: MutPtr = callContextCtorArg
         internal set
 
-    public var objectContext: MutPtr<CVoid> = objectContextCtorArg
+    public var objectContext: MutPtr = objectContextCtorArg
         internal set
 
-    public var reserved: MutPtr<CVoid> = reservedCtorArg
+    public var reserved: MutPtr = reservedCtorArg
         internal set
 
     public constructor() : this(
@@ -1201,19 +1195,19 @@ public class RegReplaceKeyInformation internal constructor(
         reservedCtorArg = MutPtr(0L),
     )
 
-    public operator fun component1(): MutPtr<CVoid> = this.obj
+    public operator fun component1(): MutPtr = this.obj
 
-    public operator fun component2(): MutPtr<UnicodeString> = this.oldFileName
+    public operator fun component2(): MutPtr = this.oldFileName
 
-    public operator fun component3(): MutPtr<UnicodeString> = this.newFileName
+    public operator fun component3(): MutPtr = this.newFileName
 
-    public operator fun component4(): MutPtr<CVoid> = this.callContext
+    public operator fun component4(): MutPtr = this.callContext
 
-    public operator fun component5(): MutPtr<CVoid> = this.objectContext
+    public operator fun component5(): MutPtr = this.objectContext
 
-    public operator fun component6(): MutPtr<CVoid> = this.reserved
+    public operator fun component6(): MutPtr = this.reserved
 
-    public fun copy(obj: MutPtr<CVoid> = this.obj, oldFileName: MutPtr<UnicodeString> = this.oldFileName, newFileName: MutPtr<UnicodeString> = this.newFileName, callContext: MutPtr<CVoid> = this.callContext, objectContext: MutPtr<CVoid> = this.objectContext, reserved: MutPtr<CVoid> = this.reserved): RegReplaceKeyInformation = RegReplaceKeyInformation(objCtorArg = obj, oldFileNameCtorArg = oldFileName, newFileNameCtorArg = newFileName, callContextCtorArg = callContext, objectContextCtorArg = objectContext, reservedCtorArg = reserved)
+    public fun copy(obj: MutPtr = this.obj, oldFileName: MutPtr = this.oldFileName, newFileName: MutPtr = this.newFileName, callContext: MutPtr = this.callContext, objectContext: MutPtr = this.objectContext, reserved: MutPtr = this.reserved): RegReplaceKeyInformation = RegReplaceKeyInformation(objCtorArg = obj, oldFileNameCtorArg = oldFileName, newFileNameCtorArg = newFileName, callContextCtorArg = callContext, objectContextCtorArg = objectContext, reservedCtorArg = reserved)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -1246,64 +1240,64 @@ public class RegReplaceKeyInformation internal constructor(
                     RegReplaceKeyInformation(
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<CVoid>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<UnicodeString>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<UnicodeString>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 16L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<CVoid>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 24L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<CVoid>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 32L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<CVoid>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 40L),
                     )
                 override fun writeNative(addr: Long, value: RegReplaceKeyInformation) {
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<CVoid>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr, value.obj)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<UnicodeString>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.oldFileName)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<UnicodeString>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 16L, value.newFileName)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<CVoid>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 24L, value.callContext)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<CVoid>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 32L, value.objectContext)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<CVoid>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 40L, value.reserved)
                 }
             }
 
         public operator fun invoke(
-            obj: MutPtr<CVoid> = MutPtr(0L),
-            oldFileName: MutPtr<UnicodeString> = MutPtr(0L),
-            newFileName: MutPtr<UnicodeString> = MutPtr(0L),
-            callContext: MutPtr<CVoid> = MutPtr(0L),
-            objectContext: MutPtr<CVoid> = MutPtr(0L),
-            reserved: MutPtr<CVoid> = MutPtr(0L),
+            obj: MutPtr = MutPtr(0L),
+            oldFileName: MutPtr = MutPtr(0L),
+            newFileName: MutPtr = MutPtr(0L),
+            callContext: MutPtr = MutPtr(0L),
+            objectContext: MutPtr = MutPtr(0L),
+            reserved: MutPtr = MutPtr(0L),
         ): RegReplaceKeyInformation =
             RegReplaceKeyInformation(
                 objCtorArg = obj,
@@ -1317,26 +1311,26 @@ public class RegReplaceKeyInformation internal constructor(
 }
 
 public class RegRestoreKeyInformation internal constructor(
-    objCtorArg: MutPtr<CVoid>,
+    objCtorArg: MutPtr,
     fileHandleCtorArg: Handle,
     public var flags: UInt,
-    callContextCtorArg: MutPtr<CVoid>,
-    objectContextCtorArg: MutPtr<CVoid>,
-    reservedCtorArg: MutPtr<CVoid>,
+    callContextCtorArg: MutPtr,
+    objectContextCtorArg: MutPtr,
+    reservedCtorArg: MutPtr,
 ) {
-    public var obj: MutPtr<CVoid> = objCtorArg
+    public var obj: MutPtr = objCtorArg
         internal set
 
     public var fileHandle: Handle = fileHandleCtorArg
         internal set
 
-    public var callContext: MutPtr<CVoid> = callContextCtorArg
+    public var callContext: MutPtr = callContextCtorArg
         internal set
 
-    public var objectContext: MutPtr<CVoid> = objectContextCtorArg
+    public var objectContext: MutPtr = objectContextCtorArg
         internal set
 
-    public var reserved: MutPtr<CVoid> = reservedCtorArg
+    public var reserved: MutPtr = reservedCtorArg
         internal set
 
     public constructor() : this(
@@ -1348,19 +1342,19 @@ public class RegRestoreKeyInformation internal constructor(
         reservedCtorArg = MutPtr(0L),
     )
 
-    public operator fun component1(): MutPtr<CVoid> = this.obj
+    public operator fun component1(): MutPtr = this.obj
 
     public operator fun component2(): Handle = this.fileHandle
 
     public operator fun component3(): UInt = this.flags
 
-    public operator fun component4(): MutPtr<CVoid> = this.callContext
+    public operator fun component4(): MutPtr = this.callContext
 
-    public operator fun component5(): MutPtr<CVoid> = this.objectContext
+    public operator fun component5(): MutPtr = this.objectContext
 
-    public operator fun component6(): MutPtr<CVoid> = this.reserved
+    public operator fun component6(): MutPtr = this.reserved
 
-    public fun copy(obj: MutPtr<CVoid> = this.obj, fileHandle: Handle = this.fileHandle, flags: UInt = this.flags, callContext: MutPtr<CVoid> = this.callContext, objectContext: MutPtr<CVoid> = this.objectContext, reserved: MutPtr<CVoid> = this.reserved): RegRestoreKeyInformation = RegRestoreKeyInformation(objCtorArg = obj, fileHandleCtorArg = fileHandle, flags = flags, callContextCtorArg = callContext, objectContextCtorArg = objectContext, reservedCtorArg = reserved)
+    public fun copy(obj: MutPtr = this.obj, fileHandle: Handle = this.fileHandle, flags: UInt = this.flags, callContext: MutPtr = this.callContext, objectContext: MutPtr = this.objectContext, reserved: MutPtr = this.reserved): RegRestoreKeyInformation = RegRestoreKeyInformation(objCtorArg = obj, fileHandleCtorArg = fileHandle, flags = flags, callContextCtorArg = callContext, objectContextCtorArg = objectContext, reservedCtorArg = reserved)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -1386,12 +1380,12 @@ public class RegRestoreKeyInformation internal constructor(
 
     public companion object {
         public operator fun invoke(
-            obj: MutPtr<CVoid> = MutPtr(0L),
+            obj: MutPtr = MutPtr(0L),
             fileHandle: Handle = MutPtr(0L),
             flags: UInt = 0u,
-            callContext: MutPtr<CVoid> = MutPtr(0L),
-            objectContext: MutPtr<CVoid> = MutPtr(0L),
-            reserved: MutPtr<CVoid> = MutPtr(0L),
+            callContext: MutPtr = MutPtr(0L),
+            objectContext: MutPtr = MutPtr(0L),
+            reserved: MutPtr = MutPtr(0L),
         ): RegRestoreKeyInformation =
             RegRestoreKeyInformation(
                 objCtorArg = obj,
@@ -1405,26 +1399,26 @@ public class RegRestoreKeyInformation internal constructor(
 }
 
 public class RegSaveKeyInformation internal constructor(
-    objCtorArg: MutPtr<CVoid>,
+    objCtorArg: MutPtr,
     fileHandleCtorArg: Handle,
     public var format: UInt,
-    callContextCtorArg: MutPtr<CVoid>,
-    objectContextCtorArg: MutPtr<CVoid>,
-    reservedCtorArg: MutPtr<CVoid>,
+    callContextCtorArg: MutPtr,
+    objectContextCtorArg: MutPtr,
+    reservedCtorArg: MutPtr,
 ) {
-    public var obj: MutPtr<CVoid> = objCtorArg
+    public var obj: MutPtr = objCtorArg
         internal set
 
     public var fileHandle: Handle = fileHandleCtorArg
         internal set
 
-    public var callContext: MutPtr<CVoid> = callContextCtorArg
+    public var callContext: MutPtr = callContextCtorArg
         internal set
 
-    public var objectContext: MutPtr<CVoid> = objectContextCtorArg
+    public var objectContext: MutPtr = objectContextCtorArg
         internal set
 
-    public var reserved: MutPtr<CVoid> = reservedCtorArg
+    public var reserved: MutPtr = reservedCtorArg
         internal set
 
     public constructor() : this(
@@ -1436,19 +1430,19 @@ public class RegSaveKeyInformation internal constructor(
         reservedCtorArg = MutPtr(0L),
     )
 
-    public operator fun component1(): MutPtr<CVoid> = this.obj
+    public operator fun component1(): MutPtr = this.obj
 
     public operator fun component2(): Handle = this.fileHandle
 
     public operator fun component3(): UInt = this.format
 
-    public operator fun component4(): MutPtr<CVoid> = this.callContext
+    public operator fun component4(): MutPtr = this.callContext
 
-    public operator fun component5(): MutPtr<CVoid> = this.objectContext
+    public operator fun component5(): MutPtr = this.objectContext
 
-    public operator fun component6(): MutPtr<CVoid> = this.reserved
+    public operator fun component6(): MutPtr = this.reserved
 
-    public fun copy(obj: MutPtr<CVoid> = this.obj, fileHandle: Handle = this.fileHandle, format: UInt = this.format, callContext: MutPtr<CVoid> = this.callContext, objectContext: MutPtr<CVoid> = this.objectContext, reserved: MutPtr<CVoid> = this.reserved): RegSaveKeyInformation = RegSaveKeyInformation(objCtorArg = obj, fileHandleCtorArg = fileHandle, format = format, callContextCtorArg = callContext, objectContextCtorArg = objectContext, reservedCtorArg = reserved)
+    public fun copy(obj: MutPtr = this.obj, fileHandle: Handle = this.fileHandle, format: UInt = this.format, callContext: MutPtr = this.callContext, objectContext: MutPtr = this.objectContext, reserved: MutPtr = this.reserved): RegSaveKeyInformation = RegSaveKeyInformation(objCtorArg = obj, fileHandleCtorArg = fileHandle, format = format, callContextCtorArg = callContext, objectContextCtorArg = objectContext, reservedCtorArg = reserved)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -1474,12 +1468,12 @@ public class RegSaveKeyInformation internal constructor(
 
     public companion object {
         public operator fun invoke(
-            obj: MutPtr<CVoid> = MutPtr(0L),
+            obj: MutPtr = MutPtr(0L),
             fileHandle: Handle = MutPtr(0L),
             format: UInt = 0u,
-            callContext: MutPtr<CVoid> = MutPtr(0L),
-            objectContext: MutPtr<CVoid> = MutPtr(0L),
-            reserved: MutPtr<CVoid> = MutPtr(0L),
+            callContext: MutPtr = MutPtr(0L),
+            objectContext: MutPtr = MutPtr(0L),
+            reserved: MutPtr = MutPtr(0L),
         ): RegSaveKeyInformation =
             RegSaveKeyInformation(
                 objCtorArg = obj,
@@ -1493,33 +1487,33 @@ public class RegSaveKeyInformation internal constructor(
 }
 
 public class RegSaveMergedKeyInformation internal constructor(
-    objCtorArg: MutPtr<CVoid>,
+    objCtorArg: MutPtr,
     fileHandleCtorArg: Handle,
-    highKeyObjectCtorArg: MutPtr<CVoid>,
-    lowKeyObjectCtorArg: MutPtr<CVoid>,
-    callContextCtorArg: MutPtr<CVoid>,
-    objectContextCtorArg: MutPtr<CVoid>,
-    reservedCtorArg: MutPtr<CVoid>,
+    highKeyObjectCtorArg: MutPtr,
+    lowKeyObjectCtorArg: MutPtr,
+    callContextCtorArg: MutPtr,
+    objectContextCtorArg: MutPtr,
+    reservedCtorArg: MutPtr,
 ) {
-    public var obj: MutPtr<CVoid> = objCtorArg
+    public var obj: MutPtr = objCtorArg
         internal set
 
     public var fileHandle: Handle = fileHandleCtorArg
         internal set
 
-    public var highKeyObject: MutPtr<CVoid> = highKeyObjectCtorArg
+    public var highKeyObject: MutPtr = highKeyObjectCtorArg
         internal set
 
-    public var lowKeyObject: MutPtr<CVoid> = lowKeyObjectCtorArg
+    public var lowKeyObject: MutPtr = lowKeyObjectCtorArg
         internal set
 
-    public var callContext: MutPtr<CVoid> = callContextCtorArg
+    public var callContext: MutPtr = callContextCtorArg
         internal set
 
-    public var objectContext: MutPtr<CVoid> = objectContextCtorArg
+    public var objectContext: MutPtr = objectContextCtorArg
         internal set
 
-    public var reserved: MutPtr<CVoid> = reservedCtorArg
+    public var reserved: MutPtr = reservedCtorArg
         internal set
 
     public constructor() : this(
@@ -1532,21 +1526,21 @@ public class RegSaveMergedKeyInformation internal constructor(
         reservedCtorArg = MutPtr(0L),
     )
 
-    public operator fun component1(): MutPtr<CVoid> = this.obj
+    public operator fun component1(): MutPtr = this.obj
 
     public operator fun component2(): Handle = this.fileHandle
 
-    public operator fun component3(): MutPtr<CVoid> = this.highKeyObject
+    public operator fun component3(): MutPtr = this.highKeyObject
 
-    public operator fun component4(): MutPtr<CVoid> = this.lowKeyObject
+    public operator fun component4(): MutPtr = this.lowKeyObject
 
-    public operator fun component5(): MutPtr<CVoid> = this.callContext
+    public operator fun component5(): MutPtr = this.callContext
 
-    public operator fun component6(): MutPtr<CVoid> = this.objectContext
+    public operator fun component6(): MutPtr = this.objectContext
 
-    public operator fun component7(): MutPtr<CVoid> = this.reserved
+    public operator fun component7(): MutPtr = this.reserved
 
-    public fun copy(obj: MutPtr<CVoid> = this.obj, fileHandle: Handle = this.fileHandle, highKeyObject: MutPtr<CVoid> = this.highKeyObject, lowKeyObject: MutPtr<CVoid> = this.lowKeyObject, callContext: MutPtr<CVoid> = this.callContext, objectContext: MutPtr<CVoid> = this.objectContext, reserved: MutPtr<CVoid> = this.reserved): RegSaveMergedKeyInformation = RegSaveMergedKeyInformation(objCtorArg = obj, fileHandleCtorArg = fileHandle, highKeyObjectCtorArg = highKeyObject, lowKeyObjectCtorArg = lowKeyObject, callContextCtorArg = callContext, objectContextCtorArg = objectContext, reservedCtorArg = reserved)
+    public fun copy(obj: MutPtr = this.obj, fileHandle: Handle = this.fileHandle, highKeyObject: MutPtr = this.highKeyObject, lowKeyObject: MutPtr = this.lowKeyObject, callContext: MutPtr = this.callContext, objectContext: MutPtr = this.objectContext, reserved: MutPtr = this.reserved): RegSaveMergedKeyInformation = RegSaveMergedKeyInformation(objCtorArg = obj, fileHandleCtorArg = fileHandle, highKeyObjectCtorArg = highKeyObject, lowKeyObjectCtorArg = lowKeyObject, callContextCtorArg = callContext, objectContextCtorArg = objectContext, reservedCtorArg = reserved)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -1574,13 +1568,13 @@ public class RegSaveMergedKeyInformation internal constructor(
 
     public companion object {
         public operator fun invoke(
-            obj: MutPtr<CVoid> = MutPtr(0L),
+            obj: MutPtr = MutPtr(0L),
             fileHandle: Handle = MutPtr(0L),
-            highKeyObject: MutPtr<CVoid> = MutPtr(0L),
-            lowKeyObject: MutPtr<CVoid> = MutPtr(0L),
-            callContext: MutPtr<CVoid> = MutPtr(0L),
-            objectContext: MutPtr<CVoid> = MutPtr(0L),
-            reserved: MutPtr<CVoid> = MutPtr(0L),
+            highKeyObject: MutPtr = MutPtr(0L),
+            lowKeyObject: MutPtr = MutPtr(0L),
+            callContext: MutPtr = MutPtr(0L),
+            objectContext: MutPtr = MutPtr(0L),
+            reserved: MutPtr = MutPtr(0L),
         ): RegSaveMergedKeyInformation =
             RegSaveMergedKeyInformation(
                 objCtorArg = obj,
@@ -1595,29 +1589,29 @@ public class RegSaveMergedKeyInformation internal constructor(
 }
 
 public class RegSetKeySecurityInformation internal constructor(
-    objCtorArg: MutPtr<CVoid>,
-    securityInformationCtorArg: MutPtr<UInt>,
+    objCtorArg: MutPtr,
+    securityInformationCtorArg: MutPtr,
     securityDescriptorCtorArg: PsecurityDescriptor,
-    callContextCtorArg: MutPtr<CVoid>,
-    objectContextCtorArg: MutPtr<CVoid>,
-    reservedCtorArg: MutPtr<CVoid>,
+    callContextCtorArg: MutPtr,
+    objectContextCtorArg: MutPtr,
+    reservedCtorArg: MutPtr,
 ) {
-    public var obj: MutPtr<CVoid> = objCtorArg
+    public var obj: MutPtr = objCtorArg
         internal set
 
-    public var securityInformation: MutPtr<UInt> = securityInformationCtorArg
+    public var securityInformation: MutPtr = securityInformationCtorArg
         internal set
 
     public var securityDescriptor: PsecurityDescriptor = securityDescriptorCtorArg
         internal set
 
-    public var callContext: MutPtr<CVoid> = callContextCtorArg
+    public var callContext: MutPtr = callContextCtorArg
         internal set
 
-    public var objectContext: MutPtr<CVoid> = objectContextCtorArg
+    public var objectContext: MutPtr = objectContextCtorArg
         internal set
 
-    public var reserved: MutPtr<CVoid> = reservedCtorArg
+    public var reserved: MutPtr = reservedCtorArg
         internal set
 
     public constructor() : this(
@@ -1629,19 +1623,19 @@ public class RegSetKeySecurityInformation internal constructor(
         reservedCtorArg = MutPtr(0L),
     )
 
-    public operator fun component1(): MutPtr<CVoid> = this.obj
+    public operator fun component1(): MutPtr = this.obj
 
-    public operator fun component2(): MutPtr<UInt> = this.securityInformation
+    public operator fun component2(): MutPtr = this.securityInformation
 
     public operator fun component3(): PsecurityDescriptor = this.securityDescriptor
 
-    public operator fun component4(): MutPtr<CVoid> = this.callContext
+    public operator fun component4(): MutPtr = this.callContext
 
-    public operator fun component5(): MutPtr<CVoid> = this.objectContext
+    public operator fun component5(): MutPtr = this.objectContext
 
-    public operator fun component6(): MutPtr<CVoid> = this.reserved
+    public operator fun component6(): MutPtr = this.reserved
 
-    public fun copy(obj: MutPtr<CVoid> = this.obj, securityInformation: MutPtr<UInt> = this.securityInformation, securityDescriptor: PsecurityDescriptor = this.securityDescriptor, callContext: MutPtr<CVoid> = this.callContext, objectContext: MutPtr<CVoid> = this.objectContext, reserved: MutPtr<CVoid> = this.reserved): RegSetKeySecurityInformation = RegSetKeySecurityInformation(objCtorArg = obj, securityInformationCtorArg = securityInformation, securityDescriptorCtorArg = securityDescriptor, callContextCtorArg = callContext, objectContextCtorArg = objectContext, reservedCtorArg = reserved)
+    public fun copy(obj: MutPtr = this.obj, securityInformation: MutPtr = this.securityInformation, securityDescriptor: PsecurityDescriptor = this.securityDescriptor, callContext: MutPtr = this.callContext, objectContext: MutPtr = this.objectContext, reserved: MutPtr = this.reserved): RegSetKeySecurityInformation = RegSetKeySecurityInformation(objCtorArg = obj, securityInformationCtorArg = securityInformation, securityDescriptorCtorArg = securityDescriptor, callContextCtorArg = callContext, objectContextCtorArg = objectContext, reservedCtorArg = reserved)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -1667,12 +1661,12 @@ public class RegSetKeySecurityInformation internal constructor(
 
     public companion object {
         public operator fun invoke(
-            obj: MutPtr<CVoid> = MutPtr(0L),
-            securityInformation: MutPtr<UInt> = MutPtr(0L),
+            obj: MutPtr = MutPtr(0L),
+            securityInformation: MutPtr = MutPtr(0L),
             securityDescriptor: PsecurityDescriptor = MutPtr(0L),
-            callContext: MutPtr<CVoid> = MutPtr(0L),
-            objectContext: MutPtr<CVoid> = MutPtr(0L),
-            reserved: MutPtr<CVoid> = MutPtr(0L),
+            callContext: MutPtr = MutPtr(0L),
+            objectContext: MutPtr = MutPtr(0L),
+            reserved: MutPtr = MutPtr(0L),
         ): RegSetKeySecurityInformation =
             RegSetKeySecurityInformation(
                 objCtorArg = obj,
@@ -1686,32 +1680,32 @@ public class RegSetKeySecurityInformation internal constructor(
 }
 
 public class RegSetValueKeyInformation internal constructor(
-    objCtorArg: MutPtr<CVoid>,
-    valueNameCtorArg: MutPtr<UnicodeString>,
+    objCtorArg: MutPtr,
+    valueNameCtorArg: MutPtr,
     public var titleIndex: UInt,
     public var type: UInt,
-    dataCtorArg: MutPtr<CVoid>,
+    dataCtorArg: MutPtr,
     public var dataSize: UInt,
-    callContextCtorArg: MutPtr<CVoid>,
-    objectContextCtorArg: MutPtr<CVoid>,
-    reservedCtorArg: MutPtr<CVoid>,
+    callContextCtorArg: MutPtr,
+    objectContextCtorArg: MutPtr,
+    reservedCtorArg: MutPtr,
 ) {
-    public var obj: MutPtr<CVoid> = objCtorArg
+    public var obj: MutPtr = objCtorArg
         internal set
 
-    public var valueName: MutPtr<UnicodeString> = valueNameCtorArg
+    public var valueName: MutPtr = valueNameCtorArg
         internal set
 
-    public var data: MutPtr<CVoid> = dataCtorArg
+    public var data: MutPtr = dataCtorArg
         internal set
 
-    public var callContext: MutPtr<CVoid> = callContextCtorArg
+    public var callContext: MutPtr = callContextCtorArg
         internal set
 
-    public var objectContext: MutPtr<CVoid> = objectContextCtorArg
+    public var objectContext: MutPtr = objectContextCtorArg
         internal set
 
-    public var reserved: MutPtr<CVoid> = reservedCtorArg
+    public var reserved: MutPtr = reservedCtorArg
         internal set
 
     public constructor() : this(
@@ -1726,25 +1720,25 @@ public class RegSetValueKeyInformation internal constructor(
         reservedCtorArg = MutPtr(0L),
     )
 
-    public operator fun component1(): MutPtr<CVoid> = this.obj
+    public operator fun component1(): MutPtr = this.obj
 
-    public operator fun component2(): MutPtr<UnicodeString> = this.valueName
+    public operator fun component2(): MutPtr = this.valueName
 
     public operator fun component3(): UInt = this.titleIndex
 
     public operator fun component4(): UInt = this.type
 
-    public operator fun component5(): MutPtr<CVoid> = this.data
+    public operator fun component5(): MutPtr = this.data
 
     public operator fun component6(): UInt = this.dataSize
 
-    public operator fun component7(): MutPtr<CVoid> = this.callContext
+    public operator fun component7(): MutPtr = this.callContext
 
-    public operator fun component8(): MutPtr<CVoid> = this.objectContext
+    public operator fun component8(): MutPtr = this.objectContext
 
-    public operator fun component9(): MutPtr<CVoid> = this.reserved
+    public operator fun component9(): MutPtr = this.reserved
 
-    public fun copy(obj: MutPtr<CVoid> = this.obj, valueName: MutPtr<UnicodeString> = this.valueName, titleIndex: UInt = this.titleIndex, type: UInt = this.type, data: MutPtr<CVoid> = this.data, dataSize: UInt = this.dataSize, callContext: MutPtr<CVoid> = this.callContext, objectContext: MutPtr<CVoid> = this.objectContext, reserved: MutPtr<CVoid> = this.reserved): RegSetValueKeyInformation = RegSetValueKeyInformation(objCtorArg = obj, valueNameCtorArg = valueName, titleIndex = titleIndex, type = type, dataCtorArg = data, dataSize = dataSize, callContextCtorArg = callContext, objectContextCtorArg = objectContext, reservedCtorArg = reserved)
+    public fun copy(obj: MutPtr = this.obj, valueName: MutPtr = this.valueName, titleIndex: UInt = this.titleIndex, type: UInt = this.type, data: MutPtr = this.data, dataSize: UInt = this.dataSize, callContext: MutPtr = this.callContext, objectContext: MutPtr = this.objectContext, reserved: MutPtr = this.reserved): RegSetValueKeyInformation = RegSetValueKeyInformation(objCtorArg = obj, valueNameCtorArg = valueName, titleIndex = titleIndex, type = type, dataCtorArg = data, dataSize = dataSize, callContextCtorArg = callContext, objectContextCtorArg = objectContext, reservedCtorArg = reserved)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -1783,73 +1777,73 @@ public class RegSetValueKeyInformation internal constructor(
                     RegSetValueKeyInformation(
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<CVoid>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<UnicodeString>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 16L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 20L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<CVoid>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 24L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 32L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<CVoid>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 40L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<CVoid>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 48L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<CVoid>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 56L),
                     )
                 override fun writeNative(addr: Long, value: RegSetValueKeyInformation) {
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<CVoid>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr, value.obj)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<UnicodeString>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.valueName)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 16L, value.titleIndex)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 20L, value.type)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<CVoid>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 24L, value.data)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 32L, value.dataSize)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<CVoid>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 40L, value.callContext)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<CVoid>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 48L, value.objectContext)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<CVoid>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 56L, value.reserved)
                 }
             }
 
         public operator fun invoke(
-            obj: MutPtr<CVoid> = MutPtr(0L),
-            valueName: MutPtr<UnicodeString> = MutPtr(0L),
+            obj: MutPtr = MutPtr(0L),
+            valueName: MutPtr = MutPtr(0L),
             titleIndex: UInt = 0u,
             type: UInt = 0u,
-            data: MutPtr<CVoid> = MutPtr(0L),
+            data: MutPtr = MutPtr(0L),
             dataSize: UInt = 0u,
-            callContext: MutPtr<CVoid> = MutPtr(0L),
-            objectContext: MutPtr<CVoid> = MutPtr(0L),
-            reserved: MutPtr<CVoid> = MutPtr(0L),
+            callContext: MutPtr = MutPtr(0L),
+            objectContext: MutPtr = MutPtr(0L),
+            reserved: MutPtr = MutPtr(0L),
         ): RegSetValueKeyInformation =
             RegSetValueKeyInformation(
                 objCtorArg = obj,
@@ -1866,25 +1860,25 @@ public class RegSetValueKeyInformation internal constructor(
 }
 
 public class RegUnloadKeyInformation internal constructor(
-    objCtorArg: MutPtr<CVoid>,
-    userEventCtorArg: MutPtr<CVoid>,
-    callContextCtorArg: MutPtr<CVoid>,
-    objectContextCtorArg: MutPtr<CVoid>,
-    reservedCtorArg: MutPtr<CVoid>,
+    objCtorArg: MutPtr,
+    userEventCtorArg: MutPtr,
+    callContextCtorArg: MutPtr,
+    objectContextCtorArg: MutPtr,
+    reservedCtorArg: MutPtr,
 ) {
-    public var obj: MutPtr<CVoid> = objCtorArg
+    public var obj: MutPtr = objCtorArg
         internal set
 
-    public var userEvent: MutPtr<CVoid> = userEventCtorArg
+    public var userEvent: MutPtr = userEventCtorArg
         internal set
 
-    public var callContext: MutPtr<CVoid> = callContextCtorArg
+    public var callContext: MutPtr = callContextCtorArg
         internal set
 
-    public var objectContext: MutPtr<CVoid> = objectContextCtorArg
+    public var objectContext: MutPtr = objectContextCtorArg
         internal set
 
-    public var reserved: MutPtr<CVoid> = reservedCtorArg
+    public var reserved: MutPtr = reservedCtorArg
         internal set
 
     public constructor() : this(
@@ -1895,17 +1889,17 @@ public class RegUnloadKeyInformation internal constructor(
         reservedCtorArg = MutPtr(0L),
     )
 
-    public operator fun component1(): MutPtr<CVoid> = this.obj
+    public operator fun component1(): MutPtr = this.obj
 
-    public operator fun component2(): MutPtr<CVoid> = this.userEvent
+    public operator fun component2(): MutPtr = this.userEvent
 
-    public operator fun component3(): MutPtr<CVoid> = this.callContext
+    public operator fun component3(): MutPtr = this.callContext
 
-    public operator fun component4(): MutPtr<CVoid> = this.objectContext
+    public operator fun component4(): MutPtr = this.objectContext
 
-    public operator fun component5(): MutPtr<CVoid> = this.reserved
+    public operator fun component5(): MutPtr = this.reserved
 
-    public fun copy(obj: MutPtr<CVoid> = this.obj, userEvent: MutPtr<CVoid> = this.userEvent, callContext: MutPtr<CVoid> = this.callContext, objectContext: MutPtr<CVoid> = this.objectContext, reserved: MutPtr<CVoid> = this.reserved): RegUnloadKeyInformation = RegUnloadKeyInformation(objCtorArg = obj, userEventCtorArg = userEvent, callContextCtorArg = callContext, objectContextCtorArg = objectContext, reservedCtorArg = reserved)
+    public fun copy(obj: MutPtr = this.obj, userEvent: MutPtr = this.userEvent, callContext: MutPtr = this.callContext, objectContext: MutPtr = this.objectContext, reserved: MutPtr = this.reserved): RegUnloadKeyInformation = RegUnloadKeyInformation(objCtorArg = obj, userEventCtorArg = userEvent, callContextCtorArg = callContext, objectContextCtorArg = objectContext, reservedCtorArg = reserved)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -1936,55 +1930,55 @@ public class RegUnloadKeyInformation internal constructor(
                     RegUnloadKeyInformation(
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<CVoid>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<CVoid>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<CVoid>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 16L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<CVoid>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 24L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<CVoid>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 32L),
                     )
                 override fun writeNative(addr: Long, value: RegUnloadKeyInformation) {
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<CVoid>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr, value.obj)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<CVoid>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.userEvent)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<CVoid>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 16L, value.callContext)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<CVoid>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 24L, value.objectContext)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<CVoid>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 32L, value.reserved)
                 }
             }
 
         public operator fun invoke(
-            obj: MutPtr<CVoid> = MutPtr(0L),
-            userEvent: MutPtr<CVoid> = MutPtr(0L),
-            callContext: MutPtr<CVoid> = MutPtr(0L),
-            objectContext: MutPtr<CVoid> = MutPtr(0L),
-            reserved: MutPtr<CVoid> = MutPtr(0L),
+            obj: MutPtr = MutPtr(0L),
+            userEvent: MutPtr = MutPtr(0L),
+            callContext: MutPtr = MutPtr(0L),
+            objectContext: MutPtr = MutPtr(0L),
+            reserved: MutPtr = MutPtr(0L),
         ): RegUnloadKeyInformation =
             RegUnloadKeyInformation(
                 objCtorArg = obj,
@@ -1998,11 +1992,11 @@ public class RegUnloadKeyInformation internal constructor(
 
 public class ResourceHashEntry internal constructor(
     public var listEntry: ListEntry,
-    addressCtorArg: MutPtr<CVoid>,
+    addressCtorArg: MutPtr,
     public var contentionCount: UInt,
     public var number: UInt,
 ) {
-    public var address: MutPtr<CVoid> = addressCtorArg
+    public var address: MutPtr = addressCtorArg
         internal set
 
     public constructor() : this(
@@ -2014,13 +2008,13 @@ public class ResourceHashEntry internal constructor(
 
     public operator fun component1(): ListEntry = this.listEntry
 
-    public operator fun component2(): MutPtr<CVoid> = this.address
+    public operator fun component2(): MutPtr = this.address
 
     public operator fun component3(): UInt = this.contentionCount
 
     public operator fun component4(): UInt = this.number
 
-    public fun copy(listEntry: ListEntry = this.listEntry, address: MutPtr<CVoid> = this.address, contentionCount: UInt = this.contentionCount, number: UInt = this.number): ResourceHashEntry = ResourceHashEntry(listEntry = listEntry, addressCtorArg = address, contentionCount = contentionCount, number = number)
+    public fun copy(listEntry: ListEntry = this.listEntry, address: MutPtr = this.address, contentionCount: UInt = this.contentionCount, number: UInt = this.number): ResourceHashEntry = ResourceHashEntry(listEntry = listEntry, addressCtorArg = address, contentionCount = contentionCount, number = number)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -2043,7 +2037,7 @@ public class ResourceHashEntry internal constructor(
     public companion object {
         public operator fun invoke(
             listEntry: ListEntry = ListEntry(),
-            address: MutPtr<CVoid> = MutPtr(0L),
+            address: MutPtr = MutPtr(0L),
             contentionCount: UInt = 0u,
             number: UInt = 0u,
         ): ResourceHashEntry =
@@ -2072,24 +2066,24 @@ public data class ResourcePerformanceData(
 
 public class RtlAvlTable internal constructor(
     public var balancedRoot: RtlBalancedLinks,
-    orderedPointerCtorArg: MutPtr<CVoid>,
+    orderedPointerCtorArg: MutPtr,
     public var whichOrderedElement: UInt,
     public var numberGenericTableElements: UInt,
     public var depthOfTree: UInt,
-    restartKeyCtorArg: MutPtr<RtlBalancedLinks>,
+    restartKeyCtorArg: MutPtr,
     public var deleteCount: UInt,
     public var compareRoutine: PrtlAvlCompareRoutine,
     public var allocateRoutine: PrtlAvlAllocateRoutine,
     public var freeRoutine: PrtlAvlFreeRoutine,
-    tableContextCtorArg: MutPtr<CVoid>,
+    tableContextCtorArg: MutPtr,
 ) {
-    public var orderedPointer: MutPtr<CVoid> = orderedPointerCtorArg
+    public var orderedPointer: MutPtr = orderedPointerCtorArg
         internal set
 
-    public var restartKey: MutPtr<RtlBalancedLinks> = restartKeyCtorArg
+    public var restartKey: MutPtr = restartKeyCtorArg
         internal set
 
-    public var tableContext: MutPtr<CVoid> = tableContextCtorArg
+    public var tableContext: MutPtr = tableContextCtorArg
         internal set
 
     public constructor() : this(
@@ -2108,7 +2102,7 @@ public class RtlAvlTable internal constructor(
 
     public operator fun component1(): RtlBalancedLinks = this.balancedRoot
 
-    public operator fun component2(): MutPtr<CVoid> = this.orderedPointer
+    public operator fun component2(): MutPtr = this.orderedPointer
 
     public operator fun component3(): UInt = this.whichOrderedElement
 
@@ -2116,7 +2110,7 @@ public class RtlAvlTable internal constructor(
 
     public operator fun component5(): UInt = this.depthOfTree
 
-    public operator fun component6(): MutPtr<RtlBalancedLinks> = this.restartKey
+    public operator fun component6(): MutPtr = this.restartKey
 
     public operator fun component7(): UInt = this.deleteCount
 
@@ -2126,9 +2120,9 @@ public class RtlAvlTable internal constructor(
 
     public operator fun component10(): PrtlAvlFreeRoutine = this.freeRoutine
 
-    public operator fun component11(): MutPtr<CVoid> = this.tableContext
+    public operator fun component11(): MutPtr = this.tableContext
 
-    public fun copy(balancedRoot: RtlBalancedLinks = this.balancedRoot, orderedPointer: MutPtr<CVoid> = this.orderedPointer, whichOrderedElement: UInt = this.whichOrderedElement, numberGenericTableElements: UInt = this.numberGenericTableElements, depthOfTree: UInt = this.depthOfTree, restartKey: MutPtr<RtlBalancedLinks> = this.restartKey, deleteCount: UInt = this.deleteCount, compareRoutine: PrtlAvlCompareRoutine = this.compareRoutine, allocateRoutine: PrtlAvlAllocateRoutine = this.allocateRoutine, freeRoutine: PrtlAvlFreeRoutine = this.freeRoutine, tableContext: MutPtr<CVoid> = this.tableContext): RtlAvlTable = RtlAvlTable(balancedRoot = balancedRoot, orderedPointerCtorArg = orderedPointer, whichOrderedElement = whichOrderedElement, numberGenericTableElements = numberGenericTableElements, depthOfTree = depthOfTree, restartKeyCtorArg = restartKey, deleteCount = deleteCount, compareRoutine = compareRoutine, allocateRoutine = allocateRoutine, freeRoutine = freeRoutine, tableContextCtorArg = tableContext)
+    public fun copy(balancedRoot: RtlBalancedLinks = this.balancedRoot, orderedPointer: MutPtr = this.orderedPointer, whichOrderedElement: UInt = this.whichOrderedElement, numberGenericTableElements: UInt = this.numberGenericTableElements, depthOfTree: UInt = this.depthOfTree, restartKey: MutPtr = this.restartKey, deleteCount: UInt = this.deleteCount, compareRoutine: PrtlAvlCompareRoutine = this.compareRoutine, allocateRoutine: PrtlAvlAllocateRoutine = this.allocateRoutine, freeRoutine: PrtlAvlFreeRoutine = this.freeRoutine, tableContext: MutPtr = this.tableContext): RtlAvlTable = RtlAvlTable(balancedRoot = balancedRoot, orderedPointerCtorArg = orderedPointer, whichOrderedElement = whichOrderedElement, numberGenericTableElements = numberGenericTableElements, depthOfTree = depthOfTree, restartKeyCtorArg = restartKey, deleteCount = deleteCount, compareRoutine = compareRoutine, allocateRoutine = allocateRoutine, freeRoutine = freeRoutine, tableContextCtorArg = tableContext)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -2165,16 +2159,16 @@ public class RtlAvlTable internal constructor(
     public companion object {
         public operator fun invoke(
             balancedRoot: RtlBalancedLinks = RtlBalancedLinks(),
-            orderedPointer: MutPtr<CVoid> = MutPtr(0L),
+            orderedPointer: MutPtr = MutPtr(0L),
             whichOrderedElement: UInt = 0u,
             numberGenericTableElements: UInt = 0u,
             depthOfTree: UInt = 0u,
-            restartKey: MutPtr<RtlBalancedLinks> = MutPtr(0L),
+            restartKey: MutPtr = MutPtr(0L),
             deleteCount: UInt = 0u,
             compareRoutine: PrtlAvlCompareRoutine = null,
             allocateRoutine: PrtlAvlAllocateRoutine = null,
             freeRoutine: PrtlAvlFreeRoutine = null,
-            tableContext: MutPtr<CVoid> = MutPtr(0L),
+            tableContext: MutPtr = MutPtr(0L),
         ): RtlAvlTable =
             RtlAvlTable(
                 balancedRoot = balancedRoot,
@@ -2193,19 +2187,19 @@ public class RtlAvlTable internal constructor(
 }
 
 public class RtlBalancedLinks internal constructor(
-    parentCtorArg: MutPtr<RtlBalancedLinks>,
-    leftChildCtorArg: MutPtr<RtlBalancedLinks>,
-    rightChildCtorArg: MutPtr<RtlBalancedLinks>,
+    parentCtorArg: MutPtr,
+    leftChildCtorArg: MutPtr,
+    rightChildCtorArg: MutPtr,
     public var balance: Byte,
     public var reserved: UByteArray,
 ) {
-    public var parent: MutPtr<RtlBalancedLinks> = parentCtorArg
+    public var parent: MutPtr = parentCtorArg
         internal set
 
-    public var leftChild: MutPtr<RtlBalancedLinks> = leftChildCtorArg
+    public var leftChild: MutPtr = leftChildCtorArg
         internal set
 
-    public var rightChild: MutPtr<RtlBalancedLinks> = rightChildCtorArg
+    public var rightChild: MutPtr = rightChildCtorArg
         internal set
 
     public constructor() : this(
@@ -2216,17 +2210,17 @@ public class RtlBalancedLinks internal constructor(
         reserved = UByteArray(3),
     )
 
-    public operator fun component1(): MutPtr<RtlBalancedLinks> = this.parent
+    public operator fun component1(): MutPtr = this.parent
 
-    public operator fun component2(): MutPtr<RtlBalancedLinks> = this.leftChild
+    public operator fun component2(): MutPtr = this.leftChild
 
-    public operator fun component3(): MutPtr<RtlBalancedLinks> = this.rightChild
+    public operator fun component3(): MutPtr = this.rightChild
 
     public operator fun component4(): Byte = this.balance
 
     public operator fun component5(): UByteArray = this.reserved
 
-    public fun copy(parent: MutPtr<RtlBalancedLinks> = this.parent, leftChild: MutPtr<RtlBalancedLinks> = this.leftChild, rightChild: MutPtr<RtlBalancedLinks> = this.rightChild, balance: Byte = this.balance, reserved: UByteArray = this.reserved): RtlBalancedLinks = RtlBalancedLinks(parentCtorArg = parent, leftChildCtorArg = leftChild, rightChildCtorArg = rightChild, balance = balance, reserved = reserved)
+    public fun copy(parent: MutPtr = this.parent, leftChild: MutPtr = this.leftChild, rightChild: MutPtr = this.rightChild, balance: Byte = this.balance, reserved: UByteArray = this.reserved): RtlBalancedLinks = RtlBalancedLinks(parentCtorArg = parent, leftChildCtorArg = leftChild, rightChildCtorArg = rightChild, balance = balance, reserved = reserved)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -2257,15 +2251,15 @@ public class RtlBalancedLinks internal constructor(
                     RtlBalancedLinks(
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<RtlBalancedLinks>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<RtlBalancedLinks>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<RtlBalancedLinks>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 16L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I8).readNative(addr + 24L),
                         (
@@ -2276,15 +2270,15 @@ public class RtlBalancedLinks internal constructor(
                 override fun writeNative(addr: Long, value: RtlBalancedLinks) {
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<RtlBalancedLinks>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr, value.parent)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<RtlBalancedLinks>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.leftChild)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<RtlBalancedLinks>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 16L, value.rightChild)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I8).writeNative(addr + 24L, value.balance)
                     (
@@ -2295,9 +2289,9 @@ public class RtlBalancedLinks internal constructor(
             }
 
         public operator fun invoke(
-            parent: MutPtr<RtlBalancedLinks> = MutPtr(0L),
-            leftChild: MutPtr<RtlBalancedLinks> = MutPtr(0L),
-            rightChild: MutPtr<RtlBalancedLinks> = MutPtr(0L),
+            parent: MutPtr = MutPtr(0L),
+            leftChild: MutPtr = MutPtr(0L),
+            rightChild: MutPtr = MutPtr(0L),
             balance: Byte = 0,
             reserved: UByteArray = UByteArray(3),
         ): RtlBalancedLinks =
@@ -2313,9 +2307,9 @@ public class RtlBalancedLinks internal constructor(
 
 public class RtlBitmap internal constructor(
     public var sizeOfBitMap: UInt,
-    bufferCtorArg: MutPtr<UInt>,
+    bufferCtorArg: MutPtr,
 ) {
-    public var buffer: MutPtr<UInt> = bufferCtorArg
+    public var buffer: MutPtr = bufferCtorArg
         internal set
 
     public constructor() : this(
@@ -2325,9 +2319,9 @@ public class RtlBitmap internal constructor(
 
     public operator fun component1(): UInt = this.sizeOfBitMap
 
-    public operator fun component2(): MutPtr<UInt> = this.buffer
+    public operator fun component2(): MutPtr = this.buffer
 
-    public fun copy(sizeOfBitMap: UInt = this.sizeOfBitMap, buffer: MutPtr<UInt> = this.buffer): RtlBitmap = RtlBitmap(sizeOfBitMap = sizeOfBitMap, bufferCtorArg = buffer)
+    public fun copy(sizeOfBitMap: UInt = this.sizeOfBitMap, buffer: MutPtr = this.buffer): RtlBitmap = RtlBitmap(sizeOfBitMap = sizeOfBitMap, bufferCtorArg = buffer)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -2353,21 +2347,21 @@ public class RtlBitmap internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<UInt>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                     )
                 override fun writeNative(addr: Long, value: RtlBitmap) {
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr, value.sizeOfBitMap)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<UInt>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.buffer)
                 }
             }
 
         public operator fun invoke(
             sizeOfBitMap: UInt = 0u,
-            buffer: MutPtr<UInt> = MutPtr(0L),
+            buffer: MutPtr = MutPtr(0L),
         ): RtlBitmap =
             RtlBitmap(
                 sizeOfBitMap = sizeOfBitMap,
@@ -2407,9 +2401,9 @@ public class RtlDynamicHashTable internal constructor(
     public var numEntries: UInt,
     public var nonEmptyBuckets: UInt,
     public var numEnumerators: UInt,
-    directoryCtorArg: MutPtr<CVoid>,
+    directoryCtorArg: MutPtr,
 ) {
-    public var directory: MutPtr<CVoid> = directoryCtorArg
+    public var directory: MutPtr = directoryCtorArg
         internal set
 
     public constructor() : this(
@@ -2440,9 +2434,9 @@ public class RtlDynamicHashTable internal constructor(
 
     public operator fun component8(): UInt = this.numEnumerators
 
-    public operator fun component9(): MutPtr<CVoid> = this.directory
+    public operator fun component9(): MutPtr = this.directory
 
-    public fun copy(flags: UInt = this.flags, shift: UInt = this.shift, tableSize: UInt = this.tableSize, pivot: UInt = this.pivot, divisorMask: UInt = this.divisorMask, numEntries: UInt = this.numEntries, nonEmptyBuckets: UInt = this.nonEmptyBuckets, numEnumerators: UInt = this.numEnumerators, directory: MutPtr<CVoid> = this.directory): RtlDynamicHashTable = RtlDynamicHashTable(flags = flags, shift = shift, tableSize = tableSize, pivot = pivot, divisorMask = divisorMask, numEntries = numEntries, nonEmptyBuckets = nonEmptyBuckets, numEnumerators = numEnumerators, directoryCtorArg = directory)
+    public fun copy(flags: UInt = this.flags, shift: UInt = this.shift, tableSize: UInt = this.tableSize, pivot: UInt = this.pivot, divisorMask: UInt = this.divisorMask, numEntries: UInt = this.numEntries, nonEmptyBuckets: UInt = this.nonEmptyBuckets, numEnumerators: UInt = this.numEnumerators, directory: MutPtr = this.directory): RtlDynamicHashTable = RtlDynamicHashTable(flags = flags, shift = shift, tableSize = tableSize, pivot = pivot, divisorMask = divisorMask, numEntries = numEntries, nonEmptyBuckets = nonEmptyBuckets, numEnumerators = numEnumerators, directoryCtorArg = directory)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -2489,7 +2483,7 @@ public class RtlDynamicHashTable internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 28L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<CVoid>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 32L),
                     )
                 override fun writeNative(addr: Long, value: RtlDynamicHashTable) {
@@ -2503,7 +2497,7 @@ public class RtlDynamicHashTable internal constructor(
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 28L, value.numEnumerators)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<CVoid>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 32L, value.directory)
                 }
             }
@@ -2517,7 +2511,7 @@ public class RtlDynamicHashTable internal constructor(
             numEntries: UInt = 0u,
             nonEmptyBuckets: UInt = 0u,
             numEnumerators: UInt = 0u,
-            directory: MutPtr<CVoid> = MutPtr(0L),
+            directory: MutPtr = MutPtr(0L),
         ): RtlDynamicHashTable =
             RtlDynamicHashTable(
                 flags = flags,
@@ -2534,14 +2528,14 @@ public class RtlDynamicHashTable internal constructor(
 }
 
 public class RtlDynamicHashTableContext internal constructor(
-    chainHeadCtorArg: MutPtr<ListEntry>,
-    prevLinkageCtorArg: MutPtr<ListEntry>,
+    chainHeadCtorArg: MutPtr,
+    prevLinkageCtorArg: MutPtr,
     public var signature: Int,
 ) {
-    public var chainHead: MutPtr<ListEntry> = chainHeadCtorArg
+    public var chainHead: MutPtr = chainHeadCtorArg
         internal set
 
-    public var prevLinkage: MutPtr<ListEntry> = prevLinkageCtorArg
+    public var prevLinkage: MutPtr = prevLinkageCtorArg
         internal set
 
     public constructor() : this(
@@ -2550,13 +2544,13 @@ public class RtlDynamicHashTableContext internal constructor(
         signature = 0,
     )
 
-    public operator fun component1(): MutPtr<ListEntry> = this.chainHead
+    public operator fun component1(): MutPtr = this.chainHead
 
-    public operator fun component2(): MutPtr<ListEntry> = this.prevLinkage
+    public operator fun component2(): MutPtr = this.prevLinkage
 
     public operator fun component3(): Int = this.signature
 
-    public fun copy(chainHead: MutPtr<ListEntry> = this.chainHead, prevLinkage: MutPtr<ListEntry> = this.prevLinkage, signature: Int = this.signature): RtlDynamicHashTableContext = RtlDynamicHashTableContext(chainHeadCtorArg = chainHead, prevLinkageCtorArg = prevLinkage, signature = signature)
+    public fun copy(chainHead: MutPtr = this.chainHead, prevLinkage: MutPtr = this.prevLinkage, signature: Int = this.signature): RtlDynamicHashTableContext = RtlDynamicHashTableContext(chainHeadCtorArg = chainHead, prevLinkageCtorArg = prevLinkage, signature = signature)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -2583,30 +2577,30 @@ public class RtlDynamicHashTableContext internal constructor(
                     RtlDynamicHashTableContext(
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<ListEntry>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<ListEntry>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.USIZE64).readNative(addr + 16L),
                     )
                 override fun writeNative(addr: Long, value: RtlDynamicHashTableContext) {
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<ListEntry>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr, value.chainHead)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<ListEntry>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.prevLinkage)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.USIZE64).writeNative(addr + 16L, value.signature)
                 }
             }
 
         public operator fun invoke(
-            chainHead: MutPtr<ListEntry> = MutPtr(0L),
-            prevLinkage: MutPtr<ListEntry> = MutPtr(0L),
+            chainHead: MutPtr = MutPtr(0L),
+            prevLinkage: MutPtr = MutPtr(0L),
             signature: Int = 0,
         ): RtlDynamicHashTableContext =
             RtlDynamicHashTableContext(
@@ -2624,10 +2618,10 @@ public data class RtlDynamicHashTableEntry(
 
 public class RtlDynamicHashTableEnumerator internal constructor(
     public var anonymous: RtlDynamicHashTableEnumerator0,
-    chainHeadCtorArg: MutPtr<ListEntry>,
+    chainHeadCtorArg: MutPtr,
     public var bucketIndex: UInt,
 ) {
-    public var chainHead: MutPtr<ListEntry> = chainHeadCtorArg
+    public var chainHead: MutPtr = chainHeadCtorArg
         internal set
 
     public constructor() : this(
@@ -2638,11 +2632,11 @@ public class RtlDynamicHashTableEnumerator internal constructor(
 
     public operator fun component1(): RtlDynamicHashTableEnumerator0 = this.anonymous
 
-    public operator fun component2(): MutPtr<ListEntry> = this.chainHead
+    public operator fun component2(): MutPtr = this.chainHead
 
     public operator fun component3(): UInt = this.bucketIndex
 
-    public fun copy(anonymous: RtlDynamicHashTableEnumerator0 = this.anonymous, chainHead: MutPtr<ListEntry> = this.chainHead, bucketIndex: UInt = this.bucketIndex): RtlDynamicHashTableEnumerator = RtlDynamicHashTableEnumerator(anonymous = anonymous, chainHeadCtorArg = chainHead, bucketIndex = bucketIndex)
+    public fun copy(anonymous: RtlDynamicHashTableEnumerator0 = this.anonymous, chainHead: MutPtr = this.chainHead, bucketIndex: UInt = this.bucketIndex): RtlDynamicHashTableEnumerator = RtlDynamicHashTableEnumerator(anonymous = anonymous, chainHeadCtorArg = chainHead, bucketIndex = bucketIndex)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -2663,7 +2657,7 @@ public class RtlDynamicHashTableEnumerator internal constructor(
     public companion object {
         public operator fun invoke(
             anonymous: RtlDynamicHashTableEnumerator0 = RtlDynamicHashTableEnumerator0(),
-            chainHead: MutPtr<ListEntry> = MutPtr(0L),
+            chainHead: MutPtr = MutPtr(0L),
             bucketIndex: UInt = 0u,
         ): RtlDynamicHashTableEnumerator =
             RtlDynamicHashTableEnumerator(
@@ -2676,9 +2670,9 @@ public class RtlDynamicHashTableEnumerator internal constructor(
 
 public class RtlDynamicHashTableEnumerator0 internal constructor(
     public var hashEntry: RtlDynamicHashTableEntry,
-    curEntryCtorArg: MutPtr<ListEntry>,
+    curEntryCtorArg: MutPtr,
 ) {
-    public var curEntry: MutPtr<ListEntry> = curEntryCtorArg
+    public var curEntry: MutPtr = curEntryCtorArg
         internal set
 
     public constructor() : this(
@@ -2688,9 +2682,9 @@ public class RtlDynamicHashTableEnumerator0 internal constructor(
 
     public operator fun component1(): RtlDynamicHashTableEntry = this.hashEntry
 
-    public operator fun component2(): MutPtr<ListEntry> = this.curEntry
+    public operator fun component2(): MutPtr = this.curEntry
 
-    public fun copy(hashEntry: RtlDynamicHashTableEntry = this.hashEntry, curEntry: MutPtr<ListEntry> = this.curEntry): RtlDynamicHashTableEnumerator0 = RtlDynamicHashTableEnumerator0(hashEntry = hashEntry, curEntryCtorArg = curEntry)
+    public fun copy(hashEntry: RtlDynamicHashTableEntry = this.hashEntry, curEntry: MutPtr = this.curEntry): RtlDynamicHashTableEnumerator0 = RtlDynamicHashTableEnumerator0(hashEntry = hashEntry, curEntryCtorArg = curEntry)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -2709,7 +2703,7 @@ public class RtlDynamicHashTableEnumerator0 internal constructor(
     public companion object {
         public operator fun invoke(
             hashEntry: RtlDynamicHashTableEntry = RtlDynamicHashTableEntry(),
-            curEntry: MutPtr<ListEntry> = MutPtr(0L),
+            curEntry: MutPtr = MutPtr(0L),
         ): RtlDynamicHashTableEnumerator0 =
             RtlDynamicHashTableEnumerator0(
                 hashEntry = hashEntry,
@@ -2719,23 +2713,23 @@ public class RtlDynamicHashTableEnumerator0 internal constructor(
 }
 
 public class RtlGenericTable internal constructor(
-    tableRootCtorArg: MutPtr<RtlSplayLinks>,
+    tableRootCtorArg: MutPtr,
     public var insertOrderList: ListEntry,
-    orderedPointerCtorArg: MutPtr<ListEntry>,
+    orderedPointerCtorArg: MutPtr,
     public var whichOrderedElement: UInt,
     public var numberGenericTableElements: UInt,
     public var compareRoutine: PrtlGenericCompareRoutine,
     public var allocateRoutine: PrtlGenericAllocateRoutine,
     public var freeRoutine: PrtlGenericFreeRoutine,
-    tableContextCtorArg: MutPtr<CVoid>,
+    tableContextCtorArg: MutPtr,
 ) {
-    public var tableRoot: MutPtr<RtlSplayLinks> = tableRootCtorArg
+    public var tableRoot: MutPtr = tableRootCtorArg
         internal set
 
-    public var orderedPointer: MutPtr<ListEntry> = orderedPointerCtorArg
+    public var orderedPointer: MutPtr = orderedPointerCtorArg
         internal set
 
-    public var tableContext: MutPtr<CVoid> = tableContextCtorArg
+    public var tableContext: MutPtr = tableContextCtorArg
         internal set
 
     public constructor() : this(
@@ -2750,11 +2744,11 @@ public class RtlGenericTable internal constructor(
         tableContextCtorArg = MutPtr(0L),
     )
 
-    public operator fun component1(): MutPtr<RtlSplayLinks> = this.tableRoot
+    public operator fun component1(): MutPtr = this.tableRoot
 
     public operator fun component2(): ListEntry = this.insertOrderList
 
-    public operator fun component3(): MutPtr<ListEntry> = this.orderedPointer
+    public operator fun component3(): MutPtr = this.orderedPointer
 
     public operator fun component4(): UInt = this.whichOrderedElement
 
@@ -2766,9 +2760,9 @@ public class RtlGenericTable internal constructor(
 
     public operator fun component8(): PrtlGenericFreeRoutine = this.freeRoutine
 
-    public operator fun component9(): MutPtr<CVoid> = this.tableContext
+    public operator fun component9(): MutPtr = this.tableContext
 
-    public fun copy(tableRoot: MutPtr<RtlSplayLinks> = this.tableRoot, insertOrderList: ListEntry = this.insertOrderList, orderedPointer: MutPtr<ListEntry> = this.orderedPointer, whichOrderedElement: UInt = this.whichOrderedElement, numberGenericTableElements: UInt = this.numberGenericTableElements, compareRoutine: PrtlGenericCompareRoutine = this.compareRoutine, allocateRoutine: PrtlGenericAllocateRoutine = this.allocateRoutine, freeRoutine: PrtlGenericFreeRoutine = this.freeRoutine, tableContext: MutPtr<CVoid> = this.tableContext): RtlGenericTable = RtlGenericTable(tableRootCtorArg = tableRoot, insertOrderList = insertOrderList, orderedPointerCtorArg = orderedPointer, whichOrderedElement = whichOrderedElement, numberGenericTableElements = numberGenericTableElements, compareRoutine = compareRoutine, allocateRoutine = allocateRoutine, freeRoutine = freeRoutine, tableContextCtorArg = tableContext)
+    public fun copy(tableRoot: MutPtr = this.tableRoot, insertOrderList: ListEntry = this.insertOrderList, orderedPointer: MutPtr = this.orderedPointer, whichOrderedElement: UInt = this.whichOrderedElement, numberGenericTableElements: UInt = this.numberGenericTableElements, compareRoutine: PrtlGenericCompareRoutine = this.compareRoutine, allocateRoutine: PrtlGenericAllocateRoutine = this.allocateRoutine, freeRoutine: PrtlGenericFreeRoutine = this.freeRoutine, tableContext: MutPtr = this.tableContext): RtlGenericTable = RtlGenericTable(tableRootCtorArg = tableRoot, insertOrderList = insertOrderList, orderedPointerCtorArg = orderedPointer, whichOrderedElement = whichOrderedElement, numberGenericTableElements = numberGenericTableElements, compareRoutine = compareRoutine, allocateRoutine = allocateRoutine, freeRoutine = freeRoutine, tableContextCtorArg = tableContext)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -2800,15 +2794,15 @@ public class RtlGenericTable internal constructor(
 
     public companion object {
         public operator fun invoke(
-            tableRoot: MutPtr<RtlSplayLinks> = MutPtr(0L),
+            tableRoot: MutPtr = MutPtr(0L),
             insertOrderList: ListEntry = ListEntry(),
-            orderedPointer: MutPtr<ListEntry> = MutPtr(0L),
+            orderedPointer: MutPtr = MutPtr(0L),
             whichOrderedElement: UInt = 0u,
             numberGenericTableElements: UInt = 0u,
             compareRoutine: PrtlGenericCompareRoutine = null,
             allocateRoutine: PrtlGenericAllocateRoutine = null,
             freeRoutine: PrtlGenericFreeRoutine = null,
-            tableContext: MutPtr<CVoid> = MutPtr(0L),
+            tableContext: MutPtr = MutPtr(0L),
         ): RtlGenericTable =
             RtlGenericTable(
                 tableRootCtorArg = tableRoot,
@@ -2828,18 +2822,18 @@ public class RtlQueryRegistryTable internal constructor(
     public var queryRoutine: PrtlQueryRegistryRoutine,
     public var flags: UInt,
     nameCtorArg: Pwstr,
-    entryContextCtorArg: MutPtr<CVoid>,
+    entryContextCtorArg: MutPtr,
     public var defaultType: UInt,
-    defaultDataCtorArg: MutPtr<CVoid>,
+    defaultDataCtorArg: MutPtr,
     public var defaultLength: UInt,
 ) {
     public var name: Pwstr = nameCtorArg
         internal set
 
-    public var entryContext: MutPtr<CVoid> = entryContextCtorArg
+    public var entryContext: MutPtr = entryContextCtorArg
         internal set
 
-    public var defaultData: MutPtr<CVoid> = defaultDataCtorArg
+    public var defaultData: MutPtr = defaultDataCtorArg
         internal set
 
     public constructor() : this(
@@ -2858,15 +2852,15 @@ public class RtlQueryRegistryTable internal constructor(
 
     public operator fun component3(): Pwstr = this.name
 
-    public operator fun component4(): MutPtr<CVoid> = this.entryContext
+    public operator fun component4(): MutPtr = this.entryContext
 
     public operator fun component5(): UInt = this.defaultType
 
-    public operator fun component6(): MutPtr<CVoid> = this.defaultData
+    public operator fun component6(): MutPtr = this.defaultData
 
     public operator fun component7(): UInt = this.defaultLength
 
-    public fun copy(queryRoutine: PrtlQueryRegistryRoutine = this.queryRoutine, flags: UInt = this.flags, name: Pwstr = this.name, entryContext: MutPtr<CVoid> = this.entryContext, defaultType: UInt = this.defaultType, defaultData: MutPtr<CVoid> = this.defaultData, defaultLength: UInt = this.defaultLength): RtlQueryRegistryTable = RtlQueryRegistryTable(queryRoutine = queryRoutine, flags = flags, nameCtorArg = name, entryContextCtorArg = entryContext, defaultType = defaultType, defaultDataCtorArg = defaultData, defaultLength = defaultLength)
+    public fun copy(queryRoutine: PrtlQueryRegistryRoutine = this.queryRoutine, flags: UInt = this.flags, name: Pwstr = this.name, entryContext: MutPtr = this.entryContext, defaultType: UInt = this.defaultType, defaultData: MutPtr = this.defaultData, defaultLength: UInt = this.defaultLength): RtlQueryRegistryTable = RtlQueryRegistryTable(queryRoutine = queryRoutine, flags = flags, nameCtorArg = name, entryContextCtorArg = entryContext, defaultType = defaultType, defaultDataCtorArg = defaultData, defaultLength = defaultLength)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -2897,9 +2891,9 @@ public class RtlQueryRegistryTable internal constructor(
             queryRoutine: PrtlQueryRegistryRoutine = null,
             flags: UInt = 0u,
             name: Pwstr = MutPtr(0L),
-            entryContext: MutPtr<CVoid> = MutPtr(0L),
+            entryContext: MutPtr = MutPtr(0L),
             defaultType: UInt = 0u,
-            defaultData: MutPtr<CVoid> = MutPtr(0L),
+            defaultData: MutPtr = MutPtr(0L),
             defaultLength: UInt = 0u,
         ): RtlQueryRegistryTable =
             RtlQueryRegistryTable(
@@ -3101,13 +3095,13 @@ public data class SiloMonitorRegistration(
 }
 
 public class SiloMonitorRegistration0 internal constructor(
-    driverObjectNameCtorArg: MutPtr<UnicodeString>,
-    componentNameCtorArg: MutPtr<UnicodeString>,
+    driverObjectNameCtorArg: MutPtr,
+    componentNameCtorArg: MutPtr,
 ) {
-    public var driverObjectName: MutPtr<UnicodeString> = driverObjectNameCtorArg
+    public var driverObjectName: MutPtr = driverObjectNameCtorArg
         internal set
 
-    public var componentName: MutPtr<UnicodeString> = componentNameCtorArg
+    public var componentName: MutPtr = componentNameCtorArg
         internal set
 
     public constructor() : this(
@@ -3115,11 +3109,11 @@ public class SiloMonitorRegistration0 internal constructor(
         componentNameCtorArg = MutPtr(0L),
     )
 
-    public operator fun component1(): MutPtr<UnicodeString> = this.driverObjectName
+    public operator fun component1(): MutPtr = this.driverObjectName
 
-    public operator fun component2(): MutPtr<UnicodeString> = this.componentName
+    public operator fun component2(): MutPtr = this.componentName
 
-    public fun copy(driverObjectName: MutPtr<UnicodeString> = this.driverObjectName, componentName: MutPtr<UnicodeString> = this.componentName): SiloMonitorRegistration0 = SiloMonitorRegistration0(driverObjectNameCtorArg = driverObjectName, componentNameCtorArg = componentName)
+    public fun copy(driverObjectName: MutPtr = this.driverObjectName, componentName: MutPtr = this.componentName): SiloMonitorRegistration0 = SiloMonitorRegistration0(driverObjectNameCtorArg = driverObjectName, componentNameCtorArg = componentName)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -3137,8 +3131,8 @@ public class SiloMonitorRegistration0 internal constructor(
 
     public companion object {
         public operator fun invoke(
-            driverObjectName: MutPtr<UnicodeString> = MutPtr(0L),
-            componentName: MutPtr<UnicodeString> = MutPtr(0L),
+            driverObjectName: MutPtr = MutPtr(0L),
+            componentName: MutPtr = MutPtr(0L),
         ): SiloMonitorRegistration0 =
             SiloMonitorRegistration0(
                 driverObjectNameCtorArg = driverObjectName,
@@ -3208,9 +3202,9 @@ public class SystemFirmwareTableHandler internal constructor(
     public var providerSignature: UInt,
     public var register: Boolean,
     public var firmwareTableHandler: Pfnfth,
-    driverObjectCtorArg: MutPtr<CVoid>,
+    driverObjectCtorArg: MutPtr,
 ) {
-    public var driverObject: MutPtr<CVoid> = driverObjectCtorArg
+    public var driverObject: MutPtr = driverObjectCtorArg
         internal set
 
     public constructor() : this(
@@ -3226,9 +3220,9 @@ public class SystemFirmwareTableHandler internal constructor(
 
     public operator fun component3(): Pfnfth = this.firmwareTableHandler
 
-    public operator fun component4(): MutPtr<CVoid> = this.driverObject
+    public operator fun component4(): MutPtr = this.driverObject
 
-    public fun copy(providerSignature: UInt = this.providerSignature, register: Boolean = this.register, firmwareTableHandler: Pfnfth = this.firmwareTableHandler, driverObject: MutPtr<CVoid> = this.driverObject): SystemFirmwareTableHandler = SystemFirmwareTableHandler(providerSignature = providerSignature, register = register, firmwareTableHandler = firmwareTableHandler, driverObjectCtorArg = driverObject)
+    public fun copy(providerSignature: UInt = this.providerSignature, register: Boolean = this.register, firmwareTableHandler: Pfnfth = this.firmwareTableHandler, driverObject: MutPtr = this.driverObject): SystemFirmwareTableHandler = SystemFirmwareTableHandler(providerSignature = providerSignature, register = register, firmwareTableHandler = firmwareTableHandler, driverObjectCtorArg = driverObject)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -3253,7 +3247,7 @@ public class SystemFirmwareTableHandler internal constructor(
             providerSignature: UInt = 0u,
             register: Boolean = false,
             firmwareTableHandler: Pfnfth = null,
-            driverObject: MutPtr<CVoid> = MutPtr(0L),
+            driverObject: MutPtr = MutPtr(0L),
         ): SystemFirmwareTableHandler =
             SystemFirmwareTableHandler(
                 providerSignature = providerSignature,
@@ -3353,9 +3347,9 @@ public class TargetDeviceRemovalNotification internal constructor(
     public var version: UShort,
     public var size: UShort,
     public var event: Guid,
-    fileObjectCtorArg: MutPtr<FileObject>,
+    fileObjectCtorArg: MutPtr,
 ) {
-    public var fileObject: MutPtr<FileObject> = fileObjectCtorArg
+    public var fileObject: MutPtr = fileObjectCtorArg
         internal set
 
     public constructor() : this(
@@ -3371,9 +3365,9 @@ public class TargetDeviceRemovalNotification internal constructor(
 
     public operator fun component3(): Guid = this.event
 
-    public operator fun component4(): MutPtr<FileObject> = this.fileObject
+    public operator fun component4(): MutPtr = this.fileObject
 
-    public fun copy(version: UShort = this.version, size: UShort = this.size, event: Guid = this.event, fileObject: MutPtr<FileObject> = this.fileObject): TargetDeviceRemovalNotification = TargetDeviceRemovalNotification(version = version, size = size, event = event, fileObjectCtorArg = fileObject)
+    public fun copy(version: UShort = this.version, size: UShort = this.size, event: Guid = this.event, fileObject: MutPtr = this.fileObject): TargetDeviceRemovalNotification = TargetDeviceRemovalNotification(version = version, size = size, event = event, fileObjectCtorArg = fileObject)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -3398,7 +3392,7 @@ public class TargetDeviceRemovalNotification internal constructor(
             version: UShort = 0u,
             size: UShort = 0u,
             event: Guid = Guid(),
-            fileObject: MutPtr<FileObject> = MutPtr(0L),
+            fileObject: MutPtr = MutPtr(0L),
         ): TargetDeviceRemovalNotification =
             TargetDeviceRemovalNotification(
                 version = version,
@@ -3412,19 +3406,19 @@ public class TargetDeviceRemovalNotification internal constructor(
 public class TimerSetCoalescableTimerInfo internal constructor(
     public var dueTime: Long,
     public var timerApcRoutine: PtimerApcRoutine,
-    timerContextCtorArg: MutPtr<CVoid>,
-    wakeContextCtorArg: MutPtr<CountedReasonContext>,
+    timerContextCtorArg: MutPtr,
+    wakeContextCtorArg: MutPtr,
     public var period: UInt,
     public var tolerableDelay: UInt,
-    previousStateCtorArg: MutPtr<Boolean>,
+    previousStateCtorArg: MutPtr,
 ) {
-    public var timerContext: MutPtr<CVoid> = timerContextCtorArg
+    public var timerContext: MutPtr = timerContextCtorArg
         internal set
 
-    public var wakeContext: MutPtr<CountedReasonContext> = wakeContextCtorArg
+    public var wakeContext: MutPtr = wakeContextCtorArg
         internal set
 
-    public var previousState: MutPtr<Boolean> = previousStateCtorArg
+    public var previousState: MutPtr = previousStateCtorArg
         internal set
 
     public constructor() : this(
@@ -3441,17 +3435,17 @@ public class TimerSetCoalescableTimerInfo internal constructor(
 
     public operator fun component2(): PtimerApcRoutine = this.timerApcRoutine
 
-    public operator fun component3(): MutPtr<CVoid> = this.timerContext
+    public operator fun component3(): MutPtr = this.timerContext
 
-    public operator fun component4(): MutPtr<CountedReasonContext> = this.wakeContext
+    public operator fun component4(): MutPtr = this.wakeContext
 
     public operator fun component5(): UInt = this.period
 
     public operator fun component6(): UInt = this.tolerableDelay
 
-    public operator fun component7(): MutPtr<Boolean> = this.previousState
+    public operator fun component7(): MutPtr = this.previousState
 
-    public fun copy(dueTime: Long = this.dueTime, timerApcRoutine: PtimerApcRoutine = this.timerApcRoutine, timerContext: MutPtr<CVoid> = this.timerContext, wakeContext: MutPtr<CountedReasonContext> = this.wakeContext, period: UInt = this.period, tolerableDelay: UInt = this.tolerableDelay, previousState: MutPtr<Boolean> = this.previousState): TimerSetCoalescableTimerInfo = TimerSetCoalescableTimerInfo(dueTime = dueTime, timerApcRoutine = timerApcRoutine, timerContextCtorArg = timerContext, wakeContextCtorArg = wakeContext, period = period, tolerableDelay = tolerableDelay, previousStateCtorArg = previousState)
+    public fun copy(dueTime: Long = this.dueTime, timerApcRoutine: PtimerApcRoutine = this.timerApcRoutine, timerContext: MutPtr = this.timerContext, wakeContext: MutPtr = this.wakeContext, period: UInt = this.period, tolerableDelay: UInt = this.tolerableDelay, previousState: MutPtr = this.previousState): TimerSetCoalescableTimerInfo = TimerSetCoalescableTimerInfo(dueTime = dueTime, timerApcRoutine = timerApcRoutine, timerContextCtorArg = timerContext, wakeContextCtorArg = wakeContext, period = period, tolerableDelay = tolerableDelay, previousStateCtorArg = previousState)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -3481,11 +3475,11 @@ public class TimerSetCoalescableTimerInfo internal constructor(
         public operator fun invoke(
             dueTime: Long = 0L,
             timerApcRoutine: PtimerApcRoutine = null,
-            timerContext: MutPtr<CVoid> = MutPtr(0L),
-            wakeContext: MutPtr<CountedReasonContext> = MutPtr(0L),
+            timerContext: MutPtr = MutPtr(0L),
+            wakeContext: MutPtr = MutPtr(0L),
             period: UInt = 0u,
             tolerableDelay: UInt = 0u,
-            previousState: MutPtr<Boolean> = MutPtr(0L),
+            previousState: MutPtr = MutPtr(0L),
         ): TimerSetCoalescableTimerInfo =
             TimerSetCoalescableTimerInfo(
                 dueTime = dueTime,
@@ -3542,13 +3536,13 @@ public data class TimeFields(
 public class TranslatorInterface internal constructor(
     public var size: UShort,
     public var version: UShort,
-    contextCtorArg: MutPtr<CVoid>,
+    contextCtorArg: MutPtr,
     public var interfaceReference: PinterfaceReference,
     public var interfaceDereference: PinterfaceDereference,
     public var translateResources: PtranslateResourceHandler,
     public var translateResourceRequirements: PtranslateResourceRequirementsHandler,
 ) {
-    public var context: MutPtr<CVoid> = contextCtorArg
+    public var context: MutPtr = contextCtorArg
         internal set
 
     public constructor() : this(
@@ -3565,7 +3559,7 @@ public class TranslatorInterface internal constructor(
 
     public operator fun component2(): UShort = this.version
 
-    public operator fun component3(): MutPtr<CVoid> = this.context
+    public operator fun component3(): MutPtr = this.context
 
     public operator fun component4(): PinterfaceReference = this.interfaceReference
 
@@ -3575,7 +3569,7 @@ public class TranslatorInterface internal constructor(
 
     public operator fun component7(): PtranslateResourceRequirementsHandler = this.translateResourceRequirements
 
-    public fun copy(size: UShort = this.size, version: UShort = this.version, context: MutPtr<CVoid> = this.context, interfaceReference: PinterfaceReference = this.interfaceReference, interfaceDereference: PinterfaceDereference = this.interfaceDereference, translateResources: PtranslateResourceHandler = this.translateResources, translateResourceRequirements: PtranslateResourceRequirementsHandler = this.translateResourceRequirements): TranslatorInterface = TranslatorInterface(size = size, version = version, contextCtorArg = context, interfaceReference = interfaceReference, interfaceDereference = interfaceDereference, translateResources = translateResources, translateResourceRequirements = translateResourceRequirements)
+    public fun copy(size: UShort = this.size, version: UShort = this.version, context: MutPtr = this.context, interfaceReference: PinterfaceReference = this.interfaceReference, interfaceDereference: PinterfaceDereference = this.interfaceDereference, translateResources: PtranslateResourceHandler = this.translateResources, translateResourceRequirements: PtranslateResourceRequirementsHandler = this.translateResourceRequirements): TranslatorInterface = TranslatorInterface(size = size, version = version, contextCtorArg = context, interfaceReference = interfaceReference, interfaceDereference = interfaceDereference, translateResources = translateResources, translateResourceRequirements = translateResourceRequirements)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -3605,7 +3599,7 @@ public class TranslatorInterface internal constructor(
         public operator fun invoke(
             size: UShort = 0u,
             version: UShort = 0u,
-            context: MutPtr<CVoid> = MutPtr(0L),
+            context: MutPtr = MutPtr(0L),
             interfaceReference: PinterfaceReference = null,
             interfaceDereference: PinterfaceDereference = null,
             translateResources: PtranslateResourceHandler = null,
@@ -3626,9 +3620,9 @@ public class TranslatorInterface internal constructor(
 public class TxnParameterBlock internal constructor(
     public var length: UShort,
     public var txFsContext: UShort,
-    transactionObjectCtorArg: MutPtr<CVoid>,
+    transactionObjectCtorArg: MutPtr,
 ) {
-    public var transactionObject: MutPtr<CVoid> = transactionObjectCtorArg
+    public var transactionObject: MutPtr = transactionObjectCtorArg
         internal set
 
     public constructor() : this(
@@ -3641,9 +3635,9 @@ public class TxnParameterBlock internal constructor(
 
     public operator fun component2(): UShort = this.txFsContext
 
-    public operator fun component3(): MutPtr<CVoid> = this.transactionObject
+    public operator fun component3(): MutPtr = this.transactionObject
 
-    public fun copy(length: UShort = this.length, txFsContext: UShort = this.txFsContext, transactionObject: MutPtr<CVoid> = this.transactionObject): TxnParameterBlock = TxnParameterBlock(length = length, txFsContext = txFsContext, transactionObjectCtorArg = transactionObject)
+    public fun copy(length: UShort = this.length, txFsContext: UShort = this.txFsContext, transactionObject: MutPtr = this.transactionObject): TxnParameterBlock = TxnParameterBlock(length = length, txFsContext = txFsContext, transactionObjectCtorArg = transactionObject)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -3672,7 +3666,7 @@ public class TxnParameterBlock internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16).readNative(addr + 2L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<CVoid>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                     )
                 override fun writeNative(addr: Long, value: TxnParameterBlock) {
@@ -3680,7 +3674,7 @@ public class TxnParameterBlock internal constructor(
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U16).writeNative(addr + 2L, value.txFsContext)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<CVoid>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.transactionObject)
                 }
             }
@@ -3688,7 +3682,7 @@ public class TxnParameterBlock internal constructor(
         public operator fun invoke(
             length: UShort = 0u,
             txFsContext: UShort = 0u,
-            transactionObject: MutPtr<CVoid> = MutPtr(0L),
+            transactionObject: MutPtr = MutPtr(0L),
         ): TxnParameterBlock =
             TxnParameterBlock(
                 length = length,
@@ -4002,22 +3996,22 @@ public data class VmCountersEx2(
 public class WaitContextBlock internal constructor(
     public var anonymous: WaitContextBlock0,
     public var deviceRoutine: DriverControl,
-    deviceContextCtorArg: MutPtr<CVoid>,
+    deviceContextCtorArg: MutPtr,
     public var numberOfMapRegisters: UInt,
-    deviceObjectCtorArg: MutPtr<CVoid>,
-    currentIrpCtorArg: MutPtr<CVoid>,
-    bufferChainingDpcCtorArg: MutPtr<Kdpc>,
+    deviceObjectCtorArg: MutPtr,
+    currentIrpCtorArg: MutPtr,
+    bufferChainingDpcCtorArg: MutPtr,
 ) {
-    public var deviceContext: MutPtr<CVoid> = deviceContextCtorArg
+    public var deviceContext: MutPtr = deviceContextCtorArg
         internal set
 
-    public var deviceObject: MutPtr<CVoid> = deviceObjectCtorArg
+    public var deviceObject: MutPtr = deviceObjectCtorArg
         internal set
 
-    public var currentIrp: MutPtr<CVoid> = currentIrpCtorArg
+    public var currentIrp: MutPtr = currentIrpCtorArg
         internal set
 
-    public var bufferChainingDpc: MutPtr<Kdpc> = bufferChainingDpcCtorArg
+    public var bufferChainingDpc: MutPtr = bufferChainingDpcCtorArg
         internal set
 
     public constructor() : this(
@@ -4034,17 +4028,17 @@ public class WaitContextBlock internal constructor(
 
     public operator fun component2(): DriverControl = this.deviceRoutine
 
-    public operator fun component3(): MutPtr<CVoid> = this.deviceContext
+    public operator fun component3(): MutPtr = this.deviceContext
 
     public operator fun component4(): UInt = this.numberOfMapRegisters
 
-    public operator fun component5(): MutPtr<CVoid> = this.deviceObject
+    public operator fun component5(): MutPtr = this.deviceObject
 
-    public operator fun component6(): MutPtr<CVoid> = this.currentIrp
+    public operator fun component6(): MutPtr = this.currentIrp
 
-    public operator fun component7(): MutPtr<Kdpc> = this.bufferChainingDpc
+    public operator fun component7(): MutPtr = this.bufferChainingDpc
 
-    public fun copy(anonymous: WaitContextBlock0 = this.anonymous, deviceRoutine: DriverControl = this.deviceRoutine, deviceContext: MutPtr<CVoid> = this.deviceContext, numberOfMapRegisters: UInt = this.numberOfMapRegisters, deviceObject: MutPtr<CVoid> = this.deviceObject, currentIrp: MutPtr<CVoid> = this.currentIrp, bufferChainingDpc: MutPtr<Kdpc> = this.bufferChainingDpc): WaitContextBlock = WaitContextBlock(anonymous = anonymous, deviceRoutine = deviceRoutine, deviceContextCtorArg = deviceContext, numberOfMapRegisters = numberOfMapRegisters, deviceObjectCtorArg = deviceObject, currentIrpCtorArg = currentIrp, bufferChainingDpcCtorArg = bufferChainingDpc)
+    public fun copy(anonymous: WaitContextBlock0 = this.anonymous, deviceRoutine: DriverControl = this.deviceRoutine, deviceContext: MutPtr = this.deviceContext, numberOfMapRegisters: UInt = this.numberOfMapRegisters, deviceObject: MutPtr = this.deviceObject, currentIrp: MutPtr = this.currentIrp, bufferChainingDpc: MutPtr = this.bufferChainingDpc): WaitContextBlock = WaitContextBlock(anonymous = anonymous, deviceRoutine = deviceRoutine, deviceContextCtorArg = deviceContext, numberOfMapRegisters = numberOfMapRegisters, deviceObjectCtorArg = deviceObject, currentIrpCtorArg = currentIrp, bufferChainingDpcCtorArg = bufferChainingDpc)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -4074,11 +4068,11 @@ public class WaitContextBlock internal constructor(
         public operator fun invoke(
             anonymous: WaitContextBlock0 = WaitContextBlock0(),
             deviceRoutine: DriverControl = null,
-            deviceContext: MutPtr<CVoid> = MutPtr(0L),
+            deviceContext: MutPtr = MutPtr(0L),
             numberOfMapRegisters: UInt = 0u,
-            deviceObject: MutPtr<CVoid> = MutPtr(0L),
-            currentIrp: MutPtr<CVoid> = MutPtr(0L),
-            bufferChainingDpc: MutPtr<Kdpc> = MutPtr(0L),
+            deviceObject: MutPtr = MutPtr(0L),
+            currentIrp: MutPtr = MutPtr(0L),
+            bufferChainingDpc: MutPtr = MutPtr(0L),
         ): WaitContextBlock =
             WaitContextBlock(
                 anonymous = anonymous,
@@ -4274,9 +4268,9 @@ public data class WheapErrorClearedEvent(
 
 public class WheapErrorRecordEvent internal constructor(
     public var wheaEventLogEntry: WheaEventLogEntry,
-    recordCtorArg: MutPtr<WheaErrorRecord>,
+    recordCtorArg: MutPtr,
 ) {
-    public var record: MutPtr<WheaErrorRecord> = recordCtorArg
+    public var record: MutPtr = recordCtorArg
         internal set
 
     public constructor() : this(
@@ -4286,9 +4280,9 @@ public class WheapErrorRecordEvent internal constructor(
 
     public operator fun component1(): WheaEventLogEntry = this.wheaEventLogEntry
 
-    public operator fun component2(): MutPtr<WheaErrorRecord> = this.record
+    public operator fun component2(): MutPtr = this.record
 
-    public fun copy(wheaEventLogEntry: WheaEventLogEntry = this.wheaEventLogEntry, record: MutPtr<WheaErrorRecord> = this.record): WheapErrorRecordEvent = WheapErrorRecordEvent(wheaEventLogEntry = wheaEventLogEntry, recordCtorArg = record)
+    public fun copy(wheaEventLogEntry: WheaEventLogEntry = this.wheaEventLogEntry, record: MutPtr = this.record): WheapErrorRecordEvent = WheapErrorRecordEvent(wheaEventLogEntry = wheaEventLogEntry, recordCtorArg = record)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -4307,7 +4301,7 @@ public class WheapErrorRecordEvent internal constructor(
     public companion object {
         public operator fun invoke(
             wheaEventLogEntry: WheaEventLogEntry = WheaEventLogEntry(),
-            record: MutPtr<WheaErrorRecord> = MutPtr(0L),
+            record: MutPtr = MutPtr(0L),
         ): WheapErrorRecordEvent =
             WheapErrorRecordEvent(
                 wheaEventLogEntry = wheaEventLogEntry,
@@ -4664,9 +4658,9 @@ public data class WheapSpuriousAerEvent(
 
 public class WheapStartedReportHwError internal constructor(
     public var wheaEventLogEntry: WheaEventLogEntry,
-    errorPacketCtorArg: MutPtr<WheaErrorPacketV2>,
+    errorPacketCtorArg: MutPtr,
 ) {
-    public var errorPacket: MutPtr<WheaErrorPacketV2> = errorPacketCtorArg
+    public var errorPacket: MutPtr = errorPacketCtorArg
         internal set
 
     public constructor() : this(
@@ -4676,9 +4670,9 @@ public class WheapStartedReportHwError internal constructor(
 
     public operator fun component1(): WheaEventLogEntry = this.wheaEventLogEntry
 
-    public operator fun component2(): MutPtr<WheaErrorPacketV2> = this.errorPacket
+    public operator fun component2(): MutPtr = this.errorPacket
 
-    public fun copy(wheaEventLogEntry: WheaEventLogEntry = this.wheaEventLogEntry, errorPacket: MutPtr<WheaErrorPacketV2> = this.errorPacket): WheapStartedReportHwError = WheapStartedReportHwError(wheaEventLogEntry = wheaEventLogEntry, errorPacketCtorArg = errorPacket)
+    public fun copy(wheaEventLogEntry: WheaEventLogEntry = this.wheaEventLogEntry, errorPacket: MutPtr = this.errorPacket): WheapStartedReportHwError = WheapStartedReportHwError(wheaEventLogEntry = wheaEventLogEntry, errorPacketCtorArg = errorPacket)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -4697,7 +4691,7 @@ public class WheapStartedReportHwError internal constructor(
     public companion object {
         public operator fun invoke(
             wheaEventLogEntry: WheaEventLogEntry = WheaEventLogEntry(),
-            errorPacket: MutPtr<WheaErrorPacketV2> = MutPtr(0L),
+            errorPacket: MutPtr = MutPtr(0L),
         ): WheapStartedReportHwError =
             WheapStartedReportHwError(
                 wheaEventLogEntry = wheaEventLogEntry,
@@ -6106,9 +6100,9 @@ public class WheaErrorSourceConfiguration internal constructor(
     public var createRecord: WheaErrorSourceCreateRecord,
     public var recover: WheaErrorSourceRecover,
     public var uninitialize: WheaErrorSourceUninitialize,
-    reservedCtorArg: MutPtr<CVoid>,
+    reservedCtorArg: MutPtr,
 ) {
-    public var reserved: MutPtr<CVoid> = reservedCtorArg
+    public var reserved: MutPtr = reservedCtorArg
         internal set
 
     public constructor() : this(
@@ -6133,9 +6127,9 @@ public class WheaErrorSourceConfiguration internal constructor(
 
     public operator fun component6(): WheaErrorSourceUninitialize = this.uninitialize
 
-    public operator fun component7(): MutPtr<CVoid> = this.reserved
+    public operator fun component7(): MutPtr = this.reserved
 
-    public fun copy(flags: UInt = this.flags, correct: WheaErrorSourceCorrect = this.correct, initialize: WheaErrorSourceInitialize = this.initialize, createRecord: WheaErrorSourceCreateRecord = this.createRecord, recover: WheaErrorSourceRecover = this.recover, uninitialize: WheaErrorSourceUninitialize = this.uninitialize, reserved: MutPtr<CVoid> = this.reserved): WheaErrorSourceConfiguration = WheaErrorSourceConfiguration(flags = flags, correct = correct, initialize = initialize, createRecord = createRecord, recover = recover, uninitialize = uninitialize, reservedCtorArg = reserved)
+    public fun copy(flags: UInt = this.flags, correct: WheaErrorSourceCorrect = this.correct, initialize: WheaErrorSourceInitialize = this.initialize, createRecord: WheaErrorSourceCreateRecord = this.createRecord, recover: WheaErrorSourceRecover = this.recover, uninitialize: WheaErrorSourceUninitialize = this.uninitialize, reserved: MutPtr = this.reserved): WheaErrorSourceConfiguration = WheaErrorSourceConfiguration(flags = flags, correct = correct, initialize = initialize, createRecord = createRecord, recover = recover, uninitialize = uninitialize, reservedCtorArg = reserved)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -6169,7 +6163,7 @@ public class WheaErrorSourceConfiguration internal constructor(
             createRecord: WheaErrorSourceCreateRecord = null,
             recover: WheaErrorSourceRecover = null,
             uninitialize: WheaErrorSourceUninitialize = null,
-            reserved: MutPtr<CVoid> = MutPtr(0L),
+            reserved: MutPtr = MutPtr(0L),
         ): WheaErrorSourceConfiguration =
             WheaErrorSourceConfiguration(
                 flags = flags,
@@ -7460,7 +7454,7 @@ public data class WheaPshedPiTraceEvent(
 
 public class WheaPshedPluginCallbacks internal constructor(
     public var getAllErrorSources: PshedPiGetAllErrorSources,
-    reservedCtorArg: MutPtr<CVoid>,
+    reservedCtorArg: MutPtr,
     public var getErrorSourceInfo: PshedPiGetErrorSourceInfo,
     public var setErrorSourceInfo: PshedPiSetErrorSourceInfo,
     public var enableErrorSource: PshedPiEnableErrorSource,
@@ -7475,7 +7469,7 @@ public class WheaPshedPluginCallbacks internal constructor(
     public var getInjectionCapabilities: PshedPiGetInjectionCapabilities,
     public var injectError: PshedPiInjectError,
 ) {
-    public var reserved: MutPtr<CVoid> = reservedCtorArg
+    public var reserved: MutPtr = reservedCtorArg
         internal set
 
     public constructor() : this(
@@ -7498,7 +7492,7 @@ public class WheaPshedPluginCallbacks internal constructor(
 
     public operator fun component1(): PshedPiGetAllErrorSources = this.getAllErrorSources
 
-    public operator fun component2(): MutPtr<CVoid> = this.reserved
+    public operator fun component2(): MutPtr = this.reserved
 
     public operator fun component3(): PshedPiGetErrorSourceInfo = this.getErrorSourceInfo
 
@@ -7526,7 +7520,7 @@ public class WheaPshedPluginCallbacks internal constructor(
 
     public operator fun component15(): PshedPiInjectError = this.injectError
 
-    public fun copy(getAllErrorSources: PshedPiGetAllErrorSources = this.getAllErrorSources, reserved: MutPtr<CVoid> = this.reserved, getErrorSourceInfo: PshedPiGetErrorSourceInfo = this.getErrorSourceInfo, setErrorSourceInfo: PshedPiSetErrorSourceInfo = this.setErrorSourceInfo, enableErrorSource: PshedPiEnableErrorSource = this.enableErrorSource, disableErrorSource: PshedPiDisableErrorSource = this.disableErrorSource, writeErrorRecord: PshedPiWriteErrorRecord = this.writeErrorRecord, readErrorRecord: PshedPiReadErrorRecord = this.readErrorRecord, clearErrorRecord: PshedPiClearErrorRecord = this.clearErrorRecord, retrieveErrorInfo: PshedPiRetrieveErrorInfo = this.retrieveErrorInfo, finalizeErrorRecord: PshedPiFinalizeErrorRecord = this.finalizeErrorRecord, clearErrorStatus: PshedPiClearErrorStatus = this.clearErrorStatus, attemptRecovery: PshedPiAttemptErrorRecovery = this.attemptRecovery, getInjectionCapabilities: PshedPiGetInjectionCapabilities = this.getInjectionCapabilities, injectError: PshedPiInjectError = this.injectError): WheaPshedPluginCallbacks = WheaPshedPluginCallbacks(getAllErrorSources = getAllErrorSources, reservedCtorArg = reserved, getErrorSourceInfo = getErrorSourceInfo, setErrorSourceInfo = setErrorSourceInfo, enableErrorSource = enableErrorSource, disableErrorSource = disableErrorSource, writeErrorRecord = writeErrorRecord, readErrorRecord = readErrorRecord, clearErrorRecord = clearErrorRecord, retrieveErrorInfo = retrieveErrorInfo, finalizeErrorRecord = finalizeErrorRecord, clearErrorStatus = clearErrorStatus, attemptRecovery = attemptRecovery, getInjectionCapabilities = getInjectionCapabilities, injectError = injectError)
+    public fun copy(getAllErrorSources: PshedPiGetAllErrorSources = this.getAllErrorSources, reserved: MutPtr = this.reserved, getErrorSourceInfo: PshedPiGetErrorSourceInfo = this.getErrorSourceInfo, setErrorSourceInfo: PshedPiSetErrorSourceInfo = this.setErrorSourceInfo, enableErrorSource: PshedPiEnableErrorSource = this.enableErrorSource, disableErrorSource: PshedPiDisableErrorSource = this.disableErrorSource, writeErrorRecord: PshedPiWriteErrorRecord = this.writeErrorRecord, readErrorRecord: PshedPiReadErrorRecord = this.readErrorRecord, clearErrorRecord: PshedPiClearErrorRecord = this.clearErrorRecord, retrieveErrorInfo: PshedPiRetrieveErrorInfo = this.retrieveErrorInfo, finalizeErrorRecord: PshedPiFinalizeErrorRecord = this.finalizeErrorRecord, clearErrorStatus: PshedPiClearErrorStatus = this.clearErrorStatus, attemptRecovery: PshedPiAttemptErrorRecovery = this.attemptRecovery, getInjectionCapabilities: PshedPiGetInjectionCapabilities = this.getInjectionCapabilities, injectError: PshedPiInjectError = this.injectError): WheaPshedPluginCallbacks = WheaPshedPluginCallbacks(getAllErrorSources = getAllErrorSources, reservedCtorArg = reserved, getErrorSourceInfo = getErrorSourceInfo, setErrorSourceInfo = setErrorSourceInfo, enableErrorSource = enableErrorSource, disableErrorSource = disableErrorSource, writeErrorRecord = writeErrorRecord, readErrorRecord = readErrorRecord, clearErrorRecord = clearErrorRecord, retrieveErrorInfo = retrieveErrorInfo, finalizeErrorRecord = finalizeErrorRecord, clearErrorStatus = clearErrorStatus, attemptRecovery = attemptRecovery, getInjectionCapabilities = getInjectionCapabilities, injectError = injectError)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -7571,7 +7565,7 @@ public class WheaPshedPluginCallbacks internal constructor(
     public companion object {
         public operator fun invoke(
             getAllErrorSources: PshedPiGetAllErrorSources = null,
-            reserved: MutPtr<CVoid> = MutPtr(0L),
+            reserved: MutPtr = MutPtr(0L),
             getErrorSourceInfo: PshedPiGetErrorSourceInfo = null,
             setErrorSourceInfo: PshedPiSetErrorSourceInfo = null,
             enableErrorSource: PshedPiEnableErrorSource = null,
@@ -7683,12 +7677,12 @@ public data class WheaPshedPluginPlatformSupportEvent(
 public class WheaPshedPluginRegistrationPacketV1 internal constructor(
     public var length: UInt,
     public var version: UInt,
-    contextCtorArg: MutPtr<CVoid>,
+    contextCtorArg: MutPtr,
     public var functionalAreaMask: UInt,
     public var reserved: UInt,
     public var callbacks: WheaPshedPluginCallbacks,
 ) {
-    public var context: MutPtr<CVoid> = contextCtorArg
+    public var context: MutPtr = contextCtorArg
         internal set
 
     public constructor() : this(
@@ -7704,7 +7698,7 @@ public class WheaPshedPluginRegistrationPacketV1 internal constructor(
 
     public operator fun component2(): UInt = this.version
 
-    public operator fun component3(): MutPtr<CVoid> = this.context
+    public operator fun component3(): MutPtr = this.context
 
     public operator fun component4(): UInt = this.functionalAreaMask
 
@@ -7712,7 +7706,7 @@ public class WheaPshedPluginRegistrationPacketV1 internal constructor(
 
     public operator fun component6(): WheaPshedPluginCallbacks = this.callbacks
 
-    public fun copy(length: UInt = this.length, version: UInt = this.version, context: MutPtr<CVoid> = this.context, functionalAreaMask: UInt = this.functionalAreaMask, reserved: UInt = this.reserved, callbacks: WheaPshedPluginCallbacks = this.callbacks): WheaPshedPluginRegistrationPacketV1 = WheaPshedPluginRegistrationPacketV1(length = length, version = version, contextCtorArg = context, functionalAreaMask = functionalAreaMask, reserved = reserved, callbacks = callbacks)
+    public fun copy(length: UInt = this.length, version: UInt = this.version, context: MutPtr = this.context, functionalAreaMask: UInt = this.functionalAreaMask, reserved: UInt = this.reserved, callbacks: WheaPshedPluginCallbacks = this.callbacks): WheaPshedPluginRegistrationPacketV1 = WheaPshedPluginRegistrationPacketV1(length = length, version = version, contextCtorArg = context, functionalAreaMask = functionalAreaMask, reserved = reserved, callbacks = callbacks)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -7740,7 +7734,7 @@ public class WheaPshedPluginRegistrationPacketV1 internal constructor(
         public operator fun invoke(
             length: UInt = 0u,
             version: UInt = 0u,
-            context: MutPtr<CVoid> = MutPtr(0L),
+            context: MutPtr = MutPtr(0L),
             functionalAreaMask: UInt = 0u,
             reserved: UInt = 0u,
             callbacks: WheaPshedPluginCallbacks = WheaPshedPluginCallbacks(),
@@ -7759,16 +7753,16 @@ public class WheaPshedPluginRegistrationPacketV1 internal constructor(
 public class WheaPshedPluginRegistrationPacketV2 internal constructor(
     public var length: UInt,
     public var version: UInt,
-    contextCtorArg: MutPtr<CVoid>,
+    contextCtorArg: MutPtr,
     public var functionalAreaMask: UInt,
     public var reserved: UInt,
     public var callbacks: WheaPshedPluginCallbacks,
-    pluginHandleCtorArg: MutPtr<CVoid>,
+    pluginHandleCtorArg: MutPtr,
 ) {
-    public var context: MutPtr<CVoid> = contextCtorArg
+    public var context: MutPtr = contextCtorArg
         internal set
 
-    public var pluginHandle: MutPtr<CVoid> = pluginHandleCtorArg
+    public var pluginHandle: MutPtr = pluginHandleCtorArg
         internal set
 
     public constructor() : this(
@@ -7785,7 +7779,7 @@ public class WheaPshedPluginRegistrationPacketV2 internal constructor(
 
     public operator fun component2(): UInt = this.version
 
-    public operator fun component3(): MutPtr<CVoid> = this.context
+    public operator fun component3(): MutPtr = this.context
 
     public operator fun component4(): UInt = this.functionalAreaMask
 
@@ -7793,9 +7787,9 @@ public class WheaPshedPluginRegistrationPacketV2 internal constructor(
 
     public operator fun component6(): WheaPshedPluginCallbacks = this.callbacks
 
-    public operator fun component7(): MutPtr<CVoid> = this.pluginHandle
+    public operator fun component7(): MutPtr = this.pluginHandle
 
-    public fun copy(length: UInt = this.length, version: UInt = this.version, context: MutPtr<CVoid> = this.context, functionalAreaMask: UInt = this.functionalAreaMask, reserved: UInt = this.reserved, callbacks: WheaPshedPluginCallbacks = this.callbacks, pluginHandle: MutPtr<CVoid> = this.pluginHandle): WheaPshedPluginRegistrationPacketV2 = WheaPshedPluginRegistrationPacketV2(length = length, version = version, contextCtorArg = context, functionalAreaMask = functionalAreaMask, reserved = reserved, callbacks = callbacks, pluginHandleCtorArg = pluginHandle)
+    public fun copy(length: UInt = this.length, version: UInt = this.version, context: MutPtr = this.context, functionalAreaMask: UInt = this.functionalAreaMask, reserved: UInt = this.reserved, callbacks: WheaPshedPluginCallbacks = this.callbacks, pluginHandle: MutPtr = this.pluginHandle): WheaPshedPluginRegistrationPacketV2 = WheaPshedPluginRegistrationPacketV2(length = length, version = version, contextCtorArg = context, functionalAreaMask = functionalAreaMask, reserved = reserved, callbacks = callbacks, pluginHandleCtorArg = pluginHandle)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -7825,11 +7819,11 @@ public class WheaPshedPluginRegistrationPacketV2 internal constructor(
         public operator fun invoke(
             length: UInt = 0u,
             version: UInt = 0u,
-            context: MutPtr<CVoid> = MutPtr(0L),
+            context: MutPtr = MutPtr(0L),
             functionalAreaMask: UInt = 0u,
             reserved: UInt = 0u,
             callbacks: WheaPshedPluginCallbacks = WheaPshedPluginCallbacks(),
-            pluginHandle: MutPtr<CVoid> = MutPtr(0L),
+            pluginHandle: MutPtr = MutPtr(0L),
         ): WheaPshedPluginRegistrationPacketV2 =
             WheaPshedPluginRegistrationPacketV2(
                 length = length,

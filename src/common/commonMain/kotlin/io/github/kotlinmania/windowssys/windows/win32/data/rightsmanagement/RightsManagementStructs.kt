@@ -15,7 +15,7 @@ public class Drmboundlicenseparams internal constructor(
     wszRightsGroupCtorArg: Pwstr,
     public var idResource: Drmid,
     public var cAuthenticatorCount: UInt,
-    rghAuthenticatorsCtorArg: MutPtr<UInt>,
+    rghAuthenticatorsCtorArg: MutPtr,
     wszDefaultEnablingPrincipalCredentialsCtorArg: Pwstr,
     public var dwFlags: UInt,
 ) {
@@ -25,7 +25,7 @@ public class Drmboundlicenseparams internal constructor(
     public var wszRightsGroup: Pwstr = wszRightsGroupCtorArg
         internal set
 
-    public var rghAuthenticators: MutPtr<UInt> = rghAuthenticatorsCtorArg
+    public var rghAuthenticators: MutPtr = rghAuthenticatorsCtorArg
         internal set
 
     public var wszDefaultEnablingPrincipalCredentials: Pwstr = wszDefaultEnablingPrincipalCredentialsCtorArg
@@ -58,13 +58,13 @@ public class Drmboundlicenseparams internal constructor(
 
     public operator fun component7(): UInt = this.cAuthenticatorCount
 
-    public operator fun component8(): MutPtr<UInt> = this.rghAuthenticators
+    public operator fun component8(): MutPtr = this.rghAuthenticators
 
     public operator fun component9(): Pwstr = this.wszDefaultEnablingPrincipalCredentials
 
     public operator fun component10(): UInt = this.dwFlags
 
-    public fun copy(uVersion: UInt = this.uVersion, hEnablingPrincipal: UInt = this.hEnablingPrincipal, hSecureStore: UInt = this.hSecureStore, wszRightsRequested: Pwstr = this.wszRightsRequested, wszRightsGroup: Pwstr = this.wszRightsGroup, idResource: Drmid = this.idResource, cAuthenticatorCount: UInt = this.cAuthenticatorCount, rghAuthenticators: MutPtr<UInt> = this.rghAuthenticators, wszDefaultEnablingPrincipalCredentials: Pwstr = this.wszDefaultEnablingPrincipalCredentials, dwFlags: UInt = this.dwFlags): Drmboundlicenseparams = Drmboundlicenseparams(uVersion = uVersion, hEnablingPrincipal = hEnablingPrincipal, hSecureStore = hSecureStore, wszRightsRequestedCtorArg = wszRightsRequested, wszRightsGroupCtorArg = wszRightsGroup, idResource = idResource, cAuthenticatorCount = cAuthenticatorCount, rghAuthenticatorsCtorArg = rghAuthenticators, wszDefaultEnablingPrincipalCredentialsCtorArg = wszDefaultEnablingPrincipalCredentials, dwFlags = dwFlags)
+    public fun copy(uVersion: UInt = this.uVersion, hEnablingPrincipal: UInt = this.hEnablingPrincipal, hSecureStore: UInt = this.hSecureStore, wszRightsRequested: Pwstr = this.wszRightsRequested, wszRightsGroup: Pwstr = this.wszRightsGroup, idResource: Drmid = this.idResource, cAuthenticatorCount: UInt = this.cAuthenticatorCount, rghAuthenticators: MutPtr = this.rghAuthenticators, wszDefaultEnablingPrincipalCredentials: Pwstr = this.wszDefaultEnablingPrincipalCredentials, dwFlags: UInt = this.dwFlags): Drmboundlicenseparams = Drmboundlicenseparams(uVersion = uVersion, hEnablingPrincipal = hEnablingPrincipal, hSecureStore = hSecureStore, wszRightsRequestedCtorArg = wszRightsRequested, wszRightsGroupCtorArg = wszRightsGroup, idResource = idResource, cAuthenticatorCount = cAuthenticatorCount, rghAuthenticatorsCtorArg = rghAuthenticators, wszDefaultEnablingPrincipalCredentialsCtorArg = wszDefaultEnablingPrincipalCredentials, dwFlags = dwFlags)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -105,7 +105,7 @@ public class Drmboundlicenseparams internal constructor(
             wszRightsGroup: Pwstr = MutPtr(0L),
             idResource: Drmid = Drmid(),
             cAuthenticatorCount: UInt = 0u,
-            rghAuthenticators: MutPtr<UInt> = MutPtr(0L),
+            rghAuthenticators: MutPtr = MutPtr(0L),
             wszDefaultEnablingPrincipalCredentials: Pwstr = MutPtr(0L),
             dwFlags: UInt = 0u,
         ): Drmboundlicenseparams =
@@ -313,7 +313,7 @@ public class DrmLicenseAcqData internal constructor(
     public var uVersion: UInt,
     wszURLCtorArg: Pwstr,
     wszLocalFilenameCtorArg: Pwstr,
-    pbPostDataCtorArg: MutPtr<UByte>,
+    pbPostDataCtorArg: MutPtr,
     public var dwPostDataSize: UInt,
     wszFriendlyNameCtorArg: Pwstr,
 ) {
@@ -323,7 +323,7 @@ public class DrmLicenseAcqData internal constructor(
     public var wszLocalFilename: Pwstr = wszLocalFilenameCtorArg
         internal set
 
-    public var pbPostData: MutPtr<UByte> = pbPostDataCtorArg
+    public var pbPostData: MutPtr = pbPostDataCtorArg
         internal set
 
     public var wszFriendlyName: Pwstr = wszFriendlyNameCtorArg
@@ -344,13 +344,13 @@ public class DrmLicenseAcqData internal constructor(
 
     public operator fun component3(): Pwstr = this.wszLocalFilename
 
-    public operator fun component4(): MutPtr<UByte> = this.pbPostData
+    public operator fun component4(): MutPtr = this.pbPostData
 
     public operator fun component5(): UInt = this.dwPostDataSize
 
     public operator fun component6(): Pwstr = this.wszFriendlyName
 
-    public fun copy(uVersion: UInt = this.uVersion, wszURL: Pwstr = this.wszURL, wszLocalFilename: Pwstr = this.wszLocalFilename, pbPostData: MutPtr<UByte> = this.pbPostData, dwPostDataSize: UInt = this.dwPostDataSize, wszFriendlyName: Pwstr = this.wszFriendlyName): DrmLicenseAcqData = DrmLicenseAcqData(uVersion = uVersion, wszURLCtorArg = wszURL, wszLocalFilenameCtorArg = wszLocalFilename, pbPostDataCtorArg = pbPostData, dwPostDataSize = dwPostDataSize, wszFriendlyNameCtorArg = wszFriendlyName)
+    public fun copy(uVersion: UInt = this.uVersion, wszURL: Pwstr = this.wszURL, wszLocalFilename: Pwstr = this.wszLocalFilename, pbPostData: MutPtr = this.pbPostData, dwPostDataSize: UInt = this.dwPostDataSize, wszFriendlyName: Pwstr = this.wszFriendlyName): DrmLicenseAcqData = DrmLicenseAcqData(uVersion = uVersion, wszURLCtorArg = wszURL, wszLocalFilenameCtorArg = wszLocalFilename, pbPostDataCtorArg = pbPostData, dwPostDataSize = dwPostDataSize, wszFriendlyNameCtorArg = wszFriendlyName)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -379,7 +379,7 @@ public class DrmLicenseAcqData internal constructor(
             uVersion: UInt = 0u,
             wszURL: Pwstr = MutPtr(0L),
             wszLocalFilename: Pwstr = MutPtr(0L),
-            pbPostData: MutPtr<UByte> = MutPtr(0L),
+            pbPostData: MutPtr = MutPtr(0L),
             dwPostDataSize: UInt = 0u,
             wszFriendlyName: Pwstr = MutPtr(0L),
         ): DrmLicenseAcqData =

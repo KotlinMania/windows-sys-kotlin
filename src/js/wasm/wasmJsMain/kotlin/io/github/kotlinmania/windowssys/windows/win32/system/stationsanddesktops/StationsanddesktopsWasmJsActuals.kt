@@ -2,7 +2,6 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.system.stationsanddesktops
 
-import io.github.kotlinmania.rustlang.core.ffi.CVoid
 import io.github.kotlinmania.rustlang.core.ptr.ConstPtr
 import io.github.kotlinmania.rustlang.core.ptr.MutPtr
 import io.github.kotlinmania.windowssys.core.Bool
@@ -11,9 +10,6 @@ import io.github.kotlinmania.windowssys.core.Pcwstr
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Handle
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Lparam
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Wparam
-import io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.Devmodea
-import io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.Devmodew
-import io.github.kotlinmania.windowssys.windows.win32.security.SecurityAttributes
 import io.github.kotlinmania.windowssys.windows.win32.ui.windowsandmessaging.Wndenumproc
 
 @JsFun("() => { if (typeof globalThis.__km_napi_windowssys !== 'undefined') return globalThis.__km_napi_windowssys !== null; if (typeof process === 'undefined' || !process.versions || !process.versions.node) { globalThis.__km_napi_windowssys = null; return false; } var mod = process.getBuiltinModule ? process.getBuiltinModule('module') : (process.mainModule && process.mainModule.constructor); var req = (mod && mod.createRequire) ? mod.createRequire((process.cwd ? process.cwd() : '.') + '/package.json') : (process.mainModule ? process.mainModule.require : null); if (!req) { globalThis.__km_napi_windowssys = null; return false; } try { globalThis.__km_napi_windowssys = req('@kotlinmania/windowssys-native-bindings'); return true; } catch (_) {} var fs = req('fs'); var path = req('path'); var dir = process.cwd ? process.cwd() : '.'; var rels = ['windowssys_native.node', 'build/node-ffi/windowssys_native.node', 'build/node-ffi/release/windowssys_native.node', 'build/node-ffi/debug/windowssys_native.node', 'src/js/node-windowssys/build/Release/windowssys_native.node', 'src/js/node-windowssys/build/Debug/windowssys_native.node', 'src/js/node-windowssys/dist/build/Release/windowssys_native.node', 'src/js/node-windowssys/dist/build/Debug/windowssys_native.node']; for (var d = 0; d < 8; d++) { for (var i = 0; i < rels.length; i++) { var c = path.resolve(dir, rels[i]); if (fs.existsSync(c)) { globalThis.__km_napi_windowssys = req(c); return true; } } var parent = path.dirname(dir); if (parent === dir) break; dir = parent; } globalThis.__km_napi_windowssys = null; return false; }")
@@ -111,16 +107,16 @@ private external fun wasmWindowssysWindowsWin32SystemStationsanddesktopsSetUserO
 @JsFun("(p0) => globalThis.__km_napi_windowssys.windowssysWindowsWin32SystemStationsanddesktopsSwitchDesktop(p0)")
 private external fun wasmWindowssysWindowsWin32SystemStationsanddesktopsSwitchDesktop(p0: String): Int
 
-public actual fun broadcastSystemMessageA(flags: UInt, lpinfo: MutPtr<UInt>, msg: UInt, wparam: Wparam, lparam: Lparam): Int =
+public actual fun broadcastSystemMessageA(flags: UInt, lpinfo: MutPtr, msg: UInt, wparam: Wparam, lparam: Lparam): Int =
     if (windowsWin32SystemStationsanddesktopsNapiAvailable) wasmWindowssysWindowsWin32SystemStationsanddesktopsBroadcastSystemMessageA(flags.toInt(), lpinfo.rawAddress.toString(), msg.toInt(), wparam.toString(), lparam.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun broadcastSystemMessageExA(flags: BroadcastSystemMessageFlags, lpinfo: MutPtr<BroadcastSystemMessageInfo>, msg: UInt, wparam: Wparam, lparam: Lparam, pbsminfo: MutPtr<Bsminfo>): Int =
+public actual fun broadcastSystemMessageExA(flags: BroadcastSystemMessageFlags, lpinfo: MutPtr, msg: UInt, wparam: Wparam, lparam: Lparam, pbsminfo: MutPtr): Int =
     if (windowsWin32SystemStationsanddesktopsNapiAvailable) wasmWindowssysWindowsWin32SystemStationsanddesktopsBroadcastSystemMessageExA(flags.toInt(), lpinfo.rawAddress.toString(), msg.toInt(), wparam.toString(), lparam.toString(), pbsminfo.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun broadcastSystemMessageExW(flags: BroadcastSystemMessageFlags, lpinfo: MutPtr<BroadcastSystemMessageInfo>, msg: UInt, wparam: Wparam, lparam: Lparam, pbsminfo: MutPtr<Bsminfo>): Int =
+public actual fun broadcastSystemMessageExW(flags: BroadcastSystemMessageFlags, lpinfo: MutPtr, msg: UInt, wparam: Wparam, lparam: Lparam, pbsminfo: MutPtr): Int =
     if (windowsWin32SystemStationsanddesktopsNapiAvailable) wasmWindowssysWindowsWin32SystemStationsanddesktopsBroadcastSystemMessageExW(flags.toInt(), lpinfo.rawAddress.toString(), msg.toInt(), wparam.toString(), lparam.toString(), pbsminfo.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun broadcastSystemMessageW(flags: BroadcastSystemMessageFlags, lpinfo: MutPtr<BroadcastSystemMessageInfo>, msg: UInt, wparam: Wparam, lparam: Lparam): Int =
+public actual fun broadcastSystemMessageW(flags: BroadcastSystemMessageFlags, lpinfo: MutPtr, msg: UInt, wparam: Wparam, lparam: Lparam): Int =
     if (windowsWin32SystemStationsanddesktopsNapiAvailable) wasmWindowssysWindowsWin32SystemStationsanddesktopsBroadcastSystemMessageW(flags.toInt(), lpinfo.rawAddress.toString(), msg.toInt(), wparam.toString(), lparam.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun closeDesktop(hdesktop: Hdesk): Bool =
@@ -129,22 +125,22 @@ public actual fun closeDesktop(hdesktop: Hdesk): Bool =
 public actual fun closeWindowStation(hwinsta: Hwinsta): Bool =
     if (windowsWin32SystemStationsanddesktopsNapiAvailable) wasmWindowssysWindowsWin32SystemStationsanddesktopsCloseWindowStation(hwinsta.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun createDesktopA(lpszdesktop: Pcstr, lpszdevice: Pcstr, pdevmode: ConstPtr<Devmodea>, dwflags: DesktopControlFlags, dwdesiredaccess: UInt, lpsa: ConstPtr<SecurityAttributes>): Hdesk =
+public actual fun createDesktopA(lpszdesktop: Pcstr, lpszdevice: Pcstr, pdevmode: ConstPtr, dwflags: DesktopControlFlags, dwdesiredaccess: UInt, lpsa: ConstPtr): Hdesk =
     if (windowsWin32SystemStationsanddesktopsNapiAvailable) MutPtr(wasmWindowssysWindowsWin32SystemStationsanddesktopsCreateDesktopA(lpszdesktop.rawAddress.toString(), lpszdevice.rawAddress.toString(), pdevmode.rawAddress.toString(), dwflags.toInt(), dwdesiredaccess.toInt(), lpsa.rawAddress.toString()).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun createDesktopExA(lpszdesktop: Pcstr, lpszdevice: Pcstr, pdevmode: ConstPtr<Devmodea>, dwflags: DesktopControlFlags, dwdesiredaccess: UInt, lpsa: ConstPtr<SecurityAttributes>, ulheapsize: UInt, pvoid: ConstPtr<CVoid>): Hdesk =
+public actual fun createDesktopExA(lpszdesktop: Pcstr, lpszdevice: Pcstr, pdevmode: ConstPtr, dwflags: DesktopControlFlags, dwdesiredaccess: UInt, lpsa: ConstPtr, ulheapsize: UInt, pvoid: ConstPtr): Hdesk =
     if (windowsWin32SystemStationsanddesktopsNapiAvailable) MutPtr(wasmWindowssysWindowsWin32SystemStationsanddesktopsCreateDesktopExA(lpszdesktop.rawAddress.toString(), lpszdevice.rawAddress.toString(), pdevmode.rawAddress.toString(), dwflags.toInt(), dwdesiredaccess.toInt(), lpsa.rawAddress.toString(), ulheapsize.toInt(), pvoid.rawAddress.toString()).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun createDesktopExW(lpszdesktop: Pcwstr, lpszdevice: Pcwstr, pdevmode: ConstPtr<Devmodew>, dwflags: DesktopControlFlags, dwdesiredaccess: UInt, lpsa: ConstPtr<SecurityAttributes>, ulheapsize: UInt, pvoid: ConstPtr<CVoid>): Hdesk =
+public actual fun createDesktopExW(lpszdesktop: Pcwstr, lpszdevice: Pcwstr, pdevmode: ConstPtr, dwflags: DesktopControlFlags, dwdesiredaccess: UInt, lpsa: ConstPtr, ulheapsize: UInt, pvoid: ConstPtr): Hdesk =
     if (windowsWin32SystemStationsanddesktopsNapiAvailable) MutPtr(wasmWindowssysWindowsWin32SystemStationsanddesktopsCreateDesktopExW(lpszdesktop.rawAddress.toString(), lpszdevice.rawAddress.toString(), pdevmode.rawAddress.toString(), dwflags.toInt(), dwdesiredaccess.toInt(), lpsa.rawAddress.toString(), ulheapsize.toInt(), pvoid.rawAddress.toString()).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun createDesktopW(lpszdesktop: Pcwstr, lpszdevice: Pcwstr, pdevmode: ConstPtr<Devmodew>, dwflags: DesktopControlFlags, dwdesiredaccess: UInt, lpsa: ConstPtr<SecurityAttributes>): Hdesk =
+public actual fun createDesktopW(lpszdesktop: Pcwstr, lpszdevice: Pcwstr, pdevmode: ConstPtr, dwflags: DesktopControlFlags, dwdesiredaccess: UInt, lpsa: ConstPtr): Hdesk =
     if (windowsWin32SystemStationsanddesktopsNapiAvailable) MutPtr(wasmWindowssysWindowsWin32SystemStationsanddesktopsCreateDesktopW(lpszdesktop.rawAddress.toString(), lpszdevice.rawAddress.toString(), pdevmode.rawAddress.toString(), dwflags.toInt(), dwdesiredaccess.toInt(), lpsa.rawAddress.toString()).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun createWindowStationA(lpwinsta: Pcstr, dwflags: UInt, dwdesiredaccess: UInt, lpsa: ConstPtr<SecurityAttributes>): Hwinsta =
+public actual fun createWindowStationA(lpwinsta: Pcstr, dwflags: UInt, dwdesiredaccess: UInt, lpsa: ConstPtr): Hwinsta =
     if (windowsWin32SystemStationsanddesktopsNapiAvailable) MutPtr(wasmWindowssysWindowsWin32SystemStationsanddesktopsCreateWindowStationA(lpwinsta.rawAddress.toString(), dwflags.toInt(), dwdesiredaccess.toInt(), lpsa.rawAddress.toString()).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun createWindowStationW(lpwinsta: Pcwstr, dwflags: UInt, dwdesiredaccess: UInt, lpsa: ConstPtr<SecurityAttributes>): Hwinsta =
+public actual fun createWindowStationW(lpwinsta: Pcwstr, dwflags: UInt, dwdesiredaccess: UInt, lpsa: ConstPtr): Hwinsta =
     if (windowsWin32SystemStationsanddesktopsNapiAvailable) MutPtr(wasmWindowssysWindowsWin32SystemStationsanddesktopsCreateWindowStationW(lpwinsta.rawAddress.toString(), dwflags.toInt(), dwdesiredaccess.toInt(), lpsa.rawAddress.toString()).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun enumDesktopWindows(hdesktop: Hdesk, lpfn: Wndenumproc, lparam: Lparam): Bool =
@@ -168,10 +164,10 @@ public actual fun getProcessWindowStation(): Hwinsta =
 public actual fun getThreadDesktop(dwthreadid: UInt): Hdesk =
     if (windowsWin32SystemStationsanddesktopsNapiAvailable) MutPtr(wasmWindowssysWindowsWin32SystemStationsanddesktopsGetThreadDesktop(dwthreadid.toInt()).toLong()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun getUserObjectInformationA(hobj: Handle, nindex: UserObjectInformationIndex, pvinfo: MutPtr<CVoid>, nlength: UInt, lpnlengthneeded: MutPtr<UInt>): Bool =
+public actual fun getUserObjectInformationA(hobj: Handle, nindex: UserObjectInformationIndex, pvinfo: MutPtr, nlength: UInt, lpnlengthneeded: MutPtr): Bool =
     if (windowsWin32SystemStationsanddesktopsNapiAvailable) wasmWindowssysWindowsWin32SystemStationsanddesktopsGetUserObjectInformationA(hobj.rawAddress.toString(), nindex, pvinfo.rawAddress.toString(), nlength.toInt(), lpnlengthneeded.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun getUserObjectInformationW(hobj: Handle, nindex: UserObjectInformationIndex, pvinfo: MutPtr<CVoid>, nlength: UInt, lpnlengthneeded: MutPtr<UInt>): Bool =
+public actual fun getUserObjectInformationW(hobj: Handle, nindex: UserObjectInformationIndex, pvinfo: MutPtr, nlength: UInt, lpnlengthneeded: MutPtr): Bool =
     if (windowsWin32SystemStationsanddesktopsNapiAvailable) wasmWindowssysWindowsWin32SystemStationsanddesktopsGetUserObjectInformationW(hobj.rawAddress.toString(), nindex, pvinfo.rawAddress.toString(), nlength.toInt(), lpnlengthneeded.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun openDesktopA(lpszdesktop: Pcstr, dwflags: DesktopControlFlags, finherit: Bool, dwdesiredaccess: UInt): Hdesk =
@@ -195,10 +191,10 @@ public actual fun setProcessWindowStation(hwinsta: Hwinsta): Bool =
 public actual fun setThreadDesktop(hdesktop: Hdesk): Bool =
     if (windowsWin32SystemStationsanddesktopsNapiAvailable) wasmWindowssysWindowsWin32SystemStationsanddesktopsSetThreadDesktop(hdesktop.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun setUserObjectInformationA(hobj: Handle, nindex: Int, pvinfo: ConstPtr<CVoid>, nlength: UInt): Bool =
+public actual fun setUserObjectInformationA(hobj: Handle, nindex: Int, pvinfo: ConstPtr, nlength: UInt): Bool =
     if (windowsWin32SystemStationsanddesktopsNapiAvailable) wasmWindowssysWindowsWin32SystemStationsanddesktopsSetUserObjectInformationA(hobj.rawAddress.toString(), nindex, pvinfo.rawAddress.toString(), nlength.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun setUserObjectInformationW(hobj: Handle, nindex: Int, pvinfo: ConstPtr<CVoid>, nlength: UInt): Bool =
+public actual fun setUserObjectInformationW(hobj: Handle, nindex: Int, pvinfo: ConstPtr, nlength: UInt): Bool =
     if (windowsWin32SystemStationsanddesktopsNapiAvailable) wasmWindowssysWindowsWin32SystemStationsanddesktopsSetUserObjectInformationW(hobj.rawAddress.toString(), nindex, pvinfo.rawAddress.toString(), nlength.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun switchDesktop(hdesktop: Hdesk): Bool =

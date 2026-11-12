@@ -1,35 +1,32 @@
 package io.github.kotlinmania.windowssys.windows.win32.system.errorreporting
 
-import io.github.kotlinmania.rustlang.core.ffi.CVoid
 import io.github.kotlinmania.rustlang.core.ptr.ConstPtr
 import io.github.kotlinmania.rustlang.core.ptr.MutPtr
-import io.github.kotlinmania.windowssys.core.Bool
 import io.github.kotlinmania.windowssys.core.Hresult
 import io.github.kotlinmania.windowssys.core.Pcstr
 import io.github.kotlinmania.windowssys.core.Pcwstr
 import io.github.kotlinmania.windowssys.core.Pwstr
-import io.github.kotlinmania.windowssys.windows.win32.system.diagnostics.debug.ExceptionPointers
 
 public typealias EFaultRepRetVal = Int
 
-public typealias Hreport = MutPtr<CVoid>
+public typealias Hreport = MutPtr
 
-public typealias Hreportstore = MutPtr<CVoid>
+public typealias Hreportstore = MutPtr
 
 public fun interface PfnWerRuntimeExceptionDebuggerLaunchFn {
-    public operator fun invoke(pcontext: ConstPtr<CVoid>, pexceptioninformation: ConstPtr<WerRuntimeExceptionInformation>, pbiscustomdebugger: MutPtr<Bool>, pwszdebuggerlaunch: Pwstr, pchdebuggerlaunch: MutPtr<UInt>, pbisdebuggerautolaunch: MutPtr<Bool>): Hresult
+    public operator fun invoke(pcontext: ConstPtr, pexceptioninformation: ConstPtr, pbiscustomdebugger: MutPtr, pwszdebuggerlaunch: Pwstr, pchdebuggerlaunch: MutPtr, pbisdebuggerautolaunch: MutPtr): Hresult
 }
 
 public typealias PfnWerRuntimeExceptionDebuggerLaunch = PfnWerRuntimeExceptionDebuggerLaunchFn?
 
 public fun interface PfnWerRuntimeExceptionEventFn {
-    public operator fun invoke(pcontext: ConstPtr<CVoid>, pexceptioninformation: ConstPtr<WerRuntimeExceptionInformation>, pbownershipclaimed: MutPtr<Bool>, pwszeventname: Pwstr, pchsize: MutPtr<UInt>, pdwsignaturecount: MutPtr<UInt>): Hresult
+    public operator fun invoke(pcontext: ConstPtr, pexceptioninformation: ConstPtr, pbownershipclaimed: MutPtr, pwszeventname: Pwstr, pchsize: MutPtr, pdwsignaturecount: MutPtr): Hresult
 }
 
 public typealias PfnWerRuntimeExceptionEvent = PfnWerRuntimeExceptionEventFn?
 
 public fun interface PfnWerRuntimeExceptionEventSignatureFn {
-    public operator fun invoke(pcontext: ConstPtr<CVoid>, pexceptioninformation: ConstPtr<WerRuntimeExceptionInformation>, dwindex: UInt, pwszname: Pwstr, pchname: MutPtr<UInt>, pwszvalue: Pwstr, pchvalue: MutPtr<UInt>): Hresult
+    public operator fun invoke(pcontext: ConstPtr, pexceptioninformation: ConstPtr, dwindex: UInt, pwszname: Pwstr, pchname: MutPtr, pwszvalue: Pwstr, pchvalue: MutPtr): Hresult
 }
 
 public typealias PfnWerRuntimeExceptionEventSignature = PfnWerRuntimeExceptionEventSignatureFn?
@@ -69,7 +66,7 @@ public fun interface PfnAdderexcludedapplicationwFn {
 public typealias PfnAdderexcludedapplicationw = PfnAdderexcludedapplicationwFn?
 
 public fun interface PfnReportfaultFn {
-    public operator fun invoke(param0: ConstPtr<ExceptionPointers>, param1: UInt): EFaultRepRetVal
+    public operator fun invoke(param0: ConstPtr, param1: UInt): EFaultRepRetVal
 }
 
 public typealias PfnReportfault = PfnReportfaultFn?

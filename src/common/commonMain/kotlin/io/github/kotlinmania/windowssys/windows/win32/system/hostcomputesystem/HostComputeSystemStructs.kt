@@ -1,27 +1,25 @@
 package io.github.kotlinmania.windowssys.windows.win32.system.hostcomputesystem
 
-import io.github.kotlinmania.rustlang.core.ffi.CVoid
 import io.github.kotlinmania.rustlang.core.ptr.ConstPtr
 import io.github.kotlinmania.rustlang.core.ptr.MutPtr
 import io.github.kotlinmania.windowssys.core.Pcwstr
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Handle
-import io.github.kotlinmania.windowssys.windows.win32.security.SecurityDescriptor
 
 public class HcsCreateOptions1 internal constructor(
     public var version: HcsCreateOptions,
     userTokenCtorArg: Handle,
-    securityDescriptorCtorArg: MutPtr<SecurityDescriptor>,
+    securityDescriptorCtorArg: MutPtr,
     public var callbackOptions: HcsEventOptions,
-    callbackContextCtorArg: MutPtr<CVoid>,
+    callbackContextCtorArg: MutPtr,
     public var callback: HcsEventCallback,
 ) {
     public var userToken: Handle = userTokenCtorArg
         internal set
 
-    public var securityDescriptor: MutPtr<SecurityDescriptor> = securityDescriptorCtorArg
+    public var securityDescriptor: MutPtr = securityDescriptorCtorArg
         internal set
 
-    public var callbackContext: MutPtr<CVoid> = callbackContextCtorArg
+    public var callbackContext: MutPtr = callbackContextCtorArg
         internal set
 
     public constructor() : this(
@@ -37,15 +35,15 @@ public class HcsCreateOptions1 internal constructor(
 
     public operator fun component2(): Handle = this.userToken
 
-    public operator fun component3(): MutPtr<SecurityDescriptor> = this.securityDescriptor
+    public operator fun component3(): MutPtr = this.securityDescriptor
 
     public operator fun component4(): HcsEventOptions = this.callbackOptions
 
-    public operator fun component5(): MutPtr<CVoid> = this.callbackContext
+    public operator fun component5(): MutPtr = this.callbackContext
 
     public operator fun component6(): HcsEventCallback = this.callback
 
-    public fun copy(version: HcsCreateOptions = this.version, userToken: Handle = this.userToken, securityDescriptor: MutPtr<SecurityDescriptor> = this.securityDescriptor, callbackOptions: HcsEventOptions = this.callbackOptions, callbackContext: MutPtr<CVoid> = this.callbackContext, callback: HcsEventCallback = this.callback): HcsCreateOptions1 = HcsCreateOptions1(version = version, userTokenCtorArg = userToken, securityDescriptorCtorArg = securityDescriptor, callbackOptions = callbackOptions, callbackContextCtorArg = callbackContext, callback = callback)
+    public fun copy(version: HcsCreateOptions = this.version, userToken: Handle = this.userToken, securityDescriptor: MutPtr = this.securityDescriptor, callbackOptions: HcsEventOptions = this.callbackOptions, callbackContext: MutPtr = this.callbackContext, callback: HcsEventCallback = this.callback): HcsCreateOptions1 = HcsCreateOptions1(version = version, userTokenCtorArg = userToken, securityDescriptorCtorArg = securityDescriptor, callbackOptions = callbackOptions, callbackContextCtorArg = callbackContext, callback = callback)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -73,9 +71,9 @@ public class HcsCreateOptions1 internal constructor(
         public operator fun invoke(
             version: HcsCreateOptions = 0,
             userToken: Handle = MutPtr(0L),
-            securityDescriptor: MutPtr<SecurityDescriptor> = MutPtr(0L),
+            securityDescriptor: MutPtr = MutPtr(0L),
             callbackOptions: HcsEventOptions = 0,
-            callbackContext: MutPtr<CVoid> = MutPtr(0L),
+            callbackContext: MutPtr = MutPtr(0L),
             callback: HcsEventCallback = null,
         ): HcsCreateOptions1 =
             HcsCreateOptions1(

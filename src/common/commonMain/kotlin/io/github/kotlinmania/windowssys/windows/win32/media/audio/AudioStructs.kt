@@ -2,7 +2,6 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.media.audio
 
-import io.github.kotlinmania.rustlang.core.ffi.CVoid
 import io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
 import io.github.kotlinmania.rustlang.core.mem.TypeLayout
 import io.github.kotlinmania.rustlang.core.ptr.ConstPtr
@@ -17,7 +16,6 @@ import io.github.kotlinmania.windowssys.windows.win32.foundation.Handle
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Hinstance
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Hwnd
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Lparam
-import io.github.kotlinmania.windowssys.windows.win32.system.com.structuredstorage.Propvariant
 import io.github.kotlinmania.windowssys.windows.win32.ui.windowsandmessaging.Hicon
 
 public class Acmdriverdetailsa internal constructor(
@@ -335,15 +333,15 @@ public class Acmdriverdetailsw internal constructor(
 public class Acmdrvformatsuggest internal constructor(
     public var cbStruct: UInt,
     public var fdwSuggest: UInt,
-    pwfxSrcCtorArg: MutPtr<Waveformatex>,
+    pwfxSrcCtorArg: MutPtr,
     public var cbwfxSrc: UInt,
-    pwfxDstCtorArg: MutPtr<Waveformatex>,
+    pwfxDstCtorArg: MutPtr,
     public var cbwfxDst: UInt,
 ) {
-    public var pwfxSrc: MutPtr<Waveformatex> = pwfxSrcCtorArg
+    public var pwfxSrc: MutPtr = pwfxSrcCtorArg
         internal set
 
-    public var pwfxDst: MutPtr<Waveformatex> = pwfxDstCtorArg
+    public var pwfxDst: MutPtr = pwfxDstCtorArg
         internal set
 
     public constructor() : this(
@@ -359,15 +357,15 @@ public class Acmdrvformatsuggest internal constructor(
 
     public operator fun component2(): UInt = this.fdwSuggest
 
-    public operator fun component3(): MutPtr<Waveformatex> = this.pwfxSrc
+    public operator fun component3(): MutPtr = this.pwfxSrc
 
     public operator fun component4(): UInt = this.cbwfxSrc
 
-    public operator fun component5(): MutPtr<Waveformatex> = this.pwfxDst
+    public operator fun component5(): MutPtr = this.pwfxDst
 
     public operator fun component6(): UInt = this.cbwfxDst
 
-    public fun copy(cbStruct: UInt = this.cbStruct, fdwSuggest: UInt = this.fdwSuggest, pwfxSrc: MutPtr<Waveformatex> = this.pwfxSrc, cbwfxSrc: UInt = this.cbwfxSrc, pwfxDst: MutPtr<Waveformatex> = this.pwfxDst, cbwfxDst: UInt = this.cbwfxDst): Acmdrvformatsuggest = Acmdrvformatsuggest(cbStruct = cbStruct, fdwSuggest = fdwSuggest, pwfxSrcCtorArg = pwfxSrc, cbwfxSrc = cbwfxSrc, pwfxDstCtorArg = pwfxDst, cbwfxDst = cbwfxDst)
+    public fun copy(cbStruct: UInt = this.cbStruct, fdwSuggest: UInt = this.fdwSuggest, pwfxSrc: MutPtr = this.pwfxSrc, cbwfxSrc: UInt = this.cbwfxSrc, pwfxDst: MutPtr = this.pwfxDst, cbwfxDst: UInt = this.cbwfxDst): Acmdrvformatsuggest = Acmdrvformatsuggest(cbStruct = cbStruct, fdwSuggest = fdwSuggest, pwfxSrcCtorArg = pwfxSrc, cbwfxSrc = cbwfxSrc, pwfxDstCtorArg = pwfxDst, cbwfxDst = cbwfxDst)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -402,12 +400,12 @@ public class Acmdrvformatsuggest internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 4L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<Waveformatex>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 16L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<Waveformatex>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 20L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 28L),
                     )
@@ -416,12 +414,12 @@ public class Acmdrvformatsuggest internal constructor(
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 4L, value.fdwSuggest)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<Waveformatex>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.pwfxSrc)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 16L, value.cbwfxSrc)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<Waveformatex>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 20L, value.pwfxDst)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 28L, value.cbwfxDst)
                 }
@@ -430,9 +428,9 @@ public class Acmdrvformatsuggest internal constructor(
         public operator fun invoke(
             cbStruct: UInt = 0u,
             fdwSuggest: UInt = 0u,
-            pwfxSrc: MutPtr<Waveformatex> = MutPtr(0L),
+            pwfxSrc: MutPtr = MutPtr(0L),
             cbwfxSrc: UInt = 0u,
-            pwfxDst: MutPtr<Waveformatex> = MutPtr(0L),
+            pwfxDst: MutPtr = MutPtr(0L),
             cbwfxDst: UInt = 0u,
         ): Acmdrvformatsuggest =
             Acmdrvformatsuggest(
@@ -656,38 +654,38 @@ public class Acmdrvstreamheader internal constructor(
     public var cbStruct: UInt,
     public var fdwStatus: UInt,
     public var dwUser: Int,
-    pbSrcCtorArg: MutPtr<UByte>,
+    pbSrcCtorArg: MutPtr,
     public var cbSrcLength: UInt,
     public var cbSrcLengthUsed: UInt,
     public var dwSrcUser: Int,
-    pbDstCtorArg: MutPtr<UByte>,
+    pbDstCtorArg: MutPtr,
     public var cbDstLength: UInt,
     public var cbDstLengthUsed: UInt,
     public var dwDstUser: Int,
     public var fdwConvert: UInt,
-    padshNextCtorArg: MutPtr<Acmdrvstreamheader>,
+    padshNextCtorArg: MutPtr,
     public var fdwDriver: UInt,
     public var dwDriver: Int,
     public var fdwPrepared: UInt,
     public var dwPrepared: Int,
-    pbPreparedSrcCtorArg: MutPtr<UByte>,
+    pbPreparedSrcCtorArg: MutPtr,
     public var cbPreparedSrcLength: UInt,
-    pbPreparedDstCtorArg: MutPtr<UByte>,
+    pbPreparedDstCtorArg: MutPtr,
     public var cbPreparedDstLength: UInt,
 ) {
-    public var pbSrc: MutPtr<UByte> = pbSrcCtorArg
+    public var pbSrc: MutPtr = pbSrcCtorArg
         internal set
 
-    public var pbDst: MutPtr<UByte> = pbDstCtorArg
+    public var pbDst: MutPtr = pbDstCtorArg
         internal set
 
-    public var padshNext: MutPtr<Acmdrvstreamheader> = padshNextCtorArg
+    public var padshNext: MutPtr = padshNextCtorArg
         internal set
 
-    public var pbPreparedSrc: MutPtr<UByte> = pbPreparedSrcCtorArg
+    public var pbPreparedSrc: MutPtr = pbPreparedSrcCtorArg
         internal set
 
-    public var pbPreparedDst: MutPtr<UByte> = pbPreparedDstCtorArg
+    public var pbPreparedDst: MutPtr = pbPreparedDstCtorArg
         internal set
 
     public constructor() : this(
@@ -726,14 +724,14 @@ public class Acmdrvstreamheader internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.USIZE64).readNative(addr + 8L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<UByte>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 16L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 24L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 28L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.USIZE64).readNative(addr + 32L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<UByte>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 40L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 48L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 52L),
@@ -741,7 +739,7 @@ public class Acmdrvstreamheader internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 64L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<Acmdrvstreamheader>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 68L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 76L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.USIZE64).readNative(addr + 80L),
@@ -749,12 +747,12 @@ public class Acmdrvstreamheader internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.USIZE64).readNative(addr + 92L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<UByte>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 100L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 108L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<UByte>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 112L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 120L),
                     )
@@ -764,14 +762,14 @@ public class Acmdrvstreamheader internal constructor(
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.USIZE64).writeNative(addr + 8L, value.dwUser)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<UByte>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 16L, value.pbSrc)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 24L, value.cbSrcLength)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 28L, value.cbSrcLengthUsed)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.USIZE64).writeNative(addr + 32L, value.dwSrcUser)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<UByte>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 40L, value.pbDst)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 48L, value.cbDstLength)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 52L, value.cbDstLengthUsed)
@@ -779,7 +777,7 @@ public class Acmdrvstreamheader internal constructor(
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 64L, value.fdwConvert)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<Acmdrvstreamheader>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 68L, value.padshNext)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 76L, value.fdwDriver)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.USIZE64).writeNative(addr + 80L, value.dwDriver)
@@ -787,12 +785,12 @@ public class Acmdrvstreamheader internal constructor(
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.USIZE64).writeNative(addr + 92L, value.dwPrepared)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<UByte>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 100L, value.pbPreparedSrc)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 108L, value.cbPreparedSrcLength)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<UByte>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 112L, value.pbPreparedDst)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 120L, value.cbPreparedDstLength)
                 }
@@ -802,23 +800,23 @@ public class Acmdrvstreamheader internal constructor(
             cbStruct: UInt = 0u,
             fdwStatus: UInt = 0u,
             dwUser: Int = 0,
-            pbSrc: MutPtr<UByte> = MutPtr(0L),
+            pbSrc: MutPtr = MutPtr(0L),
             cbSrcLength: UInt = 0u,
             cbSrcLengthUsed: UInt = 0u,
             dwSrcUser: Int = 0,
-            pbDst: MutPtr<UByte> = MutPtr(0L),
+            pbDst: MutPtr = MutPtr(0L),
             cbDstLength: UInt = 0u,
             cbDstLengthUsed: UInt = 0u,
             dwDstUser: Int = 0,
             fdwConvert: UInt = 0u,
-            padshNext: MutPtr<Acmdrvstreamheader> = MutPtr(0L),
+            padshNext: MutPtr = MutPtr(0L),
             fdwDriver: UInt = 0u,
             dwDriver: Int = 0,
             fdwPrepared: UInt = 0u,
             dwPrepared: Int = 0,
-            pbPreparedSrc: MutPtr<UByte> = MutPtr(0L),
+            pbPreparedSrc: MutPtr = MutPtr(0L),
             cbPreparedSrcLength: UInt = 0u,
-            pbPreparedDst: MutPtr<UByte> = MutPtr(0L),
+            pbPreparedDst: MutPtr = MutPtr(0L),
             cbPreparedDstLength: UInt = 0u,
         ): Acmdrvstreamheader =
             Acmdrvstreamheader(
@@ -849,9 +847,9 @@ public class Acmdrvstreamheader internal constructor(
 
 public class Acmdrvstreaminstance internal constructor(
     public var cbStruct: UInt,
-    pwfxSrcCtorArg: MutPtr<Waveformatex>,
-    pwfxDstCtorArg: MutPtr<Waveformatex>,
-    pwfltrCtorArg: MutPtr<Wavefilter>,
+    pwfxSrcCtorArg: MutPtr,
+    pwfxDstCtorArg: MutPtr,
+    pwfltrCtorArg: MutPtr,
     public var dwCallback: Int,
     public var dwInstance: Int,
     public var fdwOpen: UInt,
@@ -859,13 +857,13 @@ public class Acmdrvstreaminstance internal constructor(
     public var dwDriver: Int,
     hasCtorArg: Hacmstream,
 ) {
-    public var pwfxSrc: MutPtr<Waveformatex> = pwfxSrcCtorArg
+    public var pwfxSrc: MutPtr = pwfxSrcCtorArg
         internal set
 
-    public var pwfxDst: MutPtr<Waveformatex> = pwfxDstCtorArg
+    public var pwfxDst: MutPtr = pwfxDstCtorArg
         internal set
 
-    public var pwfltr: MutPtr<Wavefilter> = pwfltrCtorArg
+    public var pwfltr: MutPtr = pwfltrCtorArg
         internal set
 
     public var has: Hacmstream = hasCtorArg
@@ -886,11 +884,11 @@ public class Acmdrvstreaminstance internal constructor(
 
     public operator fun component1(): UInt = this.cbStruct
 
-    public operator fun component2(): MutPtr<Waveformatex> = this.pwfxSrc
+    public operator fun component2(): MutPtr = this.pwfxSrc
 
-    public operator fun component3(): MutPtr<Waveformatex> = this.pwfxDst
+    public operator fun component3(): MutPtr = this.pwfxDst
 
-    public operator fun component4(): MutPtr<Wavefilter> = this.pwfltr
+    public operator fun component4(): MutPtr = this.pwfltr
 
     public operator fun component5(): Int = this.dwCallback
 
@@ -904,7 +902,7 @@ public class Acmdrvstreaminstance internal constructor(
 
     public operator fun component10(): Hacmstream = this.has
 
-    public fun copy(cbStruct: UInt = this.cbStruct, pwfxSrc: MutPtr<Waveformatex> = this.pwfxSrc, pwfxDst: MutPtr<Waveformatex> = this.pwfxDst, pwfltr: MutPtr<Wavefilter> = this.pwfltr, dwCallback: Int = this.dwCallback, dwInstance: Int = this.dwInstance, fdwOpen: UInt = this.fdwOpen, fdwDriver: UInt = this.fdwDriver, dwDriver: Int = this.dwDriver, has: Hacmstream = this.has): Acmdrvstreaminstance = Acmdrvstreaminstance(cbStruct = cbStruct, pwfxSrcCtorArg = pwfxSrc, pwfxDstCtorArg = pwfxDst, pwfltrCtorArg = pwfltr, dwCallback = dwCallback, dwInstance = dwInstance, fdwOpen = fdwOpen, fdwDriver = fdwDriver, dwDriver = dwDriver, hasCtorArg = has)
+    public fun copy(cbStruct: UInt = this.cbStruct, pwfxSrc: MutPtr = this.pwfxSrc, pwfxDst: MutPtr = this.pwfxDst, pwfltr: MutPtr = this.pwfltr, dwCallback: Int = this.dwCallback, dwInstance: Int = this.dwInstance, fdwOpen: UInt = this.fdwOpen, fdwDriver: UInt = this.fdwDriver, dwDriver: Int = this.dwDriver, has: Hacmstream = this.has): Acmdrvstreaminstance = Acmdrvstreaminstance(cbStruct = cbStruct, pwfxSrcCtorArg = pwfxSrc, pwfxDstCtorArg = pwfxDst, pwfltrCtorArg = pwfltr, dwCallback = dwCallback, dwInstance = dwInstance, fdwOpen = fdwOpen, fdwDriver = fdwDriver, dwDriver = dwDriver, hasCtorArg = has)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -946,15 +944,15 @@ public class Acmdrvstreaminstance internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<Waveformatex>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 4L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<Waveformatex>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 12L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<Wavefilter>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 20L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.USIZE64).readNative(addr + 28L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.USIZE64).readNative(addr + 36L),
@@ -963,22 +961,22 @@ public class Acmdrvstreaminstance internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.USIZE64).readNative(addr + 52L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<CVoid>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 60L),
                     )
                 override fun writeNative(addr: Long, value: Acmdrvstreaminstance) {
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr, value.cbStruct)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<Waveformatex>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 4L, value.pwfxSrc)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<Waveformatex>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 12L, value.pwfxDst)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<Wavefilter>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 20L, value.pwfltr)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.USIZE64).writeNative(addr + 28L, value.dwCallback)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.USIZE64).writeNative(addr + 36L, value.dwInstance)
@@ -987,16 +985,16 @@ public class Acmdrvstreaminstance internal constructor(
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.USIZE64).writeNative(addr + 52L, value.dwDriver)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<CVoid>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 60L, value.has)
                 }
             }
 
         public operator fun invoke(
             cbStruct: UInt = 0u,
-            pwfxSrc: MutPtr<Waveformatex> = MutPtr(0L),
-            pwfxDst: MutPtr<Waveformatex> = MutPtr(0L),
-            pwfltr: MutPtr<Wavefilter> = MutPtr(0L),
+            pwfxSrc: MutPtr = MutPtr(0L),
+            pwfxDst: MutPtr = MutPtr(0L),
+            pwfltr: MutPtr = MutPtr(0L),
             dwCallback: Int = 0,
             dwInstance: Int = 0,
             fdwOpen: UInt = 0u,
@@ -1051,7 +1049,7 @@ public class Acmfilterchoosea internal constructor(
     public var cbStruct: UInt,
     public var fdwStyle: UInt,
     hwndOwnerCtorArg: Hwnd,
-    pwfltrCtorArg: MutPtr<Wavefilter>,
+    pwfltrCtorArg: MutPtr,
     public var cbwfltr: UInt,
     pszTitleCtorArg: Pcstr,
     public var szFilterTag: ByteArray,
@@ -1059,7 +1057,7 @@ public class Acmfilterchoosea internal constructor(
     pszNameCtorArg: Pstr,
     public var cchName: UInt,
     public var fdwEnum: UInt,
-    pwfltrEnumCtorArg: MutPtr<Wavefilter>,
+    pwfltrEnumCtorArg: MutPtr,
     hInstanceCtorArg: Hinstance,
     pszTemplateNameCtorArg: Pcstr,
     public var lCustData: Lparam,
@@ -1068,7 +1066,7 @@ public class Acmfilterchoosea internal constructor(
     public var hwndOwner: Hwnd = hwndOwnerCtorArg
         internal set
 
-    public var pwfltr: MutPtr<Wavefilter> = pwfltrCtorArg
+    public var pwfltr: MutPtr = pwfltrCtorArg
         internal set
 
     public var pszTitle: Pcstr = pszTitleCtorArg
@@ -1077,7 +1075,7 @@ public class Acmfilterchoosea internal constructor(
     public var pszName: Pstr = pszNameCtorArg
         internal set
 
-    public var pwfltrEnum: MutPtr<Wavefilter> = pwfltrEnumCtorArg
+    public var pwfltrEnum: MutPtr = pwfltrEnumCtorArg
         internal set
 
     public var hInstance: Hinstance = hInstanceCtorArg
@@ -1111,7 +1109,7 @@ public class Acmfilterchoosea internal constructor(
 
     public operator fun component3(): Hwnd = this.hwndOwner
 
-    public operator fun component4(): MutPtr<Wavefilter> = this.pwfltr
+    public operator fun component4(): MutPtr = this.pwfltr
 
     public operator fun component5(): UInt = this.cbwfltr
 
@@ -1127,7 +1125,7 @@ public class Acmfilterchoosea internal constructor(
 
     public operator fun component11(): UInt = this.fdwEnum
 
-    public operator fun component12(): MutPtr<Wavefilter> = this.pwfltrEnum
+    public operator fun component12(): MutPtr = this.pwfltrEnum
 
     public operator fun component13(): Hinstance = this.hInstance
 
@@ -1137,7 +1135,7 @@ public class Acmfilterchoosea internal constructor(
 
     public operator fun component16(): Acmfilterchoosehookproca = this.pfnHook
 
-    public fun copy(cbStruct: UInt = this.cbStruct, fdwStyle: UInt = this.fdwStyle, hwndOwner: Hwnd = this.hwndOwner, pwfltr: MutPtr<Wavefilter> = this.pwfltr, cbwfltr: UInt = this.cbwfltr, pszTitle: Pcstr = this.pszTitle, szFilterTag: ByteArray = this.szFilterTag, szFilter: ByteArray = this.szFilter, pszName: Pstr = this.pszName, cchName: UInt = this.cchName, fdwEnum: UInt = this.fdwEnum, pwfltrEnum: MutPtr<Wavefilter> = this.pwfltrEnum, hInstance: Hinstance = this.hInstance, pszTemplateName: Pcstr = this.pszTemplateName, lCustData: Lparam = this.lCustData, pfnHook: Acmfilterchoosehookproca = this.pfnHook): Acmfilterchoosea = Acmfilterchoosea(cbStruct = cbStruct, fdwStyle = fdwStyle, hwndOwnerCtorArg = hwndOwner, pwfltrCtorArg = pwfltr, cbwfltr = cbwfltr, pszTitleCtorArg = pszTitle, szFilterTag = szFilterTag, szFilter = szFilter, pszNameCtorArg = pszName, cchName = cchName, fdwEnum = fdwEnum, pwfltrEnumCtorArg = pwfltrEnum, hInstanceCtorArg = hInstance, pszTemplateNameCtorArg = pszTemplateName, lCustData = lCustData, pfnHook = pfnHook)
+    public fun copy(cbStruct: UInt = this.cbStruct, fdwStyle: UInt = this.fdwStyle, hwndOwner: Hwnd = this.hwndOwner, pwfltr: MutPtr = this.pwfltr, cbwfltr: UInt = this.cbwfltr, pszTitle: Pcstr = this.pszTitle, szFilterTag: ByteArray = this.szFilterTag, szFilter: ByteArray = this.szFilter, pszName: Pstr = this.pszName, cchName: UInt = this.cchName, fdwEnum: UInt = this.fdwEnum, pwfltrEnum: MutPtr = this.pwfltrEnum, hInstance: Hinstance = this.hInstance, pszTemplateName: Pcstr = this.pszTemplateName, lCustData: Lparam = this.lCustData, pfnHook: Acmfilterchoosehookproca = this.pfnHook): Acmfilterchoosea = Acmfilterchoosea(cbStruct = cbStruct, fdwStyle = fdwStyle, hwndOwnerCtorArg = hwndOwner, pwfltrCtorArg = pwfltr, cbwfltr = cbwfltr, pszTitleCtorArg = pszTitle, szFilterTag = szFilterTag, szFilter = szFilter, pszNameCtorArg = pszName, cchName = cchName, fdwEnum = fdwEnum, pwfltrEnumCtorArg = pwfltrEnum, hInstanceCtorArg = hInstance, pszTemplateNameCtorArg = pszTemplateName, lCustData = lCustData, pfnHook = pfnHook)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -1186,7 +1184,7 @@ public class Acmfilterchoosea internal constructor(
             cbStruct: UInt = 0u,
             fdwStyle: UInt = 0u,
             hwndOwner: Hwnd = MutPtr(0L),
-            pwfltr: MutPtr<Wavefilter> = MutPtr(0L),
+            pwfltr: MutPtr = MutPtr(0L),
             cbwfltr: UInt = 0u,
             pszTitle: Pcstr = ConstPtr(0L),
             szFilterTag: ByteArray = ByteArray(48),
@@ -1194,7 +1192,7 @@ public class Acmfilterchoosea internal constructor(
             pszName: Pstr = MutPtr(0L),
             cchName: UInt = 0u,
             fdwEnum: UInt = 0u,
-            pwfltrEnum: MutPtr<Wavefilter> = MutPtr(0L),
+            pwfltrEnum: MutPtr = MutPtr(0L),
             hInstance: Hinstance = MutPtr(0L),
             pszTemplateName: Pcstr = ConstPtr(0L),
             lCustData: Lparam = 0L,
@@ -1225,7 +1223,7 @@ public class Acmfilterchoosew internal constructor(
     public var cbStruct: UInt,
     public var fdwStyle: UInt,
     hwndOwnerCtorArg: Hwnd,
-    pwfltrCtorArg: MutPtr<Wavefilter>,
+    pwfltrCtorArg: MutPtr,
     public var cbwfltr: UInt,
     pszTitleCtorArg: Pcwstr,
     public var szFilterTag: UShortArray,
@@ -1233,7 +1231,7 @@ public class Acmfilterchoosew internal constructor(
     pszNameCtorArg: Pwstr,
     public var cchName: UInt,
     public var fdwEnum: UInt,
-    pwfltrEnumCtorArg: MutPtr<Wavefilter>,
+    pwfltrEnumCtorArg: MutPtr,
     hInstanceCtorArg: Hinstance,
     pszTemplateNameCtorArg: Pcwstr,
     public var lCustData: Lparam,
@@ -1242,7 +1240,7 @@ public class Acmfilterchoosew internal constructor(
     public var hwndOwner: Hwnd = hwndOwnerCtorArg
         internal set
 
-    public var pwfltr: MutPtr<Wavefilter> = pwfltrCtorArg
+    public var pwfltr: MutPtr = pwfltrCtorArg
         internal set
 
     public var pszTitle: Pcwstr = pszTitleCtorArg
@@ -1251,7 +1249,7 @@ public class Acmfilterchoosew internal constructor(
     public var pszName: Pwstr = pszNameCtorArg
         internal set
 
-    public var pwfltrEnum: MutPtr<Wavefilter> = pwfltrEnumCtorArg
+    public var pwfltrEnum: MutPtr = pwfltrEnumCtorArg
         internal set
 
     public var hInstance: Hinstance = hInstanceCtorArg
@@ -1285,7 +1283,7 @@ public class Acmfilterchoosew internal constructor(
 
     public operator fun component3(): Hwnd = this.hwndOwner
 
-    public operator fun component4(): MutPtr<Wavefilter> = this.pwfltr
+    public operator fun component4(): MutPtr = this.pwfltr
 
     public operator fun component5(): UInt = this.cbwfltr
 
@@ -1301,7 +1299,7 @@ public class Acmfilterchoosew internal constructor(
 
     public operator fun component11(): UInt = this.fdwEnum
 
-    public operator fun component12(): MutPtr<Wavefilter> = this.pwfltrEnum
+    public operator fun component12(): MutPtr = this.pwfltrEnum
 
     public operator fun component13(): Hinstance = this.hInstance
 
@@ -1311,7 +1309,7 @@ public class Acmfilterchoosew internal constructor(
 
     public operator fun component16(): Acmfilterchoosehookprocw = this.pfnHook
 
-    public fun copy(cbStruct: UInt = this.cbStruct, fdwStyle: UInt = this.fdwStyle, hwndOwner: Hwnd = this.hwndOwner, pwfltr: MutPtr<Wavefilter> = this.pwfltr, cbwfltr: UInt = this.cbwfltr, pszTitle: Pcwstr = this.pszTitle, szFilterTag: UShortArray = this.szFilterTag, szFilter: UShortArray = this.szFilter, pszName: Pwstr = this.pszName, cchName: UInt = this.cchName, fdwEnum: UInt = this.fdwEnum, pwfltrEnum: MutPtr<Wavefilter> = this.pwfltrEnum, hInstance: Hinstance = this.hInstance, pszTemplateName: Pcwstr = this.pszTemplateName, lCustData: Lparam = this.lCustData, pfnHook: Acmfilterchoosehookprocw = this.pfnHook): Acmfilterchoosew = Acmfilterchoosew(cbStruct = cbStruct, fdwStyle = fdwStyle, hwndOwnerCtorArg = hwndOwner, pwfltrCtorArg = pwfltr, cbwfltr = cbwfltr, pszTitleCtorArg = pszTitle, szFilterTag = szFilterTag, szFilter = szFilter, pszNameCtorArg = pszName, cchName = cchName, fdwEnum = fdwEnum, pwfltrEnumCtorArg = pwfltrEnum, hInstanceCtorArg = hInstance, pszTemplateNameCtorArg = pszTemplateName, lCustData = lCustData, pfnHook = pfnHook)
+    public fun copy(cbStruct: UInt = this.cbStruct, fdwStyle: UInt = this.fdwStyle, hwndOwner: Hwnd = this.hwndOwner, pwfltr: MutPtr = this.pwfltr, cbwfltr: UInt = this.cbwfltr, pszTitle: Pcwstr = this.pszTitle, szFilterTag: UShortArray = this.szFilterTag, szFilter: UShortArray = this.szFilter, pszName: Pwstr = this.pszName, cchName: UInt = this.cchName, fdwEnum: UInt = this.fdwEnum, pwfltrEnum: MutPtr = this.pwfltrEnum, hInstance: Hinstance = this.hInstance, pszTemplateName: Pcwstr = this.pszTemplateName, lCustData: Lparam = this.lCustData, pfnHook: Acmfilterchoosehookprocw = this.pfnHook): Acmfilterchoosew = Acmfilterchoosew(cbStruct = cbStruct, fdwStyle = fdwStyle, hwndOwnerCtorArg = hwndOwner, pwfltrCtorArg = pwfltr, cbwfltr = cbwfltr, pszTitleCtorArg = pszTitle, szFilterTag = szFilterTag, szFilter = szFilter, pszNameCtorArg = pszName, cchName = cchName, fdwEnum = fdwEnum, pwfltrEnumCtorArg = pwfltrEnum, hInstanceCtorArg = hInstance, pszTemplateNameCtorArg = pszTemplateName, lCustData = lCustData, pfnHook = pfnHook)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -1360,7 +1358,7 @@ public class Acmfilterchoosew internal constructor(
             cbStruct: UInt = 0u,
             fdwStyle: UInt = 0u,
             hwndOwner: Hwnd = MutPtr(0L),
-            pwfltr: MutPtr<Wavefilter> = MutPtr(0L),
+            pwfltr: MutPtr = MutPtr(0L),
             cbwfltr: UInt = 0u,
             pszTitle: Pcwstr = ConstPtr(0L),
             szFilterTag: UShortArray = UShortArray(48),
@@ -1368,7 +1366,7 @@ public class Acmfilterchoosew internal constructor(
             pszName: Pwstr = MutPtr(0L),
             cchName: UInt = 0u,
             fdwEnum: UInt = 0u,
-            pwfltrEnum: MutPtr<Wavefilter> = MutPtr(0L),
+            pwfltrEnum: MutPtr = MutPtr(0L),
             hInstance: Hinstance = MutPtr(0L),
             pszTemplateName: Pcwstr = ConstPtr(0L),
             lCustData: Lparam = 0L,
@@ -1400,11 +1398,11 @@ public class Acmfilterdetailsa internal constructor(
     public var dwFilterIndex: UInt,
     public var dwFilterTag: UInt,
     public var fdwSupport: UInt,
-    pwfltrCtorArg: MutPtr<Wavefilter>,
+    pwfltrCtorArg: MutPtr,
     public var cbwfltr: UInt,
     public var szFilter: ByteArray,
 ) {
-    public var pwfltr: MutPtr<Wavefilter> = pwfltrCtorArg
+    public var pwfltr: MutPtr = pwfltrCtorArg
         internal set
 
     public constructor() : this(
@@ -1425,13 +1423,13 @@ public class Acmfilterdetailsa internal constructor(
 
     public operator fun component4(): UInt = this.fdwSupport
 
-    public operator fun component5(): MutPtr<Wavefilter> = this.pwfltr
+    public operator fun component5(): MutPtr = this.pwfltr
 
     public operator fun component6(): UInt = this.cbwfltr
 
     public operator fun component7(): ByteArray = this.szFilter
 
-    public fun copy(cbStruct: UInt = this.cbStruct, dwFilterIndex: UInt = this.dwFilterIndex, dwFilterTag: UInt = this.dwFilterTag, fdwSupport: UInt = this.fdwSupport, pwfltr: MutPtr<Wavefilter> = this.pwfltr, cbwfltr: UInt = this.cbwfltr, szFilter: ByteArray = this.szFilter): Acmfilterdetailsa = Acmfilterdetailsa(cbStruct = cbStruct, dwFilterIndex = dwFilterIndex, dwFilterTag = dwFilterTag, fdwSupport = fdwSupport, pwfltrCtorArg = pwfltr, cbwfltr = cbwfltr, szFilter = szFilter)
+    public fun copy(cbStruct: UInt = this.cbStruct, dwFilterIndex: UInt = this.dwFilterIndex, dwFilterTag: UInt = this.dwFilterTag, fdwSupport: UInt = this.fdwSupport, pwfltr: MutPtr = this.pwfltr, cbwfltr: UInt = this.cbwfltr, szFilter: ByteArray = this.szFilter): Acmfilterdetailsa = Acmfilterdetailsa(cbStruct = cbStruct, dwFilterIndex = dwFilterIndex, dwFilterTag = dwFilterTag, fdwSupport = fdwSupport, pwfltrCtorArg = pwfltr, cbwfltr = cbwfltr, szFilter = szFilter)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -1470,7 +1468,7 @@ public class Acmfilterdetailsa internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 12L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<Wavefilter>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 16L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 24L),
                         (
@@ -1485,7 +1483,7 @@ public class Acmfilterdetailsa internal constructor(
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 12L, value.fdwSupport)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<Wavefilter>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 16L, value.pwfltr)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 24L, value.cbwfltr)
                     (
@@ -1500,7 +1498,7 @@ public class Acmfilterdetailsa internal constructor(
             dwFilterIndex: UInt = 0u,
             dwFilterTag: UInt = 0u,
             fdwSupport: UInt = 0u,
-            pwfltr: MutPtr<Wavefilter> = MutPtr(0L),
+            pwfltr: MutPtr = MutPtr(0L),
             cbwfltr: UInt = 0u,
             szFilter: ByteArray = ByteArray(128),
         ): Acmfilterdetailsa =
@@ -1521,11 +1519,11 @@ public class Acmfilterdetailsw internal constructor(
     public var dwFilterIndex: UInt,
     public var dwFilterTag: UInt,
     public var fdwSupport: UInt,
-    pwfltrCtorArg: MutPtr<Wavefilter>,
+    pwfltrCtorArg: MutPtr,
     public var cbwfltr: UInt,
     public var szFilter: UShortArray,
 ) {
-    public var pwfltr: MutPtr<Wavefilter> = pwfltrCtorArg
+    public var pwfltr: MutPtr = pwfltrCtorArg
         internal set
 
     public constructor() : this(
@@ -1546,13 +1544,13 @@ public class Acmfilterdetailsw internal constructor(
 
     public operator fun component4(): UInt = this.fdwSupport
 
-    public operator fun component5(): MutPtr<Wavefilter> = this.pwfltr
+    public operator fun component5(): MutPtr = this.pwfltr
 
     public operator fun component6(): UInt = this.cbwfltr
 
     public operator fun component7(): UShortArray = this.szFilter
 
-    public fun copy(cbStruct: UInt = this.cbStruct, dwFilterIndex: UInt = this.dwFilterIndex, dwFilterTag: UInt = this.dwFilterTag, fdwSupport: UInt = this.fdwSupport, pwfltr: MutPtr<Wavefilter> = this.pwfltr, cbwfltr: UInt = this.cbwfltr, szFilter: UShortArray = this.szFilter): Acmfilterdetailsw = Acmfilterdetailsw(cbStruct = cbStruct, dwFilterIndex = dwFilterIndex, dwFilterTag = dwFilterTag, fdwSupport = fdwSupport, pwfltrCtorArg = pwfltr, cbwfltr = cbwfltr, szFilter = szFilter)
+    public fun copy(cbStruct: UInt = this.cbStruct, dwFilterIndex: UInt = this.dwFilterIndex, dwFilterTag: UInt = this.dwFilterTag, fdwSupport: UInt = this.fdwSupport, pwfltr: MutPtr = this.pwfltr, cbwfltr: UInt = this.cbwfltr, szFilter: UShortArray = this.szFilter): Acmfilterdetailsw = Acmfilterdetailsw(cbStruct = cbStruct, dwFilterIndex = dwFilterIndex, dwFilterTag = dwFilterTag, fdwSupport = fdwSupport, pwfltrCtorArg = pwfltr, cbwfltr = cbwfltr, szFilter = szFilter)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -1591,7 +1589,7 @@ public class Acmfilterdetailsw internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 12L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<Wavefilter>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 16L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 24L),
                         (
@@ -1606,7 +1604,7 @@ public class Acmfilterdetailsw internal constructor(
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 12L, value.fdwSupport)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<Wavefilter>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 16L, value.pwfltr)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 24L, value.cbwfltr)
                     (
@@ -1621,7 +1619,7 @@ public class Acmfilterdetailsw internal constructor(
             dwFilterIndex: UInt = 0u,
             dwFilterTag: UInt = 0u,
             fdwSupport: UInt = 0u,
-            pwfltr: MutPtr<Wavefilter> = MutPtr(0L),
+            pwfltr: MutPtr = MutPtr(0L),
             cbwfltr: UInt = 0u,
             szFilter: UShortArray = UShortArray(128),
         ): Acmfilterdetailsw =
@@ -1775,7 +1773,7 @@ public class Acmformatchoosea internal constructor(
     public var cbStruct: UInt,
     public var fdwStyle: UInt,
     hwndOwnerCtorArg: Hwnd,
-    pwfxCtorArg: MutPtr<Waveformatex>,
+    pwfxCtorArg: MutPtr,
     public var cbwfx: UInt,
     pszTitleCtorArg: Pcstr,
     public var szFormatTag: ByteArray,
@@ -1783,7 +1781,7 @@ public class Acmformatchoosea internal constructor(
     pszNameCtorArg: Pstr,
     public var cchName: UInt,
     public var fdwEnum: UInt,
-    pwfxEnumCtorArg: MutPtr<Waveformatex>,
+    pwfxEnumCtorArg: MutPtr,
     hInstanceCtorArg: Hinstance,
     pszTemplateNameCtorArg: Pcstr,
     public var lCustData: Lparam,
@@ -1792,7 +1790,7 @@ public class Acmformatchoosea internal constructor(
     public var hwndOwner: Hwnd = hwndOwnerCtorArg
         internal set
 
-    public var pwfx: MutPtr<Waveformatex> = pwfxCtorArg
+    public var pwfx: MutPtr = pwfxCtorArg
         internal set
 
     public var pszTitle: Pcstr = pszTitleCtorArg
@@ -1801,7 +1799,7 @@ public class Acmformatchoosea internal constructor(
     public var pszName: Pstr = pszNameCtorArg
         internal set
 
-    public var pwfxEnum: MutPtr<Waveformatex> = pwfxEnumCtorArg
+    public var pwfxEnum: MutPtr = pwfxEnumCtorArg
         internal set
 
     public var hInstance: Hinstance = hInstanceCtorArg
@@ -1835,7 +1833,7 @@ public class Acmformatchoosea internal constructor(
 
     public operator fun component3(): Hwnd = this.hwndOwner
 
-    public operator fun component4(): MutPtr<Waveformatex> = this.pwfx
+    public operator fun component4(): MutPtr = this.pwfx
 
     public operator fun component5(): UInt = this.cbwfx
 
@@ -1851,7 +1849,7 @@ public class Acmformatchoosea internal constructor(
 
     public operator fun component11(): UInt = this.fdwEnum
 
-    public operator fun component12(): MutPtr<Waveformatex> = this.pwfxEnum
+    public operator fun component12(): MutPtr = this.pwfxEnum
 
     public operator fun component13(): Hinstance = this.hInstance
 
@@ -1861,7 +1859,7 @@ public class Acmformatchoosea internal constructor(
 
     public operator fun component16(): Acmformatchoosehookproca = this.pfnHook
 
-    public fun copy(cbStruct: UInt = this.cbStruct, fdwStyle: UInt = this.fdwStyle, hwndOwner: Hwnd = this.hwndOwner, pwfx: MutPtr<Waveformatex> = this.pwfx, cbwfx: UInt = this.cbwfx, pszTitle: Pcstr = this.pszTitle, szFormatTag: ByteArray = this.szFormatTag, szFormat: ByteArray = this.szFormat, pszName: Pstr = this.pszName, cchName: UInt = this.cchName, fdwEnum: UInt = this.fdwEnum, pwfxEnum: MutPtr<Waveformatex> = this.pwfxEnum, hInstance: Hinstance = this.hInstance, pszTemplateName: Pcstr = this.pszTemplateName, lCustData: Lparam = this.lCustData, pfnHook: Acmformatchoosehookproca = this.pfnHook): Acmformatchoosea = Acmformatchoosea(cbStruct = cbStruct, fdwStyle = fdwStyle, hwndOwnerCtorArg = hwndOwner, pwfxCtorArg = pwfx, cbwfx = cbwfx, pszTitleCtorArg = pszTitle, szFormatTag = szFormatTag, szFormat = szFormat, pszNameCtorArg = pszName, cchName = cchName, fdwEnum = fdwEnum, pwfxEnumCtorArg = pwfxEnum, hInstanceCtorArg = hInstance, pszTemplateNameCtorArg = pszTemplateName, lCustData = lCustData, pfnHook = pfnHook)
+    public fun copy(cbStruct: UInt = this.cbStruct, fdwStyle: UInt = this.fdwStyle, hwndOwner: Hwnd = this.hwndOwner, pwfx: MutPtr = this.pwfx, cbwfx: UInt = this.cbwfx, pszTitle: Pcstr = this.pszTitle, szFormatTag: ByteArray = this.szFormatTag, szFormat: ByteArray = this.szFormat, pszName: Pstr = this.pszName, cchName: UInt = this.cchName, fdwEnum: UInt = this.fdwEnum, pwfxEnum: MutPtr = this.pwfxEnum, hInstance: Hinstance = this.hInstance, pszTemplateName: Pcstr = this.pszTemplateName, lCustData: Lparam = this.lCustData, pfnHook: Acmformatchoosehookproca = this.pfnHook): Acmformatchoosea = Acmformatchoosea(cbStruct = cbStruct, fdwStyle = fdwStyle, hwndOwnerCtorArg = hwndOwner, pwfxCtorArg = pwfx, cbwfx = cbwfx, pszTitleCtorArg = pszTitle, szFormatTag = szFormatTag, szFormat = szFormat, pszNameCtorArg = pszName, cchName = cchName, fdwEnum = fdwEnum, pwfxEnumCtorArg = pwfxEnum, hInstanceCtorArg = hInstance, pszTemplateNameCtorArg = pszTemplateName, lCustData = lCustData, pfnHook = pfnHook)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -1910,7 +1908,7 @@ public class Acmformatchoosea internal constructor(
             cbStruct: UInt = 0u,
             fdwStyle: UInt = 0u,
             hwndOwner: Hwnd = MutPtr(0L),
-            pwfx: MutPtr<Waveformatex> = MutPtr(0L),
+            pwfx: MutPtr = MutPtr(0L),
             cbwfx: UInt = 0u,
             pszTitle: Pcstr = ConstPtr(0L),
             szFormatTag: ByteArray = ByteArray(48),
@@ -1918,7 +1916,7 @@ public class Acmformatchoosea internal constructor(
             pszName: Pstr = MutPtr(0L),
             cchName: UInt = 0u,
             fdwEnum: UInt = 0u,
-            pwfxEnum: MutPtr<Waveformatex> = MutPtr(0L),
+            pwfxEnum: MutPtr = MutPtr(0L),
             hInstance: Hinstance = MutPtr(0L),
             pszTemplateName: Pcstr = ConstPtr(0L),
             lCustData: Lparam = 0L,
@@ -1949,7 +1947,7 @@ public class Acmformatchoosew internal constructor(
     public var cbStruct: UInt,
     public var fdwStyle: UInt,
     hwndOwnerCtorArg: Hwnd,
-    pwfxCtorArg: MutPtr<Waveformatex>,
+    pwfxCtorArg: MutPtr,
     public var cbwfx: UInt,
     pszTitleCtorArg: Pcwstr,
     public var szFormatTag: UShortArray,
@@ -1957,7 +1955,7 @@ public class Acmformatchoosew internal constructor(
     pszNameCtorArg: Pwstr,
     public var cchName: UInt,
     public var fdwEnum: UInt,
-    pwfxEnumCtorArg: MutPtr<Waveformatex>,
+    pwfxEnumCtorArg: MutPtr,
     hInstanceCtorArg: Hinstance,
     pszTemplateNameCtorArg: Pcwstr,
     public var lCustData: Lparam,
@@ -1966,7 +1964,7 @@ public class Acmformatchoosew internal constructor(
     public var hwndOwner: Hwnd = hwndOwnerCtorArg
         internal set
 
-    public var pwfx: MutPtr<Waveformatex> = pwfxCtorArg
+    public var pwfx: MutPtr = pwfxCtorArg
         internal set
 
     public var pszTitle: Pcwstr = pszTitleCtorArg
@@ -1975,7 +1973,7 @@ public class Acmformatchoosew internal constructor(
     public var pszName: Pwstr = pszNameCtorArg
         internal set
 
-    public var pwfxEnum: MutPtr<Waveformatex> = pwfxEnumCtorArg
+    public var pwfxEnum: MutPtr = pwfxEnumCtorArg
         internal set
 
     public var hInstance: Hinstance = hInstanceCtorArg
@@ -2009,7 +2007,7 @@ public class Acmformatchoosew internal constructor(
 
     public operator fun component3(): Hwnd = this.hwndOwner
 
-    public operator fun component4(): MutPtr<Waveformatex> = this.pwfx
+    public operator fun component4(): MutPtr = this.pwfx
 
     public operator fun component5(): UInt = this.cbwfx
 
@@ -2025,7 +2023,7 @@ public class Acmformatchoosew internal constructor(
 
     public operator fun component11(): UInt = this.fdwEnum
 
-    public operator fun component12(): MutPtr<Waveformatex> = this.pwfxEnum
+    public operator fun component12(): MutPtr = this.pwfxEnum
 
     public operator fun component13(): Hinstance = this.hInstance
 
@@ -2035,7 +2033,7 @@ public class Acmformatchoosew internal constructor(
 
     public operator fun component16(): Acmformatchoosehookprocw = this.pfnHook
 
-    public fun copy(cbStruct: UInt = this.cbStruct, fdwStyle: UInt = this.fdwStyle, hwndOwner: Hwnd = this.hwndOwner, pwfx: MutPtr<Waveformatex> = this.pwfx, cbwfx: UInt = this.cbwfx, pszTitle: Pcwstr = this.pszTitle, szFormatTag: UShortArray = this.szFormatTag, szFormat: UShortArray = this.szFormat, pszName: Pwstr = this.pszName, cchName: UInt = this.cchName, fdwEnum: UInt = this.fdwEnum, pwfxEnum: MutPtr<Waveformatex> = this.pwfxEnum, hInstance: Hinstance = this.hInstance, pszTemplateName: Pcwstr = this.pszTemplateName, lCustData: Lparam = this.lCustData, pfnHook: Acmformatchoosehookprocw = this.pfnHook): Acmformatchoosew = Acmformatchoosew(cbStruct = cbStruct, fdwStyle = fdwStyle, hwndOwnerCtorArg = hwndOwner, pwfxCtorArg = pwfx, cbwfx = cbwfx, pszTitleCtorArg = pszTitle, szFormatTag = szFormatTag, szFormat = szFormat, pszNameCtorArg = pszName, cchName = cchName, fdwEnum = fdwEnum, pwfxEnumCtorArg = pwfxEnum, hInstanceCtorArg = hInstance, pszTemplateNameCtorArg = pszTemplateName, lCustData = lCustData, pfnHook = pfnHook)
+    public fun copy(cbStruct: UInt = this.cbStruct, fdwStyle: UInt = this.fdwStyle, hwndOwner: Hwnd = this.hwndOwner, pwfx: MutPtr = this.pwfx, cbwfx: UInt = this.cbwfx, pszTitle: Pcwstr = this.pszTitle, szFormatTag: UShortArray = this.szFormatTag, szFormat: UShortArray = this.szFormat, pszName: Pwstr = this.pszName, cchName: UInt = this.cchName, fdwEnum: UInt = this.fdwEnum, pwfxEnum: MutPtr = this.pwfxEnum, hInstance: Hinstance = this.hInstance, pszTemplateName: Pcwstr = this.pszTemplateName, lCustData: Lparam = this.lCustData, pfnHook: Acmformatchoosehookprocw = this.pfnHook): Acmformatchoosew = Acmformatchoosew(cbStruct = cbStruct, fdwStyle = fdwStyle, hwndOwnerCtorArg = hwndOwner, pwfxCtorArg = pwfx, cbwfx = cbwfx, pszTitleCtorArg = pszTitle, szFormatTag = szFormatTag, szFormat = szFormat, pszNameCtorArg = pszName, cchName = cchName, fdwEnum = fdwEnum, pwfxEnumCtorArg = pwfxEnum, hInstanceCtorArg = hInstance, pszTemplateNameCtorArg = pszTemplateName, lCustData = lCustData, pfnHook = pfnHook)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -2084,7 +2082,7 @@ public class Acmformatchoosew internal constructor(
             cbStruct: UInt = 0u,
             fdwStyle: UInt = 0u,
             hwndOwner: Hwnd = MutPtr(0L),
-            pwfx: MutPtr<Waveformatex> = MutPtr(0L),
+            pwfx: MutPtr = MutPtr(0L),
             cbwfx: UInt = 0u,
             pszTitle: Pcwstr = ConstPtr(0L),
             szFormatTag: UShortArray = UShortArray(48),
@@ -2092,7 +2090,7 @@ public class Acmformatchoosew internal constructor(
             pszName: Pwstr = MutPtr(0L),
             cchName: UInt = 0u,
             fdwEnum: UInt = 0u,
-            pwfxEnum: MutPtr<Waveformatex> = MutPtr(0L),
+            pwfxEnum: MutPtr = MutPtr(0L),
             hInstance: Hinstance = MutPtr(0L),
             pszTemplateName: Pcwstr = ConstPtr(0L),
             lCustData: Lparam = 0L,
@@ -2124,11 +2122,11 @@ public class Acmformatdetailsa internal constructor(
     public var dwFormatIndex: UInt,
     public var dwFormatTag: UInt,
     public var fdwSupport: UInt,
-    pwfxCtorArg: MutPtr<Waveformatex>,
+    pwfxCtorArg: MutPtr,
     public var cbwfx: UInt,
     public var szFormat: ByteArray,
 ) {
-    public var pwfx: MutPtr<Waveformatex> = pwfxCtorArg
+    public var pwfx: MutPtr = pwfxCtorArg
         internal set
 
     public constructor() : this(
@@ -2149,13 +2147,13 @@ public class Acmformatdetailsa internal constructor(
 
     public operator fun component4(): UInt = this.fdwSupport
 
-    public operator fun component5(): MutPtr<Waveformatex> = this.pwfx
+    public operator fun component5(): MutPtr = this.pwfx
 
     public operator fun component6(): UInt = this.cbwfx
 
     public operator fun component7(): ByteArray = this.szFormat
 
-    public fun copy(cbStruct: UInt = this.cbStruct, dwFormatIndex: UInt = this.dwFormatIndex, dwFormatTag: UInt = this.dwFormatTag, fdwSupport: UInt = this.fdwSupport, pwfx: MutPtr<Waveformatex> = this.pwfx, cbwfx: UInt = this.cbwfx, szFormat: ByteArray = this.szFormat): Acmformatdetailsa = Acmformatdetailsa(cbStruct = cbStruct, dwFormatIndex = dwFormatIndex, dwFormatTag = dwFormatTag, fdwSupport = fdwSupport, pwfxCtorArg = pwfx, cbwfx = cbwfx, szFormat = szFormat)
+    public fun copy(cbStruct: UInt = this.cbStruct, dwFormatIndex: UInt = this.dwFormatIndex, dwFormatTag: UInt = this.dwFormatTag, fdwSupport: UInt = this.fdwSupport, pwfx: MutPtr = this.pwfx, cbwfx: UInt = this.cbwfx, szFormat: ByteArray = this.szFormat): Acmformatdetailsa = Acmformatdetailsa(cbStruct = cbStruct, dwFormatIndex = dwFormatIndex, dwFormatTag = dwFormatTag, fdwSupport = fdwSupport, pwfxCtorArg = pwfx, cbwfx = cbwfx, szFormat = szFormat)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -2194,7 +2192,7 @@ public class Acmformatdetailsa internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 12L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<Waveformatex>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 16L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 24L),
                         (
@@ -2209,7 +2207,7 @@ public class Acmformatdetailsa internal constructor(
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 12L, value.fdwSupport)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<Waveformatex>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 16L, value.pwfx)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 24L, value.cbwfx)
                     (
@@ -2224,7 +2222,7 @@ public class Acmformatdetailsa internal constructor(
             dwFormatIndex: UInt = 0u,
             dwFormatTag: UInt = 0u,
             fdwSupport: UInt = 0u,
-            pwfx: MutPtr<Waveformatex> = MutPtr(0L),
+            pwfx: MutPtr = MutPtr(0L),
             cbwfx: UInt = 0u,
             szFormat: ByteArray = ByteArray(128),
         ): Acmformatdetailsa =
@@ -2378,20 +2376,20 @@ public class Acmstreamheader internal constructor(
     public var cbStruct: UInt,
     public var fdwStatus: UInt,
     public var dwUser: Int,
-    pbSrcCtorArg: MutPtr<UByte>,
+    pbSrcCtorArg: MutPtr,
     public var cbSrcLength: UInt,
     public var cbSrcLengthUsed: UInt,
     public var dwSrcUser: Int,
-    pbDstCtorArg: MutPtr<UByte>,
+    pbDstCtorArg: MutPtr,
     public var cbDstLength: UInt,
     public var cbDstLengthUsed: UInt,
     public var dwDstUser: Int,
     public var dwReservedDriver: UIntArray,
 ) {
-    public var pbSrc: MutPtr<UByte> = pbSrcCtorArg
+    public var pbSrc: MutPtr = pbSrcCtorArg
         internal set
 
-    public var pbDst: MutPtr<UByte> = pbDstCtorArg
+    public var pbDst: MutPtr = pbDstCtorArg
         internal set
 
     public constructor() : this(
@@ -2415,7 +2413,7 @@ public class Acmstreamheader internal constructor(
 
     public operator fun component3(): Int = this.dwUser
 
-    public operator fun component4(): MutPtr<UByte> = this.pbSrc
+    public operator fun component4(): MutPtr = this.pbSrc
 
     public operator fun component5(): UInt = this.cbSrcLength
 
@@ -2423,7 +2421,7 @@ public class Acmstreamheader internal constructor(
 
     public operator fun component7(): Int = this.dwSrcUser
 
-    public operator fun component8(): MutPtr<UByte> = this.pbDst
+    public operator fun component8(): MutPtr = this.pbDst
 
     public operator fun component9(): UInt = this.cbDstLength
 
@@ -2433,7 +2431,7 @@ public class Acmstreamheader internal constructor(
 
     public operator fun component12(): UIntArray = this.dwReservedDriver
 
-    public fun copy(cbStruct: UInt = this.cbStruct, fdwStatus: UInt = this.fdwStatus, dwUser: Int = this.dwUser, pbSrc: MutPtr<UByte> = this.pbSrc, cbSrcLength: UInt = this.cbSrcLength, cbSrcLengthUsed: UInt = this.cbSrcLengthUsed, dwSrcUser: Int = this.dwSrcUser, pbDst: MutPtr<UByte> = this.pbDst, cbDstLength: UInt = this.cbDstLength, cbDstLengthUsed: UInt = this.cbDstLengthUsed, dwDstUser: Int = this.dwDstUser, dwReservedDriver: UIntArray = this.dwReservedDriver): Acmstreamheader = Acmstreamheader(cbStruct = cbStruct, fdwStatus = fdwStatus, dwUser = dwUser, pbSrcCtorArg = pbSrc, cbSrcLength = cbSrcLength, cbSrcLengthUsed = cbSrcLengthUsed, dwSrcUser = dwSrcUser, pbDstCtorArg = pbDst, cbDstLength = cbDstLength, cbDstLengthUsed = cbDstLengthUsed, dwDstUser = dwDstUser, dwReservedDriver = dwReservedDriver)
+    public fun copy(cbStruct: UInt = this.cbStruct, fdwStatus: UInt = this.fdwStatus, dwUser: Int = this.dwUser, pbSrc: MutPtr = this.pbSrc, cbSrcLength: UInt = this.cbSrcLength, cbSrcLengthUsed: UInt = this.cbSrcLengthUsed, dwSrcUser: Int = this.dwSrcUser, pbDst: MutPtr = this.pbDst, cbDstLength: UInt = this.cbDstLength, cbDstLengthUsed: UInt = this.cbDstLengthUsed, dwDstUser: Int = this.dwDstUser, dwReservedDriver: UIntArray = this.dwReservedDriver): Acmstreamheader = Acmstreamheader(cbStruct = cbStruct, fdwStatus = fdwStatus, dwUser = dwUser, pbSrcCtorArg = pbSrc, cbSrcLength = cbSrcLength, cbSrcLengthUsed = cbSrcLengthUsed, dwSrcUser = dwSrcUser, pbDstCtorArg = pbDst, cbDstLength = cbDstLength, cbDstLengthUsed = cbDstLengthUsed, dwDstUser = dwDstUser, dwReservedDriver = dwReservedDriver)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -2481,14 +2479,14 @@ public class Acmstreamheader internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.USIZE64).readNative(addr + 8L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<UByte>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 16L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 24L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 28L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.USIZE64).readNative(addr + 32L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<UByte>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 40L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 48L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 52L),
@@ -2504,14 +2502,14 @@ public class Acmstreamheader internal constructor(
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.USIZE64).writeNative(addr + 8L, value.dwUser)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<UByte>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 16L, value.pbSrc)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 24L, value.cbSrcLength)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 28L, value.cbSrcLengthUsed)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.USIZE64).writeNative(addr + 32L, value.dwSrcUser)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<UByte>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 40L, value.pbDst)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 48L, value.cbDstLength)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 52L, value.cbDstLengthUsed)
@@ -2527,11 +2525,11 @@ public class Acmstreamheader internal constructor(
             cbStruct: UInt = 0u,
             fdwStatus: UInt = 0u,
             dwUser: Int = 0,
-            pbSrc: MutPtr<UByte> = MutPtr(0L),
+            pbSrc: MutPtr = MutPtr(0L),
             cbSrcLength: UInt = 0u,
             cbSrcLengthUsed: UInt = 0u,
             dwSrcUser: Int = 0,
-            pbDst: MutPtr<UByte> = MutPtr(0L),
+            pbDst: MutPtr = MutPtr(0L),
             cbDstLength: UInt = 0u,
             cbDstLengthUsed: UInt = 0u,
             dwDstUser: Int = 0,
@@ -2562,9 +2560,9 @@ public class AmbisonicsParams internal constructor(
     public var u32Normalization: AmbisonicsNormalization,
     public var u32Order: UInt,
     public var u32NumChannels: UInt,
-    pu32ChannelMapCtorArg: MutPtr<UInt>,
+    pu32ChannelMapCtorArg: MutPtr,
 ) {
-    public var pu32ChannelMap: MutPtr<UInt> = pu32ChannelMapCtorArg
+    public var pu32ChannelMap: MutPtr = pu32ChannelMapCtorArg
         internal set
 
     public constructor() : this(
@@ -2592,9 +2590,9 @@ public class AmbisonicsParams internal constructor(
 
     public operator fun component7(): UInt = this.u32NumChannels
 
-    public operator fun component8(): MutPtr<UInt> = this.pu32ChannelMap
+    public operator fun component8(): MutPtr = this.pu32ChannelMap
 
-    public fun copy(u32Size: UInt = this.u32Size, u32Version: UInt = this.u32Version, u32Type: AmbisonicsType = this.u32Type, u32ChannelOrdering: AmbisonicsChannelOrdering = this.u32ChannelOrdering, u32Normalization: AmbisonicsNormalization = this.u32Normalization, u32Order: UInt = this.u32Order, u32NumChannels: UInt = this.u32NumChannels, pu32ChannelMap: MutPtr<UInt> = this.pu32ChannelMap): AmbisonicsParams = AmbisonicsParams(u32Size = u32Size, u32Version = u32Version, u32Type = u32Type, u32ChannelOrdering = u32ChannelOrdering, u32Normalization = u32Normalization, u32Order = u32Order, u32NumChannels = u32NumChannels, pu32ChannelMapCtorArg = pu32ChannelMap)
+    public fun copy(u32Size: UInt = this.u32Size, u32Version: UInt = this.u32Version, u32Type: AmbisonicsType = this.u32Type, u32ChannelOrdering: AmbisonicsChannelOrdering = this.u32ChannelOrdering, u32Normalization: AmbisonicsNormalization = this.u32Normalization, u32Order: UInt = this.u32Order, u32NumChannels: UInt = this.u32NumChannels, pu32ChannelMap: MutPtr = this.pu32ChannelMap): AmbisonicsParams = AmbisonicsParams(u32Size = u32Size, u32Version = u32Version, u32Type = u32Type, u32ChannelOrdering = u32ChannelOrdering, u32Normalization = u32Normalization, u32Order = u32Order, u32NumChannels = u32NumChannels, pu32ChannelMapCtorArg = pu32ChannelMap)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -2638,7 +2636,7 @@ public class AmbisonicsParams internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 24L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<UInt>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 32L),
                     )
                 override fun writeNative(addr: Long, value: AmbisonicsParams) {
@@ -2651,7 +2649,7 @@ public class AmbisonicsParams internal constructor(
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 24L, value.u32NumChannels)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<UInt>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 32L, value.pu32ChannelMap)
                 }
             }
@@ -2664,7 +2662,7 @@ public class AmbisonicsParams internal constructor(
             u32Normalization: AmbisonicsNormalization = 0,
             u32Order: UInt = 0u,
             u32NumChannels: UInt = 0u,
-            pu32ChannelMap: MutPtr<UInt> = MutPtr(0L),
+            pu32ChannelMap: MutPtr = MutPtr(0L),
         ): AmbisonicsParams =
             AmbisonicsParams(
                 u32Size = u32Size,
@@ -2998,17 +2996,17 @@ public data class AudioClientProperties(
 
 public class AudioExtensionParams internal constructor(
     public var addPageParam: Lparam,
-    pEndpointCtorArg: MutPtr<CVoid>,
-    pPnpInterfaceCtorArg: MutPtr<CVoid>,
-    pPnpDevnodeCtorArg: MutPtr<CVoid>,
+    pEndpointCtorArg: MutPtr,
+    pPnpInterfaceCtorArg: MutPtr,
+    pPnpDevnodeCtorArg: MutPtr,
 ) {
-    public var pEndpoint: MutPtr<CVoid> = pEndpointCtorArg
+    public var pEndpoint: MutPtr = pEndpointCtorArg
         internal set
 
-    public var pPnpInterface: MutPtr<CVoid> = pPnpInterfaceCtorArg
+    public var pPnpInterface: MutPtr = pPnpInterfaceCtorArg
         internal set
 
-    public var pPnpDevnode: MutPtr<CVoid> = pPnpDevnodeCtorArg
+    public var pPnpDevnode: MutPtr = pPnpDevnodeCtorArg
         internal set
 
     public constructor() : this(
@@ -3020,13 +3018,13 @@ public class AudioExtensionParams internal constructor(
 
     public operator fun component1(): Lparam = this.addPageParam
 
-    public operator fun component2(): MutPtr<CVoid> = this.pEndpoint
+    public operator fun component2(): MutPtr = this.pEndpoint
 
-    public operator fun component3(): MutPtr<CVoid> = this.pPnpInterface
+    public operator fun component3(): MutPtr = this.pPnpInterface
 
-    public operator fun component4(): MutPtr<CVoid> = this.pPnpDevnode
+    public operator fun component4(): MutPtr = this.pPnpDevnode
 
-    public fun copy(addPageParam: Lparam = this.addPageParam, pEndpoint: MutPtr<CVoid> = this.pEndpoint, pPnpInterface: MutPtr<CVoid> = this.pPnpInterface, pPnpDevnode: MutPtr<CVoid> = this.pPnpDevnode): AudioExtensionParams = AudioExtensionParams(addPageParam = addPageParam, pEndpointCtorArg = pEndpoint, pPnpInterfaceCtorArg = pPnpInterface, pPnpDevnodeCtorArg = pPnpDevnode)
+    public fun copy(addPageParam: Lparam = this.addPageParam, pEndpoint: MutPtr = this.pEndpoint, pPnpInterface: MutPtr = this.pPnpInterface, pPnpDevnode: MutPtr = this.pPnpDevnode): AudioExtensionParams = AudioExtensionParams(addPageParam = addPageParam, pEndpointCtorArg = pEndpoint, pPnpInterfaceCtorArg = pPnpInterface, pPnpDevnodeCtorArg = pPnpDevnode)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -3056,39 +3054,39 @@ public class AudioExtensionParams internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I64).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<CVoid>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<CVoid>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 16L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<CVoid>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 24L),
                     )
                 override fun writeNative(addr: Long, value: AudioExtensionParams) {
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I64).writeNative(addr, value.addPageParam)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<CVoid>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.pEndpoint)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<CVoid>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 16L, value.pPnpInterface)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<CVoid>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 24L, value.pPnpDevnode)
                 }
             }
 
         public operator fun invoke(
             addPageParam: Lparam = 0L,
-            pEndpoint: MutPtr<CVoid> = MutPtr(0L),
-            pPnpInterface: MutPtr<CVoid> = MutPtr(0L),
-            pPnpDevnode: MutPtr<CVoid> = MutPtr(0L),
+            pEndpoint: MutPtr = MutPtr(0L),
+            pPnpInterface: MutPtr = MutPtr(0L),
+            pPnpDevnode: MutPtr = MutPtr(0L),
         ): AudioExtensionParams =
             AudioExtensionParams(
                 addPageParam = addPageParam,
@@ -3225,7 +3223,7 @@ public class Midihdr internal constructor(
     public var dwBytesRecorded: UInt,
     public var dwUser: Int,
     public var dwFlags: UInt,
-    lpNextCtorArg: MutPtr<Midihdr>,
+    lpNextCtorArg: MutPtr,
     public var reserved: Int,
     public var dwOffset: UInt,
     public var dwReserved: IntArray,
@@ -3233,7 +3231,7 @@ public class Midihdr internal constructor(
     public var lpData: Pstr = lpDataCtorArg
         internal set
 
-    public var lpNext: MutPtr<Midihdr> = lpNextCtorArg
+    public var lpNext: MutPtr = lpNextCtorArg
         internal set
 
     public constructor() : this(
@@ -3258,7 +3256,7 @@ public class Midihdr internal constructor(
 
     public operator fun component5(): UInt = this.dwFlags
 
-    public operator fun component6(): MutPtr<Midihdr> = this.lpNext
+    public operator fun component6(): MutPtr = this.lpNext
 
     public operator fun component7(): Int = this.reserved
 
@@ -3266,7 +3264,7 @@ public class Midihdr internal constructor(
 
     public operator fun component9(): IntArray = this.dwReserved
 
-    public fun copy(lpData: Pstr = this.lpData, dwBufferLength: UInt = this.dwBufferLength, dwBytesRecorded: UInt = this.dwBytesRecorded, dwUser: Int = this.dwUser, dwFlags: UInt = this.dwFlags, lpNext: MutPtr<Midihdr> = this.lpNext, reserved: Int = this.reserved, dwOffset: UInt = this.dwOffset, dwReserved: IntArray = this.dwReserved): Midihdr = Midihdr(lpDataCtorArg = lpData, dwBufferLength = dwBufferLength, dwBytesRecorded = dwBytesRecorded, dwUser = dwUser, dwFlags = dwFlags, lpNextCtorArg = lpNext, reserved = reserved, dwOffset = dwOffset, dwReserved = dwReserved)
+    public fun copy(lpData: Pstr = this.lpData, dwBufferLength: UInt = this.dwBufferLength, dwBytesRecorded: UInt = this.dwBytesRecorded, dwUser: Int = this.dwUser, dwFlags: UInt = this.dwFlags, lpNext: MutPtr = this.lpNext, reserved: Int = this.reserved, dwOffset: UInt = this.dwOffset, dwReserved: IntArray = this.dwReserved): Midihdr = Midihdr(lpDataCtorArg = lpData, dwBufferLength = dwBufferLength, dwBytesRecorded = dwBytesRecorded, dwUser = dwUser, dwFlags = dwFlags, lpNextCtorArg = lpNext, reserved = reserved, dwOffset = dwOffset, dwReserved = dwReserved)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -3303,7 +3301,7 @@ public class Midihdr internal constructor(
             dwBytesRecorded: UInt = 0u,
             dwUser: Int = 0,
             dwFlags: UInt = 0u,
-            lpNext: MutPtr<Midihdr> = MutPtr(0L),
+            lpNext: MutPtr = MutPtr(0L),
             reserved: Int = 0,
             dwOffset: UInt = 0u,
             dwReserved: IntArray = IntArray(8),
@@ -4169,9 +4167,9 @@ public class Mixercontroldetails internal constructor(
     public var cChannels: UInt,
     public var anonymous: Mixercontroldetails0,
     public var cbDetails: UInt,
-    paDetailsCtorArg: MutPtr<CVoid>,
+    paDetailsCtorArg: MutPtr,
 ) {
-    public var paDetails: MutPtr<CVoid> = paDetailsCtorArg
+    public var paDetails: MutPtr = paDetailsCtorArg
         internal set
 
     public constructor() : this(
@@ -4193,9 +4191,9 @@ public class Mixercontroldetails internal constructor(
 
     public operator fun component5(): UInt = this.cbDetails
 
-    public operator fun component6(): MutPtr<CVoid> = this.paDetails
+    public operator fun component6(): MutPtr = this.paDetails
 
-    public fun copy(cbStruct: UInt = this.cbStruct, dwControlID: UInt = this.dwControlID, cChannels: UInt = this.cChannels, anonymous: Mixercontroldetails0 = this.anonymous, cbDetails: UInt = this.cbDetails, paDetails: MutPtr<CVoid> = this.paDetails): Mixercontroldetails = Mixercontroldetails(cbStruct = cbStruct, dwControlID = dwControlID, cChannels = cChannels, anonymous = anonymous, cbDetails = cbDetails, paDetailsCtorArg = paDetails)
+    public fun copy(cbStruct: UInt = this.cbStruct, dwControlID: UInt = this.dwControlID, cChannels: UInt = this.cChannels, anonymous: Mixercontroldetails0 = this.anonymous, cbDetails: UInt = this.cbDetails, paDetails: MutPtr = this.paDetails): Mixercontroldetails = Mixercontroldetails(cbStruct = cbStruct, dwControlID = dwControlID, cChannels = cChannels, anonymous = anonymous, cbDetails = cbDetails, paDetailsCtorArg = paDetails)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -4226,7 +4224,7 @@ public class Mixercontroldetails internal constructor(
             cChannels: UInt = 0u,
             anonymous: Mixercontroldetails0 = Mixercontroldetails0(),
             cbDetails: UInt = 0u,
-            paDetails: MutPtr<CVoid> = MutPtr(0L),
+            paDetails: MutPtr = MutPtr(0L),
         ): Mixercontroldetails =
             Mixercontroldetails(
                 cbStruct = cbStruct,
@@ -4733,9 +4731,9 @@ public class Mixerlinecontrolsa internal constructor(
     public var anonymous: Mixerlinecontrolsa0,
     public var cControls: UInt,
     public var cbmxctrl: UInt,
-    pamxctrlCtorArg: MutPtr<Mixercontrola>,
+    pamxctrlCtorArg: MutPtr,
 ) {
-    public var pamxctrl: MutPtr<Mixercontrola> = pamxctrlCtorArg
+    public var pamxctrl: MutPtr = pamxctrlCtorArg
         internal set
 
     public constructor() : this(
@@ -4757,9 +4755,9 @@ public class Mixerlinecontrolsa internal constructor(
 
     public operator fun component5(): UInt = this.cbmxctrl
 
-    public operator fun component6(): MutPtr<Mixercontrola> = this.pamxctrl
+    public operator fun component6(): MutPtr = this.pamxctrl
 
-    public fun copy(cbStruct: UInt = this.cbStruct, dwLineID: UInt = this.dwLineID, anonymous: Mixerlinecontrolsa0 = this.anonymous, cControls: UInt = this.cControls, cbmxctrl: UInt = this.cbmxctrl, pamxctrl: MutPtr<Mixercontrola> = this.pamxctrl): Mixerlinecontrolsa = Mixerlinecontrolsa(cbStruct = cbStruct, dwLineID = dwLineID, anonymous = anonymous, cControls = cControls, cbmxctrl = cbmxctrl, pamxctrlCtorArg = pamxctrl)
+    public fun copy(cbStruct: UInt = this.cbStruct, dwLineID: UInt = this.dwLineID, anonymous: Mixerlinecontrolsa0 = this.anonymous, cControls: UInt = this.cControls, cbmxctrl: UInt = this.cbmxctrl, pamxctrl: MutPtr = this.pamxctrl): Mixerlinecontrolsa = Mixerlinecontrolsa(cbStruct = cbStruct, dwLineID = dwLineID, anonymous = anonymous, cControls = cControls, cbmxctrl = cbmxctrl, pamxctrlCtorArg = pamxctrl)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -4790,7 +4788,7 @@ public class Mixerlinecontrolsa internal constructor(
             anonymous: Mixerlinecontrolsa0 = Mixerlinecontrolsa0(),
             cControls: UInt = 0u,
             cbmxctrl: UInt = 0u,
-            pamxctrl: MutPtr<Mixercontrola> = MutPtr(0L),
+            pamxctrl: MutPtr = MutPtr(0L),
         ): Mixerlinecontrolsa =
             Mixerlinecontrolsa(
                 cbStruct = cbStruct,
@@ -4814,9 +4812,9 @@ public class Mixerlinecontrolsw internal constructor(
     public var anonymous: Mixerlinecontrolsw0,
     public var cControls: UInt,
     public var cbmxctrl: UInt,
-    pamxctrlCtorArg: MutPtr<Mixercontrolw>,
+    pamxctrlCtorArg: MutPtr,
 ) {
-    public var pamxctrl: MutPtr<Mixercontrolw> = pamxctrlCtorArg
+    public var pamxctrl: MutPtr = pamxctrlCtorArg
         internal set
 
     public constructor() : this(
@@ -4838,9 +4836,9 @@ public class Mixerlinecontrolsw internal constructor(
 
     public operator fun component5(): UInt = this.cbmxctrl
 
-    public operator fun component6(): MutPtr<Mixercontrolw> = this.pamxctrl
+    public operator fun component6(): MutPtr = this.pamxctrl
 
-    public fun copy(cbStruct: UInt = this.cbStruct, dwLineID: UInt = this.dwLineID, anonymous: Mixerlinecontrolsw0 = this.anonymous, cControls: UInt = this.cControls, cbmxctrl: UInt = this.cbmxctrl, pamxctrl: MutPtr<Mixercontrolw> = this.pamxctrl): Mixerlinecontrolsw = Mixerlinecontrolsw(cbStruct = cbStruct, dwLineID = dwLineID, anonymous = anonymous, cControls = cControls, cbmxctrl = cbmxctrl, pamxctrlCtorArg = pamxctrl)
+    public fun copy(cbStruct: UInt = this.cbStruct, dwLineID: UInt = this.dwLineID, anonymous: Mixerlinecontrolsw0 = this.anonymous, cControls: UInt = this.cControls, cbmxctrl: UInt = this.cbmxctrl, pamxctrl: MutPtr = this.pamxctrl): Mixerlinecontrolsw = Mixerlinecontrolsw(cbStruct = cbStruct, dwLineID = dwLineID, anonymous = anonymous, cControls = cControls, cbmxctrl = cbmxctrl, pamxctrlCtorArg = pamxctrl)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -4871,7 +4869,7 @@ public class Mixerlinecontrolsw internal constructor(
             anonymous: Mixerlinecontrolsw0 = Mixerlinecontrolsw0(),
             cControls: UInt = 0u,
             cbmxctrl: UInt = 0u,
-            pamxctrl: MutPtr<Mixercontrolw> = MutPtr(0L),
+            pamxctrl: MutPtr = MutPtr(0L),
         ): Mixerlinecontrolsw =
             Mixerlinecontrolsw(
                 cbStruct = cbStruct,
@@ -5086,37 +5084,37 @@ public data class SpatialAudioClientActivationParams(
 )
 
 public class SpatialAudioHrtfActivationParams internal constructor(
-    objectFormatCtorArg: ConstPtr<Waveformatex>,
+    objectFormatCtorArg: ConstPtr,
     public var staticObjectTypeMask: AudioObjectType,
     public var minDynamicObjectCount: UInt,
     public var maxDynamicObjectCount: UInt,
     public var category: AudioStreamCategory,
     eventHandleCtorArg: Handle,
-    notifyObjectCtorArg: MutPtr<CVoid>,
-    distanceDecayCtorArg: MutPtr<SpatialAudioHrtfDistanceDecay>,
-    directivityCtorArg: MutPtr<SpatialAudioHrtfDirectivityUnion>,
-    environmentCtorArg: MutPtr<SpatialAudioHrtfEnvironmentType>,
-    orientationCtorArg: MutPtr<Float>,
+    notifyObjectCtorArg: MutPtr,
+    distanceDecayCtorArg: MutPtr,
+    directivityCtorArg: MutPtr,
+    environmentCtorArg: MutPtr,
+    orientationCtorArg: MutPtr,
 ) {
-    public var objectFormat: ConstPtr<Waveformatex> = objectFormatCtorArg
+    public var objectFormat: ConstPtr = objectFormatCtorArg
         internal set
 
     public var eventHandle: Handle = eventHandleCtorArg
         internal set
 
-    public var notifyObject: MutPtr<CVoid> = notifyObjectCtorArg
+    public var notifyObject: MutPtr = notifyObjectCtorArg
         internal set
 
-    public var distanceDecay: MutPtr<SpatialAudioHrtfDistanceDecay> = distanceDecayCtorArg
+    public var distanceDecay: MutPtr = distanceDecayCtorArg
         internal set
 
-    public var directivity: MutPtr<SpatialAudioHrtfDirectivityUnion> = directivityCtorArg
+    public var directivity: MutPtr = directivityCtorArg
         internal set
 
-    public var environment: MutPtr<SpatialAudioHrtfEnvironmentType> = environmentCtorArg
+    public var environment: MutPtr = environmentCtorArg
         internal set
 
-    public var orientation: MutPtr<Float> = orientationCtorArg
+    public var orientation: MutPtr = orientationCtorArg
         internal set
 
     public constructor() : this(
@@ -5133,7 +5131,7 @@ public class SpatialAudioHrtfActivationParams internal constructor(
         orientationCtorArg = MutPtr(0L),
     )
 
-    public operator fun component1(): ConstPtr<Waveformatex> = this.objectFormat
+    public operator fun component1(): ConstPtr = this.objectFormat
 
     public operator fun component2(): AudioObjectType = this.staticObjectTypeMask
 
@@ -5145,17 +5143,17 @@ public class SpatialAudioHrtfActivationParams internal constructor(
 
     public operator fun component6(): Handle = this.eventHandle
 
-    public operator fun component7(): MutPtr<CVoid> = this.notifyObject
+    public operator fun component7(): MutPtr = this.notifyObject
 
-    public operator fun component8(): MutPtr<SpatialAudioHrtfDistanceDecay> = this.distanceDecay
+    public operator fun component8(): MutPtr = this.distanceDecay
 
-    public operator fun component9(): MutPtr<SpatialAudioHrtfDirectivityUnion> = this.directivity
+    public operator fun component9(): MutPtr = this.directivity
 
-    public operator fun component10(): MutPtr<SpatialAudioHrtfEnvironmentType> = this.environment
+    public operator fun component10(): MutPtr = this.environment
 
-    public operator fun component11(): MutPtr<Float> = this.orientation
+    public operator fun component11(): MutPtr = this.orientation
 
-    public fun copy(objectFormat: ConstPtr<Waveformatex> = this.objectFormat, staticObjectTypeMask: AudioObjectType = this.staticObjectTypeMask, minDynamicObjectCount: UInt = this.minDynamicObjectCount, maxDynamicObjectCount: UInt = this.maxDynamicObjectCount, category: AudioStreamCategory = this.category, eventHandle: Handle = this.eventHandle, notifyObject: MutPtr<CVoid> = this.notifyObject, distanceDecay: MutPtr<SpatialAudioHrtfDistanceDecay> = this.distanceDecay, directivity: MutPtr<SpatialAudioHrtfDirectivityUnion> = this.directivity, environment: MutPtr<SpatialAudioHrtfEnvironmentType> = this.environment, orientation: MutPtr<Float> = this.orientation): SpatialAudioHrtfActivationParams = SpatialAudioHrtfActivationParams(objectFormatCtorArg = objectFormat, staticObjectTypeMask = staticObjectTypeMask, minDynamicObjectCount = minDynamicObjectCount, maxDynamicObjectCount = maxDynamicObjectCount, category = category, eventHandleCtorArg = eventHandle, notifyObjectCtorArg = notifyObject, distanceDecayCtorArg = distanceDecay, directivityCtorArg = directivity, environmentCtorArg = environment, orientationCtorArg = orientation)
+    public fun copy(objectFormat: ConstPtr = this.objectFormat, staticObjectTypeMask: AudioObjectType = this.staticObjectTypeMask, minDynamicObjectCount: UInt = this.minDynamicObjectCount, maxDynamicObjectCount: UInt = this.maxDynamicObjectCount, category: AudioStreamCategory = this.category, eventHandle: Handle = this.eventHandle, notifyObject: MutPtr = this.notifyObject, distanceDecay: MutPtr = this.distanceDecay, directivity: MutPtr = this.directivity, environment: MutPtr = this.environment, orientation: MutPtr = this.orientation): SpatialAudioHrtfActivationParams = SpatialAudioHrtfActivationParams(objectFormatCtorArg = objectFormat, staticObjectTypeMask = staticObjectTypeMask, minDynamicObjectCount = minDynamicObjectCount, maxDynamicObjectCount = maxDynamicObjectCount, category = category, eventHandleCtorArg = eventHandle, notifyObjectCtorArg = notifyObject, distanceDecayCtorArg = distanceDecay, directivityCtorArg = directivity, environmentCtorArg = environment, orientationCtorArg = orientation)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -5191,17 +5189,17 @@ public class SpatialAudioHrtfActivationParams internal constructor(
 
     public companion object {
         public operator fun invoke(
-            objectFormat: ConstPtr<Waveformatex> = ConstPtr(0L),
+            objectFormat: ConstPtr = ConstPtr(0L),
             staticObjectTypeMask: AudioObjectType = 0,
             minDynamicObjectCount: UInt = 0u,
             maxDynamicObjectCount: UInt = 0u,
             category: AudioStreamCategory = 0,
             eventHandle: Handle = MutPtr(0L),
-            notifyObject: MutPtr<CVoid> = MutPtr(0L),
-            distanceDecay: MutPtr<SpatialAudioHrtfDistanceDecay> = MutPtr(0L),
-            directivity: MutPtr<SpatialAudioHrtfDirectivityUnion> = MutPtr(0L),
-            environment: MutPtr<SpatialAudioHrtfEnvironmentType> = MutPtr(0L),
-            orientation: MutPtr<Float> = MutPtr(0L),
+            notifyObject: MutPtr = MutPtr(0L),
+            distanceDecay: MutPtr = MutPtr(0L),
+            directivity: MutPtr = MutPtr(0L),
+            environment: MutPtr = MutPtr(0L),
+            orientation: MutPtr = MutPtr(0L),
         ): SpatialAudioHrtfActivationParams =
             SpatialAudioHrtfActivationParams(
                 objectFormatCtorArg = objectFormat,
@@ -5220,38 +5218,38 @@ public class SpatialAudioHrtfActivationParams internal constructor(
 }
 
 public class SpatialAudioHrtfActivationParams2 internal constructor(
-    objectFormatCtorArg: ConstPtr<Waveformatex>,
+    objectFormatCtorArg: ConstPtr,
     public var staticObjectTypeMask: AudioObjectType,
     public var minDynamicObjectCount: UInt,
     public var maxDynamicObjectCount: UInt,
     public var category: AudioStreamCategory,
     eventHandleCtorArg: Handle,
-    notifyObjectCtorArg: MutPtr<CVoid>,
-    distanceDecayCtorArg: MutPtr<SpatialAudioHrtfDistanceDecay>,
-    directivityCtorArg: MutPtr<SpatialAudioHrtfDirectivityUnion>,
-    environmentCtorArg: MutPtr<SpatialAudioHrtfEnvironmentType>,
-    orientationCtorArg: MutPtr<Float>,
+    notifyObjectCtorArg: MutPtr,
+    distanceDecayCtorArg: MutPtr,
+    directivityCtorArg: MutPtr,
+    environmentCtorArg: MutPtr,
+    orientationCtorArg: MutPtr,
     public var options: SpatialAudioStreamOptions,
 ) {
-    public var objectFormat: ConstPtr<Waveformatex> = objectFormatCtorArg
+    public var objectFormat: ConstPtr = objectFormatCtorArg
         internal set
 
     public var eventHandle: Handle = eventHandleCtorArg
         internal set
 
-    public var notifyObject: MutPtr<CVoid> = notifyObjectCtorArg
+    public var notifyObject: MutPtr = notifyObjectCtorArg
         internal set
 
-    public var distanceDecay: MutPtr<SpatialAudioHrtfDistanceDecay> = distanceDecayCtorArg
+    public var distanceDecay: MutPtr = distanceDecayCtorArg
         internal set
 
-    public var directivity: MutPtr<SpatialAudioHrtfDirectivityUnion> = directivityCtorArg
+    public var directivity: MutPtr = directivityCtorArg
         internal set
 
-    public var environment: MutPtr<SpatialAudioHrtfEnvironmentType> = environmentCtorArg
+    public var environment: MutPtr = environmentCtorArg
         internal set
 
-    public var orientation: MutPtr<Float> = orientationCtorArg
+    public var orientation: MutPtr = orientationCtorArg
         internal set
 
     public constructor() : this(
@@ -5269,7 +5267,7 @@ public class SpatialAudioHrtfActivationParams2 internal constructor(
         options = 0,
     )
 
-    public operator fun component1(): ConstPtr<Waveformatex> = this.objectFormat
+    public operator fun component1(): ConstPtr = this.objectFormat
 
     public operator fun component2(): AudioObjectType = this.staticObjectTypeMask
 
@@ -5281,19 +5279,19 @@ public class SpatialAudioHrtfActivationParams2 internal constructor(
 
     public operator fun component6(): Handle = this.eventHandle
 
-    public operator fun component7(): MutPtr<CVoid> = this.notifyObject
+    public operator fun component7(): MutPtr = this.notifyObject
 
-    public operator fun component8(): MutPtr<SpatialAudioHrtfDistanceDecay> = this.distanceDecay
+    public operator fun component8(): MutPtr = this.distanceDecay
 
-    public operator fun component9(): MutPtr<SpatialAudioHrtfDirectivityUnion> = this.directivity
+    public operator fun component9(): MutPtr = this.directivity
 
-    public operator fun component10(): MutPtr<SpatialAudioHrtfEnvironmentType> = this.environment
+    public operator fun component10(): MutPtr = this.environment
 
-    public operator fun component11(): MutPtr<Float> = this.orientation
+    public operator fun component11(): MutPtr = this.orientation
 
     public operator fun component12(): SpatialAudioStreamOptions = this.options
 
-    public fun copy(objectFormat: ConstPtr<Waveformatex> = this.objectFormat, staticObjectTypeMask: AudioObjectType = this.staticObjectTypeMask, minDynamicObjectCount: UInt = this.minDynamicObjectCount, maxDynamicObjectCount: UInt = this.maxDynamicObjectCount, category: AudioStreamCategory = this.category, eventHandle: Handle = this.eventHandle, notifyObject: MutPtr<CVoid> = this.notifyObject, distanceDecay: MutPtr<SpatialAudioHrtfDistanceDecay> = this.distanceDecay, directivity: MutPtr<SpatialAudioHrtfDirectivityUnion> = this.directivity, environment: MutPtr<SpatialAudioHrtfEnvironmentType> = this.environment, orientation: MutPtr<Float> = this.orientation, options: SpatialAudioStreamOptions = this.options): SpatialAudioHrtfActivationParams2 = SpatialAudioHrtfActivationParams2(objectFormatCtorArg = objectFormat, staticObjectTypeMask = staticObjectTypeMask, minDynamicObjectCount = minDynamicObjectCount, maxDynamicObjectCount = maxDynamicObjectCount, category = category, eventHandleCtorArg = eventHandle, notifyObjectCtorArg = notifyObject, distanceDecayCtorArg = distanceDecay, directivityCtorArg = directivity, environmentCtorArg = environment, orientationCtorArg = orientation, options = options)
+    public fun copy(objectFormat: ConstPtr = this.objectFormat, staticObjectTypeMask: AudioObjectType = this.staticObjectTypeMask, minDynamicObjectCount: UInt = this.minDynamicObjectCount, maxDynamicObjectCount: UInt = this.maxDynamicObjectCount, category: AudioStreamCategory = this.category, eventHandle: Handle = this.eventHandle, notifyObject: MutPtr = this.notifyObject, distanceDecay: MutPtr = this.distanceDecay, directivity: MutPtr = this.directivity, environment: MutPtr = this.environment, orientation: MutPtr = this.orientation, options: SpatialAudioStreamOptions = this.options): SpatialAudioHrtfActivationParams2 = SpatialAudioHrtfActivationParams2(objectFormatCtorArg = objectFormat, staticObjectTypeMask = staticObjectTypeMask, minDynamicObjectCount = minDynamicObjectCount, maxDynamicObjectCount = maxDynamicObjectCount, category = category, eventHandleCtorArg = eventHandle, notifyObjectCtorArg = notifyObject, distanceDecayCtorArg = distanceDecay, directivityCtorArg = directivity, environmentCtorArg = environment, orientationCtorArg = orientation, options = options)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -5331,17 +5329,17 @@ public class SpatialAudioHrtfActivationParams2 internal constructor(
 
     public companion object {
         public operator fun invoke(
-            objectFormat: ConstPtr<Waveformatex> = ConstPtr(0L),
+            objectFormat: ConstPtr = ConstPtr(0L),
             staticObjectTypeMask: AudioObjectType = 0,
             minDynamicObjectCount: UInt = 0u,
             maxDynamicObjectCount: UInt = 0u,
             category: AudioStreamCategory = 0,
             eventHandle: Handle = MutPtr(0L),
-            notifyObject: MutPtr<CVoid> = MutPtr(0L),
-            distanceDecay: MutPtr<SpatialAudioHrtfDistanceDecay> = MutPtr(0L),
-            directivity: MutPtr<SpatialAudioHrtfDirectivityUnion> = MutPtr(0L),
-            environment: MutPtr<SpatialAudioHrtfEnvironmentType> = MutPtr(0L),
-            orientation: MutPtr<Float> = MutPtr(0L),
+            notifyObject: MutPtr = MutPtr(0L),
+            distanceDecay: MutPtr = MutPtr(0L),
+            directivity: MutPtr = MutPtr(0L),
+            environment: MutPtr = MutPtr(0L),
+            orientation: MutPtr = MutPtr(0L),
             options: SpatialAudioStreamOptions = 0,
         ): SpatialAudioHrtfActivationParams2 =
             SpatialAudioHrtfActivationParams2(
@@ -5496,21 +5494,21 @@ public data class SpatialAudioMetadataItemsInfo(
 }
 
 public class SpatialAudioObjectRenderStreamActivationParams internal constructor(
-    objectFormatCtorArg: ConstPtr<Waveformatex>,
+    objectFormatCtorArg: ConstPtr,
     public var staticObjectTypeMask: AudioObjectType,
     public var minDynamicObjectCount: UInt,
     public var maxDynamicObjectCount: UInt,
     public var category: AudioStreamCategory,
     eventHandleCtorArg: Handle,
-    notifyObjectCtorArg: MutPtr<CVoid>,
+    notifyObjectCtorArg: MutPtr,
 ) {
-    public var objectFormat: ConstPtr<Waveformatex> = objectFormatCtorArg
+    public var objectFormat: ConstPtr = objectFormatCtorArg
         internal set
 
     public var eventHandle: Handle = eventHandleCtorArg
         internal set
 
-    public var notifyObject: MutPtr<CVoid> = notifyObjectCtorArg
+    public var notifyObject: MutPtr = notifyObjectCtorArg
         internal set
 
     public constructor() : this(
@@ -5523,7 +5521,7 @@ public class SpatialAudioObjectRenderStreamActivationParams internal constructor
         notifyObjectCtorArg = MutPtr(0L),
     )
 
-    public operator fun component1(): ConstPtr<Waveformatex> = this.objectFormat
+    public operator fun component1(): ConstPtr = this.objectFormat
 
     public operator fun component2(): AudioObjectType = this.staticObjectTypeMask
 
@@ -5535,9 +5533,9 @@ public class SpatialAudioObjectRenderStreamActivationParams internal constructor
 
     public operator fun component6(): Handle = this.eventHandle
 
-    public operator fun component7(): MutPtr<CVoid> = this.notifyObject
+    public operator fun component7(): MutPtr = this.notifyObject
 
-    public fun copy(objectFormat: ConstPtr<Waveformatex> = this.objectFormat, staticObjectTypeMask: AudioObjectType = this.staticObjectTypeMask, minDynamicObjectCount: UInt = this.minDynamicObjectCount, maxDynamicObjectCount: UInt = this.maxDynamicObjectCount, category: AudioStreamCategory = this.category, eventHandle: Handle = this.eventHandle, notifyObject: MutPtr<CVoid> = this.notifyObject): SpatialAudioObjectRenderStreamActivationParams = SpatialAudioObjectRenderStreamActivationParams(objectFormatCtorArg = objectFormat, staticObjectTypeMask = staticObjectTypeMask, minDynamicObjectCount = minDynamicObjectCount, maxDynamicObjectCount = maxDynamicObjectCount, category = category, eventHandleCtorArg = eventHandle, notifyObjectCtorArg = notifyObject)
+    public fun copy(objectFormat: ConstPtr = this.objectFormat, staticObjectTypeMask: AudioObjectType = this.staticObjectTypeMask, minDynamicObjectCount: UInt = this.minDynamicObjectCount, maxDynamicObjectCount: UInt = this.maxDynamicObjectCount, category: AudioStreamCategory = this.category, eventHandle: Handle = this.eventHandle, notifyObject: MutPtr = this.notifyObject): SpatialAudioObjectRenderStreamActivationParams = SpatialAudioObjectRenderStreamActivationParams(objectFormatCtorArg = objectFormat, staticObjectTypeMask = staticObjectTypeMask, minDynamicObjectCount = minDynamicObjectCount, maxDynamicObjectCount = maxDynamicObjectCount, category = category, eventHandleCtorArg = eventHandle, notifyObjectCtorArg = notifyObject)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -5565,13 +5563,13 @@ public class SpatialAudioObjectRenderStreamActivationParams internal constructor
 
     public companion object {
         public operator fun invoke(
-            objectFormat: ConstPtr<Waveformatex> = ConstPtr(0L),
+            objectFormat: ConstPtr = ConstPtr(0L),
             staticObjectTypeMask: AudioObjectType = 0,
             minDynamicObjectCount: UInt = 0u,
             maxDynamicObjectCount: UInt = 0u,
             category: AudioStreamCategory = 0,
             eventHandle: Handle = MutPtr(0L),
-            notifyObject: MutPtr<CVoid> = MutPtr(0L),
+            notifyObject: MutPtr = MutPtr(0L),
         ): SpatialAudioObjectRenderStreamActivationParams =
             SpatialAudioObjectRenderStreamActivationParams(
                 objectFormatCtorArg = objectFormat,
@@ -5586,22 +5584,22 @@ public class SpatialAudioObjectRenderStreamActivationParams internal constructor
 }
 
 public class SpatialAudioObjectRenderStreamActivationParams2 internal constructor(
-    objectFormatCtorArg: ConstPtr<Waveformatex>,
+    objectFormatCtorArg: ConstPtr,
     public var staticObjectTypeMask: AudioObjectType,
     public var minDynamicObjectCount: UInt,
     public var maxDynamicObjectCount: UInt,
     public var category: AudioStreamCategory,
     eventHandleCtorArg: Handle,
-    notifyObjectCtorArg: MutPtr<CVoid>,
+    notifyObjectCtorArg: MutPtr,
     public var options: SpatialAudioStreamOptions,
 ) {
-    public var objectFormat: ConstPtr<Waveformatex> = objectFormatCtorArg
+    public var objectFormat: ConstPtr = objectFormatCtorArg
         internal set
 
     public var eventHandle: Handle = eventHandleCtorArg
         internal set
 
-    public var notifyObject: MutPtr<CVoid> = notifyObjectCtorArg
+    public var notifyObject: MutPtr = notifyObjectCtorArg
         internal set
 
     public constructor() : this(
@@ -5615,7 +5613,7 @@ public class SpatialAudioObjectRenderStreamActivationParams2 internal constructo
         options = 0,
     )
 
-    public operator fun component1(): ConstPtr<Waveformatex> = this.objectFormat
+    public operator fun component1(): ConstPtr = this.objectFormat
 
     public operator fun component2(): AudioObjectType = this.staticObjectTypeMask
 
@@ -5627,11 +5625,11 @@ public class SpatialAudioObjectRenderStreamActivationParams2 internal constructo
 
     public operator fun component6(): Handle = this.eventHandle
 
-    public operator fun component7(): MutPtr<CVoid> = this.notifyObject
+    public operator fun component7(): MutPtr = this.notifyObject
 
     public operator fun component8(): SpatialAudioStreamOptions = this.options
 
-    public fun copy(objectFormat: ConstPtr<Waveformatex> = this.objectFormat, staticObjectTypeMask: AudioObjectType = this.staticObjectTypeMask, minDynamicObjectCount: UInt = this.minDynamicObjectCount, maxDynamicObjectCount: UInt = this.maxDynamicObjectCount, category: AudioStreamCategory = this.category, eventHandle: Handle = this.eventHandle, notifyObject: MutPtr<CVoid> = this.notifyObject, options: SpatialAudioStreamOptions = this.options): SpatialAudioObjectRenderStreamActivationParams2 = SpatialAudioObjectRenderStreamActivationParams2(objectFormatCtorArg = objectFormat, staticObjectTypeMask = staticObjectTypeMask, minDynamicObjectCount = minDynamicObjectCount, maxDynamicObjectCount = maxDynamicObjectCount, category = category, eventHandleCtorArg = eventHandle, notifyObjectCtorArg = notifyObject, options = options)
+    public fun copy(objectFormat: ConstPtr = this.objectFormat, staticObjectTypeMask: AudioObjectType = this.staticObjectTypeMask, minDynamicObjectCount: UInt = this.minDynamicObjectCount, maxDynamicObjectCount: UInt = this.maxDynamicObjectCount, category: AudioStreamCategory = this.category, eventHandle: Handle = this.eventHandle, notifyObject: MutPtr = this.notifyObject, options: SpatialAudioStreamOptions = this.options): SpatialAudioObjectRenderStreamActivationParams2 = SpatialAudioObjectRenderStreamActivationParams2(objectFormatCtorArg = objectFormat, staticObjectTypeMask = staticObjectTypeMask, minDynamicObjectCount = minDynamicObjectCount, maxDynamicObjectCount = maxDynamicObjectCount, category = category, eventHandleCtorArg = eventHandle, notifyObjectCtorArg = notifyObject, options = options)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -5661,13 +5659,13 @@ public class SpatialAudioObjectRenderStreamActivationParams2 internal constructo
 
     public companion object {
         public operator fun invoke(
-            objectFormat: ConstPtr<Waveformatex> = ConstPtr(0L),
+            objectFormat: ConstPtr = ConstPtr(0L),
             staticObjectTypeMask: AudioObjectType = 0,
             minDynamicObjectCount: UInt = 0u,
             maxDynamicObjectCount: UInt = 0u,
             category: AudioStreamCategory = 0,
             eventHandle: Handle = MutPtr(0L),
-            notifyObject: MutPtr<CVoid> = MutPtr(0L),
+            notifyObject: MutPtr = MutPtr(0L),
             options: SpatialAudioStreamOptions = 0,
         ): SpatialAudioObjectRenderStreamActivationParams2 =
             SpatialAudioObjectRenderStreamActivationParams2(
@@ -5684,7 +5682,7 @@ public class SpatialAudioObjectRenderStreamActivationParams2 internal constructo
 }
 
 public class SpatialAudioObjectRenderStreamForMetadataActivationParams internal constructor(
-    objectFormatCtorArg: ConstPtr<Waveformatex>,
+    objectFormatCtorArg: ConstPtr,
     public var staticObjectTypeMask: AudioObjectType,
     public var minDynamicObjectCount: UInt,
     public var maxDynamicObjectCount: UInt,
@@ -5692,19 +5690,19 @@ public class SpatialAudioObjectRenderStreamForMetadataActivationParams internal 
     eventHandleCtorArg: Handle,
     public var metadataFormatId: Guid,
     public var maxMetadataItemCount: UShort,
-    metadataActivationParamsCtorArg: ConstPtr<Propvariant>,
-    notifyObjectCtorArg: MutPtr<CVoid>,
+    metadataActivationParamsCtorArg: ConstPtr,
+    notifyObjectCtorArg: MutPtr,
 ) {
-    public var objectFormat: ConstPtr<Waveformatex> = objectFormatCtorArg
+    public var objectFormat: ConstPtr = objectFormatCtorArg
         internal set
 
     public var eventHandle: Handle = eventHandleCtorArg
         internal set
 
-    public var metadataActivationParams: ConstPtr<Propvariant> = metadataActivationParamsCtorArg
+    public var metadataActivationParams: ConstPtr = metadataActivationParamsCtorArg
         internal set
 
-    public var notifyObject: MutPtr<CVoid> = notifyObjectCtorArg
+    public var notifyObject: MutPtr = notifyObjectCtorArg
         internal set
 
     public constructor() : this(
@@ -5720,7 +5718,7 @@ public class SpatialAudioObjectRenderStreamForMetadataActivationParams internal 
         notifyObjectCtorArg = MutPtr(0L),
     )
 
-    public operator fun component1(): ConstPtr<Waveformatex> = this.objectFormat
+    public operator fun component1(): ConstPtr = this.objectFormat
 
     public operator fun component2(): AudioObjectType = this.staticObjectTypeMask
 
@@ -5736,11 +5734,11 @@ public class SpatialAudioObjectRenderStreamForMetadataActivationParams internal 
 
     public operator fun component8(): UShort = this.maxMetadataItemCount
 
-    public operator fun component9(): ConstPtr<Propvariant> = this.metadataActivationParams
+    public operator fun component9(): ConstPtr = this.metadataActivationParams
 
-    public operator fun component10(): MutPtr<CVoid> = this.notifyObject
+    public operator fun component10(): MutPtr = this.notifyObject
 
-    public fun copy(objectFormat: ConstPtr<Waveformatex> = this.objectFormat, staticObjectTypeMask: AudioObjectType = this.staticObjectTypeMask, minDynamicObjectCount: UInt = this.minDynamicObjectCount, maxDynamicObjectCount: UInt = this.maxDynamicObjectCount, category: AudioStreamCategory = this.category, eventHandle: Handle = this.eventHandle, metadataFormatId: Guid = this.metadataFormatId, maxMetadataItemCount: UShort = this.maxMetadataItemCount, metadataActivationParams: ConstPtr<Propvariant> = this.metadataActivationParams, notifyObject: MutPtr<CVoid> = this.notifyObject): SpatialAudioObjectRenderStreamForMetadataActivationParams = SpatialAudioObjectRenderStreamForMetadataActivationParams(objectFormatCtorArg = objectFormat, staticObjectTypeMask = staticObjectTypeMask, minDynamicObjectCount = minDynamicObjectCount, maxDynamicObjectCount = maxDynamicObjectCount, category = category, eventHandleCtorArg = eventHandle, metadataFormatId = metadataFormatId, maxMetadataItemCount = maxMetadataItemCount, metadataActivationParamsCtorArg = metadataActivationParams, notifyObjectCtorArg = notifyObject)
+    public fun copy(objectFormat: ConstPtr = this.objectFormat, staticObjectTypeMask: AudioObjectType = this.staticObjectTypeMask, minDynamicObjectCount: UInt = this.minDynamicObjectCount, maxDynamicObjectCount: UInt = this.maxDynamicObjectCount, category: AudioStreamCategory = this.category, eventHandle: Handle = this.eventHandle, metadataFormatId: Guid = this.metadataFormatId, maxMetadataItemCount: UShort = this.maxMetadataItemCount, metadataActivationParams: ConstPtr = this.metadataActivationParams, notifyObject: MutPtr = this.notifyObject): SpatialAudioObjectRenderStreamForMetadataActivationParams = SpatialAudioObjectRenderStreamForMetadataActivationParams(objectFormatCtorArg = objectFormat, staticObjectTypeMask = staticObjectTypeMask, minDynamicObjectCount = minDynamicObjectCount, maxDynamicObjectCount = maxDynamicObjectCount, category = category, eventHandleCtorArg = eventHandle, metadataFormatId = metadataFormatId, maxMetadataItemCount = maxMetadataItemCount, metadataActivationParamsCtorArg = metadataActivationParams, notifyObjectCtorArg = notifyObject)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -5774,7 +5772,7 @@ public class SpatialAudioObjectRenderStreamForMetadataActivationParams internal 
 
     public companion object {
         public operator fun invoke(
-            objectFormat: ConstPtr<Waveformatex> = ConstPtr(0L),
+            objectFormat: ConstPtr = ConstPtr(0L),
             staticObjectTypeMask: AudioObjectType = 0,
             minDynamicObjectCount: UInt = 0u,
             maxDynamicObjectCount: UInt = 0u,
@@ -5782,8 +5780,8 @@ public class SpatialAudioObjectRenderStreamForMetadataActivationParams internal 
             eventHandle: Handle = MutPtr(0L),
             metadataFormatId: Guid = Guid(),
             maxMetadataItemCount: UShort = 0u,
-            metadataActivationParams: ConstPtr<Propvariant> = ConstPtr(0L),
-            notifyObject: MutPtr<CVoid> = MutPtr(0L),
+            metadataActivationParams: ConstPtr = ConstPtr(0L),
+            notifyObject: MutPtr = MutPtr(0L),
         ): SpatialAudioObjectRenderStreamForMetadataActivationParams =
             SpatialAudioObjectRenderStreamForMetadataActivationParams(
                 objectFormatCtorArg = objectFormat,
@@ -5801,7 +5799,7 @@ public class SpatialAudioObjectRenderStreamForMetadataActivationParams internal 
 }
 
 public class SpatialAudioObjectRenderStreamForMetadataActivationParams2 internal constructor(
-    objectFormatCtorArg: ConstPtr<Waveformatex>,
+    objectFormatCtorArg: ConstPtr,
     public var staticObjectTypeMask: AudioObjectType,
     public var minDynamicObjectCount: UInt,
     public var maxDynamicObjectCount: UInt,
@@ -5809,20 +5807,20 @@ public class SpatialAudioObjectRenderStreamForMetadataActivationParams2 internal
     eventHandleCtorArg: Handle,
     public var metadataFormatId: Guid,
     public var maxMetadataItemCount: UInt,
-    metadataActivationParamsCtorArg: ConstPtr<Propvariant>,
-    notifyObjectCtorArg: MutPtr<CVoid>,
+    metadataActivationParamsCtorArg: ConstPtr,
+    notifyObjectCtorArg: MutPtr,
     public var options: SpatialAudioStreamOptions,
 ) {
-    public var objectFormat: ConstPtr<Waveformatex> = objectFormatCtorArg
+    public var objectFormat: ConstPtr = objectFormatCtorArg
         internal set
 
     public var eventHandle: Handle = eventHandleCtorArg
         internal set
 
-    public var metadataActivationParams: ConstPtr<Propvariant> = metadataActivationParamsCtorArg
+    public var metadataActivationParams: ConstPtr = metadataActivationParamsCtorArg
         internal set
 
-    public var notifyObject: MutPtr<CVoid> = notifyObjectCtorArg
+    public var notifyObject: MutPtr = notifyObjectCtorArg
         internal set
 
     public constructor() : this(
@@ -5839,7 +5837,7 @@ public class SpatialAudioObjectRenderStreamForMetadataActivationParams2 internal
         options = 0,
     )
 
-    public operator fun component1(): ConstPtr<Waveformatex> = this.objectFormat
+    public operator fun component1(): ConstPtr = this.objectFormat
 
     public operator fun component2(): AudioObjectType = this.staticObjectTypeMask
 
@@ -5855,13 +5853,13 @@ public class SpatialAudioObjectRenderStreamForMetadataActivationParams2 internal
 
     public operator fun component8(): UInt = this.maxMetadataItemCount
 
-    public operator fun component9(): ConstPtr<Propvariant> = this.metadataActivationParams
+    public operator fun component9(): ConstPtr = this.metadataActivationParams
 
-    public operator fun component10(): MutPtr<CVoid> = this.notifyObject
+    public operator fun component10(): MutPtr = this.notifyObject
 
     public operator fun component11(): SpatialAudioStreamOptions = this.options
 
-    public fun copy(objectFormat: ConstPtr<Waveformatex> = this.objectFormat, staticObjectTypeMask: AudioObjectType = this.staticObjectTypeMask, minDynamicObjectCount: UInt = this.minDynamicObjectCount, maxDynamicObjectCount: UInt = this.maxDynamicObjectCount, category: AudioStreamCategory = this.category, eventHandle: Handle = this.eventHandle, metadataFormatId: Guid = this.metadataFormatId, maxMetadataItemCount: UInt = this.maxMetadataItemCount, metadataActivationParams: ConstPtr<Propvariant> = this.metadataActivationParams, notifyObject: MutPtr<CVoid> = this.notifyObject, options: SpatialAudioStreamOptions = this.options): SpatialAudioObjectRenderStreamForMetadataActivationParams2 = SpatialAudioObjectRenderStreamForMetadataActivationParams2(objectFormatCtorArg = objectFormat, staticObjectTypeMask = staticObjectTypeMask, minDynamicObjectCount = minDynamicObjectCount, maxDynamicObjectCount = maxDynamicObjectCount, category = category, eventHandleCtorArg = eventHandle, metadataFormatId = metadataFormatId, maxMetadataItemCount = maxMetadataItemCount, metadataActivationParamsCtorArg = metadataActivationParams, notifyObjectCtorArg = notifyObject, options = options)
+    public fun copy(objectFormat: ConstPtr = this.objectFormat, staticObjectTypeMask: AudioObjectType = this.staticObjectTypeMask, minDynamicObjectCount: UInt = this.minDynamicObjectCount, maxDynamicObjectCount: UInt = this.maxDynamicObjectCount, category: AudioStreamCategory = this.category, eventHandle: Handle = this.eventHandle, metadataFormatId: Guid = this.metadataFormatId, maxMetadataItemCount: UInt = this.maxMetadataItemCount, metadataActivationParams: ConstPtr = this.metadataActivationParams, notifyObject: MutPtr = this.notifyObject, options: SpatialAudioStreamOptions = this.options): SpatialAudioObjectRenderStreamForMetadataActivationParams2 = SpatialAudioObjectRenderStreamForMetadataActivationParams2(objectFormatCtorArg = objectFormat, staticObjectTypeMask = staticObjectTypeMask, minDynamicObjectCount = minDynamicObjectCount, maxDynamicObjectCount = maxDynamicObjectCount, category = category, eventHandleCtorArg = eventHandle, metadataFormatId = metadataFormatId, maxMetadataItemCount = maxMetadataItemCount, metadataActivationParamsCtorArg = metadataActivationParams, notifyObjectCtorArg = notifyObject, options = options)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -5897,7 +5895,7 @@ public class SpatialAudioObjectRenderStreamForMetadataActivationParams2 internal
 
     public companion object {
         public operator fun invoke(
-            objectFormat: ConstPtr<Waveformatex> = ConstPtr(0L),
+            objectFormat: ConstPtr = ConstPtr(0L),
             staticObjectTypeMask: AudioObjectType = 0,
             minDynamicObjectCount: UInt = 0u,
             maxDynamicObjectCount: UInt = 0u,
@@ -5905,8 +5903,8 @@ public class SpatialAudioObjectRenderStreamForMetadataActivationParams2 internal
             eventHandle: Handle = MutPtr(0L),
             metadataFormatId: Guid = Guid(),
             maxMetadataItemCount: UInt = 0u,
-            metadataActivationParams: ConstPtr<Propvariant> = ConstPtr(0L),
-            notifyObject: MutPtr<CVoid> = MutPtr(0L),
+            metadataActivationParams: ConstPtr = ConstPtr(0L),
+            notifyObject: MutPtr = MutPtr(0L),
             options: SpatialAudioStreamOptions = 0,
         ): SpatialAudioObjectRenderStreamForMetadataActivationParams2 =
             SpatialAudioObjectRenderStreamForMetadataActivationParams2(
@@ -6087,13 +6085,13 @@ public class Wavehdr internal constructor(
     public var dwUser: Int,
     public var dwFlags: UInt,
     public var dwLoops: UInt,
-    lpNextCtorArg: MutPtr<Wavehdr>,
+    lpNextCtorArg: MutPtr,
     public var reserved: Int,
 ) {
     public var lpData: Pstr = lpDataCtorArg
         internal set
 
-    public var lpNext: MutPtr<Wavehdr> = lpNextCtorArg
+    public var lpNext: MutPtr = lpNextCtorArg
         internal set
 
     public constructor() : this(
@@ -6119,11 +6117,11 @@ public class Wavehdr internal constructor(
 
     public operator fun component6(): UInt = this.dwLoops
 
-    public operator fun component7(): MutPtr<Wavehdr> = this.lpNext
+    public operator fun component7(): MutPtr = this.lpNext
 
     public operator fun component8(): Int = this.reserved
 
-    public fun copy(lpData: Pstr = this.lpData, dwBufferLength: UInt = this.dwBufferLength, dwBytesRecorded: UInt = this.dwBytesRecorded, dwUser: Int = this.dwUser, dwFlags: UInt = this.dwFlags, dwLoops: UInt = this.dwLoops, lpNext: MutPtr<Wavehdr> = this.lpNext, reserved: Int = this.reserved): Wavehdr = Wavehdr(lpDataCtorArg = lpData, dwBufferLength = dwBufferLength, dwBytesRecorded = dwBytesRecorded, dwUser = dwUser, dwFlags = dwFlags, dwLoops = dwLoops, lpNextCtorArg = lpNext, reserved = reserved)
+    public fun copy(lpData: Pstr = this.lpData, dwBufferLength: UInt = this.dwBufferLength, dwBytesRecorded: UInt = this.dwBytesRecorded, dwUser: Int = this.dwUser, dwFlags: UInt = this.dwFlags, dwLoops: UInt = this.dwLoops, lpNext: MutPtr = this.lpNext, reserved: Int = this.reserved): Wavehdr = Wavehdr(lpDataCtorArg = lpData, dwBufferLength = dwBufferLength, dwBytesRecorded = dwBytesRecorded, dwUser = dwUser, dwFlags = dwFlags, dwLoops = dwLoops, lpNextCtorArg = lpNext, reserved = reserved)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -6159,7 +6157,7 @@ public class Wavehdr internal constructor(
             dwUser: Int = 0,
             dwFlags: UInt = 0u,
             dwLoops: UInt = 0u,
-            lpNext: MutPtr<Wavehdr> = MutPtr(0L),
+            lpNext: MutPtr = MutPtr(0L),
             reserved: Int = 0,
         ): Wavehdr =
             Wavehdr(
@@ -6636,11 +6634,11 @@ public class TAcmformatdetailsw internal constructor(
     public var dwFormatIndex: UInt,
     public var dwFormatTag: UInt,
     public var fdwSupport: UInt,
-    pwfxCtorArg: MutPtr<Waveformatex>,
+    pwfxCtorArg: MutPtr,
     public var cbwfx: UInt,
     public var szFormat: UShortArray,
 ) {
-    public var pwfx: MutPtr<Waveformatex> = pwfxCtorArg
+    public var pwfx: MutPtr = pwfxCtorArg
         internal set
 
     public constructor() : this(
@@ -6661,13 +6659,13 @@ public class TAcmformatdetailsw internal constructor(
 
     public operator fun component4(): UInt = this.fdwSupport
 
-    public operator fun component5(): MutPtr<Waveformatex> = this.pwfx
+    public operator fun component5(): MutPtr = this.pwfx
 
     public operator fun component6(): UInt = this.cbwfx
 
     public operator fun component7(): UShortArray = this.szFormat
 
-    public fun copy(cbStruct: UInt = this.cbStruct, dwFormatIndex: UInt = this.dwFormatIndex, dwFormatTag: UInt = this.dwFormatTag, fdwSupport: UInt = this.fdwSupport, pwfx: MutPtr<Waveformatex> = this.pwfx, cbwfx: UInt = this.cbwfx, szFormat: UShortArray = this.szFormat): TAcmformatdetailsw = TAcmformatdetailsw(cbStruct = cbStruct, dwFormatIndex = dwFormatIndex, dwFormatTag = dwFormatTag, fdwSupport = fdwSupport, pwfxCtorArg = pwfx, cbwfx = cbwfx, szFormat = szFormat)
+    public fun copy(cbStruct: UInt = this.cbStruct, dwFormatIndex: UInt = this.dwFormatIndex, dwFormatTag: UInt = this.dwFormatTag, fdwSupport: UInt = this.fdwSupport, pwfx: MutPtr = this.pwfx, cbwfx: UInt = this.cbwfx, szFormat: UShortArray = this.szFormat): TAcmformatdetailsw = TAcmformatdetailsw(cbStruct = cbStruct, dwFormatIndex = dwFormatIndex, dwFormatTag = dwFormatTag, fdwSupport = fdwSupport, pwfxCtorArg = pwfx, cbwfx = cbwfx, szFormat = szFormat)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -6706,7 +6704,7 @@ public class TAcmformatdetailsw internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 12L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<Waveformatex>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 16L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 24L),
                         (
@@ -6721,7 +6719,7 @@ public class TAcmformatdetailsw internal constructor(
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 12L, value.fdwSupport)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<Waveformatex>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 16L, value.pwfx)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 24L, value.cbwfx)
                     (
@@ -6736,7 +6734,7 @@ public class TAcmformatdetailsw internal constructor(
             dwFormatIndex: UInt = 0u,
             dwFormatTag: UInt = 0u,
             fdwSupport: UInt = 0u,
-            pwfx: MutPtr<Waveformatex> = MutPtr(0L),
+            pwfx: MutPtr = MutPtr(0L),
             cbwfx: UInt = 0u,
             szFormat: UShortArray = UShortArray(128),
         ): TAcmformatdetailsw =

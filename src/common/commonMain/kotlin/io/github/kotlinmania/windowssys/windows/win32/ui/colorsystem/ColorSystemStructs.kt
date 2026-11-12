@@ -2,7 +2,6 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.ui.colorsystem
 
-import io.github.kotlinmania.rustlang.core.ffi.CVoid
 import io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
 import io.github.kotlinmania.rustlang.core.mem.TypeLayout
 import io.github.kotlinmania.rustlang.core.ptr.ConstPtr
@@ -84,9 +83,9 @@ public data class Color(
 
 public class Color0 internal constructor(
     public var reserved1: UInt,
-    reserved2CtorArg: MutPtr<CVoid>,
+    reserved2CtorArg: MutPtr,
 ) {
-    public var reserved2: MutPtr<CVoid> = reserved2CtorArg
+    public var reserved2: MutPtr = reserved2CtorArg
         internal set
 
     public constructor() : this(
@@ -96,9 +95,9 @@ public class Color0 internal constructor(
 
     public operator fun component1(): UInt = this.reserved1
 
-    public operator fun component2(): MutPtr<CVoid> = this.reserved2
+    public operator fun component2(): MutPtr = this.reserved2
 
-    public fun copy(reserved1: UInt = this.reserved1, reserved2: MutPtr<CVoid> = this.reserved2): Color0 = Color0(reserved1 = reserved1, reserved2CtorArg = reserved2)
+    public fun copy(reserved1: UInt = this.reserved1, reserved2: MutPtr = this.reserved2): Color0 = Color0(reserved1 = reserved1, reserved2CtorArg = reserved2)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -124,21 +123,21 @@ public class Color0 internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<CVoid>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                     )
                 override fun writeNative(addr: Long, value: Color0) {
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr, value.reserved1)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<CVoid>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.reserved2)
                 }
             }
 
         public operator fun invoke(
             reserved1: UInt = 0u,
-            reserved2: MutPtr<CVoid> = MutPtr(0L),
+            reserved2: MutPtr = MutPtr(0L),
         ): Color0 =
             Color0(
                 reserved1 = reserved1,
@@ -641,26 +640,26 @@ public data class Graycolor(
 }
 
 public class GamutBoundaryDescription internal constructor(
-    pPrimariesCtorArg: MutPtr<PrimaryJabColors>,
+    pPrimariesCtorArg: MutPtr,
     public var cNeutralSamples: UInt,
-    pNeutralSamplesCtorArg: MutPtr<JabColorF>,
-    pReferenceShellCtorArg: MutPtr<GamutShell>,
-    pPlausibleShellCtorArg: MutPtr<GamutShell>,
-    pPossibleShellCtorArg: MutPtr<GamutShell>,
+    pNeutralSamplesCtorArg: MutPtr,
+    pReferenceShellCtorArg: MutPtr,
+    pPlausibleShellCtorArg: MutPtr,
+    pPossibleShellCtorArg: MutPtr,
 ) {
-    public var pPrimaries: MutPtr<PrimaryJabColors> = pPrimariesCtorArg
+    public var pPrimaries: MutPtr = pPrimariesCtorArg
         internal set
 
-    public var pNeutralSamples: MutPtr<JabColorF> = pNeutralSamplesCtorArg
+    public var pNeutralSamples: MutPtr = pNeutralSamplesCtorArg
         internal set
 
-    public var pReferenceShell: MutPtr<GamutShell> = pReferenceShellCtorArg
+    public var pReferenceShell: MutPtr = pReferenceShellCtorArg
         internal set
 
-    public var pPlausibleShell: MutPtr<GamutShell> = pPlausibleShellCtorArg
+    public var pPlausibleShell: MutPtr = pPlausibleShellCtorArg
         internal set
 
-    public var pPossibleShell: MutPtr<GamutShell> = pPossibleShellCtorArg
+    public var pPossibleShell: MutPtr = pPossibleShellCtorArg
         internal set
 
     public constructor() : this(
@@ -672,19 +671,19 @@ public class GamutBoundaryDescription internal constructor(
         pPossibleShellCtorArg = MutPtr(0L),
     )
 
-    public operator fun component1(): MutPtr<PrimaryJabColors> = this.pPrimaries
+    public operator fun component1(): MutPtr = this.pPrimaries
 
     public operator fun component2(): UInt = this.cNeutralSamples
 
-    public operator fun component3(): MutPtr<JabColorF> = this.pNeutralSamples
+    public operator fun component3(): MutPtr = this.pNeutralSamples
 
-    public operator fun component4(): MutPtr<GamutShell> = this.pReferenceShell
+    public operator fun component4(): MutPtr = this.pReferenceShell
 
-    public operator fun component5(): MutPtr<GamutShell> = this.pPlausibleShell
+    public operator fun component5(): MutPtr = this.pPlausibleShell
 
-    public operator fun component6(): MutPtr<GamutShell> = this.pPossibleShell
+    public operator fun component6(): MutPtr = this.pPossibleShell
 
-    public fun copy(pPrimaries: MutPtr<PrimaryJabColors> = this.pPrimaries, cNeutralSamples: UInt = this.cNeutralSamples, pNeutralSamples: MutPtr<JabColorF> = this.pNeutralSamples, pReferenceShell: MutPtr<GamutShell> = this.pReferenceShell, pPlausibleShell: MutPtr<GamutShell> = this.pPlausibleShell, pPossibleShell: MutPtr<GamutShell> = this.pPossibleShell): GamutBoundaryDescription = GamutBoundaryDescription(pPrimariesCtorArg = pPrimaries, cNeutralSamples = cNeutralSamples, pNeutralSamplesCtorArg = pNeutralSamples, pReferenceShellCtorArg = pReferenceShell, pPlausibleShellCtorArg = pPlausibleShell, pPossibleShellCtorArg = pPossibleShell)
+    public fun copy(pPrimaries: MutPtr = this.pPrimaries, cNeutralSamples: UInt = this.cNeutralSamples, pNeutralSamples: MutPtr = this.pNeutralSamples, pReferenceShell: MutPtr = this.pReferenceShell, pPlausibleShell: MutPtr = this.pPlausibleShell, pPossibleShell: MutPtr = this.pPossibleShell): GamutBoundaryDescription = GamutBoundaryDescription(pPrimariesCtorArg = pPrimaries, cNeutralSamples = cNeutralSamples, pNeutralSamplesCtorArg = pNeutralSamples, pReferenceShellCtorArg = pReferenceShell, pPlausibleShellCtorArg = pPlausibleShell, pPossibleShellCtorArg = pPossibleShell)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -717,58 +716,58 @@ public class GamutBoundaryDescription internal constructor(
                     GamutBoundaryDescription(
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<PrimaryJabColors>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 8L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<JabColorF>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 16L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<GamutShell>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 24L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<GamutShell>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 32L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<GamutShell>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 40L),
                     )
                 override fun writeNative(addr: Long, value: GamutBoundaryDescription) {
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<PrimaryJabColors>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr, value.pPrimaries)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 8L, value.cNeutralSamples)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<JabColorF>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 16L, value.pNeutralSamples)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<GamutShell>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 24L, value.pReferenceShell)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<GamutShell>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 32L, value.pPlausibleShell)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<GamutShell>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 40L, value.pPossibleShell)
                 }
             }
 
         public operator fun invoke(
-            pPrimaries: MutPtr<PrimaryJabColors> = MutPtr(0L),
+            pPrimaries: MutPtr = MutPtr(0L),
             cNeutralSamples: UInt = 0u,
-            pNeutralSamples: MutPtr<JabColorF> = MutPtr(0L),
-            pReferenceShell: MutPtr<GamutShell> = MutPtr(0L),
-            pPlausibleShell: MutPtr<GamutShell> = MutPtr(0L),
-            pPossibleShell: MutPtr<GamutShell> = MutPtr(0L),
+            pNeutralSamples: MutPtr = MutPtr(0L),
+            pReferenceShell: MutPtr = MutPtr(0L),
+            pPlausibleShell: MutPtr = MutPtr(0L),
+            pPossibleShell: MutPtr = MutPtr(0L),
         ): GamutBoundaryDescription =
             GamutBoundaryDescription(
                 pPrimariesCtorArg = pPrimaries,
@@ -786,13 +785,13 @@ public class GamutShell internal constructor(
     public var jMax: Float,
     public var cVertices: UInt,
     public var cTriangles: UInt,
-    pVerticesCtorArg: MutPtr<JabColorF>,
-    pTrianglesCtorArg: MutPtr<GamutShellTriangle>,
+    pVerticesCtorArg: MutPtr,
+    pTrianglesCtorArg: MutPtr,
 ) {
-    public var pVertices: MutPtr<JabColorF> = pVerticesCtorArg
+    public var pVertices: MutPtr = pVerticesCtorArg
         internal set
 
-    public var pTriangles: MutPtr<GamutShellTriangle> = pTrianglesCtorArg
+    public var pTriangles: MutPtr = pTrianglesCtorArg
         internal set
 
     public constructor() : this(
@@ -812,11 +811,11 @@ public class GamutShell internal constructor(
 
     public operator fun component4(): UInt = this.cTriangles
 
-    public operator fun component5(): MutPtr<JabColorF> = this.pVertices
+    public operator fun component5(): MutPtr = this.pVertices
 
-    public operator fun component6(): MutPtr<GamutShellTriangle> = this.pTriangles
+    public operator fun component6(): MutPtr = this.pTriangles
 
-    public fun copy(jMin: Float = this.jMin, jMax: Float = this.jMax, cVertices: UInt = this.cVertices, cTriangles: UInt = this.cTriangles, pVertices: MutPtr<JabColorF> = this.pVertices, pTriangles: MutPtr<GamutShellTriangle> = this.pTriangles): GamutShell = GamutShell(jMin = jMin, jMax = jMax, cVertices = cVertices, cTriangles = cTriangles, pVerticesCtorArg = pVertices, pTrianglesCtorArg = pTriangles)
+    public fun copy(jMin: Float = this.jMin, jMax: Float = this.jMax, cVertices: UInt = this.cVertices, cTriangles: UInt = this.cTriangles, pVertices: MutPtr = this.pVertices, pTriangles: MutPtr = this.pTriangles): GamutShell = GamutShell(jMin = jMin, jMax = jMax, cVertices = cVertices, cTriangles = cTriangles, pVerticesCtorArg = pVertices, pTrianglesCtorArg = pTriangles)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -853,11 +852,11 @@ public class GamutShell internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 12L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<JabColorF>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 16L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<GamutShellTriangle>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 24L),
                     )
                 override fun writeNative(addr: Long, value: GamutShell) {
@@ -867,11 +866,11 @@ public class GamutShell internal constructor(
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 12L, value.cTriangles)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<JabColorF>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 16L, value.pVertices)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<GamutShellTriangle>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 24L, value.pTriangles)
                 }
             }
@@ -881,8 +880,8 @@ public class GamutShell internal constructor(
             jMax: Float = 0.0f,
             cVertices: UInt = 0u,
             cTriangles: UInt = 0u,
-            pVertices: MutPtr<JabColorF> = MutPtr(0L),
-            pTriangles: MutPtr<GamutShellTriangle> = MutPtr(0L),
+            pVertices: MutPtr = MutPtr(0L),
+            pTriangles: MutPtr = MutPtr(0L),
         ): GamutShell =
             GamutShell(
                 jMin = jMin,
@@ -1208,10 +1207,10 @@ public data class NamedProfileInfo(
 
 public class Profile internal constructor(
     public var dwType: UInt,
-    pProfileDataCtorArg: MutPtr<CVoid>,
+    pProfileDataCtorArg: MutPtr,
     public var cbDataSize: UInt,
 ) {
-    public var pProfileData: MutPtr<CVoid> = pProfileDataCtorArg
+    public var pProfileData: MutPtr = pProfileDataCtorArg
         internal set
 
     public constructor() : this(
@@ -1222,11 +1221,11 @@ public class Profile internal constructor(
 
     public operator fun component1(): UInt = this.dwType
 
-    public operator fun component2(): MutPtr<CVoid> = this.pProfileData
+    public operator fun component2(): MutPtr = this.pProfileData
 
     public operator fun component3(): UInt = this.cbDataSize
 
-    public fun copy(dwType: UInt = this.dwType, pProfileData: MutPtr<CVoid> = this.pProfileData, cbDataSize: UInt = this.cbDataSize): Profile = Profile(dwType = dwType, pProfileDataCtorArg = pProfileData, cbDataSize = cbDataSize)
+    public fun copy(dwType: UInt = this.dwType, pProfileData: MutPtr = this.pProfileData, cbDataSize: UInt = this.cbDataSize): Profile = Profile(dwType = dwType, pProfileDataCtorArg = pProfileData, cbDataSize = cbDataSize)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -1254,7 +1253,7 @@ public class Profile internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<CVoid>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 16L),
                     )
@@ -1262,7 +1261,7 @@ public class Profile internal constructor(
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr, value.dwType)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<CVoid>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.pProfileData)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 16L, value.cbDataSize)
                 }
@@ -1270,7 +1269,7 @@ public class Profile internal constructor(
 
         public operator fun invoke(
             dwType: UInt = 0u,
-            pProfileData: MutPtr<CVoid> = MutPtr(0L),
+            pProfileData: MutPtr = MutPtr(0L),
             cbDataSize: UInt = 0u,
         ): Profile =
             Profile(

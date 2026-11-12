@@ -2,7 +2,6 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.media.kernelstreaming
 
-import io.github.kotlinmania.rustlang.core.ffi.CVoid
 import io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
 import io.github.kotlinmania.rustlang.core.mem.TypeLayout
 import io.github.kotlinmania.rustlang.core.ptr.ConstPtr
@@ -15,12 +14,12 @@ import io.github.kotlinmania.windowssys.windows.win32.foundation.Size
 
 public class Ksrelativeevent0 internal constructor(
     objectHandleCtorArg: Handle,
-    objectPointerCtorArg: MutPtr<CVoid>,
+    objectPointerCtorArg: MutPtr,
 ) {
     public var objectHandle: Handle = objectHandleCtorArg
         internal set
 
-    public var objectPointer: MutPtr<CVoid> = objectPointerCtorArg
+    public var objectPointer: MutPtr = objectPointerCtorArg
         internal set
 
     public constructor() : this(
@@ -30,9 +29,9 @@ public class Ksrelativeevent0 internal constructor(
 
     public operator fun component1(): Handle = this.objectHandle
 
-    public operator fun component2(): MutPtr<CVoid> = this.objectPointer
+    public operator fun component2(): MutPtr = this.objectPointer
 
-    public fun copy(objectHandle: Handle = this.objectHandle, objectPointer: MutPtr<CVoid> = this.objectPointer): Ksrelativeevent0 = Ksrelativeevent0(objectHandleCtorArg = objectHandle, objectPointerCtorArg = objectPointer)
+    public fun copy(objectHandle: Handle = this.objectHandle, objectPointer: MutPtr = this.objectPointer): Ksrelativeevent0 = Ksrelativeevent0(objectHandleCtorArg = objectHandle, objectPointerCtorArg = objectPointer)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -51,7 +50,7 @@ public class Ksrelativeevent0 internal constructor(
     public companion object {
         public operator fun invoke(
             objectHandle: Handle = MutPtr(0L),
-            objectPointer: MutPtr<CVoid> = MutPtr(0L),
+            objectPointer: MutPtr = MutPtr(0L),
         ): Ksrelativeevent0 =
             Ksrelativeevent0(
                 objectHandleCtorArg = objectHandle,
@@ -83,11 +82,11 @@ public data class Ksresolution(
 }
 
 public class KsrtaudioBuffer internal constructor(
-    bufferAddressCtorArg: MutPtr<CVoid>,
+    bufferAddressCtorArg: MutPtr,
     public var actualBufferSize: UInt,
     public var callMemoryBarrier: Bool,
 ) {
-    public var bufferAddress: MutPtr<CVoid> = bufferAddressCtorArg
+    public var bufferAddress: MutPtr = bufferAddressCtorArg
         internal set
 
     public constructor() : this(
@@ -96,13 +95,13 @@ public class KsrtaudioBuffer internal constructor(
         callMemoryBarrier = 0,
     )
 
-    public operator fun component1(): MutPtr<CVoid> = this.bufferAddress
+    public operator fun component1(): MutPtr = this.bufferAddress
 
     public operator fun component2(): UInt = this.actualBufferSize
 
     public operator fun component3(): Bool = this.callMemoryBarrier
 
-    public fun copy(bufferAddress: MutPtr<CVoid> = this.bufferAddress, actualBufferSize: UInt = this.actualBufferSize, callMemoryBarrier: Bool = this.callMemoryBarrier): KsrtaudioBuffer = KsrtaudioBuffer(bufferAddressCtorArg = bufferAddress, actualBufferSize = actualBufferSize, callMemoryBarrier = callMemoryBarrier)
+    public fun copy(bufferAddress: MutPtr = this.bufferAddress, actualBufferSize: UInt = this.actualBufferSize, callMemoryBarrier: Bool = this.callMemoryBarrier): KsrtaudioBuffer = KsrtaudioBuffer(bufferAddressCtorArg = bufferAddress, actualBufferSize = actualBufferSize, callMemoryBarrier = callMemoryBarrier)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -129,7 +128,7 @@ public class KsrtaudioBuffer internal constructor(
                     KsrtaudioBuffer(
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<CVoid>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 8L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr + 12L),
@@ -137,7 +136,7 @@ public class KsrtaudioBuffer internal constructor(
                 override fun writeNative(addr: Long, value: KsrtaudioBuffer) {
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<CVoid>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr, value.bufferAddress)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 8L, value.actualBufferSize)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr + 12L, value.callMemoryBarrier)
@@ -145,7 +144,7 @@ public class KsrtaudioBuffer internal constructor(
             }
 
         public operator fun invoke(
-            bufferAddress: MutPtr<CVoid> = MutPtr(0L),
+            bufferAddress: MutPtr = MutPtr(0L),
             actualBufferSize: UInt = 0u,
             callMemoryBarrier: Bool = 0,
         ): KsrtaudioBuffer =
@@ -184,10 +183,10 @@ public data class KsrtaudioBuffer32(
 
 public class KsrtaudioBufferProperty internal constructor(
     public var property: Ksidentifier,
-    baseAddressCtorArg: MutPtr<CVoid>,
+    baseAddressCtorArg: MutPtr,
     public var requestedBufferSize: UInt,
 ) {
-    public var baseAddress: MutPtr<CVoid> = baseAddressCtorArg
+    public var baseAddress: MutPtr = baseAddressCtorArg
         internal set
 
     public constructor() : this(
@@ -198,11 +197,11 @@ public class KsrtaudioBufferProperty internal constructor(
 
     public operator fun component1(): Ksidentifier = this.property
 
-    public operator fun component2(): MutPtr<CVoid> = this.baseAddress
+    public operator fun component2(): MutPtr = this.baseAddress
 
     public operator fun component3(): UInt = this.requestedBufferSize
 
-    public fun copy(property: Ksidentifier = this.property, baseAddress: MutPtr<CVoid> = this.baseAddress, requestedBufferSize: UInt = this.requestedBufferSize): KsrtaudioBufferProperty = KsrtaudioBufferProperty(property = property, baseAddressCtorArg = baseAddress, requestedBufferSize = requestedBufferSize)
+    public fun copy(property: Ksidentifier = this.property, baseAddress: MutPtr = this.baseAddress, requestedBufferSize: UInt = this.requestedBufferSize): KsrtaudioBufferProperty = KsrtaudioBufferProperty(property = property, baseAddressCtorArg = baseAddress, requestedBufferSize = requestedBufferSize)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -223,7 +222,7 @@ public class KsrtaudioBufferProperty internal constructor(
     public companion object {
         public operator fun invoke(
             property: Ksidentifier = Ksidentifier(),
-            baseAddress: MutPtr<CVoid> = MutPtr(0L),
+            baseAddress: MutPtr = MutPtr(0L),
             requestedBufferSize: UInt = 0u,
         ): KsrtaudioBufferProperty =
             KsrtaudioBufferProperty(
@@ -242,11 +241,11 @@ public data class KsrtaudioBufferProperty32(
 
 public class KsrtaudioBufferPropertyWithNotification internal constructor(
     public var property: Ksidentifier,
-    baseAddressCtorArg: MutPtr<CVoid>,
+    baseAddressCtorArg: MutPtr,
     public var requestedBufferSize: UInt,
     public var notificationCount: UInt,
 ) {
-    public var baseAddress: MutPtr<CVoid> = baseAddressCtorArg
+    public var baseAddress: MutPtr = baseAddressCtorArg
         internal set
 
     public constructor() : this(
@@ -258,13 +257,13 @@ public class KsrtaudioBufferPropertyWithNotification internal constructor(
 
     public operator fun component1(): Ksidentifier = this.property
 
-    public operator fun component2(): MutPtr<CVoid> = this.baseAddress
+    public operator fun component2(): MutPtr = this.baseAddress
 
     public operator fun component3(): UInt = this.requestedBufferSize
 
     public operator fun component4(): UInt = this.notificationCount
 
-    public fun copy(property: Ksidentifier = this.property, baseAddress: MutPtr<CVoid> = this.baseAddress, requestedBufferSize: UInt = this.requestedBufferSize, notificationCount: UInt = this.notificationCount): KsrtaudioBufferPropertyWithNotification = KsrtaudioBufferPropertyWithNotification(property = property, baseAddressCtorArg = baseAddress, requestedBufferSize = requestedBufferSize, notificationCount = notificationCount)
+    public fun copy(property: Ksidentifier = this.property, baseAddress: MutPtr = this.baseAddress, requestedBufferSize: UInt = this.requestedBufferSize, notificationCount: UInt = this.notificationCount): KsrtaudioBufferPropertyWithNotification = KsrtaudioBufferPropertyWithNotification(property = property, baseAddressCtorArg = baseAddress, requestedBufferSize = requestedBufferSize, notificationCount = notificationCount)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -287,7 +286,7 @@ public class KsrtaudioBufferPropertyWithNotification internal constructor(
     public companion object {
         public operator fun invoke(
             property: Ksidentifier = Ksidentifier(),
-            baseAddress: MutPtr<CVoid> = MutPtr(0L),
+            baseAddress: MutPtr = MutPtr(0L),
             requestedBufferSize: UInt = 0u,
             notificationCount: UInt = 0u,
         ): KsrtaudioBufferPropertyWithNotification =
@@ -361,13 +360,13 @@ public data class KsrtaudioHwlatency(
 }
 
 public class KsrtaudioHwregister internal constructor(
-    registerCtorArg: MutPtr<CVoid>,
+    registerCtorArg: MutPtr,
     public var width: UInt,
     public var numerator: ULong,
     public var denominator: ULong,
     public var accuracy: UInt,
 ) {
-    public var register: MutPtr<CVoid> = registerCtorArg
+    public var register: MutPtr = registerCtorArg
         internal set
 
     public constructor() : this(
@@ -378,7 +377,7 @@ public class KsrtaudioHwregister internal constructor(
         accuracy = 0u,
     )
 
-    public operator fun component1(): MutPtr<CVoid> = this.register
+    public operator fun component1(): MutPtr = this.register
 
     public operator fun component2(): UInt = this.width
 
@@ -388,7 +387,7 @@ public class KsrtaudioHwregister internal constructor(
 
     public operator fun component5(): UInt = this.accuracy
 
-    public fun copy(register: MutPtr<CVoid> = this.register, width: UInt = this.width, numerator: ULong = this.numerator, denominator: ULong = this.denominator, accuracy: UInt = this.accuracy): KsrtaudioHwregister = KsrtaudioHwregister(registerCtorArg = register, width = width, numerator = numerator, denominator = denominator, accuracy = accuracy)
+    public fun copy(register: MutPtr = this.register, width: UInt = this.width, numerator: ULong = this.numerator, denominator: ULong = this.denominator, accuracy: UInt = this.accuracy): KsrtaudioHwregister = KsrtaudioHwregister(registerCtorArg = register, width = width, numerator = numerator, denominator = denominator, accuracy = accuracy)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -419,7 +418,7 @@ public class KsrtaudioHwregister internal constructor(
                     KsrtaudioHwregister(
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<CVoid>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 8L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U64).readNative(addr + 16L),
@@ -429,7 +428,7 @@ public class KsrtaudioHwregister internal constructor(
                 override fun writeNative(addr: Long, value: KsrtaudioHwregister) {
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<CVoid>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr, value.register)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 8L, value.width)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U64).writeNative(addr + 16L, value.numerator)
@@ -439,7 +438,7 @@ public class KsrtaudioHwregister internal constructor(
             }
 
         public operator fun invoke(
-            register: MutPtr<CVoid> = MutPtr(0L),
+            register: MutPtr = MutPtr(0L),
             width: UInt = 0u,
             numerator: ULong = 0uL,
             denominator: ULong = 0uL,
@@ -488,9 +487,9 @@ public data class KsrtaudioHwregister32(
 
 public class KsrtaudioHwregisterProperty internal constructor(
     public var property: Ksidentifier,
-    baseAddressCtorArg: MutPtr<CVoid>,
+    baseAddressCtorArg: MutPtr,
 ) {
-    public var baseAddress: MutPtr<CVoid> = baseAddressCtorArg
+    public var baseAddress: MutPtr = baseAddressCtorArg
         internal set
 
     public constructor() : this(
@@ -500,9 +499,9 @@ public class KsrtaudioHwregisterProperty internal constructor(
 
     public operator fun component1(): Ksidentifier = this.property
 
-    public operator fun component2(): MutPtr<CVoid> = this.baseAddress
+    public operator fun component2(): MutPtr = this.baseAddress
 
-    public fun copy(property: Ksidentifier = this.property, baseAddress: MutPtr<CVoid> = this.baseAddress): KsrtaudioHwregisterProperty = KsrtaudioHwregisterProperty(property = property, baseAddressCtorArg = baseAddress)
+    public fun copy(property: Ksidentifier = this.property, baseAddress: MutPtr = this.baseAddress): KsrtaudioHwregisterProperty = KsrtaudioHwregisterProperty(property = property, baseAddressCtorArg = baseAddress)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -521,7 +520,7 @@ public class KsrtaudioHwregisterProperty internal constructor(
     public companion object {
         public operator fun invoke(
             property: Ksidentifier = Ksidentifier(),
-            baseAddress: MutPtr<CVoid> = MutPtr(0L),
+            baseAddress: MutPtr = MutPtr(0L),
         ): KsrtaudioHwregisterProperty =
             KsrtaudioHwregisterProperty(
                 property = property,
@@ -585,17 +584,17 @@ public data class KsrtaudioNotificationEventProperty32(
 )
 
 public class KsrtaudioPacketvregister internal constructor(
-    completedPacketCountCtorArg: MutPtr<ULong>,
-    completedPacketQPCCtorArg: MutPtr<ULong>,
-    completedPacketHashCtorArg: MutPtr<ULong>,
+    completedPacketCountCtorArg: MutPtr,
+    completedPacketQPCCtorArg: MutPtr,
+    completedPacketHashCtorArg: MutPtr,
 ) {
-    public var completedPacketCount: MutPtr<ULong> = completedPacketCountCtorArg
+    public var completedPacketCount: MutPtr = completedPacketCountCtorArg
         internal set
 
-    public var completedPacketQPC: MutPtr<ULong> = completedPacketQPCCtorArg
+    public var completedPacketQPC: MutPtr = completedPacketQPCCtorArg
         internal set
 
-    public var completedPacketHash: MutPtr<ULong> = completedPacketHashCtorArg
+    public var completedPacketHash: MutPtr = completedPacketHashCtorArg
         internal set
 
     public constructor() : this(
@@ -604,13 +603,13 @@ public class KsrtaudioPacketvregister internal constructor(
         completedPacketHashCtorArg = MutPtr(0L),
     )
 
-    public operator fun component1(): MutPtr<ULong> = this.completedPacketCount
+    public operator fun component1(): MutPtr = this.completedPacketCount
 
-    public operator fun component2(): MutPtr<ULong> = this.completedPacketQPC
+    public operator fun component2(): MutPtr = this.completedPacketQPC
 
-    public operator fun component3(): MutPtr<ULong> = this.completedPacketHash
+    public operator fun component3(): MutPtr = this.completedPacketHash
 
-    public fun copy(completedPacketCount: MutPtr<ULong> = this.completedPacketCount, completedPacketQPC: MutPtr<ULong> = this.completedPacketQPC, completedPacketHash: MutPtr<ULong> = this.completedPacketHash): KsrtaudioPacketvregister = KsrtaudioPacketvregister(completedPacketCountCtorArg = completedPacketCount, completedPacketQPCCtorArg = completedPacketQPC, completedPacketHashCtorArg = completedPacketHash)
+    public fun copy(completedPacketCount: MutPtr = this.completedPacketCount, completedPacketQPC: MutPtr = this.completedPacketQPC, completedPacketHash: MutPtr = this.completedPacketHash): KsrtaudioPacketvregister = KsrtaudioPacketvregister(completedPacketCountCtorArg = completedPacketCount, completedPacketQPCCtorArg = completedPacketQPC, completedPacketHashCtorArg = completedPacketHash)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -637,37 +636,37 @@ public class KsrtaudioPacketvregister internal constructor(
                     KsrtaudioPacketvregister(
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<ULong>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<ULong>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<ULong>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 16L),
                     )
                 override fun writeNative(addr: Long, value: KsrtaudioPacketvregister) {
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<ULong>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr, value.completedPacketCount)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<ULong>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.completedPacketQPC)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<ULong>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 16L, value.completedPacketHash)
                 }
             }
 
         public operator fun invoke(
-            completedPacketCount: MutPtr<ULong> = MutPtr(0L),
-            completedPacketQPC: MutPtr<ULong> = MutPtr(0L),
-            completedPacketHash: MutPtr<ULong> = MutPtr(0L),
+            completedPacketCount: MutPtr = MutPtr(0L),
+            completedPacketQPC: MutPtr = MutPtr(0L),
+            completedPacketHash: MutPtr = MutPtr(0L),
         ): KsrtaudioPacketvregister =
             KsrtaudioPacketvregister(
                 completedPacketCountCtorArg = completedPacketCount,
@@ -679,9 +678,9 @@ public class KsrtaudioPacketvregister internal constructor(
 
 public class KsrtaudioPacketvregisterProperty internal constructor(
     public var property: Ksidentifier,
-    baseAddressCtorArg: MutPtr<CVoid>,
+    baseAddressCtorArg: MutPtr,
 ) {
-    public var baseAddress: MutPtr<CVoid> = baseAddressCtorArg
+    public var baseAddress: MutPtr = baseAddressCtorArg
         internal set
 
     public constructor() : this(
@@ -691,9 +690,9 @@ public class KsrtaudioPacketvregisterProperty internal constructor(
 
     public operator fun component1(): Ksidentifier = this.property
 
-    public operator fun component2(): MutPtr<CVoid> = this.baseAddress
+    public operator fun component2(): MutPtr = this.baseAddress
 
-    public fun copy(property: Ksidentifier = this.property, baseAddress: MutPtr<CVoid> = this.baseAddress): KsrtaudioPacketvregisterProperty = KsrtaudioPacketvregisterProperty(property = property, baseAddressCtorArg = baseAddress)
+    public fun copy(property: Ksidentifier = this.property, baseAddress: MutPtr = this.baseAddress): KsrtaudioPacketvregisterProperty = KsrtaudioPacketvregisterProperty(property = property, baseAddressCtorArg = baseAddress)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -712,7 +711,7 @@ public class KsrtaudioPacketvregisterProperty internal constructor(
     public companion object {
         public operator fun invoke(
             property: Ksidentifier = Ksidentifier(),
-            baseAddress: MutPtr<CVoid> = MutPtr(0L),
+            baseAddress: MutPtr = MutPtr(0L),
         ): KsrtaudioPacketvregisterProperty =
             KsrtaudioPacketvregisterProperty(
                 property = property,
@@ -770,11 +769,11 @@ public class KsstreamHeader internal constructor(
     public var duration: Long,
     public var frameExtent: UInt,
     public var dataUsed: UInt,
-    dataCtorArg: MutPtr<CVoid>,
+    dataCtorArg: MutPtr,
     public var optionsFlags: UInt,
     public var reserved: UInt,
 ) {
-    public var data: MutPtr<CVoid> = dataCtorArg
+    public var data: MutPtr = dataCtorArg
         internal set
 
     public constructor() : this(
@@ -801,13 +800,13 @@ public class KsstreamHeader internal constructor(
 
     public operator fun component6(): UInt = this.dataUsed
 
-    public operator fun component7(): MutPtr<CVoid> = this.data
+    public operator fun component7(): MutPtr = this.data
 
     public operator fun component8(): UInt = this.optionsFlags
 
     public operator fun component9(): UInt = this.reserved
 
-    public fun copy(size: UInt = this.size, typeSpecificFlags: UInt = this.typeSpecificFlags, presentationTime: Kstime = this.presentationTime, duration: Long = this.duration, frameExtent: UInt = this.frameExtent, dataUsed: UInt = this.dataUsed, data: MutPtr<CVoid> = this.data, optionsFlags: UInt = this.optionsFlags, reserved: UInt = this.reserved): KsstreamHeader = KsstreamHeader(size = size, typeSpecificFlags = typeSpecificFlags, presentationTime = presentationTime, duration = duration, frameExtent = frameExtent, dataUsed = dataUsed, dataCtorArg = data, optionsFlags = optionsFlags, reserved = reserved)
+    public fun copy(size: UInt = this.size, typeSpecificFlags: UInt = this.typeSpecificFlags, presentationTime: Kstime = this.presentationTime, duration: Long = this.duration, frameExtent: UInt = this.frameExtent, dataUsed: UInt = this.dataUsed, data: MutPtr = this.data, optionsFlags: UInt = this.optionsFlags, reserved: UInt = this.reserved): KsstreamHeader = KsstreamHeader(size = size, typeSpecificFlags = typeSpecificFlags, presentationTime = presentationTime, duration = duration, frameExtent = frameExtent, dataUsed = dataUsed, dataCtorArg = data, optionsFlags = optionsFlags, reserved = reserved)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -852,7 +851,7 @@ public class KsstreamHeader internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 36L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<CVoid>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 40L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 48L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 52L),
@@ -866,7 +865,7 @@ public class KsstreamHeader internal constructor(
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 36L, value.dataUsed)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<CVoid>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 40L, value.data)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 48L, value.optionsFlags)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 52L, value.reserved)
@@ -880,7 +879,7 @@ public class KsstreamHeader internal constructor(
             duration: Long = 0L,
             frameExtent: UInt = 0u,
             dataUsed: UInt = 0u,
-            data: MutPtr<CVoid> = MutPtr(0L),
+            data: MutPtr = MutPtr(0L),
             optionsFlags: UInt = 0u,
             reserved: UInt = 0u,
         ): KsstreamHeader =
@@ -901,15 +900,15 @@ public class KsstreamHeader internal constructor(
 public class KsstreamMetadataInfo internal constructor(
     public var bufferSize: UInt,
     public var usedSize: UInt,
-    dataCtorArg: MutPtr<CVoid>,
-    systemVaCtorArg: MutPtr<CVoid>,
+    dataCtorArg: MutPtr,
+    systemVaCtorArg: MutPtr,
     public var flags: UInt,
     public var reserved: UInt,
 ) {
-    public var data: MutPtr<CVoid> = dataCtorArg
+    public var data: MutPtr = dataCtorArg
         internal set
 
-    public var systemVa: MutPtr<CVoid> = systemVaCtorArg
+    public var systemVa: MutPtr = systemVaCtorArg
         internal set
 
     public constructor() : this(
@@ -925,15 +924,15 @@ public class KsstreamMetadataInfo internal constructor(
 
     public operator fun component2(): UInt = this.usedSize
 
-    public operator fun component3(): MutPtr<CVoid> = this.data
+    public operator fun component3(): MutPtr = this.data
 
-    public operator fun component4(): MutPtr<CVoid> = this.systemVa
+    public operator fun component4(): MutPtr = this.systemVa
 
     public operator fun component5(): UInt = this.flags
 
     public operator fun component6(): UInt = this.reserved
 
-    public fun copy(bufferSize: UInt = this.bufferSize, usedSize: UInt = this.usedSize, data: MutPtr<CVoid> = this.data, systemVa: MutPtr<CVoid> = this.systemVa, flags: UInt = this.flags, reserved: UInt = this.reserved): KsstreamMetadataInfo = KsstreamMetadataInfo(bufferSize = bufferSize, usedSize = usedSize, dataCtorArg = data, systemVaCtorArg = systemVa, flags = flags, reserved = reserved)
+    public fun copy(bufferSize: UInt = this.bufferSize, usedSize: UInt = this.usedSize, data: MutPtr = this.data, systemVa: MutPtr = this.systemVa, flags: UInt = this.flags, reserved: UInt = this.reserved): KsstreamMetadataInfo = KsstreamMetadataInfo(bufferSize = bufferSize, usedSize = usedSize, dataCtorArg = data, systemVaCtorArg = systemVa, flags = flags, reserved = reserved)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -968,11 +967,11 @@ public class KsstreamMetadataInfo internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 4L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<CVoid>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<CVoid>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 16L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 24L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 28L),
@@ -982,11 +981,11 @@ public class KsstreamMetadataInfo internal constructor(
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 4L, value.usedSize)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<CVoid>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.data)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<CVoid>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 16L, value.systemVa)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 24L, value.flags)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 28L, value.reserved)
@@ -996,8 +995,8 @@ public class KsstreamMetadataInfo internal constructor(
         public operator fun invoke(
             bufferSize: UInt = 0u,
             usedSize: UInt = 0u,
-            data: MutPtr<CVoid> = MutPtr(0L),
-            systemVa: MutPtr<CVoid> = MutPtr(0L),
+            data: MutPtr = MutPtr(0L),
+            systemVa: MutPtr = MutPtr(0L),
             flags: UInt = 0u,
             reserved: UInt = 0u,
         ): KsstreamMetadataInfo =
@@ -1013,15 +1012,15 @@ public class KsstreamMetadataInfo internal constructor(
 }
 
 public class KsstreamSegment internal constructor(
-    ksInterfaceHandlerCtorArg: MutPtr<CVoid>,
-    ksDataTypeHandlerCtorArg: MutPtr<CVoid>,
+    ksInterfaceHandlerCtorArg: MutPtr,
+    ksDataTypeHandlerCtorArg: MutPtr,
     public var ioOperation: Ksiooperation,
     completionEventCtorArg: Handle,
 ) {
-    public var ksInterfaceHandler: MutPtr<CVoid> = ksInterfaceHandlerCtorArg
+    public var ksInterfaceHandler: MutPtr = ksInterfaceHandlerCtorArg
         internal set
 
-    public var ksDataTypeHandler: MutPtr<CVoid> = ksDataTypeHandlerCtorArg
+    public var ksDataTypeHandler: MutPtr = ksDataTypeHandlerCtorArg
         internal set
 
     public var completionEvent: Handle = completionEventCtorArg
@@ -1034,15 +1033,15 @@ public class KsstreamSegment internal constructor(
         completionEventCtorArg = MutPtr(0L),
     )
 
-    public operator fun component1(): MutPtr<CVoid> = this.ksInterfaceHandler
+    public operator fun component1(): MutPtr = this.ksInterfaceHandler
 
-    public operator fun component2(): MutPtr<CVoid> = this.ksDataTypeHandler
+    public operator fun component2(): MutPtr = this.ksDataTypeHandler
 
     public operator fun component3(): Ksiooperation = this.ioOperation
 
     public operator fun component4(): Handle = this.completionEvent
 
-    public fun copy(ksInterfaceHandler: MutPtr<CVoid> = this.ksInterfaceHandler, ksDataTypeHandler: MutPtr<CVoid> = this.ksDataTypeHandler, ioOperation: Ksiooperation = this.ioOperation, completionEvent: Handle = this.completionEvent): KsstreamSegment = KsstreamSegment(ksInterfaceHandlerCtorArg = ksInterfaceHandler, ksDataTypeHandlerCtorArg = ksDataTypeHandler, ioOperation = ioOperation, completionEventCtorArg = completionEvent)
+    public fun copy(ksInterfaceHandler: MutPtr = this.ksInterfaceHandler, ksDataTypeHandler: MutPtr = this.ksDataTypeHandler, ioOperation: Ksiooperation = this.ioOperation, completionEvent: Handle = this.completionEvent): KsstreamSegment = KsstreamSegment(ksInterfaceHandlerCtorArg = ksInterfaceHandler, ksDataTypeHandlerCtorArg = ksDataTypeHandler, ioOperation = ioOperation, completionEventCtorArg = completionEvent)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -1064,8 +1063,8 @@ public class KsstreamSegment internal constructor(
 
     public companion object {
         public operator fun invoke(
-            ksInterfaceHandler: MutPtr<CVoid> = MutPtr(0L),
-            ksDataTypeHandler: MutPtr<CVoid> = MutPtr(0L),
+            ksInterfaceHandler: MutPtr = MutPtr(0L),
+            ksDataTypeHandler: MutPtr = MutPtr(0L),
             ioOperation: Ksiooperation = 0,
             completionEvent: Handle = MutPtr(0L),
         ): KsstreamSegment =
@@ -1208,24 +1207,24 @@ public data class Kstime(
 
 public class Kstopology internal constructor(
     public var categoriesCount: UInt,
-    categoriesCtorArg: ConstPtr<Guid>,
+    categoriesCtorArg: ConstPtr,
     public var topologyNodesCount: UInt,
-    topologyNodesCtorArg: ConstPtr<Guid>,
+    topologyNodesCtorArg: ConstPtr,
     public var topologyConnectionsCount: UInt,
-    topologyConnectionsCtorArg: ConstPtr<KstopologyConnection>,
-    topologyNodesNamesCtorArg: ConstPtr<Guid>,
+    topologyConnectionsCtorArg: ConstPtr,
+    topologyNodesNamesCtorArg: ConstPtr,
     public var reserved: UInt,
 ) {
-    public var categories: ConstPtr<Guid> = categoriesCtorArg
+    public var categories: ConstPtr = categoriesCtorArg
         internal set
 
-    public var topologyNodes: ConstPtr<Guid> = topologyNodesCtorArg
+    public var topologyNodes: ConstPtr = topologyNodesCtorArg
         internal set
 
-    public var topologyConnections: ConstPtr<KstopologyConnection> = topologyConnectionsCtorArg
+    public var topologyConnections: ConstPtr = topologyConnectionsCtorArg
         internal set
 
-    public var topologyNodesNames: ConstPtr<Guid> = topologyNodesNamesCtorArg
+    public var topologyNodesNames: ConstPtr = topologyNodesNamesCtorArg
         internal set
 
     public constructor() : this(
@@ -1241,21 +1240,21 @@ public class Kstopology internal constructor(
 
     public operator fun component1(): UInt = this.categoriesCount
 
-    public operator fun component2(): ConstPtr<Guid> = this.categories
+    public operator fun component2(): ConstPtr = this.categories
 
     public operator fun component3(): UInt = this.topologyNodesCount
 
-    public operator fun component4(): ConstPtr<Guid> = this.topologyNodes
+    public operator fun component4(): ConstPtr = this.topologyNodes
 
     public operator fun component5(): UInt = this.topologyConnectionsCount
 
-    public operator fun component6(): ConstPtr<KstopologyConnection> = this.topologyConnections
+    public operator fun component6(): ConstPtr = this.topologyConnections
 
-    public operator fun component7(): ConstPtr<Guid> = this.topologyNodesNames
+    public operator fun component7(): ConstPtr = this.topologyNodesNames
 
     public operator fun component8(): UInt = this.reserved
 
-    public fun copy(categoriesCount: UInt = this.categoriesCount, categories: ConstPtr<Guid> = this.categories, topologyNodesCount: UInt = this.topologyNodesCount, topologyNodes: ConstPtr<Guid> = this.topologyNodes, topologyConnectionsCount: UInt = this.topologyConnectionsCount, topologyConnections: ConstPtr<KstopologyConnection> = this.topologyConnections, topologyNodesNames: ConstPtr<Guid> = this.topologyNodesNames, reserved: UInt = this.reserved): Kstopology = Kstopology(categoriesCount = categoriesCount, categoriesCtorArg = categories, topologyNodesCount = topologyNodesCount, topologyNodesCtorArg = topologyNodes, topologyConnectionsCount = topologyConnectionsCount, topologyConnectionsCtorArg = topologyConnections, topologyNodesNamesCtorArg = topologyNodesNames, reserved = reserved)
+    public fun copy(categoriesCount: UInt = this.categoriesCount, categories: ConstPtr = this.categories, topologyNodesCount: UInt = this.topologyNodesCount, topologyNodes: ConstPtr = this.topologyNodes, topologyConnectionsCount: UInt = this.topologyConnectionsCount, topologyConnections: ConstPtr = this.topologyConnections, topologyNodesNames: ConstPtr = this.topologyNodesNames, reserved: UInt = this.reserved): Kstopology = Kstopology(categoriesCount = categoriesCount, categoriesCtorArg = categories, topologyNodesCount = topologyNodesCount, topologyNodesCtorArg = topologyNodes, topologyConnectionsCount = topologyConnectionsCount, topologyConnectionsCtorArg = topologyConnections, topologyNodesNamesCtorArg = topologyNodesNames, reserved = reserved)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -1293,21 +1292,21 @@ public class Kstopology internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .constPtrLayout<Guid>(64)
+                                .constPtrLayout(64)
                         ).readNative(addr + 8L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 16L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .constPtrLayout<Guid>(64)
+                                .constPtrLayout(64)
                         ).readNative(addr + 24L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 32L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .constPtrLayout<KstopologyConnection>(64)
+                                .constPtrLayout(64)
                         ).readNative(addr + 40L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .constPtrLayout<Guid>(64)
+                                .constPtrLayout(64)
                         ).readNative(addr + 48L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 56L),
                     )
@@ -1315,21 +1314,21 @@ public class Kstopology internal constructor(
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr, value.categoriesCount)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .constPtrLayout<Guid>(64)
+                            .constPtrLayout(64)
                     ).writeNative(addr + 8L, value.categories)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 16L, value.topologyNodesCount)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .constPtrLayout<Guid>(64)
+                            .constPtrLayout(64)
                     ).writeNative(addr + 24L, value.topologyNodes)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 32L, value.topologyConnectionsCount)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .constPtrLayout<KstopologyConnection>(64)
+                            .constPtrLayout(64)
                     ).writeNative(addr + 40L, value.topologyConnections)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .constPtrLayout<Guid>(64)
+                            .constPtrLayout(64)
                     ).writeNative(addr + 48L, value.topologyNodesNames)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 56L, value.reserved)
                 }
@@ -1337,12 +1336,12 @@ public class Kstopology internal constructor(
 
         public operator fun invoke(
             categoriesCount: UInt = 0u,
-            categories: ConstPtr<Guid> = ConstPtr(0L),
+            categories: ConstPtr = ConstPtr(0L),
             topologyNodesCount: UInt = 0u,
-            topologyNodes: ConstPtr<Guid> = ConstPtr(0L),
+            topologyNodes: ConstPtr = ConstPtr(0L),
             topologyConnectionsCount: UInt = 0u,
-            topologyConnections: ConstPtr<KstopologyConnection> = ConstPtr(0L),
-            topologyNodesNames: ConstPtr<Guid> = ConstPtr(0L),
+            topologyConnections: ConstPtr = ConstPtr(0L),
+            topologyNodesNames: ConstPtr = ConstPtr(0L),
             reserved: UInt = 0u,
         ): Kstopology =
             Kstopology(
@@ -1517,9 +1516,9 @@ public data class KswavetableWaveDesc(
 public class KswaveBuffer internal constructor(
     public var attributes: UInt,
     public var bufferSize: UInt,
-    bufferAddressCtorArg: MutPtr<CVoid>,
+    bufferAddressCtorArg: MutPtr,
 ) {
-    public var bufferAddress: MutPtr<CVoid> = bufferAddressCtorArg
+    public var bufferAddress: MutPtr = bufferAddressCtorArg
         internal set
 
     public constructor() : this(
@@ -1532,9 +1531,9 @@ public class KswaveBuffer internal constructor(
 
     public operator fun component2(): UInt = this.bufferSize
 
-    public operator fun component3(): MutPtr<CVoid> = this.bufferAddress
+    public operator fun component3(): MutPtr = this.bufferAddress
 
-    public fun copy(attributes: UInt = this.attributes, bufferSize: UInt = this.bufferSize, bufferAddress: MutPtr<CVoid> = this.bufferAddress): KswaveBuffer = KswaveBuffer(attributes = attributes, bufferSize = bufferSize, bufferAddressCtorArg = bufferAddress)
+    public fun copy(attributes: UInt = this.attributes, bufferSize: UInt = this.bufferSize, bufferAddress: MutPtr = this.bufferAddress): KswaveBuffer = KswaveBuffer(attributes = attributes, bufferSize = bufferSize, bufferAddressCtorArg = bufferAddress)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -1563,7 +1562,7 @@ public class KswaveBuffer internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 4L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<CVoid>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                     )
                 override fun writeNative(addr: Long, value: KswaveBuffer) {
@@ -1571,7 +1570,7 @@ public class KswaveBuffer internal constructor(
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 4L, value.bufferSize)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<CVoid>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.bufferAddress)
                 }
             }
@@ -1579,7 +1578,7 @@ public class KswaveBuffer internal constructor(
         public operator fun invoke(
             attributes: UInt = 0u,
             bufferSize: UInt = 0u,
-            bufferAddress: MutPtr<CVoid> = MutPtr(0L),
+            bufferAddress: MutPtr = MutPtr(0L),
         ): KswaveBuffer =
             KswaveBuffer(
                 attributes = attributes,
@@ -4084,9 +4083,9 @@ public data class VramSurfaceInfo(
 
 public class VramSurfaceInfoPropertyS internal constructor(
     public var property: Ksidentifier,
-    pVramSurfaceInfoCtorArg: MutPtr<VramSurfaceInfo>,
+    pVramSurfaceInfoCtorArg: MutPtr,
 ) {
-    public var pVramSurfaceInfo: MutPtr<VramSurfaceInfo> = pVramSurfaceInfoCtorArg
+    public var pVramSurfaceInfo: MutPtr = pVramSurfaceInfoCtorArg
         internal set
 
     public constructor() : this(
@@ -4096,9 +4095,9 @@ public class VramSurfaceInfoPropertyS internal constructor(
 
     public operator fun component1(): Ksidentifier = this.property
 
-    public operator fun component2(): MutPtr<VramSurfaceInfo> = this.pVramSurfaceInfo
+    public operator fun component2(): MutPtr = this.pVramSurfaceInfo
 
-    public fun copy(property: Ksidentifier = this.property, pVramSurfaceInfo: MutPtr<VramSurfaceInfo> = this.pVramSurfaceInfo): VramSurfaceInfoPropertyS = VramSurfaceInfoPropertyS(property = property, pVramSurfaceInfoCtorArg = pVramSurfaceInfo)
+    public fun copy(property: Ksidentifier = this.property, pVramSurfaceInfo: MutPtr = this.pVramSurfaceInfo): VramSurfaceInfoPropertyS = VramSurfaceInfoPropertyS(property = property, pVramSurfaceInfoCtorArg = pVramSurfaceInfo)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -4117,7 +4116,7 @@ public class VramSurfaceInfoPropertyS internal constructor(
     public companion object {
         public operator fun invoke(
             property: Ksidentifier = Ksidentifier(),
-            pVramSurfaceInfo: MutPtr<VramSurfaceInfo> = MutPtr(0L),
+            pVramSurfaceInfo: MutPtr = MutPtr(0L),
         ): VramSurfaceInfoPropertyS =
             VramSurfaceInfoPropertyS(
                 property = property,

@@ -1,8 +1,6 @@
 package io.github.kotlinmania.windowssys.windows.win32.system.ole
 
-import io.github.kotlinmania.rustlang.core.ffi.CVoid
 import io.github.kotlinmania.rustlang.core.ptr.ConstPtr
-import io.github.kotlinmania.windowssys.core.Guid
 import io.github.kotlinmania.windowssys.core.Hresult
 import io.github.kotlinmania.windowssys.core.Pcwstr
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Hwnd
@@ -112,7 +110,7 @@ public typealias Olemisc = Int
 public typealias Olerender = Int
 
 public fun interface OlestreamqueryconvertolelinkcallbackFn {
-    public operator fun invoke(pclsid: ConstPtr<Guid>, szclass: Pcwstr, sztopicname: Pcwstr, szitemname: Pcwstr, szuncname: Pcwstr, linkupdatingoption: UInt, pvcontext: ConstPtr<CVoid>): Hresult
+    public operator fun invoke(pclsid: ConstPtr, szclass: Pcwstr, sztopicname: Pcwstr, szitemname: Pcwstr, szuncname: Pcwstr, linkupdatingoption: UInt, pvcontext: ConstPtr): Hresult
 }
 
 public typealias Olestreamqueryconvertolelinkcallback = OlestreamqueryconvertolelinkcallbackFn?

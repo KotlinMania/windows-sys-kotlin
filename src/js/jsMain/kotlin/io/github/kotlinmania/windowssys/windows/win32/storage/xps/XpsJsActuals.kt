@@ -2,7 +2,6 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.storage.xps
 
-import io.github.kotlinmania.rustlang.core.ffi.CVoid
 import io.github.kotlinmania.rustlang.core.ptr.ConstPtr
 import io.github.kotlinmania.rustlang.core.ptr.MutPtr
 import io.github.kotlinmania.windowssys.core.Bool
@@ -11,8 +10,6 @@ import io.github.kotlinmania.windowssys.core.Pcwstr
 import io.github.kotlinmania.windowssys.core.Pstr
 import io.github.kotlinmania.windowssys.core.Pwstr
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Hwnd
-import io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.Devmodea
-import io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.Devmodew
 import io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.Hdc
 
 private val windowsWin32StorageXpsNapiAddon: dynamic =
@@ -21,10 +18,10 @@ private val windowsWin32StorageXpsNapiAddon: dynamic =
 public actual fun abortDoc(hdc: Hdc): Int =
     if (windowsWin32StorageXpsNapiAddon != null) (windowsWin32StorageXpsNapiAddon.windowssysWindowsWin32StorageXpsAbortDoc(hdc.rawAddress.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun deviceCapabilitiesA(pdevice: Pcstr, pport: Pcstr, fwcapability: PrinterDeviceCapabilities, poutput: Pstr, pdevmode: ConstPtr<Devmodea>): Int =
+public actual fun deviceCapabilitiesA(pdevice: Pcstr, pport: Pcstr, fwcapability: PrinterDeviceCapabilities, poutput: Pstr, pdevmode: ConstPtr): Int =
     if (windowsWin32StorageXpsNapiAddon != null) (windowsWin32StorageXpsNapiAddon.windowssysWindowsWin32StorageXpsDeviceCapabilitiesA(pdevice.rawAddress.toString(), pport.rawAddress.toString(), fwcapability.toInt(), poutput.rawAddress.toString(), pdevmode.rawAddress.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun deviceCapabilitiesW(pdevice: Pcwstr, pport: Pcwstr, fwcapability: PrinterDeviceCapabilities, poutput: Pwstr, pdevmode: ConstPtr<Devmodew>): Int =
+public actual fun deviceCapabilitiesW(pdevice: Pcwstr, pport: Pcwstr, fwcapability: PrinterDeviceCapabilities, poutput: Pwstr, pdevmode: ConstPtr): Int =
     if (windowsWin32StorageXpsNapiAddon != null) (windowsWin32StorageXpsNapiAddon.windowssysWindowsWin32StorageXpsDeviceCapabilitiesW(pdevice.rawAddress.toString(), pport.rawAddress.toString(), fwcapability.toInt(), poutput.rawAddress.toString(), pdevmode.rawAddress.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun endDoc(hdc: Hdc): Int =
@@ -33,7 +30,7 @@ public actual fun endDoc(hdc: Hdc): Int =
 public actual fun endPage(hdc: Hdc): Int =
     if (windowsWin32StorageXpsNapiAddon != null) (windowsWin32StorageXpsNapiAddon.windowssysWindowsWin32StorageXpsEndPage(hdc.rawAddress.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun escape(hdc: Hdc, iescape: Int, cjin: Int, pvin: Pcstr, pvout: MutPtr<CVoid>): Int =
+public actual fun escape(hdc: Hdc, iescape: Int, cjin: Int, pvin: Pcstr, pvout: MutPtr): Int =
     if (windowsWin32StorageXpsNapiAddon != null) (windowsWin32StorageXpsNapiAddon.windowssysWindowsWin32StorageXpsEscape(hdc.rawAddress.toString(), iescape, cjin, pvin.rawAddress.toString(), pvout.rawAddress.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun extEscape(hdc: Hdc, iescape: Int, cjinput: Int, lpindata: Pcstr, cjoutput: Int, lpoutdata: Pstr): Int =
@@ -45,10 +42,10 @@ public actual fun printWindow(hwnd: Hwnd, hdcblt: Hdc, nflags: PrintWindowFlags)
 public actual fun setAbortProc(hdc: Hdc, proc: Abortproc): Int =
     if (windowsWin32StorageXpsNapiAddon != null) (windowsWin32StorageXpsNapiAddon.windowssysWindowsWin32StorageXpsSetAbortProc(hdc.rawAddress.toString(), 0L.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun startDocA(hdc: Hdc, lpdi: ConstPtr<Docinfoa>): Int =
+public actual fun startDocA(hdc: Hdc, lpdi: ConstPtr): Int =
     if (windowsWin32StorageXpsNapiAddon != null) (windowsWin32StorageXpsNapiAddon.windowssysWindowsWin32StorageXpsStartDocA(hdc.rawAddress.toString(), lpdi.rawAddress.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun startDocW(hdc: Hdc, lpdi: ConstPtr<Docinfow>): Int =
+public actual fun startDocW(hdc: Hdc, lpdi: ConstPtr): Int =
     if (windowsWin32StorageXpsNapiAddon != null) (windowsWin32StorageXpsNapiAddon.windowssysWindowsWin32StorageXpsStartDocW(hdc.rawAddress.toString(), lpdi.rawAddress.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun startPage(hdc: Hdc): Int =

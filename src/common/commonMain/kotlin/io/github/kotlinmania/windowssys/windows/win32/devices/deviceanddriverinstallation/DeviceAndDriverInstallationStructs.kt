@@ -2,7 +2,6 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.devices.deviceanddriverinstallation
 
-import io.github.kotlinmania.rustlang.core.ffi.CVoid
 import io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
 import io.github.kotlinmania.rustlang.core.mem.TypeLayout
 import io.github.kotlinmania.rustlang.core.ptr.ConstPtr
@@ -433,9 +432,9 @@ public data class CmNotifyFilter00(
 public class CoinstallerContextData internal constructor(
     public var postProcessing: Bool,
     public var installResult: UInt,
-    privateDataCtorArg: MutPtr<CVoid>,
+    privateDataCtorArg: MutPtr,
 ) {
-    public var privateData: MutPtr<CVoid> = privateDataCtorArg
+    public var privateData: MutPtr = privateDataCtorArg
         internal set
 
     public constructor() : this(
@@ -448,9 +447,9 @@ public class CoinstallerContextData internal constructor(
 
     public operator fun component2(): UInt = this.installResult
 
-    public operator fun component3(): MutPtr<CVoid> = this.privateData
+    public operator fun component3(): MutPtr = this.privateData
 
-    public fun copy(postProcessing: Bool = this.postProcessing, installResult: UInt = this.installResult, privateData: MutPtr<CVoid> = this.privateData): CoinstallerContextData = CoinstallerContextData(postProcessing = postProcessing, installResult = installResult, privateDataCtorArg = privateData)
+    public fun copy(postProcessing: Bool = this.postProcessing, installResult: UInt = this.installResult, privateData: MutPtr = this.privateData): CoinstallerContextData = CoinstallerContextData(postProcessing = postProcessing, installResult = installResult, privateDataCtorArg = privateData)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -479,7 +478,7 @@ public class CoinstallerContextData internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 4L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<CVoid>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                     )
                 override fun writeNative(addr: Long, value: CoinstallerContextData) {
@@ -487,7 +486,7 @@ public class CoinstallerContextData internal constructor(
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 4L, value.installResult)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<CVoid>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.privateData)
                 }
             }
@@ -495,7 +494,7 @@ public class CoinstallerContextData internal constructor(
         public operator fun invoke(
             postProcessing: Bool = 0,
             installResult: UInt = 0u,
-            privateData: MutPtr<CVoid> = MutPtr(0L),
+            privateData: MutPtr = MutPtr(0L),
         ): CoinstallerContextData =
             CoinstallerContextData(
                 postProcessing = postProcessing,
@@ -1469,15 +1468,15 @@ public data class HwprofileinfoW(
 }
 
 public class Infcontext internal constructor(
-    infCtorArg: MutPtr<CVoid>,
-    currentInfCtorArg: MutPtr<CVoid>,
+    infCtorArg: MutPtr,
+    currentInfCtorArg: MutPtr,
     public var section: UInt,
     public var line: UInt,
 ) {
-    public var inf: MutPtr<CVoid> = infCtorArg
+    public var inf: MutPtr = infCtorArg
         internal set
 
-    public var currentInf: MutPtr<CVoid> = currentInfCtorArg
+    public var currentInf: MutPtr = currentInfCtorArg
         internal set
 
     public constructor() : this(
@@ -1487,15 +1486,15 @@ public class Infcontext internal constructor(
         line = 0u,
     )
 
-    public operator fun component1(): MutPtr<CVoid> = this.inf
+    public operator fun component1(): MutPtr = this.inf
 
-    public operator fun component2(): MutPtr<CVoid> = this.currentInf
+    public operator fun component2(): MutPtr = this.currentInf
 
     public operator fun component3(): UInt = this.section
 
     public operator fun component4(): UInt = this.line
 
-    public fun copy(inf: MutPtr<CVoid> = this.inf, currentInf: MutPtr<CVoid> = this.currentInf, section: UInt = this.section, line: UInt = this.line): Infcontext = Infcontext(infCtorArg = inf, currentInfCtorArg = currentInf, section = section, line = line)
+    public fun copy(inf: MutPtr = this.inf, currentInf: MutPtr = this.currentInf, section: UInt = this.section, line: UInt = this.line): Infcontext = Infcontext(infCtorArg = inf, currentInfCtorArg = currentInf, section = section, line = line)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -1524,11 +1523,11 @@ public class Infcontext internal constructor(
                     Infcontext(
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<CVoid>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<CVoid>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 16L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 20L),
@@ -1536,11 +1535,11 @@ public class Infcontext internal constructor(
                 override fun writeNative(addr: Long, value: Infcontext) {
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<CVoid>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr, value.inf)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<CVoid>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.currentInf)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 16L, value.section)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 20L, value.line)
@@ -1548,8 +1547,8 @@ public class Infcontext internal constructor(
             }
 
         public operator fun invoke(
-            inf: MutPtr<CVoid> = MutPtr(0L),
-            currentInf: MutPtr<CVoid> = MutPtr(0L),
+            inf: MutPtr = MutPtr(0L),
+            currentInf: MutPtr = MutPtr(0L),
             section: UInt = 0u,
             line: UInt = 0u,
         ): Infcontext =
@@ -2700,9 +2699,9 @@ public data class SpClassinstallHeader(
 public class SpDetectdeviceParams internal constructor(
     public var classInstallHeader: SpClassinstallHeader,
     public var detectProgressNotify: PdetectProgressNotify,
-    progressNotifyParamCtorArg: MutPtr<CVoid>,
+    progressNotifyParamCtorArg: MutPtr,
 ) {
-    public var progressNotifyParam: MutPtr<CVoid> = progressNotifyParamCtorArg
+    public var progressNotifyParam: MutPtr = progressNotifyParamCtorArg
         internal set
 
     public constructor() : this(
@@ -2715,9 +2714,9 @@ public class SpDetectdeviceParams internal constructor(
 
     public operator fun component2(): PdetectProgressNotify = this.detectProgressNotify
 
-    public operator fun component3(): MutPtr<CVoid> = this.progressNotifyParam
+    public operator fun component3(): MutPtr = this.progressNotifyParam
 
-    public fun copy(classInstallHeader: SpClassinstallHeader = this.classInstallHeader, detectProgressNotify: PdetectProgressNotify = this.detectProgressNotify, progressNotifyParam: MutPtr<CVoid> = this.progressNotifyParam): SpDetectdeviceParams = SpDetectdeviceParams(classInstallHeader = classInstallHeader, detectProgressNotify = detectProgressNotify, progressNotifyParamCtorArg = progressNotifyParam)
+    public fun copy(classInstallHeader: SpClassinstallHeader = this.classInstallHeader, detectProgressNotify: PdetectProgressNotify = this.detectProgressNotify, progressNotifyParam: MutPtr = this.progressNotifyParam): SpDetectdeviceParams = SpDetectdeviceParams(classInstallHeader = classInstallHeader, detectProgressNotify = detectProgressNotify, progressNotifyParamCtorArg = progressNotifyParam)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -2739,7 +2738,7 @@ public class SpDetectdeviceParams internal constructor(
         public operator fun invoke(
             classInstallHeader: SpClassinstallHeader = SpClassinstallHeader(),
             detectProgressNotify: PdetectProgressNotify = null,
-            progressNotifyParam: MutPtr<CVoid> = MutPtr(0L),
+            progressNotifyParam: MutPtr = MutPtr(0L),
         ): SpDetectdeviceParams =
             SpDetectdeviceParams(
                 classInstallHeader = classInstallHeader,
@@ -2973,8 +2972,8 @@ public class SpDevinstallParamsA internal constructor(
     public var flagsEx: SetupDiDeviceInstallFlagsEx,
     hwndParentCtorArg: Hwnd,
     public var installMsgHandler: PspFileCallbackA,
-    installMsgHandlerContextCtorArg: MutPtr<CVoid>,
-    fileQueueCtorArg: MutPtr<CVoid>,
+    installMsgHandlerContextCtorArg: MutPtr,
+    fileQueueCtorArg: MutPtr,
     public var classInstallReserved: Int,
     public var reserved: UInt,
     public var driverPath: ByteArray,
@@ -2982,10 +2981,10 @@ public class SpDevinstallParamsA internal constructor(
     public var hwndParent: Hwnd = hwndParentCtorArg
         internal set
 
-    public var installMsgHandlerContext: MutPtr<CVoid> = installMsgHandlerContextCtorArg
+    public var installMsgHandlerContext: MutPtr = installMsgHandlerContextCtorArg
         internal set
 
-    public var fileQueue: MutPtr<CVoid> = fileQueueCtorArg
+    public var fileQueue: MutPtr = fileQueueCtorArg
         internal set
 
     public constructor() : this(
@@ -3011,9 +3010,9 @@ public class SpDevinstallParamsA internal constructor(
 
     public operator fun component5(): PspFileCallbackA = this.installMsgHandler
 
-    public operator fun component6(): MutPtr<CVoid> = this.installMsgHandlerContext
+    public operator fun component6(): MutPtr = this.installMsgHandlerContext
 
-    public operator fun component7(): MutPtr<CVoid> = this.fileQueue
+    public operator fun component7(): MutPtr = this.fileQueue
 
     public operator fun component8(): Int = this.classInstallReserved
 
@@ -3021,7 +3020,7 @@ public class SpDevinstallParamsA internal constructor(
 
     public operator fun component10(): ByteArray = this.driverPath
 
-    public fun copy(cbSize: UInt = this.cbSize, flags: SetupDiDeviceInstallFlags = this.flags, flagsEx: SetupDiDeviceInstallFlagsEx = this.flagsEx, hwndParent: Hwnd = this.hwndParent, installMsgHandler: PspFileCallbackA = this.installMsgHandler, installMsgHandlerContext: MutPtr<CVoid> = this.installMsgHandlerContext, fileQueue: MutPtr<CVoid> = this.fileQueue, classInstallReserved: Int = this.classInstallReserved, reserved: UInt = this.reserved, driverPath: ByteArray = this.driverPath): SpDevinstallParamsA = SpDevinstallParamsA(cbSize = cbSize, flags = flags, flagsEx = flagsEx, hwndParentCtorArg = hwndParent, installMsgHandler = installMsgHandler, installMsgHandlerContextCtorArg = installMsgHandlerContext, fileQueueCtorArg = fileQueue, classInstallReserved = classInstallReserved, reserved = reserved, driverPath = driverPath)
+    public fun copy(cbSize: UInt = this.cbSize, flags: SetupDiDeviceInstallFlags = this.flags, flagsEx: SetupDiDeviceInstallFlagsEx = this.flagsEx, hwndParent: Hwnd = this.hwndParent, installMsgHandler: PspFileCallbackA = this.installMsgHandler, installMsgHandlerContext: MutPtr = this.installMsgHandlerContext, fileQueue: MutPtr = this.fileQueue, classInstallReserved: Int = this.classInstallReserved, reserved: UInt = this.reserved, driverPath: ByteArray = this.driverPath): SpDevinstallParamsA = SpDevinstallParamsA(cbSize = cbSize, flags = flags, flagsEx = flagsEx, hwndParentCtorArg = hwndParent, installMsgHandler = installMsgHandler, installMsgHandlerContextCtorArg = installMsgHandlerContext, fileQueueCtorArg = fileQueue, classInstallReserved = classInstallReserved, reserved = reserved, driverPath = driverPath)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -3060,8 +3059,8 @@ public class SpDevinstallParamsA internal constructor(
             flagsEx: SetupDiDeviceInstallFlagsEx = 0u,
             hwndParent: Hwnd = MutPtr(0L),
             installMsgHandler: PspFileCallbackA = null,
-            installMsgHandlerContext: MutPtr<CVoid> = MutPtr(0L),
-            fileQueue: MutPtr<CVoid> = MutPtr(0L),
+            installMsgHandlerContext: MutPtr = MutPtr(0L),
+            fileQueue: MutPtr = MutPtr(0L),
             classInstallReserved: Int = 0,
             reserved: UInt = 0u,
             driverPath: ByteArray = ByteArray(260),
@@ -3087,8 +3086,8 @@ public class SpDevinstallParamsW internal constructor(
     public var flagsEx: SetupDiDeviceInstallFlagsEx,
     hwndParentCtorArg: Hwnd,
     public var installMsgHandler: PspFileCallbackW,
-    installMsgHandlerContextCtorArg: MutPtr<CVoid>,
-    fileQueueCtorArg: MutPtr<CVoid>,
+    installMsgHandlerContextCtorArg: MutPtr,
+    fileQueueCtorArg: MutPtr,
     public var classInstallReserved: Int,
     public var reserved: UInt,
     public var driverPath: UShortArray,
@@ -3096,10 +3095,10 @@ public class SpDevinstallParamsW internal constructor(
     public var hwndParent: Hwnd = hwndParentCtorArg
         internal set
 
-    public var installMsgHandlerContext: MutPtr<CVoid> = installMsgHandlerContextCtorArg
+    public var installMsgHandlerContext: MutPtr = installMsgHandlerContextCtorArg
         internal set
 
-    public var fileQueue: MutPtr<CVoid> = fileQueueCtorArg
+    public var fileQueue: MutPtr = fileQueueCtorArg
         internal set
 
     public constructor() : this(
@@ -3125,9 +3124,9 @@ public class SpDevinstallParamsW internal constructor(
 
     public operator fun component5(): PspFileCallbackW = this.installMsgHandler
 
-    public operator fun component6(): MutPtr<CVoid> = this.installMsgHandlerContext
+    public operator fun component6(): MutPtr = this.installMsgHandlerContext
 
-    public operator fun component7(): MutPtr<CVoid> = this.fileQueue
+    public operator fun component7(): MutPtr = this.fileQueue
 
     public operator fun component8(): Int = this.classInstallReserved
 
@@ -3135,7 +3134,7 @@ public class SpDevinstallParamsW internal constructor(
 
     public operator fun component10(): UShortArray = this.driverPath
 
-    public fun copy(cbSize: UInt = this.cbSize, flags: SetupDiDeviceInstallFlags = this.flags, flagsEx: SetupDiDeviceInstallFlagsEx = this.flagsEx, hwndParent: Hwnd = this.hwndParent, installMsgHandler: PspFileCallbackW = this.installMsgHandler, installMsgHandlerContext: MutPtr<CVoid> = this.installMsgHandlerContext, fileQueue: MutPtr<CVoid> = this.fileQueue, classInstallReserved: Int = this.classInstallReserved, reserved: UInt = this.reserved, driverPath: UShortArray = this.driverPath): SpDevinstallParamsW = SpDevinstallParamsW(cbSize = cbSize, flags = flags, flagsEx = flagsEx, hwndParentCtorArg = hwndParent, installMsgHandler = installMsgHandler, installMsgHandlerContextCtorArg = installMsgHandlerContext, fileQueueCtorArg = fileQueue, classInstallReserved = classInstallReserved, reserved = reserved, driverPath = driverPath)
+    public fun copy(cbSize: UInt = this.cbSize, flags: SetupDiDeviceInstallFlags = this.flags, flagsEx: SetupDiDeviceInstallFlagsEx = this.flagsEx, hwndParent: Hwnd = this.hwndParent, installMsgHandler: PspFileCallbackW = this.installMsgHandler, installMsgHandlerContext: MutPtr = this.installMsgHandlerContext, fileQueue: MutPtr = this.fileQueue, classInstallReserved: Int = this.classInstallReserved, reserved: UInt = this.reserved, driverPath: UShortArray = this.driverPath): SpDevinstallParamsW = SpDevinstallParamsW(cbSize = cbSize, flags = flags, flagsEx = flagsEx, hwndParentCtorArg = hwndParent, installMsgHandler = installMsgHandler, installMsgHandlerContextCtorArg = installMsgHandlerContext, fileQueueCtorArg = fileQueue, classInstallReserved = classInstallReserved, reserved = reserved, driverPath = driverPath)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -3174,8 +3173,8 @@ public class SpDevinstallParamsW internal constructor(
             flagsEx: SetupDiDeviceInstallFlagsEx = 0u,
             hwndParent: Hwnd = MutPtr(0L),
             installMsgHandler: PspFileCallbackW = null,
-            installMsgHandlerContext: MutPtr<CVoid> = MutPtr(0L),
-            fileQueue: MutPtr<CVoid> = MutPtr(0L),
+            installMsgHandlerContext: MutPtr = MutPtr(0L),
+            fileQueue: MutPtr = MutPtr(0L),
             classInstallReserved: Int = 0,
             reserved: UInt = 0u,
             driverPath: UShortArray = UShortArray(260),
@@ -3536,7 +3535,7 @@ public data class SpEnableclassParams(
 
 public class SpFileCopyParamsA internal constructor(
     public var cbSize: UInt,
-    queueHandleCtorArg: MutPtr<CVoid>,
+    queueHandleCtorArg: MutPtr,
     sourceRootPathCtorArg: Pcstr,
     sourcePathCtorArg: Pcstr,
     sourceFilenameCtorArg: Pcstr,
@@ -3545,10 +3544,10 @@ public class SpFileCopyParamsA internal constructor(
     targetDirectoryCtorArg: Pcstr,
     targetFilenameCtorArg: Pcstr,
     public var copyStyle: UInt,
-    layoutInfCtorArg: MutPtr<CVoid>,
+    layoutInfCtorArg: MutPtr,
     securityDescriptorCtorArg: Pcstr,
 ) {
-    public var queueHandle: MutPtr<CVoid> = queueHandleCtorArg
+    public var queueHandle: MutPtr = queueHandleCtorArg
         internal set
 
     public var sourceRootPath: Pcstr = sourceRootPathCtorArg
@@ -3572,7 +3571,7 @@ public class SpFileCopyParamsA internal constructor(
     public var targetFilename: Pcstr = targetFilenameCtorArg
         internal set
 
-    public var layoutInf: MutPtr<CVoid> = layoutInfCtorArg
+    public var layoutInf: MutPtr = layoutInfCtorArg
         internal set
 
     public var securityDescriptor: Pcstr = securityDescriptorCtorArg
@@ -3595,7 +3594,7 @@ public class SpFileCopyParamsA internal constructor(
 
     public operator fun component1(): UInt = this.cbSize
 
-    public operator fun component2(): MutPtr<CVoid> = this.queueHandle
+    public operator fun component2(): MutPtr = this.queueHandle
 
     public operator fun component3(): Pcstr = this.sourceRootPath
 
@@ -3613,11 +3612,11 @@ public class SpFileCopyParamsA internal constructor(
 
     public operator fun component10(): UInt = this.copyStyle
 
-    public operator fun component11(): MutPtr<CVoid> = this.layoutInf
+    public operator fun component11(): MutPtr = this.layoutInf
 
     public operator fun component12(): Pcstr = this.securityDescriptor
 
-    public fun copy(cbSize: UInt = this.cbSize, queueHandle: MutPtr<CVoid> = this.queueHandle, sourceRootPath: Pcstr = this.sourceRootPath, sourcePath: Pcstr = this.sourcePath, sourceFilename: Pcstr = this.sourceFilename, sourceDescription: Pcstr = this.sourceDescription, sourceTagfile: Pcstr = this.sourceTagfile, targetDirectory: Pcstr = this.targetDirectory, targetFilename: Pcstr = this.targetFilename, copyStyle: UInt = this.copyStyle, layoutInf: MutPtr<CVoid> = this.layoutInf, securityDescriptor: Pcstr = this.securityDescriptor): SpFileCopyParamsA = SpFileCopyParamsA(cbSize = cbSize, queueHandleCtorArg = queueHandle, sourceRootPathCtorArg = sourceRootPath, sourcePathCtorArg = sourcePath, sourceFilenameCtorArg = sourceFilename, sourceDescriptionCtorArg = sourceDescription, sourceTagfileCtorArg = sourceTagfile, targetDirectoryCtorArg = targetDirectory, targetFilenameCtorArg = targetFilename, copyStyle = copyStyle, layoutInfCtorArg = layoutInf, securityDescriptorCtorArg = securityDescriptor)
+    public fun copy(cbSize: UInt = this.cbSize, queueHandle: MutPtr = this.queueHandle, sourceRootPath: Pcstr = this.sourceRootPath, sourcePath: Pcstr = this.sourcePath, sourceFilename: Pcstr = this.sourceFilename, sourceDescription: Pcstr = this.sourceDescription, sourceTagfile: Pcstr = this.sourceTagfile, targetDirectory: Pcstr = this.targetDirectory, targetFilename: Pcstr = this.targetFilename, copyStyle: UInt = this.copyStyle, layoutInf: MutPtr = this.layoutInf, securityDescriptor: Pcstr = this.securityDescriptor): SpFileCopyParamsA = SpFileCopyParamsA(cbSize = cbSize, queueHandleCtorArg = queueHandle, sourceRootPathCtorArg = sourceRootPath, sourcePathCtorArg = sourcePath, sourceFilenameCtorArg = sourceFilename, sourceDescriptionCtorArg = sourceDescription, sourceTagfileCtorArg = sourceTagfile, targetDirectoryCtorArg = targetDirectory, targetFilenameCtorArg = targetFilename, copyStyle = copyStyle, layoutInfCtorArg = layoutInf, securityDescriptorCtorArg = securityDescriptor)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -3656,7 +3655,7 @@ public class SpFileCopyParamsA internal constructor(
     public companion object {
         public operator fun invoke(
             cbSize: UInt = 0u,
-            queueHandle: MutPtr<CVoid> = MutPtr(0L),
+            queueHandle: MutPtr = MutPtr(0L),
             sourceRootPath: Pcstr = ConstPtr(0L),
             sourcePath: Pcstr = ConstPtr(0L),
             sourceFilename: Pcstr = ConstPtr(0L),
@@ -3665,7 +3664,7 @@ public class SpFileCopyParamsA internal constructor(
             targetDirectory: Pcstr = ConstPtr(0L),
             targetFilename: Pcstr = ConstPtr(0L),
             copyStyle: UInt = 0u,
-            layoutInf: MutPtr<CVoid> = MutPtr(0L),
+            layoutInf: MutPtr = MutPtr(0L),
             securityDescriptor: Pcstr = ConstPtr(0L),
         ): SpFileCopyParamsA =
             SpFileCopyParamsA(
@@ -3687,7 +3686,7 @@ public class SpFileCopyParamsA internal constructor(
 
 public class SpFileCopyParamsW internal constructor(
     public var cbSize: UInt,
-    queueHandleCtorArg: MutPtr<CVoid>,
+    queueHandleCtorArg: MutPtr,
     sourceRootPathCtorArg: Pcwstr,
     sourcePathCtorArg: Pcwstr,
     sourceFilenameCtorArg: Pcwstr,
@@ -3696,10 +3695,10 @@ public class SpFileCopyParamsW internal constructor(
     targetDirectoryCtorArg: Pcwstr,
     targetFilenameCtorArg: Pcwstr,
     public var copyStyle: UInt,
-    layoutInfCtorArg: MutPtr<CVoid>,
+    layoutInfCtorArg: MutPtr,
     securityDescriptorCtorArg: Pcwstr,
 ) {
-    public var queueHandle: MutPtr<CVoid> = queueHandleCtorArg
+    public var queueHandle: MutPtr = queueHandleCtorArg
         internal set
 
     public var sourceRootPath: Pcwstr = sourceRootPathCtorArg
@@ -3723,7 +3722,7 @@ public class SpFileCopyParamsW internal constructor(
     public var targetFilename: Pcwstr = targetFilenameCtorArg
         internal set
 
-    public var layoutInf: MutPtr<CVoid> = layoutInfCtorArg
+    public var layoutInf: MutPtr = layoutInfCtorArg
         internal set
 
     public var securityDescriptor: Pcwstr = securityDescriptorCtorArg
@@ -3746,7 +3745,7 @@ public class SpFileCopyParamsW internal constructor(
 
     public operator fun component1(): UInt = this.cbSize
 
-    public operator fun component2(): MutPtr<CVoid> = this.queueHandle
+    public operator fun component2(): MutPtr = this.queueHandle
 
     public operator fun component3(): Pcwstr = this.sourceRootPath
 
@@ -3764,11 +3763,11 @@ public class SpFileCopyParamsW internal constructor(
 
     public operator fun component10(): UInt = this.copyStyle
 
-    public operator fun component11(): MutPtr<CVoid> = this.layoutInf
+    public operator fun component11(): MutPtr = this.layoutInf
 
     public operator fun component12(): Pcwstr = this.securityDescriptor
 
-    public fun copy(cbSize: UInt = this.cbSize, queueHandle: MutPtr<CVoid> = this.queueHandle, sourceRootPath: Pcwstr = this.sourceRootPath, sourcePath: Pcwstr = this.sourcePath, sourceFilename: Pcwstr = this.sourceFilename, sourceDescription: Pcwstr = this.sourceDescription, sourceTagfile: Pcwstr = this.sourceTagfile, targetDirectory: Pcwstr = this.targetDirectory, targetFilename: Pcwstr = this.targetFilename, copyStyle: UInt = this.copyStyle, layoutInf: MutPtr<CVoid> = this.layoutInf, securityDescriptor: Pcwstr = this.securityDescriptor): SpFileCopyParamsW = SpFileCopyParamsW(cbSize = cbSize, queueHandleCtorArg = queueHandle, sourceRootPathCtorArg = sourceRootPath, sourcePathCtorArg = sourcePath, sourceFilenameCtorArg = sourceFilename, sourceDescriptionCtorArg = sourceDescription, sourceTagfileCtorArg = sourceTagfile, targetDirectoryCtorArg = targetDirectory, targetFilenameCtorArg = targetFilename, copyStyle = copyStyle, layoutInfCtorArg = layoutInf, securityDescriptorCtorArg = securityDescriptor)
+    public fun copy(cbSize: UInt = this.cbSize, queueHandle: MutPtr = this.queueHandle, sourceRootPath: Pcwstr = this.sourceRootPath, sourcePath: Pcwstr = this.sourcePath, sourceFilename: Pcwstr = this.sourceFilename, sourceDescription: Pcwstr = this.sourceDescription, sourceTagfile: Pcwstr = this.sourceTagfile, targetDirectory: Pcwstr = this.targetDirectory, targetFilename: Pcwstr = this.targetFilename, copyStyle: UInt = this.copyStyle, layoutInf: MutPtr = this.layoutInf, securityDescriptor: Pcwstr = this.securityDescriptor): SpFileCopyParamsW = SpFileCopyParamsW(cbSize = cbSize, queueHandleCtorArg = queueHandle, sourceRootPathCtorArg = sourceRootPath, sourcePathCtorArg = sourcePath, sourceFilenameCtorArg = sourceFilename, sourceDescriptionCtorArg = sourceDescription, sourceTagfileCtorArg = sourceTagfile, targetDirectoryCtorArg = targetDirectory, targetFilenameCtorArg = targetFilename, copyStyle = copyStyle, layoutInfCtorArg = layoutInf, securityDescriptorCtorArg = securityDescriptor)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -3807,7 +3806,7 @@ public class SpFileCopyParamsW internal constructor(
     public companion object {
         public operator fun invoke(
             cbSize: UInt = 0u,
-            queueHandle: MutPtr<CVoid> = MutPtr(0L),
+            queueHandle: MutPtr = MutPtr(0L),
             sourceRootPath: Pcwstr = ConstPtr(0L),
             sourcePath: Pcwstr = ConstPtr(0L),
             sourceFilename: Pcwstr = ConstPtr(0L),
@@ -3816,7 +3815,7 @@ public class SpFileCopyParamsW internal constructor(
             targetDirectory: Pcwstr = ConstPtr(0L),
             targetFilename: Pcwstr = ConstPtr(0L),
             copyStyle: UInt = 0u,
-            layoutInf: MutPtr<CVoid> = MutPtr(0L),
+            layoutInf: MutPtr = MutPtr(0L),
             securityDescriptor: Pcwstr = ConstPtr(0L),
         ): SpFileCopyParamsW =
             SpFileCopyParamsW(
@@ -4537,9 +4536,9 @@ public class SpPropsheetpageRequest internal constructor(
     public var cbSize: UInt,
     public var pageRequested: UInt,
     public var deviceInfoSet: Hdevinfo,
-    deviceInfoDataCtorArg: MutPtr<SpDevinfoData>,
+    deviceInfoDataCtorArg: MutPtr,
 ) {
-    public var deviceInfoData: MutPtr<SpDevinfoData> = deviceInfoDataCtorArg
+    public var deviceInfoData: MutPtr = deviceInfoDataCtorArg
         internal set
 
     public constructor() : this(
@@ -4555,9 +4554,9 @@ public class SpPropsheetpageRequest internal constructor(
 
     public operator fun component3(): Hdevinfo = this.deviceInfoSet
 
-    public operator fun component4(): MutPtr<SpDevinfoData> = this.deviceInfoData
+    public operator fun component4(): MutPtr = this.deviceInfoData
 
-    public fun copy(cbSize: UInt = this.cbSize, pageRequested: UInt = this.pageRequested, deviceInfoSet: Hdevinfo = this.deviceInfoSet, deviceInfoData: MutPtr<SpDevinfoData> = this.deviceInfoData): SpPropsheetpageRequest = SpPropsheetpageRequest(cbSize = cbSize, pageRequested = pageRequested, deviceInfoSet = deviceInfoSet, deviceInfoDataCtorArg = deviceInfoData)
+    public fun copy(cbSize: UInt = this.cbSize, pageRequested: UInt = this.pageRequested, deviceInfoSet: Hdevinfo = this.deviceInfoSet, deviceInfoData: MutPtr = this.deviceInfoData): SpPropsheetpageRequest = SpPropsheetpageRequest(cbSize = cbSize, pageRequested = pageRequested, deviceInfoSet = deviceInfoSet, deviceInfoDataCtorArg = deviceInfoData)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -4589,7 +4588,7 @@ public class SpPropsheetpageRequest internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I64).readNative(addr + 8L),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<SpDevinfoData>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 16L),
                     )
                 override fun writeNative(addr: Long, value: SpPropsheetpageRequest) {
@@ -4598,7 +4597,7 @@ public class SpPropsheetpageRequest internal constructor(
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I64).writeNative(addr + 8L, value.deviceInfoSet)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<SpDevinfoData>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 16L, value.deviceInfoData)
                 }
             }
@@ -4607,7 +4606,7 @@ public class SpPropsheetpageRequest internal constructor(
             cbSize: UInt = 0u,
             pageRequested: UInt = 0u,
             deviceInfoSet: Hdevinfo = 0L,
-            deviceInfoData: MutPtr<SpDevinfoData> = MutPtr(0L),
+            deviceInfoData: MutPtr = MutPtr(0L),
         ): SpPropsheetpageRequest =
             SpPropsheetpageRequest(
                 cbSize = cbSize,

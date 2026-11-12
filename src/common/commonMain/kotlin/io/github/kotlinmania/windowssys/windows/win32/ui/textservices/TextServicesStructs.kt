@@ -2,7 +2,6 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.ui.textservices
 
-import io.github.kotlinmania.rustlang.core.ffi.CVoid
 import io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
 import io.github.kotlinmania.rustlang.core.mem.TypeLayout
 import io.github.kotlinmania.rustlang.core.ptr.ConstPtr
@@ -33,11 +32,11 @@ public data class TfDisplayattribute(
 )
 
 public class TfHaltcond internal constructor(
-    pHaltRangeCtorArg: MutPtr<CVoid>,
+    pHaltRangeCtorArg: MutPtr,
     public var aHaltPos: TfAnchor,
     public var dwFlags: UInt,
 ) {
-    public var pHaltRange: MutPtr<CVoid> = pHaltRangeCtorArg
+    public var pHaltRange: MutPtr = pHaltRangeCtorArg
         internal set
 
     public constructor() : this(
@@ -46,13 +45,13 @@ public class TfHaltcond internal constructor(
         dwFlags = 0u,
     )
 
-    public operator fun component1(): MutPtr<CVoid> = this.pHaltRange
+    public operator fun component1(): MutPtr = this.pHaltRange
 
     public operator fun component2(): TfAnchor = this.aHaltPos
 
     public operator fun component3(): UInt = this.dwFlags
 
-    public fun copy(pHaltRange: MutPtr<CVoid> = this.pHaltRange, aHaltPos: TfAnchor = this.aHaltPos, dwFlags: UInt = this.dwFlags): TfHaltcond = TfHaltcond(pHaltRangeCtorArg = pHaltRange, aHaltPos = aHaltPos, dwFlags = dwFlags)
+    public fun copy(pHaltRange: MutPtr = this.pHaltRange, aHaltPos: TfAnchor = this.aHaltPos, dwFlags: UInt = this.dwFlags): TfHaltcond = TfHaltcond(pHaltRangeCtorArg = pHaltRange, aHaltPos = aHaltPos, dwFlags = dwFlags)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -79,7 +78,7 @@ public class TfHaltcond internal constructor(
                     TfHaltcond(
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<CVoid>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).readNative(addr + 8L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr + 12L),
@@ -87,7 +86,7 @@ public class TfHaltcond internal constructor(
                 override fun writeNative(addr: Long, value: TfHaltcond) {
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<CVoid>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr, value.pHaltRange)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I32).writeNative(addr + 8L, value.aHaltPos)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr + 12L, value.dwFlags)
@@ -95,7 +94,7 @@ public class TfHaltcond internal constructor(
             }
 
         public operator fun invoke(
-            pHaltRange: MutPtr<CVoid> = MutPtr(0L),
+            pHaltRange: MutPtr = MutPtr(0L),
             aHaltPos: TfAnchor = 0,
             dwFlags: UInt = 0u,
         ): TfHaltcond =
@@ -399,10 +398,10 @@ public data class TfPropertyval(
 )
 
 public class TfSelection internal constructor(
-    rangeCtorArg: MutPtr<CVoid>,
+    rangeCtorArg: MutPtr,
     public var style: TfSelectionstyle,
 ) {
-    public var range: MutPtr<CVoid> = rangeCtorArg
+    public var range: MutPtr = rangeCtorArg
         internal set
 
     public constructor() : this(
@@ -410,11 +409,11 @@ public class TfSelection internal constructor(
         style = TfSelectionstyle(),
     )
 
-    public operator fun component1(): MutPtr<CVoid> = this.range
+    public operator fun component1(): MutPtr = this.range
 
     public operator fun component2(): TfSelectionstyle = this.style
 
-    public fun copy(range: MutPtr<CVoid> = this.range, style: TfSelectionstyle = this.style): TfSelection = TfSelection(rangeCtorArg = range, style = style)
+    public fun copy(range: MutPtr = this.range, style: TfSelectionstyle = this.style): TfSelection = TfSelection(rangeCtorArg = range, style = style)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -439,21 +438,21 @@ public class TfSelection internal constructor(
                     TfSelection(
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<CVoid>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr),
                         (TfSelectionstyle.typeLayout()).readNative(addr + 8L),
                     )
                 override fun writeNative(addr: Long, value: TfSelection) {
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<CVoid>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr, value.range)
                     (TfSelectionstyle.typeLayout()).writeNative(addr + 8L, value.style)
                 }
             }
 
         public operator fun invoke(
-            range: MutPtr<CVoid> = MutPtr(0L),
+            range: MutPtr = MutPtr(0L),
             style: TfSelectionstyle = TfSelectionstyle(),
         ): TfSelection =
             TfSelection(
@@ -561,14 +560,14 @@ public data class TsSelectionAcp(
 }
 
 public class TsSelectionAnchor internal constructor(
-    paStartCtorArg: MutPtr<CVoid>,
-    paEndCtorArg: MutPtr<CVoid>,
+    paStartCtorArg: MutPtr,
+    paEndCtorArg: MutPtr,
     public var style: TsSelectionstyle,
 ) {
-    public var paStart: MutPtr<CVoid> = paStartCtorArg
+    public var paStart: MutPtr = paStartCtorArg
         internal set
 
-    public var paEnd: MutPtr<CVoid> = paEndCtorArg
+    public var paEnd: MutPtr = paEndCtorArg
         internal set
 
     public constructor() : this(
@@ -577,13 +576,13 @@ public class TsSelectionAnchor internal constructor(
         style = TsSelectionstyle(),
     )
 
-    public operator fun component1(): MutPtr<CVoid> = this.paStart
+    public operator fun component1(): MutPtr = this.paStart
 
-    public operator fun component2(): MutPtr<CVoid> = this.paEnd
+    public operator fun component2(): MutPtr = this.paEnd
 
     public operator fun component3(): TsSelectionstyle = this.style
 
-    public fun copy(paStart: MutPtr<CVoid> = this.paStart, paEnd: MutPtr<CVoid> = this.paEnd, style: TsSelectionstyle = this.style): TsSelectionAnchor = TsSelectionAnchor(paStartCtorArg = paStart, paEndCtorArg = paEnd, style = style)
+    public fun copy(paStart: MutPtr = this.paStart, paEnd: MutPtr = this.paEnd, style: TsSelectionstyle = this.style): TsSelectionAnchor = TsSelectionAnchor(paStartCtorArg = paStart, paEndCtorArg = paEnd, style = style)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -610,30 +609,30 @@ public class TsSelectionAnchor internal constructor(
                     TsSelectionAnchor(
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<CVoid>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<CVoid>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                         (TsSelectionstyle.typeLayout()).readNative(addr + 16L),
                     )
                 override fun writeNative(addr: Long, value: TsSelectionAnchor) {
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<CVoid>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr, value.paStart)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<CVoid>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.paEnd)
                     (TsSelectionstyle.typeLayout()).writeNative(addr + 16L, value.style)
                 }
             }
 
         public operator fun invoke(
-            paStart: MutPtr<CVoid> = MutPtr(0L),
-            paEnd: MutPtr<CVoid> = MutPtr(0L),
+            paStart: MutPtr = MutPtr(0L),
+            paEnd: MutPtr = MutPtr(0L),
             style: TsSelectionstyle = TsSelectionstyle(),
         ): TsSelectionAnchor =
             TsSelectionAnchor(

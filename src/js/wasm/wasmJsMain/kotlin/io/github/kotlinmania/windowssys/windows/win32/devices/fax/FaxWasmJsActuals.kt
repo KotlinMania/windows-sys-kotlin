@@ -2,7 +2,6 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.devices.fax
 
-import io.github.kotlinmania.rustlang.core.ffi.CVoid
 import io.github.kotlinmania.rustlang.core.ptr.ConstPtr
 import io.github.kotlinmania.rustlang.core.ptr.MutPtr
 import io.github.kotlinmania.windowssys.core.Bool
@@ -207,16 +206,16 @@ public actual fun faxAccessCheck(faxhandle: Handle, accessmask: UInt): Bool =
 public actual fun faxClose(faxhandle: Handle): Bool =
     if (windowsWin32DevicesFaxNapiAvailable) wasmWindowssysWindowsWin32DevicesFaxFaxClose(faxhandle.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun faxCompleteJobParamsA(jobparams: MutPtr<MutPtr<FaxJobParama>>, coverpageinfo: MutPtr<MutPtr<FaxCoverpageInfoa>>): Bool =
+public actual fun faxCompleteJobParamsA(jobparams: MutPtr, coverpageinfo: MutPtr): Bool =
     if (windowsWin32DevicesFaxNapiAvailable) wasmWindowssysWindowsWin32DevicesFaxFaxCompleteJobParamsA(jobparams.rawAddress.toString(), coverpageinfo.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun faxCompleteJobParamsW(jobparams: MutPtr<MutPtr<FaxJobParamw>>, coverpageinfo: MutPtr<MutPtr<FaxCoverpageInfow>>): Bool =
+public actual fun faxCompleteJobParamsW(jobparams: MutPtr, coverpageinfo: MutPtr): Bool =
     if (windowsWin32DevicesFaxNapiAvailable) wasmWindowssysWindowsWin32DevicesFaxFaxCompleteJobParamsW(jobparams.rawAddress.toString(), coverpageinfo.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun faxConnectFaxServerA(machinename: Pcstr, faxhandle: MutPtr<Handle>): Bool =
+public actual fun faxConnectFaxServerA(machinename: Pcstr, faxhandle: MutPtr): Bool =
     if (windowsWin32DevicesFaxNapiAvailable) wasmWindowssysWindowsWin32DevicesFaxFaxConnectFaxServerA(machinename.rawAddress.toString(), faxhandle.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun faxConnectFaxServerW(machinename: Pcwstr, faxhandle: MutPtr<Handle>): Bool =
+public actual fun faxConnectFaxServerW(machinename: Pcwstr, faxhandle: MutPtr): Bool =
     if (windowsWin32DevicesFaxNapiAvailable) wasmWindowssysWindowsWin32DevicesFaxFaxConnectFaxServerW(machinename.rawAddress.toString(), faxhandle.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun faxEnableRoutingMethodA(faxporthandle: Handle, routingguid: Pcstr, enabled: Bool): Bool =
@@ -225,31 +224,31 @@ public actual fun faxEnableRoutingMethodA(faxporthandle: Handle, routingguid: Pc
 public actual fun faxEnableRoutingMethodW(faxporthandle: Handle, routingguid: Pcwstr, enabled: Bool): Bool =
     if (windowsWin32DevicesFaxNapiAvailable) wasmWindowssysWindowsWin32DevicesFaxFaxEnableRoutingMethodW(faxporthandle.rawAddress.toString(), routingguid.rawAddress.toString(), enabled) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun faxEnumGlobalRoutingInfoA(faxhandle: Handle, routinginfo: MutPtr<MutPtr<FaxGlobalRoutingInfoa>>, methodsreturned: MutPtr<UInt>): Bool =
+public actual fun faxEnumGlobalRoutingInfoA(faxhandle: Handle, routinginfo: MutPtr, methodsreturned: MutPtr): Bool =
     if (windowsWin32DevicesFaxNapiAvailable) wasmWindowssysWindowsWin32DevicesFaxFaxEnumGlobalRoutingInfoA(faxhandle.rawAddress.toString(), routinginfo.rawAddress.toString(), methodsreturned.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun faxEnumGlobalRoutingInfoW(faxhandle: Handle, routinginfo: MutPtr<MutPtr<FaxGlobalRoutingInfow>>, methodsreturned: MutPtr<UInt>): Bool =
+public actual fun faxEnumGlobalRoutingInfoW(faxhandle: Handle, routinginfo: MutPtr, methodsreturned: MutPtr): Bool =
     if (windowsWin32DevicesFaxNapiAvailable) wasmWindowssysWindowsWin32DevicesFaxFaxEnumGlobalRoutingInfoW(faxhandle.rawAddress.toString(), routinginfo.rawAddress.toString(), methodsreturned.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun faxEnumJobsA(faxhandle: Handle, jobentry: MutPtr<MutPtr<FaxJobEntrya>>, jobsreturned: MutPtr<UInt>): Bool =
+public actual fun faxEnumJobsA(faxhandle: Handle, jobentry: MutPtr, jobsreturned: MutPtr): Bool =
     if (windowsWin32DevicesFaxNapiAvailable) wasmWindowssysWindowsWin32DevicesFaxFaxEnumJobsA(faxhandle.rawAddress.toString(), jobentry.rawAddress.toString(), jobsreturned.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun faxEnumJobsW(faxhandle: Handle, jobentry: MutPtr<MutPtr<FaxJobEntryw>>, jobsreturned: MutPtr<UInt>): Bool =
+public actual fun faxEnumJobsW(faxhandle: Handle, jobentry: MutPtr, jobsreturned: MutPtr): Bool =
     if (windowsWin32DevicesFaxNapiAvailable) wasmWindowssysWindowsWin32DevicesFaxFaxEnumJobsW(faxhandle.rawAddress.toString(), jobentry.rawAddress.toString(), jobsreturned.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun faxEnumPortsA(faxhandle: Handle, portinfo: MutPtr<MutPtr<FaxPortInfoa>>, portsreturned: MutPtr<UInt>): Bool =
+public actual fun faxEnumPortsA(faxhandle: Handle, portinfo: MutPtr, portsreturned: MutPtr): Bool =
     if (windowsWin32DevicesFaxNapiAvailable) wasmWindowssysWindowsWin32DevicesFaxFaxEnumPortsA(faxhandle.rawAddress.toString(), portinfo.rawAddress.toString(), portsreturned.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun faxEnumPortsW(faxhandle: Handle, portinfo: MutPtr<MutPtr<FaxPortInfow>>, portsreturned: MutPtr<UInt>): Bool =
+public actual fun faxEnumPortsW(faxhandle: Handle, portinfo: MutPtr, portsreturned: MutPtr): Bool =
     if (windowsWin32DevicesFaxNapiAvailable) wasmWindowssysWindowsWin32DevicesFaxFaxEnumPortsW(faxhandle.rawAddress.toString(), portinfo.rawAddress.toString(), portsreturned.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun faxEnumRoutingMethodsA(faxporthandle: Handle, routingmethod: MutPtr<MutPtr<FaxRoutingMethoda>>, methodsreturned: MutPtr<UInt>): Bool =
+public actual fun faxEnumRoutingMethodsA(faxporthandle: Handle, routingmethod: MutPtr, methodsreturned: MutPtr): Bool =
     if (windowsWin32DevicesFaxNapiAvailable) wasmWindowssysWindowsWin32DevicesFaxFaxEnumRoutingMethodsA(faxporthandle.rawAddress.toString(), routingmethod.rawAddress.toString(), methodsreturned.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun faxEnumRoutingMethodsW(faxporthandle: Handle, routingmethod: MutPtr<MutPtr<FaxRoutingMethodw>>, methodsreturned: MutPtr<UInt>): Bool =
+public actual fun faxEnumRoutingMethodsW(faxporthandle: Handle, routingmethod: MutPtr, methodsreturned: MutPtr): Bool =
     if (windowsWin32DevicesFaxNapiAvailable) wasmWindowssysWindowsWin32DevicesFaxFaxEnumRoutingMethodsW(faxporthandle.rawAddress.toString(), routingmethod.rawAddress.toString(), methodsreturned.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun faxFreeBuffer(buffer: MutPtr<CVoid>) {
+public actual fun faxFreeBuffer(buffer: MutPtr) {
     if (windowsWin32DevicesFaxNapiAvailable) {
         wasmWindowssysWindowsWin32DevicesFaxFaxFreeBuffer(buffer.rawAddress.toString())
     } else {
@@ -257,115 +256,115 @@ public actual fun faxFreeBuffer(buffer: MutPtr<CVoid>) {
     }
 }
 
-public actual fun faxGetConfigurationA(faxhandle: Handle, faxconfig: MutPtr<MutPtr<FaxConfigurationa>>): Bool =
+public actual fun faxGetConfigurationA(faxhandle: Handle, faxconfig: MutPtr): Bool =
     if (windowsWin32DevicesFaxNapiAvailable) wasmWindowssysWindowsWin32DevicesFaxFaxGetConfigurationA(faxhandle.rawAddress.toString(), faxconfig.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun faxGetConfigurationW(faxhandle: Handle, faxconfig: MutPtr<MutPtr<FaxConfigurationw>>): Bool =
+public actual fun faxGetConfigurationW(faxhandle: Handle, faxconfig: MutPtr): Bool =
     if (windowsWin32DevicesFaxNapiAvailable) wasmWindowssysWindowsWin32DevicesFaxFaxGetConfigurationW(faxhandle.rawAddress.toString(), faxconfig.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun faxGetDeviceStatusA(faxporthandle: Handle, devicestatus: MutPtr<MutPtr<FaxDeviceStatusa>>): Bool =
+public actual fun faxGetDeviceStatusA(faxporthandle: Handle, devicestatus: MutPtr): Bool =
     if (windowsWin32DevicesFaxNapiAvailable) wasmWindowssysWindowsWin32DevicesFaxFaxGetDeviceStatusA(faxporthandle.rawAddress.toString(), devicestatus.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun faxGetDeviceStatusW(faxporthandle: Handle, devicestatus: MutPtr<MutPtr<FaxDeviceStatusw>>): Bool =
+public actual fun faxGetDeviceStatusW(faxporthandle: Handle, devicestatus: MutPtr): Bool =
     if (windowsWin32DevicesFaxNapiAvailable) wasmWindowssysWindowsWin32DevicesFaxFaxGetDeviceStatusW(faxporthandle.rawAddress.toString(), devicestatus.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun faxGetJobA(faxhandle: Handle, jobid: UInt, jobentry: MutPtr<MutPtr<FaxJobEntrya>>): Bool =
+public actual fun faxGetJobA(faxhandle: Handle, jobid: UInt, jobentry: MutPtr): Bool =
     if (windowsWin32DevicesFaxNapiAvailable) wasmWindowssysWindowsWin32DevicesFaxFaxGetJobA(faxhandle.rawAddress.toString(), jobid.toInt(), jobentry.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun faxGetJobW(faxhandle: Handle, jobid: UInt, jobentry: MutPtr<MutPtr<FaxJobEntryw>>): Bool =
+public actual fun faxGetJobW(faxhandle: Handle, jobid: UInt, jobentry: MutPtr): Bool =
     if (windowsWin32DevicesFaxNapiAvailable) wasmWindowssysWindowsWin32DevicesFaxFaxGetJobW(faxhandle.rawAddress.toString(), jobid.toInt(), jobentry.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun faxGetLoggingCategoriesA(faxhandle: Handle, categories: MutPtr<MutPtr<FaxLogCategorya>>, numbercategories: MutPtr<UInt>): Bool =
+public actual fun faxGetLoggingCategoriesA(faxhandle: Handle, categories: MutPtr, numbercategories: MutPtr): Bool =
     if (windowsWin32DevicesFaxNapiAvailable) wasmWindowssysWindowsWin32DevicesFaxFaxGetLoggingCategoriesA(faxhandle.rawAddress.toString(), categories.rawAddress.toString(), numbercategories.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun faxGetLoggingCategoriesW(faxhandle: Handle, categories: MutPtr<MutPtr<FaxLogCategoryw>>, numbercategories: MutPtr<UInt>): Bool =
+public actual fun faxGetLoggingCategoriesW(faxhandle: Handle, categories: MutPtr, numbercategories: MutPtr): Bool =
     if (windowsWin32DevicesFaxNapiAvailable) wasmWindowssysWindowsWin32DevicesFaxFaxGetLoggingCategoriesW(faxhandle.rawAddress.toString(), categories.rawAddress.toString(), numbercategories.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun faxGetPageData(faxhandle: Handle, jobid: UInt, buffer: MutPtr<MutPtr<UByte>>, buffersize: MutPtr<UInt>, imagewidth: MutPtr<UInt>, imageheight: MutPtr<UInt>): Bool =
+public actual fun faxGetPageData(faxhandle: Handle, jobid: UInt, buffer: MutPtr, buffersize: MutPtr, imagewidth: MutPtr, imageheight: MutPtr): Bool =
     if (windowsWin32DevicesFaxNapiAvailable) wasmWindowssysWindowsWin32DevicesFaxFaxGetPageData(faxhandle.rawAddress.toString(), jobid.toInt(), buffer.rawAddress.toString(), buffersize.rawAddress.toString(), imagewidth.rawAddress.toString(), imageheight.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun faxGetPortA(faxporthandle: Handle, portinfo: MutPtr<MutPtr<FaxPortInfoa>>): Bool =
+public actual fun faxGetPortA(faxporthandle: Handle, portinfo: MutPtr): Bool =
     if (windowsWin32DevicesFaxNapiAvailable) wasmWindowssysWindowsWin32DevicesFaxFaxGetPortA(faxporthandle.rawAddress.toString(), portinfo.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun faxGetPortW(faxporthandle: Handle, portinfo: MutPtr<MutPtr<FaxPortInfow>>): Bool =
+public actual fun faxGetPortW(faxporthandle: Handle, portinfo: MutPtr): Bool =
     if (windowsWin32DevicesFaxNapiAvailable) wasmWindowssysWindowsWin32DevicesFaxFaxGetPortW(faxporthandle.rawAddress.toString(), portinfo.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun faxGetRoutingInfoA(faxporthandle: Handle, routingguid: Pcstr, routinginfobuffer: MutPtr<MutPtr<UByte>>, routinginfobuffersize: MutPtr<UInt>): Bool =
+public actual fun faxGetRoutingInfoA(faxporthandle: Handle, routingguid: Pcstr, routinginfobuffer: MutPtr, routinginfobuffersize: MutPtr): Bool =
     if (windowsWin32DevicesFaxNapiAvailable) wasmWindowssysWindowsWin32DevicesFaxFaxGetRoutingInfoA(faxporthandle.rawAddress.toString(), routingguid.rawAddress.toString(), routinginfobuffer.rawAddress.toString(), routinginfobuffersize.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun faxGetRoutingInfoW(faxporthandle: Handle, routingguid: Pcwstr, routinginfobuffer: MutPtr<MutPtr<UByte>>, routinginfobuffersize: MutPtr<UInt>): Bool =
+public actual fun faxGetRoutingInfoW(faxporthandle: Handle, routingguid: Pcwstr, routinginfobuffer: MutPtr, routinginfobuffersize: MutPtr): Bool =
     if (windowsWin32DevicesFaxNapiAvailable) wasmWindowssysWindowsWin32DevicesFaxFaxGetRoutingInfoW(faxporthandle.rawAddress.toString(), routingguid.rawAddress.toString(), routinginfobuffer.rawAddress.toString(), routinginfobuffersize.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun faxInitializeEventQueue(faxhandle: Handle, completionport: Handle, completionkey: ULong, hwnd: Hwnd, messagestart: UInt): Bool =
     if (windowsWin32DevicesFaxNapiAvailable) wasmWindowssysWindowsWin32DevicesFaxFaxInitializeEventQueue(faxhandle.rawAddress.toString(), completionport.rawAddress.toString(), completionkey.toString(), hwnd.rawAddress.toString(), messagestart.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun faxOpenPort(faxhandle: Handle, deviceid: UInt, flags: UInt, faxporthandle: MutPtr<Handle>): Bool =
+public actual fun faxOpenPort(faxhandle: Handle, deviceid: UInt, flags: UInt, faxporthandle: MutPtr): Bool =
     if (windowsWin32DevicesFaxNapiAvailable) wasmWindowssysWindowsWin32DevicesFaxFaxOpenPort(faxhandle.rawAddress.toString(), deviceid.toInt(), flags.toInt(), faxporthandle.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun faxPrintCoverPageA(faxcontextinfo: ConstPtr<FaxContextInfoa>, coverpageinfo: ConstPtr<FaxCoverpageInfoa>): Bool =
+public actual fun faxPrintCoverPageA(faxcontextinfo: ConstPtr, coverpageinfo: ConstPtr): Bool =
     if (windowsWin32DevicesFaxNapiAvailable) wasmWindowssysWindowsWin32DevicesFaxFaxPrintCoverPageA(faxcontextinfo.rawAddress.toString(), coverpageinfo.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun faxPrintCoverPageW(faxcontextinfo: ConstPtr<FaxContextInfow>, coverpageinfo: ConstPtr<FaxCoverpageInfow>): Bool =
+public actual fun faxPrintCoverPageW(faxcontextinfo: ConstPtr, coverpageinfo: ConstPtr): Bool =
     if (windowsWin32DevicesFaxNapiAvailable) wasmWindowssysWindowsWin32DevicesFaxFaxPrintCoverPageW(faxcontextinfo.rawAddress.toString(), coverpageinfo.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun faxRegisterRoutingExtensionW(faxhandle: Handle, extensionname: Pcwstr, friendlyname: Pcwstr, imagename: Pcwstr, callback: PfaxRoutingInstallationCallbackw, context: ConstPtr<CVoid>): Bool =
+public actual fun faxRegisterRoutingExtensionW(faxhandle: Handle, extensionname: Pcwstr, friendlyname: Pcwstr, imagename: Pcwstr, callback: PfaxRoutingInstallationCallbackw, context: ConstPtr): Bool =
     if (windowsWin32DevicesFaxNapiAvailable) wasmWindowssysWindowsWin32DevicesFaxFaxRegisterRoutingExtensionW(faxhandle.rawAddress.toString(), extensionname.rawAddress.toString(), friendlyname.rawAddress.toString(), imagename.rawAddress.toString(), 0L.toString(), context.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun faxRegisterServiceProviderW(deviceprovider: Pcwstr, friendlyname: Pcwstr, imagename: Pcwstr, tspname: Pcwstr): Bool =
     if (windowsWin32DevicesFaxNapiAvailable) wasmWindowssysWindowsWin32DevicesFaxFaxRegisterServiceProviderW(deviceprovider.rawAddress.toString(), friendlyname.rawAddress.toString(), imagename.rawAddress.toString(), tspname.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun faxSendDocumentA(faxhandle: Handle, filename: Pcstr, jobparams: ConstPtr<FaxJobParama>, coverpageinfo: ConstPtr<FaxCoverpageInfoa>, faxjobid: MutPtr<UInt>): Bool =
+public actual fun faxSendDocumentA(faxhandle: Handle, filename: Pcstr, jobparams: ConstPtr, coverpageinfo: ConstPtr, faxjobid: MutPtr): Bool =
     if (windowsWin32DevicesFaxNapiAvailable) wasmWindowssysWindowsWin32DevicesFaxFaxSendDocumentA(faxhandle.rawAddress.toString(), filename.rawAddress.toString(), jobparams.rawAddress.toString(), coverpageinfo.rawAddress.toString(), faxjobid.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun faxSendDocumentForBroadcastA(faxhandle: Handle, filename: Pcstr, faxjobid: MutPtr<UInt>, faxrecipientcallback: PfaxRecipientCallbacka, context: ConstPtr<CVoid>): Bool =
+public actual fun faxSendDocumentForBroadcastA(faxhandle: Handle, filename: Pcstr, faxjobid: MutPtr, faxrecipientcallback: PfaxRecipientCallbacka, context: ConstPtr): Bool =
     if (windowsWin32DevicesFaxNapiAvailable) wasmWindowssysWindowsWin32DevicesFaxFaxSendDocumentForBroadcastA(faxhandle.rawAddress.toString(), filename.rawAddress.toString(), faxjobid.rawAddress.toString(), 0L.toString(), context.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun faxSendDocumentForBroadcastW(faxhandle: Handle, filename: Pcwstr, faxjobid: MutPtr<UInt>, faxrecipientcallback: PfaxRecipientCallbackw, context: ConstPtr<CVoid>): Bool =
+public actual fun faxSendDocumentForBroadcastW(faxhandle: Handle, filename: Pcwstr, faxjobid: MutPtr, faxrecipientcallback: PfaxRecipientCallbackw, context: ConstPtr): Bool =
     if (windowsWin32DevicesFaxNapiAvailable) wasmWindowssysWindowsWin32DevicesFaxFaxSendDocumentForBroadcastW(faxhandle.rawAddress.toString(), filename.rawAddress.toString(), faxjobid.rawAddress.toString(), 0L.toString(), context.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun faxSendDocumentW(faxhandle: Handle, filename: Pcwstr, jobparams: ConstPtr<FaxJobParamw>, coverpageinfo: ConstPtr<FaxCoverpageInfow>, faxjobid: MutPtr<UInt>): Bool =
+public actual fun faxSendDocumentW(faxhandle: Handle, filename: Pcwstr, jobparams: ConstPtr, coverpageinfo: ConstPtr, faxjobid: MutPtr): Bool =
     if (windowsWin32DevicesFaxNapiAvailable) wasmWindowssysWindowsWin32DevicesFaxFaxSendDocumentW(faxhandle.rawAddress.toString(), filename.rawAddress.toString(), jobparams.rawAddress.toString(), coverpageinfo.rawAddress.toString(), faxjobid.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun faxSetConfigurationA(faxhandle: Handle, faxconfig: ConstPtr<FaxConfigurationa>): Bool =
+public actual fun faxSetConfigurationA(faxhandle: Handle, faxconfig: ConstPtr): Bool =
     if (windowsWin32DevicesFaxNapiAvailable) wasmWindowssysWindowsWin32DevicesFaxFaxSetConfigurationA(faxhandle.rawAddress.toString(), faxconfig.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun faxSetConfigurationW(faxhandle: Handle, faxconfig: ConstPtr<FaxConfigurationw>): Bool =
+public actual fun faxSetConfigurationW(faxhandle: Handle, faxconfig: ConstPtr): Bool =
     if (windowsWin32DevicesFaxNapiAvailable) wasmWindowssysWindowsWin32DevicesFaxFaxSetConfigurationW(faxhandle.rawAddress.toString(), faxconfig.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun faxSetGlobalRoutingInfoA(faxhandle: Handle, routinginfo: ConstPtr<FaxGlobalRoutingInfoa>): Bool =
+public actual fun faxSetGlobalRoutingInfoA(faxhandle: Handle, routinginfo: ConstPtr): Bool =
     if (windowsWin32DevicesFaxNapiAvailable) wasmWindowssysWindowsWin32DevicesFaxFaxSetGlobalRoutingInfoA(faxhandle.rawAddress.toString(), routinginfo.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun faxSetGlobalRoutingInfoW(faxhandle: Handle, routinginfo: ConstPtr<FaxGlobalRoutingInfow>): Bool =
+public actual fun faxSetGlobalRoutingInfoW(faxhandle: Handle, routinginfo: ConstPtr): Bool =
     if (windowsWin32DevicesFaxNapiAvailable) wasmWindowssysWindowsWin32DevicesFaxFaxSetGlobalRoutingInfoW(faxhandle.rawAddress.toString(), routinginfo.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun faxSetJobA(faxhandle: Handle, jobid: UInt, command: UInt, jobentry: ConstPtr<FaxJobEntrya>): Bool =
+public actual fun faxSetJobA(faxhandle: Handle, jobid: UInt, command: UInt, jobentry: ConstPtr): Bool =
     if (windowsWin32DevicesFaxNapiAvailable) wasmWindowssysWindowsWin32DevicesFaxFaxSetJobA(faxhandle.rawAddress.toString(), jobid.toInt(), command.toInt(), jobentry.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun faxSetJobW(faxhandle: Handle, jobid: UInt, command: UInt, jobentry: ConstPtr<FaxJobEntryw>): Bool =
+public actual fun faxSetJobW(faxhandle: Handle, jobid: UInt, command: UInt, jobentry: ConstPtr): Bool =
     if (windowsWin32DevicesFaxNapiAvailable) wasmWindowssysWindowsWin32DevicesFaxFaxSetJobW(faxhandle.rawAddress.toString(), jobid.toInt(), command.toInt(), jobentry.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun faxSetLoggingCategoriesA(faxhandle: Handle, categories: ConstPtr<FaxLogCategorya>, numbercategories: UInt): Bool =
+public actual fun faxSetLoggingCategoriesA(faxhandle: Handle, categories: ConstPtr, numbercategories: UInt): Bool =
     if (windowsWin32DevicesFaxNapiAvailable) wasmWindowssysWindowsWin32DevicesFaxFaxSetLoggingCategoriesA(faxhandle.rawAddress.toString(), categories.rawAddress.toString(), numbercategories.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun faxSetLoggingCategoriesW(faxhandle: Handle, categories: ConstPtr<FaxLogCategoryw>, numbercategories: UInt): Bool =
+public actual fun faxSetLoggingCategoriesW(faxhandle: Handle, categories: ConstPtr, numbercategories: UInt): Bool =
     if (windowsWin32DevicesFaxNapiAvailable) wasmWindowssysWindowsWin32DevicesFaxFaxSetLoggingCategoriesW(faxhandle.rawAddress.toString(), categories.rawAddress.toString(), numbercategories.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun faxSetPortA(faxporthandle: Handle, portinfo: ConstPtr<FaxPortInfoa>): Bool =
+public actual fun faxSetPortA(faxporthandle: Handle, portinfo: ConstPtr): Bool =
     if (windowsWin32DevicesFaxNapiAvailable) wasmWindowssysWindowsWin32DevicesFaxFaxSetPortA(faxporthandle.rawAddress.toString(), portinfo.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun faxSetPortW(faxporthandle: Handle, portinfo: ConstPtr<FaxPortInfow>): Bool =
+public actual fun faxSetPortW(faxporthandle: Handle, portinfo: ConstPtr): Bool =
     if (windowsWin32DevicesFaxNapiAvailable) wasmWindowssysWindowsWin32DevicesFaxFaxSetPortW(faxporthandle.rawAddress.toString(), portinfo.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun faxSetRoutingInfoA(faxporthandle: Handle, routingguid: Pcstr, routinginfobuffer: ConstPtr<UByte>, routinginfobuffersize: UInt): Bool =
+public actual fun faxSetRoutingInfoA(faxporthandle: Handle, routingguid: Pcstr, routinginfobuffer: ConstPtr, routinginfobuffersize: UInt): Bool =
     if (windowsWin32DevicesFaxNapiAvailable) wasmWindowssysWindowsWin32DevicesFaxFaxSetRoutingInfoA(faxporthandle.rawAddress.toString(), routingguid.rawAddress.toString(), routinginfobuffer.rawAddress.toString(), routinginfobuffersize.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun faxSetRoutingInfoW(faxporthandle: Handle, routingguid: Pcwstr, routinginfobuffer: ConstPtr<UByte>, routinginfobuffersize: UInt): Bool =
+public actual fun faxSetRoutingInfoW(faxporthandle: Handle, routingguid: Pcwstr, routinginfobuffer: ConstPtr, routinginfobuffersize: UInt): Bool =
     if (windowsWin32DevicesFaxNapiAvailable) wasmWindowssysWindowsWin32DevicesFaxFaxSetRoutingInfoW(faxporthandle.rawAddress.toString(), routingguid.rawAddress.toString(), routinginfobuffer.rawAddress.toString(), routinginfobuffersize.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun faxStartPrintJobA(printername: Pcstr, printinfo: ConstPtr<FaxPrintInfoa>, faxjobid: MutPtr<UInt>, faxcontextinfo: MutPtr<FaxContextInfoa>): Bool =
+public actual fun faxStartPrintJobA(printername: Pcstr, printinfo: ConstPtr, faxjobid: MutPtr, faxcontextinfo: MutPtr): Bool =
     if (windowsWin32DevicesFaxNapiAvailable) wasmWindowssysWindowsWin32DevicesFaxFaxStartPrintJobA(printername.rawAddress.toString(), printinfo.rawAddress.toString(), faxjobid.rawAddress.toString(), faxcontextinfo.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun faxStartPrintJobW(printername: Pcwstr, printinfo: ConstPtr<FaxPrintInfow>, faxjobid: MutPtr<UInt>, faxcontextinfo: MutPtr<FaxContextInfow>): Bool =
+public actual fun faxStartPrintJobW(printername: Pcwstr, printinfo: ConstPtr, faxjobid: MutPtr, faxcontextinfo: MutPtr): Bool =
     if (windowsWin32DevicesFaxNapiAvailable) wasmWindowssysWindowsWin32DevicesFaxFaxStartPrintJobW(printername.rawAddress.toString(), printinfo.rawAddress.toString(), faxjobid.rawAddress.toString(), faxcontextinfo.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun faxUnregisterServiceProviderW(deviceprovider: Pcwstr): Bool =
@@ -374,5 +373,5 @@ public actual fun faxUnregisterServiceProviderW(deviceprovider: Pcwstr): Bool =
 public actual fun sendToFaxRecipient(sndmode: SendToMode, lpfilename: Pcwstr): UInt =
     if (windowsWin32DevicesFaxNapiAvailable) wasmWindowssysWindowsWin32DevicesFaxSendToFaxRecipient(sndmode, lpfilename.rawAddress.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun stiCreateInstanceW(hinst: Hinstance, dwver: UInt, ppsti: MutPtr<MutPtr<CVoid>>, punkouter: MutPtr<CVoid>): Hresult =
+public actual fun stiCreateInstanceW(hinst: Hinstance, dwver: UInt, ppsti: MutPtr, punkouter: MutPtr): Hresult =
     if (windowsWin32DevicesFaxNapiAvailable) wasmWindowssysWindowsWin32DevicesFaxStiCreateInstanceW(hinst.rawAddress.toString(), dwver.toInt(), ppsti.rawAddress.toString(), punkouter.rawAddress.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")

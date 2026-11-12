@@ -2,18 +2,17 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.devices.serialcommunication
 
-import io.github.kotlinmania.rustlang.core.ffi.CVoid
 import io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
 import io.github.kotlinmania.rustlang.core.mem.TypeLayout
 import io.github.kotlinmania.rustlang.core.ptr.MutPtr
 
 public class SerenumPortDesc internal constructor(
     public var size: UInt,
-    portHandleCtorArg: MutPtr<CVoid>,
+    portHandleCtorArg: MutPtr,
     public var portAddress: Long,
     public var reserved: UShortArray,
 ) {
-    public var portHandle: MutPtr<CVoid> = portHandleCtorArg
+    public var portHandle: MutPtr = portHandleCtorArg
         internal set
 
     public constructor() : this(
@@ -25,13 +24,13 @@ public class SerenumPortDesc internal constructor(
 
     public operator fun component1(): UInt = this.size
 
-    public operator fun component2(): MutPtr<CVoid> = this.portHandle
+    public operator fun component2(): MutPtr = this.portHandle
 
     public operator fun component3(): Long = this.portAddress
 
     public operator fun component4(): UShortArray = this.reserved
 
-    public fun copy(size: UInt = this.size, portHandle: MutPtr<CVoid> = this.portHandle, portAddress: Long = this.portAddress, reserved: UShortArray = this.reserved): SerenumPortDesc = SerenumPortDesc(size = size, portHandleCtorArg = portHandle, portAddress = portAddress, reserved = reserved)
+    public fun copy(size: UInt = this.size, portHandle: MutPtr = this.portHandle, portAddress: Long = this.portAddress, reserved: UShortArray = this.reserved): SerenumPortDesc = SerenumPortDesc(size = size, portHandleCtorArg = portHandle, portAddress = portAddress, reserved = reserved)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -61,7 +60,7 @@ public class SerenumPortDesc internal constructor(
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).readNative(addr),
                         (
                             io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                                .mutPtrLayout<CVoid>(64)
+                                .mutPtrLayout(64)
                         ).readNative(addr + 8L),
                         (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I64).readNative(addr + 16L),
                         (
@@ -73,7 +72,7 @@ public class SerenumPortDesc internal constructor(
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.U32).writeNative(addr, value.size)
                     (
                         io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts
-                            .mutPtrLayout<CVoid>(64)
+                            .mutPtrLayout(64)
                     ).writeNative(addr + 8L, value.portHandle)
                     (io.github.kotlinmania.rustlang.core.mem.PrimitiveLayouts.I64).writeNative(addr + 16L, value.portAddress)
                     (
@@ -85,7 +84,7 @@ public class SerenumPortDesc internal constructor(
 
         public operator fun invoke(
             size: UInt = 0u,
-            portHandle: MutPtr<CVoid> = MutPtr(0L),
+            portHandle: MutPtr = MutPtr(0L),
             portAddress: Long = 0L,
             reserved: UShortArray = UShortArray(1),
         ): SerenumPortDesc =
@@ -102,16 +101,16 @@ public class SerenumPortParameters internal constructor(
     public var size: UInt,
     public var readAccessor: PserenumReadport,
     public var writeAccessor: PserenumWriteport,
-    serPortAddressCtorArg: MutPtr<CVoid>,
-    hardwareHandleCtorArg: MutPtr<CVoid>,
+    serPortAddressCtorArg: MutPtr,
+    hardwareHandleCtorArg: MutPtr,
     public var portion: SerenumPortion,
     public var numberAxis: UShort,
     public var reserved: UShortArray,
 ) {
-    public var serPortAddress: MutPtr<CVoid> = serPortAddressCtorArg
+    public var serPortAddress: MutPtr = serPortAddressCtorArg
         internal set
 
-    public var hardwareHandle: MutPtr<CVoid> = hardwareHandleCtorArg
+    public var hardwareHandle: MutPtr = hardwareHandleCtorArg
         internal set
 
     public constructor() : this(
@@ -131,9 +130,9 @@ public class SerenumPortParameters internal constructor(
 
     public operator fun component3(): PserenumWriteport = this.writeAccessor
 
-    public operator fun component4(): MutPtr<CVoid> = this.serPortAddress
+    public operator fun component4(): MutPtr = this.serPortAddress
 
-    public operator fun component5(): MutPtr<CVoid> = this.hardwareHandle
+    public operator fun component5(): MutPtr = this.hardwareHandle
 
     public operator fun component6(): SerenumPortion = this.portion
 
@@ -141,7 +140,7 @@ public class SerenumPortParameters internal constructor(
 
     public operator fun component8(): UShortArray = this.reserved
 
-    public fun copy(size: UInt = this.size, readAccessor: PserenumReadport = this.readAccessor, writeAccessor: PserenumWriteport = this.writeAccessor, serPortAddress: MutPtr<CVoid> = this.serPortAddress, hardwareHandle: MutPtr<CVoid> = this.hardwareHandle, portion: SerenumPortion = this.portion, numberAxis: UShort = this.numberAxis, reserved: UShortArray = this.reserved): SerenumPortParameters = SerenumPortParameters(size = size, readAccessor = readAccessor, writeAccessor = writeAccessor, serPortAddressCtorArg = serPortAddress, hardwareHandleCtorArg = hardwareHandle, portion = portion, numberAxis = numberAxis, reserved = reserved)
+    public fun copy(size: UInt = this.size, readAccessor: PserenumReadport = this.readAccessor, writeAccessor: PserenumWriteport = this.writeAccessor, serPortAddress: MutPtr = this.serPortAddress, hardwareHandle: MutPtr = this.hardwareHandle, portion: SerenumPortion = this.portion, numberAxis: UShort = this.numberAxis, reserved: UShortArray = this.reserved): SerenumPortParameters = SerenumPortParameters(size = size, readAccessor = readAccessor, writeAccessor = writeAccessor, serPortAddressCtorArg = serPortAddress, hardwareHandleCtorArg = hardwareHandle, portion = portion, numberAxis = numberAxis, reserved = reserved)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -174,8 +173,8 @@ public class SerenumPortParameters internal constructor(
             size: UInt = 0u,
             readAccessor: PserenumReadport = null,
             writeAccessor: PserenumWriteport = null,
-            serPortAddress: MutPtr<CVoid> = MutPtr(0L),
-            hardwareHandle: MutPtr<CVoid> = MutPtr(0L),
+            serPortAddress: MutPtr = MutPtr(0L),
+            hardwareHandle: MutPtr = MutPtr(0L),
             portion: SerenumPortion = 0,
             numberAxis: UShort = 0u,
             reserved: UShortArray = UShortArray(3),

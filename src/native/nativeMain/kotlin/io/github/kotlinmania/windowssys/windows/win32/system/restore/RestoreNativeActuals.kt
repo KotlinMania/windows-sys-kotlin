@@ -14,8 +14,8 @@ import kotlinx.cinterop.toCPointer
 public actual fun sRRemoveRestorePoint(dwrpnum: UInt): UInt =
     windowssysWindowsWin32SystemRestoreSRRemoveRestorePoint(dwrpnum)
 
-public actual fun sRSetRestorePointA(prestoreptspec: ConstPtr<Restorepointinfoa>, psmgrstatus: MutPtr<Statemgrstatus>): Bool =
+public actual fun sRSetRestorePointA(prestoreptspec: ConstPtr, psmgrstatus: MutPtr): Bool =
     windowssysWindowsWin32SystemRestoreSRSetRestorePointA(prestoreptspec.rawAddress.toCPointer<ByteVar>(), psmgrstatus.rawAddress.toCPointer<ByteVar>())
 
-public actual fun sRSetRestorePointW(prestoreptspec: ConstPtr<Restorepointinfow>, psmgrstatus: MutPtr<Statemgrstatus>): Bool =
+public actual fun sRSetRestorePointW(prestoreptspec: ConstPtr, psmgrstatus: MutPtr): Bool =
     windowssysWindowsWin32SystemRestoreSRSetRestorePointW(prestoreptspec.rawAddress.toCPointer<ByteVar>(), psmgrstatus.rawAddress.toCPointer<ByteVar>())
